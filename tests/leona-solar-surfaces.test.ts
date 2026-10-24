@@ -28,10 +28,11 @@ function fixture(team: 'blue' | 'red' = 'blue') {
   w.learnSpell('r', u.id);
   const scene = new THREE.Scene(),
     distortion = new THREE.Scene(),
+    early = new THREE.Scene(),
     texture = new THREE.Texture(),
     geometry = new THREE.BoxGeometry(1, 1, 1),
     assets = { texture: () => texture, mesh: () => geometry },
-    view = new LeonaSolarSurfaces(scene, distortion, () => 2, assets),
+    view = new LeonaSolarSurfaces(scene, distortion, () => 2, assets, early),
     camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
   camera.position.set(0, 10, 10);
   camera.lookAt(0, 0, 0);
@@ -45,6 +46,7 @@ function fixture(team: 'blue' | 'red' = 'blue') {
     view,
     scene,
     distortion,
+    early,
     geometry,
     texture,
     assets,
@@ -79,11 +81,11 @@ function frame(view: LeonaSolarSurfaces) {
   }));
 }
 
-test('all35 supported R families draw across both area alternatives with finite inputs and no saved mutation', () => {
+test('all38 supported R families draw across both area alternatives with finite inputs and no saved mutation', () => {
   const seen = new Set<number>();
-  expect(SOLAR_PROFILES.map((_p, i) => i).filter(solarSurfaceAccepted)).toHaveLength(35);
+  expect(SOLAR_PROFILES.map((_p, i) => i).filter(solarSurfaceAccepted)).toHaveLength(38);
   expect(SOLAR_PROFILES.map((_p, i) => i).filter((i) => !solarSurfaceAccepted(i))).toEqual([
-    0, 1, 2, 3, 12, 18, 27, 30, 33,
+    0, 1, 2, 3, 12, 18,
   ]);
   for (const team of ['blue', 'red'] as const) {
     const f = fixture(team);
@@ -117,7 +119,13 @@ test('saved moving caster and target restore exact root, fixed-area, contact and
   const saved = f.w.snapshot(),
     before = f.capture(),
     copy = World.fromSnapshot(saved, f.w.battlefield),
-    other = new LeonaSolarSurfaces(new THREE.Scene(), new THREE.Scene(), () => 2, f.assets);
+    other = new LeonaSolarSurfaces(
+      new THREE.Scene(),
+      new THREE.Scene(),
+      () => 2,
+      f.assets,
+      new THREE.Scene()
+    );
   other.update(copy, 1, f.camera);
   expect(frame(other)).toEqual(before);
   for (const steps of [3, 8, 19, 60]) {
@@ -199,7 +207,7 @@ test('cancelled windup has no impact/contact and posthumous release keeps the ac
   }
 });
 
-test('owned ray/ground geometry and materials retire while borrowed resources survive; mode2 stays excluded', () => {
+test('owned geometry/materials retire while borrowed resources survive; mode2 uses a separate early list', () => {
   const f = fixture();
   f.w.step(45);
   f.capture();
@@ -208,13 +216,15 @@ test('owned ray/ground geometry and materials retire while borrowed resources su
   expect(owned.length).toBeGreaterThan(0);
   expect(models.some((m) => m.userData.sourceMesh)).toBe(true);
   expect(f.distortion.children.length).toBe(2);
+  expect(f.early.children.length).toBe(3);
   let material = 0,
     geometry = 0,
     borrowed = 0;
   for (const m of models) {
     m.material.addEventListener('dispose', () => material++);
     const p = SOLAR_PROFILES[m.userData.profileIndex];
-    expect(p.distortion?.mode ?? 1).toBe(1);
+    if (p.distortion) expect(m.parent).toBe(p.distortion.mode === 2 ? f.early : f.distortion);
+    else expect(m.parent).toBe(f.scene);
     if (p.kind === 'mesh') expect(m.geometry).toBe(f.geometry);
     expect(m.material.stencilWrite).toBe(false);
   }

@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/rendering/utils/drawKind.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/drawKind.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 12295,
+      "sha256": "c9f6a5fdc3090671e62eab2015af23f75574ef7cf937a446633a48f9aa7042ba"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/engine/model/enums.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/model/enums.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 7910,
+      "sha256": "fdad53c133ef6c59162131d8b7e1763d8aa29594ba330a65e8372f493d8160fc"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/engine/model/quality.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/model/quality.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 3101,
+      "sha256": "b5432e7d40a8706e825a07d4577b0887b22f0c030f85761418799eb3a5d3ab45"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/rendering/utils/frame.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/frame.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 11844,
+      "sha256": "6a2aea0f7b198880d2a69092834d8812ad8d9d94595e859de22d86fd6d9d2242"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/docs/plans/vfx-particle-renderer.md",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/docs/plans/vfx-particle-renderer.md",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 232427,
+      "sha256": "31d7294422ea1d6285fd9586814ba244f6ca5f68b26edc95edcd01b17786c733"
+    },
+    {
+      "path": ".cache/leona-r-distortion-reading-v1-20261024/2adda38/rendering/shaders/quad.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/shaders/quad.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 18418,
+      "sha256": "4ed5856ce44e9d482bea18a924544149a820587fdec409616be3446832c3093f"
+    },
+    {
+      "path": ".cache/leona-r-early-distortion-reading-v1-20261024/Passes-exact.tsx",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/components/Passes.tsx",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "bytes": 5196,
+      "sha256": "a7cd1ff2052e28c4706055f3bab50e981ee77a48fa8ed342535d144e0fe06d20"
+    }
+  ],
+  "nativeExecuted": false
+}

@@ -1,3 +1,4 @@
+import { particleColorMaterial } from './particle-color-phase';
 import * as THREE from 'three';
 import type { ParticlePalette } from './particle-color-product';
 
@@ -58,7 +59,7 @@ export function createParticleDecalMaterial(
   if (bindings.heightRange[2] <= 0) throw RangeError('Decal fading distance must be positive');
   const palette = bindings.palette,
     fog = bindings.fog;
-  return new THREE.ShaderMaterial({
+  const material = new THREE.ShaderMaterial({
     name: 'Native unlit particle decal',
     uniforms: {
       diffuseTexture: { value: bindings.diffuse },
@@ -145,4 +146,5 @@ export function createParticleDecalMaterial(
     blending: THREE.NoBlending,
     toneMapped: false,
   });
+  return particleColorMaterial(material);
 }

@@ -2,7 +2,8 @@ import { expect, test, type Page } from '@playwright/test';
 import { writeFileSync } from 'node:fs';
 
 const common = [
-  4, 5, 6, 7, 8, 9, 10, 23, 24, 25, 26, 28, 29, 31, 32, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43,
+  4, 5, 6, 7, 8, 9, 10, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41,
+  42, 43,
 ];
 const supported = (team: 'blue' | 'red') =>
   [...common, ...(team === 'blue' ? [11, 13, 14, 15, 16] : [17, 19, 20, 21, 22])].sort(
@@ -45,7 +46,9 @@ async function open(page: Page, team: 'blue' | 'red' = 'blue') {
   }, team);
 }
 async function sourcePixels(page: Page) {
-  return page.evaluate(() => {
+  return page.evaluate(async () => {
+    const modulePath = '/src/render/particle-color-phase.ts';
+    const { renderParticleColorPhase } = await import(modulePath);
     const g = (window as any).__GAME__,
       v = g.view;
     v.render(g.world, 1, 22.5);
@@ -65,7 +68,7 @@ async function sourcePixels(page: Page) {
         return p;
       },
       draw = () => {
-        v.renderer.render(v.scene, v.camera);
+        renderParticleColorPhase(v.renderer, v.scene, v.camera, v.particleEarlyDistortion);
         v.particleDistortion.render(v.renderer, v.camera);
         return read();
       };
@@ -289,7 +292,8 @@ test('repeated hits and misses retire ground grids, materials and distortion cop
       for (const m of models) m.material.addEventListener('dispose', () => materials++);
       for (const m of owned) m.geometry.addEventListener('dispose', () => geometry++);
       const depthActive = !!v.leonaSolarSurfaces.renderer.depth.target,
-        copyActive = !!v.particleDistortion.frame;
+        copyActive = !!v.particleDistortion.frame,
+        earlyActive = !!v.particleEarlyDistortion.frame;
       w.step(begun + 90 - w.tick);
       v.render(w, 1, 22.5);
       w.step(1000);
@@ -302,7 +306,9 @@ test('repeated hits and misses retire ground grids, materials and distortion cop
         geometry,
         depthActive,
         copyActive,
+        earlyActive,
         copyRemaining: !!v.particleDistortion.frame,
+        earlyRemaining: !!v.particleEarlyDistortion.frame,
         depthRemaining: !!v.leonaSolarSurfaces.renderer.depth.target,
         remaining: v.leonaSolarSurfaces.models.size,
         memory: { ...v.renderer.info.memory },
@@ -316,7 +322,9 @@ test('repeated hits and misses retire ground grids, materials and distortion cop
     expect(r.owned).toBeGreaterThan(0);
     expect(r.depthActive).toBe(false);
     expect(r.copyActive).toBe(true);
+    expect(r.earlyActive).toBe(true);
     expect(r.copyRemaining).toBe(false);
+    expect(r.earlyRemaining).toBe(false);
     expect(r.depthRemaining).toBe(false);
     expect(r.remaining).toBe(0);
     expect(r.materials).toBe(r.active);
@@ -326,4 +334,101 @@ test('repeated hits and misses retire ground grids, materials and distortion cop
     rounds.slice(1).every((r) => JSON.stringify(r.memory) === JSON.stringify(rounds[1].memory))
   ).toBe(true);
   expect(errors).toEqual([]);
+});
+
+test('three impact warps share one early capture and each changes pixels while another keeps the stage active', async ({
+  page,
+}, info) => {
+  test.setTimeout(120000);
+  const ids = await open(page);
+  const result = await page.evaluate(async ({ start }) => {
+    const path = '/src/render/particle-color-phase.ts',
+      { renderParticleColorPhase } = await import(path),
+      g = (window as any).__GAME__,
+      w = g.world,
+      v = g.view;
+    w.step(start + 46 - w.tick);
+    let earlyCopies = 0,
+      lateCopies = 0;
+    const copy = v.renderer.copyFramebufferToTexture.bind(v.renderer);
+    v.renderer.copyFramebufferToTexture = (...args: any[]) => {
+      if (args[0] === v.particleEarlyDistortion.frame) earlyCopies++;
+      if (args[0] === v.particleDistortion.frame) lateCopies++;
+      return copy(...args);
+    };
+    const snapshot = w.snapshot();
+    try {
+      v.render(w, 1, 22.5);
+    } finally {
+      v.renderer.copyFramebufferToTexture = copy;
+    }
+    const models = [...v.leonaSolarSurfaces.models.values()].filter(
+        (m: any) => m.parent === v.particleEarlyDistortion.scene
+      ) as any[],
+      state = models.map((m) => ({
+        profile: m.userData.profileIndex,
+        strength: m.material.uniforms.distortionPower.value,
+        depthTest: m.material.depthTest,
+        alphaTest: !!m.material.defines.SOURCE_ALPHA_TEST,
+        shared: m.material.uniforms.backBuffer.value === v.particleEarlyDistortion.frame,
+      }));
+    const draw = () => {
+        renderParticleColorPhase(v.renderer, v.scene, v.camera, v.particleEarlyDistortion);
+        v.particleDistortion.render(v.renderer, v.camera);
+        const gl = v.renderer.getContext(),
+          p = new Uint8Array(gl.drawingBufferWidth * gl.drawingBufferHeight * 4);
+        gl.readPixels(
+          0,
+          0,
+          gl.drawingBufferWidth,
+          gl.drawingBufferHeight,
+          gl.RGBA,
+          gl.UNSIGNED_BYTE,
+          p
+        );
+        return p;
+      },
+      full = draw(),
+      contributions = [];
+    for (const m of models) {
+      m.visible = false;
+      const without = draw();
+      m.visible = true;
+      let changed = 0;
+      for (let i = 0; i < full.length; i += 4)
+        if (
+          full[i] !== without[i] ||
+          full[i + 1] !== without[i + 1] ||
+          full[i + 2] !== without[i + 2]
+        )
+          changed++;
+      contributions.push({ profile: m.userData.profileIndex, changed });
+    }
+    draw();
+    return {
+      earlyCopies,
+      lateCopies,
+      state,
+      contributions,
+      unchanged: snapshot === w.snapshot(),
+      error: v.renderer.getContext().getError(),
+      canvas: v.renderer.domElement.toDataURL('image/png') as string,
+    };
+  }, ids);
+  const { canvas, ...evidence } = result;
+  writeFileSync(
+    info.outputPath('R-early-impact-canvas.png'),
+    Buffer.from(canvas.split(',')[1], 'base64')
+  );
+  writeFileSync(info.outputPath('early-capture.json'), JSON.stringify(evidence, null, 2));
+  expect(result.earlyCopies).toBe(1);
+  expect(result.lateCopies).toBe(1);
+  expect(result.state.map((m: any) => m.profile)).toEqual([27, 30, 33]);
+  expect(result.state.map((m: any) => m.strength)).toEqual([
+    0.07000000029802322, 0.15000000596046448, 0.10000000149011612,
+  ]);
+  expect(result.state.every((m: any) => !m.depthTest && !m.alphaTest && m.shared)).toBe(true);
+  expect(result.contributions.every((p: any) => p.changed > 10)).toBe(true);
+  expect(result.unchanged).toBe(true);
+  expect(result.error).toBe(0);
 });

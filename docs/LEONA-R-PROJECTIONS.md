@@ -121,3 +121,10 @@ paused saved boot, complete repair, new match, other-tab refusal, atomic update
 and scoped removal. There are 963 service-worker responses and no production
 errors. The [verification record](reference/leona/r-projection-verification.json)
 freezes source inputs, exact reader/native bytes, generated build and diagnostics.
+
+## Early distortion follow-up
+
+The later [early distortion increment](LEONA-R-EARLY-DISTORTION.md) adds three
+impact warp families, for 41 of 44 enabled R families across both area colors.
+This planar acceptance remains a frozen historical stage; use
+`node tools/qa/verify-leona-r-projections.mjs --historical` after the follow-up.

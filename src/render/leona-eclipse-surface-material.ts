@@ -1,3 +1,4 @@
+import { particleColorMaterial } from './particle-color-phase';
 import * as THREE from 'three';
 import type { EclipseSkinErosion } from './leona-eclipse-skin-material';
 import type { ParticlePalette } from './particle-color-product';
@@ -48,7 +49,7 @@ export function createLeonaEclipseSurfaceMaterial(options: {
       (!soft.control?.every(Number.isFinite) && soft.control !== undefined))
   )
     throw RangeError('Invalid Eclipse surface soft parameters');
-  return new THREE.ShaderMaterial({
+  const material = new THREE.ShaderMaterial({
     name: `Leona Eclipse source ${options.kind} surface`,
     uniforms: {
       sourceTexture: { value: options.texture },
@@ -221,4 +222,5 @@ export function createLeonaEclipseSurfaceMaterial(options: {
     depthTest: true,
     toneMapped: false,
   });
+  return particleColorMaterial(material);
 }

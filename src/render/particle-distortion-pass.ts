@@ -9,7 +9,7 @@ export class ParticleDistortionPass {
   frame: THREE.FramebufferTexture | undefined;
   private size = new THREE.Vector2();
   private viewport = new THREE.Vector4();
-  render(renderer: THREE.WebGLRenderer, camera: THREE.Camera): boolean {
+  private materials(camera: THREE.Camera) {
     const materials = new Set<THREE.ShaderMaterial>();
     this.scene.traverseVisible((object) => {
       if (
@@ -29,6 +29,13 @@ export class ParticleDistortionPass {
         materials.add(material);
       }
     });
+    return materials;
+  }
+  hasDraws(camera: THREE.Camera): boolean {
+    return this.materials(camera).size > 0;
+  }
+  render(renderer: THREE.WebGLRenderer, camera: THREE.Camera): boolean {
+    const materials = this.materials(camera);
     if (!materials.size) {
       this.dispose();
       return false;

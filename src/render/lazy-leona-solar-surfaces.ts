@@ -11,7 +11,8 @@ export class LazyLeonaSolarSurfaces {
   constructor(
     private scene: THREE.Scene,
     private distortion: THREE.Scene,
-    private ground: (p: Vec2) => number
+    private ground: (p: Vec2) => number,
+    private early?: THREE.Scene
   ) {}
   get models() {
     return this.renderer?.models;
@@ -22,7 +23,13 @@ export class LazyLeonaSolarSurfaces {
       const m = await import('./leona-solar-surfaces');
       await m.loadLeonaSolarSurfaces();
       if (!this.disposed)
-        this.renderer = new m.LeonaSolarSurfaces(this.scene, this.distortion, this.ground);
+        this.renderer = new m.LeonaSolarSurfaces(
+          this.scene,
+          this.distortion,
+          this.ground,
+          undefined,
+          this.early
+        );
     })().catch((error) => {
       this.pending = undefined;
       throw error;

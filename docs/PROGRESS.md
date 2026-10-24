@@ -5906,3 +5906,54 @@ Schema126 stays fixed; ruleset6f1e1711 includes the frame/receiver policy. See
 [verification record](reference/leona/r-projection-verification.json). Six source
 families/native acceptance, player Leona/support and full six-character match
 work remain open. Nothing is pushed; the full project goal stays active.
+
+## Solar Flare early distortion — October 24, 2026
+
+The three impact mode2 quads now draw over one shared early framebuffer capture.
+Source geometry, size/lifetime/rotation/offset, lookup, tint and strengths are
+unchanged. Native fragment arithmetic retains normal/lookup alpha, without an
+invented tint-alpha or aspect multiplier. This adds three to the prior 38 enabled
+R families, for 41 of 44 across both area alternatives. Two arbitrary weapon
+quads without a verified attachment frame and textureless Activate stay separate.
+
+Seven exact2adda readers establish mode1late/mode2early and the preview's actual
+capture sequence. Passes.tsx draws SCENE_LAYER including CHARACTER before early
+warps; the enum name noCharacter does not imply actor exclusion. An earlier
+conditional environment-only proposal is explicitly superseded. The original
+transport copy had an extra trailing newline; its immutable audit/pin and a
+separate byte-exact reader retention are preserved.
+
+The local split moves only explicitly registered source surfaces/erosion skins/
+multiplier skins/decals after early capture. Ordinary geometry/actors and
+unregistered legacy effects remain base; no global native phase/OVER parity is
+claimed. Base shadows/depth remain intact, source particles may not cast shadows,
+and borrowed visibility/background/matrix/renderer flags restore through failures.
+No early particles retains the single full-scene render. Early/late copies retire
+independently, with one copy per phase rather than per emitter.
+
+Full 1,881 unit cases/309 files plus three Node QA and 24 Chrome cases pass. The
+GPU blue-actor/red-particle probe distinguishes early from late and restores
+exact graphics results. All three actual source warps share one early capture;
+causal contributions are 14,788/40,524/39,828 pixels with the other two keeping the
+stage active. Both area variants/all38 surfaces, R skin/planar and W/E skins pass.
+Save/reload/recovery preserve state/pixels at ages12/46; six casts settle at
+25 geometries/49 textures and retire both copies. Frozen W and E each preserve
+63 frames with bytewise-identical pixels and source state.
+
+All four native distortion TOCs/fifteen programs/45 Metal/AIR/text streams pass
+static hash/bundle/bitcode and recomputed define-key checks, with no host compiler,
+native client or Metal execution in this audit. Actual native CPU dispatch,
+capture audience, strength conversion, state/samplers/full phases/frame parity
+remain open. Initial stale mode2 unit expectation, age42 copy probe before the
+late quads' birth and QA-only Color union diagnostic are retained; source timing,
+shader arithmetic and simulation behavior were not changed for them.
+
+Fresh production passes 32 recordings without development hooks or unrequested
+Leona preload. The fresh 1,011-file pack contains 513,276,637 bytes and passes all
+offline controls with 963 service-worker responses and no production errors.
+No source assets were added/resized. Schema126 stays fixed; ruleseta051ddc6 includes
+the explicit phase/routing inputs. No new normal cohort or CPU benchmark is
+claimed. See [scope](LEONA-R-EARLY-DISTORTION.md) and the
+[verification record](reference/leona/r-early-distortion-verification.json).
+Remaining source/native acceptance, player Leona/support and full six-character
+match work remain open. Nothing is pushed; the full project goal stays active.

@@ -1,0 +1,108 @@
+{
+  "scope": "Three Solar Flare early distortion families; retained native fragment arithmetic plus explicit local registered-color composition. No nativeCPU/nativeframe verification.",
+  "source": {
+    "families": "Compiled profiles27/30/33 are Leona_R_hit_impact complex indices9/12/15 DistortFAST/DistortFAST1/DistortFAST2.",
+    "shared": "ArbitraryQuad;rate1;single;particleLifetime.18000000715255737;emitterLifetime1;bind1;SpawnShape point offset[0,10,0];birthRotation[90,0,90];uniformScale1;scale keytimes0/.5/1 withvalues[.2,.2,.2]/[.8,.7,.8]/[1,1,1];Color alpha1->0 overlife;alphaRef explicitly0;miscRenderFlags1;blend1. No authoredpass,phaseoverride,HUD/ground/custommaterial/palette/mult/reflection/soft;compiledrenderOrder0.",
+    "varying": "Profile27 base scale[500,600,600],strength.07000000029802322;30/33 scale[700,600,600],strength.15000000596046448/.10000000149011612. UniformScale broadcasts X, so localsampler uses500or700 across axes before scale curves.",
+    "textures": "Base Leona_Base_R_White.tex->leona_base_r_white.png;lookupLux_Skin07_R_Distort_RGBA_2.tex->lux_skin07_r_distort_rgba_2.png;normalLeona_Base_R_Circle_normal.tex->leona_base_r_circle_normal.png. All retainedassets already present; no newsourceassetsneeded.",
+    "lookup": "CompiledlookupTypes[lifetime1,constant0],scales[1,1],offsets[0,0];UVaddress0/defaulttransforms. Preserve existing evaluated lookup/sourceUV/tint without newheight/pivot/opacityadjustments."
+  },
+  "nativeObserved": {
+    "pin": "docs/reference/particle-distortion-shaders.json plus particle-distortion-reading.json; all4TOCs/15programs45streamsverified offline.",
+    "candidate": "Noalpha-test source requires defaultquad distortionVS0/PS0 as arithmetic candidate; actual16.18CPUshader selection stillunverified. Nativeinventoryhas no mode permutation. ExactPS0 sampleslookup,normal,backbuffer,base.",
+    "math": "displacement=(normal.rg-.5)*2*lookup.a*DistortionPower;RGB=lookup.rgb*tint.rgb*copiedFrame.rgb*base.rgb;outputAlpha=normal.a*lookup.a. No normal-alpha/base-alpha/tint-alpha/aspect factor in displacement. Source Color alpha fade must not be inserted into alpha or displacement.",
+    "boundary": "CPU mode routing/capture audience/timing/source-strengthconversion/samplerstate/nativeblend/depth/phase/triangleordering remainunverified. Displaylistname doesnot prove completecharacterexclusion pipeline."
+  },
+  "primary2adda": {
+    "mapping": "engine/model/enums.ts224: all=0x1(late),noCharacter=0x2(early),both3. drawKind94-135 respects override,Hud,ground,custommaterialprecedence thenmodebits;allthree sourcesomitprecedencefields.",
+    "quality": "quality.ts71-74: distortion atMediumorhigher;drawPhases suppressesbothwarpflags belowMedium.",
+    "layers": "frame.ts27-28 SCENE_LAYER0 explicitlyholds stage,grid,CHARACTER;EARLY_DISTORTION_LAYER5 comment saysahead ofeveryparticle;late1betweencolourphases. drawLayersOf mapsflags totheselayers;placeOnLayers andwarpsOf trackearly/late independently.",
+    "previewShaderDifference": "Pinned handwrittenquad shader stillnormal-alpha/aspect-scales displacement andcopiesplainRGB. It differs from frozen nativePS andmustnotreplaceexistinglocalnativearithmetic.",
+    "passes": [
+      {
+        "location": "Passes.tsx99-106",
+        "fact": "drawShadows first,bindFrameTargets,optional scene-depth capture. Early branch sets camera to SCENE_LAYER, renders scene once,drawWarp(EARLY_DISTORTION_LAYER),then drawOver(first particle phase)."
+      },
+      {
+        "location": "frame.ts27-28",
+        "fact": "SCENE_LAYER0 explicitly includes everything but particles: stage,grid,andCHARACTER. Thus the early copied scene includes actors;no exclusion orcharacter-redraw step ispresent."
+      },
+      {
+        "location": "Passes.tsx95-97,111-114",
+        "fact": "With late active first=UNDER_PHASE and late warp thenOVER_PHASE. Without late first=BOTH_PHASES,soearlyisfollowedbybothcolourparticlephases."
+      },
+      {
+        "location": "Passes.tsx126-129",
+        "fact": "drawWarp callsgrabFrame once thenrendersthespecifiedwarplayer."
+      },
+      {
+        "location": "Passes.tsx140-148",
+        "fact": "drawOver sets backgroundnull,autoClearfalse,selectsonlyrequestedlayers,rendersthenrestoreautoCleartrue/background;preservesexistingcolouranddepth. SCENE_LAYER isnotredrawn afterearlywarp."
+      },
+      {
+        "location": "Passes.tsx85-90,115-119",
+        "fact": "Scene matricesupdateonce;matrixWorldAutoUpdate disabledforpassesandrestoredafter. seeColour reselectsscene+bothparticlephasesafterframe."
+      }
+    ],
+    "sequences": {
+      "earlyAndLate": [
+        "fullnonparticlescene(stage/grid/character)",
+        "captureearlyframe",
+        "earlywarps",
+        "UNDERparticles(default/ground)",
+        "capturelateframe",
+        "latewarps",
+        "OVERparticles(postdistortion)",
+        "optionalglow"
+      ],
+      "earlyOnly": [
+        "fullnonparticlescene(stage/grid/character)",
+        "captureearlyframe",
+        "earlywarps",
+        "bothcolourparticlephases",
+        "optionalglow"
+      ]
+    }
+  },
+  "localIntegration": {
+    "families": [
+      27,
+      30,
+      33
+    ],
+    "routing": "mode1 late,mode2 early;mode3 remains unsupported. One framebuffer copy perphase; allthree earlyquads sample the samebase snapshot.",
+    "classification": "Only explicitly registered source surface/skin/multiplier/decal materials move into color list. Ordinary characters/environment and unregistered legacy effects remain in base. Actualglobalnativephases/OVER split/legacyclassification are not claimed.",
+    "composition": "Full ordinary base scene and actor shadows, oneearlycopy/allquads, registeredcolorwithoutclearing/re-renderingbase orshadows, existinglatecopy. Noearlydraws keepssinglefullscene fastpath. Borrowedmaterialvisibility/background/matrixupdate/rendererflags restored in finally.",
+    "shadowDomain": "Registered particle materials may not cast shadows; unsupported membership throws before changing visibility. Ordinary actors remain visible for base shadow updates. Private source skins already cast no shadows.",
+    "binding": "Existing source65a7 seekable geometry/birth/lookup/tint/strength unchanged. Strength supplieddirectly aslocalDistortionPower, noaspect/tint-alpha factor. Source alphaRef0 needsnoalphatest;blend1 SrcAlpha/OneMinusSrcAlpha;misc1 disablesdepthtest;depthwritefalse/doublesided remainlocaldrawstate."
+  },
+  "evidence": {
+    "offlineFindings": {
+      "path": ".cache/leona-r-early-distortion-reading-v1-20261024/findings.json",
+      "sha256": "65532139af347d2b1acc4f9539da99c9f38c26a87e8ae85bd380dad591f999a9"
+    },
+    "followup": {
+      "path": ".cache/leona-r-early-distortion-reading-v1-20261024/follow-up-passes.json",
+      "sha256": "85baeac0e7bcd97bd76c9eb7ed5592f4ffea7fe912ba97c0697ca2259f15a675"
+    },
+    "exactPassRetention": {
+      "path": ".cache/leona-r-early-distortion-reading-v1-20261024/passes-exact-retention.json",
+      "sha256": "e005d427abd5b38fa09f499b0fc660153ce39f28481e26595ad7faaf72c2f89d"
+    }
+  },
+  "corrections": [
+    "Initial environment-only proposal was conditional with Passes.tsx missing. Exact2adda Passes draws SCENE_LAYER including CHARACTER before earlywarp; nocharacter exclusion/redraw occurs. The enum name noCharacter does not establish actor-free capture.",
+    "Initial apply_patch Passes retention added one trailing newline. The original audit/pin remains immutable; separate Passes-exact.tsx matches connector content byte-for-byte."
+  ],
+  "nativeExecuted": false,
+  "compilerExecuted": false,
+  "unknowns": [
+    "Native16.18modebitmappingandcaptureaudience despiteexternal2addamapping",
+    "Nativeearlycharacter/shadow/terrainordering",
+    "Nativeblend/depth/stencil/alphastate",
+    "NativeDistortionPowerconversionanduniformbinding",
+    "Samplerfiltering/addressing/viewportedgebehavior",
+    "Nativebatch/emitterordering andwhetherframecopyisphase-wide",
+    "Exact2addaPasses.tsxcompositionnotretained"
+  ]
+}

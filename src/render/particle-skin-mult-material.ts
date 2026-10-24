@@ -1,3 +1,4 @@
+import { particleColorMaterial } from './particle-color-phase';
 import * as THREE from 'three';
 
 /** Native skin MULT_PASS VS34 and no-FOW PS0/23 arithmetic. Resources are
@@ -18,7 +19,7 @@ export function createParticleSkinMultMaterial(options: {
     (options.alphaRef !== undefined && !Number.isFinite(options.alphaRef))
   )
     throw RangeError('Invalid skin multiplier material parameters');
-  return new THREE.ShaderMaterial({
+  const material = new THREE.ShaderMaterial({
     name: 'Source skin multiplier particle',
     uniforms: {
       sourceTexture: { value: options.texture },
@@ -102,4 +103,5 @@ export function createParticleSkinMultMaterial(options: {
     blendDst: THREE.OneFactor,
     toneMapped: false,
   });
+  return particleColorMaterial(material);
 }

@@ -44,8 +44,23 @@ export class LeonaSolarSurfaces extends SourceParticleSurfaces<SolarDrawGroup> {
     scene: THREE.Scene,
     distortion: THREE.Scene,
     ground: (p: Vec2) => number,
-    resources?: EclipseSurfaceAssets
+    resources?: EclipseSurfaceAssets,
+    early?: THREE.Scene
   ) {
-    super(scene, distortion, ground, program, resources);
+    super(
+      scene,
+      distortion,
+      ground,
+      {
+        ...program,
+        distortionTarget(index) {
+          const mode = SOLAR_PROFILES[index].distortion?.mode;
+          if (mode === 1) return distortion;
+          if (mode === 2 && early) return early;
+          throw Error('Solar distortion needs an explicit supported phase list');
+        },
+      },
+      resources
+    );
   }
 }

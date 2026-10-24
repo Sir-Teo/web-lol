@@ -1,3 +1,4 @@
+import { renderParticleColorPhase } from './particle-color-phase';
 import { LazyLeonaSolarProjections } from './lazy-leona-solar-projections';
 import { ParticleDecalReceivers, terrainDecalReceiver } from './particle-decal-receivers';
 import { LazyLeonaSolarSkins } from './lazy-leona-solar-skins';
@@ -94,6 +95,7 @@ export class GameView {
   renderer: THREE.WebGLRenderer;
   scene = new THREE.Scene();
   readonly particleDistortion = new ParticleDistortionPass();
+  readonly particleEarlyDistortion = new ParticleDistortionPass();
   luxSingularities = new LuxSingularities(
     this.scene,
     (p) => this.ground(p),
@@ -134,8 +136,11 @@ export class GameView {
     this.decalReceivers
   );
   leonaSolarSkins = new LazyLeonaSolarSkins(this.scene, (p) => this.ground(p));
-  leonaSolarSurfaces = new LazyLeonaSolarSurfaces(this.scene, this.particleDistortion.scene, (p) =>
-    this.ground(p)
+  leonaSolarSurfaces = new LazyLeonaSolarSurfaces(
+    this.scene,
+    this.particleDistortion.scene,
+    (p) => this.ground(p),
+    this.particleEarlyDistortion.scene
   );
   leonaZenithSurfaces = new LazyLeonaZenithSurfaces(
     this.scene,
@@ -878,7 +883,7 @@ export class GameView {
     this.leonaEclipseSurfaces.prepareDepth(this.renderer, this.camera);
     this.leonaZenithSurfaces.prepareDepth(this.renderer, this.camera);
     this.leonaSolarSurfaces.prepareDepth(this.renderer, this.camera);
-    this.renderer.render(this.scene, this.camera);
+    renderParticleColorPhase(this.renderer, this.scene, this.camera, this.particleEarlyDistortion);
     this.particleDistortion.render(this.renderer, this.camera);
     this.mapTextureResidency?.endFrame();
     this.mapTexturePrefetch?.update(this.renderer, this.camera);

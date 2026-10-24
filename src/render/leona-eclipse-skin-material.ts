@@ -1,3 +1,4 @@
+import { particleColorMaterial } from './particle-color-phase';
 import * as THREE from 'three';
 
 export interface EclipseSkinErosion {
@@ -37,7 +38,7 @@ export function createLeonaEclipseSkinMaterial(options: {
         e.featherOut <= 0))
   )
     throw new RangeError('Invalid Eclipse skin material parameters');
-  return new THREE.ShaderMaterial({
+  const material = new THREE.ShaderMaterial({
     name: 'Leona Eclipse source skin particle',
     uniforms: {
       sourceTexture: { value: options.texture },
@@ -128,4 +129,5 @@ export function createLeonaEclipseSkinMaterial(options: {
     blendDst: THREE.OneFactor,
     toneMapped: false,
   });
+  return particleColorMaterial(material);
 }

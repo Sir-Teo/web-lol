@@ -110,3 +110,10 @@ with independent multiplier UVs and saved private poses, bringing integration to
 36 enabled families across both area alternatives. The two unbound weapon quads,
 missing-texture Activate, planar receivers and early distortion remain separate.
 The 35-family counts and archive above remain the historical surface increment.
+
+## Early distortion follow-up
+
+The [early distortion increment](LEONA-R-EARLY-DISTORTION.md) expands surface
+support from 35 to 38 families. With the separate owner skin and two planar
+alternatives, 41 of 44 enabled R families are integrated. Historical source
+surface acceptance above remains frozen; its verifier requires `--historical`.

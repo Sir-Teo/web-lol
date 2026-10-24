@@ -77,6 +77,8 @@ export interface SurfaceProgram<G extends SurfaceGroup> {
   profiles: readonly SurfaceProfile[];
   assets(): EclipseSurfaceAssets | undefined;
   accepts(index: number): boolean;
+  /** Explicit caller routing, separate from native mode/phase recovery. */
+  distortionTarget?(index: number): THREE.Scene;
   records(world: World): Iterable<{ sourceId: number; castTick: number; group: G }>;
   particles(group: G, tick: number): readonly SurfaceParticle[];
   birthVisible(group: G, bornTick: number, terminal: boolean): boolean;
@@ -122,6 +124,9 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
   private create(index: number, assets: EclipseSurfaceAssets) {
     const p = this.program.profiles[index],
       e = p.erosion,
+      destination = p.distortion
+        ? (this.program.distortionTarget?.(index) ?? this.distortion)
+        : this.scene,
       sourceGeometry = p.mesh ? assets.mesh(p.mesh) : undefined;
     if (!p.texture) throw Error('Source surface requires an explicit base texture');
     const material = p.distortion
@@ -220,7 +225,7 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
       groundEffectMaterial(material);
       setGroundRenderStage(mesh, 'ground');
     }
-    (p.distortion ? this.distortion : this.scene).add(mesh);
+    destination.add(mesh);
     return mesh;
   }
   update(world: World, alpha: number, camera: THREE.Camera, terminalAge = 0) {
