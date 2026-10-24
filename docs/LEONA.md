@@ -410,3 +410,12 @@ thirty-three emitter records, forty-two textures and four SCBs, including the
 hashed dash override texture and disabled dependencies. The cone shares existing
 Eclipse bytes. Gameplay E histories, trails/materials, audio and native comparison
 remain required; this source package does not enable production Leona selection.
+
+
+[Zenith saved presentation histories](LEONA-E-HISTORY.md) now retain accepted
+casts, actual launch origins, ordered swept contacts, bounded posed target tails,
+homing dash anchors/stop causes, successful arrivals and independent owner-life
+endpoints through respawn. Schema 125 validates their phase/geometry/ownership
+consistency. Four browser phase saves/reloads preserve exact futures; source E
+materials/trails/skins/audio and native comparison remain required. This increment
+does not enable production Leona selection or complete the kit.

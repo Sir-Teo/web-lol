@@ -5174,3 +5174,55 @@ and its [ledger](reference/leona/e-source-verification.json). This is source
 preparation, not E/native playback acceptance. The complete kit, player/support,
 full current cohort and six-champion match/browser/offline/performance gates
 remain required. Nothing was pushed; the full goal stays active.
+
+
+## Zenith Blade saved phase histories — October 24, 2026
+
+E now retains accepted-cast and actual launch anchors, each moving flight frame,
+ordered swept contacts with pre-damage metadata and posed target tails, the real
+last-champion dash, causal stop details and successful arrival poses. Root/stun,
+target loss, Flash, source death and match end remain distinct. Immediate CC stops
+retain the corrected terrain endpoint and the pending CC deadline without changing
+the landing/CC assignment order. A first-life death endpoint remains independent
+of later respawn; launched posthumous flights continue normally. Cast/dash event
+anchors survive a bounded 771-point rolling source window and scripted long
+pursuits. No presentation capture consumes shared IDs or combat randomness.
+
+All twenty enabled E source declarations contribute to generated conservative
+local history bounds: weapon 770, dash 39, arrival 209, contact 132, sound carrier
+722 updates. Positive authored windows and probability maxima are retained with
+an explicit one-second local omitted-lifetime default and two settlement updates.
+Native lifetime/default/dispatch semantics remain unverified. Ended histories
+retire exactly after 770 updates. Strict schema 125 checks ownership, clocks,
+paths/ranges, swept geometry/order, pose continuity/detachment, stop causes,
+respawn consistency and expiry.
+
+The isolated suite passes **1,721 unit tests/288 files**, TypeScript and three
+Node QA cases with original deadlines. Forty-five new history cases join nineteen
+existing mechanics cases. Four real Chrome phase save/reload cases preserve
+saved bytes and 90-update futures; seven adjacent bot/Garen/Leona cases pass.
+A fresh two-seed smoke checks 72,000 ticks, twenty round trips and eighteen futures.
+All twenty checkpoints match the prior schema-124 smoke after removing only
+version/ruleset/new empty history arrays. Both seeds remain unfinished at ten
+minutes; the full current cohort and complete-match gates remain open.
+
+Build and nested production hosting pass 32 recordings and zero Leona preloads.
+The fresh full offline audit passes 939 files/506,610,912 bytes, 963 worker
+responses, saved-tick boot, new Lux match, integrity/repair/version/removal flows
+and zero errors. Pack ID is
+`788ee79f3d67cba36d08e5479e5f643f31dbf1adc5ee357bd792c5c084058724`.
+Delivery/normal evidence shares unchanged runtime inputs with the final revision;
+five test-only changes are explicitly compared. Bundle/performance warnings remain.
+
+V7 freezes 1,568 inputs and fifty original source files. Earlier epochs preserve
+terrain/CC capture failures, the scripted target's unsettled pose, outdated schema
+assertions, concurrent-load deadline failures, the live browser startup-clock
+assumption and the completed-history rejection probe. All owned handles drained
+before repairs; no timeout was raised. The final malformed-frame probe rejects in
+each phase. Schema is 125 and ruleset is
+`8b6d8b1a04e78a42582021d4639bf3effc722550ca9c7514a9c6dd02121b47ee`.
+See [Zenith histories](LEONA-E-HISTORY.md) and the
+[ledger](reference/leona/e-history-verification.json). E rendering/trails/skin
+materials/audio, native comparison, R presentation, complete player/support
+integration, all six champions and the full match/browser/performance gates remain
+required. Nothing is pushed; the full project goal remains active.

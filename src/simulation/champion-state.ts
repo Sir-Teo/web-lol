@@ -47,6 +47,7 @@ export function createChampionState(id: number, unlocked = true, tick = 0): Cham
     leonaW: null,
     leonaWVisuals: [],
     leonaEWindup: null,
+    leonaEVisuals: [],
     leonaR: null,
     leonaDash: null,
     garenQVisuals: [],

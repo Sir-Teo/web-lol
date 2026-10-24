@@ -1,4 +1,17 @@
 import {
+  advanceZenithVisuals,
+  beginZenithVisual,
+  launchZenithVisual,
+  captureZenithFlightFrame,
+  contactZenithVisual,
+  finishZenithFlight,
+  settleZenithFlight,
+  beginZenithDashVisual,
+  stopZenithDashVisual,
+  stopZenithVisual,
+  type ZenithDashEnd,
+} from './leona-e-visuals';
+import {
   advanceEclipseVisuals,
   beginEclipseVisual,
   captureEclipseDetonation,
@@ -3169,7 +3182,7 @@ export class World {
   }
   private releaseZenith(source: Unit, cast: NonNullable<ChampionState['leonaEWindup']>): void {
     this.championState(source.id)!.leonaEWindup = null;
-    this.projectiles.push({
+    const projectile: Projectile = {
       id: this.nextId++,
       source: source.id,
       team: source.team,
@@ -3187,7 +3200,9 @@ export class World {
       radius: LEONA_COMBAT_POLICY.zenithRadius,
       remaining: LEONA_SPELLS.e.missile.castRange,
       zenith: { castTick: cast.startTick, rank: cast.rank, hits: [], lastChampionId: null },
-    });
+    };
+    this.projectiles.push(projectile);
+    launchZenithVisual(this, source, projectile);
   }
   private beginLeonaDash(source: Unit, flight: Projectile): void {
     const target = this.unit(flight.zenith!.lastChampionId ?? -1);
@@ -3209,10 +3224,17 @@ export class World {
       startTick: this.tick,
       targetId: target.id,
     };
+    beginZenithDashVisual(this, source);
   }
-  private finishLeonaDash(source: Unit): void {
+  private finishLeonaDash(
+    source: Unit,
+    reason: ZenithDashEnd = 'arrived',
+    control = { rootUntil: source.rootUntil, stunUntil: source.stunUntil }
+  ): void {
     const state = this.championState(source.id);
     if (!state?.leonaDash) return;
+    const castTick = state.leonaDash.castTick,
+      attemptPoint = { x: source.x, y: source.y };
     state.leonaDash = null;
     const landing = this.battlefield.reachable(
       source,
@@ -3224,6 +3246,9 @@ export class World {
     source.path = [];
     source.pathTarget = source.pathDestination = null;
     source.nextPathTick = this.tick;
+    stopZenithDashVisual(this, source, reason, attemptPoint, castTick, control);
+    // Control can interrupt between updates, including after terrain correction.
+    advanceZenithVisuals(this);
   }
   private advanceLeonaDash(source: Unit, owner: ChampionState): void {
     const target = this.unit(owner.leonaDash!.targetId);
@@ -3233,7 +3258,7 @@ export class World {
       source.rootUntil > this.tick ||
       source.stunUntil > this.tick
     ) {
-      this.finishLeonaDash(source);
+      this.finishLeonaDash(source, !target || !this.alive(target) ? 'target-lost' : 'control');
       return;
     }
     const d = distance(source, target),
@@ -3446,11 +3471,13 @@ export class World {
       !Number.isSafeInteger(this.tick + durationTicks)
     )
       return false;
-    if (target.champion === 'leona') this.finishLeonaDash(target);
-    target.rootUntil = Math.max(
+    const rootUntil = Math.max(
       target.rootUntil,
       this.tick + this.controlDurationTicks(target, durationTicks)
     );
+    if (target.champion === 'leona')
+      this.finishLeonaDash(target, 'control', { rootUntil, stunUntil: target.stunUntil });
+    target.rootUntil = rootUntil;
     return true;
   }
   applyStun(target: Unit, durationTicks: number): boolean {
@@ -3466,11 +3493,13 @@ export class World {
       !Number.isSafeInteger(this.tick + durationTicks)
     )
       return false;
-    if (target.champion === 'leona') this.finishLeonaDash(target);
-    target.stunUntil = Math.max(
+    const stunUntil = Math.max(
       target.stunUntil,
       this.tick + this.controlDurationTicks(target, durationTicks)
     );
+    if (target.champion === 'leona')
+      this.finishLeonaDash(target, 'control', { rootUntil: target.rootUntil, stunUntil });
+    target.stunUntil = stunUntil;
     const owner = this.championState(target.id);
     if (owner) owner.recallEnd = null;
     return true;
@@ -3860,6 +3889,7 @@ export class World {
     return capturePoseFrame(target, this.tick);
   }
   private advanceImpactVisuals(): void {
+    advanceZenithVisuals(this);
     advanceEclipseVisuals(this);
     advanceDaybreakVisuals(this);
     advanceSunlightVisuals(this);
@@ -3998,7 +4028,8 @@ export class World {
             return t === null ? [] : [{ unit, t }];
           })
           .sort((a, b) => a.t - b.t || a.unit.id - b.unit.id);
-        for (const { unit } of hits) {
+        for (const { unit, t } of hits) {
+          if (source) contactZenithVisual(this, source, p, unit, t, end);
           p.zenith!.hits.push(unit.id);
           if (unit.kind === 'champion') p.zenith!.lastChampionId = unit.id;
           if (source) {
@@ -4009,8 +4040,13 @@ export class World {
         p.x = end.x;
         p.y = end.y;
         p.remaining = Math.max(0, p.remaining - travel);
+        if (source) captureZenithFlightFrame(this, source, p);
         if (p.remaining > 1e-8) survivors.push(p);
-        else if (source) this.beginLeonaDash(source, p);
+        else if (source) {
+          finishZenithFlight(this, source, p);
+          this.beginLeonaDash(source, p);
+          settleZenithFlight(this, source, p);
+        }
         continue;
       }
       if (p.type === 'binding') {
@@ -4886,6 +4922,7 @@ export class World {
           state.leonaQ = null;
           state.leonaW = null;
           finishEclipseVisual(state, this.tick, 'match-end');
+          stopZenithVisual(this, this.unit(state.id)!, 'match-end');
           state.leonaEWindup = null;
           state.leonaDash = null;
           state.leonaR = null;
@@ -4930,6 +4967,7 @@ export class World {
         targetState.leonaQ = null;
         targetState.leonaW = null;
         finishEclipseVisual(targetState, this.tick, 'death');
+        stopZenithVisual(this, target, 'death');
         targetState.leonaEWindup = null;
         targetState.leonaDash = null;
         if (targetState.leonaR) {
@@ -4943,7 +4981,8 @@ export class World {
         targetState.garenPassiveReadyTick = 0;
       }
       for (const owner of this.activeChampionStates())
-        if (owner.leonaDash?.targetId === target.id) this.finishLeonaDash(this.unit(owner.id)!);
+        if (owner.leonaDash?.targetId === target.id)
+          this.finishLeonaDash(this.unit(owner.id)!, 'target-lost');
       target.garenEShreds = [];
       const lastDamage = targetState?.damageContributors
         .slice()
@@ -5069,6 +5108,7 @@ export class World {
       }
     }
     if (target.hp <= 0) {
+      advanceZenithVisuals(this);
       advanceDaybreakVisuals(this);
       advanceEclipseVisuals(this);
     }
@@ -5454,6 +5494,7 @@ export class World {
       this.finishAttackPresentation(u, 'action');
       u.attackCycle = null;
       u.facing = Math.atan2(dir.x, dir.y);
+      beginZenithVisual(this, u, state);
       this.emit('cast', u, { unit: u.id, champion: 'leona', text: 'e', team: u.team });
       return;
     }
@@ -5744,6 +5785,7 @@ export class World {
       }
     }
     if (summoner === 'flash') {
+      stopZenithDashVisual(this, u, 'flash');
       state.leonaDash = null;
       const d = Math.min(spec.range, distance(u, point));
       const end = this.battlefield.reachable(

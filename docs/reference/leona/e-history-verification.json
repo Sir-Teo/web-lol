@@ -1,0 +1,671 @@
+{
+  "date": "2026-10-24",
+  "scope": "Saved Zenith accepted-cast, flight/contact, dash/arrival and life/terminal histories. Source rendering/audio/native and full project remain unfinished.",
+  "schema": 125,
+  "ruleset": "8b6d8b1a04e78a42582021d4639bf3effc722550ca9c7514a9c6dd02121b47ee",
+  "sourceBaseline": "7f107138a681220c5777e50dad63d5e13edfc73b",
+  "sourceArchive": ".cache/leona-e-history-validation-v7-20261024/source-archive.json",
+  "earlierSourceArchives": [
+    ".cache/leona-e-history-validation-v1-20261024/source-archive.json",
+    ".cache/leona-e-history-validation-v2-20261024/source-archive.json",
+    ".cache/leona-e-history-validation-v3-20261024/source-archive.json",
+    ".cache/leona-e-history-validation-v4-20261024/source-archive.json",
+    ".cache/leona-e-history-validation-v5-20261024/source-archive.json",
+    ".cache/leona-e-history-validation-v6-20261024/source-archive.json"
+  ],
+  "nativeArchive": ".cache/leona-e-history-validation-v7-20261024/native-archive.json",
+  "buildArchive": ".cache/leona-e-history-validation-v4-20261024/generated-build-archive.json",
+  "reviewInputs": [
+    {
+      "file": "docs/LEONA-E-HISTORY.md",
+      "bytes": 7634,
+      "sha256": "3d4984a8f67463e2ef1125e50eb09ce29f449639e46c67804cb09743c2ffb3ed",
+      "archived": ".cache/leona-e-history-review-v1-20261024/review-inputs/docs/LEONA-E-HISTORY.md"
+    },
+    {
+      "file": "docs/LEONA.md",
+      "bytes": 28426,
+      "sha256": "e7858b8cde4d9cc05aaaa822332a3488c6d87272c62b5a1a579855478f659d60",
+      "archived": ".cache/leona-e-history-review-v1-20261024/review-inputs/docs/LEONA.md"
+    },
+    {
+      "file": "docs/LEONA-E-SOURCE.md",
+      "bytes": 9534,
+      "sha256": "c70ff1762d7ffd92c8e94676beddf2ff1eadc75c4b4835e91a78f9c9ae3c13e9",
+      "archived": ".cache/leona-e-history-review-v1-20261024/review-inputs/docs/LEONA-E-SOURCE.md"
+    },
+    {
+      "file": "docs/PROGRESS.md",
+      "bytes": 553432,
+      "sha256": "b616dc948def14461cfb8e2b6597ce7bb1c277f41fcff7b057f2813b8f7f008a",
+      "archived": ".cache/leona-e-history-review-v1-20261024/review-inputs/docs/PROGRESS.md"
+    },
+    {
+      "file": "tools/qa/verify-leona-e-history.mjs",
+      "bytes": 6415,
+      "sha256": "a998eadfa0052fd6074b364383abfdc43fec9226526bceedd122a04ed0d7716f",
+      "archived": ".cache/leona-e-history-review-v1-20261024/review-inputs/tools/qa/verify-leona-e-history.mjs"
+    }
+  ],
+  "evidence": [
+    {
+      "file": ".cache/leona-e-history-build-ledger.mjs",
+      "bytes": 4967,
+      "sha256": "fc814575aff02e136d14a86fb9edde8fd26a9104602d6843848688c91b098d06",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-build-ledger.mjs"
+    },
+    {
+      "file": ".cache/leona-e-history-freeze.mjs",
+      "bytes": 2007,
+      "sha256": "e3f2acd07b8a45300ef9f0877c24c8e625bd28aada5773edb3f1b9310cd4cc53",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-freeze.mjs"
+    },
+    {
+      "file": ".cache/leona-e-history-normal-smoke-v1-20261024/plan.json",
+      "bytes": 57941,
+      "sha256": "218219a7d641c8fe97455acdf430208c7c6cda253f72c6de00f0e3d28094b671",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-normal-smoke-v1-20261024/plan.json"
+    },
+    {
+      "file": ".cache/leona-e-history-normal-smoke-v1-20261024/seeds/38/report.json",
+      "bytes": 51085,
+      "sha256": "f056380381747392dcf300dee1bb0653c46f90f9aa03d18cb39c0d6e758cabe0",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-normal-smoke-v1-20261024/seeds/38/report.json"
+    },
+    {
+      "file": ".cache/leona-e-history-normal-smoke-v1-20261024/seeds/8/report.json",
+      "bytes": 51306,
+      "sha256": "845a5793d7ac15a193ead449cda7a94aad3589e05eaa76f36db2f72e3f0374d8",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-normal-smoke-v1-20261024/seeds/8/report.json"
+    },
+    {
+      "file": ".cache/leona-e-history-normal-smoke-v1-20261024/status.json",
+      "bytes": 120012,
+      "sha256": "dbc6307bb9991739f26dd5d9188b2fb1b84ffd7a237fb653459e2fdedd8d9784",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-normal-smoke-v1-20261024/status.json"
+    },
+    {
+      "file": ".cache/leona-e-history-normal-smoke-v1-20261024/summary.json",
+      "bytes": 120012,
+      "sha256": "5bccff56794dd9c02214283e17dfaeba15de3960f5003ceb745826129d268058",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-normal-smoke-v1-20261024/summary.json"
+    },
+    {
+      "file": ".cache/leona-e-history-production-v1.mjs",
+      "bytes": 22221,
+      "sha256": "9fbcbdeb0bcee5c5db9718fcd4ecf9f22f8f1bca2dbe3f561195cc5c37916605",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-production-v1.mjs"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v1-20261024/focused.log",
+      "bytes": 4087,
+      "sha256": "c93fc6d32ee3642224ea07d539eedb279f86e095e39edfdafaa68de4ea76b29a",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v1-20261024/focused.log"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v1-20261024/native-archive.json",
+      "bytes": 17294,
+      "sha256": "c3cdb748c5e2b4086ea496315d6dc98475811d5950be10286fa3c572f209b11e",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v1-20261024/native-archive.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v1-20261024/source-archive.json",
+      "bytes": 442808,
+      "sha256": "fb44154fb1afd218771713517bae9e416a19248cbee0db96797f05d80ef8ec45",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v1-20261024/source-archive.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v1-20261024/typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v1-20261024/typecheck.log"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v2-20261024/focused.log",
+      "bytes": 3238,
+      "sha256": "57b69bf87a5a543088027e35c6446ab0f9e32f8f6207cb037419f93c19a6c9be",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v2-20261024/focused.log"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v2-20261024/native-archive.json",
+      "bytes": 17294,
+      "sha256": "804d0e2b599de47b85ee164a4207c956efaeca76fb3fcb696b95899738a1c5c5",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v2-20261024/native-archive.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v2-20261024/source-archive.json",
+      "bytes": 442808,
+      "sha256": "09434ed10701ab79fabf2f96e567e09a028066f7caad6ae8c8ce059376276cba",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v2-20261024/source-archive.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v3-20261024/focused.log",
+      "bytes": 183,
+      "sha256": "9ecd777b9fe19eca5f535f097358ad1ccf1021d669d6ca6e67d1670f0760636a",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v3-20261024/focused.log"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v3-20261024/native-archive.json",
+      "bytes": 17294,
+      "sha256": "12c1ec8c85da29fa5640a539b7ed5c7bae985bb6e846031ddfe67e8dcdeed4ac",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v3-20261024/native-archive.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v3-20261024/source-archive.json",
+      "bytes": 442808,
+      "sha256": "974604a8db5e7f3293fcbab35a8ae45cd95d61ef5e4b5b977c32defd9d3371e3",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v3-20261024/source-archive.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/bounds-check.log",
+      "bytes": 162,
+      "sha256": "8592d471428e1dce2d76cc1ce5d11234304c643f772ce41901e276ac280d5b32",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/bounds-check.log"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/browser.log",
+      "bytes": 11653,
+      "sha256": "8e201298d7a5b2d9dbabc3a5b693abdd76313da1771714354d4cb49647bb03a3",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/browser.log"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/browser/.last-run.json",
+      "bytes": 243,
+      "sha256": "d27e22066f4b50a5ff0fd060aadedf8bf35bc50b98efca4d334b7eb4315997b3",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/browser/.last-run.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-arr-2e723-reload-and-following-combat/error-context.md",
+      "bytes": 8279,
+      "sha256": "1dd088135d953138b565442b5d8bc9df0e3e1fe0aa441f3238df04beb5428a06",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-arr-2e723-reload-and-following-combat/error-context.md"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-arr-2e723-reload-and-following-combat/test-failed-1.png",
+      "bytes": 865979,
+      "sha256": "61fad3e108084d49373c529f8b9701918bb06c5a10af4ded112864952a41d903",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-arr-2e723-reload-and-following-combat/test-failed-1.png"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-arr-2e723-reload-and-following-combat/trace.zip",
+      "bytes": 44365341,
+      "sha256": "251c2968fa91f3d37092cf913f80d56e39a020664a4c172ad89d57be4f92e711",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-arr-2e723-reload-and-following-combat/trace.zip"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-das-9d66f-reload-and-following-combat/error-context.md",
+      "bytes": 8260,
+      "sha256": "76cc196b60d6f49ce3e06d8a57a1aadbd867882b6d4e8c3ee78f4db3cfc41659",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-das-9d66f-reload-and-following-combat/error-context.md"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-das-9d66f-reload-and-following-combat/test-failed-1.png",
+      "bytes": 887777,
+      "sha256": "5c6c040eb79e7aa7bc0a4827b949dabdd4354bb98fcd7b3cd058b66c8cc996fc",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-das-9d66f-reload-and-following-combat/test-failed-1.png"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-das-9d66f-reload-and-following-combat/trace.zip",
+      "bytes": 44214905,
+      "sha256": "f47eb503d675c66f3b5dfe279d43646c9927f8737b08f3dbc9c7aecf72804467",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-das-9d66f-reload-and-following-combat/trace.zip"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-fli-db2bd-reload-and-following-combat/error-context.md",
+      "bytes": 8262,
+      "sha256": "04b0d81c0cf47f9e314f42e0cc87db7ee334abcdaaeb403ccbf25e92cdae04e8",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-fli-db2bd-reload-and-following-combat/error-context.md"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-fli-db2bd-reload-and-following-combat/test-failed-1.png",
+      "bytes": 889219,
+      "sha256": "095143dbda331d8c1e72d6f71c1d7b956a6b6a98e587fe146d4285fbd67e307d",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-fli-db2bd-reload-and-following-combat/test-failed-1.png"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-fli-db2bd-reload-and-following-combat/trace.zip",
+      "bytes": 44544167,
+      "sha256": "abf1c5af84c85955204ac54f71a31946bc4ba767deb16129d222eae730a8da7e",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-fli-db2bd-reload-and-following-combat/trace.zip"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-win-4f985-reload-and-following-combat/error-context.md",
+      "bytes": 8262,
+      "sha256": "dc0839a1065f4ac7de50b882d69601e85f00265f63103eace7001ad0c01378c8",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-win-4f985-reload-and-following-combat/error-context.md"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-win-4f985-reload-and-following-combat/test-failed-1.png",
+      "bytes": 888858,
+      "sha256": "9863f29c5d618e9fb9fb9abe3b0a73e64ea9fba31ff269be97b17f47ce6c0842",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-win-4f985-reload-and-following-combat/test-failed-1.png"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-win-4f985-reload-and-following-combat/trace.zip",
+      "bytes": 44601160,
+      "sha256": "9e4388f4829d099db375642ae6408059f86deab7de5f578f1fbb04cc4a920386",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/browser/leona-e-history-Zenith-win-4f985-reload-and-following-combat/trace.zip"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/browser/leona-fixture-gate-a-Leona-7ed10-ut-changing-its-saved-bytes/evidence.json",
+      "bytes": 36102,
+      "sha256": "1f92e94909d0bcbcd267386eb92f445b92dd2e2f96918ab71149c9b4c74d5e87",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/browser/leona-fixture-gate-a-Leona-7ed10-ut-changing-its-saved-bytes/evidence.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/browser/leona-fixture-gate-a-Leona-7ed10-ut-changing-its-saved-bytes/restored-source-rigs.png",
+      "bytes": 459228,
+      "sha256": "9670e8700459ea246aff643ea6d6b85ee40df2e42879797e975e2a40d9860ba0",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/browser/leona-fixture-gate-a-Leona-7ed10-ut-changing-its-saved-bytes/restored-source-rigs.png"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/build.log",
+      "bytes": 3028,
+      "sha256": "f5eb0ca9a48bc5af89327f2f982d93f6e3bd019a7c1303f92134b64d6937230e",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/build.log"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/generated-build-archive.json",
+      "bytes": 9234,
+      "sha256": "0924fcc50d09566b71e4c6adcc2d0b919eb4a8abfc0b05d1562c84e86d53a4ec",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/generated-build-archive.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/generated-build/offline-pack.json",
+      "bytes": 135388,
+      "sha256": "e09a662e29475431f573fb1dd810e6843ae2764281424f8e82e79276c705cd1a",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/generated-build/offline-pack.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/identity-only-comparison.json",
+      "bytes": 9643,
+      "sha256": "dc9f61298fba60fd857750aac63256c434be62f7bed3228d661de9368c34300b",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/identity-only-comparison.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/native-archive.json",
+      "bytes": 17294,
+      "sha256": "5c7282abfcc72722511b4546612dd537acc833ebd42f7a6eb217c457b7a9ab1d",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/native-archive.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/normal-verification.json",
+      "bytes": 279,
+      "sha256": "92ee6922d75a78648ff7c82dcaa3a70ab6bedc1bce0901e1d42ac62a2f704e73",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/normal-verification.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/normal.log",
+      "bytes": 929,
+      "sha256": "f986ad6aa602342a42e1517713a4afd95d9816baadcd31038a5fa31ae9e5a139",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/normal.log"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/production.json",
+      "bytes": 1878,
+      "sha256": "66278d80999f96998d461e0e1c5c445cca682ed0b6677e74154379cc506e3d60",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/production.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/production.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/production.stderr.log"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/production/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1812098,
+      "sha256": "57e036bb4e8f382950b03803216509ead3b07bb50935249f3c7f1f11d3a28977",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/production/lux-e-hit-production-companion-purchase.png"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/production/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1832743,
+      "sha256": "b5b8311dbdbebc8b03c7f1bfd466fc22b46914730207a8b610b2ebf69d312920",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/production/lux-e-hit-production-lux-e-moving-burst.png"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/production/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829310,
+      "sha256": "d2ca5efd1a092bc17c376a24218d9892ccce5e4161e956fcbc339595deed9d60",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/production/lux-e-hit-production-lux-e-source.png"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/production/lux-e-hit-production-lux.png",
+      "bytes": 1806077,
+      "sha256": "4d67779f217a839fde607866db59e4c097b89397cbfdc4e27309f1e049fefac5",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/production/lux-e-hit-production-lux.png"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/production/lux-e-hit-production-oracle.png",
+      "bytes": 1817809,
+      "sha256": "a89d5883e163e4673f03c85bc923fff0027ffe5b249ba003b9623f7950fe1c3c",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/production/lux-e-hit-production-oracle.png"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/production/lux-e-hit-production-role-match.png",
+      "bytes": 1346562,
+      "sha256": "3dbe240e03c381687a7d8b49a30a6a382356165c7f0ebdafd3e970b6ba39aec0",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/production/lux-e-hit-production-role-match.png"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/production/lux-e-hit-production-subpath.png",
+      "bytes": 1820011,
+      "sha256": "6a56e67752c1c7b8bf3fa8b9d985b3d552e0748fc063c387adef9561570d1610",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/production/lux-e-hit-production-subpath.png"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/production/lux-e-hit-production-ward.png",
+      "bytes": 1812460,
+      "sha256": "d7fb065061c991811c36ad770da45c0199e5838180a9e854eed42b2c227eea7b",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/production/lux-e-hit-production-ward.png"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/source-archive.json",
+      "bytes": 443079,
+      "sha256": "83b9047dbc9e218813408c3716f4a07bbe859ff6ab414b1d3245d80bef086b66",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/source-archive.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v4-20261024/standard.log",
+      "bytes": 3621,
+      "sha256": "fb0152e1f99f866b017bafe6e42e5f903b857adcd6fc3aaeb55516153fa3029a",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v4-20261024/standard.log"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v5-20261024/native-archive.json",
+      "bytes": 17294,
+      "sha256": "1e0b355a0e74cbb01399d7fef70506d66b97fb25d50d0347fded1268c6986774",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v5-20261024/native-archive.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v5-20261024/source-archive.json",
+      "bytes": 443079,
+      "sha256": "4d54d91ef2d6bcc06a3d75e46960bf8e05bea51a53db5af5d06bac9484b89d35",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v5-20261024/source-archive.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser.log",
+      "bytes": 4756,
+      "sha256": "daed29ed7d55407ab77f34cdf86a7f5c5debaecf1e412504fcac17a5cb488667",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser.log"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser/.last-run.json",
+      "bytes": 96,
+      "sha256": "9d67f0654d73f7deb57dbb12f273d786abec724e58cf0ddc060ec8784d7cfa69",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser/.last-run.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser/bot-wave-advance-a-bot-adv-e84cd--attacks-only-after-arrival/bot-wave-advance.json",
+      "bytes": 968,
+      "sha256": "c13ef5d59b648ef6782d65cd61d7cd4a19deee5beccf63f379da78410cf10153",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser/bot-wave-advance-a-bot-adv-e84cd--attacks-only-after-arrival/bot-wave-advance.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser/bot-wave-advance-a-bot-adv-e84cd--attacks-only-after-arrival/bot-wave-advance.png",
+      "bytes": 1401589,
+      "sha256": "3edcedac3c6e3b8e996f501b391ee8c9203fb80675905c7eb8e30b91bcbc7af9",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser/bot-wave-advance-a-bot-adv-e84cd--attacks-only-after-arrival/bot-wave-advance.png"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser/garen-aa-particles-a-later-37b50-e-the-viewing-team-audience/audience-evidence.json",
+      "bytes": 310,
+      "sha256": "7672c07a33ab4ecce6cebf2884976f9984f4cb2a866e88a3cef41b91f694eb10",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser/garen-aa-particles-a-later-37b50-e-the-viewing-team-audience/audience-evidence.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser/garen-aa-particles-an-acti-ffe0e--advancing-the-winning-save/recovery-terminal.json",
+      "bytes": 174,
+      "sha256": "773e52ac2e92575b6ee3d9ff1f98f11f656d49d22dfc5bdef63d0ee12008f40b",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser/garen-aa-particles-an-acti-ffe0e--advancing-the-winning-save/recovery-terminal.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/evidence.json",
+      "bytes": 33027,
+      "sha256": "179ae09b10504282ddeacf6b74cc8ced511b4952c10ce68ea92507bfb398d8b9",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/evidence.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 387,
+      "sha256": "961473bf0ae85cd501a1137c88d0e0a33dfae93ab385540961153290cace4830",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/pixel-probe.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 811608,
+      "sha256": "11e341c6ba1710f97fd314e8ba928edcd994c1efd4c2fd07a3fca94866a84bc3",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/source-particles.png"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/evidence.json",
+      "bytes": 33015,
+      "sha256": "8b3fef1bac06c4978b7f944b1ba9b05612cb7420df939b3229e73cd8d0f12c72",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/evidence.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 387,
+      "sha256": "2a20c157e802aae91091c925cd07ced32bc37208f60a9e7de6ab8aca92aac636",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/pixel-probe.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 818026,
+      "sha256": "976aafdb52ad88ea27619e1fc305fa6f15835658c3407e9e54b94b907cf6dc73",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/source-particles.png"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/evidence.json",
+      "bytes": 48575,
+      "sha256": "4949d4dbacfe24e84724a1d986a6f6ed0a9a15899c894551371da368bf7c3642",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/evidence.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 335,
+      "sha256": "37d556851c080116a61af43f105722d939a92d4c478c7e1a2bd996f669c5f2e1",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/pixel-probe.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 810719,
+      "sha256": "6bf4640df3463474c37cd8e2ba22ec2e774dbf2954b8c3d1db67a51798657cd7",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/source-particles.png"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser/leona-e-history-Zenith-arr-2e723-reload-and-following-combat/error-context.md",
+      "bytes": 8350,
+      "sha256": "f0171e4bf44e0252f239d0194852b18f3f77738af5f071937af5cc48574ddc33",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser/leona-e-history-Zenith-arr-2e723-reload-and-following-combat/error-context.md"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser/leona-e-history-Zenith-arr-2e723-reload-and-following-combat/test-failed-1.png",
+      "bytes": 866225,
+      "sha256": "a83218a6c2960c013f734d39224e18b6a72798cf0310e60b6cbad2e848c19855",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser/leona-e-history-Zenith-arr-2e723-reload-and-following-combat/test-failed-1.png"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser/leona-e-history-Zenith-arr-2e723-reload-and-following-combat/trace.zip",
+      "bytes": 44251572,
+      "sha256": "bca85176385486a5ee0cdaf6f255c3b4c26e2d5ec44ee7740f78190e5c200fe3",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser/leona-e-history-Zenith-arr-2e723-reload-and-following-combat/trace.zip"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser/leona-e-history-Zenith-das-9d66f-reload-and-following-combat/evidence.json",
+      "bytes": 261914,
+      "sha256": "96f53119b2bece7f91a6a8d1cfa2d3d992ea14e6af277260b49da15427112a2f",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser/leona-e-history-Zenith-das-9d66f-reload-and-following-combat/evidence.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser/leona-e-history-Zenith-fli-db2bd-reload-and-following-combat/evidence.json",
+      "bytes": 176184,
+      "sha256": "333b00aa34a67d48103d7b40de82de6220ff27ba89385e02a374072501f611a7",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser/leona-e-history-Zenith-fli-db2bd-reload-and-following-combat/evidence.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser/leona-e-history-Zenith-win-4f985-reload-and-following-combat/evidence.json",
+      "bytes": 142659,
+      "sha256": "14930f0c51e5737951a98cf8f62ef1ae063bb0a9c220d4cae146cf1ca72b2076",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser/leona-e-history-Zenith-win-4f985-reload-and-following-combat/evidence.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser/leona-fixture-gate-a-Leona-7ed10-ut-changing-its-saved-bytes/evidence.json",
+      "bytes": 36102,
+      "sha256": "1f92e94909d0bcbcd267386eb92f445b92dd2e2f96918ab71149c9b4c74d5e87",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser/leona-fixture-gate-a-Leona-7ed10-ut-changing-its-saved-bytes/evidence.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/browser/leona-fixture-gate-a-Leona-7ed10-ut-changing-its-saved-bytes/restored-source-rigs.png",
+      "bytes": 459228,
+      "sha256": "9670e8700459ea246aff643ea6d6b85ee40df2e42879797e975e2a40d9860ba0",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/browser/leona-fixture-gate-a-Leona-7ed10-ut-changing-its-saved-bytes/restored-source-rigs.png"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/native-archive.json",
+      "bytes": 17294,
+      "sha256": "e9e2175647dc9459ae1a8a082622516946e8410c8e360354a5c1247d87f4ac62",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/native-archive.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/offline.log",
+      "bytes": 687,
+      "sha256": "9a95d55407c40998f30b02630f7103e9b40b02e1d309923071360dc97111b63f",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/offline.log"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/source-archive.json",
+      "bytes": 443079,
+      "sha256": "5be1e95a3f02ae058b5c3d7ef81d2314580e10076dea49f3b7213fd8399b1c44",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/source-archive.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v6-20261024/standard.log",
+      "bytes": 2543,
+      "sha256": "8f83d459060641f4073308cf11954ae27b35964bc07471931000c1e4f00a22dd",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v6-20261024/standard.log"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v7-20261024/browser.log",
+      "bytes": 928,
+      "sha256": "4ebb50e6200690d9294ed906767dccec5252f532a218117bedcf8cc3685deda9",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v7-20261024/browser.log"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v7-20261024/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v7-20261024/browser/.last-run.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v7-20261024/browser/leona-e-history-Zenith-arr-2e723-reload-and-following-combat/evidence.json",
+      "bytes": 445075,
+      "sha256": "42de128bf03909e4515953e9ad4093724a0736d62f1470c8201b4a67b310d4ef",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v7-20261024/browser/leona-e-history-Zenith-arr-2e723-reload-and-following-combat/evidence.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v7-20261024/browser/leona-e-history-Zenith-das-9d66f-reload-and-following-combat/evidence.json",
+      "bytes": 261808,
+      "sha256": "1349abf928c79338a8d05d75bfff815fb0a666379245814234872bb98f5c1e88",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v7-20261024/browser/leona-e-history-Zenith-das-9d66f-reload-and-following-combat/evidence.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v7-20261024/browser/leona-e-history-Zenith-fli-db2bd-reload-and-following-combat/evidence.json",
+      "bytes": 176148,
+      "sha256": "b82bcf67631182645bd70767ae005abb028c7775f9924849c5d6ac0670053663",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v7-20261024/browser/leona-e-history-Zenith-fli-db2bd-reload-and-following-combat/evidence.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v7-20261024/browser/leona-e-history-Zenith-win-4f985-reload-and-following-combat/evidence.json",
+      "bytes": 142589,
+      "sha256": "c5d405ea9661743f3245ad1a15ef7b17c76b2fc47b71f7f266ebe012ebf2ff16",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v7-20261024/browser/leona-e-history-Zenith-win-4f985-reload-and-following-combat/evidence.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v7-20261024/delivery-input-comparison.json",
+      "bytes": 437,
+      "sha256": "7dd4363ebd7ec928a38fbe74793b4fcd5bc3c2d4334620f695c1ecd5a0a834bd",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v7-20261024/delivery-input-comparison.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v7-20261024/e2e-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v7-20261024/e2e-typecheck.log"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v7-20261024/native-archive.json",
+      "bytes": 17294,
+      "sha256": "4677a2e77c271b8da09a4f260d6e7036548b0ac7e5a42d12c675a1d842364ca3",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v7-20261024/native-archive.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v7-20261024/prior-source-integrity.json",
+      "bytes": 581,
+      "sha256": "413801fe059e3ebb1586555e69ddce3d3d5ad95e0e242530f15160da68595d8e",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v7-20261024/prior-source-integrity.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v7-20261024/source-archive.json",
+      "bytes": 443079,
+      "sha256": "96458931d77d300545abedf539286f117ed5bcccf4a2bf76e6795e3f8800c100",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v7-20261024/source-archive.json"
+    },
+    {
+      "file": ".cache/leona-e-history-validation-v7-20261024/standard.log",
+      "bytes": 988,
+      "sha256": "6a3034b00944a6cb34315b7ad08752ed1e8d286f176eefbf007e143cf5887233",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/.cache/leona-e-history-validation-v7-20261024/standard.log"
+    },
+    {
+      "file": "artifacts/offline-pack-leona-e-history-v1-20261024-production.json",
+      "bytes": 649,
+      "sha256": "c0def4dd9d17936ed174e1bb23f1fc3e3413b7d8f25c7eca53937a2ccd57355d",
+      "archived": ".cache/leona-e-history-review-v1-20261024/evidence/artifacts/offline-pack-leona-e-history-v1-20261024-production.json"
+    }
+  ],
+  "checks": {
+    "standard": ".cache/leona-e-history-validation-v7-20261024/standard.log",
+    "focused": ".cache/leona-e-history-validation-v3-20261024/focused.log",
+    "e2eTypecheck": ".cache/leona-e-history-validation-v7-20261024/e2e-typecheck.log",
+    "browser": ".cache/leona-e-history-validation-v7-20261024/browser.log",
+    "browserEvidence": [
+      ".cache/leona-e-history-validation-v7-20261024/browser/leona-e-history-Zenith-arr-2e723-reload-and-following-combat/evidence.json",
+      ".cache/leona-e-history-validation-v7-20261024/browser/leona-e-history-Zenith-das-9d66f-reload-and-following-combat/evidence.json",
+      ".cache/leona-e-history-validation-v7-20261024/browser/leona-e-history-Zenith-fli-db2bd-reload-and-following-combat/evidence.json",
+      ".cache/leona-e-history-validation-v7-20261024/browser/leona-e-history-Zenith-win-4f985-reload-and-following-combat/evidence.json"
+    ],
+    "adjacentBrowser": ".cache/leona-e-history-validation-v6-20261024/browser.log",
+    "bounds": ".cache/leona-e-history-validation-v4-20261024/bounds-check.log",
+    "build": ".cache/leona-e-history-validation-v4-20261024/build.log",
+    "production": ".cache/leona-e-history-validation-v4-20261024/production.json",
+    "offline": "artifacts/offline-pack-leona-e-history-v1-20261024-production.json",
+    "manifest": ".cache/leona-e-history-validation-v4-20261024/generated-build/offline-pack.json",
+    "normalVerification": ".cache/leona-e-history-validation-v4-20261024/normal-verification.json",
+    "normalComparison": ".cache/leona-e-history-validation-v4-20261024/identity-only-comparison.json",
+    "deliveryInputComparison": ".cache/leona-e-history-validation-v7-20261024/delivery-input-comparison.json",
+    "priorSourceIntegrity": ".cache/leona-e-history-validation-v7-20261024/prior-source-integrity.json"
+  },
+  "offlinePackId": "788ee79f3d67cba36d08e5479e5f643f31dbf1adc5ee357bd792c5c084058724",
+  "acceptance": {
+    "savedZenithHistory": true,
+    "sourceEVisualsIntegrated": false,
+    "sourceEAudioIntegrated": false,
+    "nativeBehaviorVerified": false,
+    "completeLeonaKit": false,
+    "hundredSeedInvariantGate": false,
+    "fullMatchPerformanceVerified": false,
+    "fullGoalComplete": false
+  },
+  "limits": [
+    "Generated lifetimes are conservative local retention bounds, including an explicit omitted-lifetime default and settlement updates; native dispatch/default/overlap semantics are not certified.",
+    "Saved internal consistency cannot authenticate every self-consistent edit or infer every deleted ended history from live gameplay alone.",
+    "The 1200-update homing pursuit is controlled history stress, not a production tactic certification.",
+    "Two ten-minute seed runs end unfinished; 72000 checked ticks are a smoke gate, not the full current cohort.",
+    "Production/offline build and normal evidence use runtime-identical V4 inputs; final V7 changes five test assertions only.",
+    "V4 preserves three concurrent 5000ms deadlines and one schema assertion failure; V6 preserves two deadline failures and the completed-history browser rejection probe. V7 standalone tests pass original deadlines and corrupt a required frame in all phases.",
+    "The current E still requires all source effects/materials/trails/skins and source audio. Player/support integration, full kit and all six champions remain open.",
+    "Native client/effect shaders were not executed. Local immutable cache archives are not Git/offline delivery payload."
+  ]
+}

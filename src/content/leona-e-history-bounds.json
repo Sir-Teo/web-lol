@@ -1,0 +1,277 @@
+{
+  "sourcePinSha256": "613560569d82f27abdf362a7065ad4645abb1637fbe55f8790e6d8769eb65f83",
+  "scope": "Conservative local saved-history retention. Not native dispatch/default/update evidence.",
+  "localOmittedParticleLifetimeSeconds": 1,
+  "settlementTicks": 2,
+  "bounds": {
+    "sound": 722,
+    "contact": 132,
+    "arrival": 209,
+    "dash": 39,
+    "weapon": 770,
+    "history": 770,
+    "sourceWindow": 771
+  },
+  "records": [
+    {
+      "system": "Leona_E_ZB_sfx_01",
+      "index": 0,
+      "name": "empty",
+      "particleLifeUpper": 1.0,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 10.0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 722
+    },
+    {
+      "system": "Leona_E_tar",
+      "index": 1,
+      "name": "FlashCoreHot",
+      "particleLifeUpper": 0.15000000596046448,
+      "windows": {
+        "lifetime": 0.3499999940395355,
+        "particleLinger": 0,
+        "emitterLinger": 1.0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 92
+    },
+    {
+      "system": "Leona_E_tar",
+      "index": 2,
+      "name": "Sparkles",
+      "particleLifeUpper": 0.75,
+      "windows": {
+        "lifetime": 0.30000001192092896,
+        "particleLinger": 1.0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0.10000000149011612
+      },
+      "historyTicks": 132
+    },
+    {
+      "system": "Leona_E_tar",
+      "index": 3,
+      "name": "up_glow",
+      "particleLifeUpper": 0.4000000059604645,
+      "windows": {
+        "lifetime": 0.10000000149011612,
+        "particleLinger": 0.5,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 63
+    },
+    {
+      "system": "Leona_E_tar",
+      "index": 4,
+      "name": "ant_dark",
+      "particleLifeUpper": 0.5,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 0.5,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 122
+    },
+    {
+      "system": "Leona_E_cas_arrive",
+      "index": 2,
+      "name": "Avatar_Burst",
+      "particleLifeUpper": 0.3499999940395355,
+      "windows": {
+        "lifetime": 0.10000000149011612,
+        "particleLinger": 3.0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 209
+    },
+    {
+      "system": "Leona_E_mis_dash",
+      "index": 2,
+      "name": "Lightburst-horiz1",
+      "particleLifeUpper": 0.30000001192092896,
+      "windows": {
+        "lifetime": 0.30000001192092896,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 39
+    },
+    {
+      "system": "Leona_E_mis_dash",
+      "index": 3,
+      "name": "Lightburst-vert1",
+      "particleLifeUpper": 0.30000001192092896,
+      "windows": {
+        "lifetime": 0.30000001192092896,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 39
+    },
+    {
+      "system": "Leona_E_mis_weapon",
+      "index": 3,
+      "name": "Bullets",
+      "particleLifeUpper": 1.0,
+      "windows": {
+        "lifetime": 0.25,
+        "particleLinger": 0.10000000149011612,
+        "emitterLinger": 0.20000000298023224,
+        "timeBeforeFirstEmission": 0.05000000074505806
+      },
+      "historyTicks": 99
+    },
+    {
+      "system": "Leona_E_mis_weapon",
+      "index": 4,
+      "name": "Bullets1",
+      "particleLifeUpper": 1.0,
+      "windows": {
+        "lifetime": 0.25,
+        "particleLinger": 0.20000000298023224,
+        "emitterLinger": 0.20000000298023224,
+        "timeBeforeFirstEmission": 0.05000000074505806
+      },
+      "historyTicks": 105
+    },
+    {
+      "system": "Leona_E_mis_weapon",
+      "index": 6,
+      "name": "Sparks",
+      "particleLifeUpper": 0.5,
+      "windows": {
+        "lifetime": 1.0,
+        "particleLinger": 10.5,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 722
+    },
+    {
+      "system": "Leona_E_mis_weapon",
+      "index": 7,
+      "name": "Kayn_Primay_Broken",
+      "particleLifeUpper": 0.5,
+      "windows": {
+        "lifetime": 0.3499999940395355,
+        "particleLinger": 0.5,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 83
+    },
+    {
+      "system": "Leona_E_mis_weapon",
+      "index": 11,
+      "name": "GroundGlow",
+      "particleLifeUpper": 0.5,
+      "windows": {
+        "lifetime": 0.25,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0.05000000074505806
+      },
+      "historyTicks": 51
+    },
+    {
+      "system": "Leona_E_mis_weapon",
+      "index": 12,
+      "name": "BG",
+      "particleLifeUpper": 1.0,
+      "windows": {
+        "lifetime": 0,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 62
+    },
+    {
+      "system": "Leona_E_mis_weapon",
+      "index": 13,
+      "name": "Trail1",
+      "particleLifeUpper": 0.4000000059604645,
+      "windows": {
+        "lifetime": 0.4000000059604645,
+        "particleLinger": 0.4000000059604645,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 75
+    },
+    {
+      "system": "Leona_E_mis_weapon",
+      "index": 14,
+      "name": "cone_add",
+      "particleLifeUpper": 0.4000000059604645,
+      "windows": {
+        "lifetime": 0.800000011920929,
+        "particleLinger": 0.20000000298023224,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 87
+    },
+    {
+      "system": "Leona_E_mis_weapon",
+      "index": 15,
+      "name": "Sparklies",
+      "particleLifeUpper": 0.8999999761581421,
+      "windows": {
+        "lifetime": 0.44999998807907104,
+        "particleLinger": 1.0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 143
+    },
+    {
+      "system": "Leona_E_mis_weapon",
+      "index": 17,
+      "name": "Bokeh",
+      "particleLifeUpper": 1.600000023841858,
+      "windows": {
+        "lifetime": 0.5,
+        "particleLinger": 10.699999809265137,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 770
+    },
+    {
+      "system": "Leona_E_mis_weapon",
+      "index": 18,
+      "name": "sword2",
+      "particleLifeUpper": 1.0,
+      "windows": {
+        "lifetime": 0,
+        "particleLinger": 0,
+        "emitterLinger": 0,
+        "timeBeforeFirstEmission": 0
+      },
+      "historyTicks": 62
+    },
+    {
+      "system": "Leona_E_mis_weapon",
+      "index": 19,
+      "name": "groundswordGlow",
+      "particleLifeUpper": 1.0,
+      "windows": {
+        "lifetime": 0.25,
+        "particleLinger": 0.10000000149011612,
+        "emitterLinger": 0.20000000298023224,
+        "timeBeforeFirstEmission": 0.05000000074505806
+      },
+      "historyTicks": 99
+    }
+  ]
+}

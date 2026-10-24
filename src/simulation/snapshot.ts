@@ -1,5 +1,7 @@
 import { validateDaybreakVisuals } from './leona-q-visuals';
 import { validateEclipseVisuals } from './leona-w-visuals';
+import { validateZenithVisuals } from './leona-e-visual-validation';
+import zenithTiming from '../content/leona-e-history-bounds.json';
 import eclipseTiming from '../content/leona-w-presentation.json';
 import {
   LEONA_Q_CAST_TAIL_TICKS,
@@ -119,7 +121,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 124;
+export const SNAPSHOT_VERSION = 125;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -527,6 +529,20 @@ const daybreakRig = z.enum([
   ...Object.keys(STRUCTURE_ANIMATION_PROFILES),
 ] as [ImpactRig, ...ImpactRig[]]);
 const eclipseRig = z.enum(Object.keys(MOBILE_CLIP_DURATIONS) as [ImpactRig, ...ImpactRig[]]);
+const zenithRootFrame = z.strictObject({
+  tick,
+  x: z.number(),
+  y: z.number(),
+  facing: z.number(),
+  audience: z
+    .array(team)
+    .max(2)
+    .refine((v) => new Set(v).size === v.length),
+});
+const zenithDashEnd = z.enum(['arrived', 'control', 'target-lost', 'flash', 'death', 'match-end']);
+const zenithFlightTicks = Math.ceil(
+  (LEONA_SPELLS.e.missile.castRange * TICK_RATE) / LEONA_SPELLS.e.missile.speed
+);
 const player: z.ZodType<PlayerState> = z
   .strictObject({
     role: z.enum(MATCH_ROLES).nullable(),
@@ -776,6 +792,113 @@ const player: z.ZodType<PlayerState> = z
       })
       .nullable(),
     leonaDash: z.strictObject({ castTick: tick, startTick: tick, targetId: id }).nullable(),
+    leonaEVisuals: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          rank: z.number().int().min(1).max(5),
+          radius: z.number().positive(),
+          direction: point,
+          castFrame: zenithRootFrame,
+          endTick: tick.nullable(),
+          endReason: z
+            .enum(['range', 'arrived', 'control', 'target-lost', 'flash', 'death', 'match-end'])
+            .nullable(),
+          death: z
+            .strictObject({
+              tick,
+              level: z.number().int().min(1).max(MAX_LEVEL),
+              respawnTick: tick,
+              frame: zenithRootFrame,
+            })
+            .nullable(),
+          frames: z.array(zenithRootFrame).min(1).max(zenithTiming.bounds.sourceWindow),
+          flight: z
+            .strictObject({
+              id,
+              startTick: tick,
+              origin: point,
+              audience: z
+                .array(team)
+                .max(2)
+                .refine((v) => new Set(v).size === v.length),
+              stopTick: tick.nullable(),
+              endReason: z.enum(['range', 'match-end']).nullable(),
+              frames: z
+                .array(
+                  z.strictObject({
+                    tick,
+                    x: z.number(),
+                    y: z.number(),
+                    remaining: z.number().min(0).max(LEONA_SPELLS.e.missile.castRange),
+                    audience: z
+                      .array(team)
+                      .max(2)
+                      .refine((v) => new Set(v).size === v.length),
+                  })
+                )
+                .min(1)
+                .max(zenithFlightTicks),
+              contacts: z
+                .array(
+                  z.strictObject({
+                    tick,
+                    fraction: z.number().min(0).max(1),
+                    point,
+                    targetId: id,
+                    targetKind: z.enum([
+                      'champion',
+                      'melee',
+                      'caster',
+                      'siege',
+                      'super',
+                      'dummy',
+                      'monster',
+                    ]),
+                    targetTeam: faction,
+                    targetRig: eclipseRig.nullable(),
+                    radius: z.number().positive(),
+                    audience: z
+                      .array(team)
+                      .max(2)
+                      .refine((v) => new Set(v).size === v.length),
+                    detachedTick: tick.nullable(),
+                    frames: z.array(daybreakFrame).min(1).max(zenithTiming.bounds.contact),
+                  })
+                )
+                .max(10000),
+            })
+            .nullable(),
+          dash: z
+            .strictObject({
+              startTick: tick,
+              targetId: id,
+              startFrame: zenithRootFrame,
+              stopTick: tick.nullable(),
+              endReason: zenithDashEnd.nullable(),
+              stopFrame: zenithRootFrame.nullable(),
+              stopCause: z
+                .strictObject({
+                  attemptPoint: point,
+                  rootUntil: deadline,
+                  stunUntil: deadline,
+                  targetAlive: z.boolean(),
+                  targetPoint: point.nullable(),
+                  targetRadius: z.number().positive(),
+                })
+                .nullable(),
+            })
+            .nullable(),
+          arrival: z
+            .strictObject({
+              tick,
+              detachedTick: tick.nullable(),
+              frames: z.array(daybreakFrame).min(1).max(zenithTiming.bounds.arrival),
+            })
+            .nullable(),
+        })
+      )
+      .max(zenithTiming.bounds.history + 2),
     leonaW: z
       .strictObject({
         startTick: tick,
@@ -3325,6 +3448,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       throw new Error('Saved match contains invalid Eclipse state.');
     validateDaybreakVisuals(owner, champion, state);
     validateEclipseVisuals(owner, champion, state);
+    validateZenithVisuals(owner, champion, state);
     const daybreak = owner.leonaQ;
     if (
       daybreak &&

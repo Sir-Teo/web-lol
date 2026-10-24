@@ -7,6 +7,7 @@ const sourceRoots = ['src/simulation', 'src/content'];
 // Fetched Rift data and source presentation tables behind generated retention
 // constants have no direct module edge. Preserve their explicit compatibility pins.
 const pinnedData = [
+  'docs/reference/leona-e-particles.json',
   'src/content/leona-w-particles.json',
   'docs/reference/leona-w-particles-decoded.json',
   'docs/reference/leona-w-particle-profiles.json',

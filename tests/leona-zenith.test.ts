@@ -271,6 +271,7 @@ test('dash tracks a moved target, buffers orders and stops on root, stun, death 
     f.w.step(3);
     expect(f.state.leonaDash).not.toBeNull();
     target.y = 150;
+    f.w.step(); // Finalize the scripted target move before taking a checkpoint.
     if (cause === 'order') f.w.setOrder(f.leona, { type: 'move', point: { x: -500, y: 0 } });
     if (cause === 'root') f.w.applyRoot(f.leona, 60);
     if (cause === 'stun') f.w.applyStun(f.leona, 60);

@@ -152,3 +152,12 @@ is saved E phase/contact/flight/dash/arrival history, authored emissions and
 trails, mesh/skin/quad/billboard material dispatch and source audio. Native CPU/
 frame/listening comparison, Leona player/support integration and the full
 six-champion match requirements remain open. The full project goal stays active.
+
+
+## Subsequent saved-history integration — October 24, 2026
+
+[Zenith histories](LEONA-E-HISTORY.md) now bind conservative retention bounds to
+all twenty enabled declarations and save the gameplay phase/contact/dash/arrival
+history required for later playback. This source-package audit remains historical
+schema-124 evidence; the new history increment uses schema 125. Source drawing,
+trails/materials/skin dispatch, audio and native acceptance remain unfinished.
