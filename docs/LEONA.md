@@ -382,3 +382,7 @@ complete six-character milestone cannot pass from payload-only tests.
 The complete [Eclipse source dependency set](LEONA-W-SOURCE.md) now retains all
 five standard-game systems, fifty emitter records, 36 textures and six custom
 meshes. W playback, attached-skin materials and source audio still require integration.
+
+The [Eclipse attached-skin material](LEONA-W-SKIN-MATERIAL.md) now has compiled
+shader arithmetic evidence and a posed source-rig diagnostic. Match-owned W
+playback remains unfinished.

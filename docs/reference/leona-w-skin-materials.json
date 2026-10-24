@@ -1,0 +1,323 @@
+{
+  "profiles": [
+    {
+      "system": "Leona_W_buf_1",
+      "index": 4,
+      "name": "Avatar_Continuous",
+      "texture": "assets/effects/leona_base_w_avatarmask.png",
+      "fresnel": 0.05000000074505806,
+      "fresnelColor": [
+        1.0,
+        0.7411764860153198,
+        0.3764705955982208
+      ],
+      "birthColor": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "color": {
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ]
+      },
+      "erosion": null,
+      "particleLife": -1.0,
+      "particleLinger": 3.0,
+      "birthCount": 2.0,
+      "sourceFields": [
+        "__type",
+        "alphaRef",
+        "bindWeight",
+        "birthColor",
+        "blendMode",
+        "depthBiasFactors",
+        "disableBackfaceCull",
+        "emitterName",
+        "isSingleParticle",
+        "isUniformScale",
+        "lifetime",
+        "particleIsLocalOrientation",
+        "particleLifetime",
+        "particleLinger",
+        "primitive",
+        "rate",
+        "reflectionDefinition",
+        "texture"
+      ]
+    },
+    {
+      "system": "Leona_W_buf_1",
+      "index": 5,
+      "name": "Avatar_Burst",
+      "texture": "assets/effects/leona_base_w_avatarmask.png",
+      "fresnel": 0.15000000596046448,
+      "fresnelColor": [
+        1.0,
+        0.7411764860153198,
+        0.3764705955982208
+      ],
+      "birthColor": [
+        1.0,
+        0.6901960968971252,
+        0.3137255012989044,
+        1.0
+      ],
+      "color": {
+        "times": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        ]
+      },
+      "erosion": {
+        "texture": "assets/effects/leona_base_w_avatarmask_erosion.png",
+        "mixer": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "featherIn": 0.1,
+        "featherOut": 0.1,
+        "sliceWidth": 1.5,
+        "drive": {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            1.0
+          ]
+        }
+      },
+      "particleLife": 0.75,
+      "particleLinger": 3.0,
+      "birthCount": 1.0,
+      "sourceFields": [
+        "Color",
+        "__type",
+        "alphaErosionDefinition",
+        "alphaRef",
+        "bindWeight",
+        "birthColor",
+        "blendMode",
+        "depthBiasFactors",
+        "disableBackfaceCull",
+        "emitterName",
+        "isSingleParticle",
+        "isUniformScale",
+        "lifetime",
+        "particleIsLocalOrientation",
+        "particleLifetime",
+        "particleLinger",
+        "primitive",
+        "rate",
+        "reflectionDefinition",
+        "texture"
+      ]
+    },
+    {
+      "system": "Leona_W_buf_1",
+      "index": 6,
+      "name": "Avatar_Burst1",
+      "texture": "assets/effects/leona_base_w_avatarmask.png",
+      "fresnel": 0.15000000596046448,
+      "fresnelColor": [
+        1.0,
+        0.7411764860153198,
+        0.3764705955982208
+      ],
+      "birthColor": [
+        1.0,
+        0.29019609093666077,
+        0.16470588743686676,
+        1.0
+      ],
+      "color": {
+        "times": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        ]
+      },
+      "erosion": {
+        "texture": "assets/effects/leona_base_w_avatarmask_erosion.png",
+        "mixer": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "featherIn": 0.3499999940395355,
+        "featherOut": 0.3499999940395355,
+        "sliceWidth": 1.5,
+        "drive": {
+          "times": [
+            0.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            1.0
+          ]
+        }
+      },
+      "particleLife": 1.5,
+      "particleLinger": 3.0,
+      "birthCount": 1.0,
+      "sourceFields": [
+        "Color",
+        "__type",
+        "alphaErosionDefinition",
+        "alphaRef",
+        "bindWeight",
+        "birthColor",
+        "blendMode",
+        "depthBiasFactors",
+        "disableBackfaceCull",
+        "emitterName",
+        "isSingleParticle",
+        "isUniformScale",
+        "lifetime",
+        "particleIsLocalOrientation",
+        "particleLifetime",
+        "particleLinger",
+        "primitive",
+        "rate",
+        "reflectionDefinition",
+        "texture"
+      ]
+    },
+    {
+      "system": "Leona_W_buf_2",
+      "index": 2,
+      "name": "Avatar_Continuous",
+      "texture": "assets/effects/leona_base_w_avatarmask.png",
+      "fresnel": 0.05000000074505806,
+      "fresnelColor": [
+        1.0,
+        0.7411764860153198,
+        0.3764705955982208
+      ],
+      "birthColor": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "color": {
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ]
+      },
+      "erosion": null,
+      "particleLife": -1.0,
+      "particleLinger": 3.0,
+      "birthCount": 2.0,
+      "sourceFields": [
+        "__type",
+        "alphaRef",
+        "bindWeight",
+        "birthColor",
+        "blendMode",
+        "depthBiasFactors",
+        "disableBackfaceCull",
+        "emitterName",
+        "isSingleParticle",
+        "isUniformScale",
+        "lifetime",
+        "particleIsLocalOrientation",
+        "particleLifetime",
+        "particleLinger",
+        "primitive",
+        "rate",
+        "reflectionDefinition",
+        "texture"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "path": "docs/reference/leona-w-particles.json",
+      "sha256": "1284da05e4d12497d4041ec88a4a4dc133e29ee56727e39fdb91784ac36af5f0"
+    },
+    {
+      "path": "docs/reference/leona-w-particles-decoded.json",
+      "sha256": "325082384d32fc6bd03fca8d234ff08dc7a27c63a6b8424f06e054021532c9ee"
+    },
+    {
+      "path": "docs/reference/leona-w-skin-shaders.json",
+      "sha256": "22d114caa9f392f733949859d75e5b9c278688d821e7408096c0f47576ae1448"
+    },
+    {
+      "path": "docs/reference/lux-beam-erosion.json",
+      "sha256": "36c527912e7faafe5a77205ea751813aba43e11c0c3b75979c0e360bed6e758b"
+    },
+    {
+      "path": "public/assets/models/leona-base.glb",
+      "sha256": "5b845c3ba98ca15fdf61bb3eb549d54b858709c051c3c03f1cb26f76c890e5a9"
+    },
+    {
+      "path": "public/assets/models/leona-base.json",
+      "sha256": "e3a64ec2fe9d8a9e450050aa2e708079d62ea30e467d274b3c400ce45c45e7f4"
+    }
+  ],
+  "defaults": {
+    "erosionMixer": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "erosionFeather": 0.1,
+    "erosionSliceWidth": 1.5,
+    "evidence": "docs/reference/lux-beam-erosion.json",
+    "nativeCpuDefaultsVerified": false
+  },
+  "status": "All four source attached-skin material descriptions. Shader arithmetic is separately checked; native dispatch/global remap/samplers and complete W playback remain unverified."
+}

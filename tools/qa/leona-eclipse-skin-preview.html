@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eclipse attached-skin material inspection</title>
+<link rel="icon" href="data:,">
+<style>
+  body{margin:0;background:#10171e;color:#edddaf;font:16px system-ui}header{padding:20px 32px}h1{font-size:24px;margin:0 0 8px}p{margin:8px 0;color:#adb8bc}button{padding:8px 20px;background:#243c43;color:inherit;border:1px solid #b99c52;cursor:pointer}canvas{width:100%;display:block}.names{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;font-size:14px}#status{padding:12px 32px}
+</style>
+<header><h1>Eclipse attached-skin materials</h1><p>Source mesh and textures · explicit clip/phase sampling · native dispatch and framebuffer comparison still open</p>
+<button id="idle">W idle</button> <button id="walk">W walk</button> <button id="burst">Burst erosion</button></header>
+<div class="names"><span>Initial continuous rim</span><span>Initial burst</span><span>Second burst</span><span>Extended continuous rim</span></div>
+<canvas id="view"></canvas><p id="status">Loading source rig…</p>
+<script type="module" src="./leona-eclipse-skin-preview.ts"></script>
+</html>

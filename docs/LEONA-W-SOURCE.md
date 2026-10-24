@@ -99,3 +99,7 @@ node tools/qa/verify-leona-w-source.mjs
 
 Use `--historical` after later canonical changes. These checks establish source
 packaging and delivery behavior; Eclipse runtime and native acceptance remain open.
+
+The four attached-character records now have a separately verified
+[skin material and posed-rig inspection](LEONA-W-SKIN-MATERIAL.md). Full W
+particle scheduling and match rendering remain unfinished.

@@ -1,0 +1,52 @@
+{
+  "scope": "Static compiled shader arithmetic and local GLSL reconstruction. CPU dispatch/bindings, native samplers, actual Leona variant selection and native frames remain unverified.",
+  "nativePin": "docs/reference/leona-w-skin-shaders.json",
+  "findings": [
+    {
+      "id": "LEONA-W-SKIN-RIM-001",
+      "program": 67,
+      "defines": {
+        "DISABLE_FOW": "1",
+        "REFLECTIVE": "1"
+      },
+      "observation": "Pre-tint source/lookup alpha carries interpolated rim RGB; RGB clamps to [0,1]. Particle tint alpha does not carry the rim.",
+      "ssa": "19=base*lookup;20=19*tint;33=splat(19.a);40=cubeTerm+COLOR0;41=40*33;42=41+remappedRGB;43=clamp(42)."
+    },
+    {
+      "id": "LEONA-W-SKIN-EROSION-001",
+      "program": 287,
+      "defines": {
+        "DISABLE_FOW": "1",
+        "REFLECTIVE": "1",
+        "ALPHA_EROSION": "1"
+      },
+      "observation": "Erosion samples transformed base UVs, clamps channel dot, computes the feathered band and multiplies only base*tint alpha. Rim uses original base alpha.",
+      "ssa": "16=15*tint;30=splat(15.a);38=(cubeTerm+COLOR0)*30;44=clamp(dot(erosion,mixer));55=clamp((drive-[value-width,value])*rates);59=(55.x-55.y)*16.a;60=clamp(rgb)."
+    },
+    {
+      "id": "LEONA-W-SKIN-REMAP-001",
+      "program": 67,
+      "defines": {
+        "DISABLE_FOW": "1",
+        "REFLECTIVE": "1"
+      },
+      "observation": "Global remap samples luma at row .5; positive remap alpha replaces RGB, while output alpha remains base*lookup*tint alpha.",
+      "ssa": "22=dot(tintedRGB,[.2126,.7152,.0722]);24=sample(globalRemap,[22,.5]);27=select(24.a>0,24,20);45.w=20.a."
+    }
+  ],
+  "vertex": {
+    "program": 81,
+    "observation": "Vertex world normal and view ray produce clamped facing; COLOR0 is (1-pow(facing,vFresnel.w))*vFresnel.rgb.",
+    "ssa": "75=clamp(dot(-viewRay,worldNormal));109=pow(75,vFresnel.w);113=(1-109)*vFresnel.rgb."
+  },
+  "localChoices": [
+    "No authored skin color lookup is treated as a neutral binding.",
+    "No authored reflection cube map draws the rim alone.",
+    "Global remap is bypassed unless explicitly provided.",
+    "WebGL polygon offset -1/-1 approximates the authored depth bias.",
+    "Missing erosion sampler/mixer/feather/slice defaults follow the pinned external reconstruction."
+  ],
+  "nativeExecuted": false,
+  "nativeRenderingVerified": false,
+  "runtimeWIntegrated": false
+}

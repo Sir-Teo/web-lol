@@ -6,7 +6,7 @@ Last updated: October 23, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current TypeScript and validation pass 1,615 source/simulation/geometry/dependency/storage/audit checks across 279 files with two Vitest workers, plus three Node QA checks. Eclipse source preparation adds eight asset checks and repeats production/offline validation; W playback is still unfinished. The latest Leona Q source-particle integration passes sixteen targeted Chrome cases, production smoke and two ten-minute normal-roster smokes, as detailed below. The preceding Sunlight integration passed thirteen targeted Chrome cases, production smoke and two ten-minute normal-roster smokes. The preceding NPC rig integration passed ten targeted Chrome cases. The preceding Leona Solar Flare development simulation passed seven targeted Chrome cases. The earlier [Garen basic-attack particle increment](GAREN-AA-PARTICLES.md) passed thirteen targeted Chrome cases and production smoke; the complete browser suite was not repeated. The first cohort-fix increment passed 1,457 checks across 265 files. Sixteen targeted Chrome scenarios and the production smoke pass for the first cohort fixes. The preceding harness increment passed 1,452 checks across 263 files. Eleven new fault-injection/observation checks protect the frozen match-cohort runner; the preceding offline increment passed 1,441 checks across 262 files. A real production Chrome audit downloads and verifies the full offline pack, starts the game and Lux 5v5 with networking disabled, restores a saved tick, and tests two-version activation, repair and saved-data preservation. The preceding compatibility audit passed 1,432 checks and 17 targeted Chrome cases for Garen basic audio, both ordinary swings, selection and match transfer. The save-dependency audit also passes six isolated Vite/Chrome observations across five compiled identities. The preceding Garen increment passed 1,422 checks and 50 targeted Chrome cases for basic/passive/spell audio, player controls and match transfer. The previous passive-audio increment passed 1,414 checks and 35 focused Chrome cases. The preceding particle increment passed 1,407 checks and 22 Chrome cases including selection, match transfer and graphics recovery. The previous distortion increment passed 1,401 checks and 29 focused Chrome cases for its material/copy stage and adjacent E effects/audio/saves/fog/result playback. The previous source-audio increment passed 1,375 checks and 30 targeted Chrome cases. The preceding moving-particle increment passed 31 targeted Chrome cases including GPU products/blends, wave clearing and file transfer. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current TypeScript and validation pass 1,618 source/simulation/geometry/dependency/storage/audit checks across 280 files with two Vitest workers, plus three Node QA checks. Eclipse attached-skin materials also pass four diagnostic Chrome cases; match-owned W playback remains unfinished. Eclipse source preparation adds eight asset checks and repeats production/offline validation; W playback is still unfinished. The latest Leona Q source-particle integration passes sixteen targeted Chrome cases, production smoke and two ten-minute normal-roster smokes, as detailed below. The preceding Sunlight integration passed thirteen targeted Chrome cases, production smoke and two ten-minute normal-roster smokes. The preceding NPC rig integration passed ten targeted Chrome cases. The preceding Leona Solar Flare development simulation passed seven targeted Chrome cases. The earlier [Garen basic-attack particle increment](GAREN-AA-PARTICLES.md) passed thirteen targeted Chrome cases and production smoke; the complete browser suite was not repeated. The first cohort-fix increment passed 1,457 checks across 265 files. Sixteen targeted Chrome scenarios and the production smoke pass for the first cohort fixes. The preceding harness increment passed 1,452 checks across 263 files. Eleven new fault-injection/observation checks protect the frozen match-cohort runner; the preceding offline increment passed 1,441 checks across 262 files. A real production Chrome audit downloads and verifies the full offline pack, starts the game and Lux 5v5 with networking disabled, restores a saved tick, and tests two-version activation, repair and saved-data preservation. The preceding compatibility audit passed 1,432 checks and 17 targeted Chrome cases for Garen basic audio, both ordinary swings, selection and match transfer. The save-dependency audit also passes six isolated Vite/Chrome observations across five compiled identities. The preceding Garen increment passed 1,422 checks and 50 targeted Chrome cases for basic/passive/spell audio, player controls and match transfer. The previous passive-audio increment passed 1,414 checks and 35 focused Chrome cases. The preceding particle increment passed 1,407 checks and 22 Chrome cases including selection, match transfer and graphics recovery. The previous distortion increment passed 1,401 checks and 29 focused Chrome cases for its material/copy stage and adjacent E effects/audio/saves/fog/result playback. The previous source-audio increment passed 1,375 checks and 30 targeted Chrome cases. The preceding moving-particle increment passed 31 targeted Chrome cases including GPU products/blends, wave clearing and file transfer. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -4897,3 +4897,70 @@ E/R presentation, complete champion interactions, controls/support AI and the
 full six-champion/full-match/browser/offline/performance acceptance also remain
 open. Nothing was pushed; the full goal stays active. See
 [Eclipse source dependencies](LEONA-W-SOURCE.md).
+
+
+## Eclipse attached-skin arithmetic and diagnostic rig — October 23, 2026
+
+The four source attached-character material descriptions now have a dedicated
+skin-capable material and a development inspection page. A fresh static reading
+retains two complete skin-particle shader TOCs, five bundles and ten selected
+Metal/AIR programs from the frozen Riot manifest: seven fragment and three
+vertex permutations. No native shader or client was executed. Original bytes,
+bitcode slices, disassembly, compiler version and limits remain pinned.
+
+The native skin path carries Fresnel rim RGB by texture alpha before particle
+tint, saturates RGB and erodes only output alpha. The global remap replaces RGB
+only when its sampled alpha is positive, preserving drawn alpha. This avoids
+losing the rim on the two source continuous layers whose birth RGB is black.
+Both source burst erosion descriptions retain their original maps/curves and
+separately labeled defaults. UV transformation also feeds erosion sampling.
+Double-sided single-pass source additive blending and borrowed-resource disposal
+are checked. WebGL depth bias and neutral missing global bindings remain local
+choices. The four source skin records author no reflection cube or color lookup;
+actual native global bindings, samplers and variant dispatch remain unknown.
+
+All 1,618 tests across 280 files, TypeScript and three Node QA checks pass at v4.
+The final v5 changes only the diagnostic preview and browser test, whose explicit
+TypeScript and four Chrome cases pass. There are 185 analytical/pinned-texel GPU
+probes with a one-channel-level error bound, including pre-tint alpha, black tint,
+RGB saturation, remap alpha preservation, erosion channel mixing and transformed
+UVs. All four authored materials use the source mask pixels. The original Leona
+rig is posed at explicit W idle, walk and attack clip times and compared with
+CPU-deformed positions/normals. Sparse floating-point differences peak at six
+channel levels: three walking pixels and one attack pixel differ by more than
+one level. The documented diagnostic budget is eight levels and at most one in
+ten thousand visible pixels; this is not native-frame parity. Repeated GPU
+poses and graphics recovery are byte-identical. Final startup visibility is
+required in all four material columns. Source idle/attack captures were reviewed.
+
+The first GPU run preserves an unstable nominally perpendicular probe normal,
+a missing favicon, a nullable skeleton-matrix declaration and an overly strict
+zero-difference CPU expectation. A symmetric diagnostic normal now cancels its
+perpendicular terms exactly; source equations and pixels remain unchanged.
+Later diagnostic captures show a clear-color reset after context restoration;
+a scene background now restores the exact frame. Screenshot review then caught
+readiness being published before the initial skin draw appeared. The preview
+now completes another draw before readiness, with explicit per-column checks.
+All earlier source archives, failures and passing intermediate output remain
+frozen rather than being overwritten.
+
+Schema/ruleset remain **123** /
+`18058f085b96c376177780b67d7783fbb24ce283043ecca3daf394c80fcecb30`.
+Final source/QA inputs are retained in
+`.cache/leona-w-skin-material-validation-v5-20261023` (331 files); v4 retains the
+full unit/build run. Each native archive preserves 37 files. All 28 generated
+production files remain byte-identical to the preceding source-asset build,
+including the offline manifest and worker. Its fresh production/offline audit
+is retained; those browser flows, full normal cohorts and the Q suite were not
+repeated for this unused diagnostic material. The [material ledger](reference/leona/w-skin-material-verification.json)
+and `node tools/qa/verify-leona-w-skin-material.mjs` verify current/archive pins,
+recorded numeric/rig checks and unchanged production bytes. Use `--historical`
+after later changes.
+
+This is one material instance per source description, not emitter birth-count or
+full W playback acceptance. All enabled W ray/mesh/quad/billboard layers,
+UV/palette/soft-particle/distortion stages, phase/contact dispatch, saved poses/
+audiences, stop/death/recast/victory, runtime retirement, source audio and native
+comparison remain required. E/R presentation, controls/support AI, complete kits,
+full roster/match/browser/offline/performance acceptance remain open. This agent
+did not push; the full goal stays active. See [skin material](LEONA-W-SKIN-MATERIAL.md).

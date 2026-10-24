@@ -153,6 +153,17 @@
       "localObservation": "All source definitions and pixels re-decode exactly; mesh conversion retains UV seams, original/scaled positions, four vertex-BGRA streams and two face-RGB streams. Full per-emitter field coverage is recorded without marking playback implemented.",
       "acceptance": "Implement all enabled attached-skin, ray, mesh, billboard and quad layers, source shader/UV/distortion stages, phase/contact dispatch, saved audiences/poses, death/stop/result playback, resource recovery/disposal and audio; then compare native behavior and frames.",
       "tests": "tests/leona-w-source.test.ts"
+    },
+    {
+      "id": "LEONA-W-SKIN-MATERIAL-001",
+      "status": "static-native-arithmetic-and-local-gpu-checked-runtime-unintegrated",
+      "reference": "Ten selected native skin-particle Metal/AIR permutations retain rim alpha, saturation, conditional global remap and erosion arithmetic; four authored W attached-skin material descriptions are exported.",
+      "localObservation": "185 numeric GPU probes, three explicitly posed source-rig comparisons within the documented sparse floating-point budget, exact repeated/recovered GPU frames and per-column startup visibility. Material equations and source pixels are unchanged by diagnostic repairs.",
+      "acceptance": "Wire every enabled W family, authored counts, phase/contact/audience history and complete resource lifecycle; establish native dispatch, global bindings, samplers, full client frames and audio.",
+      "tests": [
+        "tests/leona-eclipse-skin-material.test.ts",
+        "e2e/leona-eclipse-skin-material.spec.ts"
+      ]
     }
   ],
   "nativeBehaviorVerified": false,

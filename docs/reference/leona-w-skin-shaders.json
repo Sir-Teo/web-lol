@@ -1,0 +1,415 @@
+{
+  "scope": "Ten selected native skin-particle Metal permutations, statically decoded; no native shader/client executed.",
+  "limits": [
+    "Selected permutations do not establish Leona native CPU dispatch, uniforms, samplers, fog, blending or client-frame parity.",
+    "Canonical Metal and AIR bitcode bytes are retained. Clang retargets textual IR to the host with LLVM passes disabled."
+  ],
+  "tables": [
+    {
+      "path": "assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal",
+      "stage": 1,
+      "defines": {
+        "SEPARATE_ALPHA_UV": "1",
+        "DISABLE_FOW": "1",
+        "REFLECTIVE": "1",
+        "MASKED": "1",
+        "SCREEN_SPACE_UV": "1",
+        "COLORPALETTE_COLORBLIND": "1",
+        "PALETTIZE_TEXTURES": "1",
+        "ALPHA_EROSION": "1",
+        "ALPHA_TEST": "1",
+        "MULT_PASS": "1"
+      },
+      "variantCount": 1024,
+      "programs": 1024
+    },
+    {
+      "path": "assets/shaders/hlsl/skinnedmesh/particle_vs.vs-metal",
+      "stage": 0,
+      "defines": {
+        "LOCAL_SPACE_UV": "1",
+        "SEPARATE_ALPHA_UV": "1",
+        "DISABLE_FOW": "1",
+        "USE_VERTEX_COLORS": "1",
+        "REFLECTIVE": "1",
+        "MASKED": "1",
+        "SCREEN_SPACE_UV": "1",
+        "MULT_PASS": "1"
+      },
+      "variantCount": 256,
+      "programs": 192
+    }
+  ],
+  "selections": [
+    {
+      "table": "assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal",
+      "defines": {
+        "DISABLE_FOW": "1"
+      },
+      "programId": 11,
+      "bundle": "assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal_0",
+      "index": 11,
+      "metallib": {
+        "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-11.metallib",
+        "bytes": 3934,
+        "sha256": "9aafc8fe2b07c5d5420210480ed0cacfd37f3667660cfdf3b13d8d74336524d3"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-11.bc",
+        "bytes": 3668,
+        "offset": 258,
+        "sha256": "309d5813af1a49768eb3e2d1bde6e1e20dd11423449ac352d283062d3336232e"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-11.ll",
+        "sha256": "f28455ab4950f09659f536b6c6a850c8c325a16209f8f6a23c56009ad5d78989"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "REFLECTIVE": "1"
+      },
+      "programId": 67,
+      "bundle": "assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal_0",
+      "index": 67,
+      "metallib": {
+        "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-67.metallib",
+        "bytes": 4286,
+        "sha256": "7521c21850bf2cfcef2067a033e762485a55d273f7e20852540cf5e0bd8660d4"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-67.bc",
+        "bytes": 4020,
+        "offset": 258,
+        "sha256": "e6f4b985195fff008757a9bb0c65d6698d053e42b0a89d70bbbc4f857d3959f6"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-67.ll",
+        "sha256": "b810bc94d3b6783d3b10c3aeccc4d09782534193b5070d4d326191b437b7a23f"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "REFLECTIVE": "1",
+        "ALPHA_EROSION": "1"
+      },
+      "programId": 287,
+      "bundle": "assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal_200",
+      "index": 87,
+      "metallib": {
+        "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-287.metallib",
+        "bytes": 4638,
+        "sha256": "3c8309d0a5ba85a1aa6b3c2209261997177453aece77dfc120ebb1e761a16620"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-287.bc",
+        "bytes": 4372,
+        "offset": 258,
+        "sha256": "a13afa778f61a920fe25053145c7007b6d8a4bafa21124e7310bb566e1aafa78"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-287.ll",
+        "sha256": "487a42ccdea648047ff399947eab6679831760b17b36d940408f8cd2cc001168"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "ALPHA_EROSION": "1"
+      },
+      "programId": 34,
+      "bundle": "assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal_0",
+      "index": 34,
+      "metallib": {
+        "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-34.metallib",
+        "bytes": 4174,
+        "sha256": "f766696d141aa3b772612ec73476e9c745e3b7dceb84410b4de68a7190442fcd"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-34.bc",
+        "bytes": 3904,
+        "offset": 258,
+        "sha256": "135d2eab28dc3145cfda8a6cb4262ad51613f06581b428997bdd98427b4a0f21"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-34.ll",
+        "sha256": "c80c8d2ac98e335b1274dc2bc981e2b2b970e2b8b335475f0e16038ba3fd0073"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "REFLECTIVE": "1",
+        "MULT_PASS": "1"
+      },
+      "programId": 40,
+      "bundle": "assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal_0",
+      "index": 40,
+      "metallib": {
+        "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-40.metallib",
+        "bytes": 4206,
+        "sha256": "d30380e106d4ec9dcbe4e019f306ca34f5bbc1da4099fdd5442806cb3303e001"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-40.bc",
+        "bytes": 3944,
+        "offset": 258,
+        "sha256": "6779d065cc73e2b093ce915006db106f766787fd93d86a94b9ddcbf6d1db5a6b"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-40.ll",
+        "sha256": "17bc8d6a0b901ee39b10fc3d5c1b6cd1d61c526d21446905d06d85296355d4ec"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "REFLECTIVE": "1",
+        "ALPHA_TEST": "1"
+      },
+      "programId": 156,
+      "bundle": "assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal_100",
+      "index": 56,
+      "metallib": {
+        "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-156.metallib",
+        "bytes": 4478,
+        "sha256": "e872a5e364d7c3768818de84a35735ee81df1ecbbea26eaef3df9fe54af65f5b"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-156.bc",
+        "bytes": 4216,
+        "offset": 258,
+        "sha256": "5dc65a823c980af600a1ebe3f677723e7c313443bf401eacc16d82d89dc1d718"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-156.ll",
+        "sha256": "cd87ceeebd614d8614a349070879e5e1d7c80de968abf6c2d2f0d38ffa860689"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal",
+      "defines": {
+        "REFLECTIVE": "1"
+      },
+      "programId": 114,
+      "bundle": "assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal_100",
+      "index": 14,
+      "metallib": {
+        "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-114.metallib",
+        "bytes": 4398,
+        "sha256": "606332fbc93756d14286cdfcc5ba0e5a0f26dd8f0ba1739e8cc803c57cacb4d8"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-114.bc",
+        "bytes": 4136,
+        "offset": 258,
+        "sha256": "611780b9cf11e1796cddd290959097a7f7c09f5bc8f5c2e555b6e3053231f3e1"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-114.ll",
+        "sha256": "ddef6212df1e3807e81754ce42dd3343f60a2254c9191ece65155c449993c3e1"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/skinnedmesh/particle_vs.vs-metal",
+      "defines": {},
+      "programId": 5,
+      "bundle": "assets/shaders/hlsl/skinnedmesh/particle_vs.vs-metal_0",
+      "index": 5,
+      "metallib": {
+        "path": ".cache/leona-w-skin-shaders/particle_vs.vs-metal-5.metallib",
+        "bytes": 5547,
+        "sha256": "c1d65ae75e02de6584f7f8d8bfb64ac91b34d1e72c714fe492b89382915e3678"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-skin-shaders/particle_vs.vs-metal-5.bc",
+        "bytes": 5228,
+        "offset": 319,
+        "sha256": "e44916f7dd78cbd5bf048b19d844b8b2c35f8e0dfd80b25a7c2bf575dc062629"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-skin-shaders/particle_vs.vs-metal-5.ll",
+        "sha256": "bc13db4bf591d8c899490c542246f74e3093c64beffbb04fa4a36a57bc7f9108"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/skinnedmesh/particle_vs.vs-metal",
+      "defines": {
+        "REFLECTIVE": "1"
+      },
+      "programId": 81,
+      "bundle": "assets/shaders/hlsl/skinnedmesh/particle_vs.vs-metal_0",
+      "index": 81,
+      "metallib": {
+        "path": ".cache/leona-w-skin-shaders/particle_vs.vs-metal-81.metallib",
+        "bytes": 5771,
+        "sha256": "98052ec5674d8eb894ebc960c9f568c7d8012cc65ab87f9889a29897c53b015b"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-skin-shaders/particle_vs.vs-metal-81.bc",
+        "bytes": 5452,
+        "offset": 319,
+        "sha256": "4fe0352dbd46a812f7cff04252014131d7b45fc242f2a0aa2376daafb651774a"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-skin-shaders/particle_vs.vs-metal-81.ll",
+        "sha256": "f5fee2452c8d1f316273ce13e1063ec326f502d83b04a4fd9a4a126eea8efc1f"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/skinnedmesh/particle_vs.vs-metal",
+      "defines": {
+        "REFLECTIVE": "1",
+        "USE_VERTEX_COLORS": "1"
+      },
+      "programId": 108,
+      "bundle": "assets/shaders/hlsl/skinnedmesh/particle_vs.vs-metal_100",
+      "index": 8,
+      "metallib": {
+        "path": ".cache/leona-w-skin-shaders/particle_vs.vs-metal-108.metallib",
+        "bytes": 5844,
+        "sha256": "173f6c22e9d0791f26cf6ed166db910ddfb0032389b6494bc2de1f7f5e62beb7"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-skin-shaders/particle_vs.vs-metal-108.bc",
+        "bytes": 5504,
+        "offset": 328,
+        "sha256": "74a6dc9bd1773384904a6170ab7b7afabb5728441b06ca7e96c6490026f144ab"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-skin-shaders/particle_vs.vs-metal-108.ll",
+        "sha256": "ea3bda49aa3a0ba60da00bbb070987872a2ac0c17b16eef46516e78b4a761e90"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    }
+  ],
+  "extraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/ShaderCache.metal.wad.client",
+    "chunks": {
+      "45E944192F8380B7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/89CB95BFED6F5D6B.bundle",
+        "offset": 15109374,
+        "bytes": 51065,
+        "sha256": "b32acb9ce2eab9db5da8ab75af82f63811ff6866f71099d321b9090ca43db635"
+      },
+      "6FE1047E06FC2403": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6DAB806BF6A97337.bundle",
+        "offset": 11647088,
+        "bytes": 9931,
+        "sha256": "c0d756f71e8fb6b7aa2ef442106d9d2a0679198d183a6e3dde9118c18d4ab057"
+      },
+      "06CBAE062C32B700": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6DAB806BF6A97337.bundle",
+        "offset": 15765163,
+        "bytes": 2535,
+        "sha256": "7fe99861d8cc977b61ab4f197453dde6b1d75ae80d9bc0fc0bbfd9fc190282f6"
+      },
+      "008B9BE290FBE999": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/CF1DC8511AA5BC6F.bundle",
+        "offset": 20780842,
+        "bytes": 46700,
+        "sha256": "895ea33c59ebe6f3c3910172d2aea7383af46ad1a1287046080dc14447e1fa6a"
+      },
+      "8360B9765C753D39": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9336F6644B7D44D0.bundle",
+        "offset": 44643861,
+        "bytes": 57679,
+        "sha256": "8ad1ec2a4e0e8f0af9510871ea4ba4d97d3b6bae62a6a1037eeff34cbbe7e445"
+      },
+      "3767DDDB0E0B065E": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/CF1DC8511AA5BC6F.bundle",
+        "offset": 34939527,
+        "bytes": 58750,
+        "sha256": "2822af162e8742661b542c39297f6192e57ed5db62938e7ca1adfda5a75c0cb4"
+      },
+      "04909B07E562AA0C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6DAB806BF6A97337.bundle",
+        "offset": 7173676,
+        "bytes": 61652,
+        "sha256": "4be09e4cd264be0469acf934a7cd8e6f5267ee930c09486f0e716149266a8b36"
+      },
+      "D7361377B5CA7D46": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BC83F0F7AC98DE26.bundle",
+        "offset": 12570798,
+        "bytes": 53754,
+        "sha256": "29c548df3b1afc4b9e9e77862c1377e1cda4fd02e5aedbc1e9638f9a4ef17139"
+      }
+    },
+    "files": [
+      {
+        "path": "assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal",
+        "wadPathHash": "dd7650cd780c10b8",
+        "sha256": "e38b0f01bb7db3b833c9174570e15e510eb359e87f609d6ca8b453fc2c5f91a7",
+        "bytes": 12562
+      },
+      {
+        "path": "assets/shaders/hlsl/skinnedmesh/particle_vs.vs-metal",
+        "wadPathHash": "c2421ef18293168a",
+        "sha256": "883c94f561e86a7fefa5137979cceb76b1ca416e85fb96e60b4023afa859a6a7",
+        "bytes": 3295
+      },
+      {
+        "path": "assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal_0",
+        "wadPathHash": "63f5f0cde51a2f64",
+        "sha256": "6bc394193026df46cab5d182b8b7e0e0e58f064211827039d223c4e938c48019",
+        "bytes": 418600
+      },
+      {
+        "path": "assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal_100",
+        "wadPathHash": "968c53d5e0070b4f",
+        "sha256": "ea97d90eb21f2272a674e50cfdbc088e9183ec2ddd37c5cabed12e05b42485d5",
+        "bytes": 447048
+      },
+      {
+        "path": "assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal_200",
+        "wadPathHash": "d8708466107b7276",
+        "sha256": "4a5c5fef015bb6e85b3d183ff1d07d7e0dac078ce9c9d0c9d9b9be29b1869b5a",
+        "bytes": 460936
+      },
+      {
+        "path": "assets/shaders/hlsl/skinnedmesh/particle_vs.vs-metal_0",
+        "wadPathHash": "c545157a7f6450a9",
+        "sha256": "2e476043d18dd7b927ed23e4b060ffef9616378fb24f7c43f0e43303d4406cba",
+        "bytes": 569081
+      },
+      {
+        "path": "assets/shaders/hlsl/skinnedmesh/particle_vs.vs-metal_100",
+        "wadPathHash": "651810c9bac625f9",
+        "sha256": "134ef66da29b2171d207a5caea66c4eff0df4918018b087a53c00224aee6b8ed",
+        "bytes": 546647
+      }
+    ]
+  },
+  "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
+  "disassemblyCommand": [
+    "clang",
+    "-S",
+    "-emit-llvm",
+    "-Xclang",
+    "-disable-llvm-passes",
+    "INPUT.bc",
+    "-o",
+    "OUTPUT.ll"
+  ]
+}

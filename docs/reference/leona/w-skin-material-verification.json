@@ -1,0 +1,549 @@
+{
+  "date": "2026-10-23",
+  "scope": "Four source Eclipse attached-character material descriptions, dedicated GLSL skin material, 185 numeric GPU probes and three posed-rig comparisons. Match-owned W scheduling/rendering, native CPU bindings/dispatch/samplers and native client frames remain unfinished.",
+  "schema": 123,
+  "ruleset": "18058f085b96c376177780b67d7783fbb24ce283043ecca3daf394c80fcecb30",
+  "sourceBaseline": "fdaf7003d2712a826553a0bec75e80262ff7720a",
+  "sourceArchive": ".cache/leona-w-skin-material-validation-v5-20261023/source-archive.json",
+  "unitSourceArchive": ".cache/leona-w-skin-material-validation-v4-20261023/source-archive.json",
+  "earlierSourceArchives": [
+    ".cache/leona-w-skin-material-validation-v1-20261023/source-archive.json",
+    ".cache/leona-w-skin-material-validation-v2-20261023/source-archive.json",
+    ".cache/leona-w-skin-material-validation-v3-20261023/source-archive.json",
+    ".cache/leona-w-skin-material-validation-v4-20261023/source-archive.json"
+  ],
+  "nativeArchive": ".cache/leona-w-skin-material-validation-v5-20261023/native-archive.json",
+  "preservedArchives": [
+    ".cache/leona-w-skin-material-validation-v1-20261023/native-archive.json",
+    ".cache/leona-w-skin-material-validation-v2-20261023/native-archive.json",
+    ".cache/leona-w-skin-material-validation-v3-20261023/native-archive.json",
+    ".cache/leona-w-skin-material-validation-v4-20261023/native-archive.json",
+    ".cache/leona-w-skin-material-validation-v5-20261023/native-archive.json",
+    ".cache/leona-w-skin-material-validation-v5-20261023/generated-build-archive.json",
+    ".cache/leona-w-skin-material-validation-v5-20261023/particle-source-archive.json"
+  ],
+  "reviewInputs": [
+    {
+      "file": "docs/LEONA.md",
+      "bytes": 26398,
+      "sha256": "e42727d5919a9dffdffe907344986182123cd95eaf219c9839c22832eb2bc178",
+      "archived": ".cache/leona-w-skin-material-validation-v5-20261023/review-inputs-v1/docs/LEONA.md"
+    },
+    {
+      "file": "docs/LEONA-W-SOURCE.md",
+      "bytes": 5672,
+      "sha256": "d69a4695427e0f29c81da27b5b1b65eb5573e690076efdb1e315904952f0994b",
+      "archived": ".cache/leona-w-skin-material-validation-v5-20261023/review-inputs-v1/docs/LEONA-W-SOURCE.md"
+    },
+    {
+      "file": "docs/LEONA-W-SKIN-MATERIAL.md",
+      "bytes": 6177,
+      "sha256": "2fa20180016f210a5bbe46ab0f34ee322ecaacfdfb3b8c7787a15e8acc5a5d3d",
+      "archived": ".cache/leona-w-skin-material-validation-v5-20261023/review-inputs-v1/docs/LEONA-W-SKIN-MATERIAL.md"
+    },
+    {
+      "file": "docs/PROGRESS.md",
+      "bytes": 536287,
+      "sha256": "e26176b3605d02171eb8fa0639d08748d12fc9d194b516a87b32c6a9ad029924",
+      "archived": ".cache/leona-w-skin-material-validation-v5-20261023/review-inputs-v1/docs/PROGRESS.md"
+    },
+    {
+      "file": "docs/reference/leona/combat-policy-audit.json",
+      "bytes": 15738,
+      "sha256": "9a68a0c476d49fb6b5f814ea2531deea04e478ac0438d9b8c31d88731cffa4bb",
+      "archived": ".cache/leona-w-skin-material-validation-v5-20261023/review-inputs-v1/docs/reference/leona/combat-policy-audit.json"
+    },
+    {
+      "file": "docs/reference/leona-w-skin-reading.json",
+      "bytes": 2391,
+      "sha256": "d4b130e9ea2a631858a58db47bb09ddfc721a1b4d233670acd751fc223c6d9fe",
+      "archived": ".cache/leona-w-skin-material-validation-v5-20261023/review-inputs-v1/docs/reference/leona-w-skin-reading.json"
+    },
+    {
+      "file": "tools/qa/verify-leona-w-skin-material.mjs",
+      "bytes": 5094,
+      "sha256": "2fbda1a431c3d75dadae8bb526fe92f18a0a4651dc438f499201b0018b60ed7c",
+      "archived": ".cache/leona-w-skin-material-validation-v5-20261023/review-inputs-v1/tools/qa/verify-leona-w-skin-material.mjs"
+    }
+  ],
+  "checks": {
+    "typecheck": ".cache/leona-w-skin-material-validation-v4-20261023/typecheck.log",
+    "standard": ".cache/leona-w-skin-material-validation-v4-20261023/tests.log",
+    "nodeQa": ".cache/leona-w-skin-material-validation-v4-20261023/node-qa.log",
+    "qaTypes": ".cache/leona-w-skin-material-validation-v5-20261023/qa-types.log",
+    "chrome": ".cache/leona-w-skin-material-validation-v5-20261023/browser.log",
+    "rim": ".cache/leona-w-skin-material-validation-v5-20261023/browser-results/leona-eclipse-skin-materia-782bd-aps-without-replacing-alpha/rim-remap.json",
+    "erosion": ".cache/leona-w-skin-material-validation-v5-20261023/browser-results/leona-eclipse-skin-materia-a2c1b-ollows-transformed-base-UVs/erosion-uv.json",
+    "texels": ".cache/leona-w-skin-material-validation-v5-20261023/browser-results/leona-eclipse-skin-materia-59a2c-nned-mask-texels-on-the-GPU/source-texels.json",
+    "animated": ".cache/leona-w-skin-material-validation-v5-20261023/browser-results/leona-eclipse-skin-materia-c1a39-t-and-recovers-exact-pixels/animated-recovery.json",
+    "deployment": ".cache/leona-w-skin-material-validation-v5-20261023/deployment-identity.json",
+    "priorIntegrity": ".cache/leona-w-skin-material-validation-v5-20261023/prior-integrity.log"
+  },
+  "reviewedCaptures": [
+    ".cache/leona-w-skin-material-validation-v5-20261023/browser-results/leona-eclipse-skin-materia-59a2c-nned-mask-texels-on-the-GPU/source-skin.png",
+    ".cache/leona-w-skin-material-validation-v5-20261023/browser-results/leona-eclipse-skin-materia-c1a39-t-and-recovers-exact-pixels/animated-skin.png"
+  ],
+  "limits": {
+    "analyticalChannelLevels": 1,
+    "cpuImageChannelLevels": 8,
+    "cpuSignificantPixelFraction": 0.0001,
+    "contextRecoveryExact": true
+  },
+  "failures": [
+    {
+      "sourceArchive": ".cache/leona-w-skin-material-validation-v1-20261023/source-archive.json",
+      "browser": ".cache/leona-w-skin-material-validation-v1-20261023/browser.log",
+      "types": ".cache/leona-w-skin-material-validation-v1-20261023/qa-types.log",
+      "reason": "The diagnostic perpendicular normal accumulated positive dot rounding amplified by source power .05; a symmetric basis now cancels exactly. Added a data favicon and typed the explicitly updated skeleton matrix. The initial CPU assumption required zero >1-level differences; measured sparse double/float32 differences are retained and bounded explicitly, without changing source arithmetic."
+    },
+    {
+      "sourceArchive": ".cache/leona-w-skin-material-validation-v2-20261023/source-archive.json",
+      "browser": ".cache/leona-w-skin-material-validation-v2-20261023/browser.log",
+      "reason": "Three numeric/texture Chrome cases passed; recovery failed because the preview clear color reset to black."
+    },
+    {
+      "sourceArchive": ".cache/leona-w-skin-material-validation-v3-20261023/source-archive.json",
+      "browser": ".cache/leona-w-skin-material-validation-v3-20261023/browser.log",
+      "reason": "Recorded all posed CPU/GPU differences and exact repeated GPU draws; recovery showed almost the whole background changed from RGB 16/23/30 to black. Reapply background through the scene after restoration."
+    },
+    {
+      "sourceArchive": ".cache/leona-w-skin-material-validation-v4-20261023/source-archive.json",
+      "browser": ".cache/leona-w-skin-material-validation-v4-20261023/browser.log",
+      "capture": ".cache/leona-w-skin-material-validation-v4-20261023/browser-results/leona-eclipse-skin-materia-59a2c-nned-mask-texels-on-the-GPU/source-skin.png",
+      "reason": "All four Chrome cases passed, but screenshot review caught startup before the first skin draw appeared. Final preview draws again before readiness and requires visible pixels in all four columns."
+    }
+  ],
+  "acceptance": {
+    "skinMaterialDiagnosticPassed": true,
+    "nativeExecuted": false,
+    "runtimeWIntegrated": false,
+    "nativeRenderingVerified": false,
+    "completeLeonaKit": false,
+    "sourceAudioIntegrated": false,
+    "productionRosterExpanded": false,
+    "normalCohortRepeated": false,
+    "fullBrowserSuiteRepeated": false
+  },
+  "evidence": [
+    {
+      "file": ".cache/leona-w-skin-material-export-v1.log",
+      "bytes": 96,
+      "sha256": "87764f5e8cab8257aa4a4e7a911fa384a37a71ad53b3857c8af7a7868e1af9de"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-freeze.mjs",
+      "bytes": 2180,
+      "sha256": "15aa46c1d62dcb732e28e4069d670593ddd3baf71caddd7846e3747def9efeda"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-ledger-v1.mjs",
+      "bytes": 5847,
+      "sha256": "a3d77165fa0fe0af3681289fb9f0022ba11e970ba831725be692b2aba4176e69"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v1-20261023/browser-results/.last-run.json",
+      "bytes": 243,
+      "sha256": "61896013b185fd9a7ec6c40ac3ccad6e9987fb92d0e3228aa0da977196e443f1"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v1-20261023/browser-results/leona-eclipse-skin-materia-523e0-on-and-recover-exact-pixels/error-context.md",
+      "bytes": 6610,
+      "sha256": "c95955c05168a5b84ad77a5fe5b69374f43d2edc745b3181107e80594d743e5c"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v1-20261023/browser-results/leona-eclipse-skin-materia-523e0-on-and-recover-exact-pixels/test-failed-1.png",
+      "bytes": 127148,
+      "sha256": "54163463bee5be5ee2b8f1da8be62cf6a4409dad5c073eb5853d22632741dabc"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v1-20261023/browser-results/leona-eclipse-skin-materia-523e0-on-and-recover-exact-pixels/trace.zip",
+      "bytes": 2683256,
+      "sha256": "d705071da08b5ebb23a7f720d2c87ea63bbfaad0f84a93122682f5bd901b6d8a"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v1-20261023/browser-results/leona-eclipse-skin-materia-59a2c-nned-mask-texels-on-the-GPU/error-context.md",
+      "bytes": 8206,
+      "sha256": "1e1d46fa5b497f677aa2b0b2f0bcc78f57ffbea5ada95bb003cf1bd37049cf03"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v1-20261023/browser-results/leona-eclipse-skin-materia-59a2c-nned-mask-texels-on-the-GPU/test-failed-1.png",
+      "bytes": 124595,
+      "sha256": "7509728edada0aa11faa76225b150e41e9d1aecfa786da46d099b44dd54c2000"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v1-20261023/browser-results/leona-eclipse-skin-materia-59a2c-nned-mask-texels-on-the-GPU/trace.zip",
+      "bytes": 2663607,
+      "sha256": "1a38087861e8ca5f394df2f2ed3d1fe37943be81e2f537aab0bbc8900dbaff21"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v1-20261023/browser-results/leona-eclipse-skin-materia-782bd-aps-without-replacing-alpha/error-context.md",
+      "bytes": 7475,
+      "sha256": "9560077e3b996415df3263033b87f5851d3a158aa8f86ac00f3a48f3848724cb"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v1-20261023/browser-results/leona-eclipse-skin-materia-782bd-aps-without-replacing-alpha/test-failed-1.png",
+      "bytes": 124595,
+      "sha256": "7509728edada0aa11faa76225b150e41e9d1aecfa786da46d099b44dd54c2000"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v1-20261023/browser-results/leona-eclipse-skin-materia-782bd-aps-without-replacing-alpha/trace.zip",
+      "bytes": 2638479,
+      "sha256": "c200de0eacb70828a08456be93fd013a956bef9febf75f9588e88f80bd4123f4"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v1-20261023/browser-results/leona-eclipse-skin-materia-a2c1b-ollows-transformed-base-UVs/error-context.md",
+      "bytes": 9265,
+      "sha256": "5f5fa2f8d50d0b8f2d109b8283d4a88858e1411e28257458213ffea00a352be8"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v1-20261023/browser-results/leona-eclipse-skin-materia-a2c1b-ollows-transformed-base-UVs/test-failed-1.png",
+      "bytes": 124595,
+      "sha256": "7509728edada0aa11faa76225b150e41e9d1aecfa786da46d099b44dd54c2000"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v1-20261023/browser-results/leona-eclipse-skin-materia-a2c1b-ollows-transformed-base-UVs/trace.zip",
+      "bytes": 2642526,
+      "sha256": "a5d0669c95d30618c545f0383ff02da7603dcca762f574696e92997455089049"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v1-20261023/browser.log",
+      "bytes": 11870,
+      "sha256": "b74b9d4bacf1d18d613ae2e9c20e7f908d54e25ae404f4cce4b429e2a219591a"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v1-20261023/focused.log",
+      "bytes": 194,
+      "sha256": "3bf075e9db7d880c57faefcb0e9deab3915c5622ccbbf5375b2c97a2111d2978"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v1-20261023/native-archive.json",
+      "bytes": 11878,
+      "sha256": "9938d7809cd17448fa0ed26b773ee4d895ae118802094dc574c03d7cdf59bbad"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v1-20261023/qa-types.log",
+      "bytes": 239,
+      "sha256": "00d23d8fa7820bace5598c5bf70ca47383e8ffef03097735779cb607437eb79a"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v1-20261023/source-archive.json",
+      "bytes": 97377,
+      "sha256": "10691f0a3538a3dc91187efab9431ecb875b9e2f1be55678e8f397a707b1ed58"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v2-20261023/browser-results/.last-run.json",
+      "bytes": 96,
+      "sha256": "2300fd659e14d75706774c41c69d36bd9e646692be2b0913926d59724cacc520"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v2-20261023/browser-results/leona-eclipse-skin-materia-523e0-on-and-recover-exact-pixels/error-context.md",
+      "bytes": 5906,
+      "sha256": "61163cca1f7de88c31429a37bf928240fd11f02e54056951176c100bbb19e0d4"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v2-20261023/browser-results/leona-eclipse-skin-materia-523e0-on-and-recover-exact-pixels/test-failed-1.png",
+      "bytes": 115058,
+      "sha256": "6fe7599a29ef3720fdae31b8af27d273c3cd58ffd867dff22c9603c8ee38f883"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v2-20261023/browser-results/leona-eclipse-skin-materia-523e0-on-and-recover-exact-pixels/trace.zip",
+      "bytes": 2726529,
+      "sha256": "82dd5c25452e381f956901486178fd3fe6f573a5cc73c2c1ddd4cfcf85cea64b"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v2-20261023/browser-results/leona-eclipse-skin-materia-59a2c-nned-mask-texels-on-the-GPU/source-skin.png",
+      "bytes": 124595,
+      "sha256": "7509728edada0aa11faa76225b150e41e9d1aecfa786da46d099b44dd54c2000"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v2-20261023/browser-results/leona-eclipse-skin-materia-59a2c-nned-mask-texels-on-the-GPU/source-texels.json",
+      "bytes": 17365,
+      "sha256": "977a22d96c5055fa736419d73a7ff0ffc9a1d7e2b9c5aa5794fd3021ecd5b9c5"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v2-20261023/browser-results/leona-eclipse-skin-materia-782bd-aps-without-replacing-alpha/rim-remap.json",
+      "bytes": 9029,
+      "sha256": "ee2a89562f60929292c2fedb853dae364890c7aa9f50e5df1240ff72b2459ead"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v2-20261023/browser-results/leona-eclipse-skin-materia-a2c1b-ollows-transformed-base-UVs/erosion-uv.json",
+      "bytes": 3285,
+      "sha256": "a44c1a6496e320a4220b5256f6a76be689b68872262e16327b8381b3e48a14fc"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v2-20261023/browser.log",
+      "bytes": 3486,
+      "sha256": "16a241567f657597d13eff97e43e3a643ab2218dab33b481cb25339444a81a11"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v2-20261023/native-archive.json",
+      "bytes": 11878,
+      "sha256": "e1ab6ca40ac5f9cf1a0183d07963fdcc9e7af53207964ac547f99c175181ed81"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v2-20261023/qa-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v2-20261023/source-archive.json",
+      "bytes": 97377,
+      "sha256": "e80469c5e1a67488d58333636135d34593f0e149026c2efb0fb87340026bfd94"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v3-20261023/browser-results/.last-run.json",
+      "bytes": 96,
+      "sha256": "2300fd659e14d75706774c41c69d36bd9e646692be2b0913926d59724cacc520"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v3-20261023/browser-results/leona-eclipse-skin-materia-523e0-on-and-recover-exact-pixels/animated-recovery.json",
+      "bytes": 14386,
+      "sha256": "0039d927b3d19df027c2e7f3615bc96d4384a21c02d5e32359f649fc976571a3"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v3-20261023/browser-results/leona-eclipse-skin-materia-523e0-on-and-recover-exact-pixels/animated-skin.png",
+      "bytes": 115058,
+      "sha256": "6fe7599a29ef3720fdae31b8af27d273c3cd58ffd867dff22c9603c8ee38f883"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v3-20261023/browser-results/leona-eclipse-skin-materia-523e0-on-and-recover-exact-pixels/error-context.md",
+      "bytes": 11865,
+      "sha256": "67b1665bb56ab0a67868fd67f83ba3477aeb938a1066aaa36ec7099d110d5048"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v3-20261023/browser-results/leona-eclipse-skin-materia-523e0-on-and-recover-exact-pixels/test-failed-1.png",
+      "bytes": 115058,
+      "sha256": "6fe7599a29ef3720fdae31b8af27d273c3cd58ffd867dff22c9603c8ee38f883"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v3-20261023/browser-results/leona-eclipse-skin-materia-523e0-on-and-recover-exact-pixels/trace.zip",
+      "bytes": 2798300,
+      "sha256": "de072f2b229be14b65b3742429f7a35d4e08b224061dc2b41bdc795bded259f5"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v3-20261023/browser.log",
+      "bytes": 6174,
+      "sha256": "17e060dc23bb9a53ce3148440d2ff43ea4e3ce6d11fe6e217d0abeb5de1ddce5"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v3-20261023/native-archive.json",
+      "bytes": 11878,
+      "sha256": "3304c1e7fc18a5d3211abb3942c453050e8d6f1bf63507a1685e0b16f79ac0ed"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v3-20261023/source-archive.json",
+      "bytes": 97377,
+      "sha256": "85f2056e70dc563f4bff6639fc5c0a193f4a33d26957ad4b08987ed70ddf5262"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v4-20261023/browser-results/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v4-20261023/browser-results/leona-eclipse-skin-materia-59a2c-nned-mask-texels-on-the-GPU/source-skin.png",
+      "bytes": 124595,
+      "sha256": "7509728edada0aa11faa76225b150e41e9d1aecfa786da46d099b44dd54c2000"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v4-20261023/browser-results/leona-eclipse-skin-materia-59a2c-nned-mask-texels-on-the-GPU/source-texels.json",
+      "bytes": 17365,
+      "sha256": "977a22d96c5055fa736419d73a7ff0ffc9a1d7e2b9c5aa5794fd3021ecd5b9c5"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v4-20261023/browser-results/leona-eclipse-skin-materia-782bd-aps-without-replacing-alpha/rim-remap.json",
+      "bytes": 9029,
+      "sha256": "ee2a89562f60929292c2fedb853dae364890c7aa9f50e5df1240ff72b2459ead"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v4-20261023/browser-results/leona-eclipse-skin-materia-a2c1b-ollows-transformed-base-UVs/erosion-uv.json",
+      "bytes": 3285,
+      "sha256": "a44c1a6496e320a4220b5256f6a76be689b68872262e16327b8381b3e48a14fc"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v4-20261023/browser-results/leona-eclipse-skin-materia-c1a39-t-and-recovers-exact-pixels/animated-recovery.json",
+      "bytes": 1833,
+      "sha256": "aeb4c89d61b81e5826cb4ffd7b0e97166f587bdb5a9bba1677e113ba8c33117b"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v4-20261023/browser-results/leona-eclipse-skin-materia-c1a39-t-and-recovers-exact-pixels/animated-skin.png",
+      "bytes": 113905,
+      "sha256": "0d65c6c77a6b944a318da8f444eac1435f8c7daf70bd73d79cc87f201d27a873"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v4-20261023/browser.log",
+      "bytes": 949,
+      "sha256": "85a37b820e8caacf884494dec82ccb7e708cbae04b08262fcd258dcdf628e07b"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v4-20261023/build.log",
+      "bytes": 2581,
+      "sha256": "644abb58b70da700f874193f6596bb49bf1edc6398909c5631b676381e564cce"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v4-20261023/deployment-identity.json",
+      "bytes": 348,
+      "sha256": "892f149e3adf35bd8d069b7a5b6b00e6a22915b838a3bc975212ddbec5f3b4b1"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v4-20261023/generated-build-archive.json",
+      "bytes": 6558,
+      "sha256": "bef5462287baefeba670549ee97beb0ac0c8aff5c15b926ec437405a484c34a7"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v4-20261023/native-archive.json",
+      "bytes": 11878,
+      "sha256": "c5a6c22487228d43081c63ef88cf94b5ba4f5ae5ebe4872b60a1e5a4dbcc6589"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v4-20261023/node-qa.log",
+      "bytes": 429,
+      "sha256": "ede73adba5ed03f08549c0c68becc992614a84e57cddfeeb3b766cdd84d793c7"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v4-20261023/particle-source-archive.json",
+      "bytes": 13783,
+      "sha256": "c88959d168af7a751e2c13fb0c442eedab79530413eb7dfbcee06d0f71050ef8"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v4-20261023/qa-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v4-20261023/source-archive.json",
+      "bytes": 97377,
+      "sha256": "2ccf840800f4886e778445be4fe33b54b86de443e351aca2ed07faebf3cd2d0d"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v4-20261023/tests.log",
+      "bytes": 499,
+      "sha256": "dafdb87073ca478b9529b34eba6514455644f98774a63bd0404a69054001e076"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v4-20261023/typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v5-20261023/browser-results/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v5-20261023/browser-results/leona-eclipse-skin-materia-59a2c-nned-mask-texels-on-the-GPU/source-skin.png",
+      "bytes": 124595,
+      "sha256": "7509728edada0aa11faa76225b150e41e9d1aecfa786da46d099b44dd54c2000"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v5-20261023/browser-results/leona-eclipse-skin-materia-59a2c-nned-mask-texels-on-the-GPU/source-texels.json",
+      "bytes": 17365,
+      "sha256": "977a22d96c5055fa736419d73a7ff0ffc9a1d7e2b9c5aa5794fd3021ecd5b9c5"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v5-20261023/browser-results/leona-eclipse-skin-materia-782bd-aps-without-replacing-alpha/rim-remap.json",
+      "bytes": 9029,
+      "sha256": "ee2a89562f60929292c2fedb853dae364890c7aa9f50e5df1240ff72b2459ead"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v5-20261023/browser-results/leona-eclipse-skin-materia-a2c1b-ollows-transformed-base-UVs/erosion-uv.json",
+      "bytes": 3285,
+      "sha256": "a44c1a6496e320a4220b5256f6a76be689b68872262e16327b8381b3e48a14fc"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v5-20261023/browser-results/leona-eclipse-skin-materia-c1a39-t-and-recovers-exact-pixels/animated-recovery.json",
+      "bytes": 1833,
+      "sha256": "aeb4c89d61b81e5826cb4ffd7b0e97166f587bdb5a9bba1677e113ba8c33117b"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v5-20261023/browser-results/leona-eclipse-skin-materia-c1a39-t-and-recovers-exact-pixels/animated-skin.png",
+      "bytes": 113905,
+      "sha256": "0d65c6c77a6b944a318da8f444eac1435f8c7daf70bd73d79cc87f201d27a873"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v5-20261023/browser.log",
+      "bytes": 948,
+      "sha256": "a4d0b64f41634437193eec8ed424ee7b0b62b018fc3fb6fd6aca7bfecb594370"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v5-20261023/deployment-identity.json",
+      "bytes": 259,
+      "sha256": "dac17be896dcda02653a28f250c8c0d9718002db7f309545f2e60cac4cc7b21c"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v5-20261023/generated-build-archive.json",
+      "bytes": 6558,
+      "sha256": "39439b2c1adaf612385d73476558930cedf6b2862f31a3c1c3ae47769b070441"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v5-20261023/native-archive.json",
+      "bytes": 11878,
+      "sha256": "84a5b80cc008b483b06bd6d8f7fb3d786794d36c878ca133cdd4d9d916ae8652"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v5-20261023/particle-source-archive.json",
+      "bytes": 13783,
+      "sha256": "245d11947a138ffe15a3e7d764e1ab3264480e8186f67637b695103724150a52"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v5-20261023/prior-integrity.log",
+      "bytes": 398,
+      "sha256": "70b38699b3d26b51b1789fd5991a6a9fc5350954192ffd632a36009b2728611d"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v5-20261023/qa-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/leona-w-skin-material-validation-v5-20261023/source-archive.json",
+      "bytes": 97378,
+      "sha256": "a59447ba0396d57730991d2d5bb7438e63136fa08352bcc152e65e12e5a242e0"
+    },
+    {
+      "file": ".cache/leona-w-skin-samples-v1.log",
+      "bytes": 35,
+      "sha256": "9ea87a1789ad6a06472595e87a6e2f93e82d93a909201f0dce99b47291473fc1"
+    },
+    {
+      "file": ".cache/leona-w-skin-shader-extraction-v1.log",
+      "bytes": 80,
+      "sha256": "d51bdb40cfd22ab6bb409459836a927102063b83148549c4a7d59723066e348e"
+    },
+    {
+      "file": ".cache/leona-w-skin-shader-research-v1.log",
+      "bytes": 682,
+      "sha256": "ee8ce89c4b25c132afca26b203f75160c92103b01dab8a6b5c064faac6f98896"
+    },
+    {
+      "file": ".cache/leona-w-skin-shader-research-v1.py",
+      "bytes": 1310,
+      "sha256": "10fa6330968a05e6ba4f221174a5d62531b748e3a2842646386d7400b30d5362"
+    },
+    {
+      "file": ".cache/leona-w-skin-shaders-research-v1-20261023/assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal",
+      "bytes": 12562,
+      "sha256": "e38b0f01bb7db3b833c9174570e15e510eb359e87f609d6ca8b453fc2c5f91a7"
+    },
+    {
+      "file": ".cache/leona-w-skin-shaders-research-v1-20261023/assets/shaders/hlsl/skinnedmesh/particle_vs.vs-metal",
+      "bytes": 3295,
+      "sha256": "883c94f561e86a7fefa5137979cceb76b1ca416e85fb96e60b4023afa859a6a7"
+    },
+    {
+      "file": ".cache/leona-w-skin-shaders-research-v1-20261023/toc-discovery.json",
+      "bytes": 3681,
+      "sha256": "937bfbed066e83ef95dee7450b21017521d3fe3c9178905d2dcf44b35c6eb555"
+    },
+    {
+      "file": ".cache/leona-w-source-archive-build.mjs",
+      "bytes": 1627,
+      "sha256": "c3c2ca66db0ce5f719a7359e587fdf31ec2e9e432b4e7ec5df829e3cef39306b"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/generated-build-archive.json",
+      "bytes": 6362,
+      "sha256": "8676ac2deef198658e19bbfa5737d672332b8f2a926b009816864697f92b25a2"
+    }
+  ]
+}
