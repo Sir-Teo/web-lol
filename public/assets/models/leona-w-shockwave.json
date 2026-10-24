@@ -1,0 +1,59 @@
+{
+  "output": {
+    "path": "/assets/models/leona-w-shockwave.glb",
+    "bytes": 126124,
+    "sha256": "eae4eadf19bac15f9454789842604ff004f5bc196d21075d076344b0fc41f46c"
+  },
+  "source": {
+    "path": "assets/characters/leona/skins/base/particles/leona_base_z_shockwave.scb",
+    "wadPathHash": "65afe19c1620e8c1",
+    "sha256": "2ad368908664176996fa485fec9d880ba02e775dc82b77c0e2b517bc8ae21a83",
+    "bytes": 133644
+  },
+  "sourceVersion": [
+    3,
+    2
+  ],
+  "sourceVertices": 657,
+  "triangles": 1152,
+  "exportedCorners": 3456,
+  "centralPoint": [
+    0,
+    0,
+    -4.864800453186035
+  ],
+  "rawSourceBounds": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "measuredMinMax": [
+    -12.864800453186035,
+    0,
+    -17.72960090637207,
+    12.864800453186035,
+    0,
+    8
+  ],
+  "sourceFlags": 1,
+  "sourceVertexColors": false,
+  "sourceFaceColors": true,
+  "materials": [
+    ""
+  ],
+  "sourceIndicesSha256": "72546def9e4a07add2410bf9f69d23c9d743dffbba931dd68d7f833508fcb849",
+  "attributeSha256": {
+    "POSITION": "656f70c94d345f61fb31eb56395ea7aab7089fb89d7b5e1fd2b9f6695f925a91",
+    "_SOURCE_POSITION": "f89456b227448d1ea3e88aaa46ede47ab39b578d7a2f0be8981cd8ca221d7234",
+    "TEXCOORD_0": "90e40396974f06b3049a081060ff527b849d8b5e8f541ea7358414298e35bc38",
+    "_SOURCE_FACE_RGB": "3b8b40b17f089bb594741d74ef45006e9f7bdbf1e4c59306cbaceeb5a29285c3"
+  },
+  "validation": {
+    "errors": 0,
+    "warnings": 0,
+    "roundTripAttributesExact": true
+  }
+}

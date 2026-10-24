@@ -1,0 +1,59 @@
+{
+  "output": {
+    "path": "/assets/models/leona-w-contact-cone.glb",
+    "bytes": 39796,
+    "sha256": "f715e1c03ee469b883fb2f96577628f4bedefd0fa92e524f059cda43b02996bb"
+  },
+  "source": {
+    "path": "assets/characters/leona/skins/base/particles/leona_base_sharp_mesh.scb",
+    "wadPathHash": "7004e0d9604abbde",
+    "sha256": "0ed57b949b8f3b3c94f53ee1f8fb1721145ee39e404812115c2789ec4d7a0f88",
+    "bytes": 38220
+  },
+  "sourceVersion": [
+    3,
+    2
+  ],
+  "sourceVertices": 183,
+  "triangles": 351,
+  "exportedCorners": 1053,
+  "centralPoint": [
+    0,
+    0,
+    0
+  ],
+  "rawSourceBounds": [
+    -0.3970503807067871,
+    -97.51384735107422,
+    -101.04430389404297,
+    151.9524383544922,
+    200.6145477294922,
+    202.08860778808594
+  ],
+  "measuredMinMax": [
+    -0.3970503807067871,
+    -97.51384735107422,
+    -101.04430389404297,
+    151.55538940429688,
+    103.10070037841797,
+    101.04430389404297
+  ],
+  "sourceFlags": 2,
+  "sourceVertexColors": true,
+  "sourceFaceColors": false,
+  "materials": [
+    "lambert1"
+  ],
+  "sourceIndicesSha256": "cacc33b43f37c83497406b4f67395cec4eb2cb6c7688d4a8e7d695fcc4230a65",
+  "attributeSha256": {
+    "POSITION": "5d6e2b3c182a87f7025d2a92c0e2a7d0ff5197a66957a35ac366fbd9abd874ef",
+    "_SOURCE_POSITION": "9af381bfcf808cf5af9e4ac94c22adb7c022117e6bb135b630dadfe6659b1678",
+    "TEXCOORD_0": "ea960a25a2b4676c259ffbf2607aeed9313e1721e4fdeea3b17ba0aa628748b6",
+    "_SOURCE_VERTEX_BGRA": "4b1bbf700e89b5ec1d5fe1526b8b53fac8be7db072a234fb179c18a1618e91fa"
+  },
+  "validation": {
+    "errors": 0,
+    "warnings": 0,
+    "roundTripAttributesExact": true
+  }
+}

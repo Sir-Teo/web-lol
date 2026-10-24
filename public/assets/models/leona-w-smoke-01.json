@@ -1,0 +1,59 @@
+{
+  "output": {
+    "path": "/assets/models/leona-w-smoke-01.glb",
+    "bytes": 79600,
+    "sha256": "e7d4ea231fed41317d09d66f74c3ba5d4b0ab4aa78fb7f009c5eb8a919f36808"
+  },
+  "source": {
+    "path": "assets/characters/leona/skins/base/particles/leona_base_w_releaseaoe_smoke_01.scb",
+    "wadPathHash": "8f4b1babd10b0008",
+    "sha256": "06cdd4ae540025721541572f08f4fe8d8c784cb941f17eb0f4225462d14c5c0e",
+    "bytes": 78592
+  },
+  "sourceVersion": [
+    3,
+    2
+  ],
+  "sourceVertices": 400,
+  "triangles": 720,
+  "exportedCorners": 2160,
+  "centralPoint": [
+    0,
+    0,
+    0
+  ],
+  "rawSourceBounds": [
+    -49.82215881347656,
+    0,
+    -49.822166442871094,
+    99.64431762695312,
+    9.475154876708984,
+    99.64433288574219
+  ],
+  "measuredMinMax": [
+    -49.82215881347656,
+    0,
+    -49.822166442871094,
+    49.82215881347656,
+    9.475154876708984,
+    49.822166442871094
+  ],
+  "sourceFlags": 2,
+  "sourceVertexColors": true,
+  "sourceFaceColors": false,
+  "materials": [
+    "lambert1"
+  ],
+  "sourceIndicesSha256": "7fb400bd3b7ce1f05ba2897a3f1fab57b4b9457bd063c218825a65eca15f9cbe",
+  "attributeSha256": {
+    "POSITION": "96e59fed510efa2acdb242c2eb80b0634abeffb4c836f2368a77d670e6b20fe0",
+    "_SOURCE_POSITION": "451f4a50d1be7460509f9405c55582fc96d23eafd4b3af3a89548e33c7a53ade",
+    "TEXCOORD_0": "7dd471d763c4285cf659c4a75d19cee6589ce5ce2428be318ef3a2abd5591870",
+    "_SOURCE_VERTEX_BGRA": "8da4938ede06b4b33420d91496f2f6de1a52c5949b572c8d9fd2d14061f694de"
+  },
+  "validation": {
+    "errors": 0,
+    "warnings": 0,
+    "roundTripAttributesExact": true
+  }
+}

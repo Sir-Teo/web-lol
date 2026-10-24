@@ -145,6 +145,14 @@
         "tests/leona-q-presentation.test.ts",
         "e2e/leona-q-particles.spec.ts"
       ]
+    },
+    {
+      "id": "LEONA-W-PRESENTATION-001",
+      "status": "complete-source-dependencies-runtime-unimplemented",
+      "reference": "Five standard-game resolver systems retain all fifty emitter records (thirty enabled, twenty disabled), thirty-six TEX dependencies and six SCB meshes from the frozen Riot manifest. DoomBot-only indicator is outside standard Summoner's Rift.",
+      "localObservation": "All source definitions and pixels re-decode exactly; mesh conversion retains UV seams, original/scaled positions, four vertex-BGRA streams and two face-RGB streams. Full per-emitter field coverage is recorded without marking playback implemented.",
+      "acceptance": "Implement all enabled attached-skin, ray, mesh, billboard and quad layers, source shader/UV/distortion stages, phase/contact dispatch, saved audiences/poses, death/stop/result playback, resource recovery/disposal and audio; then compare native behavior and frames.",
+      "tests": "tests/leona-w-source.test.ts"
     }
   ],
   "nativeBehaviorVerified": false,

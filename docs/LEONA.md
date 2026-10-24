@@ -378,3 +378,7 @@ Every row below still has required work, including the partially implemented Q.
 The browser/player integration must exercise these through World commands and
 strict saved states, including failures and timing boundaries. Production selection and the
 complete six-character milestone cannot pass from payload-only tests.
+
+The complete [Eclipse source dependency set](LEONA-W-SOURCE.md) now retains all
+five standard-game systems, fifty emitter records, 36 textures and six custom
+meshes. W playback, attached-skin materials and source audio still require integration.

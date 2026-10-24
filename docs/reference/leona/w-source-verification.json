@@ -1,0 +1,324 @@
+{
+  "date": "2026-10-23",
+  "scope": "Complete source dependencies for five standard Summoner's Rift Eclipse systems: fifty retained emitters, thirty enabled, thirty-six TEX images and six SCB meshes. Runtime effect playback, material/dispatch semantics and native comparison remain unfinished.",
+  "schema": 123,
+  "ruleset": "18058f085b96c376177780b67d7783fbb24ce283043ecca3daf394c80fcecb30",
+  "sourceBaseline": "80b1913afdcea961abdf390616e32503de1b5f2a",
+  "sourceArchive": ".cache/leona-w-source-validation-v2-20261023/source-archive.json",
+  "earlierSourceArchives": [
+    ".cache/leona-w-source-validation-v1-20261023/source-archive.json"
+  ],
+  "preservedArchives": [
+    ".cache/leona-w-source-validation-v2-20261023/particle-source-archive.json",
+    ".cache/leona-w-source-validation-v2-20261023/generated-build-archive.json",
+    ".cache/leona-w-source-validation-v2-20261023/decoder-inputs.json",
+    ".cache/leona-w-source-validation-v2-20261023/offline/source-inputs.json"
+  ],
+  "reviewInputs": [
+    {
+      "file": "docs/LEONA.md",
+      "bytes": 26212,
+      "sha256": "5957c0ecbabfecb78c13ffc4bd0777ed6349fbb5cd284c4f03b27f7a6b5f821d",
+      "archived": ".cache/leona-w-source-validation-v2-20261023/review-inputs-v1/docs/LEONA.md"
+    },
+    {
+      "file": "docs/LEONA-W-SOURCE.md",
+      "bytes": 5470,
+      "sha256": "ab8571ce57a772236c4e62d6d57c3a538a90653bb308b56e4f643a1b792e3c19",
+      "archived": ".cache/leona-w-source-validation-v2-20261023/review-inputs-v1/docs/LEONA-W-SOURCE.md"
+    },
+    {
+      "file": "docs/PROGRESS.md",
+      "bytes": 531668,
+      "sha256": "96bf83728cccddec799934c815aa5d99043f8a6881edae8456042e6b70d57a7d",
+      "archived": ".cache/leona-w-source-validation-v2-20261023/review-inputs-v1/docs/PROGRESS.md"
+    },
+    {
+      "file": "docs/reference/leona/combat-policy-audit.json",
+      "bytes": 14732,
+      "sha256": "289951bd04b0524f8181157b3ea039f4c3d6f314f85f6e27909897816d19c845",
+      "archived": ".cache/leona-w-source-validation-v2-20261023/review-inputs-v1/docs/reference/leona/combat-policy-audit.json"
+    },
+    {
+      "file": "tools/qa/verify-leona-w-source.mjs",
+      "bytes": 4719,
+      "sha256": "c9304a64c1c1ae5f28b68bc6af11266dc07f53cbc89e5b823b9c08858018eb6a",
+      "archived": ".cache/leona-w-source-validation-v2-20261023/review-inputs-v1/tools/qa/verify-leona-w-source.mjs"
+    }
+  ],
+  "checks": {
+    "typecheck": ".cache/leona-w-source-validation-v2-20261023/typecheck.log",
+    "standard": ".cache/leona-w-source-validation-v2-20261023/tests.log",
+    "nodeQa": ".cache/leona-w-source-validation-v2-20261023/node-qa.log",
+    "source": ".cache/leona-w-source-validation-v2-20261023/source-verification.log",
+    "reproduction": ".cache/leona-w-source-validation-v2-20261023/reproduction.log",
+    "build": ".cache/leona-w-source-validation-v2-20261023/build.log",
+    "production": ".cache/leona-w-source-validation-v2-20261023/production-browser.log",
+    "offline": ".cache/leona-w-source-validation-v2-20261023/offline/artifacts/offline-pack-leona-w-source-v1-production.json",
+    "comparison": ".cache/leona-w-source-validation-v2-20261023/pack-comparison.json",
+    "priorIntegrity": ".cache/leona-w-source-validation-v2-20261023/prior-integrity-historical.log",
+    "failedTypecheck": ".cache/leona-w-source-validation-v1-20261023/typecheck.log"
+  },
+  "failures": [
+    {
+      "log": ".cache/leona-w-particle-extraction-v1.log",
+      "source": ".cache/leona-w-particle-extractor-v1.py",
+      "reason": "The inherited extractor allowed definitions only in linked BINs; two W systems live in the pinned skin root. Accepted that root alongside declared links, with full resource ownership and complete-definition checks retained."
+    },
+    {
+      "log": ".cache/leona-w-source-validation-v1-20261023/typecheck.log",
+      "sourceArchive": ".cache/leona-w-source-validation-v1-20261023/source-archive.json",
+      "archiveTiming": "Archived after the first targeted/type commands and before the declaration repair; source/test/asset bytes remained unchanged during those commands.",
+      "reason": "Eight asset cases passed, but the installed JavaScript-only Khronos validator had no TypeScript declaration. Added the narrow used byte-validation API in a test-only declaration. No source asset or runtime code changed."
+    }
+  ],
+  "acceptance": {
+    "sourceDependenciesPackaged": true,
+    "runtimeIntegrated": false,
+    "sourceAudioIntegrated": false,
+    "nativeDispatchVerified": false,
+    "nativeRenderingVerified": false,
+    "completeLeonaKit": false,
+    "productionRosterExpanded": false,
+    "fullBrowserSuiteRepeated": false,
+    "normalCohortRepeated": false,
+    "fullMatchOfflineCertified": false
+  },
+  "evidence": [
+    {
+      "file": ".cache/leona-particle-research-20261023/discovered.json",
+      "bytes": 959823,
+      "sha256": "5120050468438110a25fee3e6be7167dd4f2113fce5847590c52ef1a646e675d"
+    },
+    {
+      "file": ".cache/leona-q-vfx-validation-v6-20261023/generated-build/offline-pack.json",
+      "bytes": 120452,
+      "sha256": "7158119dece2e3f4acc8eb47464db2e464e32deb76076cb59520ee0319fa2931"
+    },
+    {
+      "file": ".cache/leona-w-particle-convert-v1.log",
+      "bytes": 175,
+      "sha256": "bd0b06a69cbe33eb300fc2782e1388ea9a5cb1cd50dd032f552afc182d37c070"
+    },
+    {
+      "file": ".cache/leona-w-particle-decode-v1.log",
+      "bytes": 756,
+      "sha256": "6ddced103e99513c0b935c976f35a0dea4323ed5cc1f1f39f99b0b1405dbfae3"
+    },
+    {
+      "file": ".cache/leona-w-particle-extraction-v1.log",
+      "bytes": 293,
+      "sha256": "56e249b8cb6005e89cb52989446d5cfa3dd1938fcacc4d1c9b94752d587d54fe"
+    },
+    {
+      "file": ".cache/leona-w-particle-extraction-v2.log",
+      "bytes": 161,
+      "sha256": "3b33dde2f6294f24c429b0a8bc1d72b56f86b1bf2637eeb7f71154eb0f8e82b1"
+    },
+    {
+      "file": ".cache/leona-w-particle-extractor-v1.py",
+      "bytes": 4013,
+      "sha256": "583d05ab9777790b700af0f76d4195ff633c8333b644b34f743205f16b1c1a71"
+    },
+    {
+      "file": ".cache/leona-w-particle-reproduce-v1.log",
+      "bytes": 174,
+      "sha256": "f156c732f85c2c129d1c98d65fc5a6c44955fa7d80cd361f24114cbf3c1a5fb4"
+    },
+    {
+      "file": ".cache/leona-w-particle-verify-v1.log",
+      "bytes": 197,
+      "sha256": "54d211d69873abfbaafda3cff5096ed5c9e50c48cc69d6f22d40f376732a9b04"
+    },
+    {
+      "file": ".cache/leona-w-source-archive-build.mjs",
+      "bytes": 1627,
+      "sha256": "c3c2ca66db0ce5f719a7359e587fdf31ec2e9e432b4e7ec5df829e3cef39306b"
+    },
+    {
+      "file": ".cache/leona-w-source-focused-v1.log",
+      "bytes": 192,
+      "sha256": "a1c9b4fa59d4fa4dae612054163dd1d89fc37e95a4efd875b954e95bc4fcf6c0"
+    },
+    {
+      "file": ".cache/leona-w-source-freeze.mjs",
+      "bytes": 1614,
+      "sha256": "cb7df79687e279942b7d422f46c5f210cfc7886ea9ca76c10e17ad5d591d9891"
+    },
+    {
+      "file": ".cache/leona-w-source-ledger-v1.mjs",
+      "bytes": 4546,
+      "sha256": "6aad28e8f0a8fb55ff43877be770f92fa2a3d84b0f06ad6660ca7907de82949d"
+    },
+    {
+      "file": ".cache/leona-w-source-types-v1.log",
+      "bytes": 358,
+      "sha256": "9bfc85263992da8edd85c64498108967177fc78a085f450128350bb76eac6fda"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v1-20261023/focused.log",
+      "bytes": 192,
+      "sha256": "a1c9b4fa59d4fa4dae612054163dd1d89fc37e95a4efd875b954e95bc4fcf6c0"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v1-20261023/source-archive.json",
+      "bytes": 90696,
+      "sha256": "385ee23d3ff272a35a1f1b594846bc061ee5e541c572db728a149ae577e55e6c"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v1-20261023/typecheck.log",
+      "bytes": 358,
+      "sha256": "9bfc85263992da8edd85c64498108967177fc78a085f450128350bb76eac6fda"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/build.log",
+      "bytes": 2581,
+      "sha256": "4cf0f655ceac1da85db97c086030fb9a564a353f21dbda6b19c1655bff26b060"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/decoder-inputs.json",
+      "bytes": 887,
+      "sha256": "e2cb4121f5168241fbdeec9ca7db20653ca514ea4698f0e780683f2b54046cec"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/generated-build-archive.json",
+      "bytes": 6362,
+      "sha256": "8676ac2deef198658e19bbfa5737d672332b8f2a926b009816864697f92b25a2"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/node-qa.log",
+      "bytes": 431,
+      "sha256": "058d6bf9d191162862679bad117292b603fe9d0340759edef0b0d6d9bc63d914"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/offline-browser.log",
+      "bytes": 687,
+      "sha256": "cc8e1a2751b22d771c0a1ea0a8976361361805dd9f9f09de5fbe0756bf973f69"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/offline/artifacts/offline-pack-leona-w-source-v1-lux-lanes.png",
+      "bytes": 476457,
+      "sha256": "501d1125ecfaa7befba0d91d046ef63626c96d8f992c87d419cba9382c7c39bb"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/offline/artifacts/offline-pack-leona-w-source-v1-production.json",
+      "bytes": 649,
+      "sha256": "14354f487580718d4cf50f346e13cae9133612e40af35e42ce7f67b3d3ddba6b"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/offline/artifacts/offline-pack-leona-w-source-v1-ready.png",
+      "bytes": 531312,
+      "sha256": "874ca2f10d9b3cfc6941ce7f9d566e2a299426816880b13418783b90538b4824"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/offline/source-inputs.json",
+      "bytes": 802,
+      "sha256": "46cbce6d51392b35e7d826d2eb86f635ddb672374bbc375139acf24c91a0f354"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/offline/src/storage/offline-pack.ts",
+      "bytes": 13429,
+      "sha256": "af4ce9d3a260b200ab86c2bad520b09b5e1765ee389cba3e5a395a0cb0968004"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/offline/tools/offline-worker.js",
+      "bytes": 3222,
+      "sha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/offline/tools/qa/offline-pack.mjs",
+      "bytes": 15170,
+      "sha256": "caea93530808648b3dc70fa3e6ed9d19d1f76ed6a767125c4c5139ade4e854c0"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/pack-comparison.json",
+      "bytes": 8400,
+      "sha256": "bf5819e95d6618a98d6d0a110753e3d2466f3ac234544f1aeec0b63d54ecf3b6"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/particle-source-archive.json",
+      "bytes": 13468,
+      "sha256": "df76549974c5f3e964145453bd17142eae468d10696a6b5d6b191d69e6eb4328"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/prior-integrity-historical.log",
+      "bytes": 357,
+      "sha256": "ce99c04d46c473afbf9d1d2a27f942ab85615df2ecddb5740a1124a9c50b4c4a"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/prior-integrity.log",
+      "bytes": 358,
+      "sha256": "e0a38c582ce104a6800e0bedc8167ce882bfb7b866a928e1f3cc47e0c5c369fc"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/production-browser.log",
+      "bytes": 1831,
+      "sha256": "385ef673dc6c634eaf3f76642c4da291ae24e8051fe20c9305109d973a0e84b5"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/production/artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1811940,
+      "sha256": "f4da2063596ffe09c4a5053c594e15d2b5b58476a95b9a93af83f09207eb5b27"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/production/artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1831943,
+      "sha256": "78310bacff60d3fb186e2ae8acf305f015904679aca7617a35fecab2257fcc0d"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/production/artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829364,
+      "sha256": "4a09a64d3a1b7f13892340e3551ca1d167f95069709b5999e11ec9b7fd0f7b99"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/production/artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1804754,
+      "sha256": "c079200ad2f5c978283a87280e1b8d0c22662c00e34a71d4b8d833912e526c95"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/production/artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1817189,
+      "sha256": "72f48c9990a21c9ac7ddb75d9d341fb4e8d1499bea65f50001546894bbfd38de"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/production/artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1346615,
+      "sha256": "51deb4a32717f62902717005272584c9a8c99a1b12e1c8978fff2aba6319bdf4"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/production/artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1820190,
+      "sha256": "18fb014e680f3c338275064e23929e0f795ef1784ab57150e7f33a60147797b8"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/production/artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1812707,
+      "sha256": "5b38fe87aac8fe2a9e8678f83b5614411db12bd3299999484bfde64108c602f0"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/reproduction.log",
+      "bytes": 174,
+      "sha256": "f156c732f85c2c129d1c98d65fc5a6c44955fa7d80cd361f24114cbf3c1a5fb4"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/source-archive.json",
+      "bytes": 90961,
+      "sha256": "f36b151a2e8354949e4914fd3b7d2f8f5cfd114435b280cb579e46af1819382c"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/source-verification.log",
+      "bytes": 197,
+      "sha256": "54d211d69873abfbaafda3cff5096ed5c9e50c48cc69d6f22d40f376732a9b04"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/tests.log",
+      "bytes": 499,
+      "sha256": "96cf876691eae810694e2e867a1f62edf43e3b6c7fbba0db9d05ae8b5eeb2bba"
+    },
+    {
+      "file": ".cache/leona-w-source-validation-v2-20261023/typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

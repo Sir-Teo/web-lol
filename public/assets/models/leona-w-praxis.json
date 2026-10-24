@@ -1,0 +1,60 @@
+{
+  "output": {
+    "path": "/assets/models/leona-w-praxis.glb",
+    "bytes": 21224,
+    "sha256": "4c5561954ed4eb151de007f580c4cfcc415eacfd65bde58a25a46b514d5f719a"
+  },
+  "source": {
+    "path": "assets/characters/leona/skins/base/particles/leona_base_w_praxis.scb",
+    "wadPathHash": "c2c124213bfde8a6",
+    "sha256": "7312a539bc14302cbf7835ea973147f7776b6bfbe2f1b0789e5a0cee5e53908c",
+    "bytes": 19232
+  },
+  "sourceVersion": [
+    3,
+    2
+  ],
+  "sourceVertices": 100,
+  "triangles": 160,
+  "exportedCorners": 480,
+  "centralPoint": [
+    0,
+    0,
+    0
+  ],
+  "rawSourceBounds": [
+    -163.04298400878906,
+    0,
+    -163.04298400878906,
+    326.798095703125,
+    0,
+    326.7981872558594
+  ],
+  "measuredMinMax": [
+    -163.04298400878906,
+    0,
+    -163.04298400878906,
+    163.75509643554688,
+    0,
+    163.7552032470703
+  ],
+  "sourceFlags": 1,
+  "sourceVertexColors": true,
+  "sourceFaceColors": true,
+  "materials": [
+    "lambert1"
+  ],
+  "sourceIndicesSha256": "e3304923f83ae181d4df67a56aa07db6f25bd8236473834644d2fe85420cafad",
+  "attributeSha256": {
+    "POSITION": "f8f0149c9bd188750e50aa479cbf8a6ed14f247de036a4c864ea5561bcfda91b",
+    "_SOURCE_POSITION": "3bbc2e46336045b3edafeeefe050acaafd648e9d7f3017c88288ba0347f0071c",
+    "TEXCOORD_0": "060c21bd5458ca9468f2664618fb18029a98766c493cd6d45a9574a13635ec4e",
+    "_SOURCE_VERTEX_BGRA": "6e35781be5ed2f96c505cc8bc5d984f041dcd2e7f652f86319e9cf4c8531279e",
+    "_SOURCE_FACE_RGB": "52dbd4365b026555e3382c056240376d3aa319c7e46c1aa7c38caa4883570517"
+  },
+  "validation": {
+    "errors": 0,
+    "warnings": 0,
+    "roundTripAttributesExact": true
+  }
+}

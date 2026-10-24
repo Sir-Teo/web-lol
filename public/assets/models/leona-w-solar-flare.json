@@ -1,0 +1,58 @@
+{
+  "output": {
+    "path": "/assets/models/leona-w-solar-flare.glb",
+    "bytes": 4836,
+    "sha256": "207228fb6480ae9e9c200e9be0420b62e235c575f4e8df66fe573ac69dc498f9"
+  },
+  "source": {
+    "path": "assets/characters/leona/skins/base/particles/leona_base_w_solarflaremesh_01.scb",
+    "wadPathHash": "a65d02ab6dde1ecd",
+    "sha256": "67216a0098504f428d140d64395f59f6a2c56df5490bb774fdbe271715cb9d20",
+    "bytes": 3800
+  },
+  "sourceVersion": [
+    3,
+    2
+  ],
+  "sourceVertices": 34,
+  "triangles": 32,
+  "exportedCorners": 96,
+  "centralPoint": [
+    0,
+    0,
+    0
+  ],
+  "rawSourceBounds": [
+    3.082590341567993,
+    -0.13836565613746643,
+    -9.15695571899414,
+    54.4602165222168,
+    27.230127334594727,
+    18.31391143798828
+  ],
+  "measuredMinMax": [
+    3.082590341567993,
+    -0.13836565613746643,
+    -9.15695571899414,
+    57.542808532714844,
+    27.09176254272461,
+    9.156954765319824
+  ],
+  "sourceFlags": 2,
+  "sourceVertexColors": false,
+  "sourceFaceColors": false,
+  "materials": [
+    "lambert1"
+  ],
+  "sourceIndicesSha256": "2cb27b65b2653785c418f3c18ea99ddb5957c869febeb2778e4f67acc2a14134",
+  "attributeSha256": {
+    "POSITION": "62cf511e10ca6688cb08aabd553e042bc4490e1fe7ec10d56bfbd1867a9ac9ec",
+    "_SOURCE_POSITION": "ec9a78aa07e1249f89ad35f8f878cfbebcec883c7826e5d5e626f6b9c2168879",
+    "TEXCOORD_0": "fbc6beaf1f5dd99f899322d40ece73bd59743879021f8504cf346c6298ef88db"
+  },
+  "validation": {
+    "errors": 0,
+    "warnings": 0,
+    "roundTripAttributesExact": true
+  }
+}

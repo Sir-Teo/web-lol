@@ -6,7 +6,7 @@ Last updated: October 23, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current TypeScript and validation pass 1,607 source/simulation/geometry/dependency/storage/audit checks across 278 files with two Vitest workers, plus three Node QA checks. The latest Leona Q source-particle integration passes sixteen targeted Chrome cases, production smoke and two ten-minute normal-roster smokes, as detailed below. The preceding Sunlight integration passed thirteen targeted Chrome cases, production smoke and two ten-minute normal-roster smokes. The preceding NPC rig integration passed ten targeted Chrome cases. The preceding Leona Solar Flare development simulation passed seven targeted Chrome cases. The earlier [Garen basic-attack particle increment](GAREN-AA-PARTICLES.md) passed thirteen targeted Chrome cases and production smoke; the complete browser suite was not repeated. The first cohort-fix increment passed 1,457 checks across 265 files. Sixteen targeted Chrome scenarios and the production smoke pass for the first cohort fixes. The preceding harness increment passed 1,452 checks across 263 files. Eleven new fault-injection/observation checks protect the frozen match-cohort runner; the preceding offline increment passed 1,441 checks across 262 files. A real production Chrome audit downloads and verifies the full offline pack, starts the game and Lux 5v5 with networking disabled, restores a saved tick, and tests two-version activation, repair and saved-data preservation. The preceding compatibility audit passed 1,432 checks and 17 targeted Chrome cases for Garen basic audio, both ordinary swings, selection and match transfer. The save-dependency audit also passes six isolated Vite/Chrome observations across five compiled identities. The preceding Garen increment passed 1,422 checks and 50 targeted Chrome cases for basic/passive/spell audio, player controls and match transfer. The previous passive-audio increment passed 1,414 checks and 35 focused Chrome cases. The preceding particle increment passed 1,407 checks and 22 Chrome cases including selection, match transfer and graphics recovery. The previous distortion increment passed 1,401 checks and 29 focused Chrome cases for its material/copy stage and adjacent E effects/audio/saves/fog/result playback. The previous source-audio increment passed 1,375 checks and 30 targeted Chrome cases. The preceding moving-particle increment passed 31 targeted Chrome cases including GPU products/blends, wave clearing and file transfer. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current TypeScript and validation pass 1,615 source/simulation/geometry/dependency/storage/audit checks across 279 files with two Vitest workers, plus three Node QA checks. Eclipse source preparation adds eight asset checks and repeats production/offline validation; W playback is still unfinished. The latest Leona Q source-particle integration passes sixteen targeted Chrome cases, production smoke and two ten-minute normal-roster smokes, as detailed below. The preceding Sunlight integration passed thirteen targeted Chrome cases, production smoke and two ten-minute normal-roster smokes. The preceding NPC rig integration passed ten targeted Chrome cases. The preceding Leona Solar Flare development simulation passed seven targeted Chrome cases. The earlier [Garen basic-attack particle increment](GAREN-AA-PARTICLES.md) passed thirteen targeted Chrome cases and production smoke; the complete browser suite was not repeated. The first cohort-fix increment passed 1,457 checks across 265 files. Sixteen targeted Chrome scenarios and the production smoke pass for the first cohort fixes. The preceding harness increment passed 1,452 checks across 263 files. Eleven new fault-injection/observation checks protect the frozen match-cohort runner; the preceding offline increment passed 1,441 checks across 262 files. A real production Chrome audit downloads and verifies the full offline pack, starts the game and Lux 5v5 with networking disabled, restores a saved tick, and tests two-version activation, repair and saved-data preservation. The preceding compatibility audit passed 1,432 checks and 17 targeted Chrome cases for Garen basic audio, both ordinary swings, selection and match transfer. The save-dependency audit also passes six isolated Vite/Chrome observations across five compiled identities. The preceding Garen increment passed 1,422 checks and 50 targeted Chrome cases for basic/passive/spell audio, player controls and match transfer. The previous passive-audio increment passed 1,414 checks and 35 focused Chrome cases. The preceding particle increment passed 1,407 checks and 22 Chrome cases including selection, match transfer and graphics recovery. The previous distortion increment passed 1,401 checks and 29 focused Chrome cases for its material/copy stage and adjacent E effects/audio/saves/fog/result playback. The previous source-audio increment passed 1,375 checks and 30 targeted Chrome cases. The preceding moving-particle increment passed 31 targeted Chrome cases including GPU products/blends, wave clearing and file transfer. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -4830,3 +4830,70 @@ sound remains unwired. W/E/R VFX/audio, human controls/selection, support bot,
 complete champion interactions and full roster/match/browser/offline/performance/
 native acceptance remain required. Production roster gates remain unchanged.
 Nothing was pushed; the full goal stays active. See [Daybreak](LEONA-Q-VFX.md).
+
+
+## Complete Eclipse source dependency preparation — October 23, 2026
+
+All five standard-game W systems are retained with fifty complete emitter
+records: thirty enabled and twenty authored disabled. The DoomBot-only indicator
+is outside standard Summoner's Rift. All source definitions are decoded anew
+from three frozen Riot BINs and compared in full. Thirty-six TEX inputs retain
+all decoded pixels without resizing. Six SCB meshes retain 3,055 triangles,
+expanded face-corner UV seams, original/scaled positions, source pivots/bounds,
+four vertex-BGRA streams and two independent face-RGB streams. This completes
+the source dependency package; no W emitter is claimed as runtime implemented.
+
+The original package totals 2,595,943 bytes. Full-resolution PNGs total 650,289
+bytes; three shared images retain the existing pixels/bytes. Thirty-three new
+images add 649,178 bytes. The six GLBs add 342,596 bytes. With six mesh sidecars,
+45 public files add 1,001,180 bytes. Each GLB has zero Khronos errors/warnings and
+an exact NodeIO attribute round trip. A separate GLB accessor reader compares
+all source/scaled coordinates, UVs and authored color bytes against the SCB.
+Complete BIN/PNG/mesh source verification and byte-identical reproduction pass.
+
+All 1,615 tests across 279 files, TypeScript and three Node QA checks pass. The
+eight new asset checks cover all fifty declarations, every image and all six
+GLBs. Build and nested production smoke pass with 32 recordings, no development
+hook and zero Leona preloads. Game/Three chunks remain 956.82/658.93 kB with the
+existing size warning. The offline manifest now contains 878 files and
+499,066,391 bytes. Compared with the preceding Q build, only the 45 prepared
+files are added; every existing file and the worker policy are byte-identical.
+
+A fresh real Chrome offline audit downloads/verifies the entire pack, repairs a
+corrupt/missing file, preserves verified data across cancellation/retry, restores
+the saved tick without networking and starts Lux 5v5 offline. Two-version tests
+repeat other-tab refusal, explicit atomic activation, missing-entry readiness
+revocation and scoped removal while retaining saved bytes. There are 963 real
+service-worker responses and no production page errors. This is delivery and
+short browser behavior coverage, not full-match/native/performance acceptance.
+
+The inherited extractor initially assumed every particle definition belonged to
+a linked BIN. Two W buff systems live directly in the skin root, whose original
+bytes were already in the model provenance. Ownership now accepts that pinned
+root alongside its declared links; all complete-definition checks remain. The
+first focused run passed eight checks but TypeScript found no declarations for
+the installed JavaScript-only Khronos validator. A local test declaration types
+its used byte-validation API. The failed script/log and exact pre-repair test/
+asset inputs remain archived. No runtime or source asset was changed for this
+compiler repair.
+
+Schema/ruleset remain **123** /
+`18058f085b96c376177780b67d7783fbb24ce283043ecca3daf394c80fcecb30`.
+The final source archive retains 317 inputs in
+`.cache/leona-w-source-validation-v2-20261023`; v1 retains the first typing
+failure. There are 45 frozen raw particle inputs, 28 generated build files and
+three retained decoder/reader inputs. The previous Q evidence remains intact;
+normal cohorts and the sixteen Q Chrome cases were not repeated for this unused
+asset preparation. The [source ledger](reference/leona/w-source-verification.json)
+and `node tools/qa/verify-leona-w-source.mjs` check current/archive pins and
+recorded production/offline evidence; use `--historical` after later changes.
+
+The complete enabled set requires attached animated character materials,
+reflection/erosion, rays, source custom meshes, UV/palette/soft-particle/depth
+stages and distortion. Native dispatch/defaults are not established by names.
+Runtime W phase/contact playback, saved poses/audiences, stop/death/recast/victory,
+context recovery/disposal, source audio and native comparison remain required.
+E/R presentation, complete champion interactions, controls/support AI and the
+full six-champion/full-match/browser/offline/performance acceptance also remain
+open. Nothing was pushed; the full goal stays active. See
+[Eclipse source dependencies](LEONA-W-SOURCE.md).
