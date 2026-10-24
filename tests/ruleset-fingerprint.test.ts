@@ -82,6 +82,25 @@ test('Garen particle clock inputs remain explicitly pinned without a simulation 
   expect(rulesetFingerprint(root)).not.toBe(before);
 });
 
+test('saved Zenith sword interpretation includes source normals and the complete surface dependency graph', () => {
+  for (const file of [
+    'src/render/leona-zenith-surfaces.ts',
+    'src/render/leona-zenith-sword-material.ts',
+    'src/render/leona-zenith-sword-normals.ts',
+    'src/render/particle-mesh-reflection-material.ts',
+    'src/content/leona-e-sword-material.json',
+    'src/content/leona-e-sword-normals.json',
+    'public/assets/models/leona-e-sword-normals.bin',
+  ]) {
+    expect(rulesetFiles, file).toContain(file);
+    expect(affectsRuleset(resolve(file)), file).toBe(true);
+  }
+  const { root, put } = fixture(),
+    before = rulesetFingerprint(root);
+  put('public/assets/models/leona-e-sword-normals.bin', 'different derived stream');
+  expect(rulesetFingerprint(root)).not.toBe(before);
+});
+
 test('each missed pose/table changes the hash independently; paths, raw bytes and lockfiles matter', () => {
   const { root, put } = fixture();
   put(

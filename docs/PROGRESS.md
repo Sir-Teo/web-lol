@@ -6206,3 +6206,56 @@ new production/offline run, normal cohort or performance acceptance is claimed.
 Explicit normal delivery and saved E source presentation integration are next;
 actual native dispatch/lifecycle/resources, weapon attachments, native frames,
 player/support and full roster gates remain open. The goal continues; no push.
+
+
+## Zenith source sword, SCB material semantics and complete local visible coverage — October 24, 2026
+
+The last visible E family now draws through saved phase history. All19 visible
+source families are locally represented:16 surfaces, one private posed skin and
+two ribbons; the twentieth enabled declaration is a sound carrier. The authored
+GLB stays unchanged. A separate23,328-byte normal stream covers1,944 corners;
+the loader checks its SHA256 and both source/rendered position identities before
+attaching it, including interleaved glTF accessors. Failure stays explicit.
+
+Twenty-three bounded native word streams distinguish SCB+7d vertex-color
+selection from the separate resource-format+40 branch. Source faceRGB yields
+packedFF000000 corners, while this conditional SCB path leaves vertex colors
+disabled. Retained PS24 applies strict original-alpha testing before remap
+selection/rim/clamp; threshold equality survives. Registered blendMode/default
+and exact kColorFactor CPU/AIR names establish conditional blend0/2 packing:
+premultiply combined RGB then force alpha1. This new sword uses that packing,
+mapped fresnel.8350000381469727, alphaRef5/255 and no cube. Earlier W/R local tint
+policies are unchanged. An intermediate research message mislabeled kColorFactor
+as vColor; literal/AIR checks corrected it before acceptance. Four altered native
+metadata/instruction controls are rejected under optimized Python.
+
+Five source-surface Chrome checks pass all16 surface contributions, exact
+Save/reload/graphics recovery at ages29/54, six hit/miss lifecycles and causal
+sword inputs. The family contributes up to530 isolated pixels. At a zero-alpha
+birth, hidden/raw-power/constant-normal/preserved-zero-alpha controls change
+250/227/249/250 pixels, with zero pixels changed after restoring inputs. All six
+fully warmed rounds settle at24 geometries/47 textures; no image uploads follow
+the first warmup. The new material also belongs to the registered color phase,
+excluding it from an early distortion backdrop.
+
+The first loader rejected interleaved accessors, a tint fixture sampled before
+missile release, and the first memory probe skipped short contact stages.
+Those fixtures/loader handling are corrected; failure records remain retained.
+The final standard check passes1,887 units in310 files, TypeScript and three QA
+tests. Forty Chrome regressions pass, including249 scalar/GPU material samples
+and shared W/R, E skin/ribbon and color-phase checks. Production passes32 nested-
+path recordings with no development hook or unrequested Leona preload. All965
+previous public files stay byte-identical; only the normal binary is added.
+
+Offline pack674763529f956c9f2c80554c689f9d56e84f6e01d661d2953dcf3c38a5e74f30
+contains1,012 files/513,309,163 bytes. Integrity, repair, offline saved boot and
+atomic-version controls pass, with963 worker responses and no production errors.
+Schema126 now uses rulesetc485c84bed8be736fb779f5d0f5b2d0c9d07a566377af3d0a28988d5a2f1ed80.
+No new normal-match cohort/performance claim is made. See
+[local sword scope](LEONA-E-SWORD.md), [native material scope](LEONA-NATIVE-SCB-MATERIAL.md)
+and [ledger](reference/leona/e-sword-verification.json).
+
+Native Leona dispatch/post-load/lifecycle/resources/pass/FOW/cull/full-frame
+matching remains open. R stays41/44; weapon attachments, player/support and the
+full six-character match remain gates. No native game/shader was executed or
+provider restarted. Work continues under the active goal; nothing is pushed.

@@ -12,6 +12,7 @@ import { zenithSurfaceAssets } from './leona-zenith-surface-assets';
 import { zenithSurfaceAccepted } from './leona-zenith-surface-profiles';
 import { SourceParticleSurfaces, type SurfaceProgram } from './source-particle-surfaces';
 import { eclipseValue } from './leona-eclipse-values';
+import { zenithSwordMaterial, zenithSwordTint } from './leona-zenith-sword-material';
 export { loadLeonaZenithSurfaces } from './leona-zenith-surface-assets';
 
 const program: SurfaceProgram<ZenithDrawGroup> = {
@@ -20,6 +21,8 @@ const program: SurfaceProgram<ZenithDrawGroup> = {
   profiles: ZENITH_PROFILES,
   assets: zenithSurfaceAssets,
   accepts: zenithSurfaceAccepted,
+  material: zenithSwordMaterial,
+  tint: zenithSwordTint,
   *records(world) {
     for (const source of world.units) {
       const state = world.championState(source.id);
@@ -63,8 +66,8 @@ const program: SurfaceProgram<ZenithDrawGroup> = {
 };
 
 /** Local unit/missile-root placement uses saved phase histories. Native particle
- * CPU attachment and material dispatch remain unverified. No sword normal or
- * reflection fallback is supplied by this surface path. */
+ * CPU attachment and material dispatch remain unverified. The sword uses a
+ * separately checked derived normal stream and an explicit no-cube adapter. */
 export class LeonaZenithSurfaces extends SourceParticleSurfaces<ZenithDrawGroup> {
   constructor(
     scene: THREE.Scene,

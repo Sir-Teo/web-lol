@@ -1,0 +1,910 @@
+{
+  "scope": "Conditional generic Mesh/SCB feature selection and alpha-test/rim arithmetic. Static file bytes/host textual AIR, not actual Leona dispatch/native frames.",
+  "nativeExecuted": false,
+  "nativeShaderExecuted": false,
+  "nativeRenderingVerified": false,
+  "inputPin": {
+    "path": "docs/reference/leona-native-reflection-inputs.json",
+    "bytes": 52737,
+    "sha256": "5693f761a1d472269ae07a74833cc9a8ec1b3d41dc216a92b7a0a5b96d173c76"
+  },
+  "inputVerifier": {
+    "path": "tools/assets/verify-leona-native-reflection-inputs.py",
+    "bytes": 15882,
+    "sha256": "2b6c7d357387dfae5088ecd9464919943a9d2be0cb3c7194a629d723bd90da79"
+  },
+  "normalPin": {
+    "path": "docs/reference/leona-native-scb-normals.json",
+    "bytes": 23741,
+    "sha256": "54fa5b7a7f5c82566c7074452f43e601fc82de496833e65f2117fce25579962c"
+  },
+  "sourceModelPin": {
+    "path": "public/assets/models/leona-e-sword.json",
+    "bytes": 1499,
+    "sha256": "d212c077fb6705c7d0084af439691ed2e759bb73069417510e008295a7eae76e"
+  },
+  "independentFindings": {
+    "path": ".cache/leona-native-scb-material-v1-20261024/findings.json",
+    "bytes": 22520,
+    "sha256": "f2c52583af6bbf984d71eb31fca484143e00bd4aaea72ad680d89c639df0c964"
+  },
+  "meshLink": {
+    "path": ".cache/leona-native-scb-material-v1-20261024/mesh-link.json",
+    "bytes": 10483,
+    "sha256": "0d5e97a297d1ffeeb9ae9496bb068b6b9710b90479dd38c0a57b041f6d501eac"
+  },
+  "cornerColor": {
+    "path": ".cache/leona-native-scb-material-v1-20261024/corner-color.json",
+    "bytes": 6508,
+    "sha256": "3ce2ce6c4d81d0a83d78241af019800844c5cc790ff0cb7485bae3c35cded9c6"
+  },
+  "extraction": {
+    "path": ".cache/leona-native-scb-material-v1-20261024/shaders/provenance.json",
+    "bytes": 8925,
+    "sha256": "da806a52907f15b9ff1beb2ec6f271cf09142a898935fa6f7aa14e25035796de"
+  },
+  "streams": [
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/old-alpha-gate.txt",
+      "bytes": 4939,
+      "sha256": "cfa9ee638bbc9b2d9ea5a03ac721b9f6870e6911c2516eb5afd32f029db888c3",
+      "requestedStart": "0x10188f6e0",
+      "requestedEnd": "0x10188f850",
+      "instructions": 92
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/old-blend-targets.txt",
+      "bytes": 6723,
+      "sha256": "b29dd4184b7de4597e080dfb3ea93f9ba7436707aeb15cb4b2543683048d155c",
+      "requestedStart": "0x10188f850",
+      "requestedEnd": "0x10188fa50",
+      "instructions": 128
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/old-selector.txt",
+      "bytes": 15419,
+      "sha256": "9277dd299a0de98b8d4dccf0cbd6e48d8981a384cc340de02effd33198370b06",
+      "requestedStart": "0x1018901cc",
+      "requestedEnd": "0x101890668",
+      "instructions": 295
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/new-state.txt",
+      "bytes": 11381,
+      "sha256": "ff36e31cf2da001d32acaf0d4db5ad6963edc6465dc2ede41faa3b000574d275",
+      "requestedStart": "0x1018c2528",
+      "requestedEnd": "0x1018c2898",
+      "instructions": 220
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/resource-getter.txt",
+      "bytes": 1180,
+      "sha256": "f52e4a92ef6cd55f6e87731e5664efd2ace1edaa96f5596a292eb95f50fc4afe",
+      "requestedStart": "0x1019c9ee8",
+      "requestedEnd": "0x1019c9f40",
+      "instructions": 22
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/mesh-registration.txt",
+      "bytes": 1430,
+      "sha256": "1e4d541a427c75b3db55daad7fbef26908cdce7c3683d0b762762ed5b401facd",
+      "requestedStart": "0x101946050",
+      "requestedEnd": "0x1019460b0",
+      "instructions": 24
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/mesh-constructor.txt",
+      "bytes": 2878,
+      "sha256": "b6d9f02c909131f92989a228f2588ddef1be199511f26850f544d9d868324428",
+      "requestedStart": "0x10193a73c",
+      "requestedEnd": "0x10193a828",
+      "instructions": 59
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/mesh-methods.txt",
+      "bytes": 402,
+      "sha256": "e75f5bada5021cb16ee4c7207721c47f79ee482f99474a997d1d9d1a0463321b",
+      "requestedStart": "0x101914a3c",
+      "requestedEnd": "0x101914a54",
+      "instructions": 6
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/mesh-resource-attempt.txt",
+      "bytes": 2171,
+      "sha256": "ecedbeec2a5eb6fc0b501d0228d6d0b044b7c3fd2fa62770027937c493046bce",
+      "requestedStart": "0x101891f08",
+      "requestedEnd": "0x101891fa0",
+      "instructions": 38
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/prior/llvm-0x1018916dc.txt",
+      "bytes": 27494,
+      "sha256": "2eff2d52eb324d9bf0bdb77270634f97aee97f981018204ac44e6ce2f1aba887",
+      "requestedStart": "0x1018916dc",
+      "requestedEnd": "0x101891f08",
+      "instructions": 523
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/prior/llvm-0x1018980a0.txt",
+      "bytes": 9090,
+      "sha256": "c1066f5516e220feec95f7b3f133e137473c927fe6c62842eba8b7cfb33665c8",
+      "requestedStart": "0x1018980a0",
+      "requestedEnd": "0x101898374",
+      "instructions": 181
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/prior/llvm-0x1019932dc.txt",
+      "bytes": 18981,
+      "sha256": "90d4a709bac2821d5e935ff6f092a3339330a1ae41959e0dcfa97805f38de8a7",
+      "requestedStart": "0x1019932dc",
+      "requestedEnd": "0x1019938d8",
+      "instructions": 383
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/prior/llvm-0x101991828.txt",
+      "bytes": 1815,
+      "sha256": "d781d0261d5f4b3f995a9e537223cafbd4822f8050bbb5e16c71cfb43c313d25",
+      "requestedStart": "0x101991828",
+      "requestedEnd": "0x1019918b4",
+      "instructions": 35
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/prior/llvm-0x101991bd4.txt",
+      "bytes": 12152,
+      "sha256": "ec98c0ace0616f884e12f718bfdcac52299335b6bc7fb778317b0a0cc21451e2",
+      "requestedStart": "0x101991bd4",
+      "requestedEnd": "0x101991fa8",
+      "instructions": 245
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/tint/legacy-constructor-10192f41c.txt",
+      "bytes": 4481,
+      "sha256": "ff371603d0a6ebdb41d6c412230a9d1baa567bf0f976df48929f85c063f60f88",
+      "requestedStart": "0x10192f41c",
+      "requestedEnd": "0x10192f584",
+      "instructions": 90
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/tint/ctor-old.txt",
+      "bytes": 728,
+      "sha256": "ced62182976e877c8cee68270fa21753ae5f374dcdba4286f87ee7ef2ec16959",
+      "requestedStart": "0x1018ac84c",
+      "requestedEnd": "0x1018ac87c",
+      "instructions": 12
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/tint/field-new.txt",
+      "bytes": 576,
+      "sha256": "0741ad3eaec26d41538c3fb52070f3424d72c5530f9ab156a8784de02f1cfeb0",
+      "requestedStart": "0x1018c3270",
+      "requestedEnd": "0x1018c328c",
+      "instructions": 7
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/tint/field-old.txt",
+      "bytes": 568,
+      "sha256": "784176a0d4588f9b822c9f0c07c820f3a39e077fe6103379b3cd6ccc2291aa21",
+      "requestedStart": "0x1018ab5e0",
+      "requestedEnd": "0x1018ab5fc",
+      "instructions": 7
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/tint/tint-global-new.txt",
+      "bytes": 969,
+      "sha256": "43fdf22f76d39e9a6fcf012b4364c859b18b8d87fa51c4d7fb3d1b255604e24d",
+      "requestedStart": "0x101944950",
+      "requestedEnd": "0x101944988",
+      "instructions": 14
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/tint/tint-global-old.txt",
+      "bytes": 848,
+      "sha256": "7f50b0ccc1ac3c25b40bc85d98efb6f8bc566b1661140a36ff24c73b7e6ecc3a",
+      "requestedStart": "0x101946cb0",
+      "requestedEnd": "0x101946ce4",
+      "instructions": 13
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/tint/u8-wrapper.txt",
+      "bytes": 923,
+      "sha256": "cf043c106a6b7f23a2a883890ae0aef47f61adbd772b67c4e33203b79133c290",
+      "requestedStart": "0x1018ac350",
+      "requestedEnd": "0x1018ac38c",
+      "instructions": 15
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/tint/llvm-0x1018c0eb0.txt",
+      "bytes": 6206,
+      "sha256": "02e9375589b6f45205555fe22a9b55cfc391307e898c792e9c56f69b880efd4c",
+      "requestedStart": "0x1018c0eb0",
+      "requestedEnd": "0x1018c1098",
+      "instructions": 122
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/tint/llvm-0x1018df18c.txt",
+      "bytes": 54433,
+      "sha256": "f9457f35da05492646deb144390987f89e73c82069f95fd387f5ef98103b53cc",
+      "requestedStart": "0x1018df18c",
+      "requestedEnd": "0x1018e0318",
+      "instructions": 1123
+    }
+  ],
+  "retainedInputs": [
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/native/LeagueofLegends.app/Contents/MacOS/LeagueofLegends",
+      "bytes": 82268192,
+      "sha256": "97edcf2c88fec3169a1ec36345276569de3329e27fd9b32c8162957a77135c6c"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/arm64-focused-strings.json",
+      "bytes": 17478,
+      "sha256": "eb622fb24d11040aaa4848617e081747d053181efc3f732ea0ebd5a1e307be67"
+    },
+    {
+      "path": "public/assets/models/leona-e-sword.json",
+      "bytes": 1499,
+      "sha256": "d212c077fb6705c7d0084af439691ed2e759bb73069417510e008295a7eae76e"
+    },
+    {
+      "path": "tools/assets/export-particle-shaders.py",
+      "bytes": 6891,
+      "sha256": "fbb96dc9c57f155668ba0145fe4ceb273f9be7b22a55fed17ec336d3682f46d3"
+    },
+    {
+      "path": ".cache/leona-native-reflection-reading-v1-20261024/independent/vertex-alpha/extract.py",
+      "bytes": 3506,
+      "sha256": "de1383c3bc3a6059aa3b49ef749bb4cf38b5f3ef19adc6ae05f8789adca9f3bf"
+    },
+    {
+      "path": ".cache/leona-native-reflection-reading-v1-20261024/independent/vertex-alpha/probe.py",
+      "bytes": 1950,
+      "sha256": "83c4900e1939670f0ce599b936ef2f57f96b490958ab136001c08348845f9863"
+    },
+    {
+      "path": ".cache/leona-native-reflection-reading-v1-20261024/independent/vertex-alpha/check.py",
+      "bytes": 8502,
+      "sha256": "04607bc7619c9e35cedca163e4648fa1fdc1300e056715c7a1efc5489a5f1294"
+    },
+    {
+      "path": ".cache/leona-native-reflection-reading-v1-20261024/independent/vertex-alpha/shaders/provenance.json",
+      "bytes": 8925,
+      "sha256": "da806a52907f15b9ff1beb2ec6f271cf09142a898935fa6f7aa14e25035796de"
+    },
+    {
+      "path": ".cache/leona-native-reflection-reading-v1-20261024/llvm-0x1018c1e24.txt",
+      "bytes": 23519,
+      "sha256": "7c3c032697a43a748f8838b50f6195ebc7df3f1e438b95afa707bc54768ebb38"
+    },
+    {
+      "path": ".cache/leona-native-mesh-reading-v1-20261024/llvm-0x101991bd4.txt",
+      "bytes": 12152,
+      "sha256": "ec98c0ace0616f884e12f718bfdcac52299335b6bc7fb778317b0a0cc21451e2"
+    },
+    {
+      "path": ".cache/leona-native-mesh-reading-v1-20261024/llvm-0x1019932dc.txt",
+      "bytes": 18981,
+      "sha256": "90d4a709bac2821d5e935ff6f092a3339330a1ae41959e0dcfa97805f38de8a7"
+    },
+    {
+      "path": "docs/reference/leona-e-particles.json",
+      "bytes": 177177,
+      "sha256": "613560569d82f27abdf362a7065ad4645abb1637fbe55f8790e6d8769eb65f83"
+    },
+    {
+      "path": ".cache/leona-native-reflection-reading-v1-20261024/independent/vertex-alpha/corner-color.json",
+      "bytes": 6508,
+      "sha256": "3ce2ce6c4d81d0a83d78241af019800844c5cc790ff0cb7485bae3c35cded9c6"
+    },
+    {
+      "path": ".cache/leona-native-reflection-reading-v1-20261024/independent/vertex-alpha/mesh-link.py",
+      "bytes": 5598,
+      "sha256": "7dc7c260cb6abbb8de97c8a1153cc5815068044cf03aac54e22c594f0b0c3923"
+    },
+    {
+      "path": ".cache/leona-e-particle-sources-v2-20261024/13b9c8c611b0d630.scb",
+      "bytes": 74820,
+      "sha256": "dd03b9b8005bee1df65830c7a93c46c0233af28e05b129d7811133b2a65037f9"
+    },
+    {
+      "path": ".cache/leona-native-reflection-reading-v1-20261024/independent/vertex-alpha/corner-color.py",
+      "bytes": 4587,
+      "sha256": "81551e9b813b67b644ec56c4707411ecab5d89a7c5ab85fad6f002b18453a96d"
+    },
+    {
+      "path": ".cache/leona-e-reflection-shaders-v1-20261024/native/assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal",
+      "bytes": 3295,
+      "sha256": "ae5b370cd544af0d628ada594060fab0e75b92973c27d23e22abf2322c584543"
+    },
+    {
+      "path": ".cache/leona-e-reflection-shaders-v1-20261024/native/assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal_0",
+      "bytes": 582465,
+      "sha256": "0b47cdaf2a7a0d9489a2d521a04f06a864a3bf0ae771ff95b22b5a01e5cc73ad"
+    },
+    {
+      "path": ".cache/leona-e-reflection-shaders-v1-20261024/native/assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal",
+      "bytes": 24873,
+      "sha256": "5fbf5c0846d31ce52b32ac57e29e7778d847e5e86a8cd26f4caa5206a62ac599"
+    },
+    {
+      "path": ".cache/leona-e-reflection-shaders-v1-20261024/native/assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_700",
+      "bytes": 571080,
+      "sha256": "4d527093f8a2bba1fb443f403aa944314b5bc21a78734a6987afc85cab6093cc"
+    },
+    {
+      "path": ".cache/leona-e-reflection-shaders-v1-20261024/native/assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_0",
+      "bytes": 423160,
+      "sha256": "f11dab5e01ff4779842a87a7f44063de3093b8f66210508f93007994a1d3efc8"
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/extract.py",
+      "bytes": 3506,
+      "sha256": "de1383c3bc3a6059aa3b49ef749bb4cf38b5f3ef19adc6ae05f8789adca9f3bf"
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/check.py",
+      "bytes": 8502,
+      "sha256": "04607bc7619c9e35cedca163e4648fa1fdc1300e056715c7a1efc5489a5f1294"
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/corner-color.py",
+      "bytes": 4587,
+      "sha256": "81551e9b813b67b644ec56c4707411ecab5d89a7c5ab85fad6f002b18453a96d"
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/mesh-link.py",
+      "bytes": 5598,
+      "sha256": "7dc7c260cb6abbb8de97c8a1153cc5815068044cf03aac54e22c594f0b0c3923"
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/requests.json",
+      "bytes": 1125,
+      "sha256": "8952e6a5b0c009b19a39c7b57d04ee85cbb08ae23aa1a69b925875ffc4b565a0"
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/tint/check.py",
+      "bytes": 6239,
+      "sha256": "7144b7543dfe1ce94a2550fdc21700e7aa04b3507a83d2b1546173b98331a32b"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/native/LeagueofLegends.app/Contents/MacOS/LeagueofLegends",
+      "bytes": 82268192,
+      "sha256": "97edcf2c88fec3169a1ec36345276569de3329e27fd9b32c8162957a77135c6c"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/arm64-focused-strings.json",
+      "bytes": 17478,
+      "sha256": "eb622fb24d11040aaa4848617e081747d053181efc3f732ea0ebd5a1e307be67"
+    },
+    {
+      "path": "docs/reference/leona-e-particles.json",
+      "bytes": 177177,
+      "sha256": "613560569d82f27abdf362a7065ad4645abb1637fbe55f8790e6d8769eb65f83"
+    },
+    {
+      "path": ".cache/leona-e-particle-sources-v2-20261024/dcca1cd8b71b953f.bin",
+      "bytes": 17829,
+      "sha256": "841e16b8fe0bf94cda3180ec70476c1e6aeba3defbbf5b15d4025e62909240d3"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/binfile.py",
+      "bytes": 17236,
+      "sha256": "0c1825135763c98f705535eecf2b4b1a8e667c53181e9e1d43ad7a83d1d844fd"
+    },
+    {
+      "path": ".cache/leona-native-reflection-reading-v1-20261024/nonreflective/mesh_vs.vs-metal-1.ll",
+      "bytes": 14556,
+      "sha256": "b427403aa291b79e6915da671bc610ac122b70eda5933e410635a472506d6084"
+    },
+    {
+      "path": ".cache/leona-native-scb-material-v1-20261024/tint/source-particle-surfaces-before-sword-tint.ts",
+      "bytes": 18826,
+      "sha256": "eed9a3f56e5855fb5e8f3d6dccfb7aeb8faabc9bdedaa3779b4b60e3a0a264ee"
+    },
+    {
+      "path": ".cache/leona-native-bin-type-reading-v1-20261024/loader-followup.json",
+      "bytes": 22526,
+      "sha256": "f5fed8fd4ae488c60ac0442c9805c834840e78c7a5506dac5c077f6e43dcac68"
+    },
+    {
+      "path": ".cache/leona-native-reflection-reading-v1-20261024/independent/tint/check.py",
+      "bytes": 6239,
+      "sha256": "7144b7543dfe1ce94a2550fdc21700e7aa04b3507a83d2b1546173b98331a32b"
+    }
+  ],
+  "nativeSpans": [
+    {
+      "address": "0x1022778a9",
+      "universalFileOffset": 78805161,
+      "bytes": 11,
+      "hex": "414c5048415f5445535400",
+      "sha256": "f29df8e8b4ffc6735852a368804a89049d143d44f6c07d6f8a15caffb6e06293"
+    },
+    {
+      "address": "0x102277cb7",
+      "universalFileOffset": 78806199,
+      "bytes": 18,
+      "hex": "5553455f5645525445585f434f4c4f525300",
+      "sha256": "1220a659787a17f90991a6f34b58bd2bf99d76d4418f0a4117cd5688705f549c"
+    },
+    {
+      "address": "0x1021333f0",
+      "universalFileOffset": 77476848,
+      "bytes": 9,
+      "hex": "33008a8e9094989fa6",
+      "sha256": "50547c22b65055bd1adf8314ebbd0f29f86806cacd004a945e9850c7cae1d998"
+    },
+    {
+      "address": "0x102133542",
+      "universalFileOffset": 77477186,
+      "bytes": 9,
+      "hex": "00050a0f11161b2229",
+      "sha256": "1d0a20e30717c481b014706ddccf209b87cc3dcac8db0586d41e519598370149"
+    },
+    {
+      "address": "0x101946060",
+      "universalFileOffset": 69165152,
+      "bytes": 64,
+      "hex": "b5a20e91c236fa101f2003d5c339fa101f2003d5243afa101f2003d5853cfa101f2003d5a63cfa101f2003d5e00315aa21079d5281b2b072071280527661f597",
+      "sha256": "4f06de2619c948d55dfc9e3618e88702f746ae713e537876d111a90c53184285"
+    },
+    {
+      "address": "0x10193a73c",
+      "universalFileOffset": 69117756,
+      "bytes": 104,
+      "hex": "fd7bbfa9fd030091001280526263f5976800805208200039a85900901f2003d5086140f9080800f900e4006f000c00fd081000f9001400fd081800f90080833c0080843c0010853c08fc06a91ffc07a91f7008b8685a009008810791080000f9fd7bc1a8c0035fd6",
+      "sha256": "5eb65f3772ba270b53e56dadd6611eca0546f8f6235a0aa548a841c1545d1ca8"
+    },
+    {
+      "address": "0x102486248",
+      "universalFileOffset": 80962120,
+      "bytes": 8,
+      "hex": "3c4a910101000000",
+      "sha256": "177743b3c3c12b5e998fbdc037c3d6bc8ed71efad6574f161e0881ecd55aff60"
+    },
+    {
+      "address": "0x1024862a0",
+      "universalFileOffset": 80962208,
+      "bytes": 8,
+      "hex": "444a910101000000",
+      "sha256": "3a92655b9c9b524b69af3581eb2ce2346820188e21b180daebd564e727d56403"
+    },
+    {
+      "address": "0x101914a3c",
+      "universalFileOffset": 68962876,
+      "bytes": 16,
+      "hex": "20008052c0035fd600400091c0035fd6",
+      "sha256": "b05a95f7372bd877a8a1dbce95d802fced3d7802c660d9db25f899ce2c5fe8f7"
+    },
+    {
+      "address": "0x1018917dc",
+      "universalFileOffset": 68425692,
+      "bytes": 68,
+      "hex": "163140f9c80240f9083540f9e00316aa00013fd6e0140034c80240f9086140f9e00316aa00013fd6f60300aa7772009103400091e00315aae10317aae20316aabb010094",
+      "sha256": "f47832b2a287b5f2001c0c5be469df7bf9c2ee3ac447dc8fe2590f02cb995e75"
+    },
+    {
+      "address": "0x1018919b0",
+      "universalFileOffset": 68426160,
+      "bytes": 36,
+      "hex": "f70319aa62920091686300b000d544f9e10317aab7190094682640b91f050031e1050054",
+      "sha256": "48e590ddddd7b4e0236de55f855df5527a3a315570880eb1d2e20b8f5ae968d6"
+    },
+    {
+      "address": "0x101898174",
+      "universalFileOffset": 68452724,
+      "bytes": 52,
+      "hex": "001a8052d6ecf797f60300aaaae50394e87fc039e90740f91f010071e823009121b1889ae00316aa2200805233ec0394a0000036",
+      "sha256": "867db2bf303b7dec205d3d44dcec979df382f680e97fcca4983ce6f4251f0547"
+    },
+    {
+      "address": "0x1018982a8",
+      "universalFileOffset": 68453032,
+      "bytes": 24,
+      "hex": "e812188b155900a9881a41b909050011891a01b9680200b9",
+      "sha256": "fbc33f06188432d6ff1b3ffa212b45e48184bcd670a62cc25571e8e448fd3424"
+    },
+    {
+      "address": "0x10189030c",
+      "universalFileOffset": 68420364,
+      "bytes": 196,
+      "hex": "a81e40b91f050031e001005429d744f9297940f90a0580520825aa9b001140f9200100b4eee604941b008052084040b9080500511f0d0071f7279f1a480080522c000014a82640b91f050031c000005429d744f9298940f92811088b080540f9a80200b5a82a40b91f050031c000005429d744f9299140f92811088b000540f9000300b517008052080080523b00805218000014a82640b91f0500312001005429d744f9298940f92811088b080540f9880000b41b00805217f541390c000014a82a40b9",
+      "sha256": "34a395675095d57627ded331b31b506a15a91720ee702a1168674c67842776fa"
+    },
+    {
+      "address": "0x101890604",
+      "universalFileOffset": 68421124,
+      "bytes": 28,
+      "hex": "f7000034214f00f021dc3291224d00b042101c91e0830091669e0794",
+      "sha256": "bb0703c76ff3ee2119f3999b819c45b9573dc98873b6dedfeb96ee6f265c3bb9"
+    },
+    {
+      "address": "0x101993488",
+      "universalFileOffset": 69481608,
+      "bytes": 16,
+      "hex": "e80f40b9758280b9e8060034a8f67ed3",
+      "sha256": "a838c9461592f685e5f230551cb177734bf8e92584951d655e3aa51976e8ff60"
+    },
+    {
+      "address": "0x101993560",
+      "universalFileOffset": 69481824,
+      "bytes": 16,
+      "hex": "604a00f92800805268f60139a806158b",
+      "sha256": "7327cc18eee87314021431b480f2c70b1938905f90ae58f4016b80d6efb5c0b5"
+    },
+    {
+      "address": "0x101991884",
+      "universalFileOffset": 69474436,
+      "bytes": 4,
+      "hex": "1ff80079",
+      "sha256": "4f203f70c7d79deb6e4d32460858b228d19a295a2b4a55ed9e71e2d1aee73347"
+    },
+    {
+      "address": "0x101993404",
+      "universalFileOffset": 69481476,
+      "bytes": 84,
+      "hex": "88048052c87ec89bc90e168b29f57ed3ff0308eb20019fda4500f497b601003488048052c802289b00e5042fe90300aa200100fd200900bd3fc100f83fc101f83f4101f8299100913f0108eb21ffff54605200f9",
+      "sha256": "bd62e6a536f770e9c344d6f7f8b9ec737687a086dd755d2715d15dd9a2c98ef5"
+    },
+    {
+      "address": "0x1019935f0",
+      "universalFileOffset": 69481968,
+      "bytes": 240,
+      "hex": "140080d2150080d2160080d217008012e0a30091e1230191820c8052c268f3971f9001f1410c0054e84b40b9694e40f928693478685240f9176935b8e09740bd685240f90801158b000d00bde0a340bd685240f90801158b001900bde84f40b9694e40f92901148b28050079685240f90801158b170500b9e09b40bd685240f90801158b001100bde0a740bd685240f90801158b001d00bde85340b9694e40f92901148b28090079685240f90801158b170900b9e09f40bd685240f90801158b001500bde0ab40bd685240f90801158b002100bdd6060091698680b9b5920091941a0091df0209eb4bf9ff54e84741b9",
+      "sha256": "81610e93127ef27598adebcb59b76a567904299e50fcf80d0072f9f7b0538c38"
+    },
+    {
+      "address": "0x1019936e0",
+      "universalFileOffset": 69482208,
+      "bytes": 176,
+      "hex": "880500363f0500714b050054140080d2150080d2e0a30091e1ff0091220180528568f397e8034139e90741396a5240f9ebff4039085d185308410b2a0801092a081d0832486934b8e80f4139e91341396a5240f94a01148beb0b4139085d185308410b2a0801092a081d0832480500b9e81b4139e91f41396a5240f94a01148beb174139085d185308410b2a0801092a081d0832480900b9b5060091688680b994920091bf0208eb6bfbff54e84741b9",
+      "sha256": "322be092ed838a11d81f13d5e7cae6cf78032bb39c966328a8b5b0979c45421a"
+    },
+    {
+      "address": "0x101991c54",
+      "universalFileOffset": 69475412,
+      "bytes": 32,
+      "hex": "694640f96c4e40f9ea0740f96bf641398c0900910d0480528e018052ef0314aa",
+      "sha256": "78ef334e06a0fb03c66f2d29ee2567d4099423043b0901ddb5568e238e6c2ad1"
+    },
+    {
+      "address": "0x101991cec",
+      "universalFileOffset": 69475564,
+      "bytes": 48,
+      "hex": "cb000034704a40f991e15f78110a118b705240f904000014705240f911020d8b318200d1310240b9f11900b911020d8b",
+      "sha256": "269d4a1a51d5973ad4edbcbf7094f9bd26bbad43b5baf8f0439096cfd7adf6dc"
+    },
+    {
+      "address": "0x101991d68",
+      "universalFileOffset": 69475688,
+      "bytes": 32,
+      "hex": "ab000034714a40f980014079310a008b02000014317200d1310240b9f13d00b9",
+      "sha256": "e7ee1bf7850a34a18a516b0d7212e0ea81f0e297ad2c5d3d40a3fbe5b2f9a4cd"
+    },
+    {
+      "address": "0x101991e7c",
+      "universalFileOffset": 69475964,
+      "bytes": 28,
+      "hex": "62024ca9080040f9080140f961008052030380528404805200013fd6",
+      "sha256": "5dde07241470b62c4a99bbd3eef26ed2c79ff3ff7e3b0ca9cd6fb96a1a34568b"
+    },
+    {
+      "address": "0x1018ab5e0",
+      "universalFileOffset": 68531680,
+      "bytes": 28,
+      "hex": "e00313aa61d58952014fbf7282028052030080d2040080d256030094",
+      "sha256": "17f2103bc9fa4a04398f340e35fb5eba928e471b9a98f221ffa801eebc712d50"
+    },
+    {
+      "address": "0x1018c3270",
+      "universalFileOffset": 68629104,
+      "bytes": 28,
+      "hex": "081c00f961d58952014fbf7242018052030080d2040080d232a4ff97",
+      "sha256": "66433fc0d8d938b093d9920edc1454877ff0befca900b3403a4ebea1380e99b9"
+    },
+    {
+      "address": "0x1018ac350",
+      "universalFileOffset": 68535120,
+      "bytes": 64,
+      "hex": "ff0301d1fd7b03a9fdc30091ff7f00a9ff9301a9e30b00f96300805204008052050080d2060080d2070080d21bcaf797fd7b43a9ff030191c0035fd6ff0301d1",
+      "sha256": "07a0fca81483a4a9efe4fb1f4c6d66731673e836e84b5cc5ec11ff14f1ae868a"
+    },
+    {
+      "address": "0x1018ac860",
+      "universalFileOffset": 68536416,
+      "bytes": 16,
+      "hex": "1ff000b8e004000f003001bc48008052",
+      "sha256": "09f4c92dff25701451e6f5238ee40695da24cdb40e8bcb66fa88431c935b392c"
+    },
+    {
+      "address": "0x10192f43c",
+      "universalFileOffset": 69071932,
+      "bytes": 8,
+      "hex": "1f1000791f280039",
+      "sha256": "6157fffd14126157d721558edaaee9bd887c4c0a785c9e3ed7c219bfca1c0efb"
+    },
+    {
+      "address": "0x1018df688",
+      "universalFileOffset": 68744840,
+      "bytes": 92,
+      "hex": "8082de3ca003913ce80a40f900094e6da10f716d01dc212e40dc232ea103316d0851403908011f321f090071e10000542190a00fa10311fc0090a00fa08311bc08f0a752a8c311b8a08350f8486800b001b542f9a2c303d1f9cf0194",
+      "sha256": "d13156b3b5b6ac54c4e975c32ffe1ca38049a694ee9784d572fba5d1bc791127"
+    },
+    {
+      "address": "0x1018c0efc",
+      "universalFileOffset": 68620028,
+      "bytes": 84,
+      "hex": "e00b416de10f406d01dc212e40dc232ee103016d880a40f90829403908011f321f090071e10000542190a00fe10b00fd0090a00fe01b00bd08f0a752e81f00b9600240f9886300d0016d40f9e2430091de490294",
+      "sha256": "ac9a7a1f973e59fd93c0eddfd094c1ae6a8bb9479b8e719a39158bf7ddc0b12c"
+    },
+    {
+      "address": "0x101944960",
+      "universalFileOffset": 69159264,
+      "bytes": 20,
+      "hex": "804900f000301e91afcc0494685f00d0006d00f9",
+      "sha256": "976bd482cc3f2b3d5ddb3e4313d1e8b747f80089bd1fbe085511b6e1051e5d9b"
+    },
+    {
+      "address": "0x101946ccc",
+      "universalFileOffset": 69168332,
+      "bytes": 24,
+      "hex": "804900b000301e91d4c30494176500d0f7021291e07600f9",
+      "sha256": "f96a74f87d4bb96a30de8635c3dfe31b44536e25ca6def1cb4dd7a8eb9fbd2f4"
+    },
+    {
+      "address": "0x10227778c",
+      "universalFileOffset": 78804876,
+      "bytes": 13,
+      "hex": "6b436f6c6f72466163746f7200",
+      "sha256": "9e36a4a6a9080a0f919950ab65eaa1e47b0109837fe65f7157738ccc6cd24c1a"
+    }
+  ],
+  "shaderPrograms": [
+    {
+      "table": "mesh_vs.vs-metal",
+      "flags": [
+        "USE_VERTEX_COLORS"
+      ],
+      "programId": 31,
+      "definesHash": "0572d84bd37124c8",
+      "bundle": ".cache/leona-e-reflection-shaders-v1-20261024/native/assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal_0",
+      "stage": 0,
+      "index": 31,
+      "programOffset": 176976,
+      "metallib": {
+        "path": ".cache/leona-native-scb-material-v1-20261024/shaders/mesh_vs.vs-metal-31.metallib",
+        "bytes": 5778,
+        "sha256": "706d72fc72b3eb4e1b6870f619d0b8248fd313d97e8f6b24233e9848d905a79d"
+      },
+      "bitcode": {
+        "path": ".cache/leona-native-scb-material-v1-20261024/shaders/mesh_vs.vs-metal-31.bc",
+        "bytes": 5468,
+        "sha256": "1f4673d36f74e01bc9bdab38b37ded19f987521244a89c45e1d0773e7968b987",
+        "offset": 310
+      },
+      "disassembly": {
+        "path": ".cache/leona-native-scb-material-v1-20261024/shaders/mesh_vs.vs-metal-31.ll",
+        "bytes": 16429,
+        "sha256": "ccf439b3a0ec36a4923b69c748c44200b2844ac1c30bd2a28f51498e7e3feca0"
+      },
+      "command": [
+        "clang",
+        "-S",
+        "-emit-llvm",
+        "-Xclang",
+        "-disable-llvm-passes",
+        ".cache/leona-native-reflection-reading-v1-20261024/independent/vertex-alpha/shaders/mesh_vs.vs-metal-31.bc",
+        "-o",
+        ".cache/leona-native-reflection-reading-v1-20261024/independent/vertex-alpha/shaders/mesh_vs.vs-metal-31.ll"
+      ],
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "mesh_vs.vs-metal",
+      "flags": [
+        "DISABLE_FOW",
+        "USE_VERTEX_COLORS"
+      ],
+      "programId": 4,
+      "definesHash": "1b6d3caa38719145",
+      "bundle": ".cache/leona-e-reflection-shaders-v1-20261024/native/assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal_0",
+      "stage": 0,
+      "index": 4,
+      "programOffset": 22399,
+      "metallib": {
+        "path": ".cache/leona-native-scb-material-v1-20261024/shaders/mesh_vs.vs-metal-4.metallib",
+        "bytes": 5634,
+        "sha256": "f09587fd97a5ea857b055352c6797b6c057a4c1c3f158d550ee82c7df898a726"
+      },
+      "bitcode": {
+        "path": ".cache/leona-native-scb-material-v1-20261024/shaders/mesh_vs.vs-metal-4.bc",
+        "bytes": 5312,
+        "sha256": "8f572fee77a33bc5ca5a4dcd4cb6654f1b1d00d15e4e75016a653e86d221d9f4",
+        "offset": 310
+      },
+      "disassembly": {
+        "path": ".cache/leona-native-scb-material-v1-20261024/shaders/mesh_vs.vs-metal-4.ll",
+        "bytes": 14926,
+        "sha256": "9fd6d70a27d440d30d739a39153b3b99b58ab40800673dc7f185660f844e5dcd"
+      },
+      "command": [
+        "clang",
+        "-S",
+        "-emit-llvm",
+        "-Xclang",
+        "-disable-llvm-passes",
+        ".cache/leona-native-reflection-reading-v1-20261024/independent/vertex-alpha/shaders/mesh_vs.vs-metal-4.bc",
+        "-o",
+        ".cache/leona-native-reflection-reading-v1-20261024/independent/vertex-alpha/shaders/mesh_vs.vs-metal-4.ll"
+      ],
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "mesh_ps.ps-metal",
+      "flags": [
+        "ALPHA_TEST"
+      ],
+      "programId": 772,
+      "definesHash": "5c7fef8e6508748d",
+      "bundle": ".cache/leona-e-reflection-shaders-v1-20261024/native/assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_700",
+      "stage": 1,
+      "index": 72,
+      "programOffset": 404612,
+      "metallib": {
+        "path": ".cache/leona-native-scb-material-v1-20261024/shaders/mesh_ps.ps-metal-772.metallib",
+        "bytes": 5822,
+        "sha256": "4d27c2488909ef9571398f74d31dd081e193ee0e3ab17bcc7fe7484a3af4567f"
+      },
+      "bitcode": {
+        "path": ".cache/leona-native-scb-material-v1-20261024/shaders/mesh_ps.ps-metal-772.bc",
+        "bytes": 5560,
+        "sha256": "753477b5d28473b54141d02a6da75a133fc9e217d36654d8dff0a48094ca9fa7",
+        "offset": 258
+      },
+      "disassembly": {
+        "path": ".cache/leona-native-scb-material-v1-20261024/shaders/mesh_ps.ps-metal-772.ll",
+        "bytes": 11956,
+        "sha256": "28045e130f5ba1510cd09e3cdd044b30dfe35f4334f3181698b0e9a87d72be06"
+      },
+      "command": [
+        "clang",
+        "-S",
+        "-emit-llvm",
+        "-Xclang",
+        "-disable-llvm-passes",
+        ".cache/leona-native-reflection-reading-v1-20261024/independent/vertex-alpha/shaders/mesh_ps.ps-metal-772.bc",
+        "-o",
+        ".cache/leona-native-reflection-reading-v1-20261024/independent/vertex-alpha/shaders/mesh_ps.ps-metal-772.ll"
+      ],
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "mesh_ps.ps-metal",
+      "flags": [
+        "DISABLE_FOW",
+        "ALPHA_TEST"
+      ],
+      "programId": 24,
+      "definesHash": "f9fbbee4b3db74fe",
+      "bundle": ".cache/leona-e-reflection-shaders-v1-20261024/native/assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_0",
+      "stage": 1,
+      "index": 24,
+      "programOffset": 95012,
+      "metallib": {
+        "path": ".cache/leona-native-scb-material-v1-20261024/shaders/mesh_ps.ps-metal-24.metallib",
+        "bytes": 4158,
+        "sha256": "ae3c69a06bf883597412669be3ccd0309a7c0683d061908795fa6f96a2e80d30"
+      },
+      "bitcode": {
+        "path": ".cache/leona-native-scb-material-v1-20261024/shaders/mesh_ps.ps-metal-24.bc",
+        "bytes": 3888,
+        "sha256": "12e31897a706223d1226c1b4eb853d55065722adf0cb9a83cf686db8209182f4",
+        "offset": 258
+      },
+      "disassembly": {
+        "path": ".cache/leona-native-scb-material-v1-20261024/shaders/mesh_ps.ps-metal-24.ll",
+        "bytes": 7647,
+        "sha256": "7be82c0148fb75b82575431d477704736fbaff186581474cf17ee49a16f0f0aa"
+      },
+      "command": [
+        "clang",
+        "-S",
+        "-emit-llvm",
+        "-Xclang",
+        "-disable-llvm-passes",
+        ".cache/leona-native-reflection-reading-v1-20261024/independent/vertex-alpha/shaders/mesh_ps.ps-metal-24.bc",
+        "-o",
+        ".cache/leona-native-reflection-reading-v1-20261024/independent/vertex-alpha/shaders/mesh_ps.ps-metal-24.ll"
+      ],
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    }
+  ],
+  "sourcePrimitive": {
+    "mMesh": {
+      "mSimpleMeshName": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_Z_sword.scb",
+      "__type": "VfxMeshDefinitionData"
+    },
+    "__type": "VfxPrimitiveMesh"
+  },
+  "sourceColor": {
+    "vertices": 333,
+    "faces": 648,
+    "corners": 1944,
+    "flags": 1,
+    "authoredVertexBGRA": false,
+    "authoredFaceRGB": true,
+    "faceRgbFileOffset": 68988,
+    "faceRgbBytes": 5832,
+    "faceRgbSha256": "d1575943c8a4713d0cdfc917aff7903805fab6350d7fcdc2000ccd7839ccd134",
+    "nonzeroFaceRgbBytes": 0,
+    "distinctSourceCornerRGB": [
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "conditionalNativeCornerWord": "0xff000000",
+    "conditionalPackedCornerBytes": 7776,
+    "conditionalPackedCornerSha256": "33858618965b7e44bae400b6e21b4a76a2ca4882b189224ab5efbb7fbdbf83a3"
+  },
+  "observations": [
+    "VfxPrimitiveMesh hash8594e839 registration946090/94 calls169e674 at94609c, X2callback93a73c supplied946064. Factory93a74c\u2013750 initializeskind3;vptr1024861e0. Vtable+68 points914a3c returning1;vtable+c0 points914a44 returningthis+10.",
+    "Generic older component initialization8916dc gets emitter primitiveD+60 at8917dc; callsprimitivevtable+68 then+c0 at17e4\u20131800. RegisteredMesh methods therefore exposeembeddeddefinitionthis+10 and enter resourcehandling. Thisisconditionalgeneric CPU behavior,notobservedliveLeona.",
+    "At8919b4 originalcomponent+24 suppliedasX2output to8980a0 at8919c4. ManagerargX0 isglobal1024fe9a8;8980a0 createsD0byteSCBobject991828 at898174\u2013180; loadsit99326c(mode1) at89819c\u20131a0. Onsuccess manager+110 16Bcache storespair(hash,SCBpointer) at8982a8\u2013ac, writesindexthroughoriginalX2 at8982bc.",
+    "Old selector8901cc kind3or16 firstattemptscomponent+1c index inmanager+f0 (40Brecords), obtainsresourcewrapper+20 thengetter9c9ee8 =>wrapper+10 andreadsresult+40enum. Thisisaseparateearliercandidate,notSCB+40. Itsvalue1..3 controlsvertexcolorsfor that branch.",
+    "Ifearlierindexinvalid/pointernil, selector890350\u201336c readscomponent+24,manager+110(index*16)+8, i.e.exactSCBcache. CBNZX8 at89036c targets8903c0. ThereW27=0 and8903c4 loadsW23byte[SCB+7d]. Final890604 CBZW23 skipsUSE_VERTEX_COLORS addition890608\u201361c. ThusthisgenericSCBresourcebranchusesSCB+7d,notresource+40enum.",
+    "SCBctor991884zeroes+7c/+7d. Parser993488\u2013490 readsSCB3.2 hasVertexColorsDWORDandzero skipsvertexcolor allocation andflagwrite. Onlynonzero sets+7d=1 at993564\u2013568. Outer sword hasDWORD0, so thisidentifiedSCBloader+selectorbranchhasUSE_VERTEX_COLORSfalse even thoughpackedfacecolorATTR3bufferexists. VS1/20 are the correspondingconditionalnonREFLECTIVE programs; VS4/31 remain relevantalternativeformat/otherroute candidates.",
+    "SwordsourceauthoredmMeshcontainsmSimpleMeshNameonly; othermeshdefinitionfielddefaults/resolution/firstresourceattemptsuccess/livepostloadrouteare not established bythisrecord. Wehave notprovedactualnativeLeonausesonlythisSCBbranchorwhichpass/FOWselection. Sourcepathandgenericchainstronglyalignbutremainconditional.",
+    "source+a0 allocates36bytesperface; threecolorwords at0/4/8,threeUfloatatc/10/14,threeVfloatat18/1c/20. Initialallocationclear at99342c usesFF000000,but face-record loop subsequently resets allthreecolorwordsFFFFFFFF viaW23=-1 at9935fc,stores628/664/6a0.",
+    "Headerflags bit0 at9936e0 enablestrailing9bytesperface reader993700. For eachRGBtriple,it packsFF000000|(R<<16)|(G<<8)|B,storesa0face+0/4/8 at993724/74c/774,advancesa0by36 at993780.",
+    "Absent source vertexBGRA skipsallocation/hascolorflag at993490; GPUbuilder991c60 loads source+7d. Ifzero,991d04\u201314 reads packedcornerwordfroma0 intoGPUvertex+18. Samebranch forothercorners991d7c\u201384 and991c78\u201380. Ifnonzero,usesoriginalvertexBGRA+90 instead.",
+    "ATTR3 binding at991e88/8c/90 useslocation3,offset24,stride36. VS4 inputswizzleBGRA->RGBA wouldturnconditionalFF000000 into(0,0,0,1). ThisdoesnotestablishactualUSE_VERTEX_COLORS selection.",
+    "RawfaceRGB allzero doesnotdirectly imply an invisible finaleffect. Featureselection/liveroute remainsunobserved; non-REFLECTIVE shader hasindependent additive rimRGB andalpha testusesmodulatedalpha,notrawRGB.",
+    "Old material state88ee40: emitter data pointer from obj+10; blend byte emitter+14. Jump table1021333f0,base10188f7a4,index0=>10188f870; path rejoins7b4 then7c0 reads alphaRef+77. Nonzero addsALPHA_TEST at7d8, uploads unsigned alphaRef/255 at7e0\u2013810. Zero skips. Passkind1 special case734\u2013750 bypasses this ordinary route.",
+    "New state8c2528: component=X0, pass descriptorX5 byte0==1 bypasses ordinary gate at2590\u201325a4. Ordinary flags paths25a8\u201325ec dispatch blendbyte component+a via table102133542,base2608. Blend0 target2608 rejoins26c0;26cc reads component+11 alphaRef. Nonzero addsALPHA_TEST26e4, uploads unsignedbyte/255 at26e8\u20132718. Other custom/phase paths are conditional.",
+    "VS4/31 inputATTR3 float4 is swizzledBGRA->RGBA then multiplied bykColorFactor float4; resultTEXCOORD0. VS1/20 omitATTR3 and emitkColorFactor directly. FaceRGB is not a separate namedshaderinput.",
+    "PS24 (DISABLE_FOW+ALPHA_TEST): C=baseTexture*interpolatedTEXCOORD0*particleColorLookup(COLOR_LOOKUP_UV). Samples remap at(dot(C.rgb,luma),.5), then discards strictly when C.a-reference<0. Equality survives. Remap replacement predicate is remap.a>0; RGB=clamp(selectedRGB+C.a*rimRGB,0,1); outputalpha=C.a. Remap sample is evaluated before discard but selection/rim/clamp occur after; remap alpha never supplies alpha-test value.",
+    "PS772 adds FOW sample before discard and, after rimRGB addition, multiplies RGB bymix(FOW_MULTIPLIER.a,sampledFOW.a,fowWeight), thenclamps. Alpha gate still tests original C.a and finalalpha is C.a. LocalsFragment buffer16:alphaRef offset0,lookupUV offset4. PS24textureslots remap0/base1/lookup2; PS772FOW0/remap1/base2/lookup3. Samplersbase0/lookup1/sharedclamp15.",
+    "blendMode field hashfa784eab: old registration8ab5e4/5e8 suppliesoffset14 at5ec; new8c3274/78 suppliesoffseta at327c. Bothcall8ac350,whichsupplieswiretype3(U8)to169ebe8. ThusoldData+14/newLegacycomponent+a are independently registered blendModebytes, notjust guessed uniforms.",
+    "OldData ctor8ac864 MOVI.2S V0,#7;8ac868 STUR S0,[this,+13] writeslittleendian07000000, so blendbyte+14=0. NewLegacy ctor92f440 explicitlySTRB WZR,[this,+a]. Sword2 rawBINcontainsnoblendModefield. Genericloaderonlyvisitsserializedfields,preservingoldDatactorzeroatgenericreaderreturn. Conversion/copytonewcomponentorpostloadchangesareoutsideproof.",
+    "Olduniformfunction18df18c combinesparticleRGBA andDataRGBA atdf694\u20136a4; loadsblendbyteData+14 at6a8, OR2 thencompare2 at6ac/6b0. ThispassesexactlyU8codes0or2. RGBmultipliedbyalreadycombinedalpha at6b8/6c0;writesalpha1 at6c8/6cc. Uploadat6e0usesglobal1025e8568,initializedfromkColorFactorCstring10227778c at946ccc\u2013ce0.",
+    "Newuniformfunction18c0eb0 combinesinputRGBA withvirtualcomponentRGBA at0ef8\u20130f0c;loadscomponent+a at0f14, OR2andcompare2 at18/1c;RGBpremultiplication0f24/2c andalpha1store0f34/38. Upload0f4cusesglobal1025320d8,initializedfromsamekColorFactorCStringat944960\u2013970. LocalstackreuseforFresneluploadoccursafterthisupload.",
+    "Pinned noREFLECTIVE meshVS1 consumeskColorFactor Globalsvec4 intoTEXCOORD0; PS24base*interpolatedTEXCOORD0*lookupsample formsC. Therefore opaquealpha kColorFactor is anavailablegenericrim-consumerinput; native alpha testcan stilldiscardontexturealpha*lookupalpha <5/255. For combinedtint(r,g,b,a),codes0/2upload(r*a,g*a,b*a,1). Independent rimadditionuses C.a,so itdoesnotnecessarilyreceiveparticlealpha again.",
+    "Existing SourceParticleSurfaces localpolicy atline396 multipliesRGBbyp.coloralpha forblend0butleavesalphaunchanged. ItisnotthesameastheobservedgenericCPUkColorFactortransform. ThisreadingdoesnotauthorizechangingearlieracceptedW/Rpaths."
+  ],
+  "limits": [
+    "resource+40enuminitialization/type notresolved; itbelongsseparatecandidatebranchandisnotrequiredtoexplainexplicitSCB+7dselectorbranch.",
+    "ExactauthoredMeshDefinitionfieldoffsetmapping andallresourceattempt/callerselectionguards remainincomplete.",
+    "ActualLeonaE dispatch/liveobjects/passedresources/shaderFOW/passflags/nativeGPU/fullframeunobserved.",
+    "No native meshresource formatenum+40 derivation yet; USE_VERTEX_COLORS remainsconditional.",
+    "Hostpackedstreamhash is a transcription check of observed packing; not a captured native GPU buffer.",
+    "ActualLeonaE CPU dispatch/native draw/shader selection/fullframeunobserved.",
+    "Only the explicit SCB-cache branch establishes USE_VERTEX_COLORS=false for this source. The separate first resource-format attempt and actual native E path remain unobserved.",
+    "Generic ordinary blend0 route enables ALPHA_TEST for nonzero alphaRef; special/custom pass/phase routes and live caller copying remain conditional.",
+    "ActualLeonaE genericfunctioninvocation,componentconversion,copiedblendvalue,finalshader/pass/resource/fullframe/GPUunobserved.",
+    "Opaquealpha upload is conditionalonthisidentifiedCPUrouteandblend0or2,notaglobalblendsemanticassertion.",
+    "Sourceomissionprovesdefaultzeroatgenericreaderreturn; laterpostprocessingmaychangevalues.",
+    "The independent tint check included then-current local shared tint code. Exact pre-sword-tint source bytes are retained separately; that earlier audit is historical after the family-specific hook was added."
+  ],
+  "verifier": {
+    "path": "tools/assets/verify-leona-native-scb-material.py",
+    "bytes": 10641,
+    "sha256": "30b6177f5e1255a8ef8c73802ac9a536c5f008f2331bed1b94502cafe4b171ae"
+  },
+  "tintAudit": {
+    "path": ".cache/leona-native-scb-material-v1-20261024/tint/findings.json",
+    "bytes": 9679,
+    "sha256": "7ac375179004367d3b64493d1c06dd4cf9b19aad97fd8154cc6a7c70e2c261bf"
+  },
+  "tintSource": {
+    "record": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_E_mis_weapon",
+    "emitterIndex": 18,
+    "name": "sword2",
+    "blendModeHash": "fa784eab",
+    "authoredBlendMode": false,
+    "parentConcreteType": "09cde442",
+    "parentListElementWireType": 130,
+    "serializedFields": 16,
+    "conditionalDefaultBlendMode": 0
+  }
+}

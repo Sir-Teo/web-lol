@@ -1,8 +1,12 @@
 import { ZENITH_PROFILES } from './leona-zenith-particles';
 
-/** This increment binds only nonreflective surfaces. The sound carrier has no
- * visible draw; skin, ribbons and the reflective sword have separate contracts. */
+/** The sword uses the separately verified conditional SCB rim-only adapter.
+ * Sound has no visible draw; skin and ribbons retain their separate renderers. */
 export function zenithSurfaceAccepted(index: number) {
   const p = ZENITH_PROFILES[index];
-  return p.role !== 'sound' && !p.reflection && ['quad', 'billboard', 'mesh'].includes(p.kind);
+  return (
+    p.role !== 'sound' &&
+    (!p.reflection || index === 18) &&
+    ['quad', 'billboard', 'mesh'].includes(p.kind)
+  );
 }

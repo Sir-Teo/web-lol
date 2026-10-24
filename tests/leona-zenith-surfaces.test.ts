@@ -6,8 +6,9 @@ import { LeonaZenithSurfaces } from '../src/render/leona-zenith-surfaces';
 import { zenithSurfaceAccepted } from '../src/render/leona-zenith-surface-profiles';
 import { ZENITH_PROFILES, zenithParticles } from '../src/render/leona-zenith-particles';
 import { zenithDrawGroups, zenithPoseAt } from '../src/render/leona-zenith-history';
+import { ZENITH_SWORD_NORMALS } from '../src/render/leona-zenith-sword-normals';
 
-const supported = [1, 2, 3, 4, 6, 7, 8, 9, 10, 12, 13, 15, 16, 17, 19];
+const supported = [1, 2, 3, 4, 6, 7, 8, 9, 10, 12, 13, 15, 16, 17, 18, 19];
 function fixture() {
   const w = new World(false, {
     ...PRACTICE_FIXTURE,
@@ -32,6 +33,9 @@ function fixture() {
     assets = { texture: () => texture, mesh: () => geometry },
     view = new LeonaZenithSurfaces(scene, distortion, () => 0, assets),
     camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
+  // Synthetic shared resource for transform/lifetime checks; actual source
+  // normal bytes and corner identity have their own loader tests.
+  geometry.userData.derivedNormalSha256 = ZENITH_SWORD_NORMALS.stream.sha256;
   camera.position.set(0, 10, 10);
   camera.lookAt(0, 0, 0);
   camera.updateMatrixWorld(true);
@@ -71,14 +75,14 @@ function frame(view: LeonaZenithSurfaces) {
     scale: m.scale.toArray(),
     tint: m.material.uniforms.particleColor.value.toArray(),
     uv: m.material.uniforms.sourceUvTransform.value.toArray(),
-    mult: m.material.uniforms.multiplierUvTransform.value.toArray(),
+    mult: m.material.uniforms.multiplierUvTransform?.value.toArray(),
     lookup: m.material.uniforms.lookupUv.value.toArray(),
     erosion: m.material.uniforms.erosionParameters?.value.toArray(),
     vertices: m.userData.ownedGeometry ? [...m.geometry.getAttribute('position').array] : null,
   }));
 }
 
-test('all fifteen supported source families draw across contact, dash and moving flight without World mutation', () => {
+test('all sixteen supported surface families draw across contact, dash and moving flight without World mutation', () => {
   const f = fixture(),
     seen = new Set<number>();
   expect(ZENITH_PROFILES.map((_p, i) => i).filter(zenithSurfaceAccepted)).toEqual(supported);
@@ -116,7 +120,7 @@ test('saved moving flight and following dash/contact restore exact transforms, U
   other.dispose();
   f.dispose();
 });
-test('SCB meshes remain borrowed, projected ground geometry is owned, and the reflective sword is excluded', () => {
+test('SCB meshes stay borrowed, ground geometry is owned, and the sword uses explicit no-cube rim inputs', () => {
   const f = fixture();
   f.w.step(30);
   f.capture();
@@ -125,7 +129,17 @@ test('SCB meshes remain borrowed, projected ground geometry is owned, and the re
   expect(models.some((m) => m.userData.ownedGeometry)).toBe(true);
   for (const m of models) {
     const p = ZENITH_PROFILES[m.userData.profileIndex];
-    expect(p.reflection).toBeNull();
+    if (m.userData.profileIndex === 18) {
+      expect(m.material.uniforms.fresnel.value.toArray()).toEqual([
+        1, 0.43921568989753723, 0.03921568766236305, 0.8350000381469727,
+      ]);
+      expect(m.material.uniforms.alphaRef.value).toBe(5 / 255);
+      expect(m.material.defines.SOURCE_ALPHA_TEST).toBe(1);
+      expect(m.material.defines.SOURCE_REFLECTIVE).toBeUndefined();
+      expect(m.material.uniforms.reflectionTexture).toBeUndefined();
+      expect(m.material.uniforms.depthPushPull.value).toBe(0);
+      expect(m.material.uniforms.particleColor.value.w).toBe(1);
+    } else expect(p.reflection).toBeNull();
     if (p.kind === 'mesh') expect(m.geometry).toBe(f.geometry);
     if (p.ground) {
       expect(m.userData.ownedGeometry).toBe(true);
@@ -133,6 +147,15 @@ test('SCB meshes remain borrowed, projected ground geometry is owned, and the re
     }
     expect(m.userData.attachment).toBe('saved-phase-root');
   }
+  f.dispose();
+});
+
+test('sword zero-alpha birth uses the native blend-zero opaque alpha packing', () => {
+  const f = fixture();
+  f.w.step(18);
+  f.capture();
+  const sword = [...f.view.models.values()].find((m) => m.userData.profileIndex === 18)!;
+  expect(sword.material.uniforms.particleColor.value.toArray()).toEqual([0, 0, 0, 1]);
   f.dispose();
 });
 test('hidden moving births remain hidden while later visible births can draw and current vision culls them', () => {

@@ -57,7 +57,9 @@ function expected(o: any) {
           lit[3] * rim[i]
       )
     );
-  return [...rgb, lit[3]].map((v) => Math.round(v * 255));
+  return o.rimOnly && lit[3] < (o.alphaRef ?? 0)
+    ? [0, 0, 0, 0]
+    : [...rgb, lit[3]].map((v) => Math.round(v * 255));
 }
 
 const baseline = {
@@ -350,5 +352,51 @@ test('rim-only mesh preserves vertex interpolation, remap alpha, depth and graph
   writeFileSync(
     info.outputPath('rim-vertex-recovery.json'),
     JSON.stringify({ errors, results, causal, behind, recovery }, null, 2)
+  );
+});
+
+test('rim-only alpha-test compares fully tinted alpha before remap and preserves threshold equality', async ({
+  page,
+}, info) => {
+  const errors = await open(page),
+    results = [];
+  for (const alphaRef of [0, 5 / 255, 1])
+    for (const alpha of [0, 4, 5, 6, 255])
+      for (const remap of [
+        [240, 20, 170, 0],
+        [240, 20, 170, 1],
+        [240, 20, 170, 255],
+      ]) {
+        const row = await check(page, {
+          ...rimBaseline,
+          alphaRef,
+          source: [64, 96, 128, alpha],
+          lookup: [255, 255, 255, 255],
+          tint: [1, 1, 1, 1],
+          remap,
+        });
+        expect(row.activeUniforms.includes('alphaRef')).toBe(alphaRef > 0);
+        results.push(row);
+      }
+  for (const [tintAlpha, lookupAlpha] of [
+    [0, 255],
+    [1, 0],
+    [0.01, 255],
+    [1, 2],
+  ])
+    results.push(
+      await check(page, {
+        ...rimBaseline,
+        alphaRef: 5 / 255,
+        source: [64, 96, 128, 255],
+        lookup: [255, 255, 255, lookupAlpha],
+        tint: [1, 1, 1, tintAlpha],
+        remap: [240, 20, 170, 255],
+      })
+    );
+  expect(errors).toEqual([]);
+  writeFileSync(
+    info.outputPath('rim-alpha-test.json'),
+    JSON.stringify({ errors, results }, null, 2)
   );
 });

@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { particleColorMaterial } from './particle-color-phase';
 
 export interface ParticleMeshRimBindings {
   texture: THREE.Texture;
@@ -11,9 +12,11 @@ export interface ParticleMeshRimBindings {
   fresnel: readonly [number, number, number, number];
   /** In the same world units as the supplied geometry/model matrix. */
   depthPushPull: number;
+  /** Optional native PS24 alpha gate. Zero/omission uses the PS9 no-test path. */
+  alphaRef?: number;
 }
 
-export interface ParticleMeshReflectionBindings extends ParticleMeshRimBindings {
+export interface ParticleMeshReflectionBindings extends Omit<ParticleMeshRimBindings, 'alphaRef'> {
   environment: THREE.CubeTexture;
   /** Native vReflection.xyz: exponent, minimum, maximum. */
   reflection: readonly [number, number, number];
@@ -74,34 +77,42 @@ function createParticleMeshMaterial(
       ...(reflection?.reflectionColor ?? []),
       ...bindings.fresnel,
       bindings.depthPushPull,
+      bindings.alphaRef ?? 0,
     ].every(Number.isFinite) ||
     (reflection && reflection.reflection[0] <= 0) ||
-    bindings.fresnel[3] <= 0
+    bindings.fresnel[3] <= 0 ||
+    (bindings.alphaRef ?? 0) < 0 ||
+    (bindings.alphaRef ?? 0) > 1
   )
     throw new RangeError('Invalid particle mesh bindings');
-  return new THREE.ShaderMaterial({
-    name: reflection
-      ? 'Source reflective ordinary particle mesh (explicit bindings)'
-      : 'Source rim-only ordinary particle mesh (explicit bindings)',
-    defines: reflection ? { SOURCE_REFLECTIVE: 1 } : {},
-    uniforms: {
-      sourceTexture: { value: bindings.texture },
-      particleColorTexture: { value: bindings.lookup },
-      remapTexture: { value: bindings.remap },
-      sourceUvTransform: { value: bindings.uvTransform.clone() },
-      lookupUv: { value: new THREE.Vector2(...bindings.lookupUv) },
-      particleColor: { value: new THREE.Vector4(...bindings.tint) },
-      ...(reflection
-        ? {
-            reflectionTexture: { value: reflection.environment },
-            reflectionParameters: { value: new THREE.Vector3(...reflection.reflection) },
-            reflectionColor: { value: new THREE.Vector3(...reflection.reflectionColor) },
-          }
-        : {}),
-      fresnel: { value: new THREE.Vector4(...bindings.fresnel) },
-      depthPushPull: { value: bindings.depthPushPull },
-    },
-    vertexShader: `
+  return particleColorMaterial(
+    new THREE.ShaderMaterial({
+      name: reflection
+        ? 'Source reflective ordinary particle mesh (explicit bindings)'
+        : 'Source rim-only ordinary particle mesh (explicit bindings)',
+      defines: {
+        ...(reflection ? { SOURCE_REFLECTIVE: 1 } : {}),
+        ...((bindings.alphaRef ?? 0) > 0 ? { SOURCE_ALPHA_TEST: 1 } : {}),
+      },
+      uniforms: {
+        sourceTexture: { value: bindings.texture },
+        particleColorTexture: { value: bindings.lookup },
+        remapTexture: { value: bindings.remap },
+        sourceUvTransform: { value: bindings.uvTransform.clone() },
+        lookupUv: { value: new THREE.Vector2(...bindings.lookupUv) },
+        particleColor: { value: new THREE.Vector4(...bindings.tint) },
+        ...(reflection
+          ? {
+              reflectionTexture: { value: reflection.environment },
+              reflectionParameters: { value: new THREE.Vector3(...reflection.reflection) },
+              reflectionColor: { value: new THREE.Vector3(...reflection.reflectionColor) },
+            }
+          : {}),
+        fresnel: { value: new THREE.Vector4(...bindings.fresnel) },
+        depthPushPull: { value: bindings.depthPushPull },
+        alphaRef: { value: bindings.alphaRef ?? 0 },
+      },
+      vertexShader: `
       uniform mat3 sourceUvTransform;
       uniform vec4 fresnel;
       uniform float depthPushPull;
@@ -128,12 +139,15 @@ function createParticleMeshMaterial(
         gl_Position = projectionMatrix * viewMatrix * world;
       }
     `,
-    fragmentShader: `
+      fragmentShader: `
       uniform sampler2D sourceTexture;
       uniform sampler2D particleColorTexture;
       uniform sampler2D remapTexture;
       uniform vec2 lookupUv;
       uniform vec4 particleColor;
+      #ifdef SOURCE_ALPHA_TEST
+        uniform float alphaRef;
+      #endif
       varying vec2 sourceUv;
       varying vec3 sourceRim;
       #ifdef SOURCE_REFLECTIVE
@@ -146,6 +160,9 @@ function createParticleMeshMaterial(
           * texture2D(particleColorTexture, lookupUv);
         vec4 remapped = texture2D(remapTexture,
           vec2(dot(lit.rgb, vec3(0.2126, 0.7152, 0.0722)), 0.5));
+        #ifdef SOURCE_ALPHA_TEST
+          if (lit.a < alphaRef) discard;
+        #endif
         if (remapped.a > 0.0) lit.rgb = remapped.rgb;
         vec3 rgb = lit.rgb;
         #ifdef SOURCE_REFLECTIVE
@@ -159,7 +176,8 @@ function createParticleMeshMaterial(
         gl_FragColor = lit;
       }
     `,
-    blending: THREE.NoBlending,
-    toneMapped: false,
-  });
+      blending: THREE.NoBlending,
+      toneMapped: false,
+    })
+  );
 }

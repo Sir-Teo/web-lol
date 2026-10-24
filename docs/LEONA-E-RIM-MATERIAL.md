@@ -1,5 +1,10 @@
 # Zenith sword rim-only material prerequisite
 
+This document records the first explicit-input material stage. The later
+[saved sword integration](LEONA-E-SWORD.md) now uses the rim factory in GameView,
+adds the retained PS24 alpha gate and delivers checked source normal bytes.
+The200-sample ledger below remains the historical prerequisite result.
+
 `createParticleMeshRimMaterial` now transcribes the retained non-REFLECTIVE
 ordinary mesh VS1/PS9 arithmetic. It takes explicit geometry, base/lookup/remap
 textures, tint, UV transform, lookup coordinate, already mapped fresnel vector

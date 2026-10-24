@@ -474,3 +474,12 @@ An [explicit rim-only mesh material](LEONA-E-RIM-MATERIAL.md) now implements the
 retained no-cube shader pair and passes local GPU arithmetic/recovery checks.
 The source sword diagnostic uses derived normals and explicit probe resources;
 it is not yet imported by GameView. E coverage remains18/20.
+
+The later [Zenith sword source presentation](LEONA-E-SWORD.md) now connects the
+separate derived normal stream, mapped fresnel, strict alpha gate and conditional
+blend-zero tint packing to saved E surfaces. All19 authored visible E families
+draw locally; the twentieth enabled record is a sound carrier. The
+[native SCB material reading](LEONA-NATIVE-SCB-MATERIAL.md) distinguishes packed
+face colors, authored vertex-color selection and the exact kColorFactor input.
+Actual native dispatch/frames, complete playable Leona, player/support and the
+full six-character match remain open.

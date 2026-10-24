@@ -1,0 +1,44 @@
+{
+  "profileIndex": 18,
+  "name": "sword2",
+  "sourceModel": "assets/models/leona-e-sword.glb",
+  "fresnel": [
+    1.0,
+    0.43921568989753723,
+    0.03921568766236305,
+    0.8350000381469727
+  ],
+  "alphaRef": 0.0196078431372549,
+  "depthPushPull": 0,
+  "colorPacking": {
+    "binding": "kColorFactor",
+    "premultiplyRgb": true,
+    "outputAlpha": 1,
+    "conditionalBlendMode": 0
+  },
+  "vertexColors": false,
+  "shaderPrograms": {
+    "vertex": 1,
+    "fragment": 24
+  },
+  "nativeReadings": {
+    "cpu": {
+      "path": "docs/reference/leona-native-reflection-inputs.json",
+      "sha256": "5693f761a1d472269ae07a74833cc9a8ec1b3d41dc216a92b7a0a5b96d173c76"
+    },
+    "material": {
+      "path": "docs/reference/leona-native-scb-material.json",
+      "sha256": "0c22388889883715e2f3cd64a7762abc57889851ccf2a72c72306a9eeaf883aa"
+    }
+  },
+  "localPolicies": {
+    "resourceRoute": "Use the retained source SCB with fresh empty reflection-map/no-cube arithmetic.",
+    "lookup": "Empty particle lookup borrows the existing white source fallback.",
+    "remap": "Explicit zero-alpha local remap bypass; native global remap binding remains unobserved.",
+    "fog": "Saved audience plus current world visibility; shader fog disabled.",
+    "raster": "Borrow the existing local particle double-sided raster/blend adapter.",
+    "placement": "Existing saved E missile-root/source-X-reflected surface frame."
+  },
+  "nativeDispatchVerified": false,
+  "nativeRenderingVerified": false
+}

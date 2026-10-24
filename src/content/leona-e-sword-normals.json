@@ -1,0 +1,32 @@
+{
+  "scope": "Software-derived generic native SCB normals, separate from authored GLB. No native GPU/frame parity claim.",
+  "sourceModel": {
+    "path": "assets/models/leona-e-sword.glb",
+    "bytes": 71756,
+    "sha256": "a5d4a3c4a82c7fb6d33f6113f7ba9facb13a1656f6c8a1e53e98694d4e4a3982",
+    "sourcePositionSha256": "d02666cef989c413e2a1a8308a70f1353f5892911f273f0ae7a98ae4b8d80cbf",
+    "positionSha256": "cce9019ea82043de2f879e8b7f8d299141d6f602160c6235c244bfff226138d1"
+  },
+  "source": {
+    "path": "assets/characters/leona/skins/base/particles/leona_base_z_sword.scb",
+    "wadPathHash": "13b9c8c611b0d630",
+    "sha256": "dd03b9b8005bee1df65830c7a93c46c0233af28e05b129d7811133b2a65037f9",
+    "bytes": 74820
+  },
+  "sourceIndicesSha256": "d3efc3a5898e2b1ad18cc08b645afd0a8f9b8ec04b7ba6b8fb320ff9b551bd03",
+  "stream": {
+    "path": "assets/models/leona-e-sword-normals.bin",
+    "bytes": 23328,
+    "sha256": "d6606d78c5c5c1a6a4f25cf8b14e8abfeff4bf4921d91aa65048a589b6732158",
+    "corners": 1944,
+    "components": 3,
+    "encoding": "Float32LE"
+  },
+  "derivation": {
+    "reading": "docs/reference/leona-native-scb-normals.json",
+    "sha256": "54fa5b7a7f5c82566c7074452f43e601fc82de496833e65f2117fce25579962c",
+    "algorithm": "Unit face normal, strict component snap, source-index sum, final normalize; native float32 operation order.",
+    "nativeExecuted": false,
+    "nativeNumericalParityVerified": false
+  }
+}

@@ -75,6 +75,7 @@ function probe(o: any) {
     tint: o.tint,
     fresnel: o.fresnel,
     depthPushPull: o.depthPushPull ?? 0,
+    alphaRef: o.alphaRef ?? 0,
   };
   const material = o.rimOnly
     ? createParticleMeshRimMaterial(g, bindings)
@@ -105,13 +106,17 @@ function probe(o: any) {
     const pixels = new Uint8Array(4);
     renderer.readRenderTargetPixels(target, 0, 0, 1, 1, pixels);
     const gl = renderer.getContext(),
+      properties = renderer.properties.get(material) as {
+        currentProgram?: { program?: WebGLProgram };
+      },
       // An occluder can be the last draw. Inspect this material's linked program,
       // rather than whichever program happens to remain current in WebGL.
-      program = renderer.properties.get(material).currentProgram.program as WebGLProgram,
-      activeUniforms = Array.from(
-        { length: gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS) },
-        (_, i) => gl.getActiveUniform(program, i)!.name
-      );
+      program = properties.currentProgram?.program;
+    if (!program) throw Error('Mesh probe linked program unavailable');
+    const activeUniforms = Array.from(
+      { length: gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS) },
+      (_, i) => gl.getActiveUniform(program, i)!.name
+    );
     return {
       pixels: [...pixels],
       error: renderer.getContext().getError(),

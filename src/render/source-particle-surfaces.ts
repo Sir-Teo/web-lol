@@ -77,6 +77,16 @@ export interface SurfaceProgram<G extends SurfaceGroup> {
   profiles: readonly SurfaceProfile[];
   assets(): EclipseSurfaceAssets | undefined;
   accepts(index: number): boolean;
+  /** Explicit caller-supplied shading for a retained source family. Geometry
+   * remains asset-owned; the shared placement/lifetime path still owns material. */
+  material?(
+    index: number,
+    assets: EclipseSurfaceAssets,
+    geometry: THREE.BufferGeometry | undefined
+  ): THREE.ShaderMaterial | undefined;
+  /** Optional native-family tint packing. Omission retains the existing local
+   * blend-zero RGB premultiplication with preserved alpha. */
+  tint?(index: number, color: readonly number[]): readonly number[] | undefined;
   /** Explicit caller routing, separate from native mode/phase recovery. */
   distortionTarget?(index: number): THREE.Scene;
   records(world: World): Iterable<{ sourceId: number; castTick: number; group: G }>;
@@ -129,49 +139,51 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
         : this.scene,
       sourceGeometry = p.mesh ? assets.mesh(p.mesh) : undefined;
     if (!p.texture) throw Error('Source surface requires an explicit base texture');
-    const material = p.distortion
-      ? createParticleDistortionMaterial({
-          texture: assets.texture(p.texture, p.uv.address),
-          lookup: assets.texture(p.lookup ?? '', 2),
-          normal: assets.texture(p.distortion.texture, p.uv.address),
-        })
-      : createLeonaEclipseSurfaceMaterial({
-          kind: p.kind === 'mesh' ? 'mesh' : 'quad',
-          texture: assets.texture(p.texture, p.uv.address),
-          lookup: assets.texture(p.lookup ?? '', 2),
-          vertexBgra: !!sourceGeometry?.getAttribute('_source_vertex_bgra'),
-          ...(p.multiplier
-            ? { multiplier: assets.texture(p.multiplier.texture, p.multiplier.uv.address) }
-            : {}),
-          ...(p.uvMode === 2 ? { lockAlpha: true } : {}),
-          ...(e
-            ? {
-                erosion: {
-                  texture: assets.texture(e.texture, e.address),
-                  mixer: e.mixer.constant as [number, number, number, number],
-                  featherIn: e.featherIn,
-                  featherOut: e.featherOut,
-                  sliceWidth: e.sliceWidth,
-                },
-              }
-            : {}),
-          ...(p.soft
-            ? {
-                soft: {
-                  ...p.soft,
-                  // Local blend-aware binding avoids applying the same fade
-                  // twice through RGB and SrcAlpha. Native CPU control values
-                  // still require comparison; the shader supports both routes.
-                  control: (p.blend === 0 ? [0, 1, 0, 1] : [1, 0, 0, 1]) as [
-                    number,
-                    number,
-                    number,
-                    number,
-                  ],
-                },
-              }
-            : {}),
-        });
+    const material =
+      this.program.material?.(index, assets, sourceGeometry) ??
+      (p.distortion
+        ? createParticleDistortionMaterial({
+            texture: assets.texture(p.texture, p.uv.address),
+            lookup: assets.texture(p.lookup ?? '', 2),
+            normal: assets.texture(p.distortion.texture, p.uv.address),
+          })
+        : createLeonaEclipseSurfaceMaterial({
+            kind: p.kind === 'mesh' ? 'mesh' : 'quad',
+            texture: assets.texture(p.texture, p.uv.address),
+            lookup: assets.texture(p.lookup ?? '', 2),
+            vertexBgra: !!sourceGeometry?.getAttribute('_source_vertex_bgra'),
+            ...(p.multiplier
+              ? { multiplier: assets.texture(p.multiplier.texture, p.multiplier.uv.address) }
+              : {}),
+            ...(p.uvMode === 2 ? { lockAlpha: true } : {}),
+            ...(e
+              ? {
+                  erosion: {
+                    texture: assets.texture(e.texture, e.address),
+                    mixer: e.mixer.constant as [number, number, number, number],
+                    featherIn: e.featherIn,
+                    featherOut: e.featherOut,
+                    sliceWidth: e.sliceWidth,
+                  },
+                }
+              : {}),
+            ...(p.soft
+              ? {
+                  soft: {
+                    ...p.soft,
+                    // Local blend-aware binding avoids applying the same fade
+                    // twice through RGB and SrcAlpha. Native CPU control values
+                    // still require comparison; the shader supports both routes.
+                    control: (p.blend === 0 ? [0, 1, 0, 1] : [1, 0, 0, 1]) as [
+                      number,
+                      number,
+                      number,
+                      number,
+                    ],
+                  },
+                }
+              : {}),
+          }));
     const owned = p.kind === 'ray' || (p.kind === 'quad' && p.ground);
     const geometry =
       p.kind === 'ray'
@@ -383,8 +395,9 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
             mesh.scale.x *= -1;
           }
           const uniforms = mesh.material.uniforms,
-            color = [...p.color];
-          if (profile.blend === 0) for (let i = 0; i < 3; i++) color[i] *= color[3];
+            packed = this.program.tint?.(p.profileIndex, p.color),
+            color = [...(packed ?? p.color)];
+          if (!packed && profile.blend === 0) for (let i = 0; i < 3; i++) color[i] *= color[3];
           uniforms.particleColor.value.fromArray(color);
           uniforms.lookupUv.value.fromArray(p.lookup);
           if (profile.distortion) uniforms.distortionPower.value = profile.distortion.strength;

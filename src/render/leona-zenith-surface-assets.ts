@@ -5,6 +5,7 @@ import { zenithSurfaceAccepted } from './leona-zenith-surface-profiles';
 import { loadLuxParticleTextures } from './lux-particle-textures';
 
 import type { EclipseSurfaceAssets } from './leona-eclipse-surface-assets';
+import { attachZenithSwordNormals, ZENITH_SWORD_NORMALS } from './leona-zenith-sword-normals';
 let assets: EclipseSurfaceAssets | undefined, pending: Promise<void> | undefined;
 export function zenithSurfaceAssets() {
   return assets;
@@ -39,6 +40,11 @@ export function loadLeonaZenithSurfaces(): Promise<void> {
             m.dispose();
         });
         if (!geometry) throw Error('Missing Zenith source mesh: ' + path);
+        if (path === ZENITH_SWORD_NORMALS.sourceModel.path) {
+          const response = await fetch(import.meta.env.BASE_URL + ZENITH_SWORD_NORMALS.stream.path);
+          if (!response.ok) throw Error('Unable to load Zenith derived sword normals');
+          await attachZenithSwordNormals(geometry, await response.arrayBuffer());
+        }
       }),
     ]);
     const failed = results.find((r) => r.status === 'rejected');

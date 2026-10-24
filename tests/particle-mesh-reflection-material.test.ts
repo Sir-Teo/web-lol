@@ -4,6 +4,8 @@ import {
   createParticleMeshReflectionMaterial,
   createParticleMeshRimMaterial,
 } from '../src/render/particle-mesh-reflection-material';
+import { renderParticleColorPhase } from '../src/render/particle-color-phase';
+import type { ParticleDistortionPass } from '../src/render/particle-distortion-pass';
 
 function bindings() {
   return {
@@ -95,6 +97,33 @@ test('rim-only material borrows three textures and needs no cube or reflection f
   expect(() => createParticleMeshRimMaterial(g, { ...b, fresnel: [1, 1, 1, 0] })).toThrow(
     RangeError
   );
+  for (const alphaRef of [-1, 1.1, NaN])
+    expect(() => createParticleMeshRimMaterial(g, { ...b, alphaRef })).toThrow(RangeError);
   g.deleteAttribute('normal');
   expect(() => createParticleMeshRimMaterial(g, b)).toThrow('normal stream');
+});
+
+test('ordinary mesh color is excluded from early backdrop capture and restored for the color pass', () => {
+  const geometry = new THREE.PlaneGeometry(),
+    b = bindings(),
+    material = createParticleMeshRimMaterial(geometry, b),
+    scene = new THREE.Scene(),
+    phases: boolean[] = [];
+  scene.add(new THREE.Mesh(geometry, material));
+  const renderer = {
+    autoClear: true,
+    shadowMap: { autoUpdate: true },
+    info: { autoReset: true },
+    getRenderTarget: () => null,
+    render: () => phases.push(material.visible),
+  } as unknown as THREE.WebGLRenderer;
+  const early = {
+    hasDraws: () => true,
+    render: () => phases.push(material.visible),
+  } as unknown as ParticleDistortionPass;
+  expect(renderParticleColorPhase(renderer, scene, new THREE.Camera(), early)).toBe(true);
+  expect(phases).toEqual([false, false, true]);
+  expect(material.visible).toBe(true);
+  material.dispose();
+  geometry.dispose();
 });

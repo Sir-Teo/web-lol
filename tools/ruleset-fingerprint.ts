@@ -60,6 +60,7 @@ const pinnedData = [
   'public/assets/models/leona-w-solar-flare.json',
   'public/assets/models/leona-w-shockwave.glb',
   'public/assets/models/leona-w-shockwave.json',
+  'public/assets/models/leona-e-sword-normals.bin',
   'public/assets/maps/rift-layout.json',
   'public/assets/maps/rift-nav.json',
   'public/assets/maps/rift-nav.bin',
@@ -107,6 +108,7 @@ const pinnedData = [
 // hashing only the entry file would miss a changed curve/motion helper.
 export const rulesetModuleRoots = [
   'src/render/leona-zenith-particles.ts',
+  'src/render/leona-zenith-surfaces.ts',
   'src/render/leona-solar-particles.ts',
   'src/render/leona-solar-frame.ts',
   'src/render/leona-solar-surfaces.ts',

@@ -118,6 +118,7 @@ resource lifecycle, local integration and native frames remain open.
 
 The [rim-only material prerequisite](LEONA-E-RIM-MATERIAL.md) now shares the
 common arithmetic/stream validation while compiling out all cube/reflection
-uniforms. Six local Chrome tests retain both material paths; source-sword and
-synthetic comparisons remain explicit diagnostics, with GameView integration
-and actual native E bindings still open.
+uniforms. Six local Chrome tests retain both material paths as a historical
+prerequisite. The later [saved sword integration](LEONA-E-SWORD.md) now connects
+the rim-only path to GameView with separate normals and PS24 alpha testing.
+Actual native E bindings and frames remain open.
