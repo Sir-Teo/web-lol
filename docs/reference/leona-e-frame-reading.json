@@ -1,0 +1,82 @@
+{
+  "scope": "Pinned reconstruction attachment and arbitrary-quad reading; not native Leona CPU execution",
+  "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+  "files": [
+    {
+      "path": ".cache/garen-q-cast-readers/basis.ts",
+      "bytes": 7994,
+      "sha256": "287aa8081d97e14aa25b5022e59894316d0a827baabe8a85280bf83fdcdc8ddb",
+      "historicalPin": "docs/reference/lux-streaks-audit.json"
+    },
+    {
+      "path": ".cache/garen-q-cast-readers/Quads.tsx",
+      "bytes": 9883,
+      "sha256": "6984424775169b81692541a16988d7d5e5080144607306efd94de4a5b9d3c0f8",
+      "historicalPin": "docs/reference/garen-q-impact-reader.json"
+    },
+    {
+      "path": ".cache/garen-q-cast-readers/shaders_quad.ts",
+      "bytes": 14829,
+      "sha256": "8daff79e4111a4ab9c9d73278c6b1c7cdbef16da36c804b9f6c6074f88ca0fb7",
+      "historicalPin": "docs/reference/garen-q-ground-reader.json"
+    },
+    {
+      "path": ".cache/leona-w-emission-readers-v2-20261023/particleRead.ts",
+      "bytes": 15674,
+      "sha256": "704210801ae59f3626dcbcfde760434b792c45bd476a4247ccc25c505144a7da",
+      "historicalPin": "docs/reference/leona-w-emission-reader.json"
+    },
+    {
+      "path": ".cache/leona-w-emission-readers-v2-20261023/emit.ts",
+      "bytes": 8885,
+      "sha256": "35595a87e0ec60909adeddd7b5996a9075568f6d442dc5479f03bc648f6a0a62",
+      "historicalPin": "docs/reference/leona-w-emission-reader.json"
+    },
+    {
+      "path": ".cache/leona-w-emission-readers-v2-20261023/integrate.ts",
+      "bytes": 21927,
+      "sha256": "4de5853807d9a0362aa9957343e4b23c5d21939efe87546209be37ca226895dc",
+      "historicalPin": "docs/reference/leona-w-emission-reader.json"
+    }
+  ],
+  "observations": [
+    {
+      "file": "basis.ts",
+      "lines": "34-56,160-175",
+      "observation": "Standing uses RyRxRz. Missile matrix columns are right, horizontal travel, down; source XY is horizontal."
+    },
+    {
+      "file": "Quads.tsx",
+      "lines": "236-242",
+      "observation": "Arbitrary quads use the composed particle basis with no ground-specific rotation bypass."
+    },
+    {
+      "file": "shaders_quad.ts",
+      "lines": "13-16,74-75,174-175",
+      "observation": "Source XY expands through basis columns; ground mode then sets world Y."
+    },
+    {
+      "file": "particleRead.ts",
+      "lines": "146-192,203-209,252-254",
+      "observation": "World acceleration adds unturned displacement after source placement. Particle-local orientation selects current frame instead of stored birth frame."
+    },
+    {
+      "file": "emit.ts",
+      "lines": "101",
+      "observation": "Birth Euler rotation is sampled without rotationEnabled gating."
+    },
+    {
+      "file": "integrate.ts",
+      "lines": "181-185,539-553",
+      "observation": "Birth frame carries system orientation; rotationEnabled gates extra integrated rotation0, not birth rotation."
+    }
+  ],
+  "localBindings": [
+    "Weapon phase takes the documented missile frame; dash/contact preserve the current upright unit-root policy. Actual native Leona script/object matrices remain unknown.",
+    "Existing local vertical terrain projection and 2cm lift retained; native ground shader/terrain technique not certified.",
+    "World-axis displacement/velocity separated from the prepared raw particle result at the binding boundary.",
+    "Source X reflection, missing globals, blend/depth state and bound-object size remain local presentation choices."
+  ],
+  "nativeExecuted": false,
+  "nativeFrameVerified": false
+}

@@ -186,3 +186,14 @@ poses, color and erosion. GameView includes this one enabled family, with lazy
 loading and private skeleton cleanup. The other E primitives and source audio
 remain unfinished. Fresh production/offline delivery evidence belongs to this
 arrival increment; earlier source-package audits keep their original identities.
+
+## Subsequent nonreflective-surface integration — October 24, 2026
+
+[Nonreflective E surfaces](LEONA-E-SURFACES.md) now draw fifteen contact, dash and
+flight mesh/quad/billboard families from saved history. Shared W rendering is
+compared against its frozen implementation over 63 exact framebuffer/state
+samples. Missile-ground projection and world acceleration have explicit local
+binding policies backed by pinned external reconstruction. Together with the
+arrival skin, sixteen visible families draw. Two trails, the reflective sword,
+source E audio, native acceptance and player/support integration remain open.
+Fresh production/offline evidence belongs to this surface increment.

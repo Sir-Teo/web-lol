@@ -115,3 +115,49 @@ test('invalid projection inputs cannot create unbounded or nonfinite geometry', 
   expect(() => projectGroundQuad(g, { ...quad, rotation: [90, NaN, 0] }, () => 0)).toThrow();
   g.dispose();
 });
+
+test('missile attachment projects source XY into a full ground plane before and after authored Z turns', () => {
+  for (const angle of [0, 90]) {
+    const g = new THREE.BufferGeometry();
+    projectGroundQuad(
+      g,
+      {
+        origin: { x: 300, y: 100 },
+        target: { x: 303, y: 104 },
+        offset: [20, 30, 40],
+        halfSize: [200, 150],
+        rotation: [0, 0, angle],
+        attachment: 'missile',
+      },
+      () => 10,
+      50,
+      2
+    );
+    const p = g.getAttribute('position'),
+      uv = g.getAttribute('uv'),
+      indices = g.getIndex()!,
+      r = (angle * Math.PI) / 180;
+    let area = 0;
+    for (let i = 0; i < p.count; i++) {
+      const x = (1 - uv.getY(i) * 2) * 200,
+        y = (uv.getX(i) * 2 - 1) * 150,
+        side = 20 + Math.cos(r) * x - Math.sin(r) * y,
+        along = 30 + Math.sin(r) * x + Math.cos(r) * y;
+      expect(p.getX(i)).toBeCloseTo((300 - 0.8 * side + 0.6 * along) * 0.01, 5);
+      expect(p.getZ(i)).toBeCloseTo((100 + 0.6 * side + 0.8 * along) * 0.01, 5);
+      expect(p.getY(i)).toBeCloseTo(0.12, 6);
+    }
+    for (let i = 0; i < indices.count; i += 3) {
+      const a = indices.getX(i),
+        b = indices.getX(i + 1),
+        c = indices.getX(i + 2);
+      area +=
+        Math.abs(
+          (p.getX(b) - p.getX(a)) * (p.getZ(c) - p.getZ(a)) -
+            (p.getZ(b) - p.getZ(a)) * (p.getX(c) - p.getX(a))
+        ) / 2;
+    }
+    expect(area).toBeCloseTo(12, 4);
+    g.dispose();
+  }
+});

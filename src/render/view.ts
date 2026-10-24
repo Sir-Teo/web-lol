@@ -1,6 +1,7 @@
 import { LazyLeonaDaybreak } from './lazy-leona-daybreak';
 import { LazyLeonaEclipseSkins } from './lazy-leona-eclipse-skins';
 import { LazyLeonaZenithSkins } from './lazy-leona-zenith-skins';
+import { LazyLeonaZenithSurfaces } from './lazy-leona-zenith-surfaces';
 import { LazyLeonaEclipseSurfaces } from './lazy-leona-eclipse-surfaces';
 import { LazySunlight } from './lazy-sunlight';
 import { LazyGarenPerseverance } from './lazy-garen-perseverance';
@@ -116,6 +117,11 @@ export class GameView {
   leonaDaybreak = new LazyLeonaDaybreak(this.scene, (p) => this.ground(p));
   leonaEclipseSkins = new LazyLeonaEclipseSkins(this.scene, (p) => this.ground(p));
   leonaZenithSkins = new LazyLeonaZenithSkins(this.scene, (p) => this.ground(p));
+  leonaZenithSurfaces = new LazyLeonaZenithSurfaces(
+    this.scene,
+    this.particleDistortion.scene,
+    (p) => this.ground(p)
+  );
   leonaEclipseSurfaces = new LazyLeonaEclipseSurfaces(
     this.scene,
     this.particleDistortion.scene,
@@ -762,6 +768,7 @@ export class GameView {
     this.leonaDaybreak.update(world, alpha, this.camera, terminalAge);
     this.leonaEclipseSkins.update(world, alpha, terminalAge);
     this.leonaZenithSkins.update(world, alpha, terminalAge);
+    this.leonaZenithSurfaces.update(world, alpha, this.camera, terminalAge);
     this.leonaEclipseSurfaces.update(world, alpha, this.camera, terminalAge);
     this.sunlight.update(world, alpha, this.camera, this.models, terminalAge);
     this.luxIllumination.update(world, alpha, this.camera, this.models);
@@ -843,6 +850,7 @@ export class GameView {
     this.mapTextureResidency?.beginFrame();
     this.smoke.prepareDepth(this.renderer, this.camera);
     this.leonaEclipseSurfaces.prepareDepth(this.renderer, this.camera);
+    this.leonaZenithSurfaces.prepareDepth(this.renderer, this.camera);
     this.renderer.render(this.scene, this.camera);
     this.particleDistortion.render(this.renderer, this.camera);
     this.mapTextureResidency?.endFrame();

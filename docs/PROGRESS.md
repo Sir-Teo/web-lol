@@ -5469,3 +5469,32 @@ Pre-commit evidence review corrected the new skin visibility probe: a cleared
 drawing buffer had made the entire viewport differ. Both variants now redraw
 synchronously, and the source contribution must exceed 100 pixels while staying
 below ten percent of the viewport. The earlier record remains retained.
+
+## Zenith Blade nonreflective surfaces — October 24, 2026
+
+GameView now draws fifteen E contact/dash/flight mesh, quad and billboard
+families from saved phase histories. The extracted shared renderer keeps W's
+placement/material/depth behavior; a frozen-W comparison passes 63 hit/miss
+frames at three accumulator positions with zero differing framebuffer bytes and
+identical source state. E weapon placement adopts the pinned reader's missile
+frame, preserving ground-plane area; world acceleration remains outside the
+attachment turn. Native Leona attachment/CPU bindings remain unverified.
+
+TypeScript, 1,797 unit cases/296 files and three Node QA cases pass. Sixteen
+unique Chrome cases cover all fifteen families, exact Save/reload and graphics
+recovery, existing W surfaces/skins and E arrival. Six hit/miss lifecycle rounds
+release every observed material/ground grid and soft-depth target, settling at
+22 geometries/34 textures. Corrected diagnostics retain source scale/depth and
+put allied vision beside the target; earlier failed runs remain archived.
+
+Fresh nested production passes 32 recordings, no development hook and no
+unrequested Leona preloads. The fresh 945-file / 506,716,756-byte offline pack
+passes integrity, retry, repair, saved/new-match boot and atomic activation;
+963 service-worker responses were observed. No fresh normal-match cohort or
+CPU benchmark is claimed. Schema 125 and ruleset 3f5f13be remain unchanged.
+See [surface scope](LEONA-E-SURFACES.md) and its
+[evidence record](reference/leona/e-surface-verification.json).
+
+Sixteen visible E families now draw including arrival; two trails, the reflective
+sword, source E audio, native comparison and Leona player/support integration
+remain open. Nothing is pushed; the full project goal remains active.

@@ -8,6 +8,8 @@ export interface GroundQuad {
   offset: readonly number[];
   halfSize: readonly number[];
   rotation: readonly number[];
+  /** Missile local Y follows horizontal travel and local Z points down. */
+  attachment?: 'missile';
 }
 
 /** Local vertical-projection policy, not a verified native ground_layer technique.
@@ -87,6 +89,7 @@ export function projectGroundQuad(
   }
   const [rx, ry, rz] = rotation.map((v) => (v * Math.PI) / 180);
   const sx = Math.sin(rx),
+    cx = Math.cos(rx),
     cy = Math.cos(ry),
     sy = Math.sin(ry),
     cz = Math.cos(rz),
@@ -102,7 +105,9 @@ export function projectGroundQuad(
       const sourceX =
         offset[0] + (cy * cz + sy * sx * sz) * localX + (-cy * sz + sy * sx * cz) * localY;
       const sourceZ =
-        offset[2] + (-sy * cz + cy * sx * sz) * localX + (sy * sz + cy * sx * cz) * localY;
+        quad.attachment === 'missile'
+          ? offset[1] + cx * sz * localX + cx * cz * localY
+          : offset[2] + (-sy * cz + cy * sx * sz) * localX + (sy * sz + cy * sx * cz) * localY;
       const point = {
         x: origin.x + across.x * sourceX + forward.x * sourceZ,
         y: origin.y + across.y * sourceX + forward.y * sourceZ,
