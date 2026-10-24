@@ -293,7 +293,10 @@ export class World {
   random = new Random(26018);
   player: PlayerState;
   private championRecords = new Map<number, ChampionState>();
-  private visionSnapshotSources?: (readonly VisionSource[] | undefined)[];
+  private visionSnapshot?: {
+    sources: (readonly VisionSource[] | undefined)[];
+    units: [Map<Unit, boolean>, Map<Unit, boolean>];
+  };
   championState(id: number): ChampionState | undefined {
     if (!this.championRecords.has(id)) return undefined;
     if (!this.units.some((u) => u.id === id && u.kind === 'champion')) return undefined;
@@ -1375,6 +1378,14 @@ export class World {
   }
   visible(u: Unit, team: Faction = 'blue'): boolean {
     if (team === 'neutral') return false;
+    const cache = this.visionSnapshot?.units[team === 'red' ? 1 : 0];
+    const cached = cache?.get(u);
+    if (cached !== undefined) return cached;
+    const visible = this.unitVisible(u, team);
+    cache?.set(u, visible);
+    return visible;
+  }
+  private unitVisible(u: Unit, team: Team): boolean {
     if (u.kind === 'ward' && u.team !== team) {
       if (wardDetected(this, u, team)) return true;
       if (this.tick >= u.ward!.revealUntil) return false;
@@ -1407,17 +1418,17 @@ export class World {
       ? u.structureIdle.startTick
       : u.structureIdle.observedStartTicks[team];
   }
-  /** Reuse source lists during synchronous presentation reads. Callers must not
+  /** Reuse source lists and unit visibility during synchronous presentation reads. Callers must not
    * mutate the match inside this scope; simulation queries outside stay fresh,
    * including multiple changes within the same tick. Nested reads share the
    * current scope and exceptions always release it. Nothing here is saved. */
   withVisionSnapshot<T>(read: () => T): T {
-    const previous = this.visionSnapshotSources;
-    this.visionSnapshotSources ??= [];
+    const previous = this.visionSnapshot;
+    this.visionSnapshot ??= { sources: [], units: [new Map(), new Map()] };
     try {
       return read();
     } finally {
-      this.visionSnapshotSources = previous;
+      this.visionSnapshot = previous;
     }
   }
   visionSources(
@@ -1428,7 +1439,7 @@ export class World {
     if (team === 'neutral') return [];
     const key =
       (team === 'red' ? 4 : 0) + (includeAttackReveals ? 2 : 0) + (includeHawkshots ? 1 : 0);
-    const cached = this.visionSnapshotSources?.[key];
+    const cached = this.visionSnapshot?.sources[key];
     if (cached) return cached;
     const sources: VisionSource[] = [];
     for (const u of this.units)
@@ -1471,7 +1482,7 @@ export class World {
         sources.push({ x: z.x, y: z.y, radius: LUX_E.visionRadius, unobstructed: true });
     if (team === 'blue' && this.reveal && this.reveal.endTick > this.tick)
       sources.push({ ...this.reveal.point, radius: 650, unobstructed: true });
-    if (this.visionSnapshotSources) this.visionSnapshotSources[key] = sources;
+    if (this.visionSnapshot) this.visionSnapshot.sources[key] = sources;
     return sources;
   }
   pointVisible(point: Vec2, team: Faction = 'blue'): boolean {

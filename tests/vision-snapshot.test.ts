@@ -1,6 +1,9 @@
 import { expect, test, vi } from 'vitest';
 import { World } from '../src/simulation/world';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
+import { requestOracle } from '../src/simulation/oracle-lens';
+import { swapTrinket } from '../src/simulation/trinkets';
+import { SCUTTLER_POLICY } from '../src/content/scuttler-policy';
 
 function fixture() {
   const w = new World(false, { ...PRACTICE_FIXTURE, initialUnits: [], lineOfSight: () => true });
@@ -117,4 +120,113 @@ test('read-only presentation queries preserve saved state and the following simu
     copy.step();
     expect(w.snapshot()).toBe(copy.snapshot());
   }
+});
+
+test('repeated visible and hidden unit reads share each team result only inside the scope', () => {
+  const w = fixture(),
+    enemy = w.units.find((u) => u.team === 'red')!,
+    near = w.spawn('champion', 'red', { x: 100, y: 0 }),
+    pointVisible = vi.spyOn(w, 'pointVisible');
+  w.withVisionSnapshot(() => {
+    for (let i = 0; i < 100; i++) {
+      expect(w.visible(enemy)).toBe(false);
+      expect(w.visible(near)).toBe(true);
+      expect(w.visible(enemy, 'red')).toBe(true);
+      expect(w.visible(enemy, 'neutral')).toBe(false);
+      expect(w.knownStructureDestroyed(enemy)).toBeNull();
+    }
+    expect(pointVisible).toHaveBeenCalledTimes(2);
+    w.withVisionSnapshot(() => {
+      expect(w.visible(enemy)).toBe(false);
+      expect(w.visible(near)).toBe(true);
+    });
+    expect(pointVisible).toHaveBeenCalledTimes(2);
+  });
+  w.visible(enemy);
+  w.visible(enemy);
+  expect(pointVisible).toHaveBeenCalledTimes(4);
+  w.withVisionSnapshot(() => w.visible(enemy));
+  expect(pointVisible).toHaveBeenCalledTimes(5);
+});
+
+test('cache keys use unit identity, including detached records with a reused ID', () => {
+  const w = fixture(),
+    enemy = w.units.find((u) => u.team === 'red')!,
+    detached = { ...enemy, x: 100 };
+  expect(detached.id).toBe(enemy.id);
+  w.withVisionSnapshot(() => {
+    expect(w.visible(enemy)).toBe(false);
+    expect(w.visible(detached)).toBe(true);
+    expect(w.visible(enemy)).toBe(false);
+  });
+});
+
+test('exceptions release unit results and same-tick reveals remain fresh between scopes', () => {
+  const w = fixture(),
+    enemy = w.units.find((u) => u.team === 'red')!,
+    read = () => w.withVisionSnapshot(() => w.visible(enemy));
+  expect(() =>
+    w.withVisionSnapshot(() => {
+      expect(w.visible(enemy)).toBe(false);
+      expect(() =>
+        w.withVisionSnapshot(() => {
+          throw Error('nested');
+        })
+      ).toThrow('nested');
+      expect(w.visible(enemy)).toBe(false);
+      throw Error('outer');
+    })
+  ).toThrow('outer');
+  w.reveal = { point: { x: enemy.x, y: enemy.y }, endTick: w.tick + 1 };
+  expect(w.visible(enemy)).toBe(true);
+  expect(read()).toBe(true);
+  w.reveal = null;
+  expect(read()).toBe(false);
+  enemy.x = 100;
+  expect(read()).toBe(true);
+  enemy.x = 5000;
+  expect(w.visible(enemy)).toBe(false);
+});
+
+test('ward detection and Garen target reveal keep their distinct visibility rules across scopes', () => {
+  const w = fixture(),
+    owner = w.units.find((u) => u.team === 'red')!,
+    ward = w.spawnWard({
+      origin: owner,
+      ownerId: owner.id,
+      team: 'red',
+      point: { x: 100, y: 0 },
+      startTick: w.tick,
+      readyTick: w.tick,
+      lifeTicks: 600,
+    });
+  ward.ward!.revealUntil = w.tick;
+  const read = () => w.withVisionSnapshot(() => [w.visible(ward), w.visible(ward, 'red')]);
+  expect(w.pointVisible(ward)).toBe(true);
+  expect(read()).toEqual([false, true]);
+  Object.assign(w.hero, w.battlefield.spawns.blue);
+  expect(swapTrinket(w, 'oracle')).toBeNull();
+  Object.assign(w.hero, { x: 0, y: 0 });
+  expect(requestOracle(w, w.hero)).toBeNull();
+  expect(read()).toEqual([true, true]);
+  w.player.trinket.scan = null;
+  expect(read()).toEqual([false, true]);
+  const garen = w.spawn('champion', 'blue', { x: 0, y: 0 }, 'garen'),
+    state = w.championState(garen.id)!;
+  state.garenRReveal = { targetId: owner.id, startTick: w.tick, endTick: w.tick + 1 };
+  expect(w.pointVisible(owner)).toBe(false);
+  expect(w.withVisionSnapshot(() => w.visible(owner))).toBe(true);
+  state.garenRReveal = null;
+  expect(w.withVisionSnapshot(() => w.visible(owner))).toBe(false);
+});
+
+test('Scuttler hidden emergence and its exact deadline are fresh in successive frames', () => {
+  const w = fixture(),
+    crab = w.spawnMonster({ x: 100, y: 0 }, { startTick: w.tick, readyTick: 600 }, 'scuttler');
+  const read = () => w.withVisionSnapshot(() => [w.visible(crab), w.visible(crab, 'red')]);
+  expect(read()).toEqual([false, false]);
+  w.tick = SCUTTLER_POLICY.hiddenTicks - 1;
+  expect(read()).toEqual([false, false]);
+  w.tick++;
+  expect(read()).toEqual([true, false]);
 });

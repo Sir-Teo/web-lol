@@ -224,8 +224,12 @@ test('failed and delayed preparation preserves resources, serializes clicks and 
   );
   expect(requests).toBe(2);
   await page.evaluate(() => {
-    const w = (window as any).__GAME__.world;
+    const g = (window as any).__GAME__,
+      w = g.world;
     Object.assign(w.hero, w.battlefield.spawns.blue);
+    // This diagnostic teleport bypasses input; the paused loop sleeps until
+    // interaction, so explicitly settle the fixture's shop access state.
+    g.hud.update(60);
   });
   await page.locator('[data-trinket="oracle"]').click();
   await expect(page.locator('.shop-message')).toHaveText('Trinket equipped');

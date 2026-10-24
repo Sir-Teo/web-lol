@@ -1,6 +1,6 @@
 # Development status
 
-Last updated: October 23, 2026 (America/New_York).
+Last updated: October 24, 2026 (America/New_York).
 
 **Goal remains active:** continuously develop the highest-quality, visually authentic League-like browser game, without an application backend, through small commits. The required final state is a verified production-level full match experience. This file describes progress toward that goal; it does not reduce its scope.
 
@@ -5330,3 +5330,33 @@ shadow pairs pass. Production build/nested hosting passes 32 recordings. Schema
 claimed. See [offscreen poses](CPU-OFFSCREEN-POSES.md) and the
 [evidence record](reference/offscreen-pose-verification.json). Deferred Zenith
 work is preserved, nothing is pushed, and the project goal remains active.
+
+## Unit visibility CPU checkpoint — October 24, 2026
+
+The existing read-only presentation scope now shares each unit's visibility
+result by object identity and viewing team. Both positive and negative results
+expire when the scope returns or throws. Simulation calls and later frames stay
+fresh, including same-tick movement and reveals. Point queries and all visibility
+rules remain unchanged; the transient cache is never saved.
+
+Eleven alternating Chrome query pairs on the same 117-unit checkpoint reduce
+median batch time from 96.6 to 25.4 ms and point visibility evaluations from
+75,200 to 14,300. A later serial whole-game pair observes 10.1% less mean render
+time and 8.7% less renderer CPU per wall second; the initial unpaired observation
+was slower and is also retained. Short instrumented timings do not certify
+physical heat, total energy, GPU cost or full-match/device performance.
+
+TypeScript, all 1,782 unit cases/293 files and three Node QA cases pass.
+Nineteen unique Chrome cases pass across eighteen initial passes and one repaired
+paused-HUD fixture. The original failure and its trace remain retained. Forty
+original/current frames preserve every pixel, visible bone matrix, label and
+snapshot. Previous/current simulation agrees through 3,600 ticks, 61 checkpoints,
+65,574 visibility queries and a strict restored 60-tick future. Production build
+and nested hosting pass with 32 recordings and no development hook. No fresh
+offline/full-browser audit is claimed.
+
+Schema 125 remains; current working ruleset is
+`3f5f13befd26234c86d0603e8fcc4b3236eb6e43b1e4ebf5e47a968d46007653`.
+See [unit visibility](CPU-UNIT-VISION.md) and its
+[evidence record](reference/unit-vision-verification.json). Deferred Zenith work
+is preserved, nothing is pushed, and the full project goal remains active.
