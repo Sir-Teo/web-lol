@@ -10,7 +10,11 @@ const half = MAP_HALF * SCALE;
 export function createTerrainTexture(): THREE.CanvasTexture {
   const canvas = document.createElement('canvas');
   canvas.width = canvas.height = 4096;
-  const c = canvas.getContext('2d')!,
+  // The procedural fixture must produce identical texture bytes after reload.
+  // GPU Canvas2D rasterization can change antialiased paint edges across fresh
+  // contexts, even with the same seed. This hint selects the stable CPU path;
+  // production Rift terrain uses its retained image assets instead.
+  const c = canvas.getContext('2d', { willReadFrequently: true })!,
     n = canvas.width,
     random = new Random(717);
   const px = (value: number) => (value / (MAP_HALF * 2) + 0.5) * n;

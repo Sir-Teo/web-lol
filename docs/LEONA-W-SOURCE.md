@@ -107,3 +107,7 @@ particle scheduling and match rendering remain unfinished.
 The subsequent [playback increment](LEONA-W-PLAYBACK.md) records W phase/contact
 histories, samples all enabled emitters and draws the four attached-character
 material descriptions. The other 26 layers and full/native acceptance remain open.
+
+The subsequent [surface increment](LEONA-W-SURFACES.md) now draws all thirty
+enabled families and retains static shader arithmetic evidence. Native dispatch,
+global bindings, source audio and full presentation acceptance remain open.

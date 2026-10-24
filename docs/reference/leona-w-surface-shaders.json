@@ -1,0 +1,826 @@
+{
+  "scope": "Twenty-two selected static Metal/AIR surface permutations; no native CPU dispatch, sampler setup or shader/client execution certified.",
+  "limits": [
+    "Variant selection is exploratory and does not prove W native dispatch or global uniforms.",
+    "Clang retargets textual IR to the host with LLVM passes disabled; original Metal/AIR bytes are preserved."
+  ],
+  "tocReader": "tools/assets/export-particle-shaders.py",
+  "tocReaderSha256": "fbb96dc9c57f155668ba0145fe4ceb273f9be7b22a55fed17ec336d3682f46d3",
+  "tables": [
+    {
+      "path": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal",
+      "stage": 1,
+      "defines": {
+        "SEPARATE_ALPHA_UV": "1",
+        "DISABLE_FOW": "1",
+        "REFLECTIVE": "1",
+        "MASKED": "1",
+        "SCREEN_SPACE_UV": "1",
+        "COLORPALETTE_COLORBLIND": "1",
+        "SOFT_PARTICLES": "1",
+        "PALETTIZE_TEXTURES": "1",
+        "ALPHA_EROSION": "1",
+        "ALPHA_TEST": "1",
+        "MULT_PASS": "1"
+      },
+      "variants": 2048,
+      "programs": 2048
+    },
+    {
+      "path": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal",
+      "stage": 0,
+      "defines": {
+        "LOCAL_SPACE_UV": "1",
+        "SEPARATE_ALPHA_UV": "1",
+        "DISABLE_FOW": "1",
+        "USE_VERTEX_COLORS": "1",
+        "REFLECTIVE": "1",
+        "MASKED": "1",
+        "SCREEN_SPACE_UV": "1",
+        "MULT_PASS": "1"
+      },
+      "variants": 256,
+      "programs": 192
+    },
+    {
+      "path": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal",
+      "stage": 1,
+      "defines": {
+        "DISABLE_FOW": "1",
+        "MASKED": "1",
+        "COLORPALETTE_COLORBLIND": "1",
+        "SOFT_PARTICLES": "1",
+        "PALETTIZE_TEXTURES": "1",
+        "ALPHA_EROSION": "1",
+        "ALPHA_TEST": "1",
+        "MULT_PASS": "1"
+      },
+      "variants": 256,
+      "programs": 256
+    },
+    {
+      "path": "assets/shaders/hlsl/particlesystem/quad_vs.vs-metal",
+      "stage": 0,
+      "defines": {
+        "DISABLE_FOW": "1",
+        "MASKED": "1",
+        "ALPHA_EROSION": "1",
+        "MULT_PASS": "1"
+      },
+      "variants": 16,
+      "programs": 16
+    }
+  ],
+  "selections": [
+    {
+      "table": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal",
+      "defines": {
+        "DISABLE_FOW": "1"
+      },
+      "programId": 9,
+      "bundle": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_0",
+      "index": 9,
+      "metallib": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_ps.ps-metal-9.metallib",
+        "bytes": 3934,
+        "sha256": "6f497054a40a4ce2d84f7e217872ce4ec3a482e2c01361a70f82d546924e63f3"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_ps.ps-metal-9.bc",
+        "bytes": 3672,
+        "offset": 258,
+        "sha256": "6c9399e9087005fe9e8efe4d4e15db842dd52acabd3457b7eaa3498809c659ba"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_ps.ps-metal-9.ll",
+        "bytes": 6594,
+        "sha256": "b6a579abef93ddc392ed876189a187943b40732b6800f93d48539215756d754e"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "MULT_PASS": "1"
+      },
+      "programId": 0,
+      "bundle": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_0",
+      "index": 0,
+      "metallib": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_ps.ps-metal-0.metallib",
+        "bytes": 3662,
+        "sha256": "8b9d6c420e9f4ef9109c551b752513a992d921fbadd529133be1d432341d3448"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_ps.ps-metal-0.bc",
+        "bytes": 3392,
+        "offset": 258,
+        "sha256": "1d9cdf10ad954148b215fd25914ce4a3ae3ce414cf04c103a67d0845d3fa2fea"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_ps.ps-metal-0.ll",
+        "bytes": 6066,
+        "sha256": "fbb6d9a0420692b7d4951cf6221a19491f017d6f0a99aa24ea2060310235002f"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal",
+      "defines": {
+        "ALPHA_EROSION": "1",
+        "DISABLE_FOW": "1",
+        "MULT_PASS": "1"
+      },
+      "programId": 69,
+      "bundle": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_0",
+      "index": 69,
+      "metallib": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_ps.ps-metal-69.metallib",
+        "bytes": 4350,
+        "sha256": "f0c2b22b823a949bccb1c0f20dc4d342998893a765b84149e1577f9ec2bf3401"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_ps.ps-metal-69.bc",
+        "bytes": 4080,
+        "offset": 258,
+        "sha256": "3f1eb3468352783301c48b3c619f6d23ad35cb107087e3e0ce08a7a43a179cd3"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_ps.ps-metal-69.ll",
+        "bytes": 9089,
+        "sha256": "17b44fbb93f692e399ca6336f705c40f6d0a6a926020d09e4f34f4cf4d207220"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "SOFT_PARTICLES": "1"
+      },
+      "programId": 813,
+      "bundle": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_800",
+      "index": 13,
+      "metallib": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_ps.ps-metal-813.metallib",
+        "bytes": 6110,
+        "sha256": "6521241661ea2486b53f48629be46b043040c5ce1defce1a778114711715efdd"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_ps.ps-metal-813.bc",
+        "bytes": 5848,
+        "offset": 258,
+        "sha256": "e0e16bd19adb9b8ac7ef497afff4d9e852df3a2e173dbe91c131e586f54a9aa0"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_ps.ps-metal-813.ll",
+        "bytes": 13924,
+        "sha256": "3c9b46c85cb55410606624c4f74d98ab5cc0619969838793c91e56bda63d5d36"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal",
+      "defines": {
+        "ALPHA_EROSION": "1",
+        "DISABLE_FOW": "1",
+        "MULT_PASS": "1",
+        "SOFT_PARTICLES": "1"
+      },
+      "programId": 950,
+      "bundle": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_900",
+      "index": 50,
+      "metallib": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_ps.ps-metal-950.metallib",
+        "bytes": 6462,
+        "sha256": "b8566415b5c2780a39f7abb96d1154bafc651284403e734e173c5ac39ac24f83"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_ps.ps-metal-950.bc",
+        "bytes": 6196,
+        "offset": 258,
+        "sha256": "11d5c2c14bbdc16ba31ff335a81c5d57e9afabd944b3e0501b92cc7af97d33dd"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_ps.ps-metal-950.ll",
+        "bytes": 16064,
+        "sha256": "a49f7f0665e18709f3dc53dc19dced9a255bcf1e366df4eb577d6baa374de659"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "SEPARATE_ALPHA_UV": "1"
+      },
+      "programId": 12,
+      "bundle": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_0",
+      "index": 12,
+      "metallib": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_ps.ps-metal-12.metallib",
+        "bytes": 3998,
+        "sha256": "8775757c0d06dd6960fc289efc76866e67db9602fcb46b93c3deb82658e84d53"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_ps.ps-metal-12.bc",
+        "bytes": 3732,
+        "offset": 258,
+        "sha256": "db1aeb88ec443518780e877dc334e972045e235db792f061d6cef23ef3361945"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_ps.ps-metal-12.ll",
+        "bytes": 7096,
+        "sha256": "302eb73d459e0a1ffca35d10c6aa767b86458e4d4995ce7420f0267fa44aa434"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "MULT_PASS": "1",
+        "SEPARATE_ALPHA_UV": "1"
+      },
+      "programId": 1,
+      "bundle": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_0",
+      "index": 1,
+      "metallib": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_ps.ps-metal-1.metallib",
+        "bytes": 3662,
+        "sha256": "214bafd4fa4bb1a79224558cda3b19dc50e58c3eba3db909e315e0d22ec93edc"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_ps.ps-metal-1.bc",
+        "bytes": 3404,
+        "offset": 258,
+        "sha256": "f6190d2f416e71c3cddd8fe65bc3f98b4201c279565174522195174d0c289e0c"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_ps.ps-metal-1.ll",
+        "bytes": 6531,
+        "sha256": "736d91ed6376ea8ff93ad8728ba14129200b0faa8a1f2a256d22f42ca720bdbf"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal",
+      "defines": {
+        "DISABLE_FOW": "1"
+      },
+      "programId": 1,
+      "bundle": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal_0",
+      "index": 1,
+      "metallib": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_vs.vs-metal-1.metallib",
+        "bytes": 5577,
+        "sha256": "6b86adbd5b6f807e71248eff97c03fd42b5db82e9de81578dfebca0cb60dfb12"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_vs.vs-metal-1.bc",
+        "bytes": 5264,
+        "offset": 301,
+        "sha256": "0b8ffac40fef20ae025401b1436531f4d11398596c0953f2fd4ca8fe0f998b18"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_vs.vs-metal-1.ll",
+        "bytes": 14512,
+        "sha256": "334dcb3341e0c437ba1beb7f2091ec496083e0f9ea8973397a7c20510f307b94"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "MULT_PASS": "1"
+      },
+      "programId": 8,
+      "bundle": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal_0",
+      "index": 8,
+      "metallib": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_vs.vs-metal-8.metallib",
+        "bytes": 5673,
+        "sha256": "5097bfefc04ddc87a15003cd0b670c24b8c2776ea2757de66de9ab5f5743f2c6"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_vs.vs-metal-8.bc",
+        "bytes": 5372,
+        "offset": 301,
+        "sha256": "0e638f4d656553867ad5024ff49438587212484f3298ad91629d41f2ea671b80"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_vs.vs-metal-8.ll",
+        "bytes": 15443,
+        "sha256": "efb60576e5dc012ef541984131339d88fe41e6dddf568319d1fe8599cd132af2"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "SEPARATE_ALPHA_UV": "1"
+      },
+      "programId": 5,
+      "bundle": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal_0",
+      "index": 5,
+      "metallib": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_vs.vs-metal-5.metallib",
+        "bytes": 5657,
+        "sha256": "21d8edf0e57f8ee9351b78e4fa545c47333ab688cf9fe012a7fe97d22ddc451a"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_vs.vs-metal-5.bc",
+        "bytes": 5352,
+        "offset": 301,
+        "sha256": "651ac5f163ccd0b081279862dd0d01b1dd4f46bea46805a8315af631e72778a9"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_vs.vs-metal-5.ll",
+        "bytes": 15255,
+        "sha256": "901f95e4f64516064d5337dd67ea64f31542f44ce614b918beddd8f6f286d751"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "USE_VERTEX_COLORS": "1"
+      },
+      "programId": 4,
+      "bundle": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal_0",
+      "index": 4,
+      "metallib": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_vs.vs-metal-4.metallib",
+        "bytes": 5634,
+        "sha256": "f09587fd97a5ea857b055352c6797b6c057a4c1c3f158d550ee82c7df898a726"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_vs.vs-metal-4.bc",
+        "bytes": 5312,
+        "offset": 310,
+        "sha256": "8f572fee77a33bc5ca5a4dcd4cb6654f1b1d00d15e4e75016a653e86d221d9f4"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_vs.vs-metal-4.ll",
+        "bytes": 14844,
+        "sha256": "cb727e348306ba0861eaba9e4158832c2b2ea7badb18a24ae555a6b05110f331"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "MULT_PASS": "1",
+        "SEPARATE_ALPHA_UV": "1",
+        "USE_VERTEX_COLORS": "1"
+      },
+      "programId": 32,
+      "bundle": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal_0",
+      "index": 32,
+      "metallib": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_vs.vs-metal-32.metallib",
+        "bytes": 5778,
+        "sha256": "d1e512532d534261b98d4d5298cc89e1de13a87115d4320c007279eecad974cb"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_vs.vs-metal-32.bc",
+        "bytes": 5464,
+        "offset": 310,
+        "sha256": "5d7e46f8dbb46924e9d2b7ff8014be4bd517b37e2e1999a96069aaf2adb692c2"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/mesh_vs.vs-metal-32.ll",
+        "bytes": 16308,
+        "sha256": "b997f472299b9084887f5b3a3868d9a9e026763445c03201723cf7c34c0866d8"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal",
+      "defines": {
+        "DISABLE_FOW": "1"
+      },
+      "programId": 0,
+      "bundle": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal_0",
+      "index": 0,
+      "metallib": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_ps.ps-metal-0.metallib",
+        "bytes": 3470,
+        "sha256": "3f2f0e9b9c9eeec9954f236bed6382f47caba1aa349fe5d36d3282b6bef140bc"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_ps.ps-metal-0.bc",
+        "bytes": 3208,
+        "offset": 258,
+        "sha256": "0843cba4fa79e713d90d545e3acdc822ffec87cccfbfe31d1a8d2fe8ca3bc779"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_ps.ps-metal-0.ll",
+        "bytes": 5196,
+        "sha256": "59e33d778a84b38a07d7a62bc1c7a34cd1e2927a72c80b67adf6655b11f97f1a"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "MULT_PASS": "1"
+      },
+      "programId": 1,
+      "bundle": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal_0",
+      "index": 1,
+      "metallib": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_ps.ps-metal-1.metallib",
+        "bytes": 3566,
+        "sha256": "13ac91cc8a56db49dff1454e677df5548686969df713cb844296e86b87b73af2"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_ps.ps-metal-1.bc",
+        "bytes": 3296,
+        "offset": 258,
+        "sha256": "48c084922491da5defb03f7cf0bf6dcaea73ced6b75614d4c54e40fd3d9da029"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_ps.ps-metal-1.ll",
+        "bytes": 5827,
+        "sha256": "aa0bc6e3f973883fccfd4c8da2e3cabb0822cfe261374695ad4d861f64dd4fbf"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "MASKED": "1"
+      },
+      "programId": 3,
+      "bundle": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal_0",
+      "index": 3,
+      "metallib": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_ps.ps-metal-3.metallib",
+        "bytes": 3710,
+        "sha256": "f2d0d8b3c589704bd5aa42abfe5175461501f1b5dcc8bee0ed1e03475d11b04a"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_ps.ps-metal-3.bc",
+        "bytes": 3440,
+        "offset": 258,
+        "sha256": "4ae3753f762606f8f552eab542ba51b4b99570ad443b8904ea2924fbb8ff52e4"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_ps.ps-metal-3.ll",
+        "bytes": 6336,
+        "sha256": "b066924b00e449c1d00d82e8bcfcc62a3e9d5088608ba6b64f04a7e093707cf6"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "MASKED": "1",
+        "MULT_PASS": "1"
+      },
+      "programId": 5,
+      "bundle": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal_0",
+      "index": 5,
+      "metallib": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_ps.ps-metal-5.metallib",
+        "bytes": 3806,
+        "sha256": "5ce177fedbfef5c0dc0816a21cc892abd4b5e298037824e3bcf9088233d8b7d2"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_ps.ps-metal-5.bc",
+        "bytes": 3540,
+        "offset": 258,
+        "sha256": "51d84f4645d0f02ed713eea8f0e982f11a2f2aea8c69d96c1fcae266ad9eccd7"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_ps.ps-metal-5.ll",
+        "bytes": 6971,
+        "sha256": "1cbca83bc6cb6e6b4e6c4c2c227b262d19de3d2a93b42de1876a292b068293cc"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "SOFT_PARTICLES": "1"
+      },
+      "programId": 128,
+      "bundle": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal_100",
+      "index": 28,
+      "metallib": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_ps.ps-metal-128.metallib",
+        "bytes": 5870,
+        "sha256": "59c41edb1a32c29eda9f71326ab9552cc6eab74bfaa7edc9401522370ea1b330"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_ps.ps-metal-128.bc",
+        "bytes": 5608,
+        "offset": 258,
+        "sha256": "82b51fff9b2d533cb5e7d958fe9d31dbcd1e9e72df57cf8e00bfdc04256a3dd0"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_ps.ps-metal-128.ll",
+        "bytes": 13174,
+        "sha256": "2a1b0328b94104ad56035bd36a77619fbd9bbf74a5c3c83d3253352f07884747"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "MULT_PASS": "1",
+        "SOFT_PARTICLES": "1"
+      },
+      "programId": 129,
+      "bundle": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal_100",
+      "index": 29,
+      "metallib": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_ps.ps-metal-129.metallib",
+        "bytes": 5982,
+        "sha256": "9c2f67b9a899dad8eff407f629b8d4738d135b1708a02d8c3e0513be499d05a8"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_ps.ps-metal-129.bc",
+        "bytes": 5712,
+        "offset": 258,
+        "sha256": "cfbaef7d5bf1296e7473bc9c876a33d8d6b3a2907c814922fea6a5cbb90db18b"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_ps.ps-metal-129.ll",
+        "bytes": 13809,
+        "sha256": "ee30c7283c7adf59112d1b234c656a41a7b81e51ca298d76923fe3252a9f605b"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/quad_vs.vs-metal",
+      "defines": {
+        "DISABLE_FOW": "1"
+      },
+      "programId": 0,
+      "bundle": "assets/shaders/hlsl/particlesystem/quad_vs.vs-metal_0",
+      "index": 0,
+      "metallib": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_vs.vs-metal-0.metallib",
+        "bytes": 4466,
+        "sha256": "e35d35fe08a495bd9dff70846aed99f9a3553807dc44533079a88f1c8484b615"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_vs.vs-metal-0.bc",
+        "bytes": 4156,
+        "offset": 310,
+        "sha256": "6d46f205c6f1f1e6faf28837c3769685edb04460d7c4401e9b5c26fa5389bab4"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_vs.vs-metal-0.ll",
+        "bytes": 9439,
+        "sha256": "0522083339020a05869aac9f65fa7e07fa9d0a7cafe6d67290f33dfd9c6eeeaa"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/quad_vs.vs-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "MULT_PASS": "1"
+      },
+      "programId": 5,
+      "bundle": "assets/shaders/hlsl/particlesystem/quad_vs.vs-metal_0",
+      "index": 5,
+      "metallib": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_vs.vs-metal-5.metallib",
+        "bytes": 4562,
+        "sha256": "e7c9df8fe96a4af5bc0d0ccaab93223d46d383684c135901ec82dd387d491479"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_vs.vs-metal-5.bc",
+        "bytes": 4244,
+        "offset": 310,
+        "sha256": "a4f895da358847f2bc18c1464da1a6bf8befd4d8a641b5863ac6156655be2c0b"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_vs.vs-metal-5.ll",
+        "bytes": 10088,
+        "sha256": "89f4e40daf2b59037886b62ba32981773fb9f619baa65c9cd92c36be8df9cba1"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/quad_vs.vs-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "MASKED": "1"
+      },
+      "programId": 3,
+      "bundle": "assets/shaders/hlsl/particlesystem/quad_vs.vs-metal_0",
+      "index": 3,
+      "metallib": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_vs.vs-metal-3.metallib",
+        "bytes": 4546,
+        "sha256": "6ef4c507d7d15eca99057bc8b9b26f9ba61dfc6e4faa681a0bf2de3b1b36a850"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_vs.vs-metal-3.bc",
+        "bytes": 4228,
+        "offset": 310,
+        "sha256": "97d40c4c4fbbaeba0fb47437e677ea5432cbc8d1a40f8abb8cfbbeaf2eb0a2c1"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_vs.vs-metal-3.ll",
+        "bytes": 10172,
+        "sha256": "cf70de85d92f8a53d887b32de2a7de0f11b3bd6d37f628d75774dd091651441f"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/quad_vs.vs-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "MASKED": "1",
+        "MULT_PASS": "1"
+      },
+      "programId": 12,
+      "bundle": "assets/shaders/hlsl/particlesystem/quad_vs.vs-metal_0",
+      "index": 12,
+      "metallib": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_vs.vs-metal-12.metallib",
+        "bytes": 4642,
+        "sha256": "1f10e86bbd7f15f75c5ee156b89362098b2fbf97c05705222b4a4e36a1d2c9cd"
+      },
+      "bitcode": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_vs.vs-metal-12.bc",
+        "bytes": 4332,
+        "offset": 310,
+        "sha256": "511973929e3eeb845a3b7d6af5d566027872f031b2b19dd1ab6a3e95ed1179c2"
+      },
+      "disassembly": {
+        "path": ".cache/leona-w-surface-shaders-v1-20261023/quad_vs.vs-metal-12.ll",
+        "bytes": 10823,
+        "sha256": "8517118a8ccf5b3feee838a0dc1192bd23e90e24daba10b4cbb79e2d1a40af14"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    }
+  ],
+  "extraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/ShaderCache.metal.wad.client",
+    "chunks": {
+      "45E944192F8380B7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/89CB95BFED6F5D6B.bundle",
+        "offset": 15109374,
+        "bytes": 51065,
+        "sha256": "b32acb9ce2eab9db5da8ab75af82f63811ff6866f71099d321b9090ca43db635"
+      },
+      "33717C0D6AD50A25": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6DAB806BF6A97337.bundle",
+        "offset": 835001,
+        "bytes": 19836,
+        "sha256": "a5cd0b2323650eb791b48a4ccaec55a2dc4675914924810a572ee7ee15f2107f"
+      },
+      "EDCB4CFEDFC5EDA2": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/52C61B097501F7A0.bundle",
+        "offset": 21553583,
+        "bytes": 2536,
+        "sha256": "a7b0d21c0d4c2d1e923d998f07650f3285659199ed9324927ee6bacb58e641b3"
+      },
+      "C7727DCD553147A5": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6DAB806BF6A97337.bundle",
+        "offset": 20943439,
+        "bytes": 2539,
+        "sha256": "da20d0053e5b5dfacd5c6d5f2c8b40df115667e81a6d762cf6c94d267009fd97"
+      },
+      "EC3DB59DAD6A3F83": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/89CB95BFED6F5D6B.bundle",
+        "offset": 15970132,
+        "bytes": 288,
+        "sha256": "8145f9228cb0ec68e9216f5139fcd91e680baf5d15595f9ab7e40fc23ba75687"
+      },
+      "1E20E9A696B2869B": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6DAB806BF6A97337.bundle",
+        "offset": 1073240,
+        "bytes": 52572,
+        "sha256": "d1a0616bc8922e3eaedc1eccc99fafd6a3aafeb24f2c0a561ac370f1774b8223"
+      },
+      "FEB21A64825D2582": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/CF1DC8511AA5BC6F.bundle",
+        "offset": 29219800,
+        "bytes": 95532,
+        "sha256": "cf5facf573094eb341b6888e3802295fdbcd73992074fd75731478e40071c0af"
+      },
+      "A465D9CCD08DE3C2": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/BC83F0F7AC98DE26.bundle",
+        "offset": 3773283,
+        "bytes": 100553,
+        "sha256": "a3af81b05d89a5ede3dc8fe23add530489347ac35b62fe73056ab10b3bd8c6e5"
+      },
+      "3ECADB6FB4772D3D": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/52C61B097501F7A0.bundle",
+        "offset": 43266510,
+        "bytes": 59987,
+        "sha256": "469d1e9e4b5ba6b5d231faabaa6803e950fd4c56787648fb7bd372f435cd6d10"
+      },
+      "E63A20535834241B": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/CF1DC8511AA5BC6F.bundle",
+        "offset": 30939513,
+        "bytes": 62507,
+        "sha256": "e4b7d41314b0ced5f07d9c7994bb86975fc6a265c3f1ee27c286c1fb5b3db02a"
+      },
+      "97992C67B4AC7CAE": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/0DCEF105C1CD69C8.bundle",
+        "offset": 26997306,
+        "bytes": 95079,
+        "sha256": "e0df2ff76b860efb7b230d521932239c6abac405e01cb342d95eed808ea7315e"
+      },
+      "244F79E8FA3EF5EA": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6DAB806BF6A97337.bundle",
+        "offset": 4694655,
+        "bytes": 11086,
+        "sha256": "e526df0a5d69b61d510d1f76645794b67ef8333e8f9ec6f5fb571f55ddbafaa6"
+      }
+    },
+    "files": [
+      {
+        "path": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal",
+        "wadPathHash": "eac13e189601d830",
+        "sha256": "5fbf5c0846d31ce52b32ac57e29e7778d847e5e86a8cd26f4caa5206a62ac599",
+        "bytes": 24873
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal",
+        "wadPathHash": "b248a9f2d4c6e24d",
+        "sha256": "ae5b370cd544af0d628ada594060fab0e75b92973c27d23e22abf2322c584543",
+        "bytes": 3295
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal",
+        "wadPathHash": "d14cd4e9a5238f0b",
+        "sha256": "0a3b5a75854e9e4197cdf7fa53c315e5b969bd37e5b1ac3436184cce5a6dce20",
+        "bytes": 3300
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/quad_vs.vs-metal",
+        "wadPathHash": "c69e7a01e176cc4f",
+        "sha256": "9bc26a17d5bdb16f08e32013d27741969e8f48e22c15709712b6e0b0e88a2fbc",
+        "bytes": 319
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_0",
+        "wadPathHash": "76f231675a2e43df",
+        "sha256": "f11dab5e01ff4779842a87a7f44063de3093b8f66210508f93007994a1d3efc8",
+        "bytes": 423160
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_800",
+        "wadPathHash": "27371be587512097",
+        "sha256": "f9f4f059a597d2235cb2f07b9c422ce122c0a2ab52c5c527332be6adb9af3a6a",
+        "bytes": 623288
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_900",
+        "wadPathHash": "3172c9c62c1911c6",
+        "sha256": "3a96385b36cc45c63255ff501bc17226498b79552b5f5c32a8b82559545a275e",
+        "bytes": 646280
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal_0",
+        "wadPathHash": "5ccdc3d1f626137b",
+        "sha256": "0b47cdaf2a7a0d9489a2d521a04f06a864a3bf0ae771ff95b22b5a01e5cc73ad",
+        "bytes": 582465
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal_0",
+        "wadPathHash": "523edf942a1a020a",
+        "sha256": "ae8f612833cb5d751a31d38641c7e018d015a3f1ec67918a702a6618caaaee2f",
+        "bytes": 437080
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal_100",
+        "wadPathHash": "a6f89799b4915cf8",
+        "sha256": "467b539c064946f97446c9a195f82a02b9a5abb36301ce6fc8b7a00e5218bf4c",
+        "bytes": 603032
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/quad_vs.vs-metal_0",
+        "wadPathHash": "607f120d04828f35",
+        "sha256": "5a92f61dd00bd08d76acac588f232e0fa34385c44392b465e3d5a8fbba4aeb7b",
+        "bytes": 73600
+      }
+    ]
+  },
+  "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n"
+}

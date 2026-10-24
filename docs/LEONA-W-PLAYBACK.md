@@ -1,10 +1,10 @@
 # Eclipse playback reconstruction
 
-This increment adds saved W presentation histories, a seekable sampler for all
-30 enabled source emitters, and actual playback of the four attached-character
-material descriptions. The other 26 enabled ray, mesh, billboard and quad
-families are sampled but are **not yet drawn**. Full W presentation and native
-fidelity remain open.
+The initial increment described here added saved W histories, a seekable sampler
+for all 30 enabled source emitters, and playback of four attached-character
+material descriptions. The subsequent [surface increment](LEONA-W-SURFACES.md)
+now draws the remaining 26 ray, mesh, billboard and quad families. All 30 enabled
+families have draw paths; full W/native presentation acceptance remains open.
 
 ## Source and emission
 
@@ -78,7 +78,7 @@ private renderable hierarchy, and sampler disposal now retires each unique
 private skeleton and removes its root from its parent. Optional W loading is
 restricted to worlds containing Leona; production selection remains gated.
 
-Schema is **124**, with ruleset
+The initial histories/skin stage used schema **124**, with ruleset
 `a626cd285109ed77c22f6e9b927748087a20930aa9a29f5cea327f715f213898`.
 The explicit W sampler/material module roots now traverse runtime imports, so a
 changed curve or motion helper cannot escape the compatibility fingerprint.
@@ -87,13 +87,12 @@ runtime modules. Earlier saves are not migrated.
 
 ## Remaining acceptance
 
-Draw the remaining two ray, ten mesh, seven billboard and seven quad families,
-including independent UV/multiplier stages, lock-alpha UV mode, source mesh
-color semantics, depth/soft particles, distortion, and the unbound palette
-declaration. Complete phase/contact/fog/death/recast/victory composition and
-its resource/recovery/performance checks. Source sound dispatch, native CPU and
-frame comparisons, E/R presentation, player/support integration and the full
-six-champion match gates remain required.
+The [surface increment](LEONA-W-SURFACES.md) adds the remaining primitives,
+material/depth/distortion routes and lifecycle/recovery/resource checks. Native
+CPU dispatch, attachment/culling/face-color semantics, missing palette/global
+bindings and frame comparisons remain unverified. Source sound dispatch,
+E/R presentation, player/support integration and the full six-champion match,
+browser, offline and performance gates remain required.
 
 ## Validation record
 

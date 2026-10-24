@@ -37,12 +37,18 @@ export class SceneDepth {
       }
     });
     const previous = renderer.getRenderTarget(),
-      shadows = renderer.shadowMap.autoUpdate;
+      shadows = renderer.shadowMap.autoUpdate,
+      shadowsEnabled = renderer.shadowMap.enabled;
     const viewport = renderer.getViewport(new THREE.Vector4()),
       scissor = renderer.getScissor(new THREE.Vector4()),
       scissorTest = renderer.getScissorTest();
     try {
       renderer.shadowMap.autoUpdate = false;
+      // A restored effect can request depth before the first normal frame has
+      // allocated shadow maps. Sampling their null color-texture fallback as a
+      // shadow sampler is invalid in WebGL2. Lighting cannot affect this depth
+      // capture, so compile/render these same materials without shadow sampling.
+      renderer.shadowMap.enabled = false;
       // Render-target rectangles are physical pixels, independent of the canvas pixel ratio.
       this.target.scissor.copy(
         region ?? new THREE.Vector4(0, 0, this.target.width, this.target.height)
@@ -55,6 +61,7 @@ export class SceneDepth {
     } finally {
       for (const o of hidden) o.visible = true;
       renderer.shadowMap.autoUpdate = shadows;
+      renderer.shadowMap.enabled = shadowsEnabled;
       renderer.setRenderTarget(previous);
       renderer.setViewport(viewport);
       renderer.setScissor(scissor);

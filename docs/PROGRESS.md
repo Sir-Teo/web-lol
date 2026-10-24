@@ -5017,3 +5017,59 @@ preserved. See [Eclipse playback](LEONA-W-PLAYBACK.md) and its
 UV/soft/depth/distortion/palette stages, source audio, native comparison,
 E/R presentation, controls/support and full six-champion match acceptance remain
 required. This agent did not push; the full goal remains active.
+
+## Eclipse surface families and strict frame recovery — October 23, 2026
+
+All thirty enabled W families now have actual draw paths. The new renderer adds
+two rays, ten retained SCB mesh families, seven billboards and seven arbitrary
+quads alongside the four skin descriptions. Native static Metal/AIR inspection
+retains 22 selected programs and establishes split UV/alpha, mesh/quad multiplier,
+BGRA, erosion, remap and separate soft-channel arithmetic. No native shader or
+client was executed. Unit-root attachment, source-space reflection, double-sided
+culling, ground projection, blend/soft-control and distortion-strength binding
+remain explicit local choices. The missing Glow palette binding remains unbound;
+raw face colors stay preserved without inventing their native meaning.
+
+The source meshes now use their authored vertex-alpha fades. Independent texture
+samplers preserve base/multiplier/erosion address state, and the two distortion
+layers use the existing framebuffer-copy pass. Ray bounds refresh after updates
+because Three uses their centres for transparent sorting even with culling off.
+A restored active depth effect no longer samples uninitialized shadow maps:
+the shared depth pass disables shadow sampling and restores its flags afterward.
+Exact-frame diagnosis also found different Canvas2D paint bytes in the seeded
+procedural fixture across reload. Its paint canvas now requests the stable CPU
+path; production Rift uses retained image assets. The full frame now survives
+real Save/reload and graphics recovery byte for byte. No pixel tolerance was
+relaxed for this repair.
+
+All **1,666 unit tests/285 files**, TypeScript/build and three Node QA checks pass.
+There are **23 unique real Chrome cases**: 22 at V15 and one additional full-cycle
+case at V16, whose only source delta is the browser test. All 26 non-skin families
+draw source pixels; six authored BGRA families take the native arithmetic path.
+All 39 numerical GPU probes are within one channel level. Fog, lethal/winning
+endpoints, delayed births, early recasts and owned-resource retirement pass.
+Six complete alternating hit/miss cycles return to 25 geometries/46 textures,
+with no remaining W instances, depth target or distortion copy. Controlled
+storage stability does not certify full-match performance.
+
+Two ten-minute normal seeds pass 72,000 invariant-checked ticks, twenty exact
+saves and eighteen following-minute comparisons. Their twenty checkpoints match
+the preceding W skin-stage smoke after normalizing only ruleset identity. Both
+are unfinished at that smoke horizon. Production subpath passes 32 recordings.
+A fresh full real Chrome offline audit passes 882 files/499,237,703 bytes,
+963 worker responses, saved-tick boot, a new Lux 5v5 and integrity/repair/version/
+removal flows, with zero production errors. Pack ID:
+`ca6f4494cc59dd0b33e2659e4f5c37ca4030c6317357ab2a48cdf387b9175b1b`.
+
+Schema **124** remains; current ruleset is
+`67a9ea30c6ceb0ed42fe4ca72146b78f1b8c0f005271394332393ed59d6c7987`.
+V16 freezes 1,479 source/QA inputs and 77 native files. V15 preserves the full
+unit/build/delivery run and 22 browser cases; V1–V14 keep failed/intermediate
+inputs, outputs and traces. The early loader run was interrupted only after
+confirming an HTML-as-image startup defect, not after an observation timeout.
+See [surface reconstruction](LEONA-W-SURFACES.md) and its
+[ledger](reference/leona/w-surfaces-verification.json). Native CPU/global/sampler/
+culling/attachment/frame comparison, source audio, E/R presentation, player/
+support integration, the current full cohort and the six-champion match/browser/
+offline/performance requirements remain open. This agent did not push; the goal
+remains active.

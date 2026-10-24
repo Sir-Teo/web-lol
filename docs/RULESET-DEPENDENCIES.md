@@ -82,3 +82,7 @@ Earlier failed fixture runs are retained; all 1,660 unit cases pass after this
 change. The current identity and full validation scope are recorded in
 [the Eclipse playback record](LEONA-W-PLAYBACK.md). Complete replay certification
 and arbitrary future fetched-resource coverage remain open.
+
+The subsequent [Eclipse surface material](LEONA-W-SURFACES.md) also joins the
+explicit traversed module roots. Schema 124 remains; its current ruleset is
+`67a9ea30c6ceb0ed42fe4ca72146b78f1b8c0f005271394332393ed59d6c7987`.

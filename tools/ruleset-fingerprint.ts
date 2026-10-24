@@ -107,6 +107,7 @@ export const rulesetModuleRoots = [
   'src/render/leona-eclipse-particles.ts',
   'src/render/leona-eclipse-values.ts',
   'src/render/leona-eclipse-skin-material.ts',
+  'src/render/leona-eclipse-surface-material.ts',
 ];
 
 function sourceFiles(directory: string): string[] {

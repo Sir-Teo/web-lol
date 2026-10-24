@@ -392,3 +392,9 @@ sampler for all thirty enabled emitters, and actual drawing of the four
 attached-character material descriptions. The remaining twenty-six enabled
 layers, source sound dispatch and native comparison remain unfinished. Player
 selection, support integration and the full kit gates remain open.
+
+The [Eclipse surface increment](LEONA-W-SURFACES.md) now draws the remaining
+26 enabled families, including retained SCB geometry, vertex-alpha, split UVs,
+soft depth and distortion. All thirty enabled descriptions have renderer paths.
+Native bindings/dispatch/culling/attachment/frame acceptance and source audio
+remain open, along with the rest of Leona and the full match gates.

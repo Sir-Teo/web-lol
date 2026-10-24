@@ -238,7 +238,12 @@ async function boot(): Promise<void> {
     ),
     ...(hasGrompContent ? [view.grompDeath.load(), view.grompAttack.load()] : []),
     ...(world.units.some((u) => u.champion === 'leona')
-      ? [view.sunlight.load(), view.leonaDaybreak.load(), view.leonaEclipseSkins.load()]
+      ? [
+          view.sunlight.load(),
+          view.leonaDaybreak.load(),
+          view.leonaEclipseSkins.load(),
+          view.leonaEclipseSurfaces.load(),
+        ]
       : []),
     loadGarenSpin(),
     ...(world.units.some((u) => u.champion === 'garen')
@@ -313,6 +318,7 @@ async function boot(): Promise<void> {
   view.renderer.domElement.addEventListener('webglcontextlost', (event) => {
     event.preventDefault();
     view.smoke.depth.dispose();
+    view.leonaEclipseSurfaces.disposeDepth();
     view.particleDistortion.dispose();
     graphicsGeneration++;
     cancelWarmup?.();
