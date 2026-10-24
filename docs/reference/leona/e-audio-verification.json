@@ -1,0 +1,742 @@
+{
+  "schema": 1,
+  "scope": "Six finite source Zenith SFX roles integrated; VO, sword, native and full-project acceptance remain open",
+  "baselineCommit": "9c5a4de",
+  "ruleset": "0f7b3e3b7db7a36777db878a46f376efae271e0e7de097892e12870ff4f7ef55",
+  "snapshotSchema": 125,
+  "sourceArchive": ".cache/leona-e-audio-accepted-v1-20261024/source-archive.json",
+  "priorSourceArchive": ".cache/leona-e-trail-accepted-v1-20261024/source-archive.json",
+  "checks": {
+    "standard": ".cache/leona-e-audio-validation-v2-20261024/check.log",
+    "browser": ".cache/leona-e-audio-validation-v1-20261024/browser.log",
+    "lifecycleBrowser": ".cache/leona-e-audio-validation-v2-20261024/browser.log",
+    "export": ".cache/leona-e-audio-validation-v2-20261024/export-check.json",
+    "pcm": ".cache/leona-e-audio-validation-v1-20261024/browser/leona-e-audio-assets-all-t-06ab1--sample-and-headroom-intact/decoded-samples.json",
+    "saved": ".cache/leona-e-audio-validation-v1-20261024/browser/leona-e-audio-real-Zenith--3f8f9-hrough-Save-reload-and-mute/saved-phases.json",
+    "visibility": ".cache/leona-e-audio-validation-v1-20261024/browser/leona-e-audio-hidden-cast--7a83b-rains-against-a-frozen-save/visibility-terminal.json",
+    "fallback": ".cache/leona-e-audio-validation-v1-20261024/browser/leona-e-audio-unavailable--908bf-ses-a-late-source-duplicate/fallback.json",
+    "lazy": ".cache/leona-e-audio-validation-v1-20261024/browser/leona-e-audio-ordinary-Ash-e11c1-table-controller-or-masters/lazy.json",
+    "completion": ".cache/leona-e-audio-validation-v2-20261024/browser/leona-e-audio-finite-sourc-be34c-ases-every-owned-audio-node/finite-completion.json",
+    "failed": ".cache/leona-e-audio-validation-v2-20261024/browser/leona-e-audio-failed-sourc-b5164-nd-do-not-retry-every-frame/failed-source.json",
+    "production": ".cache/leona-e-audio-validation-v2-20261024/production.log",
+    "offline": "artifacts/offline-pack-leona-e-audio-v1-20261024-production.json"
+  },
+  "pack": {
+    "id": "7710c66012326cb41e38a7d6aae22e940fca8dfb18a41b68464ef5d0f0e29139",
+    "files": 969,
+    "bytes": 509786617
+  },
+  "generated": [
+    {
+      "file": "dist/assets/game-BEM-aYLs.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/game-BEM-aYLs.js",
+      "bytes": 993530,
+      "sha256": "05cda350cf0eb41191407cc4e5cd073ee14dd41f544f44752f9d8a5c3faaa286"
+    },
+    {
+      "file": "dist/assets/game-DMLuJ5Rx.css",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/game-DMLuJ5Rx.css",
+      "bytes": 28131,
+      "sha256": "7a6e46eda4835c2621cb7c828782da8d18306c2fb1dead6efc54637fbc788dcb"
+    },
+    {
+      "file": "dist/assets/garen-aa-0zuBL_GQ.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/garen-aa-0zuBL_GQ.js",
+      "bytes": 31963,
+      "sha256": "03683ef5f4e17325bf7ba95e1747540c0f2824b4ac9612b2962d1a226c411de8"
+    },
+    {
+      "file": "dist/assets/garen-basic-attacks-DViKf030.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/garen-basic-attacks-DViKf030.js",
+      "bytes": 30580,
+      "sha256": "746543609437f319038cb1b02772545cb009cf2776784f50d3fd916539ef63d3"
+    },
+    {
+      "file": "dist/assets/garen-courage-Dz3f62nN.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/garen-courage-Dz3f62nN.js",
+      "bytes": 21867,
+      "sha256": "7a87b09ca5d169560f77526f75591380fa42b56877abb70bd31e2543d78cdc12"
+    },
+    {
+      "file": "dist/assets/garen-decisive-strike-o1c5cfH6.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/garen-decisive-strike-o1c5cfH6.js",
+      "bytes": 55146,
+      "sha256": "6a35f948c0ee23013cea78ed85744b656a9e14cbb57e4476d99a86efee23bb3b"
+    },
+    {
+      "file": "dist/assets/garen-justice-CqI4EPC6.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/garen-justice-CqI4EPC6.js",
+      "bytes": 42381,
+      "sha256": "dea13303c56ddc77ea5df0612c8fe32205eb4e6a5870887fde45b12fac3db63c"
+    },
+    {
+      "file": "dist/assets/garen-p-CHZerieK.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/garen-p-CHZerieK.js",
+      "bytes": 5760,
+      "sha256": "0749ebba41e72b8c7c2cf40ebea5381d01289f6384663be58ab4dad501ed492f"
+    },
+    {
+      "file": "dist/assets/garen-perseverance-Bu7oLHWm.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/garen-perseverance-Bu7oLHWm.js",
+      "bytes": 3130,
+      "sha256": "3738c3dc7bc7509a1531815d33e20b99af888c1854e1fb8f09c176a2d7b8b1d4"
+    },
+    {
+      "file": "dist/assets/garen-q-DEsilSHn.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/garen-q-DEsilSHn.js",
+      "bytes": 10787,
+      "sha256": "a57e6fef11107690399ca2ab77723697c5ae1024f84e4924471a190b7c49317d"
+    },
+    {
+      "file": "dist/assets/garen-r-Bf_A5sRf.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/garen-r-Bf_A5sRf.js",
+      "bytes": 6727,
+      "sha256": "abf110f376d477ffbec5d1cd0d33eafae8750a9b034cde30b17930ef1b2cfee6"
+    },
+    {
+      "file": "dist/assets/garen-w-DU5_cH-6.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/garen-w-DU5_cH-6.js",
+      "bytes": 8107,
+      "sha256": "3eb101cb9d63c00e21d8769e708cdd75d4702ef6a7c257e30c553df7c5e6609b"
+    },
+    {
+      "file": "dist/assets/gromp-attack-CQowh1Kj.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/gromp-attack-CQowh1Kj.js",
+      "bytes": 12028,
+      "sha256": "04c166fec23cebe2e731417190b252e7db96f539b21cf9e0541267de96214a20"
+    },
+    {
+      "file": "dist/assets/gromp-death-NwSYU70m.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/gromp-death-NwSYU70m.js",
+      "bytes": 5395,
+      "sha256": "736c9a4986507e036d0482dbd8449e993cd4a0c61c62da00565983ead36f5d29"
+    },
+    {
+      "file": "dist/assets/gromp-death-particles-BAky9FYk.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/gromp-death-particles-BAky9FYk.js",
+      "bytes": 12929,
+      "sha256": "b2c5d1c42020f9342d8f0085c520af0c2720c216941ac511a1d20b663b853028"
+    },
+    {
+      "file": "dist/assets/ground-walkability-mask-BRVRrShL.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/ground-walkability-mask-BRVRrShL.js",
+      "bytes": 528,
+      "sha256": "a212cb24fdb690aa96c78629abf9490711527cb30de95b3bcf0aa0441978079f"
+    },
+    {
+      "file": "dist/assets/leona-daybreak-Rs5gzuJv.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/leona-daybreak-Rs5gzuJv.js",
+      "bytes": 31306,
+      "sha256": "f8174140b08e5fa066400b93101998a1a520f298df4a4cec5be26f96e687664c"
+    },
+    {
+      "file": "dist/assets/leona-e-C07Z5CKe.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/leona-e-C07Z5CKe.js",
+      "bytes": 17408,
+      "sha256": "c336aed4b8eb86f476afb0dc9361c62d14367c20b8483484cfeb008075335915"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-history-BpEr9_GV.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/leona-eclipse-history-BpEr9_GV.js",
+      "bytes": 139276,
+      "sha256": "bec9177ff694fd391628badbbc97cf8bda62f9e9e1dfa4d959218c108d69914e"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-skin-material-BY8oCnAe.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/leona-eclipse-skin-material-BY8oCnAe.js",
+      "bytes": 3340,
+      "sha256": "18ef2e8634591f536b36bd41dcf491e5815f61adf360b8150d7b5c35c4333f26"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-skins-D70V5a76.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/leona-eclipse-skins-D70V5a76.js",
+      "bytes": 3115,
+      "sha256": "ba68de6a072d0d91b4895806b005211d79594c6519764cf01dfa8f1e1c47767d"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-surfaces-3IsWi5-b.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/leona-eclipse-surfaces-3IsWi5-b.js",
+      "bytes": 2123,
+      "sha256": "89eda4bbdae0743a41fcb10992dda2f33c51bd9f1cabfe1725ebb05b918f34e8"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-values-BkWF5pQg.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/leona-eclipse-values-BkWF5pQg.js",
+      "bytes": 881,
+      "sha256": "73cd99aea660a07ec84de8bf55d39e50778abae962f797fb2a2c932cc53c5cd3"
+    },
+    {
+      "file": "dist/assets/leona-w-CnJc5C6z.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/leona-w-CnJc5C6z.js",
+      "bytes": 11872,
+      "sha256": "f42664c8e0670c7da90ed869d18aa669b2879bccb0518bdedba72ffd48d3c83f"
+    },
+    {
+      "file": "dist/assets/leona-zenith-history-BfdRWd-P.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/leona-zenith-history-BfdRWd-P.js",
+      "bytes": 2070,
+      "sha256": "72403898acc9dc90ec05c5ffe87629ecce67efccff96894b00fb5b52904b90fe"
+    },
+    {
+      "file": "dist/assets/leona-zenith-particles-BJFRL-jJ.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/leona-zenith-particles-BJFRL-jJ.js",
+      "bytes": 86851,
+      "sha256": "26731dffc13ab10418151ecc11ab57042ee0049eb52316504f7c854f99870ca5"
+    },
+    {
+      "file": "dist/assets/leona-zenith-ribbons-lxNWhW4x.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/leona-zenith-ribbons-lxNWhW4x.js",
+      "bytes": 8081,
+      "sha256": "82678e45361f634c5b1dbcd881626ff43565b5430f1cdeb416f73e94dd63600b"
+    },
+    {
+      "file": "dist/assets/leona-zenith-skins-CfyLz53f.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/leona-zenith-skins-CfyLz53f.js",
+      "bytes": 3486,
+      "sha256": "fe0afa6fef18447b83fbde4a8d6e7fa809126568ce1dfb3b3ba3436a396395da"
+    },
+    {
+      "file": "dist/assets/leona-zenith-surfaces-Cf_DOnOb.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/leona-zenith-surfaces-Cf_DOnOb.js",
+      "bytes": 2714,
+      "sha256": "0be0414863f62c854c2b5516aeeb8d1ed9fcd7bdb7a4e554c7d5abe68e132bc4"
+    },
+    {
+      "file": "dist/assets/map-DuHhjnGM.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/map-DuHhjnGM.js",
+      "bytes": 3775,
+      "sha256": "6df6fd85dbe85891923d77cfb957066203368bd027e78ddaa1733af3c719b915"
+    },
+    {
+      "file": "dist/assets/map-wSGUvK3C.css",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/map-wSGUvK3C.css",
+      "bytes": 1481,
+      "sha256": "7d2f396bd68c37d88d74d292d3e2f9b75e4b79515a3a1ad2618e3ad7a9d136f7"
+    },
+    {
+      "file": "dist/assets/oracle-DmPB4Fqi.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/oracle-DmPB4Fqi.js",
+      "bytes": 5752,
+      "sha256": "5803df1877d2ee83e534caf08a1d172c661c667f752722de4e19ff91cca59217"
+    },
+    {
+      "file": "dist/assets/oracle-particles-Ci6keh2B.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/oracle-particles-Ci6keh2B.js",
+      "bytes": 55711,
+      "sha256": "42359c826fd2592418b4d790ee173e8a5b0f517801236c759e8ee2aeb908dbd1"
+    },
+    {
+      "file": "dist/assets/particle-motion-By9BJG0Q.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/particle-motion-By9BJG0Q.js",
+      "bytes": 326,
+      "sha256": "d1fb329750440d4feb193c9a606c6b6c081e758f6200f59707c5f47c04be9cf8"
+    },
+    {
+      "file": "dist/assets/rift-assets-CcCthSeF.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/rift-assets-CcCthSeF.js",
+      "bytes": 9106,
+      "sha256": "5ac9e89f98db9cd6be1f423adbbff538fa64d05fe469d75e351545512d26987a"
+    },
+    {
+      "file": "dist/assets/source-particle-surfaces-Br3M_wHe.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/source-particle-surfaces-Br3M_wHe.js",
+      "bytes": 16119,
+      "sha256": "57ceb992bd957475275fe9408ece4cf381ab242cae1c1bb79e7660f6bca71578"
+    },
+    {
+      "file": "dist/assets/sunlight-BNgrov28.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/sunlight-BNgrov28.js",
+      "bytes": 3784,
+      "sha256": "ddd283c68adcb1679e661e8c760e3f3ba37dcdf59b250f1100e920c240e3bb0b"
+    },
+    {
+      "file": "dist/assets/three-gySAWiYA.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/assets/three-gySAWiYA.js",
+      "bytes": 661182,
+      "sha256": "907e103a7ec0bb3fce386135d2a30329d6b5df00f357162f7bdd9409291d8927"
+    },
+    {
+      "file": "dist/index.html",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/index.html",
+      "bytes": 999,
+      "sha256": "777d377ac2209400c9aa1f12ab33fa66f711bceba63b0f956d1aa07716a4b3c1"
+    },
+    {
+      "file": "dist/map.html",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/map.html",
+      "bytes": 618,
+      "sha256": "5d370acb4f9143e19c1bf56d65a5df8a8f7baa7679001786914c10317aca89b0"
+    },
+    {
+      "file": "dist/offline-pack.json",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/offline-pack.json",
+      "bytes": 139520,
+      "sha256": "a37b479fca44b00e7b7bc162c64ad226d3649a21528baadb503500a566b97a1f"
+    },
+    {
+      "file": "dist/offline-worker.js",
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-build/offline-worker.js",
+      "bytes": 142725,
+      "sha256": "189c7756391ff312c5cc82de029b2098e4401646c99e273aeeaac78bd6ce8ee3"
+    }
+  ],
+  "evidence": [
+    {
+      "archived": ".cache/leona-audio-banks-v1-20261023.xml",
+      "bytes": 1230092,
+      "sha256": "3e6a35374dfa4501b044c061f996721f0d448853c2654502127d1e1ab044dcd3"
+    },
+    {
+      "archived": ".cache/leona-audio-sources-v1-20261023/assets/sounds/wwise2016/sfx/characters/leona/skins/base/leona_base_sfx_audio.bnk",
+      "bytes": 1015870,
+      "sha256": "4205360a0f1fb217191419233dcf7589dc92ad80c1735c4217eb3b3a9c119b88"
+    },
+    {
+      "archived": ".cache/leona-audio-sources-v1-20261023/assets/sounds/wwise2016/sfx/characters/leona/skins/base/leona_base_sfx_events.bnk",
+      "bytes": 17539,
+      "sha256": "94211942d09f90f49279e8c0d6b70f75384314b9561572c6945ce7e61211ae57"
+    },
+    {
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/decoder-inputs/.tools/vgmstream/build/cli/vgmstream-cli",
+      "bytes": 2709968,
+      "sha256": "39ee0584ca90cd823bab8000d1546e5bdd50affeb118294a3a9d45618eb9f8bc"
+    },
+    {
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/decoder-inputs/.tools/vgmstream/build/dependencies/ogg/libogg.a",
+      "bytes": 30464,
+      "sha256": "e50e35e81704cf6c2d557606cd1bc726594e4256a0e6fd0070ab09624ffbe28d"
+    },
+    {
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/decoder-inputs/.tools/vgmstream/build/dependencies/vorbis/lib/libvorbis.a",
+      "bytes": 247464,
+      "sha256": "c3c24ec45de8346734141ebe94166d535c70755f97c7956c65ac39e16473e142"
+    },
+    {
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/decoder-inputs/.tools/vgmstream/build/dependencies/vorbis/lib/libvorbisfile.a",
+      "bytes": 30040,
+      "sha256": "6313b457f7f2e152667b1a9953eb1334d366c0784b78b82a9999587acd0fc105"
+    },
+    {
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1811399,
+      "sha256": "73a1745fbec8cc9baed7ff3ae6510b7836bcf22d8e6a80921c8d1932e9ce4319"
+    },
+    {
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1832812,
+      "sha256": "c7aa48920721d039c04acdce201e6af4836434df239a01b42241584ecc11d4ae"
+    },
+    {
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829154,
+      "sha256": "61ea57d36bf2aee88041c3ceddd85f1718baba92085e87adbcc7b6c148643d59"
+    },
+    {
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1804854,
+      "sha256": "3f492a1065abd56798aef601d6d103d44ef3cba389ee3f9311378b2e7e29fad9"
+    },
+    {
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1816760,
+      "sha256": "1296e524eb21289124f467e99f089fed1205348ee8fdfbf63cb1fa857aa8a303"
+    },
+    {
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1346883,
+      "sha256": "b2f307ccfc28e817e6cc73927220b05acbfd331dd01fdf08e3f82722dfaec389"
+    },
+    {
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1820407,
+      "sha256": "715811b4725ab830a7d94c26e231ff1a9aa514645884c1dcd73f2d00fe2b1206"
+    },
+    {
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1812639,
+      "sha256": "4c4a1e8de25dde604e81dc9ba8f1b61358d9fc226739a0393e90b6b0b40dc96c"
+    },
+    {
+      "archived": ".cache/leona-e-audio-accepted-v1-20261024/source-archive.json",
+      "bytes": 857205,
+      "sha256": "76ef80552918813392df602cce256e721da81c1b8055cb61a9c7be68c9b3f95b"
+    },
+    {
+      "archived": ".cache/leona-e-audio-decoded-v1-20261024/221094957.wav",
+      "bytes": 103572,
+      "sha256": "7bfea17864623aaa944d730f382bb06464c04fe1c5566357f826fbdb8d9a3061"
+    },
+    {
+      "archived": ".cache/leona-e-audio-decoded-v1-20261024/348015755.wav",
+      "bytes": 216544,
+      "sha256": "afb1d941a8cfbd6fcbcf084d6d6809998d1013e7d87534fb457dfbec63c66636"
+    },
+    {
+      "archived": ".cache/leona-e-audio-decoded-v1-20261024/350271661.wav",
+      "bytes": 129464,
+      "sha256": "7e20f5c526c82f1ad23be3490ad4aa3e01a8af00fb6b696ea4290aa3030ec73d"
+    },
+    {
+      "archived": ".cache/leona-e-audio-decoded-v1-20261024/363819565.wav",
+      "bytes": 97692,
+      "sha256": "64bd1a5a1b906b9e8f4aa23aa8c9e2c6aa71a4050ecae4b2a7ecdcf59099e328"
+    },
+    {
+      "archived": ".cache/leona-e-audio-decoded-v1-20261024/387687679.wav",
+      "bytes": 139724,
+      "sha256": "7a6a364cb0440241b16edabc428a992d51dc5cb0c2f559d79a8a3f1d1fa48a1d"
+    },
+    {
+      "archived": ".cache/leona-e-audio-decoded-v1-20261024/403267191.wav",
+      "bytes": 123772,
+      "sha256": "00b33860cda33eaed002a686eab49c36d4bc6f4bc343720f3f3ed92a3fb133d5"
+    },
+    {
+      "archived": ".cache/leona-e-audio-decoded-v1-20261024/495099240.wav",
+      "bytes": 96348,
+      "sha256": "cddffd28f5b5fbc20d95a2e30044ad85018b031d769d1992910e24cff3df0cb9"
+    },
+    {
+      "archived": ".cache/leona-e-audio-decoded-v1-20261024/506862012.wav",
+      "bytes": 219032,
+      "sha256": "086981904aebb0605714ff5b1c3115bcf2d21d49f4ab3d5680afe490ff52c9b0"
+    },
+    {
+      "archived": ".cache/leona-e-audio-decoded-v1-20261024/519411792.wav",
+      "bytes": 217308,
+      "sha256": "60e5373e9c64b6d061f6babbc90aeb566421922c00a85c5f71d4f78996d5a738"
+    },
+    {
+      "archived": ".cache/leona-e-audio-decoded-v1-20261024/547365512.wav",
+      "bytes": 130644,
+      "sha256": "2dff62773e4aa20525373f533846cf47fc0f588827b87b2ed85dbb38ab406298"
+    },
+    {
+      "archived": ".cache/leona-e-audio-decoded-v1-20261024/587121265.wav",
+      "bytes": 89536,
+      "sha256": "f3e5cb5b07ebe9ac82e568646b65114c39be2c7baec00a4f7201628ef4fbc28b"
+    },
+    {
+      "archived": ".cache/leona-e-audio-decoded-v1-20261024/606727893.wav",
+      "bytes": 118256,
+      "sha256": "1b448ecee496e368748e18a77e40293bf031607bc1901b8b67a45bfc26cb240e"
+    },
+    {
+      "archived": ".cache/leona-e-audio-decoded-v1-20261024/622933604.wav",
+      "bytes": 123600,
+      "sha256": "acabe03d1708b586896df06cd8bee059ca223ab2ae6efa4865bce6578ca48cd5"
+    },
+    {
+      "archived": ".cache/leona-e-audio-decoded-v1-20261024/647898906.wav",
+      "bytes": 196148,
+      "sha256": "c343ea56f8eed3758ea8ca8c4e91e30dea6744b6be56b895d08fcc5da3d20b51"
+    },
+    {
+      "archived": ".cache/leona-e-audio-decoded-v1-20261024/734956510.wav",
+      "bytes": 141840,
+      "sha256": "35a3caa00b13915221bef4a6e9395df89ce23db8fed6288e629626f57f0423a2"
+    },
+    {
+      "archived": ".cache/leona-e-audio-decoded-v1-20261024/742064760.wav",
+      "bytes": 326852,
+      "sha256": "5e65af07ed5284a778fc08d9bf152b927fd49082b379ed56516062432aaecb53"
+    },
+    {
+      "archived": ".cache/leona-e-audio-decoded-v1-20261024/803968055.wav",
+      "bytes": 141984,
+      "sha256": "994e2cc5b3a23381c4aa6868159cc42806a72baeb47d6460032990afba54d289"
+    },
+    {
+      "archived": ".cache/leona-e-audio-decoded-v1-20261024/814936109.wav",
+      "bytes": 96272,
+      "sha256": "acad2e7542f5f691d47a5fa0bba1a92af3e67386ed3706e6aa6d65d20a924194"
+    },
+    {
+      "archived": ".cache/leona-e-audio-decoded-v1-20261024/858259361.wav",
+      "bytes": 107140,
+      "sha256": "3d87e5f12016f8f63b07590413d5b31504afe834d8dd574c4867436429e6b63a"
+    },
+    {
+      "archived": ".cache/leona-e-audio-decoded-v1-20261024/879571472.wav",
+      "bytes": 93620,
+      "sha256": "6dd7938434bf735ce13dfa2a87a4b54779f0999b5b89005faffda78ba2b4d08d"
+    },
+    {
+      "archived": ".cache/leona-e-audio-decoded-v1-20261024/987917187.wav",
+      "bytes": 132320,
+      "sha256": "7d633c24a0f28a2b9a65edcee05fb2c65536e598ac467e2459f3f64ed6cee48e"
+    },
+    {
+      "archived": ".cache/leona-e-audio-media-v1-20261024/221094957.wem",
+      "bytes": 4897,
+      "sha256": "5ff12bd8e7b0bddf1b23999b902d868a0706df51273d4eca9f6095a6e0970325"
+    },
+    {
+      "archived": ".cache/leona-e-audio-media-v1-20261024/348015755.wem",
+      "bytes": 10765,
+      "sha256": "03549dea2d46ce78d9fa1ecba027e0f82bf2c3f00df61f73dacf0c7c45c5e308"
+    },
+    {
+      "archived": ".cache/leona-e-audio-media-v1-20261024/350271661.wem",
+      "bytes": 6954,
+      "sha256": "14a60303e776f7cd1256bb5486910f5a3b088ea7a6cde1a60af12217c527ef0c"
+    },
+    {
+      "archived": ".cache/leona-e-audio-media-v1-20261024/363819565.wem",
+      "bytes": 4999,
+      "sha256": "a933cacb11cb11a503d2fdc38899aa9456d10bb5d75bb762be5dfb8474c8e160"
+    },
+    {
+      "archived": ".cache/leona-e-audio-media-v1-20261024/387687679.wem",
+      "bytes": 6942,
+      "sha256": "56225e10f0427604c750b3f9962b9cb9c6d86f2644cf841ce3e07e4fa70a50de"
+    },
+    {
+      "archived": ".cache/leona-e-audio-media-v1-20261024/403267191.wem",
+      "bytes": 6262,
+      "sha256": "0223da5b2961c4d14d1dcc02a37ffb15c5aad3f8ef1fc465129f953baa57e82a"
+    },
+    {
+      "archived": ".cache/leona-e-audio-media-v1-20261024/495099240.wem",
+      "bytes": 5085,
+      "sha256": "5aaa125ec32911840d636653b10a322f5e00e671d52613b285701fa37bda5711"
+    },
+    {
+      "archived": ".cache/leona-e-audio-media-v1-20261024/506862012.wem",
+      "bytes": 10662,
+      "sha256": "829b1b27df862bde96a7ef817612cdc7a77fbe71477c57ff8995b81a4726b0cc"
+    },
+    {
+      "archived": ".cache/leona-e-audio-media-v1-20261024/519411792.wem",
+      "bytes": 10939,
+      "sha256": "d644b6078e6e602ae00570692aa41ff0680cd3ba1c32d63d69759a1b8787ac3c"
+    },
+    {
+      "archived": ".cache/leona-e-audio-media-v1-20261024/547365512.wem",
+      "bytes": 6950,
+      "sha256": "496741f0d1c5b58567941c50fb0e770639344f6ca0bf2d1f1c0202e82d8c2ea6"
+    },
+    {
+      "archived": ".cache/leona-e-audio-media-v1-20261024/587121265.wem",
+      "bytes": 5035,
+      "sha256": "527a94981617e9faf21f70f707eca18327669041799d82464967010a3049b9c9"
+    },
+    {
+      "archived": ".cache/leona-e-audio-media-v1-20261024/606727893.wem",
+      "bytes": 6071,
+      "sha256": "90b8e0b175f74c135b5c026db5d523a592c2acbf40f614b4f7a6139ea8d15e07"
+    },
+    {
+      "archived": ".cache/leona-e-audio-media-v1-20261024/622933604.wem",
+      "bytes": 6378,
+      "sha256": "a8befe0c8e8bf6e866b49a39aa33b027a12838c34fd1f38fd120cf1d7e08b7c3"
+    },
+    {
+      "archived": ".cache/leona-e-audio-media-v1-20261024/647898906.wem",
+      "bytes": 9861,
+      "sha256": "0ad99792507e160fc2886f23517f90a3145ddc387014fc4f4d2e93b3ee81c676"
+    },
+    {
+      "archived": ".cache/leona-e-audio-media-v1-20261024/734956510.wem",
+      "bytes": 7093,
+      "sha256": "eaf5f415b42e5c9c589b1357a0b7c6d729e191cfe739c7662990784bd8fccd19"
+    },
+    {
+      "archived": ".cache/leona-e-audio-media-v1-20261024/742064760.wem",
+      "bytes": 14848,
+      "sha256": "935a379b6efba72badce631d4e52d477afaa916c688e5a28897ea0952bda983c"
+    },
+    {
+      "archived": ".cache/leona-e-audio-media-v1-20261024/803968055.wem",
+      "bytes": 7415,
+      "sha256": "388825466c6c7b7434a419b7644faa64fbf91b59ba1aa98a58b951247093c78b"
+    },
+    {
+      "archived": ".cache/leona-e-audio-media-v1-20261024/814936109.wem",
+      "bytes": 4948,
+      "sha256": "8f7b03b1e51492d79adeebf798d26335fe61ea7684291bd7322bac641b35614b"
+    },
+    {
+      "archived": ".cache/leona-e-audio-media-v1-20261024/858259361.wem",
+      "bytes": 5613,
+      "sha256": "daaf229ce6ac660d46f7e56862224df174a88b8783db79085725fc720e45d889"
+    },
+    {
+      "archived": ".cache/leona-e-audio-media-v1-20261024/879571472.wem",
+      "bytes": 4973,
+      "sha256": "f6b701279594e671defdfa5de966f179db47c0506cc73f2c40676d9f2b2a63ad"
+    },
+    {
+      "archived": ".cache/leona-e-audio-media-v1-20261024/987917187.wem",
+      "bytes": 6861,
+      "sha256": "dfd9affca1906db985bdc3db69cb507473bd6356c888c868973cb0b9e0153c20"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v1-20261024/browser.log",
+      "bytes": 2771,
+      "sha256": "10fceacbf9c3141923233da3d4f71224b725eac9a12df5b2d109550665830ab3"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v1-20261024/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v1-20261024/browser/leona-e-audio-assets-all-t-06ab1--sample-and-headroom-intact/decoded-samples.json",
+      "bytes": 4784,
+      "sha256": "d68d756ecb45a4eddaae8880f5c1be850bb6abaa6ce82e75eb9bf2e5ea4f8c0e"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v1-20261024/browser/leona-e-audio-hidden-cast--7a83b-rains-against-a-frozen-save/visibility-terminal.json",
+      "bytes": 1431,
+      "sha256": "1b981a73fcc4b48c61e66f9ae1e5ddfb9921000ba7ea0e4eb3e26161e7b15082"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v1-20261024/browser/leona-e-audio-ordinary-Ash-e11c1-table-controller-or-masters/lazy.json",
+      "bytes": 20,
+      "sha256": "8a7e1a6bda71438b845c79593a630b7b4ca7db0c1ba89b1dfba013aa5748fdfc"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v1-20261024/browser/leona-e-audio-real-Zenith--3f8f9-hrough-Save-reload-and-mute/saved-phases.json",
+      "bytes": 49478,
+      "sha256": "78cd294f56b4e8793b0b773bf2f8da703f13cbb17066f17d532b5e11c792e13d"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v1-20261024/browser/leona-e-audio-unavailable--908bf-ses-a-late-source-duplicate/fallback.json",
+      "bytes": 80,
+      "sha256": "a73ccd278623e783557571aecedd1d4368e51f758ed6466ceead71705204a4e3"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v1-20261024/browser/leona-w-audio-assets-all-e-d63d2--sample-and-headroom-intact/decoded-samples.json",
+      "bytes": 4116,
+      "sha256": "04fab656fc9ef336e9c5a72cb86c58b84980b5583cc5d6178f61ef6907a49055"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v1-20261024/browser/leona-w-audio-failed-sourc-5474b-nd-do-not-retry-every-frame/failed-source.json",
+      "bytes": 1202,
+      "sha256": "b943a262d1cb32fefd7bf29379b7089c6f1a31e57f259bf94a988de875fb2cd4"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v1-20261024/browser/leona-w-audio-finite-sourc-175f8-elease-every-Web-Audio-node/finite-completion.json",
+      "bytes": 97,
+      "sha256": "7404b00ef02b06596ede434c7530bc7c40a11c41ee57d5d37b0d5dfa3c2ead6b"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v1-20261024/browser/leona-w-audio-hidden-activ-13e22-drain-against-a-frozen-save/audience-terminal.json",
+      "bytes": 490,
+      "sha256": "a4209ff12a74935ae98929dd759812c0cb54a2f132460565047098589e507e73"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v1-20261024/browser/leona-w-audio-late-source--d5157-ings-in-an-ordinary-startup/late-load.json",
+      "bytes": 1351,
+      "sha256": "198e669700fe6557eea28260fbb9eadf2c07a561b83e767d47d46e1da3878b45"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v1-20261024/browser/leona-w-audio-real-Eclipse-b880d-g-or-synthesized-duplicates/saved-phases.json",
+      "bytes": 153240,
+      "sha256": "0b6d13be4eff841864cfabdc395035f04da7e709c9b2402ad6d4df3e895c2c6b"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v1-20261024/typecheck-v2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v1-20261024/typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v1-20261024/unit-v2.log",
+      "bytes": 181,
+      "sha256": "5c466f483d72c4f57f07a45f063cfee3b64201f3e69ce601d86cf3251f4501e7"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v1-20261024/unit.log",
+      "bytes": 1037,
+      "sha256": "71c5f644269b388d2629d1c65f6596f873abefde724419cb069d8dabf19ca5a6"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v2-20261024/browser.log",
+      "bytes": 1375,
+      "sha256": "295b214326a9a6e13e92db68bd43917a980240c9d49fa6392459aeb8704ddf6e"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v2-20261024/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v2-20261024/browser/leona-e-audio-failed-sourc-b5164-nd-do-not-retry-every-frame/failed-source.json",
+      "bytes": 1395,
+      "sha256": "3e1fa3458e1710beeb9c460c55b787d0259b4c97fd3f98cc67b7040d0c380436"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v2-20261024/browser/leona-e-audio-finite-sourc-be34c-ases-every-owned-audio-node/finite-completion.json",
+      "bytes": 83,
+      "sha256": "85b5eeadf264917d24872e926d4c8a996522f6f3dbee4c002726bdaa19e02bd6"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v2-20261024/check.log",
+      "bytes": 1041,
+      "sha256": "7fecc20edd6df5566edb048d454fbe6a32b3c697df43d1fbb128f7f10a51fd48"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v2-20261024/export-check.json",
+      "bytes": 103,
+      "sha256": "ef1546340ffb087f95164042be7728dc4d47fffbcef07b2fe616e97c95817a4d"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v2-20261024/mapping.log",
+      "bytes": 2218,
+      "sha256": "cdbc22d0def900ed52246bcff04694763c2a54caf86b1dae706f70b476166d55"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v2-20261024/offline.log",
+      "bytes": 687,
+      "sha256": "d4f234391dd604fd66e848c0cfca7ce2173cc50918f8b88cf682bdd2a5534920"
+    },
+    {
+      "archived": ".cache/leona-e-audio-validation-v2-20261024/production.log",
+      "bytes": 5820,
+      "sha256": "581741338c428e64517fe013fe897e5e068bc3b26510ab25b9bae5083374171e"
+    },
+    {
+      "archived": ".cache/leona-e-trail-accepted-v1-20261024/source-archive.json",
+      "bytes": 846830,
+      "sha256": "fc09da27460007a89a70b765ac76d27f86952b5e411fa4d64797bf1dd2abcf2f"
+    },
+    {
+      "archived": "artifacts/offline-pack-leona-e-audio-v1-20261024-lux-lanes.png",
+      "bytes": 476383,
+      "sha256": "02c9dae6ab8ab654b2028a0f2fac3152b8dab27453fe7fc7f4ba0bb1a77838b7"
+    },
+    {
+      "archived": "artifacts/offline-pack-leona-e-audio-v1-20261024-production.json",
+      "bytes": 649,
+      "sha256": "fcce348fde4dd0705c920ee601623f0d210c38d01a53cd5cec8843c6aebe96d0"
+    },
+    {
+      "archived": "artifacts/offline-pack-leona-e-audio-v1-20261024-ready.png",
+      "bytes": 531424,
+      "sha256": "1d3a7dbeadf303fe15e8f4e48b8bb86f6cc352c6fea39aae31d4945906ba72c6"
+    }
+  ],
+  "acceptance": {
+    "sourceESfxIntegrated": true,
+    "sourceEVoiceIntegrated": false,
+    "swordIntegrated": false,
+    "nativeListeningVerified": false,
+    "nativeFrameVerified": false,
+    "nativeExecuted": false,
+    "playerLeonaIntegrated": false,
+    "fullProjectComplete": false
+  },
+  "limits": [
+    "Six source SFX roles, eight events, 21 untouched finite masters; no VO package.",
+    "Native script dispatch, generic/champion layering, neutral omitted-property defaults, listener/master/output-bus mix, shuffle and global voice admission remain unverified.",
+    "One controller serves a forward-running World; restore/import/restart constructs fresh GameAudio. Arbitrary same-controller rewind is outside contract.",
+    "Thirteen unique Chrome cases including six W audio regressions; full 1811 unit cases/298 files and three QA. Initial cap fixture sampled before dash start, corrected; both logs retained.",
+    "Fresh nested production and full 969-file offline pack; no fresh normal-match cohort or CPU benchmark."
+  ]
+}

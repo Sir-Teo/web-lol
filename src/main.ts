@@ -250,6 +250,7 @@ async function boot(): Promise<void> {
           view.leonaZenithTrails.load(),
           view.leonaEclipseSurfaces.load(),
           audio.leonaW.load(),
+          audio.leonaE.load(),
         ]
       : []),
     loadGarenSpin(),

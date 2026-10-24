@@ -5535,3 +5535,43 @@ the full project goal stays active.
 Fresh full-pack offline validation also passes integrity, retry, repair,
 saved/new-match boot, removal and atomic two-version activation with 963
 service-worker responses and no production errors.
+
+## Zenith Blade source SFX — October 24, 2026
+
+The development Leona fixture now plays six E SFX roles from all eight source
+play/stop events and 21 untouched mono 44.1 kHz float32 masters. The frozen graph
+retains 45 selected/inherited nodes, 153,551 encoded bytes, raw policies and the
+unresolved output bus. Masters total 3,041,668 bytes / 760,186 frames; three source
+samples exceed unit range and remain unclipped. Native callsites, shuffle,
+omitted-property defaults, listener/bus mix and listening parity stay unverified.
+
+Saved phase histories drive local cast/flight/dash/generic contact/champion
+contact/arrival cues with independent historical/current visibility. Generic
+contact plays at +300 cents, seeks in rate-adjusted sample time, and uses its
+authored kill-newest cap. Dash's zero cap is locally unlimited. Flight fades for
+250 ms at its saved stop, while dash delays its stop 250 ms without a fade.
+Natural/stolen/rejected/fallback keys prevent duplicate replay across reveal or
+mute. Finite sources and gains disconnect on completion, suppression or mute;
+terminal tails drain without changing the winning snapshot. Restore creates a
+fresh controller; arbitrary rewind of an existing controller is outside scope.
+
+TypeScript, 1,811 unit cases/298 files and three Node QA cases pass. Thirteen
+unique Chrome cases include sample-exact decoding, saved variants/offsets/rates,
+in-flight fade restoration, hidden births, frozen terminal tails, finite
+completion, synthesized fallback identity, failed files, lazy startup and W
+regressions. The first cap test checked before dash start; corrected timing and
+both logs are retained. Fresh nested production passes 32 recordings without a
+development hook or unrequested Leona preload. The new pack has 969 files and
+509,786,617 bytes. No fresh normal-match cohort or CPU benchmark is claimed.
+
+Schema remains 125. Audio data/state is covered by the new ruleset fingerprint
+`0f7b3e3b7db7a36777db878a46f376efae271e0e7de097892e12870ff4f7ef55`.
+E voice-over, reflective sword normals/bindings, native CPU/frame/mix acceptance,
+Leona player/support integration and the full project remain open. See
+[SFX scope](LEONA-E-AUDIO.md) and the
+[verification record](reference/leona/e-audio-verification.json). Nothing is pushed;
+the full project goal stays active.
+
+Fresh full-pack offline validation passes integrity, cancellation/retry, repair,
+saved/new-match boot, scope removal and atomic two-version activation; 962
+service-worker responses were observed and production errors are empty.

@@ -206,3 +206,14 @@ emission/history/ribbon kernels stay byte-identical. E now draws eighteen visibl
 families; the reflective sword, source audio, native acceptance and Leona
 player/support integration remain open. Earlier delivery audits retain their
 historical identities; the trail increment has fresh production/offline evidence.
+
+## Subsequent source-SFX integration — October 24, 2026
+
+[Six finite E SFX roles](LEONA-E-AUDIO.md) now use all 21 untouched source masters
+from eight declared bank events. Saved phase audiences/positions drive local
+playback, with distinct dash stop delay, flight fade, pitched generic contact
+and authored kill-newest limit. Voice-over and native event/mix/listening parity
+remain outside this increment. E's reflective sword still lacks recovered native
+normals/bindings. Schema 125 persists with the new audio compatibility fingerprint;
+earlier delivery/ruleset audits remain historical. Player/support and full-project
+acceptance remain open.
