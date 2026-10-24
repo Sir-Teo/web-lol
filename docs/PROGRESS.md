@@ -6102,3 +6102,35 @@ stays41/44. Runtime/assets/schema126/ruleset591ddf38 remain unchanged, with no n
 browser, production, cohort or performance run. Weapon frames, reflection inputs,
 native frames, player/support and full roster work remain open. Work continues
 under the active goal; nothing is pushed.
+
+
+## Native generic SCB normals and source sword comparison — October 24, 2026
+
+The static native path now connects successful SCB loading to normal generation
+and GPU vertex-buffer construction. Nine complete bounded LLVM word streams
+establish original-index face accumulation, float32/FMA operation order, strict
+component snapping and attribute2/offset12/stride36 binding. Source SCB3.2 layouts
+account for every byte in four files; their U32 indices fit the native U16 path.
+These files contain no authored normal array. Bounds handling does not rewrite
+positions before normal generation.
+
+Four derived software normal streams cover889 source vertices/1,687 triangles
+and5,061 corners with no zero vertex normal. Six independent mathematical
+controls and normal/optimized-Python byte/stream verification pass. Altered
+arithmetic-word and derived-normal controls are rejected. Independent static
+review agrees on math, indices, layout and binding. Native FPCR settings and
+native-versus-host numerical/GPU parity remain qualified.
+
+The local four-panel Chrome normal-color comparison shows8,370 changed outer-
+sword pixels and5,048 inner-sword pixels against an area-weighted control, with
+no browser errors. Both source swords are fully in frame. The first fixture
+omitted an existing Three utility from its local module allowlist and timed out;
+that fixture dependency is corrected and its failure record retained. This is a
+local diagnostic, not the native reflective effect or a native frame capture.
+See [scope](LEONA-NATIVE-SCB-NORMALS.md) and [pin](reference/leona-native-scb-normals.json).
+
+GameView, existing GLBs/assets, schema126 and ruleset591ddf38 are unchanged.
+No native target/shader execution or provider restart occurred. Reflection
+resources/uniform bindings, E draw dispatch, weapon frames, native acceptance,
+player/support and full roster work remain open. No new production/offline,
+cohort or performance run is claimed. The active goal continues; nothing is pushed.

@@ -1,0 +1,615 @@
+{
+  "formatVersion": 1,
+  "classification": "Ordinary bounded static native SCB reader/normal/buffer evidence and derived software streams. Not REA Evidence; no native target or native shader execution, and no native-frame capture. Local Chrome diagnostic is separate.",
+  "nativeExecuted": false,
+  "nativeShaderExecuted": false,
+  "verifier": {
+    "path": "tools/assets/verify-leona-native-scb-normals.py",
+    "bytes": 7664,
+    "sha256": "625110c19934a2021b9821acdf23b685fcebe296b83b8970129d1071162b20ed"
+  },
+  "normalHelper": {
+    "path": "tools/assets/scb_native_normals.py",
+    "bytes": 6759,
+    "sha256": "b28beef85caa17e654d751c478018d62b2a5aac32d99101fdb72e34c156a7633"
+  },
+  "matchingNativePin": {
+    "path": "docs/reference/leona-native-matching.json",
+    "bytes": 23862,
+    "sha256": "57a8cf95b813290d512bc0d99dc7ced639709b02d206e2a6bb3fab7034d8168e"
+  },
+  "sectionParser": {
+    "path": "tools/assets/verify-leona-native-particle-bindings.py",
+    "bytes": 13221,
+    "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+  },
+  "target": {
+    "path": ".cache/leona-native-matching-v1-20261024/native/LeagueofLegends.app/Contents/MacOS/LeagueofLegends",
+    "bytes": 82268192,
+    "sha256": "97edcf2c88fec3169a1ec36345276569de3329e27fd9b32c8162957a77135c6c",
+    "architecture": {
+      "architecture": "arm64",
+      "cpuType": 16777228,
+      "cpuSubtype": 0,
+      "offset": 42663936,
+      "bytes": 39604256,
+      "alignPower": 14,
+      "magic": "FEEDFACF",
+      "fileType": 2,
+      "loadCommands": 45,
+      "loadCommandBytes": 5920,
+      "flags": 10518661,
+      "reserved": 0,
+      "sha256": "18c6f615d1963d7062f4133fab351dc4550ce460e869c76f5c8604627f349885"
+    }
+  },
+  "textVmaddr": "0x100000000",
+  "functionStarts": {
+    "offset": 39006176,
+    "bytes": 233544,
+    "sha256": "499634e01a146b84c2c1fc7e3fe2e8bf973f6e66b222abe0d01bcf28bd5dfd04",
+    "count": 173303
+  },
+  "sourcePin": {
+    "path": "docs/reference/leona-e-particles.json",
+    "bytes": 177177,
+    "sha256": "613560569d82f27abdf362a7065ad4645abb1637fbe55f8790e6d8769eb65f83"
+  },
+  "reflectionShaderPin": {
+    "path": "docs/reference/leona-e-reflection-shaders.json",
+    "bytes": 10105,
+    "sha256": "3341990232a3bc1951f111ba487589e8b0278566653c9fea8fa5b13a1355ef8c"
+  },
+  "vertexShaderText": {
+    "path": ".cache/leona-native-scb-normals-v1-20261024/mesh_vs.vs-metal-33.ll",
+    "bytes": 16208,
+    "sha256": "23078973d40d0ea4349f407926a5bf51bf34dab44c527b242aeab89d2f19a5a7"
+  },
+  "llvmRecords": [
+    {
+      "path": ".cache/leona-native-scb-normals-v1-20261024/llvm-0x101991730.txt",
+      "bytes": 2900,
+      "sha256": "8713d49a6fffa7ad6e00d16b510c9337457fa25a93fe9329ae21af7fed7e7a7b",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x101991730",
+        "--stop-address=0x101991828",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x101991730",
+      "nextFunctionStart": "0x101991828",
+      "instructions": 62,
+      "observedFirst": "0x101991730",
+      "observedLast": "0x101991824"
+    },
+    {
+      "path": ".cache/leona-native-scb-normals-v1-20261024/llvm-0x10167c54c.txt",
+      "bytes": 972,
+      "sha256": "374e8efbe0ec1e10915ea35279fd866a6992e23b56f101b704345e4af9966c79",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10167c54c",
+        "--stop-address=0x10167c598",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10167c54c",
+      "nextFunctionStart": "0x10167c598",
+      "instructions": 19,
+      "observedFirst": "0x10167c54c",
+      "observedLast": "0x10167c594"
+    },
+    {
+      "path": ".cache/leona-native-scb-normals-v1-20261024/llvm-0x101917310.txt",
+      "bytes": 6018,
+      "sha256": "beb6a99e95344e942bc08ab252b9735880c8fbabd380a0c45a96ff272fe59152",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x101917310",
+        "--stop-address=0x1019174f0",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x101917310",
+      "nextFunctionStart": "0x1019174f0",
+      "instructions": 120,
+      "observedFirst": "0x101917310",
+      "observedLast": "0x1019174ec"
+    },
+    {
+      "path": ".cache/leona-native-scb-normals-v1-20261024/llvm-0x101991fa8.txt",
+      "bytes": 8120,
+      "sha256": "f8cadb39fc43eb5fddcb4d7fe6ed2b9bc3e34d4888fe3b2c2e9df47cfc2ee793",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x101991fa8",
+        "--stop-address=0x101992254",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x101991fa8",
+      "nextFunctionStart": "0x101992254",
+      "instructions": 171,
+      "observedFirst": "0x101991fa8",
+      "observedLast": "0x101992250"
+    },
+    {
+      "path": ".cache/leona-native-scb-normals-v1-20261024/llvm-0x1019932dc.txt",
+      "bytes": 18981,
+      "sha256": "90d4a709bac2821d5e935ff6f092a3339330a1ae41959e0dcfa97805f38de8a7",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x1019932dc",
+        "--stop-address=0x1019938d8",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x1019932dc",
+      "nextFunctionStart": "0x1019938d8",
+      "instructions": 383,
+      "observedFirst": "0x1019932dc",
+      "observedLast": "0x1019938d4"
+    },
+    {
+      "path": ".cache/leona-native-scb-normals-v1-20261024/llvm-0x1019918b4.txt",
+      "bytes": 3618,
+      "sha256": "5e208caaff695198905627644b7004aa77dae2018af9292018c5b4c8a128669d",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x1019918b4",
+        "--stop-address=0x1019919e4",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x1019918b4",
+      "nextFunctionStart": "0x1019919e4",
+      "instructions": 76,
+      "observedFirst": "0x1019918b4",
+      "observedLast": "0x1019919e0"
+    },
+    {
+      "path": ".cache/leona-native-scb-normals-v1-20261024/llvm-0x101991bd4.txt",
+      "bytes": 12152,
+      "sha256": "ec98c0ace0616f884e12f718bfdcac52299335b6bc7fb778317b0a0cc21451e2",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x101991bd4",
+        "--stop-address=0x101991fa8",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x101991bd4",
+      "nextFunctionStart": "0x101991fa8",
+      "instructions": 245,
+      "observedFirst": "0x101991bd4",
+      "observedLast": "0x101991fa4"
+    },
+    {
+      "path": ".cache/leona-native-scb-normals-v1-20261024/llvm-0x10199326c.txt",
+      "bytes": 1568,
+      "sha256": "2d13575e779fdb2d1612e64cd06e4595c213fbe709e1953041f8eb3a13deba47",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x10199326c",
+        "--stop-address=0x1019932dc",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x10199326c",
+      "nextFunctionStart": "0x1019932dc",
+      "instructions": 28,
+      "observedFirst": "0x10199326c",
+      "observedLast": "0x1019932d8"
+    },
+    {
+      "path": ".cache/leona-native-scb-normals-v1-20261024/llvm-0x1018980a0.txt",
+      "bytes": 9090,
+      "sha256": "c1066f5516e220feec95f7b3f133e137473c927fe6c62842eba8b7cfb33665c8",
+      "command": [
+        "xcrun",
+        "llvm-objdump",
+        "--disassemble",
+        "--start-address=0x1018980a0",
+        "--stop-address=0x101898374",
+        ".cache/leona-native-matching-v1-20261024/arm64-static-derived.macho"
+      ],
+      "requestedStart": "0x1018980a0",
+      "nextFunctionStart": "0x101898374",
+      "instructions": 181,
+      "observedFirst": "0x1018980a0",
+      "observedLast": "0x101898370"
+    }
+  ],
+  "instructionSpans": [
+    {
+      "address": "0x101898198",
+      "bytes": 16,
+      "hex": "e00316aa2200805233ec0394a0000036",
+      "sha256": "649a1b27a589c0a38edb63ffeaf44375e4b6927b8a14f92a81aa67dab1dd342e"
+    },
+    {
+      "address": "0x10199327c",
+      "bytes": 40,
+      "hex": "f50302aaf30300aa16000094f40300aac0000034e00313aa88f9ff9715010034e00313aa4dfaff97",
+      "sha256": "8afc30b704cf35abebbc7c0570a4c654ce81659324b520b3783e72e83e7dce48"
+    },
+    {
+      "address": "0x101991730",
+      "bytes": 248,
+      "hex": "f44fbea9fd7b01a9fd430091f30302aa08044079890180520805a99b0a0040794a05a99b0005402d420d402d0038221e2138231e040940bd080840790805a99b0519402da238221e450940bd8438251ec338231e060940bdc538251e8688231e2618051f0588251e8414021f2188221e0004031f4610002d400800bde00302aa67abf397600240bd0140211e0820201e204c201ee84d82526840a7720101271e0020211e450000547f0200b9600640bd0140211e0820201e204c201e0101271e0020211e450000547f0600b9600a40bd0140211e0820201e204c201e0101271e0020211e450000547f0a00b9fd7b41a9f44fc2a8c0035fd6",
+      "sha256": "582732759bdc76d367d76dcb9b6a8c02b98e17b19d7e2a276354a80228f76ff2"
+    },
+    {
+      "address": "0x10167c54c",
+      "bytes": 76,
+      "hex": "000040fd01dc202e22040c5e0210805f010840bd2208011fe80b8e522811a6720301271e4020231e0d01005442c0211e03102e1e6218221e0090820f000000fd2008221e000800bdc0035fd6",
+      "sha256": "3d4f7b86126e81f1b9c04c361bd5c09a7c6da24ca6fccd47e07f925e33a42cec"
+    },
+    {
+      "address": "0x101992024",
+      "bytes": 284,
+      "hex": "ff7f01a9818280b9ff0300f9ff0b00b9e0430091e2030091b514fe97898640b93f050071eb070054150080d2160080d297018052ff0300f9ff0b00b9884e40f90001158b814640f9e2030091b0fdff97884e40f908697578e90b40f90825b79be00340bd0109402d0028211e000100bde00740bd0028221e000500bde00b40bd010940bd0028211e000900bd884e40f90801158b08054079e90b40f90825b79be00340bd0109402d0028211e000100bde00740bd0028221e000500bde00b40bd010940bd0028211e000900bd884e40f90801158b08094079e90b40f90825b79be00340bd0109402d0028211e000100bde00740bd0028221e000500bde00b40bd010940bd0028211e000900bdd6060091898680b9b51a0091df0209eb",
+      "sha256": "a6fb576d53154d3379b3255429db8cba900d579458c17a32651bba14e1edb370"
+    },
+    {
+      "address": "0x101992144",
+      "bytes": 192,
+      "hex": "e81b40b988010034150080d216008052e80b40f90001158bfca8f397d6060011e81b40b9b53200911f01166b28ffff54898640b93f0500714b0400548a4e40f9e80b40f9e903092a4a1100916b4200918c0180524dc15f78ad21ac9ba00140bd60011fbca00540bd60411fbca00940bd60811fbc4de15f78ad21ac9ba00140bd60c11fbca00540bd600100bda00940bd600500bd4d654078ad21ac9ba00140bd600900bda00540bd600d00bda00940bd601100bd6b910091290500f1c1fcff54",
+      "sha256": "426deecbb3e849b6e26de45bd3c6c9b562b6add3bd0b2ce75b64e743de001c0c"
+    },
+    {
+      "address": "0x101991cb0",
+      "bytes": 60,
+      "hex": "90e15f781026ae9b000240bde00100bd000640bde00500bd000a40bde00900bd50010d8b00025ebce00d00bd00425ebce01100bd00825ebce01500bd",
+      "sha256": "0c82212c98e04e011ae3d94fc78bd549688bf9c6bfdb40390da2c416a8638544"
+    },
+    {
+      "address": "0x101991e44",
+      "bytes": 112,
+      "hex": "626240f9080040f9080140f901008052030080528404805200013fd662024ca9080040f9080140f941008052830180528404805200013fd662024ca9080040f9080140f961008052030380528404805200013fd662024ca9080040f9080140f901018052830380528404805200013fd6",
+      "sha256": "a6ef5664ec191f470d1a67f92a9b7ce16b4d1b4d5f81c0ec828f39a656203a0b"
+    },
+    {
+      "address": "0x101993324",
+      "bytes": 64,
+      "hex": "e0a30091e1c30291021380527969f397e0a30091e1430091020380527569f397e8134539680008362800805268fa0139f53f81b9758200b988018052a87ec89b",
+      "sha256": "2cb715a85482a8f71b3064c6fe4f494ec0e2ac3672b61398da8cf29633698514"
+    },
+    {
+      "address": "0x1019933ac",
+      "bytes": 88,
+      "hex": "f64381b9768600b9c8008052c87ec89bc906168b37f97fd3ff0308ebe0029fda5900f497f40300aa76010034e81a00d1e9f301b2695595f2087dc99b08fd42d3c9008052ca0080d20129099be00314aa70b31994744e00f9",
+      "sha256": "d3e45a2e01063b9ae86c70398e4916ccef0b817391225a79ff5fb96ae0331b90"
+    },
+    {
+      "address": "0x101993458",
+      "bytes": 60,
+      "hex": "ff0f00b9e8bb40b9690080524900a0721f01096b03080054e81740f9080940f9e0a30091e13300918200805200013fd6e80f40b9758280b9e8060034",
+      "sha256": "b7fcf994ed36decdd44fb697de8d3353195018352b0cac4853607172d2295b7b"
+    },
+    {
+      "address": "0x10199356c",
+      "bytes": 124,
+      "hex": "a806158b14f57ed3614640f9e0a30091e20314aae568f3971f0014eba1100054e80f40b928010034688280b914f57ed3614a40f9e0a30091e20314aadb68f3971f0014eb610f0054e0a30091e123019182018052d568f3971f3000f1a10e0054e84741b9a8000837e02740fd602200fde05340bd604a00bd698640b9",
+      "sha256": "8bd89c7d50862299aeb1012f6673a313fa1d76dd4fcbcb4aa0a83f2c412874d7"
+    },
+    {
+      "address": "0x101993600",
+      "bytes": 224,
+      "hex": "e0a30091e1230191820c8052c268f3971f9001f1410c0054e84b40b9694e40f928693478685240f9176935b8e09740bd685240f90801158b000d00bde0a340bd685240f90801158b001900bde84f40b9694e40f92901148b28050079685240f90801158b170500b9e09b40bd685240f90801158b001100bde0a740bd685240f90801158b001d00bde85340b9694e40f92901148b28090079685240f90801158b170900b9e09f40bd685240f90801158b001500bde0ab40bd685240f90801158b002100bdd6060091698680b9b5920091941a0091df0209eb4bf9ff54e84741b9",
+      "sha256": "66cba38be7ddcbd0215da780d95c448613f670ba0fcc744aeaea8733ce2e6c04"
+    },
+    {
+      "address": "0x102133d60",
+      "bytes": 8,
+      "hex": "0200030000000000",
+      "sha256": "73e29caa3411305a5ec5535528cb904c4ccfc8ea3e38f5954365233108f0cda1"
+    }
+  ],
+  "directBranches": [
+    {
+      "address": "0x1018981a0",
+      "target": "0x10199326c"
+    },
+    {
+      "address": "0x101993284",
+      "target": "0x1019932dc"
+    },
+    {
+      "address": "0x101993294",
+      "target": "0x1019918b4"
+    },
+    {
+      "address": "0x1019932a0",
+      "target": "0x101991bd4"
+    },
+    {
+      "address": "0x101991bf0",
+      "target": "0x101991fa8"
+    },
+    {
+      "address": "0x1019917b0",
+      "target": "0x10167c54c"
+    },
+    {
+      "address": "0x10199203c",
+      "target": "0x101917310"
+    },
+    {
+      "address": "0x101992070",
+      "target": "0x101991730"
+    },
+    {
+      "address": "0x10199215c",
+      "target": "0x10167c54c"
+    }
+  ],
+  "exactWords": [
+    {
+      "address": "0x10199178c",
+      "word": "1e238886"
+    },
+    {
+      "address": "0x101991790",
+      "word": "1f051826"
+    },
+    {
+      "address": "0x101991794",
+      "word": "1e258805"
+    },
+    {
+      "address": "0x101991798",
+      "word": "1f021484"
+    },
+    {
+      "address": "0x10199179c",
+      "word": "1e228821"
+    },
+    {
+      "address": "0x1019917a0",
+      "word": "1f030400"
+    },
+    {
+      "address": "0x10167c550",
+      "word": "2e20dc01"
+    },
+    {
+      "address": "0x10167c558",
+      "word": "5f801002"
+    },
+    {
+      "address": "0x10167c560",
+      "word": "1f010822"
+    },
+    {
+      "address": "0x10167c574",
+      "word": "5400010d"
+    },
+    {
+      "address": "0x101991e6c",
+      "word": "52800041"
+    },
+    {
+      "address": "0x101991e70",
+      "word": "52800183"
+    },
+    {
+      "address": "0x101991e74",
+      "word": "52800484"
+    }
+  ],
+  "mathematicalControls": [
+    "fused cancellation",
+    "short vector retention",
+    "equal face weighting across unequal areas",
+    "distinct coincident source indices",
+    "post-normalization strict component snapping",
+    "degenerate no-fallback"
+  ],
+  "math": {
+    "floatArithmetic": "Single-precision rounded subtraction/multiplication/addition; FNMUL followed by genuinely fused FMADD. Native FPCR settings not observed.",
+    "edges": "u=f32(b-a),v=f32(c-a), fromfaceindices0/1/2; nativepositions12Bstride.",
+    "cross": [
+      "fma32(uy,vz,-f32(uz*vy))",
+      "fma32(uz,vx,-f32(ux*vz))",
+      "fma32(ux,vy,-f32(uy*vx))"
+    ],
+    "lengthSquared": "fma32(z,z,fma32(x,x,f32(y*y)))",
+    "normalizeThreshold": {
+      "bits": "3089705f",
+      "value": 9.999999717180685e-10,
+      "comparison": "Normalize onlywhenlenSquared>threshold; otherwise leaveinputunchanged."
+    },
+    "normalize": "sqrt32(lenSquared);scale=div32(1,sqrt32);multiplyeachcomponentby scalewithf32rounding.",
+    "faceSnap": {
+      "bits": "3a03126f",
+      "value": 0.0005000000237487257,
+      "comparison": "Afterfacenormalization, strictabs(component)<threshold ->positivezero. Equalityretained. Norenormalizationaftersnap."
+    },
+    "accumulation": "Faces inSCBorder; cornerindices0,1,2; scalarFADD(faceComponent,sourceVertexSumComponent) inX,Y,Zorder. Tempvectorzero-initializedvia917310withzeroSPvalue; sourcerepeatedindicesaccumulaterepeatedly. Noareaweightingorpositionwelding.",
+    "final": "Normalizeeachoriginalvertexsumoncewithsamenormalizer; expandbyoriginalfacecornerindiceswithoutreorderingoradditionalnormalization."
+  },
+  "binding": {
+    "vertexBytes": 36,
+    "fields": {
+      "position": [
+        0,
+        12
+      ],
+      "normal": [
+        12,
+        12
+      ],
+      "color": [
+        24,
+        4
+      ],
+      "uv": [
+        28,
+        8
+      ]
+    },
+    "normalSlot": 2,
+    "normalBindingInstructions": [
+      "0x101991e6c",
+      "0x101991e70",
+      "0x101991e74",
+      "0x101991e78"
+    ],
+    "normalDeclaration": {
+      "constantAddress": "0x102133d60",
+      "lowU32": "00030002"
+    },
+    "shaderCandidate": "FrozenVS33AIRmetadataATTR2float3, line188; actualvariant/Leona draw selectionunobserved."
+  },
+  "streams": [
+    {
+      "source": {
+        "path": ".cache/leona-native-scb-normals-v1-20261024/40154aadce190363.scb",
+        "bytes": 4672,
+        "sha256": "25ada043a65ee7f137b35d87d8ee5a5de756a0128cefde106ce65d3760e05af0"
+      },
+      "derived": {
+        "path": ".cache/leona-native-scb-normals-v1-20261024/leona_base_expo_cylinder-normals.json",
+        "bytes": 11544,
+        "sha256": "0535f486391253c8c0d5a976ec794bf24e643c51aa6b7b19871dc032170b23c9"
+      },
+      "expandedFloat32Sha256": "d6002aa7791609bb8e66ae03001e3e2ce1fb3a43518adbec08ae1bc048f2cd5f",
+      "sourceVertices": 40,
+      "triangles": 40,
+      "corners": 120
+    },
+    {
+      "source": {
+        "path": ".cache/leona-native-scb-normals-v1-20261024/7004e0d9604abbde.scb",
+        "bytes": 38220,
+        "sha256": "0ed57b949b8f3b3c94f53ee1f8fb1721145ee39e404812115c2789ec4d7a0f88"
+      },
+      "derived": {
+        "path": ".cache/leona-native-scb-normals-v1-20261024/leona_base_sharp_mesh-normals.json",
+        "bytes": 104938,
+        "sha256": "6fd40a0176b0aeb6ac923841daa048f7d4048ee019c91ed1fa7b0df3eba1849c"
+      },
+      "expandedFloat32Sha256": "7d1b953988b8f46f250643a90257cf225c84e5713cdf12f1c372c4886fb62041",
+      "sourceVertices": 183,
+      "triangles": 351,
+      "corners": 1053
+    },
+    {
+      "source": {
+        "path": ".cache/leona-native-scb-normals-v1-20261024/13b9c8c611b0d630.scb",
+        "bytes": 74820,
+        "sha256": "dd03b9b8005bee1df65830c7a93c46c0233af28e05b129d7811133b2a65037f9"
+      },
+      "derived": {
+        "path": ".cache/leona-native-scb-normals-v1-20261024/leona_base_z_sword-normals.json",
+        "bytes": 193353,
+        "sha256": "b19b8bf662efbdb9c7be7c1ebecf67a0ce63ed27d115553140d8d7daf812f8c3"
+      },
+      "expandedFloat32Sha256": "d6606d78c5c5c1a6a4f25cf8b14e8abfeff4bf4921d91aa65048a589b6732158",
+      "sourceVertices": 333,
+      "triangles": 648,
+      "corners": 1944
+    },
+    {
+      "source": {
+        "path": ".cache/leona-native-scb-normals-v1-20261024/0f04ed2d4c63c0a6.scb",
+        "bytes": 74820,
+        "sha256": "a963de5b851d3fb5026dc273c5b9f5fd3924794e2c69269d313ca7d496cca54a"
+      },
+      "derived": {
+        "path": ".cache/leona-native-scb-normals-v1-20261024/leona_base_z_sword_inner-normals.json",
+        "bytes": 193917,
+        "sha256": "b69573909cee0136903ac58573ebbfb69d93c89deceba6d9c0be56b94537b5f2"
+      },
+      "expandedFloat32Sha256": "2d1f47a6906f9490e793667ae5e4cb69f33e40a0ff079c6ed208d9683dbb48bf",
+      "sourceVertices": 333,
+      "triangles": 648,
+      "corners": 1944
+    }
+  ],
+  "browserResult": {
+    "path": ".cache/leona-native-scb-normals-v1-20261024/normal-preview-result.json",
+    "bytes": 415,
+    "sha256": "0453d08ae65d9ea682a8f3a19ea135476e1c5bdea133ee340f13765d0e1cc09a"
+  },
+  "browserScreenshot": {
+    "path": ".cache/leona-native-scb-normals-v1-20261024/normal-comparison.png",
+    "bytes": 121635,
+    "sha256": "f7285769f9bd46fd5cd4630575be9ea70558f9e2c816d1aefc1a40f71342be53"
+  },
+  "retainedInputs": [
+    {
+      "path": ".cache/leona-native-scb-normals-v1-20261024/normal-preview.html",
+      "bytes": 3887,
+      "sha256": "c7cb1347057fb8cf3bc50738c4d6a37541b20e84792f856ad5ec9302846aa9b7"
+    },
+    {
+      "path": ".cache/leona-native-scb-normals-v1-20261024/normal-preview.mjs",
+      "bytes": 2425,
+      "sha256": "7349a85c0a6a2ac930cb3d2c97efda48cdc779138361812aba7aa8fae0f3d414"
+    },
+    {
+      "path": ".cache/leona-native-scb-normals-v1-20261024/normal-preview-first-failure.json",
+      "bytes": 310,
+      "sha256": "ec9c7c953e15c5c38a2f7476211fc652a413e1758b5dd181ccf4de95ceee0acc"
+    },
+    {
+      "path": ".cache/leona-native-scb-normals-v1-20261024/derived-normal-streams.json",
+      "bytes": 2632,
+      "sha256": "0995e4d068dc26a8f9a88ddb062d1ac8e8324eb27a15c36e6326bfe23f0d6078"
+    },
+    {
+      "path": ".cache/leona-native-scb-normals-v1-20261024/area-weighting-comparison.json",
+      "bytes": 1294,
+      "sha256": "49d5d6e2ce3593b34272f1ac5365aeeae6d8bad30056124af34bf7630b168388"
+    },
+    {
+      "path": ".cache/leona-native-scb-normals-v1-20261024/independent-check.py",
+      "bytes": 10778,
+      "sha256": "e846e3cc78ee0a96ee62de3e8002452cd9e1cadffe3c55d0d463e491f73ce7cd"
+    },
+    {
+      "path": ".cache/leona-native-scb-normals-v1-20261024/independent-findings.json",
+      "bytes": 25589,
+      "sha256": "faa01ffb36717e72dea8dc42ef51150bb2d4d5686b8805b934c7ed072a95fe2f"
+    },
+    {
+      "path": ".cache/leona-native-scb-normals-v1-20261024/locate-functions.py",
+      "bytes": 1865,
+      "sha256": "711b66df075607d0a001dff049821d8eb5bdf8f0302e956ed487d3b3fb54b7af"
+    },
+    {
+      "path": ".cache/leona-native-scb-normals-v1-20261024/dump-selected.py",
+      "bytes": 1436,
+      "sha256": "20c58a67a906bcb63a297b6967208c03c0dd77b286cd5f21dd299e220aad63ba"
+    },
+    {
+      "path": ".cache/leona-native-scb-normals-v1-20261024/llvm-selected-provenance.json",
+      "bytes": 11623,
+      "sha256": "e76bf319df31e7d12d0be20f629044d7dd1f8384cbdb7d45e4e785ff4c8afd0a"
+    },
+    {
+      "path": ".cache/leona-native-scb-normals-v1-20261024/function-starts-selected.json",
+      "bytes": 3463,
+      "sha256": "64c5aed6cb51e6c7f23fceba6622e443205103975238fcc07056d9f266a87199"
+    }
+  ],
+  "remainingGates": [
+    "ActualE sword2 CPUdispatch/selectedshader/draw/nativeGPUframe remainsconditional.",
+    "FPCRrounding/flushsettingsandnative-versus-hostnumericalparitynotobserved;hostsqrt/dividetranscriptionusesbinary64thenbinary32rounding, explicitlyqualifiedinparentreport.",
+    "No general SCBversion/flag4claim; auditedsourcefilesareSCB3.2flags1or2withcompletebyteextentaccounting.",
+    "Declarationformatenum3notindependentlytracedtobackendformatnamehere; normalfloat3bytes/slot2/offset12/stride36andfrozenAIRATTR2float3areobserved.",
+    "Local streams are a generic native-algorithm reconstruction, not authored SCB normal attributes. Existing GLBs/assets and GameView are unchanged.",
+    "Reflection resources/uniform source mappings, actualE sword2 dispatch and gameplay/native frame acceptance remain open."
+  ]
+}

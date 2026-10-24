@@ -458,3 +458,8 @@ and six-character match gates remain open.
 now identify constructor CameraQuad/empty-base/alphaRef-five defaults and the
 distortion scalar/normal-name offsets. Absent-field loading and actual Leona
 dispatch remain unobserved; local R coverage stays41/44.
+
+[Native generic SCB normals](LEONA-NATIVE-SCB-NORMALS.md) now provide a byte-
+checked normal-generation and vertex-binding prerequisite for the Zenith sword.
+Derived source streams remain separate from authored mesh inputs; actual
+reflection resources/uniforms, E dispatch and native frames remain open.

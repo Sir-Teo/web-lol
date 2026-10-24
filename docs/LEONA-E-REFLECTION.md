@@ -98,3 +98,12 @@ python3 tools/assets/extract-leona-e-reflection-shaders.py --check
 npx playwright test e2e/particle-mesh-reflection-material.spec.ts --workers=1
 node tools/qa/verify-leona-e-reflection.mjs
 ```
+
+The later [matching-client](LEONA-NATIVE-MATCHING.md) investigation retained the
+native executable. Its [generic SCB normal reading](LEONA-NATIVE-SCB-NORMALS.md)
+now identifies unit-face accumulation, source-index preservation and the
+attribute2/offset12/stride36 binding. Derived source streams and a local normal-
+color comparison are pinned separately; existing GLBs and GameView remain
+unchanged. Actual E dispatch, reflection resources/uniforms and native frames
+remain gates. The unresolved-normal statements above describe this earlier
+shader-only stage.
