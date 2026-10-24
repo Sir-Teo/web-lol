@@ -469,3 +469,8 @@ sword2's two authored fields to constructor defaults, CPU uniform packing and a
 retained rim-only mesh shader path. Source fresnel maps to exponent
 `.8350000381469727`; its zero color alpha is not read by those uploads. Actual
 resource lifecycle/E dispatch, local integration and native frames remain open.
+
+An [explicit rim-only mesh material](LEONA-E-RIM-MATERIAL.md) now implements the
+retained no-cube shader pair and passes local GPU arithmetic/recovery checks.
+The source sword diagnostic uses derived normals and explicit probe resources;
+it is not yet imported by GameView. E coverage remains18/20.

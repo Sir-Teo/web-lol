@@ -14,6 +14,7 @@ const points = [
 // Independent scalar transcription of the retained VS33 / PS54 observations.
 // Tests supply synthetic streams/resources; these are not native E bindings.
 function expected(o: any) {
+  const reflection = o.reflection ?? [1, 0, 0];
   const vertices = points.map((p, i) => {
     const ray = normalized([p[0], p[1], -1000]),
       n = normalized(
@@ -22,7 +23,7 @@ function expected(o: any) {
         )
       ),
       f = clamp(-dot(ray, n)),
-      r = o.reflection[1] + (o.reflection[2] - o.reflection[1]) * (1 - f ** o.reflection[0]);
+      r = reflection[1] + (reflection[2] - reflection[1]) * (1 - f ** reflection[0]);
     return {
       r,
       rim: o.fresnel.slice(0, 3).map((v: number) => (1 - f ** o.fresnel[3]) * v),
@@ -46,11 +47,15 @@ function expected(o: any) {
       )
     ),
     axis = direction.map(Math.abs).indexOf(Math.max(...direction.map(Math.abs))),
-    cube = o.cubeFaces?.[2 * axis + (direction[axis] < 0 ? 1 : 0)] ?? o.cube,
+    cube = o.cubeFaces?.[2 * axis + (direction[axis] < 0 ? 1 : 0)] ?? o.cube ?? [0, 0, 0],
     lit = o.source.map((v: number, i: number) => ((v / 255) * o.tint[i] * o.lookup[i]) / 255),
     base = o.remap?.[3] > 0 ? o.remap.slice(0, 3).map((v: number) => v / 255) : lit.slice(0, 3),
     rgb = base.map((v: number, i: number) =>
-      clamp(v + (cube[i] / 255) * r * (1 + (o.reflectionColor[i] - 1) * r) + lit[3] * rim[i])
+      clamp(
+        v +
+          (o.rimOnly ? 0 : (cube[i] / 255) * r * (1 + (o.reflectionColor[i] - 1) * r)) +
+          lit[3] * rim[i]
+      )
     );
   return [...rgb, lit[3]].map((v) => Math.round(v * 255));
 }
@@ -89,7 +94,12 @@ async function check(page: Page, o: any, reference = o) {
       Math.abs(actual.pixels[i] - wanted[i]),
       JSON.stringify({ o, actual, wanted })
     ).toBeLessThanOrEqual(1);
-  return { actual: actual.pixels, expected: wanted };
+  return {
+    actual: actual.pixels,
+    expected: wanted,
+    cubeResources: actual.cubeResources,
+    activeUniforms: actual.activeUniforms,
+  };
 }
 
 test('ordinary reflection survives zero alpha while rim uses source, lookup and tint alpha', async ({
@@ -231,5 +241,114 @@ test('remap preserves output alpha, source UV transform selects texels and conte
   writeFileSync(
     info.outputPath('remap-uv-recovery.json'),
     JSON.stringify({ errors, results, recovery }, null, 2)
+  );
+});
+
+// Native CPU upload maps authored .15 to this float32 exponent. The existing
+// reflective probes above intentionally keep their earlier synthetic inputs.
+const rimBaseline = {
+  rimOnly: true,
+  source: baseline.source,
+  lookup: baseline.lookup,
+  tint: baseline.tint,
+  normal: baseline.normal,
+  fresnel: [1, 0.43921568989753723, 0.03921568766236305, 0.8350000381469727],
+};
+
+test('rim-only mesh needs no cube and gates rim with fully tinted alpha', async ({
+  page,
+}, info) => {
+  const errors = await open(page),
+    results = [];
+  for (const alpha of [0, 64, 255])
+    for (const tintAlpha of [0, 0.2, 1])
+      for (const lookupAlpha of [0, 100, 255])
+        for (const normal of [
+          [0, 0, 1],
+          [0.8, 0, 0.6],
+          [1, 0, 0],
+        ]) {
+          const o = {
+            ...rimBaseline,
+            source: [64, 96, 128, alpha],
+            tint: [0.2, 0.4, 0.6, tintAlpha],
+            lookup: [200, 160, 220, lookupAlpha],
+            normal,
+          };
+          const resources = await check(page, o);
+          results.push(resources);
+          expect(resources.cubeResources).toBe(0);
+          expect(resources.activeUniforms).not.toContain('reflectionTexture');
+          expect(resources.activeUniforms).not.toContain('reflectionParameters');
+          expect(resources.activeUniforms).not.toContain('reflectionColor');
+          expect(resources.activeUniforms).toContain('fresnel');
+        }
+  expect(errors).toEqual([]);
+  writeFileSync(
+    info.outputPath('rim-alpha-contract.json'),
+    JSON.stringify({ errors, results }, null, 2)
+  );
+});
+
+test('rim-only mesh preserves vertex interpolation, remap alpha, depth and graphics recovery', async ({
+  page,
+}, info) => {
+  const errors = await open(page),
+    results = [];
+  for (const scale of [
+    [1, 1, 1],
+    [2, 0.5, 1],
+    [0.25, 3, 2],
+  ])
+    for (const remap of [
+      [240, 20, 170, 0],
+      [240, 20, 170, 1],
+      [240, 20, 170, 255],
+    ])
+      results.push(
+        await check(page, {
+          ...rimBaseline,
+          normals: [0, 0, 1, 1, 0, 0, 0.6, 0, 0.8],
+          scale,
+          remap,
+        })
+      );
+  const mapped = {
+      ...rimBaseline,
+      source: [10, 10, 10, 255],
+      lookup: [255, 255, 255, 255],
+      tint: [1, 1, 1, 1],
+    },
+    raw = { ...mapped, fresnel: [...rimBaseline.fresnel.slice(0, 3), 0.15] },
+    causal = [await check(page, mapped), await check(page, raw)];
+  expect(causal[0].actual[0] - causal[1].actual[0]).toBeGreaterThan(40);
+  for (const depthPushPull of [-0.5, 0])
+    results.push(await check(page, { ...rimBaseline, depthPushPull, occluder: true }));
+  const behind = await page.evaluate((o) => (window as any).__MESH_REFLECTION__.probe(o), {
+    ...rimBaseline,
+    depthPushPull: 0.5,
+    occluder: true,
+  });
+  expect(behind.pixels).toEqual([0, 255, 0, 255]);
+  expect(behind.error).toBe(0);
+  const recovery = await page.evaluate(async (o) => {
+    const v = (window as any).__MESH_REFLECTION__,
+      before = v.probe(o);
+    await new Promise<void>((resolve) => {
+      v.renderer.domElement.addEventListener(
+        'webglcontextrestored',
+        () => setTimeout(resolve, 50),
+        { once: true }
+      );
+      v.renderer.forceContextLoss();
+      setTimeout(() => v.renderer.forceContextRestore(), 250);
+    });
+    return { before, after: v.probe(o) };
+  }, rimBaseline);
+  expect(recovery.after).toEqual(recovery.before);
+  expect(errors).toEqual([]);
+  writeFileSync(
+    info.outputPath('rim-vertex-recovery.json'),
+    JSON.stringify({ errors, results, causal, behind, recovery }, null, 2)
   );
 });

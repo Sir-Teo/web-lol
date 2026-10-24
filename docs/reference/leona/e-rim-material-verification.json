@@ -1,0 +1,168 @@
+{
+  "scope": "Local explicit-input rim material; no GameView/native frame/dispatch acceptance.",
+  "ruleset": "591ddf38f2020153fafd7cb802a936194de3c2296ae0022371047ed1453581c6",
+  "sourceArchive": ".cache/leona-e-rim-material-accepted-v2-20261024/source-archive.json",
+  "evidence": [
+    {
+      "file": ".cache/leona-e-rim-material-validation-v1-20261024/browser-material-program/particle-mesh-reflection-m-c9ad8-ource-lookup-and-tint-alpha/alpha-contract.json",
+      "archived": ".cache/leona-e-rim-material-accepted-v2-20261024/evidence/.cache/leona-e-rim-material-validation-v1-20261024/browser-material-program/particle-mesh-reflection-m-c9ad8-ource-lookup-and-tint-alpha/alpha-contract.json",
+      "bytes": 49241,
+      "sha256": "257bd544001c159e806863e17eeba8bed48c9d5e09ae99898f1cafee4788eb4f"
+    },
+    {
+      "file": ".cache/leona-e-rim-material-validation-v1-20261024/browser-material-program/particle-mesh-reflection-m-b7227--upper-world-matrix-normals/vertex-contract.json",
+      "archived": ".cache/leona-e-rim-material-accepted-v2-20261024/evidence/.cache/leona-e-rim-material-validation-v1-20261024/browser-material-program/particle-mesh-reflection-m-b7227--upper-world-matrix-normals/vertex-contract.json",
+      "bytes": 7345,
+      "sha256": "ea61a6dd8679cbe65eaa8d7ec075acf2cee797603559192aa19ab37f984aba51"
+    },
+    {
+      "file": ".cache/leona-e-rim-material-validation-v1-20261024/browser-material-program/particle-mesh-reflection-m-b1bca-after-reflection-evaluation/depth-push.json",
+      "archived": ".cache/leona-e-rim-material-accepted-v2-20261024/evidence/.cache/leona-e-rim-material-validation-v1-20261024/browser-material-program/particle-mesh-reflection-m-b1bca-after-reflection-evaluation/depth-push.json",
+      "bytes": 1780,
+      "sha256": "f168bbbe7fac8d4d8df6ac95543ddaa67aeb02504827edb1e73ed15979a43e97"
+    },
+    {
+      "file": ".cache/leona-e-rim-material-validation-v1-20261024/browser-material-program/particle-mesh-reflection-m-0c05f-d-context-recovery-is-exact/remap-uv-recovery.json",
+      "archived": ".cache/leona-e-rim-material-accepted-v2-20261024/evidence/.cache/leona-e-rim-material-validation-v1-20261024/browser-material-program/particle-mesh-reflection-m-0c05f-d-context-recovery-is-exact/remap-uv-recovery.json",
+      "bytes": 4270,
+      "sha256": "98db44bad1f8a8810754e85286437664cf9bdc85b4de90e272cf4bccdef25933"
+    },
+    {
+      "file": ".cache/leona-e-rim-material-validation-v1-20261024/browser-material-program/particle-mesh-reflection-m-d63ba-rim-with-fully-tinted-alpha/rim-alpha-contract.json",
+      "archived": ".cache/leona-e-rim-material-accepted-v2-20261024/evidence/.cache/leona-e-rim-material-validation-v1-20261024/browser-material-program/particle-mesh-reflection-m-d63ba-rim-with-fully-tinted-alpha/rim-alpha-contract.json",
+      "bytes": 42055,
+      "sha256": "d72ef6e21dc78d43f3cb1e56be9de0f0c4bf07f1f8fb51b855e224a340c9928b"
+    },
+    {
+      "file": ".cache/leona-e-rim-material-validation-v1-20261024/browser-material-program/particle-mesh-reflection-m-e870b-depth-and-graphics-recovery/rim-vertex-recovery.json",
+      "archived": ".cache/leona-e-rim-material-accepted-v2-20261024/evidence/.cache/leona-e-rim-material-validation-v1-20261024/browser-material-program/particle-mesh-reflection-m-e870b-depth-and-graphics-recovery/rim-vertex-recovery.json",
+      "bytes": 8297,
+      "sha256": "9d4e6060fd09e00420a4b3fc0042809cc97957992dbdec766bde4bfee0dd8e40"
+    },
+    {
+      "file": ".cache/leona-e-rim-material-validation-v1-20261024/browser-material-program.log",
+      "archived": ".cache/leona-e-rim-material-accepted-v2-20261024/evidence/.cache/leona-e-rim-material-validation-v1-20261024/browser-material-program.log",
+      "bytes": 1337,
+      "sha256": "6fcedbe17f01dda78b6adf10e1d6e1608b5f753ace091594f4307ff978bd9453"
+    },
+    {
+      "file": ".cache/leona-e-rim-material-validation-v1-20261024/browser.log",
+      "archived": ".cache/leona-e-rim-material-accepted-v2-20261024/evidence/.cache/leona-e-rim-material-validation-v1-20261024/browser.log",
+      "bytes": 1337,
+      "sha256": "303c5bd4e3ef50ef50e1a0c6ca7ee27e72ada85514e5245c16a9fde23e3f0d42"
+    },
+    {
+      "file": ".cache/leona-e-rim-material-validation-v1-20261024/unit.log",
+      "archived": ".cache/leona-e-rim-material-accepted-v2-20261024/evidence/.cache/leona-e-rim-material-validation-v1-20261024/unit.log",
+      "bytes": 499,
+      "sha256": "53ffa38a82e1f037d4a8ada54131bf90f7e18f67df3ca1954d9cd558f6cbebe3"
+    },
+    {
+      "file": ".cache/leona-e-rim-material-validation-v1-20261024/qa.log",
+      "archived": ".cache/leona-e-rim-material-accepted-v2-20261024/evidence/.cache/leona-e-rim-material-validation-v1-20261024/qa.log",
+      "bytes": 431,
+      "sha256": "f2efddb24becbc04a249394141a490d650216120b0c120b109fab7d6b382af28"
+    },
+    {
+      "file": ".cache/leona-e-rim-material-validation-v1-20261024/typecheck-final.log",
+      "archived": ".cache/leona-e-rim-material-accepted-v2-20261024/evidence/.cache/leona-e-rim-material-validation-v1-20261024/typecheck-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/leona-e-rim-material-validation-v1-20261024/source-preview.html",
+      "archived": ".cache/leona-e-rim-material-accepted-v2-20261024/evidence/.cache/leona-e-rim-material-validation-v1-20261024/source-preview.html",
+      "bytes": 4230,
+      "sha256": "1d16caf989effb733007587fe999713c1acc6b1e7443c1a260a14ca91baf974f"
+    },
+    {
+      "file": ".cache/leona-e-rim-material-validation-v1-20261024/source-preview.mjs",
+      "archived": ".cache/leona-e-rim-material-accepted-v2-20261024/evidence/.cache/leona-e-rim-material-validation-v1-20261024/source-preview.mjs",
+      "bytes": 2805,
+      "sha256": "90a3777dd0a9772880d2e38e8ffc1399cac9b08c039931b084fdfe84a1546268"
+    },
+    {
+      "file": ".cache/leona-e-rim-material-validation-v1-20261024/source-preview-result.json",
+      "archived": ".cache/leona-e-rim-material-accepted-v2-20261024/evidence/.cache/leona-e-rim-material-validation-v1-20261024/source-preview-result.json",
+      "bytes": 497,
+      "sha256": "47b6659bcf0cfa748b11c03b08b85f489226136f65be2fd0c84ccb77839e4ed0"
+    },
+    {
+      "file": ".cache/leona-e-rim-material-validation-v1-20261024/source-rim-comparison.png",
+      "archived": ".cache/leona-e-rim-material-accepted-v2-20261024/evidence/.cache/leona-e-rim-material-validation-v1-20261024/source-rim-comparison.png",
+      "bytes": 76920,
+      "sha256": "e31c91a7f9e67f198aa4fde341dc7617935bcfdb2098049d2155cc6953d74279"
+    },
+    {
+      "file": ".cache/leona-e-rim-material-validation-v1-20261024/material.js",
+      "archived": ".cache/leona-e-rim-material-accepted-v2-20261024/evidence/.cache/leona-e-rim-material-validation-v1-20261024/material.js",
+      "bytes": 5980,
+      "sha256": "cdb3fe832e05f3b67eb5ead99eb3dcb2489ae0b04e9aba0eebe721e4b834661e"
+    },
+    {
+      "file": ".cache/leona-e-rim-material-validation-v1-20261024/freeze-v2.mjs",
+      "archived": ".cache/leona-e-rim-material-accepted-v2-20261024/evidence/.cache/leona-e-rim-material-validation-v1-20261024/freeze-v2.mjs",
+      "bytes": 3352,
+      "sha256": "0df4bd81be2bc6becae5edcbc2119e97ed668dfe0395945afa608287756854b8"
+    },
+    {
+      "file": ".cache/leona-e-rim-material-validation-v1-20261024/acceptance-fixture-failure.txt",
+      "archived": ".cache/leona-e-rim-material-accepted-v2-20261024/evidence/.cache/leona-e-rim-material-validation-v1-20261024/acceptance-fixture-failure.txt",
+      "bytes": 493,
+      "sha256": "faeb0d151600230e646a80994e1571bb59cea6c916392a8a88c1c4475c260c64"
+    },
+    {
+      "file": ".cache/leona-native-scb-normals-v1-20261024/leona_base_z_sword-normals.json",
+      "archived": ".cache/leona-e-rim-material-accepted-v2-20261024/evidence/.cache/leona-native-scb-normals-v1-20261024/leona_base_z_sword-normals.json",
+      "bytes": 193353,
+      "sha256": "b19b8bf662efbdb9c7be7c1ebecf67a0ce63ed27d115553140d8d7daf812f8c3"
+    }
+  ],
+  "pixelChecks": [
+    {
+      "path": ".cache/leona-e-rim-material-validation-v1-20261024/browser-material-program/particle-mesh-reflection-m-c9ad8-ource-lookup-and-tint-alpha/alpha-contract.json",
+      "count": 81,
+      "rimOnly": false
+    },
+    {
+      "path": ".cache/leona-e-rim-material-validation-v1-20261024/browser-material-program/particle-mesh-reflection-m-b7227--upper-world-matrix-normals/vertex-contract.json",
+      "count": 12,
+      "rimOnly": false
+    },
+    {
+      "path": ".cache/leona-e-rim-material-validation-v1-20261024/browser-material-program/particle-mesh-reflection-m-b1bca-after-reflection-evaluation/depth-push.json",
+      "count": 2,
+      "rimOnly": false
+    },
+    {
+      "path": ".cache/leona-e-rim-material-validation-v1-20261024/browser-material-program/particle-mesh-reflection-m-0c05f-d-context-recovery-is-exact/remap-uv-recovery.json",
+      "count": 5,
+      "rimOnly": false
+    },
+    {
+      "path": ".cache/leona-e-rim-material-validation-v1-20261024/browser-material-program/particle-mesh-reflection-m-d63ba-rim-with-fully-tinted-alpha/rim-alpha-contract.json",
+      "count": 81,
+      "rimOnly": true
+    },
+    {
+      "path": ".cache/leona-e-rim-material-validation-v1-20261024/browser-material-program/particle-mesh-reflection-m-e870b-depth-and-graphics-recovery/rim-vertex-recovery.json",
+      "count": 11,
+      "rimOnly": true
+    }
+  ],
+  "preview": ".cache/leona-e-rim-material-validation-v1-20261024/source-preview-result.json",
+  "screenshot": ".cache/leona-e-rim-material-validation-v1-20261024/source-rim-comparison.png",
+  "browserLog": ".cache/leona-e-rim-material-validation-v1-20261024/browser-material-program.log",
+  "unitLog": ".cache/leona-e-rim-material-validation-v1-20261024/unit.log",
+  "qaLog": ".cache/leona-e-rim-material-validation-v1-20261024/qa.log",
+  "typecheckLog": ".cache/leona-e-rim-material-validation-v1-20261024/typecheck-final.log",
+  "acceptance": {
+    "gameViewIntegrated": false,
+    "actualNativeDispatchVerified": false,
+    "nativeFrameVerified": false,
+    "nativeTargetExecuted": false,
+    "productionRun": false,
+    "syntheticGpuSamples": 200,
+    "rimSamples": 97
+  }
+}

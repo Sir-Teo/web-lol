@@ -1,5 +1,8 @@
 import * as THREE from 'three';
-import { createParticleMeshReflectionMaterial } from '../../src/render/particle-mesh-reflection-material';
+import {
+  createParticleMeshReflectionMaterial,
+  createParticleMeshRimMaterial,
+} from '../../src/render/particle-mesh-reflection-material';
 
 const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
 renderer.setSize(64, 64);
@@ -25,12 +28,15 @@ function probe(o: any) {
       resources.push(t);
       return t;
     };
-  const faces = (o.cubeFaces ?? Array(6).fill(o.cube)).map((v: number[]) => tex(v));
-  const cube = new THREE.CubeTexture(faces);
-  cube.minFilter = cube.magFilter = THREE.NearestFilter;
-  cube.colorSpace = THREE.NoColorSpace;
-  cube.needsUpdate = true;
-  resources.push(cube);
+  let cube: THREE.CubeTexture | undefined;
+  if (!o.rimOnly) {
+    const faces = (o.cubeFaces ?? Array(6).fill(o.cube)).map((v: number[]) => tex(v));
+    cube = new THREE.CubeTexture(faces);
+    cube.minFilter = cube.magFilter = THREE.NearestFilter;
+    cube.colorSpace = THREE.NoColorSpace;
+    cube.needsUpdate = true;
+    resources.push(cube);
+  }
   const g = new THREE.BufferGeometry(),
     scale = o.scale ?? [1, 1, 1],
     points = [
@@ -60,19 +66,24 @@ function probe(o: any) {
       2
     )
   );
-  const material = createParticleMeshReflectionMaterial(g, {
+  const bindings = {
     texture: tex(o.source, o.width ?? 1),
     lookup: tex(o.lookup),
     remap: tex(o.remap ?? [0, 0, 0, 0]),
-    environment: cube,
     uvTransform: new THREE.Matrix3().fromArray(o.transform ?? [1, 0, 0, 0, 1, 0, 0, 0, 1]),
-    lookupUv: [0.5, 0.5],
+    lookupUv: [0.5, 0.5] as const,
     tint: o.tint,
-    reflection: o.reflection,
-    reflectionColor: o.reflectionColor,
     fresnel: o.fresnel,
     depthPushPull: o.depthPushPull ?? 0,
-  });
+  };
+  const material = o.rimOnly
+    ? createParticleMeshRimMaterial(g, bindings)
+    : createParticleMeshReflectionMaterial(g, {
+        ...bindings,
+        environment: cube!,
+        reflection: o.reflection,
+        reflectionColor: o.reflectionColor,
+      });
   resources.push(material);
   material.depthTest = !!o.occluder;
   const mesh = new THREE.Mesh(g, material),
@@ -93,10 +104,20 @@ function probe(o: any) {
     renderer.render(scene, camera);
     const pixels = new Uint8Array(4);
     renderer.readRenderTargetPixels(target, 0, 0, 1, 1, pixels);
+    const gl = renderer.getContext(),
+      // An occluder can be the last draw. Inspect this material's linked program,
+      // rather than whichever program happens to remain current in WebGL.
+      program = renderer.properties.get(material).currentProgram.program as WebGLProgram,
+      activeUniforms = Array.from(
+        { length: gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS) },
+        (_, i) => gl.getActiveUniform(program, i)!.name
+      );
     return {
       pixels: [...pixels],
       error: renderer.getContext().getError(),
       geometries: renderer.info.memory.geometries,
+      cubeResources: cube ? 1 : 0,
+      activeUniforms,
     };
   } finally {
     renderer.setRenderTarget(null);

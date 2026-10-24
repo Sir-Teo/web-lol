@@ -1,6 +1,9 @@
 import { expect, test } from 'vitest';
 import * as THREE from 'three';
-import { createParticleMeshReflectionMaterial } from '../src/render/particle-mesh-reflection-material';
+import {
+  createParticleMeshReflectionMaterial,
+  createParticleMeshRimMaterial,
+} from '../src/render/particle-mesh-reflection-material';
 
 function bindings() {
   return {
@@ -70,4 +73,28 @@ test('nonfinite bindings and nonpositive powers fail before allocating a materia
     expect(() => createParticleMeshReflectionMaterial(g, { ...bindings(), ...extra })).toThrow(
       RangeError
     );
+});
+
+test('rim-only material borrows three textures and needs no cube or reflection fields', () => {
+  const { environment, reflection, reflectionColor, ...b } = bindings(),
+    g = new THREE.PlaneGeometry();
+  let disposed = 0;
+  for (const resource of [g, b.texture, b.lookup, b.remap])
+    resource.addEventListener('dispose', () => disposed++);
+  const m = createParticleMeshRimMaterial(g, b);
+  expect(m.uniforms.reflectionTexture).toBeUndefined();
+  expect(m.uniforms.reflectionParameters).toBeUndefined();
+  expect(m.uniforms.reflectionColor).toBeUndefined();
+  expect(m.defines.SOURCE_REFLECTIVE).toBeUndefined();
+  b.uvTransform.elements[0] = 42;
+  expect(m.uniforms.sourceUvTransform.value.elements[0]).toBe(1);
+  expect(m.uniforms.fresnel.value.toArray()).toEqual(b.fresnel);
+  expect(m.uniforms.sourceTexture.value).toBe(b.texture);
+  m.dispose();
+  expect(disposed).toBe(0);
+  expect(() => createParticleMeshRimMaterial(g, { ...b, fresnel: [1, 1, 1, 0] })).toThrow(
+    RangeError
+  );
+  g.deleteAttribute('normal');
+  expect(() => createParticleMeshRimMaterial(g, b)).toThrow('normal stream');
 });

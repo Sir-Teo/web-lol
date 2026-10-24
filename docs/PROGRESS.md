@@ -6174,3 +6174,35 @@ production/offline pack remain unchanged. Runtime adapter/local integration,
 resource lifecycle, weapon frames, native acceptance, player/support and full
 roster work remain open. No fresh production/cohort/performance result is claimed.
 The goal continues; nothing is pushed.
+
+
+## Zenith rim-only ordinary mesh material — October 24, 2026
+
+The explicit-input material now offers a no-cube rim-only factory for retained
+VS1/PS9 arithmetic. It shares validated normal/UV inputs, copied uniforms and
+per-vertex evaluation with the earlier reflective factory. The reflective path
+remains behind a shader define; the no-cube path supplies no reflection uniforms.
+Chrome active-uniform inspection confirms none are present in its linked program.
+Geometry/textures stay borrowed and blend/raster policy remains caller-owned.
+
+Six Chrome tests pass200 independent scalar/GPU comparisons,97 for rim-only and
+the103 earlier reflective checks. Alpha, varying normals/nonuniform scale,
+remap/saturation, depth/occlusion and exact context recovery are covered. The
+mapped-power control changes more than40 red levels versus raw. Full TypeScript,
+1,882 unit tests across309 files and three QA tests pass. A local source-sword
+comparison with derived normals changes5,633 pixels versus raw power and5,699
+versus zero rim. The complete model/image is visually checked. Synthetic tint,
+lookup/remap and raster/camera inputs remain labeled; no native frame follows.
+The first archive check caught active-uniform metadata from the last WebGL
+program, which could be the occluder. The fixture now inspects the particle
+material's linked program directly. Six browser tests and TypeScript pass after
+the metadata correction; the earlier archive/failure remain retained.
+See [scope](LEONA-E-RIM-MATERIAL.md) and
+[ledger](reference/leona/e-rim-material-verification.json).
+
+GameView imports neither exploratory factory. No public asset, schema126 or
+ruleset591ddf38 change occurred, so E stays18/20 and R41/44. No native execution,
+new production/offline run, normal cohort or performance acceptance is claimed.
+Explicit normal delivery and saved E source presentation integration are next;
+actual native dispatch/lifecycle/resources, weapon attachments, native frames,
+player/support and full roster gates remain open. The goal continues; no push.

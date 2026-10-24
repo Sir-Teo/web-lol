@@ -115,3 +115,9 @@ the authored zero alpha. Separate non-REFLECTIVE VS1/PS9 programs implement a
 rim-only path with no cube. The generic selector tests the original resource
 pointer, separately from a material descriptor fallback. Actual E dispatch,
 resource lifecycle, local integration and native frames remain open.
+
+The [rim-only material prerequisite](LEONA-E-RIM-MATERIAL.md) now shares the
+common arithmetic/stream validation while compiling out all cube/reflection
+uniforms. Six local Chrome tests retain both material paths; source-sword and
+synthetic comparisons remain explicit diagnostics, with GameView integration
+and actual native E bindings still open.
