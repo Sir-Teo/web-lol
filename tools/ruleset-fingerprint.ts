@@ -112,6 +112,7 @@ export const rulesetModuleRoots = [
   'src/render/leona-solar-surfaces.ts',
   'src/render/particle-distortion-pass.ts',
   'src/render/leona-solar-projection-frame.ts',
+  'src/render/leona-solar-projections.ts',
   'src/render/particle-decal-receivers.ts',
   'src/render/leona-solar-history.ts',
   'src/render/leona-zenith-history.ts',

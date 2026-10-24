@@ -1,0 +1,847 @@
+{
+  "schema": 1,
+  "scope": "Solar Flare planar diffuse clamp policy from bounded generic native descriptor/Metal address propagation; actual Leona CPU dispatch and native frame parity remain open",
+  "baselineCommit": "935d425",
+  "ruleset": "591ddf38f2020153fafd7cb802a936194de3c2296ae0022371047ed1453581c6",
+  "snapshotSchema": 126,
+  "sourceArchive": ".cache/leona-r-native-sampler-accepted-v1-20261024/source-archive.json",
+  "priorSourceArchive": ".cache/leona-r-early-distortion-accepted-v1-20261024/source-archive.json",
+  "checks": {
+    "standard": ".cache/leona-r-native-sampler-validation-v1-20261024/check.log",
+    "qaTypecheck": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+    "browser": ".cache/leona-r-native-sampler-validation-v1-20261024/browser.log",
+    "native": ".cache/leona-r-native-sampler-validation-v1-20261024/native-bindings.log",
+    "projectors": [
+      ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-projections-bl-b9d7a-s-and-restores-saved-pixels/evidence.json",
+      ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-projections-re-30241-s-and-restores-saved-pixels/evidence.json"
+    ],
+    "projectorRecovery": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-projections-R--6d2b7-casts-retire-owned-geometry/recovery-storage.json",
+    "rift": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-projections-R--a4e32-ly-and-preserves-simulation/rift-receivers.json",
+    "families": [
+      ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-surfaces-Solar-32ebc-pixels-through-saved-phases/families.json",
+      ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-surfaces-Solar-f094e-pixels-through-saved-phases/families.json"
+    ],
+    "early": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-surfaces-three-c2af6-ther-keeps-the-stage-active/early-capture.json",
+    "decal": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/particle-decal-material-na-fa5d8-ive-exact-graphics-recovery/decal-arithmetic.json",
+    "staticAssets": ".cache/leona-r-native-sampler-validation-v1-20261024/static-asset-comparison.json",
+    "production": ".cache/leona-r-native-sampler-validation-v1-20261024/production.log",
+    "offline": "artifacts/offline-pack-leona-r-native-sampler-v1-20261024-production.json"
+  },
+  "pack": {
+    "id": "9c0bc52645d2873e75c0241e1df89186c2a051ec10e7fc71a8aaf25abe7d1a38",
+    "files": 1011,
+    "bytes": 513276626
+  },
+  "generated": [
+    {
+      "file": "dist/assets/finite-source-audio-BnyRwbmH.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/finite-source-audio-BnyRwbmH.js",
+      "bytes": 3096,
+      "sha256": "a0c9df4cfc1ab06224870cdbdd5c74a96465ff6f7805c56251cb91dbfc695c60"
+    },
+    {
+      "file": "dist/assets/game-DMLuJ5Rx.css",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/game-DMLuJ5Rx.css",
+      "bytes": 28131,
+      "sha256": "7a6e46eda4835c2621cb7c828782da8d18306c2fb1dead6efc54637fbc788dcb"
+    },
+    {
+      "file": "dist/assets/game-DpGz7zoD.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/game-DpGz7zoD.js",
+      "bytes": 1019499,
+      "sha256": "1f10b70e9ffbe8ed8c4b47d7f76c52e711c455140c588a209f7f78f60ff25bcf"
+    },
+    {
+      "file": "dist/assets/garen-aa-6gkoVUXh.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/garen-aa-6gkoVUXh.js",
+      "bytes": 31963,
+      "sha256": "ede552d2141c06fedc1607b7aefaa96272ebf69178a7cd27887648273a48679b"
+    },
+    {
+      "file": "dist/assets/garen-basic-attacks-BcF7w_iz.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/garen-basic-attacks-BcF7w_iz.js",
+      "bytes": 30590,
+      "sha256": "57fcbec582c99c95ce06fb40eeae542f0ed570f363b50f323dafb488472757aa"
+    },
+    {
+      "file": "dist/assets/garen-courage-B-d1ueNj.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/garen-courage-B-d1ueNj.js",
+      "bytes": 21867,
+      "sha256": "99755d609802b0d8e639d38aad32c5a6981df5c549cb117a10a7c3fd135584c3"
+    },
+    {
+      "file": "dist/assets/garen-decisive-strike-DpR9xJVP.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/garen-decisive-strike-DpR9xJVP.js",
+      "bytes": 55151,
+      "sha256": "87bb4d992a8878c2b4f67cb885c7a05613c6750fcb76e092176ba37338d239e2"
+    },
+    {
+      "file": "dist/assets/garen-justice-CKw0Qvy2.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/garen-justice-CKw0Qvy2.js",
+      "bytes": 42381,
+      "sha256": "77dec3666b29040a3a3b088fd5f75bb60b701a8a7a95579a93d371561a5466ea"
+    },
+    {
+      "file": "dist/assets/garen-p-CT4ZWpp4.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/garen-p-CT4ZWpp4.js",
+      "bytes": 5760,
+      "sha256": "a5c9b82f7ce708f09a2a2df62b0781b18eb92f31a711aded1863a75b91888103"
+    },
+    {
+      "file": "dist/assets/garen-perseverance-J2JXFoiJ.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/garen-perseverance-J2JXFoiJ.js",
+      "bytes": 3120,
+      "sha256": "fc2c5e806d9c7dc0b7b86b3cbc86c8b3d15eba9cb04929c74f363700764afb1c"
+    },
+    {
+      "file": "dist/assets/garen-q-DmfVECWr.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/garen-q-DmfVECWr.js",
+      "bytes": 10787,
+      "sha256": "b376cf55827a5dbf14be65ad893aa6261ecb6ff952500605346a5cb28273e08d"
+    },
+    {
+      "file": "dist/assets/garen-r-DOe4IwVR.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/garen-r-DOe4IwVR.js",
+      "bytes": 6727,
+      "sha256": "9717e12806a2af8800ee82bd58c9874aca6396f2705ae7ee454874d26926b8cc"
+    },
+    {
+      "file": "dist/assets/garen-w-DgwrGtUT.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/garen-w-DgwrGtUT.js",
+      "bytes": 8107,
+      "sha256": "188c795834f4906ea3fc1b38951440d31c24ec4b56cfbd9d303df76905a7126a"
+    },
+    {
+      "file": "dist/assets/gromp-attack-BLKJLzee.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/gromp-attack-BLKJLzee.js",
+      "bytes": 12028,
+      "sha256": "e535a40d10514d6e8d71fb113325c287978556e6698f8a37157e169a6dd345bc"
+    },
+    {
+      "file": "dist/assets/gromp-death-CHk0hCVN.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/gromp-death-CHk0hCVN.js",
+      "bytes": 5395,
+      "sha256": "811ebf580a02b080aeb1385bcaa3dad2b5b69ffaceae9a1c2d06ca11d91afd7a"
+    },
+    {
+      "file": "dist/assets/gromp-death-particles-DAXlx_eJ.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/gromp-death-particles-DAXlx_eJ.js",
+      "bytes": 12929,
+      "sha256": "7db2d664ab355aeb64b93a80b4d96a712e4f30342afaaf0de157bb38b01e6478"
+    },
+    {
+      "file": "dist/assets/ground-walkability-mask-BRVRrShL.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/ground-walkability-mask-BRVRrShL.js",
+      "bytes": 528,
+      "sha256": "a212cb24fdb690aa96c78629abf9490711527cb30de95b3bcf0aa0441978079f"
+    },
+    {
+      "file": "dist/assets/leona-daybreak-ClEhbnFR.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/leona-daybreak-ClEhbnFR.js",
+      "bytes": 31311,
+      "sha256": "96f33b4791892adde402b1a97ccd649a86cc7807022f731145436993a452d8a4"
+    },
+    {
+      "file": "dist/assets/leona-e-DeBWytEG.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/leona-e-DeBWytEG.js",
+      "bytes": 14611,
+      "sha256": "62768302d38b29c837434f9b6a720126ee71d4c0e5bbc7f3a33a0fa6987a97a8"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-history-CBDVTn3F.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/leona-eclipse-history-CBDVTn3F.js",
+      "bytes": 139276,
+      "sha256": "80682aa1ccbbece48b1e878fffc93ab7bbc8241977b40e9b215cafb1d1d7901e"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-skin-material-CJi1Uja_.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/leona-eclipse-skin-material-CJi1Uja_.js",
+      "bytes": 3385,
+      "sha256": "25a3cc204fe9e24ca3dccdb403836a234463e9d2565439de0595f219665816c7"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-skins-BPFzhNLh.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/leona-eclipse-skins-BPFzhNLh.js",
+      "bytes": 3115,
+      "sha256": "67de54364e7a90b475a1c1d315a2a0df5881e3e60d998b1d1f27445e1419d8b6"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-surfaces-DY9zKMIB.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/leona-eclipse-surfaces-DY9zKMIB.js",
+      "bytes": 2123,
+      "sha256": "7cf03a57ede0405f1bc2439c4faecb8511918c1e41536315743b6e017fc132c1"
+    },
+    {
+      "file": "dist/assets/leona-eclipse-values-dWtYTEXM.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/leona-eclipse-values-dWtYTEXM.js",
+      "bytes": 881,
+      "sha256": "833262807403955e967f9fb8e0cc73cbf75176b8b2b5c42c8560a34401a5bde0"
+    },
+    {
+      "file": "dist/assets/leona-r-CHOKBwvh.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/leona-r-CHOKBwvh.js",
+      "bytes": 6841,
+      "sha256": "403595aa3578fab2b246b4605e85bacaed3a05180920fb3f7f585b2914fc9590"
+    },
+    {
+      "file": "dist/assets/leona-solar-history-uijc-gdn.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/leona-solar-history-uijc-gdn.js",
+      "bytes": 164627,
+      "sha256": "cf22ff239aeeb33eb73d68b907c29ea2ca33bb42b1310bb2f7362925c4683f4b"
+    },
+    {
+      "file": "dist/assets/leona-solar-projections-4K5KW6xR.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/leona-solar-projections-4K5KW6xR.js",
+      "bytes": 7210,
+      "sha256": "3e21242754341be261e6c7dfe8cfe36745084f39571af20fb31c1a69394f516e"
+    },
+    {
+      "file": "dist/assets/leona-solar-skins-DOcIym51.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/leona-solar-skins-DOcIym51.js",
+      "bytes": 6734,
+      "sha256": "b3421d813f2ea99e528cce042cf7f89c9325b6c014b892eb726e8148d885da6a"
+    },
+    {
+      "file": "dist/assets/leona-solar-surfaces-C4HWlF-E.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/leona-solar-surfaces-C4HWlF-E.js",
+      "bytes": 2547,
+      "sha256": "8c330fc5a03557d7c3d34f1c1d49856cb5ded122bd346bd6dbe35aa44adddebd"
+    },
+    {
+      "file": "dist/assets/leona-w--9xOEnBL.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/leona-w--9xOEnBL.js",
+      "bytes": 11872,
+      "sha256": "affe577621f5b297211cd28c7a99bee77af625a5c275292caabaeb197addcdca"
+    },
+    {
+      "file": "dist/assets/leona-zenith-history-BfdRWd-P.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/leona-zenith-history-BfdRWd-P.js",
+      "bytes": 2070,
+      "sha256": "72403898acc9dc90ec05c5ffe87629ecce67efccff96894b00fb5b52904b90fe"
+    },
+    {
+      "file": "dist/assets/leona-zenith-particles-wZKvl9M9.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/leona-zenith-particles-wZKvl9M9.js",
+      "bytes": 86851,
+      "sha256": "6438616ebf2f28ad6771547fda13fdb5e4f512050e73d8fb558375d69ca3b7fc"
+    },
+    {
+      "file": "dist/assets/leona-zenith-ribbons-xlZ9-k1N.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/leona-zenith-ribbons-xlZ9-k1N.js",
+      "bytes": 8081,
+      "sha256": "2739486e39c71767503626462a3b2f4db6b6b8c94daa3539092c85765f2fdb27"
+    },
+    {
+      "file": "dist/assets/leona-zenith-skins-DWH5fj9d.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/leona-zenith-skins-DWH5fj9d.js",
+      "bytes": 3486,
+      "sha256": "9e08c04b21bce6bfebd2c2c2aec1c862847db20be77ba259db9ede6dc3c94700"
+    },
+    {
+      "file": "dist/assets/leona-zenith-surfaces-rjc0QG8P.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/leona-zenith-surfaces-rjc0QG8P.js",
+      "bytes": 2714,
+      "sha256": "5cfbac270332cecb933b5ace0ca952b3913771c617ee256af4269b8169027de2"
+    },
+    {
+      "file": "dist/assets/map-B-1HT630.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/map-B-1HT630.js",
+      "bytes": 3775,
+      "sha256": "7a97c1804bcca0f854e27f45dca5d6ed5d03579bff861334363a7fda9ec016fe"
+    },
+    {
+      "file": "dist/assets/map-wSGUvK3C.css",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/map-wSGUvK3C.css",
+      "bytes": 1481,
+      "sha256": "7d2f396bd68c37d88d74d292d3e2f9b75e4b79515a3a1ad2618e3ad7a9d136f7"
+    },
+    {
+      "file": "dist/assets/oracle-CnYXK2FG.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/oracle-CnYXK2FG.js",
+      "bytes": 5752,
+      "sha256": "877e78f6daab3a5df55af6ead504e5fa15bc3db51752895b8f82ad3ff6855428"
+    },
+    {
+      "file": "dist/assets/oracle-particles-DG9y229t.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/oracle-particles-DG9y229t.js",
+      "bytes": 55716,
+      "sha256": "540b2a563dbb633f56461d30588d8c66c30342fa42311279d6a01af6401aa279"
+    },
+    {
+      "file": "dist/assets/particle-motion-CMiwlXbq.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/particle-motion-CMiwlXbq.js",
+      "bytes": 326,
+      "sha256": "3fd9bf71796b5dc9fbb31bfeccd383e5cb818b81a9f4f95df0bcc01995a581f0"
+    },
+    {
+      "file": "dist/assets/rift-assets-CvJa3nt8.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/rift-assets-CvJa3nt8.js",
+      "bytes": 9106,
+      "sha256": "5c9942be55c1b2aae559f37b6a6c41462c009d3034764054709523b1a1a40921"
+    },
+    {
+      "file": "dist/assets/source-particle-surfaces-DSz6ArTm.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/source-particle-surfaces-DSz6ArTm.js",
+      "bytes": 16641,
+      "sha256": "0c487fa800104ef1e4a66404907cd4e5ef9f3b7512fea0a044ab2e036be1efa3"
+    },
+    {
+      "file": "dist/assets/sunlight-0MiZzewW.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/sunlight-0MiZzewW.js",
+      "bytes": 3789,
+      "sha256": "2712243afb42e18aacd50bab92fb61983e80be981c3b3d956a9e8857aaa591e6"
+    },
+    {
+      "file": "dist/assets/three-BKTaLgnQ.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/assets/three-BKTaLgnQ.js",
+      "bytes": 679005,
+      "sha256": "141fe7821830e52089511652651bea574cd89b3705c6c9e98c36ce65f71eb17d"
+    },
+    {
+      "file": "dist/index.html",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/index.html",
+      "bytes": 999,
+      "sha256": "9ec25ccf744ba939cba34b70a5f2d64d4330ab7f54b2d997479a8529ef5512ab"
+    },
+    {
+      "file": "dist/map.html",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/map.html",
+      "bytes": 618,
+      "sha256": "bf0c99eea6466764b9cfe1657e34463e7181d6f7486917cb14d9a34affb8a108"
+    },
+    {
+      "file": "dist/offline-pack.json",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/offline-pack.json",
+      "bytes": 145427,
+      "sha256": "b51b0119000dfdc74d95a4437457c1f363c2d7f5f443807b366a78a6596ffb6c"
+    },
+    {
+      "file": "dist/offline-worker.js",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-build/offline-worker.js",
+      "bytes": 148632,
+      "sha256": "88fda4147593c4c48877fcbc9ccba2e2ad5ebc062bba73983f194254f9393265"
+    }
+  ],
+  "native": [
+    {
+      "file": "docs/reference/leona-native-matching.json",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/frozen-inputs/docs/reference/leona-native-matching.json",
+      "bytes": 23862,
+      "sha256": "57a8cf95b813290d512bc0d99dc7ced639709b02d206e2a6bb3fab7034d8168e"
+    },
+    {
+      "file": ".cache/leona-native-matching-v1-20261024/native/LeagueofLegends.app/Contents/MacOS/LeagueofLegends",
+      "archived": ".cache/leona-native-matching-v1-20261024/native/LeagueofLegends.app/Contents/MacOS/LeagueofLegends",
+      "bytes": 82268192,
+      "sha256": "97edcf2c88fec3169a1ec36345276569de3329e27fd9b32c8162957a77135c6c"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/installed-rea/package.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/installed-rea/package.json",
+      "bytes": 19538,
+      "sha256": "1c6244e5689db5354fffc0e92f4ee0e0237c3a6d645de564ade2d8375fa570f9"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/installed-rea/hopper_bridge.py",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/installed-rea/hopper_bridge.py",
+      "bytes": 50481,
+      "sha256": "b7e022ca936c55f9a9f2f73b9201176515a509c7936e3f1e882d5bdfa4c302e2"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/installed-rea/BridgeLauncher.js",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/installed-rea/BridgeLauncher.js",
+      "bytes": 13306,
+      "sha256": "161fd96c90803e13dac6754499b20d56c824048c1d2621ebc8bff7e77dcab2c8"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/installed-rea/HopperClient.js",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/installed-rea/HopperClient.js",
+      "bytes": 27455,
+      "sha256": "1bb1dde459e1f7e526d8595dc0ea4462c1e9ab437462707f220bacbbb8fac2cc"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/installed-rea/HopperCleanup.js",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/installed-rea/HopperCleanup.js",
+      "bytes": 10212,
+      "sha256": "108c2d1f54ec024c15f0f93bd38df12696282173fefd99f90152559a11dca802"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/installed-rea/HopperSocketConnection.js",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/installed-rea/HopperSocketConnection.js",
+      "bytes": 1087,
+      "sha256": "00dbf1b300e7d498886f062afeeac13eb827d2f59af3f3d12144393d57ebf5b4"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x10188ee40.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x10188ee40.json",
+      "bytes": 506698,
+      "sha256": "771afce64d044bbe93928e8caf12b08b8dafa77f2e4e65cb57f9f08c9dc2bb14"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x1018c10b4.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x1018c10b4.json",
+      "bytes": 344019,
+      "sha256": "dd0e452d75768debf6690ab01da8a4186cb00564f6effc7d14aa2754557e7d70"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x1018c2528.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x1018c2528.json",
+      "bytes": 103704,
+      "sha256": "1e0954aca608ffcf11a9c7d29b5bb8daac3b49c3a20c7228f6c628995898409c"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x1018c2d28.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x1018c2d28.json",
+      "bytes": 135912,
+      "sha256": "097181c7772adc33f5870ab28f382044d2010b22a1cf0903530e5fafd203a499"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101893784.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101893784.json",
+      "bytes": 69741,
+      "sha256": "cc06481d0bdfbc1bc9bfee35eed2eff073c81fbc3d95fb81962f5a62fa224962"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101951e58.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101951e58.json",
+      "bytes": 21292,
+      "sha256": "5376ef3ffc56fffa10e33a3a2b8fe60545fea0f2c135eeb1101389d8972cffbb"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101970ad4.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101970ad4.json",
+      "bytes": 233692,
+      "sha256": "c347aa61be8db4ef38ac10150d6968aef10858568d2ed4818d4f60a7fe3bb03c"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x1019713e0.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x1019713e0.json",
+      "bytes": 44461,
+      "sha256": "c783f1760fec8f81365fd7b6883ffe4cd931114a2f6fd1b10e6ddf83524c71f2"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x10197227c.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x10197227c.json",
+      "bytes": 20425,
+      "sha256": "7dc20ea451764a042a4cda49c27451c29849c780c7fd0350b8a8276a926fdad6"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a751bc.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a751bc.json",
+      "bytes": 534777,
+      "sha256": "d1e21294b6bed7d54825612bc65bcc1080b77c35d3f1255ef36b6b867513afb6"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a83d54.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a83d54.json",
+      "bytes": 140951,
+      "sha256": "d0ee2b7ec7819933edb4ebccbdf7ce0ef09631edb95608d456adb6e2a7c441c8"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a85e00.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a85e00.json",
+      "bytes": 16134,
+      "sha256": "5fb3aeabdf64b212d785d30566936fde19428572aed75b3ca7384220e7977a2b"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a86bc0.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a86bc0.json",
+      "bytes": 55217,
+      "sha256": "480575aae8d5f305e8b87d34fed918623d1cff5de71eb2fc75ca49e347ffd853"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a8a8e8.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a8a8e8.json",
+      "bytes": 77111,
+      "sha256": "4843a6da08a6c1f8faff8ff4347a00cfcf9ff3b3fab7142090f5e5a8d9b3eb8c"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a8e1ac.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a8e1ac.json",
+      "bytes": 11294,
+      "sha256": "2e28c24719b52548c4b120271ba4d722a538eea02fa35efa028da94e0869a096"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a8e23c.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a8e23c.json",
+      "bytes": 36783,
+      "sha256": "afd4ed5091189b9aa861d74bf329997461eeee7f9e19d8779ff6503ee6b94dfb"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a8e398.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a8e398.json",
+      "bytes": 55329,
+      "sha256": "2485cefa1461a9a9110807c408a77e8dea27e99dd521291e2ec53d1f07c93de0"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/sentinel-xrefs-0x102531460.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/sentinel-xrefs-0x102531460.json",
+      "bytes": 3467,
+      "sha256": "d8432d2586482d07df8419600e52fd6d57cb0f53af2718fb1532cd633f29328c"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/sentinel-xrefs-0x1025e84e0.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/sentinel-xrefs-0x1025e84e0.json",
+      "bytes": 758,
+      "sha256": "d0fd74937bd92a92228541634e7dbb8d5f7a48644acfed0de8cb2f398b5d4782"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/fallback-manager-xrefs.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/fallback-manager-xrefs.json",
+      "bytes": 9893,
+      "sha256": "abece05c0a6e4a7bcb954058bf434b2b0228e8f0843902f464a02d6bce627ea9"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101954898.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101954898.json",
+      "bytes": 171795,
+      "sha256": "ee01cb3cd99407d427e986677c176268749010b149e4145d171f9dceab1c5003"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a866f4.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a866f4.json",
+      "bytes": 6593,
+      "sha256": "8076f264b46bb1706d0d3973310377578608d30af0e7b688119cc086b957289c"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a83444.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a83444.json",
+      "bytes": 42696,
+      "sha256": "1be277f422b5b0cb845cd21a457f3fceab206e323f0319318a5a539bbf843f72"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a83aa8.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a83aa8.json",
+      "bytes": 42971,
+      "sha256": "740ffe3829d464e9fa81c3740ce7ce9ebd913ffc337fce67addc326bc6895c6c"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a85204.json",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a85204.json",
+      "bytes": 196281,
+      "sha256": "e57cc7796700aae76bb96f6c111a7a41f66dc716c7981b4bce1647506e6d5c76"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/sdk/MTLSampler.h",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/sdk/MTLSampler.h",
+      "bytes": 10390,
+      "sha256": "b627e271c1c883c3ec654dfbbdd55564063d0073d5542ae51d83930b2bf525ae"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/sdk/MTLPixelFormat.h",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/sdk/MTLPixelFormat.h",
+      "bytes": 14116,
+      "sha256": "b7260357997a08bfab5736e0d05ae386b5f297d350608203801c117fbb96d6d5"
+    },
+    {
+      "file": ".cache/leona-native-particle-bindings-v1-20261024/sdk/MTLTexture.h",
+      "archived": ".cache/leona-native-particle-bindings-v1-20261024/sdk/MTLTexture.h",
+      "bytes": 23931,
+      "sha256": "0ced1551d94e628a3ab9a83a679917febaf5a582dd56300802a0169f89c1692b"
+    },
+    {
+      "file": "tools/assets/verify-leona-native-particle-bindings.py",
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/frozen-inputs/tools/assets/verify-leona-native-particle-bindings.py",
+      "bytes": 13221,
+      "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+    }
+  ],
+  "evidence": [
+    {
+      "archived": ".cache/leona-r-early-distortion-accepted-v1-20261024/source-archive.json",
+      "bytes": 900504,
+      "sha256": "9f77a9c381137bd4e649c96bea65120c7dd6c150e8281413535180843fd58923"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1811658,
+      "sha256": "aafaba41dd19401ef4843441765af8a8cb4a20fab0f7dc0d053dd466625590c1"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1833946,
+      "sha256": "684d3fb3ce35b2bd72dc3bdf6048279f5ecc909864794da0afb0149fc2dd110f"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1830557,
+      "sha256": "4bebe8eb7aa0598bde21ed6b755986ef2102d90dd0a4998de70355751ea58682"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1804690,
+      "sha256": "892ca8186317b9ac20e087ed0d3c73410f51eebaf4c95ba6f2ef7d4ff601410c"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1817484,
+      "sha256": "b5c1c6655caecc58e597ac371e2d835d67226cd1caf1bc5b1e697ae463b7d992"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1346619,
+      "sha256": "4ac4a256258c07f5209f624dfd4965b2b4377625979591e59a69635254babb1a"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1820344,
+      "sha256": "a7f6e6ec5ca22d15263dac372f53b0d654a1d397a8185df1b2808bc6bf7e2690"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1812925,
+      "sha256": "a980ccb20f54c2b2316957b19390acdc5abc8d6a861cb84bed0ed1e95e46db7a"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-accepted-v1-20261024/source-archive.json",
+      "bytes": 904178,
+      "sha256": "03efca3666cf6747cff0c44da230ba0061204ec2c41cbdb04685ddf75a9ab6fe"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser.log",
+      "bytes": 2618,
+      "sha256": "4e54b2ffbd9a73eff265613841974fb9b5c1247cbf8ede0840795b829a79254e"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-projections-R--6d2b7-casts-retire-owned-geometry/recovery-storage.json",
+      "bytes": 167375,
+      "sha256": "b7dad3bea54c96ca2dc446a3373a67c52cf553943631118151ef06a44a6e2d86"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-projections-R--a4e32-ly-and-preserves-simulation/rift-receivers.json",
+      "bytes": 19335,
+      "sha256": "4a5c420ffca83af4c109a134b5f01886161db046f8de3a1e5c91518178d7223b"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-projections-bl-b9d7a-s-and-restores-saved-pixels/after-reload.png",
+      "bytes": 1008112,
+      "sha256": "2170b7856c7df6f75c73e96d836b3d54fff9cc101fdeeea9deb360a5f00a7bc2"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-projections-bl-b9d7a-s-and-restores-saved-pixels/before-save.png",
+      "bytes": 1008112,
+      "sha256": "2170b7856c7df6f75c73e96d836b3d54fff9cc101fdeeea9deb360a5f00a7bc2"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-projections-bl-b9d7a-s-and-restores-saved-pixels/evidence.json",
+      "bytes": 177659,
+      "sha256": "444de159c15c79ac879e9c3e1f0004d956223550f9dec0429f8fe5c0a1f0c515"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-projections-bl-b9d7a-s-and-restores-saved-pixels/planar-sun-canvas.png",
+      "bytes": 1008112,
+      "sha256": "2170b7856c7df6f75c73e96d836b3d54fff9cc101fdeeea9deb360a5f00a7bc2"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-projections-bl-b9d7a-s-and-restores-saved-pixels/restore-diagnostic.json",
+      "bytes": 166318,
+      "sha256": "4f0180d372e8a9d39d08015eadc6683b611cef26e88f9808d9a234f80d7f3175"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-projections-re-30241-s-and-restores-saved-pixels/after-reload.png",
+      "bytes": 1022350,
+      "sha256": "0ab8c1ac9d557774442c26fec3a3070f9f0d0b6d803f0a407ce53fc0d1b616bf"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-projections-re-30241-s-and-restores-saved-pixels/before-save.png",
+      "bytes": 1022350,
+      "sha256": "0ab8c1ac9d557774442c26fec3a3070f9f0d0b6d803f0a407ce53fc0d1b616bf"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-projections-re-30241-s-and-restores-saved-pixels/evidence.json",
+      "bytes": 178502,
+      "sha256": "be812e480f7ba6e9d255644eac8c24cc123a2f733313630fb68d3e2fdd306b5e"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-projections-re-30241-s-and-restores-saved-pixels/planar-sun-canvas.png",
+      "bytes": 1022350,
+      "sha256": "0ab8c1ac9d557774442c26fec3a3070f9f0d0b6d803f0a407ce53fc0d1b616bf"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-projections-re-30241-s-and-restores-saved-pixels/restore-diagnostic.json",
+      "bytes": 166884,
+      "sha256": "971059b191c0f74db08e3871cb3e90ee309cea90290314e3441d535df06ab4b0"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-skins-R-weapon-1cccf-saved-poses-and-framebuffer/R weapon-mask.png",
+      "bytes": 409541,
+      "sha256": "8b2835e0ab451c9716eed62c9ae631a2ae740e4043673083d1fedb97c716a5ea"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-skins-R-weapon-1cccf-saved-poses-and-framebuffer/evidence.json",
+      "bytes": 176357,
+      "sha256": "db2ee6177de5d35d9d46a61fa4b17882257e59643f73460e71bb62f933db9b5e"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-skins-R-weapon-1cccf-saved-poses-and-framebuffer/weapon-mask-canvas.png",
+      "bytes": 873372,
+      "sha256": "37a1ef74c84d53027f4400c9345c3960269be9d6d1e44e19e7a0cf1c7ad9c3d8"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-skins-R-weapon-647a2-and-retires-its-private-rig/recovery-release.json",
+      "bytes": 140843,
+      "sha256": "cfd3e714c21d3998ff1bbc28344b672fe080d3c2b16afa3ef0f371ca11055261"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-skins-repeated-03628-p-shared-GPU-memory-bounded/storage.json",
+      "bytes": 680,
+      "sha256": "eb32f0e0a3d27d7fbe0702dcc264479f68032340ce843ffda870936401ea0475"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-surfaces-Solar-32ebc-pixels-through-saved-phases/families.json",
+      "bytes": 71997,
+      "sha256": "f62a2fbdaa85e2a61735b1789e1a94064aa662896c267832465b5b87bd2bb905"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-surfaces-Solar-32ebc-pixels-through-saved-phases/source-12.png",
+      "bytes": 609498,
+      "sha256": "e4d66f40ac1f4e12de5ed76c09a1eb28f01808d6446439d0413b71b6b7322a32"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-surfaces-Solar-32ebc-pixels-through-saved-phases/source-40.png",
+      "bytes": 644439,
+      "sha256": "d6ae3b31a8a07336bbcfde8f422967ddf5307423dfcfa1d371d4abb8979568e0"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-surfaces-Solar-32ebc-pixels-through-saved-phases/source-62.png",
+      "bytes": 623796,
+      "sha256": "cd6147a923cfd5e7e9770c089f815a0b13e6d684f55bcc06326f0d9645e9a7bc"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-surfaces-Solar-f094e-pixels-through-saved-phases/families.json",
+      "bytes": 71606,
+      "sha256": "0a7cfca697ff46f72e7e2d03e13ab4d3c177e0b9cd400bf3f72c9bae1b5fd270"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-surfaces-Solar-f094e-pixels-through-saved-phases/source-12.png",
+      "bytes": 603443,
+      "sha256": "e5465ad76d10c1c4cb5d01f46803980ef3b4b718fa28bca1beabf03fb85764c5"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-surfaces-Solar-f094e-pixels-through-saved-phases/source-40.png",
+      "bytes": 639443,
+      "sha256": "fb992c4a4875f8239cf109bdcfcfc3cc089e0bd4fe6bfb868212d91d2704f21d"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-surfaces-Solar-f094e-pixels-through-saved-phases/source-62.png",
+      "bytes": 621311,
+      "sha256": "59369719d688c2933d4bcb3d11d37cf189c404d53eda2fd4160c3789cca0b0e9"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-surfaces-repea-baf50-ies-with-bounded-GPU-memory/storage.json",
+      "bytes": 2397,
+      "sha256": "1f56d1969ea0a5d32db6caccb0234531191a3e8182c9e3f243c56aadf3d8470c"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-surfaces-surfa-aecb0-eload-and-graphics-recovery/pre-recovery.json",
+      "bytes": 155247,
+      "sha256": "8319e63d5eac6fd0f999a4e05feba0995e315dcd0b42346c13c36495fa05bcbc"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-surfaces-surfa-aecb0-eload-and-graphics-recovery/restore-recovery.json",
+      "bytes": 232857,
+      "sha256": "f02ff83a5c2c68a0b80aa0730aef619918b3b7f6064c88a17bf087938d54eb8e"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-surfaces-surfa-f7e8a-eload-and-graphics-recovery/pre-recovery.json",
+      "bytes": 1124367,
+      "sha256": "aff28414d3f3250ef52ba37ff0d31ecbb611b36b9430f890afd2611b3553ada5"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-surfaces-surfa-f7e8a-eload-and-graphics-recovery/restore-recovery.json",
+      "bytes": 1686537,
+      "sha256": "9650d3cb09f3810c7fb3fbc8581f3406bd392ee712db4bbd0021229ace8ba90e"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-surfaces-three-c2af6-ther-keeps-the-stage-active/R-early-impact-canvas.png",
+      "bytes": 788981,
+      "sha256": "0570b51943fc25b00e0edbecce42cde1c11087900a28b9f1db664633e02bb0fc"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/leona-solar-surfaces-three-c2af6-ther-keeps-the-stage-active/early-capture.json",
+      "bytes": 727,
+      "sha256": "5e27d9fd9bf333b75f03ed04d2c3a6c665ffcc45ad384aa20fe7628e4ab37987"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/browser/particle-decal-material-na-fa5d8-ive-exact-graphics-recovery/decal-arithmetic.json",
+      "bytes": 175945,
+      "sha256": "db24e60aafdfb7e43826dc46e163b2ae167958eedd8192733c6eb9a78214d65d"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/check.log",
+      "bytes": 1040,
+      "sha256": "f701c377cfd974ba360d466737f6c88f85ea5bf26c6c3c6a69b9e10a7fcb006e"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/format.log",
+      "bytes": 48,
+      "sha256": "30b5ab78b6f189bf54e730025032d7a2159fcd0862dbce1f32f29b03c6206f61"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/native-bindings.log",
+      "bytes": 160,
+      "sha256": "4f9051e5d1e083294cc2d33f75f509e20039e19ceaa2050514cc27f0c901ed49"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/offline.log",
+      "bytes": 689,
+      "sha256": "d7e2983bb8dcf7c0272c25939e17f788bf39d8565dacf33a5efb2652f15c70ce"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/production.log",
+      "bytes": 6410,
+      "sha256": "3b7d9309f8aea1b41952f07bff62c023875612334862a96a4666b9e41946046b"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/static-asset-comparison.json",
+      "bytes": 218,
+      "sha256": "64246fbf629a84c3b56f849ffbd0458c0088134036af8089cbb2edd997befff0"
+    },
+    {
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/tsconfig.e2e.json",
+      "bytes": 328,
+      "sha256": "b48fc94a1b67f9309e5c6bb69e981f5fc9a88dbacfc46ebe41721695d2113041"
+    },
+    {
+      "archived": "artifacts/offline-pack-leona-r-native-sampler-v1-20261024-lux-lanes.png",
+      "bytes": 476878,
+      "sha256": "45edcaba26299785eba97265eca87e41bce0519d69cd65f699d79f5bfa8e8f35"
+    },
+    {
+      "archived": "artifacts/offline-pack-leona-r-native-sampler-v1-20261024-production.json",
+      "bytes": 650,
+      "sha256": "e5f4f65424a2c425f3c04aa6bf49333002102bfff8b3ee4056c429664c827e7e"
+    },
+    {
+      "archived": "artifacts/offline-pack-leona-r-native-sampler-v1-20261024-ready.png",
+      "bytes": 531229,
+      "sha256": "58949c1a83ba7edeb846db81112e259f12b7b9f656f3c6fa43c73d591fa0ff4e"
+    }
+  ],
+  "acceptance": {
+    "localRDecalClamp": true,
+    "integratedRFamilies": 41,
+    "genericNativeSamplerContract": true,
+    "actualLeonaCpuDispatch": false,
+    "nativeFrameVerified": false,
+    "fullProjectComplete": false
+  },
+  "limits": [
+    "All provider observations are direct owned Hopper bridge output, not REA MCP Evidence. Matching whole/arm64 artifact, original instruction bytes and SDK enums are retained.",
+    "Native empty-base fallback has a conditional transparent BGRA8 interpretation on the traced Metal backend; actual Leona source-loader/default primitive/dispatch/resource-success/frame behavior remain unobserved.",
+    "Generic 32-byte material record three address axes are distinct from other Metal sampler object layouts. Exact CPU receiver/matrix/state/FOW/mipmap/full-phase/frame correspondence remains open.",
+    "Only planar diffuse address changes; lookup already clamp. Original source fields/images/audio unchanged; all965 static pack files byte-identical. Schema126 unchanged; ruleset591ddf38 includes projector runtime/import graph.",
+    "Full1881 unitcases/309files plus3NodeQA,14Chrome/640decal samples,32productionrecordings,1011file offlinepack pass. No new normal cohort/CPUbenchmark/native target/shader/GPU run claimed.",
+    "Read-only fallback bridge client released. Original REA cleanup remains unconfirmed; unsaved Hopper demo document remains open."
+  ]
+}

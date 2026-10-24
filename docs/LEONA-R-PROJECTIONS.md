@@ -126,5 +126,10 @@ freezes source inputs, exact reader/native bytes, generated build and diagnostic
 
 The later [early distortion increment](LEONA-R-EARLY-DISTORTION.md) adds three
 impact warp families, for 41 of 44 enabled R families across both area colors.
+
+The later [native sampler correction](LEONA-R-NATIVE-SAMPLERS.md) replaces the
+projector's source-mode diffuse address with the retained generic decal path's
+clamp-to-edge override. Receiver eligibility, matrices, native dispatch and frame
+acceptance remain separate.
 This planar acceptance remains a frozen historical stage; use
 `node tools/qa/verify-leona-r-projections.mjs --historical` after the follow-up.

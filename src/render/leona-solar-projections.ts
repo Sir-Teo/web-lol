@@ -69,7 +69,9 @@ export class LeonaSolarProjections {
                   continue;
                 }
                 const material = createParticleDecalMaterial(geometry, {
-                  diffuse: assets.texture(profile.texture, profile.uv.address),
+                  // The retained16.18 UNLIT_DECAL CPU path overrides all three
+                  // sampler address axes to clamp, independently of source UV mode.
+                  diffuse: assets.texture(profile.texture, 2),
                   lookup: assets.texture(profile.lookup, 2),
                   world: new THREE.Matrix4(),
                   worldToUv: stats.mapping,

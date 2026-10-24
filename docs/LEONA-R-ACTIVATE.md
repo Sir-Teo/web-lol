@@ -26,3 +26,8 @@ The [reading record](reference/leona-r-activate-reading.json) pins the raw and
 compiled source, complete independent audit, exact reader snapshots and native
 fragment text. `python3 tools/assets/verify-leona-r-activate.py` checks the retained
 bytes and source/profile correspondence offline. No game client or shader runs.
+
+The later [native CPU reading](LEONA-NATIVE-PARTICLE-BINDINGS.md) now identifies
+an empty-slot-zero fallback and its conditional transparent BGRA8 interpretation
+on the Metal backend. Connecting Activate's BIN/default-material loading and
+actual runtime dispatch to that path remains required.

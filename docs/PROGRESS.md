@@ -5989,3 +5989,53 @@ both weapon frames remain open and integrated R remains41/44.
 These are static evidence/documentation increments. Runtime code, schema126 and
 ruleseta051ddc6 are unchanged; no production/browser/performance rerun is claimed.
 The overall project goal continues and nothing is pushed.
+
+## Native generic particle bindings and Solar Flare sampler — October 24, 2026
+
+The matching arm64 executable now provides bounded generic CPU resource and
+sampler evidence. Twenty-five full raw Hopper records,38 original instruction
+spans, immutable slot/address/format/type tables and retained SDK definitions
+are pinned and checked offline. These are direct owned Hopper bridge results,
+explicitly not REA MCP Evidence. Initial REA6.4.0 startup timed out before the
+demo prompt/full analysis completed; its connection cannot adopt the completed
+document. The existing authenticated bridge supplied the static records after
+all11 passes completed in6m13s. No target/profile/path/lease was changed or
+native game/shader executed. The read-only bridge client is now released; the
+unsaved demo document remains open, and REA's earlier cleanup is unconfirmed.
+
+The generic binder distinguishes empty base slot0 from other slots. Its manager
+initializes zero/all-one source words. The conditional Metal factory and SDK
+identify the resulting1x1 BGRA8 resources; successful initialization and actual
+Leona dispatch remain unobserved. An empty slot0 therefore has a conditional
+transparent-base interpretation, while Activate's BIN/default-primitive and
+runtime route stay open. Distortion scalar uploads have no conversion at two
+retained callers; field construction/source identity still needs tracing.
+
+The generic UNLIT_DECAL branch writes all three address axes to1. Independent
+byte/assembly review follows the32-byte material record through40-byte RHI
+copies, Metal S/T/R construction and the final fragment-sampler binding callsite.
+The Metal table maps1 to clamp-to-edge. Separate sampler-object layouts are
+explicitly distinguished so address axes are not mistaken for filter fields.
+See [native observations](LEONA-NATIVE-PARTICLE-BINDINGS.md) and the
+[pin](reference/leona-native-particle-bindings.json).
+
+Solar Flare now requests clamp for planar diffuse samples; lookup already used
+clamp. Source UV metadata stays unchanged. The projector runtime/import graph is
+now a ruleset root, giving ruleset591ddf38 under unchanged schema126. Receiver,
+matrix, visibility, blend/depth, exported-PNG filtering and mip policies retain
+their explicit local boundaries. R stays41/44; no new visible family is claimed.
+
+Full1,881 unit cases/309 files, three Node QA and14 Chrome cases pass. Both area
+colors preserve clamp/linear/no-generated-mip bindings and exact Save/reload
+pixels. Graphics recovery is exact; six casts settle at18 geometries/28 textures
+and retire only owned storage. Actual Rift receivers, R skins/all38 source
+surfaces, shared early capture and640 decal arithmetic samples pass. Fresh
+production passes32 recordings;965 static files remain byte-identical. The fresh
+1,011-file/513,276,626-byte offline pack passes all controls with963 service-worker
+responses and no production errors. No new normal cohort or CPU benchmark is
+claimed. See [sampler scope](LEONA-R-NATIVE-SAMPLERS.md) and its
+[verification ledger](reference/leona/r-native-sampler-verification.json).
+
+Native Leona dispatch/defaults, weapon attachment frames, reflection normals,
+native frame acceptance, player/support and the full six-character match gates
+remain open. Nothing is pushed and the project goal remains active.

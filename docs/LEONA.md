@@ -443,3 +443,13 @@ attributes with explicit orbital placement/direction helpers. Cylinder, type-1
 linger, lookup/multiplier streams and externally zero noise are covered. Source
 GameView drawing, projection/attachment/distortion routing and native acceptance
 remain separate work.
+
+Later Solar Flare increments now draw41 of44 enabled families across both area
+alternatives, including the private posed skin, clipped terrain projections and
+early/late distortion. The [native sampler reading](LEONA-R-NATIVE-SAMPLERS.md)
+now supplies a bounded generic CPU/Metal address contract for the planar path.
+Two weapon quads still need their attachment frame. The
+[unnamed-base Activate audit](LEONA-R-ACTIVATE.md) and
+[matching native client](LEONA-NATIVE-MATCHING.md) are retained; actual Leona
+dispatch, source-loader defaults, native frames and the complete player/support
+and six-character match gates remain open.

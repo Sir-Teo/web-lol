@@ -1,0 +1,1388 @@
+{
+  "schema": 1,
+  "observedDate": "2026-10-24",
+  "scope": "Bounded native generic particle material/resource initialization and conditional Metal backend contracts. Static analysis only.",
+  "classification": "All retained provider responses are raw direct owned Hopper bridge API observations, NOT REA MCP Evidence. No REA Evidence IDs claimed.",
+  "nativeExecuted": false,
+  "nativeShaderExecuted": false,
+  "matchingNativePin": {
+    "path": "docs/reference/leona-native-matching.json",
+    "bytes": 23862,
+    "sha256": "57a8cf95b813290d512bc0d99dc7ced639709b02d206e2a6bb3fab7034d8168e"
+  },
+  "target": {
+    "path": ".cache/leona-native-matching-v1-20261024/native/LeagueofLegends.app/Contents/MacOS/LeagueofLegends",
+    "bytes": 82268192,
+    "sha256": "97edcf2c88fec3169a1ec36345276569de3329e27fd9b32c8162957a77135c6c",
+    "architecture": {
+      "architecture": "arm64",
+      "cpuType": 16777228,
+      "cpuSubtype": 0,
+      "offset": 42663936,
+      "bytes": 39604256,
+      "alignPower": 14,
+      "magic": "FEEDFACF",
+      "fileType": 2,
+      "loadCommands": 45,
+      "loadCommandBytes": 5920,
+      "flags": 10518661,
+      "reserved": 0,
+      "sha256": "18c6f615d1963d7062f4133fab351dc4550ce460e869c76f5c8604627f349885"
+    }
+  },
+  "provider": {
+    "package": "rea-agents",
+    "version": "6.4.0",
+    "retainedInstalledFiles": [
+      {
+        "path": ".cache/leona-native-particle-bindings-v1-20261024/installed-rea/package.json",
+        "bytes": 19538,
+        "sha256": "1c6244e5689db5354fffc0e92f4ee0e0237c3a6d645de564ade2d8375fa570f9",
+        "sourcePath": "/opt/homebrew/lib/node_modules/rea-agents/package.json"
+      },
+      {
+        "path": ".cache/leona-native-particle-bindings-v1-20261024/installed-rea/hopper_bridge.py",
+        "bytes": 50481,
+        "sha256": "b7e022ca936c55f9a9f2f73b9201176515a509c7936e3f1e882d5bdfa4c302e2",
+        "sourcePath": "/opt/homebrew/lib/node_modules/rea-agents/bridge/hopper_bridge.py"
+      },
+      {
+        "path": ".cache/leona-native-particle-bindings-v1-20261024/installed-rea/BridgeLauncher.js",
+        "bytes": 13306,
+        "sha256": "161fd96c90803e13dac6754499b20d56c824048c1d2621ebc8bff7e77dcab2c8",
+        "sourcePath": "/opt/homebrew/lib/node_modules/rea-agents/dist/hopper/BridgeLauncher.js"
+      },
+      {
+        "path": ".cache/leona-native-particle-bindings-v1-20261024/installed-rea/HopperClient.js",
+        "bytes": 27455,
+        "sha256": "1bb1dde459e1f7e526d8595dc0ea4462c1e9ab437462707f220bacbbb8fac2cc",
+        "sourcePath": "/opt/homebrew/lib/node_modules/rea-agents/dist/hopper/HopperClient.js"
+      },
+      {
+        "path": ".cache/leona-native-particle-bindings-v1-20261024/installed-rea/HopperCleanup.js",
+        "bytes": 10212,
+        "sha256": "108c2d1f54ec024c15f0f93bd38df12696282173fefd99f90152559a11dca802",
+        "sourcePath": "/opt/homebrew/lib/node_modules/rea-agents/dist/hopper/HopperCleanup.js"
+      },
+      {
+        "path": ".cache/leona-native-particle-bindings-v1-20261024/installed-rea/HopperSocketConnection.js",
+        "bytes": 1087,
+        "sha256": "00dbf1b300e7d498886f062afeeac13eb827d2f59af3f3d12144393d57ebf5b4",
+        "sourcePath": "/opt/homebrew/lib/node_modules/rea-agents/dist/hopper/HopperSocketConnection.js"
+      }
+    ],
+    "history": {
+      "classification": "Operator-reported recovery context, not authenticated by the static verifier.",
+      "initialReaStartupTimeoutSeconds": 120,
+      "blockers": [
+        "Unlicensed Hopper demo prompt delayed startup.",
+        "REA bridge bootstrap was deferred until full analysis completed; saving the demo document was blocked.",
+        "REA startup/cleanup timed out before an authenticated bridge connection was established."
+      ],
+      "completedAnalysisPasses": 11,
+      "completedAnalysisElapsed": "6m13s",
+      "fallback": "Existing owned authenticated Hopper bridge was reused after completed analysis. No target/path/profile/lease changes, replay, relaunch or shutdown forgery. These raw outputs remain outside REA Evidence.",
+      "secretsPolicy": "No bootstrap contents, capability/token, mutable stdin client, process credentials or live socket are retained/pinned by this package."
+    }
+  },
+  "rawProviderFiles": [
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x10188ee40.json",
+      "bytes": 506698,
+      "sha256": "771afce64d044bbe93928e8caf12b08b8dafa77f2e4e65cb57f9f08c9dc2bb14",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/function-0x10188ee40.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x1018c10b4.json",
+      "bytes": 344019,
+      "sha256": "dd0e452d75768debf6690ab01da8a4186cb00564f6effc7d14aa2754557e7d70",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/function-0x1018c10b4.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x1018c2528.json",
+      "bytes": 103704,
+      "sha256": "1e0954aca608ffcf11a9c7d29b5bb8daac3b49c3a20c7228f6c628995898409c",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/function-0x1018c2528.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x1018c2d28.json",
+      "bytes": 135912,
+      "sha256": "097181c7772adc33f5870ab28f382044d2010b22a1cf0903530e5fafd203a499",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/function-0x1018c2d28.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101893784.json",
+      "bytes": 69741,
+      "sha256": "cc06481d0bdfbc1bc9bfee35eed2eff073c81fbc3d95fb81962f5a62fa224962",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/function-0x101893784.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101951e58.json",
+      "bytes": 21292,
+      "sha256": "5376ef3ffc56fffa10e33a3a2b8fe60545fea0f2c135eeb1101389d8972cffbb",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/function-0x101951e58.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101970ad4.json",
+      "bytes": 233692,
+      "sha256": "c347aa61be8db4ef38ac10150d6968aef10858568d2ed4818d4f60a7fe3bb03c",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/function-0x101970ad4.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x1019713e0.json",
+      "bytes": 44461,
+      "sha256": "c783f1760fec8f81365fd7b6883ffe4cd931114a2f6fd1b10e6ddf83524c71f2",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/function-0x1019713e0.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x10197227c.json",
+      "bytes": 20425,
+      "sha256": "7dc20ea451764a042a4cda49c27451c29849c780c7fd0350b8a8276a926fdad6",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/function-0x10197227c.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a751bc.json",
+      "bytes": 534777,
+      "sha256": "d1e21294b6bed7d54825612bc65bcc1080b77c35d3f1255ef36b6b867513afb6",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/function-0x101a751bc.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a83d54.json",
+      "bytes": 140951,
+      "sha256": "d0ee2b7ec7819933edb4ebccbdf7ce0ef09631edb95608d456adb6e2a7c441c8",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/function-0x101a83d54.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a85e00.json",
+      "bytes": 16134,
+      "sha256": "5fb3aeabdf64b212d785d30566936fde19428572aed75b3ca7384220e7977a2b",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/function-0x101a85e00.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a86bc0.json",
+      "bytes": 55217,
+      "sha256": "480575aae8d5f305e8b87d34fed918623d1cff5de71eb2fc75ca49e347ffd853",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/function-0x101a86bc0.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a8a8e8.json",
+      "bytes": 77111,
+      "sha256": "4843a6da08a6c1f8faff8ff4347a00cfcf9ff3b3fab7142090f5e5a8d9b3eb8c",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/function-0x101a8a8e8.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a8e1ac.json",
+      "bytes": 11294,
+      "sha256": "2e28c24719b52548c4b120271ba4d722a538eea02fa35efa028da94e0869a096",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/function-0x101a8e1ac.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a8e23c.json",
+      "bytes": 36783,
+      "sha256": "afd4ed5091189b9aa861d74bf329997461eeee7f9e19d8779ff6503ee6b94dfb",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/function-0x101a8e23c.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a8e398.json",
+      "bytes": 55329,
+      "sha256": "2485cefa1461a9a9110807c408a77e8dea27e99dd521291e2ec53d1f07c93de0",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/function-0x101a8e398.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/sentinel-xrefs-0x102531460.json",
+      "bytes": 3467,
+      "sha256": "d8432d2586482d07df8419600e52fd6d57cb0f53af2718fb1532cd633f29328c",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/sentinel-xrefs-0x102531460.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/sentinel-xrefs-0x1025e84e0.json",
+      "bytes": 758,
+      "sha256": "d0fd74937bd92a92228541634e7dbb8d5f7a48644acfed0de8cb2f398b5d4782",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/sentinel-xrefs-0x1025e84e0.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/fallback-manager-xrefs.json",
+      "bytes": 9893,
+      "sha256": "abece05c0a6e4a7bcb954058bf434b2b0228e8f0843902f464a02d6bce627ea9",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/fallback-manager-xrefs.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101954898.json",
+      "bytes": 171795,
+      "sha256": "ee01cb3cd99407d427e986677c176268749010b149e4145d171f9dceab1c5003",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/function-0x101954898.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a866f4.json",
+      "bytes": 6593,
+      "sha256": "8076f264b46bb1706d0d3973310377578608d30af0e7b688119cc086b957289c",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/function-0x101a866f4.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a83444.json",
+      "bytes": 42696,
+      "sha256": "1be277f422b5b0cb845cd21a457f3fceab206e323f0319318a5a539bbf843f72",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/function-0x101a83444.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a83aa8.json",
+      "bytes": 42971,
+      "sha256": "740ffe3829d464e9fa81c3740ce7ce9ebd913ffc337fce67addc326bc6895c6c",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/function-0x101a83aa8.json"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/raw-hopper/function-0x101a85204.json",
+      "bytes": 196281,
+      "sha256": "e57cc7796700aae76bb96f6c111a7a41f66dc716c7981b4bce1647506e6d5c76",
+      "sourcePath": "/Users/teodev/Developer/web-lol/.cache/leona-native-matching-v1-20261024/function-0x101a85204.json"
+    }
+  ],
+  "sdkFiles": [
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/sdk/MTLSampler.h",
+      "bytes": 10390,
+      "sha256": "b627e271c1c883c3ec654dfbbdd55564063d0073d5542ae51d83930b2bf525ae",
+      "sourcePath": "/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk/System/Library/Frameworks/Metal.framework/Versions/A/Headers/MTLSampler.h"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/sdk/MTLPixelFormat.h",
+      "bytes": 14116,
+      "sha256": "b7260357997a08bfab5736e0d05ae386b5f297d350608203801c117fbb96d6d5",
+      "sourcePath": "/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk/System/Library/Frameworks/Metal.framework/Versions/A/Headers/MTLPixelFormat.h"
+    },
+    {
+      "path": ".cache/leona-native-particle-bindings-v1-20261024/sdk/MTLTexture.h",
+      "bytes": 23931,
+      "sha256": "0ced1551d94e628a3ab9a83a679917febaf5a582dd56300802a0169f89c1692b",
+      "sourcePath": "/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk/System/Library/Frameworks/Metal.framework/Versions/A/Headers/MTLTexture.h"
+    }
+  ],
+  "instructionSpans": [
+    {
+      "name": "old-distortion-scalar",
+      "address": "0x10188f168",
+      "bytes": 92,
+      "hex": "680a40f9092940f9c90200b4200140bde05300bdff2f00f9ff5700b9604240f9414f0090211c1f91e2430191660c0394680a40f9082940f900210091c3e3f79761020191e06700f9e2230391e00313aa63008052e40314aa90100094",
+      "sha256": "6125d4d8fa0e4dbf2efcad7995fd097efe10cb9b909eb4236ea78f3a84f97286"
+    },
+    {
+      "name": "generic-distortion-scalar",
+      "address": "0x1018c13b4",
+      "bytes": 88,
+      "hex": "087740f9a80200b4000140bde08300bdff4700f9ff8700b9600240f9a14d00d0211c1f91e2030291d4430294087740f900210091321bf79701230891e01300f9e2830091e00318aa63008052e4031aaae50313aa48060094",
+      "sha256": "adffaa1011ff6c70e0ac10381b250e0dd40883aaa570e7e7d01d3a30747ade0c"
+    },
+    {
+      "name": "generic-alpha-test",
+      "address": "0x1018c26cc",
+      "bytes": 80,
+      "hex": "084740396802003460020191a14d00b021a4229122008052dcd506940047403d00d8217ee86fa8520101271e0018211ee00300bdff0700f9ff0700b9a14d00b021d02291e2030091e00313aa404c0294",
+      "sha256": "8442c74c914fed61b3c42f892fad8c7b507e7f08ee55bbcdf657840dae1f867e"
+    },
+    {
+      "name": "generic-decal-sampler-writes",
+      "address": "0x1018c17c8",
+      "bytes": 128,
+      "hex": "a04d00f00024399115d90694e10300aae0031aaa9f410294282080520820007928008052084800397a0240f9a04d00f0002037910ad90694e10300aae0031aaa94410294282080520820007928008052084800397a0240f9a04d00f000c43691ffd80694e10300aae0031aaa8941029428208052082000792800805208480039",
+      "sha256": "37507415bcab3eb4219f97628f6ba1f0dc74fd168016e69061dfe336642bb6a0"
+    },
+    {
+      "name": "generic-resource-load-and-slot-name",
+      "address": "0x1018c2f20",
+      "bytes": 56,
+      "hex": "bf2a0071e3179f1ae00304aae10313aae20316aa1442ff97e85d00b008a11091005975f838d30694e00300f9680240f9480100b4091d40b9",
+      "sha256": "46ea796282b51105324ded5922bf0b8cde9d822e6604fcdbee70b02093beee5c"
+    },
+    {
+      "name": "generic-fallback-routing",
+      "address": "0x1018c2f78",
+      "bytes": 180,
+      "hex": "c80240f9280200b4696300f01f2003d5293142f91f0109eb80010054c86100f0161d41f9c88e4af8880000b4091d40b929050011091d00b9e00740f9e00200b4f1ae029415000014c86100f0161d41f955010034c80e4af8880000b4091d40b929050011091d00b9e00740f9600100b4e5ae029409000014c88e4af8880000b4091d40b929050011091d00b9e00740f9400000b4dcae0294c80240f9e80700f9800240f9e1030091b2220294680240f91f0100f1",
+      "sha256": "c1d054e6a93149c20e6325de42e0d4ee1c98f911f52baab41d4e2870edf2239b"
+    },
+    {
+      "name": "generic-resource-null-sentinel",
+      "address": "0x10189379c",
+      "bytes": 28,
+      "hex": "560040f9e86400d01f2003d5083142f9df0200f1c41248fa40090054",
+      "sha256": "1929f4452a7d334701bd56814cc293a4978a4ac602ce9370115157eea5bd625b"
+    },
+    {
+      "name": "special-missing-resource-identity",
+      "address": "0x101893838",
+      "bytes": 20,
+      "hex": "a86a00b0087142f9df0208ebc0040054486300d0",
+      "sha256": "d1894ee1986c4b51df45644b9f67f6538338398a21cb573679e6e19f22680fd9"
+    },
+    {
+      "name": "generic-record-lookup",
+      "address": "0x101951e58",
+      "bytes": 48,
+      "hex": "082840b928010034001040f908e97bd3090040f93f0101eba000005400800091088100f161ffff54000080d2c0035fd6",
+      "sha256": "59434920dc78f8dea9af1830244224141aa918bd8e552377535a082167050117"
+    },
+    {
+      "name": "white-resource-initializer",
+      "address": "0x101970b00",
+      "bytes": 192,
+      "hex": "08008012e82700b9e8930091a8031df8e0c30091a1c300d132020094a8110494080040f9088540f9e6c30091410080522200805223008052050080522400805200013fd6e30300aa000200b4015e00d021400f91e8230091e00313aa020080d2e40314aa43faff97f50740f9950000b4a81e40b908050011a81e00b9615240f9c10000b50d000014150080d2ff0700f9615240f9210100b4281c40b908050071281c00b9a1000054685c00b0001d41f9400000b4fcf7ff97755200f9550100b4",
+      "sha256": "dae48e7de36a5afee5f63519f955826c57b48cd3fe8f709cdee7a2cfbfa84b05"
+    },
+    {
+      "name": "zero-resource-initializer",
+      "address": "0x101970bf4",
+      "bytes": 188,
+      "hex": "ff2300b9e8830091a8031df8e0c30091a1c300d1f60100946c110494080040f9088540f9e6c30091410080522200805223008052050080522400805200013fd6e30300aa000200b4015e00d021600f91e8230091e00313aa020080d2e40314aa07faff97f50740f9950000b4a81e40b908050011a81e00b9615640f9c10000b50d000014150080d2ff0700f9615640f9210100b4281c40b908050071281c00b9a1000054685c00b0001d41f9400000b4c0f7ff97755600f9550100b4",
+      "sha256": "19ac5084ffd04e660a78d887b8fe1c168297ea95442e871390f2f27f24bead91"
+    },
+    {
+      "name": "pixel-pointer-vector-append",
+      "address": "0x101971594",
+      "bytes": 20,
+      "hex": "880240f9a87a36f8680a40b908050011680a00b9",
+      "sha256": "a1815d1dd97233118a955b670991bd2f263fa368268ea91380474641a0b2f383"
+    },
+    {
+      "name": "manager-constructor-publication",
+      "address": "0x10197229c",
+      "bytes": 28,
+      "hex": "f30300aa485c00f0001d01f9a85800f008e11b9109e10091082400a9",
+      "sha256": "1f02d63f7a6953e4f044eda5d810953ecf722de03605e6e1bf454ba0da27e0be"
+    },
+    {
+      "name": "manager-constructor-initializer-call",
+      "address": "0x101972354",
+      "bytes": 12,
+      "hex": "e00313aa01008052def9ff97",
+      "sha256": "2e922f878e25577c74f1f6f226ec2f9719e8701fd7d92aa210a1149d87a3a3c2"
+    },
+    {
+      "name": "empty-sentinel-initializer",
+      "address": "0x1016c8f4c",
+      "bytes": 52,
+      "hex": "485b009008a50d91e87f01a9e043009155fcfe97f30300aae873403988000036e00b40f9400000b4bb29ff97487300b0133102f9",
+      "sha256": "b1e49146fec7556c12818df0a0a6cea35bc2dc7080f7d4b1face0b7054da4c8e"
+    },
+    {
+      "name": "missing-sentinel-initializer",
+      "address": "0x101940948",
+      "bytes": 60,
+      "hex": "b34900f073e63491e00313aa58a2f597f30b00f9080000120801000be0230329e0430091d11df597f30300aae04300916097f59748650090137102f9",
+      "sha256": "f9e138028cb1a0f617787e5a987ed1b0f4b33548b005a0ff1c8d13d8d3291f18"
+    },
+    {
+      "name": "backend-getter",
+      "address": "0x101a751bc",
+      "bytes": 20,
+      "hex": "e85500b0006943f9080040f9011940f920001fd6",
+      "sha256": "7f2aba56009e2e09b636600c863a7d07671e9a48fc9b2249d51fe59fdca02337"
+    },
+    {
+      "name": "Metal-vptr-publication",
+      "address": "0x101a85e00",
+      "bytes": 40,
+      "hex": "f44fbea9fd7b01a9fd430091f40301aaf30300aa3b000094885000d008a11591080000f914c400f9",
+      "sha256": "b8ebf430e84afe8ad2bcc2d2604b1ca7edf7420d53ae81d96b0ef31face00201"
+    },
+    {
+      "name": "Metal-factory-forward",
+      "address": "0x101a86be0",
+      "bytes": 76,
+      "hex": "f40306aaf90305aaf80304aafb0303aaf60302aaf50301aafa0300aa000580523432f097f30300aaf80300b901008052e20319aae30315aa04008052e50316aae6031baa27008052dc1d0094",
+      "sha256": "ccbda1659a5956a1abf1c18d6551cbeec1eb7030a4f4055544dead5fbdf11f36"
+    },
+    {
+      "name": "Metal-pixel-copy",
+      "address": "0x101a86d34",
+      "bytes": 28,
+      "hex": "b57e4092e81340f90001158b880240f9017978f8e2031caa8ae61594",
+      "sha256": "8314b6e73082f10ebb870c3f448752fd3fdb195d31e29e96ff076fa33a551ae0"
+    },
+    {
+      "name": "Metal-pixel-blit",
+      "address": "0x101a86d68",
+      "bytes": 60,
+      "hex": "ba6f39a9fb5b432928008052a8031af8670e40f9ffff08a9ff4f00f9e8230291f8a300a9a6c301d1ff0300f9e20319aae30315aa050080d280f11594",
+      "sha256": "62cbc2aff6c4cfe4671f2c4354553be3d8105f62f1cdd56ff12408ab34f0b615"
+    },
+    {
+      "name": "Metal-texture-descriptor",
+      "address": "0x101a8e464",
+      "bytes": 72,
+      "hex": "283500d00841219102597bf86cd915941f170071e2000054081f4093293500d029612591227968f8601240f944da1594e2031a2a601240f9a1da1594e203192a601240f9aed81594",
+      "sha256": "03a9b1c294d55eeece7ee16eb96810fa90dd8df57e601f5e281c991f6207ce53"
+    },
+    {
+      "name": "Metal-pointer-object-address-consumer",
+      "address": "0x101a8a914",
+      "bytes": 92,
+      "hex": "a8224039b75b00b0f7421e91e9c2bf38c90a0036e80e088b020940f9e00313aa7be81594a8264039e9c2bf38e90b0036e80e088b020940f9e00313aaf4e81594a82a4039e9c2bf38090d0036e80e088b020940f9e00313aa3de81594",
+      "sha256": "81574e391c6ca70f8d6b3dcd9d1d97f47f4a2012ead65883c9d5cb43d632b0b6"
+    },
+    {
+      "name": "Metal-generic-record-sampler-consumer",
+      "address": "0x101a8e29c",
+      "bytes": 52,
+      "hex": "6142403964464039654a4039671a40b968524039694e4039e9070039e8030039e20301aae30301aae60304aaa3d6ff97601e00f9",
+      "sha256": "99f6073f1fdf765d83ea1f4a84b0439e8fe5a54e49c9a85d0209c18b506a0b87"
+    },
+    {
+      "name": "Metal-address-mode-map-consumer",
+      "address": "0x101a83ecc",
+      "bytes": 116,
+      "hex": "e80e198b020940f9e0031aaa12031694e8c2bf38480b0036e80e168b020940f9e0031aaa8c031694e8c2bf38280c0036e80e188b020940f9e0031aaad6021694963500b0d6821c91c27a7cf8e0031aaa89021694c27a74f8e0031aaa66021694883500b008c11c91027973f8e0031aaa89021694",
+      "sha256": "05438f52b29126a5f76841b84024e3eb97ccff8ad7ab9ad840a290247f3c3216"
+    },
+    {
+      "name": "Metal-address-mode-map-init",
+      "address": "0x101a84024",
+      "bytes": 32,
+      "hex": "8835009000b5c13d1f2003d501b9c13dc05b00f000401e91008400adc3ef1594",
+      "sha256": "feb3718bb0efc500cf1e267a9f7df0011035f6c9cd21aeaea2c94a59ff939e97"
+    },
+    {
+      "name": "Metal-texture-bind-consumer",
+      "address": "0x101a8e324",
+      "bytes": 100,
+      "hex": "690640f9090300b4632640b96a1e40b9220d40f9080d038b4a010034097544f93f0102eb0002005408a12391020100f9fd7b42a9f44f41a9ffc30091d8d8151409f542f93f0102ebe000005408a11791020100f9fd7b42a9f44f41a9ffc30091cfda1514",
+      "sha256": "9744f719be45ffe333d47a1044d7ceb8c358b9a5a53541c1d002a7bf7fff46bf"
+    },
+    {
+      "name": "generic32B-to-RHI40B-loop",
+      "address": "0x101954d50",
+      "bytes": 36,
+      "hex": "d716088b18058052390080525a5d00b05b00805204000014d6820091df0217eb800c0054",
+      "sha256": "039055d44b4e1020d305fc43e2e29714ba9464df3e075366eed4fc339b743124"
+    },
+    {
+      "name": "generic-to-RHI-address-fields",
+      "address": "0x101954ea8",
+      "bytes": 52,
+      "hex": "c84e40398953b89b28810039c852403928890039c81a40b9281d00b9c842403928610039c846403928650039c84a403928690039",
+      "sha256": "04cf2e08bbe4ed813c0cc88179a9b681e17d9abcfb192a5694f9a04e866c665b"
+    },
+    {
+      "name": "generic-RHI-virtual-dispatch",
+      "address": "0x101954f00",
+      "bytes": 32,
+      "hex": "af800494e80340f9083940f9010540f9080040f9084540f9e243009100013fd6",
+      "sha256": "c9b3079d597134062c6e267a01c9fd4e50b622a5cf9e399084e722fce65ff73a"
+    },
+    {
+      "name": "Metal-RHI-object-factory",
+      "address": "0x101a866f4",
+      "bytes": 52,
+      "hex": "f657bda9f44f01a9fd7b02a9fd830091f40302aaf50301aa004d80527033f097f30300aae10315aae20314aa49f3ff97e00313aa",
+      "sha256": "bf9c56ccd7a3acacdf155bafed55fc57f8a3bf42670e126c2905a70706cd358d"
+    },
+    {
+      "name": "Metal-RHI-sampler-builds",
+      "address": "0x101a836a8",
+      "bytes": 32,
+      "hex": "e10319aae20315aae30318aafd000094e10319aae2031aaae30317aaf9000094",
+      "sha256": "53a8174487cc5eb43db095e06bbaf93edbed08cd171e229ad0e8aa7491479d50"
+    },
+    {
+      "name": "Metal-sampler-independent-axis-inputs",
+      "address": "0x101a83af4",
+      "bytes": 48,
+      "hex": "81535f3882635f3883735f3884d35f3885e35f3886f35f3887935fb888034039e807003928008052e80300398d000094",
+      "sha256": "b9fccf070649c9f92d31da1a5ada8f82f83b45f7087614839e583b41b7e00487"
+    },
+    {
+      "name": "Metal-RHI-record-cursor",
+      "address": "0x101a83bc0",
+      "bytes": 28,
+      "hex": "881a40b928fbff34890a40f93c8d00910809088b19f17dd396d35df8",
+      "sha256": "7d52ab40f0662766d140fd75861c2282abcf88cc7729b00e691f6738cb71e75a"
+    },
+    {
+      "name": "Metal-RHI-record-stride",
+      "address": "0x101a83c08",
+      "bytes": 28,
+      "hex": "e80240b9df02086ba00000549ca3009139a300f1e1fdff54c2ffff17",
+      "sha256": "c4e1949423860c75161936fe9f2834d1b526200ff79fed801418a6820ff86b7c"
+    },
+    {
+      "name": "Metal-constructor-sampler-array-aliases",
+      "address": "0x101a834bc",
+      "bytes": 48,
+      "hex": "f70300aae08e883cf40317aa800e9a3ce90317aa200d9d3ce90700f9f60317aac00e9e3c0019803df80317aa000f9f3c",
+      "sha256": "4f9fddeddab1e889fc8d0bb358b26518485881a8da1b1aada6ae56a2458c9967"
+    },
+    {
+      "name": "Metal-fragment-sampler-binding",
+      "address": "0x101a85928",
+      "bytes": 80,
+      "hex": "889240b968020034944640f915ed7cd30400001494420091b54200f1a0010054830a40b9690e038b2a3d45f9880240f95f0108eb00ffff5429e12991280100f9600240f9820240f94cfb1594f2ffff17",
+      "sha256": "1c8ad7ee37d059267cd2dd00fdf6e61aecbd9fe476fcca3b808bb2b576132d7b"
+    },
+    {
+      "name": "Metal-fragment-sampler-objc-stub",
+      "address": "0x1020046a0",
+      "bytes": 20,
+      "hex": "a12700f021b844f9b01a0090100a41f900021fd6",
+      "sha256": "dac7e4e4dae8e2a698896212330d52fa01e8a9776435c37f086e55ea2dbbf9c1"
+    }
+  ],
+  "checks": {
+    "blTargets": [
+      {
+        "address": "0x10188f194",
+        "target": "0x10195232c"
+      },
+      {
+        "address": "0x1018c13dc",
+        "target": "0x10195232c"
+      },
+      {
+        "address": "0x1018c1408",
+        "target": "0x1018c2d28"
+      },
+      {
+        "address": "0x1018c17dc",
+        "target": "0x101951e58"
+      },
+      {
+        "address": "0x1018c1808",
+        "target": "0x101951e58"
+      },
+      {
+        "address": "0x1018c1834",
+        "target": "0x101951e58"
+      },
+      {
+        "address": "0x1018c26e4",
+        "target": "0x101a77e54"
+      },
+      {
+        "address": "0x1018c2718",
+        "target": "0x101955818"
+      },
+      {
+        "address": "0x1018c2f34",
+        "target": "0x101893784"
+      },
+      {
+        "address": "0x1018c3020",
+        "target": "0x10194bae8"
+      },
+      {
+        "address": "0x101970b18",
+        "target": "0x1019713e0"
+      },
+      {
+        "address": "0x101970c08",
+        "target": "0x1019713e0"
+      },
+      {
+        "address": "0x101970b1c",
+        "target": "0x101a751bc"
+      },
+      {
+        "address": "0x101970c0c",
+        "target": "0x101a751bc"
+      },
+      {
+        "address": "0x10197235c",
+        "target": "0x101970ad4"
+      },
+      {
+        "address": "0x1016c8f5c",
+        "target": "0x1016880b0"
+      },
+      {
+        "address": "0x10194096c",
+        "target": "0x1016880b0"
+      },
+      {
+        "address": "0x101a86c28",
+        "target": "0x101a8e398"
+      },
+      {
+        "address": "0x101a8e2c8",
+        "target": "0x101a83d54"
+      },
+      {
+        "address": "0x101954f00",
+        "target": "0x101a751bc"
+      },
+      {
+        "address": "0x101a86720",
+        "target": "0x101a83444"
+      },
+      {
+        "address": "0x101a836b4",
+        "target": "0x101a83aa8"
+      },
+      {
+        "address": "0x101a836c4",
+        "target": "0x101a83aa8"
+      },
+      {
+        "address": "0x101a83b20",
+        "target": "0x101a83d54"
+      },
+      {
+        "address": "0x101a85970",
+        "target": "0x1020046a0"
+      }
+    ],
+    "mov32Constants": [
+      {
+        "address": "0x101970b00",
+        "register": 8,
+        "value": 4294967295
+      },
+      {
+        "address": "0x101970b2c",
+        "register": 1,
+        "value": 2
+      },
+      {
+        "address": "0x101970b30",
+        "register": 2,
+        "value": 1
+      },
+      {
+        "address": "0x101970b34",
+        "register": 3,
+        "value": 1
+      },
+      {
+        "address": "0x101970b38",
+        "register": 5,
+        "value": 0
+      },
+      {
+        "address": "0x101970b3c",
+        "register": 4,
+        "value": 1
+      },
+      {
+        "address": "0x101970c1c",
+        "register": 1,
+        "value": 2
+      },
+      {
+        "address": "0x101970c20",
+        "register": 2,
+        "value": 1
+      },
+      {
+        "address": "0x101970c24",
+        "register": 3,
+        "value": 1
+      },
+      {
+        "address": "0x101970c28",
+        "register": 5,
+        "value": 0
+      },
+      {
+        "address": "0x101970c2c",
+        "register": 4,
+        "value": 1
+      },
+      {
+        "address": "0x101a86c0c",
+        "register": 1,
+        "value": 0
+      },
+      {
+        "address": "0x101a86c18",
+        "register": 4,
+        "value": 0
+      },
+      {
+        "address": "0x101a86c24",
+        "register": 7,
+        "value": 1
+      },
+      {
+        "address": "0x1018c17e0",
+        "register": 8,
+        "value": 257
+      },
+      {
+        "address": "0x1018c17e8",
+        "register": 8,
+        "value": 1
+      },
+      {
+        "address": "0x1018c180c",
+        "register": 8,
+        "value": 257
+      },
+      {
+        "address": "0x1018c1814",
+        "register": 8,
+        "value": 1
+      },
+      {
+        "address": "0x1018c1838",
+        "register": 8,
+        "value": 257
+      },
+      {
+        "address": "0x1018c1840",
+        "register": 8,
+        "value": 1
+      },
+      {
+        "address": "0x101954d54",
+        "register": 24,
+        "value": 40
+      }
+    ],
+    "unsignedImmediateMemory": [
+      {
+        "address": "0x101970bf4",
+        "operation": "STR32",
+        "register": 31,
+        "baseRegister": 31,
+        "offset": 32
+      },
+      {
+        "address": "0x101970bb8",
+        "operation": "STR64",
+        "register": 21,
+        "baseRegister": 19,
+        "offset": 160
+      },
+      {
+        "address": "0x101970ca8",
+        "operation": "STR64",
+        "register": 21,
+        "baseRegister": 19,
+        "offset": 168
+      },
+      {
+        "address": "0x1019722a4",
+        "operation": "STR64",
+        "register": 0,
+        "baseRegister": 8,
+        "offset": 568
+      },
+      {
+        "address": "0x101a85e20",
+        "operation": "STR64",
+        "register": 8,
+        "baseRegister": 0,
+        "offset": 0
+      },
+      {
+        "address": "0x1016c8f7c",
+        "operation": "STR64",
+        "register": 19,
+        "baseRegister": 8,
+        "offset": 1120
+      },
+      {
+        "address": "0x101940980",
+        "operation": "STR64",
+        "register": 19,
+        "baseRegister": 8,
+        "offset": 1248
+      },
+      {
+        "address": "0x101a8e29c",
+        "operation": "LDR8",
+        "register": 1,
+        "baseRegister": 19,
+        "offset": 16
+      },
+      {
+        "address": "0x101a8e2a0",
+        "operation": "LDR8",
+        "register": 4,
+        "baseRegister": 19,
+        "offset": 17
+      },
+      {
+        "address": "0x101a8e2a4",
+        "operation": "LDR8",
+        "register": 5,
+        "baseRegister": 19,
+        "offset": 18
+      },
+      {
+        "address": "0x1018c17e4",
+        "operation": "STR16",
+        "register": 8,
+        "baseRegister": 0,
+        "offset": 16
+      },
+      {
+        "address": "0x1018c17ec",
+        "operation": "STR8",
+        "register": 8,
+        "baseRegister": 0,
+        "offset": 18
+      },
+      {
+        "address": "0x1018c1810",
+        "operation": "STR16",
+        "register": 8,
+        "baseRegister": 0,
+        "offset": 16
+      },
+      {
+        "address": "0x1018c1818",
+        "operation": "STR8",
+        "register": 8,
+        "baseRegister": 0,
+        "offset": 18
+      },
+      {
+        "address": "0x1018c183c",
+        "operation": "STR16",
+        "register": 8,
+        "baseRegister": 0,
+        "offset": 16
+      },
+      {
+        "address": "0x1018c1844",
+        "operation": "STR8",
+        "register": 8,
+        "baseRegister": 0,
+        "offset": 18
+      },
+      {
+        "address": "0x101954ec4",
+        "operation": "LDR8",
+        "register": 8,
+        "baseRegister": 22,
+        "offset": 16
+      },
+      {
+        "address": "0x101954ec8",
+        "operation": "STR8",
+        "register": 8,
+        "baseRegister": 9,
+        "offset": 24
+      },
+      {
+        "address": "0x101954ecc",
+        "operation": "LDR8",
+        "register": 8,
+        "baseRegister": 22,
+        "offset": 17
+      },
+      {
+        "address": "0x101954ed0",
+        "operation": "STR8",
+        "register": 8,
+        "baseRegister": 9,
+        "offset": 25
+      },
+      {
+        "address": "0x101954ed4",
+        "operation": "LDR8",
+        "register": 8,
+        "baseRegister": 22,
+        "offset": 18
+      },
+      {
+        "address": "0x101954ed8",
+        "operation": "STR8",
+        "register": 8,
+        "baseRegister": 9,
+        "offset": 26
+      },
+      {
+        "address": "0x101970b24",
+        "operation": "LDR64",
+        "register": 8,
+        "baseRegister": 8,
+        "offset": 264
+      },
+      {
+        "address": "0x101970c14",
+        "operation": "LDR64",
+        "register": 8,
+        "baseRegister": 8,
+        "offset": 264
+      },
+      {
+        "address": "0x101a85928",
+        "operation": "LDR32",
+        "register": 8,
+        "baseRegister": 20,
+        "offset": 144
+      },
+      {
+        "address": "0x101a85930",
+        "operation": "LDR64",
+        "register": 20,
+        "baseRegister": 20,
+        "offset": 136
+      },
+      {
+        "address": "0x101a85948",
+        "operation": "LDR32",
+        "register": 3,
+        "baseRegister": 20,
+        "offset": 8
+      },
+      {
+        "address": "0x101a85954",
+        "operation": "LDR64",
+        "register": 8,
+        "baseRegister": 20,
+        "offset": 0
+      },
+      {
+        "address": "0x101a8596c",
+        "operation": "LDR64",
+        "register": 2,
+        "baseRegister": 20,
+        "offset": 0
+      },
+      {
+        "address": "0x101970b04",
+        "operation": "STR32",
+        "register": 8,
+        "baseRegister": 31,
+        "offset": 36
+      }
+    ],
+    "adrpAddAddresses": [
+      {
+        "adrp": "0x101a85e18",
+        "add": "0x101a85e1c",
+        "target": "0x102497568"
+      },
+      {
+        "adrp": "0x1016c8f4c",
+        "add": "0x1016c8f50",
+        "target": "0x102230369"
+      },
+      {
+        "adrp": "0x101940948",
+        "add": "0x10194094c",
+        "target": "0x102277d39"
+      },
+      {
+        "adrp": "0x1018c13d0",
+        "add": "0x1018c13d4",
+        "target": "0x1022777c7"
+      },
+      {
+        "adrp": "0x1018c2708",
+        "add": "0x1018c270c",
+        "target": "0x1022778b4"
+      }
+    ],
+    "unscaledMemory": [
+      {
+        "address": "0x101a83af4",
+        "operation": "LDUR8",
+        "register": 1,
+        "baseRegister": 28,
+        "offset": -11
+      },
+      {
+        "address": "0x101a83af8",
+        "operation": "LDUR8",
+        "register": 2,
+        "baseRegister": 28,
+        "offset": -10
+      },
+      {
+        "address": "0x101a83afc",
+        "operation": "LDUR8",
+        "register": 3,
+        "baseRegister": 28,
+        "offset": -9
+      },
+      {
+        "address": "0x101a83b00",
+        "operation": "LDUR8",
+        "register": 4,
+        "baseRegister": 28,
+        "offset": -3
+      },
+      {
+        "address": "0x101a83b04",
+        "operation": "LDUR8",
+        "register": 5,
+        "baseRegister": 28,
+        "offset": -2
+      },
+      {
+        "address": "0x101a83b08",
+        "operation": "LDUR8",
+        "register": 6,
+        "baseRegister": 28,
+        "offset": -1
+      }
+    ],
+    "conditionalBranches": [
+      {
+        "address": "0x1018c2f50",
+        "operation": "CBZ64",
+        "register": 8,
+        "target": "0x1018c2f78"
+      },
+      {
+        "address": "0x1018c2f7c",
+        "operation": "CBZ64",
+        "register": 8,
+        "target": "0x1018c2fc0"
+      },
+      {
+        "address": "0x1018c2f90",
+        "operation": "B.EQ",
+        "register": 0,
+        "target": "0x1018c2fc0"
+      },
+      {
+        "address": "0x1018c2fc8",
+        "operation": "CBZ32",
+        "register": 21,
+        "target": "0x1018c2ff0"
+      }
+    ],
+    "preindexedMemory": [
+      {
+        "address": "0x1018c2f9c",
+        "register": 8,
+        "baseRegister": 22,
+        "offset": 168
+      },
+      {
+        "address": "0x1018c2fcc",
+        "register": 8,
+        "baseRegister": 22,
+        "offset": 160
+      },
+      {
+        "address": "0x1018c2ff0",
+        "register": 8,
+        "baseRegister": 22,
+        "offset": 168
+      }
+    ],
+    "adrpLoadPointers": [
+      {
+        "adrp": "0x1020046a0",
+        "load": "0x1020046a4",
+        "resolvedPointerAddress": "0x1024fb970",
+        "pointee": "0x1022b791a"
+      }
+    ]
+  },
+  "immutableTables": [
+    {
+      "name": "generic-slot-name-pointers",
+      "address": "0x10247f428",
+      "bytes": 96,
+      "hex": "a98d270201000000b18d270201000000c88d270201000000d88d270201000000e38d270201000000c3d7240201000000fc8d270201000000088e270201000000148e270201000000258e2702010000003a8e270201000000498e270201000000"
+    },
+    {
+      "name": "Metal-address-mode-values",
+      "address": "0x1021346d0",
+      "bytes": 32,
+      "hex": "0200000000000000000000000000000003000000000000000500000000000000"
+    },
+    {
+      "name": "Metal-format-enums",
+      "address": "0x102134850",
+      "bytes": 24,
+      "hex": "510000000000000051000000000000005000000000000000"
+    },
+    {
+      "name": "Metal-type-enums",
+      "address": "0x102134958",
+      "bytes": 8,
+      "hex": "0200000000000000"
+    },
+    {
+      "name": "Metal-factory-vptr-and-slot108",
+      "address": "0x102497568",
+      "bytes": 272,
+      "hex": "3061a801010000003461a801010000007464a801010000007864a801010000007c64a801010000008464a801010000006c65a801010000002466a801010000006c66a801010000007466a801010000007866a80101000000d066a80101000000e866a801010000003885a801010000008085a801010000009885a80101000000a885a80101000000f466a801010000009c68a801010000004c67a801010000006467a80101000000d867a80101000000e467a80101000000f468a801010000000469a801010000001469a80101000000b069a80101000000d869a801010000007c6aa80101000000946aa80101000000ec6aa80101000000046ba80101000000a86ba80101000000c06ba80101000000"
+    },
+    {
+      "name": "Metal-RHI-factory-vtable-slot88",
+      "address": "0x1024975f0",
+      "bytes": 8,
+      "hex": "f466a80101000000"
+    },
+    {
+      "name": "fragment-sampler-selector-reference",
+      "address": "0x1024fb970",
+      "bytes": 8,
+      "hex": "1a792b0201000000"
+    }
+  ],
+  "strings": [
+    {
+      "address": "0x1022777c7",
+      "value": "DistortionPower",
+      "hex": "446973746f7274696f6e506f77657200"
+    },
+    {
+      "address": "0x1022778b4",
+      "value": "AlphaTestReferenceValue",
+      "hex": "416c706861546573745265666572656e636556616c756500"
+    },
+    {
+      "address": "0x1022778a9",
+      "value": "ALPHA_TEST",
+      "hex": "414c5048415f5445535400"
+    },
+    {
+      "address": "0x102277d39",
+      "value": "doesnotexist.dds",
+      "hex": "646f65736e6f7465786973742e64647300"
+    },
+    {
+      "address": "0x102230369",
+      "value": "",
+      "hex": "00"
+    },
+    {
+      "address": "0x102278da9",
+      "value": "TEXTURE",
+      "hex": "5445585455524500"
+    },
+    {
+      "address": "0x102278db1",
+      "value": "PARTICLE_COLOR_TEXTURE",
+      "hex": "5041525449434c455f434f4c4f525f5445585455524500"
+    },
+    {
+      "address": "0x102278dc8",
+      "value": "FALLOFF_TEXTURE",
+      "hex": "46414c4c4f46465f5445585455524500"
+    },
+    {
+      "address": "0x102278dd8",
+      "value": "NORMAL_MAP",
+      "hex": "4e4f524d414c5f4d415000"
+    },
+    {
+      "address": "0x102278de3",
+      "value": "SAMPLER_BACK_BUFFER_COPY",
+      "hex": "53414d504c45525f4241434b5f4255464645525f434f505900"
+    },
+    {
+      "address": "0x10224d7c3",
+      "value": "sDepthTexture",
+      "hex": "7344657074685465787475726500"
+    },
+    {
+      "address": "0x102278dfc",
+      "value": "SAMPLER_FOW",
+      "hex": "53414d504c45525f464f5700"
+    },
+    {
+      "address": "0x102278e08",
+      "value": "TEXTUREMULT",
+      "hex": "544558545552454d554c5400"
+    },
+    {
+      "address": "0x102278e14",
+      "value": "sPalettesTexture",
+      "hex": "7350616c65747465735465787475726500"
+    },
+    {
+      "address": "0x102278e25",
+      "value": "sAlphaErosionTexture",
+      "hex": "73416c70686145726f73696f6e5465787475726500"
+    },
+    {
+      "address": "0x102278e3a",
+      "value": "REFLECTION_MAP",
+      "hex": "5245464c454354494f4e5f4d415000"
+    },
+    {
+      "address": "0x102278e49",
+      "value": "DIFFUSE_MAP",
+      "hex": "444946465553455f4d415000"
+    },
+    {
+      "address": "0x1022b791a",
+      "value": "setFragmentSamplerState:atIndex:",
+      "hex": "736574467261676d656e7453616d706c657253746174653a6174496e6465783a00"
+    }
+  ],
+  "slotNames": {
+    "tableAddress": "0x10247f428",
+    "entries": [
+      {
+        "index": 0,
+        "address": "0x102278da9",
+        "value": "TEXTURE"
+      },
+      {
+        "index": 1,
+        "address": "0x102278db1",
+        "value": "PARTICLE_COLOR_TEXTURE"
+      },
+      {
+        "index": 2,
+        "address": "0x102278dc8",
+        "value": "FALLOFF_TEXTURE"
+      },
+      {
+        "index": 3,
+        "address": "0x102278dd8",
+        "value": "NORMAL_MAP"
+      },
+      {
+        "index": 4,
+        "address": "0x102278de3",
+        "value": "SAMPLER_BACK_BUFFER_COPY"
+      },
+      {
+        "index": 5,
+        "address": "0x10224d7c3",
+        "value": "sDepthTexture"
+      },
+      {
+        "index": 6,
+        "address": "0x102278dfc",
+        "value": "SAMPLER_FOW"
+      },
+      {
+        "index": 7,
+        "address": "0x102278e08",
+        "value": "TEXTUREMULT"
+      },
+      {
+        "index": 8,
+        "address": "0x102278e14",
+        "value": "sPalettesTexture"
+      },
+      {
+        "index": 9,
+        "address": "0x102278e25",
+        "value": "sAlphaErosionTexture"
+      },
+      {
+        "index": 10,
+        "address": "0x102278e3a",
+        "value": "REFLECTION_MAP"
+      },
+      {
+        "index": 11,
+        "address": "0x102278e49",
+        "value": "DIFFUSE_MAP"
+      }
+    ]
+  },
+  "contracts": {
+    "genericFallback": {
+      "input": "Slot argument X3 and asset identity through[X2] in1018c2d28.",
+      "nilOrEmptySlot0": "manager+0xa8",
+      "nilOrEmptyOtherSlots": "manager+0xa0",
+      "nonemptyFailedName": "manager+0xa8",
+      "managerGlobal": "0x1024fd238",
+      "emptySentinelGlobal": "0x102531460",
+      "emptySentinelInitializerStore": "0x1016c8f7c",
+      "missingSentinelGlobal": "0x1025e84e0",
+      "missingSentinelLiteral": "doesnotexist.dds",
+      "initialization": "101970ad4 initializes+a0 from sourceword0xffffffff and+a8 from sourceword0, through samevirtual+108 witharguments(2,1,1,1,0,pointervector). Sourceword is not itself proof of backend format.",
+      "conditionalNilBase": "If Activate reaches this generic binding path with nil/empty slot0 input, and fallback resource creation succeeds, it selects the zero-word resource. Actual Leona dispatch/default primitive/BIN loading remain unverified."
+    },
+    "conditionalMetal": {
+      "vptr": "0x102497568",
+      "factorySlot": "0x108",
+      "factory": "0x101a86bc0",
+      "descriptorConstructor": "0x101a8e398",
+      "format": {
+        "genericEnum": 2,
+        "metalEnum": 80,
+        "sdkName": "MTLPixelFormatBGRA8Unorm"
+      },
+      "textureType": {
+        "genericEnum": 0,
+        "metalEnum": 2,
+        "sdkName": "MTLTextureType2D"
+      },
+      "dimensions": [
+        1,
+        1
+      ],
+      "depth": 1,
+      "mipLevels": 1,
+      "upload": "Pointer-list source bytes copied by memcpy101a86d4c thenMetalbuffer-to-texture blit101a86da0. No channel conversion in these instructions.",
+      "conditionalSamples": {
+        "zeroWord": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "allOnesWord": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "limits": "Applies to the published Metal implementation; actual getter-selected backend and successful creation/upload were not observed."
+    },
+    "sampler": {
+      "addressMap": {
+        "sourceIndices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "metalEnums": [
+          2,
+          0,
+          3,
+          5
+        ],
+        "sdkNames": [
+          "Repeat",
+          "ClampToEdge",
+          "MirrorRepeat",
+          "ClampToBorderColor"
+        ]
+      },
+      "consumer101a8e23c": {
+        "addressByte": "object+0x10 applies to S/T/R",
+        "minMagByte": "object+0x11 applies to both min/mag",
+        "mipByte": "object+0x12",
+        "createdState": "object+0x38"
+      },
+      "otherConsumer101a8a8e8": "Independent sampler object bytes+8/+9/+A select S/T/R separately; do not conflate layouts.",
+      "decalWrites": "Kind7 branch1018c17c8\u20131844 writes generic32B descriptor threeaddressaxisbytes+10/+11/+12 to1 forDIFFUSE_MAP,FALLOFF_TEXTURE,PARTICLE_COLOR_TEXTURE. They are not three filter settings.",
+      "limits": "Generic descriptor propagation, Metal state construction and a consuming Metal fragment sampler binding callsite are statically traced. Actual LeonaCPUdispatch, selected backend, invocation at a particular draw/nativeframe and GPU behavior remain unverified. This package doesnotapplyruntimechanges.",
+      "genericToMetalPropagation": {
+        "recordCopy": "101954898 traverses32Bmaterialrecords (954d50/68), builds40B RHIrecords (954d54), copiesgeneric+10/+11/+12 toRHI+18/+19/+1a at954ec4\u2013ed8; flags+13->+20,+14->+22 at954ea8\u2013eb8.",
+        "dispatch": "101954f00 callsbackendgetter, virtual+88 at954f14/1c; publishedMetalvtable102497568+88 points101a866f4; calls101a83444 at101a86720. Constructorcalls101a83aa8 twice at101a836b4/c4.",
+        "consumer": "101a83aa8 cursorstartsrecord+23 at83bcc; stride28hex40 at83c14/18. LDURB -b/-a/-9 at83af4/f8/fc passesRHI+18/+19/+1a intoW1/W2/W3 of83d54; those independentlyselectMetalS/T/R. Min,mip,magfromRHI+20/+21/+22 respectively.",
+        "conditionalConclusion": "For this generic-record-to-Metal-construction path, the kind7 forcedaddressbytes1/1/1 maptoClampToEdge onallthreeaxes. This closesdescriptorpropagationtostatecreation, notactualLeona/nativeframe/GPUobservation.",
+        "finalBinding": "101a83444 setsX23=object+88 at834bc/c0 andpassesitassecond83aa8output at836c0/c4;firstoutputobject+78. 101a85204 readsfragmentarraycount[object+90],pointer[object+88] at85928/30, traverses16Bentries, readsstate[entry] andindex[entry+8], callssetFragmentSamplerState:atIndex: at85970. BLtarget1020046a0 hasselectorref1024fb970->cstring1022b791a, independentlydecodedfromstaticbytes."
+      }
+    },
+    "sourceStrength": {
+      "observed": "Newer generic caller1018c13b4\u201313dc reads pointer[definition+e8], loads its firstfloat and uploads[scalar,0,0,0] under literalDistortionPower; no conversion in caller. Null pointer skips upload. Old caller10188f168\u2013194 has analogous pointer[definition+50].",
+      "conditional": "Identity of these native fields with authored source distortionDefinition/distortionStrength is conditional until BIN-loader/definition construction is traced; do not infer local source strength rescaling from offsets alone."
+    },
+    "alphaTest": {
+      "observed": "1018c26cc\u20132718 tests unsignedbyte[definition+11]; nonzero addsALPHA_TEST and uploadsbyte/255 asAlphaTestReferenceValue. Zero skipsboth.",
+      "limits": "Native default value5 and actualLeona variant/dispatch are not established by this setter. No native shader alpha-order claim added here."
+    }
+  },
+  "remainingGates": [
+    "Actual Leona particle CPU callsite/dispatch and BIN loader field identity.",
+    "Native default primitive/material selection for enabled missing-base Activate record.",
+    "Actual getter/backend object selection, resource creation/upload success and invocation at a particular Leona draw/nativeframe; generic descriptor-to-Metal state construction and consuming sampler binding callsite are statically traced.",
+    "Complete native frame/render-state/phase and GPU observations.",
+    "SCB normals generation and exact ordinary reflection CPU bindings remain unresolved."
+  ],
+  "verifier": {
+    "path": "tools/assets/verify-leona-native-particle-bindings.py",
+    "bytes": 13221,
+    "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+  }
+}

@@ -64,3 +64,7 @@ executable and four metadata/plist files were reconstructed; this is not a full
 client installation. The Windows index entry remains an unverified candidate.
 Matching version/content does not resolve native emitter dispatch, attachment
 frames, CPU shader bindings, SCB normal construction or visual parity.
+
+The later [particle binding observations](LEONA-NATIVE-PARTICLE-BINDINGS.md)
+trace bounded generic resource initialization and sampler contracts in this
+exact arm64 image. Actual Leona dispatch and native frame acceptance stay open.

@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import { writeFileSync } from 'node:fs';
+import { ClampToEdgeWrapping, LinearFilter } from 'three';
 
 async function open(page: Page, team: 'blue' | 'red' = 'blue') {
   // Pause synchronously when boot exposes the development handle, before its
@@ -89,6 +90,16 @@ async function capture(page: Page) {
         height: m.material.uniforms.heightRange.value.toArray(),
         color: m.material.uniforms.particleColor.value.toArray(),
         lookup: m.material.uniforms.lookupUv.value.toArray(),
+        samplers: ['diffuseTexture', 'particleColorTexture'].map((key) => {
+          const texture = m.material.uniforms[key].value;
+          return {
+            wrapS: texture.wrapS,
+            wrapT: texture.wrapT,
+            min: texture.minFilter,
+            mag: texture.magFilter,
+            mipmaps: texture.generateMipmaps,
+          };
+        }),
       })),
       hash: [...new Uint8Array(await crypto.subtle.digest('SHA-256', p))].join(','),
       snapshot: g.world.snapshot(),
@@ -145,6 +156,15 @@ for (const team of ['blue', 'red'] as const)
       visible = await contribution(page);
     expect(before.models).toHaveLength(1);
     expect(before.models[0].profileIndex).toBe(team === 'blue' ? 12 : 18);
+    expect(before.models[0].samplers).toEqual(
+      Array.from({ length: 2 }, () => ({
+        wrapS: ClampToEdgeWrapping,
+        wrapT: ClampToEdgeWrapping,
+        min: LinearFilter,
+        mag: LinearFilter,
+        mipmaps: false,
+      }))
+    );
     expect(before.models[0].receiverCorners).toBeGreaterThan(3);
     expect(before.models[0].receiverTriangles).toBeGreaterThan(1);
     expect(before.snapshot).toBe(prepared.snapshot);
