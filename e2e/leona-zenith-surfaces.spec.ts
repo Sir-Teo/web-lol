@@ -275,8 +275,11 @@ test('repeated hits and misses retire ground grids, materials and soft-depth tar
         w.step();
         begun = w.tick;
       }
-      w.step(begun + 29 - w.tick);
-      v.render(w, 1, 22.5);
+      // Exercise first GPU use of the new session-owned trail images before comparing settled memory.
+      for (const age of [16, 18, 20, 24, 29]) {
+        w.step(begun + age - w.tick);
+        v.render(w, 1, 22.5);
+      }
       const models = [...v.leonaZenithSurfaces.models.values()] as any[],
         owned = models.filter((m) => m.userData.ownedGeometry);
       let materials = 0,
@@ -302,6 +305,7 @@ test('repeated hits and misses retire ground grids, materials and soft-depth tar
     }
     return rounds;
   }, ids);
+  writeFileSync(info.outputPath('storage.json'), JSON.stringify({ rounds, errors }, null, 2));
   for (const r of rounds) {
     expect(r.active).toBeGreaterThan(0);
     expect(r.owned).toBe(3);
@@ -315,5 +319,4 @@ test('repeated hits and misses retire ground grids, materials and soft-depth tar
     rounds.slice(1).every((r) => JSON.stringify(r.memory) === JSON.stringify(rounds[1].memory))
   ).toBe(true);
   expect(errors).toEqual([]);
-  writeFileSync(info.outputPath('storage.json'), JSON.stringify({ rounds, errors }, null, 2));
 });

@@ -5498,3 +5498,40 @@ See [surface scope](LEONA-E-SURFACES.md) and its
 Sixteen visible E families now draw including arrival; two trails, the reflective
 sword, source E audio, native comparison and Leona player/support integration
 remain open. Nothing is pushed; the full project goal remains active.
+
+## Zenith Blade source arbitrary trails — October 24, 2026
+
+Both E arbitrary trails now draw through the pinned quad-family contract with
+per-vertex RGBA/lookup, source smoothing/cutoff/WAKE and profile 11's authored
+16-row palette at row .59375. An adapter places prepared points in the saved
+missile frame without changing the emission/history/ribbon kernel bytes. Hidden
+births split runs, current visibility culls points, and stopped missile tails
+remain independent of the live caster/dash. Lazy session images are shared;
+owned dynamic buffers dispose on growth and expiry.
+
+TypeScript, 1,803 unit cases/297 files and three Node QA cases pass. Twenty-one
+unique Chrome cases pass across the combined run and corrected storage rerun.
+All 448 synthetic GPU samples match expected bytes exactly, including palette
+order/alpha, per-vertex interpolation/lookup, remap, alpha reference, additive
+blend and depth direction. Both saved ages reproduce arrays and whole-frame
+pixels after reload and context loss. Six progressive hit/miss rounds settle at
+22 geometries/37 textures and release every observed ribbon material/geometry.
+
+The first shared-surface storage assertion compared before all session images
+had reached first GPU use: counts grew 35→37, then stayed fixed. Rendering the
+early phases keeps its strict memory equality check; all six rounds now match.
+The failed run and diagnostic rerun remain retained. An unused test import was
+also corrected. Fresh nested production passes 32 recordings without a
+development hook or unrequested Leona preload; the new pack has 946 files and
+506,726,009 bytes. No new normal-match cohort or CPU benchmark is claimed.
+
+E now draws eighteen visible families. The reflective sword, source E audio,
+native CPU/frame acceptance, Leona player/support integration and full project
+remain open. Schema 125 and ruleset 3f5f13be remain unchanged. See
+[trail scope](LEONA-E-TRAILS.md) and the
+[verification record](reference/leona/e-trail-verification.json). Nothing is pushed;
+the full project goal stays active.
+
+Fresh full-pack offline validation also passes integrity, retry, repair,
+saved/new-match boot, removal and atomic two-version activation with 963
+service-worker responses and no production errors.

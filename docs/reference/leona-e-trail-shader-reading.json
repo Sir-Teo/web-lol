@@ -1,0 +1,374 @@
+{
+  "scope": "Static 16.18.8175716 native quad shader arithmetic plus revision-bound external ribbon reconstruction; no target or shader executed.",
+  "limits": [
+    "Native E trail CPU dispatch, actual texture/uniform/sampler bindings, blend state and rendering parity remain unverified.",
+    "External RIBBON_DRAW selects quad; this does not establish a native callsite or prove absence of a distinct trail shader.",
+    "Clang retargets textual AIR to the host with LLVM passes disabled; original Metal and AIR bytes are preserved.",
+    "Missing lookup/remap textures require separately justified bindings; no native neutral-resource defaults are inferred."
+  ],
+  "sourcePin": {
+    "path": "docs/reference/particle-shaders.json",
+    "bytes": 19572,
+    "sha256": "6c837e13f6f4abecff49aee3bbe91b12247ccd70a2df69fec0568916d0535ca6"
+  },
+  "kernelPin": {
+    "path": "docs/reference/leona-e-kernel-readers.json",
+    "bytes": 2618,
+    "sha256": "ea6dc239551656c41bf5eae4feb8e581389643bdb75350a65dcfe2562d9b1465"
+  },
+  "nativeProvenance": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/ShaderCache.metal.wad.client",
+    "chunks": {
+      "45E944192F8380B7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/89CB95BFED6F5D6B.bundle",
+        "offset": 15109374,
+        "bytes": 51065,
+        "sha256": "b32acb9ce2eab9db5da8ab75af82f63811ff6866f71099d321b9090ca43db635"
+      },
+      "33717C0D6AD50A25": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6DAB806BF6A97337.bundle",
+        "offset": 835001,
+        "bytes": 19836,
+        "sha256": "a5cd0b2323650eb791b48a4ccaec55a2dc4675914924810a572ee7ee15f2107f"
+      },
+      "EDCB4CFEDFC5EDA2": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/52C61B097501F7A0.bundle",
+        "offset": 21553583,
+        "bytes": 2536,
+        "sha256": "a7b0d21c0d4c2d1e923d998f07650f3285659199ed9324927ee6bacb58e641b3"
+      },
+      "C7727DCD553147A5": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6DAB806BF6A97337.bundle",
+        "offset": 20943439,
+        "bytes": 2539,
+        "sha256": "da20d0053e5b5dfacd5c6d5f2c8b40df115667e81a6d762cf6c94d267009fd97"
+      },
+      "EC3DB59DAD6A3F83": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/89CB95BFED6F5D6B.bundle",
+        "offset": 15970132,
+        "bytes": 288,
+        "sha256": "8145f9228cb0ec68e9216f5139fcd91e680baf5d15595f9ab7e40fc23ba75687"
+      },
+      "1E20E9A696B2869B": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6DAB806BF6A97337.bundle",
+        "offset": 1073240,
+        "bytes": 52572,
+        "sha256": "d1a0616bc8922e3eaedc1eccc99fafd6a3aafeb24f2c0a561ac370f1774b8223"
+      },
+      "673E9427C8902A3F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6DAB806BF6A97337.bundle",
+        "offset": 15006,
+        "bytes": 75836,
+        "sha256": "9a4e4364aaf73c548ebdd69c59ef333d142c0ecff7d371d6811a1e588f116233"
+      },
+      "24B88C8DB26EC663": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/9336F6644B7D44D0.bundle",
+        "offset": 44517139,
+        "bytes": 88299,
+        "sha256": "cbce2b00b27961ede11d6fcb29d0b16486c6b38a2e175eb511841be6bb5155c7"
+      },
+      "3ECADB6FB4772D3D": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/52C61B097501F7A0.bundle",
+        "offset": 43266510,
+        "bytes": 59987,
+        "sha256": "469d1e9e4b5ba6b5d231faabaa6803e950fd4c56787648fb7bd372f435cd6d10"
+      },
+      "E63A20535834241B": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/CF1DC8511AA5BC6F.bundle",
+        "offset": 30939513,
+        "bytes": 62507,
+        "sha256": "e4b7d41314b0ced5f07d9c7994bb86975fc6a265c3f1ee27c286c1fb5b3db02a"
+      },
+      "244F79E8FA3EF5EA": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6DAB806BF6A97337.bundle",
+        "offset": 4694655,
+        "bytes": 11086,
+        "sha256": "e526df0a5d69b61d510d1f76645794b67ef8333e8f9ec6f5fb571f55ddbafaa6"
+      }
+    },
+    "files": [
+      {
+        "path": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal",
+        "wadPathHash": "eac13e189601d830",
+        "sha256": "5fbf5c0846d31ce52b32ac57e29e7778d847e5e86a8cd26f4caa5206a62ac599",
+        "bytes": 24873
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal",
+        "wadPathHash": "b248a9f2d4c6e24d",
+        "sha256": "ae5b370cd544af0d628ada594060fab0e75b92973c27d23e22abf2322c584543",
+        "bytes": 3295
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal",
+        "wadPathHash": "d14cd4e9a5238f0b",
+        "sha256": "0a3b5a75854e9e4197cdf7fa53c315e5b969bd37e5b1ac3436184cce5a6dce20",
+        "bytes": 3300
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/quad_vs.vs-metal",
+        "wadPathHash": "c69e7a01e176cc4f",
+        "sha256": "9bc26a17d5bdb16f08e32013d27741969e8f48e22c15709712b6e0b0e88a2fbc",
+        "bytes": 319
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_0",
+        "wadPathHash": "76f231675a2e43df",
+        "sha256": "f11dab5e01ff4779842a87a7f44063de3093b8f66210508f93007994a1d3efc8",
+        "bytes": 423160
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_600",
+        "wadPathHash": "c06dd63307a8f7d1",
+        "sha256": "adaca1dbe93937e0ec98e8eea780009c6ea52a0e8b1e98306a3572938c68b394",
+        "bytes": 535640
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/mesh_ps.ps-metal_700",
+        "wadPathHash": "3c044c26cd7db80f",
+        "sha256": "4d527093f8a2bba1fb443f403aa944314b5bc21a78734a6987afc85cab6093cc",
+        "bytes": 571080
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/mesh_vs.vs-metal_0",
+        "wadPathHash": "5ccdc3d1f626137b",
+        "sha256": "0b47cdaf2a7a0d9489a2d521a04f06a864a3bf0ae771ff95b22b5a01e5cc73ad",
+        "bytes": 582465
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal_0",
+        "wadPathHash": "523edf942a1a020a",
+        "sha256": "ae8f612833cb5d751a31d38641c7e018d015a3f1ec67918a702a6618caaaee2f",
+        "bytes": 437080
+      },
+      {
+        "path": "assets/shaders/hlsl/particlesystem/quad_vs.vs-metal_0",
+        "wadPathHash": "607f120d04828f35",
+        "sha256": "5a92f61dd00bd08d76acac588f232e0fa34385c44392b465e3d5a8fbba4aeb7b",
+        "bytes": 73600
+      }
+    ]
+  },
+  "nativeSamples": [
+    {
+      "table": "assets/shaders/hlsl/particlesystem/quad_vs.vs-metal",
+      "defines": {
+        "DISABLE_FOW": "1"
+      },
+      "programId": 0,
+      "bundle": "assets/shaders/hlsl/particlesystem/quad_vs.vs-metal_0",
+      "index": 0,
+      "source": ".cache/particle-shaders/quad_vs.vs-metal-0.metallib",
+      "metallib": {
+        "path": ".cache/leona-e-trail-reading-v1-20261024/quad_vs.vs-metal-0.metallib",
+        "bytes": 4466,
+        "sha256": "e35d35fe08a495bd9dff70846aed99f9a3553807dc44533079a88f1c8484b615"
+      },
+      "bitcode": {
+        "path": ".cache/leona-e-trail-reading-v1-20261024/quad_vs.vs-metal-0.bc",
+        "bytes": 4156,
+        "sha256": "6d46f205c6f1f1e6faf28837c3769685edb04460d7c4401e9b5c26fa5389bab4",
+        "offset": 310
+      },
+      "disassembly": {
+        "path": ".cache/leona-e-trail-reading-v1-20261024/quad_vs.vs-metal-0.ll",
+        "bytes": 9435,
+        "sha256": "edf3df233ac7e9c3fb212c1bb249970851c8f73d2f157d23d0340d148dfd9f4f"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal",
+      "defines": {
+        "DISABLE_FOW": "1"
+      },
+      "programId": 0,
+      "bundle": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal_0",
+      "index": 0,
+      "source": ".cache/particle-shaders/quad_ps.ps-metal-0.metallib",
+      "metallib": {
+        "path": ".cache/leona-e-trail-reading-v1-20261024/quad_ps.ps-metal-0.metallib",
+        "bytes": 3470,
+        "sha256": "3f2f0e9b9c9eeec9954f236bed6382f47caba1aa349fe5d36d3282b6bef140bc"
+      },
+      "bitcode": {
+        "path": ".cache/leona-e-trail-reading-v1-20261024/quad_ps.ps-metal-0.bc",
+        "bytes": 3208,
+        "sha256": "0843cba4fa79e713d90d545e3acdc822ffec87cccfbfe31d1a8d2fe8ca3bc779",
+        "offset": 258
+      },
+      "disassembly": {
+        "path": ".cache/leona-e-trail-reading-v1-20261024/quad_ps.ps-metal-0.ll",
+        "bytes": 5192,
+        "sha256": "b38ef38fb9072f3a4bf6123235d2f52a2bfdea921249e91f923f10df412a5f1a"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    },
+    {
+      "table": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal",
+      "defines": {
+        "DISABLE_FOW": "1",
+        "PALETTIZE_TEXTURES": "1"
+      },
+      "programId": 12,
+      "bundle": "assets/shaders/hlsl/particlesystem/quad_ps.ps-metal_0",
+      "index": 12,
+      "source": ".cache/particle-shaders/quad_ps.ps-metal-12.metallib",
+      "metallib": {
+        "path": ".cache/leona-e-trail-reading-v1-20261024/quad_ps.ps-metal-12.metallib",
+        "bytes": 4046,
+        "sha256": "64372231ea7c1c5d781b247f4654c83c6bf50b87116c542ccfcb6d5a0d0915a2"
+      },
+      "bitcode": {
+        "path": ".cache/leona-e-trail-reading-v1-20261024/quad_ps.ps-metal-12.bc",
+        "bytes": 3788,
+        "sha256": "73a8f4de4da6c8aa43f4abdd03e74e68b9fa9390ce28e5163b69a05abe4bd904",
+        "offset": 258
+      },
+      "disassembly": {
+        "path": ".cache/leona-e-trail-reading-v1-20261024/quad_ps.ps-metal-12.ll",
+        "bytes": 7475,
+        "sha256": "a98545fbdf23d07e6d554ba458fa79507029b2f82438845d4dd09a9d56ddcb8f"
+      },
+      "compilerStderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n"
+    }
+  ],
+  "externalRevision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+  "externalReaders": [
+    {
+      "path": ".cache/leona-e-trail-reading-v1-20261024/readers/utils/particleDraws.ts",
+      "bytes": 4377,
+      "sha256": "7244b79adf4d0ae598355458a0497bead40af4e4f7cee61774fd159f98ea57a5",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/particleDraws.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808"
+    },
+    {
+      "path": ".cache/leona-e-trail-reading-v1-20261024/readers/shaders/ribbonPrelude.ts",
+      "bytes": 1095,
+      "sha256": "56a62035458775b3fc7878bc93bb3276096755597565137bfff8be0a46aced14",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/shaders/ribbonPrelude.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808"
+    },
+    {
+      "path": ".cache/leona-e-trail-reading-v1-20261024/readers/utils/palette.ts",
+      "bytes": 2008,
+      "sha256": "d13b347b607a85cc079b909dc8bb25e9ce67cd4e5c8120097f99b713b852f3f9",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/palette.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808"
+    },
+    {
+      "path": ".cache/leona-e-trail-reading-v1-20261024/readers/utils/colorLookup.ts",
+      "bytes": 2205,
+      "sha256": "13658d02415c8ee3d30ecdb5247dc6ee2f9905f05912ee04070c52970eb5bcf8",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/colorLookup.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808"
+    },
+    {
+      "path": ".cache/leona-e-trail-reading-v1-20261024/readers/utils/blend.ts",
+      "bytes": 5320,
+      "sha256": "2a9faf081ee3c27fdbbf0764ec42673eceb77b3b928992b9acaf407b572b52b8",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/blend.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808"
+    }
+  ],
+  "existingReaders": [
+    {
+      "path": ".cache/leona-e-kernel-readers-v1-20261024/Trails.tsx",
+      "bytes": 7854,
+      "sha256": "e94eeaed23fddc95b9cb6d20b82fcc2abb4714bd304545b83303127ad405003c",
+      "url": "https://github.com/LeagueToolkit/ltk-manager/blob/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/components/Trails.tsx",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808"
+    },
+    {
+      "path": ".cache/leona-e-kernel-readers-v1-20261024/ribbon.ts",
+      "bytes": 33103,
+      "sha256": "ada3d66b955dee7916f10e5b76417a9d7985bbbca337afcd551a7f30fa5cbe68",
+      "url": "https://github.com/LeagueToolkit/ltk-manager/blob/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/ribbon.ts",
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808"
+    }
+  ],
+  "findings": [
+    {
+      "id": "E-TRAIL-ROUTING",
+      "evidence": "readers/utils/particleDraws.ts:54-67; existing Trails.tsx:88-89,119",
+      "type": "external-reconstruction",
+      "observation": "RIBBON_DRAW.path is quad, using ribbonPrelude; Trails selects it. No rim/reflection."
+    },
+    {
+      "id": "E-TRAIL-VERTEX",
+      "evidence": "quad_vs.vs-metal-0.ll:11-72,111-118",
+      "type": "native-static",
+      "observation": "ATTR0 float3 world position loc0; ATTR3 float4 BGRA color loc3; ATTR8 float4 UV/frame loc8; ATTR9 float2 lookup loc9. VS swizzles color to RGBA, atlas-transforms base UV, passes per-vertex lookup. Buffer1 PerFrameVertexCB; buffer9 LocalsVertex TEXTURE_INFO@0/depthPushPull@16."
+    },
+    {
+      "id": "E-TRAIL-PRELUDE",
+      "evidence": "readers/shaders/ribbonPrelude.ts:26-34",
+      "type": "external-reconstruction",
+      "observation": "Position is already expanded. Engine color=tint.bgra; base UV/frame0/erosion and per-vertex lookup feed quad shader. Avoid a second application RGBA channel swap."
+    },
+    {
+      "id": "E-TRAIL-COLOR",
+      "evidence": "quad_ps.ps-metal-0.ll:8-22,54-61",
+      "type": "native-static",
+      "arithmetic": "T=sample(base,UV.xy)*tint*sample(particleLookup,UV.zw); remap=sample(globalRamp,[dot(T.rgb,[.2126,.7152,.0722]),.5]); RGB=remap.a>0?remap.rgb:T.rgb; alpha=T.a.",
+      "resources": "Textures0/1/2=globalRemap/base/particleLookup; samplers0/1/15=base/lookup/Clamp_No_Mip_SharedSampler."
+    },
+    {
+      "id": "E-TRAIL-PALETTE",
+      "evidence": "quad_ps.ps-metal-12.ll:10-36,77-86",
+      "type": "native-static",
+      "arithmetic": "B=sample(base,UV.xy); paletteUV=[clamp(dot(B,cPaletteSrcMixerMain),0,1),cPaletteSelectMain.x]+cPaletteSelectMain.zw; P=sample(palette,paletteUV); Q=[P.rgb,B.a]; T=sample(lookup,UV.zw)*tint*Q; then global remap as nonpalette. Palette alpha is discarded; mixer sees untinted base.",
+      "resources": "Buffer16 LocalsFragment32 bytes: cPaletteSelectMain float4@0, cPaletteSrcMixerMain float4@16. Textures0/1/2/3=globalRemap/palette/base/lookup; samplers0/1/2/15=palette/base/lookup/sharedClamp."
+    },
+    {
+      "id": "E-TRAIL-PALETTE-ROW",
+      "evidence": "readers/utils/palette.ts:25-33",
+      "type": "external-reconstruction",
+      "arithmetic": "row=(sample(selector,0).x+.5)/count; E selector9,count16 gives .59375, without flooring. Scroll adds separately. E mixer [.299,.587,.114,0] gives U=clamp(.299*B.r+.587*B.g+.114*B.b,0,1). Native shader observes supplied row only."
+    },
+    {
+      "id": "E-TRAIL-LOOKUP",
+      "evidence": "readers/utils/colorLookup.ts:59-75",
+      "type": "external-reconstruction",
+      "observation": "Lifetime axis=scale*age01+offset; constant axis=scale. E lookup types[1,0],scales[1,1],offsets[0,0] produce [age01,1], separate from palette row."
+    },
+    {
+      "id": "E-TRAIL-UV",
+      "evidence": "existing ribbon.ts:219-229,297-308",
+      "type": "external-reconstruction",
+      "observation": "Mode1 U is walked smoothed distance/tilingU; tilingV0 spans V0..1. Per-point UV transform, tint and lookup are copied to both edge vertices. E tilingU805/1100 respectively."
+    },
+    {
+      "id": "E-TRAIL-BLEND",
+      "evidence": "readers/utils/blend.ts:61",
+      "type": "external-reconstruction",
+      "observation": "E blend4 alphaAdd uses SrcAlpha,One,Add; native shader bytes cannot establish blend setup."
+    }
+  ],
+  "profiles": [
+    {
+      "profile": 11,
+      "sourceIndex": 7,
+      "name": "Kayn_Primay_Broken",
+      "system": "Leona_E_mis_weapon",
+      "palette": true,
+      "blend": 4
+    },
+    {
+      "profile": 14,
+      "sourceIndex": 13,
+      "name": "Trail1",
+      "system": "Leona_E_mis_weapon",
+      "palette": false,
+      "blend": 4
+    }
+  ],
+  "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
+  "nativeExecuted": false,
+  "nativeRenderingVerified": false
+}

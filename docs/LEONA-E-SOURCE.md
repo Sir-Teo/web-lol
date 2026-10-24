@@ -197,3 +197,12 @@ binding policies backed by pinned external reconstruction. Together with the
 arrival skin, sixteen visible families draw. Two trails, the reflective sword,
 source E audio, native acceptance and player/support integration remain open.
 Fresh production/offline evidence belongs to this surface increment.
+
+## Subsequent arbitrary-trail integration — October 24, 2026
+
+[Both source ribbons](LEONA-E-TRAILS.md) now draw from retained missile births,
+with per-vertex color/lookup and the authored gradient palette. The prepared
+emission/history/ribbon kernels stay byte-identical. E now draws eighteen visible
+families; the reflective sword, source audio, native acceptance and Leona
+player/support integration remain open. Earlier delivery audits retain their
+historical identities; the trail increment has fresh production/offline evidence.
