@@ -1,0 +1,66 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "manifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "archive": "DATA/FINAL/Champions/MasterYi.wad.client",
+  "chunks": {
+    "251C7B1A89AC8A47": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E13BC2813B77BDAA.bundle",
+      "offset": 6337390,
+      "bytes": 78610,
+      "sha256": "f3191a850f8a85bc7903990e54c70f08a64610a2a84fc48ade05b18f24bf59b1"
+    },
+    "FCFF8007F394E02B": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94927212CA140623.bundle",
+      "offset": 11366349,
+      "bytes": 39285,
+      "sha256": "7a38d0ed525fa74dca8860cc2e71935af97b13eaf8ce78ff5b00811befcb19e5"
+    },
+    "C3D0D139E31F0C36": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94927212CA140623.bundle",
+      "offset": 26165107,
+      "bytes": 365863,
+      "sha256": "bd89efdfa0b6acd38741b6faff9c94288e001c8265d10c834a1ca7a0c067100b"
+    },
+    "FFFA6CA8A56C2400": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94927212CA140623.bundle",
+      "offset": 26530970,
+      "bytes": 174456,
+      "sha256": "410277ec4558eb7c202f258d2badcc951f2534eb5ba47a71db430996c7121990"
+    },
+    "34958318E932973A": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E6AF6E4222494A81.bundle",
+      "offset": 0,
+      "bytes": 136415,
+      "sha256": "f1a394919f1a547bc97dc3bc5c089fb6d07ef5763dac1e506eb5d119fa53b38e"
+    },
+    "18C5476A22FBD157": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E6AF6E4222494A81.bundle",
+      "offset": 136415,
+      "bytes": 41469,
+      "sha256": "2f0325def361cfdc7a622ee81d8010d86ce395099fbade06cb8efdf879dd5ec9"
+    },
+    "622C12780F4CD01D": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E13BC2813B77BDAA.bundle",
+      "offset": 9688058,
+      "bytes": 3459,
+      "sha256": "d1c508d77db62dbfe4a1d7c7e58330b613fd649748fbe480ba7f1162c2037075"
+    }
+  },
+  "files": [
+    {
+      "path": "assets/sounds/wwise2016/sfx/characters/masteryi/skins/base/masteryi_base_sfx_audio.bnk",
+      "wadPathHash": "9ccfbef5a3722b0c",
+      "sha256": "88f1e27c0d42dac80be948f82909ded4e208a28c34db35bb361caa3fc980c2c5",
+      "bytes": 738923
+    },
+    {
+      "path": "assets/sounds/wwise2016/sfx/characters/masteryi/skins/base/masteryi_base_sfx_events.bnk",
+      "wadPathHash": "694515422a00fab0",
+      "sha256": "af6aebc07d4759770ae01e047a14bfc7a55c602291acacd8fbb13c6be87389e5",
+      "bytes": 13053
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "extractionSha256": "579c704813d156d4dddefc8c27fc66070c50d4f5997e615c62a446532b6a098a",
+  "parser": {
+    "repository": "https://github.com/bnnm/wwiser",
+    "revision": "71654ed1a2c4642894bd7e7ed79eba66986fb770"
+  },
+  "banks": [
+    {
+      "name": "masteryi_base_sfx_audio.bnk",
+      "version": 145,
+      "media": 69,
+      "sounds": 0,
+      "events": 0,
+      "playActions": 0,
+      "stopActions": 0,
+      "randomSequence": 0,
+      "switches": 0,
+      "attenuations": 0
+    },
+    {
+      "name": "masteryi_base_sfx_events.bnk",
+      "version": 145,
+      "media": 0,
+      "sounds": 101,
+      "events": 31,
+      "playActions": 32,
+      "stopActions": 3,
+      "randomSequence": 39,
+      "switches": 3,
+      "attenuations": 5
+    }
+  ],
+  "status": "Source inventory only; authored event graph, decoding and runtime remain separate."
+}

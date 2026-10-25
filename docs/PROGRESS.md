@@ -8045,3 +8045,23 @@ remain disabled, with no development hook or Yi rig preloads. Ruleset
 `e663ac994747306aa587d489212542c13de96c9afd874a6f26966f743f834011` has
 1,073 files / 526,662,603 bytes. Public asset bytes are unchanged.
 No fresh full-browser/offline/native/performance certification is claimed.
+
+### Master Yi base SFX source graph
+
+Pinned the two declared base SFX banks (751,976 bytes), excluding voice-over.
+All 31 event names resolve to actual FNV bank IDs. The static closure retains
+223 native hierarchy nodes and all 69 embedded media records (737,501 encoded
+bytes), including separate Q-launch layers, Double Strike hit switches and both
+Meditate stop targets. Parameters/branches and three unresolved external buses
+remain explicit. The raw attack slots retain omitted names/probabilities; source
+availability is not treated as proof of active native script binding.
+
+New immutable extraction/mapping tools check frozen source hashes and a clean
+pinned parser checkout. The mapper bypasses optional name databases and verifies
+its FNV implementation independently. Twenty-nine offline guards pass per Python
+mode; actual source/graph checks pass normally and with optimization. Conflicting
+outputs reject before creation, and identical/check outputs remain untouched.
+The initial incomplete-parser rejection and successful pinned-parser follow-up
+are retained. No decoding, public media or gameplay playback changed; schema 145,
+current ruleset and the prior runtime pack remain intact. See
+[Master Yi audio source preparation](MASTER-YI-AUDIO.md).
