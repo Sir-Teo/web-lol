@@ -8065,3 +8065,21 @@ The initial incomplete-parser rejection and successful pinned-parser follow-up
 are retained. No decoding, public media or gameplay playback changed; schema 145,
 current ruleset and the prior runtime pack remain intact. See
 [Master Yi audio source preparation](MASTER-YI-AUDIO.md).
+
+### Master Yi float source masters
+
+Built pinned vgmstream/Ogg/Vorbis sources with a separately recorded Linux
+compiler/static-codec provenance. All 69 source clips decode to mono 44.1 kHz
+IEEE float32: 3,798,546 frames / 15,197,220 WAV bytes. Thirty-five retain native
+headroom above one; no sample is clipped, normalized, resampled or mixed. Container
+loops/gains/pitch/fades remain outside these masters.
+
+New checks pin the source graph and decode record, validate RIFF extents, float
+format, exact native frames/rate/channels, finite PCM and full identities/stats.
+All source inputs preflight before decoder access; outputs preflight before any
+creation. Thirty offline guards pass per Python mode. Full normal/optimized
+repeat decodes reproduce all files and record bytes without touching masters.
+Independent checking needs no decoder binary. Public assets, gameplay audio,
+schema 145, ruleset and the prior runtime pack remain unchanged. Runtime binding,
+source bank policies, pause/seeking and listening/mix acceptance continue next.
+See [decoded source masters](MASTER-YI-AUDIO.md#decoded-source-masters).

@@ -69,3 +69,47 @@ its ruleset remain unchanged. Native dispatch, source-master decoding, runtime
 loading, material/variant selection, stop/linger/seeking and listening/mix
 comparison remain separate acceptance work. Evidence:
 [audio-source-verification.json](reference/masteryi/audio-source-verification.json).
+
+## Decoded source masters
+
+The next checkpoint decodes all 69 media records into private IEEE float32 WAV
+masters: mono 44.1 kHz, 3,798,546 frames, 15,197,220 bytes. None is silent.
+Thirty-five retain samples outside the unit range; the largest peak is
+1.3174407482147217. No clipping, normalization, resampling, channel mixing, gain,
+pitch, loop expansion or fades are baked into these files. The source files have
+no embedded sample loops; authored container looping remains in the bank graph.
+
+The [decoded record](reference/masteryi/audio-decoded.json) pins each encoded,
+WAV and PCM identity, original frame/rate/channel metadata, peak/RMS, endpoint
+deltas and samples outside the unit range. It separately records the pinned
+vgmstream/Ogg/Vorbis revisions, actual binary and static-library hashes, compiler,
+CMake flags/cache identity and Linux platform. These are this build's artifacts;
+the earlier macOS decoder identities are not reused or rewritten. Different build
+profiles must use separate output/master paths and an explicitly reviewed record
+checksum for independent checking.
+
+The decoder sources are pinned to vgmstream
+`e6afeaacf433bfafd38d873f80c94517e09d5b96`, Ogg
+`fa80aae9d50096160f2b56ada35527d7aee3f746` and Vorbis
+`2eac96b03ff67953354cb0a649c08aa3a23267ef`. The current Release build uses Debian
+GCC 14.2, CMake 3.31.6 and static codec libraries; the CLI links libc/libm.
+Decoding uses `-i -W 4` and checks source inputs before accessing the decoder.
+All output conflicts reject before creation. Independent check mode verifies the
+frozen record, source identities, raw WAV/PCM and format/statistics without
+requiring the decoder binary.
+
+```sh
+python tools/assets/decode-masteryi-audio.py --decoder-root /path/to/vgmstream --ogg-root /path/to/ogg --vorbis-root /path/to/vorbis
+python tools/assets/decode-masteryi-audio.py --check
+python -O tools/assets/decode-masteryi-audio.py --check
+python tools/assets/test-masteryi-audio-decode.py
+python -O tools/assets/test-masteryi-audio-decode.py
+```
+
+Thirty offline decode guards pass per Python mode. Actual checking and a complete
+repeat decode pass normally and with optimization; all 69 WAVs remain exact and
+their timestamps are untouched. Runtime loading/bindings, bank gain/pitch,
+material/variant selection, fades, looping, pause/seeking and listening/native mix
+remain separate acceptance work. No public files, runtime rules or save format
+change in this checkpoint. See
+[audio-decode-verification.json](reference/masteryi/audio-decode-verification.json).

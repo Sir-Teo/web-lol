@@ -1,0 +1,560 @@
+{
+  "recordedAt": "2026-10-25T22:48:54.816244+00:00",
+  "baselineCommit": "cadad7c",
+  "scope": "Pinned private float source masters, decoder/build provenance and integrity checks only. No gameplay/public audio loading changed.",
+  "schema": 145,
+  "unchangedRuleset": "01df38573feae5954330b5a1a2ca9dad87d320d0ec3b024ba2a31d971bb96022",
+  "unchangedRuntimePack": {
+    "id": "e663ac994747306aa587d489212542c13de96c9afd874a6f26966f743f834011",
+    "files": 1073,
+    "bytes": 526662603
+  },
+  "inputs": [
+    {
+      "file": "tools/assets/masteryi_audio_decode.py",
+      "bytes": 8199,
+      "sha256": "1daac83459300db4b01688688cf6d454ad7d3c1d20a5dd420a00850447470e20"
+    },
+    {
+      "file": "tools/assets/decode-masteryi-audio.py",
+      "bytes": 2101,
+      "sha256": "5ac594453eb85f19d1119f030def3b2bf04a45bdbc8b0191c8eaf339eb074000"
+    },
+    {
+      "file": "tools/assets/test-masteryi-audio-decode.py",
+      "bytes": 8590,
+      "sha256": "03ea54c49b31978f2b30a7efb56de7c9c855763315f094d1fec812695f74be9e"
+    },
+    {
+      "file": "docs/reference/masteryi/audio-decoded.json",
+      "bytes": 87738,
+      "sha256": "28ac362788bb76709a226e76d282eb25a1805a474b9bc7348cedd59bbee33a32"
+    }
+  ],
+  "masters": [
+    {
+      "file": ".cache/masteryi-audio-decoded/789302.wav",
+      "bytes": 62340,
+      "sha256": "1fc2eb75310bc02fd8563363cdad60011271d39b3a977f2c50d9e50d2c70e67d"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/7394909.wav",
+      "bytes": 147508,
+      "sha256": "c8ef7edf0a538e493aab8a9baf972fa760e0d85664978997282cf05852441c1c"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/16380216.wav",
+      "bytes": 113780,
+      "sha256": "f5f1e48e9f1781292f405bd0d69dabc7141bfcb84fe5c39eeb3b31a7a6702ce7"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/19763561.wav",
+      "bytes": 64596,
+      "sha256": "1eccd53bdfc7b7edfb04a60085d81bec2225cec09b26190cf0cc629cdc181013"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/21301409.wav",
+      "bytes": 70812,
+      "sha256": "64039d5062d5ff772cf65b36c36875deb0f172556526abec78b1b02a3fd2a632"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/31491481.wav",
+      "bytes": 58780,
+      "sha256": "857a777702ad8b2a09c556b2f3e313bfb2d5534eb17dc60f04e075b2637b25c6"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/33081959.wav",
+      "bytes": 139768,
+      "sha256": "9b5078b2a972015a0f01486c1555a99ec304b1c799b6ede23e1d663608d66d69"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/33473320.wav",
+      "bytes": 74096,
+      "sha256": "5028acc98471cf3246b4c043c8712a3b8e62d3fb4fcac61a3425316be322d715"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/48797763.wav",
+      "bytes": 110476,
+      "sha256": "7105320936844bc488b73cde9e6e330913e63e877524362ae1d1b17b0d78533e"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/49002591.wav",
+      "bytes": 57068,
+      "sha256": "d1d7a95a9911e605fd70b413e9c193ee606882724a0844e1474493d56ee45f46"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/50658123.wav",
+      "bytes": 110324,
+      "sha256": "9b7d6e54ed972d24886478fa9b3f5736571347c4d639185151fe59a502b0e447"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/52272044.wav",
+      "bytes": 58472,
+      "sha256": "564a40c533c0de3991e36e29648487c9fed16fcc0c71659c9774c4fa08d3bfc5"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/63363042.wav",
+      "bytes": 195000,
+      "sha256": "00b0e8439f33fd692e76306c84100116e7fd50f47ea8e79671504cd10fece3e5"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/63444143.wav",
+      "bytes": 79332,
+      "sha256": "14399854b8e8ee426d517cb99e12818670d865e7d5defed2665dbda96aed563e"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/84648135.wav",
+      "bytes": 78684,
+      "sha256": "931608c58958f086a4ae360066b2d0b293f3d12dc57193cee2193dd315611d00"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/95976721.wav",
+      "bytes": 60620,
+      "sha256": "74ececa4374ba6d81842342ba1deeaa99858c74681995969ea95dbae4cfdbb81"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/104024387.wav",
+      "bytes": 56132,
+      "sha256": "70e934cb431b8c16c2bb80a6710cf5ac53071205d762cedcad8aac5af7065125"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/108844688.wav",
+      "bytes": 109412,
+      "sha256": "83a70133732d583db6100ce38351c70b848bca2efbc358afdc9548e0e3f1a4e6"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/111931036.wav",
+      "bytes": 1311452,
+      "sha256": "f2a19c503632583d62bb4b73ce2ee3180436117ee1a61eb62697b13bef23a963"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/112126905.wav",
+      "bytes": 100364,
+      "sha256": "95077b1763e7374c601b6a40e711b352c43f93735bdd72a40dc66de910035c89"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/116463815.wav",
+      "bytes": 69900,
+      "sha256": "9ff5e1d6527c2cad7df2a6ee1b636e1ab2797881ff0f7490747042a66b74e853"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/126775659.wav",
+      "bytes": 68388,
+      "sha256": "94cb8b22fbe4bda5ba9b349fa7b68cb07f153b618cef269d93ad700f209649ea"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/136213286.wav",
+      "bytes": 123352,
+      "sha256": "33c2bec0c099ebf035a18d2809aeaf1b80df046b89fd377229ec792cb07228c9"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/142077803.wav",
+      "bytes": 110284,
+      "sha256": "ab5c04fac95e8cee3dab37150b4414a9029d7dcfe3a005f3d9a37b17027f9cb7"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/142894910.wav",
+      "bytes": 63404,
+      "sha256": "d27e84cc0d4e527b31c068aff455bfc9af39d640dcc87b3fa690a95d5c43e223"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/146897317.wav",
+      "bytes": 198476,
+      "sha256": "b89397e1113a2ccd9d2a8c1f838ab1939928013c34c2e6904e25ea3f005556b0"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/204395837.wav",
+      "bytes": 96308,
+      "sha256": "84982ce05d45a8f4bb5fe51b6faac5892ae2906e9a021e8f57ee1d44f08ead87"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/209385861.wav",
+      "bytes": 372364,
+      "sha256": "480ef6d87d3d98d0aedec304ab79e500aa002b88e436b576cb8922de5f1dbbee"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/215114899.wav",
+      "bytes": 198476,
+      "sha256": "0a3e29e3734ae5a5132810cfab7b2b9d0e583dce8cb3e390557b8db5780319dd"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/232061786.wav",
+      "bytes": 104288,
+      "sha256": "7674142c664ee3d4ab6c04e5f03f81177edeaf58f0a9f75f684fccfd85eb9534"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/263514790.wav",
+      "bytes": 147484,
+      "sha256": "70fe0ced94a786e507e8363aa47c48dcf2c2beb93f6711ba0f597d40e5ba8cb3"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/271120929.wav",
+      "bytes": 112480,
+      "sha256": "b4568ccedb198335fa3fc5ef9a9cdfd425e7296993aefbae96d2f62f5f9c3f9d"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/287617305.wav",
+      "bytes": 198476,
+      "sha256": "d99a0a5b50a385dd540febafba5b72c0de8a757a65c4e6e1868a92e7421b0deb"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/287994890.wav",
+      "bytes": 124124,
+      "sha256": "43525025aaa045e9f064befcfe94ba5b9066f099ab3db0a8fd6aead92c2120a2"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/289182248.wav",
+      "bytes": 164032,
+      "sha256": "060d26e3b4bc01886baeefb68a7e39190af09e0ce974a653bb749d5869750efb"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/304144186.wav",
+      "bytes": 120680,
+      "sha256": "84471933106416416b263f67504952310d70a5c4c56b1ebb3dab34761c191ae7"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/313710654.wav",
+      "bytes": 101012,
+      "sha256": "5479b006852ff415ca4d7d8c3efde8bf6ef3400106cca804a5d90ba907fe0e05"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/314446760.wav",
+      "bytes": 60272,
+      "sha256": "13c4b49b378b024ec3e873be204cc8caaa278b3ba5e0aecefef169416bbdbf7f"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/378075409.wav",
+      "bytes": 363240,
+      "sha256": "040bda6bdce9419190d318e8193fec0107712f69e89a4f6f7216fc4b2587e3ce"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/396990359.wav",
+      "bytes": 443592,
+      "sha256": "f928482d45d4c71197f8789563068cf3667a6eb24e42897d7661a7cd7ecdfa5d"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/410080597.wav",
+      "bytes": 80836,
+      "sha256": "d004b66f33436916b5579c650af9ffb5527db46326dcea4ba35f44c8114fd25d"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/418782952.wav",
+      "bytes": 194920,
+      "sha256": "c5b7deace7c690a614d3ce14b1df4522ac3fbe4e051fa26cca667b8bea1537df"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/418795702.wav",
+      "bytes": 341260,
+      "sha256": "c95de016750a467b639d3ee04cb6d9cd492ea79783886afd4de446dd6b3f5a61"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/422747152.wav",
+      "bytes": 537020,
+      "sha256": "96c47040b88bafad00df195368094c1671ef98c82e504fb0a819c9184a5e49c5"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/425476853.wav",
+      "bytes": 117876,
+      "sha256": "75ef9d4412392e37ca80823f9b5b91cd9701364dcf032d7d93618aff08cfdb2b"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/449771614.wav",
+      "bytes": 320688,
+      "sha256": "ae2217134369a3320a53933323ebefa8e0652ba32f7a68288afad5bc16e20254"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/501197314.wav",
+      "bytes": 454072,
+      "sha256": "72291527b402c547b50395a030230cf5b95446ea7226f02bacbbd24aa3f56667"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/505054137.wav",
+      "bytes": 76316,
+      "sha256": "72b91334bf132d85b9c2bd445daaf907994dc5b3a2c8de7365fc7acac4cad95a"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/506082516.wav",
+      "bytes": 69564,
+      "sha256": "82730e7e5700049a3c46a329ded03d298261f0bbb376f3aef9f8668bdc375a62"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/507585233.wav",
+      "bytes": 90196,
+      "sha256": "d914af2a9c760ec8c3f410f8e47d88b7897bdc233dcb08e6b500596ccaa5aa3b"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/522993466.wav",
+      "bytes": 98700,
+      "sha256": "179543f172255e5e1f81cc23ddbe2f43814e78bcb8d532a8718e2d395a57bdfe"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/555085050.wav",
+      "bytes": 87524,
+      "sha256": "2b056eca0544faa8eb3e0d4367e8e5bfe44581e1afa91ba5e244f6e6062ecaf6"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/560618281.wav",
+      "bytes": 1347272,
+      "sha256": "1a80c48ffe56baf99728d48bc4ba743a96664fe680bd49d1f6cb7988d5b9936d"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/584858889.wav",
+      "bytes": 454256,
+      "sha256": "f8235368bf886192e3e8a5a87b62405cd65361480c247e9edf1c8001448c135c"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/610915723.wav",
+      "bytes": 463100,
+      "sha256": "6c55003fad1cd2dbbf0eb25a738684031d11c529993284cff7166c9748f35ab6"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/637673445.wav",
+      "bytes": 441644,
+      "sha256": "4fe29a56a697d4e40342e7bcda7aea6d6e148e3a3e4e1f57c1e5bcff0f06dcf3"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/642434939.wav",
+      "bytes": 396944,
+      "sha256": "db4f50537b73ff43d759166cedbb9de56f06754dbccdab016b3953d6edc265b4"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/645424874.wav",
+      "bytes": 705632,
+      "sha256": "17e424b7568b77037cb59a9d31a01b6fb0628ad0af7cf3d7e2505a2b9b6a4f22"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/723103372.wav",
+      "bytes": 138060,
+      "sha256": "5aa135798d5f5eaee117dd59cd65b78c2afb4f6217d08ce315e0c4bcd01d5b4f"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/778800605.wav",
+      "bytes": 310024,
+      "sha256": "3ced405b8b308462c3136af621ee1ae9e4daf1a24424e1c1dba1a58be53a685e"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/795081856.wav",
+      "bytes": 437228,
+      "sha256": "dff073865b97e6599bafe32a7070a55e261c20aa70572c9978e03b29ca709667"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/834889418.wav",
+      "bytes": 125252,
+      "sha256": "8975def27e542b3fafe063cd7864880fbba65f6f6be402ce5af46a815b15a450"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/860189031.wav",
+      "bytes": 96164,
+      "sha256": "fc0f20100507ec948fa1ec9ed42c5abc254f7dc31d89e8bb083e5b9e6bdf88d7"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/873615538.wav",
+      "bytes": 531336,
+      "sha256": "d02a289db7088a252880b6371d0c17afce9d87398f34ba41523df3a816f40b13"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/876933713.wav",
+      "bytes": 444588,
+      "sha256": "1cc75114ddc1eb20116e9b75dcc9bf9907e1a461d6fc060090272c7a4aa9140e"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/903113665.wav",
+      "bytes": 93680,
+      "sha256": "b80cf2d80ac841cfa5c5c1604cac21383fa82a72b706135efb7d0d58d11815e1"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/924931329.wav",
+      "bytes": 122292,
+      "sha256": "3f3599f8eb51e9ed0aaab308267302543146904d1d9f733873f986dba79968a6"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/975357315.wav",
+      "bytes": 201036,
+      "sha256": "4b602fd098c9cdb25eb4e9cf2bc1ec5a362b84dd003f4f6c33bce212efdec589"
+    },
+    {
+      "file": ".cache/masteryi-audio-decoded/1062997320.wav",
+      "bytes": 120092,
+      "sha256": "101c3a1bdd9e54ae9f34eaa33d2ac1dc173f55393d059d5b12f29b0e7d01ba7c"
+    }
+  ],
+  "decoderBuildArtifacts": [
+    {
+      "file": "/workspace/vgmstream-source-audio/build/cli/vgmstream-cli",
+      "bytes": 2967704,
+      "sha256": "657bf880964438789cd2d5bc54b9ebfc9bd257da2b23b1e20d205c19bf7d9e0d"
+    },
+    {
+      "file": "/workspace/vgmstream-source-audio/build/CMakeCache.txt",
+      "bytes": 27022,
+      "sha256": "9021ada35b321670175e1b7587eb7f372bd996de6861b6dcb4f3c40cbedbfe86"
+    },
+    {
+      "file": "/workspace/vgmstream-source-audio/build/cli/CMakeFiles/vgmstream_cli.dir/flags.make",
+      "bytes": 462,
+      "sha256": "9e6ec90748babcbc508e7af4a820b10a5b1b7d32458623033016c4bb041049da"
+    },
+    {
+      "file": "/workspace/vgmstream-source-audio/build/cli/CMakeFiles/vgmstream_cli.dir/link.txt",
+      "bytes": 442,
+      "sha256": "7fbe5aa4c5269df180d60c840972cbbb268e95892a252b2a2caff156690b1869"
+    },
+    {
+      "file": "/workspace/vgmstream-source-audio/build/dependencies/ogg/CMakeFiles/ogg.dir/flags.make",
+      "bytes": 286,
+      "sha256": "cf066a7c13dc5253c1b235112705f917b7ed543e9e50f1dfb907b9ff5ebb56a2"
+    },
+    {
+      "file": "/workspace/vgmstream-source-audio/build/dependencies/ogg/CMakeFiles/ogg.dir/link.txt",
+      "bytes": 119,
+      "sha256": "4c76dfc2be5264cb7bff15df79231e4d2e1d302f1b28de217d01fcfad4a591dd"
+    },
+    {
+      "file": "/workspace/vgmstream-source-audio/build/dependencies/vorbis/lib/CMakeFiles/vorbis.dir/flags.make",
+      "bytes": 364,
+      "sha256": "37ea415899b7bc024943d171ab1255953101356db2f9f8bfede603f9475f78a9"
+    },
+    {
+      "file": "/workspace/vgmstream-source-audio/build/dependencies/vorbis/lib/CMakeFiles/vorbis.dir/link.txt",
+      "bytes": 718,
+      "sha256": "9eea29c8abac5d28964a714beff179803ecb29963a064839c945859c3eab4100"
+    },
+    {
+      "file": "/workspace/vgmstream-source-audio/build/dependencies/vorbis/lib/CMakeFiles/vorbisfile.dir/flags.make",
+      "bytes": 327,
+      "sha256": "e6ac3bcc4acb1092b1f9be24e692aa70e308945851706e1827171fb3190f5402"
+    },
+    {
+      "file": "/workspace/vgmstream-source-audio/build/dependencies/vorbis/lib/CMakeFiles/vorbisfile.dir/link.txt",
+      "bytes": 104,
+      "sha256": "79c7f342e319d1feedf31fc47e68e1c058af67644f883b5e975e30eb1cad6629"
+    },
+    {
+      "file": "/workspace/vgmstream-source-audio/build/dependencies/ogg/libogg.a",
+      "bytes": 37842,
+      "sha256": "f1ad19bcc05936a53ed3848b7ee90c071e0f41cca593ebb4bedf3057504cc965"
+    },
+    {
+      "file": "/workspace/vgmstream-source-audio/build/dependencies/vorbis/lib/libvorbis.a",
+      "bytes": 314486,
+      "sha256": "22a414faa32b1717757eed2cdf72a33fe94eafd1e3896b1580c2b37001368b58"
+    },
+    {
+      "file": "/workspace/vgmstream-source-audio/build/dependencies/vorbis/lib/libvorbisfile.a",
+      "bytes": 42172,
+      "sha256": "1164d841fe78a5268273215a6a51dad3b0458b59a80ea6cc6fbe7ea12a581445"
+    }
+  ],
+  "validation": {
+    "masters": 69,
+    "frames": 3798546,
+    "wavBytes": 15197220,
+    "channels": [
+      1
+    ],
+    "sampleRates": [
+      44100
+    ],
+    "sourceEncoding": "Custom Vorbis",
+    "embeddedSampleLoops": 0,
+    "mastersWithHeadroom": 35,
+    "peak": 1.3174407482147217,
+    "normalAndOptimizedGuardCasesPerMode": 30,
+    "actualCheckAndRepeatDecodeBothModes": true,
+    "repeatMasterBytesAndTimestampsUnchanged": true,
+    "runtimePublicChanges": [],
+    "newBroadBrowserBuildClaimed": false
+  },
+  "evidence": [
+    {
+      "file": ".cache/masteryi-audio-cloud/build-tools.log",
+      "bytes": 572,
+      "sha256": "896384a9e0743367bd0f09fa81ffc997d2a51cc7aecc946460715c75278d5eb4"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/codec-bootstrap.log",
+      "bytes": 357,
+      "sha256": "2ee1a1493ac984ddf652653bf21400aaf258581ae6780dfe5c22c87d6d561642"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/decode-check-normal.log",
+      "bytes": 97,
+      "sha256": "de29982e084e9c0e6ccb71436a8f5da58257b61d8e2d46360670375e9d17d48c"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/decode-check-optimized.log",
+      "bytes": 97,
+      "sha256": "de29982e084e9c0e6ccb71436a8f5da58257b61d8e2d46360670375e9d17d48c"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/decode-final-check-normal.log",
+      "bytes": 97,
+      "sha256": "de29982e084e9c0e6ccb71436a8f5da58257b61d8e2d46360670375e9d17d48c"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/decode-final-check-optimized.log",
+      "bytes": 97,
+      "sha256": "de29982e084e9c0e6ccb71436a8f5da58257b61d8e2d46360670375e9d17d48c"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/decode-guards-normal.log",
+      "bytes": 129,
+      "sha256": "71b3ee0e1728feb2153a3bc003b19d88f0e20b26ea7c6a2c7aab51ead3dc24fc"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/decode-guards-optimized.log",
+      "bytes": 129,
+      "sha256": "44f206e5deee04aaab83c26d0959361e3c140d53b4e07af47250bcb717a6fc43"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/decode-v1.log",
+      "bytes": 98,
+      "sha256": "caa4ecd329c6829fe8118af3a7b8b3844bd60dd791d7ef35e68a20791d140b3e"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/decoder-bootstrap.log",
+      "bytes": 185,
+      "sha256": "cdd6d8ba85b422aff5b2e54e924e929fe2d46f13f904bf9c2076d5d50bd37ab0"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/decoder-build.log",
+      "bytes": 101169,
+      "sha256": "8e1e3c816b983d09e783f81b6809fc6675ff885f959556ec22653bb8c86cf4de"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/decoder-configure.log",
+      "bytes": 3470,
+      "sha256": "a2a8fc233e48f677d34442e955bbff3e801d8f550f27ff159d16df25758e9f86"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/decoder-metadata.json",
+      "bytes": 38649,
+      "sha256": "d56397f56f02726ef23398b020e9edf496d6ad22b7f1a1b781bb6f67c6abd089"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/masters-mtimes-before.json",
+      "bytes": 4815,
+      "sha256": "f5e4a479e6757b4822268a36eb770cc8c3f7dfecf64e5111a1c9325118f4fe22"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/probe.wav",
+      "bytes": 62340,
+      "sha256": "1fc2eb75310bc02fd8563363cdad60011271d39b3a977f2c50d9e50d2c70e67d"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/redecode-normal.log",
+      "bytes": 98,
+      "sha256": "caa4ecd329c6829fe8118af3a7b8b3844bd60dd791d7ef35e68a20791d140b3e"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/redecode-optimized.log",
+      "bytes": 98,
+      "sha256": "caa4ecd329c6829fe8118af3a7b8b3844bd60dd791d7ef35e68a20791d140b3e"
+    }
+  ],
+  "limits": [
+    "Decode artifacts belong to the recorded Linux compiler/codec/binary build; earlier macOS identities remain untouched.",
+    "No gain, pitch, resampling, channel mixing, loop expansion or fades baked into source masters.",
+    "Runtime dispatch, variants/materials, resource loading, bank mix, stop/linger/pause/seeking and listening/native acceptance remain separate."
+  ]
+}
