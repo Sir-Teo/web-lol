@@ -7859,3 +7859,23 @@ source/test hashes, failed fixture assumptions and command-gate correction,
 interruption, slow-policy correction, final proofs and production results. No
 fresh full-browser/offline/native/performance or full-project completion claim.
 Alpha Strike source projection/guard preparation remains outside runtime inputs.
+
+
+## 2026-10-25 — Alpha Strike source preparation
+
+`export-masteryi-q.py` adds a guarded projection for the frozen root/children,
+rank resources, named damage/on-hit/repeat/monster values, formula references,
+raw stat ID, omitted stat formula/animation/targeting fields, authored radii and
+three distinct child travel durations. It keeps the legacy root cast/total time
+separate and does not rename a radius or sum missile durations into a native
+bounce controller. Eleven mutation cases pass in normal and optimized Python;
+staged output checks match. No runtime Q module is created, so schema142,
+Highlander ruleset and pack remain unchanged.
+
+The [preparation record](reference/masteryi/q-preparation.json) pins inputs,
+secondary reference and remaining acceptance work. The community mark/recovery
+schedule is a research lead, not a decoded consequence of the three missile
+movement durations. New-target untargetability must be separated from the
+existing damage/protection check so Q does not become blanket invulnerability.
+Q remains unavailable while these controllers and saved interaction policies are
+implemented and checked. No new game behavior or native calibration is claimed.

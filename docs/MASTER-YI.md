@@ -17,7 +17,9 @@ combat, body/recall poses and private saved practice. The later
 and [Wuju Style](MASTER-YI-E.md) adds E empowerment. [Meditate](MASTER-YI-W.md)
 adds the channel and W/E/passive interactions. [Highlander](MASTER-YI-R.md) adds R,
 slow immunity, takedown effects and W/R pauses. Q remains unimplemented,
-and production player selection stays Ashe/Lux.
+and production player selection stays Ashe/Lux. [Alpha Strike preparation](reference/masteryi/q-preparation.json)
+retains checked Q rank/formula/child-travel declarations outside runtime inputs;
+its targeting, mark/damage timing, exit direction and untargetability remain open.
 
 ## Exact retained package
 
