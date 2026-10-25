@@ -6,7 +6,7 @@ Last updated: October 25, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 2,182 tests across 338 files, TypeScript and three Node QA checks. Forty-eight targeted Chrome scenarios pass for the [development Ahri Q](AHRI-Q.md)/[W](AHRI-W.md)/[E](AHRI-E.md), [R base](AHRI-R.md) and [passive](AHRI-PASSIVE.md) controllers, [human practice controls](AHRI-PLAYER.md), private saves/imports and application reloads, her NPC rig/basic attacks, Leona rig recovery, Garen/Lux controls, champion selection, animation and match files. Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 2,182 tests across 338 files, TypeScript and three Node QA checks. Forty-nine targeted Chrome scenarios pass for the [development Ahri Q](AHRI-Q.md)/[W](AHRI-W.md)/[E](AHRI-E.md), [R base](AHRI-R.md) and [passive](AHRI-PASSIVE.md) controllers, [human practice controls](AHRI-PLAYER.md), private saves/imports and application reloads, her NPC rig/basic attacks, Leona rig recovery, Garen/Lux controls, champion selection, animation and match files, plus the [Master Yi development rig review](MASTER-YI-MODEL.md). Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
 
 The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). Current targeted evidence does not certify full-match completion or native visual parity.
 
@@ -7585,3 +7585,47 @@ character reference and ranked projection are verified. Model acceptance, playab
 kit, roster expansion, native behavior, performance and full-project completion
 remain false. Next is current review of the cached model candidates and their
 rotation corrections before any rig integration.
+
+## 2026-10-25 — Master Yi reproducible development rig and complete-key review
+
+[Master Yi rig preparation](MASTER-YI-MODEL.md) adds the source base GLB and sidecar
+plus `/tools/qa/masteryi-model.html`. The isolated page selects and scrubs all
+47 atomic aliases from 24 unique ANMs. The model has 90 joints, 5,760 vertices and
+9,144 triangles. Two fresh source rebuilds match the reviewed 6,487,088-byte GLB
+exactly. All 29 source identities and both complete model BINs verify, retaining
+authored linked resources. Five parser/source guard tests pass in each Python mode.
+
+No resampling drops keys or normals: 12,492 channels and 899,082 input keys match
+after the declared scale, zero-weight-slot and quaternion conversions. Exactly
+26 non-unit Spell3/center-bone rotations normalize for valid glTF. Independent
+source-byte and actual-decoder IL checks establish that the tuple is literally
+stored in uncompressed version-3 ANM data; native magnitude semantics remain
+unknown. Across 141 sampled CPU poses, six vertices change by at most 0.235 local
+game units; normalized-reference/export error stays below 0.000001 world units.
+
+The first preview camera clipped raised swords. Animated bounds plus direct GPU
+silhouette checks and completed rendering now frame the retained captures. The
+new Chrome case checks 141 poses, eight GPU silhouettes and eleven screenshots;
+representative captures were reviewed. All 49 targeted Chrome cases pass without
+failures/skips/retries. The full check passes 2,182 tests in 338 files, TypeScript
+and three Node QA checks.
+
+The first global asset audit exposed three existing Garen particle meshes whose
+hashes live in a shared manifest. The validator now reads that manifest instead
+of requiring nonexistent sidecars. All 74 model assets and the map validate with
+zero errors/warnings; the original failure is retained and Garen bytes are exact.
+Production passes 32 recordings without preloading Master Yi; offline continuation,
+repair and version switching pass with 963 service-worker responses and no errors.
+
+All 1,015 prior public files remain unchanged; the model/sidecar bring the count
+to 1,017. Schema stays 137 and ruleset remains
+`5eb9fc897a3193c5a5d575afca7dc397dc987bbe8d8a47df35fadea1f4d0e29c`.
+Pack `531452e69c6d8f9ac4e34947761cdae19017a8f913c0776b410e624082047068` has
+1,067 files / 526,570,727 bytes.
+
+Frozen closure: [Master Yi model verification](reference/masteryi/model-verification.json),
+checked by `tools/qa/verify-masteryi-model.mjs` or `--historical`. Development rig
+preparation, exact rebuild and isolated review are verified. Runtime kit, native
+quaternion magnitude/appearance/graph/events, roster expansion, full performance
+and project completion remain open. Next is an isolated NPC foundation with own
+stats/melee attacks, explicit local pose choices and strict saved continuation.

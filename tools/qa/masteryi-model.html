@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" /><title>Master Yi — development rig review</title
+  ><style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: #101b23;
+      color: #e8e2cb;
+      font: 16px system-ui;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      height: 100vh;
+    }
+    canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    aside {
+      padding: 28px 24px;
+      border-left: 1px solid #44545a;
+    }
+    h1 {
+      font: 600 26px Georgia;
+    }
+    p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #b6c4c6;
+    }
+    select,
+    input,
+    button {
+      width: 100%;
+      margin: 8px 0;
+      padding: 8px;
+      background: #20333b;
+      color: #e8e2cb;
+      border: 1px solid #77847b;
+    }
+    label {
+      display: block;
+      margin-top: 24px;
+    }
+    .status {
+      font-variant-numeric: tabular-nums;
+      color: #8ed7c2;
+    }
+    small {
+      display: block;
+      line-height: 1.6;
+      margin-top: 24px;
+      color: #a7b6bd;
+    }</style
+  ><canvas></canvas>
+  <aside>
+    <h1>Master Yi</h1>
+    <p>Retained base rig<br />Development conversion review</p>
+    <label for="clip">Atomic animation</label
+    ><select id="clip"></select
+    ><label for="time">Time</label><input id="time" type="range" min="0" step="0.001" />
+    <div id="status" class="status"></div>
+    <label for="angle">Camera</label
+    ><select id="angle">
+      <option value="0">Three-quarter</option>
+      <option value="1">Front</option>
+      <option value="2">Side</option>
+      <option value="3">Back</option></select
+    ><small
+      >90 bones · 47 atomic clips<br />9,144 triangles · source diffuse<br /><br />Unlit development
+      preview. Source quaternion normalization is documented separately. Native appearance,
+      animation graph, effects and audio remain unverified.</small
+    >
+  </aside>
+  <script type="module">
+    import * as THREE from 'three';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+    const renderer = new THREE.WebGLRenderer({
+      canvas: document.querySelector('canvas'),
+      antialias: true,
+      preserveDrawingBuffer: true,
+    });
+    renderer.setPixelRatio(1);
+    renderer.setClearColor(0x101b23);
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    const scene = new THREE.Scene(),
+      camera = new THREE.PerspectiveCamera(35, 1, 0.01, 100),
+      grid = new THREE.GridHelper(10, 20, 0x53666b, 0x273c45);
+    scene.add(grid);
+    const gltf = await new GLTFLoader().loadAsync('/assets/models/masteryi-base.glb');
+    scene.add(gltf.scene);
+    gltf.scene.traverse((o) => {
+      if (o.isMesh) o.frustumCulled = false;
+    });
+    const mixer = new THREE.AnimationMixer(gltf.scene),
+      clips = document.querySelector('#clip'),
+      time = document.querySelector('#time'),
+      status = document.querySelector('#status'),
+      angle = document.querySelector('#angle');
+    clips.replaceChildren(...gltf.animations.map((c) => new Option(c.name, c.name)));
+    const bindBox = new THREE.Box3().setFromObject(gltf.scene),
+      center = bindBox.getCenter(new THREE.Vector3()),
+      size = bindBox.getSize(new THREE.Vector3());
+    let active,
+      at = 0;
+    let posedBox = bindBox.clone();
+    function render() {
+      const w = innerWidth - 320,
+        h = innerHeight;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      scene.updateMatrixWorld(true);
+      gltf.scene.traverse((o) => {
+        if (o.isSkinnedMesh) {
+          o.skeleton.update();
+          o.computeBoundingBox();
+        }
+      });
+      posedBox = new THREE.Box3().setFromObject(gltf.scene);
+      const center = posedBox.getCenter(new THREE.Vector3()),
+        sphere = posedBox.getBoundingSphere(new THREE.Sphere()),
+        vFov = THREE.MathUtils.degToRad(camera.fov),
+        hFov = 2 * Math.atan(Math.tan(vFov / 2) * camera.aspect),
+        distance = (sphere.radius / Math.sin(Math.min(vFov, hFov) / 2)) * 1.2,
+        views = [
+          [0.7, 0.4, 1.2],
+          [0, 0.25, 1.4],
+          [1.4, 0.25, 0],
+          [0, 0.25, -1.4],
+        ],
+        v = views[Number(angle.value)];
+      camera.position
+        .copy(center)
+        .add(new THREE.Vector3(...v).normalize().multiplyScalar(distance));
+      camera.lookAt(center);
+      camera.updateMatrixWorld(true);
+      renderer.render(scene, camera);
+      renderer.getContext().finish();
+    }
+
+    function choose(name, t = 0) {
+      active = gltf.animations.find((c) => c.name === name);
+      if (!active) throw Error('Unknown clip');
+      mixer.stopAllAction();
+      const a = mixer.clipAction(active);
+      a.setLoop(THREE.LoopOnce, 1);
+      a.clampWhenFinished = true;
+      a.play();
+      mixer.setTime(t);
+      at = t;
+      clips.value = name;
+      time.max = active.duration;
+      time.value = t;
+      status.textContent = t.toFixed(3) + ' / ' + active.duration.toFixed(3) + ' s';
+      render();
+      return state();
+    }
+    function silhouette() {
+      const context = renderer.getContext(),
+        w = renderer.domElement.width,
+        h = renderer.domElement.height,
+        pixels = new Uint8Array(w * h * 4);
+      grid.visible = false;
+      renderer.setClearColor(0, 0);
+      renderer.render(scene, camera);
+      context.readPixels(0, 0, w, h, context.RGBA, context.UNSIGNED_BYTE, pixels);
+      let minX = w,
+        minY = h,
+        maxX = -1,
+        maxY = -1,
+        count = 0;
+      for (let y = 0; y < h; y++)
+        for (let x = 0; x < w; x++)
+          if (pixels[(y * w + x) * 4 + 3] > 16) {
+            minX = Math.min(minX, x);
+            maxX = Math.max(maxX, x);
+            minY = Math.min(minY, y);
+            maxY = Math.max(maxY, y);
+            count++;
+          }
+      grid.visible = true;
+      renderer.setClearColor(0x101b23, 1);
+      renderer.render(scene, camera);
+      return { minX, minY, maxX, maxY, count, width: w, height: h };
+    }
+    function state() {
+      const bones = [];
+      gltf.scene.traverse((o) => {
+        if (o.isBone) bones.push(...o.matrixWorld.elements);
+      });
+      return {
+        clip: active.name,
+        time: at,
+        duration: active.duration,
+        bones: bones.length / 16,
+        finite: bones.every(Number.isFinite),
+        calls: renderer.info.render.calls,
+        triangles: renderer.info.render.triangles,
+        modelBox: { min: posedBox.min.toArray(), max: posedBox.max.toArray() },
+        projectedCorners: [...Array(8)].map((_, i) =>
+          new THREE.Vector3(
+            i & 1 ? posedBox.max.x : posedBox.min.x,
+            i & 2 ? posedBox.max.y : posedBox.min.y,
+            i & 4 ? posedBox.max.z : posedBox.min.z
+          )
+            .project(camera)
+            .toArray()
+        ),
+      };
+    }
+
+    clips.onchange = () => choose(clips.value);
+    time.oninput = () => choose(clips.value, Number(time.value));
+    angle.onchange = render;
+    addEventListener('resize', render);
+    window.review = {
+      clips: gltf.animations.map((c) => ({ name: c.name, duration: c.duration })),
+      choose,
+      silhouette,
+      view(n) {
+        angle.value = String(n);
+        render();
+        return state();
+      },
+      state,
+    };
+    choose(
+      gltf.animations.find((c) => c.name === 'entry_56f6d84b')?.name ?? gltf.animations[0].name
+    );
+    window.ready = true;
+  </script>
+</html>

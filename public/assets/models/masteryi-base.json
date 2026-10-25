@@ -1,0 +1,968 @@
+{
+  "sourceQuaternionCorrections": [
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 0,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 1,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 2,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 3,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 4,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 5,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 6,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 7,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 8,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 9,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 10,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 11,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 12,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 13,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 14,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 15,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 16,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 17,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 18,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 19,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 20,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 21,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 22,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 23,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 24,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    },
+    {
+      "clip": "spell3",
+      "bone": "C_Buffbone_Glb_Center_Loc",
+      "key": 25,
+      "raw": [
+        0,
+        0.8457037210464478,
+        0,
+        0
+      ],
+      "normalized": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "length": 0.8457037210464478
+    }
+  ],
+  "animationKeyPolicy": "All converted source keys retained; no resampling or key simplification applied.",
+  "quaternionPolicy": "Exactly 26 literal non-unit source Spell3/center-bone keys are normalized for valid glTF. Original values remain retained; native magnitude handling is unverified.",
+  "referenceVersion": "16.18.8175716",
+  "status": "Development rig preparation only. Native appearance, animation graph, events, attachments and playable kit remain unfinished.",
+  "output": {
+    "path": "public/assets/models/masteryi-base.glb",
+    "bytes": 6487088,
+    "sha256": "7aae9e8e486c34d780113349c4a4d06830a5498a906ff291a49263090da471cc"
+  },
+  "definitionsSha256": "4295bceeba96cfb15e006d392e7d0f3c480bb51bf8cff8872a9c39fc9873c7ce",
+  "rawConversion": {
+    "bytes": 23204600,
+    "sha256": "c7f8a801eac1aa71a7d36ef73ab4570a125e0202fcc97d188f19ce5339db6d5e"
+  },
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Champions/MasterYi.wad.client",
+  "sources": [
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_attack1.anm",
+      "wadPathHash": "fc56205a47bf1655",
+      "sha256": "080db524f0a585960ec5d76f4198d893ed47cc7d689365c8c524ad1e49064586",
+      "bytes": 27538
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_attack2.anm",
+      "wadPathHash": "f270dcb52660307f",
+      "sha256": "115a90cdc0521e746b1950075ca1be75d159164ccc81cf119b7e71db21a5d6f1",
+      "bytes": 93524
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_channel.anm",
+      "wadPathHash": "db479651ea7f7707",
+      "sha256": "6d8046fae8c6e6c683f2a3bb7f905cb45faabbd9d001e766f884fa286cfc13f0",
+      "bytes": 43772
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_channelwindup.anm",
+      "wadPathHash": "99aa33d0075c4b3a",
+      "sha256": "72c1cc5396aef8fb6178fb3bbf550bde86e7115ea5e7ce5e504035679f4145a1",
+      "bytes": 49124
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_crit.anm",
+      "wadPathHash": "fd8f7ef25ded936e",
+      "sha256": "29ccc45d9148958ddb43fb924a49956bb72ae136c41cecc6a1eb9bbf226a963e",
+      "bytes": 99348
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_dance.anm",
+      "wadPathHash": "6e408ea5dd940a62",
+      "sha256": "4dece5563b3df18e31aeaa886e8e30dcce6680da01ca48504bd5a34b3180016a",
+      "bytes": 253192
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_death.anm",
+      "wadPathHash": "ff8c62df6c3840a1",
+      "sha256": "cb4abab4cc2057ceca6f494f7da6ab0c0d05fa04c3510aa080c50bace9c80e5b",
+      "bytes": 35684
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_idle1.anm",
+      "wadPathHash": "2a0acd1630b0d9d3",
+      "sha256": "0bba8590ea7bc450af91d78f08c8b727625ea82a85f516b789217ff46054fec2",
+      "bytes": 191908
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_idle2.anm",
+      "wadPathHash": "8ae03ac563476874",
+      "sha256": "5f8bb0ac9b0710071ef6405481453bea6798436afaa0752d6e08afaa8912e0fb",
+      "bytes": 341728
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_idle_enter.anm",
+      "wadPathHash": "89b421b3c4e440ec",
+      "sha256": "8d752d8012f772c5f653534898c5e766bbe4eb815369cf78f4a8e90f571b4a71",
+      "bytes": 70340
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_joke.anm",
+      "wadPathHash": "7c1b8552e6b4d72c",
+      "sha256": "62cbdcf94c8a50e4ab74ef2746b3b97254c8421f2d16e3c6be3cfdb2cd9960bb",
+      "bytes": 262988
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_laugh.anm",
+      "wadPathHash": "3922a1cc9ac39319",
+      "sha256": "aecc676c21c11ce7533c8de37db5fb23f8fe61be33ef11c2b4353aefd80ab2a9",
+      "bytes": 117976
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_passive.anm",
+      "wadPathHash": "872702ffe967d829",
+      "sha256": "58a7fe3ace9ed902c81fda08e993bda5b983d4d7b76e147bc46897b4c247345e",
+      "bytes": 102320
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_recall.anm",
+      "wadPathHash": "7fe1b6667274c966",
+      "sha256": "f95071e728cc5f470c284626caaa20ca807dc5b4962810ea28d6e54d880021dd",
+      "bytes": 242076
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_recall_loop.anm",
+      "wadPathHash": "020ce5be7dccd9ff",
+      "sha256": "25fcb3c4189e234f3643e81078199f329268ddc18e759ff639dccc1e83290f73",
+      "bytes": 87800
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_run.anm",
+      "wadPathHash": "ceb84ad5dfadf49f",
+      "sha256": "6e479d6365f55e860cbd365fa658f72b26bbcd923eb79f900efb566066437a8e",
+      "bytes": 86528
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_run_fast.anm",
+      "wadPathHash": "05824433cc9b635e",
+      "sha256": "d61298d6d0b3cc32eb26f0134ae07fdf29368522204fb90cfe9c20477c7518ad",
+      "bytes": 87548
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_run_haste.anm",
+      "wadPathHash": "94f9e024ef0c95ab",
+      "sha256": "5a1da6ff9a9d306715e178c821b595662e121357b44dc7a8f85e91e4292ed01f",
+      "bytes": 76480
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_spell2.anm",
+      "wadPathHash": "80298427f6efc3a4",
+      "sha256": "85582306abf911f1a8574bffe501023cce6e2e735e15f6ab3b862c6899d1b28a",
+      "bytes": 25492
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_spell2_loop.anm",
+      "wadPathHash": "98b8d084d17c3705",
+      "sha256": "e65de9d9251cb93c558be0cbf89b0ec0f6a86b96a1eeea1e5e89a5168e6d7ccd",
+      "bytes": 94588
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_stun.anm",
+      "wadPathHash": "0a287be044e85600",
+      "sha256": "bc57119837baf299218f465679f354c6e559bd58250043800f7ad7ca9f4d8f91",
+      "bytes": 76916
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_taunt.anm",
+      "wadPathHash": "b30d7c624d9c010e",
+      "sha256": "8d3a736aa240b110e3c98a570917c548c5b7995f2ef07e61fa391b1964762e2f",
+      "bytes": 201532
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_npe_spawn.anm",
+      "wadPathHash": "e4b9399830c713c3",
+      "sha256": "03b961ebb68c93094c9a47a43605b295392e3e5771bfcc269e259eefbb261afe",
+      "bytes": 46628
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_spell3.anm",
+      "wadPathHash": "d9cf1d1b3dc69be0",
+      "sha256": "55bab3175c4cfade3634c6b17b234e8d08226428b98e6626dd9b2c1787f475c7",
+      "bytes": 35172
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/masteryi.skl",
+      "wadPathHash": "8f93889ec3768848",
+      "sha256": "9951e9fd55c03ebf6dc3f1995011a478ec8b0dc63ab9e5bdf6bcc74f839a03e0",
+      "bytes": 11156
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/masteryi.skn",
+      "wadPathHash": "13fb11bd250aa953",
+      "sha256": "8eaf4bb2d150bfc8856064bf2ca973a81adc66af0766bd652fe9782ea634f7e6",
+      "bytes": 354496
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/masteryi_2013_tx_cm.tex",
+      "wadPathHash": "6fa913e0bdeaca34",
+      "sha256": "34e86625ab5a2a716957e40d081693e4a66735fb13fdbf155ecac83360ae129b",
+      "bytes": 699076
+    },
+    {
+      "path": "data/characters/masteryi/animations/skin0.bin",
+      "wadPathHash": "4679d8d214f61c77",
+      "sha256": "f5bc3c1f71853353fd8869578c90243b7e947c9be787a286803cdd7e8144f132",
+      "bytes": 7859
+    },
+    {
+      "path": "data/characters/masteryi/skins/skin0.bin",
+      "wadPathHash": "1d5c271d91e85aed",
+      "sha256": "af5c09a4f0336e735da558fd5973236943766ac072a2b8a989fba75a54860973",
+      "bytes": 9198
+    }
+  ],
+  "unitScale": 0.015,
+  "canonicalizedJointSlots": 13475,
+  "skinScale": 1.5,
+  "skinScalePolicy": "Authored skinScale 1.5 is baked with the local 0.01 conversion; native scale calibration remains open.",
+  "initialSubmeshesToHide": [],
+  "materialTextures": {
+    "MasterYi_Base_MD_MasterYi": "assets/characters/masteryi/skins/base/masteryi_2013_tx_cm.tex"
+  },
+  "materialPolicy": "Source diffuse with unlit development shading. Native self-illumination, reflection/gloss, rig modifiers and dynamic materials remain unfinished.",
+  "clips": [
+    {
+      "name": "spell1",
+      "state": "Spell1",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_attack1.anm",
+      "durationSeconds": 1.8000000715255737
+    },
+    {
+      "name": "spell3",
+      "state": "Spell3",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_spell3.anm",
+      "durationSeconds": 0.8064515590667725
+    },
+    {
+      "name": "entry_d5c55cfd",
+      "state": "{d5c55cfd}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_attack1.anm",
+      "durationSeconds": 1.8000000715255737
+    },
+    {
+      "name": "entry_0d6139b0",
+      "state": "{0d6139b0}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_attack2.anm",
+      "durationSeconds": 1.8333333730697632
+    },
+    {
+      "name": "channel",
+      "state": "Channel",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_channel.anm",
+      "durationSeconds": 0.9333333969116211
+    },
+    {
+      "name": "entry_e1798980",
+      "state": "{e1798980}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_crit.anm",
+      "durationSeconds": 1.8333333730697632
+    },
+    {
+      "name": "death",
+      "state": "Death",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_death.anm",
+      "durationSeconds": 1.6666667461395264
+    },
+    {
+      "name": "entry_56f6d84b",
+      "state": "{56f6d84b}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_idle1.anm",
+      "durationSeconds": 4
+    },
+    {
+      "name": "entry_120aa0ea",
+      "state": "{120aa0ea}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_idle2.anm",
+      "durationSeconds": 8
+    },
+    {
+      "name": "entry_b3fbb18b",
+      "state": "{b3fbb18b}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_joke.anm",
+      "durationSeconds": 2.6000001430511475
+    },
+    {
+      "name": "entry_195611d3",
+      "state": "{195611d3}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_laugh.anm",
+      "durationSeconds": 2.500000238418579
+    },
+    {
+      "name": "recall_in",
+      "state": "Recall_In",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_recall.anm",
+      "durationSeconds": 4.700000286102295
+    },
+    {
+      "name": "run",
+      "state": "Run",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_run.anm",
+      "durationSeconds": 2
+    },
+    {
+      "name": "entry_a3c0c1e7",
+      "state": "{a3c0c1e7}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_spell2.anm",
+      "durationSeconds": 0.30000001192092896
+    },
+    {
+      "name": "entry_18329eba",
+      "state": "{18329eba}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_taunt.anm",
+      "durationSeconds": 3.9333336353302
+    },
+    {
+      "name": "entry_cb223827",
+      "state": "{cb223827}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_idle_enter.anm",
+      "durationSeconds": 1.3333333730697632
+    },
+    {
+      "name": "spell2_in",
+      "state": "Spell2_In",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_spell2.anm",
+      "durationSeconds": 0.30000001192092896
+    },
+    {
+      "name": "spell2_loop",
+      "state": "Spell2_Loop",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_spell2_loop.anm",
+      "durationSeconds": 1.6666667461395264
+    },
+    {
+      "name": "recall_loop",
+      "state": "Recall_Loop",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_recall_loop.anm",
+      "durationSeconds": 2
+    },
+    {
+      "name": "stunned",
+      "state": "Stunned",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_stun.anm",
+      "durationSeconds": 2.133333444595337
+    },
+    {
+      "name": "entry_85dac0b3",
+      "state": "{85dac0b3}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_passive.anm",
+      "durationSeconds": 1.8333333730697632
+    },
+    {
+      "name": "channel_wndup",
+      "state": "Channel_Wndup",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_channelwindup.anm",
+      "durationSeconds": 1
+    },
+    {
+      "name": "dance",
+      "state": "Dance",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_dance.anm",
+      "durationSeconds": 7.000000476837158
+    },
+    {
+      "name": "run_fast",
+      "state": "Run_Fast",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_run_fast.anm",
+      "durationSeconds": 2
+    },
+    {
+      "name": "run_haste",
+      "state": "Run_Haste",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_run_haste.anm",
+      "durationSeconds": 1.6000001430511475
+    },
+    {
+      "name": "2013_run_haste",
+      "state": "2013_Run_Haste",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_run_haste.anm",
+      "durationSeconds": 1.6000001430511475
+    },
+    {
+      "name": "entry_257e3ae8",
+      "state": "{257e3ae8}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_attack1.anm",
+      "durationSeconds": 1.8000000715255737
+    },
+    {
+      "name": "entry_99050377",
+      "state": "{99050377}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_attack2.anm",
+      "durationSeconds": 1.8333333730697632
+    },
+    {
+      "name": "entry_49105947",
+      "state": "{49105947}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_crit.anm",
+      "durationSeconds": 1.8333333730697632
+    },
+    {
+      "name": "entry_2c049de2",
+      "state": "{2c049de2}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_passive.anm",
+      "durationSeconds": 1.8333333730697632
+    },
+    {
+      "name": "entry_4a2185f2",
+      "state": "{4a2185f2}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_attack1.anm",
+      "durationSeconds": 1.8000000715255737
+    },
+    {
+      "name": "entry_3eb3562f",
+      "state": "{3eb3562f}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_attack1.anm",
+      "durationSeconds": 1.8000000715255737
+    },
+    {
+      "name": "entry_ab887b52",
+      "state": "{ab887b52}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_attack1.anm",
+      "durationSeconds": 1.8000000715255737
+    },
+    {
+      "name": "entry_d1508fa7",
+      "state": "{d1508fa7}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_attack2.anm",
+      "durationSeconds": 1.8333333730697632
+    },
+    {
+      "name": "entry_136c94bf",
+      "state": "{136c94bf}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_crit.anm",
+      "durationSeconds": 1.8333333730697632
+    },
+    {
+      "name": "entry_06e62d70",
+      "state": "{06e62d70}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_passive.anm",
+      "durationSeconds": 1.8333333730697632
+    },
+    {
+      "name": "entry_67da3820",
+      "state": "{67da3820}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_attack2.anm",
+      "durationSeconds": 1.8333333730697632
+    },
+    {
+      "name": "entry_db40631e",
+      "state": "{db40631e}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_crit.anm",
+      "durationSeconds": 1.8333333730697632
+    },
+    {
+      "name": "entry_c722c9e7",
+      "state": "{c722c9e7}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_passive.anm",
+      "durationSeconds": 1.8333333730697632
+    },
+    {
+      "name": "entry_72c58d40",
+      "state": "{72c58d40}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_attack2.anm",
+      "durationSeconds": 1.8333333730697632
+    },
+    {
+      "name": "entry_5b2be1be",
+      "state": "{5b2be1be}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_crit.anm",
+      "durationSeconds": 1.8333333730697632
+    },
+    {
+      "name": "entry_205e0207",
+      "state": "{205e0207}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_passive.anm",
+      "durationSeconds": 1.8333333730697632
+    },
+    {
+      "name": "entry_a2d214c6",
+      "state": "{a2d214c6}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_taunt.anm",
+      "durationSeconds": 3.9333336353302
+    },
+    {
+      "name": "entry_cdc1a2ce",
+      "state": "{cdc1a2ce}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_taunt.anm",
+      "durationSeconds": 3.9333336353302
+    },
+    {
+      "name": "entry_f239e3ba",
+      "state": "{f239e3ba}",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_2013_taunt.anm",
+      "durationSeconds": 3.9333336353302
+    },
+    {
+      "name": "recall_winddown",
+      "state": "Recall_Winddown",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_npe_spawn.anm",
+      "durationSeconds": 2.633333444595337
+    },
+    {
+      "name": "respawn",
+      "state": "Respawn",
+      "source": "assets/characters/masteryi/skins/base/animations/masteryi_npe_spawn.anm",
+      "durationSeconds": 2.633333444595337
+    }
+  ],
+  "triangles": 9144,
+  "bones": 90,
+  "acceptance": {
+    "developmentRigPrepared": true,
+    "nativeEquivalent": false,
+    "playableKit": false,
+    "productionRosterExpanded": false
+  }
+}

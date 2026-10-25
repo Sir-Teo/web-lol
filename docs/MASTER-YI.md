@@ -6,6 +6,11 @@ source declarations. Master Yi has no integrated runtime kit, player scene or
 production roster entry. Model acceptance, animation integration, effects/audio,
 role AI and native behavior remain open.
 
+This document retains the character-only checkpoint. The later
+[development rig preparation](MASTER-YI-MODEL.md) adds a reproducible reviewed asset
+and isolated preview. Statements below about cached-model review describe the
+earlier source checkpoint; native calibration and the playable kit remain open.
+
 ## Exact retained package
 
 [character.json](reference/masteryi/character.json) contains all 60 actual records

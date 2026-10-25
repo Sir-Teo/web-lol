@@ -64,6 +64,7 @@ try {
     junglePreviewRequests = [],
     leonaPreviewRequests = [],
     ahriPreviewRequests = [],
+    masterYiPreviewRequests = [],
     preparedCompanionRequests = [],
     wardRigRequests = [],
     oracleRigRequests = [],
@@ -83,6 +84,7 @@ try {
   });
   page.on('request', (request) => {
     if (request.url().endsWith('/ahri-base.glb')) ahriPreviewRequests.push(request.url());
+    if (request.url().endsWith('/masteryi-base.glb')) masterYiPreviewRequests.push(request.url());
     if (/\/(?:leona[^/]*\.(?:glb|png|wav)|base_brightspark_11\.png)$/i.test(request.url()))
       leonaPreviewRequests.push(request.url());
     if (request.url().endsWith('/sightward-base.glb')) wardRigRequests.push(request.url());
@@ -455,6 +457,11 @@ try {
     [],
     'Ordinary production worlds do not preload development Leona assets'
   );
+  assert.deepEqual(
+    masterYiPreviewRequests,
+    [],
+    'Production must not preload the development Master Yi rig'
+  );
   console.log(
     JSON.stringify({
       result: 'passed',
@@ -484,6 +491,7 @@ try {
       ahriNpcFixtureInProduction: false,
       ahriPlayerFixtureInProduction: false,
       unrequestedAhriPreloads: ahriPreviewRequests.length,
+      unrequestedMasterYiPreloads: masterYiPreviewRequests.length,
       junglePreviewRequests: junglePreviewRequests.length,
       unrequestedLeonaPreloads: leonaPreviewRequests.length,
       preparedCompanionRequests: preparedCompanionRequests.length,

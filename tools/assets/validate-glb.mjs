@@ -2,10 +2,13 @@ import { readFile, readdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import validator from 'gltf-validator';
 
-// These three source meshes share a conversion ledger instead of sidecar files.
+// These particle meshes share source/conversion ledgers instead of sidecars.
 const bindingMeshes = JSON.parse(
   await readFile('docs/reference/lux-binding-target-meshes.json', 'utf8')
 ).outputs;
+const garenAttackMeshes = JSON.parse(
+  await readFile('docs/reference/garen-aa-particles-source.json', 'utf8')
+).assets.filter((row) => row.output?.file?.endsWith('.glb'));
 
 for (const name of (await readdir('public/assets/models'))
   .filter((name) => name.endsWith('.glb'))
@@ -17,9 +20,12 @@ for (const name of (await readdir('public/assets/models'))
       ? 'docs/reference/ashe-q-arrow-conversion.json'
       : path.replace('.glb', '.json');
   const grouped = bindingMeshes.find((entry) => entry.path === path);
+  const garenAttack = garenAttackMeshes.find((entry) => entry.output.file === path);
   const manifest = grouped
     ? { output: grouped, triangles: grouped.triangles }
-    : JSON.parse(await readFile(manifestPath, 'utf8'));
+    : garenAttack
+      ? { output: garenAttack.output, triangles: garenAttack.decoded.triangles }
+      : JSON.parse(await readFile(manifestPath, 'utf8'));
   if (createHash('sha256').update(bytes).digest('hex') !== manifest.output.sha256)
     throw new Error(`${name}: Asset does not match its recorded hash`);
   for (const asset of manifest.auxiliaryAssets ?? []) {
