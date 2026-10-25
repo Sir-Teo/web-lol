@@ -111,6 +111,8 @@ test('unlearned resource previews and descriptions use own ranks, AD/AP and true
   expect(masterYiPreviewResources('e')).toEqual({ mana: 0, cooldownSeconds: 14 });
   expect(masterYiPreviewResources('r')).toEqual({ mana: 100, cooldownSeconds: 85 });
   expect(masterYiDescription('q', 1, 65, 0, 0)).toContain('65.5 physical damage');
+  expect(masterYiDescription('q', 1, 65, 0, 0)).toContain('60 bonus physical damage to monsters');
+  expect(masterYiDescription('q', 5, 65, 0, 0)).toContain('160 bonus physical damage to monsters');
   expect(masterYiDescription('e', 1, 165, 100, 0)).toContain('55 additional true damage');
   expect(masterYiDescription('w', 1, 65, 0, 100)).toContain('220 base health');
   expect(masterYiDescription('r', 3, 65, 0, 0)).toContain(

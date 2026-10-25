@@ -193,14 +193,25 @@ test('held Q selects a real unit, hides own model and honors a mouse-selected re
   await page.keyboard.up('q');
   await step(page);
   const start = await page.evaluate(() => {
-    const g = (window as any).__GAME__;
+    const g = (window as any).__GAME__,
+      w = g.world;
+    // A selection/hover from before disappearance must not leave a ring behind.
+    g.view.hovered = w.hero.id;
+    g.view.render(w, 1, g.view.previousElapsed);
+    const p = g.view.screenPoint(w.hero, 0.775);
     return {
-      q: structuredClone(g.world.player.alphaStrike),
-      visible: g.view.models.get(g.world.hero.id).root.visible,
+      q: structuredClone(w.player.alphaStrike),
+      visible: g.view.models.get(w.hero.id).root.visible,
+      selectionVisible: g.view.selection.visible,
+      hoverVisible: g.view.hover.visible,
+      picked: g.view.pick(w, p.x, p.y)?.id ?? null,
     };
   });
   expect(start.q.primaryTargetId).toBe(id);
   expect(start.visible).toBe(false);
+  expect(start.selectionVisible).toBe(false);
+  expect(start.hoverVisible).toBe(false);
+  expect(start.picked).toBeNull();
   const p = await aim(page, 550, 0, 0);
   await page.evaluate(() => (window as any).__GAME__.setPaused(false));
   await page.mouse.click(p.x, p.y, { button: 'right' });
@@ -221,12 +232,20 @@ test('held Q selects a real unit, hides own model and honors a mouse-selected re
       x: w.hero.x,
       w: w.player.meditate,
       visible: g.view.models.get(w.hero.id).root.visible,
+      selectionVisible: g.view.selection.visible,
+      picked: (() => {
+        const p = g.view.screenPoint(w.hero, 0.775);
+        return g.view.pick(w, p.x, p.y)?.id ?? null;
+      })(),
+      heroId: w.hero.id,
     };
   });
   expect(end.q.exitDirection.x).toBeGreaterThan(0);
   expect(end.q.marks.map((m: any) => m.result)).toEqual(['hit', 'hit', 'hit', 'hit']);
   expect(end.x).toBeGreaterThan(400);
   expect(end.visible).toBe(true);
+  expect(end.selectionVisible).toBe(true);
+  expect(end.picked).toBe(end.heroId);
   expect(end.w).toBeNull();
   await page.screenshot({ path: info.outputPath('masteryi-player-q-return.png') });
   writeFileSync(info.outputPath('human-q.json'), JSON.stringify({ start, end }, null, 2));

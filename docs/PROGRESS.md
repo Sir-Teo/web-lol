@@ -7996,3 +7996,15 @@ flows, exact human/NPC Yi URL rejection, no hook and zero Yi rig preloads. Rules
 `f43a7afcb43f3510af23f3ffc6650e6849ff8f7e45d8c81d97b7ec66974015c6` contains
 1,073 files / 526,661,647 bytes. Existing bundle/performance/native gates remain
 open; no fresh offline certification is claimed.
+
+### Alpha Strike cursor and ring disappearance
+
+A direct real-Q/picker reproduction exposed invisible Yi still being selectable.
+Body rendering, cursor picking and selection/hover rings now share visibility.
+Reappearance restores selection; damage-protected structures remain selectable.
+Own Q tooltips now include the ranked monster bonus and critical capability.
+All 67 focused cases, TypeScript, build and the actual human-Q browser case pass.
+The browser proves hidden body/rings/no pick and restored selection/pick after
+return. Schema/ruleset and public asset bytes remain unchanged. The previous
+broad/production results are not presented as a fresh full-suite run. See
+[visibility verification](reference/masteryi/visibility-verification.json).

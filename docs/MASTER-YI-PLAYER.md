@@ -76,3 +76,20 @@ rig preloads. The existing large-bundle warning remains. Ruleset:
 Pack `f43a7afcb43f3510af23f3ffc6650e6849ff8f7e45d8c81d97b7ec66974015c6`
 contains 1,073 files / 526,661,647 bytes. No fresh offline/native/full-match
 performance certification follows from these checks.
+
+## Vanish selection follow-up
+
+The body, cursor picker, selection ring and hover ring now share the same
+visibility predicate. A known position does not make vanished Yi clickable.
+The selected identity remains stored, so picking and the selection ring recover
+on reappearance. Damage protection stays separate: protected structures remain
+visible and selectable. Q descriptions now include their rank-specific monster
+bonus and critical-strike capability.
+
+A direct real-controller/picker test failed before the fix and passes after it.
+The 67 focused cases cover reappearance, fog, death, protected turret selection
+and existing Q/player behavior. TypeScript and build pass. The real keyboard/
+mouse Q browser case additionally checks vanished body/rings/picking and restored
+selection/picking. Schema 144 and its ruleset remain unchanged; public assets
+are unchanged. This follow-up does not repeat the full unit/browser/production/
+offline suites. See [visibility verification](reference/masteryi/visibility-verification.json).

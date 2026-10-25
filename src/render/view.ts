@@ -1,4 +1,4 @@
-import { alphaVanished } from '../simulation/masteryi-alpha-strike';
+import { unitVisible } from './unit-visibility';
 import { MASTER_YI } from '../content/masteryi-progression';
 import { MASTER_YI_PASSIVE } from '../content/masteryi-passive';
 import { ahriAimGeometry } from './ahri-aim';
@@ -560,7 +560,7 @@ export class GameView {
     let target: Unit | undefined,
       best = Infinity;
     for (const u of world.units) {
-      if (!world.alive(u) || !world.visible(u)) continue;
+      if (!world.alive(u) || !unitVisible(world, u)) continue;
       const champion = u.kind === 'champion';
       const selection =
         u.champion === 'masteryi'
@@ -666,9 +666,7 @@ export class GameView {
       const deathAge =
         u.deadAt === null ? 0 : Math.max(0, (world.tick - u.deadAt + alpha - 1) / 60) + terminalAge;
       const knownDestroyed = world.knownStructureDestroyed(u);
-      const visible =
-        world.visible(u) &&
-        (u.champion !== 'masteryi' || !alphaVanished(world.championState(u.id)));
+      const visible = unitVisible(world, u);
       model.root.visible =
         knownDestroyed !== null ||
         (visible &&
@@ -859,7 +857,7 @@ export class GameView {
     this.snow.forEach((layer) => layer.update(world, this.camera));
     this.lingerAurora.update(world);
     const selected = world.unit(this.selected ?? world.player.id);
-    this.selection.visible = !!selected && world.alive(selected) && world.visible(selected);
+    this.selection.visible = !!selected && world.alive(selected) && unitVisible(world, selected);
     if (selected) {
       this.selection.position.x = selected.x * SCALE;
       this.selection.position.z = selected.y * SCALE;
@@ -867,7 +865,7 @@ export class GameView {
       this.selection.scale.setScalar(isStructureKind(selected.kind) ? selected.radius / 47.5 : 1);
     }
     const hovered = this.hovered === null ? undefined : world.unit(this.hovered);
-    this.hover.visible = !!hovered && world.alive(hovered) && world.visible(hovered);
+    this.hover.visible = !!hovered && world.alive(hovered) && unitVisible(world, hovered);
     if (hovered) {
       this.hover.position.x = hovered.x * SCALE;
       this.hover.position.z = hovered.y * SCALE;
