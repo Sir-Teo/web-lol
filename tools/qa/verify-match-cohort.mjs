@@ -21,6 +21,14 @@ for (const pin of plan.inputs.concat(plan.runner, historical ? [] : plan.sources
 }
 if (!historical) assert.equal(rulesetFingerprint(), plan.ruleset);
 assert.equal(summary.ruleset, plan.ruleset);
+const developmentLeona = plan.developmentLeona ?? false;
+assert.equal(typeof developmentLeona, 'boolean');
+if (developmentLeona) {
+  assert.equal(plan.qaAutomatedHumanCarry, false);
+  assert.equal(plan.qaAutomatedHumanRole, 'support');
+  assert.equal(plan.roster, 'six Ashe/three Lux/one Leona; five roles per team');
+  assert.equal(summary.hundredSeedInvariantGate, false);
+}
 assert.equal(summary.completed, plan.seeds.length, 'Not every requested seed has completed');
 assert.equal(summary.active.length, 0);
 assert.equal(new Set(summary.results.map((r) => r.seed)).size, plan.seeds.length);
@@ -35,6 +43,10 @@ for (const seed of plan.seeds) {
   const report = JSON.parse(readFileSync(`${root}/seeds/${seed}/report.json`, 'utf8'));
   assert.equal(report.ruleset, plan.ruleset);
   assert.equal(report.seed, seed);
+  assert.equal(report.developmentLeona ?? false, developmentLeona);
+  assert.equal(report.automatedHumanCarry, !developmentLeona);
+  if (report.automatedHumanRole !== undefined)
+    assert.equal(report.automatedHumanRole, developmentLeona ? 'support' : 'carry');
   assert.equal(report.failure, null, `Seed ${seed} failed`);
   assert.equal(report.horizonTicks, plan.horizonTicks);
   assert.equal(report.finalTick, report.checkedTicks);
@@ -49,6 +61,13 @@ for (const seed of plan.seeds) {
     const state = JSON.parse(bytes);
     assert.equal(state.tick, checkpoint.tick);
     assert.equal(state.ruleset, plan.ruleset);
+    if (developmentLeona) {
+      assert.equal(state.player.role, 'support');
+      assert.equal(state.units.find((u) => u.id === state.player.id).champion, 'leona');
+      assert.equal(state.units.filter((u) => u.champion === 'leona').length, 1);
+      assert.equal(state.units.filter((u) => u.champion === 'ashe').length, 6);
+      assert.equal(state.units.filter((u) => u.champion === 'lux').length, 3);
+    }
     const states = new Map([state.player, ...state.otherChampions].map((r) => [r.id, r]));
     assertMatchResources({ ...state, championState: (id) => states.get(id) });
     assertMatchVictory(state);
@@ -73,6 +92,12 @@ for (const seed of plan.seeds) {
 assert.equal(ticks, summary.checkedTicks);
 assert.equal(roundTrips, summary.roundTrips);
 assert.equal(futures, summary.futureChecks);
+const fullInvariantGate = plan.horizonTicks === 60 * 3600 && plan.seeds.length >= 100;
+assert.equal(summary.hundredSeedInvariantGate, !developmentLeona && fullInvariantGate);
+assert.equal(
+  summary.hundredSeedDevelopmentLeonaInvariantGate ?? false,
+  developmentLeona && fullInvariantGate
+);
 console.log(
   JSON.stringify({
     result: 'passed',
@@ -84,7 +109,10 @@ console.log(
     checkedTicks: ticks,
     roundTrips,
     futureChecks: futures,
+    developmentLeona,
     hundredSeedInvariantGate: summary.hundredSeedInvariantGate,
+    hundredSeedDevelopmentLeonaInvariantGate:
+      summary.hundredSeedDevelopmentLeonaInvariantGate ?? false,
     roadmapMilestone4Complete: false,
   })
 );

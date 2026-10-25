@@ -16,6 +16,7 @@ const { values, positionals } = parseArgs({
     minutes: { type: 'string', default: '60' },
     output: { type: 'string' },
     data: { type: 'string', default: 'public/assets/maps' },
+    'development-leona': { type: 'boolean', default: false },
   },
   allowPositionals: true,
 });
@@ -40,16 +41,19 @@ const nav = readFileSync(resolve(values.data!, 'rift-nav.bin'));
 const metadata = readFileSync(resolve(values.data!, 'rift-nav.json'), 'utf8');
 const layout = readFileSync(resolve(values.data!, 'rift-layout.json'), 'utf8');
 function freshBattlefield() {
-  return createRift(
+  const battlefield = createRift(
     new NavGrid(
       JSON.parse(metadata),
       nav.buffer.slice(nav.byteOffset, nav.byteOffset + nav.byteLength)
     ),
     JSON.parse(layout)
   );
+  return values['development-leona']
+    ? { ...battlefield, developmentLeona: true as const }
+    : battlefield;
 }
 const battlefield = freshBattlefield();
-const world = createLaneMatch(battlefield);
+const world = createLaneMatch(battlefield, values['development-leona'] ? 'leona' : 'ashe');
 world.random.state = seed;
 world.hero.ai = true; // QA automation only; the production player is unchanged.
 world.hero.lane = battlefield.lanes.findIndex((lane) => lane.name === 'bot');
@@ -196,7 +200,9 @@ const report = {
   roundTrips,
   futureChecks,
   futureCheckedTicks,
-  automatedHumanCarry: true,
+  developmentLeona: values['development-leona'],
+  automatedHumanCarry: !values['development-leona'],
+  automatedHumanRole: values['development-leona'] ? 'support' : 'carry',
   elapsedSeconds: (performance.now() - started) / 1000,
   runtime: {
     node: process.version,

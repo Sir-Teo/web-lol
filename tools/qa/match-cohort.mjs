@@ -24,6 +24,7 @@ const { values, positionals } = parseArgs({
     minutes: { type: 'string', default: '60' },
     output: { type: 'string' },
     'keep-going': { type: 'boolean', default: false },
+    'development-leona': { type: 'boolean', default: false },
   },
 });
 const jobs = Number(values.jobs),
@@ -111,8 +112,12 @@ const plan = {
   seeds,
   jobs,
   horizonTicks: minutes * 3600,
-  qaAutomatedHumanCarry: true,
-  roster: 'six Ashe/four Lux; five roles per team',
+  developmentLeona: values['development-leona'],
+  qaAutomatedHumanCarry: !values['development-leona'],
+  qaAutomatedHumanRole: values['development-leona'] ? 'support' : 'carry',
+  roster: values['development-leona']
+    ? 'six Ashe/three Lux/one Leona; five roles per team'
+    : 'six Ashe/four Lux; five roles per team',
   runtime: {
     node: process.version,
     v8: process.versions.v8,
@@ -174,12 +179,19 @@ function state() {
     victoryDurationSeconds: { p10: percentile(0.1), p50: percentile(0.5), p90: percentile(0.9) },
     allRequestedExecuted: results.length === seeds.length,
     hundredSeedInvariantGate:
+      !values['development-leona'] &&
       minutes === 60 &&
       seeds.length >= 100 &&
       results.length === seeds.length &&
       failed.length === 0,
     roadmapMilestone4Complete: false,
     elapsedSeconds: (Date.now() - started) / 1000,
+    hundredSeedDevelopmentLeonaInvariantGate:
+      values['development-leona'] &&
+      minutes === 60 &&
+      seeds.length >= 100 &&
+      results.length === seeds.length &&
+      failed.length === 0,
     results: [...results].sort((a, b) => a.seed - b.seed),
   };
 }
@@ -200,6 +212,7 @@ function launch(seed) {
       `${root}/maps`,
       '--output',
       `${root}/seeds/${seed}`,
+      ...(values['development-leona'] ? ['--development-leona'] : []),
       String(seed),
     ],
     { stdio: ['ignore', log, log] }
@@ -306,6 +319,8 @@ writeFileSync(`${root}/summary.json`, JSON.stringify(summary, null, 2) + '\n');
 console.log(
   JSON.stringify({
     type: 'finished',
+    developmentLeona: values['development-leona'],
+    hundredSeedDevelopmentLeonaInvariantGate: summary.hundredSeedDevelopmentLeonaInvariantGate,
     root,
     status: summary.status,
     completed: summary.completed,
