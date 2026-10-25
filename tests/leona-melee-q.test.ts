@@ -47,7 +47,7 @@ test('Leona owns her melee stats, progression and mana without entering the sele
   expect(state.spellRanks).toEqual({ q: 0, w: 0, e: 0, r: 0 });
   expect(state.eCharges).toBe(0);
   expect(() => selectableChampion('leona')).toThrow(/development/);
-  expect(() => new World(false, PRACTICE_FIXTURE, 'leona')).toThrow(/non-player/);
+  expect(new World(false, PRACTICE_FIXTURE, 'leona').hero.champion).toBe('leona');
   const outside = new World(false, { ...PRACTICE_FIXTURE, id: 'rift' });
   expect(() => outside.spawn('champion', 'blue', { x: 0, y: 0 }, 'leona')).toThrow(/development/);
   attack();

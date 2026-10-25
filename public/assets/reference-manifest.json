@@ -664,6 +664,36 @@
       "encodedSha256": "e63ae31eef254533821d064a3c806c9132b2a8c84887a4394e9cf415263b2359",
       "decoderRevision": "e6afeaacf433bfafd38d873f80c94517e09d5b96",
       "conversion": "vgmstream -i -W 4; unchanged mono 44100 Hz float32 master; no normalization, resampling or loop expansion"
+    },
+    {
+      "path": "/assets/icons/leona.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Leona.png",
+      "sha256": "d7e170e1d5c37b243663e03d480a4befe727d86d0733e3e411b90297cb192461",
+      "bytes": 31573
+    },
+    {
+      "path": "/assets/icons/LeonaShieldOfDaybreak.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/LeonaShieldOfDaybreak.png",
+      "sha256": "dc39d88ef6a0c80c06f8e727e1f87aee7e94b13f750561e99d99c3dfce9299a9",
+      "bytes": 6757
+    },
+    {
+      "path": "/assets/icons/LeonaSolarBarrier.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/LeonaSolarBarrier.png",
+      "sha256": "342088c1c6037c7d11c92c551df577b0d738cd7f2de26c4ee6fb8d42ea58a108",
+      "bytes": 5347
+    },
+    {
+      "path": "/assets/icons/LeonaZenithBlade.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/LeonaZenithBlade.png",
+      "sha256": "bea4553abbd6bfaa065881c96294cc5519420e0531027e989e5a7309596bbaca",
+      "bytes": 5848
+    },
+    {
+      "path": "/assets/icons/LeonaSolarFlare.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/LeonaSolarFlare.png",
+      "sha256": "4e59954a37f3c33deeee1eba614f8bdab05c86812cfbab7c7913db11a6da2306",
+      "bytes": 6500
     }
   ]
 }

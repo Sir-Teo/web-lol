@@ -94,8 +94,10 @@ test('saved AI learning and shopping resume with identical futures', () => {
   expect(restored.snapshot()).toBe(world.snapshot());
 });
 
-test('the bot policy does not open Leona player or ordinary Rift spawning', () => {
-  expect(() => new World(false, PRACTICE_FIXTURE, 'leona')).toThrow(/non-player/);
+test('the bot policy does not open ordinary Rift Leona spawning', () => {
+  expect(() => new World(false, { ...PRACTICE_FIXTURE, id: 'rift' }, 'leona')).toThrow(
+    /development/
+  );
   const rift = new World(false, { ...PRACTICE_FIXTURE, id: 'rift', initialUnits: [] });
   expect(() => rift.spawn('champion', 'blue', { x: 0, y: 0 }, 'leona')).toThrow(/development/);
 });

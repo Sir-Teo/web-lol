@@ -2207,9 +2207,10 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   for (const unit of state.units) {
     if (
       unit.champion === 'leona' &&
-      (state.battlefield !== 'practice-fixture' || unit.id === state.player.id)
+      (state.battlefield !== 'practice-fixture' ||
+        (unit.id === state.player.id && state.matchMode !== 'practice'))
     )
-      throw new Error('Leona currently requires a non-player development simulation fixture.');
+      throw new Error('Leona requires the development practice fixture.');
     if (unit.kind === 'monster') {
       const spawn = unit.monster.spawn;
       const profile = MONSTERS[unit.monster.species];

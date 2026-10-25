@@ -1,4 +1,5 @@
 import { renderParticleColorPhase } from './particle-color-phase';
+import { leonaAimGeometry } from './leona-aim';
 import { LazyLeonaSolarProjections } from './lazy-leona-solar-projections';
 import { ParticleDecalReceivers, terrainDecalReceiver } from './particle-decal-receivers';
 import { LazyLeonaSolarSkins } from './lazy-leona-solar-skins';
@@ -216,6 +217,7 @@ export class GameView {
   private aim: THREE.Group;
   private aimLine: THREE.Line;
   private wardSightLine: THREE.Line;
+  private solarCenterLine: THREE.Line;
   private aimPoint: Vec2 | null = null;
   private aimMode: string | null = null;
   private moveMarker: THREE.Group;
@@ -347,6 +349,13 @@ export class GameView {
     );
     this.wardSightLine.frustumCulled = false;
     this.aim.add(this.wardSightLine);
+    this.solarCenterLine = new THREE.Line(
+      wardSightGeometry.clone(),
+      new THREE.LineBasicMaterial({ color: 0xdcc775, transparent: true, opacity: 0.8 })
+    );
+    this.solarCenterLine.name = 'leona-solar-center-guide';
+    this.solarCenterLine.frustumCulled = false;
+    this.aim.add(this.solarCenterLine);
     this.moveMarker = new THREE.Group();
     for (let i = 0; i < 4; i++) {
       const a = (i / 4) * Math.PI * 2;
@@ -1074,6 +1083,7 @@ export class GameView {
     this.wardSightLine.visible = this.aimMode === 'ward';
     const hero = world.hero,
       dir = Math.atan2(this.aimPoint.y - hero.y, this.aimPoint.x - hero.x);
+    this.solarCenterLine.visible = hero.champion === 'leona' && this.aimMode === 'r';
     const positions = this.aimLine.geometry.attributes.position as THREE.BufferAttribute;
     positions.setXYZ(0, 0, 0.1, 0);
     if (this.aimMode === 'ward') {
@@ -1115,6 +1125,17 @@ export class GameView {
         );
       }
       this.aimLine.geometry.setDrawRange(0, 33);
+    } else if (hero.champion === 'leona' && (this.aimMode === 'e' || this.aimMode === 'r')) {
+      const shape = leonaAimGeometry(this.aimMode, hero, this.aimPoint);
+      for (const [i, p] of shape.outline.entries())
+        positions.setXYZ(i, (p.x - hero.x) * SCALE, 0.1, (p.y - hero.y) * SCALE);
+      this.aimLine.geometry.setDrawRange(0, shape.outline.length);
+      if (shape.center.length) {
+        const inner = this.solarCenterLine.geometry.attributes.position as THREE.BufferAttribute;
+        for (const [i, p] of shape.center.entries())
+          inner.setXYZ(i, (p.x - hero.x) * SCALE, this.ground(p) + 0.11, (p.y - hero.y) * SCALE);
+        inner.needsUpdate = true;
+      }
     } else if (hero.champion === 'lux' && ['q', 'w', 'e', 'r'].includes(this.aimMode)) {
       if (this.aimMode === 'e') {
         const length = Math.min(

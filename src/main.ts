@@ -57,6 +57,7 @@ async function boot(): Promise<void> {
   const battlefield = fixture ? PRACTICE_FIXTURE : await loadRiftBattlefield();
   const leonaNpc = fixture && new URLSearchParams(location.search).get('npc') === 'leona';
   const garenFixture = fixture && new URLSearchParams(location.search).get('champion') === 'garen';
+  const leonaFixture = fixture && new URLSearchParams(location.search).get('champion') === 'leona';
   const grompEncounter =
     fixture && new URLSearchParams(location.search).get('encounter') === 'gromp';
   const companionQuery = grompEncounter
@@ -67,7 +68,8 @@ async function boot(): Promise<void> {
       ? (companionQuery as CompanionKind)
       : null;
   const freshPractice = (champion: import('./simulation/types').ChampionIdentity = 'ashe') => {
-    if (champion === 'leona') throw new Error('Leona player presentation is not integrated.');
+    if (champion === 'leona' && !fixture)
+      throw new Error('Leona player kit requires the development practice fixture.');
     return grompEncounter
       ? (() => {
           const next = createGrompEncounter(battlefield, champion);
@@ -87,7 +89,7 @@ async function boot(): Promise<void> {
           return next;
         })();
   };
-  let world = freshPractice(garenFixture ? 'garen' : 'ashe');
+  let world = freshPractice(garenFixture ? 'garen' : leonaFixture ? 'leona' : 'ashe');
   let restored = false,
     saveNotice = '';
   try {
@@ -96,6 +98,7 @@ async function boot(): Promise<void> {
     if (
       candidate &&
       (!garenFixture || candidate.hero.champion === 'garen') &&
+      (!leonaFixture || candidate.hero.champion === 'leona') &&
       (!leonaNpc || candidate.units.some((u) => u.champion === 'leona')) &&
       candidate.encounter === (grompEncounter ? 'gromp' : null) &&
       (candidate.companions.find(
@@ -175,6 +178,7 @@ async function boot(): Promise<void> {
           : grompEncounter ||
               world.hero.champion === 'lux' ||
               world.hero.champion === 'garen' ||
+              world.hero.champion === 'leona' ||
               world.player.summoners.d !== 'flash' ||
               world.player.summoners.f !== 'heal'
             ? (() => {

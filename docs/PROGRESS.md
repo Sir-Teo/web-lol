@@ -6,7 +6,7 @@ Last updated: October 24, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 1,940 tests across 315 files, TypeScript and three Node QA checks. Twenty targeted Chrome scenarios pass the [development Solar Flare follow-up](LEONA-R-BOT-FOLLOWUP.md), adjacent Leona bot decisions, saved phases, both-team source surfaces, graphics recovery, effect lifecycle and source audio failure checks. Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 1,949 tests across 316 files, TypeScript and three Node QA checks. Twenty-three targeted Chrome scenarios pass the [development Leona player fixture](LEONA-PLAYER-FIXTURE.md), adjacent NPC decisions, Garen/Lux player controls, real wards, learning, practice resets and queued HUD casts. Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
 
 The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). Current targeted evidence does not certify full-match completion or native visual parity.
 
@@ -6684,3 +6684,49 @@ atomic-version controls pass with 963 worker responses and zero production error
 cannot predict future heals/defenses or movement. Full mobile-target, peel/engage,
 player/support/roster, native frame, normal-match cohort and performance gates
 remain open. Work continues under the active goal; nothing pushed.
+
+## Leona development player HUD, input and saves — October 24, 2026
+
+The development query `?scene=fixture&champion=leona` now creates an unlearned,
+human-controlled level-one Leona. Ordinary Rift construction/spawning and roster
+selection stay gated. The NPC query remains separate. Q/W activate instantly;
+E/R hold to aim and release to cast, with safe cancellation. The E guide matches
+the local 900-unit / 70-half-width sweep. R has distinct outer300/inner120 rings
+at the point clamped to1200. No native targeting-art or geometry claim follows.
+
+The HUD now has the pinned 16.18.1 portrait/four spell icons, Leona title and
+spell names, rank-one previews, current rank/AP/level text, mana and active states.
+Sunlight describes the other allied champion needed to consume the mark. It
+inherits no Ashe Focus/Hawkshot or Garen targeted-R behavior. Menus and learning
+work; W/R Save/reload restores exact90-tick futures and Restart practice retains
+Leona with a fresh unlearned kit. The controlled Gromp fixture also supports her.
+Schema126 adds no fields; decoder scope and ruleset change.
+
+Nine new units and the full standard check pass:1,949 tests in316 files,
+TypeScript and three Node QA checks. All23 browser cases pass the three new
+player scenarios, NPC setup/E/R, Garen player controls, Lux HUD/input, real wards,
+learning, practice resets and queued HUD Heal. Actual keys pay Q/W, E arrives at
+the70-unit near edge, and R deals damage/center stun/Sunlight. Controlled source
+preview, aim and restored-player screenshots are inspected with no GL/browser
+errors. These fixtures do not establish ordinary Rift navigation or native frames.
+
+Initial QA issues are retained: the first browser attempt used an inexact
+Controls accessible-name selector, exact float32 equality and a restart navigation
+race. Corrected selectors/tolerance/navigation waiting pass. A widened string
+literal in the new unit fixture caused the first full typecheck failure; explicit
+literal typing fixes it. The original browser spec, failure logs and traces remain.
+
+Public changes are limited to five icon PNGs and their manifest update. All94 old
+manifest records and965 other public files retain their exact bytes. Production
+passes32 nested-path recordings and ignores both Garen/Leona development query
+combinations. The hook and Leona preloads are absent; the observation now checks
+models, textures, audio and icons. Ruleset is
+`ceccf829647a6c36aeb10c0e955e7650276965f45787eb4f48cad34487e6d782`.
+Pack `2491785e7926d36a676af489d2efaf42f54570dc1ccc0f8cb075e307b60d8d4d`
+contains1,017 files /513,375,388 bytes. Integrity, repair, saved offline boot and
+atomic-version controls pass with963 worker responses and zero production errors
+on the supported production routes. See [fixture scope](LEONA-PLAYER-FIXTURE.md)
+and [ledger](reference/leona/player-fixture-verification.json) for exact evidence.
+Complete player/roster/support, missing R families, native behavior/frame,
+normal-match cohort and performance acceptance remain open. Work continues
+under the active goal; nothing pushed.

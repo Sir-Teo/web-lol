@@ -81,9 +81,7 @@ try {
     if (message.type() === 'error') errors.push(message.text());
   });
   page.on('request', (request) => {
-    if (
-      /\/leona-base\.glb$|\/leona_base_[^/]+\.png$|\/base_brightspark_11\.png$/.test(request.url())
-    )
+    if (/\/(?:leona[^/]*\.(?:glb|png|wav)|base_brightspark_11\.png)$/i.test(request.url()))
       leonaPreviewRequests.push(request.url());
     if (request.url().endsWith('/sightward-base.glb')) wardRigRequests.push(request.url());
     if (/\/oracle-lens-[^/]+\.glb$/.test(request.url())) oracleRigRequests.push(request.url());
@@ -155,11 +153,15 @@ try {
     11,
     'Ordinary Rift practice must prepare all eleven scheduled monster rigs'
   );
-  await page.goto(`${base}?scene=fixture&champion=garen&encounter=gromp&companion=gustwalker`);
-  await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
-  assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
-  assert.equal(await page.evaluate(() => !!window.__GAME__), false);
-  assert.equal(await page.locator('#companion-status').count(), 0);
+  for (const champion of ['garen', 'leona']) {
+    await page.goto(
+      `${base}?scene=fixture&champion=${champion}&npc=leona&encounter=gromp&companion=gustwalker`
+    );
+    await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
+    assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
+    assert.equal(await page.evaluate(() => !!window.__GAME__), false);
+    assert.equal(await page.locator('#companion-status').count(), 0);
+  }
   assert.equal(
     recordings.size,
     29,
@@ -460,6 +462,7 @@ try {
       unrequestedCompanionPreloads: 0,
       developmentHook: false,
       garenFixtureInProduction: false,
+      leonaPlayerFixtureInProduction: false,
       junglePreviewRequests: junglePreviewRequests.length,
       unrequestedLeonaPreloads: leonaPreviewRequests.length,
       preparedCompanionRequests: preparedCompanionRequests.length,

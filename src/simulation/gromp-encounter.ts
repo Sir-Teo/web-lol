@@ -1,10 +1,11 @@
 import { World } from './world';
 import type { Battlefield } from './battlefield';
+import type { ChampionIdentity } from './types';
 
 /** Controlled development encounter, not a standard-mode camp spawn schedule. */
 export function createGrompEncounter(
   battlefield: Battlefield,
-  champion: 'ashe' | 'lux' | 'garen' = 'ashe'
+  champion: ChampionIdentity = 'ashe'
 ): World {
   if (battlefield.id !== 'practice-fixture')
     throw new Error('Gromp encounter requires the practice fixture.');

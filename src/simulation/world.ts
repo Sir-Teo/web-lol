@@ -336,8 +336,8 @@ export class World {
     readonly battlefield: Battlefield = PRACTICE_FIXTURE,
     playerChampion: import('./types').ChampionIdentity = 'ashe'
   ) {
-    if (playerChampion === 'leona')
-      throw new Error('Leona currently requires a non-player development simulation fixture.');
+    if (playerChampion === 'leona' && battlefield.id !== 'practice-fixture')
+      throw new Error('Leona player kit is available only in the development practice fixture.');
     if (playerChampion === 'garen' && battlefield.id !== 'practice-fixture')
       throw new Error('Garen player kit is available only in the development practice fixture.');
     this.nextWaveTick = Math.round(battlefield.waves.initialSeconds * TICK_RATE);

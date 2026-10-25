@@ -1,11 +1,12 @@
 # Leona implementation
 
 Target: standard PC Summoner's Rift 26.18, frozen Riot build 16.18.8175716.
-The canonical source package, payload calculations and a non-player development
-simulation fixture for melee attacks, Q, Sunlight, W, E and R are implemented. Leona's complete
-playable kit, player selection, bot policy, source spell effects/audio and native
-presentation matching remain required work. The [source rig integration](LEONA-RIG.md)
-now renders non-player development fixtures and their saved body poses. The
+The canonical source package, payload calculations and development simulation
+for melee attacks, Q, Sunlight, W, E and R are implemented. The
+[player fixture](LEONA-PLAYER-FIXTURE.md) now integrates HUD/input and saved human
+control on the development battlefield. Complete player/roster selection, support
+tactics, remaining source presentation and native matching remain required work.
+The [source rig integration](LEONA-RIG.md) renders development units and saved body poses. The
 [Sunlight source presentation](LEONA-SUNLIGHT-VFX.md) now adds all nine mark and
 detonation emitters, with saved poses and audiences.
 [Daybreak source presentation](LEONA-Q-VFX.md) now adds six shield families and
@@ -124,10 +125,12 @@ The helpers do not schedule casts, apply shields/reduction or select targets.
 
 `World.spawn('champion', team, point, 'leona')` is permitted only on the
 development practice battlefield. It creates Leona's own stats, mana and an
-unlearned kit. Constructor/player selection and ordinary Rift spawning still
-reject this incomplete fixture. Development browser saves now restore NPCs with
+unlearned kit. The constructor now permits a human Leona only on that same
+development battlefield; ordinary roster selection and Rift spawning reject it.
+Development browser saves restore players and NPCs with
 their own source rig; `?scene=fixture&npc=leona` creates a level-six NPC with each
-spell learned. Missing clips fail explicitly. Human Leona selection remains gated. All four spells
+spell learned. The separate `champion=leona` development query starts an unlearned
+human player. Missing clips fail explicitly. Ordinary Leona selection remains gated. All four spells
 have development command adapters; this does not certify a complete player kit.
 
 After learning Q, a World cast command validates mana, cooldown, silence and

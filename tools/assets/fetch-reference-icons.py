@@ -4,6 +4,7 @@ Riot owns these images. Recording provenance is not a distribution license.
 Public-release content authorization remains unresolved; see docs/PROGRESS.md.
 """
 import hashlib
+import argparse
 import json
 import pathlib
 import subprocess
@@ -16,6 +17,11 @@ FILES = {
     'ashe.png': 'champion/Ashe.png',
     'lux.png': 'champion/Lux.png',
     'garen.png': 'champion/Garen.png',
+    'leona.png': 'champion/Leona.png',
+    'LeonaShieldOfDaybreak.png': 'spell/LeonaShieldOfDaybreak.png',
+    'LeonaSolarBarrier.png': 'spell/LeonaSolarBarrier.png',
+    'LeonaZenithBlade.png': 'spell/LeonaZenithBlade.png',
+    'LeonaSolarFlare.png': 'spell/LeonaSolarFlare.png',
     'GarenQ.png': 'spell/GarenQ.png',
     'GarenW.png': 'spell/GarenW.png',
     'GarenE.png': 'spell/GarenE.png',
@@ -47,7 +53,11 @@ if manifest['version'] != '16.18.1':
     raise ValueError('Refusing to mix icon patches in the reference manifest')
 # Other source importers also contribute item and atlas records to this manifest.
 records = {record['path']: record for record in manifest['assets']}
-for filename, remote in FILES.items():
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--only', nargs='+', choices=FILES, help='Fetch only these pinned icons')
+selected = parser.parse_args().only or list(FILES)
+for filename in selected:
+    remote = FILES[filename]
     data = subprocess.check_output(['curl', '-fLsS', '--max-time', '30', BASE + remote])
     if not data.startswith(b'\x89PNG\r\n\x1a\n'):
         raise ValueError(f'{filename} did not contain a PNG')
@@ -57,4 +67,4 @@ for filename, remote in FILES.items():
                      'sha256': hashlib.sha256(data).hexdigest(), 'bytes': len(data)}
 manifest['assets'] = list(records.values())
 manifest_path.write_text(json.dumps(manifest, indent=2) + '\n')
-print(f'Fetched and hashed {len(FILES)} icons; retained {len(records)} manifest records.')
+print(f'Fetched and hashed {len(selected)} icons; retained {len(records)} manifest records.')
