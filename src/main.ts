@@ -261,6 +261,7 @@ async function boot(): Promise<void> {
           audio.leonaR.load(),
           audio.leonaQ.load(),
           audio.leonaAA.load(),
+          audio.leonaSunlight.load(),
         ]
       : []),
     loadGarenSpin(),

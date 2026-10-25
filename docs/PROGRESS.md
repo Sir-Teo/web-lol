@@ -6936,3 +6936,33 @@ Offline integrity, repair, saved boot and atomic version switching pass with
 bound by the [ledger](reference/leona/sunlight-audio-source-verification.json). Native invocation/mix/listening, full
 player/support/roster, missing R families, ordinary Rift cohort and performance
 acceptance remain open. Work continues under the active goal; nothing pushed.
+
+## 2026-10-25 — Sunlight source playback
+
+Accepted ally-consumption records now drive one finite Sunlight source cue,
+including lethal procs. Existing saved serials/clocks, target poses and birth
+audiences preserve stable media, moving placement and hidden-start silence.
+Numeric serial order keeps same-tick cap admission deterministic. The controller
+uses source gain −12 dB, cap two, untouched masters and shared spell attenuation;
+all clips fit the existing 65-tick history. No snapshot fields were added. The
+compatibility fingerprint now includes Sunlight audio state rules; schema stays
+128. Mute/visibility cleanup, finite completion and result audio-clock draining
+preserve saved gameplay. Source failures settle quietly without retries.
+
+Seven new units bring the full check to 2,006 tests in 324 files, TypeScript and
+three Node QA checks. All 65 Chrome cases pass, including seven new playback
+cases and existing Q/attack/E/R, player, source graphics, Garen and bot saves.
+Actual Save/reload preserves live/lethal source contacts and exact 90-tick
+futures. The first neutral-target API type error and first cap test's zero-tick
+assumption remain recorded; corrected tests use the neutral-monster helper and
+captured consumption clock. All 1,008 public assets remain unchanged.
+
+See [playback scope](LEONA-SUNLIGHT-AUDIO-RUNTIME.md). All 32 nested-path
+production recordings pass. Ruleset is `5c2d23798008b80f63cb764c99b3209cd0c9005b97d971aefb2f2549bd59e068`;
+pack `bb67de04c6f068b2114e50016167e67c652348f7c72051c19c124733b3c1cf8a` contains 1,057 files / 518,616,608 bytes.
+Offline integrity, repair, saved boot and atomic version switching pass with
+963 worker responses and no production errors. Exact evidence is bound by the
+[ledger](reference/leona/sunlight-audio-runtime-verification.json). Native invocation, attachment/mix/global shuffle,
+listening/frame comparison, missing R families, full player/support/roster,
+ordinary Rift cohort and performance gates remain open. Work continues under
+the active goal; nothing pushed.
