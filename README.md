@@ -59,7 +59,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Shared siege, defense, gank and river strategy](docs/BOT-TEAM-STRATEGY.md)
 - [Bot group-combat decisions](docs/BOT-GROUP-COMBAT.md)
 - [Garen and Ahri roster expansion](docs/ROSTER-EXPANSION.md)
-- [Ahri development NPC and source declarations](docs/AHRI.md) — `/?scene=fixture&npc=ahri` adds her own stats, ordinary attacks and rig; spells and player selection remain unfinished.
+- [Ahri development NPC and source declarations](docs/AHRI.md) — `/?scene=fixture&npc=ahri` adds her own stats, ordinary attacks, rig and a manually cast [Q controller](docs/AHRI-Q.md); the remaining spells and player selection are unfinished.
 - [Browser interruption and graphics recovery](docs/RECOVERY.md)
 - [Minion sources and wave coverage](docs/MINIONS.md)
 - [Structure progression and remaining rules](docs/STRUCTURES.md)

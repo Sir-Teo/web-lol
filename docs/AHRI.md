@@ -4,6 +4,8 @@ Target: standard PC Summoner's Rift 26.18, frozen Riot build 16.18.8175716.
 The retained character package is a reproducible source reference. A development
 NPC foundation now adds her own stats, basic attacks and body rig. Ahri remains
 outside player selection and the Rift roster; her spell kit is unfinished.
+[Orb of Deception](AHRI-Q.md) now has a development NPC controller with paid
+casts, separate flight legs and saved continuation. W/E/R and passive remain open.
 
 ## Retained inputs
 
@@ -114,9 +116,9 @@ modifiers, animation graph, effects and audio unfinished. Complete player/role
 integration, strict continuation, production roster and native acceptance remain
 open. The original reference increment changed no simulation or public asset.
 
-## Development NPC foundation
+## Development NPC foundation (schema 131 checkpoint)
 
-During `npm run dev`, open `/?scene=fixture&npc=ahri`. Ashe remains the human
+At the initial NPC checkpoint, `/?scene=fixture&npc=ahri` adds Ahri while Ashe remains the human
 champion; Ahri is an additional blue development unit. Her four spells begin
 unlearned. Learning and spell commands are explicitly rejected, and she receives
 no Hawkshot charges, Frost or Focus state. Production ignores the diagnostic
@@ -192,3 +194,5 @@ retained source closure, built files, original failures, successful checks and
 captures. Run `node tools/qa/verify-ahri-development.mjs`; after later project
 changes, `--historical` checks the retained checkpoint rather than current files.
 This NPC foundation does not certify a playable Ahri kit or native matching.
+The later [Q controller](AHRI-Q.md) advances the schema to 132 and permits manual
+Q learning/casts; the evidence above retains the earlier checkpoint's scope.

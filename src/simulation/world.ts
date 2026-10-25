@@ -1,4 +1,6 @@
 import { captureLeonaDeath, advanceLeonaDeaths } from './leona-death-visuals';
+import { AHRI_Q } from '../content/ahri-q';
+import { ahriOrbDamage, beginAhriOrb, advanceAhriOrbs, type AhriOrb } from './ahri-orbs';
 import {
   advanceZenithVisuals,
   beginZenithVisual,
@@ -299,6 +301,7 @@ export class World {
   luxImpactVisuals: LuxImpactVisual[] = [];
   luxIlluminationVisuals: LuxIlluminationVisual[] = [];
   sunlightVisuals: SunlightVisual[] = [];
+  ahriOrbs: AhriOrb[] = [];
   nextSunlightVisual = 1;
   singularities: Singularity[] = [];
   luxEAudio = newLuxEAudioHistory();
@@ -1026,7 +1029,12 @@ export class World {
         state.garenWDeflects = state.garenWDeflects.filter(
           (reaction) => this.tick < reaction.tick + GAREN_W_DEFLECT_TAIL_TICKS
         );
-      if (state.skillPoints === 0 || !this.unit(state.id)?.ai) continue;
+      if (
+        state.skillPoints === 0 ||
+        !this.unit(state.id)?.ai ||
+        this.unit(state.id)?.champion === 'ahri'
+      )
+        continue;
       while (state.skillPoints > 0) {
         const allocated = Object.values(state.spellRanks).reduce((sum, rank) => sum + rank, 0);
         const recommendation =
@@ -1200,6 +1208,8 @@ export class World {
           this.releaseFinalSpark(u, cast.origin!, cast.point, cast.damage);
         else if (u.champion === 'lux' && cast.ability === 'w')
           this.releasePrismatic(u, cast.point, cast.shield!, cast.startTick);
+        else if (u.champion === 'ahri' && cast.ability === 'q')
+          beginAhriOrb(this, u, cast.point, cast.rank, cast.damage);
         else if (cast.ability === 'q') this.releaseLightBinding(u, cast.point, cast.damage);
         else if (u.champion === 'lux' && cast.ability === 'e') this.releaseSingularity(u, cast);
         else if (cast.ability === 'e') this.releaseHawkshot(u, cast.point);
@@ -1245,6 +1255,7 @@ export class World {
     this.creditHawkshotReveals(unseen);
     this.advanceGarenSpins();
     this.advanceProjectiles(unseen);
+    advanceAhriOrbs(this);
     this.advanceSingularities();
     advanceOracles(this);
     advanceOracleVisuals(this);
@@ -5270,6 +5281,7 @@ export class World {
           state.leonaR = null;
         }
         this.projectiles.length = 0;
+        this.ahriOrbs.length = 0;
         this.pendingAttackProjectiles.length = 0;
         // E owns gameplay state outside the projectile list. Cancel its flight
         // and armed zone at the same terminal boundary; a burst that already
@@ -5562,6 +5574,15 @@ export class World {
     return (['d', 'f'] as const).find((slot) => this.summonerSpell(slot, championId) === spell);
   }
   abilitySpec(ability: Ability, championId = this.player.id): typeof ABILITIES.d {
+    if (this.unit(championId)?.champion === 'ahri' && ability === 'q')
+      return {
+        name: AHRI_Q.name,
+        description: AHRI_Q.description,
+        icon: AHRI_Q.icon,
+        cost: AHRI_Q.manaByRank[0],
+        cooldown: AHRI_Q.cooldownSecondsByRank[0],
+        range: AHRI_Q.displayRangeByRank[0],
+      };
     const spell = this.summonerSpell(ability, championId);
     const companion = ownedCompanion(this, championId),
       stage = companion ? companionStage(companion.fed) : 0;
@@ -5597,7 +5618,8 @@ export class World {
     if (this.winner) return 'The match has ended';
     const state = this.championState(championId);
     if (!state) return 'Unknown champion';
-    if (this.unit(championId)?.champion === 'ahri') return 'Ahri spells are still in development';
+    if (this.unit(championId)?.champion === 'ahri' && ability !== 'q')
+      return 'Ahri spells are still in development';
     const rank = state.spellRanks[ability];
     if (rank >= (ability === 'r' ? 3 : 5)) return 'This spell is already at maximum rank';
     if (state.skillPoints < 1) return 'No skill points available';
@@ -5653,7 +5675,11 @@ export class World {
         cooldownSeconds: this.abilitySpec(ability, championId).cooldown,
       };
     const rank = this.abilityRank(ability, championId);
-    if (this.unit(championId)?.champion === 'ahri') return { mana: 0, cooldownSeconds: 0 };
+    if (this.unit(championId)?.champion === 'ahri')
+      return {
+        mana: ability === 'q' && rank ? AHRI_Q.manaByRank[rank - 1] : 0,
+        cooldownSeconds: ability === 'q' && rank ? AHRI_Q.cooldownSecondsByRank[rank - 1] : 0,
+      };
     if (this.unit(championId)?.champion === 'leona')
       return rank ? leonaSpellResources(ability, rank) : { mana: 0, cooldownSeconds: 0 };
     if (this.unit(championId)?.champion === 'garen')
@@ -5695,7 +5721,7 @@ export class World {
     const state = this.championState(u.id);
     if (!state || u.kind !== 'champion') return;
     if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
-    if (u.champion === 'ahri' && ['q', 'w', 'e', 'r'].includes(ability)) return;
+    if (u.champion === 'ahri' && ['w', 'e', 'r'].includes(ability)) return;
     const summoner = this.summonerSpell(ability, u.id);
     if (summoner === 'smite') {
       const target = targetId === undefined ? undefined : this.unit(targetId);
@@ -5789,6 +5815,32 @@ export class World {
     }
     if (u.champion === 'ashe' && ability === 'q' && state.qStacks < 4) {
       fail('Build 4 Focus with basic attacks');
+      return;
+    }
+    if (u.champion === 'ahri' && ability === 'q') {
+      const dir = direction(u, point);
+      if (!dir.x && !dir.y) return;
+      const rank = state.spellRanks.q,
+        power = this.abilityPower(u);
+      ahriOrbDamage(rank, power);
+      u.mana -= resources.mana;
+      state.cooldowns.q = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
+      state.recallEnd = null;
+      state.pendingCast = {
+        ability: 'q',
+        rank,
+        startTick: this.tick,
+        releaseTick: this.tick + Math.round(AHRI_Q.castSeconds * TICK_RATE),
+        point: { x: point.x, y: point.y },
+        damage: ahriOrbDamage(rank, power),
+      };
+      state.castAnimation = { ability: 'q', startTick: this.tick };
+      this.finishAttackPresentation(u, 'action');
+      u.releaseTick = null;
+      u.attackTarget = null;
+      u.attackCycle = null;
+      u.facing = Math.atan2(dir.x, dir.y);
+      this.emit('cast', u, { unit: u.id, champion: 'ahri', text: 'q', team: u.team });
       return;
     }
     if (u.champion === 'leona' && ability === 'r') {
@@ -6523,6 +6575,7 @@ export class World {
       luxImpactVisuals: this.luxImpactVisuals,
       luxIlluminationVisuals: this.luxIlluminationVisuals,
       sunlightVisuals: this.sunlightVisuals,
+      ahriOrbs: this.ahriOrbs,
       nextSunlightVisual: this.nextSunlightVisual,
       singularities: this.singularities,
       luxEAudio: this.luxEAudio,

@@ -57,11 +57,12 @@ test('Ahri owns her checked NPC stats and remains outside player selection and R
   expect(() => World.fromSnapshot(JSON.stringify(raw), w.battlefield)).toThrow();
 });
 
-test('all unfinished spells reject learning and commands without spending resources or borrowing Ashe state', () => {
+test('unfinished W/E/R reject learning and commands without spending resources or borrowing Ashe state', () => {
   const { w, ahri, state } = setup();
   w.gainExperience(1e6, ahri.id);
   const mana = ahri.mana;
-  for (const ability of ['q', 'w', 'e', 'r'] as const) {
+  expect(w.spellLearningError('q', ahri.id)).toBeNull();
+  for (const ability of ['w', 'e', 'r'] as const) {
     expect(w.learnSpell(ability, ahri.id)).toMatch(/development/);
     expect(w.abilityResources(ability, ahri.id)).toEqual({ mana: 0, cooldownSeconds: 0 });
     w.enqueue({ type: 'cast', unit: ahri.id, ability, point: { x: 600, y: 0 } });

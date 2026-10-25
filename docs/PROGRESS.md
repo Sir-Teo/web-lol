@@ -1,12 +1,12 @@
 # Development status
 
-Last updated: October 24, 2026 (America/New_York).
+Last updated: October 25, 2026 (America/New_York).
 
 **Goal remains active:** continuously develop the highest-quality, visually authentic League-like browser game, without an application backend, through small commits. The required final state is a verified production-level full match experience. This file describes progress toward that goal; it does not reduce its scope.
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 1,949 tests across 316 files, TypeScript and three Node QA checks. Twenty-three targeted Chrome scenarios pass the [development Leona player fixture](LEONA-PLAYER-FIXTURE.md), adjacent NPC decisions, Garen/Lux player controls, real wards, learning, practice resets and queued HUD casts. Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 2,090 tests across 333 files, TypeScript and three Node QA checks. Twenty-three targeted Chrome scenarios plus three application-reload cases pass for the [development Ahri Q controller](AHRI-Q.md), her NPC rig/basic attacks, Leona rig recovery, Garen/Lux controls, champion selection, animation and match files. Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
 
 The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). Current targeted evidence does not certify full-match completion or native visual parity.
 
@@ -7279,3 +7279,53 @@ package `4c7ea566d9e769fb65889c663014df74144378affc67b14bbf2aa935d962334b`:
 generated files, failed attempts and successful evidence. The ordinary roster,
 Ahri spell kit, native behavior/presentation, full performance and overall project
 acceptance remain open. Work continues; nothing pushed.
+
+## 2026-10-25 — Development Orb of Deception and two-leg continuation
+
+[Ahri Q](AHRI-Q.md) now has paid, manually learned development NPC casts, source
+spell metadata/icon and `spell1` body animation. The copied aim commits through
+a 15-tick windup. Independent analytic clamped-speed curves split the turn tick
+at the fixed 1000-unit endpoint; the return tracks the current caster, including
+Flash and the explicit local corpse-return policy. Each target has independent
+outward/return hit tracking. The root damage is captured at cast, applying magic
+outward and true damage on return through the shared damage pipeline. Multiple
+and return-only targets are supported; terrain, allied units, structures and
+wards follow the documented local collision policy. W/E/R and passive remain open.
+
+An independent audit reparses all 64 retained records and verifies Q's root/child
+flags, distinct ranges/widths and legacy contradictions. The client explicitly
+describes magic/true legs using the same root damage placeholder. This supports
+intent, not executable server callbacks. Width-as-radius, integration/catch,
+caster death/control priorities and the eight-second pursuit bound remain
+explicit local choices. The orb is a blue development marker; native particles,
+attachment, source audio and frame comparison remain unfinished.
+
+Schema 132 adds strict active orb state with source/team/rank, captured damage,
+origin/direction, previous/current position, clocks and separate per-leg contacts.
+Ownership, rank, lifetime, normalized direction, motion, exact outward path and
+unique eligible participants are checked. Terminal settlement clears flights.
+Player/Rift gating remains, and Ahri allocation stays manual while her bot policy
+is unfinished. No Ashe Focus, Frost or spell implementation is borrowed.
+
+Six motion tests and thirteen Q tests pass, including independent numerical
+integration, turn boundaries, all ranks, mitigation, collision exclusions,
+Flash/death, snapshots and forgery rejection. The first motion guard inspected
+an unrelated range array; it now checks four numeric movement fields. Two early
+fixtures omitted normal regeneration; corrected assertions account for mana
+exactly and use a non-regenerating death-persistence victim. Failures are retained.
+The final **2,090 tests in 333 files**, TypeScript and three Node QA checks pass.
+Normal and optimized source exporters/audits pass.
+
+One Chrome run passes **23/23** scenarios across Q, the NPC rig/basic attacks,
+Leona rig recovery, Garen/Lux controls, selection, animation and match files.
+Three additional Save → reload scenarios pass during Q windup, outward flight
+and return after caster death, preserving 300 future ticks each. Flight captures
+were visually reviewed. Production/nested hosting passes with 32 recordings and
+no Ahri model preload. Offline checks pass with 963 worker responses. Package
+`7c9c36e8ab068c4140918f1addb64b7ecb2f4f3152c751b898c88c23726a5980` has
+**1,062 files / 519,998,317 bytes**; ruleset
+`0fba88792336cee69705cbd320025192ea4427b6d33f1291cb05d8707c121720`.
+One Q icon/manifest entry is added; all 1,010 other prior public files remain
+byte-identical. The [ledger](reference/ahri/q-verification.json) retains complete
+sources, generated output and evidence. Full Ahri/roster/role, native, performance
+and overall acceptance remain open. Work continues; nothing pushed.

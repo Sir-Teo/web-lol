@@ -1074,6 +1074,28 @@ export class GameView {
       );
       model.rotation.y = flight.facing;
     }
+    for (const orb of world.ahriOrbs) {
+      active.add(orb.id);
+      let model = this.projectileModels.get(orb.id);
+      if (!model) {
+        model = new THREE.Group();
+        model.name = 'Ahri Q development orb';
+        model.add(
+          new THREE.Mesh(
+            new THREE.SphereGeometry(0.16, 12, 8),
+            new THREE.MeshBasicMaterial({ color: 0x8edaff })
+          )
+        );
+        this.scene.add(model);
+        this.projectileModels.set(orb.id, model);
+      }
+      const point = {
+        x: orb.previous.x + (orb.position.x - orb.previous.x) * alpha,
+        y: orb.previous.y + (orb.position.y - orb.previous.y) * alpha,
+      };
+      model.position.set(point.x * SCALE, this.ground(point) + 0.9, point.y * SCALE);
+      model.visible = orb.team === world.hero.team || world.pointVisible(point, world.hero.team);
+    }
     for (const [id, model] of this.projectileModels)
       if (!active.has(id)) {
         this.scene.remove(model);
