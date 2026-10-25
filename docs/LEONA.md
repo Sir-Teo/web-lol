@@ -27,6 +27,11 @@ The [fresh SCB cache-selection reading](LEONA-NATIVE-SCB-CACHE-SELECTION.md)
 also resolves the earlier resource-cache attempt for its stated fresh/default
 source state; reuse, intervening mutation and live dispatch remain open.
 
+The [development defensive Eclipse planner](LEONA-W-BOT-DEFENSE.md) now queues
+ordinary paid W casts against visible committed attacks, including during an
+accepted Zenith windup. Q/E/R tactics and complete support/player behavior remain
+open; this local policy is not recovered native AI.
+
 ## Retained source and reproducibility
 
 `reference/leona/character.bin` retains all 24,399 source bytes. The manifest,
@@ -501,5 +506,6 @@ full six-character match remain open.
 
 [Development bot setup](LEONA-BOT-SETUP.md) now gives AI-controlled Leona fixtures
 their own legal skill order and defensive component/upgrade route. It preserves
-the existing player/Rift gates and exact saved futures. Tactical spell decisions,
-engage/peel safety and full support-role match validation remain required.
+the existing player/Rift gates and exact saved futures. The local W defense now
+reacts to observed committed attacks; Q/E/R tactics, engage/peel safety and full
+support-role match validation remain required.

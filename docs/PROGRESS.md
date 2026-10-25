@@ -6416,3 +6416,38 @@ Tactical Q/W/E/R decisions, engage/peel safety and complete support-role match
 validation remain open, as do playable Leona and native/full-roster acceptance.
 No new normal-match cohort or performance result is claimed. Work continues;
 nothing is pushed.
+
+## Leona development bot protects with Eclipse — October 24, 2026
+
+AI-controlled practice Leona now queues the ordinary W command against observed
+committed champion/turret attacks within a local 45-tick horizon. Hidden intent
+and missiles, unavailable casts, proximity alone and active W do not trigger it.
+A visible missile remains observable after its source leaves sight. The check
+can run during an accepted E windup without replacing that captured animation.
+A shared Garen/Leona forecast regression also removes an incorrect second range
+check: the local scheduler can land a captured attack after target displacement.
+No combat scheduling or native range/cancellation claim is changed.
+
+Eleven new unit cases cover both teams, paid mitigation, exact saved futures,
+visibility/control/resource guards, E preservation and displaced Garen Q captures.
+The original two failing range regressions are retained as logs. The final
+standard check passes 1,903 units in 312 files, TypeScript and three Node QA tests.
+Nine Chrome cases pass the new defense plus bot setup, Garen protection and all
+six existing Eclipse surface checks. The final encounter queues zero defenses
+for hidden intent and one for the visible attack; 30 active surface models
+contribute 38,632 isolated pixels, with identical saved futures and no GL errors.
+The earlier single-case screenshot was inspected (38,285 pixels in that run);
+these are local sampled model observations, not native/all-family acceptance.
+
+Production passes 32 nested-path recordings with no development hook or
+unrequested Leona preload. All 966 public files stay byte-identical. Offline pack
+81b2a1a69f51cb8eb69e6edaf26f0589524c83b2a8a700e2520efe5e9b7baacf contains
+1,012 files / 513,310,008 bytes and passes integrity, repair, offline save boot
+and atomic-version controls with 963 worker responses and zero production errors.
+Schema126 uses ruleset2e3fa5b7448b670769c35a31c97071db899644f67e678246829503e5d0175fb6.
+See [defense scope](LEONA-W-BOT-DEFENSE.md) and
+[ledger](reference/leona/w-bot-defense-verification.json).
+
+Q/E/R tactics, proactive engage/peel, player/support and native/full-roster
+acceptance remain open. No new normal-match cohort or performance claim follows.
+The active goal continues; nothing is pushed.

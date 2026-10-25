@@ -1138,6 +1138,7 @@ export class World {
       if (thinkNow) {
         this.planDefensiveHeal(u);
         this.planGarenW(u);
+        this.planLeonaW(u);
         u.nextThink = this.tick + 18;
       }
       const state = this.championState(u.id);
@@ -1612,6 +1613,24 @@ export class World {
     // Leave a small margin inside the shield window for next-tick command dispatch.
     // Forecast only observable, committed attacks against a stationary target.
     const horizon = Math.floor(GAREN_W.upfrontSeconds * TICK_RATE) - 3;
+    if (this.observedAttackWithin(u, horizon))
+      this.enqueue({ type: 'cast', unit: u.id, ability: 'w', point: { x: u.x, y: u.y } });
+  }
+  private planLeonaW(u: Unit): void {
+    if (u.champion !== 'leona' || u.stunUntil > this.tick || u.silenceUntil > this.tick) return;
+    const state = this.championState(u.id)!;
+    if (
+      !state.spellRanks.w ||
+      state.leonaW ||
+      this.abilityCooldownTicks('w', u.id) > 0 ||
+      u.mana < this.abilityResources('w', u.id).mana
+    )
+      return;
+    if (this.observedAttackWithin(u, LEONA_BOT_POLICY.defenseHorizonTicks))
+      this.enqueue({ type: 'cast', unit: u.id, ability: 'w', point: { x: u.x, y: u.y } });
+  }
+  /** Stationary-target forecast of visible, committed champion/turret attacks. */
+  private observedAttackWithin(u: Unit, horizon: number): boolean {
     const incoming = this.projectiles.some((p) => {
       if (
         p.type !== 'attack' ||
@@ -1630,17 +1649,18 @@ export class World {
     const windingUp = this.units.some((source) => {
       if (
         source.team === u.team ||
-        !this.alive(source) ||
         (source.kind !== 'champion' && source.kind !== 'turret') ||
+        !this.visible(source, u.team) ||
+        !this.alive(source) ||
         source.attackTarget !== u.id ||
-        source.releaseTick === null ||
-        !this.visible(source, u.team)
+        source.releaseTick === null
       )
         return false;
       const daybreak = source.champion === 'leona' && this.committedLeonaQ(source);
       if (source.stunUntil > this.tick && source.attackCycle?.garenQRank === undefined && !daybreak)
         return false;
-      if (!daybreak && distance(source, u) > source.range + u.radius) return false;
+      // Reach was checked when the windup committed. A later displacement does
+      // not cancel that attack, so nominal range cannot discard its forecast.
       const flight =
         source.missileSpeed > 0
           ? Math.ceil(Math.max(0, distance(source, u) - u.radius - 8) / (source.missileSpeed * DT))
@@ -1648,8 +1668,7 @@ export class World {
       const ticks = source.releaseTick - this.tick + flight;
       return ticks > 1 && ticks <= horizon;
     });
-    if (incoming || windingUp)
-      this.enqueue({ type: 'cast', unit: u.id, ability: 'w', point: { x: u.x, y: u.y } });
+    return incoming || windingUp;
   }
   private estimatedAttackDelay(u: Unit, target: Unit): number {
     // Stationary-target estimate shared by farming and incoming-missile decisions.

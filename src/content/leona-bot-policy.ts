@@ -4,4 +4,5 @@ export const LEONA_BOT_POLICY = {
   priority: ['r', 'w', 'e', 'q'],
   purchases: ['ruby', 'boots', 'cloth', 'mantle'],
   upgrades: { ruby: 'belt', cloth: 'vest', mantle: 'cloak' },
+  defenseHorizonTicks: 45,
 } as const;
