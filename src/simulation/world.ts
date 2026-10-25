@@ -1,3 +1,9 @@
+import {
+  beginMasterYiAttack,
+  contactMasterYiAttack,
+  cancelMasterYiAttack,
+  masterYiAttackExpiry,
+} from './masteryi-aa-presentation';
 import { captureLeonaDeath, advanceLeonaDeaths } from './leona-death-visuals';
 import { AHRI_Q } from '../content/ahri-q';
 import { ahriOrbDamage, beginAhriOrb, advanceAhriOrbs, type AhriOrb } from './ahri-orbs';
@@ -1105,6 +1111,10 @@ export class World {
         finishDaybreakVisual(state, this.tick, 'expired');
         state.leonaQ = null;
       }
+      if (state.masterYiAAAudio.length)
+        state.masterYiAAAudio = state.masterYiAAAudio.filter(
+          (r) => this.tick < masterYiAttackExpiry(r)
+        );
       if (state.garenAAVisuals.length)
         state.garenAAVisuals = state.garenAAVisuals.filter((r) => this.tick < garenAttackExpiry(r));
       for (const r of state.garenQVisuals)
@@ -3371,6 +3381,7 @@ export class World {
   ) {
     const state = this.championState(u.id);
     if (state) cancelGarenAttack(state, u, this.tick, reason);
+    if (state) cancelMasterYiAttack(state, u, this.tick);
     if (state) finishLeonaAttack(state, u, this.tick, reason);
     const attack = this.garenQAttack(u);
     if (attack && attack.stopTick === null) {
@@ -3416,7 +3427,12 @@ export class World {
                     }
                   : u.champion === 'leona'
                     ? { champion: 'leona' as const, leonaAAStartTick: u.attackCycle!.startTick }
-                    : {}),
+                    : u.champion === 'masteryi'
+                      ? {
+                          champion: 'masteryi' as const,
+                          masterYiAAStartTick: u.attackCycle!.startTick,
+                        }
+                      : {}),
           });
           if (
             u.champion === 'ashe' &&
@@ -3459,6 +3475,8 @@ export class World {
               state.garenQ.consumed = true;
               expireGarenQ(state, this.tick);
             }
+            if (u.champion === 'masteryi' && state)
+              contactMasterYiAttack(state, u, target, this.tick, this);
             if (u.champion === 'garen' && qRank === undefined && state)
               contactGarenAttack(state, u, target, this.tick, this);
             if (u.champion === 'leona' && daybreakRank === undefined && state)
@@ -3646,6 +3664,8 @@ export class World {
             captureDaybreakAttack(state!, leonaQ.startTick, this.tick);
           }
           if (u.champion === 'leona' && !leonaQ && state) beginLeonaAttack(this, u, state, target);
+          if (u.champion === 'masteryi' && state)
+            beginMasterYiAttack(state, u, target, this.tick, this);
           if (u.champion === 'garen' && garenQRank === undefined && state)
             beginGarenAttack(state, u, target, this.tick, this);
           const history = state?.garenQVisuals.at(-1);
@@ -5663,6 +5683,7 @@ export class World {
           this.finishGarenW(state, 'match-end');
           stopPerseveranceVisual(state, this.unit(state.id)!, this.tick);
           cancelGarenAttack(state, this.unit(state.id)!, this.tick, 'match-end');
+          cancelMasterYiAttack(state, this.unit(state.id)!, this.tick);
           finishLeonaAttack(state, this.unit(state.id)!, this.tick, 'match-end');
           finishDaybreakVisual(state, this.tick, 'match-end');
           finishGarenQPresentation(state, this.tick, 'match-end');

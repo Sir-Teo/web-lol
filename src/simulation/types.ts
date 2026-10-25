@@ -430,6 +430,7 @@ export interface SimEvent extends Vec2 {
   /** Captured Q swing identity for source/fallback coordination at release. */
   garenQStartTick?: number;
   garenAAStartTick?: number;
+  masterYiAAStartTick?: number;
   leonaQStartTick?: number;
   leonaQAttackStartTick?: number;
   leonaAAStartTick?: number;
@@ -517,6 +518,8 @@ export interface ChampionState {
   meditate: import('./masteryi-meditate').MeditateState | null;
   highlander: import('./masteryi-highlander').HighlanderState | null;
   alphaStrike: import('./masteryi-alpha-strike').AlphaStrikeState | null;
+  /** Finite primary attack cues; no invented Double Strike composite binding. */
+  masterYiAAAudio: import('./masteryi-aa-presentation').MasterYiAttackAudio[];
   /** Accepted ordinary swings and separately confirmed contacts. Cast one-shots
    * survive cancellation; hits exist only for accepted melee contacts. */
   garenAAVisuals: {

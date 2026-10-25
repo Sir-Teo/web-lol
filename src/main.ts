@@ -298,7 +298,10 @@ async function boot(): Promise<void> {
       : []),
     loadOwnedCompanions(world.companions.map((p) => p.kind)),
     loadInterfaceFonts(),
-    audio.load(world.units.some((u) => u.champion === 'garen')),
+    audio.load(
+      world.units.some((u) => u.champion === 'garen'),
+      world.units.some((u) => u.champion === 'masteryi')
+    ),
     loadReferenceModels(
       monsterSpecies,
       world.units.some((u) => u.champion === 'leona'),

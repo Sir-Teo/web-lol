@@ -1,3 +1,4 @@
+import { validateMasterYiAttacks } from './masteryi-aa-presentation';
 import { validateLeonaDeaths } from './leona-death-visuals';
 import { validateDoubleStrikes } from './masteryi-double-strike';
 import { validateWujuStyles } from './masteryi-wuju-style';
@@ -142,7 +143,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 145;
+export const SNAPSHOT_VERSION = 146;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -861,6 +862,36 @@ const player: z.ZodType<PlayerState> = z
         })
       )
       .max(1000),
+    masterYiAAAudio: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          releaseTick: tick,
+          endTick: tick,
+          kind: z.enum(['attack1', 'crit']),
+          targetId: id,
+          targetTeam: z.enum(['blue', 'red', 'neutral']),
+          targetRig: attackRig.nullable(),
+          origin: point,
+          castAudience: z
+            .array(z.enum(['blue', 'red']))
+            .max(2)
+            .refine((a) => new Set(a).size === a.length),
+          cancelTick: tick.nullable(),
+          impact: z
+            .strictObject({
+              tick,
+              point,
+              material: z.enum(['Flesh', 'Metal', 'Stone', 'Wood']),
+              audience: z
+                .array(z.enum(['blue', 'red']))
+                .max(2)
+                .refine((a) => new Set(a).size === a.length),
+            })
+            .nullable(),
+        })
+      )
+      .max(1000),
     garenAAVisuals: z
       .array(
         z.strictObject({
@@ -870,7 +901,7 @@ const player: z.ZodType<PlayerState> = z
           kind: z.enum(['attack1', 'attack2', 'crit']),
           targetId: id,
           targetTeam: z.enum(['blue', 'red', 'neutral']),
-          targetRig: z.enum(Object.keys(armorMaterials) as [string, ...string[]]).nullable(),
+          targetRig: attackRig.nullable(),
           origin: point,
           castAudience: z
             .array(z.enum(['blue', 'red']))
@@ -4159,6 +4190,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       throw new Error('Saved match contains invalid Perseverance timing.');
     validatePerseveranceVisual(owner, champion, state.tick, state.winner);
     validateGarenAttacks(owner, champion, state);
+    validateMasterYiAttacks(owner, champion, state);
     const qCycle = champion.attackCycle;
     if (
       qCycle?.garenQReleaseTick !== undefined &&

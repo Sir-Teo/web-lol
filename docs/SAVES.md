@@ -1,6 +1,15 @@
 # Local match checkpoints
 
-Current schema **145** adds separate incoming Alpha Strike mark-assist histories.
+Current schema **146** adds finite Master Yi primary-attack audio histories:
+accepted windup/contact clocks, normal/critical kind, target identity/material,
+creation/contact audiences and cancellation. Decoding requires matching active
+combat cycles and rejects foreign, expired, future or forged records. These
+histories use no gameplay IDs or RNG. Earlier schemas/fingerprints remain
+incompatible. See [attack audio](MASTER-YI-AA-AUDIO.md).
+Garen attack histories also accept the known Leona/Ahri/Yi target rigs; the shared
+material lookup retains their frozen base-skin values, including Leona Metal.
+
+Schema **145** adds separate incoming Alpha Strike mark-assist histories.
 Champion targets retain source IDs and mark ticks without granting damage or
 execution credit. Decoding checks ownership, learned Q, opposing teams, unique
 sources and historical tick/death bounds. Respawn clears the history. Earlier

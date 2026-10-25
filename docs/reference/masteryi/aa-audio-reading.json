@@ -1,0 +1,69 @@
+{
+  "sourceGraphSha256": "b7879c088d3544626d70c9ecaf4abfd0aebae007db5a6ee841c0caed7a2b33e3",
+  "decodedRecordSha256": "28ac362788bb76709a226e76d282eb25a1805a474b9bc7348cedd59bbee33a32",
+  "bindings": [
+    {
+      "kind": "attack1",
+      "phase": "cast",
+      "spell": "MasterYiBasicAttack",
+      "slot": "12",
+      "rawSuffix": "Play_sfx_MasterYi_MasterYiBasicAttack_OnCast\n",
+      "eventName": "Play_sfx_MasterYi_MasterYiBasicAttack_OnCast",
+      "resolution": "declared"
+    },
+    {
+      "kind": "attack1",
+      "phase": "hit",
+      "spell": "MasterYiBasicAttack",
+      "slot": "13",
+      "rawSuffix": "Play_sfx_MasterYi_MasterYiBasicAttack_OnHit\n",
+      "eventName": "Play_sfx_MasterYi_MasterYiBasicAttack_OnHit",
+      "resolution": "declared"
+    },
+    {
+      "kind": "crit",
+      "phase": "cast",
+      "spell": "MasterYiCritAttack",
+      "slot": "12",
+      "rawSuffix": "Play_sfx_MasterYi_MasterYiCritAttack_OnCast\n",
+      "eventName": "Play_sfx_MasterYi_MasterYiCritAttack_OnCast",
+      "resolution": "declared"
+    },
+    {
+      "kind": "crit",
+      "phase": "hit",
+      "spell": "MasterYiCritAttack",
+      "slot": "13",
+      "rawSuffix": "sfx_MasterYi_MasterYiCritAttack_OnHit\n",
+      "eventName": "Play_sfx_MasterYi_MasterYiCritAttack_OnHit",
+      "resolution": "local-Play-prefix"
+    }
+  ],
+  "selectedProfiles": 10,
+  "media": 24,
+  "wavBytes": 2242600,
+  "tails": {
+    "cast": 88,
+    "hit": 51
+  },
+  "sourcePitchRanges": {
+    "attack1": [
+      -100,
+      100
+    ],
+    "crit": [
+      -200,
+      200
+    ]
+  },
+  "sourceActionDelaysSeconds": {
+    "attack1-cast": 0.05,
+    "crit-cast": 0.2,
+    "hit": 0
+  },
+  "limits": [
+    "Ordinary Attack1/current critical body policy only. Attack2 and Double Strike composite dispatch remain separate.",
+    "The raw critical hit suffix omits Play_; prefix resolution is explicitly local, not a repaired source field.",
+    "Indexed pitch/variant choices and unresolved global bus mix are not native RNG/mix calibration."
+  ]
+}

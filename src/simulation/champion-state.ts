@@ -40,6 +40,7 @@ export function createChampionState(id: number, unlocked = true, tick = 0): Cham
     highlander: null,
     alphaStrike: null,
     garenAAVisuals: [],
+    masterYiAAAudio: [],
     leonaAAVisuals: [],
     leonaDeathVisuals: [],
     garenPassiveReadyTick: 0,

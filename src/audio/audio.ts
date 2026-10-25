@@ -1,3 +1,4 @@
+import { LazyMasterYiAttackAudio } from './masteryi-aa-lazy';
 import { LazyGarenBasicAttackAudio } from './garen-aa-lazy';
 import { LazyGarenPerseveranceAudio } from './garen-p-lazy';
 import { LuxSingularityAudio } from './lux-e';
@@ -41,6 +42,7 @@ export class GameAudio {
   private luxETerminal = false;
   bindingFlight = new LuxBindingFlightAudio();
   garenAA = new LazyGarenBasicAttackAudio();
+  masterYiAA = new LazyMasterYiAttackAudio();
   garenP = new LazyGarenPerseveranceAudio();
   private garenPTerminalWorld?: World;
   private garenPTerminalStart = 0;
@@ -101,7 +103,7 @@ export class GameAudio {
     this.audible = value;
     if (!value) this.stopVoices();
   }
-  async load(garenPresent = false): Promise<void> {
+  async load(garenPresent = false, masterYiPresent = false): Promise<void> {
     await Promise.all([
       this.loadCast(),
       this.loadArrival(),
@@ -111,6 +113,7 @@ export class GameAudio {
       this.loadBindingCast(),
       this.bindingFlight.load(),
       this.luxE.load(),
+      ...(masterYiPresent ? [this.masterYiAA.load()] : []),
       ...(garenPresent
         ? [
             this.garenAA.load(),
@@ -306,6 +309,7 @@ export class GameAudio {
     this.bindingFlight.stop();
     this.luxE.stop();
     this.garenAA.stop();
+    this.masterYiAA.stop();
     this.garenP.stop();
     this.garenE.stop();
     this.garenR.stop();
@@ -675,6 +679,27 @@ export class GameAudio {
       }
       recoveryTick += Math.max(0, this.context.currentTime - this.garenPTerminalStart) * 60;
     }
+    const yiUnits = world.units.filter((u) => u.champion === 'masteryi');
+    if (yiUnits.length && this.masterYiAA.status === 'idle') void this.masterYiAA.load();
+    const yiAttacks = yiUnits.flatMap((u) =>
+      world.championState(u.id)!.masterYiAAAudio.map((r) => ({
+        ...r,
+        id: u.id,
+        x: u.x,
+        y: u.y,
+        castVisible:
+          r.castAudience.includes(world.hero.team) &&
+          (u.team === world.hero.team || world.visible(u, world.hero.team)),
+        hitVisible: r.impact?.audience.includes(world.hero.team) ?? false,
+      }))
+    );
+    this.masterYiAA.update(
+      this.context,
+      this.enabled && !this.paused,
+      yiAttacks,
+      recoveryTick,
+      listener
+    );
     if (garens.length && this.garenAA.status === 'idle') void this.garenAA.load();
     const attacks = garens.flatMap((u) =>
       world.championState(u.id)!.garenAAVisuals.map((r) => ({
@@ -807,6 +832,11 @@ export class GameAudio {
           } else if (event.leonaAAStartTick !== undefined && event.unit !== undefined) {
             if (this.leonaAA.status !== 'ready') {
               this.leonaAA.suppressSwing(event.unit, event.leonaAAStartTick);
+              this.tone(650, 260, 0.065, 0.012, 'triangle');
+            }
+          } else if (event.masterYiAAStartTick !== undefined && event.unit !== undefined) {
+            if (this.masterYiAA.status !== 'ready') {
+              this.masterYiAA.suppressSwing(event.unit, event.masterYiAAStartTick);
               this.tone(650, 260, 0.065, 0.012, 'triangle');
             }
           } else if (event.garenAAStartTick !== undefined && event.unit !== undefined) {

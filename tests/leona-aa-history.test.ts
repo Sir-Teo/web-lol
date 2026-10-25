@@ -149,19 +149,24 @@ test.each(['death', 'match-end'] as const)(
   }
 );
 
-test.each(['Flesh', 'Stone', 'Metal', 'Wood'] as const)(
-  'contact retains %s material and exact target poses',
-  (material) => {
+test.each([
+  ['Flesh', 'ahri'],
+  ['Metal', 'leona'],
+  ['Stone', null],
+  ['Metal', null],
+  ['Wood', null],
+] as const)(
+  'contact retains %s material and exact target poses against %s',
+  (material, champion) => {
     const f = fixture();
     f.w.units = f.w.units.filter((u) => u.id !== f.target.id);
-    const actual =
-      material === 'Flesh'
-        ? f.w.spawn('champion', 'red', { x: 150, y: 0 }, 'leona')
-        : material === 'Stone'
-          ? f.w.spawn('turret', 'red', { x: 150, y: 0 })
-          : material === 'Metal'
-            ? f.w.spawn('siege', 'red', { x: 150, y: 0 })
-            : f.w.spawnMonster({ x: 150, y: 0 }, null, 'red');
+    const actual = champion
+      ? f.w.spawn('champion', 'red', { x: 150, y: 0 }, champion)
+      : material === 'Stone'
+        ? f.w.spawn('turret', 'red', { x: 150, y: 0 })
+        : material === 'Metal'
+          ? f.w.spawn('siege', 'red', { x: 150, y: 0 })
+          : f.w.spawnMonster({ x: 150, y: 0 }, null, 'red');
     actual.ai = false;
     actual.hp = actual.maxHp = 100000;
     f.w.setOrder(f.u, { type: 'attack', target: actual.id });
