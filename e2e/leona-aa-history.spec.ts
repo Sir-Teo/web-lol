@@ -63,7 +63,7 @@ for (const mode of ['ordinary', 'critical', 'eclipse', 'canceled'] as const) {
         gl: g.view.renderer.getContext().getError(),
       };
     }, mode);
-    expect(prepared.version).toBe(129);
+    expect(prepared.version).toBe(130);
     expect(prepared.gl).toBe(0);
     expect(prepared.record.targetRig).toBe('red-siege');
     if (mode === 'canceled') {

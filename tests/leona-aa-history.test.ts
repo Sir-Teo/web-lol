@@ -283,3 +283,79 @@ test('generated pose bounds cover source cast delays and the slowest authored hi
   expect(LEONA_AA_CAST_TICKS).toBe(Math.max(...casts));
   expect(LEONA_AA_HIT_TICKS).toBe(Math.max(...hits));
 });
+
+for (const targetFirst of [false, true])
+  test(`a moving target ${targetFirst ? 'before' : 'after'} its attacker preserves contact birth and end-of-tick poses`, () => {
+    const f = fixture();
+    f.w.battlefield.reachable = (p) => ({ x: p.x, y: p.y });
+    f.w.battlefield.findPath = (_a, b) => [{ x: b.x, y: b.y }];
+    f.w.units = f.w.units.filter((u) => u.id !== f.target.id);
+    const moving = f.w.spawn('melee', 'red', { x: 100, y: 0 });
+    moving.ai = false;
+    f.u.speed = 0;
+    f.w.setOrder(moving, { type: 'move', point: { x: -500, y: 0 } });
+    if (targetFirst) f.w.units = [f.w.hero, moving, f.u];
+    f.w.setOrder(f.u, { type: 'attack', target: moving.id });
+    f.w.step();
+    f.w.step(f.u.releaseTick! - f.w.tick);
+    const hit = f.s.leonaAAVisuals[0].impact!;
+    expect(hit).not.toBeNull();
+    expect(hit.contactFrame).toMatchObject({
+      tick: hit.tick,
+      ...hit.point,
+      audience: hit.audience,
+    });
+    expect(hit.contactFrame).not.toBe(hit.frames[0]);
+    if (!targetFirst) expect(hit.point).not.toEqual({ x: hit.frames[0].x, y: hit.frames[0].y });
+    const saved = f.w.snapshot();
+    for (const offset of [-2, 1]) {
+      const forged = JSON.parse(saved);
+      const contact = forged.otherChampions.find((o: any) => o.id === f.u.id).leonaAAVisuals[0]
+        .impact.contactFrame;
+      contact.animationTimeline.tick = hit.tick + offset;
+      expect(() => World.fromSnapshot(JSON.stringify(forged), f.w.battlefield)).toThrow();
+    }
+    const copy = World.fromSnapshot(saved, f.w.battlefield);
+    expect(copy.snapshot()).toBe(saved);
+    f.w.step(80);
+    copy.step(80);
+    expect(copy.snapshot()).toBe(f.w.snapshot());
+  });
+
+test('strict ordinary contact birth rejects missing, displaced, future and audience contradictions', () => {
+  const f = fixture();
+  f.attack();
+  f.w.step(f.u.releaseTick! - f.w.tick);
+  const forge = (mutate: (hit: any) => void) => {
+    const raw = JSON.parse(f.w.snapshot());
+    const hit = raw.otherChampions.find((o: any) => o.id === f.u.id).leonaAAVisuals[0].impact;
+    mutate(hit);
+    expect(() => World.fromSnapshot(JSON.stringify(raw), f.w.battlefield)).toThrow();
+  };
+  forge((hit) => delete hit.contactFrame);
+  forge((hit) => hit.contactFrame.tick++);
+  forge((hit) => hit.contactFrame.x++);
+  forge((hit) => hit.point.y++);
+  forge((hit) => (hit.contactFrame.audience = ['red']));
+  // The fixture dummy has no mobile clock; a fabricated timeline is rejected.
+  forge(
+    (hit) =>
+      (hit.contactFrame.animationTimeline = {
+        tick: hit.tick + 1,
+        primary: {
+          clip: 'run',
+          kind: 'run',
+          loop: true,
+          time: 0,
+          unclampedTime: 0,
+          rate: 1,
+          cut: false,
+          settled: true,
+        },
+        transition: null,
+      })
+  );
+  const old = JSON.parse(f.w.snapshot());
+  old.version = 129;
+  expect(() => World.fromSnapshot(JSON.stringify(old), f.w.battlefield)).toThrow();
+});

@@ -2610,6 +2610,72 @@ export class World {
         )
       : undefined;
   }
+  /** Ordinary support attacks need an observable contact window too; the E/R
+   * follow-up checks alone do not protect a melee pursuit of mobile opponents. */
+  private leonaSupportAttackReady(u: Unit, target: Unit): boolean {
+    if (
+      u.champion !== 'leona' ||
+      this.championState(u.id)?.role !== 'support' ||
+      target.kind !== 'champion'
+    )
+      return true;
+    if (!this.visible(target, u.team)) return false;
+    const d = distance(u, target),
+      reach = this.attackRange(u) + target.radius;
+    if (d <= reach) return true;
+    const away = direction(target, u);
+    if (
+      !this.battlefield.lineWalkable(
+        u,
+        { x: target.x + away.x * reach, y: target.y + away.y * reach },
+        u.radius,
+        u.team === 'neutral' ? undefined : u.team
+      )
+    )
+      return false;
+    const speed = this.movementSpeed(u);
+    if (speed <= 0 || u.rootUntil > this.tick || u.stunUntil > this.tick) return false;
+    const approach = Math.ceil((d - reach) / (speed * DT));
+    if (
+      Math.max(target.rootUntil, target.stunUntil) >=
+      this.tick + 1 + approach + this.estimatedAttackDelay(u, target)
+    )
+      return true;
+    if (approach > LEONA_BOT_POLICY.supportApproachTicks) return false;
+    return this.units.some(
+      (ally) =>
+        ally.id !== u.id &&
+        ally.kind === 'champion' &&
+        ally.team === u.team &&
+        this.alive(ally) &&
+        this.visible(ally, u.team) &&
+        ally.stunUntil <= this.tick &&
+        !ally.aiRetreating &&
+        distance(ally, target) <= this.attackRange(ally) + target.radius &&
+        ((ally.order.type === 'attack' && ally.order.target === target.id) ||
+          (ally.releaseTick !== null && ally.attackTarget === target.id))
+    );
+  }
+  private stageLeonaSupport(u: Unit, carry: Unit | undefined): boolean {
+    if (u.champion !== 'leona' || this.championState(u.id)?.role !== 'support' || !carry)
+      return false;
+    if (u.team === 'neutral') return false;
+    const behind = direction(carry, this.battlefield.spawns[u.team]);
+    const point = this.battlefield.reachable(
+      {
+        x: carry.x + behind.x * LEONA_BOT_POLICY.supportStagingDistance,
+        y: carry.y + behind.y * LEONA_BOT_POLICY.supportStagingDistance,
+      },
+      u.radius,
+      u.team
+    );
+    if (this.threateningTower(u, point, true)) return false;
+    if (distance(u, point) <= 100) {
+      if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
+    } else if (u.order.type !== 'move' || distance(u.order.point, point) > 100)
+      this.setOrder(u, { type: 'move', point });
+    return true;
+  }
   private planRoleWard(u: Unit): boolean {
     if (u.kind !== 'champion') return false;
     const s = this.championState(u.id)!;
@@ -2759,6 +2825,7 @@ export class World {
       ) &&
       !(leaveFarm && isLaneMinionKind(target.kind)) &&
       this.safeAttackPosition(u, target) &&
+      this.leonaSupportAttackReady(u, target) &&
       !this.incomingAttacksClaimMinion(u, target);
     const jungle = goal ? null : this.junglePlan(u);
     const plannedTarget = goal && goal.kind !== 'defend' ? this.unit(goal.targetId) : undefined;
@@ -2773,7 +2840,8 @@ export class World {
           this.alive(plannedTarget) &&
           this.vulnerable(plannedTarget)
         : this.validTarget(u, plannedTarget)) &&
-      this.safeAttackPosition(u, plannedTarget)
+      this.safeAttackPosition(u, plannedTarget) &&
+      this.leonaSupportAttackReady(u, plannedTarget)
         ? plannedTarget
         : undefined;
     const jungleTarget = jungle?.type === 'attack' ? this.unit(jungle.target) : undefined;
@@ -2910,6 +2978,7 @@ export class World {
     } else if (this.nearest(u, 1150, state.role === 'jungle')) {
       // Visible opponents remain, but none offers a safe attack position.
       // Hold rather than resuming the lane route into their tower protection.
+      if (this.stageLeonaSupport(u, carry)) return;
       if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
     } else if (goal) {
       // Retain the captured team point; hidden targets never supply a new position.

@@ -97,7 +97,7 @@ test('Chrome seeks every Zenith family and restores exact source trail geometry 
       enabled: ZENITH_PROFILES.length,
     };
   });
-  expect(result.schema).toBe(129);
+  expect(result.schema).toBe(130);
   expect(result.enabled).toBe(20);
   expect(result.seen).toEqual(Array.from({ length: 20 }, (_, i) => i));
   expect(result.unchanged).toBe(true);

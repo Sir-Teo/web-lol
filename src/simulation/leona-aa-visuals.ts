@@ -32,6 +32,7 @@ export interface LeonaAttackVisual {
   impact: {
     tick: number;
     point: { x: number; y: number };
+    contactFrame: LuxImpactFrame & { audience: Team[] };
     material: AttackSoundMaterial;
     audience: Team[];
     facing: number;
@@ -95,16 +96,20 @@ export function contactLeonaAttack(world: World, u: Unit, state: ChampionState, 
     throw Error('Leona contact lacks its committed ordinary attack history.');
   r.targetRig = attackSoundRig(target);
   const seen = audience(world, target);
+  // The target can still move later in this tick. Keep the accepted contact
+  // independently of the end-of-tick samples used for following placement.
+  const contactFrame = { ...capturePoseFrame(target, world.tick), audience: [...seen] };
   r.impact = {
     tick: world.tick,
     point: { x: target.x, y: target.y },
+    contactFrame,
     material: attackSoundMaterial(target),
     audience: seen,
     facing: u.facing,
     radius: target.radius,
     targetTransform: target.structureTransform ? [...target.structureTransform] : null,
     detachedTick: null,
-    frames: [{ ...capturePoseFrame(target, world.tick), audience: [...seen] }],
+    frames: [structuredClone(contactFrame)],
   };
 }
 export function advanceLeonaAttacks(world: World) {
@@ -233,8 +238,13 @@ export function validateLeonaAttacks(
             (target.radius !== hit.radius ||
               JSON.stringify(target.structureTransform ?? null) !==
                 JSON.stringify(hit.targetTransform))) ||
-          hit.frames[0].x !== hit.point.x ||
-          hit.frames[0].y !== hit.point.y ||
+          hit.contactFrame.tick !== hit.tick ||
+          hit.contactFrame.x !== hit.point.x ||
+          hit.contactFrame.y !== hit.point.y ||
+          JSON.stringify(hit.contactFrame.audience) !== JSON.stringify(hit.audience) ||
+          !validPoseFrame(hit.contactFrame, r.targetRig, false) ||
+          (hit.contactFrame.animationTimeline !== null &&
+            hit.contactFrame.animationTimeline.tick < hit.tick - 1) ||
           (hit.detachedTick !== null &&
             (hit.detachedTick < hit.tick ||
               hit.detachedTick > world.tick ||

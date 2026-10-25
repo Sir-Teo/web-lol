@@ -137,7 +137,7 @@ for (const phase of [60, 151])
     expect(prepared.deathLog).toBe(phase < 150);
     expect(prepared.sameSave && prepared.sameRng && prepared.sameId).toBe(true);
     expect(prepared.synth).toBe(0);
-    expect(JSON.parse(prepared.snapshot).version).toBe(129);
+    expect(JSON.parse(prepared.snapshot).version).toBe(130);
     if (!(await page.getByRole('button', { name: 'Save match', exact: true }).isVisible()))
       await page.keyboard.press('Escape');
     await page.getByRole('button', { name: 'Save match', exact: true }).click();

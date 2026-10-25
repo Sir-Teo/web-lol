@@ -7107,3 +7107,55 @@ shipped files are hash-checked against the accepted Rift trial. The
 corpora and observer evidence. Native comparison, three R families, complete
 roster, support policy, hundred-seed and performance gates remain open. Work
 continues under the active goal; nothing pushed.
+
+## 2026-10-25 — Bounded support pursuit and moving-contact saves
+
+Leona support's ordinary champion attacks now require current melee reach, a
+visible hold long enough for contact, or a short approach with an engaged ally
+already in attack reach. The forecast uses current movement speed, control and
+walkable terrain. Unsafe pursuits can stage behind the living carry. Human
+commands, committed swings, existing disengagement and E/R behavior remain.
+The 45-tick approach and 250-unit staging are explicit local tuning.
+
+Both initial team regressions fail before the guard. Seventeen AI cases protect
+legitimate contact and unavailable follow-up. Two ten-minute comparisons change
+Leona deaths from four/five to zero/one, with level four becoming five/six. Paired
+metrics retain both carries' outcomes; these selected seeds do not establish
+balance or complete support behavior. The initial fixture point-shape error and
+held-target/outnumbered setup correction remain recorded without weakening the
+existing retreat rule.
+
+A longer candidate exposed an existing strict save failure at minute 21: a
+minion moved after Leona's contact in the same tick, separating the accepted
+hit point from its final following pose. A minimal moving-target regression
+fails in that processing order and passes in the opposite order. Required
+contactFrame birth data now stays independent of following samples. Strict
+schema 130 checks point/audience agreement, rig-valid poses and current/previous
+animation clocks, while retaining the complete later target history. Missing,
+displaced, stale, future and contradictory data reject. No IDs, RNG or combat
+events were added. An offline equality check at the failing tick confirms the
+complete gameplay state is unchanged after removing compatibility identifiers
+and the new field. The failed corpus and all 391 exact source pins remain;
+two old source files were recovered from Git only through matching plan hashes.
+
+All 2,054 units in 329 files, TypeScript and three Node QA checks pass. All 90
+broader Chrome cases pass, plus the added real-map moving-minion Save/reload
+case. Seeded browser replays preserve observed gameplay and exact 400-tick
+futures. The controlled contact case preserves distinct birth/following poses
+and its exact 180-tick future. Both Rift captures were visually reviewed.
+Fresh longer runs pass 273,583 ticks, 77 round trips and 75 future comparisons
+across 4,500 ticks. Both end in valid Red victories; Leona deaths finish at
+eight/six versus the prior twelve/sixteen. Both hundred-seed gates remain open.
+
+See [scope and evidence](LEONA-SUPPORT-AI.md). All 1,010 public assets remain
+unchanged. All 32 nested-path production recordings pass with the development
+trial gate and zero ordinary Leona preload. Schema 130 ruleset is
+`ca5d6fe53f056aea0943668b0596546e68869e922d4bab91a254888db59931cd`;
+pack `ad6604e58b19fa9b8b26cd1519898f3733184607e9094a42543df8037e8b7b6a`
+contains 1,060 files / 519,950,009 bytes. Offline integrity, repair, saved boot
+and atomic version switching pass with 963 worker responses and no production
+errors. The
+[ledger](reference/leona/support-ai-verification.json) binds exact source,
+outputs, failures and corrected comparisons. Native comparisons, three R
+families, complete roster/support, hundred-seed and performance acceptance
+remain open. Work continues under the active goal; nothing pushed.
