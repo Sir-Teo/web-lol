@@ -787,7 +787,9 @@ export class GameView {
         const layers = animationLayers(timeline, at, model.clipDurations);
         if (!skipPose) applyMobileAnimation(model.mixer, model.actions, pose, layers);
         model.actionName = pose.clip;
-        if (pose.kind === 'attack') model.animationAttackTick = u.attackCycle!.startTick;
+        if (pose.kind === 'attack')
+          model.animationAttackTick =
+            world.championState(u.id)?.doubleStrike?.strike?.startTick ?? u.attackCycle?.startTick;
       }
 
       this.updateBar(u, world, { x, y }, visible);

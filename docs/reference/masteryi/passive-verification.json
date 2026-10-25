@@ -1,0 +1,374 @@
+{
+  "recordedAt": "2026-10-25T16:52:05.364992+00:00",
+  "scope": "Development Master Yi NPC Double Strike. Source values and local behavior policies are separated; no native behavior/appearance or full champion completion claim.",
+  "baselineCommit": "9c2b451",
+  "schema": 139,
+  "ruleset": "7329f9a3be5432313a2689a9d24a0b0b0e035e043099b61f885996c1c72ad1bd",
+  "browser": "Chromium 154.0.8037.57 on Debian 13; software-rendered cloud environment",
+  "changedRuntimeAndTestInputs": [
+    {
+      "file": "src/content/masteryi-passive.ts",
+      "bytes": 680,
+      "sha256": "59be02c6ecce07872a696e8c18ca29f7ae2c2461d4aee88b86d20c223917fdc0"
+    },
+    {
+      "file": "src/content/masteryi-combat-policy.ts",
+      "bytes": 642,
+      "sha256": "0df61015a8ac4c151c7f106f5bdd5d73cac0d827451b3458692fa67cd202db96"
+    },
+    {
+      "file": "src/content/champion-profiles.ts",
+      "bytes": 2386,
+      "sha256": "64c3104c946d82c115cd44192b247920b0544bade92a0504c1c6f04b9678b585"
+    },
+    {
+      "file": "src/simulation/masteryi-double-strike.ts",
+      "bytes": 3459,
+      "sha256": "a5f8dac022fa50fdf7f0183ca13a7c67ae8fef0d2d292ba25f62f37cc5105047"
+    },
+    {
+      "file": "src/simulation/champion-state.ts",
+      "bytes": 3759,
+      "sha256": "b69b731b9a1f0fa19169bac5cfc302d8ec01af1d4372e2e8eacc7da4c39f5c76"
+    },
+    {
+      "file": "src/simulation/types.ts",
+      "bytes": 21139,
+      "sha256": "d1ab1e6447d1f4947ff31e087d9ab0d12f0e434bab532d16eda27efd6bcb349a"
+    },
+    {
+      "file": "src/simulation/world.ts",
+      "bytes": 277876,
+      "sha256": "02622a98032476fa6f00882e3cb7cdba529d86d7db0a140ecd5f233a12644375"
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "bytes": 169743,
+      "sha256": "d2fe2e25d614a4a2d481ba701507f6f1c966474abbb15d47f2734e98b0b7e24b"
+    },
+    {
+      "file": "src/render/mobile-pose.ts",
+      "bytes": 10170,
+      "sha256": "68ca8a13b009ff419bb203de3920d0374c4cc067411c767a83bfb892860b0250"
+    },
+    {
+      "file": "src/render/view.ts",
+      "bytes": 60440,
+      "sha256": "519d4089fb9d9e6d900e04e06e7e635df9026d6359562bcb225ae12f6d21c5ee"
+    },
+    {
+      "file": "tests/masteryi-double-strike.test.ts",
+      "bytes": 15129,
+      "sha256": "11febf5155b93ac4cea804f56fca9ad734399b2236bbbae6ac44b9d8b2daeed5"
+    },
+    {
+      "file": "tests/masteryi-development.test.ts",
+      "bytes": 9698,
+      "sha256": "349c316907d77d4ee122497c7f87f191c67ee5f9fb625b99f7142e3b374e0c0c"
+    },
+    {
+      "file": "tests/red-buff.test.ts",
+      "bytes": 12678,
+      "sha256": "42ac19144cf0d13be2ffceb3d3da387d8cd13151543965d84d0881f3422309f8"
+    },
+    {
+      "file": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "a9684065d9b7d9387adcad907dc463ecc20062726738f0b4a895f1323f139603"
+    },
+    {
+      "file": "e2e/masteryi-double-strike.spec.ts",
+      "bytes": 4605,
+      "sha256": "876b2a01790d583c0b005f426c8fd0ab8b4477e8162c44f33775accb9f66d747"
+    },
+    {
+      "file": "e2e/masteryi-development.spec.ts",
+      "bytes": 13740,
+      "sha256": "50cd7e6f840951ba83dde33cdefba2e8ec7080bd577282255adb24ab4fbb6379"
+    },
+    {
+      "file": "tools/assets/export-masteryi-passive.py",
+      "bytes": 4356,
+      "sha256": "8b3693877a37003cec9a05310af4c2c8adcce50d991fdf212ef080a44da0965d"
+    },
+    {
+      "file": "tools/assets/test-masteryi-passive.py",
+      "bytes": 1878,
+      "sha256": "9b47a80aa2e0ad7b5beb0868e3b6ead015f88db85c0da161bb4963cf6541b274"
+    }
+  ],
+  "sourceProjection": {
+    "normalAndOptimizedCheck": true,
+    "mutationTestsPerPythonMode": 8
+  },
+  "validation": {
+    "finalFocusedTests": 74,
+    "passiveTests": 28,
+    "nodeQA": 3,
+    "typecheck": true,
+    "productionBuild": true,
+    "fullUnitRun": {
+      "passed": 2213,
+      "failed": 6,
+      "total": 2219,
+      "note": "Before the final terminal visual-cleanup call and its additional passing focused case. All six failures also reproduce on untouched baseline; checks remain unchanged."
+    },
+    "baselineFailures": [
+      "tests/garen-aa.test.ts > all eight source play actions retain seventeen routed profiles, thirty-four exact masters and all four material hashes",
+      "tests/garen-p-audio.test.ts > recovery sound retains exact bank/media masters, distinct attenuation, play transitions and the reader-derived whole-file loop",
+      "tests/garen-passive-particles.test.ts > the recovery profile and lossless textures retain the frozen three-resource provenance",
+      "tests/leona-eclipse-skin-material.test.ts > Eclipse maps the authored rim control through the checked native CPU input",
+      "tests/lux-e-missile.test.ts > the fifteen existing streams preserve 24 full sampler snapshots",
+      "tests/particle-distortion.test.ts > all fifteen native variants retain exact original libraries, wrapper bitcode and static disassembly identities"
+    ],
+    "browser": {
+      "existingNPC": 6,
+      "newPhases": 3,
+      "note": "Six existing NPC cases passed before the renderer fix. All three new phase cases pass after the independent child-clock repair; no skips/retries."
+    },
+    "freshOfflineAudit": false,
+    "fullBrowserSuite": false,
+    "nativeComparison": false,
+    "fullMatchPerformance": false
+  },
+  "phaseEvidence": [
+    {
+      "phase": "pending",
+      "tick": 328,
+      "clip": "entry_85dac0b3",
+      "boneCount": 90,
+      "savedSHA256": "0866d71da124169a142363fd56344de33c9850fcd8b479fe90cee36b5f8c4e21",
+      "future300TicksSHA256": "b79f7581d58f66944b09221e24936e3bb1f298b70c1706c465020ab9436016ba",
+      "boneMatricesSHA256": "2bacb7806131170277298e86ded49fbf97c33e04722b24b7a1e1c070a9b509f8",
+      "passive": {
+        "stacks": 0,
+        "expiresTick": 0,
+        "strike": {
+          "startTick": 323,
+          "releaseTick": 345,
+          "endTick": 389,
+          "targetId": 7,
+          "damage": 32.5,
+          "critical": false,
+          "result": "pending"
+        }
+      },
+      "damage": 260,
+      "exactSave": true,
+      "exactFuture": true,
+      "exactBones": true,
+      "paused": true,
+      "errors": []
+    },
+    {
+      "phase": "contact",
+      "tick": 345,
+      "clip": "entry_85dac0b3",
+      "boneCount": 90,
+      "savedSHA256": "7f494b04ce88c55abf7b76a38b211ecf37f9f34abf029c9a90074685b5668240",
+      "future300TicksSHA256": "afcb3b9b39ef1261dec520498db877932746479f3ef79bbb6659b63ce92cf990",
+      "boneMatricesSHA256": "96dd40a62c19082ccc4ff5f408614d0705921ef7e5e67d4eac291092b86f75cd",
+      "passive": {
+        "stacks": 1,
+        "expiresTick": 585,
+        "strike": {
+          "startTick": 323,
+          "releaseTick": 345,
+          "endTick": 389,
+          "targetId": 7,
+          "damage": 32.5,
+          "critical": false,
+          "result": "hit"
+        }
+      },
+      "damage": 292.5,
+      "exactSave": true,
+      "exactFuture": true,
+      "exactBones": true,
+      "paused": true,
+      "errors": []
+    },
+    {
+      "phase": "recovery",
+      "tick": 353,
+      "clip": "entry_85dac0b3",
+      "boneCount": 90,
+      "savedSHA256": "916c7d0b496989079c00676bd03ef838e702028d017a3adc069d3f2b0e70d517",
+      "future300TicksSHA256": "e74785db4ec82c2a07a53edd6a367a8ac9c9e1e4b01c37e9cfee247bfbf66daa",
+      "boneMatricesSHA256": "cc3ac361e452ca5a5ebb23ab33f647ed8f941462f92bca252105dfb0eb4a6ed6",
+      "passive": {
+        "stacks": 1,
+        "expiresTick": 585,
+        "strike": {
+          "startTick": 323,
+          "releaseTick": 345,
+          "endTick": 389,
+          "targetId": 7,
+          "damage": 32.5,
+          "critical": false,
+          "result": "hit"
+        }
+      },
+      "damage": 292.5,
+      "exactSave": true,
+      "exactFuture": true,
+      "exactBones": true,
+      "paused": true,
+      "errors": []
+    }
+  ],
+  "production": {
+    "runner": "tools/qa/production-subpath.mjs",
+    "adaptation": "Temporary copy changes only channel: 'chrome' to executablePath: '/usr/bin/chromium'; assertions/deadlines are unchanged.",
+    "result": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 12,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 204,
+      "scheduledBlueRequests": 12,
+      "scheduledRedRequests": 12,
+      "scheduledWolfRequests": 24,
+      "scheduledRaptorRequests": 24,
+      "scheduledKrugRequests": 36,
+      "scheduledScuttlerRequests": 12,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    }
+  },
+  "pack": {
+    "id": "5369b064ced0c5038c43975419f6f4114a52880b1f05d18d454ab6b7219c811c",
+    "files": 1068,
+    "bytes": 526609061
+  },
+  "localEvidence": [
+    {
+      "file": ".cache/masteryi-passive-cloud/focused.log",
+      "bytes": 1226,
+      "sha256": "89275f371a4c6d750269cf215e242d4acf280fb9bdd4361162b9f9d4afa5b15b"
+    },
+    {
+      "file": ".cache/masteryi-passive-cloud/focused-v2.log",
+      "bytes": 425,
+      "sha256": "3acdbeb7e6797ef6890c1d8aa7b59e20c70482e3446d48a7e1202711c5e5c290"
+    },
+    {
+      "file": ".cache/masteryi-passive-cloud/focused-v3.log",
+      "bytes": 425,
+      "sha256": "7a13a1463f6fa30f37651e13a45f7386c12f226db1b73148ffe30d36864654f6"
+    },
+    {
+      "file": ".cache/masteryi-passive-cloud/focused-final.log",
+      "bytes": 425,
+      "sha256": "9a916b95f05bd29b6820e735b0e73a7003ccac0636c0e3aef4949c47d92e5a33"
+    },
+    {
+      "file": ".cache/masteryi-passive-cloud/browser.log",
+      "bytes": 564792,
+      "sha256": "24bd8e4df78674a68f16a47c551b24c85766bad971c163e46a0966ae86693acb"
+    },
+    {
+      "file": ".cache/masteryi-passive-cloud/browser-v2.log",
+      "bytes": 1594,
+      "sha256": "dbb53d021d8e7740f5b8a2411c742dc3cf10f4e0ca93f0a3af1bd44f37d2f722"
+    },
+    {
+      "file": ".cache/masteryi-passive-cloud/check.log",
+      "bytes": 6005,
+      "sha256": "a5e11ee281e4aa11122823afefdf3abcc66f3bc15d0fe586358352a6b45c17e6"
+    },
+    {
+      "file": ".cache/masteryi-passive-cloud/baseline-six.log",
+      "bytes": 5866,
+      "sha256": "40d850ff69d410e4934ffc03331da92e910f5dc0278851528c2edeb58963ef32"
+    },
+    {
+      "file": ".cache/masteryi-passive-cloud/node-qa.log",
+      "bytes": 431,
+      "sha256": "dc1e23c2aab5b8808e42e38f1ee7a9e91119b06273c0385696ad95380be8bc2f"
+    },
+    {
+      "file": ".cache/masteryi-passive-cloud/build.log",
+      "bytes": 4829,
+      "sha256": "78b40c0264241790c66cb9fa67d12f66b13a76283e9d660d98e54ef4e8ccaa78"
+    },
+    {
+      "file": ".cache/masteryi-passive-cloud/production.log",
+      "bytes": 2081,
+      "sha256": "4c66b75594e1516082d7f34a34ce93e56fa4efc3ce47339b2c71c99b1ce66775"
+    },
+    {
+      "file": ".cache/masteryi-passive-cloud/export-normal.log",
+      "bytes": 96,
+      "sha256": "42bb3a39697ac49e9969f59864aeabad152991bb2de58808f458b4a4de2f8c78"
+    },
+    {
+      "file": ".cache/masteryi-passive-cloud/export-optimized.log",
+      "bytes": 96,
+      "sha256": "42bb3a39697ac49e9969f59864aeabad152991bb2de58808f458b4a4de2f8c78"
+    },
+    {
+      "file": ".cache/masteryi-passive-cloud/export-tests-normal.log",
+      "bytes": 106,
+      "sha256": "29aa6198ec488e8821754ab71c467818f92db2ffdf48a46627bfd8bcd38636d2"
+    },
+    {
+      "file": ".cache/masteryi-passive-cloud/export-tests-optimized.log",
+      "bytes": 106,
+      "sha256": "eb60f9bd0c6db873d2d7d02543af30846bdc2eadf4252f1169f6043c8ca48163"
+    }
+  ],
+  "earlierFailures": [
+    "Initial unit fixture checked releaseTick after the stun expired and its valid attack order started another swing. The corrected check asserts cancellation during the stun.",
+    "The first three phase browser cases exposed GameView assuming every attack pose had an ordinary attackCycle. Rendering now reads the independent child clock; the same three cases pass."
+  ]
+}

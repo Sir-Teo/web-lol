@@ -33,6 +33,7 @@ export function createChampionState(id: number, unlocked = true, tick = 0): Cham
     qStacks: 0,
     qUntil: 0,
     qStackExpiry: 0,
+    doubleStrike: null,
     garenAAVisuals: [],
     leonaAAVisuals: [],
     leonaDeathVisuals: [],

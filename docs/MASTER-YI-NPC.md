@@ -1,5 +1,9 @@
 # Master Yi development NPC foundation
 
+This document records the schema-138 NPC foundation. The later
+[Double Strike controller](MASTER-YI-PASSIVE.md) adds passive behavior and source
+pose continuation at schema 139; the remaining kit and production gates stay open.
+
 Use `/?scene=fixture&npc=masteryi` with the development server. Ashe remains the
 human champion; a manually controlled Master Yi NPC adds his own stats, melee
 attacks, rig and saved continuation. The private fixture does not expose Master Yi

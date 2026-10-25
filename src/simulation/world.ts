@@ -196,7 +196,13 @@ import { luxWaveClear } from './lux-wave-clear';
 import { botDisengagePoint } from './bot-disengage';
 import { LUX_W } from '../content/lux-w';
 import { LUX_R } from '../content/lux-r';
-import { championProfile } from '../content/champion-profiles';
+import { championProfile, isMeleeChampion } from '../content/champion-profiles';
+import { MASTER_YI_PASSIVE } from '../content/masteryi-passive';
+import {
+  createDoubleStrikeState,
+  countDoubleStrikeContact,
+  expireDoubleStrike,
+} from './masteryi-double-strike';
 import { garenAttackWindupTicks, garenQAttackTimingAtLevel } from './garen-attack-timing';
 import { GAREN_W } from '../content/garen-w';
 import { GAREN } from '../content/garen-progression';
@@ -662,6 +668,7 @@ export class World {
       this.ahriCounters.push({ sourceId: u.id, stacks: 0, lastKillTick: null });
     if (champion && identity !== 'ashe') {
       const own = this.championState(u.id)!;
+      if (identity === 'masteryi') own.doubleStrike = createDoubleStrikeState();
       own.eCharges = 0;
       if (
         identity === 'garen' ||
@@ -1055,6 +1062,7 @@ export class World {
       if (unit.garenEShreds.length)
         unit.garenEShreds = unit.garenEShreds.filter((shred) => shred.endTick > this.tick);
     for (const state of this.activeChampionStates()) {
+      if (state.doubleStrike) expireDoubleStrike(state.doubleStrike, this.tick);
       if (state.leonaQ && this.tick >= state.leonaQ.endTick) {
         finishDaybreakVisual(state, this.tick, 'expired');
         state.leonaQ = null;
@@ -1230,6 +1238,13 @@ export class World {
         continue;
       }
       if (u.kind === 'ward') continue;
+      if (u.champion === 'masteryi') this.advanceDoubleStrike(u);
+      if (this.winner) {
+        this.advanceAttackVisuals();
+        this.advanceAnimationClocks();
+        this.advanceImpactVisuals();
+        return;
+      }
       if (u.structure?.regenPerSecond)
         u.hp = Math.min(u.maxHp, u.hp + u.structure.regenPerSecond * DT);
       if (u.kind === 'monster' && this.advanceMonster(u)) continue;
@@ -3392,6 +3407,32 @@ export class World {
             if (u.champion === 'leona' && daybreakRank === undefined && state)
               contactLeonaAttack(this, u, state, target);
             this.hitBasicAttack(u, target, payloads.reduce((sum, p) => sum + p.damage, 0) + qBonus);
+            if (u.champion === 'masteryi' && state?.doubleStrike && !this.winner) {
+              const ready = countDoubleStrikeContact(state.doubleStrike, this.tick, true);
+              if (ready && this.validTarget(u, target)) {
+                const speed = this.attackSpeedMultiplier(u, target);
+                const windup = Math.max(1, Math.round(u.windupTicks / speed));
+                const critical =
+                  !isStructureKind(target.kind) &&
+                  this.criticalChance(u) > 0 &&
+                  this.random.next() < this.criticalChance(u);
+                const releaseTick = this.tick + windup;
+                state.doubleStrike.strike = {
+                  startTick: this.tick,
+                  releaseTick,
+                  endTick: Math.max(releaseTick + 1, u.nextAttackTick),
+                  targetId: target.id,
+                  damage:
+                    u.damage *
+                    MASTER_YI_PASSIVE.damageCoefficient *
+                    (isStructureKind(target.kind)
+                      ? 1
+                      : this.basicAttackDamageMultiplier(u, critical)),
+                  critical,
+                  result: 'pending',
+                };
+              }
+            }
             if (daybreakRank !== undefined) {
               const daybreak = leonaDaybreakValues(daybreakRank, this.abilityPower(u));
               this.damage(u, target, daybreak.bonusMagicDamage, 'magic');
@@ -3612,6 +3653,21 @@ export class World {
     if (u.champion !== 'leona') return u.range;
     const q = this.championState(u.id)?.leonaQ;
     return u.range + (q && this.tick < q.endTick ? LEONA_COMBAT_POLICY.empoweredRangeBonus : 0);
+  }
+  /** The accepted child is independent of ordinary attack orders/cooldowns.
+   * Its own disabled permission never makes an ordinary windup uncancellable. */
+  private advanceDoubleStrike(source: Unit): void {
+    const state = this.championState(source.id)?.doubleStrike;
+    const strike = state?.strike;
+    if (!strike || strike.result !== 'pending' || this.tick < strike.releaseTick) return;
+    const target = this.unit(strike.targetId);
+    strike.result = 'lost';
+    if (!this.validTarget(source, target)) return;
+    source.facing = Math.atan2(target.x - source.x, target.y - source.y);
+    strike.result = 'hit';
+    this.emit('attack', source, { unit: source.id, team: source.team });
+    this.hitBasicAttack(source, target, strike.damage);
+    if (!this.winner && this.alive(source)) countDoubleStrikeContact(state, this.tick, false);
   }
   private releaseZenith(source: Unit, cast: NonNullable<ChampionState['leonaEWindup']>): void {
     this.championState(source.id)!.leonaEWindup = null;
@@ -4382,7 +4438,10 @@ export class World {
           !!unit.champion &&
           (this.tick - cast.startTick) / TICK_RATE <
             castAnimationDuration(unit.champion, cast.ability));
-      const attacking = unit.attackCycle !== null && this.tick < unit.attackCycle.endTick;
+      const secondary = state?.doubleStrike?.strike;
+      const attacking =
+        (unit.attackCycle !== null && this.tick < unit.attackCycle.endTick) ||
+        (!!secondary && this.tick < secondary.endTick);
       if (
         mobileAlive &&
         !moving &&
@@ -5013,7 +5072,7 @@ export class World {
         target,
         'cinders',
         CREST_OF_CINDERS.slowDurationSeconds * TICK_RATE,
-        1 - cinderSlow(owner.level, source.champion === 'garen' || source.champion === 'leona')
+        1 - cinderSlow(owner.level, isMeleeChampion(source.champion))
       );
       const old = target.cinderBurn;
       const refreshing = old && old.endTick > this.tick;
@@ -5464,6 +5523,7 @@ export class World {
       if (target.kind === 'nexus') {
         this.winner = target.team === 'blue' ? 'red' : 'blue';
         for (const state of this.activeChampionStates()) {
+          if (state.doubleStrike) state.doubleStrike = createDoubleStrikeState();
           // Combat can finish the tick before post-combat restoration runs.
           // Canonicalize its clocks without granting HP or mana after victory.
           advanceRedBuffClock(state, this.tick);
@@ -5518,6 +5578,7 @@ export class World {
         advanceOracleVisuals(this);
       }
       if (targetState) {
+        if (targetState.doubleStrike) targetState.doubleStrike = createDoubleStrikeState();
         stopFoxFireOrbits(this, target.id);
         stopSpiritRush(this, target);
         stopEssences(this, target.id);

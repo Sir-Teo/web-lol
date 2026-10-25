@@ -7676,3 +7676,51 @@ Master Yi kit, player/roster/role integration, native behavior/presentation, ful
 performance and project completion remain open. Next is the source-grounded
 Double Strike controller, keeping its separate child permissions and unresolved
 counter/proc policies explicit.
+
+## 2026-10-25 — Development Double Strike and independent saved melee contact
+
+[Double Strike](MASTER-YI-PASSIVE.md) now runs in the private Master Yi NPC
+fixture. The offline projection checks source count/duration 4, the half-stat
+formula, child disabled/autoattack timing declarations and the exact Passive body
+binding. Eight mutation checks pass under both normal and optimized Python.
+Native counter dispatch, critical/proc order, retargeting and contact timing
+remain explicit unresolved policies.
+
+Three accepted contacts prepare readiness; the fourth consumes it and, when its
+original target survives, schedules a separate half-AD melee contact. The child
+captures critical damage and scaled timing, uses ordinary shields/armor/on-hits,
+contributes once to the next counter and never resets the primary cooldown.
+Movement/disables can leave the committed child alive while ordinary windups
+still cancel. Death, vision/protection loss and victory follow documented local
+boundaries. Cinders now classifies Master Yi through his melee attack profile.
+
+Schema 139 saves counter/expiry plus the pending or ended current child. Strict
+decoding checks own/foreign ownership, clocks, phases, targets and terminal state.
+The source Passive pose reconstructs from saved absolute clocks. Browser testing
+caught and fixed a renderer assumption that every attack pose had an ordinary
+attack cycle; the new child retains its own clock after movement cancels that
+cycle. No public asset bytes, player selection or production NPC gates change.
+
+The final focused run passes 74 cases, including 28 passive cases and terminal
+Nexus destruction. TypeScript, three Node QA cases and the production build pass.
+Six existing NPC browser cases pass, and all three added phase Save/reloads pass
+after the renderer repair: exact world bytes, 90-bone matrices and 300-tick
+futures. Pending/contact screenshots were reviewed. Nested production hosting
+passes 32 recordings and zero Master Yi preloads. Browser checks use Chromium
+154 on Debian 13 with only the launcher path overridden.
+
+The broad unit run passes 2,213/2,219 cases before the additional terminal case.
+Its six failures also reproduce on untouched main `9c2b451`: unavailable local
+Garen encoded audio/recovery sources, particle shader provenance, the Python/
+native-reader environment, and an identical Lux sampler digest mismatch. Those
+assertions remain intact; the final focused run covers the subsequent terminal
+cleanup adjustment. A completely green broad suite remains blocked by these
+pre-existing cloud-checkout audit conditions.
+
+The [verification record](reference/masteryi/passive-verification.json) preserves
+changed-input hashes, phase/save/pose digests, raw log identities, baseline failure
+names and the production result. Ruleset is
+`7329f9a3be5432313a2689a9d24a0b0b0e035e043099b61f885996c1c72ad1bd`;
+pack is `5369b064ced0c5038c43975419f6f4114a52880b1f05d18d454ab6b7219c811c`
+(1,068 files / 526,609,061 bytes). No fresh offline/full-browser/native/performance
+certification is claimed. Master Yi Q/W/E/R and the full project remain open.

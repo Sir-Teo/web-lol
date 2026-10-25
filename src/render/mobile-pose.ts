@@ -1,4 +1,5 @@
 import { MASTER_YI_COMBAT_POLICY } from '../content/masteryi-combat-policy';
+import { MASTER_YI_PASSIVE } from '../content/masteryi-passive';
 import { leonaAttackAnimation } from '../content/leona-presentation';
 import { AHRI_COMBAT_POLICY } from '../content/ahri-combat-policy';
 import { LEONA_COMBAT_POLICY } from '../content/leona-combat-policy';
@@ -127,6 +128,18 @@ export function mobilePose(
 
   const moving = Math.hypot(unit.x - unit.previous.x, unit.y - unit.previous.y) > 0.01,
     cycle = unit.attackCycle;
+  const secondary = unit.champion === 'masteryi' ? state?.doubleStrike?.strike : null;
+  if (!moving && secondary && tick < secondary.endTick) {
+    const clip = MASTER_YI_PASSIVE.defaultPoseClip;
+    const rate = duration(clip) / ((secondary.endTick - secondary.startTick) / TICK_RATE);
+    return fixed(
+      'attack',
+      clip,
+      Math.max(0, (at - secondary.startTick) / TICK_RATE) * rate,
+      false,
+      rate
+    );
+  }
   if (!moving && cycle && tick < cycle.endTick) {
     if (unit.kind === 'monster') {
       if (unit.monster.species === 'scuttler')

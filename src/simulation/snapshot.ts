@@ -1,4 +1,6 @@
 import { validateLeonaDeaths } from './leona-death-visuals';
+import { validateDoubleStrikes } from './masteryi-double-strike';
+import { isMeleeChampion } from '../content/champion-profiles';
 import { AHRI_Q } from '../content/ahri-q';
 import { AHRI_Q_POLICY } from '../content/ahri-q-policy';
 import { AHRI_Q_OUTWARD_SECONDS, acceleratingMotion } from './ahri-orb-motion';
@@ -136,7 +138,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 138;
+export const SNAPSHOT_VERSION = 139;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -699,6 +701,23 @@ const player: z.ZodType<PlayerState> = z
     qStacks: z.number().int().min(0).max(4),
     qUntil: deadline,
     qStackExpiry: deadline,
+    doubleStrike: z
+      .strictObject({
+        stacks: z.number().int().min(0).max(3),
+        expiresTick: tick,
+        strike: z
+          .strictObject({
+            startTick: tick,
+            releaseTick: tick,
+            endTick: tick,
+            targetId: id,
+            damage: nonnegative,
+            critical: z.boolean(),
+            result: z.enum(['pending', 'hit', 'lost']),
+          })
+          .nullable(),
+      })
+      .nullable(),
     garenRReveal: z.strictObject({ targetId: id, startTick: tick, endTick: tick }).nullable(),
     garenRVisual: z
       .strictObject({
@@ -3244,9 +3263,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
             slow.endMultiplier !== slow.startMultiplier ||
             !CREST_OF_CINDERS.slowTiers.some(
               (t) =>
-                slow.startMultiplier ===
-                1 -
-                  (source.champion === 'garen' || source.champion === 'leona' ? t.melee : t.ranged)
+                slow.startMultiplier === 1 - (isMeleeChampion(source.champion) ? t.melee : t.ranged)
             ))) ||
         slows.has(key)
       )
@@ -3377,6 +3394,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     }
   }
   const owners = [state.player, ...state.otherChampions];
+  validateDoubleStrikes(owners, state.units, state.tick, state.winner);
   validateEssences(
     state.ahriCounters,
     state.ahriEssences,

@@ -1,6 +1,15 @@
 # Local match checkpoints
 
-Current schema **123** adds per-owner Daybreak presentation with captured
+Current schema **139** adds Master Yi's own Double Strike counter and independent
+secondary contact, including captured target/damage/critical state and absolute
+pending/release/presentation clocks. Other champions must retain null. Decoder
+guards reject foreign ownership, expired or inconsistent phases and active state
+after death/victory. Private NPC saves retain exact future contacts and source
+poses. Earlier schemas and different ruleset fingerprints remain incompatible;
+there is no migration. See [Double Strike](MASTER-YI-PASSIVE.md). The entries below
+retain earlier schema checkpoints rather than an exhaustive migration history.
+
+Schema **123** adds per-owner Daybreak presentation with captured
 activation/rank/stop reason, shield poses and a confirmed contact's rig/radius/
 transform, posed frames and creation/birth audiences. Active empowerment must
 have its matching visual. Validation checks clocks, phase labels, recast links,

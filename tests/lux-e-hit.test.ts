@@ -151,7 +151,7 @@ test('strict schema rejects duplicate contacts, forged clocks, frames, attachmen
   f.w.step(3);
   const valid = JSON.parse(f.w.snapshot());
   expect(valid.version).toBe(SNAPSHOT_VERSION);
-  expect(SNAPSHOT_VERSION).toBe(138);
+  expect(SNAPSHOT_VERSION).toBe(139);
   const reject = (change: (s: any, h: any) => void) => {
     const s = structuredClone(valid),
       h = s.singularities[0].hits[0];
