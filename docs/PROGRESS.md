@@ -7554,3 +7554,34 @@ checked by `tools/qa/verify-ahri-player.mjs` or `--historical` after later edits
 Development player controls, own HUD, private saves/restart and import boundaries
 are verified. Full Ahri kit, role AI, production roster expansion, native
 behavior/presentation, performance and full-project completion remain open.
+
+## 2026-10-25 — Master Yi complete character reference and guarded projection
+
+[Master Yi source foundation](MASTER-YI.md) promotes the exact retained 27,930-byte
+character BIN, all 60 actual records plus `__linked`, original naming response and
+Data Dragon 16.18.1. All 17 prior stage inputs verify without network/extraction.
+The offline exporter retains four ranked root spells, passive/component and missile
+objects, raw float values and 23 named/modified formula links. Eighteen stat
+comparisons preserve the unresolved BIN AD-growth 2.5 versus public client 0.
+
+Meditate's missing cooldown field and Wuju Style's missing mana field remain
+absent, with separate public values 10 and 0. Highlander's omitted calculation
+table is not fabricated. The independent full-record audit verifies strict types,
+including 99 booleans, and keeps the separate unbound Q reposition object's
+permissions outside the Alpha Strike root. Native invocation and behavior remain
+open. No runtime controller, model, icon, particle or audio asset is added.
+
+Normal and optimized export/reparse/audit checks pass, with nine pipeline tests in
+each mode. The full standard check passes 2,182 tests in 338 files, TypeScript and
+three Node QA checks. All 1,590 runtime/public/build inputs and 1,067 generated
+files remain byte-identical to the Ahri player checkpoint. Its 48 Chrome cases,
+32 production recordings and 963-response offline check are reused evidence, not
+a new browser run. All 1,015 public files are unchanged; schema 137, ruleset and
+pack identity remain unchanged.
+
+Frozen closure: [Master Yi verification](reference/masteryi/verification.json),
+checked with `tools/qa/verify-masteryi-character.mjs` or `--historical`. Complete
+character reference and ranked projection are verified. Model acceptance, playable
+kit, roster expansion, native behavior, performance and full-project completion
+remain false. Next is current review of the cached model candidates and their
+rotation corrections before any rig integration.
