@@ -6487,3 +6487,37 @@ See [scope and input evidence](LEONA-ATTACHED-SKIN-INPUTS.md) and
 [runtime ledger](reference/leona/w-skin-fresnel-verification.json). Native frames,
 player/support and full-roster acceptance remain open. No new normal-match
 cohort/performance result follows. Work continues under the active goal; nothing pushed.
+
+## Original Metal skinning and Eclipse rim/erosion fixture — October 24, 2026
+
+Unchanged retained skinned-mesh VS0/PS34 now execute together in the owned Swift
+Metal harness. All 88 RGBA8 samples match WebGL and scalar output exactly on the
+recorded M1/OS27 build26A428, with completed command buffers and zero WebGL errors.
+The first87 cases passed; final88 add initialized bone255. Cases cover pre-tint
+alpha rim, mapped/raw powers, remap/erosion, UV texels, translated/rotated/scaled
+bones, four-bone blending, per-vertex weights and vertex-rim interpolation.
+
+Static inspection caught VS5's incompatible rim location before a pipeline was
+attempted. The retained nonreflective DISABLE_FOW VS0 matches PS34's explicit
+locations/types; ABI checks in normal and optimized Python pass. Only owned Swift
+is compiled. Original shader libraries/bitcode remain unchanged; the separate
+AIR text decoding captures its host-retarget warning. An independent static
+harness/Three-chunk review finds no blocking mismatch for the bounded fixtures.
+
+Every declared bone/frame/local/fragment buffer is initialized. Projection and
+identity bind transforms are explicit. Depth push is zero; no FOW/blend/depth,
+nonidentity bind/perspective or native resource/frame acceptance follows. Invalid
+joint256 is rejected before draw encoding; the libraries/pipeline load first.
+Degenerate vectors are outside the valid fixture. The offline verifier freezes
+commands, executable/library/input hashes and all pixel comparisons and rejects
+missing-case, changed-pixel and changed-library-record controls. An initial
+offline wrapper/array lookup is corrected; the frozen failed checker/reproduction
+is retained. See
+[fixture scope](LEONA-METAL-SKIN-HARNESS.md),
+[static ABI](reference/leona-skin-metal-abi.json) and
+[runtime ledger](reference/leona/metal-skin-verification.json).
+
+QA TypeScript and three Node QA tests pass. No game material, public asset,
+schema126, ruleset2f2d7dac or pack39440090 changes. No new production/offline run,
+normal cohort or performance result is claimed. Native dispatch/frames,
+player/support and full-roster acceptance remain open. Work continues; nothing pushed.

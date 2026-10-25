@@ -37,6 +37,11 @@ four W skin rim controls through the checked native CPU transformation. Separate
 raw/mapped tables and pixel controls cover both W phases; native dispatch and
 resource selection remain open.
 
+The [original Metal skin fixture](LEONA-METAL-SKIN-HARNESS.md) now runs unchanged
+VS0/PS34 against 88 explicit WebGL/scalar cases, including four-bone skinning and
+the mapped W powers. All are byte-exact on the recorded M1; native Leona palette
+preparation, dispatch and frames remain open.
+
 ## Retained source and reproducibility
 
 `reference/leona/character.bin` retains all 24,399 source bytes. The manifest,

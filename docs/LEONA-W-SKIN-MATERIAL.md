@@ -1,8 +1,9 @@
 # Eclipse attached-character material
 
 The later [attached-skin input correction](LEONA-ATTACHED-SKIN-INPUTS.md) maps W
-source Fresnel controls to the checked CPU exponents. Earlier numeric results
-below describe the original raw-input diagnostic and remain historical.
+source Fresnel controls to the checked CPU exponents. The subsequent
+[original Metal skin fixture](LEONA-METAL-SKIN-HARNESS.md) verifies 88 explicit
+VS0/PS34 draws. Earlier numeric results below describe the original raw-input diagnostic and remain historical.
 
 Eclipse's four attached-character emitter descriptions now have a dedicated
 skin-capable material and a development inspection page at

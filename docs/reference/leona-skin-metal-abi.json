@@ -1,0 +1,567 @@
+{
+  "scope": "v2 static ABI confirmation; v1 retained unchanged. No shader/native executable/library compilation, native library load, GPU/provider/game/network execution. Authorized clang IR-only decoding performed once; --check never invokes clang.",
+  "inputs": [
+    {
+      "path": ".cache/leona-skin-metal-abi-v2-20261024/check.py",
+      "bytes": 8449,
+      "sha256": "04ef073fb47e980e8cf85d22e7f4fa4bbca1dedceab0358388f042b53062c1da"
+    },
+    {
+      "path": ".cache/leona-skin-metal-abi-v1-20261024/abi.json",
+      "bytes": 49150,
+      "sha256": "7f0ee6a0e90880cebd8a3c7dbbb2124773b3d7a20597deca854f89ced7000a5d"
+    },
+    {
+      "path": ".cache/leona-skin-metal-abi-v1-20261024/check.py",
+      "bytes": 10666,
+      "sha256": "a0995c8ca7a32d3ef5bff5922fffddf4e9e747c063bfbd98fedc072240db641b"
+    },
+    {
+      "path": ".cache/leona-metal-reflection-abi-v1-20261024/check.py",
+      "bytes": 12872,
+      "sha256": "1273c44e816a63d79a2f98872b4e3f1e40beeb8c0e7ffb6b1f1a32c9f8e0be01"
+    },
+    {
+      "path": ".cache/leona-skin-metal-abi-v2-20261024/decode.json",
+      "bytes": 1575,
+      "sha256": "b196a3be0ba5b2b06112065986299e3d9bdf0ee854bb636a23139bdaa460fb3f"
+    },
+    {
+      "path": ".cache/leona-skin-metal-abi-v2-20261024/skin-vs0.ll",
+      "bytes": 15200,
+      "sha256": "a133f3eaff2160550276b0946e91bb7dbf90cbaef70b579fb4e747f3c248672b"
+    },
+    {
+      "path": ".cache/leona-skin-metal-abi-v1-20261024/candidate-skin-vs0.metallib",
+      "bytes": 5451,
+      "sha256": "129c06c6d4aeeb30090665c4b9a96f8222cda7c9b910f8d9fed54d074fb98397"
+    },
+    {
+      "path": ".cache/leona-skin-metal-abi-v1-20261024/candidate-skin-vs0.bc",
+      "bytes": 5132,
+      "sha256": "5e2af93f0e1315520b751f697615d27af0de145d4aaa63cb95026a1f5b6a77f7"
+    }
+  ],
+  "decode": {
+    "classification": "Static AIR bitcode-to-text decoding only, not executable/library compilation or shader/GPU execution. Clang host-retargets textual IR; original BC/library remain unchanged.",
+    "command": [
+      "/Library/Developer/CommandLineTools/usr/bin/clang",
+      "-S",
+      "-emit-llvm",
+      "-Xclang",
+      "-disable-llvm-passes",
+      ".cache/leona-skin-metal-abi-v1-20261024/candidate-skin-vs0.bc",
+      "-o",
+      ".cache/leona-skin-metal-abi-v2-20261024/skin-vs0.ll"
+    ],
+    "cwd": "/Users/teodev/Developer/web-lol",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "warning: overriding the module target triple with arm64-apple-macosx28.0.0 [-Woverride-module]\n1 warning generated.\n",
+    "tool": {
+      "path": "/Library/Developer/CommandLineTools/usr/bin/clang",
+      "bytes": 290664032,
+      "sha256": "1220c0afafa12a6ae599d097ee7cf8b87c6b4d8e3fbb9783cee6b319a80683ba"
+    },
+    "versionCommand": [
+      "/Library/Developer/CommandLineTools/usr/bin/clang",
+      "--version"
+    ],
+    "versionStdout": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
+    "versionStderr": "",
+    "input": {
+      "path": ".cache/leona-skin-metal-abi-v1-20261024/candidate-skin-vs0.bc",
+      "bytes": 5132,
+      "sha256": "5e2af93f0e1315520b751f697615d27af0de145d4aaa63cb95026a1f5b6a77f7"
+    },
+    "output": {
+      "path": ".cache/leona-skin-metal-abi-v2-20261024/skin-vs0.ll",
+      "bytes": 15200,
+      "sha256": "a133f3eaff2160550276b0946e91bb7dbf90cbaef70b579fb4e747f3c248672b"
+    }
+  },
+  "vertexABI": [
+    {
+      "kind": "air.vertex_output",
+      "name": "TEXCOORD0",
+      "type": "float4",
+      "irMetadataNode": 9,
+      "varyingLocation": "user(locn0)"
+    },
+    {
+      "kind": "air.vertex_output",
+      "name": "TEXCOORD1",
+      "type": "float3",
+      "irMetadataNode": 10,
+      "varyingLocation": "user(locn1)"
+    },
+    {
+      "kind": "air.vertex_output",
+      "name": "COLOR0",
+      "type": "float3",
+      "irMetadataNode": 11,
+      "varyingLocation": "user(locn2)"
+    },
+    {
+      "kind": "air.position",
+      "name": "gl_Position",
+      "type": "float4",
+      "irMetadataNode": 12
+    },
+    {
+      "kind": "air.vertex_input",
+      "name": "ATTR0",
+      "type": "float3",
+      "irMetadataNode": 14,
+      "slot": 0
+    },
+    {
+      "kind": "air.vertex_input",
+      "name": "ATTR1",
+      "type": "float4",
+      "irMetadataNode": 15,
+      "slot": 1
+    },
+    {
+      "kind": "air.vertex_input",
+      "name": "ATTR2",
+      "type": "float3",
+      "irMetadataNode": 16,
+      "slot": 2
+    },
+    {
+      "kind": "air.vertex_input",
+      "name": "ATTR7",
+      "type": "uint4",
+      "irMetadataNode": 17,
+      "slot": 7
+    },
+    {
+      "kind": "air.vertex_input",
+      "name": "ATTR8",
+      "type": "float2",
+      "irMetadataNode": 18,
+      "slot": 8
+    },
+    {
+      "kind": "air.buffer",
+      "name": "BonesCB",
+      "type": "type_BonesCB",
+      "irMetadataNode": 19,
+      "slot": 0,
+      "bytes": 12288,
+      "alignment": 16,
+      "members": [
+        {
+          "offset": 0,
+          "bytes": 48,
+          "arrayCount": 256,
+          "type": "float3x4",
+          "name": "BONES"
+        }
+      ]
+    },
+    {
+      "kind": "air.buffer",
+      "name": "PerFrameVertexCB",
+      "type": "type_PerFrameVertexCB",
+      "irMetadataNode": 21,
+      "slot": 1,
+      "bytes": 560,
+      "alignment": 16,
+      "members": [
+        {
+          "offset": 0,
+          "bytes": 64,
+          "arrayCount": 0,
+          "type": "float4x4",
+          "name": "mProj"
+        },
+        {
+          "offset": 64,
+          "bytes": 16,
+          "arrayCount": 0,
+          "type": "float3",
+          "name": "vCamera"
+        },
+        {
+          "offset": 80,
+          "bytes": 16,
+          "arrayCount": 0,
+          "type": "float4",
+          "name": "TIME"
+        },
+        {
+          "offset": 96,
+          "bytes": 16,
+          "arrayCount": 0,
+          "type": "float4",
+          "name": "TERRAIN_XFORM"
+        },
+        {
+          "offset": 112,
+          "bytes": 64,
+          "arrayCount": 0,
+          "type": "float4x4",
+          "name": "VIEW_PROJECTION_MATRIX"
+        },
+        {
+          "offset": 176,
+          "bytes": 64,
+          "arrayCount": 0,
+          "type": "float4x4",
+          "name": "mShadowProj"
+        },
+        {
+          "offset": 240,
+          "bytes": 64,
+          "arrayCount": 0,
+          "type": "float4x4",
+          "name": "SCREEN_MATRIX"
+        },
+        {
+          "offset": 304,
+          "bytes": 16,
+          "arrayCount": 0,
+          "type": "float4",
+          "name": "FOG_OF_WAR_PARAMS"
+        },
+        {
+          "offset": 320,
+          "bytes": 16,
+          "arrayCount": 0,
+          "type": "float4",
+          "name": "FOG_OF_WAR_ALWAYS_BELOW_Y"
+        },
+        {
+          "offset": 336,
+          "bytes": 16,
+          "arrayCount": 0,
+          "type": "float4",
+          "name": "FOW_HEIGHT_FADE"
+        },
+        {
+          "offset": 352,
+          "bytes": 16,
+          "arrayCount": 0,
+          "type": "float4",
+          "name": "NAV_GRID_XFORM"
+        },
+        {
+          "offset": 368,
+          "bytes": 16,
+          "arrayCount": 0,
+          "type": "float4",
+          "name": "MANTIS_FORCE_DATA"
+        },
+        {
+          "offset": 384,
+          "bytes": 64,
+          "arrayCount": 0,
+          "type": "float4x4",
+          "name": "mView"
+        },
+        {
+          "offset": 448,
+          "bytes": 64,
+          "arrayCount": 0,
+          "type": "float4x4",
+          "name": "mViewInv"
+        },
+        {
+          "offset": 512,
+          "bytes": 16,
+          "arrayCount": 0,
+          "type": "float4",
+          "name": "GLOBAL_ENVIRONMENT_VALUES"
+        },
+        {
+          "offset": 528,
+          "bytes": 12,
+          "arrayCount": 0,
+          "type": "packed_float3",
+          "name": "SUN_LIGHT_DIRECTION"
+        },
+        {
+          "offset": 540,
+          "bytes": 4,
+          "arrayCount": 0,
+          "type": "float",
+          "name": "NORMAL_OFFSET_BIAS"
+        },
+        {
+          "offset": 544,
+          "bytes": 4,
+          "arrayCount": 0,
+          "type": "float",
+          "name": "DRAGON_TERRAIN"
+        },
+        {
+          "offset": 548,
+          "bytes": 4,
+          "arrayCount": 0,
+          "type": "uint",
+          "name": "ENV_QUALITY"
+        }
+      ]
+    },
+    {
+      "kind": "air.buffer",
+      "name": "LocalsVertex",
+      "type": "type_Globals",
+      "irMetadataNode": 23,
+      "slot": 9,
+      "bytes": 144,
+      "alignment": 16,
+      "members": [
+        {
+          "offset": 0,
+          "bytes": 16,
+          "arrayCount": 0,
+          "type": "float4",
+          "name": "vFresnel"
+        },
+        {
+          "offset": 16,
+          "bytes": 48,
+          "arrayCount": 0,
+          "type": "float3x4",
+          "name": "vParticleUVTransform"
+        },
+        {
+          "offset": 64,
+          "bytes": 48,
+          "arrayCount": 0,
+          "type": "float3x4",
+          "name": "vParticleUVTransformMult"
+        },
+        {
+          "offset": 112,
+          "bytes": 16,
+          "arrayCount": 0,
+          "type": "float4",
+          "name": "kColorFactor"
+        },
+        {
+          "offset": 128,
+          "bytes": 4,
+          "arrayCount": 0,
+          "type": "float",
+          "name": "PARTICLE_DEPTH_PUSH_PULL"
+        }
+      ]
+    }
+  ],
+  "fragmentABI": [
+    {
+      "kind": "air.render_target",
+      "name": "SV_Target0",
+      "type": "float4",
+      "irMetadataNode": 9
+    },
+    {
+      "kind": "air.fragment_input",
+      "name": "TEXCOORD0",
+      "type": "float4",
+      "irMetadataNode": 11,
+      "varyingLocation": "user(locn0)",
+      "interpolation": [
+        "air.center",
+        "air.perspective"
+      ]
+    },
+    {
+      "kind": "air.fragment_input",
+      "name": "TEXCOORD1",
+      "type": "float3",
+      "irMetadataNode": 12,
+      "varyingLocation": "user(locn1)",
+      "interpolation": [
+        "air.center",
+        "air.perspective"
+      ]
+    },
+    {
+      "kind": "air.fragment_input",
+      "name": "COLOR0",
+      "type": "float3",
+      "irMetadataNode": 13,
+      "varyingLocation": "user(locn2)",
+      "interpolation": [
+        "air.center",
+        "air.perspective"
+      ]
+    },
+    {
+      "kind": "air.buffer",
+      "name": "LocalsFragment",
+      "type": "type_Globals",
+      "irMetadataNode": 14,
+      "slot": 16,
+      "bytes": 32,
+      "alignment": 16,
+      "members": [
+        {
+          "offset": 0,
+          "bytes": 16,
+          "arrayCount": 0,
+          "type": "float4",
+          "name": "cAlphaErosionParams"
+        },
+        {
+          "offset": 16,
+          "bytes": 16,
+          "arrayCount": 0,
+          "type": "float4",
+          "name": "cAlphaErosionTextureMixer"
+        }
+      ]
+    },
+    {
+      "kind": "air.texture",
+      "name": "PIXEL_COLOR_REMAP_RAMP_SharedTexture",
+      "type": "texture2d<float, sample>",
+      "irMetadataNode": 16,
+      "slot": 0
+    },
+    {
+      "kind": "air.texture",
+      "name": "sAlphaErosionTexture_TX",
+      "type": "texture2d<float, sample>",
+      "irMetadataNode": 17,
+      "slot": 1
+    },
+    {
+      "kind": "air.texture",
+      "name": "TEXTURE_TX",
+      "type": "texture2d<float, sample>",
+      "irMetadataNode": 18,
+      "slot": 2
+    },
+    {
+      "kind": "air.sampler",
+      "name": "sAlphaErosionTexture_SMP",
+      "type": "sampler",
+      "irMetadataNode": 19,
+      "slot": 0
+    },
+    {
+      "kind": "air.sampler",
+      "name": "TEXTURE_SMP",
+      "type": "sampler",
+      "irMetadataNode": 20,
+      "slot": 1
+    },
+    {
+      "kind": "air.sampler",
+      "name": "Clamp_No_Mip_SharedSampler",
+      "type": "sampler",
+      "irMetadataNode": 21,
+      "slot": 15
+    }
+  ],
+  "interfaceMatch": [
+    [
+      "TEXCOORD0",
+      "float4",
+      "user(locn0)"
+    ],
+    [
+      "TEXCOORD1",
+      "float3",
+      "user(locn1)"
+    ],
+    [
+      "COLOR0",
+      "float3",
+      "user(locn2)"
+    ]
+  ],
+  "comparison": {
+    "against": "VS5 original retained AIR text",
+    "method": "SSA-value remapping and exact assignment-expression equality after removing TBAA numeric IDs; originals pinned",
+    "segments": [
+      {
+        "vs0FirstValue": 9,
+        "vs0LastValue": 61,
+        "meaning": "homogeneous inputs, camera normalization/depth displacement, projection, tint and UV",
+        "verifiedAssignments": 52
+      },
+      {
+        "vs0FirstValue": 62,
+        "vs0LastValue": 85,
+        "meaning": "post-push view normalization, normalized skinned normal, rim dot/clamp/pow",
+        "verifiedAssignments": 24
+      },
+      {
+        "vs0FirstValue": 91,
+        "vs0LastValue": 126,
+        "meaning": "four-bone loads/weighted position/normal accumulation and loop bound",
+        "verifiedAssignments": 36
+      }
+    ],
+    "onlyRelevantVariantDifference": "VS0 removes FOW UV computation/output; COLOR0 shifts from locn3 tolocn2. Declared uniform layout remains identical."
+  },
+  "sourceSpans": [
+    {
+      "firstLine": 6,
+      "lastLine": 17,
+      "text": "%struct.type_PerFrameVertexCB = type <{ %\"struct.metal::matrix.0\", <3 x float>, <4 x float>, <4 x float>, %\"struct.metal::matrix.0\", %\"struct.metal::matrix.0\", %\"struct.metal::matrix.0\", <4 x float>, <4 x float>, <4 x float>, <4 x float>, <4 x float>, %\"struct.metal::matrix.0\", %\"struct.metal::matrix.0\", <4 x float>, { [3 x float] }, float, float, i32, [8 x i8] }>\n%\"struct.metal::matrix.0\" = type { [4 x <4 x float>] }\n%struct.type_Globals = type <{ <4 x float>, %\"struct.metal::matrix\", %\"struct.metal::matrix\", <4 x float>, float, [12 x i8] }>\n%\"struct.metal::matrix\" = type { [3 x <4 x float>] }\n%struct.type_BonesCB = type { [256 x %\"struct.metal::matrix\"] }\n\n; Function Attrs: nounwind memory(none)\ndefine <{ <4 x float>, <3 x float>, <3 x float>, <4 x float> }> @wrapped_main(<3 x float> %0, <4 x float> %1, <3 x float> %2, <4 x i32> %3, <2 x float> %4, ptr addrspace(2) readonly captures(none) %5, ptr addrspace(2) readonly align 16 captures(none) %6, ptr addrspace(2) readonly align 16 captures(none) %7) #0 {\n  %9 = shufflevector <3 x float> %0, <3 x float> undef, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>\n  %10 = insertelement <4 x float> %9, float 1.000000e+00, i32 3\n  %11 = shufflevector <3 x float> %2, <3 x float> undef, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>\n  %12 = insertelement <4 x float> %11, float 0.000000e+00, i32 3"
+    },
+    {
+      "firstLine": 20,
+      "lastLine": 67,
+      "text": "13:                                               ; preds = %90\n  %14 = shufflevector <3 x float> %113, <3 x float> undef, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>\n  %15 = getelementptr inbounds %struct.type_PerFrameVertexCB, ptr addrspace(2) %6, i64 0, i32 1\n  %16 = bitcast ptr addrspace(2) %15 to ptr addrspace(2)\n  %17 = load <4 x float>, ptr addrspace(2) %16, align 16\n  %18 = fsub fast <4 x float> %14, %17\n  %19 = shufflevector <4 x float> %18, <4 x float> undef, <3 x i32> <i32 0, i32 1, i32 2>\n  %20 = tail call float @air.dot.v3f32(<3 x float> %19, <3 x float> %19) #1\n  %21 = tail call float @air.fast_rsqrt.f32(float %20) #1\n  %22 = insertelement <3 x float> undef, float %21, i32 0\n  %23 = shufflevector <3 x float> %22, <3 x float> undef, <3 x i32> zeroinitializer\n  %24 = fmul fast <3 x float> %23, %19\n  %25 = getelementptr inbounds %struct.type_Globals, ptr addrspace(2) %7, i64 0, i32 4\n  %26 = load float, ptr addrspace(2) %25, align 16, !tbaa !25\n  %27 = insertelement <3 x float> undef, float %26, i32 0\n  %28 = shufflevector <3 x float> %27, <3 x float> undef, <3 x i32> zeroinitializer\n  %29 = fmul fast <3 x float> %24, %28\n  %30 = fadd fast <3 x float> %29, %113\n  %31 = shufflevector <3 x float> %30, <3 x float> undef, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>\n  %32 = insertelement <4 x float> %31, float 1.000000e+00, i32 3\n  %33 = getelementptr inbounds %struct.type_PerFrameVertexCB, ptr addrspace(2) %6, i64 0, i32 0, i32 0, i64 0\n  %34 = load <4 x float>, ptr addrspace(2) %33, align 16, !tbaa !31\n  %35 = tail call float @air.dot.v4f32(<4 x float> %32, <4 x float> %34) #1\n  %36 = insertelement <4 x float> undef, float %35, i32 0\n  %37 = getelementptr inbounds %struct.type_PerFrameVertexCB, ptr addrspace(2) %6, i64 0, i32 0, i32 0, i64 1\n  %38 = load <4 x float>, ptr addrspace(2) %37, align 16, !tbaa !31\n  %39 = tail call float @air.dot.v4f32(<4 x float> %32, <4 x float> %38) #1\n  %40 = insertelement <4 x float> %36, float %39, i32 1\n  %41 = getelementptr inbounds %struct.type_PerFrameVertexCB, ptr addrspace(2) %6, i64 0, i32 0, i32 0, i64 2\n  %42 = load <4 x float>, ptr addrspace(2) %41, align 16, !tbaa !31\n  %43 = tail call float @air.dot.v4f32(<4 x float> %32, <4 x float> %42) #1\n  %44 = insertelement <4 x float> %40, float %43, i32 2\n  %45 = getelementptr inbounds %struct.type_PerFrameVertexCB, ptr addrspace(2) %6, i64 0, i32 0, i32 0, i64 3\n  %46 = load <4 x float>, ptr addrspace(2) %45, align 16, !tbaa !31\n  %47 = tail call float @air.dot.v4f32(<4 x float> %32, <4 x float> %46) #1\n  %48 = insertelement <4 x float> %44, float %47, i32 3\n  %49 = getelementptr inbounds %struct.type_Globals, ptr addrspace(2) %7, i64 0, i32 3\n  %50 = load <4 x float>, ptr addrspace(2) %49, align 16, !tbaa !31\n  %51 = shufflevector <2 x float> %4, <2 x float> undef, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>\n  %52 = shufflevector <4 x float> %51, <4 x float> <float undef, float undef, float 1.000000e+00, float 0.000000e+00>, <4 x i32> <i32 0, i32 1, i32 6, i32 7>\n  %53 = getelementptr inbounds %struct.type_Globals, ptr addrspace(2) %7, i64 0, i32 1, i32 0, i64 0\n  %54 = load <4 x float>, ptr addrspace(2) %53, align 16, !tbaa !31\n  %55 = tail call float @air.dot.v4f32(<4 x float> %52, <4 x float> %54) #1\n  %56 = insertelement <3 x float> undef, float %55, i32 0\n  %57 = getelementptr inbounds %struct.type_Globals, ptr addrspace(2) %7, i64 0, i32 1, i32 0, i64 1\n  %58 = load <4 x float>, ptr addrspace(2) %57, align 16, !tbaa !31\n  %59 = tail call float @air.dot.v4f32(<4 x float> %52, <4 x float> %58) #1\n  %60 = insertelement <3 x float> %56, float %59, i32 1"
+    },
+    {
+      "firstLine": 68,
+      "lastLine": 101,
+      "text": "  %61 = insertelement <3 x float> %60, float %47, i32 2\n  %62 = getelementptr inbounds %struct.type_Globals, ptr addrspace(2) %7, i64 0, i32 0\n  %63 = load <4 x float>, ptr addrspace(2) %62, align 16\n  %64 = shufflevector <4 x float> %63, <4 x float> undef, <3 x i32> <i32 0, i32 1, i32 2>\n  %65 = shufflevector <4 x float> %17, <4 x float> undef, <3 x i32> <i32 0, i32 1, i32 2>\n  %66 = fsub fast <3 x float> %30, %65\n  %67 = tail call float @air.dot.v3f32(<3 x float> %66, <3 x float> %66) #1\n  %68 = tail call float @air.fast_rsqrt.f32(float %67) #1\n  %69 = insertelement <3 x float> undef, float %68, i32 0\n  %70 = shufflevector <3 x float> %69, <3 x float> undef, <3 x i32> zeroinitializer\n  %71 = fsub fast <3 x float> splat (float -0.000000e+00), %66\n  %72 = fmul fast <3 x float> %70, %71\n  %73 = tail call float @air.dot.v3f32(<3 x float> %123, <3 x float> %123) #1\n  %74 = tail call float @air.fast_rsqrt.f32(float %73) #1\n  %75 = insertelement <3 x float> undef, float %74, i32 0\n  %76 = shufflevector <3 x float> %75, <3 x float> undef, <3 x i32> zeroinitializer\n  %77 = fmul fast <3 x float> %76, %123\n  %78 = tail call float @air.dot.v3f32(<3 x float> %72, <3 x float> %77) #1\n  %79 = tail call float @air.fast_clamp.f32(float %78, float 0.000000e+00, float 1.000000e+00) #1\n  %80 = extractelement <4 x float> %63, i32 3\n  %81 = tail call float @air.fast_powr.f32(float %79, float %80) #1\n  %82 = fsub fast float 1.000000e+00, %81\n  %83 = insertelement <3 x float> undef, float %82, i32 0\n  %84 = shufflevector <3 x float> %83, <3 x float> undef, <3 x i32> zeroinitializer\n  %85 = fmul fast <3 x float> %84, %64\n  %86 = insertvalue <{ <4 x float>, <3 x float>, <3 x float>, <4 x float> }> undef, <4 x float> %50, 0\n  %87 = insertvalue <{ <4 x float>, <3 x float>, <3 x float>, <4 x float> }> %86, <3 x float> %61, 1\n  %88 = insertvalue <{ <4 x float>, <3 x float>, <3 x float>, <4 x float> }> %87, <3 x float> %85, 2\n  %89 = insertvalue <{ <4 x float>, <3 x float>, <3 x float>, <4 x float> }> %88, <4 x float> %48, 3\n  ret <{ <4 x float>, <3 x float>, <3 x float>, <4 x float> }> %89\n\n90:                                               ; preds = %90, %8\n  %91 = phi i32 [ 0, %8 ], [ %125, %90 ]\n  %92 = phi <4 x float> [ <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float undef>, %8 ], [ %124, %90 ]"
+    },
+    {
+      "firstLine": 103,
+      "lastLine": 137,
+      "text": "  %94 = extractelement <4 x i32> %3, i32 %91\n  %95 = zext i32 %94 to i64\n  %96 = getelementptr inbounds %struct.type_BonesCB, ptr addrspace(2) %5, i64 0, i32 0, i64 %95, i32 0, i64 0\n  %97 = load <4 x float>, ptr addrspace(2) %96, align 16, !tbaa !31\n  %98 = tail call float @air.dot.v4f32(<4 x float> %10, <4 x float> %97) #1\n  %99 = insertelement <3 x float> undef, float %98, i32 0\n  %100 = getelementptr inbounds %struct.type_BonesCB, ptr addrspace(2) %5, i64 0, i32 0, i64 %95, i32 0, i64 1\n  %101 = load <4 x float>, ptr addrspace(2) %100, align 16, !tbaa !31\n  %102 = tail call float @air.dot.v4f32(<4 x float> %10, <4 x float> %101) #1\n  %103 = insertelement <3 x float> %99, float %102, i32 1\n  %104 = getelementptr inbounds %struct.type_BonesCB, ptr addrspace(2) %5, i64 0, i32 0, i64 %95, i32 0, i64 2\n  %105 = load <4 x float>, ptr addrspace(2) %104, align 16, !tbaa !31\n  %106 = tail call float @air.dot.v4f32(<4 x float> %10, <4 x float> %105) #1\n  %107 = insertelement <3 x float> %103, float %106, i32 2\n  %108 = extractelement <4 x float> %1, i32 %91\n  %109 = insertelement <3 x float> undef, float %108, i32 0\n  %110 = shufflevector <3 x float> %109, <3 x float> undef, <3 x i32> zeroinitializer\n  %111 = fmul fast <3 x float> %107, %110\n  %112 = shufflevector <4 x float> %93, <4 x float> undef, <3 x i32> <i32 0, i32 1, i32 2>\n  %113 = fadd fast <3 x float> %111, %112\n  %114 = shufflevector <3 x float> %113, <3 x float> undef, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>\n  %115 = tail call float @air.dot.v4f32(<4 x float> %12, <4 x float> %97) #1\n  %116 = insertelement <3 x float> undef, float %115, i32 0\n  %117 = tail call float @air.dot.v4f32(<4 x float> %12, <4 x float> %101) #1\n  %118 = insertelement <3 x float> %116, float %117, i32 1\n  %119 = tail call float @air.dot.v4f32(<4 x float> %12, <4 x float> %105) #1\n  %120 = insertelement <3 x float> %118, float %119, i32 2\n  %121 = fmul fast <3 x float> %120, %110\n  %122 = shufflevector <4 x float> %92, <4 x float> undef, <3 x i32> <i32 0, i32 1, i32 2>\n  %123 = fadd fast <3 x float> %121, %122\n  %124 = shufflevector <3 x float> %123, <3 x float> undef, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>\n  %125 = add nuw nsw i32 %91, 1\n  %126 = icmp eq i32 %125, 4\n  br i1 %126, label %13, label %90\n}"
+    },
+    {
+      "firstLine": 170,
+      "lastLine": 187,
+      "text": "!6 = !{!\"air.compile.framebuffer_fetch_disable\"}\n!7 = !{ptr @wrapped_main, !8, !13}\n!8 = !{!9, !10, !11, !12}\n!9 = !{!\"air.vertex_output\", !\"user(locn0)\", !\"air.arg_type_name\", !\"float4\", !\"air.arg_name\", !\"TEXCOORD0\"}\n!10 = !{!\"air.vertex_output\", !\"user(locn1)\", !\"air.arg_type_name\", !\"float3\", !\"air.arg_name\", !\"TEXCOORD1\"}\n!11 = !{!\"air.vertex_output\", !\"user(locn2)\", !\"air.arg_type_name\", !\"float3\", !\"air.arg_name\", !\"COLOR0\"}\n!12 = !{!\"air.position\", !\"air.arg_type_name\", !\"float4\", !\"air.arg_name\", !\"gl_Position\"}\n!13 = !{!14, !15, !16, !17, !18, !19, !21, !23}\n!14 = !{i32 0, !\"air.vertex_input\", !\"air.location_index\", i32 0, i32 1, !\"generated(__air_placeholder__)\", !\"air.arg_type_name\", !\"float3\", !\"air.arg_name\", !\"ATTR0\"}\n!15 = !{i32 1, !\"air.vertex_input\", !\"air.location_index\", i32 1, i32 1, !\"generated(__air_placeholder__)\", !\"air.arg_type_name\", !\"float4\", !\"air.arg_name\", !\"ATTR1\"}\n!16 = !{i32 2, !\"air.vertex_input\", !\"air.location_index\", i32 2, i32 1, !\"generated(__air_placeholder__)\", !\"air.arg_type_name\", !\"float3\", !\"air.arg_name\", !\"ATTR2\"}\n!17 = !{i32 3, !\"air.vertex_input\", !\"air.location_index\", i32 7, i32 1, !\"generated(__air_placeholder__)\", !\"air.arg_type_name\", !\"uint4\", !\"air.arg_name\", !\"ATTR7\"}\n!18 = !{i32 4, !\"air.vertex_input\", !\"air.location_index\", i32 8, i32 1, !\"generated(__air_placeholder__)\", !\"air.arg_type_name\", !\"float2\", !\"air.arg_name\", !\"ATTR8\"}\n!19 = !{i32 5, !\"air.buffer\", !\"air.buffer_size\", i32 12288, !\"air.location_index\", i32 0, i32 1, !\"air.read\", !\"air.struct_type_info\", !20, !\"air.arg_type_size\", i32 12288, !\"air.arg_type_align_size\", i32 16, !\"air.arg_type_name\", !\"type_BonesCB\", !\"air.arg_name\", !\"BonesCB\"}\n!20 = !{i32 0, i32 48, i32 256, !\"float3x4\", !\"BONES\"}\n!21 = !{i32 6, !\"air.buffer\", !\"air.buffer_size\", i32 560, !\"air.location_index\", i32 1, i32 1, !\"air.read\", !\"air.struct_type_info\", !22, !\"air.arg_type_size\", i32 560, !\"air.arg_type_align_size\", i32 16, !\"air.arg_type_name\", !\"type_PerFrameVertexCB\", !\"air.arg_name\", !\"PerFrameVertexCB\"}\n!22 = !{i32 0, i32 64, i32 0, !\"float4x4\", !\"mProj\", i32 64, i32 16, i32 0, !\"float3\", !\"vCamera\", i32 80, i32 16, i32 0, !\"float4\", !\"TIME\", i32 96, i32 16, i32 0, !\"float4\", !\"TERRAIN_XFORM\", i32 112, i32 64, i32 0, !\"float4x4\", !\"VIEW_PROJECTION_MATRIX\", i32 176, i32 64, i32 0, !\"float4x4\", !\"mShadowProj\", i32 240, i32 64, i32 0, !\"float4x4\", !\"SCREEN_MATRIX\", i32 304, i32 16, i32 0, !\"float4\", !\"FOG_OF_WAR_PARAMS\", i32 320, i32 16, i32 0, !\"float4\", !\"FOG_OF_WAR_ALWAYS_BELOW_Y\", i32 336, i32 16, i32 0, !\"float4\", !\"FOW_HEIGHT_FADE\", i32 352, i32 16, i32 0, !\"float4\", !\"NAV_GRID_XFORM\", i32 368, i32 16, i32 0, !\"float4\", !\"MANTIS_FORCE_DATA\", i32 384, i32 64, i32 0, !\"float4x4\", !\"mView\", i32 448, i32 64, i32 0, !\"float4x4\", !\"mViewInv\", i32 512, i32 16, i32 0, !\"float4\", !\"GLOBAL_ENVIRONMENT_VALUES\", i32 528, i32 12, i32 0, !\"packed_float3\", !\"SUN_LIGHT_DIRECTION\", i32 540, i32 4, i32 0, !\"float\", !\"NORMAL_OFFSET_BIAS\", i32 544, i32 4, i32 0, !\"float\", !\"DRAGON_TERRAIN\", i32 548, i32 4, i32 0, !\"uint\", !\"ENV_QUALITY\"}\n!23 = !{i32 7, !\"air.buffer\", !\"air.buffer_size\", i32 144, !\"air.location_index\", i32 9, i32 1, !\"air.read\", !\"air.struct_type_info\", !24, !\"air.arg_type_size\", i32 144, !\"air.arg_type_align_size\", i32 16, !\"air.arg_type_name\", !\"type_Globals\", !\"air.arg_name\", !\"LocalsVertex\"}"
+    }
+  ],
+  "supportedPair": {
+    "vertexProgram": 0,
+    "vertexDefines": {
+      "DISABLE_FOW": "1"
+    },
+    "vertexLibrary": {
+      "path": ".cache/leona-skin-metal-abi-v1-20261024/candidate-skin-vs0.metallib",
+      "bytes": 5451,
+      "sha256": "129c06c6d4aeeb30090665c4b9a96f8222cda7c9b910f8d9fed54d074fb98397"
+    },
+    "fragmentProgram": 34,
+    "fragmentDefines": {
+      "DISABLE_FOW": "1",
+      "ALPHA_EROSION": "1"
+    },
+    "fragmentLibrary": {
+      "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-34.metallib",
+      "bytes": 4174,
+      "sha256": "f766696d141aa3b772612ec73476e9c745e3b7dceb84410b4de68a7190442fcd"
+    },
+    "entryPoints": [
+      "wrapped_main",
+      "wrapped_main"
+    ],
+    "qualification": "Statically compatible minimal synthetic pairing by exact stage locations/types and explicit arguments; pipeline creation/hardware execution has not occurred."
+  },
+  "fixture": [
+    "Bind BonesCB VS0 atbuffer0 full12288B, PerFrameVertexCB at1 full560B, LocalsVertex at9 full144B. Bones are256*48B, each three contiguous float4 rows used as row-dot transforms. Set all256 bones identity, all four vertex joint indices0 and weights[1,0,0,0]. Each bone is loaded unconditionally; zero weights do not waive index validity. No separate model/world/inverseBind buffer argument exists.",
+    "Attributes are0position float3,1weights float4,2normal float3,7joints uint4,8uv float2. Use owned storage/vertexdescriptor with no uniformslotcollision, e.g.vertexbuffer20 and synthetic64Bstride pos0/weights12/normal28/joints40/uv56. This packing is not native Leona layout evidence.",
+    "VS frame used fields mProj@0 and camera.xyz@64. FOW params@304 remain declared but are not read inVS0. Locals vFresnel@0, UVrows@16, unusedmultUV@64, kColorFactor@112, depthPush@128. Initialize declared padding. mProj consists four row float4 dot products, not assume hostcolumn-majorrawmatrixbytes without explicit row packing.",
+    "Let P and N be weighted bone-transformed position/normal. V0=normalize(P-camera); Ppush=P+V0*depthPush; clip[row]=dot([Ppush,1],projectionRow). Rim facing=clamp(dot(normalize(camera-Ppush),normalize(N)),0,1); rim=(1-powr(facing,vFresnel.w))*vFresnel.rgb. Depth push therefore changes rim direction as well as clipposition. Nonzero normal and camera separation are required even when depthPush0.",
+    "Bind PS34 buffer16 size32: erosionParams(t,s,a,b)@0, mixer@16. Textures0remap,1erosion,2base; samplers0erosion,1base,15shared. Explicit1x1 remapalpha0 disables remapreplacement. Example erosiontextureR=.5,mixer[1,0,0,0],params[.5,1,1,1] makes erosion alphafactor1. Base/tint/rim/mappedpower/matrices remain explicit synthetic inputs.",
+    "PS34 uses tint*base, conditional remapRGB, plusrim*base.a beforeRGBclamp. Outputalpha=tint.a*base.a*erosionFactor. No cube/lookup/FOW/alpha-test resource/instruction appears in this exact program. Other permutations require their own ABI; do not transferPS11lookupslots.",
+    "Set finite known inputs and avoid degenerate vectors. Use unchanged original VS0/PS34 libraries; retained text is host-retargeted for inspection only. No actual Leona W/E/R native dispatch, palette generation, resource/defaultbinding, sampler/renderstate or frame-parity claim follows."
+  ]
+}
