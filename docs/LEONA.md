@@ -18,6 +18,9 @@ on the recorded M1. Native gameplay dispatch and frames remain open. The
 [R weapon-frame search](LEONA-R-WEAPON-FRAME.md) checks17 retained BIN identities
 and all16 skin0 links but recovers no invocation frame for the two weapon quads;
 their offsets remain authored and those draws remain excluded.
+The later [reflective harness](LEONA-METAL-REFLECTION-HARNESS.md) adds111 original
+VS33/PS54 comparisons plus a fresh150-case rim regression, all byte-exact in the
+recorded synthetic cases. Native selection/resource/frame limits still apply.
 
 ## Retained source and reproducibility
 

@@ -69,6 +69,10 @@ Offline evidence verification performs no GPU execution:
 node tools/qa/verify-leona-metal-rim.mjs
 ```
 
+After the shared harness gained the later
+[reflective mode](LEONA-METAL-REFLECTION-HARNESS.md), use `--historical` for this
+original150-case ledger. The later ledger also retains a fresh150-case rim run.
+
 The first two-library check only loaded VS1/PS24. The following smoke draw and
 initial full run are retained alongside the accepted full run; all completed.
 The accepted run adds explicit command/stdout/stderr retention and waits for its

@@ -6,6 +6,7 @@ import { execFileSync, spawn, spawnSync } from 'node:child_process';
 import { resolve, join } from 'node:path';
 import { chromium } from '@playwright/test';
 import { metalRimCases, expectedMetalRim } from './metal-rim-cases.mjs';
+import { metalReflectionCases, expectedMetalReflection } from './metal-reflection-cases.mjs';
 
 assert(
   process.argv.includes('--run'),
@@ -21,23 +22,37 @@ const record = (path) => {
   const bytes = readFileSync(path);
   return { path, bytes: bytes.length, sha256: hash(bytes) };
 };
-const libraries = [
-  {
-    stage: 'vertex',
-    program: 1,
-    path: '.cache/leona-native-reflection-inputs-v1-20261024/nonreflective/mesh_vs.vs-metal-1.metallib',
-  },
-  {
-    stage: 'fragment',
-    program: 9,
-    path: '.cache/leona-native-reflection-inputs-v1-20261024/nonreflective/mesh_ps.ps-metal-9.metallib',
-  },
-  {
-    stage: 'fragment',
-    program: 24,
-    path: '.cache/leona-native-scb-material-v1-20261024/shaders/mesh_ps.ps-metal-24.metallib',
-  },
-];
+const reflective = process.argv.includes('--reflective');
+const libraries = reflective
+  ? [
+      {
+        stage: 'vertex',
+        program: 33,
+        path: '.cache/leona-e-reflection-shaders-v1-20261024/mesh_vs.vs-metal-33.metallib',
+      },
+      {
+        stage: 'fragment',
+        program: 54,
+        path: '.cache/leona-e-reflection-shaders-v1-20261024/mesh_ps.ps-metal-54.metallib',
+      },
+    ]
+  : [
+      {
+        stage: 'vertex',
+        program: 1,
+        path: '.cache/leona-native-reflection-inputs-v1-20261024/nonreflective/mesh_vs.vs-metal-1.metallib',
+      },
+      {
+        stage: 'fragment',
+        program: 9,
+        path: '.cache/leona-native-reflection-inputs-v1-20261024/nonreflective/mesh_ps.ps-metal-9.metallib',
+      },
+      {
+        stage: 'fragment',
+        program: 24,
+        path: '.cache/leona-native-scb-material-v1-20261024/shaders/mesh_ps.ps-metal-24.metallib',
+      },
+    ];
 // Check extraction/native pins before loading any library; the run records exact bytes.
 for (const script of [
   'verify-leona-native-reflection-inputs.py',
@@ -49,12 +64,22 @@ const inputs = [
   ...[
     'tools/qa/leona-metal-rim.swift',
     'tools/qa/metal-rim-cases.mjs',
+    'tools/qa/metal-reflection-cases.mjs',
     'tools/qa/run-leona-metal-rim.mjs',
     'tools/qa/particle-mesh-reflection-preview.ts',
     'src/render/particle-mesh-reflection-material.ts',
   ].map(record),
 ];
-const cases = metalRimCases();
+const expectedDigests = new Map([
+  [1, '6b86adbd5b6f807e71248eff97c03fd42b5db82e9de81578dfebca0cb60dfb12'],
+  [9, '6f497054a40a4ce2d84f7e217872ce4ec3a482e2c01361a70f82d546924e63f3'],
+  [24, 'ae3c69a06bf883597412669be3ccd0309a7c0683d061908795fa6f96a2e80d30'],
+  [33, '396edb76f948fc06da41ab4975f4697a4bdcb9621392fdfa4e3496ee3d0ab4e6'],
+  [54, 'f79178c54b8fdf6e81f230ae0836204b64b6f48fee8271f1f39864a4b2dc4853'],
+]);
+for (const library of inputs.filter((r) => r.program))
+  assert.equal(library.sha256, expectedDigests.get(library.program), library.path);
+const cases = reflective ? metalReflectionCases() : metalRimCases();
 const save = (name, data) =>
   writeFileSync(join(output, name), JSON.stringify(data, null, 2) + '\n');
 save('inputs.json', inputs);
@@ -96,7 +121,11 @@ execute('compile', 'xcrun', [
   'Foundation',
 ]);
 const native = JSON.parse(
-  execute('native', executable, [...libraries.map((l) => l.path), join(output, 'cases.json')])
+  execute('native', executable, [
+    ...(reflective ? ['--reflective'] : []),
+    ...libraries.map((l) => l.path),
+    join(output, 'cases.json'),
+  ])
 );
 save('native.json', native);
 save('executable.json', record(executable));
@@ -143,12 +172,12 @@ try {
   const comparisons = cases.map((o, i) => {
     const n = native.results[i],
       w = webgl[i],
-      scalar = expectedMetalRim(o);
+      scalar = reflective ? expectedMetalReflection(o) : expectedMetalRim(o);
     assert.equal(n.id, o.id);
     assert.equal(w.id, o.id);
     assert.equal(n.commandStatus, 'completed');
     assert.equal(w.error, 0);
-    assert.equal(w.cubeResources, 0);
+    assert.equal(w.cubeResources, reflective ? 1 : 0);
     const difference = (a, b) => Math.max(...a.map((v, j) => Math.abs(v - b[j])));
     return {
       id: o.id,

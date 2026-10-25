@@ -6300,3 +6300,35 @@ historically, and the three Node QA tests pass. No new production/offline run,
 normal cohort or performance result is claimed. E remains19 visible families
 plus its sound carrier, R41/44. Player/support and full six-character match/native
 frame acceptance remain open. The active goal continues; nothing is pushed.
+
+## Original Metal reflective mesh execution — October 24, 2026
+
+The retained ordinary-mesh VS33/PS54 execute in the owned Metal harness. All111
+reflective cases match WebGL/scalar RGBA8 output exactly on the recorded M1, and
+a fresh150-case rim regression also matches exactly after the shared harness
+extension. The first106-case run passed; the accepted set adds negative-Y cube
+coverage and four isolated reflection controls. All six cube faces are covered
+with solid colors. With source RGB/alpha, tint alpha and rim RGB zero, strength.7
+produces[49,45,34,0] for both cube alpha0 and255; strength0 clears all channels.
+This observes reflection RGB independent of fully tinted/cube alpha in the
+synthetic PS54 draw. Positive alphaRef is rejected before draw encoding because
+that exact program has no alpha test.
+
+An independent static ABI check re-extracts the original TOC/bundle programs,
+checks Metal/AIR identities and confirms the shared harness's inspected slots:
+vertex1/2/9 with560/304/160B, fragment16 with32B, cube texture3/sampler2. Both
+normal and optimized-Python checks pass. This supports the explicit fixture
+bindings, not the native client's resource selection. The shader code itself is
+loaded unchanged. Commands/stdout/stderr, harness/executable/input hashes, all
+261 comparisons and static reading are retained in the new
+[reflection ledger](reference/leona/metal-reflection-verification.json).
+See [scope and reproduction](LEONA-METAL-REFLECTION-HARNESS.md).
+
+The generic offline verifier retains the earlier150-case rim ledger through its
+frozen case module; --historical passes after the shared QA source changes.
+Missing-sample, altered-pixel and changed-library-record controls are rejected. This
+increment changes no application/public assets, schema126, rulesetc485c84b or
+pack67476352. No native game, provider restart, actual emitter dispatch/frame,
+normal cohort, performance or new production/offline result follows. E stays19
+visible families plus sound carrier, R41/44; player/support and the full roster
+remain open. Work continues under the active goal; nothing is pushed.
