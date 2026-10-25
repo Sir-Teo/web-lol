@@ -5,9 +5,11 @@ policy. They no longer inherit Ashe's opening skill order or critical-strike
 shopping route. The policy applies only to Leona; existing player selection and
 ordinary Rift spawning restrictions remain in place.
 
-This is setup for a development bot, not complete support combat AI. Leona still
-needs tactical Q/W/E/R decisions, engage/peel safety and full support-role match
-validation. No native bot behavior or recommended player build is claimed.
+This is setup for a development bot, not complete support combat AI. Subsequent
+increments add [W defense](LEONA-W-BOT-DEFENSE.md), [Q recovery resets](LEONA-Q-BOT-RESET.md)
+and [E follow-ups](LEONA-E-BOT-FOLLOWUP.md). Complete tactics, R decisions,
+engage/peel safety and full support-role match validation remain open. No native
+bot behavior or recommended player build is claimed.
 
 ## Skill allocation
 

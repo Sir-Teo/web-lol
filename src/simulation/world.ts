@@ -1629,6 +1629,96 @@ export class World {
     if (this.observedAttackWithin(u, LEONA_BOT_POLICY.defenseHorizonTicks))
       this.enqueue({ type: 'cast', unit: u.id, ability: 'w', point: { x: u.x, y: u.y } });
   }
+  private queuedCastMana(u: Unit): number {
+    return this.commands.reduce(
+      (mana, command) =>
+        mana +
+        (command.type === 'cast' && command.unit === u.id
+          ? this.abilityResources(command.ability, u.id).mana
+          : 0),
+      0
+    );
+  }
+  /** Conservative local follow-up on an isolated, observed immobilized champion. */
+  private planLeonaE(u: Unit): boolean {
+    if (
+      u.champion !== 'leona' ||
+      u.team === 'neutral' ||
+      u.stunUntil > this.tick ||
+      u.silenceUntil > this.tick ||
+      u.rootUntil > this.tick ||
+      u.releaseTick !== null
+    )
+      return false;
+    const state = this.championState(u.id)!;
+    if (
+      !state.spellRanks.e ||
+      state.leonaEWindup ||
+      state.leonaDash ||
+      state.leonaR ||
+      state.pendingCast ||
+      state.recallEnd !== null ||
+      this.abilityCooldownTicks('e', u.id) > 0 ||
+      u.mana < this.abilityResources('e', u.id).mana + this.queuedCastMana(u) ||
+      this.projectiles.some((p) => p.type === 'zenith' && p.source === u.id) ||
+      this.threateningTower(u, u, true)
+    )
+      return false;
+    // Observe sight before consulting enemy health, control clocks or positions.
+    const enemies = this.units.filter(
+      (other) =>
+        other.kind === 'champion' &&
+        other.team !== u.team &&
+        this.visible(other, u.team) &&
+        this.alive(other)
+    );
+    const reach = LEONA_SPELLS.e.missile.castRange;
+    // Hold through next-tick dispatch, windup and the complete outward flight.
+    const heldUntil =
+      this.tick +
+      1 +
+      LEONA_COMBAT_POLICY.zenithWindupTicks +
+      Math.ceil(reach / (LEONA_SPELLS.e.missile.speed * DT));
+    for (const target of [...enemies].sort(
+      (a, b) => distance(u, a) - distance(u, b) || a.id - b.id
+    )) {
+      const d = distance(u, target);
+      if (
+        !this.vulnerable(target) ||
+        d <= this.attackRange(u) + target.radius ||
+        d > reach ||
+        Math.max(target.rootUntil, target.stunUntil) < heldUntil
+      )
+        continue;
+      const away = direction(target, u),
+        dir = direction(u, target),
+        landing = {
+          x: target.x + away.x * (u.radius + target.radius),
+          y: target.y + away.y * (u.radius + target.radius),
+        },
+        end = { x: u.x + dir.x * reach, y: u.y + dir.y * reach };
+      if (
+        enemies.some(
+          (other) =>
+            other.id !== target.id &&
+            (distance(other, landing) <= LEONA_BOT_POLICY.zenithIsolationRadius ||
+              sweepCircle(u, end, other, LEONA_COMBAT_POLICY.zenithRadius + other.radius) !== null)
+        )
+      )
+        continue;
+      if (
+        this.threateningTower(u, landing, true) ||
+        !this.battlefield.lineWalkable(u, landing, u.radius, u.team) ||
+        distance(landing, this.battlefield.reachable(landing, u.radius, u.team)) > 1
+      )
+        continue;
+      // Hold the checked launch position until ordinary next-tick dispatch.
+      if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
+      this.enqueue({ type: 'cast', unit: u.id, ability: 'e', point: { x: target.x, y: target.y } });
+      return true;
+    }
+    return false;
+  }
   /** Stationary-target forecast of visible, committed champion/turret attacks. */
   private observedAttackWithin(u: Unit, horizon: number): boolean {
     const incoming = this.projectiles.some((p) => {
@@ -2575,6 +2665,7 @@ export class World {
     )
       return;
     if (this.planRoleWard(u)) return;
+    if (this.planLeonaE(u)) return;
     if (this.planCrystalArrow(u, 'finish')) return;
     if (this.planGarenR(u)) return;
     if (this.planGarenE(u)) return;
@@ -2635,16 +2726,7 @@ export class World {
         state.spellRanks.q > 0 &&
         d <= this.attackRange(u) + target.radius &&
         this.abilityCooldownTicks('q', u.id) === 0 &&
-        u.mana >=
-          this.abilityResources('q', u.id).mana +
-            this.commands.reduce(
-              (mana, command) =>
-                mana +
-                (command.type === 'cast' && command.unit === u.id
-                  ? this.abilityResources(command.ability, u.id).mana
-                  : 0),
-              0
-            )
+        u.mana >= this.abilityResources('q', u.id).mana + this.queuedCastMana(u)
       ) {
         if (u.order.type !== 'attack' || u.order.target !== target.id)
           this.setOrder(u, { type: 'attack', target: target.id });

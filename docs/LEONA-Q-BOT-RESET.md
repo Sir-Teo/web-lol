@@ -67,6 +67,6 @@ errors.
 
 The [verification ledger](reference/leona/q-bot-reset-verification.json) records
 source, standard/browser, production, public-asset and offline-pack checks.
-Complete Q tactics, E/R bot decisions, playable/support Leona and native/full-
+Complete Q/E tactics, R bot decisions, playable/support Leona and native/full-
 roster acceptance remain open; no new normal-match cohort or performance claim
 follows from this practice fixture.

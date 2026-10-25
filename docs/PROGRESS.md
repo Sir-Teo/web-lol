@@ -6,7 +6,9 @@ Last updated: October 24, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. Current TypeScript and validation pass 1,618 source/simulation/geometry/dependency/storage/audit checks across 280 files with two Vitest workers, plus three Node QA checks. Eclipse attached-skin materials also pass four diagnostic Chrome cases; match-owned W playback remains unfinished. Eclipse source preparation adds eight asset checks and repeats production/offline validation; W playback is still unfinished. The latest Leona Q source-particle integration passes sixteen targeted Chrome cases, production smoke and two ten-minute normal-roster smokes, as detailed below. The preceding Sunlight integration passed thirteen targeted Chrome cases, production smoke and two ten-minute normal-roster smokes. The preceding NPC rig integration passed ten targeted Chrome cases. The preceding Leona Solar Flare development simulation passed seven targeted Chrome cases. The earlier [Garen basic-attack particle increment](GAREN-AA-PARTICLES.md) passed thirteen targeted Chrome cases and production smoke; the complete browser suite was not repeated. The first cohort-fix increment passed 1,457 checks across 265 files. Sixteen targeted Chrome scenarios and the production smoke pass for the first cohort fixes. The preceding harness increment passed 1,452 checks across 263 files. Eleven new fault-injection/observation checks protect the frozen match-cohort runner; the preceding offline increment passed 1,441 checks across 262 files. A real production Chrome audit downloads and verifies the full offline pack, starts the game and Lux 5v5 with networking disabled, restores a saved tick, and tests two-version activation, repair and saved-data preservation. The preceding compatibility audit passed 1,432 checks and 17 targeted Chrome cases for Garen basic audio, both ordinary swings, selection and match transfer. The save-dependency audit also passes six isolated Vite/Chrome observations across five compiled identities. The preceding Garen increment passed 1,422 checks and 50 targeted Chrome cases for basic/passive/spell audio, player controls and match transfer. The previous passive-audio increment passed 1,414 checks and 35 focused Chrome cases. The preceding particle increment passed 1,407 checks and 22 Chrome cases including selection, match transfer and graphics recovery. The previous distortion increment passed 1,401 checks and 29 focused Chrome cases for its material/copy stage and adjacent E effects/audio/saves/fog/result playback. The previous source-audio increment passed 1,375 checks and 30 targeted Chrome cases. The preceding moving-particle increment passed 31 targeted Chrome cases including GPU products/blends, wave clearing and file transfer. Earlier shared-strategy, Rift camp, Gromp combat/death/missile and input/save/fog regressions remain historical evidence. The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md), with current production validation below. These results do not certify full-match completion or native visual parity. Historical counts do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 1,925 tests across 314 files, TypeScript and three Node QA checks. Ten targeted Chrome scenarios pass the [development Zenith follow-up](LEONA-E-BOT-FOLLOWUP.md), adjacent Leona bot decisions, source geometry, saved restoration, graphics recovery and effect lifecycle checks. Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
+
+The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). Current targeted evidence does not certify full-match completion or native visual parity.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -6599,3 +6601,41 @@ pass. No application/public assets, schema126, rulesetde9c47cb or pack5a22adeb
 change; no new production/offline run, cohort or performance claim is made.
 Actual Leona palette/dispatch/resources/renderstate/frames, player/support and
 full-roster acceptance remain open. Work continues under the active goal; nothing pushed.
+
+## Development Leona follows an isolated catch with Zenith — October 24, 2026
+
+Local Leona AI now queues ordinary E at an observed immobilized champion beyond
+melee reach. Control must cover dispatch, windup and the full outward flight.
+The copied point preserves observation boundaries; hidden later motion can miss.
+Observed additional champions, turret danger and blocked/corrected landing terrain
+reject the cast. Existing retreat/recall/team/committed attack guards run first,
+and queued W retains mana priority. Full E/R tactics and support integration remain open.
+
+Thirteen new unit cases cover both teams, paid damage/root/dash/Sunlight, exact
+queued and dashing saved futures, resources/control/isolation/terrain guards,
+existing flight, W priority and a moving actor. All 51 focused tests pass.
+Review caught a real 5.58-unit move between the E decision and next-tick dispatch.
+An accepted decision now uses the normal idle order to hold the reviewed origin.
+The failed regression and pre-fix sources are retained. Earlier full/browser/
+production/offline runs are superseded by the final corrected runs.
+
+Final validation passes 1,925 tests in 314 files, TypeScript and three Node QA
+checks. Ten Chrome cases cover E follow-up, Q/W/setup and source geometry/surfaces,
+restoration/recovery/lifecycle/material controls. The new encounter queues zero
+hidden casts and one observed point, pays mana, deals about 50 damage before
+regeneration and arrives at the 70-unit near edge with Sunlight. Saved futures
+match. Three active source-surface samples change 26,541 / 36,312 / 24,196 pixels;
+GL/browser errors are zero and the source arrival screenshot is inspected.
+The encounter uses controlled navigation; separate unit cases exercise terrain
+rejection. This does not certify every E family, map navigation or a native frame.
+
+Production passes 32 nested-path recordings without development hooks or
+unrequested Leona preloads. All 966 public files are unchanged. Schema 126 uses
+ruleset `dee8bc705b6d627e44d75b76a936185b3ec9ddeeeb082859f7ee643bb60ce64c`.
+Pack `70c1d32fec010f3333dbfe59f906c1d731ce1882b7c16fbe73ffe9c534638064`
+contains 1,012 files / 513,312,607 bytes; all integrity/repair/offline boot/atomic
+version controls pass with 963 worker responses and zero production errors.
+See [scope](LEONA-E-BOT-FOLLOWUP.md) and
+[ledger](reference/leona/e-bot-followup-verification.json). No new normal-match
+cohort or performance claim follows. Player, complete support/roster and native
+frame gates remain open. Work continues under the active goal; nothing pushed.

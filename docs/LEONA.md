@@ -47,6 +47,11 @@ Q resets against safely selected, visible melee champions, preserving committed
 swings and defensive W mana priority. E/R tactics, player/support and complete
 match behavior remain open.
 
+The [development Zenith follow-up](LEONA-E-BOT-FOLLOWUP.md) now queues paid E
+against isolated, visibly immobilized champions, with observed turret/terrain
+checks and defensive W mana priority. Full E/R tactics and support integration
+remain open.
+
 The [nonerosion skin lookup fixture](LEONA-METAL-SKIN-LOOKUP.md) adds 100 unchanged
 VS0/PS11 Metal/scalar draws, including 76 explicit white local comparisons, plus
 a fresh 88-case erosion regression. The 24 unsupported local lookup cases remain
