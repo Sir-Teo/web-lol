@@ -9,6 +9,8 @@ export function castAnimationName(
   ability: 'q' | 'w' | 'e' | 'r'
 ) {
   if (champion === 'garen' && ability === 'r') return GAREN_R.animationClip;
+  if (champion === 'ahri' && (ability === 'q' || ability === 'w'))
+    return ability === 'q' ? 'spell1' : 'spell2';
   if (champion === 'leona')
     return ({ q: 'spell1', w: 'spell2', e: 'spell3', r: 'spell4' } as const)[ability];
   if (ability === 'q') return 'spell1';

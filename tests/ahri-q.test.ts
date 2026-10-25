@@ -4,6 +4,7 @@ import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
 import { AHRI_Q } from '../src/content/ahri-q';
 import { AHRI } from '../src/content/ahri-progression';
 import { readFileSync } from 'node:fs';
+import { GROMP_SPAWN_LEADUP_TICKS } from '../src/content/gromp';
 
 function setup() {
   const w = new World(false, {
@@ -11,8 +12,8 @@ function setup() {
     lineOfSight: () => true,
     inBrush: () => false,
     lineWalkable: () => true,
-    reachable: (point) => ({ ...point }),
-    findPath: (_from, to) => [{ ...to }],
+    reachable: (point) => ({ x: point.x, y: point.y }),
+    findPath: (_from, to) => [{ x: to.x, y: to.y }],
   });
   w.nextWaveTick = Infinity;
   const ahri = w.spawn('champion', 'blue', { x: 0, y: 0 }, 'ahri');
@@ -253,4 +254,35 @@ test('runtime Q declarations match both complete child missile records and the r
       movement.mAcceleration,
     ]);
   }
+});
+
+test('Q does not record a hit on a protected emerging jungle monster', () => {
+  const { w, cast } = setup();
+  const monster = w.spawnMonster(
+    { x: 400, y: 0 },
+    { startTick: 0, readyTick: GROMP_SPAWN_LEADUP_TICKS }
+  );
+  cast();
+  w.step(70);
+  expect(w.vulnerable(monster)).toBe(false);
+  expect(w.ahriOrbs[0].outwardHits).toEqual([]);
+  expect(w.ahriOrbs[0].returnHits).toEqual([]);
+  expect(monster.hp).toBe(monster.maxHp);
+});
+
+test('Q can still apply its return-only hit after that emergence protection ends', () => {
+  const { w, cast } = setup();
+  const monster = w.spawnMonster(
+    { x: 400, y: 0 },
+    { startTick: 0, readyTick: GROMP_SPAWN_LEADUP_TICKS }
+  );
+  w.step(150);
+  cast();
+  w.step(40);
+  expect(w.vulnerable(monster)).toBe(false);
+  expect(w.ahriOrbs[0].outwardHits).toEqual([]);
+  w.step(100);
+  expect(w.vulnerable(monster)).toBe(true);
+  expect(monster.maxHp - monster.hp).toBe(35);
+  expect(World.fromSnapshot(w.snapshot(), w.battlefield).snapshot()).toBe(w.snapshot());
 });

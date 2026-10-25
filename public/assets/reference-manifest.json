@@ -706,6 +706,12 @@
       "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/AhriQ.png",
       "sha256": "d4007421a453486e00709d533c7777d7ea68a31f6c32cfe0a9704be4009fea40",
       "bytes": 5817
+    },
+    {
+      "path": "/assets/icons/AhriW.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/AhriW.png",
+      "sha256": "fb77f1efec029da75c3718399558cd8432507a08d5e264ea63827c8186139abf",
+      "bytes": 5854
     }
   ]
 }

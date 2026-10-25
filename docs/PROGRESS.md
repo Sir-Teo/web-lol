@@ -6,7 +6,7 @@ Last updated: October 25, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 2,090 tests across 333 files, TypeScript and three Node QA checks. Twenty-three targeted Chrome scenarios plus three application-reload cases pass for the [development Ahri Q controller](AHRI-Q.md), her NPC rig/basic attacks, Leona rig recovery, Garen/Lux controls, champion selection, animation and match files. Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 2,110 tests across 334 files, TypeScript and three Node QA checks. Thirty targeted Chrome scenarios pass for the [development Ahri Q](AHRI-Q.md)/[W](AHRI-W.md) controllers and application reloads, her NPC rig/basic attacks, Leona rig recovery, Garen/Lux controls, champion selection, animation and match files. Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
 
 The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). Current targeted evidence does not certify full-match completion or native visual parity.
 
@@ -7329,3 +7329,52 @@ One Q icon/manifest entry is added; all 1,010 other prior public files remain
 byte-identical. The [ledger](reference/ahri/q-verification.json) retains complete
 sources, generated output and evidence. Full Ahri/roster/role, native, performance
 and overall acceptance remain open. Work continues; nothing pushed.
+
+## 2026-10-25 — Development Fox-Fire, movement decay and committed shots
+
+[Ahri W](AHRI-W.md) now has paid manual NPC casts, its own text/icon and `spell2`
+body pose. Three indexed orbit states follow the caster, acquire through current
+team vision, and become committed homing shots. Rank/AP damage is captured at
+cast. Each target receives one full hit and reduced hits from the same cast;
+low-health lane minion bonuses are evaluated at impact. A separate linear
+two-second movement bonus uses the shared movement policy and remains through
+early hits. Caster death cancels unspent orbits/boost but permits dispatched
+shots to finish. Terminal settlement clears the array.
+
+The independent W audit reparses all 64 source records and verifies client
+intent: three fires, magic/reduced-repeat damage and decaying speed. Source
+records do not establish runtime ownership/dispatch. The named 2.5-second flame
+duration stays separate from the five-second orbit declaration, normal/bonus
+acquisition and generic/orbit/spline speeds. The fifteen-tick windup, priority
+and ordinary delay interpretation, ordered-target/champion preference, linear
+homing/decay, threshold operator and pursuit bound are documented local choices.
+Native body/effect/audio comparison and full targeting/control behavior remain
+open; purple spheres are explicit development markers.
+
+Schema 133 adds strict per-cast/per-fire phase, identity, payload, targeting and
+hit facts. Orbit/flight/spent states preserve separate clocks and positions.
+A regression exposed canceled earlier orbits being reinserted after a later
+cast killed their owner; retention now runs after all impact callbacks. The
+original failed death-frame checkpoint and its passing repair are retained.
+Q/W also now respect the existing emerging-monster protection gate, preventing
+premature Q contact bookkeeping and wasted W shots. Negative checks and positive
+post-emergence acquisition/return-only cases are retained. A retaliation fixture
+copied entire units into navigation points; it now returns only coordinates,
+with strict decoding unchanged.
+
+Eighteen W cases and two new Q protection cases pass. The full **2,110 tests in
+334 files**, TypeScript and three Node QA checks pass; normal and optimized
+source/export checks pass. **30/30 Chrome scenarios** pass in one run, including
+three actual W Save → reload phases, captured movement speed and 300 future
+ticks, plus Q, NPC/Leona rigs, Garen/Lux controls, selection, animation and files.
+Orbit/flight captures were visually reviewed. Production/nested hosting passes
+with 32 recordings and no Ahri preload; offline checks pass with 963 worker
+responses. Package
+`615473ae3e2b8c174ff7b840680934f4ea9b3a54eade890f17f7f87250379a1f` has
+**1,063 files / 520,014,071 bytes**; ruleset
+`3189941362620dddce36fb83291b6e53d372d99484a98be1db5d98d8ae1134d3`.
+One W icon/manifest entry is added; all 1,011 other prior public files remain
+byte-identical. The [ledger](reference/ahri/w-verification.json) retains complete
+sources, output, original failures and successful evidence. E/R, passive,
+player/role integration, full roster, native, performance and overall project
+acceptance remain open. Work continues; nothing pushed.

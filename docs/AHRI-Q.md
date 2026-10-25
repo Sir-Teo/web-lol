@@ -3,9 +3,11 @@
 Ahri's Q can now be learned and cast by the development NPC at
 `/?scene=fixture&npc=ahri`. Ashe remains the human champion. Q has its own spell
 metadata, retained icon, paid cast, source `spell1` pose, two-leg flight and strict
-continuation. W/E/R, passive, Ahri player controls, role AI and the ordinary roster
-remain unfinished. This implements explicit local simulation policies; it does
-not establish native execution or rendering.
+continuation. This document retains the initial schema-132 checkpoint, when
+W/E/R and passive were unfinished. The later [W controller](AHRI-W.md) advances
+to schema 133. Ahri player controls, the remaining kit, role AI and the ordinary
+roster remain unfinished. These are explicit local simulation policies; they
+do not establish native execution or rendering.
 
 ## Source and intended behavior
 

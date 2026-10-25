@@ -2,6 +2,9 @@ import { validateLeonaDeaths } from './leona-death-visuals';
 import { AHRI_Q } from '../content/ahri-q';
 import { AHRI_Q_POLICY } from '../content/ahri-q-policy';
 import { AHRI_Q_OUTWARD_SECONDS, acceleratingMotion } from './ahri-orb-motion';
+import { AHRI_W } from '../content/ahri-w';
+import { AHRI_W_POLICY } from '../content/ahri-w-policy';
+import { validateFoxFireCasts } from './ahri-fox-fire-validation';
 import { validateDaybreakVisuals } from './leona-q-visuals';
 import { validateLeonaAttacks } from './leona-aa-visuals';
 import { LEONA_AA_CAST_TICKS, LEONA_AA_HIT_TICKS } from '../content/leona-aa-audio-timing';
@@ -129,7 +132,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 132;
+export const SNAPSHOT_VERSION = 133;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -1564,6 +1567,38 @@ const snapshot = z.strictObject({
     )
     .max(10000),
   nextSunlightVisual: id,
+  ahriFoxFires: z
+    .array(
+      z.strictObject({
+        id,
+        sourceId: id,
+        team,
+        rank: z.number().int().min(1).max(5),
+        damage: nonnegative,
+        startTick: tick,
+        releaseTick: tick,
+        lastTick: tick,
+        facing: z.number(),
+        released: z.boolean(),
+        stopTick: tick.nullable(),
+        fires: z
+          .array(
+            z.strictObject({
+              index: z.number().int().min(0).max(2),
+              phase: z.enum(['orbit', 'flight', 'spent']),
+              position: point,
+              previous: point,
+              targetId: id.nullable(),
+              dispatchTick: tick.nullable(),
+              stopTick: tick.nullable(),
+              stopReason: z.enum(['hit', 'lost-target', 'expired', 'death']).nullable(),
+              hit: z.strictObject({ repeat: z.boolean(), minionBonus: z.boolean() }).nullable(),
+            })
+          )
+          .length(3),
+      })
+    )
+    .max(10000),
   ahriOrbs: z
     .array(
       z.strictObject({
@@ -2710,6 +2745,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   }
   const ids = [
     ...state.ahriOrbs,
+    ...state.ahriFoxFires,
     ...state.units,
     ...state.projectiles,
     ...state.pendingAttackProjectiles,
@@ -3129,6 +3165,14 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     }
   }
   const owners = [state.player, ...state.otherChampions];
+  validateFoxFireCasts(
+    state.ahriFoxFires,
+    state.units,
+    owners,
+    state.tick,
+    state.nextId,
+    state.winner
+  );
   for (const orb of state.ahriOrbs) {
     const source = state.units.find((unit) => unit.id === orb.sourceId);
     const owner = owners.find((state) => state.id === orb.sourceId);
@@ -3187,12 +3231,16 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   for (const owner of owners) {
     if (state.units.find((unit) => unit.id === owner.id)?.champion === 'ahri') {
       if (
-        (['w', 'e', 'r'] as const).some((ability) => owner.spellRanks[ability] !== 0) ||
-        owner.skillPoints + owner.spellRanks.q !== owner.level ||
-        (['w', 'e', 'r'] as const).some((ability) => owner.cooldowns[ability] !== 0) ||
+        (['e', 'r'] as const).some((ability) => owner.spellRanks[ability] !== 0) ||
+        owner.skillPoints + owner.spellRanks.q + owner.spellRanks.w !== owner.level ||
+        (['e', 'r'] as const).some((ability) => owner.cooldowns[ability] !== 0) ||
+        (['q', 'w'] as const).some(
+          (ability) => !owner.spellRanks[ability] && owner.cooldowns[ability] !== 0
+        ) ||
         (owner.castAnimation !== null &&
-          (owner.castAnimation.ability !== 'q' || !owner.spellRanks.q)) ||
-        (owner.pendingCast !== null && owner.pendingCast.ability !== 'q')
+          (!['q', 'w'].includes(owner.castAnimation.ability) ||
+            !owner.spellRanks[owner.castAnimation.ability])) ||
+        (owner.pendingCast !== null && !['q', 'w'].includes(owner.pendingCast.ability))
       )
         throw new Error('Saved match contains unfinished Ahri spell state.');
     }
@@ -3410,7 +3458,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       throw new Error('Saved match contains invalid Enlighten restoration.');
     const compatibleCast = (ability: string) =>
       champion.champion === 'ahri'
-        ? ability === 'q'
+        ? ability === 'q' || ability === 'w'
         : champion.champion === 'leona'
           ? ['w', 'e', 'r'].includes(ability)
           : champion.champion === 'lux'
@@ -3927,25 +3975,38 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     if (cast) {
       const garenR = champion.champion === 'garen' && cast.ability === 'r';
       const ahriQ = champion.champion === 'ahri' && cast.ability === 'q';
+      const ahriW = champion.champion === 'ahri' && cast.ability === 'w';
       const luxR = champion.champion === 'lux' && cast.ability === 'r';
       const luxW = champion.champion === 'lux' && cast.ability === 'w';
       const luxE = champion.champion === 'lux' && cast.ability === 'e';
-      const seconds = ahriQ
-        ? AHRI_Q.castSeconds
-        : garenR
-          ? GAREN_R_WINDUP_TICKS / TICK_RATE
-          : luxR
-            ? LUX_R.castSeconds
-            : luxW
-              ? LUX_W.castSeconds
-              : luxE
-                ? LUX_E.castSeconds
-                : cast.ability === 'q'
-                  ? LUX_BINDING.castSeconds
-                  : ASHE_CASTS[cast.ability].castSeconds;
+      const seconds = ahriW
+        ? AHRI_W_POLICY.windupTicks / TICK_RATE
+        : ahriQ
+          ? AHRI_Q.castSeconds
+          : garenR
+            ? GAREN_R_WINDUP_TICKS / TICK_RATE
+            : luxR
+              ? LUX_R.castSeconds
+              : luxW
+                ? LUX_W.castSeconds
+                : luxE
+                  ? LUX_E.castSeconds
+                  : cast.ability === 'q'
+                    ? LUX_BINDING.castSeconds
+                    : ASHE_CASTS[cast.ability].castSeconds;
       if (
         cast.releaseTick !== cast.startTick + seconds * TICK_RATE ||
         (ahriQ && cast.damage < AHRI_Q.namedDamageByRank[cast.rank - 1]) ||
+        (ahriW &&
+          (cast.damage < AHRI_W.damageByRank[cast.rank - 1] ||
+            !state.ahriFoxFires.some(
+              (fire) =>
+                fire.sourceId === champion.id &&
+                fire.startTick === cast.startTick &&
+                fire.damage === cast.damage &&
+                fire.rank === cast.rank &&
+                fire.releaseTick === cast.releaseTick
+            ))) ||
         luxR !== (cast.origin !== undefined) ||
         luxW !== (cast.shield !== undefined) ||
         luxE !== (cast.detonateRequested !== undefined) ||

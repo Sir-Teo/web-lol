@@ -212,6 +212,7 @@ export class GameView {
   private plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
   private projector = new THREE.Vector3();
   private projectileModels = new Map<number, THREE.Group>();
+  private foxFireModels = new Map<string, THREE.Group>();
   private selection: THREE.Mesh;
   private hover: THREE.Mesh;
   private range: THREE.LineLoop;
@@ -793,6 +794,7 @@ export class GameView {
         this.healthBars.delete(id);
       }
     this.syncProjectiles(world, alpha);
+    this.syncFoxFires(world, alpha);
     this.luxBeams.update(world, alpha, this.camera, terminalAge);
     this.luxStreaks.update(world, alpha, terminalAge);
     this.luxScorches.update(world, alpha, terminalAge);
@@ -1005,6 +1007,45 @@ export class GameView {
       parts.status.textContent = status;
       parts.statusText = status;
     }
+  }
+  private syncFoxFires(world: World, alpha: number): void {
+    const active = new Set<string>();
+    for (const cast of world.ahriFoxFires)
+      for (const fire of cast.fires) {
+        if (fire.phase === 'spent') continue;
+        const key = `${cast.id}:${fire.index}`;
+        active.add(key);
+        let model = this.foxFireModels.get(key);
+        if (!model) {
+          model = new THREE.Group();
+          model.add(
+            new THREE.Mesh(
+              new THREE.SphereGeometry(0.09, 8, 6),
+              new THREE.MeshBasicMaterial({ color: 0xdf9bff })
+            )
+          );
+          this.scene.add(model);
+          this.foxFireModels.set(key, model);
+        }
+        model.name = `Ahri W development ${fire.phase}`;
+        const point = {
+          x: fire.previous.x + (fire.position.x - fire.previous.x) * alpha,
+          y: fire.previous.y + (fire.position.y - fire.previous.y) * alpha,
+        };
+        model.position.set(point.x * SCALE, this.ground(point) + 0.9, point.y * SCALE);
+        model.visible = cast.team === world.hero.team || world.pointVisible(point, world.hero.team);
+      }
+    for (const [key, model] of this.foxFireModels)
+      if (!active.has(key)) {
+        this.scene.remove(model);
+        model.traverse((object) => {
+          if (object instanceof THREE.Mesh) {
+            object.geometry.dispose();
+            (object.material as THREE.Material).dispose();
+          }
+        });
+        this.foxFireModels.delete(key);
+      }
   }
   private syncProjectiles(world: World, alpha: number): void {
     const active = new Set<number>();
