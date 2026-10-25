@@ -6521,3 +6521,46 @@ QA TypeScript and three Node QA tests pass. No game material, public asset,
 schema126, ruleset2f2d7dac or pack39440090 changes. No new production/offline run,
 normal cohort or performance result is claimed. Native dispatch/frames,
 player/support and full-roster acceptance remain open. Work continues; nothing pushed.
+
+## Development Leona resets attack recovery with paid Daybreak — October 24, 2026
+
+Local practice Leona AI now queues the ordinary Q self-buff during recovery
+against a safely selected visible champion in normal melee reach. It preserves
+a ready first swing and committed windups, excludes farming/structures/monsters,
+and respects control, cooldown, rank and mana guards. Already queued self casts
+reserve their mana first, preserving defensive W priority. Actual dispatch owns
+the attack reset, payment/cooldown and empowered damage/stun/Sunlight.
+
+Eight new unit cases cover both teams, actual reset outcomes, exact queued saved
+futures, first/committed swings and the decision/resource guards. All36 focused
+cases pass. The standard check passes1,912 units in313 files, TypeScript and three
+Node QA tests. The initial unlearned test accidentally allowed normal auto-learning
+to grant Q; the corrected fixture legally spends its point on W. Its failure log
+is retained.
+
+Six browser cases pass the new Q reset, W defense, bot setup and all three Q
+particle checks. The Q encounter queues zero casts for a hidden opponent and one
+for the visible target, releases48 ticks before the old deadline, deals about67
+additional damage, and leaves actual stun/Sunlight. Saved futures match; eight
+source models contribute11,146 isolated pixels with zero GL errors. Screenshot
+review shows Leona's reset contact on stunned Lux. These are sampled local draws,
+not native or all-family acceptance.
+
+The initial broader browser run exposed a pre-existing single-age pixel check:
+SparksBurst's thin newborn draw could cover zero pixels. The retained failure
+and trace show profile14 while the other six contact families draw. The fixture
+now restores a consistent camera after reload and measures three additional saved
+future ticks, requiring every contact family to contribute somewhere in that
+four-frame interval while the original geometry still restores exactly. Source
+curves, dimensions and rendering policy remain unchanged.
+
+Production passes32 nested-path recordings with no development hook or
+unrequested Leona preload; all966 public files are byte-identical. Schema126
+uses rulesetde9c47cb340f6217eb666b186270d839b85ca2773966478a8c36909edc2155e7.
+Offline pack5a22adeb359d2998dda53851b1905c9db6611582687d89c1a460839a2775dd3b
+contains1,012 files/513,311,138 bytes; integrity, repair, saved offline boot and
+atomic-version controls pass with963 worker responses and zero production errors.
+See [reset scope](LEONA-Q-BOT-RESET.md) and
+[ledger](reference/leona/q-bot-reset-verification.json). Complete Q/E/R tactics,
+player/support and native/full-roster acceptance remain open. No new normal-
+match cohort or performance claim follows. The active goal continues; nothing pushed.

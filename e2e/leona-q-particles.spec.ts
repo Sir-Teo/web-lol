@@ -19,6 +19,7 @@ async function open(page: Page) {
     target.ai = false;
     target.hp = target.maxHp = 100000;
     g.view.zoom = 0.45;
+    g.view.locked = false;
     g.view.recenter(u);
     g.view.render(w, 1, g.view.previousElapsed);
     return { caster: u.id, target: target.id };
@@ -46,11 +47,17 @@ async function capture(page: Page) {
     }));
   });
 }
-async function pixels(page: Page) {
-  return page.evaluate(() => {
+async function pixels(page: Page, offsetTicks = 0) {
+  return page.evaluate((offsetTicks) => {
     const g = (window as any).__GAME__,
       v = g.view;
-    v.render(g.world, 1, v.previousElapsed);
+    // A narrow growing birth can project below one pixel at a single age.
+    // Sample a saved future without advancing the match under review.
+    const world = offsetTicks
+      ? g.world.constructor.fromSnapshot(g.world.snapshot(), g.world.battlefield)
+      : g.world;
+    if (offsetTicks) world.step(offsetTicks);
+    v.render(world, 1, v.previousElapsed);
     const gl = v.renderer.getContext(),
       size = gl.drawingBufferWidth * gl.drawingBufferHeight * 4;
     const read = () => {
@@ -89,8 +96,8 @@ async function pixels(page: Page) {
     }
     for (const m of v.leonaDaybreak.models.values()) m.visible = true;
     v.render(g.world, 1, v.previousElapsed);
-    return { profiles, error: gl.getError() };
-  });
+    return { offsetTicks, profiles, error: gl.getError() };
+  }, offsetTicks);
 }
 async function saveReload(page: Page) {
   if (!(await page.getByRole('button', { name: 'Save match', exact: true }).isVisible()))
@@ -108,6 +115,9 @@ async function saveReload(page: Page) {
     const g = (window as any).__GAME__;
     g.hud.closeModal();
     g.setPaused(true);
+    g.view.locked = false;
+    g.view.zoom = 0.45;
+    g.view.recenter(g.world.units.find((u: any) => u.champion === 'leona'));
   });
   expect(await page.evaluate(() => (window as any).__GAME__.world.snapshot())).toBe(saved);
   return saved;
@@ -141,15 +151,24 @@ test('six shield layers and seven enabled contact layers draw source pixels and 
     w.step(23);
   }, ids);
   const hit = await capture(page),
-    hitPixels = await pixels(page);
+    hitPixels = await pixels(page),
+    growthPixels = [await pixels(page, 1), await pixels(page, 2), await pixels(page, 3)];
   writeFileSync(
     info.outputPath('contact.json'),
-    JSON.stringify({ hit, hitPixels, errors }, null, 2)
+    JSON.stringify({ hit, hitPixels, growthPixels, errors }, null, 2)
   );
   expect([...new Set(hit.filter((m) => m.profile >= 6).map((m) => m.profile))]).toEqual([
     8, 9, 10, 11, 12, 13, 14,
   ]);
-  expect(hitPixels.profiles.filter((p) => p.profile >= 6).every((p) => p.changed > 0)).toBe(true);
+  for (const profile of [8, 9, 10, 11, 12, 13, 14])
+    expect(
+      [hitPixels, ...growthPixels].some((sample) =>
+        sample.profiles.some((p) => p.profile === profile && p.changed > 0)
+      ),
+      `source profile ${profile}`
+    ).toBe(true);
+  expect(growthPixels.every((sample) => sample.error === 0)).toBe(true);
+  expect(await capture(page)).toEqual(hit);
   expect(hitPixels.error).toBe(0);
   await page.screenshot({ path: info.outputPath('contact.png') });
   const saved = await saveReload(page);

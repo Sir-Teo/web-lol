@@ -2622,6 +2622,35 @@ export class World {
     if (target) {
       const d = distance(u, target);
       const state = this.championState(u.id)!;
+      // Reset recovery after an ordinary melee hit, keeping committed windups
+      // above intact. Use only the already observed, safely selected champion.
+      // An earlier defensive W command keeps its mana priority at dispatch.
+      if (
+        u.champion === 'leona' &&
+        target.kind === 'champion' &&
+        u.silenceUntil <= this.tick &&
+        u.releaseTick === null &&
+        this.tick < u.nextAttackTick &&
+        !state.leonaQ &&
+        state.spellRanks.q > 0 &&
+        d <= this.attackRange(u) + target.radius &&
+        this.abilityCooldownTicks('q', u.id) === 0 &&
+        u.mana >=
+          this.abilityResources('q', u.id).mana +
+            this.commands.reduce(
+              (mana, command) =>
+                mana +
+                (command.type === 'cast' && command.unit === u.id
+                  ? this.abilityResources(command.ability, u.id).mana
+                  : 0),
+              0
+            )
+      ) {
+        if (u.order.type !== 'attack' || u.order.target !== target.id)
+          this.setOrder(u, { type: 'attack', target: target.id });
+        this.enqueue({ type: 'cast', unit: u.id, ability: 'q', point: { x: u.x, y: u.y } });
+        return;
+      }
       // Spend Focus against a visible champion during recovery, preserving a
       // committed windup above. The queued cast is validated next tick like input.
       if (

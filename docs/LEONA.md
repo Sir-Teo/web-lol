@@ -42,6 +42,11 @@ VS0/PS34 against 88 explicit WebGL/scalar cases, including four-bone skinning an
 the mapped W powers. All are byte-exact on the recorded M1; native Leona palette
 preparation, dispatch and frames remain open.
 
+The [development Daybreak recovery planner](LEONA-Q-BOT-RESET.md) now queues paid
+Q resets against safely selected, visible melee champions, preserving committed
+swings and defensive W mana priority. E/R tactics, player/support and complete
+match behavior remain open.
+
 ## Retained source and reproducibility
 
 `reference/leona/character.bin` retains all 24,399 source bytes. The manifest,
@@ -517,5 +522,5 @@ full six-character match remain open.
 [Development bot setup](LEONA-BOT-SETUP.md) now gives AI-controlled Leona fixtures
 their own legal skill order and defensive component/upgrade route. It preserves
 the existing player/Rift gates and exact saved futures. The local W defense now
-reacts to observed committed attacks; Q/E/R tactics, engage/peel safety and full
+reacts to observed committed attacks; complete Q/E/R tactics, engage/peel safety and full
 support-role match validation remain required.
