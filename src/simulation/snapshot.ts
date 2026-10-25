@@ -2,6 +2,8 @@ import { validateLeonaDeaths } from './leona-death-visuals';
 import { AHRI_Q } from '../content/ahri-q';
 import { AHRI_Q_POLICY } from '../content/ahri-q-policy';
 import { AHRI_Q_OUTWARD_SECONDS, acceleratingMotion } from './ahri-orb-motion';
+import { AHRI_E } from '../content/ahri-e';
+import { AHRI_E_POLICY } from '../content/ahri-e-policy';
 import { AHRI_W } from '../content/ahri-w';
 import { AHRI_W_POLICY } from '../content/ahri-w-policy';
 import { validateFoxFireCasts } from './ahri-fox-fire-validation';
@@ -132,7 +134,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 133;
+export const SNAPSHOT_VERSION = 134;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -383,6 +385,15 @@ const unit = z
           effect.endTick > effect.startTick && effect.startMultiplier <= effect.endMultiplier
       )
       .nullable(),
+    charm: z
+      .strictObject({
+        sourceId: id,
+        rank: z.number().int().min(1).max(5),
+        startTick: tick,
+        endTick: tick,
+        tenacityApplied: z.boolean(),
+      })
+      .nullable(),
     stunUntil: deadline,
     rootUntil: deadline,
     silenceUntil: deadline,
@@ -500,6 +511,12 @@ const unit = z
   )
   .refine((u) => {
     if (!u.monster) return true;
+    if (u.charm)
+      return (
+        u.releaseTick === null &&
+        u.attackCycle === null &&
+        (u.order.type === 'idle' || u.order.type === 'move')
+      );
     if (u.monster.species === 'scuttler') return u.order.type === 'idle' || u.order.type === 'move';
     if (u.monster.phase === 'engaged') return u.order.type === 'idle' || u.order.type === 'attack';
     if (u.releaseTick !== null || u.attackCycle !== null) return false;
@@ -1003,6 +1020,7 @@ const player: z.ZodType<PlayerState> = z
                   attemptPoint: point,
                   rootUntil: deadline,
                   stunUntil: deadline,
+                  charmUntil: deadline.optional(),
                   targetAlive: z.boolean(),
                   targetPoint: point.nullable(),
                   targetRadius: z.number().positive(),
@@ -1221,7 +1239,16 @@ const projectile: z.ZodType<Projectile> = z
     id,
     source: id,
     team: faction,
-    type: z.enum(['attack', 'volley', 'ultimate', 'hawkshot', 'binding', 'prismatic', 'zenith']),
+    type: z.enum([
+      'attack',
+      'volley',
+      'ultimate',
+      'hawkshot',
+      'binding',
+      'prismatic',
+      'zenith',
+      'charm',
+    ]),
     zenith: z
       .strictObject({
         castTick: tick,
@@ -1240,6 +1267,7 @@ const projectile: z.ZodType<Projectile> = z
         returnPoint: point.optional(),
       })
       .optional(),
+    charmRank: z.number().int().min(1).max(5).optional(),
     bindingHits: z.array(id).max(1).optional(),
     bindingAudioVariant: z.union([z.literal(0), z.literal(1)]).optional(),
     x: z.number(),
@@ -1269,6 +1297,7 @@ const projectile: z.ZodType<Projectile> = z
         : p.zenith === undefined,
     'Invalid Zenith flight'
   )
+  .refine((p) => (p.type === 'charm') === (p.charmRank !== undefined), 'Invalid Charm ownership')
   .refine((p) => !p.critical || p.type === 'attack', 'Invalid critical projectile')
   .refine(
     (p) =>
@@ -2319,6 +2348,45 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   )
     throw new Error('Garen player kit is available only in the development practice fixture.');
   for (const unit of state.units) {
+    if (unit.charm) {
+      const c = unit.charm,
+        courage = [state.player, ...state.otherChampions].find((o) => o.id === unit.id)?.garenW,
+        tenacityApplied =
+          !!courage && c.startTick >= courage.startTick && c.startTick < courage.upfrontUntil,
+        source = state.units.find((u) => u.id === c.sourceId),
+        owner = [state.player, ...state.otherChampions].find((o) => o.id === c.sourceId),
+        duration = Math.round(AHRI_E.charmSecondsByRank[c.rank - 1] * TICK_RATE),
+        sampled = c.tenacityApplied
+          ? Math.min(
+              duration,
+              Math.max(
+                Math.round(0.3 * TICK_RATE),
+                Math.round(duration * (1 - GAREN_W.upfrontTenacity))
+              )
+            )
+          : duration;
+      if (
+        state.winner ||
+        unit.hp <= 0 ||
+        !source ||
+        source.champion !== 'ahri' ||
+        source.team === unit.team ||
+        !owner ||
+        owner.spellRanks.e < c.rank ||
+        c.tenacityApplied !== tenacityApplied ||
+        ['ward', 'turret', 'nexus', 'inhibitor'].includes(unit.kind) ||
+        (unit.kind === 'monster' &&
+          (unit.monster.phase === 'returning' ||
+            (unit.monster.phase === 'spawning' &&
+              !!unit.monster.spawn &&
+              state.tick < unit.monster.spawn.readyTick))) ||
+        !['idle', 'move'].includes(unit.order.type) ||
+        c.startTick > state.tick ||
+        c.endTick <= state.tick ||
+        c.endTick !== c.startTick + sampled
+      )
+        throw new Error('Saved match contains invalid Charm control.');
+    }
     if (
       unit.champion === 'ahri' &&
       (state.battlefield !== 'practice-fixture' || unit.id === state.player.id)
@@ -2775,6 +2843,47 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       )
     )
       throw new Error('Saved match contains an invalid critical projectile source.');
+    if (projectile.type === 'charm') {
+      const p = projectile,
+        source = state.units.find((u) => u.id === p.source),
+        owner = [state.player, ...state.otherChampions].find((o) => o.id === p.source),
+        launch = p.launchTick,
+        origin = p.origin,
+        travelled =
+          launch === undefined
+            ? NaN
+            : ((state.tick - launch + 1) * AHRI_E.missile.speed) / TICK_RATE,
+        previousTravel = Math.max(0, travelled - AHRI_E.missile.speed / TICK_RATE);
+      if (
+        !source ||
+        source.champion !== 'ahri' ||
+        source.team !== p.team ||
+        !owner ||
+        owner.spellRanks.e < p.charmRank! ||
+        launch === undefined ||
+        launch > state.tick ||
+        !origin ||
+        travelled >= AHRI_E_POLICY.range ||
+        p.target !== null ||
+        p.volleyId !== null ||
+        p.empowered !== undefined ||
+        p.flurryShot !== undefined ||
+        p.damage < AHRI_E.damageByRank[p.charmRank! - 1] ||
+        p.speed !== AHRI_E.missile.speed ||
+        p.radius !== AHRI_E_POLICY.radius ||
+        Math.abs(Math.hypot(p.direction.x, p.direction.y) - 1) > 1e-8 ||
+        Math.abs(p.remaining - (AHRI_E_POLICY.range - travelled)) > 1e-6 ||
+        Math.hypot(
+          p.x - origin.x - p.direction.x * travelled,
+          p.y - origin.y - p.direction.y * travelled
+        ) > 1e-6 ||
+        Math.hypot(
+          p.previous.x - origin.x - p.direction.x * previousTravel,
+          p.previous.y - origin.y - p.direction.y * previousTravel
+        ) > 1e-6
+      )
+        throw new Error('Saved match contains invalid Charm flight.');
+    }
     if (projectile.type === 'zenith') {
       const source = state.units.find((u) => u.id === projectile.source);
       const owner = [state.player, ...state.otherChampions].find((o) => o.id === projectile.source);
@@ -3231,16 +3340,17 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   for (const owner of owners) {
     if (state.units.find((unit) => unit.id === owner.id)?.champion === 'ahri') {
       if (
-        (['e', 'r'] as const).some((ability) => owner.spellRanks[ability] !== 0) ||
-        owner.skillPoints + owner.spellRanks.q + owner.spellRanks.w !== owner.level ||
-        (['e', 'r'] as const).some((ability) => owner.cooldowns[ability] !== 0) ||
-        (['q', 'w'] as const).some(
+        owner.spellRanks.r !== 0 ||
+        owner.skillPoints + owner.spellRanks.q + owner.spellRanks.w + owner.spellRanks.e !==
+          owner.level ||
+        owner.cooldowns.r !== 0 ||
+        (['q', 'w', 'e'] as const).some(
           (ability) => !owner.spellRanks[ability] && owner.cooldowns[ability] !== 0
         ) ||
         (owner.castAnimation !== null &&
-          (!['q', 'w'].includes(owner.castAnimation.ability) ||
+          (!['q', 'w', 'e'].includes(owner.castAnimation.ability) ||
             !owner.spellRanks[owner.castAnimation.ability])) ||
-        (owner.pendingCast !== null && !['q', 'w'].includes(owner.pendingCast.ability))
+        (owner.pendingCast !== null && !['q', 'w', 'e'].includes(owner.pendingCast.ability))
       )
         throw new Error('Saved match contains unfinished Ahri spell state.');
     }
@@ -3458,7 +3568,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       throw new Error('Saved match contains invalid Enlighten restoration.');
     const compatibleCast = (ability: string) =>
       champion.champion === 'ahri'
-        ? ability === 'q' || ability === 'w'
+        ? ability === 'q' || ability === 'w' || ability === 'e'
         : champion.champion === 'leona'
           ? ['w', 'e', 'r'].includes(ability)
           : champion.champion === 'lux'
@@ -3976,26 +4086,30 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       const garenR = champion.champion === 'garen' && cast.ability === 'r';
       const ahriQ = champion.champion === 'ahri' && cast.ability === 'q';
       const ahriW = champion.champion === 'ahri' && cast.ability === 'w';
+      const ahriE = champion.champion === 'ahri' && cast.ability === 'e';
       const luxR = champion.champion === 'lux' && cast.ability === 'r';
       const luxW = champion.champion === 'lux' && cast.ability === 'w';
       const luxE = champion.champion === 'lux' && cast.ability === 'e';
-      const seconds = ahriW
-        ? AHRI_W_POLICY.windupTicks / TICK_RATE
-        : ahriQ
-          ? AHRI_Q.castSeconds
-          : garenR
-            ? GAREN_R_WINDUP_TICKS / TICK_RATE
-            : luxR
-              ? LUX_R.castSeconds
-              : luxW
-                ? LUX_W.castSeconds
-                : luxE
-                  ? LUX_E.castSeconds
-                  : cast.ability === 'q'
-                    ? LUX_BINDING.castSeconds
-                    : ASHE_CASTS[cast.ability].castSeconds;
+      const seconds = ahriE
+        ? AHRI_E.castSeconds
+        : ahriW
+          ? AHRI_W_POLICY.windupTicks / TICK_RATE
+          : ahriQ
+            ? AHRI_Q.castSeconds
+            : garenR
+              ? GAREN_R_WINDUP_TICKS / TICK_RATE
+              : luxR
+                ? LUX_R.castSeconds
+                : luxW
+                  ? LUX_W.castSeconds
+                  : luxE
+                    ? LUX_E.castSeconds
+                    : cast.ability === 'q'
+                      ? LUX_BINDING.castSeconds
+                      : ASHE_CASTS[cast.ability].castSeconds;
       if (
         cast.releaseTick !== cast.startTick + seconds * TICK_RATE ||
+        (ahriE && cast.damage < AHRI_E.damageByRank[cast.rank - 1]) ||
         (ahriQ && cast.damage < AHRI_Q.namedDamageByRank[cast.rank - 1]) ||
         (ahriW &&
           (cast.damage < AHRI_W.damageByRank[cast.rank - 1] ||

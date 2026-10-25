@@ -6,7 +6,8 @@ NPC foundation now adds her own stats, basic attacks and body rig. Ahri remains
 outside player selection and the Rift roster; her spell kit is unfinished.
 [Orb of Deception](AHRI-Q.md) now has a development NPC controller with paid
 casts, separate flight legs and saved continuation. [Fox-Fire](AHRI-W.md) adds
-three fires and a decaying movement boost. E/R and passive remain open.
+three fires and a decaying movement boost. [Charm](AHRI-E.md) adds a first-hit
+missile and saved forced walking. R and passive remain open.
 
 ## Retained inputs
 
@@ -83,13 +84,13 @@ is selected as a runtime policy. Attack-speed ratio, attack offset, selection
 shape and navigation radius remain raw character fields. An absent attack-speed
 cast-offset scaling field is not assigned another champion's value.
 
-| Spell | Authored distinctions retained | Behavior still to establish |
-| --- | --- | --- |
-| Q | Root `BaseDamage` 35/60/85/110/135 and coefficient 0.5; child legacy arrays and coefficients 0.4/0.6 differ. Root speed 1100 differs from missile movement. Outward initial/max 2500, minimum 400, acceleration −3200; return initial/minimum 60, maximum 2600, acceleration 1900. Both widths 100. | Damage callers/categories for each leg, movement integration, turn/reacquisition, collision width interpretation and per-leg hit bookkeeping. |
-| W | Named flame duration 2.5 seconds differs from circle-missile lifetime 5. Orbit movement, damage-missile spline entries, root ranges, acquisition values and repeat multiplier remain separate. | Fire ownership/count, priority and dispatch, eligible repeat hits, lost-target behavior and movement-speed decay. |
-| E | Root display range 975 differs from child display range 1175. Child fixed speed 1550 and width 60 are explicit. Child declares `DestroyOnHit`; Q children do not. | Collision filtering, charm movement, tenacity/cleanse, dash interactions and command/control precedence. |
-| R | Display distance 450 differs from named dash distance 500. Named initial count 3, reset count 1, recast window 15 seconds and extension 10 seconds remain distinct. Cherry reset count 2 stays a mode override. | Charge spending and cooldown start, takedown/reset/arrival timing, extension limits, terrain crossing, endpoint and dash-speed policies. |
-| Passive | Stack count 9, takedown window 3 seconds; heal expressions retain level interpolation endpoints 75→165 plus coefficient 0.3, and 35→95 plus coefficient 0.2, with exact source floats. | Kill/assist and monster eligibility, stacking/death/respawn rules, interpolation evaluation, arrival timing and healing caps. |
+| Spell   | Authored distinctions retained                                                                                                                                                                                                                                                                      | Behavior still to establish                                                                                                                   |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| Q       | Root `BaseDamage` 35/60/85/110/135 and coefficient 0.5; child legacy arrays and coefficients 0.4/0.6 differ. Root speed 1100 differs from missile movement. Outward initial/max 2500, minimum 400, acceleration −3200; return initial/minimum 60, maximum 2600, acceleration 1900. Both widths 100. | Damage callers/categories for each leg, movement integration, turn/reacquisition, collision width interpretation and per-leg hit bookkeeping. |
+| W       | Named flame duration 2.5 seconds differs from circle-missile lifetime 5. Orbit movement, damage-missile spline entries, root ranges, acquisition values and repeat multiplier remain separate.                                                                                                      | Fire ownership/count, priority and dispatch, eligible repeat hits, lost-target behavior and movement-speed decay.                             |
+| E       | Root display range 975 differs from child display range 1175. Child fixed speed 1550 and width 60 are explicit. Child declares `DestroyOnHit`; Q children do not.                                                                                                                                   | Collision filtering, charm movement, tenacity/cleanse, dash interactions and command/control precedence.                                      |
+| R       | Display distance 450 differs from named dash distance 500. Named initial count 3, reset count 1, recast window 15 seconds and extension 10 seconds remain distinct. Cherry reset count 2 stays a mode override.                                                                                     | Charge spending and cooldown start, takedown/reset/arrival timing, extension limits, terrain crossing, endpoint and dash-speed policies.      |
+| Passive | Stack count 9, takedown window 3 seconds; heal expressions retain level interpolation endpoints 75→165 plus coefficient 0.3, and 35→95 plus coefficient 0.2, with exact source floats.                                                                                                              | Kill/assist and monster eligibility, stacking/death/respawn rules, interpolation evaluation, arrival timing and healing caps.                 |
 
 Both Q missile specifications declare `CastOnHit` and
 `DestroyOnMovementComplete`. Their lack of `DestroyOnHit` does not prove that an
@@ -196,5 +197,5 @@ captures. Run `node tools/qa/verify-ahri-development.mjs`; after later project
 changes, `--historical` checks the retained checkpoint rather than current files.
 This NPC foundation does not certify a playable Ahri kit or native matching.
 The later [Q controller](AHRI-Q.md) advances the schema to 132 and permits manual
-Q learning/casts; [W](AHRI-W.md) advances to 133. The evidence above retains the
+Q learning/casts; [W](AHRI-W.md) advances to 133 and [E](AHRI-E.md) to 134. The evidence above retains the
 earlier checkpoint's scope.

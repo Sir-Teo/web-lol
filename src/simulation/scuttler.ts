@@ -160,6 +160,8 @@ export function advanceScuttler(w: World, u: Monster, move: (u: Unit, p: Vec2) =
     w.setOrder(u, { type: 'idle' });
     return;
   }
+  // Keep lifecycle deadlines current while Charm owns movement and suppresses decisions.
+  if (u.charm) return;
   if (s.grazeUntil !== null) return;
   if (w.tick >= s.nextThinkTick) {
     s.nextThinkTick = w.tick + P.thinkTicks;

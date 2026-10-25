@@ -113,7 +113,7 @@ test('Ahri NPC source rig, hidden meshes, attacks and saved poses run on the dev
     w.step();
     state.inventory = [];
     const spellRanks = { ...state.spellRanks };
-    const learning = ['e', 'r'].map((ability) => w.learnSpell(ability, ahri.id));
+    const learning = ['r'].map((ability) => w.learnSpell(ability, ahri.id));
     w.damage(w.hero, ahri, 1e6, 'true');
     w.step(10);
     checkpoint('death');

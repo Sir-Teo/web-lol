@@ -59,6 +59,7 @@ export interface ZenithVisual {
       attemptPoint: Vec2;
       rootUntil: number;
       stunUntil: number;
+      charmUntil?: number;
       targetAlive: boolean;
       targetPoint: Vec2 | null;
       targetRadius: number;
@@ -193,7 +194,11 @@ export function stopZenithDashVisual(
   reason: ZenithDashEnd,
   attemptPoint: Vec2 = source,
   castTick = world.championState(source.id)?.leonaDash?.castTick,
-  control = { rootUntil: source.rootUntil, stunUntil: source.stunUntil }
+  control: { rootUntil: number; stunUntil: number; charmUntil?: number } = {
+    rootUntil: source.rootUntil,
+    stunUntil: source.stunUntil,
+    ...(source.charm ? { charmUntil: source.charm.endTick } : {}),
+  }
 ) {
   if (castTick === undefined) return;
   const r = record(world, source, castTick),

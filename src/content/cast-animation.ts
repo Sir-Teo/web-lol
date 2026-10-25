@@ -1,3 +1,4 @@
+import { AHRI_E_POLICY } from './ahri-e-policy';
 import { ASHE_CASTS } from './ashe-casting';
 import durations from './champion-clip-durations.json';
 import { GAREN_R } from './garen-r';
@@ -9,6 +10,7 @@ export function castAnimationName(
   ability: 'q' | 'w' | 'e' | 'r'
 ) {
   if (champion === 'garen' && ability === 'r') return GAREN_R.animationClip;
+  if (champion === 'ahri' && ability === 'e') return AHRI_E_POLICY.bodyClip;
   if (champion === 'ahri' && (ability === 'q' || ability === 'w'))
     return ability === 'q' ? 'spell1' : 'spell2';
   if (champion === 'leona')

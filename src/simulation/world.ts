@@ -1,6 +1,8 @@
 import { captureLeonaDeath, advanceLeonaDeaths } from './leona-death-visuals';
 import { AHRI_Q } from '../content/ahri-q';
 import { ahriOrbDamage, beginAhriOrb, advanceAhriOrbs, type AhriOrb } from './ahri-orbs';
+import { AHRI_E } from '../content/ahri-e';
+import { AHRI_E_POLICY } from '../content/ahri-e-policy';
 import { AHRI_W } from '../content/ahri-w';
 import { AHRI_W_POLICY } from '../content/ahri-w-policy';
 import {
@@ -501,6 +503,7 @@ export class World {
       slowMultiplier: 0.7,
       slows: [],
       criticalSlow: null,
+      charm: null,
       stunUntil: 0,
       rootUntil: 0,
       silenceUntil: 0,
@@ -830,8 +833,9 @@ export class World {
       monster.spawn = null;
     if (monster.species === 'scuttler') {
       advanceScuttler(this, u, (unit, point) => this.move(unit, point));
-      return true;
+      return !u.charm;
     }
+    if (u.charm && u.charm.endTick > this.tick) return false;
     if (
       monster.phase === 'engaged' &&
       (!target ||
@@ -1097,6 +1101,12 @@ export class World {
       if (zone.arrivalTick !== null && zone.detonatedTick === null && zone.endTick! > this.tick)
         this.slowSingularity(zone);
     advanceWards(this);
+    // Expiry precedes input acceptance; a finished Charm never leaves a move order behind.
+    for (const u of this.units)
+      if (u.charm && this.tick >= u.charm.endTick) {
+        u.charm = null;
+        this.setOrder(u, { type: 'idle' });
+      }
     const commands = this.commands.splice(0);
     for (const command of commands) {
       const u = this.unit(command.unit);
@@ -1108,7 +1118,7 @@ export class World {
       }
       if (!this.alive(u)) continue;
       if (
-        u.stunUntil > this.tick &&
+        (u.stunUntil > this.tick || !!u.charm) &&
         !(command.type === 'cast' && this.abilitySpec(command.ability, u.id).canCastWhileDisabled)
       )
         continue;
@@ -1176,8 +1186,10 @@ export class World {
       const thinkNow = u.ai && this.tick >= u.nextThink;
       if (thinkNow) {
         this.planDefensiveHeal(u);
-        this.planGarenW(u);
-        this.planLeonaW(u);
+        if (!u.charm) {
+          this.planGarenW(u);
+          this.planLeonaW(u);
+        }
         u.nextThink = this.tick + 18;
       }
       const state = this.championState(u.id);
@@ -1222,6 +1234,7 @@ export class World {
           this.releasePrismatic(u, cast.point, cast.shield!, cast.startTick);
         else if (u.champion === 'ahri' && cast.ability === 'q')
           beginAhriOrb(this, u, cast.point, cast.rank, cast.damage);
+        else if (u.champion === 'ahri' && cast.ability === 'e') this.releaseCharm(u, cast);
         else if (u.champion === 'ahri' && cast.ability === 'w')
           releaseFoxFireCast(this, u, cast.startTick);
         else if (cast.ability === 'q') this.releaseLightBinding(u, cast.point, cast.damage);
@@ -1255,6 +1268,13 @@ export class World {
           u.releaseTick = null;
           u.nextAttackTick = this.tick;
         }
+        continue;
+      }
+      if (u.charm) {
+        // Existing uncancellable empowered attacks finish; Charm cannot start another.
+        if (u.releaseTick !== null) this.advanceUnit(u, true);
+        if (this.winner) return;
+        if (u.releaseTick === null) this.advanceCharm(u);
         continue;
       }
       if (thinkNow) this.think(u);
@@ -3568,7 +3588,13 @@ export class World {
     // The final champion is rooted even if the missile owner has since died or
     // become unable to dash. A dead final champion never falls back to an earlier hit.
     this.applyRoot(target, Math.round(LEONA_SPELLS.e.rootSeconds * TICK_RATE));
-    if (!this.alive(source) || source.rootUntil > this.tick || source.stunUntil > this.tick) return;
+    if (
+      !this.alive(source) ||
+      source.rootUntil > this.tick ||
+      source.stunUntil > this.tick ||
+      source.charm
+    )
+      return;
     const owner = this.championState(source.id)!;
     this.setOrder(source, { type: 'attack', target: target.id });
     if (!this.committedLeonaQ(source)) {
@@ -3586,7 +3612,11 @@ export class World {
   private finishLeonaDash(
     source: Unit,
     reason: ZenithDashEnd = 'arrived',
-    control = { rootUntil: source.rootUntil, stunUntil: source.stunUntil }
+    control: { rootUntil: number; stunUntil: number; charmUntil?: number } = {
+      rootUntil: source.rootUntil,
+      stunUntil: source.stunUntil,
+      ...(source.charm ? { charmUntil: source.charm.endTick } : {}),
+    }
   ): void {
     const state = this.championState(source.id);
     if (!state?.leonaDash) return;
@@ -3613,7 +3643,8 @@ export class World {
       !target ||
       !this.alive(target) ||
       source.rootUntil > this.tick ||
-      source.stunUntil > this.tick
+      source.stunUntil > this.tick ||
+      !!source.charm
     ) {
       this.finishLeonaDash(source, !target || !this.alive(target) ? 'target-lost' : 'control');
       return;
@@ -3706,7 +3737,10 @@ export class World {
   slowFactor(u: Unit): number {
     // Retain the old diagnostic fields, but all new combat applications also
     // retain independent source/effect state so later hits cannot erase them.
-    let slow = u.slowUntil > this.tick ? u.slowMultiplier : 1;
+    let slow = Math.min(
+      u.slowUntil > this.tick ? u.slowMultiplier : 1,
+      u.charm && u.charm.endTick > this.tick ? AHRI_E_POLICY.movementMultiplier : 1
+    );
     const critical = u.criticalSlow;
     if (critical && this.tick < critical.endTick) {
       const progress = Math.max(
@@ -3816,6 +3850,76 @@ export class World {
         Math.round(durationTicks * (1 - GAREN_W.upfrontTenacity))
       )
     );
+  }
+  /** Local CC policy: latest Charm replaces prior Charm, sampling shared tenacity on impact.
+   * Stun suspends walking; root prevents travel; committed non-channel casts still finish. */
+  applyCharm(source: Unit, target: Unit, rank: number): boolean {
+    if (
+      this.winner ||
+      source.champion !== 'ahri' ||
+      !this.units.includes(source) ||
+      !this.units.includes(target) ||
+      source.team === target.team ||
+      (this.championState(source.id)?.spellRanks.e ?? 0) < rank ||
+      !this.alive(target) ||
+      !this.vulnerable(target) ||
+      (target.kind === 'monster' && target.monster.phase === 'returning') ||
+      isStructureKind(target.kind) ||
+      target.kind === 'ward' ||
+      !Number.isInteger(rank) ||
+      rank < 1 ||
+      rank > 5
+    )
+      return false;
+    const duration = Math.round(AHRI_E.charmSecondsByRank[rank - 1] * TICK_RATE),
+      sampled = this.controlDurationTicks(target, duration);
+    target.charm = {
+      sourceId: source.id,
+      rank,
+      startTick: this.tick,
+      endTick: this.tick + sampled,
+      tenacityApplied: sampled !== duration,
+    };
+    this.setOrder(target, { type: 'idle' });
+    if (target.champion === 'leona') this.finishLeonaDash(target, 'control');
+    return true;
+  }
+  private advanceCharm(target: Unit): void {
+    const source = this.unit(target.charm!.sourceId);
+    if (!source || distance(source, target) <= source.radius + target.radius) {
+      if (target.order.type !== 'idle') this.setOrder(target, { type: 'idle' });
+      return;
+    }
+    // Follow the caster's current point (including its retained corpse), using ordinary terrain paths.
+    const dir = direction(source, target),
+      stop = source.radius + target.radius;
+    const point = { x: source.x + dir.x * stop, y: source.y + dir.y * stop };
+    target.order = { type: 'move', point };
+    this.move(target, point);
+  }
+  private releaseCharm(source: Unit, cast: NonNullable<ChampionState['pendingCast']>): void {
+    const dir = direction(source, cast.point);
+    // Aim is selected at acceptance; no Flash-during-windup exception is introduced here.
+    if (!dir.x && !dir.y) return;
+    this.projectiles.push({
+      id: this.nextId++,
+      source: source.id,
+      team: source.team,
+      type: 'charm',
+      charmRank: cast.rank,
+      x: source.x,
+      y: source.y,
+      previous: { x: source.x, y: source.y },
+      origin: { x: source.x, y: source.y },
+      launchTick: this.tick,
+      direction: dir,
+      target: null,
+      volleyId: null,
+      damage: cast.damage,
+      speed: AHRI_E.missile.speed,
+      radius: AHRI_E_POLICY.radius,
+      remaining: AHRI_E_POLICY.range,
+    });
   }
   applyRoot(target: Unit, durationTicks: number): boolean {
     if (
@@ -4407,6 +4511,35 @@ export class World {
           finishZenithFlight(this, source, p);
           this.beginLeonaDash(source, p);
           settleZenithFlight(this, source, p);
+        }
+        continue;
+      }
+      if (p.type === 'charm') {
+        const hit = this.units
+          .flatMap((u) => {
+            if (
+              !this.alive(u) ||
+              !this.vulnerable(u) ||
+              u.team === p.team ||
+              (u.kind === 'monster' && u.monster.phase === 'returning') ||
+              isStructureKind(u.kind) ||
+              u.kind === 'ward'
+            )
+              return [];
+            const t = sweepCircle(p, end, u, p.radius + u.radius);
+            return t === null ? [] : [{ unit: u, t }];
+          })
+          .sort((a, b) => a.t - b.t || a.unit.id - b.unit.id)[0];
+        if (hit) {
+          if (source) {
+            this.damage(source, hit.unit, p.damage, 'magic');
+            this.applyCharm(source, hit.unit, p.charmRank!);
+          }
+        } else {
+          p.x = end.x;
+          p.y = end.y;
+          p.remaining = Math.max(0, p.remaining - travel);
+          if (p.remaining > 1e-8) survivors.push(p);
         }
         continue;
       }
@@ -5317,7 +5450,10 @@ export class World {
         this.commands.length = 0;
         this.pendingSpawns.length = 0;
         for (const unit of this.units) this.setOrder(unit, { type: 'idle' });
-        for (const unit of this.units) unit.sunlight = null;
+        for (const unit of this.units) {
+          unit.sunlight = null;
+          unit.charm = null;
+        }
         advanceOracleVisuals(this);
       }
       if (targetState) {
@@ -5360,6 +5496,7 @@ export class World {
       for (const owner of this.activeChampionStates())
         if (owner.leonaDash?.targetId === target.id)
           this.finishLeonaDash(this.unit(owner.id)!, 'target-lost');
+      target.charm = null;
       target.garenEShreds = [];
       const lastDamage = targetState?.damageContributors
         .slice()
@@ -5568,6 +5705,7 @@ export class World {
     if (u.structureIdle) u.structureIdle.startTick = this.tick;
     u.respawnTick = null;
     u.releaseTick = null;
+    u.charm = null;
     u.stunUntil = 0;
     u.rootUntil = 0;
     u.silenceUntil = 0;
@@ -5592,8 +5730,11 @@ export class World {
     return (['d', 'f'] as const).find((slot) => this.summonerSpell(slot, championId) === spell);
   }
   abilitySpec(ability: Ability, championId = this.player.id): typeof ABILITIES.d {
-    if (this.unit(championId)?.champion === 'ahri' && (ability === 'q' || ability === 'w')) {
-      const spell = ability === 'q' ? AHRI_Q : AHRI_W;
+    if (
+      this.unit(championId)?.champion === 'ahri' &&
+      (ability === 'q' || ability === 'w' || ability === 'e')
+    ) {
+      const spell = ability === 'q' ? AHRI_Q : ability === 'w' ? AHRI_W : AHRI_E;
       return {
         name: spell.name,
         description: spell.description,
@@ -5638,7 +5779,7 @@ export class World {
     if (this.winner) return 'The match has ended';
     const state = this.championState(championId);
     if (!state) return 'Unknown champion';
-    if (this.unit(championId)?.champion === 'ahri' && ability !== 'q' && ability !== 'w')
+    if (this.unit(championId)?.champion === 'ahri' && ability === 'r')
       return 'Ahri spells are still in development';
     const rank = state.spellRanks[ability];
     if (rank >= (ability === 'r' ? 3 : 5)) return 'This spell is already at maximum rank';
@@ -5703,14 +5844,18 @@ export class World {
             ? AHRI_Q.manaByRank[rank - 1]
             : ability === 'w'
               ? AHRI_W.manaByRank[rank - 1]
-              : 0,
+              : ability === 'e'
+                ? AHRI_E.manaByRank[rank - 1]
+                : 0,
         cooldownSeconds: !rank
           ? 0
           : ability === 'q'
             ? AHRI_Q.cooldownSecondsByRank[rank - 1]
             : ability === 'w'
               ? AHRI_W.cooldownSecondsByRank[rank - 1]
-              : 0,
+              : ability === 'e'
+                ? AHRI_E.cooldownSecondsByRank[rank - 1]
+                : 0,
       };
     if (this.unit(championId)?.champion === 'leona')
       return rank ? leonaSpellResources(ability, rank) : { mana: 0, cooldownSeconds: 0 };
@@ -5753,7 +5898,7 @@ export class World {
     const state = this.championState(u.id);
     if (!state || u.kind !== 'champion') return;
     if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
-    if (u.champion === 'ahri' && ['e', 'r'].includes(ability)) return;
+    if (u.champion === 'ahri' && ability === 'r') return;
     const summoner = this.summonerSpell(ability, u.id);
     if (summoner === 'smite') {
       const target = targetId === undefined ? undefined : this.unit(targetId);
@@ -5873,6 +6018,31 @@ export class World {
       u.attackCycle = null;
       u.facing = Math.atan2(dir.x, dir.y);
       this.emit('cast', u, { unit: u.id, champion: 'ahri', text: 'q', team: u.team });
+      return;
+    }
+    if (u.champion === 'ahri' && ability === 'e') {
+      const dir = direction(u, point);
+      if (!dir.x && !dir.y) return;
+      const rank = state.spellRanks.e,
+        damage = AHRI_E.damageByRank[rank - 1] + AHRI_E.abilityPowerRatio * this.abilityPower(u);
+      u.mana -= resources.mana;
+      state.cooldowns.e = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
+      state.recallEnd = null;
+      state.pendingCast = {
+        ability: 'e',
+        rank,
+        startTick: this.tick,
+        releaseTick: this.tick + AHRI_E_POLICY.windupTicks,
+        point: { x: point.x, y: point.y },
+        damage,
+      };
+      state.castAnimation = { ability: 'e', startTick: this.tick };
+      this.finishAttackPresentation(u, 'action');
+      u.releaseTick = null;
+      u.attackTarget = null;
+      u.attackCycle = null;
+      u.facing = Math.atan2(dir.x, dir.y);
+      this.emit('cast', u, { unit: u.id, champion: 'ahri', text: 'e', team: u.team });
       return;
     }
     if (u.champion === 'ahri' && ability === 'w') {

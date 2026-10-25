@@ -5,7 +5,7 @@ Ahri's Q can now be learned and cast by the development NPC at
 metadata, retained icon, paid cast, source `spell1` pose, two-leg flight and strict
 continuation. This document retains the initial schema-132 checkpoint, when
 W/E/R and passive were unfinished. The later [W controller](AHRI-W.md) advances
-to schema 133. Ahri player controls, the remaining kit, role AI and the ordinary
+to schema 133 and [E](AHRI-E.md) to 134. Ahri player controls, the remaining kit, role AI and the ordinary
 roster remain unfinished. These are explicit local simulation policies; they
 do not establish native execution or rendering.
 
@@ -40,15 +40,15 @@ independent movement profiles and raw child range arrays.
 
 ## Local simulation policies
 
-| Concern | Implemented policy |
-| --- | --- |
-| Cast | Five ranks; costs 55/65/75/85/95 mana; base cooldown 7 seconds with ordinary haste adjustment. Costs/cooldown begin at accepted cast. A 15-tick windup commits the copied aim, cancels an ordinary attack and recall, and delays movement until release. New casts fail under stun/silence; an accepted windup completes through later stun. Death cancels the windup without refund. |
-| Outward movement | Aim supplies direction. The orb travels a fixed 1000 units, even for a nearby aim point. Speed starts at 2500, decelerates at 3200 per second and clamps at 400. The root's generic 1100 speed is not used as this movement speed. |
-| Turn | Clamped speed is integrated analytically in seconds. The endpoint occurs at 0.77734375 seconds, inside the 47th tick. That tick emits a final outward segment and spends only its remaining time on return. |
-| Return movement | Re-aim at the caster's current center after unit movement. Speed begins at 60, accelerates at 1900 per second and clamps at 2600. Arrival clamps to the caster center. Flash changes the tracked endpoint; a dead caster remains the return target. A local eight-second flight limit bounds pathological pursuit. |
-| Collision | Swept circles use source width 100 as a radius, plus each target's radius. Width interpretation is provisional. Both legs ignore terrain. Living hostile champions, lane units, dummies and neutral monsters are eligible; allied units, structures and wards are excluded. Targets are ordered by contact fraction, then ID. |
-| Damage | Each target can receive one hit per leg, including a return-only hit. Damage/rank are captured at cast; later items do not rewrite the payload. Outward damage uses magic mitigation; return damage uses true damage through the ordinary damage/shield pipeline. No Frost or Focus behavior is borrowed. |
-| Match end | The active flight array clears at the ordinary terminal boundary. No additional attacks, events or simulation ticks are created to finish its visual. |
+| Concern          | Implemented policy                                                                                                                                                                                                                                                                                                                                                                    |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cast             | Five ranks; costs 55/65/75/85/95 mana; base cooldown 7 seconds with ordinary haste adjustment. Costs/cooldown begin at accepted cast. A 15-tick windup commits the copied aim, cancels an ordinary attack and recall, and delays movement until release. New casts fail under stun/silence; an accepted windup completes through later stun. Death cancels the windup without refund. |
+| Outward movement | Aim supplies direction. The orb travels a fixed 1000 units, even for a nearby aim point. Speed starts at 2500, decelerates at 3200 per second and clamps at 400. The root's generic 1100 speed is not used as this movement speed.                                                                                                                                                    |
+| Turn             | Clamped speed is integrated analytically in seconds. The endpoint occurs at 0.77734375 seconds, inside the 47th tick. That tick emits a final outward segment and spends only its remaining time on return.                                                                                                                                                                           |
+| Return movement  | Re-aim at the caster's current center after unit movement. Speed begins at 60, accelerates at 1900 per second and clamps at 2600. Arrival clamps to the caster center. Flash changes the tracked endpoint; a dead caster remains the return target. A local eight-second flight limit bounds pathological pursuit.                                                                    |
+| Collision        | Swept circles use source width 100 as a radius, plus each target's radius. Width interpretation is provisional. Both legs ignore terrain. Living hostile champions, lane units, dummies and neutral monsters are eligible; allied units, structures and wards are excluded. Targets are ordered by contact fraction, then ID.                                                         |
+| Damage           | Each target can receive one hit per leg, including a return-only hit. Damage/rank are captured at cast; later items do not rewrite the payload. Outward damage uses magic mitigation; return damage uses true damage through the ordinary damage/shield pipeline. No Frost or Focus behavior is borrowed.                                                                             |
+| Match end        | The active flight array clears at the ordinary terminal boundary. No additional attacks, events or simulation ticks are created to finish its visual.                                                                                                                                                                                                                                 |
 
 Exact native integration order, movement time base, collision eligibility and
 width, endpoint/catch geometry, cancellation/CC priorities, caster death/recall

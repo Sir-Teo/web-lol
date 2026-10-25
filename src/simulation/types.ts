@@ -225,6 +225,14 @@ export interface UnitBase extends Vec2 {
     startMultiplier: number;
     endMultiplier: number;
   } | null;
+  /** Latest Charm owns forced walking until its sampled deadline. */
+  charm: {
+    sourceId: number;
+    rank: number;
+    startTick: number;
+    endTick: number;
+    tenacityApplied: boolean;
+  } | null;
   stunUntil: number;
   rootUntil: number;
   silenceUntil: number;
@@ -317,7 +325,8 @@ export interface Projectile extends Vec2 {
   id: number;
   source: number;
   team: Faction;
-  type: 'attack' | 'volley' | 'ultimate' | 'hawkshot' | 'binding' | 'prismatic' | 'zenith';
+  type:
+    'attack' | 'volley' | 'ultimate' | 'hawkshot' | 'binding' | 'prismatic' | 'zenith' | 'charm';
   prismatic?: {
     phase: 'out' | 'return';
     castTick: number;
@@ -327,6 +336,7 @@ export interface Projectile extends Vec2 {
     returnPoint?: Vec2;
   };
   zenith?: { castTick: number; rank: number; hits: number[]; lastChampionId: number | null };
+  charmRank?: number;
   bindingHits?: number[];
   bindingAudioVariant?: 0 | 1;
   previous: Vec2;

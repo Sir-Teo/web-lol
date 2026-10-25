@@ -990,19 +990,21 @@ export class GameView {
           ? 'PROTECTED'
           : u.stunUntil > world.tick
             ? 'STUNNED'
-            : u.rootUntil > world.tick
-              ? 'ROOTED'
-              : u.silenceUntil > world.tick
-                ? 'SILENCED'
-                : world.slowFactor(u) < 1
-                  ? u.cinderBurn
-                    ? 'BURNING · SLOWED'
-                    : 'SLOWED'
-                  : u.cinderBurn
-                    ? 'BURNING'
-                    : u.illumination.some((mark) => mark.endTick > world.tick)
-                      ? 'ILLUMINATED'
-                      : '';
+            : u.charm && u.charm.endTick > world.tick
+              ? 'CHARMED'
+              : u.rootUntil > world.tick
+                ? 'ROOTED'
+                : u.silenceUntil > world.tick
+                  ? 'SILENCED'
+                  : world.slowFactor(u) < 1
+                    ? u.cinderBurn
+                      ? 'BURNING · SLOWED'
+                      : 'SLOWED'
+                    : u.cinderBurn
+                      ? 'BURNING'
+                      : u.illumination.some((mark) => mark.endTick > world.tick)
+                        ? 'ILLUMINATED'
+                        : '';
     if (parts.statusText !== status) {
       parts.status.textContent = status;
       parts.statusText = status;
@@ -1057,7 +1059,16 @@ export class GameView {
       active.add(p.id);
       let model = this.projectileModels.get(p.id);
       if (!model) {
-        if (p.type === 'hawkshot') model = createHawkshot();
+        if (p.type === 'charm') {
+          model = new THREE.Group();
+          model.name = 'Ahri provisional Charm';
+          model.add(
+            new THREE.Mesh(
+              new THREE.SphereGeometry(0.14, 12, 8),
+              new THREE.MeshBasicMaterial({ color: 0xff78c7 })
+            )
+          );
+        } else if (p.type === 'hawkshot') model = createHawkshot();
         else if (p.type === 'attack' && world.unit(p.source)?.champion === 'ashe')
           model = createAsheAttackArrow(p.empowered ?? false);
         else if (p.type === 'attack' && world.unit(p.source)?.champion === 'ahri') {

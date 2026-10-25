@@ -3,8 +3,9 @@
 Ahri's W can now be manually learned and cast by the development NPC at
 `/?scene=fixture&npc=ahri`. It has its own metadata/icon, captured magic payload,
 three orbiting fires, committed homing shots, a decaying movement boost and
-strict continuation. Q remains integrated. E/R, passive, human Ahri controls,
-role policy and native presentation remain open.
+strict continuation. This document retains its schema-133 checkpoint. The later
+[E controller](AHRI-E.md) advances to schema 134 with Charm forced walking. R,
+passive, human Ahri controls, role policy and native presentation remain open.
 
 ## Source observations
 
@@ -20,15 +21,15 @@ damage beyond the first, and movement speed decaying over two seconds. The BIN
 has **13 named values and no fire-count field**. Its ability child list is not
 evidence of three runtime objects or dispatch ownership.
 
-| Declaration | Retained value |
-| --- | --- |
-| Root cast | 0.25 seconds, winding cancellation guard, stealth-break flag, SelfAoe targeting, empty animation name. No disabled/dead/move-cast/channel permission is inferred from absent fields. |
-| Rank resources | Five ranks; cooldown 9/8/7/6/5 seconds; mana 30 at every rank. |
-| Root damage | 40/60/80/100/120 plus named AP ratio 0.4. The modified repeat calculation multiplies the entire single-fire calculation by 0.4. Exact float32 values remain unrounded. |
-| Movement boost | Named fraction 0.4, duration 2 seconds. A separate speed-buff spell authors persistent `Ahri_Q_Speed` VFX, rather than a stat/decay rule. It is not in the ability's child list. |
-| Acquisition | Named normal range 550, bonus 725, initial delay 0.25 seconds, secondary delay 0.4 seconds and orbit radius 150. No executable priority/cadence is recovered. |
-| Lifetimes | Named flame duration 2.5 seconds differs from the CircleMovement lifetime of 5 seconds. |
-| Movement records | Root generic speed 1800; orbit linear velocity 900/angular velocity −2.65; five angle-selected damage splines all declare speed 1400. |
+| Declaration        | Retained value                                                                                                                                                                                     |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Root cast          | 0.25 seconds, winding cancellation guard, stealth-break flag, SelfAoe targeting, empty animation name. No disabled/dead/move-cast/channel permission is inferred from absent fields.               |
+| Rank resources     | Five ranks; cooldown 9/8/7/6/5 seconds; mana 30 at every rank.                                                                                                                                     |
+| Root damage        | 40/60/80/100/120 plus named AP ratio 0.4. The modified repeat calculation multiplies the entire single-fire calculation by 0.4. Exact float32 values remain unrounded.                             |
+| Movement boost     | Named fraction 0.4, duration 2 seconds. A separate speed-buff spell authors persistent `Ahri_Q_Speed` VFX, rather than a stat/decay rule. It is not in the ability's child list.                   |
+| Acquisition        | Named normal range 550, bonus 725, initial delay 0.25 seconds, secondary delay 0.4 seconds and orbit radius 150. No executable priority/cadence is recovered.                                      |
+| Lifetimes          | Named flame duration 2.5 seconds differs from the CircleMovement lifetime of 5 seconds.                                                                                                            |
+| Movement records   | Root generic speed 1800; orbit linear velocity 900/angular velocity −2.65; five angle-selected damage splines all declare speed 1400.                                                              |
 | Other distinctions | Display range 700 differs from raw range 600 and radii 1000/315. Orbit legacy damage 40/90/…/340 and coefficient 0.7 differ from root named damage. All legacy child data remain in the reference. |
 
 The exporter checks the source hashes, rank arrays, all named values, calculation

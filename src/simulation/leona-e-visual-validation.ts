@@ -262,7 +262,10 @@ export function validateZenithVisuals(owner: ChampionState, source: Unit, world:
           fail();
         const cause = d.stopCause;
         if (cause && d.stopTick !== null) {
-          const controlled = cause.rootUntil > d.stopTick || cause.stunUntil > d.stopTick;
+          const controlled =
+            cause.rootUntil > d.stopTick ||
+            cause.stunUntil > d.stopTick ||
+            (cause.charmUntil ?? 0) > d.stopTick;
           if (
             (cause.targetAlive && !cause.targetPoint) ||
             cause.targetRadius !== f.contacts.find((c) => c.targetId === d.targetId)!.radius ||

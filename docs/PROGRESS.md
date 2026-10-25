@@ -6,7 +6,7 @@ Last updated: October 25, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 2,110 tests across 334 files, TypeScript and three Node QA checks. Thirty targeted Chrome scenarios pass for the [development Ahri Q](AHRI-Q.md)/[W](AHRI-W.md) controllers and application reloads, her NPC rig/basic attacks, Leona rig recovery, Garen/Lux controls, champion selection, animation and match files. Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 2,133 tests across 335 files, TypeScript and three Node QA checks. Thirty-four targeted Chrome scenarios pass for the [development Ahri Q](AHRI-Q.md)/[W](AHRI-W.md)/[E](AHRI-E.md) controllers and application reloads, her NPC rig/basic attacks, Leona rig recovery, Garen/Lux controls, champion selection, animation and match files. Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
 
 The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). Current targeted evidence does not certify full-match completion or native visual parity.
 
@@ -7378,3 +7378,50 @@ byte-identical. The [ledger](reference/ahri/w-verification.json) retains complet
 sources, output, original failures and successful evidence. E/R, passive,
 player/role integration, full roster, native, performance and overall project
 acceptance remain open. Work continues; nothing pushed.
+
+
+## 2026-10-25 — Development Charm, first-hit missile and saved forced walking
+
+[Ahri E](AHRI-E.md) adds manual NPC learning/casting with pinned metadata/icon,
+a 15-tick committed `spell3_north` body windup, root named magic damage and
+ranked Charm duration, and a child-declared linear missile. The first eligible
+enemy takes captured damage and, if alive, receives a separate saved Charm.
+Forced walking uses normal wall-aware paths and the source slow. New hostile
+actions, recall and warding are blocked; permitted Heal and committed casts or
+uncancellable empowered attacks retain their existing rules. Root/stun suspend
+walking. Leona dash interruption records an actual Charm control cause.
+
+Latest Charm replaces source/clock and samples the existing Courage tenacity
+policy. Caster death retains launched flight and attached control; target death
+and terminal settlement clear it. Resetting/protected monsters do not consume the
+missile. A focused regression exposed the prior neutral-order save restriction;
+Charm now owns a valid saved move order, with Scuttler deadlines kept current.
+Two initial fixture failures were corrected: a player-versus-NPC charge assertion
+and a regenerating target used for exact payload measurement. Their failing logs
+remain in the retained evidence.
+
+Schema 134 strictly validates required nullable control, source/rank ownership,
+sampled deadlines, projectile geometry/clocks and incompatible borrowed state.
+The guarded exporter passes normally and under Python optimization. Independent
+cache-only source review verifies six pinned inputs and all 64 BIN records; no
+native client or native frame comparison was performed.
+
+Validation: 2,133 tests across 335 files, TypeScript and three Node QA checks;
+34/34 targeted Chrome cases in one run, including three actual Charm phase reloads
+with exact saves and 300 future ticks, and reviewed flight/control screenshots.
+Nested-path production smoke passes 32 recordings; offline checks pass with 963
+service-worker responses and no production errors. Production still omits the
+development fixture/hook and unrequested Ahri preload. All 1,012 prior public
+files other than the reference manifest remain identical; only the new pinned
+6,464-byte E icon is added.
+
+Pack `f71553bde9aa7bb59aa464955a5ff85a59e1fc56af452d4cf4f49c1e503d6ac9` has
+1,064 files / 520,027,022 bytes. Ruleset:
+`70aed54770ed65de1c7c43ee21cadea61b495a0fbe6abfce55819bcf6cb0a567`.
+
+The immutable ledger is [e-verification.json](reference/ahri/e-verification.json);
+`tools/qa/verify-ahri-e.mjs` checks current or retained historical source/build
+closure. Pink missile rendering, width/range interpretation, control priority,
+post-death ownership, directional animation and E/Flash interaction are explicit
+local policies or open work. Native behavior/presentation, full Ahri kit, roster,
+performance and full-project completion remain false.
