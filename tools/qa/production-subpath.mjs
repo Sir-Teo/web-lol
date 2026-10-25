@@ -176,6 +176,10 @@ try {
     [],
     'Ordinary production and diagnostic flags must not load Ahri'
   );
+  await page.goto(`${base}?scene=fixture&npc=masteryi`);
+  await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
+  assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
+  assert.equal(await page.evaluate(() => !!window.__GAME__), false);
   await page.goto(`${base}?scene=leona-rift&champion=leona`);
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
@@ -492,6 +496,7 @@ try {
       ahriPlayerFixtureInProduction: false,
       unrequestedAhriPreloads: ahriPreviewRequests.length,
       unrequestedMasterYiPreloads: masterYiPreviewRequests.length,
+      masterYiNpcFixtureInProduction: false,
       junglePreviewRequests: junglePreviewRequests.length,
       unrequestedLeonaPreloads: leonaPreviewRequests.length,
       preparedCompanionRequests: preparedCompanionRequests.length,

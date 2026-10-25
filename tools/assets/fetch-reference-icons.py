@@ -19,6 +19,7 @@ FILES = {
     'garen.png': 'champion/Garen.png',
     'leona.png': 'champion/Leona.png',
     'ahri.png': 'champion/Ahri.png',
+    'masteryi.png': 'champion/MasterYi.png',
     'AhriQ.png': 'spell/AhriQ.png',
     'AhriW.png': 'spell/AhriW.png',
     'AhriE.png': 'spell/AhriE.png',

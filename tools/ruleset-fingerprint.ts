@@ -68,6 +68,8 @@ const pinnedData = [
   'public/assets/models/leona-base.json',
   'public/assets/models/ahri-base.glb',
   'public/assets/models/ahri-base.json',
+  'public/assets/models/masteryi-base.glb',
+  'public/assets/models/masteryi-base.json',
   'src/content/leona-q-particles.json',
   'docs/reference/leona-q-particles-decoded.json',
   'public/assets/effects/base_brightspark_11.png',

@@ -1,3 +1,4 @@
+import { championProfile } from '../content/champion-profiles';
 import { TICK_RATE } from '../content/rules';
 import type { Battlefield } from '../simulation/battlefield';
 import { World } from '../simulation/world';
@@ -14,13 +15,14 @@ export async function prepareMatchImport(
   file: File,
   battlefield: Battlefield,
   persist: (snapshot: string) => Promise<void>,
-  requiredChampion?: import('../simulation/types').ChampionIdentity
+  requiredChampion?: import('../simulation/types').ChampionIdentity,
+  requiredNpc?: import('../simulation/types').ChampionIdentity
 ): Promise<PreparedMatchImport> {
   if (file.size > MAX_MATCH_FILE_BYTES) throw new Error('Match file is too large (maximum 16 MB).');
   const world = World.fromSnapshot(await file.text(), battlefield);
   if (requiredChampion && world.hero.champion !== requiredChampion)
     throw new Error(
-      `This practice scene accepts ${requiredChampion === 'ahri' ? 'Ahri' : requiredChampion} match files only.`
+      `This practice scene accepts ${championProfile(requiredChampion).name} match files only.`
     );
   const snapshot = world.snapshot();
   const seconds = Math.floor(world.tick / TICK_RATE);
@@ -28,6 +30,10 @@ export async function prepareMatchImport(
   const state = world.winner
     ? `${world.winner === 'blue' ? 'Blue' : 'Red'} team victory`
     : 'Match in progress';
+  if (requiredNpc && !world.units.some((u) => u.id !== world.hero.id && u.champion === requiredNpc))
+    throw new Error(
+      `This development scene requires a ${championProfile(requiredNpc).name} NPC checkpoint.`
+    );
   return {
     description: `${world.matchMode === 'lanes' ? '5v5 match' : 'Practice'} · ${time} · ${state}. Loading replaces the current match and its browser save.`,
     load: () => persist(snapshot),

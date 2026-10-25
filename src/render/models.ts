@@ -1,3 +1,4 @@
+import { MASTER_YI_COMBAT_POLICY } from '../content/masteryi-combat-policy';
 import { LEONA_REQUIRED_CLIPS } from '../content/leona-presentation';
 import { AHRI_COMBAT_POLICY } from '../content/ahri-combat-policy';
 import { WARD_SOURCE } from '../content/warding-totem';
@@ -57,7 +58,8 @@ const referenceNames = [
 export async function loadReferenceModels(
   includeMonsters: boolean | readonly MonsterSpecies[] = false,
   includeLeona = false,
-  includeAhri = false
+  includeAhri = false,
+  includeMasterYi = false
 ): Promise<void> {
   const loader = new GLTFLoader();
   const species =
@@ -73,6 +75,7 @@ export async function loadReferenceModels(
       ...monsterNames,
       ...(includeLeona ? ['leona-base'] : []),
       ...(includeAhri ? ['ahri-base'] : []),
+      ...(includeMasterYi ? ['masteryi-base'] : []),
     ].map(async (name) => {
       const gltf = await loader.loadAsync(`assets/models/${name}.glb`);
       const monster = Object.values(MONSTERS).find((p) => p.rig === name);
@@ -119,33 +122,40 @@ export async function loadReferenceModels(
                   'idle3',
                   'entry_b4dcde19',
                 ]
-              : name === 'ahri-base'
+              : name === 'masteryi-base'
                 ? [
-                    AHRI_COMBAT_POLICY.idleClip,
-                    AHRI_COMBAT_POLICY.runClip,
-                    AHRI_COMBAT_POLICY.attackClip,
-                    AHRI_COMBAT_POLICY.criticalClip,
-                    AHRI_COMBAT_POLICY.recallClip,
+                    ...Object.values(MASTER_YI_COMBAT_POLICY).filter(
+                      (value) => typeof value === 'string'
+                    ),
                     'death',
                   ]
-                : name === 'leona-base'
-                  ? LEONA_REQUIRED_CLIPS
-                  : name === 'garen-base'
-                    ? [
-                        'idle1_base',
-                        'run_base',
-                        'attack1',
-                        'attack2',
-                        'crit',
-                        'spell1',
-                        'spell4_base',
-                        'spell3_0',
-                        'death',
-                        'recall',
-                      ]
-                    : name === 'sru-crab-base'
-                      ? ['idle1', 'run', 'spawn', 'hide', 'flee', 'stun']
-                      : ['idle1', 'run', 'attack1', 'death'])
+                : name === 'ahri-base'
+                  ? [
+                      AHRI_COMBAT_POLICY.idleClip,
+                      AHRI_COMBAT_POLICY.runClip,
+                      AHRI_COMBAT_POLICY.attackClip,
+                      AHRI_COMBAT_POLICY.criticalClip,
+                      AHRI_COMBAT_POLICY.recallClip,
+                      'death',
+                    ]
+                  : name === 'leona-base'
+                    ? LEONA_REQUIRED_CLIPS
+                    : name === 'garen-base'
+                      ? [
+                          'idle1_base',
+                          'run_base',
+                          'attack1',
+                          'attack2',
+                          'crit',
+                          'spell1',
+                          'spell4_base',
+                          'spell3_0',
+                          'death',
+                          'recall',
+                        ]
+                      : name === 'sru-crab-base'
+                        ? ['idle1', 'run', 'spawn', 'hide', 'flee', 'stun']
+                        : ['idle1', 'run', 'attack1', 'death'])
         if (!gltf.animations.some((clip) => clip.name === required))
           throw new Error(`${name} lacks required ${required} animation`);
       prepareAnimationBounds(
@@ -252,11 +262,13 @@ export function makeModel(u: Unit): UnitModel {
     const idleClip =
       u.kind === 'ward'
         ? WARD_SOURCE.clips.idle.clip
-        : u.champion === 'ahri'
-          ? AHRI_COMBAT_POLICY.idleClip
-          : u.champion === 'garen'
-            ? 'idle1_base'
-            : 'idle1';
+        : u.champion === 'masteryi'
+          ? MASTER_YI_COMBAT_POLICY.idleClip
+          : u.champion === 'ahri'
+            ? AHRI_COMBAT_POLICY.idleClip
+            : u.champion === 'garen'
+              ? 'idle1_base'
+              : 'idle1';
     actions[idleClip].play();
     mixer.update(0);
     model.updateMatrixWorld(true);

@@ -6,7 +6,7 @@ Last updated: October 25, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 2,182 tests across 338 files, TypeScript and three Node QA checks. Forty-nine targeted Chrome scenarios pass for the [development Ahri Q](AHRI-Q.md)/[W](AHRI-W.md)/[E](AHRI-E.md), [R base](AHRI-R.md) and [passive](AHRI-PASSIVE.md) controllers, [human practice controls](AHRI-PLAYER.md), private saves/imports and application reloads, her NPC rig/basic attacks, Leona rig recovery, Garen/Lux controls, champion selection, animation and match files, plus the [Master Yi development rig review](MASTER-YI-MODEL.md). Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 2,192 tests across 339 files, TypeScript and three Node QA checks. Fifty-five targeted Chrome scenarios pass for the [development Ahri Q](AHRI-Q.md)/[W](AHRI-W.md)/[E](AHRI-E.md), [R base](AHRI-R.md) and [passive](AHRI-PASSIVE.md) controllers, [human practice controls](AHRI-PLAYER.md), private saves/imports and application reloads, her NPC rig/basic attacks, Leona rig recovery, Garen/Lux controls, champion selection, animation and match files, plus the [Master Yi development rig review](MASTER-YI-MODEL.md) and [NPC foundation](MASTER-YI-NPC.md). Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
 
 The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). Current targeted evidence does not certify full-match completion or native visual parity.
 
@@ -7629,3 +7629,50 @@ preparation, exact rebuild and isolated review are verified. Runtime kit, native
 quaternion magnitude/appearance/graph/events, roster expansion, full performance
 and project completion remain open. Next is an isolated NPC foundation with own
 stats/melee attacks, explicit local pose choices and strict saved continuation.
+
+## 2026-10-25 — Master Yi own melee NPC, rig continuation and private practice saves
+
+[Master Yi NPC foundation](MASTER-YI-NPC.md) adds the development-only
+`?scene=fixture&npc=masteryi` scene with Ashe human and a manual NPC. The guarded
+profile exporter retains own source stats, attack-speed ratio, selection/collision
+fields and the explicit BIN AD-growth 2.5 choice despite public client 0. Normal
+and optimized checks pass. Base melee range is 175; local contact creates no
+projectile. Shared windup estimation gives 22 ticks at level one; native release
+markers and Double Strike remain open. No Frost/Focus or borrowed spell kit is
+used. Unimplemented spells cannot learn/cast, including automatic allocation.
+
+The initial focused run caught inherited rank-one spells in generic initialization.
+The explicit unlearned initialization fixes all four failures and preserves the
+strict snapshot guard. Schema 138 permits only a practice-fixture NPC; human/Rift
+substitution, unsupported ranks/cooldowns/casts and invalid skill budgets reject.
+Both exact duration tables add 47 aliases. Own idle/ordinary/critical clips and
+the source Recall_In→Recall_Loop sequence retain 90-bone poses through restoration.
+The own 16.18.1 portrait adds one public asset. Rig/quaternion/material/native
+effect/audio limits remain as documented; ordinary audio is diagnostic.
+
+The private `development-masteryi-npc-fixture` save leaves the ordinary fixture
+exact. Restart recreates the unlearned manual NPC. File preview requires Ashe and
+the NPC before persistence. Six browser cases verify eight finite exact pose/save
+round trips, pending/recovery actual Save/reloads with 300 identical future ticks,
+save isolation/restart and import rejections/exact own loading. Idle/death captures
+were reviewed. All 55 targeted Chrome cases pass without failures/skips/retries.
+
+The full check passes 2,192 tests in 339 files, TypeScript and three Node QA checks;
+34 focused checks include the ten NPC cases and fetched-rig fingerprint mutations.
+Production passes 32 recordings, rejects the exact NPC URL, and has no development
+hook or unrequested Master Yi preload. Offline continuation/repair/version switching
+pass with 963 service-worker responses and no errors. All 1,016 prior public files
+other than the reference manifest remain exact; the manifest retains prior records
+and adds the portrait, bringing public files to 1,018.
+
+Ruleset `f0b34678b01520ce117fcc4630a01317b8bfc1969a7c698a33fb298715dbd6f6`;
+pack `72f1d7cc409de83255d37ff55633da06174c0992c9e73760c687bdcab9c2a57e`,
+1,068 files / 526,605,720 bytes.
+
+Frozen closure: [Master Yi development verification](reference/masteryi/development-verification.json),
+checked with `tools/qa/verify-masteryi-development.mjs` or `--historical`. Own NPC
+combat, pose continuation and private save/import boundaries are verified. Full
+Master Yi kit, player/roster/role integration, native behavior/presentation, full
+performance and project completion remain open. Next is the source-grounded
+Double Strike controller, keeping its separate child permissions and unresolved
+counter/proc policies explicit.

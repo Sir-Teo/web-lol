@@ -8,7 +8,7 @@ import type { RiverSide } from '../content/scuttler-policy';
 import type { RiftCampId } from '../content/rift-camps';
 import type { MonsterSpecies, MonsterSpawnClip } from '../content/monsters';
 export type Team = 'blue' | 'red';
-export type ChampionIdentity = 'ashe' | 'lux' | 'garen' | 'leona' | 'ahri';
+export type ChampionIdentity = 'ashe' | 'lux' | 'garen' | 'leona' | 'ahri' | 'masteryi';
 export type Faction = Team | 'neutral';
 export type LaneMinionKind = 'melee' | 'caster' | 'siege' | 'super';
 export const isLaneMinionKind = (kind: UnitKind): kind is LaneMinionKind =>

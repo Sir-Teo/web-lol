@@ -136,7 +136,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 137;
+export const SNAPSHOT_VERSION = 138;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -227,7 +227,7 @@ const unit = z
     ward: z
       .strictObject({ ownerId: id, createdTick: tick, expireTick: tick, revealUntil: tick })
       .optional(),
-    champion: z.enum(['ashe', 'lux', 'garen', 'leona', 'ahri']).optional(),
+    champion: z.enum(['ashe', 'lux', 'garen', 'leona', 'ahri', 'masteryi']).optional(),
     team: faction,
     monster: z
       .strictObject({
@@ -2482,6 +2482,11 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         throw new Error('Saved match contains invalid Charm control.');
     }
     if (
+      unit.champion === 'masteryi' &&
+      (state.battlefield !== 'practice-fixture' || unit.id === state.player.id)
+    )
+      throw new Error('Master Yi requires a non-player development practice unit.');
+    if (
       unit.champion === 'ahri' &&
       (state.battlefield !== 'practice-fixture' ||
         (unit.id === state.player.id &&
@@ -3475,6 +3480,17 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         throw new Error('Saved match contains unfinished Ahri spell state.');
     }
   }
+  for (const owner of owners)
+    if (state.units.find((u) => u.id === owner.id)?.champion === 'masteryi') {
+      if (
+        owner.skillPoints !== owner.level ||
+        Object.values(owner.spellRanks).some((rank) => rank !== 0) ||
+        (['q', 'w', 'e', 'r'] as const).some((a) => owner.cooldowns[a] !== 0) ||
+        owner.castAnimation !== null ||
+        owner.pendingCast !== null
+      )
+        throw new Error('Saved match contains unfinished Master Yi spell state.');
+    }
   const ownerIds = new Set(owners.map((p) => p.id));
   if (state.battlefield === 'rift') {
     for (const owner of owners) {

@@ -12,6 +12,7 @@ for (const champion of [
   'garen-base',
   'leona-base',
   'ahri-base',
+  'masteryi-base',
   ...['blue', 'red'].flatMap((team) =>
     ['melee', 'caster', 'siege', 'super'].map((kind) => team + '-' + kind)
   ),

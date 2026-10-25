@@ -55,6 +55,7 @@ async function boot(): Promise<void> {
   const query = new URLSearchParams(location.search);
   const fixture = import.meta.env.DEV && query.get('scene') === 'fixture';
   const leonaRiftTrial = import.meta.env.DEV && query.get('scene') === 'leona-rift';
+  const masterYiNpc = fixture && query.get('npc') === 'masteryi' && !query.has('champion');
   const ahriPlayerFixture = fixture && query.get('champion') === 'ahri';
   const loadedBattlefield = fixture ? PRACTICE_FIXTURE : await loadRiftBattlefield();
   const battlefield = leonaRiftTrial
@@ -62,11 +63,13 @@ async function boot(): Promise<void> {
     : ahriPlayerFixture
       ? { ...loadedBattlefield, developmentAhri: true as const }
       : loadedBattlefield;
-  const saveKey = leonaRiftTrial
-    ? 'development-leona-rift'
-    : ahriPlayerFixture
-      ? 'development-ahri-player-fixture'
-      : battlefield.id;
+  const saveKey = masterYiNpc
+    ? 'development-masteryi-npc-fixture'
+    : leonaRiftTrial
+      ? 'development-leona-rift'
+      : ahriPlayerFixture
+        ? 'development-ahri-player-fixture'
+        : battlefield.id;
   const leonaNpc = fixture && new URLSearchParams(location.search).get('npc') === 'leona';
   const ahriNpc = fixture && query.get('npc') === 'ahri';
   const garenFixture = fixture && new URLSearchParams(location.search).get('champion') === 'garen';
@@ -99,6 +102,8 @@ async function boot(): Promise<void> {
             next.gainExperience(2400, npc.id);
             for (const ability of ['q', 'w', 'e', 'r'] as const) next.learnSpell(ability, npc.id);
           }
+          if (masterYiNpc)
+            next.spawn('champion', 'blue', { x: -650, y: 350 }, 'masteryi').ai = false;
           if (ahriNpc) next.spawn('champion', 'blue', { x: -650, y: 350 }, 'ahri');
           return next;
         })();
@@ -121,6 +126,9 @@ async function boot(): Promise<void> {
         (candidate.hero.champion === 'ahri' && candidate.matchMode === 'practice')) &&
       (!leonaNpc || candidate.units.some((u) => u.champion === 'leona')) &&
       (!ahriNpc || candidate.units.some((u) => u.champion === 'ahri')) &&
+      (!masterYiNpc ||
+        (candidate.hero.champion === 'ashe' &&
+          candidate.units.some((u) => u.champion === 'masteryi'))) &&
       candidate.encounter === (grompEncounter ? 'gromp' : null) &&
       (candidate.companions.find(
         (p) => p.ownerId === candidate.player.id && p.acquisition.kind === 'fixture'
@@ -234,7 +242,8 @@ async function boot(): Promise<void> {
           await writeMatch(saveKey, snapshot);
           window.location.reload();
         },
-        ahriPlayerFixture ? 'ahri' : undefined
+        ahriPlayerFixture ? 'ahri' : masterYiNpc ? 'ashe' : undefined,
+        masterYiNpc ? 'masteryi' : undefined
       ),
     sound: (enabled) => {
       audio.enabled = enabled;
@@ -271,7 +280,8 @@ async function boot(): Promise<void> {
     loadReferenceModels(
       monsterSpecies,
       world.units.some((u) => u.champion === 'leona'),
-      world.units.some((u) => u.champion === 'ahri')
+      world.units.some((u) => u.champion === 'ahri'),
+      world.units.some((u) => u.champion === 'masteryi')
     ),
     ...(hasGrompContent ? [view.grompDeath.load(), view.grompAttack.load()] : []),
     ...(world.units.some((u) => u.champion === 'leona')

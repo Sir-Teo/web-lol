@@ -6,6 +6,11 @@ Master Yi still has no integrated runtime kit, player scene or production roster
 entry. Native appearance, animation-graph behavior, effects/audio and role AI
 remain unfinished.
 
+This document retains the model-preparation checkpoint. The later
+[NPC foundation](MASTER-YI-NPC.md) integrates the prepared asset into an isolated
+practice scene; its own ordinary attacks and saved poses do not establish a full
+kit or native appearance.
+
 ## Retained model and source identity
 
 [masteryi-model.json](reference/masteryi-model.json) retains the complete skin and

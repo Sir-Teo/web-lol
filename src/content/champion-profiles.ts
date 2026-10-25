@@ -1,3 +1,5 @@
+import { MASTER_YI } from './masteryi-progression';
+import { MASTER_YI_COMBAT_POLICY } from './masteryi-combat-policy';
 import { ASHE } from './ashe-progression';
 import { AHRI } from './ahri-progression';
 import { AHRI_COMBAT_POLICY } from './ahri-combat-policy';
@@ -9,6 +11,11 @@ import { ASHE_ATTACK_PROJECTILE_SPEED } from './ashe-projectiles';
 
 /** Explicit supported stat profiles: no fallback to another champion's kit. */
 export const CHAMPION_PROFILES = {
+  masteryi: {
+    ...MASTER_YI,
+    name: 'Master Yi',
+    windupTicks: MASTER_YI_COMBAT_POLICY.ordinaryWindupTicks,
+  },
   ahri: { ...AHRI, name: 'Ahri', windupTicks: AHRI_COMBAT_POLICY.ordinaryWindupTicks },
   ashe: {
     ...ASHE,
@@ -42,6 +49,7 @@ export function selectableChampion(
   if (identity === undefined) return 'ashe';
   if (identity === 'garen') throw new Error('Garen player kit is still in development');
   if (identity === 'leona') throw new Error('Leona player kit is still in development');
+  if (identity === 'masteryi') throw new Error('Master Yi player kit is still in development');
   if (identity === 'ahri') throw new Error('Ahri player kit is still in development');
   return identity;
 }

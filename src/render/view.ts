@@ -1,3 +1,4 @@
+import { MASTER_YI } from '../content/masteryi-progression';
 import { ahriAimGeometry } from './ahri-aim';
 import { spiritRushDestination } from '../simulation/ahri-spirit-rush';
 import { renderParticleColorPhase } from './particle-color-phase';
@@ -560,13 +561,15 @@ export class GameView {
       if (!world.alive(u) || !world.visible(u)) continue;
       const champion = u.kind === 'champion';
       const selection =
-        u.champion === 'ahri'
-          ? { radius: AHRI.selectionRadius, height: AHRI.selectionHeight }
-          : u.champion === 'garen'
-            ? { radius: GAREN.selectionRadius, height: GAREN.selectionHeight }
-            : u.champion === 'lux'
-              ? { radius: LUX.selectionRadius, height: LUX.selectionHeight }
-              : ASHE_SELECTION;
+        u.champion === 'masteryi'
+          ? { radius: MASTER_YI.selectionRadius, height: MASTER_YI.selectionHeight }
+          : u.champion === 'ahri'
+            ? { radius: AHRI.selectionRadius, height: AHRI.selectionHeight }
+            : u.champion === 'garen'
+              ? { radius: GAREN.selectionRadius, height: GAREN.selectionHeight }
+              : u.champion === 'lux'
+                ? { radius: LUX.selectionRadius, height: LUX.selectionHeight }
+                : ASHE_SELECTION;
       const base = champion
         ? (this.models.get(u.id)?.root.position ?? {
             x: u.x * SCALE,

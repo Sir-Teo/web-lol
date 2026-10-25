@@ -1,3 +1,4 @@
+import { MASTER_YI_COMBAT_POLICY } from '../content/masteryi-combat-policy';
 import { LEONA_RECALL_CLIPS } from '../content/leona-presentation';
 import { AHRI_COMBAT_POLICY } from '../content/ahri-combat-policy';
 // Source sequence order is pinned in the champion model reference records.
@@ -11,13 +12,15 @@ export function recallAnimationPose(
   const clips =
     champion === 'leona'
       ? LEONA_RECALL_CLIPS
-      : champion === 'ahri'
-        ? [AHRI_COMBAT_POLICY.recallClip]
-        : champion === 'garen'
-          ? ['recall']
-          : champion === 'lux'
-            ? ['idle3', 'entry_b4dcde19']
-            : ASHE_RECALL_CLIPS;
+      : champion === 'masteryi'
+        ? [MASTER_YI_COMBAT_POLICY.recallClip, MASTER_YI_COMBAT_POLICY.recallLoopClip]
+        : champion === 'ahri'
+          ? [AHRI_COMBAT_POLICY.recallClip]
+          : champion === 'garen'
+            ? ['recall']
+            : champion === 'lux'
+              ? ['idle3', 'entry_b4dcde19']
+              : ASHE_RECALL_CLIPS;
   for (let i = 0; i < clips.length; i++) {
     const clip = clips[i],
       duration = durations[clip];

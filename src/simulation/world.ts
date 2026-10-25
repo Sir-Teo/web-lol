@@ -385,6 +385,8 @@ export class World {
     readonly battlefield: Battlefield = PRACTICE_FIXTURE,
     playerChampion: import('./types').ChampionIdentity = 'ashe'
   ) {
+    if (playerChampion === 'masteryi')
+      throw new Error('Master Yi is available only as a development NPC.');
     if (
       playerChampion === 'ahri' &&
       (battlefield.id !== 'practice-fixture' || !battlefield.developmentAhri)
@@ -566,6 +568,12 @@ export class World {
       !this.battlefield.developmentLeona
     )
       throw new Error('Leona simulation requires the development practice fixture or Rift trial.');
+    if (
+      kind === 'champion' &&
+      identity === 'masteryi' &&
+      this.battlefield.id !== 'practice-fixture'
+    )
+      throw new Error('Master Yi requires a development practice NPC.');
     if (kind === 'monster') throw new Error('Use spawnMonster for neutral units.');
     if (kind === 'ward') throw new Error('Use a trinket placement to create a ward.');
     const stats = this.battlefield.unitStats?.[kind]?.[team];
@@ -655,7 +663,12 @@ export class World {
     if (champion && identity !== 'ashe') {
       const own = this.championState(u.id)!;
       own.eCharges = 0;
-      if (identity === 'garen' || identity === 'leona' || identity === 'ahri') {
+      if (
+        identity === 'garen' ||
+        identity === 'leona' ||
+        identity === 'ahri' ||
+        identity === 'masteryi'
+      ) {
         own.spellRanks = { q: 0, w: 0, e: 0, r: 0 };
         own.skillPoints = 1;
       }
@@ -1080,7 +1093,8 @@ export class World {
       if (
         state.skillPoints === 0 ||
         !this.unit(state.id)?.ai ||
-        this.unit(state.id)?.champion === 'ahri'
+        this.unit(state.id)?.champion === 'ahri' ||
+        this.unit(state.id)?.champion === 'masteryi'
       )
         continue;
       while (state.skillPoints > 0) {
@@ -1150,6 +1164,8 @@ export class World {
         continue;
       }
       if (!this.alive(u)) continue;
+      if (u.champion === 'masteryi' && command.type === 'cast' && !isSummonerSlot(command.ability))
+        continue;
       if (
         (u.stunUntil > this.tick || !!u.charm) &&
         !(command.type === 'cast' && this.abilitySpec(command.ability, u.id).canCastWhileDisabled)
@@ -5778,6 +5794,8 @@ export class World {
     return (['d', 'f'] as const).find((slot) => this.summonerSpell(slot, championId) === spell);
   }
   abilitySpec(ability: Ability, championId = this.player.id): typeof ABILITIES.d {
+    if (this.unit(championId)?.champion === 'masteryi' && !isSummonerSlot(ability))
+      throw new Error('Master Yi spells are not implemented');
     if (
       this.unit(championId)?.champion === 'ahri' &&
       (ability === 'q' || ability === 'w' || ability === 'e' || ability === 'r')
@@ -5837,6 +5855,8 @@ export class World {
     if (this.winner) return 'The match has ended';
     const state = this.championState(championId);
     if (!state) return 'Unknown champion';
+    if (this.unit(championId)?.champion === 'masteryi')
+      return 'Master Yi spells are not implemented';
     const rank = state.spellRanks[ability];
     if (rank >= (ability === 'r' ? 3 : 5)) return 'This spell is already at maximum rank';
     if (state.skillPoints < 1) return 'No skill points available';
@@ -5969,6 +5989,7 @@ export class World {
     const state = this.championState(u.id);
     if (!state || u.kind !== 'champion') return;
     if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
+    if (u.champion === 'masteryi' && !isSummonerSlot(ability)) return;
     if (
       activeSpiritDash(this, u.id) &&
       this.summonerSpell(ability, u.id) !== 'heal' &&

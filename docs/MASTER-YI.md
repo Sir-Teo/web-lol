@@ -11,6 +11,10 @@ This document retains the character-only checkpoint. The later
 and isolated preview. Statements below about cached-model review describe the
 earlier source checkpoint; native calibration and the playable kit remain open.
 
+The later [NPC foundation](MASTER-YI-NPC.md) adds own stats, ordinary melee
+combat, body/recall poses and private saved practice. Double Strike and Q/W/E/R
+remain unimplemented, and production player selection stays Ashe/Lux.
+
 ## Exact retained package
 
 [character.json](reference/masteryi/character.json) contains all 60 actual records

@@ -724,6 +724,12 @@
       "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/AhriR.png",
       "sha256": "5c1095c39353b5f7af61b8c66d818b82bcdfcfbbddd3cadedc526e47fa8b42fe",
       "bytes": 6639
+    },
+    {
+      "path": "/assets/icons/masteryi.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/MasterYi.png",
+      "sha256": "1c23534926a7956a260591fb3cee8f38cb6de3d9d4f064fe93fb88c8f76b1b66",
+      "bytes": 29421
     }
   ]
 }
