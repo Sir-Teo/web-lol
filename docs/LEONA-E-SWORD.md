@@ -7,6 +7,11 @@ enabled record is a sound carrier with no visible draw. This completes local
 visible-family coverage, not native frame matching or full playable E/Leona
 acceptance.
 
+A later [original Metal shader harness](LEONA-METAL-RIM-HARNESS.md) executes
+VS1/PS9/PS24 with150 explicit synthetic inputs. Metal, WebGL and scalar RGBA8
+readbacks match exactly on the recorded M1. Native gameplay bindings and frames
+remain unverified; the integration results below retain their original scope.
+
 ## Source inputs and explicit policies
 
 The [native SCB normal reading](LEONA-NATIVE-SCB-NORMALS.md) supplies a separate
@@ -49,8 +54,9 @@ These resource/placement choices remain explicit local adapters:
 
 The conditional SCB path does not prove actual Leona CPU dispatch, the earlier
 resource-format attempt, post-load/reuse mutation, component copying, pass/FOW
-flags or native resource-upload success. Native game and shaders were not
-executed. The separate static packages retain bounded original words, tables,
+flags or native resource-upload success. This integration used no native game
+or shader execution; the later isolated shader harness is linked above. The
+separate static packages retain bounded original words, tables,
 source bytes and original Metal/AIR, not REA MCP Evidence or native captures.
 
 ## Reproducible delivery

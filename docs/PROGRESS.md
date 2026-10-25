@@ -6259,3 +6259,44 @@ Native Leona dispatch/post-load/lifecycle/resources/pass/FOW/cull/full-frame
 matching remains open. R stays41/44; weapon attachments, player/support and the
 full six-character match remain gates. No native game/shader was executed or
 provider restarted. Work continues under the active goal; nothing is pushed.
+
+## Original Metal rim draws and the R attachment search boundary — October 24, 2026
+
+The retained ordinary-mesh VS1 and PS9/PS24 now execute in an owned, isolated
+Metal harness. On the recorded Apple M1/OS27 build26A428, all150 synthetic RGBA8
+samples match the reconstructed WebGL material and independent scalar reference
+exactly: maximum difference zero in all three comparisons. The cases cover
+source/tint/lookup alpha, strict alpha-reference equality and remap ordering,
+upper-world normal scale, vertex interpolation, mapped/raw power, facing and UV
+texel selection. All command buffers complete and WebGL reports no errors or cube
+resources. This is the project's first retained-native-shader execution; the
+League executable remains unexecuted. Native emitter dispatch, actual bindings,
+FOW/raster/blending/depth behavior and gameplay frames remain open.
+
+The explicit opt-in Swift harness loads original libraries without recompiling
+their shader code. It supplies every buffer/texture/sampler itself. The accepted
+run retains commands, input/library/executable hashes, stdout/stderr, all150
+cases and pixel comparisons. A separate offline verifier checks frozen evidence
+without compiling or submitting GPU work. It rejects missing-sample, altered-pixel
+and changed-library-record controls. An initial absolute/relative executable-path
+lookup mismatch was corrected; that failed archive check remains retained. Earlier load/smoke/full runs are
+retained; the accepted run improves command capture and strict-port server
+ownership. See [shader harness scope](LEONA-METAL-RIM-HARNESS.md) and
+[runtime ledger](reference/leona/metal-rim-verification.json).
+
+The independent R weapon-frame reading re-decodes17 distinct retained BIN
+identities covering all16 skin0 linked BINs. Its only R_buf references name/map
+the resource; Spell4 has no animation event map. The explicit weapon bone belongs
+to the separate idleSword declaration. Reconstructed cached WAD header/chunk
+pins find118 known Leona BIN paths present and100 known script spellings absent.
+That bounded client search proves neither an unused/legacy effect nor an
+attachment default. The two weapon quads retain source[0,-90,0] and remain
+excluded. Normal and optimized-Python checks pass; both reject missing coverage
+and corrupted chunk provenance. See [attachment boundary](LEONA-R-WEAPON-FRAME.md).
+
+This verification increment changes no application/public asset, schema126,
+rulesetc485c84b or offlinepack67476352. The prior E sword archive still verifies
+historically, and the three Node QA tests pass. No new production/offline run,
+normal cohort or performance result is claimed. E remains19 visible families
+plus its sound carrier, R41/44. Player/support and full six-character match/native
+frame acceptance remain open. The active goal continues; nothing is pushed.

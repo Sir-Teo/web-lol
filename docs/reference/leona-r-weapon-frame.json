@@ -1,0 +1,2524 @@
+{
+  "schemaVersion": 1,
+  "scope": "Bounded frozen 16.18.8175716 source reading for R buff arbitrary-quad attachment. No native spawn/frame observation; no runtime change.",
+  "dependencies": [
+    {
+      "path": "docs/reference/leona-model.json",
+      "bytes": 93535,
+      "sha256": "4afb6c31fc7d23c6c820d380d6ac789fada29866776dea29d4f60355b2348cc7"
+    },
+    {
+      "path": "docs/reference/leona-r-particles.json",
+      "bytes": 266001,
+      "sha256": "7fd43bb68c5d93e04ae4db7a0ef64d2fb83424ae9752d0f162b99a1ccfade38e"
+    },
+    {
+      "path": ".cache/leona-character-research-20261023/character-pin.json",
+      "bytes": 94297,
+      "sha256": "5b126053b2c47bef0922139094620ffbd03adb9ca2b3289cfd118980d8fb7d83"
+    },
+    {
+      "path": ".cache/leona-model-research-20261023/archive-reverified/animations-decoded.json",
+      "bytes": 15870,
+      "sha256": "9d0c694c81087408b6d3e1d5bea8747ecb4f0f60eb4229c31031fdaf606d6847"
+    },
+    {
+      "path": ".cache/leona-r-weapon-frame-reading-v1-20261024/bin-inventory.json",
+      "bytes": 4989,
+      "sha256": "e3de544db0287d6448cbd2052bbdb492a5f129bff7349855eca1f21658c6c4a1"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/binfile.py",
+      "bytes": 17236,
+      "sha256": "0c1825135763c98f705535eecf2b4b1a8e667c53181e9e1d43ad7a83d1d844fd"
+    },
+    {
+      "path": ".cache/leona-r-weapon-frame-reading-v1-20261024/read.py",
+      "bytes": 6305,
+      "sha256": "16d1c84d85ae6a7cab5f601bb546148303d50809f03790bfaa65b3a093eb3945"
+    },
+    {
+      "path": ".cache/leona-model-research-20261023/archive-reverified/data/characters/leona/skins/skin0.bin",
+      "bytes": 16863,
+      "sha256": "fb9d700b183008abbb6c77ae1b4e7837ec544d144e125e807394daa18ef9fe29"
+    },
+    {
+      "path": ".cache/leona-model-research-20261023/archive-reverified/data/characters/leona/animations/skin0.bin",
+      "bytes": 3408,
+      "sha256": "0697f2eaad38eaae9ad31d6478514225939253444a4d6038e813e9bf7c2c214f"
+    },
+    {
+      "path": ".cache/leona-r-particle-sources-v1-20261024/15e5799a73dddb60.bin",
+      "bytes": 10249,
+      "sha256": "d85936463c682218a21ed0fa6cc9530f4b1b3bcfed8563f782d571f067ff9c77"
+    },
+    {
+      "path": ".cache/leona-r-particle-sources-v1-20261024/aea8db097256315a.bin",
+      "bytes": 48021,
+      "sha256": "551752d65678d84d12b57a894ef3e7af59ef7c1b237156f4232673b4708b5840"
+    },
+    {
+      "path": ".cache/leona-r-particle-sources-v1-20261024/6889e1c664c3717f.bin",
+      "bytes": 55027,
+      "sha256": "9d163c912fdbfb36fcaacc03dc38b02df8d035b0bc65a2611b0cfdefff267539"
+    },
+    {
+      "path": ".cache/leona-q-particle-sources/223457ab6500b0e6.bin",
+      "bytes": 3396,
+      "sha256": "c6721a060c3eb56e50bc78ce824fa9d46a9df45b2ac11ab3bea161cbadd9526e"
+    },
+    {
+      "path": ".cache/leona-e-particle-sources-v1-20261024/dcca1cd8b71b953f.bin",
+      "bytes": 17829,
+      "sha256": "841e16b8fe0bf94cda3180ec70476c1e6aeba3defbbf5b15d4025e62909240d3"
+    },
+    {
+      "path": ".cache/leona-e-particle-sources-v1-20261024/596bea2f886d0c00.bin",
+      "bytes": 422,
+      "sha256": "231e50550047e752af80cc90fd8970f2cc901490285a3b60cb18c836063c088d"
+    },
+    {
+      "path": ".cache/leona-e-particle-sources-v1-20261024/4aa92b630b74b0b5.bin",
+      "bytes": 5299,
+      "sha256": "87e49bde6e92d96956f28e644c1c87edaa4a7bd02ae025c2a57cd65481c0e7ea"
+    },
+    {
+      "path": ".cache/leona-particle-research-20261023/90f22ca1151514e0.bin",
+      "bytes": 2260,
+      "sha256": "bba6e7bb63e7a153639ea75ef2b165128026f277b32ee41892d85855bb419672"
+    },
+    {
+      "path": ".cache/leona-particle-research-20261023/deacffd4a1345278.bin",
+      "bytes": 17893,
+      "sha256": "af3d5aac66fed3d2e55b90d9dcc890dafee7300f8607fb15d591c22fc694fbbd"
+    },
+    {
+      "path": ".cache/leona-particle-research-20261023/237ccbea18468393.bin",
+      "bytes": 543,
+      "sha256": "68c7cbec5cc026a0affbf86d45b6773faf1947725c9a2fce22ff770c5d822058"
+    },
+    {
+      "path": ".cache/leona-particle-research-20261023/7665013d04be4544.bin",
+      "bytes": 415,
+      "sha256": "d8abf90c04873b44f563c0a470e36bab832d1ae14a82703c3d8db48e8a6ac41c"
+    },
+    {
+      "path": ".cache/leona-particle-research-20261023/6d04599f3a910389.bin",
+      "bytes": 2025,
+      "sha256": "a83d4b48219dd44ed5715f38f278c0dadcb5ad11d7f1bed1c69358eaa1738ea4"
+    },
+    {
+      "path": ".cache/leona-particle-research-20261023/27b66340e3e70c10.bin",
+      "bytes": 3876,
+      "sha256": "98f2764d475491ac93f1f34d985eb9a0f2008ee0e1b99e5227a19343b76d16fe"
+    },
+    {
+      "path": ".cache/leona-particle-research-20261023/2be8d4eb0edc54d6.bin",
+      "bytes": 5382,
+      "sha256": "96eaafef74c2c413e929580e1851003a5fdeb735b4f3bdd37fe4b66a7ccfa13c"
+    },
+    {
+      "path": ".cache/leona-canonical-source-reverify-v1-20261023/data/characters/leona/leona.bin",
+      "bytes": 24399,
+      "sha256": "f1f8791e19d630afb968745c353b17ae2e0020f1d5e24f5a85db838528edd4f1"
+    },
+    {
+      "path": ".cache/riot-reference/1119e68f8dcd6eb3-header.wad.client",
+      "bytes": 162640,
+      "sha256": "2a1f22302b26a628f5b01345bb5390edb1f2fa152cc202683f1b9658e98908c4"
+    },
+    {
+      "path": ".cache/riot-reference/29CE6E781C3B6368.manifest",
+      "bytes": 16683525,
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    {
+      "path": ".cache/jungle-characters/hashes.game.txt",
+      "bytes": 232833184,
+      "sha256": "9e9370edecab87865e33b1cf90e8309248cced44ebe29d3f0875c237d8400081"
+    },
+    {
+      "path": ".cache/riot-reference/BF8280CA780C3E12.chunk",
+      "bytes": 102094,
+      "sha256": "ef22ada7ce77a4443faf7e3a2018021ce1941f73260f34f472f0d668d6739db8"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/rads.py",
+      "bytes": 23252,
+      "sha256": "774e2254cd2d50f68eb2a80686491a048539d17e3c22f9b3924e3cbb1602535b"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/tools.py",
+      "bytes": 3725,
+      "sha256": "72dbd480621b1af930d33b76e9e7e19854a9f5e0eb2a49957e45ac5df590b982"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/__init__.py",
+      "bytes": 52,
+      "sha256": "be6459509876854380a0704ab435a5c2028abac61f92d1e62fbf7267752246f2"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/tftdata.py",
+      "bytes": 18254,
+      "sha256": "93dc0840e74c9ac209d1f4975daa6eabdd84d858aed0f21d9bb192540865dde1"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/rstfile.py",
+      "bytes": 3359,
+      "sha256": "1cf15a6f5a57626e6e34d682b6e3c0242087f201de95777aea5bf15d20679b6b"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/export.py",
+      "bytes": 34168,
+      "sha256": "225ce9d8fb41dc36a17342a7a86dbfc4d5dae51f80316e6a8f065ea878972096"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/arenadata.py",
+      "bytes": 4331,
+      "sha256": "d031361fdff47b01ea46b8f46911d775ed7a6002e335f70b1349ea64fc63b982"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/sknfile.py",
+      "bytes": 3231,
+      "sha256": "a4686a02cf1ab99775d3617711452d5b6275c3666d556f558a6bef1f65b9d8ec"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/patcher.py",
+      "bytes": 24249,
+      "sha256": "9e538818c29c3f43b239d65e1f5474cfc937d5e8afaed7423b07b72bb22cadc6"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/storage.py",
+      "bytes": 14834,
+      "sha256": "9708f7bcd973c672812325eba12e46cb2443f12f5c4126f3d637501fadc7c0ec"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/wad.py",
+      "bytes": 12880,
+      "sha256": "a375025be883f4931aad80f8f8bf18266959c5072151d533d5412a4b1919547a"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/hashes.py",
+      "bytes": 40902,
+      "sha256": "6629ffb9687353bbbb5b24d6ce84d0a0770449d3fca99f24d708e8a23b58ad9c"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/__main__.py",
+      "bytes": 20212,
+      "sha256": "4edc09bccb72fcf4fcf6aae70cdce3823937fe20e844ff857a3d54936ecbab51"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/data.py",
+      "bytes": 945,
+      "sha256": "fb1e2babdd41b5292fa9bc1d8c9e0b84cbe822cfd863bbc9361878f17495399f"
+    },
+    {
+      "path": "tools/assets/riot_archive.py",
+      "bytes": 7454,
+      "sha256": "7444e2d6dd84c10d2b7b58105a9cdb56edb963d7a3f33fe61dc2932334e5eeb6"
+    },
+    {
+      "path": ".cache/leona-r-weapon-frame-reading-v1-20261024/findings.json",
+      "bytes": 34763,
+      "sha256": "28cd586e5cbb3e4f783e976c00c03692a7db004ad3297cddb9643efc8ff9c5d9"
+    },
+    {
+      "path": ".cache/leona-r-weapon-frame-reading-v1-20261024/wad-inventory.py",
+      "bytes": 2440,
+      "sha256": "30a2b43f5025c9ca91129fbd29275effdd7c91306b0e03222371ef7c4ed8a8a5"
+    },
+    {
+      "path": ".cache/leona-r-weapon-frame-reading-v1-20261024/wad-inventory.json",
+      "bytes": 42351,
+      "sha256": "0bf487de12fdf776beef12a443166064a57ee182b0a626202e54a274d2e4708a"
+    },
+    {
+      "path": "tools/assets/verify-leona-r-weapon-frame.py",
+      "bytes": 9847,
+      "sha256": "284617b0deea73bdcfcf0622770d0c4fe842be316b9cddb6ee03c3df59e18983"
+    },
+    {
+      "path": ".tools/cdtb-venv/lib/python3.14/site-packages/xxhash/version.py",
+      "bytes": 101,
+      "sha256": "c3acd5376d6a2ff680c10a0a8fe78bf88d1e0a72936af90e0fd8c203b0a8fc47"
+    },
+    {
+      "path": ".tools/cdtb-venv/lib/python3.14/site-packages/xxhash/__init__.py",
+      "bytes": 1147,
+      "sha256": "98f11d8a1c43314d2b8cb5ae9b716b53d51ada343eaf37dec1880883e27e2657"
+    },
+    {
+      "path": ".tools/cdtb-venv/lib/python3.14/site-packages/xxhash/_xxhash.cpython-314-darwin.so",
+      "bytes": 101568,
+      "sha256": "5a9fe1acc1f03f39a1a6c5b92b93a70f0f7d7aad1ac74eea09daf94c869bdb19"
+    },
+    {
+      "path": ".tools/cdtb-venv/lib/python3.14/site-packages/pyzstd/_version.py",
+      "bytes": 23,
+      "sha256": "002c2a05cb4aea9ffd3a3dab5d689299538f25446b08287b97f024d4c93687ea"
+    },
+    {
+      "path": ".tools/cdtb-venv/lib/python3.14/site-packages/pyzstd/_seekable_zstdfile.py",
+      "bytes": 36996,
+      "sha256": "66dcd8206a4473e24d55e7190f27f2950ca4aa869dada612fe925d2f6ec65204"
+    },
+    {
+      "path": ".tools/cdtb-venv/lib/python3.14/site-packages/pyzstd/__init__.py",
+      "bytes": 29957,
+      "sha256": "0a321b617498ef75b0ebd910a34024138beb982e0265c561d1d89d4e3d47550a"
+    },
+    {
+      "path": ".tools/cdtb-venv/lib/python3.14/site-packages/pyzstd/__main__.py",
+      "bytes": 17478,
+      "sha256": "89c2c3b74ce20c157a7bf4468b6ea15d32550151f2de6c24e0354f5320949f65"
+    }
+  ],
+  "binInventory": {
+    "fb9d700b183008abbb6c77ae1b4e7837ec544d144e125e807394daa18ef9fe29": [
+      ".cache/leona-model-research-20261023/archive-reverified/data/characters/leona/skins/skin0.bin",
+      ".cache/leona-model-research-20261023/archive/data/characters/leona/skins/skin0.bin",
+      ".cache/leona-r-particle-sources-v1-20261024/8a4c7a0f7f10c5cb.bin",
+      ".cache/leona-e-sword-accepted-v2-20261024/native/.cache/leona-native-bin-loader-v1-20261024/retained-8a4c7a0f7f10c5cb.bin",
+      ".cache/leona-native-bin-loader-v1-20261024/retained-8a4c7a0f7f10c5cb.bin",
+      ".cache/leona-w-particle-sources/8a4c7a0f7f10c5cb.bin"
+    ],
+    "0697f2eaad38eaae9ad31d6478514225939253444a4d6038e813e9bf7c2c214f": [
+      ".cache/leona-model-research-20261023/archive-reverified/data/characters/leona/animations/skin0.bin",
+      ".cache/leona-model-research-20261023/archive/data/characters/leona/animations/skin0.bin"
+    ],
+    "d85936463c682218a21ed0fa6cc9530f4b1b3bcfed8563f782d571f067ff9c77": [
+      ".cache/leona-r-particle-sources-v1-20261024/15e5799a73dddb60.bin",
+      ".cache/leona-particle-research-20261023/15e5799a73dddb60.bin"
+    ],
+    "551752d65678d84d12b57a894ef3e7af59ef7c1b237156f4232673b4708b5840": [
+      ".cache/leona-r-particle-sources-v1-20261024/aea8db097256315a.bin",
+      ".cache/leona-e-particle-sources-v1-20261024/aea8db097256315a.bin",
+      ".cache/leona-particle-research-20261023/aea8db097256315a.bin",
+      ".cache/leona-e-particle-sources-v2-20261024/aea8db097256315a.bin",
+      ".cache/leona-e-source-review-v1-20261024/initial-native/.cache/leona-e-particle-sources-v1-20261024/aea8db097256315a.bin",
+      ".cache/leona-sunlight-particle-sources/aea8db097256315a.bin",
+      ".cache/leona-w-particle-sources/aea8db097256315a.bin"
+    ],
+    "9d163c912fdbfb36fcaacc03dc38b02df8d035b0bc65a2611b0cfdefff267539": [
+      ".cache/leona-r-particle-sources-v1-20261024/6889e1c664c3717f.bin",
+      ".cache/leona-q-particle-sources/6889e1c664c3717f.bin",
+      ".cache/leona-particle-research-20261023/6889e1c664c3717f.bin",
+      ".cache/leona-w-particle-sources/6889e1c664c3717f.bin"
+    ],
+    "c6721a060c3eb56e50bc78ce824fa9d46a9df45b2ac11ab3bea161cbadd9526e": [
+      ".cache/leona-q-particle-sources/223457ab6500b0e6.bin",
+      ".cache/leona-particle-research-20261023/223457ab6500b0e6.bin"
+    ],
+    "841e16b8fe0bf94cda3180ec70476c1e6aeba3defbbf5b15d4025e62909240d3": [
+      ".cache/leona-e-particle-sources-v1-20261024/dcca1cd8b71b953f.bin",
+      ".cache/leona-particle-research-20261023/dcca1cd8b71b953f.bin",
+      ".cache/leona-e-sword-accepted-v2-20261024/native/.cache/leona-e-particle-sources-v2-20261024/dcca1cd8b71b953f.bin",
+      ".cache/leona-e-particle-sources-v2-20261024/dcca1cd8b71b953f.bin",
+      ".cache/leona-e-source-review-v1-20261024/initial-native/.cache/leona-e-particle-sources-v1-20261024/dcca1cd8b71b953f.bin"
+    ],
+    "231e50550047e752af80cc90fd8970f2cc901490285a3b60cb18c836063c088d": [
+      ".cache/leona-e-particle-sources-v1-20261024/596bea2f886d0c00.bin",
+      ".cache/leona-particle-research-20261023/596bea2f886d0c00.bin",
+      ".cache/leona-e-particle-sources-v2-20261024/596bea2f886d0c00.bin",
+      ".cache/leona-e-source-review-v1-20261024/initial-native/.cache/leona-e-particle-sources-v1-20261024/596bea2f886d0c00.bin"
+    ],
+    "87e49bde6e92d96956f28e644c1c87edaa4a7bd02ae025c2a57cd65481c0e7ea": [
+      ".cache/leona-e-particle-sources-v1-20261024/4aa92b630b74b0b5.bin",
+      ".cache/leona-particle-research-20261023/4aa92b630b74b0b5.bin",
+      ".cache/leona-e-particle-sources-v2-20261024/4aa92b630b74b0b5.bin",
+      ".cache/leona-e-source-review-v1-20261024/initial-native/.cache/leona-e-particle-sources-v1-20261024/4aa92b630b74b0b5.bin"
+    ],
+    "bba6e7bb63e7a153639ea75ef2b165128026f277b32ee41892d85855bb419672": [
+      ".cache/leona-particle-research-20261023/90f22ca1151514e0.bin"
+    ],
+    "af3d5aac66fed3d2e55b90d9dcc890dafee7300f8607fb15d591c22fc694fbbd": [
+      ".cache/leona-particle-research-20261023/deacffd4a1345278.bin"
+    ],
+    "68c7cbec5cc026a0affbf86d45b6773faf1947725c9a2fce22ff770c5d822058": [
+      ".cache/leona-particle-research-20261023/237ccbea18468393.bin"
+    ],
+    "d8abf90c04873b44f563c0a470e36bab832d1ae14a82703c3d8db48e8a6ac41c": [
+      ".cache/leona-particle-research-20261023/7665013d04be4544.bin"
+    ],
+    "a83d4b48219dd44ed5715f38f278c0dadcb5ad11d7f1bed1c69358eaa1738ea4": [
+      ".cache/leona-particle-research-20261023/6d04599f3a910389.bin"
+    ],
+    "98f2764d475491ac93f1f34d985eb9a0f2008ee0e1b99e5227a19343b76d16fe": [
+      ".cache/leona-particle-research-20261023/27b66340e3e70c10.bin"
+    ],
+    "96eaafef74c2c413e929580e1851003a5fdeb735b4f3bdd37fe4b66a7ccfa13c": [
+      ".cache/leona-particle-research-20261023/2be8d4eb0edc54d6.bin"
+    ],
+    "f1f8791e19d630afb968745c353b17ae2e0020f1d5e24f5a85db838528edd4f1": [
+      ".cache/leona-canonical-source-reverify-v1-20261023/data/characters/leona/leona.bin",
+      ".cache/leona-character-research-20261023/archive-reverified/data/characters/leona/leona.bin",
+      ".cache/leona-character-research-20261023/archive/data/characters/leona/leona.bin"
+    ]
+  },
+  "sourceReading": {
+    "linkedCoverage": [
+      {
+        "virtualPath": "DATA/Characters/Leona/Leona.bin",
+        "wadPathHash": "b01c50a67cc60507",
+        "matchedInput": {
+          "path": ".cache/leona-canonical-source-reverify-v1-20261023/data/characters/leona/leona.bin",
+          "bytes": 24399,
+          "sha256": "f1f8791e19d630afb968745c353b17ae2e0020f1d5e24f5a85db838528edd4f1"
+        }
+      },
+      {
+        "virtualPath": "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin2_Skins_Skin3_Skins_Skin34_Skins_Skin44_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin9.bin",
+        "wadPathHash": "deacffd4a1345278",
+        "matchedInput": {
+          "path": ".cache/leona-particle-research-20261023/deacffd4a1345278.bin",
+          "bytes": 17893,
+          "sha256": "af3d5aac66fed3d2e55b90d9dcc890dafee7300f8607fb15d591c22fc694fbbd"
+        }
+      },
+      {
+        "virtualPath": "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin3_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin43_Skins_Skin44_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin5_Skins_Skin6_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+        "wadPathHash": "27b66340e3e70c10",
+        "matchedInput": {
+          "path": ".cache/leona-particle-research-20261023/27b66340e3e70c10.bin",
+          "bytes": 3876,
+          "sha256": "98f2764d475491ac93f1f34d985eb9a0f2008ee0e1b99e5227a19343b76d16fe"
+        }
+      },
+      {
+        "virtualPath": "DATA/Characters/Leona/Animations/Skin0.bin",
+        "wadPathHash": "69c256188278db22",
+        "matchedInput": {
+          "path": ".cache/leona-model-research-20261023/archive-reverified/data/characters/leona/animations/skin0.bin",
+          "bytes": 3408,
+          "sha256": "0697f2eaad38eaae9ad31d6478514225939253444a4d6038e813e9bf7c2c214f"
+        }
+      },
+      {
+        "virtualPath": "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin22_Skins_Skin3_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin43_Skins_Skin44_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin5_Skins_Skin6_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+        "wadPathHash": "237ccbea18468393",
+        "matchedInput": {
+          "path": ".cache/leona-particle-research-20261023/237ccbea18468393.bin",
+          "bytes": 543,
+          "sha256": "68c7cbec5cc026a0affbf86d45b6773faf1947725c9a2fce22ff770c5d822058"
+        }
+      },
+      {
+        "virtualPath": "DATA/Characters/Leona/Leona_Multi_Skins_Root_Skins_Skin0_Skins_Skin1_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin21_Skins_Skin22_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin3_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin43_Skins_Skin5_Skins_Skin50_Skins_Skin51_Skins_Skin52_Skins_Skin53_Skins_Skin54_Skins_Skin55_Skins_Skin56_Skins_Skin57_Skins_Skin58_Skins_Skin59_Skins_Skin6_Skins_Skin60_Skins_Skin61_Skins_Skin62_Skins_Skin63_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+        "wadPathHash": "90f22ca1151514e0",
+        "matchedInput": {
+          "path": ".cache/leona-particle-research-20261023/90f22ca1151514e0.bin",
+          "bytes": 2260,
+          "sha256": "bba6e7bb63e7a153639ea75ef2b165128026f277b32ee41892d85855bb419672"
+        }
+      },
+      {
+        "virtualPath": "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin22_Skins_Skin3_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin43_Skins_Skin44_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin5_Skins_Skin6_Skins_Skin7_Skins_Skin9.bin",
+        "wadPathHash": "7665013d04be4544",
+        "matchedInput": {
+          "path": ".cache/leona-particle-research-20261023/7665013d04be4544.bin",
+          "bytes": 415,
+          "sha256": "d8abf90c04873b44f563c0a470e36bab832d1ae14a82703c3d8db48e8a6ac41c"
+        }
+      },
+      {
+        "virtualPath": "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin22_Skins_Skin3_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin43_Skins_Skin44_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin8_Skins_Skin9.bin",
+        "wadPathHash": "6d04599f3a910389",
+        "matchedInput": {
+          "path": ".cache/leona-particle-research-20261023/6d04599f3a910389.bin",
+          "bytes": 2025,
+          "sha256": "a83d4b48219dd44ed5715f38f278c0dadcb5ad11d7f1bed1c69358eaa1738ea4"
+        }
+      },
+      {
+        "virtualPath": "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin2_Skins_Skin22_Skins_Skin3_Skins_Skin32_Skins_Skin4_Skins_Skin5_Skins_Skin6_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+        "wadPathHash": "596bea2f886d0c00",
+        "matchedInput": {
+          "path": ".cache/leona-e-particle-sources-v1-20261024/596bea2f886d0c00.bin",
+          "bytes": 422,
+          "sha256": "231e50550047e752af80cc90fd8970f2cc901490285a3b60cb18c836063c088d"
+        }
+      },
+      {
+        "virtualPath": "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin2_Skins_Skin3_Skins_Skin4_Skins_Skin5_Skins_Skin6_Skins_Skin7_Skins_Skin9.bin",
+        "wadPathHash": "15e5799a73dddb60",
+        "matchedInput": {
+          "path": ".cache/leona-r-particle-sources-v1-20261024/15e5799a73dddb60.bin",
+          "bytes": 10249,
+          "sha256": "d85936463c682218a21ed0fa6cc9530f4b1b3bcfed8563f782d571f067ff9c77"
+        }
+      },
+      {
+        "virtualPath": "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin2_Skins_Skin4_Skins_Skin5_Skins_Skin6_Skins_Skin7_Skins_Skin9.bin",
+        "wadPathHash": "4aa92b630b74b0b5",
+        "matchedInput": {
+          "path": ".cache/leona-e-particle-sources-v1-20261024/4aa92b630b74b0b5.bin",
+          "bytes": 5299,
+          "sha256": "87e49bde6e92d96956f28e644c1c87edaa4a7bd02ae025c2a57cd65481c0e7ea"
+        }
+      },
+      {
+        "virtualPath": "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin2_Skins_Skin3_Skins_Skin9.bin",
+        "wadPathHash": "aea8db097256315a",
+        "matchedInput": {
+          "path": ".cache/leona-r-particle-sources-v1-20261024/aea8db097256315a.bin",
+          "bytes": 48021,
+          "sha256": "551752d65678d84d12b57a894ef3e7af59ef7c1b237156f4232673b4708b5840"
+        }
+      },
+      {
+        "virtualPath": "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin2_Skins_Skin3.bin",
+        "wadPathHash": "223457ab6500b0e6",
+        "matchedInput": {
+          "path": ".cache/leona-q-particle-sources/223457ab6500b0e6.bin",
+          "bytes": 3396,
+          "sha256": "c6721a060c3eb56e50bc78ce824fa9d46a9df45b2ac11ab3bea161cbadd9526e"
+        }
+      },
+      {
+        "virtualPath": "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin2_Skins_Skin9.bin",
+        "wadPathHash": "6889e1c664c3717f",
+        "matchedInput": {
+          "path": ".cache/leona-r-particle-sources-v1-20261024/6889e1c664c3717f.bin",
+          "bytes": 55027,
+          "sha256": "9d163c912fdbfb36fcaacc03dc38b02df8d035b0bc65a2611b0cfdefff267539"
+        }
+      },
+      {
+        "virtualPath": "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin10_Skins_Skin11.bin",
+        "wadPathHash": "2be8d4eb0edc54d6",
+        "matchedInput": {
+          "path": ".cache/leona-particle-research-20261023/2be8d4eb0edc54d6.bin",
+          "bytes": 5382,
+          "sha256": "96eaafef74c2c413e929580e1851003a5fdeb735b4f3bdd37fe4b66a7ccfa13c"
+        }
+      },
+      {
+        "virtualPath": "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin2.bin",
+        "wadPathHash": "dcca1cd8b71b953f",
+        "matchedInput": {
+          "path": ".cache/leona-e-particle-sources-v1-20261024/dcca1cd8b71b953f.bin",
+          "bytes": 17829,
+          "sha256": "841e16b8fe0bf94cda3180ec70476c1e6aeba3defbbf5b15d4025e62909240d3"
+        }
+      }
+    ],
+    "binReading": [
+      {
+        "input": {
+          "path": ".cache/leona-model-research-20261023/archive-reverified/data/characters/leona/skins/skin0.bin",
+          "bytes": 16863,
+          "sha256": "fb9d700b183008abbb6c77ae1b4e7837ec544d144e125e807394daa18ef9fe29"
+        },
+        "sameByteCopies": [
+          ".cache/leona-model-research-20261023/archive-reverified/data/characters/leona/skins/skin0.bin",
+          ".cache/leona-model-research-20261023/archive/data/characters/leona/skins/skin0.bin",
+          ".cache/leona-r-particle-sources-v1-20261024/8a4c7a0f7f10c5cb.bin",
+          ".cache/leona-e-sword-accepted-v2-20261024/native/.cache/leona-native-bin-loader-v1-20261024/retained-8a4c7a0f7f10c5cb.bin",
+          ".cache/leona-native-bin-loader-v1-20261024/retained-8a4c7a0f7f10c5cb.bin",
+          ".cache/leona-w-particle-sources/8a4c7a0f7f10c5cb.bin"
+        ],
+        "rawMatches": [
+          {
+            "term": "Leona_R_buf",
+            "kind": "littleEndianFNV32",
+            "offsets": [
+              16727
+            ]
+          },
+          {
+            "term": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_R_buf",
+            "kind": "ascii-insensitive",
+            "offsets": [
+              16478
+            ]
+          },
+          {
+            "term": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_R_buf",
+            "kind": "littleEndianFNV32",
+            "offsets": [
+              13785,
+              16538,
+              16731
+            ]
+          },
+          {
+            "term": "BUFFBONE_GLB_WEAPON_1",
+            "kind": "ascii-insensitive",
+            "offsets": [
+              7304
+            ]
+          }
+        ],
+        "structuralMatches": [
+          {
+            "location": "/Characters/Leona/Skins/Skin0/idleParticlesEffects/0/boneName",
+            "match": "string or named hash value",
+            "value": "BUFFBONE_GLB_WEAPON_1"
+          },
+          {
+            "location": "/Characters/Leona/Skins/Skin0/Particles/Leona_Base_R_buf",
+            "match": "dictionary key",
+            "value": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_R_buf"
+          },
+          {
+            "location": "/Characters/Leona/Skins/Skin0/Particles/Leona_Base_R_buf/particlePath",
+            "match": "string or named hash value",
+            "value": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_R_buf"
+          },
+          {
+            "location": "/Characters/Leona/Skins/Skin0/Particles/Leona_Base_R_buf/objectPath",
+            "match": "string or named hash value",
+            "value": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_R_buf"
+          },
+          {
+            "location": "/Characters/Leona/Skins/Skin0/Resources/resourceMap/{c2a19481}",
+            "match": "string or named hash value",
+            "value": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_R_buf"
+          }
+        ],
+        "entryCount": 5,
+        "linked": [
+          "DATA/Characters/Leona/Leona.bin",
+          "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin2_Skins_Skin3_Skins_Skin34_Skins_Skin44_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin9.bin",
+          "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin3_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin43_Skins_Skin44_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin5_Skins_Skin6_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+          "DATA/Characters/Leona/Animations/Skin0.bin",
+          "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin22_Skins_Skin3_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin43_Skins_Skin44_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin5_Skins_Skin6_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+          "DATA/Characters/Leona/Leona_Multi_Skins_Root_Skins_Skin0_Skins_Skin1_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin21_Skins_Skin22_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin3_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin43_Skins_Skin5_Skins_Skin50_Skins_Skin51_Skins_Skin52_Skins_Skin53_Skins_Skin54_Skins_Skin55_Skins_Skin56_Skins_Skin57_Skins_Skin58_Skins_Skin59_Skins_Skin6_Skins_Skin60_Skins_Skin61_Skins_Skin62_Skins_Skin63_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+          "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin22_Skins_Skin3_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin43_Skins_Skin44_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin5_Skins_Skin6_Skins_Skin7_Skins_Skin9.bin",
+          "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin22_Skins_Skin3_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin43_Skins_Skin44_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin8_Skins_Skin9.bin",
+          "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin2_Skins_Skin22_Skins_Skin3_Skins_Skin32_Skins_Skin4_Skins_Skin5_Skins_Skin6_Skins_Skin7_Skins_Skin8_Skins_Skin9.bin",
+          "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin2_Skins_Skin3_Skins_Skin4_Skins_Skin5_Skins_Skin6_Skins_Skin7_Skins_Skin9.bin",
+          "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin2_Skins_Skin4_Skins_Skin5_Skins_Skin6_Skins_Skin7_Skins_Skin9.bin",
+          "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin2_Skins_Skin3_Skins_Skin9.bin",
+          "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin2_Skins_Skin3.bin",
+          "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin2_Skins_Skin9.bin",
+          "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin10_Skins_Skin11.bin",
+          "DATA/Characters/Leona/Leona_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin2.bin"
+        ]
+      },
+      {
+        "input": {
+          "path": ".cache/leona-model-research-20261023/archive-reverified/data/characters/leona/animations/skin0.bin",
+          "bytes": 3408,
+          "sha256": "0697f2eaad38eaae9ad31d6478514225939253444a4d6038e813e9bf7c2c214f"
+        },
+        "sameByteCopies": [
+          ".cache/leona-model-research-20261023/archive-reverified/data/characters/leona/animations/skin0.bin",
+          ".cache/leona-model-research-20261023/archive/data/characters/leona/animations/skin0.bin"
+        ],
+        "rawMatches": [],
+        "structuralMatches": [],
+        "entryCount": 1,
+        "linked": []
+      },
+      {
+        "input": {
+          "path": ".cache/leona-r-particle-sources-v1-20261024/15e5799a73dddb60.bin",
+          "bytes": 10249,
+          "sha256": "d85936463c682218a21ed0fa6cc9530f4b1b3bcfed8563f782d571f067ff9c77"
+        },
+        "sameByteCopies": [
+          ".cache/leona-r-particle-sources-v1-20261024/15e5799a73dddb60.bin",
+          ".cache/leona-particle-research-20261023/15e5799a73dddb60.bin"
+        ],
+        "rawMatches": [],
+        "structuralMatches": [],
+        "entryCount": 2,
+        "linked": []
+      },
+      {
+        "input": {
+          "path": ".cache/leona-r-particle-sources-v1-20261024/aea8db097256315a.bin",
+          "bytes": 48021,
+          "sha256": "551752d65678d84d12b57a894ef3e7af59ef7c1b237156f4232673b4708b5840"
+        },
+        "sameByteCopies": [
+          ".cache/leona-r-particle-sources-v1-20261024/aea8db097256315a.bin",
+          ".cache/leona-e-particle-sources-v1-20261024/aea8db097256315a.bin",
+          ".cache/leona-particle-research-20261023/aea8db097256315a.bin",
+          ".cache/leona-e-particle-sources-v2-20261024/aea8db097256315a.bin",
+          ".cache/leona-e-source-review-v1-20261024/initial-native/.cache/leona-e-particle-sources-v1-20261024/aea8db097256315a.bin",
+          ".cache/leona-sunlight-particle-sources/aea8db097256315a.bin",
+          ".cache/leona-w-particle-sources/aea8db097256315a.bin"
+        ],
+        "rawMatches": [],
+        "structuralMatches": [],
+        "entryCount": 10,
+        "linked": []
+      },
+      {
+        "input": {
+          "path": ".cache/leona-r-particle-sources-v1-20261024/6889e1c664c3717f.bin",
+          "bytes": 55027,
+          "sha256": "9d163c912fdbfb36fcaacc03dc38b02df8d035b0bc65a2611b0cfdefff267539"
+        },
+        "sameByteCopies": [
+          ".cache/leona-r-particle-sources-v1-20261024/6889e1c664c3717f.bin",
+          ".cache/leona-q-particle-sources/6889e1c664c3717f.bin",
+          ".cache/leona-particle-research-20261023/6889e1c664c3717f.bin",
+          ".cache/leona-w-particle-sources/6889e1c664c3717f.bin"
+        ],
+        "rawMatches": [],
+        "structuralMatches": [],
+        "entryCount": 3,
+        "linked": []
+      },
+      {
+        "input": {
+          "path": ".cache/leona-q-particle-sources/223457ab6500b0e6.bin",
+          "bytes": 3396,
+          "sha256": "c6721a060c3eb56e50bc78ce824fa9d46a9df45b2ac11ab3bea161cbadd9526e"
+        },
+        "sameByteCopies": [
+          ".cache/leona-q-particle-sources/223457ab6500b0e6.bin",
+          ".cache/leona-particle-research-20261023/223457ab6500b0e6.bin"
+        ],
+        "rawMatches": [],
+        "structuralMatches": [],
+        "entryCount": 1,
+        "linked": []
+      },
+      {
+        "input": {
+          "path": ".cache/leona-e-particle-sources-v1-20261024/dcca1cd8b71b953f.bin",
+          "bytes": 17829,
+          "sha256": "841e16b8fe0bf94cda3180ec70476c1e6aeba3defbbf5b15d4025e62909240d3"
+        },
+        "sameByteCopies": [
+          ".cache/leona-e-particle-sources-v1-20261024/dcca1cd8b71b953f.bin",
+          ".cache/leona-particle-research-20261023/dcca1cd8b71b953f.bin",
+          ".cache/leona-e-sword-accepted-v2-20261024/native/.cache/leona-e-particle-sources-v2-20261024/dcca1cd8b71b953f.bin",
+          ".cache/leona-e-particle-sources-v2-20261024/dcca1cd8b71b953f.bin",
+          ".cache/leona-e-source-review-v1-20261024/initial-native/.cache/leona-e-particle-sources-v1-20261024/dcca1cd8b71b953f.bin"
+        ],
+        "rawMatches": [],
+        "structuralMatches": [],
+        "entryCount": 1,
+        "linked": []
+      },
+      {
+        "input": {
+          "path": ".cache/leona-e-particle-sources-v1-20261024/596bea2f886d0c00.bin",
+          "bytes": 422,
+          "sha256": "231e50550047e752af80cc90fd8970f2cc901490285a3b60cb18c836063c088d"
+        },
+        "sameByteCopies": [
+          ".cache/leona-e-particle-sources-v1-20261024/596bea2f886d0c00.bin",
+          ".cache/leona-particle-research-20261023/596bea2f886d0c00.bin",
+          ".cache/leona-e-particle-sources-v2-20261024/596bea2f886d0c00.bin",
+          ".cache/leona-e-source-review-v1-20261024/initial-native/.cache/leona-e-particle-sources-v1-20261024/596bea2f886d0c00.bin"
+        ],
+        "rawMatches": [],
+        "structuralMatches": [],
+        "entryCount": 1,
+        "linked": []
+      },
+      {
+        "input": {
+          "path": ".cache/leona-e-particle-sources-v1-20261024/4aa92b630b74b0b5.bin",
+          "bytes": 5299,
+          "sha256": "87e49bde6e92d96956f28e644c1c87edaa4a7bd02ae025c2a57cd65481c0e7ea"
+        },
+        "sameByteCopies": [
+          ".cache/leona-e-particle-sources-v1-20261024/4aa92b630b74b0b5.bin",
+          ".cache/leona-particle-research-20261023/4aa92b630b74b0b5.bin",
+          ".cache/leona-e-particle-sources-v2-20261024/4aa92b630b74b0b5.bin",
+          ".cache/leona-e-source-review-v1-20261024/initial-native/.cache/leona-e-particle-sources-v1-20261024/4aa92b630b74b0b5.bin"
+        ],
+        "rawMatches": [],
+        "structuralMatches": [],
+        "entryCount": 1,
+        "linked": []
+      },
+      {
+        "input": {
+          "path": ".cache/leona-particle-research-20261023/90f22ca1151514e0.bin",
+          "bytes": 2260,
+          "sha256": "bba6e7bb63e7a153639ea75ef2b165128026f277b32ee41892d85855bb419672"
+        },
+        "sameByteCopies": [
+          ".cache/leona-particle-research-20261023/90f22ca1151514e0.bin"
+        ],
+        "rawMatches": [],
+        "structuralMatches": [],
+        "entryCount": 1,
+        "linked": []
+      },
+      {
+        "input": {
+          "path": ".cache/leona-particle-research-20261023/deacffd4a1345278.bin",
+          "bytes": 17893,
+          "sha256": "af3d5aac66fed3d2e55b90d9dcc890dafee7300f8607fb15d591c22fc694fbbd"
+        },
+        "sameByteCopies": [
+          ".cache/leona-particle-research-20261023/deacffd4a1345278.bin"
+        ],
+        "rawMatches": [],
+        "structuralMatches": [],
+        "entryCount": 2,
+        "linked": []
+      },
+      {
+        "input": {
+          "path": ".cache/leona-particle-research-20261023/237ccbea18468393.bin",
+          "bytes": 543,
+          "sha256": "68c7cbec5cc026a0affbf86d45b6773faf1947725c9a2fce22ff770c5d822058"
+        },
+        "sameByteCopies": [
+          ".cache/leona-particle-research-20261023/237ccbea18468393.bin"
+        ],
+        "rawMatches": [],
+        "structuralMatches": [],
+        "entryCount": 2,
+        "linked": []
+      },
+      {
+        "input": {
+          "path": ".cache/leona-particle-research-20261023/7665013d04be4544.bin",
+          "bytes": 415,
+          "sha256": "d8abf90c04873b44f563c0a470e36bab832d1ae14a82703c3d8db48e8a6ac41c"
+        },
+        "sameByteCopies": [
+          ".cache/leona-particle-research-20261023/7665013d04be4544.bin"
+        ],
+        "rawMatches": [],
+        "structuralMatches": [],
+        "entryCount": 1,
+        "linked": []
+      },
+      {
+        "input": {
+          "path": ".cache/leona-particle-research-20261023/6d04599f3a910389.bin",
+          "bytes": 2025,
+          "sha256": "a83d4b48219dd44ed5715f38f278c0dadcb5ad11d7f1bed1c69358eaa1738ea4"
+        },
+        "sameByteCopies": [
+          ".cache/leona-particle-research-20261023/6d04599f3a910389.bin"
+        ],
+        "rawMatches": [],
+        "structuralMatches": [],
+        "entryCount": 5,
+        "linked": []
+      },
+      {
+        "input": {
+          "path": ".cache/leona-particle-research-20261023/27b66340e3e70c10.bin",
+          "bytes": 3876,
+          "sha256": "98f2764d475491ac93f1f34d985eb9a0f2008ee0e1b99e5227a19343b76d16fe"
+        },
+        "sameByteCopies": [
+          ".cache/leona-particle-research-20261023/27b66340e3e70c10.bin"
+        ],
+        "rawMatches": [],
+        "structuralMatches": [],
+        "entryCount": 2,
+        "linked": []
+      },
+      {
+        "input": {
+          "path": ".cache/leona-particle-research-20261023/2be8d4eb0edc54d6.bin",
+          "bytes": 5382,
+          "sha256": "96eaafef74c2c413e929580e1851003a5fdeb735b4f3bdd37fe4b66a7ccfa13c"
+        },
+        "sameByteCopies": [
+          ".cache/leona-particle-research-20261023/2be8d4eb0edc54d6.bin"
+        ],
+        "rawMatches": [],
+        "structuralMatches": [],
+        "entryCount": 2,
+        "linked": []
+      },
+      {
+        "input": {
+          "path": ".cache/leona-canonical-source-reverify-v1-20261023/data/characters/leona/leona.bin",
+          "bytes": 24399,
+          "sha256": "f1f8791e19d630afb968745c353b17ae2e0020f1d5e24f5a85db838528edd4f1"
+        },
+        "sameByteCopies": [
+          ".cache/leona-canonical-source-reverify-v1-20261023/data/characters/leona/leona.bin",
+          ".cache/leona-character-research-20261023/archive-reverified/data/characters/leona/leona.bin",
+          ".cache/leona-character-research-20261023/archive/data/characters/leona/leona.bin"
+        ],
+        "rawMatches": [],
+        "structuralMatches": [],
+        "entryCount": 51,
+        "linked": []
+      }
+    ],
+    "spell": {
+      "record": "Characters/Leona/Spells/LeonaSolarFlareAbility/LeonaSolarFlare",
+      "mScriptName": "LeonaSolarFlare",
+      "fields": [
+        "BotData",
+        "ObjectName",
+        "__type",
+        "mScriptName",
+        "mSpell",
+        "objectPath"
+      ],
+      "spawnReferences": []
+    },
+    "spell4": {
+      "location": "/Characters/Leona/Animations/Skin0/mClipDataMap/Spell4",
+      "definition": {
+        "mMaskDataName": "{25a6c4fd}",
+        "mTrackDataName": "Default",
+        "mAnimationResourceData": {
+          "mAnimationFilePath": "{ac76d855738163b9}",
+          "__type": "AnimationResourceData"
+        },
+        "__type": "AtomicClipData"
+      }
+    },
+    "quads": [
+      {
+        "sourceIndex": 1,
+        "definition": {
+          "rate": {
+            "constantValue": 2.0,
+            "__type": "ValueFloat"
+          },
+          "particleLifetime": {
+            "constantValue": 1.0,
+            "__type": "ValueFloat"
+          },
+          "particleLinger": 11.0,
+          "emitterName": "BeamswordGlow",
+          "bindWeight": {
+            "constantValue": 1.0,
+            "__type": "ValueFloat"
+          },
+          "EmitterPosition": {
+            "constantValue": [
+              0.0,
+              -90.0,
+              0.0
+            ],
+            "__type": "ValueVector3"
+          },
+          "primitive": {
+            "__type": "VfxPrimitiveArbitraryQuad"
+          },
+          "blendMode": 4,
+          "Color": {
+            "dynamics": {
+              "times": [
+                0.0,
+                0.5,
+                1.0
+              ],
+              "values": [
+                [
+                  1.0,
+                  1.0,
+                  1.0,
+                  0.0
+                ],
+                [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                [
+                  1.0,
+                  1.0,
+                  1.0,
+                  0.0
+                ]
+              ],
+              "__type": "VfxAnimatedColorVariableData"
+            },
+            "__type": "ValueColor"
+          },
+          "colorLookUpTypeY": 3,
+          "colorLookUpScales": [
+            1.0,
+            0.5
+          ],
+          "colorLookUpOffsets": [
+            0.0,
+            0.5
+          ],
+          "particleIsLocalOrientation": 1,
+          "birthRotation0": {
+            "constantValue": [
+              180.0,
+              0.0,
+              90.0
+            ],
+            "__type": "ValueVector3"
+          },
+          "birthScale0": {
+            "constantValue": [
+              90.0,
+              30.0,
+              50.0
+            ],
+            "__type": "ValueVector3"
+          },
+          "texture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_R_Buf_SwordGlow.tex",
+          "textureMult": {
+            "textureMult": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_R_buf_Mult.tex",
+            "birthUvScrollRateMult": {
+              "constantValue": [
+                -0.10000000149011612,
+                1.0
+              ],
+              "__type": "ValueVector2"
+            },
+            "birthUVOffsetMult": {
+              "constantValue": [
+                1.0,
+                1.0
+              ],
+              "dynamics": {
+                "probabilityTables": [
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.0,
+                      1.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  },
+                  {
+                    "keyTimes": [
+                      0.0,
+                      1.0
+                    ],
+                    "keyValues": [
+                      0.0,
+                      1.0
+                    ],
+                    "__type": "VfxProbabilityTableData"
+                  }
+                ],
+                "times": [
+                  0.0
+                ],
+                "values": [
+                  [
+                    1.0,
+                    1.0
+                  ]
+                ],
+                "__type": "VfxAnimatedVector2fVariableData"
+              },
+              "__type": "ValueVector2"
+            },
+            "__type": "VfxTextureMultDefinitionData"
+          },
+          "__type": "VfxEmitterDefinitionData"
+        }
+      },
+      {
+        "sourceIndex": 2,
+        "definition": {
+          "rate": {
+            "constantValue": 2.0,
+            "__type": "ValueFloat"
+          },
+          "particleLifetime": {
+            "constantValue": 1.0,
+            "__type": "ValueFloat"
+          },
+          "particleLinger": 11.0,
+          "emitterName": "BeamswordGlow2",
+          "bindWeight": {
+            "constantValue": 1.0,
+            "__type": "ValueFloat"
+          },
+          "EmitterPosition": {
+            "constantValue": [
+              0.0,
+              -90.0,
+              0.0
+            ],
+            "__type": "ValueVector3"
+          },
+          "primitive": {
+            "__type": "VfxPrimitiveArbitraryQuad"
+          },
+          "blendMode": 4,
+          "Color": {
+            "dynamics": {
+              "times": [
+                0.0,
+                0.5,
+                1.0
+              ],
+              "values": [
+                [
+                  1.0,
+                  1.0,
+                  1.0,
+                  0.0
+                ],
+                [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                [
+                  1.0,
+                  1.0,
+                  1.0,
+                  0.0
+                ]
+              ],
+              "__type": "VfxAnimatedColorVariableData"
+            },
+            "__type": "ValueColor"
+          },
+          "colorLookUpTypeY": 3,
+          "colorLookUpScales": [
+            1.0,
+            0.5
+          ],
+          "colorLookUpOffsets": [
+            0.0,
+            0.5
+          ],
+          "particleIsLocalOrientation": 1,
+          "birthRotation0": {
+            "constantValue": [
+              180.0,
+              90.0,
+              90.0
+            ],
+            "__type": "ValueVector3"
+          },
+          "birthScale0": {
+            "constantValue": [
+              90.0,
+              20.0,
+              50.0
+            ],
+            "__type": "ValueVector3"
+          },
+          "texture": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_R_Buf_SwordGlow.tex",
+          "textureMult": {
+            "textureMult": "ASSETS/Characters/Leona/Skins/Base/Particles/Leona_Base_R_buf_Mult.tex",
+            "birthUvScrollRateMult": {
+              "constantValue": [
+                0.20000000298023224,
+                0.800000011920929
+              ],
+              "__type": "ValueVector2"
+            },
+            "__type": "VfxTextureMultDefinitionData"
+          },
+          "__type": "VfxEmitterDefinitionData"
+        }
+      }
+    ]
+  },
+  "wad": {
+    "officialHeaderReverification": {
+      "method": "Read only existing compressed chunks; RiotArchive.verify_chunk and original RMAN mapping; no downloads.",
+      "chunks": {
+        "BF8280CA780C3E12": {
+          "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/38D1E6691DCED15B.bundle",
+          "offset": 3181145,
+          "bytes": 102094,
+          "sha256": "ef22ada7ce77a4443faf7e3a2018021ce1941f73260f34f472f0d668d6739db8"
+        }
+      }
+    },
+    "header": {
+      "path": ".cache/riot-reference/1119e68f8dcd6eb3-header.wad.client",
+      "sha256": "2a1f22302b26a628f5b01345bb5390edb1f2fa152cc202683f1b9658e98908c4"
+    },
+    "manifest": {
+      "path": ".cache/riot-reference/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "dictionary": {
+      "path": ".cache/jungle-characters/hashes.game.txt",
+      "sha256": "9e9370edecab87865e33b1cf90e8309248cced44ebe29d3f0875c237d8400081"
+    },
+    "dictionaryPaths": 218,
+    "present": [
+      {
+        "path": "data/characters/leona/skins/skin58.bin",
+        "pathHash": "0036b7e13c3aec2f",
+        "offset": 3392183,
+        "compressedBytes": 5113,
+        "bytes": 16288,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin37.bin",
+        "pathHash": "01f01558429babb9",
+        "offset": 8993808,
+        "compressedBytes": 3839,
+        "bytes": 14240,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin44.bin",
+        "pathHash": "0652d7d79fd264cd",
+        "offset": 48646321,
+        "compressedBytes": 21644,
+        "bytes": 296026,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin47.bin",
+        "pathHash": "0a20cb7eafe6e079",
+        "offset": 146026922,
+        "compressedBytes": 21538,
+        "bytes": 295948,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin38.bin",
+        "pathHash": "0d28a00018a7fd70",
+        "offset": 16451346,
+        "compressedBytes": 3803,
+        "bytes": 14212,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin33.bin",
+        "pathHash": "0e90a1795afb9933",
+        "offset": 17961227,
+        "compressedBytes": 3723,
+        "bytes": 14179,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/root.bin",
+        "pathHash": "0f7d0958b4fdeada",
+        "offset": 429002,
+        "compressedBytes": 790,
+        "bytes": 2123,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/animations/skin34.bin",
+        "pathHash": "102d6efe99a9bd8b",
+        "offset": 748423,
+        "compressedBytes": 4489,
+        "bytes": 33165,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin1.bin",
+        "pathHash": "108761cedde1f0a7",
+        "offset": 8599684,
+        "compressedBytes": 3833,
+        "bytes": 20705,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin41.bin",
+        "pathHash": "127702d652a9a150",
+        "offset": 16025889,
+        "compressedBytes": 3817,
+        "bytes": 14212,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin30.bin",
+        "pathHash": "1348907e11e5d582",
+        "offset": 7997500,
+        "compressedBytes": 5405,
+        "bytes": 23663,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin0_skins_skin1_skins_skin2_skins_skin3_skins_skin4_skins_skin5_skins_skin6_skins_skin7_skins_skin9.bin",
+        "pathHash": "15e5799a73dddb60",
+        "offset": 772427,
+        "compressedBytes": 2160,
+        "bytes": 10249,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/animations/skin53.bin",
+        "pathHash": "16398c5783c39175",
+        "offset": 459473,
+        "compressedBytes": 1774,
+        "bytes": 10180,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin16.bin",
+        "pathHash": "18deece6e746cce1",
+        "offset": 40312347,
+        "compressedBytes": 4751,
+        "bytes": 23855,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin0_skins_skin1_skins_skin2_skins_skin3.bin",
+        "pathHash": "223457ab6500b0e6",
+        "offset": 1825557,
+        "compressedBytes": 722,
+        "bytes": 3396,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin13_skins_skin14_skins_skin15_skins_skin16_skins_skin17_skins_skin18_skins_skin19_skins_skin2_skins_skin20_skins_skin22_skins_skin3_skins_skin32_skins_skin33_skins_skin34_skins_skin35_skins_skin36_skins_skin37_skins_skin38_skins_skin39_skins_skin4_skins_skin40_skins_skin41_skins_skin42_skins_skin43_skins_skin44_skins_skin45_skins_skin46_skins_skin47_skins_skin48_skins_skin49_skins_skin5_skins_skin6_skins_skin7_skins_skin8_skins_skin9.bin",
+        "pathHash": "237ccbea18468393",
+        "offset": 450013,
+        "compressedBytes": 329,
+        "bytes": 543,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin68.bin",
+        "pathHash": "2495163008ba7b95",
+        "offset": 145616729,
+        "compressedBytes": 36240,
+        "bytes": 365731,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin64.bin",
+        "pathHash": "24d133e46569a203",
+        "offset": 124363142,
+        "compressedBytes": 35515,
+        "bytes": 362004,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin57.bin",
+        "pathHash": "24e4f5629ca98c0c",
+        "offset": 76611982,
+        "compressedBytes": 5098,
+        "bytes": 16288,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin22.bin",
+        "pathHash": "2717751c2d8a7638",
+        "offset": 17944429,
+        "compressedBytes": 8363,
+        "bytes": 67051,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin13_skins_skin14_skins_skin15_skins_skin16_skins_skin17_skins_skin18_skins_skin19_skins_skin2_skins_skin20_skins_skin3_skins_skin33_skins_skin34_skins_skin35_skins_skin36_skins_skin37_skins_skin38_skins_skin39_skins_skin4_skins_skin40_skins_skin41_skins_skin42_skins_skin43_skins_skin44_skins_skin45_skins_skin46_skins_skin47_skins_skin48_skins_skin49_skins_skin5_skins_skin6_skins_skin7_skins_skin8_skins_skin9.bin",
+        "pathHash": "27b66340e3e70c10",
+        "offset": 382359,
+        "compressedBytes": 1145,
+        "bytes": 3876,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin10_skins_skin11.bin",
+        "pathHash": "2aaff665f21b5b1c",
+        "offset": 15995163,
+        "compressedBytes": 6658,
+        "bytes": 50565,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin0_skins_skin10_skins_skin11.bin",
+        "pathHash": "2be8d4eb0edc54d6",
+        "offset": 579353,
+        "compressedBytes": 1097,
+        "bytes": 5382,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin14.bin",
+        "pathHash": "2bf3c5d61d67c1b0",
+        "offset": 9403291,
+        "compressedBytes": 4710,
+        "bytes": 23783,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/animations/skin3.bin",
+        "pathHash": "36285a3a1234eeaa",
+        "offset": 3397296,
+        "compressedBytes": 1072,
+        "bytes": 4856,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/animations/skin50.bin",
+        "pathHash": "367742f8d402ace1",
+        "offset": 1782842,
+        "compressedBytes": 1457,
+        "bytes": 6730,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin36.bin",
+        "pathHash": "3937cc0105a47688",
+        "offset": 11163859,
+        "compressedBytes": 3803,
+        "bytes": 14212,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/animations/skin4.bin",
+        "pathHash": "3ad8472ee42dd69f",
+        "offset": 427920,
+        "compressedBytes": 1082,
+        "bytes": 4189,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/animations/skin52.bin",
+        "pathHash": "3adea35d47097e03",
+        "offset": 1793140,
+        "compressedBytes": 1673,
+        "bytes": 8303,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin31.bin",
+        "pathHash": "3d6e7b04b62c4385",
+        "offset": 3386779,
+        "compressedBytes": 5404,
+        "bytes": 23663,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/animations/skin22.bin",
+        "pathHash": "4275dfec7550cdb5",
+        "offset": 625376,
+        "compressedBytes": 1352,
+        "bytes": 6232,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin21_skins_skin24_skins_skin25_skins_skin26_skins_skin27_skins_skin28_skins_skin29_skins_skin30_skins_skin31.bin",
+        "pathHash": "42dc2223ac3c5fc4",
+        "offset": 146528396,
+        "compressedBytes": 30838,
+        "bytes": 358433,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/animations/skin1.bin",
+        "pathHash": "461f7b4ec5a7e4bf",
+        "offset": 1823109,
+        "compressedBytes": 890,
+        "bytes": 3190,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/animations/skin10.bin",
+        "pathHash": "482d55fe3b9d0bff",
+        "offset": 7120464,
+        "compressedBytes": 4110,
+        "bytes": 36915,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin0_skins_skin1_skins_skin2_skins_skin4_skins_skin5_skins_skin6_skins_skin7_skins_skin9.bin",
+        "pathHash": "4aa92b630b74b0b5",
+        "offset": 21334423,
+        "compressedBytes": 1596,
+        "bytes": 5299,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/animations/skin12.bin",
+        "pathHash": "4af4f53d6b4b32fe",
+        "offset": 1781509,
+        "compressedBytes": 1333,
+        "bytes": 5955,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin27.bin",
+        "pathHash": "4f63090b4c8ec943",
+        "offset": 111470173,
+        "compressedBytes": 5409,
+        "bytes": 23663,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin25.bin",
+        "pathHash": "52462524467cf1e7",
+        "offset": 6046102,
+        "compressedBytes": 5401,
+        "bytes": 23663,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin18.bin",
+        "pathHash": "52922148ccc77e0d",
+        "offset": 17980344,
+        "compressedBytes": 4707,
+        "bytes": 23783,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin12_skins_skin13_skins_skin14_skins_skin15_skins_skin16_skins_skin17_skins_skin18_skins_skin19_skins_skin20_skins_skin21_skins_skin23_skins_skin24_skins_skin25_skins_skin26_skins_skin27_skins_skin28_skins_skin29_skins_skin30_skins_skin31_skins_skin33_skins_skin35_skins_skin36_skins_skin37_skins_skin38_skins_skin39_skins_skin40_skins_skin41_skins_skin42_skins_skin43.bin",
+        "pathHash": "5806a93dfff04a57",
+        "offset": 16035889,
+        "compressedBytes": 3232,
+        "bytes": 16089,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin2_skins_skin22_skins_skin3_skins_skin32_skins_skin4_skins_skin5_skins_skin6_skins_skin7_skins_skin8_skins_skin9.bin",
+        "pathHash": "596bea2f886d0c00",
+        "offset": 222895,
+        "compressedBytes": 298,
+        "bytes": 422,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/animations/skin21.bin",
+        "pathHash": "604303222fad6d1b",
+        "offset": 4829047,
+        "compressedBytes": 1679,
+        "bytes": 7924,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/animations/skin9.bin",
+        "pathHash": "61a09ce4087a3999",
+        "offset": 752912,
+        "compressedBytes": 826,
+        "bytes": 2620,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin32.bin",
+        "pathHash": "6377af85eea51480",
+        "offset": 17952792,
+        "compressedBytes": 8435,
+        "bytes": 67156,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin49.bin",
+        "pathHash": "66b640e0ec09b1ce",
+        "offset": 146349666,
+        "compressedBytes": 21615,
+        "bytes": 295942,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin0_skins_skin1_skins_skin2_skins_skin9.bin",
+        "pathHash": "6889e1c664c3717f",
+        "offset": 12072989,
+        "compressedBytes": 6733,
+        "bytes": 55027,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin9.bin",
+        "pathHash": "695c920e1af25fd9",
+        "offset": 17973754,
+        "compressedBytes": 6590,
+        "bytes": 40024,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/animations/skin0.bin",
+        "pathHash": "69c256188278db22",
+        "offset": 462826,
+        "compressedBytes": 903,
+        "bytes": 3408,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin24.bin",
+        "pathHash": "6b08f1b237910369",
+        "offset": 611393,
+        "compressedBytes": 5450,
+        "bytes": 23735,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin43.bin",
+        "pathHash": "6c28fb6b24b3fa9e",
+        "offset": 6123466,
+        "compressedBytes": 3884,
+        "bytes": 14284,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin13_skins_skin14_skins_skin15_skins_skin16_skins_skin17_skins_skin18_skins_skin19_skins_skin2_skins_skin20_skins_skin22_skins_skin3_skins_skin32_skins_skin33_skins_skin34_skins_skin35_skins_skin36_skins_skin37_skins_skin38_skins_skin39_skins_skin40_skins_skin41_skins_skin42_skins_skin43_skins_skin44_skins_skin45_skins_skin46_skins_skin47_skins_skin48_skins_skin49_skins_skin8_skins_skin9.bin",
+        "pathHash": "6d04599f3a910389",
+        "offset": 389398,
+        "compressedBytes": 458,
+        "bytes": 2025,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin67.bin",
+        "pathHash": "739cde5bca7b3961",
+        "offset": 117412433,
+        "compressedBytes": 36191,
+        "bytes": 365731,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin5.bin",
+        "pathHash": "73e77c2885642996",
+        "offset": 447410,
+        "compressedBytes": 2496,
+        "bytes": 9626,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin4.bin",
+        "pathHash": "74607987b28813b8",
+        "offset": 19110643,
+        "compressedBytes": 2438,
+        "bytes": 9568,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin13_skins_skin14_skins_skin15_skins_skin16_skins_skin17_skins_skin18_skins_skin19_skins_skin2_skins_skin20_skins_skin22_skins_skin3_skins_skin32_skins_skin33_skins_skin34_skins_skin35_skins_skin36_skins_skin37_skins_skin38_skins_skin39_skins_skin4_skins_skin40_skins_skin41_skins_skin42_skins_skin43_skins_skin44_skins_skin45_skins_skin46_skins_skin47_skins_skin48_skins_skin49_skins_skin5_skins_skin6_skins_skin7_skins_skin9.bin",
+        "pathHash": "7665013d04be4544",
+        "offset": 335551,
+        "compressedBytes": 279,
+        "bytes": 415,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin40.bin",
+        "pathHash": "77146b2b87e9124b",
+        "offset": 2688714,
+        "compressedBytes": 3758,
+        "bytes": 14212,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin45.bin",
+        "pathHash": "773e66290f636770",
+        "offset": 6096805,
+        "compressedBytes": 21476,
+        "bytes": 295954,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin34_skins_skin44_skins_skin45_skins_skin46_skins_skin47_skins_skin48_skins_skin49.bin",
+        "pathHash": "7bf12fae8f2a7b01",
+        "offset": 77768691,
+        "compressedBytes": 30897,
+        "bytes": 516526,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin2.bin",
+        "pathHash": "7e78924e041092e4",
+        "offset": 1819285,
+        "compressedBytes": 3824,
+        "bytes": 20670,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin12.bin",
+        "pathHash": "7ed1548207346911",
+        "offset": 1962124,
+        "compressedBytes": 4667,
+        "bytes": 23750,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin22_skins_skin32.bin",
+        "pathHash": "8014154696fb4721",
+        "offset": 14421525,
+        "compressedBytes": 18728,
+        "bytes": 202965,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin15.bin",
+        "pathHash": "84afc863c508c32b",
+        "offset": 12923890,
+        "compressedBytes": 4704,
+        "bytes": 23783,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/animations/skin64.bin",
+        "pathHash": "85149dab54180f52",
+        "offset": 12037656,
+        "compressedBytes": 6094,
+        "bytes": 41565,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin7.bin",
+        "pathHash": "866f907cb0ebdb34",
+        "offset": 12079722,
+        "compressedBytes": 2490,
+        "bytes": 9626,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin51.bin",
+        "pathHash": "86e45fb03dfbd918",
+        "offset": 113926230,
+        "compressedBytes": 46945,
+        "bytes": 563452,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin0.bin",
+        "pathHash": "8a4c7a0f7f10c5cb",
+        "offset": 46826699,
+        "compressedBytes": 3432,
+        "bytes": 16863,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin52.bin",
+        "pathHash": "8a98e72d8331c6c5",
+        "offset": 58725972,
+        "compressedBytes": 5076,
+        "bytes": 16255,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_root_skins_skin0_skins_skin1_skins_skin12_skins_skin13_skins_skin14_skins_skin15_skins_skin16_skins_skin17_skins_skin18_skins_skin19_skins_skin2_skins_skin20_skins_skin21_skins_skin22_skins_skin23_skins_skin24_skins_skin25_skins_skin26_skins_skin27_skins_skin28_skins_skin29_skins_skin3_skins_skin30_skins_skin31_skins_skin32_skins_skin33_skins_skin35_skins_skin36_skins_skin37_skins_skin38_skins_skin39_skins_skin4_skins_skin40_skins_skin41_skins_skin42_skins_skin43_skins_skin5_skins_skin50_skins_skin51_skins_skin52_skins_skin53_skins_skin54_skins_skin55_skins_skin56_skins_skin57_skins_skin58_skins_skin59_skins_skin6_skins_skin60_skins_skin61_skins_skin62_skins_skin63_skins_skin7_skins_skin8_skins_skin9.bin",
+        "pathHash": "90f22ca1151514e0",
+        "offset": 365100,
+        "compressedBytes": 669,
+        "bytes": 2260,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin8.bin",
+        "pathHash": "939b0c9b01a4e36d",
+        "offset": 28056923,
+        "compressedBytes": 12224,
+        "bytes": 123372,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin11.bin",
+        "pathHash": "9ba4c089dbef7b97",
+        "offset": 146329116,
+        "compressedBytes": 20550,
+        "bytes": 219341,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin12_skins_skin13_skins_skin14_skins_skin15_skins_skin16_skins_skin17_skins_skin18_skins_skin19_skins_skin20_skins_skin33_skins_skin35_skins_skin36_skins_skin37_skins_skin38_skins_skin39_skins_skin40_skins_skin41_skins_skin42_skins_skin43.bin",
+        "pathHash": "9ed33ab9d9c9921a",
+        "offset": 19097982,
+        "compressedBytes": 7547,
+        "bytes": 77850,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin60.bin",
+        "pathHash": "a222788e94d6f4ca",
+        "offset": 1788021,
+        "compressedBytes": 5119,
+        "bytes": 16288,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin70.bin",
+        "pathHash": "a617416ab3b4e27d",
+        "offset": 145698103,
+        "compressedBytes": 36302,
+        "bytes": 365731,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin34.bin",
+        "pathHash": "a956982c3a6f98b1",
+        "offset": 146307778,
+        "compressedBytes": 21338,
+        "bytes": 295921,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin65.bin",
+        "pathHash": "a9aff812581019ce",
+        "offset": 146604425,
+        "compressedBytes": 36223,
+        "bytes": 365803,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin19.bin",
+        "pathHash": "a9cb7fe7470c8884",
+        "offset": 5194187,
+        "compressedBytes": 4733,
+        "bytes": 23811,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin21.bin",
+        "pathHash": "abd3b1e97f266703",
+        "offset": 4823676,
+        "compressedBytes": 5371,
+        "bytes": 23630,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin4_skins_skin5_skins_skin6_skins_skin7.bin",
+        "pathHash": "ac4f170e4ee6b250",
+        "offset": 14407448,
+        "compressedBytes": 12914,
+        "bytes": 131949,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin53.bin",
+        "pathHash": "ad2a8043333128cb",
+        "offset": 145770507,
+        "compressedBytes": 56138,
+        "bytes": 655138,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin20.bin",
+        "pathHash": "ad5a68691bf7b43c",
+        "offset": 6053894,
+        "compressedBytes": 4707,
+        "bytes": 23783,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin0_skins_skin1_skins_skin2_skins_skin3_skins_skin9.bin",
+        "pathHash": "aea8db097256315a",
+        "offset": 17992724,
+        "compressedBytes": 6129,
+        "bytes": 48021,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin35.bin",
+        "pathHash": "af3ed24948a0413b",
+        "offset": 6278593,
+        "compressedBytes": 3836,
+        "bytes": 14284,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona.bin",
+        "pathHash": "b01c50a67cc60507",
+        "offset": 16415878,
+        "compressedBytes": 6909,
+        "bytes": 24399,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin48.bin",
+        "pathHash": "b2c2ec66fda39d8f",
+        "offset": 146048460,
+        "compressedBytes": 21444,
+        "bytes": 296020,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin64_skins_skin65_skins_skin66_skins_skin67_skins_skin68_skins_skin69_skins_skin70.bin",
+        "pathHash": "b65a4add59df5508",
+        "offset": 15950054,
+        "compressedBytes": 41516,
+        "bytes": 466709,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin69.bin",
+        "pathHash": "b7599c4212664ebd",
+        "offset": 146698602,
+        "compressedBytes": 36351,
+        "bytes": 365731,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin17.bin",
+        "pathHash": "ba7fad4dfd92deea",
+        "offset": 1971774,
+        "compressedBytes": 4710,
+        "bytes": 23783,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin10.bin",
+        "pathHash": "c0d504714f640f1b",
+        "offset": 16006834,
+        "compressedBytes": 19055,
+        "bytes": 218094,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin13.bin",
+        "pathHash": "c0d8cb40fbdf6120",
+        "offset": 6038843,
+        "compressedBytes": 4758,
+        "bytes": 23855,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin52_skins_skin54_skins_skin55_skins_skin56_skins_skin57_skins_skin58_skins_skin59_skins_skin60_skins_skin61_skins_skin62_skins_skin63.bin",
+        "pathHash": "c0eb96b3045503cc",
+        "offset": 86793387,
+        "compressedBytes": 40021,
+        "bytes": 490870,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin12_skins_skin13_skins_skin14_skins_skin15_skins_skin16_skins_skin17_skins_skin18_skins_skin19_skins_skin20.bin",
+        "pathHash": "c3b7def044cd3940",
+        "offset": 64400306,
+        "compressedBytes": 23636,
+        "bytes": 297029,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin39.bin",
+        "pathHash": "c5419215e7005e90",
+        "offset": 5535060,
+        "compressedBytes": 3795,
+        "bytes": 14212,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin56.bin",
+        "pathHash": "c74cff99c318f93c",
+        "offset": 12144942,
+        "compressedBytes": 5142,
+        "bytes": 16316,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin62.bin",
+        "pathHash": "c98e866ecb520d5c",
+        "offset": 8192501,
+        "compressedBytes": 5156,
+        "bytes": 16360,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin50.bin",
+        "pathHash": "ca74af17fa8f0e6a",
+        "offset": 145653005,
+        "compressedBytes": 45098,
+        "bytes": 560883,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin50_skins_skin51.bin",
+        "pathHash": "caa9dc8580667feb",
+        "offset": 55385009,
+        "compressedBytes": 5424,
+        "bytes": 31392,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin33_skins_skin35_skins_skin36_skins_skin37_skins_skin38_skins_skin39_skins_skin40_skins_skin41_skins_skin42_skins_skin43.bin",
+        "pathHash": "cd3764d8eaa4f3a9",
+        "offset": 146254569,
+        "compressedBytes": 32389,
+        "bytes": 347515,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/animations/skin33.bin",
+        "pathHash": "cd6c7fc7eb7c26b4",
+        "offset": 616843,
+        "compressedBytes": 1428,
+        "bytes": 6076,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin54.bin",
+        "pathHash": "d088fcd3d9782ad5",
+        "offset": 3633861,
+        "compressedBytes": 5163,
+        "bytes": 16360,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin61.bin",
+        "pathHash": "d253805b52885e7e",
+        "offset": 16354294,
+        "compressedBytes": 5122,
+        "bytes": 16288,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin63.bin",
+        "pathHash": "d3ea543cc9c8266f",
+        "offset": 6118281,
+        "compressedBytes": 5185,
+        "bytes": 16360,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin26.bin",
+        "pathHash": "d43b5db4bf0cf1fd",
+        "offset": 15448867,
+        "compressedBytes": 5398,
+        "bytes": 23663,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin23.bin",
+        "pathHash": "d466aa4fe04d9dec",
+        "offset": 16686666,
+        "compressedBytes": 42376,
+        "bytes": 460936,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/animations/skin8.bin",
+        "pathHash": "d65db6680ffe43e8",
+        "offset": 552131,
+        "compressedBytes": 1246,
+        "bytes": 4487,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/animations/skin2.bin",
+        "pathHash": "d84263534b3643eb",
+        "offset": 2056766,
+        "compressedBytes": 892,
+        "bytes": 3190,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin66.bin",
+        "pathHash": "dc654946deb9d363",
+        "offset": 146662302,
+        "compressedBytes": 36300,
+        "bytes": 365731,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin42.bin",
+        "pathHash": "dca3621f1004858d",
+        "offset": 607574,
+        "compressedBytes": 3819,
+        "bytes": 14212,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin55.bin",
+        "pathHash": "dcaba4a706acce12",
+        "offset": 80994738,
+        "compressedBytes": 5110,
+        "bytes": 16288,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin0_skins_skin1_skins_skin2.bin",
+        "pathHash": "dcca1cd8b71b953f",
+        "offset": 19869248,
+        "compressedBytes": 3375,
+        "bytes": 17829,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/leona_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin2_skins_skin3_skins_skin34_skins_skin44_skins_skin45_skins_skin46_skins_skin47_skins_skin48_skins_skin49_skins_skin9.bin",
+        "pathHash": "deacffd4a1345278",
+        "offset": 858087,
+        "compressedBytes": 2094,
+        "bytes": 17893,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin29.bin",
+        "pathHash": "df14000390dfca91",
+        "offset": 104912208,
+        "compressedBytes": 5429,
+        "bytes": 23691,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/animations/skin11.bin",
+        "pathHash": "e3c2185643e22a70",
+        "offset": 29655677,
+        "compressedBytes": 4153,
+        "bytes": 36957,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin59.bin",
+        "pathHash": "ee34c3a8a04d2d52",
+        "offset": 19105529,
+        "compressedBytes": 5114,
+        "bytes": 16288,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin6.bin",
+        "pathHash": "f284e03ebcec851b",
+        "offset": 15762699,
+        "compressedBytes": 2495,
+        "bytes": 9626,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin28.bin",
+        "pathHash": "f5873a9d95e3e1b3",
+        "offset": 29650269,
+        "compressedBytes": 5408,
+        "bytes": 23663,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin3.bin",
+        "pathHash": "f8f330a5e7b0f99e",
+        "offset": 15913792,
+        "compressedBytes": 12809,
+        "bytes": 107870,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/skins/skin46.bin",
+        "pathHash": "fa644c0ca874635a",
+        "offset": 146640703,
+        "compressedBytes": 21599,
+        "bytes": 295970,
+        "type": 3
+      },
+      {
+        "path": "data/characters/leona/animations/skin23.bin",
+        "pathHash": "ff68abbd5dc5efbd",
+        "offset": 618271,
+        "compressedBytes": 1679,
+        "bytes": 7924,
+        "type": 3
+      }
+    ],
+    "absent": [
+      {
+        "path": "data/characters/leona/charscriptleona.lua",
+        "pathHash": "ce31bc04e552bd71"
+      },
+      {
+        "path": "data/characters/leona/charscriptleona.luabin",
+        "pathHash": "412e94180a0fafd0"
+      },
+      {
+        "path": "data/characters/leona/charscriptleona.luabin64",
+        "pathHash": "5aa7d1a94697abac"
+      },
+      {
+        "path": "data/characters/leona/spells/leonabasicattack.lua",
+        "pathHash": "760ea33084a536e7"
+      },
+      {
+        "path": "data/characters/leona/spells/leonabasicattack.luabin",
+        "pathHash": "4559cbb963af8e5a"
+      },
+      {
+        "path": "data/characters/leona/spells/leonabasicattack.luabin64",
+        "pathHash": "a90bc2bd4d9d5bc8"
+      },
+      {
+        "path": "data/characters/leona/spells/leonabasicattack2.lua",
+        "pathHash": "ca9b94a4938cd23e"
+      },
+      {
+        "path": "data/characters/leona/spells/leonabasicattack2.luabin",
+        "pathHash": "d91c0c0e07467b7e"
+      },
+      {
+        "path": "data/characters/leona/spells/leonabasicattack2.luabin64",
+        "pathHash": "21ba28783bd5e3aa"
+      },
+      {
+        "path": "data/characters/leona/spells/leonabasicattack3.lua",
+        "pathHash": "a632a978912810fd"
+      },
+      {
+        "path": "data/characters/leona/spells/leonabasicattack3.luabin",
+        "pathHash": "a41ce78c843c5ea6"
+      },
+      {
+        "path": "data/characters/leona/spells/leonabasicattack3.luabin64",
+        "pathHash": "dd6a926e3956048f"
+      },
+      {
+        "path": "data/characters/leona/spells/leonabasicattack4.lua",
+        "pathHash": "1f8bf4d931418a70"
+      },
+      {
+        "path": "data/characters/leona/spells/leonabasicattack4.luabin",
+        "pathHash": "a4652d23dcc1df36"
+      },
+      {
+        "path": "data/characters/leona/spells/leonabasicattack4.luabin64",
+        "pathHash": "9fedb70b2e0c423b"
+      },
+      {
+        "path": "data/characters/leona/spells/leonacceternaltracker.lua",
+        "pathHash": "84e2f538b07b3c44"
+      },
+      {
+        "path": "data/characters/leona/spells/leonacceternaltracker.luabin",
+        "pathHash": "0c3cbb428270daf9"
+      },
+      {
+        "path": "data/characters/leona/spells/leonacceternaltracker.luabin64",
+        "pathHash": "b628cf5a1ec9d89d"
+      },
+      {
+        "path": "data/characters/leona/spells/leonacritattack.lua",
+        "pathHash": "4f150930dbe18a96"
+      },
+      {
+        "path": "data/characters/leona/spells/leonacritattack.luabin",
+        "pathHash": "038455f4e3b64212"
+      },
+      {
+        "path": "data/characters/leona/spells/leonacritattack.luabin64",
+        "pathHash": "517a61e8931b24e6"
+      },
+      {
+        "path": "data/characters/leona/spells/leonaprojectidleparticles.lua",
+        "pathHash": "8c6938e65a9d1337"
+      },
+      {
+        "path": "data/characters/leona/spells/leonaprojectidleparticles.luabin",
+        "pathHash": "c5606065eaa46f68"
+      },
+      {
+        "path": "data/characters/leona/spells/leonaprojectidleparticles.luabin64",
+        "pathHash": "d667952ca5c16e06"
+      },
+      {
+        "path": "data/characters/leona/spells/leonarattackbuff.lua",
+        "pathHash": "db834a2f8c31d7e8"
+      },
+      {
+        "path": "data/characters/leona/spells/leonarattackbuff.luabin",
+        "pathHash": "a36cabf7d377fa28"
+      },
+      {
+        "path": "data/characters/leona/spells/leonarattackbuff.luabin64",
+        "pathHash": "96ee6a526d12942a"
+      },
+      {
+        "path": "data/characters/leona/spells/leonashieldofdaybreak.lua",
+        "pathHash": "46d2db43cfa95ac9"
+      },
+      {
+        "path": "data/characters/leona/spells/leonashieldofdaybreak.luabin",
+        "pathHash": "1bf4c9ea12c4329e"
+      },
+      {
+        "path": "data/characters/leona/spells/leonashieldofdaybreak.luabin64",
+        "pathHash": "5d11b5f9c417ef83"
+      },
+      {
+        "path": "data/characters/leona/spells/leonashieldofdaybreakattack.lua",
+        "pathHash": "1f02ee601934fa3e"
+      },
+      {
+        "path": "data/characters/leona/spells/leonashieldofdaybreakattack.luabin",
+        "pathHash": "4fb17276e54acdae"
+      },
+      {
+        "path": "data/characters/leona/spells/leonashieldofdaybreakattack.luabin64",
+        "pathHash": "9f233e87086ce774"
+      },
+      {
+        "path": "data/characters/leona/spells/leonaskin34manager.lua",
+        "pathHash": "3dc3d500d76e50a1"
+      },
+      {
+        "path": "data/characters/leona/spells/leonaskin34manager.luabin",
+        "pathHash": "147f81d81fe91311"
+      },
+      {
+        "path": "data/characters/leona/spells/leonaskin34manager.luabin64",
+        "pathHash": "9c35115e2e23e98d"
+      },
+      {
+        "path": "data/characters/leona/spells/leonaskin64manager.lua",
+        "pathHash": "31cd4d08e0f8b458"
+      },
+      {
+        "path": "data/characters/leona/spells/leonaskin64manager.luabin64",
+        "pathHash": "fa82787365185fe4"
+      },
+      {
+        "path": "data/characters/leona/spells/leonaskineclipsemanager.lua",
+        "pathHash": "4dc93efe327c0f48"
+      },
+      {
+        "path": "data/characters/leona/spells/leonaskineclipsemanager.luabin",
+        "pathHash": "cdd682c6a2c5a0f2"
+      },
+      {
+        "path": "data/characters/leona/spells/leonaskineclipsemanager.luabin64",
+        "pathHash": "bce78a3f758494de"
+      },
+      {
+        "path": "data/characters/leona/spells/leonaskineclipseultform.lua",
+        "pathHash": "90c465233627ab91"
+      },
+      {
+        "path": "data/characters/leona/spells/leonaskineclipseultform.luabin",
+        "pathHash": "59c0f5b5be09852c"
+      },
+      {
+        "path": "data/characters/leona/spells/leonaskineclipseultform.luabin64",
+        "pathHash": "53e0d2bd78960006"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasolarbarrier.lua",
+        "pathHash": "71d20e0e810acd28"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasolarbarrier.luabin",
+        "pathHash": "110881e573c1e8e7"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasolarbarrier.luabin64",
+        "pathHash": "834b693050c29292"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasolarbarrier2.lua",
+        "pathHash": "68c5af5f31978b0b"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasolarbarrier2.luabin",
+        "pathHash": "fc45806d984f7a96"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasolarbarrier2.luabin64",
+        "pathHash": "d9c471ddc8388a31"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasolarbarriertracker.lua",
+        "pathHash": "2d2788836390f6d2"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasolarbarriertracker.luabin",
+        "pathHash": "702683f316740863"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasolarbarriertracker.luabin64",
+        "pathHash": "8470fa35da1c4b84"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasolarflare.lua",
+        "pathHash": "103dfee556e4fc86"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasolarflare.luabin",
+        "pathHash": "4a7a4fa6d9d51859"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasolarflare.luabin64",
+        "pathHash": "e145a084a94f421c"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasolarflareslow.lua",
+        "pathHash": "f881849828245b65"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasolarflareslow.luabin",
+        "pathHash": "d6db8c28202fdf68"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasolarflareslow.luabin64",
+        "pathHash": "cc781544e107c532"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasolarflarevision.lua",
+        "pathHash": "947f02ee48aed1c6"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasolarflarevision.luabin",
+        "pathHash": "48776606543fd2fd"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasolarflarevision.luabin64",
+        "pathHash": "b85d2190584f09c1"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasunlight.lua",
+        "pathHash": "62b5a16f873bff12"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasunlight.luabin",
+        "pathHash": "feb2f164cf90fe72"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasunlight.luabin64",
+        "pathHash": "efb040d979237957"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasunlightpassive.lua",
+        "pathHash": "1b1b2e98a6af9ee9"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasunlightpassive.luabin",
+        "pathHash": "5fbc9b59ebd2ec0c"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasunlightpassive.luabin64",
+        "pathHash": "d40ea4faf2ba6502"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasunlightspeed.lua",
+        "pathHash": "9b9e670c20021c4a"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasunlightspeed.luabin",
+        "pathHash": "7270c012538a50d6"
+      },
+      {
+        "path": "data/characters/leona/spells/leonasunlightspeed.luabin64",
+        "pathHash": "67611b39bd1eace6"
+      },
+      {
+        "path": "data/characters/leona/spells/leonazenithblade.lua",
+        "pathHash": "73095afb17fea492"
+      },
+      {
+        "path": "data/characters/leona/spells/leonazenithblade.luabin",
+        "pathHash": "c81b7683c64b3e96"
+      },
+      {
+        "path": "data/characters/leona/spells/leonazenithblade.luabin64",
+        "pathHash": "552310d5bf06c519"
+      },
+      {
+        "path": "data/characters/leona/spells/leonazenithbladebuffchaos.lua",
+        "pathHash": "3416d6ae1342d934"
+      },
+      {
+        "path": "data/characters/leona/spells/leonazenithbladebuffchaos.luabin",
+        "pathHash": "938d9f6666067a8c"
+      },
+      {
+        "path": "data/characters/leona/spells/leonazenithbladebuffchaos.luabin64",
+        "pathHash": "50f8219c15c35db7"
+      },
+      {
+        "path": "data/characters/leona/spells/leonazenithbladebufforder.lua",
+        "pathHash": "e2ede52e752d6466"
+      },
+      {
+        "path": "data/characters/leona/spells/leonazenithbladebufforder.luabin",
+        "pathHash": "142e0c0a663eafeb"
+      },
+      {
+        "path": "data/characters/leona/spells/leonazenithbladebufforder.luabin64",
+        "pathHash": "e5f697a9a5153b81"
+      },
+      {
+        "path": "data/characters/leona/spells/leonazenithbladedonotroot.lua",
+        "pathHash": "15c8c8505efd03ed"
+      },
+      {
+        "path": "data/characters/leona/spells/leonazenithbladedonotroot.luabin",
+        "pathHash": "c56dcc98c1672b03"
+      },
+      {
+        "path": "data/characters/leona/spells/leonazenithbladedonotroot.luabin64",
+        "pathHash": "ed70700422c1dcba"
+      },
+      {
+        "path": "data/characters/leona/spells/leonazenithblademissile.lua",
+        "pathHash": "1f13aef5b2a8c813"
+      },
+      {
+        "path": "data/characters/leona/spells/leonazenithblademissile.luabin",
+        "pathHash": "5ce1e97afa3c450e"
+      },
+      {
+        "path": "data/characters/leona/spells/leonazenithblademissile.luabin64",
+        "pathHash": "dd46170f6eee3c58"
+      },
+      {
+        "path": "data/characters/leona/spells/leonazenithbladeroot.lua",
+        "pathHash": "aacc6c2de58b4ff8"
+      },
+      {
+        "path": "data/characters/leona/spells/leonazenithbladeroot.luabin",
+        "pathHash": "f4c7e39a398cf71b"
+      },
+      {
+        "path": "data/characters/leona/spells/leonazenithbladeroot.luabin64",
+        "pathHash": "5a6f569b3be32089"
+      },
+      {
+        "path": "data/characters/leona/spells/leonazenithbladestatstonetracker.lua",
+        "pathHash": "ec84b695ff852fed"
+      },
+      {
+        "path": "data/characters/leona/spells/leonazenithbladestatstonetracker.luabin",
+        "pathHash": "a8e8b4a461f376b2"
+      },
+      {
+        "path": "data/characters/leona/spells/leonazenithbladestatstonetracker.luabin64",
+        "pathHash": "73fde3fce7fda27e"
+      },
+      {
+        "path": "data/characters/leona/spells/nightmarebotleonabuff.luabin",
+        "pathHash": "a9c9fe446d2c1f15"
+      },
+      {
+        "path": "data/characters/leona/spells/nightmarebotleonabuff.luabin64",
+        "pathHash": "a6cf6e07aa5ccc4b"
+      },
+      {
+        "path": "data/characters/leona/spells/nightmarebotleonasolarbarrier.luabin",
+        "pathHash": "a50f7967592c5147"
+      },
+      {
+        "path": "data/characters/leona/spells/nightmarebotleonasolarbarrier.luabin64",
+        "pathHash": "43614e8d1955d36a"
+      },
+      {
+        "path": "data/characters/leona/spells/nightmarebotleonasolarbarriermarker.luabin",
+        "pathHash": "d0673fa4bb8c7e1a"
+      },
+      {
+        "path": "data/characters/leona/spells/nightmarebotleonasolarbarriermarker.luabin64",
+        "pathHash": "2eb916795198eb38"
+      },
+      {
+        "path": "data/characters/leona/spells/nightmarebotleonasolarflare.luabin",
+        "pathHash": "469fe313a044d6d0"
+      },
+      {
+        "path": "data/characters/leona/spells/nightmarebotleonasolarflare.luabin64",
+        "pathHash": "ddfd722cc084a682"
+      }
+    ],
+    "limit": "Dictionary path spellings only; absence is absence of these exact hashes in this frozen client WAD, not proof server scripts do not exist. No network/target execution."
+  },
+  "conclusions": [
+    "The R_buf alias occurs in skin resource mapping and its definition; no inspected character or Spell4 animation record supplies a spawn/attachment/bone invocation for it. Raw FNV matches alone are not calls.",
+    "The explicit BUFFBONE_GLB_WEAPON_1 binding belongs to idleParticlesEffects Leona_Idle_Sword. R_buf quads contain no explicit bone/socket; authored emitter names do not establish one.",
+    "EmitterPosition[0,-90,0], bindWeight1 and particleIsLocalOrientation1 describe sampling relative to a caller-supplied frame; they do not identify actor origin, capsule center or weapon bone.",
+    "Character targeter centerLocator/basePosition3 belongs to aim targeter UI records, not an R_buf particle spawn frame. Do not transfer it.",
+    "WAD inventory separately shows known Leona source/compiled Lua script paths absent from frozen client WAD; character mScriptName identifies script but does not expose its invocation body."
+  ],
+  "remainingGaps": [
+    "Native spawn caller/default attachment frame and any bone override remain unresolved.",
+    "Actor root/world-origin versus capsule-center/weapon origin cannot be chosen from these sources.",
+    "No frame correction or offset is justified by this reading; both quads remain gated."
+  ],
+  "legacyHypothesis": {
+    "status": "unresolved",
+    "reason": "Current source declarations, emitter names and linger values do not establish historical origin or obsolete invocation. No historical patch notes or prior native/source build were used; do not call this legacy from names alone."
+  },
+  "provenanceLimits": [
+    "The frozen official manifest/chunks and source hashes establish shipped client data. The path dictionary supplies spellings and can include historical paths; absent exact hashes are a bounded client-WAD absence, not proof of server-script absence.",
+    "The 17 BINs cover the 16 skin0 links plus the skin0 root. Other skins and unrelated WADs were not searched.",
+    "Binary hash literal matches are not callsites. Named entries/resource map/definition paths identify the system but not invocation.",
+    "No native/provider/target execution, network, application/browser/render or compiler was used in this promotion."
+  ],
+  "verification": {
+    "command": ".tools/cdtb-venv/bin/python tools/assets/verify-leona-r-weapon-frame.py --check",
+    "optimizedCommand": ".tools/cdtb-venv/bin/python -O tools/assets/verify-leona-r-weapon-frame.py --check",
+    "readOnly": true,
+    "requiresRetainedCache": true
+  }
+}

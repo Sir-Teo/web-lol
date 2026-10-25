@@ -12,6 +12,13 @@ detonation emitters, with saved poses and audiences.
 seven enabled contact families; two source impact emitters remain disabled as authored.
 This partial fixture does not establish native behavior or roster acceptance.
 
+The [isolated original Metal rim harness](LEONA-METAL-RIM-HARNESS.md) now verifies
+150 explicit synthetic VS1/PS9/PS24 draws against WebGL and scalar RGBA8 output
+on the recorded M1. Native gameplay dispatch and frames remain open. The
+[R weapon-frame search](LEONA-R-WEAPON-FRAME.md) checks17 retained BIN identities
+and all16 skin0 links but recovers no invocation frame for the two weapon quads;
+their offsets remain authored and those draws remain excluded.
+
 ## Retained source and reproducibility
 
 `reference/leona/character.bin` retains all 24,399 source bytes. The manifest,

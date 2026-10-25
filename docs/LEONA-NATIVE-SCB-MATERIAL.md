@@ -14,6 +14,9 @@ additional original Metal/AIR programs. The [earlier reflection-input package](L
 retains the CPU rim/default and fresh-empty-map resource condition. Ordinary
 Apple LLVM/file reads and host-generated textual AIR are the observations; there
 are no REA MCP Evidence IDs and no native game/shader execution or provider restart.
+This remains the scope of the static package. The later
+[Metal harness](LEONA-METAL-RIM-HARNESS.md) records original VS1/PS9/PS24 execution
+with explicit synthetic inputs, separately from CPU dispatch or frame acceptance.
 
 ## Primitive, cache and color flag
 

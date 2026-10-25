@@ -14,6 +14,9 @@ original Metal/AIR bytes and host-generated textual IR. All observations use
 ordinary local file reads and Apple LLVM, with no REA MCP Evidence IDs. No native
 game or shader was executed, and no provider was restarted. The host compiler
 emitted textual AIR with passes disabled; its target-triple warning is retained.
+That is the scope of this static package. A subsequent
+[owned Metal harness](LEONA-METAL-RIM-HARNESS.md) executes VS1/PS9/PS24 separately
+and records150 synthetic comparisons; it does not establish a Leona invocation.
 
 ## Registered fields and omitted values
 
