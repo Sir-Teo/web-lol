@@ -113,7 +113,7 @@ test('Ahri NPC source rig, hidden meshes, attacks and saved poses run on the dev
     w.step();
     state.inventory = [];
     const spellRanks = { ...state.spellRanks };
-    const learning = ['r'].map((ability) => w.learnSpell(ability, ahri.id));
+    const learning = ['r'].map((ability) => w.spellLearningError(ability, ahri.id));
     w.damage(w.hero, ahri, 1e6, 'true');
     w.step(10);
     checkpoint('death');
@@ -137,7 +137,9 @@ test('Ahri NPC source rig, hidden meshes, attacks and saved poses run on the dev
   expect(result.exactFuture).toBe(true);
   expect(result.damage).toBeGreaterThanOrEqual(53);
   expect(result.spellRanks).toEqual({ q: 0, w: 0, e: 0, r: 0 });
-  expect(result.learning.every((error: string) => /development/.test(error))).toBe(true);
+  expect(result.learning.every((error: string) => /Requires champion level 6/.test(error))).toBe(
+    true
+  );
   for (const stage of result.stages) {
     expect(stage.samePose, stage.name).toBe(true);
     expect(stage.exactSave, stage.name).toBe(true);

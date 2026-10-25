@@ -213,6 +213,7 @@ export class GameView {
   private projector = new THREE.Vector3();
   private projectileModels = new Map<number, THREE.Group>();
   private foxFireModels = new Map<string, THREE.Group>();
+  private spiritBoltModels = new Map<string, THREE.Group>();
   private selection: THREE.Mesh;
   private hover: THREE.Mesh;
   private range: THREE.LineLoop;
@@ -795,6 +796,7 @@ export class GameView {
       }
     this.syncProjectiles(world, alpha);
     this.syncFoxFires(world, alpha);
+    this.syncSpiritBolts(world, alpha);
     this.luxBeams.update(world, alpha, this.camera, terminalAge);
     this.luxStreaks.update(world, alpha, terminalAge);
     this.luxScorches.update(world, alpha, terminalAge);
@@ -1047,6 +1049,47 @@ export class GameView {
           }
         });
         this.foxFireModels.delete(key);
+      }
+  }
+  private syncSpiritBolts(world: World, alpha: number): void {
+    const active = new Set<string>();
+    for (const cast of world.ahriRushes)
+      for (const burst of cast.bursts)
+        for (const fire of burst.bolts) {
+          if (fire.stopTick !== null) continue;
+          const key = `${cast.id}:${burst.index}:${fire.index}`;
+          active.add(key);
+          let model = this.spiritBoltModels.get(key);
+          if (!model) {
+            model = new THREE.Group();
+            model.add(
+              new THREE.Mesh(
+                new THREE.SphereGeometry(0.11, 10, 8),
+                new THREE.MeshBasicMaterial({ color: 0x70dfff })
+              )
+            );
+            this.scene.add(model);
+            this.spiritBoltModels.set(key, model);
+          }
+          model.name = 'Ahri R development essence bolt';
+          const point = {
+            x: fire.previous.x + (fire.position.x - fire.previous.x) * alpha,
+            y: fire.previous.y + (fire.position.y - fire.previous.y) * alpha,
+          };
+          model.position.set(point.x * SCALE, this.ground(point) + 0.9, point.y * SCALE);
+          model.visible =
+            cast.team === world.hero.team || world.pointVisible(point, world.hero.team);
+        }
+    for (const [key, model] of this.spiritBoltModels)
+      if (!active.has(key)) {
+        this.scene.remove(model);
+        model.traverse((object) => {
+          if (object instanceof THREE.Mesh) {
+            object.geometry.dispose();
+            (object.material as THREE.Material).dispose();
+          }
+        });
+        this.spiritBoltModels.delete(key);
       }
   }
   private syncProjectiles(world: World, alpha: number): void {

@@ -5,7 +5,7 @@ Ahri's Q can now be learned and cast by the development NPC at
 metadata, retained icon, paid cast, source `spell1` pose, two-leg flight and strict
 continuation. This document retains the initial schema-132 checkpoint, when
 W/E/R and passive were unfinished. The later [W controller](AHRI-W.md) advances
-to schema 133 and [E](AHRI-E.md) to 134. Ahri player controls, the remaining kit, role AI and the ordinary
+to schema 133 and [E](AHRI-E.md) to 134 and the [R base controller](AHRI-R.md) to 135. Ahri player controls, the remaining kit, role AI and the ordinary
 roster remain unfinished. These are explicit local simulation policies; they
 do not establish native execution or rendering.
 

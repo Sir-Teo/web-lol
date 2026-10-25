@@ -2,6 +2,7 @@ import { validateLeonaDeaths } from './leona-death-visuals';
 import { AHRI_Q } from '../content/ahri-q';
 import { AHRI_Q_POLICY } from '../content/ahri-q-policy';
 import { AHRI_Q_OUTWARD_SECONDS, acceleratingMotion } from './ahri-orb-motion';
+import { validateSpiritRushes } from './ahri-spirit-rush-validation';
 import { AHRI_E } from '../content/ahri-e';
 import { AHRI_E_POLICY } from '../content/ahri-e-policy';
 import { AHRI_W } from '../content/ahri-w';
@@ -134,7 +135,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 134;
+export const SNAPSHOT_VERSION = 135;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -1596,6 +1597,53 @@ const snapshot = z.strictObject({
     )
     .max(10000),
   nextSunlightVisual: id,
+  ahriRushes: z
+    .array(
+      z.strictObject({
+        id,
+        sourceId: id,
+        team,
+        startTick: tick,
+        endTick: tick,
+        nextCastTick: tick,
+        remainingCasts: z.number().int().min(0).max(3),
+        stopTick: tick.nullable(),
+        stopReason: z.enum(['expired', 'death']).nullable(),
+        bursts: z
+          .array(
+            z.strictObject({
+              index: z.number().int().min(0).max(2),
+              rank: z.number().int().min(1).max(3),
+              startTick: tick,
+              damage: nonnegative,
+              origin: point,
+              destination: point,
+              lastTick: tick,
+              stopTick: tick.nullable(),
+              stopReason: z.enum(['arrived', 'control', 'death', 'flash']).nullable(),
+              stopPoint: point.nullable(),
+              control: z
+                .strictObject({ rootUntil: deadline, stunUntil: deadline, charmUntil: deadline })
+                .nullable(),
+              bolts: z
+                .array(
+                  z.strictObject({
+                    index: z.number().int().min(0).max(2),
+                    targetId: id,
+                    position: point,
+                    previous: point,
+                    stopTick: tick.nullable(),
+                    stopReason: z.enum(['hit', 'lost-target', 'expired']).nullable(),
+                  })
+                )
+                .max(3),
+            })
+          )
+          .min(1)
+          .max(3),
+      })
+    )
+    .max(10000),
   ahriFoxFires: z
     .array(
       z.strictObject({
@@ -2814,6 +2862,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   const ids = [
     ...state.ahriOrbs,
     ...state.ahriFoxFires,
+    ...state.ahriRushes,
     ...state.units,
     ...state.projectiles,
     ...state.pendingAttackProjectiles,
@@ -3274,6 +3323,15 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     }
   }
   const owners = [state.player, ...state.otherChampions];
+  validateSpiritRushes(
+    state.ahriRushes,
+    state.units,
+    owners,
+    state.tick,
+    state.nextId,
+    state.winner,
+    ids.filter((id) => !state.units.some((u) => u.id === id))
+  );
   validateFoxFireCasts(
     state.ahriFoxFires,
     state.units,
@@ -3340,15 +3398,17 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   for (const owner of owners) {
     if (state.units.find((unit) => unit.id === owner.id)?.champion === 'ahri') {
       if (
-        owner.spellRanks.r !== 0 ||
-        owner.skillPoints + owner.spellRanks.q + owner.spellRanks.w + owner.spellRanks.e !==
+        owner.skillPoints +
+          owner.spellRanks.q +
+          owner.spellRanks.w +
+          owner.spellRanks.e +
+          owner.spellRanks.r !==
           owner.level ||
-        owner.cooldowns.r !== 0 ||
-        (['q', 'w', 'e'] as const).some(
+        (['q', 'w', 'e', 'r'] as const).some(
           (ability) => !owner.spellRanks[ability] && owner.cooldowns[ability] !== 0
         ) ||
         (owner.castAnimation !== null &&
-          (!['q', 'w', 'e'].includes(owner.castAnimation.ability) ||
+          (!['q', 'w', 'e', 'r'].includes(owner.castAnimation.ability) ||
             !owner.spellRanks[owner.castAnimation.ability])) ||
         (owner.pendingCast !== null && !['q', 'w', 'e'].includes(owner.pendingCast.ability))
       )
@@ -3568,7 +3628,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       throw new Error('Saved match contains invalid Enlighten restoration.');
     const compatibleCast = (ability: string) =>
       champion.champion === 'ahri'
-        ? ability === 'q' || ability === 'w' || ability === 'e'
+        ? ability === 'q' || ability === 'w' || ability === 'e' || ability === 'r'
         : champion.champion === 'leona'
           ? ['w', 'e', 'r'].includes(ability)
           : champion.champion === 'lux'
@@ -4083,6 +4143,8 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       throw new Error('Saved Decisive Strike has an unavailable rank.');
     const cast = owner.pendingCast;
     if (cast) {
+      if (champion.champion === 'ahri' && cast.ability === 'r')
+        throw new Error('Spirit Rush has no pending windup.');
       const garenR = champion.champion === 'garen' && cast.ability === 'r';
       const ahriQ = champion.champion === 'ahri' && cast.ability === 'q';
       const ahriW = champion.champion === 'ahri' && cast.ability === 'w';

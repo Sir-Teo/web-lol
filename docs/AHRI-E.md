@@ -3,7 +3,9 @@
 Target: standard PC Summoner's Rift 26.18, frozen Riot build 16.18.8175716.
 This checkpoint adds manual Charm learning and casting to the existing non-player
 Ahri fixture. Ahri remains outside player selection and the production Rift roster.
-R, the passive and native presentation remain unfinished.
+This document retains its schema-134 checkpoint. The later [R base controller](AHRI-R.md)
+advances to schema 135. Passive healing, Essence-driven R resets and native
+presentation remain unfinished.
 
 ## Source contract
 

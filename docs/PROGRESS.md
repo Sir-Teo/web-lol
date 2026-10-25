@@ -6,7 +6,7 @@ Last updated: October 25, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 2,133 tests across 335 files, TypeScript and three Node QA checks. Thirty-four targeted Chrome scenarios pass for the [development Ahri Q](AHRI-Q.md)/[W](AHRI-W.md)/[E](AHRI-E.md) controllers and application reloads, her NPC rig/basic attacks, Leona rig recovery, Garen/Lux controls, champion selection, animation and match files. Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 2,154 tests across 336 files, TypeScript and three Node QA checks. Thirty-eight targeted Chrome scenarios pass for the [development Ahri Q](AHRI-Q.md)/[W](AHRI-W.md)/[E](AHRI-E.md) and [R base](AHRI-R.md) controllers and application reloads, her NPC rig/basic attacks, Leona rig recovery, Garen/Lux controls, champion selection, animation and match files. Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
 
 The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). Current targeted evidence does not certify full-match completion or native visual parity.
 
@@ -7425,3 +7425,51 @@ closure. Pink missile rendering, width/range interpretation, control priority,
 post-death ownership, directional animation and E/Flash interaction are explicit
 local policies or open work. Native behavior/presentation, full Ahri kit, roster,
 performance and full-project completion remain false.
+
+
+## 2026-10-25 — Spirit Rush base, independent dashes/recasts/bolts and angled arrival
+
+[Ahri R base](AHRI-R.md) adds manual NPC activation, a bounded dash, three casts
+within 15 seconds and up to three distinct champion-prioritized essence bolts.
+The initial cast pays mana and starts its hasted cooldown; recasts are free with
+a one-second lockout. Each cast captures current rank/AP. Root/stun/Charm/Flash
+and death stop movement; committed bolts and the window have independent saved
+lifetimes. An accepted final-window dash can finish after that window expires.
+This increment deliberately leaves passive Essence healing and its R resets
+unimplemented. Ahri remains outside human selection and the production roster.
+
+The guarded table keeps named damage/dash/recast fields separate from display,
+generic and legacy child data. Root cast times are omitted; no child .25-second
+windup is transferred. Independent cache-only review reparses all 64 BIN records
+and passes normally/optimized. Named counters, secondary pips and indicator VFX
+do not establish native state logic. Dispatch timing, geometry, control ordering,
+tracking defaults, mana/cooldown invocation and native effects remain open.
+
+Schema 135 adds strict `ahriRushes` windows, indexed bursts/bolts, charge/clock
+relations, source/rank/target ownership, fixed-step dash geometry and interruption
+facts. An angled-frame regression exposed drift and inconsistent arrival timing
+in accumulated vector movement. Computing from accepted origin and fixed elapsed
+ticks, with a shared arrival tolerance, passes every saved frame at twelve angles.
+The failing run and prior module/validator bytes are retained. One new protected
+monster fixture used an invented emergence duration; correcting it to the pinned
+Gromp duration preserved the eligibility assertions. Both full-run logs remain.
+
+Validation: 2,154 tests across 336 files, TypeScript and three Node QA checks;
+38/38 targeted Chrome cases in one run without skips/retries, including R rendering,
+free recasts and real dash/recovery/recast reloads with 300 exact future ticks.
+Dash/arrival screenshots were reviewed. Production smoke passes 32 recordings;
+offline checks pass with 963 service-worker responses and no production errors.
+Production still omits the development hook/fixture and unrequested Ahri preload.
+The new pinned R icon is 6,639 bytes; all 1,013 prior public files other than the
+reference manifest remain byte-identical.
+
+Pack `b791b3c576c01898d063a76f6cc8f668bfab392a1b544c7e7145a694beb92672` has
+1,065 files / 520,044,533 bytes. Ruleset:
+`86ba88f0caeb4e222145f8c4b4bfc54ad17f15ffcaa25827582b444af77db5c8`.
+
+Frozen source/build/evidence closure is [r-verification.json](reference/ahri/r-verification.json),
+checked by `tools/qa/verify-ahri-r.mjs` (or `--historical` after later changes).
+The pinned BIN parser and its local import companions are also retained. Passive
+Essence resets, full Ahri kit, native behavior/presentation, roster expansion,
+performance and full-project completion flags remain false. Next work is the
+separately audited passive and its connection to R.

@@ -22,6 +22,7 @@ FILES = {
     'AhriQ.png': 'spell/AhriQ.png',
     'AhriW.png': 'spell/AhriW.png',
     'AhriE.png': 'spell/AhriE.png',
+    'AhriR.png': 'spell/AhriR.png',
     'LeonaShieldOfDaybreak.png': 'spell/LeonaShieldOfDaybreak.png',
     'LeonaSolarBarrier.png': 'spell/LeonaSolarBarrier.png',
     'LeonaZenithBlade.png': 'spell/LeonaZenithBlade.png',
