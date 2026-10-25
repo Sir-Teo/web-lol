@@ -232,6 +232,14 @@ export function advanceAlphaStrike(world: World, unit: Unit): boolean {
     result: 'pending',
   };
   q.marks.push(mark);
+  if (target.kind === 'champion') {
+    // Secondary-reference assist eligibility begins at the local mark pulse,
+    // before first-contact damage. Keep this out of execution/damage history.
+    const contributors = world.championState(target.id)!.alphaMarkContributors;
+    const entry = contributors.find((c) => c.sourceId === unit.id);
+    if (entry) entry.lastMarkTick = world.tick;
+    else contributors.push({ sourceId: unit.id, lastMarkTick: world.tick });
+  }
   q.nextMarkTick += ALPHA_MARK_TICKS;
   if (repeatIndex > 0) resolve(world, unit, mark);
   if (q.marks.length === MASTER_YI_Q.bounceCount) reappear(world, unit, q, 'complete');

@@ -8008,3 +8008,40 @@ The browser proves hidden body/rings/no pick and restored selection/pick after
 return. Schema/ruleset and public asset bytes remain unchanged. The previous
 broad/production results are not presented as a fresh full-suite run. See
 [visibility verification](reference/masteryi/visibility-verification.json).
+
+### Q mark-only assist eligibility (schema 145)
+
+Accepted Q champion marks now retain a separate incoming source/tick history
+before first damage. Repeats refresh one entry. The pinned standard-mode
+15-second inclusive window feeds the existing direct/support assist set and
+Highlander callback, deduplicating damage/mark participation. Mark history is
+excluded from damage and execution credit: actual attacker attribution remains
+intact, including turret executions. Respawn clears the incoming history.
+Decoding checks source identity/team/learned Q, duplicates and historical tick/
+death bounds. Older schemas/fingerprints remain incompatible.
+
+The retained community V6.21 note supports eligibility before delayed damage;
+it is a historical behavior lead, not controlled 26.18 native dispatch evidence.
+The local callback follows the existing mark pulse. No target-area vision,
+source presentation or speculative assist-gold formula was added. The original
+focused failure (pending first mark, full health, no damage, lost assist) is
+retained. The 23 new cases cover timing boundaries, independent/repeated sources,
+execution attribution, R/posthumous callbacks, respawn, saved futures and forged
+records. Q/R focused checks pass 109; the full one-worker suite passes
+2,413/2,416 across 347 files, all 234 Yi cases included. Three known source-audit
+failures remain unchanged. TypeScript, three Node QA cases and build pass.
+
+Three actual browser save/reload checks pass, including new mark-only eligibility,
+NPC marked Q and human/NPC save isolation. The new proof records full target health,
+empty damage history, exact checkpoint/future, one assist and one R extension with
+visible personal score and no page errors. [Mark assist documentation](MASTER-YI-MARK-ASSISTS.md)
+and [reference evidence](reference/masteryi/q-assist-reference.json) distinguish
+source declarations, historical community evidence and local controller policy.
+
+Nested production smoke passes 32 recordings and the existing real spell,
+purchase and save/restore checks under a host prefix. Both exact Yi fixture URLs
+remain disabled, with no development hook or Yi rig preloads. Ruleset
+`01df38573feae5954330b5a1a2ca9dad87d320d0ec3b024ba2a31d971bb96022`; pack
+`e663ac994747306aa587d489212542c13de96c9afd874a6f26966f743f834011` has
+1,073 files / 526,662,603 bytes. Public asset bytes are unchanged.
+No fresh full-browser/offline/native/performance certification is claimed.

@@ -142,7 +142,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 144;
+export const SNAPSHOT_VERSION = 145;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -680,6 +680,7 @@ const player: z.ZodType<PlayerState> = z
         .nullable(),
     }),
     revealContributors: z.array(z.strictObject({ sourceId: id, lastRevealTick: tick })).max(10000),
+    alphaMarkContributors: z.array(z.strictObject({ sourceId: id, lastMarkTick: tick })).max(10000),
     assists: tick,
     damageContributors: z
       .array(z.strictObject({ sourceId: id, lastDamageTick: tick, creditSourceId: id.optional() }))
@@ -3727,6 +3728,22 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         throw new Error('Saved match contains invalid damage contributions.');
       contributors.add(source.id);
       previousDamageTick = contribution.lastDamageTick;
+    }
+    const markSources = new Set<number>();
+    for (const entry of owner.alphaMarkContributors) {
+      const source = champions.find((u) => u.id === entry.sourceId);
+      const sourceState = owners.find((s) => s.id === entry.sourceId);
+      if (
+        !source ||
+        source.champion !== 'masteryi' ||
+        !sourceState?.spellRanks.q ||
+        source.team === champion.team ||
+        markSources.has(source.id) ||
+        entry.lastMarkTick > state.tick ||
+        (champion.deadAt !== null && entry.lastMarkTick > champion.deadAt)
+      )
+        throw new Error('Saved match contains invalid Alpha Strike assist contributions.');
+      markSources.add(source.id);
     }
     const revealers = new Set<number>();
     const supporters = new Set<number>();

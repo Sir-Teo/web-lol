@@ -17,6 +17,7 @@ export function createChampionState(id: number, unlocked = true, tick = 0): Cham
     trinket: newTrinket(tick),
     observedStats: { blue: null, red: null },
     revealContributors: [],
+    alphaMarkContributors: [],
     assists: 0,
     damageContributors: [],
     supportContributors: [],

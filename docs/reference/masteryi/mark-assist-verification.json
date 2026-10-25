@@ -1,0 +1,318 @@
+{
+  "recordedAt": "2026-10-25T22:07:26.223193+00:00",
+  "baselineCommit": "1578be8",
+  "scope": "Private Master Yi incoming mark-only assist eligibility and saved history, separate from damage/execution credit, with existing awarded-takedown callbacks.",
+  "schema": 145,
+  "ruleset": "01df38573feae5954330b5a1a2ca9dad87d320d0ec3b024ba2a31d971bb96022",
+  "pack": {
+    "id": "e663ac994747306aa587d489212542c13de96c9afd874a6f26966f743f834011",
+    "files": 1073,
+    "bytes": 526662603
+  },
+  "reference": "docs/reference/masteryi/q-assist-reference.json",
+  "changedInputs": [
+    {
+      "file": "src/simulation/types.ts",
+      "bytes": 21572,
+      "sha256": "80742065e2d1587a38f64761e2693c340763489e1c6496f11fc0fefe93cad170"
+    },
+    {
+      "file": "src/simulation/champion-state.ts",
+      "bytes": 3876,
+      "sha256": "2b756505d3ffe888ee0489a64b24bbafc5a00b8e85e898b726033e4af2e25e2f"
+    },
+    {
+      "file": "src/simulation/masteryi-alpha-strike.ts",
+      "bytes": 12488,
+      "sha256": "fb2852999ee7632e3089215d540edccc3e816f407d7a96af1b4a21870841cfe6"
+    },
+    {
+      "file": "src/simulation/world.ts",
+      "bytes": 287924,
+      "sha256": "62dfad908336dc6365018236b846d57d4abb4a46ff8457828bac6a70b4b09d0b"
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "bytes": 173353,
+      "sha256": "1e5a4b668082672fa3d023ef4f0b6defcfde60bf1f58ca5b11c32306ba8b87a4"
+    },
+    {
+      "file": "src/ui/masteryi-spells.ts",
+      "bytes": 3351,
+      "sha256": "8c46ad63504bee3eafe4be4b250b4ca462bb1d9bef64c05163b0729d7e5a7d95"
+    },
+    {
+      "file": "tests/masteryi-mark-assists.test.ts",
+      "bytes": 10216,
+      "sha256": "3df7707feef860b0a6fae96bc3f6d387aff039572ec773b1f90e34bc63804434"
+    },
+    {
+      "file": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "42e9c848d73f9440a755f261626a6d68bf841e2e799f619d67fcd314f28724f7"
+    },
+    {
+      "file": "e2e/masteryi-mark-assists.spec.ts",
+      "bytes": 4809,
+      "sha256": "2ed4c805b3832a88efce3492ba151f02add5eeb3a79c82c2b1f6604caf8d113e"
+    },
+    {
+      "file": "docs/reference/masteryi/q-assist-reference.json",
+      "bytes": 1812,
+      "sha256": "54e1f96e0640eb8cd3352bce3dac543afa069c0bc1742531f01edcd083279b0b"
+    }
+  ],
+  "validation": {
+    "before": "Pending first mark, target at full health and empty damage history still lost the expected assist; failed reproduction retained.",
+    "newMarkCases": 23,
+    "focusedPassed": 109,
+    "focusedFiles": 3,
+    "broad": {
+      "command": "npx vitest run tests --maxWorkers=1",
+      "passed": 2413,
+      "failed": 3,
+      "files": 347,
+      "allMasterYiCasesPassed": 234,
+      "baselineFailures": [
+        "Missing Leona native/research input",
+        "Missing original distortion libraries/bitcode/disassembly",
+        "Unchanged Lux sampler digest discrepancy"
+      ],
+      "previousEvidence": "docs/reference/masteryi/player-verification.json"
+    },
+    "typescript": true,
+    "nodeQaPassed": 3,
+    "browserPassed": 3,
+    "browser": {
+      "beforeDamage": {
+        "pending": "pending",
+        "fullHealth": true,
+        "damageHistory": []
+      },
+      "sameSaved": true,
+      "sameFuture": true,
+      "score": {
+        "kills": 0,
+        "assists": 1,
+        "allyKills": 1,
+        "extensionCount": 1,
+        "endTick": 891
+      },
+      "pageErrors": [],
+      "otherCases": [
+        "NPC marked-vanished Q save/reload",
+        "Human/NPC private save isolation"
+      ]
+    },
+    "build": true,
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 13,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 221,
+      "scheduledBlueRequests": 13,
+      "scheduledRedRequests": 13,
+      "scheduledWolfRequests": 26,
+      "scheduledRaptorRequests": 26,
+      "scheduledKrugRequests": 39,
+      "scheduledScuttlerRequests": 13,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    },
+    "publicAssetChanges": [],
+    "browserEnvironment": "System Chromium154.0.8037.57 / Debian13; only executable-path launcher override, original assertions/deadlines and no automatic retries."
+  },
+  "evidence": [
+    {
+      "file": ".cache/masteryi-assist-cloud/before.log",
+      "bytes": 897,
+      "sha256": "dda77fdd7abd60f35eeeda629c14f1f1b7adefba3908a36426b95b971d270774"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/browser/masteryi-alpha-strike-Alph-c2d41-oad-and-reveals-its-own-rig/alpha-marked-vanished-revealed.png",
+      "bytes": 447243,
+      "sha256": "64f05a5b0ca3fc1d7e22e74cb3623539ecd0c7e7637b88063f93fdb4e77badd3"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/browser/masteryi-alpha-strike-Alph-c2d41-oad-and-reveals-its-own-rig/alpha-marked-vanished.png",
+      "bytes": 798185,
+      "sha256": "f56493dc0ab254028af0b9890e795b5caf30228f97f8aec68bcfd6fe50fcb5d6"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/browser/masteryi-alpha-strike-Alph-c2d41-oad-and-reveals-its-own-rig/alpha-reload.json",
+      "bytes": 96019,
+      "sha256": "55b378b027b7056c452dda0956c86f46057b04d6f3e5da800a6ce15be6d08326"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/browser/masteryi-mark-assists-a-re-8eb72-ist-and-Highlander-callback/mark-assist-reload.json",
+      "bytes": 43813,
+      "sha256": "b5b62c5b2c1a8858c6af70acfcadd03d688ca885b7181939550a962504a25886"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/browser/masteryi-mark-assists-a-re-8eb72-ist-and-Highlander-callback/masteryi-mark-assist.png",
+      "bytes": 444452,
+      "sha256": "8c08b43a741d24dace91cbe17ae2d4eed090a25c5916b1c5d1524ebed864ff9f"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/browser/masteryi-player-human-acti-8aaac-lated-after-a-real-NPC-save/human-save.json",
+      "bytes": 56493,
+      "sha256": "390c67790f87abc7b479cfffe41a7374979e145d8c250a886e8e250d586485ef"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/browser.log",
+      "bytes": 1717,
+      "sha256": "2e5778782907d910940c0b32356ed6c9028ff698099f338e147700eb9c0cd91e"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/build.log",
+      "bytes": 5557,
+      "sha256": "f0e88e47039e1b5ee91df203c83a4e2a081e9c9ecfea3cd5a59293dceac84f9c"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/focused-v1.log",
+      "bytes": 425,
+      "sha256": "79adbf21026afe539b1d39115480acb32a1a3fb7f5095604ca136d500c35e0ff"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/focused-v2.log",
+      "bytes": 427,
+      "sha256": "e314986b62290a5d124fe22ed5b74b2e76d3c9acbdca31ae3814012cc4432ae7"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/focused-v3.log",
+      "bytes": 427,
+      "sha256": "5e1864fa1ac9aefdfa641537482464e9205beacfb2338e10bd2fe83be6b44bd3"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/full-unit.log",
+      "bytes": 5486,
+      "sha256": "ad874e85be3d5581ac5df009bf5cd530fd5aa5269b40c10e845bc311aee53c02"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/production-captures/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1813906,
+      "sha256": "21c256bd81b4c3ea79ebb4f2a62bbd13dd478cce8393c6b2fddffb07de5da218"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/production-captures/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835767,
+      "sha256": "284df32ed0921776f40e7ec5985159e14100673477d2d7eb1f2d76fecac6b781"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/production-captures/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829757,
+      "sha256": "62b10b62c314dc8d26f9d7e254d713f9a811ab7526ccfd948c85322ae59d42c3"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/production-captures/lux-e-hit-production-lux.png",
+      "bytes": 1811944,
+      "sha256": "7d016d95a99e7b893d4d780c47586b6a3712b763aab0475397fe5a0fa1aab41a"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/production-captures/lux-e-hit-production-oracle.png",
+      "bytes": 1819989,
+      "sha256": "1967dfa5e691cba1aba19982be9d841179d2cf03779d739cd67991447b07cc8c"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/production-captures/lux-e-hit-production-role-match.png",
+      "bytes": 1352832,
+      "sha256": "4d1f0d8dd4a73b2cd43edc96166b0ba78f8d6594c42db01b64bf25978f870e06"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/production-captures/lux-e-hit-production-subpath.png",
+      "bytes": 1826316,
+      "sha256": "456735eb355833af836816f629edc4fbaa96ec2cb85e0037a79289440f7246f0"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/production-captures/lux-e-hit-production-ward.png",
+      "bytes": 1808779,
+      "sha256": "d8be965fc0074e3b7d4cc73896f7664fe70c1da63fb70ec8aa290513a31f57bb"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/production.log",
+      "bytes": 2123,
+      "sha256": "5cdd70db82c6ed87ca1c0e3d9feb042ffda3724b6453861c234549b44b3a1bf1"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/qa.log",
+      "bytes": 431,
+      "sha256": "6cd0ec702faf2c2014d10a4ee3a73a7e4718fda36d2b836079ecb03dfe1c6609"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/typecheck-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/typecheck-v2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/masteryi-assist-cloud/typecheck-v3.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "limits": [
+    "Historical community behavior plus explicit local mark timing; no controlled native26.18 callback calibration.",
+    "No speculative assist-gold model, target-area vision, source effects/audio or public/role integration added.",
+    "No full browser/offline/native/GPU/device/FPS certification."
+  ]
+}

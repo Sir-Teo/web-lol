@@ -1,7 +1,8 @@
 # Development Alpha Strike
 
 This records the schema-143 NPC milestone. The later
-[human fixture](MASTER-YI-PLAYER.md) adds private player controls at schema 144.
+[human fixture](MASTER-YI-PLAYER.md) adds private player controls at schema 144;
+[mark assist credit](MASTER-YI-MARK-ASSISTS.md) follows at schema 145.
 
 The private `/?scene=fixture&npc=masteryi` NPC now supports all four own ability
 controllers. Alpha Strike adds unit targeting, saved marks, delayed/repeated
@@ -70,9 +71,10 @@ Q contacts use the shared supported on-hit adapter without becoming basic
 attacks: they neither build Double Strike nor reduce Q's cooldown. Existing
 Cinders slow/burn application and phase-preserving refresh remain unscaled buff
 policies; native Q interaction with that proc remains open. Other item/passive
-behavior remains limited to the existing shared pipeline. Mark-only assist
-qualification before damage is not implemented; actual damage uses existing
-kill/assist attribution.
+behavior remains limited to the existing shared pipeline. Schema 145 adds
+[mark-only assist eligibility](MASTER-YI-MARK-ASSISTS.md) before first damage,
+using a separate incoming history and the shared standard assist window. It
+does not replace actual damage for execution attribution.
 
 At reappearance, a valid primary within the follow limit supplies a point 75
 units in front of its facing, or along the player's selected exit direction.

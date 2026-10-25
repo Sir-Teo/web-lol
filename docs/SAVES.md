@@ -1,6 +1,13 @@
 # Local match checkpoints
 
-Current schema **144** permits a human Master Yi only in a trusted development
+Current schema **145** adds separate incoming Alpha Strike mark-assist histories.
+Champion targets retain source IDs and mark ticks without granting damage or
+execution credit. Decoding checks ownership, learned Q, opposing teams, unique
+sources and historical tick/death bounds. Respawn clears the history. Earlier
+schemas/fingerprints remain incompatible. See
+[mark assist credit](MASTER-YI-MARK-ASSISTS.md).
+
+Schema **144** permits a human Master Yi only in a trusted development
 practice fixture. The permission comes from the scene context and is never
 serialized. Player Yi files require that context and practice mode; Rift and
 ordinary fixture loading remain rejected. Human and NPC Yi use separate private

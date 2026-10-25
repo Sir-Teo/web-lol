@@ -5238,6 +5238,9 @@ export class World {
       ...victim.revealContributors
         .filter((entry) => this.tick - entry.lastRevealTick <= HAWKSHOT_ASSIST_SECONDS * TICK_RATE)
         .map((entry) => entry.sourceId),
+      ...victim.alphaMarkContributors
+        .filter((entry) => this.tick - entry.lastMarkTick <= ASSIST_WINDOW_SECONDS * TICK_RATE)
+        .map((entry) => entry.sourceId),
     ]);
     if (killerId !== undefined) direct.add(killerId);
     const contributors = new Set(direct);
@@ -5947,6 +5950,7 @@ export class World {
       state.leonaDash = null;
       if (state.leonaR && !state.leonaR.released) state.leonaR = null;
       state.damageContributors = [];
+      state.alphaMarkContributors = [];
       state.supportContributors = [];
       state.revealContributors = [];
     }

@@ -492,6 +492,8 @@ export interface ChampionState {
   trinket: TrinketState;
   observedStats: Record<Team, { level: number; cs: number; inventory: (string | null)[] } | null>;
   revealContributors: { sourceId: number; lastRevealTick: number }[];
+  /** Incoming Alpha Strike marks qualify assists without damage/execution credit. */
+  alphaMarkContributors: { sourceId: number; lastMarkTick: number }[];
   assists: number;
   damageContributors: { sourceId: number; lastDamageTick: number; creditSourceId?: number }[];
   /** Allied Heal casters; support attribution is resolved when a victim dies. */
