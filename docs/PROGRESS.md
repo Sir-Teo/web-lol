@@ -6,7 +6,7 @@ Last updated: October 24, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 1,925 tests across 314 files, TypeScript and three Node QA checks. Ten targeted Chrome scenarios pass the [development Zenith follow-up](LEONA-E-BOT-FOLLOWUP.md), adjacent Leona bot decisions, source geometry, saved restoration, graphics recovery and effect lifecycle checks. Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 1,940 tests across 315 files, TypeScript and three Node QA checks. Twenty targeted Chrome scenarios pass the [development Solar Flare follow-up](LEONA-R-BOT-FOLLOWUP.md), adjacent Leona bot decisions, saved phases, both-team source surfaces, graphics recovery, effect lifecycle and source audio failure checks. Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
 
 The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). Current targeted evidence does not certify full-match completion or native visual parity.
 
@@ -6639,3 +6639,48 @@ See [scope](LEONA-E-BOT-FOLLOWUP.md) and
 [ledger](reference/leona/e-bot-followup-verification.json). No new normal-match
 cohort or performance claim follows. Player, complete support/roster and native
 frame gates remain open. Work continues under the active goal; nothing pushed.
+
+## Development Leona follows held groups with Solar Flare — October 24, 2026
+
+Local Leona AI now queues the ordinary R point cast for an observed held group
+or a held ranged target within the current magic-damage/shield estimate. The
+control window covers dispatch plus the existing 38-tick delayed impact. Group
+centers are observed champion positions, ranked by eligible count, finisher,
+distance and identity. E retains priority for an isolated catch; lone melee
+targets retain attack/Q follow-through. Retreat/turret/disengage/committed attack/
+recall/team/ward guards precede R. Root permits R, while silence/stun, active
+casts/dashes/own E flight and resource guards reject it. W reserves mana first.
+
+Fifteen new unit cases cover both teams and actual paid center stun/outer slow,
+Sunlight, queued/released saved futures, mitigation/shields, visibility/control/
+resources, E priority, root, committed attacks, existing E/R, turret escape,
+W priority, copied hidden aim, moving origin and dead targets. All 68 focused
+checks pass. Initial fixture errors used an out-of-range Lux attack and measured
+mana after regeneration; corrected fixtures exercise actual commitments/payment.
+Review found a real dead-target bug: retained control clocks could qualify a
+corpse. The explicit alive guard fixes it. Failed reproduction and pre-fix sources
+are retained.
+
+The full check passes 1,940 tests in 315 files, TypeScript and three Node QA
+checks. Twenty browser cases cover the new decision, adjacent Q/W/E/setup, three
+R save/reload phases, both-team source surfaces, graphics recovery, effect lifecycle/
+warp controls and six source audio/recovery/failure scenarios. The new encounter
+queues zero hidden casts and one observed point, holds a moving dispatch origin,
+pays 100 mana and deals about 150 damage per target before regeneration. The
+center is stunned and the outer target slowed by 80%; both have Sunlight.
+Saved futures match. Four sampled source ages change 182,636 / 60,529 / 57,310 /
+321,978 pixels with zero GL/browser errors; the source screenshot is inspected.
+This uses controlled navigation and sampled draws, not a native frame or every
+R family. Existing R presentation remains 41 of 44 enabled families.
+
+Production passes 32 nested-path recordings without development hooks or
+unrequested Leona preloads. All 966 public files are unchanged. Schema 126 uses
+ruleset `61c5e51ac925b80aa33dec49e1c2d4834a10c241b8fb226c31e88f44443e5254`.
+Pack `89760b191f9baf08da40b202b796ac7cb0f3cf4dac6d3c279a6f13f0ff16499c`
+contains 1,012 files / 513,313,916 bytes. Integrity, repair, saved offline boot and
+atomic-version controls pass with 963 worker responses and zero production errors. See the
+[follow-up scope](LEONA-R-BOT-FOLLOWUP.md) and
+[ledger](reference/leona/r-bot-followup-verification.json). Current damage estimates
+cannot predict future heals/defenses or movement. Full mobile-target, peel/engage,
+player/support/roster, native frame, normal-match cohort and performance gates
+remain open. Work continues under the active goal; nothing pushed.

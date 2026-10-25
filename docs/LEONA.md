@@ -52,6 +52,11 @@ against isolated, visibly immobilized champions, with observed turret/terrain
 checks and defensive W mana priority. Full E/R tactics and support integration
 remain open.
 
+The [development Solar Flare follow-up](LEONA-R-BOT-FOLLOWUP.md) now uses observed
+held groups or held ranged finishers, with current mitigation/shield estimates,
+queued W mana priority and copied aim. Full mobile-target and support tactics
+remain open.
+
 The [nonerosion skin lookup fixture](LEONA-METAL-SKIN-LOOKUP.md) adds 100 unchanged
 VS0/PS11 Metal/scalar draws, including 76 explicit white local comparisons, plus
 a fresh 88-case erosion regression. The 24 unsupported local lookup cases remain

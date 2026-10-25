@@ -6,4 +6,5 @@ export const LEONA_BOT_POLICY = {
   upgrades: { ruby: 'belt', cloth: 'vest', mantle: 'cloak' },
   defenseHorizonTicks: 45,
   zenithIsolationRadius: 1000,
+  solarMinimumHeldTargets: 2,
 } as const;

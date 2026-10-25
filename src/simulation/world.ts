@@ -1719,6 +1719,66 @@ export class World {
     }
     return false;
   }
+  /** Local delayed-area follow-up; uses only currently observed held champions. */
+  private planLeonaR(u: Unit): boolean {
+    if (
+      u.champion !== 'leona' ||
+      u.stunUntil > this.tick ||
+      u.silenceUntil > this.tick ||
+      u.releaseTick !== null
+    )
+      return false;
+    const state = this.championState(u.id)!;
+    if (
+      !state.spellRanks.r ||
+      state.leonaR ||
+      state.leonaEWindup ||
+      state.leonaDash ||
+      state.pendingCast ||
+      state.recallEnd !== null ||
+      this.abilityCooldownTicks('r', u.id) > 0 ||
+      u.mana < this.abilityResources('r', u.id).mana + this.queuedCastMana(u) ||
+      this.projectiles.some((p) => p.type === 'zenith' && p.source === u.id) ||
+      this.threateningTower(u, u, true)
+    )
+      return false;
+    const impactTick = this.tick + 1 + LEONA_COMBAT_POLICY.solarImpactTicks,
+      held = this.units.filter(
+        (target) =>
+          target.kind === 'champion' &&
+          target.team !== u.team &&
+          this.visible(target, u.team) &&
+          this.alive(target) &&
+          this.vulnerable(target) &&
+          Math.max(target.rootUntil, target.stunUntil) >= impactTick
+      ),
+      raw = leonaSolarFlareValues(state.spellRanks.r, this.abilityPower(u)).magicDamage;
+    const candidates = held
+      .filter((target) => distance(u, target) <= LEONA_SPELLS.r.castRange)
+      .map((target) => ({
+        target,
+        count: held.filter(
+          (other) => distance(target, other) <= LEONA_SPELLS.r.authoredOuterRadius + other.radius
+        ).length,
+        // Preserve melee follow-through rather than spend R on a lone nearby unit.
+        finish:
+          distance(u, target) > this.attackRange(u) + target.radius &&
+          target.hp + this.shieldAmount(target) <= this.mitigatedDamage(target, raw, 'magic'),
+      }))
+      .filter(({ count, finish }) => count >= LEONA_BOT_POLICY.solarMinimumHeldTargets || finish)
+      .sort(
+        (a, b) =>
+          b.count - a.count ||
+          Number(b.finish) - Number(a.finish) ||
+          distance(u, a.target) - distance(u, b.target) ||
+          a.target.id - b.target.id
+      );
+    const target = candidates[0]?.target;
+    if (!target) return false;
+    if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
+    this.enqueue({ type: 'cast', unit: u.id, ability: 'r', point: { x: target.x, y: target.y } });
+    return true;
+  }
   /** Stationary-target forecast of visible, committed champion/turret attacks. */
   private observedAttackWithin(u: Unit, horizon: number): boolean {
     const incoming = this.projectiles.some((p) => {
@@ -2666,6 +2726,7 @@ export class World {
       return;
     if (this.planRoleWard(u)) return;
     if (this.planLeonaE(u)) return;
+    if (this.planLeonaR(u)) return;
     if (this.planCrystalArrow(u, 'finish')) return;
     if (this.planGarenR(u)) return;
     if (this.planGarenE(u)) return;
