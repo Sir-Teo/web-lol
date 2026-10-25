@@ -6784,3 +6784,46 @@ Runtime ruleset is `45c72d674fc34cac2d1386a9eb60881fcb00b32f821c9101c1b12af33a1a
 
 Offline integrity, repair, saved boot and atomic version-switch checks pass with
 963 service-worker responses and zero production errors.
+
+## Leona ordinary/critical attack SFX source preparation — October 24, 2026
+
+All ten declared attack SFX events are traced through 65 nodes, 32 sound objects
+and 28 unique raw-bank WEM slices. The canonical graph equals the independent
+static audit exactly. The 28 untouched float32 masters contain 782,277 frames /
+3,130,340 bytes. All 82 samples above unit range are preserved, with maximum
+absolute peak 1.182897686958313. Seven masters reuse existing Q WAV URLs by exact
+hash; 21 new WAVs add 2,366,276 bytes. All 984 previous public files are unchanged.
+
+Normal cast aliases share container 2419, but only BasicAttack/BasicAttack4
+play actions author 40 ms delay. Critical cast keeps its distinct container,
+gain and sound objects despite shared media. Normal hits 1/2/4 preserve four
+numeric switch branches and ranged pitch. Hit3 separately authors LPF20 and
+normal-random/avoid-repeat3; critical hit shares Q-hit media with a different
+gain and child priority. Attack attenuation is its own three-point table,
+with unresolved bus211064428. No selected sound authors Loop and none of five
+retained-bank stop targets matches selected/inherited nodes. These facts do
+not establish native invocation, filter transfer, random history, switch caller,
+effective inheritance or native cancellation. Ordinary attack runtime remains open.
+
+Four new units bring the standard check to 1,970 tests in 320 files, TypeScript
+and three Node QA checks. Two Chrome cases pass sample-for-sample master decode
+and ordinary-Ashe lazy loading. Sixteen isolated export mutations reject WAV,
+shared Q WAV, delay, pitch range, LPF, priority and WEM changes under normal and
+optimized Python. Both pristine baselines pass. Decoder overwrite guards reject
+normal/optimized reruns with all 29 retained master/provenance files unchanged.
+The first empty-child-property assumption, nested parameter path and new unit
+union/expected-value mismatches are corrected; their source/logs remain frozen.
+
+Production passes 32 nested-path recordings without development hooks or
+unrequested Leona preloads. Schema127 remains; the unused source table changes
+the ruleset. See [source scope](LEONA-AA-AUDIO-SOURCE.md) and the
+[ledger](reference/leona/aa-audio-source-verification.json). Saved ordinary
+attack attempts, runtime playback, native listening/frames, missing R families,
+full player/support/roster, normal-match cohort and performance gates remain open.
+Work continues under the active goal; nothing pushed.
+
+Source-preparation ruleset is `9fe85fb04fa6718a206225b9bc0bab747fd3a056371b5a5b2d5a5da3929097de`. Pack
+`14b49932982865d3b9f01c016205366821c682dbc8201cbbdb166400508438d8` contains 1,052 files / 518,230,169 bytes.
+
+Offline integrity, repair, saved boot and atomic version-switch controls pass
+with 963 worker responses and zero production errors.
