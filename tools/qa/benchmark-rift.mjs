@@ -1,6 +1,8 @@
 /** Run against the development server; this is a scoped observation, not a match gate. */
 import { chromium } from 'playwright';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { dirname } from 'node:path';
 import { arch, cpus, totalmem, platform } from 'node:os';
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
@@ -10,6 +12,13 @@ const snapshot = snapshotPath ? await readFile(snapshotPath, 'utf8') : null;
 const profileCPU = process.argv.slice(5).includes('--profile');
 const rawBoneTracks = process.argv.slice(5).includes('--raw-bone-tracks');
 const gpuTiming = process.argv.slice(5).includes('--gpu');
+const developmentLeona = process.argv.slice(5).includes('--development-leona');
+const followPlayer = process.argv.slice(5).includes('--follow-player');
+const saveKey = developmentLeona ? 'development-leona-rift' : 'rift';
+const targetUrl = new URL(process.argv[2] ?? 'http://127.0.0.1:5173');
+if (developmentLeona) targetUrl.searchParams.set('scene', 'leona-rift');
+if ((developmentLeona || followPlayer) && !snapshot)
+  throw new Error('Development/player-follow measurement requires a match checkpoint.');
 const output =
   process.argv[4] ?? (snapshot ? 'artifacts/rift-match-benchmark' : 'artifacts/rift-benchmark');
 if (snapshot) {
@@ -20,7 +29,14 @@ if (snapshot) {
     saved.units.filter((u) => u.kind === 'champion').length !== 10
   )
     throw new Error('Match benchmark requires an unfinished ten-champion Rift checkpoint');
+  if (saved.units.some((u) => u.champion === 'leona') && !developmentLeona)
+    throw new Error('Leona checkpoints require the explicit --development-leona context.');
 }
+for (const extension of ['.json', '.png', '.cpuprofile'])
+  if (existsSync(output + extension))
+    throw new Error('Benchmark output already exists; use a fresh output stem.');
+await mkdir(dirname(output), { recursive: true });
+let canonicalSnapshot = null;
 
 const browser = await chromium.launch({ channel: 'chrome' });
 try {
@@ -40,20 +56,30 @@ try {
       });
     });
   page.on('pageerror', (e) => errors.push(e.message));
-  await page.goto(process.argv[2] ?? 'http://127.0.0.1:5173');
+  await page.goto(targetUrl.href);
   await page.waitForFunction(() => window.__GAME__?.ready);
   await page.locator('#loading').waitFor({ state: 'detached' });
   if (snapshot) {
-    await page.evaluate(async (snapshot) => {
-      window.__GAME__.setPaused(true);
-      const { writeMatch } = await import('/src/storage/match-store.ts');
-      await writeMatch('rift', snapshot);
-    }, snapshot);
+    canonicalSnapshot = await page.evaluate(
+      async ({ input, saveKey }) => {
+        const g = window.__GAME__;
+        g.setPaused(true);
+        const { World } = await import('/src/simulation/world.ts');
+        const { writeMatch } = await import('/src/storage/match-store.ts');
+        const canonical = World.fromSnapshot(input, g.world.battlefield).snapshot();
+        await writeMatch(saveKey, canonical);
+        return canonical;
+      },
+      { input: snapshot, saveKey }
+    );
     await page.reload();
     await page.waitForFunction(() => window.__GAME__?.ready);
     await page.locator('#loading').waitFor({ state: 'detached' });
     if (
-      !(await page.evaluate((snapshot) => window.__GAME__.world.snapshot() === snapshot, snapshot))
+      !(await page.evaluate(
+        (snapshot) => window.__GAME__.world.snapshot() === snapshot,
+        canonicalSnapshot
+      ))
     )
       throw new Error('Browser did not restore the exact benchmark checkpoint');
   } else {
@@ -66,7 +92,7 @@ try {
     await profiler.send('Profiler.start');
   }
   const data = await page.evaluate(
-    async ({ matchMode, gpuTiming }) => {
+    async ({ matchMode, gpuTiming, followPlayer }) => {
       const g = window.__GAME__,
         w = g.world,
         v = g.view;
@@ -91,14 +117,27 @@ try {
             Math.hypot(u.x - other.x, u.y - other.y) < 1600
         ).length;
       const focus = matchMode
-        ? champions
-            .filter((u) => u.team === 'blue' && w.alive(u))
-            .sort((a, b) => threatCount(b) - threatCount(a) || a.id - b.id)[0]
+        ? followPlayer
+          ? w.hero
+          : champions
+              .filter((u) => u.team === 'blue' && w.alive(u))
+              .sort((a, b) => threatCount(b) - threatCount(a) || a.id - b.id)[0]
         : null;
-      if (matchMode && !focus) throw new Error('Checkpoint has no living blue camera subject');
+      if (matchMode && (!focus || !w.alive(focus)))
+        throw new Error('Checkpoint has no living selected camera subject');
       v.center = focus ? { x: focus.x, y: focus.y } : { x: 0, y: 0 };
       v.locked = false;
       v.render(w, 1, w.time);
+      const gl = v.renderer.getContext(),
+        debug = gl.getExtension('WEBGL_debug_renderer_info');
+      const graphicsContext = {
+        vendor: gl.getParameter(gl.VENDOR),
+        renderer: gl.getParameter(gl.RENDERER),
+        version: gl.getParameter(gl.VERSION),
+        unmaskedVendor: debug ? gl.getParameter(debug.UNMASKED_VENDOR_WEBGL) : null,
+        unmaskedRenderer: debug ? gl.getParameter(debug.UNMASKED_RENDERER_WEBGL) : null,
+      };
+      const audioContextState = g.audio.context?.state ?? 'not-unlocked';
       const startingTick = w.tick;
       const sampleCount = matchMode ? 1800 : 180;
       const warmupCount = matchMode ? 120 : 45;
@@ -200,9 +239,16 @@ try {
       };
       return {
         fixture: matchMode
-          ? 'Exact ten-champion checkpoint restored through browser storage; camera follows living blue champion with most nearby visible enemies at start, then retains that subject through death/respawn'
+          ? `Canonical ten-champion checkpoint restored through browser storage; camera follows ${followPlayer ? 'the owned player' : 'the living blue champion with most nearby visible enemies at start'}, retaining that subject through death/respawn`
           : 'Full Rift, live simulation beginning at 90 seconds after opening/closing shop, 45 warmup frames, 180 samples',
         startingTick,
+        graphicsContext,
+        audioContextState,
+        cameraPolicy: !matchMode
+          ? 'practice-origin'
+          : followPlayer
+            ? 'owned-player'
+            : 'visible-opponent-density',
         warmupCount,
         sampleCount,
         cameraSubject: focus ? { id: focus.id, champion: focus.champion } : null,
@@ -242,7 +288,7 @@ try {
         fogResolution: v.fogPixels.width,
       };
     },
-    { matchMode: !!snapshot, gpuTiming }
+    { matchMode: !!snapshot, gpuTiming, followPlayer }
   );
   if (profiler) {
     const { profile } = await profiler.send('Profiler.stop');
@@ -254,6 +300,15 @@ try {
     throw new Error('Raw-track baseline override was not loaded');
   await mkdir('artifacts', { recursive: true });
   const result = {
+    result: 'measured',
+    developmentLeona,
+    followPlayer,
+    saveKey,
+    benchmarkURL: targetUrl.href,
+    exactCheckpointRestored: snapshot !== null,
+    canonicalSnapshotSHA256: canonicalSnapshot
+      ? createHash('sha256').update(canonicalSnapshot).digest('hex')
+      : null,
     cpuProfileEnabled: profileCPU,
     rawBoneTracks,
     gpuTiming,

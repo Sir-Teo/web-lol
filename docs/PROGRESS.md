@@ -7159,3 +7159,39 @@ errors. The
 outputs, failures and corrected comparisons. Native comparisons, three R
 families, complete roster/support, hundred-seed and performance acceptance
 remain open. Work continues under the active goal; nothing pushed.
+
+## 2026-10-25 — Matched Leona player rendering observation
+
+The benchmark now restores the development trial's separate save slot and can
+follow the owned player explicitly. The original trial restore failure is
+retained. Input validation/canonicalization uses the live strict decoder,
+preserving raw input hashes while accepting ordinary file whitespace. The
+default ordinary roster/save/camera behavior remains. Leona inputs require an
+explicit context flag, and existing report/capture/profile outputs refuse
+overwrite. A repeated attempt preserves both result files exactly.
+
+A passive selector checks 43 matching living-Leona checkpoints and chooses seed
+26018 at minute 33, with four nearby visible champions and four nearby minions.
+It preserves each observed world. The live benchmark retains all ten bots and
+normal match rules, warming 120 frames before 1,800 samples per run. Owned-Leona
+cadence, separate GPU and ordinary-control runs all restore exact canonical
+checkpoints. The capture was visually reviewed: Leona remains alive in a blue
+base defense. Activity reaches seven visible champions, 32 world projectiles
+and one world singularity; no Lux beams appear in this window.
+
+On Apple M1 / 16 GiB, Chrome 156.0.8078.47 with ANGLE Metal at 1920×1080 / 1×,
+uninstrumented timestamp median/p95/p99 is 16.7/16.8/16.8 ms, with two intervals
+over 25 ms. Application render p95 is 7.4 ms. The separate GPU run resolves all 1,798
+actual render queries, with median/p95/p99 2.72/5.68/7.44ms and no discarded,
+skipped or unresolved queries. Ordinary control timestamp p95 is 16.7 ms with no
+interval over 25 ms. Render/callback clocks and overlapping CPU timers retain
+explicit scopes. Audio remains not unlocked and its cost is unmeasured.
+
+See [measurement scope](LEONA-RIFT-RENDER-PROFILE.md). Three GPU timer QA checks
+pass. This changes QA tooling/documentation only; source visuals and shipped
+schema 130/ruleset/package remain the accepted support checkpoint. The
+[ledger](reference/leona/rift-render-verification.json) binds original failure,
+exact source/input, measurements and capture. This is one device/scene
+observation; complete performance, audio, worst-case effects, native comparisons,
+three R families and full roster/support acceptance remain open. Work continues
+under the active goal; nothing pushed.

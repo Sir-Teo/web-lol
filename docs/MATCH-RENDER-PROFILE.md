@@ -62,3 +62,12 @@ node tools/qa/benchmark-rift.mjs http://127.0.0.1:5198 artifacts/rift-lost-chapt
 Three helper tests verify unavailable extensions, asynchronous reads, bounded pending queries, nanosecond conversion, deletion and invalid/disjoint rejection. The final encounter capture was visually inspected. Tools and documentation changed; the previous 598 application checks and animation/production validation were not rerun for this tools-only change. [GPU and cadence evidence](reference/gpu-render-verification.json) pins the reports, source hashes and validation scope.
 
 A separate run without GPU/CPU profiling measured animation-frame median/p95/p99 **16.7/16.8/16.8 ms**, callback-delivery **16.6/19.4/21.0 ms**, with one of 1,800 timestamp intervals above 25 ms. The default 180-frame practice smoke also completed: timestamp p95 16.7 ms, zero intervals above 25 ms. Both finished without page errors. These are browser cadence observations, not measured physical refresh delivery.
+
+## Development Leona player camera — October 25, 2026
+
+The [Leona Rift measurement](LEONA-RIFT-RENDER-PROFILE.md) uses a matching schema-130
+full-match checkpoint, explicit trial save context and owned-player camera.
+The scoped M1 observation retains 16.8 ms timestamp p95, with separate GPU elapsed
+p95 5.68 ms. Its report records hardware/driver, exact restored state, input whitespace
+normalization, render/query counts and audio remaining not unlocked. It does
+not replace the historical fixture above or complete the performance matrix.
