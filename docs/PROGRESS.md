@@ -6966,3 +6966,35 @@ Offline integrity, repair, saved boot and atomic version switching pass with
 listening/frame comparison, missing R families, full player/support/roster,
 ordinary Rift cohort and performance gates remain open. Work continues under
 the active goal; nothing pushed.
+
+
+## 2026-10-25 — Death3D layered source audio prepared
+
+One declared death event starts two ordered direct-sound Play layers. Both retain
+−10 dB, cap four, killNewest zero and ignoreParentMax one, with no random container,
+authored pitch, sound loop or action transition. The second action authors a
+1.75-second delay. Parent Priority 55, distinct three-point attenuation and
+unresolved bus remain explicit; no effective inheritance or native invocation is
+claimed. All five retained-bank Stop targets miss the seven selected/inherited
+nodes. The independent graph matches all primary fields except the added bounded
+stop audit, with no encoded overlap across six prior packages.
+
+Two mono 44.1 kHz float32 masters preserve 331,314 frames / 1,325,344 bytes and peak
+0.9752417803. Generated tail is 338 ticks, including delay; transient death events
+and current unit state do not preserve the necessary saved birth facts. Canonical
+outputs reproduce ten isolated files. Three new units bring the full check to
+2,009 tests in 325 files, TypeScript and three Node QA checks. Eighteen normal/
+optimized mutations reject, both pristine baselines pass, and decoder overwrite
+attempts preserve all three retained files. Two Chrome cases pass exact decode
+and lazy ordinary loading. All 32 production recordings pass. All 1,008 prior
+public files remain unchanged; exactly two WAVs are added.
+
+See [source scope](LEONA-DEATH-AUDIO-SOURCE.md). Saved death facts and layered
+runtime playback follow this source preparation. Schema 128 ruleset is `9e3706224c3c417e9dbe5c4b89185a9d8874759d43c803cd4b9d8af302a18a6a`;
+pack `7103df4e9ea02090f34128a3ee7a3f5c4a258df6c538dedf538f8eb1d82b26b7` contains 1,059 files / 519,941,952 bytes.
+Offline integrity, repair, saved boot and atomic version switching pass with
+963 worker responses and no production errors. Exact evidence is bound by the
+[ledger](reference/leona/death-audio-source-verification.json). Native caller/timing/animation, mix/
+listening, missing R families, full player/support/roster, ordinary Rift cohort
+and performance gates remain open. Work continues under the active goal; nothing
+pushed.

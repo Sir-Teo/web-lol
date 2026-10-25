@@ -1,0 +1,1733 @@
+{
+  "extractionSha256": "4e7f472582ad48b5818746fccdafe784a6248388406975f8fef3cb5e37eb4fdb",
+  "referenceSha256": "4afb6c31fc7d23c6c820d380d6ac789fada29866776dea29d4f60355b2348cc7",
+  "provenance": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Champions/Leona.wad.client",
+    "chunks": {
+      "BF8280CA780C3E12": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/38D1E6691DCED15B.bundle",
+        "offset": 3181145,
+        "bytes": 102094,
+        "sha256": "ef22ada7ce77a4443faf7e3a2018021ce1941f73260f34f472f0d668d6739db8"
+      },
+      "8A692CE4A69F0428": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/3709791351CE0D4A.bundle",
+        "offset": 36598187,
+        "bytes": 55572,
+        "sha256": "8af3a772d6f063925d25eec01534517d81aa20d4dd55656a414efeb8e513a608"
+      },
+      "3EB8C0BF917DFC27": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E05E59000557DA68.bundle",
+        "offset": 27083972,
+        "bytes": 194988,
+        "sha256": "0c5ebef31ab5c7d22bfdd536273c41dcef55b9ecb93131de7242b91db6b21287"
+      },
+      "37FC9920F484B873": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E05E59000557DA68.bundle",
+        "offset": 27278960,
+        "bytes": 176156,
+        "sha256": "042fa8e76e662b3e42f1d55080832cfd921550a18762b5c24aeab81c699b2e7e"
+      },
+      "A36A0B7379C5F206": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E05E59000557DA68.bundle",
+        "offset": 27455116,
+        "bytes": 138174,
+        "sha256": "7367f2daa29ee7474b8fcaf69a0bbebf6e48f8d16e814c5708e8272bfa166086"
+      },
+      "1CF7B0607E3B4729": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E05E59000557DA68.bundle",
+        "offset": 27593290,
+        "bytes": 149439,
+        "sha256": "994ec002d6de543531ff60004876e47d4e2dcd3ff97985538addfad19607d660"
+      },
+      "655A6B24B459BC21": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E05E59000557DA68.bundle",
+        "offset": 27742729,
+        "bytes": 153661,
+        "sha256": "82f72aedefebc86039fa367518835641c20f180d8663c9024191a1b67947d19b"
+      },
+      "C1D13A37A0934775": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/E05E59000557DA68.bundle",
+        "offset": 27896390,
+        "bytes": 171798,
+        "sha256": "fe4504d048867461038322fb352c2bd0d46ab718c610536709f359ca2bbae7a3"
+      },
+      "EBE99F1EF9AF7A15": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/38D1E6691DCED15B.bundle",
+        "offset": 16370179,
+        "bytes": 3810,
+        "sha256": "9f86588ac03262fb7c3548124ed3cc613b54b0af070cda31bc779cfea0f3a113"
+      }
+    },
+    "files": [
+      {
+        "path": "assets/sounds/wwise2016/sfx/characters/leona/skins/base/leona_base_sfx_audio.bnk",
+        "wadPathHash": "6c131115c6c108b1",
+        "sha256": "4205360a0f1fb217191419233dcf7589dc92ad80c1735c4217eb3b3a9c119b88",
+        "bytes": 1015870
+      },
+      {
+        "path": "assets/sounds/wwise2016/sfx/characters/leona/skins/base/leona_base_sfx_events.bnk",
+        "wadPathHash": "f21a9d268e24da68",
+        "sha256": "94211942d09f90f49279e8c0d6b70f75384314b9561572c6945ce7e61211ae57",
+        "bytes": 17539
+      }
+    ]
+  },
+  "bankSources": [
+    {
+      "path": "assets/sounds/wwise2016/sfx/characters/leona/skins/base/leona_base_sfx_audio.bnk",
+      "wadPathHash": "6c131115c6c108b1",
+      "sha256": "4205360a0f1fb217191419233dcf7589dc92ad80c1735c4217eb3b3a9c119b88",
+      "bytes": 1015870,
+      "localPath": ".cache/leona-audio-sources-v1-20261023/assets/sounds/wwise2016/sfx/characters/leona/skins/base/leona_base_sfx_audio.bnk"
+    },
+    {
+      "path": "assets/sounds/wwise2016/sfx/characters/leona/skins/base/leona_base_sfx_events.bnk",
+      "wadPathHash": "f21a9d268e24da68",
+      "sha256": "94211942d09f90f49279e8c0d6b70f75384314b9561572c6945ce7e61211ae57",
+      "bytes": 17539,
+      "localPath": ".cache/leona-audio-sources-v1-20261023/assets/sounds/wwise2016/sfx/characters/leona/skins/base/leona_base_sfx_events.bnk"
+    }
+  ],
+  "parserXml": {
+    "path": ".cache/leona-audio-banks-v1-20261023.xml",
+    "bytes": 1230092,
+    "sha256": "3e6a35374dfa4501b044c061f996721f0d448853c2654502127d1e1ab044dcd3"
+  },
+  "parserRevision": "71654ed1a2c4642894bd7e7ed79eba66986fb770",
+  "nameHash": "Pinned wwiser lowercase UTF-8 FNV-1 uint32",
+  "events": [
+    {
+      "name": "Play_sfx_Leona_Death3D_cast",
+      "id": 1647906331,
+      "actions": [
+        {
+          "id": 22612475,
+          "type": "CAkActionPlay",
+          "target": 461770655,
+          "targetNodes": [
+            461770655
+          ],
+          "affectedMediaIds": [
+            455387691
+          ]
+        },
+        {
+          "id": 148653763,
+          "type": "CAkActionPlay",
+          "target": 267995038,
+          "targetNodes": [
+            267995038
+          ],
+          "affectedMediaIds": [
+            558948421
+          ]
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": 22612475,
+      "type": "CAkActionPlay",
+      "role": "event-target",
+      "parameters": [
+        [
+          "/eHircType",
+          "u8",
+          "3",
+          "0x03 [Action]"
+        ],
+        [
+          "/dwSectionSize",
+          "u32",
+          "22",
+          "0x16"
+        ],
+        [
+          "/ulID",
+          "sid",
+          "22612475",
+          null
+        ],
+        [
+          "/ulActionType",
+          "u16",
+          "1027",
+          "0x0403 [Play]"
+        ],
+        [
+          "/ActionInitialValues/idExt",
+          "tid",
+          "461770655",
+          null
+        ],
+        [
+          "/ActionInitialValues/idExt_4",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/ActionInitialValues/idExt_4/bIsBus",
+          "bit0",
+          "0",
+          null
+        ],
+        [
+          "/ActionInitialValues/AkPropBundle<AkPropValue,unsigned char>/cProps",
+          "u8",
+          "0",
+          null
+        ],
+        [
+          "/ActionInitialValues/AkPropBundle<RANGED_MODIFIERS<AkPropValue>>/cProps",
+          "u8",
+          "0",
+          null
+        ],
+        [
+          "/ActionInitialValues/PlayActionParams/byBitVector",
+          "u8",
+          "4",
+          "0x04"
+        ],
+        [
+          "/ActionInitialValues/PlayActionParams/byBitVector/eFadeCurve",
+          "bit0",
+          "4",
+          "4 [Linear]"
+        ],
+        [
+          "/ActionInitialValues/PlayActionParams/bankID",
+          "tid",
+          "921664532",
+          null
+        ],
+        [
+          "/ActionInitialValues/PlayActionParams/bankType",
+          "u32",
+          "0",
+          "0x00 [User]"
+        ]
+      ]
+    },
+    {
+      "id": 148653763,
+      "type": "CAkActionPlay",
+      "role": "event-target",
+      "parameters": [
+        [
+          "/eHircType",
+          "u8",
+          "3",
+          "0x03 [Action]"
+        ],
+        [
+          "/dwSectionSize",
+          "u32",
+          "27",
+          "0x1B"
+        ],
+        [
+          "/ulID",
+          "sid",
+          "148653763",
+          null
+        ],
+        [
+          "/ulActionType",
+          "u16",
+          "1027",
+          "0x0403 [Play]"
+        ],
+        [
+          "/ActionInitialValues/idExt",
+          "tid",
+          "267995038",
+          null
+        ],
+        [
+          "/ActionInitialValues/idExt_4",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/ActionInitialValues/idExt_4/bIsBus",
+          "bit0",
+          "0",
+          null
+        ],
+        [
+          "/ActionInitialValues/AkPropBundle<AkPropValue,unsigned char>/cProps",
+          "u8",
+          "1",
+          null
+        ],
+        [
+          "/ActionInitialValues/AkPropBundle<AkPropValue,unsigned char>/pProps/AkPropBundle:0/pID",
+          "u8",
+          "15",
+          "0x0F [DelayTime]"
+        ],
+        [
+          "/ActionInitialValues/AkPropBundle<AkPropValue,unsigned char>/pProps/AkPropBundle:0/pValue",
+          "uni",
+          "1750",
+          null
+        ],
+        [
+          "/ActionInitialValues/AkPropBundle<RANGED_MODIFIERS<AkPropValue>>/cProps",
+          "u8",
+          "0",
+          null
+        ],
+        [
+          "/ActionInitialValues/PlayActionParams/byBitVector",
+          "u8",
+          "4",
+          "0x04"
+        ],
+        [
+          "/ActionInitialValues/PlayActionParams/byBitVector/eFadeCurve",
+          "bit0",
+          "4",
+          "4 [Linear]"
+        ],
+        [
+          "/ActionInitialValues/PlayActionParams/bankID",
+          "tid",
+          "921664532",
+          null
+        ],
+        [
+          "/ActionInitialValues/PlayActionParams/bankType",
+          "u32",
+          "0",
+          "0x00 [User]"
+        ]
+      ]
+    },
+    {
+      "id": 212757264,
+      "type": "CAkActorMixer",
+      "role": "inherited",
+      "parameters": [
+        [
+          "/eHircType",
+          "u8",
+          "7",
+          "0x07 [Actor-Mixer]"
+        ],
+        [
+          "/dwSectionSize",
+          "u32",
+          "75",
+          "0x4B"
+        ],
+        [
+          "/ulID",
+          "sid",
+          "212757264",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/NodeInitialFxParams/bIsOverrideParentFX",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/NodeInitialFxParams/uNumFx",
+          "u8",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/bIsOverrideParentMetadata",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/uNumFx",
+          "u8",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/bOverrideAttachmentParams",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/OverrideBusId",
+          "tid",
+          "2232828494",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/DirectParentID",
+          "tid",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/byBitVector",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/byBitVector/bPriorityOverrideParent",
+          "bit0",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/byBitVector/bPriorityApplyDistFactor",
+          "bit1",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/byBitVector/bOverrideMidiEventsBehavior",
+          "bit2",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/byBitVector/bOverrideMidiNoteTracking",
+          "bit3",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/byBitVector/bEnableMidiNoteTracking",
+          "bit4",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/byBitVector/bIsMidiBreakLoopOnNoteOff",
+          "bit5",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/NodeInitialParams/AkPropBundle<AkPropValue,unsigned char>/cProps",
+          "u8",
+          "2",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/NodeInitialParams/AkPropBundle<AkPropValue,unsigned char>/pProps/AkPropBundle:0/pID",
+          "u8",
+          "7",
+          "0x07 [Priority]"
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/NodeInitialParams/AkPropBundle<AkPropValue,unsigned char>/pProps/AkPropBundle:0/pValue",
+          "uni",
+          "55.0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/NodeInitialParams/AkPropBundle<AkPropValue,unsigned char>/pProps/AkPropBundle:1/pID",
+          "u8",
+          "70",
+          "0x46 [AttenuationID]"
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/NodeInitialParams/AkPropBundle<AkPropValue,unsigned char>/pProps/AkPropBundle:1/pValue",
+          "tid",
+          "687014649",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/NodeInitialParams/AkPropBundle<RANGED_MODIFIERS<AkPropValue>>/cProps",
+          "u8",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/PositioningParams/uBitsPositioning",
+          "u8",
+          "3",
+          "0x03"
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/PositioningParams/uBitsPositioning/bPositioningInfoOverrideParent",
+          "bit0",
+          "1",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/PositioningParams/uBitsPositioning/bHasListenerRelativeRouting",
+          "bit1",
+          "1",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/PositioningParams/uBitsPositioning/ePannerType",
+          "bit2",
+          "0",
+          "0 [DirectSpeakerAssignment]"
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/PositioningParams/uBitsPositioning/e3DPositionType",
+          "bit5",
+          "0",
+          "0 [Emitter]"
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/PositioningParams/uBits3d",
+          "u8",
+          "10",
+          "0x0A"
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/PositioningParams/uBits3d/eSpatializationMode",
+          "bit0",
+          "2",
+          "2 [PositionAndOrientation]"
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/PositioningParams/uBits3d/bEnableAttenuation",
+          "bit3",
+          "1",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/PositioningParams/uBits3d/bHoldEmitterPosAndOrient",
+          "bit4",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/PositioningParams/uBits3d/bHoldListenerOrient",
+          "bit5",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/PositioningParams/uBits3d/bEnableDiffraction",
+          "bit6",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/AuxParams/byBitVector",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/AuxParams/byBitVector/bOverrideUserAuxSends",
+          "bit2",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/AuxParams/byBitVector/bHasAux",
+          "bit3",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/AuxParams/byBitVector/bOverrideReflectionsAuxBus",
+          "bit4",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/AuxParams/reflectionsAuxBus",
+          "tid",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector",
+          "u8",
+          "4",
+          "0x04"
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bKillNewest",
+          "bit0",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bUseVirtualBehavior",
+          "bit1",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bIgnoreParentMaxNumInst",
+          "bit3",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bIsVVoicesOptOverrideParent",
+          "bit4",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/AdvSettingsParams/eVirtualQueueBehavior",
+          "u8",
+          "1",
+          "0x01 [FromElapsedTime]"
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/AdvSettingsParams/u16MaxNumInstance",
+          "u16",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/AdvSettingsParams/eBelowThresholdBehavior",
+          "u8",
+          "0",
+          "0x00 [ContinueToPlay]"
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector",
+          "u8",
+          "8",
+          "0x08"
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bOverrideHdrEnvelope",
+          "bit0",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bOverrideAnalysis",
+          "bit1",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bNormalizeLoudness",
+          "bit2",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bEnableEnvelope",
+          "bit3",
+          "1",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/StateChunk/ulNumStateProps",
+          "var",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/StateChunk/ulNumStateGroups",
+          "var",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/NodeBaseParams/InitialRTPC/uNumCurves",
+          "u16",
+          "0",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/Children/ulNumChilds",
+          "u32",
+          "6",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/Children/ulChildID",
+          "tid",
+          "12235281",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/Children/ulChildID",
+          "tid",
+          "267995038",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/Children/ulChildID",
+          "tid",
+          "461770655",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/Children/ulChildID",
+          "tid",
+          "576022846",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/Children/ulChildID",
+          "tid",
+          "739164252",
+          null
+        ],
+        [
+          "/ActorMixerInitialValues/Children/ulChildID",
+          "tid",
+          "826531826",
+          null
+        ]
+      ]
+    },
+    {
+      "id": 267995038,
+      "type": "CAkSound",
+      "role": "event-target",
+      "parameters": [
+        [
+          "/eHircType",
+          "u8",
+          "2",
+          "0x02 [Sound]"
+        ],
+        [
+          "/dwSectionSize",
+          "u32",
+          "55",
+          "0x37"
+        ],
+        [
+          "/ulID",
+          "sid",
+          "267995038",
+          null
+        ],
+        [
+          "/SoundInitialValues/AkBankSourceData/ulPluginID",
+          "u32",
+          "262145",
+          "0x00040001 [VORBIS]"
+        ],
+        [
+          "/SoundInitialValues/AkBankSourceData/ulPluginID/type",
+          "u16",
+          "1",
+          "0x01 [Codec]"
+        ],
+        [
+          "/SoundInitialValues/AkBankSourceData/ulPluginID/company",
+          "u16",
+          "0",
+          "0x00 [Audiokinetic]"
+        ],
+        [
+          "/SoundInitialValues/AkBankSourceData/StreamType",
+          "u8",
+          "0",
+          "0x00 [Data/bnk]"
+        ],
+        [
+          "/SoundInitialValues/AkBankSourceData/AkMediaInformation/sourceID",
+          "tid",
+          "558948421",
+          null
+        ],
+        [
+          "/SoundInitialValues/AkBankSourceData/AkMediaInformation/uInMemoryMediaSize",
+          "u32",
+          "29000",
+          "0x7148"
+        ],
+        [
+          "/SoundInitialValues/AkBankSourceData/AkMediaInformation/uSourceBits",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/SoundInitialValues/AkBankSourceData/AkMediaInformation/uSourceBits/bIsLanguageSpecific",
+          "bit0",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/AkBankSourceData/AkMediaInformation/uSourceBits/bPrefetch",
+          "bit1",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/AkBankSourceData/AkMediaInformation/uSourceBits/bNonCachable",
+          "bit3",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/AkBankSourceData/AkMediaInformation/uSourceBits/bHasSource",
+          "bit7",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/NodeInitialFxParams/bIsOverrideParentFX",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/NodeInitialFxParams/uNumFx",
+          "u8",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/bIsOverrideParentMetadata",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/uNumFx",
+          "u8",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/bOverrideAttachmentParams",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/OverrideBusId",
+          "tid",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/DirectParentID",
+          "tid",
+          "212757264",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/byBitVector",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/byBitVector/bPriorityOverrideParent",
+          "bit0",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/byBitVector/bPriorityApplyDistFactor",
+          "bit1",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/byBitVector/bOverrideMidiEventsBehavior",
+          "bit2",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/byBitVector/bOverrideMidiNoteTracking",
+          "bit3",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/byBitVector/bEnableMidiNoteTracking",
+          "bit4",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/byBitVector/bIsMidiBreakLoopOnNoteOff",
+          "bit5",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/NodeInitialParams/AkPropBundle<AkPropValue,unsigned char>/cProps",
+          "u8",
+          "1",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/NodeInitialParams/AkPropBundle<AkPropValue,unsigned char>/pProps/AkPropBundle:0/pID",
+          "u8",
+          "6",
+          "0x06 [MakeUpGain]"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/NodeInitialParams/AkPropBundle<AkPropValue,unsigned char>/pProps/AkPropBundle:0/pValue",
+          "uni",
+          "-10.0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/NodeInitialParams/AkPropBundle<RANGED_MODIFIERS<AkPropValue>>/cProps",
+          "u8",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/PositioningParams/uBitsPositioning",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/PositioningParams/uBitsPositioning/bPositioningInfoOverrideParent",
+          "bit0",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/PositioningParams/uBitsPositioning/bHasListenerRelativeRouting",
+          "bit1",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/PositioningParams/uBitsPositioning/ePannerType",
+          "bit2",
+          "0",
+          "0 [DirectSpeakerAssignment]"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/PositioningParams/uBitsPositioning/e3DPositionType",
+          "bit5",
+          "0",
+          "0 [Emitter]"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AuxParams/byBitVector",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AuxParams/byBitVector/bOverrideUserAuxSends",
+          "bit2",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AuxParams/byBitVector/bHasAux",
+          "bit3",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AuxParams/byBitVector/bOverrideReflectionsAuxBus",
+          "bit4",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AuxParams/reflectionsAuxBus",
+          "tid",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector",
+          "u8",
+          "12",
+          "0x0C"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bKillNewest",
+          "bit0",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bUseVirtualBehavior",
+          "bit1",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bIgnoreParentMaxNumInst",
+          "bit3",
+          "1",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bIsVVoicesOptOverrideParent",
+          "bit4",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/eVirtualQueueBehavior",
+          "u8",
+          "1",
+          "0x01 [FromElapsedTime]"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/u16MaxNumInstance",
+          "u16",
+          "4",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/eBelowThresholdBehavior",
+          "u8",
+          "0",
+          "0x00 [ContinueToPlay]"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bOverrideHdrEnvelope",
+          "bit0",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bOverrideAnalysis",
+          "bit1",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bNormalizeLoudness",
+          "bit2",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bEnableEnvelope",
+          "bit3",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/StateChunk/ulNumStateProps",
+          "var",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/StateChunk/ulNumStateGroups",
+          "var",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/InitialRTPC/uNumCurves",
+          "u16",
+          "0",
+          null
+        ]
+      ]
+    },
+    {
+      "id": 461770655,
+      "type": "CAkSound",
+      "role": "event-target",
+      "parameters": [
+        [
+          "/eHircType",
+          "u8",
+          "2",
+          "0x02 [Sound]"
+        ],
+        [
+          "/dwSectionSize",
+          "u32",
+          "55",
+          "0x37"
+        ],
+        [
+          "/ulID",
+          "sid",
+          "461770655",
+          null
+        ],
+        [
+          "/SoundInitialValues/AkBankSourceData/ulPluginID",
+          "u32",
+          "262145",
+          "0x00040001 [VORBIS]"
+        ],
+        [
+          "/SoundInitialValues/AkBankSourceData/ulPluginID/type",
+          "u16",
+          "1",
+          "0x01 [Codec]"
+        ],
+        [
+          "/SoundInitialValues/AkBankSourceData/ulPluginID/company",
+          "u16",
+          "0",
+          "0x00 [Audiokinetic]"
+        ],
+        [
+          "/SoundInitialValues/AkBankSourceData/StreamType",
+          "u8",
+          "0",
+          "0x00 [Data/bnk]"
+        ],
+        [
+          "/SoundInitialValues/AkBankSourceData/AkMediaInformation/sourceID",
+          "tid",
+          "455387691",
+          null
+        ],
+        [
+          "/SoundInitialValues/AkBankSourceData/AkMediaInformation/uInMemoryMediaSize",
+          "u32",
+          "15936",
+          "0x3E40"
+        ],
+        [
+          "/SoundInitialValues/AkBankSourceData/AkMediaInformation/uSourceBits",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/SoundInitialValues/AkBankSourceData/AkMediaInformation/uSourceBits/bIsLanguageSpecific",
+          "bit0",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/AkBankSourceData/AkMediaInformation/uSourceBits/bPrefetch",
+          "bit1",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/AkBankSourceData/AkMediaInformation/uSourceBits/bNonCachable",
+          "bit3",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/AkBankSourceData/AkMediaInformation/uSourceBits/bHasSource",
+          "bit7",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/NodeInitialFxParams/bIsOverrideParentFX",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/NodeInitialFxParams/uNumFx",
+          "u8",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/bIsOverrideParentMetadata",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/uNumFx",
+          "u8",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/bOverrideAttachmentParams",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/OverrideBusId",
+          "tid",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/DirectParentID",
+          "tid",
+          "212757264",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/byBitVector",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/byBitVector/bPriorityOverrideParent",
+          "bit0",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/byBitVector/bPriorityApplyDistFactor",
+          "bit1",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/byBitVector/bOverrideMidiEventsBehavior",
+          "bit2",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/byBitVector/bOverrideMidiNoteTracking",
+          "bit3",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/byBitVector/bEnableMidiNoteTracking",
+          "bit4",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/byBitVector/bIsMidiBreakLoopOnNoteOff",
+          "bit5",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/NodeInitialParams/AkPropBundle<AkPropValue,unsigned char>/cProps",
+          "u8",
+          "1",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/NodeInitialParams/AkPropBundle<AkPropValue,unsigned char>/pProps/AkPropBundle:0/pID",
+          "u8",
+          "6",
+          "0x06 [MakeUpGain]"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/NodeInitialParams/AkPropBundle<AkPropValue,unsigned char>/pProps/AkPropBundle:0/pValue",
+          "uni",
+          "-10.0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/NodeInitialParams/AkPropBundle<RANGED_MODIFIERS<AkPropValue>>/cProps",
+          "u8",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/PositioningParams/uBitsPositioning",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/PositioningParams/uBitsPositioning/bPositioningInfoOverrideParent",
+          "bit0",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/PositioningParams/uBitsPositioning/bHasListenerRelativeRouting",
+          "bit1",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/PositioningParams/uBitsPositioning/ePannerType",
+          "bit2",
+          "0",
+          "0 [DirectSpeakerAssignment]"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/PositioningParams/uBitsPositioning/e3DPositionType",
+          "bit5",
+          "0",
+          "0 [Emitter]"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AuxParams/byBitVector",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AuxParams/byBitVector/bOverrideUserAuxSends",
+          "bit2",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AuxParams/byBitVector/bHasAux",
+          "bit3",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AuxParams/byBitVector/bOverrideReflectionsAuxBus",
+          "bit4",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AuxParams/reflectionsAuxBus",
+          "tid",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector",
+          "u8",
+          "12",
+          "0x0C"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bKillNewest",
+          "bit0",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bUseVirtualBehavior",
+          "bit1",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bIgnoreParentMaxNumInst",
+          "bit3",
+          "1",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bIsVVoicesOptOverrideParent",
+          "bit4",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/eVirtualQueueBehavior",
+          "u8",
+          "1",
+          "0x01 [FromElapsedTime]"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/u16MaxNumInstance",
+          "u16",
+          "4",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/eBelowThresholdBehavior",
+          "u8",
+          "0",
+          "0x00 [ContinueToPlay]"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bOverrideHdrEnvelope",
+          "bit0",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bOverrideAnalysis",
+          "bit1",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bNormalizeLoudness",
+          "bit2",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/AdvSettingsParams/byBitVector/bEnableEnvelope",
+          "bit3",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/StateChunk/ulNumStateProps",
+          "var",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/StateChunk/ulNumStateGroups",
+          "var",
+          "0",
+          null
+        ],
+        [
+          "/SoundInitialValues/NodeBaseParams/InitialRTPC/uNumCurves",
+          "u16",
+          "0",
+          null
+        ]
+      ]
+    },
+    {
+      "id": 687014649,
+      "type": "CAkAttenuation",
+      "role": "inherited",
+      "parameters": [
+        [
+          "/eHircType",
+          "u8",
+          "14",
+          "0x0E [Attenuation]"
+        ],
+        [
+          "/dwSectionSize",
+          "u32",
+          "67",
+          "0x43"
+        ],
+        [
+          "/ulID",
+          "sid",
+          "687014649",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/bIsHeightSpreadEnabled",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/AttenuationInitialValues/bIsConeEnabled",
+          "u8",
+          "0",
+          "0x00"
+        ],
+        [
+          "/AttenuationInitialValues/curveToUse[0]",
+          "s8",
+          "0",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curveToUse[1]",
+          "s8",
+          "0",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curveToUse[2]",
+          "s8",
+          "0",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curveToUse[3]",
+          "s8",
+          "-1",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curveToUse[4]",
+          "s8",
+          "-1",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curveToUse[5]",
+          "s8",
+          "-1",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curveToUse[6]",
+          "s8",
+          "-1",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curveToUse[7]",
+          "s8",
+          "-2",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curveToUse[8]",
+          "s8",
+          "-2",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curveToUse[9]",
+          "s8",
+          "-2",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curveToUse[10]",
+          "s8",
+          "-2",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curveToUse[11]",
+          "s8",
+          "-2",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curveToUse[12]",
+          "s8",
+          "-2",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curveToUse[13]",
+          "s8",
+          "-2",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curveToUse[14]",
+          "s8",
+          "-2",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curveToUse[15]",
+          "s8",
+          "-2",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curveToUse[16]",
+          "s8",
+          "-2",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curveToUse[17]",
+          "s8",
+          "-2",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curveToUse[18]",
+          "s8",
+          "-2",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/NumCurves",
+          "u8",
+          "1",
+          "0x01"
+        ],
+        [
+          "/AttenuationInitialValues/curves/CAkConversionTable:0/eScaling",
+          "u8",
+          "2",
+          "0x02 [dB]"
+        ],
+        [
+          "/AttenuationInitialValues/curves/CAkConversionTable:0/ulSize",
+          "u16",
+          "3",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curves/CAkConversionTable:0/pRTPCMgr/AkRTPCGraphPoint:0/From",
+          "f32",
+          "0.0",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curves/CAkConversionTable:0/pRTPCMgr/AkRTPCGraphPoint:0/To",
+          "f32",
+          "0.0",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curves/CAkConversionTable:0/pRTPCMgr/AkRTPCGraphPoint:0/Interp",
+          "u32",
+          "9",
+          "0x09 [Constant]"
+        ],
+        [
+          "/AttenuationInitialValues/curves/CAkConversionTable:0/pRTPCMgr/AkRTPCGraphPoint:1/From",
+          "f32",
+          "1350.0",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curves/CAkConversionTable:0/pRTPCMgr/AkRTPCGraphPoint:1/To",
+          "f32",
+          "0.0",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curves/CAkConversionTable:0/pRTPCMgr/AkRTPCGraphPoint:1/Interp",
+          "u32",
+          "4",
+          "0x04 [Linear]"
+        ],
+        [
+          "/AttenuationInitialValues/curves/CAkConversionTable:0/pRTPCMgr/AkRTPCGraphPoint:2/From",
+          "f32",
+          "2412.0",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curves/CAkConversionTable:0/pRTPCMgr/AkRTPCGraphPoint:2/To",
+          "f32",
+          "-1.0",
+          null
+        ],
+        [
+          "/AttenuationInitialValues/curves/CAkConversionTable:0/pRTPCMgr/AkRTPCGraphPoint:2/Interp",
+          "u32",
+          "4",
+          "0x04 [Linear]"
+        ],
+        [
+          "/AttenuationInitialValues/InitialRTPC/uNumCurves",
+          "u16",
+          "0",
+          null
+        ]
+      ]
+    },
+    {
+      "id": 1647906331,
+      "type": "CAkEvent",
+      "role": "event-target",
+      "parameters": [
+        [
+          "/eHircType",
+          "u8",
+          "4",
+          "0x04 [Event]"
+        ],
+        [
+          "/dwSectionSize",
+          "u32",
+          "13",
+          "0x0D"
+        ],
+        [
+          "/ulID",
+          "sid",
+          "1647906331",
+          null
+        ],
+        [
+          "/EventInitialValues/ulActionListSize",
+          "var",
+          "2",
+          null
+        ],
+        [
+          "/EventInitialValues/actions/Action:0/ulActionID",
+          "tid",
+          "22612475",
+          null
+        ],
+        [
+          "/EventInitialValues/actions/Action:1/ulActionID",
+          "tid",
+          "148653763",
+          null
+        ]
+      ]
+    }
+  ],
+  "media": [
+    {
+      "id": 455387691,
+      "bankOffset": 468592,
+      "bytes": 15936,
+      "sha256": "849ca9eec221400212cae51cdf1ef7f911e351ba4e8514f600859556fa5cf8b1"
+    },
+    {
+      "id": 558948421,
+      "bankOffset": 618896,
+      "bytes": 29000,
+      "sha256": "124910105c7c61cfdea8756ec493f6daa3fc946cf132724aaf0060aa075d5914"
+    }
+  ],
+  "unresolvedHierarchyIds": [
+    2232828494
+  ],
+  "status": "Encoded source media and authored play/stop policy. Native event timing, bus mix and runtime playback remain separate.",
+  "stopAudit": {
+    "inspectedStopActions": [
+      {
+        "id": 657182003,
+        "target": 2439
+      },
+      {
+        "id": 434858585,
+        "target": 2452
+      },
+      {
+        "id": 337462674,
+        "target": 2435
+      },
+      {
+        "id": 391483191,
+        "target": 394358931
+      },
+      {
+        "id": 148852500,
+        "target": 41157247
+      }
+    ],
+    "selectedOrInheritedIds": [
+      22612475,
+      148653763,
+      212757264,
+      267995038,
+      461770655,
+      687014649,
+      1647906331
+    ],
+    "matchingStopActions": [],
+    "limits": "Bounded to retained bank direct targets; global/external stops and native callers remain unknown."
+  }
+}
