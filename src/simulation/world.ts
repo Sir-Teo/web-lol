@@ -198,6 +198,8 @@ import { LUX_W } from '../content/lux-w';
 import { LUX_R } from '../content/lux-r';
 import { championProfile, isMeleeChampion } from '../content/champion-profiles';
 import { MASTER_YI_PASSIVE } from '../content/masteryi-passive';
+import { MASTER_YI_E } from '../content/masteryi-e';
+import { wujuStyleDamage, WUJU_STYLE_TICKS } from './masteryi-wuju-style';
 import {
   createDoubleStrikeState,
   countDoubleStrikeContact,
@@ -1063,6 +1065,7 @@ export class World {
         unit.garenEShreds = unit.garenEShreds.filter((shred) => shred.endTick > this.tick);
     for (const state of this.activeChampionStates()) {
       if (state.doubleStrike) expireDoubleStrike(state.doubleStrike, this.tick);
+      if (state.wujuStyle && this.tick >= state.wujuStyle.endTick) state.wujuStyle = null;
       if (state.leonaQ && this.tick >= state.leonaQ.endTick) {
         finishDaybreakVisual(state, this.tick, 'expired');
         state.leonaQ = null;
@@ -1172,7 +1175,12 @@ export class World {
         continue;
       }
       if (!this.alive(u)) continue;
-      if (u.champion === 'masteryi' && command.type === 'cast' && !isSummonerSlot(command.ability))
+      if (
+        u.champion === 'masteryi' &&
+        command.type === 'cast' &&
+        !isSummonerSlot(command.ability) &&
+        command.ability !== 'e'
+      )
         continue;
       if (
         (u.stunUntil > this.tick || !!u.charm) &&
@@ -5027,7 +5035,7 @@ export class World {
       hitWard(this, source, target);
       return;
     }
-    const canApplyCinders =
+    const canApplyOnHitEffects =
       this.vulnerable(target) &&
       !isStructureKind(target.kind) &&
       !(target.kind === 'monster' && target.monster.phase === 'returning');
@@ -5060,8 +5068,12 @@ export class World {
       this.damage(source, target, this.illuminationDamage(source), 'magic');
     }
     const owner = this.championState(source.id);
+    if (source.champion === 'masteryi' && owner && canApplyOnHitEffects && this.alive(target)) {
+      const trueDamage = wujuStyleDamage(source, owner, this.tick);
+      if (trueDamage > 0) this.damage(source, target, trueDamage, 'true', 'proc');
+    }
     if (
-      canApplyCinders &&
+      canApplyOnHitEffects &&
       owner &&
       redBuffActive(owner, this.tick) &&
       this.alive(target) &&
@@ -5524,6 +5536,7 @@ export class World {
         this.winner = target.team === 'blue' ? 'red' : 'blue';
         for (const state of this.activeChampionStates()) {
           if (state.doubleStrike) state.doubleStrike = createDoubleStrikeState();
+          state.wujuStyle = null;
           // Combat can finish the tick before post-combat restoration runs.
           // Canonicalize its clocks without granting HP or mana after victory.
           advanceRedBuffClock(state, this.tick);
@@ -5579,6 +5592,7 @@ export class World {
       }
       if (targetState) {
         if (targetState.doubleStrike) targetState.doubleStrike = createDoubleStrikeState();
+        targetState.wujuStyle = null;
         stopFoxFireOrbits(this, target.id);
         stopSpiritRush(this, target);
         stopEssences(this, target.id);
@@ -5855,6 +5869,15 @@ export class World {
     return (['d', 'f'] as const).find((slot) => this.summonerSpell(slot, championId) === spell);
   }
   abilitySpec(ability: Ability, championId = this.player.id): typeof ABILITIES.d {
+    if (this.unit(championId)?.champion === 'masteryi' && ability === 'e')
+      return {
+        name: MASTER_YI_E.name,
+        description: MASTER_YI_E.description,
+        icon: MASTER_YI_E.icon,
+        cost: MASTER_YI_E.publicManaByRank[0],
+        cooldown: MASTER_YI_E.cooldownSecondsByRank[0],
+        range: 0,
+      };
     if (this.unit(championId)?.champion === 'masteryi' && !isSummonerSlot(ability))
       throw new Error('Master Yi spells are not implemented');
     if (
@@ -5916,7 +5939,7 @@ export class World {
     if (this.winner) return 'The match has ended';
     const state = this.championState(championId);
     if (!state) return 'Unknown champion';
-    if (this.unit(championId)?.champion === 'masteryi')
+    if (this.unit(championId)?.champion === 'masteryi' && ability !== 'e')
       return 'Master Yi spells are not implemented';
     const rank = state.spellRanks[ability];
     if (rank >= (ability === 'r' ? 3 : 5)) return 'This spell is already at maximum rank';
@@ -5981,6 +6004,13 @@ export class World {
         cooldownSeconds: this.abilitySpec(ability, championId).cooldown,
       };
     const rank = this.abilityRank(ability, championId);
+    if (this.unit(championId)?.champion === 'masteryi') {
+      if (ability !== 'e') throw new Error('Master Yi spells are not implemented');
+      return {
+        mana: rank ? MASTER_YI_E.publicManaByRank[rank - 1] : 0,
+        cooldownSeconds: rank ? MASTER_YI_E.cooldownSecondsByRank[rank - 1] : 0,
+      };
+    }
     if (this.unit(championId)?.champion === 'ahri') {
       if (ability === 'r' && activeSpiritRush(this, championId))
         return { mana: 0, cooldownSeconds: AHRI_R.dashCooldownSeconds };
@@ -6050,7 +6080,7 @@ export class World {
     const state = this.championState(u.id);
     if (!state || u.kind !== 'champion') return;
     if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
-    if (u.champion === 'masteryi' && !isSummonerSlot(ability)) return;
+    if (u.champion === 'masteryi' && !isSummonerSlot(ability) && ability !== 'e') return;
     if (
       activeSpiritDash(this, u.id) &&
       this.summonerSpell(ability, u.id) !== 'heal' &&
@@ -6150,6 +6180,17 @@ export class World {
     }
     if (u.champion === 'ashe' && ability === 'q' && state.qStacks < 4) {
       fail('Build 4 Focus with basic attacks');
+      return;
+    }
+    if (u.champion === 'masteryi' && ability === 'e') {
+      state.wujuStyle = {
+        startTick: this.tick,
+        endTick: this.tick + WUJU_STYLE_TICKS,
+        rank: state.spellRanks.e,
+      };
+      state.cooldowns.e = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
+      state.recallEnd = null;
+      this.emit('cast', u, { unit: u.id, champion: 'masteryi', text: 'e', team: u.team });
       return;
     }
     if (u.champion === 'ahri' && ability === 'r') {

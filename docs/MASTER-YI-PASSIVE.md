@@ -1,5 +1,9 @@
 # Development Double Strike controller
 
+This document records the schema-139 passive checkpoint. The later
+[Wuju Style](MASTER-YI-E.md) controller adds E and its interaction with the child
+at schema 140; references below to unimplemented E describe this earlier checkpoint.
+
 The isolated `/?scene=fixture&npc=masteryi` NPC now owns a Double Strike counter
 and a separately timed secondary melee contact. Ashe remains the human player;
 Master Yi Q/W/E/R, player controls, role AI and production selection remain open.

@@ -2,7 +2,8 @@
 
 This document records the schema-138 NPC foundation. The later
 [Double Strike controller](MASTER-YI-PASSIVE.md) adds passive behavior and source
-pose continuation at schema 139; the remaining kit and production gates stay open.
+pose continuation at schema 139. [Wuju Style](MASTER-YI-E.md) adds E empowerment
+at schema 140; Q/W/R and the production gates stay open.
 
 Use `/?scene=fixture&npc=masteryi` with the development server. Ashe remains the
 human champion; a manually controlled Master Yi NPC adds his own stats, melee

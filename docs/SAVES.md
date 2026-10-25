@@ -1,6 +1,13 @@
 # Local match checkpoints
 
-Current schema **139** adds Master Yi's own Double Strike counter and independent
+Current schema **140** adds Master Yi's start/end/rank Wuju Style empowerment and
+permits only E learning/cooldown state in the private NPC fixture. Validation
+rejects foreign/dead/terminal/expired buffs, invalid rank budgets and unsupported
+Q/W/R or body-cast state. E and a pending Double Strike retain the same future
+contacts. Earlier schema/hash combinations remain incompatible. See
+[Wuju Style](MASTER-YI-E.md).
+
+Schema **139** adds Master Yi's own Double Strike counter and independent
 secondary contact, including captured target/damage/critical state and absolute
 pending/release/presentation clocks. Other champions must retain null. Decoder
 guards reject foreign ownership, expired or inconsistent phases and active state

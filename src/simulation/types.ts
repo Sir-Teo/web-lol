@@ -511,6 +511,7 @@ export interface ChampionState {
   qStackExpiry: number;
   /** Own counter and independently committed extra melee contact. */
   doubleStrike: import('./masteryi-double-strike').DoubleStrikeState | null;
+  wujuStyle: import('./masteryi-wuju-style').WujuStyleState | null;
   /** Accepted ordinary swings and separately confirmed contacts. Cast one-shots
    * survive cancellation; hits exist only for accepted melee contacts. */
   garenAAVisuals: {

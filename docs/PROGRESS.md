@@ -7724,3 +7724,46 @@ names and the production result. Ruleset is
 pack is `5369b064ced0c5038c43975419f6f4114a52880b1f05d18d454ab6b7219c811c`
 (1,068 files / 526,609,061 bytes). No fresh offline/full-browser/native/performance
 certification is claimed. Master Yi Q/W/E/R and the full project remain open.
+
+## 2026-10-25 — Development Wuju Style and full secondary on-hit damage
+
+[Wuju Style](MASTER-YI-E.md) now supports E learning/casting for the private
+Master Yi NPC. Its guarded projection retains standard ranks 20/25/30/35/40,
+the exact bonus-AD coefficient, five-second duration and fourteen-second cooldown.
+Omitted BIN mana and body animation remain null; public zero mana is a separate
+development resource policy. Legacy cast/VFX fields are retained without treating
+them as proven native callbacks. Eight mutation cases pass in each Python mode.
+
+The local instant self empowerment preserves ordinary windups and attack
+deadlines. Eligible contacts receive separate true damage from the accepted rank
+and live bonus AD; base/level AD, including the existing explicit BIN growth
+choice, does not count as bonus AD. Critical hits do not multiply this proc.
+Double Strike receives full E on-hit damage on both contacts while retaining its
+captured half-AD physical child. Activation after commitment, expiry between hits,
+lethal primary procs, rank upgrades, armor/MR/shields, controls, ability haste and
+death/victory cleanup have dedicated checks. Source effects/audio remain open.
+
+Schema 140 adds start/end/rank empowerment and permits only E in the NPC spell
+budget. Decoder guards reject foreign/dead/terminal/expired/over-ranked buffs,
+unsupported Q/W/R/cast state and invalid budgets. E grants no Hawkshot charges.
+The public roster, production NPC gates and public asset bytes stay unchanged.
+
+The broad run passes 2,243/2,249 cases across 341 files, including all 29 E cases.
+Its same six audit failures and identical Lux sampler digest match the untouched
+main reproduction retained by the passive checkpoint; no assertion is weakened.
+TypeScript, three Node QA cases and the production build pass. All ten targeted
+Chromium 154/Linux browser cases pass without skips/retries. Real private
+E-plus-child Save/reload retains complete world bytes, 90-bone matrices and the
+300-tick future; its screenshot was reviewed. Nested production hosting passes
+32 recordings, save/reload and zero Master Yi preloads. Only browser launcher
+paths are overridden; original assertions/deadlines are retained.
+
+The [verification record](reference/masteryi/e-verification.json) preserves
+changed-input and save/pose hashes, baseline failures, local log identities and
+the production result. It explicitly records a behavior-preserving local
+variable rename after browser validation. Ruleset is
+`21d7aa5b3f691b028344b8f93dcf26158ed5f6616f2e798ee38a83e09fa7e5da`;
+pack `0691702251f132c790b6466db58a07558f9ea3098b019c92440f27e0b8efdc6f`
+contains 1,068 files / 526,611,202 bytes. No fresh offline/full-browser/native/
+performance certification is claimed. Q/W/R and full champion/project completion
+remain open; Meditate declaration preparation is isolated outside runtime inputs.
