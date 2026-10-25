@@ -44,6 +44,13 @@ identified SCB load/selection branch uses the vertex-color-free VS1/20 pair.
 The separate first resource attempt, other resource/default paths and the live
 Leona route remain unobserved.
 
+The later [fresh cache-selection reading](LEONA-NATIVE-SCB-CACHE-SELECTION.md)
+narrows the first-attempt gap: the identified fresh old component initializes
+both indices to -1, and the source's omitted/default-empty primary mesh name
+returns before writing the first index. Under those premises the selector skips
+the earlier cache and reaches the SCB branch. Reuse, intervening mutation and
+actual Leona dispatch remain outside that result.
+
 ## Packed face color is a separate stream
 
 The source sword has333 vertices,648 faces and1,944 corners. Its flags are one,

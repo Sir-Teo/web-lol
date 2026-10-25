@@ -23,6 +23,9 @@ VS33/PS54 comparisons plus a fresh150-case rim regression, all byte-exact in the
 recorded synthetic cases. Native selection/resource/frame limits still apply.
 The [controlled depth harness](LEONA-METAL-DEPTH-HARNESS.md) subsequently passes
 267 cases, including six original-shader depth-push/plane-order comparisons.
+The [fresh SCB cache-selection reading](LEONA-NATIVE-SCB-CACHE-SELECTION.md)
+also resolves the earlier resource-cache attempt for its stated fresh/default
+source state; reuse, intervening mutation and live dispatch remain open.
 
 ## Retained source and reproducibility
 

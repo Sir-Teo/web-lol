@@ -59,6 +59,11 @@ or shader execution; the later isolated shader harness is linked above. The
 separate static packages retain bounded original words, tables,
 source bytes and original Metal/AIR, not REA MCP Evidence or native captures.
 
+A later [fresh-component cache reading](LEONA-NATIVE-SCB-CACHE-SELECTION.md)
+shows that the earlier resource attempt is skipped for the identified fresh,
+default-empty primary-name state. It does not establish reuse/later mutations
+or the live sword's dispatch and does not alter the local material adapter.
+
 ## Reproducible delivery
 
 ```sh

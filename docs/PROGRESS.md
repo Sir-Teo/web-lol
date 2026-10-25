@@ -6358,3 +6358,27 @@ No application/public asset, schema126, rulesetc485c84b or offlinepack67476352
 changes. No new game/provider execution, production/offline run, normal cohort
 or performance claim is made. Native bindings/frames, player/support and full
 six-character acceptance remain open. The active goal continues; nothing pushed.
+
+## Fresh native Mesh component skips the earlier resource cache — October 24, 2026
+
+The matching native allocation initializes both old-component cache indices to
+-1. Registered field/descriptor ownership ties the source Mesh primitive's
+embedded data to its constructor: sword2 authors only SimpleMeshName, leaving
+primary MeshName and skeleton-name lengths at zero through the identified BIN
+reader's return. The first resource helper tests primary-name length before
+aliasing/writing its output, so it preserves the fresh -1 index. Under those
+premises the selector skips its40-byte resource cache and reaches the separate
+SCB cache. Resource+40 in the skipped branch is not SCB+40.
+
+The [static package](LEONA-NATIVE-SCB-CACHE-SELECTION.md) retains24 bounded
+instruction streams and53 dependencies, original source wire bytes, descriptor
+publication and loader/guard branches. Normal and optimized-Python checks pass;
+both reject all five altered source-type, field-offset, fresh-index,
+constructor-word and branch-target controls. No native target, compiler, provider,
+GPU, network or browser execution occurs in this reading.
+
+The conclusion is conditional on the fresh/default source state reaching those
+guards. Empty-name loading does not clear a reused index; callbacks, post-load
+mutation, other callers, live Leona dispatch and final shader/frame selection
+remain open. This static increment changes no application behavior, asset,
+schema or accepted offline pack. Separate development-bot work is in progress.
