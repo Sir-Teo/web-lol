@@ -1,0 +1,27 @@
+{
+  "profiles": [
+    {
+      "profile": 4,
+      "source": 0.05000000074505806,
+      "power": 0.3449999988079071
+    },
+    {
+      "profile": 5,
+      "source": 0.15000000596046448,
+      "power": 0.8350000381469727
+    },
+    {
+      "profile": 6,
+      "source": 0.15000000596046448,
+      "power": 0.8350000381469727
+    },
+    {
+      "profile": 9,
+      "source": 0.05000000074505806,
+      "power": 0.3449999988079071
+    }
+  ],
+  "mapping": "FMA32(source rim fresnel, 4.9f, 0.1f)",
+  "evidence": "docs/reference/leona-attached-skin-reflection-inputs.json",
+  "nativeDispatchVerified": false
+}

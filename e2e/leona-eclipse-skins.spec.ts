@@ -40,6 +40,7 @@ async function capture(page: Page) {
       facing: m.root.rotation.y,
       scale: m.sampler.renderRoot.scale.toArray(),
       color: m.material.uniforms.particleColor.value.toArray(),
+      fresnelPower: m.material.uniforms.fresnelPower.value,
       erosion: m.material.uniforms.erosionParameters?.value.toArray(),
       bones: m.meshes[0].skeleton.bones.flatMap((b: any) => b.matrixWorld.toArray()),
     }));
@@ -81,7 +82,31 @@ async function sourcePixels(page: Page) {
           pixels[i + 2] !== baseline[i + 2]
         )
           changed++;
-      results.push({ profile, changed });
+      const selected = models.filter((m) => m.root.userData.profileIndex === profile),
+        powers = selected.map((m) => m.material.uniforms.fresnelPower.value),
+        count = (a: Uint8Array, b: Uint8Array) => {
+          let n = 0;
+          for (let i = 0; i < a.length; i += 4)
+            if (a[i] !== b[i] || a[i + 1] !== b[i + 1] || a[i + 2] !== b[i + 2]) n++;
+          return n;
+        };
+      for (const m of selected)
+        m.material.uniforms.fresnelPower.value = Math.fround(
+          profile === 4 || profile === 9 ? 0.05 : 0.15
+        );
+      v.renderer.render(v.scene, v.camera);
+      const rawPowerChanged = count(pixels, read());
+      selected.forEach((m, i) => {
+        m.material.uniforms.fresnelPower.value = powers[i];
+      });
+      v.renderer.render(v.scene, v.camera);
+      results.push({
+        profile,
+        changed,
+        powers,
+        rawPowerChanged,
+        restoredChanged: count(pixels, read()),
+      });
     }
     for (const m of models) m.root.visible = true;
     v.render(g.world, 1, v.previousElapsed);
@@ -123,6 +148,12 @@ test('all four source skin descriptions draw the authored rig and retain exact s
     initialPixels = await sourcePixels(page);
   expect(armed.map((p) => p.profileIndex).sort()).toEqual([4, 4, 5, 6]);
   expect(initialPixels.results.every((p) => p.changed > 0)).toBe(true);
+  expect(armed.map((p) => p.fresnelPower).sort()).toEqual([
+    0.3449999988079071, 0.3449999988079071, 0.8350000381469727, 0.8350000381469727,
+  ]);
+  expect(initialPixels.results.every((p) => p.rawPowerChanged > 0 && p.restoredChanged === 0)).toBe(
+    true
+  );
   expect(initialPixels.error).toBe(0);
   await page.screenshot({ path: info.outputPath('initial.png') });
   const movement = await page.evaluate(({ caster }) => {
@@ -171,6 +202,10 @@ test('all four source skin descriptions draw the authored rig and retain exact s
     extendedPixels = await sourcePixels(page);
   expect(extended.map((p) => p.profileIndex)).toEqual([9, 9]);
   expect(extendedPixels.results.every((p) => p.changed > 0)).toBe(true);
+  expect(extended.every((p) => p.fresnelPower === 0.3449999988079071)).toBe(true);
+  expect(
+    extendedPixels.results.every((p) => p.rawPowerChanged > 0 && p.restoredChanged === 0)
+  ).toBe(true);
   expect(extendedPixels.error).toBe(0);
   await page.screenshot({ path: info.outputPath('extended.png') });
   expect(errors).toEqual([]);

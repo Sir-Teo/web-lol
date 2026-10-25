@@ -32,6 +32,11 @@ ordinary paid W casts against visible committed attacks, including during an
 accepted Zenith windup. Q/E/R tactics and complete support/player behavior remain
 open; this local policy is not recovered native AI.
 
+The [attached-skin input correction](LEONA-ATTACHED-SKIN-INPUTS.md) now maps all
+four W skin rim controls through the checked native CPU transformation. Separate
+raw/mapped tables and pixel controls cover both W phases; native dispatch and
+resource selection remain open.
+
 ## Retained source and reproducibility
 
 `reference/leona/character.bin` retains all 24,399 source bytes. The manifest,

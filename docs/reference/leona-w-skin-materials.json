@@ -6,6 +6,7 @@
       "name": "Avatar_Continuous",
       "texture": "assets/effects/leona_base_w_avatarmask.png",
       "fresnel": 0.05000000074505806,
+      "fresnelPower": 0.3449999988079071,
       "fresnelColor": [
         1.0,
         0.7411764860153198,
@@ -61,6 +62,7 @@
       "name": "Avatar_Burst",
       "texture": "assets/effects/leona_base_w_avatarmask.png",
       "fresnel": 0.15000000596046448,
+      "fresnelPower": 0.8350000381469727,
       "fresnelColor": [
         1.0,
         0.7411764860153198,
@@ -146,6 +148,7 @@
       "name": "Avatar_Burst1",
       "texture": "assets/effects/leona_base_w_avatarmask.png",
       "fresnel": 0.15000000596046448,
+      "fresnelPower": 0.8350000381469727,
       "fresnelColor": [
         1.0,
         0.7411764860153198,
@@ -231,6 +234,7 @@
       "name": "Avatar_Continuous",
       "texture": "assets/effects/leona_base_w_avatarmask.png",
       "fresnel": 0.05000000074505806,
+      "fresnelPower": 0.3449999988079071,
       "fresnelColor": [
         1.0,
         0.7411764860153198,
@@ -282,6 +286,14 @@
     }
   ],
   "sources": [
+    {
+      "path": "src/content/leona-w-skin-fresnel.json",
+      "sha256": "65898adbd59d63a8ced08aceffe98dfb2b0701e65606f47c576dbcb702680cbc"
+    },
+    {
+      "path": "docs/reference/leona-attached-skin-reflection-inputs.json",
+      "sha256": "969e824e778039607a88d0f6a302afe67122609cab4da57595d6a692cda2fecf"
+    },
     {
       "path": "docs/reference/leona-w-particles.json",
       "sha256": "1284da05e4d12497d4041ec88a4a4dc133e29ee56727e39fdb91784ac36af5f0"

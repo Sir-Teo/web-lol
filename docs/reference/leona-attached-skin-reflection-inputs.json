@@ -1,0 +1,537 @@
+{
+  "classification": "Independent frozen BIN, source code, original native words and retained AIR reading; NOT REA Evidence. No target/provider/library/GPU execution.",
+  "inputs": [
+    {
+      "path": ".cache/leona-attached-skin-reflection-reading-v1-20261024/check.py",
+      "bytes": 11048,
+      "sha256": "5fa5ba75e425b96e5f3e1c9cc4e15d0a1ea4684b03db2dd831b4de421ebf57c4"
+    },
+    {
+      "path": ".cache/leona-e-particle-sources-v2-20261024/aea8db097256315a.bin",
+      "bytes": 48021,
+      "sha256": "551752d65678d84d12b57a894ef3e7af59ef7c1b237156f4232673b4708b5840"
+    },
+    {
+      "path": ".cache/leona-native-matching-v1-20261024/arm64-focused-strings.json",
+      "bytes": 17478,
+      "sha256": "eb622fb24d11040aaa4848617e081747d053181efc3f732ea0ebd5a1e307be67"
+    },
+    {
+      "path": ".cache/leona-native-mesh-reading-v1-20261024/normal-transcription.py",
+      "bytes": 6759,
+      "sha256": "b28beef85caa17e654d751c478018d62b2a5aac32d99101fdb72e34c156a7633"
+    },
+    {
+      "path": ".cache/leona-native-reflection-reading-v1-20261024/independent/tint/tint.json",
+      "bytes": 9888,
+      "sha256": "776c46789323185318d1c946a1391fbcfab2526a7b0c856d2c42ec112ed75d1e"
+    },
+    {
+      "path": ".cache/leona-r-particle-sources-v1-20261024/8a4c7a0f7f10c5cb.bin",
+      "bytes": 16863,
+      "sha256": "fb9d700b183008abbb6c77ae1b4e7837ec544d144e125e807394daa18ef9fe29"
+    },
+    {
+      "path": ".cache/leona-w-particle-sources/8a4c7a0f7f10c5cb.bin",
+      "bytes": 16863,
+      "sha256": "fb9d700b183008abbb6c77ae1b4e7837ec544d144e125e807394daa18ef9fe29"
+    },
+    {
+      "path": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-34.ll",
+      "bytes": 8181,
+      "sha256": "c80c8d2ac98e335b1274dc2bc981e2b2b970e2b8b335475f0e16038ba3fd0073"
+    },
+    {
+      "path": ".cache/leona-w-skin-shaders/particle_vs.vs-metal-5.ll",
+      "bytes": 15990,
+      "sha256": "bc13db4bf591d8c899490c542246f74e3093c64beffbb04fa4a36a57bc7f9108"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/binfile.py",
+      "bytes": 17236,
+      "sha256": "0c1825135763c98f705535eecf2b4b1a8e667c53181e9e1d43ad7a83d1d844fd"
+    },
+    {
+      "path": "docs/reference/leona-e-particles.json",
+      "bytes": 177177,
+      "sha256": "613560569d82f27abdf362a7065ad4645abb1637fbe55f8790e6d8769eb65f83"
+    },
+    {
+      "path": "docs/reference/leona-native-reflection-inputs.json",
+      "bytes": 52737,
+      "sha256": "5693f761a1d472269ae07a74833cc9a8ec1b3d41dc216a92b7a0a5b96d173c76"
+    },
+    {
+      "path": "docs/reference/leona-native-scb-material.json",
+      "bytes": 43689,
+      "sha256": "0c22388889883715e2f3cd64a7762abc57889851ccf2a72c72306a9eeaf883aa"
+    },
+    {
+      "path": "docs/reference/leona-r-particles.json",
+      "bytes": 266001,
+      "sha256": "7fd43bb68c5d93e04ae4db7a0ef64d2fb83424ae9752d0f162b99a1ccfade38e"
+    },
+    {
+      "path": "docs/reference/leona-r-skin-shaders.json",
+      "bytes": 12700,
+      "sha256": "0c1bb0a2f6989e9eeaf2ad32873c4f1872ceb52d524dc4e2a10afeee9bd9b4f2"
+    },
+    {
+      "path": "docs/reference/leona-w-particles.json",
+      "bytes": 311380,
+      "sha256": "1284da05e4d12497d4041ec88a4a4dc133e29ee56727e39fdb91784ac36af5f0"
+    },
+    {
+      "path": "docs/reference/leona-w-skin-shaders.json",
+      "bytes": 16531,
+      "sha256": "22d114caa9f392f733949859d75e5b9c278688d821e7408096c0f47576ae1448"
+    },
+    {
+      "path": "src/content/leona-e-particles.json",
+      "bytes": 229574,
+      "sha256": "e193280f3236b5fc3652ca208278f491128045fa5e66c8acd1bcbf3e05e06ea2"
+    },
+    {
+      "path": "src/content/leona-r-particles.json",
+      "bytes": 449969,
+      "sha256": "f9b646921579c813e4e1f79ecafe52c63cadbc8bf38892f2ea2e90e281e1c013"
+    },
+    {
+      "path": "src/content/leona-w-particles.json",
+      "bytes": 381115,
+      "sha256": "a773927145276b35bd0c5dd530637f36f9a8021cc8dc04e15e52e1d60a031b73"
+    },
+    {
+      "path": "src/render/leona-eclipse-skin-material.ts",
+      "bytes": 5054,
+      "sha256": "f04681007ca12ed175e7020495143cc43850c339d189f0c285ce3da4d68dcb7e",
+      "archived": ".cache/leona-attached-skin-inputs-frozen-v1-20261024/leona-eclipse-skin-material.ts"
+    },
+    {
+      "path": "src/render/leona-eclipse-skins.ts",
+      "bytes": 7356,
+      "sha256": "63626ac374855eaa87b740930ff2438565bf8e24cbb57a5a717e58ba40e6c532",
+      "archived": ".cache/leona-attached-skin-inputs-frozen-v1-20261024/leona-eclipse-skins.ts"
+    },
+    {
+      "path": "src/render/leona-solar-skins.ts",
+      "bytes": 8335,
+      "sha256": "7a224e6bc0b788856e0f64d4ed97a9d69b627be65afb794eebf2c0cbf45b7cfd"
+    },
+    {
+      "path": "src/render/leona-zenith-skins.ts",
+      "bytes": 7791,
+      "sha256": "e187878080e36c769028b04b4fdb857fc0fd9a1287e9ee4ca1b9dc100a74eeee"
+    },
+    {
+      "path": "src/render/particle-skin-mult-material.ts",
+      "bytes": 4079,
+      "sha256": "7fea5b8bcee583c4a9ad17b1fcad9397e2ddc4c2578568fda36a3a8af4bcfc28"
+    },
+    {
+      "path": "tools/assets/export-leona-e-particles.py",
+      "bytes": 15678,
+      "sha256": "1f96e8dfc28cdb19d6d4a95ddf064c43e3c81cc16e1e34b9c7148951af327836"
+    },
+    {
+      "path": "tools/assets/export-leona-w-particles.py",
+      "bytes": 14454,
+      "sha256": "d9a9b4461e9526a4b9263f7c4b9a16d3b6dc0002a6899cd60dfada66a9214058"
+    }
+  ],
+  "instructionStreams": [
+    {
+      "path": ".cache/leona-attached-skin-reflection-reading-v1-20261024/attached-constructor.txt",
+      "bytes": 1456,
+      "sha256": "675eda57d481a97254c92d83c7bea795482b3b8c10a481663bdf673d2d685709",
+      "verifiedWords": 27
+    },
+    {
+      "path": ".cache/leona-attached-skin-reflection-reading-v1-20261024/attached-registration.txt",
+      "bytes": 1605,
+      "sha256": "31e17d08e3fbd2d484f57bda0790469b18670e6eef6724bb7f3a254cc9999017",
+      "verifiedWords": 27
+    },
+    {
+      "path": ".cache/leona-attached-skin-reflection-reading-v1-20261024/emitter-reflection-default.txt",
+      "bytes": 944,
+      "sha256": "443b938eab648bd89bb6aea06689eb84dddba38186faa00433ad7cc2a19a149e",
+      "verifiedWords": 17
+    },
+    {
+      "path": ".cache/leona-native-reflection-reading-v1-20261024/llvm-0x1018df18c.txt",
+      "bytes": 54433,
+      "sha256": "f9457f35da05492646deb144390987f89e73c82069f95fd387f5ef98103b53cc",
+      "verifiedWords": 1123
+    },
+    {
+      "path": ".cache/leona-native-reflection-reading-v1-20261024/llvm-0x1018c0eb0.txt",
+      "bytes": 6206,
+      "sha256": "02e9375589b6f45205555fe22a9b55cfc391307e898c792e9c56f69b880efd4c",
+      "verifiedWords": 122
+    }
+  ],
+  "windows": [
+    {
+      "address": "0x1019460b4",
+      "universalFileOffset": 69165236,
+      "bytes": 108,
+      "hex": "e20314aa93e71a94ff130079f60300f9a0220291e23afa101f2003d5033efa101f2003d5643efa101f2003d5e540fa101f2003d50641fa101f2003d5a1549452c195b472071280525e61f597bf4600f9b36200f901c88a52c1e5ab7262118052030080d2040080d2341c9b97",
+      "sha256": "fd44ef29e3fee61b17779cfaf0bda80827204f78e2a6424233020d3ab8058646"
+    },
+    {
+      "address": "0x10193a824",
+      "universalFileOffset": 69117988,
+      "bytes": 108,
+      "hex": "fd7bbfa9fd030091001280522863f5976801805208200039a85900901f2003d5086140f9080800f900e4006f000c00fd081000f9001400fd081800f90080833c0080843c0010853c08fc06a91ffc07a91f7008b8685a009008411291080000f91f2c0239fd7bc1a8c0035fd6",
+      "sha256": "1553e805b8381da7447d6679cc1253bc241e666c9d3d6bfb9c6e2d3447a2f668"
+    },
+    {
+      "address": "0x1018ac860",
+      "universalFileOffset": 68536416,
+      "bytes": 68,
+      "hex": "1ff000b8e004000f003001bc48008052085c003900e4006ff40300aa808e813cf50300aaa08e833cf60300aac08e843cf70300aaff8e05f80080823c000380520c9bf797",
+      "sha256": "309a22ac8fed086d4c50e1793d6cc7e2df0d793c20c3c143d44c02733ba5885f"
+    },
+    {
+      "address": "0x1018df414",
+      "universalFileOffset": 68744212,
+      "bytes": 336,
+      "hex": "a10240f9280440f9090940f9293140f9292140393f45007124194b7af66f00f961030054280040f9131540f960b640f9c00400b4080040f9083940f900013fd64004003460b640f9080040f9085140f900013fd6e06300f9a80240f91c7140f9080540f9dc0300b4082940b91f050031c0040054e96000f029d544f9299140f92811088b130540f921000014081d40b91f050031a0010054e96000f029d544f9297940f90a0580520825aa9b081140f9e86300f9a80240f91c7140f9080540f95cfdffb506000014ff6300f9a80240f91c7140f9080540f99cfcffb5092540b93f05003140060054ea6000f04ad544f94a8940f94911098b3c0540f9082940b91f05003181fbff54130080d2e80a40f9083140f9162140398802188b000d40bde00315aabafeff97e86f40f9080500d1e86f00f9e86340f9680000b55c0000b513f1ffb4e80a40f9088d40bd09e4002f",
+      "sha256": "34fcba4bd5c2828355ba3c6bd3db9a2ebebe5fda8c39e7e443f4707ee25e28b7"
+    },
+    {
+      "address": "0x1018df688",
+      "universalFileOffset": 68744840,
+      "bytes": 368,
+      "hex": "8082de3ca003913ce80a40f900094e6da10f716d01dc212e40dc232ea103316d0851403908011f321f090071e10000542190a00fa10311fc0090a00fa08311bc08f0a752a8c311b8a08350f8486800b001b542f9a2c303d1f9cf0194e80a40f9142540f9d40600b4802e40bda899995288b9a7720101271ea89999528813a8720201271e0004021f813a40bd821a40fda20311fca103232da08350f8486800b001bd42f9a2c303d12ad00194a08350f8486800b001b942f9a2c303d125d00194e86a403948050034801a40bda899995288b9a7720101271ea89999528813a8720201271e0004021fa00311bc800a40fde8c30691004109fcbfc311b8802640bd81c241fca10312fca08312bcbfc312b8a08350f8486800b001c142f9a2c303d10cd00194a08350f8486800b001c542f9e23740f907d001940d000014e017c03da003913ca08350f8486800b001bd42f9a2c303d1ffcf0194a08350f8486800b001b942f9a2c303d1facf0194a80240f9",
+      "sha256": "de9f5827da9ad6cc3fee4df2ad7b6683a9615870f1570bede49b3eac3d0d5870"
+    },
+    {
+      "address": "0x1018c0ef8",
+      "universalFileOffset": 68620024,
+      "bytes": 368,
+      "hex": "00013fd6e00b416de10f406d01dc212e40dc232ee103016d880a40f90829403908011f321f090071e10000542190a00fe10b00fd0090a00fe01b00bd08f0a752e81f00b9600240f9886300d0016d40f9e2430091de490294880a40f9157140f9f50600b4a02e40bda899995288b9a7720101271ea89999528813a8720201271e0004021fa13a40bda21a40fde20b00fde103032d600240f9886300d0017540f9f6430091e24300910e4a0294600240f9886300d0017140f9e2430091094a0294880a40f908c5473948050036a01a40bda899995288b9a7720101271ea89999528813a8720201271e0004021fe01300bda00a40fde04301fcff1f00b9a02640bdd4420091a1c241fce11300fde02b00bdff2f00b9600240f9886300b0017940f9e2430091ef490294600240f9886300b0017d40f9e20314aa0d0000148842009000b9c03de007803d600240f9886300b0017540f9e2430091e2490294600240f9886300b0017140f9e2430091dd490294",
+      "sha256": "b0cd32270634f49f4d20b9d8d841c588a3f0136754d27a3fa75e22aafb8e1d28"
+    },
+    {
+      "address": "0x1021112e0",
+      "universalFileOffset": 77337312,
+      "bytes": 16,
+      "hex": "0000000000000000000000000000803f",
+      "sha256": "7ab8f6c26e4f9862c95a18c8e5c50403eeb64d8869fbbf9a7a6397d9a63b7b0e"
+    }
+  ],
+  "sourceProfiles": [
+    {
+      "spell": "w",
+      "profile": 4,
+      "system": "Leona_W_buf_1",
+      "emitterIndex": 4,
+      "name": "Avatar_Continuous",
+      "primitive": "VfxPrimitiveAttachedMesh",
+      "blendMode": 4,
+      "sourceReflection": {
+        "fresnel": 0.05000000074505806,
+        "fresnelColor": [
+          1.0,
+          0.7411764860153198,
+          0.3764705955982208,
+          0.0
+        ],
+        "__type": "VfxReflectionDefinitionData"
+      },
+      "exportedReflection": {
+        "power": 0.05000000074505806,
+        "color": [
+          1.0,
+          0.7411764860153198,
+          0.3764705955982208,
+          0.0
+        ]
+      },
+      "rawBin": {
+        "path": ".cache/leona-w-particle-sources/8a4c7a0f7f10c5cb.bin",
+        "bytes": 16863,
+        "sha256": "fb9d700b183008abbb6c77ae1b4e7837ec544d144e125e807394daa18ef9fe29"
+      },
+      "record": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_W_buf_1",
+      "serializedListElementWireType": 130
+    },
+    {
+      "spell": "w",
+      "profile": 5,
+      "system": "Leona_W_buf_1",
+      "emitterIndex": 5,
+      "name": "Avatar_Burst",
+      "primitive": "VfxPrimitiveAttachedMesh",
+      "blendMode": 4,
+      "sourceReflection": {
+        "fresnel": 0.15000000596046448,
+        "fresnelColor": [
+          1.0,
+          0.7411764860153198,
+          0.3764705955982208,
+          0.0
+        ],
+        "__type": "VfxReflectionDefinitionData"
+      },
+      "exportedReflection": {
+        "power": 0.15000000596046448,
+        "color": [
+          1.0,
+          0.7411764860153198,
+          0.3764705955982208,
+          0.0
+        ]
+      },
+      "rawBin": {
+        "path": ".cache/leona-w-particle-sources/8a4c7a0f7f10c5cb.bin",
+        "bytes": 16863,
+        "sha256": "fb9d700b183008abbb6c77ae1b4e7837ec544d144e125e807394daa18ef9fe29"
+      },
+      "record": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_W_buf_1",
+      "serializedListElementWireType": 130
+    },
+    {
+      "spell": "w",
+      "profile": 6,
+      "system": "Leona_W_buf_1",
+      "emitterIndex": 6,
+      "name": "Avatar_Burst1",
+      "primitive": "VfxPrimitiveAttachedMesh",
+      "blendMode": 4,
+      "sourceReflection": {
+        "fresnel": 0.15000000596046448,
+        "fresnelColor": [
+          1.0,
+          0.7411764860153198,
+          0.3764705955982208,
+          0.0
+        ],
+        "__type": "VfxReflectionDefinitionData"
+      },
+      "exportedReflection": {
+        "power": 0.15000000596046448,
+        "color": [
+          1.0,
+          0.7411764860153198,
+          0.3764705955982208,
+          0.0
+        ]
+      },
+      "rawBin": {
+        "path": ".cache/leona-w-particle-sources/8a4c7a0f7f10c5cb.bin",
+        "bytes": 16863,
+        "sha256": "fb9d700b183008abbb6c77ae1b4e7837ec544d144e125e807394daa18ef9fe29"
+      },
+      "record": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_W_buf_1",
+      "serializedListElementWireType": 130
+    },
+    {
+      "spell": "w",
+      "profile": 9,
+      "system": "Leona_W_buf_2",
+      "emitterIndex": 2,
+      "name": "Avatar_Continuous",
+      "primitive": "VfxPrimitiveAttachedMesh",
+      "blendMode": 4,
+      "sourceReflection": {
+        "fresnel": 0.05000000074505806,
+        "fresnelColor": [
+          1.0,
+          0.7411764860153198,
+          0.3764705955982208,
+          0.0
+        ],
+        "__type": "VfxReflectionDefinitionData"
+      },
+      "exportedReflection": {
+        "power": 0.05000000074505806,
+        "color": [
+          1.0,
+          0.7411764860153198,
+          0.3764705955982208,
+          0.0
+        ]
+      },
+      "rawBin": {
+        "path": ".cache/leona-w-particle-sources/8a4c7a0f7f10c5cb.bin",
+        "bytes": 16863,
+        "sha256": "fb9d700b183008abbb6c77ae1b4e7837ec544d144e125e807394daa18ef9fe29"
+      },
+      "record": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_W_buf_2",
+      "serializedListElementWireType": 130
+    },
+    {
+      "spell": "e",
+      "profile": 5,
+      "system": "Leona_E_cas_arrive",
+      "emitterIndex": 2,
+      "name": "Avatar_Burst",
+      "primitive": "VfxPrimitiveAttachedMesh",
+      "blendMode": 4,
+      "sourceReflection": null,
+      "exportedReflection": null,
+      "rawBin": {
+        "path": ".cache/leona-e-particle-sources-v2-20261024/aea8db097256315a.bin",
+        "bytes": 48021,
+        "sha256": "551752d65678d84d12b57a894ef3e7af59ef7c1b237156f4232673b4708b5840"
+      },
+      "record": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_E_cas_arrive",
+      "serializedListElementWireType": 130
+    },
+    {
+      "spell": "r",
+      "profile": 0,
+      "system": "Leona_R_buf",
+      "emitterIndex": 0,
+      "name": "Cas_WeaponGlow",
+      "primitive": "VfxPrimitiveAttachedMesh",
+      "blendMode": 4,
+      "sourceReflection": null,
+      "exportedReflection": null,
+      "rawBin": {
+        "path": ".cache/leona-r-particle-sources-v1-20261024/8a4c7a0f7f10c5cb.bin",
+        "bytes": 16863,
+        "sha256": "fb9d700b183008abbb6c77ae1b4e7837ec544d144e125e807394daa18ef9fe29"
+      },
+      "record": "Characters/Leona/Skins/Skin0/Particles/Leona_Base_R_buf",
+      "serializedListElementWireType": 130
+    }
+  ],
+  "float32RimMapping": [
+    {
+      "source": 0.05000000074505806,
+      "mappedFloat32": 0.3449999988079071,
+      "littleEndianHex": "d7a3b03e"
+    },
+    {
+      "source": 0.15000000596046448,
+      "mappedFloat32": 0.8350000381469727,
+      "littleEndianHex": "90c2553f"
+    }
+  ],
+  "lineEvidence": {
+    "tools/assets/export-leona-w-particles.py": [
+      {
+        "line": 90,
+        "text": "        reflection=e.get('reflectionDefinition')"
+      },
+      {
+        "line": 93,
+        "text": "            reflection=dict(power=reflection['fresnel'],color=reflection['fresnelColor'])"
+      }
+    ],
+    "src/render/leona-eclipse-skins.ts": [
+      {
+        "line": 60,
+        "text": "      fresnel: p.reflection!.power,"
+      },
+      {
+        "line": 61,
+        "text": "      fresnelColor: p.reflection!.color.slice(0, 3) as [number, number, number],"
+      },
+      {
+        "line": 138,
+        "text": "              model.material.uniforms.particleColor.value.fromArray(p.color);"
+      }
+    ],
+    "src/render/leona-eclipse-skin-material.ts": [
+      {
+        "line": 47,
+        "text": "      fresnelPower: { value: options.fresnel },"
+      },
+      {
+        "line": 81,
+        "text": "          sourceRim = (1.0 - pow(facing, fresnelPower)) * fresnelColor;"
+      },
+      {
+        "line": 101,
+        "text": "        vec4 lit = texel * particleColor;"
+      },
+      {
+        "line": 107,
+        "text": "        lit.rgb = clamp(lit.rgb + sourceRim * texel.a, 0.0, 1.0);"
+      }
+    ],
+    "src/render/leona-zenith-skins.ts": [
+      {
+        "line": 78,
+        "text": "      fresnel: 1,"
+      },
+      {
+        "line": 79,
+        "text": "      fresnelColor: [0, 0, 0],"
+      },
+      {
+        "line": 151,
+        "text": "              model.material.uniforms.particleColor.value.fromArray(p.color);"
+      }
+    ],
+    "src/render/leona-solar-skins.ts": [
+      {
+        "line": 86,
+        "text": "      fresnel: 1,"
+      },
+      {
+        "line": 87,
+        "text": "      fresnelColor: [0, 0, 0],"
+      },
+      {
+        "line": 156,
+        "text": "              model.material.uniforms.particleColor.value.fromArray(p.color);"
+      }
+    ],
+    ".cache/leona-w-skin-shaders/particle_vs.vs-metal-5.ll": [
+      {
+        "line": 76,
+        "text": "  %69 = getelementptr inbounds %struct.type_Globals, ptr addrspace(2) %7, i64 0, i32 0"
+      },
+      {
+        "line": 77,
+        "text": "  %70 = load <4 x float>, ptr addrspace(2) %69, align 16"
+      },
+      {
+        "line": 94,
+        "text": "  %87 = extractelement <4 x float> %70, i32 3"
+      },
+      {
+        "line": 95,
+        "text": "  %88 = tail call float @air.fast_powr.f32(float %86, float %87) #1"
+      },
+      {
+        "line": 96,
+        "text": "  %89 = fsub fast float 1.000000e+00, %88"
+      },
+      {
+        "line": 99,
+        "text": "  %92 = fmul fast <3 x float> %91, %71"
+      },
+      {
+        "line": 197,
+        "text": "!25 = !{i32 0, i32 16, i32 0, !\"float4\", !\"vFresnel\", i32 16, i32 48, i32 0, !\"float3x4\", !\"vParticleUVTransform\", i32 64, i32 48, i32 0, !\"float3x4\", !\"vParticleUVTransformMult\", i32 112, i32 16, i32 0, !\"float4\", !\"kColorFactor\", i32 128, i32 4, i32 0, !\"float\", !\"PARTICLE_DEPTH_PUSH_PULL\"}"
+      }
+    ]
+  },
+  "observations": [
+    "W exporter maps raw reflectionDefinition.fresnel to exported reflection.power unchanged, and fresnelColor unchanged. W skin factory passes power directly into material fresnel; material assigns fresnelPower unchanged and uses pow(facing,fresnelPower). No native 4.9*x+0.1 mapping exists in that chain at this snapshot.",
+    "Native rim is vFresnel.rgb=child.fresnelColor(+30/+34/+38), w=FMA32(child.fresnel(+2c),4.9f,0.1f). This is distinct from reflectionFresnel(+18), which independently receives the same numeric mapping into vReflection.x, with opacityDirect/Glancing(+10/+14). Do not substitute one source field for the other. W authors only rim fresnel/color; source color W is not used for native rim RGB.",
+    "AttachedMesh hash a4aea2a5 registration9460f0/f4 supplies allocation callback93a824; callback93a834/838 writes primitive kind11 at+8. Old consumer df424 reads kind; df428/42c accepts17 or11, df438 enters attached resource acquisition. Successful resource/pass guards merge df520. SP+c0, X28 or X19 must be nonnull at df548/550/554; otherwise loop skips at df374. With those guards and intermediate calls returning, the common kColorFactor/rim upload df688 onward is reachable for kind11. This is not an ordinary-SCB-only arithmetic inference; it also is not proof of an actual Leona draw or selected native variant.",
+    "Old rim df70c FMADD and df730/744 uploads occur before featureflag df748/74c. New rim0f78 and0f9c/0fb4 uploads occur before featureflag0fbc/0fc0. Therefore rim upload is not gated by REFLECTIVE feature in these functions. New0eb0 has no internal primitive test; its caller/pass applicability remains open.",
+    "For null child, old df7c4..7f0 uses stack constant initializeddf34c..354; new1034..1064 loads immutable1021112e0. That constant is exactly float4(0,0,0,1). Old default emitter ctor18ac88c clears child+48. Source E/R skin child omission and local zero rim/exponent1 are consistent with this conditional fallback, not an extra mapping of source scalar1.",
+    "Old tint loads blendMode Data+14 atdf6a8; new reads component+a at0f14. OR2/cmp2 chooses exactly codes0/2; only these premultiply combined RGB by combined alpha and force alpha1. Every selected attached skin source has blend4, excluding this special rule. Direct local p.color RGBA is consistent with exclusion, but native also multiplies another Data/virtual component RGBA: complete tint input identity and parity remain unresolved. Uniform is kColorFactor, not vColor.",
+    "Pinned attached skin VS5 (no REFLECTIVE) Globals buffer9 size144 has vFresnel at0 and kColorFactor at112; AIR directly uses vFresnel.w in fast_powr and multiplies (1-result) by RGB. No second source-power remapping occurs in AIR. This independently supports mapped CPU input as shader exponent, conditional on the identified native route.",
+    "Pinned skin PS34 carries rim by base texture alpha before particle tint, remaps tinted RGB and erodes output alpha later. Local Eclipse material follows this pre-tint rim-alpha policy. Its lack of cube lookup and W source empty/omitted cube fields do not establish final native shader flags, resources or backend selection."
+  ],
+  "limits": [
+    "Actual W/E/R instance invocation, final native shader/pass, root/bone frames, complete tint inputs, cube resource, sampler/renderstate and whole-frame parity remain unobserved.",
+    "A bounded W factory input correction is supported by the generic attached-kind CPU and AIR chain; no global rewrite of accepted W/E/R blending follows from this reading.",
+    "Fresh constructor/null preservation evidence does not prove reused or postprocessed objects cannot be mutated."
+  ],
+  "readingSnapshot": "Before the W factory rim-input correction; source/line observations describe these frozen bytes.",
+  "native": {
+    "path": ".cache/leona-native-matching-v1-20261024/native/LeagueofLegends.app/Contents/MacOS/LeagueofLegends",
+    "sha256": "97edcf2c88fec3169a1ec36345276569de3329e27fd9b32c8162957a77135c6c"
+  }
+}

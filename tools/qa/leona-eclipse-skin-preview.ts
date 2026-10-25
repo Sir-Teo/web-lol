@@ -50,7 +50,7 @@ for (const [i, p] of descriptions.profiles.entries()) {
     e = p.erosion;
   const material = createLeonaEclipseSkinMaterial({
     texture: await texture(p.texture),
-    fresnel: p.fresnel,
+    fresnel: p.fresnelPower,
     fresnelColor: p.fresnelColor as [number, number, number],
     ...(e
       ? {

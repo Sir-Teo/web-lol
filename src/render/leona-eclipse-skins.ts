@@ -5,7 +5,10 @@ import { animationLayers } from '../simulation/animation-timeline';
 import { MOBILE_CLIP_DURATIONS } from '../content/mobile-clip-durations';
 import { createTargetPoseSampler } from './models';
 import type { TargetPoseSampler } from './target-pose-sampler';
-import { createLeonaEclipseSkinMaterial } from './leona-eclipse-skin-material';
+import {
+  createLeonaEclipseSkinMaterial,
+  leonaEclipseSkinFresnel,
+} from './leona-eclipse-skin-material';
 import { loadLuxParticleTextures } from './lux-particle-textures';
 import { ECLIPSE_PROFILES, eclipseParticles } from './leona-eclipse-particles';
 import { eclipseBirthFrame, eclipseDrawGroups, eclipsePoseAt } from './leona-eclipse-history';
@@ -57,7 +60,7 @@ export class LeonaEclipseSkins {
       e = p.erosion;
     const material = createLeonaEclipseSkinMaterial({
       texture: images.get(p.texture)!,
-      fresnel: p.reflection!.power,
+      fresnel: leonaEclipseSkinFresnel(profileIndex, p.reflection!.power),
       fresnelColor: p.reflection!.color.slice(0, 3) as [number, number, number],
       ...(e
         ? {

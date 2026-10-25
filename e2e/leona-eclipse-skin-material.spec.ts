@@ -64,7 +64,7 @@ test('skin rim uses pre-tint alpha, saturates RGB and remaps without replacing a
   for (const facing of [0, 0.4, 1])
     for (const alpha of [0, 64, 255])
       for (const tintAlpha of [0, 0.2, 1])
-        for (const power of [0.05, 0.15]) {
+        for (const power of [0.05, 0.15, 0.3449999988079071, 0.8350000381469727]) {
           const o = {
             source: [100, 180, 220, alpha],
             tint: [0, 0, 0, tintAlpha],
@@ -168,7 +168,7 @@ test('all four actual source skin materials match pinned mask texels on the GPU'
           sourcePath: p.texture,
           tint: p.birthColor,
           facing: 0.4,
-          power: p.fresnel,
+          power: p.fresnelPower,
           rim: p.fresnelColor,
           uv: s.uv,
           ...(p.erosion
@@ -294,8 +294,8 @@ test('animated skin stays within its CPU reference budget and recovers exact pix
   expect(recovery.error).toBe(0);
   expect(errors).toEqual([]);
   // CPU evaluates skin matrices in doubles; WebGL evaluates them in float32.
-  // The source's 0.05 power amplifies near-tangent rounding. Bound the sparse
-  // image differences explicitly; this does not claim native-frame parity.
+  // Bound sparse image differences at the mapped source exponents explicitly;
+  // this does not claim native-frame parity.
   for (const result of results) {
     expect(result.max, JSON.stringify(result)).toBeLessThanOrEqual(8);
     expect(result.significant / result.visible, JSON.stringify(result)).toBeLessThanOrEqual(0.0001);

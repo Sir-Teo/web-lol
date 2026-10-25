@@ -95,6 +95,9 @@ test('draws authored skin birth counts with distinct historical skeletons, prese
   expect(models.map((m) => m.root.userData.profileIndex).sort()).toEqual([4, 4, 5, 6]);
   expect(new Set(models.map((m) => m.meshes[0].skeleton)).size).toBe(4);
   for (const model of models) {
+    expect(model.material.uniforms.fresnelPower.value).toBe(
+      model.root.userData.profileIndex === 4 ? 0.3449999988079071 : 0.8350000381469727
+    );
     expect(model.sampler.renderRoot.scale.toArray()).toEqual([0.0137, 0.0137, 0.0137]);
     expect(model.meshes[0].geometry).toBe(f.geometry);
     expect(model.meshes[0].material).toBe(model.material);
@@ -123,6 +126,11 @@ test('restored presentation seeks reproduce skin state and repeated updates do n
   expect([...f.view.models.values()].every((m) => m.root.userData.role === 'buff-extended')).toBe(
     true
   );
+  expect(
+    [...f.view.models.values()].every(
+      (m) => m.material.uniforms.fresnelPower.value === 0.3449999988079071
+    )
+  ).toBe(true);
   copy.dispose();
   f.release();
 });

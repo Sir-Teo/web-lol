@@ -12,6 +12,7 @@ def texture(path):
     assert sha(Path(t['path']).read_bytes())==t['sha256']
     return t['path'].removeprefix('public/')
 allowed=set('rate particleLifetime particleLinger lifetime isSingleParticle emitterName bindWeight primitive blendMode birthColor Color alphaRef alphaErosionDefinition reflectionDefinition depthBiasFactors disableBackfaceCull particleIsLocalOrientation isUniformScale texture __type'.split())
+powers={p['source']:p['power'] for p in json.loads(Path('src/content/leona-w-skin-fresnel.json').read_text())['profiles']}
 profiles=[]
 for key,r in pin['resources'].items():
     for index,e in enumerate(r['definition']['complexEmitterDefinitionData']):
@@ -34,12 +35,12 @@ for key,r in pin['resources'].items():
                 featherIn=erosion.get('erosionFeatherIn',0.1),featherOut=erosion.get('erosionFeatherOut',0.1),
                 sliceWidth=1.5,drive=dict(times=drive['times'],values=drive['values']))
         profiles.append(dict(system=key,index=index,name=e['emitterName'],texture=texture(e['texture']),
-            fresnel=reflection['fresnel'],fresnelColor=reflection['fresnelColor'][:3],
+            fresnel=reflection['fresnel'],fresnelPower=powers[reflection['fresnel']],fresnelColor=reflection['fresnelColor'][:3],
             birthColor=e['birthColor']['constantValue'],color=dict(times=color['times'],values=color['values']) if color else dict(times=[0],values=[[1,1,1,1]]),
             erosion=erosion,particleLife=e['particleLifetime']['constantValue'],particleLinger=e['particleLinger'],
             birthCount=e['rate']['constantValue'],sourceFields=sorted(e)))
 assert [(p['system'],p['index']) for p in profiles]==[('Leona_W_buf_1',4),('Leona_W_buf_1',5),('Leona_W_buf_1',6),('Leona_W_buf_2',2)]
-sources=['docs/reference/leona-w-particles.json','docs/reference/leona-w-particles-decoded.json','docs/reference/leona-w-skin-shaders.json','docs/reference/lux-beam-erosion.json','public/assets/models/leona-base.glb','public/assets/models/leona-base.json']
+sources=['src/content/leona-w-skin-fresnel.json','docs/reference/leona-attached-skin-reflection-inputs.json','docs/reference/leona-w-particles.json','docs/reference/leona-w-particles-decoded.json','docs/reference/leona-w-skin-shaders.json','docs/reference/lux-beam-erosion.json','public/assets/models/leona-base.glb','public/assets/models/leona-base.json']
 result=dict(profiles=profiles,sources=[dict(path=p,sha256=sha(Path(p).read_bytes())) for p in sources],
     defaults=dict(erosionMixer=[0,0,0,1],erosionFeather=0.1,erosionSliceWidth=1.5,
         evidence='docs/reference/lux-beam-erosion.json',nativeCpuDefaultsVerified=False),

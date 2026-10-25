@@ -1,8 +1,28 @@
 import { expect, test } from 'vitest';
 import { execFileSync } from 'node:child_process';
 import * as THREE from 'three';
-import { createLeonaEclipseSkinMaterial } from '../src/render/leona-eclipse-skin-material';
+import {
+  createLeonaEclipseSkinMaterial,
+  leonaEclipseSkinFresnel,
+} from '../src/render/leona-eclipse-skin-material';
 import descriptions from '../docs/reference/leona-w-skin-materials.json';
+
+test('Eclipse maps the authored rim control through the checked native CPU input', () => {
+  execFileSync('.tools/cdtb-venv/bin/python', [
+    'tools/assets/export-leona-w-skin-fresnel.py',
+    '--check',
+  ]);
+  expect(leonaEclipseSkinFresnel(4, Math.fround(0.05))).toBe(0.3449999988079071);
+  expect(leonaEclipseSkinFresnel(9, Math.fround(0.05))).toBe(0.3449999988079071);
+  expect(leonaEclipseSkinFresnel(5, Math.fround(0.15))).toBe(0.8350000381469727);
+  expect(leonaEclipseSkinFresnel(6, Math.fround(0.15))).toBe(0.8350000381469727);
+  for (const [profile, source] of [
+    [4, 0.15],
+    [5, NaN],
+    [3, Math.fround(0.05)],
+  ])
+    expect(() => leonaEclipseSkinFresnel(profile, source)).toThrow(RangeError);
+});
 
 test('all four Eclipse source skin descriptions reproduce without local reader caches', () => {
   execFileSync('python3', ['tools/assets/export-leona-w-skin-materials.py', '--check']);

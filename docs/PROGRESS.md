@@ -6451,3 +6451,39 @@ See [defense scope](LEONA-W-BOT-DEFENSE.md) and
 Q/E/R tactics, proactive engage/peel, player/support and native/full-roster
 acceptance remain open. No new normal-match cohort or performance claim follows.
 The active goal continues; nothing is pushed.
+
+## Eclipse attached-skin rim powers follow the checked CPU mapping — October 24, 2026
+
+The four W attached-skin profiles now map their raw source rim Fresnel controls
+through the retained native CPU FMA32 transformation before supplying the shader
+exponent: source.05 becomes.3449999988079071 and source.15 becomes.8350000381469727.
+The original source tables remain raw; the separate generated input table checks
+profile/source identity. The material formula, base masks, erosion, blend4 tint
+policy and E/R zero-rim fallback remain unchanged.
+
+A bounded static reading re-decodes six W/E/R attached-skin BIN elements and
+checks the matching native words and original AIR. Attached kind11 can reach the
+common rim upload under explicit resource/pass guards. Rim fresnel/+2c/vFresnel
+is distinct from reflectionFresnel/+18/vReflection. Actual Leona dispatch, final
+variant/pass, cube resource and complete tint inputs remain unobserved. Source
+code before the correction is frozen separately. Both normal and optimized
+Python checks pass and reject three altered-power/wire-type/native-window controls.
+
+The standard check passes1,904 units in312 files, TypeScript and three Node QA
+tests;23 focused units pass. Sixteen Chrome cases pass W material and W/E/R
+playback/save/recovery/resource checks. All239 W numerical material comparisons,
+including108 pinned-mask texels, stay within one channel level. Animated source
+CPU/GPU maxima are1/1/2; exact GPU repeats and recovery pass. In GameView, replacing
+the mapped exponent with raw changes1628/261/1656/915 pixels for profiles4/5/6/9;
+restoring it changes zero. The four-column source image was inspected.
+
+Production passes32 nested-path recordings with no development hook or
+unrequested Leona preload; all966 public files remain byte-identical. Schema126
+uses ruleset2f2d7dac16d7b3c1d0e7a35d81ed8c9323ab623dc49e2201eec4094390ff15b0.
+Offline pack394400909b59dfcc5f397a5aaba9f4a981d4b1c28b3822d0f5b983eb7f89d46d
+contains1,012 files/513,310,583 bytes; all integrity, repair, saved offline boot
+and atomic-version checks pass with963 worker responses and no production errors.
+See [scope and input evidence](LEONA-ATTACHED-SKIN-INPUTS.md) and
+[runtime ledger](reference/leona/w-skin-fresnel-verification.json). Native frames,
+player/support and full-roster acceptance remain open. No new normal-match
+cohort/performance result follows. Work continues under the active goal; nothing pushed.

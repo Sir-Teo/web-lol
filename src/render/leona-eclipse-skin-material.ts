@@ -1,5 +1,14 @@
 import { particleColorMaterial } from './particle-color-phase';
 import * as THREE from 'three';
+import skinFresnel from '../content/leona-w-skin-fresnel.json';
+
+/** Source rim controls are not shader exponents. Keep the exact checked FMA32
+ * inputs separate from reflectionFresnel and from the no-child E/R fallback. */
+export function leonaEclipseSkinFresnel(profileIndex: number, source: number): number {
+  const row = skinFresnel.profiles.find((p) => p.profile === profileIndex);
+  if (!row || row.source !== source) throw new RangeError('Unsupported Eclipse skin rim input');
+  return row.power;
+}
 
 export interface EclipseSkinErosion {
   texture: THREE.Texture;
@@ -19,6 +28,7 @@ export interface EclipseSkinErosion {
  */
 export function createLeonaEclipseSkinMaterial(options: {
   texture: THREE.Texture;
+  /** Already mapped shader exponent; zero-rim E/R callers supply fallback 1. */
   fresnel: number;
   fresnelColor: readonly [number, number, number];
   erosion?: EclipseSkinErosion;
