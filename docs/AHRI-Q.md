@@ -1,5 +1,10 @@
 # Orb of Deception development controller
 
+This document retains its original controller checkpoint. The later
+[Ahri player practice scene](AHRI-PLAYER.md) adds human controls, HUD and private
+saves at schema 137; NPC-only and unfinished-player statements below describe
+that earlier checkpoint. Production selection and role AI remain unfinished.
+
 Ahri's Q can now be learned and cast by the development NPC at
 `/?scene=fixture&npc=ahri`. Ashe remains the human champion. Q has its own spell
 metadata, retained icon, paid cast, source `spell1` pose, two-leg flight and strict

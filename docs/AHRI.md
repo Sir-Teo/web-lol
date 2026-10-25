@@ -9,8 +9,9 @@ casts, separate flight legs and saved continuation. [Fox-Fire](AHRI-W.md) adds
 three fires and a decaying movement boost. [Charm](AHRI-E.md) adds a first-hit
 missile and saved forced walking. The [Spirit Rush base controller](AHRI-R.md)
 adds dashes, three casts and bolts. [Essence Theft](AHRI-PASSIVE.md) adds healing
-and champion-consumption R resets. Human controls, role AI and native presentation
-remain open.
+and champion-consumption R resets. [Human practice controls](AHRI-PLAYER.md) now
+add the trusted development player scene, own HUD and private saves at schema 137.
+Role AI, production selection and native presentation remain open.
 
 ## Retained inputs
 

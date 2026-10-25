@@ -164,6 +164,11 @@ try {
     assert.equal(await page.evaluate(() => !!window.__GAME__), false);
     assert.equal(await page.locator('#companion-status').count(), 0);
   }
+  await page.goto(`${base}?scene=fixture&champion=ahri`);
+  await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
+  assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
+  assert.equal(await page.locator('#ahri-essence').count(), 0);
+  assert.equal(await page.evaluate(() => !!window.__GAME__), false);
   assert.deepEqual(
     ahriPreviewRequests,
     [],
@@ -202,6 +207,7 @@ try {
   await page.keyboard.press('Escape');
   await page.getByRole('button', { name: 'New match', exact: true }).click();
   assert.equal(await page.getByRole('button', { name: 'Garen', exact: true }).count(), 0);
+  assert.equal(await page.getByRole('button', { name: 'Ahri', exact: true }).count(), 0);
   await page.getByRole('button', { name: 'Lux', exact: true }).click();
   await page
     .getByRole('group', { name: 'F spell', exact: true })
@@ -476,6 +482,7 @@ try {
       leonaPlayerFixtureInProduction: false,
       leonaRiftTrialInProduction: false,
       ahriNpcFixtureInProduction: false,
+      ahriPlayerFixtureInProduction: false,
       unrequestedAhriPreloads: ahriPreviewRequests.length,
       junglePreviewRequests: junglePreviewRequests.length,
       unrequestedLeonaPreloads: leonaPreviewRequests.length,

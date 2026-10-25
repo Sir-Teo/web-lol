@@ -1,5 +1,10 @@
 # Essence Theft development controller and Spirit Rush resets
 
+This document retains its original controller checkpoint. The later
+[Ahri player practice scene](AHRI-PLAYER.md) adds human controls, HUD and private
+saves at schema 137; NPC-only and unfinished-player statements below describe
+that earlier checkpoint. Production selection and role AI remain unfinished.
+
 Target: standard PC Summoner's Rift 26.18, frozen Riot build 16.18.8175716.
 The development NPC now has Q/W/E/R and passive controllers. This increment adds
 an innate kill counter, returning healing Essence and champion-consumption R

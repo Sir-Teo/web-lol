@@ -13,10 +13,15 @@ export const MAX_MATCH_FILE_BYTES = 16 * 1024 * 1024;
 export async function prepareMatchImport(
   file: File,
   battlefield: Battlefield,
-  persist: (snapshot: string) => Promise<void>
+  persist: (snapshot: string) => Promise<void>,
+  requiredChampion?: import('../simulation/types').ChampionIdentity
 ): Promise<PreparedMatchImport> {
   if (file.size > MAX_MATCH_FILE_BYTES) throw new Error('Match file is too large (maximum 16 MB).');
   const world = World.fromSnapshot(await file.text(), battlefield);
+  if (requiredChampion && world.hero.champion !== requiredChampion)
+    throw new Error(
+      `This practice scene accepts ${requiredChampion === 'ahri' ? 'Ahri' : requiredChampion} match files only.`
+    );
   const snapshot = world.snapshot();
   const seconds = Math.floor(world.tick / TICK_RATE);
   const time = `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;

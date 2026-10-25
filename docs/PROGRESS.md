@@ -6,7 +6,7 @@ Last updated: October 25, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 2,173 tests across 337 files, TypeScript and three Node QA checks. Forty-two targeted Chrome scenarios pass for the [development Ahri Q](AHRI-Q.md)/[W](AHRI-W.md)/[E](AHRI-E.md), [R base](AHRI-R.md) and [passive](AHRI-PASSIVE.md) controllers and application reloads, her NPC rig/basic attacks, Leona rig recovery, Garen/Lux controls, champion selection, animation and match files. Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 2,182 tests across 338 files, TypeScript and three Node QA checks. Forty-eight targeted Chrome scenarios pass for the [development Ahri Q](AHRI-Q.md)/[W](AHRI-W.md)/[E](AHRI-E.md), [R base](AHRI-R.md) and [passive](AHRI-PASSIVE.md) controllers, [human practice controls](AHRI-PLAYER.md), private saves/imports and application reloads, her NPC rig/basic attacks, Leona rig recovery, Garen/Lux controls, champion selection, animation and match files. Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
 
 The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). Current targeted evidence does not certify full-match completion or native visual parity.
 
@@ -7519,3 +7519,38 @@ manual NPC controller integration is recorded; full Ahri kit delivery, human/ros
 expansion, role AI, native behavior/presentation, performance and full-project
 completion remain open. Next is a development-only Ahri player scene with proper
 input and resource feedback.
+
+## 2026-10-25 — Ahri human practice, private saves and resource feedback
+
+[Ahri player practice](AHRI-PLAYER.md) adds the development-only
+`?scene=fixture&champion=ahri` scene. Q/E/R use their own local aim guides and
+release controls; W activates instantly. The HUD shows her portrait, title, ranked
+spell descriptions, Essence counter, stored R casts, free recasts and window.
+Charm rank-two/rank-four tooltips preserve 1.35/1.65-second precision.
+
+Trusted practice context is supplied by the development URL and never serialized.
+Constructor/decoder gates reject player Ahri elsewhere. Private saves, restart and
+checked imports preserve the ordinary practice save; foreign champion imports are
+rejected before persistence. Production selection remains Ashe/Lux. Schema is 137.
+
+The first browser fixture failed five of six cases by attempting input while paused
+and clicking behind an existing pause menu. Corrected input/navigation sequencing
+passes all six without weakening pause guards. A separate retained negative test
+reproduces the over-rounded Charm label before the precision correction.
+
+Validation: 2,182 tests in 338 files, TypeScript and three Node QA checks; 114
+focused Ahri cases; final 48/48 Chrome cases without skips/retries, including six
+player cases and two real Save/reloads with exact 300-tick futures. Three player
+screenshots were reviewed. Production passes 32 recordings and rejects the exact
+Ahri player fixture URL; offline reload passes with 963 service-worker responses
+and no production errors. All 1,015 prior public files remain byte-identical.
+
+Pack `28d0e90bcadcb411642e2fbcf0226b3c5403630589f10ca8a57ada94bdc76eba` has
+1,065 files / 520,057,332 bytes. Ruleset:
+`5eb9fc897a3193c5a5d575afca7dc397dc987bbe8d8a47df35fadea1f4d0e29c`.
+
+Frozen source/build/evidence closure is [player-verification.json](reference/ahri/player-verification.json),
+checked by `tools/qa/verify-ahri-player.mjs` or `--historical` after later edits.
+Development player controls, own HUD, private saves/restart and import boundaries
+are verified. Full Ahri kit, role AI, production roster expansion, native
+behavior/presentation, performance and full-project completion remain open.

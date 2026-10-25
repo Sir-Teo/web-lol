@@ -385,7 +385,13 @@ export class World {
     readonly battlefield: Battlefield = PRACTICE_FIXTURE,
     playerChampion: import('./types').ChampionIdentity = 'ashe'
   ) {
-    if (playerChampion === 'ahri') throw new Error('Ahri is available only as a development NPC.');
+    if (
+      playerChampion === 'ahri' &&
+      (battlefield.id !== 'practice-fixture' || !battlefield.developmentAhri)
+    )
+      throw new Error(
+        'Ahri is available only as a development NPC or in her trusted player practice scene.'
+      );
     if (
       playerChampion === 'leona' &&
       battlefield.id !== 'practice-fixture' &&

@@ -1,3 +1,11 @@
+import {
+  isAhriSpell,
+  ahriDescription,
+  ahriPreviewResources,
+  ahriPassiveDescription,
+} from './ahri-spells';
+import { activeSpiritRush } from '../simulation/ahri-spirit-rush';
+import { AHRI_R } from '../content/ahri-r';
 import { mountOfflinePack } from './offline-pack';
 import { ROLE_LABELS } from '../content/bot-roles';
 import { resetTrinket } from '../simulation/wards';
@@ -137,7 +145,7 @@ export class Hud {
       <section class="champion-hud" aria-label="Champion controls">
         <div class="champion-portrait"><img src="assets/icons/${world.hero.champion}.png" alt="${championProfile(world.hero.champion!).name}"><span id="level">1</span><div class="portrait-frame"></div></div>
         <div class="champion-stats"><span title="Attack damage" aria-label="Attack damage"><i class="stat-icon stat-ad" aria-hidden="true"></i><b id="ad">59</b></span><span title="Ability power" aria-label="Ability power"><i class="stat-icon stat-ap" aria-hidden="true"></i><b id="ap">0</b></span><span title="Armor" aria-label="Armor"><i class="stat-icon stat-armor" aria-hidden="true"></i><b id="armor">26</b></span><span title="Magic resistance" aria-label="Magic resistance"><i class="stat-icon stat-mr" aria-hidden="true"></i><b id="mr">33</b></span><span title="Attack speed" aria-label="Attack speed"><i class="stat-icon stat-as" aria-hidden="true"></i><b id="as">0.66</b></span><span title="Movement speed" aria-label="Movement speed"><i class="stat-icon stat-ms" aria-hidden="true"></i><b id="ms">325</b></span></div>
-        <div class="champion-core"><div class="champion-buffs" id="champion-buffs" aria-label="Active buffs" hidden><span class="blue-buff" id="blue-buff" tabindex="0" role="img" hidden><img src="assets/icons/buffcampblue.png" alt=""><b>Crest of Insight</b><time id="blue-buff-time"></time><i class="buff-duration"><i id="blue-buff-fill"></i></i></span><span class="blue-buff red-buff" id="red-buff" tabindex="0" role="img" hidden><img src="assets/icons/buffcampred.png" alt=""><b>Crest of Cinders</b><time id="red-buff-time"></time><i class="buff-duration"><i id="red-buff-fill"></i></i></span></div><div class="champion-title"><strong>${championProfile(world.hero.champion!).name.toUpperCase()}</strong><span>${world.hero.champion === 'garen' ? 'THE MIGHT OF DEMACIA' : world.hero.champion === 'lux' ? 'THE LADY OF LUMINOSITY' : world.hero.champion === 'leona' ? 'THE RADIANT DAWN' : 'THE FROST ARCHER'}</span>${world.hero.champion === 'ashe' ? '<div class="focus-pips" aria-label="Focus stacks"><i></i><i></i><i></i><i></i></div>' : ''}</div>
+        <div class="champion-core"><div class="champion-buffs" id="champion-buffs" aria-label="Active buffs" hidden><span class="blue-buff" id="blue-buff" tabindex="0" role="img" hidden><img src="assets/icons/buffcampblue.png" alt=""><b>Crest of Insight</b><time id="blue-buff-time"></time><i class="buff-duration"><i id="blue-buff-fill"></i></i></span><span class="blue-buff red-buff" id="red-buff" tabindex="0" role="img" hidden><img src="assets/icons/buffcampred.png" alt=""><b>Crest of Cinders</b><time id="red-buff-time"></time><i class="buff-duration"><i id="red-buff-fill"></i></i></span></div><div class="champion-title"><strong>${championProfile(world.hero.champion!).name.toUpperCase()}</strong><span>${world.hero.champion === 'garen' ? 'THE MIGHT OF DEMACIA' : world.hero.champion === 'lux' ? 'THE LADY OF LUMINOSITY' : world.hero.champion === 'leona' ? 'THE RADIANT DAWN' : world.hero.champion === 'ahri' ? 'THE NINE-TAILED FOX' : 'THE FROST ARCHER'}</span>${world.hero.champion === 'ashe' ? '<div class="focus-pips" aria-label="Focus stacks"><i></i><i></i><i></i><i></i></div>' : world.hero.champion === 'ahri' ? '<span id="ahri-essence" class="essence-counter" tabindex="0" aria-label="Essence Theft, 0 of 9 kills">0 / 9</span>' : ''}</div>
           <div class="ability-row">${(['q', 'w', 'e', 'r'] as Ability[]).map((a) => this.abilityMarkup(a)).join('')}<div class="summoners">${(['d', 'f'] as Ability[]).map((a) => this.abilityMarkup(a)).join('')}</div></div>
           <div class="resource health"><i id="health-fill"></i><span id="health-text">610 / 610</span><small id="health-regen">+0.7</small></div>
           <div class="resource mana" ${world.hero.champion === 'garen' ? 'hidden' : ''}><i id="mana-fill"></i><span id="mana-text">280 / 280</span></div>
@@ -173,7 +181,7 @@ export class Hud {
       world.matchMode === 'lanes';
   }
   private spellSpec(a: Ability) {
-    if (isSummonerSlot(a)) return this.world.abilitySpec(a);
+    if (isSummonerSlot(a) || this.world.hero.champion === 'ahri') return this.world.abilitySpec(a);
     if (this.world.hero.champion === 'garen' && isGarenSpell(a)) return GAREN_SPELLS[a];
     if (this.world.hero.champion === 'leona' && isLeonaSpell(a)) return LEONA_HUD_SPELLS[a];
     return this.world.hero.champion === 'lux' && isLuxSpell(a) ? LUX_SPELLS[a] : ABILITIES[a];
@@ -187,6 +195,13 @@ export class Hud {
   private tooltipResources(a: Ability) {
     if (this.isLuxRecast(a)) return { mana: 0, cooldownSeconds: 0 };
     if (a === 'd' || a === 'f' || this.world.abilityRank(a)) return this.world.abilityResources(a);
+    if (this.world.hero.champion === 'ahri' && isAhriSpell(a)) {
+      const preview = ahriPreviewResources(a);
+      return {
+        ...preview,
+        cooldownSeconds: (preview.cooldownSeconds * 100) / (100 + this.world.abilityHaste()),
+      };
+    }
     if (this.world.hero.champion === 'leona' && isLeonaSpell(a)) {
       const preview = leonaPreviewResources(a);
       return {
@@ -216,7 +231,7 @@ export class Hud {
   }
   private abilityMarkup(a: Ability): string {
     const spec = this.spellSpec(a);
-    const button = `<button class="ability ${a === 'd' || a === 'f' ? 'summoner' : ''}" data-ability="${a}" aria-label="${spec.name}"><img src="assets/icons/${spec.icon}.png" alt=""><span class="cooldown-shade"></span><span class="cooldown-text"></span><kbd>${a.toUpperCase()}</kbd><span class="ability-cost">${spec.cost || ''}</span>${(a === 'e' && this.world.hero.champion === 'ashe') || this.world.summonerSpell(a) === 'smite' ? '<span class="ability-charges" aria-hidden="true"></span><span class="ability-recharge" aria-hidden="true"><i></i></span>' : ''}</button>`;
+    const button = `<button class="ability ${a === 'd' || a === 'f' ? 'summoner' : ''}" data-ability="${a}" aria-label="${spec.name}"><img src="assets/icons/${spec.icon}.png" alt=""><span class="cooldown-shade"></span><span class="cooldown-text"></span><kbd>${a.toUpperCase()}</kbd><span class="ability-cost">${spec.cost || ''}</span>${(a === 'e' && this.world.hero.champion === 'ashe') || (a === 'r' && this.world.hero.champion === 'ahri') || this.world.summonerSpell(a) === 'smite' ? '<span class="ability-charges" aria-hidden="true"></span><span class="ability-recharge" aria-hidden="true"><i></i></span>' : ''}</button>`;
     if (a === 'd' || a === 'f') return button;
     return `<div class="ability-slot">${button}<button class="spell-learn" data-learn="${a}" aria-label="Upgrade ${spec.name}" title="Upgrade ${a.toUpperCase()} (Ctrl+${a.toUpperCase()})" hidden></button><span class="spell-ranks" aria-hidden="true">${Array.from({ length: a === 'r' ? 3 : 5 }, () => '<i></i>').join('')}</span></div>`;
   }
@@ -264,6 +279,8 @@ export class Hud {
         garenEStrikes(this.world.player.level)
       );
     }
+    if (this.world.hero.champion === 'ahri' && isAhriSpell(ability))
+      return ahriDescription(ability, rank, this.world.abilityPower());
     if (this.world.hero.champion === 'lux' && isLuxSpell(ability))
       return luxDescription(ability, rank, this.world.abilityPower(), this.world.player.level);
     if (this.world.hero.champion === 'leona' && isLeonaSpell(ability))
@@ -548,7 +565,9 @@ export class Hud {
     const backdrop = this.root.querySelector<HTMLDivElement>('#modal')!;
     backdrop.hidden = false;
     let chosenChampion =
-      this.world.hero.champion === 'garen' || this.world.hero.champion === 'leona'
+      this.world.hero.champion === 'garen' ||
+      this.world.hero.champion === 'leona' ||
+      this.world.hero.champion === 'ahri'
         ? ('ashe' as const)
         : selectableChampion(this.world.hero.champion);
     const laneDescription = () =>
@@ -610,21 +629,27 @@ export class Hud {
               ['E again', 'End Judgment after its first second'],
               ['Hold R', 'Point at an enemy champion in range, then release'],
             ]
-          : this.world.hero.champion === 'leona'
+          : this.world.hero.champion === 'ahri'
             ? [
-                ['Q / W', 'Activate Shield of Daybreak / Eclipse'],
-                ['Hold E / R', 'Aim Zenith Blade / Solar Flare, then release'],
+                ['Hold Q / E / R', 'Aim Orb of Deception / Charm / Spirit Rush, then release'],
+                ['W', 'Activate Fox-Fire'],
+                ['R again', 'Use a stored Spirit Rush cast while its window is active'],
               ]
-            : this.world.hero.champion === 'lux'
+            : this.world.hero.champion === 'leona'
               ? [
-                  ['Hold Q / W / E / R', 'Aim, then release to cast'],
-                  ['E again', 'Detonate Lucent Singularity'],
+                  ['Q / W', 'Activate Shield of Daybreak / Eclipse'],
+                  ['Hold E / R', 'Aim Zenith Blade / Solar Flare, then release'],
                 ]
-              : [
-                  ['Q', 'Activate Focus at 4 stacks'],
-                  ['Hold W / E / R', 'Aim, then release to cast'],
-                  ['E / R over minimap', 'Aim across the map without moving the camera'],
-                ]),
+              : this.world.hero.champion === 'lux'
+                ? [
+                    ['Hold Q / W / E / R', 'Aim, then release to cast'],
+                    ['E again', 'Detonate Lucent Singularity'],
+                  ]
+                : [
+                    ['Q', 'Activate Focus at 4 stacks'],
+                    ['Hold W / E / R', 'Aim, then release to cast'],
+                    ['E / R over minimap', 'Aim across the map without moving the camera'],
+                  ]),
         ['D / F', `${this.spellSpec('d').name} / ${this.spellSpec('f').name}`],
         ['B', 'Recall to fountain'],
         ['4', 'Hold to aim Stealth Ward; press to activate Oracle Lens'],
@@ -1241,11 +1266,25 @@ export class Hud {
     this.root
       .querySelectorAll<HTMLElement>('.focus-pips i')
       .forEach((pip, i) => pip.classList.toggle('charged', i < p.qStacks));
+    const ahriRush = h.champion === 'ahri' ? activeSpiritRush(w, h.id) : undefined;
+    const essence = this.root.querySelector<HTMLElement>('#ahri-essence');
+    if (essence) {
+      const stacks = w.ahriCounters.find((c) => c.sourceId === h.id)?.stacks ?? 0;
+      essence.textContent = `${stacks} / 9`;
+      essence.setAttribute('aria-label', `Essence Theft, ${stacks} of 9 kills`);
+      essence.title = ahriPassiveDescription(p.level, w.abilityPower());
+    }
     this.root.querySelectorAll<HTMLButtonElement>('[data-ability]').forEach((button) => {
       const a = button.dataset.ability as Ability,
         spinning = this.isGarenRecast(a),
         lock = spinning ? garenRecastLockTicks(w) : 0,
-        recast = this.isLuxRecast(a) || (spinning && lock === 0),
+        recast =
+          this.isLuxRecast(a) ||
+          (spinning && lock === 0) ||
+          (a === 'r' &&
+            !!ahriRush &&
+            ahriRush.remainingCasts > 0 &&
+            w.abilityCooldownTicks(a) === 0),
         cd = spinning ? lock / TICK_RATE : recast ? 0 : w.abilityCooldownTicks(a) / TICK_RATE;
       button.querySelector('.cooldown-text')!.textContent = recast
         ? 'RECAST'
@@ -1303,6 +1342,21 @@ export class Hud {
         button.setAttribute(
           'aria-label',
           `${w.abilitySpec(a).name}, ${p.smite.charges} charges${remaining > 0 ? `, next charge in ${Math.ceil(remaining)} seconds` : ''}`
+        );
+      }
+      if (a === 'r' && h.champion === 'ahri') {
+        const charges = ahriRush?.remainingCasts ?? (p.spellRanks.r ? AHRI_R.maxCasts : 0),
+          remaining = ahriRush ? Math.max(0, ahriRush.endTick - w.tick) / TICK_RATE : 0;
+        button.querySelector('.ability-charges')!.textContent = String(charges);
+        const windowMeter = button.querySelector<HTMLElement>('.ability-recharge')!;
+        windowMeter.hidden = !ahriRush;
+        windowMeter.querySelector<HTMLElement>('i')!.style.transform =
+          `scaleX(${Math.min(1, remaining / AHRI_R.recastWindowSeconds)})`;
+        button.setAttribute(
+          'aria-label',
+          ahriRush
+            ? `Spirit Rush, ${charges} of 3 casts, ${Math.ceil(remaining)} seconds to recast`
+            : `Spirit Rush, ${charges} casts when ready${cd > 0 ? `, ${Math.ceil(cd)} seconds cooldown` : ''}`
         );
       }
       if (a === 'e' && h.champion === 'ashe') {

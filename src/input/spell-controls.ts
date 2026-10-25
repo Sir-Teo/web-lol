@@ -11,6 +11,7 @@ import { smiteTarget } from '../simulation/smite';
 export function instantSpell(world: World, ability: Ability): boolean {
   if (isSummonerSlot(ability)) return world.summonerSpell(ability) === 'heal';
   if (world.hero.champion === 'garen') return ability === 'q' || ability === 'w' || ability === 'e';
+  if (world.hero.champion === 'ahri') return ability === 'w';
   if (world.hero.champion === 'leona') return ability === 'q' || ability === 'w';
   if (world.hero.champion !== 'lux') return ability === 'q';
   return (

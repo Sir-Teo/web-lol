@@ -1,3 +1,5 @@
+import { ahriAimGeometry } from './ahri-aim';
+import { spiritRushDestination } from '../simulation/ahri-spirit-rush';
 import { renderParticleColorPhase } from './particle-color-phase';
 import { leonaAimGeometry } from './leona-aim';
 import { LazyLeonaSolarProjections } from './lazy-leona-solar-projections';
@@ -1301,6 +1303,20 @@ export class GameView {
         );
       }
       this.aimLine.geometry.setDrawRange(0, 33);
+    } else if (
+      hero.champion === 'ahri' &&
+      (this.aimMode === 'q' || this.aimMode === 'e' || this.aimMode === 'r')
+    ) {
+      const shape = ahriAimGeometry(
+        this.aimMode,
+        hero,
+        this.aimPoint,
+        this.aimMode === 'r' ? spiritRushDestination(world, hero, this.aimPoint) : null,
+        hero.radius
+      );
+      for (const [i, p] of shape.entries())
+        positions.setXYZ(i, (p.x - hero.x) * SCALE, 0.1, (p.y - hero.y) * SCALE);
+      this.aimLine.geometry.setDrawRange(0, shape.length);
     } else if (hero.champion === 'leona' && (this.aimMode === 'e' || this.aimMode === 'r')) {
       const shape = leonaAimGeometry(this.aimMode, hero, this.aimPoint);
       for (const [i, p] of shape.outline.entries())

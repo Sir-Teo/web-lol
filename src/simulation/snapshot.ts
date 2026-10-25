@@ -136,7 +136,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 136;
+export const SNAPSHOT_VERSION = 137;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -2483,7 +2483,9 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     }
     if (
       unit.champion === 'ahri' &&
-      (state.battlefield !== 'practice-fixture' || unit.id === state.player.id)
+      (state.battlefield !== 'practice-fixture' ||
+        (unit.id === state.player.id &&
+          (!battlefield.developmentAhri || state.matchMode !== 'practice')))
     )
       throw new Error('Ahri requires a non-player development practice unit.');
     if (

@@ -55,11 +55,18 @@ async function boot(): Promise<void> {
   const query = new URLSearchParams(location.search);
   const fixture = import.meta.env.DEV && query.get('scene') === 'fixture';
   const leonaRiftTrial = import.meta.env.DEV && query.get('scene') === 'leona-rift';
+  const ahriPlayerFixture = fixture && query.get('champion') === 'ahri';
   const loadedBattlefield = fixture ? PRACTICE_FIXTURE : await loadRiftBattlefield();
   const battlefield = leonaRiftTrial
     ? { ...loadedBattlefield, developmentLeona: true as const }
-    : loadedBattlefield;
-  const saveKey = leonaRiftTrial ? 'development-leona-rift' : battlefield.id;
+    : ahriPlayerFixture
+      ? { ...loadedBattlefield, developmentAhri: true as const }
+      : loadedBattlefield;
+  const saveKey = leonaRiftTrial
+    ? 'development-leona-rift'
+    : ahriPlayerFixture
+      ? 'development-ahri-player-fixture'
+      : battlefield.id;
   const leonaNpc = fixture && new URLSearchParams(location.search).get('npc') === 'leona';
   const ahriNpc = fixture && query.get('npc') === 'ahri';
   const garenFixture = fixture && new URLSearchParams(location.search).get('champion') === 'garen';
@@ -98,7 +105,9 @@ async function boot(): Promise<void> {
   };
   let world = leonaRiftTrial
     ? createLaneMatch(battlefield, 'leona')
-    : freshPractice(garenFixture ? 'garen' : leonaFixture ? 'leona' : 'ashe');
+    : freshPractice(
+        ahriPlayerFixture ? 'ahri' : garenFixture ? 'garen' : leonaFixture ? 'leona' : 'ashe'
+      );
   let restored = false,
     saveNotice = '';
   try {
@@ -108,6 +117,8 @@ async function boot(): Promise<void> {
       candidate &&
       (!garenFixture || candidate.hero.champion === 'garen') &&
       (!leonaFixture || candidate.hero.champion === 'leona') &&
+      (!ahriPlayerFixture ||
+        (candidate.hero.champion === 'ahri' && candidate.matchMode === 'practice')) &&
       (!leonaNpc || candidate.units.some((u) => u.champion === 'leona')) &&
       (!ahriNpc || candidate.units.some((u) => u.champion === 'ahri')) &&
       candidate.encounter === (grompEncounter ? 'gromp' : null) &&
@@ -191,6 +202,7 @@ async function boot(): Promise<void> {
               world.hero.champion === 'lux' ||
               world.hero.champion === 'garen' ||
               world.hero.champion === 'leona' ||
+              world.hero.champion === 'ahri' ||
               world.player.summoners.d !== 'flash' ||
               world.player.summoners.f !== 'heal'
             ? (() => {
@@ -215,10 +227,15 @@ async function boot(): Promise<void> {
     save: async () => writeMatch(saveKey, world.snapshot()),
     exportMatch: () => downloadMatch(world),
     prepareImport: (file) =>
-      prepareMatchImport(file, battlefield, async (snapshot) => {
-        await writeMatch(saveKey, snapshot);
-        window.location.reload();
-      }),
+      prepareMatchImport(
+        file,
+        battlefield,
+        async (snapshot) => {
+          await writeMatch(saveKey, snapshot);
+          window.location.reload();
+        },
+        ahriPlayerFixture ? 'ahri' : undefined
+      ),
     sound: (enabled) => {
       audio.enabled = enabled;
     },

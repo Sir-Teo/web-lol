@@ -23,6 +23,8 @@ Open `/map.html` on the same server to inspect the full reference terrain, origi
 
 The development-only `/?scene=leona-rift` trial starts Leona as support on the full Rift with four allied bots and five opponents. Learn Q/W for instant activation; hold E/R to aim and release. Save/reload and restart retain the support assignment. The trial has a separate browser save slot, preserving the ordinary match. The public champion chooser stays Ashe/Lux. See [Leona Rift trial](docs/LEONA-RIFT-TRIAL.md) for scope and verification.
 
+The development-only `/?scene=fixture&champion=ahri` scene adds human Ahri practice with aimed Q/E/R, instant W, Essence and stored R casts in her own HUD. Its private save supports reload, restart and checked match-file imports. See [Ahri player practice](docs/AHRI-PLAYER.md).
+
 The development-only `/?scene=fixture&champion=garen` fixture adds human Garen controls and HUD for kit testing. Q/W/E activate directly; hold R over a visible enemy champion in range and release. Courage draws twelve [source cast/ground/shoulder/reaction layers](docs/GAREN-W-PARTICLES.md) and uses [source cast/loop/ending audio](docs/GAREN-W-AUDIO.md), including authored loop bounds and saved stop fades. Judgment now draws six [source particle layers](docs/GAREN-SPIN.md) and uses [source cast/spin/ending/hit audio](docs/GAREN-E-AUDIO.md), with checkpoint-stable presentation tails. R adds nineteen [source visual layers](docs/GAREN-R-PARTICLES.md), including lethal-hit shockwave/rays/flash, and [cast/hit/stereo kill audio](docs/GAREN-R-AUDIO.md), retaining sound after particles end. Garen is still excluded from production selection while full presentation and native calibration remain open. See [Garen player fixture](docs/GAREN-PLAYER.md) for learning, setup and checkpoint behavior.
 
 ```sh
@@ -59,7 +61,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Shared siege, defense, gank and river strategy](docs/BOT-TEAM-STRATEGY.md)
 - [Bot group-combat decisions](docs/BOT-GROUP-COMBAT.md)
 - [Garen and Ahri roster expansion](docs/ROSTER-EXPANSION.md)
-- [Ahri development NPC and source declarations](docs/AHRI.md) — `/?scene=fixture&npc=ahri` adds her own stats, ordinary attacks, rig and manually cast [Q](docs/AHRI-Q.md)/[W](docs/AHRI-W.md)/[E](docs/AHRI-E.md) and [R base](docs/AHRI-R.md) controllers plus [Essence Theft](docs/AHRI-PASSIVE.md) healing/R resets; human controls, role AI and native presentation remain unfinished.
+- [Ahri development NPC and source declarations](docs/AHRI.md) — `/?scene=fixture&npc=ahri` adds her own stats, ordinary attacks, rig and manually cast [Q](docs/AHRI-Q.md)/[W](docs/AHRI-W.md)/[E](docs/AHRI-E.md) and [R base](docs/AHRI-R.md) controllers plus [Essence Theft](docs/AHRI-PASSIVE.md) healing/R resets; [human practice controls and HUD](docs/AHRI-PLAYER.md) are available in a separate development scene; role AI and native presentation remain unfinished.
 - [Browser interruption and graphics recovery](docs/RECOVERY.md)
 - [Minion sources and wave coverage](docs/MINIONS.md)
 - [Structure progression and remaining rules](docs/STRUCTURES.md)
