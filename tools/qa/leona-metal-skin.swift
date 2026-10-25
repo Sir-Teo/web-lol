@@ -29,12 +29,17 @@ struct Sample: Decodable {
   var bones: [[Float]]?
   var joints: [UInt32]?
   var weights: [Float]?
+  var lookup: [UInt8]?
+  var lookupWidth: Int?
+  var lookupUv: [Float]?
 }
 func failure(_ text: String) -> NSError {
   NSError(domain: "OwnedMetalSkinHarness", code: 1, userInfo: [NSLocalizedDescriptionKey: text])
 }
 func run() throws {
-  guard CommandLine.arguments.count == 4 else { throw failure("usage: render VS0 PS34 cases.json") }
+  let lookup = CommandLine.arguments.count > 1 && CommandLine.arguments[1] == "--lookup"
+  let shift = lookup ? 1 : 0
+  guard CommandLine.arguments.count == 4 + shift else { throw failure("usage: render [--lookup] VS0 PS34-or-PS11 cases.json") }
   guard let device = MTLCreateSystemDefaultDevice(), let queue = device.makeCommandQueue() else {
     throw failure("Metal device/queue unavailable")
   }
@@ -42,7 +47,7 @@ func run() throws {
     let data = try Data(contentsOf: URL(fileURLWithPath: path))
     return try data.withUnsafeBytes { try device.makeLibrary(data: DispatchData(bytes: $0)) }
   }
-  let vertex = try library(CommandLine.arguments[1]), fragment = try library(CommandLine.arguments[2])
+  let vertex = try library(CommandLine.arguments[1 + shift]), fragment = try library(CommandLine.arguments[2 + shift])
   let descriptor = MTLVertexDescriptor()
   for (index, format, offset) in [
     (0, MTLVertexFormat.float3, 0), (1, .float4, 12), (2, .float3, 28),
@@ -78,7 +83,7 @@ func run() throws {
   let targetDescriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: .rgba8Unorm, width: 1, height: 1, mipmapped: false)
   targetDescriptor.storageMode = .shared; targetDescriptor.usage = .renderTarget
   guard let target = device.makeTexture(descriptor: targetDescriptor) else { throw failure("target unavailable") }
-  let cases = try JSONDecoder().decode([Sample].self, from: Data(contentsOf: URL(fileURLWithPath: CommandLine.arguments[3])))
+  let cases = try JSONDecoder().decode([Sample].self, from: Data(contentsOf: URL(fileURLWithPath: CommandLine.arguments[3 + shift])))
   let identity: [Float] = [1,0,0,0, 0,1,0,0, 0,0,1,0]
   let points: [[Float]] = [[-1,-1,0], [3,-1,0], [-1,3,0]]
   var results: [[String: Any]] = []
@@ -117,9 +122,13 @@ func run() throws {
     for r in 0..<3 { for c in 0..<3 { locals[4+r*4+c] = transform[c*3+r] } }
     locals.replaceSubrange(28..<32, with: sample.tint)
     // Depth push is explicitly zero; the local skin material does not implement it.
-    let fragmentValues = [e.drive,e.slice,1/e.featherIn,1/e.featherOut] + e.mixer
+    let lookupUv = sample.lookupUv ?? [0.5,0.5]
+    guard lookupUv.count == 2, lookupUv.allSatisfy({ $0.isFinite }) else { throw failure("invalid lookup UV") }
+    let fragmentValues = lookup ? lookupUv : [e.drive,e.slice,1/e.featherIn,1/e.featherOut] + e.mixer
     let buffers = try [buffer(palette),buffer(frame),buffer(locals),buffer(vertices),buffer(fragmentValues)]
-    let textures = try [texture(sample.remap ?? [0,0,0,0]),texture(e.texel,width: sample.width ?? 1),texture(sample.source,width: sample.width ?? 1)]
+    let textures = lookup
+      ? try [texture(sample.remap ?? [0,0,0,0]),texture(sample.source,width: sample.width ?? 1),texture(sample.lookup ?? [255,255,255,255],width:sample.lookupWidth ?? 1)]
+      : try [texture(sample.remap ?? [0,0,0,0]),texture(e.texel,width: sample.width ?? 1),texture(sample.source,width: sample.width ?? 1)]
     let pass = MTLRenderPassDescriptor()
     pass.colorAttachments[0].texture = target; pass.colorAttachments[0].loadAction = .clear
     pass.colorAttachments[0].storeAction = .store; pass.colorAttachments[0].clearColor = MTLClearColorMake(0,0,0,0)

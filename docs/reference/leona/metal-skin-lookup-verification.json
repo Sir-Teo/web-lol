@@ -1,0 +1,1332 @@
+{
+  "format": 1,
+  "run": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final",
+  "erosionRegression": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final",
+  "nativeGameExecuted": false,
+  "nativeShaderExecuted": true,
+  "nativeGameplayFrameVerified": false,
+  "independentAbi": "docs/reference/leona-skin-nonerosion-abi.json",
+  "staticReadings": [
+    "docs/reference/leona-skin-nonerosion-abi.json",
+    ".cache/leona-skin-metal-abi-v1-20261024/abi.json",
+    ".cache/leona-skin-metal-abi-v2-20261024/abi.json"
+  ],
+  "harnessReview": ".cache/leona-skin-nonerosion-abi-v1-20261024/harness-review-v2.json",
+  "negativeChecks": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/results.json",
+  "files": [
+    {
+      "file": ".cache/leona-metal-reflection-abi-v1-20261024/check.py",
+      "archived": ".cache/leona-metal-reflection-accepted-v3-20261024/files/.cache/leona-metal-reflection-abi-v1-20261024/check.py",
+      "bytes": 12872,
+      "sha256": "1273c44e816a63d79a2f98872b4e3f1e40beeb8c0e7ffb6b1f1a32c9f8e0be01",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/abi-check-optimized.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/abi-check-optimized.log",
+      "bytes": 173,
+      "sha256": "dda0fa11865e8c5ee2ffcae4f68fc1deb1d9b29ea03df291f9d2d4a78e868710",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/abi-check.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/abi-check.log",
+      "bytes": 173,
+      "sha256": "dda0fa11865e8c5ee2ffcae4f68fc1deb1d9b29ea03df291f9d2d4a78e868710",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final.log",
+      "bytes": 135,
+      "sha256": "0963880e982b22dc9a8fa16dc65565e0a7d43a6189ddfa13f3a459e36cd58272",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/cases.json",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-metal-skin-runtime-v1-20261024/full-v2/cases.json",
+      "bytes": 58888,
+      "sha256": "bf27f96fb9b03704c4a7436a14c92284fc414ee0f8f9157a799fb7baba5e651d",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/comparison.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/comparison.json",
+      "bytes": 29604,
+      "sha256": "74def3c0d04fb8277fd56f6a2bd6e973d5aa703e7f082fc08f667818a48350ea",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/compile-command.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/compile-command.json",
+      "bytes": 315,
+      "sha256": "8127192698013a6d11b2390b11852a34dca71f492f70a8f3409d42b23e31f226",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/compile-stderr.log",
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/compile-stdout.log",
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/compiler-version.txt",
+      "archived": ".cache/leona-metal-rim-accepted-v3-20261024/files/.cache/leona-metal-rim-runtime-v1-20261024/full-v2/compiler-version.txt",
+      "bytes": 100,
+      "sha256": "7ede0fc8211c644002a894b47810b24b6aa38c8a01620c2e706aa92df59c41a1",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/executable.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/executable.json",
+      "bytes": 219,
+      "sha256": "208ba99b43f5d4decdb319fe6392c76c7912c9bf955f13ab35222f9de641a6fc",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/input-snapshots.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/input-snapshots.json",
+      "bytes": 4455,
+      "sha256": "2093a50f7e7e66212a4c7314e7998aa0a0a40105f2a10b54bba888d708d01503",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/inputs.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/inputs.json",
+      "bytes": 2320,
+      "sha256": "1c7f94416d611c8670fe730fd7db18bd6d1c9673da5b0edcb7f81ffb78b77bab",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/inputs/.cache/leona-skin-metal-abi-v1-20261024/candidate-skin-vs0.metallib",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-skin-metal-abi-v1-20261024/candidate-skin-vs0.metallib",
+      "bytes": 5451,
+      "sha256": "129c06c6d4aeeb30090665c4b9a96f8222cda7c9b910f8d9fed54d074fb98397",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/inputs/.cache/leona-w-skin-shaders/particle_ps.ps-metal-34.metallib",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-w-skin-shaders/particle_ps.ps-metal-34.metallib",
+      "bytes": 4174,
+      "sha256": "f766696d141aa3b772612ec73476e9c745e3b7dceb84410b4de68a7190442fcd",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/inputs/package-lock.json",
+      "archived": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/inputs/package.json",
+      "archived": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/package.json",
+      "bytes": 1147,
+      "sha256": "12108b696b046919346d6c157339b37b20ff57c3b3c2448949af3d8a98d8b2b6",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/inputs/src/content/leona-w-skin-fresnel.json",
+      "archived": ".cache/leona-w-skin-fresnel-accepted-v1-20261024/files/src/content/leona-w-skin-fresnel.json",
+      "bytes": 603,
+      "sha256": "65898adbd59d63a8ced08aceffe98dfb2b0701e65606f47c576dbcb702680cbc",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/inputs/src/render/leona-eclipse-skin-material.ts",
+      "archived": ".cache/leona-w-skin-fresnel-accepted-v1-20261024/files/src/render/leona-eclipse-skin-material.ts",
+      "bytes": 5643,
+      "sha256": "7d270981e6445be5bbd5ff7395a97a388e1e4d52c50c222d07ea391a809c8905",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/inputs/src/render/particle-color-phase.ts",
+      "archived": ".cache/leona-r-early-distortion-accepted-v1-20261024/frozen-inputs/src/render/particle-color-phase.ts",
+      "bytes": 3350,
+      "sha256": "ed731cc4b51af364b706da819271c7adc444807fbebe0f4a9af21575767ca847",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/inputs/tools/qa/leona-metal-skin-preview.html",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/tools/qa/leona-metal-skin-preview.html",
+      "bytes": 287,
+      "sha256": "dc606750a69311c95a68a85fc99da19f8ece40198327ebaf4bc28f77a4aedcb5",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/inputs/tools/qa/leona-metal-skin-preview.ts",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/tools/qa/leona-metal-skin-preview.ts",
+      "bytes": 4206,
+      "sha256": "e5ccf30aee6b794fe49046ae1d91e4573ef67a57089e5cbef0ea4e6530ac2698",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/inputs/tools/qa/leona-metal-skin.swift",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/inputs/tools/qa/leona-metal-skin.swift",
+      "bytes": 8961,
+      "sha256": "e4312045a92676ac369aab3f768a45f923168fbe983ac5b4de1d034dbe8201d0",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/inputs/tools/qa/metal-skin-cases.mjs",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/tools/qa/metal-skin-cases.mjs",
+      "bytes": 5353,
+      "sha256": "071647ef324c9c8ec07ddbb78aa921987976e20a830eeb0bba2767e06f64efce",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/inputs/tools/qa/metal-skin-lookup-cases.mjs",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/inputs/tools/qa/metal-skin-lookup-cases.mjs",
+      "bytes": 2401,
+      "sha256": "7f77a5464f2cef48277717be5db5f9cdbe015c55b4028ccb49e06e3c112250b4",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/inputs/tools/qa/run-leona-metal-skin.mjs",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/inputs/tools/qa/run-leona-metal-skin.mjs",
+      "bytes": 9435,
+      "sha256": "30456c5114033016bf86d983511902d3e7f03c4010916aeafc5238f8652a982b",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/inputs/tsconfig.json",
+      "archived": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/tsconfig.json",
+      "bytes": 522,
+      "sha256": "4055e05cf991ec8f34c5e21f91b801426d6bab1bccff02a2553c7d923e0e4c8b",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/native-command.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/native-command.json",
+      "bytes": 430,
+      "sha256": "8bf19927f05917d0802157311c570a40694b498104efca19cd842c4347aa9e08",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/native-stderr.log",
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/native-stdout.log",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-metal-skin-runtime-v1-20261024/full-v2/native-stdout.log",
+      "bytes": 13155,
+      "sha256": "005506954ef01e4e8ef202e0bda010694615cf9d4e3f7bd014ce9be5638b6167",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/native.json",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-metal-skin-runtime-v1-20261024/full-v2/native.json",
+      "bytes": 12889,
+      "sha256": "8f720a4d1dfe7d5bc5b9e7ae0b031fef200badc2a360239de57458464db43772",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/render",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/render",
+      "bytes": 196344,
+      "sha256": "0d5c13fcdd18921df631e5b2efe0a35addf4a43d0970cbf192bca5fdd5cb6fcc",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/scope.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/scope.json",
+      "bytes": 824,
+      "sha256": "8963e481a6918bf1de2aee04efea15b09b56be6232fe91b45088665cfd071bb1",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/vite.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/vite.log",
+      "bytes": 73,
+      "sha256": "2430f4daba016940e6ffd1cb140a627df673b91b8b5db3f0424ce0d93bd7d83a",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-final/webgl.json",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-metal-skin-runtime-v1-20261024/full-v2/webgl.json",
+      "bytes": 11258,
+      "sha256": "9b4f9dca24ff6fc4291b787ee0afa9eccac58325087813fb57b4e9e41bd983c6",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression.log",
+      "bytes": 135,
+      "sha256": "0963880e982b22dc9a8fa16dc65565e0a7d43a6189ddfa13f3a459e36cd58272",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/cases.json",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-metal-skin-runtime-v1-20261024/full-v2/cases.json",
+      "bytes": 58888,
+      "sha256": "bf27f96fb9b03704c4a7436a14c92284fc414ee0f8f9157a799fb7baba5e651d",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/comparison.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/comparison.json",
+      "bytes": 29604,
+      "sha256": "74def3c0d04fb8277fd56f6a2bd6e973d5aa703e7f082fc08f667818a48350ea",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/compile-command.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/compile-command.json",
+      "bytes": 320,
+      "sha256": "7e1994cdcb7997b4a902cbe46e567bf79537ea12f647a22613891b4a9ef9d063",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/compile-stderr.log",
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/compile-stdout.log",
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/compiler-version.txt",
+      "archived": ".cache/leona-metal-rim-accepted-v3-20261024/files/.cache/leona-metal-rim-runtime-v1-20261024/full-v2/compiler-version.txt",
+      "bytes": 100,
+      "sha256": "7ede0fc8211c644002a894b47810b24b6aa38c8a01620c2e706aa92df59c41a1",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/executable.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/executable.json",
+      "bytes": 224,
+      "sha256": "09ab6049604170e3cff91f7863fc7f791c643f11eb910a28f26f76979e5615d7",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/inputs.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/inputs.json",
+      "bytes": 1903,
+      "sha256": "6887449470c345d0d8a19c3d51253931b587b48af46070249992c08ef238e56e",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/native-command.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/native-command.json",
+      "bytes": 440,
+      "sha256": "0703142c222540f1478a407a5d77a5f6eb9964f4dd26ac03e5262b3c0ea32fdb",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/native-stderr.log",
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/native-stdout.log",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-metal-skin-runtime-v1-20261024/full-v2/native-stdout.log",
+      "bytes": 13155,
+      "sha256": "005506954ef01e4e8ef202e0bda010694615cf9d4e3f7bd014ce9be5638b6167",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/native.json",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-metal-skin-runtime-v1-20261024/full-v2/native.json",
+      "bytes": 12889,
+      "sha256": "8f720a4d1dfe7d5bc5b9e7ae0b031fef200badc2a360239de57458464db43772",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/render",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/render",
+      "bytes": 196344,
+      "sha256": "0d5c13fcdd18921df631e5b2efe0a35addf4a43d0970cbf192bca5fdd5cb6fcc",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/scope.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/scope.json",
+      "bytes": 824,
+      "sha256": "8963e481a6918bf1de2aee04efea15b09b56be6232fe91b45088665cfd071bb1",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/vite.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/vite.log",
+      "bytes": 73,
+      "sha256": "599ff559e1647612d5aa0efd7d21f0524f3bd6977e65428a53c10bb977730f80",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/erosion-regression/webgl.json",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-metal-skin-runtime-v1-20261024/full-v2/webgl.json",
+      "bytes": 11258,
+      "sha256": "9b4f9dca24ff6fc4291b787ee0afa9eccac58325087813fb57b4e9e41bd983c6",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/freeze.mjs",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/freeze.mjs",
+      "bytes": 3348,
+      "sha256": "928f10616f1ebabf17e1604e2848a858c42de6a3048fc0a73a4fab527b2186ce",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final.log",
+      "bytes": 136,
+      "sha256": "9408572ef0395e782792dbe2db1d4d88fb5099fa1af520edccdf9be34041de1e",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/cases.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/cases.json",
+      "bytes": 99181,
+      "sha256": "540c47b7ab4254316e3f9edf1a653a878516140eebee1bd7b1cba0ee9d8d6d74",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/comparison.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/comparison.json",
+      "bytes": 33686,
+      "sha256": "f805daf118e3ac5a7f09d9746fa79f4057ad7ab625cd34952d8dbacb342696e2",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/compile-command.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/compile-command.json",
+      "bytes": 314,
+      "sha256": "0ff65f46b6f408617dd4acf2bff83b1a53040f3dc5984c474e30a346d587ae03",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/compile-stderr.log",
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/compile-stdout.log",
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/compiler-version.txt",
+      "archived": ".cache/leona-metal-rim-accepted-v3-20261024/files/.cache/leona-metal-rim-runtime-v1-20261024/full-v2/compiler-version.txt",
+      "bytes": 100,
+      "sha256": "7ede0fc8211c644002a894b47810b24b6aa38c8a01620c2e706aa92df59c41a1",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/executable.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/executable.json",
+      "bytes": 218,
+      "sha256": "0f7551ecdd4c3c00db980d95bea3890e7ec5cc7e2a8e3646d3162c52b50a2a10",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/input-snapshots.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/input-snapshots.json",
+      "bytes": 4441,
+      "sha256": "823c225d7bc0bf196b50ef16fb0b82560efe3f87724d0283c7775a68ba5a896e",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/inputs.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/inputs.json",
+      "bytes": 2320,
+      "sha256": "f229220da051f2ff9ed2a8e2e0892c733a0d16fefbd8e323109e4f97067f18bd",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/inputs/.cache/leona-skin-metal-abi-v1-20261024/candidate-skin-vs0.metallib",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-skin-metal-abi-v1-20261024/candidate-skin-vs0.metallib",
+      "bytes": 5451,
+      "sha256": "129c06c6d4aeeb30090665c4b9a96f8222cda7c9b910f8d9fed54d074fb98397",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/inputs/.cache/leona-w-skin-shaders/particle_ps.ps-metal-11.metallib",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-w-skin-shaders/particle_ps.ps-metal-11.metallib",
+      "bytes": 3934,
+      "sha256": "9aafc8fe2b07c5d5420210480ed0cacfd37f3667660cfdf3b13d8d74336524d3",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/inputs/package-lock.json",
+      "archived": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/inputs/package.json",
+      "archived": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/package.json",
+      "bytes": 1147,
+      "sha256": "12108b696b046919346d6c157339b37b20ff57c3b3c2448949af3d8a98d8b2b6",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/inputs/src/content/leona-w-skin-fresnel.json",
+      "archived": ".cache/leona-w-skin-fresnel-accepted-v1-20261024/files/src/content/leona-w-skin-fresnel.json",
+      "bytes": 603,
+      "sha256": "65898adbd59d63a8ced08aceffe98dfb2b0701e65606f47c576dbcb702680cbc",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/inputs/src/render/leona-eclipse-skin-material.ts",
+      "archived": ".cache/leona-w-skin-fresnel-accepted-v1-20261024/files/src/render/leona-eclipse-skin-material.ts",
+      "bytes": 5643,
+      "sha256": "7d270981e6445be5bbd5ff7395a97a388e1e4d52c50c222d07ea391a809c8905",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/inputs/src/render/particle-color-phase.ts",
+      "archived": ".cache/leona-r-early-distortion-accepted-v1-20261024/frozen-inputs/src/render/particle-color-phase.ts",
+      "bytes": 3350,
+      "sha256": "ed731cc4b51af364b706da819271c7adc444807fbebe0f4a9af21575767ca847",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/inputs/tools/qa/leona-metal-skin-preview.html",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/tools/qa/leona-metal-skin-preview.html",
+      "bytes": 287,
+      "sha256": "dc606750a69311c95a68a85fc99da19f8ece40198327ebaf4bc28f77a4aedcb5",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/inputs/tools/qa/leona-metal-skin-preview.ts",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/tools/qa/leona-metal-skin-preview.ts",
+      "bytes": 4206,
+      "sha256": "e5ccf30aee6b794fe49046ae1d91e4573ef67a57089e5cbef0ea4e6530ac2698",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/inputs/tools/qa/leona-metal-skin.swift",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/inputs/tools/qa/leona-metal-skin.swift",
+      "bytes": 8961,
+      "sha256": "e4312045a92676ac369aab3f768a45f923168fbe983ac5b4de1d034dbe8201d0",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/inputs/tools/qa/metal-skin-cases.mjs",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/tools/qa/metal-skin-cases.mjs",
+      "bytes": 5353,
+      "sha256": "071647ef324c9c8ec07ddbb78aa921987976e20a830eeb0bba2767e06f64efce",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/inputs/tools/qa/metal-skin-lookup-cases.mjs",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/inputs/tools/qa/metal-skin-lookup-cases.mjs",
+      "bytes": 2401,
+      "sha256": "7f77a5464f2cef48277717be5db5f9cdbe015c55b4028ccb49e06e3c112250b4",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/inputs/tools/qa/run-leona-metal-skin.mjs",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/inputs/tools/qa/run-leona-metal-skin.mjs",
+      "bytes": 9435,
+      "sha256": "30456c5114033016bf86d983511902d3e7f03c4010916aeafc5238f8652a982b",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/inputs/tsconfig.json",
+      "archived": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/tsconfig.json",
+      "bytes": 522,
+      "sha256": "4055e05cf991ec8f34c5e21f91b801426d6bab1bccff02a2553c7d923e0e4c8b",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/native-command.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/native-command.json",
+      "bytes": 444,
+      "sha256": "6bdbdd82ecbbe1f55107175fa1b45c681d672ade334dd56f51ec80c556fc26dc",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/native-stderr.log",
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/native-stdout.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/native-stdout.log",
+      "bytes": 16093,
+      "sha256": "34312b23c68ab35ad981ca05787b173668ad0fa3aa9ded7161479caa7d3274ec",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/native.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/native.json",
+      "bytes": 15791,
+      "sha256": "22489e35c1594f7b7d09d4d5ebe7cd57ddc302edc4d8d2ecfe15494d64ac60f4",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/render",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/render",
+      "bytes": 196344,
+      "sha256": "0d5c13fcdd18921df631e5b2efe0a35addf4a43d0970cbf192bca5fdd5cb6fcc",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/scope.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/scope.json",
+      "bytes": 952,
+      "sha256": "6abb141c9c91434e3c4d7357ea8b5a055b966f91ac2eb1d0637d431279c1ca63",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/vite.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/vite.log",
+      "bytes": 73,
+      "sha256": "029e5a36e2c521d8d4fb1848d4618012a4184dc41c4136ad15f6ffff793f06d2",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/webgl.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-final/webgl.json",
+      "bytes": 10283,
+      "sha256": "99ac42f58dfd69ad82e75c617ab62eccc2c1d4470421cacb9dce62c1840801be",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1.log",
+      "bytes": 135,
+      "sha256": "4b178378813ba0f0031cac1c391b8a355182203c3dfd7b8c02974ab439ea8e15",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/cases.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/cases.json",
+      "bytes": 96229,
+      "sha256": "fc6843baa16ae5bf3582613d309aa327737d08794566c8486b9d821940818bb7",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/comparison.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/comparison.json",
+      "bytes": 33077,
+      "sha256": "306a84b2ad9d97f8a53423aedb86a3e50d456b6f3506af67ba1b48c44121e74b",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/compile-command.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/compile-command.json",
+      "bytes": 311,
+      "sha256": "9a3ec355f248db3b99b57240952b60ad76b2658b130ed7ccf241f20a8b6f7a32",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/compile-stderr.log",
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/compile-stdout.log",
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/compiler-version.txt",
+      "archived": ".cache/leona-metal-rim-accepted-v3-20261024/files/.cache/leona-metal-rim-runtime-v1-20261024/full-v2/compiler-version.txt",
+      "bytes": 100,
+      "sha256": "7ede0fc8211c644002a894b47810b24b6aa38c8a01620c2e706aa92df59c41a1",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/executable.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/executable.json",
+      "bytes": 215,
+      "sha256": "2e4f614c78da90e886d8f29c4f1cdb9e6ba3d2ff1c0edb526c9561dcb59432b7",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/inputs.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/inputs.json",
+      "bytes": 1903,
+      "sha256": "4cc059f163e20dc9d13c880ae453e23e56216a8448e8d01c2b4c3825a907055c",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/native-command.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/native-command.json",
+      "bytes": 438,
+      "sha256": "55a86532549695764c74938224bff1e01e175ac7c4f7594fbb84051dcfb8fbe4",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/native-stderr.log",
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/native-stdout.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/native-stdout.log",
+      "bytes": 15769,
+      "sha256": "0e062c897a926152f9586db838b22a8b7a93d7a98ccf99a47a894710fd76fa14",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/native.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/native.json",
+      "bytes": 15473,
+      "sha256": "4f368eca8c445befa39d4252d59c84ec034523da2a6d8840157e94f91e7bd44c",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/render",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/render",
+      "bytes": 196344,
+      "sha256": "0d5c13fcdd18921df631e5b2efe0a35addf4a43d0970cbf192bca5fdd5cb6fcc",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/scope.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/scope.json",
+      "bytes": 952,
+      "sha256": "6abb141c9c91434e3c4d7357ea8b5a055b966f91ac2eb1d0637d431279c1ca63",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/vite.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/vite.log",
+      "bytes": 73,
+      "sha256": "bb33ecc4ba451c025a71c64949ba9ee374366133b89c10b910681c4ef38ec2f5",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/webgl.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v1/webgl.json",
+      "bytes": 10283,
+      "sha256": "99ac42f58dfd69ad82e75c617ab62eccc2c1d4470421cacb9dce62c1840801be",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2.log",
+      "bytes": 136,
+      "sha256": "9408572ef0395e782792dbe2db1d4d88fb5099fa1af520edccdf9be34041de1e",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/cases.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/cases.json",
+      "bytes": 99181,
+      "sha256": "540c47b7ab4254316e3f9edf1a653a878516140eebee1bd7b1cba0ee9d8d6d74",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/comparison.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/comparison.json",
+      "bytes": 33686,
+      "sha256": "f805daf118e3ac5a7f09d9746fa79f4057ad7ab625cd34952d8dbacb342696e2",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/compile-command.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/compile-command.json",
+      "bytes": 311,
+      "sha256": "0135a36ad6be35749c3c201095232a3287f737dce3e272d0ab686af37749eb1f",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/compile-stderr.log",
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/compile-stdout.log",
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/compiler-version.txt",
+      "archived": ".cache/leona-metal-rim-accepted-v3-20261024/files/.cache/leona-metal-rim-runtime-v1-20261024/full-v2/compiler-version.txt",
+      "bytes": 100,
+      "sha256": "7ede0fc8211c644002a894b47810b24b6aa38c8a01620c2e706aa92df59c41a1",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/executable.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/executable.json",
+      "bytes": 215,
+      "sha256": "af1e5917df3d996ff8a174f29182778662ffee2f5621b99109f61e52d33f7d2c",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/inputs.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/inputs.json",
+      "bytes": 1903,
+      "sha256": "402461aca1c63c771e233d2ba3fedf7b17ac14aaa22efd88fbc3ac33ea83469d",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/native-command.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/native-command.json",
+      "bytes": 438,
+      "sha256": "4d8338da70ad5af28a16dfb1d4a07a7c26ecf109d2c6df0627dc14326297b6e0",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/native-stderr.log",
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/native-stdout.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/native-stdout.log",
+      "bytes": 16093,
+      "sha256": "34312b23c68ab35ad981ca05787b173668ad0fa3aa9ded7161479caa7d3274ec",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/native.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/native.json",
+      "bytes": 15791,
+      "sha256": "22489e35c1594f7b7d09d4d5ebe7cd57ddc302edc4d8d2ecfe15494d64ac60f4",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/render",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/render",
+      "bytes": 196344,
+      "sha256": "0d5c13fcdd18921df631e5b2efe0a35addf4a43d0970cbf192bca5fdd5cb6fcc",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/scope.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/scope.json",
+      "bytes": 952,
+      "sha256": "6abb141c9c91434e3c4d7357ea8b5a055b966f91ac2eb1d0637d431279c1ca63",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/vite.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/vite.log",
+      "bytes": 73,
+      "sha256": "84fc1c09f82b176186e88cc6a87d455e8aeb13a2f75054e1924c09bebb8a0eb3",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/webgl.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/lookup-v2/webgl.json",
+      "bytes": 10283,
+      "sha256": "99ac42f58dfd69ad82e75c617ab62eccc2c1d4470421cacb9dce62c1840801be",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls.mjs",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls.mjs",
+      "bytes": 2507,
+      "sha256": "72f1b55a3cef45219ba98b27996c6b4170833a8a9dfb196aac9e8e7f222f8e00",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/changed-input-snapshot-data",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/changed-input-snapshot-data",
+      "bytes": 5451,
+      "sha256": "a35c3e8447797c1a41b206b1ba1cae3648a7ad04712f07236643e1dcb3a62d98",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/changed-input-snapshot-pin.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/changed-input-snapshot-pin.json",
+      "bytes": 63704,
+      "sha256": "e67c57c4021c7e57a94efffe02f7b0aacccb105bf1da53d2bfe53097053c56ae",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/changed-input-snapshot.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/changed-input-snapshot.log",
+      "bytes": 918,
+      "sha256": "e92e730549827133252830e1540a02c704faf875bf7e07767c768cc0e5cd25f4",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/changed-library-record-data",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/changed-library-record-data",
+      "bytes": 2320,
+      "sha256": "0e3aa16e5b08fd71ad5a4070269d85ae901ed9f4e814992de87ec0140058a697",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/changed-library-record-pin.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/changed-library-record-pin.json",
+      "bytes": 63689,
+      "sha256": "18be50ade891767d0ddfa7e427234e3cd7440bc2d94e2221e535a3e2404cebf6",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/changed-library-record.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/changed-library-record.log",
+      "bytes": 818,
+      "sha256": "30edc3a79a6592123b60668dd58036f0248c63731796453622edf8f6af321942",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/changed-pixel-data",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/changed-pixel-data",
+      "bytes": 15791,
+      "sha256": "45aa8863cef5cccae74628ba625de4eef7cd2719440241b7da356791d010e74a",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/changed-pixel-pin.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/changed-pixel-pin.json",
+      "bytes": 63680,
+      "sha256": "70bbad70233162d0a974fd86e8e22474c1c332fa58b74d1a7569ea3d1ace63dc",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/changed-pixel.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/changed-pixel.log",
+      "bytes": 43955,
+      "sha256": "4b5b3fc31c93b1cf24b15e81afd5732a51e4658766d1396093d6a33ccf2739ad",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/missing-case-data",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/missing-case-data",
+      "bytes": 97703,
+      "sha256": "a594643492f87af041f9f3f73f072689438759de7391806249fc62e3928a3de2",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/missing-case-pin.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/missing-case-pin.json",
+      "bytes": 63680,
+      "sha256": "094f02a7ee6c0153cea1b413f8cffb6f682fd1afb7a7eb281c63f06803ac19b6",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/missing-case.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/missing-case.log",
+      "bytes": 513,
+      "sha256": "6eb4002a962435b4156b351e2d475a1884e6daa9fa18f7eb116fb3cf3564cb01",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/results.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/results.json",
+      "bytes": 414,
+      "sha256": "5a55694061d11708777786ec55fc4ae3224220f2e93cdc066d35ae24449eb361",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/unsupported-webgl-data",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/unsupported-webgl-data",
+      "bytes": 10438,
+      "sha256": "b34756c4d8ec44b303025e0247bf1bd48877e3298f519d7493bc01528655b3b4",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/unsupported-webgl-pin.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/unsupported-webgl-pin.json",
+      "bytes": 63685,
+      "sha256": "75092ebce5d47cfcb16592028d5bb3bd408ae1a9ae481267e39d491dbe24754c",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/unsupported-webgl.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/negative-controls/unsupported-webgl.log",
+      "bytes": 511,
+      "sha256": "dfb6e3ef955395723a8d7afa72aad250eeac0f5e865a7d2feeae116677b3867c",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/node-qa.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/node-qa.log",
+      "bytes": 431,
+      "sha256": "2b403b70926a30bc9b7e189240b7820621a96a5faae8b5e0b74f592d5324431c",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/prior-depth-historical.log",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-metal-skin-runtime-v1-20261024/prior-depth-historical.log",
+      "bytes": 77,
+      "sha256": "6ba3ff4f000c27731f2be326a1d75f4c060e4a99f1e6658c84c000b3ec7d24bd",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/prior-skin-historical.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/prior-skin-historical.log",
+      "bytes": 93,
+      "sha256": "e180882084fbb1d76064e821385c32f7d44861f1a05be395d5e6b2d0adf3e8bc",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/reuse-output-rejection/result.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/reuse-output-rejection/result.json",
+      "bytes": 548,
+      "sha256": "4bf11f259037e05e48e151b02b8a86db835cf3a2592597606510aa38702f1452",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/reuse-output-rejection/stderr.log",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-metal-skin-lookup-runtime-v1-20261024/reuse-output-rejection/stderr.log",
+      "bytes": 594,
+      "sha256": "e96cbe3541869b87cd45afb15a146ec9ecde543af3c5553f6d8adeb6cf083a64",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-skin-lookup-runtime-v1-20261024/reuse-output-rejection/stdout.log",
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-skin-metal-abi-v1-20261024/abi.json",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-skin-metal-abi-v1-20261024/abi.json",
+      "bytes": 49150,
+      "sha256": "7f0ee6a0e90880cebd8a3c7dbbb2124773b3d7a20597deca854f89ced7000a5d",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-skin-metal-abi-v1-20261024/candidate-skin-vs0.bc",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-skin-metal-abi-v1-20261024/candidate-skin-vs0.bc",
+      "bytes": 5132,
+      "sha256": "5e2af93f0e1315520b751f697615d27af0de145d4aaa63cb95026a1f5b6a77f7",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-skin-metal-abi-v1-20261024/candidate-skin-vs0.metallib",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-skin-metal-abi-v1-20261024/candidate-skin-vs0.metallib",
+      "bytes": 5451,
+      "sha256": "129c06c6d4aeeb30090665c4b9a96f8222cda7c9b910f8d9fed54d074fb98397",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-skin-metal-abi-v1-20261024/check.py",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-skin-metal-abi-v1-20261024/check.py",
+      "bytes": 10666,
+      "sha256": "a0995c8ca7a32d3ef5bff5922fffddf4e9e747c063bfbd98fedc072240db641b",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-skin-metal-abi-v2-20261024/abi.json",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/docs/reference/leona-skin-metal-abi.json",
+      "bytes": 30069,
+      "sha256": "2a75b2c6b8951ac1a45f38d77517469046478ecedd4aca8197d8505e28e1202e",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-skin-metal-abi-v2-20261024/check.py",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-skin-metal-abi-v2-20261024/check.py",
+      "bytes": 8449,
+      "sha256": "04ef073fb47e980e8cf85d22e7f4fa4bbca1dedceab0358388f042b53062c1da",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-skin-metal-abi-v2-20261024/decode.json",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-skin-metal-abi-v2-20261024/decode.json",
+      "bytes": 1575,
+      "sha256": "b196a3be0ba5b2b06112065986299e3d9bdf0ee854bb636a23139bdaa460fb3f",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-skin-metal-abi-v2-20261024/harness-review.json",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-skin-metal-abi-v2-20261024/harness-review.json",
+      "bytes": 14721,
+      "sha256": "78b13f8cbde725507dd1027c7399d75b689f16c415aaec50e543be428fd4978c",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-skin-metal-abi-v2-20261024/skin-vs0.ll",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-skin-metal-abi-v2-20261024/skin-vs0.ll",
+      "bytes": 15200,
+      "sha256": "a133f3eaff2160550276b0946e91bb7dbf90cbaef70b579fb4e747f3c248672b",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-skin-nonerosion-abi-v1-20261024/abi.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-skin-nonerosion-abi-v1-20261024/abi.json",
+      "bytes": 16122,
+      "sha256": "83259a539d12bba993cf3716ce1459199729f079970e4542d839a1bfa4590132",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-skin-nonerosion-abi-v1-20261024/check.py",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-skin-nonerosion-abi-v1-20261024/check.py",
+      "bytes": 9036,
+      "sha256": "46dff559f7e25cf5870338608385e299455d2e0ef4a7d6cecf13a1483bc7361b",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-skin-nonerosion-abi-v1-20261024/harness-review-v2.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-skin-nonerosion-abi-v1-20261024/harness-review-v2.json",
+      "bytes": 13563,
+      "sha256": "00215664c5867a04b06eec43e220e727a3a64b198faf42fd0ce2ed5b53a1d4b1",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-skin-nonerosion-abi-v1-20261024/harness-review.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/.cache/leona-skin-nonerosion-abi-v1-20261024/harness-review.json",
+      "bytes": 16246,
+      "sha256": "4fbec891e5a07f9d1cb4193c40138588db63dfd6d122fa870628890479027b05",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-w-skin-shaders/native/assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-w-skin-shaders/native/assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal",
+      "bytes": 12562,
+      "sha256": "e38b0f01bb7db3b833c9174570e15e510eb359e87f609d6ca8b453fc2c5f91a7",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-w-skin-shaders/native/assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal_0",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-w-skin-shaders/native/assets/shaders/hlsl/skinnedmesh/particle_ps.ps-metal_0",
+      "bytes": 418600,
+      "sha256": "6bc394193026df46cab5d182b8b7e0e0e58f064211827039d223c4e938c48019",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-w-skin-shaders/native/assets/shaders/hlsl/skinnedmesh/particle_vs.vs-metal",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-w-skin-shaders/native/assets/shaders/hlsl/skinnedmesh/particle_vs.vs-metal",
+      "bytes": 3295,
+      "sha256": "883c94f561e86a7fefa5137979cceb76b1ca416e85fb96e60b4023afa859a6a7",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-w-skin-shaders/native/assets/shaders/hlsl/skinnedmesh/particle_vs.vs-metal_0",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-w-skin-shaders/native/assets/shaders/hlsl/skinnedmesh/particle_vs.vs-metal_0",
+      "bytes": 569081,
+      "sha256": "2e476043d18dd7b927ed23e4b060ffef9616378fb24f7c43f0e43303d4406cba",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-11.bc",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-w-skin-shaders/particle_ps.ps-metal-11.bc",
+      "bytes": 3668,
+      "sha256": "309d5813af1a49768eb3e2d1bde6e1e20dd11423449ac352d283062d3336232e",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-11.ll",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-w-skin-shaders/particle_ps.ps-metal-11.ll",
+      "bytes": 6571,
+      "sha256": "f28455ab4950f09659f536b6c6a850c8c325a16209f8f6a23c56009ad5d78989",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-11.metallib",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-w-skin-shaders/particle_ps.ps-metal-11.metallib",
+      "bytes": 3934,
+      "sha256": "9aafc8fe2b07c5d5420210480ed0cacfd37f3667660cfdf3b13d8d74336524d3",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-34.bc",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-w-skin-shaders/particle_ps.ps-metal-34.bc",
+      "bytes": 3904,
+      "sha256": "135d2eab28dc3145cfda8a6cb4262ad51613f06581b428997bdd98427b4a0f21",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-34.ll",
+      "archived": ".cache/leona-w-skin-fresnel-accepted-v1-20261024/files/.cache/leona-w-skin-shaders/particle_ps.ps-metal-34.ll",
+      "bytes": 8181,
+      "sha256": "c80c8d2ac98e335b1274dc2bc981e2b2b970e2b8b335475f0e16038ba3fd0073",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-w-skin-shaders/particle_ps.ps-metal-34.metallib",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-w-skin-shaders/particle_ps.ps-metal-34.metallib",
+      "bytes": 4174,
+      "sha256": "f766696d141aa3b772612ec73476e9c745e3b7dceb84410b4de68a7190442fcd",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-w-skin-shaders/particle_vs.vs-metal-5.bc",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-w-skin-shaders/particle_vs.vs-metal-5.bc",
+      "bytes": 5228,
+      "sha256": "e44916f7dd78cbd5bf048b19d844b8b2c35f8e0dfd80b25a7c2bf575dc062629",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-w-skin-shaders/particle_vs.vs-metal-5.ll",
+      "archived": ".cache/leona-w-skin-fresnel-accepted-v1-20261024/files/.cache/leona-w-skin-shaders/particle_vs.vs-metal-5.ll",
+      "bytes": 15990,
+      "sha256": "bc13db4bf591d8c899490c542246f74e3093c64beffbb04fa4a36a57bc7f9108",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-w-skin-shaders/particle_vs.vs-metal-5.metallib",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/.cache/leona-w-skin-shaders/particle_vs.vs-metal-5.metallib",
+      "bytes": 5547,
+      "sha256": "c1d65ae75e02de6584f7f8d8bfb64ac91b34d1e72c714fe492b89382915e3678",
+      "current": false
+    },
+    {
+      "file": "docs/LEONA-METAL-SKIN-LOOKUP.md",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/docs/LEONA-METAL-SKIN-LOOKUP.md",
+      "bytes": 5144,
+      "sha256": "10ff117c645616557fd2edf4d7d334068b05c2b00c8e8f026ee064e3b2283a3c",
+      "current": true
+    },
+    {
+      "file": "docs/LEONA.md",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/docs/LEONA.md",
+      "bytes": 35448,
+      "sha256": "6df4ca35e027359a75ea10ca89dd78b8b1afe6f40837d53afdaedf96cc0c7a8c",
+      "current": true
+    },
+    {
+      "file": "docs/PROGRESS.md",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/docs/PROGRESS.md",
+      "bytes": 642108,
+      "sha256": "ebca4eb999e64839970d1a7c935ae9e625df2c032e5a14013e61dad276c78319",
+      "current": true
+    },
+    {
+      "file": "docs/reference/leona-skin-nonerosion-abi.json",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/docs/reference/leona-skin-nonerosion-abi.json",
+      "bytes": 16122,
+      "sha256": "83259a539d12bba993cf3716ce1459199729f079970e4542d839a1bfa4590132",
+      "current": true
+    },
+    {
+      "file": "docs/reference/leona-w-skin-shaders.json",
+      "archived": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/docs/reference/leona-w-skin-shaders.json",
+      "bytes": 16531,
+      "sha256": "22d114caa9f392f733949859d75e5b9c278688d821e7408096c0f47576ae1448",
+      "current": true
+    },
+    {
+      "file": "package-lock.json",
+      "archived": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e",
+      "current": true
+    },
+    {
+      "file": "package.json",
+      "archived": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/package.json",
+      "bytes": 1147,
+      "sha256": "12108b696b046919346d6c157339b37b20ff57c3b3c2448949af3d8a98d8b2b6",
+      "current": true
+    },
+    {
+      "file": "src/content/leona-w-skin-fresnel.json",
+      "archived": ".cache/leona-w-skin-fresnel-accepted-v1-20261024/files/src/content/leona-w-skin-fresnel.json",
+      "bytes": 603,
+      "sha256": "65898adbd59d63a8ced08aceffe98dfb2b0701e65606f47c576dbcb702680cbc",
+      "current": true
+    },
+    {
+      "file": "src/render/leona-eclipse-skin-material.ts",
+      "archived": ".cache/leona-w-skin-fresnel-accepted-v1-20261024/files/src/render/leona-eclipse-skin-material.ts",
+      "bytes": 5643,
+      "sha256": "7d270981e6445be5bbd5ff7395a97a388e1e4d52c50c222d07ea391a809c8905",
+      "current": true
+    },
+    {
+      "file": "src/render/particle-color-phase.ts",
+      "archived": ".cache/leona-r-early-distortion-accepted-v1-20261024/frozen-inputs/src/render/particle-color-phase.ts",
+      "bytes": 3350,
+      "sha256": "ed731cc4b51af364b706da819271c7adc444807fbebe0f4a9af21575767ca847",
+      "current": true
+    },
+    {
+      "file": "tools/assets/extract-leona-w-skin-shaders.py",
+      "archived": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/tools/assets/extract-leona-w-skin-shaders.py",
+      "bytes": 5947,
+      "sha256": "990b58bde9918e27e356ba5bb385e4f8bcae8342f03627c488c59dc19e5644d0",
+      "current": true
+    },
+    {
+      "file": "tools/qa/leona-metal-skin-preview.html",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/tools/qa/leona-metal-skin-preview.html",
+      "bytes": 287,
+      "sha256": "dc606750a69311c95a68a85fc99da19f8ece40198327ebaf4bc28f77a4aedcb5",
+      "current": true
+    },
+    {
+      "file": "tools/qa/leona-metal-skin-preview.ts",
+      "archived": ".cache/leona-metal-skin-accepted-v3-20261024/files/tools/qa/leona-metal-skin-preview.ts",
+      "bytes": 4206,
+      "sha256": "e5ccf30aee6b794fe49046ae1d91e4573ef67a57089e5cbef0ea4e6530ac2698",
+      "current": true
+    },
+    {
+      "file": "tools/qa/leona-metal-skin.swift",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/tools/qa/leona-metal-skin.swift",
+      "bytes": 8961,
+      "sha256": "e4312045a92676ac369aab3f768a45f923168fbe983ac5b4de1d034dbe8201d0",
+      "current": true
+    },
+    {
+      "file": "tools/qa/metal-skin-cases.mjs",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/tools/qa/metal-skin-cases.mjs",
+      "bytes": 5353,
+      "sha256": "071647ef324c9c8ec07ddbb78aa921987976e20a830eeb0bba2767e06f64efce",
+      "current": true
+    },
+    {
+      "file": "tools/qa/metal-skin-lookup-cases.mjs",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/tools/qa/metal-skin-lookup-cases.mjs",
+      "bytes": 2401,
+      "sha256": "7f77a5464f2cef48277717be5db5f9cdbe015c55b4028ccb49e06e3c112250b4",
+      "current": true
+    },
+    {
+      "file": "tools/qa/run-leona-metal-skin.mjs",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/tools/qa/run-leona-metal-skin.mjs",
+      "bytes": 9435,
+      "sha256": "30456c5114033016bf86d983511902d3e7f03c4010916aeafc5238f8652a982b",
+      "current": true
+    },
+    {
+      "file": "tools/qa/verify-leona-metal-skin-lookup.mjs",
+      "archived": ".cache/leona-metal-skin-lookup-accepted-v2-20261024/files/tools/qa/verify-leona-metal-skin-lookup.mjs",
+      "bytes": 8520,
+      "sha256": "0ff6ba013bb43962bf5cf87c22b93fd34cc575c9de0732bd393787a06cdb72b6",
+      "current": true
+    },
+    {
+      "file": "tsconfig.json",
+      "archived": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/tsconfig.json",
+      "bytes": 522,
+      "sha256": "4055e05cf991ec8f34c5e21f91b801426d6bab1bccff02a2553c7d923e0e4c8b",
+      "current": true
+    }
+  ],
+  "limits": [
+    "100 original PS11/scalar samples; only76 explicit white lookup cases compare with the local no-lookup material. Other24 have no WebGL observation.",
+    "88 fresh original PS34 erosion regressions compare all three. Identity bind/orthographic/depth0 fixture only.",
+    "Live execution paths are captured before compilation, without concurrent edits; no installed-dependency/SDK/browser snapshot, native W selection/defaultresource/renderstate/frame or performance acceptance."
+  ]
+}

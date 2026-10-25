@@ -6564,3 +6564,38 @@ See [reset scope](LEONA-Q-BOT-RESET.md) and
 [ledger](reference/leona/q-bot-reset-verification.json). Complete Q/E/R tactics,
 player/support and native/full-roster acceptance remain open. No new normal-
 match cohort or performance claim follows. The active goal continues; nothing pushed.
+
+## Original Metal skin lookup and explicit comparison boundary — October 24, 2026
+
+Unchanged original VS0/PS11 now pass100 byte-exact RGBA8 Metal/scalar cases on the
+recorded M1.76 explicit white-RGBA lookup cases also match the local WebGL material.
+The other24 lookup-alpha/colored-lookup/independent-UV/active-remap controls have
+no WebGL comparison; saved comparison fields are null. The local material has no
+lookup-resource path. A fresh88-case original VS0/PS34 erosion regression passes
+all three comparisons exactly after the shared harness extension. This records
+188 native/scalar observations and164 local comparisons, not188 local draws.
+
+Static normal/optimized-Python checks verify the original PS11 bundle/library/AIR,
+matching interface,8-byte fragment16 float2 and changed resource slots. The
+original vertex contract is retained. In hardware, lookup alpha scales rim before
+tint alpha, while outputalpha multiplies both. Zero lookupalpha with active
+remap still yields replacementRGB and zeroalpha. All command buffers complete;
+compared WebGL errors and maximum channel differences are zero. See
+[fixture scope](LEONA-METAL-SKIN-LOOKUP.md) and
+[static ABI](reference/leona-skin-nonerosion-abi.json).
+
+The runner now refuses an existing output directory and snapshots14 whitelisted
+inputs before compiling the owned Swift harness. Each copy is checked against
+the input manifest; original shader libraries remain unchanged. An independent
+read-only review checks core bindings/math and verifies the captured bytes.
+Execution still reads live paths, with no concurrent edits in the accepted runs;
+this is not an atomic snapshot of installed dependencies or the SDK/browser.
+The [offline ledger](reference/leona/metal-skin-lookup-verification.json) freezes
+all final inputs, copies, commands, executable hashes and samples. Corrupted
+case/pixel/library, unsupported-WebGL and input-copy controls are rejected.
+
+Earlier88 skin and267 depth ledgers verify historically. The three Node QA tests
+pass. No application/public assets, schema126, rulesetde9c47cb or pack5a22adeb
+change; no new production/offline run, cohort or performance claim is made.
+Actual Leona palette/dispatch/resources/renderstate/frames, player/support and
+full-roster acceptance remain open. Work continues under the active goal; nothing pushed.
