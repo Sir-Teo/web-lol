@@ -198,3 +198,12 @@ motion/appearance profiles and a conservative 108-tick visual retention bound.
 retain the 42 deferred records and the unresolved native shape/random/integration
 semantics. Six frozen Chrome comparisons preserve every RGBA byte with three
 draws instead of up to 81 separate particle draws; this is not FPS certification.
+
+
+## Original source audit caches
+
+Clean cloud checkouts can restore the original Garen attack/recovery media and
+passive BIN/TEX audit inputs without regenerating shipped assets or reference
+pins. See [source audit cache restoration](SOURCE-AUDIT-CACHES.md) for the pinned
+extraction commands, immutable WEM helper, check modes and remaining native/
+shader-input limits.

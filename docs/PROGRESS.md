@@ -7879,3 +7879,24 @@ movement durations. New-target untargetability must be separated from the
 existing damage/protection check so Q does not become blanket invulnerability.
 Q remains unavailable while these controllers and saved interaction policies are
 implemented and checked. No new game behavior or native calibration is claimed.
+
+
+## 2026-10-25 — restore three Garen source audit groups in cloud
+
+Installed the exact Python extraction requirements and pinned CDTB checkout,
+then selectively re-extracted both Garen banks and the passive's three BIN/three
+TEX inputs from the frozen archive. A new immutable media-cache helper restores
+36 original WEM slices (328,799 bytes) using the checked bank/graph/decoded hash
+chain and exact offsets, with validation before any writes. It refuses differing
+existing files, supports check mode and retains guards under Python optimization.
+Ten offline mutation cases pass in each Python mode. No authoring graph, source
+pin, public WAV/PNG, runtime code or test assertion changed.
+
+All 20 unchanged cases in the three formerly failing Garen source-audit groups
+now pass. [Reproduction](SOURCE-AUDIT-CACHES.md) and the
+[restore record](reference/source-audit-garen-restore.json) preserve input hashes,
+original bytes, toolchain identity and logs. The preceding broad run's Leona
+native/research-input, distortion-source/disassembly and Lux sampler-digest groups
+are not repaired by this restore; no fresh full-suite pass is claimed. Schema142,
+Highlander ruleset and production pack remain unchanged, so no game build or
+browser rerun was needed for these tool/cache-only changes.
