@@ -64,8 +64,8 @@ test('own E learns normally while Q/R stay unavailable and no Hawkshot charges a
   expect(f.state.spellRanks).toEqual({ q: 0, w: 0, e: 1, r: 0 });
   expect(f.state.skillPoints).toBe(0);
   expect(f.state.eCharges).toBe(0);
-  for (const spell of ['q'] as const)
-    expect(f.w.learnSpell(spell, f.yi.id)).toMatch(/not implemented/);
+  expect(f.w.spellLearningError('q', f.yi.id)).toMatch(/skill points/);
+  expect(f.w.abilitySpec('q', f.yi.id).name).toBe('Alpha Strike');
   expect(f.w.learnSpell('e', f.yi.id)).toMatch(/No skill points/);
   expect(World.fromSnapshot(f.w.snapshot(), f.w.battlefield).snapshot()).toBe(f.w.snapshot());
 });

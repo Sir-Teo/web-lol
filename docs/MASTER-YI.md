@@ -16,10 +16,13 @@ combat, body/recall poses and private saved practice. The later
 [Double Strike controller](MASTER-YI-PASSIVE.md) adds the development passive,
 and [Wuju Style](MASTER-YI-E.md) adds E empowerment. [Meditate](MASTER-YI-W.md)
 adds the channel and W/E/passive interactions. [Highlander](MASTER-YI-R.md) adds R,
-slow immunity, takedown effects and W/R pauses. Q remains unimplemented,
-and production player selection stays Ashe/Lux. [Alpha Strike preparation](reference/masteryi/q-preparation.json)
-retains checked Q rank/formula/child-travel declarations outside runtime inputs;
-its targeting, mark/damage timing, exit direction and untargetability remain open.
+slow immunity, takedown effects and W/R pauses. [Alpha Strike](MASTER-YI-Q.md)
+adds Q marks, untargetability, return/recovery and basic-hit cooldown reduction
+at schema 143. The private NPC owns all four development controllers; full native
+presentation/dispatch, player/role integration and production selection stay open.
+[Q preparation](reference/masteryi/q-preparation.json) records the earlier staged
+source checkpoint before its runtime controller.
+
 
 ## Exact retained package
 

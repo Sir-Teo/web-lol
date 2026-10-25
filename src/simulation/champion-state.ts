@@ -37,6 +37,7 @@ export function createChampionState(id: number, unlocked = true, tick = 0): Cham
     wujuStyle: null,
     meditate: null,
     highlander: null,
+    alphaStrike: null,
     garenAAVisuals: [],
     leonaAAVisuals: [],
     leonaDeathVisuals: [],

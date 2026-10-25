@@ -1,5 +1,9 @@
 # Development Highlander
 
+This document records the schema-142 R checkpoint. [Alpha Strike](MASTER-YI-Q.md)
+adds Q and includes it in the passive refund at schema 143. Statements below
+about unavailable Q describe the earlier checkpoint.
+
 The private `/?scene=fixture&npc=masteryi` scene supports manual W/E/R learning
 and casts on its Master Yi NPC. Ashe remains the human. R adds its own temporary
 stat bonuses, slow immunity, champion takedown extension and passive W/E cooldown

@@ -21,7 +21,7 @@ interface OrbWorld {
   units: Unit[];
   unit(id: number): Unit | undefined;
   alive(unit: Unit): boolean;
-  vulnerable(unit: Unit): boolean;
+  targetable(unit: Unit): boolean;
   damage(source: Unit, target: Unit, raw: number, kind: 'magic' | 'true', category: 'area'): void;
 }
 
@@ -79,7 +79,7 @@ export function advanceAhriOrbs(world: OrbWorld): void {
             unit.id !== source.id &&
             unit.team !== orb.team &&
             world.alive(unit) &&
-            world.vulnerable(unit) &&
+            world.targetable(unit) &&
             !['turret', 'nexus', 'inhibitor', 'ward'].includes(unit.kind) &&
             !hitIds.includes(unit.id)
         )

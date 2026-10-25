@@ -1,0 +1,738 @@
+{
+  "recordedAt": "2026-10-25T20:14:46.155111+00:00",
+  "baselineCommit": "8cca6a8",
+  "scope": "Private Master Yi NPC Alpha Strike local mark/return/untargetability/on-hit controllers, basic-hit cooldown reduction, R refund and existing neutral aggro retention. Full native/player/role/presentation completion is not claimed.",
+  "schema": 143,
+  "ruleset": "1228a6d9dd799df0e1ee9e2d4447f631a3437a17ae362ac5e5bc041040c9cc1d",
+  "browser": "System Chromium154.0.8037.57 / Debian13 via temporary executable-path launcher only",
+  "changedRuntimeAndTestInputs": [
+    {
+      "file": "src/content/masteryi-q.ts",
+      "bytes": 1681,
+      "sha256": "63516549b036df5ec1fd7403531f8f6a46605720aff20c403a52120c87724190"
+    },
+    {
+      "file": "src/simulation/masteryi-alpha-strike.ts",
+      "bytes": 12018,
+      "sha256": "17bcb92b3907d029589c4f12724ca70e532aba232ba71a9c6f95d6c476cc44bd"
+    },
+    {
+      "file": "src/simulation/world.ts",
+      "bytes": 287612,
+      "sha256": "c8b2119e6be5fcfe675f741904b770f2e6acf8f5f425ce4ed4cb8cda3e1a2a02"
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "bytes": 172475,
+      "sha256": "d9dd474dce74ae4d3e2612dc9e440b5b123090ed3b60576c45e62b2bbe9dd4a1"
+    },
+    {
+      "file": "src/simulation/types.ts",
+      "bytes": 21415,
+      "sha256": "8d94a667cace6b94c2c0947e9f0cf632e7a3eb36afc30c64a685624dc3398cde"
+    },
+    {
+      "file": "src/simulation/champion-state.ts",
+      "bytes": 3845,
+      "sha256": "0e34b49b2bc6792eb09f5719d2581dd7f69b1a3f94f7d8a9153bc71106f5c315"
+    },
+    {
+      "file": "src/simulation/masteryi-highlander.ts",
+      "bytes": 2889,
+      "sha256": "acf5db01a3d12c0860e422d09df162ef7e599c97d57bb936ad85f7f7c2ca5665"
+    },
+    {
+      "file": "src/simulation/ahri-orbs.ts",
+      "bytes": 3604,
+      "sha256": "62ccbf6653a61000f9b563e682dc2d9f01729d6fba5630556f99b8b396461495"
+    },
+    {
+      "file": "src/simulation/ahri-fox-fires.ts",
+      "bytes": 8916,
+      "sha256": "136e99275da65e389d5fe186ba22f5b3838f922b72db9f5d4b047612fd2d184f"
+    },
+    {
+      "file": "src/simulation/ahri-spirit-rush.ts",
+      "bytes": 12164,
+      "sha256": "1329c6b619eea3568d7632b5b58c097268f2451a02b71388dfa410d60c97fbf1"
+    },
+    {
+      "file": "src/simulation/smite.ts",
+      "bytes": 2073,
+      "sha256": "36e574a8b68ed8f483c52b1d9df80d5e3cde8c21661c8a28db521d422a5e5d25"
+    },
+    {
+      "file": "src/simulation/owned-companions.ts",
+      "bytes": 10951,
+      "sha256": "aff40a24b3aaa11336aafac716fc0caae4ab10a8de19e8f9ef36f890ee5b3069"
+    },
+    {
+      "file": "src/simulation/companion-passives.ts",
+      "bytes": 5975,
+      "sha256": "120a23d82dd87a13556f6673909b2009da96473c76cf92d3d774915f0c5ebf09"
+    },
+    {
+      "file": "src/render/view.ts",
+      "bytes": 60772,
+      "sha256": "0f02a4e829d5aeb15c26edf93cb48155dd80849e99548e9ce29bb537a78de3f5"
+    },
+    {
+      "file": "tests/masteryi-alpha-strike.test.ts",
+      "bytes": 21185,
+      "sha256": "da8b0f1adcf8f8f37f168db4fc9437c1a772462e46d1f4e7d7fd5935a4a2d5de"
+    },
+    {
+      "file": "tests/masteryi-development.test.ts",
+      "bytes": 9589,
+      "sha256": "97a45840564dcd986ba8f4e98fa32c7d76e8e939e4cad7bb4d0124ce80b3969a"
+    },
+    {
+      "file": "tests/masteryi-meditate.test.ts",
+      "bytes": 18963,
+      "sha256": "e05526fb17d64140d525920d20412607db49ffa731342e585780b563d17581c9"
+    },
+    {
+      "file": "tests/masteryi-wuju-style.test.ts",
+      "bytes": 11676,
+      "sha256": "3f7082c5409e1a2df242c6f6c4a5918eeb25c30f45ae27db59620cde0ff402cb"
+    },
+    {
+      "file": "tests/masteryi-highlander.test.ts",
+      "bytes": 14718,
+      "sha256": "f2dd012231f0a5793b85badcba3e52e48163506fd38cb0186e4f5e98917d5a92"
+    },
+    {
+      "file": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "f8800f04dbd0b2bb24c254f23f7a34071743492e30d1afe33fec224f5fc7376b"
+    },
+    {
+      "file": "e2e/masteryi-alpha-strike.spec.ts",
+      "bytes": 6998,
+      "sha256": "e763952f5d3eb297edd108df1d6808f10fb5746cf1a03574321450c3366fab86"
+    },
+    {
+      "file": "e2e/masteryi-development.spec.ts",
+      "bytes": 13663,
+      "sha256": "055de25e154c1bd5babd69b00df6f1057a38bb39f05f3ae384faf7a664912aec"
+    },
+    {
+      "file": "tools/assets/export-masteryi-q.py",
+      "bytes": 6418,
+      "sha256": "7f2463132039402ae622ee46e3dd44a080bb9ab517bc7ceb65b65334860c8028"
+    },
+    {
+      "file": "tools/assets/test-masteryi-q.py",
+      "bytes": 2769,
+      "sha256": "6ac2d58925b696812b898eeb2a9890e3caa697929c788c6de6ed9a396e0e21bb"
+    }
+  ],
+  "validation": {
+    "source": {
+      "frozenPatch": "26.18 / 16.18.8175716 / Data Dragon16.18.1",
+      "normalAndOptimizedExporterCheck": true,
+      "guardCasesPerPythonMode": 11,
+      "rootAnimationAndTargetingOmitted": true,
+      "damageStatFormulaOmitted": true,
+      "legacyAndChildMovementTimesKeptDistinct": true
+    },
+    "focused": {
+      "passed": 282,
+      "failed": 0,
+      "files": 12,
+      "qCases": 53
+    },
+    "broad": {
+      "command": "npx vitest run tests --maxWorkers=1",
+      "passed": 2379,
+      "failed": 3,
+      "files": 344,
+      "allMasterYiCasesPassed": 200,
+      "originalWaveClockDeadlinePassed": true,
+      "remainingBaselineGroups": [
+        "Leona native/research inputs missing: .cache/leona-attached-skin-reflection-reading-v1-20261024/check.py",
+        "Distortion original Metal/bitcode/disassembly inputs missing",
+        "Lux unchanged baseline sampler digest discrepancy"
+      ],
+      "garenAuditGroupsRestoredEarlier": "docs/reference/source-audit-garen-restore.json",
+      "luxDigest": {
+        "expected": "09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df",
+        "received": "4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a"
+      },
+      "baselineReproduction": "Untouched9c2b451; .cache/masteryi-passive-cloud/baseline-six.log / passive-verification.json"
+    },
+    "browser": {
+      "alphaBatch": {
+        "passed": 3,
+        "failed": 0,
+        "phases": [
+          {
+            "phase": "recovery-buffer",
+            "proof": {
+              "file": ".cache/masteryi-q-cloud/browser/masteryi-alpha-strike-Alph-6515f-oad-and-reveals-its-own-rig/alpha-reload.json",
+              "bytes": 161514,
+              "sha256": "3ee890aa913fd04990ad9d7096f1c0ca92a8fdfbd63c9c2d86b2dc18e26cf4a3"
+            },
+            "captures": [
+              {
+                "file": ".cache/masteryi-q-cloud/browser/masteryi-alpha-strike-Alph-6515f-oad-and-reveals-its-own-rig/alpha-recovery-buffer-revealed.png",
+                "bytes": 459217,
+                "sha256": "edd120affd12de1e8a1b0fec9822de435b04458f2be452fea1edf8172b79a6ae"
+              },
+              {
+                "file": ".cache/masteryi-q-cloud/browser/masteryi-alpha-strike-Alph-6515f-oad-and-reveals-its-own-rig/alpha-recovery-buffer.png",
+                "bytes": 814565,
+                "sha256": "b8b998bae70add3d15881dd9f4010a401a46d5e301f6184ce43f42f2ab53a130"
+              }
+            ],
+            "tick": 93,
+            "q": {
+              "startTick": 33,
+              "rank": 1,
+              "origin": {
+                "x": -650,
+                "y": 350
+              },
+              "primaryTargetId": 26,
+              "primaryPoint": {
+                "x": -500,
+                "y": 350
+              },
+              "nextMarkTick": 103,
+              "lastTick": 89,
+              "exitDirection": null,
+              "marks": [
+                {
+                  "tick": 47,
+                  "targetId": 26,
+                  "point": {
+                    "x": -500,
+                    "y": 350
+                  },
+                  "damage": 95.24999871850014,
+                  "onHitScale": 0.75,
+                  "critical": false,
+                  "repeatIndex": 0,
+                  "result": "hit"
+                },
+                {
+                  "tick": 61,
+                  "targetId": 26,
+                  "point": {
+                    "x": -500,
+                    "y": 350
+                  },
+                  "damage": 23.812499679625034,
+                  "onHitScale": 0.1875,
+                  "critical": false,
+                  "repeatIndex": 1,
+                  "result": "hit"
+                },
+                {
+                  "tick": 75,
+                  "targetId": 26,
+                  "point": {
+                    "x": -500,
+                    "y": 350
+                  },
+                  "damage": 23.812499679625034,
+                  "onHitScale": 0.1875,
+                  "critical": false,
+                  "repeatIndex": 2,
+                  "result": "hit"
+                },
+                {
+                  "tick": 89,
+                  "targetId": 26,
+                  "point": {
+                    "x": -500,
+                    "y": 350
+                  },
+                  "damage": 23.812499679625034,
+                  "onHitScale": 0.1875,
+                  "critical": false,
+                  "repeatIndex": 3,
+                  "result": "hit"
+                }
+              ],
+              "reappearTick": 89,
+              "endTick": 99,
+              "returnPoint": {
+                "x": -561.0061628592031,
+                "y": 393.6262317097913
+              },
+              "stopReason": "complete",
+              "resumeOrder": {
+                "type": "move",
+                "point": {
+                  "x": -61.00616285920307,
+                  "y": 393.6262317097913
+                }
+              }
+            },
+            "e": {
+              "startTick": 31,
+              "endTick": 387,
+              "rank": 1,
+              "pausedTicks": 56
+            },
+            "r": {
+              "startTick": 32,
+              "endTick": 508,
+              "rank": 1,
+              "pausedTicks": 56,
+              "extensionCount": 0,
+              "takedownsAtCast": 0,
+              "lastExtensionTick": null
+            },
+            "child": {
+              "stacks": 0,
+              "expiresTick": 0,
+              "strike": null
+            },
+            "visible": true,
+            "barHidden": false,
+            "checkpointBones": 90,
+            "checkpointBoneDigest": "4f19c3da7df7309c3e2c60fba2481d19a30f771b501622c0dedfe865eac871c7",
+            "hiddenPoseNotCompared": false,
+            "revealBones": 90,
+            "finiteOwnRigRevealed": true,
+            "savedSha256": "a8dc14c1ba8818788b284e06cd1514a7dd0789581b3cef623e2de2f8073e8a84",
+            "savedBytes": 13984,
+            "futureTicks": 300,
+            "futureSha256": "fcc53cfb82908060d716ca0ec0fc9ffca9c537bdffabf09bae1dbe9af4bf6a70",
+            "exactSavedBytes": true,
+            "exactFutureBytes": true,
+            "exactObservableCheckpointBones": true,
+            "pageErrors": []
+          },
+          {
+            "phase": "child-vanished",
+            "proof": {
+              "file": ".cache/masteryi-q-cloud/browser/masteryi-alpha-strike-Alph-68d4b-oad-and-reveals-its-own-rig/alpha-reload.json",
+              "bytes": 94255,
+              "sha256": "8de78c205207f04c50eeb8b704a7376bdd89a08e5cdcc0781d66bc7d8d25484b"
+            },
+            "captures": [
+              {
+                "file": ".cache/masteryi-q-cloud/browser/masteryi-alpha-strike-Alph-68d4b-oad-and-reveals-its-own-rig/alpha-child-vanished-revealed.png",
+                "bytes": 447082,
+                "sha256": "0cbad3bbd2c323fe6cdb3d031a010057d81b724622f6c00e7fecbb110f99b4e4"
+              },
+              {
+                "file": ".cache/masteryi-q-cloud/browser/masteryi-alpha-strike-Alph-68d4b-oad-and-reveals-its-own-rig/alpha-child-vanished.png",
+                "bytes": 796082,
+                "sha256": "930bc204b16afb118a1a4e883a86dcaa937c140c09e261cbeaf939d3f8aeaf24"
+              }
+            ],
+            "tick": 248,
+            "q": {
+              "startTick": 241,
+              "rank": 1,
+              "origin": {
+                "x": -650,
+                "y": 350
+              },
+              "primaryTargetId": 26,
+              "primaryPoint": {
+                "x": -500,
+                "y": 350
+              },
+              "nextMarkTick": 255,
+              "lastTick": 248,
+              "exitDirection": null,
+              "marks": [],
+              "reappearTick": null,
+              "endTick": null,
+              "returnPoint": null,
+              "stopReason": null,
+              "resumeOrder": null
+            },
+            "e": {
+              "startTick": 239,
+              "endTick": 546,
+              "rank": 1,
+              "pausedTicks": 7
+            },
+            "r": {
+              "startTick": 240,
+              "endTick": 667,
+              "rank": 1,
+              "pausedTicks": 7,
+              "extensionCount": 0,
+              "takedownsAtCast": 0,
+              "lastExtensionTick": null
+            },
+            "child": {
+              "stacks": 0,
+              "expiresTick": 0,
+              "strike": {
+                "startTick": 238,
+                "releaseTick": 253,
+                "endTick": 285,
+                "poseStopTick": 241,
+                "targetId": 26,
+                "damage": 53.75,
+                "critical": false,
+                "result": "pending"
+              }
+            },
+            "visible": false,
+            "barHidden": true,
+            "checkpointBones": 0,
+            "checkpointBoneDigest": null,
+            "hiddenPoseNotCompared": true,
+            "revealBones": 90,
+            "finiteOwnRigRevealed": true,
+            "savedSha256": "9a41903978eff5d99b0e5207e92f3dc6e053669f9326c8b4d393ba0f33bfd291",
+            "savedBytes": 13410,
+            "futureTicks": 300,
+            "futureSha256": "97cc1b94d2c28a6a0f8e898aa792420971499a1764b86405992375c9d8f46fb3",
+            "exactSavedBytes": true,
+            "exactFutureBytes": true,
+            "exactObservableCheckpointBones": null,
+            "pageErrors": []
+          },
+          {
+            "phase": "marked-vanished",
+            "proof": {
+              "file": ".cache/masteryi-q-cloud/browser/masteryi-alpha-strike-Alph-c2d41-oad-and-reveals-its-own-rig/alpha-reload.json",
+              "bytes": 95671,
+              "sha256": "69b9cb1371e0c3ddf8bf1a64913c582249c8d50c9288d7181eb2be17a359e464"
+            },
+            "captures": [
+              {
+                "file": ".cache/masteryi-q-cloud/browser/masteryi-alpha-strike-Alph-c2d41-oad-and-reveals-its-own-rig/alpha-marked-vanished-revealed.png",
+                "bytes": 447243,
+                "sha256": "64f05a5b0ca3fc1d7e22e74cb3623539ecd0c7e7637b88063f93fdb4e77badd3"
+              },
+              {
+                "file": ".cache/masteryi-q-cloud/browser/masteryi-alpha-strike-Alph-c2d41-oad-and-reveals-its-own-rig/alpha-marked-vanished.png",
+                "bytes": 798185,
+                "sha256": "f56493dc0ab254028af0b9890e795b5caf30228f97f8aec68bcfd6fe50fcb5d6"
+              }
+            ],
+            "tick": 70,
+            "q": {
+              "startTick": 39,
+              "rank": 1,
+              "origin": {
+                "x": -650,
+                "y": 350
+              },
+              "primaryTargetId": 26,
+              "primaryPoint": {
+                "x": -500,
+                "y": 350
+              },
+              "nextMarkTick": 81,
+              "lastTick": 70,
+              "exitDirection": null,
+              "marks": [
+                {
+                  "tick": 53,
+                  "targetId": 26,
+                  "point": {
+                    "x": -500,
+                    "y": 350
+                  },
+                  "damage": 95.24999871850014,
+                  "onHitScale": 0.75,
+                  "critical": false,
+                  "repeatIndex": 0,
+                  "result": "pending"
+                },
+                {
+                  "tick": 67,
+                  "targetId": 26,
+                  "point": {
+                    "x": -500,
+                    "y": 350
+                  },
+                  "damage": 23.812499679625034,
+                  "onHitScale": 0.1875,
+                  "critical": false,
+                  "repeatIndex": 1,
+                  "result": "hit"
+                }
+              ],
+              "reappearTick": null,
+              "endTick": null,
+              "returnPoint": null,
+              "stopReason": null,
+              "resumeOrder": null
+            },
+            "e": {
+              "startTick": 37,
+              "endTick": 368,
+              "rank": 1,
+              "pausedTicks": 31
+            },
+            "r": {
+              "startTick": 38,
+              "endTick": 489,
+              "rank": 1,
+              "pausedTicks": 31,
+              "extensionCount": 0,
+              "takedownsAtCast": 0,
+              "lastExtensionTick": null
+            },
+            "child": {
+              "stacks": 0,
+              "expiresTick": 0,
+              "strike": null
+            },
+            "visible": false,
+            "barHidden": true,
+            "checkpointBones": 0,
+            "checkpointBoneDigest": null,
+            "hiddenPoseNotCompared": true,
+            "revealBones": 90,
+            "finiteOwnRigRevealed": true,
+            "savedSha256": "b4aaa6661f29a9de5c2f8a126594e8cde28350344b8288e60472a2136cbb93c2",
+            "savedBytes": 13579,
+            "futureTicks": 300,
+            "futureSha256": "c7c2432fb7c98854b23c052ee439b15d3fee6cea70855aab9d8cd7f4f6418b5c",
+            "exactSavedBytes": true,
+            "exactFutureBytes": true,
+            "exactObservableCheckpointBones": null,
+            "pageErrors": []
+          }
+        ]
+      },
+      "regressionBatch": {
+        "passed": 15,
+        "failed": 1,
+        "failure": "Existing recovery-NPC reload exceeded original30s deadline; proof JSON was written after all save/future assertions passed. Test still counts as a timeout."
+      },
+      "isolatedRecoveryRerun": {
+        "passed": 1,
+        "failed": 0,
+        "deadlineSeconds": 30
+      },
+      "distinctCasesWithPassingRuns": 19,
+      "oneClean19CaseBatch": false,
+      "automaticRetries": 0,
+      "assertionsOrDeadlinesWeakened": false
+    },
+    "nodeQA": {
+      "passed": 3,
+      "failed": 0
+    },
+    "typescriptAndProductionBuildPassed": true,
+    "productionSubpath": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 12,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 204,
+      "scheduledBlueRequests": 12,
+      "scheduledRedRequests": 12,
+      "scheduledWolfRequests": 24,
+      "scheduledRaptorRequests": 24,
+      "scheduledKrugRequests": 36,
+      "scheduledScuttlerRequests": 12,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    },
+    "publicAssetsChanged": false,
+    "offlinePack": {
+      "id": "983a00ead5156f3aba448d873c637541f4e8a918e46f203b954306d742fc5abf",
+      "files": 1068,
+      "bytes": 526628509
+    }
+  },
+  "corrections": [
+    "Initial TypeScript fixes supply actor radius/team to reachability and narrow the buffered order before reading its target.",
+    "Corrected a monster fixture using the wrong spawnMonster argument order and an R-refund expectation that overlooked an earlier repeat kill.",
+    "The corrected monster fixture exposed real reset healing between marks. Engaged neutral aggro now waits through vanished Q within existing sight/leash rules; inherited Krug aggro and cleanup use the same retention rule. The monster wait phase saves and resumes exactly.",
+    "Updated former Q-unsupported expectations to own-Q availability/resource rules, and the explicit Lux schema pin to143. Other audit assertions and deadlines remain intact.",
+    "An existing30s NPC recovery reload timed out after its proof/assertions completed; trace and initial failure are retained alongside one unchanged isolated rerun."
+  ],
+  "explicitLocalPolicy": {
+    "markTicks": 14,
+    "maximumMarks": 4,
+    "recoveryTicks": 10,
+    "bounceRadius": 600,
+    "originFollowLimit": 2000,
+    "exitDistance": 75,
+    "rankAndAD": "Captured rank, live totalAD per mark under omitted-stat-formula convention",
+    "crit": "Independent own crit roll per mark",
+    "monsterBonus": "Separate from crit; combined damage gets repeat scaling",
+    "firstDamage": "At reappearance",
+    "repeatDamage": "Immediate25%",
+    "eOnHit": "75% / repeated18.75%",
+    "cinders": "Existing full buff/phase policy retained; native Q scaling unresolved",
+    "basicCooldownReduction": "ceil(60*100/(100+abilityHaste)); actual basics including child, structures and wards; no Q self-refund",
+    "rRefund": "Exact frozen remaining fraction with existing ceil quantization on q/w/e",
+    "eRPause": "Vanished intervals only; settle before expiry",
+    "body": "Hidden marking phase, ordinary own visible recovery; no inferred Spell1 binding"
+  },
+  "secondaryReference": "https://wiki.leagueoflegends.com/en-us/Master_Yi?oldid=4016673; community behavior evidence, not controlled26.18 native timing capture",
+  "limits": [
+    "Native callbacks/timing/stat/proc/crit/return conventions remain uncalibrated.",
+    "Mark-only assist credit and target-area vision are not implemented.",
+    "Range walk-in and general native ability/selection buffering remain incomplete.",
+    "Source Q particle/audio and native body transition/appearance acceptance remain open.",
+    "Full player/role integration and production selection remain gated.",
+    "Movement-speed caps/ghosting/cripples and other prior shared gaps remain open.",
+    "No fresh offline audit, complete browser suite, GPU/native/frame/device/FPS or whole-project certification."
+  ],
+  "logs": [
+    {
+      "file": ".cache/masteryi-q-cloud/export-runtime-check-normal.log",
+      "bytes": 116,
+      "sha256": "7641b3a4fbe69ab7de8829b32a0db884316ffba3cad59ae31a57e74ea7c74509"
+    },
+    {
+      "file": ".cache/masteryi-q-cloud/export-runtime-check-optimized.log",
+      "bytes": 116,
+      "sha256": "7641b3a4fbe69ab7de8829b32a0db884316ffba3cad59ae31a57e74ea7c74509"
+    },
+    {
+      "file": ".cache/masteryi-q-cloud/export-runtime-guards-normal.log",
+      "bytes": 110,
+      "sha256": "a5dc4b15d94cd4ac3b506a644244c00597c2741be25a3836aa4ae427acc71f6a"
+    },
+    {
+      "file": ".cache/masteryi-q-cloud/export-runtime-guards-optimized.log",
+      "bytes": 110,
+      "sha256": "a753a61bbd66b614c67a60ed94a734f70863220a816d6a064364b1e97a253671"
+    },
+    {
+      "file": ".cache/masteryi-q-cloud/typecheck-v1.log",
+      "bytes": 275,
+      "sha256": "e1b14520805483e54f9b5d2bd5a26c9d91719417f0b00d3a56d15ff9a5f6bd1a"
+    },
+    {
+      "file": ".cache/masteryi-q-cloud/typecheck-v2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/masteryi-q-cloud/typecheck-v3.log",
+      "bytes": 132,
+      "sha256": "c135223e39febc5e350a77c4b7dd43f4b8d0359a62827f4e0f3504f339627c5d"
+    },
+    {
+      "file": ".cache/masteryi-q-cloud/typecheck-v4.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/masteryi-q-cloud/focused-v1.log",
+      "bytes": 427,
+      "sha256": "11e8ba45d5993a604c88ad79f62d902cefa585754d5d4efc8cf075ff8fb63a5e"
+    },
+    {
+      "file": ".cache/masteryi-q-cloud/focused-v2.log",
+      "bytes": 2014,
+      "sha256": "608f40b07d305cf66ac24d6022f68ab6644ca1505f51685b5f0eb66bc240943f"
+    },
+    {
+      "file": ".cache/masteryi-q-cloud/focused-v3.log",
+      "bytes": 1272,
+      "sha256": "73ab83fe23a18c648fa01751269a06d8bd8c1b72f2d28bb7a32010061ffa7d1a"
+    },
+    {
+      "file": ".cache/masteryi-q-cloud/monster-diagnostic.log",
+      "bytes": 1864,
+      "sha256": "abd786bfa8ea5040c89a1504787fa92dcca762cc9a788eef6864d2ba54d64eb8"
+    },
+    {
+      "file": ".cache/masteryi-q-cloud/focused-v4.log",
+      "bytes": 427,
+      "sha256": "b857f2d8d2c2bf9c4b5489db9e9cdc323a0a8142d30f00c4ff804acd204baaf7"
+    },
+    {
+      "file": ".cache/masteryi-q-cloud/focused-v5.log",
+      "bytes": 374,
+      "sha256": "cd4f7ff74553cf85f044542126fdf192612a958095a7fc6a171eca8a67263ba1"
+    },
+    {
+      "file": ".cache/masteryi-q-cloud/check-final-unit.log",
+      "bytes": 5485,
+      "sha256": "35de9246a1d0cb15b5399f97bac353aa73fc266e68f1ebf0a755d093a394cf0b"
+    },
+    {
+      "file": ".cache/masteryi-q-cloud/qa.log",
+      "bytes": 431,
+      "sha256": "5059056004f8ef4b38fb2bca00c37f32520ff5c924a6e9117290fc4eaca98cb7"
+    },
+    {
+      "file": ".cache/masteryi-q-cloud/browser.log",
+      "bytes": 1609,
+      "sha256": "995006c6c3930e7ee549231a523ce586ca80a64794c5fcebd630020a987bb0be"
+    },
+    {
+      "file": ".cache/masteryi-q-cloud/browser-regression.log",
+      "bytes": 9038,
+      "sha256": "5ebba33afb4a5afefd63477bb7d0a1b1742035f9016b94ceb3202f48fd4bdc74"
+    },
+    {
+      "file": ".cache/masteryi-q-cloud/browser-recovery-isolated.log",
+      "bytes": 793,
+      "sha256": "61c2f3af4d150ff9c18ea4c90e15a896a972b68800698b556e2b5a6ce7896851"
+    },
+    {
+      "file": ".cache/masteryi-q-cloud/build.log",
+      "bytes": 4829,
+      "sha256": "fbf04e813062de072af65aa902e9a26d87831b512112ac2dd3f0d6c3b1cfdb23"
+    },
+    {
+      "file": ".cache/masteryi-q-cloud/production.log",
+      "bytes": 2081,
+      "sha256": "4c66b75594e1516082d7f34a34ce93e56fa4efc3ce47339b2c71c99b1ce66775"
+    }
+  ],
+  "scopeBoundary": "Changed inputs and phase evidence only; not a frozen whole-repository verification closure."
+}

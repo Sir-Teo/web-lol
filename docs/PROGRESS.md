@@ -7900,3 +7900,52 @@ native/research-input, distortion-source/disassembly and Lux sampler-digest grou
 are not repaired by this restore; no fresh full-suite pass is claimed. Schema142,
 Highlander ruleset and production pack remain unchanged, so no game build or
 browser rerun was needed for these tool/cache-only changes.
+
+
+## 2026-10-25 — development Master Yi Alpha Strike
+
+The manual NPC now owns all four development ability controllers. [Alpha Strike](MASTER-YI-Q.md)
+adds explicit unit targeting, local fourteen-update marks and ten-update recovery,
+delayed first and immediate repeated contacts, separately captured damage/crit
+payloads, scaled E on-hits, target loss, return selection and buffered recovery
+orders. Existing primary recovery is retained; committed Double Strike survives
+with its body pose stopped. Q freezes E/R while vanished and permits E/R plus
+supported Heal/Smite, while W/Flash/recall/trinket actions cannot replace it.
+Own basic contacts reduce current Q cooldown using the source cooldown multiplier;
+Highlander now refunds Q/W/E on actual awarded champion takedowns.
+
+Targetability is separate from damage permission. Incoming attacks, area effects,
+controls, Ahri controllers, Smite and companions reject vanished Yi; attached
+Cinders/Scorchclaw damage continues. The model and bar hide without inventing a
+Spell1 binding. A corrected monster fixture exposed real reset healing between
+marks: engaged neutrals now retain aggro and wait through temporary untargetability
+within the existing sight/leash rules, including inherited Krug aggro/cleanup.
+The waiting phase saves/resumes exactly. This is not a general patience rewrite.
+
+Schema143 saves all phases, captured marks/results, payloads, exit/return points
+and buffered orders with strict clock/result/repeat/ID/ownership checks. Own
+Q/W/E/R ranks share the budget. The full broad one-worker run passes 2,379/2,382
+cases across344 files, including all53 Q/all200 Master Yi cases. Three known
+baseline groups remain (Leona inputs, distortion originals and Lux sampler
+digest); no source assertion was relaxed. Focused Q/neighbor checks pass282,
+normal/optimized source guards pass11 each, and TypeScript/three Node QA/build
+checks pass. The original wave-clock deadline passes unchanged.
+
+The three new actual private Q Save/reload phases pass exact bytes and300-update
+futures. Visible recovery restores all90 bone matrices; hidden phases verify
+root/bar suppression and finite own-rig reveal instead of comparing invisible
+cached poses. Sixteen older browser cases pass15, with one existing30s recovery
+reload timeout after its assertions/proof completed. Its unchanged isolated
+rerun passes29.0s. All19 distinct cases have passing runs across batches; no
+single clean19-case batch is claimed and no deadline/assertion/quality was lowered.
+
+Nested production smoke passes32 recordings, real save/restore, development URL
+rejection and zero Master Yi preloads. Source timing, stat/crit/proc, return,
+selection and buffering decisions remain explicit local policies. Mark-only
+assist credit, target-area vision, source Q effects/audio, native transition/
+appearance calibration and player/role integration stay open. No public asset
+bytes changed. Ruleset `1228a6d9dd799df0e1ee9e2d4447f631a3437a17ae362ac5e5bc041040c9cc1d`;
+pack `983a00ead5156f3aba448d873c637541f4e8a918e46f203b954306d742fc5abf` has 1,068 files /
+526,628,509 bytes. [Q verification](reference/masteryi/q-verification.json)
+retains hashes, failures/corrections, the real neutral bug, timeout and phase/
+production proofs. No fresh offline/full-browser/native/performance certification.

@@ -63,7 +63,7 @@ test('Meditate retains exact standard heal/defense ranks, explicit cooldown/stat
   expect(MASTER_YI_W.damageReductionByRank).toEqual(spell.DataValues[4].values.slice(1, 6));
 });
 
-test('learning W uses own ranks and resources while Q and Hawkshot capabilities remain unavailable', () => {
+test('learning W uses own ranks and resources without borrowing Hawkshot capabilities', () => {
   const f = fixture(0);
   expect(f.w.learnSpell('w', f.yi.id)).toBeNull();
   expect(f.state.spellRanks).toEqual({ q: 0, w: 1, e: 0, r: 0 });
@@ -74,8 +74,8 @@ test('learning W uses own ranks and resources while Q and Hawkshot capabilities 
     range: 0,
   });
   expect(f.state.eCharges).toBe(0);
-  for (const ability of ['q'] as const)
-    expect(f.w.learnSpell(ability, f.yi.id)).toMatch(/not implemented/);
+  expect(f.w.spellLearningError('q', f.yi.id)).toMatch(/skill points/);
+  expect(f.w.abilitySpec('q', f.yi.id).name).toBe('Alpha Strike');
   expect(World.fromSnapshot(f.w.snapshot(), f.w.battlefield).snapshot()).toBe(f.w.snapshot());
 });
 

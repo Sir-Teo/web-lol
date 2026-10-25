@@ -1,6 +1,14 @@
 # Local match checkpoints
 
-Current schema **142** adds Highlander start/end/rank, pause accounting,
+Current schema **143** adds Alpha Strike origin/target, settled/pulse clocks,
+rank, captured marks and payloads, repeat/critical decisions, pending/hit/lost
+results, return/recovery phase, exit direction and buffered order. Targetability
+is derived from the vanished phase; ordinary damage protection remains separate.
+The development NPC can allocate all own Q/W/E/R ranks. Decoding checks phase,
+clock, payload/result relationships, ownership, range and past ID bounds.
+Earlier formats/fingerprints are incompatible. See [Alpha Strike](MASTER-YI-Q.md).
+
+Schema **142** adds Highlander start/end/rank, pause accounting,
 takedown extension count, score at cast and latest extension clock. W/E/R ranks
 are permitted on the development Master Yi NPC with own level/resource rules;
 Q and unsupported generic cast state remain rejected. Meditate pauses both

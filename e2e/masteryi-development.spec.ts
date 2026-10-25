@@ -139,7 +139,7 @@ test('Master Yi NPC source rig, melee contact, attacks and saved poses run on th
   expect(result.exactFuture).toBe(true);
   expect(result.damage).toBeGreaterThanOrEqual(65);
   expect(result.spellRanks).toEqual({ q: 0, w: 0, e: 0, r: 0 });
-  expect(result.learning.every((error: string) => /not implemented/.test(error))).toBe(true);
+  expect(result.learning).toEqual([null]);
   for (const stage of result.stages) {
     expect(stage.samePose, stage.name).toBe(true);
     expect(stage.exactSave, stage.name).toBe(true);

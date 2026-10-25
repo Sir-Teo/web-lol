@@ -26,7 +26,7 @@ export function activeHighlander(owner: ChampionState | undefined, tick: number)
  * Passive refund also applies posthumously; only a live active buff extends. */
 export function highlanderTakedown(world: World, unit: Unit, owner: ChampionState): void {
   if (unit.champion !== 'masteryi' || !owner.spellRanks.r) return;
-  for (const ability of ['w', 'e'] as const) {
+  for (const ability of ['q', 'w', 'e'] as const) {
     const remaining = owner.cooldowns[ability] - world.tick;
     if (remaining > 0)
       owner.cooldowns[ability] =

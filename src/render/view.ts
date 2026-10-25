@@ -1,3 +1,4 @@
+import { alphaVanished } from '../simulation/masteryi-alpha-strike';
 import { MASTER_YI } from '../content/masteryi-progression';
 import { MASTER_YI_PASSIVE } from '../content/masteryi-passive';
 import { ahriAimGeometry } from './ahri-aim';
@@ -665,7 +666,9 @@ export class GameView {
       const deathAge =
         u.deadAt === null ? 0 : Math.max(0, (world.tick - u.deadAt + alpha - 1) / 60) + terminalAge;
       const knownDestroyed = world.knownStructureDestroyed(u);
-      const visible = world.visible(u);
+      const visible =
+        world.visible(u) &&
+        (u.champion !== 'masteryi' || !alphaVanished(world.championState(u.id)));
       model.root.visible =
         knownDestroyed !== null ||
         (visible &&

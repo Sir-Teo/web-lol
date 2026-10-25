@@ -21,7 +21,7 @@ export function smiteTarget(w: World, caster: Unit, target: Unit | undefined): t
     target.team === caster.team ||
     !w.alive(target) ||
     !w.visible(target, caster.team) ||
-    !w.vulnerable(target)
+    !w.targetable(target)
   )
     return false;
   if (target.kind === 'monster') {

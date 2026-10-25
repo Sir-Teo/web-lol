@@ -54,7 +54,7 @@ test('Highlander preserves frozen standard rank values, empty animation and omit
   expect(MASTER_YI_R.basicCooldownRefundFraction).toBe(0.699999988079071);
 });
 
-test('R learning requires levels 6/11/16, keeps Q unavailable, and uses own resources', () => {
+test('R learning requires levels 6/11/16, keeps its own resources, and uses own resources', () => {
   const f = fixture(0);
   expect(f.w.learnSpell('r', f.yi.id)).toMatch(/level 6/);
   for (const level of [6, 11, 16]) {
@@ -63,7 +63,8 @@ test('R learning requires levels 6/11/16, keeps Q unavailable, and uses own reso
     if (level < 16) expect(f.w.learnSpell('r', f.yi.id)).toMatch(/level/);
   }
   expect(f.w.learnSpell('r', f.yi.id)).toMatch(/maximum/);
-  expect(f.w.learnSpell('q', f.yi.id)).toMatch(/not implemented/);
+  expect(f.w.learnSpell('q', f.yi.id)).toBeNull();
+  expect(f.w.abilitySpec('q', f.yi.id).name).toBe('Alpha Strike');
   expect(f.w.abilitySpec('r', f.yi.id)).toMatchObject({
     name: 'Highlander',
     cost: 100,

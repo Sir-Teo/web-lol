@@ -201,6 +201,16 @@ import { MASTER_YI_PASSIVE } from '../content/masteryi-passive';
 import { MASTER_YI_E } from '../content/masteryi-e';
 import { MASTER_YI_W } from '../content/masteryi-w';
 import { MASTER_YI_R } from '../content/masteryi-r';
+import { MASTER_YI_Q } from '../content/masteryi-q';
+import {
+  alphaVanished,
+  alphaTarget,
+  beginAlphaStrike,
+  settleAlphaStrike,
+  advanceAlphaStrike,
+  captureAlphaOrder,
+  reduceAlphaCooldown,
+} from './masteryi-alpha-strike';
 import { MASTER_YI } from '../content/masteryi-progression';
 import { activeHighlander, highlanderTakedown, HIGHLANDER_TICKS } from './masteryi-highlander';
 import {
@@ -803,7 +813,7 @@ export class World {
           if (
             attacker &&
             this.alive(attacker) &&
-            this.validTarget(child, attacker) &&
+            this.validTarget(child, attacker, true) &&
             distance(attacker, child.monster.home) <= MONSTERS[split.species].policy.leashRadius
           ) {
             child.monster.phase = 'engaged';
@@ -822,7 +832,7 @@ export class World {
           this.alive(target) &&
           distance(target, unit.monster.home) <=
             MONSTERS[unit.monster.species].policy.leashRadius &&
-          this.validTarget(unit, target);
+          this.validTarget(unit, target, true);
         if (fighting) camp.cleanupTicks[slot] = this.tick + definition.cleanupDelayTicks!;
         else if (this.tick >= cleanup) {
           unit.monster!.phase = 'idle';
@@ -907,7 +917,7 @@ export class World {
         !this.alive(target) ||
         distance(u, monster.home) > profile.policy.leashRadius ||
         distance(target, monster.home) > profile.policy.leashRadius ||
-        !this.validTarget(u, target))
+        !this.validTarget(u, target, true))
     ) {
       for (const member of this.monsterResetGroup(u)) {
         member.monster.phase = 'returning';
@@ -915,6 +925,12 @@ export class World {
         member.sunlight = null;
         this.setOrder(member, { type: 'move', point: { ...member.monster.home } });
       }
+    }
+    // A temporarily untargetable aggressor still owns neutral aggro within
+    // the existing sight/leash rules. Wait without attacking or reset healing.
+    if (monster.phase === 'engaged' && target && !this.targetable(target)) {
+      if (u.order.type !== 'idle' || u.releaseTick !== null) this.setOrder(u, { type: 'idle' });
+      return true;
     }
     if (monster.phase === 'returning') {
       monster.targetId = null;
@@ -988,6 +1004,7 @@ export class World {
     } else this.commands.push({ type: 'recall', unit: command.unit });
   }
   setOrder(u: Unit, order: Order): void {
+    if (u.champion === 'masteryi' && captureAlphaOrder(this, u, order)) return;
     u.order = order;
     const state = this.championState(u.id);
     if (state?.meditate) finishMeditate(state, this.tick, 'order');
@@ -1076,6 +1093,7 @@ export class World {
       if (unit.garenEShreds.length)
         unit.garenEShreds = unit.garenEShreds.filter((shred) => shred.endTick > this.tick);
     for (const state of this.activeChampionStates()) {
+      if (state.alphaStrike) settleAlphaStrike(this, state, this.unit(state.id)!);
       if (state.meditate) settleMeditate(this, state, this.unit(state.id)!);
       if (state.doubleStrike) expireDoubleStrike(state.doubleStrike, this.tick);
       if (state.wujuStyle && this.tick >= state.wujuStyle.endTick) state.wujuStyle = null;
@@ -1189,13 +1207,16 @@ export class World {
         continue;
       }
       if (!this.alive(u)) continue;
+      const alpha = u.champion === 'masteryi' && this.championState(u.id)?.alphaStrike;
       if (
-        u.champion === 'masteryi' &&
-        command.type === 'cast' &&
-        !isSummonerSlot(command.ability) &&
-        command.ability !== 'e' &&
-        command.ability !== 'w' &&
-        command.ability !== 'r'
+        alpha &&
+        command.type !== 'order' &&
+        !(
+          command.type === 'cast' &&
+          (command.ability === 'e' ||
+            command.ability === 'r' ||
+            ['heal', 'smite'].includes(this.summonerSpell(command.ability, u.id) ?? ''))
+        )
       )
         continue;
       if (
@@ -1269,6 +1290,7 @@ export class World {
         this.advanceImpactVisuals();
         return;
       }
+      if (u.champion === 'masteryi' && advanceAlphaStrike(this, u)) continue;
       if (u.champion === 'masteryi' && advanceMeditate(this, u)) continue;
       if (u.structure?.regenPerSecond)
         u.hp = Math.min(u.maxHp, u.hp + u.structure.regenPerSecond * DT);
@@ -1666,6 +1688,13 @@ export class World {
   eventVisible(event: SimEvent, team: Team = 'blue'): boolean {
     return event.audience.includes(team);
   }
+  targetable(unit: Unit): boolean {
+    return (
+      this.alive(unit) &&
+      this.vulnerable(unit) &&
+      (unit.champion !== 'masteryi' || !alphaVanished(this.championState(unit.id)))
+    );
+  }
   vulnerable(unit: Unit): boolean {
     if (
       unit.kind === 'monster' &&
@@ -1697,12 +1726,12 @@ export class World {
         );
     }
   }
-  private validTarget(u: Unit, target: Unit | undefined): target is Unit {
+  private validTarget(u: Unit, target: Unit | undefined, retainAggro = false): target is Unit {
     return (
       !!target &&
       target.team !== u.team &&
       this.alive(target) &&
-      this.vulnerable(target) &&
+      (retainAggro ? this.vulnerable(target) : this.targetable(target)) &&
       (target.kind !== 'ward' || u.kind === 'champion') &&
       (target.kind !== 'monster' ||
         (target.monster.phase !== 'returning' &&
@@ -1845,7 +1874,7 @@ export class World {
     )) {
       const d = distance(u, target);
       if (
-        !this.vulnerable(target) ||
+        !this.targetable(target) ||
         d <= this.attackRange(u) + target.radius ||
         d > reach ||
         Math.max(target.rootUntil, target.stunUntil) < heldUntil
@@ -1910,7 +1939,7 @@ export class World {
           target.team !== u.team &&
           this.visible(target, u.team) &&
           this.alive(target) &&
-          this.vulnerable(target) &&
+          this.targetable(target) &&
           Math.max(target.rootUntil, target.stunUntil) >= impactTick
       ),
       raw = leonaSolarFlareValues(state.spellRanks.r, this.abilityPower(u)).magicDamage;
@@ -2271,7 +2300,7 @@ export class World {
           target.team !== u.team &&
           this.alive(target) &&
           this.visible(target, u.team) &&
-          this.vulnerable(target)
+          this.targetable(target)
       )
       .sort((a, b) => distance(u, a) - distance(u, b) || a.id - b.id);
     const zone = this.singularities.find((z) => z.sourceId === u.id && z.detonatedTick === null);
@@ -2373,7 +2402,7 @@ export class World {
             m.team !== u.team &&
             this.visible(m, u.team) &&
             this.alive(m) &&
-            this.vulnerable(m)
+            this.targetable(m)
         )
         .map((m) => ({
           id: m.id,
@@ -2423,7 +2452,7 @@ export class World {
           enemy.team !== u.team &&
           this.visible(enemy, u.team) &&
           this.alive(enemy) &&
-          this.vulnerable(enemy) &&
+          this.targetable(enemy) &&
           distance(enemy, point) <= LUX_E_POLICY.radius + enemy.radius
       )
     )
@@ -2582,7 +2611,7 @@ export class World {
         hp: u.hp,
         maxHp: u.maxHp,
         range: u.range,
-        attackable: this.vulnerable(u),
+        attackable: this.targetable(u),
       });
       const observation: TeamObservation = {
         tick: this.tick,
@@ -2650,7 +2679,7 @@ export class World {
             y: u.y,
             hp: u.hp,
             maxHp: u.maxHp,
-            attackable: this.vulnerable(u),
+            attackable: this.targetable(u),
           })),
         towers: this.knownTeamTowers(team).map((t) => ({ x: t.x, y: t.y, range: t.range })),
         gone: new Set(seen.filter((u) => !this.alive(u)).map((u) => u.id)),
@@ -2721,7 +2750,7 @@ export class World {
               camp: camp.id,
               x: other.x,
               y: other.y,
-              targetable: this.vulnerable(other) && other.monster!.phase !== 'returning',
+              targetable: this.targetable(other) && other.monster!.phase !== 'returning',
               lineOfSightToActor: this.battlefield.lineOfSight(other, u),
             },
           ]
@@ -2983,7 +3012,7 @@ export class World {
           plannedTarget.monster.species === 'scuttler' &&
           plannedTarget.monster.phase !== 'returning' &&
           this.alive(plannedTarget) &&
-          this.vulnerable(plannedTarget)
+          this.targetable(plannedTarget)
         : this.validTarget(u, plannedTarget)) &&
       this.safeAttackPosition(u, plannedTarget) &&
       this.leonaSupportAttackReady(u, plannedTarget)
@@ -3270,7 +3299,7 @@ export class World {
               this.alive(target) &&
               !isStructureKind(target.kind) &&
               target.kind !== 'ward' &&
-              this.vulnerable(target) &&
+              this.targetable(target) &&
               distance(source, target) <= GAREN_E.radius + target.radius
           )
           .sort((a, b) => distance(source, a) - distance(source, b) || a.id - b.id);
@@ -3721,7 +3750,7 @@ export class World {
   }
   private beginLeonaDash(source: Unit, flight: Projectile): void {
     const target = this.unit(flight.zenith!.lastChampionId ?? -1);
-    if (!target || target.kind !== 'champion' || !this.alive(target) || !this.vulnerable(target))
+    if (!target || target.kind !== 'champion' || !this.alive(target) || !this.targetable(target))
       return;
     // The final champion is rooted even if the missile owner has since died or
     // become unable to dash. A dead final champion never falls back to an earlier hit.
@@ -3920,7 +3949,7 @@ export class World {
       source.kind !== 'champion' ||
       source.team === target.team ||
       !this.alive(target) ||
-      !this.vulnerable(target) ||
+      !this.targetable(target) ||
       (target.champion === 'masteryi' &&
         !!activeHighlander(this.championState(target.id), this.tick)) ||
       isStructureKind(target.kind) ||
@@ -4007,7 +4036,7 @@ export class World {
       source.team === target.team ||
       (this.championState(source.id)?.spellRanks.e ?? 0) < rank ||
       !this.alive(target) ||
-      !this.vulnerable(target) ||
+      !this.targetable(target) ||
       (target.kind === 'monster' && target.monster.phase === 'returning') ||
       isStructureKind(target.kind) ||
       target.kind === 'ward' ||
@@ -4073,7 +4102,7 @@ export class World {
     if (
       this.winner ||
       !this.alive(target) ||
-      !this.vulnerable(target) ||
+      !this.targetable(target) ||
       isStructureKind(target.kind) ||
       target.kind === 'ward' ||
       !Number.isSafeInteger(durationTicks) ||
@@ -4096,7 +4125,7 @@ export class World {
       this.winner ||
       !this.units.includes(target) ||
       !this.alive(target) ||
-      !this.vulnerable(target) ||
+      !this.targetable(target) ||
       isStructureKind(target.kind) ||
       target.kind === 'ward' ||
       !Number.isSafeInteger(durationTicks) ||
@@ -4126,7 +4155,7 @@ export class World {
       this.winner ||
       !this.units.includes(target) ||
       !this.alive(target) ||
-      !this.vulnerable(target) ||
+      !this.targetable(target) ||
       isStructureKind(target.kind) ||
       target.kind === 'ward' ||
       !Number.isSafeInteger(durationTicks) ||
@@ -4217,7 +4246,7 @@ export class World {
       (u) =>
         u.team !== zone.team &&
         this.alive(u) &&
-        this.vulnerable(u) &&
+        this.targetable(u) &&
         !isStructureKind(u.kind) &&
         u.kind !== 'ward' &&
         distance(u, zone) <= LUX_E_POLICY.radius + u.radius
@@ -4471,6 +4500,7 @@ export class World {
       const state = this.championState(unit.id),
         cast = state?.castAnimation;
       const casting =
+        !!state?.alphaStrike ||
         state?.meditate?.stopTick === null ||
         !!state?.garenE ||
         !!state?.leonaEWindup ||
@@ -4567,7 +4597,7 @@ export class World {
       }
       const target = p.target === null ? undefined : this.unit(p.target);
       if (p.target !== null) {
-        if (!target || !this.alive(target)) continue;
+        if (!target || !this.targetable(target)) continue;
         p.direction = direction(p, target);
       }
       let stepDistance = p.speed * DT;
@@ -4641,7 +4671,7 @@ export class World {
           .flatMap((unit) => {
             if (
               !this.alive(unit) ||
-              !this.vulnerable(unit) ||
+              !this.targetable(unit) ||
               unit.team === p.team ||
               isStructureKind(unit.kind) ||
               unit.kind === 'ward' ||
@@ -4679,7 +4709,7 @@ export class World {
           .flatMap((u) => {
             if (
               !this.alive(u) ||
-              !this.vulnerable(u) ||
+              !this.targetable(u) ||
               u.team === p.team ||
               (u.kind === 'monster' && u.monster.phase === 'returning') ||
               isStructureKind(u.kind) ||
@@ -4708,7 +4738,7 @@ export class World {
           .flatMap((u) => {
             if (
               !this.alive(u) ||
-              !this.vulnerable(u) ||
+              !this.targetable(u) ||
               u.team === p.team ||
               isStructureKind(u.kind) ||
               u.kind === 'ward' ||
@@ -4755,7 +4785,7 @@ export class World {
       let contact: Unit | undefined,
         first = Infinity;
       for (const u of this.units) {
-        if (!this.alive(u) || !this.vulnerable(u) || u.team === p.team) continue;
+        if (!this.alive(u) || !this.targetable(u) || u.team === p.team) continue;
         if (p.target !== null && u.id !== p.target) continue;
         if (p.type === 'ultimate' && u.kind !== 'champion' && u.kind !== 'dummy') continue;
         if (p.type !== 'attack' && (isStructureKind(u.kind) || u.kind === 'ward')) continue;
@@ -4976,7 +5006,7 @@ export class World {
         target.team === source.team ||
         isStructureKind(target.kind) ||
         target.kind === 'ward' ||
-        !this.vulnerable(target) ||
+        !this.targetable(target) ||
         sweepCircle(origin, point, target, LUX_R.halfWidth + target.radius) === null
       )
         continue;
@@ -5017,7 +5047,7 @@ export class World {
       source.champion !== 'lux' ||
       source.team === target.team ||
       !this.alive(target) ||
-      !this.vulnerable(target) ||
+      !this.targetable(target) ||
       isStructureKind(target.kind) ||
       target.kind === 'ward'
     )
@@ -5036,7 +5066,7 @@ export class World {
       !this.championState(source.id) ||
       !this.units.includes(target) ||
       !this.alive(target) ||
-      !this.vulnerable(target) ||
+      !this.targetable(target) ||
       source.team === target.team ||
       isStructureKind(target.kind) ||
       target.kind === 'ward' ||
@@ -5082,12 +5112,19 @@ export class World {
       : GAREN_Q.baseDamageByRank[rank - 1] + (GAREN_Q.totalAttackDamageRatio - 1) * source.damage;
   }
   private hitBasicAttack(source: Unit, target: Unit, raw: number): void {
+    if (
+      source.champion === 'masteryi' &&
+      source.team !== target.team &&
+      this.targetable(target) &&
+      !(target.kind === 'monster' && target.monster.phase === 'returning')
+    )
+      reduceAlphaCooldown(this, source);
     if (target.kind === 'ward') {
       hitWard(this, source, target);
       return;
     }
     const canApplyOnHitEffects =
-      this.vulnerable(target) &&
+      this.targetable(target) &&
       !isStructureKind(target.kind) &&
       !(target.kind === 'monster' && target.monster.phase === 'returning');
     const turretHealthRatio =
@@ -5109,7 +5146,7 @@ export class World {
     // Sample at impact, before this hit changes HP. Ranged attacks retain release AD.
     const illuminated =
       source.champion === 'lux' &&
-      this.vulnerable(target) &&
+      this.targetable(target) &&
       target.illumination.some((mark) => mark.sourceId === source.id && mark.endTick > this.tick);
     if (illuminated) this.captureIlluminationVisual(source, target);
     if (illuminated)
@@ -5118,10 +5155,24 @@ export class World {
     if (illuminated && this.alive(target)) {
       this.damage(source, target, this.illuminationDamage(source), 'magic');
     }
+    this.applyAttackOnHitEffects(source, target, canApplyOnHitEffects, 1);
+  }
+  hitAlphaStrike(source: Unit, target: Unit, raw: number, onHitScale: number): boolean {
+    if (!alphaTarget(this, source, target)) return false;
+    this.damage(source, target, raw, 'physical', 'area');
+    this.applyAttackOnHitEffects(source, target, true, onHitScale);
+    return true;
+  }
+  private applyAttackOnHitEffects(
+    source: Unit,
+    target: Unit,
+    canApplyOnHitEffects: boolean,
+    onHitScale: number
+  ): void {
     const owner = this.championState(source.id);
     if (source.champion === 'masteryi' && owner && canApplyOnHitEffects && this.alive(target)) {
       const trueDamage = wujuStyleDamage(source, owner, this.tick);
-      if (trueDamage > 0) this.damage(source, target, trueDamage, 'true', 'proc');
+      if (trueDamage > 0) this.damage(source, target, trueDamage * onHitScale, 'true', 'proc');
     }
     if (
       canApplyOnHitEffects &&
@@ -5263,7 +5314,7 @@ export class World {
         (target) =>
           target.team !== source.team &&
           this.alive(target) &&
-          this.vulnerable(target) &&
+          this.targetable(target) &&
           !isStructureKind(target.kind) &&
           target.kind !== 'ward' &&
           !(target.kind === 'monster' && target.monster.phase === 'returning') &&
@@ -5299,7 +5350,7 @@ export class World {
         (target) =>
           target.team !== source.team &&
           this.alive(target) &&
-          this.vulnerable(target) &&
+          this.targetable(target) &&
           !isStructureKind(target.kind) &&
           target.kind !== 'ward' &&
           !(target.kind === 'monster' && target.monster.phase === 'returning') &&
@@ -5453,7 +5504,7 @@ export class World {
           ? creditSource
           : undefined;
       for (const member of this.monsterGroup(target)) {
-        if (!this.alive(member) || !this.vulnerable(member) || member.monster.phase === 'returning')
+        if (!this.alive(member) || !this.targetable(member) || member.monster.phase === 'returning')
           continue;
         if (member.monster.scuttle) {
           member.monster.scuttle.lastDamageTick = this.tick;
@@ -5596,6 +5647,7 @@ export class World {
           state.wujuStyle = null;
           state.meditate = null;
           state.highlander = null;
+          state.alphaStrike = null;
           // Combat can finish the tick before post-combat restoration runs.
           // Canonicalize its clocks without granting HP or mana after victory.
           advanceRedBuffClock(state, this.tick);
@@ -5654,6 +5706,7 @@ export class World {
         targetState.wujuStyle = null;
         targetState.meditate = null;
         targetState.highlander = null;
+        targetState.alphaStrike = null;
         stopFoxFireOrbits(this, target.id);
         stopSpiritRush(this, target);
         stopEssences(this, target.id);
@@ -5936,26 +5989,38 @@ export class World {
   abilitySpec(ability: Ability, championId = this.player.id): typeof ABILITIES.d {
     if (
       this.unit(championId)?.champion === 'masteryi' &&
-      (ability === 'e' || ability === 'w' || ability === 'r')
+      (ability === 'q' || ability === 'e' || ability === 'w' || ability === 'r')
     ) {
-      const spell = ability === 'w' ? MASTER_YI_W : ability === 'r' ? MASTER_YI_R : MASTER_YI_E;
+      const spell =
+        ability === 'q'
+          ? MASTER_YI_Q
+          : ability === 'w'
+            ? MASTER_YI_W
+            : ability === 'r'
+              ? MASTER_YI_R
+              : MASTER_YI_E;
       return {
         name: spell.name,
         description: spell.description,
         icon: spell.icon,
         cost:
-          ability === 'w'
-            ? MASTER_YI_W.manaByRank[0]
-            : ability === 'r'
-              ? MASTER_YI_R.manaByRank[0]
-              : MASTER_YI_E.publicManaByRank[0],
+          ability === 'q'
+            ? MASTER_YI_Q.manaByRank[0]
+            : ability === 'w'
+              ? MASTER_YI_W.manaByRank[0]
+              : ability === 'r'
+                ? MASTER_YI_R.manaByRank[0]
+                : MASTER_YI_E.publicManaByRank[0],
         cooldown:
-          ability === 'w'
-            ? MASTER_YI_W.publicCooldownSecondsByRank[0]
-            : ability === 'r'
-              ? MASTER_YI_R.cooldownSecondsByRank[0]
-              : MASTER_YI_E.cooldownSecondsByRank[0],
-        range: 0,
+          ability === 'q'
+            ? MASTER_YI_Q.cooldownSecondsByRank[0]
+            : ability === 'w'
+              ? MASTER_YI_W.publicCooldownSecondsByRank[0]
+              : ability === 'r'
+                ? MASTER_YI_R.cooldownSecondsByRank[0]
+                : MASTER_YI_E.cooldownSecondsByRank[0],
+        range: ability === 'q' ? MASTER_YI_Q.castRange : 0,
+        ...(ability === 'q' ? { cantCastWhileRooted: MASTER_YI_Q.cantCastWhileRooted } : {}),
       };
     }
     if (this.unit(championId)?.champion === 'masteryi' && !isSummonerSlot(ability))
@@ -6019,13 +6084,6 @@ export class World {
     if (this.winner) return 'The match has ended';
     const state = this.championState(championId);
     if (!state) return 'Unknown champion';
-    if (
-      this.unit(championId)?.champion === 'masteryi' &&
-      ability !== 'e' &&
-      ability !== 'w' &&
-      ability !== 'r'
-    )
-      return 'Master Yi spells are not implemented';
     const rank = state.spellRanks[ability];
     if (rank >= (ability === 'r' ? 3 : 5)) return 'This spell is already at maximum rank';
     if (state.skillPoints < 1) return 'No skill points available';
@@ -6090,23 +6148,25 @@ export class World {
       };
     const rank = this.abilityRank(ability, championId);
     if (this.unit(championId)?.champion === 'masteryi') {
-      if (ability !== 'e' && ability !== 'w' && ability !== 'r')
-        throw new Error('Master Yi spells are not implemented');
       return {
         mana: !rank
           ? 0
-          : ability === 'w'
-            ? MASTER_YI_W.manaByRank[rank - 1]
-            : ability === 'r'
-              ? MASTER_YI_R.manaByRank[rank - 1]
-              : MASTER_YI_E.publicManaByRank[rank - 1],
+          : ability === 'q'
+            ? MASTER_YI_Q.manaByRank[rank - 1]
+            : ability === 'w'
+              ? MASTER_YI_W.manaByRank[rank - 1]
+              : ability === 'r'
+                ? MASTER_YI_R.manaByRank[rank - 1]
+                : MASTER_YI_E.publicManaByRank[rank - 1],
         cooldownSeconds: !rank
           ? 0
-          : ability === 'w'
-            ? MASTER_YI_W.publicCooldownSecondsByRank[rank - 1]
-            : ability === 'r'
-              ? MASTER_YI_R.cooldownSecondsByRank[rank - 1]
-              : MASTER_YI_E.cooldownSecondsByRank[rank - 1],
+          : ability === 'q'
+            ? MASTER_YI_Q.cooldownSecondsByRank[rank - 1]
+            : ability === 'w'
+              ? MASTER_YI_W.publicCooldownSecondsByRank[rank - 1]
+              : ability === 'r'
+                ? MASTER_YI_R.cooldownSecondsByRank[rank - 1]
+                : MASTER_YI_E.cooldownSecondsByRank[rank - 1],
       };
     }
     if (this.unit(championId)?.champion === 'ahri') {
@@ -6179,14 +6239,6 @@ export class World {
     if (!state || u.kind !== 'champion') return;
     if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
     if (
-      u.champion === 'masteryi' &&
-      !isSummonerSlot(ability) &&
-      ability !== 'e' &&
-      ability !== 'w' &&
-      ability !== 'r'
-    )
-      return;
-    if (
       activeSpiritDash(this, u.id) &&
       this.summonerSpell(ability, u.id) !== 'heal' &&
       this.summonerSpell(ability, u.id) !== 'flash'
@@ -6231,7 +6283,14 @@ export class World {
       } else this.damage(u, target, damage, 'true', 'summoner');
       return;
     }
-    if (targetId !== undefined && !(u.champion === 'garen' && ability === 'r')) return;
+    if (
+      targetId !== undefined &&
+      !(
+        (u.champion === 'garen' && ability === 'r') ||
+        (u.champion === 'masteryi' && ability === 'q')
+      )
+    )
+      return;
     // Check before Lux's E-recast shortcut as well as ordinary casts.
     if (u.silenceUntil > this.tick && !this.abilitySpec(ability, u.id).canCastWhileSilenced) {
       this.emit('message', u, { text: 'Cannot cast while silenced', unit: u.id, team: u.team });
@@ -6285,6 +6344,19 @@ export class World {
     }
     if (u.champion === 'ashe' && ability === 'q' && state.qStacks < 4) {
       fail('Build 4 Focus with basic attacks');
+      return;
+    }
+    if (u.champion === 'masteryi' && ability === 'q') {
+      const target = targetId === undefined ? undefined : this.unit(targetId);
+      if (!alphaTarget(this, u, target) || distance(u, target) > MASTER_YI_Q.castRange) {
+        fail('Choose a visible enemy in Alpha Strike range');
+        return;
+      }
+      this.setOrder(u, { type: 'idle' });
+      u.mana -= resources.mana;
+      state.cooldowns.q = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
+      beginAlphaStrike(state, u, target, this.tick);
+      this.emit('cast', u, { unit: u.id, champion: 'masteryi', text: 'q', team: u.team });
       return;
     }
     if (u.champion === 'masteryi' && ability === 'r') {

@@ -36,7 +36,7 @@ interface FoxFireWorld {
   ahriFoxFires: FoxFireCast[];
   unit(id: number): Unit | undefined;
   alive(unit: Unit): boolean;
-  vulnerable(unit: Unit): boolean;
+  targetable(unit: Unit): boolean;
   visible(unit: Unit, team: Team): boolean;
   damage(source: Unit, target: Unit, raw: number, kind: 'magic', category: 'area'): void;
 }
@@ -164,7 +164,7 @@ function eligible(world: FoxFireWorld, cast: FoxFireCast, unit: Unit): boolean {
   return (
     unit.team !== cast.team &&
     world.alive(unit) &&
-    world.vulnerable(unit) &&
+    world.targetable(unit) &&
     !['ward', 'turret', 'nexus', 'inhibitor'].includes(unit.kind)
   );
 }
