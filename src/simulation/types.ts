@@ -531,6 +531,8 @@ export interface ChampionState {
   }[];
   /** Actual ordinary Leona attempts; source playback must not invent canceled starts from a hit. */
   leonaAAVisuals: import('./leona-aa-visuals').LeonaAttackVisual[];
+  /** Accepted death clock, fixed point and audience through both finite source layers. */
+  leonaDeathVisuals: import('./leona-death-visuals').LeonaDeathVisual[];
   garenPassiveReadyTick: number;
   /** Bounded cosmetic recovery epochs; stopped sparks retain a fixed root. */
   garenPassiveVisuals: { startTick: number; stopTick: number | null; point: Vec2 | null }[];

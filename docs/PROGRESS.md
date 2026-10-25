@@ -6998,3 +6998,39 @@ Offline integrity, repair, saved boot and atomic version switching pass with
 listening, missing R families, full player/support/roster, ordinary Rift cohort
 and performance gates remain open. Work continues under the active goal; nothing
 pushed.
+
+
+## 2026-10-25 — Saved death facts and layered playback
+
+Accepted Leona deaths now retain the existing event's fixed point, clock and birth
+audience through both source layers' complete 338-tick tail. Capture adds no
+gameplay identity or RNG use. Strict schema 129 requires the bounded fact, checks
+its current death/respawn lifecycle and rejects missing, duplicated, foreign,
+future, expired or contradictory records. The two direct sounds play together
+with the second's authored 1.75-second delay, −10 dB gain and independent caps of
+four. Mute/resume seeks each layer or its remaining delay. Completion cannot
+replay at a frozen tick; result audio drains without advancing saved gameplay.
+Loading remains lazy and failed masters settle without retries or synthetic audio.
+
+Ten history and nine audio cases bring the full check to 2,028 tests in 327 files,
+TypeScript and three Node QA checks. All 75 Chrome cases pass. Eight new browser
+cases include real Save/reload at ages 60 and 151, post-event-log restore, exact
+400-tick futures, hidden births, finite/terminal tails, per-role caps and failed
+loads. An added isolated-player regression first reproduced both voices being
+cut off when death removed the player's own vision. Fixed death playback now
+retains birth-audience eligibility through its full tail, while hidden births
+stay silent. Initial missing-history failures, the import correction and
+floating-point expectation correction remain in the evidence.
+
+See [playback scope](LEONA-DEATH-AUDIO-RUNTIME.md). All 1,010 public assets remain
+byte-identical. All 32 nested-path production recordings pass with ordinary
+Leona loading/selection excluded. Schema 129 ruleset is
+`97151ada3e641df932b6600393d231d2580270ce04e59705b2a7544584ca640e`;
+pack `bead28e91772c49bcb4665fbf937a85e8b7b4a31787e83fa282c0805ffa32dce`
+contains 1,060 files / 519,947,988 bytes. Offline integrity, repair, saved boot
+and atomic version switching pass with 963 worker responses and no production
+errors. The [ledger](reference/leona/death-audio-runtime-verification.json) binds
+exact source/output/evidence. Native caller, cancellation, inheritance/mix,
+listening/frame comparison, missing R families, full player/support/roster and
+ordinary Rift cohort/performance acceptance remain open. Work continues under
+the active goal; nothing pushed.

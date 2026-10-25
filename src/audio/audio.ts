@@ -11,6 +11,7 @@ import { LazyLeonaSolarAudio } from './leona-r-lazy';
 import { LazyLeonaDaybreakAudio } from './leona-q-lazy';
 import { LazyLeonaBasicAttackAudio } from './leona-aa-lazy';
 import { LazyLeonaSunlightAudio } from './leona-sunlight-lazy';
+import { LazyLeonaDeathAudio } from './leona-death-lazy';
 import { LazyOracleAudio } from './oracle-lazy';
 import { LazyGarenDecisiveStrikeAudio } from './garen-q-lazy';
 import { GarenJudgmentAudio } from './garen-e';
@@ -52,6 +53,7 @@ export class GameAudio {
   leonaQ = new LazyLeonaDaybreakAudio();
   leonaAA = new LazyLeonaBasicAttackAudio();
   leonaSunlight = new LazyLeonaSunlightAudio();
+  leonaDeath = new LazyLeonaDeathAudio();
   private leonaTerminalWorld?: World;
   private leonaTerminalStart = 0;
   garenQ = new LazyGarenDecisiveStrikeAudio();
@@ -314,6 +316,7 @@ export class GameAudio {
     this.leonaQ.stop();
     this.leonaAA.stop();
     this.leonaSunlight.stop();
+    this.leonaDeath.stop();
     this.garenQ.stop();
     this.oracle.stop();
     for (const [voice, gain] of this.voices) {
@@ -559,6 +562,7 @@ export class GameAudio {
     if (leonas.length && this.leonaQ.status === 'idle') void this.leonaQ.load();
     if (leonas.length && this.leonaAA.status === 'idle') void this.leonaAA.load();
     if (leonas.length && this.leonaSunlight.status === 'idle') void this.leonaSunlight.load();
+    if (leonas.length && this.leonaDeath.status === 'idle') void this.leonaDeath.load();
     const team = world.hero.team;
     const records = leonas.flatMap((u) =>
       world.championState(u.id)!.leonaWVisuals.map((r) => ({
@@ -581,6 +585,16 @@ export class GameAudio {
       tick += Math.max(0, this.context.currentTime - this.leonaTerminalStart) * 60;
     }
     this.leonaW.update(this.context, this.enabled && !this.paused, records, tick, listener);
+    this.leonaDeath.update(
+      this.context,
+      this.enabled && !this.paused,
+      leonas.flatMap((u) =>
+        world.championState(u.id)!.leonaDeathVisuals.map((r) => ({ ...r, id: u.id }))
+      ),
+      tick,
+      listener,
+      team
+    );
     this.leonaSunlight.update(
       this.context,
       this.enabled && !this.paused,

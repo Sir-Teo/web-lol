@@ -1,3 +1,4 @@
+import { captureLeonaDeath, advanceLeonaDeaths } from './leona-death-visuals';
 import {
   advanceZenithVisuals,
   beginZenithVisual,
@@ -4146,6 +4147,7 @@ export class World {
     advanceSunlightVisuals(this);
     advanceGarenAttackPoses(this);
     advanceLeonaAttacks(this);
+    advanceLeonaDeaths(this);
     advanceLuxEHits(this);
     for (const visual of [...this.luxImpactVisuals, ...this.luxIlluminationVisuals]) {
       const target = this.unit(visual.targetId);
@@ -5142,6 +5144,7 @@ export class World {
       target.attackCycle = null;
       target.order = { type: 'idle' };
       this.emit('death', target, { unit: target.id });
+      if (target.champion === 'leona') captureLeonaDeath(targetState!, target, this.events.at(-1)!);
       // Structure destruction is public map knowledge. It grants no live sight
       // and does not broaden the audience of the preceding damage event.
       if (target.structureKnowledge)
@@ -5377,6 +5380,7 @@ export class World {
       advanceDaybreakVisuals(this);
       advanceEclipseVisuals(this);
       advanceLeonaAttacks(this);
+      advanceLeonaDeaths(this);
     }
     // Positive damage includes shield absorption. Non-champion unit sources
     // cannot trigger the mark; cleanup is not a combat hit.

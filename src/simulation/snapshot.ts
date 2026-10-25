@@ -1,3 +1,4 @@
+import { validateLeonaDeaths } from './leona-death-visuals';
 import { validateDaybreakVisuals } from './leona-q-visuals';
 import { validateLeonaAttacks } from './leona-aa-visuals';
 import { LEONA_AA_CAST_TICKS, LEONA_AA_HIT_TICKS } from '../content/leona-aa-audio-timing';
@@ -125,7 +126,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 128;
+export const SNAPSHOT_VERSION = 129;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -701,6 +702,15 @@ const player: z.ZodType<PlayerState> = z
           .max(10000),
       })
       .nullable(),
+    leonaDeathVisuals: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          point,
+          audience: daybreakFrame.shape.audience,
+        })
+      )
+      .max(1),
     leonaAAVisuals: z
       .array(
         z.strictObject({
@@ -3554,6 +3564,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       throw new Error('Saved match contains invalid Eclipse state.');
     validateDaybreakVisuals(owner, champion, state);
     validateLeonaAttacks(owner, champion, state);
+    validateLeonaDeaths(owner, champion, state.tick);
     validateEclipseVisuals(owner, champion, state);
     validateZenithVisuals(owner, champion, state);
     validateSolarVisuals(owner, champion, state);

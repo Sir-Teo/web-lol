@@ -35,6 +35,7 @@ export function createChampionState(id: number, unlocked = true, tick = 0): Cham
     qStackExpiry: 0,
     garenAAVisuals: [],
     leonaAAVisuals: [],
+    leonaDeathVisuals: [],
     garenPassiveReadyTick: 0,
     garenPassiveVisuals: [],
     garenCourageStacks: 0,

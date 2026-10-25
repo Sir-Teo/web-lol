@@ -127,6 +127,7 @@ export const rulesetModuleRoots = [
   'src/audio/leona-q-state.ts',
   'src/audio/leona-aa-state.ts',
   'src/audio/leona-sunlight-state.ts',
+  'src/audio/leona-death-state.ts',
   'src/audio/leona-w-state.ts',
   'src/audio/leona-e-state.ts',
   'src/audio/leona-r-state.ts',
