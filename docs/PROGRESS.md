@@ -6907,3 +6907,32 @@ contains 1,053 files / 518,268,945 bytes. Native invocation, random/voice/listen
 comparison, missing R families, full player/support/roster, ordinary Rift cohort
 and performance gates remain open. Work continues under the active goal; nothing
 pushed.
+
+
+## 2026-10-25 — Sunlight source audio prepared
+
+The declared Sunlight hit event is mapped through nine selected/inherited nodes
+to three finite masters. Its −12 dB gain, cap two, ordered global/reset Shuffle
+playlist, child Priority 60, shared six-point spell attenuation and unresolved
+bus remain explicit source facts. Five retained-bank Stop actions match none of
+those nodes; native caller/global stop behavior remains open. Independent graph
+fields match apart from the added bounded stop audit.
+
+The mono 44.1 kHz float32 masters preserve 85,429 frames / 341,848 bytes, one
+above-unit sample and peak 1.0305808783. Canonical output reproduces all twelve
+isolated files. Three new units bring the full check to 1,999 tests in 323 files,
+TypeScript and three Node QA checks. Sixteen normal/optimized mutation controls
+reject, both pristine baselines pass, and both decoder overwrite attempts leave
+all four retained files unchanged. Five Chrome cases pass exact sample decode,
+lazy ordinary loading and Sunlight visual/save/recovery/terminal behavior. All
+32 nested-path production recordings pass. All 1,005 previous public files are
+unchanged; exactly three WAVs were added.
+
+See [source scope](LEONA-SUNLIGHT-AUDIO-SOURCE.md). Source preparation only;
+runtime playback is next. Schema 128 ruleset is `66c7ac1748296621bb8bf3c64ca17eeaefb52b567444d1e54c664b82ad0d3148`.
+Pack `f619515039ffeeebfa55afcca92e0f8f1aa6fec70a37ced7ecbc92d6a19c5aa1` contains 1,056 files / 518,610,793 bytes.
+Offline integrity, repair, saved boot and atomic version switching pass with
+963 worker responses and no production errors. Exact inputs/output/evidence are
+bound by the [ledger](reference/leona/sunlight-audio-source-verification.json). Native invocation/mix/listening, full
+player/support/roster, missing R families, ordinary Rift cohort and performance
+acceptance remain open. Work continues under the active goal; nothing pushed.
