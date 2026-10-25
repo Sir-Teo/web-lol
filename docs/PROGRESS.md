@@ -6382,3 +6382,37 @@ guards. Empty-name loading does not clear a reused index; callbacks, post-load
 mutation, other callers, live Leona dispatch and final shader/frame selection
 remain open. This static increment changes no application behavior, asset,
 schema or accepted offline pack. Separate development-bot work is in progress.
+
+## Leona development bot learns and buys defensive items — October 24, 2026
+
+AI-controlled Leona fixtures now use a separate local setup policy rather than
+Ashe's skill opening/critical-strike purchase route. Both teams legally allocate
+Q/E/W/W/W/R followed by R/W/E/Q priority through level18, with no Hawkshot
+charges or changes to the human's ranks. The ordinary purchase/recipe path buys
+Ruby/Boots/Cloth/Mantle and upgrades to Belt/Vest/Cloak, without rebuying consumed
+components or falling through to Infinity Edge. A controlled level-one result
+has996 maximumHP,83armor,77MR,60AD and360speed. The existing jungle-companion
+preamble is unchanged for an explicitly assigned jungle role.
+
+Five new unit cases cover legal ranks, component consumption, bounded shopping,
+exact saved futures and retained player/Rift gates. The full standard check passes
+1,892 units in311 files, TypeScript and three Node QA tests. Three Chrome cases
+pass the new setup/save/reload source-rig case plus existing Leona active-source
+restore and Lux spell AI. The final setup-only rerun also passes after centering
+the camera on the restored NPC and removing the pause menu from the screenshot.
+The initial screenshot and a standalone typecheck's missing Node ambient types
+are retained; the explicit QA config now includes Node types and passes.
+
+Production passes32 nested-path recordings with no development hook or unrequested
+Leona preload. All966 public files remain byte-identical. Offline pack
+8a695b3f78c83d6b972e0118b6b49b20e63744d169fcae1c1ec78c18b7cdf00b contains
+1,012 files/513,309,570 bytes and passes integrity, repair, offline saved boot,
+removal and atomic-version controls with963 worker responses and no production
+errors. Schema126 uses ruleset9aa1414a6ced806885273939c6de36fee034484022aac4a5c843fdb25f45ae50.
+See [setup scope](LEONA-BOT-SETUP.md) and [ledger](reference/leona/bot-setup-verification.json).
+
+This is local development bot setup, not native AI or a recommended player build.
+Tactical Q/W/E/R decisions, engage/peel safety and complete support-role match
+validation remain open, as do playable Leona and native/full-roster acceptance.
+No new normal-match cohort or performance result is claimed. Work continues;
+nothing is pushed.

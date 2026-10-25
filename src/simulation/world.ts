@@ -147,6 +147,7 @@ import { LUX_E_SOURCE as LUX_E } from '../content/lux-e';
 import { LUX_E_POLICY } from '../content/lux-e-policy';
 import { DEATHCAP_AP_AMPLIFICATION, LOST_CHAPTER } from '../content/mage-items';
 import { LUX_BOT_POLICY } from '../content/lux-bot-policy';
+import { LEONA_BOT_POLICY } from '../content/leona-bot-policy';
 import { luxWaveClear } from './lux-wave-clear';
 import { botDisengagePoint } from './bot-disengage';
 import { LUX_W } from '../content/lux-w';
@@ -1014,7 +1015,9 @@ export class World {
             ? { early: ['q', 'w', 'e'] as const, priority: ['r', 'e', 'q', 'w'] as const }
             : this.unit(state.id)?.champion === 'lux'
               ? LUX_BOT_POLICY
-              : ASHE_SKILL_RECOMMENDATION;
+              : this.unit(state.id)?.champion === 'leona'
+                ? LEONA_BOT_POLICY
+                : ASHE_SKILL_RECOMMENDATION;
         const early = recommendation.early[allocated];
         const choices = early ? [early, ...recommendation.priority] : recommendation.priority;
         const ability = choices.find((key) => this.spellLearningError(key, state.id) === null);
@@ -1862,6 +1865,16 @@ export class World {
           ? 'boots'
           : null;
       if (id) return ITEMS.find((item) => item.id === id);
+    }
+    if (u.champion === 'leona') {
+      const upgrades: Readonly<Record<string, string>> = LEONA_BOT_POLICY.upgrades;
+      const id =
+        LEONA_BOT_POLICY.purchases.find(
+          (item) =>
+            !state.inventory.includes(item) &&
+            !(upgrades[item] && state.inventory.includes(upgrades[item]))
+        ) ?? Object.values(upgrades).find((item) => !state.inventory.includes(item));
+      return ITEMS.find((item) => item.id === id);
     }
     if (u.champion === 'lux') {
       let id: string | undefined = LUX_BOT_POLICY.purchases.find(

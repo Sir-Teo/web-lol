@@ -1,0 +1,7 @@
+/** Development bot tuning, not recovered native AI or a recommended item build. */
+export const LEONA_BOT_POLICY = {
+  early: ['q', 'e', 'w', 'w', 'w', 'r'],
+  priority: ['r', 'w', 'e', 'q'],
+  purchases: ['ruby', 'boots', 'cloth', 'mantle'],
+  upgrades: { ruby: 'belt', cloth: 'vest', mantle: 'cloak' },
+} as const;

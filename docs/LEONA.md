@@ -498,3 +498,8 @@ draw locally; the twentieth enabled record is a sound carrier. The
 face colors, authored vertex-color selection and the exact kColorFactor input.
 Actual native dispatch/frames, complete playable Leona, player/support and the
 full six-character match remain open.
+
+[Development bot setup](LEONA-BOT-SETUP.md) now gives AI-controlled Leona fixtures
+their own legal skill order and defensive component/upgrade route. It preserves
+the existing player/Rift gates and exact saved futures. Tactical spell decisions,
+engage/peel safety and full support-role match validation remain required.
