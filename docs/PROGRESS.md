@@ -6875,3 +6875,35 @@ All 44 browser cases and 32 production recordings pass. Schema 128 ruleset is
 
 Offline integrity, repair, saved boot and atomic version-switch controls pass
 with 963 worker responses and zero production errors.
+
+## 2026-10-25 — Ordinary Leona source attack playback
+
+Ordinary attempts now play the prepared normal/critical casts and critical or
+material contacts from their saved slots. BasicAttack/BasicAttack4 schedule the
+authored 40 ms action delay exactly in Web Audio. Normal aliases share their cap,
+critical casts keep a separate cap, and material contacts retain −300/+300 cent
+indexed pitch. Saved positions and fixed start/contact audiences drive playback;
+canceled casts finish without inventing contact. Mute/visibility cleanup, frozen
+finite completion and terminal audio tails preserve saved gameplay. A controller
+load fetches/decodes 24 unique URLs, sharing normal/critical buffers internally.
+The Attack3 LPF slot stays prepared data because current selection excludes it.
+
+The save fingerprint now includes both Q and ordinary attack audio state rules.
+The regression reproduces the omission before the fix. Schema remains 128.
+TypeScript, 1,996 units in 322 files and three Node QA checks pass. All nine new
+Chrome cases pass. The complete 53-case run has 52 passes and one old Q fetch-count
+assertion failure; its corrected focused rerun passes at exactly twenty requests
+across thirteen URLs, including the seven shared Q/attack masters requested once
+by each controller. The original failure/trace and interrupted reporter runs are
+retained. All 1,005 public assets remain unchanged.
+
+See [playback scope](LEONA-AA-AUDIO-RUNTIME.md) and the
+[ledger](reference/leona/aa-audio-runtime-verification.json). All 32 nested-path
+production recordings pass. Offline integrity, repair, saved boot and atomic
+version switching pass with 963 worker responses and no production errors.
+Ruleset is `2f208b3eea9575ec65f59f6dd553b62609e2187de64539c65082db6aef83e9df`;
+pack `25cbb0db755fdcf5ace908b1f1a7df5ca39cc518253a6be631f9a62ea0f14c0b`
+contains 1,053 files / 518,268,945 bytes. Native invocation, random/voice/listener mix, listening/frame
+comparison, missing R families, full player/support/roster, ordinary Rift cohort
+and performance gates remain open. Work continues under the active goal; nothing
+pushed.

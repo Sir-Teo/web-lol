@@ -248,3 +248,20 @@ test('missing pinned runtime data cannot produce a compatibility identity', () =
   rmSync(join(root, 'public/assets/maps/rift-nav.bin'));
   expect(() => rulesetFingerprint(root)).toThrow(/ENOENT/);
 });
+
+test('Daybreak and ordinary Leona audio state rules are saved-clock dependencies', () => {
+  const files = ['src/audio/leona-q-state.ts', 'src/audio/leona-aa-state.ts'];
+  for (const file of files) {
+    expect(rulesetFiles, file).toContain(file);
+    expect(affectsRuleset(resolve(file)), file).toBe(true);
+  }
+  const { root, put } = fixture(),
+    baseline = rulesetFingerprint(root);
+  for (const file of files) {
+    const original = readFileSync(join(root, file), 'utf8');
+    put(file, original + '\nexport const changedClock = 1;\n');
+    expect(rulesetFingerprint(root), file).not.toBe(baseline);
+    put(file, original);
+  }
+  expect(rulesetFingerprint(root)).toBe(baseline);
+});

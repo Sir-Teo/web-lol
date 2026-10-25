@@ -124,6 +124,8 @@ export const rulesetModuleRoots = [
   'src/render/leona-eclipse-skin-material.ts',
   'src/render/particle-skin-mult-material.ts',
   'src/render/leona-eclipse-surface-material.ts',
+  'src/audio/leona-q-state.ts',
+  'src/audio/leona-aa-state.ts',
   'src/audio/leona-w-state.ts',
   'src/audio/leona-e-state.ts',
   'src/audio/leona-r-state.ts',

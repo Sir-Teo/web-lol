@@ -7,6 +7,8 @@ export interface SourceAudioState<K extends string> {
   startTick: number;
   age: number;
   offset: number;
+  /** Exact pending play-action delay, independent of the simulation tick grid. */
+  leadSeconds?: number;
   playbackRate: number;
   remaining: number;
   envelope: number;
@@ -67,18 +69,25 @@ export class FiniteSourceAudio<K extends string, R extends { id: number; startTi
     return (this.loading = (async () => {
       try {
         const decoder = new OfflineAudioContext(1, 1, 44100);
+        const files = new Map<string, Promise<AudioBuffer>>();
+        const decode = (url: string) => {
+          let pending = files.get(url);
+          if (!pending) {
+            pending = (async () => {
+              const response = await fetch(import.meta.env.BASE_URL + url);
+              if (!response.ok) throw Error(`${this.label} audio ${response.status}`);
+              return decoder.decodeAudioData(await response.arrayBuffer());
+            })();
+            files.set(url, pending);
+          }
+          return pending;
+        };
         const decoded = await Promise.all(
           this.kinds.map(
             async (kind) =>
               [
                 kind,
-                await Promise.all(
-                  this.profile[kind].variants.map(async ({ url }) => {
-                    const response = await fetch(import.meta.env.BASE_URL + url);
-                    if (!response.ok) throw Error(`${this.label} audio ${response.status}`);
-                    return decoder.decodeAudioData(await response.arrayBuffer());
-                  })
-                ),
+                await Promise.all(this.profile[kind].variants.map(({ url }) => decode(url))),
               ] as const
           )
         );
@@ -166,7 +175,7 @@ export class FiniteSourceAudio<K extends string, R extends { id: number; startTi
       this.finished.add(s.key);
       this.release(s.key, false);
     };
-    v.source.start(context.currentTime, s.offset);
+    v.source.start(context.currentTime + (s.leadSeconds ?? 0), s.offset);
     this.schedule(v, s, context.currentTime);
     return v;
   }

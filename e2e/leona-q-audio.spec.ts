@@ -364,8 +364,26 @@ test('failed Q masters settle readiness and do not retry every frame', async ({ 
   }, ids);
   expect(result.calls).toEqual([]);
   expect(result.synth).toBe(1);
-  expect(requests).toHaveLength(13);
+  // Q owns thirteen URLs. The ordinary-attack controller independently loads
+  // seven shared masters; the finite loader deduplicates aliases within a load.
+  expect(requests).toHaveLength(20);
   expect(new Set(requests).size).toBe(13);
+  const counts = new Map<string, number>();
+  for (const url of requests) {
+    const name = new URL(url).pathname.split('/').at(-1)!;
+    counts.set(name, (counts.get(name) ?? 0) + 1);
+  }
+  expect([...counts.values()].every((n) => n === 1 || n === 2)).toBe(true);
+  expect(
+    [...counts]
+      .filter(([, n]) => n === 2)
+      .map(([name]) => name)
+      .sort()
+  ).toEqual(
+    [65890581, 99858069, 124210504, 149881516, 180033450, 256570934, 271147565]
+      .map((id) => `leona-q-${id}.wav`)
+      .sort()
+  );
   writeFileSync(
     info.outputPath('failed-source.json'),
     JSON.stringify({ ...result, requests }, null, 2)
