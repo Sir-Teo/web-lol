@@ -1,4 +1,5 @@
 import { MASTER_YI } from '../content/masteryi-progression';
+import { MASTER_YI_PASSIVE } from '../content/masteryi-passive';
 import { ahriAimGeometry } from './ahri-aim';
 import { spiritRushDestination } from '../simulation/ahri-spirit-rush';
 import { renderParticleColorPhase } from './particle-color-phase';
@@ -789,7 +790,9 @@ export class GameView {
         model.actionName = pose.clip;
         if (pose.kind === 'attack')
           model.animationAttackTick =
-            world.championState(u.id)?.doubleStrike?.strike?.startTick ?? u.attackCycle?.startTick;
+            u.champion === 'masteryi' && pose.clip === MASTER_YI_PASSIVE.defaultPoseClip
+              ? world.championState(u.id)?.doubleStrike?.strike?.startTick
+              : u.attackCycle?.startTick;
       }
 
       this.updateBar(u, world, { x, y }, visible);

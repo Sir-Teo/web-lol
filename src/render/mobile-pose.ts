@@ -1,5 +1,6 @@
 import { MASTER_YI_COMBAT_POLICY } from '../content/masteryi-combat-policy';
 import { MASTER_YI_PASSIVE } from '../content/masteryi-passive';
+import { MASTER_YI_W } from '../content/masteryi-w';
 import { leonaAttackAnimation } from '../content/leona-presentation';
 import { AHRI_COMBAT_POLICY } from '../content/ahri-combat-policy';
 import { LEONA_COMBAT_POLICY } from '../content/leona-combat-policy';
@@ -80,6 +81,12 @@ export function mobilePose(
       true
     );
   const leonaCycle = unit.champion === 'leona' ? unit.attackCycle : null;
+  const meditate = unit.champion === 'masteryi' ? state?.meditate : null;
+  if (meditate && meditate.stopTick === null && tick < meditate.endTick) {
+    const clip = MASTER_YI_W.preparedLoopClip;
+    const time = Math.max(0, (at - meditate.startTick) / TICK_RATE);
+    return { ...fixed('cast', clip, time, true), time: time % duration(clip), loop: true };
+  }
   const leonaMoving = Math.hypot(unit.x - unit.previous.x, unit.y - unit.previous.y) > 0.01;
   if (
     leonaCycle?.leonaQReleaseTick !== undefined &&
@@ -129,7 +136,7 @@ export function mobilePose(
   const moving = Math.hypot(unit.x - unit.previous.x, unit.y - unit.previous.y) > 0.01,
     cycle = unit.attackCycle;
   const secondary = unit.champion === 'masteryi' ? state?.doubleStrike?.strike : null;
-  if (!moving && secondary && tick < secondary.endTick) {
+  if (!moving && secondary && secondary.poseStopTick === null && tick < secondary.endTick) {
     const clip = MASTER_YI_PASSIVE.defaultPoseClip;
     const rate = duration(clip) / ((secondary.endTick - secondary.startTick) / TICK_RATE);
     return fixed(

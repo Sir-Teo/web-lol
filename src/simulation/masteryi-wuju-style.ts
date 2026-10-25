@@ -8,6 +8,7 @@ export interface WujuStyleState {
   startTick: number;
   endTick: number;
   rank: number;
+  pausedTicks: number;
 }
 
 export const WUJU_STYLE_TICKS = MASTER_YI_E.durationSeconds * TICK_RATE;
@@ -44,7 +45,8 @@ export function validateWujuStyles(
       buff.rank > owner.spellRanks.e ||
       buff.startTick > tick ||
       buff.endTick <= tick ||
-      buff.endTick !== buff.startTick + WUJU_STYLE_TICKS
+      buff.pausedTicks > tick - buff.startTick ||
+      buff.endTick !== buff.startTick + WUJU_STYLE_TICKS + buff.pausedTicks
     )
       throw new Error('Saved match contains invalid Wuju Style empowerment.');
   }

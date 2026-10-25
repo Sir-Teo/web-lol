@@ -16,6 +16,8 @@ export interface DoubleStrikeState {
     startTick: number;
     releaseTick: number;
     endTick: number;
+    /** A channel can own the body without cancelling this accepted contact. */
+    poseStopTick: number | null;
     targetId: number;
     damage: number;
     critical: boolean;
@@ -86,7 +88,12 @@ export function validateDoubleStrikes(
       strike.endTick <= tick ||
       (strike.result === 'pending') !== strike.releaseTick > tick ||
       (strike.critical && isStructureKind(target.kind)) ||
-      (strike.result === 'pending' && state.stacks !== 0)
+      // Meditate can reset an ordinary attack while this older child is pending.
+      (strike.result === 'pending' && state.stacks > 0 && strike.poseStopTick === null) ||
+      (strike.poseStopTick !== null &&
+        (strike.poseStopTick < strike.startTick ||
+          strike.poseStopTick > tick ||
+          strike.poseStopTick >= strike.endTick))
     )
       throw new Error('Saved match contains invalid Double Strike contact history.');
   }

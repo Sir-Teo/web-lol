@@ -1454,7 +1454,7 @@ export class Hud {
             event.type === 'gold'
               ? `+${event.value}g`
               : event.type === 'heal'
-                ? `+${event.value}`
+                ? `+${Math.round(event.value ?? 0)}`
                 : event.type === 'level'
                   ? 'LEVEL UP!'
                   : String(event.value);

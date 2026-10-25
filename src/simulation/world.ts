@@ -199,6 +199,14 @@ import { LUX_R } from '../content/lux-r';
 import { championProfile, isMeleeChampion } from '../content/champion-profiles';
 import { MASTER_YI_PASSIVE } from '../content/masteryi-passive';
 import { MASTER_YI_E } from '../content/masteryi-e';
+import { MASTER_YI_W } from '../content/masteryi-w';
+import {
+  beginMeditate,
+  finishMeditate,
+  settleMeditate,
+  advanceMeditate,
+  meditateReduction,
+} from './masteryi-meditate';
 import { wujuStyleDamage, WUJU_STYLE_TICKS } from './masteryi-wuju-style';
 import {
   createDoubleStrikeState,
@@ -978,6 +986,8 @@ export class World {
   }
   setOrder(u: Unit, order: Order): void {
     u.order = order;
+    const state = this.championState(u.id);
+    if (state?.meditate) finishMeditate(state, this.tick, 'order');
     // Daybreak's released attack leaves no ordinary attack cooldown. An
     // explicit attack order may skip its automatic animation recovery.
     if (
@@ -1011,7 +1021,6 @@ export class World {
     u.pathTarget = null;
     u.pathDestination = null;
     u.nextPathTick = this.tick;
-    const state = this.championState(u.id);
     if (state) {
       state.trinket.order = null;
       state.recallEnd = null;
@@ -1064,6 +1073,7 @@ export class World {
       if (unit.garenEShreds.length)
         unit.garenEShreds = unit.garenEShreds.filter((shred) => shred.endTick > this.tick);
     for (const state of this.activeChampionStates()) {
+      if (state.meditate) settleMeditate(this, state, this.unit(state.id)!);
       if (state.doubleStrike) expireDoubleStrike(state.doubleStrike, this.tick);
       if (state.wujuStyle && this.tick >= state.wujuStyle.endTick) state.wujuStyle = null;
       if (state.leonaQ && this.tick >= state.leonaQ.endTick) {
@@ -1179,7 +1189,8 @@ export class World {
         u.champion === 'masteryi' &&
         command.type === 'cast' &&
         !isSummonerSlot(command.ability) &&
-        command.ability !== 'e'
+        command.ability !== 'e' &&
+        command.ability !== 'w'
       )
         continue;
       if (
@@ -1253,6 +1264,7 @@ export class World {
         this.advanceImpactVisuals();
         return;
       }
+      if (u.champion === 'masteryi' && advanceMeditate(this, u)) continue;
       if (u.structure?.regenPerSecond)
         u.hp = Math.min(u.maxHp, u.hp + u.structure.regenPerSecond * DT);
       if (u.kind === 'monster' && this.advanceMonster(u)) continue;
@@ -3429,6 +3441,7 @@ export class World {
                   startTick: this.tick,
                   releaseTick,
                   endTick: Math.max(releaseTick + 1, u.nextAttackTick),
+                  poseStopTick: null,
                   targetId: target.id,
                   damage:
                     u.damage *
@@ -4000,6 +4013,8 @@ export class World {
       endTick: this.tick + sampled,
       tenacityApplied: sampled !== duration,
     };
+    const channelOwner = this.championState(target.id);
+    if (channelOwner) finishMeditate(channelOwner, this.tick, 'control');
     this.setOrder(target, { type: 'idle' });
     if (target.champion === 'leona') this.finishLeonaDash(target, 'control');
     stopSpiritDash(this, target, 'control');
@@ -4086,11 +4101,14 @@ export class World {
     target.stunUntil = stunUntil;
     stopSpiritDash(this, target, 'control');
     const owner = this.championState(target.id);
-    if (owner) owner.recallEnd = null;
+    if (owner) {
+      owner.recallEnd = null;
+      finishMeditate(owner, this.tick, 'control');
+    }
     return true;
   }
   /** Silence blocks new spell actions without stopping movement/basic attacks.
-   * Current pending casts are non-channel windups and continue to release. */
+   * Pending non-channel windups continue; an active Meditate is interrupted. */
   applySilence(target: Unit, durationTicks: number): boolean {
     if (
       this.winner ||
@@ -4109,7 +4127,10 @@ export class World {
       this.tick + this.controlDurationTicks(target, durationTicks)
     );
     const state = this.championState(target.id);
-    if (state) state.recallEnd = null;
+    if (state) {
+      state.recallEnd = null;
+      finishMeditate(state, this.tick, 'control');
+    }
     return true;
   }
   /** Shared binding resolution primitive, also used by the queued Lux Q cast. */
@@ -4438,6 +4459,7 @@ export class World {
       const state = this.championState(unit.id),
         cast = state?.castAnimation;
       const casting =
+        state?.meditate?.stopTick === null ||
         !!state?.garenE ||
         !!state?.leonaEWindup ||
         !!state?.leonaDash ||
@@ -5331,9 +5353,15 @@ export class World {
       kind !== 'true' && courage && this.tick < courage.defenseUntil
         ? GAREN_W.damageReductionByRank[courage.rank - 1]
         : 0;
+    const channelReduction =
+      kind !== 'true' && target.champion === 'masteryi'
+        ? meditateReduction(this.championState(target.id), this.tick, source.kind === 'turret')
+        : 0;
     const amount = this.mitigatedDamage(
       target,
-      raw * companionDamageMultiplier(this, source, target, category, kind),
+      raw *
+        companionDamageMultiplier(this, source, target, category, kind) *
+        (1 - channelReduction),
       kind
     );
     // Local presentation policy: positive damage actually reduced by W emits
@@ -5537,6 +5565,7 @@ export class World {
         for (const state of this.activeChampionStates()) {
           if (state.doubleStrike) state.doubleStrike = createDoubleStrikeState();
           state.wujuStyle = null;
+          state.meditate = null;
           // Combat can finish the tick before post-combat restoration runs.
           // Canonicalize its clocks without granting HP or mana after victory.
           advanceRedBuffClock(state, this.tick);
@@ -5593,6 +5622,7 @@ export class World {
       if (targetState) {
         if (targetState.doubleStrike) targetState.doubleStrike = createDoubleStrikeState();
         targetState.wujuStyle = null;
+        targetState.meditate = null;
         stopFoxFireOrbits(this, target.id);
         stopSpiritRush(this, target);
         stopEssences(this, target.id);
@@ -5869,15 +5899,20 @@ export class World {
     return (['d', 'f'] as const).find((slot) => this.summonerSpell(slot, championId) === spell);
   }
   abilitySpec(ability: Ability, championId = this.player.id): typeof ABILITIES.d {
-    if (this.unit(championId)?.champion === 'masteryi' && ability === 'e')
+    if (this.unit(championId)?.champion === 'masteryi' && (ability === 'e' || ability === 'w')) {
+      const spell = ability === 'w' ? MASTER_YI_W : MASTER_YI_E;
       return {
-        name: MASTER_YI_E.name,
-        description: MASTER_YI_E.description,
-        icon: MASTER_YI_E.icon,
-        cost: MASTER_YI_E.publicManaByRank[0],
-        cooldown: MASTER_YI_E.cooldownSecondsByRank[0],
+        name: spell.name,
+        description: spell.description,
+        icon: spell.icon,
+        cost: ability === 'w' ? MASTER_YI_W.manaByRank[0] : MASTER_YI_E.publicManaByRank[0],
+        cooldown:
+          ability === 'w'
+            ? MASTER_YI_W.publicCooldownSecondsByRank[0]
+            : MASTER_YI_E.cooldownSecondsByRank[0],
         range: 0,
       };
+    }
     if (this.unit(championId)?.champion === 'masteryi' && !isSummonerSlot(ability))
       throw new Error('Master Yi spells are not implemented');
     if (
@@ -5939,7 +5974,7 @@ export class World {
     if (this.winner) return 'The match has ended';
     const state = this.championState(championId);
     if (!state) return 'Unknown champion';
-    if (this.unit(championId)?.champion === 'masteryi' && ability !== 'e')
+    if (this.unit(championId)?.champion === 'masteryi' && ability !== 'e' && ability !== 'w')
       return 'Master Yi spells are not implemented';
     const rank = state.spellRanks[ability];
     if (rank >= (ability === 'r' ? 3 : 5)) return 'This spell is already at maximum rank';
@@ -6005,10 +6040,19 @@ export class World {
       };
     const rank = this.abilityRank(ability, championId);
     if (this.unit(championId)?.champion === 'masteryi') {
-      if (ability !== 'e') throw new Error('Master Yi spells are not implemented');
+      if (ability !== 'e' && ability !== 'w')
+        throw new Error('Master Yi spells are not implemented');
       return {
-        mana: rank ? MASTER_YI_E.publicManaByRank[rank - 1] : 0,
-        cooldownSeconds: rank ? MASTER_YI_E.cooldownSecondsByRank[rank - 1] : 0,
+        mana: !rank
+          ? 0
+          : ability === 'w'
+            ? MASTER_YI_W.manaByRank[rank - 1]
+            : MASTER_YI_E.publicManaByRank[rank - 1],
+        cooldownSeconds: !rank
+          ? 0
+          : ability === 'w'
+            ? MASTER_YI_W.publicCooldownSecondsByRank[rank - 1]
+            : MASTER_YI_E.cooldownSecondsByRank[rank - 1],
       };
     }
     if (this.unit(championId)?.champion === 'ahri') {
@@ -6080,7 +6124,8 @@ export class World {
     const state = this.championState(u.id);
     if (!state || u.kind !== 'champion') return;
     if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
-    if (u.champion === 'masteryi' && !isSummonerSlot(ability) && ability !== 'e') return;
+    if (u.champion === 'masteryi' && !isSummonerSlot(ability) && ability !== 'e' && ability !== 'w')
+      return;
     if (
       activeSpiritDash(this, u.id) &&
       this.summonerSpell(ability, u.id) !== 'heal' &&
@@ -6182,11 +6227,21 @@ export class World {
       fail('Build 4 Focus with basic attacks');
       return;
     }
+    if (u.champion === 'masteryi' && ability === 'w') {
+      this.setOrder(u, { type: 'idle' });
+      u.nextAttackTick = this.tick;
+      u.mana -= resources.mana;
+      state.cooldowns.w = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
+      beginMeditate(state, this.tick, state.spellRanks.w, this.abilityPower(u));
+      this.emit('cast', u, { unit: u.id, champion: 'masteryi', text: 'w', team: u.team });
+      return;
+    }
     if (u.champion === 'masteryi' && ability === 'e') {
       state.wujuStyle = {
         startTick: this.tick,
         endTick: this.tick + WUJU_STYLE_TICKS,
         rank: state.spellRanks.e,
+        pausedTicks: 0,
       };
       state.cooldowns.e = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
       state.recallEnd = null;

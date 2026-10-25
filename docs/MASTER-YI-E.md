@@ -1,5 +1,9 @@
 # Development Wuju Style empowerment
 
+This document records the schema-140 E checkpoint. [Meditate](MASTER-YI-W.md)
+adds W, paid E-pause accounting and the attack-reset interaction at schema 141.
+Earlier references below to unimplemented W describe this prior checkpoint.
+
 The private `/?scene=fixture&npc=masteryi` NPC can learn and cast E through the
 shared development command API. Ashe remains the human; Q/W/R, Master Yi player
 controls, role AI and production selection remain unfinished. The mechanic adds

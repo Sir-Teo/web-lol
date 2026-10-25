@@ -1,6 +1,13 @@
 # Local match checkpoints
 
-Current schema **140** adds Master Yi's start/end/rank Wuju Style empowerment and
+Current schema **141** adds Meditate channel/pulse/stop clocks, captured rank/AP,
+paid E-pause accounting and Double Strike's separate pose-stop clock. A new primary
+can overlap an older pending child after W's reset; save and body clocks retain
+both contacts. Validation checks pulse alignment, controls, rank/budget/terminal
+ownership, finite linger and E duration accounting. Older schemas/hashes remain
+incompatible. See [Meditate](MASTER-YI-W.md).
+
+Schema **140** adds Master Yi's start/end/rank Wuju Style empowerment and
 permits only E learning/cooldown state in the private NPC fixture. Validation
 rejects foreign/dead/terminal/expired buffs, invalid rank budgets and unsupported
 Q/W/R or body-cast state. E and a pending Double Strike retain the same future

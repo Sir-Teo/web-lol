@@ -1,6 +1,7 @@
 import { validateLeonaDeaths } from './leona-death-visuals';
 import { validateDoubleStrikes } from './masteryi-double-strike';
 import { validateWujuStyles } from './masteryi-wuju-style';
+import { validateMeditates } from './masteryi-meditate';
 import { isMeleeChampion } from '../content/champion-profiles';
 import { AHRI_Q } from '../content/ahri-q';
 import { AHRI_Q_POLICY } from '../content/ahri-q-policy';
@@ -139,7 +140,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 140;
+export const SNAPSHOT_VERSION = 141;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -715,6 +716,7 @@ const player: z.ZodType<PlayerState> = z
             damage: nonnegative,
             critical: z.boolean(),
             result: z.enum(['pending', 'hit', 'lost']),
+            poseStopTick: tick.nullable(),
           })
           .nullable(),
       })
@@ -724,6 +726,20 @@ const player: z.ZodType<PlayerState> = z
         startTick: tick,
         endTick: tick,
         rank: z.number().int().min(1).max(5),
+        pausedTicks: tick,
+      })
+      .nullable(),
+    meditate: z
+      .strictObject({
+        startTick: tick,
+        endTick: tick,
+        rank: z.number().int().min(1).max(5),
+        power: nonnegative,
+        lastTick: tick,
+        nextHealTick: tick,
+        nextStackTick: tick,
+        stopTick: tick.nullable(),
+        stopReason: z.enum(['complete', 'order', 'control', 'mana']).nullable(),
       })
       .nullable(),
     garenRReveal: z.strictObject({ targetId: id, startTick: tick, endTick: tick }).nullable(),
@@ -3404,6 +3420,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   const owners = [state.player, ...state.otherChampions];
   validateDoubleStrikes(owners, state.units, state.tick, state.winner);
   validateWujuStyles(owners, state.units, state.tick, state.winner);
+  validateMeditates(owners, state.units, state.tick, state.winner);
   validateEssences(
     state.ahriCounters,
     state.ahriEssences,
@@ -3510,12 +3527,13 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   for (const owner of owners)
     if (state.units.find((u) => u.id === owner.id)?.champion === 'masteryi') {
       if (
-        owner.skillPoints + owner.spellRanks.e !== owner.level ||
-        (['q', 'w', 'r'] as const).some(
-          (a) => owner.spellRanks[a] !== 0 || owner.cooldowns[a] !== 0
+        owner.skillPoints + owner.spellRanks.e + owner.spellRanks.w !== owner.level ||
+        (['q', 'r'] as const).some((a) => owner.spellRanks[a] !== 0 || owner.cooldowns[a] !== 0) ||
+        (['w', 'e'] as const).some(
+          (a) =>
+            (owner.spellRanks[a] > 0 && owner.level < 1 + (owner.spellRanks[a] - 1) * 2) ||
+            (!owner.spellRanks[a] && owner.cooldowns[a] !== 0)
         ) ||
-        (owner.spellRanks.e > 0 && owner.level < 1 + (owner.spellRanks.e - 1) * 2) ||
-        (!owner.spellRanks.e && owner.cooldowns.e !== 0) ||
         owner.castAnimation !== null ||
         owner.pendingCast !== null
       )

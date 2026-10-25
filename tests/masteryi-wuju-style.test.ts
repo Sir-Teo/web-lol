@@ -56,7 +56,7 @@ test('standard E retains ranked damage, bonus-stat formula, public resource and 
   expect(MASTER_YI_E.legacySwordVFXSeconds).toBe(3);
 });
 
-test('own E learns normally while Q/W/R stay unavailable and no Hawkshot charges are granted', () => {
+test('own E learns normally while Q/R stay unavailable and no Hawkshot charges are granted', () => {
   const f = fixture(0);
   expect(f.w.spellLearningError('e', f.yi.id)).toBeNull();
   expect(f.w.learnSpell('e', f.yi.id)).toBeNull();
@@ -64,7 +64,7 @@ test('own E learns normally while Q/W/R stay unavailable and no Hawkshot charges
   expect(f.state.spellRanks).toEqual({ q: 0, w: 0, e: 1, r: 0 });
   expect(f.state.skillPoints).toBe(0);
   expect(f.state.eCharges).toBe(0);
-  for (const spell of ['q', 'w', 'r'] as const)
+  for (const spell of ['q', 'r'] as const)
     expect(f.w.learnSpell(spell, f.yi.id)).toMatch(/not implemented/);
   expect(f.w.learnSpell('e', f.yi.id)).toMatch(/No skill points/);
   expect(World.fromSnapshot(f.w.snapshot(), f.w.battlefield).snapshot()).toBe(f.w.snapshot());
@@ -74,7 +74,12 @@ test('instant activation is free, has its own five-second clock and starts the f
   const f = fixture();
   f.yi.mana = 0;
   f.cast();
-  expect(f.state.wujuStyle).toEqual({ startTick: f.w.tick, endTick: f.w.tick + 300, rank: 1 });
+  expect(f.state.wujuStyle).toEqual({
+    startTick: f.w.tick,
+    endTick: f.w.tick + 300,
+    rank: 1,
+    pausedTicks: 0,
+  });
   expect(f.state.cooldowns.e).toBe(f.w.tick + 840);
   expect(f.yi.mana).toBeLessThan(1); // Ordinary resource regeneration still runs.
   expect(f.state.pendingCast).toBeNull();

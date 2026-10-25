@@ -7767,3 +7767,48 @@ pack `0691702251f132c790b6466db58a07558f9ea3098b019c92440f27e0b8efdc6f`
 contains 1,068 files / 526,611,202 bytes. No fresh offline/full-browser/native/
 performance certification is claimed. Q/W/R and full champion/project completion
 remain open; Meditate declaration preparation is isolated outside runtime inputs.
+
+## 2026-10-25 — Development Meditate, paused E and independent reset contacts
+
+[Meditate](MASTER-YI-W.md) adds own W learning/casting, a four-second channel,
+eight half-second heals, continuous upkeep, timed mitigation/linger, attack reset,
+passive stack pulses and paused E duration. Source ranks/formulas/traits and the
+exact `Spell2` loop binding are checked offline. Omitted BIN cooldown and heal
+stat ID remain null; public ten-second cooldown and AP are explicit local
+controller choices. Eight mutation cases pass in normal and optimized Python.
+Native dispatch/order, source effects/audio and presentation calibration stay open.
+
+Commands interrupt before due pulses; paid elapsed intervals settle before E
+expiry. Stun/silence/Charm stop the channel at application. Root and ordinary
+damage leave it active. Death/victory clear it. A committed Double Strike survives
+the attack reset and can contact during W. Its separate pose-stop clock lets the
+body own the channel and prevents an old child pose overriding a newer primary.
+The level-change/reset overlap retains both contact clocks and counter growth.
+Schema 141 validates these states plus pulse alignment, budgets, finite linger
+and E pause accounting. The public roster/assets and NPC save/import gates stay
+unchanged. HUD healing labels now round visually while actual HP/events remain
+precise; screenshot review caught and repaired the long-decimal display.
+
+All 47 Meditate cases pass in the broad run. The complete batch passes
+2,289/2,296 cases across 342 files: the same six pre-existing source-audit failures
+remain, plus an existing wave-scheduler five-second deadline miss. That scheduler
+and all channel cases then pass isolated (56 cases, original limits). The
+earlier focused run passes 134 cases. TypeScript, three Node QA cases and the
+production build pass. No assertion or deadline was weakened.
+
+Thirteen distinct targeted Chromium 154/Linux browser cases have passing runs.
+The first batch passes twelve and times out the existing pending-NPC reload;
+its unchanged isolated rerun passes in 26 seconds under the original thirty-second
+limit. All three new channel phases pass again after the HUD repair, preserving
+world bytes, all 90 bone matrices and 300-tick futures. Loop and overlap captures
+were reviewed. Nested production hosting passes 32 recordings, ordinary saved
+continuation, development URL rejection and zero Master Yi preloads.
+
+The [verification record](reference/masteryi/w-verification.json) preserves
+source/test hashes, phase/save/pose digests, the corrected feedback-ID assumption,
+both timing failures and isolated passes, HUD repair and production result.
+Ruleset is `0392157a812acbbb4b8e48f4d5aeb5d06905aec3aa40ee37c4f26cc464fae468`;
+pack `f710e23c20ffd324d689cad2ec838955e0ac9311b8403ed70bc1f6d1c7eb8c6f`
+contains 1,068 files / 526,616,922 bytes. No fresh offline/full-browser/native/
+performance certification is claimed. Q/R, full Master Yi and full project
+completion stay open. Highlander declaration preparation remains staging-only.
