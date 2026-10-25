@@ -1,0 +1,532 @@
+{
+  "schemaVersion": 1,
+  "mode": "reflective",
+  "depth": true,
+  "scope": "Original retained mesh rim/reflective shaders with controlled depth32Float plane; no native CPU state/frame observation.",
+  "nativeGameExecuted": false,
+  "nativeShaderExecuted": true,
+  "nativeGameplayFrameVerified": false,
+  "run": ".cache/leona-metal-depth-runtime-v1-20261024/reflection",
+  "rimRegression": ".cache/leona-metal-depth-runtime-v1-20261024/rim",
+  "files": [
+    {
+      "file": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_ps.ps-metal-54.metallib",
+      "archived": ".cache/leona-metal-reflection-accepted-v3-20261024/files/.cache/leona-e-reflection-shaders-v1-20261024/mesh_ps.ps-metal-54.metallib",
+      "bytes": 4286,
+      "sha256": "f79178c54b8fdf6e81f230ae0836204b64b6f48fee8271f1f39864a4b2dc4853",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-e-reflection-shaders-v1-20261024/mesh_vs.vs-metal-33.metallib",
+      "archived": ".cache/leona-metal-reflection-accepted-v3-20261024/files/.cache/leona-e-reflection-shaders-v1-20261024/mesh_vs.vs-metal-33.metallib",
+      "bytes": 5785,
+      "sha256": "396edb76f948fc06da41ab4975f4697a4bdcb9621392fdfa4e3496ee3d0ab4e6",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/freeze.py",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/freeze.py",
+      "bytes": 2376,
+      "sha256": "423310825c7ef9c8cc032937a308e46ec2f10440ab1b17b5b64f38849c3826b7",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/negative-checks.py",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/negative-checks.py",
+      "bytes": 1383,
+      "sha256": "83a30a3b683630408766a4940427539e8504d9a53662d9ae012523225299ed64",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/negative-checks/changed-library-record-pin.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/negative-checks/changed-library-record-pin.json",
+      "bytes": 22045,
+      "sha256": "6a1d5dc8bbcb6371db14db19005af0fa9241dc6bff83d246f22c72b0213dc4cc",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/negative-checks/changed-library-record.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/negative-checks/changed-library-record.json",
+      "bytes": 1454,
+      "sha256": "882d9716d32656a105abd9f80814fc492dc3c830b723f75ac8df9d04d0be4f22",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/negative-checks/changed-library-record.log",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/negative-checks/changed-library-record.log",
+      "bytes": 809,
+      "sha256": "13711f6270405405da37106feae30ccd865ede7695a3f553e06ca96342875b23",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/negative-checks/changed-pixel-pin.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/negative-checks/changed-pixel-pin.json",
+      "bytes": 22036,
+      "sha256": "e8b1b68311dc848c44a2a319a13568bda60b323cf35c4df176f3a83e8b9b2588",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/negative-checks/changed-pixel.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/negative-checks/changed-pixel.json",
+      "bytes": 23487,
+      "sha256": "ec248d555409d9d62f2db5252c825eff532872e62b457f535cc7a93057e3eef9",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/negative-checks/changed-pixel.log",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/negative-checks/changed-pixel.log",
+      "bytes": 42568,
+      "sha256": "a47f9a9f2c0b9de1018c8b6f4cda7c653649edb32198a5ff07f16e5a2a0bcaae",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/negative-checks/missing-case-pin.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/negative-checks/missing-case-pin.json",
+      "bytes": 22036,
+      "sha256": "8488b76cfe3d4f6c7d0377587c1ba53194a0808078aee3ea9b23ded891091a1a",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/negative-checks/missing-case.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/negative-checks/missing-case.json",
+      "bytes": 73884,
+      "sha256": "f6915e4462ae02797a6b39e2f2333a18349ac14dedd67d739ba019b0a86132dc",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/negative-checks/missing-case.log",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/negative-checks/missing-case.log",
+      "bytes": 499,
+      "sha256": "5ed7c166f528ef2a0d892f4e2500db80c510e263bf80b4fe0d618b965d565e86",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/negative-checks/results.json",
+      "archived": ".cache/leona-metal-rim-accepted-v3-20261024/files/.cache/leona-metal-rim-runtime-v1-20261024/negative-checks/results.json",
+      "bytes": 245,
+      "sha256": "2d253864ce20c13577a4fb0a2059aeaaf68f23c40d41dc2d4596d39bc41558aa",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/prettier-verifier.log",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/prettier-verifier.log",
+      "bytes": 41,
+      "sha256": "c3feb042b55e6e959686f2f0010ca751bc9b827268a6c679bad6ba657b9fef4f",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/prettier.log",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/prettier.log",
+      "bytes": 113,
+      "sha256": "7b768c4f479c5c255027e2376e991c1b865f9b967fe216dd46c42d4b1b76df80",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/reflection-history.log",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/reflection-history.log",
+      "bytes": 77,
+      "sha256": "2da84f59588d0551b9e4b3536b5d28d3c4bb7ea411523ef873358982613e9964",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/reflection.log",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/reflection.log",
+      "bytes": 120,
+      "sha256": "ab4cd1839d1fb23ee244122ba78c91e9e7f1e0f7fcf0276edc8de30b11ef721c",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/reflection/cases.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/reflection/cases.json",
+      "bytes": 74529,
+      "sha256": "88f10f6a7383f30cc9a3e4e019123a5f742c6aed44ff1d50a1b5052bd272a72b",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/reflection/comparison.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/reflection/comparison.json",
+      "bytes": 38717,
+      "sha256": "593ff72b0c59286cc66b0c509d205def8287651df47ee53a37684f20c70aed40",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/reflection/compile-command.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/reflection/compile-command.json",
+      "bytes": 305,
+      "sha256": "b9e3115ded2894446308a7132cea1588dd51628eeac1c2a718c93e4ab2a517ce",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/reflection/compile-stderr.log",
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/reflection/compile-stdout.log",
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/reflection/compiler-version.txt",
+      "archived": ".cache/leona-metal-rim-accepted-v3-20261024/files/.cache/leona-metal-rim-runtime-v1-20261024/full-v2/compiler-version.txt",
+      "bytes": 100,
+      "sha256": "7ede0fc8211c644002a894b47810b24b6aa38c8a01620c2e706aa92df59c41a1",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/reflection/executable.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/reflection/executable.json",
+      "bytes": 210,
+      "sha256": "e3253992c3a1401601d3b9986ae9fee331438ddec4ca01cb3e95167a731de51b",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/reflection/inputs.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/reflection/inputs.json",
+      "bytes": 1454,
+      "sha256": "5aa7ba8343d883f69bf413c9cc3488002c5448e1b57438405c40a05c14f1f183",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/reflection/native-command.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/reflection/native-command.json",
+      "bytes": 453,
+      "sha256": "df3d8f6bddc67aca93a3cd41160674a92e55782fe8a2bde8a32f84bc2f9fe85e",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/reflection/native-stderr.log",
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/reflection/native-stdout.log",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/reflection/native-stdout.log",
+      "bytes": 24062,
+      "sha256": "e28bc0144bd4414ee6e898a87986c6daa9bc25bee298faae9c102a1a74accb3c",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/reflection/native.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/reflection/native.json",
+      "bytes": 23487,
+      "sha256": "3a1f73c7409436073a290294600560b9eaec9ffff4e3043897fe39f7e6f7bcfc",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/reflection/render",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/reflection/render",
+      "bytes": 191400,
+      "sha256": "12e087a5bb3e7c636fb7f4d0432a2db7601915f0015564a4701b6237366f0322",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/reflection/scope.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/reflection/scope.json",
+      "bytes": 814,
+      "sha256": "b02eed1da7614a1bca474ab8102c2ff21f7b9815eeb511b710a4df634db54af1",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/reflection/vite.log",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/reflection/vite.log",
+      "bytes": 73,
+      "sha256": "5e14689b4367662710aaa7510bee1d9f5102a7bf8e0c5ca1e10699cbe99d981a",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/reflection/webgl.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/reflection/webgl.json",
+      "bytes": 68310,
+      "sha256": "ed3dc56628d44967382143779b7073fb65f75857bcd26ac2d826928d14b6ad8c",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/rim-history.log",
+      "archived": ".cache/leona-metal-reflection-accepted-v3-20261024/files/.cache/leona-metal-reflection-runtime-v1-20261024/old-rim-historical.log",
+      "bytes": 77,
+      "sha256": "1f2d8862f2f6823c17ba3cbb3afa8a8705db1ba33ffd5849b6e8304f148848b2",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/rim.log",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/rim.log",
+      "bytes": 120,
+      "sha256": "4d99b4132468e9c5b76de72b6a567bdabb7d93fbb0023d774961f2b4f89683e1",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/rim/cases.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/rim/cases.json",
+      "bytes": 68794,
+      "sha256": "f0fd070d874c5c5d4c71f644a28bb63063aadd697c0870a2b49937bc1a96a8ee",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/rim/comparison.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/rim/comparison.json",
+      "bytes": 51797,
+      "sha256": "0022f8012daff3c80c7f348960db1be19009afd49de292c407abec496992f3c0",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/rim/compile-command.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/rim/compile-command.json",
+      "bytes": 298,
+      "sha256": "0756e2630690ffa26ac539ee7ef3c55ffa69b1a38b707374ad3f67b31e8af526",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/rim/compile-stderr.log",
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/rim/compile-stdout.log",
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/rim/compiler-version.txt",
+      "archived": ".cache/leona-metal-rim-accepted-v3-20261024/files/.cache/leona-metal-rim-runtime-v1-20261024/full-v2/compiler-version.txt",
+      "bytes": 100,
+      "sha256": "7ede0fc8211c644002a894b47810b24b6aa38c8a01620c2e706aa92df59c41a1",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/rim/executable.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/rim/executable.json",
+      "bytes": 203,
+      "sha256": "fab86dae5b11c4cb479eff116485d764af0576fea868e7bdecbbdf7d6c01dc3a",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/rim/inputs.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/rim/inputs.json",
+      "bytes": 1736,
+      "sha256": "04f129d88b9bb560fad8ae64f68ac625046661a73a2ed12583aaa9721df031b5",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/rim/native-command.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/rim/native-command.json",
+      "bytes": 542,
+      "sha256": "2fdf2e0879a9abcfc1d6bf41b3821eaf096abbc0e523127f5a7f2c3e9268355e",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/rim/native-stderr.log",
+      "archived": ".cache/leona-r-native-sampler-validation-v1-20261024/qa-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/rim/native-stdout.log",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/rim/native-stdout.log",
+      "bytes": 31982,
+      "sha256": "fc6ff67b94eec2651710c883749a501dd5bac25118b65b5d6483f644ed130ae3",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/rim/native.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/rim/native.json",
+      "bytes": 31212,
+      "sha256": "fb5e38620c7756323a0c160fd2074fe1100bc6cca499454df25cf130ee068b30",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/rim/render",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/rim/render",
+      "bytes": 191400,
+      "sha256": "12e087a5bb3e7c636fb7f4d0432a2db7601915f0015564a4701b6237366f0322",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/rim/scope.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/rim/scope.json",
+      "bytes": 1005,
+      "sha256": "31fb34eaed5cce57f43513d23168791afd57b8057d1633e3a1544b2e62174cad",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/rim/vite.log",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/rim/vite.log",
+      "bytes": 73,
+      "sha256": "fc7a79eea7ae03ec344145385b6395389343fbe8c8db7df076d6fa84af80d5f2",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-metal-depth-runtime-v1-20261024/rim/webgl.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/.cache/leona-metal-depth-runtime-v1-20261024/rim/webgl.json",
+      "bytes": 78921,
+      "sha256": "b2949a35c12e8669006be008c9e234d5add481f2b637cc2f12af03b33590d4a7",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-native-reflection-inputs-v1-20261024/nonreflective/mesh_ps.ps-metal-9.metallib",
+      "archived": ".cache/leona-e-sword-accepted-v2-20261024/native/.cache/leona-native-reflection-inputs-v1-20261024/nonreflective/mesh_ps.ps-metal-9.metallib",
+      "bytes": 3934,
+      "sha256": "6f497054a40a4ce2d84f7e217872ce4ec3a482e2c01361a70f82d546924e63f3",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-native-reflection-inputs-v1-20261024/nonreflective/mesh_vs.vs-metal-1.metallib",
+      "archived": ".cache/leona-e-sword-accepted-v2-20261024/native/.cache/leona-native-reflection-inputs-v1-20261024/nonreflective/mesh_vs.vs-metal-1.metallib",
+      "bytes": 5577,
+      "sha256": "6b86adbd5b6f807e71248eff97c03fd42b5db82e9de81578dfebca0cb60dfb12",
+      "current": false
+    },
+    {
+      "file": ".cache/leona-native-scb-material-v1-20261024/shaders/mesh_ps.ps-metal-24.metallib",
+      "archived": ".cache/leona-e-sword-accepted-v2-20261024/native/.cache/leona-native-reflection-reading-v1-20261024/independent/vertex-alpha/shaders/mesh_ps.ps-metal-24.metallib",
+      "bytes": 4158,
+      "sha256": "ae3c69a06bf883597412669be3ccd0309a7c0683d061908795fa6f96a2e80d30",
+      "current": false
+    },
+    {
+      "file": "docs/LEONA-METAL-DEPTH-HARNESS.md",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/docs/LEONA-METAL-DEPTH-HARNESS.md",
+      "bytes": 3533,
+      "sha256": "df8c05fcb8fba659c9a52f1dbae34640c40ae901f286f469c393630eecc8585d",
+      "current": true
+    },
+    {
+      "file": "docs/LEONA-METAL-REFLECTION-HARNESS.md",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/docs/LEONA-METAL-REFLECTION-HARNESS.md",
+      "bytes": 5064,
+      "sha256": "8e4f9df7a69684daa7cfac071428db3da9c982c385b3c24119a6f2208b80dc18",
+      "current": true
+    },
+    {
+      "file": "docs/LEONA-METAL-RIM-HARNESS.md",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/docs/LEONA-METAL-RIM-HARNESS.md",
+      "bytes": 5528,
+      "sha256": "ffe375115a2339d8b79d101572d22f0e4d23dd3800a29b93c41d157d4e703f6a",
+      "current": true
+    },
+    {
+      "file": "docs/LEONA.md",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/docs/LEONA.md",
+      "bytes": 33399,
+      "sha256": "67cdaf844d24140ec78c0672d3a4120a4036b37b9e3161bde2223e3431acdc92",
+      "current": true
+    },
+    {
+      "file": "docs/PROGRESS.md",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/docs/PROGRESS.md",
+      "bytes": 626313,
+      "sha256": "d354bb5a75e9af1e061fc4d1d12bb1f3ad855c1ec1cab14abdf3f632333fc976",
+      "current": true
+    },
+    {
+      "file": "docs/reference/leona-e-reflection-shaders.json",
+      "archived": ".cache/leona-metal-reflection-accepted-v3-20261024/files/docs/reference/leona-e-reflection-shaders.json",
+      "bytes": 10105,
+      "sha256": "3341990232a3bc1951f111ba487589e8b0278566653c9fea8fa5b13a1355ef8c",
+      "current": true
+    },
+    {
+      "file": "docs/reference/leona-native-reflection-inputs.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/docs/reference/leona-native-reflection-inputs.json",
+      "bytes": 52737,
+      "sha256": "5693f761a1d472269ae07a74833cc9a8ec1b3d41dc216a92b7a0a5b96d173c76",
+      "current": true
+    },
+    {
+      "file": "docs/reference/leona-native-scb-material.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/docs/reference/leona-native-scb-material.json",
+      "bytes": 43689,
+      "sha256": "0c22388889883715e2f3cd64a7762abc57889851ccf2a72c72306a9eeaf883aa",
+      "current": true
+    },
+    {
+      "file": "docs/reference/leona/metal-reflection-verification.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/docs/reference/leona/metal-reflection-verification.json",
+      "bytes": 52170,
+      "sha256": "26a56d67cfff92b0e073442198e05b79b5e97ca9648d84b5458d097ab5e9b71c",
+      "current": true
+    },
+    {
+      "file": "docs/reference/leona/metal-rim-verification.json",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/docs/reference/leona/metal-rim-verification.json",
+      "bytes": 43783,
+      "sha256": "e31a076ef83f68b5a000b2da6f4311e12488158b0856c98ef8f25a227841229b",
+      "current": true
+    },
+    {
+      "file": "package-lock.json",
+      "archived": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e",
+      "current": true
+    },
+    {
+      "file": "package.json",
+      "archived": ".cache/leona-e-kernel-validation-v4-20261024/frozen-inputs/package.json",
+      "bytes": 1147,
+      "sha256": "12108b696b046919346d6c157339b37b20ff57c3b3c2448949af3d8a98d8b2b6",
+      "current": true
+    },
+    {
+      "file": "src/render/particle-mesh-reflection-material.ts",
+      "archived": ".cache/leona-e-sword-accepted-v2-20261024/frozen-inputs/src/render/particle-mesh-reflection-material.ts",
+      "bytes": 7408,
+      "sha256": "56ddcbc14d9a5f0dcd88ebc9535119dc841123713824a676ec15a19c008b54d9",
+      "current": true
+    },
+    {
+      "file": "tools/qa/leona-metal-rim.swift",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/tools/qa/leona-metal-rim.swift",
+      "bytes": 11254,
+      "sha256": "b76be60022419016af6b51bb098c63af0bc32b577de7605a8a7e156962a63e4c",
+      "current": true
+    },
+    {
+      "file": "tools/qa/metal-reflection-cases.mjs",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/tools/qa/metal-reflection-cases.mjs",
+      "bytes": 5222,
+      "sha256": "3d5e1059424806600b309dbb82ffdea6f5fbc89d33a2501382f8b34f6c25333c",
+      "current": true
+    },
+    {
+      "file": "tools/qa/metal-rim-cases.mjs",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/tools/qa/metal-rim-cases.mjs",
+      "bytes": 4202,
+      "sha256": "b7a9fcab864d4d23f260de3d715372929b712118c5239fc23a7cebe2f83a936d",
+      "current": true
+    },
+    {
+      "file": "tools/qa/particle-mesh-reflection-preview.ts",
+      "archived": ".cache/leona-e-sword-accepted-v2-20261024/frozen-inputs/tools/qa/particle-mesh-reflection-preview.ts",
+      "bytes": 4390,
+      "sha256": "8acac2ffb0a0365aa0d26c3cbc7404afdecc34a6f7a6f34fa1523639daa874f7",
+      "current": true
+    },
+    {
+      "file": "tools/qa/run-leona-metal-rim.mjs",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/tools/qa/run-leona-metal-rim.mjs",
+      "bytes": 8548,
+      "sha256": "0584313fb90bc62cd34de33759518bfe41c7a3d31bc4ad71ebec9848829a8a40",
+      "current": true
+    },
+    {
+      "file": "tools/qa/verify-leona-metal-rim.mjs",
+      "archived": ".cache/leona-metal-depth-accepted-v2-20261024/files/tools/qa/verify-leona-metal-rim.mjs",
+      "bytes": 9047,
+      "sha256": "e35e28f6bf79dfe08557378d7adf20e26fc60ceb69b5c11bfea659a439dd6caf",
+      "current": true
+    }
+  ],
+  "negativeChecks": ".cache/leona-metal-depth-runtime-v1-20261024/negative-checks/results.json"
+}

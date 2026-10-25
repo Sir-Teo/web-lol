@@ -7,7 +7,7 @@ const baseline = {
   normal: [0.8, 0, 0.6],
   fresnel: [1, 0.43921568989753723, 0.03921568766236305, 0.8350000381469727],
 };
-export function metalRimCases() {
+export function metalRimCases({ depth = false } = {}) {
   const rows = [],
     add = (group, overrides) =>
       rows.push({ ...baseline, ...overrides, id: `${group}-${rows.length}` });
@@ -82,6 +82,8 @@ export function metalRimCases() {
       width: 2,
       transform: [1, 0, 0, 0, 1, 0, shift, 0, 1],
     });
+  if (depth)
+    for (const depthPushPull of [-0.5, 0, 0.5]) add('depth', { depthPushPull, occluder: true });
   return rows;
 }
 const clamp = (v) => Math.max(0, Math.min(1, v));
@@ -89,6 +91,8 @@ const dot = (a, b) => a.reduce((s, v, i) => s + v * b[i], 0);
 const normalized = (a) => a.map((v) => v / Math.hypot(...a));
 /** Independent scalar transcription of VS1 and PS9/24, not a GPU implementation. */
 export function expectedMetalRim(o) {
+  // Controlled cases straddle the fully covering plane at world z=-.25.
+  if (o.occluder && (o.depthPushPull ?? 0) > 0.25) return [0, 255, 0, 255];
   const points = [
       [-1, -1, 0],
       [3, -1, 0],

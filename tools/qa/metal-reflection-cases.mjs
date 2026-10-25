@@ -10,7 +10,7 @@ const baseline = {
   reflectionColor: [1, 0.4, 0.03],
   fresnel: [1, 0.43921568989753723, 0.03921568766236305, 0.8350000381469727],
 };
-export function metalReflectionCases() {
+export function metalReflectionCases({ depth = false } = {}) {
   const rows = [],
     add = (group, o) => rows.push({ ...baseline, ...o, id: `${group}-${rows.length}` });
   for (const alpha of [0, 64, 255])
@@ -98,6 +98,8 @@ export function metalReflectionCases() {
         cube: [70, 110, 150, cubeAlpha],
         reflection: [0.8, amount, amount],
       });
+  if (depth)
+    for (const depthPushPull of [-0.5, 0, 0.5]) add('depth', { depthPushPull, occluder: true });
   return rows;
 }
 const clamp = (v) => Math.max(0, Math.min(1, v));
@@ -105,6 +107,8 @@ const dot = (a, b) => a.reduce((s, v, i) => s + v * b[i], 0);
 const normalized = (a) => a.map((v) => v / Math.hypot(...a));
 /** Scalar transcription of retained VS33/PS54, including interpolated cube direction. */
 export function expectedMetalReflection(o) {
+  // Controlled cases straddle the fully covering plane at world z=-.25.
+  if (o.occluder && (o.depthPushPull ?? 0) > 0.25) return [0, 255, 0, 255];
   const points = [
       [-1, -1, 0],
       [3, -1, 0],

@@ -21,6 +21,8 @@ their offsets remain authored and those draws remain excluded.
 The later [reflective harness](LEONA-METAL-REFLECTION-HARNESS.md) adds111 original
 VS33/PS54 comparisons plus a fresh150-case rim regression, all byte-exact in the
 recorded synthetic cases. Native selection/resource/frame limits still apply.
+The [controlled depth harness](LEONA-METAL-DEPTH-HARNESS.md) subsequently passes
+267 cases, including six original-shader depth-push/plane-order comparisons.
 
 ## Retained source and reproducibility
 

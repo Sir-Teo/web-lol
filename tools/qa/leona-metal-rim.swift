@@ -20,6 +20,7 @@ struct Sample: Decodable {
   var reflectionColor: [Float]?
   var cube: [UInt8]?
   var cubeFaces: [[UInt8]]?
+  var occluder: Bool?
 }
 func error(_ message: String) -> NSError {
   NSError(domain: "OwnedMetalRimHarness", code: 1, userInfo: [NSLocalizedDescriptionKey: message])
@@ -54,9 +55,22 @@ func run() throws {
     pd.fragmentFunction = fragment.makeFunction(name: "wrapped_main")
     pd.vertexDescriptor = vd
     pd.colorAttachments[0].pixelFormat = .rgba8Unorm
+    pd.depthAttachmentPixelFormat = .depth32Float
     return try device.makeRenderPipelineState(descriptor: pd)
   }
   let pipelines = [try pipeline(ps9), try pipeline(ps24)]
+  func depthState(_ compare: MTLCompareFunction, write: Bool) throws -> MTLDepthStencilState {
+    let descriptor = MTLDepthStencilDescriptor()
+    descriptor.depthCompareFunction = compare
+    descriptor.isDepthWriteEnabled = write
+    guard let state = device.makeDepthStencilState(descriptor: descriptor) else {
+      throw error("depth state unavailable")
+    }
+    return state
+  }
+  let depthStates = [
+    try depthState(.always, write: false), try depthState(.lessEqual, write: true),
+  ]
   let sd = MTLSamplerDescriptor()
   sd.minFilter = .nearest
   sd.magFilter = .nearest
@@ -114,6 +128,13 @@ func run() throws {
   guard let target = device.makeTexture(descriptor: td) else {
     throw error("render target unavailable")
   }
+  let depthDescriptor = MTLTextureDescriptor.texture2DDescriptor(
+    pixelFormat: .depth32Float, width: 1, height: 1, mipmapped: false)
+  depthDescriptor.storageMode = .private
+  depthDescriptor.usage = .renderTarget
+  guard let depthTarget = device.makeTexture(descriptor: depthDescriptor) else {
+    throw error("depth target unavailable")
+  }
   let cases = try JSONDecoder().decode(
     [Sample].self, from: Data(contentsOf: URL(fileURLWithPath: CommandLine.arguments[4])))
   var results: [[String: Any]] = []
@@ -135,10 +156,12 @@ func run() throws {
       vertices += uv
     }
     var frame = [Float](repeating: 0, count: 140)
-    // mProj is row-packed: map z=0 to Metal's clip z=.5. x/y/w match the WebGL fixture.
+    // Row-packed orthographic view/projection for camera z=1000, near=.1, far=2000.
+    // Metal's z range is [0,1]; the WebGL fixture uses [-1,1]. x/y/w match.
     frame[0] = 1
     frame[5] = 1
-    frame[11] = 0.5
+    frame[10] = -1 / (2000 - 0.1)
+    frame[11] = (1000 - 0.1) / (2000 - 0.1)
     frame[15] = 1
     frame[18] = 1000
     var world = [Float](repeating: 0, count: 76)
@@ -183,11 +206,21 @@ func run() throws {
     pass.colorAttachments[0].texture = target
     pass.colorAttachments[0].loadAction = .clear
     pass.colorAttachments[0].storeAction = .store
-    pass.colorAttachments[0].clearColor = MTLClearColorMake(0, 0, 0, 0)
+    let occluded = sample.occluder ?? false
+    pass.colorAttachments[0].clearColor =
+      occluded
+      ? MTLClearColorMake(0, 1, 0, 1) : MTLClearColorMake(0, 0, 0, 0)
+    // A constant depth/color clear is the fully covering green plane at world z=-.25.
+    // This tests original VS displacement against that controlled plane, not native state selection.
+    pass.depthAttachment.texture = depthTarget
+    pass.depthAttachment.loadAction = .clear
+    pass.depthAttachment.storeAction = .dontCare
+    pass.depthAttachment.clearDepth = occluded ? Double(frame[11] + frame[10] * -0.25) : 1
     guard let command = queue.makeCommandBuffer(),
       let encoder = command.makeRenderCommandEncoder(descriptor: pass)
     else { throw error("command/encoder unavailable") }
     encoder.setRenderPipelineState(pipelines[alpha > 0 ? 1 : 0])
+    encoder.setDepthStencilState(depthStates[occluded ? 1 : 0])
     encoder.setCullMode(.none)
     encoder.setVertexBuffer(buffers[0], offset: 0, index: 0)
     encoder.setVertexBuffer(buffers[1], offset: 0, index: 1)

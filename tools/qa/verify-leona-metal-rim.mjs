@@ -34,7 +34,7 @@ const digests = new Map([
   [33, '396edb76f948fc06da41ab4975f4697a4bdcb9621392fdfa4e3496ee3d0ab4e6'],
   [54, 'f79178c54b8fdf6e81f230ae0836204b64b6f48fee8271f1f39864a4b2dc4853'],
 ]);
-async function verifyRun(run, reflective) {
+async function verifyRun(run, reflective, depth = false) {
   const path = (name) => `${run}/${name}`;
   const modulePath = `tools/qa/metal-${reflective ? 'reflection' : 'rim'}-cases.mjs`;
   const module = await import(pathToFileURL(frozen(modulePath)));
@@ -45,11 +45,14 @@ async function verifyRun(run, reflective) {
     webgl = json(path('webgl.json'));
   const comparison = json(path('comparison.json')),
     inputs = json(path('inputs.json'));
-  assert.equal(cases.length, reflective ? 111 : 150);
-  assert.deepEqual(cases, makeCases());
+  assert.equal(cases.length, (reflective ? 111 : 150) + (depth ? 3 : 0));
+  assert.deepEqual(cases, makeCases({ depth }));
   if (!historical) {
     const current = await import(new URL(`../../${modulePath}`, import.meta.url));
-    assert.deepEqual(cases, reflective ? current.metalReflectionCases() : current.metalRimCases());
+    assert.deepEqual(
+      cases,
+      reflective ? current.metalReflectionCases({ depth }) : current.metalRimCases({ depth })
+    );
   }
   assert.equal(native.device, 'Apple M1');
   assert.equal(native.results.length, cases.length);
@@ -104,6 +107,21 @@ async function verifyRun(run, reflective) {
     assert.equal(comparison[field], 0);
   }
   const pixel = (id) => native.results.find((r) => r.id === id)?.pixels;
+  if (depth) {
+    const samples = cases.filter((o) => o.occluder);
+    assert.deepEqual(
+      samples.map((o) => o.depthPushPull),
+      [-0.5, 0, 0.5]
+    );
+    assert.deepEqual(pixel(samples[0].id), pixel(samples[1].id));
+    assert.notDeepEqual(pixel(samples[0].id), [0, 255, 0, 255]);
+    assert.deepEqual(pixel(samples[2].id), [0, 255, 0, 255]);
+    assert.deepEqual(json(path('scope.json')).controlledDepthPlane, {
+      worldZ: -0.25,
+      color: [0, 255, 0, 255],
+      format: 'depth32Float',
+    });
+  }
   if (!reflective) {
     assert.deepEqual(pixel('threshold-99'), [0, 0, 0, 0]);
     assert.equal(pixel('threshold-102')[3], 5);
@@ -163,8 +181,8 @@ async function verifyRun(run, reflective) {
 assert.equal(pin.nativeGameExecuted, false);
 assert.equal(pin.nativeShaderExecuted, true);
 assert.equal(pin.nativeGameplayFrameVerified, false);
-let total = await verifyRun(pin.run, pin.mode === 'reflective');
-if (pin.rimRegression) total += await verifyRun(pin.rimRegression, false);
+let total = await verifyRun(pin.run, pin.mode === 'reflective', pin.depth === true);
+if (pin.rimRegression) total += await verifyRun(pin.rimRegression, false, pin.depth === true);
 if (pin.negativeChecks) {
   const controls = json(pin.negativeChecks);
   assert.deepEqual(

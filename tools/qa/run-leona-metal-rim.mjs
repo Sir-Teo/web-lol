@@ -23,6 +23,7 @@ const record = (path) => {
   return { path, bytes: bytes.length, sha256: hash(bytes) };
 };
 const reflective = process.argv.includes('--reflective');
+const depth = process.argv.includes('--depth');
 const libraries = reflective
   ? [
       {
@@ -79,7 +80,7 @@ const expectedDigests = new Map([
 ]);
 for (const library of inputs.filter((r) => r.program))
   assert.equal(library.sha256, expectedDigests.get(library.program), library.path);
-const cases = reflective ? metalReflectionCases() : metalRimCases();
+const cases = reflective ? metalReflectionCases({ depth }) : metalRimCases({ depth });
 const save = (name, data) =>
   writeFileSync(join(output, name), JSON.stringify(data, null, 2) + '\n');
 save('inputs.json', inputs);
@@ -90,6 +91,9 @@ save('scope.json', {
     'Owned 1px synthetic harness, compile then submit one draw per case and release process',
   nativeGameExecuted: false,
   intendedNativeShaderExecution: true,
+  controlledDepthPlane: depth
+    ? { worldZ: -0.25, color: [0, 255, 0, 255], format: 'depth32Float' }
+    : null,
   exclusions: [
     'game process',
     'emitter dispatch',

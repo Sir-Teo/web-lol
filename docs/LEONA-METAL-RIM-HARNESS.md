@@ -72,6 +72,8 @@ node tools/qa/verify-leona-metal-rim.mjs
 After the shared harness gained the later
 [reflective mode](LEONA-METAL-REFLECTION-HARNESS.md), use `--historical` for this
 original150-case ledger. The later ledger also retains a fresh150-case rim run.
+The subsequent [controlled depth harness](LEONA-METAL-DEPTH-HARNESS.md) adds
+original shader displacement/occlusion checks while preserving those color cases.
 
 The first two-library check only loaded VS1/PS24. The following smoke draw and
 initial full run are retained alongside the accepted full run; all completed.

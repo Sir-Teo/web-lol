@@ -76,6 +76,10 @@ node tools/qa/verify-leona-metal-rim.mjs --pin docs/reference/leona/metal-reflec
 node tools/qa/verify-leona-metal-rim.mjs --historical
 ```
 
+After the later [depth harness](LEONA-METAL-DEPTH-HARNESS.md) extends shared QA
+sources, also add `--historical` to the first command for this111+150 ledger.
+The depth ledger retains a fresh267-case run with the new projection/state.
+
 The second command verifies the prior150-case rim archive using its frozen case
 module. Missing-sample, altered-pixel and changed-library-record controls are
 rejected by the shared offline verifier. Its source/ledger remain historical after the shared harness extension.

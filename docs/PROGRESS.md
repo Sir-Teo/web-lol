@@ -6332,3 +6332,29 @@ pack67476352. No native game, provider restart, actual emitter dispatch/frame,
 normal cohort, performance or new production/offline result follows. E stays19
 visible families plus sound carrier, R41/44; player/support and the full roster
 remain open. Work continues under the active goal; nothing is pushed.
+
+## Original Metal depth push against a controlled plane — October 24, 2026
+
+All267 original-Metal/WebGL/scalar RGBA8 comparisons are byte-exact on the recorded
+M1 after adding a depth target/projection and six ordering cases:153 rim samples
+and114 reflective samples. Against a full green plane at worldz-.25, push-.5/0
+leaves the particle visible and push+.5 reveals green. Native rim output is
+[18,28,67,23], reflective[39,55,99,23], rejected draw[0,255,0,255]. This observes
+original VS camera-ray displacement and depth ordering in the supplied fixture,
+not native CPU state selection or gameplay frames.
+
+The Metal test supplies a1pxdepth32Float attachment and clears it/color to the
+constant green plane's projected depth. WebGL renders its existing plane geometry.
+With full coverage and no blending this is the same ordering test. The row-packed
+orthographic camera projection accounts for Metal0..1 versus WebGL-1..1depth;
+near.1/far2000/cameraz1000 remain explicit fixture inputs. Earlier261 cases stay
+byte-exact. No depth-tie, cross-device, FOW, soft-depth or native compositing
+acceptance follows. See [scope](LEONA-METAL-DEPTH-HARNESS.md) and
+[ledger](reference/leona/metal-depth-verification.json).
+
+Earlier150 and111+150 archives verify historically through frozen case modules.
+Missing-sample, altered-pixel and changed-library-record controls are rejected.
+No application/public asset, schema126, rulesetc485c84b or offlinepack67476352
+changes. No new game/provider execution, production/offline run, normal cohort
+or performance claim is made. Native bindings/frames, player/support and full
+six-character acceptance remain open. The active goal continues; nothing pushed.
