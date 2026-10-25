@@ -1297,13 +1297,21 @@ export class GameView {
       sightPositions.needsUpdate = true;
     }
     const smite = isSummonerSlot(this.aimMode) && world.summonerSpell(this.aimMode) === 'smite';
-    if (this.aimMode === 'ward' || smite || (hero.champion === 'garen' && this.aimMode === 'r')) {
+    const yiQ = hero.champion === 'masteryi' && this.aimMode === 'q';
+    if (
+      this.aimMode === 'ward' ||
+      smite ||
+      yiQ ||
+      (hero.champion === 'garen' && this.aimMode === 'r')
+    ) {
       const radius =
         this.aimMode === 'ward'
           ? WARD_SOURCE.range
           : smite
             ? SUMMONER_SMITE.range + hero.radius
-            : GAREN_R.castRange;
+            : yiQ
+              ? world.abilitySpec('q').range
+              : GAREN_R.castRange;
       for (let i = 0; i <= 32; i++) {
         const angle = (i / 32) * Math.PI * 2;
         positions.setXYZ(

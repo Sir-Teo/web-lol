@@ -1,5 +1,8 @@
 # Development Alpha Strike
 
+This records the schema-143 NPC milestone. The later
+[human fixture](MASTER-YI-PLAYER.md) adds private player controls at schema 144.
+
 The private `/?scene=fixture&npc=masteryi` NPC now supports all four own ability
 controllers. Alpha Strike adds unit targeting, saved marks, delayed/repeated
 physical contacts, scaled Wuju Style on-hits, temporary untargetability,

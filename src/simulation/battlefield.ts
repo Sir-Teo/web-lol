@@ -29,6 +29,8 @@ export interface Battlefield extends TerrainQueries {
   developmentLeona?: true;
   /** Allows an Ahri player only in the dedicated development practice host. */
   developmentAhri?: true;
+  /** Allows a Master Yi player only in the dedicated development practice host. */
+  developmentMasterYi?: true;
   id: 'practice-fixture' | 'rift';
   half: number;
   heightRange: readonly [number, number];

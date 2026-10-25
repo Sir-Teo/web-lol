@@ -1,6 +1,13 @@
 # Local match checkpoints
 
-Current schema **143** adds Alpha Strike origin/target, settled/pulse clocks,
+Current schema **144** permits a human Master Yi only in a trusted development
+practice fixture. The permission comes from the scene context and is never
+serialized. Player Yi files require that context and practice mode; Rift and
+ordinary fixture loading remain rejected. Human and NPC Yi use separate private
+save keys. Earlier formats/fingerprints remain incompatible. See
+[human Master Yi fixture](MASTER-YI-PLAYER.md).
+
+Schema **143** adds Alpha Strike origin/target, settled/pulse clocks,
 rank, captured marks and payloads, repeat/critical decisions, pending/hit/lost
 results, return/recovery phase, exit direction and buffered order. Targetability
 is derived from the vanished phase; ordinary damage protection remains separate.

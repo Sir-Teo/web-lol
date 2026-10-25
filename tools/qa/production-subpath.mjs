@@ -180,6 +180,11 @@ try {
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
+  await page.goto(`${base}?scene=fixture&champion=masteryi`);
+  await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
+  assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
+  assert.equal(await page.locator('#masteryi-double-strike').count(), 0);
+  assert.equal(await page.evaluate(() => !!window.__GAME__), false);
   await page.goto(`${base}?scene=leona-rift&champion=leona`);
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
@@ -497,6 +502,7 @@ try {
       unrequestedAhriPreloads: ahriPreviewRequests.length,
       unrequestedMasterYiPreloads: masterYiPreviewRequests.length,
       masterYiNpcFixtureInProduction: false,
+      masterYiPlayerFixtureInProduction: false,
       junglePreviewRequests: junglePreviewRequests.length,
       unrequestedLeonaPreloads: leonaPreviewRequests.length,
       preparedCompanionRequests: preparedCompanionRequests.length,

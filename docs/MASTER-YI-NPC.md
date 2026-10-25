@@ -5,8 +5,9 @@ This document records the schema-138 NPC foundation. The later
 pose continuation at schema 139. [Wuju Style](MASTER-YI-E.md) adds E empowerment
 at schema 140. [Meditate](MASTER-YI-W.md) adds W at schema 141, and
 [Highlander](MASTER-YI-R.md) adds R at schema 142. [Alpha Strike](MASTER-YI-Q.md)
-adds Q and own untargetability at schema 143; player/role integration and the
-production gates stay open.
+adds Q and own untargetability at schema 143. The [human practice fixture](MASTER-YI-PLAYER.md)
+adds private player controls at schema 144; public selection, role integration
+and the production gates stay open.
 
 Use `/?scene=fixture&npc=masteryi` with the development server. Ashe remains the
 human champion; a manually controlled Master Yi NPC adds his own stats, melee

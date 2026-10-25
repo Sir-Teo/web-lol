@@ -1,0 +1,733 @@
+{
+  "recordedAt": "2026-10-25T21:29:58.326464+00:00",
+  "baselineCommit": "ee4948b",
+  "scope": "Trusted development practice human Master Yi controls, own HUD/icons and isolated save/restart/import boundaries. Production roster, role integration and native behavior/presentation completion remain open.",
+  "schema": 144,
+  "ruleset": "58d4bb60164c316712b1f3b92eff8ec71be784db6ab7bf3cba9c03ada4d6cdab",
+  "pack": {
+    "id": "f43a7afcb43f3510af23f3ffc6650e6849ff8f7e45d8c81d97b7ec66974015c6",
+    "files": 1073,
+    "bytes": 526661647
+  },
+  "browser": "System Chromium154.0.8037.57 / Debian13; temporary executable-path launcher only. Original assertions and deadlines retained; zero automatic retries.",
+  "changedRuntimeAndTestInputs": [
+    {
+      "file": "src/simulation/battlefield.ts",
+      "bytes": 2840,
+      "sha256": "636b45e8b6430a35609c485203e8edc89e1f36db05bbcaa1bbf8154bb2732189"
+    },
+    {
+      "file": "src/simulation/world.ts",
+      "bytes": 287709,
+      "sha256": "f82d311280257d3c4a54499523ef02396c6ffb85a0210b5ce39dc47fddb2e2c8"
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "bytes": 172567,
+      "sha256": "cd3016b66a264d16333a55914f66eab7b60b0dda2946d7bccc7d0271d0a69223"
+    },
+    {
+      "file": "src/main.ts",
+      "bytes": 20970,
+      "sha256": "befd990853460b9ac726b93e6c09de5c0a4b6edee552ead98f7a982a4cc7e1ca"
+    },
+    {
+      "file": "src/input/spell-controls.ts",
+      "bytes": 3590,
+      "sha256": "c67d816aa635ff428541688fca917e2f03a98b24421d5f8b4e8fec2adc3708cc"
+    },
+    {
+      "file": "src/render/view.ts",
+      "bytes": 60944,
+      "sha256": "e0a810e420a4747551946b8fd268e5773474aa14ba5ca23b33b0b8aecdec797a"
+    },
+    {
+      "file": "src/ui/hud.ts",
+      "bytes": 84464,
+      "sha256": "f7533f3739efc9fd1b5b967dbb78d4cdc69f5b5a45881c47a96920edf40d3d7f"
+    },
+    {
+      "file": "src/ui/masteryi-spells.ts",
+      "bytes": 3164,
+      "sha256": "846a8bc5c91adff90946eb829445706b1eccd5a7d64213a4e1d0f81dffc3b7fd"
+    },
+    {
+      "file": "src/style.css",
+      "bytes": 35950,
+      "sha256": "4e933d170802266848cdd71815d800713e388748ea7472fb0cf301d82ed1a067"
+    },
+    {
+      "file": "tests/masteryi-player.test.ts",
+      "bytes": 7082,
+      "sha256": "7ef4c86c2c2c6bb2033084300864d25b9b75dfba39765b3b540b42e43de7e095"
+    },
+    {
+      "file": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "e0f50ccd5dfd7bb59e4f510ab09002df9cdcb54cbb1821e47d8d22d321559048"
+    },
+    {
+      "file": "e2e/masteryi-player.spec.ts",
+      "bytes": 10854,
+      "sha256": "08800a5d9b341bd74ca05f67c9ec76172fc90cb88e07456fd8e3977846ea069e"
+    },
+    {
+      "file": "e2e/ahri-player.spec.ts",
+      "bytes": 16529,
+      "sha256": "2d08c11403c0dc70794026667a958ac28bd95b38eb2ec9a614318acc34102cb6"
+    },
+    {
+      "file": "tools/assets/fetch-reference-icons.py",
+      "bytes": 3689,
+      "sha256": "060f6ea7fe363cfa136ff24b9b787f9e9b6467c2d80765c1f884fcca944cc16a"
+    },
+    {
+      "file": "tools/qa/production-subpath.mjs",
+      "bytes": 24158,
+      "sha256": "ec0821e96a2593fbbabbf0193ad6b057859def19558bdd0a82f49de6294c6a28"
+    },
+    {
+      "file": "public/assets/reference-manifest.json",
+      "bytes": 36502,
+      "sha256": "9d5802dd07d4be09e20813a6749fbd1650ec44f74f784621e5bcf83f8ccba4b6"
+    },
+    {
+      "file": "public/assets/icons/MasterYi_Passive1.png",
+      "bytes": 4477,
+      "sha256": "e2fec7b43f9e2bc724baa0cee0b036c5ba684443513616b7373ff303b425d611"
+    },
+    {
+      "file": "public/assets/icons/AlphaStrike.png",
+      "bytes": 4893,
+      "sha256": "dd7d81c33bd1d35781a1f28813f649fa94b9d99fe099f512bf156c40dc22e7cf"
+    },
+    {
+      "file": "public/assets/icons/Meditate.png",
+      "bytes": 6124,
+      "sha256": "b7464d80adfefdbf9002ee0d97c4210299f97757e8df1910aa394f0b5ee39056"
+    },
+    {
+      "file": "public/assets/icons/WujuStyle.png",
+      "bytes": 5924,
+      "sha256": "927c1152295f5e7731a89eef0784f20633dd35523d07c0592e122c265aac39c7"
+    },
+    {
+      "file": "public/assets/icons/Highlander.png",
+      "bytes": 6238,
+      "sha256": "0e56c7df1cc9ad719c4c1004ce7307567d428b7746bbb5b6c79076fc49696a88"
+    }
+  ],
+  "validation": {
+    "focused": {
+      "passed": 87,
+      "files": 5,
+      "humanYiCases": 8
+    },
+    "broad": {
+      "command": "npx vitest run tests --maxWorkers=1",
+      "passed": 2387,
+      "failed": 3,
+      "files": 345,
+      "allMasterYiCasesPassed": 208,
+      "baselineFailures": [
+        "Leona native/research input missing",
+        "Original distortion shader/bitcode/disassembly inputs missing",
+        "Unchanged Lux sampler digest discrepancy"
+      ],
+      "priorBaselineRecord": "docs/reference/masteryi/q-verification.json"
+    },
+    "typescript": true,
+    "nodeQaCases": 3,
+    "publicIdentity": {
+      "baselineCommit": "ee4948b",
+      "retainedRecords": 105,
+      "addedRecords": 5,
+      "addedIconBytes": 27656,
+      "existingTrackedPublicChanges": [
+        "public/assets/reference-manifest.json"
+      ]
+    },
+    "browser": {
+      "distinctYiCasesWithPassingRuns": 7,
+      "includes": [
+        "Human HUD/keys/passive counter and restart",
+        "Human Q real unit targeting and mouse return side",
+        "Human/NPC private save isolation with exact snapshot and 300-tick future",
+        "Three existing NPC Alpha Strike phases",
+        "Ordinary fixture keeps selection and asset gate"
+      ],
+      "combinedRegressionBatch": {
+        "passed": 5,
+        "failed": 4,
+        "failures": [
+          "Ahri inspected after cast release",
+          "Garen 60s and 30s original deadlines",
+          "Human setup interrupted by dev reload while baseline worktree was created under watched cache"
+        ]
+      },
+      "finalControlsBatch": {
+        "passed": 2,
+        "failed": 1,
+        "failure": "Ahri completed all original assertions and wrote proof, then exceeded its original 120s deadline during cleanup"
+      },
+      "ahriTestClockFix": "One-shot keyup pause after the actual input listener queues Q; existing assertions and deadline unchanged.",
+      "initialNewTestCorrections": [
+        "Aim at dummy selection height rather than ground",
+        "Stop passive proof at three stacks rather than counting three extra attacks after live frames",
+        "Move baseline checkout outside the dev-server watched tree"
+      ],
+      "fullBrowserSuiteClaimed": false,
+      "baselineGarenLog": ".cache/masteryi-player-cloud/baseline-garen-browser.log",
+      "baselineGarenIdentity": {
+        "commit": "ee4948b806206be008aaaff863c796421e22d2fe",
+        "trackedFilesUnchanged": true,
+        "testFileSameAsCurrent": true,
+        "testSha256": "8d162583794c23f2d66c272329d9bf89bde84b41ec4e3a73b61ac155ce9fdb09",
+        "command": "npx playwright test -c .cache/cloud-playwright.config.ts e2e/garen-player.spec.ts",
+        "failed": 2,
+        "timeoutsMs": [
+          60000,
+          30000
+        ],
+        "changes": "Temporary system Chromium executable-path launcher and dependency symlink only; assertions, deadlines and quality unchanged."
+      }
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 13,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 221,
+      "scheduledBlueRequests": 13,
+      "scheduledRedRequests": 13,
+      "scheduledWolfRequests": 26,
+      "scheduledRaptorRequests": 26,
+      "scheduledKrugRequests": 39,
+      "scheduledScuttlerRequests": 13,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    }
+  },
+  "evidence": [
+    {
+      "file": ".cache/masteryi-player-cloud/baseline-garen-browser/.last-run.json",
+      "bytes": 145,
+      "sha256": "8d764c6a27e042fd9407ec49149729e11de9f0d46f05351a74bd3810b097e3ec"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/baseline-garen-browser/garen-player-Garen-R-captu-680ab--targets-ground-and-minimap/error-context.md",
+      "bytes": 12557,
+      "sha256": "2f969102732098eec681eda4bb6d6f63ef05195cc289ff1b8d0dc3ab2babe2a9"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/baseline-garen-browser/garen-player-Garen-R-captu-680ab--targets-ground-and-minimap/test-failed-1.png",
+      "bytes": 860176,
+      "sha256": "063976722ef92b7b33f3c57f1476a2feb4d257d848eaa585e762f7a7caf80ff3"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/baseline-garen-browser/garen-player-Garen-R-captu-680ab--targets-ground-and-minimap/trace.zip",
+      "bytes": 62900731,
+      "sha256": "e35134798525611460eb432b14a779d8b42c272ce92d11e86a64444f351e0189"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/baseline-garen-browser/garen-player-Garen-player--cfad2-survive-browser-save-reload/error-context.md",
+      "bytes": 13137,
+      "sha256": "e1ac311700694d40003b99c82535728d755cb624ad4de641a061b5dcf0e47c23"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/baseline-garen-browser/garen-player-Garen-player--cfad2-survive-browser-save-reload/trace.zip",
+      "bytes": 67696136,
+      "sha256": "717e63f5136abc83db64bdb13d6fbfe224eba6c040d7814631c41a7fd53d529a"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/baseline-garen-browser.log",
+      "bytes": 5662,
+      "sha256": "38ceaf154b5b7f4a061019bb5b25adedbd583b77fc6491ba692a6682bfeb8ffd"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/baseline-garen-identity.json",
+      "bytes": 507,
+      "sha256": "53ffea74295dfbeb6bcce0f834c19efb111fd85b7d4ee6eedceb035e07d989d2"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/baseline-setup.log",
+      "bytes": 2584,
+      "sha256": "bcbc6fa5b516507008319a0a7402cf7ccd343ae160a25c1279322f99fe250e44"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser/.last-run.json",
+      "bytes": 194,
+      "sha256": "340d7c277c96fdce4a7109bc7ff015f6a7473e6cf26371e77021373d2b42d0c3"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser/masteryi-player-held-Q-sel-e13dc--mouse-selected-return-side/error-context.md",
+      "bytes": 13063,
+      "sha256": "b51f2612e5e1b224d747300f495e3725614705bab6b18ea577cfc9cf3c0a3822"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser/masteryi-player-held-Q-sel-e13dc--mouse-selected-return-side/masteryi-player-q-aim.png",
+      "bytes": 783148,
+      "sha256": "9937921d599560b35a7366b27a7ef2d95ad456fd5ccc61c4fea801bd6d0a6647"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser/masteryi-player-held-Q-sel-e13dc--mouse-selected-return-side/test-failed-1.png",
+      "bytes": 787643,
+      "sha256": "849e0ed9c3f6657993ddf4b574f6e59558d0a33412823fcd4d141a500bda8d92"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser/masteryi-player-held-Q-sel-e13dc--mouse-selected-return-side/trace.zip",
+      "bytes": 45288340,
+      "sha256": "50dd7407c276e0624c4fe8b776841b02adad635d287628d6a2972837922b3cba"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser/masteryi-player-human-Yi-o-23ebe--and-Double-Strike-feedback/error-context.md",
+      "bytes": 10251,
+      "sha256": "6cd6c694f92dc46ab42faa09237b878c9a2a90460184ac2ac38dd2e221fa0e0f"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser/masteryi-player-human-Yi-o-23ebe--and-Double-Strike-feedback/test-failed-1.png",
+      "bytes": 773996,
+      "sha256": "416c59dc57507a8dd1dec4d03b59fcc8c99702660c2d1de9d524492a9ab9ca25"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser/masteryi-player-human-Yi-o-23ebe--and-Double-Strike-feedback/trace.zip",
+      "bytes": 46234880,
+      "sha256": "d85241648f8eefaaeb92b475c6a1b8255b58fc9a3a5860aef320670101b9caaa"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser/masteryi-player-human-acti-8aaac-lated-after-a-real-NPC-save/error-context.md",
+      "bytes": 9619,
+      "sha256": "bcc75c4b3ccff351c51854fac8df9246c67a666b50ccf744fbb84c7a57f56bc6"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser/masteryi-player-human-acti-8aaac-lated-after-a-real-NPC-save/test-failed-1.png",
+      "bytes": 465358,
+      "sha256": "c80e4a2ec78b98eb9a6be1b174944219f5645a8ce5f6a90c81bb8b2d40b0bc4d"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser/masteryi-player-human-acti-8aaac-lated-after-a-real-NPC-save/trace.zip",
+      "bytes": 47981018,
+      "sha256": "4fd28a4c679dcaf64a23372f6e57a4069999edd07a4b3f07a87d266a7261eb7c"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-controls-v3/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-controls-v3/masteryi-player-human-Yi-o-23ebe--and-Double-Strike-feedback/human-controls.json",
+      "bytes": 1145,
+      "sha256": "0e320c30b085e002b9459e56f0930e6ae79e75e35249202e22508e99dbdd9674"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-controls-v3/masteryi-player-human-Yi-o-23ebe--and-Double-Strike-feedback/masteryi-player-hud.png",
+      "bytes": 779916,
+      "sha256": "3ca98162e3772255ddee801fa630ef94c2d902866b3b97af3987c6aa7b2603b0"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-controls-v3.log",
+      "bytes": 809,
+      "sha256": "fd10201783c11cfe021b42cae51225bdec1b9a3a03a09d76470ae98bf84c8a68"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/.last-run.json",
+      "bytes": 243,
+      "sha256": "a39e6f3b26a66e6e1ec08a422491f9d24cfd48df10d5d1ad800d04b1c64f0486"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/ahri-player-Ahri-player-ow-670a0-and-committed-keyboard-cast/ahri-player-q-aim.png",
+      "bytes": 776258,
+      "sha256": "26658d9c2cf1a3fe7a38b8aa600e6948007046b84f6e21cbb6923be915a194d1"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/ahri-player-Ahri-player-ow-670a0-and-committed-keyboard-cast/error-context.md",
+      "bytes": 13398,
+      "sha256": "e803e7e41769bd93300703a037cefe9827a1a126bf7b3eb758a141cff2f8116f"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/ahri-player-Ahri-player-ow-670a0-and-committed-keyboard-cast/test-failed-1.png",
+      "bytes": 771723,
+      "sha256": "79c1aa15fb7702a2eacf76664d7a1ddce49cb4e996dc0ff591773c87909f5121"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/ahri-player-Ahri-player-ow-670a0-and-committed-keyboard-cast/trace.zip",
+      "bytes": 55969279,
+      "sha256": "a1ccb833032ec8d20b812908606f2e894ec5fee8cf398edaf21238e42d12e536"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/garen-player-Garen-R-captu-680ab--targets-ground-and-minimap/error-context.md",
+      "bytes": 11580,
+      "sha256": "5cfab1f6f70f454ae33673b9863abc0750c6ae724f32260007fb3a4ed94c5e22"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/garen-player-Garen-R-captu-680ab--targets-ground-and-minimap/test-failed-1.png",
+      "bytes": 863183,
+      "sha256": "656c8a03638a3503148a12952437a63942328a4b7589fe7f24f82b3a93f54c6d"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/garen-player-Garen-R-captu-680ab--targets-ground-and-minimap/trace.zip",
+      "bytes": 67490671,
+      "sha256": "e571d77209e17f576cf6caab04b267a0ab49e3614127dfe8ac816d6f0884686d"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/garen-player-Garen-player--cfad2-survive-browser-save-reload/error-context.md",
+      "bytes": 13100,
+      "sha256": "b308fb2f5bf1db383a9883686f14315763809e7f8288a6440c5a6883786a8f81"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/garen-player-Garen-player--cfad2-survive-browser-save-reload/test-failed-1.png",
+      "bytes": 859113,
+      "sha256": "93ceb0f8fc3b16c040846d988d50a174ac6a89a1243e3113305587a019838e32"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/garen-player-Garen-player--cfad2-survive-browser-save-reload/trace.zip",
+      "bytes": 73303776,
+      "sha256": "d62a62d19df2b79fd5ca3a3888d4e162480a17070a920b64d5b3cf234b07189c"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/masteryi-alpha-strike-Alph-6515f-oad-and-reveals-its-own-rig/alpha-recovery-buffer-revealed.png",
+      "bytes": 459113,
+      "sha256": "15bae6a73a7ac92273eea765ac567f903c6f140433ae805d9eed1f4ebcc35a95"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/masteryi-alpha-strike-Alph-6515f-oad-and-reveals-its-own-rig/alpha-recovery-buffer.png",
+      "bytes": 814895,
+      "sha256": "94a64a155b905a0df859591d405bbc1832896a146d94ac8729b04e3f69cd6628"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/masteryi-alpha-strike-Alph-6515f-oad-and-reveals-its-own-rig/alpha-reload.json",
+      "bytes": 161474,
+      "sha256": "d6fa1a0c01fe9dc0e540fc574b7a50cc5fab7c265936ab2f3f46839e4e97e780"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/masteryi-alpha-strike-Alph-68d4b-oad-and-reveals-its-own-rig/alpha-child-vanished-revealed.png",
+      "bytes": 447082,
+      "sha256": "0cbad3bbd2c323fe6cdb3d031a010057d81b724622f6c00e7fecbb110f99b4e4"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/masteryi-alpha-strike-Alph-68d4b-oad-and-reveals-its-own-rig/alpha-child-vanished.png",
+      "bytes": 795682,
+      "sha256": "da0ebcafd8a2af9d00e0341db5c4ce6ab30747bb17e1c5aea0da74fbfa6d6e40"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/masteryi-alpha-strike-Alph-68d4b-oad-and-reveals-its-own-rig/alpha-reload.json",
+      "bytes": 94255,
+      "sha256": "cef373809fbcfef03ea778d89f6d2091c75bd2eaf9ef72f60ff825913803e79e"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/masteryi-alpha-strike-Alph-c2d41-oad-and-reveals-its-own-rig/alpha-marked-vanished-revealed.png",
+      "bytes": 447243,
+      "sha256": "64f05a5b0ca3fc1d7e22e74cb3623539ecd0c7e7637b88063f93fdb4e77badd3"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/masteryi-alpha-strike-Alph-c2d41-oad-and-reveals-its-own-rig/alpha-marked-vanished.png",
+      "bytes": 797920,
+      "sha256": "4f2b271a21025c4d59ae0b27c1bda6bbd5bedd7c70cca41f2043f2bc7e2b7f4e"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/masteryi-alpha-strike-Alph-c2d41-oad-and-reveals-its-own-rig/alpha-reload.json",
+      "bytes": 95671,
+      "sha256": "bffcc324f9690eb0628ee7aa328229c87e1b53821c9fa6f6874954c99b7f553e"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/masteryi-player-human-Yi-o-23ebe--and-Double-Strike-feedback/error-context.md",
+      "bytes": 4388,
+      "sha256": "3d1b80faefdc239aa9304a836bffa7162b819e7bf728d616c4f01fe2093ff1f1"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/masteryi-player-human-Yi-o-23ebe--and-Double-Strike-feedback/test-failed-1.png",
+      "bytes": 492957,
+      "sha256": "70c32cecd0c47ce305475ad1a601f8c8b66fec9e637b569cd3192e7cc5d382a8"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/masteryi-player-human-Yi-o-23ebe--and-Double-Strike-feedback/trace.zip",
+      "bytes": 35465645,
+      "sha256": "6ac30e3cd2e9a604d9a2a552b6ff1a6dd6c96be56592f39e915123154ddc02a4"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final/masteryi-player-human-acti-8aaac-lated-after-a-real-NPC-save/human-save.json",
+      "bytes": 55698,
+      "sha256": "c392bafb6c95ac9b88d1c2ff9e15f6164e9d11f784c663f83fd5478094e97ba6"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final-controls/.last-run.json",
+      "bytes": 96,
+      "sha256": "69a4c439279a4e18f4a92a8434d7fcbe6b059767693333df321952304e932d34"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final-controls/ahri-player-Ahri-player-ow-670a0-and-committed-keyboard-cast/ahri-player-q-aim.png",
+      "bytes": 779044,
+      "sha256": "c6673b2acb00c38ba8f6c5242963d013ea20679cef606c10eccb84c83d5ae249"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final-controls/ahri-player-Ahri-player-ow-670a0-and-committed-keyboard-cast/ahri-player-q.json",
+      "bytes": 4971,
+      "sha256": "50c1ff242500726df5670fdf01ddfffe3d4caec48346d275bef53e58488bb7db"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final-controls/ahri-player-Ahri-player-ow-670a0-and-committed-keyboard-cast/error-context.md",
+      "bytes": 4214,
+      "sha256": "187bd1ecaeecb2647b1132f7b88d36f9a0d4d18dd3b4926883b79632f7f6d7a4"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final-controls/ahri-player-Ahri-player-ow-670a0-and-committed-keyboard-cast/test-failed-1.png",
+      "bytes": 779522,
+      "sha256": "7d80c889adc007847c29a6f5f8a18cacde8c389c68641ca9b29f8bbb99852274"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final-controls/ahri-player-Ahri-player-ow-670a0-and-committed-keyboard-cast/trace.zip",
+      "bytes": 54262719,
+      "sha256": "463dd6adfb69aa6f8846345f2785995f898ad5cff1d6d33fd1fa7014a81d9fbe"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final-controls/masteryi-player-held-Q-sel-e13dc--mouse-selected-return-side/human-q.json",
+      "bytes": 2617,
+      "sha256": "9dcd44d28fa5e270a18a1057dcd8066a614b5ccae053ef94713ab76fdb836dc6"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final-controls/masteryi-player-held-Q-sel-e13dc--mouse-selected-return-side/masteryi-player-q-aim.png",
+      "bytes": 783994,
+      "sha256": "c381c080a273d86e634a35f946083fce4a6f526cbd6bed26bf47b457b8416590"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final-controls/masteryi-player-held-Q-sel-e13dc--mouse-selected-return-side/masteryi-player-q-return.png",
+      "bytes": 752123,
+      "sha256": "9be6a7e1964ff9f13336b6bb517e3f6231377ced6cad497ae30d848eb6552e2b"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final-controls/masteryi-player-human-Yi-o-23ebe--and-Double-Strike-feedback/human-controls.json",
+      "bytes": 1145,
+      "sha256": "bed78132fbf1ed3c28ed5f3803ff59cdd06b646c73d8e147eb67212622afba8d"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final-controls/masteryi-player-human-Yi-o-23ebe--and-Double-Strike-feedback/masteryi-player-hud.png",
+      "bytes": 780138,
+      "sha256": "0b7e512452e32b31486481861e776c7c1cd9416e8ba27f82782fdb45ff9d3040"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final-controls.log",
+      "bytes": 3353,
+      "sha256": "c4ba56d13f2503c941b5a535fe6d2317f3e36e3b831516e7760b3a3e670161b8"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-final.log",
+      "bytes": 13829,
+      "sha256": "c3188e68a1041f644004a5c1dc52ede88e078e402019536e822f8b5c13d6accd"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-v2/.last-run.json",
+      "bytes": 96,
+      "sha256": "420f7df14b3985d73c2b9335c5fb17a54d3253226cbeae2bd087898882732031"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-v2/masteryi-player-held-Q-sel-e13dc--mouse-selected-return-side/human-q.json",
+      "bytes": 2617,
+      "sha256": "9dcd44d28fa5e270a18a1057dcd8066a614b5ccae053ef94713ab76fdb836dc6"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-v2/masteryi-player-held-Q-sel-e13dc--mouse-selected-return-side/masteryi-player-q-aim.png",
+      "bytes": 784375,
+      "sha256": "ea6a7714fbd0d3a365dfa9526e0ad61072a1b668d3df0718319cd10deb90ad4e"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-v2/masteryi-player-held-Q-sel-e13dc--mouse-selected-return-side/masteryi-player-q-return.png",
+      "bytes": 776661,
+      "sha256": "f4866cf4d4669ddd1e2ac757c2dce80159198b8ec160775a59878e1f5bdba6bc"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-v2/masteryi-player-human-Yi-o-23ebe--and-Double-Strike-feedback/error-context.md",
+      "bytes": 10442,
+      "sha256": "06505c95fe9b173d548689ff28614fe6a294858f5ac355c6c98714bcacc4649e"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-v2/masteryi-player-human-Yi-o-23ebe--and-Double-Strike-feedback/test-failed-1.png",
+      "bytes": 777265,
+      "sha256": "d9d1f70725dbd0ccd4ab49895a6cb4be7ba4e92cac5f5c3c629d766d7ecdad58"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-v2/masteryi-player-human-Yi-o-23ebe--and-Double-Strike-feedback/trace.zip",
+      "bytes": 49395467,
+      "sha256": "a570dea927d1af8fdee73d7bd0ed6a10d32f4774788803a03893cc4dec06455e"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-v2/masteryi-player-human-acti-8aaac-lated-after-a-real-NPC-save/human-save.json",
+      "bytes": 56375,
+      "sha256": "0c07e8d5d2e223927396162cdc0e43cc5cd1a3949e9c38befec76a22296c28c2"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser-v2.log",
+      "bytes": 4716,
+      "sha256": "8742332c5efca75c0b96c78f9a1cbef1d49731b7a34eaf8d7cc8d1b7fd13530f"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/browser.log",
+      "bytes": 9396,
+      "sha256": "18d2e9ee603993567c819d5dd0d66367544e36a8a18f03bebc51bbd0ad766faa"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/build.log",
+      "bytes": 5557,
+      "sha256": "48a5c91ea083abc0643afd127b861377686dfcacc8f2259064ab3000c8da5f85"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/focused-v1.log",
+      "bytes": 436,
+      "sha256": "d54be9b96bd6cc248514c04b6280effeda3a9c40b56e0411147f5411751683a9"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/full-unit.log",
+      "bytes": 5485,
+      "sha256": "c0cb716e23f11388c1c2863020fd404aaa39c9db4d3d84060546a91a196a9196"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/icons/AlphaStrike.png",
+      "bytes": 4893,
+      "sha256": "dd7d81c33bd1d35781a1f28813f649fa94b9d99fe099f512bf156c40dc22e7cf"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/icons/Highlander.png",
+      "bytes": 6238,
+      "sha256": "0e56c7df1cc9ad719c4c1004ce7307567d428b7746bbb5b6c79076fc49696a88"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/icons/MasterYi_Passive1.png",
+      "bytes": 4477,
+      "sha256": "e2fec7b43f9e2bc724baa0cee0b036c5ba684443513616b7373ff303b425d611"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/icons/Meditate.png",
+      "bytes": 6124,
+      "sha256": "b7464d80adfefdbf9002ee0d97c4210299f97757e8df1910aa394f0b5ee39056"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/icons/WujuStyle.png",
+      "bytes": 5924,
+      "sha256": "927c1152295f5e7731a89eef0784f20633dd35523d07c0592e122c265aac39c7"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/icons.json",
+      "bytes": 1963,
+      "sha256": "2a8f6eb7d4a0e5a4af9f9f89249c83b330f00ac497397601cad80efe671907fe"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/production-captures/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1808277,
+      "sha256": "b8b29f68c46eed528c6b3b7fdefce04d99eee19d54c9966b951938bfbc08a76b"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/production-captures/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835824,
+      "sha256": "529fbe042ec13fa77dda8afdf0d0b140bae6c03953e9d4f7a36bde24b559e859"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/production-captures/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829713,
+      "sha256": "afe01c4e44557f6e2285a1c91c8af1e320cc040d4c02d0424c6848c6b8857873"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/production-captures/lux-e-hit-production-lux.png",
+      "bytes": 1811203,
+      "sha256": "9e7966d84f201c1e38540530b2ed4fb71db6c52c33891ec7031e5fbd8bed76a5"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/production-captures/lux-e-hit-production-oracle.png",
+      "bytes": 1820843,
+      "sha256": "6cdf32e7e6c15e2283c04706a400a50840ca9a435eecc8c85b4126781aaffbb8"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/production-captures/lux-e-hit-production-role-match.png",
+      "bytes": 1351488,
+      "sha256": "903bb8e42cd5fe1d72caa4d48c248b03b8ce4765f173c0b9423008cfd62cee0f"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/production-captures/lux-e-hit-production-subpath.png",
+      "bytes": 1826178,
+      "sha256": "4ce671eb7c3a6f69b0c755a6606e508c65d330e963746c8f00782b11b50af20c"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/production-captures/lux-e-hit-production-ward.png",
+      "bytes": 1808670,
+      "sha256": "da5f5344b1df7a6324cbd24e0bd0bae1f62beabc658d4648abdc59dd325de4c5"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/production.log",
+      "bytes": 2123,
+      "sha256": "5cdd70db82c6ed87ca1c0e3d9feb042ffda3724b6453861c234549b44b3a1bf1"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/public-identity.json",
+      "bytes": 193,
+      "sha256": "1a1c462fa83f270b99da22317efa3896aac276d6fa7f693621376e3573196dc1"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/qa.log",
+      "bytes": 431,
+      "sha256": "3cb8b9a5a2a6d7b3155e4159877defc506dddc844f94bcbd1b280279e4a13fdd"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/typecheck-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/masteryi-player-cloud/typecheck-v2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "limits": [
+    "Development fixture only; Ashe/Lux public selection unchanged.",
+    "Native source effects/audio, exact dispatch/pose transitions, roles, shared speed caps/ghosting and full champion delivery remain unfinished.",
+    "No fresh full-browser/offline/native/GPU/device/FPS certification."
+  ]
+}

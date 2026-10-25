@@ -7949,3 +7949,50 @@ pack `983a00ead5156f3aba448d873c637541f4e8a918e46f203b954306d742fc5abf` has 1,06
 526,628,509 bytes. [Q verification](reference/masteryi/q-verification.json)
 retains hashes, failures/corrections, the real neutral bug, timeout and phase/
 production proofs. No fresh offline/full-browser/native/performance certification.
+
+### Human Master Yi private practice controls (schema 144)
+
+The development-only `/?scene=fixture&champion=masteryi` scene now supplies a
+trusted human-player context, own HUD/title/portrait/passive counter, all five
+pinned passive/spell icons, rank/resource/damage descriptions and real Q unit
+selection plus instant W/E/R controls. Q previews 600 range; mouse orders during
+vanish choose the return side. Meditate can be stopped through ordinary input.
+The Cinders tooltip shares combat's melee classification. Production selection
+remains Ashe/Lux.
+
+Permission is supplied by the practice scene, never by serialized data. Decoding
+rejects human Yi in ordinary/Rift contexts and lane mode; file import checks the
+human identity before persistence. The human fixture has its own private save
+key, separate from both ordinary practice and the existing Yi NPC fixture.
+Actual restart keeps Yi and resets unlearned ranks/passive state. Five exact
+16.18.1 PNGs add 27,656 bytes; the 105 previous reference records remain exact.
+
+Focused checks pass 87 in five files, including eight new player cases. The broad
+one-worker run passes 2,387/2,390 across 345 files, all 208 Yi cases included. The
+three previously recorded source-audit failures remain unchanged. TypeScript,
+three Node QA cases and the production build pass.
+
+Seven distinct Yi browser cases have passing runs across batches: human own
+HUD/keys/passive/restart, actual targeted Q and mouse return side, exact vanished
+human-Q save/300-tick future after a separate NPC save, three NPC Q checkpoints,
+and ordinary entry's closed selection/asset gate. Human reveal retains 90 finite
+bones. The verification record keeps coordinate/clock fixture corrections and
+a dev reload caused by a temporary baseline checkout under the watched cache;
+the checkout moved outside the project and the affected checks pass.
+
+Existing Garen 60s/30s browser deadline failures reproduce on untouched ee4948b
+with the same original test file and launcher. Ahri's old real-time windup check
+observed its already-launched orb; a one-shot keyup pause now preserves the exact
+checkpoint and every original assertion passes. That run still exceeds 120s in
+cleanup after writing proof, so it remains a recorded failure. No assertions,
+deadlines or quality were weakened; no full-browser certification is claimed.
+Native effects/audio, exact transition/timing calibration and role/public roster
+integration remain open. See [human fixture](MASTER-YI-PLAYER.md) and its
+[verification](reference/masteryi/player-verification.json).
+
+Nested production smoke passes 32 recordings, real spell/save/purchase/restore
+flows, exact human/NPC Yi URL rejection, no hook and zero Yi rig preloads. Ruleset
+`58d4bb60164c316712b1f3b92eff8ec71be784db6ab7bf3cba9c03ada4d6cdab`; pack
+`f43a7afcb43f3510af23f3ffc6650e6849ff8f7e45d8c81d97b7ec66974015c6` contains
+1,073 files / 526,661,647 bytes. Existing bundle/performance/native gates remain
+open; no fresh offline certification is claimed.

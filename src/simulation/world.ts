@@ -414,7 +414,10 @@ export class World {
     readonly battlefield: Battlefield = PRACTICE_FIXTURE,
     playerChampion: import('./types').ChampionIdentity = 'ashe'
   ) {
-    if (playerChampion === 'masteryi')
+    if (
+      playerChampion === 'masteryi' &&
+      (battlefield.id !== 'practice-fixture' || !battlefield.developmentMasterYi)
+    )
       throw new Error('Master Yi is available only as a development NPC.');
     if (
       playerChampion === 'ahri' &&
