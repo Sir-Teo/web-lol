@@ -694,6 +694,12 @@
       "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/LeonaSolarFlare.png",
       "sha256": "4e59954a37f3c33deeee1eba614f8bdab05c86812cfbab7c7913db11a6da2306",
       "bytes": 6500
+    },
+    {
+      "path": "/assets/icons/ahri.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Ahri.png",
+      "sha256": "8e93368d97e3d302463c4e83ac5980d1f0a3a0aaf92ac44435730fecbd55b565",
+      "bytes": 28511
     }
   ]
 }

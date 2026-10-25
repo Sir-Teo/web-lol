@@ -53,6 +53,7 @@ import { LuxRStreaks } from './lux-r-streaks';
 import { LuxBeams } from './lux-beams';
 import { LUX } from '../content/lux-progression';
 import { GAREN } from '../content/garen-progression';
+import { AHRI } from '../content/ahri-progression';
 import { GAREN_R } from '../content/garen-r';
 import { SUMMONER_SMITE } from '../content/summoner-smite';
 import { isSummonerSlot } from '../content/summoners';
@@ -554,11 +555,13 @@ export class GameView {
       if (!world.alive(u) || !world.visible(u)) continue;
       const champion = u.kind === 'champion';
       const selection =
-        u.champion === 'garen'
-          ? { radius: GAREN.selectionRadius, height: GAREN.selectionHeight }
-          : u.champion === 'lux'
-            ? { radius: LUX.selectionRadius, height: LUX.selectionHeight }
-            : ASHE_SELECTION;
+        u.champion === 'ahri'
+          ? { radius: AHRI.selectionRadius, height: AHRI.selectionHeight }
+          : u.champion === 'garen'
+            ? { radius: GAREN.selectionRadius, height: GAREN.selectionHeight }
+            : u.champion === 'lux'
+              ? { radius: LUX.selectionRadius, height: LUX.selectionHeight }
+              : ASHE_SELECTION;
       const base = champion
         ? (this.models.get(u.id)?.root.position ?? {
             x: u.x * SCALE,
@@ -1016,7 +1019,17 @@ export class GameView {
         if (p.type === 'hawkshot') model = createHawkshot();
         else if (p.type === 'attack' && world.unit(p.source)?.champion === 'ashe')
           model = createAsheAttackArrow(p.empowered ?? false);
-        else {
+        else if (p.type === 'attack' && world.unit(p.source)?.champion === 'ahri') {
+          // Explicit development marker until Ahri's source attack effect is imported.
+          model = new THREE.Group();
+          model.name = 'Ahri provisional basic attack';
+          model.add(
+            new THREE.Mesh(
+              new THREE.SphereGeometry(0.085, 8, 6),
+              new THREE.MeshBasicMaterial({ color: 0x8edaff })
+            )
+          );
+        } else {
           model = new THREE.Group();
           const color = p.type === 'prismatic' ? 0xffedb3 : p.team === 'blue' ? 0x9aefff : 0xff818d;
           const material = new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.95 });

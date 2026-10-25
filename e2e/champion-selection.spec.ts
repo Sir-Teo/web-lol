@@ -24,26 +24,33 @@ test('stationary cursor follows moving targets and clears after hidden state, de
   await page.mouse.move(setup.pointer.x, setup.pointer.y);
   await expect(canvas).not.toHaveClass(/enemy-hover/);
   await page.evaluate((id) => {
-    const u = (window as any).__GAME__.world.unit(id);
+    const g = (window as any).__GAME__;
+    const u = g.world.unit(id);
     u.x = 0;
     u.previous = { x: 0, y: 0 };
+    // Direct fixture mutations need one paint while the normal loop is paused.
+    g.repaint();
   }, setup.id);
   await expect(canvas).toHaveClass(/enemy-hover/);
   await page.evaluate(() => {
     (window as any).__GAME__.world.battlefield.lineOfSight = () => false;
+    (window as any).__GAME__.repaint();
   });
   await expect(canvas).not.toHaveClass(/enemy-hover/);
   await page.evaluate(() => {
     (window as any).__GAME__.world.battlefield.lineOfSight = () => true;
+    (window as any).__GAME__.repaint();
   });
   await expect(canvas).toHaveClass(/enemy-hover/);
   await page.evaluate((id) => {
     (window as any).__GAME__.world.unit(id).hp = 0;
+    (window as any).__GAME__.repaint();
   }, setup.id);
   await expect(canvas).not.toHaveClass(/enemy-hover/);
   await page.evaluate((id) => {
     const u = (window as any).__GAME__.world.unit(id);
     u.hp = u.maxHp;
+    (window as any).__GAME__.repaint();
   }, setup.id);
   await expect(canvas).toHaveClass(/enemy-hover/);
   await page.locator('#shop-button').hover();

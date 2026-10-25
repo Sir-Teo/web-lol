@@ -1,4 +1,6 @@
 import { ASHE } from './ashe-progression';
+import { AHRI } from './ahri-progression';
+import { AHRI_COMBAT_POLICY } from './ahri-combat-policy';
 import { GAREN } from './garen-progression';
 import { LUX } from './lux-progression';
 import { LEONA } from './leona-progression';
@@ -7,6 +9,7 @@ import { ASHE_ATTACK_PROJECTILE_SPEED } from './ashe-projectiles';
 
 /** Explicit supported stat profiles: no fallback to another champion's kit. */
 export const CHAMPION_PROFILES = {
+  ahri: { ...AHRI, name: 'Ahri', windupTicks: AHRI_COMBAT_POLICY.ordinaryWindupTicks },
   ashe: {
     ...ASHE,
     name: 'Ashe',
@@ -39,5 +42,6 @@ export function selectableChampion(
   if (identity === undefined) return 'ashe';
   if (identity === 'garen') throw new Error('Garen player kit is still in development');
   if (identity === 'leona') throw new Error('Leona player kit is still in development');
+  if (identity === 'ahri') throw new Error('Ahri player kit is still in development');
   return identity;
 }

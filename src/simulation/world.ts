@@ -344,6 +344,7 @@ export class World {
     readonly battlefield: Battlefield = PRACTICE_FIXTURE,
     playerChampion: import('./types').ChampionIdentity = 'ashe'
   ) {
+    if (playerChampion === 'ahri') throw new Error('Ahri is available only as a development NPC.');
     if (
       playerChampion === 'leona' &&
       battlefield.id !== 'practice-fixture' &&
@@ -509,6 +510,8 @@ export class World {
     point: Vec2,
     identity: import('./types').ChampionIdentity = 'ashe'
   ): TeamUnit {
+    if (identity === 'ahri' && this.battlefield.id !== 'practice-fixture')
+      throw new Error('Ahri simulation requires the development practice fixture.');
     if (
       identity === 'leona' &&
       this.battlefield.id !== 'practice-fixture' &&
@@ -602,7 +605,7 @@ export class World {
     if (champion && identity !== 'ashe') {
       const own = this.championState(u.id)!;
       own.eCharges = 0;
-      if (identity === 'garen' || identity === 'leona') {
+      if (identity === 'garen' || identity === 'leona' || identity === 'ahri') {
         own.spellRanks = { q: 0, w: 0, e: 0, r: 0 };
         own.skillPoints = 1;
       }
@@ -5594,6 +5597,7 @@ export class World {
     if (this.winner) return 'The match has ended';
     const state = this.championState(championId);
     if (!state) return 'Unknown champion';
+    if (this.unit(championId)?.champion === 'ahri') return 'Ahri spells are still in development';
     const rank = state.spellRanks[ability];
     if (rank >= (ability === 'r' ? 3 : 5)) return 'This spell is already at maximum rank';
     if (state.skillPoints < 1) return 'No skill points available';
@@ -5649,6 +5653,7 @@ export class World {
         cooldownSeconds: this.abilitySpec(ability, championId).cooldown,
       };
     const rank = this.abilityRank(ability, championId);
+    if (this.unit(championId)?.champion === 'ahri') return { mana: 0, cooldownSeconds: 0 };
     if (this.unit(championId)?.champion === 'leona')
       return rank ? leonaSpellResources(ability, rank) : { mana: 0, cooldownSeconds: 0 };
     if (this.unit(championId)?.champion === 'garen')
@@ -5690,6 +5695,7 @@ export class World {
     const state = this.championState(u.id);
     if (!state || u.kind !== 'champion') return;
     if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
+    if (u.champion === 'ahri' && ['q', 'w', 'e', 'r'].includes(ability)) return;
     const summoner = this.summonerSpell(ability, u.id);
     if (summoner === 'smite') {
       const target = targetId === undefined ? undefined : this.unit(targetId);

@@ -126,7 +126,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 130;
+export const SNAPSHOT_VERSION = 131;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -217,7 +217,7 @@ const unit = z
     ward: z
       .strictObject({ ownerId: id, createdTick: tick, expireTick: tick, revealUntil: tick })
       .optional(),
-    champion: z.enum(['ashe', 'lux', 'garen', 'leona']).optional(),
+    champion: z.enum(['ashe', 'lux', 'garen', 'leona', 'ahri']).optional(),
     team: faction,
     monster: z
       .strictObject({
@@ -2263,6 +2263,11 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     throw new Error('Garen player kit is available only in the development practice fixture.');
   for (const unit of state.units) {
     if (
+      unit.champion === 'ahri' &&
+      (state.battlefield !== 'practice-fixture' || unit.id === state.player.id)
+    )
+      throw new Error('Ahri requires a non-player development practice unit.');
+    if (
       unit.champion === 'leona' &&
       !(
         (state.battlefield === 'practice-fixture' &&
@@ -3101,6 +3106,18 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     }
   }
   const owners = [state.player, ...state.otherChampions];
+  for (const owner of owners) {
+    if (state.units.find((unit) => unit.id === owner.id)?.champion === 'ahri') {
+      if (
+        Object.values(owner.spellRanks).some((rank) => rank !== 0) ||
+        owner.skillPoints !== owner.level ||
+        (['q', 'w', 'e', 'r'] as const).some((ability) => owner.cooldowns[ability] !== 0) ||
+        owner.castAnimation !== null ||
+        owner.pendingCast !== null
+      )
+        throw new Error('Saved match contains unfinished Ahri spell state.');
+    }
+  }
   const ownerIds = new Set(owners.map((p) => p.id));
   if (state.battlefield === 'rift') {
     for (const owner of owners) {

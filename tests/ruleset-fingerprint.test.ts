@@ -82,6 +82,23 @@ test('Garen particle clock inputs remain explicitly pinned without a simulation 
   expect(rulesetFingerprint(root)).not.toBe(before);
 });
 
+test('Ahri saved-pose compatibility includes both fetched rig inputs without importing a binary module', () => {
+  const { root, put } = fixture();
+  const before = rulesetFingerprint(root);
+  for (const file of [
+    'public/assets/models/ahri-base.glb',
+    'public/assets/models/ahri-base.json',
+  ]) {
+    expect(rulesetFiles).toContain(file);
+    expect(affectsRuleset(resolve(file))).toBe(true);
+    const original = readFileSync(join(root, file), 'utf8');
+    put(file, original + ' changed');
+    expect(rulesetFingerprint(root)).not.toBe(before);
+    put(file, original);
+    expect(rulesetFingerprint(root)).toBe(before);
+  }
+});
+
 test('saved Zenith sword interpretation includes source normals and the complete surface dependency graph', () => {
   for (const file of [
     'src/render/leona-zenith-surfaces.ts',

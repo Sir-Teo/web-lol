@@ -63,6 +63,7 @@ try {
     outside = [],
     junglePreviewRequests = [],
     leonaPreviewRequests = [],
+    ahriPreviewRequests = [],
     preparedCompanionRequests = [],
     wardRigRequests = [],
     oracleRigRequests = [],
@@ -81,6 +82,7 @@ try {
     if (message.type() === 'error') errors.push(message.text());
   });
   page.on('request', (request) => {
+    if (request.url().endsWith('/ahri-base.glb')) ahriPreviewRequests.push(request.url());
     if (/\/(?:leona[^/]*\.(?:glb|png|wav)|base_brightspark_11\.png)$/i.test(request.url()))
       leonaPreviewRequests.push(request.url());
     if (request.url().endsWith('/sightward-base.glb')) wardRigRequests.push(request.url());
@@ -153,15 +155,20 @@ try {
     11,
     'Ordinary Rift practice must prepare all eleven scheduled monster rigs'
   );
-  for (const champion of ['garen', 'leona']) {
+  for (const champion of ['garen', 'leona', 'ahri']) {
     await page.goto(
-      `${base}?scene=fixture&champion=${champion}&npc=leona&encounter=gromp&companion=gustwalker`
+      `${base}?scene=fixture&champion=${champion}&npc=${champion === 'ahri' ? 'ahri' : 'leona'}&encounter=gromp&companion=gustwalker`
     );
     await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
     assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
     assert.equal(await page.evaluate(() => !!window.__GAME__), false);
     assert.equal(await page.locator('#companion-status').count(), 0);
   }
+  assert.deepEqual(
+    ahriPreviewRequests,
+    [],
+    'Ordinary production and diagnostic flags must not load Ahri'
+  );
   await page.goto(`${base}?scene=leona-rift&champion=leona`);
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
@@ -468,6 +475,8 @@ try {
       garenFixtureInProduction: false,
       leonaPlayerFixtureInProduction: false,
       leonaRiftTrialInProduction: false,
+      ahriNpcFixtureInProduction: false,
+      unrequestedAhriPreloads: ahriPreviewRequests.length,
       junglePreviewRequests: junglePreviewRequests.length,
       unrequestedLeonaPreloads: leonaPreviewRequests.length,
       preparedCompanionRequests: preparedCompanionRequests.length,

@@ -1,4 +1,5 @@
 import { LEONA_REQUIRED_CLIPS } from '../content/leona-presentation';
+import { AHRI_COMBAT_POLICY } from '../content/ahri-combat-policy';
 import { WARD_SOURCE } from '../content/warding-totem';
 import { TargetPoseSampler } from './target-pose-sampler';
 import { MONSTERS, type MonsterSpecies } from '../content/monsters';
@@ -55,7 +56,8 @@ const referenceNames = [
 ];
 export async function loadReferenceModels(
   includeMonsters: boolean | readonly MonsterSpecies[] = false,
-  includeLeona = false
+  includeLeona = false,
+  includeAhri = false
 ): Promise<void> {
   const loader = new GLTFLoader();
   const species =
@@ -66,54 +68,65 @@ export async function loadReferenceModels(
         : includeMonsters;
   const monsterNames = [...new Set(species.map((s) => MONSTERS[s].rig))];
   await Promise.all(
-    [...referenceNames, ...monsterNames, ...(includeLeona ? ['leona-base'] : [])].map(
-      async (name) => {
-        const gltf = await loader.loadAsync(`assets/models/${name}.glb`);
-        const monster = Object.values(MONSTERS).find((p) => p.rig === name);
-        if (monster) {
-          gltf.animations = monsterClipAliases(gltf.animations, monster.clips, name);
-          gltf.scene.traverse((object) => {
-            if (object instanceof THREE.Mesh) {
-              const materials = Array.isArray(object.material)
-                ? object.material
-                : [object.material];
-              if (materials.some((material) => material.userData.defaultHidden))
-                object.visible = false;
-            }
-          });
-        }
-        for (const required of name === 'sightward-base'
-          ? Object.values(WARD_SOURCE.clips).map((c) => c.clip)
-          : /-(turret|nexus|inhibitor)$/.test(name)
-            ? ['idle1']
-            : name === 'ashe-base'
+    [
+      ...referenceNames,
+      ...monsterNames,
+      ...(includeLeona ? ['leona-base'] : []),
+      ...(includeAhri ? ['ahri-base'] : []),
+    ].map(async (name) => {
+      const gltf = await loader.loadAsync(`assets/models/${name}.glb`);
+      const monster = Object.values(MONSTERS).find((p) => p.rig === name);
+      if (monster) gltf.animations = monsterClipAliases(gltf.animations, monster.clips, name);
+      if (monster || name === 'ahri-base') {
+        gltf.scene.traverse((object) => {
+          if (object instanceof THREE.Mesh) {
+            const materials = Array.isArray(object.material) ? object.material : [object.material];
+            if (materials.some((material) => material.userData.defaultHidden))
+              object.visible = false;
+          }
+        });
+      }
+      for (const required of name === 'sightward-base'
+        ? Object.values(WARD_SOURCE.clips).map((c) => c.clip)
+        : /-(turret|nexus|inhibitor)$/.test(name)
+          ? ['idle1']
+          : name === 'ashe-base'
+            ? [
+                'idle1',
+                'run',
+                'attack1',
+                'crit',
+                'death',
+                'idle5',
+                'idle2',
+                'spell1',
+                'spell2',
+                'spell3',
+                'spell4',
+              ]
+            : name === 'lux-base'
               ? [
                   'idle1',
                   'run',
                   'attack1',
                   'crit',
+                  'attack2',
                   'death',
-                  'idle5',
-                  'idle2',
                   'spell1',
                   'spell2',
                   'spell3',
                   'spell4',
+                  'idle3',
+                  'entry_b4dcde19',
                 ]
-              : name === 'lux-base'
+              : name === 'ahri-base'
                 ? [
-                    'idle1',
-                    'run',
-                    'attack1',
-                    'crit',
-                    'attack2',
+                    AHRI_COMBAT_POLICY.idleClip,
+                    AHRI_COMBAT_POLICY.runClip,
+                    AHRI_COMBAT_POLICY.attackClip,
+                    AHRI_COMBAT_POLICY.criticalClip,
+                    AHRI_COMBAT_POLICY.recallClip,
                     'death',
-                    'spell1',
-                    'spell2',
-                    'spell3',
-                    'spell4',
-                    'idle3',
-                    'entry_b4dcde19',
                   ]
                 : name === 'leona-base'
                   ? LEONA_REQUIRED_CLIPS
@@ -133,19 +146,18 @@ export async function loadReferenceModels(
                     : name === 'sru-crab-base'
                       ? ['idle1', 'run', 'spawn', 'hide', 'flee', 'stun']
                       : ['idle1', 'run', 'attack1', 'death'])
-          if (!gltf.animations.some((clip) => clip.name === required))
-            throw new Error(`${name} lacks required ${required} animation`);
-        prepareAnimationBounds(
-          gltf.scene,
-          gltf.animations,
-          name !== 'leona-base' && !/-(turret|nexus|inhibitor)$/.test(name)
-        );
-        references.set(name, {
-          scene: gltf.scene,
-          clips: removeConstantBoneTracks(gltf.scene, gltf.animations),
-        });
-      }
-    )
+        if (!gltf.animations.some((clip) => clip.name === required))
+          throw new Error(`${name} lacks required ${required} animation`);
+      prepareAnimationBounds(
+        gltf.scene,
+        gltf.animations,
+        name !== 'leona-base' && !/-(turret|nexus|inhibitor)$/.test(name)
+      );
+      references.set(name, {
+        scene: gltf.scene,
+        clips: removeConstantBoneTracks(gltf.scene, gltf.animations),
+      });
+    })
   );
 }
 /** Sampler owns a private skeleton; loaded geometry, materials and clips stay shared. */
@@ -240,9 +252,11 @@ export function makeModel(u: Unit): UnitModel {
     const idleClip =
       u.kind === 'ward'
         ? WARD_SOURCE.clips.idle.clip
-        : u.champion === 'garen'
-          ? 'idle1_base'
-          : 'idle1';
+        : u.champion === 'ahri'
+          ? AHRI_COMBAT_POLICY.idleClip
+          : u.champion === 'garen'
+            ? 'idle1_base'
+            : 'idle1';
     actions[idleClip].play();
     mixer.update(0);
     model.updateMatrixWorld(true);

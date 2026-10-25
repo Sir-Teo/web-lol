@@ -1,9 +1,9 @@
 # Ahri source foundation
 
 Target: standard PC Summoner's Rift 26.18, frozen Riot build 16.18.8175716.
-The retained character package is now a reproducible source reference. Ahri is
-not registered as a playable champion. This increment generates no runtime
-stats, spell controller, bot behavior, saved state, effects or audio.
+The retained character package is a reproducible source reference. A development
+NPC foundation now adds her own stats, basic attacks and body rig. Ahri remains
+outside player selection and the Rift roster; her spell kit is unfinished.
 
 ## Retained inputs
 
@@ -112,4 +112,83 @@ It must retain these source distinctions and expose unresolved choices. The
 existing unlit Ahri rig preview also leaves native materials, tail/hair dynamic
 modifiers, animation graph, effects and audio unfinished. Complete player/role
 integration, strict continuation, production roster and native acceptance remain
-open. No shipped simulation or asset is changed by this reference increment.
+open. The original reference increment changed no simulation or public asset.
+
+## Development NPC foundation
+
+During `npm run dev`, open `/?scene=fixture&npc=ahri`. Ashe remains the human
+champion; Ahri is an additional blue development unit. Her four spells begin
+unlearned. Learning and spell commands are explicitly rejected, and she receives
+no Hawkshot charges, Frost or Focus state. Production ignores the diagnostic
+query. The constructor rejects an Ahri player and spawning her outside the
+development practice map fails. The ordinary selection and match roster remain
+Ashe/Lux.
+
+`tools/assets/export-ahri-profile.py` generates
+`src/content/ahri-progression.ts` from the verified declarations. Run it with
+`--check`, normally or with `python3 -O`, to compare without writing. It uses the
+same input and differing-output guards as the declaration exporter. The local
+development policy **selects the BIN's AD growth of 3**, while retaining the
+Data Dragon disagreement in the reference. This choice is provisional, rather
+than a claim that the conflict has been resolved.
+
+Basic attacks use the declared 550 range and fixed missile speed 1750. They
+launch one ordinary physical attack through the existing simulation. Normal
+critical damage uses the shared multiplier of 2, which matches the raw field's
+numeric value without independently establishing its native interpretation.
+The windup uses the shared estimate `(0.3 + offset) / baseAttackSpeed`, rounded
+to 60 Hz (18 ticks at level one), with the existing speed scaling after levels.
+Native release/contact timing, projectile bone placement, cancellation edge
+cases and source attack effects/audio remain open. A small blue sphere is an
+explicit provisional projectile marker.
+
+The existing 19,854,544-byte source GLB loads only when an Ahri unit is present
+at application startup. Both clip-duration exporters include all 55 exact
+endpoints. Body bindings use `idle_var2`, `run_in`, `attack1`, `crit`, `death` and
+`recall`; these are explicit local selections, not a recovered animation graph.
+Her authored selection cylinder is 100 units by 135 units. The source's hidden
+`Tail_Large` material stays hidden; `Body_Proxy` has no exported draw in this
+GLB. Shading remains the existing unlit preview, and secondary tail/hair motion,
+dynamic R materials, transitions, source particles and audio are unfinished.
+The scoreboard uses the locally retained Data Dragon 16.18.1 Ahri portrait.
+
+Schema 131 permits an Ahri NPC only on the development practice map. It rejects
+Ahri player substitution, learned ranks, cooling/casting unfinished spells and
+invalid unspent skill-point budgets. Common non-Ashe and foreign-spell ownership
+checks remain active. Pending ordinary attacks, projectiles, body poses and
+future simulation use the shared strict continuation path. Schema 130 saves are
+incompatible under the existing same-build policy. The ruleset includes Ahri's
+rig bytes and metadata as well as the new runtime modules and clip tables.
+
+Validation passes TypeScript, 2,071 unit tests in 331 files and three Node QA
+checks. Nine new NPC cases cover boundaries, unlearned spell rejection, normal
+and critical attacks, cancellation, growth/regeneration, pending/flight
+continuation and all source clip endpoints. The additional ruleset test verifies
+that changing either fetched rig input invalidates save compatibility.
+
+Chrome evidence covers 22 distinct scenarios across the retained runs: the first
+run passed 20 of 21; the second passed five of six, including actual NPC Save →
+reload and 300 identical future ticks; the final three selection cases pass.
+The two failures are retained. Their older selection fixture moved a unit inside
+a paused world without requesting paint. Re-pausing was insufficient because it
+also clears pointer focus. A development-only `repaint` hook now requests a
+frame without advancing time or releasing input; the fixture uses it for its
+direct edits. No selection assertion was removed. Exact bones, clips, hidden
+mesh flags and saves match after isolated reconstruction at six Ahri stages.
+Idle and death captures were visually reviewed. Existing Leona rig restoration,
+Garen/Lux controls, animation blends and match files also pass.
+
+Production build and nested-host smoke pass with 32 recordings, no development
+hook and no Ahri model preload, including the diagnostic URL. Offline checks
+pass with 963 service-worker responses. The package contains 1,061 files and
+519,985,263 bytes, ID
+`4c7ea566d9e769fb65889c663014df74144378affc67b14bbf2aa935d962334b`.
+The reference manifest adds one portrait; all 1,009 other prior public files
+remain byte-identical, bringing the public file count to 1,011.
+The existing large-bundle warning and delivery/performance gates remain open.
+
+The [verification ledger](reference/ahri/development-verification.json) binds the
+retained source closure, built files, original failures, successful checks and
+captures. Run `node tools/qa/verify-ahri-development.mjs`; after later project
+changes, `--historical` checks the retained checkpoint rather than current files.
+This NPC foundation does not certify a playable Ahri kit or native matching.

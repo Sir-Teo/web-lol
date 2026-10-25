@@ -66,6 +66,8 @@ const pinnedData = [
   'public/assets/maps/rift-nav.bin',
   'public/assets/models/leona-base.glb',
   'public/assets/models/leona-base.json',
+  'public/assets/models/ahri-base.glb',
+  'public/assets/models/ahri-base.json',
   'src/content/leona-q-particles.json',
   'docs/reference/leona-q-particles-decoded.json',
   'public/assets/effects/base_brightspark_11.png',

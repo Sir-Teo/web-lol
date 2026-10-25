@@ -7229,3 +7229,53 @@ changes: schema 130 and ruleset
 `ca5d6fe53f056aea0943668b0596546e68869e922d4bab91a254888db59931cd`
 remain unchanged. Ahri runtime/player/role integration, native behavior and
 production roster acceptance remain open. Work continues; nothing pushed.
+
+## 2026-10-25 — Development Ahri NPC, ordinary attacks and saved rig poses
+
+The [Ahri development foundation](AHRI.md#development-npc-foundation) now spawns
+her as a non-player champion with `/?scene=fixture&npc=ahri`. Her verified stats,
+550 range, 1,750-speed basic projectile, regeneration and growth feed the shared
+simulation. The local policy explicitly chooses BIN AD growth 3 while retaining
+the unresolved public-client 0. The 18-tick base windup is a provisional shared
+estimate; critical attacks use the shared multiplier 2. Spells remain unlearned
+and explicitly blocked. Player construction, ordinary selection and Rift
+spawning reject Ahri. She receives no Ashe spell/Focus/Frost behavior.
+
+The existing 211-bone rig loads only for an initial Ahri unit. All 55 exact clip
+endpoints enter both duration tables; explicit body/recall bindings use her own
+atomic clips. The exported hidden tail material stays hidden. Source selection
+dimensions and a retained local portrait are integrated; a small blue sphere is
+an explicit provisional attack marker. Unlit shading, secondary rig motion,
+native transitions, spell effects/audio and the full kit remain open. The
+reference manifest adds one portrait; all 1,009 other previous public files
+remain byte-identical, bringing the count to 1,011.
+
+Schema 131 accepts only development-map Ahri NPCs and rejects player substitution,
+learned/cooling/casting unfinished spells and invalid skill-point budgets. Nine
+new tests cover gating, combat, cancellation, criticals, level growth/regeneration,
+pending and in-flight continuation, strict rejection and all 55 clip endpoints.
+A separate compatibility case mutates each fetched Ahri rig input and verifies
+hash invalidation. TypeScript, **2,071 tests in 331 files** and all three Node QA
+checks pass. The first full run found a fixture trying to import a binary as code;
+the dedicated fetched-input check repairs that fixture. Exporter and complete
+character checks pass normally and optimized.
+
+Chrome covers **22 distinct scenarios** through the recorded 20/21, 5/6 and 3/3
+runs. Both original selection failures are retained: direct edits in a paused
+fixture need repaint, while re-pausing also clears pointer focus. A development-only
+repaint hook now handles those edits without stepping or resetting input; all
+selection assertions remain. Ahri's six isolated stages reproduce exact saves
+and 211-bone poses. Actual Save → reload preserves her pending attack and 300
+future ticks. Reviewed idle/death captures, existing Leona rig recovery,
+Garen/Lux controls, animation blends and match files pass.
+
+Production build/nested hosting pass with 32 recordings; the Ahri URL is ignored
+and the model is never requested in ordinary production. Offline controls and
+963 service-worker responses pass. Ruleset
+`0f35a470a96ce5847f607f84e344d616526b412aa3f29248595b6a962f848554`,
+package `4c7ea566d9e769fb65889c663014df74144378affc67b14bbf2aa935d962334b`:
+**1,061 files / 519,985,263 bytes**. The
+[ledger](reference/ahri/development-verification.json) preserves complete sources,
+generated files, failed attempts and successful evidence. The ordinary roster,
+Ahri spell kit, native behavior/presentation, full performance and overall project
+acceptance remain open. Work continues; nothing pushed.

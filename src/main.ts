@@ -61,6 +61,7 @@ async function boot(): Promise<void> {
     : loadedBattlefield;
   const saveKey = leonaRiftTrial ? 'development-leona-rift' : battlefield.id;
   const leonaNpc = fixture && new URLSearchParams(location.search).get('npc') === 'leona';
+  const ahriNpc = fixture && query.get('npc') === 'ahri';
   const garenFixture = fixture && new URLSearchParams(location.search).get('champion') === 'garen';
   const leonaFixture = fixture && new URLSearchParams(location.search).get('champion') === 'leona';
   const grompEncounter =
@@ -91,6 +92,7 @@ async function boot(): Promise<void> {
             next.gainExperience(2400, npc.id);
             for (const ability of ['q', 'w', 'e', 'r'] as const) next.learnSpell(ability, npc.id);
           }
+          if (ahriNpc) next.spawn('champion', 'blue', { x: -650, y: 350 }, 'ahri');
           return next;
         })();
   };
@@ -107,6 +109,7 @@ async function boot(): Promise<void> {
       (!garenFixture || candidate.hero.champion === 'garen') &&
       (!leonaFixture || candidate.hero.champion === 'leona') &&
       (!leonaNpc || candidate.units.some((u) => u.champion === 'leona')) &&
+      (!ahriNpc || candidate.units.some((u) => u.champion === 'ahri')) &&
       candidate.encounter === (grompEncounter ? 'gromp' : null) &&
       (candidate.companions.find(
         (p) => p.ownerId === candidate.player.id && p.acquisition.kind === 'fixture'
@@ -250,7 +253,8 @@ async function boot(): Promise<void> {
     audio.load(world.units.some((u) => u.champion === 'garen')),
     loadReferenceModels(
       monsterSpecies,
-      world.units.some((u) => u.champion === 'leona')
+      world.units.some((u) => u.champion === 'leona'),
+      world.units.some((u) => u.champion === 'ahri')
     ),
     ...(hasGrompContent ? [view.grompDeath.load(), view.grompAttack.load()] : []),
     ...(world.units.some((u) => u.champion === 'leona')
@@ -477,6 +481,8 @@ async function boot(): Promise<void> {
         hud,
         audio,
         setPaused,
+        // Repaint direct fixture edits without resetting input or advancing time.
+        repaint: requestFrame,
         snapshot: () => JSON.parse(world.snapshot()),
         ready: true,
       },

@@ -1,4 +1,5 @@
 import { leonaAttackAnimation } from '../content/leona-presentation';
+import { AHRI_COMBAT_POLICY } from '../content/ahri-combat-policy';
 import { LEONA_COMBAT_POLICY } from '../content/leona-combat-policy';
 import { garenAttackAnimation } from '../content/garen-attack-animation';
 import { recallAnimationPose } from './recall-animation';
@@ -158,11 +159,15 @@ export function mobilePose(
               ? cycle.critical
                 ? 'crit'
                 : luxAttackAnimation(unit.id, cycle.startTick)
-              : cycle.empowered
-                ? ASHE_Q.empoweredAttackAnimation
-                : cycle.critical
-                  ? 'crit'
-                  : 'attack1';
+              : unit.champion === 'ahri'
+                ? cycle.critical
+                  ? AHRI_COMBAT_POLICY.criticalClip
+                  : AHRI_COMBAT_POLICY.attackClip
+                : cycle.empowered
+                  ? ASHE_Q.empoweredAttackAnimation
+                  : cycle.critical
+                    ? 'crit'
+                    : 'attack1';
     const rate = duration(clip) / ((cycle.endTick - cycle.startTick) / TICK_RATE),
       age = Math.max(0, (at - cycle.startTick) / TICK_RATE);
     return { ...fixed('attack', clip, age * rate, false, rate), settled: age >= 0.08 };
@@ -176,13 +181,17 @@ export function mobilePose(
           ? moving
             ? 'run_base'
             : 'idle1_base'
-          : scuttler && unit.stunUntil > tick
-            ? 'stun'
-            : moving
-              ? scuttler && unit.monster!.phase === 'engaged'
-                ? 'flee'
-                : 'run'
-              : 'idle1',
+          : unit.champion === 'ahri'
+            ? moving
+              ? AHRI_COMBAT_POLICY.runClip
+              : AHRI_COMBAT_POLICY.idleClip
+            : scuttler && unit.stunUntil > tick
+              ? 'stun'
+              : moving
+                ? scuttler && unit.monster!.phase === 'engaged'
+                  ? 'flee'
+                  : 'run'
+                : 'idle1',
     clock = moving ? unit.runClock : unit.idleClock;
   const seconds = clock ? clock.previous + (clock.current - clock.previous) * alpha : 0,
     length = duration(clip);
