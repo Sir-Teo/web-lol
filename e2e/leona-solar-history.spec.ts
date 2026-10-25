@@ -55,7 +55,7 @@ for (const [phase, age] of [
     if (phase === 'windup') expect(prepared.history.release).toBeNull();
     if (phase === 'released') expect(prepared.history.release).not.toBeNull();
     if (phase === 'impact') expect(prepared.history.impact.contacts).toHaveLength(1);
-    expect(JSON.parse(prepared.saved).version).toBe(127);
+    expect(JSON.parse(prepared.saved).version).toBe(128);
     if (!(await page.getByRole('button', { name: 'Save match', exact: true }).isVisible()))
       await page.keyboard.press('Escape');
     await page.getByRole('button', { name: 'Save match', exact: true }).click();

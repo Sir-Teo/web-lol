@@ -32,6 +32,12 @@ import {
   finishDaybreakVisual,
 } from './leona-q-visuals';
 import {
+  beginLeonaAttack,
+  contactLeonaAttack,
+  finishLeonaAttack,
+  advanceLeonaAttacks,
+} from './leona-aa-visuals';
+import {
   advanceSunlightVisuals,
   captureSunlightVisual,
   type SunlightVisual,
@@ -3110,6 +3116,7 @@ export class World {
   ) {
     const state = this.championState(u.id);
     if (state) cancelGarenAttack(state, u, this.tick, reason);
+    if (state) finishLeonaAttack(state, u, this.tick, reason);
     const attack = this.garenQAttack(u);
     if (attack && attack.stopTick === null) {
       attack.stopTick = Math.min(this.tick, attack.endTick);
@@ -3152,7 +3159,9 @@ export class World {
                       leonaQStartTick: u.attackCycle.leonaQStartTick,
                       leonaQAttackStartTick: u.attackCycle.startTick,
                     }
-                  : {}),
+                  : u.champion === 'leona'
+                    ? { champion: 'leona' as const, leonaAAStartTick: u.attackCycle!.startTick }
+                    : {}),
           });
           if (
             u.champion === 'ashe' &&
@@ -3197,6 +3206,8 @@ export class World {
             }
             if (u.champion === 'garen' && qRank === undefined && state)
               contactGarenAttack(state, u, target, this.tick, this);
+            if (u.champion === 'leona' && daybreakRank === undefined && state)
+              contactLeonaAttack(this, u, state, target);
             this.hitBasicAttack(u, target, payloads.reduce((sum, p) => sum + p.damage, 0) + qBonus);
             if (daybreakRank !== undefined) {
               const daybreak = leonaDaybreakValues(daybreakRank, this.abilityPower(u));
@@ -3352,6 +3363,7 @@ export class World {
             u.attackCycle.leonaQReleaseTick = u.releaseTick;
             captureDaybreakAttack(state!, leonaQ.startTick, this.tick);
           }
+          if (u.champion === 'leona' && !leonaQ && state) beginLeonaAttack(this, u, state, target);
           if (u.champion === 'garen' && garenQRank === undefined && state)
             beginGarenAttack(state, u, target, this.tick, this);
           const history = state?.garenQVisuals.at(-1);
@@ -4133,6 +4145,7 @@ export class World {
     advanceDaybreakVisuals(this);
     advanceSunlightVisuals(this);
     advanceGarenAttackPoses(this);
+    advanceLeonaAttacks(this);
     advanceLuxEHits(this);
     for (const visual of [...this.luxImpactVisuals, ...this.luxIlluminationVisuals]) {
       const target = this.unit(visual.targetId);
@@ -5158,6 +5171,7 @@ export class World {
           this.finishGarenW(state, 'match-end');
           stopPerseveranceVisual(state, this.unit(state.id)!, this.tick);
           cancelGarenAttack(state, this.unit(state.id)!, this.tick, 'match-end');
+          finishLeonaAttack(state, this.unit(state.id)!, this.tick, 'match-end');
           finishDaybreakVisual(state, this.tick, 'match-end');
           finishGarenQPresentation(state, this.tick, 'match-end');
           this.cancelGarenRVisual(state);
@@ -5362,6 +5376,7 @@ export class World {
       advanceZenithVisuals(this);
       advanceDaybreakVisuals(this);
       advanceEclipseVisuals(this);
+      advanceLeonaAttacks(this);
     }
     // Positive damage includes shield absorption. Non-champion unit sources
     // cannot trigger the mark; cleanup is not a combat hit.

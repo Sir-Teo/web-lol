@@ -6827,3 +6827,51 @@ Source-preparation ruleset is `9fe85fb04fa6718a206225b9bc0bab747fd3a056371b5a5b2
 
 Offline integrity, repair, saved boot and atomic version-switch controls pass
 with 963 worker responses and zero production errors.
+
+## Leona saved ordinary melee attempts — October 24, 2026
+
+Ordinary attacks now save their actual start/release/end, resolved normal/critical/
+Eclipse animation, captured flags, target and fixed start audience. Cancellation
+and actual contact are distinct facts. Q retains its separate history, including
+an ordinary swing canceled by a Q reset. Contacts retain material, rig, posed
+frames and an independent audience. Caster movement and lethal endpoints survive
+saved futures without allocating cosmetic gameplay IDs or consuming gameplay RNG.
+
+The independent source audit verifies raw character/animation BIN identities and
+29 armor-material assignments. Attack1/2 weights are 0.5/0.5, Attack3 is zero,
+and critical probability is omitted. Attack4 exists with Spell2_attack but has no
+weighted slot/extra-spell entry. Selected clips contain no explicit audio event
+maps. The existing deterministic clip choice, critical-over-Eclipse precedence,
+W override, timing and default Flesh material remain local policies; native
+OnCast/OnHit invocation and switch caller are not established. Source LPF20 and
+other unused attack declarations remain prepared data, not newly implemented DSP.
+
+Generated 30-caster/80-contact frame bounds cover the finite masters, maximum
+40 ms cast delay and slowest authored material pitch. Histories retire after the
+captured cycle/source tail. Schema 128 requires the new array and strictly checks
+ownership, variants, clocks, phases, material/transform and posed history. No
+legacy starts are invented. Ordinary synthesized feedback is unchanged; source
+playback is the next increment.
+
+Fourteen new units bring the full check to 1,984 tests in 321 files, TypeScript
+and three Node QA checks. The original two missing-history failures and a neutral
+fixture's incorrect generic spawn call remain recorded. Four new Chrome cases
+preserve actual Save/reload snapshots and exact 90-tick futures for ordinary,
+critical, Eclipse and canceled attempts, with correct Metal contact and no
+browser/GL errors. The Eclipse capture is inspected. All 44 broader browser cases
+pass player controls, Q/E/R audio, source particles/graphics recovery, Garen and
+bot save assertions updated to 128. Four normal/optimized timing mutations reject,
+with both pristine baselines passing. All 1,005 public files remain unchanged.
+
+See [history scope](LEONA-AA-HISTORY.md) and the
+[ledger](reference/leona/aa-history-verification.json). Native dispatch, filter/
+random/listener behavior, ordinary attack audio, missing R families, full
+player/support/roster, native frames, normal-match cohort and performance gates
+remain open. Work continues under the active goal; nothing pushed.
+
+All 44 browser cases and 32 production recordings pass. Schema 128 ruleset is
+`927e3ae2b99e42f3350360606c406a1aedad983e4e4f17d07f4519eb7185f6b5`. Pack
+`e149df5b7aba816fe2ab6134bf123067af1ed44939e0a253ea2c78915e579c9d` contains 1,052 files / 518,236,266 bytes.
+
+Offline integrity, repair, saved boot and atomic version-switch controls pass
+with 963 worker responses and zero production errors.

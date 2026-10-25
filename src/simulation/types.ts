@@ -422,6 +422,7 @@ export interface SimEvent extends Vec2 {
   garenAAStartTick?: number;
   leonaQStartTick?: number;
   leonaQAttackStartTick?: number;
+  leonaAAStartTick?: number;
   champion?: ChampionIdentity;
   /** Fixed when emitted: later vision must never expose an earlier hidden event. */
   audience: Team[];
@@ -528,6 +529,8 @@ export interface ChampionState {
       frames: (LuxImpactFrame & { audience: Team[] })[];
     } | null;
   }[];
+  /** Actual ordinary Leona attempts; source playback must not invent canceled starts from a hit. */
+  leonaAAVisuals: import('./leona-aa-visuals').LeonaAttackVisual[];
   garenPassiveReadyTick: number;
   /** Bounded cosmetic recovery epochs; stopped sparks retain a fixed root. */
   garenPassiveVisuals: { startTick: number; stopTick: number | null; point: Vec2 | null }[];

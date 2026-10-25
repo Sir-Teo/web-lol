@@ -76,7 +76,7 @@ test('Chrome seeks all44 Solar Flare families with explicit orbit inputs and unc
     };
   });
   writeFileSync(info.outputPath('solar-kernel.json'), JSON.stringify({ result, errors }, null, 2));
-  expect(result.schema).toBe(127);
+  expect(result.schema).toBe(128);
   expect(result.profiles).toBe(44);
   expect(result.samples).toHaveLength(44);
   expect(result.seeks).toBe(720);

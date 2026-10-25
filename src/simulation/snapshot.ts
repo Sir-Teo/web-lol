@@ -1,4 +1,6 @@
 import { validateDaybreakVisuals } from './leona-q-visuals';
+import { validateLeonaAttacks } from './leona-aa-visuals';
+import { LEONA_AA_CAST_TICKS, LEONA_AA_HIT_TICKS } from '../content/leona-aa-audio-timing';
 import { validateEclipseVisuals } from './leona-w-visuals';
 import { validateZenithVisuals } from './leona-e-visual-validation';
 import { validateSolarVisuals } from './leona-r-visual-validation';
@@ -123,7 +125,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 127;
+export const SNAPSHOT_VERSION = 128;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -531,6 +533,13 @@ const daybreakRig = z.enum([
   ...Object.keys(STRUCTURE_ANIMATION_PROFILES),
 ] as [ImpactRig, ...ImpactRig[]]);
 const eclipseRig = z.enum(Object.keys(MOBILE_CLIP_DURATIONS) as [ImpactRig, ...ImpactRig[]]);
+const attackRig = z.enum([
+  ...new Set([
+    ...Object.keys(armorMaterials),
+    ...Object.keys(MOBILE_CLIP_DURATIONS),
+    ...Object.keys(STRUCTURE_ANIMATION_PROFILES),
+  ]),
+] as [string, ...string[]]);
 const zenithRootFrame = z.strictObject({
   tick,
   x: z.number(),
@@ -692,6 +701,42 @@ const player: z.ZodType<PlayerState> = z
           .max(10000),
       })
       .nullable(),
+    leonaAAVisuals: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          releaseTick: tick,
+          endTick: tick,
+          kind: z.enum(['attack1', 'attack2', 'crit', 'spell2_attack']),
+          critical: z.boolean(),
+          eclipse: z.boolean(),
+          targetId: id,
+          targetTeam: faction,
+          targetRig: attackRig.nullable(),
+          castAudience: daybreakFrame.shape.audience,
+          cancelTick: tick.nullable(),
+          stopTick: tick.nullable(),
+          endReason: z
+            .enum(['complete', 'order', 'target-lost', 'action', 'recast', 'death', 'match-end'])
+            .nullable(),
+          detachedTick: tick.nullable(),
+          frames: z.array(savedPoseFrame).min(1).max(LEONA_AA_CAST_TICKS),
+          impact: z
+            .strictObject({
+              tick,
+              point,
+              material: z.enum(['Flesh', 'Metal', 'Stone', 'Wood']),
+              audience: daybreakFrame.shape.audience,
+              facing: z.number(),
+              radius: nonnegative,
+              targetTransform: z.array(z.number()).length(16).nullable(),
+              detachedTick: tick.nullable(),
+              frames: z.array(daybreakFrame).min(1).max(LEONA_AA_HIT_TICKS),
+            })
+            .nullable(),
+        })
+      )
+      .max(1000),
     garenAAVisuals: z
       .array(
         z.strictObject({
@@ -3508,6 +3553,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     )
       throw new Error('Saved match contains invalid Eclipse state.');
     validateDaybreakVisuals(owner, champion, state);
+    validateLeonaAttacks(owner, champion, state);
     validateEclipseVisuals(owner, champion, state);
     validateZenithVisuals(owner, champion, state);
     validateSolarVisuals(owner, champion, state);
