@@ -11,6 +11,8 @@ export interface SourceAudioState<K extends string> {
   remaining: number;
   envelope: number;
   remainingIn: number;
+  /** Optional end level when a stop interrupts the initial fade-in. */
+  fadeInTarget?: number;
   fadeStartTick: number | null;
   stopAtTick: number | null;
   fadeIn: number;
@@ -21,6 +23,7 @@ export interface SourceAudioState<K extends string> {
   y: number;
 }
 export interface SourceAudioRole {
+  loop?: boolean;
   gainDb: number;
   policy: { u16MaxNumInstance: number; bKillNewest: number };
   variants: readonly { url: string }[];
@@ -39,7 +42,7 @@ interface Voice<K extends string> {
   stopAtTick: number | null;
   fadeStartTick: number | null;
 }
-/** Finite source SFX only. Local phase/listener/master mix, cap-zero handling and
+/** Source SFX with optional whole-buffer looping. Local phase/listener/master mix, cap-zero handling and
  * equal-priority admission order do not certify native dispatch or bus behavior. */
 export class FiniteSourceAudio<K extends string, R extends { id: number; startTick: number }> {
   constructor(
@@ -89,7 +92,10 @@ export class FiniteSourceAudio<K extends string, R extends { id: number; startTi
     })());
   }
   suppressCast(id: number, start: number) {
-    this.fallbackCasts.add(`${id}:${start}:cast`);
+    this.suppress(`${id}:${start}:cast`);
+  }
+  suppress(key: string) {
+    this.fallbackCasts.add(key);
   }
   private release(key: string, stop = true) {
     const v = this.voices.get(key);
@@ -118,12 +124,12 @@ export class FiniteSourceAudio<K extends string, R extends { id: number; startTi
     const gain = v.envelope.gain;
     gain.cancelScheduledValues(now);
     gain.setValueAtTime(s.envelope, now);
-    if (s.remainingIn) gain.linearRampToValueAtTime(1, now + s.remainingIn);
+    if (s.remainingIn) gain.linearRampToValueAtTime(s.fadeInTarget ?? 1, now + s.remainingIn);
     if (s.fadeStartTick !== null && s.fadeOutSeconds > 0) {
-      if (s.fadeOutAt > 0) gain.setValueAtTime(1, now + s.fadeOutAt);
+      if (s.fadeOutAt > 0) gain.setValueAtTime(s.fadeInTarget ?? 1, now + s.fadeOutAt);
       gain.linearRampToValueAtTime(0, now + s.fadeOutRemaining);
     }
-    v.source.stop(now + s.remaining);
+    if (Number.isFinite(s.remaining)) v.source.stop(now + s.remaining);
     v.stopAtTick = s.stopAtTick;
     v.fadeStartTick = s.fadeStartTick;
   }
@@ -151,7 +157,7 @@ export class FiniteSourceAudio<K extends string, R extends { id: number; startTi
       fadeStartTick: s.fadeStartTick,
     };
     v.source.buffer = this.buffers[s.kind]![s.variant];
-    v.source.loop = false;
+    v.source.loop = this.profile[s.kind].loop ?? false;
     v.source.playbackRate.value = s.playbackRate;
     v.source.connect(v.envelope).connect(v.spatial).connect(context.destination);
     v.spatial.gain.value = this.gain(s, listener);

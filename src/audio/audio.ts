@@ -8,6 +8,7 @@ import { LazyGarenCourageAudio } from './garen-w-lazy';
 import { LazyLeonaEclipseAudio } from './leona-w-lazy';
 import { LazyLeonaZenithAudio } from './leona-e-lazy';
 import { LazyLeonaSolarAudio } from './leona-r-lazy';
+import { LazyLeonaDaybreakAudio } from './leona-q-lazy';
 import { LazyOracleAudio } from './oracle-lazy';
 import { LazyGarenDecisiveStrikeAudio } from './garen-q-lazy';
 import { GarenJudgmentAudio } from './garen-e';
@@ -27,7 +28,7 @@ import { HAWKSHOT_ARRIVAL_AUDIO } from '../content/hawkshot-arrival-audio';
 import { HAWKSHOT_CAST_AUDIO } from '../content/hawkshot-cast-audio';
 import type { BindingFlightStop, Projectile, ScoutVisual, SimEvent } from '../simulation/types';
 
-/** Source Hawkshot, Light Binding, Illumination, Garen and Leona W/E/R SFX.
+/** Source Hawkshot, Light Binding, Illumination, Garen and Leona Q/W/E/R SFX.
  * Other cues retain synthesized feedback. */
 export class GameAudio {
   context: AudioContext | null = null;
@@ -46,6 +47,7 @@ export class GameAudio {
   leonaW = new LazyLeonaEclipseAudio();
   leonaE = new LazyLeonaZenithAudio();
   leonaR = new LazyLeonaSolarAudio();
+  leonaQ = new LazyLeonaDaybreakAudio();
   private leonaTerminalWorld?: World;
   private leonaTerminalStart = 0;
   garenQ = new LazyGarenDecisiveStrikeAudio();
@@ -305,6 +307,7 @@ export class GameAudio {
     this.leonaW.stop();
     this.leonaE.stop();
     this.leonaR.stop();
+    this.leonaQ.stop();
     this.garenQ.stop();
     this.oracle.stop();
     for (const [voice, gain] of this.voices) {
@@ -547,6 +550,7 @@ export class GameAudio {
     if (leonas.length && this.leonaW.status === 'idle') void this.leonaW.load();
     if (leonas.length && this.leonaE.status === 'idle') void this.leonaE.load();
     if (leonas.length && this.leonaR.status === 'idle') void this.leonaR.load();
+    if (leonas.length && this.leonaQ.status === 'idle') void this.leonaQ.load();
     const team = world.hero.team;
     const records = leonas.flatMap((u) =>
       world.championState(u.id)!.leonaWVisuals.map((r) => ({
@@ -569,6 +573,17 @@ export class GameAudio {
       tick += Math.max(0, this.context.currentTime - this.leonaTerminalStart) * 60;
     }
     this.leonaW.update(this.context, this.enabled && !this.paused, records, tick, listener);
+    this.leonaQ.update(
+      this.context,
+      this.enabled && !this.paused,
+      leonas.flatMap((u) =>
+        world.championState(u.id)!.leonaQVisuals.map((r) => ({ ...r, id: u.id }))
+      ),
+      tick,
+      listener,
+      (point) => world.pointVisible(point, team),
+      team
+    );
     this.leonaE.update(
       this.context,
       this.enabled && !this.paused,
@@ -734,7 +749,20 @@ export class GameAudio {
         if (event.type === 'illumination') this.illumination(event, tick, listener);
         if (event.type === 'judgment-hit') this.garenE.hit(this.context, event, tick, listener);
         if (event.type === 'attack') {
-          if (event.garenAAStartTick !== undefined && event.unit !== undefined) {
+          if (
+            event.leonaQStartTick !== undefined &&
+            event.leonaQAttackStartTick !== undefined &&
+            event.unit !== undefined
+          ) {
+            if (this.leonaQ.status !== 'ready') {
+              this.leonaQ.suppressAttack(
+                event.unit,
+                event.leonaQStartTick,
+                event.leonaQAttackStartTick
+              );
+              this.tone(650, 260, 0.065, 0.012, 'triangle');
+            }
+          } else if (event.garenAAStartTick !== undefined && event.unit !== undefined) {
             if (this.garenAA.status !== 'ready') {
               this.garenAA.suppressSwing(event.unit, event.garenAAStartTick);
               this.tone(650, 260, 0.065, 0.012, 'triangle');
@@ -750,7 +778,13 @@ export class GameAudio {
           }
         }
         if (event.type === 'cast') {
-          if (event.text === 'w' && event.champion === 'leona' && this.leonaW.status === 'ready') {
+          if (event.text === 'q' && event.champion === 'leona' && this.leonaQ.status === 'ready') {
+            // Saved Daybreak activation, attack attempts, contact and stop own Q audio.
+          } else if (
+            event.text === 'w' &&
+            event.champion === 'leona' &&
+            this.leonaW.status === 'ready'
+          ) {
             // Saved Eclipse histories own all five finite source phases.
           } else if (
             event.text === 'e' &&
@@ -807,6 +841,8 @@ export class GameAudio {
           )
             this.bindingCast(event, tick, listener);
           else {
+            if (event.text === 'q' && event.champion === 'leona' && event.unit !== undefined)
+              this.leonaQ.suppressCast(event.unit, event.tick);
             if (event.text === 'w' && event.champion === 'leona' && event.unit !== undefined)
               this.leonaW.suppressCast(event.unit, event.tick);
             if (event.text === 'e' && event.champion === 'leona' && event.unit !== undefined)

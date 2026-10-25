@@ -4,6 +4,10 @@ import { capturePoseFrame, samePose, validPoseFrame } from './pose-history';
 import { impactTargetRig, type ImpactRig } from '../content/impact-target';
 import { LEONA_COMBAT_POLICY } from '../content/leona-combat-policy';
 import {
+  LEONA_Q_CAST_AUDIO_TICKS,
+  LEONA_Q_ATTACK_AUDIO_TICKS,
+} from '../content/leona-q-audio-timing';
+import {
   LEONA_Q_CAST_TAIL_TICKS,
   LEONA_Q_HIT_HISTORY_TICKS,
 } from '../content/leona-q-presentation';
@@ -15,6 +19,8 @@ export interface DaybreakVisual {
   stopTick: number | null;
   endReason: 'consumed' | 'expired' | 'recast' | 'death' | 'match-end' | null;
   detachedTick: number | null;
+  /** Actual committed starts, including attempts canceled by target loss. */
+  attackStarts: number[];
   frames: DaybreakFrame[];
   impact: {
     tick: number;
@@ -55,9 +61,16 @@ export function beginDaybreakVisual(world: World, u: Unit, state: ChampionState)
     stopTick: null,
     endReason: null,
     detachedTick: null,
+    attackStarts: [],
     frames: [frame(world, u)],
     impact: null,
   });
+}
+export function captureDaybreakAttack(state: ChampionState, activation: number, tick: number) {
+  const r = state.leonaQVisuals.find((r) => r.startTick === activation);
+  if (!r || r.stopTick !== null || (r.attackStarts.at(-1) ?? -1) >= tick)
+    throw new Error('Daybreak attack lacks its active source history.');
+  r.attackStarts.push(tick);
 }
 export function contactDaybreakVisual(world: World, u: Unit, target: Unit, state: ChampionState) {
   const r = state.leonaQVisuals.find((r) => r.startTick === u.attackCycle?.leonaQStartTick);
@@ -77,13 +90,20 @@ export function contactDaybreakVisual(world: World, u: Unit, target: Unit, state
   };
   if (r.stopTick === null) finishDaybreakVisual(state, world.tick, 'consumed');
 }
-export function daybreakExpiry(r: DaybreakVisual) {
+export function daybreakCasterExpiry(r: DaybreakVisual) {
   return r.stopTick === null
     ? Infinity
     : Math.max(
         r.stopTick + LEONA_Q_CAST_TAIL_TICKS,
-        r.impact ? r.impact.tick + LEONA_Q_HIT_HISTORY_TICKS : 0
+        r.startTick + LEONA_Q_CAST_AUDIO_TICKS,
+        (r.attackStarts.at(-1) ?? r.startTick) + LEONA_Q_ATTACK_AUDIO_TICKS
       );
+}
+export function daybreakExpiry(r: DaybreakVisual) {
+  return Math.max(
+    daybreakCasterExpiry(r),
+    r.impact ? r.impact.tick + LEONA_Q_HIT_HISTORY_TICKS : 0
+  );
 }
 export function advanceDaybreakVisuals(world: World) {
   const append = (frames: DaybreakFrame[], f: DaybreakFrame) => {
@@ -95,7 +115,7 @@ export function advanceDaybreakVisuals(world: World) {
     if (!state?.leonaQVisuals.length) continue;
     state.leonaQVisuals = state.leonaQVisuals.filter((r) => world.tick < daybreakExpiry(r));
     for (const r of state.leonaQVisuals) {
-      if (world.tick < (r.stopTick ?? Infinity) + LEONA_Q_CAST_TAIL_TICKS) {
+      if (world.tick < daybreakCasterExpiry(r)) {
         const old = r.frames.at(-1)!;
         const f =
           r.detachedTick === null || r.detachedTick === world.tick
@@ -156,12 +176,20 @@ export function validateDaybreakVisuals(
   for (const r of state.leonaQVisuals) {
     const hit = r.impact,
       target = hit ? world.units.find((t) => t.id === hit.targetId) : undefined;
-    const end = Math.min(world.tick, (r.stopTick ?? world.tick) + LEONA_Q_CAST_TAIL_TICKS - 1);
+    const end = Math.min(world.tick, daybreakCasterExpiry(r) - 1);
     if (
       u.champion !== 'leona' ||
       r.rank > state.spellRanks.q ||
       r.startTick <= previous ||
       r.startTick > world.tick ||
+      r.attackStarts.some(
+        (t, i) =>
+          t < r.startTick ||
+          t > world.tick ||
+          t >= r.startTick + LEONA_COMBAT_POLICY.attackWindowTicks ||
+          (r.stopTick !== null && t > r.stopTick) ||
+          (i > 0 && t <= r.attackStarts[i - 1])
+      ) ||
       world.tick >= daybreakExpiry(r) ||
       (r.stopTick === null) !== (r.endReason === null) ||
       (r.stopTick !== null && (r.stopTick < r.startTick || r.stopTick > world.tick)) ||
@@ -187,7 +215,8 @@ export function validateDaybreakVisuals(
           !state.leonaQVisuals.some((next) => next !== r && next.startTick === r.stopTick))) ||
       !history(r.frames, r.startTick, end, 'leona-base', r.detachedTick, u) ||
       (hit &&
-        (hit.tick !== hit.attackStartTick + LEONA_COMBAT_POLICY.daybreakWindupTicks ||
+        (r.attackStarts.at(-1) !== hit.attackStartTick ||
+          hit.tick !== hit.attackStartTick + LEONA_COMBAT_POLICY.daybreakWindupTicks ||
           hit.tick > world.tick ||
           hit.attackStartTick < r.startTick ||
           hit.attackStartTick >= r.startTick + LEONA_COMBAT_POLICY.attackWindowTicks ||

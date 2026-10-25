@@ -123,7 +123,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 126;
+export const SNAPSHOT_VERSION = 127;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -975,6 +975,7 @@ const player: z.ZodType<PlayerState> = z
           stopTick: tick.nullable(),
           endReason: z.enum(['consumed', 'expired', 'recast', 'death', 'match-end']).nullable(),
           detachedTick: tick.nullable(),
+          attackStarts: z.array(tick).max(LEONA_COMBAT_POLICY.attackWindowTicks),
           frames: z
             .array(daybreakFrame)
             .min(1)
@@ -3530,6 +3531,9 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         champion.deadAt !== null ||
         state.winner !== null ||
         daybreakCycle.leonaQRank > owner.spellRanks.q ||
+        !owner.leonaQVisuals.some(
+          (r) => r.startTick === activation && r.attackStarts.at(-1) === daybreakCycle.startTick
+        ) ||
         activation > daybreakCycle.startTick ||
         daybreakCycle.startTick >= activation + LEONA_COMBAT_POLICY.attackWindowTicks ||
         release !== daybreakCycle.startTick + LEONA_COMBAT_POLICY.daybreakWindupTicks ||

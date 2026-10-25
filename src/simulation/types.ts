@@ -420,6 +420,8 @@ export interface SimEvent extends Vec2 {
   /** Captured Q swing identity for source/fallback coordination at release. */
   garenQStartTick?: number;
   garenAAStartTick?: number;
+  leonaQStartTick?: number;
+  leonaQAttackStartTick?: number;
   champion?: ChampionIdentity;
   /** Fixed when emitted: later vision must never expose an earlier hidden event. */
   audience: Team[];

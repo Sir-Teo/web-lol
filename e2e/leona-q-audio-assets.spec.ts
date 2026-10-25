@@ -73,7 +73,7 @@ test('ordinary Ashe loads no unrequested Daybreak source table or masters', asyn
   const requests: string[] = [];
   page.on('request', (request) => {
     if (
-      /\/src\/(?:audio\/leona-q|content\/leona-q-audio)|\/assets\/audio\/leona-q-/.test(
+      /\/src\/(?:audio\/leona-q(?:-state)?\.ts|content\/leona-q-audio\.ts)|\/assets\/audio\/leona-q-/.test(
         request.url()
       )
     )

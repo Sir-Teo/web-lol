@@ -6730,3 +6730,57 @@ and [ledger](reference/leona/player-fixture-verification.json) for exact evidenc
 Complete player/roster/support, missing R families, native behavior/frame,
 normal-match cohort and performance acceptance remain open. Work continues
 under the active goal; nothing pushed.
+
+## Leona Daybreak source masters and loop-aware playback — October 24, 2026
+
+The source-preparation checkpoint `e6fb9c1` traces all five declared Q SFX events
+through 29 nodes and exports thirteen untouched mono float32 masters totaling
+2,474,956 bytes. An independent pinned-bank audit reconstructs the identical
+graph. Eight samples above unit range are preserved. The buff's authored Loop=0
+is interpreted as infinite by the pinned reader; its play/stop transitions are
+100/500 ms with no authored stop delay. Native invocation, loop boundaries,
+shuffle history, effective voice inheritance and bus/listener behavior remain
+unobserved. The first isolated baseline caught an E filename prefix copied into
+the Q exporter; corrected Q URLs and all original failure bytes are retained.
+All 971 previous public assets are unchanged. TypeScript, 1,952 units/317 files,
+three Node QA checks, two Chrome cases, 32 production recordings and a 1,030-file
+515,850,344-byte offline pack pass. The source-preparation ruleset is
+`5677597544eb8dc44dbecd997ec14984504cb6b9554689002ae40d8edf909235` and pack
+`f333020f2304711909a09ac334a1f794f848e4ef49dde72aafc5500be71c9ad3`.
+See [source scope](LEONA-Q-AUDIO-SOURCE.md) and its
+[ledger](reference/leona/q-audio-source-verification.json).
+
+Runtime now uses the source activation, each committed attack attempt, actual
+contact and persistent buff. Two regression failures first demonstrate the old
+history gaps: early contact dropped caster poses before the longest clip ended,
+and canceled attempts retained no start. Ordered saved attack starts, strict
+ownership/clock checks and generated 114/28/52-tick source bounds close those
+gaps. Schema 127 rejects missing attempts. Local whole-master looping, indexed
+cosmetic variants, fixed start audiences, current visibility, mute/resume seeking,
+500 ms stop fades and frozen-result draining are explicit reconstruction policies.
+E/R retain finite defaults in the shared scheduler. Fallbacks suppress matching
+late cast/attack duplicates; failed masters settle readiness without frame retries.
+
+Fourteen new units bring the full check to 1,966 tests in 319 files, TypeScript and
+three Node QA checks. Twelve isolated negative controls reject changed source,
+loop/stop and retention bytes under normal and optimized Python. Eight focused
+Chrome checks pass real Q playback, unchanged decoded samples, exact 90-tick saved
+futures, loop/stop seeks, visibility, finite completion, fallbacks, failed sources
+and lazy ordinary-Ashe loading. Original browser failures retain the broad request
+matcher, allied-vision fixture and duplicate requests while files were edited;
+the isolated corrected run passes with thirteen unique fetches and no retry.
+
+All 984 existing public files retain exact bytes. Broader browser, production and
+offline acceptance are recorded in the
+[runtime ledger](reference/leona/q-audio-runtime-verification.json) and
+[scope](LEONA-Q-AUDIO-RUNTIME.md). Full ordinary attack audio, missing R families,
+ordinary Rift player/support/roster integration, native behavior/frame/listening,
+normal-match cohort and performance gates remain open. Work continues under the
+active goal; nothing pushed.
+
+The complete 38-case browser regression and 32 nested production recordings pass.
+Runtime ruleset is `45c72d674fc34cac2d1386a9eb60881fcb00b32f821c9101c1b12af33a1aba30`. Pack
+`519c98024be9fa01d338659162d864e339269f435402cc27b408bdd351318486` has 1,031 files / 515,863,893 bytes.
+
+Offline integrity, repair, saved boot and atomic version-switch checks pass with
+963 service-worker responses and zero production errors.

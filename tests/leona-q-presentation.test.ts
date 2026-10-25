@@ -108,10 +108,10 @@ test('accepted activation/contact uses no cosmetic gameplay IDs/RNG and restores
   f.w.step(65);
   copy.step(65);
   expect(copy.snapshot()).toBe(f.w.snapshot());
-  // Caster poses stop being retained before the longer hit tail ends.
-  expect(f.s.leonaQVisuals[0].frames.at(-1)!.tick).toBe(17 + LEONA_Q_CAST_TAIL_TICKS - 1);
-  f.w.step(12);
-  copy.step(12);
+  // The longest cast sound now retains moving caster poses beyond the visual tail.
+  expect(f.s.leonaQVisuals[0].frames.at(-1)!.tick).toBe(f.w.tick);
+  f.w.step(33);
+  copy.step(33);
   expect(copy.snapshot()).toBe(f.w.snapshot());
   expect(f.s.leonaQVisuals).toEqual([]);
 });

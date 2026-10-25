@@ -27,6 +27,7 @@ import {
 import {
   advanceDaybreakVisuals,
   beginDaybreakVisual,
+  captureDaybreakAttack,
   contactDaybreakVisual,
   finishDaybreakVisual,
 } from './leona-q-visuals';
@@ -3145,7 +3146,13 @@ export class World {
               ? { champion: 'garen' as const, garenQStartTick: u.attackCycle.startTick }
               : u.champion === 'garen'
                 ? { champion: 'garen' as const, garenAAStartTick: u.attackCycle!.startTick }
-                : {}),
+                : u.attackCycle?.leonaQRank !== undefined
+                  ? {
+                      champion: 'leona' as const,
+                      leonaQStartTick: u.attackCycle.leonaQStartTick,
+                      leonaQAttackStartTick: u.attackCycle.startTick,
+                    }
+                  : {}),
           });
           if (
             u.champion === 'ashe' &&
@@ -3343,6 +3350,7 @@ export class World {
             u.attackCycle.leonaQRank = leonaQ.rank;
             u.attackCycle.leonaQStartTick = leonaQ.startTick;
             u.attackCycle.leonaQReleaseTick = u.releaseTick;
+            captureDaybreakAttack(state!, leonaQ.startTick, this.tick);
           }
           if (u.champion === 'garen' && garenQRank === undefined && state)
             beginGarenAttack(state, u, target, this.tick, this);
