@@ -1,3 +1,5 @@
+import type { AhriEssence } from './ahri-essences';
+import { AHRI_PASSIVE_POLICY } from '../content/ahri-passive-policy';
 import { AHRI_R } from '../content/ahri-r';
 import { AHRI_R_POLICY as POLICY } from '../content/ahri-r-policy';
 import { type SpiritRush } from './ahri-spirit-rush';
@@ -12,16 +14,23 @@ export function validateSpiritRushes(
   tick: number,
   nextId: number,
   winner: unknown,
-  nonUnitIds: readonly number[] = []
+  nonUnitIds: readonly number[] = [],
+  essences: readonly AhriEssence[] = []
 ): void {
   const fail = () => {
     throw Error('Saved match contains invalid Spirit Rush state.');
   };
   const activeSources = new Set<number>();
+  const usedEssences = new Set<number>();
   for (const rush of rushes) {
     const source = units.find((u) => u.id === rush.sourceId),
       owner = owners.find((o) => o.id === rush.sourceId),
       last = rush.bursts.at(-1);
+    const replay = replaySpiritRush(rush, tick, nextId, units, essences, nonUnitIds);
+    for (const reset of rush.resets) {
+      if (usedEssences.has(reset.essenceId)) fail();
+      usedEssences.add(reset.essenceId);
+    }
     if (
       !source ||
       source.champion !== 'ahri' ||
@@ -31,14 +40,11 @@ export function validateSpiritRushes(
       winner !== null ||
       !last ||
       rush.startTick > tick ||
-      rush.endTick !== rush.startTick + POLICY.recastWindowTicks ||
+      rush.endTick !== replay.endTick ||
       rush.nextCastTick !== last.startTick + POLICY.recastLockoutTicks ||
-      rush.bursts.length > AHRI_R.maxCasts ||
       (rush.stopTick === null) !== (rush.stopReason === null) ||
       (rush.stopTick === null &&
-        (source.hp <= 0 ||
-          tick >= rush.endTick ||
-          rush.remainingCasts !== AHRI_R.maxCasts - rush.bursts.length)) ||
+        (source.hp <= 0 || tick >= rush.endTick || rush.remainingCasts !== replay.remaining)) ||
       (rush.stopTick !== null &&
         (rush.stopTick < rush.startTick ||
           rush.stopTick > tick ||
@@ -137,4 +143,76 @@ export function validateSpiritRushes(
       }
     }
   }
+}
+
+/** Reconstruct charge/window updates in the engine's cast-before-consumption
+ * ordering, so a later Essence cannot retroactively legalize an expired cast. */
+function replaySpiritRush(
+  rush: SpiritRush,
+  tick: number,
+  nextId: number,
+  units: readonly Unit[],
+  essences: readonly AhriEssence[],
+  nonUnitIds: readonly number[]
+) {
+  const fail = () => {
+    throw Error('Saved match contains invalid Spirit Rush Essence history.');
+  };
+  let remaining: number = AHRI_R.maxCasts,
+    endTick = rush.startTick + POLICY.recastWindowTicks;
+  const events = [
+    ...rush.bursts.map((b, index) => ({ kind: 'cast' as const, tick: b.startTick, index })),
+    ...rush.resets.map((r, index) => ({ kind: 'essence' as const, tick: r.consumeTick, index })),
+  ].sort(
+    (a, b) =>
+      a.tick - b.tick || (a.kind === b.kind ? a.index - b.index : a.kind === 'cast' ? -1 : 1)
+  );
+  for (const event of events) {
+    if (
+      event.tick < rush.startTick ||
+      event.tick >= endTick ||
+      event.tick > tick ||
+      (rush.stopTick !== null && event.tick > rush.stopTick)
+    )
+      fail();
+    if (event.kind === 'cast') {
+      if (remaining <= 0) fail();
+      remaining--;
+      continue;
+    }
+    const r = rush.resets[event.index],
+      soul = essences.find((e) => e.id === r.essenceId),
+      victim = units.find((u) => u.id === r.victimId),
+      expectedEnd = Math.max(
+        endTick,
+        r.consumeTick + Math.round(AHRI_R.passiveDurationExtensionSeconds * 60)
+      ),
+      expectedRemaining = Math.min(AHRI_R.maxCasts, remaining + AHRI_R.resetCasts);
+    if (
+      r.essenceId >= nextId ||
+      units.some((u) => u.id === r.essenceId) ||
+      (nonUnitIds.includes(r.essenceId) && !soul) ||
+      !victim ||
+      victim.kind !== 'champion' ||
+      victim.team === rush.team ||
+      r.spawnTick > r.consumeTick ||
+      r.consumeTick - r.spawnTick > AHRI_PASSIVE_POLICY.maximumPursuitTicks ||
+      (event.index > 0 && r.consumeTick < rush.resets[event.index - 1].consumeTick) ||
+      r.previousEndTick !== endTick ||
+      r.previousRemaining !== remaining ||
+      r.endTick !== expectedEnd ||
+      r.remaining !== expectedRemaining ||
+      (soul &&
+        (soul.sourceId !== rush.sourceId ||
+          soul.victimId !== r.victimId ||
+          soul.kind !== 'champion' ||
+          soul.startTick !== r.spawnTick ||
+          soul.stopTick !== r.consumeTick ||
+          soul.stopReason !== 'consumed'))
+    )
+      fail();
+    remaining = expectedRemaining;
+    endTick = expectedEnd;
+  }
+  return { remaining, endTick };
 }

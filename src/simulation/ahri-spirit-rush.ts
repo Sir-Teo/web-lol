@@ -26,6 +26,16 @@ export interface SpiritBurst {
   control: { rootUntil: number; stunUntil: number; charmUntil: number } | null;
   bolts: SpiritBolt[];
 }
+export interface SpiritReset {
+  essenceId: number;
+  victimId: number;
+  spawnTick: number;
+  consumeTick: number;
+  previousEndTick: number;
+  endTick: number;
+  previousRemaining: number;
+  remaining: number;
+}
 export interface SpiritRush {
   id: number;
   sourceId: number;
@@ -37,6 +47,7 @@ export interface SpiritRush {
   stopTick: number | null;
   stopReason: 'expired' | 'death' | null;
   bursts: SpiritBurst[];
+  resets: SpiritReset[];
 }
 interface RushWorld {
   tick: number;
@@ -57,10 +68,59 @@ export function spiritRushDamage(rank: number, power: number): number {
     throw new RangeError('Invalid Spirit Rush payload');
   return AHRI_R.damageByRank[rank - 1] + power * AHRI_R.abilityPowerRatio;
 }
-export function activeSpiritRush(world: RushWorld, sourceId: number): SpiritRush | undefined {
+export function activeSpiritRush(
+  world: Pick<RushWorld, 'tick' | 'ahriRushes'>,
+  sourceId: number
+): SpiritRush | undefined {
   return world.ahriRushes.find(
     (r) => r.sourceId === sourceId && r.stopTick === null && world.tick < r.endTick
   );
+}
+/** Local Essence policy: consumption restores one stored cast (cap three) and
+ * ensures at least ten seconds remain, adding at most ten seconds. The source
+ * client intent does not establish this precise native update/ordering rule. */
+export function consumeSpiritEssence(
+  world: Pick<RushWorld, 'tick' | 'nextId' | 'ahriRushes'>,
+  sourceId: number,
+  essenceId: number,
+  victimId: number,
+  spawnTick: number
+): boolean {
+  const rush = activeSpiritRush(world, sourceId);
+  if (!rush) return false;
+  if (
+    !Number.isSafeInteger(essenceId) ||
+    essenceId <= 0 ||
+    essenceId >= world.nextId ||
+    essenceId === rush.id ||
+    !Number.isSafeInteger(victimId) ||
+    victimId <= 0 ||
+    victimId >= world.nextId ||
+    victimId === sourceId ||
+    !Number.isSafeInteger(spawnTick) ||
+    spawnTick < 0 ||
+    spawnTick > world.tick ||
+    world.ahriRushes.some((r) => r.resets.some((reset) => reset.essenceId === essenceId))
+  )
+    throw Error('Invalid champion Essence reset');
+  const endTick = Math.max(
+      rush.endTick,
+      world.tick + Math.round(AHRI_R.passiveDurationExtensionSeconds * 60)
+    ),
+    remaining = Math.min(AHRI_R.maxCasts, rush.remainingCasts + AHRI_R.resetCasts);
+  rush.resets.push({
+    essenceId,
+    victimId,
+    spawnTick,
+    consumeTick: world.tick,
+    previousEndTick: rush.endTick,
+    endTick,
+    previousRemaining: rush.remainingCasts,
+    remaining,
+  });
+  rush.endTick = endTick;
+  rush.remainingCasts = remaining;
+  return true;
 }
 export function activeSpiritDash(world: RushWorld, sourceId: number): SpiritBurst | undefined {
   return world.ahriRushes
@@ -121,6 +181,7 @@ export function beginSpiritRush(
       stopTick: null,
       stopReason: null,
       bursts: [],
+      resets: [],
     };
     world.ahriRushes.push(rush);
   }

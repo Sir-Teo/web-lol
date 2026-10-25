@@ -1,11 +1,11 @@
 # Spirit Rush base development controller
 
 Target: standard PC Summoner's Rift 26.18, frozen Riot build 16.18.8175716.
-This checkpoint adds the base Spirit Rush dash, three casts and essence bolts to
-Ahri's non-player development fixture. **Passive Essence consumption, healing and
-its additional R recasts/window extensions remain unimplemented.** Ahri remains
-outside player selection and the production Rift roster. This is an incremental
-controller foundation, not a complete Ahri kit or native behavior verification.
+This document retains the schema-135 base Spirit Rush checkpoint: dashes, three
+casts and essence bolts for Ahri's non-player fixture. Passive Essence healing
+and additional R recasts were unimplemented at that checkpoint. The later
+[Essence Theft controller](AHRI-PASSIVE.md) adds them in schema 136. Human Ahri,
+production roster expansion, full kit delivery and native verification remain open.
 
 ## Guarded source declarations
 

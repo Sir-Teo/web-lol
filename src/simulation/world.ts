@@ -1,6 +1,13 @@
 import { captureLeonaDeath, advanceLeonaDeaths } from './leona-death-visuals';
 import { AHRI_Q } from '../content/ahri-q';
 import { ahriOrbDamage, beginAhriOrb, advanceAhriOrbs, type AhriOrb } from './ahri-orbs';
+import {
+  onEssenceDeath,
+  advanceEssences,
+  stopEssences,
+  type EssenceCounter,
+  type AhriEssence,
+} from './ahri-essences';
 import { AHRI_R } from '../content/ahri-r';
 import {
   activeSpiritRush,
@@ -331,6 +338,8 @@ export class World {
   ahriOrbs: AhriOrb[] = [];
   ahriFoxFires: FoxFireCast[] = [];
   ahriRushes: SpiritRush[] = [];
+  ahriCounters: EssenceCounter[] = [];
+  ahriEssences: AhriEssence[] = [];
   nextSunlightVisual = 1;
   singularities: Singularity[] = [];
   luxEAudio = newLuxEAudioHistory();
@@ -635,6 +644,8 @@ export class World {
         clipDurations
       );
     this.units.push(u);
+    if (champion && identity === 'ahri')
+      this.ahriCounters.push({ sourceId: u.id, stacks: 0, lastKillTick: null });
     if (champion && identity !== 'ashe') {
       const own = this.championState(u.id)!;
       own.eCharges = 0;
@@ -1314,6 +1325,7 @@ export class World {
     advanceFoxFires(this);
     advanceSpiritBolts(this);
     this.advanceSingularities();
+    advanceEssences(this);
     advanceOracles(this);
     advanceOracleVisuals(this);
     if (this.winner) {
@@ -5458,6 +5470,7 @@ export class World {
         this.ahriOrbs.length = 0;
         this.ahriFoxFires.length = 0;
         this.ahriRushes.length = 0;
+        this.ahriEssences.length = 0;
         this.pendingAttackProjectiles.length = 0;
         // E owns gameplay state outside the projectile list. Cancel its flight
         // and armed zone at the same terminal boundary; a burst that already
@@ -5485,6 +5498,7 @@ export class World {
       if (targetState) {
         stopFoxFireOrbits(this, target.id);
         stopSpiritRush(this, target);
+        stopEssences(this, target.id);
         this.finishGarenE(targetState);
         this.cancelGarenRVisual(targetState);
         targetState.enlighten = null;
@@ -5647,6 +5661,7 @@ export class World {
         }));
         for (const award of awards) this.gainExperience(award.amount, award.id);
       }
+      onEssenceDeath(this, target, rewardSource);
     }
     if (target.hp <= 0) {
       advanceSolarVisuals(this);
@@ -5800,7 +5815,10 @@ export class World {
       ability === 'r' && this.unit(championId)?.champion === 'ahri'
         ? activeSpiritRush(this, championId)
         : undefined;
-    if (rush && rush.remainingCasts > 0) return Math.max(0, rush.nextCastTick - this.tick);
+    if (rush)
+      return rush.remainingCasts > 0
+        ? Math.max(0, rush.nextCastTick - this.tick)
+        : Math.max(0, rush.endTick - this.tick, state.cooldowns.r - this.tick);
     const chargeDeadline =
       this.summonerSpell(ability, championId) === 'smite' && state.smite?.charges === 0
         ? (state.smite.rechargeTick ?? 0)
@@ -6878,6 +6896,8 @@ export class World {
       ahriOrbs: this.ahriOrbs,
       ahriFoxFires: this.ahriFoxFires,
       ahriRushes: this.ahriRushes,
+      ahriCounters: this.ahriCounters,
+      ahriEssences: this.ahriEssences,
       nextSunlightVisual: this.nextSunlightVisual,
       singularities: this.singularities,
       luxEAudio: this.luxEAudio,

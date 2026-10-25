@@ -6,7 +6,7 @@ Last updated: October 25, 2026 (America/New_York).
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 2,154 tests across 336 files, TypeScript and three Node QA checks. Thirty-eight targeted Chrome scenarios pass for the [development Ahri Q](AHRI-Q.md)/[W](AHRI-W.md)/[E](AHRI-E.md) and [R base](AHRI-R.md) controllers and application reloads, her NPC rig/basic attacks, Leona rig recovery, Garen/Lux controls, champion selection, animation and match files. Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 2,173 tests across 337 files, TypeScript and three Node QA checks. Forty-two targeted Chrome scenarios pass for the [development Ahri Q](AHRI-Q.md)/[W](AHRI-W.md)/[E](AHRI-E.md), [R base](AHRI-R.md) and [passive](AHRI-PASSIVE.md) controllers and application reloads, her NPC rig/basic attacks, Leona rig recovery, Garen/Lux controls, champion selection, animation and match files. Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
 
 The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). Current targeted evidence does not certify full-match completion or native visual parity.
 
@@ -7473,3 +7473,49 @@ The pinned BIN parser and its local import companions are also retained. Passive
 Essence resets, full Ahri kit, native behavior/presentation, roster expansion,
 performance and full-project completion flags remain false. Next work is the
 separately audited passive and its connection to R.
+
+
+## 2026-10-25 — Essence Theft, saved healing and champion-consumption R restoration
+
+[Ahri passive](AHRI-PASSIVE.md) adds one innate counter per NPC, nine credited
+minion/monster kills per minion-kind Essence, and champion-kind Essence for living
+Ahri damage owners within an inclusive three-second window. Heal level/AP capture
+follows death credit/XP. Returning Essence uses analytic clamped acceleration,
+tracks the caster through movement/Flash, clamps healing to missing health and
+retains a short spent outcome. Death cancels flight, earned stacks survive respawn,
+and posthumous kills do not advance them. A friendly counter and green development
+marker make the behavior visible without claiming native VFX/audio.
+
+Champion consumption during R restores one stored cast (cap three) and ensures
+at least ten seconds remain without replacing the cast lockout. Minion Essence
+cannot reset R; arrival after expiry heals without reactivating it. Windows can
+now contain more than three total casts. Schema 136 replays every cast and Essence
+update with cast-before-consumption ties, preserving charge/window provenance and
+rejecting retroactive extension, forged ownership and incompatible saved states.
+
+The guarded exporter and independent 64-record source reparse pass normally and
+under Python optimization. Source supplies endpoint/coefficient declarations,
+MaxStacks9, TakedownWindow3 and accelerating missile values, while omitting mStat,
+level domain and native callbacks. AP, linear level 1–18 interpolation, contribution,
+arrival/heal, death and exact R refresh policies remain explicitly local. No native
+client, network/extraction or provider/runtime activity was used for the audit.
+
+Validation: 2,173 tests across 337 files, TypeScript and three Node QA checks;
+105 focused Ahri cases; 42/42 targeted Chrome scenarios without skips/retries.
+Four passive browser cases cover counter/return/consumption, greater healing/R
+restoration, ninth-minion healing without restoration, and three real reload phases
+with exact saves and 300 future ticks. Return/consumption screenshots were reviewed.
+Production smoke passes 32 recordings; offline checks pass with 963 service-worker
+responses and no production errors. All 1,015 prior public files remain identical;
+no asset or champion option is added.
+
+Pack `88b45529ea4615c8251d666bd3607a61cfe4688dad22b23d9b95d35473d1eb42` has
+1,065 files / 520,052,838 bytes. Ruleset:
+`d55a5651959f56c24965e327a1f10e5159de9f3fe0699fcb70973a88f5587605`.
+
+Frozen source/build/evidence closure is [passive-verification.json](reference/ahri/passive-verification.json),
+checked by `tools/qa/verify-ahri-passive.mjs` or `--historical`. Q/W/E/R/passive
+manual NPC controller integration is recorded; full Ahri kit delivery, human/roster
+expansion, role AI, native behavior/presentation, performance and full-project
+completion remain open. Next is a development-only Ahri player scene with proper
+input and resource feedback.

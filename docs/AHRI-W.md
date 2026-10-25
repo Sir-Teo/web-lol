@@ -4,8 +4,9 @@ Ahri's W can now be manually learned and cast by the development NPC at
 `/?scene=fixture&npc=ahri`. It has its own metadata/icon, captured magic payload,
 three orbiting fires, committed homing shots, a decaying movement boost and
 strict continuation. This document retains its schema-133 checkpoint. The later
-[E controller](AHRI-E.md) advances to schema 134 with Charm forced walking. R,
-passive, human Ahri controls, role policy and native presentation remain open.
+[E controller](AHRI-E.md) advances to schema 134, [R base](AHRI-R.md) to 135 and
+[Essence Theft](AHRI-PASSIVE.md) to 136. Human Ahri, role policy and native
+presentation remain open.
 
 ## Source observations
 

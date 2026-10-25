@@ -2,6 +2,7 @@ import { validateLeonaDeaths } from './leona-death-visuals';
 import { AHRI_Q } from '../content/ahri-q';
 import { AHRI_Q_POLICY } from '../content/ahri-q-policy';
 import { AHRI_Q_OUTWARD_SECONDS, acceleratingMotion } from './ahri-orb-motion';
+import { validateEssences } from './ahri-essence-validation';
 import { validateSpiritRushes } from './ahri-spirit-rush-validation';
 import { AHRI_E } from '../content/ahri-e';
 import { AHRI_E_POLICY } from '../content/ahri-e-policy';
@@ -135,7 +136,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 135;
+export const SNAPSHOT_VERSION = 136;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -1597,6 +1598,37 @@ const snapshot = z.strictObject({
     )
     .max(10000),
   nextSunlightVisual: id,
+  ahriCounters: z
+    .array(
+      z.strictObject({
+        sourceId: id,
+        stacks: z.number().int().min(0).max(8),
+        lastKillTick: tick.nullable(),
+      })
+    )
+    .max(10000),
+  ahriEssences: z
+    .array(
+      z.strictObject({
+        id,
+        sourceId: id,
+        team,
+        victimId: id,
+        kind: z.enum(['minion', 'champion']),
+        startTick: tick,
+        lastTick: tick,
+        level: z.number().int().min(1).max(18),
+        power: nonnegative,
+        heal: z.number().positive(),
+        origin: point,
+        position: point,
+        previous: point,
+        stopTick: tick.nullable(),
+        stopReason: z.enum(['consumed', 'death', 'expired']).nullable(),
+        healed: nonnegative.nullable(),
+      })
+    )
+    .max(10000),
   ahriRushes: z
     .array(
       z.strictObject({
@@ -1609,10 +1641,24 @@ const snapshot = z.strictObject({
         remainingCasts: z.number().int().min(0).max(3),
         stopTick: tick.nullable(),
         stopReason: z.enum(['expired', 'death']).nullable(),
+        resets: z
+          .array(
+            z.strictObject({
+              essenceId: id,
+              victimId: id,
+              spawnTick: tick,
+              consumeTick: tick,
+              previousEndTick: tick,
+              endTick: tick,
+              previousRemaining: z.number().int().min(0).max(3),
+              remaining: z.number().int().min(0).max(3),
+            })
+          )
+          .max(10000),
         bursts: z
           .array(
             z.strictObject({
-              index: z.number().int().min(0).max(2),
+              index: z.number().int().min(0).max(9999),
               rank: z.number().int().min(1).max(3),
               startTick: tick,
               damage: nonnegative,
@@ -1640,7 +1686,7 @@ const snapshot = z.strictObject({
             })
           )
           .min(1)
-          .max(3),
+          .max(10000),
       })
     )
     .max(10000),
@@ -2863,6 +2909,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     ...state.ahriOrbs,
     ...state.ahriFoxFires,
     ...state.ahriRushes,
+    ...state.ahriEssences,
     ...state.units,
     ...state.projectiles,
     ...state.pendingAttackProjectiles,
@@ -3323,6 +3370,16 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     }
   }
   const owners = [state.player, ...state.otherChampions];
+  validateEssences(
+    state.ahriCounters,
+    state.ahriEssences,
+    state.units,
+    owners,
+    state.tick,
+    state.nextId,
+    state.winner,
+    ids.filter((id) => !state.units.some((u) => u.id === id))
+  );
   validateSpiritRushes(
     state.ahriRushes,
     state.units,
@@ -3330,7 +3387,8 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     state.tick,
     state.nextId,
     state.winner,
-    ids.filter((id) => !state.units.some((u) => u.id === id))
+    ids.filter((id) => !state.units.some((u) => u.id === id)),
+    state.ahriEssences
   );
   validateFoxFireCasts(
     state.ahriFoxFires,

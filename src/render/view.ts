@@ -214,6 +214,7 @@ export class GameView {
   private projectileModels = new Map<number, THREE.Group>();
   private foxFireModels = new Map<string, THREE.Group>();
   private spiritBoltModels = new Map<string, THREE.Group>();
+  private essenceModels = new Map<number, THREE.Group>();
   private selection: THREE.Mesh;
   private hover: THREE.Mesh;
   private range: THREE.LineLoop;
@@ -797,6 +798,7 @@ export class GameView {
     this.syncProjectiles(world, alpha);
     this.syncFoxFires(world, alpha);
     this.syncSpiritBolts(world, alpha);
+    this.syncEssences(world, alpha);
     this.luxBeams.update(world, alpha, this.camera, terminalAge);
     this.luxStreaks.update(world, alpha, terminalAge);
     this.luxScorches.update(world, alpha, terminalAge);
@@ -985,6 +987,10 @@ export class GameView {
       bar.classList.toggle('invulnerable', protectedUnit);
       parts.protectedUnit = protectedUnit;
     }
+    const essenceStacks =
+      u.champion === 'ahri' && u.team === world.hero.team
+        ? (world.ahriCounters.find((c) => c.sourceId === u.id)?.stacks ?? 0)
+        : 0;
     const status =
       u.kind === 'ward' && wardDisabled(world, u)
         ? 'DISABLED'
@@ -1006,7 +1012,9 @@ export class GameView {
                       ? 'BURNING'
                       : u.illumination.some((mark) => mark.endTick > world.tick)
                         ? 'ILLUMINATED'
-                        : '';
+                        : essenceStacks
+                          ? `ESSENCE ${essenceStacks}/9`
+                          : '';
     if (parts.statusText !== status) {
       parts.status.textContent = status;
       parts.statusText = status;
@@ -1049,6 +1057,44 @@ export class GameView {
           }
         });
         this.foxFireModels.delete(key);
+      }
+  }
+  private syncEssences(world: World, alpha: number): void {
+    const active = new Set<number>();
+    for (const fire of world.ahriEssences) {
+      if (fire.stopTick !== null) continue;
+      const key = fire.id;
+      active.add(key);
+      let model = this.essenceModels.get(key);
+      if (!model) {
+        model = new THREE.Group();
+        model.add(
+          new THREE.Mesh(
+            new THREE.SphereGeometry(0.12, 10, 8),
+            new THREE.MeshBasicMaterial({ color: fire.kind === 'champion' ? 0x8dffc2 : 0x6ce9c9 })
+          )
+        );
+        this.scene.add(model);
+        this.essenceModels.set(key, model);
+      }
+      model.name = `Ahri ${fire.kind} development Essence`;
+      const point = {
+        x: fire.previous.x + (fire.position.x - fire.previous.x) * alpha,
+        y: fire.previous.y + (fire.position.y - fire.previous.y) * alpha,
+      };
+      model.position.set(point.x * SCALE, this.ground(point) + 0.9, point.y * SCALE);
+      model.visible = fire.team === world.hero.team || world.pointVisible(point, world.hero.team);
+    }
+    for (const [key, model] of this.essenceModels)
+      if (!active.has(key)) {
+        this.scene.remove(model);
+        model.traverse((object) => {
+          if (object instanceof THREE.Mesh) {
+            object.geometry.dispose();
+            (object.material as THREE.Material).dispose();
+          }
+        });
+        this.essenceModels.delete(key);
       }
   }
   private syncSpiritBolts(world: World, alpha: number): void {

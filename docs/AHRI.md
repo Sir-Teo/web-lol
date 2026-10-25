@@ -3,13 +3,14 @@
 Target: standard PC Summoner's Rift 26.18, frozen Riot build 16.18.8175716.
 The retained character package is a reproducible source reference. A development
 NPC foundation now adds her own stats, basic attacks and body rig. Ahri remains
-outside player selection and the Rift roster; her spell kit is unfinished.
+outside player selection and the Rift roster; her full playable delivery is unfinished.
 [Orb of Deception](AHRI-Q.md) now has a development NPC controller with paid
 casts, separate flight legs and saved continuation. [Fox-Fire](AHRI-W.md) adds
 three fires and a decaying movement boost. [Charm](AHRI-E.md) adds a first-hit
 missile and saved forced walking. The [Spirit Rush base controller](AHRI-R.md)
-adds dashes, three casts and bolts. Passive healing, Essence-driven R resets and
-native presentation remain open.
+adds dashes, three casts and bolts. [Essence Theft](AHRI-PASSIVE.md) adds healing
+and champion-consumption R resets. Human controls, role AI and native presentation
+remain open.
 
 ## Retained inputs
 
@@ -198,6 +199,6 @@ retained source closure, built files, original failures, successful checks and
 captures. Run `node tools/qa/verify-ahri-development.mjs`; after later project
 changes, `--historical` checks the retained checkpoint rather than current files.
 This NPC foundation does not certify a playable Ahri kit or native matching.
-The later [Q controller](AHRI-Q.md) advances the schema to 132 and permits manual
-Q learning/casts; [W](AHRI-W.md) advances to 133 and [E](AHRI-E.md) to 134 and the [R base controller](AHRI-R.md) to 135. The evidence above retains the
-earlier checkpoint's scope.
+Subsequent [Q](AHRI-Q.md), [W](AHRI-W.md), [E](AHRI-E.md), [R base](AHRI-R.md)
+and [passive](AHRI-PASSIVE.md) checkpoints advance through schema 136. The evidence
+above retains the earlier NPC checkpoint's scope.
