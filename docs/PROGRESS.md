@@ -7195,3 +7195,37 @@ exact source/input, measurements and capture. This is one device/scene
 observation; complete performance, audio, worst-case effects, native comparisons,
 three R families and full roster/support acceptance remain open. Work continues
 under the active goal; nothing pushed.
+
+## 2026-10-25 — Reproducible Ahri character declarations
+
+The [Ahri source foundation](AHRI.md) promotes the retained research inputs into
+`docs/reference/ahri/`: the complete 30,475-byte BIN, original naming response,
+full pinned character decode and Data Dragon 16.18.1 response. No network request
+or repeated extraction was needed. The manifest/archive/version match the
+existing model. A guarded offline exporter preserves all 18 stat comparisons,
+four independently checked rank tables, ten complete missile spells and passive
+expressions without rounding or injecting absent defaults.
+
+An independent pinned CDTB decode compares all 64 actual records plus empty
+`__linked` metadata. Exact hash aliases are the only naming alignment; booleans
+cannot pass as numbers. Seven source-pipeline tests pass normally and with
+Python optimization, including raw/source tampering, number/boolean/record/array
+mutations, rank mismatches, unresolved/ambiguous links and output overwrite
+protection. Seven project tests verify source identities and authored distinctions.
+The initial reference test incorrectly expected eleven missile records; the
+complete source contains ten and that test count was corrected.
+
+AD growth remains explicitly unresolved at BIN 3 versus public client 0. Q root
+damage calculations remain separate from different legacy child arrays and
+coefficients; root/missile speeds, W lifetimes, E ranges, R display/dash distances
+and Cherry mode overrides retain their separate meanings. Static declarations
+do not establish damage callers, charge flow, collision semantics or heal triggers.
+
+TypeScript, **2,061 unit tests in 330 files** and all three Node QA checks pass.
+Exporter checks and complete decoding also pass normally and optimized.
+`verification.json` in `.cache/ahri-character-foundation-v1-20261025/` retains exact
+source/tool/test identities. No simulation, public asset or application entry
+changes: schema 130 and ruleset
+`ca5d6fe53f056aea0943668b0596546e68869e922d4bab91a254888db59931cd`
+remain unchanged. Ahri runtime/player/role integration, native behavior and
+production roster acceptance remain open. Work continues; nothing pushed.
