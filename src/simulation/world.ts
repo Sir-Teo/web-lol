@@ -344,8 +344,12 @@ export class World {
     readonly battlefield: Battlefield = PRACTICE_FIXTURE,
     playerChampion: import('./types').ChampionIdentity = 'ashe'
   ) {
-    if (playerChampion === 'leona' && battlefield.id !== 'practice-fixture')
-      throw new Error('Leona player kit is available only in the development practice fixture.');
+    if (
+      playerChampion === 'leona' &&
+      battlefield.id !== 'practice-fixture' &&
+      !battlefield.developmentLeona
+    )
+      throw new Error('Leona player kit requires the development practice fixture or Rift trial.');
     if (playerChampion === 'garen' && battlefield.id !== 'practice-fixture')
       throw new Error('Garen player kit is available only in the development practice fixture.');
     this.nextWaveTick = Math.round(battlefield.waves.initialSeconds * TICK_RATE);
@@ -505,8 +509,12 @@ export class World {
     point: Vec2,
     identity: import('./types').ChampionIdentity = 'ashe'
   ): TeamUnit {
-    if (identity === 'leona' && this.battlefield.id !== 'practice-fixture')
-      throw new Error('Leona simulation is available only in the development practice fixture.');
+    if (
+      identity === 'leona' &&
+      this.battlefield.id !== 'practice-fixture' &&
+      !this.battlefield.developmentLeona
+    )
+      throw new Error('Leona simulation requires the development practice fixture or Rift trial.');
     if (kind === 'monster') throw new Error('Use spawnMonster for neutral units.');
     if (kind === 'ward') throw new Error('Use a trinket placement to create a ward.');
     const stats = this.battlefield.unitStats?.[kind]?.[team];

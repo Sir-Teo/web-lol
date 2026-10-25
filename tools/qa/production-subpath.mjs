@@ -162,6 +162,10 @@ try {
     assert.equal(await page.evaluate(() => !!window.__GAME__), false);
     assert.equal(await page.locator('#companion-status').count(), 0);
   }
+  await page.goto(`${base}?scene=leona-rift&champion=leona`);
+  await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
+  assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
+  assert.equal(await page.evaluate(() => !!window.__GAME__), false);
   assert.equal(
     recordings.size,
     29,
@@ -463,6 +467,7 @@ try {
       developmentHook: false,
       garenFixtureInProduction: false,
       leonaPlayerFixtureInProduction: false,
+      leonaRiftTrialInProduction: false,
       junglePreviewRequests: junglePreviewRequests.length,
       unrequestedLeonaPreloads: leonaPreviewRequests.length,
       preparedCompanionRequests: preparedCompanionRequests.length,

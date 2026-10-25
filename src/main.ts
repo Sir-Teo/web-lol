@@ -52,9 +52,14 @@ const host = document.querySelector<HTMLElement>('#app')!;
 const loading = document.querySelector<HTMLDivElement>('#loading')!;
 
 async function boot(): Promise<void> {
-  const fixture =
-    import.meta.env.DEV && new URLSearchParams(location.search).get('scene') === 'fixture';
-  const battlefield = fixture ? PRACTICE_FIXTURE : await loadRiftBattlefield();
+  const query = new URLSearchParams(location.search);
+  const fixture = import.meta.env.DEV && query.get('scene') === 'fixture';
+  const leonaRiftTrial = import.meta.env.DEV && query.get('scene') === 'leona-rift';
+  const loadedBattlefield = fixture ? PRACTICE_FIXTURE : await loadRiftBattlefield();
+  const battlefield = leonaRiftTrial
+    ? { ...loadedBattlefield, developmentLeona: true as const }
+    : loadedBattlefield;
+  const saveKey = leonaRiftTrial ? 'development-leona-rift' : battlefield.id;
   const leonaNpc = fixture && new URLSearchParams(location.search).get('npc') === 'leona';
   const garenFixture = fixture && new URLSearchParams(location.search).get('champion') === 'garen';
   const leonaFixture = fixture && new URLSearchParams(location.search).get('champion') === 'leona';
@@ -89,11 +94,13 @@ async function boot(): Promise<void> {
           return next;
         })();
   };
-  let world = freshPractice(garenFixture ? 'garen' : leonaFixture ? 'leona' : 'ashe');
+  let world = leonaRiftTrial
+    ? createLaneMatch(battlefield, 'leona')
+    : freshPractice(garenFixture ? 'garen' : leonaFixture ? 'leona' : 'ashe');
   let restored = false,
     saveNotice = '';
   try {
-    const saved = await readMatch(battlefield.id);
+    const saved = await readMatch(saveKey);
     const candidate = saved ? World.fromSnapshot(saved, battlefield) : null;
     if (
       candidate &&
@@ -168,11 +175,13 @@ async function boot(): Promise<void> {
     },
     reset: () => {
       void writeMatch(
-        battlefield.id,
+        saveKey,
         world.matchMode === 'lanes'
           ? createLaneMatch(
               battlefield,
-              selectableChampion(world.hero.champion),
+              leonaRiftTrial && world.hero.champion === 'leona'
+                ? 'leona'
+                : selectableChampion(world.hero.champion),
               world.player.summoners
             ).snapshot()
           : grompEncounter ||
@@ -197,14 +206,14 @@ async function boot(): Promise<void> {
           ? createLaneMatch(battlefield, champion, summoners)
           : freshPractice(champion);
       if (mode === 'practice') equipSummoners(next.player, summoners);
-      await writeMatch(battlefield.id, next.snapshot());
+      await writeMatch(saveKey, next.snapshot());
       window.location.reload();
     },
-    save: async () => writeMatch(battlefield.id, world.snapshot()),
+    save: async () => writeMatch(saveKey, world.snapshot()),
     exportMatch: () => downloadMatch(world),
     prepareImport: (file) =>
       prepareMatchImport(file, battlefield, async (snapshot) => {
-        await writeMatch(battlefield.id, snapshot);
+        await writeMatch(saveKey, snapshot);
         window.location.reload();
       }),
     sound: (enabled) => {
@@ -371,6 +380,7 @@ async function boot(): Promise<void> {
   loading.classList.add('finished');
   if (restored) hud.toast('Saved match restored. Resume when you’re ready.');
   else if (saveNotice) hud.toast(saveNotice);
+  else if (leonaRiftTrial) hud.toast('Development trial: Leona support on Summoner’s Rift.');
   window.setTimeout(() => loading.remove(), 600);
   let frames = 0,
     frameTime = 0,

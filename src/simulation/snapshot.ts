@@ -2263,10 +2263,15 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   for (const unit of state.units) {
     if (
       unit.champion === 'leona' &&
-      (state.battlefield !== 'practice-fixture' ||
-        (unit.id === state.player.id && state.matchMode !== 'practice'))
+      !(
+        (state.battlefield === 'practice-fixture' &&
+          (unit.id !== state.player.id || state.matchMode === 'practice')) ||
+        (state.battlefield === 'rift' &&
+          battlefield.developmentLeona &&
+          state.matchMode === 'lanes')
+      )
     )
-      throw new Error('Leona requires the development practice fixture.');
+      throw new Error('Leona requires the development practice fixture or Rift lane trial.');
     if (unit.kind === 'monster') {
       const spawn = unit.monster.spawn;
       const profile = MONSTERS[unit.monster.species];
