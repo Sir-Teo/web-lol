@@ -112,7 +112,7 @@ test('Master Yi NPC source rig, melee contact, attacks and saved poses run on th
     w.step();
     state.inventory = [];
     const spellRanks = { ...state.spellRanks };
-    const learning = ['q', 'r'].map((ability) => w.spellLearningError(ability, masteryi.id));
+    const learning = ['q'].map((ability) => w.spellLearningError(ability, masteryi.id));
     w.enqueue({ type: 'recall', unit: masteryi.id });
     w.step(100);
     checkpoint('recall-in');

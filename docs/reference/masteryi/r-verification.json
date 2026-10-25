@@ -1,0 +1,496 @@
+{
+  "recordedAt": "2026-10-25T18:50:10.555162+00:00",
+  "scope": "Development Master Yi NPC Highlander stat/slow/takedown/pause mechanics and saved continuation. No full champion, native behavior/presentation or whole-project completion claim.",
+  "baselineCommit": "94e3066",
+  "schema": 142,
+  "ruleset": "6e9ae9dddc9111a6d568308368a6ec2a4c79edc104c34199bb9d0c0778ad1f93",
+  "browser": "Chromium 154.0.8037.57 / Debian 13; temporary executable-path launcher overrides only.",
+  "changedRuntimeAndTestInputs": [
+    {
+      "file": "src/content/masteryi-r.ts",
+      "bytes": 1125,
+      "sha256": "a6d01f4cacd06fac077264fe275917d7856e1973dc5f998363b4af7a94bf4162"
+    },
+    {
+      "file": "src/simulation/masteryi-highlander.ts",
+      "bytes": 2884,
+      "sha256": "0f35e25af4e28624ba8ac8866e804d5ebd5f143e223bab97bbe7af62d119c674"
+    },
+    {
+      "file": "src/simulation/masteryi-meditate.ts",
+      "bytes": 7084,
+      "sha256": "c6293aa3c758b9158fd1e3da3fb510dfd869b8d1515710d6e9b86d92c578877c"
+    },
+    {
+      "file": "src/simulation/world.ts",
+      "bytes": 284615,
+      "sha256": "9f0be83e22d7daebfb8ddd86279daf74a62a70f5fd1ca75c6a090c012104cd50"
+    },
+    {
+      "file": "src/simulation/champion-state.ts",
+      "bytes": 3822,
+      "sha256": "eea88a4c20806318f5fc8675314ae1cac31f6a25a6fcfd7b2691555185c73d22"
+    },
+    {
+      "file": "src/simulation/types.ts",
+      "bytes": 21341,
+      "sha256": "560cc45d9af27cd96169ea98da0834ed1edaf50680ffd5c3c74b349575fb5b1b"
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "bytes": 171422,
+      "sha256": "a81be6157f6938b3980e85de7a109267d4b22fe5d3034969b82520d913a814e6"
+    },
+    {
+      "file": "tests/masteryi-highlander.test.ts",
+      "bytes": 14663,
+      "sha256": "989845e584b730d43542b375d76e04dcad9ea74272b981d97711a4bc824449ae"
+    },
+    {
+      "file": "tests/masteryi-development.test.ts",
+      "bytes": 9675,
+      "sha256": "bf7b188fef53f1588d706ac432379b2f2c10131cebe8d22ebed32e47622c8401"
+    },
+    {
+      "file": "tests/masteryi-wuju-style.test.ts",
+      "bytes": 11646,
+      "sha256": "c242c0920d53e9be04012ded576f2bfe1f0e943f60e775bb62d0ea4dad881081"
+    },
+    {
+      "file": "tests/masteryi-meditate.test.ts",
+      "bytes": 18950,
+      "sha256": "20a40ad18dfe1267bd6fa22ed6217e1c18c62cfa6de3aef9915d366687fa5197"
+    },
+    {
+      "file": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "c73ee16fd4df897edc63cad0cb04cdb2167b67f2bcff4b182fffe8a1d6e0bacd"
+    },
+    {
+      "file": "e2e/masteryi-highlander.spec.ts",
+      "bytes": 5877,
+      "sha256": "a4ad67e948d3817ac85902a018ea4f991028512fc32666d1009b1934837d191d"
+    },
+    {
+      "file": "e2e/masteryi-development.spec.ts",
+      "bytes": 13714,
+      "sha256": "020ceb3a5c7f39ac02767f1e1d9b36d6b4803c326042b250bfafe4f75d1f31f8"
+    },
+    {
+      "file": "tools/assets/export-masteryi-r.py",
+      "bytes": 3720,
+      "sha256": "c35bfa29ebc357c8f2fff7e86da80fb26353f1ccdf6e9ca33195ea0534b498a9"
+    },
+    {
+      "file": "tools/assets/test-masteryi-r.py",
+      "bytes": 1955,
+      "sha256": "0a91ff76bc2763ef02825b7ddf0ace185da5e547c068ea015bb321bad55559f2"
+    }
+  ],
+  "validation": {
+    "source": {
+      "standardFrozenPatch": "26.18 / 16.18.8175716 / Data Dragon16.18.1",
+      "normalAndOptimizedExporterCheck": true,
+      "mutationCasesPerPythonMode": 8,
+      "sourceAnimationPresentEmpty": true,
+      "sourceCalculationTableOmitted": true
+    },
+    "focusedBeforeFinalIdentityGuards": {
+      "command": "npx vitest run tests/masteryi-highlander.test.ts tests/masteryi-development.test.ts tests/masteryi-wuju-style.test.ts tests/masteryi-meditate.test.ts tests/masteryi-double-strike.test.ts tests/frost-shot.test.ts tests/slows.test.ts tests/ahri-e.test.ts",
+      "passed": 173,
+      "failed": 0,
+      "files": 7,
+      "highlanderCases": 33
+    },
+    "initialBroad": {
+      "command": "npm run check",
+      "passed": 2321,
+      "failed": 8,
+      "files": 343,
+      "notes": "Six reproduced baseline audit failures plus the pre-existing 5000ms wave-clock deadline (5454ms) and a Lux test pinned to former schema141. Updated its literal assertion to142; no assertion removed or deadline changed."
+    },
+    "finalBroad": {
+      "command": "npx vitest run tests --maxWorkers=1",
+      "passed": 2323,
+      "failed": 6,
+      "files": 343,
+      "highlanderCasesPassed": 33,
+      "allMasterYiCasesPassed": 147,
+      "waveClockPassedWithinOriginalDeadline": true,
+      "luxSchemaPin142Passed": true,
+      "remainingBaselineFailures": [
+        "tests/garen-aa.test.ts source WEM cache absent",
+        "tests/garen-p-audio.test.ts source WEM cache absent",
+        "tests/garen-passive-particles.test.ts raw BIN/TEX cache absent",
+        "tests/leona-eclipse-skin-material.test.ts native/toolchain input caches absent",
+        "tests/particle-distortion.test.ts original Metal/bitcode/disassembly caches absent",
+        "tests/lux-e-missile.test.ts unchanged baseline sampler digest discrepancy"
+      ],
+      "unchangedLuxDigest": {
+        "expected": "09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df",
+        "received": "4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a"
+      },
+      "baselineReproduction": ".cache/masteryi-passive-cloud/baseline-six.log / untouched9c2b451; see passive-verification.json"
+    },
+    "browser": {
+      "firstBatch": {
+        "passed": 9,
+        "interrupted": 1,
+        "notRun": 6,
+        "reason": "Stopped during first R screenshot to correct slow cleansing/immunity after secondary reference check; no assertion failure before interruption."
+      },
+      "secondBatch": {
+        "passed": 7,
+        "failed": 0,
+        "scope": "R3 + W3 + E1 after cleanse fix, before own-identity lookup guards"
+      },
+      "finalBatch": {
+        "passed": 3,
+        "failed": 0,
+        "scope": "All three R phases on final ruleset"
+      },
+      "distinctCasesWithPassingRunsAcrossBatches": 16,
+      "oneCleanFinal16CaseBatch": false,
+      "retries": 0,
+      "deadlineChanges": false,
+      "assertionsWeakened": false,
+      "finalRPhases": [
+        {
+          "phase": "slow-immunity",
+          "proof": {
+            "file": ".cache/masteryi-r-cloud/browser-final/masteryi-highlander-Highla-127f6-gh-real-private-Save-reload/highlander-reload.json",
+            "bytes": 119172,
+            "sha256": "c99a7769431f3bb595e08b45730e7d2360e62e833fefbef476a0f0a3bdeb8365"
+          },
+          "capture": {
+            "file": ".cache/masteryi-r-cloud/browser-final/masteryi-highlander-Highla-127f6-gh-real-private-Save-reload/highlander-slow-immunity.png",
+            "bytes": 816749,
+            "sha256": "09d9c8d557d0ac8c890da09671722dfe1125f284ffc880706a0a1e2e52bec8b1"
+          },
+          "tick": 63,
+          "highlander": {
+            "startTick": 37,
+            "endTick": 457,
+            "rank": 1,
+            "pausedTicks": 0,
+            "extensionCount": 0,
+            "takedownsAtCast": 0,
+            "lastExtensionTick": null
+          },
+          "meditate": null,
+          "wujuStyle": {
+            "startTick": 38,
+            "endTick": 338,
+            "rank": 1,
+            "pausedTicks": 0
+          },
+          "speed": 496.99999999999994,
+          "slowFactor": 1,
+          "attackSpeedMultiplier": 1.1754083385070164,
+          "clip": "run",
+          "boneCount": 90,
+          "boneDigest": "938ff918563ca3ae498f8da765635fc20c98bcbfa8956eec646823dbb26e97d2",
+          "savedBytes": 12244,
+          "savedSha256": "b32505c57794f7a1ca654ad9a3d598e992a801997b15c91dcf19c6cf2e892301",
+          "futureTicks": 300,
+          "futureSha256": "38a5d291be031cce2e17fd3e77dd503706c0c0aba3be47c12133bb99a8d5e9d3",
+          "exactSavedBytes": true,
+          "exactFutureBytes": true,
+          "exactBones": true,
+          "pageErrors": []
+        },
+        {
+          "phase": "meditate-pause",
+          "proof": {
+            "file": ".cache/masteryi-r-cloud/browser-final/masteryi-highlander-Highla-410f2-gh-real-private-Save-reload/highlander-reload.json",
+            "bytes": 119405,
+            "sha256": "d6826d98dab183b9e99bb34ce2bf5c2f9d2301d90ec09762c1bfda2f7e8183c0"
+          },
+          "capture": {
+            "file": ".cache/masteryi-r-cloud/browser-final/masteryi-highlander-Highla-410f2-gh-real-private-Save-reload/highlander-meditate-pause.png",
+            "bytes": 798872,
+            "sha256": "7243ea390da9bf83cbb6affc26139677a64229714874a56ba0a4c29284c0d68e"
+          },
+          "tick": 174,
+          "highlander": {
+            "startTick": 37,
+            "endTick": 592,
+            "rank": 1,
+            "pausedTicks": 135,
+            "extensionCount": 0,
+            "takedownsAtCast": 0,
+            "lastExtensionTick": null
+          },
+          "meditate": {
+            "startTick": 39,
+            "endTick": 279,
+            "rank": 1,
+            "power": 0,
+            "lastTick": 174,
+            "nextHealTick": 189,
+            "nextStackTick": 219,
+            "stopTick": null,
+            "stopReason": null
+          },
+          "wujuStyle": {
+            "startTick": 38,
+            "endTick": 473,
+            "rank": 1,
+            "pausedTicks": 135
+          },
+          "speed": 496.99999999999994,
+          "slowFactor": 1,
+          "attackSpeedMultiplier": 1.1754083385070164,
+          "clip": "spell2_loop",
+          "boneCount": 90,
+          "boneDigest": "e7b161f314536bbed15aa6badf17906d1714a6db557f36ed953cbc36a00b575d",
+          "savedBytes": 12101,
+          "savedSha256": "10887544eb50e48ea121ccc8444510802e83c0bd272c615b54feb55a0d977fa3",
+          "futureTicks": 300,
+          "futureSha256": "7e672bd1f5b2abc4b76f12b6fd21870380231b6b855bd1bce0b36a004e1bd81e",
+          "exactSavedBytes": true,
+          "exactFutureBytes": true,
+          "exactBones": true,
+          "pageErrors": []
+        },
+        {
+          "phase": "takedown-extension",
+          "proof": {
+            "file": ".cache/masteryi-r-cloud/browser-final/masteryi-highlander-Highla-7907f-gh-real-private-Save-reload/highlander-reload.json",
+            "bytes": 130789,
+            "sha256": "99d2cac2c06f259a2a8c1200de7eb2c616891a716fe18b2e358d37d04db5b41f"
+          },
+          "capture": {
+            "file": ".cache/masteryi-r-cloud/browser-final/masteryi-highlander-Highla-7907f-gh-real-private-Save-reload/highlander-takedown-extension.png",
+            "bytes": 804998,
+            "sha256": "89b954107cfa435c383a506cdae189b384eba6170be850e4cbc5aad132324f3f"
+          },
+          "tick": 57,
+          "highlander": {
+            "startTick": 31,
+            "endTick": 871,
+            "rank": 1,
+            "pausedTicks": 0,
+            "extensionCount": 1,
+            "takedownsAtCast": 0,
+            "lastExtensionTick": 57
+          },
+          "meditate": null,
+          "wujuStyle": {
+            "startTick": 32,
+            "endTick": 332,
+            "rank": 1,
+            "pausedTicks": 0
+          },
+          "speed": 496.99999999999994,
+          "slowFactor": 1,
+          "attackSpeedMultiplier": 1.1754083385070164,
+          "clip": "entry_56f6d84b",
+          "boneCount": 90,
+          "boneDigest": "a2fb2fc0cd8aae521fbab07046488fd65533954ee99e139a0f7cb7b202d8e5aa",
+          "savedBytes": 14633,
+          "savedSha256": "3f75693a021dc75f9b860b189c6edbf2607decee6221bd3f0a171a1657eb15a1",
+          "futureTicks": 300,
+          "futureSha256": "40429521d6512c8d83f7f8ec3e8e4368abe53858aa78acc7575e4138a5db57a9",
+          "exactSavedBytes": true,
+          "exactFutureBytes": true,
+          "exactBones": true,
+          "pageErrors": []
+        }
+      ]
+    },
+    "nodeQA": {
+      "passed": 3,
+      "failed": 0
+    },
+    "typescriptAndProductionBuildPassed": true,
+    "productionSubpath": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 12,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 204,
+      "scheduledBlueRequests": 12,
+      "scheduledRedRequests": 12,
+      "scheduledWolfRequests": 24,
+      "scheduledRaptorRequests": 24,
+      "scheduledKrugRequests": 36,
+      "scheduledScuttlerRequests": 12,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    },
+    "publicAssetsChanged": false,
+    "offlinePack": {
+      "id": "556eaf226816257a74f33ee9abf8aff72fff2b58ee0ef4907560ee4868e29e4b",
+      "files": 1068,
+      "bytes": 526620268
+    }
+  },
+  "corrections": [
+    "First focused run exposed a command gate that still blocked R before casting. Added R at both command acceptance and spell handlers.",
+    "Corrected fixtures that passed champion score state instead of the hero unit, used unlearned Ahri Charm, placed W at an already-expired boundary, used a nonexistent item ID, or assumed a paused R expired too soon.",
+    "A secondary Wiki revision predating the frozen patch describes R slow cleanse plus immunity. Added activation cleanup, rejected new shared slows and guarded Ashe legacy/critical writes while preserving damage and separate control. Corrected a test slow to use valid hostile Ashe provenance.",
+    "Final identity guards avoid introducing champion-state lookups for unrelated units; no gameplay timing/stat rule changed.",
+    "Updated the existing explicit Lux schema pin from141 to142. All other source-audit assertions and original deadlines remain intact."
+  ],
+  "secondaryReference": {
+    "url": "https://wiki.leagueoflegends.com/en-us/Master_Yi?oldid=4016673",
+    "observedModified": "2026-05-12T03:01:00Z",
+    "cachedHtml": {
+      "file": ".cache/masteryi-q-cloud/wiki.html",
+      "bytes": 1017331,
+      "sha256": "a50c434f229677f5e6314b0f7827a671f2f5c0bb83bfcabe00f0223cc759831a"
+    },
+    "use": "Additional community evidence for slow cleanse/immunity; not native dispatch verification."
+  },
+  "limits": [
+    "Native activation/callback/stat/credit/quantization behavior remains uncalibrated.",
+    "Movement-speed soft caps and full stacking rules remain unimplemented; rank-one355-base speed497 is local policy.",
+    "Ghosting and attack-speed slow systems are not implemented.",
+    "Q, R source particles/audio, full player/role integration and production roster remain open.",
+    "No fresh offline audit, complete browser suite, GPU/native parity, device/FPS or whole-project certification.",
+    "Six known baseline audit failures remain in the recorded final broad run."
+  ],
+  "logs": [
+    {
+      "file": ".cache/masteryi-r-cloud/export-check.log",
+      "bytes": 117,
+      "sha256": "2ed1b2d25c29fde191a7ce0fd448d8bcbcb0f5a503534cdda26a0919f4341a87"
+    },
+    {
+      "file": ".cache/masteryi-r-cloud/export-check-optimized.log",
+      "bytes": 117,
+      "sha256": "2ed1b2d25c29fde191a7ce0fd448d8bcbcb0f5a503534cdda26a0919f4341a87"
+    },
+    {
+      "file": ".cache/masteryi-r-cloud/export-tests-normal-final.log",
+      "bytes": 106,
+      "sha256": "bc884d6812cc1e24f5fd1a7a8b04cc06665af06ea00dc4a25bd189907de9917e"
+    },
+    {
+      "file": ".cache/masteryi-r-cloud/export-tests-optimized-final.log",
+      "bytes": 106,
+      "sha256": "1b9010f3ee76d9299c23d33a008e23fde33424e267614ab416c262a38d66483f"
+    },
+    {
+      "file": ".cache/masteryi-r-cloud/focused-v1.log",
+      "bytes": 9349,
+      "sha256": "e5633decb535b67c3c2950c3fc0833f82440148648ee283cba8f0f24d957d09d"
+    },
+    {
+      "file": ".cache/masteryi-r-cloud/focused-v2.log",
+      "bytes": 2832,
+      "sha256": "517c4bc514a76f781e587c499c82f8c92cecadb8668fbccacd7ee11360b1bb47"
+    },
+    {
+      "file": ".cache/masteryi-r-cloud/focused-v3.log",
+      "bytes": 1280,
+      "sha256": "08f7b13c6e1f850803384ac261e51c8d40cb8548a3ceaf2e7a21ca8127acc927"
+    },
+    {
+      "file": ".cache/masteryi-r-cloud/focused-v4.log",
+      "bytes": 427,
+      "sha256": "f306de57607131610aaa2da8cabf567a62ae6dff67a18e5207acd49f4b470914"
+    },
+    {
+      "file": ".cache/masteryi-r-cloud/focused-v5.log",
+      "bytes": 1414,
+      "sha256": "b620bd47b9ac06bfd05f5c0b07758462e3d3a343eeac250565e9f762f130787c"
+    },
+    {
+      "file": ".cache/masteryi-r-cloud/focused-v6.log",
+      "bytes": 438,
+      "sha256": "05028f80a0a010e9ea68fb330ffcc11233d337629ff36d1c50c4e775a9a01b7a"
+    },
+    {
+      "file": ".cache/masteryi-r-cloud/check.log",
+      "bytes": 7863,
+      "sha256": "6c1530a76385f64c91836e71fadd967e4c90329c3139a46255d96b441041a7d3"
+    },
+    {
+      "file": ".cache/masteryi-r-cloud/check-final-unit.log",
+      "bytes": 5893,
+      "sha256": "62c4710257e5e86319d92ed7f0695922bbdefede178b0ec582068ad087c3565f"
+    },
+    {
+      "file": ".cache/masteryi-r-cloud/browser.log",
+      "bytes": 6311,
+      "sha256": "2ba8fa2165e1a83e579e83358ad0e251f93b82fae2f6ddb42c03da999f97a6ed"
+    },
+    {
+      "file": ".cache/masteryi-r-cloud/browser-v2.log",
+      "bytes": 3295,
+      "sha256": "785aa99efe31557a4667d14c7aa36b7a9a05e8e3246f16606c1fe0abc1cf5aeb"
+    },
+    {
+      "file": ".cache/masteryi-r-cloud/browser-final.log",
+      "bytes": 1655,
+      "sha256": "eba6116595097c5e7a7cd4528033c41cf6ad45572149bfe46dfa22d175fc8147"
+    },
+    {
+      "file": ".cache/masteryi-r-cloud/qa.log",
+      "bytes": 429,
+      "sha256": "2aa4c854bd7e56f22e173927131bbf383c0246bea9e33f55ef59a543f80dcaed"
+    },
+    {
+      "file": ".cache/masteryi-r-cloud/build.log",
+      "bytes": 4829,
+      "sha256": "3509e54d89700c8043fbd42ba005a2c120ff9723e0224700d3ea53033deca132"
+    },
+    {
+      "file": ".cache/masteryi-r-cloud/production.log",
+      "bytes": 2081,
+      "sha256": "4c66b75594e1516082d7f34a34ce93e56fa4efc3ce47339b2c71c99b1ce66775"
+    }
+  ],
+  "scopeBoundary": "Changed-input and phase evidence only; no frozen whole-repository verification closure. Q preparation remains outside runtime inputs."
+}

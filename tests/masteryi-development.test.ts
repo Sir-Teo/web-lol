@@ -58,11 +58,11 @@ test('Master Yi owns his checked NPC stats and remains outside player selection 
   expect(() => World.fromSnapshot(JSON.stringify(raw), w.battlefield)).toThrow();
 });
 
-test('unfinished Q/R reject learning and queued casts without spending or borrowing Ashe capabilities', () => {
+test('unfinished Q rejects learning and queued casts without spending or borrowing Ashe capabilities', () => {
   const { w, masteryi, state } = setup();
   w.gainExperience(1e6, masteryi.id);
   const mana = masteryi.mana;
-  for (const ability of ['q', 'r'] as const) {
+  for (const ability of ['q'] as const) {
     expect(w.spellLearningError(ability, masteryi.id)).toMatch(/not implemented/);
     expect(w.learnSpell(ability, masteryi.id)).toMatch(/not implemented/);
     expect(() => w.abilitySpec(ability, masteryi.id)).toThrow(/not implemented/);

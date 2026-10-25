@@ -7812,3 +7812,50 @@ pack `f710e23c20ffd324d689cad2ec838955e0ac9311b8403ed70bc1f6d1c7eb8c6f`
 contains 1,068 files / 526,616,922 bytes. No fresh offline/full-browser/native/
 performance certification is claimed. Q/R, full Master Yi and full project
 completion stay open. Highlander declaration preparation remains staging-only.
+
+
+## 2026-10-25 — development Master Yi Highlander
+
+The manual NPC fixture now supports [Highlander](MASTER-YI-R.md): frozen own
+rank bonuses, seven-second duration, slow cleanse/immunity, champion kill/assist
+extension and learned-R passive W/E remaining-cooldown refunds. Meditate pauses
+both E and R before expiry. Acceptance preserves ordinary/secondary attack clocks
+and its own body pose; it pays 100 mana and starts the hasted 85-second cooldown.
+Source empty animation and omitted calculation table remain distinct. The local
+refund retains the exact float and ceil quantization; 100 updates become 31.
+A May 2026 secondary reference prompted correction of initial ignore-only slow
+handling: existing slows clear, new slow callbacks reject, damage and separate
+Charm/root/stun behavior remain. Native dispatch/calibration, ghosting, cripples,
+movement-speed caps, Q, source R effects/audio and player/role integration stay open.
+
+Schema 142 retains rank, start/end, pause count, extension count, score at cast
+and last extension clock, with ownership, phase, exact score-delta and duration
+checks. Own R learning follows levels 6/11/16. Public player selection and private
+save-slot gates stay unchanged. Identity guards avoid new Highlander lookups on
+unrelated moving or hit units.
+
+The final broad one-worker run passes 2,323/2,329 cases in 343 files, including
+all 33 R and 147 Master Yi cases. Six source-audit failures match the untouched
+baseline. The initial two-worker run also hit the existing 5,000 ms wave-clock
+deadline and an explicit former-schema Lux assertion. The final wave clock passes
+unchanged; the Lux assertion is updated to142. TypeScript, three Node QA cases,
+source checks, eight guard cases in each Python mode, build and nested production
+smoke pass. Production prepares 32 recordings and no Master Yi assets. No
+assertion, quality setting or deadline was weakened.
+
+Sixteen distinct browser cases have passing runs across batches: initial nine
+old cases passed before an intentional R screenshot interruption for the slow
+correction; seven R/W/E cases passed afterward; final three R phases passed again
+after own-identity lookup guards. Exact world bytes, all 90 bone matrices and
+300-tick futures match after real private Save/reload. The final verification
+record preserves each batch and its scope rather than calling this one clean
+sixteen-case final run.
+
+Ruleset `6e9ae9dddc9111a6d568308368a6ec2a4c79edc104c34199bb9d0c0778ad1f93` and pack
+`556eaf226816257a74f33ee9abf8aff72fff2b58ee0ef4907560ee4868e29e4b` retain 1,068 files /
+526,620,268 bytes. No public asset bytes changed. The existing large chunk
+warning remains. [R verification](reference/masteryi/r-verification.json) records
+source/test hashes, failed fixture assumptions and command-gate correction,
+interruption, slow-policy correction, final proofs and production results. No
+fresh full-browser/offline/native/performance or full-project completion claim.
+Alpha Strike source projection/guard preparation remains outside runtime inputs.

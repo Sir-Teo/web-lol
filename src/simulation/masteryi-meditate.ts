@@ -85,10 +85,11 @@ export function settleMeditate(world: World, owner: ChampionState, unit: Unit): 
     return;
   }
   unit.mana = Math.max(0, unit.mana - mana);
-  const e = owner.wujuStyle;
-  if (e && e.startTick < world.tick && e.endTick >= world.tick) {
-    e.endTick += elapsed;
-    e.pausedTicks += elapsed;
+  for (const buff of [owner.wujuStyle, owner.highlander]) {
+    if (buff && buff.startTick < world.tick && buff.endTick >= world.tick) {
+      buff.endTick += elapsed;
+      buff.pausedTicks += elapsed;
+    }
   }
 }
 

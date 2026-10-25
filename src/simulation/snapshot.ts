@@ -2,6 +2,7 @@ import { validateLeonaDeaths } from './leona-death-visuals';
 import { validateDoubleStrikes } from './masteryi-double-strike';
 import { validateWujuStyles } from './masteryi-wuju-style';
 import { validateMeditates } from './masteryi-meditate';
+import { validateHighlanders } from './masteryi-highlander';
 import { isMeleeChampion } from '../content/champion-profiles';
 import { AHRI_Q } from '../content/ahri-q';
 import { AHRI_Q_POLICY } from '../content/ahri-q-policy';
@@ -140,7 +141,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 141;
+export const SNAPSHOT_VERSION = 142;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -727,6 +728,17 @@ const player: z.ZodType<PlayerState> = z
         endTick: tick,
         rank: z.number().int().min(1).max(5),
         pausedTicks: tick,
+      })
+      .nullable(),
+    highlander: z
+      .strictObject({
+        startTick: tick,
+        endTick: tick,
+        rank: z.number().int().min(1).max(3),
+        pausedTicks: tick,
+        extensionCount: tick,
+        takedownsAtCast: tick,
+        lastExtensionTick: tick.nullable(),
       })
       .nullable(),
     meditate: z
@@ -3421,6 +3433,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   validateDoubleStrikes(owners, state.units, state.tick, state.winner);
   validateWujuStyles(owners, state.units, state.tick, state.winner);
   validateMeditates(owners, state.units, state.tick, state.winner);
+  validateHighlanders(owners, state.units, state.tick, state.winner);
   validateEssences(
     state.ahriCounters,
     state.ahriEssences,
@@ -3527,8 +3540,11 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   for (const owner of owners)
     if (state.units.find((u) => u.id === owner.id)?.champion === 'masteryi') {
       if (
-        owner.skillPoints + owner.spellRanks.e + owner.spellRanks.w !== owner.level ||
-        (['q', 'r'] as const).some((a) => owner.spellRanks[a] !== 0 || owner.cooldowns[a] !== 0) ||
+        owner.skillPoints + owner.spellRanks.e + owner.spellRanks.w + owner.spellRanks.r !==
+          owner.level ||
+        (['q'] as const).some((a) => owner.spellRanks[a] !== 0 || owner.cooldowns[a] !== 0) ||
+        (owner.spellRanks.r > 0 && owner.level < 6 + (owner.spellRanks.r - 1) * 5) ||
+        (!owner.spellRanks.r && owner.cooldowns.r !== 0) ||
         (['w', 'e'] as const).some(
           (a) =>
             (owner.spellRanks[a] > 0 && owner.level < 1 + (owner.spellRanks[a] - 1) * 2) ||

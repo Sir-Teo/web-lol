@@ -15,7 +15,8 @@ The later [NPC foundation](MASTER-YI-NPC.md) adds own stats, ordinary melee
 combat, body/recall poses and private saved practice. The later
 [Double Strike controller](MASTER-YI-PASSIVE.md) adds the development passive,
 and [Wuju Style](MASTER-YI-E.md) adds E empowerment. [Meditate](MASTER-YI-W.md)
-adds the channel and W/E/passive interactions. Q/R remain unimplemented,
+adds the channel and W/E/passive interactions. [Highlander](MASTER-YI-R.md) adds R,
+slow immunity, takedown effects and W/R pauses. Q remains unimplemented,
 and production player selection stays Ashe/Lux.
 
 ## Exact retained package

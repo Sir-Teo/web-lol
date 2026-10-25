@@ -1,6 +1,14 @@
 # Local match checkpoints
 
-Current schema **141** adds Meditate channel/pulse/stop clocks, captured rank/AP,
+Current schema **142** adds Highlander start/end/rank, pause accounting,
+takedown extension count, score at cast and latest extension clock. W/E/R ranks
+are permitted on the development Master Yi NPC with own level/resource rules;
+Q and unsupported generic cast state remain rejected. Meditate pauses both
+E and R before expiry. Decoding rejects foreign, stale, unearned and forged
+buff state. Earlier formats and fingerprints are incompatible. See
+[Highlander](MASTER-YI-R.md).
+
+Schema **141** adds Meditate channel/pulse/stop clocks, captured rank/AP,
 paid E-pause accounting and Double Strike's separate pose-stop clock. A new primary
 can overlap an older pending child after W's reset; save and body clocks retain
 both contacts. Validation checks pulse alignment, controls, rank/budget/terminal

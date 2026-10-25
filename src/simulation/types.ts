@@ -513,6 +513,7 @@ export interface ChampionState {
   doubleStrike: import('./masteryi-double-strike').DoubleStrikeState | null;
   wujuStyle: import('./masteryi-wuju-style').WujuStyleState | null;
   meditate: import('./masteryi-meditate').MeditateState | null;
+  highlander: import('./masteryi-highlander').HighlanderState | null;
   /** Accepted ordinary swings and separately confirmed contacts. Cast one-shots
    * survive cancellation; hits exist only for accepted melee contacts. */
   garenAAVisuals: {

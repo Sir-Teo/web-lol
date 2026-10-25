@@ -1,5 +1,9 @@
 # Development Meditate channel
 
+This document records the schema-141 W checkpoint. [Highlander](MASTER-YI-R.md)
+adds R and W/R pause accounting at schema 142. Statements below about unavailable
+R describe the earlier checkpoint.
+
 The private `/?scene=fixture&npc=masteryi` NPC can learn W and E through the
 development command API. Meditate adds its own channel, healing, mitigation,
 upkeep, attack reset, passive stack pulses and paused E duration. Ashe remains

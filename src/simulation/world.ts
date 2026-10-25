@@ -200,6 +200,9 @@ import { championProfile, isMeleeChampion } from '../content/champion-profiles';
 import { MASTER_YI_PASSIVE } from '../content/masteryi-passive';
 import { MASTER_YI_E } from '../content/masteryi-e';
 import { MASTER_YI_W } from '../content/masteryi-w';
+import { MASTER_YI_R } from '../content/masteryi-r';
+import { MASTER_YI } from '../content/masteryi-progression';
+import { activeHighlander, highlanderTakedown, HIGHLANDER_TICKS } from './masteryi-highlander';
 import {
   beginMeditate,
   finishMeditate,
@@ -1076,6 +1079,7 @@ export class World {
       if (state.meditate) settleMeditate(this, state, this.unit(state.id)!);
       if (state.doubleStrike) expireDoubleStrike(state.doubleStrike, this.tick);
       if (state.wujuStyle && this.tick >= state.wujuStyle.endTick) state.wujuStyle = null;
+      if (state.highlander && this.tick >= state.highlander.endTick) state.highlander = null;
       if (state.leonaQ && this.tick >= state.leonaQ.endTick) {
         finishDaybreakVisual(state, this.tick, 'expired');
         state.leonaQ = null;
@@ -1190,7 +1194,8 @@ export class World {
         command.type === 'cast' &&
         !isSummonerSlot(command.ability) &&
         command.ability !== 'e' &&
-        command.ability !== 'w'
+        command.ability !== 'w' &&
+        command.ability !== 'r'
       )
         continue;
       if (
@@ -3832,12 +3837,15 @@ export class World {
     }
   }
   movementSpeed(u: Unit): number {
-    const q = this.championState(u.id)?.garenQ;
+    const owner = this.championState(u.id);
+    const q = owner?.garenQ;
+    const highlander = u.champion === 'masteryi' ? activeHighlander(owner, this.tick) : null;
     const haste =
       1 +
       (u.summonerHealSpeedUntil > this.tick ? SUMMONER_HEAL.speedBonus : 0) +
       (q && q.speedUntil > this.tick ? GAREN_Q.movementSpeedBonus : 0) +
-      foxFireMovementBonus(this, u);
+      foxFireMovementBonus(this, u) +
+      (highlander ? MASTER_YI_R.movementSpeedPercentByRank[highlander.rank - 1] / 100 : 0);
     const river =
       this.alive(u) &&
       this.scuttlers?.speedBuffs.some((s) => s.unitId === u.id && s.endTick > this.tick)
@@ -3868,6 +3876,8 @@ export class World {
       this.tick + Math.round(GAREN_PASSIVE.interruptionSeconds * TICK_RATE);
   }
   slowFactor(u: Unit): number {
+    if (u.champion === 'masteryi' && activeHighlander(this.championState(u.id), this.tick))
+      return 1;
     // Retain the old diagnostic fields, but all new combat applications also
     // retain independent source/effect state so later hits cannot erase them.
     let slow = Math.min(
@@ -3911,6 +3921,8 @@ export class World {
       source.team === target.team ||
       !this.alive(target) ||
       !this.vulnerable(target) ||
+      (target.champion === 'masteryi' &&
+        !!activeHighlander(this.championState(target.id), this.tick)) ||
       isStructureKind(target.kind) ||
       target.kind === 'ward' ||
       (kind !== 'cinders' &&
@@ -4794,6 +4806,10 @@ export class World {
             );
           if (
             source.champion === 'ashe' &&
+            !(
+              contact.champion === 'masteryi' &&
+              activeHighlander(this.championState(contact.id), this.tick)
+            ) &&
             !isStructureKind(contact.kind) &&
             contact.kind !== 'ward' &&
             (p.flurryShot ?? 0) === 0
@@ -4849,7 +4865,13 @@ export class World {
                 'magic',
                 'area'
               );
-              if (this.alive(victim)) {
+              if (
+                this.alive(victim) &&
+                !(
+                  victim.champion === 'masteryi' &&
+                  activeHighlander(this.championState(victim.id), this.tick)
+                )
+              ) {
                 victim.slowMultiplier = 1 - slow;
                 victim.slowUntil =
                   this.tick +
@@ -4923,6 +4945,13 @@ export class World {
   }
   attackSpeedMultiplier(source: Unit, target: Unit | undefined): number {
     const state = this.championState(source.id);
+    const highlander = source.champion === 'masteryi' ? activeHighlander(state, this.tick) : null;
+    if (highlander) {
+      const bonus =
+        (MASTER_YI.attackSpeedRatio * MASTER_YI_R.attackSpeedPercentByRank[highlander.rank - 1]) /
+        100;
+      return 1 + (bonus * source.attackPeriod) / TICK_RATE;
+    }
     if (state && state.qUntil > this.tick) {
       // Q adds ratio-scaled attacks/second, not a multiplier on existing bonuses.
       const bonus = ASHE_Q.attackSpeedRatio * asheFocusValues(state.spellRanks.q).bonusAttackSpeed;
@@ -5566,6 +5595,7 @@ export class World {
           if (state.doubleStrike) state.doubleStrike = createDoubleStrikeState();
           state.wujuStyle = null;
           state.meditate = null;
+          state.highlander = null;
           // Combat can finish the tick before post-combat restoration runs.
           // Canonicalize its clocks without granting HP or mana after victory.
           advanceRedBuffClock(state, this.tick);
@@ -5623,6 +5653,7 @@ export class World {
         if (targetState.doubleStrike) targetState.doubleStrike = createDoubleStrikeState();
         targetState.wujuStyle = null;
         targetState.meditate = null;
+        targetState.highlander = null;
         stopFoxFireOrbits(this, target.id);
         stopSpiritRush(this, target);
         stopEssences(this, target.id);
@@ -5734,11 +5765,15 @@ export class World {
           });
         if (target.kind === 'champion') {
           sourceState.kills++;
+          highlanderTakedown(this, rewardSource, sourceState);
           for (const id of takedownContributors) {
             if (id === rewardSource.id) continue;
             const contributor = this.unit(id);
             const record = this.championState(id);
-            if (record && contributor?.team === rewardSource.team) record.assists++;
+            if (record && contributor?.team === rewardSource.team) {
+              record.assists++;
+              highlanderTakedown(this, contributor, record);
+            }
           }
         } else if (target.kind !== 'dummy' && !isStructureKind(target.kind)) {
           sourceState.cs = statPrecision(
@@ -5899,17 +5934,27 @@ export class World {
     return (['d', 'f'] as const).find((slot) => this.summonerSpell(slot, championId) === spell);
   }
   abilitySpec(ability: Ability, championId = this.player.id): typeof ABILITIES.d {
-    if (this.unit(championId)?.champion === 'masteryi' && (ability === 'e' || ability === 'w')) {
-      const spell = ability === 'w' ? MASTER_YI_W : MASTER_YI_E;
+    if (
+      this.unit(championId)?.champion === 'masteryi' &&
+      (ability === 'e' || ability === 'w' || ability === 'r')
+    ) {
+      const spell = ability === 'w' ? MASTER_YI_W : ability === 'r' ? MASTER_YI_R : MASTER_YI_E;
       return {
         name: spell.name,
         description: spell.description,
         icon: spell.icon,
-        cost: ability === 'w' ? MASTER_YI_W.manaByRank[0] : MASTER_YI_E.publicManaByRank[0],
+        cost:
+          ability === 'w'
+            ? MASTER_YI_W.manaByRank[0]
+            : ability === 'r'
+              ? MASTER_YI_R.manaByRank[0]
+              : MASTER_YI_E.publicManaByRank[0],
         cooldown:
           ability === 'w'
             ? MASTER_YI_W.publicCooldownSecondsByRank[0]
-            : MASTER_YI_E.cooldownSecondsByRank[0],
+            : ability === 'r'
+              ? MASTER_YI_R.cooldownSecondsByRank[0]
+              : MASTER_YI_E.cooldownSecondsByRank[0],
         range: 0,
       };
     }
@@ -5974,7 +6019,12 @@ export class World {
     if (this.winner) return 'The match has ended';
     const state = this.championState(championId);
     if (!state) return 'Unknown champion';
-    if (this.unit(championId)?.champion === 'masteryi' && ability !== 'e' && ability !== 'w')
+    if (
+      this.unit(championId)?.champion === 'masteryi' &&
+      ability !== 'e' &&
+      ability !== 'w' &&
+      ability !== 'r'
+    )
       return 'Master Yi spells are not implemented';
     const rank = state.spellRanks[ability];
     if (rank >= (ability === 'r' ? 3 : 5)) return 'This spell is already at maximum rank';
@@ -6040,19 +6090,23 @@ export class World {
       };
     const rank = this.abilityRank(ability, championId);
     if (this.unit(championId)?.champion === 'masteryi') {
-      if (ability !== 'e' && ability !== 'w')
+      if (ability !== 'e' && ability !== 'w' && ability !== 'r')
         throw new Error('Master Yi spells are not implemented');
       return {
         mana: !rank
           ? 0
           : ability === 'w'
             ? MASTER_YI_W.manaByRank[rank - 1]
-            : MASTER_YI_E.publicManaByRank[rank - 1],
+            : ability === 'r'
+              ? MASTER_YI_R.manaByRank[rank - 1]
+              : MASTER_YI_E.publicManaByRank[rank - 1],
         cooldownSeconds: !rank
           ? 0
           : ability === 'w'
             ? MASTER_YI_W.publicCooldownSecondsByRank[rank - 1]
-            : MASTER_YI_E.cooldownSecondsByRank[rank - 1],
+            : ability === 'r'
+              ? MASTER_YI_R.cooldownSecondsByRank[rank - 1]
+              : MASTER_YI_E.cooldownSecondsByRank[rank - 1],
       };
     }
     if (this.unit(championId)?.champion === 'ahri') {
@@ -6124,7 +6178,13 @@ export class World {
     const state = this.championState(u.id);
     if (!state || u.kind !== 'champion') return;
     if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
-    if (u.champion === 'masteryi' && !isSummonerSlot(ability) && ability !== 'e' && ability !== 'w')
+    if (
+      u.champion === 'masteryi' &&
+      !isSummonerSlot(ability) &&
+      ability !== 'e' &&
+      ability !== 'w' &&
+      ability !== 'r'
+    )
       return;
     if (
       activeSpiritDash(this, u.id) &&
@@ -6225,6 +6285,26 @@ export class World {
     }
     if (u.champion === 'ashe' && ability === 'q' && state.qStacks < 4) {
       fail('Build 4 Focus with basic attacks');
+      return;
+    }
+    if (u.champion === 'masteryi' && ability === 'r') {
+      u.slowUntil = 0;
+      u.slowMultiplier = 1;
+      u.criticalSlow = null;
+      u.slows = [];
+      state.highlander = {
+        startTick: this.tick,
+        endTick: this.tick + HIGHLANDER_TICKS,
+        rank: state.spellRanks.r,
+        pausedTicks: 0,
+        extensionCount: 0,
+        takedownsAtCast: state.kills + state.assists,
+        lastExtensionTick: null,
+      };
+      u.mana -= resources.mana;
+      state.cooldowns.r = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
+      state.recallEnd = null;
+      this.emit('cast', u, { unit: u.id, champion: 'masteryi', text: 'r', team: u.team });
       return;
     }
     if (u.champion === 'masteryi' && ability === 'w') {
