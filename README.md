@@ -94,3 +94,5 @@ Private Yi ordinary attacks now use [both source-declared body/trail/audio choic
 [Primary contact effects](docs/MASTER-YI-PRIMARY-HITS.md) now render all eleven ordinary/critical hit emitters with 93 authored mips, saved target chest poses, finite tails and explicit unblended fluid.
 
 [Owned pose capture](docs/POSE-HISTORY-CAPTURE.md) reduces timeline-copy overhead while preserving independent saved attachment histories.
+
+[Native payload restoration](docs/NATIVE-CLIENT-RESTORATION.md) recovers the exact frozen client bytes for further static fidelity work.
