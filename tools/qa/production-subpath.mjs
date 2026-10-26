@@ -72,6 +72,7 @@ try {
     masterYiWujuStyleAudioRequests = [],
     masterYiQCastRequests = [],
     masterYiQEndRequests = [],
+    masterYiRCastRequests = [],
     masterYiQContactRequests = [],
     masterYiMeditateCastRequests = [],
     masterYiMeditateBuffRequests = [],
@@ -109,6 +110,8 @@ try {
       masterYiQCastRequests.push(request.url());
     if (/\/masteryi-q-end-[^/]+\.png$/.test(request.url()))
       masterYiQEndRequests.push(request.url());
+    if (/\/masteryi-r-cast-[^/]+\.(?:png|glb)$/.test(request.url()))
+      masterYiRCastRequests.push(request.url());
     if (/\/masteryi-q-contact-(?:[0-9a-f]+\.png|trail\.glb)$/.test(request.url()))
       masterYiQContactRequests.push(request.url());
     if (/\/masteryi-w-cast-[^/]+\.(?:png|glb)$/.test(request.url()))
@@ -512,6 +515,11 @@ try {
     'Production must not preload development Highlander audio'
   );
   assert.deepEqual(
+    masterYiRCastRequests,
+    [],
+    'Production must not preload development Highlander cast assets'
+  );
+  assert.deepEqual(
     masterYiQEndRequests,
     [],
     'Production must not preload development Alpha Strike reappearance assets'
@@ -586,6 +594,7 @@ try {
       unrequestedMasterYiAlphaAudioPreloads: masterYiAlphaAudioRequests.length,
       unrequestedMasterYiMeditateAudioPreloads: masterYiMeditateAudioRequests.length,
       unrequestedMasterYiWujuStyleAudioPreloads: masterYiWujuStyleAudioRequests.length,
+      unrequestedMasterYiHighlanderCastPreloads: masterYiRCastRequests.length,
       unrequestedMasterYiQEndPreloads: masterYiQEndRequests.length,
       unrequestedMasterYiQCastPreloads: masterYiQCastRequests.length,
       unrequestedMasterYiQContactPreloads: masterYiQContactRequests.length,

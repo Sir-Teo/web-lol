@@ -333,6 +333,7 @@ async function boot(): Promise<void> {
     loadGarenSpin(),
     ...(world.units.some((u) => u.champion === 'masteryi')
       ? [
+          view.highlanderCasts.load(),
           view.alphaCasts.load(),
           view.alphaEnds.load(),
           view.alphaContacts.load(),

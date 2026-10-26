@@ -123,6 +123,8 @@ export const rulesetModuleRoots = [
   'src/audio/masteryi-aa.ts',
   'src/audio/masteryi-q-state.ts',
   'src/audio/masteryi-q.ts',
+  'src/render/masteryi-r-cast-particles.ts',
+  'src/render/masteryi-r-casts.ts',
   'src/render/masteryi-q-end-particles.ts',
   'src/render/masteryi-q-ends.ts',
   'src/render/masteryi-q-cast-particles.ts',

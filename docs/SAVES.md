@@ -1,6 +1,15 @@
 # Local match checkpoints
 
-Current schema **155** adds Alpha Strike reappearance histories. Actual completed
+Current schema **156** adds finite Highlander cast histories. Accepted R records
+rank, creation origin/audience and lossless root pose/visibility runs for the
+complete eight-emitter cast. Its 27-tick source clock keeps advancing while Q/W
+pauses the buff. R accepted during Q keeps admission separate from hidden birth
+frames. Death freezes existing roots; terminal presentation finishes without
+stepping the world. Decoding checks the matching R audio admission, ownership,
+rank, exact endpoints and canonical coverage. Earlier schemas/fingerprints remain
+incompatible. See [Highlander cast effects](MASTER-YI-R-CAST.md).
+
+Schema **155** adds Alpha Strike reappearance histories. Actual completed
 and target-loss returns capture the accepted cast, mark count/reason, return point,
 creation audience and lossless root runs. Both finite emitters retain an 18-tick
 bound after recovery clears. Death freezes existing roots; vanished cancellation

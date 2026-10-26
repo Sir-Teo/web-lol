@@ -1,0 +1,27 @@
+{
+  "format": 1,
+  "sourcePinSha256": "e8630aeae0aa33c6f369bde1ac3c80aeb333a16e78924ab1417f56f75e7f1ccd",
+  "transport": {
+    "path": "docs/reference/masteryi/r-cast-texture-transport.json",
+    "sha256": "b5e024640d924e8aaa5f209b6c7b2d6c98b030dfc5600c7273f5c645708f46e8"
+  },
+  "meshTransport": {
+    "path": "docs/reference/masteryi/r-cast-mesh-transport.json",
+    "sha256": "b15e9c43540b2012ef6e1e072f358f4ee83920a3c8cae695e8628cf4c8e5b97c"
+  },
+  "profileSha256": "68d576314a51cec1efa258d2e8b7698bd41de8cd5def868ed3d728dd30d8fed1",
+  "historyTicks": 27,
+  "readerDefaults": {
+    "path": "docs/reference/garen-spin-defaults.json",
+    "sha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb"
+  },
+  "limits": [
+    "Complete R_Cas only; sustained variants, attached overlay and takedown system remain separate.",
+    "Raw omitted lifetime is retained as null; the single lens burst needs no finite emission stop. Local birth phase uses zero for an unbounded emitter.",
+    "Delayed first update follows the existing Solar max(1,ceil(delay*60-1e-5)) grid; source delay remains unchanged. Native update/random/dispatch parity remains unverified.",
+    "Source mode 2 uses the existing local early-copy distortion route and raw strength 1.0; native phase/power/default mapping remains unverified.",
+    "Source-X reflection, actor-root placement, fixed cosmetic draws, omission defaults and neutral lookup product are explicit local adapters.",
+    "R_Cas omits sound; this renderer adds none. Sustained variants author a separate persistent trail cue.",
+    "Source linger fields do not extend finite visible lives."
+  ]
+}

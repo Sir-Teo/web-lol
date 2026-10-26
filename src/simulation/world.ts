@@ -1,3 +1,5 @@
+import { captureHighlanderCast, advanceHighlanderCasts } from './masteryi-highlander-cast';
+import { HIGHLANDER_CAST_HISTORY_TICKS } from '../content/masteryi-r-cast-timing';
 import { advanceAlphaEnds } from './masteryi-q-end';
 import { ALPHA_END_HISTORY_TICKS } from '../content/masteryi-q-end-timing';
 import { captureAlphaCast, advanceAlphaCasts } from './masteryi-q-cast';
@@ -1168,6 +1170,10 @@ export class World {
       if (state.meditateCastVisuals.length)
         state.meditateCastVisuals = state.meditateCastVisuals.filter(
           (r) => this.tick < r.startTick + MEDITATE_CAST_HISTORY_TICKS
+        );
+      if (state.highlanderCastVisuals.length)
+        state.highlanderCastVisuals = state.highlanderCastVisuals.filter(
+          (r) => this.tick < r.startTick + HIGHLANDER_CAST_HISTORY_TICKS
         );
       if (state.alphaEndVisuals.length)
         state.alphaEndVisuals = state.alphaEndVisuals.filter(
@@ -4642,6 +4648,7 @@ export class World {
   private advanceImpactVisuals(): void {
     advanceMeditateBuffs(this);
     advanceMeditateCasts(this);
+    advanceHighlanderCasts(this);
     advanceAlphaEnds(this);
     advanceAlphaCasts(this);
     advanceAlphaContacts(this);
@@ -6005,6 +6012,7 @@ export class World {
     if (target.hp <= 0) {
       advanceMeditateBuffs(this);
       advanceMeditateCasts(this);
+      advanceHighlanderCasts(this);
       advanceAlphaEnds(this);
       advanceAlphaCasts(this);
       advanceAlphaContacts(this);
@@ -6507,6 +6515,7 @@ export class World {
         lastExtensionTick: null,
       };
       beginHighlanderAudio(state, u, this);
+      captureHighlanderCast(this, u);
       u.mana -= resources.mana;
       state.cooldowns.r = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
       state.recallEnd = null;

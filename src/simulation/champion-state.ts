@@ -43,6 +43,7 @@ export function createChampionState(id: number, unlocked = true, tick = 0): Cham
     meditateBuffVisuals: [],
     highlander: null,
     highlanderAudio: [],
+    highlanderCastVisuals: [],
     alphaCastVisuals: [],
     alphaEndVisuals: [],
     alphaContactVisuals: [],
