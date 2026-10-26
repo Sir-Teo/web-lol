@@ -1,8 +1,8 @@
 # Saved primary attack trails
 
 The private Yi fixture renders the complete ordinary Attack1 and critical trail
-systems on accepted primary attacks. Attack2 and both passive trail systems stay
-retained in the source closure for separate dispatch. No audio is added.
+systems on accepted primary attacks. Attack2 stays retained in the source closure. The two passive systems use their
+[separate saved Double Strike dispatch](MASTER-YI-PASSIVE-TRAILS.md). No audio is added.
 
 Three verified texture transports retain all 25 authored mip levels. The common
 ramp reuses an existing verified asset. Both systems share one page-owned native

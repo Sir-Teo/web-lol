@@ -1,6 +1,15 @@
 # Local match checkpoints
 
-Current schema **160** adds rolling lossless 20-tick actor-root/visibility runs
+Current schema **161** adds separate saved Double Strike trail histories. Each
+accepted child stores its clocks/target, two current-pose marker decisions, pose
+cut and rolling lossless 16-tick root/visibility window. Decoding checks ordered
+identity, active-child linkage, decision clocks, canonical coverage/endpoints and
+expiry. Finite particles survive child removal; victory decides no future events.
+Historical combat/pose decisions cannot be independently reconstructed without a
+complete ledger. Earlier schemas/fingerprints remain incompatible. See
+[Double Strike trails](MASTER-YI-PASSIVE-TRAILS.md).
+
+Schema **160** adds rolling lossless 20-tick actor-root/visibility runs
 to accepted ordinary and critical primary attacks. Exact current rendered-clip
 marker crossings admit finite trails on the named center joint. Decoding checks
 canonical coverage, endpoints and audience, and expired roots are cleared while

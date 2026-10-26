@@ -77,6 +77,7 @@ try {
     masterYiMeditateDamageRequests = [],
     masterYiSwordRequests = [],
     masterYiPrimaryTrailRequests = [],
+    masterYiPassiveTrailRequests = [],
     masterYiQContactRequests = [],
     masterYiMeditateCastRequests = [],
     masterYiMeditateBuffRequests = [],
@@ -120,6 +121,8 @@ try {
       masterYiSwordRequests.push(request.url());
     if (/\/masteryi-primary-trail(?:-[^/]+\.png|s-[^/]+\.js|\.glb)$/.test(request.url()))
       masterYiPrimaryTrailRequests.push(request.url());
+    if (/\/masteryi-passive-trail(?:-[^/]+\.png|s-[^/]+\.js)$/.test(request.url()))
+      masterYiPassiveTrailRequests.push(request.url());
     if (/\/masteryi-w-damage-[^/]+\.js$/.test(request.url()))
       masterYiMeditateDamageRequests.push(request.url());
     if (/\/masteryi-r-kill-[^/]+\.png$/.test(request.url()))
@@ -537,6 +540,11 @@ try {
     'Production must not preload development primary attack trails'
   );
   assert.deepEqual(
+    masterYiPassiveTrailRequests,
+    [],
+    'Production must not preload development passive attack trails'
+  );
+  assert.deepEqual(
     masterYiRKillRequests,
     [],
     'Production must not preload development Highlander takedown assets'
@@ -628,6 +636,7 @@ try {
       unrequestedMasterYiWujuStyleAudioPreloads: masterYiWujuStyleAudioRequests.length,
       unrequestedMasterYiSwordPreloads: masterYiSwordRequests.length,
       unrequestedMasterYiPrimaryTrailPreloads: masterYiPrimaryTrailRequests.length,
+      unrequestedMasterYiPassiveTrailPreloads: masterYiPassiveTrailRequests.length,
       unrequestedMasterYiMeditateDamagePreloads: masterYiMeditateDamageRequests.length,
       unrequestedMasterYiHighlanderKillPreloads: masterYiRKillRequests.length,
       unrequestedMasterYiHighlanderCastPreloads: masterYiRCastRequests.length,

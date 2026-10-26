@@ -1,4 +1,5 @@
 import { LazyPrimaryTrails } from './lazy-masteryi-primary-trails';
+import { LazyPassiveTrails } from './lazy-masteryi-passive-trails';
 import { LazySwordGlows } from './lazy-masteryi-sword-glows';
 import { LazyMeditateDamage } from './lazy-masteryi-w-damage';
 import { LazyMeditateBuffs } from './lazy-masteryi-w-buffs';
@@ -173,6 +174,7 @@ export class GameView {
   garenPerseverance = new LazyGarenPerseverance(this.scene, (p) => this.ground(p));
   garenBasicAttacks = new LazyGarenBasicAttacks(this.scene, (p) => this.ground(p));
   primaryTrails = new LazyPrimaryTrails(this.scene, (p) => this.ground(p));
+  passiveTrails = new LazyPassiveTrails(this.scene, (p) => this.ground(p));
   swordGlows = new LazySwordGlows(this.scene, (p) => this.ground(p));
   meditateDamage = new LazyMeditateDamage(this.scene, (p) => this.ground(p));
   highlanderKills = new LazyHighlanderKills(this.scene, (p) => this.ground(p));
@@ -871,6 +873,7 @@ export class GameView {
     this.garenDecisiveStrike.update(world, alpha, this.camera, this.models, terminalAge);
     this.garenBasicAttacks.update(world, alpha, this.camera, terminalAge);
     this.primaryTrails.update(world, alpha, this.camera, this.models, terminalAge);
+    this.passiveTrails.update(world, alpha, this.camera, this.models, terminalAge);
     this.swordGlows.update(world, alpha, this.camera, this.models, terminalAge);
     this.meditateDamage.update(world, alpha, this.camera, terminalAge);
     this.highlanderKills.update(world, alpha, this.camera, terminalAge);

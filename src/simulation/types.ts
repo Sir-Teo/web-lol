@@ -533,6 +533,7 @@ export interface ChampionState {
   alphaAudio: import('./masteryi-q-audio').AlphaAudioRecord[];
   /** Finite primary attack cues; no invented Double Strike composite binding. */
   masterYiAAAudio: import('./masteryi-aa-presentation').MasterYiAttackAudio[];
+  passiveTrailVisuals: import('./masteryi-passive-trails').PassiveTrailVisual[];
   /** Accepted ordinary swings and separately confirmed contacts. Cast one-shots
    * survive cancellation; hits exist only for accepted melee contacts. */
   garenAAVisuals: {

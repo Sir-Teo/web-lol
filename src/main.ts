@@ -337,6 +337,12 @@ async function boot(): Promise<void> {
           view.highlanderKills.load(),
           view.meditateDamage.load(),
           view.swordGlows.load(),
+          view.passiveTrails.load().catch((error) => {
+            console.warn(
+              'Passive attack trails unavailable; explicit retry remains available.',
+              error
+            );
+          }),
           view.primaryTrails.load().catch((error) => {
             console.warn(
               'Primary attack trails unavailable; explicit retry remains available.',

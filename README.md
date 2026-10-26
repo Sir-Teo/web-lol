@@ -84,3 +84,5 @@ Reference target: standard PC Summoner's Rift, patch 26.18, with Data Dragon 16.
 The local reference build includes Riot-owned icons, character models and terrain, with source URLs and hashes in `public/assets/`. Riot's published policy does not authorize games using its IP; redistribution authorization has not been established. The reference asset pack is not a cleared production distribution. The independent asset pipeline and content permissions remain tracked in the production design.
 
 Private Yi primary attacks also render [saved ordinary and critical weapon trails](docs/MASTER-YI-PRIMARY-TRAILS.md) with the retained native mesh and all 25 authored mip levels.
+
+The private Double Strike presentation also retains [both saved authored trail events](docs/MASTER-YI-PASSIVE-TRAILS.md), with separate current-pose decisions and shared verified geometry.

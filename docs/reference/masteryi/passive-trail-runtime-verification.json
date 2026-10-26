@@ -1,0 +1,980 @@
+{
+  "format": 1,
+  "parentCommit": "5995ee89cbb5dbd0d429e1d97ddc0551b485e05f",
+  "identity": {
+    "schema": 161,
+    "rulesetFingerprint": "1019f88a1c865f11e4729055ecfa8de626d2e0b33308d7448e255c314d2fd65c",
+    "offlinePack": {
+      "id": "e2cab4280d91eaced32c3ad754fff40b64b726f076cb866dba3d7da462e8a81b",
+      "files": 1188,
+      "bytes": 537207934
+    }
+  },
+  "scope": "Both complete authored Passive trail events on actual accepted Double Strike child identities, separate saved current-pose decisions, bounded roots and finite tails. Reuse primary geometry, two textures and a common finite sampler. Keep all private code and assets outside ordinary production startup.",
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/primary-trail-runtime-verification.json",
+      "bytes": 48041,
+      "sha256": "d3e479bbd248eb4d192d8b4a809688a49e7678a792364208ccfb07129c397063"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-trail-runtime-reading.json",
+      "bytes": 2299,
+      "sha256": "ad72ca22c3a95cec9723468123ff3f1a630dc355cfb66d1fbda014f2075747f9"
+    },
+    {
+      "path": "docs/reference/masteryi/attack-trail-particles.json",
+      "bytes": 26723,
+      "sha256": "66516333b70c1557feab0b1b69a29bc119dd3675d3b04df36484cd842100c7e1"
+    },
+    {
+      "path": "docs/reference/masteryi/attack-trail-binding-reading.json",
+      "bytes": 26481,
+      "sha256": "e689b3cb1e440e6e4c3b8161a43c2e19e84522128c76e6e3ff17748d50ce6950"
+    },
+    {
+      "path": "docs/reference/masteryi/attack-trail-particles-decoded.json",
+      "bytes": 29959,
+      "sha256": "93bf9c506872bd7ba6d47e74588133b559c6e8f26ea548abff7e75878bcd27e1"
+    },
+    {
+      "path": "docs/reference/masteryi/attack-trail-texture-transport.json",
+      "bytes": 10828,
+      "sha256": "877c8dcc1750c70226ba5f08c56fb3d2621dac3d75fc95e598e3c05ddf6b363b"
+    },
+    {
+      "path": "docs/reference/masteryi/attack-trail-mesh-transport.json",
+      "bytes": 1634,
+      "sha256": "a7b5eb7e27d0f0ff64627a0eb256fb8643718ccd1d12a105e61f8bdf7fcc1673"
+    },
+    {
+      "path": "public/assets/models/masteryi-base.glb",
+      "bytes": 6487088,
+      "sha256": "7aae9e8e486c34d780113349c4a4d06830a5498a906ff291a49263090da471cc"
+    },
+    {
+      "path": "public/assets/models/masteryi-primary-trail.glb",
+      "bytes": 38976,
+      "sha256": "dcda4441fb23413a7672b2aa26e23f1bda81920353d25c6e0f3168b0055450b2"
+    },
+    {
+      "path": "src/render/source-particle-surfaces.ts",
+      "bytes": 20350,
+      "sha256": "350c3dd411941f039a61d4b08d3b691ae2cfe1f20e43e4eaf38b45dbc4e80590"
+    },
+    {
+      "path": "src/render/masteryi-sword-instances.ts",
+      "bytes": 12126,
+      "sha256": "90d9bc910e25125f95b0bc1b14ca7f8a1de7f49d8a8c85f919a2d5ec32389071"
+    },
+    {
+      "path": "src/render/masteryi-source-geometry.ts",
+      "bytes": 212,
+      "sha256": "b1a1cf1776b622df57a0a68d8dba8b7167c46e8b0e6f416e51f97c94a9be70c1"
+    },
+    {
+      "path": "src/render/masteryi-source-textures.ts",
+      "bytes": 298,
+      "sha256": "4a7d461284da5e55897d5be3038f6b7cbc171b4a757314ed4079ad5b441137ac"
+    },
+    {
+      "path": "src/render/mobile-pose.ts",
+      "bytes": 10735,
+      "sha256": "eb9ebfdcdad233925b6342f867c8ecbc54afb9a94eea84b494ec16067da572a3"
+    },
+    {
+      "path": "src/simulation/actor-root-history.ts",
+      "bytes": 2809,
+      "sha256": "6ce5ab72c5b54091b20f0a962fec3b7a8599e49f2c7c679c53656042be32d59f"
+    },
+    {
+      "path": "src/simulation/masteryi-double-strike.ts",
+      "bytes": 3867,
+      "sha256": "b4ba453a26f213cfc41f3038b27ddfc94349c1e187aa2bfca59296442961dfc0"
+    },
+    {
+      "path": "tests/lane-rules.test.ts",
+      "bytes": 5533,
+      "sha256": "d12c8deaba4ba8933dca9a045b1eeae20b1869167f5b9e1fcf0dbfc39e8c1d4a"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-passive-trail-runtime/final-source-index.json",
+    "bytes": 8856,
+    "sha256": "5fa9ac7cee42c8474bca7d19163a6769a60a5841e7dbb8e66ebb224918db569b"
+  },
+  "generated": [
+    {
+      "path": "README.md",
+      "bytes": 17971,
+      "sha256": "5b38f2e1c08901c08f17d722b14f46cb764dfca5d8193b1d0caa99415a729404",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/README.md"
+    },
+    {
+      "path": "docs/MASTER-YI-PASSIVE-TRAILS.md",
+      "bytes": 3331,
+      "sha256": "01729911d105682582e11721f6d95093485bbeccc554fc4093e233e7492da0f9",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/docs/MASTER-YI-PASSIVE-TRAILS.md"
+    },
+    {
+      "path": "docs/MASTER-YI-PRIMARY-TRAILS.md",
+      "bytes": 2656,
+      "sha256": "a047b8d6a00c40870e5d38073922cad1ec8c891d0d5378fc1ce0847a4f3dbd3f",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/docs/MASTER-YI-PRIMARY-TRAILS.md"
+    },
+    {
+      "path": "docs/SAVES.md",
+      "bytes": 63784,
+      "sha256": "71002fc1e05d932868698c6e12f6e7c4364be2d633d9911da08d6898dbe29548",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/docs/SAVES.md"
+    },
+    {
+      "path": "docs/reference/masteryi/passive-trail-runtime-reading.json",
+      "bytes": 2094,
+      "sha256": "2e7be1deefe6c50fd4a0e389b13b45fd0ed5b39464c528a22262306cb26d75a4",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/docs/reference/masteryi/passive-trail-runtime-reading.json"
+    },
+    {
+      "path": "e2e/masteryi-passive-sword-order.spec.ts",
+      "bytes": 5244,
+      "sha256": "5d02a87964d8d441f25ec10a7f1c023cc34aeb273042978c70f4935ffe79d353",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/e2e/masteryi-passive-sword-order.spec.ts"
+    },
+    {
+      "path": "e2e/masteryi-passive-trails.spec.ts",
+      "bytes": 21961,
+      "sha256": "280dfac58c0541d60297f02664f553030b7c916b8843c302830c8d6c1be52e36",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/e2e/masteryi-passive-trails.spec.ts"
+    },
+    {
+      "path": "public/assets/effects/masteryi-passive-trail-7e6f398c1b239116.png",
+      "bytes": 9629,
+      "sha256": "50120404ca5290592df24045f1c35f0013aca367fb4bcd43116fb03ff79e02ce",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/public/assets/effects/masteryi-passive-trail-7e6f398c1b239116.png"
+    },
+    {
+      "path": "src/content/masteryi-passive-trail-particles.json",
+      "bytes": 22685,
+      "sha256": "6171ec50b6258a4169f86e673f1b5e30548c9df9edb4e1ea1b373cdc415cf399",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/src/content/masteryi-passive-trail-particles.json"
+    },
+    {
+      "path": "src/content/masteryi-passive-trail-timing.ts",
+      "bytes": 355,
+      "sha256": "46b38d233c9a0d7ed50bf52ee39b7227090b34be9b4937b670f0a067f311013a",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/src/content/masteryi-passive-trail-timing.ts"
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 21892,
+      "sha256": "f38920f4671b8c36c6a807e2b4754fe435a7aa366f7a88c3f118e1af03a1b3b4",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/src/main.ts"
+    },
+    {
+      "path": "src/render/finite-trail-particles.ts",
+      "bytes": 3804,
+      "sha256": "4b98058b8b4389ded53c27126f59f776cf02f831b592d12d50ebc53b92bc2455",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/src/render/finite-trail-particles.ts"
+    },
+    {
+      "path": "src/render/lazy-masteryi-passive-trails.ts",
+      "bytes": 1521,
+      "sha256": "963bbdd7710cb79f3169bd433e5a25bb73692a7b3fb4ed8f22c5ffbe207d6095",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/src/render/lazy-masteryi-passive-trails.ts"
+    },
+    {
+      "path": "src/render/masteryi-passive-trail-particles.ts",
+      "bytes": 360,
+      "sha256": "996bebe744a49446d162b2a98b1cbfcbb19b5353fddec3a668ba892d88e3400f",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/src/render/masteryi-passive-trail-particles.ts"
+    },
+    {
+      "path": "src/render/masteryi-passive-trails.ts",
+      "bytes": 7196,
+      "sha256": "6f682ea255b8397551a8fc1c023d9f85f4b189999ced36e0181de89940bb36b9",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/src/render/masteryi-passive-trails.ts"
+    },
+    {
+      "path": "src/render/masteryi-primary-trail-particles.ts",
+      "bytes": 360,
+      "sha256": "475d736feed3cc2c3427aac6433c82f809b6c76e3d987e52663a748d86115ff3",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/src/render/masteryi-primary-trail-particles.ts"
+    },
+    {
+      "path": "src/render/view.ts",
+      "bytes": 63384,
+      "sha256": "7951fe578866512528bc5f3d02ffffdacd3fa33bba9a8d5b1466ce32bb5ea108",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/src/render/view.ts"
+    },
+    {
+      "path": "src/simulation/champion-state.ts",
+      "bytes": 4279,
+      "sha256": "d5ca652750864737bcd31d5b57c257b0d429c017a4e65bee8cc68aee7f4b431f",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/src/simulation/champion-state.ts"
+    },
+    {
+      "path": "src/simulation/masteryi-passive-trails.ts",
+      "bytes": 6464,
+      "sha256": "c2a990a758515c3d1ec2b63d73c52fe0e600d459f308926ac4e07373a0bf0704",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/src/simulation/masteryi-passive-trails.ts"
+    },
+    {
+      "path": "src/simulation/masteryi-primary-trails.ts",
+      "bytes": 2988,
+      "sha256": "c5ba2ff40b80a6548ff733811f03961979c8e4914d0876771ce9567e49c4c5b8",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/src/simulation/masteryi-primary-trails.ts"
+    },
+    {
+      "path": "src/simulation/rendered-event-clock.ts",
+      "bytes": 1159,
+      "sha256": "bf8f674bfe2a4652868fa3d1b92983bb4a6a0fd13c984076f3e66d741a0a0ca8",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/src/simulation/rendered-event-clock.ts"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "bytes": 187114,
+      "sha256": "cca7c8902f74f03ad0dfab32211b546f4e217e742f05ffdfdd580e166221108f",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/src/simulation/snapshot.ts"
+    },
+    {
+      "path": "src/simulation/types.ts",
+      "bytes": 22851,
+      "sha256": "da0edefa9801b82f814f49a3ee163eb3d32b0dc902d35e17ceed7b2366c73350",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/src/simulation/types.ts"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "bytes": 295878,
+      "sha256": "99356ac18ffd496d914293eddacbbb517077f43dedb153340ba0652c2bdeee5c",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/src/simulation/world.ts"
+    },
+    {
+      "path": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "0b2f7f4ba6555b6451cc84c86abc097c3b1bfe7446155bb0a80090d68f6e5581",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/tests/lux-e-hit.test.ts"
+    },
+    {
+      "path": "tests/masteryi-passive-trails.test.ts",
+      "bytes": 8857,
+      "sha256": "5fb25f2f2a2fecd2bced25f00c31e0f5a82cb11d682e899d40f9971b5bc3f670",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/tests/masteryi-passive-trails.test.ts"
+    },
+    {
+      "path": "tools/assets/export-masteryi-passive-trails.py",
+      "bytes": 5052,
+      "sha256": "cb6787f1b8c4b40be93762910c56d2162e25c0398e120d447781853f0cca914a",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/tools/assets/export-masteryi-passive-trails.py"
+    },
+    {
+      "path": "tools/assets/export-masteryi-primary-trails.py",
+      "bytes": 7923,
+      "sha256": "7321c4f2cd76c0b7ecd229abb1e2b360bdf75a42c8d0d9d22d11076f28058d42",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/tools/assets/export-masteryi-primary-trails.py"
+    },
+    {
+      "path": "tools/assets/masteryi_passive_trail_particles.py",
+      "bytes": 669,
+      "sha256": "87b34db8d38aca4b1bf5ff4a6addbda4fca0f8f1baaae9bdad953ffe72ce9623",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/tools/assets/masteryi_passive_trail_particles.py"
+    },
+    {
+      "path": "tools/assets/masteryi_primary_trail_particles.py",
+      "bytes": 3586,
+      "sha256": "71116ae5ab1dacfe58b73ede6b8e8a840ad105ab94c38f897e2ebbf5362b9b1a",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/tools/assets/masteryi_primary_trail_particles.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-passive-trails.py",
+      "bytes": 6345,
+      "sha256": "c01fd23218f25767abae2c293ffcbdfb7a4f78f581da45c2c3bab70aaafcddcb",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/tools/assets/test-masteryi-passive-trails.py"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 30080,
+      "sha256": "0a4fc172f008881171c687bb727260d920db90f870e3e99568a020c13b31cc42",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/tools/qa/production-subpath.mjs"
+    },
+    {
+      "path": "tools/ruleset-fingerprint.ts",
+      "bytes": 12779,
+      "sha256": "bcdc5b012e4e16e482bc24786ecd1a40abeb883819b5bd11c3c46dc996d01a10",
+      "archived": ".cache/masteryi-passive-trail-runtime/final-source/tools/ruleset-fingerprint.ts"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/DESIGN.md",
+      "bytes": 2858,
+      "sha256": "edd2d355bb610422001bbbf6747022fbcdb4ce97553af91a4222544f8a1c5001"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/SOURCE-NOTES.md",
+      "bytes": 1258,
+      "sha256": "62982700184907ec491133c0031c35bba3cd7c89e58ea6a5b751fbc48186f6ec"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/browser-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/browser-final/masteryi-passive-trails-bo-c20d5-nt-frames-and-saved-futures/passive-trail-events.png",
+      "bytes": 814610,
+      "sha256": "b24caadb80de41f6a8700a7dc3604f5ca8027f3d25b003712f8f9143b5ba4567"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/browser-final/masteryi-passive-trails-bo-c20d5-nt-frames-and-saved-futures/passive-trail-gpu-save.json",
+      "bytes": 38552,
+      "sha256": "40cd926d57ae75f29946c356e832daef7f4be42cdb5f064134c2718c20c4d6d0"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/browser-final/masteryi-passive-trails-bo-eefea-d-preserve-the-saved-future/passive-hidden-birth.json",
+      "bytes": 98,
+      "sha256": "dd32f77b9a7bd164d66c3e3c8115ed9e24e8521c3f3d52b2de6fca7506c24c70"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/browser-final/masteryi-passive-trails-mo-0a432-ictory-tails-preserve-saves/passive-visibility-terminal.json",
+      "bytes": 264,
+      "sha256": "6236506860afb75321e88957a63acaa243875aad7802cb8ebc9a7a65e2ae43ed"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/browser-final/masteryi-passive-trails-or-869bf-s-shared-verified-downloads/passive-selective-retry.json",
+      "bytes": 918,
+      "sha256": "cd05dff145ed24b1fc8de4b820719bbc1c06e2a65b858e2ae5687b63783664cb"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/browser-final/masteryi-primary-trails-ca-61db2--tails-preserve-saved-state/primary-visibility-terminal.json",
+      "bytes": 182,
+      "sha256": "3a9dac88e5e4a179df8e2d8bf95656e298deb0e550b6f0246a15b4b5e1bc0436"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/browser-final/masteryi-primary-trails-hi-42141-nd-restores-an-exact-future/primary-hidden-birth.json",
+      "bytes": 74,
+      "sha256": "49426eec36806fd45cc5aa9b17b1e4d9593bd172e704ec0cf94da1cdb480196b"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/browser-final/masteryi-primary-trails-or-3fe7b-reserves-verified-resources/primary-selective-retry.json",
+      "bytes": 750,
+      "sha256": "f75d7c1b5487cdedecab1b0345e67c8ad66e004eafea0e2c626654749877ad2c"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/browser-final/masteryi-primary-trails-pr-5e614-nt-frames-and-saved-futures/critical-primary-trail.png",
+      "bytes": 804580,
+      "sha256": "72e75f8b77b61969c064f029134c8d86708c1b1e7336a4b4ded12cda39ca4ef0"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/browser-final/masteryi-primary-trails-pr-5e614-nt-frames-and-saved-futures/primary-trail-gpu-save.json",
+      "bytes": 35256,
+      "sha256": "bd7e311cb464a8fa2f224e71315c66491f87f9c18da5f65e6033dfbabceb0380"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/browser-final.log",
+      "bytes": 5927,
+      "sha256": "6b5435e54913725774f92463b733a55515d029d37fd3546aeb79b04e3427b62b"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/browser-initial/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/browser-initial/masteryi-passive-trails-bo-c20d5-nt-frames-and-saved-futures/passive-trail-events.png",
+      "bytes": 814168,
+      "sha256": "da03c0b6e1bf6c0a9321e82a9293a05816a4246d7aba469f4a1e5a16eb9371d9"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/browser-initial/masteryi-passive-trails-bo-c20d5-nt-frames-and-saved-futures/passive-trail-gpu-save.json",
+      "bytes": 38552,
+      "sha256": "c8c4ebf52b6ef8644144de3e11854cbb86287c445b2818e3cd8134e4f79cb725"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/browser-initial.log",
+      "bytes": 811,
+      "sha256": "01a1a802c481bee41939bea4be90b87dbf7c9c3dfc8b1cd12c512d3a66ff4c0f"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/browser-sword-order/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/browser-sword-order/masteryi-passive-sword-ord-c4050-pixels-across-camera-angles/passive-sword-gpu-order.json",
+      "bytes": 557,
+      "sha256": "e2bf7775a0b9e26594d61bc5ed02b50df85bea7e251f2e4a8fdddbbf9f1fa2f4"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/browser-sword-order.log",
+      "bytes": 686,
+      "sha256": "0abccfe6d58c91c57d733fe123ad2e442ab4ee0ef9bf3ac9d338e7690aa5ca3c"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/build.log",
+      "bytes": 7597,
+      "sha256": "b5bd3d8288573fa43b6fc323ca5dbdc05bf40f2cb74d30a8f0917320b87f8987"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/capture-identity.py",
+      "bytes": 924,
+      "sha256": "81e0c32a84070201a28b2f3162d02ecceefc8e4286da1058f58dfaf95a01ae59"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/check-phase.json",
+      "bytes": 357,
+      "sha256": "0d29b6c15f910bc14f278efc936abc7c2e113e211b257bb2abe27d371bc02953"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/export-initial.log",
+      "bytes": 98,
+      "sha256": "b1a1fc4d89e5469c3027289d5dd864e4cbac2187630793180730fb53ab5afd2f"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/final-source-index.json",
+      "bytes": 8856,
+      "sha256": "5fa9ac7cee42c8474bca7d19163a6769a60a5841e7dbb8e66ebb224918db569b"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/finish-checks.py",
+      "bytes": 1483,
+      "sha256": "e1d827b89ffa10cc81ddb7c0c5a55c32ceca3e570978ed1ecf985f49816f3381"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/format-browser-expanded.log",
+      "bytes": 91,
+      "sha256": "1e0f36706bb35d30e0bbde1e1a3ed6d2328af9c1dda91a8a5559c379a505320d"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/format-browser.log",
+      "bytes": 42,
+      "sha256": "1280988f30a44a1480c01440272896dd41096c4d9540c92a184a6c6c1e6a651a"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/format-fixtures.log",
+      "bytes": 44,
+      "sha256": "4ed6bbbb26027bb914a6f5f8f6bc57327d373aff9c073de870485f4d03cc0a64"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/format-particles.log",
+      "bytes": 44,
+      "sha256": "651666118fc39f1b8823cca34d29ad3467d618618c18444c0d29bad1a392f131"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/format-render.log",
+      "bytes": 370,
+      "sha256": "e40edcb2de40589f8b27920a9f50781fd3757b01802ddfe90714c0e9b23051a2"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/format-state.log",
+      "bytes": 406,
+      "sha256": "b02f9806a2736ea6318893c6148852609f61b6c172f6ed47fe562fcd29724a82"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/format-sword-order.log",
+      "bytes": 47,
+      "sha256": "33d2f683523a4d6f8623ef489e23340664f26a094c9be250610743639b86710a"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/format-tests.log",
+      "bytes": 44,
+      "sha256": "396e30c2301d44afb21cab4835e53267121a6aa74d9115852804e98143156af6"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/full-unit.log",
+      "bytes": 5486,
+      "sha256": "449adff4d81ef5f07ed962c61981946ecd1aacc3cdf8db922f1bd683b9a1490f"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/generated-prototype/docs/reference/masteryi/passive-trail-runtime-reading.json",
+      "bytes": 2094,
+      "sha256": "2e7be1deefe6c50fd4a0e389b13b45fd0ed5b39464c528a22262306cb26d75a4"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/generated-prototype/public/assets/effects/masteryi-passive-trail-7e6f398c1b239116.png",
+      "bytes": 9629,
+      "sha256": "50120404ca5290592df24045f1c35f0013aca367fb4bcd43116fb03ff79e02ce"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/generated-prototype/public/assets/effects/masteryi-primary-trail-52a4a423e68d3e41.png",
+      "bytes": 9611,
+      "sha256": "83ae474e0009a1ddc3668c18ef0dd00e57d831a898537924b6dc47784b736d0c"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/generated-prototype/public/assets/effects/masteryi-q-contact-dba30aea46f8d87f.png",
+      "bytes": 702,
+      "sha256": "30df4a0ee4cd6cc8d680584586e77e764328930403fae425708a9e845c0edcc8"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/generated-prototype/public/assets/models/masteryi-primary-trail.glb",
+      "bytes": 38976,
+      "sha256": "dcda4441fb23413a7672b2aa26e23f1bda81920353d25c6e0f3168b0055450b2"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/generated-prototype/src/content/masteryi-passive-trail-particles.json",
+      "bytes": 22685,
+      "sha256": "6171ec50b6258a4169f86e673f1b5e30548c9df9edb4e1ea1b373cdc415cf399"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/generated-prototype/src/content/masteryi-passive-trail-timing.ts",
+      "bytes": 355,
+      "sha256": "46b38d233c9a0d7ed50bf52ee39b7227090b34be9b4937b670f0a067f311013a"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/guards-initial.log",
+      "bytes": 126,
+      "sha256": "dd98158a22e3204462fd26a512765acc27e6ec7b987cdb5a586650698dd11288"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/identity.json",
+      "bytes": 256,
+      "sha256": "b3918f94bb81a8b45a23209a272f3f47b5465764f3ea29da836f56c10cb220ff"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/node-qa.log",
+      "bytes": 372,
+      "sha256": "0a57e8540aa3495f3242e265f73d724e0c9e9970597e10c0440fedc3730d34df"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/offline-pack.json",
+      "bytes": 170398,
+      "sha256": "8be60d37574203ea1b097bce6b227a841871b0e45c73c2c62f3a6c029f3e85da"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/passive-check-normal.log",
+      "bytes": 98,
+      "sha256": "b1a1fc4d89e5469c3027289d5dd864e4cbac2187630793180730fb53ab5afd2f"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/passive-check-optimized.log",
+      "bytes": 98,
+      "sha256": "b1a1fc4d89e5469c3027289d5dd864e4cbac2187630793180730fb53ab5afd2f"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/passive-guards-normal.log",
+      "bytes": 126,
+      "sha256": "c88b0be4f7e69e37c2118a9fd6d517e0ec7bcda6543d4cb68fbf3b71bea23b3f"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/passive-guards-optimized.log",
+      "bytes": 126,
+      "sha256": "a5edd2e70dfaf660f4f7412206c726b62d30e09cec78e53b6f226ea0d2b9fff9"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/passive-replay-normal.log",
+      "bytes": 98,
+      "sha256": "b1a1fc4d89e5469c3027289d5dd864e4cbac2187630793180730fb53ab5afd2f"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/passive-replay-optimized.log",
+      "bytes": 98,
+      "sha256": "b1a1fc4d89e5469c3027289d5dd864e4cbac2187630793180730fb53ab5afd2f"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/pipeline.log",
+      "bytes": 201,
+      "sha256": "7aa2b17c7a446ddd5e2f4bcdfffa41b4cbaea00da5db5e15150c5cafbb7a9f38"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/primary-check-normal.log",
+      "bytes": 98,
+      "sha256": "82b20c9031fdd4fb250482c99e00eff18165d4aafae2eb15113b97d9923a4594"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/primary-check-optimized.log",
+      "bytes": 98,
+      "sha256": "82b20c9031fdd4fb250482c99e00eff18165d4aafae2eb15113b97d9923a4594"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/primary-export-check.log",
+      "bytes": 98,
+      "sha256": "82b20c9031fdd4fb250482c99e00eff18165d4aafae2eb15113b97d9923a4594"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/primary-guards-normal.log",
+      "bytes": 124,
+      "sha256": "ed7e930957eb73cc08b5f9eeed4e93de327e150470f9b83e712353eba4becab3"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/primary-guards-optimized.log",
+      "bytes": 124,
+      "sha256": "59cdb918e67586a289ee413e7fcaea86d674fabfeb40710b6c5fbea5bb093001"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/primary-guards.log",
+      "bytes": 124,
+      "sha256": "fb32c2bcfbc24f184f59923a6e882465df73798e652493bf0671d3591649e9b0"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/primary-replay-normal.log",
+      "bytes": 98,
+      "sha256": "82b20c9031fdd4fb250482c99e00eff18165d4aafae2eb15113b97d9923a4594"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/primary-replay-optimized.log",
+      "bytes": 98,
+      "sha256": "82b20c9031fdd4fb250482c99e00eff18165d4aafae2eb15113b97d9923a4594"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/probe-prospective.py",
+      "bytes": 1241,
+      "sha256": "f885ca6758f4ab261f95eac67429c7134a3d1835f2b790bae6b608b9a5871b08"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/probe-source.py",
+      "bytes": 1775,
+      "sha256": "7d2661f09e14809ee3461c96d3cf83c449438f18bb877f61a02384ca2e38de1d"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1814166,
+      "sha256": "7e63061ee8e62c70e9cc2904686c0095c0f0de9e7bb1a9a5ced294f45b7a1b4d"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835500,
+      "sha256": "61b3da1e65d2163c9bc52b7ce135f0857bc8ba9182db76ea58e2dbea8398b183"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1827577,
+      "sha256": "2173740c1d386b36c8488a933b433af13d7f29bc3991e20465fa41734422807b"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1812051,
+      "sha256": "7dcfbe819f89cbb1bdbb22c2acdfaab44b29c1dc773c7fc22c6458cbfca89be6"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1820399,
+      "sha256": "8160d71543fd1acb2ff3c9895752f455b13a3ceb4ce9e9fd94b33f89bd4fa4fe"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1351452,
+      "sha256": "12850e35f9a04ee25a29e9a3e0b31e4493d12871dc69e920d8627f58619c0a4b"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1826166,
+      "sha256": "63dcd7c3ae60aaae33e33a5ba9d3b57323f7ee8a1ddb67383651adfc05d3217f"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808921,
+      "sha256": "d6d0749ca2e0670660578d57128eca10ca891011df2bd1ac038752629999a680"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/production-system.mjs",
+      "bytes": 30122,
+      "sha256": "0ee4c94b520b678b8e95dafcf1eaa0aa1bc8c24d28a0b6a5236b8331763bd483"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/production.log",
+      "bytes": 2810,
+      "sha256": "b54638d9494ad225955005f32755e1283f387f9bec4a40c4a4003f84a378ed5e"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/prospective-probe.json",
+      "bytes": 2433,
+      "sha256": "940e3d5bfbd171cb26cc441d13740cd566b82c9555b7aa629a326ca41821be1a"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/prospective-src/rendered-event-clock.ts",
+      "bytes": 1159,
+      "sha256": "bf8f674bfe2a4652868fa3d1b92983bb4a6a0fd13c984076f3e66d741a0a0ca8"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/prospective-tools/__pycache__/masteryi_passive_trail_particles.cpython-312.pyc",
+      "bytes": 798,
+      "sha256": "b7536dfd811589ab427bd99a931347409517386b51444d099bdc32a4464ad98f"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/prospective-tools/__pycache__/masteryi_primary_trail_particles.cpython-312.pyc",
+      "bytes": 7288,
+      "sha256": "e30ff4008db45e528567e651e27e5917cf5bff9980a437bbafded8fe5323e995"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/prospective-tools/export-masteryi-passive-trails.py",
+      "bytes": 5052,
+      "sha256": "cb6787f1b8c4b40be93762910c56d2162e25c0398e120d447781853f0cca914a"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/prospective-tools/export-masteryi-primary-trails.py",
+      "bytes": 7923,
+      "sha256": "7321c4f2cd76c0b7ecd229abb1e2b360bdf75a42c8d0d9d22d11076f28058d42"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/prospective-tools/masteryi_passive_trail_particles.py",
+      "bytes": 419,
+      "sha256": "cbf5ec4111b6db0a45382cdf91a473087e0e73f594e30980815fcbd8a2f83404"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/prospective-tools/masteryi_primary_trail_particles.py",
+      "bytes": 3586,
+      "sha256": "71116ae5ab1dacfe58b73ede6b8e8a840ad105ab94c38f897e2ebbf5362b9b1a"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/record-verification.py",
+      "bytes": 8698,
+      "sha256": "e54e3d736be37739ca6a791022f67ba7a23af0376610db7a1c3c2201a413a1d2"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/ruleset.txt",
+      "bytes": 65,
+      "sha256": "fdc50a924c05fdf2767d2be55dd61a32e1405c75023c67822953e79a826ee0ba"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/source-probe.json",
+      "bytes": 13608,
+      "sha256": "36db3e150f1a632c8a8268400d9d09e71667fd3d305ea0fba4dd8afc61030f3b"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/source-replay.json",
+      "bytes": 2677,
+      "sha256": "e97c6b87d210b66e97ee5fc80f8b69a2548d4bc4855840df5f745c48df600409"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/source-scope.json",
+      "bytes": 1389,
+      "sha256": "f775a710343343ac3a7a963325a91ad96056bac517a773b8f9ac85c29e0fed7a"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/source-verification.log",
+      "bytes": 83,
+      "sha256": "bdeaf76d323c80062c1b11406f18848413b12e8434a7d2fa14d7527fb217a3b7"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/stage-and-commit.py",
+      "bytes": 1272,
+      "sha256": "34babbde60859a12e8a01caece0d9ee7c70182ca79e96a37371d2be1197d896f"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/state-initial.log",
+      "bytes": 371,
+      "sha256": "ab94ca6baa3925c2c27cdb7f3abe63b0983ea98c6601fdc3423fbe3ee2102f01"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/types-render.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/types-state.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/unit-fixture-fixed.log",
+      "bytes": 170,
+      "sha256": "304cf1f3c488679b685327dc113c31da1b3e46a7ef521f8eb30d81a243d74a4d"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/unit-initial.log",
+      "bytes": 3462,
+      "sha256": "31f7b9cc700a71800bd643f3d2b3f261a29f1f41dbee7230eea7644f567e6c32"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/unit-particles.log",
+      "bytes": 369,
+      "sha256": "d0d98d21ac14390062ddcd8cfb5ae6feea760b1e13d8b1d96c023e9f323118ca"
+    },
+    {
+      "path": ".cache/masteryi-passive-trail-runtime/verify-source.py",
+      "bytes": 1317,
+      "sha256": "0b6db15c717a628ba56edfde3529506586c469eb2a2ba578bc5dcd39b7c3f4db"
+    }
+  ],
+  "checks": {
+    "source": {
+      "guardsPerMode": 52,
+      "primaryGuards": 25,
+      "passiveGuards": 27,
+      "modes": [
+        "normal",
+        "optimized"
+      ],
+      "distinctOutputs": 11,
+      "replayBytesAndMtimes": "unchanged",
+      "primaryDefaultOutputs": "all seven remain byte-identical"
+    },
+    "focused": {
+      "finalCases": 80,
+      "files": 3,
+      "newPassiveCases": 25,
+      "initialControllerRegressionCases": 155,
+      "initialControllerRegressionFiles": 4
+    },
+    "fullUnit": {
+      "passed": 3013,
+      "failed": 3,
+      "total": 3016,
+      "files": 385,
+      "originalFiveSecondWaveClock": "passed"
+    },
+    "browser": {
+      "acceptedUniqueCases": 9,
+      "environment": "system Chromium154 / SwiftShader",
+      "passiveTrailCases": 4,
+      "primaryRegressionCases": 4,
+      "combinedSwordCase": 1,
+      "passiveGpuMips": 25,
+      "primaryGpuMips": 25,
+      "nativeSharedMeshCorners": 1500,
+      "geometryAttributes": "exact logical attribute bytes; interleaved strides respected",
+      "familiesWithNonblackPixels": [
+        "MasterYi_P_Trail_1",
+        "MasterYi_P_Trail_2"
+      ],
+      "actualFullJointFrames": "position and quaternion errors below 1e-6",
+      "actualPrimaryAndPassiveGeometryIdentity": "shared; one GLB request per page",
+      "saveReloadAndFuture": "exact",
+      "ordinaryStartupAndSelectiveRetry": "passed",
+      "movementQFogCorpseVictory": "passed"
+    },
+    "combinedSwordGpuComparison": {
+      "rows": [
+        {
+          "angle": 0,
+          "differences": 0,
+          "nonblack": 110592,
+          "calls": [
+            233,
+            233
+          ],
+          "activeBatches": 0
+        },
+        {
+          "angle": 0.8,
+          "differences": 0,
+          "nonblack": 110592,
+          "calls": [
+            233,
+            233
+          ],
+          "activeBatches": 0
+        },
+        {
+          "angle": 1.6,
+          "differences": 0,
+          "nonblack": 110592,
+          "calls": [
+            233,
+            29
+          ],
+          "activeBatches": 1
+        }
+      ],
+      "passiveProfiles": [
+        0,
+        1
+      ],
+      "swordSurfaces": 205
+    },
+    "build": "passed; diagnostics retained",
+    "nodeQA": {
+      "passed": 3
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 13,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderAudioPreloads": 0,
+      "unrequestedMasterYiAlphaAudioPreloads": 0,
+      "unrequestedMasterYiMeditateAudioPreloads": 0,
+      "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+      "unrequestedMasterYiSwordPreloads": 0,
+      "unrequestedMasterYiPrimaryTrailPreloads": 0,
+      "unrequestedMasterYiPassiveTrailPreloads": 0,
+      "unrequestedMasterYiMeditateDamagePreloads": 0,
+      "unrequestedMasterYiHighlanderKillPreloads": 0,
+      "unrequestedMasterYiHighlanderCastPreloads": 0,
+      "unrequestedMasterYiQEndPreloads": 0,
+      "unrequestedMasterYiQCastPreloads": 0,
+      "unrequestedMasterYiQContactPreloads": 0,
+      "unrequestedMasterYiMeditateCastPreloads": 0,
+      "unrequestedMasterYiMeditateBuffPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 221,
+      "scheduledBlueRequests": 13,
+      "scheduledRedRequests": 13,
+      "scheduledWolfRequests": 26,
+      "scheduledRaptorRequests": 26,
+      "scheduledKrugRequests": 39,
+      "scheduledScuttlerRequests": 13,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    }
+  },
+  "baselineFailures": [
+    "Original Leona attached-skin reflection check.py absent.",
+    "Original distortion metallib, bitcode and disassembly compiler artifacts unavailable.",
+    "Lux first fifteen sampler actual 4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a versus pinned 09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df; previously reproduced on untouched baseline."
+  ],
+  "retainedDiagnostics": [
+    "Initial interruption fixture omitted the required Q targetId, so its cast was not accepted. The corrected fixture targets the actual dummy and verifies the live child survives its pose cut.",
+    "Initial death fixture used an invalid null damage source, and malformed-save fixtures used the wrong owner field. They now use an actual unit source and otherChampions, exercising the decoder rather than failing fixture setup.",
+    "Source-adapter prototypes were prepared in ignored cache while the prior checkpoint stayed frozen. The final archived source and accepted generated outputs are authoritative.",
+    "Actual passive trails can interleave sword surfaces. The combined test preserves exact pixels: two sampled angles conservatively keep 233 draws, while the third uses 29 draws. This is retained evidence of fallback behavior, not a universal draw budget."
+  ],
+  "limits": [
+    "Literal source frames index identical retained rendered default/event clocks. Fixed-step decisions and one-tick first update are local policies; native callback clocks and event semantics remain uncalibrated.",
+    "The current Passive primary body pose controls each local marker decision. Movement can suppress one event while a later pose admits another. Q/W pose cuts do not cancel an already accepted gameplay child. Native transition/mask/callback rules remain separate calibration work.",
+    "Both source blend4 values are explicit. Omitted local/particle-local fields stay raw null; the current full center-joint adapter, source-X reflection and .01 units are local reconstruction choices. Native placement, inherited rig scale, shader inputs and frame parity are not certified.",
+    "No complete historical combat or pose ledger is saved. Structural validation checks active linkage and canonical clocks/roots but cannot independently prove every past child admission or Boolean marker decision.",
+    "Two particle events do not establish two passive audio callbacks. No audio is added; Attack2 remains retained without new ordinary alternation.",
+    "GPU equality is against the retained local source renderer. Chromium/SwiftShader results do not establish physical-device FPS, native-client parity or offline-install certification.",
+    "Ignored evidence requires preservation; exact changed source files are independently archived."
+  ]
+}

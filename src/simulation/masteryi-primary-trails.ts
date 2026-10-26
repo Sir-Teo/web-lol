@@ -1,3 +1,4 @@
+import { renderedEventTick } from './rendered-event-clock';
 import {
   PRIMARY_TRAIL_HISTORY_TICKS,
   PRIMARY_TRAIL_MARKERS,
@@ -12,22 +13,11 @@ import type { World } from './world';
 export function primaryTrailMarkerTick(
   record: Pick<MasterYiAttackAudio, 'startTick' | 'endTick' | 'kind'>
 ): number {
-  if (
-    !Number.isSafeInteger(record.startTick) ||
-    !Number.isSafeInteger(record.endTick) ||
-    record.endTick <= record.startTick
-  )
-    throw RangeError('Invalid primary trail cycle');
-  const marker = PRIMARY_TRAIL_MARKERS[record.kind],
-    duration = record.endTick - record.startTick;
-  const rate = marker.renderedDuration / (duration / 60);
-  let offset = Math.max(
-    0,
-    Math.ceil((marker.renderedSeconds / marker.renderedDuration) * duration)
+  return renderedEventTick(
+    record,
+    PRIMARY_TRAIL_MARKERS[record.kind],
+    'Invalid primary trail cycle'
   );
-  while (offset > 0 && ((offset - 1) / 60) * rate >= marker.renderedSeconds) offset--;
-  while ((offset / 60) * rate < marker.renderedSeconds) offset++;
-  return record.startTick + offset;
 }
 export function primaryTrailExpiry(record: MasterYiAttackAudio): number {
   return primaryTrailMarkerTick(record) + 1 + PRIMARY_TRAIL_HISTORY_TICKS;

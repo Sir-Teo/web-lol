@@ -10,7 +10,8 @@ MESH=Path('docs/reference/masteryi/attack-trail-mesh-transport.json')
 TRANSPORT_SHA256='877c8dcc1750c70226ba5f08c56fb3d2621dac3d75fc95e598e3c05ddf6b363b'
 MESH_SHA256='a7b5eb7e27d0f0ff64627a0eb256fb8643718ccd1d12a105e61f8bdf7fcc1673'
 def jb(value):return(json.dumps(value,indent=2,allow_nan=False)+'\n').encode()
-def markers(model,glb):
+PRIMARY_BINDINGS=tuple(zip(SYSTEMS,('Attack1','Crit'),(5.,8.)))
+def markers(model,glb,bindings=PRIMARY_BINDINGS):
  require(glb[:4]==b'glTF'and struct.unpack_from('<II',glb,4)==(2,len(glb))and glb[16:20]==b'JSON','Invalid primary marker GLB')
  n=struct.unpack_from('<I',glb,12)[0];doc=json.loads(glb[20:20+n]);binary=glb[28+n:];animations={a['name']:a for a in doc['animations']};graph=model['animations']['data']['Characters/MasterYi/Animations/Skin0']['mClipDataMap'];joints={i for skin in doc['skins']for i in skin['joints']}
  def alias(name):return'entry_'+name[1:-1]if name.startswith('{')else name.lower()
@@ -20,7 +21,7 @@ def markers(model,glb):
    a=doc['accessors'][sampler['input']];v=doc['bufferViews'][a['bufferView']];require(a['componentType']==5126 and a['type']=='SCALAR'and'byteStride'not in v,'Unsupported primary marker clock accessor');offset=v.get('byteOffset',0)+a.get('byteOffset',0);rows.append(list(struct.unpack_from('<'+'f'*a['count'],binary,offset)))
   require(rows and all(row==rows[0]for row in rows)and rows[0][0]==0 and all(a<b for a,b in zip(rows[0],rows[0][1:])),'Mixed/invalid primary marker sample clocks');return rows[0]
  out=[]
- for system,parent,frame in zip(SYSTEMS,('Attack1','Crit'),(5.,8.)):
+ for system,parent,frame in bindings:
   root=graph[parent];require(root['__type']=='ParallelClipData'and len(root['mClipNameList'])==2,'Primary marker parent differs');default=graph[root['mClipNameList'][0]];events=[(child,key,event)for child in root['mClipNameList']for key,event in graph[child].get('mEventDataMap',{}).items()if event.get('mEffectKey')==system];require(len(events)==1,'Primary marker event closure differs');child,key,event=events[0]
   require(type(event['mStartFrame'])is float and event['mStartFrame']==frame and event['mIsLoop']is False and 'mTickDuration'not in graph[child],'Primary marker source frame/loop differs');require(default['mAnimationResourceData']==graph[child]['mAnimationResourceData'],'Primary default/event resources differ');clip=alias(root['mClipNameList'][0]);event_clip=alias(child);times=sample_times(clip);require(times==sample_times(event_clip)and frame.is_integer()and 0<=frame<len(times),'Primary marker rendered clocks differ');pair=event['mParticleEventDataPairList'];require(len(pair)==1,'Primary marker attachment count differs');bone=pair[0]['mBoneName'];nodes=[i for i,node in enumerate(doc['nodes'])if node.get('name','').lower()==bone.lower()];require(len(nodes)==1 and nodes[0]in joints,'Primary marker joint differs')
   out.append({'system':system,'parent':parent,'clip':clip,'eventClip':event_clip,'eventKey':key,'sourceFrame':frame,'renderedSeconds':times[int(frame)],'renderedDuration':times[-1],'sampleCount':len(times),'sourceBone':bone,'glbNode':nodes[0],'glbBone':doc['nodes'][nodes[0]]['name'],'profileIndex':len(out)})

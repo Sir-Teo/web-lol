@@ -1,3 +1,8 @@
+import {
+  capturePassiveTrail,
+  advancePassiveTrails,
+  resolvePassiveTrailMarkers,
+} from './masteryi-passive-trails';
 import { advancePrimaryTrailRoots } from './masteryi-primary-trails';
 import { captureSwordGlow, advanceSwordGlows, swordGlowExpiry } from './masteryi-sword-glow';
 import { captureMeditateDamage, advanceMeditateDamage } from './masteryi-meditate-damage';
@@ -3607,6 +3612,7 @@ export class World {
                   critical,
                   result: 'pending',
                 };
+                capturePassiveTrail(this, u, target);
               }
             }
             if (daybreakRank !== undefined) {
@@ -4660,6 +4666,7 @@ export class World {
           this.tick,
           durations
         );
+      if (unit.champion === 'masteryi') resolvePassiveTrailMarkers(this, unit);
     }
   }
   private captureImpactFrame(target: Unit) {
@@ -4668,6 +4675,7 @@ export class World {
   private advanceMasterYiImpactVisuals(): void {
     if (!this.units.some((unit) => unit.champion === 'masteryi')) return;
     advancePrimaryTrailRoots(this);
+    advancePassiveTrails(this);
     advanceMeditateBuffs(this);
     advanceMeditateCasts(this);
     advanceSwordGlows(this);

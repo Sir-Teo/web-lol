@@ -1,3 +1,5 @@
+import { validatePassiveTrails } from './masteryi-passive-trails';
+import { PASSIVE_TRAIL_HISTORY_TICKS } from '../content/masteryi-passive-trail-timing';
 import { validatePrimaryTrailRoots } from './masteryi-primary-trails';
 import { PRIMARY_TRAIL_HISTORY_TICKS } from '../content/masteryi-primary-trail-timing';
 import { validateSwordGlows } from './masteryi-sword-glow';
@@ -167,7 +169,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 160;
+export const SNAPSHOT_VERSION = 161;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -1192,6 +1194,32 @@ const player: z.ZodType<PlayerState> = z
               frames: z.array(daybreakFrame).min(1).max(LEONA_AA_HIT_TICKS),
             })
             .nullable(),
+        })
+      )
+      .max(1000),
+    passiveTrailVisuals: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          releaseTick: tick,
+          endTick: tick,
+          targetId: id,
+          targetTeam: z.enum(['blue', 'red', 'neutral']),
+          stopTick: tick.nullable(),
+          events: z.tuple([z.boolean().nullable(), z.boolean().nullable()]),
+          frames: z
+            .array(
+              z.strictObject({
+                tick,
+                endTick: tick,
+                x: z.number(),
+                y: z.number(),
+                facing: z.number(),
+                audience: daybreakFrame.shape.audience,
+              })
+            )
+            .min(1)
+            .max(PASSIVE_TRAIL_HISTORY_TICKS),
         })
       )
       .max(1000),
@@ -4537,6 +4565,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     validateGarenAttacks(owner, champion, state);
     validateMasterYiAttacks(owner, champion, state);
     validatePrimaryTrailRoots(owner, champion, state);
+    validatePassiveTrails(owner, champion, state);
     validateHighlanderAudio(owner, champion, state);
     validateHighlanderCasts(owner, champion, state);
     validateHighlanderKills(owner, champion, state);
