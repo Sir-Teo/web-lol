@@ -84,3 +84,8 @@ native ranges, RGBA/alpha statistics and byte-exact mesh serialization without
 importing Pillow or CDTB. [Decode verification](reference/masteryi/r-particle-decode-verification.json)
 indexes producer identities, shared-profile controls and every output replay.
 This stage remains private and changes no runtime, save schema or production pack.
+
+The [authored sword conditions](MASTER-YI-SWORD-BINDINGS.md) separately retain
+the skin's actual buff predicates and named joints: four supercharged instances
+for the active Wuju Style child, and `MasterYi_E_buff` on sword one for Highlander.
+This does not infer native scale inheritance or creation/removal callbacks.

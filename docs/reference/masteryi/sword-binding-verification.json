@@ -1,0 +1,295 @@
+{
+  "format": 1,
+  "parentCommit": "8420236b1c22fb0f56cda4feb8927a383bf47499",
+  "identityUnchanged": {
+    "schema": 158,
+    "ruleset": "5520fbbf600522f9d7d0c0a4ccacf3e08726a540b0d34368229cd524c6a1bf58",
+    "pack": {
+      "id": "a31f3ecfaa8db3bef178c8e6635a0f7ea37e55e04493d9d2034d9c0f24893b0d",
+      "files": 1169,
+      "bytes": 536420615
+    }
+  },
+  "scope": "Exact source PersistentEffectConditions establish two buff predicates, five attached instances, four unique effects and 13 emitter instances on four actual sword joints. Full bind/local orientation and original bone spelling retained. Complete private transport of nine E textures/78 authored mips. No runtime/public asset/schema/ruleset/pack change.",
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi-model.json",
+      "bytes": 82053,
+      "sha256": "4295bceeba96cfb15e006d392e7d0f3c480bb51bf8cff8872a9c39fc9873c7ce"
+    },
+    {
+      "path": "docs/reference/masteryi/character.json",
+      "bytes": 104698,
+      "sha256": "3f100c1148e1006766060822298c87aed02e86e359c385fbc2c248e4255d12fa"
+    },
+    {
+      "path": "docs/reference/masteryi/e-particles.json",
+      "bytes": 98427,
+      "sha256": "5137067c8206b7db14075d29816e08bd5281c25f8ec959f8e1b13ee5c305d9d2"
+    },
+    {
+      "path": "docs/reference/masteryi/e-particles-decoded.json",
+      "bytes": 59543,
+      "sha256": "9d7abf9623979dca4c09581d0adc6433a43b3ad8f2fd15a690fc647ef9c74d68"
+    },
+    {
+      "path": "docs/reference/masteryi/e-particle-source-verification.json",
+      "bytes": 12447,
+      "sha256": "8959b672dc8b6076ee402f7363a84f5a3b5327f92fde311516364c45609f309b"
+    },
+    {
+      "path": "docs/reference/masteryi/e-particle-decode-verification.json",
+      "bytes": 9238,
+      "sha256": "73b58bdce16dc881de4cf9dc2b5c760069a821e8e95423c5a720cd43887c2b58"
+    },
+    {
+      "path": "public/assets/models/masteryi-base.glb",
+      "bytes": 6487088,
+      "sha256": "7aae9e8e486c34d780113349c4a4d06830a5498a906ff291a49263090da471cc"
+    },
+    {
+      "path": "tools/assets/masteryi_e_particles.py",
+      "bytes": 3580,
+      "sha256": "0b560d67da2c708f4c3596a64016cdbca431fd7ba9a598121f8f04bc3960d8c1"
+    },
+    {
+      "path": "tools/assets/masteryi_q_decode.py",
+      "bytes": 7372,
+      "sha256": "552f2cf9a0cb552a97332a142bbea6f25a3b0e2c2974359a58659a2c17517ecd"
+    },
+    {
+      "path": "tools/assets/particle_mip_atlas.py",
+      "bytes": 4181,
+      "sha256": "4ba50521c7a4c0d061bbf2f8363b7a84b4db9a4bf480e3d52ae101aec6538fd6"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-sword-bindings-cloud/final-source-index.json",
+    "bytes": 2424,
+    "sha256": "a3936bf02e8cb547cb65cccfeed8c7bf881095d850511c6fbfed75d8e242cc42"
+  },
+  "generated": [
+    {
+      "path": "README.md",
+      "bytes": 16860,
+      "sha256": "a279dcc281d2a164fb4100a8246d3a1896d20f208646bb1ab584cc0a3bf017d6",
+      "archived": ".cache/masteryi-sword-bindings-cloud/final-source/README.md"
+    },
+    {
+      "path": "docs/MASTER-YI-E-PARTICLES.md",
+      "bytes": 3257,
+      "sha256": "8390887102d21f92bf641efc99ace5de2102f24ae657b28aa7b33e35d7009098",
+      "archived": ".cache/masteryi-sword-bindings-cloud/final-source/docs/MASTER-YI-E-PARTICLES.md"
+    },
+    {
+      "path": "docs/MASTER-YI-R-PARTICLES.md",
+      "bytes": 5357,
+      "sha256": "79ecf50e69933071be1e752d503832c7af7872846c34721fe3bf4e9bf9fc52c8",
+      "archived": ".cache/masteryi-sword-bindings-cloud/final-source/docs/MASTER-YI-R-PARTICLES.md"
+    },
+    {
+      "path": "docs/MASTER-YI-SWORD-BINDINGS.md",
+      "bytes": 2573,
+      "sha256": "f57d799931320a0eaccaa8f9d7bf367f65e6acf78488be2b576a0901293441b9",
+      "archived": ".cache/masteryi-sword-bindings-cloud/final-source/docs/MASTER-YI-SWORD-BINDINGS.md"
+    },
+    {
+      "path": "docs/reference/masteryi/e-texture-transport.json",
+      "bytes": 23567,
+      "sha256": "52b94f42a2bbac40c4fd8b7037566138d2f3a979af67193e60049c4fc3e0255f",
+      "archived": ".cache/masteryi-sword-bindings-cloud/final-source/docs/reference/masteryi/e-texture-transport.json"
+    },
+    {
+      "path": "docs/reference/masteryi/sword-persistent-bindings.json",
+      "bytes": 5461,
+      "sha256": "0ea42eebba35d04152a78696b5cce02050f1d50ab6dd4cf2b2c79aaba3456c1c",
+      "archived": ".cache/masteryi-sword-bindings-cloud/final-source/docs/reference/masteryi/sword-persistent-bindings.json"
+    },
+    {
+      "path": "tools/assets/pack-masteryi-e-textures.py",
+      "bytes": 5910,
+      "sha256": "5ce8dc7bd5e15fb5115aba22fe16f347a4e86fe87140bd05aac2521f1de42b7f",
+      "archived": ".cache/masteryi-sword-bindings-cloud/final-source/tools/assets/pack-masteryi-e-textures.py"
+    },
+    {
+      "path": "tools/assets/prepare-masteryi-sword-bindings.py",
+      "bytes": 5096,
+      "sha256": "816521c5430eeaa37be0ea53fbed75986e651c1d698d2d4cdb5ba4092120300f",
+      "archived": ".cache/masteryi-sword-bindings-cloud/final-source/tools/assets/prepare-masteryi-sword-bindings.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-sword-bindings.py",
+      "bytes": 6177,
+      "sha256": "d1a94c7a141f6d7368e05a04a3bdf3d147852344e36bcfa4f6342f15dccb82b5",
+      "archived": ".cache/masteryi-sword-bindings-cloud/final-source/tools/assets/test-masteryi-sword-bindings.py"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/check-replay.py",
+      "bytes": 1136,
+      "sha256": "90feb9625e4da79d745fc5f0b09b61eb4ab18478e18520b3dc1b35d8059fe3be"
+    },
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/conditions-sha.txt",
+      "bytes": 65,
+      "sha256": "e60ffb5095fc76662b101ccaa3eecd3929fe09cf7ea66ad1d0f793eea93e8b9b"
+    },
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/final-source-index.json",
+      "bytes": 2424,
+      "sha256": "a3936bf02e8cb547cb65cccfeed8c7bf881095d850511c6fbfed75d8e242cc42"
+    },
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/guards-final-normal.log",
+      "bytes": 121,
+      "sha256": "78ed93f89ea22d3ad07e298aa00bd8021d9b1cfec435b2d57162b51c01174fb5"
+    },
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/guards-final-optimized.log",
+      "bytes": 121,
+      "sha256": "338cbf77d16cadf0d7571f0ad25f0fb1bc7232ac2e105f1ba492d2e8e8512b30"
+    },
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/guards-normal.log",
+      "bytes": 119,
+      "sha256": "07df317ff75b6b68f6d1f627dc69a44598a73e238f6c9caebdae19897a8f072a"
+    },
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/guards-optimized.log",
+      "bytes": 119,
+      "sha256": "1fb6945cc6b9026f89c5d84618a142660c6b9c386e209b587f19b2c5788d8668"
+    },
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/identity-after.json",
+      "bytes": 238,
+      "sha256": "6a4cf5e204fe760e46acbd0a0bf509afad1ad42bb69a9f6bd954c5063d1d72ae"
+    },
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/identity-before.json",
+      "bytes": 238,
+      "sha256": "6a4cf5e204fe760e46acbd0a0bf509afad1ad42bb69a9f6bd954c5063d1d72ae"
+    },
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/pack-masteryi-e-textures.py-check-normal.log",
+      "bytes": 101,
+      "sha256": "1b7506969bbf0cc424b99e7de2f27dede9dcca26074ef85e404675c318eb74e8"
+    },
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/pack-masteryi-e-textures.py-check-optimized.log",
+      "bytes": 101,
+      "sha256": "1b7506969bbf0cc424b99e7de2f27dede9dcca26074ef85e404675c318eb74e8"
+    },
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/pack-masteryi-e-textures.py-replay-normal.log",
+      "bytes": 100,
+      "sha256": "961f8ece8a4e71ef61221b431a9533844e14772cbeeab9e1470b87d140f60862"
+    },
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/pack-masteryi-e-textures.py-replay-optimized.log",
+      "bytes": 100,
+      "sha256": "961f8ece8a4e71ef61221b431a9533844e14772cbeeab9e1470b87d140f60862"
+    },
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/pack.log",
+      "bytes": 100,
+      "sha256": "961f8ece8a4e71ef61221b431a9533844e14772cbeeab9e1470b87d140f60862"
+    },
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/prepare-masteryi-sword-bindings.py-check-normal.log",
+      "bytes": 121,
+      "sha256": "3e7d5fe4a6e96cc745853fbdfceedd1f029900d2277a801e3d1614f80828bde6"
+    },
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/prepare-masteryi-sword-bindings.py-check-optimized.log",
+      "bytes": 121,
+      "sha256": "3e7d5fe4a6e96cc745853fbdfceedd1f029900d2277a801e3d1614f80828bde6"
+    },
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/prepare-masteryi-sword-bindings.py-replay-normal.log",
+      "bytes": 121,
+      "sha256": "3e7d5fe4a6e96cc745853fbdfceedd1f029900d2277a801e3d1614f80828bde6"
+    },
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/prepare-masteryi-sword-bindings.py-replay-optimized.log",
+      "bytes": 121,
+      "sha256": "3e7d5fe4a6e96cc745853fbdfceedd1f029900d2277a801e3d1614f80828bde6"
+    },
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/prepare.log",
+      "bytes": 121,
+      "sha256": "3e7d5fe4a6e96cc745853fbdfceedd1f029900d2277a801e3d1614f80828bde6"
+    },
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/record-verification.py",
+      "bytes": 4102,
+      "sha256": "c53b86be34ddee62d384108ec318437c7dbebda90819f6e468cebab6cd9eb104"
+    },
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/replay-count.log",
+      "bytes": 3,
+      "sha256": "25d4f2a86deb5e2574bb3210b67bb24fcc4afb19f93a7b65a057daa874a9d18e"
+    },
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/replay.json",
+      "bytes": 2570,
+      "sha256": "f2cbe07693751bb4f8aaf4fcceea39965720681946a8a05bd76a5168811802cb"
+    },
+    {
+      "path": ".cache/masteryi-sword-bindings-cloud/ruleset-after.txt",
+      "bytes": 65,
+      "sha256": "ee323bfcd5cc3267ba47845804d6fd27cb74090bbaa8fdfd7577c31c82ca6635"
+    }
+  ],
+  "checks": {
+    "sourceGuards": {
+      "casesPerMode": 22,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "checkAndReplay": {
+      "filesUnchangedBytesAndMtimes": 11,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "bindings": {
+      "conditions": 2,
+      "instances": 5,
+      "uniqueEffects": 4,
+      "emitterInstances": 13,
+      "uniqueJointNodes": [
+        87,
+        88,
+        89,
+        90
+      ],
+      "activeChild": "Characters/MasterYi/Spells/WujuStyleAbility/WujuStyleSuperCharged",
+      "highlanderEffect": "MasterYi_E_buff",
+      "sourceSkinScale": 1.5,
+      "glbBakedUnitScale": 0.015,
+      "nativeVfxScaleInheritanceCertified": false
+    },
+    "textures": {
+      "count": 9,
+      "authoredMips": 78,
+      "packedBytes": 605683,
+      "sourcePixelsExact": true
+    },
+    "publicAssetsChanged": false,
+    "runtimeChanged": false,
+    "simulationSchemaChanged": false,
+    "rulesetChanged": false,
+    "productionPackChanged": false
+  },
+  "limits": [
+    "HasBuff conditions and attachment names are authored client declarations; native server buff creation/removal, restart, stop/destruction tails and reveal behavior still require calibration.",
+    "GLB source scale is retained separately from unknown native VFX size/offset inheritance, reflection and shader semantics.",
+    "Resource keys absent from this skin table are not inferred globally unused.",
+    "Exact software-decoded transports do not certify native GPU/frame or physical-device parity.",
+    "Ignored packed/source evidence needs preservation; changed sources are independently archived."
+  ]
+}

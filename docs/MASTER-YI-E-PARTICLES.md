@@ -51,3 +51,8 @@ frame parity require separate work.
 The subsequent [private decode](MASTER-YI-E-DECODE.md) retains all nine textures
 and 78 authored mip levels, with independent software pixel replay and no
 runtime/public-asset dispatch.
+
+The [authored sword conditions](MASTER-YI-SWORD-BINDINGS.md) separately retain
+the skin's actual buff predicates and named joints: four supercharged instances
+for the active Wuju Style child, and `MasterYi_E_buff` on sword one for Highlander.
+This does not infer native scale inheritance or creation/removal callbacks.
