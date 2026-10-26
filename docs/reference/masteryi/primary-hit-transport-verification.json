@@ -1,0 +1,231 @@
+{
+  "format": 1,
+  "parentCommit": "d71affede207a3205e98a7119472ea6926ff605c",
+  "scope": "Private complete primary-hit authored mip transport and actual Three GPU upload; no runtime dispatch or public files.",
+  "identity": {
+    "schema": 162,
+    "rulesetFingerprint": "c28af9e676d0cacc775ef924a3ce5a3140cb7a763e34d82413174d7f744cf318",
+    "offlinePack": {
+      "id": "6f59d0e3300662ecd20059b576effc36935d96a2e0e9463d1e91060b3ccc8e58",
+      "files": 1192,
+      "bytes": 537574563
+    }
+  },
+  "verification": {
+    "normalGuards": 10,
+    "optimizedGuards": 10,
+    "textures": 11,
+    "mips": 93,
+    "meshes": 0,
+    "pngBytes": 605648,
+    "gpuMipReadbacks": 93,
+    "browserCases": 1,
+    "sharedImageRequests": 11,
+    "replayDistinctOutputs": 12,
+    "bytesAndMtimesUnchanged": true,
+    "applicationFingerprintUnchanged": true,
+    "offlinePackUnchanged": true,
+    "fullApplicationTestsRerun": false
+  },
+  "limits": [
+    "Lossless transport of canonical software-decoded authored mip pixels; native GPU parity is not established.",
+    "Extract every rectangle as a distinct texture mip including level zero. Sampling the atlas directly is invalid.",
+    "Private staging only; no runtime effect, simulation dispatch or public asset preload."
+  ],
+  "sourceFiles": [
+    {
+      "path": "tools/assets/pack-masteryi-primary-hit-textures.py",
+      "bytes": 5919,
+      "sha256": "a15ea26f9e176e2c830515422009357cfedb1c3cd5ff6bd0e7c5d5fb9177bc3a"
+    },
+    {
+      "path": "tools/assets/test-masteryi-primary-hit-transport.py",
+      "bytes": 2177,
+      "sha256": "21bd69a759c2cf23c03cb1f4ccb573757381c210bda3722f9e9ee57dad7a251c"
+    },
+    {
+      "path": "tools/assets/particle_mip_atlas.py",
+      "bytes": 4181,
+      "sha256": "4ba50521c7a4c0d061bbf2f8363b7a84b4db9a4bf480e3d52ae101aec6538fd6"
+    },
+    {
+      "path": "e2e/masteryi-primary-hit-transport.spec.ts",
+      "bytes": 4516,
+      "sha256": "6fac7642b43f06a5684074a136bb6b36bcb94ff9534cd24af83814c1131189f4"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-particles-decoded.json",
+      "bytes": 71236,
+      "sha256": "68aa4932fc861a5ee24e8b043a5b4b9e86ac340780fc1eedbfb3ffc6cb18bdb7"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-texture-transport.json",
+      "bytes": 27991,
+      "sha256": "6aa657899684411475571d7aa20d83a5a6d591244c4291f0f0590193a9e7f83a"
+    },
+    {
+      "path": "docs/MASTER-YI-PRIMARY-HITS.md",
+      "bytes": 5953,
+      "sha256": "bc1beaa96d57ba01631d744717053697c1507ef05d22de470f55330780e853b2"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/masteryi-primary-hit-transport-cloud/source-snapshot/tools/assets/pack-masteryi-primary-hit-textures.py",
+      "bytes": 5919,
+      "sha256": "a15ea26f9e176e2c830515422009357cfedb1c3cd5ff6bd0e7c5d5fb9177bc3a"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-transport-cloud/source-snapshot/tools/assets/test-masteryi-primary-hit-transport.py",
+      "bytes": 2177,
+      "sha256": "21bd69a759c2cf23c03cb1f4ccb573757381c210bda3722f9e9ee57dad7a251c"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-transport-cloud/source-snapshot/tools/assets/particle_mip_atlas.py",
+      "bytes": 4181,
+      "sha256": "4ba50521c7a4c0d061bbf2f8363b7a84b4db9a4bf480e3d52ae101aec6538fd6"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-transport-cloud/source-snapshot/e2e/masteryi-primary-hit-transport.spec.ts",
+      "bytes": 4516,
+      "sha256": "6fac7642b43f06a5684074a136bb6b36bcb94ff9534cd24af83814c1131189f4"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-transport-cloud/source-snapshot/docs/reference/masteryi/primary-hit-particles-decoded.json",
+      "bytes": 71236,
+      "sha256": "68aa4932fc861a5ee24e8b043a5b4b9e86ac340780fc1eedbfb3ffc6cb18bdb7"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-transport-cloud/source-snapshot/docs/reference/masteryi/primary-hit-texture-transport.json",
+      "bytes": 27991,
+      "sha256": "6aa657899684411475571d7aa20d83a5a6d591244c4291f0f0590193a9e7f83a"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-transport-cloud/source-snapshot/docs/MASTER-YI-PRIMARY-HITS.md",
+      "bytes": 5953,
+      "sha256": "bc1beaa96d57ba01631d744717053697c1507ef05d22de470f55330780e853b2"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-primary-hit-transport-cloud/app-identity.json",
+      "bytes": 91,
+      "sha256": "cbbd9cd6bd042066edf134a77f1bbb83ed9a674faffb77d85eb6fdc4c2a50fd9"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-transport-cloud/archive-checkpoint.py",
+      "bytes": 3064,
+      "sha256": "68886075026ce484db8d949eba8a905fea8893c899bb989892f215ecbec75116"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-transport-cloud/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-transport-cloud/browser/masteryi-primary-hit-trans-d16c8-the-actual-Three-GPU-upload/authored-gpu-mips.json",
+      "bytes": 22701,
+      "sha256": "46bb79fb9d5e27674dab932c4e6ea4d3c0363780c55a45328516a64c8d85cbe8"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-transport-cloud/browser.log",
+      "bytes": 539,
+      "sha256": "28f21425694f6eb56d1467234561672159d2e65f80f94feb0ebb9a8669e36c32"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-transport-cloud/guards-normal.log",
+      "bytes": 110,
+      "sha256": "576c8af4dc4108bc6d75e6433852cf2cd291b044cdc96bce1b33c2f6d5921c36"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-transport-cloud/guards-optimized.log",
+      "bytes": 110,
+      "sha256": "2500d4902829d9b48272130ef8133c7c3de2d82ea684a6d3aa83c373eb543ab7"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-transport-cloud/replay-verification.json",
+      "bytes": 6887,
+      "sha256": "3da8912ce2018fa42fee656732048693ef79e326c346197bf7711212d6030638"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-transport-cloud/transport-check-normal.log",
+      "bytes": 102,
+      "sha256": "a061be7d2c8ca6fa570401f516e06c0da1d1089b2180c99c6362fbaa83d273d6"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-transport-cloud/transport-check-optimized.log",
+      "bytes": 102,
+      "sha256": "a061be7d2c8ca6fa570401f516e06c0da1d1089b2180c99c6362fbaa83d273d6"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-transport-cloud/transport-replay-normal.log",
+      "bytes": 101,
+      "sha256": "6639f85091f98929c77d442d39e93f72e6a2eac38b43f214bcd66c7f788b3a4e"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-transport-cloud/transport-replay-optimized.log",
+      "bytes": 101,
+      "sha256": "6639f85091f98929c77d442d39e93f72e6a2eac38b43f214bcd66c7f788b3a4e"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-transport-cloud/verify-checkpoint.py",
+      "bytes": 1355,
+      "sha256": "37a17d38d3210eca9f6faa0313de5a30d83231d14b80f07a36e75c7e307f8384"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-packed-v2/db69a3a0b80ce5e1.png",
+      "bytes": 341243,
+      "sha256": "4afb4b40eae31df54bdab6dc1f086952fc5d242e886416366f208fd1dc741a8f"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-packed-v2/433b18542280cbff.png",
+      "bytes": 2725,
+      "sha256": "0ab6dc56e50c09542bc5e59ae56875be2fcdac4fa01c023fd19138ff01136054"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-packed-v2/0e1d8e1bfc6a9099.png",
+      "bytes": 8949,
+      "sha256": "f1267b7b129df6cf2312025facffeb5f792a5550e813f436f6d3b275d864caa3"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-packed-v2/3551411d4218c8ea.png",
+      "bytes": 1623,
+      "sha256": "4f5943b270c3806b16f6a63e82e850b37547b1a2d439ac1ada691450d52f75d7"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-packed-v2/1d3a3b7cb6e52a86.png",
+      "bytes": 350,
+      "sha256": "ad330060bd5bcdf74cb889b613f51bb7b4719f50264dcb3beb4d536a9408db7a"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-packed-v2/dba30aea46f8d87f.png",
+      "bytes": 702,
+      "sha256": "30df4a0ee4cd6cc8d680584586e77e764328930403fae425708a9e845c0edcc8"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-packed-v2/9db3dfd192460de5.png",
+      "bytes": 1834,
+      "sha256": "00ad67070fcd035d750f8628681b01f1021e19da15386c198cdf952b856ce28f"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-packed-v2/914aefb195e69d4f.png",
+      "bytes": 32596,
+      "sha256": "57000dbf4a63e3b0aeeb18afe94ef7e20444931d74fc052b2853ecd6c51bdfbd"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-packed-v2/b885bf2594e01a38.png",
+      "bytes": 134100,
+      "sha256": "1bb320d9db1f0fd45ad4e84f1289f6a254d986513968f2fb28469a50d1e69766"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-packed-v2/5ae94417a3c8c5a5.png",
+      "bytes": 63167,
+      "sha256": "68f69efe69aeb5ac5b13754ef9dc86368b0a4fd00f0ebdf2d6848efa7de50537"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-packed-v2/2fc72189202d828e.png",
+      "bytes": 18359,
+      "sha256": "02b22b0c4b2b713213a26fb866cf345aba6b71d52f90463d0b84ace0c0d49832"
+    }
+  ]
+}

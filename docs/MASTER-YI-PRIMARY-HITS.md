@@ -80,3 +80,25 @@ meshes, mip ranges, pixel digests and alpha statistics. Replay preserves all
 94 output bytes and modification times. The explicit zero-mesh profile leaves
 the common decoder's two-mesh default unchanged. See the
 [decode ledger](reference/masteryi/primary-hit-decode-verification.json).
+
+## Lossless private texture transport
+
+The eleven delivery PNGs total 605,648 bytes and recover all 93 authored mip
+rectangles exactly. A texture consumer must extract each rectangle into its
+own texture level; sampling the packed image directly is invalid. No public
+asset or effect dispatch is added.
+
+```sh
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/pack-masteryi-primary-hit-textures.py --check
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/test-masteryi-primary-hit-transport.py
+```
+
+Ten transport corruption guards pass in normal and optimized Python. Both
+modes replay all twelve staged outputs with identical bytes and timestamps.
+The browser probe uses the real authored-mip loader and Three WebGL upload:
+all 93 framebuffer readbacks exactly match the recorded RGBA hashes. Concurrent
+requests share each texture, producing eleven image requests. The test uses
+Chromium/SwiftShader in this environment, not a native-client material or
+physical-frame-rate certificate. The
+[transport ledger](reference/masteryi/primary-hit-transport-verification.json)
+retains the source snapshot and probe evidence.
