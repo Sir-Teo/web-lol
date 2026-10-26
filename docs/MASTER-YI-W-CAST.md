@@ -67,9 +67,14 @@ per-frame network retry loop.
 Exact FNV-1a candidate matches identify the raw acceleration-field hashes. The
 frozen records keep those hashes. The local sampler applies the retained
 `[0, 600, 0]` world-space vector through the existing 60 Hz semi-implicit motion
-helper, separately from root-oriented birth velocity. Empty orbital declarations
-remain zero under the shared local defaults. Native force integration, script
-dispatch, attachment frames, RNG and source-default parity remain unverified.
+helper, separately from root-oriented birth velocity. The sparse orbital
+record retains its omitted direction and explicit world-space flag. The pinned
+reader supplies the omitted `[0, 1, 0]` direction; its tangential turn applies at
+zero-time birth and each later local update. It preserves transverse speed,
+along-axis motion and the reader's one-sided positive-axis guard. The previous
+local zero-force assumption is corrected; the original raw source stays unchanged.
+Native force integration, script dispatch, attachment frames, RNG and source-default
+parity remain unverified.
 
 The shared material defaults retain their old quad lookup-coordinate mapping.
 The flame explicitly selects independently transformed secondary UVs for both
@@ -94,13 +99,13 @@ The focused simulation/particle/compatibility/shared Leona surface run passes
 112 cases across seven files. TypeScript/production build and three Node QA
 checks pass.
 
-The full run passes 2,625 tests across 359 files with the same three pre-existing
+At the initial cast checkpoint `07c4c86`, the full run passes 2,625 tests across 359 files with the same three pre-existing
 source-audit failures: missing Leona reflection input, original distortion
 compiler artifacts and the unchanged Lux first-sampler digest discrepancy. The
 original five-second wave-clock test passes; no deadline, quality setting or
 assertion tolerance was loosened.
 
-The final ten-case browser batch passes with zero retries. It covers real W
+That checkpoint's final ten-case browser batch passes with zero retries. It covers real W
 input, active/cancelled Save/reload and exact future simulation, all 87 selected
 in-game Three GPU mip hashes, all seven emitter families, independent multiplier
 UV pixel selection, selective explicit retry, fog creation/death/terminal tails,
@@ -121,8 +126,40 @@ Native callback, attachment/force/default, hardware-decoder/frame, physical-devi
 FPS, listening, complete-browser-suite and offline-install acceptance are not
 established by this checkpoint.
 
-The final production subpath smoke passes all 32 ordinary input recordings,
+That checkpoint's final production subpath smoke passes all 32 ordinary input recordings,
 including public champion actions, purchases, wards, companions and save/restore.
 Development hooks/Yi query flags remain rejected and all Yi model/audio/contact/
 Meditate cast preload counts are zero. Exact source archive, final identity and
 staged evidence: [runtime verification ledger](reference/masteryi/w-cast-verification.json).
+
+The [field reader pin](reference/masteryi/w-fields-reader.json) records the exact
+reconstruction revision, Git blob identities and file hashes for sparse defaults
+and field ordering. `node tools/qa/orbital-field-conformance.mjs` extracts and
+executes the original orbital function after TypeScript erasure. All 2,072
+boundary/varied-vector cases match the local operator exactly in Float32. This
+operator comparison does not certify native game execution or whole-trajectory
+precision; replay retains the existing local 60 Hz/interpolation policy.
+
+The field correction separately passes 104 focused checks across motion, cast
+particles/history, the controller and compatibility, plus 21 export guards per
+Python mode, TypeScript/build and all four cast browser cases. All 87 GPU mip
+hashes, exact save/restored particle descriptors and futures, retry, fog/death/
+terminal and independent-UV assertions remain intact. Schema 150 and public
+asset bytes stay unchanged; the ruleset/pack fingerprint changes for the corrected
+saved-time interpretation. All 14 reviewed delivery outputs retain bytes/mtimes
+on normal and optimized export replay. The initial three failed axis-control
+fixtures passed numeric arguments rather than vectors; their setup was corrected
+without changing the operator or expected vectors.
+
+```sh
+python tools/assets/restore-masteryi-field-readers.py
+python -O tools/assets/restore-masteryi-field-readers.py --check
+node tools/qa/orbital-field-conformance.mjs
+```
+
+Reader restore checks byte hashes and original Git blob identities, rejects
+conflicts before network access and preserves correct existing files. Actual
+empty-cache restoration and normal/optimized check/replay pass for all seven
+readers. This correction does not claim another full-suite, full production-input
+or offline/device acceptance run. Exact archive and results:
+[field correction ledger](reference/masteryi/w-fields-verification.json).

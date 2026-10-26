@@ -88,3 +88,15 @@ test('uniform flash growth and source color fades remain authored, without a ten
 test.each([NaN, Infinity, -Infinity, -1])('invalid time %s has no particles', (time) => {
   expect(meditateCastParticles(341, time)).toEqual([]);
 });
+
+test('the sparse orbital field retains the pinned reader world-up default', () => {
+  const field = data.profiles.at(-1)!.orbitalField;
+  expect(field).toMatchObject({ axis: [0, 1, 0], localSpace: false, directionAuthored: false });
+});
+
+test('the orbital field redirects newborn star motion tangentially before any elapsed step', () => {
+  const star = named(1 / 60, 'Stars_Green');
+  expect(star.age).toBe(0);
+  expect(star.travel[0]).toBe(0);
+  expect(Math.abs(star.travel[2])).toBeGreaterThan(0);
+});

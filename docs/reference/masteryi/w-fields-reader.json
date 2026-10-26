@@ -1,0 +1,78 @@
+{
+  "revision": "65a7d2a746b9d02d65dab788b5f7b8198d5e555e",
+  "files": [
+    {
+      "path": ".cache/masteryi-w-buff-cloud/forceFields.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/forceFields.ts",
+      "gitBlobSha1": "0623a926c6a4d2572dad5dd8aa458480a9e902dc",
+      "bytes": 12419,
+      "sha256": "c67cd99bb0fdc0d33515f07c149ba7f3c8a0a75c6028d48357bd9a008d019065"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-cloud/readMotion.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/readMotion.ts",
+      "gitBlobSha1": "0d6246e3a9af66aebb7ca384b233751038634c84",
+      "bytes": 12535,
+      "sha256": "5cda76779e25463c3b7ebcb187aea094b4ec265658fb496e1dd94924ca37a3b5"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-cloud/integrate.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/integrate.ts",
+      "gitBlobSha1": "178324fed923b1a209722b74716b78ef27521f54",
+      "bytes": 21927,
+      "sha256": "4de5853807d9a0362aa9957343e4b23c5d21939efe87546209be37ca226895dc"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-cloud/definitions.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/definitions.ts",
+      "gitBlobSha1": "6fea151015fab1fc0b6006bbb4948a5866d45f02",
+      "bytes": 2944,
+      "sha256": "a8d50a45e193ab18ed42587a7f7f320570ca6b451cbc7a6fd0d4aaafd51a411a"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-cloud/readVfxSystem.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/readVfxSystem.ts",
+      "gitBlobSha1": "8ed8c6b64ca30f63eba48476f48f09141c227cca",
+      "bytes": 14468,
+      "sha256": "a5765fc5676e4f58d0ae156bad93bf5e84936fe181c8bfe47c503a37da52a844"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-cloud/__tests__-forceFields.test.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/__tests__/forceFields.test.ts",
+      "gitBlobSha1": "3c791a004618a05600733a5dd2448ec501d8d2ef",
+      "bytes": 10861,
+      "sha256": "1d469e206496e2ee3cfd13b68539df841b4548d4be23afce3b8d25a018a5523b"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-cloud/__tests__-integrate.test.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/65a7d2a746b9d02d65dab788b5f7b8198d5e555e/src/modules/workshop/bin/vfx/__tests__/integrate.test.ts",
+      "gitBlobSha1": "371d2b71f561e11f204a46fe1155f5908541219a",
+      "bytes": 51734,
+      "sha256": "04cb29b95e97a3dd04737b4ac6dd539291208f690e1ce3154f1fc31097d16d58"
+    }
+  ],
+  "scope": "Pinned reconstruction reading for sparse field defaults and force order; not native Riot execution proof.",
+  "defaults": {
+    "orbitalDirection": [
+      0,
+      1,
+      0
+    ]
+  },
+  "orbitalGuards": {
+    "positiveAxisOneMinusCosine": 0.0001,
+    "minimumTransverseSpeed": 0.001
+  },
+  "order": [
+    "acceleration",
+    "attraction",
+    "noise",
+    "drag",
+    "orbital"
+  ],
+  "birthFieldsStepSeconds": 0,
+  "limits": [
+    "Pinned reconstruction/default reading, not native Riot execution proof.",
+    "Local replay retains its existing 60 Hz grid; native update cadence, attachment and force precision remain separately unverified."
+  ]
+}

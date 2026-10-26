@@ -51,6 +51,7 @@ class CastGuards(unittest.TestCase):
         fields=self.pin['resources']['MasterYi_W_Cas']['definition']['complexEmitterDefinitionData'][-1]['fieldCollectionDefinition']
         self.assertEqual(acceleration(fields)['values'], [[0,600,0]])
         self.assertIn('{5d60e987}', fields)
+        self.assertEqual(self.content['profiles'][-1]['orbitalField'], {'axis':[0,1,0], 'localSpace':False, 'directionAuthored':False})
 
     def test_local_force_frame_cannot_be_silently_substituted(self):
         self.invalid_profile(lambda e:e[-1]['fieldCollectionDefinition']['{5d60e987}'][0].update(isLocalSpace=True))

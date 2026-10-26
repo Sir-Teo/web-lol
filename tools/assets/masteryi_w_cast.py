@@ -82,6 +82,7 @@ def profiles(pin, textures, mesh_url, defaults):
              'position': value(e.get('EmitterPosition', {}), [0, 0, 0]),
              'shape': {'kind': 'legacy' if shape.get('__type') == 'VfxShapeLegacy' else 'point', 'offset': value(shape.get('emitOffset', {}), [0, 0, 0])},
              'velocity': value(e.get('birthVelocity', {}), [0, 0, 0]), 'worldAcceleration': acceleration(e.get('fieldCollectionDefinition')),
+             'orbitalField': {'axis': [0, 1, 0], 'localSpace': False, 'directionAuthored': False} if e.get('fieldCollectionDefinition') else None,
              'rotation': value(e.get('birthRotation0', {}), [0, 0, 0]), 'spin': value(e.get('birthRotationalVelocity0', {}), [0, 0, 0]),
              'size': value(e.get('birthScale0', {}), defaults['birthScale']), 'scale': value(e.get('scale0', {}), defaults['scale']),
              'uniform': bool(e.get('isUniformScale', False)), 'birthColor': value({}, defaults['color']), 'color': value(e.get('Color', {}), defaults['color']),

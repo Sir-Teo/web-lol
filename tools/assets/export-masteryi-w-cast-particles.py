@@ -45,6 +45,9 @@ def generate_outputs():
     outputs[Path('public')/mesh_url] = checked(output['path'], output['sha256'], output['bytes'])
     defaults_path = Path('docs/reference/garen-spin-defaults.json')
     defaults_raw = checked(defaults_path, '51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb')
+    fields_path = Path('docs/reference/masteryi/w-fields-reader.json')
+    fields_raw = checked(fields_path, 'b67cb8e90ae6521816579a06ae1b4274bd6ae11befc28d75fca948fd8abff3c7')
+    require(json.loads(fields_raw)['defaults']['orbitalDirection'] == [0, 1, 0], 'Pinned orbital default differs')
     compiled = profiles(pin, urls, mesh_url, json.loads(defaults_raw)['defaults'])
     ends = []
     for p in compiled:
@@ -66,6 +69,7 @@ def generate_outputs():
         'transport': {'path': str(TRANSPORT), 'sha256': TRANSPORT_SHA256}, 'mesh': mesh,
         'readerDefaults': {'path': str(defaults_path), 'sha256': sha(defaults_raw)},
         'profileSha256': sha(json_bytes(content)), 'historyTicks': retention,
+        'fieldReader': {'path': str(fields_path), 'sha256': sha(fields_raw)},
         'limits': ['Complete seven-emitter W_Cas only. Buff, tenacity and damage systems remain separate.',
             'Accepted local W dispatch, first-update grid, actor-root source-X reflection, indexed draws, source shape interpretation and fixed-grid field force integration are local adapters; native callbacks/frames/RNG remain unverified.',
             'Exact field-name hash candidates are recorded separately; raw source hashes stay unchanged.',

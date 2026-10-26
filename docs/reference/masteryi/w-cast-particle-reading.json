@@ -65,8 +65,12 @@
     "path": "docs/reference/garen-spin-defaults.json",
     "sha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb"
   },
-  "profileSha256": "0a98222d116290239a92fb2ced53e7d7a195edbc8f42f9460975aa42b2a3a1c2",
+  "profileSha256": "4816b254781e5768add9b3cf64b40f4b35c45b9144c9945c7c8b175cc001d7d9",
   "historyTicks": 55,
+  "fieldReader": {
+    "path": "docs/reference/masteryi/w-fields-reader.json",
+    "sha256": "b67cb8e90ae6521816579a06ae1b4274bd6ae11befc28d75fca948fd8abff3c7"
+  },
   "limits": [
     "Complete seven-emitter W_Cas only. Buff, tenacity and damage systems remain separate.",
     "Accepted local W dispatch, first-update grid, actor-root source-X reflection, indexed draws, source shape interpretation and fixed-grid field force integration are local adapters; native callbacks/frames/RNG remain unverified.",

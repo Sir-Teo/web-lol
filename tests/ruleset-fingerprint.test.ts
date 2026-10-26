@@ -145,6 +145,7 @@ test('Meditate cast compatibility includes its complete presentation and saved h
     'src/render/source-particle-surfaces.ts',
     'src/render/leona-eclipse-values.ts',
     'src/render/particle-motion.ts',
+    'src/render/particle-orbital-motion.ts',
     'src/content/masteryi-w-cast-particles.json',
     'src/content/masteryi-w-cast-timing.ts',
     'src/simulation/masteryi-meditate-cast.ts',

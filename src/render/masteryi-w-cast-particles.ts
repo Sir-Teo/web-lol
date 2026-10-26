@@ -1,3 +1,4 @@
+import { orbitalParticleTravel } from './particle-orbital-motion';
 import data from '../content/masteryi-w-cast-particles.json';
 import { luxEmissionBirthTick, luxEmissionCount } from '../content/lux-emission';
 import { luxHoopChance } from './lux-hoop-particles';
@@ -27,10 +28,16 @@ export function meditateCastParticles(seed: number, time: number) {
         life = sample(p.life)[0];
       if (age < 0 || age >= life) continue;
       const phase = age / life,
-        motion = particleTravel(sample(p.velocity), [0, 0, 0], [0, 0, 0], age),
-        world = particleTravel([0, 0, 0], sample(p.worldAcceleration), [0, 0, 0], age),
         position = sample(p.position),
         spawn = sample(p.shape.offset),
+        origin = position.map((v, axis) => v + spawn[axis]),
+        velocity = sample(p.velocity),
+        acceleration = sample(p.worldAcceleration),
+        fields = p.orbitalField
+          ? orbitalParticleTravel(velocity, acceleration, origin, age, p.orbitalField.axis)
+          : null,
+        motion = fields?.local ?? particleTravel(velocity, [0, 0, 0], [0, 0, 0], age),
+        world = fields?.world ?? particleTravel([0, 0, 0], acceleration, [0, 0, 0], age),
         scale = eclipseValue(p.scale, phase),
         spin = sample(p.spin),
         color = eclipseValue(p.color, phase),
@@ -44,7 +51,7 @@ export function meditateCastParticles(seed: number, time: number) {
         naturalLife: life,
         life,
         phase,
-        offset: position.map((v, axis) => v + spawn[axis] + motion.position[axis]),
+        offset: origin.map((v, axis) => v + motion.position[axis]),
         worldOffset: world.position,
         worldTravel: world.travel,
         size,

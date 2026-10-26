@@ -1014,6 +1014,7 @@
         ],
         "probabilities": []
       },
+      "orbitalField": null,
       "rotation": {
         "constant": [
           -90.0,
@@ -1418,6 +1419,7 @@
         ],
         "probabilities": []
       },
+      "orbitalField": null,
       "rotation": {
         "constant": [
           0.0,
@@ -1828,6 +1830,7 @@
         ],
         "probabilities": []
       },
+      "orbitalField": null,
       "rotation": {
         "constant": [
           0.0,
@@ -2238,6 +2241,7 @@
         ],
         "probabilities": []
       },
+      "orbitalField": null,
       "rotation": {
         "constant": [
           0,
@@ -2860,6 +2864,7 @@
         ],
         "probabilities": []
       },
+      "orbitalField": null,
       "rotation": {
         "constant": [
           -90.0,
@@ -3300,6 +3305,7 @@
         ],
         "probabilities": []
       },
+      "orbitalField": null,
       "rotation": {
         "constant": [
           -90.0,
@@ -3789,6 +3795,15 @@
           ]
         ],
         "probabilities": []
+      },
+      "orbitalField": {
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "localSpace": false,
+        "directionAuthored": false
       },
       "rotation": {
         "constant": [
