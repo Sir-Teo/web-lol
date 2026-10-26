@@ -128,6 +128,10 @@ profiles, six private float masters and two stop actions. Its spell activation
 suffix explicitly binds Stop; the bank activation Play and foley events retain
 their absent spell/particle dispatch bindings. Source S-curve play transitions,
 linear stop transitions and leaf loop policy remain separate from runtime work.
+The later [W foley connection](MASTER-YI-W-FOLEY.md) retains the entry animation's
+explicit particle event, the skin resource mapping and the particle's persistent
+sound declaration. It narrows the earlier missing-binding claim; frame-time
+conversion and native component/voice callbacks remain uncalibrated.
 
 The [Wuju Style source reading](MASTER-YI-E-AUDIO.md) retains three explicit
 spell cues, their original two-entry playlists, six private float masters and

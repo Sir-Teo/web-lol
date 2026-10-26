@@ -1,0 +1,183 @@
+{
+  "format": 1,
+  "sourcePin": {
+    "path": "docs/reference/masteryi/w-foley-particles.json",
+    "sha256": "cbf93c100aaa635dbee9511ff8e548155309f59860d1c090e016fdf12a38ac18"
+  },
+  "modelSha256": "4295bceeba96cfb15e006d392e7d0f3c480bb51bf8cff8872a9c39fc9873c7ce",
+  "audioReadingSha256": "3c49d4a653422133b7a23f4a250dd5c5d7c7b3a366683f91d4c611c4c830c7bc",
+  "audioGraphSha256": "b7879c088d3544626d70c9ecaf4abfd0aebae007db5a6ee841c0caed7a2b33e3",
+  "decodedRecordSha256": "28ac362788bb76709a226e76d282eb25a1805a474b9bc7348cedd59bbee33a32",
+  "animation": {
+    "graphRecord": "Characters/MasterYi/Animations/Skin0",
+    "clipName": "Spell2_In",
+    "definition": {
+      "mFlags": 8,
+      "mTrackDataName": "Default",
+      "mEventDataMap": {
+        "{875c32d5}": {
+          "mName": "{875c32d5}",
+          "mStartFrame": 1.0,
+          "mEffectKey": "MasterYi_w_foley_sound",
+          "mParticleEventDataPairList": [
+            {
+              "__type": "ParticleEventDataPair"
+            }
+          ],
+          "mIsLoop": false,
+          "__type": "ParticleEventData"
+        }
+      },
+      "mAnimationResourceData": {
+        "mAnimationFilePath": "assets/characters/masteryi/skins/base/animations/masteryi_2013_spell2.anm",
+        "__type": "AnimationResourceData"
+      },
+      "__type": "AtomicClipData"
+    },
+    "tickDuration": {
+      "present": false
+    }
+  },
+  "skinBinding": {
+    "effectKey": "MasterYi_w_foley_sound",
+    "record": "Characters/MasterYi/Skins/Skin0/Particles/masteryi_base_w_foley_sound"
+  },
+  "particle": {
+    "sourceBin": "data/characters/masteryi/masteryi_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin13_skins_skin14_skins_skin15_skins_skin16_skins_skin17_skins_skin19_skins_skin2_skins_skin20_skins_skin21_skins_skin22_skins_skin23_skins_skin24_skins_skin25_skins_skin26_skins_skin27_skins_skin28_skins_skin29_skins_skin3_skins_skin30_skins_skin31_skins_skin32_skins_skin4_skins_skin42_skins_skin43_skins_skin44_skins_skin45_skins_skin46_skins_skin47_skins_skin48_skins_skin49_skins_skin5_skins_skin50_skins_skin51_skins_skin6_skins_skin7_skins_skin8_skins_skin9.bin",
+    "nativeSha256": "5d1e51a7344f48600e2ba240a03b7e43dbaa41ed3c92490d12ddb45db8ab0b04",
+    "record": "Characters/MasterYi/Skins/Skin0/Particles/masteryi_base_w_foley_sound",
+    "definition": {
+      "complexEmitterDefinitionData": [
+        {
+          "rate": {
+            "constantValue": 1.0,
+            "__type": "ValueFloat"
+          },
+          "particleLinger": 10.0,
+          "emitterName": "empty",
+          "particleColorTexture": "ASSETS/Characters/MasterYi/Skins/Base/Particles/common_Black.tex",
+          "meshRenderFlags": 0,
+          "isUniformScale": 1,
+          "texture": "ASSETS/Characters/MasterYi/Skins/Base/Particles/common_Black.tex",
+          "__type": "VfxEmitterDefinitionData"
+        }
+      ],
+      "particleName": "masteryi_base_w_foley_sound",
+      "particlePath": "Characters/MasterYi/Skins/Skin0/Particles/masteryi_base_w_foley_sound",
+      "soundPersistentDefault": "Play_sfx_MasterYi_Meditate_foley",
+      "flags": 180,
+      "objectPath": "Characters/MasterYi/Skins/Skin0/Particles/masteryi_base_w_foley_sound",
+      "__type": "VfxSystemDefinitionData"
+    }
+  },
+  "bankProfile": {
+    "layer": 0,
+    "eventName": "Play_sfx_MasterYi_Meditate_foley",
+    "eventId": 3748379910,
+    "actionId": 1002732503,
+    "containerId": 242685979,
+    "gainDb": -10,
+    "policy": {
+      "eMode": 0,
+      "eRandomMode": 1,
+      "wAvoidRepeatCount": 0,
+      "bResetPlayListAtEachPlay": 1,
+      "bIsGlobal": 1,
+      "bIsContinuous": 0,
+      "_bIsUsingWeight": 0,
+      "u16MaxNumInstance": 1,
+      "bKillNewest": 0,
+      "sLoopCount": 1,
+      "sLoopModMin": 0,
+      "sLoopModMax": 0,
+      "eTransitionMode": 0
+    },
+    "actionProperties": {},
+    "fadeCurve": 4,
+    "variants": [
+      {
+        "id": 136213286,
+        "soundId": 553860281,
+        "privatePath": ".cache/masteryi-audio-decoded/136213286.wav",
+        "wavSha256": "33c2bec0c099ebf035a18d2809aeaf1b80df046b89fd377229ec792cb07228c9",
+        "pcmSha256": "6e35f464d2a6fe2592b3ff929bc96550f2f83a76afe00373f680ecc67f6815fa",
+        "wavBytes": 123352,
+        "frames": 30827,
+        "sampleRate": 44100,
+        "channels": 1,
+        "durationSeconds": 0.6990249433106576,
+        "peak": 0.9212883710861206,
+        "leafProperties": {},
+        "encodedLoopingInfo": null
+      }
+    ],
+    "originalReadingKind": "unbound-foley"
+  },
+  "floatMaster": {
+    "wavSha256": "33c2bec0c099ebf035a18d2809aeaf1b80df046b89fd377229ec792cb07228c9",
+    "pcmSha256": "6e35f464d2a6fe2592b3ff929bc96550f2f83a76afe00373f680ecc67f6815fa",
+    "wavBytes": 123352,
+    "format": "IEEE float32 little-endian WAV",
+    "channels": 1,
+    "sampleRate": 44100,
+    "frames": 30827,
+    "durationSeconds": 0.6990249433106576,
+    "peak": 0.9212883710861206,
+    "rms": 0.20600437503675134,
+    "samplesOutsideUnitRange": 0,
+    "endpointDelta": [
+      0.005483948378241621
+    ]
+  },
+  "inheritedAttenuation": {
+    "id": 339248780,
+    "scaling": 2,
+    "unresolvedOutputBusId": 1259461568,
+    "priority": 60,
+    "points": [
+      {
+        "distance": 0.0,
+        "storedValue": 0.0,
+        "interpolation": 9
+      },
+      {
+        "distance": 1750.0,
+        "storedValue": 0.0,
+        "interpolation": 2
+      },
+      {
+        "distance": 2000.0,
+        "storedValue": -0.7488113641738892,
+        "interpolation": 2
+      },
+      {
+        "distance": 2300.0,
+        "storedValue": -0.93690425157547,
+        "interpolation": 2
+      },
+      {
+        "distance": 2750.0,
+        "storedValue": -1.0,
+        "interpolation": 9
+      },
+      {
+        "distance": 3000.0,
+        "storedValue": -1.0,
+        "interpolation": 4
+      }
+    ]
+  },
+  "retainedSpellSuffixes": {
+    "12": "Play_sfx_MasterYi_Meditate_OnCast\n",
+    "18": "Stop_sfx_MasterYi_Meditate_OnBuffActivate\n",
+    "19": "Play_sfx_MasterYi_Meditate_OnBuffDeactivate\n"
+  },
+  "limits": [
+    "Source-only expanded closure establishes an authored W entry animation event, exact base-skin particle binding and persistent sound declaration. No public media, runtime dispatch, schema or application identity changes.",
+    "mStartFrame remains the literal float 1.0; Spell2_In omits mTickDuration. No seconds, simulation-tick offset, native frame sampling or callback timing is inferred.",
+    "The animation event authors mIsLoop=false and an otherwise empty ParticleEventDataPair. No attachment is inferred. The particle uses soundPersistentDefault, not soundOnCreateDefault. Native component creation, lifetime, tail and destruction/voice-stop behavior remain separate.",
+    "The emitter named empty retains particleLinger=10.0, rate=1.0 and other omissions. Those fields do not establish audio repetition, animation duration or an invisible rendering default.",
+    "The prior unbound-foley label describes the earlier spell/four-system W audit scope; this expanded animation/skin/particle closure supplies the missing declaration chain. Slot18 still binds Stop; the bank-only OnBuffActivate Play remains unbound by these records.",
+    "The retained bank leaf has no explicit Loop property and the encoded master has no loop-point metadata. The finite 0.699-second recording does not certify persistent component playback or native listening/bus parity."
+  ]
+}

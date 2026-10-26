@@ -44,6 +44,10 @@ Slot 18 explicitly names **Stop**. The bank also contains
 triggers are absent from these retained spell and particle declarations. All
 four W particle systems omit `soundOnCreateDefault`. Those omissions remain
 explicit; bank existence does not establish native script or animation callbacks.
+A later [animation/foley source connection](MASTER-YI-W-FOLEY.md) expands that
+scope: `Spell2_In` names a separate skin-bound particle that explicitly declares
+the foley event as `soundPersistentDefault`. Its literal frame value and missing
+tick duration remain separate from native callback timing and current playback.
 
 | Bank profile | Container | Source gain | Global voice limit | Recordings |
 | --- | ---: | ---: | ---: | --- |
@@ -51,7 +55,7 @@ explicit; bank existence does not establish native script or animation callbacks
 | Declared ending | 9224 | −13 dB | 4 | 584858889 |
 | Unbound activation, first layer | 9223 | −12 dB | 4 | 610915723 |
 | Unbound activation, second layer | 449614214 | −19 dB | 4 | 795081856, 501197314 |
-| Unbound foley | 242685979 | −10 dB | 1 | 136213286 |
+| Foley outside the earlier spell/four-system scope | 242685979 | −10 dB | 1 | 136213286 |
 
 All five containers retain one play, random mode 1, global limits,
 reset-at-each-play, zero avoid-repeat count and `bKillNewest=0`. Playlist order
