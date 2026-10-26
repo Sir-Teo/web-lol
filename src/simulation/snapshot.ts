@@ -1,3 +1,5 @@
+import { validateSwordGlows } from './masteryi-sword-glow';
+import { SWORD_GLOW_TAIL_TICKS } from '../content/masteryi-sword-timing';
 import { validateMeditateDamage } from './masteryi-meditate-damage';
 import { MEDITATE_DAMAGE_HISTORY_TICKS } from '../content/masteryi-w-damage-timing';
 import { validateHighlanderKills } from './masteryi-highlander-kill';
@@ -163,7 +165,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 158;
+export const SNAPSHOT_VERSION = 159;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -850,6 +852,27 @@ const player: z.ZodType<PlayerState> = z
             )
             .min(1)
             .max(MEDITATE_CAST_HISTORY_TICKS),
+        })
+      )
+      .max(1000),
+    swordGlowVisuals: z
+      .array(
+        z.strictObject({
+          castTick: tick,
+          condition: z.union([z.literal(0), z.literal(1)]),
+          frames: z
+            .array(
+              z.strictObject({
+                tick,
+                endTick: tick,
+                x: z.number(),
+                y: z.number(),
+                facing: z.number(),
+                audience: daybreakFrame.shape.audience,
+              })
+            )
+            .min(1)
+            .max(SWORD_GLOW_TAIL_TICKS),
         })
       )
       .max(1000),
@@ -4503,6 +4526,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     validateHighlanderCasts(owner, champion, state);
     validateHighlanderKills(owner, champion, state);
     validateMeditateDamage(owner, champion, state);
+    validateSwordGlows(owner, champion, state);
     validateWujuStyleAudio(owner, champion, state);
     validateMeditateBuffs(owner, champion, state);
     validateMeditateAudio(owner, champion, state);

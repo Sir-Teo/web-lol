@@ -1,3 +1,4 @@
+import { advanceSwordGlows } from '../src/simulation/masteryi-sword-glow';
 import { expect, test, vi } from 'vitest';
 import { World } from '../src/simulation/world';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
@@ -124,6 +125,7 @@ test('moving roots and death freeze preserve the saved future', () => {
   const pose = actorRootPose(r.frames, f.w.tick);
   expect(r.detachedTick).toBe(f.w.tick);
   f.yi.x = 900;
+  advanceSwordGlows(f.w);
   f.resume(30);
   expect(actorRootPose(r.frames, f.w.tick)).toEqual(pose);
 });

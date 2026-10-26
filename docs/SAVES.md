@@ -1,6 +1,16 @@
 # Local match checkpoints
 
-Current schema **158** adds finite Meditate damage reactions. Positive reduced
+Current schema **159** adds skin-declared E/R sword glow histories. Each accepted
+condition stores cast identity and a rolling, lossless 62-tick root/visibility
+window. Fully bound/local particles use current animated sword-joint frames;
+actual buff removals cap emission and retain finite source tails. Decoding checks
+matching accepted E/R lifecycle records, mandatory recent admissions, unique
+ordered conditions, exact rolling coverage and current endpoints. Death tails
+follow current known corpse poses; victory presentation drains without stepping
+the world. Earlier schemas/fingerprints remain incompatible. See
+[sword glow presentation](MASTER-YI-SWORD-GLOWS.md).
+
+Schema **158** adds finite Meditate damage reactions. Positive reduced
 physical/magic hits coalesce once per owner/tick and retain W cast/rank, admission
 audience and lossless root pose/visibility runs for both finite emitters. The
 15-tick source clock is independent of W channel and reduction linger. Decoding

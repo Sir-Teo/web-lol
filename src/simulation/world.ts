@@ -1,3 +1,4 @@
+import { captureSwordGlow, advanceSwordGlows, swordGlowExpiry } from './masteryi-sword-glow';
 import { captureMeditateDamage, advanceMeditateDamage } from './masteryi-meditate-damage';
 import { MEDITATE_DAMAGE_HISTORY_TICKS } from '../content/masteryi-w-damage-timing';
 import { advanceHighlanderKills } from './masteryi-highlander-kill';
@@ -1174,6 +1175,10 @@ export class World {
       if (state.meditateCastVisuals.length)
         state.meditateCastVisuals = state.meditateCastVisuals.filter(
           (r) => this.tick < r.startTick + MEDITATE_CAST_HISTORY_TICKS
+        );
+      if (state.swordGlowVisuals.length)
+        state.swordGlowVisuals = state.swordGlowVisuals.filter(
+          (r) => this.tick < swordGlowExpiry(state, r)
         );
       if (state.meditateDamageVisuals.length)
         state.meditateDamageVisuals = state.meditateDamageVisuals.filter(
@@ -4660,6 +4665,7 @@ export class World {
   private advanceImpactVisuals(): void {
     advanceMeditateBuffs(this);
     advanceMeditateCasts(this);
+    advanceSwordGlows(this);
     advanceMeditateDamage(this);
     advanceHighlanderKills(this);
     advanceHighlanderCasts(this);
@@ -6030,6 +6036,7 @@ export class World {
     if (target.hp <= 0) {
       advanceMeditateBuffs(this);
       advanceMeditateCasts(this);
+      advanceSwordGlows(this);
       advanceMeditateDamage(this);
       advanceHighlanderKills(this);
       advanceHighlanderCasts(this);
@@ -6535,6 +6542,7 @@ export class World {
         lastExtensionTick: null,
       };
       beginHighlanderAudio(state, u, this);
+      captureSwordGlow(this, u, 1);
       captureHighlanderCast(this, u);
       u.mana -= resources.mana;
       state.cooldowns.r = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
@@ -6563,6 +6571,7 @@ export class World {
         pausedTicks: 0,
       };
       beginWujuStyleAudio(state, u, this);
+      captureSwordGlow(this, u, 0);
       state.cooldowns.e = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
       state.recallEnd = null;
       this.emit('cast', u, { unit: u.id, champion: 'masteryi', text: 'e', team: u.team });

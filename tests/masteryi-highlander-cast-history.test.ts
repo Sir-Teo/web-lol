@@ -1,3 +1,4 @@
+import { advanceSwordGlows } from '../src/simulation/masteryi-sword-glow';
 import { expect, test, vi } from 'vitest';
 import { World } from '../src/simulation/world';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
@@ -159,6 +160,7 @@ test('death freezes an admitted finite cast and preserves saved future', () => {
     pose = actorRootPose(r.frames, f.w.tick);
   expect(r.detachedTick).toBe(f.w.tick);
   f.yi.x = 900;
+  advanceSwordGlows(f.w);
   f.resume(10);
   expect(actorRootPose(r.frames, f.w.tick)).toEqual(pose);
 });

@@ -44,6 +44,7 @@ export function createChampionState(id: number, unlocked = true, tick = 0): Cham
     highlander: null,
     highlanderAudio: [],
     highlanderCastVisuals: [],
+    swordGlowVisuals: [],
     meditateDamageVisuals: [],
     highlanderKillVisuals: [],
     alphaCastVisuals: [],

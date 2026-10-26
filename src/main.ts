@@ -336,6 +336,7 @@ async function boot(): Promise<void> {
           view.highlanderCasts.load(),
           view.highlanderKills.load(),
           view.meditateDamage.load(),
+          view.swordGlows.load(),
           view.alphaCasts.load(),
           view.alphaEnds.load(),
           view.alphaContacts.load(),

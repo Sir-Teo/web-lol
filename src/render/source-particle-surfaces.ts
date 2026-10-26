@@ -95,6 +95,8 @@ export interface SurfaceProgram<G extends SurfaceGroup> {
   /** Explicit creation-history visibility policy; omission retains point visibility. */
   visible?(group: G, particle: SurfaceParticle, tick: number): boolean;
   pose(group: G, tick: number): { x: number; y: number; facing: number } | null;
+  /** Explicit current joint frame, restricted to fully bound/local profiles. */
+  attachmentFrame?(group: G): { position: THREE.Vector3; rotation: THREE.Quaternion } | null;
   /** Local adapter for a missile object's source-Y-forward/source-Z-down frame. */
   missileFrame?(group: G): boolean;
   particleFacing?(profile: SurfaceProfile, born: number, current: number, bind: number): number;
@@ -250,6 +252,8 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
     camera.getWorldPosition(this.eye);
     if (assets)
       for (const { sourceId, castTick, group } of this.program.records(world)) {
+        const attachmentFrame = this.program.attachmentFrame?.(group);
+        if (this.program.attachmentFrame && !attachmentFrame) continue;
         for (const p of this.program.particles(group, tick)) {
           const profile = this.program.profiles[p.profileIndex];
           if (!this.program.accepts(p.profileIndex)) continue;
@@ -268,7 +272,11 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
                 (bind === 1 ? now.facing : born.facing))
               : 0,
             missileFrame = profile.local && !!this.program.missileFrame?.(group);
-          this.frameRotation.setFromAxisAngle(up, facing);
+          if (attachmentFrame) {
+            if (bind !== 1 || !profile.local || !profile.particleLocal)
+              throw Error('Joint surface requires fully bound local particles');
+            this.frameRotation.copy(attachmentFrame.rotation);
+          } else this.frameRotation.setFromAxisAngle(up, facing);
           if (missileFrame) this.frameRotation.multiply(flightTilt);
           this.vector
             .set(-p.offset[0], p.offset[1], p.offset[2])
@@ -278,7 +286,18 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
             (origin.x - (p.worldOffset?.[0] ?? 0)) * 0.01,
             this.ground(origin) + (p.worldOffset?.[1] ?? 0) * 0.01,
             (origin.y + (p.worldOffset?.[2] ?? 0)) * 0.01
-          ).add(this.vector);
+          );
+          if (attachmentFrame)
+            position
+              .copy(attachmentFrame.position)
+              .add(
+                new THREE.Vector3(
+                  -(p.worldOffset?.[0] ?? 0) * 0.01,
+                  (p.worldOffset?.[1] ?? 0) * 0.01,
+                  (p.worldOffset?.[2] ?? 0) * 0.01
+                )
+              );
+          position.add(this.vector);
           const orbit = p.orbitTurn?.some((v, i) => i < 3 && v !== 0);
           if (orbit) {
             const q = p.orbitTurn!,
@@ -368,7 +387,7 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
             if (profile.navmesh)
               maskGroundWalkability(mesh.geometry, (q) => world.battlefield.lineWalkable(q, q, 0));
             mesh.position.set(0, 0, 0);
-          } else if (profile.kind === 'billboard') {
+          } else if (profile.kind === 'billboard' && !attachmentFrame) {
             mesh.quaternion.copy(this.cameraRotation);
             let stretch = p.stretch;
             if (

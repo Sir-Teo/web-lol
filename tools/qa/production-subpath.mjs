@@ -75,6 +75,7 @@ try {
     masterYiRCastRequests = [],
     masterYiRKillRequests = [],
     masterYiMeditateDamageRequests = [],
+    masterYiSwordRequests = [],
     masterYiQContactRequests = [],
     masterYiMeditateCastRequests = [],
     masterYiMeditateBuffRequests = [],
@@ -114,6 +115,8 @@ try {
       masterYiQEndRequests.push(request.url());
     if (/\/masteryi-r-cast-[^/]+\.(?:png|glb)$/.test(request.url()))
       masterYiRCastRequests.push(request.url());
+    if (/\/masteryi-sword-(?:[^/]+\.png|glows-[^/]+\.js)$/.test(request.url()))
+      masterYiSwordRequests.push(request.url());
     if (/\/masteryi-w-damage-[^/]+\.js$/.test(request.url()))
       masterYiMeditateDamageRequests.push(request.url());
     if (/\/masteryi-r-kill-[^/]+\.png$/.test(request.url()))
@@ -521,6 +524,11 @@ try {
     'Production must not preload development Highlander audio'
   );
   assert.deepEqual(
+    masterYiSwordRequests,
+    [],
+    'Production must not preload development sword effects'
+  );
+  assert.deepEqual(
     masterYiRKillRequests,
     [],
     'Production must not preload development Highlander takedown assets'
@@ -610,6 +618,7 @@ try {
       unrequestedMasterYiAlphaAudioPreloads: masterYiAlphaAudioRequests.length,
       unrequestedMasterYiMeditateAudioPreloads: masterYiMeditateAudioRequests.length,
       unrequestedMasterYiWujuStyleAudioPreloads: masterYiWujuStyleAudioRequests.length,
+      unrequestedMasterYiSwordPreloads: masterYiSwordRequests.length,
       unrequestedMasterYiMeditateDamagePreloads: masterYiMeditateDamageRequests.length,
       unrequestedMasterYiHighlanderKillPreloads: masterYiRKillRequests.length,
       unrequestedMasterYiHighlanderCastPreloads: masterYiRCastRequests.length,

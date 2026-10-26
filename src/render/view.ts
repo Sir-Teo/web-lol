@@ -1,3 +1,4 @@
+import { LazySwordGlows } from './lazy-masteryi-sword-glows';
 import { LazyMeditateDamage } from './lazy-masteryi-w-damage';
 import { LazyMeditateBuffs } from './lazy-masteryi-w-buffs';
 import { LazyMeditateCasts } from './lazy-masteryi-w-casts';
@@ -170,6 +171,7 @@ export class GameView {
   sunlight = new LazySunlight(this.scene, (p) => this.ground(p));
   garenPerseverance = new LazyGarenPerseverance(this.scene, (p) => this.ground(p));
   garenBasicAttacks = new LazyGarenBasicAttacks(this.scene, (p) => this.ground(p));
+  swordGlows = new LazySwordGlows(this.scene, (p) => this.ground(p));
   meditateDamage = new LazyMeditateDamage(this.scene, (p) => this.ground(p));
   highlanderKills = new LazyHighlanderKills(this.scene, (p) => this.ground(p));
   highlanderCasts = new LazyHighlanderCasts(this.scene, this.particleEarlyDistortion.scene, (p) =>
@@ -866,6 +868,7 @@ export class GameView {
     this.grompAttack.update(world, alpha, this.camera, terminalAge);
     this.garenDecisiveStrike.update(world, alpha, this.camera, this.models, terminalAge);
     this.garenBasicAttacks.update(world, alpha, this.camera, terminalAge);
+    this.swordGlows.update(world, alpha, this.camera, this.models, terminalAge);
     this.meditateDamage.update(world, alpha, this.camera, terminalAge);
     this.highlanderKills.update(world, alpha, this.camera, terminalAge);
     this.highlanderCasts.update(world, alpha, this.camera, terminalAge);
