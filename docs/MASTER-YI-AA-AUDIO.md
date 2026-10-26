@@ -89,3 +89,26 @@ The production smoke passes beneath `/nested/rift/`, retaining all 32 ordinary
 recordings, real public champion inputs, purchases and restores. Both Yi
 development flags remain rejected and no Yi rig or attack WAV preloads. Evidence,
 hashes and exact staged results: [verification ledger](reference/masteryi/aa-audio-verification.json).
+
+## Applied-rate seek correction
+
+Attack and critical cast samplers now round the selected playback rate to the
+float32 value retained by WebAudio before calculating source-second offsets.
+This removes a restore/resume discrepancy without changing source recordings,
+authored pitch ranges, delays, contact clocks or saved history shape. The
+state/player modules and their runtime dependencies now participate in saved-match
+compatibility hashing; the schema remains 149.
+
+The new normal/critical unit regressions failed against the old sampler. A real
+normal-attack Save/reload also failed the tightened ten-decimal source-second
+check (difference 6.46e-10 seconds). The corrected sampler passes 65 focused
+cases across attack history/audio, Q audio and compatibility hashing. The
+production build passes. Both normal and critical browser saves retain exact
+histories and later simulation; all existing attack-audio browser coverage is
+retained. The initial unit fixture sampled beyond a short ordinary clip and was
+corrected to use an active source age; that diagnostic is preserved.
+
+Exact source and staged evidence are recorded in the
+[seek correction ledger](reference/masteryi/aa-seek-verification.json). The
+previous full-suite and production acceptance above are historical results;
+this narrow correction does not claim another full-suite or listening certificate.

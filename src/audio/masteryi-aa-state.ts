@@ -52,7 +52,8 @@ export function masterYiAAStates(
               (masterYiAudioHash(r.id, r.startTick, range.nodeId ^ (i + 101)) / 0x100000000),
           0
         );
-      const playbackRate = 2 ** (pitchCents / 1200),
+      // AudioParam retains float32; restored source seconds must use the applied rate.
+      const playbackRate = Math.fround(2 ** (pitchCents / 1200)),
         offset = age * playbackRate;
       if (offset >= p.variants[variant].durationSeconds) continue;
       const point = hit ? r.impact!.point : r;

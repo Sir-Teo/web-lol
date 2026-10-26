@@ -137,6 +137,32 @@ test('saved Alpha Strike sound compatibility includes state, voice policy and ex
   expect(rulesetFingerprint(root)).not.toBe(before);
 });
 
+test('saved Yi attack audio includes applied pitch, voice policy and float loading', () => {
+  const files = [
+    'src/audio/masteryi-aa-state.ts',
+    'src/audio/masteryi-aa.ts',
+    'src/audio/float-source-wav.ts',
+    'src/content/masteryi-aa-audio.ts',
+    'src/content/masteryi-aa-audio-timing.ts',
+  ];
+  for (const file of files) {
+    expect(rulesetFiles, file).toContain(file);
+    expect(affectsRuleset(resolve(file)), file).toBe(true);
+  }
+  const { root, put } = fixture();
+  put('src/audio/masteryi-aa.ts', "import './masteryi-aa-state'; import './float-source-wav';");
+  put('src/audio/masteryi-aa-state.ts', 'export const appliedRate=1;');
+  put('src/audio/float-source-wav.ts', 'export const preserveFloat=true;');
+  const before = rulesetFingerprint(root);
+  for (const file of files.slice(0, 3)) {
+    const original = readFileSync(join(root, file), 'utf8');
+    put(file, original + '\n// changed saved sound interpretation\n');
+    expect(rulesetFingerprint(root), file).not.toBe(before);
+    put(file, original);
+    expect(rulesetFingerprint(root)).toBe(before);
+  }
+});
+
 test('Ahri and Master Yi saved-pose compatibility includes fetched rig inputs without importing binary modules', () => {
   const { root, put } = fixture();
   const before = rulesetFingerprint(root);

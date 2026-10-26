@@ -100,6 +100,19 @@ test.each(['attack1', 'crit'] as const)(
   }
 );
 
+test.each(['attack1', 'crit'] as const)(
+  '%s resumes in source seconds at the exact AudioParam float32 rate',
+  (kind) => {
+    for (let id = 1; id <= 100; id++) {
+      const state = masterYiAAStates([{ ...record(kind), id }], kind === 'crit' ? 125 : 110)[0];
+      expect(state).toBeDefined();
+      const appliedRate = Math.fround(2 ** (state.pitchCents / 1200));
+      expect(state.playbackRate).toBe(appliedRate);
+      expect(state.offset).toBe(state.age * appliedRate);
+    }
+  }
+);
+
 test.each(['Flesh', 'Metal', 'Stone', 'Wood'] as const)(
   'contact selects only the %s branch at its captured point',
   (material) => {

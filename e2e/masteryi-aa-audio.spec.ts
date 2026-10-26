@@ -178,63 +178,68 @@ test('normal and critical swings play their own delayed cast and material impact
   writeFileSync(info.outputPath('attack-playback.json'), JSON.stringify(result, null, 2));
 });
 
-test('mid-windup Save match and reload retain exact history, pitch-adjusted seek and future impact', async ({
-  page,
-}, info) => {
-  await open(page);
-  const before = await page.evaluate(() => {
-    const g = (window as any).__GAME__,
-      w = g.world;
-    const target = w.spawn('siege', 'red', { x: 90, y: 0 });
-    target.ai = false;
-    target.hp = target.maxHp = 100000;
-    w.setOrder(w.hero, { type: 'attack', target: target.id });
-    w.step(7);
-    const saved = w.snapshot(),
-      copy = w.constructor.fromSnapshot(saved, w.battlefield);
-    copy.step(100);
-    return {
-      saved,
-      future: copy.snapshot(),
-      record: structuredClone(w.player.masterYiAAAudio[0]),
-      tick: w.tick,
-    };
+for (const critical of [false, true])
+  test(`${critical ? 'critical' : 'normal'} mid-windup Save match and reload retain exact history, pitch-adjusted seek and future impact`, async ({
+    page,
+  }, info) => {
+    await open(page);
+    const before = await page.evaluate((critical) => {
+      const g = (window as any).__GAME__,
+        w = g.world;
+      const target = w.spawn('siege', 'red', { x: 90, y: 0 });
+      target.ai = false;
+      target.hp = target.maxHp = 100000;
+      w.criticalChance = () => (critical ? 1 : 0);
+      w.setOrder(w.hero, { type: 'attack', target: target.id });
+      w.step(critical ? 15 : 7);
+      const saved = w.snapshot(),
+        copy = w.constructor.fromSnapshot(saved, w.battlefield);
+      copy.step(100);
+      return {
+        saved,
+        future: copy.snapshot(),
+        record: structuredClone(w.player.masterYiAAAudio[0]),
+        tick: w.tick,
+      };
+    }, critical);
+    expect(before.record.kind).toBe(critical ? 'crit' : 'attack1');
+    expect(before.tick).toBeLessThan(before.record.releaseTick);
+    await page.keyboard.press('Escape');
+    await page.getByRole('button', { name: 'Save match', exact: true }).click();
+    await expect(page.locator('#toast')).toHaveText('Match saved on this browser.');
+    await page.reload();
+    await page.waitForFunction(() => (window as any).__GAME__?.ready);
+    await page.locator('#loading').waitFor({ state: 'detached' });
+    expect(await page.evaluate(() => (window as any).__GAME__.world.snapshot())).toBe(before.saved);
+    await open(page, false);
+    const after = await page.evaluate((savedTick) => {
+      const g = (window as any).__GAME__,
+        w = g.world,
+        p = (window as any).__AA__;
+      p.update();
+      const restored = p.calls.slice();
+      w.step(w.player.masterYiAAAudio[0].releaseTick - w.tick);
+      p.update();
+      const calls = p.calls.slice(),
+        impact = structuredClone(w.player.masterYiAAAudio[0].impact);
+      w.step(100 - (w.tick - savedTick));
+      return { restored, calls, impact, future: w.snapshot() };
+    }, before.tick);
+    expect(after.restored).toHaveLength(1);
+    const restored = after.restored[0],
+      profile = P[restored.profileIndex];
+    expect(restored.offset).toBeCloseTo(
+      ((before.tick - before.record.startTick) / 60 - profile.delaySeconds) * restored.rate,
+      10
+    );
+    expect(after.calls).toHaveLength(2);
+    expect(after.impact.material).toBe('Metal');
+    expect(after.future).toBe(before.future);
+    writeFileSync(
+      info.outputPath('attack-save-reload.json'),
+      JSON.stringify({ before, after }, null, 2)
+    );
   });
-  await page.keyboard.press('Escape');
-  await page.getByRole('button', { name: 'Save match', exact: true }).click();
-  await expect(page.locator('#toast')).toHaveText('Match saved on this browser.');
-  await page.reload();
-  await page.waitForFunction(() => (window as any).__GAME__?.ready);
-  await page.locator('#loading').waitFor({ state: 'detached' });
-  expect(await page.evaluate(() => (window as any).__GAME__.world.snapshot())).toBe(before.saved);
-  await open(page, false);
-  const after = await page.evaluate((savedTick) => {
-    const g = (window as any).__GAME__,
-      w = g.world,
-      p = (window as any).__AA__;
-    p.update();
-    const restored = p.calls.slice();
-    w.step(w.player.masterYiAAAudio[0].releaseTick - w.tick);
-    p.update();
-    const calls = p.calls.slice(),
-      impact = structuredClone(w.player.masterYiAAAudio[0].impact);
-    w.step(100 - (w.tick - savedTick));
-    return { restored, calls, impact, future: w.snapshot() };
-  }, before.tick);
-  expect(after.restored).toHaveLength(1);
-  const restored = after.restored[0],
-    profile = P[restored.profileIndex];
-  expect(restored.offset).toBeCloseTo(
-    ((before.tick - before.record.startTick) / 60 - profile.delaySeconds) * restored.rate
-  );
-  expect(after.calls).toHaveLength(2);
-  expect(after.impact.material).toBe('Metal');
-  expect(after.future).toBe(before.future);
-  writeFileSync(
-    info.outputPath('attack-save-reload.json'),
-    JSON.stringify({ before, after }, null, 2)
-  );
-});
 
 test('ordinary startup skips Yi audio and late Yi presence fetches each unique master once', async ({
   page,

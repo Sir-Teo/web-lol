@@ -1,0 +1,181 @@
+{
+  "format": 1,
+  "parentCommit": "dc030c6729f522530db8f4368b15948d6619daf5",
+  "identity": {
+    "schema": 149,
+    "ruleset": "e97e94aa87d8f5129de45b0f69dc09f3d55d562950e77bb726f5e56ffc78890d",
+    "pack": {
+      "id": "7ad7620c9bc33de2b353378e0bc3f4801a535995f3a2300768e40d14a73ada6a",
+      "files": 1119,
+      "bytes": 531443181
+    }
+  },
+  "scope": "Use the float32 AudioParam playback rate for normal and critical attack source-second restore/resume; include attack sampler/player dependency graph in saved compatibility.",
+  "generated": [
+    {
+      "path": "docs/MASTER-YI-AA-AUDIO.md",
+      "bytes": 7120,
+      "sha256": "384687e832b6e9c48f05e21111e19dd8055625fce08e9e355fe5ee318ef9fd24",
+      "archived": ".cache/masteryi-aa-seek-cloud/source/docs/MASTER-YI-AA-AUDIO.md"
+    },
+    {
+      "path": "e2e/masteryi-aa-audio.spec.ts",
+      "bytes": 16094,
+      "sha256": "b083fce27bae6d5318451c61d39f89a29aa317b9924765845f61835bc953c5ca",
+      "archived": ".cache/masteryi-aa-seek-cloud/source/e2e/masteryi-aa-audio.spec.ts"
+    },
+    {
+      "path": "src/audio/masteryi-aa-state.ts",
+      "bytes": 2592,
+      "sha256": "3f1ea8c6272e6b31431b0c9f02a8b94e4c1284fb32a5d82651421447caa3d0fd",
+      "archived": ".cache/masteryi-aa-seek-cloud/source/src/audio/masteryi-aa-state.ts"
+    },
+    {
+      "path": "tests/masteryi-aa-audio.test.ts",
+      "bytes": 8256,
+      "sha256": "018e08f65541294727dbf58d69c5bd9f1e75063c8f96522b2c266a0238f62b9b",
+      "archived": ".cache/masteryi-aa-seek-cloud/source/tests/masteryi-aa-audio.test.ts"
+    },
+    {
+      "path": "tests/ruleset-fingerprint.test.ts",
+      "bytes": 15454,
+      "sha256": "b5d20cf3cd0044ff41e99b333e58cabf15b9bd3d47e926156acc3a7e053cac87",
+      "archived": ".cache/masteryi-aa-seek-cloud/source/tests/ruleset-fingerprint.test.ts"
+    },
+    {
+      "path": "tools/ruleset-fingerprint.ts",
+      "bytes": 11809,
+      "sha256": "4556dacd48f3862a0b8128757dcb0ce36e20d2c1d3e7d93d243903dcb12c808d",
+      "archived": ".cache/masteryi-aa-seek-cloud/source/tools/ruleset-fingerprint.ts"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-aa-seek-cloud/browser-format.log",
+      "bytes": 48,
+      "sha256": "7e929c21eabce414ab532c932593f01bb3721d89cca9e632d825e230b874611d"
+    },
+    {
+      "path": ".cache/masteryi-aa-seek-cloud/browser-green/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-aa-seek-cloud/browser-green/masteryi-aa-audio-Leona-us-0f1eb-i-saves-and-reloads-exactly/champion-material-save.json",
+      "bytes": 144277,
+      "sha256": "3eb2f4052256e7eea73deb04523531c75656fb118e9b58cf299b8fef9d33a99b"
+    },
+    {
+      "path": ".cache/masteryi-aa-seek-cloud/browser-green/masteryi-aa-audio-all-24-s-f1d7b-n-real-browser-AudioBuffers/float-masters.json",
+      "bytes": 3535,
+      "sha256": "a8a10ff0da6d90cbff04d60b105bfff780887f158cd131b1d0edb843fdb8ed0a"
+    },
+    {
+      "path": ".cache/masteryi-aa-seek-cloud/browser-green/masteryi-aa-audio-critical-1e38e-sted-seek-and-future-impact/attack-save-reload.json",
+      "bytes": 19028,
+      "sha256": "907f262c103223b6f4a50b6e215ee792962f8191fd06ed622c2e53e97cc9aa50"
+    },
+    {
+      "path": ".cache/masteryi-aa-seek-cloud/browser-green/masteryi-aa-audio-normal-a-21368-hout-synthesized-duplicates/attack-playback.json",
+      "bytes": 2525,
+      "sha256": "37ab49bd4cd019db7e2e39f4c6d89c11f9468ee12735ec2e37a15b16cd000462"
+    },
+    {
+      "path": ".cache/masteryi-aa-seek-cloud/browser-green/masteryi-aa-audio-normal-m-e3a69-sted-seek-and-future-impact/attack-save-reload.json",
+      "bytes": 18805,
+      "sha256": "4fb1df7e6c3d3d68a26ccb8ab8f19da69cfe1384b3861383c7f20ea619173fac"
+    },
+    {
+      "path": ".cache/masteryi-aa-seek-cloud/browser-green/masteryi-aa-audio-ordinary-a67df-hes-each-unique-master-once/late-presence.json",
+      "bytes": 27,
+      "sha256": "2a7f156bfc7a3e435d6932b307fdde050ac0182e871c5712b084c6427ef48bf9"
+    },
+    {
+      "path": ".cache/masteryi-aa-seek-cloud/browser-green.log",
+      "bytes": 3774,
+      "sha256": "231a1ed9307b2411fdbeec40ea4ae096652ca35ec1e02c9b37a70f9b435d80d8"
+    },
+    {
+      "path": ".cache/masteryi-aa-seek-cloud/browser-red/.last-run.json",
+      "bytes": 96,
+      "sha256": "efd6cb4b08ebf08d75774c3eb341ae9d26a06f958cd15635aa92a05c679c6e8d"
+    },
+    {
+      "path": ".cache/masteryi-aa-seek-cloud/browser-red/masteryi-aa-audio-mid-wind-8cd8b-sted-seek-and-future-impact/error-context.md",
+      "bytes": 14059,
+      "sha256": "78bddd0514d48fd97f6cf982d6cebc321b22e3191d0bbcc0b020e1fe0f4024ee"
+    },
+    {
+      "path": ".cache/masteryi-aa-seek-cloud/browser-red/masteryi-aa-audio-mid-wind-8cd8b-sted-seek-and-future-impact/test-failed-1.png",
+      "bytes": 460909,
+      "sha256": "69f49a2adbcccfbed8bebb43e61df7222d49944aeb1aa21226a684205544d385"
+    },
+    {
+      "path": ".cache/masteryi-aa-seek-cloud/browser-red/masteryi-aa-audio-mid-wind-8cd8b-sted-seek-and-future-impact/trace.zip",
+      "bytes": 39662399,
+      "sha256": "09ca0b57a2bfd678e0d01f459087a9b719635035150363aace625e4f9643de29"
+    },
+    {
+      "path": ".cache/masteryi-aa-seek-cloud/browser-red.log",
+      "bytes": 3288,
+      "sha256": "84dd48d24816428c6a98cc3fc9e241f2b8ce0d12a1b2842a114c10bdbf392ec6"
+    },
+    {
+      "path": ".cache/masteryi-aa-seek-cloud/build.log",
+      "bytes": 5254,
+      "sha256": "880ab0fc1f23ca3c80f73378f347de47d7ec5cf5401dc444bb1151ed5ce90dd8"
+    },
+    {
+      "path": ".cache/masteryi-aa-seek-cloud/format.log",
+      "bytes": 241,
+      "sha256": "9916b08f6c5ba7adb486a5911bcd236d4a85e0aff0442a767b991221efdfef09"
+    },
+    {
+      "path": ".cache/masteryi-aa-seek-cloud/identity.json",
+      "bytes": 238,
+      "sha256": "2a62b31b67d1ab294aa87a04ded666f842ca55770d8be6ff9bdaa81c2e4540b8"
+    },
+    {
+      "path": ".cache/masteryi-aa-seek-cloud/offline-pack.json",
+      "bytes": 160294,
+      "sha256": "5b1d1d65767f53981ea8bdb5b8cd509d05f6f7cd667751b324109b6680d7bb3d"
+    },
+    {
+      "path": ".cache/masteryi-aa-seek-cloud/unit-green.log",
+      "bytes": 170,
+      "sha256": "a87dc30093c264e8bd03f8b3773376c68e44e02229c7ae969f4770cf6a0857d9"
+    },
+    {
+      "path": ".cache/masteryi-aa-seek-cloud/unit-red-valid-age.log",
+      "bytes": 1891,
+      "sha256": "e9b6eccc45c3d88ea81c5124f7962d93fe72519ba9a060632a10feb5897bf9b3"
+    },
+    {
+      "path": ".cache/masteryi-aa-seek-cloud/unit-red.log",
+      "bytes": 1817,
+      "sha256": "e30e6625f21d496c16e8c9e545e3e5a1f8f8049162245ba5cd332d12c02022ac"
+    }
+  ],
+  "checks": {
+    "unit": {
+      "passed": 65,
+      "files": 4
+    },
+    "browser": {
+      "passed": 8,
+      "retries": 0,
+      "environment": "system Chromium 154 / SwiftShader",
+      "normalAndCriticalSaves": "Exact history, ten-decimal source-second seek at actual AudioParam rate and identical later simulation."
+    },
+    "build": "TypeScript and production build passed; unchanged large-chunk warning."
+  },
+  "retainedDiagnostics": [
+    "Two exact applied-rate unit regressions fail before the correction.",
+    "Real normal attack Save/reload fails the tighter source-second check before correction: 6.457458942565886e-10 seconds mismatch.",
+    "First new unit fixture sampled beyond a short ordinary clip; corrected active source age, retaining the defined-state and exact-rate assertions."
+  ],
+  "limits": [
+    "No source media/gain/delay/range/contact/history-shape changes.",
+    "No repeat full-suite, full production input, offline, physical-device, FPS, native DSP or listening acceptance claim. Historical results remain in earlier ledgers."
+  ]
+}
