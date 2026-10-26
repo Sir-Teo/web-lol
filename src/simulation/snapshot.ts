@@ -1,3 +1,5 @@
+import { validateHighlanderKills } from './masteryi-highlander-kill';
+import { HIGHLANDER_KILL_HISTORY_TICKS } from '../content/masteryi-r-kill-timing';
 import { validateHighlanderCasts } from './masteryi-highlander-cast';
 import { HIGHLANDER_CAST_HISTORY_TICKS } from '../content/masteryi-r-cast-timing';
 import { validateAlphaEnds } from './masteryi-q-end';
@@ -159,7 +161,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 156;
+export const SNAPSHOT_VERSION = 157;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -846,6 +848,33 @@ const player: z.ZodType<PlayerState> = z
             )
             .min(1)
             .max(MEDITATE_CAST_HISTORY_TICKS),
+        })
+      )
+      .max(1000),
+    highlanderKillVisuals: z
+      .array(
+        z.strictObject({
+          castTick: tick,
+          tick,
+          extensionIndex: z.number().int().min(1),
+          victimId: id,
+          victimTeam: z.enum(['blue', 'red']),
+          rank: z.number().int().min(1).max(3),
+          audience: daybreakFrame.shape.audience,
+          detachedTick: tick.nullable(),
+          frames: z
+            .array(
+              z.strictObject({
+                tick,
+                endTick: tick,
+                x: z.number(),
+                y: z.number(),
+                facing: z.number(),
+                audience: daybreakFrame.shape.audience,
+              })
+            )
+            .min(1)
+            .max(HIGHLANDER_KILL_HISTORY_TICKS),
         })
       )
       .max(1000),
@@ -4446,6 +4475,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     validateMasterYiAttacks(owner, champion, state);
     validateHighlanderAudio(owner, champion, state);
     validateHighlanderCasts(owner, champion, state);
+    validateHighlanderKills(owner, champion, state);
     validateWujuStyleAudio(owner, champion, state);
     validateMeditateBuffs(owner, champion, state);
     validateMeditateAudio(owner, champion, state);

@@ -59,7 +59,8 @@ first-update emission and native script/GPU parity remain unverified. Omitted
 lookups use an explicit local neutral white product. These policies are recorded
 in the compiled reading. R_Cas omits sound, so this renderer adds none. Existing
 finite R audio and the separately declared sustained trail sound remain distinct.
-Sustained rank variants, attached overlay and takedown effects are separate work.
+[Takedown effects](MASTER-YI-R-KILL.md) use their own saved finite histories.
+Sustained rank variants and the attached overlay remain separate work.
 
 Reproduce with `python tools/assets/export-masteryi-r-cast-particles.py --check`
 and `python tools/assets/test-masteryi-r-cast.py`, including optimized Python,

@@ -1,0 +1,1022 @@
+{
+  "format": 1,
+  "parentCommit": "c258f6e937daa3a4897f562a260b06a382c39401",
+  "identity": {
+    "schema": 157,
+    "ruleset": "3d3144a9c1dc56062719182a712f3db8338acf199982a5b7db1596524b26d3d3",
+    "pack": {
+      "id": "d2085a34794c0ec4936f526069e59a3be35cf91359c94bea907ad6a4c9bbf22f",
+      "files": 1168,
+      "bytes": 536404047
+    }
+  },
+  "scope": "Complete three-emitter R_OnBuffKill on actually awarded living active-R extensions; saved independent same-tick histories and Q-hidden births; exact authored mips; page-owned verified static geometry shared with Q contacts. Public roster remains Ashe/Lux.",
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/r-particles.json",
+      "bytes": 113047,
+      "sha256": "e8630aeae0aa33c6f369bde1ac3c80aeb333a16e78924ab1417f56f75e7f1ccd"
+    },
+    {
+      "path": "docs/reference/masteryi/r-particles-decoded.json",
+      "bytes": 135932,
+      "sha256": "c55d3b2b5aa5c6b3263e91b99e36097d7b200ce3e49d8e5ea62d290bc174258f"
+    },
+    {
+      "path": "docs/reference/masteryi/r-kill-texture-transport.json",
+      "bytes": 13043,
+      "sha256": "40f89c39c27eec6127a9f32991bcad52e0cfa7d8832ab1969363d134aca6189f"
+    },
+    {
+      "path": "docs/reference/masteryi/r-particle-source-verification.json",
+      "bytes": 14230,
+      "sha256": "84c88aeb35b7dcc1698466146e3535f1df418ef42f992c103e00c3633f59cd2a"
+    },
+    {
+      "path": "docs/reference/masteryi/r-particle-decode-verification.json",
+      "bytes": 14029,
+      "sha256": "f1bee7c0b2cfe492f12acb4253ec84d6821c22e3db999a3efcae14488655347a"
+    },
+    {
+      "path": "docs/reference/garen-spin-defaults.json",
+      "bytes": 1772,
+      "sha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb"
+    },
+    {
+      "path": "src/content/masteryi-q-contact-particles.json",
+      "bytes": 38125,
+      "sha256": "ade04d77fe7d7900ac4300cb870192cec9ca2a63f4215e55cac5d63cba88cd57"
+    },
+    {
+      "path": "tools/assets/masteryi_r_particles.py",
+      "bytes": 3812,
+      "sha256": "fbcf9abca93dfa8fae675482712cf4e758abb4ce5ddd7a568a8cbecc6542809e"
+    },
+    {
+      "path": "tools/assets/masteryi_q_decode.py",
+      "bytes": 7372,
+      "sha256": "552f2cf9a0cb552a97332a142bbea6f25a3b0e2c2974359a58659a2c17517ecd"
+    },
+    {
+      "path": "tools/assets/masteryi_w_cast.py",
+      "bytes": 8252,
+      "sha256": "67db765dbf4c62c0cd0e5d39d99589c657d6ae826e79a9453a599e203d6d4b5e"
+    },
+    {
+      "path": "tools/assets/masteryi_w_buff.py",
+      "bytes": 6301,
+      "sha256": "30d3b7f47b7d0a3258dbf7c9394f48a35f204cf5be76fd4dc40483131b630c81"
+    },
+    {
+      "path": "tools/assets/particle_mip_atlas.py",
+      "bytes": 4181,
+      "sha256": "4ba50521c7a4c0d061bbf2f8363b7a84b4db9a4bf480e3d52ae101aec6538fd6"
+    },
+    {
+      "path": "tests/lane-rules.test.ts",
+      "bytes": 5533,
+      "sha256": "d12c8deaba4ba8933dca9a045b1eeae20b1869167f5b9e1fcf0dbfc39e8c1d4a"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-r-kill-runtime/final-source-index.json",
+    "bytes": 9345,
+    "sha256": "e3a17381861bf791e44dac2236ac57975d1450c1c3d10d2a7b19ceb4dd0a2a34"
+  },
+  "generated": [
+    {
+      "path": "README.md",
+      "bytes": 16091,
+      "sha256": "017726327f2053cdc91d846199321d2a2509d8661680c63d5c27c56787ead34e",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/README.md"
+    },
+    {
+      "path": "docs/MASTER-YI-R-CAST.md",
+      "bytes": 4763,
+      "sha256": "5c847a9c82c5deb743c8ae35aab1aa12df0424b3e0f1723ac2f2a25d3afe03e8",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/docs/MASTER-YI-R-CAST.md"
+    },
+    {
+      "path": "docs/MASTER-YI-R-KILL.md",
+      "bytes": 2795,
+      "sha256": "9d104af8fe2926d456aa185772fb5526792a2d93d97a9f94d47af5615c2406cd",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/docs/MASTER-YI-R-KILL.md"
+    },
+    {
+      "path": "docs/SAVES.md",
+      "bytes": 61276,
+      "sha256": "e832e707acc42e5204d1123e8c95e80f7360667ff0566c4ac1a63a900477ca7f",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/docs/SAVES.md"
+    },
+    {
+      "path": "docs/reference/masteryi/r-kill-runtime-reading.json",
+      "bytes": 1530,
+      "sha256": "b5291f38f84babd55d4d8a7387c7ca9e06c69c0258da071a5671a88932f07388",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/docs/reference/masteryi/r-kill-runtime-reading.json"
+    },
+    {
+      "path": "docs/reference/masteryi/r-kill-texture-transport.json",
+      "bytes": 13043,
+      "sha256": "40f89c39c27eec6127a9f32991bcad52e0cfa7d8832ab1969363d134aca6189f",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/docs/reference/masteryi/r-kill-texture-transport.json"
+    },
+    {
+      "path": "e2e/masteryi-highlander-kill.spec.ts",
+      "bytes": 22119,
+      "sha256": "a9e88d39691565a94df3aeabf7c0df49165c3004537b63c697f74ff30b1689c3",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/e2e/masteryi-highlander-kill.spec.ts"
+    },
+    {
+      "path": "public/assets/effects/masteryi-r-kill-503a5ce9f6a0ca81.png",
+      "bytes": 62329,
+      "sha256": "89fe7f0ab2b1b1ab7945f46ea0ad5f9fbe0e3659a153f77e484f1afa1f69f3fd",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/public/assets/effects/masteryi-r-kill-503a5ce9f6a0ca81.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-r-kill-76b599a57556029b.png",
+      "bytes": 13903,
+      "sha256": "14cce769558548c134f4455e0aa098f9047c9f409300af2d94327cf7d0cf7195",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/public/assets/effects/masteryi-r-kill-76b599a57556029b.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-r-kill-bd894037e78f230f.png",
+      "bytes": 5018,
+      "sha256": "4bbd3347bd34ffea46262ff06cb6de41a3bcbaa13ec4ddbb0c0efd41017fbd41",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/public/assets/effects/masteryi-r-kill-bd894037e78f230f.png"
+    },
+    {
+      "path": "src/content/masteryi-r-kill-particles.json",
+      "bytes": 33703,
+      "sha256": "d19c30cf7357cbebdd2b0a0981f5a819407799ac408798056d2bca7ea4f779c3",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/src/content/masteryi-r-kill-particles.json"
+    },
+    {
+      "path": "src/content/masteryi-r-kill-timing.ts",
+      "bytes": 127,
+      "sha256": "c32b1041bdf677e0d94ec74fce5b16374a4c85dcd902b90b78195fe8ffd3b521",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/src/content/masteryi-r-kill-timing.ts"
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 21388,
+      "sha256": "7efd2d58a5848eb685834f1dd5585cc52c3181661136f7a39a6dfc1542df0b25",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/src/main.ts"
+    },
+    {
+      "path": "src/render/authored-static-geometry.ts",
+      "bytes": 3055,
+      "sha256": "fa8bf0ba8eeecf1ad6d0c8012430d29b5f879aa41fd1f695b1e4e36e92049e59",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/src/render/authored-static-geometry.ts"
+    },
+    {
+      "path": "src/render/lazy-masteryi-r-kills.ts",
+      "bytes": 1394,
+      "sha256": "d05a7845a49d0852da692879931be35f3efe7230fdb01fdee03613966550e1b6",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/src/render/lazy-masteryi-r-kills.ts"
+    },
+    {
+      "path": "src/render/masteryi-q-contacts.ts",
+      "bytes": 6575,
+      "sha256": "c60108e480cbcd2450b541e4a0cf594d90407447e584ac1674335bf81be39087",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/src/render/masteryi-q-contacts.ts"
+    },
+    {
+      "path": "src/render/masteryi-r-kill-particles.ts",
+      "bytes": 3307,
+      "sha256": "40133a8d50327df8bed3a1fd3add7141f5b59beaf99a5cefda2fbb7065f86331",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/src/render/masteryi-r-kill-particles.ts"
+    },
+    {
+      "path": "src/render/masteryi-r-kills.ts",
+      "bytes": 4893,
+      "sha256": "4937348ae7553473e4770e3fc66f2cb30ffb07d158cfdabb7447d187d20ea371",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/src/render/masteryi-r-kills.ts"
+    },
+    {
+      "path": "src/render/masteryi-source-geometry.ts",
+      "bytes": 212,
+      "sha256": "b1a1cf1776b622df57a0a68d8dba8b7167c46e8b0e6f416e51f97c94a9be70c1",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/src/render/masteryi-source-geometry.ts"
+    },
+    {
+      "path": "src/render/view.ts",
+      "bytes": 62384,
+      "sha256": "8645f35219a4ad30dd328890a4b3369b895bbe5dca825eb76891bba6c526ecf8",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/src/render/view.ts"
+    },
+    {
+      "path": "src/simulation/champion-state.ts",
+      "bytes": 4193,
+      "sha256": "cb802971db70597ba70669f6097404342f65087f8ccaa8833be9e80a5ea5bedd",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/src/simulation/champion-state.ts"
+    },
+    {
+      "path": "src/simulation/masteryi-highlander-kill.ts",
+      "bytes": 5744,
+      "sha256": "5fc42a483fb2985a0b00cd739776af4c8b5302e8f7650843adb7d0bb12c6f54d",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/src/simulation/masteryi-highlander-kill.ts"
+    },
+    {
+      "path": "src/simulation/masteryi-highlander.ts",
+      "bytes": 3036,
+      "sha256": "b6e6db7a60379631c8c50d0363308ce0b3fd3665e2fa6dba445c8d3bc7214e65",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/src/simulation/masteryi-highlander.ts"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "bytes": 183944,
+      "sha256": "aa7818f15df812176271d5a02a4abb7a8db246b967a51ca43bb21b8b8e2f7379",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/src/simulation/snapshot.ts"
+    },
+    {
+      "path": "src/simulation/types.ts",
+      "bytes": 22613,
+      "sha256": "521fb169a5900f0ee37e39a5cc249a0f4e1d709bd31b29294640f778c93fd903",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/src/simulation/types.ts"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "bytes": 294378,
+      "sha256": "824d736d100928d230b743c4e09160ef505c13dea1b3b751323e75a335b9448b",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/src/simulation/world.ts"
+    },
+    {
+      "path": "tests/authored-static-geometry.test.ts",
+      "bytes": 4789,
+      "sha256": "10f5f20bac3f3f7996d2bfa5d02942ff93d6d800d90187deb603c6e8118decf1",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/tests/authored-static-geometry.test.ts"
+    },
+    {
+      "path": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "4c7bcfa84b17c7b00e8f1b6a53e4580db1479917c6cee3df32dcde05ade6c732",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/tests/lux-e-hit.test.ts"
+    },
+    {
+      "path": "tests/masteryi-highlander-kill-history.test.ts",
+      "bytes": 7468,
+      "sha256": "ae0de0365ba6f63898ca00cbe99a151176ba1873e4f41856999a734e833cfd6c",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/tests/masteryi-highlander-kill-history.test.ts"
+    },
+    {
+      "path": "tests/masteryi-highlander-kill-particles.test.ts",
+      "bytes": 3001,
+      "sha256": "3c60dbbede81e120ddcce802abd8c0486ab7e4e4610f66ed26a43a865dc44a7c",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/tests/masteryi-highlander-kill-particles.test.ts"
+    },
+    {
+      "path": "tools/assets/export-masteryi-r-kill-particles.py",
+      "bytes": 4389,
+      "sha256": "17b04b0cfe580886eac05d1ec30d65dfc0c6baf7d84ebb88e45fb9418a88408e",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/tools/assets/export-masteryi-r-kill-particles.py"
+    },
+    {
+      "path": "tools/assets/masteryi_r_kill.py",
+      "bytes": 4221,
+      "sha256": "0a100a86da1ef8b634573bd5ad79c3e58811aff6cc10ac8cf15c0b212ec4f349",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/tools/assets/masteryi_r_kill.py"
+    },
+    {
+      "path": "tools/assets/pack-masteryi-r-kill-textures.py",
+      "bytes": 5629,
+      "sha256": "553f434f67dc39608ca90e4b590b0ba0496f8c2383888eb5de0dd7ec1e278354",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/tools/assets/pack-masteryi-r-kill-textures.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-r-kill.py",
+      "bytes": 3769,
+      "sha256": "11b2686ec64526e8152875e9ca7b8c34068d3e405679a98a98d2c169fecb550a",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/tools/assets/test-masteryi-r-kill.py"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 28542,
+      "sha256": "2a8cd1c768c0242023d8c51957cc04d6f001ae08f218420618db6e8178878ac7",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/tools/qa/production-subpath.mjs"
+    },
+    {
+      "path": "tools/ruleset-fingerprint.ts",
+      "bytes": 12421,
+      "sha256": "9c2fc73bf7261c8abf88411ab18760fc6b66d68b87e0fe7f34f92bbda653109b",
+      "archived": ".cache/masteryi-r-kill-runtime/final-source/tools/ruleset-fingerprint.ts"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/.last-run.json",
+      "bytes": 96,
+      "sha256": "c24fdba0febed98292f7a3d1358234385cd046e5675627160ea60c6964e70c80"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-highlander-cast-R-9d357-ts-independent-finite-clock/r-during-q-save.json",
+      "bytes": 27020,
+      "sha256": "48232bae049c896b799dc921af128f845bb1bdc628fce56251d07e57764e346b"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-highlander-cast-h-98412-tory-drain-finite-particles/r-fog-q-death-terminal.json",
+      "bytes": 357,
+      "sha256": "40bb3cc76e8bc09a0c3ffc664f5b95c5946ff89dca3d5a8ac59be0c9e1f6e7c6"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-highlander-cast-o-93efa-sts-only-the-failed-texture/retry.json",
+      "bytes": 808,
+      "sha256": "08c114ae3ec9f0b9386663f975bd971a1e6b27451c9e38cfbef8218f35a802a1"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-highlander-cast-r-b864a-and-exact-native-mip-pixels/active-three-mip-readback.json",
+      "bytes": 15135,
+      "sha256": "d648e708c2836f53e104b3108f54e71cb04d9d1fd8fc02fbf68a8be59c4c06cb"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-highlander-cast-r-b864a-and-exact-native-mip-pixels/ordinary-family-pixel-coverage.json",
+      "bytes": 838,
+      "sha256": "819d454f07d9901389785c70df28d9258e2c979fd59951cd4a682bba625c03b8"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-highlander-cast-r-b864a-and-exact-native-mip-pixels/r-moving.png",
+      "bytes": 865055,
+      "sha256": "ac268b2e0961be23ee28fdfc80fef7e669b8aed4f2e187c0c943a31f0a22fa0f"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-highlander-cast-r-b864a-and-exact-native-mip-pixels/r-save-reload.json",
+      "bytes": 97784,
+      "sha256": "16edac719385da365283572a97be9d152d46e72a84e5b0fcc9c332a656c259ac"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-highlander-cast-r-c88aa-and-exact-native-mip-pixels/r-during-w.png",
+      "bytes": 880972,
+      "sha256": "ea0d0a5242e2844d7c1f73eb913f32472c0b05d6b5ef1742e4a47661a3595fad"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-highlander-cast-r-c88aa-and-exact-native-mip-pixels/r-save-reload.json",
+      "bytes": 94260,
+      "sha256": "589144908763a65195337d8700ff5b5c94e527553178c373584c967b7afb54b0"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-highlander-kill-Q-163aa-rth-and-restores-its-future/q-hidden-assist.json",
+      "bytes": 52759,
+      "sha256": "06e8aa8da2995793d1c496294e81e4569aa5f7c2b6bcfffec8879553e9508307"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-highlander-kill-h-c803b--leave-simulation-unchanged/error-context.md",
+      "bytes": 9912,
+      "sha256": "f91938029d37b06749093e75f2cc352bf1c007fa9a262dfeac9e2eb66a9fc067"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-highlander-kill-h-c803b--leave-simulation-unchanged/test-failed-1.png",
+      "bytes": 879663,
+      "sha256": "34a0ef94fafc7f9cf84e7e869285aa089ed43a1a2a50938a683d40dbad1a8a0c"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-highlander-kill-h-c803b--leave-simulation-unchanged/trace.zip",
+      "bytes": 46281572,
+      "sha256": "f08447a648411f35fbf4ffd11a7c9174f08ce805f9dc366fec75deea6a1f72e9"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-highlander-kill-o-cdf83-extures-and-shared-geometry/retry.json",
+      "bytes": 458,
+      "sha256": "55e2d00485bf97cc53d6da50c821b1e3cad1832d0ba6bba6281e246c7c2bedae"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-highlander-kill-r-45577-icles-and-shared-Q-geometry/active-three-mip-readback.json",
+      "bytes": 7439,
+      "sha256": "bbbe6902f32f6e0c0b25a96f6cb04aa3e5d386f5e3a0df9aba45c9046eb7390c"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-highlander-kill-r-45577-icles-and-shared-Q-geometry/ordinary-family-pixel-coverage.json",
+      "bytes": 366,
+      "sha256": "7c47b4de944f727a5148e41dc7d05cc7189d890b0078c0176723d68c646fd023"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-highlander-kill-r-45577-icles-and-shared-Q-geometry/r-1-takedowns.png",
+      "bytes": 875886,
+      "sha256": "7b75127274e4d2b5b6c375bc607ea5f84b60d7ae84817f2f58e04525212b66a9"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-highlander-kill-r-45577-icles-and-shared-Q-geometry/r-kill-save-reload.json",
+      "bytes": 64050,
+      "sha256": "771a8715ebadd586874863ae4ab23b5fd85a256b7a3d1c4813b1fa27c3867cda"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-highlander-kill-r-f3600-icles-and-shared-Q-geometry/r-3-takedowns.png",
+      "bytes": 853975,
+      "sha256": "2923e5346fa93d79b75b3e833c0944ed4a53cab6a12a949a02ba79f2fdaf8e0e"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-highlander-kill-r-f3600-icles-and-shared-Q-geometry/r-kill-save-reload.json",
+      "bytes": 153540,
+      "sha256": "720d8e35cc24a41aa4a528f21e21f4c6a2a05efd3dbcda2f1b901f80d5185bb0"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-q-contacts-ordina-15f40-a-failed-texture-explicitly/late-load-explicit-retry.json",
+      "bytes": 964,
+      "sha256": "f7cbdbceb6b360411c5a808819e73d462e65468ef163d9ec4b74fc4ec502f3d0"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-q-contacts-real-c-2e79d-rticles-through-Save-reload/contact-save-reload.json",
+      "bytes": 31673,
+      "sha256": "20dc7563c7a5173b5137b52441a6b4702a2a1690996c4d611a3597513063f732"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-q-contacts-real-c-2e79d-rticles-through-Save-reload/critical-contact.png",
+      "bytes": 792508,
+      "sha256": "45ccc41108c0a3dd54eefaefd78756c8dcfdcfde67649b61c80f321ec84e165d"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/contact-save-reload.json",
+      "bytes": 36207,
+      "sha256": "12f75763a184b07fa5b575f9ab70bf36e76a390b203c01068ad16e74cf6a908d"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/ordinary-contact.png",
+      "bytes": 802162,
+      "sha256": "1aae5e0598b15c3c1abdc1a0c0de1cd60f4828da293200eedf296aa2e618a820"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/three-authored-mip-readback.json",
+      "bytes": 10563,
+      "sha256": "9b97f1644009edc39fc69b3a985007f0d4920bc9dae8c0302baec8fc2be1dcdb"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-r-audio-a-missing-9a2d3-the-separate-natural-ending/highlander-media-retry.json",
+      "bytes": 467,
+      "sha256": "2a4d4dc149affdb99589b84d3732694ec05935f8060d9d1c26427814450ff8dc"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-r-audio-an-onset--e1b66-or-changing-the-saved-match/highlander-terminal-tail.json",
+      "bytes": 12593,
+      "sha256": "6d1c10d53d2217ed57d75da0bddac400bfd5244154217d3ec32f7d91803f1bf9"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-r-audio-both-High-1083b-oom-in-browser-AudioBuffers/highlander-float-masters.json",
+      "bytes": 287,
+      "sha256": "478b865504984d70c1ba73ab294a42f6f1ec162817e3aee794810df9a084b528"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-r-audio-ordinary--e8cde-resence-loads-each-one-once/highlander-late-loading.json",
+      "bytes": 26,
+      "sha256": "2e8e1eaef4c0f4a63886f103b90c88e53e1254f3698cb9623b47bf712dcfeca5"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-r-audio-real-R-in-e3372-iry-without-duplicate-tones/highlander-input-save-reload.json",
+      "bytes": 15883,
+      "sha256": "317e09fe14219902cefab60148d82fb7abd8bbad296a904936fa253a9bfc0ead"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final/masteryi-r-audio-takedown--e6a06-restarting-its-finite-onset/highlander-extended-expiry.json",
+      "bytes": 1363,
+      "sha256": "a55b8384a9cd931c26767bff6dde3f7cb4420ad05cec757c043a8f56518dfcc2"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-final.log",
+      "bytes": 10037,
+      "sha256": "e988ce7fe6ba510f1bdc7263a2ffd4d43ad34eb43642d7b77e320caa9580aaaf"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-initial/.last-run.json",
+      "bytes": 194,
+      "sha256": "edd8c1560d2277c1a065419f3209d69a45fcd046db317ac9b0fb79dd83863541"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-initial/masteryi-highlander-kill-Q-163aa-rth-and-restores-its-future/error-context.md",
+      "bytes": 38405,
+      "sha256": "2b93280026a23c5d06d19bb4f2f04b2320e82be32363b674db147c04de699a8f"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-initial/masteryi-highlander-kill-Q-163aa-rth-and-restores-its-future/test-failed-1.png",
+      "bytes": 913180,
+      "sha256": "513115630da426a1442b3154f2646f19c8bfce057b316a519109136f5071b86f"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-initial/masteryi-highlander-kill-Q-163aa-rth-and-restores-its-future/trace.zip",
+      "bytes": 48899151,
+      "sha256": "eb99ee39c2e2464b443430217a47d473029d909220b644fa8894377d7a4ad1f5"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-initial/masteryi-highlander-kill-o-cdf83-extures-and-shared-geometry/retry.json",
+      "bytes": 458,
+      "sha256": "55e2d00485bf97cc53d6da50c821b1e3cad1832d0ba6bba6281e246c7c2bedae"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-initial/masteryi-highlander-kill-r-45577-icles-and-shared-Q-geometry/active-three-mip-readback.json",
+      "bytes": 7439,
+      "sha256": "bbbe6902f32f6e0c0b25a96f6cb04aa3e5d386f5e3a0df9aba45c9046eb7390c"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-initial/masteryi-highlander-kill-r-45577-icles-and-shared-Q-geometry/error-context.md",
+      "bytes": 14548,
+      "sha256": "66da7fa6b370d0e65dfd4513ede36297958976fc80c19671bb7efde889d5ac3b"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-initial/masteryi-highlander-kill-r-45577-icles-and-shared-Q-geometry/r-1-takedowns.png",
+      "bytes": 877800,
+      "sha256": "597977e545be4510c204ff72aa7db1805b4664956a99ab7b02c9da040492df79"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-initial/masteryi-highlander-kill-r-45577-icles-and-shared-Q-geometry/test-failed-1.png",
+      "bytes": 463015,
+      "sha256": "862640a8e8c1d871f47c183ef4a7a5fb9b2f5ef9ea602091f6f4ae3ce5175f91"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-initial/masteryi-highlander-kill-r-45577-icles-and-shared-Q-geometry/trace.zip",
+      "bytes": 49529190,
+      "sha256": "82b199fff89d4b5dfa7c60387cc5604343ce47881c21a7007f40a1e0fa379757"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-initial/masteryi-highlander-kill-r-f3600-icles-and-shared-Q-geometry/error-context.md",
+      "bytes": 14550,
+      "sha256": "11e798fc824b38bb7b833649dc28e75c483816769d5801a921da2373fab60f7b"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-initial/masteryi-highlander-kill-r-f3600-icles-and-shared-Q-geometry/r-3-takedowns.png",
+      "bytes": 855398,
+      "sha256": "a0ec26f13aa390436c15482453a5dca556ac94147f6cc36b1a737889e01fdc31"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-initial/masteryi-highlander-kill-r-f3600-icles-and-shared-Q-geometry/test-failed-1.png",
+      "bytes": 463100,
+      "sha256": "d87b3b845be3cf40af4cd8938fe6861079abf7985047b69d93d95254e04d85ed"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-initial/masteryi-highlander-kill-r-f3600-icles-and-shared-Q-geometry/trace.zip",
+      "bytes": 48076620,
+      "sha256": "b34639f1857d586b77fd351de1d3ba65d284fd2026f94f44c109bb59c0ac6ddb"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-initial.log",
+      "bytes": 34406,
+      "sha256": "57d2ed51a9c6d95bac21f07dd4aed1c9c9758732d138fa539087686f5ebe6991"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-terminal/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-terminal/masteryi-highlander-kill-h-c803b--leave-simulation-unchanged/fog-q-death-terminal.json",
+      "bytes": 255,
+      "sha256": "f19fd8e00607325664bcf8f50a8e3433eb6e6aa9d5a425d3342ed0f8d9e39015"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/browser-terminal.log",
+      "bytes": 687,
+      "sha256": "7769b592aa1eeb9b13b12e1a7807928d22c8e0cddf93842a92f57f0afb2ef404"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/build.log",
+      "bytes": 6917,
+      "sha256": "a370042eb10584331034d7da319bae395845d56c107266a86d97fae03d485f83"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/check-phase.json",
+      "bytes": 351,
+      "sha256": "857e7f5c9fe6058cd0dae425530be5b9f83f815f54368d7b07894ce9e2ab923e"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/check-replay.py",
+      "bytes": 1021,
+      "sha256": "b3b1dc186bc1bf621ccafd9312de6d19e0ee5ad02696a09e01ca4f018a166a5e"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/export-check-normal.log",
+      "bytes": 82,
+      "sha256": "18915821ac68806508a846a3f349b6382327fb2e0683b364ff8a91b9cb767bee"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/export-check-optimized.log",
+      "bytes": 82,
+      "sha256": "18915821ac68806508a846a3f349b6382327fb2e0683b364ff8a91b9cb767bee"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/export-replay-normal.log",
+      "bytes": 82,
+      "sha256": "18915821ac68806508a846a3f349b6382327fb2e0683b364ff8a91b9cb767bee"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/export-replay-optimized.log",
+      "bytes": 82,
+      "sha256": "18915821ac68806508a846a3f349b6382327fb2e0683b364ff8a91b9cb767bee"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/export.log",
+      "bytes": 82,
+      "sha256": "18915821ac68806508a846a3f349b6382327fb2e0683b364ff8a91b9cb767bee"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/final-source-index.json",
+      "bytes": 9345,
+      "sha256": "e3a17381861bf791e44dac2236ac57975d1450c1c3d10d2a7b19ceb4dd0a2a34"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/finish-checks-output.log",
+      "bytes": 195,
+      "sha256": "c773dbfee917d779792c365b7ae84c321559e98197d87d3741aac3feb504c286"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/finish-checks.py",
+      "bytes": 1246,
+      "sha256": "3a6adcd97ab3fd43470ae6aa40e8ffe94acdfc49702b24e13768896b8b3b0165"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/focus-final.log",
+      "bytes": 481,
+      "sha256": "86fddc0689052853444df7922fd9b733b94f872fbca7daae05a784e777e62ab7"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/focus-initial.log",
+      "bytes": 4910,
+      "sha256": "e01a85f65b2295b6d637668ca31580711501cbfad714007f2359c3ea6bb66ef5"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/focus.log",
+      "bytes": 1439,
+      "sha256": "384fc89b9141c900dc35f63203060ab7c4db5ed4db82f287043f34b9b79cd20d"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/focused-final.log",
+      "bytes": 481,
+      "sha256": "ff9efc2827321bc1a188e0ea6eef7945173748b5c4c33fab0194a22bdcfeeb66"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/focused-uv-diagnostic.log",
+      "bytes": 1473,
+      "sha256": "6c7a724fad61d404e41df9039f1a8ac6536e2aac8702601cf4bac77ce0791d2b"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/format-browser-final.log",
+      "bytes": 43,
+      "sha256": "1216d8ad808a2837d921e29733cdce587c8564cca5049ab9be2ce624568f9299"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/format-browser.log",
+      "bytes": 173,
+      "sha256": "f6632959566f78cd3fc8ac37516b9253fef7911e105e97abacdf6f0c45222235"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/format-checks.log",
+      "bytes": 98,
+      "sha256": "477b0f2bf91f8d488f9cb6180f09a484bebbb4c79a1b27f325412a9f8c153486"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/format-final.log",
+      "bytes": 362,
+      "sha256": "e6358bae4bcccea8874e63814dc0f04ec3b23d55d9497efdee53cf33aed01cd6"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/format-terminal.log",
+      "bytes": 55,
+      "sha256": "04a7e7653cc3e5db4937a454ab1ddcebe8c8a0a7e1c46684b9c39d241fc040dc"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/format-tests.log",
+      "bytes": 167,
+      "sha256": "3af857eebad9b2376bc9ab8613115fef8c8ce0cb16221e301f408c79f3791eb2"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/format-uv-test.log",
+      "bytes": 67,
+      "sha256": "a91857c7e1aebd03d2ff8212e32cd052119191f8b9c0a4555f26ebfb71929ed7"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/full-unit.log",
+      "bytes": 5487,
+      "sha256": "94e85d96ec5c091bb94f3d2dea2d459055b9841e9221c8469cf7e9ed55f40062"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/geometry-tests.log",
+      "bytes": 181,
+      "sha256": "f2f6d50670acb37fd4f37f89e748f878e7d8e258e8340ba0541009f7b3bb934c"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/guards-normal.log",
+      "bytes": 116,
+      "sha256": "62cdc8df06da83fbee6738c6031811dcd6a4c395b97e2e5c11debbf7d64f99fa"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/guards-optimized.log",
+      "bytes": 116,
+      "sha256": "a4d36b3256ccbb09bb576eb89cd8efeda4207d214c428665b6e0481207d95dc6"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/identity.json",
+      "bytes": 238,
+      "sha256": "b97c8981ebf15a0d60eeef3be5f2093f0774c8d07de0a0eea477e49acb4362a6"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/ledger-result.txt",
+      "bytes": 132,
+      "sha256": "cd9696913a3bb1d3780c95315922143ecffd2f987c43056e93cc0216c6a4ffc8"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/node-qa.log",
+      "bytes": 370,
+      "sha256": "6f1e3a791d721733ab3ff3e91efaf96758b3c0ec145801094d173e61f4f0002d"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/offline-pack.json",
+      "bytes": 167465,
+      "sha256": "28fe7808c3514633cee416680a7c9b9af9c87b6deb3da262c6fdd4637b85e3c4"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/pack-normal.log",
+      "bytes": 99,
+      "sha256": "f537a9992cbd6b13cecacd779745e51f439a07d7db2b13b8b07bcc061dcedabd"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/pack-optimized.log",
+      "bytes": 100,
+      "sha256": "cc27bf25ac4efbced74a8461463e889df5434463017f49627c3c85847fc664ca"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1813896,
+      "sha256": "0f665a117a2954e9566d7c65d69b5d824dd0dc38f2b3b5c5a9571fe131b269f1"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835442,
+      "sha256": "0f46796269588475adbb0abb0f4cbefb822d59856a3bb2178fcf2c7f8c18721e"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1830110,
+      "sha256": "39c5c91d6874a6e959002cb567903813fde2bfc4e7469d1d5330d3730b3919ed"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1811553,
+      "sha256": "52499fabe35a159324fc9368ea0c44a9a9e4a4a27f0379897ed78730e7330060"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1820121,
+      "sha256": "7e2e770186aa6d1dfe305ce267a88d9005c9fb96a3653a22c84cd05fd184c2f1"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1351611,
+      "sha256": "c39d5d90239f7d3432352af3a6567e70b5e1e404e7b9059067142058b59eb282"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1825773,
+      "sha256": "bf4e20060c3cab42a1deebb0d3d005f9961f194381e642aea4852fd9a51c0421"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808722,
+      "sha256": "01895fe4892d790b8464c41010dd060c8586e296e1d9ec0eb69be690b3ed081d"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/production-final.json",
+      "bytes": 2958,
+      "sha256": "5fae689690852b21665695aaa41d50c363cfa3cb1920fbc86c83c6d5708bc72a"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/production-system.mjs",
+      "bytes": 28584,
+      "sha256": "17fc7922eb9a09582d412981fffa861b8ddeb2087e430643cb012d7f6ea78510"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/production.log",
+      "bytes": 2639,
+      "sha256": "21a51f415a551b9ea33d4c398cbdfef429cdc53a433923d2f35c8f19e14a34f1"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/q-hidden-expected.json",
+      "bytes": 18486,
+      "sha256": "34500c7be2312db5083645bb204f9fdd18d55a7bd8ea0f1840f531ac193f4916"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/q-hidden-received.json",
+      "bytes": 15160,
+      "sha256": "2223ce8ecdb69d91f7ba6d2e5b815b48b0734bbf44f8ec3ca8df1b8445242952"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/record-verification.py",
+      "bytes": 8024,
+      "sha256": "8a51c37105f7342523272a0aa933ff21bc51ee5bb058a7c8e094e1235f6fa087"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/replay-count.log",
+      "bytes": 2,
+      "sha256": "2e6d31a5983a91251bfae5aefa1c0a19d8ba3cf601d0e8a706b4cfa9661a6b8a"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/replay.json",
+      "bytes": 2166,
+      "sha256": "c5a76696c312304c95af748c2ee54a409c3b68f72fa30a2a9bdbf6602cc3359e"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/ruleset.txt",
+      "bytes": 65,
+      "sha256": "d88eabf871cca6139fa34a4fd830e9ff3de0e6ac7f9fe3c044b53a9b1c61fac6"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/source-scope.json",
+      "bytes": 1481,
+      "sha256": "a501e1b9d7f74ed31b902a35a040c36276c39d2c73c8fb374639f63cd3a0929f"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/types-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/types-geometry.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/types-render.log",
+      "bytes": 166,
+      "sha256": "488a357d4e1431b1c08d36bfdf5bc81c5d4a17929195b022175ee2dc52e26cc2"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/types-state.log",
+      "bytes": 166,
+      "sha256": "488a357d4e1431b1c08d36bfdf5bc81c5d4a17929195b022175ee2dc52e26cc2"
+    },
+    {
+      "path": ".cache/masteryi-r-kill-runtime/types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "checks": {
+    "fullUnit": {
+      "passed": 2882,
+      "failed": 3,
+      "total": 2885,
+      "files": 377,
+      "originalFiveSecondWaveClock": "passed"
+    },
+    "focused": {
+      "passed": 664,
+      "files": 35
+    },
+    "sourceGuards": {
+      "casesPerPythonMode": 17,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "exportCheckAndReplay": {
+      "filesUnchangedBytesAndMtimes": 9,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "textures": {
+      "count": 5,
+      "newPublicPngs": 3,
+      "sharedUrls": 2,
+      "authoredMips": 42,
+      "packedBytes": 84677,
+      "gpuMipPixelHashes": "all exact"
+    },
+    "meshes": {
+      "newPublicGlbs": 0,
+      "sharedWithQContacts": {
+        "url": "assets/models/masteryi-q-contact-trail.glb",
+        "sha256": "11e8d520c3ba72a1e301d1ab7ecaad4ac0f0c2e4b426d46948185fc6891f2192",
+        "bytes": 112976
+      },
+      "exportedCorners": 4500,
+      "actualBufferGeometryObjectShared": true,
+      "requestsPerPageLifecycle": 1,
+      "normalsGenerated": false,
+      "faceRgbAppliedAsTint": false
+    },
+    "staticGeometryCache": {
+      "cases": 11,
+      "coverage": [
+        "shared pending/success promise",
+        "conflicting bytes/hash fail closed",
+        "selective retry",
+        "one owner disposal",
+        "late pending disposal",
+        "invalid mesh closure/transforms/skinning cleanup"
+      ]
+    },
+    "build": "TypeScript/production build passed; diagnostics retained.",
+    "nodeQA": {
+      "passed": 3
+    },
+    "browser": {
+      "acceptedUniqueCases": 19,
+      "retries": 0,
+      "environment": "system Chromium154 / SwiftShader",
+      "coverage": [
+        "real R input with one and three same-tick takedowns; exact Save/reload particles and future",
+        "all 42 actual GPU mip levels match source pixel hashes",
+        "three source families produce nonblack pixels across exact copied finite source lifetimes",
+        "Q contacts and R takedowns share actual immutable 4500-corner geometry; one GLB request per page lifecycle",
+        "ordinary startup omits assets; explicit retry requests only failed texture and reuses verified shared geometry",
+        "Q-hidden assist suppresses early births and admits only later known second bubble; exact save/future",
+        "hidden admission, later Q bound suppression, visible frozen death/victory tails and no world mutation",
+        "three existing ordinary/critical Q contact/source/GPU/save/retry cases",
+        "five existing R cast source/GPU/save/retry/visibility cases",
+        "six existing R audio PCM/pause/extension/retry/terminal/late-loading cases"
+      ]
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 13,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderAudioPreloads": 0,
+      "unrequestedMasterYiAlphaAudioPreloads": 0,
+      "unrequestedMasterYiMeditateAudioPreloads": 0,
+      "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderKillPreloads": 0,
+      "unrequestedMasterYiHighlanderCastPreloads": 0,
+      "unrequestedMasterYiQEndPreloads": 0,
+      "unrequestedMasterYiQCastPreloads": 0,
+      "unrequestedMasterYiQContactPreloads": 0,
+      "unrequestedMasterYiMeditateCastPreloads": 0,
+      "unrequestedMasterYiMeditateBuffPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 221,
+      "scheduledBlueRequests": 13,
+      "scheduledRedRequests": 13,
+      "scheduledWolfRequests": 26,
+      "scheduledRaptorRequests": 26,
+      "scheduledKrugRequests": 39,
+      "scheduledScuttlerRequests": 13,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    }
+  },
+  "retainedDiagnostics": [
+    "Initial unit tests used metadata names absent from the reused Q mesh descriptor and source projection, and supplied an unlearned Q cooldown in synthetic refund fixtures. Tests now inspect the actual GLB accessor, canonical fields and learned spell state; source behavior was unchanged. An additional spin/scroll check initially selected a particle after its finite life; it now compares two live samples of ordinal 2.",
+    "Initial browser geometry assertion looked for sourceMesh metadata absent from the older Q renderer. It now identifies the actual 4500-corner contact mesh and compares object identity.",
+    "An initial save/reload check overlapped renderer formatting and a Vite fingerprint restart; clean final browser verification holds source files steady.",
+    "The terminal test initially expected a Q-hidden root to remain hidden after death cancelled Q. The known dead-body root is visible; the corrected case requires cancelled Q, known frozen death root, visible finite tail and exact final drain, and passes independently after the other 18 browser cases."
+  ],
+  "baselineFailures": [
+    "Original Leona attached-skin reflection check.py absent.",
+    "Original distortion metallib, bitcode and disassembly compiler artifacts unavailable.",
+    "Lux first fifteen sampler actual 4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a versus pinned 09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df; previously reproduced on untouched baseline."
+  ],
+  "limits": [
+    "Native script-to-R_OnBuffKill callback mapping remains unverified; local admission follows actual living active-R extensions, never passive-only refunds.",
+    "Sustained rank variants and attached overlay remain separate; no persistent trail audio is invented.",
+    "Source-X reflection, actor-root attachment, first-update emission grid, fixed cosmetic probabilities, neutral omitted lookup and shader defaults remain explicit local adapters.",
+    "Source linger does not extend visible finite lives; canonical software decoding and exact GPU upload do not certify native GPU/frame or physical-device/FPS parity.",
+    "Focused browser checks are not whole-suite, service-worker or offline-install certification.",
+    "Ignored evidence needs preservation; exact changed sources are separately archived."
+  ]
+}

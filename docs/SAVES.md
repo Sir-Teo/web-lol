@@ -1,6 +1,16 @@
 # Local match checkpoints
 
-Current schema **156** adds finite Highlander cast histories. Accepted R records
+Current schema **157** adds finite Highlander takedown histories. Actual living
+active-R extensions record cast/rank, extension sequence, victim/team, admission
+audience and lossless root pose/visibility runs. Each complete three-emitter
+system retains an 88-tick source bound, independent of the extended buff. Q-hidden
+births stay hidden while later known births can appear after return. Death freezes
+roots; terminal tails finish without stepping the world. Decoding checks accepted
+R linkage, awarded counts, victim death clocks, unique ordered identities and
+canonical root coverage/endpoints. Earlier schemas/fingerprints remain incompatible.
+See [Highlander takedown effects](MASTER-YI-R-KILL.md).
+
+Schema **156** adds finite Highlander cast histories. Accepted R records
 rank, creation origin/audience and lossless root pose/visibility runs for the
 complete eight-emitter cast. Its 27-tick source clock keeps advancing while Q/W
 pauses the buff. R accepted during Q keeps admission separate from hidden birth

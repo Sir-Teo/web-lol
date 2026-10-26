@@ -334,6 +334,7 @@ async function boot(): Promise<void> {
     ...(world.units.some((u) => u.champion === 'masteryi')
       ? [
           view.highlanderCasts.load(),
+          view.highlanderKills.load(),
           view.alphaCasts.load(),
           view.alphaEnds.load(),
           view.alphaContacts.load(),

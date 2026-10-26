@@ -1,3 +1,4 @@
+import { captureHighlanderKill } from './masteryi-highlander-kill';
 import { MASTER_YI_R } from '../content/masteryi-r';
 import { TICK_RATE } from '../content/rules';
 import type { ChampionState, Unit, Team } from './types';
@@ -24,7 +25,12 @@ export function activeHighlander(owner: ChampionState | undefined, tick: number)
  * increments. Local quantization rounds the remaining fraction up; the frozen
  * float is retained, so an exact 100-tick cooldown leaves 31 ticks, not 30.
  * Passive refund also applies posthumously; only a live active buff extends. */
-export function highlanderTakedown(world: World, unit: Unit, owner: ChampionState): void {
+export function highlanderTakedown(
+  world: World,
+  unit: Unit,
+  owner: ChampionState,
+  victim: Unit
+): void {
   if (unit.champion !== 'masteryi' || !owner.spellRanks.r) return;
   for (const ability of ['q', 'w', 'e'] as const) {
     const remaining = owner.cooldowns[ability] - world.tick;
@@ -37,6 +43,7 @@ export function highlanderTakedown(world: World, unit: Unit, owner: ChampionStat
     buff.endTick += HIGHLANDER_EXTENSION_TICKS;
     buff.extensionCount++;
     buff.lastExtensionTick = world.tick;
+    captureHighlanderKill(world, unit, owner, victim);
   }
 }
 

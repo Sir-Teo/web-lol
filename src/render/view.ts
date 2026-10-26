@@ -44,6 +44,7 @@ import { RigPoseCulling } from './rig-pose-culling';
 import { mobilePose } from './mobile-pose';
 import { LuxImpacts } from './lux-impacts';
 import { LazyGarenBasicAttacks } from './lazy-garen-basic-attacks';
+import { LazyHighlanderKills } from './lazy-masteryi-r-kills';
 import { LazyHighlanderCasts } from './lazy-masteryi-r-casts';
 import { LazyAlphaEnds } from './lazy-masteryi-q-ends';
 import { LazyAlphaCasts } from './lazy-masteryi-q-casts';
@@ -168,6 +169,7 @@ export class GameView {
   sunlight = new LazySunlight(this.scene, (p) => this.ground(p));
   garenPerseverance = new LazyGarenPerseverance(this.scene, (p) => this.ground(p));
   garenBasicAttacks = new LazyGarenBasicAttacks(this.scene, (p) => this.ground(p));
+  highlanderKills = new LazyHighlanderKills(this.scene, (p) => this.ground(p));
   highlanderCasts = new LazyHighlanderCasts(this.scene, this.particleEarlyDistortion.scene, (p) =>
     this.ground(p)
   );
@@ -862,6 +864,7 @@ export class GameView {
     this.grompAttack.update(world, alpha, this.camera, terminalAge);
     this.garenDecisiveStrike.update(world, alpha, this.camera, this.models, terminalAge);
     this.garenBasicAttacks.update(world, alpha, this.camera, terminalAge);
+    this.highlanderKills.update(world, alpha, this.camera, terminalAge);
     this.highlanderCasts.update(world, alpha, this.camera, terminalAge);
     this.alphaEnds.update(world, alpha, this.camera, terminalAge);
     this.alphaCasts.update(world, alpha, this.camera, terminalAge);

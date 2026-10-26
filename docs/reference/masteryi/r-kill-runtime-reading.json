@@ -1,0 +1,26 @@
+{
+  "format": 1,
+  "sourcePinSha256": "e8630aeae0aa33c6f369bde1ac3c80aeb333a16e78924ab1417f56f75e7f1ccd",
+  "transport": {
+    "path": "docs/reference/masteryi/r-kill-texture-transport.json",
+    "sha256": "40f89c39c27eec6127a9f32991bcad52e0cfa7d8832ab1969363d134aca6189f"
+  },
+  "profileSha256": "d19c30cf7357cbebdd2b0a0981f5a819407799ac408798056d2bca7ea4f779c3",
+  "historyTicks": 88,
+  "readerDefaults": {
+    "path": "docs/reference/garen-spin-defaults.json",
+    "sha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb"
+  },
+  "sharedMesh": {
+    "url": "assets/models/masteryi-q-contact-trail.glb",
+    "sha256": "11e8d520c3ba72a1e301d1ab7ecaad4ac0f0c2e4b426d46948185fc6891f2192",
+    "bytes": 112976
+  },
+  "limits": [
+    "Complete three-emitter R_OnBuffKill only; local creation follows an actually awarded living active-R extension, not every cooldown refund. Native script callback mapping remains unverified.",
+    "The native trail transport is exactly the existing Q contact GLB. Source corners/UV/face RGB remain separate from the explicit root/reflection/shader adapter.",
+    "Source pass -13/100, bind, velocity, spin, UV scroll and birth probabilities are retained; fixed cosmetic draws consume no gameplay RNG.",
+    "No source on-create or persistent sound is authored by this system; it adds no audio.",
+    "Local first-update/rate grid, neutral omitted lookup, defaults and actor-root visibility remain reconstruction choices. Source linger does not extend finite visible lives."
+  ]
+}

@@ -1,9 +1,8 @@
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import data from '../content/masteryi-q-contact-particles.json';
 import type { World } from '../simulation/world';
 import type { Vec2 } from '../simulation/math';
-import { checkedAssetBytes } from './authored-mip-texture';
+import { masterYiGeometry } from './masteryi-source-geometry';
 import { masterYiTextures } from './masteryi-source-textures';
 import { alphaContactParticles } from './masteryi-q-contact-particles';
 import { createParticleColorProductMaterial } from './particle-color-product';
@@ -30,20 +29,7 @@ export function loadAlphaContacts(): Promise<void> {
         ? []
         : [
             (async () => {
-              const raw = await checkedAssetBytes(data.mesh.url, data.mesh.bytes, data.mesh.sha256);
-              const gltf = await new GLTFLoader().parseAsync(raw, import.meta.env.BASE_URL);
-              const found: THREE.BufferGeometry[] = [];
-              gltf.scene.traverse((o) => {
-                if (!(o instanceof THREE.Mesh)) return;
-                found.push(o.geometry);
-                for (const material of Array.isArray(o.material) ? o.material : [o.material])
-                  material.dispose();
-              });
-              if (found.length !== 1) {
-                found.forEach((g) => g.dispose());
-                throw Error('Invalid Alpha Strike contact mesh closure');
-              }
-              geometry = found[0];
+              geometry = await masterYiGeometry.load(data.mesh);
             })(),
           ]),
     ]);

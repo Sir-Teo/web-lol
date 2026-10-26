@@ -1,3 +1,5 @@
+import { advanceHighlanderKills } from './masteryi-highlander-kill';
+import { HIGHLANDER_KILL_HISTORY_TICKS } from '../content/masteryi-r-kill-timing';
 import { captureHighlanderCast, advanceHighlanderCasts } from './masteryi-highlander-cast';
 import { HIGHLANDER_CAST_HISTORY_TICKS } from '../content/masteryi-r-cast-timing';
 import { advanceAlphaEnds } from './masteryi-q-end';
@@ -1170,6 +1172,10 @@ export class World {
       if (state.meditateCastVisuals.length)
         state.meditateCastVisuals = state.meditateCastVisuals.filter(
           (r) => this.tick < r.startTick + MEDITATE_CAST_HISTORY_TICKS
+        );
+      if (state.highlanderKillVisuals.length)
+        state.highlanderKillVisuals = state.highlanderKillVisuals.filter(
+          (r) => this.tick < r.tick + HIGHLANDER_KILL_HISTORY_TICKS
         );
       if (state.highlanderCastVisuals.length)
         state.highlanderCastVisuals = state.highlanderCastVisuals.filter(
@@ -4648,6 +4654,7 @@ export class World {
   private advanceImpactVisuals(): void {
     advanceMeditateBuffs(this);
     advanceMeditateCasts(this);
+    advanceHighlanderKills(this);
     advanceHighlanderCasts(this);
     advanceAlphaEnds(this);
     advanceAlphaCasts(this);
@@ -5949,14 +5956,14 @@ export class World {
           });
         if (target.kind === 'champion') {
           sourceState.kills++;
-          highlanderTakedown(this, rewardSource, sourceState);
+          highlanderTakedown(this, rewardSource, sourceState, target);
           for (const id of takedownContributors) {
             if (id === rewardSource.id) continue;
             const contributor = this.unit(id);
             const record = this.championState(id);
             if (record && contributor?.team === rewardSource.team) {
               record.assists++;
-              highlanderTakedown(this, contributor, record);
+              highlanderTakedown(this, contributor, record, target);
             }
           }
         } else if (target.kind !== 'dummy' && !isStructureKind(target.kind)) {
@@ -6012,6 +6019,7 @@ export class World {
     if (target.hp <= 0) {
       advanceMeditateBuffs(this);
       advanceMeditateCasts(this);
+      advanceHighlanderKills(this);
       advanceHighlanderCasts(this);
       advanceAlphaEnds(this);
       advanceAlphaCasts(this);
