@@ -117,3 +117,45 @@ simulation remains unchanged. The probe's pack script, browser script, complete
 pixel results and transport file identities are retained in the loader ledger.
 These transports remain private and add no public files or Meditate dispatch.
 Native GPU parity, mesh transport, shaders and lifecycle work remain separate.
+
+## Reproducible private transports
+
+[`w-particle-texture-transport.json`](reference/masteryi/w-particle-texture-transport.json)
+now freezes the reproducible 18-PNG transport record. Both source meshes also
+convert to private GLBs: torus 25,596 bytes/960 expanded corners and heal
+56,212 bytes/2,199 corners. Positions use the existing explicit 0.01 world-unit
+transport scale; triangle order, per-corner UVs and raw face RGB remain intact.
+The RGB is an audit attribute, not an invented material tint. No normals, pivot
+shift or winding/reflection is applied. Full original headers/material bytes,
+pivots/bounds and opaque tails remain in the source JSON and GLB extras.
+
+```sh
+python tools/assets/pack-masteryi-w-textures.py
+python -O tools/assets/pack-masteryi-w-textures.py --check
+python tools/assets/test-masteryi-w-transport.py
+python -O tools/assets/test-masteryi-w-transport.py
+node tools/assets/convert-masteryi-w-meshes.mjs
+```
+
+Ten transport corruption guards and all 14 shared atlas controls pass in each
+Python mode. Both GLBs have zero validator errors/warnings and exact attribute
+round trips. Actual pack checks/replays normally and with optimization, plus
+mesh conversion replay, preserve all 23 prepared files in bytes and timestamps.
+The browser probe repeats all 153 exact GPU mip readbacks and validates all
+position/UV/raw-RGB hashes and formats through Three's actual GLTFLoader. Its
+initial assumption of non-interleaved browser attributes failed; extracting the
+interleaved raw components preserves the same exact source-hash assertions. No
+asset, assertion tolerance or deadline was changed for that diagnostic.
+
+Candidate field names also produce exact lowercase FNV-1a matches for native
+`{0a94f3d4}`/`VfxFieldAccelerationDefinitionData`,
+`{5d60e987}`/`fieldAccelerationDefinitions`, `{2fa0ba9d}`/`acceleration`,
+`{1a7617fd}`/`VfxFieldAttractionDefinitionData` and
+`{c3e452a8}`/`fieldAttractionDefinitions`. The frozen source retains its raw
+hashes. Candidate-label equality does not attest native labels, script dispatch
+or force integration; the reading and limits remain separate evidence.
+
+All transports remain private and runtime identity stays unchanged. No Meditate
+particle is dispatched by this preparation checkpoint. Exact source archive,
+private file identities and staged results:
+[transport verification ledger](reference/masteryi/w-particle-transport-verification.json).
