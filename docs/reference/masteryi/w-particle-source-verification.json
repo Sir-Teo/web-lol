@@ -1,0 +1,357 @@
+{
+  "format": 1,
+  "parentCommit": "3afc1b24f761d2ddb9b5dd3c8793445b7c255da0",
+  "identity": {
+    "schema": 149,
+    "ruleset": "e97e94aa87d8f5129de45b0f69dc09f3d55d562950e77bb726f5e56ffc78890d",
+    "pack": {
+      "id": "7ad7620c9bc33de2b353378e0bc3f4801a535995f3a2300768e40d14a73ada6a",
+      "files": 1119,
+      "bytes": 531443181
+    }
+  },
+  "scope": "Complete Meditate native particle source closure only; no runtime, public files, defaults or inferred sound dispatch.",
+  "generated": [
+    {
+      "path": "README.md",
+      "bytes": 14126,
+      "sha256": "f54f74b771cdf977f08116c91c444de510dc0315757fc6a793a88afce611fbcc",
+      "archived": ".cache/masteryi-w-particles-cloud/source/README.md"
+    },
+    {
+      "path": "docs/MASTER-YI-W-PARTICLES.md",
+      "bytes": 3486,
+      "sha256": "e734d0ad31975e31405047cd8b41034a3651d442b47eaa19df5a01586f8e17f0",
+      "archived": ".cache/masteryi-w-particles-cloud/source/docs/MASTER-YI-W-PARTICLES.md"
+    },
+    {
+      "path": "docs/MASTER-YI-W.md",
+      "bytes": 8848,
+      "sha256": "947d5e529005606911ebda415c21e907a118f760075b983f5a099cf0313016fd",
+      "archived": ".cache/masteryi-w-particles-cloud/source/docs/MASTER-YI-W.md"
+    },
+    {
+      "path": "docs/reference/masteryi/w-particles.json",
+      "bytes": 101955,
+      "sha256": "f2b3e3cc1759b39b8a08d75a15a43649fecaa5a60c16392eff6893935e9a6517",
+      "archived": ".cache/masteryi-w-particles-cloud/source/docs/reference/masteryi/w-particles.json"
+    },
+    {
+      "path": "tools/assets/extract-masteryi-w-particles.py",
+      "bytes": 2337,
+      "sha256": "12b835a490d5792521efc692c88d23ed37b41b9e975cb003056f28cf0e46356c",
+      "archived": ".cache/masteryi-w-particles-cloud/source/tools/assets/extract-masteryi-w-particles.py"
+    },
+    {
+      "path": "tools/assets/masteryi_q_particles.py",
+      "bytes": 7165,
+      "sha256": "8373108c738d00d23c47e485b609db18464a81cf6146b608ee9d608e4e604b44",
+      "archived": ".cache/masteryi-w-particles-cloud/source/tools/assets/masteryi_q_particles.py"
+    },
+    {
+      "path": "tools/assets/masteryi_w_particles.py",
+      "bytes": 3400,
+      "sha256": "13bcae3e6d67d9b7004745c94372f90fda6601df02a6cbb999096f29a73fdf37",
+      "archived": ".cache/masteryi-w-particles-cloud/source/tools/assets/masteryi_w_particles.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-w-particles.py",
+      "bytes": 5518,
+      "sha256": "f0f0d2440b96dff4312845b3083b7c078b49ad13257c822d99b5e27eb2844778",
+      "archived": ".cache/masteryi-w-particles-cloud/source/tools/assets/test-masteryi-w-particles.py"
+    }
+  ],
+  "nativeInputs": [
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/dca6421e4694fbb7.bin",
+      "bytes": 2215,
+      "sha256": "84ee4a93d662b9584adb0f2bcfaa35fbe195ffe3fc4dceecd36f692b53226f2f"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/55702f7da1b40993.bin",
+      "bytes": 49259,
+      "sha256": "6f76fa524201dd97205e44ea74652fcd36a5e7a9b9603f931fcf21e5db52973d"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/c49ab81e3e2f7a70.bin",
+      "bytes": 1328,
+      "sha256": "38f9e93a0e4dcdaa9489b59746a558208a7f16e62031a69bb2748a839d7bf22b"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/1d5c271d91e85aed.bin",
+      "bytes": 9198,
+      "sha256": "af5c09a4f0336e735da558fd5973236943766ac072a2b8a989fba75a54860973"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/433b18542280cbff.tex",
+      "bytes": 10948,
+      "sha256": "01bfc2cebd91b2a3b4397afcc5357395b9aecdc72b0018a428e2b89d19def43b"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/3b507059b6eab878.tex",
+      "bytes": 2756,
+      "sha256": "88a6dd0cfc9028b3a43ef4b699fe5acd42271bfa0f63d2f5efd8638a6cec15d7"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/48a39dc90b87ae45.tex",
+      "bytes": 5500,
+      "sha256": "637570d26d3e7ecfb8adef77aa1c2dca8a054673effd7a349767667c17d7733f"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/dba30aea46f8d87f.tex",
+      "bytes": 2756,
+      "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/fa8fa48842c270f4.tex",
+      "bytes": 43716,
+      "sha256": "17143d79b960eafd727c9c9ca6c0d4328bab3454d723de19224cc8480ca5dd32"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/d521d07fa10b91b1.tex",
+      "bytes": 43716,
+      "sha256": "e718ba7335c442b7edde9ba4aa59c7cf48515839cc0e011310f75fce7f9778ff"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/5197de0e107eedc3.tex",
+      "bytes": 10948,
+      "sha256": "45a7002f89e01b6de4e147b758632375efdf5fd60fe09438adb51caa961d81f8"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/57109d0973203910.scb",
+      "bytes": 37232,
+      "sha256": "f54bbc4b3a8873ba48881dc621ac9e18d26273ddc7bb2afb79654df8a9b8ce22"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/465912348c9681fa.tex",
+      "bytes": 349564,
+      "sha256": "4aafcdd802eb2f7ad8ac84cc28152c8bbee1c398a6ddd818df19a644d6b3561c"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/0d03c8a3630230da.tex",
+      "bytes": 349564,
+      "sha256": "59564472e5572f369bca8016858defd6e32ccc43439cd0a7d355ae45acc19bde"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/9267facfa5a7a719.tex",
+      "bytes": 174812,
+      "sha256": "4b23056f7ae5bfacf0856de75cf79bf769b4b4b6e1138f7bea1d6ddc31ab3bf6"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/9eb4899793c343eb.scb",
+      "bytes": 84949,
+      "sha256": "35173d1a04be1908898c4615f4b18949f574095e5507d5b9ca2bd8a526eeef0e"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/c5fe8968add9d67d.tex",
+      "bytes": 43716,
+      "sha256": "f21d787b0386cd8ebe0ea10f3a8b02acfb8474cf7541afaf45f6fb67e3084e8d"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/71c64f17c578499d.tex",
+      "bytes": 10948,
+      "sha256": "ba0f337306311ae121e85368ca46bf72f83f0b9bf4e4f9994eb65f05e0ac91ec"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/18fcb3717db5402a.tex",
+      "bytes": 87452,
+      "sha256": "e58f2607535761d3e5d9a9e34103f15d9403c29903a668316d498797f6b6b03d"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/b37742b742dcc108.tex",
+      "bytes": 43740,
+      "sha256": "cfd94574a1ea752cc29a688c9e4411e965bc2d7f882ba66cf07296f0514c6b45"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/52d46b565e0705c2.tex",
+      "bytes": 349564,
+      "sha256": "57d1f17a8bbb90e2b81ee20d5d436a07625d1eb1780d1adbaa26415680ffa7c1"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/271a48230fb860e5.tex",
+      "bytes": 21916,
+      "sha256": "00177201215b68795dbcf576c553430a747dfbe7d68bde118e15b76aacbb66fb"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/69151717fd1ca98f.tex",
+      "bytes": 43716,
+      "sha256": "bf413b48cf77e8572da35dbbf78b11c9f14501b18e4ecb1c1bb77f519441c750"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/sources/68bb88b7ac5270f2.tex",
+      "bytes": 68,
+      "sha256": "bc06557b44402fee1498430bd4008df9598085f44b29fea2f02218473674b2f8"
+    }
+  ],
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi-model.json",
+      "bytes": 82053,
+      "sha256": "4295bceeba96cfb15e006d392e7d0f3c480bb51bf8cff8872a9c39fc9873c7ce"
+    },
+    {
+      "path": "docs/reference/masteryi/character.json",
+      "bytes": 104698,
+      "sha256": "3f100c1148e1006766060822298c87aed02e86e359c385fbc2c248e4255d12fa"
+    },
+    {
+      "path": "docs/reference/garen-passive-particles.json",
+      "bytes": 26924,
+      "sha256": "dd2a6ea4c5fbd092c3ae3be9ffdbaa3701583f73b1364bb00b749bc656897e54"
+    },
+    {
+      "path": "docs/reference/garen-q-particles.json",
+      "bytes": 157707,
+      "sha256": "1244519d87867631fba497a6e945aa935fe6341c04af94c900736fdf75886472"
+    },
+    {
+      "path": "docs/reference/garen-r-kill-particles.json",
+      "bytes": 9036,
+      "sha256": "4a0e9a8676abbe89aca82d9678a7ec4def95e0dc848a19d4c27ce310d2fd204d"
+    },
+    {
+      "path": "docs/reference/garen-r-particles.json",
+      "bytes": 101076,
+      "sha256": "492b811cc643f3a44e7ec4b6a6832e71f03456b043e514f1c8ea85ffc09cd9ed"
+    },
+    {
+      "path": "docs/reference/garen-w-particles.json",
+      "bytes": 68220,
+      "sha256": "60432efa52634038bde6c7b5e330b57b8887946b673a60a527cf758dfeaa9ce9"
+    },
+    {
+      "path": "docs/reference/leona-e-particles.json",
+      "bytes": 177177,
+      "sha256": "613560569d82f27abdf362a7065ad4645abb1637fbe55f8790e6d8769eb65f83"
+    },
+    {
+      "path": "docs/reference/leona-q-particles.json",
+      "bytes": 68665,
+      "sha256": "debf52e96a313ca62b88a07a0842d3bd74890c3decf50e4706f251a87f979939"
+    },
+    {
+      "path": "docs/reference/leona-sunlight-particles.json",
+      "bytes": 41325,
+      "sha256": "16b34c3ad13e42fbc0239bef2ab7a94aa540c5ef13f58d2a71047bb570aedcb6"
+    },
+    {
+      "path": "docs/reference/leona-w-particles.json",
+      "bytes": 311380,
+      "sha256": "1284da05e4d12497d4041ec88a4a4dc133e29ee56727e39fdb91784ac36af5f0"
+    },
+    {
+      "path": "docs/reference/leona-r-particles.json",
+      "bytes": 266001,
+      "sha256": "7fd43bb68c5d93e04ae4db7a0ef64d2fb83424ae9752d0f162b99a1ccfade38e"
+    }
+  ],
+  "coverage": {
+    "systems": 4,
+    "emitters": 15,
+    "bins": 4,
+    "textures": 18,
+    "meshes": 2,
+    "files": 24,
+    "bytes": 1779581,
+    "compressedReadBytes": 797807
+  },
+  "checks": {
+    "guardsPerMode": 21,
+    "qRegressionsPerMode": 20,
+    "modes": [
+      "normal",
+      "optimized"
+    ],
+    "native": "Complete skin and all four definitions equal original BINs. Shared verifier summary made data-derived; original Q assertions unchanged.",
+    "restore": "Actual frozen checks/restores pass in both modes; all 24 files retain bytes and mtimes.",
+    "runtime": "Schema/ruleset/pack match parent; no repeat build/browser/production acceptance claimed."
+  },
+  "evidence": [
+    {
+      "path": ".cache/masteryi-w-particles-cloud/decode-layout-probe.log",
+      "bytes": 2924,
+      "sha256": "97d4bd1b2a311780af178a86fb092920aa9c2db274d2a04d260d9e9fbfd5127d"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/extract-source.log",
+      "bytes": 145,
+      "sha256": "bbaefb537f108bddbdac704087b21c342defbd4c54e8afce8fefbe9c98d06deb"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/extract-source.py",
+      "bytes": 2791,
+      "sha256": "dbed80b4162418fc1c2ca52780f18cadfbc8e99afa79cf51cd0634668640684c"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/extraction.json",
+      "bytes": 14116,
+      "sha256": "b34f9a27dc3ef13e392ff0cf9418601a9527030d2be46598dd2c8b98a92b494c"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/guards-normal.log",
+      "bytes": 120,
+      "sha256": "5e246ba5045dfd290c707bf6440ca5622976b857250fd72b7e57d0b9794e2992"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/guards-optimized.log",
+      "bytes": 120,
+      "sha256": "3aa1a926288d4c31d147f6f7ab5ab66b1bf43ccd050b634421e8a59c91ac861a"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/idempotence.json",
+      "bytes": 9688,
+      "sha256": "1715dc3288dd7dd20e6ea4d965f8ea46347de7624374e3911d563e4c6d7a26b2"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/identity.json",
+      "bytes": 238,
+      "sha256": "2a62b31b67d1ab294aa87a04ded666f842ca55770d8be6ff9bdaa81c2e4540b8"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/native-prototype.log",
+      "bytes": 136,
+      "sha256": "a895da1217acc0eebf9dc693fa79c730a51c58c9c23d39b2cc7963353e509d09"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/normal-check.log",
+      "bytes": 131,
+      "sha256": "7c952490a1c8debde98710bbf9bd1fc58811cb4e91d841f81ea8263461374897"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/normal-restore.log",
+      "bytes": 133,
+      "sha256": "3fafcd89d74467d06f64d0b06e0577ead54049bbac6ab5c08cc645ea7ef83e1f"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/optimized-check.log",
+      "bytes": 131,
+      "sha256": "7c952490a1c8debde98710bbf9bd1fc58811cb4e91d841f81ea8263461374897"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/optimized-restore.log",
+      "bytes": 133,
+      "sha256": "3fafcd89d74467d06f64d0b06e0577ead54049bbac6ab5c08cc645ea7ef83e1f"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/q-regression-normal.log",
+      "bytes": 119,
+      "sha256": "896bd6fc91e7d78a28709ca2338ca283c73604df5aa590edd10f290302c0030e"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/q-regression-optimized.log",
+      "bytes": 119,
+      "sha256": "4247d856bf473fd79baca147f6bec744321d6ea8c2dbfb1ab103e371b06f0105"
+    },
+    {
+      "path": ".cache/masteryi-w-particles-cloud/w-particles.json",
+      "bytes": 101955,
+      "sha256": "f2b3e3cc1759b39b8a08d75a15a43649fecaa5a60c16392eff6893935e9a6517"
+    }
+  ],
+  "limits": [
+    "Three opaque native type identities remain unresolved; no invented defaults.",
+    "All four definitions omit soundOnCreateDefault. Separate spell slot 18 retains literal Stop event; no inferred Play event.",
+    "No texture decode, mesh conversion, native lifecycle/attachment/shader/dispatch/visual certificate.",
+    "Initial layout probe found a W mesh outside the existing Q SCB reader flags profile. It remains unchanged; interpretation needs pinned reader evidence before conversion."
+  ]
+}

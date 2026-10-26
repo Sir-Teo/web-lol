@@ -109,4 +109,9 @@ def verify_native(pin, model, root):
     require(same(parsed['data/characters/masteryi/skins/skin0.bin'], model['skin']['data']), 'Complete native skin/resource binding differs')
     for key, row in pin['resources'].items():
         require(row['record'] in parsed[row['sourceBin']] and same(parsed[row['sourceBin']][row['record']], row['definition']), 'Complete native particle record differs: ' + key)
-    return {'systems': 8, 'emitters': 20, 'bins': 7, 'textures': 23, 'meshes': 2}
+    rows = pin['extraction']['files']
+    return {'systems': len(pin['resources']),
+            'emitters': sum(len(r['definition'].get('complexEmitterDefinitionData', [])) for r in pin['resources'].values()),
+            'bins': sum(r['path'].endswith('.bin') for r in rows),
+            'textures': sum(r['path'].endswith('.tex') for r in rows),
+            'meshes': sum(r['path'].endswith('.scb') for r in rows)}

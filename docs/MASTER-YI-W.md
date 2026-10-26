@@ -140,3 +140,7 @@ certification is claimed. Schema is 141 and ruleset is
 input hashes, exact phase/save/pose digests, the initial ID-test correction,
 both deadline failures and their isolated passes, the HUD repair and production
 result. Raw evidence remains in `.cache/masteryi-w-cloud`.
+
+The complete native effect source closure is now retained separately in
+[Meditate particle preparation](MASTER-YI-W-PARTICLES.md). It does not change
+the channel controller or establish native particle creation callbacks.
