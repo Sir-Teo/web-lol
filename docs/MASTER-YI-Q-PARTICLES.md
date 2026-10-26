@@ -7,7 +7,10 @@ gameplay, presentation, schema 147, ruleset and production pack remain unchanged
 at that source checkpoint. Later [cast integration](MASTER-YI-Q-CAST.md) delivers
 the two Q_Cas emitters; [contact integration](MASTER-YI-Q-CONTACTS.md) covers
 ordinary and critical target systems. The separate [reappearance source reading](MASTER-YI-Q-END.md)
-retains Q_End, including its explicit distortion mode and private mip transports.
+retains Q_End, including its explicit distortion mode and private mip transports. The
+[missile source transports](MASTER-YI-Q-MISSILES.md) retain both ordinary/AP
+systems, all 99 selected mip levels and the native dash mesh without inferring
+missile callbacks or AP branch selection.
 
 | Resource | Authored complex emitters |
 | --- | ---: |

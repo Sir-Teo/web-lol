@@ -1,0 +1,336 @@
+{
+  "format": 1,
+  "parentCommit": "a6f725097fa7bf1f844c5d4f28d644404e244d0f",
+  "scope": "Complete ordinary/AP Q missile raw definitions and private transports: eight emitters, eleven textures/99 exact authored mips and shared native dash GLB with 72 corners. Distinct AP frame count/grid, omitted source fields and unresolved runtime choices remain explicit. No public assets or runtime dispatch.",
+  "applicationIdentityBefore": {
+    "schema": 155,
+    "ruleset": "1a41b7b3872b89fdd7987132d29ee7cdb6c4022934da46a0a517bbc134b99af5",
+    "pack": {
+      "id": "f710b07cd3047f4f895decdbd52451de292efbb023a510fd78d3d6b291bdcb2e",
+      "files": 1154,
+      "bytes": 535808998
+    }
+  },
+  "applicationIdentityAfter": {
+    "schema": 155,
+    "ruleset": "1a41b7b3872b89fdd7987132d29ee7cdb6c4022934da46a0a517bbc134b99af5",
+    "pack": {
+      "id": "f710b07cd3047f4f895decdbd52451de292efbb023a510fd78d3d6b291bdcb2e",
+      "files": 1154,
+      "bytes": 535808998
+    }
+  },
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/q-particles.json",
+      "bytes": 87880,
+      "sha256": "95531b1e61b44fc39d6458534174fe183fdf75e57cf7528a93a045e836322776"
+    },
+    {
+      "path": "docs/reference/masteryi/q-particles-decoded.json",
+      "bytes": 148372,
+      "sha256": "783317cf9c44a36b3e07fbda8d27829ec6ae674119fcb5c8fddac46a959360fd"
+    },
+    {
+      "path": "tools/assets/masteryi_q_particles.py",
+      "bytes": 7165,
+      "sha256": "8373108c738d00d23c47e485b609db18464a81cf6146b608ee9d608e4e604b44"
+    },
+    {
+      "path": "tools/assets/masteryi_q_decode.py",
+      "bytes": 7372,
+      "sha256": "552f2cf9a0cb552a97332a142bbea6f25a3b0e2c2974359a58659a2c17517ecd"
+    },
+    {
+      "path": "tools/assets/particle_mip_atlas.py",
+      "bytes": 4181,
+      "sha256": "4ba50521c7a4c0d061bbf2f8363b7a84b4db9a4bf480e3d52ae101aec6538fd6"
+    },
+    {
+      "path": "package.json",
+      "bytes": 1147,
+      "sha256": "12108b696b046919346d6c157339b37b20ff57c3b3c2448949af3d8a98d8b2b6"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-decoded/meshes/697357e76927bfc4.json",
+      "bytes": 6961,
+      "sha256": "a62a627483974e23389c07d7256919fb9b0d2239609ff313f2a073f1f85358f8"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-packed-v2/masteryi-q-missile-dash.glb",
+      "bytes": 3736,
+      "sha256": "e1ef1271e3d6c174a3b40e7e923d46f016811d610a22d43c49e896b84fcfaa4e"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-packed-v2/1feb1bfe0ace203e.png",
+      "bytes": 4449,
+      "sha256": "5a3d2dc9c6c61b94037ab35cb84572d74b8690f5b51163314865a0313867dfe1"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-packed-v2/dddf936bb11fcf32.png",
+      "bytes": 8243,
+      "sha256": "17e35ebe0b797a7a5e80236a276d6b78de5545b80f401cab91fb28fc27dc9897"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-packed-v2/dba30aea46f8d87f.png",
+      "bytes": 702,
+      "sha256": "30df4a0ee4cd6cc8d680584586e77e764328930403fae425708a9e845c0edcc8"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-packed-v2/342ac0a051e1bd17.png",
+      "bytes": 54695,
+      "sha256": "204a0e00eeab07671728828412ae9bf2cd2331a0f855df5744fed52d0ae62610"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-packed-v2/a48d50edd6869141.png",
+      "bytes": 211072,
+      "sha256": "f13fedd865501b1d4594660763087987763e35f1d167c40e6324098e659217fc"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-packed-v2/76f9beecc8b5f2c1.png",
+      "bytes": 179313,
+      "sha256": "a771bc3cb1a4733668a01a179752ca333daa4022e20530de6bfc9893dcc16df2"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-packed-v2/05dd3b0814357a70.png",
+      "bytes": 135536,
+      "sha256": "2c1b8851f54fda28c07932ef2ff36eb41e5f570caafc3545917d5b154359273f"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-packed-v2/66d45ee8ba1b0dae.png",
+      "bytes": 44308,
+      "sha256": "dafb13b4d40f5b513bb1b8187f115b971cbb9cdd8f36362c3b3457bb5695f9b9"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-packed-v2/26b6f26494a9af96.png",
+      "bytes": 42001,
+      "sha256": "9c669cc50f0d56e3ccfdbadeb06c1a0325f39491e192c3b9ab167287e84e14c8"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-packed-v2/3e81efb313a0c426.png",
+      "bytes": 57441,
+      "sha256": "0670e1fe9778ea23831abafd145bca4d54c50c8c6115a358f7b52da190b33e6e"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-packed-v2/2fc72189202d828e.png",
+      "bytes": 18359,
+      "sha256": "02b22b0c4b2b713213a26fb866cf345aba6b71d52f90463d0b84ace0c0d49832"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-q-missile-source-cloud/final-source-index.json",
+    "bytes": 2574,
+    "sha256": "1c8f882bab499c6e881a53045df11b8f8bba6eca9d6f759c8071e68f4a616c3a"
+  },
+  "generated": [
+    {
+      "path": "docs/MASTER-YI-Q-MISSILES.md",
+      "bytes": 3168,
+      "sha256": "9b272bbe444a108258d46007da8eef37108ee30b4401c5505242d7f7be523e26",
+      "archived": ".cache/masteryi-q-missile-source-cloud/final-source/docs/MASTER-YI-Q-MISSILES.md"
+    },
+    {
+      "path": "docs/MASTER-YI-Q-PARTICLES.md",
+      "bytes": 9880,
+      "sha256": "f3616287e27477af9f1d1400a124cb3d86cabf83e894015344554e651b2f5826",
+      "archived": ".cache/masteryi-q-missile-source-cloud/final-source/docs/MASTER-YI-Q-PARTICLES.md"
+    },
+    {
+      "path": "docs/reference/masteryi/q-missile-mesh-transport.json",
+      "bytes": 1606,
+      "sha256": "504984ea1b80dbbfba8fcadbe1bc507d7b20205ff459eed21ffa5a6934273b0a",
+      "archived": ".cache/masteryi-q-missile-source-cloud/final-source/docs/reference/masteryi/q-missile-mesh-transport.json"
+    },
+    {
+      "path": "docs/reference/masteryi/q-missile-particle-reading.json",
+      "bytes": 29090,
+      "sha256": "c257974d7240d1c3aa28372268a73b8a7b96d87fa9a6ec712b156f430470aa39",
+      "archived": ".cache/masteryi-q-missile-source-cloud/final-source/docs/reference/masteryi/q-missile-particle-reading.json"
+    },
+    {
+      "path": "docs/reference/masteryi/q-missile-texture-transport.json",
+      "bytes": 29299,
+      "sha256": "2c1b1bd451100831bdd0e6ce7043c0fc982f26dbfeeb728a296dfd3c9e174b69",
+      "archived": ".cache/masteryi-q-missile-source-cloud/final-source/docs/reference/masteryi/q-missile-texture-transport.json"
+    },
+    {
+      "path": "tools/assets/convert-masteryi-q-missile-mesh.mjs",
+      "bytes": 5240,
+      "sha256": "298cbb12e68a4152e86c514acdafe659dcc0a28977b41ea058d56be05d834403",
+      "archived": ".cache/masteryi-q-missile-source-cloud/final-source/tools/assets/convert-masteryi-q-missile-mesh.mjs"
+    },
+    {
+      "path": "tools/assets/pack-masteryi-q-missile-textures.py",
+      "bytes": 5807,
+      "sha256": "38811826017951e382e6c92358e8d7c2d5503a4e2c0d89c1a88a3f4f44912676",
+      "archived": ".cache/masteryi-q-missile-source-cloud/final-source/tools/assets/pack-masteryi-q-missile-textures.py"
+    },
+    {
+      "path": "tools/assets/prepare-masteryi-q-missile.py",
+      "bytes": 4808,
+      "sha256": "c86e8e2f9c6d776eb289f0c1d61c04e0b7efef1e5115c62d928eea08803abea1",
+      "archived": ".cache/masteryi-q-missile-source-cloud/final-source/tools/assets/prepare-masteryi-q-missile.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-q-missile.py",
+      "bytes": 4233,
+      "sha256": "3cab657e00d9bb90efc53b91362461c804fede7c5f2972df9110c442dad5b995",
+      "archived": ".cache/masteryi-q-missile-source-cloud/final-source/tools/assets/test-masteryi-q-missile.py"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-q-missile-source-cloud/check-normal.log",
+      "bytes": 110,
+      "sha256": "8c53e4d1854a0878a9b7568a9a4756d906498f99ed59e3b7cbf9e844d51a7c82"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-source-cloud/check-optimized.log",
+      "bytes": 110,
+      "sha256": "8c53e4d1854a0878a9b7568a9a4756d906498f99ed59e3b7cbf9e844d51a7c82"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-source-cloud/check-replay.py",
+      "bytes": 2324,
+      "sha256": "623db37dc5ce63e727879c4f8ac52ffe718a529a4848a0bffe19ba5aa04538d3"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-source-cloud/final-source-index.json",
+      "bytes": 2574,
+      "sha256": "1c8f882bab499c6e881a53045df11b8f8bba6eca9d6f759c8071e68f4a616c3a"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-source-cloud/guards-normal.log",
+      "bytes": 119,
+      "sha256": "046518679ce2a5454ca1c59a77b81f6d421a58e250761513d003793e2b571c88"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-source-cloud/guards-optimized.log",
+      "bytes": 119,
+      "sha256": "691e0b4b008f0be2f3ff64415be0ac8eebe5b737cd7bf3d51fbd2a8c7cb1a7fa"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-source-cloud/identity-after.json",
+      "bytes": 238,
+      "sha256": "3260d7a062403b550eccc2cf81e6560b9f88e6c2f4bef3c5050d4d659334f36a"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-source-cloud/identity-before.json",
+      "bytes": 238,
+      "sha256": "3260d7a062403b550eccc2cf81e6560b9f88e6c2f4bef3c5050d4d659334f36a"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-source-cloud/identity.log",
+      "bytes": 204,
+      "sha256": "19057e91f55979d1696b19a71c46054fdd6b4ed54b2e3dfc4a32618b2c90fa5f"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-source-cloud/identity.mjs",
+      "bytes": 560,
+      "sha256": "5a47498fafeafd5bea723627733f7900a4b338021b688dd1f796d0475addc359"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-source-cloud/mesh-normal.log",
+      "bytes": 1712,
+      "sha256": "e9b8a76a159c4ec55c41ffddc80a2d755ec7d550a44c122f0af8eca8e1fb48d4"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-source-cloud/mesh-replay.log",
+      "bytes": 1712,
+      "sha256": "e9b8a76a159c4ec55c41ffddc80a2d755ec7d550a44c122f0af8eca8e1fb48d4"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-source-cloud/pack-normal.log",
+      "bytes": 101,
+      "sha256": "979b65d347b69733ade4dfd9b94915c7c1136f8509d17ca63e3047cec401fb71"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-source-cloud/pack-optimized.log",
+      "bytes": 102,
+      "sha256": "8124edd7c20acca28c08db22d606df76e21c3d480397062a4448b3557474bd38"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-source-cloud/prepare.log",
+      "bytes": 110,
+      "sha256": "8c53e4d1854a0878a9b7568a9a4756d906498f99ed59e3b7cbf9e844d51a7c82"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-source-cloud/record-verification.py",
+      "bytes": 4080,
+      "sha256": "7b4edbf509840c107e9c9aecbc895d9883c5009c3ad8fa042106902dd4928c2d"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-source-cloud/replay-normal.log",
+      "bytes": 110,
+      "sha256": "8c53e4d1854a0878a9b7568a9a4756d906498f99ed59e3b7cbf9e844d51a7c82"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-source-cloud/replay-optimized.log",
+      "bytes": 110,
+      "sha256": "8c53e4d1854a0878a9b7568a9a4756d906498f99ed59e3b7cbf9e844d51a7c82"
+    },
+    {
+      "path": ".cache/masteryi-q-missile-source-cloud/replay.json",
+      "bytes": 4077,
+      "sha256": "9d726169a1b4d2766e38a6433244702219329259157192df68bc5883edecc347"
+    }
+  ],
+  "checks": {
+    "sourceIdentityGuards": {
+      "casesPerPythonMode": 20,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "privateTextures": {
+      "textures": 11,
+      "authoredMips": 99,
+      "packedBytes": 756119,
+      "canonicalDecodedRgbaHashes": "all exact",
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "privateMesh": {
+      "sourceVertices": 27,
+      "triangles": 24,
+      "exportedCorners": 72,
+      "bytes": 3736,
+      "flags": 5,
+      "tailBytes": 24,
+      "validationErrors": 0,
+      "validationWarnings": 0,
+      "allExportedAttributeArraysRoundTrip": "exact",
+      "normalsGenerated": false,
+      "faceRgbAppliedAsTint": false
+    },
+    "readingTextureMeshReplay": {
+      "filesUnchangedBytesAndMtimes": 17,
+      "modes": [
+        "normal",
+        "optimized"
+      ],
+      "actualChecksAndReplays": true,
+      "meshConverterReplay": "all attributes and output bytes exact"
+    },
+    "applicationIdentity": "Schema, ruleset and production pack unchanged; runtime/build/browser checks remain referenced by parent reappearance checkpoint."
+  },
+  "limits": [
+    "Raw definitions and private transports only; no runtime creation, public assets, gameplay or inferred AP selection.",
+    "All eight emitters retain complete fields, numeric/Boolean distinctions and omitted flags, lookup, bind and sound fields. No renderer defaults are substituted.",
+    "Raw frame-rate fields match a name candidate; native atlas animation semantics remain unverified, including AP numFrames=2 on a 1x4 grid.",
+    "Native missile creation, target/retarget timing, local transform axes, stop/destruction semantics, tails and AP branch dispatch are unresolved. Source lifetime alone does not establish the owning missile lifetime.",
+    "The AP distortion keeps raw mode 2 and strength 0.03500000014901161; source-to-shader power and phase mapping remain unverified.",
+    "Private GLB uses explicit 0.01 transport scale, expanded source corner order/UVs and a custom face-RGB audit attribute. No normals, reflection, pivot offset, winding change or invented tint.",
+    "Canonical software decoding and exact transport do not certify native compressed-texture/GPU behavior.",
+    "Source identity guards establish frozen definitions, not native semantic execution.",
+    "Ignored private inputs and evidence require preservation; changed sources are separately archived."
+  ]
+}
