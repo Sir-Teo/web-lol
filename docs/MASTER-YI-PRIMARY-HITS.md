@@ -134,7 +134,9 @@ source alpha thresholds, lookup selectors, importance and censor modulation.
 Fluid uses the pinned reader's unblended mode 3, not additive blending. The
 blood atlas starts at frame 15 on a 4×4 grid with sixteen frames and raw frame
 rate 1. Fluid's random-start 2×2 grid omits `numFrames`; the compiled one-frame
-fallback is preserved as a reader policy, not recovered native behavior.
+fallback now aligns with the [native constructor scalar witness](NATIVE-EMITTER-SCALAR-DEFAULTS.md).
+The constructor also supports local=true and particle-local=false defaults;
+actual native dispatch and orientation interpretation remain unobserved.
 The raw identifier `{08b52819}` matches candidate `censorModulateValue`;
 no global censorship switch or quality filter is inferred. Raw hashes stay
 unchanged in the original definitions.

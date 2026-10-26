@@ -46,6 +46,19 @@ class HitProfileGuards(unittest.TestCase):
   with tempfile.TemporaryDirectory()as temp:
    p=Path(temp)/'pin';p.write_bytes(b'{}')
    with self.assertRaisesRegex(ValueError,'Frozen particle input'):MODULE['generate_outputs'](p)
+ def test_changed_native_scalar_witness_rejects_before_projection(self):
+  with tempfile.TemporaryDirectory()as temp:
+   path=Path(temp)/'witness.json';path.write_bytes(b'{}')
+   with patch.dict(profiles.__globals__,{'SCALAR_DEFAULTS':path}):
+    with self.assertRaisesRegex(ValueError,'Frozen particle input'):profiles(self.pin,self.textures,self.defaults)
+ def test_shared_atlas_reader_default_drift_rejects(self):
+  original=profiles.__globals__['layer']
+  def changed(raw):
+   uv=original(raw)
+   if 'numFrames'not in raw:uv['frames']=4
+   return uv
+  with patch.dict(profiles.__globals__,{'layer':changed}):
+   with self.assertRaisesRegex(ValueError,'atlas fallback'):profiles(self.pin,self.textures,self.defaults)
 
 mutations={
  'extra_emitter':lambda e:e.append(copy.deepcopy(e[0])),

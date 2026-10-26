@@ -98,3 +98,7 @@ Private Yi ordinary attacks now use [both source-declared body/trail/audio choic
 [Native payload restoration](docs/NATIVE-CLIENT-RESTORATION.md) recovers the exact frozen client bytes for further static fidelity work.
 
 [Native constructor evidence](docs/NATIVE-CONSTRUCTOR-WITNESS.md) now supplies the Yi hit compiler’s omitted primitive and alpha-byte defaults without changing its rendered outputs.
+
+The [native emitter scalar witness](docs/NATIVE-EMITTER-SCALAR-DEFAULTS.md)
+backs the existing Yi primary-hit atlas and flag defaults with exact frozen
+constructor/registration bytes; generated game data remains unchanged.

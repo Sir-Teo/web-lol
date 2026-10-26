@@ -1,0 +1,469 @@
+{
+  "format": 1,
+  "parentCommit": "95e968e3819ac211ee26c0d0128f52f5911fe823",
+  "scope": "Fresh bounded native atlas/packed-flag constructor and registration witness. Yi compiler consumes the immutable defaults, preserving generated game data and all fourteen runtime exports.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "d7e71965d6aa7ac28ff74c6526b48d83dd73b0111a67c72eeb76af89163f3747",
+    "offlinePack": {
+      "id": "5ef2d43afc9bb16878ced8d214fb0877fab5817e7949b2ee0823513d6aa8782d",
+      "files": 1200,
+      "bytes": 538083368
+    }
+  },
+  "applicationFingerprintUnchanged": true,
+  "productionPackUnchanged": true,
+  "native": {
+    "path": ".cache/leona-native-matching-v1-20261024/native/LeagueofLegends.app/Contents/MacOS/LeagueofLegends",
+    "bytes": 82268192,
+    "sha256": "97edcf2c88fec3169a1ec36345276569de3329e27fd9b32c8162957a77135c6c"
+  },
+  "verification": {
+    "functionSpans": 5,
+    "scalarRegistrations": 3,
+    "flagRegistrations": 22,
+    "nativeScalarGuardsPerMode": 15,
+    "previousConstructorGuardsPerMode": 27,
+    "profileGuardsPerMode": 35,
+    "totalGuardsPerMode": 77,
+    "normalOptimizedReplayOutputs": 18,
+    "bytesAndMtimesUnchanged": true,
+    "acceptedRuntimeOutputsUnchanged": 14,
+    "nativeExecuted": false,
+    "nativeShaderExecuted": false,
+    "historicalLlvmTextReverified": false,
+    "fullApplicationTestsRerun": false
+  },
+  "nativeScalarRecordSha256": "a6c381afaed4c5a680276794d8fa613d988d710eca0683ed8ee91cde494de6cf",
+  "atlas": {
+    "startFrame": 0,
+    "numFrames": 1,
+    "frameRate": 0.0
+  },
+  "flagWord": 2105344,
+  "constructorSetCandidateFlags": [
+    "useEmissionMeshNormalForBirth",
+    "isLocalOrientation"
+  ],
+  "limits": [
+    "Exact bounded static bytes and selected registration/constructor instruction decoding only; no native game or shader execution.",
+    "Field names are FNV/layout candidates; hashes do not exclude collisions or authenticate native literal names.",
+    "Native descriptor tags 5 and 10 align with uint16 and float32 in the pinned BIN reader. Packed flag masks identify constructor bits, without certifying later overrides or runtime orientation semantics.",
+    "Full constructor bytes include exception cleanup. The normal return is at 0x1018acbb0; later cleanup is not a successful construction path.",
+    "This record neither replaces historical LLVM text nor establishes actual Yi dispatch, shader behavior or native visual parity.",
+    "The prior accepted application certificate remains 3070 passing tests out of 3073, with the same three baseline failures; no game source or asset changed.",
+    "Capstone 5.0.3 was used only for fresh local exploration; the retained producer requires no disassembler and does not replace pinned historical LLVM artifacts."
+  ],
+  "diagnostics": [
+    "First proposed tool script had a JavaScript syntax error and performed no filesystem changes; the subsequent shell script created the draft. The draft with wrapper spans was retained before adding the pinned BIN reader.",
+    "Float frame-rate zero retains the existing integer spelling in generated JSON. Explicit source controls and all current profile bytes remain unchanged."
+  ],
+  "sourceFiles": [
+    {
+      "path": "README.md",
+      "bytes": 19203,
+      "sha256": "babff40ac74dac70e4a9af8bab265b61cb763ee0d7ba4e0bdaf277cf8a3eca95"
+    },
+    {
+      "path": "docs/MASTER-YI-PRIMARY-HITS.md",
+      "bytes": 12759,
+      "sha256": "179129e8074f9af961e3124a2e71671bacca42e48bc332012ccc2d2503f57b3e"
+    },
+    {
+      "path": "docs/NATIVE-CONSTRUCTOR-WITNESS.md",
+      "bytes": 4149,
+      "sha256": "2e117f350b91bbd682b30458dea08f7ef99a6375494f45bf66768047bbebd2c8"
+    },
+    {
+      "path": "docs/NATIVE-EMITTER-SCALAR-DEFAULTS.md",
+      "bytes": 3387,
+      "sha256": "2b1442dfa9d397997a8de93944e8acc54eb7354aae74d84fe33e03179b6545e2"
+    },
+    {
+      "path": "docs/reference/native-emitter-scalar-defaults.json",
+      "bytes": 18429,
+      "sha256": "a6c381afaed4c5a680276794d8fa613d988d710eca0683ed8ee91cde494de6cf"
+    },
+    {
+      "path": "tools/assets/masteryi_primary_hit_profiles.py",
+      "bytes": 7657,
+      "sha256": "a24c49622d0fd54e4ac20038c604ea22faa3bcf9e2a528cd7ab8232cd2e530c8"
+    },
+    {
+      "path": "tools/assets/native_emitter_scalar_defaults.py",
+      "bytes": 7565,
+      "sha256": "44af0bcc9fe7ba1dbf3f76d4a398a2f9ec3f00db54070626ad2bc77f2dc4d85e"
+    },
+    {
+      "path": "tools/assets/test-masteryi-primary-hit-profiles.py",
+      "bytes": 7208,
+      "sha256": "dbd05ef432705d51a056a05659cb8a9396796234a1bad5c89c2c68eaf9f5a0b5"
+    },
+    {
+      "path": "tools/assets/test-native-emitter-scalar-defaults.py",
+      "bytes": 4120,
+      "sha256": "23391500e51f4a3c83d50e2e5b2777eb54ccecbee07832b43065cd4e7538dd5a"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "docs/reference/native-constructor-witness.json",
+      "bytes": 19538,
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": "docs/reference/leona-native-matching.json",
+      "bytes": 23862,
+      "sha256": "57a8cf95b813290d512bc0d99dc7ced639709b02d206e2a6bb3fab7034d8168e"
+    },
+    {
+      "path": "docs/reference/leona-native-emitter-defaults.json",
+      "bytes": 53698,
+      "sha256": "17bf7879489412c1f28b9a36a46fc15668cd40d7ad76ceb5e3a2d32893ea051e"
+    },
+    {
+      "path": "docs/reference/leona-native-bin-loader.json",
+      "bytes": 23630,
+      "sha256": "2488eba52b75e2c61f36fdd960311a490092bbfd64190f0cc688ad06e27650c6"
+    },
+    {
+      "path": "tools/assets/verify-leona-native-particle-bindings.py",
+      "bytes": 13221,
+      "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-particles.json",
+      "bytes": 82989,
+      "sha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-profile-reading.json",
+      "bytes": 137463,
+      "sha256": "93a4f4500e3ee3fd5e8881cfaf08f823cae40750de16afdf2ca235f4aad1142a"
+    },
+    {
+      "path": "src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    },
+    {
+      "path": "tools/assets/native_constructor_witness.py",
+      "bytes": 12648,
+      "sha256": "5ed4f943e123a3cb9bebfdea394bd8b5551d6b1ac010e7913eb9a245a7234e14"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/binfile.py",
+      "bytes": 17236,
+      "sha256": "0c1825135763c98f705535eecf2b4b1a8e667c53181e9e1d43ad7a83d1d844fd"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/native-emitter-scalar-defaults/final-source/.tools/cdtb/cdtb/binfile.py",
+      "bytes": 17236,
+      "sha256": "0c1825135763c98f705535eecf2b4b1a8e667c53181e9e1d43ad7a83d1d844fd"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/final-source/README.md",
+      "bytes": 19203,
+      "sha256": "babff40ac74dac70e4a9af8bab265b61cb763ee0d7ba4e0bdaf277cf8a3eca95"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/final-source/docs/MASTER-YI-PRIMARY-HITS.md",
+      "bytes": 12759,
+      "sha256": "179129e8074f9af961e3124a2e71671bacca42e48bc332012ccc2d2503f57b3e"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/final-source/docs/NATIVE-CONSTRUCTOR-WITNESS.md",
+      "bytes": 4149,
+      "sha256": "2e117f350b91bbd682b30458dea08f7ef99a6375494f45bf66768047bbebd2c8"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/final-source/docs/NATIVE-EMITTER-SCALAR-DEFAULTS.md",
+      "bytes": 3387,
+      "sha256": "2b1442dfa9d397997a8de93944e8acc54eb7354aae74d84fe33e03179b6545e2"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/final-source/docs/reference/leona-native-bin-loader.json",
+      "bytes": 23630,
+      "sha256": "2488eba52b75e2c61f36fdd960311a490092bbfd64190f0cc688ad06e27650c6"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/final-source/docs/reference/leona-native-emitter-defaults.json",
+      "bytes": 53698,
+      "sha256": "17bf7879489412c1f28b9a36a46fc15668cd40d7ad76ceb5e3a2d32893ea051e"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/final-source/docs/reference/leona-native-matching.json",
+      "bytes": 23862,
+      "sha256": "57a8cf95b813290d512bc0d99dc7ced639709b02d206e2a6bb3fab7034d8168e"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/final-source/docs/reference/masteryi/primary-hit-particles.json",
+      "bytes": 82989,
+      "sha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/final-source/docs/reference/masteryi/primary-hit-profile-reading.json",
+      "bytes": 137463,
+      "sha256": "93a4f4500e3ee3fd5e8881cfaf08f823cae40750de16afdf2ca235f4aad1142a"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/final-source/docs/reference/native-constructor-witness.json",
+      "bytes": 19538,
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/final-source/docs/reference/native-emitter-scalar-defaults.json",
+      "bytes": 18429,
+      "sha256": "a6c381afaed4c5a680276794d8fa613d988d710eca0683ed8ee91cde494de6cf"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/final-source/src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/final-source/tools/assets/masteryi_primary_hit_profiles.py",
+      "bytes": 7657,
+      "sha256": "a24c49622d0fd54e4ac20038c604ea22faa3bcf9e2a528cd7ab8232cd2e530c8"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/final-source/tools/assets/native_constructor_witness.py",
+      "bytes": 12648,
+      "sha256": "5ed4f943e123a3cb9bebfdea394bd8b5551d6b1ac010e7913eb9a245a7234e14"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/final-source/tools/assets/native_emitter_scalar_defaults.py",
+      "bytes": 7565,
+      "sha256": "44af0bcc9fe7ba1dbf3f76d4a398a2f9ec3f00db54070626ad2bc77f2dc4d85e"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/final-source/tools/assets/test-masteryi-primary-hit-profiles.py",
+      "bytes": 7208,
+      "sha256": "dbd05ef432705d51a056a05659cb8a9396796234a1bad5c89c2c68eaf9f5a0b5"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/final-source/tools/assets/test-native-emitter-scalar-defaults.py",
+      "bytes": 4120,
+      "sha256": "23391500e51f4a3c83d50e2e5b2777eb54ccecbee07832b43065cd4e7538dd5a"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/final-source/tools/assets/verify-leona-native-particle-bindings.py",
+      "bytes": 13221,
+      "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/native-emitter-scalar-defaults/app-identity.json",
+      "bytes": 90,
+      "sha256": "b715cd8724e34694d5dfeced683f0eb8b42f4ae7a34cf9e007f57cea03ccc142"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/archive-checkpoint.py",
+      "bytes": 5131,
+      "sha256": "4394287f384fcee343f355c24e2d212fe43db4c55f450f403b81974e390ab710"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/bootstrap.py",
+      "bytes": 1404,
+      "sha256": "266cd1edbd02540ad48609590936f2f8e04fe5e4a17c28181c59910db5174d47"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/capstone-install.log",
+      "bytes": 580,
+      "sha256": "5eaf99bd8058ee2f27bf91ecfc778ecf1337520970ca4d32cc857a4d839591ce"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/checkpoint.log",
+      "bytes": 3116,
+      "sha256": "55e59a252046a821695c048bb6b0a637bf4a8879b8d40df1915b81e33d64b8d8"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/constructor.txt",
+      "bytes": 11074,
+      "sha256": "30215d6e0891b86acbaa40434db29b21c018a6b6d5423a7d764eb5982cfda262"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/disassemble-selected.py",
+      "bytes": 2088,
+      "sha256": "dc9a3ad9e5f78f96c144a369c81f36d650bcfaf88e4b8ef50b0e13411c2fac5d"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/disassembly.log",
+      "bytes": 518,
+      "sha256": "f526fd2413aefae9490f9d6e64bfafbe3d49ba0973a7ec82f250ff2d96561c9e"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/draft-before-reader-pin.json",
+      "bytes": 18283,
+      "sha256": "4e3445b9fbf0a6cf0d8d9f4e95cc5ed0397c87f44a145e0c7781346cfb57ca1d"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/export-masteryi-primary-hit-particles-check-normal.log",
+      "bytes": 104,
+      "sha256": "70bfcf1db84243681b391a2fd9726e8218ca426894dca2bab8061455948f3447"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/export-masteryi-primary-hit-particles-check-optimized.log",
+      "bytes": 104,
+      "sha256": "70bfcf1db84243681b391a2fd9726e8218ca426894dca2bab8061455948f3447"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/export-masteryi-primary-hit-particles-replay-normal.log",
+      "bytes": 104,
+      "sha256": "70bfcf1db84243681b391a2fd9726e8218ca426894dca2bab8061455948f3447"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/export-masteryi-primary-hit-particles-replay-optimized.log",
+      "bytes": 104,
+      "sha256": "70bfcf1db84243681b391a2fd9726e8218ca426894dca2bab8061455948f3447"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/flag-scan.json",
+      "bytes": 5806,
+      "sha256": "60387a6c00148c7a9a7e108cad7e35581542d71571501fb73c733a9f87bf9955"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/inspect-wrappers.py",
+      "bytes": 1184,
+      "sha256": "5a135bc0c112427effb54c066eb9585ab4a5cc8a16606bcea437d43227143052"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/native_emitter_scalar_defaults-check-normal.log",
+      "bytes": 163,
+      "sha256": "9ba5b6fce9d1b12b3638be0ef7a3c5db7ebab5b0a6a9470a5ecd1c87e864e8a0"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/native_emitter_scalar_defaults-check-optimized.log",
+      "bytes": 163,
+      "sha256": "9ba5b6fce9d1b12b3638be0ef7a3c5db7ebab5b0a6a9470a5ecd1c87e864e8a0"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/native_emitter_scalar_defaults-replay-normal.log",
+      "bytes": 163,
+      "sha256": "9ba5b6fce9d1b12b3638be0ef7a3c5db7ebab5b0a6a9470a5ecd1c87e864e8a0"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/native_emitter_scalar_defaults-replay-optimized.log",
+      "bytes": 163,
+      "sha256": "9ba5b6fce9d1b12b3638be0ef7a3c5db7ebab5b0a6a9470a5ecd1c87e864e8a0"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/prepare-masteryi-primary-hit-profiles-check-normal.log",
+      "bytes": 90,
+      "sha256": "919ed934995d9007990d85d64b2e16b29d4fcb1a808609a0d21c228e9adf5181"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/prepare-masteryi-primary-hit-profiles-check-optimized.log",
+      "bytes": 90,
+      "sha256": "919ed934995d9007990d85d64b2e16b29d4fcb1a808609a0d21c228e9adf5181"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/prepare-masteryi-primary-hit-profiles-replay-normal.log",
+      "bytes": 90,
+      "sha256": "919ed934995d9007990d85d64b2e16b29d4fcb1a808609a0d21c228e9adf5181"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/prepare-masteryi-primary-hit-profiles-replay-optimized.log",
+      "bytes": 90,
+      "sha256": "919ed934995d9007990d85d64b2e16b29d4fcb1a808609a0d21c228e9adf5181"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/prepare-native-constructor-witness-check-normal.log",
+      "bytes": 213,
+      "sha256": "1fb41d371646f238fd9a9c274d4c5f1bee06ad23432f03c5a30eecb50952115f"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/prepare-native-constructor-witness-check-optimized.log",
+      "bytes": 213,
+      "sha256": "1fb41d371646f238fd9a9c274d4c5f1bee06ad23432f03c5a30eecb50952115f"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/prepare-native-constructor-witness-replay-normal.log",
+      "bytes": 213,
+      "sha256": "1fb41d371646f238fd9a9c274d4c5f1bee06ad23432f03c5a30eecb50952115f"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/prepare-native-constructor-witness-replay-optimized.log",
+      "bytes": 213,
+      "sha256": "1fb41d371646f238fd9a9c274d4c5f1bee06ad23432f03c5a30eecb50952115f"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/registration-scan.json",
+      "bytes": 19432,
+      "sha256": "35e8b0770cbd2eef45dcefc6160753138f99edaf72ead458e9c4456501b3768c"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/registration-scan.log",
+      "bytes": 11304,
+      "sha256": "a4363fa44ea5a2b94c04eb807b1e584f81b29c77c916d064467dcaeea4ffed7e"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/registration.txt",
+      "bytes": 36513,
+      "sha256": "b75fea93d49a52c581e05a36f8eb3975c64f2d2bbfa66bd4ea978ce98128fac2"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/replay-verification.json",
+      "bytes": 14207,
+      "sha256": "5e20e0c4fcaba7927703e2409e952b9dc8c613ef6da20ed5f2d1b885e9f038a8"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/scan-flags.py",
+      "bytes": 1846,
+      "sha256": "f45f1633070b5f33d4e9616400c2bfa318569a18e5493ce6cc326c378d5b20b0"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/scan-registration.py",
+      "bytes": 1622,
+      "sha256": "b6c0baf4058215dae843a457dda944b655f6eae809fb86614d53c899cc2a8032"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/selected-disassembly.json",
+      "bytes": 228975,
+      "sha256": "660a7d549aa9e15960fc89e408a036246bda155dc7e16fa158bfc96f9ed34b92"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/test-masteryi-primary-hit-profiles-normal.log",
+      "bytes": 134,
+      "sha256": "4007ad4deeae1bda7896f69ee22863ab37baa773d28e371453581a3efe84f341"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/test-masteryi-primary-hit-profiles-optimized.log",
+      "bytes": 134,
+      "sha256": "52bd3a8b212a49409427ddb3152367f44f8ac9cb3d8cfb7dfddf664185f0a489"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/test-native-constructor-witness-normal.log",
+      "bytes": 126,
+      "sha256": "e2bfac61a1ec0d2a22eb42318d3de44bff040771500ffd2ec9b04256fb5b024f"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/test-native-constructor-witness-optimized.log",
+      "bytes": 126,
+      "sha256": "517da257ca1397133e54a0e802667629aed77d670290fe7c2a05a95d9555833b"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/test-native-emitter-scalar-defaults-normal.log",
+      "bytes": 114,
+      "sha256": "c978e747bd172b0ac808a4743850b2924de3abda8bf5a76a9365d7ef96becbdb"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/test-native-emitter-scalar-defaults-optimized.log",
+      "bytes": 114,
+      "sha256": "8cbd7dcd4927114f64648f52785d893bf7ab3eb25aac6b1fc69852ddf1cc477a"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/verify-checkpoint.py",
+      "bytes": 2521,
+      "sha256": "ba1077a0d3236164294a1458210db80092f308644c495296c39a37f9388ac64d"
+    },
+    {
+      "path": ".cache/native-emitter-scalar-defaults/wrappers.txt",
+      "bytes": 3268,
+      "sha256": "74089042edbb407a18b36de329af035af58a7913c6e42e863d3ed57039d98ff2"
+    }
+  ]
+}

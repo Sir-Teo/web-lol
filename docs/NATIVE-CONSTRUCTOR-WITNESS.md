@@ -58,3 +58,8 @@ no game code, asset or rendered parameter changes. The original historical
 LLVM/collector evidence sets and their missing-input tests are not rebased or
 claimed restored. Exact sources and checks are in the
 [verification ledger](reference/native-constructor-witness-verification.json).
+
+The later [atlas and packed-flag witness](NATIVE-EMITTER-SCALAR-DEFAULTS.md)
+checks three atlas registrations and 22 flag masks in the same frozen client.
+It supports the existing one-frame and local-orientation defaults without
+changing game parameters.
