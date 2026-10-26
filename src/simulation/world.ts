@@ -1,3 +1,6 @@
+import { captureAlphaContact, advanceAlphaContacts } from './masteryi-q-contact-visuals';
+import { ALPHA_CONTACT_HISTORY_TICKS } from '../content/masteryi-q-contact-timing';
+import type { AlphaStrikeMark } from './masteryi-alpha-strike';
 import {
   beginHighlanderAudio,
   stopHighlanderAudio,
@@ -1118,6 +1121,10 @@ export class World {
       if (state.highlanderAudio.length)
         state.highlanderAudio = state.highlanderAudio.filter(
           (r) => this.tick < highlanderAudioExpiry(r)
+        );
+      if (state.alphaContactVisuals.length)
+        state.alphaContactVisuals = state.alphaContactVisuals.filter(
+          (r) => this.tick < r.tick + ALPHA_CONTACT_HISTORY_TICKS
         );
       if (state.leonaQ && this.tick >= state.leonaQ.endTick) {
         finishDaybreakVisual(state, this.tick, 'expired');
@@ -4576,6 +4583,7 @@ export class World {
     return capturePoseFrame(target, this.tick);
   }
   private advanceImpactVisuals(): void {
+    advanceAlphaContacts(this);
     advanceSolarVisuals(this);
     advanceZenithVisuals(this);
     advanceEclipseVisuals(this);
@@ -5192,8 +5200,15 @@ export class World {
     }
     this.applyAttackOnHitEffects(source, target, canApplyOnHitEffects, 1);
   }
-  hitAlphaStrike(source: Unit, target: Unit, raw: number, onHitScale: number): boolean {
+  hitAlphaStrike(
+    source: Unit,
+    target: Unit,
+    raw: number,
+    onHitScale: number,
+    mark: AlphaStrikeMark
+  ): boolean {
     if (!alphaTarget(this, source, target)) return false;
+    captureAlphaContact(this, source, target, mark);
     this.damage(source, target, raw, 'physical', 'area');
     this.applyAttackOnHitEffects(source, target, true, onHitScale);
     return true;
@@ -5920,6 +5935,7 @@ export class World {
       onEssenceDeath(this, target, rewardSource);
     }
     if (target.hp <= 0) {
+      advanceAlphaContacts(this);
       advanceSolarVisuals(this);
       advanceZenithVisuals(this);
       advanceDaybreakVisuals(this);

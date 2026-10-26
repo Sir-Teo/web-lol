@@ -331,6 +331,7 @@ async function boot(): Promise<void> {
         ]
       : []),
     loadGarenSpin(),
+    ...(world.units.some((u) => u.champion === 'masteryi') ? [view.alphaContacts.load()] : []),
     ...(world.units.some((u) => u.champion === 'garen')
       ? [
           view.garenJustice.load(),

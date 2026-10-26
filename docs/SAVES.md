@@ -1,6 +1,16 @@
 # Local match checkpoints
 
-Current schema **147** adds Highlander audio lifecycle histories. Each accepted
+Current schema **148** adds accepted Alpha Strike contact histories: cast/mark
+identity, critical/repeat payload, actual contact root, visibility, collision
+radius, heading and a finite root-frame history. Decoding requires matching
+active hit marks, rejects missing/forged contacts and validates ordered clocks,
+targets, frames, detachment and retention. Pending/lost marks create no contact
+record. Confirmed tails survive Q cleanup, caster death and victory. Queued
+explicit Yi Q targets now survive Save/reload; other Yi abilities still reject
+explicit target IDs. Earlier schemas/fingerprints remain incompatible. See
+[Q contact effects](MASTER-YI-Q-CONTACTS.md).
+
+Schema **147** adds Highlander audio lifecycle histories. Each accepted
 R retains its activation clock, rank, score and audience. Natural expiry records
 the effective end after takedown extensions and W/Q pauses; death, victory and
 recast close the history with separate reasons. Decoding checks ownership,

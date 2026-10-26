@@ -82,6 +82,36 @@ test('Garen particle clock inputs remain explicitly pinned without a simulation 
   expect(rulesetFingerprint(root)).not.toBe(before);
 });
 
+test('saved Alpha Strike contacts cover source profiles, sampling, materials and mip decoding', () => {
+  const files = [
+    'src/render/masteryi-q-contact-particles.ts',
+    'src/render/masteryi-q-contacts.ts',
+    'src/render/authored-mip-texture.ts',
+    'src/render/particle-color-product.ts',
+    'src/content/masteryi-q-contact-particles.json',
+    'src/content/masteryi-q-contact-timing.ts',
+  ];
+  for (const file of files) {
+    expect(rulesetFiles, file).toContain(file);
+    expect(affectsRuleset(resolve(file)), file).toBe(true);
+  }
+  const { root, put } = fixture();
+  for (const file of files)
+    put(file, file.endsWith('.json') ? '{"profiles":[]}' : 'export const value = 1;');
+  put(
+    'src/render/masteryi-q-contacts.ts',
+    "import './masteryi-q-contact-particles'; import './authored-mip-texture'; import './particle-color-product'; import '../content/masteryi-q-contact-particles.json'; import '../content/masteryi-q-contact-timing';"
+  );
+  const before = rulesetFingerprint(root);
+  for (const file of files) {
+    const original = readFileSync(join(root, file), 'utf8');
+    put(file, original + (file.endsWith('.json') ? ' ' : '\n// changed contact interpretation\n'));
+    expect(rulesetFingerprint(root), file).not.toBe(before);
+    put(file, original);
+    expect(rulesetFingerprint(root)).toBe(before);
+  }
+});
+
 test('Ahri and Master Yi saved-pose compatibility includes fetched rig inputs without importing binary modules', () => {
   const { root, put } = fixture();
   const before = rulesetFingerprint(root);

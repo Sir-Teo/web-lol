@@ -1,4 +1,6 @@
 import { validateHighlanderAudio } from './masteryi-highlander-audio';
+import { validateAlphaContacts } from './masteryi-q-contact-visuals';
+import { ALPHA_CONTACT_HISTORY_TICKS } from '../content/masteryi-q-contact-timing';
 import { validateMasterYiAttacks } from './masteryi-aa-presentation';
 import { validateLeonaDeaths } from './leona-death-visuals';
 import { validateDoubleStrikes } from './masteryi-double-strike';
@@ -144,7 +146,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 147;
+export const SNAPSHOT_VERSION = 148;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -765,6 +767,31 @@ const player: z.ZodType<PlayerState> = z
         resumeOrder: order.nullable(),
       })
       .nullable(),
+    alphaContactVisuals: z
+      .array(
+        z.strictObject({
+          castTick: tick,
+          rank: z.number().int().min(1).max(5),
+          markIndex: z.number().int().min(0).max(3),
+          markTick: tick,
+          repeatIndex: z.number().int().min(0).max(3),
+          critical: z.boolean(),
+          tick,
+          targetId: id,
+          targetTeam: faction,
+          targetKind: kind,
+          point,
+          audience: daybreakFrame.shape.audience,
+          radius: z.number().positive(),
+          facing: z.number(),
+          detachedTick: tick.nullable(),
+          frames: z
+            .array(z.strictObject({ tick, point, audience: daybreakFrame.shape.audience }))
+            .min(1)
+            .max(ALPHA_CONTACT_HISTORY_TICKS),
+        })
+      )
+      .max(1000),
     highlander: z
       .strictObject({
         startTick: tick,
@@ -4215,6 +4242,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     validateGarenAttacks(owner, champion, state);
     validateMasterYiAttacks(owner, champion, state);
     validateHighlanderAudio(owner, champion, state);
+    validateAlphaContacts(owner, champion, state);
     const qCycle = champion.attackCycle;
     if (
       qCycle?.garenQReleaseTick !== undefined &&
@@ -4501,6 +4529,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     const owner = owners.find((s) => s.id === command.unit);
     if (
       !(source?.champion === 'garen' && command.ability === 'r') &&
+      !(source?.champion === 'masteryi' && command.ability === 'q') &&
       !(owner && isSummonerSlot(command.ability) && owner.summoners[command.ability] === 'smite')
     )
       throw new Error('Saved match contains incompatible targeted cast data.');

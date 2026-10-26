@@ -149,7 +149,7 @@ function resolve(world: World, unit: Unit, mark: AlphaStrikeMark): void {
   const target = world.unit(mark.targetId);
   mark.result =
     alphaTarget(world, unit, target) &&
-    world.hitAlphaStrike(unit, target, mark.damage, mark.onHitScale)
+    world.hitAlphaStrike(unit, target, mark.damage, mark.onHitScale, mark)
       ? 'hit'
       : 'lost';
 }

@@ -5,6 +5,9 @@ This records the schema-143 NPC milestone. The later
 [mark assist credit](MASTER-YI-MARK-ASSISTS.md) follows at schema 145.
 The later [particle source preparation](MASTER-YI-Q-PARTICLES.md) retains all
 eight native Q resources without introducing unverified visual dispatch.
+The [schema-148 contact renderer](MASTER-YI-Q-CONTACTS.md) uses the complete
+ordinary and critical target systems on explicitly local accepted contacts;
+native script dispatch and frame calibration remain unverified.
 
 The private `/?scene=fixture&npc=masteryi` NPC now supports all four own ability
 controllers. Alpha Strike adds unit targeting, saved marks, delayed/repeated
