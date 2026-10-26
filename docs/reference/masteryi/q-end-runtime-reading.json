@@ -1,0 +1,26 @@
+{
+  "format": 1,
+  "sourcePinSha256": "95531b1e61b44fc39d6458534174fe183fdf75e57cf7528a93a045e836322776",
+  "transport": {
+    "path": "docs/reference/masteryi/q-end-texture-transport.json",
+    "sha256": "4dd2ab7ec55069934bb1a15889bcb24dfcce0825680f85263fb70067047c1b0d"
+  },
+  "profileSha256": "9d61e11e9f71b54e2b0ec78336f5480b15958f088607731b8b328598f35f1fd6",
+  "historyTicks": 18,
+  "readerDefaults": {
+    "path": "docs/reference/garen-spin-defaults.json",
+    "sha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb"
+  },
+  "frameRateCandidate": {
+    "name": "frameRate",
+    "rawHash": "{9b111ae4}",
+    "hashMatches": true,
+    "value": 10
+  },
+  "limits": [
+    "Complete two-emitter Q_End only. Local accepted reappearance transition creates this system; death/victory cancellation does not.",
+    "Raw frame-rate hash remains in source. Atlas random start plus local age-times-rate seek is an explicit local adapter, not a native update/RNG certificate.",
+    "Accepted Q and actor-root attachment, source-X reflection, first-update grid, cosmetic hashes and shader defaults are local reconstruction policies. Known unbound particles retain their birth root; bound particles follow saved visible actor roots.",
+    "Source particle linger values remain retained without extending finite visible lives. Q_End omits an on-create sound field; this renderer adds none. Source mode 2 uses the existing local early-copy distortion route with raw strength; native CPU phase/power mapping remains unverified."
+  ]
+}

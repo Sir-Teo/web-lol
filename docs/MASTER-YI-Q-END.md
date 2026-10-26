@@ -1,9 +1,9 @@
 # Alpha Strike reappearance source
 
 The complete `MasterYi_Q_End` system contains a disappearing atlas billboard and
-a distortion billboard. This source checkpoint retains both emitters, all five
-texture transports and their 41 authored mip levels privately. It creates no
-runtime callback, public asset or audio dispatch.
+a distortion billboard. The source checkpoint retains both emitters, all five
+texture transports and their 41 authored mip levels privately. The runtime
+integration below delivers these emitters at the local accepted return transition.
 
 The disappear emitter has rate 34, emitter life 0.1 seconds, particle life
 0.18000000715255737 seconds, upward velocity 250, root bind 1 and a random 2×2
@@ -21,7 +21,8 @@ life on the local adapter. No on-create sound field is authored.
 
 The five private PNG transports preserve canonical decoded pixels for every
 source mip. Two transports are byte-identical to existing Q cast/contact assets;
-public delivery and texture ownership remain runtime integration work. The
+runtime delivery reuses those URLs and the page-owned Yi texture cache. Three new
+PNGs complete the pack; no texture consumer disposes borrowed bitmaps. The
 first-update reconstruction grid needs at most 18 ticks for all births and
 finite lives. Source identity and exact transport do not prove native creation
 callbacks, force integration, random sequencing, GPU sampling or frame matching.
@@ -39,3 +40,36 @@ Reproduce with `python tools/assets/prepare-masteryi-q-end.py --check` and
 `python tools/assets/test-masteryi-q-end.py`, including their optimized Python
 modes. [Source verification](reference/masteryi/q-end-source-verification.json)
 indexes exact inputs, guards, output replay and unchanged application identity.
+
+
+## Saved runtime integration
+
+Schema 155 creates Q_End at the actual completed or target-loss reappearance,
+after placement/facing are established and before pending contacts resolve.
+Vanished death/victory cancellation creates none. The saved record retains the
+accepted cast tick, rank, mark count, return reason/point and separate creation
+audience. Lossless root runs retain exact per-step poses and visibility for 18
+ticks, including the eight ticks after Q recovery clears. Existing finite tails
+freeze on death and finish on the terminal presentation clock without stepping
+the world. No extra gameplay RNG or event/entity identity is consumed.
+
+Disappear binds to the current root. The distortion emitter omits bind weight;
+the separately pinned reader default of zero keeps its accepted birth root.
+Hidden creation cannot appear when vision returns. Known bound particles also
+require known current root frames; a later Q hides them while its body vanishes.
+Known unbound distortion can finish at its captured birth point.
+
+The local renderer maps the explicit mode 2 to the existing early-copy pass and
+binds the raw 0.09000000357627869 strength directly. This preserves the chosen
+adapter and shader inputs; native CPU phase selection, power conversion and
+sampler/default setup remain unverified. The atlas keeps the same explicit
+age-times-frame-rate seek used by Q cast, with a fixed cosmetic random start.
+Source linger fields do not extend visible finite lives. Q_End adds no sound.
+
+Present/late Yi units load the five-texture closure. Each program retains its
+own readiness and successful verified resources; explicit retry fetches only
+failed files. Ordinary Ashe/Lux startup skips the private pack. The
+[runtime reading](reference/masteryi/q-end-runtime-reading.json) records the
+compiled delivery, and [runtime verification](reference/masteryi/q-end-verification.json)
+indexes source identities, GPU mip readbacks, save/future checks and production
+results. The earlier source ledger remains the source-only checkpoint.

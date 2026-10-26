@@ -1,3 +1,5 @@
+import { validateAlphaEnds } from './masteryi-q-end';
+import { ALPHA_END_HISTORY_TICKS } from '../content/masteryi-q-end-timing';
 import { validateAlphaCasts } from './masteryi-q-cast';
 import { ALPHA_CAST_HISTORY_TICKS } from '../content/masteryi-q-cast-timing';
 import { validateWujuStyleAudio } from './masteryi-wuju-style-audio';
@@ -155,7 +157,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 154;
+export const SNAPSHOT_VERSION = 155;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -866,6 +868,33 @@ const player: z.ZodType<PlayerState> = z
             )
             .min(1)
             .max(ALPHA_CAST_HISTORY_TICKS),
+        })
+      )
+      .max(1000),
+    alphaEndVisuals: z
+      .array(
+        z.strictObject({
+          castTick: tick,
+          startTick: tick,
+          markCount: z.number().int().min(0).max(4),
+          stopReason: z.enum(['complete', 'lost']),
+          rank: z.number().int().min(1).max(5),
+          point,
+          audience: daybreakFrame.shape.audience,
+          detachedTick: tick.nullable(),
+          frames: z
+            .array(
+              z.strictObject({
+                tick,
+                endTick: tick,
+                x: z.number(),
+                y: z.number(),
+                facing: z.number(),
+                audience: daybreakFrame.shape.audience,
+              })
+            )
+            .min(1)
+            .max(ALPHA_END_HISTORY_TICKS),
         })
       )
       .max(1000),
@@ -4397,6 +4426,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     validateAlphaContacts(owner, champion, state);
     validateAlphaAudio(owner, champion, state);
     validateAlphaCasts(owner, champion, state);
+    validateAlphaEnds(owner, champion, state);
     const qCycle = champion.attackCycle;
     if (
       qCycle?.garenQReleaseTick !== undefined &&

@@ -1,3 +1,4 @@
+import { captureAlphaEnd } from './masteryi-q-end';
 import { MASTER_YI_Q } from '../content/masteryi-q';
 import { TICK_RATE } from '../content/rules';
 import { distance } from './math';
@@ -182,6 +183,7 @@ function reappear(
   unit.path = [];
   unit.runClock = null;
   if (target) unit.facing = Math.atan2(target.x - unit.x, target.y - unit.y);
+  captureAlphaEnd(world, unit, q);
   for (const mark of q.marks) if (mark.result === 'pending') resolve(world, unit, mark);
 }
 

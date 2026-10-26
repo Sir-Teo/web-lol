@@ -1,6 +1,14 @@
 # Local match checkpoints
 
-Current schema **154** adds Alpha Strike cast particle histories. Accepted Q
+Current schema **155** adds Alpha Strike reappearance histories. Actual completed
+and target-loss returns capture the accepted cast, mark count/reason, return point,
+creation audience and lossless root runs. Both finite emitters retain an 18-tick
+bound after recovery clears. Death freezes existing roots; vanished cancellation
+and victory create no new return effect. Decoding checks accepted cast/audio,
+return clocks, creation point, canonical coverage, live endpoints and frozen death
+frames. Earlier schemas/fingerprints remain incompatible. See [Q reappearance](MASTER-YI-Q-END.md).
+
+Schema **154** adds Alpha Strike cast particle histories. Accepted Q
 stores its rank, creation origin/audience and lossless root pose/visibility runs
 for the complete two-emitter cast system. The 15-tick finite history remains
 visible independently of Q body hiding; death freezes its root. Decoding checks

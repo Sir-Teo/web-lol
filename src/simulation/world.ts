@@ -1,3 +1,5 @@
+import { advanceAlphaEnds } from './masteryi-q-end';
+import { ALPHA_END_HISTORY_TICKS } from '../content/masteryi-q-end-timing';
 import { captureAlphaCast, advanceAlphaCasts } from './masteryi-q-cast';
 import { ALPHA_CAST_HISTORY_TICKS } from '../content/masteryi-q-cast-timing';
 import {
@@ -1166,6 +1168,10 @@ export class World {
       if (state.meditateCastVisuals.length)
         state.meditateCastVisuals = state.meditateCastVisuals.filter(
           (r) => this.tick < r.startTick + MEDITATE_CAST_HISTORY_TICKS
+        );
+      if (state.alphaEndVisuals.length)
+        state.alphaEndVisuals = state.alphaEndVisuals.filter(
+          (r) => this.tick < r.startTick + ALPHA_END_HISTORY_TICKS
         );
       if (state.alphaCastVisuals.length)
         state.alphaCastVisuals = state.alphaCastVisuals.filter(
@@ -4636,6 +4642,7 @@ export class World {
   private advanceImpactVisuals(): void {
     advanceMeditateBuffs(this);
     advanceMeditateCasts(this);
+    advanceAlphaEnds(this);
     advanceAlphaCasts(this);
     advanceAlphaContacts(this);
     advanceSolarVisuals(this);
@@ -5998,6 +6005,7 @@ export class World {
     if (target.hp <= 0) {
       advanceMeditateBuffs(this);
       advanceMeditateCasts(this);
+      advanceAlphaEnds(this);
       advanceAlphaCasts(this);
       advanceAlphaContacts(this);
       advanceSolarVisuals(this);
