@@ -33,6 +33,11 @@ literal: slot 12 declares `Play_sfx_MasterYi_Meditate_OnCast`, slot 18 declares
 with a play event inferred from its slot or name. Script/animation/particle
 dispatch and the foley/activation bank events need separate evidence.
 
+Runtime integrations now include the complete [cast](MASTER-YI-W-CAST.md),
+[buff](MASTER-YI-W-BUFF.md) and [damage reaction](MASTER-YI-W-DAMAGE.md) systems.
+The separate two-emitter tenacity system retains its attached-mesh source for
+further investigation. These integrations do not change this source checkpoint.
+
 ## Reproduce
 
 ```sh

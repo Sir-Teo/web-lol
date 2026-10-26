@@ -521,6 +521,7 @@ export interface ChampionState {
   meditateAudio: import('./masteryi-meditate-audio').MeditateAudioRecord[];
   meditateBuffVisuals: import('./masteryi-meditate-buff').MeditateBuffVisual[];
   highlander: import('./masteryi-highlander').HighlanderState | null;
+  meditateDamageVisuals: import('./masteryi-meditate-damage').MeditateDamageVisual[];
   highlanderKillVisuals: import('./masteryi-highlander-kill').HighlanderKillVisual[];
   highlanderCastVisuals: import('./masteryi-highlander-cast').HighlanderCastVisual[];
   highlanderAudio: import('./masteryi-highlander-audio').HighlanderAudioRecord[];

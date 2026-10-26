@@ -1,3 +1,5 @@
+import { validateMeditateDamage } from './masteryi-meditate-damage';
+import { MEDITATE_DAMAGE_HISTORY_TICKS } from '../content/masteryi-w-damage-timing';
 import { validateHighlanderKills } from './masteryi-highlander-kill';
 import { HIGHLANDER_KILL_HISTORY_TICKS } from '../content/masteryi-r-kill-timing';
 import { validateHighlanderCasts } from './masteryi-highlander-cast';
@@ -161,7 +163,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 157;
+export const SNAPSHOT_VERSION = 158;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -851,6 +853,30 @@ const player: z.ZodType<PlayerState> = z
         })
       )
       .max(1000),
+    meditateDamageVisuals: z
+      .array(
+        z.strictObject({
+          castTick: tick,
+          tick,
+          rank: z.number().int().min(1).max(5),
+          audience: daybreakFrame.shape.audience,
+          detachedTick: tick.nullable(),
+          frames: z
+            .array(
+              z.strictObject({
+                tick,
+                endTick: tick,
+                x: z.number(),
+                y: z.number(),
+                facing: z.number(),
+                audience: daybreakFrame.shape.audience,
+              })
+            )
+            .min(1)
+            .max(MEDITATE_DAMAGE_HISTORY_TICKS),
+        })
+      )
+      .max(MEDITATE_DAMAGE_HISTORY_TICKS),
     highlanderKillVisuals: z
       .array(
         z.strictObject({
@@ -4476,6 +4502,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     validateHighlanderAudio(owner, champion, state);
     validateHighlanderCasts(owner, champion, state);
     validateHighlanderKills(owner, champion, state);
+    validateMeditateDamage(owner, champion, state);
     validateWujuStyleAudio(owner, champion, state);
     validateMeditateBuffs(owner, champion, state);
     validateMeditateAudio(owner, champion, state);

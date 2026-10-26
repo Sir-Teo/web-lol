@@ -1,3 +1,5 @@
+import { captureMeditateDamage, advanceMeditateDamage } from './masteryi-meditate-damage';
+import { MEDITATE_DAMAGE_HISTORY_TICKS } from '../content/masteryi-w-damage-timing';
 import { advanceHighlanderKills } from './masteryi-highlander-kill';
 import { HIGHLANDER_KILL_HISTORY_TICKS } from '../content/masteryi-r-kill-timing';
 import { captureHighlanderCast, advanceHighlanderCasts } from './masteryi-highlander-cast';
@@ -1172,6 +1174,10 @@ export class World {
       if (state.meditateCastVisuals.length)
         state.meditateCastVisuals = state.meditateCastVisuals.filter(
           (r) => this.tick < r.startTick + MEDITATE_CAST_HISTORY_TICKS
+        );
+      if (state.meditateDamageVisuals.length)
+        state.meditateDamageVisuals = state.meditateDamageVisuals.filter(
+          (r) => this.tick < r.tick + MEDITATE_DAMAGE_HISTORY_TICKS
         );
       if (state.highlanderKillVisuals.length)
         state.highlanderKillVisuals = state.highlanderKillVisuals.filter(
@@ -4654,6 +4660,7 @@ export class World {
   private advanceImpactVisuals(): void {
     advanceMeditateBuffs(this);
     advanceMeditateCasts(this);
+    advanceMeditateDamage(this);
     advanceHighlanderKills(this);
     advanceHighlanderCasts(this);
     advanceAlphaEnds(this);
@@ -5573,6 +5580,10 @@ export class World {
         (1 - channelReduction),
       kind
     );
+    // Explicit local W_Dmg policy: coalesce positive reduced damage once per owner/tick.
+    // Includes linger, shields and lethal damage; true/zero damage creates no reaction.
+    if (amount > 0 && channelReduction > 0)
+      captureMeditateDamage(this, target, this.championState(target.id)!);
     // Local presentation policy: positive damage actually reduced by W emits
     // one reaction per victim/tick, including fully shielded and lethal hits.
     // True damage bypasses reduction. Native trigger/coalescing remain unverified.
@@ -6019,6 +6030,7 @@ export class World {
     if (target.hp <= 0) {
       advanceMeditateBuffs(this);
       advanceMeditateCasts(this);
+      advanceMeditateDamage(this);
       advanceHighlanderKills(this);
       advanceHighlanderCasts(this);
       advanceAlphaEnds(this);

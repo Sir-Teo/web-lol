@@ -1,0 +1,1142 @@
+{
+  "textures": [
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/common_color-bubblerupples.tex",
+        "wadPathHash": "48a39dc90b87ae45",
+        "sha256": "637570d26d3e7ecfb8adef77aa1c2dca8a054673effd7a349767667c17d7733f",
+        "bytes": 5500
+      },
+      "path": ".cache/masteryi-w-packed-v2/48a39dc90b87ae45.png",
+      "bytes": 655,
+      "sha256": "96bcb47a5d968d00cfe9c59eef702da8e226a9ed58c1fbc13da547fde53744d9",
+      "width": 64,
+      "height": 127,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "a7415cd12adb59992574a11894786f109d4637e8ff85cdf4abc62bad9a6133bd"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 64,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "ed30402aa77c13c020ba7a99533a7d17e13dfb0c4433f89ac699b7c55e1d8b6a"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 96,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "b37e8cd0bffa7df2c1a7f1c451e450845ad01e372e2e88f9b475455a554748cc"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 112,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "5bd05c2bde00edf35731b7cf92af707c418322a9f154e6a9e9b2d8ceb0975692"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 120,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "bb76a2e0bde37f8eca5a9af7e969570e52814801597de596cd396a5eea70effa"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 124,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "e5702906191d93d968f604e2369fbc79bdf03c71faf76b87fef211ae18601d9f"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 126,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "dafef9e411bde8140c8904766565dc95c05fe5d890619180dd2e2841dad8e0d0"
+        }
+      ],
+      "rgbaSha256": "5e3c93c3d300acab7fe5edb161f798933cb9ad9d528080575cee46b491bb66e6",
+      "key": "48a39dc90b87ae45",
+      "url": "assets/effects/masteryi-q-contact-48a39dc90b87ae45.png"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/common_color-rampdown.tex",
+        "wadPathHash": "dba30aea46f8d87f",
+        "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220",
+        "bytes": 2756
+      },
+      "path": ".cache/masteryi-w-packed-v2/dba30aea46f8d87f.png",
+      "bytes": 702,
+      "sha256": "30df4a0ee4cd6cc8d680584586e77e764328930403fae425708a9e845c0edcc8",
+      "width": 64,
+      "height": 127,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "a68bebcceb44829831933cc46ecfd600216db342a7de11fd487ea322d32867ae"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 64,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "be029289119efe7b2b0fb7efefd5c51e0ff05f75083d12b6747c579f59613c99"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 96,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "6f79c0ea4535cba64df8ddd6d79930fe6bcc500f812a757b54167f3c746b147a"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 112,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "b2639ba82a91940a4adda2158ba57ba7cbac3da0a8aa13f95d072cac3b7c602f"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 120,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "e872cb747415d934a6d9fcf27eb574fef59b38c339e892d97016ac4f238de421"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 124,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "37a44c961c76dd94235d2550d738dfd7dbd49365ad69b2614f7a51c956447313"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 126,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "1b329170a887a6f72094dcfad111b2756f714ee42a538d8b5c14188547ecb507"
+        }
+      ],
+      "rgbaSha256": "32c4bf2d5e2dba42c4d509cb504791201a7707c907ec3443e0f2458a71f5c189",
+      "key": "dba30aea46f8d87f",
+      "url": "assets/effects/masteryi-q-contact-dba30aea46f8d87f.png"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/masteryi_base_x_hit_flare.tex",
+        "wadPathHash": "271a48230fb860e5",
+        "sha256": "00177201215b68795dbcf576c553430a747dfbe7d68bde118e15b76aacbb66fb",
+        "bytes": 21916
+      },
+      "path": ".cache/masteryi-w-packed-v2/271a48230fb860e5.png",
+      "bytes": 13488,
+      "sha256": "9a7f552bed2d78a583a2ad9b712b2834b7dbd341e3ba306ec88869969c5b9749",
+      "width": 256,
+      "height": 129,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 256,
+          "height": 64,
+          "rgbaSha256": "2f227281c70e1795ddf006b46912c9710fd196c1d3593142b628adb599e5287c"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 64,
+          "width": 128,
+          "height": 32,
+          "rgbaSha256": "932f8783b73da8f2b21e601c7645a624b32838e641eced367613ed28eebfe8c1"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 96,
+          "width": 64,
+          "height": 16,
+          "rgbaSha256": "2d0b59964c686caa373fd8299e4889d335a7fcd5d1eaada89a828d091126b2ee"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 112,
+          "width": 32,
+          "height": 8,
+          "rgbaSha256": "34cd5524b8035a5bb038ba3672f1cd40e5954b6c5e4f1f559a2e0746fb97c99a"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 120,
+          "width": 16,
+          "height": 4,
+          "rgbaSha256": "55745b0b03e3d5f6d5cdbd6ebfc3e14f8c53f3cfb688614163194b9ef4220f41"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 124,
+          "width": 8,
+          "height": 2,
+          "rgbaSha256": "fc1e35230e1e83f7e0b8741f52da09ff4cf8d93f4fa98f509faf869ac2495e8c"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 126,
+          "width": 4,
+          "height": 1,
+          "rgbaSha256": "5047e03120d8df234960e6fa90f51a62907a7a120ce313dcf7ff6204743abb89"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 127,
+          "width": 2,
+          "height": 1,
+          "rgbaSha256": "f8202a626e706f3279afa9a8938472d09d3d2441eaf46f8c68f537ebc192d8f0"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 128,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "e4b070da0a6e37056fec196b2531dbe9433d4b1aed593a878d0ea78af0f3eb2c"
+        }
+      ],
+      "rgbaSha256": "f0853605b139b8920468caf8c4ea233bad5474473e10411f51f5958c3b23b8bd",
+      "key": "271a48230fb860e5",
+      "url": "assets/effects/masteryi-q-contact-271a48230fb860e5.png"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/masteryi_base_z_hit_flash.tex",
+        "wadPathHash": "69151717fd1ca98f",
+        "sha256": "bf413b48cf77e8572da35dbbf78b11c9f14501b18e4ecb1c1bb77f519441c750",
+        "bytes": 43716
+      },
+      "path": ".cache/masteryi-w-packed-v2/69151717fd1ca98f.png",
+      "bytes": 27809,
+      "sha256": "c3d88cee759210b77b5bbcd80858292458fa98fe6003d206073734267e7656bd",
+      "width": 256,
+      "height": 511,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 256,
+          "height": 256,
+          "rgbaSha256": "42725892ec9ed57a2fb3e00aee562d0345aa07cfdf7d61aca87e6f5c17fbe46d"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 256,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "8995f336c62e7f2b31d2ec76fd500215c906f197f093c145b45383be1f4fd2da"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "fb9027fb88ea67dcb5d6c1e7a67264f5ec64369568402b0a692045f2e3232e93"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 448,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "2dc5c3c7f8681e74e0cc31b3c50bfbc0a1a44ec38feae1424715ba54bc7d8b9b"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 480,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "9044d2fec75f6963d8c286fdad39b42b70bd64ea9b7527d963c2e7ac8173f7bc"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 496,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "618c5c44264b59a9981ea2b2013f64a396cf79f908b037f81944dca557bc5e31"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 504,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "663314101fa2fbaefb1c58dd79bc2ca8165a8471ec70642189b94af7e1465f65"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 508,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "625424beb6ff5ac4f93bcdf3653174986a52e42111b54336a09646516faaa1e4"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 510,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "23fa7db5b83e9a7720b0937df3839ff73c20774a365ea5410ce7ad69c302d752"
+        }
+      ],
+      "rgbaSha256": "9810c49ea3abe36c00333c35dd9370f807b716f54da61725b2621115497a61ec",
+      "key": "69151717fd1ca98f",
+      "url": "assets/effects/masteryi-q-contact-69151717fd1ca98f.png"
+    }
+  ],
+  "profiles": [
+    {
+      "system": "MasterYi_W_Dmg",
+      "role": "damage",
+      "index": 0,
+      "name": "Hit",
+      "kind": "billboard",
+      "mesh": null,
+      "texture": "assets/effects/masteryi-q-contact-271a48230fb860e5.png",
+      "lookup": "assets/effects/masteryi-q-contact-48a39dc90b87ae45.png",
+      "rate": {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "single": true,
+      "delay": 0,
+      "emitterLife": 0.20000000298023224,
+      "emitterLinger": 1.0,
+      "linger": null,
+      "life": {
+        "constant": [
+          0.20000000298023224
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0.20000000298023224
+          ]
+        ],
+        "probabilities": []
+      },
+      "bind": {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "position": {
+        "constant": [
+          0.0,
+          100.0,
+          0.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0.0,
+            100.0,
+            0.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "shape": {
+        "offset": {
+          "constant": [
+            0,
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        }
+      },
+      "velocity": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "worldAcceleration": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "rotation": {
+        "constant": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              90.0
+            ],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "spin": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "size": {
+        "constant": [
+          340.0,
+          40.0,
+          340.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            340.0,
+            40.0,
+            340.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "scale": {
+        "constant": [
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0.0,
+          0.4000000059604645,
+          0.800000011920929,
+          1.0
+        ],
+        "values": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.10000000149011612,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "uniform": false,
+      "birthColor": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "color": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "uv": {
+        "scale": {
+          "constant": [
+            1,
+            1
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              1,
+              1
+            ]
+          ],
+          "probabilities": []
+        },
+        "offset": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "birthScroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "scroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "clamp": false,
+        "address": 0,
+        "divisions": [
+          1,
+          1
+        ],
+        "frames": 1,
+        "randomStart": false,
+        "startFrame": 0
+      },
+      "uvMode": 0,
+      "multiplier": null,
+      "lookupTypes": [
+        1,
+        0
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ],
+      "local": true,
+      "particleLocal": false,
+      "directionOriented": false,
+      "directionVelocityScale": 0,
+      "ground": false,
+      "navmesh": false,
+      "blend": 0,
+      "renderOrder": 30,
+      "miscRenderFlags": 1,
+      "meshRenderFlags": 0,
+      "noCull": false,
+      "depthBias": [
+        0,
+        0
+      ],
+      "alphaRef": 0.0196078431372549,
+      "erosion": null,
+      "distortion": null,
+      "soft": null,
+      "palette": null,
+      "explicitFields": [
+        "EmitterPosition",
+        "__type",
+        "bindWeight",
+        "birthRotation0",
+        "birthScale0",
+        "emitterLinger",
+        "emitterName",
+        "isSingleParticle",
+        "lifetime",
+        "miscRenderFlags",
+        "particleColorTexture",
+        "particleLifetime",
+        "pass",
+        "rate",
+        "scale0",
+        "texture"
+      ]
+    },
+    {
+      "system": "MasterYi_W_Dmg",
+      "role": "damage",
+      "index": 1,
+      "name": "flash",
+      "kind": "billboard",
+      "mesh": null,
+      "texture": "assets/effects/masteryi-q-contact-69151717fd1ca98f.png",
+      "lookup": "assets/effects/masteryi-q-contact-dba30aea46f8d87f.png",
+      "rate": {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "single": false,
+      "delay": 0,
+      "emitterLife": 0.20000000298023224,
+      "emitterLinger": null,
+      "linger": 10.0,
+      "life": {
+        "constant": [
+          0.11999999731779099
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0.11999999731779099
+          ]
+        ],
+        "probabilities": []
+      },
+      "bind": {
+        "constant": [
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "position": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "shape": {
+        "offset": {
+          "constant": [
+            0.0,
+            100.0,
+            0.0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0.0,
+              100.0,
+              0.0
+            ]
+          ],
+          "probabilities": []
+        }
+      },
+      "velocity": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "worldAcceleration": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "rotation": {
+        "constant": [
+          90.0,
+          0.0,
+          0.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            90.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "spin": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "size": {
+        "constant": [
+          140.0,
+          140.0,
+          140.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            140.0,
+            140.0,
+            140.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "scale": {
+        "constant": [
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0.0,
+          0.5,
+          1.0
+        ],
+        "values": [
+          [
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            4.0,
+            4.0,
+            4.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "uniform": true,
+      "birthColor": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "color": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "uv": {
+        "scale": {
+          "constant": [
+            1,
+            1
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              1,
+              1
+            ]
+          ],
+          "probabilities": []
+        },
+        "offset": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "birthScroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "scroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "clamp": false,
+        "address": 0,
+        "divisions": [
+          1,
+          1
+        ],
+        "frames": 1,
+        "randomStart": false,
+        "startFrame": 0
+      },
+      "uvMode": 0,
+      "multiplier": null,
+      "lookupTypes": [
+        1,
+        0
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ],
+      "local": true,
+      "particleLocal": false,
+      "directionOriented": false,
+      "directionVelocityScale": 0,
+      "ground": false,
+      "navmesh": false,
+      "blend": 0,
+      "renderOrder": 0,
+      "miscRenderFlags": 0,
+      "meshRenderFlags": 0,
+      "noCull": false,
+      "depthBias": [
+        0,
+        0
+      ],
+      "alphaRef": 0.0196078431372549,
+      "erosion": null,
+      "distortion": null,
+      "soft": null,
+      "palette": null,
+      "explicitFields": [
+        "SpawnShape",
+        "__type",
+        "birthRotation0",
+        "birthScale0",
+        "emitterName",
+        "isUniformScale",
+        "lifetime",
+        "meshRenderFlags",
+        "particleColorTexture",
+        "particleLifetime",
+        "particleLinger",
+        "rate",
+        "scale0",
+        "texture"
+      ]
+    }
+  ]
+}

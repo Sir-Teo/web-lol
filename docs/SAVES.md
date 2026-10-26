@@ -1,6 +1,16 @@
 # Local match checkpoints
 
-Current schema **157** adds finite Highlander takedown histories. Actual living
+Current schema **158** adds finite Meditate damage reactions. Positive reduced
+physical/magic hits coalesce once per owner/tick and retain W cast/rank, admission
+audience and lossless root pose/visibility runs for both finite emitters. The
+15-tick source clock is independent of W channel and reduction linger. Decoding
+checks accepted W/window linkage, ordered unique ticks, canonical coverage,
+endpoints and frozen death roots. A complete damage ledger is not saved, so
+structural checks do not independently prove historical damage amounts or every
+missing reaction. Earlier schemas/fingerprints remain incompatible. See
+[Meditate damage effects](MASTER-YI-W-DAMAGE.md).
+
+Schema **157** adds finite Highlander takedown histories. Actual living
 active-R extensions record cast/rank, extension sequence, victim/team, admission
 audience and lossless root pose/visibility runs. Each complete three-emitter
 system retains an 88-tick source bound, independent of the extended buff. Q-hidden

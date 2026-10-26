@@ -1,0 +1,1072 @@
+{
+  "format": 1,
+  "parentCommit": "5df20c15194fa1c5ded264ffb5784a12445350b6",
+  "identity": {
+    "schema": 158,
+    "ruleset": "5520fbbf600522f9d7d0c0a4ccacf3e08726a540b0d34368229cd524c6a1bf58",
+    "pack": {
+      "id": "a31f3ecfaa8db3bef178c8e6635a0f7ea37e55e04493d9d2034d9c0f24893b0d",
+      "files": 1169,
+      "bytes": 536420615
+    }
+  },
+  "scope": "Complete two-emitter W_Dmg on positive physical/magic damage actually reduced by Meditate, including linger/shields/lethal hits and explicit once-per-owner/tick coalescing. Saved independent finite roots and body visibility; all four textures and 32 authored mips reuse Q contacts. No public PNG, mesh or audio is added; public roster remains Ashe/Lux.",
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/w-particles.json",
+      "bytes": 101955,
+      "sha256": "f2b3e3cc1759b39b8a08d75a15a43649fecaa5a60c16392eff6893935e9a6517"
+    },
+    {
+      "path": "docs/reference/masteryi/w-particles-decoded.json",
+      "bytes": 116153,
+      "sha256": "883a15ed890b9e00aff316de67e58f5e99a123ff0f72337b98b7fc06e2866503"
+    },
+    {
+      "path": "docs/reference/masteryi/w-particle-texture-transport.json",
+      "bytes": 45180,
+      "sha256": "66ce933143a662f0f2506b96520d2d4f6e7ab206a1cb58d8da6b3b94e01e5cfd"
+    },
+    {
+      "path": "docs/reference/masteryi/w-particle-source-verification.json",
+      "bytes": 13697,
+      "sha256": "5e7998fbcd8652b2a8a6a379e14891f05fc44c0e47c638169b4da22648e5767c"
+    },
+    {
+      "path": "docs/reference/masteryi/w-particle-decode-verification.json",
+      "bytes": 47595,
+      "sha256": "50d638c2abf535e6107dbd0c2e1a1dd72dcaf91cc5ba243f556e663f21f44923"
+    },
+    {
+      "path": "docs/reference/garen-spin-defaults.json",
+      "bytes": 1772,
+      "sha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb"
+    },
+    {
+      "path": "src/content/masteryi-q-contact-particles.json",
+      "bytes": 38125,
+      "sha256": "ade04d77fe7d7900ac4300cb870192cec9ca2a63f4215e55cac5d63cba88cd57"
+    },
+    {
+      "path": "tools/assets/masteryi_w_particles.py",
+      "bytes": 3400,
+      "sha256": "13bcae3e6d67d9b7004745c94372f90fda6601df02a6cbb999096f29a73fdf37"
+    },
+    {
+      "path": "tools/assets/masteryi_w_cast.py",
+      "bytes": 8252,
+      "sha256": "67db765dbf4c62c0cd0e5d39d99589c657d6ae826e79a9453a599e203d6d4b5e"
+    },
+    {
+      "path": "tools/assets/masteryi_w_buff.py",
+      "bytes": 6301,
+      "sha256": "30d3b7f47b7d0a3258dbf7c9394f48a35f204cf5be76fd4dc40483131b630c81"
+    },
+    {
+      "path": "tools/assets/pack-masteryi-w-textures.py",
+      "bytes": 4540,
+      "sha256": "9ad4fe6119d5b5fee51cf036b7cdf7fab81bee599d3804568ec7171a6cb46d5f"
+    },
+    {
+      "path": "tools/assets/masteryi_q_decode.py",
+      "bytes": 7372,
+      "sha256": "552f2cf9a0cb552a97332a142bbea6f25a3b0e2c2974359a58659a2c17517ecd"
+    },
+    {
+      "path": "tools/assets/particle_mip_atlas.py",
+      "bytes": 4181,
+      "sha256": "4ba50521c7a4c0d061bbf2f8363b7a84b4db9a4bf480e3d52ae101aec6538fd6"
+    },
+    {
+      "path": "tests/lane-rules.test.ts",
+      "bytes": 5533,
+      "sha256": "d12c8deaba4ba8933dca9a045b1eeae20b1869167f5b9e1fcf0dbfc39e8c1d4a"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-w-damage-runtime/final-source-index.json",
+    "bytes": 6640,
+    "sha256": "2c86edb53df34fd7770a3f8632b4c95df7d3b47cd450f4d967053343f74710b9"
+  },
+  "generated": [
+    {
+      "path": "README.md",
+      "bytes": 16511,
+      "sha256": "4a39d85fcf29ff99146576a24348078d108f68f7e8c30617d31462f0ffe05fa3",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/README.md"
+    },
+    {
+      "path": "docs/MASTER-YI-W-DAMAGE.md",
+      "bytes": 2845,
+      "sha256": "b6d0aa9fd2f859b3b22d7e4ebbee01bbccb058bfd948ff355d72e81fd8966e3b",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/docs/MASTER-YI-W-DAMAGE.md"
+    },
+    {
+      "path": "docs/MASTER-YI-W-PARTICLES.md",
+      "bytes": 10333,
+      "sha256": "8d1e053e07572fc61dbbc80c9b8f03ac6f87e49e69c13819776a7f35c5b2d5c2",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/docs/MASTER-YI-W-PARTICLES.md"
+    },
+    {
+      "path": "docs/SAVES.md",
+      "bytes": 61943,
+      "sha256": "8dbf04486aed6e00023f2800bce518303265a683c97190c3c538903e6d067228",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/docs/SAVES.md"
+    },
+    {
+      "path": "docs/reference/masteryi/w-damage-runtime-reading.json",
+      "bytes": 1369,
+      "sha256": "b1afcf164d76d956a406e03442ce026dfe6540aa6e619692af254dc13272714f",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/docs/reference/masteryi/w-damage-runtime-reading.json"
+    },
+    {
+      "path": "e2e/masteryi-meditate-damage.spec.ts",
+      "bytes": 18114,
+      "sha256": "64ae2939d05de91964b42ba4c83174fa88d8978e74b962c2dd652c2b06e019b3",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/e2e/masteryi-meditate-damage.spec.ts"
+    },
+    {
+      "path": "src/content/masteryi-w-damage-particles.json",
+      "bytes": 23786,
+      "sha256": "e187ff2d0aaf06504e5eac57daf7ce88771b27eab81855e32bbd167fe54abd86",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/src/content/masteryi-w-damage-particles.json"
+    },
+    {
+      "path": "src/content/masteryi-w-damage-timing.ts",
+      "bytes": 127,
+      "sha256": "4ce8808bdc091ae6adb15f9f486cc861d6021fbd98f15292d7039545861eb1ab",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/src/content/masteryi-w-damage-timing.ts"
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 21426,
+      "sha256": "42f559402d062726c45078f8fa92fd1c9676272b1e405513142ef8c628374581",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/src/main.ts"
+    },
+    {
+      "path": "src/render/lazy-masteryi-w-damage.ts",
+      "bytes": 1391,
+      "sha256": "8d5006956f913e47d5d01ee5ff5bc847665c9dd72ca848c8b5d8ff64c7b2adce",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/src/render/lazy-masteryi-w-damage.ts"
+    },
+    {
+      "path": "src/render/masteryi-w-damage-particles.ts",
+      "bytes": 3302,
+      "sha256": "a5d4e4b59c72e6bf092dc1c8ba77bf7172d06a8a4e594366d44725a73a129281",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/src/render/masteryi-w-damage-particles.ts"
+    },
+    {
+      "path": "src/render/masteryi-w-damage.ts",
+      "bytes": 4071,
+      "sha256": "3c33cc24f5da3033d40b1d341ade06364c71787902a44db338b68820f68d8f61",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/src/render/masteryi-w-damage.ts"
+    },
+    {
+      "path": "src/render/view.ts",
+      "bytes": 62597,
+      "sha256": "3e35e4b77d6c833511b0789d56ca7dc37bd91b1f81b9095b1635b8408a64d4ab",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/src/render/view.ts"
+    },
+    {
+      "path": "src/simulation/champion-state.ts",
+      "bytes": 4224,
+      "sha256": "8e01aad2723c7d28f87e0f8ad564d50e9609cfebc50d09bd40ec2ba02fd2ca30",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/src/simulation/champion-state.ts"
+    },
+    {
+      "path": "src/simulation/masteryi-meditate-damage.ts",
+      "bytes": 4010,
+      "sha256": "df7ac0407a1978eab8a1b9b99554bddd3c700ea774a909fd65c4cf3317523063",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/src/simulation/masteryi-meditate-damage.ts"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "bytes": 184839,
+      "sha256": "3b1ab2032c759784bd2248c984147b51348a0b9de0a94fa83d44a023a9483e21",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/src/simulation/snapshot.ts"
+    },
+    {
+      "path": "src/simulation/types.ts",
+      "bytes": 22699,
+      "sha256": "7e5d355b7bd831f1584056763850969f82fee58ce21f79ffcee698e251c79402",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/src/simulation/types.ts"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "bytes": 295119,
+      "sha256": "5e42f4bb0adb50f7c6d8d159e9571de38c3454d94cc9df670c64326b25f105e6",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/src/simulation/world.ts"
+    },
+    {
+      "path": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "b04bd3a28712f1cf7a7e52f549063d5c6883bd571e4376af579a90697e89f4ab",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/tests/lux-e-hit.test.ts"
+    },
+    {
+      "path": "tests/masteryi-meditate-damage-history.test.ts",
+      "bytes": 7788,
+      "sha256": "f7f5087ea23d9d5caa62a41ba9bbf5693839ec589cbe97933c8eb4fa5faeb89e",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/tests/masteryi-meditate-damage-history.test.ts"
+    },
+    {
+      "path": "tests/masteryi-meditate-damage-particles.test.ts",
+      "bytes": 2467,
+      "sha256": "92d6c6b08ab885f34068d39cfed8e4b4c26e229dd93d70c0beef484de1eedf6e",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/tests/masteryi-meditate-damage-particles.test.ts"
+    },
+    {
+      "path": "tools/assets/export-masteryi-w-damage-particles.py",
+      "bytes": 4271,
+      "sha256": "209f051060ed010d70f8ad98596cd8963bfc91204a7a56187b1c823dd322b4c8",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/tools/assets/export-masteryi-w-damage-particles.py"
+    },
+    {
+      "path": "tools/assets/masteryi_w_damage.py",
+      "bytes": 3818,
+      "sha256": "53b18f351004d9cbf5d2ec20ccc551d9e7224802a7eb552967c7da0888f4ac6d",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/tools/assets/masteryi_w_damage.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-w-damage.py",
+      "bytes": 3907,
+      "sha256": "695d2337648bbed7817b619ded559218992aa7e171d3d74fd265b9d8853ffda2",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/tools/assets/test-masteryi-w-damage.py"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 28927,
+      "sha256": "b8d140f29b21e13c44823e2fc7e0486f205e4b364375d7678653c6f7f43ef014",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/tools/qa/production-subpath.mjs"
+    },
+    {
+      "path": "tools/ruleset-fingerprint.ts",
+      "bytes": 12505,
+      "sha256": "3ae6d226c716d5f5ff6210bce294671b2da40bc3e9d033fbb85b97c4ad3072d7",
+      "archived": ".cache/masteryi-w-damage-runtime/final-source/tools/ruleset-fingerprint.ts"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-w-damage-runtime/__pycache__/masteryi_w_damage.cpython-312.opt-1.pyc",
+      "bytes": 8467,
+      "sha256": "8e59e4020888fc4b6f610fa82387db0dbd96c24054ec13d03ec5d8a7cf5a47dc"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/__pycache__/masteryi_w_damage.cpython-312.pyc",
+      "bytes": 8467,
+      "sha256": "8e59e4020888fc4b6f610fa82387db0dbd96c24054ec13d03ec5d8a7cf5a47dc"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-buff-ord-5aeb9-es-only-the-failed-resource/buff-resource-retry.json",
+      "bytes": 512,
+      "sha256": "bfb80edca67079ec16b6c06276fa013b3820a2ddda2cf5ab1a828b2d97f2671e"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-buff-rea-33941-ores-exact-source-particles/buff-135-false.png",
+      "bytes": 815626,
+      "sha256": "9cc20a533bf1dbdec401a5343e24700443b9f9b33d4592aaedc8ed281b2139c7"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-buff-rea-33941-ores-exact-source-particles/buff-save-reload.json",
+      "bytes": 298643,
+      "sha256": "c3b5be3e5caedba3236dfac852698e599291793dd613acd8c93a0619c50276ff"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-buff-rea-ce128-ores-exact-source-particles/buff-9-true.png",
+      "bytes": 824053,
+      "sha256": "389afc33688ed058ecdda9c587521aaa28cc7bfd4acb380c0426ceefddef58af"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-buff-rea-ce128-ores-exact-source-particles/buff-save-reload.json",
+      "bytes": 33144,
+      "sha256": "81a3a22a02675378a14f89fd917cfa8464eb4dc42aca2836c2065472ce4294a6"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-buff-rea-d175b-ores-exact-source-particles/active-three-mip-readback.json",
+      "bytes": 9506,
+      "sha256": "c86b532f5b5d80585d6af5d5f3eb7eafb45802d14f7c68bc5a7a723f5881e4cf"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-buff-rea-d175b-ores-exact-source-particles/buff-9-false.png",
+      "bytes": 825945,
+      "sha256": "b5d93f356013febd9f42f48627aff6b6ac95b4c315437c2cbd2fdf58f4c196de"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-buff-rea-d175b-ores-exact-source-particles/buff-save-reload.json",
+      "bytes": 44093,
+      "sha256": "d5601dea62913a05c231bd2e93c94f2b49964a0dc78ce742f5ebe400763c8a2c"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-buff-rea-d175b-ores-exact-source-particles/shared-cast-buff-textures.json",
+      "bytes": 200,
+      "sha256": "2664f0ff188165feb9a8775c2707679a0e0a4deb3162759990b8b8b21b629d3e"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-buff-uns-4252b-without-simulation-mutation/creation-death-terminal.json",
+      "bytes": 103,
+      "sha256": "f6338c9a4c0abc23d4d5028223a255926d4fd6cfc53c850a22ebeae8d4369719"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-cast-ord-f73c1-uad-UV-selects-exact-pixels/secondary-uv-and-retry.json",
+      "bytes": 1290,
+      "sha256": "4b671743329aa70ab3b126c7cf797c3c1667654e4d4697a2c6b1100bad4bedf2"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-cast-rea-3ca6d-ven-source-emitter-families/active-cast.png",
+      "bytes": 825945,
+      "sha256": "b5d93f356013febd9f42f48627aff6b6ac95b4c315437c2cbd2fdf58f4c196de"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-cast-rea-3ca6d-ven-source-emitter-families/active-three-mip-readback.json",
+      "bytes": 15359,
+      "sha256": "b70ba416fcbca5a8033cc292611e6d56b3214dd92c3848206646c63a5f512df3"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-cast-rea-3ca6d-ven-source-emitter-families/cast-save-reload.json",
+      "bytes": 106835,
+      "sha256": "223a696ae57c538ad4caf2d4ed526ed4949ef9b2eac652085142581f6e01225a"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-cast-rea-b0cf3-ven-source-emitter-families/cancelled-cast.png",
+      "bytes": 819874,
+      "sha256": "fcc7e5b61062480a41f8fa33efe92aa2d23b466b1c3ffbaa99c197e25b676721"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-cast-rea-b0cf3-ven-source-emitter-families/cast-save-reload.json",
+      "bytes": 111347,
+      "sha256": "4e638c0953d598f81e94b5209062c1c9bfeae8ea2f4dff138571e49185c12148"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-cast-uns-d46cb-without-simulation-mutation/creation-death-terminal.json",
+      "bytes": 105,
+      "sha256": "844113db47cd79217c62fa1124bcb6a8cf79c3ba8f7fe76e1bc52d8deb6fc5d0"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/active-three-mip-readback.json",
+      "bytes": 5730,
+      "sha256": "1a40a98495840785c6c4084071a5398d9aaea3dcc3739acab4f8defdf4abcbe1"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/ordinary-family-pixel-coverage.json",
+      "bytes": 245,
+      "sha256": "44cc369c14a2e505b378d547755e3af6b99dbf26c922187066dee20483e74920"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/texture-sharing.json",
+      "bytes": 610,
+      "sha256": "3dcabd01abbd1d1eaebce8747f4ea847132fd10cc7664fb2253701fc4a07d81d"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/w-channel-damage.png",
+      "bytes": 845008,
+      "sha256": "8332f12f4a18ef307764af0a00c35cac3e1d2f8b54f2053d5b50642da6de8a82"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/w-damage-save-reload.json",
+      "bytes": 36950,
+      "sha256": "9815b39c36d9618d06c8dd434cadefe12885286eb47ce9024c9bfe19bf4a140f"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-damage-r-c0c01-icles-and-exact-shared-mips/texture-sharing.json",
+      "bytes": 610,
+      "sha256": "3dcabd01abbd1d1eaebce8747f4ea847132fd10cc7664fb2253701fc4a07d81d"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-damage-r-c0c01-icles-and-exact-shared-mips/w-damage-save-reload.json",
+      "bytes": 53870,
+      "sha256": "06e844e060b56e6487e853d281060d05a499f6ee25f9cb85d3664e6e12d9aeaf"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure/masteryi-meditate-damage-r-c0c01-icles-and-exact-shared-mips/w-linger-damage.png",
+      "bytes": 838555,
+      "sha256": "72e43e88f8e26d3852c039163f6aa5f5eec3d1c6d158adb9ecad7207a7152745"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure-list.log",
+      "bytes": 1393,
+      "sha256": "5d462447ec76f1ac56d77f874835d25aaa977028994d23e5154ddc1a73319d52"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-closure.log",
+      "bytes": 4283,
+      "sha256": "c860f17997f24600b2351ce1fb145fb64e99cc3356a9803693e768f164b1dc26"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/.last-run.json",
+      "bytes": 145,
+      "sha256": "f41411e34c161309a11945fd70075861e9d7c68df5f06263567a2ee4b506dd59"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-meditate-damage-a-2af99-ctory-tails-remain-distinct/fog-q-death-terminal.json",
+      "bytes": 190,
+      "sha256": "c7ecb2c2332c2d83833f06af4b5281344de4ec3068d43c7bf41f80e13c5e40b5"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-meditate-damage-o-5d3de-ll-verified-shared-textures/retry.json",
+      "bytes": 482,
+      "sha256": "c16ba9c216d1e3d67ba0d98986cf2c09863b9b4bf2230f8e5598adcf97042be1"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/active-three-mip-readback.json",
+      "bytes": 5730,
+      "sha256": "1a40a98495840785c6c4084071a5398d9aaea3dcc3739acab4f8defdf4abcbe1"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/error-context.md",
+      "bytes": 14420,
+      "sha256": "beabce396093e4313b430a88f98fc4c676d4cec52966bafc33a8ca101abbedb6"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/ordinary-family-pixel-coverage.json",
+      "bytes": 245,
+      "sha256": "44cc369c14a2e505b378d547755e3af6b99dbf26c922187066dee20483e74920"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/test-failed-1.png",
+      "bytes": 463068,
+      "sha256": "d326e2c44f62ab17b82ef791b9e69fa8cda7ca815445835d7162f75c6d026701"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/texture-sharing.json",
+      "bytes": 394,
+      "sha256": "766c6118d5da7d35adc1f285ba270022b087b8c23394016c2ace1bcabdfc16c5"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/trace.zip",
+      "bytes": 50734982,
+      "sha256": "202796eb076823df222ba0d33ad0b6cb9c95dd6c591765dce157398dafda5e50"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/w-channel-damage.png",
+      "bytes": 845022,
+      "sha256": "2d71ee3cc56089a1733866c4a880e8f160d755249bf800239728e2c39baa986e"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-meditate-damage-r-c0c01-icles-and-exact-shared-mips/error-context.md",
+      "bytes": 14508,
+      "sha256": "e2d5b9645cfac32ad8338f58d02ee0e06624e03a6891019942c29d92677656b6"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-meditate-damage-r-c0c01-icles-and-exact-shared-mips/test-failed-1.png",
+      "bytes": 461072,
+      "sha256": "c4341b5b47ef23009c624eed04163cad6c717118c668cae78782d787a89b6e73"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-meditate-damage-r-c0c01-icles-and-exact-shared-mips/texture-sharing.json",
+      "bytes": 394,
+      "sha256": "766c6118d5da7d35adc1f285ba270022b087b8c23394016c2ace1bcabdfc16c5"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-meditate-damage-r-c0c01-icles-and-exact-shared-mips/trace.zip",
+      "bytes": 48341693,
+      "sha256": "77f5632c05692d80dbb4987d8d591445a00681585994c4295712a04c0683de2c"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-meditate-damage-r-c0c01-icles-and-exact-shared-mips/w-linger-damage.png",
+      "bytes": 838698,
+      "sha256": "18fa3c40b6966122e0b9127e4567e7a87da0284ede2f785d8ad1c1473a6c8a81"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-q-contacts-ordina-15f40-a-failed-texture-explicitly/late-load-explicit-retry.json",
+      "bytes": 964,
+      "sha256": "f7cbdbceb6b360411c5a808819e73d462e65468ef163d9ec4b74fc4ec502f3d0"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-q-contacts-real-c-2e79d-rticles-through-Save-reload/contact-save-reload.json",
+      "bytes": 31748,
+      "sha256": "6ae1bf8084aaada13b9378cf35b7a54b0f348753601826c95ee8f0cbfd2bc4af"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-q-contacts-real-c-2e79d-rticles-through-Save-reload/critical-contact.png",
+      "bytes": 792195,
+      "sha256": "292d4b21e2daf60f140a631176fbfb5014be58de122461bccdbf1385a9508a1b"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/contact-save-reload.json",
+      "bytes": 36290,
+      "sha256": "f0bb9678de1ff6c867f23485f2ea61bb2826fd6639de56d30f46d1f8255a4b83"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/ordinary-contact.png",
+      "bytes": 801454,
+      "sha256": "7b4da5860569697331f1162b31f76b7541e631ab089bfe0e3f82b4d402ea6d60"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/three-authored-mip-readback.json",
+      "bytes": 10563,
+      "sha256": "9b97f1644009edc39fc69b3a985007f0d4920bc9dae8c0302baec8fc2be1dcdb"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-w-audio-a-missing-65f84-the-separate-natural-ending/meditate-media-retry.json",
+      "bytes": 468,
+      "sha256": "092dcadb738e6626611bfd68da5995b5a5bdcdbb0ef8d8f805be34611aff6fd7"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-w-audio-an-onset--19690-or-changing-the-saved-match/meditate-terminal-tail.json",
+      "bytes": 12588,
+      "sha256": "1f841ea19253e43a289428b4c45a352783d352c879af1996933538d7c89bbea4"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-w-audio-both-Medi-557b0-oom-in-browser-AudioBuffers/meditate-float-masters.json",
+      "bytes": 287,
+      "sha256": "e7b5299944a685c6226876e9ad6e745eec3cffd7a2796ccfb0c36a2a1011e244"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-w-audio-ordinary--01b7a-resence-loads-each-one-once/meditate-late-loading.json",
+      "bytes": 26,
+      "sha256": "2e8e1eaef4c0f4a63886f103b90c88e53e1254f3698cb9623b47bf712dcfeca5"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final/masteryi-w-audio-real-W-in-2da51-ire-without-duplicate-tones/meditate-input-save-reload.json",
+      "bytes": 19149,
+      "sha256": "6d7b3f1c079f6f95a5d03e09308d6726466c61dd91c35bece44804c6d63aaea8"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-final.log",
+      "bytes": 10365,
+      "sha256": "78c44d678052d82faa9ad6ba278c95a82e1a5b1dc609c591a8c3c4eda970e1a5"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-initial/.last-run.json",
+      "bytes": 145,
+      "sha256": "f41411e34c161309a11945fd70075861e9d7c68df5f06263567a2ee4b506dd59"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-initial/masteryi-meditate-damage-a-2af99-ctory-tails-remain-distinct/fog-q-death-terminal.json",
+      "bytes": 190,
+      "sha256": "c7ecb2c2332c2d83833f06af4b5281344de4ec3068d43c7bf41f80e13c5e40b5"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-initial/masteryi-meditate-damage-o-5d3de-ll-verified-shared-textures/retry.json",
+      "bytes": 482,
+      "sha256": "c16ba9c216d1e3d67ba0d98986cf2c09863b9b4bf2230f8e5598adcf97042be1"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-initial/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/active-three-mip-readback.json",
+      "bytes": 5730,
+      "sha256": "1a40a98495840785c6c4084071a5398d9aaea3dcc3739acab4f8defdf4abcbe1"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-initial/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/error-context.md",
+      "bytes": 14336,
+      "sha256": "bfa58d168ba9cf674752872ec614ca62c1e0f7f69f6301e5aef46abea56b4340"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-initial/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/ordinary-family-pixel-coverage.json",
+      "bytes": 245,
+      "sha256": "44cc369c14a2e505b378d547755e3af6b99dbf26c922187066dee20483e74920"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-initial/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/test-failed-1.png",
+      "bytes": 463085,
+      "sha256": "341f18d9c13ab63d40500aa07b404e04df36ccfa921e8062d662acdeb2745101"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-initial/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/trace.zip",
+      "bytes": 50109756,
+      "sha256": "67ddfda3c82f81557c2b8a9970e8c392c6093e99044eafb066efd0f94002827f"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-initial/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/w-channel-damage.png",
+      "bytes": 845017,
+      "sha256": "c3e4cc3d2f44e509759234b41cfaf9a3540d1891846987caec74a748d5599317"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-initial/masteryi-meditate-damage-r-c0c01-icles-and-exact-shared-mips/error-context.md",
+      "bytes": 14340,
+      "sha256": "cb5833f8c2d14b8906668451cfe804aaafd885747f526290912aade15a60fdc1"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-initial/masteryi-meditate-damage-r-c0c01-icles-and-exact-shared-mips/test-failed-1.png",
+      "bytes": 460271,
+      "sha256": "dc612f8afcdb74cfa1a9cb1dd18cbe8391ff64f96117219e46cc1f7e63797f7b"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-initial/masteryi-meditate-damage-r-c0c01-icles-and-exact-shared-mips/trace.zip",
+      "bytes": 47666128,
+      "sha256": "468bf1b072309f33331f3addb0af444c80628c5388794d64d361812b53467bf7"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-initial/masteryi-meditate-damage-r-c0c01-icles-and-exact-shared-mips/w-linger-damage.png",
+      "bytes": 838641,
+      "sha256": "55aca2a10459cd92ec48ca804ea33d46aa2bc13d4873d3fb67afcf76b56c6ed8"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/browser-initial.log",
+      "bytes": 6900,
+      "sha256": "03bb58079eeb050f1182986d83d90bf8048d1e13f8e29aa88c159fdfe885ade8"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/build.log",
+      "bytes": 7002,
+      "sha256": "115ab8575a55952e95ef2f51af699b239ab094528546610b1c374963b2626a0a"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/check-phase.json",
+      "bytes": 418,
+      "sha256": "47e347336e0466415fb8a2d8961626552892de3a9d6dd5c26a845baea134fd06"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/check-replay.py",
+      "bytes": 1025,
+      "sha256": "0145e48e8dd4e056cb05a5bfa5ad875c0e5bcb3f2d052ed1479d07a22d21594a"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/content-preview.json",
+      "bytes": 23786,
+      "sha256": "e187ff2d0aaf06504e5eac57daf7ce88771b27eab81855e32bbd167fe54abd86"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/export-check-normal.log",
+      "bytes": 85,
+      "sha256": "4712c8dbd4737f56df5e01fb4aef91293883690cf6c7b1d9617f1d4d90e39145"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/export-check-optimized.log",
+      "bytes": 85,
+      "sha256": "4712c8dbd4737f56df5e01fb4aef91293883690cf6c7b1d9617f1d4d90e39145"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/export-masteryi-w-damage-particles.py",
+      "bytes": 4271,
+      "sha256": "209f051060ed010d70f8ad98596cd8963bfc91204a7a56187b1c823dd322b4c8"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/export-preview.log",
+      "bytes": 106,
+      "sha256": "ad4370eb00fc794c619d3977ebeb16715218f56c1995deec532b8f35dc9bacd5"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/export-replay-normal.log",
+      "bytes": 85,
+      "sha256": "4712c8dbd4737f56df5e01fb4aef91293883690cf6c7b1d9617f1d4d90e39145"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/export-replay-optimized.log",
+      "bytes": 85,
+      "sha256": "4712c8dbd4737f56df5e01fb4aef91293883690cf6c7b1d9617f1d4d90e39145"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/export.log",
+      "bytes": 85,
+      "sha256": "4712c8dbd4737f56df5e01fb4aef91293883690cf6c7b1d9617f1d4d90e39145"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/final-source-index.json",
+      "bytes": 6640,
+      "sha256": "2c86edb53df34fd7770a3f8632b4c95df7d3b47cd450f4d967053343f74710b9"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/finish-checks-output.log",
+      "bytes": 240,
+      "sha256": "8813ce8e7fe5c515eded055ffe149355c33645f4ac4fda6b69a7c810cfdedee4"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/finish-checks.py",
+      "bytes": 1543,
+      "sha256": "b3950fa9abf1372c28008140cc3630b281505c71671c219d8fbf692abcc7d9e1"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/focus-initial.log",
+      "bytes": 481,
+      "sha256": "d64b806501b93a2eb1db0f6e31abf5923161b39640201c177f326bf8cd6775d1"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/focused-final.log",
+      "bytes": 481,
+      "sha256": "60fc53f94591a5a529f4a077df23698d59040d8070005bddadf4ccd15ecaf28c"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/format-actual-contact.log",
+      "bytes": 43,
+      "sha256": "be78018600ded0bb3d76b2831b9eaa94a003d3a45dfd440f5196170986b55a64"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/format-browser-sharing.log",
+      "bytes": 55,
+      "sha256": "fb8d374e0357c28ec75903b3a69c92d399c9f3c5cd0b22db156499d09e893caa"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/format-browser.log",
+      "bytes": 144,
+      "sha256": "d8689d8c5bd9806dbf1e44a37a99cce3eae7a27b3673af262acfc7da1b99020d"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/format-history.log",
+      "bytes": 53,
+      "sha256": "2f60847421b049c1144fd6893960c0bdc8c51af9cedb239a977d0405f3e3e3f9"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/format-wiring.log",
+      "bytes": 447,
+      "sha256": "5cd5320ffe64fadfe62382aa0e3d00fb2304e8f3c7d5e681d1e8f2d45e2f796f"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/format.log",
+      "bytes": 199,
+      "sha256": "d2d517b7d99f33860e9315dcfde49166a0cd4f446b222b2ff46a9b99495dd69a"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/full-unit.log",
+      "bytes": 5486,
+      "sha256": "d06fb10b7630c2734c35bed1785e7c59bdd11e65864c676cfb1e3892d0e9f188"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/guards-final-normal.log",
+      "bytes": 118,
+      "sha256": "652e1190c4658838f57c06bb3148dcbcbb08a155cbec1e3849271d765f1ba2db"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/guards-final-optimized.log",
+      "bytes": 118,
+      "sha256": "860084f0fd896bc549dcfb2146f3dfd66eee3e2f312675a7158d250774c6ed20"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/guards-normal.log",
+      "bytes": 118,
+      "sha256": "6e8864f5ec157f1e34b007aa9ccf5cf6e99a779650e21476fdcde52c75c42f04"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/guards-optimized.log",
+      "bytes": 118,
+      "sha256": "91894c92847381f56db98163d8a6b9aff577ddc6247fa725691e477064930dbc"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/guards-preview-normal.log",
+      "bytes": 118,
+      "sha256": "fa925753db4c03e60f56cbc363a42222f4dd9e235bd5ec2ec1dac680ddf5cdda"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/guards-preview-optimized.log",
+      "bytes": 118,
+      "sha256": "622e9b594ebd945943cf1311c0d7feaeeea2d0c43bfa9f324212fd063ecd9790"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/history-initial.log",
+      "bytes": 1463,
+      "sha256": "f6ef438c0d2de2d2a9e5ab2a6e33e8385a73be51f2ea0edac7fff176dc07856e"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/identity.json",
+      "bytes": 238,
+      "sha256": "6a4cf5e204fe760e46acbd0a0bf509afad1ad42bb69a9f6bd954c5063d1d72ae"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/lazy-masteryi-w-damage.ts",
+      "bytes": 1391,
+      "sha256": "8d5006956f913e47d5d01ee5ff5bc847665c9dd72ca848c8b5d8ff64c7b2adce"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/masteryi-meditate-damage.ts",
+      "bytes": 3747,
+      "sha256": "6c7785a267849474737654b3da2dbbd59ea4f4640b3fc96a5a1117126a243854"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/masteryi-w-damage-particles.ts",
+      "bytes": 3302,
+      "sha256": "a5d4e4b59c72e6bf092dc1c8ba77bf7172d06a8a4e594366d44725a73a129281"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/masteryi-w-damage.ts",
+      "bytes": 4067,
+      "sha256": "6c280bc4394b53cc7d57a1681af29607e23087d9d4a6a4305175e5325405a8a4"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/masteryi_w_damage.py",
+      "bytes": 3818,
+      "sha256": "53b18f351004d9cbf5d2ec20ccc551d9e7224802a7eb552967c7da0888f4ac6d"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/node-qa.log",
+      "bytes": 371,
+      "sha256": "4e0acbee3f7f54273e503e975082b385c260e50b7f0c150c08542822655c0e42"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/offline-pack.json",
+      "bytes": 167603,
+      "sha256": "ccaabb1698ac70cf38b80e6cb23225ff6866467f5ba1feed36712b5d57498c6a"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1814071,
+      "sha256": "46b40e762f0154743bf1a82251f78b81c473b1c0acf1cca75f56bc93bd4b8083"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835811,
+      "sha256": "a3d0f0f53d5fbdbd08adda3eae9c41d93f457f672d9471b22f50b416fd6d4d40"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829761,
+      "sha256": "d2c266dfbe074d987d9096e8cfae71a51d19125b66957ba2bac255f9a9deec14"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1811587,
+      "sha256": "4cd4291df0338ccd4e39eaeb19ba6c80daf1295e5c2b96d75c94f132dbcc3591"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1819782,
+      "sha256": "5a63ed6c485032c98a4b8b059b1c87368541aaf1aa0a51c3a42229ae56233123"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1351515,
+      "sha256": "80348f21557cf74ed27452e987793b351a242833ca8570dbde415c7f87b6a463"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1823958,
+      "sha256": "c51c85a37f31933787b7ef538e328cc7deaac7d15c9ab48e0a496f25cb8a53ed"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808654,
+      "sha256": "f8b0fb2e41e9c90f4eee6f912bb718c7b60f6a89091d79f6f086f99ccf2101e1"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/production-final.json",
+      "bytes": 3008,
+      "sha256": "1649d9d319c1735ea1f035c3ae551f8d5b30ea2545ed7f7a3c586ac8963bd83c"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/production-system.mjs",
+      "bytes": 28969,
+      "sha256": "0cbacbb918789eb68cc15e5fa906ace4b668bd335009c7d92f1fa5c8f6446048"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/production.log",
+      "bytes": 2685,
+      "sha256": "442a624f4ba4fae58c6d8dba225c88e00595701a2fbafdbd0754f701ff0d34a8"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/profile-preview.json",
+      "bytes": 12259,
+      "sha256": "4e6cdc8287c61df0839ab7c8aab5f49924d04a040cf77045af9081dfbe318ab5"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/projection-preview.log",
+      "bytes": 90,
+      "sha256": "0f209ede2da8a1185ae65a8d55f8406c1e2c774b19b3800e6f7ca2495b404e42"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/reading-preview.json",
+      "bytes": 1369,
+      "sha256": "b1afcf164d76d956a406e03442ce026dfe6540aa6e619692af254dc13272714f"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/record-verification.py",
+      "bytes": 7319,
+      "sha256": "7d2aa3f2d894232243ac1fbd8bff1f3b430cc34f9123c5f33c1dfc30d8ac551c"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/replay-count.log",
+      "bytes": 2,
+      "sha256": "10159baf262b43a92d95db59dae1f72c645127301661e0a3ce4e38b295a97c58"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/replay.json",
+      "bytes": 1722,
+      "sha256": "003712a8b9fa304a4efd4b2c62d175ecc4ccaa014d3f6047719d524b51966744"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/ruleset.txt",
+      "bytes": 65,
+      "sha256": "ee323bfcd5cc3267ba47845804d6fd27cb74090bbaa8fdfd7577c31c82ca6635"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/selection.json",
+      "bytes": 5731,
+      "sha256": "fbb3e745ace1963d4ffcf3a12435cac98d6ba101d48cce62dea6a5c05f08aef4"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/source-scope.json",
+      "bytes": 988,
+      "sha256": "0465568eed8d4ae563cdc3a57659218238977252e06bfa9c433b07264a78babf"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/test-masteryi-w-damage.py",
+      "bytes": 3858,
+      "sha256": "e83ec22cfcfb059761bd2c4a1681cd1431d600b65cf277cc272fc920bda42682"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/types-browser.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/types-initial.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-w-damage-runtime/types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "checks": {
+    "fullUnit": {
+      "passed": 2915,
+      "failed": 3,
+      "total": 2918,
+      "files": 379,
+      "originalFiveSecondWaveClock": "passed"
+    },
+    "focused": {
+      "passed": 697,
+      "files": 37
+    },
+    "sourceGuards": {
+      "casesPerPythonMode": 19,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "exportCheckAndReplay": {
+      "filesUnchangedBytesAndMtimes": 7,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "textures": {
+      "count": 4,
+      "newPublicPngs": 0,
+      "sharedQUrls": 4,
+      "authoredMips": 32,
+      "packedBytes": 42654,
+      "gpuMipPixelHashes": "all exact",
+      "actualTextureObjectsSharedWithQContacts": 4
+    },
+    "newMeshes": 0,
+    "newAudio": 0,
+    "build": "TypeScript/production build passed; diagnostics retained.",
+    "nodeQA": {
+      "passed": 3
+    },
+    "browser": {
+      "acceptedUniqueCases": 21,
+      "retries": 0,
+      "environment": "system Chromium154 / SwiftShader",
+      "coverage": [
+        "real W keyboard input with active-channel and interrupted-linger reduced damage; exact Save/reload particles and future",
+        "all 32 actual GPU mip levels match source pixel hashes",
+        "both source families produce nonblack pixels across copied finite source lifetimes",
+        "all four actual Three texture objects shared with real Q contacts",
+        "ordinary startup skips module/assets; explicit retry fetches only failed texture and reuses successes",
+        "hidden admission remains hidden; later Q suppresses bound Hit but an already-born unbound flash finishes",
+        "known frozen death root, finite victory drain and unchanged simulation",
+        "four existing W cast source/GPU/save/retry/visibility cases",
+        "five existing W buff source/GPU/save/stop/retry/visibility cases",
+        "three existing Q contact source/GPU/save/retry cases",
+        "five existing W audio PCM/source-controls/save/stop/retry/terminal cases"
+      ]
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 13,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderAudioPreloads": 0,
+      "unrequestedMasterYiAlphaAudioPreloads": 0,
+      "unrequestedMasterYiMeditateAudioPreloads": 0,
+      "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+      "unrequestedMasterYiMeditateDamagePreloads": 0,
+      "unrequestedMasterYiHighlanderKillPreloads": 0,
+      "unrequestedMasterYiHighlanderCastPreloads": 0,
+      "unrequestedMasterYiQEndPreloads": 0,
+      "unrequestedMasterYiQCastPreloads": 0,
+      "unrequestedMasterYiQContactPreloads": 0,
+      "unrequestedMasterYiMeditateCastPreloads": 0,
+      "unrequestedMasterYiMeditateBuffPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 221,
+      "scheduledBlueRequests": 13,
+      "scheduledRedRequests": 13,
+      "scheduledWolfRequests": 26,
+      "scheduledRaptorRequests": 26,
+      "scheduledKrugRequests": 39,
+      "scheduledScuttlerRequests": 13,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    }
+  },
+  "retainedDiagnostics": [
+    "Two initial history assertions omitted red vision from a nearby living enemy. The corrected checks require both admission teams.",
+    "The new texture-sharing check initially sampled Q before a damaging contact in a two-target fixture. It now waits for actual accepted contact history, then compares the same four texture objects; no particle/cache code was changed to satisfy it."
+  ],
+  "baselineFailures": [
+    "Original Leona attached-skin reflection check.py absent.",
+    "Original distortion metallib, bitcode and disassembly compiler artifacts unavailable.",
+    "Lux first fifteen sampler actual 4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a versus pinned 09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df; previously reproduced on untouched baseline."
+  ],
+  "limits": [
+    "Native W_Dmg trigger/coalescing callbacks remain unverified; local admission is explicit positive reduced physical/magic damage once per owner/tick.",
+    "Saved lifecycle/structural validation cannot independently prove historical damage amounts or every deleted reaction without a full damage ledger.",
+    "The separate tenacity system and its attached mesh remain unfinished; no unbound activation/foley audio is inferred.",
+    "Source-X reflection, actor-root/birth attachment, first-update scheduling, fixed cosmetic probabilities, omitted defaults and render flag/shader mapping remain local adapters.",
+    "Source linger does not extend visible life. Exact software decoding and GPU upload do not certify native frame, physical-device or FPS parity.",
+    "Focused browser checks are not whole-suite, service-worker or offline-install certification.",
+    "Ignored evidence needs preservation; exact changed sources are separately archived."
+  ]
+}
