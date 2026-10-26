@@ -66,6 +66,7 @@ try {
     ahriPreviewRequests = [],
     masterYiPreviewRequests = [],
     masterYiAttackAudioRequests = [],
+    masterYiHighlanderAudioRequests = [],
     preparedCompanionRequests = [],
     wardRigRequests = [],
     oracleRigRequests = [],
@@ -88,6 +89,8 @@ try {
     if (request.url().endsWith('/masteryi-base.glb')) masterYiPreviewRequests.push(request.url());
     if (/\/masteryi-aa-\d+\.wav$/.test(request.url()))
       masterYiAttackAudioRequests.push(request.url());
+    if (/\/masteryi-r-\d+\.wav$/.test(request.url()))
+      masterYiHighlanderAudioRequests.push(request.url());
     if (/\/(?:leona[^/]*\.(?:glb|png|wav)|base_brightspark_11\.png)$/i.test(request.url()))
       leonaPreviewRequests.push(request.url());
     if (request.url().endsWith('/sightward-base.glb')) wardRigRequests.push(request.url());
@@ -479,6 +482,11 @@ try {
     [],
     'Production must not preload development Master Yi attack audio'
   );
+  assert.deepEqual(
+    masterYiHighlanderAudioRequests,
+    [],
+    'Production must not preload development Highlander audio'
+  );
   console.log(
     JSON.stringify({
       result: 'passed',
@@ -510,6 +518,7 @@ try {
       unrequestedAhriPreloads: ahriPreviewRequests.length,
       unrequestedMasterYiPreloads: masterYiPreviewRequests.length,
       unrequestedMasterYiAttackAudioPreloads: masterYiAttackAudioRequests.length,
+      unrequestedMasterYiHighlanderAudioPreloads: masterYiHighlanderAudioRequests.length,
       masterYiNpcFixtureInProduction: false,
       masterYiPlayerFixtureInProduction: false,
       junglePreviewRequests: junglePreviewRequests.length,

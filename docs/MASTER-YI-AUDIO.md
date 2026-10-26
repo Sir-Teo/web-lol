@@ -1,7 +1,8 @@
 # Master Yi base SFX source preparation
 
 The checkpoints below retain source extraction and decoding evidence. Current
-ordinary/critical runtime playback is documented in [primary attack audio](MASTER-YI-AA-AUDIO.md).
+ordinary/critical runtime playback is documented in [primary attack audio](MASTER-YI-AA-AUDIO.md),
+with [Highlander activation/expiry audio](MASTER-YI-R-AUDIO.md) added separately.
 
 The frozen base skin declares 31 SFX events in two banks, separately from its
 voice-over banks. The selectively extracted audio/events banks total 751,976

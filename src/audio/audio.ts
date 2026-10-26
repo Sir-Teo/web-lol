@@ -1,4 +1,5 @@
 import { LazyMasterYiAttackAudio } from './masteryi-aa-lazy';
+import { LazyMasterYiHighlanderAudio } from './masteryi-r-lazy';
 import { LazyGarenBasicAttackAudio } from './garen-aa-lazy';
 import { LazyGarenPerseveranceAudio } from './garen-p-lazy';
 import { LuxSingularityAudio } from './lux-e';
@@ -43,6 +44,7 @@ export class GameAudio {
   bindingFlight = new LuxBindingFlightAudio();
   garenAA = new LazyGarenBasicAttackAudio();
   masterYiAA = new LazyMasterYiAttackAudio();
+  masterYiR = new LazyMasterYiHighlanderAudio();
   garenP = new LazyGarenPerseveranceAudio();
   private garenPTerminalWorld?: World;
   private garenPTerminalStart = 0;
@@ -113,7 +115,7 @@ export class GameAudio {
       this.loadBindingCast(),
       this.bindingFlight.load(),
       this.luxE.load(),
-      ...(masterYiPresent ? [this.masterYiAA.load()] : []),
+      ...(masterYiPresent ? [this.masterYiAA.load(), this.masterYiR.load()] : []),
       ...(garenPresent
         ? [
             this.garenAA.load(),
@@ -310,6 +312,7 @@ export class GameAudio {
     this.luxE.stop();
     this.garenAA.stop();
     this.masterYiAA.stop();
+    this.masterYiR.stop();
     this.garenP.stop();
     this.garenE.stop();
     this.garenR.stop();
@@ -681,6 +684,7 @@ export class GameAudio {
     }
     const yiUnits = world.units.filter((u) => u.champion === 'masteryi');
     if (yiUnits.length && this.masterYiAA.status === 'idle') void this.masterYiAA.load();
+    if (yiUnits.length && this.masterYiR.status === 'idle') void this.masterYiR.load();
     const yiAttacks = yiUnits.flatMap((u) =>
       world.championState(u.id)!.masterYiAAAudio.map((r) => ({
         ...r,
@@ -697,6 +701,26 @@ export class GameAudio {
       this.context,
       this.enabled && !this.paused,
       yiAttacks,
+      recoveryTick,
+      listener
+    );
+    this.masterYiR.update(
+      this.context,
+      this.enabled && !this.paused,
+      yiUnits.flatMap((u) =>
+        world
+          .championState(u.id)!
+          .highlanderAudio.map((r) => ({
+            ...r,
+            id: u.id,
+            x: u.x,
+            y: u.y,
+            castVisible:
+              r.castAudience.includes(world.hero.team) &&
+              (u.team === world.hero.team || world.visible(u, world.hero.team)),
+            stopVisible: r.stop?.audience.includes(world.hero.team) ?? false,
+          }))
+      ),
       recoveryTick,
       listener
     );
@@ -855,7 +879,17 @@ export class GameAudio {
           }
         }
         if (event.type === 'cast') {
-          if (event.text === 'q' && event.champion === 'leona' && this.leonaQ.status === 'ready') {
+          if (
+            event.text === 'r' &&
+            event.champion === 'masteryi' &&
+            this.masterYiR.status === 'ready'
+          ) {
+            // Saved Highlander onset/expiry histories own the two finite source cues.
+          } else if (
+            event.text === 'q' &&
+            event.champion === 'leona' &&
+            this.leonaQ.status === 'ready'
+          ) {
             // Saved Daybreak activation, attack attempts, contact and stop own Q audio.
           } else if (
             event.text === 'w' &&
@@ -918,6 +952,8 @@ export class GameAudio {
           )
             this.bindingCast(event, tick, listener);
           else {
+            if (event.text === 'r' && event.champion === 'masteryi' && event.unit !== undefined)
+              this.masterYiR.suppressCast(event.unit, event.tick);
             if (event.text === 'q' && event.champion === 'leona' && event.unit !== undefined)
               this.leonaQ.suppressCast(event.unit, event.tick);
             if (event.text === 'w' && event.champion === 'leona' && event.unit !== undefined)

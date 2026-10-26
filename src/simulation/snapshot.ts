@@ -1,3 +1,4 @@
+import { validateHighlanderAudio } from './masteryi-highlander-audio';
 import { validateMasterYiAttacks } from './masteryi-aa-presentation';
 import { validateLeonaDeaths } from './leona-death-visuals';
 import { validateDoubleStrikes } from './masteryi-double-strike';
@@ -143,7 +144,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 146;
+export const SNAPSHOT_VERSION = 147;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -775,6 +776,28 @@ const player: z.ZodType<PlayerState> = z
         lastExtensionTick: tick.nullable(),
       })
       .nullable(),
+    highlanderAudio: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          rank: z.number().int().min(1).max(3),
+          takedownsAtCast: tick,
+          origin: point,
+          castAudience: daybreakFrame.shape.audience,
+          stop: z
+            .strictObject({
+              tick,
+              reason: z.enum(['expired', 'death', 'match-end', 'recast']),
+              endTick: tick,
+              pausedTicks: tick,
+              extensionCount: tick,
+              point,
+              audience: daybreakFrame.shape.audience,
+            })
+            .nullable(),
+        })
+      )
+      .max(1000),
     meditate: z
       .strictObject({
         startTick: tick,
@@ -4191,6 +4214,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     validatePerseveranceVisual(owner, champion, state.tick, state.winner);
     validateGarenAttacks(owner, champion, state);
     validateMasterYiAttacks(owner, champion, state);
+    validateHighlanderAudio(owner, champion, state);
     const qCycle = champion.attackCycle;
     if (
       qCycle?.garenQReleaseTick !== undefined &&

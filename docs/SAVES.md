@@ -1,6 +1,13 @@
 # Local match checkpoints
 
-Current schema **146** adds finite Master Yi primary-attack audio histories:
+Current schema **147** adds Highlander audio lifecycle histories. Each accepted
+R retains its activation clock, rank, score and audience. Natural expiry records
+the effective end after takedown extensions and W/Q pauses; death, victory and
+recast close the history with separate reasons. Decoding checks ownership,
+active-buff links, stopped duration/accounting, removal reasons and finite tails.
+Earlier schemas/fingerprints remain incompatible. See [Highlander audio](MASTER-YI-R-AUDIO.md).
+
+Schema **146** adds finite Master Yi primary-attack audio histories:
 accepted windup/contact clocks, normal/critical kind, target identity/material,
 creation/contact audiences and cancellation. Decoding requires matching active
 combat cycles and rejects foreign, expired, future or forged records. These

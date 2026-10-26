@@ -1,4 +1,9 @@
 import {
+  beginHighlanderAudio,
+  stopHighlanderAudio,
+  highlanderAudioExpiry,
+} from './masteryi-highlander-audio';
+import {
   beginMasterYiAttack,
   contactMasterYiAttack,
   cancelMasterYiAttack,
@@ -1106,7 +1111,14 @@ export class World {
       if (state.meditate) settleMeditate(this, state, this.unit(state.id)!);
       if (state.doubleStrike) expireDoubleStrike(state.doubleStrike, this.tick);
       if (state.wujuStyle && this.tick >= state.wujuStyle.endTick) state.wujuStyle = null;
-      if (state.highlander && this.tick >= state.highlander.endTick) state.highlander = null;
+      if (state.highlander && this.tick >= state.highlander.endTick) {
+        stopHighlanderAudio(state, this.unit(state.id)!, this, 'expired');
+        state.highlander = null;
+      }
+      if (state.highlanderAudio.length)
+        state.highlanderAudio = state.highlanderAudio.filter(
+          (r) => this.tick < highlanderAudioExpiry(r)
+        );
       if (state.leonaQ && this.tick >= state.leonaQ.endTick) {
         finishDaybreakVisual(state, this.tick, 'expired');
         state.leonaQ = null;
@@ -5672,6 +5684,7 @@ export class World {
           if (state.doubleStrike) state.doubleStrike = createDoubleStrikeState();
           state.wujuStyle = null;
           state.meditate = null;
+          stopHighlanderAudio(state, this.unit(state.id)!, this, 'match-end');
           state.highlander = null;
           state.alphaStrike = null;
           // Combat can finish the tick before post-combat restoration runs.
@@ -5732,6 +5745,7 @@ export class World {
         if (targetState.doubleStrike) targetState.doubleStrike = createDoubleStrikeState();
         targetState.wujuStyle = null;
         targetState.meditate = null;
+        stopHighlanderAudio(targetState, target, this, 'death');
         targetState.highlander = null;
         targetState.alphaStrike = null;
         stopFoxFireOrbits(this, target.id);
@@ -6388,6 +6402,7 @@ export class World {
       return;
     }
     if (u.champion === 'masteryi' && ability === 'r') {
+      stopHighlanderAudio(state, u, this, 'recast');
       u.slowUntil = 0;
       u.slowMultiplier = 1;
       u.criticalSlow = null;
@@ -6401,6 +6416,7 @@ export class World {
         takedownsAtCast: state.kills + state.assists,
         lastExtensionTick: null,
       };
+      beginHighlanderAudio(state, u, this);
       u.mana -= resources.mana;
       state.cooldowns.r = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
       state.recallEnd = null;

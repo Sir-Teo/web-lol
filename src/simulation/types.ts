@@ -517,6 +517,7 @@ export interface ChampionState {
   wujuStyle: import('./masteryi-wuju-style').WujuStyleState | null;
   meditate: import('./masteryi-meditate').MeditateState | null;
   highlander: import('./masteryi-highlander').HighlanderState | null;
+  highlanderAudio: import('./masteryi-highlander-audio').HighlanderAudioRecord[];
   alphaStrike: import('./masteryi-alpha-strike').AlphaStrikeState | null;
   /** Finite primary attack cues; no invented Double Strike composite binding. */
   masterYiAAAudio: import('./masteryi-aa-presentation').MasterYiAttackAudio[];
