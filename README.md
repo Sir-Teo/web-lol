@@ -37,6 +37,8 @@ npm run build
 npm run test:production
 ```
 
+The retained Lux E sampler golden has a [runtime portability audit](docs/LUX-E-SAMPLER-PORTABILITY.md); its original exact assertion remains unresolved.
+
 The browser suite currently uses installed Google Chrome. All runtime assets are served locally. Manual checkpoints are available from the pause menu: Save match, then reload to restore in a paused state. Match files can be downloaded and imported through **Pause → Match files**. Offline reload, autosaves and other-browser certification are not implemented yet.
 
 [Decisive Strike source audio](docs/GAREN-Q-AUDIO.md) now follows accepted Q activation, buff stops and committed swings, including both QAttack layers and their authored delay. Saved clocks retain stop fades and source tails; the development audition page remains at `/tools/qa/garen-q-audio-preview.html`.

@@ -1,0 +1,876 @@
+{
+  "format": 1,
+  "commit": "8768b65b395dbabd8ab64d482e95a57e9000e598",
+  "baselineCommit": "c08b46b2ae2dd0c7e85076f839d84634f3d5b2ed",
+  "baselinePolicy": "Historical entry and profiles under current shared dependencies; not a full reproduction of the original host environment.",
+  "existingGolden": "09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df",
+  "goldenTestSha256": "d07b3dfe69a6aaff7535d38680d96169d89ae983ac35a856ca8142ae00da18f1",
+  "sourceHashes": [
+    {
+      "path": "tests/lux-e-missile.test.ts",
+      "sha256": "d07b3dfe69a6aaff7535d38680d96169d89ae983ac35a856ca8142ae00da18f1"
+    },
+    {
+      "path": "src/render/lux-e-field-particles.ts",
+      "sha256": "486dd1287fb98708853760fdb8f49d51e023cd6dd691013bf19f3c53c81cff7a"
+    },
+    {
+      "path": "src/content/lux-e-field.json",
+      "sha256": "4d1924a55ea7fb439afe972133bf8c6883aaba7483fea88af6b99d6fbed93931"
+    },
+    {
+      "path": "src/render/particle-emitter-value.ts",
+      "sha256": "56c7b760c43314c711d23d191a589864070f82991a128299c10946cbfebd65cd"
+    },
+    {
+      "path": "src/render/particle-curves.ts",
+      "sha256": "53ddfbba5133a9f9091ea46317cfce92a970c375b5a5462565a2ef593894295c"
+    },
+    {
+      "path": "src/render/lux-beam-birth-offset.ts",
+      "sha256": "515ab73748674022b3f02ec7c8e1c68dbc076e8c258ccc12f2bb85e2551d7d20"
+    },
+    {
+      "path": "src/render/lux-hoop-particles.ts",
+      "sha256": "815d6e785282c8aeb148bd865218e1348da6e8f946d4a922d2ef2fc876d46f12"
+    },
+    {
+      "path": "src/render/lux-e-burst-particles.ts",
+      "sha256": "3cd695571e7fbb5fe385c337f4e8c6a3cd9c134b27d79d2ab180b8bc609386d8"
+    },
+    {
+      "path": "src/render/particle-color-lookup.ts",
+      "sha256": "a61c220f19ca761b3f9110f709fc1af8f23963690021f57baa6ad064dc5d0a47"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    },
+    {
+      "path": "tools/qa/lux-e-sampler-portability.mjs",
+      "sha256": "469386b75e5cdbc77d6e65a9efe55f467ec240e6c48657f93ecad173a849685b"
+    },
+    {
+      "path": "tools/qa/lib/lux-e-sampler-audit.ts",
+      "sha256": "e0a796d1e3d994736abf1da249b444f3bb2a5da46c79ae8b910cc96dcc695f81"
+    },
+    {
+      "path": "tools/qa/lux-e-sampler-audit.test.mjs",
+      "sha256": "29a4070c50eac2ce66064edc2ebe8c19a3008fd1a6f7f64b7b5c4550b3d8682d"
+    }
+  ],
+  "node": {
+    "version": "v24.19.0",
+    "v8": "13.6.233.17-node.51",
+    "platform": "linux",
+    "arch": "x64",
+    "beforeHash": "4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a",
+    "currentHash": "4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a",
+    "goldenMatched": false
+  },
+  "chromium": {
+    "version": "154.0.8037.57",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+    "beforeHash": "dab2134a44fc98d065ec0a1e993c68fd844f3d4948b33a51c914fd3546d5abe0",
+    "currentHash": "dab2134a44fc98d065ec0a1e993c68fd844f3d4948b33a51c914fd3546d5abe0",
+    "goldenMatched": false
+  },
+  "browserLaunch": {
+    "executablePath": "/usr/bin/chromium",
+    "noSandbox": true
+  },
+  "snapshotsPerEngine": 24,
+  "withinEngineHistoricalStreamsExact": true,
+  "tracePreservesSampleBytes": true,
+  "bidirectionalTrigReplay": {
+    "exact": true,
+    "callsPerReplay": 17888,
+    "nodeWithBrowserTrigHash": "dab2134a44fc98d065ec0a1e993c68fd844f3d4948b33a51c914fd3546d5abe0",
+    "browserWithNodeTrigHash": "4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a"
+  },
+  "sharedMathInputs": 1150,
+  "mathDifferences": [
+    {
+      "key": "sin:400144258799d2fb",
+      "name": "sin",
+      "args": [
+        2.1582747072046664
+      ],
+      "node": {
+        "result": 0.8323409666741017,
+        "bits": "3feaa28985df8fb6"
+      },
+      "browser": {
+        "result": 0.8323409666741016,
+        "bits": "3feaa28985df8fb5"
+      }
+    },
+    {
+      "key": "cos:400144258799d2fb",
+      "name": "cos",
+      "args": [
+        2.1582747072046664
+      ],
+      "node": {
+        "result": -0.5542639400105531,
+        "bits": "bfe1bc87baf6515c"
+      },
+      "browser": {
+        "result": -0.554263940010553,
+        "bits": "bfe1bc87baf6515b"
+      }
+    },
+    {
+      "key": "sin:40022ff1ae36dbf8",
+      "name": "sin",
+      "args": [
+        2.273410187768146
+      ],
+      "node": {
+        "result": 0.7631556809286443,
+        "bits": "3fe86bc5766b0b5f"
+      },
+      "browser": {
+        "result": 0.7631556809286442,
+        "bits": "3fe86bc5766b0b5e"
+      }
+    },
+    {
+      "key": "cos:3ff38e7feffaaaab",
+      "name": "cos",
+      "args": [
+        1.222289979380245
+      ],
+      "node": {
+        "result": 0.3414943289939205,
+        "bits": "3fd5db0b07b31838"
+      },
+      "browser": {
+        "result": 0.34149432899392057,
+        "bits": "3fd5db0b07b31839"
+      }
+    },
+    {
+      "key": "cos:400460f8eb8753a2",
+      "name": "cos",
+      "args": [
+        2.547349777285903
+      ],
+      "node": {
+        "result": -0.8285726358965777,
+        "bits": "bfea83aac2b12982"
+      },
+      "browser": {
+        "result": -0.8285726358965778,
+        "bits": "bfea83aac2b12983"
+      }
+    },
+    {
+      "key": "sin:3fa345d9bbf02ebe",
+      "name": "sin",
+      "args": [
+        0.03764229220550196
+      ],
+      "node": {
+        "result": 0.037633403343455746,
+        "bits": "3fa344af7931d3dc"
+      },
+      "browser": {
+        "result": 0.03763340334345574,
+        "bits": "3fa344af7931d3db"
+      }
+    },
+    {
+      "key": "sin:4003ff286b5be0d1",
+      "name": "sin",
+      "args": [
+        2.4995888125814436
+      ],
+      "node": {
+        "result": 0.5988015136764773,
+        "bits": "3fe32961cac12500"
+      },
+      "browser": {
+        "result": 0.5988015136764774,
+        "bits": "3fe32961cac12501"
+      }
+    },
+    {
+      "key": "cos:4003ff286b5be0d1",
+      "name": "cos",
+      "args": [
+        2.4995888125814436
+      ],
+      "node": {
+        "result": -0.8008974636111414,
+        "bits": "bfe9a0f3b7b51830"
+      },
+      "browser": {
+        "result": -0.8008974636111413,
+        "bits": "bfe9a0f3b7b5182f"
+      }
+    },
+    {
+      "key": "cos:3fb7afb84ff6c590",
+      "name": "cos",
+      "args": [
+        0.0925250239586346
+      ],
+      "node": {
+        "result": 0.9957226127939238,
+        "bits": "3fefdcf5ab3acd68"
+      },
+      "browser": {
+        "result": 0.9957226127939239,
+        "bits": "3fefdcf5ab3acd69"
+      }
+    },
+    {
+      "key": "cos:4006395f9d240027",
+      "name": "cos",
+      "args": [
+        2.778014400159026
+      ],
+      "node": {
+        "result": -0.9346303083269265,
+        "bits": "bfede87dd203aa5c"
+      },
+      "browser": {
+        "result": -0.9346303083269264,
+        "bits": "bfede87dd203aa5b"
+      }
+    },
+    {
+      "key": "cos:40031f51fe4ae6f8",
+      "name": "cos",
+      "args": [
+        2.390293108616671
+      ],
+      "node": {
+        "result": -0.7308024310548151,
+        "bits": "bfe762bbc7a6f79c"
+      },
+      "browser": {
+        "result": -0.7308024310548152,
+        "bits": "bfe762bbc7a6f79d"
+      }
+    },
+    {
+      "key": "sin:4006475cdd3a31f7",
+      "name": "sin",
+      "args": [
+        2.784845093096233
+      ],
+      "node": {
+        "result": 0.34922842759779954,
+        "bits": "3fd659c230d76d69"
+      },
+      "browser": {
+        "result": 0.3492284275977996,
+        "bits": "3fd659c230d76d6a"
+      }
+    },
+    {
+      "key": "sin:40044758ae833255",
+      "name": "sin",
+      "args": [
+        2.5348371156490352
+      ],
+      "node": {
+        "result": 0.5702051327184425,
+        "bits": "3fe23f1ed5a12f84"
+      },
+      "browser": {
+        "result": 0.5702051327184426,
+        "bits": "3fe23f1ed5a12f85"
+      }
+    },
+    {
+      "key": "cos:4007ca067fe0baf2",
+      "name": "cos",
+      "args": [
+        2.973645209356044
+      ],
+      "node": {
+        "result": -0.9859299467455789,
+        "bits": "bfef8cbcf5ad6ac4"
+      },
+      "browser": {
+        "result": -0.985929946745579,
+        "bits": "bfef8cbcf5ad6ac5"
+      }
+    },
+    {
+      "key": "sin:3fea5b29b4d30a43",
+      "name": "sin",
+      "args": [
+        0.8236282855726319
+      ],
+      "node": {
+        "result": 0.733616305096318,
+        "bits": "3fe779c8e6c66ef4"
+      },
+      "browser": {
+        "result": 0.7336163050963179,
+        "bits": "3fe779c8e6c66ef3"
+      }
+    },
+    {
+      "key": "sin:3fb7a4b17fe258b9",
+      "name": "sin",
+      "args": [
+        0.092356771203728
+      ],
+      "node": {
+        "result": 0.0922255301372826,
+        "bits": "3fb79c17a3cbbf86"
+      },
+      "browser": {
+        "result": 0.09222553013728259,
+        "bits": "3fb79c17a3cbbf85"
+      }
+    },
+    {
+      "key": "cos:3ff10929e99b296a",
+      "name": "cos",
+      "args": [
+        1.0647372365225132
+      ],
+      "node": {
+        "result": 0.4847340575865319,
+        "bits": "3fdf05e1ff25dbb6"
+      },
+      "browser": {
+        "result": 0.4847340575865318,
+        "bits": "3fdf05e1ff25dbb5"
+      }
+    },
+    {
+      "key": "cos:4003b8c320753105",
+      "name": "cos",
+      "args": [
+        2.4652159248126986
+      ],
+      "node": {
+        "result": -0.7798458974166658,
+        "bits": "bfe8f47f622a6114"
+      },
+      "browser": {
+        "result": -0.7798458974166659,
+        "bits": "bfe8f47f622a6115"
+      }
+    },
+    {
+      "key": "cos:400435faa1ffb0cf",
+      "name": "cos",
+      "args": [
+        2.526356950393257
+      ],
+      "node": {
+        "result": -0.8166374332457791,
+        "bits": "bfea21e4d38f5c32"
+      },
+      "browser": {
+        "result": -0.816637433245779,
+        "bits": "bfea21e4d38f5c31"
+      }
+    }
+  ],
+  "scalarDifferences": [
+    {
+      "path": [
+        2,
+        "particles",
+        9,
+        "position",
+        0
+      ],
+      "node": -114.11844016330723,
+      "browser": -114.11844016330711,
+      "absoluteDelta": 1.1368683772161603e-13,
+      "ulps": "8",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        2,
+        "particles",
+        9,
+        "position",
+        2
+      ],
+      "node": 273.0774721021759,
+      "browser": 273.07747210217576,
+      "absoluteDelta": 1.1368683772161603e-13,
+      "ulps": "2",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        2,
+        "particles",
+        9,
+        "travel",
+        0
+      ],
+      "node": 93.38704314477874,
+      "browser": 93.38704314477863,
+      "absoluteDelta": 1.1368683772161603e-13,
+      "ulps": "8",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        2,
+        "particles",
+        9,
+        "travel",
+        2
+      ],
+      "node": -223.46868422473142,
+      "browser": -223.46868422473136,
+      "absoluteDelta": 5.684341886080802e-14,
+      "ulps": "2",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        3,
+        "particles",
+        0,
+        "position",
+        0
+      ],
+      "node": -67.42491859091785,
+      "browser": -67.42491859091781,
+      "absoluteDelta": 4.263256414560601e-14,
+      "ulps": "3",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        3,
+        "particles",
+        0,
+        "position",
+        2
+      ],
+      "node": 161.3431299898102,
+      "browser": 161.3431299898101,
+      "absoluteDelta": 8.526512829121202e-14,
+      "ulps": "3",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        3,
+        "particles",
+        0,
+        "travel",
+        0
+      ],
+      "node": 93.38704314477874,
+      "browser": 93.38704314477863,
+      "absoluteDelta": 1.1368683772161603e-13,
+      "ulps": "8",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        3,
+        "particles",
+        0,
+        "travel",
+        2
+      ],
+      "node": -223.46868422473142,
+      "browser": -223.46868422473136,
+      "absoluteDelta": 5.684341886080802e-14,
+      "ulps": "2",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        5,
+        "particles",
+        8,
+        "position",
+        0
+      ],
+      "node": 1.0834067476750897,
+      "browser": 1.0834067476750913,
+      "absoluteDelta": 1.5543122344752192e-15,
+      "ulps": "7",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        5,
+        "particles",
+        8,
+        "position",
+        2
+      ],
+      "node": 11.863280720428081,
+      "browser": 11.86328072042808,
+      "absoluteDelta": 1.7763568394002505e-15,
+      "ulps": "1",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        5,
+        "particles",
+        8,
+        "travel",
+        0
+      ],
+      "node": -19.549577544221275,
+      "browser": -19.54957754422127,
+      "absoluteDelta": 7.105427357601002e-15,
+      "ulps": "2",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        5,
+        "particles",
+        8,
+        "travel",
+        2
+      ],
+      "node": 22.67417497872816,
+      "browser": 22.674174978728157,
+      "absoluteDelta": 3.552713678800501e-15,
+      "ulps": "1",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        9,
+        "particles",
+        12,
+        "position",
+        0
+      ],
+      "node": 222.99626152413632,
+      "browser": 222.9962615241363,
+      "absoluteDelta": 2.842170943040401e-14,
+      "ulps": "1",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        9,
+        "particles",
+        12,
+        "position",
+        2
+      ],
+      "node": 193.0309787686286,
+      "browser": 193.03097876862861,
+      "absoluteDelta": 2.842170943040401e-14,
+      "ulps": "1",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        9,
+        "particles",
+        12,
+        "travel",
+        2
+      ],
+      "node": -198.78758790726684,
+      "browser": -198.78758790726687,
+      "absoluteDelta": 2.842170943040401e-14,
+      "ulps": "1",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        10,
+        "particles",
+        9,
+        "position",
+        0
+      ],
+      "node": 88.89663133511091,
+      "browser": 88.89663133511084,
+      "absoluteDelta": 7.105427357601002e-14,
+      "ulps": "5",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        10,
+        "particles",
+        9,
+        "position",
+        2
+      ],
+      "node": 238.13300613321672,
+      "browser": 238.13300613321675,
+      "absoluteDelta": 2.842170943040401e-14,
+      "ulps": "1",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        10,
+        "particles",
+        9,
+        "travel",
+        0
+      ],
+      "node": -192.2763916537807,
+      "browser": -192.27639165378054,
+      "absoluteDelta": 1.7053025658242404e-13,
+      "ulps": "6",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        10,
+        "particles",
+        9,
+        "travel",
+        2
+      ],
+      "node": -515.0628821958318,
+      "browser": -515.062882195832,
+      "absoluteDelta": 2.2737367544323206e-13,
+      "ulps": "2",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        10,
+        "particles",
+        9,
+        "stretch"
+      ],
+      "node": 1.5457419252556182,
+      "browser": 1.5457419252556186,
+      "absoluteDelta": 4.440892098500626e-16,
+      "ulps": "2",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        10,
+        "particles",
+        12,
+        "position",
+        2
+      ],
+      "node": 98.88425400373234,
+      "browser": 98.88425400373235,
+      "absoluteDelta": 1.4210854715202004e-14,
+      "ulps": "1",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        16,
+        "particles",
+        8,
+        "position",
+        0
+      ],
+      "node": -20.337754131792085,
+      "browser": -20.33775413179204,
+      "absoluteDelta": 4.618527782440651e-14,
+      "ulps": "13",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        16,
+        "particles",
+        8,
+        "travel",
+        0
+      ],
+      "node": 51.55951460224583,
+      "browser": 51.5595146022456,
+      "absoluteDelta": 2.2737367544323206e-13,
+      "ulps": "32",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        16,
+        "particles",
+        8,
+        "travel",
+        2
+      ],
+      "node": 673.0164237190255,
+      "browser": 673.0164237190254,
+      "absoluteDelta": 1.1368683772161603e-13,
+      "ulps": "1",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        16,
+        "particles",
+        8,
+        "stretch"
+      ],
+      "node": 1.8951459433470366,
+      "browser": 1.8951459433470363,
+      "absoluteDelta": 2.220446049250313e-16,
+      "ulps": "1",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        17,
+        "particles",
+        4,
+        "position",
+        0
+      ],
+      "node": -4.83204375346354,
+      "browser": -4.832043753463535,
+      "absoluteDelta": 5.329070518200751e-15,
+      "ulps": "6",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        17,
+        "particles",
+        4,
+        "position",
+        2
+      ],
+      "node": 39.04955101453008,
+      "browser": 39.049551014530074,
+      "absoluteDelta": 7.105427357601002e-15,
+      "ulps": "1",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        17,
+        "particles",
+        4,
+        "travel",
+        0
+      ],
+      "node": -43.765846763231,
+      "browser": -43.765846763230996,
+      "absoluteDelta": 7.105427357601002e-15,
+      "ulps": "1",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        17,
+        "particles",
+        4,
+        "travel",
+        1
+      ],
+      "node": 286.9387553994399,
+      "browser": 286.93875539943997,
+      "absoluteDelta": 5.684341886080802e-14,
+      "ulps": "1",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        17,
+        "particles",
+        4,
+        "travel",
+        2
+      ],
+      "node": 62.717753305617684,
+      "browser": 62.71775330561768,
+      "absoluteDelta": 7.105427357601002e-15,
+      "ulps": "1",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        21,
+        "particles",
+        5,
+        "travel",
+        2
+      ],
+      "node": 259.9853840367055,
+      "browser": 259.98538403670545,
+      "absoluteDelta": 5.684341886080802e-14,
+      "ulps": "1",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        22,
+        "particles",
+        4,
+        "position",
+        2
+      ],
+      "node": 164.29028401481082,
+      "browser": 164.29028401481088,
+      "absoluteDelta": 5.684341886080802e-14,
+      "ulps": "2",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        22,
+        "particles",
+        6,
+        "position",
+        2
+      ],
+      "node": 190.53048465980555,
+      "browser": 190.5304846598055,
+      "absoluteDelta": 5.684341886080802e-14,
+      "ulps": "2",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        22,
+        "particles",
+        6,
+        "travel",
+        2
+      ],
+      "node": -503.254871137214,
+      "browser": -503.25487113721397,
+      "absoluteDelta": 5.684341886080802e-14,
+      "ulps": "1",
+      "float32Equal": true
+    },
+    {
+      "path": [
+        22,
+        "particles",
+        6,
+        "stretch"
+      ],
+      "node": 1.5013902910626862,
+      "browser": 1.501390291062686,
+      "absoluteDelta": 2.220446049250313e-16,
+      "ulps": "1",
+      "float32Equal": true
+    }
+  ],
+  "maxAbsoluteDelta": 2.2737367544323206e-13,
+  "differingScalarFloat32CastsEqual": true,
+  "limits": [
+    "The original golden is retained. Neither differing runtime hash is substituted for it.",
+    "Runtime trig differences explain the measured Node/Chromium divergence; the original golden environment remains unreproduced.",
+    "Per-scalar Float32 agreement is not a cross-engine GPU-frame or native-client certificate.",
+    "Math interception and captured-result replay exist only in this diagnostic process and blank browser page; game code is untouched."
+  ]
+}

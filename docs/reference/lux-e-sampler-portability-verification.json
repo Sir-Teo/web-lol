@@ -1,0 +1,425 @@
+{
+  "format": 1,
+  "parentCommit": "8768b65b395dbabd8ab64d482e95a57e9000e598",
+  "appIdentity": {
+    "schema": 161,
+    "rulesetFingerprint": "485b0e7837573369f75975a088c0ec686a3ccc5e7e8198b03b6178e7890964ba",
+    "offlinePack": {
+      "id": "cf582b96451b8655ed63cc99aba1fe9f63d25b09a29463a413ab2c0197335caa",
+      "files": 1188,
+      "bytes": 537208146
+    }
+  },
+  "scope": "Diagnose the retained Lux E first-fifteen sampler golden across Node and real Chromium. Add a standalone read-only sampler/math audit, signed-zero-safe captured-result replay, tool tests and durable evidence. Preserve all existing game sources, profiles and golden assertions.",
+  "sourcePins": [
+    {
+      "path": "tests/lux-e-missile.test.ts",
+      "bytes": 11975,
+      "sha256": "d07b3dfe69a6aaff7535d38680d96169d89ae983ac35a856ca8142ae00da18f1"
+    },
+    {
+      "path": "src/render/lux-e-field-particles.ts",
+      "bytes": 6958,
+      "sha256": "486dd1287fb98708853760fdb8f49d51e023cd6dd691013bf19f3c53c81cff7a"
+    },
+    {
+      "path": "src/content/lux-e-field.json",
+      "bytes": 129231,
+      "sha256": "4d1924a55ea7fb439afe972133bf8c6883aaba7483fea88af6b99d6fbed93931"
+    },
+    {
+      "path": "docs/reference/lux-e-missile-verification.json",
+      "bytes": 20160,
+      "sha256": "55f26d74e612c0162b44d27f7a3eba542951d64ff0018cc97c56b568d1626ec5"
+    },
+    {
+      "path": "docs/reference/masteryi/sword-segmented-order-verification.json",
+      "bytes": 20401,
+      "sha256": "3423a0e98afccb4ed205a705c5734711faf6bf4c8ea5df9ed9c574437d53a344"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/lux-e-sampler-portability-verification/final-source-index.json",
+    "bytes": 1624,
+    "sha256": "329ee90f9ab035df078c2716e22be3ccae0e7983efff525dd09572454cb0583e"
+  },
+  "generated": [
+    {
+      "path": "README.md",
+      "bytes": 18125,
+      "sha256": "43365e0c2f31e0978baadae29b06675fa477c05115299b9be78de6abeebf39c1",
+      "archived": ".cache/lux-e-sampler-portability-verification/final-source/README.md"
+    },
+    {
+      "path": "docs/LUX-E-SAMPLER-PORTABILITY.md",
+      "bytes": 2899,
+      "sha256": "bebbfc7b1643d62b5f120904d5039d1e28f963fb2f95cfae85459c6979f83e01",
+      "archived": ".cache/lux-e-sampler-portability-verification/final-source/docs/LUX-E-SAMPLER-PORTABILITY.md"
+    },
+    {
+      "path": "docs/reference/lux-e-sampler-portability.json",
+      "bytes": 19879,
+      "sha256": "c5e48e833f4ed60b0de9336717e38d4de4b92aae4d423f1041aa8295fb9960d5",
+      "archived": ".cache/lux-e-sampler-portability-verification/final-source/docs/reference/lux-e-sampler-portability.json"
+    },
+    {
+      "path": "tools/qa/lib/lux-e-sampler-audit.ts",
+      "bytes": 3091,
+      "sha256": "e0a796d1e3d994736abf1da249b444f3bb2a5da46c79ae8b910cc96dcc695f81",
+      "archived": ".cache/lux-e-sampler-portability-verification/final-source/tools/qa/lib/lux-e-sampler-audit.ts"
+    },
+    {
+      "path": "tools/qa/lux-e-sampler-audit.test.mjs",
+      "bytes": 1817,
+      "sha256": "29a4070c50eac2ce66064edc2ebe8c19a3008fd1a6f7f64b7b5c4550b3d8682d",
+      "archived": ".cache/lux-e-sampler-portability-verification/final-source/tools/qa/lux-e-sampler-audit.test.mjs"
+    },
+    {
+      "path": "tools/qa/lux-e-sampler-portability.mjs",
+      "bytes": 10914,
+      "sha256": "469386b75e5cdbc77d6e65a9efe55f467ec240e6c48657f93ecad173a849685b",
+      "archived": ".cache/lux-e-sampler-portability-verification/final-source/tools/qa/lux-e-sampler-portability.mjs"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/audit-identity.json",
+      "bytes": 375,
+      "sha256": "6d84631cc82db28d82a29d819f7e99a308b2559252b7d90281d6c2870a1364d5"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/before-browser.json",
+      "bytes": 613714,
+      "sha256": "dab2134a44fc98d065ec0a1e993c68fd844f3d4948b33a51c914fd3546d5abe0"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/before-node.json",
+      "bytes": 613710,
+      "sha256": "4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/browser-comparison.json",
+      "bytes": 300,
+      "sha256": "d8ee466483bf7e0a50a6b0b7e02978e07763e3271f467cc86fca8a9f40d679a5"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/browser-output/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/browser.config.ts",
+      "bytes": 338,
+      "sha256": "bbe7ad02c163b3af741d432df0eab8b310f31463858f910f65d9859be11dec2c"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/browser.log",
+      "bytes": 545,
+      "sha256": "0e5606c4b1a3568057802f63168d53ca2e8e64e61beee0820205f25d31d938a3"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/browser.spec.ts",
+      "bytes": 3363,
+      "sha256": "0adb38331ecf4d12e068e6790c2ac6d189fec43a1fb13bf84e79546359b26b18"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/cross-runtime-differences.json",
+      "bytes": 12339,
+      "sha256": "5bfaf5be719eba8ac830f859b0c04c7ac557f8f7995dafdf7d9856765394d5f1"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/current-browser.json",
+      "bytes": 613714,
+      "sha256": "dab2134a44fc98d065ec0a1e993c68fd844f3d4948b33a51c914fd3546d5abe0"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/current-node.json",
+      "bytes": 613710,
+      "sha256": "4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/format-final.log",
+      "bytes": 45,
+      "sha256": "db42a5a3ffaae93791866247e761d7b96d7a9b4355358bc629d87f2b5511357c"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/format-tests.log",
+      "bytes": 43,
+      "sha256": "59d1a7ccde1aed7f14e7f4a505fbb95dcd70d181edde2a637e23fa607553b431"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/format-tool.log",
+      "bytes": 86,
+      "sha256": "f9c3d421fcdc70dfc256f5a957ee065e114459657cf6985256f8123324c92879"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/math-browser.json",
+      "bytes": 249202,
+      "sha256": "b5e590851bff26368a010104e8a30c221acdfe4faa902149a3310fff891f5ea1"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/math-browser.log",
+      "bytes": 534,
+      "sha256": "d543d1433c1924d1dd20a47aae265e98e43337348a79b6e038ea28be227390c1"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/math-differences.json",
+      "bytes": 5361,
+      "sha256": "320b4f919e013a5154a6330e71795ff5747728d6a5e652295ded865bd6749be4"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/math-node.json",
+      "bytes": 249199,
+      "sha256": "3bb5d517d071ebd56fce479c6cb702bd702288b8ae2d87063739dd6d4a82c29d"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/math-node.log",
+      "bytes": 179,
+      "sha256": "51738d9be3f9f6a775426c85b1202657e33c1cf8d7a4934208bb5c6272ed84ac"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/math-probe.test.ts",
+      "bytes": 549,
+      "sha256": "c433cdf5f756af95a4053f31c14b6c4a8e8eeeb46706f89f10c636eafe462493"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/math-trace.ts",
+      "bytes": 2555,
+      "sha256": "c0cc47759d7c6916607b99c77ca559990c14e6aee385de585baaa34e21e2ffc2"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/math.config.ts",
+      "bytes": 164,
+      "sha256": "c8281f9603af3a612f40e316a26fa3151bf4f712cf41297cd8061538f9a149e4"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/node-comparison.json",
+      "bytes": 371,
+      "sha256": "7e5b478fb01cd5512c1bbd12b58faf9ded84cfef1a241f5ba9fae4ec1a8a68ff"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/node-qa.log",
+      "bytes": 660,
+      "sha256": "b876d5043e91f2011fbf7a7b425979105cd4feb73f94caca228b702661b44190"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/original-golden-final.log",
+      "bytes": 1145,
+      "sha256": "cba0c862bb98d93168406e2615472de5f034fa6ddb3aa0e38cde396a07bdfe38"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/pre-missile-profiles.json",
+      "bytes": 90676,
+      "sha256": "f737da62d7c5c087c0e59f504d6b4ccf14495a9e4ff28cfe5420230d5c5e9d4a"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/pre-missile-sampler.ts",
+      "bytes": 4392,
+      "sha256": "ac014207e17fd6d2eb745d17a5bb3c3d0a8fec51ab3050e9338e124a473de62c"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/probe.config.ts",
+      "bytes": 159,
+      "sha256": "19fe30e86090a23e4a86a17e3f2a3c319debd69a0fe42720df065ebb4526de6e"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/probe.log",
+      "bytes": 179,
+      "sha256": "cc109e1409f10261129e961db6c9c39a3277c6f9a7aabb139666e300a5baa9b7"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/probe.test.ts",
+      "bytes": 1828,
+      "sha256": "c581378300653748250b32aeb78c6482ec605428ddc826644e1915c67aadd30c"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/replay-browser-fixed.log",
+      "bytes": 560,
+      "sha256": "a8b225152ddb650f072a64dea6b5b0326689044ed08ed249e5cdc06cdbbad335"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/replay-browser-with-node.json",
+      "bytes": 108,
+      "sha256": "c2d35e8c471f4aeb5fcfacd013d349a083381776e14ab09a2c3935225e54fdbd"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/replay-browser.log",
+      "bytes": 4018,
+      "sha256": "8343f4468d8cb22b837f7e293ba16971b2325e9e6231f930b46b9adc1c2f9a2a"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/replay-node-fixed.log",
+      "bytes": 179,
+      "sha256": "aed4fd600c85b6e6383092cf379fc7aa3cdb30bffd4996876209664cd7582e44"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/replay-node-with-browser.json",
+      "bytes": 108,
+      "sha256": "6d78018d799994067f8b74609a734c684ba0cf69091de29e837681f1d2bb033c"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/replay-node.log",
+      "bytes": 1454,
+      "sha256": "6b1f73ff87a2783636cc258d960e01677bf0b3e89523f170bbedd6efb75d662b"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/replay.config.ts",
+      "bytes": 160,
+      "sha256": "851c71b02ce4aa5c4ced97f3f96ec34b15099a9c26fa231635587473acdd2683"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/replay.test.ts",
+      "bytes": 815,
+      "sha256": "8b98206a9e85d632ddef169a384f24dbece6230aeeec4d141523163f504d41b9"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/standalone-verified.log",
+      "bytes": 287,
+      "sha256": "85643868de13050287322d61a8ed5c837110fe8b4791a011ad4591f1a247e246"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/standalone.log",
+      "bytes": 284,
+      "sha256": "0c35a8dad995a0316225189404e2d44c1a512570bb4c787c22a6c638c1cd483c"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/types-helper.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-audit/types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-portability-final/baseline-profiles.json",
+      "bytes": 90676,
+      "sha256": "f737da62d7c5c087c0e59f504d6b4ccf14495a9e4ff28cfe5420230d5c5e9d4a"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-portability-final/baseline-sampler.ts",
+      "bytes": 4364,
+      "sha256": "aca42eaca2419141353850e582c677fd04291518fa8b0aa2f7371cf4fe8121b5"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-portability-final/before-browser.json",
+      "bytes": 613714,
+      "sha256": "dab2134a44fc98d065ec0a1e993c68fd844f3d4948b33a51c914fd3546d5abe0"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-portability-final/before-node.json",
+      "bytes": 613710,
+      "sha256": "4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-portability-final/current-browser.json",
+      "bytes": 613714,
+      "sha256": "dab2134a44fc98d065ec0a1e993c68fd844f3d4948b33a51c914fd3546d5abe0"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-portability-final/current-node.json",
+      "bytes": 613710,
+      "sha256": "4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-portability-final/math-browser.json",
+      "bytes": 249202,
+      "sha256": "b5e590851bff26368a010104e8a30c221acdfe4faa902149a3310fff891f5ea1"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-portability-final/math-node.json",
+      "bytes": 249199,
+      "sha256": "3bb5d517d071ebd56fce479c6cb702bd702288b8ae2d87063739dd6d4a82c29d"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-portability-final/report.json",
+      "bytes": 19336,
+      "sha256": "b75e27d56ef9ae23f9b866501e106576f6c1b4f2a68290ff190f19ad33dbe508"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-portability-verified/baseline-profiles.json",
+      "bytes": 90676,
+      "sha256": "f737da62d7c5c087c0e59f504d6b4ccf14495a9e4ff28cfe5420230d5c5e9d4a"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-portability-verified/baseline-sampler.ts",
+      "bytes": 4364,
+      "sha256": "aca42eaca2419141353850e582c677fd04291518fa8b0aa2f7371cf4fe8121b5"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-portability-verified/before-browser.json",
+      "bytes": 613714,
+      "sha256": "dab2134a44fc98d065ec0a1e993c68fd844f3d4948b33a51c914fd3546d5abe0"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-portability-verified/before-node.json",
+      "bytes": 613710,
+      "sha256": "4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-portability-verified/current-browser.json",
+      "bytes": 613714,
+      "sha256": "dab2134a44fc98d065ec0a1e993c68fd844f3d4948b33a51c914fd3546d5abe0"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-portability-verified/current-node.json",
+      "bytes": 613710,
+      "sha256": "4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-portability-verified/math-browser.json",
+      "bytes": 249202,
+      "sha256": "b5e590851bff26368a010104e8a30c221acdfe4faa902149a3310fff891f5ea1"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-portability-verified/math-node.json",
+      "bytes": 249199,
+      "sha256": "3bb5d517d071ebd56fce479c6cb702bd702288b8ae2d87063739dd6d4a82c29d"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/.cache/lux-e-sampler-portability-verified/report.json",
+      "bytes": 19879,
+      "sha256": "c5e48e833f4ed60b0de9336717e38d4de4b92aae4d423f1041aa8295fb9960d5"
+    },
+    {
+      "path": ".cache/lux-e-sampler-portability-verification/evidence/ledger-writer.py",
+      "bytes": 4736,
+      "sha256": "0bcf2c4f9ba2d5a1080ecaf5222587b5f7fbbf8440108c8b45b57dd734cc91b3"
+    }
+  ],
+  "checks": {
+    "standalone": "historical/current byte equality within each runtime; tracing leaves bytes unchanged; bidirectional trig-only replay exact",
+    "snapshotsPerEngine": 24,
+    "sharedMathInputs": 1150,
+    "differingTrigResults": 19,
+    "differingScalars": 35,
+    "maxAbsoluteDelta": 2.2737367544323206e-13,
+    "float32Casts": "all measured differing scalars equal",
+    "nodeQA": {
+      "passed": 6,
+      "newAuditCases": 3
+    },
+    "typescript": "project and explicit strict helper checks passed",
+    "originalGolden": {
+      "unchanged": true,
+      "exitCode": 1,
+      "nodeHash": "4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a",
+      "chromiumHash": "dab2134a44fc98d065ec0a1e993c68fd844f3d4948b33a51c914fd3546d5abe0",
+      "expected": "09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df",
+      "status": "unresolved; not rebased"
+    },
+    "rulesetAndOfflinePack": "unchanged; no app build or production rerun needed for diagnostic tools/docs"
+  },
+  "limits": [
+    "The original golden is retained. Neither differing runtime hash is substituted for it.",
+    "Runtime trig differences explain the measured Node/Chromium divergence; the original golden environment remains unreproduced.",
+    "Per-scalar Float32 agreement is not a cross-engine GPU-frame or native-client certificate.",
+    "Math interception and captured-result replay exist only in this diagnostic process and blank browser page; game code is untouched.",
+    "The historical helper/profile comparison uses current shared dependencies. It does not reconstruct the original golden-producing host environment.",
+    "A complete original golden sample or producing runtime remains necessary to explain its exact hash. No clean full-suite certificate or renderer correctness regression is inferred from this audit.",
+    "The other two known missing-artifact failures remain separate.",
+    "Initial replay used decimal trace values and correctly rejected signed-zero transport loss. Final replay reconstructs canonical float64 bits; earlier failed probes remain archived.",
+    "Ignored evidence requires preservation; exact final tool and documentation sources are independently archived."
+  ]
+}
