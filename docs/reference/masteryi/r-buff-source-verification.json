@@ -1,0 +1,475 @@
+{
+  "format": 1,
+  "parentCommit": "f16342b642fef174dd70cc905651b3a523e1852b",
+  "identityUnchanged": {
+    "schema": 157,
+    "ruleset": "3d3144a9c1dc56062719182a712f3db8338acf199982a5b7db1596524b26d3d3",
+    "pack": {
+      "id": "d2085a34794c0ec4936f526069e59a3be35cf91359c94bea907ad6a4c9bbf22f",
+      "files": 1168,
+      "bytes": 536404047
+    }
+  },
+  "scope": "Lossless complete sustained Highlander source selection: all three variants, ten emitters, six private textures/56 authored mips, reused private Q dash mesh. Original unsorted curves, variable-rate probabilities, atlas/multiplier controls, attached-mesh fields and persistent sound declarations remain explicit; no runtime/public asset changes.",
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/r-particles.json",
+      "bytes": 113047,
+      "sha256": "e8630aeae0aa33c6f369bde1ac3c80aeb333a16e78924ab1417f56f75e7f1ccd"
+    },
+    {
+      "path": "docs/reference/masteryi/r-particles-decoded.json",
+      "bytes": 135932,
+      "sha256": "c55d3b2b5aa5c6b3263e91b99e36097d7b200ce3e49d8e5ea62d290bc174258f"
+    },
+    {
+      "path": "docs/reference/masteryi/r-particle-source-verification.json",
+      "bytes": 14230,
+      "sha256": "84c88aeb35b7dcc1698466146e3535f1df418ef42f992c103e00c3633f59cd2a"
+    },
+    {
+      "path": "docs/reference/masteryi/r-particle-decode-verification.json",
+      "bytes": 14029,
+      "sha256": "f1bee7c0b2cfe492f12acb4253ec84d6821c22e3db999a3efcae14488655347a"
+    },
+    {
+      "path": "docs/reference/masteryi/q-missile-mesh-transport.json",
+      "bytes": 1606,
+      "sha256": "504984ea1b80dbbfba8fcadbe1bc507d7b20205ff459eed21ffa5a6934273b0a"
+    },
+    {
+      "path": "docs/reference/masteryi/q-missile-source-verification.json",
+      "bytes": 13658,
+      "sha256": "a9dfed374220e10b7dc7c31f948b98663e8370278221aa918754724c12b445b7"
+    },
+    {
+      "path": "docs/reference/masteryi/r-trail-audio-reading.json",
+      "bytes": 6340,
+      "sha256": "7927f63a728ffd36c06bfddc2a01ce4350f7e9326302cec54b3b25a5a79aee2f"
+    },
+    {
+      "path": "docs/reference/masteryi/r-kill-verification.json",
+      "bytes": 45090,
+      "sha256": "4d3150291a435161c1c963a170ad8b45fdb60fb685702cd95c565c9e4cd409e6"
+    },
+    {
+      "path": "tools/assets/masteryi_r_particles.py",
+      "bytes": 3812,
+      "sha256": "fbcf9abca93dfa8fae675482712cf4e758abb4ce5ddd7a568a8cbecc6542809e"
+    },
+    {
+      "path": "tools/assets/masteryi_q_decode.py",
+      "bytes": 7372,
+      "sha256": "552f2cf9a0cb552a97332a142bbea6f25a3b0e2c2974359a58659a2c17517ecd"
+    },
+    {
+      "path": "tools/assets/particle_mip_atlas.py",
+      "bytes": 4181,
+      "sha256": "4ba50521c7a4c0d061bbf2f8363b7a84b4db9a4bf480e3d52ae101aec6538fd6"
+    },
+    {
+      "path": "tools/assets/convert-masteryi-q-missile-mesh.mjs",
+      "bytes": 5240,
+      "sha256": "298cbb12e68a4152e86c514acdafe659dcc0a28977b41ea058d56be05d834403"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-r-buff-source-cloud/final-source-index.json",
+    "bytes": 2388,
+    "sha256": "41b979a8cbbb6d4321c50903fac0d64544729e9823d91ab1f80f4d5610d2f0f0"
+  },
+  "generated": [
+    {
+      "path": "README.md",
+      "bytes": 16290,
+      "sha256": "01b7d3c52d1c9de5db4517e8380076d1173c9ae84947a451903927c1caf47fa1",
+      "archived": ".cache/masteryi-r-buff-source-cloud/final-source/README.md"
+    },
+    {
+      "path": "docs/MASTER-YI-R-BUFF.md",
+      "bytes": 2827,
+      "sha256": "fe27a6f3c8b25fa6ee38324fd0f9a6f82e0cf9dfa91247d1e937853b4a78b058",
+      "archived": ".cache/masteryi-r-buff-source-cloud/final-source/docs/MASTER-YI-R-BUFF.md"
+    },
+    {
+      "path": "docs/MASTER-YI-R-PARTICLES.md",
+      "bytes": 5037,
+      "sha256": "cf29f67769107e4e512fcf97c18f8c5a35003baec5f574180fc59b246a87da7d",
+      "archived": ".cache/masteryi-r-buff-source-cloud/final-source/docs/MASTER-YI-R-PARTICLES.md"
+    },
+    {
+      "path": "docs/reference/masteryi/r-buff-particle-reading.json",
+      "bytes": 61575,
+      "sha256": "3153af22f5c578b7c22402e5ab2b2435fabcd96ca97526524d8cbf1262fac893",
+      "archived": ".cache/masteryi-r-buff-source-cloud/final-source/docs/reference/masteryi/r-buff-particle-reading.json"
+    },
+    {
+      "path": "docs/reference/masteryi/r-buff-texture-transport.json",
+      "bytes": 16813,
+      "sha256": "80f78240f37e1413bbf6724cf9efc4b12edf83b17c164db83cb5f53d97c608c4",
+      "archived": ".cache/masteryi-r-buff-source-cloud/final-source/docs/reference/masteryi/r-buff-texture-transport.json"
+    },
+    {
+      "path": "tools/assets/masteryi_r_buff.py",
+      "bytes": 1061,
+      "sha256": "5dc136fa949f49268185e7739bd9090de2643174fc39c1b1c6fdee4a65f55ece",
+      "archived": ".cache/masteryi-r-buff-source-cloud/final-source/tools/assets/masteryi_r_buff.py"
+    },
+    {
+      "path": "tools/assets/pack-masteryi-r-buff-textures.py",
+      "bytes": 5725,
+      "sha256": "98589a793c7077609275d68894ada3f9c58c7fe0db3256310c051a6714c672ad",
+      "archived": ".cache/masteryi-r-buff-source-cloud/final-source/tools/assets/pack-masteryi-r-buff-textures.py"
+    },
+    {
+      "path": "tools/assets/prepare-masteryi-r-buff.py",
+      "bytes": 5274,
+      "sha256": "bb3e575b931f4cf5a66906ffccddee6e31bf4946a6b6f7bc570c0c7d29c4a0bd",
+      "archived": ".cache/masteryi-r-buff-source-cloud/final-source/tools/assets/prepare-masteryi-r-buff.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-r-buff.py",
+      "bytes": 4879,
+      "sha256": "b3da3989da867103a95a60703be2a98c842127cbfbb8689b6aa86cabbfd2e2fd",
+      "archived": ".cache/masteryi-r-buff-source-cloud/final-source/tools/assets/test-masteryi-r-buff.py"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/__pycache__/masteryi_r_buff.cpython-312.opt-1.pyc",
+      "bytes": 2363,
+      "sha256": "d71e6926eaa96c8bcbbbc0f5becabf1a51b87d852e6028c0b048c9c6c39af5ce"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/__pycache__/masteryi_r_buff.cpython-312.pyc",
+      "bytes": 2363,
+      "sha256": "d71e6926eaa96c8bcbbbc0f5becabf1a51b87d852e6028c0b048c9c6c39af5ce"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/audit-source.py",
+      "bytes": 1650,
+      "sha256": "628991fc741ca21d62e6453550319145d1310e51583dba8b25b2a08d971d726d"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/audit.log",
+      "bytes": 82,
+      "sha256": "6b75063ac5642c9187ed7943b3b052e27d6ae76aa98ed972ffec70b60daad13a"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/check-mesh-replay.py",
+      "bytes": 799,
+      "sha256": "ec243666ebbbd31fb4a01fbbd44fa8a8ee6c2d86ec710c25b77bda5434d8d12c"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/check-replay.py",
+      "bytes": 1354,
+      "sha256": "1c009735644c3643c02fe2b0d3e3adddb1278492344b163b817ab9757257c5a7"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/final-source-index.json",
+      "bytes": 2388,
+      "sha256": "41b979a8cbbb6d4321c50903fac0d64544729e9823d91ab1f80f4d5610d2f0f0"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/guards-final-normal.log",
+      "bytes": 125,
+      "sha256": "a54ce50f9d76954cb05538960f3537c135cb271e0bfcbb02f76ffbf877079861"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/guards-final-optimized.log",
+      "bytes": 125,
+      "sha256": "7ee3ca051fea38ac4e571949fe37e22d39e46b1846f58d8dad15ed79bc590de3"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/guards-frame-count-diagnostic-normal.log",
+      "bytes": 1031,
+      "sha256": "ff3b28aa48012b1a0c0b56ee85d9f91cebd94d43201111a718a29350849ef097"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/guards-frame-count-diagnostic-optimized.log",
+      "bytes": 1031,
+      "sha256": "b95b5eb7da7a7afc4183cf282873844bee1b69884a143a1019c4ac58f6b1f8cd"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/guards-normal-initial.log",
+      "bytes": 1364,
+      "sha256": "c5408e999abea37b5c65b1dc25ee80e6feefe144898ddff7689f12a9707a2480"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/guards-normal.log",
+      "bytes": 121,
+      "sha256": "9039f1937cefd7cb682c5fa68393904f20ac8a65e091aeceee30ec25f2d9f569"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/guards-optimized-initial.log",
+      "bytes": 1364,
+      "sha256": "e89714006d7c79b966ad7abe8e9c2475ebc681703b9585c93c973e64b0b2ca49"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/guards-optimized.log",
+      "bytes": 121,
+      "sha256": "11fd689b44ef4d7dd80c02dece396da47b7993293bd15224232eb290fe7a8cc0"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/guards-tracked-normal.log",
+      "bytes": 121,
+      "sha256": "32ab347b43cc0fa6295ea5495d0eda150c7f2f2e8f825a1a6c60d917e37f0856"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/guards-tracked-optimized.log",
+      "bytes": 121,
+      "sha256": "5e59f69863ea99f062e0cbc934fab2e6322880d0aacdfec671e0875383080d9d"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/identity-after.json",
+      "bytes": 238,
+      "sha256": "b97c8981ebf15a0d60eeef3be5f2093f0774c8d07de0a0eea477e49acb4362a6"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/identity-before.json",
+      "bytes": 238,
+      "sha256": "b97c8981ebf15a0d60eeef3be5f2093f0774c8d07de0a0eea477e49acb4362a6"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/masteryi_r_buff.py",
+      "bytes": 1061,
+      "sha256": "5dc136fa949f49268185e7739bd9090de2643174fc39c1b1c6fdee4a65f55ece"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/mesh-replay-count.log",
+      "bytes": 2,
+      "sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/mesh-replay.json",
+      "bytes": 534,
+      "sha256": "2135cf9ddd698b92e76d3f39f07a2569798184713030c5dbc9577f42a57cdc52"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/mesh-replay.log",
+      "bytes": 1712,
+      "sha256": "e9b8a76a159c4ec55c41ffddc80a2d755ec7d550a44c122f0af8eca8e1fb48d4"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/pack-check-optimized.log",
+      "bytes": 101,
+      "sha256": "a9f1beca29d6d06d8e406c3ebabce9c24e26beb907b3873f864fb1b7c8299fa9"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/pack-masteryi-r-buff-textures.py",
+      "bytes": 5725,
+      "sha256": "98589a793c7077609275d68894ada3f9c58c7fe0db3256310c051a6714c672ad"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/pack-masteryi-r-buff-textures.py-check-normal.log",
+      "bytes": 101,
+      "sha256": "a9f1beca29d6d06d8e406c3ebabce9c24e26beb907b3873f864fb1b7c8299fa9"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/pack-masteryi-r-buff-textures.py-check-optimized.log",
+      "bytes": 101,
+      "sha256": "a9f1beca29d6d06d8e406c3ebabce9c24e26beb907b3873f864fb1b7c8299fa9"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/pack-masteryi-r-buff-textures.py-replay-normal.log",
+      "bytes": 100,
+      "sha256": "6d2d42e3787d9aeb4316f2e8507f99deae7dfc07d59b4fc7a2284f0907f13852"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/pack-masteryi-r-buff-textures.py-replay-optimized.log",
+      "bytes": 100,
+      "sha256": "6d2d42e3787d9aeb4316f2e8507f99deae7dfc07d59b4fc7a2284f0907f13852"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/pack.log",
+      "bytes": 100,
+      "sha256": "6d2d42e3787d9aeb4316f2e8507f99deae7dfc07d59b4fc7a2284f0907f13852"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/prepare-masteryi-r-buff.py",
+      "bytes": 5274,
+      "sha256": "bb3e575b931f4cf5a66906ffccddee6e31bf4946a6b6f7bc570c0c7d29c4a0bd"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/prepare-masteryi-r-buff.py-check-normal.log",
+      "bytes": 149,
+      "sha256": "52e9426dc0f6bbc9a03ba70c86e88fed1b8e500366df4de085bde1009c2d0e7f"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/prepare-masteryi-r-buff.py-check-optimized.log",
+      "bytes": 149,
+      "sha256": "52e9426dc0f6bbc9a03ba70c86e88fed1b8e500366df4de085bde1009c2d0e7f"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/prepare-masteryi-r-buff.py-replay-normal.log",
+      "bytes": 149,
+      "sha256": "52e9426dc0f6bbc9a03ba70c86e88fed1b8e500366df4de085bde1009c2d0e7f"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/prepare-masteryi-r-buff.py-replay-optimized.log",
+      "bytes": 149,
+      "sha256": "52e9426dc0f6bbc9a03ba70c86e88fed1b8e500366df4de085bde1009c2d0e7f"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/prepare-preview.log",
+      "bytes": 48,
+      "sha256": "76e51369f53436c1f551f6aeeab696ba37aee778d10406b333cf1d39a2b77817"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/prepare.log",
+      "bytes": 149,
+      "sha256": "52e9426dc0f6bbc9a03ba70c86e88fed1b8e500366df4de085bde1009c2d0e7f"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/prepared-reading-preview.json",
+      "bytes": 61575,
+      "sha256": "3153af22f5c578b7c22402e5ab2b2435fabcd96ca97526524d8cbf1262fac893"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/reading-preview.json",
+      "bytes": 58036,
+      "sha256": "24ffe1f31cdd313fccbedca7d1602eb3591c5f521169b9367f3c3feb50a4b0a0"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/record-verification.py",
+      "bytes": 5042,
+      "sha256": "6d4a8c5275bac0efc32054dd46d17035adfe30b35fd13d836efe288b568b361d"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/replay-count.log",
+      "bytes": 3,
+      "sha256": "917df3320d778ddbaa5c5c7742bc4046bf803c36ed2b050f30844ed206783469"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/replay.json",
+      "bytes": 2419,
+      "sha256": "921eac6dd01f9dc482b015c1c0fd0c82cd734e1f299e4cb69a66d3a3c0fd4155"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/ruleset-after.txt",
+      "bytes": 65,
+      "sha256": "d88eabf871cca6139fa34a4fd830e9ff3de0e6ac7f9fe3c044b53a9b1c61fac6"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/selected-summary.json",
+      "bytes": 1277,
+      "sha256": "338ea2044ad04188dd36d6eb710680d5f6ddedb94c32a5cd81a9bc8e3fa6091b"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/test-masteryi-r-buff.py",
+      "bytes": 3681,
+      "sha256": "f293491469b6cb1d7b42c86ad883a99b3bc505d5e64cfc4cf173a7cd30493342"
+    },
+    {
+      "path": ".cache/masteryi-r-buff-source-cloud/transport-identity.json",
+      "bytes": 101,
+      "sha256": "9bfec65e0e3ddb9fdc87a4f949685b24215f28b96cc3179b2a66db299ee35c41"
+    }
+  ],
+  "checks": {
+    "sourceGuards": {
+      "casesPerMode": 26,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "checkAndReplay": {
+      "filesUnchangedBytesAndMtimes": 10,
+      "modes": [
+        "normal",
+        "optimized"
+      ],
+      "privatePackedTextures": 6,
+      "privatePackedRecord": 1,
+      "reading": 1,
+      "reusedPrivateMeshAndMetadata": 2
+    },
+    "textures": {
+      "count": 6,
+      "authoredMips": 56,
+      "packedBytes": 741726
+    },
+    "mesh": {
+      "newTransports": 0,
+      "reused": {
+        "source": {
+          "path": "assets/characters/masteryi/skins/base/particles/masteryi_q_dash_mesh.scb",
+          "wadPathHash": "697357e76927bfc4",
+          "sha256": "df3c3ea55ada6f5d82f5303cedbb8870b5e06ffee147bd8503ce5580c5dd5226",
+          "bytes": 3156
+        },
+        "decoded": {
+          "path": ".cache/masteryi-q-particles-decoded/meshes/697357e76927bfc4.json",
+          "sha256": "a62a627483974e23389c07d7256919fb9b0d2239609ff313f2a073f1f85358f8"
+        },
+        "output": {
+          "path": ".cache/masteryi-q-missile-packed-v2/masteryi-q-missile-dash.glb",
+          "bytes": 3736,
+          "sha256": "e1ef1271e3d6c174a3b40e7e923d46f016811d610a22d43c49e896b84fcfaa4e"
+        },
+        "sourceVertices": 27,
+        "triangles": 24,
+        "exportedCorners": 72,
+        "attributes": {
+          "positionFloat32Sha256": "680bc2a07252f8248feef09704b9bb395ab6eadc48274e4e9fd7c10e3fdc4d7f",
+          "uvFloat32Sha256": "7de1b19799038868de43f59514a6eaa21ec12ffc5ff11a6c20c67c4752505a54",
+          "faceRgbSha256": "a5645e7a3fa0866cde8842c4dab96567507c3d1a3c028b816bc63f6966367b70"
+        },
+        "centralPoint": [
+          0.18239974975585938,
+          113.22545623779297,
+          11.376953125
+        ],
+        "rawSourceBounds": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "measuredMinMax": [
+          -16.09830093383789,
+          -35.71149826049805,
+          -219.30299377441406,
+          16.46310043334961,
+          262.16241455078125,
+          242.05690002441406
+        ],
+        "tailHex": "1895543ef3ffe24226e447411895543ef3ffe24226e44741",
+        "flags": 5,
+        "sourceHasVertexColors": false,
+        "sourceFaceRgbAppliedAsMaterial": false,
+        "normalsGenerated": false,
+        "validation": {
+          "errors": 0,
+          "warnings": 0,
+          "roundTripAttributesExact": true
+        }
+      },
+      "nodeConversionReplayed": true,
+      "filesUnchangedBytesAndMtimes": 2
+    },
+    "unsortedColorCurves": 3,
+    "rawFrameRateFields": 2,
+    "publicAssetsChanged": false,
+    "runtimeChanged": false,
+    "simulationSchemaChanged": false,
+    "rulesetChanged": false,
+    "productionPackChanged": false
+  },
+  "retainedDiagnostics": [
+    "An initial guard tried removing a textureMult field from the rank-one side emitter, which omits it. The final guard removes the explicitly authored higher-rank ground-movement multiplier.",
+    "An initial new guard expected five raw frame-rate fields. Complete source inspection shows exactly the two higher-rank ground-movement fields; the corrected guard verifies both full atlas controls. No raw source was rewritten."
+  ],
+  "limits": [
+    "Rank names do not certify native rank selection, restart, stop/extension or script callbacks.",
+    "Color key order remains unchanged; native interpolation of nonmonotonic keys is unresolved.",
+    "Native probability-driven rate accumulation, random source cadence and uvMode/frame/secondary-layer sampler semantics remain unresolved.",
+    "The third variant has an attached actor-mesh primitive rather than a missing standalone SCB; native skin/geometry/shader mapping needs separate work.",
+    "Persistent sound source bindings do not resolve native start/stop/fade callbacks or parameter 745018932 input meaning.",
+    "Canonical software decoding and exact native mesh transports do not certify native GPU/frame or physical-device parity.",
+    "Evidence is ignored workspace data and must be preserved; changed sources are independently archived."
+  ]
+}

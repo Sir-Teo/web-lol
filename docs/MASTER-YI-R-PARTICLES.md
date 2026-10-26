@@ -27,6 +27,10 @@ resource retains its flash, native trail mesh and bubble. Rank-specific creation
 attachment, stop/extension behavior, shader controls and native callbacks remain
 separate integration work. Resource names alone do not prove their dispatch.
 
+The [sustained source reading](MASTER-YI-R-BUFF.md) retains all ten buff
+emitters, six private textures/56 authored mips and the reused private dash mesh.
+Its unsorted Color keys and attached-mesh fields remain unchanged.
+
 The [source pin](reference/masteryi/r-particles.json) retains complete definitions,
 original fields/omissions, exact native BIN identities and every referenced asset.
 Native re-parsing uses the pinned CDTB code and separately retained name inputs;
