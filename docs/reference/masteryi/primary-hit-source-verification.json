@@ -1,0 +1,304 @@
+{
+  "format": 1,
+  "parentCommit": "09e90d4d832817dc29b2360315ca94dffe3a45ed",
+  "scope": "Source-only complete primary contact closure; no runtime or public asset changes.",
+  "identity": {
+    "schema": 162,
+    "rulesetFingerprint": "c28af9e676d0cacc775ef924a3ce5a3140cb7a763e34d82413174d7f744cf318",
+    "offlinePack": {
+      "id": "6f59d0e3300662ecd20059b576effc36935d96a2e0e9463d1e91060b3ccc8e58",
+      "files": 1192,
+      "bytes": 537574563
+    }
+  },
+  "verification": {
+    "normalGuards": 30,
+    "optimizedGuards": 30,
+    "completeNativeRoundTrip": true,
+    "completeCharacterRecords": 60,
+    "sourceFiles": 13,
+    "sourceBytes": 974269,
+    "meshCount": 0,
+    "replayDistinctOutputs": 14,
+    "bytesAndMtimesUnchanged": true,
+    "applicationFingerprintUnchanged": true,
+    "offlinePackUnchanged": true,
+    "fullApplicationTestsRerun": false
+  },
+  "limits": [
+    "Target chest-bone attachment fallback and inherited transform remain uncalibrated.",
+    "No blend, sampler, callback or terrain-placement behavior inferred from resource/emitter names.",
+    "Previous application certificate retains three baseline failures; see attack2-runtime-verification.json."
+  ],
+  "sourceFiles": [
+    {
+      "path": "tools/assets/masteryi_primary_hits.py",
+      "bytes": 6514,
+      "sha256": "528ee52b229e085b277966a5e7f1432980b6aa4484d1b94e72fc2999c198bed7"
+    },
+    {
+      "path": "tools/assets/extract-masteryi-primary-hits.py",
+      "bytes": 2387,
+      "sha256": "4144b75628da0bbdce26e557f52930b8b3af200ad2da40925ba02481db40e520"
+    },
+    {
+      "path": "tools/assets/prepare-masteryi-primary-hits.py",
+      "bytes": 812,
+      "sha256": "ffb5f516bd3f2c9f37385ce4de08cd1dde37d497598db498d8dceb955bc59d4e"
+    },
+    {
+      "path": "tools/assets/test-masteryi-primary-hits.py",
+      "bytes": 5215,
+      "sha256": "7e408e4a8458fb33dcf838b21b9f6447ca5add4c08cf4b0953b865052810b2b8"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-particles.json",
+      "bytes": 82989,
+      "sha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-binding-reading.json",
+      "bytes": 19242,
+      "sha256": "34d1e6d185a0f8d6c3be315eaa5b26724256bdcbe47e7d44a4e15d0ddc5365e0"
+    },
+    {
+      "path": "docs/reference/masteryi/character.json",
+      "bytes": 104698,
+      "sha256": "3f100c1148e1006766060822298c87aed02e86e359c385fbc2c248e4255d12fa"
+    },
+    {
+      "path": "docs/reference/masteryi/character.bin",
+      "bytes": 27930,
+      "sha256": "a4e05e2f6eee68116478fd56893ee320ac4955645d45e887860c88e67e4547f1"
+    },
+    {
+      "path": "docs/reference/masteryi-model.json",
+      "bytes": 82053,
+      "sha256": "4295bceeba96cfb15e006d392e7d0f3c480bb51bf8cff8872a9c39fc9873c7ce"
+    },
+    {
+      "path": "docs/MASTER-YI-PRIMARY-HITS.md",
+      "bytes": 3289,
+      "sha256": "d97d5c098acd517bdef4f682182c14c04ca2b09d7bcb113e889050dc9256d325"
+    },
+    {
+      "path": "README.md",
+      "bytes": 18488,
+      "sha256": "026fd40856494084a84cd6de78478fe1cb821221c94f869d863850aa744870e8"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/source-snapshot/tools/assets/masteryi_primary_hits.py",
+      "bytes": 6514,
+      "sha256": "528ee52b229e085b277966a5e7f1432980b6aa4484d1b94e72fc2999c198bed7"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/source-snapshot/tools/assets/extract-masteryi-primary-hits.py",
+      "bytes": 2387,
+      "sha256": "4144b75628da0bbdce26e557f52930b8b3af200ad2da40925ba02481db40e520"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/source-snapshot/tools/assets/prepare-masteryi-primary-hits.py",
+      "bytes": 812,
+      "sha256": "ffb5f516bd3f2c9f37385ce4de08cd1dde37d497598db498d8dceb955bc59d4e"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/source-snapshot/tools/assets/test-masteryi-primary-hits.py",
+      "bytes": 5215,
+      "sha256": "7e408e4a8458fb33dcf838b21b9f6447ca5add4c08cf4b0953b865052810b2b8"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/source-snapshot/docs/reference/masteryi/primary-hit-particles.json",
+      "bytes": 82989,
+      "sha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/source-snapshot/docs/reference/masteryi/primary-hit-binding-reading.json",
+      "bytes": 19242,
+      "sha256": "34d1e6d185a0f8d6c3be315eaa5b26724256bdcbe47e7d44a4e15d0ddc5365e0"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/source-snapshot/docs/reference/masteryi/character.json",
+      "bytes": 104698,
+      "sha256": "3f100c1148e1006766060822298c87aed02e86e359c385fbc2c248e4255d12fa"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/source-snapshot/docs/reference/masteryi/character.bin",
+      "bytes": 27930,
+      "sha256": "a4e05e2f6eee68116478fd56893ee320ac4955645d45e887860c88e67e4547f1"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/source-snapshot/docs/reference/masteryi-model.json",
+      "bytes": 82053,
+      "sha256": "4295bceeba96cfb15e006d392e7d0f3c480bb51bf8cff8872a9c39fc9873c7ce"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/source-snapshot/docs/MASTER-YI-PRIMARY-HITS.md",
+      "bytes": 3289,
+      "sha256": "d97d5c098acd517bdef4f682182c14c04ca2b09d7bcb113e889050dc9256d325"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/source-snapshot/README.md",
+      "bytes": 18488,
+      "sha256": "026fd40856494084a84cd6de78478fe1cb821221c94f869d863850aa744870e8"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/app-identity.json",
+      "bytes": 90,
+      "sha256": "b92d19835b1405150b08743f1f34354c1b81ee92e0c2913a1377229b3c0b9377"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/archive-checkpoint.py",
+      "bytes": 3051,
+      "sha256": "8d429c03c30d773b5122dc29b237517aabd61c4af6e57f056a82d7aaca13a576"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/closure-preview.json",
+      "bytes": 1312,
+      "sha256": "7755d21d9d9c4910baddec629141fe94d6d116ed4a98aa6c839afa994ad2102c"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/discovery-summary.json",
+      "bytes": 15301,
+      "sha256": "801bbfd980f58f12ac4967cac6890ddf0209f30a86156c129f698337b3cc1da0"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/guards-normal.log",
+      "bytes": 129,
+      "sha256": "31811065db90a795b91d9181d6e966f726164843456783f2765b9bdb356ff529"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/guards-optimized.log",
+      "bytes": 129,
+      "sha256": "94e0d748144beb0533adc77f34d2e81de96bac30e40068f4605de7992c1a4c77"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/initial-native-verification.json",
+      "bytes": 178,
+      "sha256": "12bf5e388f50ed7724b80781e1c0a436d62af6d6454353d414af7e9d64bd772e"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/native-check-normal.log",
+      "bytes": 233,
+      "sha256": "8a082c75502410e4f9f7f8c71f824c26bf469e5e12a0121baf95e2454de03589"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/native-check-optimized.log",
+      "bytes": 233,
+      "sha256": "8a082c75502410e4f9f7f8c71f824c26bf469e5e12a0121baf95e2454de03589"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/native-restore.log",
+      "bytes": 235,
+      "sha256": "2de1f6bc35eabf3dd424c3ec6530df8fe7649c00bbaadbbb8d7528c135d43315"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/prepare-source.py",
+      "bytes": 3725,
+      "sha256": "f3a21a570d2848720b3954a3e4364cf7a66a9e6937d768a88e6ff9caf7899692"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/prepare.log",
+      "bytes": 134,
+      "sha256": "0a27e87655f2d0e41feb433178334d39f538f7c79188872926d9753870b13ed8"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/reading-check-normal.log",
+      "bytes": 180,
+      "sha256": "b52da72bc25f8067910059fc0a0554fb34b6a5a5e7c68701655681518ee870da"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/reading-check-optimized.log",
+      "bytes": 180,
+      "sha256": "b52da72bc25f8067910059fc0a0554fb34b6a5a5e7c68701655681518ee870da"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/reading-replay-normal.log",
+      "bytes": 180,
+      "sha256": "b52da72bc25f8067910059fc0a0554fb34b6a5a5e7c68701655681518ee870da"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/reading-replay-optimized.log",
+      "bytes": 180,
+      "sha256": "b52da72bc25f8067910059fc0a0554fb34b6a5a5e7c68701655681518ee870da"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/replay-verification.json",
+      "bytes": 8760,
+      "sha256": "b07849cbe4b6e6ba73c49dff820bd4fbfd595afd100c527f997ac6d1d03a0450"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/sources/0e1d8e1bfc6a9099.tex",
+      "bytes": 87420,
+      "sha256": "bc74b5ac48b51c33d2c0ceda4a0bcebd8872053a8ab9003f87fa5a28dd3ff686"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/sources/1d3a3b7cb6e52a86.tex",
+      "bytes": 708,
+      "sha256": "506a02d04a03b55ea79b3b5753a32fd72576ea5728ecb6091b3f8173b04ac54a"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/sources/1d5c271d91e85aed.bin",
+      "bytes": 9198,
+      "sha256": "af5c09a4f0336e735da558fd5973236943766ac072a2b8a989fba75a54860973"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/sources/2fc72189202d828e.tex",
+      "bytes": 43716,
+      "sha256": "931c521d26edd906ccd3db9eb8c82a78283a0f34800bb22563ca2b98b1a1ebf0"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/sources/3551411d4218c8ea.tex",
+      "bytes": 5500,
+      "sha256": "789278842da5b64e21998c51086d7160cae9a28d61dff506d5e9a863397e5e92"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/sources/433b18542280cbff.tex",
+      "bytes": 10948,
+      "sha256": "01bfc2cebd91b2a3b4397afcc5357395b9aecdc72b0018a428e2b89d19def43b"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/sources/55702f7da1b40993.bin",
+      "bytes": 49259,
+      "sha256": "6f76fa524201dd97205e44ea74652fcd36a5e7a9b9603f931fcf21e5db52973d"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/sources/5ae94417a3c8c5a5.tex",
+      "bytes": 174812,
+      "sha256": "e862918e29b6b785364d86f19a01d793fa30ac0d08016f75856c50b33f4046f4"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/sources/914aefb195e69d4f.tex",
+      "bytes": 43716,
+      "sha256": "f3f7ddc7a3ccaf3215de4d3e1f4bcc0ccf49723b9c0c9fd1ffd2957e7d40521a"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/sources/9db3dfd192460de5.tex",
+      "bytes": 21884,
+      "sha256": "5fad57e8f0a1715471bab9b159e4689cfbde3a8706cdda552ed710dca96ab67d"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/sources/b885bf2594e01a38.tex",
+      "bytes": 174788,
+      "sha256": "a5b9137efd801b73247dfcdd5d0a3f8da6fe7ed9fadda5f98abe6f17f1dbb2c3"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/sources/db69a3a0b80ce5e1.tex",
+      "bytes": 349564,
+      "sha256": "375e08ca2097753da64cc05660217897342e881dd7d4c5399f148617d8ece478"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/sources/dba30aea46f8d87f.tex",
+      "bytes": 2756,
+      "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-source-cloud/verify-checkpoint.py",
+      "bytes": 1709,
+      "sha256": "3baa0b9183cef5fc742b8e9aa9521bd68edf72dfd66cce569f1edaf9f03177dd"
+    }
+  ]
+}

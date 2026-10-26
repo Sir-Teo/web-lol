@@ -90,3 +90,5 @@ Private Yi primary attacks also render [saved ordinary and critical weapon trail
 The private Double Strike presentation also retains [both saved authored trail events](docs/MASTER-YI-PASSIVE-TRAILS.md), with separate current-pose decisions and shared verified geometry.
 
 Private Yi ordinary attacks now use [both source-declared body/trail/audio choices](docs/MASTER-YI-ATTACK-SELECTION.md), with indexed cosmetic selection and separate source cast delays.
+
+The [primary contact source closure](docs/MASTER-YI-PRIMARY-HITS.md) retains all three ordinary/critical hit systems and their target chest-bone declarations for integration.
