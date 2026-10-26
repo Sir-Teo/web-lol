@@ -938,6 +938,8 @@ export class GameView {
       this.updateFog(world);
       this.lastFogTick = world.tick;
     }
+    // Decide batching after every transparent effect has its current pose.
+    this.swordGlows.prepare(this.camera);
     this.mapTextureResidency?.beginFrame();
     this.smoke.prepareDepth(this.renderer, this.camera);
     this.leonaEclipseSurfaces.prepareDepth(this.renderer, this.camera);

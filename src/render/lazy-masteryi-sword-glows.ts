@@ -17,6 +17,9 @@ export class LazySwordGlows {
   get models() {
     return this.renderer?.models ?? this.empty;
   }
+  get batches() {
+    return this.renderer?.instances.batches;
+  }
   load(): Promise<void> {
     this.attempted = true;
     return (this.pending ??= (async () => {
@@ -27,6 +30,9 @@ export class LazySwordGlows {
       this.pending = undefined;
       throw error;
     }));
+  }
+  prepare(camera: THREE.Camera) {
+    this.renderer?.prepare(camera);
   }
   update(
     world: World,

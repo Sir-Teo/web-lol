@@ -177,6 +177,7 @@ test('real E and R render all authored sword instances and restore exact saved p
             size = bounds.getSize(new THREE.Vector3()),
             radius = Math.max(size.length() / 2, 0.001);
           const clone = mesh.clone();
+          clone.visible = true; // Logical source descriptors are hidden by instancing.
           clone.position.sub(center);
           scene.add(clone);
           let pixels = 0;

@@ -7,6 +7,7 @@ import type { World } from '../simulation/world';
 import type { Vec2 } from '../simulation/math';
 import { masterYiTextures } from './masteryi-source-textures';
 import { swordGlowParticles } from './masteryi-sword-particles';
+import { SwordParticleInstances } from './masteryi-sword-instances';
 import { SourceParticleSurfaces, type SurfaceGroup } from './source-particle-surfaces';
 import type { EclipseSurfaceAssets } from './leona-eclipse-surface-assets';
 import { actorRootKnown, actorRootPose } from '../simulation/actor-root-history';
@@ -74,6 +75,7 @@ interface JointFrame {
   rotation: THREE.Quaternion;
 }
 export class SwordGlows extends SourceParticleSurfaces<Group> {
+  readonly instances: SwordParticleInstances;
   private readonly frames: Map<string, JointFrame | null>;
   private readonly context: { models: ReadonlyMap<number, UnitModel> };
   constructor(scene: THREE.Scene, ground: (p: Vec2) => number) {
@@ -162,6 +164,7 @@ export class SwordGlows extends SourceParticleSurfaces<Group> {
         return result;
       },
     });
+    this.instances = new SwordParticleInstances(scene);
     this.frames = frames;
     this.context = context;
   }
@@ -175,5 +178,12 @@ export class SwordGlows extends SourceParticleSurfaces<Group> {
     this.frames.clear();
     this.context.models = models;
     super.update(world, alpha, camera, terminalAge);
+  }
+  prepare(camera: THREE.Camera) {
+    this.instances.prepare(this.models.values(), camera);
+  }
+  override dispose() {
+    this.instances.dispose();
+    super.dispose();
   }
 }
