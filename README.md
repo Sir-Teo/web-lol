@@ -91,4 +91,4 @@ The private Double Strike presentation also retains [both saved authored trail e
 
 Private Yi ordinary attacks now use [both source-declared body/trail/audio choices](docs/MASTER-YI-ATTACK-SELECTION.md), with indexed cosmetic selection and separate source cast delays.
 
-The [primary contact source closure](docs/MASTER-YI-PRIMARY-HITS.md) retains all three ordinary/critical hit systems and their target chest-bone declarations for integration.
+[Primary contact effects](docs/MASTER-YI-PRIMARY-HITS.md) now render all eleven ordinary/critical hit emitters with 93 authored mips, saved target chest poses, finite tails and explicit unblended fluid.

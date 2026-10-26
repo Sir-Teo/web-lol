@@ -95,6 +95,8 @@ export interface SurfaceProgram<G extends SurfaceGroup> {
   /** Explicit creation-history visibility policy; omission retains point visibility. */
   visible?(group: G, particle: SurfaceParticle, tick: number): boolean;
   pose(group: G, tick: number): { x: number; y: number; facing: number } | null;
+  /** Independent historical attachment point; offsets retain the program source frame. */
+  attachmentPoint?(group: G, tick: number): THREE.Vector3 | null;
   /** Explicit current joint frame, restricted to fully bound/local profiles. */
   attachmentFrame?(group: G): { position: THREE.Vector3; rotation: THREE.Quaternion } | null;
   /** Local adapter for a missile object's source-Y-forward/source-Z-down frame. */
@@ -209,7 +211,7 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
       depthTest: (p.miscRenderFlags & 1) === 0,
       transparent: true,
       forceSinglePass: true,
-      blending: THREE.CustomBlending,
+      blending: p.blend === 3 ? THREE.NoBlending : THREE.CustomBlending,
       blendEquation: THREE.AddEquation,
       blendSrc: p.blend === 0 ? THREE.OneFactor : THREE.SrcAlphaFactor,
       blendDst: p.blend === 1 ? THREE.OneMinusSrcAlphaFactor : THREE.OneFactor,
@@ -287,6 +289,21 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
             this.ground(origin) + (p.worldOffset?.[1] ?? 0) * 0.01,
             (origin.y + (p.worldOffset?.[2] ?? 0)) * 0.01
           );
+          if (this.program.attachmentPoint) {
+            const birthPoint = this.program.attachmentPoint(group, group.startTick + p.bornTick),
+              currentPoint = this.program.attachmentPoint(group, tick);
+            if (!birthPoint || !currentPoint) continue;
+            position
+              .copy(birthPoint)
+              .lerp(currentPoint, bind)
+              .add(
+                new THREE.Vector3(
+                  -(p.worldOffset?.[0] ?? 0),
+                  p.worldOffset?.[1] ?? 0,
+                  p.worldOffset?.[2] ?? 0
+                ).multiplyScalar(0.01)
+              );
+          }
           if (attachmentFrame)
             position
               .copy(attachmentFrame.position)

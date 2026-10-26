@@ -335,6 +335,12 @@ async function boot(): Promise<void> {
       ? [
           view.highlanderCasts.load(),
           view.highlanderKills.load(),
+          view.primaryHits.load().catch((error) => {
+            console.warn(
+              'Primary hit effects unavailable; explicit retry remains available.',
+              error
+            );
+          }),
           view.meditateDamage.load(),
           view.swordGlows.load(),
           view.passiveTrails.load().catch((error) => {

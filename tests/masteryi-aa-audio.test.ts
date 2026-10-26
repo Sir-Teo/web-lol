@@ -118,7 +118,17 @@ test.each(['Flesh', 'Metal', 'Stone', 'Wood'] as const)(
   'contact selects only the %s branch at its captured point',
   (material) => {
     const r = record();
-    r.impact = { tick: 122, point: { x: 40, y: 50 }, material, audience: ['blue', 'red'] };
+    r.impact = {
+      facing: 0,
+      radius: 30,
+      targetTransform: null,
+      detachedTick: null,
+      frames: [],
+      tick: 122,
+      point: { x: 40, y: 50 },
+      material,
+      audience: ['blue', 'red'],
+    };
     const states = masterYiAAStates([r], 122),
       hit = states.find((s) => P[s.profileIndex].phase === 'hit')!;
     expect(states).toHaveLength(2);
@@ -187,7 +197,17 @@ test('global source cap kills the oldest same-container cue, and fallback suppre
   expect(f.audio.voices.size).toBe(2);
   f.audio.stop();
   f.audio.suppressSwing(r.id, r.startTick);
-  r.impact = { tick: 122, point: r.origin, material: 'Flesh', audience: ['blue'] };
+  r.impact = {
+    facing: 0,
+    radius: 30,
+    targetTransform: null,
+    detachedTick: null,
+    frames: [],
+    tick: 122,
+    point: r.origin,
+    material: 'Flesh',
+    audience: ['blue'],
+  };
   f.update([r], 122);
   expect(f.audio.voices.size).toBe(0);
 });

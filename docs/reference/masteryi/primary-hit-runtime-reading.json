@@ -1,0 +1,81 @@
+{
+  "format": 1,
+  "sourceProfile": {
+    "path": "docs/reference/masteryi/primary-hit-profile-reading.json",
+    "sha256": "93a4f4500e3ee3fd5e8881cfaf08f823cae40750de16afdf2ca235f4aad1142a"
+  },
+  "sourceBindings": [
+    {
+      "kind": "attack1",
+      "spell": "Characters/MasterYi/Spells/MasterYiBasicAttack",
+      "rawFields": {
+        "mHitEffectKey": "MasterYi_BA_Tar_01",
+        "bHaveHitEffect": true,
+        "bHaveHitBone": true,
+        "mHitBoneName": "C_BUFFBONE_GLB_CHEST_LOC"
+      }
+    },
+    {
+      "kind": "attack2",
+      "spell": "Characters/MasterYi/Spells/MasterYiBasicAttack2",
+      "rawFields": {
+        "mHitEffectKey": "MasterYi_BA_Tar_02",
+        "bHaveHitEffect": true,
+        "bHaveHitBone": true,
+        "mHitBoneName": "C_BUFFBONE_GLB_CHEST_LOC"
+      }
+    },
+    {
+      "kind": "crit",
+      "spell": "Characters/MasterYi/Spells/MasterYiCritAttack",
+      "rawFields": {
+        "mHitEffectKey": "MasterYi_Crit_tar",
+        "bHaveHitEffect": true,
+        "bHaveHitBone": true,
+        "mHitBoneName": "C_BUFFBONE_GLB_CHEST_LOC"
+      }
+    }
+  ],
+  "profileSha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4",
+  "historyTicks": 75,
+  "localAdapter": {
+    "admission": "accepted primary contact only",
+    "firstBirthOffsetTicks": 1,
+    "sourceFrame": "captured attacker Y heading with source-X reflection and 0.01 units",
+    "attachment": "independent saved target chest position; no inherited target rotation or scale",
+    "fallback": "shared root plus 0.9 for procedural targets, wards and missing structure bones; missing mobile bones reject",
+    "forceCadenceHz": 60,
+    "forceEndpoints": "Float32, fractional position interpolation",
+    "spatialDrag": "hard radius at captured birth root; no distance falloff",
+    "visibility": "positive creation audience and both birth endpoints; fully bound particles also require current endpoints",
+    "texturelessLookup": "constant white",
+    "omittedFluidNumFrames": 1,
+    "censorModulation": "raw source retained; no global censorship mode or quality omission inferred"
+  },
+  "reusedTextureUrls": [
+    "assets/effects/masteryi-q-contact-433b18542280cbff.png",
+    "assets/effects/masteryi-q-contact-dba30aea46f8d87f.png",
+    "assets/effects/masteryi-q-contact-b885bf2594e01a38.png",
+    "assets/effects/masteryi-r-cast-2fc72189202d828e.png"
+  ],
+  "newTextureUrls": [
+    "assets/effects/masteryi-primary-hit-db69a3a0b80ce5e1.png",
+    "assets/effects/masteryi-primary-hit-0e1d8e1bfc6a9099.png",
+    "assets/effects/masteryi-primary-hit-3551411d4218c8ea.png",
+    "assets/effects/masteryi-primary-hit-1d3a3b7cb6e52a86.png",
+    "assets/effects/masteryi-primary-hit-9db3dfd192460de5.png",
+    "assets/effects/masteryi-primary-hit-914aefb195e69d4f.png",
+    "assets/effects/masteryi-primary-hit-5ae94417a3c8c5a5.png"
+  ],
+  "limits": [
+    "Compiled bind zero, local true, particle-local false, omitted blend zero and other defaults are explicit reconstruction policies, not authored values. Raw presences and complete source remain separately retained.",
+    "Blend 3 is the pinned reader none mode and requires unblended/alpha-tested rendering; do not pass it through an additive renderer. Native GPU shader/sampler/CPU parity remains uncalibrated.",
+    "Field label hashes match candidates; stepped 60 Hz force order, spatial drag falloff, target attachment and source frame integration require an explicit local adapter and acceptance tests.",
+    "Fluid has random-start and a 2x2 grid but omits numFrames; compiled one-frame default is not a proven native frame-count recovery. Blood declares startFrame 15, 16 frames, 4x4 grid and raw frame-rate 1.",
+    "Censor modulation and importance values are retained without inventing global censorship switches or quality filtering. All eleven emitter profiles remain present.",
+    "Critical ground_glow stays an arbitrary quad at the declared target attachment; its name does not authorize terrain projection.",
+    "The 75-tick retention is a conservative local first-update bound including the float32 1.2000000476837158 life multiplier. Source linger does not extend finite visible life.",
+    "Runtime admission is the game's accepted primary contact. No additional particle events or sounds are inferred.",
+    "The local adapter uses saved independent target poses, source-X reflection, 0.01 units, captured source facing and explicit procedural/missing-structure fallback. Native transform inheritance remains uncalibrated."
+  ]
+}

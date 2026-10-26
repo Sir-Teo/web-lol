@@ -1,6 +1,15 @@
 # Local match checkpoints
 
-Current schema **162** admits both ordinary Master Yi attack kinds alongside
+Current schema **163** adds independent target pose and visibility frames to
+accepted Master Yi primary contacts. The saved target rig, radius, structure
+transform, source facing and detach tick drive the declared chest attachment.
+Coverage is bounded to 75 ticks, including source life-probability endpoints;
+decoding rejects gaps, invalid rig poses, changed transforms/radius, lost
+own-team audience and inconsistent detached or latest endpoints. Finite known
+births survive source death and terminal presentation. Earlier schemas and
+fingerprints remain incompatible. See [primary hit effects](MASTER-YI-PRIMARY-HITS.md).
+
+Schema **162** admits both ordinary Master Yi attack kinds alongside
 critical attacks. Saved primary kind must match the indexed local cosmetic
 choice from the two explicit source weights, and current-cycle linkage remains
 strict. Body, trail and distinct source audio cues share that identity. Existing

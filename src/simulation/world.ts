@@ -1,3 +1,4 @@
+import { advancePrimaryHitPoses } from './masteryi-primary-hit-poses';
 import {
   capturePassiveTrail,
   advancePassiveTrails,
@@ -4674,6 +4675,7 @@ export class World {
   }
   private advanceMasterYiImpactVisuals(): void {
     if (!this.units.some((unit) => unit.champion === 'masteryi')) return;
+    advancePrimaryHitPoses(this);
     advancePrimaryTrailRoots(this);
     advancePassiveTrails(this);
     advanceMeditateBuffs(this);

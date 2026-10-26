@@ -1,4 +1,23 @@
-# Master Yi primary contact particle sources
+# Master Yi primary contact effects
+
+The private Master Yi fixture now renders all three declared primary hit systems
+on accepted ordinary/critical contacts: eleven emitters and 93 authored mip
+levels. Independent saved target poses place effects on the declared chest
+bone, with separate finite histories through target removal, source death,
+fog and victory. Ordinary trails and audio retain their existing admission.
+
+The runtime keeps fluid unblended with its alpha threshold, alpha-blended blood
+and soft particles, additive flashes, source atlas controls, spawn rotations,
+world acceleration, birth drag and spatial drag. It borrows four verified Yi
+textures and adds seven source transports. No new attack sound is inferred.
+
+The following sections retain the source preparation evidence. Runtime uses
+explicit reconstruction policies: source-X reflection, 0.01 units, captured
+attacker facing, 60 Hz Float32 force replay and a spatial drag field fixed at
+the birth root. Missing procedural/ward/structure chest bones retain the shared
+root-plus-0.9 fallback. Native force cadence, shader selection, sampler state,
+inherited scale/rotation and missing-bone fallback remain uncalibrated. Mobile
+rigs must contain their declared bone; a missing mobile attachment fails loudly.
 
 The frozen 16.18.8175716 base character binds three primary spells to three
 complete particle systems. This source checkpoint retains eleven emitters,
@@ -134,3 +153,52 @@ All 32 profile guards pass in normal and optimized Python, and both modes
 preserve the reading's bytes and timestamp. This preparation changes no runtime
 or public files. The [profile ledger](reference/masteryi/primary-hit-profile-verification.json)
 records the exact source snapshot, reader references and evidence.
+
+## Runtime checks
+
+Schema 163 saves each accepted contact's target pose frames, audience, radius,
+structure transform, captured facing and detach tick. The decoder checks exact
+coverage, valid rig pose clocks, bounded expiry, own-team visibility and frozen
+detached endpoints. Known births cannot become visible retroactively when the
+target is revealed. Bound particles require current positive visibility;
+unbound particles retain their known birth anchor. Accepted finite effects
+survive source death, and terminal presentation advances only their finite clock.
+
+The runtime profile exporter is reproducible:
+
+```sh
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/export-masteryi-primary-hit-particles.py --check
+npx vitest run tests/masteryi-primary-hits.test.ts --maxWorkers=1
+```
+
+The new unit coverage includes source family completeness, source atlas cells,
+spatial drag radius/clamp/interpolation, bound-size offsets, finite lifetimes,
+movement, cancellation, critical hits, removed targets, source/target death,
+exact saved futures, forged pose histories and unchanged gameplay RNG/IDs during
+sampling. Browser checks verify real contact admission, all eleven runtime
+emitters, target chest positions, exact authored GPU mip pixels and real menu
+Save/reload with a 130-tick future. Runtime acceptance results and archived
+sources are retained in the [runtime ledger](reference/masteryi/primary-hit-runtime-verification.json).
+
+Runtime acceptance retains 31 passing new unit cases, 92 passing initial attack
+regressions and six passing Node QA cases. The full application run recorded
+3,067 passes and four failures; one was the existing Lux E test's explicit
+schema-162 assertion. Updating that assertion to 163 preserved all tamper checks,
+and its six-test suite then passed. The three unresolved failures are the prior
+missing Leona source archive, missing original distortion shader archive and
+Lux sampler golden mismatch. The original five-second wave test passed.
+
+Four primary-hit browser cases pass across the initial and corrected fixture
+runs. Every emitter produces nonzero GPU pixels (minimum 35 pixels in the
+isolated probe), and all 93 runtime mip hashes match. Seventy sword comparisons
+plus three full passive/E/R scene comparisons retain exact pixels. With the new
+contacts active, the latter scene uses 254 reference draws versus 59, 51 and 50
+segmented draws across the three cameras. These are draw-count and pixel checks,
+not physical FPS or native-client parity measurements.
+
+The build and strict production subpath run pass with 32 recordings, eight fresh
+screenshots and zero new/private effect preloads. Normal/optimized source replay
+passes 85 guards per mode and preserves all fourteen runtime outputs in bytes
+and timestamps. The current GLB availability audit finds the declared chest
+joint in 27 of 32 target rigs; wards, inhibitors and nexuses use the explicit
+local fallback described above. Numeric joint indices vary by rig.

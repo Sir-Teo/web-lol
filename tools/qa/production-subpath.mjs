@@ -77,6 +77,7 @@ try {
     masterYiMeditateDamageRequests = [],
     masterYiSwordRequests = [],
     masterYiPrimaryTrailRequests = [],
+    masterYiPrimaryHitRequests = [],
     masterYiPassiveTrailRequests = [],
     masterYiQContactRequests = [],
     masterYiMeditateCastRequests = [],
@@ -121,6 +122,8 @@ try {
       masterYiSwordRequests.push(request.url());
     if (/\/masteryi-primary-trail(?:-[^/]+\.png|s-[^/]+\.js|\.glb)$/.test(request.url()))
       masterYiPrimaryTrailRequests.push(request.url());
+    if (/\/masteryi-primary-hit(?:-[^/]+\.png|s-[^/]+\.js)$/.test(request.url()))
+      masterYiPrimaryHitRequests.push(request.url());
     if (/\/masteryi-passive-trail(?:-[^/]+\.png|s-[^/]+\.js)$/.test(request.url()))
       masterYiPassiveTrailRequests.push(request.url());
     if (/\/masteryi-w-damage-[^/]+\.js$/.test(request.url()))
@@ -540,6 +543,11 @@ try {
     'Production must not preload development primary attack trails'
   );
   assert.deepEqual(
+    masterYiPrimaryHitRequests,
+    [],
+    'Production must not preload development primary hit effects'
+  );
+  assert.deepEqual(
     masterYiPassiveTrailRequests,
     [],
     'Production must not preload development passive attack trails'
@@ -636,6 +644,7 @@ try {
       unrequestedMasterYiWujuStyleAudioPreloads: masterYiWujuStyleAudioRequests.length,
       unrequestedMasterYiSwordPreloads: masterYiSwordRequests.length,
       unrequestedMasterYiPrimaryTrailPreloads: masterYiPrimaryTrailRequests.length,
+      unrequestedMasterYiPrimaryHitPreloads: masterYiPrimaryHitRequests.length,
       unrequestedMasterYiPassiveTrailPreloads: masterYiPassiveTrailRequests.length,
       unrequestedMasterYiMeditateDamagePreloads: masterYiMeditateDamageRequests.length,
       unrequestedMasterYiHighlanderKillPreloads: masterYiRKillRequests.length,

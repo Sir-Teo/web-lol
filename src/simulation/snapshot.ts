@@ -1,3 +1,4 @@
+import { PRIMARY_HIT_HISTORY_TICKS } from '../content/masteryi-primary-hit-timing';
 import { validatePassiveTrails } from './masteryi-passive-trails';
 import { PASSIVE_TRAIL_HISTORY_TICKS } from '../content/masteryi-passive-trail-timing';
 import { validatePrimaryTrailRoots } from './masteryi-primary-trails';
@@ -169,7 +170,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 162;
+export const SNAPSHOT_VERSION = 163;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -1255,6 +1256,11 @@ const player: z.ZodType<PlayerState> = z
             .strictObject({
               tick,
               point,
+              facing: z.number(),
+              radius: nonnegative,
+              targetTransform: z.array(z.number()).length(16).nullable(),
+              detachedTick: tick.nullable(),
+              frames: z.array(daybreakFrame).min(1).max(PRIMARY_HIT_HISTORY_TICKS),
               material: z.enum(['Flesh', 'Metal', 'Stone', 'Wood']),
               audience: z
                 .array(z.enum(['blue', 'red']))

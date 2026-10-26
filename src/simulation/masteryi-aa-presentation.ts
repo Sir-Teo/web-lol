@@ -1,3 +1,6 @@
+import { PRIMARY_HIT_HISTORY_TICKS } from '../content/masteryi-primary-hit-timing';
+import { capturePoseFrame } from './pose-history';
+import { validatePrimaryHitPose } from './masteryi-primary-hit-poses';
 import { masterYiAttackKind, type MasterYiAttackKind } from './masteryi-attack-kind';
 import {
   MASTER_YI_AA_CAST_TICKS,
@@ -8,7 +11,7 @@ import {
   attackSoundMaterialForRig,
   attackSoundRig,
 } from '../content/attack-sound-material';
-import type { ChampionState, Unit, Team, Faction } from './types';
+import type { ChampionState, Unit, Team, Faction, LuxImpactFrame } from './types';
 import type { Vec2 } from './math';
 
 type Observation = { visible(unit: Unit, team: Team): boolean };
@@ -27,6 +30,11 @@ export interface MasterYiAttackAudio {
   impact: {
     tick: number;
     point: Vec2;
+    facing: number;
+    radius: number;
+    targetTransform: number[] | null;
+    detachedTick: number | null;
+    frames: (LuxImpactFrame & { audience: Team[] })[];
     material: ReturnType<typeof attackSoundMaterial>;
     audience: Team[];
   } | null;
@@ -35,6 +43,7 @@ export function masterYiAttackExpiry(r: MasterYiAttackAudio): number {
   return Math.max(
     r.endTick,
     r.startTick + MASTER_YI_AA_CAST_TICKS,
+    r.impact ? r.impact.tick + PRIMARY_HIT_HISTORY_TICKS : 0,
     (r.impact?.tick ?? r.releaseTick) + MASTER_YI_AA_HIT_TICKS
   );
 }
@@ -77,6 +86,16 @@ export function contactMasterYiAttack(
   r.impact = {
     tick,
     point: { x: target.x, y: target.y },
+    facing: unit.facing,
+    radius: target.radius,
+    targetTransform: target.structureTransform ? [...target.structureTransform] : null,
+    detachedTick: null,
+    frames: [
+      {
+        ...capturePoseFrame(target, tick),
+        audience: (['blue', 'red'] as const).filter((t) => world.visible(target, t)),
+      },
+    ],
     material: attackSoundMaterial(target),
     audience: (['blue', 'red'] as const).filter((t) => world.visible(target, t)),
   };
@@ -128,6 +147,7 @@ export function validateMasterYiAttacks(
           unit.attackTarget !== r.targetId))
     )
       throw new Error('Saved match contains invalid Master Yi attack audio history.');
+    validatePrimaryHitPose(r, target, world.tick);
     previous = r.startTick;
   }
   const cycle = unit.attackCycle;
