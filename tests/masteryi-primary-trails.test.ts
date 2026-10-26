@@ -41,7 +41,7 @@ function resume(w: World, ticks = 40) {
   copy.step(ticks);
   expect(copy.snapshot()).toBe(w.snapshot());
 }
-test.each(['attack1', 'crit'] as const)(
+test.each(['attack1', 'attack2', 'crit'] as const)(
   '%s marker is the exact first current-pose clock crossing',
   (kind) => {
     for (const duration of [3, 4, 7, 17, 54, 55, 56, 89, 100, 1000, 1000000]) {
@@ -176,14 +176,14 @@ for (const mutation of [
       ];
     expect(() => World.fromSnapshot(JSON.stringify(saved), f.w.battlefield)).toThrow();
   });
-test('both complete finite source families retain native texture/mesh metadata', () => {
-  expect(data.profiles).toHaveLength(2);
-  expect(data.textures).toHaveLength(3);
-  expect(data.textures.reduce((n, t) => n + t.rectangles.length, 0)).toBe(25);
+test('all three complete finite source families retain native texture/mesh metadata', () => {
+  expect(data.profiles).toHaveLength(3);
+  expect(data.textures).toHaveLength(4);
+  expect(data.textures.reduce((n, t) => n + t.rectangles.length, 0)).toBe(34);
   expect(data.mesh.exportedCorners).toBe(1500);
-  expect(data.profiles.map((p) => p.rawFlags.blendMode)).toEqual([null, null]);
-  expect(data.markers.map((m) => m.glbNode)).toEqual([85, 85]);
-  for (let profile = 0; profile < 2; profile++) {
+  expect(data.profiles.map((p) => p.rawFlags.blendMode)).toEqual([null, 4, null]);
+  expect(data.markers.map((m) => m.glbNode)).toEqual([85, 85, 85]);
+  for (let profile = 0; profile < 3; profile++) {
     expect(primaryTrailParticles(17, 0, profile)).toEqual([]);
     const p = primaryTrailParticles(17, 1 / 60, profile);
     expect(p).toHaveLength(1);
@@ -196,7 +196,7 @@ test('both complete finite source families retain native texture/mesh metadata',
 });
 test('source UV scroll, scale and critical rotation stay literal', () => {
   const normal = primaryTrailParticles(0, 0.1, 0)[0],
-    critical = primaryTrailParticles(0, 0.1, 1)[0];
+    critical = primaryTrailParticles(0, 0.1, 2)[0];
   expect(normal.rotation).toEqual([0, 0, 0]);
   expect(normal.size).toEqual([0.699999988079071, 0.699999988079071, 0.699999988079071]);
   expect(critical.rotation).toEqual([0, 0, 100]);
@@ -206,7 +206,7 @@ test('source UV scroll, scale and critical rotation stay literal', () => {
     12
   );
   expect(critical.uv.offset[0]).toBeCloseTo(
-    (((data.profiles[1].uv.birthScroll.values[0][0] * critical.age) % 1) + 1) % 1,
+    (((data.profiles[2].uv.birthScroll.values[0][0] * critical.age) % 1) + 1) % 1,
     12
   );
 });
@@ -235,4 +235,17 @@ test('a late Yi spawn begins collecting roots after ordinary world steps', () =>
   expect(record.trailFrames[0].tick).toBe(record.startTick);
   expect(record.trailFrames.at(-1)!.endTick).toBe(w.tick);
   resume(w);
+});
+
+test('Attack2 retains its authored additive offset, omitted-scale adapter and positive UV scroll', () => {
+  const particle = primaryTrailParticles(17, 0.1, 1)[0];
+  expect(particle.offset).toEqual([0, -40, -20]);
+  expect(particle.size).toEqual([1, 1, 1]);
+  expect(particle.naturalLife).toBe(0.2199999988079071);
+  expect(particle.uv.offset[0]).toBeCloseTo((((1.399999976158142 * particle.age) % 1) + 1) % 1, 12);
+  expect(data.profiles[1].rawFlags).toEqual({
+    blendMode: 4,
+    isLocalOrientation: null,
+    particleIsLocalOrientation: null,
+  });
 });

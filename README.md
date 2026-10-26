@@ -88,3 +88,5 @@ The local reference build includes Riot-owned icons, character models and terrai
 Private Yi primary attacks also render [saved ordinary and critical weapon trails](docs/MASTER-YI-PRIMARY-TRAILS.md) with the retained native mesh and all 25 authored mip levels.
 
 The private Double Strike presentation also retains [both saved authored trail events](docs/MASTER-YI-PASSIVE-TRAILS.md), with separate current-pose decisions and shared verified geometry.
+
+Private Yi ordinary attacks now use [both source-declared body/trail/audio choices](docs/MASTER-YI-ATTACK-SELECTION.md), with indexed cosmetic selection and separate source cast delays.

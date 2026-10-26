@@ -1,0 +1,96 @@
+{
+  "format": 1,
+  "characterRecordSha256": "3f100c1148e1006766060822298c87aed02e86e359c385fbc2c248e4255d12fa",
+  "modelGlbSha256": "7aae9e8e486c34d780113349c4a4d06830a5498a906ff291a49263090da471cc",
+  "rawBasicAttack": {
+    "mAttackDelayCastOffsetPercent": -0.0560000017285347,
+    "mAttackProbability": 0.5,
+    "__type": "AttackSlotData"
+  },
+  "rawExtraAttacks": [
+    {
+      "mAttackProbability": 0.5,
+      "mAttackName": "MasterYiBasicAttack2",
+      "__type": "AttackSlotData"
+    },
+    {
+      "mAttackName": "MasterYiBasicAttack",
+      "__type": "AttackSlotData"
+    },
+    {
+      "mAttackName": "MasterYiDoubleStrike",
+      "__type": "AttackSlotData"
+    }
+  ],
+  "rawCritAttacks": [
+    {
+      "mAttackDelayCastOffsetPercent": -0.05624999850988388,
+      "mAttackName": "MasterYiCritAttack",
+      "__type": "AttackSlotData"
+    }
+  ],
+  "selection": {
+    "attack1": {
+      "probability": 0.5,
+      "clip": "entry_d5c55cfd"
+    },
+    "attack2": {
+      "probability": 0.5,
+      "clip": "entry_0d6139b0"
+    }
+  },
+  "criticalClip": "entry_e1798980",
+  "markers": [
+    {
+      "system": "MasterYi_BA1_Trail",
+      "parent": "Attack1",
+      "clip": "entry_d5c55cfd",
+      "eventClip": "entry_ab887b52",
+      "eventKey": "{2d55b65c}",
+      "sourceFrame": 5.0,
+      "renderedSeconds": 0.1666666716337204,
+      "renderedDuration": 1.8000000715255737,
+      "sampleCount": 55,
+      "sourceBone": "C_Buffbone_Glb_Center_Loc",
+      "glbNode": 85,
+      "glbBone": "C_Buffbone_Glb_Center_Loc",
+      "profileIndex": 0
+    },
+    {
+      "system": "MasterYi_BA2_Trail",
+      "parent": "Attack2",
+      "clip": "entry_0d6139b0",
+      "eventClip": "entry_67da3820",
+      "eventKey": "{5aaabd3e}",
+      "sourceFrame": 5.0,
+      "renderedSeconds": 0.1666666716337204,
+      "renderedDuration": 1.8333333730697632,
+      "sampleCount": 56,
+      "sourceBone": "C_Buffbone_Glb_Center_Loc",
+      "glbNode": 85,
+      "glbBone": "C_Buffbone_Glb_Center_Loc",
+      "profileIndex": 1
+    },
+    {
+      "system": "MasterYi_Crit_Trail",
+      "parent": "Crit",
+      "clip": "entry_e1798980",
+      "eventClip": "entry_db40631e",
+      "eventKey": "{f3056ffb}",
+      "sourceFrame": 8.0,
+      "renderedSeconds": 0.2666666805744171,
+      "renderedDuration": 1.8333333730697632,
+      "sampleCount": 56,
+      "sourceBone": "C_Buffbone_Glb_Center_Loc",
+      "glbNode": 85,
+      "glbBone": "C_Buffbone_Glb_Center_Loc",
+      "profileIndex": 2
+    }
+  ],
+  "limits": [
+    "Only the two explicit .5 weights feed the current local ordinary choice. Missing probabilities on other extra slots stay missing; no additional selection weight is inferred.",
+    "Default ordinary slot omits mAttackName and its spell omits mAnimationName. Existing Attack1/default aliases remain explicit local bindings. Attack2 and Crit names are declared.",
+    "Indexed cosmetic selection by actor/start tick and critical override are local policies, not native PRNG, graph transition or dispatch parity. No gameplay RNG, IDs, contact timing, damage or passive scheduling is added.",
+    "Rendered event sample indexing, full joint frame, native scale inheritance and callback calibration limits remain in the trail readings."
+  ]
+}

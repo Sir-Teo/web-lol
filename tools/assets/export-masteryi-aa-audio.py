@@ -1,4 +1,4 @@
-"""Export current ordinary/critical source cues; preserve ranges and binding caveats."""
+"""Export both declared ordinary and critical source cues; preserve ranges and binding caveats."""
 from pathlib import Path
 import argparse
 import json
@@ -52,7 +52,7 @@ def generate():
 
     materials = {name: event_hash(name) for name in ['Flesh', 'Metal', 'Stone', 'Wood']}
     profiles = []; bindings = []; outputs = {}; used = set()
-    for kind, spell_name in [('attack1', 'MasterYiBasicAttack'), ('crit', 'MasterYiCritAttack')]:
+    for kind, spell_name in [('attack1', 'MasterYiBasicAttack'), ('crit', 'MasterYiCritAttack'), ('attack2', 'MasterYiBasicAttack2')]:
         spell = pin['records']['Characters/MasterYi/Spells/' + spell_name]['mSpell']
         require(spell.get('mApplyMaterialOnHitSound') is True, 'Material application flag changed')
         for phase, slot in [('cast', '12'), ('hit', '13')]:
@@ -63,6 +63,7 @@ def generate():
             if kind == 'crit' and phase == 'hit':
                 require(name == 'sfx_MasterYi_MasterYiCritAttack_OnHit', 'Critical suffix changed')
                 name = 'Play_' + name; resolution = 'local-Play-prefix'
+            require(name == f'Play_sfx_MasterYi_{spell_name}_On'+('Cast'if phase=='cast'else'Hit'),'Primary suffix resolves to a different declared event')
             event = next(e for e in graph['events'] if e['name'] == name)
             require(len(event['actions']) == 1, 'Primary event action count changed')
             binding = {'kind': kind, 'phase': phase, 'spell': spell_name, 'slot': slot, 'rawSuffix': raw, 'eventName': name, 'resolution': resolution}
@@ -71,7 +72,7 @@ def generate():
                 action_props = properties(action['id'])
                 require(action['type'] == 'CAkActionPlay' and set(action_props).issubset({'DelayTime'}) and properties(action['id'], True) == {}, 'Unhandled primary action modifiers')
                 delay = action_props.get('DelayTime', 0) / 1000
-                require(delay == (0.05 if phase == 'cast' and kind == 'attack1' else 0.2 if phase == 'cast' else 0), 'Primary action delay changed')
+                require(delay == ({'attack1':0.05,'attack2':0.055,'crit':0.2}[kind] if phase == 'cast' else 0), 'Primary action delay changed')
                 require(int(parameter(action['id'], 'eFadeCurve')) == 4, 'Primary fade curve changed')
                 target = action['target']; switch = nodes[target]['type'] == 'CAkSwitchCntr'
                 targets = {None: target}
@@ -108,7 +109,7 @@ def generate():
                         used.add(identity)
                         variants.append({'id': identity, 'soundId': sound, 'url': str(path).removeprefix('public/'), 'sha256': master['wavSha256'], 'pcmSha256': master['pcmSha256'], 'frames': master['frames'], 'sampleRate': 44100, 'channels': 1, 'durationSeconds': master['durationSeconds'], 'gainDb': props.get('MakeUpGain', 0), 'peak': master['peak']})
                     profiles.append({'kind': kind, 'phase': phase, 'actionIndex': action_index, 'eventId': event['id'], 'actionId': action['id'], 'targetId': target, 'containerId': container, 'material': material, 'gainDb': gain, 'pitchCents': pitch, 'delaySeconds': delay, 'pitchModifiers': ranges, 'policy': policy, 'variants': variants})
-    require(len(profiles) == 10 and len(used) == 24, 'Primary profile/media coverage changed')
+    require(len(profiles) == 15 and len(used) == 28, 'Primary profile/media coverage changed')
     require(properties(831186104) == {'Priority': 56, 'AttenuationID': 134343538}, 'Primary mixer changed')
     require(int(parameter(831186104, 'OverrideBusId')) == 211064428, 'Primary bus changed')
     attenuation = {'id': 134343538, 'scaling': int(parameter(134343538, 'eScaling')), 'unresolvedOutputBusId': 211064428, 'priority': 56,
@@ -119,7 +120,7 @@ def generate():
     outputs[out] = subprocess.check_output(['npx', 'prettier', '--stdin-filepath', str(out)], input=raw.encode())
     tails = {phase: math.ceil(max(p['delaySeconds'] + v['durationSeconds'] / 2 ** ((p['pitchCents'] + sum(m['minimum'] for m in p['pitchModifiers'])) / 1200) for p in profiles if p['phase'] == phase for v in p['variants']) * 60) for phase in ['cast', 'hit']}
     outputs[Path('src/content/masteryi-aa-audio-timing.ts')] = ('// Finite source tails include slowest authored pitch-range endpoint.\nexport const MASTER_YI_AA_CAST_TICKS = ' + str(tails['cast']) + ';\nexport const MASTER_YI_AA_HIT_TICKS = ' + str(tails['hit']) + ';\n').encode()
-    reading = {'sourceGraphSha256': GRAPH_SHA256, 'decodedRecordSha256': DECODED_SHA256, 'bindings': bindings, 'selectedProfiles': len(profiles), 'media': len(used), 'wavBytes': sum(masters[i]['wavBytes'] for i in used), 'tails': tails, 'sourcePitchRanges': {'attack1': [-100, 100], 'crit': [-200, 200]}, 'sourceActionDelaysSeconds': {'attack1-cast': 0.05, 'crit-cast': 0.2, 'hit': 0}, 'limits': ['Ordinary Attack1/current critical body policy only. Attack2 and Double Strike composite dispatch remain separate.', 'The raw critical hit suffix omits Play_; prefix resolution is explicitly local, not a repaired source field.', 'Indexed pitch/variant choices and unresolved global bus mix are not native RNG/mix calibration.']}
+    reading = {'sourceGraphSha256': GRAPH_SHA256, 'decodedRecordSha256': DECODED_SHA256, 'bindings': bindings, 'selectedProfiles': len(profiles), 'media': len(used), 'wavBytes': sum(masters[i]['wavBytes'] for i in used), 'tails': tails, 'sourcePitchRanges': {'attack1': [-100, 100], 'attack2': [-100, 100], 'crit': [-200, 200]}, 'sourceActionDelaysSeconds': {'attack1-cast': 0.05, 'attack2-cast': 0.055, 'crit-cast': 0.2, 'hit': 0}, 'limits': ['Both declared ordinary and critical cues retain separate event/action identities. Indexed body selection remains a local cosmetic policy; Double Strike composite audio dispatch stays separate.', 'The raw critical hit suffix omits Play_; prefix resolution is explicitly local, not a repaired source field.', 'Indexed pitch/variant choices and unresolved global bus mix are not native RNG/mix calibration.']}
     outputs[Path('docs/reference/masteryi/aa-audio-reading.json')] = (json.dumps(reading, indent=2) + '\n').encode()
     return list(outputs.items()), reading
 

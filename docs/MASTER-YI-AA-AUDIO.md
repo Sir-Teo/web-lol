@@ -1,23 +1,24 @@
 # Master Yi primary attack audio
 
-The private human/NPC fixtures play the current ordinary Attack1 and critical
-attack from the frozen base SFX banks. Ten source profiles cover two cast cues
-and four material branches per impact. Their 24 unique mono 44.1 kHz float WAVs
-total 2,242,600 bytes and exactly match the [decoded masters](reference/masteryi/audio-decoded.json).
+The private human/NPC fixtures play both ordinary source attacks and critical
+attacks from the frozen base SFX banks. Fifteen source profiles cover three cast
+cues and four material branches per impact. Their 28 unique mono 44.1 kHz float
+WAVs total 2,595,148 bytes and exactly match the [decoded masters](reference/masteryi/audio-decoded.json).
 Loading verifies each WAV's SHA-256 before constructing AudioBuffers directly
 from float PCM, preserving source headroom without browser decoder clipping.
 
 The [reading](reference/masteryi/aa-audio-reading.json) preserves raw spell event
 suffixes, including the critical hit suffix that lacks `Play_`. Adding that
-prefix to resolve its bank event is an explicit local binding policy. Ordinary
-cast delay is 50 ms; critical cast delay is 200 ms; impact has no action delay.
+prefix to resolve its bank event is an explicit local binding policy. Attack1
+cast delay is 50 ms, Attack2 is 55 ms, and critical cast delay is 200 ms; impact has no action delay.
 Inherited source gains, attenuation, material switches and ordinary ±100/critical
 ±200 cent pitch ranges remain separate from combat windup and contact clocks.
-The current body selection remains Attack1/critical. Attack2, Double Strike's
-two-action composite and ability audio require separate dispatch work.
-The later [attack-trail source reading](MASTER-YI-ATTACK-TRAILS.md) preserves the
-explicit Attack1/Attack2/Crit/Passive animation events and their particle systems;
-it leaves current body selection and audio dispatch unchanged.
+The current [body selection](MASTER-YI-ATTACK-SELECTION.md) uses the two explicit
+ordinary weights through an indexed local cosmetic choice, with critical
+override. Double Strike's composite audio remains separate.
+The [attack-trail source reading](MASTER-YI-ATTACK-TRAILS.md) preserves the explicit
+Attack1/Attack2/Crit/Passive animation events and their particle systems. Current
+runtime bindings are described in [primary trails](MASTER-YI-PRIMARY-TRAILS.md).
 
 Indexed variant/pitch sampling consumes no combat RNG or entity IDs. Native
 shuffle state, bus 211064428, listening/mix calibration and delayed voice-cap

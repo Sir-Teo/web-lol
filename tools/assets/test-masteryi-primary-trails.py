@@ -9,11 +9,12 @@ class PrimarySource(unittest.TestCase):
  def setUpClass(cls):
   cls.pin,cls.model=load();cls.glb=checked(GLB,GLB_SHA256);cls.defaults=json.loads(checked('docs/reference/garen-spin-defaults.json','51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb'))['defaults'];cls.urls={r['path']:r['path']for r in cls.pin['extraction']['files']if r['path'].endswith('.tex')}
  def test_both_complete_profiles_preserve_raw_local_and_blend_omissions(self):
-  p=profiles(self.pin,self.urls,'mesh.glb',self.defaults);self.assertEqual(len(p),2)
-  for row in p:self.assertEqual(row['rawFlags'],{'blendMode':None,'isLocalOrientation':None,'particleIsLocalOrientation':None});self.assertIs(row['local'],True);self.assertIs(row['particleLocal'],True);self.assertTrue(row['noCull']);self.assertEqual(row['blend'],0)
-  self.assertEqual(p[1]['rotation']['values'],[[0.,0.,100.]])
+  p=profiles(self.pin,self.urls,'mesh.glb',self.defaults);self.assertEqual(len(p),3)
+  for row in [p[0],p[2]]:self.assertEqual(row['rawFlags'],{'blendMode':None,'isLocalOrientation':None,'particleIsLocalOrientation':None});self.assertIs(row['local'],True);self.assertIs(row['particleLocal'],True);self.assertTrue(row['noCull']);self.assertEqual(row['blend'],0)
+  self.assertEqual(p[2]['rotation']['values'],[[0.,0.,100.]])
+  self.assertEqual(p[1]['rawFlags'],{'blendMode':4,'isLocalOrientation':None,'particleIsLocalOrientation':None});self.assertEqual(p[1]['size']['values'],[[1,1,1]])
  def test_markers_are_exact_rendered_default_and_event_sample_indices(self):
-  m=MODULE['markers'](self.model,self.glb);self.assertEqual([x['sourceFrame']for x in m],[5.,8.]);self.assertEqual([x['sampleCount']for x in m],[55,56]);self.assertEqual([x['glbNode']for x in m],[85,85]);self.assertEqual(m[0]['renderedSeconds'],.1666666716337204);self.assertEqual(m[1]['renderedSeconds'],.2666666805744171)
+  m=MODULE['markers'](self.model,self.glb);self.assertEqual([x['sourceFrame']for x in m],[5.,5.,8.]);self.assertEqual([x['sampleCount']for x in m],[55,56,56]);self.assertEqual([x['glbNode']for x in m],[85,85,85]);self.assertEqual(m[0]['renderedSeconds'],.1666666716337204);self.assertEqual(m[1]['renderedSeconds'],.1666666716337204);self.assertEqual(m[2]['renderedSeconds'],.2666666805744171)
  def invalid_profile(self,change):
   p=copy.deepcopy(self.pin);change(p['resources'][SYSTEMS[0]]['definition']['complexEmitterDefinitionData'][0])
   with self.assertRaises(ValueError):profiles(p,self.urls,'mesh.glb',self.defaults)
@@ -43,4 +44,11 @@ class PrimarySource(unittest.TestCase):
  def test_parent_not_parallel_rejects(self):self.invalid_marker(lambda g:g['Attack1'].update(__type='SequencerClipData'))
  def test_missing_named_joint_rejects(self):self.invalid_marker(lambda g:g['{ab887b52}']['mEventDataMap']['{2d55b65c}']['mParticleEventDataPairList'][0].update(mBoneName='Missing'))
  def test_extra_particle_pair_rejects(self):self.invalid_marker(lambda g:g['{ab887b52}']['mEventDataMap']['{2d55b65c}']['mParticleEventDataPairList'].append({'mBoneName':'Root'}))
+ def test_first_omitted_blend_cannot_be_filled(self):self.invalid_profile(lambda e:e.update(blendMode=4))
+ def test_second_authored_blend_cannot_be_omitted(self):
+  p=copy.deepcopy(self.pin);p['resources']['MasterYi_BA2_Trail']['definition']['complexEmitterDefinitionData'][0].pop('blendMode')
+  with self.assertRaises(ValueError):profiles(p,self.urls,'mesh.glb',self.defaults)
+ def test_second_authored_blend_cannot_be_defaulted(self):
+  p=copy.deepcopy(self.pin);p['resources']['MasterYi_BA2_Trail']['definition']['complexEmitterDefinitionData'][0]['blendMode']=0
+  with self.assertRaises(ValueError):profiles(p,self.urls,'mesh.glb',self.defaults)
 if __name__=='__main__':unittest.main()

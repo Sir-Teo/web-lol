@@ -44,7 +44,10 @@ test('primary attacks render native trails, exact GPU mips/joint frames and save
         scale: m.scale.toArray(),
         uv: m.material.uniforms.sourceUvTransform.value.toArray(),
       }));
-    for (const kind of ['attack1', 'crit']) {
+    const selector = await import('/src/simulation/masteryi-attack-kind.ts');
+    for (const kind of ['attack1', 'attack2', 'crit']) {
+      while (kind !== 'crit' && selector.masterYiAttackKind(w.hero.id, w.tick + 1, false) !== kind)
+        w.step();
       const chance = w.criticalChance;
       if (kind === 'crit') w.criticalChance = () => 1;
       w.setOrder(w.hero, { type: 'attack', target: target.id });
@@ -52,7 +55,7 @@ test('primary attacks render native trails, exact GPU mips/joint frames and save
       w.criticalChance = chance;
       const record = w.player.masterYiAAAudio.at(-1);
       if (record.kind !== kind) throw Error('Wrong accepted primary kind');
-      const marker = data.markers[kind === 'crit' ? 1 : 0],
+      const marker = data.markers[kind === 'attack1' ? 0 : kind === 'attack2' ? 1 : 2],
         duration = record.endTick - record.startTick,
         rate = marker.renderedDuration / (duration / 60);
       let offset = 0;
@@ -153,7 +156,7 @@ test('primary attacks render native trails, exact GPU mips/joint frames and save
         particles: describe(),
       });
       if (distance > 1e-10 || angle > 1e-6) throw Error('Current joint frame differs');
-      if (kind === 'attack1') {
+      if (kind !== 'crit') {
         w.setOrder(w.hero, { type: 'idle' });
         w.step(record.endTick + 1 - w.tick);
       }
@@ -243,8 +246,8 @@ test('primary attacks render native trails, exact GPU mips/joint frames and save
     (window as any).__PRIMARY_TEXTURES__ = textures;
     return { rows, mips, attributes, saved, future: copy.snapshot(), particles: describe() };
   }, data);
-  expect(result.rows.map((r) => r.profile)).toEqual([0, 1]);
-  expect(result.mips).toHaveLength(25);
+  expect(result.rows.map((r) => r.profile)).toEqual([0, 1, 2]);
+  expect(result.mips).toHaveLength(34);
   expect(result.attributes).toHaveLength(3);
   expect(requests).toHaveLength(1);
   await page.screenshot({ path: info.outputPath('critical-primary-trail.png') });

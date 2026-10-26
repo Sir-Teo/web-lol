@@ -37,17 +37,39 @@
       "rawSuffix": "sfx_MasterYi_MasterYiCritAttack_OnHit\n",
       "eventName": "Play_sfx_MasterYi_MasterYiCritAttack_OnHit",
       "resolution": "local-Play-prefix"
+    },
+    {
+      "kind": "attack2",
+      "phase": "cast",
+      "spell": "MasterYiBasicAttack2",
+      "slot": "12",
+      "rawSuffix": "Play_sfx_MasterYi_MasterYiBasicAttack2_OnCast\n",
+      "eventName": "Play_sfx_MasterYi_MasterYiBasicAttack2_OnCast",
+      "resolution": "declared"
+    },
+    {
+      "kind": "attack2",
+      "phase": "hit",
+      "spell": "MasterYiBasicAttack2",
+      "slot": "13",
+      "rawSuffix": "Play_sfx_MasterYi_MasterYiBasicAttack2_OnHit\n",
+      "eventName": "Play_sfx_MasterYi_MasterYiBasicAttack2_OnHit",
+      "resolution": "declared"
     }
   ],
-  "selectedProfiles": 10,
-  "media": 24,
-  "wavBytes": 2242600,
+  "selectedProfiles": 15,
+  "media": 28,
+  "wavBytes": 2595148,
   "tails": {
     "cast": 88,
     "hit": 51
   },
   "sourcePitchRanges": {
     "attack1": [
+      -100,
+      100
+    ],
+    "attack2": [
       -100,
       100
     ],
@@ -58,11 +80,12 @@
   },
   "sourceActionDelaysSeconds": {
     "attack1-cast": 0.05,
+    "attack2-cast": 0.055,
     "crit-cast": 0.2,
     "hit": 0
   },
   "limits": [
-    "Ordinary Attack1/current critical body policy only. Attack2 and Double Strike composite dispatch remain separate.",
+    "Both declared ordinary and critical cues retain separate event/action identities. Indexed body selection remains a local cosmetic policy; Double Strike composite audio dispatch stays separate.",
     "The raw critical hit suffix omits Play_; prefix resolution is explicitly local, not a repaired source field.",
     "Indexed pitch/variant choices and unresolved global bus mix are not native RNG/mix calibration."
   ]

@@ -169,7 +169,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 161;
+export const SNAPSHOT_VERSION = 162;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -1241,7 +1241,7 @@ const player: z.ZodType<PlayerState> = z
             .max(PRIMARY_TRAIL_HISTORY_TICKS),
           releaseTick: tick,
           endTick: tick,
-          kind: z.enum(['attack1', 'crit']),
+          kind: z.enum(['attack1', 'attack2', 'crit']),
           targetId: id,
           targetTeam: z.enum(['blue', 'red', 'neutral']),
           targetRig: attackRig.nullable(),

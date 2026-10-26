@@ -1,3 +1,4 @@
+import { masterYiAttackKind, masterYiAttackClip } from '../simulation/masteryi-attack-kind';
 import { MASTER_YI_COMBAT_POLICY } from '../content/masteryi-combat-policy';
 import { MASTER_YI_PASSIVE } from '../content/masteryi-passive';
 import { MASTER_YI_W } from '../content/masteryi-w';
@@ -184,9 +185,7 @@ export function mobilePose(
                 ? 'crit'
                 : luxAttackAnimation(unit.id, cycle.startTick)
               : unit.champion === 'masteryi'
-                ? cycle.critical
-                  ? MASTER_YI_COMBAT_POLICY.criticalClip
-                  : MASTER_YI_COMBAT_POLICY.attackClip
+                ? masterYiAttackClip(masterYiAttackKind(unit.id, cycle.startTick, cycle.critical))
                 : unit.champion === 'ahri'
                   ? cycle.critical
                     ? AHRI_COMBAT_POLICY.criticalClip

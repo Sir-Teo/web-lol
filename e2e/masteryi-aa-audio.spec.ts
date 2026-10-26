@@ -73,11 +73,22 @@ async function open(page: Page, reset = true, url = '/?scene=fixture&champion=ma
       probe.synth++;
       return osc();
     };
+    const selector = await import('/src/simulation/masteryi-attack-kind.ts');
+    (probe as any).startKind = (kind: string, target: any) => {
+      w.setOrder(w.hero, { type: 'idle' });
+      w.step(Math.max(0, w.hero.nextAttackTick - w.tick));
+      while (kind !== 'crit' && selector.masterYiAttackKind(w.hero.id, w.tick + 1, false) !== kind)
+        w.step();
+      w.criticalChance = () => (kind === 'crit' ? 1 : 0);
+      w.setOrder(w.hero, { type: 'attack', target: target.id });
+      w.step();
+      return w.player.masterYiAAAudio.at(-1);
+    };
     (window as any).__AA__ = probe;
   }, reset);
 }
 
-test('all 24 source masters preserve exact float PCM in real browser AudioBuffers', async ({
+test('all 28 source masters preserve exact float PCM in real browser AudioBuffers', async ({
   page,
 }, info) => {
   await open(page);
@@ -127,7 +138,7 @@ test('all 24 source masters preserve exact float PCM in real browser AudioBuffer
   writeFileSync(info.outputPath('float-masters.json'), JSON.stringify(result, null, 2));
 });
 
-test('normal and critical swings play their own delayed cast and material impact without synthesized duplicates', async ({
+test('both ordinary and critical swings play their own delayed cast and material impact without synthesized duplicates', async ({
   page,
 }, info) => {
   await open(page);
@@ -137,22 +148,18 @@ test('normal and critical swings play their own delayed cast and material impact
       p = (window as any).__AA__,
       cases = [];
     w.battlefield.lineOfSight = () => true;
-    for (const critical of [false, true]) {
+    for (const kind of ['attack1', 'attack2', 'crit']) {
       g.audio.masterYiAA.stop();
       w.setOrder(w.hero, { type: 'idle' });
       const target = w.spawn('siege', 'red', { x: 90, y: 0 });
       target.ai = false;
       target.hp = target.maxHp = 100000;
-      w.criticalChance = () => (critical ? 1 : 0);
-      w.step(Math.max(1, w.hero.nextAttackTick - w.tick + 1));
-      w.setOrder(w.hero, { type: 'attack', target: target.id });
-      w.step();
-      const r = w.player.masterYiAAAudio.at(-1),
+      const r = p.startKind(kind, target),
         before = p.calls.length;
       p.update();
       w.step(r.releaseTick - w.tick);
       p.update();
-      cases.push({ critical, record: structuredClone(r), calls: p.calls.slice(before) });
+      cases.push({ kind, record: structuredClone(r), calls: p.calls.slice(before) });
       w.setOrder(w.hero, { type: 'idle' });
       w.step(200);
       p.update();
@@ -161,7 +168,7 @@ test('normal and critical swings play their own delayed cast and material impact
   });
   expect(result.synth).toBe(0);
   for (const c of result.cases) {
-    expect(c.record.kind).toBe(c.critical ? 'crit' : 'attack1');
+    expect(c.record.kind).toBe(c.kind);
     expect(c.record.impact.material).toBe('Metal');
     expect(c.calls).toHaveLength(2);
     for (const call of c.calls) {
@@ -170,7 +177,7 @@ test('normal and critical swings play their own delayed cast and material impact
       expect(profile.variants.some((v) => v.id === call.media)).toBe(true);
       expect(call.loop).toBe(false);
       expect(call.gain).toBeGreaterThan(0);
-      expect(Math.abs(1200 * Math.log2(call.rate))).toBeLessThan(c.critical ? 200 : 100);
+      expect(Math.abs(1200 * Math.log2(call.rate))).toBeLessThan(c.kind === 'crit' ? 200 : 100);
     }
     expect(P[c.calls[0].profileIndex].phase).toBe('cast');
     expect(P[c.calls[1].profileIndex].phase).toBe('hit');
@@ -178,20 +185,19 @@ test('normal and critical swings play their own delayed cast and material impact
   writeFileSync(info.outputPath('attack-playback.json'), JSON.stringify(result, null, 2));
 });
 
-for (const critical of [false, true])
-  test(`${critical ? 'critical' : 'normal'} mid-windup Save match and reload retain exact history, pitch-adjusted seek and future impact`, async ({
+for (const kind of ['attack1', 'attack2', 'crit'] as const)
+  test(`${kind} mid-windup Save match and reload retain exact history, pitch-adjusted seek and future impact`, async ({
     page,
   }, info) => {
     await open(page);
-    const before = await page.evaluate((critical) => {
+    const before = await page.evaluate((kind) => {
       const g = (window as any).__GAME__,
         w = g.world;
       const target = w.spawn('siege', 'red', { x: 90, y: 0 });
       target.ai = false;
       target.hp = target.maxHp = 100000;
-      w.criticalChance = () => (critical ? 1 : 0);
-      w.setOrder(w.hero, { type: 'attack', target: target.id });
-      w.step(critical ? 15 : 7);
+      (window as any).__AA__.startKind(kind, target);
+      w.step(kind === 'crit' ? 14 : 6);
       const saved = w.snapshot(),
         copy = w.constructor.fromSnapshot(saved, w.battlefield);
       copy.step(100);
@@ -201,8 +207,8 @@ for (const critical of [false, true])
         record: structuredClone(w.player.masterYiAAAudio[0]),
         tick: w.tick,
       };
-    }, critical);
-    expect(before.record.kind).toBe(critical ? 'crit' : 'attack1');
+    }, kind);
+    expect(before.record.kind).toBe(kind);
     expect(before.tick).toBeLessThan(before.record.releaseTick);
     await page.keyboard.press('Escape');
     await page.getByRole('button', { name: 'Save match', exact: true }).click();
@@ -260,12 +266,12 @@ test('ordinary startup skips Yi audio and late Yi presence fetches each unique m
     g.audio.updateGaren(g.world);
   });
   await page.waitForFunction(() => (window as any).__GAME__.audio.masterYiAA.status === 'ready');
-  expect(requests).toBe(24);
+  expect(requests).toBe(28);
   await page.evaluate(() => {
     const g = (window as any).__GAME__;
     for (let i = 0; i < 30; i++) g.audio.updateGaren(g.world);
   });
-  expect(requests).toBe(24);
+  expect(requests).toBe(28);
   writeFileSync(info.outputPath('late-presence.json'), JSON.stringify({ initial: 0, requests }));
 });
 
@@ -350,7 +356,7 @@ test('missing/late media keep one bounded fallback and an explicit retry never d
   });
   expect(failed).toMatchObject({ status: 'failed', calls: 0, synth: 1 });
   expect(attempts).toBe(1);
-  expect(requests).toBe(24);
+  expect(requests).toBe(28);
   await page.unroute('**/masteryi-aa-104024387.wav');
   const recovered = await page.evaluate(async () => {
     const g = (window as any).__GAME__,
@@ -378,7 +384,7 @@ test('missing/late media keep one bounded fallback and an explicit retry never d
   expect(recovered.calls).toHaveLength(2);
   expect(recovered.synth).toBe(1);
   expect(recovered.start).toBeGreaterThan(failed.start);
-  expect(requests).toBe(25);
+  expect(requests).toBe(29);
   writeFileSync(
     'artifacts/masteryi-aa-failure.json',
     JSON.stringify({ failed, recovered, attempts, requests }, null, 2) + '\n'

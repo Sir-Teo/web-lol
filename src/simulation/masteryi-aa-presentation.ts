@@ -1,3 +1,4 @@
+import { masterYiAttackKind, type MasterYiAttackKind } from './masteryi-attack-kind';
 import {
   MASTER_YI_AA_CAST_TICKS,
   MASTER_YI_AA_HIT_TICKS,
@@ -16,7 +17,7 @@ export interface MasterYiAttackAudio {
   trailFrames: import('./actor-root-history').ActorRootRun[];
   releaseTick: number;
   endTick: number;
-  kind: 'attack1' | 'crit';
+  kind: MasterYiAttackKind;
   targetId: number;
   targetTeam: Faction;
   targetRig: string | null;
@@ -50,7 +51,7 @@ export function beginMasterYiAttack(
     trailFrames: [],
     releaseTick: unit.releaseTick!,
     endTick: cycle.endTick,
-    kind: cycle.critical ? 'crit' : 'attack1',
+    kind: masterYiAttackKind(unit.id, tick, cycle.critical),
     targetId: target.id,
     targetTeam: target.team,
     targetRig: attackSoundRig(target),
@@ -99,6 +100,7 @@ export function validateMasterYiAttacks(
       r.startTick > world.tick ||
       r.releaseTick <= r.startTick ||
       r.endTick <= r.releaseTick ||
+      r.kind !== masterYiAttackKind(unit.id, r.startTick, r.kind === 'crit') ||
       r.targetId === unit.id ||
       r.targetId >= world.nextId ||
       r.targetTeam === unit.team ||
@@ -135,7 +137,7 @@ export function validateMasterYiAttacks(
       !r ||
       r.endTick !== cycle.endTick ||
       (unit.releaseTick !== null && r.releaseTick !== unit.releaseTick) ||
-      r.kind !== (cycle.critical ? 'crit' : 'attack1') ||
+      r.kind !== masterYiAttackKind(unit.id, cycle.startTick, cycle.critical) ||
       r.cancelTick !== null
     )
       throw new Error('Saved match lacks its Master Yi attack audio history.');

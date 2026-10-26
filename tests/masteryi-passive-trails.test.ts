@@ -185,7 +185,7 @@ test('both source systems retain all 25 mips and reuse the exact primary geometr
   expect(data.mesh.sha256).toBe(primaryData.mesh.sha256);
   expect(
     data.textures.filter((t) => primaryData.textures.some((p) => p.url === t.url))
-  ).toHaveLength(2);
+  ).toHaveLength(3);
 });
 test.each([0, 1])(
   'event %s has one finite first-update particle with literal source offset and scroll',

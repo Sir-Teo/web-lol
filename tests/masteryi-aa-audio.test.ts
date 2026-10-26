@@ -10,7 +10,7 @@ const raw = (path: string) => {
   const b = readFileSync(path);
   return b.buffer.slice(b.byteOffset, b.byteOffset + b.byteLength) as ArrayBuffer;
 };
-const record = (kind: 'attack1' | 'crit' = 'attack1'): MasterYiAARecord => ({
+const record = (kind: 'attack1' | 'attack2' | 'crit' = 'attack1'): MasterYiAARecord => ({
   id: 7,
   trailFrames: [],
   startTick: 100,
@@ -34,10 +34,10 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 
-test('all 24 published float masters retain exact source bytes, PCM and headroom', async () => {
+test('all 28 published float masters retain exact source bytes, PCM and headroom', async () => {
   const decoded = JSON.parse(readFileSync('docs/reference/masteryi/audio-decoded.json', 'utf8'));
   const clips = new Map(P.flatMap((p) => p.variants.map((v) => [v.id, v] as const)));
-  expect(clips.size).toBe(24);
+  expect(clips.size).toBe(28);
   let headroom = false;
   for (const clip of clips.values()) {
     const data = raw('public/' + clip.url),
@@ -78,13 +78,13 @@ test.each(['extent', 'format', 'channels', 'rate', 'frames', 'nan', 'hash'])(
   }
 );
 
-test.each(['attack1', 'crit'] as const)(
+test.each(['attack1', 'attack2', 'crit'] as const)(
   '%s samples independent pitch and authored delay without changing contact time',
   (kind) => {
     const r = record(kind),
       initial = masterYiAAStates([r], 100);
     expect(initial).toHaveLength(1);
-    expect(initial[0].leadSeconds).toBe(kind === 'crit' ? 0.2 : 0.05);
+    expect(initial[0].leadSeconds).toBe(kind === 'crit' ? 0.2 : kind === 'attack2' ? 0.055 : 0.05);
     expect(initial[0].offset).toBe(0);
     expect(masterYiAAStates([r], 99)).toEqual([]);
     expect(masterYiAAStates([r], 100)).toEqual(initial);
@@ -101,7 +101,7 @@ test.each(['attack1', 'crit'] as const)(
   }
 );
 
-test.each(['attack1', 'crit'] as const)(
+test.each(['attack1', 'attack2', 'crit'] as const)(
   '%s resumes in source seconds at the exact AudioParam float32 rate',
   (kind) => {
     for (let id = 1; id <= 100; id++) {
@@ -191,7 +191,7 @@ test('global source cap kills the oldest same-container cue, and fallback suppre
   f.update([r], 122);
   expect(f.audio.voices.size).toBe(0);
 });
-test('resource loading deduplicates all 24 files and retries only the failed master explicitly', async () => {
+test('resource loading deduplicates all 28 files and retries only the failed master explicitly', async () => {
   const copied: Float32Array[] = [];
   vi.stubGlobal(
     'AudioBuffer',
@@ -213,12 +213,12 @@ test('resource loading deduplicates all 24 files and retries only the failed mas
   expect(audio.load()).toBe(first);
   await first;
   expect(audio.status).toBe('failed');
-  expect(fetcher).toHaveBeenCalledTimes(24);
+  expect(fetcher).toHaveBeenCalledTimes(28);
   fail = false;
   await audio.load();
   expect(audio.status).toBe('ready');
-  expect(fetcher).toHaveBeenCalledTimes(25);
-  expect(copied).toHaveLength(24);
+  expect(fetcher).toHaveBeenCalledTimes(29);
+  expect(copied).toHaveLength(28);
   await audio.load();
-  expect(fetcher).toHaveBeenCalledTimes(25);
+  expect(fetcher).toHaveBeenCalledTimes(29);
 });

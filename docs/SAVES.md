@@ -1,6 +1,14 @@
 # Local match checkpoints
 
-Current schema **161** adds separate saved Double Strike trail histories. Each
+Current schema **162** admits both ordinary Master Yi attack kinds alongside
+critical attacks. Saved primary kind must match the indexed local cosmetic
+choice from the two explicit source weights, and current-cycle linkage remains
+strict. Body, trail and distinct source audio cues share that identity. Existing
+root windows and finite audio tails remain bounded; gameplay RNG and timing are
+unchanged. Earlier schemas/fingerprints remain incompatible. See
+[source attack choices](MASTER-YI-ATTACK-SELECTION.md).
+
+Schema **161** adds separate saved Double Strike trail histories. Each
 accepted child stores its clocks/target, two current-pose marker decisions, pose
 cut and rolling lossless 16-tick root/visibility window. Decoding checks ordered
 identity, active-child linkage, decision clocks, canonical coverage/endpoints and

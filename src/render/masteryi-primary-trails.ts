@@ -121,7 +121,7 @@ export class PrimaryTrails extends SourceParticleSurfaces<Group> {
                 seed: unit.id ^ Math.imul(record.startTick, 0x9e3779b9),
                 record,
                 unitId: unit.id,
-                profileIndex: record.kind === 'crit' ? 1 : 0,
+                profileIndex: record.kind === 'attack1' ? 0 : record.kind === 'attack2' ? 1 : 2,
                 terminalTick: world.winner ? world.tick : Infinity,
               },
             };
