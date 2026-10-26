@@ -105,3 +105,15 @@ a different profile requires separate output/record paths and a reviewed digest.
 Source and decoded artifacts remain private. GLB conversion, authored mip GPU
 transport, shader/attachment/lifecycle sampling and dispatch are still separate
 work. Exact source archive and evidence: [decode verification ledger](reference/masteryi/w-particle-decode-verification.json).
+
+## Private GPU transport probe
+
+The shared [decode-once loader](MASTER-YI-Q-CONTACTS.md#decode-once-mip-transport)
+now also passes a private Meditate probe: 18 lossless transport PNGs (1,531,899
+bytes) preserve all 153 authored mip pixel hashes through actual Three GPU
+upload/readback in local Chromium/SwiftShader. API instrumentation observes one
+PNG decode per texture, 153 crops and 171 bitmaps closed exactly once; the saved
+simulation remains unchanged. The probe's pack script, browser script, complete
+pixel results and transport file identities are retained in the loader ledger.
+These transports remain private and add no public files or Meditate dispatch.
+Native GPU parity, mesh transport, shaders and lifecycle work remain separate.

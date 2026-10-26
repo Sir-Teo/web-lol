@@ -54,20 +54,31 @@ export async function loadAuthoredMipTexture(asset: AuthoredMipAsset, lookup: bo
     throw Error('Invalid authored mip container');
   const raw = await checkedAssetBytes(asset.url, asset.bytes, asset.sha256),
     blob = new Blob([raw], { type: 'image/png' });
-  const outcomes = await Promise.allSettled(
-    rectangles.map(async (r) => {
-      const image = await createImageBitmap(blob, r.x, r.y, r.width, r.height, {
-        premultiplyAlpha: 'none',
-        colorSpaceConversion: 'none',
-        imageOrientation: 'none',
-      });
-      if (image.width !== r.width || image.height !== r.height) {
-        image.close();
-        throw Error('Browser resized an authored mip');
-      }
-      return image;
-    })
-  );
+  const options: ImageBitmapOptions = {
+      premultiplyAlpha: 'none',
+      colorSpaceConversion: 'none',
+      imageOrientation: 'none',
+    },
+    atlas = await createImageBitmap(blob, options);
+  let outcomes: PromiseSettledResult<ImageBitmap>[];
+  try {
+    if (atlas.width !== asset.width || atlas.height !== asset.height)
+      throw Error('Browser resized the authored mip container');
+    // Decode PNG once. Every crop remains a separate authored level, never a
+    // resize, Canvas conversion, atlas sample or generated mip chain.
+    outcomes = await Promise.allSettled(
+      rectangles.map(async (r) => {
+        const image = await createImageBitmap(atlas, r.x, r.y, r.width, r.height, options);
+        if (image.width !== r.width || image.height !== r.height) {
+          image.close();
+          throw Error('Browser resized an authored mip');
+        }
+        return image;
+      })
+    );
+  } finally {
+    atlas.close();
+  }
   const images = outcomes.flatMap((r) => (r.status === 'fulfilled' ? [r.value] : []));
   const failed = outcomes.find((r) => r.status === 'rejected');
   if (failed?.status === 'rejected') {

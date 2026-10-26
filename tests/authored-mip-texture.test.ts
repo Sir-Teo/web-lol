@@ -15,11 +15,23 @@ beforeEach(() => {
   );
   vi.stubGlobal(
     'createImageBitmap',
-    vi.fn(async (_blob: Blob, _x: number, _y: number, width: number, height: number) => {
-      const image = { width, height, close: vi.fn() };
-      images.push(image);
-      return image;
-    })
+    vi.fn(
+      async (
+        input: Blob | object,
+        _x?: number | object,
+        _y?: number,
+        width?: number,
+        height?: number
+      ) => {
+        const image = {
+          width: input instanceof Blob ? asset.width : width!,
+          height: input instanceof Blob ? asset.height : height!,
+          close: vi.fn(),
+        };
+        images.push(image);
+        return image;
+      }
+    )
   );
 });
 afterEach(() => {
@@ -31,19 +43,27 @@ test('verified transport extracts all authored levels including zero with no col
   const resource = await loadAuthoredMipTexture(asset, false),
     texture = resource.texture;
   expect(fetch).toHaveBeenCalledWith('/' + asset.url);
-  expect(createImageBitmap).toHaveBeenCalledTimes(asset.rectangles.length);
+  expect(createImageBitmap).toHaveBeenCalledTimes(asset.rectangles.length + 1);
+  expect(createImageBitmap).toHaveBeenNthCalledWith(1, expect.any(Blob), {
+    premultiplyAlpha: 'none',
+    colorSpaceConversion: 'none',
+    imageOrientation: 'none',
+  });
+  const atlas = images[0];
+  expect(atlas.close).toHaveBeenCalledTimes(1);
   for (const r of asset.rectangles)
     expect(createImageBitmap).toHaveBeenNthCalledWith(
-      r.level + 1,
-      expect.any(Blob),
+      r.level + 2,
+      atlas,
       r.x,
       r.y,
       r.width,
       r.height,
       { premultiplyAlpha: 'none', colorSpaceConversion: 'none', imageOrientation: 'none' }
     );
-  expect(texture.image).toBe(images[0]);
-  expect(texture.mipmaps).toEqual(images);
+  expect(texture.image).toBe(images[1]);
+  expect(texture.mipmaps).toEqual(images.slice(1));
+  images.slice(1).forEach((image) => expect(image.close).not.toHaveBeenCalled());
   expect(texture.colorSpace).toBe(THREE.NoColorSpace);
   expect(texture.flipY).toBe(false);
   expect(texture.premultiplyAlpha).toBe(false);
@@ -69,6 +89,25 @@ test('lookup retains authored levels with the local clamped linear sampler', asy
   resource.dispose();
 });
 
+test.each(['rejected', 'resized'])(
+  'a %s container decode never starts crops and releases any allocated bitmap',
+  async (kind) => {
+    const atlas = { width: asset.width + 1, height: asset.height, close: vi.fn() };
+    vi.stubGlobal(
+      'createImageBitmap',
+      vi.fn(async () => {
+        if (kind === 'rejected') throw Error('container decode failed');
+        return atlas;
+      })
+    );
+    await expect(loadAuthoredMipTexture(asset, false)).rejects.toThrow(
+      kind === 'rejected' ? 'container decode failed' : 'resized'
+    );
+    expect(createImageBitmap).toHaveBeenCalledTimes(1);
+    expect(atlas.close).toHaveBeenCalledTimes(kind === 'rejected' ? 0 : 1);
+  }
+);
+
 test.each(['status', 'length', 'checksum'])(
   'rejects %s failure before bitmap allocation',
   async (kind) => {
@@ -90,23 +129,36 @@ test.each(['rejected', 'resized'])(
     let ordinal = 0;
     vi.stubGlobal(
       'createImageBitmap',
-      vi.fn(async (_blob: Blob, _x: number, _y: number, width: number, height: number) => {
-        const index = ordinal++;
-        if (index === 2 && kind === 'rejected') throw Error('crop failed');
-        await Promise.resolve();
-        const image = {
-          width: width + (index === 2 && kind === 'resized' ? 1 : 0),
-          height,
-          close: vi.fn(),
-        };
-        images.push(image);
-        return image;
-      })
+      vi.fn(
+        async (
+          input: Blob | object,
+          _x?: number | object,
+          _y?: number,
+          width?: number,
+          height?: number
+        ) => {
+          if (input instanceof Blob) {
+            const atlas = { width: asset.width, height: asset.height, close: vi.fn() };
+            images.push(atlas);
+            return atlas;
+          }
+          const index = ordinal++;
+          if (index === 2 && kind === 'rejected') throw Error('crop failed');
+          await Promise.resolve();
+          const image = {
+            width: width! + (index === 2 && kind === 'resized' ? 1 : 0),
+            height: height!,
+            close: vi.fn(),
+          };
+          images.push(image);
+          return image;
+        }
+      )
     );
     await expect(loadAuthoredMipTexture(asset, false)).rejects.toThrow(
       kind === 'rejected' ? 'crop failed' : 'resized'
     );
-    expect(images).toHaveLength(asset.rectangles.length - (kind === 'rejected' ? 1 : 0));
+    expect(images).toHaveLength(asset.rectangles.length + 1 - (kind === 'rejected' ? 1 : 0));
     images.forEach((image) => expect(image.close).toHaveBeenCalledTimes(1));
   }
 );

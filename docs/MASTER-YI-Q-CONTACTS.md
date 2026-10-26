@@ -117,3 +117,28 @@ source goldens were not loosened. See [source-audit cache status](SOURCE-AUDIT-C
 
 Identities, original diagnostics, final checks and screenshots:
 [verification ledger](reference/masteryi/q-contact-verification.json).
+
+## Decode-once mip transport
+
+The shared loader now decodes each verified transport PNG once, validates the
+complete container dimensions, then crops every authored mip from that decoded
+ImageBitmap. Both steps explicitly disable premultiplication, color conversion
+and orientation changes. Every level, including zero, still uploads separately
+through Three; no mip is resized, generated or sampled from the atlas. The
+temporary container closes after all crop outcomes settle. Crop failures close
+every successful sibling; disposal closes retained mip bitmaps exactly once.
+
+Forty-five focused loader, particle and saved-compatibility checks pass, as do
+TypeScript/production build and all three Q contact browser cases. Actual GPU
+readback retains all 59 authored pixel hashes; ordinary/critical saves and
+selective retry retain their original assertions and deadlines. The loader is
+already covered by the saved-match dependency graph, so its changed ruleset
+identity invalidates incompatible saves without changing schema 149.
+
+A supplemental private Meditate transport probe verifies all 18 textures/153
+mips through the same loader and actual Three upload. It observes 18 PNG decodes,
+153 bitmap crops and all 171 allocations closed exactly once, with no simulation
+change. This proves the input/lifecycle reduction and local pixel preservation;
+no device, FPS, native GPU decoder, full production-input or offline-install
+certificate is inferred. Exact source archive and staged evidence:
+[loader verification ledger](reference/authored-mip-decode-once-verification.json).
