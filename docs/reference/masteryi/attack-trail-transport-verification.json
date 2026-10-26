@@ -1,0 +1,331 @@
+{
+  "format": 1,
+  "parentCommit": "491dc0c81781fef83ccae1fb03d40c8abf8bb589",
+  "identityUnchanged": {
+    "schema": 159,
+    "rulesetFingerprint": "71111678d445f50ff88fa7903d82ff3200eeca9f0189105d0c65981dd19e3eec",
+    "offlinePack": {
+      "id": "6043491cef1aafacfe45b3c34e6301eb351f6e83b3aae686e159d5f2c0370f67",
+      "files": 1180,
+      "bytes": 537099451
+    }
+  },
+  "scope": "Pack all 34 authored attack-trail mip levels into four private PNG transports and convert the shared mesh into one private, validated GLB. Preserve original triangle/UV order, face RGB audit data, pivot/bounds/tail metadata and explicit .01 transport scale. No renderer, public asset or timing policy.",
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/attack-trail-particles.json",
+      "bytes": 26723,
+      "sha256": "66516333b70c1557feab0b1b69a29bc119dd3675d3b04df36484cd842100c7e1"
+    },
+    {
+      "path": "docs/reference/masteryi/attack-trail-particles-decoded.json",
+      "bytes": 29959,
+      "sha256": "93bf9c506872bd7ba6d47e74588133b559c6e8f26ea548abff7e75878bcd27e1"
+    },
+    {
+      "path": "docs/reference/masteryi/attack-trail-decode-verification.json",
+      "bytes": 23174,
+      "sha256": "c9c03ce78e2204c9c21f785086db73ed60abfa1776d4b279df0106ba6e680b0e"
+    },
+    {
+      "path": "docs/reference/masteryi/sword-instancing-verification.json",
+      "bytes": 45969,
+      "sha256": "86ff1124d3a42d8e2c026a8b01b66e6812510622c66f6535b442029b157c1618"
+    },
+    {
+      "path": "tools/assets/masteryi_attack_trails.py",
+      "bytes": 7088,
+      "sha256": "a917d7b6dca7c1f9b07ee90991b46406c683349edc7bed8e05bb55aefad240dc"
+    },
+    {
+      "path": "tools/assets/decode-masteryi-attack-trails.py",
+      "bytes": 4338,
+      "sha256": "ce5651f1bc514fc01f08267a11727859af676c665e319b65340f44d9c51dadcd"
+    },
+    {
+      "path": "tools/assets/masteryi_q_decode.py",
+      "bytes": 7372,
+      "sha256": "552f2cf9a0cb552a97332a142bbea6f25a3b0e2c2974359a58659a2c17517ecd"
+    },
+    {
+      "path": "tools/assets/particle_mip_atlas.py",
+      "bytes": 4181,
+      "sha256": "4ba50521c7a4c0d061bbf2f8363b7a84b4db9a4bf480e3d52ae101aec6538fd6"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-attack-trail-transport-cloud/final-source-index.json",
+    "bytes": 1822,
+    "sha256": "b9361d7c96219e1ff913ca2bcd331132be5edfc73584763e238d505980f67c9a"
+  },
+  "generated": [
+    {
+      "path": "docs/MASTER-YI-ATTACK-TRAILS.md",
+      "bytes": 7547,
+      "sha256": "7d1ca47f8196174d0dd3078263f83c76782ef9585b343ccb5e6fdbc3baa2e578",
+      "archived": ".cache/masteryi-attack-trail-transport-cloud/final-source/docs/MASTER-YI-ATTACK-TRAILS.md"
+    },
+    {
+      "path": "docs/reference/masteryi/attack-trail-mesh-transport.json",
+      "bytes": 1634,
+      "sha256": "a7b5eb7e27d0f0ff64627a0eb256fb8643718ccd1d12a105e61f8bdf7fcc1673",
+      "archived": ".cache/masteryi-attack-trail-transport-cloud/final-source/docs/reference/masteryi/attack-trail-mesh-transport.json"
+    },
+    {
+      "path": "docs/reference/masteryi/attack-trail-texture-transport.json",
+      "bytes": 10828,
+      "sha256": "877c8dcc1750c70226ba5f08c56fb3d2621dac3d75fc95e598e3c05ddf6b363b",
+      "archived": ".cache/masteryi-attack-trail-transport-cloud/final-source/docs/reference/masteryi/attack-trail-texture-transport.json"
+    },
+    {
+      "path": "tools/assets/convert-masteryi-attack-trail-mesh.mjs",
+      "bytes": 5247,
+      "sha256": "2b99b7d50ef59e704719374de89d6f25d60f5b7eb0e4b0f16bd7f62b6e8b5ed5",
+      "archived": ".cache/masteryi-attack-trail-transport-cloud/final-source/tools/assets/convert-masteryi-attack-trail-mesh.mjs"
+    },
+    {
+      "path": "tools/assets/pack-masteryi-attack-trail-textures.py",
+      "bytes": 5699,
+      "sha256": "8927df719647425b02fed1ff86247739cb7f6c91a45be36849d074148eec1384",
+      "archived": ".cache/masteryi-attack-trail-transport-cloud/final-source/tools/assets/pack-masteryi-attack-trail-textures.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-attack-trail-transport.py",
+      "bytes": 5083,
+      "sha256": "d3dc0ca73c11d2a864c8925c22633f4a90957988cd9d04660d43ab9cd9ad9a6c",
+      "archived": ".cache/masteryi-attack-trail-transport-cloud/final-source/tools/assets/test-masteryi-attack-trail-transport.py"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-attack-trail-transport-cloud/check-replay.log",
+      "bytes": 75,
+      "sha256": "c5f432032c748d06dcda0c123e94f7321b4e9bd1c42a3baa15bb4239bcfcdb49"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-transport-cloud/check-replay.py",
+      "bytes": 1789,
+      "sha256": "76168374875d8497c420587f1c7512c86bbd016823283724239413f0cb7b0bdf"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-transport-cloud/final-source-index.json",
+      "bytes": 1822,
+      "sha256": "b9361d7c96219e1ff913ca2bcd331132be5edfc73584763e238d505980f67c9a"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-transport-cloud/format-node.log",
+      "bytes": 69,
+      "sha256": "67c830a5d7dbbc6d9d1a6c2d6c1acf4bf6f44b57b4c476cb2f2b36b7a1886d9a"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-transport-cloud/guards-initial.log",
+      "bytes": 110,
+      "sha256": "7593aab417e065b72c260cc6ebba12e0933c16abf5d5b74b73a4193e9a107f07"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-transport-cloud/guards-normal.log",
+      "bytes": 110,
+      "sha256": "9e5089ef228de583fb119b588a98fc2e64d13ce1d417865d0b4ceb065ac795bf"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-transport-cloud/guards-optimized.log",
+      "bytes": 110,
+      "sha256": "48ffbac5ee2cc5759fa8db5b2756d47fc5fa15058d3e02f529d19477ccde3113"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-transport-cloud/identity.json",
+      "bytes": 256,
+      "sha256": "18f57cc8da501b5c6ad7c2da23fcbd2859b269976d02ffff405d8217a4ee6339"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-transport-cloud/mesh-initial.log",
+      "bytes": 1736,
+      "sha256": "136b5ede20c5040a78d5bebad27d9a3a906a1e150185f62fbce7a692f126b8b0"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-transport-cloud/mesh-replay-0.log",
+      "bytes": 1736,
+      "sha256": "136b5ede20c5040a78d5bebad27d9a3a906a1e150185f62fbce7a692f126b8b0"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-transport-cloud/mesh-replay-1.log",
+      "bytes": 1736,
+      "sha256": "136b5ede20c5040a78d5bebad27d9a3a906a1e150185f62fbce7a692f126b8b0"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-transport-cloud/pack-check-normal.log",
+      "bytes": 100,
+      "sha256": "144f759c4f8d967b000344a2617857853bfe98374b2b7cc7c9ae3f38cc43a68e"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-transport-cloud/pack-check-optimized.log",
+      "bytes": 100,
+      "sha256": "144f759c4f8d967b000344a2617857853bfe98374b2b7cc7c9ae3f38cc43a68e"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-transport-cloud/pack-initial.log",
+      "bytes": 99,
+      "sha256": "498d8fbc47c33475323c47b4c54b7c816f17e86948f18afd4e735e8c7eab0380"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-transport-cloud/pack-replay-normal.log",
+      "bytes": 99,
+      "sha256": "498d8fbc47c33475323c47b4c54b7c816f17e86948f18afd4e735e8c7eab0380"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-transport-cloud/pack-replay-optimized.log",
+      "bytes": 99,
+      "sha256": "498d8fbc47c33475323c47b4c54b7c816f17e86948f18afd4e735e8c7eab0380"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-transport-cloud/record-verification.py",
+      "bytes": 4774,
+      "sha256": "2f843548a6bf32aea524f05f6cbbcc9b4de9259bac416278b197d80ca99b8001"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-transport-cloud/replay.json",
+      "bytes": 2098,
+      "sha256": "ca1528e2c527240130ea435fc1eb8671d4c23642329d626c38685fd97103d5a4"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-transport-cloud/ruleset.txt",
+      "bytes": 65,
+      "sha256": "330a01ae4ed46a7353a0a604fb7bcbd5646170600dc2544a5dfa2c4ecba27772"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-transport-cloud/source-scope.json",
+      "bytes": 339,
+      "sha256": "9fca494a22194dd6dfe12955851317e8c2cf27302ee3bce1c23238e579352757"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-packed-v2/dba30aea46f8d87f.png",
+      "bytes": 702,
+      "sha256": "30df4a0ee4cd6cc8d680584586e77e764328930403fae425708a9e845c0edcc8"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-packed-v2/7e6f398c1b239116.png",
+      "bytes": 9629,
+      "sha256": "50120404ca5290592df24045f1c35f0013aca367fb4bcd43116fb03ff79e02ce"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-packed-v2/52a4a423e68d3e41.png",
+      "bytes": 9611,
+      "sha256": "83ae474e0009a1ddc3668c18ef0dd00e57d831a898537924b6dc47784b736d0c"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-packed-v2/cf0e2d42d914fcea.png",
+      "bytes": 10186,
+      "sha256": "95e438ccce22641aebd677028380c62069b6a9b105c64a573c75f6d5d7c05bb7"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-packed-v2/textures.json",
+      "bytes": 10828,
+      "sha256": "877c8dcc1750c70226ba5f08c56fb3d2621dac3d75fc95e598e3c05ddf6b363b"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-packed-v2/masteryi-attack-trail.glb",
+      "bytes": 38976,
+      "sha256": "dcda4441fb23413a7672b2aa26e23f1bda81920353d25c6e0f3168b0055450b2"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-packed-v2/masteryi-attack-trail.glb.json",
+      "bytes": 1634,
+      "sha256": "a7b5eb7e27d0f0ff64627a0eb256fb8643718ccd1d12a105e61f8bdf7fcc1673"
+    }
+  ],
+  "checks": {
+    "sourceGuards": {
+      "casesPerMode": 11,
+      "modes": [
+        "normal",
+        "optimized"
+      ],
+      "independentGlbCheck": "standard-library parse; every expanded position/UV/face byte matches native data; one untransformed node, no indices/normal/skin/animation"
+    },
+    "textures": {
+      "count": 4,
+      "authoredMips": 34,
+      "packedBytes": 30128,
+      "recoveredPixelHashes": "all exact"
+    },
+    "mesh": {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/common_hecarim_weapontrail_1.scb",
+        "wadPathHash": "c50c28e04b24520d",
+        "sha256": "245641757e8b039187d485d4353664635ad800607b68a7d23344d62effd0c7b1",
+        "bytes": 57716
+      },
+      "decoded": {
+        "path": ".cache/masteryi-attack-trail-particles-decoded/meshes/c50c28e04b24520d.json",
+        "sha256": "420342d5bfd77ae62f3675572f18ca74901b539167605be7246807b8e3b534a3"
+      },
+      "output": {
+        "path": ".cache/masteryi-attack-trail-packed-v2/masteryi-attack-trail.glb",
+        "bytes": 38976,
+        "sha256": "dcda4441fb23413a7672b2aa26e23f1bda81920353d25c6e0f3168b0055450b2"
+      },
+      "sourceVertices": 250,
+      "triangles": 500,
+      "exportedCorners": 1500,
+      "attributes": {
+        "positionFloat32Sha256": "daed22bea5386c3970716477e553d52701797fe38304ea2f14631b1ae0e0d114",
+        "uvFloat32Sha256": "5daff7bed11e03c5bc3d22d83824a80d459f54488af54ff371d60753651b72ed",
+        "faceRgbSha256": "01061ebf87db809151544920c6f2a870ea272d4de35c5566a186c3cf6d2ea47b"
+      },
+      "centralPoint": [
+        0.81854248046875,
+        108.53469848632812,
+        96.66189575195312
+      ],
+      "rawSourceBounds": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "measuredMinMax": [
+        -244.35769653320312,
+        1.9384000301361084,
+        -206.14410400390625,
+        245.9947967529297,
+        215.13099670410156,
+        399.4678955078125
+      ],
+      "tailHex": "3789513fc411d942f252c142000000000000000000000000",
+      "flags": 5,
+      "sourceHasVertexColors": false,
+      "sourceFaceRgbAppliedAsMaterial": false,
+      "normalsGenerated": false,
+      "validation": {
+        "errors": 0,
+        "warnings": 0,
+        "roundTripAttributesExact": true
+      }
+    },
+    "checkAndReplay": {
+      "filesUnchangedBytesAndMtimes": 9,
+      "modes": [
+        "normal",
+        "optimized"
+      ],
+      "nodeMeshReplays": 2
+    },
+    "application": "No src/public/tests changes. Schema, current ruleset and built offline-pack identity unchanged. Accepted rendering checks remain historical evidence for this unchanged app."
+  },
+  "limits": [
+    "Private PNG/GLB/audit files do not add runtime loading, public assets, gameplay, schema or application identity.",
+    "Packed mip rectangles must be recovered as separate native-sized levels, including level zero; sampling the packed image directly is invalid.",
+    "Explicit .01 transport scale does not establish native VFX/skin-scale inheritance. No pivot offset, reflection, winding, normals or material tint is applied.",
+    "Opaque face RGB is retained as a custom audit attribute; native hasVertexColors=0 and face-color shader dispatch remain separate facts.",
+    "Source blend/local-orientation omissions, animation frame-time conversion and native callback/lifecycle behavior remain uncalibrated.",
+    "GLB validation, exact attribute bytes and lossless canonical software pixels do not establish native GPU/shader/frame parity.",
+    "Ignored evidence needs preservation; exact changed sources are independently archived."
+  ]
+}

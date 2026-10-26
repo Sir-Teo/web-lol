@@ -94,3 +94,36 @@ any missing output is written. This private software transport adds no public
 files, renderer, state or app identity, and does not certify native GPU decode,
 shader behavior or frame parity. See the
 [decode verification](reference/masteryi/attack-trail-decode-verification.json).
+
+## Private packed transports
+
+The [texture transport](reference/masteryi/attack-trail-texture-transport.json)
+packs all 34 authored mips into four private PNG files totaling 30,128 bytes.
+Each rectangle must be recovered as its own mip, including level zero; sampling
+the packed image as one texture is invalid. Every recovered mip matches the
+decoded source pixels exactly.
+
+The [mesh transport](reference/masteryi/attack-trail-mesh-transport.json) is a
+38,976-byte private GLB with 1,500 expanded triangle corners. Position conversion
+uses an explicit 0.01 transport scale, preserving source triangle/UV order and
+opaque face RGB as a custom normalized audit attribute. Its single mesh/node
+has no transform, normals, generated indices or material tint. Source zero
+header bounds, measured bounds, nonzero pivot, material slots and 24-byte tail
+remain in metadata; no pivot offset, reflection or winding change is applied.
+This scale does not establish native VFX/skin-scale inheritance.
+
+The producer validates the GLB with zero errors/warnings and reimports every
+attribute exactly. A separate standard-library reader checks all actual GLB
+positions, UVs and face-color bytes against the native source data. No renderer,
+event timing, public asset or application identity changes at this checkpoint.
+See [transport verification](reference/masteryi/attack-trail-transport-verification.json).
+
+```sh
+PYTHONPATH=tools/assets python tools/assets/pack-masteryi-attack-trail-textures.py --check
+PYTHONPATH=tools/assets node tools/assets/convert-masteryi-attack-trail-mesh.mjs
+PYTHONPATH=tools/assets python tools/assets/test-masteryi-attack-trail-transport.py
+```
+
+Repeat the Python checks/replay with `-O`; repeat mesh conversion to check its
+deterministic existing-output behavior. Existing differing outputs reject before
+publication, and correct outputs retain bytes and timestamps.

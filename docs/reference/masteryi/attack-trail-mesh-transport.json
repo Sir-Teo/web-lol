@@ -1,0 +1,56 @@
+{
+  "source": {
+    "path": "assets/characters/masteryi/skins/base/particles/common_hecarim_weapontrail_1.scb",
+    "wadPathHash": "c50c28e04b24520d",
+    "sha256": "245641757e8b039187d485d4353664635ad800607b68a7d23344d62effd0c7b1",
+    "bytes": 57716
+  },
+  "decoded": {
+    "path": ".cache/masteryi-attack-trail-particles-decoded/meshes/c50c28e04b24520d.json",
+    "sha256": "420342d5bfd77ae62f3675572f18ca74901b539167605be7246807b8e3b534a3"
+  },
+  "output": {
+    "path": ".cache/masteryi-attack-trail-packed-v2/masteryi-attack-trail.glb",
+    "bytes": 38976,
+    "sha256": "dcda4441fb23413a7672b2aa26e23f1bda81920353d25c6e0f3168b0055450b2"
+  },
+  "sourceVertices": 250,
+  "triangles": 500,
+  "exportedCorners": 1500,
+  "attributes": {
+    "positionFloat32Sha256": "daed22bea5386c3970716477e553d52701797fe38304ea2f14631b1ae0e0d114",
+    "uvFloat32Sha256": "5daff7bed11e03c5bc3d22d83824a80d459f54488af54ff371d60753651b72ed",
+    "faceRgbSha256": "01061ebf87db809151544920c6f2a870ea272d4de35c5566a186c3cf6d2ea47b"
+  },
+  "centralPoint": [
+    0.81854248046875,
+    108.53469848632812,
+    96.66189575195312
+  ],
+  "rawSourceBounds": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "measuredMinMax": [
+    -244.35769653320312,
+    1.9384000301361084,
+    -206.14410400390625,
+    245.9947967529297,
+    215.13099670410156,
+    399.4678955078125
+  ],
+  "tailHex": "3789513fc411d942f252c142000000000000000000000000",
+  "flags": 5,
+  "sourceHasVertexColors": false,
+  "sourceFaceRgbAppliedAsMaterial": false,
+  "normalsGenerated": false,
+  "validation": {
+    "errors": 0,
+    "warnings": 0,
+    "roundTripAttributesExact": true
+  }
+}
