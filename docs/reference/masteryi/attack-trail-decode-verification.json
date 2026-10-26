@@ -1,0 +1,563 @@
+{
+  "format": 1,
+  "parentCommit": "2b1943fe7f641e9393b7d9fab2811abe6457b873",
+  "identityUnchanged": {
+    "schema": 159,
+    "rulesetFingerprint": "71111678d445f50ff88fa7903d82ff3200eeca9f0189105d0c65981dd19e3eec",
+    "offlinePack": {
+      "id": "6043491cef1aafacfe45b3c34e6301eb351f6e83b3aae686e159d5f2c0370f67",
+      "files": 1180,
+      "bytes": 537099451
+    }
+  },
+  "scope": "Privately decode all 34 authored BC1 attack-trail mip levels and retain the shared source SCB as exact JSON. Check all original ANMs separately, preserve common extension/two-mesh defaults, and independently validate typed native mesh data, metadata, stream digests and transport policies. No public assets or runtime changes.",
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/attack-trail-particles.json",
+      "bytes": 26723,
+      "sha256": "66516333b70c1557feab0b1b69a29bc119dd3675d3b04df36484cd842100c7e1"
+    },
+    {
+      "path": "docs/reference/masteryi/attack-trail-source-verification.json",
+      "bytes": 18041,
+      "sha256": "70a2281ff326bf8bc884b6b8f5088615f9a68ac16c18bf64c053d76703b11aad"
+    },
+    {
+      "path": "docs/reference/masteryi-model.json",
+      "bytes": 82053,
+      "sha256": "4295bceeba96cfb15e006d392e7d0f3c480bb51bf8cff8872a9c39fc9873c7ce"
+    },
+    {
+      "path": "docs/reference/masteryi/sword-instancing-verification.json",
+      "bytes": 45969,
+      "sha256": "86ff1124d3a42d8e2c026a8b01b66e6812510622c66f6535b442029b157c1618"
+    },
+    {
+      "path": "tools/assets/masteryi_attack_trails.py",
+      "bytes": 7088,
+      "sha256": "a917d7b6dca7c1f9b07ee90991b46406c683349edc7bed8e05bb55aefad240dc"
+    },
+    {
+      "path": "tools/assets/masteryi_q_particles.py",
+      "bytes": 7165,
+      "sha256": "8373108c738d00d23c47e485b609db18464a81cf6146b608ee9d608e4e604b44"
+    },
+    {
+      "path": "tools/assets/masteryi_q_decode.py",
+      "bytes": 7372,
+      "sha256": "552f2cf9a0cb552a97332a142bbea6f25a3b0e2c2974359a58659a2c17517ecd"
+    },
+    {
+      "path": "tools/assets/decode-masteryi-q-particles.py",
+      "bytes": 10590,
+      "sha256": "9f114c141799f6dc84a6f3884b17b50f6a2a0dc21a2e626a20cbfaf9c9de6964"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/export.py",
+      "bytes": 34168,
+      "sha256": "225ce9d8fb41dc36a17342a7a86dbfc4d5dae51f80316e6a8f065ea878972096"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/fc56205a47bf1655.anm",
+      "bytes": 27538,
+      "sha256": "080db524f0a585960ec5d76f4198d893ed47cc7d689365c8c524ad1e49064586"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/f270dcb52660307f.anm",
+      "bytes": 93524,
+      "sha256": "115a90cdc0521e746b1950075ca1be75d159164ccc81cf119b7e71db21a5d6f1"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/fd8f7ef25ded936e.anm",
+      "bytes": 99348,
+      "sha256": "29ccc45d9148958ddb43fb924a49956bb72ae136c41cecc6a1eb9bbf226a963e"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/872702ffe967d829.anm",
+      "bytes": 102320,
+      "sha256": "58a7fe3ace9ed902c81fda08e993bda5b983d4d7b76e147bc46897b4c247345e"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/dba30aea46f8d87f.tex",
+      "bytes": 2756,
+      "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/c50c28e04b24520d.scb",
+      "bytes": 57716,
+      "sha256": "245641757e8b039187d485d4353664635ad800607b68a7d23344d62effd0c7b1"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/7e6f398c1b239116.tex",
+      "bytes": 43716,
+      "sha256": "6fcbc6941ef3e71a2ae605620ea21afb599c7e91ef89328da154fe91c5071295"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/52a4a423e68d3e41.tex",
+      "bytes": 43716,
+      "sha256": "65327e86b1221a2dbd121616cf253d4b8bc832d3247095115ea9181963d399d7"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/cf0e2d42d914fcea.tex",
+      "bytes": 43716,
+      "sha256": "16e839b0a34b0e4a06da29d135363fd413531bb3ae86ae2142e9116653cccbdc"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/4679d8d214f61c77.bin",
+      "bytes": 7859,
+      "sha256": "f5bc3c1f71853353fd8869578c90243b7e947c9be787a286803cdd7e8144f132"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/1561bab5609df7c1.bin",
+      "bytes": 18345,
+      "sha256": "8a91c8c0a460e4ef202829f470932370c2262d73973c93fc2d0324b03ed8000c"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/1d5c271d91e85aed.bin",
+      "bytes": 9198,
+      "sha256": "af5c09a4f0336e735da558fd5973236943766ac072a2b8a989fba75a54860973"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-attack-trail-decode-cloud/final-source-index.json",
+    "bytes": 1172,
+    "sha256": "2fe0f106ad5a04ce11c45895756873fd622906ed3de5a2e3cce06f0f9628517a"
+  },
+  "generated": [
+    {
+      "path": "docs/MASTER-YI-ATTACK-TRAILS.md",
+      "bytes": 5661,
+      "sha256": "868bd3899f3ae1e5fbded523c23dbb17cb102204b1fbbfe6953fe0c6f1ec063f",
+      "archived": ".cache/masteryi-attack-trail-decode-cloud/final-source/docs/MASTER-YI-ATTACK-TRAILS.md"
+    },
+    {
+      "path": "docs/reference/masteryi/attack-trail-particles-decoded.json",
+      "bytes": 29959,
+      "sha256": "93bf9c506872bd7ba6d47e74588133b559c6e8f26ea548abff7e75878bcd27e1",
+      "archived": ".cache/masteryi-attack-trail-decode-cloud/final-source/docs/reference/masteryi/attack-trail-particles-decoded.json"
+    },
+    {
+      "path": "tools/assets/decode-masteryi-attack-trails.py",
+      "bytes": 4338,
+      "sha256": "ce5651f1bc514fc01f08267a11727859af676c665e319b65340f44d9c51dadcd",
+      "archived": ".cache/masteryi-attack-trail-decode-cloud/final-source/tools/assets/decode-masteryi-attack-trails.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-attack-trail-decode.py",
+      "bytes": 7624,
+      "sha256": "6807703f0bdb4aec2a88d9052e96fb2194411061e12817baaf8d99fd7c6e8768",
+      "archived": ".cache/masteryi-attack-trail-decode-cloud/final-source/tools/assets/test-masteryi-attack-trail-decode.py"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-attack-trail-decode-cloud/check-initial.log",
+      "bytes": 102,
+      "sha256": "f0c0be7031351aa3a3510568de33ebb07c4496b4c470c2400ae475dc61643dc2"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-decode-cloud/check-replay.log",
+      "bytes": 58,
+      "sha256": "37609d143cb6665a88fa1e6b60ee54c366ffdefa625680717f71fe1cf8a2efb7"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-decode-cloud/check-replay.py",
+      "bytes": 1388,
+      "sha256": "8a18579fa64c7a0a9532cb5ba55f363e062e6989e6816b6cd99eedf31e857621"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-decode-cloud/decode-replay-normal.log",
+      "bytes": 103,
+      "sha256": "4b77410e7fac83aa069b3b4b77845939454e30fded9212dd8810bd8600ba69dc"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-decode-cloud/decode-replay-optimized.log",
+      "bytes": 103,
+      "sha256": "4b77410e7fac83aa069b3b4b77845939454e30fded9212dd8810bd8600ba69dc"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-decode-cloud/final-source-index.json",
+      "bytes": 1172,
+      "sha256": "2fe0f106ad5a04ce11c45895756873fd622906ed3de5a2e3cce06f0f9628517a"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-decode-cloud/generate-initial.log",
+      "bytes": 246,
+      "sha256": "4ce50eda0b5765a9189a5796296556edd4978c83401f060dd821fd2a209538ee"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-decode-cloud/guards-final.log",
+      "bytes": 124,
+      "sha256": "1ff851a32582777ac137874331ee09ca4fab45faef5875e5ccc702e87529841a"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-decode-cloud/guards-initial.log",
+      "bytes": 1330,
+      "sha256": "d2514f0eb23d80901f98cd5286fc7ebc49958927118b872b168636ce2fc26ab8"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-decode-cloud/guards-normal.log",
+      "bytes": 124,
+      "sha256": "1ff851a32582777ac137874331ee09ca4fab45faef5875e5ccc702e87529841a"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-decode-cloud/guards-optimized.log",
+      "bytes": 124,
+      "sha256": "2673994ceece336c354621087709cbbef50ad96897973de20b03b20eca0856ce"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-decode-cloud/identity.json",
+      "bytes": 256,
+      "sha256": "18f57cc8da501b5c6ad7c2da23fcbd2859b269976d02ffff405d8217a4ee6339"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-decode-cloud/independent-check-normal.log",
+      "bytes": 102,
+      "sha256": "f0c0be7031351aa3a3510568de33ebb07c4496b4c470c2400ae475dc61643dc2"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-decode-cloud/independent-check-optimized.log",
+      "bytes": 102,
+      "sha256": "f0c0be7031351aa3a3510568de33ebb07c4496b4c470c2400ae475dc61643dc2"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-decode-cloud/record-verification.py",
+      "bytes": 5427,
+      "sha256": "f48581b378807978eab9814fa4700a2d57e64123cfcac49570f8465600eba16d"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-decode-cloud/replay.json",
+      "bytes": 8684,
+      "sha256": "4104387a62975fca882ea7bb03924cee981ffe36cc623370fd511ac2d3599a2a"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-decode-cloud/ruleset.txt",
+      "bytes": 65,
+      "sha256": "330a01ae4ed46a7353a0a604fb7bcbd5646170600dc2544a5dfa2c4ecba27772"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-decode-cloud/source-scope.json",
+      "bytes": 211,
+      "sha256": "97ae31895c45ec913d595e66222528e56a9aefc4657fa2c8d2d2bc292d75f5fa"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/dba30aea46f8d87f-mip0.png",
+      "bytes": 251,
+      "sha256": "3898d5d2750e8e8ef8425bffca98bff788ceab3d9ba11294237e2730cffbb33d"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/dba30aea46f8d87f-mip1.png",
+      "bytes": 159,
+      "sha256": "fff4f0195841889c44fc1b05289d6295a3c5d5d412444d42ef8d71cd44ee7186"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/dba30aea46f8d87f-mip2.png",
+      "bytes": 128,
+      "sha256": "401426e695db891419bb425198048e89330596da2fb654309d4a3be1b4598f5d"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/dba30aea46f8d87f-mip3.png",
+      "bytes": 103,
+      "sha256": "1a1c3b44f40ac3ff8804d864b87a402132bf357c368fc3c146c2f64f974e9d7b"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/dba30aea46f8d87f-mip4.png",
+      "bytes": 89,
+      "sha256": "05effaaee2286bb1dc289ec7ad51fcb5446eda5bcbccceae68814f28d5c8147f"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/dba30aea46f8d87f-mip5.png",
+      "bytes": 78,
+      "sha256": "65db1d24b33a9f81321ab51bdb6be073393c0702641bba889ba0e4aa7db5d5e0"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/dba30aea46f8d87f-mip6.png",
+      "bytes": 70,
+      "sha256": "b61c4b9393798573affecf04e00174f0cf52030ac253d2df9f23f4e47779bf51"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/7e6f398c1b239116-mip0.png",
+      "bytes": 5992,
+      "sha256": "9381a749c2609078f8ab6c6de95ce514894a3939185815e1b5315a51b5e6d414"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/7e6f398c1b239116-mip1.png",
+      "bytes": 2242,
+      "sha256": "770d2694d2a60d344336487f3d53f3a87312fa137952ea7217356e41c7fa8263"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/7e6f398c1b239116-mip2.png",
+      "bytes": 837,
+      "sha256": "8b0da87a6cfaef3ea874e563a147805bbf37f140f0ce8877f6ffec5a36da8cbe"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/7e6f398c1b239116-mip3.png",
+      "bytes": 377,
+      "sha256": "0f2800381a8e8ef6d6376c73782475408bd37907faae58d96d930c21d07eb8f1"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/7e6f398c1b239116-mip4.png",
+      "bytes": 198,
+      "sha256": "b712a08d75f9fe8c353c6d92056e91b5e45e7911ffa71fb3c037ae5f00b6cd34"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/7e6f398c1b239116-mip5.png",
+      "bytes": 126,
+      "sha256": "811fe5cb1c40c302dd3f011d0406da2b19c762bca22d30ce17c33168473955a5"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/7e6f398c1b239116-mip6.png",
+      "bytes": 92,
+      "sha256": "9a0fc3cdcfedbbb41418cfc1acbc0bbfd3b048d85f2bf7c68d2167548104159a"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/7e6f398c1b239116-mip7.png",
+      "bytes": 84,
+      "sha256": "a54086383954ba939051298cd48ea597b74a2eff3e13d81d1868d85ac818af44"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/7e6f398c1b239116-mip8.png",
+      "bytes": 70,
+      "sha256": "1974923156e193f94ab1efa9db8fedecbe12df4d220fdeeb172314ff81f7d4f0"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/52a4a423e68d3e41-mip0.png",
+      "bytes": 6065,
+      "sha256": "5ccff8d3c8fc04e82e3113e297e16afb8fc7f7edae757ed9b313ae526f3a05de"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/52a4a423e68d3e41-mip1.png",
+      "bytes": 2344,
+      "sha256": "9f9b448238835b03adf84b2e45be2b533686e85b145c73f0dfe2cf47c47fc5e0"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/52a4a423e68d3e41-mip2.png",
+      "bytes": 855,
+      "sha256": "2046ebcb26b345d46b05e317abf0896f6a71620d9ae6e9aa9813a8a9b1cb9b89"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/52a4a423e68d3e41-mip3.png",
+      "bytes": 381,
+      "sha256": "f9b8fe71b2af90e10ef8a8f2aa8e13dbc888cd33bf43040682264840734b3c14"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/52a4a423e68d3e41-mip4.png",
+      "bytes": 197,
+      "sha256": "984050a17c1e76dc0eb9697f088b427c8d9d8485a6123b4dcbf2b9ce4b121788"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/52a4a423e68d3e41-mip5.png",
+      "bytes": 124,
+      "sha256": "a23d7588164745b1036f8e63f4886c84341dde7991ea18f48793e904bf33dcde"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/52a4a423e68d3e41-mip6.png",
+      "bytes": 92,
+      "sha256": "759b295949f6d151b30ea129a810fabbfc5ec9b5520194d02a667f91b96bce3b"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/52a4a423e68d3e41-mip7.png",
+      "bytes": 77,
+      "sha256": "eefa565a68c830c3309ec5c17611bdb38e792d6340f123becadf9da8aacdb9c3"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/52a4a423e68d3e41-mip8.png",
+      "bytes": 70,
+      "sha256": "1974923156e193f94ab1efa9db8fedecbe12df4d220fdeeb172314ff81f7d4f0"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/cf0e2d42d914fcea-mip0.png",
+      "bytes": 6634,
+      "sha256": "cc91e61034238cda871a7f41feccf9c728a514c62e3475c0672233c834d2c65e"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/cf0e2d42d914fcea-mip1.png",
+      "bytes": 2464,
+      "sha256": "a6ed4e7dc26c43e5f07b2db4b9a799888d1242e974588ecfeb6f72e9d328505d"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/cf0e2d42d914fcea-mip2.png",
+      "bytes": 884,
+      "sha256": "f2f5f9522e950fac66613f520a63b8406711fa88ca9d52bd2ef876cef7dd16cb"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/cf0e2d42d914fcea-mip3.png",
+      "bytes": 406,
+      "sha256": "d7b5e3178fdcb79db2b80ac6997907bd2121fe1637505435e306fcf279fd42c5"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/cf0e2d42d914fcea-mip4.png",
+      "bytes": 184,
+      "sha256": "d4a4a58e4675801087267a84e4fdcaead92ab3d00b271388afd67e412762c16b"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/cf0e2d42d914fcea-mip5.png",
+      "bytes": 109,
+      "sha256": "9d031bf3c1dd52f96f67f46e9a134d55608898c53764c297f7e3bd009bb11fc8"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/cf0e2d42d914fcea-mip6.png",
+      "bytes": 92,
+      "sha256": "cb3606b11caf2a20c33b527498f56673b6ad29cbf599a74c47f07d4c3e04c647"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/cf0e2d42d914fcea-mip7.png",
+      "bytes": 77,
+      "sha256": "bf28c61678436d3ae2fce3ab01876450ac40588961bee608b33907a1180345c0"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/textures/cf0e2d42d914fcea-mip8.png",
+      "bytes": 70,
+      "sha256": "1974923156e193f94ab1efa9db8fedecbe12df4d220fdeeb172314ff81f7d4f0"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-particles-decoded/meshes/c50c28e04b24520d.json",
+      "bytes": 128906,
+      "sha256": "420342d5bfd77ae62f3675572f18ca74901b539167605be7246807b8e3b534a3"
+    }
+  ],
+  "checks": {
+    "sourceGuards": {
+      "casesPerMode": 25,
+      "modes": [
+        "normal",
+        "optimized"
+      ],
+      "independentChecker": "standard library; test blocks Pillow/CDTB imports"
+    },
+    "textures": {
+      "count": 4,
+      "formats": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "authoredMips": 34,
+      "pngBytes": 32021,
+      "rgbaBytes": 1070416,
+      "sharedRampdown": {
+        "systems": [
+          "q",
+          "w",
+          "r",
+          "e"
+        ],
+        "countPerSystem": 1,
+        "sourceBlocksPixelsAndPngs": "all exact"
+      }
+    },
+    "mesh": {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/common_hecarim_weapontrail_1.scb",
+        "wadPathHash": "c50c28e04b24520d",
+        "sha256": "245641757e8b039187d485d4353664635ad800607b68a7d23344d62effd0c7b1",
+        "bytes": 57716
+      },
+      "path": ".cache/masteryi-attack-trail-particles-decoded/meshes/c50c28e04b24520d.json",
+      "bytes": 128906,
+      "sha256": "420342d5bfd77ae62f3675572f18ca74901b539167605be7246807b8e3b534a3",
+      "sourceVertices": 250,
+      "triangles": 500,
+      "flags": 5,
+      "sourceBounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "measuredMinMax": [
+        -244.35769653320312,
+        1.9384000301361084,
+        -206.14410400390625,
+        245.9947967529297,
+        215.13099670410156,
+        399.4678955078125
+      ],
+      "centralPoint": [
+        0.81854248046875,
+        108.53469848632812,
+        96.66189575195312
+      ],
+      "tailHex": "3789513fc411d942f252c142000000000000000000000000",
+      "sourcePointFloat32Sha256": "2307c041ce4991b9eda185473e87f52926581074e4dab2e5bd9e9189785a0e31",
+      "sourceIndexUInt32Sha256": "b0c13a5bd82f0e878388b3bdb3e3f19e3793667f2d434eb19bdda63433ee0c3a",
+      "sourceFaceRgbSha256": "01061ebf87db809151544920c6f2a870ea272d4de35c5566a186c3cf6d2ea47b",
+      "byteExactNativeRoundTrip": true,
+      "normalsGenerated": false,
+      "unitScaleApplied": 1
+    },
+    "animationSourcePolicy": {
+      "nativeAnmsCheckedSeparately": 4,
+      "sharedParticleExtensionGuardUnchanged": true
+    },
+    "producer": {
+      "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+      "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+      "pillowVersion": "12.3.0",
+      "pillowZlibVersion": "1.3.1",
+      "stdlibZlibVersion": "1.3.2",
+      "stdlibZlibRuntimeVersion": "1.3.2",
+      "stdlibZlibModuleKind": "builtin",
+      "artifacts": [
+        {
+          "path": "/workspace/web-lol/.tools/cdtb/cdtb/export.py",
+          "bytes": 34168,
+          "sha256": "225ce9d8fb41dc36a17342a7a86dbfc4d5dae51f80316e6a8f065ea878972096"
+        },
+        {
+          "path": "/workspace/web-lol/.tools/cdtb-venv/lib/python3.12/site-packages/PIL/__init__.py",
+          "bytes": 2035,
+          "sha256": "7361b6ad3878589affe5956e4a4da24d71398b0891fd3a8c15e9362217b4ca01"
+        },
+        {
+          "path": "/workspace/web-lol/.tools/cdtb-venv/lib/python3.12/site-packages/PIL/Image.py",
+          "bytes": 153786,
+          "sha256": "04af3f2db7ffdd61e829fa7aa8f5481d394a0a4129a8fd8aa5b13908928fcd6d"
+        },
+        {
+          "path": "/workspace/web-lol/.tools/cdtb-venv/lib/python3.12/site-packages/PIL/DdsImagePlugin.py",
+          "bytes": 19101,
+          "sha256": "85cf455296d054ac95c971d03cd3a8ea245cba2d1138b495d3533c2333f09050"
+        },
+        {
+          "path": "/workspace/web-lol/.tools/cdtb-venv/lib/python3.12/site-packages/PIL/PngImagePlugin.py",
+          "bytes": 52399,
+          "sha256": "5911ebb3c8e58edf4fccace85ade20c3a062cc41dc55340bfb7b40f0bf1861c5"
+        },
+        {
+          "path": "/workspace/web-lol/.tools/cdtb-venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-x86_64-linux-gnu.so",
+          "bytes": 3402345,
+          "sha256": "94310f4a073e9773a067df88513804649f50a974f78bd85a52c52d21170783f2"
+        },
+        {
+          "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+          "bytes": 30894944,
+          "sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7"
+        }
+      ]
+    },
+    "checkAndDecodeReplay": {
+      "filesUnchangedBytesAndMtimes": 36,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "application": "No src/public/tests changes. Schema, current ruleset and built offline-pack identity unchanged. Accepted parent rendering checks remain historical evidence for this unchanged app."
+  },
+  "retainedDiagnostics": [
+    "The decoder uses a selected particle view only after checking all twelve original native sources, including four ANMs; the shared particle cache-path guard remains unchanged.",
+    "An initial typed-zero test changed a nonzero pivot and correctly failed byte roundtrip. The final fixture changes an authored zero header bound to Boolean false and verifies the additional typed-data rejection."
+  ],
+  "limits": [
+    "Canonical Pillow BC1-with-alpha software decoding and exact PNG replay do not establish native GPU color/alpha rounding, sampler or frame parity.",
+    "All authored mip sizes, compressed ranges and identities are retained; no resize, generated mip chain, gamma transform or premultiplication.",
+    "The mesh retains source header, zero bounds, measured bounds, nonzero pivot, UVs, materials, face RGB and tail. No normals, reflection, winding, unit scale or pivot offset is applied.",
+    "Source blend/local-orientation omissions and animation frame-time/lifecycle limits remain in the preceding trail source reading.",
+    "Private PNG/JSON transports add no public media, GLB, renderer, gameplay, save schema or app identity.",
+    "Ignored evidence needs preservation; exact changed sources are independently archived."
+  ]
+}

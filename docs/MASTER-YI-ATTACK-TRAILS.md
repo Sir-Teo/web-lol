@@ -59,3 +59,38 @@ Repeat with Python `-O`. Omit `--check` to restore frozen source files or create
 the reading; existing conflicts fail before publication, and correct outputs
 retain their bytes and timestamps. The separately pinned ANMs remain outside the
 shared particle verifier's stricter allowed-extension guard.
+
+## Private decoded transports
+
+The [decoded record](reference/masteryi/attack-trail-particles-decoded.json)
+retains all 34 authored mip levels from four BC1 textures: 32,021 PNG bytes and
+1,070,416 decoded RGBA bytes. Each mip keeps its native compressed range/hash,
+dimensions, PNG/pixel hashes and alpha statistics. No resizing, generated mips,
+gamma conversion or premultiplication is applied. The common rampdown's source,
+compressed blocks, pixels and PNGs match the earlier Q/W/R/E decodes exactly.
+
+The shared SCB's 128,906-byte JSON retains the complete 57,716-byte native mesh,
+including all source points, indices, UVs, material bytes, face RGB, pivot, header
+and 24-byte tail. The original header bounds remain zero, separately from the
+measured bounds and nonzero pivot. No normals, reflection, winding, pivot offset
+or unit scaling is applied.
+
+The independent replay checker uses the standard library, without Pillow or
+CDTB. It checks all original source files, PNG CRC/extents/pixels/alpha counts,
+compressed block identities, exact SCB bytes and typed data, stream digests and
+transport metadata. All four original ANMs remain checked before selecting
+particle inputs; the shared particle extension guard and two-mesh default remain
+unchanged. The producer's interpreter, libraries and retained layout references
+are recorded separately.
+
+```sh
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/decode-masteryi-attack-trails.py
+PYTHONPATH=tools/assets python tools/assets/decode-masteryi-attack-trails.py --check
+PYTHONPATH=tools/assets python tools/assets/test-masteryi-attack-trail-decode.py
+```
+
+Repeat checks, replay and guards with `-O`. Existing conflicts are rejected before
+any missing output is written. This private software transport adds no public
+files, renderer, state or app identity, and does not certify native GPU decode,
+shader behavior or frame parity. See the
+[decode verification](reference/masteryi/attack-trail-decode-verification.json).
