@@ -38,6 +38,7 @@ export function createChampionState(id: number, unlocked = true, tick = 0): Cham
     wujuStyle: null,
     meditate: null,
     meditateCastVisuals: [],
+    meditateBuffVisuals: [],
     highlander: null,
     highlanderAudio: [],
     alphaContactVisuals: [],

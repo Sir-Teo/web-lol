@@ -34,6 +34,25 @@ export function redirectOrbitalVelocity(
     velocity[index] = along * axis[index] + tangent[index] * scale;
 }
 
+export interface ParticleAttraction {
+  position: readonly number[];
+  strength: number;
+  radius: number;
+}
+/** Pinned field pull: constant magnitude within radius, weakened inside one source unit. */
+export function attractParticleVelocity(
+  velocity: Float32Array,
+  point: ArrayLike<number>,
+  field: ParticleAttraction,
+  dt: number
+): void {
+  const delta = field.position.map((value, index) => value - point[index]),
+    squared = delta[0] * delta[0] + delta[1] * delta[1] + delta[2] * delta[2];
+  if (squared > field.radius * field.radius) return;
+  const scale = (field.strength * dt) / Math.sqrt(Math.max(squared, 1));
+  for (let index = 0; index < 3; index++) velocity[index] += delta[index] * scale;
+}
+
 /** Local 60 Hz seek replay. World-up acceleration and the world-up field commute
  * with the actor's Y heading; reject other axes rather than invent their frame.
  * Keep world acceleration separate for the surface adapter's world-axis offset.
@@ -43,7 +62,8 @@ export function orbitalParticleTravel(
   acceleration: readonly number[],
   origin: readonly number[],
   age: number,
-  axis: readonly number[]
+  axis: readonly number[],
+  attraction?: ParticleAttraction
 ) {
   if (
     [velocity, acceleration, origin, axis].some(
@@ -59,6 +79,17 @@ export function orbitalParticleTravel(
     age < 0
   )
     throw RangeError('Unsupported orbital particle frame/time');
+  if (
+    attraction &&
+    (attraction.position.length !== 3 ||
+      attraction.position.some((value) => !Number.isFinite(value)) ||
+      attraction.position[0] !== 0 ||
+      attraction.position[2] !== 0 ||
+      !Number.isFinite(attraction.strength) ||
+      !Number.isFinite(attraction.radius) ||
+      attraction.radius < 0)
+  )
+    throw RangeError('Unsupported attraction frame');
   const localTravel = [...velocity],
     worldTravel = [0, 0, 0],
     localPosition = [0, 0, 0],
@@ -66,6 +97,7 @@ export function orbitalParticleTravel(
     moving = new Float32Array(velocity),
     point = new Float32Array(origin);
   // An orbital field reaches the first particle update even at dt=0.
+  if (attraction) attractParticleVelocity(moving, point, attraction, 0);
   redirectOrbitalVelocity(moving, point, axis);
   for (let index = 0; index < 3; index++) localTravel[index] = moving[index];
   const ticks = age * 60,
@@ -77,6 +109,7 @@ export function orbitalParticleTravel(
       moving[index] = localTravel[index] + worldTravel[index];
       point[index] = origin[index] + localPosition[index] + worldPosition[index];
     }
+    if (attraction) attractParticleVelocity(moving, point, attraction, 1 / 60);
     redirectOrbitalVelocity(moving, point, axis);
     const portion = step <= whole ? 1 : fraction;
     for (let index = 0; index < 3; index++) {

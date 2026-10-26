@@ -70,6 +70,7 @@ try {
     masterYiAlphaAudioRequests = [],
     masterYiQContactRequests = [],
     masterYiMeditateCastRequests = [],
+    masterYiMeditateBuffRequests = [],
     preparedCompanionRequests = [],
     wardRigRequests = [],
     oracleRigRequests = [],
@@ -100,6 +101,8 @@ try {
       masterYiQContactRequests.push(request.url());
     if (/\/masteryi-w-cast-[^/]+\.(?:png|glb)$/.test(request.url()))
       masterYiMeditateCastRequests.push(request.url());
+    if (/\/masteryi-w-buff-[^/]+\.(?:png|glb)$/.test(request.url()))
+      masterYiMeditateBuffRequests.push(request.url());
     if (/\/(?:leona[^/]*\.(?:glb|png|wav)|base_brightspark_11\.png)$/i.test(request.url()))
       leonaPreviewRequests.push(request.url());
     if (request.url().endsWith('/sightward-base.glb')) wardRigRequests.push(request.url());
@@ -507,6 +510,11 @@ try {
     'Production must not preload development Meditate cast assets'
   );
   assert.deepEqual(
+    masterYiMeditateBuffRequests,
+    [],
+    'Production must not preload development Meditate buff assets'
+  );
+  assert.deepEqual(
     masterYiAlphaAudioRequests,
     [],
     'Production must not preload development Alpha Strike audio'
@@ -546,6 +554,7 @@ try {
       unrequestedMasterYiAlphaAudioPreloads: masterYiAlphaAudioRequests.length,
       unrequestedMasterYiQContactPreloads: masterYiQContactRequests.length,
       unrequestedMasterYiMeditateCastPreloads: masterYiMeditateCastRequests.length,
+      unrequestedMasterYiMeditateBuffPreloads: masterYiMeditateBuffRequests.length,
       masterYiNpcFixtureInProduction: false,
       masterYiPlayerFixtureInProduction: false,
       junglePreviewRequests: junglePreviewRequests.length,

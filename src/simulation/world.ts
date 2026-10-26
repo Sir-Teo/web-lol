@@ -1,3 +1,9 @@
+import {
+  captureMeditateBuff,
+  stopMeditateBuff,
+  advanceMeditateBuffs,
+  meditateBuffExpiry,
+} from './masteryi-meditate-buff';
 import { captureMeditateCast, advanceMeditateCasts } from './masteryi-meditate-cast';
 import { MEDITATE_CAST_HISTORY_TICKS } from '../content/masteryi-w-cast-timing';
 import { captureAlphaContact, advanceAlphaContacts } from './masteryi-q-contact-visuals';
@@ -1129,6 +1135,10 @@ export class World {
       if (state.highlanderAudio.length)
         state.highlanderAudio = state.highlanderAudio.filter(
           (r) => this.tick < highlanderAudioExpiry(r)
+        );
+      if (state.meditateBuffVisuals.length)
+        state.meditateBuffVisuals = state.meditateBuffVisuals.filter(
+          (record) => this.tick < meditateBuffExpiry(record)
         );
       if (state.meditateCastVisuals.length)
         state.meditateCastVisuals = state.meditateCastVisuals.filter(
@@ -4597,6 +4607,7 @@ export class World {
     return capturePoseFrame(target, this.tick);
   }
   private advanceImpactVisuals(): void {
+    advanceMeditateBuffs(this);
     advanceMeditateCasts(this);
     advanceAlphaContacts(this);
     advanceSolarVisuals(this);
@@ -5714,6 +5725,7 @@ export class World {
         for (const state of this.activeChampionStates()) {
           if (state.doubleStrike) state.doubleStrike = createDoubleStrikeState();
           state.wujuStyle = null;
+          stopMeditateBuff(state, this.tick, 'victory');
           state.meditate = null;
           stopHighlanderAudio(state, this.unit(state.id)!, this, 'match-end');
           state.highlander = null;
@@ -5775,6 +5787,7 @@ export class World {
       if (targetState) {
         if (targetState.doubleStrike) targetState.doubleStrike = createDoubleStrikeState();
         targetState.wujuStyle = null;
+        stopMeditateBuff(targetState, this.tick, 'death');
         targetState.meditate = null;
         stopHighlanderAudio(targetState, target, this, 'death');
         targetState.highlander = null;
@@ -5951,6 +5964,7 @@ export class World {
       onEssenceDeath(this, target, rewardSource);
     }
     if (target.hp <= 0) {
+      advanceMeditateBuffs(this);
       advanceMeditateCasts(this);
       advanceAlphaContacts(this);
       advanceSolarVisuals(this);
@@ -6464,6 +6478,7 @@ export class World {
       state.cooldowns.w = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
       beginMeditate(state, this.tick, state.spellRanks.w, this.abilityPower(u));
       captureMeditateCast(this, u);
+      captureMeditateBuff(this, u);
       this.emit('cast', u, { unit: u.id, champion: 'masteryi', text: 'w', team: u.team });
       return;
     }

@@ -517,6 +517,7 @@ export interface ChampionState {
   wujuStyle: import('./masteryi-wuju-style').WujuStyleState | null;
   meditate: import('./masteryi-meditate').MeditateState | null;
   meditateCastVisuals: import('./masteryi-meditate-cast').MeditateCastVisual[];
+  meditateBuffVisuals: import('./masteryi-meditate-buff').MeditateBuffVisual[];
   highlander: import('./masteryi-highlander').HighlanderState | null;
   highlanderAudio: import('./masteryi-highlander-audio').HighlanderAudioRecord[];
   alphaStrike: import('./masteryi-alpha-strike').AlphaStrikeState | null;

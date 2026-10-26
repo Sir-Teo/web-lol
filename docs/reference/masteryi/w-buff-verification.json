@@ -1,0 +1,1141 @@
+{
+  "format": 1,
+  "parentCommit": "ea900d8921b28b368f6775c50d0b00c1035d157f",
+  "identity": {
+    "schema": 151,
+    "ruleset": "2226d9e65d9051ccc9513dca219939632de0ad4afa78aef351ecf032cd2e2c14",
+    "pack": {
+      "id": "db1c523fc5cc56d52bbada5984d0df8ebb78f14857a05a49eb764dbcb9301c39",
+      "files": 1137,
+      "bytes": 533088328
+    }
+  },
+  "scope": "Complete four-emitter Meditate W_Buf after accepted local W, saved stop clocks and lossless root/visibility runs, full six-texture/54-mip closure, source heal mesh, source atlas frames, attraction and orbital fields, finite interrupted/death/victory tails. Public roster remains Ashe/Lux.",
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/w-particles.json",
+      "bytes": 101955,
+      "sha256": "f2b3e3cc1759b39b8a08d75a15a43649fecaa5a60c16392eff6893935e9a6517"
+    },
+    {
+      "path": "docs/reference/masteryi/w-particles-decoded.json",
+      "bytes": 116153,
+      "sha256": "883a15ed890b9e00aff316de67e58f5e99a123ff0f72337b98b7fc06e2866503"
+    },
+    {
+      "path": "docs/reference/masteryi/w-particle-texture-transport.json",
+      "bytes": 45180,
+      "sha256": "66ce933143a662f0f2506b96520d2d4f6e7ab206a1cb58d8da6b3b94e01e5cfd"
+    },
+    {
+      "path": "docs/reference/masteryi/w-buff-particle-reading.json",
+      "bytes": 3233,
+      "sha256": "9043fe0c77be1c288e9212e17c8fa8db3cdebc9e21fdaf8573182c936f76841c"
+    },
+    {
+      "path": "docs/reference/masteryi/w-fields-reader.json",
+      "bytes": 3629,
+      "sha256": "b67cb8e90ae6521816579a06ae1b4274bd6ae11befc28d75fca948fd8abff3c7"
+    },
+    {
+      "path": "docs/reference/garen-spin-defaults.json",
+      "bytes": 1772,
+      "sha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb"
+    },
+    {
+      "path": ".cache/masteryi-w-packed-meshes/masteryi-w-heal.glb.json",
+      "bytes": 1610,
+      "sha256": "23722a08d9a06f9bb9fbb0c316e9d6d04add2b3efb93a1e13716d5d1c279c1c0"
+    },
+    {
+      "path": "tests/lane-rules.test.ts",
+      "bytes": 5533,
+      "sha256": "d12c8deaba4ba8933dca9a045b1eeae20b1869167f5b9e1fcf0dbfc39e8c1d4a"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-w-buff-runtime/final-source-index.json",
+    "bytes": 10900,
+    "sha256": "20a266060466c6c3bf73752df3a5f2a26e2d9e1ab4875bb00cb0721438d7935c"
+  },
+  "generated": [
+    {
+      "path": "README.md",
+      "bytes": 14502,
+      "sha256": "fe068bd2a595085fddb3a9d207e8cce6e0f966b703b4d1af4e6422e48ab20c4f",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/README.md"
+    },
+    {
+      "path": "docs/MASTER-YI-W-BUFF.md",
+      "bytes": 6869,
+      "sha256": "05258260e91e6c85103dd011a5b685e94a21925949500b0983c410cc85577ca1",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/docs/MASTER-YI-W-BUFF.md"
+    },
+    {
+      "path": "docs/MASTER-YI-W-CAST.md",
+      "bytes": 9923,
+      "sha256": "679eb27495df31fddacf6dbeabe3c7081e5f397eb560b7a9a11651a79d07324e",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/docs/MASTER-YI-W-CAST.md"
+    },
+    {
+      "path": "docs/MASTER-YI-W-PARTICLES.md",
+      "bytes": 10017,
+      "sha256": "0763abf218c80a72bbda8d79530b967e0fbeaae9c196a948240ebc30a70e43fc",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/docs/MASTER-YI-W-PARTICLES.md"
+    },
+    {
+      "path": "docs/SAVES.md",
+      "bytes": 57792,
+      "sha256": "83d408a5fdb2885bfcb15f8483c2ddf9a831650647b5c2e932f7f4ec32bfc32d",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/docs/SAVES.md"
+    },
+    {
+      "path": "docs/reference/masteryi/w-buff-particle-reading.json",
+      "bytes": 3233,
+      "sha256": "9043fe0c77be1c288e9212e17c8fa8db3cdebc9e21fdaf8573182c936f76841c",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/docs/reference/masteryi/w-buff-particle-reading.json"
+    },
+    {
+      "path": "e2e/masteryi-meditate-buff.spec.ts",
+      "bytes": 13256,
+      "sha256": "dc72b4486803249aba18945bf1e1a2849f8cb65ba2ae58be2f574dd7b4d3a3aa",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/e2e/masteryi-meditate-buff.spec.ts"
+    },
+    {
+      "path": "public/assets/effects/masteryi-w-buff-5197de0e107eedc3.png",
+      "bytes": 10665,
+      "sha256": "b15f46f6628b6cb152fb9772c8e4c6b87bd3e834f44e88a54849408ebe383673",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/public/assets/effects/masteryi-w-buff-5197de0e107eedc3.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-w-buff-52d46b565e0705c2.png",
+      "bytes": 382597,
+      "sha256": "421c7b2a98bc9a9b78b14c60ee9bcc15cb2098f995ea572eecd46eb95fefae9a",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/public/assets/effects/masteryi-w-buff-52d46b565e0705c2.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-w-buff-9267facfa5a7a719.png",
+      "bytes": 101914,
+      "sha256": "64cc218f93b4f85ed979a1f7ca54a6c0fab317c856996e7aa371cdd69badb740",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/public/assets/effects/masteryi-w-buff-9267facfa5a7a719.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-w-buff-d521d07fa10b91b1.png",
+      "bytes": 33080,
+      "sha256": "d273da8c0a66838f6ed496d8cee47d52e5112440b5b4166bd3eb0b03c110afea",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/public/assets/effects/masteryi-w-buff-d521d07fa10b91b1.png"
+    },
+    {
+      "path": "public/assets/models/masteryi-w-buff-heal.glb",
+      "bytes": 56212,
+      "sha256": "538220d5c8cef2a643f5381ea40a27eb58b815f6b4908d33cd1a831212915e4b",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/public/assets/models/masteryi-w-buff-heal.glb"
+    },
+    {
+      "path": "src/content/masteryi-w-buff-particles.json",
+      "bytes": 54673,
+      "sha256": "d27d0316b45e8a401efc34e277733d03ad0664524b08bdd12a214b80f82d64e2",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/src/content/masteryi-w-buff-particles.json"
+    },
+    {
+      "path": "src/content/masteryi-w-buff-timing.ts",
+      "bytes": 165,
+      "sha256": "5fdc377d188abf0408eefadbd244ad3d5a7de4fd4bd6f2ba3b4195d16e650672",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/src/content/masteryi-w-buff-timing.ts"
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 21202,
+      "sha256": "9d1a0db0e80931a7e1192bf9a27dfb888c9a4cc463a9c66efaa4309dc1851f59",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/src/main.ts"
+    },
+    {
+      "path": "src/render/authored-mip-texture-cache.ts",
+      "bytes": 2227,
+      "sha256": "38eb289ed0a373e57cd4bc1654f43273e1794b94067c37fca23bfce5244a728d",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/src/render/authored-mip-texture-cache.ts"
+    },
+    {
+      "path": "src/render/lazy-masteryi-w-buffs.ts",
+      "bytes": 1384,
+      "sha256": "59312743f7c473fb2a7cae9031a93259208c7e13692056ee14a9b8b05304d6ba",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/src/render/lazy-masteryi-w-buffs.ts"
+    },
+    {
+      "path": "src/render/masteryi-w-buff-particles.ts",
+      "bytes": 5034,
+      "sha256": "db019479f2d58d604246ae057eb9bc6cd6d53f8aaba5a3d244f9fbaf49f2ce2d",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/src/render/masteryi-w-buff-particles.ts"
+    },
+    {
+      "path": "src/render/masteryi-w-buffs.ts",
+      "bytes": 5825,
+      "sha256": "e64bf90c357b70f21e2213cb01ad6b2bc45c33c7aca9d2dcab65014253edc73b",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/src/render/masteryi-w-buffs.ts"
+    },
+    {
+      "path": "src/render/masteryi-w-casts.ts",
+      "bytes": 6899,
+      "sha256": "374c157e7bcb840da42a78c5757be224736ebd12d61c5454e998959dd6b00758",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/src/render/masteryi-w-casts.ts"
+    },
+    {
+      "path": "src/render/masteryi-w-textures.ts",
+      "bytes": 286,
+      "sha256": "2b545bed23cdeb861466d2e1fddd9370267f709e003d2a73c8ecbfa46b6c086a",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/src/render/masteryi-w-textures.ts"
+    },
+    {
+      "path": "src/render/particle-orbital-motion.ts",
+      "bytes": 4889,
+      "sha256": "5a7173549e503f3a1c26911710d80073d5654548f229c1f0437df55d011ab9c4",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/src/render/particle-orbital-motion.ts"
+    },
+    {
+      "path": "src/render/view.ts",
+      "bytes": 61479,
+      "sha256": "86642eb5e576619f2bd31b3bc39876a2bbd4ddb9dcd7747645d6840176c02112",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/src/render/view.ts"
+    },
+    {
+      "path": "src/simulation/actor-root-history.ts",
+      "bytes": 2809,
+      "sha256": "6ce5ab72c5b54091b20f0a962fec3b7a8599e49f2c7c679c53656042be32d59f",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/src/simulation/actor-root-history.ts"
+    },
+    {
+      "path": "src/simulation/champion-state.ts",
+      "bytes": 4033,
+      "sha256": "b367a26aa62de935bd031f861c50eebbad2548416270b009c312add2a646f2aa",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/src/simulation/champion-state.ts"
+    },
+    {
+      "path": "src/simulation/masteryi-meditate-buff.ts",
+      "bytes": 5754,
+      "sha256": "363d62b2441c07e213230dab87d7526e84b6512f8878c17ebf2e2a45323f5626",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/src/simulation/masteryi-meditate-buff.ts"
+    },
+    {
+      "path": "src/simulation/masteryi-meditate.ts",
+      "bytes": 7275,
+      "sha256": "4af32beb59da9c0cf499f66dc328af47740a02f980d0babc2c5559aab19f4473",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/src/simulation/masteryi-meditate.ts"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "bytes": 178907,
+      "sha256": "7845732480a5831eb6ba7775104e746979070b2478f2de9739101120aee317ae",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/src/simulation/snapshot.ts"
+    },
+    {
+      "path": "src/simulation/types.ts",
+      "bytes": 22154,
+      "sha256": "8c7a0e72bd4e26e90a02cb1a18a764e0bd063cc964f4cc52315b2b23a34012a0",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/src/simulation/types.ts"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "bytes": 291593,
+      "sha256": "6084eab38319e0d9c7e46f884e62cf73d15ad3d0f94264bee46c868f5fb487a7",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/src/simulation/world.ts"
+    },
+    {
+      "path": "tests/actor-root-history.test.ts",
+      "bytes": 3229,
+      "sha256": "6af104277bef1d0c49ea786bbb0982c69f1d39687e0ad7d97673d6b18a35ef3d",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/tests/actor-root-history.test.ts"
+    },
+    {
+      "path": "tests/authored-mip-texture-cache.test.ts",
+      "bytes": 4010,
+      "sha256": "4d98d3f8ab3712bfec270e963f0140b95ecb2d64e425729105b688de3fbeac93",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/tests/authored-mip-texture-cache.test.ts"
+    },
+    {
+      "path": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "8c11c6f8ef1ff5d056f1cc0b9a7416be74ce779bcde54c2dbd02eebf5601c6bd",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/tests/lux-e-hit.test.ts"
+    },
+    {
+      "path": "tests/masteryi-meditate-buff-history.test.ts",
+      "bytes": 8843,
+      "sha256": "77ea60a969080668044be9bde383699734ace7209dfaa1ce7bf73ccc4a4b1666",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/tests/masteryi-meditate-buff-history.test.ts"
+    },
+    {
+      "path": "tests/masteryi-meditate-buff-particles.test.ts",
+      "bytes": 3234,
+      "sha256": "af3319bb1054592ffe7353b66dc79c1f3879f6f895a9c2f42e4e0e1233cc8476",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/tests/masteryi-meditate-buff-particles.test.ts"
+    },
+    {
+      "path": "tests/masteryi-meditate-cast-history.test.ts",
+      "bytes": 5963,
+      "sha256": "d37ffdab8b063a4ddce15c0e7d8a5d0df85fd51dbee09a99b6cd974f7118437a",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/tests/masteryi-meditate-cast-history.test.ts"
+    },
+    {
+      "path": "tools/assets/export-masteryi-w-buff-particles.py",
+      "bytes": 6660,
+      "sha256": "adb9a3719b41e8eae9af607924041e40386cdabddadea46080d7c08dcde4dfc0",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/tools/assets/export-masteryi-w-buff-particles.py"
+    },
+    {
+      "path": "tools/assets/masteryi_w_buff.py",
+      "bytes": 6301,
+      "sha256": "30d3b7f47b7d0a3258dbf7c9394f48a35f204cf5be76fd4dc40483131b630c81",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/tools/assets/masteryi_w_buff.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-w-buff.py",
+      "bytes": 3857,
+      "sha256": "4c486ac853997f75dc64ac50e4473efc248810c37c3d4bab9c6a06982005e1d9",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/tools/assets/test-masteryi-w-buff.py"
+    },
+    {
+      "path": "tools/qa/orbital-field-conformance.mjs",
+      "bytes": 5054,
+      "sha256": "9bc76f946c9927ae93d9689386ad4e8163cd5939ae55bd9496e4b40228c90d73",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/tools/qa/orbital-field-conformance.mjs"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 26403,
+      "sha256": "0cbd77d9a0487d6bfa4ca4ffb8c9a3421432b1a8f2d380678da01b017a45df66",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/tools/qa/production-subpath.mjs"
+    },
+    {
+      "path": "tools/ruleset-fingerprint.ts",
+      "bytes": 11971,
+      "sha256": "4b00f55c8c577aa3871600777395b4bbbbbb86467e129c255da45522bc0509a1",
+      "archived": ".cache/masteryi-w-buff-runtime/final-source/tools/ruleset-fingerprint.ts"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-w-buff-runtime/__pycache__/record-verification.cpython-312.pyc",
+      "bytes": 10518,
+      "sha256": "f7d3ef162485c6bcfa68a0e0e91ff94b99738a9d387a34b5df4ac2426d28962e"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-Meditate-57848-gh-real-private-Save-reload/meditate-active-loop.png",
+      "bytes": 810818,
+      "sha256": "9d3840c075bc5b1c999d723e1086289f553f07708478d75737d0134019be3e7a"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-Meditate-57848-gh-real-private-Save-reload/meditate-reload.json",
+      "bytes": 125812,
+      "sha256": "9c63b983817559e1116ae445bb79096f876683b9f14966b9f024527fa30a5ba4"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-Meditate-7532a-gh-real-private-Save-reload/meditate-control-linger.png",
+      "bytes": 815875,
+      "sha256": "7efa0c6bbb9daa3269f44a2f3643f91bd602662ece2baa84b460357833baa955"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-Meditate-7532a-gh-real-private-Save-reload/meditate-reload.json",
+      "bytes": 127913,
+      "sha256": "2f0196ad2c2329c4b795c666a5d9c7d73fbcc0850d29db03a0ab618d696963cf"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-Meditate-c743b-gh-real-private-Save-reload/meditate-reload.json",
+      "bytes": 133430,
+      "sha256": "4b2a1b0f143254f89cf46a8bc9e137638433c3ca0dd3fd7b31d61280e9dedd0a"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-Meditate-c743b-gh-real-private-Save-reload/meditate-reset-child-overlap.png",
+      "bytes": 812986,
+      "sha256": "f5876120637fe4628aab473808dc9f1e3d3c2ab48a899d4ac2cd772c5a108634"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-buff-ord-5aeb9-es-only-the-failed-resource/buff-resource-retry.json",
+      "bytes": 512,
+      "sha256": "bfb80edca67079ec16b6c06276fa013b3820a2ddda2cf5ab1a828b2d97f2671e"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-buff-rea-33941-ores-exact-source-particles/buff-135-false.png",
+      "bytes": 815626,
+      "sha256": "9cc20a533bf1dbdec401a5343e24700443b9f9b33d4592aaedc8ed281b2139c7"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-buff-rea-33941-ores-exact-source-particles/buff-save-reload.json",
+      "bytes": 297996,
+      "sha256": "b4fba10efdd8d288bb8b8d1c978c47d8a1111819dcadb074f6f30517004fdaee"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-buff-rea-ce128-ores-exact-source-particles/buff-9-true.png",
+      "bytes": 822670,
+      "sha256": "c2eb5e8fb219c03a9d182271ba373b02e881256b4c23b8749382fea843a5d21a"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-buff-rea-ce128-ores-exact-source-particles/buff-save-reload.json",
+      "bytes": 32345,
+      "sha256": "4596b2573c0e99b8b7a1af4f0f05296dc0045eb6c2fe749f75b57199bb0c8280"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-buff-rea-d175b-ores-exact-source-particles/active-three-mip-readback.json",
+      "bytes": 9506,
+      "sha256": "c86b532f5b5d80585d6af5d5f3eb7eafb45802d14f7c68bc5a7a723f5881e4cf"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-buff-rea-d175b-ores-exact-source-particles/buff-9-false.png",
+      "bytes": 825945,
+      "sha256": "b5d93f356013febd9f42f48627aff6b6ac95b4c315437c2cbd2fdf58f4c196de"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-buff-rea-d175b-ores-exact-source-particles/buff-save-reload.json",
+      "bytes": 43042,
+      "sha256": "0830405c622adba4337dffee65d8c496324f263c66a181e0584657f95dfb937a"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-buff-rea-d175b-ores-exact-source-particles/shared-cast-buff-textures.json",
+      "bytes": 200,
+      "sha256": "2664f0ff188165feb9a8775c2707679a0e0a4deb3162759990b8b8b21b629d3e"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-buff-uns-4252b-without-simulation-mutation/creation-death-terminal.json",
+      "bytes": 103,
+      "sha256": "f6338c9a4c0abc23d4d5028223a255926d4fd6cfc53c850a22ebeae8d4369719"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-cast-ord-f73c1-uad-UV-selects-exact-pixels/secondary-uv-and-retry.json",
+      "bytes": 1290,
+      "sha256": "6a654c47e8748e907c6be447f65878d9e554198065ab61f3174a7e53aba5dc92"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-cast-rea-3ca6d-ven-source-emitter-families/active-cast.png",
+      "bytes": 825945,
+      "sha256": "b5d93f356013febd9f42f48627aff6b6ac95b4c315437c2cbd2fdf58f4c196de"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-cast-rea-3ca6d-ven-source-emitter-families/active-three-mip-readback.json",
+      "bytes": 15359,
+      "sha256": "b70ba416fcbca5a8033cc292611e6d56b3214dd92c3848206646c63a5f512df3"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-cast-rea-3ca6d-ven-source-emitter-families/cast-save-reload.json",
+      "bytes": 105956,
+      "sha256": "59acdf292c996df84a5bc591634019921e02ec719c4875cd92ca4eb4eaac1c31"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-cast-rea-b0cf3-ven-source-emitter-families/cancelled-cast.png",
+      "bytes": 819874,
+      "sha256": "fcc7e5b61062480a41f8fa33efe92aa2d23b466b1c3ffbaa99c197e25b676721"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-cast-rea-b0cf3-ven-source-emitter-families/cast-save-reload.json",
+      "bytes": 110222,
+      "sha256": "f1361516cc994e09fc3874405b5e66af92bc3ffdfada7a4a5a619219f5ea57b7"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-meditate-cast-uns-d46cb-without-simulation-mutation/creation-death-terminal.json",
+      "bytes": 105,
+      "sha256": "844113db47cd79217c62fa1124bcb6a8cf79c3ba8f7fe76e1bc52d8deb6fc5d0"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-q-contacts-ordina-15f40-a-failed-texture-explicitly/late-load-explicit-retry.json",
+      "bytes": 964,
+      "sha256": "f7cbdbceb6b360411c5a808819e73d462e65468ef163d9ec4b74fc4ec502f3d0"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-q-contacts-real-c-2e79d-rticles-through-Save-reload/contact-save-reload.json",
+      "bytes": 31229,
+      "sha256": "f5a70a2489ac2b013a85324873587c47e5f38b90487ae1cf02deccbbb064f6b4"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-q-contacts-real-c-2e79d-rticles-through-Save-reload/critical-contact.png",
+      "bytes": 792508,
+      "sha256": "45ccc41108c0a3dd54eefaefd78756c8dcfdcfde67649b61c80f321ec84e165d"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/contact-save-reload.json",
+      "bytes": 35753,
+      "sha256": "07801e59a179ebb818c36166cd4f1af620d36f6ca688144231affe24ffe957bc"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/ordinary-contact.png",
+      "bytes": 801290,
+      "sha256": "31ef3f0125198051fe8feed74ff57728c1c44897a3fa1bc9e74d78213d19363f"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/three-authored-mip-readback.json",
+      "bytes": 10563,
+      "sha256": "9b97f1644009edc39fc69b3a985007f0d4920bc9dae8c0302baec8fc2be1dcdb"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-accepted.log",
+      "bytes": 5773,
+      "sha256": "d0ec946f1a9e839da0b9b70a1ac93144e03d60ecf996a2505c7efb80574d21c5"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-cache-retry/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-cache-retry/masteryi-meditate-buff-ord-5aeb9-es-only-the-failed-resource/buff-resource-retry.json",
+      "bytes": 512,
+      "sha256": "bfb80edca67079ec16b6c06276fa013b3820a2ddda2cf5ab1a828b2d97f2671e"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-cache-retry/masteryi-meditate-cast-ord-f73c1-uad-UV-selects-exact-pixels/secondary-uv-and-retry.json",
+      "bytes": 1290,
+      "sha256": "6a654c47e8748e907c6be447f65878d9e554198065ab61f3174a7e53aba5dc92"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-cache-retry.log",
+      "bytes": 991,
+      "sha256": "91c0209bdb0e6a1b9ae4aa7f5d7cbffecc0df8703e37de87efb9faae04a7c22a"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final/.last-run.json",
+      "bytes": 346,
+      "sha256": "5aaae29467de5219fbe07241cb331497d2f2aa2bae588b876eda6624b651a4ef"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final/masteryi-meditate-Meditate-57848-gh-real-private-Save-reload/error-context.md",
+      "bytes": 6178,
+      "sha256": "f979f1c445aa7671377f74f3bbf1c1a6778b49170f49fd77afc2b11c9bd92132"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final/masteryi-meditate-Meditate-57848-gh-real-private-Save-reload/meditate-active-loop.png",
+      "bytes": 810464,
+      "sha256": "6017fe3919bb31c1b951e0c2dbfdeeaad0043800429657eb52697107f576adc2"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final/masteryi-meditate-Meditate-57848-gh-real-private-Save-reload/trace.zip",
+      "bytes": 42582632,
+      "sha256": "474cb50c28d8cf1676a8c11cce773e9813b84af793492d93517e8f25afe9c226"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final/masteryi-meditate-buff-ord-5aeb9-es-only-the-failed-resource/buff-resource-retry.json",
+      "bytes": 512,
+      "sha256": "d9c5fe7797bbdab0aecbb182f87b08cfce6ce91ea66890d533c8c4690b0041a2"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final/masteryi-meditate-buff-rea-33941-ores-exact-source-particles/buff-135-false.png",
+      "bytes": 815624,
+      "sha256": "53abb85366dc4cb7cec5238ef5f46755ac4be96eb1075d1355fd18015ef062e8"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final/masteryi-meditate-buff-rea-33941-ores-exact-source-particles/buff-save-reload.json",
+      "bytes": 297996,
+      "sha256": "3901bdd90c437527e9cfb978253b6fe5aadf471f68d1a41aa55d9d26e4cc0492"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final/masteryi-meditate-buff-rea-ce128-ores-exact-source-particles/buff-9-true.png",
+      "bytes": 822670,
+      "sha256": "c2eb5e8fb219c03a9d182271ba373b02e881256b4c23b8749382fea843a5d21a"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final/masteryi-meditate-buff-rea-ce128-ores-exact-source-particles/buff-save-reload.json",
+      "bytes": 32345,
+      "sha256": "7fe35dd4ba9e6ae73c7fe5c110d3f1216bd27131d26f0f913ab58f9b50359355"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final/masteryi-meditate-buff-rea-d175b-ores-exact-source-particles/active-three-mip-readback.json",
+      "bytes": 9506,
+      "sha256": "c86b532f5b5d80585d6af5d5f3eb7eafb45802d14f7c68bc5a7a723f5881e4cf"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final/masteryi-meditate-buff-rea-d175b-ores-exact-source-particles/buff-9-false.png",
+      "bytes": 825945,
+      "sha256": "b5d93f356013febd9f42f48627aff6b6ac95b4c315437c2cbd2fdf58f4c196de"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final/masteryi-meditate-buff-rea-d175b-ores-exact-source-particles/buff-save-reload.json",
+      "bytes": 43042,
+      "sha256": "277932cc084035d28d8633be7459b946f52d3a1b7273f2e684e0544a91baef76"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final/masteryi-meditate-buff-uns-4252b-without-simulation-mutation/creation-death-terminal.json",
+      "bytes": 103,
+      "sha256": "f6338c9a4c0abc23d4d5028223a255926d4fd6cfc53c850a22ebeae8d4369719"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final/masteryi-meditate-cast-ord-f73c1-uad-UV-selects-exact-pixels/error-context.md",
+      "bytes": 12575,
+      "sha256": "2e5aaa2570b53901f9fb5ec277c32f21ece042ab297c692e2a531b28b72c5c7c"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final/masteryi-meditate-cast-ord-f73c1-uad-UV-selects-exact-pixels/test-failed-1.png",
+      "bytes": 925658,
+      "sha256": "49ca6abfca9d5989b666a7edb901bb0804d2538d65d3d51edfe9031e3e173818"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final/masteryi-meditate-cast-ord-f73c1-uad-UV-selects-exact-pixels/trace.zip",
+      "bytes": 35997389,
+      "sha256": "626146d4053df41d94e96ce30405a9196c8e4e5b17bb19de9910a8318786dcb8"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final/masteryi-meditate-cast-rea-3ca6d-ven-source-emitter-families/active-cast.png",
+      "bytes": 825945,
+      "sha256": "b5d93f356013febd9f42f48627aff6b6ac95b4c315437c2cbd2fdf58f4c196de"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final/masteryi-meditate-cast-rea-3ca6d-ven-source-emitter-families/active-three-mip-readback.json",
+      "bytes": 15359,
+      "sha256": "b70ba416fcbca5a8033cc292611e6d56b3214dd92c3848206646c63a5f512df3"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final/masteryi-meditate-cast-rea-3ca6d-ven-source-emitter-families/cast-save-reload.json",
+      "bytes": 105956,
+      "sha256": "3878605d2a125bba64c9cb8016e709d19c22f5fad649fb871da7094844bcb492"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final/masteryi-meditate-cast-rea-b0cf3-ven-source-emitter-families/cancelled-cast.png",
+      "bytes": 819874,
+      "sha256": "fcc7e5b61062480a41f8fa33efe92aa2d23b466b1c3ffbaa99c197e25b676721"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final/masteryi-meditate-cast-rea-b0cf3-ven-source-emitter-families/cast-save-reload.json",
+      "bytes": 110222,
+      "sha256": "566ee7420a5e22ba77f99fc23f06638d61f8b712af37483adf2ed5cd8e706908"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final/masteryi-meditate-cast-uns-d46cb-without-simulation-mutation/creation-death-terminal.json",
+      "bytes": 105,
+      "sha256": "844113db47cd79217c62fa1124bcb6a8cf79c3ba8f7fe76e1bc52d8deb6fc5d0"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-final.log",
+      "bytes": 8317,
+      "sha256": "14fab7a47b2ee66cfb00e8bfad076f1ba4249cb4ca5e2ae49b70762753314219"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-format.log",
+      "bytes": 89,
+      "sha256": "bfdd466e4f7c77249b75025fb504be0cd22318df65d161f161241ee6bfedc363"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-initial/.last-run.json",
+      "bytes": 96,
+      "sha256": "feb02d1d1e1bf6a68602b06732d9c7ef1751d60f5c19103d2da48dd62a1c1dc2"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-initial/masteryi-meditate-buff-ord-5aeb9-es-only-the-failed-resource/buff-resource-retry.json",
+      "bytes": 512,
+      "sha256": "d9c5fe7797bbdab0aecbb182f87b08cfce6ce91ea66890d533c8c4690b0041a2"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-initial/masteryi-meditate-buff-rea-00ae1-ores-exact-source-particles/error-context.md",
+      "bytes": 14194,
+      "sha256": "4229b78b537d6e96411698f30563697355528a9dcf1325a1828aa0c6b72a6b24"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-initial/masteryi-meditate-buff-rea-00ae1-ores-exact-source-particles/test-failed-1.png",
+      "bytes": 812327,
+      "sha256": "880859b3197ea1c57c453bc9b3c7c32f76b1e57e3b2a485d46bd90ee314a23d2"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-initial/masteryi-meditate-buff-rea-00ae1-ores-exact-source-particles/trace.zip",
+      "bytes": 42667248,
+      "sha256": "07b7b86089ad99ea885b5f4d6661c520fb899d4371f7879fff3fb189d787bcfa"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-initial/masteryi-meditate-buff-rea-33941-ores-exact-source-particles/buff-135-false.png",
+      "bytes": 815736,
+      "sha256": "df56feee2902ef861584a9a0bbb4c080e5178a0fa3c7503fb46775443b9e10e3"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-initial/masteryi-meditate-buff-rea-33941-ores-exact-source-particles/buff-save-reload.json",
+      "bytes": 301172,
+      "sha256": "76e6fed80822f5c3e19ade0fbdc7d9f298f325f15f1316fff60d0c042bdbd8b0"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-initial/masteryi-meditate-buff-rea-d175b-ores-exact-source-particles/active-three-mip-readback.json",
+      "bytes": 9506,
+      "sha256": "c86b532f5b5d80585d6af5d5f3eb7eafb45802d14f7c68bc5a7a723f5881e4cf"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-initial/masteryi-meditate-buff-rea-d175b-ores-exact-source-particles/buff-9-false.png",
+      "bytes": 825945,
+      "sha256": "b5d93f356013febd9f42f48627aff6b6ac95b4c315437c2cbd2fdf58f4c196de"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-initial/masteryi-meditate-buff-rea-d175b-ores-exact-source-particles/buff-save-reload.json",
+      "bytes": 43042,
+      "sha256": "89800cef6ecca84d50179bf9f765368aa2f666ea9441aae9a9e084a0a4fdbad4"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-initial/masteryi-meditate-buff-uns-4252b-without-simulation-mutation/creation-death-terminal.json",
+      "bytes": 103,
+      "sha256": "f6338c9a4c0abc23d4d5028223a255926d4fd6cfc53c850a22ebeae8d4369719"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/browser-initial.log",
+      "bytes": 4590,
+      "sha256": "72de69c8733b625ebbf9682cdd3aefa86e844ac46bdd02e2debc3e5b1a03d0d3"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/build-accepted.log",
+      "bytes": 5594,
+      "sha256": "e6ce15350c5e07b4facfd7f42eb4d949cbd0d16f0faab324426ea6c0be2577ba"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/build.log",
+      "bytes": 5594,
+      "sha256": "1cd11c5184169f0b1020e9b9286dc5b1ddcc20b460d4964ac4818a42206851b9"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/cache-format.log",
+      "bytes": 239,
+      "sha256": "b94434c1f62b09081ba7c8e4c772e37f226d3a5653e31b6d9d18e31b5e7257ac"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/cache-test-format.log",
+      "bytes": 59,
+      "sha256": "322771bfa84920a888e5af5aea0e303d92376ac5d6de467385d1c396969958a2"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/delivery-replay.json",
+      "bytes": 2393,
+      "sha256": "78271dfd9369c2dbe2899506c0ed0699526f6a75f91bf55eda21e6fdea5ce834"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/delivery-replay.log",
+      "bytes": 95,
+      "sha256": "db1d7b88b5d762b51d403bd875b0d69c20f8d16367905d2ebaec6939eca3e473"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/delivery-replay.py",
+      "bytes": 1033,
+      "sha256": "1cfde88534da651e4df33279a3ff76019d01302046b17973a9a20ddddcd866c9"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/export-check-O.log",
+      "bytes": 72,
+      "sha256": "f3acc35707ed89cd5ed26f1c765be3d56d349b1f10c0f1f384a1b3057d89321d"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/export-check.log",
+      "bytes": 72,
+      "sha256": "f3acc35707ed89cd5ed26f1c765be3d56d349b1f10c0f1f384a1b3057d89321d"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/export-final.log",
+      "bytes": 675,
+      "sha256": "47074e04bd81dbab526c95f5cc4639ffd6546bdd88de5c6c0cb521dec65dc943"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/export-initial.log",
+      "bytes": 72,
+      "sha256": "f3acc35707ed89cd5ed26f1c765be3d56d349b1f10c0f1f384a1b3057d89321d"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/export.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/field-format.log",
+      "bytes": 44,
+      "sha256": "fafd66ad1bea7edc10f831198167c4ed7a23176e1527f90cba9e31b87a5539a1"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/field-oracle/local.mjs",
+      "bytes": 4758,
+      "sha256": "14660262f6e035c783112d62197f1572a45c7b13ab40dd9f737a5fe525680abd"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/field-oracle/pinned.mjs",
+      "bytes": 2353,
+      "sha256": "9181d75eaaeb29d23ca5cba5ef81f9851867390da0d68de0f6763d6498ebc19a"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/field-oracle/result.json",
+      "bytes": 2076615,
+      "sha256": "51f228b2137e39cc9e87d4dee166d7d1ed3ada45d250c6a0fdba1efbc736dee6"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/final-source-index.json",
+      "bytes": 10900,
+      "sha256": "20a266060466c6c3bf73752df3a5f2a26e2d9e1ab4875bb00cb0721438d7935c"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/focused-accepted.log",
+      "bytes": 385,
+      "sha256": "f9f8b3fea7c08395976d726cb14ef2708bf9362614e2327104c37315c986833d"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/focused-cache.log",
+      "bytes": 385,
+      "sha256": "01c4003ef5d285e17f48ffd67235f5017f7709b52d9cefe09b57b07dad158fdd"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/focused-final.log",
+      "bytes": 382,
+      "sha256": "e38b14bc0699bdcbaff64861305b5daf4cd6ae6552f926f1abfb438ee0d2ea52"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/focused-initial.log",
+      "bytes": 29563,
+      "sha256": "314fe426a2d1090495665663547690e026256a0c10de653adc887b3ef55f822a"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/focused-second.log",
+      "bytes": 382,
+      "sha256": "e76c1b3591cb033576cd06214d6c5c00f3fe171a94bf292f23952cf8f06861b8"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/force-oracle.log",
+      "bytes": 352,
+      "sha256": "57c315acd172fc32d01dcfd65f3e1852de6611bae2440d25fa466fd12154b028"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/format-final.log",
+      "bytes": 100,
+      "sha256": "7e2d5e1f890a7d666b143ee543d18ef4f5d8a9199261f285fbad3f0f23d4e338"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/format-second.log",
+      "bytes": 168,
+      "sha256": "bf0fe36784ee093e843f784752bf79c6559c43493c82b25b7f1b710c1f281878"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/format.log",
+      "bytes": 301,
+      "sha256": "1112d68f0e53dd5268c7ae90b3e21437777ebb8853c63c44ca3a57906ae96d2c"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/full-unit-accepted.log",
+      "bytes": 5486,
+      "sha256": "94e77a71680f9b7515d5fdfcc3d1928d284b399e12a878a41a2e2027060023ff"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/full-unit.log",
+      "bytes": 5487,
+      "sha256": "2e8f7cbd9f1ed8eac375e6918824e307bcb21b797dbaf981cb9b93e21ccc350c"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/guards-O-final.log",
+      "bytes": 806,
+      "sha256": "7fc9ca3736bf3777cd1c986aa2ef16df6f4f4642c6fb5e9927ab9a4a92b32ae2"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/guards-O-final2.log",
+      "bytes": 118,
+      "sha256": "e3cfa1957baf492ed554f8a47f5096a54231e568852e697f953e3633c1f0dcd3"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/guards-O.log",
+      "bytes": 806,
+      "sha256": "db04f74913a674eeff0979844f7d0e07bdf6bc006a187bca1ed76f05138a3a99"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/guards-final.log",
+      "bytes": 806,
+      "sha256": "f8e5c610980359275a2af4a7e233c09e5380d451d70fad317716e0037a38772e"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/guards-final2.log",
+      "bytes": 118,
+      "sha256": "df49f0add5ed3d0a7c620d509fa9a6865c65c781d776ffe8666ea879c1c4a107"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/guards.log",
+      "bytes": 806,
+      "sha256": "715198adc3d389a709c1e49c50c6142956a5c20e23c9aef44d33336dbfd83028"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/history-format.log",
+      "bytes": 81,
+      "sha256": "f1695f7557a1e1eb200c2b6ab54a256e5bb03d218b473a3553dac94bb54e8729"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/history-tests.log",
+      "bytes": 179,
+      "sha256": "ab65019e54efe97310d9d31fe2ce541edb09942b72186103fb92a894dd23a449"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/identity.json",
+      "bytes": 238,
+      "sha256": "edb8137cd9dea4aeb31ba71fae188c46b5b7fc8b25eae3ff904b7a82d053b5f2"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/identity.log",
+      "bytes": 204,
+      "sha256": "58d174fa282d83246bd6423300f647f2c56407169e296b71cc5abd5bf1f80025"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/identity.mjs",
+      "bytes": 546,
+      "sha256": "947eb2ded26c63984fa48fc113ebd21f99616f1a33670d69fa66d092e19a426c"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/node-qa-accepted.log",
+      "bytes": 371,
+      "sha256": "10ddc57a03f63be5caf044a70b209c401e168f05f1a2d2b74a75f11d8eb22593"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/node-qa-final.log",
+      "bytes": 371,
+      "sha256": "2a90746638c6a3eb675909e089665c5d107d8aff53fdf1fb8040c99c1b2373de"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/node-qa.log",
+      "bytes": 371,
+      "sha256": "c26603ecbe50ea9e0a7653526cc36c2de0db947da94e5f94dcd276ae9b699b92"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/offline-pack.json",
+      "bytes": 162968,
+      "sha256": "cb0dcffc05023fbecae76d9df516a5801b4431a624528a812cf47fc56be87307"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1809047,
+      "sha256": "e3eb92eb2be8924cc0bc516db5d7d6fe88bffd97baa0b634ca098b18ad44e6eb"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835813,
+      "sha256": "764b4875ada89d09f51b48790853a379ffeffa745d9b83da6908f11370066549"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829909,
+      "sha256": "67d53b24f616b25a9eff4596d5ae593ac5bf75311364add6c80c1bc1046a1a4c"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1811636,
+      "sha256": "f44f8abf9b694bc23e29378e1bc4823f846f1c9531f1d584d262eec8a4716f51"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1820569,
+      "sha256": "bffda24b43ab7943f5e09870e92099b5d40086e8d168fd951282d3e872fbe5e1"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1351548,
+      "sha256": "eccafa4b8587813c4227a3492f4fb8c6db5787f606c28dbbb48831897d7bf58f"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1823866,
+      "sha256": "c95975d5d0952b293546677bc962b237800fc7a73a19b6b02b9073e08764230e"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808469,
+      "sha256": "f57f56f493f084777540b3a518ce916c09582017c7a90532fa2f068acad613b6"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/production-final.json",
+      "bytes": 2383,
+      "sha256": "027bdca5b9cc4926f3c2cb2d0a381f91842dbde07cab4076d4432aa7e1f91f47"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/production-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/production-system.mjs",
+      "bytes": 26445,
+      "sha256": "933d24044c3553b8d25a260670ab50ec02ff771e236c514d7d00c9fad00c4659"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/record-verification.py",
+      "bytes": 7419,
+      "sha256": "810ccea5c19d0ae1555ee1d83612ea594e2ac1b42165a3ec6502b59666a5f05e"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/shared-browser-format.log",
+      "bytes": 41,
+      "sha256": "85e9986cccd9f769f7fef9b90397fbb0e2e411eef51a7e7efd8363db2254c30e"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/state-format.log",
+      "bytes": 403,
+      "sha256": "5bbdd20a8bcc64fd14705d449fdc1fb4af2c19927acafc0bff6dbbf3c335e87d"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/test-format-final.log",
+      "bytes": 51,
+      "sha256": "ea6fab1ebf2d77eaa08f89ccba8826a1fb94460671d57504a120fcce35ecc051"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/test-format.log",
+      "bytes": 103,
+      "sha256": "f5d40afbdb6483a6abb148c036b91130dfd05522166bf9cd63149dbf6cd42c3c"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/types-cache-fixed.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/types-cache.log",
+      "bytes": 4101,
+      "sha256": "4fd04c98774b8c89f4f77a13a8be1df603a54365f9ec3f26c15485f5660d4b45"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/types-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/types-renderer.log",
+      "bytes": 145,
+      "sha256": "d7419db933bca100daadec8c097f6e259c0c942f02f9707eadcddc5ec8bed2bb"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-runtime/types-state.log",
+      "bytes": 1444,
+      "sha256": "eb848688d7f3aa58a32dc98bf19f10eb2609bbb7580f85ca9ffab9f32b8fbfaa"
+    }
+  ],
+  "checks": {
+    "fullUnit": {
+      "passed": 2687,
+      "failed": 3,
+      "total": 2690,
+      "files": 364,
+      "originalFiveSecondWaveClock": "passed"
+    },
+    "focused": {
+      "passed": 158,
+      "files": 10
+    },
+    "sourceGuardsPerPythonMode": 19,
+    "pythonModes": [
+      "normal",
+      "optimized"
+    ],
+    "exportReplays": {
+      "filesUnchangedBytesAndMtimes": 10
+    },
+    "build": "TypeScript and production build passed; existing chunk warning retained.",
+    "nodeQA": {
+      "passed": 3
+    },
+    "sharedTextureCache": {
+      "unitCases": 9,
+      "targetedBrowserRetryCases": 2,
+      "pageOwned": true,
+      "scope": "W cast/buff; per-asset request/decode coalescing with independent program readiness, failure eviction and verified success retention"
+    },
+    "fieldOperators": {
+      "orbitalExactFloat32Cases": 2072,
+      "attractionExactFloat32Cases": 2063,
+      "method": "Original pinned source function ASTs and their exact dependencies after TypeScript erasure; local operators compared with unchanged Float32 equality."
+    },
+    "browser": {
+      "passed": 15,
+      "retries": 0,
+      "environment": "system Chromium 154 / SwiftShader",
+      "buffFamilies": 4,
+      "buffMipReadbacks": 54,
+      "castMipReadbacks": 87,
+      "qMipReadbacks": 59,
+      "coverage": [
+        "real W opening/sustained/cancelled particles and exact Save/reload/future",
+        "135-tick stationary channel retained as one exact root run",
+        "heal mesh has 2199 corners and independent multiplier UV",
+        "two cast/buff shared URLs use identical Three texture objects; original cast retry counts remain unchanged",
+        "no ordinary buff preload and selective failed-resource retry",
+        "hidden creation, finite death/victory and no terminal world mutation",
+        "all four cast, three channel and three Q contact regressions"
+      ]
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 13,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderAudioPreloads": 0,
+      "unrequestedMasterYiAlphaAudioPreloads": 0,
+      "unrequestedMasterYiQContactPreloads": 0,
+      "unrequestedMasterYiMeditateCastPreloads": 0,
+      "unrequestedMasterYiMeditateBuffPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 221,
+      "scheduledBlueRequests": 13,
+      "scheduledRedRequests": 13,
+      "scheduledWolfRequests": 26,
+      "scheduledRaptorRequests": 26,
+      "scheduledKrugRequests": 39,
+      "scheduledScuttlerRequests": 13,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    }
+  },
+  "baselineFailures": [
+    "Original Leona attached-skin reflection check.py absent.",
+    "Original distortion metallib, bitcode and disassembly compiler artifacts unavailable.",
+    "Lux first fifteen sampler actual 4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a versus pinned 09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df; previously reproduced on untouched baseline."
+  ],
+  "retainedDiagnostics": [
+    "First combined browser batch exposed duplicate W cast/buff shared-texture requests: the buff could consume a fault injection while cast succeeded, so the original cast retry test timed out. Interrupted that batch and added a page-owned per-asset cache. Both original retry cases passed unchanged; final combined acceptance uses the fixed implementation.",
+    "Initial TypeScript check caught an omitted new optional attraction argument and a copied cast type import; both corrected before browser acceptance.",
+    "Longer buff retention exposed a test-only visibility override absent from the restored World; both histories now restore the original visibility function and capture its endpoint before comparing futures. Creation and acquired-vision assertions remain unchanged.",
+    "New cancellation browser fixture initially interrupted before first emission and correctly produced zero particles. Final fixture advances through first births before interrupting, preserving four-family and exact restore assertions.",
+    "Source exporter preflight rejected a stale generated W_Cas label in the new buff reading. Corrected the untracked reading to match W_Buf; all check/replay byte and timestamp assertions then passed."
+  ],
+  "limits": [
+    "Raw source hashes, candidate field names, pinned-reader defaults and explicit local dispatch/shape/force/random/shader adapters remain separate. No native script, frame, RNG, cadence or trajectory-precision certificate.",
+    "Source W on-create sound remains omitted; no inferred audio. Damage and tenacity rendering and additional ability audio remain separate work.",
+    "Canonical software decode plus local Three GPU/API acceptance does not certify native hardware decoder or native execution.",
+    "No physical-device/FPS/listening, whole-browser-suite, service-worker or offline-install certificate.",
+    "Ignored cache evidence requires preservation; exact changed source files are separately archived."
+  ]
+}

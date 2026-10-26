@@ -162,5 +162,7 @@ private file identities and staged results:
 
 The subsequent [cast-effect integration](MASTER-YI-W-CAST.md) delivers the
 complete seven-emitter `W_Cas` subset with ten selected source textures and the
-torus mesh. Buff, damage and tenacity rendering remain separate. The source-only
+torus mesh. The [buff integration](MASTER-YI-W-BUFF.md) adds the complete
+four-emitter `W_Buf`, six textures/54 authored mips and heal mesh. Damage and
+tenacity rendering remain separate. The source-only
 checkpoint identities and private artifacts above are retained as historical evidence.

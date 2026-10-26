@@ -6,12 +6,13 @@ import data from '../content/masteryi-w-cast-particles.json';
 import type { MeditateCastVisual } from '../simulation/masteryi-meditate-cast';
 import type { World } from '../simulation/world';
 import type { Vec2 } from '../simulation/math';
-import { checkedAssetBytes, loadAuthoredMipTexture } from './authored-mip-texture';
+import { checkedAssetBytes } from './authored-mip-texture';
+import { meditateTextures } from './masteryi-w-textures';
 import { meditateCastParticles } from './masteryi-w-cast-particles';
 import { SourceParticleSurfaces, type SurfaceGroup } from './source-particle-surfaces';
 import type { EclipseSurfaceAssets } from './leona-eclipse-surface-assets';
 
-const textures = new Map<string, Awaited<ReturnType<typeof loadAuthoredMipTexture>>>(),
+const textures = new Map<string, THREE.Texture>(),
   samplers = new Map<string, THREE.Texture>();
 let geometry: THREE.BufferGeometry | undefined,
   pending: Promise<void> | undefined,
@@ -29,11 +30,11 @@ const assets: EclipseSurfaceAssets = {
     const loaded = textures.get(path);
     if (!loaded) throw Error('Missing Meditate source texture');
     const wrap = address === 2 ? THREE.ClampToEdgeWrapping : THREE.RepeatWrapping;
-    if (loaded.texture.wrapS === wrap) return loaded.texture;
+    if (loaded.wrapS === wrap) return loaded;
     const key = `${path}:${address}`;
     let texture = samplers.get(key);
     if (!texture) {
-      texture = loaded.texture.clone();
+      texture = loaded.clone();
       texture.wrapS = texture.wrapT = wrap;
       texture.needsUpdate = true;
       samplers.set(key, texture);
@@ -54,7 +55,7 @@ export function loadMeditateCasts(): Promise<void> {
         .filter((asset) => !textures.has(asset.url))
         .map(async (asset) => {
           const lookup = data.profiles.some((profile) => profile.lookup === asset.url);
-          const resource = await loadAuthoredMipTexture(asset, lookup);
+          const resource = await meditateTextures.load(asset, lookup);
           textures.set(asset.url, resource);
         }),
       ...(geometry

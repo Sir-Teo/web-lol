@@ -3,8 +3,8 @@
 Accepted W in the private Yi scene now creates the complete seven-emitter
 `MasterYi_W_Cas` system. This changes presentation; the existing four-second
 channel still owns healing, mana, mitigation, passive stacks and interruption.
-The ordinary selector remains Ashe/Lux. Buff, damage and tenacity systems are
-retained sources and are not represented as completed effects here.
+The ordinary selector remains Ashe/Lux. [Buff effects](MASTER-YI-W-BUFF.md) have their own saved channel lifecycle.
+Damage and tenacity systems remain retained sources.
 
 | Source emitter | Primitive | Retained behavior |
 | --- | --- | --- |

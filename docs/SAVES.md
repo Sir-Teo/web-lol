@@ -1,6 +1,14 @@
 # Local match checkpoints
 
-Current schema **150** adds Meditate cast presentation histories. Each accepted
+Current schema **151** adds sustained Meditate buff presentation. Each accepted
+W retains its four-second emission bound, actual stop tick/reason and finite
+121-tick tail. Position, facing and audience endpoints use lossless runs of
+identical frames; moving and visibility transitions remain exact. Death freezes
+the root. Decoding checks run coverage/canonical form, owner/rank, channel links,
+stop clocks, live endpoints and finite retention. Earlier schemas/fingerprints
+remain incompatible. See [Meditate buff effects](MASTER-YI-W-BUFF.md).
+
+Schema **150** adds Meditate cast presentation histories. Each accepted
 W retains its creation audience and a finite 55-tick sequence of source position,
 facing and visibility endpoints. Cast effects can finish after channel interruption;
 death freezes their saved root. Decoding checks Yi ownership, learned rank,

@@ -29,7 +29,15 @@ const text =
   'type Vector=ArrayLike<number>;\n' +
   constants.map((n) => n.getFullText(ast)).join('\n') +
   '\n' +
-  fn.getFullText(ast);
+  fn.getFullText(ast) +
+  '\n' +
+  ast.statements
+    .filter(
+      (node) =>
+        ts.isFunctionDeclaration(node) && ['attractInto', 'within'].includes(node.name?.text)
+    )
+    .map((node) => node.getFullText(ast))
+    .join('\n');
 const dir = '.cache/masteryi-field-motion-cloud/oracle';
 await fs.mkdir(dir, { recursive: true });
 const compile = (text) =>
@@ -39,10 +47,10 @@ const compile = (text) =>
 await fs.writeFile(dir + '/pinned.mjs', compile(text));
 const local = await fs.readFile('src/render/particle-orbital-motion.ts', 'utf8');
 await fs.writeFile(dir + '/local.mjs', compile(local));
-const { orbitFieldInto } = await import(
+const { orbitFieldInto, attractInto } = await import(
     pathToFileURL(process.cwd() + '/' + dir + '/pinned.mjs').href
   ),
-  { redirectOrbitalVelocity } = await import(
+  { redirectOrbitalVelocity, attractParticleVelocity } = await import(
     pathToFileURL(process.cwd() + '/' + dir + '/local.mjs').href
   );
 const rows = [];
@@ -91,6 +99,41 @@ for (let index = 0; index < 2048; index++) {
     axis.map((v) => v / length)
   );
 }
+const attractionRows = [];
+const checkAttraction = (velocity, point, centre, strength, radius, dt) => {
+  const expected = new Float32Array(velocity),
+    actual = new Float32Array(velocity),
+    position = new Float32Array(point);
+  attractInto(expected, position, centre, strength, radius, dt);
+  attractParticleVelocity(actual, position, { position: centre, strength, radius }, dt);
+  assert.deepEqual(actual, expected);
+  attractionRows.push({
+    velocity: [...new Float32Array(velocity)],
+    point: [...position],
+    centre,
+    strength,
+    radius,
+    dt,
+    output: [...actual],
+  });
+};
+for (const point of [
+  [0, 0, 0],
+  [0.5, 0, 0],
+  [1, 0, 0],
+  [200, 0, 0],
+  [200.001, 0, 0],
+])
+  for (const dt of [0, 1 / 60, 0.5]) checkAttraction([3, 4, 5], point, [0, 0, 0], 100, 200, dt);
+for (let index = 0; index < 2048; index++)
+  checkAttraction(
+    [draw() * 200, draw() * 200, draw() * 200],
+    [draw() * 400, draw() * 400, draw() * 400],
+    [draw() * 100, draw() * 100, draw() * 100],
+    draw() * 100,
+    Math.abs(draw()) * 500,
+    Math.abs(draw()) / 10
+  );
 const result = {
   sourceSha256: source.sha256,
   sourceFunctionSha256: hash(fn.getFullText(ast)),
@@ -98,6 +141,14 @@ const result = {
   cases: rows.length,
   exactFloat32Matches: true,
   rows,
+  attractionCases: attractionRows.length,
+  attractionRows,
 };
 await fs.writeFile(dir + '/result.json', JSON.stringify(result, null, 2) + '\n');
-console.log(JSON.stringify({ ...result, rows: result.rows.length }));
+console.log(
+  JSON.stringify({
+    ...result,
+    rows: result.rows.length,
+    attractionRows: result.attractionRows.length,
+  })
+);

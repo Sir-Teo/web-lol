@@ -1,3 +1,4 @@
+import { stopMeditateBuff } from './masteryi-meditate-buff';
 import { MASTER_YI_W } from '../content/masteryi-w';
 import { DT, TICK_RATE } from '../content/rules';
 import { countDoubleStrikeContact } from './masteryi-double-strike';
@@ -55,6 +56,7 @@ export function finishMeditate(
   channel.stopTick = Math.min(tick, channel.endTick);
   channel.lastTick = channel.stopTick;
   channel.stopReason = reason;
+  stopMeditateBuff(owner, channel.stopTick, reason);
 }
 
 /** Settle the elapsed channel interval before expiry/input, so a paused E never
@@ -68,6 +70,7 @@ export function settleMeditate(world: World, owner: ChampionState, unit: Unit): 
     return;
   }
   if (unit.hp <= 0 || world.winner) {
+    stopMeditateBuff(owner, world.tick, unit.hp <= 0 ? 'death' : 'victory');
     owner.meditate = null;
     return;
   }

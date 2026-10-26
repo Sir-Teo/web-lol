@@ -104,6 +104,8 @@ test('creation audience remains separate from later acquired vision', () => {
   f.w.step(3);
   expect(f.owner.meditateCastVisuals[0].audience).toEqual(['red']);
   expect(f.owner.meditateCastVisuals[0].frames.at(-1)!.audience).toEqual(['blue', 'red']);
+  f.w.visible = visible;
+  f.w.step();
   f.resume();
 });
 
