@@ -1,4 +1,9 @@
 import {
+  beginWujuStyleAudio,
+  stopWujuStyleAudio,
+  wujuStyleAudioExpiry,
+} from './masteryi-wuju-style-audio';
+import {
   beginMeditateAudio,
   stopMeditateAudio,
   meditateAudioExpiry,
@@ -1132,7 +1137,14 @@ export class World {
       if (state.alphaStrike) settleAlphaStrike(this, state, this.unit(state.id)!);
       if (state.meditate) settleMeditate(this, state, this.unit(state.id)!);
       if (state.doubleStrike) expireDoubleStrike(state.doubleStrike, this.tick);
-      if (state.wujuStyle && this.tick >= state.wujuStyle.endTick) state.wujuStyle = null;
+      if (state.wujuStyle && this.tick >= state.wujuStyle.endTick) {
+        stopWujuStyleAudio(state, this.unit(state.id)!, this, 'expired');
+        state.wujuStyle = null;
+      }
+      if (state.wujuStyleAudio.length)
+        state.wujuStyleAudio = state.wujuStyleAudio.filter(
+          (r) => this.tick < wujuStyleAudioExpiry(r)
+        );
       if (state.highlander && this.tick >= state.highlander.endTick) {
         stopHighlanderAudio(state, this.unit(state.id)!, this, 'expired');
         state.highlander = null;
@@ -5733,6 +5745,7 @@ export class World {
         this.winner = target.team === 'blue' ? 'red' : 'blue';
         for (const state of this.activeChampionStates()) {
           if (state.doubleStrike) state.doubleStrike = createDoubleStrikeState();
+          stopWujuStyleAudio(state, this.unit(state.id)!, this, 'victory');
           state.wujuStyle = null;
           stopMeditateBuff(state, this.tick, 'victory');
           stopMeditateAudio(state, this, this.unit(state.id)!, 'victory');
@@ -5796,6 +5809,7 @@ export class World {
       }
       if (targetState) {
         if (targetState.doubleStrike) targetState.doubleStrike = createDoubleStrikeState();
+        stopWujuStyleAudio(targetState, target, this, 'death');
         targetState.wujuStyle = null;
         stopMeditateBuff(targetState, this.tick, 'death');
         stopMeditateAudio(targetState, this, target, 'death');
@@ -6495,12 +6509,14 @@ export class World {
       return;
     }
     if (u.champion === 'masteryi' && ability === 'e') {
+      stopWujuStyleAudio(state, u, this, 'recast');
       state.wujuStyle = {
         startTick: this.tick,
         endTick: this.tick + WUJU_STYLE_TICKS,
         rank: state.spellRanks.e,
         pausedTicks: 0,
       };
+      beginWujuStyleAudio(state, u, this);
       state.cooldowns.e = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
       state.recallEnd = null;
       this.emit('cast', u, { unit: u.id, champion: 'masteryi', text: 'e', team: u.team });

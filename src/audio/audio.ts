@@ -1,3 +1,4 @@
+import { LazyMasterYiWujuStyleAudio } from './masteryi-e-lazy';
 import { LazyMasterYiMeditateAudio } from './masteryi-w-lazy';
 import { LazyMasterYiAttackAudio } from './masteryi-aa-lazy';
 import { LazyMasterYiHighlanderAudio } from './masteryi-r-lazy';
@@ -46,6 +47,7 @@ export class GameAudio {
   bindingFlight = new LuxBindingFlightAudio();
   garenAA = new LazyGarenBasicAttackAudio();
   masterYiAA = new LazyMasterYiAttackAudio();
+  masterYiE = new LazyMasterYiWujuStyleAudio();
   masterYiW = new LazyMasterYiMeditateAudio();
   masterYiR = new LazyMasterYiHighlanderAudio();
   masterYiQ = new LazyMasterYiAlphaAudio();
@@ -125,6 +127,7 @@ export class GameAudio {
             this.masterYiR.load(),
             this.masterYiQ.load(),
             this.masterYiW.load(),
+            this.masterYiE.load(),
           ]
         : []),
       ...(garenPresent
@@ -325,6 +328,7 @@ export class GameAudio {
     this.masterYiAA.stop();
     this.masterYiR.stop();
     this.masterYiW.stop();
+    this.masterYiE.stop();
     this.masterYiQ.stop();
     this.garenP.stop();
     this.garenE.stop();
@@ -697,6 +701,7 @@ export class GameAudio {
     }
     const yiUnits = world.units.filter((u) => u.champion === 'masteryi');
     if (yiUnits.length && this.masterYiAA.status === 'idle') void this.masterYiAA.load();
+    if (yiUnits.length && this.masterYiE.status === 'idle') void this.masterYiE.load();
     if (yiUnits.length && this.masterYiW.status === 'idle') void this.masterYiW.load();
     if (yiUnits.length && this.masterYiR.status === 'idle') void this.masterYiR.load();
     if (yiUnits.length && this.masterYiQ.status === 'idle') void this.masterYiQ.load();
@@ -759,6 +764,24 @@ export class GameAudio {
       this.enabled && !this.paused,
       yiUnits.flatMap((u) =>
         world.championState(u.id)!.meditateAudio.map((r) => ({
+          ...r,
+          id: u.id,
+          x: u.x,
+          y: u.y,
+          castVisible:
+            r.castAudience.includes(world.hero.team) &&
+            (u.team === world.hero.team || world.visible(u, world.hero.team)),
+          stopVisible: r.stop?.audience.includes(world.hero.team) ?? false,
+        }))
+      ),
+      recoveryTick,
+      listener
+    );
+    this.masterYiE.update(
+      this.context,
+      this.enabled && !this.paused,
+      yiUnits.flatMap((u) =>
+        world.championState(u.id)!.wujuStyleAudio.map((r) => ({
           ...r,
           id: u.id,
           x: u.x,
@@ -934,6 +957,12 @@ export class GameAudio {
           ) {
             // Saved accepted Q cast/contact histories own the declared source cues.
           } else if (
+            event.text === 'e' &&
+            event.champion === 'masteryi' &&
+            this.masterYiE.status === 'ready'
+          ) {
+            // Saved Wuju Style cast/activation/natural ending own the finite source cues.
+          } else if (
             event.text === 'w' &&
             event.champion === 'masteryi' &&
             this.masterYiW.status === 'ready'
@@ -1014,6 +1043,8 @@ export class GameAudio {
           else {
             if (event.text === 'q' && event.champion === 'masteryi' && event.unit !== undefined)
               this.masterYiQ.suppressCast(event.unit, event.tick);
+            if (event.text === 'e' && event.champion === 'masteryi' && event.unit !== undefined)
+              this.masterYiE.suppressCast(event.unit, event.tick);
             if (event.text === 'w' && event.champion === 'masteryi' && event.unit !== undefined)
               this.masterYiW.suppressCast(event.unit, event.tick);
             if (event.text === 'r' && event.champion === 'masteryi' && event.unit !== undefined)

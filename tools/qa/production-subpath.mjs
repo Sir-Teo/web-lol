@@ -69,6 +69,7 @@ try {
     masterYiHighlanderAudioRequests = [],
     masterYiAlphaAudioRequests = [],
     masterYiMeditateAudioRequests = [],
+    masterYiWujuStyleAudioRequests = [],
     masterYiQContactRequests = [],
     masterYiMeditateCastRequests = [],
     masterYiMeditateBuffRequests = [],
@@ -100,6 +101,8 @@ try {
       masterYiAlphaAudioRequests.push(request.url());
     if (/\/masteryi-w-\d+\.wav$/.test(request.url()))
       masterYiMeditateAudioRequests.push(request.url());
+    if (/\/masteryi-e-\d+\.wav$/.test(request.url()))
+      masterYiWujuStyleAudioRequests.push(request.url());
     if (/\/masteryi-q-contact-(?:[0-9a-f]+\.png|trail\.glb)$/.test(request.url()))
       masterYiQContactRequests.push(request.url());
     if (/\/masteryi-w-cast-[^/]+\.(?:png|glb)$/.test(request.url()))
@@ -518,6 +521,11 @@ try {
     'Production must not preload development Meditate buff assets'
   );
   assert.deepEqual(
+    masterYiWujuStyleAudioRequests,
+    [],
+    'Production must not preload development Wuju Style audio'
+  );
+  assert.deepEqual(
     masterYiMeditateAudioRequests,
     [],
     'Production must not preload development Meditate audio'
@@ -561,6 +569,7 @@ try {
       unrequestedMasterYiHighlanderAudioPreloads: masterYiHighlanderAudioRequests.length,
       unrequestedMasterYiAlphaAudioPreloads: masterYiAlphaAudioRequests.length,
       unrequestedMasterYiMeditateAudioPreloads: masterYiMeditateAudioRequests.length,
+      unrequestedMasterYiWujuStyleAudioPreloads: masterYiWujuStyleAudioRequests.length,
       unrequestedMasterYiQContactPreloads: masterYiQContactRequests.length,
       unrequestedMasterYiMeditateCastPreloads: masterYiMeditateCastRequests.length,
       unrequestedMasterYiMeditateBuffPreloads: masterYiMeditateBuffRequests.length,

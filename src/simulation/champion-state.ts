@@ -35,6 +35,7 @@ export function createChampionState(id: number, unlocked = true, tick = 0): Cham
     qUntil: 0,
     qStackExpiry: 0,
     doubleStrike: null,
+    wujuStyleAudio: [],
     wujuStyle: null,
     meditate: null,
     meditateCastVisuals: [],

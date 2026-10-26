@@ -1,6 +1,15 @@
 # Local match checkpoints
 
-Current schema **152** adds finite Meditate audio histories. Each accepted W
+Current schema **153** adds Wuju Style audio histories. Accepted E records its
+rank, cast point/audience and a separate actual removal with paused end clock,
+point and audience. Q/W pauses extend the live buff without changing finite
+cast/activation audio. Natural expiry admits an ending; death, victory and
+replacement retain finite onsets. Decoding checks ownership, ordered clocks,
+active-buff linkage, exact pause accounting, recasts and finite retention.
+Earlier schemas/fingerprints remain incompatible. See
+[Wuju Style audio](MASTER-YI-E-AUDIO.md).
+
+Schema **152** adds finite Meditate audio histories. Each accepted W
 retains rank, planned channel end, cast point/audience and its actual stop
 reason, point and audience. Living completion/interruption admits an ending;
 death/victory retain finite onset without inventing an ending callback. Audio

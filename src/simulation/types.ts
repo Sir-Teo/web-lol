@@ -514,6 +514,7 @@ export interface ChampionState {
   qStackExpiry: number;
   /** Own counter and independently committed extra melee contact. */
   doubleStrike: import('./masteryi-double-strike').DoubleStrikeState | null;
+  wujuStyleAudio: import('./masteryi-wuju-style-audio').WujuStyleAudioRecord[];
   wujuStyle: import('./masteryi-wuju-style').WujuStyleState | null;
   meditate: import('./masteryi-meditate').MeditateState | null;
   meditateCastVisuals: import('./masteryi-meditate-cast').MeditateCastVisual[];
