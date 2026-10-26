@@ -67,6 +67,7 @@ try {
     masterYiPreviewRequests = [],
     masterYiAttackAudioRequests = [],
     masterYiHighlanderAudioRequests = [],
+    masterYiAlphaAudioRequests = [],
     masterYiQContactRequests = [],
     preparedCompanionRequests = [],
     wardRigRequests = [],
@@ -92,6 +93,8 @@ try {
       masterYiAttackAudioRequests.push(request.url());
     if (/\/masteryi-r-\d+\.wav$/.test(request.url()))
       masterYiHighlanderAudioRequests.push(request.url());
+    if (/\/masteryi-q-\d+\.wav$/.test(request.url()))
+      masterYiAlphaAudioRequests.push(request.url());
     if (/\/masteryi-q-contact-(?:[0-9a-f]+\.png|trail\.glb)$/.test(request.url()))
       masterYiQContactRequests.push(request.url());
     if (/\/(?:leona[^/]*\.(?:glb|png|wav)|base_brightspark_11\.png)$/i.test(request.url()))
@@ -495,6 +498,11 @@ try {
     [],
     'Production must not preload development Alpha Strike contact assets'
   );
+  assert.deepEqual(
+    masterYiAlphaAudioRequests,
+    [],
+    'Production must not preload development Alpha Strike audio'
+  );
   console.log(
     JSON.stringify({
       result: 'passed',
@@ -527,6 +535,7 @@ try {
       unrequestedMasterYiPreloads: masterYiPreviewRequests.length,
       unrequestedMasterYiAttackAudioPreloads: masterYiAttackAudioRequests.length,
       unrequestedMasterYiHighlanderAudioPreloads: masterYiHighlanderAudioRequests.length,
+      unrequestedMasterYiAlphaAudioPreloads: masterYiAlphaAudioRequests.length,
       unrequestedMasterYiQContactPreloads: masterYiQContactRequests.length,
       masterYiNpcFixtureInProduction: false,
       masterYiPlayerFixtureInProduction: false,

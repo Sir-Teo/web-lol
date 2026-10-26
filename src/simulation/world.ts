@@ -1,4 +1,5 @@
 import { captureAlphaContact, advanceAlphaContacts } from './masteryi-q-contact-visuals';
+import { beginAlphaAudio, contactAlphaAudio, alphaAudioExpiry } from './masteryi-q-audio';
 import { ALPHA_CONTACT_HISTORY_TICKS } from '../content/masteryi-q-contact-timing';
 import type { AlphaStrikeMark } from './masteryi-alpha-strike';
 import {
@@ -1077,26 +1078,31 @@ export class World {
     if (this.teamPlans)
       for (const plan of Object.values(this.teamPlans))
         plan.assignments = plan.assignments.filter((g) => g.expiresTick > this.tick);
-    this.luxIlluminationVisuals = this.luxIlluminationVisuals.filter(
-      (v) => this.tick < v.startTick + LUX_ILLUMINATION_HISTORY_TICKS
-    );
-    this.luxImpactVisuals = this.luxImpactVisuals.filter(
-      (v) => this.tick < v.startTick + LUX_IMPACT_HISTORY_TICKS
-    );
-    this.luxAttackVisuals = this.luxAttackVisuals.filter(
-      (v) => v.stopTick === null || this.tick < v.stopTick + LUX_ATTACK_VISUAL_TAIL_TICKS
-    );
-    this.grompAttackVisuals = this.grompAttackVisuals.filter(
-      (v) => v.stopTick === null || this.tick < v.stopTick + GROMP_ATTACK_VISUAL_TAIL_TICKS
-    );
+    if (this.luxIlluminationVisuals.length)
+      this.luxIlluminationVisuals = this.luxIlluminationVisuals.filter(
+        (v) => this.tick < v.startTick + LUX_ILLUMINATION_HISTORY_TICKS
+      );
+    if (this.luxImpactVisuals.length)
+      this.luxImpactVisuals = this.luxImpactVisuals.filter(
+        (v) => this.tick < v.startTick + LUX_IMPACT_HISTORY_TICKS
+      );
+    if (this.luxAttackVisuals.length)
+      this.luxAttackVisuals = this.luxAttackVisuals.filter(
+        (v) => v.stopTick === null || this.tick < v.stopTick + LUX_ATTACK_VISUAL_TAIL_TICKS
+      );
+    if (this.grompAttackVisuals.length)
+      this.grompAttackVisuals = this.grompAttackVisuals.filter(
+        (v) => v.stopTick === null || this.tick < v.stopTick + GROMP_ATTACK_VISUAL_TAIL_TICKS
+      );
     for (const unit of this.units)
       if (unit.slows.length) unit.slows = unit.slows.filter((slow) => slow.endTick > this.tick);
     for (const unit of this.units)
       if (unit.shields.length)
         unit.shields = unit.shields.filter((shield) => shield.endTick > this.tick);
-    this.luxBeams = this.luxBeams.filter(
-      (beam) => this.tick < beam.startTick + LUX_R.presentationSeconds * TICK_RATE
-    );
+    if (this.luxBeams.length)
+      this.luxBeams = this.luxBeams.filter(
+        (beam) => this.tick < beam.startTick + LUX_R.presentationSeconds * TICK_RATE
+      );
     for (const unit of this.units) {
       if (unit.illumination.length)
         unit.illumination = unit.illumination.filter((mark) => mark.endTick > this.tick);
@@ -1126,6 +1132,8 @@ export class World {
         state.alphaContactVisuals = state.alphaContactVisuals.filter(
           (r) => this.tick < r.tick + ALPHA_CONTACT_HISTORY_TICKS
         );
+      if (state.alphaAudio.length)
+        state.alphaAudio = state.alphaAudio.filter((r) => this.tick < alphaAudioExpiry(r));
       if (state.leonaQ && this.tick >= state.leonaQ.endTick) {
         finishDaybreakVisual(state, this.tick, 'expired');
         state.leonaQ = null;
@@ -4573,7 +4581,7 @@ export class World {
       if (durations)
         unit.animationTimeline = advanceAnimationTimeline(
           unit.animationTimeline,
-          mobilePose(unit, state, this.tick, 1, durations),
+          mobilePose(unit, state, this.tick, 1, durations, 0, moving),
           this.tick,
           durations
         );
@@ -5209,6 +5217,7 @@ export class World {
   ): boolean {
     if (!alphaTarget(this, source, target)) return false;
     captureAlphaContact(this, source, target, mark);
+    contactAlphaAudio(this, source, target, mark);
     this.damage(source, target, raw, 'physical', 'area');
     this.applyAttackOnHitEffects(source, target, true, onHitScale);
     return true;
@@ -6414,6 +6423,7 @@ export class World {
       u.mana -= resources.mana;
       state.cooldowns.q = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
       beginAlphaStrike(state, u, target, this.tick);
+      beginAlphaAudio(this, u, target);
       this.emit('cast', u, { unit: u.id, champion: 'masteryi', text: 'q', team: u.team });
       return;
     }

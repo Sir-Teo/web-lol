@@ -1,9 +1,10 @@
-import { expect, test } from 'vitest';
+import { expect, test, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { World } from '../src/simulation/world';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
 import { ALPHA_CONTACT_HISTORY_TICKS } from '../src/content/masteryi-q-contact-timing';
 import { Random } from '../src/simulation/math';
+import { advanceAlphaContacts } from '../src/simulation/masteryi-q-contact-visuals';
 
 function fixture() {
   const w = new World(false, {
@@ -37,6 +38,15 @@ function fixture() {
   };
   return { w, yi, owner, target, cast, resume };
 }
+
+test('ordinary units do not trigger Yi contact-history state lookups', () => {
+  const w = new World(false, { ...PRACTICE_FIXTURE, initialUnits: [] });
+  for (let i = 0; i < 100; i++) w.spawn('dummy', 'red', { x: 300 + i, y: 0 });
+  const lookup = vi.spyOn(w, 'championState');
+  advanceAlphaContacts(w);
+  expect(lookup).not.toHaveBeenCalled();
+  lookup.mockRestore();
+});
 
 test('queued explicit Yi Q saves before admission and restores its exact next-step result', () => {
   const f = fixture();

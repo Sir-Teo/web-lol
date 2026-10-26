@@ -112,6 +112,31 @@ test('saved Alpha Strike contacts cover source profiles, sampling, materials and
   }
 });
 
+test('saved Alpha Strike sound compatibility includes state, voice policy and exact float loading', () => {
+  for (const file of [
+    'src/audio/masteryi-q-state.ts',
+    'src/audio/masteryi-q.ts',
+    'src/audio/float-source-wav.ts',
+    'src/content/masteryi-q-audio.ts',
+    'src/content/masteryi-q-audio-timing.ts',
+    'src/simulation/masteryi-q-audio.ts',
+  ]) {
+    expect(rulesetFiles, file).toContain(file);
+    expect(affectsRuleset(resolve(file)), file).toBe(true);
+  }
+  const { root, put } = fixture();
+  put('src/audio/masteryi-q.ts', "import './masteryi-q-state'; import './float-source-wav';");
+  put('src/audio/masteryi-q-state.ts', 'export const phase=1;');
+  put('src/audio/float-source-wav.ts', 'export const preserveFloat=true;');
+  const before = rulesetFingerprint(root);
+  put('src/audio/masteryi-q-state.ts', 'export const phase=2;');
+  expect(rulesetFingerprint(root)).not.toBe(before);
+  put('src/audio/masteryi-q-state.ts', 'export const phase=1;');
+  expect(rulesetFingerprint(root)).toBe(before);
+  put('src/audio/float-source-wav.ts', 'export const preserveFloat=false;');
+  expect(rulesetFingerprint(root)).not.toBe(before);
+});
+
 test('Ahri and Master Yi saved-pose compatibility includes fetched rig inputs without importing binary modules', () => {
   const { root, put } = fixture();
   const before = rulesetFingerprint(root);
@@ -244,7 +269,9 @@ test('explicit Eclipse module roots include transitive kernels and fail closed o
   const { root, put } = fixture(),
     baseline = rulesetFingerprint(root);
   for (const entry of rulesetModuleRoots) expect(collectRulesetFiles(root)).toContain(entry);
-  put(rulesetModuleRoots[0], "import './curve-policy';");
+  const entry = 'src/render/leona-eclipse-particles.ts';
+  expect(rulesetModuleRoots).toContain(entry);
+  put(entry, "import './curve-policy';");
   put('src/render/curve-policy.ts', "import curve from './curve-data.json'; export default curve;");
   put('src/render/curve-data.json', '{"rate":1}');
   const changed = rulesetFingerprint(root);

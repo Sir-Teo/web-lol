@@ -1,5 +1,6 @@
 import { LazyMasterYiAttackAudio } from './masteryi-aa-lazy';
 import { LazyMasterYiHighlanderAudio } from './masteryi-r-lazy';
+import { LazyMasterYiAlphaAudio } from './masteryi-q-lazy';
 import { LazyGarenBasicAttackAudio } from './garen-aa-lazy';
 import { LazyGarenPerseveranceAudio } from './garen-p-lazy';
 import { LuxSingularityAudio } from './lux-e';
@@ -45,6 +46,7 @@ export class GameAudio {
   garenAA = new LazyGarenBasicAttackAudio();
   masterYiAA = new LazyMasterYiAttackAudio();
   masterYiR = new LazyMasterYiHighlanderAudio();
+  masterYiQ = new LazyMasterYiAlphaAudio();
   garenP = new LazyGarenPerseveranceAudio();
   private garenPTerminalWorld?: World;
   private garenPTerminalStart = 0;
@@ -115,7 +117,9 @@ export class GameAudio {
       this.loadBindingCast(),
       this.bindingFlight.load(),
       this.luxE.load(),
-      ...(masterYiPresent ? [this.masterYiAA.load(), this.masterYiR.load()] : []),
+      ...(masterYiPresent
+        ? [this.masterYiAA.load(), this.masterYiR.load(), this.masterYiQ.load()]
+        : []),
       ...(garenPresent
         ? [
             this.garenAA.load(),
@@ -313,6 +317,7 @@ export class GameAudio {
     this.garenAA.stop();
     this.masterYiAA.stop();
     this.masterYiR.stop();
+    this.masterYiQ.stop();
     this.garenP.stop();
     this.garenE.stop();
     this.garenR.stop();
@@ -685,6 +690,24 @@ export class GameAudio {
     const yiUnits = world.units.filter((u) => u.champion === 'masteryi');
     if (yiUnits.length && this.masterYiAA.status === 'idle') void this.masterYiAA.load();
     if (yiUnits.length && this.masterYiR.status === 'idle') void this.masterYiR.load();
+    if (yiUnits.length && this.masterYiQ.status === 'idle') void this.masterYiQ.load();
+    this.masterYiQ.update(
+      this.context,
+      this.enabled && !this.paused,
+      yiUnits.flatMap((u) =>
+        world.championState(u.id)!.alphaAudio.map((r) => ({
+          ...r,
+          id: u.id,
+          castVisible: r.castAudience.includes(world.hero.team),
+          contacts: r.contacts.map((contact) => ({
+            ...contact,
+            visible: contact.audience.includes(world.hero.team),
+          })),
+        }))
+      ),
+      recoveryTick,
+      listener
+    );
     const yiAttacks = yiUnits.flatMap((u) =>
       world.championState(u.id)!.masterYiAAAudio.map((r) => ({
         ...r,
@@ -708,18 +731,16 @@ export class GameAudio {
       this.context,
       this.enabled && !this.paused,
       yiUnits.flatMap((u) =>
-        world
-          .championState(u.id)!
-          .highlanderAudio.map((r) => ({
-            ...r,
-            id: u.id,
-            x: u.x,
-            y: u.y,
-            castVisible:
-              r.castAudience.includes(world.hero.team) &&
-              (u.team === world.hero.team || world.visible(u, world.hero.team)),
-            stopVisible: r.stop?.audience.includes(world.hero.team) ?? false,
-          }))
+        world.championState(u.id)!.highlanderAudio.map((r) => ({
+          ...r,
+          id: u.id,
+          x: u.x,
+          y: u.y,
+          castVisible:
+            r.castAudience.includes(world.hero.team) &&
+            (u.team === world.hero.team || world.visible(u, world.hero.team)),
+          stopVisible: r.stop?.audience.includes(world.hero.team) ?? false,
+        }))
       ),
       recoveryTick,
       listener
@@ -880,6 +901,12 @@ export class GameAudio {
         }
         if (event.type === 'cast') {
           if (
+            event.text === 'q' &&
+            event.champion === 'masteryi' &&
+            this.masterYiQ.status === 'ready'
+          ) {
+            // Saved accepted Q cast/contact histories own the declared source cues.
+          } else if (
             event.text === 'r' &&
             event.champion === 'masteryi' &&
             this.masterYiR.status === 'ready'
@@ -952,6 +979,8 @@ export class GameAudio {
           )
             this.bindingCast(event, tick, listener);
           else {
+            if (event.text === 'q' && event.champion === 'masteryi' && event.unit !== undefined)
+              this.masterYiQ.suppressCast(event.unit, event.tick);
             if (event.text === 'r' && event.champion === 'masteryi' && event.unit !== undefined)
               this.masterYiR.suppressCast(event.unit, event.tick);
             if (event.text === 'q' && event.champion === 'leona' && event.unit !== undefined)

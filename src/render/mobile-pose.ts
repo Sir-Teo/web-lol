@@ -39,7 +39,8 @@ export function mobilePose(
   tick: number,
   alpha: number,
   durations: Readonly<Record<string, number>>,
-  terminalAge = 0
+  terminalAge = 0,
+  movementSample?: boolean
 ): MobilePose {
   const at = tick - 1 + alpha;
   const duration = (name: string) => {
@@ -87,11 +88,14 @@ export function mobilePose(
     const time = Math.max(0, (at - meditate.startTick) / TICK_RATE);
     return { ...fixed('cast', clip, time, true), time: time % duration(clip), loop: true };
   }
-  const leonaMoving = Math.hypot(unit.x - unit.previous.x, unit.y - unit.previous.y) > 0.01;
+  // The fixed-step updater already measured this endpoint. Other callers keep
+  // the same full-precision distance calculation; no pose/time is approximated.
+  const moving =
+    movementSample ?? Math.hypot(unit.x - unit.previous.x, unit.y - unit.previous.y) > 0.01;
   if (
     leonaCycle?.leonaQReleaseTick !== undefined &&
     tick < leonaCycle.endTick &&
-    (!leonaMoving || unit.releaseTick !== null)
+    (!moving || unit.releaseTick !== null)
   ) {
     const clip = 'spell1',
       contact = LEONA_COMBAT_POLICY.daybreakWindupTicks / TICK_RATE;
@@ -133,8 +137,7 @@ export function mobilePose(
     return fixed('recall', pose.clip, pose.unclampedTime, true);
   }
 
-  const moving = Math.hypot(unit.x - unit.previous.x, unit.y - unit.previous.y) > 0.01,
-    cycle = unit.attackCycle;
+  const cycle = unit.attackCycle;
   const secondary = unit.champion === 'masteryi' ? state?.doubleStrike?.strike : null;
   if (!moving && secondary && secondary.poseStopTick === null && tick < secondary.endTick) {
     const clip = MASTER_YI_PASSIVE.defaultPoseClip;

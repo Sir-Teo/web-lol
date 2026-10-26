@@ -520,6 +520,7 @@ export interface ChampionState {
   highlanderAudio: import('./masteryi-highlander-audio').HighlanderAudioRecord[];
   alphaStrike: import('./masteryi-alpha-strike').AlphaStrikeState | null;
   alphaContactVisuals: import('./masteryi-q-contact-visuals').AlphaContactVisual[];
+  alphaAudio: import('./masteryi-q-audio').AlphaAudioRecord[];
   /** Finite primary attack cues; no invented Double Strike composite binding. */
   masterYiAAAudio: import('./masteryi-aa-presentation').MasterYiAttackAudio[];
   /** Accepted ordinary swings and separately confirmed contacts. Cast one-shots

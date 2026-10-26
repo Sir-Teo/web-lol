@@ -84,6 +84,7 @@ export function captureAlphaContact(
 
 export function advanceAlphaContacts(world: World): void {
   for (const unit of world.units) {
+    if (unit.champion !== 'masteryi') continue;
     const records = world.championState(unit.id)?.alphaContactVisuals;
     if (!records?.length) continue;
     for (const r of records) {

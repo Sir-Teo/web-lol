@@ -1,6 +1,15 @@
 # Local match checkpoints
 
-Current schema **148** adds accepted Alpha Strike contact histories: cast/mark
+Current schema **149** adds a separate Alpha Strike audio history for each
+accepted cast. It retains the declared two-layer cast cue and ordinary contact
+creation points/audiences through finite recording tails, including after Q and
+visual cleanup. Critical contacts keep their missing hit-sound binding.
+Decoding checks active Q ownership, targets, ranks, ordered mark/contact clocks,
+normal-versus-critical bindings, linked contact visuals and finite retention.
+These records use no additional gameplay RNG or entity IDs. Earlier
+schemas/fingerprints remain incompatible. See [Q sound playback](MASTER-YI-Q-AUDIO.md).
+
+Schema **148** adds accepted Alpha Strike contact histories: cast/mark
 identity, critical/repeat payload, actual contact root, visibility, collision
 radius, heading and a finite root-frame history. Decoding requires matching
 active hit marks, rejects missing/forged contacts and validates ordered clocks,

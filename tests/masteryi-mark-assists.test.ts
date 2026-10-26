@@ -261,6 +261,9 @@ test('decoder rejects a marker attributed to Yi without a learned Q', () => {
   source.spellRanks.q = 0;
   source.cooldowns.q = 0;
   source.skillPoints++;
+  // Isolate the forged incoming marker from the independently validated
+  // finite cast cue that now survives its caster's death.
+  source.alphaAudio = [];
   expect(() => World.fromSnapshot(JSON.stringify(raw), f.w.battlefield)).toThrow(
     /assist contributions/
   );

@@ -1,0 +1,1015 @@
+{
+  "format": 1,
+  "parentCommit": "18434b5c3b4aee58ba8fb472c4da36841e8c09af",
+  "identity": {
+    "schema": 149,
+    "ruleset": "3b2a43e4d631f89d63195d0fdbd9b5a0cb5bfd66a42bb0d31504f0596535a67e",
+    "pack": {
+      "id": "f7cb25cdeb43ec08218b29a7975897e2ea95dda231367b3b5e891dde7c8d0a4f",
+      "files": 1119,
+      "bytes": 531443168
+    }
+  },
+  "scope": "Saved Alpha Strike audio from explicit Q_Cas and ordinary Q_Tar bindings; seven unchanged float masters, independent native container policies, finite saved creation audiences and source-second resume. No inferred critical cue.",
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/q-audio-reading.json",
+      "bytes": 10084,
+      "sha256": "343b05746caf37dddc151b92246861b11fb09270344c080e879d3f9c8531250e"
+    },
+    {
+      "path": "docs/reference/masteryi/audio-graph.json",
+      "bytes": 1598681,
+      "sha256": "b7879c088d3544626d70c9ecaf4abfd0aebae007db5a6ee841c0caed7a2b33e3"
+    },
+    {
+      "path": "docs/reference/masteryi/audio-decoded.json",
+      "bytes": 87738,
+      "sha256": "28ac362788bb76709a226e76d282eb25a1805a474b9bc7348cedd59bbee33a32"
+    },
+    {
+      "path": "docs/reference/masteryi/q-particles.json",
+      "bytes": 87880,
+      "sha256": "95531b1e61b44fc39d6458534174fe183fdf75e57cf7528a93a045e836322776"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source-index.json",
+    "bytes": 9190,
+    "sha256": "d6fba0c0b9c210bab7510a7210880b54a1174730b5e96efe424df22c67dad3f8"
+  },
+  "generated": [
+    {
+      "path": "README.md",
+      "bytes": 13962,
+      "sha256": "bf98515383ce675852896e188cb91de72282735999b84ca56ea267e966bb0097",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/README.md"
+    },
+    {
+      "path": "docs/MASTER-YI-Q-AUDIO.md",
+      "bytes": 8883,
+      "sha256": "efac8f2a20fce268a34bed2ba5b4f0718847518e2d9af6eabd0126f79842456e",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/docs/MASTER-YI-Q-AUDIO.md"
+    },
+    {
+      "path": "docs/SAVES.md",
+      "bytes": 56684,
+      "sha256": "302927ec7c493c0cda54b66bd70c5022a4a461d66ac259e469ccc75b5a28d338",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/docs/SAVES.md"
+    },
+    {
+      "path": "e2e/masteryi-q-audio.spec.ts",
+      "bytes": 14344,
+      "sha256": "77b8fd07b0638bffb8a96be34a2ab071915886e825678f990343225b47785de4",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/e2e/masteryi-q-audio.spec.ts"
+    },
+    {
+      "path": "public/assets/audio/masteryi-q-108844688.wav",
+      "bytes": 109412,
+      "sha256": "83a70133732d583db6100ce38351c70b848bca2efbc358afdc9548e0e3f1a4e6",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/public/assets/audio/masteryi-q-108844688.wav"
+    },
+    {
+      "path": "public/assets/audio/masteryi-q-142077803.wav",
+      "bytes": 110284,
+      "sha256": "ab5c04fac95e8cee3dab37150b4414a9029d7dcfe3a005f3d9a37b17027f9cb7",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/public/assets/audio/masteryi-q-142077803.wav"
+    },
+    {
+      "path": "public/assets/audio/masteryi-q-378075409.wav",
+      "bytes": 363240,
+      "sha256": "040bda6bdce9419190d318e8193fec0107712f69e89a4f6f7216fc4b2587e3ce",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/public/assets/audio/masteryi-q-378075409.wav"
+    },
+    {
+      "path": "public/assets/audio/masteryi-q-48797763.wav",
+      "bytes": 110476,
+      "sha256": "7105320936844bc488b73cde9e6e330913e63e877524362ae1d1b17b0d78533e",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/public/assets/audio/masteryi-q-48797763.wav"
+    },
+    {
+      "path": "public/assets/audio/masteryi-q-555085050.wav",
+      "bytes": 87524,
+      "sha256": "2b056eca0544faa8eb3e0d4367e8e5bfe44581e1afa91ba5e244f6e6062ecaf6",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/public/assets/audio/masteryi-q-555085050.wav"
+    },
+    {
+      "path": "public/assets/audio/masteryi-q-642434939.wav",
+      "bytes": 396944,
+      "sha256": "db4f50537b73ff43d759166cedbb9de56f06754dbccdab016b3953d6edc265b4",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/public/assets/audio/masteryi-q-642434939.wav"
+    },
+    {
+      "path": "public/assets/audio/masteryi-q-924931329.wav",
+      "bytes": 122292,
+      "sha256": "3f3599f8eb51e9ed0aaab308267302543146904d1d9f733873f986dba79968a6",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/public/assets/audio/masteryi-q-924931329.wav"
+    },
+    {
+      "path": "src/audio/audio.ts",
+      "bytes": 41670,
+      "sha256": "c34753aa28bfb97103b4e7d3a2f5fa1e6b878d78157a77403b89e3626afc1689",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/src/audio/audio.ts"
+    },
+    {
+      "path": "src/audio/masteryi-q-lazy.ts",
+      "bytes": 1761,
+      "sha256": "84cfda08256f6d9b9aa437ac7ddc2422754c43523e80b5122e5a4923ea1e7a17",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/src/audio/masteryi-q-lazy.ts"
+    },
+    {
+      "path": "src/audio/masteryi-q-state.ts",
+      "bytes": 2884,
+      "sha256": "7f6e9d19f5d9c9f01641d514de3698b44bd5712e94627e9494caa523223a847f",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/src/audio/masteryi-q-state.ts"
+    },
+    {
+      "path": "src/audio/masteryi-q.ts",
+      "bytes": 5187,
+      "sha256": "466e8f611013d85b4e32a5f709e4bbda0a8c988bb70d10096df768ce4ac78153",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/src/audio/masteryi-q.ts"
+    },
+    {
+      "path": "src/content/masteryi-q-audio-timing.ts",
+      "bytes": 168,
+      "sha256": "571f9bc2b1b8ca23aa624b295eb9ce4090212af4d9fa855d07f88b9c3ff81a19",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/src/content/masteryi-q-audio-timing.ts"
+    },
+    {
+      "path": "src/content/masteryi-q-audio.ts",
+      "bytes": 6484,
+      "sha256": "4653d6995307834366c2fca8b72032d44016183c2b17e45171d34004038d3761",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/src/content/masteryi-q-audio.ts"
+    },
+    {
+      "path": "src/render/mobile-pose.ts",
+      "bytes": 10735,
+      "sha256": "eb9ebfdcdad233925b6342f867c8ecbc54afb9a94eea84b494ec16067da572a3",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/src/render/mobile-pose.ts"
+    },
+    {
+      "path": "src/simulation/champion-state.ts",
+      "bytes": 3975,
+      "sha256": "2b55154de31704ebe5cbbb574befca0f2b28e2819e9f0f21e98d86d455bdce93",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/src/simulation/champion-state.ts"
+    },
+    {
+      "path": "src/simulation/masteryi-q-audio.ts",
+      "bytes": 6704,
+      "sha256": "80d2d09d8bb350c2b1556834cfba7036e7842bf9e4b15aa9b5150ad886e3018d",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/src/simulation/masteryi-q-audio.ts"
+    },
+    {
+      "path": "src/simulation/masteryi-q-contact-visuals.ts",
+      "bytes": 7001,
+      "sha256": "cc6a0b4a9f1e899aa47a04c102fbd988056996449a4bcfe42923487be7c9964a",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/src/simulation/masteryi-q-contact-visuals.ts"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "bytes": 177053,
+      "sha256": "1f3f5efb12de865c33c07975eb1e04f3ceea20172a27b3122d76b7c2daa47892",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/src/simulation/snapshot.ts"
+    },
+    {
+      "path": "src/simulation/types.ts",
+      "bytes": 21994,
+      "sha256": "d6c4d97984897f3aabd80a33b9449986e1ffb800470a94d3ab9b5abf3f61c25d",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/src/simulation/types.ts"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "bytes": 290591,
+      "sha256": "bf4f8d9c7c3129579471fe712b23586db9e114ee7bb8fafd0cca33e95ad31333",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/src/simulation/world.ts"
+    },
+    {
+      "path": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "e6fceb265b4f4dc5962e279b31034d8f27cedd8d403983cd62185aa792b0b9cd",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/tests/lux-e-hit.test.ts"
+    },
+    {
+      "path": "tests/masteryi-mark-assists.test.ts",
+      "bytes": 10374,
+      "sha256": "3eec0f03e0115fc0e8bc9255c4dd4770715f02002f9609c34fe67057b49d1f7c",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/tests/masteryi-mark-assists.test.ts"
+    },
+    {
+      "path": "tests/masteryi-q-audio-history.test.ts",
+      "bytes": 7058,
+      "sha256": "a35e040fe7a18d156a06e7c4212a5fcfc6a59d36304c6b21ccd177523e1ec595",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/tests/masteryi-q-audio-history.test.ts"
+    },
+    {
+      "path": "tests/masteryi-q-audio.test.ts",
+      "bytes": 9833,
+      "sha256": "c4b410ecac606258dfdc1523361821a64f036766edcd3f4f1fb6411e5028c291",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/tests/masteryi-q-audio.test.ts"
+    },
+    {
+      "path": "tests/masteryi-q-contact-history.test.ts",
+      "bytes": 12189,
+      "sha256": "ff40690f20b7b47ee267d267f6dd242c74b00def261f1693082864ed2cf891a1",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/tests/masteryi-q-contact-history.test.ts"
+    },
+    {
+      "path": "tests/mobile-pose.test.ts",
+      "bytes": 3003,
+      "sha256": "22f07e23869d5c297ae2828f9e1acd19caaf62f3a266550738f253f8aeb6765f",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/tests/mobile-pose.test.ts"
+    },
+    {
+      "path": "tests/ruleset-fingerprint.test.ts",
+      "bytes": 14359,
+      "sha256": "4ffcf4fcf1e0cf88be5112342c5695cdc91f8204c66ae1de6ae76ed83745d454",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/tests/ruleset-fingerprint.test.ts"
+    },
+    {
+      "path": "tools/assets/export-masteryi-q-audio.py",
+      "bytes": 2223,
+      "sha256": "00652fe153811530fa467a311f04e3d34511d0d2d66937100bc5234018af42e2",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/tools/assets/export-masteryi-q-audio.py"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 25639,
+      "sha256": "5a352da62a8c27ff3d4dacd880aace2a2d1b0c8e5b81415a110a09bd8a87c6c4",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/tools/qa/production-subpath.mjs"
+    },
+    {
+      "path": "tools/ruleset-fingerprint.ts",
+      "bytes": 11743,
+      "sha256": "c6164e83cc6199e0ac62c7ee452d01c35be302daad49db5cf6134db2455f6364",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source/tools/ruleset-fingerprint.ts"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/app-identity.json",
+      "bytes": 265,
+      "sha256": "39fceb5d1e82c663c772f4c1569d957bcfa099b79b48b9f6110383687456d89a"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/assist-fixture-regression.log",
+      "bytes": 369,
+      "sha256": "5fd34cfe04b2f677c25fc24d4ec0b11f304587f9db13ccaa55768076886ae164"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser/.last-run.json",
+      "bytes": 145,
+      "sha256": "85403ed25fd63ab83db2fb28e9975f7870eb84547b02e71b2ca6bffcd691b33b"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser/masteryi-q-audio-a-generic-b4a37-ry-contact-remains-eligible/fallback-contact.json",
+      "bytes": 352,
+      "sha256": "d26483f40ca7858909083cdc4a9373ac734335b32278246dd87aa9fa3a47eb8b"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser/masteryi-q-audio-all-seven-0059c-oom-in-browser-AudioBuffers/browser-float-masters.json",
+      "bytes": 1477,
+      "sha256": "c3f613b96c12c591a8625b62f210b2fdd7f37489635db1ec6e7e7cfa001d275f"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser/masteryi-q-audio-ordinary--5aa93--the-failed-file-explicitly/late-source-retry.json",
+      "bytes": 632,
+      "sha256": "425bf77a1909732d25e21aa05daf7570bcff76ac5940fe5e2692dd52a8c8bb04"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser/masteryi-q-audio-real-crit-bf8c6-y-its-declared-contact-cues/error-context.md",
+      "bytes": 14003,
+      "sha256": "19a9ef0d629b5c5cb5e3182688a2aa191aefb268a6d6ef9d4354fa6d9a267f83"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser/masteryi-q-audio-real-crit-bf8c6-y-its-declared-contact-cues/test-failed-1.png",
+      "bytes": 793141,
+      "sha256": "729f88f2e640be83bb22fd41541b1c6cd7ca019236275d3c56dcfddd919a7689"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser/masteryi-q-audio-real-crit-bf8c6-y-its-declared-contact-cues/trace.zip",
+      "bytes": 39409135,
+      "sha256": "26f3812fddb6f80ff6f09ddcc75b9e13193fe3aabf8adc93147957a36c93dda7"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser/masteryi-q-audio-real-ordi-7e818-y-its-declared-contact-cues/error-context.md",
+      "bytes": 13296,
+      "sha256": "b348ae687c60fadd75689c12c8dda69e68584f39ddc8adc5abca826603fad061"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser/masteryi-q-audio-real-ordi-7e818-y-its-declared-contact-cues/test-failed-1.png",
+      "bytes": 802395,
+      "sha256": "80586b5522fb1933c87628a3cde9ffdab56bab96dd7b6e2c81f7e68a5038a343"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser/masteryi-q-audio-real-ordi-7e818-y-its-declared-contact-cues/trace.zip",
+      "bytes": 39907444,
+      "sha256": "180074e8dd6269f35e9b8f6eb6622bbd3198d2e27a42d0108513ec1016379b0e"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser/masteryi-q-audio-source-ca-64b52-hout-per-frame-resurrection/global-cast-policies.json",
+      "bytes": 2343,
+      "sha256": "2260c22cefe4360c4c3e328b173e8a3384a4fe6e2f6a56c4be62238456f310b0"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser/masteryi-q-audio-unseen-ca-9cacc-ains-without-world-mutation/known-contact-terminal.json",
+      "bytes": 678,
+      "sha256": "acc003b2c1cca10113ea68982194f2026be1e3865ac97ba09d15a046ae29d9ae"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser/masteryi-q-contacts-ordina-15f40-a-failed-texture-explicitly/late-load-explicit-retry.json",
+      "bytes": 964,
+      "sha256": "f7cbdbceb6b360411c5a808819e73d462e65468ef163d9ec4b74fc4ec502f3d0"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser/masteryi-q-contacts-real-c-2e79d-rticles-through-Save-reload/contact-save-reload.json",
+      "bytes": 31069,
+      "sha256": "a65b20248dd6d0b4ffc01e2854300bdd646a172fba7e2f17cc384e58d165a556"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser/masteryi-q-contacts-real-c-2e79d-rticles-through-Save-reload/critical-contact.png",
+      "bytes": 792889,
+      "sha256": "a30cd8a3371154df671f1cf2b8a01e07bcec91ffbdfcc12315657ab40a49ebb3"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/contact-save-reload.json",
+      "bytes": 35595,
+      "sha256": "4ffb245c6fddafc2c4eaa57c90b732f02ded23d69b5995da7fe08cbcb14edf76"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/ordinary-contact.png",
+      "bytes": 801551,
+      "sha256": "5d8c51f651441b67e0bbc7322561b0e5461b4b1ac2ea2b77ed881c9f6e442089"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/three-authored-mip-readback.json",
+      "bytes": 10563,
+      "sha256": "9b97f1644009edc39fc69b3a985007f0d4920bc9dae8c0302baec8fc2be1dcdb"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-final/masteryi-q-audio-a-generic-b4a37-ry-contact-remains-eligible/fallback-contact.json",
+      "bytes": 352,
+      "sha256": "b850d2aa75428bcce989986060122462c8c288ba0329de57b7cc29602ec8fc02"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-final/masteryi-q-audio-all-seven-0059c-oom-in-browser-AudioBuffers/browser-float-masters.json",
+      "bytes": 1477,
+      "sha256": "c3f613b96c12c591a8625b62f210b2fdd7f37489635db1ec6e7e7cfa001d275f"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-final/masteryi-q-audio-ordinary--5aa93--the-failed-file-explicitly/late-source-retry.json",
+      "bytes": 632,
+      "sha256": "425bf77a1909732d25e21aa05daf7570bcff76ac5940fe5e2692dd52a8c8bb04"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-final/masteryi-q-audio-real-crit-bf8c6-y-its-declared-contact-cues/q-audio-save-reload.json",
+      "bytes": 19848,
+      "sha256": "033079d93219a355ec56b14a027f9f3dee5ea4a35f58bdf660ae977bd87eddc1"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-final/masteryi-q-audio-real-ordi-7e818-y-its-declared-contact-cues/q-audio-save-reload.json",
+      "bytes": 20360,
+      "sha256": "2ca93d717d2296586bfe78661ead684bcaabaa0bb97e94c197b1143ccd13734b"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-final/masteryi-q-audio-real-ordi-90c3a-t-cues-after-visual-cleanup/q-audio-save-reload.json",
+      "bytes": 20218,
+      "sha256": "93f2e1aa93a5d15001587b3f098f550875fafc2ba3aec0756062f6ebf43f97ac"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-final/masteryi-q-audio-source-ca-64b52-hout-per-frame-resurrection/global-cast-policies.json",
+      "bytes": 2343,
+      "sha256": "2260c22cefe4360c4c3e328b173e8a3384a4fe6e2f6a56c4be62238456f310b0"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-final/masteryi-q-audio-unseen-ca-9cacc-ains-without-world-mutation/known-contact-terminal.json",
+      "bytes": 678,
+      "sha256": "ebb2bac7ce6b065b13762be52a5d82e6379b6808df84e2f9880164e8fbaa3a84"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-final/masteryi-q-contacts-ordina-15f40-a-failed-texture-explicitly/late-load-explicit-retry.json",
+      "bytes": 964,
+      "sha256": "f7cbdbceb6b360411c5a808819e73d462e65468ef163d9ec4b74fc4ec502f3d0"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-final/masteryi-q-contacts-real-c-2e79d-rticles-through-Save-reload/contact-save-reload.json",
+      "bytes": 31066,
+      "sha256": "527eb38bad4cf45669c4b0a73a2378a1d6c3d0d8c33e84db35358f21a332cb5a"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-final/masteryi-q-contacts-real-c-2e79d-rticles-through-Save-reload/critical-contact.png",
+      "bytes": 792103,
+      "sha256": "e3109f12e61a3ea418aededdc0bb2fc3f672feadd4d41dc4feeffb044d05fef1"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-final/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/contact-save-reload.json",
+      "bytes": 35593,
+      "sha256": "73c99662d86157e3661c3d25e67aa280b75076339485e736823a22f145359987"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-final/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/ordinary-contact.png",
+      "bytes": 801761,
+      "sha256": "c16472d5d94b7fe52a7a3059e153f9c6ac08ac16d8f25163e0ed29c34cfa8f90"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-final/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/three-authored-mip-readback.json",
+      "bytes": 10563,
+      "sha256": "9b97f1644009edc39fc69b3a985007f0d4920bc9dae8c0302baec8fc2be1dcdb"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-final.log",
+      "bytes": 4623,
+      "sha256": "3091f6c45381a7682e9b6e7afdb99673588d4355096084ba5392ba827745a7f8"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-format-v2.log",
+      "bytes": 35,
+      "sha256": "f92c80e834f28c3ccadbaa2255dbb92d5fe2379b2b1cf3397f47f7ba59ea3c1b"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-format.log",
+      "bytes": 35,
+      "sha256": "3cc7c53a3e0595152503ce27e5a5f66b8831034009665943f91a9811daf6b99a"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v2/.last-run.json",
+      "bytes": 194,
+      "sha256": "1052df41cf50a4217a44d24f737587d29fd0a4fd0c93b64f0e2fa937d9d8ae00"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v2/masteryi-q-audio-a-generic-b4a37-ry-contact-remains-eligible/fallback-contact.json",
+      "bytes": 353,
+      "sha256": "093eced93b5d3bd7f39cf9d94c80cec08cce3a407ee50d116633e2260db4eca2"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v2/masteryi-q-audio-all-seven-0059c-oom-in-browser-AudioBuffers/browser-float-masters.json",
+      "bytes": 1477,
+      "sha256": "c3f613b96c12c591a8625b62f210b2fdd7f37489635db1ec6e7e7cfa001d275f"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v2/masteryi-q-audio-ordinary--5aa93--the-failed-file-explicitly/late-source-retry.json",
+      "bytes": 632,
+      "sha256": "425bf77a1909732d25e21aa05daf7570bcff76ac5940fe5e2692dd52a8c8bb04"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v2/masteryi-q-audio-real-crit-bf8c6-y-its-declared-contact-cues/error-context.md",
+      "bytes": 15124,
+      "sha256": "d0c443682873d71219bc86ae81600208c97978dd55a02db79fe76c77ba95a8b2"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v2/masteryi-q-audio-real-crit-bf8c6-y-its-declared-contact-cues/test-failed-1.png",
+      "bytes": 462594,
+      "sha256": "827401b8cd8d5781a42e1fb946ad03bf715fb37c294f0706b67b350cb3c90d90"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v2/masteryi-q-audio-real-crit-bf8c6-y-its-declared-contact-cues/trace.zip",
+      "bytes": 41000062,
+      "sha256": "ffca53a58b15395d30331112f6fc439017c82071f23c0f4077a2b8556688a227"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v2/masteryi-q-audio-real-ordi-7e818-y-its-declared-contact-cues/error-context.md",
+      "bytes": 14385,
+      "sha256": "4f8b9c40a8f3a39f01db76e9d7ed766bc7bad1cfd1553cc617b19a05e28b973c"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v2/masteryi-q-audio-real-ordi-7e818-y-its-declared-contact-cues/test-failed-1.png",
+      "bytes": 459054,
+      "sha256": "06a727182c66f4ffdea2f7c5241de5a0e39d0466671c6b66125ce4a61755ddd4"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v2/masteryi-q-audio-real-ordi-7e818-y-its-declared-contact-cues/trace.zip",
+      "bytes": 41952453,
+      "sha256": "7729e612e7a925eeba8f9b8a2d835b27fda861d7b01e28353ff76ffb06f80858"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v2/masteryi-q-audio-real-ordi-90c3a-t-cues-after-visual-cleanup/error-context.md",
+      "bytes": 14405,
+      "sha256": "3d2e42aba0b7281f81bcfc59a70d505590df63118c8b942ec8ed917c0eb41d90"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v2/masteryi-q-audio-real-ordi-90c3a-t-cues-after-visual-cleanup/test-failed-1.png",
+      "bytes": 460720,
+      "sha256": "635cee54b5f3c5a0bb058591add910894b3e17db852a81fb73ca42ab08ab2c81"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v2/masteryi-q-audio-real-ordi-90c3a-t-cues-after-visual-cleanup/trace.zip",
+      "bytes": 42045645,
+      "sha256": "f93aaac90c5bcb508698d982a4d51318d33b9fb1da7198f103f9d2bdd4a7e1ed"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v2/masteryi-q-audio-source-ca-64b52-hout-per-frame-resurrection/global-cast-policies.json",
+      "bytes": 2343,
+      "sha256": "8da98df896114cd99f816b9b96b7b0307043d2d766af19199e3b7a2b00b0020e"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v2/masteryi-q-audio-unseen-ca-9cacc-ains-without-world-mutation/known-contact-terminal.json",
+      "bytes": 678,
+      "sha256": "8b27b3fdbdfedf51fd02a92e18fd2beee24b6edc285b94f7fc0b827caa65cafa"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v2.log",
+      "bytes": 11933,
+      "sha256": "dec440ed25ac398f4dbed66fdb01976c8a373715148a2b86420f298c154857f1"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v3/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v3/masteryi-q-audio-a-generic-b4a37-ry-contact-remains-eligible/fallback-contact.json",
+      "bytes": 353,
+      "sha256": "6e10d40824c72e1ffe7b5d702f79d5fa9ce6e33d92bef3f964e9711fad337406"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v3/masteryi-q-audio-all-seven-0059c-oom-in-browser-AudioBuffers/browser-float-masters.json",
+      "bytes": 1477,
+      "sha256": "c3f613b96c12c591a8625b62f210b2fdd7f37489635db1ec6e7e7cfa001d275f"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v3/masteryi-q-audio-ordinary--5aa93--the-failed-file-explicitly/late-source-retry.json",
+      "bytes": 632,
+      "sha256": "425bf77a1909732d25e21aa05daf7570bcff76ac5940fe5e2692dd52a8c8bb04"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v3/masteryi-q-audio-real-crit-bf8c6-y-its-declared-contact-cues/q-audio-save-reload.json",
+      "bytes": 19853,
+      "sha256": "2f65922b54900a2b3987900bccf6f3011f8c1a57a6a1289bc6443830f5b6bbc3"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v3/masteryi-q-audio-real-ordi-7e818-y-its-declared-contact-cues/q-audio-save-reload.json",
+      "bytes": 20339,
+      "sha256": "1cdf2258186f4c8a10d59861e94054f5009e42461ee3453468bcbdcdc923d6da"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v3/masteryi-q-audio-real-ordi-90c3a-t-cues-after-visual-cleanup/q-audio-save-reload.json",
+      "bytes": 20218,
+      "sha256": "05c72a80db9866da4a4ef63220b06153d08fd360fa46a05a422618685bd519a3"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v3/masteryi-q-audio-source-ca-64b52-hout-per-frame-resurrection/global-cast-policies.json",
+      "bytes": 2350,
+      "sha256": "87645c8203684f98903f8a2f434cb47da692988039c3c03f1ed5967d9930f51c"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v3/masteryi-q-audio-unseen-ca-9cacc-ains-without-world-mutation/known-contact-terminal.json",
+      "bytes": 678,
+      "sha256": "1c9c90005ddfa051c8da71f23fc01adf05b8ea66d2390108d315255bfda26da9"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v3/masteryi-q-contacts-ordina-15f40-a-failed-texture-explicitly/late-load-explicit-retry.json",
+      "bytes": 964,
+      "sha256": "f7cbdbceb6b360411c5a808819e73d462e65468ef163d9ec4b74fc4ec502f3d0"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v3/masteryi-q-contacts-real-c-2e79d-rticles-through-Save-reload/contact-save-reload.json",
+      "bytes": 31066,
+      "sha256": "6cf889c40d5739cacac55f84b90e0679430519cb403f73b3571436c876bfc19d"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v3/masteryi-q-contacts-real-c-2e79d-rticles-through-Save-reload/critical-contact.png",
+      "bytes": 792103,
+      "sha256": "e3109f12e61a3ea418aededdc0bb2fc3f672feadd4d41dc4feeffb044d05fef1"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v3/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/contact-save-reload.json",
+      "bytes": 35597,
+      "sha256": "ce8fcb97de324930e8330b0596caf37823d47361feaa196c5b6e9b786a3b06ab"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v3/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/ordinary-contact.png",
+      "bytes": 801454,
+      "sha256": "7b4da5860569697331f1162b31f76b7541e631ab089bfe0e3f82b4d402ea6d60"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v3/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/three-authored-mip-readback.json",
+      "bytes": 10563,
+      "sha256": "9b97f1644009edc39fc69b3a985007f0d4920bc9dae8c0302baec8fc2be1dcdb"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser-v3.log",
+      "bytes": 4623,
+      "sha256": "d55ee4507d6a1a3a62bc0f362784ad89aebd8969c5a43b2f0c176f98393daf63"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/browser.log",
+      "bytes": 9278,
+      "sha256": "69d51d388a94f37b409271dbda465779a4672e33150a3ba354c3940ff1c444e2"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/build-final.log",
+      "bytes": 5254,
+      "sha256": "1246191e56378fdd2c7388f965cd643a278a4ac18d47805c11794e23aae01441"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/build-initial.log",
+      "bytes": 3507,
+      "sha256": "652277b1c82cb8a2eee69967f9151821dae5208940b00fcf6127bd9a0a1778d4"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/build-v2.log",
+      "bytes": 5982,
+      "sha256": "a80f8de712d7aaac4b7cea547fea069d429920d74a1a47898a44adcafd2737d0"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/build-v3.log",
+      "bytes": 6041,
+      "sha256": "45a9019d0de1e6098e8381a977ee0cc46bf1c41988e80724a6e3b63864ec542a"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/check-normal.log",
+      "bytes": 116,
+      "sha256": "1c7bec18ca9383cb93813947c13139053c033dbedebbcf0516be812572304add"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/check-optimized.log",
+      "bytes": 116,
+      "sha256": "1c7bec18ca9383cb93813947c13139053c033dbedebbcf0516be812572304add"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/discovery.json",
+      "bytes": 138495,
+      "sha256": "0530ef7c25acbfb23055c7ecc88ce8dcb647f497b84d2637d9a8f7170b1d652a"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/export-check-optimized.log",
+      "bytes": 89,
+      "sha256": "4bcd336710e84055f30a01a220eee2dc0a2fc3c0f5d25e9c6ac00baa6af270e9"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/export-check.log",
+      "bytes": 89,
+      "sha256": "4bcd336710e84055f30a01a220eee2dc0a2fc3c0f5d25e9c6ac00baa6af270e9"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/export-idempotence.json",
+      "bytes": 3345,
+      "sha256": "df2a86a377fab209b249d9353df85ae962b5e587953838d29832d57c7b591abd"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/export-initial.log",
+      "bytes": 89,
+      "sha256": "4bcd336710e84055f30a01a220eee2dc0a2fc3c0f5d25e9c6ac00baa6af270e9"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/export-replay-0.log",
+      "bytes": 89,
+      "sha256": "4bcd336710e84055f30a01a220eee2dc0a2fc3c0f5d25e9c6ac00baa6af270e9"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/export-replay-1.log",
+      "bytes": 89,
+      "sha256": "4bcd336710e84055f30a01a220eee2dc0a2fc3c0f5d25e9c6ac00baa6af270e9"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/final-app-identity.json",
+      "bytes": 238,
+      "sha256": "fd21ab0cc370a949cf9819a1be6ad7cb4d90ab18c17d45b36764b4da62f655bf"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/focused-integration-v2.log",
+      "bytes": 371,
+      "sha256": "4c14de22d5b512e6fa199b9265684858576690431c2e923000d53480804d820c"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/focused-integration-v3.log",
+      "bytes": 428,
+      "sha256": "4161b6c6dad3a763058c700b95142aff44a0bef421b9ea78984918509b724617"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/focused-integration.log",
+      "bytes": 1888,
+      "sha256": "61cded0dcb2abe836cb7ada6147b247ba6eac05c48817f89941e1cfa17ef3e07"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/focused-new-audio.log",
+      "bytes": 170,
+      "sha256": "ad4b7c60dfc637ef2b8641c4aa1973115598bc1576013277fb892a851e170e91"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/format-initial.log",
+      "bytes": 475,
+      "sha256": "0fb067b2334a146e024fee750b6cdc2f5b852017bd441b655fa95cfd399fdc32"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/format-v2.log",
+      "bytes": 197,
+      "sha256": "61d09dbf54330bbbca5503c5147160da510de275f769f899f4566d553cf052bf"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/full-unit-final.log",
+      "bytes": 6485,
+      "sha256": "e2f02609fd655c4a430914bb6c8935002530cc2e40e2c12323943cd588fbd739"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/full-unit-pose-final.log",
+      "bytes": 5484,
+      "sha256": "2797353d97656d6d887ac12ba176570eedbf84eae6efe199ea75c4c4d417f4e3"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/full-unit-scan-final.log",
+      "bytes": 6485,
+      "sha256": "df0a25679d649d68324a34576b9893328ef9886bb30f1e49235348c1ece0d356"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/full-unit.log",
+      "bytes": 6392,
+      "sha256": "f29d23fc5bb0c75d236347ac2b9344ca3cd4a3edc7309e7639d0b77dde951ba5"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/guards-normal.log",
+      "bytes": 124,
+      "sha256": "b3a46bc3b90d8e02467187a08b131b7efc64514397b7c41b33b65353d4ce4d69"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/guards-optimized.log",
+      "bytes": 124,
+      "sha256": "d65138de32b7a225e65a392b257b400a976a0f493879c776251cd2ade514647e"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/history-initial-tests.log",
+      "bytes": 371,
+      "sha256": "1005466cc2e13f61c1a329302e43809f7351583736c2a752da9a3f1bdb2bf8cb"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/history-new-tests.log",
+      "bytes": 170,
+      "sha256": "9b490fa2bf7e9f35fc19473bcc744a0ccea37e0f5c2dc88cc1064aaa950c0f98"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/idempotence.json",
+      "bytes": 1601,
+      "sha256": "cb1dc560c4596ed414010fe68f79eaa9f059f903499477acd95ded8177dfc0a4"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/node-qa.log",
+      "bytes": 432,
+      "sha256": "4cf1a3aa48c9730e1fa59b872f47cc2a8bb524f6fda19df1edd7cc6a87709d4f"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/pose-performance-format.log",
+      "bytes": 105,
+      "sha256": "9e920ee1c4db7c26fd05743909a167f71f959a92fc25aca82f89a1e16e111289"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/pose-performance-regression.log",
+      "bytes": 369,
+      "sha256": "55ceaf931a66d6c8679c464c0932a778adfbb0ad4c9d092813e3427836ebf032"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/prepare-initial.log",
+      "bytes": 116,
+      "sha256": "1c7bec18ca9383cb93813947c13139053c033dbedebbcf0516be812572304add"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1814203,
+      "sha256": "cd8b8d7226f738235c50804be565447063911b1603af2dc89c0dce419454af11"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1836110,
+      "sha256": "0a40bbd9da1bdb45d92940ed6bf1c006e8855d76896bf9454c5ad9a3cb9a6e43"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1827679,
+      "sha256": "8fa64b9daac5c68aaa7941033d8415e09f3df19769b51890cf6cf294d4dc23bc"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1811645,
+      "sha256": "cd239087f6f7f85ffd6a4f34bedac920fce4198721bcccd308a4bba50590e2bb"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1815722,
+      "sha256": "a9c86bbf04063e792ac898de924ebcc11c13dcdf3a0997fb4052e683c5e952cc"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1352072,
+      "sha256": "108d1fa53ad05f5c7376adc1944cf4972d145166a4602a57cefd99a270d7097e"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1823796,
+      "sha256": "01831a8eb72c0ad223583df5e7061cb13056900187e413e98fa0f96a4995f12e"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808662,
+      "sha256": "ae987a2ce991291ea8f755cc6d9362229fe980f94c4d52ad4be277ee5e9cb981"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/production-final.json",
+      "bytes": 2295,
+      "sha256": "dcaeb414fe9ebd9b8696d614deeb7780e1a13ef112716bebfa6bff62e6daf3ab"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/production-final.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/production-offline-pack.json",
+      "bytes": 160294,
+      "sha256": "cc02fd4a37ad1ff0a205eafc6471054668c7262129865ccb126f1dc36e61c5cb"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/production-subpath.mjs",
+      "bytes": 25657,
+      "sha256": "8c8115d9b03ff182305fbd5ec25244b6619deedb8980f17958efe013785406c7"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/replay-0.log",
+      "bytes": 116,
+      "sha256": "1c7bec18ca9383cb93813947c13139053c033dbedebbcf0516be812572304add"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/replay-1.log",
+      "bytes": 116,
+      "sha256": "1c7bec18ca9383cb93813947c13139053c033dbedebbcf0516be812572304add"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/runtime-app-identity.json",
+      "bytes": 238,
+      "sha256": "d762d8e7a915c0bae4010b641b366a100f027ab8b87d1dfab122628f6df545d1"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/runtime-final-source-index.json",
+      "bytes": 9190,
+      "sha256": "d6fba0c0b9c210bab7510a7210880b54a1174730b5e96efe424df22c67dad3f8"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/scan-test-format.log",
+      "bytes": 47,
+      "sha256": "2ecea67d27313bf75dac65ed6386e86e6e4c063ff729a1914a60af49fe0ebbdf"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/types-initial.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/wave-after-pose-profile.log",
+      "bytes": 511,
+      "sha256": "26881bc57ecd6c2ab5763205fe2b59899b67f34d6d46120f0191f868450fcf48"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/wave-clock-contact-regression.log",
+      "bytes": 170,
+      "sha256": "39f45c839497103199bafbfb0e7238364d2cf5c9a853d88f25165df6853d7a60"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/wave-cpu-profile/after-pose-reuse.cpuprofile",
+      "bytes": 128989,
+      "sha256": "151a77cccf5c969fd235153b91f14aebc2e71686be9fb48ecf1fa217e6f24432"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/wave-cpu-profile/before-pose-reuse.cpuprofile",
+      "bytes": 123204,
+      "sha256": "091afe241869696c18f5b7742e7124e6d684e8c6bb4b9209fce77981528e27e3"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/wave-cpu-profile/comparison.json",
+      "bytes": 669,
+      "sha256": "7f74201512fd7ff633a8c578c11db27dfaafaf3e2403d1e582f0d15e7b6c79f9"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/wave-cpu-profile/original-deadline.cpuprofile",
+      "bytes": 123204,
+      "sha256": "091afe241869696c18f5b7742e7124e6d684e8c6bb4b9209fce77981528e27e3"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/wave-inspector-profile.log",
+      "bytes": 511,
+      "sha256": "2e8df520d8cea04fc98bcb7c9ee9a8a6f34dbbf9529cfac5844d7e4c7985e9d3"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/wave-profile.log",
+      "bytes": 167,
+      "sha256": "fc9608731dcee3082af1d5559c10042811cc0f2f3d4c6a0b710207fdaf6fd804"
+    }
+  ],
+  "checks": {
+    "fullUnit": {
+      "passed": 2593,
+      "failed": 3,
+      "total": 2596,
+      "files": 357,
+      "originalFiveSecondWaveClock": "passed"
+    },
+    "browser": {
+      "passed": 11,
+      "retries": 0,
+      "environment": "Chromium 154.0.8037.57 / SwiftShader",
+      "coverage": [
+        "seven exact float PCM masters and headroom",
+        "ordinary and critical keyboard Q and exact future after save",
+        "post-visual-cleanup cast tails",
+        "newest/oldest shared caps without resurrection",
+        "cast fallback and later contact",
+        "selective explicit retry",
+        "fog/death/terminal clock",
+        "contact rendering and 59 authored mip uploads"
+      ]
+    },
+    "nodeQA": {
+      "passed": 3
+    },
+    "exportReplay": {
+      "filesUnchangedBytesAndMtimes": 17,
+      "normalAndOptimized": true
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 13,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderAudioPreloads": 0,
+      "unrequestedMasterYiAlphaAudioPreloads": 0,
+      "unrequestedMasterYiQContactPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 221,
+      "scheduledBlueRequests": 13,
+      "scheduledRedRequests": 13,
+      "scheduledWolfRequests": 26,
+      "scheduledRaptorRequests": 26,
+      "scheduledKrugRequests": 39,
+      "scheduledScuttlerRequests": 13,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    }
+  },
+  "baselineFailures": [
+    "Original Leona reflection check.py absent.",
+    "Original distortion metallib, bitcode and disassembly unavailable.",
+    "Lux first sampler actual 4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a versus pinned 09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df; reproduced on untouched baseline."
+  ],
+  "retainedDiagnostics": [
+    "Initial browser fixtures had a paused AudioContext; fixture resume corrected without changing assertions or deadlines.",
+    "Strict browser source-second seek exposed actual WebAudio float32 playback rate; production sampler now uses that exact rate.",
+    "Existing mark-assist negative fixture clears its retained audio when deliberately removing learned Q, preserving its original assist assertion.",
+    "Original five-second wave-clock failures retained. CPU profiles identified redundant movement and presentation work; endpoint movement reuse and empty-array/ordinary-unit guards preserve all ticks, thresholds, pose outputs and the original deadline."
+  ],
+  "limits": [
+    "Source bindings and local adapters are distinct; native callbacks, arbitration, RNG and frame calibration remain unverified.",
+    "No native decoder, GPU, bus, panning, listening, physical-device, FPS, full-browser-suite, service-worker or offline-install certificate.",
+    "Evidence in ignored local cache requires preservation; immutable source archives permit later source changes."
+  ]
+}

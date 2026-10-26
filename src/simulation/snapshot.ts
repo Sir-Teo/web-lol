@@ -1,5 +1,6 @@
 import { validateHighlanderAudio } from './masteryi-highlander-audio';
 import { validateAlphaContacts } from './masteryi-q-contact-visuals';
+import { validateAlphaAudio } from './masteryi-q-audio';
 import { ALPHA_CONTACT_HISTORY_TICKS } from '../content/masteryi-q-contact-timing';
 import { validateMasterYiAttacks } from './masteryi-aa-presentation';
 import { validateLeonaDeaths } from './leona-death-visuals';
@@ -146,7 +147,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 148;
+export const SNAPSHOT_VERSION = 149;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -789,6 +790,32 @@ const player: z.ZodType<PlayerState> = z
             .array(z.strictObject({ tick, point, audience: daybreakFrame.shape.audience }))
             .min(1)
             .max(ALPHA_CONTACT_HISTORY_TICKS),
+        })
+      )
+      .max(1000),
+    alphaAudio: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          rank: z.number().int().min(1).max(5),
+          primaryTargetId: id,
+          primaryTargetTeam: faction,
+          origin: point,
+          castAudience: daybreakFrame.shape.audience,
+          contacts: z
+            .array(
+              z.strictObject({
+                tick,
+                markTick: tick,
+                markIndex: z.number().int().min(0).max(3),
+                repeatIndex: z.number().int().min(0).max(3),
+                targetId: id,
+                targetTeam: faction,
+                point,
+                audience: daybreakFrame.shape.audience,
+              })
+            )
+            .max(4),
         })
       )
       .max(1000),
@@ -4243,6 +4270,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     validateMasterYiAttacks(owner, champion, state);
     validateHighlanderAudio(owner, champion, state);
     validateAlphaContacts(owner, champion, state);
+    validateAlphaAudio(owner, champion, state);
     const qCycle = champion.attackCycle;
     if (
       qCycle?.garenQReleaseTick !== undefined &&
