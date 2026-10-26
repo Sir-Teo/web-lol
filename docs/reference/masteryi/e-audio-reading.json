@@ -1,0 +1,236 @@
+{
+  "format": 1,
+  "characterSource": {
+    "path": "docs/reference/masteryi/character.json",
+    "sha256": "3f100c1148e1006766060822298c87aed02e86e359c385fbc2c248e4255d12fa"
+  },
+  "audioGraphSha256": "b7879c088d3544626d70c9ecaf4abfd0aebae007db5a6ee841c0caed7a2b33e3",
+  "decodedRecordSha256": "28ac362788bb76709a226e76d282eb25a1805a474b9bc7348cedd59bbee33a32",
+  "rawSpellSuffixes": {
+    "12": "Play_sfx_MasterYi_WujuStyle_OnCast\n",
+    "18": "Play_sfx_MasterYi_WujuStyleSuperCharged_OnBuffActivate\n",
+    "19": "Play_sfx_MasterYi_WujuStyleSuperCharged_OnBuffDeactivate\n"
+  },
+  "profiles": [
+    {
+      "kind": "cast",
+      "slot": "12",
+      "eventName": "Play_sfx_MasterYi_WujuStyle_OnCast",
+      "eventId": 4275554462,
+      "actionId": 120031562,
+      "containerId": 9318,
+      "sourceProperties": {
+        "MakeUpGain": -11,
+        "Priority": 60
+      },
+      "gainDb": -11,
+      "policy": {
+        "eMode": 0,
+        "eRandomMode": 1,
+        "wAvoidRepeatCount": 0,
+        "bResetPlayListAtEachPlay": 1,
+        "bIsGlobal": 1,
+        "bIsContinuous": 0,
+        "_bIsUsingWeight": 0,
+        "u16MaxNumInstance": 4,
+        "bKillNewest": 0,
+        "sLoopCount": 1,
+        "sLoopModMin": 0,
+        "sLoopModMax": 0,
+        "eTransitionMode": 0
+      },
+      "variants": [
+        {
+          "id": 289182248,
+          "soundId": 994148925,
+          "privatePath": ".cache/masteryi-audio-decoded/289182248.wav",
+          "wavSha256": "060d26e3b4bc01886baeefb68a7e39190af09e0ce974a653bb749d5869750efb",
+          "pcmSha256": "7ae68f9e6949daa19cfec6de1aa47855ee4ca1a0ae4cf5428f81db6618f780a6",
+          "wavBytes": 164032,
+          "frames": 40997,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.9296371882086167,
+          "peak": 0.9872909188270569
+        },
+        {
+          "id": 975357315,
+          "soundId": 288202150,
+          "privatePath": ".cache/masteryi-audio-decoded/975357315.wav",
+          "wavSha256": "4b602fd098c9cdb25eb4e9cf2bc1ec5a362b84dd003f4f6c33bce212efdec589",
+          "pcmSha256": "ad883b58de4d1dc091a85b60c9e87a5db53716cf643a46629574990b67bd48ac",
+          "wavBytes": 201036,
+          "frames": 50248,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 1.1394104308390023,
+          "peak": 1.0037055015563965
+        }
+      ]
+    },
+    {
+      "kind": "activate",
+      "slot": "18",
+      "eventName": "Play_sfx_MasterYi_WujuStyleSuperCharged_OnBuffActivate",
+      "eventId": 2559940294,
+      "actionId": 116902175,
+      "containerId": 344121187,
+      "sourceProperties": {
+        "MakeUpGain": -9
+      },
+      "gainDb": -9,
+      "policy": {
+        "eMode": 0,
+        "eRandomMode": 1,
+        "wAvoidRepeatCount": 0,
+        "bResetPlayListAtEachPlay": 1,
+        "bIsGlobal": 1,
+        "bIsContinuous": 0,
+        "_bIsUsingWeight": 0,
+        "u16MaxNumInstance": 4,
+        "bKillNewest": 0,
+        "sLoopCount": 1,
+        "sLoopModMin": 0,
+        "sLoopModMax": 0,
+        "eTransitionMode": 0
+      },
+      "variants": [
+        {
+          "id": 418795702,
+          "soundId": 1043258347,
+          "privatePath": ".cache/masteryi-audio-decoded/418795702.wav",
+          "wavSha256": "c95de016750a467b639d3ee04cb6d9cd492ea79783886afd4de446dd6b3f5a61",
+          "pcmSha256": "a123522176ae0d6ceb19f8553f74479cd57b6d8a58446f9ce23615db33e96d84",
+          "wavBytes": 341260,
+          "frames": 85304,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 1.934331065759637,
+          "peak": 0.9927716255187988
+        },
+        {
+          "id": 209385861,
+          "soundId": 1069110002,
+          "privatePath": ".cache/masteryi-audio-decoded/209385861.wav",
+          "wavSha256": "480ef6d87d3d98d0aedec304ab79e500aa002b88e436b576cb8922de5f1dbbee",
+          "pcmSha256": "d4c3dba6b31f7910ec592550adbd809f61145ec0d9b1276c115c203231d4017f",
+          "wavBytes": 372364,
+          "frames": 93080,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 2.110657596371882,
+          "peak": 0.9162266254425049
+        }
+      ]
+    },
+    {
+      "kind": "deactivate",
+      "slot": "19",
+      "eventName": "Play_sfx_MasterYi_WujuStyleSuperCharged_OnBuffDeactivate",
+      "eventId": 670301095,
+      "actionId": 407463084,
+      "containerId": 195063349,
+      "sourceProperties": {
+        "MakeUpGain": -14
+      },
+      "gainDb": -14,
+      "policy": {
+        "eMode": 0,
+        "eRandomMode": 1,
+        "wAvoidRepeatCount": 0,
+        "bResetPlayListAtEachPlay": 1,
+        "bIsGlobal": 1,
+        "bIsContinuous": 0,
+        "_bIsUsingWeight": 0,
+        "u16MaxNumInstance": 4,
+        "bKillNewest": 0,
+        "sLoopCount": 1,
+        "sLoopModMin": 0,
+        "sLoopModMax": 0,
+        "eTransitionMode": 0
+      },
+      "variants": [
+        {
+          "id": 418782952,
+          "soundId": 759506161,
+          "privatePath": ".cache/masteryi-audio-decoded/418782952.wav",
+          "wavSha256": "c5b7deace7c690a614d3ce14b1df4522ac3fbe4e051fa26cca667b8bea1537df",
+          "pcmSha256": "c5f871373206cb06ca78e152d786b124ca8c88fccdc55b102bc032df8715c79f",
+          "wavBytes": 194920,
+          "frames": 48719,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 1.1047392290249434,
+          "peak": 0.7934775352478027
+        },
+        {
+          "id": 63363042,
+          "soundId": 876846258,
+          "privatePath": ".cache/masteryi-audio-decoded/63363042.wav",
+          "wavSha256": "00b0e8439f33fd692e76306c84100116e7fd50f47ea8e79671504cd10fece3e5",
+          "pcmSha256": "7377290028a07aed383780c96fd5b98b4ffe5979b1802833df42bb9200ac4b03",
+          "wavBytes": 195000,
+          "frames": 48739,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 1.1051927437641724,
+          "peak": 0.8275401592254639
+        }
+      ]
+    }
+  ],
+  "attenuation": {
+    "id": 339248780,
+    "scaling": 2,
+    "unresolvedOutputBusId": 1259461568,
+    "priority": 60,
+    "points": [
+      {
+        "distance": 0.0,
+        "storedValue": 0.0,
+        "interpolation": 9
+      },
+      {
+        "distance": 1750.0,
+        "storedValue": 0.0,
+        "interpolation": 2
+      },
+      {
+        "distance": 2000.0,
+        "storedValue": -0.7488113641738892,
+        "interpolation": 2
+      },
+      {
+        "distance": 2300.0,
+        "storedValue": -0.93690425157547,
+        "interpolation": 2
+      },
+      {
+        "distance": 2750.0,
+        "storedValue": -1.0,
+        "interpolation": 9
+      },
+      {
+        "distance": 3000.0,
+        "storedValue": -1.0,
+        "interpolation": 4
+      }
+    ]
+  },
+  "finiteTailTicks": {
+    "cast": 69,
+    "activate": 127,
+    "deactivate": 67
+  },
+  "media": 6,
+  "wavBytes": 1468612,
+  "peaksAboveOne": 1,
+  "peak": 1.0037055015563965,
+  "limits": [
+    "Source-only audit; no public masters, runtime dispatch, state/schema or application identity change.",
+    "Three explicit spell suffixes remain separate from unobserved native callbacks. No particle, contact or other cue inferred.",
+    "Original playlists, raw policies and source priority retained; native random state, global shuffle and admission remain unverified.",
+    "Existing float masters retain headroom without clipping, normalization, resampling, mixing or loop expansion.",
+    "No native bus/listening or official-client decoder certificate."
+  ]
+}

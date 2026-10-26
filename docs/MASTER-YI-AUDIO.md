@@ -128,3 +128,8 @@ profiles, six private float masters and two stop actions. Its spell activation
 suffix explicitly binds Stop; the bank activation Play and foley events retain
 their absent spell/particle dispatch bindings. Source S-curve play transitions,
 linear stop transitions and leaf loop policy remain separate from runtime work.
+
+The [Wuju Style source reading](MASTER-YI-E-AUDIO.md) retains three explicit
+spell cues, their original two-entry playlists, six private float masters and
+the cast container's explicit priority. It prepares finite playback separately
+from E's five-second empowerment and its W/Q pause clocks.
