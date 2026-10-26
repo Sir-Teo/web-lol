@@ -1,6 +1,15 @@
 # Local match checkpoints
 
-Current schema **151** adds sustained Meditate buff presentation. Each accepted
+Current schema **152** adds finite Meditate audio histories. Each accepted W
+retains rank, planned channel end, cast point/audience and its actual stop
+reason, point and audience. Living completion/interruption admits an ending;
+death/victory retain finite onset without inventing an ending callback. Audio
+retention is independent of particle cleanup. Decoding checks channel and buff
+links, creation audiences, ordered clocks, ownership, stop reasons and finite
+expiry. Earlier schemas/fingerprints remain incompatible. See
+[Meditate audio](MASTER-YI-W-AUDIO.md).
+
+Schema **151** adds sustained Meditate buff presentation. Each accepted
 W retains its four-second emission bound, actual stop tick/reason and finite
 121-tick tail. Position, facing and audience endpoints use lossless runs of
 identical frames; moving and visibility transitions remain exact. Death freezes

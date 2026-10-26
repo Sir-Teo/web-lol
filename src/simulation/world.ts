@@ -1,4 +1,9 @@
 import {
+  beginMeditateAudio,
+  stopMeditateAudio,
+  meditateAudioExpiry,
+} from './masteryi-meditate-audio';
+import {
   captureMeditateBuff,
   stopMeditateBuff,
   advanceMeditateBuffs,
@@ -1033,7 +1038,7 @@ export class World {
     if (u.champion === 'masteryi' && captureAlphaOrder(this, u, order)) return;
     u.order = order;
     const state = this.championState(u.id);
-    if (state?.meditate) finishMeditate(state, this.tick, 'order');
+    if (state?.meditate) finishMeditate(state, this, u, 'order');
     // Daybreak's released attack leaves no ordinary attack cooldown. An
     // explicit attack order may skip its automatic animation recovery.
     if (
@@ -1135,6 +1140,10 @@ export class World {
       if (state.highlanderAudio.length)
         state.highlanderAudio = state.highlanderAudio.filter(
           (r) => this.tick < highlanderAudioExpiry(r)
+        );
+      if (state.meditateAudio.length)
+        state.meditateAudio = state.meditateAudio.filter(
+          (record) => this.tick < meditateAudioExpiry(record)
         );
       if (state.meditateBuffVisuals.length)
         state.meditateBuffVisuals = state.meditateBuffVisuals.filter(
@@ -4121,7 +4130,7 @@ export class World {
       tenacityApplied: sampled !== duration,
     };
     const channelOwner = this.championState(target.id);
-    if (channelOwner) finishMeditate(channelOwner, this.tick, 'control');
+    if (channelOwner) finishMeditate(channelOwner, this, target, 'control');
     this.setOrder(target, { type: 'idle' });
     if (target.champion === 'leona') this.finishLeonaDash(target, 'control');
     stopSpiritDash(this, target, 'control');
@@ -4210,7 +4219,7 @@ export class World {
     const owner = this.championState(target.id);
     if (owner) {
       owner.recallEnd = null;
-      finishMeditate(owner, this.tick, 'control');
+      finishMeditate(owner, this, target, 'control');
     }
     return true;
   }
@@ -4236,7 +4245,7 @@ export class World {
     const state = this.championState(target.id);
     if (state) {
       state.recallEnd = null;
-      finishMeditate(state, this.tick, 'control');
+      finishMeditate(state, this, target, 'control');
     }
     return true;
   }
@@ -5726,6 +5735,7 @@ export class World {
           if (state.doubleStrike) state.doubleStrike = createDoubleStrikeState();
           state.wujuStyle = null;
           stopMeditateBuff(state, this.tick, 'victory');
+          stopMeditateAudio(state, this, this.unit(state.id)!, 'victory');
           state.meditate = null;
           stopHighlanderAudio(state, this.unit(state.id)!, this, 'match-end');
           state.highlander = null;
@@ -5788,6 +5798,7 @@ export class World {
         if (targetState.doubleStrike) targetState.doubleStrike = createDoubleStrikeState();
         targetState.wujuStyle = null;
         stopMeditateBuff(targetState, this.tick, 'death');
+        stopMeditateAudio(targetState, this, target, 'death');
         targetState.meditate = null;
         stopHighlanderAudio(targetState, target, this, 'death');
         targetState.highlander = null;
@@ -6479,6 +6490,7 @@ export class World {
       beginMeditate(state, this.tick, state.spellRanks.w, this.abilityPower(u));
       captureMeditateCast(this, u);
       captureMeditateBuff(this, u);
+      beginMeditateAudio(this, u);
       this.emit('cast', u, { unit: u.id, champion: 'masteryi', text: 'w', team: u.team });
       return;
     }

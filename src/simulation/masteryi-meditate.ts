@@ -1,3 +1,4 @@
+import { stopMeditateAudio } from './masteryi-meditate-audio';
 import { stopMeditateBuff } from './masteryi-meditate-buff';
 import { MASTER_YI_W } from '../content/masteryi-w';
 import { DT, TICK_RATE } from '../content/rules';
@@ -48,15 +49,18 @@ export function beginMeditate(
 
 export function finishMeditate(
   owner: ChampionState,
-  tick: number,
+  world: World,
+  unit: Unit,
   reason: NonNullable<MeditateState['stopReason']>
 ): void {
   const channel = owner.meditate;
   if (!channel || channel.stopTick !== null) return;
+  const tick = world.tick;
   channel.stopTick = Math.min(tick, channel.endTick);
   channel.lastTick = channel.stopTick;
   channel.stopReason = reason;
   stopMeditateBuff(owner, channel.stopTick, reason);
+  stopMeditateAudio(owner, world, unit, reason);
 }
 
 /** Settle the elapsed channel interval before expiry/input, so a paused E never
@@ -71,11 +75,12 @@ export function settleMeditate(world: World, owner: ChampionState, unit: Unit): 
   }
   if (unit.hp <= 0 || world.winner) {
     stopMeditateBuff(owner, world.tick, unit.hp <= 0 ? 'death' : 'victory');
+    stopMeditateAudio(owner, world, unit, unit.hp <= 0 ? 'death' : 'victory');
     owner.meditate = null;
     return;
   }
   if (unit.stunUntil > world.tick || unit.silenceUntil > world.tick || unit.charm) {
-    finishMeditate(owner, world.tick, 'control');
+    finishMeditate(owner, world, unit, 'control');
     return;
   }
   const elapsed = Math.min(world.tick, channel.endTick) - channel.lastTick;
@@ -84,7 +89,7 @@ export function settleMeditate(world: World, owner: ChampionState, unit: Unit): 
   channel.lastTick = world.tick;
   if (unit.mana < mana) {
     unit.mana = 0;
-    finishMeditate(owner, world.tick, 'mana');
+    finishMeditate(owner, world, unit, 'mana');
     return;
   }
   unit.mana = Math.max(0, unit.mana - mana);
@@ -122,7 +127,7 @@ export function advanceMeditate(world: World, unit: Unit): boolean {
     if (owner.doubleStrike) countDoubleStrikeContact(owner.doubleStrike, world.tick, false);
     channel.nextStackTick += MEDITATE_STACK_TICKS;
   }
-  if (world.tick >= channel.endTick) finishMeditate(owner, world.tick, 'complete');
+  if (world.tick >= channel.endTick) finishMeditate(owner, world, unit, 'complete');
   return true;
 }
 

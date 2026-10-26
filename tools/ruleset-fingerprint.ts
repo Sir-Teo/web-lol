@@ -111,6 +111,8 @@ const pinnedData = [
 // effect clocks. Traverse their runtime dependencies just like simulation roots;
 // hashing only the entry file would miss a changed curve/motion helper.
 export const rulesetModuleRoots = [
+  'src/audio/masteryi-w-state.ts',
+  'src/audio/masteryi-w.ts',
   'src/render/masteryi-w-buff-particles.ts',
   'src/render/masteryi-w-buffs.ts',
   'src/render/masteryi-w-cast-particles.ts',
