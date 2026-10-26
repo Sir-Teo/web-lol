@@ -1,0 +1,416 @@
+{
+  "format": 1,
+  "parentCommit": "7ce50d38b847bca1025bddafffb6acc4a90f0051",
+  "scope": "Fresh bounded static native constructor/loader-byte witness with complete Master Yi asset-cohort and raw emitter wire/default alignment. Profile compiler consumes the immutable constructor record; all generated game parameters and exports remain unchanged.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "d7e71965d6aa7ac28ff74c6526b48d83dd73b0111a67c72eeb76af89163f3747",
+    "offlinePack": {
+      "id": "5ef2d43afc9bb16878ced8d214fb0877fab5817e7949b2ee0823513d6aa8782d",
+      "files": 1200,
+      "bytes": 538083368
+    }
+  },
+  "applicationFingerprintUnchanged": true,
+  "productionPackUnchanged": true,
+  "native": {
+    "path": ".cache/leona-native-matching-v1-20261024/native/LeagueofLegends.app/Contents/MacOS/LeagueofLegends",
+    "bytes": 82268192,
+    "sha256": "97edcf2c88fec3169a1ec36345276569de3329e27fd9b32c8162957a77135c6c"
+  },
+  "verification": {
+    "inlineSpans": 28,
+    "exactWords": 73,
+    "directBranches": 20,
+    "typeRegistrations": 6,
+    "fieldRegistrations": 7,
+    "functionStarts": 173303,
+    "declaredFunctionBounds": 44,
+    "nativeGuardsPerMode": 27,
+    "profileGuardsPerMode": 33,
+    "totalGuardsPerMode": 60,
+    "nativeEmitterWireObjects": 11,
+    "omittedPrimitivesAlignedWithCameraQuad": 9,
+    "omittedAlphaBytesAlignedWithFive": 7,
+    "nativeMasterYiArchiveBytes": 116876257,
+    "nativeMasterYiArchiveChunks": 3851,
+    "nativeMasterYiFullSequenceEqual": true,
+    "normalOptimizedReplayOutputs": 17,
+    "bytesAndMtimesUnchanged": true,
+    "acceptedRuntimeOutputsUnchanged": 14,
+    "nativeExecuted": false,
+    "nativeShaderExecuted": false,
+    "historicalLlvmTextReverified": false,
+    "fullApplicationTestsRerun": false
+  },
+  "nativeConstructorRecordSha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97",
+  "masterYiArchiveCohort": {
+    "archive": "DATA/FINAL/Champions/MasterYi.wad.client",
+    "bytes": 116876257,
+    "chunks": 3851,
+    "orderedChunkIdsAndDecodedSizesIdentical": true,
+    "sequenceSha256": "2badef070739588eadc792993da5e3b2ef4e444873d1f71ff2fd1540f518bca2",
+    "nativeManifestSha256": "a47010ec6b22299c3480ea9764f20674b05ddc4c8b4697bb70c483498273ffac",
+    "assetsManifestSha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "limits": [
+    "Fresh static byte witness for inline spans, selected words, direct branches and registrations only. No native game/shader execution or full historical LLVM/archive certificate.",
+    "Type and field labels are FNV/layout candidates; matching hashes do not exclude collisions or authenticate literal native names.",
+    "Constructor defaults and the identified generic loader chain do not establish actual Yi dispatch, later overrides, attachments, sampler state, shader selection or native visual parity.",
+    "Compiled alpha normalization by 255 remains a local reader/material policy; this witness establishes constructor byte 5 and alignment, not native upload conversion.",
+    "Existing historical LLVM/collector inputs and their missing-archive tests are not replaced or declared restored.",
+    "No native actual-Yi dispatch, later override, shader/sampler, upload conversion, attachment orientation or complete visual certificate is claimed.",
+    "The previous application certificate remains 3070 passing tests out of 3073, with the same three baseline failures; see pose-history-capture-verification.json."
+  ],
+  "diagnostics": [
+    "Initial inline loader spans have no name key; the witness labels such spans by their recorded address without changing byte/hash checks. Constructor and alignment records are separate to avoid making native defaults depend on generated game profiles."
+  ],
+  "sourceFiles": [
+    {
+      "path": "README.md",
+      "bytes": 18979,
+      "sha256": "826e6dd3c0c2b4182ff610e341a06ad2173bf7a9cb700324b52a23b26cef93b9"
+    },
+    {
+      "path": "docs/MASTER-YI-PRIMARY-HITS.md",
+      "bytes": 12582,
+      "sha256": "2af6715a17af13aa48725a2ebdf0f9ceeed6b1d1436a9887862ea4a0b8818a92"
+    },
+    {
+      "path": "docs/NATIVE-CONSTRUCTOR-WITNESS.md",
+      "bytes": 3893,
+      "sha256": "0bfb6db860e583fd740a085fe5556e41d847befceeb31aba40e775be40c25bbf"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-native-default-alignment.json",
+      "bytes": 4763,
+      "sha256": "b0f0e0940da2e2c1dbbd2caf2dd0355ebfb45bdf547a197d36e523194d4b97ba"
+    },
+    {
+      "path": "docs/reference/native-constructor-witness.json",
+      "bytes": 19538,
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": "tools/assets/masteryi_primary_hit_profiles.py",
+      "bytes": 6790,
+      "sha256": "69ced37c86524e4cac6a48a111fd77bfbbcd97d915400528944c5eac86045d9b"
+    },
+    {
+      "path": "tools/assets/native_constructor_witness.py",
+      "bytes": 12648,
+      "sha256": "5ed4f943e123a3cb9bebfdea394bd8b5551d6b1ac010e7913eb9a245a7234e14"
+    },
+    {
+      "path": "tools/assets/prepare-native-constructor-witness.py",
+      "bytes": 1308,
+      "sha256": "feb65fb08dbe2b8dbf614fab121b806ca044649f13704b4098d9782602a172d0"
+    },
+    {
+      "path": "tools/assets/test-masteryi-primary-hit-profiles.py",
+      "bytes": 6488,
+      "sha256": "c65e68b707c6dd438735d2c7e8811756e9ffece1991faed3197b0b46af54b72a"
+    },
+    {
+      "path": "tools/assets/test-native-constructor-witness.py",
+      "bytes": 5862,
+      "sha256": "7c731dcfc8e5c4e558a51d5d87f1deffaf02246af83ada53b5b929354e688488"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "docs/reference/leona-native-matching.json",
+      "bytes": 23862,
+      "sha256": "57a8cf95b813290d512bc0d99dc7ced639709b02d206e2a6bb3fab7034d8168e"
+    },
+    {
+      "path": "docs/reference/leona-native-emitter-defaults.json",
+      "bytes": 53698,
+      "sha256": "17bf7879489412c1f28b9a36a46fc15668cd40d7ad76ceb5e3a2d32893ea051e"
+    },
+    {
+      "path": "docs/reference/leona-native-bin-loader.json",
+      "bytes": 23630,
+      "sha256": "2488eba52b75e2c61f36fdd960311a490092bbfd64190f0cc688ad06e27650c6"
+    },
+    {
+      "path": "tools/assets/verify-leona-native-particle-bindings.py",
+      "bytes": 13221,
+      "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-particles.json",
+      "bytes": 82989,
+      "sha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-profile-reading.json",
+      "bytes": 137463,
+      "sha256": "93a4f4500e3ee3fd5e8881cfaf08f823cae40750de16afdf2ca235f4aad1142a"
+    },
+    {
+      "path": "src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/native-constructor-witness/final-source/README.md",
+      "bytes": 18979,
+      "sha256": "826e6dd3c0c2b4182ff610e341a06ad2173bf7a9cb700324b52a23b26cef93b9"
+    },
+    {
+      "path": ".cache/native-constructor-witness/final-source/docs/MASTER-YI-PRIMARY-HITS.md",
+      "bytes": 12582,
+      "sha256": "2af6715a17af13aa48725a2ebdf0f9ceeed6b1d1436a9887862ea4a0b8818a92"
+    },
+    {
+      "path": ".cache/native-constructor-witness/final-source/docs/NATIVE-CONSTRUCTOR-WITNESS.md",
+      "bytes": 3893,
+      "sha256": "0bfb6db860e583fd740a085fe5556e41d847befceeb31aba40e775be40c25bbf"
+    },
+    {
+      "path": ".cache/native-constructor-witness/final-source/docs/reference/leona-native-bin-loader.json",
+      "bytes": 23630,
+      "sha256": "2488eba52b75e2c61f36fdd960311a490092bbfd64190f0cc688ad06e27650c6"
+    },
+    {
+      "path": ".cache/native-constructor-witness/final-source/docs/reference/leona-native-emitter-defaults.json",
+      "bytes": 53698,
+      "sha256": "17bf7879489412c1f28b9a36a46fc15668cd40d7ad76ceb5e3a2d32893ea051e"
+    },
+    {
+      "path": ".cache/native-constructor-witness/final-source/docs/reference/leona-native-matching.json",
+      "bytes": 23862,
+      "sha256": "57a8cf95b813290d512bc0d99dc7ced639709b02d206e2a6bb3fab7034d8168e"
+    },
+    {
+      "path": ".cache/native-constructor-witness/final-source/docs/reference/masteryi/primary-hit-native-default-alignment.json",
+      "bytes": 4763,
+      "sha256": "b0f0e0940da2e2c1dbbd2caf2dd0355ebfb45bdf547a197d36e523194d4b97ba"
+    },
+    {
+      "path": ".cache/native-constructor-witness/final-source/docs/reference/masteryi/primary-hit-particles.json",
+      "bytes": 82989,
+      "sha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301"
+    },
+    {
+      "path": ".cache/native-constructor-witness/final-source/docs/reference/masteryi/primary-hit-profile-reading.json",
+      "bytes": 137463,
+      "sha256": "93a4f4500e3ee3fd5e8881cfaf08f823cae40750de16afdf2ca235f4aad1142a"
+    },
+    {
+      "path": ".cache/native-constructor-witness/final-source/docs/reference/native-constructor-witness.json",
+      "bytes": 19538,
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": ".cache/native-constructor-witness/final-source/src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    },
+    {
+      "path": ".cache/native-constructor-witness/final-source/tools/assets/masteryi_primary_hit_profiles.py",
+      "bytes": 6790,
+      "sha256": "69ced37c86524e4cac6a48a111fd77bfbbcd97d915400528944c5eac86045d9b"
+    },
+    {
+      "path": ".cache/native-constructor-witness/final-source/tools/assets/native_constructor_witness.py",
+      "bytes": 12648,
+      "sha256": "5ed4f943e123a3cb9bebfdea394bd8b5551d6b1ac010e7913eb9a245a7234e14"
+    },
+    {
+      "path": ".cache/native-constructor-witness/final-source/tools/assets/prepare-native-constructor-witness.py",
+      "bytes": 1308,
+      "sha256": "feb65fb08dbe2b8dbf614fab121b806ca044649f13704b4098d9782602a172d0"
+    },
+    {
+      "path": ".cache/native-constructor-witness/final-source/tools/assets/test-masteryi-primary-hit-profiles.py",
+      "bytes": 6488,
+      "sha256": "c65e68b707c6dd438735d2c7e8811756e9ffece1991faed3197b0b46af54b72a"
+    },
+    {
+      "path": ".cache/native-constructor-witness/final-source/tools/assets/test-native-constructor-witness.py",
+      "bytes": 5862,
+      "sha256": "7c731dcfc8e5c4e558a51d5d87f1deffaf02246af83ada53b5b929354e688488"
+    },
+    {
+      "path": ".cache/native-constructor-witness/final-source/tools/assets/verify-leona-native-particle-bindings.py",
+      "bytes": 13221,
+      "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/native-constructor-witness/app-identity.json",
+      "bytes": 90,
+      "sha256": "b715cd8724e34694d5dfeced683f0eb8b42f4ae7a34cf9e007f57cea03ccc142"
+    },
+    {
+      "path": ".cache/native-constructor-witness/archive-checkpoint.py",
+      "bytes": 5463,
+      "sha256": "203ac009fc09b7f020d7fa9ff2e6ad133ca7337f7e6bff9af69f40fe3cb57b29"
+    },
+    {
+      "path": ".cache/native-constructor-witness/export-masteryi-primary-hit-particles-check-normal.log",
+      "bytes": 104,
+      "sha256": "70bfcf1db84243681b391a2fd9726e8218ca426894dca2bab8061455948f3447"
+    },
+    {
+      "path": ".cache/native-constructor-witness/export-masteryi-primary-hit-particles-check-optimized.log",
+      "bytes": 104,
+      "sha256": "70bfcf1db84243681b391a2fd9726e8218ca426894dca2bab8061455948f3447"
+    },
+    {
+      "path": ".cache/native-constructor-witness/export-masteryi-primary-hit-particles-replay-normal.log",
+      "bytes": 104,
+      "sha256": "70bfcf1db84243681b391a2fd9726e8218ca426894dca2bab8061455948f3447"
+    },
+    {
+      "path": ".cache/native-constructor-witness/export-masteryi-primary-hit-particles-replay-optimized.log",
+      "bytes": 104,
+      "sha256": "70bfcf1db84243681b391a2fd9726e8218ca426894dca2bab8061455948f3447"
+    },
+    {
+      "path": ".cache/native-constructor-witness/guards-initial.log",
+      "bytes": 125,
+      "sha256": "1b640bcd4c779c909b2143cc0f18ce528705c6fb5775035ef4a39dfa25b3beb4"
+    },
+    {
+      "path": ".cache/native-constructor-witness/guards-native-normal.log",
+      "bytes": 126,
+      "sha256": "db1f34736dda281b79eb8e6e1633789e45e0f1576176c65d22380ba8d60af9c1"
+    },
+    {
+      "path": ".cache/native-constructor-witness/guards-profiles-normal.log",
+      "bytes": 132,
+      "sha256": "a5005a9979d7beffc9b03017765a7a538ca6ceb9c1e4ba7686eb2ba154dedf2d"
+    },
+    {
+      "path": ".cache/native-constructor-witness/initial-reading.json",
+      "bytes": 18594,
+      "sha256": "5846dbd790a85b36653cb43e19cccb4fa71d740289137274d66c2fa0247fcc60"
+    },
+    {
+      "path": ".cache/native-constructor-witness/initial.log",
+      "bytes": 1622,
+      "sha256": "8fa1b8531663c39187988c5a97f1a3987f17d2f33b099d4b8bbab81f7fb76acc"
+    },
+    {
+      "path": ".cache/native-constructor-witness/pre-cohort-alignment.json",
+      "bytes": 4296,
+      "sha256": "055ad12bce232a62f6c1893a5c5340d96b0c334ee578ec6e5fabc3d62c41c2dc"
+    },
+    {
+      "path": ".cache/native-constructor-witness/pre-split-reading.json",
+      "bytes": 23720,
+      "sha256": "4708055553bdbf7d056c530ef39fa1d369a19fa03e3bda693c5cbc9bcda52c5d"
+    },
+    {
+      "path": ".cache/native-constructor-witness/prepare-bounded.log",
+      "bytes": 213,
+      "sha256": "1fb41d371646f238fd9a9c274d4c5f1bee06ad23432f03c5a30eecb50952115f"
+    },
+    {
+      "path": ".cache/native-constructor-witness/prepare-cohort.log",
+      "bytes": 213,
+      "sha256": "1fb41d371646f238fd9a9c274d4c5f1bee06ad23432f03c5a30eecb50952115f"
+    },
+    {
+      "path": ".cache/native-constructor-witness/prepare-masteryi-primary-hit-profiles-check-normal.log",
+      "bytes": 90,
+      "sha256": "919ed934995d9007990d85d64b2e16b29d4fcb1a808609a0d21c228e9adf5181"
+    },
+    {
+      "path": ".cache/native-constructor-witness/prepare-masteryi-primary-hit-profiles-check-optimized.log",
+      "bytes": 90,
+      "sha256": "919ed934995d9007990d85d64b2e16b29d4fcb1a808609a0d21c228e9adf5181"
+    },
+    {
+      "path": ".cache/native-constructor-witness/prepare-masteryi-primary-hit-profiles-replay-normal.log",
+      "bytes": 90,
+      "sha256": "919ed934995d9007990d85d64b2e16b29d4fcb1a808609a0d21c228e9adf5181"
+    },
+    {
+      "path": ".cache/native-constructor-witness/prepare-masteryi-primary-hit-profiles-replay-optimized.log",
+      "bytes": 90,
+      "sha256": "919ed934995d9007990d85d64b2e16b29d4fcb1a808609a0d21c228e9adf5181"
+    },
+    {
+      "path": ".cache/native-constructor-witness/prepare-native-constructor-witness-check-normal.log",
+      "bytes": 213,
+      "sha256": "1fb41d371646f238fd9a9c274d4c5f1bee06ad23432f03c5a30eecb50952115f"
+    },
+    {
+      "path": ".cache/native-constructor-witness/prepare-native-constructor-witness-check-optimized.log",
+      "bytes": 213,
+      "sha256": "1fb41d371646f238fd9a9c274d4c5f1bee06ad23432f03c5a30eecb50952115f"
+    },
+    {
+      "path": ".cache/native-constructor-witness/prepare-native-constructor-witness-replay-normal.log",
+      "bytes": 213,
+      "sha256": "1fb41d371646f238fd9a9c274d4c5f1bee06ad23432f03c5a30eecb50952115f"
+    },
+    {
+      "path": ".cache/native-constructor-witness/prepare-native-constructor-witness-replay-optimized.log",
+      "bytes": 213,
+      "sha256": "1fb41d371646f238fd9a9c274d4c5f1bee06ad23432f03c5a30eecb50952115f"
+    },
+    {
+      "path": ".cache/native-constructor-witness/prepare-split.log",
+      "bytes": 213,
+      "sha256": "1fb41d371646f238fd9a9c274d4c5f1bee06ad23432f03c5a30eecb50952115f"
+    },
+    {
+      "path": ".cache/native-constructor-witness/prepare.log",
+      "bytes": 157,
+      "sha256": "759b343f123d9fc797acb6a16c9dfa63404a4b16986b89ee347d5e351ba6bc28"
+    },
+    {
+      "path": ".cache/native-constructor-witness/primary-profiles-unchanged.log",
+      "bytes": 90,
+      "sha256": "919ed934995d9007990d85d64b2e16b29d4fcb1a808609a0d21c228e9adf5181"
+    },
+    {
+      "path": ".cache/native-constructor-witness/replay-verification.json",
+      "bytes": 12070,
+      "sha256": "4fe48dbb5086482c08cde0c46f12106de583c8a48eaf7c428a93f1c3c98cc4ff"
+    },
+    {
+      "path": ".cache/native-constructor-witness/runtime-exports-unchanged.log",
+      "bytes": 104,
+      "sha256": "70bfcf1db84243681b391a2fd9726e8218ca426894dca2bab8061455948f3447"
+    },
+    {
+      "path": ".cache/native-constructor-witness/test-masteryi-primary-hit-profiles-normal.log",
+      "bytes": 132,
+      "sha256": "00e267538849e3572e046f2af8c0d5f3fed940a69d1da986fbf5a4c568d8a6f0"
+    },
+    {
+      "path": ".cache/native-constructor-witness/test-masteryi-primary-hit-profiles-optimized.log",
+      "bytes": 132,
+      "sha256": "308df376b0eec56f75779fdecb6e69c24897970aa3be4530737ae0b08a695f65"
+    },
+    {
+      "path": ".cache/native-constructor-witness/test-native-constructor-witness-normal.log",
+      "bytes": 126,
+      "sha256": "ea26ac3403edd1a0b69e10b80b47f7be9f87efc441d2e4012e3b2bf659bfe251"
+    },
+    {
+      "path": ".cache/native-constructor-witness/test-native-constructor-witness-optimized.log",
+      "bytes": 126,
+      "sha256": "2b158f166efaa9fffe2a080eb18aba7be7ade33867f6511768b42305610648ed"
+    },
+    {
+      "path": ".cache/native-constructor-witness/verification.log",
+      "bytes": 2232,
+      "sha256": "a7419a530c13a0193d6310756f1e366d31a7fd5587152e764c4098b44dab8a99"
+    },
+    {
+      "path": ".cache/native-constructor-witness/verify-checkpoint.py",
+      "bytes": 2321,
+      "sha256": "1ff3561ed5d5eae7dd7f9e782fba1264e805b78acc81be4d04679915a2171158"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 """Complete primary-hit control projection, omissions and unsupported-field guards."""
 from pathlib import Path
 import copy,json,runpy,tempfile,unittest
+from unittest.mock import patch
 from masteryi_primary_hits import load
 from masteryi_primary_hit_profiles import profiles,CANDIDATES,binhash
 MODULE=runpy.run_path(str(Path(__file__).with_name('prepare-masteryi-primary-hit-profiles.py')))
@@ -36,6 +37,11 @@ class HitProfileGuards(unittest.TestCase):
   self.assertIn('{08b52819}',self.profiles[0]['explicitFields']);self.assertNotIn('censorModulateValue',self.profiles[0]['explicitFields'])
  def test_ground_glow_remains_target_quad(self):self.assertEqual(self.profiles[8]['kind'],'quad');self.assertFalse(self.profiles[8]['ground']);self.assertEqual(self.reading['bindings'][2]['rawFields']['mHitBoneName'],'C_BUFFBONE_GLB_CHEST_LOC')
  def test_life_probability_endpoint_keeps_float32_value(self):self.assertEqual(self.profiles[3]['life']['probabilities'][0]['values'][-1],1.2000000476837158)
+ def test_changed_native_constructor_witness_rejects_before_projection(self):
+  with tempfile.TemporaryDirectory()as temp:
+   path=Path(temp)/'witness.json';path.write_bytes(b'{}')
+   with patch.dict(profiles.__globals__,{'CONSTRUCTOR':path}):
+    with self.assertRaisesRegex(ValueError,'Frozen particle input'):profiles(self.pin,self.textures,self.defaults)
  def test_wrong_transport_pin_fails_before_decode(self):
   with tempfile.TemporaryDirectory()as temp:
    p=Path(temp)/'pin';p.write_bytes(b'{}')

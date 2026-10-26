@@ -96,3 +96,5 @@ Private Yi ordinary attacks now use [both source-declared body/trail/audio choic
 [Owned pose capture](docs/POSE-HISTORY-CAPTURE.md) reduces timeline-copy overhead while preserving independent saved attachment histories.
 
 [Native payload restoration](docs/NATIVE-CLIENT-RESTORATION.md) recovers the exact frozen client bytes for further static fidelity work.
+
+[Native constructor evidence](docs/NATIVE-CONSTRUCTOR-WITNESS.md) now supplies the Yi hit compiler’s omitted primitive and alpha-byte defaults without changing its rendered outputs.

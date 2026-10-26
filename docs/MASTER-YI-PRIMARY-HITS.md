@@ -202,3 +202,11 @@ passes 85 guards per mode and preserves all fourteen runtime outputs in bytes
 and timestamps. The current GLB availability audit finds the declared chest
 joint in 27 of 32 target rigs; wards, inhibitors and nexuses use the explicit
 local fallback described above. Numeric joint indices vary by rig.
+
+The later [native constructor witness](NATIVE-CONSTRUCTOR-WITNESS.md) now backs
+the compiler's omitted primitive and alpha-byte inputs. Nine primitive omissions
+align with constructor CameraQuad; seven alpha-reference omissions align with
+constructor byte 5. All eleven concrete emitter wire types and the full 3,851-chunk
+Master Yi WAD match the frozen native/content cohort. All fourteen runtime exports
+remain byte-for-byte unchanged; native dispatch, later overrides and upload
+conversion retain their existing limits.
