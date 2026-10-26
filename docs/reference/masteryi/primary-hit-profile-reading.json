@@ -1,0 +1,7014 @@
+{
+  "format": 1,
+  "sourcePinSha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301",
+  "transport": {
+    "path": "docs/reference/masteryi/primary-hit-texture-transport.json",
+    "sha256": "6aa657899684411475571d7aa20d83a5a6d591244c4291f0f0590193a9e7f83a"
+  },
+  "bindings": [
+    {
+      "kind": "attack1",
+      "spell": "Characters/MasterYi/Spells/MasterYiBasicAttack",
+      "rawFields": {
+        "mHitEffectKey": "MasterYi_BA_Tar_01",
+        "bHaveHitEffect": true,
+        "bHaveHitBone": true,
+        "mHitBoneName": "C_BUFFBONE_GLB_CHEST_LOC"
+      }
+    },
+    {
+      "kind": "attack2",
+      "spell": "Characters/MasterYi/Spells/MasterYiBasicAttack2",
+      "rawFields": {
+        "mHitEffectKey": "MasterYi_BA_Tar_02",
+        "bHaveHitEffect": true,
+        "bHaveHitBone": true,
+        "mHitBoneName": "C_BUFFBONE_GLB_CHEST_LOC"
+      }
+    },
+    {
+      "kind": "crit",
+      "spell": "Characters/MasterYi/Spells/MasterYiCritAttack",
+      "rawFields": {
+        "mHitEffectKey": "MasterYi_Crit_tar",
+        "bHaveHitEffect": true,
+        "bHaveHitBone": true,
+        "mHitBoneName": "C_BUFFBONE_GLB_CHEST_LOC"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "system": "MasterYi_BA_Tar_01",
+      "role": "attack1",
+      "index": 0,
+      "name": "fluid",
+      "kind": "billboard",
+      "mesh": null,
+      "texture": "assets/characters/masteryi/skins/base/particles/common_0fluid.tex",
+      "lookup": "assets/characters/masteryi/skins/base/particles/common_color-whiteweb32.tex",
+      "rate": {
+        "constant": [
+          5.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            5.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "single": true,
+      "emitterLife": 0.10000000149011612,
+      "linger": 10.550000190734863,
+      "life": {
+        "constant": [
+          0.550000011920929
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            0.550000011920929
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              0.800000011920929,
+              1.0
+            ],
+            "values": [
+              0.5,
+              0.800000011920929,
+              1.2000000476837158
+            ],
+            "single": 1
+          }
+        ]
+      },
+      "bind": {
+        "constant": [
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "position": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "shape": {
+        "kind": "legacy",
+        "offset": {
+          "constant": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "times": [
+            0.0
+          ],
+          "values": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "probabilities": [
+            {
+              "times": [
+                0.0,
+                1.0
+              ],
+              "values": [
+                -20.0,
+                20.0
+              ],
+              "single": 1
+            },
+            {
+              "times": [],
+              "values": [],
+              "single": 1
+            },
+            {
+              "times": [],
+              "values": [],
+              "single": 1
+            }
+          ]
+        },
+        "angles": [
+          {
+            "constant": [
+              1.0
+            ],
+            "times": [
+              0.0
+            ],
+            "values": [
+              [
+                1.0
+              ]
+            ],
+            "probabilities": [
+              {
+                "times": [
+                  0.0,
+                  1.0
+                ],
+                "values": [
+                  0.0,
+                  360.0
+                ],
+                "single": 1
+              }
+            ]
+          },
+          {
+            "constant": [
+              1.0
+            ],
+            "times": [
+              0.0
+            ],
+            "values": [
+              [
+                1.0
+              ]
+            ],
+            "probabilities": [
+              {
+                "times": [
+                  0.0,
+                  1.0
+                ],
+                "values": [
+                  0.0,
+                  360.0
+                ],
+                "single": 1
+              }
+            ]
+          }
+        ],
+        "axes": [
+          [
+            0.0,
+            0.0,
+            1.0000001192092896
+          ],
+          [
+            0.0,
+            1.0000001192092896,
+            0.0
+          ]
+        ]
+      },
+      "boundOffset": 0.004999999888241291,
+      "velocity": {
+        "constant": [
+          0.0,
+          300.0,
+          0.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            0.0,
+            300.0,
+            0.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [
+              0.0,
+              0.800000011920929,
+              1.0
+            ],
+            "values": [
+              0.30000001192092896,
+              0.5,
+              1.0
+            ],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "birthDrag": {
+        "constant": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1.0,
+            1.0,
+            1.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "worldAcceleration": {
+        "constant": [
+          0.0,
+          -10.0,
+          0.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            0.0,
+            -10.0,
+            0.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "fields": {
+        "acceleration": {
+          "constant": [
+            0,
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "drag": null
+      },
+      "rotation": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "spin": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "size": {
+        "constant": [
+          22.5,
+          22.5,
+          0.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            22.5,
+            22.5,
+            0.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.5,
+              1.0
+            ],
+            "single": 1
+          },
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.5,
+              1.0
+            ],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "scale": {
+        "constant": [
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          [
+            1.0,
+            1.0,
+            0.0
+          ],
+          [
+            8.0,
+            8.0,
+            0.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "uniform": false,
+      "birthColor": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "color": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "uv": {
+        "scale": {
+          "constant": [
+            1,
+            1
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              1,
+              1
+            ]
+          ],
+          "probabilities": []
+        },
+        "offset": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "birthScroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "scroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "clamp": false,
+        "address": 0,
+        "divisions": [
+          2.0,
+          2.0
+        ],
+        "frames": 1,
+        "randomStart": true,
+        "startFrame": 0,
+        "frameRate": 0
+      },
+      "uvMode": 0,
+      "multiplier": null,
+      "lookupTypes": [
+        1,
+        3
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ],
+      "local": true,
+      "particleLocal": false,
+      "directionOriented": true,
+      "directionVelocityScale": 0,
+      "ground": false,
+      "navmesh": false,
+      "blend": 3,
+      "renderOrder": 0,
+      "miscRenderFlags": 0,
+      "meshRenderFlags": 0,
+      "noCull": false,
+      "depthBias": [
+        0,
+        0
+      ],
+      "alphaRef": 0.058823529411764705,
+      "erosion": null,
+      "distortion": null,
+      "soft": null,
+      "palette": null,
+      "rawBlend": 3,
+      "rawBind": null,
+      "rawLocal": null,
+      "rawParticleLocal": null,
+      "rawCensorModulateValue": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "rawImportance": null,
+      "explicitFields": [
+        "FlexShapeDefinition",
+        "SpawnShape",
+        "__type",
+        "alphaRef",
+        "birthDrag",
+        "birthScale0",
+        "birthVelocity",
+        "blendMode",
+        "colorLookUpTypeY",
+        "emitterName",
+        "isDirectionOriented",
+        "isRandomStartFrame",
+        "isSingleParticle",
+        "lifetime",
+        "particleColorTexture",
+        "particleLifetime",
+        "particleLinger",
+        "rate",
+        "scale0",
+        "texDiv",
+        "texture",
+        "worldAcceleration",
+        "{08b52819}"
+      ]
+    },
+    {
+      "system": "MasterYi_BA_Tar_01",
+      "role": "attack1",
+      "index": 1,
+      "name": "flash",
+      "kind": "billboard",
+      "mesh": null,
+      "texture": "assets/characters/masteryi/skins/base/particles/common_hiteffect.tex",
+      "lookup": "assets/characters/masteryi/skins/base/particles/common_color-hit-physical.tex",
+      "rate": {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "single": true,
+      "emitterLife": 1.0,
+      "linger": 10.0,
+      "life": {
+        "constant": [
+          0.30000001192092896
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0.30000001192092896
+          ]
+        ],
+        "probabilities": []
+      },
+      "bind": {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "position": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "shape": {
+        "kind": "point",
+        "offset": {
+          "constant": [
+            0,
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "angles": [],
+        "axes": []
+      },
+      "boundOffset": null,
+      "velocity": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "birthDrag": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "worldAcceleration": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "fields": {
+        "acceleration": {
+          "constant": [
+            0,
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "drag": null
+      },
+      "rotation": {
+        "constant": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              360.0
+            ],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "spin": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "size": {
+        "constant": [
+          150.0,
+          150.0,
+          150.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            150.0,
+            150.0,
+            150.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "scale": {
+        "constant": [
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          [
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "uniform": true,
+      "birthColor": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "color": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "uv": {
+        "scale": {
+          "constant": [
+            1,
+            1
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              1,
+              1
+            ]
+          ],
+          "probabilities": []
+        },
+        "offset": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "birthScroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "scroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "clamp": false,
+        "address": 0,
+        "divisions": [
+          1,
+          1
+        ],
+        "frames": 1,
+        "randomStart": false,
+        "startFrame": 0,
+        "frameRate": 0
+      },
+      "uvMode": 0,
+      "multiplier": null,
+      "lookupTypes": [
+        1,
+        0
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ],
+      "local": true,
+      "particleLocal": false,
+      "directionOriented": false,
+      "directionVelocityScale": 0,
+      "ground": false,
+      "navmesh": false,
+      "blend": 0,
+      "renderOrder": 10,
+      "miscRenderFlags": 1,
+      "meshRenderFlags": 0,
+      "noCull": false,
+      "depthBias": [
+        0,
+        0
+      ],
+      "alphaRef": 0.0196078431372549,
+      "erosion": null,
+      "distortion": null,
+      "soft": null,
+      "palette": null,
+      "rawBlend": null,
+      "rawBind": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "rawLocal": null,
+      "rawParticleLocal": null,
+      "rawCensorModulateValue": null,
+      "rawImportance": null,
+      "explicitFields": [
+        "__type",
+        "bindWeight",
+        "birthRotation0",
+        "birthScale0",
+        "emitterName",
+        "isSingleParticle",
+        "isUniformScale",
+        "lifetime",
+        "meshRenderFlags",
+        "miscRenderFlags",
+        "particleColorTexture",
+        "particleLifetime",
+        "particleLinger",
+        "pass",
+        "rate",
+        "scale0",
+        "texture"
+      ]
+    },
+    {
+      "system": "MasterYi_BA_Tar_01",
+      "role": "attack1",
+      "index": 2,
+      "name": "blood_drops",
+      "kind": "billboard",
+      "mesh": null,
+      "texture": "assets/characters/masteryi/skins/base/particles/common_blurdrops.tex",
+      "lookup": "assets/characters/masteryi/skins/base/particles/common_color-bloodfade32.tex",
+      "rate": {
+        "constant": [
+          10.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            10.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.5,
+              1.0
+            ],
+            "single": 1
+          }
+        ]
+      },
+      "single": true,
+      "emitterLife": 1.0,
+      "linger": 10.0,
+      "life": {
+        "constant": [
+          0.5
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            0.5
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              0.5,
+              1.0
+            ],
+            "values": [
+              0.5,
+              0.800000011920929,
+              2.0
+            ],
+            "single": 1
+          }
+        ]
+      },
+      "bind": {
+        "constant": [
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "position": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "shape": {
+        "kind": "legacy",
+        "offset": {
+          "constant": [
+            0.0,
+            50.0,
+            0.0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0.0,
+              50.0,
+              0.0
+            ]
+          ],
+          "probabilities": []
+        },
+        "angles": [
+          {
+            "constant": [
+              1.0
+            ],
+            "times": [
+              0.0
+            ],
+            "values": [
+              [
+                1.0
+              ]
+            ],
+            "probabilities": [
+              {
+                "times": [
+                  0.0,
+                  1.0
+                ],
+                "values": [
+                  0.0,
+                  40.0
+                ],
+                "single": 1
+              }
+            ]
+          },
+          {
+            "constant": [
+              1.0
+            ],
+            "times": [
+              0.0
+            ],
+            "values": [
+              [
+                1.0
+              ]
+            ],
+            "probabilities": [
+              {
+                "times": [
+                  0.0,
+                  1.0
+                ],
+                "values": [
+                  0.0,
+                  360.0
+                ],
+                "single": 1
+              }
+            ]
+          }
+        ],
+        "axes": [
+          [
+            0.0,
+            0.0,
+            1.0000001192092896
+          ],
+          [
+            0.0,
+            1.0000001192092896,
+            0.0
+          ]
+        ]
+      },
+      "boundOffset": 0.004999999888241291,
+      "velocity": {
+        "constant": [
+          0.0,
+          500.0,
+          0.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            0.0,
+            500.0,
+            0.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.699999988079071,
+              2.0
+            ],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "birthDrag": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "worldAcceleration": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "fields": {
+        "acceleration": {
+          "constant": [
+            0.0,
+            -500.0,
+            0.0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0.0,
+              -500.0,
+              0.0
+            ]
+          ],
+          "probabilities": []
+        },
+        "drag": {
+          "position": {
+            "constant": [
+              0.0,
+              300.0,
+              0.0
+            ],
+            "times": [
+              0
+            ],
+            "values": [
+              [
+                0.0,
+                300.0,
+                0.0
+              ]
+            ],
+            "probabilities": []
+          },
+          "radius": {
+            "constant": [
+              1000.0
+            ],
+            "times": [
+              0
+            ],
+            "values": [
+              [
+                1000.0
+              ]
+            ],
+            "probabilities": []
+          },
+          "strength": {
+            "constant": [
+              2.0
+            ],
+            "times": [
+              0
+            ],
+            "values": [
+              [
+                2.0
+              ]
+            ],
+            "probabilities": []
+          }
+        }
+      },
+      "rotation": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "spin": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "size": {
+        "constant": [
+          15.0,
+          15.0,
+          15.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            15.0,
+            15.0,
+            15.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.4000000059604645,
+              1.2000000476837158
+            ],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "scale": {
+        "constant": [
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "uniform": true,
+      "birthColor": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "color": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "uv": {
+        "scale": {
+          "constant": [
+            1,
+            1
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              1,
+              1
+            ]
+          ],
+          "probabilities": []
+        },
+        "offset": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "birthScroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "scroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "clamp": false,
+        "address": 0,
+        "divisions": [
+          4.0,
+          4.0
+        ],
+        "frames": 16,
+        "randomStart": false,
+        "startFrame": 15,
+        "frameRate": 1.0
+      },
+      "uvMode": 0,
+      "multiplier": null,
+      "lookupTypes": [
+        1,
+        3
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ],
+      "local": true,
+      "particleLocal": false,
+      "directionOriented": false,
+      "directionVelocityScale": 0,
+      "ground": false,
+      "navmesh": false,
+      "blend": 1,
+      "renderOrder": 0,
+      "miscRenderFlags": 0,
+      "meshRenderFlags": 0,
+      "noCull": false,
+      "depthBias": [
+        0,
+        0
+      ],
+      "alphaRef": 0.0196078431372549,
+      "erosion": null,
+      "distortion": null,
+      "soft": null,
+      "palette": null,
+      "rawBlend": 1,
+      "rawBind": null,
+      "rawLocal": null,
+      "rawParticleLocal": null,
+      "rawCensorModulateValue": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "rawImportance": 1,
+      "explicitFields": [
+        "FlexShapeDefinition",
+        "SpawnShape",
+        "__type",
+        "birthScale0",
+        "birthVelocity",
+        "blendMode",
+        "colorLookUpTypeY",
+        "emitterName",
+        "fieldCollectionDefinition",
+        "importance",
+        "isSingleParticle",
+        "isUniformScale",
+        "lifetime",
+        "meshRenderFlags",
+        "numFrames",
+        "particleColorTexture",
+        "particleLifetime",
+        "particleLinger",
+        "rate",
+        "startFrame",
+        "texDiv",
+        "texture",
+        "{08b52819}",
+        "{9b111ae4}"
+      ]
+    },
+    {
+      "system": "MasterYi_BA_Tar_01",
+      "role": "attack1",
+      "index": 3,
+      "name": "soft",
+      "kind": "billboard",
+      "mesh": null,
+      "texture": "assets/characters/masteryi/skins/base/particles/common_0fluid.tex",
+      "lookup": "assets/characters/masteryi/skins/base/particles/common_color-whiteweb32.tex",
+      "rate": {
+        "constant": [
+          8.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            8.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "single": true,
+      "emitterLife": 0.10000000149011612,
+      "linger": 10.0,
+      "life": {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              0.800000011920929,
+              1.0
+            ],
+            "values": [
+              0.5,
+              0.800000011920929,
+              1.2000000476837158
+            ],
+            "single": 1
+          }
+        ]
+      },
+      "bind": {
+        "constant": [
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "position": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "shape": {
+        "kind": "legacy",
+        "offset": {
+          "constant": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "times": [
+            0.0
+          ],
+          "values": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "probabilities": [
+            {
+              "times": [
+                0.0,
+                1.0
+              ],
+              "values": [
+                -20.0,
+                20.0
+              ],
+              "single": 1
+            },
+            {
+              "times": [],
+              "values": [],
+              "single": 1
+            },
+            {
+              "times": [],
+              "values": [],
+              "single": 1
+            }
+          ]
+        },
+        "angles": [
+          {
+            "constant": [
+              1.0
+            ],
+            "times": [
+              0.0
+            ],
+            "values": [
+              [
+                1.0
+              ]
+            ],
+            "probabilities": [
+              {
+                "times": [
+                  0.0,
+                  1.0
+                ],
+                "values": [
+                  0.0,
+                  360.0
+                ],
+                "single": 1
+              }
+            ]
+          },
+          {
+            "constant": [
+              1.0
+            ],
+            "times": [
+              0.0
+            ],
+            "values": [
+              [
+                1.0
+              ]
+            ],
+            "probabilities": [
+              {
+                "times": [
+                  0.0,
+                  1.0
+                ],
+                "values": [
+                  0.0,
+                  360.0
+                ],
+                "single": 1
+              }
+            ]
+          }
+        ],
+        "axes": [
+          [
+            0.0,
+            0.0,
+            1.0000001192092896
+          ],
+          [
+            0.0,
+            1.0000001192092896,
+            0.0
+          ]
+        ]
+      },
+      "boundOffset": 0.004999999888241291,
+      "velocity": {
+        "constant": [
+          0.0,
+          500.0,
+          0.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            0.0,
+            500.0,
+            0.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [
+              0.0,
+              0.800000011920929,
+              1.0
+            ],
+            "values": [
+              0.30000001192092896,
+              0.5,
+              1.0
+            ],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "birthDrag": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "worldAcceleration": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "fields": {
+        "acceleration": {
+          "constant": [
+            0.0,
+            -500.0,
+            0.0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0.0,
+              -500.0,
+              0.0
+            ]
+          ],
+          "probabilities": []
+        },
+        "drag": {
+          "position": {
+            "constant": [
+              0.0,
+              300.0,
+              0.0
+            ],
+            "times": [
+              0
+            ],
+            "values": [
+              [
+                0.0,
+                300.0,
+                0.0
+              ]
+            ],
+            "probabilities": []
+          },
+          "radius": {
+            "constant": [
+              1000.0
+            ],
+            "times": [
+              0
+            ],
+            "values": [
+              [
+                1000.0
+              ]
+            ],
+            "probabilities": []
+          },
+          "strength": {
+            "constant": [
+              2.0
+            ],
+            "times": [
+              0
+            ],
+            "values": [
+              [
+                2.0
+              ]
+            ],
+            "probabilities": []
+          }
+        }
+      },
+      "rotation": {
+        "constant": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              360.0
+            ],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "spin": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "size": {
+        "constant": [
+          20.0,
+          20.0,
+          20.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            20.0,
+            20.0,
+            20.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.5,
+              1.0
+            ],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "scale": {
+        "constant": [
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          [
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            8.0,
+            8.0,
+            8.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "uniform": true,
+      "birthColor": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "color": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "uv": {
+        "scale": {
+          "constant": [
+            1,
+            1
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              1,
+              1
+            ]
+          ],
+          "probabilities": []
+        },
+        "offset": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "birthScroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "scroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "clamp": false,
+        "address": 0,
+        "divisions": [
+          2.0,
+          2.0
+        ],
+        "frames": 4,
+        "randomStart": true,
+        "startFrame": 0,
+        "frameRate": 0
+      },
+      "uvMode": 0,
+      "multiplier": null,
+      "lookupTypes": [
+        1,
+        3
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ],
+      "local": true,
+      "particleLocal": false,
+      "directionOriented": false,
+      "directionVelocityScale": 0,
+      "ground": false,
+      "navmesh": false,
+      "blend": 1,
+      "renderOrder": 0,
+      "miscRenderFlags": 0,
+      "meshRenderFlags": 0,
+      "noCull": false,
+      "depthBias": [
+        0,
+        0
+      ],
+      "alphaRef": 0.06274509803921569,
+      "erosion": null,
+      "distortion": null,
+      "soft": null,
+      "palette": null,
+      "rawBlend": 1,
+      "rawBind": null,
+      "rawLocal": null,
+      "rawParticleLocal": null,
+      "rawCensorModulateValue": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "rawImportance": null,
+      "explicitFields": [
+        "FlexShapeDefinition",
+        "SpawnShape",
+        "__type",
+        "alphaRef",
+        "birthRotation0",
+        "birthScale0",
+        "birthVelocity",
+        "blendMode",
+        "colorLookUpTypeY",
+        "emitterName",
+        "fieldCollectionDefinition",
+        "isRandomStartFrame",
+        "isSingleParticle",
+        "isUniformScale",
+        "lifetime",
+        "meshRenderFlags",
+        "numFrames",
+        "particleColorTexture",
+        "particleLifetime",
+        "particleLinger",
+        "rate",
+        "scale0",
+        "texDiv",
+        "texture",
+        "{08b52819}"
+      ]
+    },
+    {
+      "system": "MasterYi_BA_Tar_02",
+      "role": "attack2",
+      "index": 0,
+      "name": "fluid",
+      "kind": "billboard",
+      "mesh": null,
+      "texture": "assets/characters/masteryi/skins/base/particles/common_0fluid.tex",
+      "lookup": "assets/characters/masteryi/skins/base/particles/common_color-whiteweb32.tex",
+      "rate": {
+        "constant": [
+          5.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            5.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "single": true,
+      "emitterLife": 0.10000000149011612,
+      "linger": 10.550000190734863,
+      "life": {
+        "constant": [
+          0.550000011920929
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            0.550000011920929
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              0.800000011920929,
+              1.0
+            ],
+            "values": [
+              0.5,
+              0.800000011920929,
+              1.2000000476837158
+            ],
+            "single": 1
+          }
+        ]
+      },
+      "bind": {
+        "constant": [
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "position": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "shape": {
+        "kind": "legacy",
+        "offset": {
+          "constant": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "times": [
+            0.0
+          ],
+          "values": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "probabilities": [
+            {
+              "times": [
+                0.0,
+                1.0
+              ],
+              "values": [
+                -20.0,
+                20.0
+              ],
+              "single": 1
+            },
+            {
+              "times": [],
+              "values": [],
+              "single": 1
+            },
+            {
+              "times": [],
+              "values": [],
+              "single": 1
+            }
+          ]
+        },
+        "angles": [
+          {
+            "constant": [
+              1.0
+            ],
+            "times": [
+              0.0
+            ],
+            "values": [
+              [
+                1.0
+              ]
+            ],
+            "probabilities": [
+              {
+                "times": [
+                  0.0,
+                  1.0
+                ],
+                "values": [
+                  0.0,
+                  360.0
+                ],
+                "single": 1
+              }
+            ]
+          },
+          {
+            "constant": [
+              1.0
+            ],
+            "times": [
+              0.0
+            ],
+            "values": [
+              [
+                1.0
+              ]
+            ],
+            "probabilities": [
+              {
+                "times": [
+                  0.0,
+                  1.0
+                ],
+                "values": [
+                  0.0,
+                  360.0
+                ],
+                "single": 1
+              }
+            ]
+          }
+        ],
+        "axes": [
+          [
+            0.0,
+            0.0,
+            1.0000001192092896
+          ],
+          [
+            0.0,
+            1.0000001192092896,
+            0.0
+          ]
+        ]
+      },
+      "boundOffset": 0.004999999888241291,
+      "velocity": {
+        "constant": [
+          0.0,
+          300.0,
+          0.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            0.0,
+            300.0,
+            0.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [
+              0.0,
+              0.800000011920929,
+              1.0
+            ],
+            "values": [
+              0.30000001192092896,
+              0.5,
+              1.0
+            ],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "birthDrag": {
+        "constant": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1.0,
+            1.0,
+            1.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "worldAcceleration": {
+        "constant": [
+          0.0,
+          -10.0,
+          0.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            0.0,
+            -10.0,
+            0.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "fields": {
+        "acceleration": {
+          "constant": [
+            0,
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "drag": null
+      },
+      "rotation": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "spin": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "size": {
+        "constant": [
+          22.5,
+          22.5,
+          0.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            22.5,
+            22.5,
+            0.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.5,
+              1.0
+            ],
+            "single": 1
+          },
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.5,
+              1.0
+            ],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "scale": {
+        "constant": [
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          [
+            1.0,
+            1.0,
+            0.0
+          ],
+          [
+            8.0,
+            8.0,
+            0.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "uniform": false,
+      "birthColor": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "color": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "uv": {
+        "scale": {
+          "constant": [
+            1,
+            1
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              1,
+              1
+            ]
+          ],
+          "probabilities": []
+        },
+        "offset": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "birthScroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "scroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "clamp": false,
+        "address": 0,
+        "divisions": [
+          2.0,
+          2.0
+        ],
+        "frames": 1,
+        "randomStart": true,
+        "startFrame": 0,
+        "frameRate": 0
+      },
+      "uvMode": 0,
+      "multiplier": null,
+      "lookupTypes": [
+        1,
+        3
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ],
+      "local": true,
+      "particleLocal": false,
+      "directionOriented": true,
+      "directionVelocityScale": 0,
+      "ground": false,
+      "navmesh": false,
+      "blend": 3,
+      "renderOrder": 0,
+      "miscRenderFlags": 0,
+      "meshRenderFlags": 0,
+      "noCull": false,
+      "depthBias": [
+        0,
+        0
+      ],
+      "alphaRef": 0.058823529411764705,
+      "erosion": null,
+      "distortion": null,
+      "soft": null,
+      "palette": null,
+      "rawBlend": 3,
+      "rawBind": null,
+      "rawLocal": null,
+      "rawParticleLocal": null,
+      "rawCensorModulateValue": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "rawImportance": null,
+      "explicitFields": [
+        "FlexShapeDefinition",
+        "SpawnShape",
+        "__type",
+        "alphaRef",
+        "birthDrag",
+        "birthScale0",
+        "birthVelocity",
+        "blendMode",
+        "colorLookUpTypeY",
+        "emitterName",
+        "isDirectionOriented",
+        "isRandomStartFrame",
+        "isSingleParticle",
+        "lifetime",
+        "particleColorTexture",
+        "particleLifetime",
+        "particleLinger",
+        "rate",
+        "scale0",
+        "texDiv",
+        "texture",
+        "worldAcceleration",
+        "{08b52819}"
+      ]
+    },
+    {
+      "system": "MasterYi_BA_Tar_02",
+      "role": "attack2",
+      "index": 1,
+      "name": "flash",
+      "kind": "billboard",
+      "mesh": null,
+      "texture": "assets/characters/masteryi/skins/base/particles/common_hiteffect.tex",
+      "lookup": "assets/characters/masteryi/skins/base/particles/common_color-hit-physical.tex",
+      "rate": {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "single": true,
+      "emitterLife": 1.0,
+      "linger": 10.0,
+      "life": {
+        "constant": [
+          0.30000001192092896
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0.30000001192092896
+          ]
+        ],
+        "probabilities": []
+      },
+      "bind": {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "position": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "shape": {
+        "kind": "point",
+        "offset": {
+          "constant": [
+            0,
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "angles": [],
+        "axes": []
+      },
+      "boundOffset": null,
+      "velocity": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "birthDrag": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "worldAcceleration": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "fields": {
+        "acceleration": {
+          "constant": [
+            0,
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "drag": null
+      },
+      "rotation": {
+        "constant": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              360.0
+            ],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "spin": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "size": {
+        "constant": [
+          150.0,
+          150.0,
+          150.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            150.0,
+            150.0,
+            150.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "scale": {
+        "constant": [
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          [
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "uniform": true,
+      "birthColor": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "color": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "uv": {
+        "scale": {
+          "constant": [
+            1,
+            1
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              1,
+              1
+            ]
+          ],
+          "probabilities": []
+        },
+        "offset": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "birthScroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "scroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "clamp": false,
+        "address": 0,
+        "divisions": [
+          1,
+          1
+        ],
+        "frames": 1,
+        "randomStart": false,
+        "startFrame": 0,
+        "frameRate": 0
+      },
+      "uvMode": 0,
+      "multiplier": null,
+      "lookupTypes": [
+        1,
+        0
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ],
+      "local": true,
+      "particleLocal": false,
+      "directionOriented": false,
+      "directionVelocityScale": 0,
+      "ground": false,
+      "navmesh": false,
+      "blend": 0,
+      "renderOrder": 10,
+      "miscRenderFlags": 1,
+      "meshRenderFlags": 0,
+      "noCull": false,
+      "depthBias": [
+        0,
+        0
+      ],
+      "alphaRef": 0.0196078431372549,
+      "erosion": null,
+      "distortion": null,
+      "soft": null,
+      "palette": null,
+      "rawBlend": null,
+      "rawBind": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "rawLocal": null,
+      "rawParticleLocal": null,
+      "rawCensorModulateValue": null,
+      "rawImportance": null,
+      "explicitFields": [
+        "__type",
+        "bindWeight",
+        "birthRotation0",
+        "birthScale0",
+        "emitterName",
+        "isSingleParticle",
+        "isUniformScale",
+        "lifetime",
+        "meshRenderFlags",
+        "miscRenderFlags",
+        "particleColorTexture",
+        "particleLifetime",
+        "particleLinger",
+        "pass",
+        "rate",
+        "scale0",
+        "texture"
+      ]
+    },
+    {
+      "system": "MasterYi_BA_Tar_02",
+      "role": "attack2",
+      "index": 2,
+      "name": "blood_drops",
+      "kind": "billboard",
+      "mesh": null,
+      "texture": "assets/characters/masteryi/skins/base/particles/common_blurdrops.tex",
+      "lookup": "assets/characters/masteryi/skins/base/particles/common_color-bloodfade32.tex",
+      "rate": {
+        "constant": [
+          10.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            10.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.5,
+              1.0
+            ],
+            "single": 1
+          }
+        ]
+      },
+      "single": true,
+      "emitterLife": 1.0,
+      "linger": 10.0,
+      "life": {
+        "constant": [
+          0.5
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            0.5
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              0.5,
+              1.0
+            ],
+            "values": [
+              0.5,
+              0.800000011920929,
+              2.0
+            ],
+            "single": 1
+          }
+        ]
+      },
+      "bind": {
+        "constant": [
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "position": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "shape": {
+        "kind": "legacy",
+        "offset": {
+          "constant": [
+            0.0,
+            50.0,
+            0.0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0.0,
+              50.0,
+              0.0
+            ]
+          ],
+          "probabilities": []
+        },
+        "angles": [
+          {
+            "constant": [
+              1.0
+            ],
+            "times": [
+              0.0
+            ],
+            "values": [
+              [
+                1.0
+              ]
+            ],
+            "probabilities": [
+              {
+                "times": [
+                  0.0,
+                  1.0
+                ],
+                "values": [
+                  0.0,
+                  40.0
+                ],
+                "single": 1
+              }
+            ]
+          },
+          {
+            "constant": [
+              1.0
+            ],
+            "times": [
+              0.0
+            ],
+            "values": [
+              [
+                1.0
+              ]
+            ],
+            "probabilities": [
+              {
+                "times": [
+                  0.0,
+                  1.0
+                ],
+                "values": [
+                  0.0,
+                  360.0
+                ],
+                "single": 1
+              }
+            ]
+          }
+        ],
+        "axes": [
+          [
+            0.0,
+            0.0,
+            1.0000001192092896
+          ],
+          [
+            0.0,
+            1.0000001192092896,
+            0.0
+          ]
+        ]
+      },
+      "boundOffset": 0.004999999888241291,
+      "velocity": {
+        "constant": [
+          0.0,
+          500.0,
+          0.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            0.0,
+            500.0,
+            0.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.699999988079071,
+              2.0
+            ],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "birthDrag": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "worldAcceleration": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "fields": {
+        "acceleration": {
+          "constant": [
+            0.0,
+            -500.0,
+            0.0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0.0,
+              -500.0,
+              0.0
+            ]
+          ],
+          "probabilities": []
+        },
+        "drag": {
+          "position": {
+            "constant": [
+              0.0,
+              300.0,
+              0.0
+            ],
+            "times": [
+              0
+            ],
+            "values": [
+              [
+                0.0,
+                300.0,
+                0.0
+              ]
+            ],
+            "probabilities": []
+          },
+          "radius": {
+            "constant": [
+              1000.0
+            ],
+            "times": [
+              0
+            ],
+            "values": [
+              [
+                1000.0
+              ]
+            ],
+            "probabilities": []
+          },
+          "strength": {
+            "constant": [
+              2.0
+            ],
+            "times": [
+              0
+            ],
+            "values": [
+              [
+                2.0
+              ]
+            ],
+            "probabilities": []
+          }
+        }
+      },
+      "rotation": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "spin": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "size": {
+        "constant": [
+          15.0,
+          15.0,
+          15.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            15.0,
+            15.0,
+            15.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.4000000059604645,
+              1.2000000476837158
+            ],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "scale": {
+        "constant": [
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "uniform": true,
+      "birthColor": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "color": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "uv": {
+        "scale": {
+          "constant": [
+            1,
+            1
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              1,
+              1
+            ]
+          ],
+          "probabilities": []
+        },
+        "offset": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "birthScroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "scroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "clamp": false,
+        "address": 0,
+        "divisions": [
+          4.0,
+          4.0
+        ],
+        "frames": 16,
+        "randomStart": false,
+        "startFrame": 15,
+        "frameRate": 1.0
+      },
+      "uvMode": 0,
+      "multiplier": null,
+      "lookupTypes": [
+        1,
+        3
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ],
+      "local": true,
+      "particleLocal": false,
+      "directionOriented": false,
+      "directionVelocityScale": 0,
+      "ground": false,
+      "navmesh": false,
+      "blend": 1,
+      "renderOrder": 0,
+      "miscRenderFlags": 0,
+      "meshRenderFlags": 0,
+      "noCull": false,
+      "depthBias": [
+        0,
+        0
+      ],
+      "alphaRef": 0.0196078431372549,
+      "erosion": null,
+      "distortion": null,
+      "soft": null,
+      "palette": null,
+      "rawBlend": 1,
+      "rawBind": null,
+      "rawLocal": null,
+      "rawParticleLocal": null,
+      "rawCensorModulateValue": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "rawImportance": 1,
+      "explicitFields": [
+        "FlexShapeDefinition",
+        "SpawnShape",
+        "__type",
+        "birthScale0",
+        "birthVelocity",
+        "blendMode",
+        "colorLookUpTypeY",
+        "emitterName",
+        "fieldCollectionDefinition",
+        "importance",
+        "isSingleParticle",
+        "isUniformScale",
+        "lifetime",
+        "meshRenderFlags",
+        "numFrames",
+        "particleColorTexture",
+        "particleLifetime",
+        "particleLinger",
+        "rate",
+        "startFrame",
+        "texDiv",
+        "texture",
+        "{08b52819}",
+        "{9b111ae4}"
+      ]
+    },
+    {
+      "system": "MasterYi_BA_Tar_02",
+      "role": "attack2",
+      "index": 3,
+      "name": "soft",
+      "kind": "billboard",
+      "mesh": null,
+      "texture": "assets/characters/masteryi/skins/base/particles/common_0fluid.tex",
+      "lookup": "assets/characters/masteryi/skins/base/particles/common_color-whiteweb32.tex",
+      "rate": {
+        "constant": [
+          8.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            8.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "single": true,
+      "emitterLife": 0.10000000149011612,
+      "linger": 10.0,
+      "life": {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              0.800000011920929,
+              1.0
+            ],
+            "values": [
+              0.5,
+              0.800000011920929,
+              1.2000000476837158
+            ],
+            "single": 1
+          }
+        ]
+      },
+      "bind": {
+        "constant": [
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "position": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "shape": {
+        "kind": "legacy",
+        "offset": {
+          "constant": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "times": [
+            0.0
+          ],
+          "values": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "probabilities": [
+            {
+              "times": [
+                0.0,
+                1.0
+              ],
+              "values": [
+                -20.0,
+                20.0
+              ],
+              "single": 1
+            },
+            {
+              "times": [],
+              "values": [],
+              "single": 1
+            },
+            {
+              "times": [],
+              "values": [],
+              "single": 1
+            }
+          ]
+        },
+        "angles": [
+          {
+            "constant": [
+              1.0
+            ],
+            "times": [
+              0.0
+            ],
+            "values": [
+              [
+                1.0
+              ]
+            ],
+            "probabilities": [
+              {
+                "times": [
+                  0.0,
+                  1.0
+                ],
+                "values": [
+                  0.0,
+                  360.0
+                ],
+                "single": 1
+              }
+            ]
+          },
+          {
+            "constant": [
+              1.0
+            ],
+            "times": [
+              0.0
+            ],
+            "values": [
+              [
+                1.0
+              ]
+            ],
+            "probabilities": [
+              {
+                "times": [
+                  0.0,
+                  1.0
+                ],
+                "values": [
+                  0.0,
+                  360.0
+                ],
+                "single": 1
+              }
+            ]
+          }
+        ],
+        "axes": [
+          [
+            0.0,
+            0.0,
+            1.0000001192092896
+          ],
+          [
+            0.0,
+            1.0000001192092896,
+            0.0
+          ]
+        ]
+      },
+      "boundOffset": 0.004999999888241291,
+      "velocity": {
+        "constant": [
+          0.0,
+          500.0,
+          0.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            0.0,
+            500.0,
+            0.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [
+              0.0,
+              0.800000011920929,
+              1.0
+            ],
+            "values": [
+              0.30000001192092896,
+              0.5,
+              1.0
+            ],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "birthDrag": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "worldAcceleration": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "fields": {
+        "acceleration": {
+          "constant": [
+            0.0,
+            -500.0,
+            0.0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0.0,
+              -500.0,
+              0.0
+            ]
+          ],
+          "probabilities": []
+        },
+        "drag": {
+          "position": {
+            "constant": [
+              0.0,
+              300.0,
+              0.0
+            ],
+            "times": [
+              0
+            ],
+            "values": [
+              [
+                0.0,
+                300.0,
+                0.0
+              ]
+            ],
+            "probabilities": []
+          },
+          "radius": {
+            "constant": [
+              1000.0
+            ],
+            "times": [
+              0
+            ],
+            "values": [
+              [
+                1000.0
+              ]
+            ],
+            "probabilities": []
+          },
+          "strength": {
+            "constant": [
+              2.0
+            ],
+            "times": [
+              0
+            ],
+            "values": [
+              [
+                2.0
+              ]
+            ],
+            "probabilities": []
+          }
+        }
+      },
+      "rotation": {
+        "constant": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              360.0
+            ],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "spin": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "size": {
+        "constant": [
+          20.0,
+          20.0,
+          20.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            20.0,
+            20.0,
+            20.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.5,
+              1.0
+            ],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "scale": {
+        "constant": [
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          [
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            8.0,
+            8.0,
+            8.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "uniform": true,
+      "birthColor": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "color": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "uv": {
+        "scale": {
+          "constant": [
+            1,
+            1
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              1,
+              1
+            ]
+          ],
+          "probabilities": []
+        },
+        "offset": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "birthScroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "scroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "clamp": false,
+        "address": 0,
+        "divisions": [
+          2.0,
+          2.0
+        ],
+        "frames": 4,
+        "randomStart": true,
+        "startFrame": 0,
+        "frameRate": 0
+      },
+      "uvMode": 0,
+      "multiplier": null,
+      "lookupTypes": [
+        1,
+        3
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ],
+      "local": true,
+      "particleLocal": false,
+      "directionOriented": false,
+      "directionVelocityScale": 0,
+      "ground": false,
+      "navmesh": false,
+      "blend": 1,
+      "renderOrder": 0,
+      "miscRenderFlags": 0,
+      "meshRenderFlags": 0,
+      "noCull": false,
+      "depthBias": [
+        0,
+        0
+      ],
+      "alphaRef": 0.06274509803921569,
+      "erosion": null,
+      "distortion": null,
+      "soft": null,
+      "palette": null,
+      "rawBlend": 1,
+      "rawBind": null,
+      "rawLocal": null,
+      "rawParticleLocal": null,
+      "rawCensorModulateValue": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "rawImportance": null,
+      "explicitFields": [
+        "FlexShapeDefinition",
+        "SpawnShape",
+        "__type",
+        "alphaRef",
+        "birthRotation0",
+        "birthScale0",
+        "birthVelocity",
+        "blendMode",
+        "colorLookUpTypeY",
+        "emitterName",
+        "fieldCollectionDefinition",
+        "isRandomStartFrame",
+        "isSingleParticle",
+        "isUniformScale",
+        "lifetime",
+        "meshRenderFlags",
+        "numFrames",
+        "particleColorTexture",
+        "particleLifetime",
+        "particleLinger",
+        "rate",
+        "scale0",
+        "texDiv",
+        "texture",
+        "{08b52819}"
+      ]
+    },
+    {
+      "system": "MasterYi_Crit_tar",
+      "role": "crit",
+      "index": 0,
+      "name": "ground_glow",
+      "kind": "quad",
+      "mesh": null,
+      "texture": "assets/characters/masteryi/skins/base/particles/masteryi_yellow_glow.tex",
+      "lookup": "assets/characters/masteryi/skins/base/particles/common_color-rampdown.tex",
+      "rate": {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "single": true,
+      "emitterLife": 0.10000000149011612,
+      "linger": 10.25,
+      "life": {
+        "constant": [
+          0.25
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0.25
+          ]
+        ],
+        "probabilities": []
+      },
+      "bind": {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "position": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "shape": {
+        "kind": "point",
+        "offset": {
+          "constant": [
+            0.0,
+            10.0,
+            0.0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0.0,
+              10.0,
+              0.0
+            ]
+          ],
+          "probabilities": []
+        },
+        "angles": [],
+        "axes": []
+      },
+      "boundOffset": null,
+      "velocity": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "birthDrag": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "worldAcceleration": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "fields": {
+        "acceleration": {
+          "constant": [
+            0,
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "drag": null
+      },
+      "rotation": {
+        "constant": [
+          90.0,
+          0.0,
+          90.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            90.0,
+            0.0,
+            90.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "spin": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "size": {
+        "constant": [
+          140.0,
+          140.0,
+          140.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            140.0,
+            140.0,
+            140.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "scale": {
+        "constant": [
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "uniform": false,
+      "birthColor": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "color": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "uv": {
+        "scale": {
+          "constant": [
+            1,
+            1
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              1,
+              1
+            ]
+          ],
+          "probabilities": []
+        },
+        "offset": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "birthScroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "scroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "clamp": false,
+        "address": 0,
+        "divisions": [
+          1,
+          1
+        ],
+        "frames": 1,
+        "randomStart": false,
+        "startFrame": 0,
+        "frameRate": 0
+      },
+      "uvMode": 0,
+      "multiplier": null,
+      "lookupTypes": [
+        1,
+        0
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ],
+      "local": true,
+      "particleLocal": false,
+      "directionOriented": false,
+      "directionVelocityScale": 0,
+      "ground": false,
+      "navmesh": false,
+      "blend": 4,
+      "renderOrder": 0,
+      "miscRenderFlags": 0,
+      "meshRenderFlags": 0,
+      "noCull": false,
+      "depthBias": [
+        0,
+        0
+      ],
+      "alphaRef": 0.0196078431372549,
+      "erosion": null,
+      "distortion": null,
+      "soft": null,
+      "palette": null,
+      "rawBlend": 4,
+      "rawBind": {
+        "constantValue": 1.0,
+        "__type": "ValueFloat"
+      },
+      "rawLocal": null,
+      "rawParticleLocal": null,
+      "rawCensorModulateValue": null,
+      "rawImportance": null,
+      "explicitFields": [
+        "SpawnShape",
+        "__type",
+        "bindWeight",
+        "birthRotation0",
+        "birthScale0",
+        "blendMode",
+        "emitterName",
+        "isSingleParticle",
+        "lifetime",
+        "particleColorTexture",
+        "particleLifetime",
+        "particleLinger",
+        "primitive",
+        "rate",
+        "texture"
+      ]
+    },
+    {
+      "system": "MasterYi_Crit_tar",
+      "role": "crit",
+      "index": 1,
+      "name": "flash",
+      "kind": "ray",
+      "mesh": null,
+      "texture": "assets/characters/masteryi/skins/base/particles/masteryi_base_z_hit_impact1.tex",
+      "lookup": null,
+      "rate": {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "single": true,
+      "emitterLife": 1.0,
+      "linger": 10.0,
+      "life": {
+        "constant": [
+          0.15000000596046448
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0.15000000596046448
+          ]
+        ],
+        "probabilities": []
+      },
+      "bind": {
+        "constant": [
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "position": {
+        "constant": [
+          0.0,
+          -10.0,
+          0.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0.0,
+            -10.0,
+            0.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "shape": {
+        "kind": "point",
+        "offset": {
+          "constant": [
+            0,
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "angles": [],
+        "axes": []
+      },
+      "boundOffset": null,
+      "velocity": {
+        "constant": [
+          0.0,
+          50.0,
+          0.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0.0,
+            50.0,
+            0.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "birthDrag": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "worldAcceleration": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "fields": {
+        "acceleration": {
+          "constant": [
+            0,
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "drag": null
+      },
+      "rotation": {
+        "constant": [
+          -90.0,
+          0.0,
+          0.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            -90.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "spin": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "size": {
+        "constant": [
+          80.0,
+          180.0,
+          0.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            80.0,
+            180.0,
+            0.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "scale": {
+        "constant": [
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0.0,
+          0.20000000298023224,
+          1.0
+        ],
+        "values": [
+          [
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            0.0
+          ],
+          [
+            2.5,
+            3.0,
+            0.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "uniform": true,
+      "birthColor": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "color": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0.0,
+          0.949999988079071,
+          1.0
+        ],
+        "values": [
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            0.5000076293945312
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "uv": {
+        "scale": {
+          "constant": [
+            1,
+            1
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              1,
+              1
+            ]
+          ],
+          "probabilities": []
+        },
+        "offset": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "birthScroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "scroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "clamp": false,
+        "address": 0,
+        "divisions": [
+          1,
+          1
+        ],
+        "frames": 1,
+        "randomStart": false,
+        "startFrame": 0,
+        "frameRate": 0
+      },
+      "uvMode": 0,
+      "multiplier": null,
+      "lookupTypes": [
+        1,
+        0
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ],
+      "local": true,
+      "particleLocal": false,
+      "directionOriented": false,
+      "directionVelocityScale": 0,
+      "ground": false,
+      "navmesh": false,
+      "blend": 4,
+      "renderOrder": -13,
+      "miscRenderFlags": 1,
+      "meshRenderFlags": 0,
+      "noCull": false,
+      "depthBias": [
+        0,
+        0
+      ],
+      "alphaRef": 0.0196078431372549,
+      "erosion": null,
+      "distortion": null,
+      "soft": null,
+      "palette": null,
+      "rawBlend": 4,
+      "rawBind": null,
+      "rawLocal": null,
+      "rawParticleLocal": null,
+      "rawCensorModulateValue": null,
+      "rawImportance": null,
+      "explicitFields": [
+        "Color",
+        "EmitterPosition",
+        "__type",
+        "birthRotation0",
+        "birthScale0",
+        "birthVelocity",
+        "blendMode",
+        "emitterName",
+        "isSingleParticle",
+        "isUniformScale",
+        "lifetime",
+        "meshRenderFlags",
+        "miscRenderFlags",
+        "particleLifetime",
+        "particleLinger",
+        "pass",
+        "primitive",
+        "rate",
+        "scale0",
+        "texture"
+      ]
+    },
+    {
+      "system": "MasterYi_Crit_tar",
+      "role": "crit",
+      "index": 2,
+      "name": "bubble",
+      "kind": "billboard",
+      "mesh": null,
+      "texture": "assets/characters/masteryi/skins/base/particles/masteryi_base_z_fade_bubble.tex",
+      "lookup": "assets/characters/masteryi/skins/base/particles/common_alpha_12.tex",
+      "rate": {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "single": false,
+      "emitterLife": 0.10000000149011612,
+      "linger": 10.0,
+      "life": {
+        "constant": [
+          0.15000000596046448
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0.15000000596046448
+          ]
+        ],
+        "probabilities": []
+      },
+      "bind": {
+        "constant": [
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "position": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "shape": {
+        "kind": "point",
+        "offset": {
+          "constant": [
+            0.0,
+            50.0,
+            0.0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0.0,
+              50.0,
+              0.0
+            ]
+          ],
+          "probabilities": []
+        },
+        "angles": [],
+        "axes": []
+      },
+      "boundOffset": null,
+      "velocity": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "birthDrag": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "worldAcceleration": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "fields": {
+        "acceleration": {
+          "constant": [
+            0,
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "drag": null
+      },
+      "rotation": {
+        "constant": [
+          90.0,
+          0.0,
+          0.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            90.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "spin": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "size": {
+        "constant": [
+          35.0,
+          35.0,
+          35.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            35.0,
+            35.0,
+            35.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "scale": {
+        "constant": [
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0.0,
+          0.5,
+          1.0
+        ],
+        "values": [
+          [
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            2.0,
+            2.0,
+            2.0
+          ],
+          [
+            5.0,
+            5.0,
+            5.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "uniform": true,
+      "birthColor": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "color": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "uv": {
+        "scale": {
+          "constant": [
+            1,
+            1
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              1,
+              1
+            ]
+          ],
+          "probabilities": []
+        },
+        "offset": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "birthScroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "scroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "clamp": false,
+        "address": 0,
+        "divisions": [
+          1,
+          1
+        ],
+        "frames": 1,
+        "randomStart": false,
+        "startFrame": 0,
+        "frameRate": 0
+      },
+      "uvMode": 0,
+      "multiplier": null,
+      "lookupTypes": [
+        1,
+        0
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ],
+      "local": true,
+      "particleLocal": false,
+      "directionOriented": false,
+      "directionVelocityScale": 0,
+      "ground": false,
+      "navmesh": false,
+      "blend": 0,
+      "renderOrder": 0,
+      "miscRenderFlags": 0,
+      "meshRenderFlags": 0,
+      "noCull": false,
+      "depthBias": [
+        0,
+        0
+      ],
+      "alphaRef": 0.0196078431372549,
+      "erosion": null,
+      "distortion": null,
+      "soft": null,
+      "palette": null,
+      "rawBlend": null,
+      "rawBind": null,
+      "rawLocal": null,
+      "rawParticleLocal": null,
+      "rawCensorModulateValue": null,
+      "rawImportance": null,
+      "explicitFields": [
+        "SpawnShape",
+        "__type",
+        "birthRotation0",
+        "birthScale0",
+        "emitterName",
+        "isUniformScale",
+        "lifetime",
+        "meshRenderFlags",
+        "particleColorTexture",
+        "particleLifetime",
+        "particleLinger",
+        "rate",
+        "scale0",
+        "texture"
+      ]
+    }
+  ],
+  "privateTextures": [
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/common_0fluid.tex",
+        "wadPathHash": "db69a3a0b80ce5e1",
+        "sha256": "375e08ca2097753da64cc05660217897342e881dd7d4c5399f148617d8ece478",
+        "bytes": 349564
+      },
+      "path": ".cache/masteryi-primary-hit-packed-v2/db69a3a0b80ce5e1.png",
+      "bytes": 341243,
+      "sha256": "4afb4b40eae31df54bdab6dc1f086952fc5d242e886416366f208fd1dc741a8f",
+      "width": 512,
+      "height": 1023,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 512,
+          "height": 512,
+          "rgbaSha256": "933d15c27de6daddd5530299bc11d100d17ebd4dd6a05246dcba9ea30cbcab4b"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 512,
+          "width": 256,
+          "height": 256,
+          "rgbaSha256": "257060d959dceb417e451917dfe36947b708f723d2515825c878010cedb2bced"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 768,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "989448dba5506f946cf6753e3bda964b22da7a8574904e877fc5babe5ac2c239"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 896,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "531f9aecb43a16ce82cd2f1aeb662f381d2b65b69a6a4659e1962ff7940d5d50"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 960,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "95f4266bb96019b103f3cb4bb2ec6e8d135eeff8a999407a1640a15a309ce2e0"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 992,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "5201ec101fc70a7f4c4a730a6da0268abf2f768bdee86afb6006a1a950de6bef"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 1008,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "5bf56c6b2f23b759c16d50e4153c237ff29d91ec48785ed35976692f46b2e5a3"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 1016,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "0e874376ea63ff73bc21363ac0fdb846b4c60c6ff96f4ddcd58f210b28551ca6"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 1020,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "0c93e090d8013e0d1d031f04a0ab9c8877b6f40da00fa6cb4a7ee27bc91c47f4"
+        },
+        {
+          "level": 9,
+          "x": 0,
+          "y": 1022,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "84e633e8ac596256ddd088159a5e9e2292151d6dc999767133263a1a0357957e"
+        }
+      ],
+      "rgbaSha256": "541509bd2e00457d5f2afb83193f823cbd9fb9c3d8f366bdd2730200e346ec7d"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/common_alpha_12.tex",
+        "wadPathHash": "433b18542280cbff",
+        "sha256": "01bfc2cebd91b2a3b4397afcc5357395b9aecdc72b0018a428e2b89d19def43b",
+        "bytes": 10948
+      },
+      "path": ".cache/masteryi-primary-hit-packed-v2/433b18542280cbff.png",
+      "bytes": 2725,
+      "sha256": "0ab6dc56e50c09542bc5e59ae56875be2fcdac4fa01c023fd19138ff01136054",
+      "width": 128,
+      "height": 255,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "3be55ea512eb94adbfaf7307c201cbd4457b1ba906838572296a8b458f01c31b"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 128,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "c667fb8e0e6edf4e8fc4fcc8260ebf35c00bf0f074361bc414f45ecaac57b126"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 192,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "343fca81670d0c7592b5a14edfc9cdcd1437e4b11d570db081cd218eae2c8b04"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 224,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "8f7199aedaeb81f1944df67fc85ff973627aa1e906a9184fc35f99b3c471fd5c"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 240,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "be7e008374f6ba14b9217bbb8979124686842589deb4348d83daf6eeb11aaf49"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 248,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "9f98b22cd37b2a0a8dc907f1921886ba21e4528a7204a375ef648bd32543aa3c"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 252,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "0042c5c54bcaddd88d0eaf7dc6cba26ad363b0d510bad2058c74d35f4cb5f0ac"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 254,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "9c48f4202ed2778bd8a336acdb7e742a8ed039e7fdada0c1194ad78c674e3706"
+        }
+      ],
+      "rgbaSha256": "84f999d7431cad9e841a8dcfe4d679c91633cdc7ee5b165876b939024727b4a1"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/common_blurdrops.tex",
+        "wadPathHash": "0e1d8e1bfc6a9099",
+        "sha256": "bc74b5ac48b51c33d2c0ceda4a0bcebd8872053a8ab9003f87fa5a28dd3ff686",
+        "bytes": 87420
+      },
+      "path": ".cache/masteryi-primary-hit-packed-v2/0e1d8e1bfc6a9099.png",
+      "bytes": 8949,
+      "sha256": "f1267b7b129df6cf2312025facffeb5f792a5550e813f436f6d3b275d864caa3",
+      "width": 256,
+      "height": 511,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 256,
+          "height": 256,
+          "rgbaSha256": "7ad1229983fa42986d8ba11ebfa4ef4caf3729635a4f711604ce373e8c7fd1e2"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 256,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "4915f821e40bba528572cdbaa965ee3de0c8fd1cb74b5acb56c9a9aee11b36ed"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "5cfb81ac3c59e0223e26e98edde5de28d5e87f06823d4840d1e621a954a237c9"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 448,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "2fb984bfc1cbe04ab0f63e1ca398e9486244d6bb87453132a394ecd9d5e89c3c"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 480,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "f00325722fd5ccdd9886538bca4e9055bed45065dd4a0c5e75efb052661b9656"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 496,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "ebba040f13e4267317f7975c93862ba74186713e837f1035d2b12a8bb143a937"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 504,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "698b5ee9cad140c25870fb8a52a2aee249ab668df9a5fd6c27c47626950ae2d2"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 508,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "dbf0291d8cab10350f76d25f17cb14c4f2a7eb82d900f60fd8821813c6d34a8d"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 510,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "6e76424a27e559f6ffb12f248824e255f9c69e960eff8764ee7409a2488faff1"
+        }
+      ],
+      "rgbaSha256": "6ccf7bed65716a100057f559deb6424da871d0c3cf3ab77c8acbbb6ecaf2ce53"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/common_color-bloodfade32.tex",
+        "wadPathHash": "3551411d4218c8ea",
+        "sha256": "789278842da5b64e21998c51086d7160cae9a28d61dff506d5e9a863397e5e92",
+        "bytes": 5500
+      },
+      "path": ".cache/masteryi-primary-hit-packed-v2/3551411d4218c8ea.png",
+      "bytes": 1623,
+      "sha256": "4f5943b270c3806b16f6a63e82e850b37547b1a2d439ac1ada691450d52f75d7",
+      "width": 64,
+      "height": 127,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "a3fbcdb0b4f66816c1689d14ac16e60ae2dd455d159491d4d3ea495a01633a23"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 64,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "948bd521615f65f8b82aacf59d6df6ded1cdd4721ebdff724b0ce3d82da942bf"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 96,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "4bd31632ea02f49359e16ddc3e87e2261b96649227c56c7a5ce32097e8cf4d16"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 112,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "2b6bc45102bbd23d4639ea2917657251284b86e7d6785064372726a7aed705c7"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 120,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "c75fe01e13208afcf200c4a28a3a15806ccda018ba4a7b4f89e0b87725de127c"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 124,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "c456227a95add2d0130ebc4d80896b8bce2b5604b70ed6c82fe1c4d2f3ff644c"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 126,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "3c09a5c06b83f9ffdf3ca210723f45931ee7918d1f9bd5603968457546de1ba9"
+        }
+      ],
+      "rgbaSha256": "7c86c9a49031c7da39bcfc384c56ed381dde2fa99a0f1de556b7cb4195d6fdb4"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/common_color-hit-physical.tex",
+        "wadPathHash": "1d3a3b7cb6e52a86",
+        "sha256": "506a02d04a03b55ea79b3b5753a32fd72576ea5728ecb6091b3f8173b04ac54a",
+        "bytes": 708
+      },
+      "path": ".cache/masteryi-primary-hit-packed-v2/1d3a3b7cb6e52a86.png",
+      "bytes": 350,
+      "sha256": "ad330060bd5bcdf74cb889b613f51bb7b4719f50264dcb3beb4d536a9408db7a",
+      "width": 32,
+      "height": 63,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "5c23282fc095dc1e6cbe2b6e1c24d5b110a16198928fca71ccce0c8cd3053b0f"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 32,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "2a0e86c90ea09af85c77781d44783a002e6ef2d87a6f77c0c6f66dc5ab56b666"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 48,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "0adf99f582f1c5744522f52f83adfaef60eb7addcded6d0f3d099a95409e6b98"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 56,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "4d0c7f40b99c7bf1f3c416628d88c6dde377c841343832f0d07684cc7320cfa8"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 60,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "2f92b55548cc3c0c9445e64197a8dcd7d681f79b38629d401746d775efedd417"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 62,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "677269c69747d5e6f902f7f21ab774841848b6a7b070964db6feafe4f59cfd47"
+        }
+      ],
+      "rgbaSha256": "fcee09882064359ef536faabf13db1b34839f181d47112a439afe81f4c67ea7e"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/common_color-rampdown.tex",
+        "wadPathHash": "dba30aea46f8d87f",
+        "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220",
+        "bytes": 2756
+      },
+      "path": ".cache/masteryi-primary-hit-packed-v2/dba30aea46f8d87f.png",
+      "bytes": 702,
+      "sha256": "30df4a0ee4cd6cc8d680584586e77e764328930403fae425708a9e845c0edcc8",
+      "width": 64,
+      "height": 127,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "a68bebcceb44829831933cc46ecfd600216db342a7de11fd487ea322d32867ae"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 64,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "be029289119efe7b2b0fb7efefd5c51e0ff05f75083d12b6747c579f59613c99"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 96,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "6f79c0ea4535cba64df8ddd6d79930fe6bcc500f812a757b54167f3c746b147a"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 112,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "b2639ba82a91940a4adda2158ba57ba7cbac3da0a8aa13f95d072cac3b7c602f"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 120,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "e872cb747415d934a6d9fcf27eb574fef59b38c339e892d97016ac4f238de421"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 124,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "37a44c961c76dd94235d2550d738dfd7dbd49365ad69b2614f7a51c956447313"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 126,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "1b329170a887a6f72094dcfad111b2756f714ee42a538d8b5c14188547ecb507"
+        }
+      ],
+      "rgbaSha256": "32c4bf2d5e2dba42c4d509cb504791201a7707c907ec3443e0f2458a71f5c189"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/common_color-whiteweb32.tex",
+        "wadPathHash": "9db3dfd192460de5",
+        "sha256": "5fad57e8f0a1715471bab9b159e4689cfbde3a8706cdda552ed710dca96ab67d",
+        "bytes": 21884
+      },
+      "path": ".cache/masteryi-primary-hit-packed-v2/9db3dfd192460de5.png",
+      "bytes": 1834,
+      "sha256": "00ad67070fcd035d750f8628681b01f1021e19da15386c198cdf952b856ce28f",
+      "width": 128,
+      "height": 255,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "bb04947104c1bc6bdaa673e0b3cbd47a4369d5bdeec1da119c5c7f5b964b7be0"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 128,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "6247345a1143ed57326084bdb32ef9f396e4a796857e2bb1ce1172cd097059dd"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 192,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "e37c014ad746a77a1615508fa8d92fd0f76efb0b1be21bab4bc8ef5a1be00f77"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 224,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "47730d59cd02d98f4bcec99b3ad8374279eb28e519ed3b797a062e45f519f7b5"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 240,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "183e1dc654f896c715fee93c8e551b9b6e80bb3b249ff123b7ae4a1776bed579"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 248,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "089e28b4373e0146102a03317eee6e205527d577f671803d2f15f31d41adfbfa"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 252,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "7dd7b5cb842fe967cdc01402dc9a7238809a25b5fc9d6443776f3b5cde349546"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 254,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "8c568bd48de3ba2260e036b550c34e78471aca68564224d2e590d2c8e6f3b378"
+        }
+      ],
+      "rgbaSha256": "aca7d54f50903f93fad578ade1d7fa51bf352986a34cd43e2a416f64ca48500f"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/common_hiteffect.tex",
+        "wadPathHash": "914aefb195e69d4f",
+        "sha256": "f3f7ddc7a3ccaf3215de4d3e1f4bcc0ccf49723b9c0c9fd1ffd2957e7d40521a",
+        "bytes": 43716
+      },
+      "path": ".cache/masteryi-primary-hit-packed-v2/914aefb195e69d4f.png",
+      "bytes": 32596,
+      "sha256": "57000dbf4a63e3b0aeeb18afe94ef7e20444931d74fc052b2853ecd6c51bdfbd",
+      "width": 256,
+      "height": 511,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 256,
+          "height": 256,
+          "rgbaSha256": "c7d83bddd39bb1d4c7e8607df82058fa06db39312d65afce7d2001dc636fe718"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 256,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "d66956e1d00835a833fde46f27c5c689bea0407fd16509edb9a82badb5fdbea1"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "181aec7b83bb4d7b9a918108688a7d3345a172d771cd5c56f9891398a73f90a0"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 448,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "0c84bfdd3ba321ffde89a4187f33e562a4942d8e0249bc02873dbaeb00cd7853"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 480,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "a35f6bf1fddb2a8ff5f619caec78cb16c58cc5c89c84d5439af6d0ad804b387f"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 496,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "90417f74f9a6dceb7f265c04f814fbaf7213c51d769402fba15d9ab65d7f9535"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 504,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "248b0a117036a6225369755ea79d4291e5ce47981b584d2aaf0f880a8f664d83"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 508,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "e0b0c8ebb1fcabf509727cd1781e979216221277aa9b25735d4c2c4431c38def"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 510,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "60d062200d6ea9138b9d6d9146659cb418ae23f779baa9891847d1d3fca60fd1"
+        }
+      ],
+      "rgbaSha256": "ad48f36306173a26931eff89b69c6a8b8ce783a31a5f09f6e3b0b52d15fc3961"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/masteryi_base_z_fade_bubble.tex",
+        "wadPathHash": "b885bf2594e01a38",
+        "sha256": "a5b9137efd801b73247dfcdd5d0a3f8da6fe7ed9fadda5f98abe6f17f1dbb2c3",
+        "bytes": 174788
+      },
+      "path": ".cache/masteryi-primary-hit-packed-v2/b885bf2594e01a38.png",
+      "bytes": 134100,
+      "sha256": "1bb320d9db1f0fd45ad4e84f1289f6a254d986513968f2fb28469a50d1e69766",
+      "width": 512,
+      "height": 1023,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 512,
+          "height": 512,
+          "rgbaSha256": "9a5dae5ef8fb3e208ae60413cdd90da1673156e669b2933a5f4f52a7cda9fec7"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 512,
+          "width": 256,
+          "height": 256,
+          "rgbaSha256": "4bc7cf15a37b91b18f647654904fc3669f1c9480a2559b49ecd40b258ac18580"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 768,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "3bcbb2b812d0ce663ee5e5e3f9ac27370e3ef8b4731c97f5093fb4bfb06df734"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 896,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "45c0169ad38ed22d0e5edfc3067efa75526eb03fed8231cfffded41d2e08290f"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 960,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "5d3d85667ab0e6c35a5131ffffe3cce0de9904c7681ad001249f72c785a4953e"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 992,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "8b77231b4ce5b52f1553601c34124d6da1ea00ab1e9e48c0578ba508ea82830c"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 1008,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "ab9eccf5df465a501d11bb0b1fce2cf7d689fbe0b7589e7daeb367731d112733"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 1016,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "25b0a6b384a5579d6673eac25db80237b7d333544f0a4ca0048bdca82cd976b8"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 1020,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "c953ae624fc28ea7a7d7c20d92a21a043cdf143476c20a6b794f9c6edd707281"
+        },
+        {
+          "level": 9,
+          "x": 0,
+          "y": 1022,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "a62644972ea9a101995faee13a550d31ff4fb8994ebf6c38e3fe6a0c49f08435"
+        }
+      ],
+      "rgbaSha256": "95259624e280c7f556efc4c7d3a526b4edfc7865312b963dd064b0dfa47c8074"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/masteryi_base_z_hit_impact1.tex",
+        "wadPathHash": "5ae94417a3c8c5a5",
+        "sha256": "e862918e29b6b785364d86f19a01d793fa30ac0d08016f75856c50b33f4046f4",
+        "bytes": 174812
+      },
+      "path": ".cache/masteryi-primary-hit-packed-v2/5ae94417a3c8c5a5.png",
+      "bytes": 63167,
+      "sha256": "68f69efe69aeb5ac5b13754ef9dc86368b0a4fd00f0ebdf2d6848efa7de50537",
+      "width": 256,
+      "height": 1023,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 256,
+          "height": 512,
+          "rgbaSha256": "ac545d8142facb5163d8aa050e778c9c3ff629ecaaeb62f4a1baf6f96505beb7"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 512,
+          "width": 128,
+          "height": 256,
+          "rgbaSha256": "0dfe4d0ac340a64669bfa6bb7f9507c1e53b696e7b5a86b39a253ccba23b98fb"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 768,
+          "width": 64,
+          "height": 128,
+          "rgbaSha256": "382c6b793e6816996c85e5892e5456694e4f1a73577c09558b83763d6b9bd326"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 896,
+          "width": 32,
+          "height": 64,
+          "rgbaSha256": "43a1fe701eb60031b6b74288f56330d543884a0c5e905197db776d30111279c4"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 960,
+          "width": 16,
+          "height": 32,
+          "rgbaSha256": "dee01908b6d10e683a58a3d38b80a2e25e6e7e15d02572bfd5bcd2592a9dd644"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 992,
+          "width": 8,
+          "height": 16,
+          "rgbaSha256": "97d8e4e170e2bae76338cc419d9445e14f206b3b0cd8575df96d895ca3acd5ed"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 1008,
+          "width": 4,
+          "height": 8,
+          "rgbaSha256": "57bd461d47eb73f4d8f6140ed246ebeda7393c084c66200ca55a46d9896d8e1c"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 1016,
+          "width": 2,
+          "height": 4,
+          "rgbaSha256": "88d8932cc535c9728c4da3ac8e1400b4299dd70692fbfaa6058a192cf722b4ef"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 1020,
+          "width": 1,
+          "height": 2,
+          "rgbaSha256": "0a2c5c13cc3767a2a82add60eec23f993de20d254c8a6064bcc3f4a79fd3cabb"
+        },
+        {
+          "level": 9,
+          "x": 0,
+          "y": 1022,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "243a97d8bfa6997a474fac2a69bd5aafea2d85cc09a1ba9638057be775a12bc7"
+        }
+      ],
+      "rgbaSha256": "f73c7c4d357d762a3bb0a8910f21df963abf44ea682b6108b36349492cc059b9"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/masteryi_yellow_glow.tex",
+        "wadPathHash": "2fc72189202d828e",
+        "sha256": "931c521d26edd906ccd3db9eb8c82a78283a0f34800bb22563ca2b98b1a1ebf0",
+        "bytes": 43716
+      },
+      "path": ".cache/masteryi-primary-hit-packed-v2/2fc72189202d828e.png",
+      "bytes": 18359,
+      "sha256": "02b22b0c4b2b713213a26fb866cf345aba6b71d52f90463d0b84ace0c0d49832",
+      "width": 256,
+      "height": 511,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 256,
+          "height": 256,
+          "rgbaSha256": "18aa75d1ba57bca0b80e42797445aed203555ccd10b9f6b2f2f9be75c0433f37"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 256,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "c74e63208d30dae4c3d5af0f682aab783e89f3fe06280b167238576d2655554e"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "d15a0bcc454354206476a32d5437b54dd568de89514ad2d35ec0f17ea5530c3f"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 448,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "96bf937ef10fbced8605c5460b1def1ed164684eff6946888595978db8680d76"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 480,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "70adf37ac2f975a8f023e5016402cbf4c735fe58ebe69907c56a9889c9dd466d"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 496,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "5988c59f8535c354c6aad272394a5041f32bb374f4d6e4391c03a4d1349e7365"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 504,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "7f5d07e3b89212d87f99588d96389ee4f2889aacb45fb90484829038a90498ce"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 508,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "bfc9d49b0fcdc7456080d34efaa5599c72b8870953338a77b8527643b374b4d7"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 510,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "fb77ad0a3aaaf57f9534cd4b12a136024fd59ca82744bb677eb1f0c9cf63ef99"
+        }
+      ],
+      "rgbaSha256": "c295b8d7b7e2fe60f47b74dd3b5b877adc84b038a88619ddc169b94d73743002"
+    }
+  ],
+  "historyTicks": 75,
+  "readerDefaults": {
+    "path": "docs/reference/garen-spin-defaults.json",
+    "sha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb"
+  },
+  "candidateLabels": [
+    {
+      "name": "fieldAccelerationDefinitions",
+      "rawHash": "{5d60e987}",
+      "hashMatches": true
+    },
+    {
+      "name": "VfxFieldAccelerationDefinitionData",
+      "rawHash": "{0a94f3d4}",
+      "hashMatches": true
+    },
+    {
+      "name": "acceleration",
+      "rawHash": "{2fa0ba9d}",
+      "hashMatches": true
+    },
+    {
+      "name": "fieldDragDefinitions",
+      "rawHash": "{b639c899}",
+      "hashMatches": true
+    },
+    {
+      "name": "VfxFieldDragDefinitionData",
+      "rawHash": "{e750fae2}",
+      "hashMatches": true
+    },
+    {
+      "name": "strength",
+      "rawHash": "{e07a18b0}",
+      "hashMatches": true
+    },
+    {
+      "name": "censorModulateValue",
+      "rawHash": "{08b52819}",
+      "hashMatches": true
+    },
+    {
+      "name": "frameRate",
+      "rawHash": "{9b111ae4}",
+      "hashMatches": true
+    }
+  ],
+  "limits": [
+    "Private complete profile preparation only; no runtime creation, public assets or save changes.",
+    "Compiled bind zero, local true, particle-local false, omitted blend zero and other defaults are explicit reconstruction policies, not authored values. Raw presences and complete source remain separately retained.",
+    "Blend 3 is the pinned reader none mode and requires unblended/alpha-tested rendering; do not pass it through an additive renderer. Native GPU shader/sampler/CPU parity remains uncalibrated.",
+    "Field label hashes match candidates; stepped 60 Hz force order, spatial drag falloff, target attachment and source frame integration require an explicit local adapter and acceptance tests.",
+    "Fluid has random-start and a 2x2 grid but omits numFrames; compiled one-frame default is not a proven native frame-count recovery. Blood declares startFrame 15, 16 frames, 4x4 grid and raw frame-rate 1.",
+    "Censor modulation and importance values are retained without inventing global censorship switches or quality filtering. All eleven emitter profiles remain present.",
+    "Critical ground_glow stays an arbitrary quad at the declared target attachment; its name does not authorize terrain projection.",
+    "The 75-tick retention is a conservative local first-update bound including the float32 1.2000000476837158 life multiplier. Source linger does not extend finite visible life."
+  ]
+}

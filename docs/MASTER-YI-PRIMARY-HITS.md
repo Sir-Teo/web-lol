@@ -102,3 +102,35 @@ Chromium/SwiftShader in this environment, not a native-client material or
 physical-frame-rate certificate. The
 [transport ledger](reference/masteryi/primary-hit-transport-verification.json)
 retains the source snapshot and probe evidence.
+
+## Complete private control profiles
+
+The [profile reading](reference/masteryi/primary-hit-profile-reading.json)
+retains all eleven emitters and every explicit field, with compiled fallbacks
+separate from raw omissions. Ordinary systems have identical complete emitter
+arrays. The profile includes birth drag, world and field acceleration, spatial
+drag centre/radius/strength, both legacy spawn rotations, bound-size offset,
+source alpha thresholds, lookup selectors, importance and censor modulation.
+
+Fluid uses the pinned reader's unblended mode 3, not additive blending. The
+blood atlas starts at frame 15 on a 4×4 grid with sixteen frames and raw frame
+rate 1. Fluid's random-start 2×2 grid omits `numFrames`; the compiled one-frame
+fallback is preserved as a reader policy, not recovered native behavior.
+The raw identifier `{08b52819}` matches candidate `censorModulateValue`;
+no global censorship switch or quality filter is inferred. Raw hashes stay
+unchanged in the original definitions.
+
+The conservative local retention is 75 ticks: first-update birth plus the
+largest source lifetime and its float32 probability multiplier, with endpoint
+coverage. The multiplier `1.2000000476837158` exceeds 1.2, so prematurely rounding
+it would shorten the history. Linger values remain separate.
+
+```sh
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/prepare-masteryi-primary-hit-profiles.py --check
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/test-masteryi-primary-hit-profiles.py
+```
+
+All 32 profile guards pass in normal and optimized Python, and both modes
+preserve the reading's bytes and timestamp. This preparation changes no runtime
+or public files. The [profile ledger](reference/masteryi/primary-hit-profile-verification.json)
+records the exact source snapshot, reader references and evidence.
