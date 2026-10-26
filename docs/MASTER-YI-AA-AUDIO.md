@@ -15,6 +15,9 @@ Inherited source gains, attenuation, material switches and ordinary ±100/critic
 ±200 cent pitch ranges remain separate from combat windup and contact clocks.
 The current body selection remains Attack1/critical. Attack2, Double Strike's
 two-action composite and ability audio require separate dispatch work.
+The later [attack-trail source reading](MASTER-YI-ATTACK-TRAILS.md) preserves the
+explicit Attack1/Attack2/Crit/Passive animation events and their particle systems;
+it leaves current body selection and audio dispatch unchanged.
 
 Indexed variant/pitch sampling consumes no combat RNG or entity IDs. Native
 shuffle state, bus 211064428, listening/mix calibration and delayed voice-cap

@@ -15,6 +15,9 @@ audio-suffix map, explicitly enables that material flag and names animation
 `Passive`. All presences and omissions stay separate. They do not establish
 native callbacks, default-event resolution or material propagation between
 records, and do not justify copying ordinary primary-AA dispatch onto the child.
+The separate [trail-source reading](MASTER-YI-ATTACK-TRAILS.md) retains Passive's
+two explicit particle events at literal frames 6.0 and 9.0. Those visual
+declarations do not establish audio callback timing or suffix propagation.
 
 | Phase/action | Target | Source behavior |
 | --- | ---: | --- |
