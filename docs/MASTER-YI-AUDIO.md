@@ -133,3 +133,9 @@ The [Wuju Style source reading](MASTER-YI-E-AUDIO.md) retains three explicit
 spell cues, their original two-entry playlists, six private float masters and
 the cast container's explicit priority. It prepares finite playback separately
 from E's five-second empowerment and its W/Q pause clocks.
+
+The [Double Strike composite reading](MASTER-YI-PASSIVE-AUDIO.md) keeps parent
+passive suffixes separate from the secondary record's omitted suffixes and
+explicit material flag. It retains the two hit actions, shared branch caps and
+distinct 200 ms delay, plus the different mix root and nineteen private masters.
+Native composite callback/material propagation remains separate work.
