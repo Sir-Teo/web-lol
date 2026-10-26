@@ -58,3 +58,50 @@ source-only checkpoint does not claim another build/browser/production run.
 Texture decoding, byte-preserving mesh conversion, primitive/shader behavior,
 attachment/lifecycle timing and native visual comparison remain downstream work.
 No effect is published or dispatched by this checkpoint.
+
+## Private decoded assets
+
+The [decoded record](reference/masteryi/w-particles-decoded.json) retains all
+153 authored mip levels from all 18 textures: 1,195,452 PNG bytes and 7,231,144
+decoded RGBA bytes. Each mip retains native compressed range/hash, dimensions,
+pixel/PNG hashes and alpha statistics. There is no resizing, generated mip chain,
+gamma conversion or premultiplication. The pinned LeagueToolkit reader confirms
+smallest-first TEX storage; each mip is decoded separately. Pillow 12.3.0
+provides the canonical BC1-with-alpha/BC3 software decode, with the interpreter,
+codec/plugin binaries and zlib versions recorded. This is not native GPU parity.
+
+Both SCB 3.2 meshes retain complete original bytes through their private JSONs
+(total 287,109 bytes). The shared torus has 180 vertices/320 triangles, flags 1
+and no tail; the heal mesh has 403 vertices/733 triangles, flags 5 and an opaque
+24-byte tail. The pinned reader tests the face-color bit independently; both
+records have that RGB block and no vertex-color array. Their explicit layouts
+are accepted separately. Flag bit 4 and the nonzero tail are not renamed or
+interpreted. Q retains its original flags-5/24-byte-tail default guard.
+
+Points, indices, per-face UVs, material padding, RGB, unused vertices, signed
+zero, pivot and zero header bounds survive byte-exact round trips. No normals,
+pivot shift, coordinate/unit scale, winding/reflection or material tint is added.
+The initial bounded Q reader rejected the torus's flags and then its zero-tail
+extent; both diagnostics are retained. Support was added only for the observed
+flags-1/zero-tail profile, with explicit reject tests for mismatched tails and
+unknown flags.
+
+```sh
+python tools/assets/decode-masteryi-w-particles.py --check
+python -O tools/assets/decode-masteryi-w-particles.py --check
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/decode-masteryi-w-particles.py
+PYTHONPATH=tools/assets python tools/assets/test-masteryi-w-decode.py
+PYTHONPATH=tools/assets python -O tools/assets/test-masteryi-w-decode.py
+```
+
+Independent checks import neither Pillow nor CDTB. Seventeen Meditate decode
+guards and all 34 existing Q decode guards pass in each mode, including exact
+shared texture pixels/PNGs, closure/range/hash/alpha corruption and preflight
+output conflicts. Actual Q/W checks and decoder replays pass normally and with
+optimization, preserving all 357 existing decoded files/records in bytes and
+timestamps. Unreviewed producer/profile changes fail the frozen record checksum;
+a different profile requires separate output/record paths and a reviewed digest.
+
+Source and decoded artifacts remain private. GLB conversion, authored mip GPU
+transport, shader/attachment/lifecycle sampling and dispatch are still separate
+work. Exact source archive and evidence: [decode verification ledger](reference/masteryi/w-particle-decode-verification.json).

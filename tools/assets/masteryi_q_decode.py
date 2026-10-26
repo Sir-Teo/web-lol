@@ -1,4 +1,4 @@
-"""Bounded source-preserving TEX mip and SCB 3.2 inspection for Alpha Strike."""
+"""Bounded source-preserving TEX mip and SCB 3.2 inspection for frozen particle sources."""
 import binascii
 import hashlib
 import math
@@ -78,11 +78,11 @@ def png_rgba8(raw, expected_width, expected_height):
     return bytes(out)
 
 
-def scb_mesh(raw):
+def scb_mesh(raw, *, allowed_layouts=((5, 24),)):
     require(len(raw) >= 180 and raw[:8] == b'r3d2Mesh' and struct.unpack_from('<HH', raw, 8) == (3, 2), 'Unsupported SCB header/version')
     vertices, faces, flags = struct.unpack_from('<III', raw, 140)
-    require(vertices > 0 and faces > 0 and flags == 5 and struct.unpack_from('<I', raw, 176)[0] == 0, 'Unsupported SCB counts/flags/colors')
-    require(len(raw) == 180 + vertices * 12 + 12 + faces * 109 + 24, 'SCB extent differs')
+    require(vertices > 0 and faces > 0 and flags in dict(allowed_layouts) and struct.unpack_from('<I', raw, 176)[0] == 0, 'Unsupported SCB counts/flags/colors')
+    require(len(raw) == 180 + vertices * 12 + 12 + faces * 109 + dict(allowed_layouts)[flags], 'SCB extent differs')
     points = [list(struct.unpack_from('<3f', raw, 180 + i * 12)) for i in range(vertices)]
     cursor = 180 + vertices * 12; pivot = list(struct.unpack_from('<3f', raw, cursor)); cursor += 12
     indices, uv, material_indices, slots, lookup = [], [], [], [], {}

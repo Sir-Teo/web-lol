@@ -39,8 +39,8 @@ def layout_references():
     return rows
 
 
-def generate(sources, output):
-    pin, _ = load(); check_files(pin, sources)
+def generate(sources, output, *, source_load=load, source_pin_sha256=PIN_SHA256, texture_count=23, mesh_layouts=((5, 24),)):
+    pin, _ = source_load(); check_files(pin, sources)
     from PIL import Image, DdsImagePlugin, PngImagePlugin
     import PIL
     import cdtb.export
@@ -63,25 +63,25 @@ def generate(sources, output):
                 levels.append({**level, 'path': str(path), 'bytes': len(png), 'sha256': sha(png), 'rgbaSha256': sha(rgba), 'minimumAlpha': min(alpha), 'maximumAlpha': max(alpha), 'transparentPixels': alpha.count(0), 'opaquePixels': alpha.count(255)})
             textures.append({'source': row, **info, 'levels': levels})
         elif row['path'].endswith('.scb'):
-            mesh = scb_mesh(raw); data = (json.dumps(mesh, indent=2, allow_nan=False) + '\n').encode()
+            mesh = scb_mesh(raw, allowed_layouts=mesh_layouts); data = (json.dumps(mesh, indent=2, allow_nan=False) + '\n').encode()
             require(scb_bytes(json.loads(data)) == raw, 'JSON mesh round trip differs')
             path = output / 'meshes' / f"{row['wadPathHash']}.json"; outputs.append((path, data))
             meshes.append({'source': row, 'path': str(path), 'bytes': len(data), 'sha256': sha(data), 'sourceVertices': mesh['sourceVertices'], 'triangles': mesh['triangles'], 'flags': mesh['flags'], 'sourceBounds': mesh['sourceBounds'], 'measuredMinMax': mesh['measuredMinMax'], 'centralPoint': mesh['centralPoint'], 'tailHex': mesh['tailHex'], 'sourcePointFloat32Sha256': sha(struct.pack('<' + 'f' * (len(mesh['sourcePoints']) * 3), *(v for point in mesh['sourcePoints'] for v in point))), 'sourceIndexUInt32Sha256': sha(struct.pack('<' + 'I' * len(mesh['sourceIndices']), *mesh['sourceIndices'])), 'sourceFaceRgbSha256': sha(bytes.fromhex(mesh['sourceFaceRgbHex'])), 'byteExactNativeRoundTrip': True, 'normalsGenerated': False, 'unitScaleApplied': 1})
-    require(len(textures) == 23 and len(meshes) == 2, 'Decode closure differs')
+    require(len(textures) == texture_count and len(meshes) == 2, 'Decode closure differs')
     modules = [Path(cdtb.export.__file__), Path(PIL.__file__), Path(Image.__file__), Path(DdsImagePlugin.__file__), Path(PngImagePlugin.__file__), Path(Image.core.__file__), Path(sys.executable).resolve()]
-    record = {'format': 1, 'sourcePinSha256': PIN_SHA256, 'layoutRevision': LAYOUT_REVISION, 'layoutReferences': readers,
+    record = {'format': 1, 'sourcePinSha256': source_pin_sha256, 'layoutRevision': LAYOUT_REVISION, 'layoutReferences': readers,
         'decoder': {'python': sys.version, 'platform': platform.platform(), 'pillowVersion': PIL.__version__, 'pillowZlibVersion': Image.core.zlib_version, 'stdlibZlibVersion': zlib.ZLIB_VERSION, 'stdlibZlibRuntimeVersion': zlib.ZLIB_RUNTIME_VERSION, 'stdlibZlibModuleKind': 'file' if getattr(zlib, '__file__', None) else 'builtin', 'artifacts': [file_row(p) for p in modules]},
         'textures': textures, 'meshes': meshes, 'limits': ['Canonical Pillow BC1-with-alpha/BC3 software decode, not a native GPU decoding/visual certificate.', 'Every authored mip retains its own size, compressed block identity and RGBA; no resize, generated mips, gamma conversion or premultiplication.', 'Source mesh points/indices/face UV/material bytes/RGB/pivot/header and unparsed tail are retained. No normals, pivot offset, reflection, winding, unit scale or emitter/material behavior is applied.', 'Private decode only; no public files or runtime bindings.']}
     return outputs, record
 
 
-def check_record(record_path, sources, record_sha256=RECORD_SHA256):
+def check_record(record_path, sources, record_sha256=RECORD_SHA256, *, source_load=load, source_pin_sha256=PIN_SHA256, texture_count=23, mesh_layouts=((5, 24),)):
     require(re.fullmatch(r'[0-9a-f]{64}', record_sha256) is not None, 'Decode record hash is invalid')
-    record = json.loads(checked(record_path, record_sha256)); pin, _ = load(); check_files(pin, sources)
-    require(record['sourcePinSha256'] == PIN_SHA256 and record['layoutRevision'] == LAYOUT_REVISION, 'Decode record source/layout differs')
+    record = json.loads(checked(record_path, record_sha256)); pin, _ = source_load(); check_files(pin, sources)
+    require(record['sourcePinSha256'] == source_pin_sha256 and record['layoutRevision'] == LAYOUT_REVISION, 'Decode record source/layout differs')
     require({r['name']: r['sha256'] for r in record['layoutReferences']} == LAYOUT and len(record['layoutReferences']) == 3, 'Decoded layout references differ')
     by_id = {r['wadPathHash']: r for r in pin['extraction']['files']}
-    require(len(record['textures']) == 23 and {r['source']['wadPathHash'] for r in record['textures']} == {r['wadPathHash'] for r in by_id.values() if r['path'].endswith('.tex')}, 'Decoded texture closure differs')
+    require(len(record['textures']) == texture_count and {r['source']['wadPathHash'] for r in record['textures']} == {r['wadPathHash'] for r in by_id.values() if r['path'].endswith('.tex')}, 'Decoded texture closure differs')
     require(len(record['meshes']) == 2 and {r['source']['wadPathHash'] for r in record['meshes']} == {r['wadPathHash'] for r in by_id.values() if r['path'].endswith('.scb')}, 'Decoded mesh closure differs')
     for texture in record['textures']:
         row = texture['source']; require(row == by_id[row['wadPathHash']], 'Decoded texture source differs')
@@ -97,7 +97,7 @@ def check_record(record_path, sources, record_sha256=RECORD_SHA256):
         row = mesh['source']; require(row == by_id[row['wadPathHash']], 'Decoded mesh source differs')
         data = json.loads(checked(mesh['path'], mesh['sha256'], mesh['bytes']))
         raw = checked(cache_path(sources, row), row['sha256'], row['bytes'])
-        require(scb_bytes(data) == raw and scb_mesh(raw) == data, 'Decoded mesh native round trip differs')
+        require(scb_bytes(data) == raw and scb_mesh(raw, allowed_layouts=mesh_layouts) == data, 'Decoded mesh native round trip differs')
     return record
 
 
