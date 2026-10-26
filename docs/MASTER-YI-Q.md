@@ -3,6 +3,8 @@
 This records the schema-143 NPC milestone. The later
 [human fixture](MASTER-YI-PLAYER.md) adds private player controls at schema 144;
 [mark assist credit](MASTER-YI-MARK-ASSISTS.md) follows at schema 145.
+The later [particle source preparation](MASTER-YI-Q-PARTICLES.md) retains all
+eight native Q resources without introducing unverified visual dispatch.
 
 The private `/?scene=fixture&npc=masteryi` NPC now supports all four own ability
 controllers. Alpha Strike adds unit targeting, saved marks, delayed/repeated
