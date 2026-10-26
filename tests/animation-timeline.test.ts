@@ -1,5 +1,9 @@
 import { expect, it } from 'vitest';
-import { advanceAnimationTimeline, animationLayers } from '../src/simulation/animation-timeline';
+import {
+  advanceAnimationTimeline,
+  animationLayers,
+  cloneAnimationTimeline,
+} from '../src/simulation/animation-timeline';
 import type { MobilePose } from '../src/render/mobile-pose';
 import { World } from '../src/simulation/world';
 const durations = { idle1: 2, run: 1, attack1: 0.9, spell1: 1 };
@@ -131,4 +135,48 @@ it('keeps completed death and recall clips at their endpoint during interpolatio
   state = advanceAnimationTimeline(null, primary, 200, clips);
   expect(primary.clip).toBe('idle2');
   expect(animationLayers(state, 199.5, clips)[0].time).toBe(1);
+});
+
+it('owned timeline copies exactly match structuredClone through interrupted transitions', () => {
+  let state = advanceAnimationTimeline(null, pose('idle1', -0), 0, durations);
+  for (const [tick, primary] of [
+    [1, pose('run')],
+    [2, pose('attack1')],
+    [3, pose('spell1', 0.1, true)],
+    [4, pose('idle1', 0.2)],
+  ] as const) {
+    state = advanceAnimationTimeline(state, primary, tick, durations);
+    const before = structuredClone(state),
+      copy = cloneAnimationTimeline(state)!;
+    expect(copy).toEqual(before);
+    expect(JSON.stringify(copy)).toBe(JSON.stringify(before));
+    expect(copy).not.toBe(state);
+    expect(copy.primary).not.toBe(state.primary);
+    if (state.transition) {
+      expect(copy.transition).not.toBe(state.transition);
+      expect(copy.transition!.outgoing).not.toBe(state.transition.outgoing);
+      copy.transition!.outgoing.forEach((layer, index) =>
+        expect(layer).not.toBe(state.transition!.outgoing[index])
+      );
+    }
+    copy.primary.time = 999;
+    if (copy.transition?.outgoing.length) copy.transition.outgoing[0].weight = -1;
+    expect(state).toEqual(before);
+  }
+});
+it('timeline copies preserve null and signed zero, with independent siblings and empty outgoing arrays', () => {
+  expect(cloneAnimationTimeline(null)).toBeNull();
+  const source = {
+      tick: 7,
+      primary: pose('idle1', -0),
+      transition: { startTick: 7, outgoing: [] },
+    },
+    a = cloneAnimationTimeline(source)!,
+    b = cloneAnimationTimeline(source)!;
+  expect(Object.is(a.primary.time, -0)).toBe(true);
+  expect(a).toEqual(structuredClone(source));
+  a.primary.time = 3;
+  a.transition!.outgoing.push({ ...pose('run'), weight: 0.5 });
+  expect(b).toEqual(source);
+  expect(b.transition!.outgoing).toEqual([]);
 });

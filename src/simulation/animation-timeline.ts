@@ -12,6 +12,19 @@ export interface AnimationTimeline {
   primary: MobilePose;
   transition: { startTick: number; outgoing: PoseLayer[] } | null;
 }
+/** Owned snapshot of the known timeline schema. Primary poses and outgoing
+ * layers contain scalar fields; every mutable object/array remains independent.
+ * Keep source property order and numbers without serialization or quantization. */
+export function cloneAnimationTimeline(state: AnimationTimeline | null): AnimationTimeline | null {
+  if (state === null) return null;
+  return {
+    ...state,
+    primary: { ...state.primary },
+    transition: state.transition
+      ? { ...state.transition, outgoing: state.transition.outgoing.map((layer) => ({ ...layer })) }
+      : null,
+  };
+}
 export const ANIMATION_FADE_TICKS = 0.08 * 60;
 function timeAt(
   layer: Pick<PoseLayer, 'time' | 'rate' | 'loop' | 'unclampedTime' | 'clip'>,

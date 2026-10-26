@@ -5,7 +5,7 @@ import {
   type StructureRig,
 } from '../content/structure-animation';
 import { structurePose } from '../render/structure-pose';
-import { validAnimationTimeline } from './animation-timeline';
+import { cloneAnimationTimeline, validAnimationTimeline } from './animation-timeline';
 import { isStructureKind, type LuxImpactFrame, type Unit } from './types';
 
 /** Called again after animation/recall placement to finalize a contact tick. */
@@ -15,7 +15,7 @@ export function capturePoseFrame(target: Unit, tick: number): LuxImpactFrame {
     x: target.x,
     y: target.y,
     facing: target.facing,
-    animationTimeline: structuredClone(target.animationTimeline),
+    animationTimeline: cloneAnimationTimeline(target.animationTimeline),
     structurePose: isStructureKind(target.kind)
       ? structurePose(
           {
