@@ -1,3 +1,4 @@
+import { LazyMeditateCasts } from './lazy-masteryi-w-casts';
 import { unitVisible } from './unit-visibility';
 import { MASTER_YI } from '../content/masteryi-progression';
 import { MASTER_YI_PASSIVE } from '../content/masteryi-passive';
@@ -163,6 +164,7 @@ export class GameView {
   sunlight = new LazySunlight(this.scene, (p) => this.ground(p));
   garenPerseverance = new LazyGarenPerseverance(this.scene, (p) => this.ground(p));
   garenBasicAttacks = new LazyGarenBasicAttacks(this.scene, (p) => this.ground(p));
+  meditateCasts = new LazyMeditateCasts(this.scene, (p) => this.ground(p));
   alphaContacts = new LazyAlphaContacts(this.scene, (p) => this.ground(p));
   garenCourage = new LazyGarenCourage(this.scene, (p) => this.ground(p));
   grompDeath = new LazyGrompDeath(this.scene);
@@ -849,6 +851,7 @@ export class GameView {
     this.garenDecisiveStrike.update(world, alpha, this.camera, this.models, terminalAge);
     this.garenBasicAttacks.update(world, alpha, this.camera, terminalAge);
     this.alphaContacts.update(world, alpha, this.camera, terminalAge);
+    this.meditateCasts.update(world, alpha, this.camera, terminalAge);
     this.dust.update(world, this.camera);
     this.smoke.update(world, this.camera);
     this.echoes.update(world);

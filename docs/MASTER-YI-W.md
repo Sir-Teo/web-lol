@@ -144,3 +144,7 @@ result. Raw evidence remains in `.cache/masteryi-w-cloud`.
 The complete native effect source closure is now retained separately in
 [Meditate particle preparation](MASTER-YI-W-PARTICLES.md). It does not change
 the channel controller or establish native particle creation callbacks.
+
+The [seven-emitter cast effect](MASTER-YI-W-CAST.md) now follows accepted W
+with a separate finite saved presentation. Channel healing, mitigation, mana
+and interruption mechanics remain governed by the controller above.

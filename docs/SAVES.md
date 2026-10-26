@@ -1,6 +1,14 @@
 # Local match checkpoints
 
-Current schema **149** adds a separate Alpha Strike audio history for each
+Current schema **150** adds Meditate cast presentation histories. Each accepted
+W retains its creation audience and a finite 55-tick sequence of source position,
+facing and visibility endpoints. Cast effects can finish after channel interruption;
+death freezes their saved root. Decoding checks Yi ownership, learned rank,
+ordered cast clocks, active-channel linkage, contiguous frames, live endpoints,
+detachment and expiry. Cosmetic sampling consumes no gameplay IDs or RNG.
+Earlier schemas/fingerprints remain incompatible. See [Meditate cast effects](MASTER-YI-W-CAST.md).
+
+Schema **149** adds a separate Alpha Strike audio history for each
 accepted cast. It retains the declared two-layer cast cue and ordinary contact
 creation points/audiences through finite recording tails, including after Q and
 visual cleanup. Critical contacts keep their missing hit-sound binding.

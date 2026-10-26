@@ -1,3 +1,5 @@
+import { validateMeditateCasts } from './masteryi-meditate-cast';
+import { MEDITATE_CAST_HISTORY_TICKS } from '../content/masteryi-w-cast-timing';
 import { validateHighlanderAudio } from './masteryi-highlander-audio';
 import { validateAlphaContacts } from './masteryi-q-contact-visuals';
 import { validateAlphaAudio } from './masteryi-q-audio';
@@ -147,7 +149,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 149;
+export const SNAPSHOT_VERSION = 150;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -768,6 +770,28 @@ const player: z.ZodType<PlayerState> = z
         resumeOrder: order.nullable(),
       })
       .nullable(),
+    meditateCastVisuals: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          rank: z.number().int().min(1).max(5),
+          audience: daybreakFrame.shape.audience,
+          detachedTick: tick.nullable(),
+          frames: z
+            .array(
+              z.strictObject({
+                tick,
+                x: z.number(),
+                y: z.number(),
+                facing: z.number(),
+                audience: daybreakFrame.shape.audience,
+              })
+            )
+            .min(1)
+            .max(MEDITATE_CAST_HISTORY_TICKS),
+        })
+      )
+      .max(1000),
     alphaContactVisuals: z
       .array(
         z.strictObject({
@@ -4269,6 +4293,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     validateGarenAttacks(owner, champion, state);
     validateMasterYiAttacks(owner, champion, state);
     validateHighlanderAudio(owner, champion, state);
+    validateMeditateCasts(owner, champion, state);
     validateAlphaContacts(owner, champion, state);
     validateAlphaAudio(owner, champion, state);
     const qCycle = champion.attackCycle;

@@ -159,3 +159,8 @@ All transports remain private and runtime identity stays unchanged. No Meditate
 particle is dispatched by this preparation checkpoint. Exact source archive,
 private file identities and staged results:
 [transport verification ledger](reference/masteryi/w-particle-transport-verification.json).
+
+The subsequent [cast-effect integration](MASTER-YI-W-CAST.md) delivers the
+complete seven-emitter `W_Cas` subset with ten selected source textures and the
+torus mesh. Buff, damage and tenacity rendering remain separate. The source-only
+checkpoint identities and private artifacts above are retained as historical evidence.

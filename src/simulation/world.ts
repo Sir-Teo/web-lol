@@ -1,3 +1,5 @@
+import { captureMeditateCast, advanceMeditateCasts } from './masteryi-meditate-cast';
+import { MEDITATE_CAST_HISTORY_TICKS } from '../content/masteryi-w-cast-timing';
 import { captureAlphaContact, advanceAlphaContacts } from './masteryi-q-contact-visuals';
 import { beginAlphaAudio, contactAlphaAudio, alphaAudioExpiry } from './masteryi-q-audio';
 import { ALPHA_CONTACT_HISTORY_TICKS } from '../content/masteryi-q-contact-timing';
@@ -1127,6 +1129,10 @@ export class World {
       if (state.highlanderAudio.length)
         state.highlanderAudio = state.highlanderAudio.filter(
           (r) => this.tick < highlanderAudioExpiry(r)
+        );
+      if (state.meditateCastVisuals.length)
+        state.meditateCastVisuals = state.meditateCastVisuals.filter(
+          (r) => this.tick < r.startTick + MEDITATE_CAST_HISTORY_TICKS
         );
       if (state.alphaContactVisuals.length)
         state.alphaContactVisuals = state.alphaContactVisuals.filter(
@@ -4591,6 +4597,7 @@ export class World {
     return capturePoseFrame(target, this.tick);
   }
   private advanceImpactVisuals(): void {
+    advanceMeditateCasts(this);
     advanceAlphaContacts(this);
     advanceSolarVisuals(this);
     advanceZenithVisuals(this);
@@ -5944,6 +5951,7 @@ export class World {
       onEssenceDeath(this, target, rewardSource);
     }
     if (target.hp <= 0) {
+      advanceMeditateCasts(this);
       advanceAlphaContacts(this);
       advanceSolarVisuals(this);
       advanceZenithVisuals(this);
@@ -6455,6 +6463,7 @@ export class World {
       u.mana -= resources.mana;
       state.cooldowns.w = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
       beginMeditate(state, this.tick, state.spellRanks.w, this.abilityPower(u));
+      captureMeditateCast(this, u);
       this.emit('cast', u, { unit: u.id, champion: 'masteryi', text: 'w', team: u.team });
       return;
     }

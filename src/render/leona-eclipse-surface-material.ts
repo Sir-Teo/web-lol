@@ -23,6 +23,8 @@ export function createLeonaEclipseSurfaceMaterial(options: {
   texture: THREE.Texture;
   lookup: THREE.Texture;
   multiplier?: THREE.Texture;
+  /** Explicit caller mapping of the quad second packed UV; default retains lookup coordinates. */
+  quadSecondaryUv?: 'lookup' | 'transformed';
   lockAlpha?: boolean;
   erosion?: EclipseSkinErosion;
   soft?: EclipseSoftSurface;
@@ -98,6 +100,9 @@ export function createLeonaEclipseSurfaceMaterial(options: {
     defines: {
       ...(options.kind === 'mesh' ? { SOURCE_MESH: 1 } : {}),
       ...(options.multiplier ? { SOURCE_MULT: 1 } : {}),
+      ...(options.kind === 'quad' && options.multiplier && options.quadSecondaryUv === 'transformed'
+        ? { SOURCE_QUAD_SECONDARY_UV: 1 }
+        : {}),
       ...(options.lockAlpha ? { SOURCE_LOCK_ALPHA: 1 } : {}),
       ...(options.vertexBgra ? { SOURCE_VERTEX_BGRA: 1 } : {}),
       ...(options.remap ? { SOURCE_REMAP: 1 } : {}),
@@ -176,14 +181,22 @@ export function createLeonaEclipseSurfaceMaterial(options: {
         // Native mesh MULT_PASS replaces its lookup slot. Native quad keeps
         // the lookup and multiplies an additional texture at its second UV.
         #if !defined(SOURCE_MESH) || !defined(SOURCE_MULT)
-          lit *= texture2D(particleColorTexture, lookupUv);
+          #ifdef SOURCE_QUAD_SECONDARY_UV
+            lit *= texture2D(particleColorTexture, multUv);
+          #else
+            lit *= texture2D(particleColorTexture, lookupUv);
+          #endif
         #endif
         #ifdef SOURCE_MULT
           #ifdef SOURCE_MESH
             lit *= texture2D(multiplierTexture, multUv);
           #else
             // Native quad MULT_PASS shares its second coordinates with lookup.
-            lit *= texture2D(multiplierTexture, lookupUv);
+            #ifdef SOURCE_QUAD_SECONDARY_UV
+              lit *= texture2D(multiplierTexture, multUv);
+            #else
+              lit *= texture2D(multiplierTexture, lookupUv);
+            #endif
           #endif
         #endif
         #ifdef SOURCE_REMAP

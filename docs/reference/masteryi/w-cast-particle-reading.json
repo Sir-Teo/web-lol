@@ -1,0 +1,77 @@
+{
+  "format": 1,
+  "sourcePinSha256": "f2b3e3cc1759b39b8a08d75a15a43649fecaa5a60c16392eff6893935e9a6517",
+  "transport": {
+    "path": "docs/reference/masteryi/w-particle-texture-transport.json",
+    "sha256": "66ce933143a662f0f2506b96520d2d4f6e7ab206a1cb58d8da6b3b94e01e5cfd"
+  },
+  "mesh": {
+    "source": {
+      "path": "assets/characters/masteryi/skins/base/particles/common_vlad_bloodking_torus.scb",
+      "wadPathHash": "57109d0973203910",
+      "sha256": "f54bbc4b3a8873ba48881dc621ac9e18d26273ddc7bb2afb79654df8a9b8ce22",
+      "bytes": 37232
+    },
+    "decoded": {
+      "path": ".cache/masteryi-w-particles-decoded/meshes/57109d0973203910.json",
+      "sha256": "7bc7e688ea8ae0d41e6ec561583b6aaaf4025d6660d8d916233ca579c1b24486"
+    },
+    "output": {
+      "path": ".cache/masteryi-w-packed-meshes/masteryi-w-torus.glb",
+      "bytes": 25596,
+      "sha256": "7cf3923ece203d3ccaecba32cdc5a19c0e2a1b99d1da0dab5f1a54d2e225f036"
+    },
+    "sourceVertices": 180,
+    "triangles": 320,
+    "exportedCorners": 960,
+    "attributes": {
+      "positionFloat32Sha256": "e7a19042be3bf0ea47bcb9cca700f9df322773aba5c789e68468dc62161c9fa0",
+      "uvFloat32Sha256": "5cdf9728ade3a95bc513336c88911563412a74e76909dfd7ad9517631ec02571",
+      "faceRgbSha256": "39a68c2004ed4a20edb148b72e5aabd663f15cce54b30d2ea1c106e839761ed5"
+    },
+    "centralPoint": [
+      11.45650863647461,
+      41.53089904785156,
+      -17.611404418945312
+    ],
+    "rawSourceBounds": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "measuredMinMax": [
+      -124.83820343017578,
+      1.7401000261306763,
+      -153.90609741210938,
+      147.75120544433594,
+      81.32170104980469,
+      118.68329620361328
+    ],
+    "tailHex": "",
+    "flags": 1,
+    "sourceHasVertexColors": false,
+    "sourceFaceRgbAppliedAsMaterial": false,
+    "normalsGenerated": false,
+    "validation": {
+      "errors": 0,
+      "warnings": 0,
+      "roundTripAttributesExact": true
+    }
+  },
+  "readerDefaults": {
+    "path": "docs/reference/garen-spin-defaults.json",
+    "sha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb"
+  },
+  "profileSha256": "0a98222d116290239a92fb2ced53e7d7a195edbc8f42f9460975aa42b2a3a1c2",
+  "historyTicks": 55,
+  "limits": [
+    "Complete seven-emitter W_Cas only. Buff, tenacity and damage systems remain separate.",
+    "Accepted local W dispatch, first-update grid, actor-root source-X reflection, indexed draws, source shape interpretation and fixed-grid field force integration are local adapters; native callbacks/frames/RNG remain unverified.",
+    "Exact field-name hash candidates are recorded separately; raw source hashes stay unchanged.",
+    "Omitted shader/UV controls use explicit shared local defaults, including alphaRef 5/255, repeated base textures, clamped linear lookup, white neutral lookup when absent and identity UV transforms.",
+    "Source linger values are retained without extending visible particle lifetimes. No sound is inferred from W_Cas."
+  ]
+}

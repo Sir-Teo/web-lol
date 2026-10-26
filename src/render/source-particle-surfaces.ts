@@ -92,6 +92,8 @@ export interface SurfaceProgram<G extends SurfaceGroup> {
   records(world: World): Iterable<{ sourceId: number; castTick: number; group: G }>;
   particles(group: G, tick: number): readonly SurfaceParticle[];
   birthVisible(group: G, bornTick: number, terminal: boolean): boolean;
+  /** Explicit creation-history visibility policy; omission retains point visibility. */
+  visible?(group: G, particle: SurfaceParticle, tick: number): boolean;
   pose(group: G, tick: number): { x: number; y: number; facing: number } | null;
   /** Local adapter for a missile object's source-Y-forward/source-Z-down frame. */
   missileFrame?(group: G): boolean;
@@ -296,7 +298,11 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
               .add(center)
               .add(acceleration);
           }
-          if (!world.pointVisible({ x: position.x * 100, y: position.z * 100 })) continue;
+          if (!(
+            this.program.visible?.(group, p, tick) ??
+            world.pointVisible({ x: position.x * 100, y: position.z * 100 })
+          ))
+            continue;
           const id = `${group.key}:${p.profileIndex}:${p.ordinal}`;
           active.add(id);
           let mesh = this.models.get(id);

@@ -137,6 +137,29 @@ test('saved Alpha Strike sound compatibility includes state, voice policy and ex
   expect(rulesetFingerprint(root)).not.toBe(before);
 });
 
+test('Meditate cast compatibility includes its complete presentation and saved history', () => {
+  for (const file of [
+    'src/render/masteryi-w-casts.ts',
+    'src/render/masteryi-w-cast-particles.ts',
+    'src/render/authored-mip-texture.ts',
+    'src/render/source-particle-surfaces.ts',
+    'src/render/leona-eclipse-values.ts',
+    'src/render/particle-motion.ts',
+    'src/content/masteryi-w-cast-particles.json',
+    'src/content/masteryi-w-cast-timing.ts',
+    'src/simulation/masteryi-meditate-cast.ts',
+  ]) {
+    expect(rulesetFiles, file).toContain(file);
+    expect(affectsRuleset(resolve(file)), file).toBe(true);
+  }
+  const { root, put } = fixture();
+  put('src/render/masteryi-w-casts.ts', "import './masteryi-w-cast-particles';");
+  put('src/render/masteryi-w-cast-particles.ts', 'export const cast=1;');
+  const before = rulesetFingerprint(root);
+  put('src/render/masteryi-w-cast-particles.ts', 'export const cast=2;');
+  expect(rulesetFingerprint(root)).not.toBe(before);
+});
+
 test('saved Yi attack audio includes applied pitch, voice policy and float loading', () => {
   const files = [
     'src/audio/masteryi-aa-state.ts',
