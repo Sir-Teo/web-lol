@@ -1,0 +1,194 @@
+{
+  "format": 1,
+  "parentCommit": "2e00af3",
+  "identity": {
+    "schema": 148,
+    "ruleset": "e50982ba2e775909960043a0b04a93e2e7696700986a93b9ecabc986d8968f72",
+    "pack": {
+      "id": "574324bff16654b414d2cb9bdd1deec10bf700700fe0ee72fdd297bde369ec3e",
+      "files": 1111,
+      "bytes": 530129881
+    },
+    "runtimeChanged": false
+  },
+  "scope": "Source-only declared particle on-create bindings, complete policies and exact existing private float masters; no runtime/public assets added.",
+  "inputs": [
+    {
+      "path": "docs/reference/masteryi/q-particles.json",
+      "bytes": 87880,
+      "sha256": "95531b1e61b44fc39d6458534174fe183fdf75e57cf7528a93a045e836322776"
+    },
+    {
+      "path": "docs/reference/masteryi/audio-graph.json",
+      "bytes": 1598681,
+      "sha256": "b7879c088d3544626d70c9ecaf4abfd0aebae007db5a6ee841c0caed7a2b33e3"
+    },
+    {
+      "path": "docs/reference/masteryi/audio-decoded.json",
+      "bytes": 87738,
+      "sha256": "28ac362788bb76709a226e76d282eb25a1805a474b9bc7348cedd59bbee33a32"
+    },
+    {
+      "path": "tools/assets/masteryi_audio_decode.py",
+      "bytes": 8199,
+      "sha256": "1daac83459300db4b01688688cf6d454ad7d3c1d20a5dd420a00850447470e20"
+    },
+    {
+      "path": "tools/assets/masteryi_audio_graph.py",
+      "bytes": 8829,
+      "sha256": "0a894875ec7c8273d32c1e14c745651a09abc5b59f1a7e4c80ad2f6b6f97e465"
+    },
+    {
+      "path": "tools/assets/masteryi_audio_source.py",
+      "bytes": 2297,
+      "sha256": "fdeb76c6bf623a420a16851ab659368f349cc9e61748b890f0fec76b8e407c3c"
+    },
+    {
+      "path": "tools/assets/masteryi_q_particles.py",
+      "bytes": 6830,
+      "sha256": "df5648f1c79cd9a74f9e5fc5dc15c010dfd38030b903e7194db8d5d3de904596"
+    }
+  ],
+  "generated": [
+    {
+      "path": "docs/MASTER-YI-AUDIO.md",
+      "bytes": 7359,
+      "sha256": "2e3984b90a6eb17b250aee3f62a6bca6c3d752f25a0935acdc62c55dfce55705",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/source/docs/MASTER-YI-AUDIO.md"
+    },
+    {
+      "path": "docs/MASTER-YI-Q-AUDIO.md",
+      "bytes": 3695,
+      "sha256": "6fa03660de3cac968646e6d64f315dde275a44a471e721398ccaeb7121d79eed",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/source/docs/MASTER-YI-Q-AUDIO.md"
+    },
+    {
+      "path": "docs/reference/masteryi/q-audio-reading.json",
+      "bytes": 10084,
+      "sha256": "343b05746caf37dddc151b92246861b11fb09270344c080e879d3f9c8531250e",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/source/docs/reference/masteryi/q-audio-reading.json"
+    },
+    {
+      "path": "tools/assets/masteryi_q_audio.py",
+      "bytes": 9938,
+      "sha256": "fc9c7fe4939f390d25b3383684a3b293659f0e290eceed6afccc93eef543a76a",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/source/tools/assets/masteryi_q_audio.py"
+    },
+    {
+      "path": "tools/assets/prepare-masteryi-q-audio.py",
+      "bytes": 1033,
+      "sha256": "1d2a47c6c9d4b14059ebe0d67f85c5b56c9c80312c4aa8456445b935b9cba806",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/source/tools/assets/prepare-masteryi-q-audio.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-q-audio.py",
+      "bytes": 6598,
+      "sha256": "2546b22e50aeeafe130181d87faef622884248c85c9193faa30d294b2807e270",
+      "archived": ".cache/masteryi-q-audio-discovery-cloud/source/tools/assets/test-masteryi-q-audio.py"
+    }
+  ],
+  "privateMasters": [
+    {
+      "path": ".cache/masteryi-audio-decoded/378075409.wav",
+      "bytes": 363240,
+      "sha256": "040bda6bdce9419190d318e8193fec0107712f69e89a4f6f7216fc4b2587e3ce"
+    },
+    {
+      "path": ".cache/masteryi-audio-decoded/642434939.wav",
+      "bytes": 396944,
+      "sha256": "db4f50537b73ff43d759166cedbb9de56f06754dbccdab016b3953d6edc265b4"
+    },
+    {
+      "path": ".cache/masteryi-audio-decoded/142077803.wav",
+      "bytes": 110284,
+      "sha256": "ab5c04fac95e8cee3dab37150b4414a9029d7dcfe3a005f3d9a37b17027f9cb7"
+    },
+    {
+      "path": ".cache/masteryi-audio-decoded/48797763.wav",
+      "bytes": 110476,
+      "sha256": "7105320936844bc488b73cde9e6e330913e63e877524362ae1d1b17b0d78533e"
+    },
+    {
+      "path": ".cache/masteryi-audio-decoded/108844688.wav",
+      "bytes": 109412,
+      "sha256": "83a70133732d583db6100ce38351c70b848bca2efbc358afdc9548e0e3f1a4e6"
+    },
+    {
+      "path": ".cache/masteryi-audio-decoded/555085050.wav",
+      "bytes": 87524,
+      "sha256": "2b056eca0544faa8eb3e0d4367e8e5bfe44581e1afa91ba5e244f6e6062ecaf6"
+    },
+    {
+      "path": ".cache/masteryi-audio-decoded/924931329.wav",
+      "bytes": 122292,
+      "sha256": "3f3599f8eb51e9ed0aaab308267302543146904d1d9f733873f986dba79968a6"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/app-identity.json",
+      "bytes": 265,
+      "sha256": "39fceb5d1e82c663c772f4c1569d957bcfa099b79b48b9f6110383687456d89a"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/check-normal.log",
+      "bytes": 116,
+      "sha256": "1c7bec18ca9383cb93813947c13139053c033dbedebbcf0516be812572304add"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/check-optimized.log",
+      "bytes": 116,
+      "sha256": "1c7bec18ca9383cb93813947c13139053c033dbedebbcf0516be812572304add"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/discovery.json",
+      "bytes": 138495,
+      "sha256": "0530ef7c25acbfb23055c7ecc88ce8dcb647f497b84d2637d9a8f7170b1d652a"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/guards-normal.log",
+      "bytes": 124,
+      "sha256": "b3a46bc3b90d8e02467187a08b131b7efc64514397b7c41b33b65353d4ce4d69"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/guards-optimized.log",
+      "bytes": 124,
+      "sha256": "d65138de32b7a225e65a392b257b400a976a0f493879c776251cd2ade514647e"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/idempotence.json",
+      "bytes": 1601,
+      "sha256": "cb1dc560c4596ed414010fe68f79eaa9f059f903499477acd95ded8177dfc0a4"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/prepare-initial.log",
+      "bytes": 116,
+      "sha256": "1c7bec18ca9383cb93813947c13139053c033dbedebbcf0516be812572304add"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/replay-0.log",
+      "bytes": 116,
+      "sha256": "1c7bec18ca9383cb93813947c13139053c033dbedebbcf0516be812572304add"
+    },
+    {
+      "path": ".cache/masteryi-q-audio-discovery-cloud/replay-1.log",
+      "bytes": 116,
+      "sha256": "1c7bec18ca9383cb93813947c13139053c033dbedebbcf0516be812572304add"
+    }
+  ],
+  "checks": {
+    "guardsNormal": 25,
+    "guardsOptimized": 25,
+    "sourceChecksNormal": true,
+    "sourceChecksOptimized": true,
+    "idempotentFiles": 8,
+    "unchangedBytesAndTimestamps": true
+  },
+  "limits": [
+    "Declared particle soundOnCreateDefault bindings only. Native Q script/particle creation callbacks remain unverified.",
+    "Critical target and audio-named dummy omit the binding; no critical or dummy sound is inferred.",
+    "Native gains, pitch ranges, finite policies, oldest/newest voice limits and attenuation remain declarations. Indexed choice, admission, dispatch and unresolved bus mixing need explicit local runtime adapters.",
+    "Private float masters retain headroom, rate, channels and samples without normalization, clipping or resampling. No new public WAVs or runtime state in this preparation.",
+    "No new build/browser/production run: application fingerprint and existing production pack were independently confirmed unchanged."
+  ]
+}

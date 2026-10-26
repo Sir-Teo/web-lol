@@ -117,3 +117,8 @@ material/variant selection, fades, looping, pause/seeking and listening/native m
 remain separate acceptance work. No public files, runtime rules or save format
 change in this checkpoint. See
 [audio-decode-verification.json](reference/masteryi/audio-decode-verification.json).
+
+The later [Q source reading](MASTER-YI-Q-AUDIO.md) retains the two explicit
+particle on-create bindings, three playback profiles, seven private float masters,
+distinct voice-limit policies and missing critical/dummy bindings. That reading
+prepares Q playback separately from the accepted attack and Highlander audio.
