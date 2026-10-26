@@ -332,7 +332,12 @@ async function boot(): Promise<void> {
       : []),
     loadGarenSpin(),
     ...(world.units.some((u) => u.champion === 'masteryi')
-      ? [view.alphaContacts.load(), view.meditateCasts.load(), view.meditateBuffs.load()]
+      ? [
+          view.alphaCasts.load(),
+          view.alphaContacts.load(),
+          view.meditateCasts.load(),
+          view.meditateBuffs.load(),
+        ]
       : []),
     ...(world.units.some((u) => u.champion === 'garen')
       ? [

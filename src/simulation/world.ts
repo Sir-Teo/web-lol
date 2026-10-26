@@ -1,3 +1,5 @@
+import { captureAlphaCast, advanceAlphaCasts } from './masteryi-q-cast';
+import { ALPHA_CAST_HISTORY_TICKS } from '../content/masteryi-q-cast-timing';
 import {
   beginWujuStyleAudio,
   stopWujuStyleAudio,
@@ -1164,6 +1166,10 @@ export class World {
       if (state.meditateCastVisuals.length)
         state.meditateCastVisuals = state.meditateCastVisuals.filter(
           (r) => this.tick < r.startTick + MEDITATE_CAST_HISTORY_TICKS
+        );
+      if (state.alphaCastVisuals.length)
+        state.alphaCastVisuals = state.alphaCastVisuals.filter(
+          (r) => this.tick < r.startTick + ALPHA_CAST_HISTORY_TICKS
         );
       if (state.alphaContactVisuals.length)
         state.alphaContactVisuals = state.alphaContactVisuals.filter(
@@ -4630,6 +4636,7 @@ export class World {
   private advanceImpactVisuals(): void {
     advanceMeditateBuffs(this);
     advanceMeditateCasts(this);
+    advanceAlphaCasts(this);
     advanceAlphaContacts(this);
     advanceSolarVisuals(this);
     advanceZenithVisuals(this);
@@ -5991,6 +5998,7 @@ export class World {
     if (target.hp <= 0) {
       advanceMeditateBuffs(this);
       advanceMeditateCasts(this);
+      advanceAlphaCasts(this);
       advanceAlphaContacts(this);
       advanceSolarVisuals(this);
       advanceZenithVisuals(this);
@@ -6471,6 +6479,7 @@ export class World {
       state.cooldowns.q = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
       beginAlphaStrike(state, u, target, this.tick);
       beginAlphaAudio(this, u, target);
+      captureAlphaCast(this, u);
       this.emit('cast', u, { unit: u.id, champion: 'masteryi', text: 'q', team: u.team });
       return;
     }

@@ -1,3 +1,5 @@
+import { validateAlphaCasts } from './masteryi-q-cast';
+import { ALPHA_CAST_HISTORY_TICKS } from '../content/masteryi-q-cast-timing';
 import { validateWujuStyleAudio } from './masteryi-wuju-style-audio';
 import { validateMeditateAudio } from './masteryi-meditate-audio';
 import { validateMeditateBuffs } from './masteryi-meditate-buff';
@@ -153,7 +155,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 153;
+export const SNAPSHOT_VERSION = 154;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -840,6 +842,30 @@ const player: z.ZodType<PlayerState> = z
             )
             .min(1)
             .max(MEDITATE_CAST_HISTORY_TICKS),
+        })
+      )
+      .max(1000),
+    alphaCastVisuals: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          rank: z.number().int().min(1).max(5),
+          origin: point,
+          audience: daybreakFrame.shape.audience,
+          detachedTick: tick.nullable(),
+          frames: z
+            .array(
+              z.strictObject({
+                tick,
+                endTick: tick,
+                x: z.number(),
+                y: z.number(),
+                facing: z.number(),
+                audience: daybreakFrame.shape.audience,
+              })
+            )
+            .min(1)
+            .max(ALPHA_CAST_HISTORY_TICKS),
         })
       )
       .max(1000),
@@ -4370,6 +4396,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     validateMeditateCasts(owner, champion, state);
     validateAlphaContacts(owner, champion, state);
     validateAlphaAudio(owner, champion, state);
+    validateAlphaCasts(owner, champion, state);
     const qCycle = champion.attackCycle;
     if (
       qCycle?.garenQReleaseTick !== undefined &&

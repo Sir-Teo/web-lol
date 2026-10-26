@@ -3,11 +3,12 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import data from '../content/masteryi-q-contact-particles.json';
 import type { World } from '../simulation/world';
 import type { Vec2 } from '../simulation/math';
-import { checkedAssetBytes, loadAuthoredMipTexture } from './authored-mip-texture';
+import { checkedAssetBytes } from './authored-mip-texture';
+import { masterYiTextures } from './masteryi-source-textures';
 import { alphaContactParticles } from './masteryi-q-contact-particles';
 import { createParticleColorProductMaterial } from './particle-color-product';
 
-const textures = new Map<string, Awaited<ReturnType<typeof loadAuthoredMipTexture>>>();
+const textures = new Map<string, THREE.Texture>();
 let geometry: THREE.BufferGeometry | undefined,
   ready = false,
   pending: Promise<void> | undefined;
@@ -22,7 +23,7 @@ export function loadAlphaContacts(): Promise<void> {
         .filter((asset) => !textures.has(asset.key))
         .map(async (asset) => {
           const lookup = data.profiles.some((p) => p.lookup === asset.key);
-          const loaded = await loadAuthoredMipTexture(asset, lookup);
+          const loaded = await masterYiTextures.load(asset, lookup);
           textures.set(asset.key, loaded);
         }),
       ...(geometry
@@ -114,8 +115,8 @@ export class AlphaContacts {
               p.kind === 'mesh' ? geometry! : billboard,
               createAlphaContactMaterial(
                 particle.profileIndex,
-                textures.get(p.texture)!.texture,
-                textures.get(p.lookup)!.texture
+                textures.get(p.texture)!,
+                textures.get(p.lookup)!
               )
             );
             mesh.name = `Alpha Strike ${p.system} ${p.index} ${p.name}`;

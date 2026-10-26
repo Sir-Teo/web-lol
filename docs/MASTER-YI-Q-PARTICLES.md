@@ -3,7 +3,10 @@
 The [frozen source pin](reference/masteryi/q-particles.json) retains every Q
 resource declared by the base skin, re-parsed directly from the patch
 16.18.8175716 Riot BINs. This stage adds source data and restore/check tools;
-gameplay, presentation, schema 147, ruleset and production pack remain unchanged.
+gameplay, presentation, schema 147, ruleset and production pack remain unchanged
+at that source checkpoint. Later [cast integration](MASTER-YI-Q-CAST.md) delivers
+the two Q_Cas emitters; [contact integration](MASTER-YI-Q-CONTACTS.md) covers
+ordinary and critical target systems.
 
 | Resource | Authored complex emitters |
 | --- | ---: |

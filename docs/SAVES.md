@@ -1,6 +1,13 @@
 # Local match checkpoints
 
-Current schema **153** adds Wuju Style audio histories. Accepted E records its
+Current schema **154** adds Alpha Strike cast particle histories. Accepted Q
+stores its rank, creation origin/audience and lossless root pose/visibility runs
+for the complete two-emitter cast system. The 15-tick finite history remains
+visible independently of Q body hiding; death freezes its root. Decoding checks
+ownership, matching accepted Q audio, canonical coverage and endpoint clocks.
+Earlier schemas/fingerprints remain incompatible. See [Q cast effects](MASTER-YI-Q-CAST.md).
+
+Schema **153** adds Wuju Style audio histories. Accepted E records its
 rank, cast point/audience and a separate actual removal with paused end clock,
 point and audience. Q/W pauses extend the live buff without changing finite
 cast/activation audio. Natural expiry admits an ending; death, victory and

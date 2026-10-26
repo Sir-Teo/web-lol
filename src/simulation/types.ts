@@ -523,6 +523,7 @@ export interface ChampionState {
   highlander: import('./masteryi-highlander').HighlanderState | null;
   highlanderAudio: import('./masteryi-highlander-audio').HighlanderAudioRecord[];
   alphaStrike: import('./masteryi-alpha-strike').AlphaStrikeState | null;
+  alphaCastVisuals: import('./masteryi-q-cast').AlphaCastVisual[];
   alphaContactVisuals: import('./masteryi-q-contact-visuals').AlphaContactVisual[];
   alphaAudio: import('./masteryi-q-audio').AlphaAudioRecord[];
   /** Finite primary attack cues; no invented Double Strike composite binding. */

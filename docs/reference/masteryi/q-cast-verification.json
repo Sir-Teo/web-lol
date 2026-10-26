@@ -1,0 +1,835 @@
+{
+  "format": 1,
+  "parentCommit": "bf38bc9c5181505fc5d97791c1c5ea3ca6146a31",
+  "identity": {
+    "schema": 154,
+    "ruleset": "e9f93ba881209805785c05e0938f7fefb710d02a240de3795df72f31407064d6",
+    "pack": {
+      "id": "6121c3abf9a82d4be2acd857f3f4a439ca9cb30138fc239a547f7236de6eba80",
+      "files": 1150,
+      "bytes": 535695709
+    }
+  },
+  "scope": "Complete two-emitter Q_Cas, exact authored mips, raw frame-rate hash and explicit local atlas seek, saved root/visibility history independent of body hiding, shared page-owned verified Yi textures and independent selective retries. Public roster remains Ashe/Lux.",
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/q-particles.json",
+      "bytes": 87880,
+      "sha256": "95531b1e61b44fc39d6458534174fe183fdf75e57cf7528a93a045e836322776"
+    },
+    {
+      "path": "docs/reference/masteryi/q-particles-decoded.json",
+      "bytes": 148372,
+      "sha256": "783317cf9c44a36b3e07fbda8d27829ec6ae674119fcb5c8fddac46a959360fd"
+    },
+    {
+      "path": "docs/reference/masteryi/q-cast-texture-transport.json",
+      "bytes": 10909,
+      "sha256": "13f6f359cdfa1f1de4664014be6483708db1794b75affcb5e6696e27c9c60c23"
+    },
+    {
+      "path": "docs/reference/garen-spin-defaults.json",
+      "bytes": 1772,
+      "sha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb"
+    },
+    {
+      "path": "tools/assets/masteryi_q_particles.py",
+      "bytes": 7165,
+      "sha256": "8373108c738d00d23c47e485b609db18464a81cf6146b608ee9d608e4e604b44"
+    },
+    {
+      "path": "tools/assets/masteryi_q_decode.py",
+      "bytes": 7372,
+      "sha256": "552f2cf9a0cb552a97332a142bbea6f25a3b0e2c2974359a58659a2c17517ecd"
+    },
+    {
+      "path": "tools/assets/masteryi_w_cast.py",
+      "bytes": 8252,
+      "sha256": "67db765dbf4c62c0cd0e5d39d99589c657d6ae826e79a9453a599e203d6d4b5e"
+    },
+    {
+      "path": "tools/assets/masteryi_w_buff.py",
+      "bytes": 6301,
+      "sha256": "30d3b7f47b7d0a3258dbf7c9394f48a35f204cf5be76fd4dc40483131b630c81"
+    },
+    {
+      "path": "tools/assets/particle_mip_atlas.py",
+      "bytes": 4181,
+      "sha256": "4ba50521c7a4c0d061bbf2f8363b7a84b4db9a4bf480e3d52ae101aec6538fd6"
+    },
+    {
+      "path": "tests/lane-rules.test.ts",
+      "bytes": 5533,
+      "sha256": "d12c8deaba4ba8933dca9a045b1eeae20b1869167f5b9e1fcf0dbfc39e8c1d4a"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-q-cast-runtime/final-source-index.json",
+    "bytes": 8702,
+    "sha256": "49bde7aac7ee10567610d09dc251f0e2888f94667405c5050f9b964cad5efc84"
+  },
+  "generated": [
+    {
+      "path": "README.md",
+      "bytes": 15276,
+      "sha256": "d96380d8ba14bf0547e8b3bda1a182dee52dee453a746dd74d08597d81a1abc1",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/README.md"
+    },
+    {
+      "path": "docs/MASTER-YI-Q-CAST.md",
+      "bytes": 2983,
+      "sha256": "936316e2faca4eb094806a24d5284059e8f20c4046ebcb86ee55e97960cb3bbc",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/docs/MASTER-YI-Q-CAST.md"
+    },
+    {
+      "path": "docs/MASTER-YI-Q-PARTICLES.md",
+      "bytes": 9533,
+      "sha256": "679933b7cf00ca6967891d34255a226e14a734139cbbb46544725cc8376d62e7",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/docs/MASTER-YI-Q-PARTICLES.md"
+    },
+    {
+      "path": "docs/SAVES.md",
+      "bytes": 59380,
+      "sha256": "5cb13e7fdf63e0b14f3140f605cf4baac6c7f418de076f49630ac7eec41fcadc",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/docs/SAVES.md"
+    },
+    {
+      "path": "docs/reference/masteryi/q-cast-particle-reading.json",
+      "bytes": 1356,
+      "sha256": "c12a93468d0d0a4ae507ea2d7fcfc3058780736d953867e915509abbaef53cc7",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/docs/reference/masteryi/q-cast-particle-reading.json"
+    },
+    {
+      "path": "docs/reference/masteryi/q-cast-texture-transport.json",
+      "bytes": 10909,
+      "sha256": "13f6f359cdfa1f1de4664014be6483708db1794b75affcb5e6696e27c9c60c23",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/docs/reference/masteryi/q-cast-texture-transport.json"
+    },
+    {
+      "path": "e2e/masteryi-q-cast.spec.ts",
+      "bytes": 11763,
+      "sha256": "bde2328829610dfa59c92d319a747804f97ccd3fe6ac2a5fe6bb7bb6145c60bc",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/e2e/masteryi-q-cast.spec.ts"
+    },
+    {
+      "path": "public/assets/effects/masteryi-q-cast-4fecd70af75bf6ca.png",
+      "bytes": 83749,
+      "sha256": "439bcb1e02f62228f37b903e6268fbf394f92fa14fab993efa6e825c2fb71467",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/public/assets/effects/masteryi-q-cast-4fecd70af75bf6ca.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-q-cast-b5d1506e0819aaa8.png",
+      "bytes": 121911,
+      "sha256": "7ae9e2d1edf213c61582f40803735c4e109e8ccf4a2c7ba416e7da08cd91f6dc",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/public/assets/effects/masteryi-q-cast-b5d1506e0819aaa8.png"
+    },
+    {
+      "path": "src/content/masteryi-q-cast-particles.json",
+      "bytes": 24297,
+      "sha256": "5e547d2a47d826dbbbab1b75400bc0baab499b49a79c09a9bbc00b41793ba3d4",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/src/content/masteryi-q-cast-particles.json"
+    },
+    {
+      "path": "src/content/masteryi-q-cast-timing.ts",
+      "bytes": 122,
+      "sha256": "7e8428c193014c4135e70caca1c5057928cb2ee6966503d56f51a1cc94a2206f",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/src/content/masteryi-q-cast-timing.ts"
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 21277,
+      "sha256": "e9d5bcf7c0a1251af62e41a5ad787c9c119c8dd9efa5220a586d0c533af62dc5",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/src/main.ts"
+    },
+    {
+      "path": "src/render/lazy-masteryi-q-casts.ts",
+      "bytes": 1369,
+      "sha256": "fc415cf46b69eb9340dff9785a2a923b07a2512d9f1dc586c7f90c99ecba7312",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/src/render/lazy-masteryi-q-casts.ts"
+    },
+    {
+      "path": "src/render/masteryi-q-cast-particles.ts",
+      "bytes": 3500,
+      "sha256": "f7db12d8246730f79770ad982a0490fe1ccb5a36e50148c280dc452f0f13df87",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/src/render/masteryi-q-cast-particles.ts"
+    },
+    {
+      "path": "src/render/masteryi-q-casts.ts",
+      "bytes": 4017,
+      "sha256": "4ed707314221b66ea09886598541c11d849b5d78bc07f75561426ed0b70f87b6",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/src/render/masteryi-q-casts.ts"
+    },
+    {
+      "path": "src/render/masteryi-q-contacts.ts",
+      "bytes": 7327,
+      "sha256": "253e32c615f0700532fe91fa536fe3ff4297575688e05dedb1ee0ebd3419704f",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/src/render/masteryi-q-contacts.ts"
+    },
+    {
+      "path": "src/render/masteryi-source-textures.ts",
+      "bytes": 298,
+      "sha256": "4a7d461284da5e55897d5be3038f6b7cbc171b4a757314ed4079ad5b441137ac",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/src/render/masteryi-source-textures.ts"
+    },
+    {
+      "path": "src/render/masteryi-w-textures.ts",
+      "bytes": 162,
+      "sha256": "0f47537ee424c7fc6564adebcee125ba744ab65cf1a5690ff6f389f6262e8880",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/src/render/masteryi-w-textures.ts"
+    },
+    {
+      "path": "src/render/view.ts",
+      "bytes": 61675,
+      "sha256": "a4a67e1b348331788f928459df1e5055290bce6cb6c9b8171d81ccd794c8d3be",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/src/render/view.ts"
+    },
+    {
+      "path": "src/simulation/champion-state.ts",
+      "bytes": 4106,
+      "sha256": "af0c27ce0a02f70562ac8c32fe86acee6e01c9145b707bb0a97ba9ba2da19041",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/src/simulation/champion-state.ts"
+    },
+    {
+      "path": "src/simulation/masteryi-q-cast.ts",
+      "bytes": 3935,
+      "sha256": "edef4e7cb390c9905b1b7739229cd9c5dfeffe565ab904ca4c5a85e1354f9eee",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/src/simulation/masteryi-q-cast.ts"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "bytes": 181110,
+      "sha256": "d8158ec78c21ccb2e91c5f63e7b435403695eac343f9978d0c31bcb95f221e58",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/src/simulation/snapshot.ts"
+    },
+    {
+      "path": "src/simulation/types.ts",
+      "bytes": 22377,
+      "sha256": "55e43438feab6ab574120cf6d86f89bb7466c4a90a72e74452ae5d3e235bde0b",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/src/simulation/types.ts"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "bytes": 293087,
+      "sha256": "cb967dea3c4f512903111f62e1325140c8efeb64e59897aee15caee06a658a46",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/src/simulation/world.ts"
+    },
+    {
+      "path": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "60d4cc7e978f29a0ee81df1343ab5997ea049f0fea524dcb998b4618b542c1ea",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/tests/lux-e-hit.test.ts"
+    },
+    {
+      "path": "tests/masteryi-mark-assists.test.ts",
+      "bytes": 10420,
+      "sha256": "0946d6d7da280465b5d1991db17c7fe930ac6ba5a8cf83989111b290d4bfcbc0",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/tests/masteryi-mark-assists.test.ts"
+    },
+    {
+      "path": "tests/masteryi-q-cast-history.test.ts",
+      "bytes": 5026,
+      "sha256": "bb5c647e0ba72ede129e22a0d3eb5b7c223693f35c77e2a99f39d66f0cb7ba3b",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/tests/masteryi-q-cast-history.test.ts"
+    },
+    {
+      "path": "tests/masteryi-q-cast-particles.test.ts",
+      "bytes": 2408,
+      "sha256": "e8ff4cc847b6f4f5623804cd484f871a86027cd9e04e65f667ddab6f0e38b009",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/tests/masteryi-q-cast-particles.test.ts"
+    },
+    {
+      "path": "tools/assets/export-masteryi-q-cast-particles.py",
+      "bytes": 4129,
+      "sha256": "0749bb7cb52afec1f88a6279330c5c86b4c055cc79eb37a606cc444cd6be9abe",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/tools/assets/export-masteryi-q-cast-particles.py"
+    },
+    {
+      "path": "tools/assets/masteryi_q_cast.py",
+      "bytes": 3029,
+      "sha256": "38be10077959114088060ea0f9f5fa0e04e99f03279833ba0a1e044cf7dc7415",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/tools/assets/masteryi_q_cast.py"
+    },
+    {
+      "path": "tools/assets/pack-masteryi-q-cast-textures.py",
+      "bytes": 5544,
+      "sha256": "9292d31f45deb21d019caf9e240bfc832c05c91b20b332aaac5f0bec63ee8073",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/tools/assets/pack-masteryi-q-cast-textures.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-q-cast.py",
+      "bytes": 3125,
+      "sha256": "3bfa4bd8ec5273c0fc33fcbec7d2eb7450b6ae22fc6f712ab32b56239d1d95fd",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/tools/assets/test-masteryi-q-cast.py"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 27485,
+      "sha256": "6b12823da1e0b30e43a514eedddbd131236f1e84e58e1e75eccc2b8b6e900acc",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/tools/qa/production-subpath.mjs"
+    },
+    {
+      "path": "tools/ruleset-fingerprint.ts",
+      "bytes": 12180,
+      "sha256": "1af0e1cb2245a1884a2e52ae89a0b4c0ed2c5b78b74b9618734676d8367859b2",
+      "archived": ".cache/masteryi-q-cast-runtime/final-source/tools/ruleset-fingerprint.ts"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-final/masteryi-q-cast-hidden-cre-caf3f--without-changing-the-world/fog-death-terminal.json",
+      "bytes": 546,
+      "sha256": "88c5614f0b429bd9ab9978d552d9d45592b564693190910f782292d45e2f9884"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-final/masteryi-q-cast-ordinary-s-faf2a-sts-only-the-failed-texture/retry.json",
+      "bytes": 512,
+      "sha256": "3efffe220a6da0019dc5645991980e2de04310da6acd4194764da9bf32219d10"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-final/masteryi-q-cast-real-Q-cas-c322a-estores-through-Save-reload/active-three-mip-readback.json",
+      "bytes": 6207,
+      "sha256": "fd3698b01b746ae3e7ec6d6dd914a03874f1a1dc39132f7d5b73bdd6dbf347d3"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-final/masteryi-q-cast-real-Q-cas-c322a-estores-through-Save-reload/alpha-cast.png",
+      "bytes": 809301,
+      "sha256": "22f70460aea76d9bc46e5c12bdfc5a71b3e919c65682077ebb3ab5b3ca63a195"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-final/masteryi-q-cast-real-Q-cas-c322a-estores-through-Save-reload/cast-save-reload.json",
+      "bytes": 42590,
+      "sha256": "b537ccb496fc5e1d990d3a34e4467d24b235ad70ff572796a55c0c3aeb47a380"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-final.log",
+      "bytes": 1375,
+      "sha256": "1b0159635cf4061e29f47b51855e73d489710f5575d033706684a2fb63655d9e"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-gpu-fragment.txt",
+      "bytes": 2439,
+      "sha256": "d2a6807bf18edb9aae3c2f92571840e4bb4ca8c090c91076d6df44bf7f206dd8"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-meditate-buff-ord-5aeb9-es-only-the-failed-resource/buff-resource-retry.json",
+      "bytes": 512,
+      "sha256": "bfb80edca67079ec16b6c06276fa013b3820a2ddda2cf5ab1a828b2d97f2671e"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-meditate-buff-rea-33941-ores-exact-source-particles/buff-135-false.png",
+      "bytes": 815736,
+      "sha256": "df56feee2902ef861584a9a0bbb4c080e5178a0fa3c7503fb46775443b9e10e3"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-meditate-buff-rea-33941-ores-exact-source-particles/buff-save-reload.json",
+      "bytes": 301489,
+      "sha256": "1db24c161c096ed1ec49efd5723a00c3c53ad61b25059e53b1c2483033c3c915"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-meditate-buff-rea-ce128-ores-exact-source-particles/buff-9-true.png",
+      "bytes": 824053,
+      "sha256": "389afc33688ed058ecdda9c587521aaa28cc7bfd4acb380c0426ceefddef58af"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-meditate-buff-rea-ce128-ores-exact-source-particles/buff-save-reload.json",
+      "bytes": 32814,
+      "sha256": "e018f68d73dfb34a10bd2d80dce96bdf22780dd82593e466e3726e8d643203d6"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-meditate-buff-rea-d175b-ores-exact-source-particles/active-three-mip-readback.json",
+      "bytes": 9506,
+      "sha256": "c86b532f5b5d80585d6af5d5f3eb7eafb45802d14f7c68bc5a7a723f5881e4cf"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-meditate-buff-rea-d175b-ores-exact-source-particles/buff-9-false.png",
+      "bytes": 825942,
+      "sha256": "b0dfdc38c6d380e9a67daaf02373cdcc06735776d5c9ce7cd3b9bc2de2cf0eae"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-meditate-buff-rea-d175b-ores-exact-source-particles/buff-save-reload.json",
+      "bytes": 43763,
+      "sha256": "39e1e3192b9755dcdce28005bf5a3ecf0bf1cb3004e4354ef80e5ac17e199e3f"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-meditate-buff-rea-d175b-ores-exact-source-particles/shared-cast-buff-textures.json",
+      "bytes": 200,
+      "sha256": "2664f0ff188165feb9a8775c2707679a0e0a4deb3162759990b8b8b21b629d3e"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-meditate-buff-uns-4252b-without-simulation-mutation/creation-death-terminal.json",
+      "bytes": 103,
+      "sha256": "f6338c9a4c0abc23d4d5028223a255926d4fd6cfc53c850a22ebeae8d4369719"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-meditate-cast-ord-f73c1-uad-UV-selects-exact-pixels/secondary-uv-and-retry.json",
+      "bytes": 1290,
+      "sha256": "6a654c47e8748e907c6be447f65878d9e554198065ab61f3174a7e53aba5dc92"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-meditate-cast-rea-3ca6d-ven-source-emitter-families/active-cast.png",
+      "bytes": 825945,
+      "sha256": "b5d93f356013febd9f42f48627aff6b6ac95b4c315437c2cbd2fdf58f4c196de"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-meditate-cast-rea-3ca6d-ven-source-emitter-families/active-three-mip-readback.json",
+      "bytes": 15359,
+      "sha256": "b70ba416fcbca5a8033cc292611e6d56b3214dd92c3848206646c63a5f512df3"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-meditate-cast-rea-3ca6d-ven-source-emitter-families/cast-save-reload.json",
+      "bytes": 106505,
+      "sha256": "849ef029fc945289f6cc7195f2d8173fc0d98e72c09098de1c907f6fc97b5773"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-meditate-cast-rea-b0cf3-ven-source-emitter-families/cancelled-cast.png",
+      "bytes": 824053,
+      "sha256": "389afc33688ed058ecdda9c587521aaa28cc7bfd4acb380c0426ceefddef58af"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-meditate-cast-rea-b0cf3-ven-source-emitter-families/cast-save-reload.json",
+      "bytes": 109471,
+      "sha256": "a2f8dc30116ae0208619af4dd7df0f1e67ab439f5b9f0d48e5112bacb98086d3"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-meditate-cast-uns-d46cb-without-simulation-mutation/creation-death-terminal.json",
+      "bytes": 105,
+      "sha256": "844113db47cd79217c62fa1124bcb6a8cf79c3ba8f7fe76e1bc52d8deb6fc5d0"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-q-cast-ordinary-s-faf2a-sts-only-the-failed-texture/retry.json",
+      "bytes": 512,
+      "sha256": "3efffe220a6da0019dc5645991980e2de04310da6acd4194764da9bf32219d10"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-q-cast-real-Q-cas-c322a-estores-through-Save-reload/active-three-mip-readback.json",
+      "bytes": 6207,
+      "sha256": "fd3698b01b746ae3e7ec6d6dd914a03874f1a1dc39132f7d5b73bdd6dbf347d3"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-q-cast-real-Q-cas-c322a-estores-through-Save-reload/alpha-cast.png",
+      "bytes": 809301,
+      "sha256": "22f70460aea76d9bc46e5c12bdfc5a71b3e919c65682077ebb3ab5b3ca63a195"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-q-cast-real-Q-cas-c322a-estores-through-Save-reload/cast-save-reload.json",
+      "bytes": 42440,
+      "sha256": "9143c250ef28896c7d404507e0181988d3afa30a5906de8b1f08662351b37fec"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-q-contacts-ordina-15f40-a-failed-texture-explicitly/late-load-explicit-retry.json",
+      "bytes": 964,
+      "sha256": "3db799346a6258152eff20a93c3308ded9299a88ddff4e84c2ef17255592d6d7"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-q-contacts-real-c-2e79d-rticles-through-Save-reload/contact-save-reload.json",
+      "bytes": 31429,
+      "sha256": "7fc505612e73b3cc3015d09164f1d3d013787c6f2eef1691b42d1d310dc549e1"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-q-contacts-real-c-2e79d-rticles-through-Save-reload/critical-contact.png",
+      "bytes": 792103,
+      "sha256": "e3109f12e61a3ea418aededdc0bb2fc3f672feadd4d41dc4feeffb044d05fef1"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/contact-save-reload.json",
+      "bytes": 35956,
+      "sha256": "5f6ed5e5a42b18914702e38a2da7da85f892431b65a25443baf5b5f419d77e43"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/ordinary-contact.png",
+      "bytes": 801761,
+      "sha256": "c16472d5d94b7fe52a7a3059e153f9c6ac08ac16d8f25163e0ed29c34cfa8f90"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/three-authored-mip-readback.json",
+      "bytes": 10563,
+      "sha256": "9b97f1644009edc39fc69b3a985007f0d4920bc9dae8c0302baec8fc2be1dcdb"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/browser-initial.log",
+      "bytes": 5219,
+      "sha256": "ec66461cc8aa9fd54762d2fc04b078aaae5b838d99f5759b48f066aad76e3a0e"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/build.log",
+      "bytes": 6577,
+      "sha256": "e92b0c7102a76e87f8fa1b20ca77bfecf673028bb208860ee0e0526214a4930b"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/check-phase.json",
+      "bytes": 351,
+      "sha256": "6f1838061e90c54a39f9c3c7c0c9c988b7da25407fce609e458d50a0fe8c4323"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/check-replay.py",
+      "bytes": 1021,
+      "sha256": "476a6cb511214969ea0c7d0e6ef5c815a936a9a22ca3f6db0860e84f6077ba70"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/export-check-normal.log",
+      "bytes": 63,
+      "sha256": "9e2488c0494d1ec3c632f4150dd9706e0fc77b3c99a3473878f90a48d7eff1ba"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/export-check-optimized.log",
+      "bytes": 63,
+      "sha256": "9e2488c0494d1ec3c632f4150dd9706e0fc77b3c99a3473878f90a48d7eff1ba"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/export-replay-normal.log",
+      "bytes": 63,
+      "sha256": "9e2488c0494d1ec3c632f4150dd9706e0fc77b3c99a3473878f90a48d7eff1ba"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/export-replay-optimized.log",
+      "bytes": 63,
+      "sha256": "9e2488c0494d1ec3c632f4150dd9706e0fc77b3c99a3473878f90a48d7eff1ba"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/export.log",
+      "bytes": 63,
+      "sha256": "9e2488c0494d1ec3c632f4150dd9706e0fc77b3c99a3473878f90a48d7eff1ba"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/final-source-index.json",
+      "bytes": 8702,
+      "sha256": "49bde7aac7ee10567610d09dc251f0e2888f94667405c5050f9b964cad5efc84"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/finish-checks.py",
+      "bytes": 1068,
+      "sha256": "efb2c12a335cda1fd4561e4e64c31648603d9dbbb0df9c228e888fa3da09aa41"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/focused-initial.log",
+      "bytes": 382,
+      "sha256": "543758557f092830f7fae252d632e75401394c70348bc6abf78196974c22a5d0"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/full-unit-initial.log",
+      "bytes": 6369,
+      "sha256": "7dcffe2bce39a9d83df9e9631c67994ccad4d35cf1c4d2d816a4c9b558179cd3"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/full-unit.log",
+      "bytes": 5486,
+      "sha256": "91f978b6d89297d106e5c03b56e18d9ed45b5df2c9156aa13ebc42aca89d2317"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/identity.json",
+      "bytes": 238,
+      "sha256": "a475035f71f2070c3b929025a535e61fc8f8b8c2c8d7cfa8755c34bc198a1ee4"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/identity.log",
+      "bytes": 204,
+      "sha256": "cfc62a05258d5220093871dd4dd7e0828ee87887fbeaa4b3e6718fba58b750bc"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/identity.mjs",
+      "bytes": 546,
+      "sha256": "bf1ddd815e26e91ecb7dea47b08a95f7b6868b83b89e430c6056254d36a2b095"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/node-qa.log",
+      "bytes": 370,
+      "sha256": "c0328d2b69997e2310489ab9e751547a1203d76f083d0bcf042a0e74e461beb7"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/offline-pack.json",
+      "bytes": 164795,
+      "sha256": "0e9341424b788cffdc1c1ab0051036dc36dc880a16bd7f496d0cc8f6d9c9eaac"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/pack-normal.log",
+      "bytes": 100,
+      "sha256": "85c93adf67fca20defab36d9ed9331b75f4f3dd3f8e263704c9c5dbeaa93812f"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/pack-optimized.log",
+      "bytes": 101,
+      "sha256": "90905506c0d3388b7a6822b01e6318ebb2aeaad92accfaa27eef2ed27841d0da"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1814009,
+      "sha256": "8db0525089e0457a509f9620fe112cb2b775af9d731f98d2d14f714cac78135c"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835811,
+      "sha256": "a3d0f0f53d5fbdbd08adda3eae9c41d93f457f672d9471b22f50b416fd6d4d40"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829761,
+      "sha256": "d2c266dfbe074d987d9096e8cfae71a51d19125b66957ba2bac255f9a9deec14"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1811536,
+      "sha256": "5157bf515de286bf9d4cbcb24133501cf5c70b6409478ef9c206e25d3ec27f4f"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1819834,
+      "sha256": "83acf73d50f0efce122c24ea0b2d3c77777b1f162ed8cc55a96f3acfe7b879a4"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1351499,
+      "sha256": "f49faa9cc8ebe1301c24d345b70b36d02fd84d1b3cc678add9447c0569af486f"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1826158,
+      "sha256": "ae47fa42457433a648c77cdcbc5198d453478171ffdccf83f85240a3ad5ed2b4"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808779,
+      "sha256": "d8be965fc0074e3b7d4cc73896f7664fe70c1da63fb70ec8aa290513a31f57bb"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/production-final.json",
+      "bytes": 2818,
+      "sha256": "71f696fab9c5ed9003d8c5d02fe86b264ed66394b9051e24adaa34547193f184"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/production-system.mjs",
+      "bytes": 27527,
+      "sha256": "78d4900dfdb8e5fe60567aa8cbd1ada484c4583895b93147d32daa323b8203f8"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/production.log",
+      "bytes": 2511,
+      "sha256": "ce7e1fd9192b4fa363f7a3b3a353acf39c55d4d67561eaf31a48f3b082e662aa"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/recheck-unit.py",
+      "bytes": 701,
+      "sha256": "784faee2a449dd11420700fd22e8c6ebf7416eb61c082fca11e63eee2bdc196d"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/record-verification.py",
+      "bytes": 6217,
+      "sha256": "618e031fca9125d4a83e65764135505687c265d82a61c603f2299458b64f31e6"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/replay-summary.log",
+      "bytes": 2,
+      "sha256": "10159baf262b43a92d95db59dae1f72c645127301661e0a3ce4e38b295a97c58"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/replay.json",
+      "bytes": 1713,
+      "sha256": "dc8eb80e9935afa217870327418650edd18624e1150d6028ee409f7ee801fe43"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/source-guards-normal.log",
+      "bytes": 113,
+      "sha256": "d12ba0f8fa4b1e059a2a2682c7dffab77beabb1362070fa386ec3e5242def95c"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/source-guards-optimized.log",
+      "bytes": 113,
+      "sha256": "20a8b26ddc14b9de1b7c007da526eb4a2e26fac38139424431aed5ee1a91fadf"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/source-scope.json",
+      "bytes": 1336,
+      "sha256": "962420d5ba79a9e327ae8c6d953c6d4b04d2034e4a1d7ef81a8da50134460b2b"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/state-format.log",
+      "bytes": 395,
+      "sha256": "69bc46f00ca45ee86aabbb76dc58d730e3d187785cf07030c972e13e94bfc22e"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/types-browser.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/types-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/types-render.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/types-state.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/types-tests.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-q-cast-runtime/unit-recheck.json",
+      "bytes": 189,
+      "sha256": "7476f5b6be6f4866c13d29cd239510613d2b2d971712833ab2baa549a631b071"
+    }
+  ],
+  "checks": {
+    "fullUnit": {
+      "passed": 2776,
+      "failed": 3,
+      "total": 2779,
+      "files": 370,
+      "originalFiveSecondWaveClock": "passed"
+    },
+    "focused": {
+      "passed": 150,
+      "files": 7
+    },
+    "sourceGuards": {
+      "casesPerPythonMode": 14,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "exportCheckAndReplay": {
+      "filesUnchangedBytesAndMtimes": 7,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "textures": {
+      "count": 4,
+      "newPublicPngs": 2,
+      "sharedLookupUrls": 2,
+      "authoredMips": 35,
+      "packedBytes": 209087,
+      "gpuMipPixelHashes": "all exact"
+    },
+    "build": "TypeScript and production build passed; existing build diagnostics retained.",
+    "nodeQA": {
+      "passed": 3
+    },
+    "browser": {
+      "acceptedUniqueCases": 15,
+      "initialPassed": 14,
+      "finalPassed": 3,
+      "retries": 0,
+      "environment": "system Chromium154 / SwiftShader",
+      "coverage": [
+        "real Q input and cast particles while body hidden",
+        "all 35 actual Three GPU mip pixels exact",
+        "exact Save/reload particle transforms, uniforms and future simulation",
+        "Q cast/contact lookup textures share actual Three texture objects",
+        "zero ordinary cast preload and explicit one-file failure retry",
+        "hidden creation stays hidden; death root freezes; terminal presentation drains without world mutation",
+        "all nine original Meditate cast/buff source, GPU mip, retry, fog/death/victory and save checks",
+        "all three original Q contact source, GPU mip, retry and save checks"
+      ]
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 13,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderAudioPreloads": 0,
+      "unrequestedMasterYiAlphaAudioPreloads": 0,
+      "unrequestedMasterYiMeditateAudioPreloads": 0,
+      "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+      "unrequestedMasterYiQCastPreloads": 0,
+      "unrequestedMasterYiQContactPreloads": 0,
+      "unrequestedMasterYiMeditateCastPreloads": 0,
+      "unrequestedMasterYiMeditateBuffPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 221,
+      "scheduledBlueRequests": 13,
+      "scheduledRedRequests": 13,
+      "scheduledWolfRequests": 26,
+      "scheduledRaptorRequests": 26,
+      "scheduledKrugRequests": 39,
+      "scheduledScuttlerRequests": 13,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    }
+  },
+  "retainedDiagnostics": [
+    "Initial full run found the marker-only corrupt-save fixture still carrying new independently validated cast particles. The fixture now clears both finite cast histories; its original assist-contribution rejection assertion is unchanged. A complete unit rerun validates the correction."
+  ],
+  "baselineFailures": [
+    "Original Leona attached-skin reflection check.py absent.",
+    "Original distortion metallib, bitcode and disassembly compiler artifacts unavailable.",
+    "Lux first fifteen sampler actual 4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a versus pinned 09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df; previously reproduced on untouched baseline."
+  ],
+  "limits": [
+    "Raw frame-rate field exactly matches a name candidate; atlas seek, first-update grid, cosmetic randomness, root attachment, source-X reflection and shader defaults are explicit local adapters, not native execution certificates.",
+    "Source linger does not extend finite visible life. Existing Q audio owns on-create sound, without duplicate renderer dispatch.",
+    "Q_End, distortion, missile and AP systems remain separate work.",
+    "Canonical software decoding and exact authored GPU upload do not certify native compressed texture decoding or physical-device/FPS parity.",
+    "Focused browser checks are not a whole-suite, service-worker or offline-install certificate.",
+    "Ignored evidence needs preservation; exact changed sources are separately archived."
+  ]
+}
