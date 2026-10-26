@@ -267,7 +267,9 @@ test('sword instances preserve reference GPU pixels while reducing actual draw c
       expect(row.calls[0]).toBe(row.logical);
     } else {
       if (row.angle === -2) expect(row.activeBatches).toBe(0);
-      expect(row.calls[0] - row.calls[1]).toBe(row.activeBatches ? row.logical - 1 : 0);
+      expect(row.calls[0] - row.calls[1]).toBe(
+        row.activeBatches ? row.logical - row.activeBatches : 0
+      );
     }
   }
   const families = result.filter((row) => 'profile' in row);

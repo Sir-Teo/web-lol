@@ -1,0 +1,539 @@
+{
+  "format": 1,
+  "parentCommit": "35ad4ce329246b8b51d5404ecb85b498000337fb",
+  "identity": {
+    "schema": 161,
+    "rulesetFingerprint": "485b0e7837573369f75975a088c0ec686a3ccc5e7e8198b03b6178e7890964ba",
+    "offlinePack": {
+      "id": "cf582b96451b8655ed63cc99aba1fe9f63d25b09a29463a413ab2c0197335caa",
+      "files": 1188,
+      "bytes": 537208146
+    }
+  },
+  "scope": "Split the existing default transparent depth/id-ordered sword sequence at known strict transparent depth gaps. Preserve CPU float32 instance data, current sampler selections and source order; retain individual draws for depth ties, sprites and object-owned or unknown bounds. No simulation, particle sampling, assets or schema change.",
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/passive-trail-runtime-verification.json",
+      "bytes": 42328,
+      "sha256": "cfb2f79d76729b9ee6c8dbe8725d03e95a4ffc0fb9951fe8de66f1e8070c46e3"
+    },
+    {
+      "path": "docs/reference/masteryi/sword-instancing-verification.json",
+      "bytes": 45969,
+      "sha256": "86ff1124d3a42d8e2c026a8b01b66e6812510622c66f6535b442029b157c1618"
+    },
+    {
+      "path": "src/render/masteryi-sword-glows.ts",
+      "bytes": 7259,
+      "sha256": "2e2e586e9f044c85bd22fb51e94d366ae37c46073cca28ef195e48199ebf949e"
+    },
+    {
+      "path": "src/render/masteryi-passive-trails.ts",
+      "bytes": 7196,
+      "sha256": "6f682ea255b8397551a8fc1c023d9f85f4b189999ced36e0181de89940bb36b9"
+    },
+    {
+      "path": "src/render/masteryi-sword-particles.ts",
+      "bytes": 3877,
+      "sha256": "116907f4051c11753a2f2f8ca03246e666d6bd05f2fdd073d445ed958969c217"
+    },
+    {
+      "path": "src/render/particle-color-phase.ts",
+      "bytes": 3350,
+      "sha256": "ed731cc4b51af364b706da819271c7adc444807fbebe0f4a9af21575767ca847"
+    },
+    {
+      "path": "src/render/leona-eclipse-surface-material.ts",
+      "bytes": 9476,
+      "sha256": "d2c49d481baa708a10eeb7f1af2a0d6b99c529d1c8017bf72475a8e3d3e72a86"
+    },
+    {
+      "path": "src/render/source-particle-surfaces.ts",
+      "bytes": 20350,
+      "sha256": "350c3dd411941f039a61d4b08d3b691ae2cfe1f20e43e4eaf38b45dbc4e80590"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "bytes": 187114,
+      "sha256": "cca7c8902f74f03ad0dfab32211b546f4e217e742f05ffdfdd580e166221108f"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-sword-segmented-order/final-source-index.json",
+    "bytes": 1611,
+    "sha256": "d53da78350f7df6599956f5699da464762acbe2a516fde0119aa7f8a87324b73"
+  },
+  "generated": [
+    {
+      "path": "docs/MASTER-YI-SWORD-GLOWS.md",
+      "bytes": 3692,
+      "sha256": "20092c029b5efa98e012b98e064cc12e3fa3a2e8c6114d0193a2360a5652103c",
+      "archived": ".cache/masteryi-sword-segmented-order/final-source/docs/MASTER-YI-SWORD-GLOWS.md"
+    },
+    {
+      "path": "docs/MASTER-YI-SWORD-INSTANCING.md",
+      "bytes": 3793,
+      "sha256": "d786f28e33f74479ec1941c1e6032ab0f99e6e68a793edcc9db6b92f48de3e5d",
+      "archived": ".cache/masteryi-sword-segmented-order/final-source/docs/MASTER-YI-SWORD-INSTANCING.md"
+    },
+    {
+      "path": "e2e/masteryi-passive-sword-order.spec.ts",
+      "bytes": 5435,
+      "sha256": "2591aa8f476ee691aa75e128370325fe225128fabeb0e776c2379164b570528e",
+      "archived": ".cache/masteryi-sword-segmented-order/final-source/e2e/masteryi-passive-sword-order.spec.ts"
+    },
+    {
+      "path": "e2e/masteryi-sword-instancing.spec.ts",
+      "bytes": 11237,
+      "sha256": "aba583901b2569eb1e393c6365f192d3c5dad18166a845977d9e2c0ca3f5bcd7",
+      "archived": ".cache/masteryi-sword-segmented-order/final-source/e2e/masteryi-sword-instancing.spec.ts"
+    },
+    {
+      "path": "src/render/masteryi-sword-instances.ts",
+      "bytes": 12952,
+      "sha256": "af52e161e3fb26863242b21ac1c3dbcc3bdae48e8ef3ff53d5b4469a3be5a5f5",
+      "archived": ".cache/masteryi-sword-segmented-order/final-source/src/render/masteryi-sword-instances.ts"
+    },
+    {
+      "path": "tests/masteryi-sword-segments.test.ts",
+      "bytes": 7059,
+      "sha256": "774fe101850efcdb1ce5a1ca6ece13589ed979e85c56b52604d25b25dce1f536",
+      "archived": ".cache/masteryi-sword-segmented-order/final-source/tests/masteryi-sword-segments.test.ts"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-sword-segmented-order/MEASURED-NEXT.md",
+      "bytes": 1021,
+      "sha256": "c11096059e6972985094cd06c11c30b78b742ec818484e875c373e3d5181f485"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/baseline-source/masteryi-sword-instances.ts",
+      "bytes": 12126,
+      "sha256": "90d9bc910e25125f95b0bc1b14ca7f8a1de7f49d8a8c85f919a2d5ec32389071"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/before-passive-order.json",
+      "bytes": 557,
+      "sha256": "e2bf7775a0b9e26594d61bc5ed02b50df85bea7e251f2e4a8fdddbbf9f1fa2f4"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/browser-initial/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/browser-initial/masteryi-passive-sword-ord-c4050-pixels-across-camera-angles/passive-sword-gpu-order.json",
+      "bytes": 555,
+      "sha256": "0d4d283fa602ea23efcf463788591989df194b281ddbc744466682d2151f2423"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/browser-initial/masteryi-sword-instancing--e809a--reducing-actual-draw-calls/instance-pixel-comparison.json",
+      "bytes": 12315,
+      "sha256": "109257cf4e66f108574ca8340e83a0756596739a0ec6ca89d96a1985be1edf80"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/browser-initial.log",
+      "bytes": 957,
+      "sha256": "26a127543730e5c88336fd79783181e1a05bdfda3e42cdf07a63ca0caa44e8d5"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/build.log",
+      "bytes": 6869,
+      "sha256": "8344dbd850135eec803f28b13594ee0cdadbcf51c757868ae724c1c0c91ac23c"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/capture-identity.py",
+      "bytes": 924,
+      "sha256": "7348e95f6a7254c0b0565a0b75040850a6aac008e5d25e54e2668fa8cf85ddc8"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/check-phase.json",
+      "bytes": 225,
+      "sha256": "9a1d2dd6d486dd3976d7fa50e9a560e84a2edf3715d2c65377744ca12dab4927"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/final-source-index.json",
+      "bytes": 1611,
+      "sha256": "d53da78350f7df6599956f5699da464762acbe2a516fde0119aa7f8a87324b73"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/finish-checks.py",
+      "bytes": 1110,
+      "sha256": "63533a47341d270ca53a048a5a5c3251580b31dac8964ff5a23e234bd1e667fe"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/format-browser.log",
+      "bytes": 102,
+      "sha256": "fdb3ea6b1c6c5037af721ff17de602bb13c70149db9f87b9e99fb97df4b24a58"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/format-initial.log",
+      "bytes": 88,
+      "sha256": "6f4fd08957580b454c52727c9888605e86014a88cdd85766bf99aa077e395147"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/identity.json",
+      "bytes": 256,
+      "sha256": "24c94ea2c815957eee3ba628958e74e5935d4f24eab098d34a13a057998ed5bd"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/masteryi-sword-instances.prototype.ts",
+      "bytes": 12932,
+      "sha256": "475cfa95c80d9c4213c6b074f4fc90c22fea50116ccd9f26307dfc8176d64b7b"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/masteryi-sword-segments.prototype.test.ts",
+      "bytes": 6847,
+      "sha256": "44c63801a0e720baebaab02df81eb93e5361bcd8ff2dd96519c312d043ec377c"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/node-qa.log",
+      "bytes": 370,
+      "sha256": "b9c055a4086af091c2a265e5f63e0d61486a2a1dfe30393415b3d314c5468d27"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/offline-pack.json",
+      "bytes": 170398,
+      "sha256": "870f83b8952f723b20bb7bb6fa54253b9b32c971caa879e19440d72fa6384a5e"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/passive-draw-summary.json",
+      "bytes": 556,
+      "sha256": "62b81889af556258f60b4262b0de0eaedd42de1a46d02d53aa890ebee9bdefd9"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/pipeline.log",
+      "bytes": 113,
+      "sha256": "fa47b73ab4c3ad7824b6cf15c81f322f01ed6b4bd776c0e70af0b914e53b0daf"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/pixel-summary.json",
+      "bytes": 1502,
+      "sha256": "1cb446029dca199c1c6e7ec2feb0440fef1f304e4546ee9d05bc7398ce345121"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1809358,
+      "sha256": "0b957b650a472958231bdbaf5c8930a0cf2f468d0ab24e93ecd38315fd4729c7"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835852,
+      "sha256": "d4b548e528c8dbfc07550874387fd0e780393e75bc4c640ad093947f21daccb8"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829656,
+      "sha256": "e4d5bc540f88246c4aff7e93bb7a0337473f40b33da533a70dc18d310429790f"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1811671,
+      "sha256": "64d37d6a5ff7246462834942652fea64ecc543026394ca5085aa8d60ba19a6df"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1819974,
+      "sha256": "6c8e0736af4be6fbf7b265b781d2ebd0b78842077317236a82b10cabfefec4cf"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1351535,
+      "sha256": "f06eafceeff874e29f41a0159aae2df1aec769a0cecfc8634f3da602961843f9"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1823767,
+      "sha256": "e565ed6cc013f20b0969cc5b81da7bbcb15b057a33591c70646bf9f012ba49f4"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808635,
+      "sha256": "f42ec32cbf79d357c1e1299880639ecc46c76a4ec98bdeeb8934e7c0b7ee3471"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/production-system.mjs",
+      "bytes": 30122,
+      "sha256": "0ee4c94b520b678b8e95dafcf1eaa0aa1bc8c24d28a0b6a5236b8331763bd483"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/production.log",
+      "bytes": 2810,
+      "sha256": "b54638d9494ad225955005f32755e1283f387f9bec4a40c4a4003f84a378ed5e"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/record-verification.py",
+      "bytes": 5863,
+      "sha256": "3b2a53cedadb78651672dfe82777d59e62b8b419d847bf7ed81f5887f3f845c9"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/ruleset.txt",
+      "bytes": 65,
+      "sha256": "4283bc26df2ad1bdb9a1a199847d988801dbe07a82f7e85ef6177d95fec7e544"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/source-scope.json",
+      "bytes": 254,
+      "sha256": "b95400864632ba248f2d5f29a728118253bb51b7e9e9c6f9a468571fcf6646b0"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/stage-and-commit.py",
+      "bytes": 1288,
+      "sha256": "67276ead6a4f8807a76a345e50720a1439ef035a2ee470d4d249627379c4803c"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/types-initial.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-sword-segmented-order/unit-initial.log",
+      "bytes": 181,
+      "sha256": "6a60536aeaa0eea0b66c2f749ee46e16e9984f5033f40998934a182c25dccfbc"
+    }
+  ],
+  "checks": {
+    "focused": {
+      "passed": 15,
+      "files": 2,
+      "newSegmentCases": 7,
+      "existingInstanceCases": 8
+    },
+    "gpuComparison": {
+      "comparisons": 73,
+      "exact": 73,
+      "retainedComparisons": 70,
+      "familiesWithNonblackPixels": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "combinedPassive": {
+        "rows": [
+          {
+            "angle": 0,
+            "differences": 0,
+            "nonblack": 110592,
+            "calls": [
+              233,
+              31
+            ],
+            "activeBatches": 3
+          },
+          {
+            "angle": 0.8,
+            "differences": 0,
+            "nonblack": 110592,
+            "calls": [
+              233,
+              30
+            ],
+            "activeBatches": 2
+          },
+          {
+            "angle": 1.6,
+            "differences": 0,
+            "nonblack": 110592,
+            "calls": [
+              233,
+              29
+            ],
+            "activeBatches": 1
+          }
+        ],
+        "passiveProfiles": [
+          0,
+          1
+        ],
+        "swordSurfaces": 205
+      },
+      "beforeCombinedPassive": {
+        "rows": [
+          {
+            "angle": 0,
+            "differences": 0,
+            "nonblack": 110592,
+            "calls": [
+              233,
+              233
+            ],
+            "activeBatches": 0
+          },
+          {
+            "angle": 0.8,
+            "differences": 0,
+            "nonblack": 110592,
+            "calls": [
+              233,
+              233
+            ],
+            "activeBatches": 0
+          },
+          {
+            "angle": 1.6,
+            "differences": 0,
+            "nonblack": 110592,
+            "calls": [
+              233,
+              29
+            ],
+            "activeBatches": 1
+          }
+        ],
+        "passiveProfiles": [
+          0,
+          1
+        ],
+        "swordSurfaces": 205
+      }
+    },
+    "browser": {
+      "passed": 2,
+      "environment": "system Chromium154 / SwiftShader",
+      "exactTargetComparisons": 73,
+      "retainedSwordComparisons": 70,
+      "familiesWithNonblackPixels": 11,
+      "actualPassiveCombinedAngles": 3,
+      "depthTieFallback": "retained; all original draws",
+      "combinedPassiveDraws": {
+        "reference": [
+          233,
+          233,
+          233
+        ],
+        "priorInstances": [
+          233,
+          233,
+          29
+        ],
+        "segmentedInstances": [
+          31,
+          30,
+          29
+        ],
+        "swordSegments": [
+          3,
+          2,
+          1
+        ]
+      }
+    },
+    "priorFullUnit": {
+      "commit": "35ad4ce",
+      "passed": 3013,
+      "failed": 3,
+      "total": 3016,
+      "files": 385,
+      "originalFiveSecondWaveClock": "passed at preceding checkpoint",
+      "scope": "Not rerun for this renderer-only change; current focused CPU/GPU, build and production checks are recorded separately."
+    },
+    "build": "passed; includes TypeScript",
+    "nodeQA": {
+      "passed": 3
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 13,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderAudioPreloads": 0,
+      "unrequestedMasterYiAlphaAudioPreloads": 0,
+      "unrequestedMasterYiMeditateAudioPreloads": 0,
+      "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+      "unrequestedMasterYiSwordPreloads": 0,
+      "unrequestedMasterYiPrimaryTrailPreloads": 0,
+      "unrequestedMasterYiPassiveTrailPreloads": 0,
+      "unrequestedMasterYiMeditateDamagePreloads": 0,
+      "unrequestedMasterYiHighlanderKillPreloads": 0,
+      "unrequestedMasterYiHighlanderCastPreloads": 0,
+      "unrequestedMasterYiQEndPreloads": 0,
+      "unrequestedMasterYiQCastPreloads": 0,
+      "unrequestedMasterYiQContactPreloads": 0,
+      "unrequestedMasterYiMeditateCastPreloads": 0,
+      "unrequestedMasterYiMeditateBuffPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 221,
+      "scheduledBlueRequests": 13,
+      "scheduledRedRequests": 13,
+      "scheduledWolfRequests": 26,
+      "scheduledRaptorRequests": 26,
+      "scheduledKrugRequests": 39,
+      "scheduledScuttlerRequests": 13,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    }
+  },
+  "baselineFailures": [
+    "Original Leona attached-skin reflection check.py absent.",
+    "Original distortion metallib, bitcode and disassembly compiler artifacts unavailable.",
+    "Lux first fifteen sampler actual 4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a versus pinned 09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df; previously reproduced on untouched baseline."
+  ],
+  "limits": [
+    "Exact comparisons use the retained local source renderer, not native client frames. Native placement, scale, shader and timing calibration limits remain in the source presentation readings.",
+    "Known strict depth gaps can use multiple ordered instance segments. Exact depth ties and ambiguous sprite/object-owned bounds retain conservative individual rendering. Draw counts depend on actual scene composition and camera.",
+    "The current default Three0.186 transparent sort and supported additive source state are explicit assumptions. Changed view matrices require preparation.",
+    "Per-segment capacity grows geometrically and unused segments remain hidden with zero instances for reuse; no universal memory or draw budget is claimed. Borrowed verified textures and logical source resources remain owned by their existing caches.",
+    "No new full-unit run is claimed. The preceding commit provides the3013-pass baseline; this change affects only renderer grouping and its tests/docs.",
+    "Chromium/SwiftShader draw counts and byte equality do not establish physical-device FPS, native GPU parity or offline-install certification.",
+    "Ignored evidence requires preservation; exact changed source files and the preceding renderer are independently archived."
+  ]
+}

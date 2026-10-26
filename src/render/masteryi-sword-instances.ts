@@ -16,7 +16,7 @@ const fields = {
 } as const;
 
 /** Batches the additive, unprojected sword quads in Three's default transparent
- * depth/id order. Interleaving draws use the original surfaces. The caller must
+ * depth/id order. Known interleaving draws split ordered contiguous instance segments; ambiguous draws retain original surfaces. The caller must
  * prepare after changing particles or camera and before rendering that camera.
  * Logical surfaces keep their source uniforms/poses; textures remain borrowed. */
 export class SwordParticleInstances {
@@ -54,11 +54,12 @@ export class SwordParticleInstances {
       batch.mesh.visible = false;
       batch.mesh.geometry.instanceCount = 0;
     }
-    // A single draw must not jump across another transparent draw. Retain
-    // the original surfaces whenever their depth interval is interleaved.
+    // Preserve source order by splitting at known transparent draw depths.
+    // Ambiguous bounds or exact depth ties retain the original surfaces.
     const own = new Set<THREE.Object3D>(ordered);
     for (const batch of this.batches.values()) own.add(batch.mesh);
     let interleaved = false;
+    const cuts = new Set<number>();
     if (ordered.length) {
       const depths = ordered.map((surface) => {
         const c = surface.geometry.boundingSphere!.center;
@@ -98,24 +99,47 @@ export class SwordParticleInstances {
           .set(c.x, c.y, c.z, 1)
           .applyMatrix4(object.matrixWorld)
           .applyMatrix4(projection).z;
-        if (z >= near && z <= far) interleaved = true;
+        if (z >= near && z <= far) {
+          // Equality would require reproducing source object IDs on the new draw.
+          // Keep the original surfaces for that ambiguous boundary.
+          let low = 0,
+            high = depths.length;
+          while (low < high) {
+            const middle = (low + high) >>> 1;
+            if (depths[middle] > z) low = middle + 1;
+            else high = middle;
+          }
+          if (depths[low] === z) interleaved = true;
+          else cuts.add(low);
+        }
       });
     }
     if (interleaved) {
       for (const surface of ordered) surface.visible = true;
       return;
     }
+    if (cuts.size) {
+      groups.clear();
+      let start = 0,
+        index = 0;
+      for (const end of [...cuts].sort((a, b) => a - b)) {
+        groups.set(index++, ordered.slice(start, end));
+        start = end;
+      }
+      groups.set(index, ordered.slice(start));
+    }
+    const textures = [
+      ...new Set(
+        ordered.flatMap((surface) =>
+          ['sourceTexture', 'particleColorTexture', 'multiplierTexture']
+            .map((name) => surface.material.uniforms[name]?.value as THREE.Texture | undefined)
+            .filter((t): t is THREE.Texture => !!t)
+        )
+      ),
+    ];
     for (const [index, group] of groups) {
       let batch = this.batches.get(index);
-      const textures = [
-        ...new Set(
-          group.flatMap((surface) =>
-            ['sourceTexture', 'particleColorTexture', 'multiplierTexture']
-              .map((name) => surface.material.uniforms[name]?.value as THREE.Texture | undefined)
-              .filter((t): t is THREE.Texture => !!t)
-          )
-        ),
-      ];
+
       if (
         !batch ||
         batch.capacity < group.length ||

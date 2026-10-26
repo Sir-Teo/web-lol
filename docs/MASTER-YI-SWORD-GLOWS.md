@@ -13,8 +13,9 @@ verified resources, preserve successful loads through selective explicit retry,
 and do not load during ordinary Ashe/Lux startup. No audio is added.
 
 An [ordered instance batch](MASTER-YI-SWORD-INSTANCING.md) reduces eligible sword
-particles to one draw while preserving the source surfaces for inspection. An
-interleaved transparent draw retains individual rendering for that frame.
+particles to one draw while preserving the source surfaces for inspection. Known
+transparent interleavers split contiguous ordered segments; ambiguous bounds or
+exact depth ties retain individual rendering for that frame.
 
 All referenced emitters author full bind and local orientation. The surface
 adapter uses current posed joint position and full quaternion, including local

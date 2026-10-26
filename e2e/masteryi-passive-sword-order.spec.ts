@@ -113,6 +113,9 @@ test('actual passive trails preserve full-scene sword reference pixels across ca
   expect(result.swordSurfaces).toBeGreaterThan(0);
   for (const row of result.rows) {
     expect(row.differences).toBe(0);
+    expect(row.activeBatches).toBeGreaterThan(0);
+    expect(row.calls[1]).toBeLessThan(row.calls[0]);
+    expect(row.calls[0] - row.calls[1]).toBe(result.swordSurfaces - row.activeBatches);
     expect(row.nonblack).toBeGreaterThan(0);
   }
   writeFileSync(info.outputPath('passive-sword-gpu-order.json'), JSON.stringify(result, null, 2));

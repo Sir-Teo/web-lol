@@ -3,7 +3,7 @@
 The private sword renderer can draw its live E/R particles in a single instanced
 quad draw. The logical source surfaces keep their original poses, uniforms and
 texture objects for inspection and reference rendering. The sampled particles,
-visibility histories, buff clocks and schema 159 payload are unchanged. The
+visibility histories, buff clocks and current schema 161 payload are unchanged. The
 renderer dependency changes the ruleset fingerprint as usual.
 
 Particles retain Three 0.186's default transparent depth/id order across all
@@ -17,16 +17,21 @@ families use the same additive raster state.
 Grouping by source family was rejected: it reduced 205 steady-state draws to
 seven, but two of 15 isolated comparisons changed one channel byte by one due
 to blend ordering. The ordered texture-selection batch preserves that ordering.
-If another transparent draw at the same render order falls within the sword
-particles' depth interval, the renderer retains the original individual draws
-for that frame. Sprites and transparent draws with object-owned bounds use the
-same conservative fallback. The next eligible frame resumes batching.
+Known transparent draws at the same render order split the sword sequence into
+contiguous depth segments. Each segment preserves the original source order and
+keeps the complete current sampler set, source shader operations and exact CPU
+float32 values. Multiple
+interleavers in one gap share one boundary. Exact depth ties retain the original
+individual draws because a new draw cannot reproduce the source object IDs.
+Sprites and transparent draws with object-owned or unknown bounds keep that
+conservative fallback. The next eligible frame resumes batching.
 
 Preparation runs after all effects, selections and aiming visuals update, before
 depth/color rendering. A changed render camera requires preparation; an explicit
 guard prevents using stale view matrices. The batch's sorting position matches
-the farthest source particle. Capacity grows geometrically, shrinks through
-instance count, and hides on an empty frame. Batch disposal releases its own
+the farthest source particle in its segment. Capacity grows geometrically, shrinks through
+instance count, and hides on an empty frame. Removed interleavers merge segments;
+unused segment draws are hidden with zero instances. Batch disposal releases its own
 geometry/material while preserving source geometry, materials and verified
 page-owned textures.
 
@@ -40,5 +45,14 @@ The forced interleaver retains 222 draws in both versions. These are measured
 samples, not universal scene budgets. Headless Chromium/SwiftShader results do not
 establish physical-device frame rates or native-client frame parity.
 
-See [sword presentation](MASTER-YI-SWORD-GLOWS.md) and the accompanying
-[verification](reference/masteryi/sword-instancing-verification.json).
+The additional [segmented-order verification](reference/masteryi/sword-segmented-order-verification.json)
+retains all 70 comparisons and adds three real combined E/R plus Double Strike
+scenes. Both actual passive trail meshes remain present. With 205 logical sword
+surfaces, reference rendering uses 233 full-scene draws at each sampled angle.
+The segmented renderer uses 31, 30 and 29 draws with three, two and one sword
+segments respectively, matching every target byte. The preceding renderer used
+233, 233 and 29 in those same scenes. These counts do not certify device FPS.
+
+See [sword presentation](MASTER-YI-SWORD-GLOWS.md), the
+[original verification](reference/masteryi/sword-instancing-verification.json)
+and [Double Strike trails](MASTER-YI-PASSIVE-TRAILS.md).
