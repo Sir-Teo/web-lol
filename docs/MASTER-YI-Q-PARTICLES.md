@@ -117,3 +117,42 @@ Highlander checkpoint; visual playback still needs its own acceptance work.
 
 Decoder/profile identities, all 200 asset hashes and validation evidence:
 [decode verification ledger](reference/masteryi/q-particle-decode-verification.json).
+
+## Contact texture transport
+
+The ordinary and critical target systems select seven textures, containing 59
+authored mip levels. The private [transport record](reference/masteryi/q-contact-texture-transport.json)
+packages those levels into seven lossless PNG containers totaling 193,214 bytes.
+Each rectangle retains its original dimensions and RGBA checksum. Transparent
+unused space is checked separately. This is a delivery format: each rectangle
+must be extracted into a separate texture level, including level zero. Sampling
+the packed image as an ordinary texture would be incorrect.
+
+The packer uses only the standard library and replays the frozen native/decode
+closure before packaging. It preserves RGB beneath zero alpha, adds no generated
+mips or resized pixels, and preflights every output before creating missing
+files. The first private staging directory remains retained; the final guarded
+producer uses `.cache/masteryi-q-contact-packed-v2`.
+
+```sh
+python tools/assets/pack-masteryi-q-contact-textures.py
+python tools/assets/pack-masteryi-q-contact-textures.py --check
+python -O tools/assets/pack-masteryi-q-contact-textures.py --check
+python tools/assets/test-particle-mip-atlas.py
+python -O tools/assets/test-particle-mip-atlas.py
+PARTICLE_MIP_CHROMIUM=/usr/bin/chromium node tools/qa/particle-mip-upload.mjs
+```
+
+Fourteen tests pass in each Python mode, covering rectangular and non-power-of-two
+chains, a single authored level, invisible RGB, dimensions, missing/reordered
+mips, layout corruption, padding, extra rows and PNG integrity. The actual seven
+textures pass independent source checks. Chromium 154.0.8037.57 with SwiftShader
+also extracts, uploads and reads back all 59 levels with exact canonical RGBA
+hashes. The browser test serves only its verified inputs on loopback and uses
+`createImageBitmap` with color conversion and premultiplication disabled. This
+establishes the tested browser upload path; it does not establish native Riot GPU
+decoding, native particle behavior, physical-device performance or frame parity.
+No runtime or public assets changed in this checkpoint.
+
+Source, transport and browser evidence:
+[transport verification ledger](reference/masteryi/q-contact-texture-transport-verification.json).

@@ -1,0 +1,118 @@
+{
+  "format": 1,
+  "sourceCommit": "b99e276",
+  "record": {
+    "path": ".cache/masteryi-q-contact-packed-v2/textures.json",
+    "bytes": 18046,
+    "sha256": "2851d25d5639cab3476a0161862fb96ba4296f6a6f4af82ede6beb1aebfcd687"
+  },
+  "generated": [
+    {
+      "path": "tools/assets/particle_mip_atlas.py",
+      "bytes": 4181,
+      "sha256": "4ba50521c7a4c0d061bbf2f8363b7a84b4db9a4bf480e3d52ae101aec6538fd6"
+    },
+    {
+      "path": "tools/assets/pack-masteryi-q-contact-textures.py",
+      "bytes": 5719,
+      "sha256": "e047496c69dca07d9f0da6b455832fba7798370e073757a761bb02352552d52b"
+    },
+    {
+      "path": "tools/assets/test-particle-mip-atlas.py",
+      "bytes": 5439,
+      "sha256": "3eaf73c3f0c06b1c14ccf9e2285ac17b0c08aa74140b27e90616e31606dce492"
+    },
+    {
+      "path": "tools/qa/particle-mip-upload.mjs",
+      "bytes": 6062,
+      "sha256": "ddfbd1bea1394b21796d3ecec8fdaab59ef27f74f94a81567fcbb3860b0905b6"
+    },
+    {
+      "path": "docs/reference/masteryi/q-contact-texture-transport.json",
+      "bytes": 18046,
+      "sha256": "2851d25d5639cab3476a0161862fb96ba4296f6a6f4af82ede6beb1aebfcd687"
+    }
+  ],
+  "assets": [
+    {
+      "path": ".cache/masteryi-q-contact-packed-v2/433b18542280cbff.png",
+      "bytes": 2725,
+      "sha256": "0ab6dc56e50c09542bc5e59ae56875be2fcdac4fa01c023fd19138ff01136054"
+    },
+    {
+      "path": ".cache/masteryi-q-contact-packed-v2/48a39dc90b87ae45.png",
+      "bytes": 655,
+      "sha256": "96bcb47a5d968d00cfe9c59eef702da8e226a9ed58c1fbc13da547fde53744d9"
+    },
+    {
+      "path": ".cache/masteryi-q-contact-packed-v2/dba30aea46f8d87f.png",
+      "bytes": 702,
+      "sha256": "30df4a0ee4cd6cc8d680584586e77e764328930403fae425708a9e845c0edcc8"
+    },
+    {
+      "path": ".cache/masteryi-q-contact-packed-v2/e8148d5a7ddf3fbf.png",
+      "bytes": 13735,
+      "sha256": "e0ee1c20791998f0de1557feec8caa4dced785a46eccf4cd3ec199a531e5d1c9"
+    },
+    {
+      "path": ".cache/masteryi-q-contact-packed-v2/271a48230fb860e5.png",
+      "bytes": 13488,
+      "sha256": "9a7f552bed2d78a583a2ad9b712b2834b7dbd341e3ba306ec88869969c5b9749"
+    },
+    {
+      "path": ".cache/masteryi-q-contact-packed-v2/b885bf2594e01a38.png",
+      "bytes": 134100,
+      "sha256": "1bb320d9db1f0fd45ad4e84f1289f6a254d986513968f2fb28469a50d1e69766"
+    },
+    {
+      "path": ".cache/masteryi-q-contact-packed-v2/69151717fd1ca98f.png",
+      "bytes": 27809,
+      "sha256": "c3d88cee759210b77b5bbcd80858292458fa98fe6003d206073734267e7656bd"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-q-particles-cloud/mip-atlas-tests.log",
+      "bytes": 113,
+      "sha256": "ff3b1438544d9aa2c552401f0123d54eac06b91b0295f3773671c14161e22544"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/mip-atlas-optimized-v2.log",
+      "bytes": 113,
+      "sha256": "ff3b1438544d9aa2c552401f0123d54eac06b91b0295f3773671c14161e22544"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/mip-atlas-pack-v2.log",
+      "bytes": 100,
+      "sha256": "e6b6dd37dea08dd0fc3f89fba0869c35ea2d2288eb6ca60a8c48e28cbe80b3e1"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/mip-atlas-optimized-v2-check.log",
+      "bytes": 101,
+      "sha256": "5a28b455f5f7c78835fe83b2c0851f4dc31d65ebc4765086ec772e5da6068c31"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/mip-upload-v2.json",
+      "bytes": 12773,
+      "sha256": "db1f49a244ff3fb8f5116daa16308f03a73c0a8d57b50b05aab9fb1d3cec24cd"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/mip-upload-v2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/mip-atlas-app-identity.json",
+      "bytes": 248,
+      "sha256": "d1a8fa5f07b4e84cfea666cd0b488567f930d6d514b43c9719498f67b8692f26"
+    }
+  ],
+  "tests": {
+    "normal": 14,
+    "optimized": 14,
+    "webglPixelExactMipReadbacks": 59,
+    "browser": "154.0.8037.57",
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+  },
+  "scope": "Private lossless delivery containers only. No runtime or public asset change; no native rendering/device/fps certificate."
+}
