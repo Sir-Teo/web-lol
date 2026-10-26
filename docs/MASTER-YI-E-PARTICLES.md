@@ -47,3 +47,7 @@ conflicts are rejected before archive access. Correct files retain their bytes
 and timestamps. See [verification](reference/masteryi/e-particle-source-verification.json).
 Native branch/weapon binding, source-to-shader mapping, lifecycle and physical
 frame parity require separate work.
+
+The subsequent [private decode](MASTER-YI-E-DECODE.md) retains all nine textures
+and 78 authored mip levels, with independent software pixel replay and no
+runtime/public-asset dispatch.

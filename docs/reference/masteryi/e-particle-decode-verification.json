@@ -1,0 +1,251 @@
+{
+  "format": 1,
+  "parentCommit": "e57d99f26134a0b93816a13c7a585410bec1dc80",
+  "identityUnchanged": {
+    "schema": 158,
+    "ruleset": "5520fbbf600522f9d7d0c0a4ccacf3e08726a540b0d34368229cd524c6a1bf58",
+    "pack": {
+      "id": "a31f3ecfaa8db3bef178c8e6635a0f7ea37e55e04493d9d2034d9c0f24893b0d",
+      "files": 1169,
+      "bytes": 536420615
+    }
+  },
+  "scope": "Complete private E decode: nine textures and 78 authored BC1-with-alpha/BC3 mips; independent stdlib source-block/pixel/PNG replay; exact common texture reuse; explicit zero-mesh profile preserving the shared decoder default. No runtime/public asset/schema/ruleset/pack change.",
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/e-particles.json",
+      "bytes": 98427,
+      "sha256": "5137067c8206b7db14075d29816e08bd5281c25f8ec959f8e1b13ee5c305d9d2"
+    },
+    {
+      "path": "docs/reference/masteryi/e-particle-source-verification.json",
+      "bytes": 12447,
+      "sha256": "8959b672dc8b6076ee402f7363a84f5a3b5327f92fde311516364c45609f309b"
+    },
+    {
+      "path": "docs/reference/masteryi/q-particles-decoded.json",
+      "bytes": 148372,
+      "sha256": "783317cf9c44a36b3e07fbda8d27829ec6ae674119fcb5c8fddac46a959360fd"
+    },
+    {
+      "path": "docs/reference/masteryi/w-particles-decoded.json",
+      "bytes": 116153,
+      "sha256": "883a15ed890b9e00aff316de67e58f5e99a123ff0f72337b98b7fc06e2866503"
+    },
+    {
+      "path": "docs/reference/masteryi/r-particles-decoded.json",
+      "bytes": 135932,
+      "sha256": "c55d3b2b5aa5c6b3263e91b99e36097d7b200ce3e49d8e5ea62d290bc174258f"
+    },
+    {
+      "path": "tools/assets/masteryi_e_particles.py",
+      "bytes": 3580,
+      "sha256": "0b560d67da2c708f4c3596a64016cdbca431fd7ba9a598121f8f04bc3960d8c1"
+    },
+    {
+      "path": "tools/assets/masteryi_q_particles.py",
+      "bytes": 7165,
+      "sha256": "8373108c738d00d23c47e485b609db18464a81cf6146b608ee9d608e4e604b44"
+    },
+    {
+      "path": "tools/assets/masteryi_q_decode.py",
+      "bytes": 7372,
+      "sha256": "552f2cf9a0cb552a97332a142bbea6f25a3b0e2c2974359a58659a2c17517ecd"
+    },
+    {
+      "path": "tools/assets/decode-masteryi-q-particles.py",
+      "bytes": 10590,
+      "sha256": "9f114c141799f6dc84a6f3884b17b50f6a2a0dc21a2e626a20cbfaf9c9de6964"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-e-decode-cloud/final-source-index.json",
+    "bytes": 1317,
+    "sha256": "aada4219e4cb21d493bf26b53bdeab251badb53800046f222e62c784a9d5945a"
+  },
+  "generated": [
+    {
+      "path": "docs/MASTER-YI-E-DECODE.md",
+      "bytes": 2125,
+      "sha256": "20f264f5e40c1113bf4de07123aaed8ff1aa857a55b0fda7c9f57454cf89ec4d",
+      "archived": ".cache/masteryi-e-decode-cloud/final-source/docs/MASTER-YI-E-DECODE.md"
+    },
+    {
+      "path": "docs/MASTER-YI-E-PARTICLES.md",
+      "bytes": 2937,
+      "sha256": "087fe614180141db5532ce8d8bb1ca1bfd90f497a997da566f69acbe6ca7f88a",
+      "archived": ".cache/masteryi-e-decode-cloud/final-source/docs/MASTER-YI-E-PARTICLES.md"
+    },
+    {
+      "path": "docs/reference/masteryi/e-particles-decoded.json",
+      "bytes": 59543,
+      "sha256": "9d7abf9623979dca4c09581d0adc6433a43b3ad8f2fd15a690fc647ef9c74d68",
+      "archived": ".cache/masteryi-e-decode-cloud/final-source/docs/reference/masteryi/e-particles-decoded.json"
+    },
+    {
+      "path": "tools/assets/decode-masteryi-e-particles.py",
+      "bytes": 2866,
+      "sha256": "5834bf12f7bc116db1d79884f595ac3ce71a8deb9d94a3a6b83306ca334c3cfe",
+      "archived": ".cache/masteryi-e-decode-cloud/final-source/tools/assets/decode-masteryi-e-particles.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-e-decode.py",
+      "bytes": 4310,
+      "sha256": "f83caaab24f778353e624d6cb768af8f16245b83ad02dde45caa55c3808d0c6d",
+      "archived": ".cache/masteryi-e-decode-cloud/final-source/tools/assets/test-masteryi-e-decode.py"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-e-decode-cloud/check-normal.log",
+      "bytes": 103,
+      "sha256": "072accd27a0484214641eea0430a90d6d4e57aae65e541af5d9cc5a826c6632d"
+    },
+    {
+      "path": ".cache/masteryi-e-decode-cloud/check-optimized.log",
+      "bytes": 103,
+      "sha256": "072accd27a0484214641eea0430a90d6d4e57aae65e541af5d9cc5a826c6632d"
+    },
+    {
+      "path": ".cache/masteryi-e-decode-cloud/check-replay.py",
+      "bytes": 1095,
+      "sha256": "4b48227957b58b9b1111723ddeace6b6b221ee7957250e5ba8e93a1674c3a256"
+    },
+    {
+      "path": ".cache/masteryi-e-decode-cloud/decode-masteryi-e-particles.py",
+      "bytes": 2848,
+      "sha256": "b3ee65d36109aef461fc619b8f10f9f389a8696e8eae66d6bb3b4a5ed6af909e"
+    },
+    {
+      "path": ".cache/masteryi-e-decode-cloud/decode-replay-normal.log",
+      "bytes": 104,
+      "sha256": "6c12ff2119c5e3043a57410aa5ff40b21921c901c6fd2a3097c5b9f396c9011c"
+    },
+    {
+      "path": ".cache/masteryi-e-decode-cloud/decode-replay-optimized.log",
+      "bytes": 104,
+      "sha256": "6c12ff2119c5e3043a57410aa5ff40b21921c901c6fd2a3097c5b9f396c9011c"
+    },
+    {
+      "path": ".cache/masteryi-e-decode-cloud/final-source-index.json",
+      "bytes": 1317,
+      "sha256": "aada4219e4cb21d493bf26b53bdeab251badb53800046f222e62c784a9d5945a"
+    },
+    {
+      "path": ".cache/masteryi-e-decode-cloud/generate-reviewed.py",
+      "bytes": 1237,
+      "sha256": "e3f4ec6b8806a801873a2f0bbe6b6d501fdfe853260fe9c945d29fb92df566a5"
+    },
+    {
+      "path": ".cache/masteryi-e-decode-cloud/generate.log",
+      "bytes": 209,
+      "sha256": "1aaa63273689d3f226b2eeeb2e56f0bd42ca66690a1142b57260f8e4aae35dc4"
+    },
+    {
+      "path": ".cache/masteryi-e-decode-cloud/generation.json",
+      "bytes": 208,
+      "sha256": "7416cb6f36f2bcdc89ed0d3c1071dd637318d1559a896bc5fba7515909f0039a"
+    },
+    {
+      "path": ".cache/masteryi-e-decode-cloud/guards-normal.log",
+      "bytes": 112,
+      "sha256": "ef1951b088a8bcd7ec0a30c8c6dbaf324303496c875eff7f1e09b2aa0de9498f"
+    },
+    {
+      "path": ".cache/masteryi-e-decode-cloud/guards-optimized.log",
+      "bytes": 112,
+      "sha256": "2790de5f0256bb04fbac097e74327824743739d837d5565871fda0d050859b7f"
+    },
+    {
+      "path": ".cache/masteryi-e-decode-cloud/guards-preview-normal.log",
+      "bytes": 112,
+      "sha256": "40e40025248d6c5ec51234c64ae8ff53293a0fb73c87e9da428ee47a79619aea"
+    },
+    {
+      "path": ".cache/masteryi-e-decode-cloud/identity-after.json",
+      "bytes": 238,
+      "sha256": "6a4cf5e204fe760e46acbd0a0bf509afad1ad42bb69a9f6bd954c5063d1d72ae"
+    },
+    {
+      "path": ".cache/masteryi-e-decode-cloud/identity-before.json",
+      "bytes": 238,
+      "sha256": "6a4cf5e204fe760e46acbd0a0bf509afad1ad42bb69a9f6bd954c5063d1d72ae"
+    },
+    {
+      "path": ".cache/masteryi-e-decode-cloud/pack-masteryi-e-textures.py",
+      "bytes": 5910,
+      "sha256": "5ce8dc7bd5e15fb5115aba22fe16f347a4e86fe87140bd05aac2521f1de42b7f"
+    },
+    {
+      "path": ".cache/masteryi-e-decode-cloud/record-verification.py",
+      "bytes": 3671,
+      "sha256": "84fdfe40e314120033f509acdcc90a29affa446f1c985d33f8bf7e9b03e409bc"
+    },
+    {
+      "path": ".cache/masteryi-e-decode-cloud/replay-count.log",
+      "bytes": 3,
+      "sha256": "5ced0deaf966775a8b592f6bd95a33a67053b242a7c13654896cd9f2d36a0e37"
+    },
+    {
+      "path": ".cache/masteryi-e-decode-cloud/replay.json",
+      "bytes": 19258,
+      "sha256": "e988dd7db367d952f6874457bd50b8e69d50bc30f199d858b338c907cebff758"
+    },
+    {
+      "path": ".cache/masteryi-e-decode-cloud/ruleset-after.txt",
+      "bytes": 65,
+      "sha256": "ee323bfcd5cc3267ba47845804d6fd27cb74090bbaa8fdfd7577c31c82ca6635"
+    },
+    {
+      "path": ".cache/masteryi-e-decode-cloud/source-scope.json",
+      "bytes": 217,
+      "sha256": "65367ef0356f0f9d971b30e6c4fb62780e88589c121016758a3297ce1ad298a0"
+    },
+    {
+      "path": ".cache/masteryi-e-decode-cloud/test-masteryi-e-decode.py",
+      "bytes": 4327,
+      "sha256": "32fb60e110e7dccef089fad8cfe4d1c5fd5e0800867f26f083ef04ee1c805f7d"
+    }
+  ],
+  "checks": {
+    "sourceGuards": {
+      "casesPerMode": 13,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "checkAndDecodeReplay": {
+      "filesUnchangedBytesAndMtimes": 79,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "textures": {
+      "count": 9,
+      "authoredMips": 78,
+      "pngBytes": 507657,
+      "rgbaBytes": 7362212,
+      "formats": {
+        "BC1WithAlpha": 6,
+        "BC3": 3
+      },
+      "commonTextureIdenticalToQWR": true
+    },
+    "meshes": 0,
+    "independentCheckerImportsPillowOrCDTB": false,
+    "allSourceBlockAndPixelHashesExact": true,
+    "publicAssetsChanged": false,
+    "runtimeChanged": false,
+    "simulationSchemaChanged": false,
+    "rulesetChanged": false,
+    "productionPackChanged": false
+  },
+  "limits": [
+    "Canonical software decoding does not certify native GPU compressed-texture rounding, physical-device or native frame parity.",
+    "Resource branch selection, attachment transforms, source-to-shader controls and lifecycle callbacks remain separate runtime work.",
+    "Source closure has zero SCB meshes; no geometry or normals are invented.",
+    "Ignored native/decoded evidence needs preservation; changed sources are independently archived."
+  ]
+}
