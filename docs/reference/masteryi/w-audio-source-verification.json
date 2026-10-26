@@ -1,0 +1,254 @@
+{
+  "format": 1,
+  "parentCommit": "73011a7922035711b8a6dee305e6dd489f757531",
+  "identityUnchanged": {
+    "schema": 151,
+    "ruleset": "2226d9e65d9051ccc9513dca219939632de0ad4afa78aef351ecf032cd2e2c14",
+    "pack": {
+      "id": "db1c523fc5cc56d52bbada5984d0df8ebb78f14857a05a49eb764dbcb9301c39",
+      "files": 1137,
+      "bytes": 533088328
+    }
+  },
+  "scope": "Source-only Meditate audio projection: exact spell Stop binding, cast/ending cues, two unbound bank loop layers and foley, native play/stop transitions, six verified private float masters, finite recording bounds and preserved particle on-create omissions.",
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/character.json",
+      "bytes": 104698,
+      "sha256": "3f100c1148e1006766060822298c87aed02e86e359c385fbc2c248e4255d12fa"
+    },
+    {
+      "path": "docs/reference/masteryi/character.bin",
+      "bytes": 27930,
+      "sha256": "a4e05e2f6eee68116478fd56893ee320ac4955645d45e887860c88e67e4547f1"
+    },
+    {
+      "path": "docs/reference/masteryi/audio-graph.json",
+      "bytes": 1598681,
+      "sha256": "b7879c088d3544626d70c9ecaf4abfd0aebae007db5a6ee841c0caed7a2b33e3"
+    },
+    {
+      "path": "docs/reference/masteryi/audio-decoded.json",
+      "bytes": 87738,
+      "sha256": "28ac362788bb76709a226e76d282eb25a1805a474b9bc7348cedd59bbee33a32"
+    },
+    {
+      "path": "docs/reference/masteryi/w-particles.json",
+      "bytes": 101955,
+      "sha256": "f2b3e3cc1759b39b8a08d75a15a43649fecaa5a60c16392eff6893935e9a6517"
+    },
+    {
+      "path": "tools/assets/masteryi_q_audio.py",
+      "bytes": 9938,
+      "sha256": "fc9c7fe4939f390d25b3383684a3b293659f0e290eceed6afccc93eef543a76a"
+    },
+    {
+      "path": "tools/assets/masteryi_audio_decode.py",
+      "bytes": 8199,
+      "sha256": "1daac83459300db4b01688688cf6d454ad7d3c1d20a5dd420a00850447470e20"
+    }
+  ],
+  "privateMasters": [
+    {
+      "path": ".cache/masteryi-audio-decoded/637673445.wav",
+      "bytes": 441644,
+      "sha256": "4fe29a56a697d4e40342e7bcda7aea6d6e148e3a3e4e1f57c1e5bcff0f06dcf3"
+    },
+    {
+      "path": ".cache/masteryi-audio-decoded/584858889.wav",
+      "bytes": 454256,
+      "sha256": "f8235368bf886192e3e8a5a87b62405cd65361480c247e9edf1c8001448c135c"
+    },
+    {
+      "path": ".cache/masteryi-audio-decoded/610915723.wav",
+      "bytes": 463100,
+      "sha256": "6c55003fad1cd2dbbf0eb25a738684031d11c529993284cff7166c9748f35ab6"
+    },
+    {
+      "path": ".cache/masteryi-audio-decoded/795081856.wav",
+      "bytes": 437228,
+      "sha256": "dff073865b97e6599bafe32a7070a55e261c20aa70572c9978e03b29ca709667"
+    },
+    {
+      "path": ".cache/masteryi-audio-decoded/501197314.wav",
+      "bytes": 454072,
+      "sha256": "72291527b402c547b50395a030230cf5b95446ea7226f02bacbbd24aa3f56667"
+    },
+    {
+      "path": ".cache/masteryi-audio-decoded/136213286.wav",
+      "bytes": 123352,
+      "sha256": "33c2bec0c099ebf035a18d2809aeaf1b80df046b89fd377229ec792cb07228c9"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-w-audio-source-cloud/final-source-index.json",
+    "bytes": 1790,
+    "sha256": "6f92b0eea1c915957f15f869e1ee3141c308fb22d34c8965fd560a8862f4ac1d"
+  },
+  "generated": [
+    {
+      "path": "README.md",
+      "bytes": 14656,
+      "sha256": "faf0c3f8f96a3298e28759a50f070552083cbc61e5bc605c278708e505a9f00a",
+      "archived": ".cache/masteryi-w-audio-source-cloud/final-source/README.md"
+    },
+    {
+      "path": "docs/MASTER-YI-AUDIO.md",
+      "bytes": 7757,
+      "sha256": "292b553f1a6597ccc89c158e527e6a84a836262f6e1b88b88c0cf6f58b787444",
+      "archived": ".cache/masteryi-w-audio-source-cloud/final-source/docs/MASTER-YI-AUDIO.md"
+    },
+    {
+      "path": "docs/MASTER-YI-W-AUDIO.md",
+      "bytes": 4575,
+      "sha256": "51c395d41c219beb0b04a61c625a0c0f381c4163cad06d82d210a05ec43ff7f5",
+      "archived": ".cache/masteryi-w-audio-source-cloud/final-source/docs/MASTER-YI-W-AUDIO.md"
+    },
+    {
+      "path": "docs/reference/masteryi/w-audio-reading.json",
+      "bytes": 11200,
+      "sha256": "3c49d4a653422133b7a23f4a250dd5c5d7c7b3a366683f91d4c611c4c830c7bc",
+      "archived": ".cache/masteryi-w-audio-source-cloud/final-source/docs/reference/masteryi/w-audio-reading.json"
+    },
+    {
+      "path": "tools/assets/masteryi_w_audio.py",
+      "bytes": 9401,
+      "sha256": "5965e28289892362ce5e482636842556ebb818c265593dea6f45019fb29f71db",
+      "archived": ".cache/masteryi-w-audio-source-cloud/final-source/tools/assets/masteryi_w_audio.py"
+    },
+    {
+      "path": "tools/assets/prepare-masteryi-w-audio.py",
+      "bytes": 1057,
+      "sha256": "b0581b4e4b83a1c7257901e427f3fbeb15f524caca58da6ed23a3f70920f2c74",
+      "archived": ".cache/masteryi-w-audio-source-cloud/final-source/tools/assets/prepare-masteryi-w-audio.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-w-audio.py",
+      "bytes": 6134,
+      "sha256": "adf8dd83829f536af1b52dc27dfb95abc912305135e78062f067498099ddfa54",
+      "archived": ".cache/masteryi-w-audio-source-cloud/final-source/tools/assets/test-masteryi-w-audio.py"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-w-audio-source-cloud/final-source-index.json",
+      "bytes": 1790,
+      "sha256": "6f92b0eea1c915957f15f869e1ee3141c308fb22d34c8965fd560a8862f4ac1d"
+    },
+    {
+      "path": ".cache/masteryi-w-audio-source-cloud/guards-final-normal.log",
+      "bytes": 130,
+      "sha256": "907ec227a9ad6a1a180f52d223c29cf06d47a9061250ffe4dc5721d8f86588cd"
+    },
+    {
+      "path": ".cache/masteryi-w-audio-source-cloud/guards-final-optimized.log",
+      "bytes": 130,
+      "sha256": "a08708ea761ab083f016077e46108f13c3bfa6bbfd8e159355aba60cbb2020c8"
+    },
+    {
+      "path": ".cache/masteryi-w-audio-source-cloud/guards-normal.log",
+      "bytes": 129,
+      "sha256": "c932e724a6333a4bf1eaf780481e8e5d13b1b46e946ce354dd925cf596a1294a"
+    },
+    {
+      "path": ".cache/masteryi-w-audio-source-cloud/guards-optimized.log",
+      "bytes": 129,
+      "sha256": "bf93b751a75b20fc2906b6920eea67024b2f2e573177859ed062db1678b2b351"
+    },
+    {
+      "path": ".cache/masteryi-w-audio-source-cloud/identity.json",
+      "bytes": 238,
+      "sha256": "edb8137cd9dea4aeb31ba71fae188c46b5b7fc8b25eae3ff904b7a82d053b5f2"
+    },
+    {
+      "path": ".cache/masteryi-w-audio-source-cloud/identity.log",
+      "bytes": 204,
+      "sha256": "58d174fa282d83246bd6423300f647f2c56407169e296b71cc5abd5bf1f80025"
+    },
+    {
+      "path": ".cache/masteryi-w-audio-source-cloud/identity.mjs",
+      "bytes": 552,
+      "sha256": "9a374c34f53dc156c09c445158580606a7c5672023a3f132748f72cadef3ffd5"
+    },
+    {
+      "path": ".cache/masteryi-w-audio-source-cloud/prepare-normal.log",
+      "bytes": 134,
+      "sha256": "c4fa222f5327c961c8a3a115dd667e5d0248c3f2f155eaacd2487691beb62cd8"
+    },
+    {
+      "path": ".cache/masteryi-w-audio-source-cloud/prepare-optimized.log",
+      "bytes": 134,
+      "sha256": "c4fa222f5327c961c8a3a115dd667e5d0248c3f2f155eaacd2487691beb62cd8"
+    },
+    {
+      "path": ".cache/masteryi-w-audio-source-cloud/record-verification.py",
+      "bytes": 3580,
+      "sha256": "625b04a707e48554be6addcb8afedf4140c127c3766fd6adf419d8169c549dcb"
+    },
+    {
+      "path": ".cache/masteryi-w-audio-source-cloud/replay-normal-False.log",
+      "bytes": 134,
+      "sha256": "c4fa222f5327c961c8a3a115dd667e5d0248c3f2f155eaacd2487691beb62cd8"
+    },
+    {
+      "path": ".cache/masteryi-w-audio-source-cloud/replay-normal-True.log",
+      "bytes": 134,
+      "sha256": "c4fa222f5327c961c8a3a115dd667e5d0248c3f2f155eaacd2487691beb62cd8"
+    },
+    {
+      "path": ".cache/masteryi-w-audio-source-cloud/replay-optimized-False.log",
+      "bytes": 134,
+      "sha256": "c4fa222f5327c961c8a3a115dd667e5d0248c3f2f155eaacd2487691beb62cd8"
+    },
+    {
+      "path": ".cache/masteryi-w-audio-source-cloud/replay-optimized-True.log",
+      "bytes": 134,
+      "sha256": "c4fa222f5327c961c8a3a115dd667e5d0248c3f2f155eaacd2487691beb62cd8"
+    },
+    {
+      "path": ".cache/masteryi-w-audio-source-cloud/replay.json",
+      "bytes": 1657,
+      "sha256": "c264028bed916625ce34a29c07bf23afb4fe5535838e09e31fbac8f91e0b1955"
+    }
+  ],
+  "checks": {
+    "sourceGuardsPerPythonMode": 31,
+    "pythonModes": [
+      "normal",
+      "optimized"
+    ],
+    "actualCheckAndReplay": {
+      "filesUnchangedBytesAndMtimes": 7
+    },
+    "sourceProfiles": 5,
+    "stopActions": 2,
+    "media": 6,
+    "wavBytes": 2373652,
+    "peaksAboveOne": 2,
+    "peak": 1.110612154006958,
+    "finiteTailTicks": {
+      "cast": 151,
+      "deactivate": 155
+    },
+    "gameplayRulesetPackIdentity": "unchanged",
+    "runtimeFilesChanged": 0
+  },
+  "runtimeAcceptanceReference": {
+    "commit": "73011a7",
+    "ledger": {
+      "path": "docs/reference/masteryi/w-buff-verification.json",
+      "bytes": 51474,
+      "sha256": "966d660729ac23894631cf99bcb63c74b1a55e08c73a69a5520a1a0f35b7da01"
+    },
+    "scope": "Historical current-game acceptance; no new runtime suites claimed for this source-only change."
+  },
+  "limits": [
+    "Source-only audit; no public media, runtime dispatch, state/schema or app identity changes.",
+    "Slot18 binds Stop, not Play. The bank Play activation event and foley have no binding in these retained spell/particle declarations. Native script/animation callbacks remain unverified.",
+    "Three leaves explicitly author Loop=0 while encoded files omit loop-point metadata. Keep Wwise playback policy separate from source float masters; no loop expansion or seam repair.",
+    "Two activation play actions retain 2000ms SCurve transitions; two object stop actions retain 500ms linear transitions. No linear fade substitutes the source curve.",
+    "Headroom above one is retained without normalization, clipping, resampling or mixing. No native bus/listening certificate.",
+    "No new decoding, public WAVs, runtime events, state/schema or native callback/bus/listening certificate. Selected masters retain the prior pinned canonical software decode.",
+    "Ignored cache evidence and private masters require preservation; exact changed source files are archived separately."
+  ]
+}

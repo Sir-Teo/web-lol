@@ -122,3 +122,9 @@ The later [Q source reading](MASTER-YI-Q-AUDIO.md) retains the two explicit
 particle on-create bindings, three playback profiles, seven private float masters,
 distinct voice-limit policies and missing critical/dummy bindings. That reading
 prepares Q playback separately from the accepted attack and Highlander audio.
+
+The [Meditate source reading](MASTER-YI-W-AUDIO.md) retains five bank playback
+profiles, six private float masters and two stop actions. Its spell activation
+suffix explicitly binds Stop; the bank activation Play and foley events retain
+their absent spell/particle dispatch bindings. Source S-curve play transitions,
+linear stop transitions and leaf loop policy remain separate from runtime work.
