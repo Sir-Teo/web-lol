@@ -1,0 +1,656 @@
+{
+  "format": 1,
+  "parentCommit": "5c85b6e3e4780754383e5dfec32b446132ca319e",
+  "scope": "Private complete primary-hit authored mip decode; no runtime or public files.",
+  "identity": {
+    "schema": 162,
+    "rulesetFingerprint": "c28af9e676d0cacc775ef924a3ce5a3140cb7a763e34d82413174d7f744cf318",
+    "offlinePack": {
+      "id": "6f59d0e3300662ecd20059b576effc36935d96a2e0e9463d1e91060b3ccc8e58",
+      "files": 1192,
+      "bytes": 537574563
+    }
+  },
+  "verification": {
+    "normalGuards": 13,
+    "optimizedGuards": 13,
+    "textures": 11,
+    "mips": 93,
+    "meshes": 0,
+    "pngBytes": 546090,
+    "rgbaBytes": 4767732,
+    "independentPngReplayWithoutProducerDependencies": true,
+    "replayDistinctOutputs": 94,
+    "bytesAndMtimesUnchanged": true,
+    "applicationFingerprintUnchanged": true,
+    "offlinePackUnchanged": true,
+    "fullApplicationTestsRerun": false
+  },
+  "sharedTextures": {
+    "sharedTexturesByFamily": {
+      "q": 4,
+      "w": 2,
+      "r": 3,
+      "e": 1,
+      "attack-trail": 1
+    },
+    "nativeAndAllMipFieldsExceptOutputPathEqual": true
+  },
+  "limits": [
+    "Canonical Pillow BC1-with-alpha/BC3 software decode, not a native GPU decoding/visual certificate.",
+    "Every authored mip retains its own size, compressed block identity and RGBA; no resize, generated mips, gamma conversion or premultiplication.",
+    "Source mesh points/indices/face UV/material bytes/RGB/pivot/header and unparsed tail are retained. No normals, pivot offset, reflection, winding, unit scale or emitter/material behavior is applied.",
+    "Private decode only; no public files or runtime bindings."
+  ],
+  "sourceFiles": [
+    {
+      "path": "tools/assets/decode-masteryi-primary-hits.py",
+      "bytes": 2977,
+      "sha256": "03fe32ba487b1c031a81d9f161af2e11829c6bd494c722ffce0d36d39f72c39a"
+    },
+    {
+      "path": "tools/assets/test-masteryi-primary-hit-decode.py",
+      "bytes": 4405,
+      "sha256": "a1ac736f45a5165adedfd2a1f22d4c2e5dd0ef452d56f6e9d670c0cd7437a882"
+    },
+    {
+      "path": "tools/assets/decode-masteryi-q-particles.py",
+      "bytes": 10590,
+      "sha256": "9f114c141799f6dc84a6f3884b17b50f6a2a0dc21a2e626a20cbfaf9c9de6964"
+    },
+    {
+      "path": "tools/assets/masteryi_q_decode.py",
+      "bytes": 7372,
+      "sha256": "552f2cf9a0cb552a97332a142bbea6f25a3b0e2c2974359a58659a2c17517ecd"
+    },
+    {
+      "path": "tools/assets/masteryi_primary_hits.py",
+      "bytes": 6514,
+      "sha256": "528ee52b229e085b277966a5e7f1432980b6aa4484d1b94e72fc2999c198bed7"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-particles.json",
+      "bytes": 82989,
+      "sha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-particles-decoded.json",
+      "bytes": 71236,
+      "sha256": "68aa4932fc861a5ee24e8b043a5b4b9e86ac340780fc1eedbfb3ffc6cb18bdb7"
+    },
+    {
+      "path": "docs/MASTER-YI-PRIMARY-HITS.md",
+      "bytes": 4778,
+      "sha256": "164f637dee575d171c32a3f21a0a42dad89c3bb8a6df11ca958f4776d4b70eb3"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/masteryi-primary-hit-decode-cloud/source-snapshot/tools/assets/decode-masteryi-primary-hits.py",
+      "bytes": 2977,
+      "sha256": "03fe32ba487b1c031a81d9f161af2e11829c6bd494c722ffce0d36d39f72c39a"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-decode-cloud/source-snapshot/tools/assets/test-masteryi-primary-hit-decode.py",
+      "bytes": 4405,
+      "sha256": "a1ac736f45a5165adedfd2a1f22d4c2e5dd0ef452d56f6e9d670c0cd7437a882"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-decode-cloud/source-snapshot/tools/assets/decode-masteryi-q-particles.py",
+      "bytes": 10590,
+      "sha256": "9f114c141799f6dc84a6f3884b17b50f6a2a0dc21a2e626a20cbfaf9c9de6964"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-decode-cloud/source-snapshot/tools/assets/masteryi_q_decode.py",
+      "bytes": 7372,
+      "sha256": "552f2cf9a0cb552a97332a142bbea6f25a3b0e2c2974359a58659a2c17517ecd"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-decode-cloud/source-snapshot/tools/assets/masteryi_primary_hits.py",
+      "bytes": 6514,
+      "sha256": "528ee52b229e085b277966a5e7f1432980b6aa4484d1b94e72fc2999c198bed7"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-decode-cloud/source-snapshot/docs/reference/masteryi/primary-hit-particles.json",
+      "bytes": 82989,
+      "sha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-decode-cloud/source-snapshot/docs/reference/masteryi/primary-hit-particles-decoded.json",
+      "bytes": 71236,
+      "sha256": "68aa4932fc861a5ee24e8b043a5b4b9e86ac340780fc1eedbfb3ffc6cb18bdb7"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-decode-cloud/source-snapshot/docs/MASTER-YI-PRIMARY-HITS.md",
+      "bytes": 4778,
+      "sha256": "164f637dee575d171c32a3f21a0a42dad89c3bb8a6df11ca958f4776d4b70eb3"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-primary-hit-decode-cloud/app-identity.json",
+      "bytes": 91,
+      "sha256": "cbbd9cd6bd042066edf134a77f1bbb83ed9a674faffb77d85eb6fdc4c2a50fd9"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-decode-cloud/archive-checkpoint.py",
+      "bytes": 3094,
+      "sha256": "8dc0bbec1d0dab44e0171b27c57023a73ade13a71f9f233a0ec1d08b2d3bd602"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-decode-cloud/decode-check-normal.log",
+      "bytes": 104,
+      "sha256": "46b6cbc016ea0186e703bec0df0b00f434ef2db0dd8d2f224e8d8357a6ee0706"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-decode-cloud/decode-check-optimized.log",
+      "bytes": 104,
+      "sha256": "46b6cbc016ea0186e703bec0df0b00f434ef2db0dd8d2f224e8d8357a6ee0706"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-decode-cloud/decode-replay-normal.log",
+      "bytes": 105,
+      "sha256": "3ab9dcecbfc90a43201a3b7a419245ddfbe01ad6e80361067ee1f6869c2a1adf"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-decode-cloud/decode-replay-optimized.log",
+      "bytes": 105,
+      "sha256": "3ab9dcecbfc90a43201a3b7a419245ddfbe01ad6e80361067ee1f6869c2a1adf"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-decode-cloud/guards-normal.log",
+      "bytes": 112,
+      "sha256": "aa94c1f79205e5494d08973bf92eeefc9efa0a3e026dd309c759ce78d014d491"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-decode-cloud/guards-optimized.log",
+      "bytes": 112,
+      "sha256": "79572b9664c7d157400f225b9ffafb9a16077395abcf5983407453158aa9a6b2"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-decode-cloud/initial-decode.json",
+      "bytes": 289,
+      "sha256": "c1b6c834914669a3bbe2c049568de3d50859267464b93e048a4161f6f82b1f74"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-decode-cloud/replay-verification.json",
+      "bytes": 46329,
+      "sha256": "cd5745aa3f16830d8192a8fad6643f094a0d6ac47b7c61525279277951140df5"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-decode-cloud/shared-texture-reading.json",
+      "bytes": 162,
+      "sha256": "1c6b5b58bf74574d6ef7156aa59e2c321bb947c64f1c283a91f2ac5079df6ab1"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-decode-cloud/verify-checkpoint.py",
+      "bytes": 1343,
+      "sha256": "cbef45c93350acc38b803d8151bdd637b4ad129fcb4bcbd360d94511164f0e31"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/db69a3a0b80ce5e1-mip0.png",
+      "bytes": 189845,
+      "sha256": "2ce9f326d58dd4976a592724cc65010847553a68701c94c417d0b528e82815ae"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/db69a3a0b80ce5e1-mip1.png",
+      "bytes": 60016,
+      "sha256": "cc544318f0e15df08bf4ec42e61dc4996d44ac653064e3d0e5495c73ebfa348f"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/db69a3a0b80ce5e1-mip2.png",
+      "bytes": 20069,
+      "sha256": "f92dd98e43704ec6507c62ca16054df33766ae1218235c3c526b61edc6711e58"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/db69a3a0b80ce5e1-mip3.png",
+      "bytes": 6476,
+      "sha256": "f534fae9a8d5ab2c51cecaf31fba255e8deb52c95129a80039d4fe3f5c47d5cf"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/db69a3a0b80ce5e1-mip4.png",
+      "bytes": 2038,
+      "sha256": "8f86972aa5b0c9d2ace87d8bbdea5f9bcad2a97c544b97aafbd0fcd0b122f9c3"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/db69a3a0b80ce5e1-mip5.png",
+      "bytes": 611,
+      "sha256": "8c676f9f00c02b49be7ca854d99ce1def060aa24b68b79be8aeecdda2c7cc962"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/db69a3a0b80ce5e1-mip6.png",
+      "bytes": 225,
+      "sha256": "02c8d89d2e51af95d372b0ea05cc9ccbe9713bd3111f3505fc44056731c82115"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/db69a3a0b80ce5e1-mip7.png",
+      "bytes": 112,
+      "sha256": "a914a4f7606f12dbe24a4dcdb15a52d2bfef3c74dfa5f5f33d2b4c1111c0d2c3"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/db69a3a0b80ce5e1-mip8.png",
+      "bytes": 83,
+      "sha256": "d35765746c679e374646e0df92afc9db25dcff37fb8b9f90b6425473eb827936"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/db69a3a0b80ce5e1-mip9.png",
+      "bytes": 70,
+      "sha256": "57ec6c3f72f33e027f0d5614250dca2e1a3d71bc3d46f92ec2dd27f116a3d5df"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/433b18542280cbff-mip0.png",
+      "bytes": 2221,
+      "sha256": "6269727efbc927715e06df599096859f1d3ab4bdff700267014d6d58b9e9bd75"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/433b18542280cbff-mip1.png",
+      "bytes": 553,
+      "sha256": "379c81f6121ba750dea3a530de72eb39aceaf5f6736f45ce8a30152f162e0770"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/433b18542280cbff-mip2.png",
+      "bytes": 211,
+      "sha256": "e9e44c2f64671fb708d642ef3e361382b899162ccff8c10b98584dd974aa89db"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/433b18542280cbff-mip3.png",
+      "bytes": 140,
+      "sha256": "3563a35a4b947f03a8b7e4b54fa5df7b420814cb5f89018e3c954fc710988166"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/433b18542280cbff-mip4.png",
+      "bytes": 101,
+      "sha256": "014a5073cc71831465a2d6a85577dad2a2d250030c4255c2359f988b39f1683a"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/433b18542280cbff-mip5.png",
+      "bytes": 89,
+      "sha256": "c63c0d85398507789316fc914d849d606ed67babf16a0fa858db00bcbd7b0a3f"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/433b18542280cbff-mip6.png",
+      "bytes": 78,
+      "sha256": "383f0685fbf2893991b40672abc58619538f0b0b77d6cf4920bb29cf0c70f04d"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/433b18542280cbff-mip7.png",
+      "bytes": 70,
+      "sha256": "54b8ee469ca3f7b99179cb12bcc9e9e8122153ecc966e40441eb0243e1090bc1"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/0e1d8e1bfc6a9099-mip0.png",
+      "bytes": 5371,
+      "sha256": "a539edb964d87a0d8c20ef425cec9c3aeae0f01c5624815ce89c418008d2c292"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/0e1d8e1bfc6a9099-mip1.png",
+      "bytes": 1814,
+      "sha256": "755f6965f8213710c4f51a0ece03f26c9cf57be2f86789ec3d9fdb3757be43e3"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/0e1d8e1bfc6a9099-mip2.png",
+      "bytes": 1003,
+      "sha256": "57aa9eef499fcc452308bf6302f856671361fbdee54cc1c5b9ee7ac8e770284c"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/0e1d8e1bfc6a9099-mip3.png",
+      "bytes": 323,
+      "sha256": "23731498525257054e678b601aa1f86fd5306be6d5c4e1eeb0b6be4450dfad62"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/0e1d8e1bfc6a9099-mip4.png",
+      "bytes": 241,
+      "sha256": "d9b54396c1e05555252c2ba4f922ea1c6fd044830965321db8153fe035a8d40c"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/0e1d8e1bfc6a9099-mip5.png",
+      "bytes": 141,
+      "sha256": "f7c436f98b2c179fd444230c9d04432cd93b8d3694c5fff45f114a524624ed3b"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/0e1d8e1bfc6a9099-mip6.png",
+      "bytes": 99,
+      "sha256": "cd84cc65d254fb71451fb0c2e7f0b2de9a6a0b92417e4e31350f6b6e22231636"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/0e1d8e1bfc6a9099-mip7.png",
+      "bytes": 83,
+      "sha256": "12c9d72238c83bf4d70aff66fcccb5c6b036f524eddb9ae796f54748fb02369c"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/0e1d8e1bfc6a9099-mip8.png",
+      "bytes": 70,
+      "sha256": "802e35089b0142cb2f7d51839497c977992a549ef8c077005c2f4ff36618343a"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/3551411d4218c8ea-mip0.png",
+      "bytes": 308,
+      "sha256": "1f9da42c7b49024735e6de1cf764fe8c817fcfc68b623ed3441e478303b24369"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/3551411d4218c8ea-mip1.png",
+      "bytes": 183,
+      "sha256": "7f58f2965acb99e705a013a4aee38bdedbe1f4d55a8006a7940429b48b4708d6"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/3551411d4218c8ea-mip2.png",
+      "bytes": 129,
+      "sha256": "671d052a7e577ac25ccb62f76f5532342863447b68cdebfa6c7086916e9ae1bf"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/3551411d4218c8ea-mip3.png",
+      "bytes": 106,
+      "sha256": "58d8f81fd87271eb1e65d2609e4f96ba9bc7293adef521c0549a391b7fdcc736"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/3551411d4218c8ea-mip4.png",
+      "bytes": 86,
+      "sha256": "c3602127d45dd75b0d482b05f77afade99d6778a087679f1832e382d80fe976d"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/3551411d4218c8ea-mip5.png",
+      "bytes": 78,
+      "sha256": "da0ecfb703a0aeabc36e8de92d2d8f806b3fe66d3b7b84905bf3b24f93cbac7f"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/3551411d4218c8ea-mip6.png",
+      "bytes": 70,
+      "sha256": "2435df8b7a424eda3e6f7e7143235f600621fb620ff7ccc72c109dd9af55337a"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/1d3a3b7cb6e52a86-mip0.png",
+      "bytes": 169,
+      "sha256": "6587c97748737413166ad02cde39be2dcd2f560e9f3b238d76839507cfa0ce9c"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/1d3a3b7cb6e52a86-mip1.png",
+      "bytes": 133,
+      "sha256": "8e2af60e974e69e3566368da38ebf42ddf12631b3afd060640b4eec8796832b4"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/1d3a3b7cb6e52a86-mip2.png",
+      "bytes": 101,
+      "sha256": "6c5ef8a260cc185ddad176c7e93cff2a7773ebdca9f1a475cec7510923d7f1a4"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/1d3a3b7cb6e52a86-mip3.png",
+      "bytes": 88,
+      "sha256": "08b54f447745bd7daa9d6adb67c8e80cca007d7c03504a010cf771f232ac2af2"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/1d3a3b7cb6e52a86-mip4.png",
+      "bytes": 78,
+      "sha256": "a19b62857c30fcc9efca1eaa4079a63fd7a76f35774a66df3eee9aa7a7bdc7a1"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/1d3a3b7cb6e52a86-mip5.png",
+      "bytes": 70,
+      "sha256": "79e7b8dc2f558e338f8927fd72f963def9dc8ea7ed37893e35c852286ed55687"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/dba30aea46f8d87f-mip0.png",
+      "bytes": 251,
+      "sha256": "3898d5d2750e8e8ef8425bffca98bff788ceab3d9ba11294237e2730cffbb33d"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/dba30aea46f8d87f-mip1.png",
+      "bytes": 159,
+      "sha256": "fff4f0195841889c44fc1b05289d6295a3c5d5d412444d42ef8d71cd44ee7186"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/dba30aea46f8d87f-mip2.png",
+      "bytes": 128,
+      "sha256": "401426e695db891419bb425198048e89330596da2fb654309d4a3be1b4598f5d"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/dba30aea46f8d87f-mip3.png",
+      "bytes": 103,
+      "sha256": "1a1c3b44f40ac3ff8804d864b87a402132bf357c368fc3c146c2f64f974e9d7b"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/dba30aea46f8d87f-mip4.png",
+      "bytes": 89,
+      "sha256": "05effaaee2286bb1dc289ec7ad51fcb5446eda5bcbccceae68814f28d5c8147f"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/dba30aea46f8d87f-mip5.png",
+      "bytes": 78,
+      "sha256": "65db1d24b33a9f81321ab51bdb6be073393c0702641bba889ba0e4aa7db5d5e0"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/dba30aea46f8d87f-mip6.png",
+      "bytes": 70,
+      "sha256": "b61c4b9393798573affecf04e00174f0cf52030ac253d2df9f23f4e47779bf51"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/9db3dfd192460de5-mip0.png",
+      "bytes": 800,
+      "sha256": "922904f7f66f03f3995a33bef1a5ec9527f34f8c890907f6dcb8e7e7d372ba6d"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/9db3dfd192460de5-mip1.png",
+      "bytes": 413,
+      "sha256": "fb4d6245443035119b8f9c59c0ba3d13d48462fdbd078333ecbb9d7b3b37377f"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/9db3dfd192460de5-mip2.png",
+      "bytes": 226,
+      "sha256": "8d98b79c54cc40628c8e088c6771560eaedce2ed3c4390e35d215228feb58be3"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/9db3dfd192460de5-mip3.png",
+      "bytes": 143,
+      "sha256": "575c10310f1983fcd222b2d499f9428a3db108cab27a69e81417dfa3e0f569ca"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/9db3dfd192460de5-mip4.png",
+      "bytes": 100,
+      "sha256": "944016727b82c6c9ae81d1d776c3b3b4fb0e40e3b864d15567a25f9e042bccca"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/9db3dfd192460de5-mip5.png",
+      "bytes": 88,
+      "sha256": "d1676c91a9c8b924843df928d172c0c26b9142c98a5a26c4ccadf0a1a484f644"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/9db3dfd192460de5-mip6.png",
+      "bytes": 78,
+      "sha256": "b50b6b18586667227b2ce195250ab8d08d755afd982c32b43c528e3db8f50fdc"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/9db3dfd192460de5-mip7.png",
+      "bytes": 70,
+      "sha256": "d26fedb8c5a2940c3f2ec43c4ade69739d45b61e4b2d148bd0626aa71b5366f4"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/914aefb195e69d4f-mip0.png",
+      "bytes": 22328,
+      "sha256": "ef11c1f01308c10f3fced2fa7f05ba92abfa665b88e635265b95194a137fd29a"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/914aefb195e69d4f-mip1.png",
+      "bytes": 7629,
+      "sha256": "6318e0024cc5afc81a45f2587dac840a9564abc5ca517d40ca893cceffa1ce53"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/914aefb195e69d4f-mip2.png",
+      "bytes": 2580,
+      "sha256": "1c9a8dddaba271dcf146367f1bce9e2f9cd862f5a643ee55ebde210827eda874"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/914aefb195e69d4f-mip3.png",
+      "bytes": 944,
+      "sha256": "bfed49500b0a3fa946344a763738d2103ed39f9e71ad0b5b73beb808d0f7c3b7"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/914aefb195e69d4f-mip4.png",
+      "bytes": 318,
+      "sha256": "d5f08ba5e043dcf750c733741f8ce734281203744b4e7d5d1a117e0e24330d26"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/914aefb195e69d4f-mip5.png",
+      "bytes": 157,
+      "sha256": "31d2c70c8db24521d725fedced03e5d9d30634bca5b430c03b96cb90caf54067"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/914aefb195e69d4f-mip6.png",
+      "bytes": 91,
+      "sha256": "92497108168b584f56cd5d627870254b0c41124f254231b6a91e3c1e9589bdb1"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/914aefb195e69d4f-mip7.png",
+      "bytes": 77,
+      "sha256": "f12205d4340da0c264018df2cc3d39ee6cb40fc35ad4dffb9bb7d44e2c3763b3"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/914aefb195e69d4f-mip8.png",
+      "bytes": 70,
+      "sha256": "64a1c980f78c0324d9f14e3548706164a15921d72b15a3282f2a9876a6cba91a"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/b885bf2594e01a38-mip0.png",
+      "bytes": 95128,
+      "sha256": "5a4d77e7ac60b05d7ebc031b9dbf419d96041a88a3cd0e0cbb2d7cffbfd35c09"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/b885bf2594e01a38-mip1.png",
+      "bytes": 28935,
+      "sha256": "e553f0cdfd41b3211d057ad6eabfdccd0a595025f558a34814306da03f391074"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/b885bf2594e01a38-mip2.png",
+      "bytes": 9378,
+      "sha256": "afb84adb71177e0836e24e4db73433adea5bbe40e4d6cae59dacfe7a008073e9"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/b885bf2594e01a38-mip3.png",
+      "bytes": 2923,
+      "sha256": "11bb36d8ae0f63ded36e021996fc80fdecd110b4ce1f748ff6d5c31e21f39d59"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/b885bf2594e01a38-mip4.png",
+      "bytes": 993,
+      "sha256": "f9b85111305da7b63ad33fc22de910715b2f15165d9717579dcd07bfcf32b1ed"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/b885bf2594e01a38-mip5.png",
+      "bytes": 294,
+      "sha256": "9a6d894018f0812b929c21d6a41ed0d7134c5faa5b64db66058d6b94945b7a8c"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/b885bf2594e01a38-mip6.png",
+      "bytes": 160,
+      "sha256": "54f94e3925a57ea5c31adc6835c723f75d6ff3a7f37f23129b28fb1825984e51"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/b885bf2594e01a38-mip7.png",
+      "bytes": 102,
+      "sha256": "9d4d1bdbff1ac1e30058fca240ce7639eb57850a3796e04df8d3a0d3d9fe5e37"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/b885bf2594e01a38-mip8.png",
+      "bytes": 77,
+      "sha256": "722bdf8168ca61394bef9f9fa3ae0ad2b820f688c62af08ba8adea671c8b1549"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/b885bf2594e01a38-mip9.png",
+      "bytes": 70,
+      "sha256": "c077bb8f1954fd8137762581a9552966c50130abb9352abf3c14989db4d7ee1e"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/5ae94417a3c8c5a5-mip0.png",
+      "bytes": 38256,
+      "sha256": "df45ee4b3820e6ab15df157865eff67b152f3857ab10020743b7bb58454ca281"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/5ae94417a3c8c5a5-mip1.png",
+      "bytes": 12716,
+      "sha256": "5f3a942d7c0ab7667c1465713326829b25312854501d868d26458c69d03aca30"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/5ae94417a3c8c5a5-mip2.png",
+      "bytes": 4474,
+      "sha256": "22cb1c74fab9eefa13c08a54aa0b48011548d658aa26b6a48b81d6743c2a4b7a"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/5ae94417a3c8c5a5-mip3.png",
+      "bytes": 1556,
+      "sha256": "cf3af58e792ec0a8a1a60df189fd7752028caa74afbd67a66462887088dbccbd"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/5ae94417a3c8c5a5-mip4.png",
+      "bytes": 622,
+      "sha256": "f376d47f6ac1e21f924e05bd62e3e1ea53b19b7463e2acf682f2aec9f41a6efa"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/5ae94417a3c8c5a5-mip5.png",
+      "bytes": 267,
+      "sha256": "bf5572dd73eceb01b441fcef49b78ab0cf868e106711eb75a74d79a4b4752981"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/5ae94417a3c8c5a5-mip6.png",
+      "bytes": 144,
+      "sha256": "907bf35d6329ec8924f88bd76e7a1c7db3ed19a17d3f488aaf363e104922c41f"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/5ae94417a3c8c5a5-mip7.png",
+      "bytes": 90,
+      "sha256": "995f9504607017f22a7b23cd18dcc255327d310422c0ad7be2ae55dfee98054f"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/5ae94417a3c8c5a5-mip8.png",
+      "bytes": 75,
+      "sha256": "0d918c376e743481c063f571c7144c664a230b6316c9b938238c607c7ee97cf8"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/5ae94417a3c8c5a5-mip9.png",
+      "bytes": 70,
+      "sha256": "248cbac9a5c46977d689314a3f50e6c796e13e9e9d57e4833a796202b7c4fadb"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/2fc72189202d828e-mip0.png",
+      "bytes": 11424,
+      "sha256": "2e3bcbcd9d1c0a0ae95c1f2b4013b20bb661c91dbc059717bf11fc84c70a7a04"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/2fc72189202d828e-mip1.png",
+      "bytes": 4513,
+      "sha256": "7caf364f4ddb2a4d0f289c01b5194687a3c2f5e97e5c6010fa7851a73786f893"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/2fc72189202d828e-mip2.png",
+      "bytes": 1795,
+      "sha256": "953e0fa00753c118f905f50a1eb04a8a1281ed4ee208248c4a6c97e10f89aa6e"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/2fc72189202d828e-mip3.png",
+      "bytes": 650,
+      "sha256": "5a9a0f15b10fe58c48d5e2ef7b2f6b16eaa3786a78545270b37ff1c2bd461076"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/2fc72189202d828e-mip4.png",
+      "bytes": 260,
+      "sha256": "a7554fb5f18050292d967a0b095b053ed583c5b617813285fe4a298b119537e5"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/2fc72189202d828e-mip5.png",
+      "bytes": 141,
+      "sha256": "dffe6d484a9deaf711662775fd998d3708f346cb8f5efea84fd5029b07f4682c"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/2fc72189202d828e-mip6.png",
+      "bytes": 88,
+      "sha256": "29e4d07956dc9e507b10dd6a76f1249442b5ea4078c74058eb5c21b28cc7fca0"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/2fc72189202d828e-mip7.png",
+      "bytes": 77,
+      "sha256": "ee5055d8f486839b956ae4d60298aee480aaf685b4ffb50000e1bd670ba87755"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-particles-decoded/textures/2fc72189202d828e-mip8.png",
+      "bytes": 70,
+      "sha256": "76613199fb85c65fa59dd2546f77fa8cc9e48ebbcbf930b2fa5e14597156087f"
+    }
+  ]
+}

@@ -31,8 +31,8 @@ The complete definitions, probability curves, source types, paths and native
 hashes are in [the frozen pin](reference/masteryi/primary-hit-particles.json).
 The [binding reading](reference/masteryi/primary-hit-binding-reading.json)
 provides a selected-field index anchored to the complete-resource digest;
-it is not a reduced runtime profile. Texture decode, sampler/material parity
-and all eleven emitters must be handled before runtime integration. This
+it is not a reduced runtime profile. Sampler/material parity and all eleven emitters must be handled before
+runtime integration. This
 checkpoint changes no runtime dispatch, save schema or public assets.
 
 From the repository root, with the pinned CDTB environment:
@@ -54,3 +54,29 @@ records archived inputs, logs and unchanged application identity. The previous
 application certificate remains 3,037 passing tests with three documented
 baseline failures; no new full application run is claimed for this source-only
 checkpoint.
+
+## Private authored texture decode
+
+The [decoded record](reference/masteryi/primary-hit-particles-decoded.json)
+retains all 93 mips from eleven textures: six format-10 BC1 textures and five
+format-12 BC3 textures. The private PNGs total 546,090 bytes and independently
+replay to 4,767,732 RGBA bytes using the standard-library PNG checker. The
+producer uses the pinned CDTB TEX-to-DDS conversion and recorded Pillow build.
+This is a software decode certificate; native GPU filtering remains uncalibrated.
+
+Four textures match Q, two match W, three match R, one matches E and one matches
+attack trails. These are overlapping family counts. For each shared texture,
+the native identity and every mip field except its output path match exactly,
+including compressed blocks, PNG bytes, RGBA pixels and alpha statistics.
+
+```sh
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/decode-masteryi-primary-hits.py --check
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/test-masteryi-primary-hit-decode.py
+```
+
+Thirteen decode guards pass in both normal and optimized Python. The independent
+checker runs with producer dependencies blocked, and rejects missing textures,
+meshes, mip ranges, pixel digests and alpha statistics. Replay preserves all
+94 output bytes and modification times. The explicit zero-mesh profile leaves
+the common decoder's two-mesh default unchanged. See the
+[decode ledger](reference/masteryi/primary-hit-decode-verification.json).
