@@ -44,3 +44,39 @@ mode, and `tools/assets/test-masteryi-r-particles.py`, using
 `PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python`, including `-O`.
 [Source verification](reference/masteryi/r-particle-source-verification.json)
 indexes exact source/restore identities, guards and unchanged application identity.
+
+## Private decoded assets
+
+The [decoded record](reference/masteryi/r-particles-decoded.json) retains all 177
+authored mips of the 20 textures: 1,130,814 PNG bytes and 8,104,616 RGBA bytes.
+Every level has its native compressed range/hash, dimensions, PNG/hash, pixel
+hash and alpha statistics. There is no resizing, generated mip chain, gamma
+conversion or premultiplication. The canonical Pillow BC1-with-alpha/BC3 decode
+remains distinct from native GPU decoding.
+
+| Native SCB | Vertices | Triangles | Flags | Uninterpreted tail |
+| --- | ---: | ---: | ---: | ---: |
+| Pulsefire muzzle cone | 1,440 | 480 | 1 | 0 bytes |
+| Hecarim trail | 750 | 1,500 | 5 | 24 bytes |
+| Highlander fireball front | 161 | 300 | 5 | 24 bytes |
+| Yi dash | 27 | 24 | 5 | 24 bytes |
+
+The four private mesh JSONs total 724,983 bytes. Points, signed zero, source
+indices, face UVs/material padding/RGB, pivot, original bounds, unused vertices
+and tail re-encode to every original SCB byte exactly. No normals, unit scale,
+reflection, winding change or material tint is applied. The two previously
+retained Q meshes and nine shared Q textures keep identical geometry/pixel/PNG
+identities.
+
+The shared decoder now accepts an explicit mesh-count profile. Its Q/Meditate
+default stays two meshes; Highlander requests four with the same reviewed
+flags-1/no-tail and flags-5/24-byte-tail layouts. This adds no inferred meaning to
+flag bit 4. Original Q and Meditate guards and complete actual output replays
+verify their unchanged profiles.
+
+Use `tools/assets/decode-masteryi-r-particles.py` and `--check` with the pinned
+CDTB virtual environment above, including optimized Python. The checker replays
+native ranges, RGBA/alpha statistics and byte-exact mesh serialization without
+importing Pillow or CDTB. [Decode verification](reference/masteryi/r-particle-decode-verification.json)
+indexes producer identities, shared-profile controls and every output replay.
+This stage remains private and changes no runtime, save schema or production pack.
