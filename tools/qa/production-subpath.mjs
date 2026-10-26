@@ -76,6 +76,7 @@ try {
     masterYiRKillRequests = [],
     masterYiMeditateDamageRequests = [],
     masterYiSwordRequests = [],
+    masterYiPrimaryTrailRequests = [],
     masterYiQContactRequests = [],
     masterYiMeditateCastRequests = [],
     masterYiMeditateBuffRequests = [],
@@ -117,6 +118,8 @@ try {
       masterYiRCastRequests.push(request.url());
     if (/\/masteryi-sword-(?:[^/]+\.png|glows-[^/]+\.js)$/.test(request.url()))
       masterYiSwordRequests.push(request.url());
+    if (/\/masteryi-primary-trail(?:-[^/]+\.png|s-[^/]+\.js|\.glb)$/.test(request.url()))
+      masterYiPrimaryTrailRequests.push(request.url());
     if (/\/masteryi-w-damage-[^/]+\.js$/.test(request.url()))
       masterYiMeditateDamageRequests.push(request.url());
     if (/\/masteryi-r-kill-[^/]+\.png$/.test(request.url()))
@@ -529,6 +532,11 @@ try {
     'Production must not preload development sword effects'
   );
   assert.deepEqual(
+    masterYiPrimaryTrailRequests,
+    [],
+    'Production must not preload development primary attack trails'
+  );
+  assert.deepEqual(
     masterYiRKillRequests,
     [],
     'Production must not preload development Highlander takedown assets'
@@ -619,6 +627,7 @@ try {
       unrequestedMasterYiMeditateAudioPreloads: masterYiMeditateAudioRequests.length,
       unrequestedMasterYiWujuStyleAudioPreloads: masterYiWujuStyleAudioRequests.length,
       unrequestedMasterYiSwordPreloads: masterYiSwordRequests.length,
+      unrequestedMasterYiPrimaryTrailPreloads: masterYiPrimaryTrailRequests.length,
       unrequestedMasterYiMeditateDamagePreloads: masterYiMeditateDamageRequests.length,
       unrequestedMasterYiHighlanderKillPreloads: masterYiRKillRequests.length,
       unrequestedMasterYiHighlanderCastPreloads: masterYiRCastRequests.length,

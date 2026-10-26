@@ -1,3 +1,5 @@
+import { validatePrimaryTrailRoots } from './masteryi-primary-trails';
+import { PRIMARY_TRAIL_HISTORY_TICKS } from '../content/masteryi-primary-trail-timing';
 import { validateSwordGlows } from './masteryi-sword-glow';
 import { SWORD_GLOW_TAIL_TICKS } from '../content/masteryi-sword-timing';
 import { validateMeditateDamage } from './masteryi-meditate-damage';
@@ -165,7 +167,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 159;
+export const SNAPSHOT_VERSION = 160;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -1197,6 +1199,18 @@ const player: z.ZodType<PlayerState> = z
       .array(
         z.strictObject({
           startTick: tick,
+          trailFrames: z
+            .array(
+              z.strictObject({
+                tick,
+                endTick: tick,
+                x: z.number(),
+                y: z.number(),
+                facing: z.number(),
+                audience: daybreakFrame.shape.audience,
+              })
+            )
+            .max(PRIMARY_TRAIL_HISTORY_TICKS),
           releaseTick: tick,
           endTick: tick,
           kind: z.enum(['attack1', 'crit']),
@@ -4522,6 +4536,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     validatePerseveranceVisual(owner, champion, state.tick, state.winner);
     validateGarenAttacks(owner, champion, state);
     validateMasterYiAttacks(owner, champion, state);
+    validatePrimaryTrailRoots(owner, champion, state);
     validateHighlanderAudio(owner, champion, state);
     validateHighlanderCasts(owner, champion, state);
     validateHighlanderKills(owner, champion, state);

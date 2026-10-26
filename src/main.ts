@@ -337,6 +337,12 @@ async function boot(): Promise<void> {
           view.highlanderKills.load(),
           view.meditateDamage.load(),
           view.swordGlows.load(),
+          view.primaryTrails.load().catch((error) => {
+            console.warn(
+              'Primary attack trails unavailable; explicit retry remains available.',
+              error
+            );
+          }),
           view.alphaCasts.load(),
           view.alphaEnds.load(),
           view.alphaContacts.load(),

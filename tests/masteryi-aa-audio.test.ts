@@ -12,6 +12,7 @@ const raw = (path: string) => {
 };
 const record = (kind: 'attack1' | 'crit' = 'attack1'): MasterYiAARecord => ({
   id: 7,
+  trailFrames: [],
   startTick: 100,
   releaseTick: 122,
   endTick: 188,

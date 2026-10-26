@@ -1,3 +1,4 @@
+import { advancePrimaryTrailRoots } from './masteryi-primary-trails';
 import { captureSwordGlow, advanceSwordGlows, swordGlowExpiry } from './masteryi-sword-glow';
 import { captureMeditateDamage, advanceMeditateDamage } from './masteryi-meditate-damage';
 import { MEDITATE_DAMAGE_HISTORY_TICKS } from '../content/masteryi-w-damage-timing';
@@ -3763,8 +3764,10 @@ export class World {
             captureDaybreakAttack(state!, leonaQ.startTick, this.tick);
           }
           if (u.champion === 'leona' && !leonaQ && state) beginLeonaAttack(this, u, state, target);
-          if (u.champion === 'masteryi' && state)
+          if (u.champion === 'masteryi' && state) {
             beginMasterYiAttack(state, u, target, this.tick, this);
+            advancePrimaryTrailRoots(this);
+          }
           if (u.champion === 'garen' && garenQRank === undefined && state)
             beginGarenAttack(state, u, target, this.tick, this);
           const history = state?.garenQVisuals.at(-1);
@@ -4662,7 +4665,9 @@ export class World {
   private captureImpactFrame(target: Unit) {
     return capturePoseFrame(target, this.tick);
   }
-  private advanceImpactVisuals(): void {
+  private advanceMasterYiImpactVisuals(): void {
+    if (!this.units.some((unit) => unit.champion === 'masteryi')) return;
+    advancePrimaryTrailRoots(this);
     advanceMeditateBuffs(this);
     advanceMeditateCasts(this);
     advanceSwordGlows(this);
@@ -4672,6 +4677,9 @@ export class World {
     advanceAlphaEnds(this);
     advanceAlphaCasts(this);
     advanceAlphaContacts(this);
+  }
+  private advanceImpactVisuals(): void {
+    this.advanceMasterYiImpactVisuals();
     advanceSolarVisuals(this);
     advanceZenithVisuals(this);
     advanceEclipseVisuals(this);
@@ -6034,15 +6042,7 @@ export class World {
       onEssenceDeath(this, target, rewardSource);
     }
     if (target.hp <= 0) {
-      advanceMeditateBuffs(this);
-      advanceMeditateCasts(this);
-      advanceSwordGlows(this);
-      advanceMeditateDamage(this);
-      advanceHighlanderKills(this);
-      advanceHighlanderCasts(this);
-      advanceAlphaEnds(this);
-      advanceAlphaCasts(this);
-      advanceAlphaContacts(this);
+      this.advanceMasterYiImpactVisuals();
       advanceSolarVisuals(this);
       advanceZenithVisuals(this);
       advanceDaybreakVisuals(this);

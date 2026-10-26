@@ -1,6 +1,15 @@
 # Local match checkpoints
 
-Current schema **159** adds skin-declared E/R sword glow histories. Each accepted
+Current schema **160** adds rolling lossless 20-tick actor-root/visibility runs
+to accepted ordinary and critical primary attacks. Exact current rendered-clip
+marker crossings admit finite trails on the named center joint. Decoding checks
+canonical coverage, endpoints and audience, and expired roots are cleared while
+audio history can remain retained. Cancellation before the marker suppresses new
+trails; admitted corpse and victory tails finish through presentation. Earlier
+schemas/fingerprints remain incompatible. See
+[primary attack trails](MASTER-YI-PRIMARY-TRAILS.md).
+
+Schema **159** adds skin-declared E/R sword glow histories. Each accepted
 condition stores cast identity and a rolling, lossless 62-tick root/visibility
 window. Fully bound/local particles use current animated sword-joint frames;
 actual buff removals cap emission and retain finite source tails. Decoding checks

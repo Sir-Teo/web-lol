@@ -1,0 +1,1064 @@
+{
+  "textures": [
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/common_color-rampdown.tex",
+        "wadPathHash": "dba30aea46f8d87f",
+        "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220",
+        "bytes": 2756
+      },
+      "path": ".cache/masteryi-attack-trail-packed-v2/dba30aea46f8d87f.png",
+      "bytes": 702,
+      "sha256": "30df4a0ee4cd6cc8d680584586e77e764328930403fae425708a9e845c0edcc8",
+      "width": 64,
+      "height": 127,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "a68bebcceb44829831933cc46ecfd600216db342a7de11fd487ea322d32867ae"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 64,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "be029289119efe7b2b0fb7efefd5c51e0ff05f75083d12b6747c579f59613c99"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 96,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "6f79c0ea4535cba64df8ddd6d79930fe6bcc500f812a757b54167f3c746b147a"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 112,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "b2639ba82a91940a4adda2158ba57ba7cbac3da0a8aa13f95d072cac3b7c602f"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 120,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "e872cb747415d934a6d9fcf27eb574fef59b38c339e892d97016ac4f238de421"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 124,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "37a44c961c76dd94235d2550d738dfd7dbd49365ad69b2614f7a51c956447313"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 126,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "1b329170a887a6f72094dcfad111b2756f714ee42a538d8b5c14188547ecb507"
+        }
+      ],
+      "rgbaSha256": "32c4bf2d5e2dba42c4d509cb504791201a7707c907ec3443e0f2458a71f5c189",
+      "url": "assets/effects/masteryi-q-contact-dba30aea46f8d87f.png",
+      "key": "dba30aea46f8d87f"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/masteryi_white_weapontrail_2.tex",
+        "wadPathHash": "52a4a423e68d3e41",
+        "sha256": "65327e86b1221a2dbd121616cf253d4b8bc832d3247095115ea9181963d399d7",
+        "bytes": 43716
+      },
+      "path": ".cache/masteryi-attack-trail-packed-v2/52a4a423e68d3e41.png",
+      "bytes": 9611,
+      "sha256": "83ae474e0009a1ddc3668c18ef0dd00e57d831a898537924b6dc47784b736d0c",
+      "width": 256,
+      "height": 511,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 256,
+          "height": 256,
+          "rgbaSha256": "4a3c5dc656a36d34225191a92d55221ea58f8d24c07c8bf055c8abd361cd8da4"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 256,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "6543e3d8019a7c653f00b82f114c6797c67e0361c924a9fb600de6ff70f3c70f"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "a16ba85fc5fd89c5a6716d2942a12823a9681d898ebb9866147c724edddec6ae"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 448,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "d270a8a6e59dd7bb0b314351852b9bac34e0c8b3b80814c32e4f929c04f16584"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 480,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "b00bbf1fd111efcb9a5bb31e1f66b4eb608779f251a6fdb9b930c5d824728af2"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 496,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "47db4385d428bbf26e9ff41a35a218598e7b83bb6a0afc64d990354c30a76f9e"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 504,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "0a059ffc918e99e7d34ddd944843bb902b47d2aa2eae3a53952a335a742bd661"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 508,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "de4c9c7569ce4cb19b334013c3f47457223d559770aac9d397132397e6d5b274"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 510,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "d91146469a2be307505bdddf3c6a7ce174a652675e23091d740f06db89aab993"
+        }
+      ],
+      "rgbaSha256": "42b317e64b6fc61d66ef8856cbb6fe2391aa46249e00acf75b4f226eac65bdea",
+      "url": "assets/effects/masteryi-primary-trail-52a4a423e68d3e41.png",
+      "key": "52a4a423e68d3e41"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/masteryi_white_weapontrail_crit.tex",
+        "wadPathHash": "cf0e2d42d914fcea",
+        "sha256": "16e839b0a34b0e4a06da29d135363fd413531bb3ae86ae2142e9116653cccbdc",
+        "bytes": 43716
+      },
+      "path": ".cache/masteryi-attack-trail-packed-v2/cf0e2d42d914fcea.png",
+      "bytes": 10186,
+      "sha256": "95e438ccce22641aebd677028380c62069b6a9b105c64a573c75f6d5d7c05bb7",
+      "width": 256,
+      "height": 511,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 256,
+          "height": 256,
+          "rgbaSha256": "68db2b268d4419a37e58609d2eeac467a96f549681c3c97671eb7e6dc9bd3515"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 256,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "81fc4c461910f6f19a78aa378ba2db1659e8fc13c1d33e5027dc2d4cab19a607"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "4481213d0689a57a126519113635a31c562316036ca76988331f4ca2206c5cb7"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 448,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "a8207b81fb0befccf50521349512d98424a49a296249762389e4e2bc80cb861b"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 480,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "8ba0135be80d5274a1c2c345fd2b0d7c6f77e023369c07ba071e90fcb4a099ec"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 496,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "561bf7705c3a560347c7219cc7cd5f37d0d0350f88ef3ed8c63e6b9042886a10"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 504,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "12fc60a56beb20e62c88bddb82bcc46e6421dfeba0bca4a56ae290ba4e622278"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 508,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "35ee1e9efd67781b2021062ca871509a4ecb362c64c1fcfb0656653ead333399"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 510,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "d91146469a2be307505bdddf3c6a7ce174a652675e23091d740f06db89aab993"
+        }
+      ],
+      "rgbaSha256": "b457b16f05dde725e8fd949a097744bb5158689fe6fc2b21618a3c464e883455",
+      "url": "assets/effects/masteryi-primary-trail-cf0e2d42d914fcea.png",
+      "key": "cf0e2d42d914fcea"
+    }
+  ],
+  "mesh": {
+    "path": ".cache/masteryi-attack-trail-packed-v2/masteryi-attack-trail.glb",
+    "bytes": 38976,
+    "sha256": "dcda4441fb23413a7672b2aa26e23f1bda81920353d25c6e0f3168b0055450b2",
+    "url": "assets/models/masteryi-primary-trail.glb",
+    "source": {
+      "path": "assets/characters/masteryi/skins/base/particles/common_hecarim_weapontrail_1.scb",
+      "wadPathHash": "c50c28e04b24520d",
+      "sha256": "245641757e8b039187d485d4353664635ad800607b68a7d23344d62effd0c7b1",
+      "bytes": 57716
+    },
+    "exportedCorners": 1500,
+    "attributes": {
+      "positionFloat32Sha256": "daed22bea5386c3970716477e553d52701797fe38304ea2f14631b1ae0e0d114",
+      "uvFloat32Sha256": "5daff7bed11e03c5bc3d22d83824a80d459f54488af54ff371d60753651b72ed",
+      "faceRgbSha256": "01061ebf87db809151544920c6f2a870ea272d4de35c5566a186c3cf6d2ea47b"
+    }
+  },
+  "profiles": [
+    {
+      "system": "MasterYi_BA1_Trail",
+      "role": "primary-attack-trail",
+      "index": 0,
+      "name": "WeaponTrail",
+      "kind": "mesh",
+      "mesh": "assets/models/masteryi-primary-trail.glb",
+      "texture": "assets/effects/masteryi-primary-trail-52a4a423e68d3e41.png",
+      "lookup": "assets/effects/masteryi-q-contact-dba30aea46f8d87f.png",
+      "rate": {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "single": true,
+      "delay": 0,
+      "emitterLife": 1.0,
+      "emitterLinger": null,
+      "linger": null,
+      "life": {
+        "constant": [
+          0.28999999165534973
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0.28999999165534973
+          ]
+        ],
+        "probabilities": []
+      },
+      "bind": {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "position": {
+        "constant": [
+          0.0,
+          0.0,
+          -70.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0.0,
+            0.0,
+            -70.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "shape": {
+        "offset": {
+          "constant": [
+            0,
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        }
+      },
+      "velocity": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "worldAcceleration": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "rotation": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "spin": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "size": {
+        "constant": [
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0.699999988079071,
+            0.699999988079071,
+            0.699999988079071
+          ]
+        ],
+        "probabilities": []
+      },
+      "scale": {
+        "constant": [
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "uniform": false,
+      "birthColor": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "color": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "uv": {
+        "scale": {
+          "constant": [
+            1,
+            1
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              1,
+              1
+            ]
+          ],
+          "probabilities": []
+        },
+        "offset": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "birthScroll": {
+          "constant": [
+            -1.600000023841858,
+            0.0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              -1.600000023841858,
+              0.0
+            ]
+          ],
+          "probabilities": []
+        },
+        "scroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "clamp": false,
+        "address": 0,
+        "divisions": [
+          1,
+          1
+        ],
+        "frames": 1,
+        "randomStart": false
+      },
+      "uvMode": 0,
+      "multiplier": null,
+      "lookupTypes": [
+        1,
+        0
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ],
+      "local": true,
+      "particleLocal": true,
+      "directionOriented": false,
+      "directionVelocityScale": 0,
+      "ground": false,
+      "navmesh": false,
+      "blend": 0,
+      "renderOrder": 0,
+      "miscRenderFlags": 0,
+      "meshRenderFlags": 0,
+      "noCull": true,
+      "depthBias": [
+        0,
+        0
+      ],
+      "alphaRef": 0.0196078431372549,
+      "erosion": null,
+      "distortion": null,
+      "soft": null,
+      "palette": null,
+      "explicitFields": [
+        "EmitterPosition",
+        "__type",
+        "bindWeight",
+        "birthScale0",
+        "birthUvScrollRate",
+        "disableBackfaceCull",
+        "emitterName",
+        "isSingleParticle",
+        "lifetime",
+        "particleColorTexture",
+        "particleLifetime",
+        "primitive",
+        "rate",
+        "texture"
+      ],
+      "rawFlags": {
+        "blendMode": null,
+        "isLocalOrientation": null,
+        "particleIsLocalOrientation": null
+      },
+      "jointFramePolicy": "local current named full joint frame; adapter flags are not authored source controls"
+    },
+    {
+      "system": "MasterYi_Crit_Trail",
+      "role": "primary-attack-trail",
+      "index": 0,
+      "name": "WeaponTrail",
+      "kind": "mesh",
+      "mesh": "assets/models/masteryi-primary-trail.glb",
+      "texture": "assets/effects/masteryi-primary-trail-cf0e2d42d914fcea.png",
+      "lookup": "assets/effects/masteryi-q-contact-dba30aea46f8d87f.png",
+      "rate": {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "single": true,
+      "delay": 0,
+      "emitterLife": 1.0,
+      "emitterLinger": null,
+      "linger": null,
+      "life": {
+        "constant": [
+          0.15000000596046448
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0.15000000596046448
+          ]
+        ],
+        "probabilities": []
+      },
+      "bind": {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "position": {
+        "constant": [
+          0.0,
+          50.0,
+          -45.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0.0,
+            50.0,
+            -45.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "shape": {
+        "offset": {
+          "constant": [
+            0,
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        }
+      },
+      "velocity": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "worldAcceleration": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "rotation": {
+        "constant": [
+          0.0,
+          0.0,
+          100.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0.0,
+            0.0,
+            100.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "spin": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "size": {
+        "constant": [
+          0.699999988079071,
+          1.0,
+          0.699999988079071
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0.699999988079071,
+            1.0,
+            0.699999988079071
+          ]
+        ],
+        "probabilities": []
+      },
+      "scale": {
+        "constant": [
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "uniform": false,
+      "birthColor": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "color": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "uv": {
+        "scale": {
+          "constant": [
+            1,
+            1
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              1,
+              1
+            ]
+          ],
+          "probabilities": []
+        },
+        "offset": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "birthScroll": {
+          "constant": [
+            -2.799999952316284,
+            0.0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              -2.799999952316284,
+              0.0
+            ]
+          ],
+          "probabilities": []
+        },
+        "scroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "clamp": false,
+        "address": 0,
+        "divisions": [
+          1,
+          1
+        ],
+        "frames": 1,
+        "randomStart": false
+      },
+      "uvMode": 0,
+      "multiplier": null,
+      "lookupTypes": [
+        1,
+        0
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ],
+      "local": true,
+      "particleLocal": true,
+      "directionOriented": false,
+      "directionVelocityScale": 0,
+      "ground": false,
+      "navmesh": false,
+      "blend": 0,
+      "renderOrder": 0,
+      "miscRenderFlags": 0,
+      "meshRenderFlags": 0,
+      "noCull": true,
+      "depthBias": [
+        0,
+        0
+      ],
+      "alphaRef": 0.0196078431372549,
+      "erosion": null,
+      "distortion": null,
+      "soft": null,
+      "palette": null,
+      "explicitFields": [
+        "EmitterPosition",
+        "__type",
+        "bindWeight",
+        "birthRotation0",
+        "birthScale0",
+        "birthUvScrollRate",
+        "disableBackfaceCull",
+        "emitterName",
+        "isSingleParticle",
+        "lifetime",
+        "particleColorTexture",
+        "particleLifetime",
+        "primitive",
+        "rate",
+        "texture"
+      ],
+      "rawFlags": {
+        "blendMode": null,
+        "isLocalOrientation": null,
+        "particleIsLocalOrientation": null
+      },
+      "jointFramePolicy": "local current named full joint frame; adapter flags are not authored source controls"
+    }
+  ],
+  "markers": [
+    {
+      "system": "MasterYi_BA1_Trail",
+      "parent": "Attack1",
+      "clip": "entry_d5c55cfd",
+      "eventClip": "entry_ab887b52",
+      "eventKey": "{2d55b65c}",
+      "sourceFrame": 5.0,
+      "renderedSeconds": 0.1666666716337204,
+      "renderedDuration": 1.8000000715255737,
+      "sampleCount": 55,
+      "sourceBone": "C_Buffbone_Glb_Center_Loc",
+      "glbNode": 85,
+      "glbBone": "C_Buffbone_Glb_Center_Loc",
+      "profileIndex": 0
+    },
+    {
+      "system": "MasterYi_Crit_Trail",
+      "parent": "Crit",
+      "clip": "entry_e1798980",
+      "eventClip": "entry_db40631e",
+      "eventKey": "{f3056ffb}",
+      "sourceFrame": 8.0,
+      "renderedSeconds": 0.2666666805744171,
+      "renderedDuration": 1.8333333730697632,
+      "sampleCount": 56,
+      "sourceBone": "C_Buffbone_Glb_Center_Loc",
+      "glbNode": 85,
+      "glbBone": "C_Buffbone_Glb_Center_Loc",
+      "profileIndex": 1
+    }
+  ],
+  "retainedUndispatchedSystems": [
+    "MasterYi_BA2_Trail",
+    "MasterYi_P_Trail_1",
+    "MasterYi_P_Trail_2"
+  ]
+}

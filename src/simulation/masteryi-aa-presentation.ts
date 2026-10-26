@@ -13,6 +13,7 @@ import type { Vec2 } from './math';
 type Observation = { visible(unit: Unit, team: Team): boolean };
 export interface MasterYiAttackAudio {
   startTick: number;
+  trailFrames: import('./actor-root-history').ActorRootRun[];
   releaseTick: number;
   endTick: number;
   kind: 'attack1' | 'crit';
@@ -46,6 +47,7 @@ export function beginMasterYiAttack(
   const cycle = unit.attackCycle!;
   state.masterYiAAAudio.push({
     startTick: tick,
+    trailFrames: [],
     releaseTick: unit.releaseTick!,
     endTick: cycle.endTick,
     kind: cycle.critical ? 'crit' : 'attack1',

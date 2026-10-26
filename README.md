@@ -82,3 +82,5 @@ Architecture: TypeScript + Vite + Three.js, a renderer-independent simulation on
 Reference target: standard PC Summoner's Rift, patch 26.18, with Data Dragon 16.18.1 as a verified data starting point. This is a frozen reference, not a promise that every rule has already been reconstructed. The specification identifies what still requires measurement.
 
 The local reference build includes Riot-owned icons, character models and terrain, with source URLs and hashes in `public/assets/`. Riot's published policy does not authorize games using its IP; redistribution authorization has not been established. The reference asset pack is not a cleared production distribution. The independent asset pipeline and content permissions remain tracked in the production design.
+
+Private Yi primary attacks also render [saved ordinary and critical weapon trails](docs/MASTER-YI-PRIMARY-TRAILS.md) with the retained native mesh and all 25 authored mip levels.
