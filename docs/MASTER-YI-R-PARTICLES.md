@@ -17,7 +17,7 @@ Two native BINs, 20 TEX textures and four SCB meshes close the dependency set:
 All five systems omit system flags. The sound omissions stay distinct from null,
 empty or inferred defaults. The persistent trail declaration is retained as a
 source binding; its event, loop/fade policy and runtime lifetime need their own
-audio reading. Existing finite Highlander activation/expiry playback does not
+[audio reading](MASTER-YI-R-TRAIL-AUDIO.md). Existing finite Highlander activation/expiry playback does not
 by itself implement this persistent cue.
 
 The cast has mesh cones/fireball, glow/lens quads, delayed speed, distortion and

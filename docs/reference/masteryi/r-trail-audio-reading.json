@@ -1,0 +1,220 @@
+{
+  "format": 1,
+  "particleSourceSha256": "e8630aeae0aa33c6f369bde1ac3c80aeb333a16e78924ab1417f56f75e7f1ccd",
+  "audioGraphSha256": "b7879c088d3544626d70c9ecaf4abfd0aebae007db5a6ee841c0caed7a2b33e3",
+  "decodedRecordSha256": "28ac362788bb76709a226e76d282eb25a1805a474b9bc7348cedd59bbee33a32",
+  "bindings": [
+    {
+      "system": "MasterYi_R_Buf",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_R_Buf",
+      "persistentPresent": true,
+      "soundPersistentDefault": "Play_sfx_MasterYi_Highlander_trail",
+      "onCreatePresent": false
+    },
+    {
+      "system": "MasterYi_R_Buf_Lvl2",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_R_Buf_Lvl2",
+      "persistentPresent": true,
+      "soundPersistentDefault": "Play_sfx_MasterYi_Highlander_trail",
+      "onCreatePresent": false
+    },
+    {
+      "system": "MasterYi_R_Buf_Lvl3",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_R_Buf_Lvl3",
+      "persistentPresent": true,
+      "soundPersistentDefault": "Play_sfx_MasterYi_Highlander_trail",
+      "onCreatePresent": false
+    },
+    {
+      "system": "MasterYi_R_Cas",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_R_Cas",
+      "persistentPresent": false,
+      "soundPersistentDefault": null,
+      "onCreatePresent": false
+    },
+    {
+      "system": "MasterYi_R_OnBuffKill",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_R_OnBuffKill",
+      "persistentPresent": false,
+      "soundPersistentDefault": null,
+      "onCreatePresent": false
+    }
+  ],
+  "event": {
+    "name": "Play_sfx_MasterYi_Highlander_trail",
+    "id": 2547007766,
+    "actions": [
+      {
+        "id": 1036814976,
+        "type": "CAkActionPlay",
+        "target": 9115,
+        "targetNodes": [
+          9115,
+          802209755
+        ],
+        "affectedMediaIds": [
+          560618281
+        ]
+      }
+    ]
+  },
+  "retainedHighlanderEvents": [
+    "Play_sfx_MasterYi_Highlander_OnBuffActivate",
+    "Play_sfx_MasterYi_Highlander_OnBuffDeactivate",
+    "Play_sfx_MasterYi_Highlander_trail"
+  ],
+  "containerId": 9115,
+  "parentChain": [
+    9115,
+    9114,
+    1056413114
+  ],
+  "gainDb": -13,
+  "policy": {
+    "eMode": 0,
+    "eRandomMode": 1,
+    "wAvoidRepeatCount": 0,
+    "bResetPlayListAtEachPlay": 1,
+    "bIsGlobal": 1,
+    "bIsContinuous": 0,
+    "_bIsUsingWeight": 0,
+    "u16MaxNumInstance": 4,
+    "bKillNewest": 0,
+    "sLoopCount": 1,
+    "sLoopModMin": 0,
+    "sLoopModMax": 0,
+    "eTransitionMode": 0
+  },
+  "actionProperties": {},
+  "playFadeCurve": 4,
+  "leafProperties": {
+    "Loop": 0
+  },
+  "volumeRtpc": {
+    "RTPCID": 745018932,
+    "rtpcType": 0,
+    "rtpcAccum": 2,
+    "ParamID": 0,
+    "rtpcCurveID": 751387390,
+    "eScaling": 2,
+    "ulSize": 5,
+    "points": [
+      {
+        "input": 0.0,
+        "storedValue": -0.5533164143562317,
+        "interpolation": 5
+      },
+      {
+        "input": 0.6000000238418579,
+        "storedValue": 0.0,
+        "interpolation": 9
+      },
+      {
+        "input": 8.0,
+        "storedValue": 0.0,
+        "interpolation": 5
+      },
+      {
+        "input": 10.0,
+        "storedValue": -0.5533164143562317,
+        "interpolation": 9
+      },
+      {
+        "input": 20.0,
+        "storedValue": -0.5533164143562317,
+        "interpolation": 4
+      }
+    ],
+    "gameParameterDefinitionPresent": false,
+    "inputMeaning": null
+  },
+  "attenuation": {
+    "id": 339248780,
+    "scaling": 2,
+    "points": [
+      {
+        "distance": 0.0,
+        "storedValue": 0.0,
+        "interpolation": 9
+      },
+      {
+        "distance": 1750.0,
+        "storedValue": 0.0,
+        "interpolation": 2
+      },
+      {
+        "distance": 2000.0,
+        "storedValue": -0.7488113641738892,
+        "interpolation": 2
+      },
+      {
+        "distance": 2300.0,
+        "storedValue": -0.93690425157547,
+        "interpolation": 2
+      },
+      {
+        "distance": 2750.0,
+        "storedValue": -1.0,
+        "interpolation": 9
+      },
+      {
+        "distance": 3000.0,
+        "storedValue": -1.0,
+        "interpolation": 4
+      }
+    ],
+    "priority": 60,
+    "unresolvedOutputBusId": 1259461568
+  },
+  "master": {
+    "privatePath": ".cache/masteryi-audio-decoded/560618281.wav",
+    "id": 560618281,
+    "encodedSha256": "eefb97297d3062cd2f93ac5c766b2b7e76a0dda7b6527323096730e70f50a207",
+    "wavSha256": "1a80c48ffe56baf99728d48bc4ba743a96664fe680bd49d1f6cb7988d5b9936d",
+    "pcmSha256": "d57c62d82297e2562774f5b31708ecdecce4d536d5e4d160583619e4bdcd176f",
+    "wavBytes": 1347272,
+    "format": "IEEE float32 little-endian WAV",
+    "channels": 1,
+    "sampleRate": 44100,
+    "frames": 336807,
+    "durationSeconds": 7.637346938775511,
+    "peak": 1.0218539237976074,
+    "rms": 0.20077283421541095,
+    "samplesOutsideUnitRange": 4,
+    "endpointDelta": [
+      0.003022773191332817
+    ],
+    "decoderMetadata": {
+      "version": "r2117",
+      "sampleRate": 44100,
+      "channels": 1,
+      "mixingInfo": {
+        "inputChannels": 1,
+        "outputChannels": 1
+      },
+      "channelLayout": 4,
+      "loopingInfo": null,
+      "numberOfSamples": 336807,
+      "encoding": "Custom Vorbis",
+      "layout": "flat",
+      "metadataSource": "Audiokinetic Wwise RIFF header",
+      "bitrate": 66084,
+      "streamInfo": {
+        "index": 0,
+        "name": null,
+        "total": 0
+      },
+      "playSamples": 336807
+    }
+  },
+  "media": 1,
+  "wavBytes": 1347272,
+  "peak": 1.0218539237976074,
+  "limits": [
+    "Source-only reading; no runtime audio, public WAV, save/ruleset or production-pack change.",
+    "The three retained buff systems explicitly bind the same persistent event; cast and takedown systems omit it. This does not prove native rank-selection or client start/stop callbacks.",
+    "Leaf Loop=0 stays separate from encoded loopingInfo=None. No loop expansion, seam repair, normalization, clipping or resampling is applied.",
+    "Volume retains its raw RTPC scaling/accumulation codes and ordinates; stored values are not literal decibels. The retained graph has no definition/default for parameter 745018932; its meaning and live input cannot be inferred from curve shape.",
+    "Native source-to-output-bus processing, scheduling, callback fade and physical listening remain unverified."
+  ]
+}
