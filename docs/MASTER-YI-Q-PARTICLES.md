@@ -69,3 +69,51 @@ or frame matching.
 
 Exact inputs, restored-file identities, failure diagnostics and staged results:
 [source verification ledger](reference/masteryi/q-particle-source-verification.json).
+
+## Private decoded assets
+
+The [decoded record](reference/masteryi/q-particles-decoded.json) retains every
+authored mip of all 23 textures: 198 RGBA PNGs, 1,135,265 encoded bytes and
+9,852,332 decoded RGBA bytes. Width/height, native compressed range/hash, whole
+PNG/hash, pixel hash and alpha statistics are separate per level. There is no
+resizing, generated mip chain, gamma conversion or premultiplication. The pinned
+LeagueToolkit `Texture.LoadTex` explicitly reads the smallest-first chain in
+reverse, confirming its order independently of CDTB's largest-mip converter.
+BC1-with-alpha and BC3 use the current canonical Pillow software decoder;
+native hardware decoding equivalence remains unverified.
+
+The two SCB 3.2 meshes retain 750 vertices/1,500 triangles and 27 vertices/24
+triangles. Their private JSONs total 406,818 bytes and round-trip the complete
+original files byte-for-byte, including signed zero, unused source vertices,
+face indices/UVs, raw material padding, face RGB, pivot, zero header bounds and
+each nonzero uninterpreted 24-byte tail. No normals, coordinate/unit scale,
+pivot offset, winding/reflection or material interpretation is added. The
+layout readers and their immutable revisions/checksums are retained separately.
+
+The current profile records Python 3.12.14, Pillow 12.3.0, Pillow zlib 1.3.1 and
+the independent stdlib zlib 1.3.2, plus actual decoder/plugin/interpreter file
+identities. Its frozen record checksum prevents silently mixing another build
+profile. Different profiles require separate output/record paths and an
+explicitly reviewed `--record-sha256` value; conflicting files never overwrite.
+All outputs are preflighted before any missing file is created.
+
+```sh
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/decode-masteryi-q-particles.py
+python tools/assets/decode-masteryi-q-particles.py --check
+python -O tools/assets/decode-masteryi-q-particles.py --check
+python tools/assets/test-masteryi-q-decode.py
+python -O tools/assets/test-masteryi-q-decode.py
+```
+
+Thirty-four decode guards pass per Python mode. Hand-calculated controls cover
+all five PNG filters; independent replay verifies CRCs, exact extents, pixels and
+alpha without importing Pillow or CDTB. Mip controls cover rectangular/minimum
+blocks and storage order; SCB controls cover indices, nonfinite coordinates,
+unreferenced points, signed zero and opaque-tail retention. Actual independent
+checks and complete re-decodes pass normally and with optimization; the record
+and all 200 asset timestamps remain unchanged. This adds private source assets
+only. Public files, runtime, schema/ruleset and the production pack stay at the
+Highlander checkpoint; visual playback still needs its own acceptance work.
+
+Decoder/profile identities, all 200 asset hashes and validation evidence:
+[decode verification ledger](reference/masteryi/q-particle-decode-verification.json).
