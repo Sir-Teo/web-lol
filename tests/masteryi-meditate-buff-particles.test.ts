@@ -57,3 +57,24 @@ test('random seeks are exact and source tables remain immutable', () => {
 test.each([NaN, Infinity, -Infinity, -1])('invalid time %s has no particles', (time) =>
   expect(meditateBuffParticles(341, time)).toEqual([])
 );
+
+test('the buff ray retains the guarded native byte-packet specialization', () => {
+  const ray = data.profiles[0];
+  expect(data.profiles.filter((profile) => profile.kind === 'ray')).toHaveLength(1);
+  expect([ray.kind, ray.blend, ray.lookup, ray.multiplier]).toEqual(['ray', 4, null, null]);
+  expect(ray.explicitFields).not.toContain('modulationFactor');
+  expect(ray.birthColor.constant).toEqual([1, 1, 0, 1]);
+  expect(ray.uv.divisions).toEqual([2, 2]);
+  expect(ray.uv.frames).toBe(1);
+  expect(ray.uv.randomStart).toBe(false);
+  expect(ray.uv.scale.times).toEqual([0]);
+  expect(ray.uv.scale.values).toEqual([[1, 1]]);
+  expect(ray.uv.scale.probabilities).toEqual([]);
+  for (const value of [ray.uv.offset, ray.uv.scroll, ray.uv.birthScroll]) {
+    expect(value.times).toEqual([0]);
+    expect(value.values).toEqual([[0, 0]]);
+    expect(value.probabilities).toEqual([]);
+  }
+  expect(ray.lookupTypes).toEqual([1, 0]);
+  expect(ray.color.values.flat().every((v) => v >= 0 && v <= 1)).toBe(true);
+});

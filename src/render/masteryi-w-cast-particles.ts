@@ -5,6 +5,7 @@ import { luxHoopChance } from './lux-hoop-particles';
 import { eclipseValue, eclipseUv, type EclipseValue } from './leona-eclipse-values';
 import { particleColorLookup } from './particle-color-lookup';
 import { particleTravel } from './particle-motion';
+import { particleHalf } from './particle-half';
 
 /** Complete W_Cas on the existing local first-update/random/force grid.
  * Linger values do not extend finite source lives. No simulation RNG is consumed. */
@@ -43,6 +44,16 @@ export function meditateCastParticles(seed: number, time: number) {
         color = eclipseValue(p.color, phase),
         size = sample(p.size).map((v, axis) => v * scale[axis]);
       if (p.uniform) size.fill(size[0]);
+      const lookup = particleColorLookup(
+        p,
+        phase,
+        roll,
+        motion.travel.map((v, axis) => v + world.travel[axis])
+      );
+      if (p.kind === 'ray') {
+        lookup[0] = particleHalf(lookup[0]);
+        lookup[1] = particleHalf(lookup[1]);
+      }
       particles.push({
         profileIndex,
         ordinal,
@@ -61,12 +72,7 @@ export function meditateCastParticles(seed: number, time: number) {
         travel: motion.travel,
         stretch: 1,
         bind: eclipseValue(p.bind, Math.min(1, time / p.emitterLife))[0],
-        lookup: particleColorLookup(
-          p,
-          phase,
-          roll,
-          motion.travel.map((v, axis) => v + world.travel[axis])
-        ),
+        lookup,
         uv: eclipseUv(p.uv, age, life, birthPhase, phase, chance, roll),
         multUv: p.multiplier
           ? eclipseUv(p.multiplier.uv, age, life, birthPhase, phase, chance, roll)

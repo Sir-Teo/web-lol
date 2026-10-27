@@ -47,6 +47,9 @@ async function installDescribe(page: Page) {
           quaternion: mesh.quaternion.toArray(),
           scale: mesh.scale.toArray(),
           color: mesh.material.uniforms.particleColor.value.toArray(),
+          vertexColor: mesh.geometry.hasAttribute('_source_vertex_bgra')
+            ? Array.from(mesh.geometry.getAttribute('_source_vertex_bgra').array)
+            : null,
           lookup: mesh.material.uniforms.lookupUv.value.toArray(),
           uv: mesh.material.uniforms.sourceUvTransform.value.toArray(),
           mult: mesh.material.uniforms.multiplierUvTransform.value.toArray(),

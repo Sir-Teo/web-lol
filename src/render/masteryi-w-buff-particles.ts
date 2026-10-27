@@ -6,6 +6,7 @@ import { luxHoopChance } from './lux-hoop-particles';
 import { eclipseValue, eclipsePeak, eclipseUv, type EclipseValue } from './leona-eclipse-values';
 import { particleColorLookup } from './particle-color-lookup';
 import { particleTravel } from './particle-motion';
+import { particleHalf } from './particle-half';
 
 /** Complete W_Buf on the existing local first-update/random/force grid.
  * Linger values do not extend finite source lives. No simulation RNG is consumed. */
@@ -78,6 +79,16 @@ export function meditateBuffParticles(seed: number, time: number, stopSeconds = 
           (p.uv.startFrame + (p.uv.randomStart ? Math.floor(roll * p.uv.frames) : 0)) %
           (columns * rows);
       uv.cell = [(cell % columns) / columns, Math.floor(cell / columns) / rows];
+      const lookup = particleColorLookup(
+        p,
+        phase,
+        roll,
+        motion.travel.map((v, axis) => v + world.travel[axis])
+      );
+      if (p.kind === 'ray') {
+        lookup[0] = particleHalf(lookup[0]);
+        lookup[1] = particleHalf(lookup[1]);
+      }
       particles.push({
         profileIndex,
         ordinal,
@@ -97,12 +108,7 @@ export function meditateBuffParticles(seed: number, time: number, stopSeconds = 
         travel: motion.travel,
         stretch: 1,
         bind: eclipseValue(p.bind, Math.min(1, time / p.emitterLife))[0],
-        lookup: particleColorLookup(
-          p,
-          phase,
-          roll,
-          motion.travel.map((v, axis) => v + world.travel[axis])
-        ),
+        lookup,
         uv,
         multUv: p.multiplier
           ? eclipseUv(p.multiplier.uv, age, life, birthPhase, phase, chance, roll)

@@ -15,6 +15,11 @@ Damage and tenacity systems remain retained sources.
 | `energy_wave` | Arbitrary quad | Authored 60 Hz rate, rise, expansion and lookup |
 | `Stars_Green` | Billboard | Legacy spawn offsets, variable life/velocity/size and world acceleration |
 
+The later [ray packet correction](MEDITATE-RAY-PACKETS.md) uses normalized BGRA
+bytes and half lookup coordinates for `fireline`, while preserving its raw
+color curves, geometry and source lifecycle. Other cast emitters retain their
+existing packet and shading policies.
+
 ## Source delivery
 
 The [complete native source](reference/masteryi/w-particles.json),

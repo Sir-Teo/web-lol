@@ -123,6 +123,7 @@ export class MeditateCasts extends SourceParticleSurfaces<Group> {
       profiles: data.profiles,
       assets: () => (ready ? assets : undefined),
       accepts: () => true,
+      vertexColor: (index) => (data.profiles[index].kind === 'ray' ? 'bgra-unorm8' : undefined),
       material(index, resources) {
         const p = data.profiles[index];
         if (!p.multiplier) return undefined;

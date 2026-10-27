@@ -103,6 +103,7 @@ export class MeditateBuffs extends SourceParticleSurfaces<Group> {
       profiles: data.profiles,
       assets: () => (ready ? assets : undefined),
       accepts: () => true,
+      vertexColor: (index) => (data.profiles[index].kind === 'ray' ? 'bgra-unorm8' : undefined),
       *records(world: World) {
         for (const unit of world.units) {
           if (unit.champion !== 'masteryi') continue;

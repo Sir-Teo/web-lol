@@ -12,6 +12,11 @@ Ashe/Lux; damage and tenacity systems are retained sources for later work.
 | `nova` | Arbitrary quad | 9/second, variable finite life, authored rotation, wave texture and randomized UV scroll/offset |
 | `energy_sparks` | Billboard | 15/second, rotated legacy shape, variable upward velocity, attraction/orbital fields and source lookup scales |
 
+The later [ray packet correction](MEDITATE-RAY-PACKETS.md) uses normalized BGRA
+bytes and half lookup coordinates for `bigray`. Its yellow birth tint, source
+color curves, geometry and static atlas frame remain retained. The heal mesh,
+quad and billboard keep their existing packet and shading policies.
+
 The [raw source](reference/masteryi/w-particles.json),
 [decoded transport](reference/masteryi/w-particle-texture-transport.json) and
 [compiled buff reading](reference/masteryi/w-buff-particle-reading.json) remain
