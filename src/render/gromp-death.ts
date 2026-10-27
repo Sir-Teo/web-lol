@@ -7,6 +7,8 @@ import type { UnitModel } from './models';
 import { grompDeathParticles } from './gromp-death-particles';
 import { createParticleColorProductMaterial } from './particle-color-product';
 import { writeRayQuad } from './ray-quad';
+import { writeRayColor } from './particle-ray-color';
+import { particleHalf } from './particle-half';
 
 const textures = new Map<string, THREE.Texture>(),
   geometries = new Map<string, THREE.BufferGeometry>(),
@@ -91,7 +93,7 @@ export function createGrompDeathMaterial(
       lookup,
       batched ? 'vertex' : 'uniform',
       undefined,
-      batched
+      batched && p.kind === 'ray' ? 'bgra-unorm8' : batched
     );
   if (p.alphaRef)
     material.fragmentShader = material.fragmentShader.replace(
@@ -123,7 +125,6 @@ function batchGeometry(index: number) {
   for (const [name, size] of [
     ['position', 3],
     ['uv', 2],
-    ['particleTint', 4],
     ['particleLookupUv', 2],
   ] as const)
     geometry.setAttribute(
@@ -132,6 +133,14 @@ function batchGeometry(index: number) {
         THREE.DynamicDrawUsage
       )
     );
+  geometry.setAttribute(
+    p.kind === 'ray' ? '_source_vertex_bgra' : 'particleTint',
+    new THREE.BufferAttribute(
+      p.kind === 'ray' ? new Uint8Array(count * 4) : new Float32Array(count * 4),
+      4,
+      p.kind === 'ray'
+    ).setUsage(THREE.DynamicDrawUsage)
+  );
   return geometry;
 }
 
@@ -213,7 +222,9 @@ export class GrompDeath {
           mesh.userData.ordinals = selected.map((v) => v.ordinal);
           const position = mesh.geometry.getAttribute('position') as THREE.BufferAttribute,
             uv = mesh.geometry.getAttribute('uv') as THREE.BufferAttribute,
-            tint = mesh.geometry.getAttribute('particleTint') as THREE.BufferAttribute,
+            tint = mesh.geometry.getAttribute(
+              p.kind === 'ray' ? '_source_vertex_bgra' : 'particleTint'
+            ) as THREE.BufferAttribute,
             lookup = mesh.geometry.getAttribute('particleLookupUv') as THREE.BufferAttribute,
             base = baseGeometry(profileIndex),
             basePosition = base.getAttribute('position'),
@@ -267,9 +278,12 @@ export class GrompDeath {
                 uv.setXY(first + v, baseUv.getX(v), baseUv.getY(v));
               }
             }
-            const color = [...particle.color],
+            const color = p.kind === 'ray' ? particle.color : [...particle.color],
+              lookupPhase = p.kind === 'ray' ? particleHalf(particle.phase) : particle.phase,
               [columns, rows] = p.atlas.grid;
-            if (p.blend === 0) {
+            if (p.kind === 'ray')
+              writeRayColor(tint.array as Uint8Array, first, vertices, particle.color, p.blend);
+            else if (p.blend === 0) {
               for (let i = 0; i < 3; i++) color[i] *= color[3];
               color[3] = 1;
             }
@@ -279,8 +293,8 @@ export class GrompDeath {
                 (uv.getX(v) + (particle.frame % columns)) / columns + particle.scroll[0],
                 (uv.getY(v) + Math.floor(particle.frame / columns)) / rows + particle.scroll[1]
               );
-              tint.setXYZW(v, color[0], color[1], color[2], color[3]);
-              lookup.setXY(v, particle.phase, 0.5);
+              if (p.kind !== 'ray') tint.setXYZW(v, color[0], color[1], color[2], color[3]);
+              lookup.setXY(v, lookupPhase, 0.5);
             }
           }
           mesh.geometry.setDrawRange(0, selected.length * vertices);
