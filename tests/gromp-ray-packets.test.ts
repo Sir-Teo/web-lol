@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import data from '../src/content/gromp-death.json';
 import { createGrompDeathMaterial } from '../src/render/gromp-death';
 
-test('Gromp byte streams stay bound to the two independently mapped legacy Rays', () => {
+test('Gromp byte streams stay bound to independently mapped Rays and complex CameraQuads', () => {
   const raw = readFileSync('docs/reference/native-legacy-primitive-types.json'),
     witness = JSON.parse(raw.toString()),
     source = JSON.parse(readFileSync('docs/reference/gromp-effects.json', 'utf8'));
@@ -14,11 +14,23 @@ test('Gromp byte streams stay bound to the two independently mapped legacy Rays'
   );
   expect(witness.ray.vertexBuilder).toBe('0x1018d9178');
   expect(witness.grompRays.map((p: any) => p.profileIndex)).toEqual([5, 7]);
+  const billboardRaw = readFileSync('docs/reference/native-gromp-emitter-routes.json'),
+    billboardWitness = JSON.parse(billboardRaw.toString());
+  expect(createHash('sha256').update(billboardRaw).digest('hex')).toBe(
+    '8e268d02303addefa4c70b311215329d4ef1782eac4ae12378a54039dd6eff3c'
+  );
+  expect(billboardWitness.source.complexCameraQuadProfiles).toEqual([1, 2, 3]);
+  expect(billboardWitness.source.simpleProfiles).toEqual([0]);
+  const packed = new Set([
+    ...witness.grompRays.map((p: any) => p.profileIndex),
+    ...billboardWitness.source.complexCameraQuadProfiles,
+  ]);
+  expect([...packed].sort()).toEqual([1, 2, 3, 5, 7]);
   const white = new THREE.Texture();
   try {
     for (const [index, p] of data.profiles.entries()) {
       const material = createGrompDeathMaterial(index, white, white, true);
-      expect(material.defines.VERTEX_BGRA).toBe(p.kind === 'ray' ? 1 : undefined);
+      expect(material.defines.VERTEX_BGRA).toBe(packed.has(index) ? 1 : undefined);
       expect(material.defines.VERTEX_TINT).toBe(1);
       material.dispose();
       if (p.kind !== 'ray') continue;

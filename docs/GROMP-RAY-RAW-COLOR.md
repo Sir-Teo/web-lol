@@ -94,3 +94,14 @@ and zero unintended private-asset preloads. All 543 asset/data files retain
 their bytes and modification times. The verification ledger links the final
 build identity and archived closure; native appearance, clocks and live process
 conditions remain outside these local component checks.
+
+## Subsequent complex billboard correction
+
+The [billboard color checkpoint](GROMP-BILLBOARD-COLOR.md) changes only audited
+profiles 1/2/3. The Ray implementation and its retained pixel checks remain
+unchanged. The original Ray component verifier now freezes its accepted sampler
+at `46e69f7` to preserve every original non-Ray equality and C assertion. Current
+whole-sampler acceptance uses `verify-gromp-billboard-color.mjs`, requiring all
+Ray, Simple flash, plane and mesh states to match that accepted source exactly.
+The earlier six-non-Ray invariance claim above describes the historical Ray
+checkpoint, before the separately justified billboard correction.

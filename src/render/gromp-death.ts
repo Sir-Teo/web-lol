@@ -8,6 +8,7 @@ import { grompDeathParticles } from './gromp-death-particles';
 import { createParticleColorProductMaterial } from './particle-color-product';
 import { writeRayQuad } from './ray-quad';
 import { writeRayColor } from './particle-ray-color';
+import { isGrompLegacyBillboard, writeGrompBillboardColor } from './gromp-billboard-color';
 import { particleHalf } from './particle-half';
 
 const textures = new Map<string, THREE.Texture>(),
@@ -93,7 +94,7 @@ export function createGrompDeathMaterial(
       lookup,
       batched ? 'vertex' : 'uniform',
       undefined,
-      batched && p.kind === 'ray' ? 'bgra-unorm8' : batched
+      batched && (p.kind === 'ray' || isGrompLegacyBillboard(index)) ? 'bgra-unorm8' : batched
     );
   if (p.alphaRef)
     material.fragmentShader = material.fragmentShader.replace(
@@ -120,6 +121,7 @@ function baseGeometry(index: number) {
 }
 function batchGeometry(index: number) {
   const p = source.profiles[index],
+    packed = p.kind === 'ray' || isGrompLegacyBillboard(index),
     count = p.count * (p.kind === 'ray' ? 6 : baseGeometry(index).getAttribute('position').count),
     geometry = new THREE.BufferGeometry();
   for (const [name, size] of [
@@ -134,11 +136,11 @@ function batchGeometry(index: number) {
       )
     );
   geometry.setAttribute(
-    p.kind === 'ray' ? '_source_vertex_bgra' : 'particleTint',
+    packed ? '_source_vertex_bgra' : 'particleTint',
     new THREE.BufferAttribute(
-      p.kind === 'ray' ? new Uint8Array(count * 4) : new Float32Array(count * 4),
+      packed ? new Uint8Array(count * 4) : new Float32Array(count * 4),
       4,
-      p.kind === 'ray'
+      packed
     ).setUsage(THREE.DynamicDrawUsage)
   );
   return geometry;
@@ -191,6 +193,7 @@ export class GrompDeath {
         this.frame.setFromAxisAngle(THREE.Object3D.DEFAULT_UP, unit.facing);
         for (let profileIndex = 0; profileIndex < source.profiles.length; profileIndex++) {
           const p = source.profiles[profileIndex],
+            packed = p.kind === 'ray' || isGrompLegacyBillboard(profileIndex),
             selected = particles.filter((v) => v.profileIndex === profileIndex);
           if (!selected.length) continue;
           const key = `${unit.id}:${unit.deadAt}:${profileIndex}`;
@@ -223,7 +226,7 @@ export class GrompDeath {
           const position = mesh.geometry.getAttribute('position') as THREE.BufferAttribute,
             uv = mesh.geometry.getAttribute('uv') as THREE.BufferAttribute,
             tint = mesh.geometry.getAttribute(
-              p.kind === 'ray' ? '_source_vertex_bgra' : 'particleTint'
+              packed ? '_source_vertex_bgra' : 'particleTint'
             ) as THREE.BufferAttribute,
             lookup = mesh.geometry.getAttribute('particleLookupUv') as THREE.BufferAttribute,
             base = baseGeometry(profileIndex),
@@ -278,11 +281,13 @@ export class GrompDeath {
                 uv.setXY(first + v, baseUv.getX(v), baseUv.getY(v));
               }
             }
-            const color = p.kind === 'ray' ? particle.color : [...particle.color],
+            const color = packed ? particle.color : [...particle.color],
               lookupPhase = p.kind === 'ray' ? particleHalf(particle.phase) : particle.phase,
               [columns, rows] = p.atlas.grid;
             if (p.kind === 'ray')
               writeRayColor(tint.array as Uint8Array, first, vertices, particle.color, p.blend);
+            else if (isGrompLegacyBillboard(profileIndex))
+              writeGrompBillboardColor(tint.array as Uint8Array, first, vertices, particle.color);
             else if (p.blend === 0) {
               for (let i = 0; i < 3; i++) color[i] *= color[3];
               color[3] = 1;
@@ -293,7 +298,7 @@ export class GrompDeath {
                 (uv.getX(v) + (particle.frame % columns)) / columns + particle.scroll[0],
                 (uv.getY(v) + Math.floor(particle.frame / columns)) / rows + particle.scroll[1]
               );
-              if (p.kind !== 'ray') tint.setXYZW(v, color[0], color[1], color[2], color[3]);
+              if (!packed) tint.setXYZW(v, color[0], color[1], color[2], color[3]);
               lookup.setXY(v, lookupPhase, 0.5);
             }
           }

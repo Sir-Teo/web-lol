@@ -1,5 +1,6 @@
 import source from '../content/gromp-death.json';
 import { TICK_RATE } from '../content/rules';
+import { isGrompLegacyBillboard } from './gromp-billboard-color';
 import { Vector3 } from 'three';
 import { prepareLegacyParticleColor, sampleLegacyParticleColor } from './legacy-particle-color';
 import {
@@ -18,11 +19,13 @@ function compile(keys: { time: number; value: number[] }[]): ParticleCurve {
 
 // Source profiles are static. Share their curve views across every particle,
 // corpse and seek instead of rebuilding two arrays for each sampled channel.
-const curves = source.profiles.map((profile) => ({
+const curves = source.profiles.map((profile, profileIndex) => ({
   scale: compile(profile.scaleCurve),
   color: compile(profile.colorCurve),
-  rayColor:
-    profile.kind === 'ray' ? prepareLegacyParticleColor(profile.color, profile.colorCurve) : null,
+  rawColor:
+    profile.kind === 'ray' || isGrompLegacyBillboard(profileIndex)
+      ? prepareLegacyParticleColor(profile.color, profile.colorCurve)
+      : null,
   rotation: compile(profile.rotationCurve),
 }));
 
@@ -85,8 +88,8 @@ export function grompDeathParticles(deathTick: number, tick: number, id = 0) {
           scale,
           rotation,
           frame,
-          color: curve.rayColor
-            ? sampleLegacyParticleColor(curve.rayColor, phase)
+          color: curve.rawColor
+            ? sampleLegacyParticleColor(curve.rawColor, phase)
             : p.color.map((v, axis) => v * sample(curve.color, phase, axis)),
           offset: origin.toArray().map((v, axis) => v + p.postOffset[axis] + motion.position[axis]),
           scroll: birth(p.uvOffset, p.probabilities.uvOffset).map(

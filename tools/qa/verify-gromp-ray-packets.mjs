@@ -1,4 +1,5 @@
-/** Compare retained Gromp state, raw-key float32 color and independent Ray packets. */
+/** Replay the accepted Ray checkpoint with its original whole-sampler invariants.
+ * Current sampler acceptance is verify-gromp-billboard-color.mjs. */
 import assert from 'node:assert/strict';
 import { mkdirSync, existsSync, writeFileSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -12,12 +13,16 @@ const { values } = parseArgs({ options: { 'output-dir': { type: 'string' } } }),
 assert(!existsSync(output));
 mkdirSync(output, { recursive: true });
 const reference = await grompRayReference(resolve(output, 'reference')),
+  accepted = await grompRayReference(
+    resolve(output, 'accepted'),
+    '46e69f71b258b86e3bfa25032bc69515ba28b718'
+  ),
   entry = resolve(output, 'candidate.ts'),
   module = resolve(output, 'candidate.mjs');
 writeFileSync(
   entry,
   [
-    `export {grompDeathParticles} from ${JSON.stringify(resolve('src/render/gromp-death-particles.ts'))};`,
+    `export {grompDeathParticles} from ${JSON.stringify(resolve(output, 'accepted/source/src/render/gromp-death-particles.ts'))};`,
     `export {writeRayColor} from ${JSON.stringify(resolve('src/render/particle-ray-color.ts'))};`,
     `export {particleHalf} from ${JSON.stringify(resolve('src/render/particle-half.ts'))};`,
     `export {prepareLegacyParticleColor,sampleLegacyParticleColor} from ${JSON.stringify(resolve('src/render/legacy-particle-color.ts'))};`,
@@ -190,6 +195,9 @@ const reading = {
   additionalCurvePhases: curveRequest.length - retainedRows,
   counts,
   examples,
+  acceptedSamplerReference: accepted,
+  samplerScope:
+    'Frozen pre-billboard accepted sampler; current whole-sampler assertions live in verify-gromp-billboard-color.mjs.',
   allNonRayStatesExact: true,
   allOtherRayFieldsExact: true,
   allRayColorWordsExact: true,
