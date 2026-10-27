@@ -113,6 +113,8 @@ export interface HudActions {
 }
 export class Hud {
   root: HTMLDivElement;
+  /** A HUD instant spell can replace an active targeting gesture. */
+  onInstantCast?: () => void;
   modal: string | null = null;
   paused = false;
   graphicsState: 'lost' | 'restoring' | 'failed' | null = null;
@@ -525,14 +527,15 @@ export class Hud {
       });
       button.addEventListener('click', () => {
         if (this.paused || this.modal) return;
-        if (instantSpell(this.world, ability))
+        if (instantSpell(this.world, ability)) {
+          this.onInstantCast?.();
           this.world.enqueue({
             type: 'cast',
             unit: this.world.player.id,
             ability,
             point: this.world.hero,
           });
-        else
+        } else
           this.toast(
             targetedSpell(this.world, ability)
               ? targetInstruction(this.world, ability)

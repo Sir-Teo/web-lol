@@ -87,6 +87,18 @@ try {
   assert.equal(await isMuted(), !before, 'Focused sound button must activate with Space');
   await page.keyboard.press('Enter');
   assert.equal(await isMuted(), before, 'Enter must retain its native button activation');
+  await page.locator('#trinket').click();
+  assert.equal(
+    await page.locator('#battlefield').evaluate((node) => node.classList.contains('aiming')),
+    true
+  );
+  await page.getByRole('button', { name: 'Heal', exact: true }).click();
+  assert.equal(
+    await page.locator('#battlefield').evaluate((node) => node.classList.contains('aiming')),
+    false,
+    'HUD Heal must clear ward selection'
+  );
+  assert.equal(await page.locator('#trinket .trinket-charges').textContent(), '1');
   await page.getByRole('button', { name: 'Pause game', exact: true }).focus();
   await page.keyboard.press('Space');
   await page
@@ -108,6 +120,7 @@ try {
     soundSpace: true,
     soundEnter: true,
     pauseSpace: true,
+    wardPreviewReplacedByHeal: true,
     resumeSpace: true,
     errors,
     failed,

@@ -1,0 +1,364 @@
+{
+  "format": 1,
+  "parentCommit": "a8b521cfeee0b961ce6893292edd06d01298b11d",
+  "scope": "Notify the input controller before a HUD instant cast so an active ward preview is cancelled consistently for pointer, Space and Enter. Preserve accepted commands and all other gesture policy.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "offlinePack": {
+      "id": "51ca4faf84cad2856912ff079871c00d88a727bfc052d0a019ed7dc2af53fd1e",
+      "files": 1202,
+      "bytes": 538091240
+    }
+  },
+  "verification": {
+    "fresh": {
+      "typeCheckPassed": true,
+      "nodeQaPassed": 8,
+      "browserCases": 4,
+      "newBrowserCases": 1,
+      "hudActivationPaths": [
+        "pointer",
+        "Space",
+        "Enter"
+      ],
+      "acceptedWardPreserved": true,
+      "queuedHealExactSaveReload": true,
+      "productionKeyboardCases": 1,
+      "productionWardReplacement": true,
+      "productionKeyboardActions": [
+        "Space sound",
+        "Enter sound",
+        "Space pause",
+        "Space resume"
+      ],
+      "freshProductionScreenshots": 1,
+      "assetsAndDataFilesUnchanged": 543,
+      "bytesAndMtimesUnchanged": true
+    },
+    "inherited": {
+      "commit": "a8b521cfeee0b961ce6893292edd06d01298b11d",
+      "certificate": {
+        "path": "docs/reference/gromp-ray-raw-color-verification.json",
+        "bytes": 52259,
+        "sha256": "f2edf7710308cf8b5b4c3b91d5c08f39ec01134f804313ca4c9680d05d864f8a"
+      },
+      "fullUnitRun": {
+        "passed": 3191,
+        "failed": 2,
+        "total": 3193,
+        "files": 396
+      },
+      "baselineFailuresUnchanged": 2,
+      "productionRecordings": 32,
+      "productionScreenshots": 8,
+      "privatePreloads": 0
+    },
+    "schemaChanged": false,
+    "rulesetChanged": false
+  },
+  "originalProof": {
+    "path": ".cache/ward-hud-cast/browser-before/probe-HUD-instant-casting--178a2-ugh-pointer-Space-and-Enter/ward-hud-cast.json",
+    "bytes": 315,
+    "sha256": "8ca67ef3ad59c0e3455eb47525e506e0e1a47c434e4552dffbff29a5d1fbaf36"
+  },
+  "correctedProof": {
+    "path": ".cache/ward-hud-cast/browser-accepted/ward-hud-cast-HUD-instant--45cf3-ugh-pointer-Space-and-Enter/ward-hud-cast.json",
+    "bytes": 2663,
+    "sha256": "39c31e20fa7bcefc6451269a7b9aa09c75bc0a0a264ffe453647860f0b6d8e7d"
+  },
+  "productionProof": {
+    "path": ".cache/ward-hud-cast/production-accepted/reading.json",
+    "bytes": 307,
+    "sha256": "dd6ef76eaeb67cd61b5dfbf74f105793761ad131be8eb8dcd7f427cf6190c7c1"
+  },
+  "limits": [
+    "Local UI/input behavior, not native-client input parity.",
+    "The fresh regression holds simulation at the command boundary; existing queued-Heal cases verify actual save/reload and first-resumed execution.",
+    "Full-unit and broad production results are inherited from the immediately preceding renderer commit; fresh checks target this UI-only change.",
+    "The production runner changes only system Chromium launch selection."
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/WARD-HUD-CAST.md",
+      "bytes": 2442,
+      "sha256": "0f9d7523c89593e2a2344baf8701da4ccef881c041262ea3e5e471c92ec99078"
+    },
+    {
+      "path": "e2e/ward-hud-cast.spec.ts",
+      "bytes": 2831,
+      "sha256": "c2bc93a336f75e0463ac516fec23a85758678290338991f90526f977efdeabb1"
+    },
+    {
+      "path": "src/input/input.ts",
+      "bytes": 9623,
+      "sha256": "cd64341c0288f362ca7aecdca1cad4b146c3dea268544116120a4ceedb8eb2e5"
+    },
+    {
+      "path": "src/ui/hud.ts",
+      "bytes": 84602,
+      "sha256": "d1888f1d93344c3fd135ba0d5e1c9f85769d959a3067fb8581d9b34eb25b6fcd"
+    },
+    {
+      "path": "tools/qa/production-hud-keyboard.mjs",
+      "bytes": 4999,
+      "sha256": "b814ec92f7c6fed079135aca809307d60ec63ccff2b2f01f58bfe99d110bf5d4"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "src/input/spell-controls.ts",
+      "bytes": 3590,
+      "sha256": "c67d816aa635ff428541688fca917e2f03a98b24421d5f8b4e8fec2adc3708cc"
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 22149,
+      "sha256": "f560678615975942527b735d74f016893a28425283fde831847473180811b10e"
+    },
+    {
+      "path": "e2e/ward-spell-transition.spec.ts",
+      "bytes": 2687,
+      "sha256": "7b9d072ecf4372118a9aadf3ab07e75880dee3e2eb257bc68666ebc2bd1c5b88"
+    },
+    {
+      "path": "e2e/queued-hud-cast.spec.ts",
+      "bytes": 4501,
+      "sha256": "cc23494dc912be7391aec3d0adc0ce1bb0b7356a69d5969139debfa21a9cb7a6"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    },
+    {
+      "path": "docs/reference/gromp-ray-raw-color-verification.json",
+      "bytes": 52259,
+      "sha256": "f2edf7710308cf8b5b4c3b91d5c08f39ec01134f804313ca4c9680d05d864f8a"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/ward-hud-cast/final-source/docs/WARD-HUD-CAST.md",
+      "bytes": 2442,
+      "sha256": "0f9d7523c89593e2a2344baf8701da4ccef881c041262ea3e5e471c92ec99078"
+    },
+    {
+      "path": ".cache/ward-hud-cast/final-source/e2e/ward-hud-cast.spec.ts",
+      "bytes": 2831,
+      "sha256": "c2bc93a336f75e0463ac516fec23a85758678290338991f90526f977efdeabb1"
+    },
+    {
+      "path": ".cache/ward-hud-cast/final-source/src/input/input.ts",
+      "bytes": 9623,
+      "sha256": "cd64341c0288f362ca7aecdca1cad4b146c3dea268544116120a4ceedb8eb2e5"
+    },
+    {
+      "path": ".cache/ward-hud-cast/final-source/src/ui/hud.ts",
+      "bytes": 84602,
+      "sha256": "d1888f1d93344c3fd135ba0d5e1c9f85769d959a3067fb8581d9b34eb25b6fcd"
+    },
+    {
+      "path": ".cache/ward-hud-cast/final-source/tools/qa/production-hud-keyboard.mjs",
+      "bytes": 4999,
+      "sha256": "b814ec92f7c6fed079135aca809307d60ec63ccff2b2f01f58bfe99d110bf5d4"
+    },
+    {
+      "path": ".cache/ward-hud-cast/final-source/src/input/spell-controls.ts",
+      "bytes": 3590,
+      "sha256": "c67d816aa635ff428541688fca917e2f03a98b24421d5f8b4e8fec2adc3708cc"
+    },
+    {
+      "path": ".cache/ward-hud-cast/final-source/src/main.ts",
+      "bytes": 22149,
+      "sha256": "f560678615975942527b735d74f016893a28425283fde831847473180811b10e"
+    },
+    {
+      "path": ".cache/ward-hud-cast/final-source/e2e/ward-spell-transition.spec.ts",
+      "bytes": 2687,
+      "sha256": "7b9d072ecf4372118a9aadf3ab07e75880dee3e2eb257bc68666ebc2bd1c5b88"
+    },
+    {
+      "path": ".cache/ward-hud-cast/final-source/e2e/queued-hud-cast.spec.ts",
+      "bytes": 4501,
+      "sha256": "cc23494dc912be7391aec3d0adc0ce1bb0b7356a69d5969139debfa21a9cb7a6"
+    },
+    {
+      "path": ".cache/ward-hud-cast/final-source/package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    },
+    {
+      "path": ".cache/ward-hud-cast/final-source/docs/reference/gromp-ray-raw-color-verification.json",
+      "bytes": 52259,
+      "sha256": "f2edf7710308cf8b5b4c3b91d5c08f39ec01134f804313ca4c9680d05d864f8a"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/ward-hud-cast/GUIDE-DRAFT.md",
+      "bytes": 1058,
+      "sha256": "d2f953be0915c67b22a498e235a0641921bcd3785ade037fd3eeda5ddca16974"
+    },
+    {
+      "path": ".cache/ward-hud-cast/acceptance-stages.json",
+      "bytes": 830,
+      "sha256": "eb72131b1238753c80d5a220223fcda2b729e31138f24b1f985e80e15106dd95"
+    },
+    {
+      "path": ".cache/ward-hud-cast/accepted-source-hashes.json",
+      "bytes": 391,
+      "sha256": "289af215867367fba620967616e4033875825fd41beb5bbc33ec885a3a1b6b22"
+    },
+    {
+      "path": ".cache/ward-hud-cast/archive-checkpoint.py",
+      "bytes": 7858,
+      "sha256": "ef6ea051dab3c1a646610aa74be5cf57beb2c33d5a04489a82b2ba97eb8ef05e"
+    },
+    {
+      "path": ".cache/ward-hud-cast/assets-check.json",
+      "bytes": 113485,
+      "sha256": "724f4291b77f582effc4ece538baf9efc9efbfcf478e0366363cb8b3a857d549"
+    },
+    {
+      "path": ".cache/ward-hud-cast/browser-accepted/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/ward-hud-cast/browser-accepted/ward-hud-cast-HUD-instant--45cf3-ugh-pointer-Space-and-Enter/ward-hud-cast.json",
+      "bytes": 2663,
+      "sha256": "39c31e20fa7bcefc6451269a7b9aa09c75bc0a0a264ffe453647860f0b6d8e7d"
+    },
+    {
+      "path": ".cache/ward-hud-cast/browser-accepted/ward-spell-transition-an-i-7573b-iews-without-placing-a-ward/ward-spell-transition.json",
+      "bytes": 1374,
+      "sha256": "82b459b94b6f93739a5d863a6bbaee86fb3d6c5c0bb4bb8e3c8b77fe71d32f3d"
+    },
+    {
+      "path": ".cache/ward-hud-cast/browser-accepted/ward-spell-transition-an-i-7573b-iews-without-placing-a-ward/ward-spell-transition.png",
+      "bytes": 902531,
+      "sha256": "7f69ae543b70ee6ab289e32ca5397acc531365af453a02630ad2935d7d7b317a"
+    },
+    {
+      "path": ".cache/ward-hud-cast/browser-accepted.log",
+      "bytes": 1571,
+      "sha256": "0f2c14e190ebccb68555b57dcd2dc3431d84d53c57c94ed490a0c994467e8066"
+    },
+    {
+      "path": ".cache/ward-hud-cast/browser-before/.last-run.json",
+      "bytes": 96,
+      "sha256": "0ac16d1ffa598e74889a438b14c2b83ac24e24ea45e9bac8db7bfc9a42f80645"
+    },
+    {
+      "path": ".cache/ward-hud-cast/browser-before/probe-HUD-instant-casting--178a2-ugh-pointer-Space-and-Enter/error-context.md",
+      "bytes": 7229,
+      "sha256": "0ce638adda844a61ffe5130f28dc95b31975901f66c646646f2b8947e3d58580"
+    },
+    {
+      "path": ".cache/ward-hud-cast/browser-before/probe-HUD-instant-casting--178a2-ugh-pointer-Space-and-Enter/test-failed-1.png",
+      "bytes": 956292,
+      "sha256": "977a8fc06508af804d90fefdf5fe69017647c87629455ce8aacfc214dcc0689f"
+    },
+    {
+      "path": ".cache/ward-hud-cast/browser-before/probe-HUD-instant-casting--178a2-ugh-pointer-Space-and-Enter/trace.zip",
+      "bytes": 36663327,
+      "sha256": "ac045da20495e61e8fa2fb2f59da529259ffab6bf2159cd365580ff62d6a142c"
+    },
+    {
+      "path": ".cache/ward-hud-cast/browser-before/probe-HUD-instant-casting--178a2-ugh-pointer-Space-and-Enter/ward-hud-cast.json",
+      "bytes": 315,
+      "sha256": "8ca67ef3ad59c0e3455eb47525e506e0e1a47c434e4552dffbff29a5d1fbaf36"
+    },
+    {
+      "path": ".cache/ward-hud-cast/browser-before.log",
+      "bytes": 3375,
+      "sha256": "bbbacc8483420940cd2aba1eb03495e1f92bbccc943d1b61fbec877f063149fb"
+    },
+    {
+      "path": ".cache/ward-hud-cast/build.log",
+      "bytes": 7852,
+      "sha256": "63dc1f6c180117d1f14614463b9a7347498ebf21fabba4f9b631b8696750c24d"
+    },
+    {
+      "path": ".cache/ward-hud-cast/built-identity.json",
+      "bytes": 256,
+      "sha256": "32106932d38eeab935dc87e815b636701caba9879599f1b4e2477844246a1b6c"
+    },
+    {
+      "path": ".cache/ward-hud-cast/finish-checks.py",
+      "bytes": 1621,
+      "sha256": "f6d721a59484e878c81240e828c7309040a4d0dd59cce2b8d5a475050b94bc04"
+    },
+    {
+      "path": ".cache/ward-hud-cast/hud-with-callback.ts",
+      "bytes": 84602,
+      "sha256": "d1888f1d93344c3fd135ba0d5e1c9f85769d959a3067fb8581d9b34eb25b6fcd"
+    },
+    {
+      "path": ".cache/ward-hud-cast/input-with-callback.ts",
+      "bytes": 9623,
+      "sha256": "cd64341c0288f362ca7aecdca1cad4b146c3dea268544116120a4ceedb8eb2e5"
+    },
+    {
+      "path": ".cache/ward-hud-cast/node-qa.log",
+      "bytes": 809,
+      "sha256": "9c0e56db7d19aae41740308d54d5a28c342d3fc8b56707509d4d2fefb5e560bb"
+    },
+    {
+      "path": ".cache/ward-hud-cast/original-source/src/input/input.ts",
+      "bytes": 9539,
+      "sha256": "470ee4a021e8247d4e018a44c4e1c6b108e172402d8e13a8735f8ec03ef82529"
+    },
+    {
+      "path": ".cache/ward-hud-cast/original-source/src/ui/hud.ts",
+      "bytes": 84464,
+      "sha256": "f7533f3739efc9fd1b5b967dbb78d4cdc69f5b5a45881c47a96920edf40d3d7f"
+    },
+    {
+      "path": ".cache/ward-hud-cast/original-source/tools/qa/production-hud-keyboard.mjs",
+      "bytes": 4472,
+      "sha256": "b0d07fbbd69f3170c256d7b54d954cf69630d9a561f5a73311ce04eedd8533e7"
+    },
+    {
+      "path": ".cache/ward-hud-cast/probe.spec.ts",
+      "bytes": 2423,
+      "sha256": "4bae1fe77f6d2b4539d819b6736d3abebe63896948f0b442bf74408cf5f8ef0c"
+    },
+    {
+      "path": ".cache/ward-hud-cast/production-accepted/paused-with-space.png",
+      "bytes": 561379,
+      "sha256": "faea6b0479214324b7b37ca6870bbbf200db4cc84d9928db80b46999d09ae866"
+    },
+    {
+      "path": ".cache/ward-hud-cast/production-accepted/reading.json",
+      "bytes": 307,
+      "sha256": "dd6ef76eaeb67cd61b5dfbf74f105793761ad131be8eb8dcd7f427cf6190c7c1"
+    },
+    {
+      "path": ".cache/ward-hud-cast/production-keyboard.log",
+      "bytes": 254,
+      "sha256": "26478aee29a6276aaaf9daca68be04a97103d2125fce93ad2b06235ae96d18ef"
+    },
+    {
+      "path": ".cache/ward-hud-cast/production-system.mjs",
+      "bytes": 5041,
+      "sha256": "011e41dadec0113529b1c0adfb638d9dea037adf31f8f32907fd7420f1eaa0ab"
+    },
+    {
+      "path": ".cache/ward-hud-cast/production-with-ward-cast.mjs",
+      "bytes": 4953,
+      "sha256": "3439e674599b8aa5482a9f21014300dc4430150460fff8221b4fe0f4ba362982"
+    },
+    {
+      "path": ".cache/ward-hud-cast/source-bases.json",
+      "bytes": 292,
+      "sha256": "c5dd02244514e2e97d74eb305f6353ca4623a03165107310f0de50abfd1cd6ee"
+    },
+    {
+      "path": ".cache/ward-hud-cast/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

@@ -24,6 +24,9 @@ export class GameInput {
     unlockAudio: () => void
   ) {
     const canvas = view.renderer.domElement;
+    hud.onInstantCast = () => {
+      if (this.wardAiming) this.cancelAim();
+    };
     window.addEventListener('pointermove', (e) => {
       this.pointer = { x: e.clientX, y: e.clientY };
       if (this.wardAiming) view.setAim('ward', this.wardPoint() ?? world.hero);
