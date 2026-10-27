@@ -1,0 +1,372 @@
+{
+  "format": 1,
+  "parentCommit": "891abcc0d25eb0dfbf2af7d18a62d8235fbb8d8c",
+  "scope": "Source-only mesh factory, exclusion from quad packing, separate conditional float4 transfer and Gromp skin-shard source binding.",
+  "source": [
+    {
+      "path": "tools/assets/native_mesh_color_route.py",
+      "bytes": 14878,
+      "sha256": "e75732937a40bb329f767e7fef0db4d071962b4659d45dceeb67f196fcaf5a99"
+    },
+    {
+      "path": "tools/assets/test-native-mesh-color-route.py",
+      "bytes": 6795,
+      "sha256": "a9a70644461d12239d8a5025a2418a8a8a683adf07d990c1cd5b570b06b03c61"
+    },
+    {
+      "path": "docs/reference/native-mesh-color-route.json",
+      "bytes": 33529,
+      "sha256": "147d2debc84675fc1c63f39d1fdfa71cb644ae8242f7efb0ec2e6f66c19510c1"
+    },
+    {
+      "path": "docs/NATIVE-MESH-COLOR-ROUTE.md",
+      "bytes": 3234,
+      "sha256": "e1e81daa44412cc13bf52c85be8e1bff48bcb8bfa5ba8c6d725b7861212af7ca"
+    }
+  ],
+  "verification": {
+    "normalGuards": 15,
+    "optimizedGuards": 15,
+    "checkReplayBothModes": true,
+    "identicalOutputBytesAndMtimeRetainedBothModes": true,
+    "conflictRejectedWithoutMutationBothModes": true,
+    "checkMissingOutputRejectedWithoutCreationBothModes": true,
+    "networkOrChildProcessRequiredForObserve": false,
+    "nativeExecuted": false,
+    "applicationBehaviorChanged": false,
+    "cohortSourcePinsUnchanged": 539,
+    "inheritedApplicationAcceptance": {
+      "path": "docs/reference/gromp-plane-color-verification.json",
+      "sha256": "cbf4b3818d044b4a0864241c86574943f32b435b9f25eee130431b0f41b5c31a",
+      "identity": {
+        "schema": 163,
+        "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+        "offlinePack": {
+          "id": "a62254a879cebdc7116cc5a58bcbf302246d32848bf876feb5398df84e0425eb",
+          "files": 1202,
+          "bytes": 538092136
+        }
+      },
+      "checksRerunForSourceOnlyChange": false
+    }
+  },
+  "evidence": [
+    {
+      "path": ".cache/native-mesh-color-audit/0x1018decbc.txt",
+      "bytes": 6137,
+      "sha256": "19fdbb4e11dbc45e42367f695f50c59f703a63f2b5ecd506e9650fbd1b71be87"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/0x1018df18c.txt",
+      "bytes": 44918,
+      "sha256": "de4d0f54758f2ce7b07186f98108a50a3e851eb4ba8e9157a2700b4b8fb543d3"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/0x1018e0d1c.txt",
+      "bytes": 12972,
+      "sha256": "0e99d7e5ddc8854e25a33629415188505e256f78481b19401abbd82e4159a3dd"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/0x1018e1240.txt",
+      "bytes": 24227,
+      "sha256": "92364fb0db8aa29624632341b1dc92d7c5e507edf93dc76cae1f9584918a58bc"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/0x1018f559c.txt",
+      "bytes": 4426,
+      "sha256": "0459f013da6c34777328df9b71def3b734d1d51fe91cd06b9aaed6a1b733aa71"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/0x101914694.txt",
+      "bytes": 27,
+      "sha256": "d551a5d98e434b10922ee06dce667bece32b462ae994e28512c66cbd9d367390"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/0x101915d68.txt",
+      "bytes": 44548,
+      "sha256": "64b271a01ef1324501277e90c93469b81d88a9f04c85da043db48764ae02c4e7"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/0x1019536c4.txt",
+      "bytes": 2742,
+      "sha256": "6feca9607a6199251285e4bca53306384d8931ddbbe41c97fcd6e3816688a406"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/__pycache__/native_mesh_color_route.cpython-312.pyc",
+      "bytes": 17052,
+      "sha256": "5465522bf7bfe24ac0236d5d262b69d4e716e5a608c0b5b77223d38779324b71"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/__pycache__/test-native-mesh-color-route.cpython-312.pyc",
+      "bytes": 16760,
+      "sha256": "c220d596b2f5dba12eca8b6c02e5f69579d42d956bc6992785b74004fb170007"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/acceptance.log",
+      "bytes": 223,
+      "sha256": "381be85a9b3c4e7505bc7ec6a8711c82d574fdf74c7a266b2ae52c6e2880010c"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/acceptance.py",
+      "bytes": 2429,
+      "sha256": "71a147461717ac3b53731f852bcd85b6099114556c034cf1f442ff4c26f967ce"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/candidate-reading.json",
+      "bytes": 1925,
+      "sha256": "c829eb007b8647c784cfe2eb7b56cb083952b043e23b972b12192363f2e6bfcc"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/check-normal.log",
+      "bytes": 563,
+      "sha256": "48afb0abc46e78ae9d1d618442de1ce9846adadcbc85e3cb96ac7521c7e5a300"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/check-optimized.log",
+      "bytes": 563,
+      "sha256": "48afb0abc46e78ae9d1d618442de1ce9846adadcbc85e3cb96ac7521c7e5a300"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/color-global-stores.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/color-global-stores.log",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/conflict-normal.json",
+      "bytes": 30,
+      "sha256": "d1b66eb0af9628d0e752cfe98dbbe05bd21e4c73ce43e66aa76f1bf22f43888b"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/conflict-normal.log",
+      "bytes": 604,
+      "sha256": "b203f5e05c59f6db3f3feb274dcb9af881971d1a979203a501f68780d720e47e"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/conflict-optimized.json",
+      "bytes": 30,
+      "sha256": "d1b66eb0af9628d0e752cfe98dbbe05bd21e4c73ce43e66aa76f1bf22f43888b"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/conflict-optimized.log",
+      "bytes": 607,
+      "sha256": "526a31bec87666bafc3ab76276c427fe085ff9a69a2a42a336770fb717ad0d53"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/consumer.json",
+      "bytes": 139,
+      "sha256": "8bee16abd5d546ee777431d58d0ef9ad785d13ce740a71e55ab6a9da6989c3de"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/draft-observe.log",
+      "bytes": 563,
+      "sha256": "48afb0abc46e78ae9d1d618442de1ce9846adadcbc85e3cb96ac7521c7e5a300"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/draft-record.json",
+      "bytes": 33529,
+      "sha256": "147d2debc84675fc1c63f39d1fdfa71cb644ae8242f7efb0ec2e6f66c19510c1"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/draw-callers.json",
+      "bytes": 355,
+      "sha256": "28f7e030ce17f71a607bfd183dfd154499dc7ae50b17e689dd3f2e98d599dd0d"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/draw-callers.log",
+      "bytes": 237,
+      "sha256": "b99b545cb2d5c8ae0b2e16f2690308757d2f5f2f5dce9179c966015951a79a33"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/draw-functions.json",
+      "bytes": 491,
+      "sha256": "bfc583c4eb5a18b0c93ad8c08db6ab545c0a36426be57f8e4c7e15f7bcb65bad"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/factory-full.txt",
+      "bytes": 1069,
+      "sha256": "3b67914035bff8176c51b8481f573fef6201622150fa271501ef420053bb44b7"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/factory.txt",
+      "bytes": 438,
+      "sha256": "47643658f985b4a7b6f495654638a0ae79ce163e7b528471061a560988dfa52c"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/final-source/docs/NATIVE-MESH-COLOR-ROUTE.md",
+      "bytes": 3234,
+      "sha256": "e1e81daa44412cc13bf52c85be8e1bff48bcb8bfa5ba8c6d725b7861212af7ca"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/final-source/docs/reference/native-mesh-color-route.json",
+      "bytes": 33529,
+      "sha256": "147d2debc84675fc1c63f39d1fdfa71cb644ae8242f7efb0ec2e6f66c19510c1"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/final-source/tools/assets/native_mesh_color_route.py",
+      "bytes": 14878,
+      "sha256": "e75732937a40bb329f767e7fef0db4d071962b4659d45dceeb67f196fcaf5a99"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/final-source/tools/assets/test-native-mesh-color-route.py",
+      "bytes": 6795,
+      "sha256": "a9a70644461d12239d8a5025a2418a8a8a683adf07d990c1cd5b570b06b03c61"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/guards-normal.log",
+      "bytes": 114,
+      "sha256": "5006b147200f71c66bc24be4c5cbd1899ff4829d3f71fe632b2eaaca53f07ab2"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/guards-optimized.log",
+      "bytes": 114,
+      "sha256": "5532f5d6d5434db4ed185f656696dd614050c9c15d09332f533832eab212623a"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/identical-normal.log",
+      "bytes": 563,
+      "sha256": "48afb0abc46e78ae9d1d618442de1ce9846adadcbc85e3cb96ac7521c7e5a300"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/identical-optimized.log",
+      "bytes": 563,
+      "sha256": "48afb0abc46e78ae9d1d618442de1ce9846adadcbc85e3cb96ac7521c7e5a300"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/kind-consumers.json",
+      "bytes": 9662,
+      "sha256": "c1e41bad9dc5bb58ad9bb7f62122387a027268e738dc7f2dcf4b197b70b1daa7"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/kind-consumers.log",
+      "bytes": 9662,
+      "sha256": "c1e41bad9dc5bb58ad9bb7f62122387a027268e738dc7f2dcf4b197b70b1daa7"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/make-witness.py",
+      "bytes": 9833,
+      "sha256": "7c551f62744578220bef7a46d4b0dc068f0de6f8a6888f0fa071b3d54160def8"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/mesh-queue-function.json",
+      "bytes": 140,
+      "sha256": "c4cfc3070e0a581c8c8c3efe05391273b5640b1808839555045c480da237ebc4"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/missing-normal.log",
+      "bytes": 493,
+      "sha256": "fb72295e6d1375203bc51a71f583586603fc37b1137d843bdf545729d26185a9"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/missing-optimized.log",
+      "bytes": 496,
+      "sha256": "d6cb1fabc1ae978570bb5e6be0c34a13771a4b4ae0b916e2b88fe2fd4c5e96b7"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/native_mesh_color_route.py",
+      "bytes": 14878,
+      "sha256": "e75732937a40bb329f767e7fef0db4d071962b4659d45dceeb67f196fcaf5a99"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/observe.log",
+      "bytes": 563,
+      "sha256": "48afb0abc46e78ae9d1d618442de1ce9846adadcbc85e3cb96ac7521c7e5a300"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/read-consumer.py",
+      "bytes": 582,
+      "sha256": "d71084fa5bf46e0f93bc9b1158ed7b5a70f0670f9be5c2b150a938a4197f96de"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/read-dispatch.py",
+      "bytes": 491,
+      "sha256": "45dfd2515c9c99f63da38b41582e1011aa83df86dfbf9ecda4c898244f97327e"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/read-draw.log",
+      "bytes": 423,
+      "sha256": "8b66f0fdbf12cd38c788b12bebdcede1f01ed6dc46c8df521e3f7e14d0e2fb41"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/read-draw.py",
+      "bytes": 728,
+      "sha256": "646242e8c82eb278a47621cc606f7870c24c131c79c8431d8c918f03e144aa67"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/read-factory.py",
+      "bytes": 338,
+      "sha256": "e0e9b56b58a6306c6f9ff9e8889593c59d72081ba78d24ea8c209007df46cd7e"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/read-mesh-queue.py",
+      "bytes": 583,
+      "sha256": "7b7ce2ec8462a317be838a603a32d17ef983c9a3ece25bba2457d08aacc97b55"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/read-uniform.py",
+      "bytes": 689,
+      "sha256": "0e3f2c046cc2a28b8b451561f78b292abbe8168e0578a9c17974dc857b6e4550"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/read-vtable.py",
+      "bytes": 814,
+      "sha256": "6dbcbb41c25601148c1769317319fbe8588f27845c3e6173d38887b6183181ef"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/scan-color-global.py",
+      "bytes": 806,
+      "sha256": "e74a14395e70c482725926a4d9301c243a619f01b2338da7381471561a13389d"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/scan-draw-callers.py",
+      "bytes": 982,
+      "sha256": "bde4948ddc7a3bb98eeaa3e6b7090ca73d3ef20f56792873296c384b5cbb90b2"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/scan-kind-consumers.py",
+      "bytes": 705,
+      "sha256": "f69522fa0f2e6191809606c662210c5e6650ba239a1d074fa6789d4705df2916"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/selected-words.json",
+      "bytes": 7199,
+      "sha256": "8aa4d57ff4524bb2a816d326857a4b3d83f172b5dbf1c9f2310e71fbe7b01a4e"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/source-freeze.json",
+      "bytes": 506,
+      "sha256": "5ae4710e0b904ecb25c9a73e3e896dd6580808f0e1bfb043ebdbfe1c2b9e363e"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/test-native-mesh-color-route.py",
+      "bytes": 6795,
+      "sha256": "a9a70644461d12239d8a5025a2418a8a8a683adf07d990c1cd5b570b06b03c61"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/uniform.log",
+      "bytes": 282,
+      "sha256": "37740258569afac0ac977324f43394e7f9cdcb9a7cabbadb8b64eec1662e21f6"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/vtable.json",
+      "bytes": 1645,
+      "sha256": "29f1dcef0d9d5a5deb25ba43d646b1e5882e21e22ac471ae0a673dcb0ae75c5f"
+    },
+    {
+      "path": ".cache/native-mesh-color-audit/vtable.log",
+      "bytes": 1403,
+      "sha256": "2edb125df3ddf03476426bb41bf3f3c1e09c21c190391f4a1c7554e8a5f98557"
+    }
+  ],
+  "limits": [
+    "Static factory, exclusion, selector and conditional16-byte color-copy paths, not live native mesh drawing or complete visual parity.",
+    "Mutable parameter key1025e8568 is zero-fill in the image; its runtime name, initialization, shader binding and later conversions are not established.",
+    "Source raw-key float32 arithmetic, backing mode/cache mutation, phase, clocks/RNG, external modulation and FPCR require their own conditional projection before a local change.",
+    "Mesh geometry, textures, UVs, material selection, draw ordering and actual queue scheduling remain separate.",
+    "No runtime sampler or color storage is changed. Do not extend quad BGRA packing to Gromp mesh profile6."
+  ]
+}
