@@ -55,17 +55,21 @@ establish live GPU color-space, normalization or blend state. Applying one
 packer globally would discard a real distinction between the recovered paths.
 
 The builder consumes 24-byte optional UV records, 44-byte draw records and
-172-byte transform records. Draw-record fields 20 and 24 contribute to axial
-placement; field 28 contributes to width in this function. Their producers may
-rearrange or derive values. The mapping to authored `birthScale0` components,
-orientation, history and clocks remains unverified. This trace does not justify
-reordering the game's size vector or changing its ray geometry.
+172-byte transform records. The later
+[draw-data witness](NATIVE-RAY-DRAW-DATA.md) corrects this checkpoint's initial
+register reading: draw-record field 20 controls width, field 24 controls length,
+and field 28 controls near-edge displacement. The native temporary spills reorder
+the registers, while the prepared record retains X/Y/Z order. The immutable
+original JSON retains the earlier interpretation; the new witness records the
+correction and complete producer/consumer spans. Authored birth input,
+orientation, history and clocks remain separate work.
 
 No game behavior changed in this evidence checkpoint. The later
 [ray packet correction](PRIMARY-HIT-RAY-PACKETS.md) applies half lookup and
 normalized-byte color precision to the local sampler while preserving its
 frame and geometry policies. Actual Yi dispatch, live shader selection,
-per-particle record producers and live FPCR remain unresolved.
+transform producers and live FPCR remain unresolved. The later draw-data witness
+establishes prepared scale writes and ray consumption without changing geometry.
 Original missing historical LLVM archives are neither replaced nor certified.
 
 The later [particle vertex-format witness](NATIVE-PARTICLE-VERTEX-FORMAT.md)

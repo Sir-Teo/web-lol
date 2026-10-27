@@ -1,0 +1,573 @@
+{
+  "format": 1,
+  "parentCommit": "e3ae2165b92faaa30585accee6b3c7017a06a452",
+  "scope": "Trace prepared scale vector writes and ray register lineage. Correct earlier interpretation of width/axial fields; preserve immutable historical record. No application or asset change.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "a5ca8ae7c6e7f98c54d5ec7a81808ce389b6c0c1f7106c707a13d79a663881d2",
+    "offlinePack": {
+      "id": "7992480e79aae567346dde2ae327434a14cf1b0186c7350f52aac0fc7765a02b",
+      "files": 1200,
+      "bytes": 538084791
+    }
+  },
+  "applicationFingerprintUnchanged": true,
+  "productionPackUnchanged": true,
+  "verification": {
+    "nativeFunctions": 4,
+    "selectedInstructions": 48,
+    "newGuardsPerMode": 11,
+    "previousGuardsPerMode": 122,
+    "totalGuardsPerMode": 133,
+    "normalOptimizedOutputs": 20,
+    "acceptedRuntimeOutputsUnchanged": 14,
+    "bytesAndMtimesUnchanged": true,
+    "offlineReplayNetworkAndChildProcessesBlocked": true,
+    "nativeExecuted": false,
+    "nativeShaderExecuted": false,
+    "fullApplicationTestsRerun": false
+  },
+  "inheritedApplicationVerification": {
+    "record": "docs/reference/primary-hit-ray-packets-verification.json",
+    "sha256": "3a58314aba840363fa5e4bae561ed229eb6258bb6d874deced67c8db40d70214",
+    "verification": {
+      "newUnitCases": 9,
+      "focusedCases": 58,
+      "fullUnitRun": {
+        "passed": 3095,
+        "failed": 2,
+        "total": 3097,
+        "files": 391
+      },
+      "remainingBaselineFailures": 2,
+      "originalWaveDeadlinePassed": true,
+      "nodeQaPassed": 6,
+      "successfulFinalBrowserCases": 9,
+      "rayPixelCases": 84,
+      "nonemptyRayPixelCases": 84,
+      "rayChangedChannelBytes": 0,
+      "rayOldPolicyChangedChannelBytes": 76513,
+      "quadPixelCases": 15,
+      "quadChangedChannelBytes": 0,
+      "defaultPlacementPixelCases": 72,
+      "defaultPlacementChangedChannelBytes": 0,
+      "sourcePlacementFixtures": 72,
+      "sourceParticleStates": 714,
+      "independentSamplerCalls": 2106,
+      "quadParticleCases": 13280,
+      "rayParticleCases": 90,
+      "changedRayPacketColors": 81,
+      "changedRayLookupPairs": 81,
+      "sourceColorCurvesExact": true,
+      "rayFramesAndGeometryExact": true,
+      "independentUnormComponentCases": 101030,
+      "doubleOnlyByteDifferences": 128,
+      "unchangedRuntimeExports": 14,
+      "runtimeExportBytesAndMtimesUnchanged": true,
+      "savedFutureTicks": 130,
+      "gpuMipReadbacks": 93,
+      "productionRecordings": 32,
+      "freshProductionScreenshots": 8,
+      "privatePreloads": 0,
+      "publicAssetsChanged": false
+    }
+  },
+  "componentLayout": {
+    "drawRecordBytes": 44,
+    "birthRecordBytes": 36,
+    "drawScaleOffsets": {
+      "X": 20,
+      "Y": 24,
+      "Z": 28
+    },
+    "birthScaleOffsets": {
+      "X": 16,
+      "Y": 20,
+      "Z": 24
+    },
+    "rayTemporarySpillOffsets": {
+      "X": 128,
+      "Y": 112,
+      "Z": 96
+    },
+    "rayUse": {
+      "width": "X",
+      "length": "Y",
+      "nearDisplacement": "Z"
+    }
+  },
+  "limits": [
+    "Bounded static bytes, not native execution or live Yi dispatch.",
+    "Candidate field names come from FNV/layout matching and do not exclude hash collisions.",
+    "The initializer input producer, shared scale factors, optional external factor, transform/orientation producers and live floating-point environment remain unresolved.",
+    "The local ray component mapping agrees with this consumer; that does not establish exact geometry, attachment, axis fallback, UV orientation or visual parity.",
+    "Original historical source/LLVM archives remain unchanged and are not restored by this witness."
+  ],
+  "diagnostics": [
+    "An earlier prose interpretation assigned field28 to width. Tracing the reverse-loop cursor and the Q3/Q2 versus Q4 spills establishes field20 width, field24 length and field28 near displacement. The local game geometry already uses that order, so no runtime change was needed.",
+    "Initial writer searches included record compaction, stack temporaries and primitive builders. The selected preparation function is distinguished by the matching36-byte birth cursor,44-byte draw cursor, vector scale evaluation and writes into draw+20/+24/+28."
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/NATIVE-RAY-DRAW-DATA.md",
+      "bytes": 2998,
+      "sha256": "543f284665c5c2f48938225c8353acd4cc87c189809cfc2b6466a4f033df5e6f"
+    },
+    {
+      "path": "docs/NATIVE-RAY-PACKET.md",
+      "bytes": 4943,
+      "sha256": "34b165ab8db4adee5fe83722e3af20bd0531bde61c5e297ee7b1f234deb58cae"
+    },
+    {
+      "path": "docs/reference/native-ray-draw-data.json",
+      "bytes": 22393,
+      "sha256": "62af9657abc0ab9697f8098a91aaf3462033b099223e0390453556b4cf226da4"
+    },
+    {
+      "path": "tools/assets/native_ray_draw_data.py",
+      "bytes": 8521,
+      "sha256": "5c554a49b73d073bb3b9858db0dc39271f9e560d640839c3b3f873c68c6d939f"
+    },
+    {
+      "path": "tools/assets/test-native-ray-draw-data.py",
+      "bytes": 3929,
+      "sha256": "b68737fe241c99d43c225fb43eb553c36d156d6771d1d44577e928017a51eaa4"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "docs/reference/native-constructor-witness.json",
+      "bytes": 19538,
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": "docs/reference/native-emitter-scalar-defaults.json",
+      "bytes": 18429,
+      "sha256": "a6c381afaed4c5a680276794d8fa613d988d710eca0683ed8ee91cde494de6cf"
+    },
+    {
+      "path": "docs/reference/native-atlas-runtime.json",
+      "bytes": 42714,
+      "sha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6"
+    },
+    {
+      "path": "docs/reference/native-ray-packet.json",
+      "bytes": 16794,
+      "sha256": "ab9b825f1108ed1e44124ee5f9821753eb73352cbf8738a8eebbb884c892b4ec"
+    },
+    {
+      "path": "docs/reference/native-particle-vertex-format.json",
+      "bytes": 23773,
+      "sha256": "2c45b6fb42a5eea59daa453e96af9f5d49a2afa38a1a84dafaf3be2b8919e1f6"
+    },
+    {
+      "path": "src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    },
+    {
+      "path": "src/render/masteryi-primary-hit-particles.ts",
+      "bytes": 5407,
+      "sha256": "b21aafa72f8af0a8c2ec6fa311743b97cbd75a540a12a92a4ad12522c2f21ec5"
+    },
+    {
+      "path": "src/render/ray-quad.ts",
+      "bytes": 2030,
+      "sha256": "31c088de066dcf41aff3fc5d15a9f1a36032df060c155ef3c67f113d37bfc195"
+    },
+    {
+      "path": "tools/assets/native_constructor_witness.py",
+      "bytes": 12648,
+      "sha256": "5ed4f943e123a3cb9bebfdea394bd8b5551d6b1ac010e7913eb9a245a7234e14"
+    },
+    {
+      "path": "tools/assets/native_emitter_scalar_defaults.py",
+      "bytes": 7565,
+      "sha256": "44af0bcc9fe7ba1dbf3f76d4a398a2f9ec3f00db54070626ad2bc77f2dc4d85e"
+    },
+    {
+      "path": "tools/assets/native_atlas_runtime.py",
+      "bytes": 15844,
+      "sha256": "fa9d512eb7d883fda1c99944f3f3a4c374c452fcaa95e17d01758d80769371a5"
+    },
+    {
+      "path": "tools/assets/native_ray_packet.py",
+      "bytes": 9600,
+      "sha256": "189751276e69be1244e308592aeb36aae6aee89c72deb23efb0e325417d6de1f"
+    },
+    {
+      "path": "tools/assets/verify-leona-native-particle-bindings.py",
+      "bytes": 13221,
+      "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/native-ray-draw-data/final-source/docs/NATIVE-RAY-DRAW-DATA.md",
+      "bytes": 2998,
+      "sha256": "543f284665c5c2f48938225c8353acd4cc87c189809cfc2b6466a4f033df5e6f"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/final-source/docs/NATIVE-RAY-PACKET.md",
+      "bytes": 4943,
+      "sha256": "34b165ab8db4adee5fe83722e3af20bd0531bde61c5e297ee7b1f234deb58cae"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/final-source/docs/reference/native-atlas-runtime.json",
+      "bytes": 42714,
+      "sha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/final-source/docs/reference/native-constructor-witness.json",
+      "bytes": 19538,
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/final-source/docs/reference/native-emitter-scalar-defaults.json",
+      "bytes": 18429,
+      "sha256": "a6c381afaed4c5a680276794d8fa613d988d710eca0683ed8ee91cde494de6cf"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/final-source/docs/reference/native-particle-vertex-format.json",
+      "bytes": 23773,
+      "sha256": "2c45b6fb42a5eea59daa453e96af9f5d49a2afa38a1a84dafaf3be2b8919e1f6"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/final-source/docs/reference/native-ray-draw-data.json",
+      "bytes": 22393,
+      "sha256": "62af9657abc0ab9697f8098a91aaf3462033b099223e0390453556b4cf226da4"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/final-source/docs/reference/native-ray-packet.json",
+      "bytes": 16794,
+      "sha256": "ab9b825f1108ed1e44124ee5f9821753eb73352cbf8738a8eebbb884c892b4ec"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/final-source/src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/final-source/src/render/masteryi-primary-hit-particles.ts",
+      "bytes": 5407,
+      "sha256": "b21aafa72f8af0a8c2ec6fa311743b97cbd75a540a12a92a4ad12522c2f21ec5"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/final-source/src/render/ray-quad.ts",
+      "bytes": 2030,
+      "sha256": "31c088de066dcf41aff3fc5d15a9f1a36032df060c155ef3c67f113d37bfc195"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/final-source/tools/assets/native_atlas_runtime.py",
+      "bytes": 15844,
+      "sha256": "fa9d512eb7d883fda1c99944f3f3a4c374c452fcaa95e17d01758d80769371a5"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/final-source/tools/assets/native_constructor_witness.py",
+      "bytes": 12648,
+      "sha256": "5ed4f943e123a3cb9bebfdea394bd8b5551d6b1ac010e7913eb9a245a7234e14"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/final-source/tools/assets/native_emitter_scalar_defaults.py",
+      "bytes": 7565,
+      "sha256": "44af0bcc9fe7ba1dbf3f76d4a398a2f9ec3f00db54070626ad2bc77f2dc4d85e"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/final-source/tools/assets/native_ray_draw_data.py",
+      "bytes": 8521,
+      "sha256": "5c554a49b73d073bb3b9858db0dc39271f9e560d640839c3b3f873c68c6d939f"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/final-source/tools/assets/native_ray_packet.py",
+      "bytes": 9600,
+      "sha256": "189751276e69be1244e308592aeb36aae6aee89c72deb23efb0e325417d6de1f"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/final-source/tools/assets/test-native-ray-draw-data.py",
+      "bytes": 3929,
+      "sha256": "b68737fe241c99d43c225fb43eb553c36d156d6771d1d44577e928017a51eaa4"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/final-source/tools/assets/verify-leona-native-particle-bindings.py",
+      "bytes": 13221,
+      "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/native-ray-draw-data/0x10167b7d0.txt",
+      "bytes": 450,
+      "sha256": "068f3d294af73bade5c9241f630b54bc8ad749b1459ab1e76c36f57e6a559962"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/0x10167b944.txt",
+      "bytes": 349,
+      "sha256": "8b3b74a12c8bfc27b1105cbea72f2337438533809ad820689157db86b2167373"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/0x10167d370.txt",
+      "bytes": 1368,
+      "sha256": "297fcbb7b30b0d28bfa4f5b9aeb0f7a55173e25387f21c794770ae9fa957c484"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/0x10189a314.txt",
+      "bytes": 60003,
+      "sha256": "083c80c51893c0c7901d31fa4b22f8260f0d5c7b374daa0b2101d46ad8875893"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/0x1018db1ec.txt",
+      "bytes": 39522,
+      "sha256": "db12976ca897724ee1b4528e7bcec6b4aea4ce62d509c9e5fbea4a245a56bb3b"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/0x1018e735c.txt",
+      "bytes": 58294,
+      "sha256": "e280adc03e80cb22a97aeaba652c616ca797d83953bf4aa1ba8afc1c5060ed34"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/0x1018f4d74.txt",
+      "bytes": 318,
+      "sha256": "b1634d6ad1da9e87bf85551e56c2bddcb2c05cd52506ca6112849e6bae98f967"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/0x1018f4dac.txt",
+      "bytes": 270,
+      "sha256": "d8c2868d895e0ea74da802457d0132b795d88ea040447780725b714a851168cc"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/0x1018f4de0.txt",
+      "bytes": 944,
+      "sha256": "c640f3111618a06df7ac94c7a0208b17343aca09da4d342cb1c2744764c4b426"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/0x1018f4e3c.txt",
+      "bytes": 318,
+      "sha256": "990c0fa54a75b3d39e2960f154d15b806ce8348377eb2720f41773c28f62f304"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/0x1018f9404.txt",
+      "bytes": 34016,
+      "sha256": "8c093e1f19d4f69b003302b550b3da05441987ff42aebe90fe2b6a52aeee8e66"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/0x1018fa548.txt",
+      "bytes": 19633,
+      "sha256": "f6e8fed3f4614dccd276c9ad0b062e9a23e3d65e966451c6c1a5ce44ffb24ac9"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/0x1018fad64.txt",
+      "bytes": 30201,
+      "sha256": "966d871dbbeea1aead5186400468cd5bb7fdd277f946f970d5cd4947e6345bdd"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/0x1018fb8e8.txt",
+      "bytes": 11163,
+      "sha256": "1c13468f45ce3210efb16a6cce8d4045c4042262aef76d15e4fce1638bf6a857"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/0x1018fbd24.txt",
+      "bytes": 27207,
+      "sha256": "880f8c50275eb13426533b02d657f6926e1a812f5242e5e00f4270529757e3bc"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/archive-checkpoint.py",
+      "bytes": 5157,
+      "sha256": "46b93be7dcc52f015d6ca852de066a5b2a86e3b7bed4bb356b869d669a43c5a2"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/disassemble-producers.py",
+      "bytes": 625,
+      "sha256": "1aa770ce2ab4e03a28b2a72a3f02412141f8ee750f66b31ad2617e824cec8b6c"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/export-masteryi-primary-hit-particles-check-normal.log",
+      "bytes": 104,
+      "sha256": "70bfcf1db84243681b391a2fd9726e8218ca426894dca2bab8061455948f3447"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/export-masteryi-primary-hit-particles-check-optimized.log",
+      "bytes": 104,
+      "sha256": "70bfcf1db84243681b391a2fd9726e8218ca426894dca2bab8061455948f3447"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/native_particle_vertex_format-check-normal.log",
+      "bytes": 152,
+      "sha256": "4a554d0303155b3a817cdcf36e1585e2a4293f48ce00bb11c2345c6229c246aa"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/native_particle_vertex_format-check-optimized.log",
+      "bytes": 152,
+      "sha256": "4a554d0303155b3a817cdcf36e1585e2a4293f48ce00bb11c2345c6229c246aa"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/native_particle_vertex_format-replay-normal.log",
+      "bytes": 152,
+      "sha256": "4a554d0303155b3a817cdcf36e1585e2a4293f48ce00bb11c2345c6229c246aa"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/native_particle_vertex_format-replay-optimized.log",
+      "bytes": 152,
+      "sha256": "4a554d0303155b3a817cdcf36e1585e2a4293f48ce00bb11c2345c6229c246aa"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/native_ray_draw_data-check-normal.log",
+      "bytes": 142,
+      "sha256": "def3d147f8895bf4e255f141b72bad9b986e35c0c5cb4b63392aaaa24973cedd"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/native_ray_draw_data-check-optimized.log",
+      "bytes": 142,
+      "sha256": "def3d147f8895bf4e255f141b72bad9b986e35c0c5cb4b63392aaaa24973cedd"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/native_ray_draw_data-replay-normal.log",
+      "bytes": 142,
+      "sha256": "def3d147f8895bf4e255f141b72bad9b986e35c0c5cb4b63392aaaa24973cedd"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/native_ray_draw_data-replay-optimized.log",
+      "bytes": 142,
+      "sha256": "def3d147f8895bf4e255f141b72bad9b986e35c0c5cb4b63392aaaa24973cedd"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/native_ray_packet-check-normal.log",
+      "bytes": 125,
+      "sha256": "8381e5d446c1213abf4876bd176ff19ab45bd3bbe0ce4b854ebe0c8bbd07b2f5"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/native_ray_packet-check-optimized.log",
+      "bytes": 125,
+      "sha256": "8381e5d446c1213abf4876bd176ff19ab45bd3bbe0ce4b854ebe0c8bbd07b2f5"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/prepare-witness.py",
+      "bytes": 2346,
+      "sha256": "8fecaf33eb0d79567d0ff821eb0dbf227132cfee183531a86e2c3d60a837588f"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/producer-summary.log",
+      "bytes": 2409,
+      "sha256": "4fbd4ee66f96f1385d5739d816e98f6edf7e115c20e21671afc4600e3ed24ab3"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/replay-verification.json",
+      "bytes": 15402,
+      "sha256": "eaf4af221ff1e4010b67b5e9ddd94613a0a5876727b910035296b112e208a93d"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/replay.log",
+      "bytes": 1093,
+      "sha256": "5a7127efc3cb841628ce031379974649430f3b4baa799ce4454d8c768f076dcd"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/scan-transforms.py",
+      "bytes": 986,
+      "sha256": "084474e276f1521529b70ec5fd0b922e951df43ba6a066d138dcf642fc65c0a2"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/scan-writers.py",
+      "bytes": 1034,
+      "sha256": "e6d180b821097ad7ee3a59b9f53e2a354a43450391c627fabbab9869c9cadada"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/selected.py",
+      "bytes": 2756,
+      "sha256": "8e40790dc0fd8f6ee0b973c203da9ebc2a424791ab4e4e270528f51dade1e304"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/test-masteryi-primary-hit-profiles-normal.log",
+      "bytes": 134,
+      "sha256": "4f2c9b6850c2f34f3a9b5eaec0a960d77067ff396039d06d89f92d15f62252c8"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/test-masteryi-primary-hit-profiles-optimized.log",
+      "bytes": 134,
+      "sha256": "f37f19020c15d5da58a4556e03c6afedcdf564302360bd09394fc05dcdcd247d"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/test-native-atlas-runtime-normal.log",
+      "bytes": 116,
+      "sha256": "54f0e97627f64bc2848cd62d67d93454e785de2f3bf878f74c20a42069e2c974"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/test-native-atlas-runtime-optimized.log",
+      "bytes": 116,
+      "sha256": "09cc1f9e43e4a921a43ca26e9ec77980e621281831c505c0584110a4c5eaec2d"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/test-native-constructor-witness-normal.log",
+      "bytes": 126,
+      "sha256": "4aca809cfa122ba28357562410159d2a810e0928377384c31ae1e54c64ec68fc"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/test-native-constructor-witness-optimized.log",
+      "bytes": 126,
+      "sha256": "82af156c024a0e1fed915af0f8b4470fbd870393664728657bc43f90d1155cb3"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/test-native-emitter-scalar-defaults-normal.log",
+      "bytes": 114,
+      "sha256": "ac17e419814e8d3dc761b93be9873f43327fa8cebe4bd09f6e09c6d1618ace3a"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/test-native-emitter-scalar-defaults-optimized.log",
+      "bytes": 114,
+      "sha256": "d1b27aba7fb6835423db10eef0c8bbd5a1b99262a59acf2d1f7e5a0c73a0c127"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/test-native-particle-vertex-format-normal.log",
+      "bytes": 115,
+      "sha256": "bbb1ef125e45c58d4aff95020303a1197c3bccd692c935fdb889c1f8ea7c8ce6"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/test-native-particle-vertex-format-optimized.log",
+      "bytes": 115,
+      "sha256": "0ac669e200b256d8a11fb1ce0c8357475727a91ebd0c096193f300a8d794a7b8"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/test-native-ray-draw-data-normal.log",
+      "bytes": 110,
+      "sha256": "1478a6d39990258cf281cd5bd4a11b0a789725fdc46fc56a08731861b5df0d7f"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/test-native-ray-draw-data-optimized.log",
+      "bytes": 111,
+      "sha256": "28a148b40efd486aff099a0c2b8ef9ab6ca007b8b578b604715f57471e34192d"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/test-native-ray-packet-normal.log",
+      "bytes": 112,
+      "sha256": "e84bc92655ebacf4be680ed3f82b3ff6642e8a38d255c56b7791c5fe978380cd"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/test-native-ray-packet-optimized.log",
+      "bytes": 112,
+      "sha256": "1853a8bb69141c583b6a732a339681fa924669ee4ba2b1cadbee0860f298cae3"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/transform-candidates.json",
+      "bytes": 4319,
+      "sha256": "94e590270b5a20f0dafb3cf6fa146e70d20aae5402af42b1079c8ac4c99ce72c"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/verify-checkpoint.py",
+      "bytes": 2439,
+      "sha256": "ca0798c2222be5e82f9d1245de45970a653668708b2228940e6fb9f0e71dfe7d"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/write-witness.py",
+      "bytes": 6048,
+      "sha256": "6fee95905ebdda0443d710e1455f30f0450a06bcf5b219a1d1f67087bed26dca"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/writer-candidates.json",
+      "bytes": 5303,
+      "sha256": "42571b91cf85499988ca53bc6da0205f37421b53ddb5be70c57924194026016d"
+    },
+    {
+      "path": ".cache/native-ray-draw-data/writer-candidates.log",
+      "bytes": 5303,
+      "sha256": "42571b91cf85499988ca53bc6da0205f37421b53ddb5be70c57924194026016d"
+    }
+  ]
+}
