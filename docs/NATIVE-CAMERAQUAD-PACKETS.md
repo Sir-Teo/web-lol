@@ -74,3 +74,13 @@ All 17 guards pass in both Python modes. Normal and optimized replay preserve
 records, with identical bytes and timestamps. The application fingerprint and
 production pack remain those of the accepted Meditate checkpoint; its full unit,
 browser and production results are inherited. No new game-performance claim.
+
+## Subsequent source-class queue lineage
+
+The [particle queue route witness](NATIVE-PARTICLE-QUEUE-ROUTES.md) now follows
+complex/simple source fields through a checked definition adapter, distinct
+runtime constructors, queue insertion, the job virtual slot and this dispatcher.
+It narrows the earlier unresolved queue-population question for that construction
+path. Individual exported-effect membership, alternate loaders or mutation, live
+admission and final material/layout selection remain separate. The original
+packet record and its historical verification are unchanged.
