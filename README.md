@@ -108,3 +108,6 @@ per-step work while retaining exact primary-hit particle outputs.
 
 The [distortion evidence recovery](docs/PARTICLE-DISTORTION-RECOVERY.md)
 restores all 53 original shader resources and artifacts against unchanged hashes.
+
+The [Lux FMA reference](docs/LUX-E-FMA-REFERENCE.md) reproduces the original
+sampler golden with controlled compiler arithmetic and preserves game math.

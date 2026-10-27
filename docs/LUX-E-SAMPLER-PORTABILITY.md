@@ -54,3 +54,8 @@ See the [measured reading](reference/lux-e-sampler-portability.json) and
 The original golden's producing environment remains unreproduced. Its exact
 assertion still fails here; this audit is not a clean full-suite certificate.
 The other two known missing-evidence failures remain separate.
+
+The later [FMA reference investigation](LUX-E-FMA-REFERENCE.md) reproduces the
+original golden exactly using contracted V8 trig arithmetic. It identifies one
+changed cosine input while retaining the original production math and assertion.
+The original producing machine remains unidentified.
