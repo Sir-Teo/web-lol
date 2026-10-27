@@ -1,0 +1,812 @@
+{
+  "format": 1,
+  "native": {
+    "path": ".cache/leona-native-matching-v1-20261024/native/LeagueofLegends.app/Contents/MacOS/LeagueofLegends",
+    "bytes": 82268192,
+    "sha256": "97edcf2c88fec3169a1ec36345276569de3329e27fd9b32c8162957a77135c6c",
+    "architecture": {
+      "architecture": "arm64",
+      "cpuType": 16777228,
+      "cpuSubtype": 0,
+      "offset": 42663936,
+      "bytes": 39604256,
+      "alignPower": 14,
+      "magic": "FEEDFACF",
+      "fileType": 2,
+      "loadCommands": 45,
+      "loadCommandBytes": 5920,
+      "flags": 10518661,
+      "reserved": 0,
+      "sha256": "18c6f615d1963d7062f4133fab351dc4550ce460e869c76f5c8604627f349885"
+    }
+  },
+  "inputs": [
+    {
+      "path": "docs/reference/native-gromp-emitter-routes.json",
+      "sha256": "8e268d02303addefa4c70b311215329d4ef1782eac4ae12378a54039dd6eff3c"
+    },
+    {
+      "path": "docs/reference/native-plane-color-packets.json",
+      "sha256": "bb9528c072b7223dd85c9a2ab678b1cb1564ea28885a97ec438d626b2d3bb2ea"
+    },
+    {
+      "path": "docs/reference/native-legacy-color-curves.json",
+      "sha256": "b41ba9cea4d747af9e39b94ab59738120e83e83743179c5851bf2e4e8d282e72"
+    },
+    {
+      "path": "docs/reference/gromp-effects.json",
+      "sha256": "3cb54cd774fbfd66cc52846bb8775d17ab0adb473a570600e274e5f2ae0a1033"
+    },
+    {
+      "path": "src/content/gromp-attack.json",
+      "sha256": "6d42ccb6a3e2b60076abd9a5112ffc8f59def01271c3468f128c00141ee345a8"
+    }
+  ],
+  "source": {
+    "resource": {
+      "path": ".cache/gromp-attack-color-source/sru_gromp_ba1_mis.troybin",
+      "bytes": 1114,
+      "sha256": "22800fca4d3b9b9e9b339692e29325e13739927973399862dba7aecd7130a4c0"
+    },
+    "typedRows": 114,
+    "originalTypedAndDecodedRecordsExact": true,
+    "profiles": [
+      {
+        "profileIndex": 0,
+        "section": "Mis_orb",
+        "group": 1,
+        "groupType": {
+          "sdbm": "9f4d1fb4",
+          "present": false,
+          "effective": "Complex"
+        },
+        "pType": 0,
+        "kind": "billboard",
+        "blendMode": 0,
+        "premultiply": true,
+        "colorHelper": "0x10167faf0",
+        "base": {
+          "raw": null,
+          "values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "words": [
+            "3f800000",
+            "3f800000",
+            "3f800000",
+            "3f800000"
+          ]
+        },
+        "keys": [
+          {
+            "field": "p-xrgba1",
+            "sdbm": "35a7e6f5",
+            "source": {
+              "raw": "0.0 1 1 1 0",
+              "values": [
+                0.0,
+                1.0,
+                1.0,
+                1.0,
+                0.0
+              ],
+              "words": [
+                "00000000",
+                "3f800000",
+                "3f800000",
+                "3f800000",
+                "00000000"
+              ]
+            },
+            "timeWord": "00000000",
+            "preparedRgba": [
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "preparedWords": [
+              "3f800000",
+              "3f800000",
+              "3f800000",
+              "00000000"
+            ]
+          },
+          {
+            "field": "p-xrgba2",
+            "sdbm": "35a7e6f6",
+            "source": {
+              "raw": "0.3 1 1 1 1",
+              "values": [
+                0.30000001192092896,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "words": [
+                "3e99999a",
+                "3f800000",
+                "3f800000",
+                "3f800000",
+                "3f800000"
+              ]
+            },
+            "timeWord": "3e99999a",
+            "preparedRgba": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "preparedWords": [
+              "3f800000",
+              "3f800000",
+              "3f800000",
+              "3f800000"
+            ]
+          },
+          {
+            "field": "p-xrgba3",
+            "sdbm": "35a7e6f7",
+            "source": {
+              "raw": "0.7 1 1 1 1",
+              "values": [
+                0.699999988079071,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "words": [
+                "3f333333",
+                "3f800000",
+                "3f800000",
+                "3f800000",
+                "3f800000"
+              ]
+            },
+            "timeWord": "3f333333",
+            "preparedRgba": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "preparedWords": [
+              "3f800000",
+              "3f800000",
+              "3f800000",
+              "3f800000"
+            ]
+          },
+          {
+            "field": "p-xrgba4",
+            "sdbm": "35a7e6f8",
+            "source": {
+              "raw": "1.0 1 1 1 0",
+              "values": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                0.0
+              ],
+              "words": [
+                "3f800000",
+                "3f800000",
+                "3f800000",
+                "3f800000",
+                "00000000"
+              ]
+            },
+            "timeWord": "3f800000",
+            "preparedRgba": [
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "preparedWords": [
+              "3f800000",
+              "3f800000",
+              "3f800000",
+              "00000000"
+            ]
+          }
+        ],
+        "constantBaseWithoutKeys": false,
+        "absentBirthAndProbabilityKeys": [
+          {
+            "field": "e-rgba",
+            "sdbm": "ab92736f"
+          },
+          {
+            "field": "e-rgba1",
+            "sdbm": "ac796882"
+          },
+          {
+            "field": "p-xrgbaRP",
+            "sdbm": "1b87e6ba"
+          },
+          {
+            "field": "p-xrgbaRP1",
+            "sdbm": "ad2bc7f7"
+          },
+          {
+            "field": "p-xrgbaGP",
+            "sdbm": "1b7ce405"
+          },
+          {
+            "field": "p-xrgbaGP1",
+            "sdbm": "a7c11d6c"
+          },
+          {
+            "field": "p-xrgbaBP",
+            "sdbm": "1b77e2ca"
+          },
+          {
+            "field": "p-xrgbaBP1",
+            "sdbm": "a54acfe7"
+          },
+          {
+            "field": "p-xrgbaAP",
+            "sdbm": "1b76e28b"
+          },
+          {
+            "field": "p-xrgbaAP1",
+            "sdbm": "a4ccc066"
+          }
+        ]
+      },
+      {
+        "profileIndex": 1,
+        "section": "black_background",
+        "group": 2,
+        "groupType": {
+          "sdbm": "e3397eb5",
+          "present": false,
+          "effective": "Complex"
+        },
+        "pType": 1,
+        "kind": "quad",
+        "blendMode": 2,
+        "premultiply": true,
+        "colorHelper": "0x10167faf0",
+        "base": {
+          "raw": "1 1 1 1",
+          "values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "words": [
+            "3f800000",
+            "3f800000",
+            "3f800000",
+            "3f800000"
+          ]
+        },
+        "keys": [
+          {
+            "field": "p-xrgba1",
+            "sdbm": "f3a8695e",
+            "source": {
+              "raw": "0 0 0 0 0",
+              "values": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "words": [
+                "00000000",
+                "00000000",
+                "00000000",
+                "00000000",
+                "00000000"
+              ]
+            },
+            "timeWord": "00000000",
+            "preparedRgba": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "preparedWords": [
+              "00000000",
+              "00000000",
+              "00000000",
+              "00000000"
+            ]
+          },
+          {
+            "field": "p-xrgba2",
+            "sdbm": "f3a8695f",
+            "source": {
+              "raw": "0.001 1 1 1 1",
+              "values": [
+                0.0010000000474974513,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "words": [
+                "3a83126f",
+                "3f800000",
+                "3f800000",
+                "3f800000",
+                "3f800000"
+              ]
+            },
+            "timeWord": "3a83126f",
+            "preparedRgba": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "preparedWords": [
+              "3f800000",
+              "3f800000",
+              "3f800000",
+              "3f800000"
+            ]
+          },
+          {
+            "field": "p-xrgba3",
+            "sdbm": "f3a86960",
+            "source": {
+              "raw": "0.2 1 1 1 1",
+              "values": [
+                0.20000000298023224,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "words": [
+                "3e4ccccd",
+                "3f800000",
+                "3f800000",
+                "3f800000",
+                "3f800000"
+              ]
+            },
+            "timeWord": "3e4ccccd",
+            "preparedRgba": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "preparedWords": [
+              "3f800000",
+              "3f800000",
+              "3f800000",
+              "3f800000"
+            ]
+          },
+          {
+            "field": "p-xrgba4",
+            "sdbm": "f3a86961",
+            "source": {
+              "raw": ".6 1 1 1 0.3",
+              "values": [
+                0.6000000238418579,
+                1.0,
+                1.0,
+                1.0,
+                0.30000001192092896
+              ],
+              "words": [
+                "3f19999a",
+                "3f800000",
+                "3f800000",
+                "3f800000",
+                "3e99999a"
+              ]
+            },
+            "timeWord": "3f19999a",
+            "preparedRgba": [
+              1.0,
+              1.0,
+              1.0,
+              0.30000001192092896
+            ],
+            "preparedWords": [
+              "3f800000",
+              "3f800000",
+              "3f800000",
+              "3e99999a"
+            ]
+          },
+          {
+            "field": "p-xrgba5",
+            "sdbm": "f3a86962",
+            "source": {
+              "raw": "1 1 1 1 0",
+              "values": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                0.0
+              ],
+              "words": [
+                "3f800000",
+                "3f800000",
+                "3f800000",
+                "3f800000",
+                "00000000"
+              ]
+            },
+            "timeWord": "3f800000",
+            "preparedRgba": [
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "preparedWords": [
+              "3f800000",
+              "3f800000",
+              "3f800000",
+              "00000000"
+            ]
+          }
+        ],
+        "constantBaseWithoutKeys": false,
+        "absentBirthAndProbabilityKeys": [
+          {
+            "field": "e-rgba",
+            "sdbm": "9829da58"
+          },
+          {
+            "field": "e-rgba1",
+            "sdbm": "4ca4bbd9"
+          },
+          {
+            "field": "p-xrgbaRP",
+            "sdbm": "6010fe91"
+          },
+          {
+            "field": "p-xrgbaRP1",
+            "sdbm": "a2bfa5e0"
+          },
+          {
+            "field": "p-xrgbaGP",
+            "sdbm": "6005fbdc"
+          },
+          {
+            "field": "p-xrgbaGP1",
+            "sdbm": "9d54fb55"
+          },
+          {
+            "field": "p-xrgbaBP",
+            "sdbm": "6000faa1"
+          },
+          {
+            "field": "p-xrgbaBP1",
+            "sdbm": "9adeadd0"
+          },
+          {
+            "field": "p-xrgbaAP",
+            "sdbm": "5ffffa62"
+          },
+          {
+            "field": "p-xrgbaAP1",
+            "sdbm": "9a609e4f"
+          }
+        ]
+      },
+      {
+        "profileIndex": 2,
+        "section": "mis_plane",
+        "group": 3,
+        "groupType": {
+          "sdbm": "2725ddb6",
+          "present": false,
+          "effective": "Complex"
+        },
+        "pType": 1,
+        "kind": "quad",
+        "blendMode": 4,
+        "premultiply": false,
+        "colorHelper": "0x10167faf0",
+        "base": {
+          "raw": null,
+          "values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "words": [
+            "3f800000",
+            "3f800000",
+            "3f800000",
+            "3f800000"
+          ]
+        },
+        "keys": [
+          {
+            "field": "p-xrgba1",
+            "sdbm": "64c02538",
+            "source": {
+              "raw": "0.0 1 1 1 0",
+              "values": [
+                0.0,
+                1.0,
+                1.0,
+                1.0,
+                0.0
+              ],
+              "words": [
+                "00000000",
+                "3f800000",
+                "3f800000",
+                "3f800000",
+                "00000000"
+              ]
+            },
+            "timeWord": "00000000",
+            "preparedRgba": [
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "preparedWords": [
+              "3f800000",
+              "3f800000",
+              "3f800000",
+              "00000000"
+            ]
+          },
+          {
+            "field": "p-xrgba2",
+            "sdbm": "64c02539",
+            "source": {
+              "raw": "0.3 1 1 1 1",
+              "values": [
+                0.30000001192092896,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "words": [
+                "3e99999a",
+                "3f800000",
+                "3f800000",
+                "3f800000",
+                "3f800000"
+              ]
+            },
+            "timeWord": "3e99999a",
+            "preparedRgba": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "preparedWords": [
+              "3f800000",
+              "3f800000",
+              "3f800000",
+              "3f800000"
+            ]
+          },
+          {
+            "field": "p-xrgba3",
+            "sdbm": "64c0253a",
+            "source": {
+              "raw": "0.7 1 1 1 1",
+              "values": [
+                0.699999988079071,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "words": [
+                "3f333333",
+                "3f800000",
+                "3f800000",
+                "3f800000",
+                "3f800000"
+              ]
+            },
+            "timeWord": "3f333333",
+            "preparedRgba": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "preparedWords": [
+              "3f800000",
+              "3f800000",
+              "3f800000",
+              "3f800000"
+            ]
+          },
+          {
+            "field": "p-xrgba4",
+            "sdbm": "64c0253b",
+            "source": {
+              "raw": "1.0 1 1 1 0",
+              "values": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                0.0
+              ],
+              "words": [
+                "3f800000",
+                "3f800000",
+                "3f800000",
+                "3f800000",
+                "00000000"
+              ]
+            },
+            "timeWord": "3f800000",
+            "preparedRgba": [
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "preparedWords": [
+              "3f800000",
+              "3f800000",
+              "3f800000",
+              "00000000"
+            ]
+          }
+        ],
+        "constantBaseWithoutKeys": false,
+        "absentBirthAndProbabilityKeys": [
+          {
+            "field": "e-rgba",
+            "sdbm": "c6ac6332"
+          },
+          {
+            "field": "e-rgba1",
+            "sdbm": "479e697f"
+          },
+          {
+            "field": "p-xrgbaRP",
+            "sdbm": "f0c23937"
+          },
+          {
+            "field": "p-xrgbaRP1",
+            "sdbm": "790314ba"
+          },
+          {
+            "field": "p-xrgbaGP",
+            "sdbm": "f0b73682"
+          },
+          {
+            "field": "p-xrgbaGP1",
+            "sdbm": "73986a2f"
+          },
+          {
+            "field": "p-xrgbaBP",
+            "sdbm": "f0b23547"
+          },
+          {
+            "field": "p-xrgbaBP1",
+            "sdbm": "71221caa"
+          },
+          {
+            "field": "p-xrgbaAP",
+            "sdbm": "f0b13508"
+          },
+          {
+            "field": "p-xrgbaAP1",
+            "sdbm": "70a40d29"
+          }
+        ]
+      },
+      {
+        "profileIndex": 3,
+        "section": "trailorbs",
+        "group": 4,
+        "groupType": {
+          "sdbm": "6b123cb7",
+          "present": false,
+          "effective": "Complex"
+        },
+        "pType": 0,
+        "kind": "billboard",
+        "blendMode": 0,
+        "premultiply": true,
+        "colorHelper": "0x10167faf0",
+        "base": {
+          "raw": null,
+          "values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "words": [
+            "3f800000",
+            "3f800000",
+            "3f800000",
+            "3f800000"
+          ]
+        },
+        "keys": [],
+        "constantBaseWithoutKeys": true,
+        "absentBirthAndProbabilityKeys": [
+          {
+            "field": "e-rgba",
+            "sdbm": "396119ac"
+          },
+          {
+            "field": "e-rgba1",
+            "sdbm": "38915185"
+          },
+          {
+            "field": "p-xrgbaRP",
+            "sdbm": "c9b57e3d"
+          },
+          {
+            "field": "p-xrgbaRP1",
+            "sdbm": "21e71134"
+          },
+          {
+            "field": "p-xrgbaGP",
+            "sdbm": "c9aa7b88"
+          },
+          {
+            "field": "p-xrgbaGP1",
+            "sdbm": "1c7c66a9"
+          },
+          {
+            "field": "p-xrgbaBP",
+            "sdbm": "c9a57a4d"
+          },
+          {
+            "field": "p-xrgbaBP1",
+            "sdbm": "1a061924"
+          },
+          {
+            "field": "p-xrgbaAP",
+            "sdbm": "c9a47a0e"
+          },
+          {
+            "field": "p-xrgbaAP1",
+            "sdbm": "198809a3"
+          }
+        ]
+      }
+    ],
+    "hostScanfSourceWordsExact": true
+  },
+  "reading": {
+    "routes": "All four original GroupPartNType fields are absent. The checked loader defaults them to Complex, selecting the legacy record queue. Original p-type0 selects CameraQuad and p-type1 selects plane. Both checked color paths call the truncating helper10167faf0 after conditional mode0/2 premultiplication and alpha replacement.",
+    "rawColor": "The common Complex reader prepares p-xrgba raw keys using float32 base-times-key products. Conditional raw-key interpolation uses separate float32 operations. Trailorbs has no keys and retains the unit default/base. All four omit the checked birth/probability color fields.",
+    "scope": "The local adapter may use these checked conditional color routes at its own normalized phases. This does not authenticate native event clocks, live layout/material admission, actual modifier values or complete appearance."
+  },
+  "nativeExecuted": false,
+  "nativeShaderExecuted": false,
+  "applicationBehaviorChanged": false,
+  "limits": [
+    "Static source and instruction replay only; no native game execution.",
+    "Live cache backing mode, parser flags, external/birth/modulation values and FPCR remain unobserved.",
+    "Local phase, emission, RNG, motion, geometry and blending remain separate from this color component.",
+    "No hit-effect, sound, root/gravity solver or full native composition claim."
+  ]
+}

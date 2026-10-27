@@ -58,6 +58,11 @@ pauses only owned cohort processes and records each resume. Recent
 [first-input audio activation](INPUT-AUDIO-ACTIVATION.md) have their own bounded
 acceptance records.
 
+The source-only [missile color-route reading](NATIVE-GROMP-ATTACK-COLORS.md)
+restores the original four-emitter Troy record and checks its legacy class,
+raw keys and truncating color routes. Thirteen guards pass in each Python mode;
+application acceptance is inherited without runtime changes.
+
 The source-only [particle lookup-coordinate reading](NATIVE-PARTICLE-LOOKUP-COORDINATES.md)
 checks the legacy producer, defaults and conditional half-precision UV1 paths
 with 17 guards in each Python mode. It changes no runtime behavior and inherits
