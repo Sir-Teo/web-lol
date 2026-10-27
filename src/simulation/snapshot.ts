@@ -2984,11 +2984,16 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     }
     if (
       unit.champion === 'masteryi' &&
-      (state.battlefield !== 'practice-fixture' ||
-        (unit.id === state.player.id &&
-          (!battlefield.developmentMasterYi || state.matchMode !== 'practice')))
+      !(
+        (state.battlefield === 'practice-fixture' &&
+          (unit.id !== state.player.id ||
+            (battlefield.developmentMasterYi && state.matchMode === 'practice'))) ||
+        (state.battlefield === 'rift' &&
+          battlefield.developmentMasterYiRift &&
+          state.matchMode === 'lanes')
+      )
     )
-      throw new Error('Master Yi requires a trusted development practice context.');
+      throw new Error('Master Yi requires a trusted development practice or Rift context.');
     if (
       unit.champion === 'ahri' &&
       (state.battlefield !== 'practice-fixture' ||

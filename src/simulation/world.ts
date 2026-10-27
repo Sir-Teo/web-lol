@@ -467,9 +467,14 @@ export class World {
   ) {
     if (
       playerChampion === 'masteryi' &&
-      (battlefield.id !== 'practice-fixture' || !battlefield.developmentMasterYi)
+      !(
+        (battlefield.id === 'practice-fixture' && battlefield.developmentMasterYi) ||
+        (battlefield.id === 'rift' && battlefield.developmentMasterYiRift)
+      )
     )
-      throw new Error('Master Yi is available only as a development NPC.');
+      throw new Error(
+        'Master Yi requires a development NPC or trusted player practice/Rift context.'
+      );
     if (
       playerChampion === 'ahri' &&
       (battlefield.id !== 'practice-fixture' || !battlefield.developmentAhri)
@@ -658,9 +663,10 @@ export class World {
     if (
       kind === 'champion' &&
       identity === 'masteryi' &&
-      this.battlefield.id !== 'practice-fixture'
+      this.battlefield.id !== 'practice-fixture' &&
+      !this.battlefield.developmentMasterYiRift
     )
-      throw new Error('Master Yi requires a development practice NPC.');
+      throw new Error('Master Yi requires a development practice NPC or trusted Rift context.');
     if (kind === 'monster') throw new Error('Use spawnMonster for neutral units.');
     if (kind === 'ward') throw new Error('Use a trinket placement to create a ward.');
     const stats = this.battlefield.unitStats?.[kind]?.[team];

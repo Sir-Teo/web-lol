@@ -244,6 +244,10 @@ try {
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
+  await page.goto(`${base}?scene=masteryi-rift&champion=masteryi`);
+  await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
+  assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
+  assert.equal(await page.evaluate(() => !!window.__GAME__), false);
   assert.equal(
     recordings.size,
     29,
@@ -638,6 +642,7 @@ try {
       leonaPlayerFixtureInProduction: false,
       leonaRiftTrialInProduction: false,
       garenRiftTrialInProduction: false,
+      masterYiRiftTrialInProduction: false,
       ahriNpcFixtureInProduction: false,
       ahriPlayerFixtureInProduction: false,
       unrequestedAhriPreloads: ahriPreviewRequests.length,

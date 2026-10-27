@@ -33,6 +33,8 @@ export interface Battlefield extends TerrainQueries {
   developmentAhri?: true;
   /** Allows a Master Yi player only in the dedicated development practice host. */
   developmentMasterYi?: true;
+  /** Separate trusted host for the human Master Yi Rift jungle trial. */
+  developmentMasterYiRift?: true;
   id: 'practice-fixture' | 'rift';
   half: number;
   heightRange: readonly [number, number];

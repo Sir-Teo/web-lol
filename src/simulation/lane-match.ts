@@ -9,7 +9,7 @@ import { assignRole } from './bot-jungle';
  * until the six complete champion roster and objective/team planning ship. */
 export function createLaneMatch(
   battlefield: Battlefield,
-  playerChampion: 'ashe' | 'lux' | 'leona' | 'garen' = 'ashe',
+  playerChampion: 'ashe' | 'lux' | 'leona' | 'garen' | 'masteryi' = 'ashe',
   summoners: SummonerLoadout = DEFAULT_SUMMONERS
 ): World {
   if (battlefield.id !== 'rift') throw new Error('Lane matches require Summoner’s Rift.');
@@ -40,18 +40,20 @@ export function createLaneMatch(
   world.matchMode = 'lanes';
   equipSummoners(world.player, summoners);
   const playerRole =
-    playerChampion === 'garen'
-      ? 'top'
-      : playerChampion === 'leona'
-        ? 'support'
-        : playerChampion === 'lux'
-          ? 'mid'
-          : 'carry';
+    playerChampion === 'masteryi'
+      ? 'jungle'
+      : playerChampion === 'garen'
+        ? 'top'
+        : playerChampion === 'leona'
+          ? 'support'
+          : playerChampion === 'lux'
+            ? 'mid'
+            : 'carry';
   const playerSlot = assignments.findIndex(({ role }) => role === playerRole);
   assignRole(world.player, playerRole);
   for (const team of ['blue', 'red'] as const) {
     for (const [slot, assignment] of assignments.entries()) {
-      // Human Garen takes top, Leona support, Lux mid and Ashe carry.
+      // Human Yi takes jungle, Garen top, Leona support, Lux mid and Ashe carry.
       // The human receives no lane order.
       if (team === 'blue' && slot === playerSlot) continue;
       const angle = (slot * Math.PI * 2) / 5;

@@ -6,7 +6,34 @@ Last updated: October 27, 2026 (UTC).
 
 ## Current authoritative state
 
-The latest [Garen Rift trial](GAREN-RIFT-TRIAL.md) starts a human top laner on
+The latest [Master Yi Rift trial](MASTER-YI-RIFT-TRIAL.md) gives the human the
+jungle role and Smite/Flash on the source battlefield with nine Ashe/Lux bots.
+Separate trusted practice/Rift contexts, private saves, restart and ordinary
+selection gates remain covered. Real Q input against the scheduled source Gromp
+reloads an exact vanished checkpoint and follows the same future through
+reappearance. Seven browser cases pass in one batch, preserving all existing
+Yi assertions and deadlines; a separate clear playfield capture verifies the
+returned model and finite bones. All 121 focused checks pass.
+
+Schema remains 163; the new rules fingerprint is
+`806ec24d8b7eb71ba35d868ed3adba66e305dab913ee697a5fa606b96b6327b3`.
+
+The full unit run passes **3,391/3,393 tests across 402 files**, retaining only
+the two unchanged baseline failures: the missing original Leona Eclipse evidence
+closure and the host-sensitive Lux missile golden digest. TypeScript, all 16
+Node QA checks and the production build pass. The nested-path production smoke
+passes with all 32 source recordings and the Yi development URL rejected.
+The full offline audit passes with 978 service-worker responses and zero
+production page errors. Its accepted pack is
+`355d93a562bfb96a067d8f4bcc8e635b71d32ce989c97e3fa6772baa7e26d8b5`
+(1,202 files / 538,093,273 bytes). All 1,125 source asset/data file sizes
+and mtimes remain unchanged in this checkout.
+
+The original 100-seed cohort remains frozen at its own ruleset and does not
+certify this changed revision. Yi jungle bot policy and complete champion
+delivery remain open; ordinary production selection remains Ashe/Lux.
+
+The preceding [Garen Rift trial](GAREN-RIFT-TRIAL.md) starts a human top laner on
 the source battlefield with nine Ashe/Lux bots, trusted development admission
 and a separate save key. All five roles remain assigned on each team; source
 navigation, resource-free controls, private save/reload and restart are covered.
