@@ -51,6 +51,7 @@ import {
 } from './masteryi-aa-presentation';
 import { captureLeonaDeath, advanceLeonaDeaths } from './leona-death-visuals';
 import { AHRI_Q } from '../content/ahri-q';
+import { AHRI_Q_POLICY } from '../content/ahri-q-policy';
 import { ahriOrbDamage, beginAhriOrb, advanceAhriOrbs, type AhriOrb } from './ahri-orbs';
 import {
   onEssenceDeath,
@@ -2417,6 +2418,67 @@ export class World {
     return ITEMS.find((item) => item.id === id);
   }
 
+  private planAhriCombat(u: Unit, retreating: boolean): boolean {
+    if (u.champion !== 'ahri' || u.silenceUntil > this.tick) return false;
+    const state = this.championState(u.id)!;
+    if (state.pendingCast || state.recallEnd !== null || u.releaseTick !== null) return false;
+    if (!retreating && this.threateningTower(u, u, true)) return false;
+    const ready = (ability: 'q' | 'e') =>
+      state.spellRanks[ability] > 0 &&
+      this.abilityCooldownTicks(ability, u.id) === 0 &&
+      u.mana >= this.abilityResources(ability, u.id).mana + this.queuedCastMana(u);
+    // Read team sight before enemy health, position, targetability or movement.
+    const enemies = this.units
+      .filter(
+        (target) =>
+          target.kind === 'champion' &&
+          target.team !== u.team &&
+          this.visible(target, u.team) &&
+          this.alive(target) &&
+          this.targetable(target)
+      )
+      .sort((a, b) => distance(u, a) - distance(u, b) || a.id - b.id);
+    const target = enemies.find(
+      (enemy) =>
+        distance(u, enemy) <=
+        (retreating ? AHRI_BOT_POLICY.peelRange : AHRI_Q_POLICY.outwardDistance)
+    );
+    if (!target) return false;
+    const cast = (ability: 'q' | 'e') => {
+      this.enqueue({
+        type: 'cast',
+        unit: u.id,
+        ability,
+        point: { x: target.x, y: target.y },
+      });
+      return true;
+    };
+    if (ready('e') && distance(u, target) <= AHRI_E_POLICY.range) {
+      const dir = direction(u, target),
+        end = { x: u.x + dir.x * AHRI_E_POLICY.range, y: u.y + dir.y * AHRI_E_POLICY.range };
+      const first = this.units
+        .flatMap((other) => {
+          if (
+            other.team === u.team ||
+            !this.visible(other, u.team) ||
+            !this.alive(other) ||
+            !this.targetable(other) ||
+            isStructureKind(other.kind) ||
+            other.kind === 'ward' ||
+            (other.kind === 'monster' && other.monster.phase === 'returning')
+          )
+            return [];
+          const t = sweepCircle(u, end, other, AHRI_E_POLICY.radius + other.radius);
+          return t === null ? [] : [{ id: other.id, t }];
+        })
+        .sort((a, b) => a.t - b.t || a.id - b.id)[0];
+      if (first?.id === target.id) return cast('e');
+    }
+    // Q pierces lane units. Aim at the observed position, without promising a
+    // second-leg hit or tracking the target through fog after the command.
+    if (!retreating && ready('q')) return cast('q');
+    return false;
+  }
   private planLuxCombat(u: Unit, retreating: boolean): boolean {
     if (u.champion !== 'lux' || u.silenceUntil > this.tick) return false;
     const state = this.championState(u.id)!;
@@ -3027,7 +3089,7 @@ export class World {
       const home = this.battlefield.spawns[u.team];
       const state = this.championState(u.id)!;
       this.planGarenQ(u, true);
-      if (this.planLuxCombat(u, true)) return;
+      if (this.planAhriCombat(u, true) || this.planLuxCombat(u, true)) return;
       if (this.planEmergencyFlash(u)) return;
       if (distance(u, home) > 400 && this.planCrystalArrow(u, 'peel')) return;
       if (this.safeToRecall(u)) {
@@ -3082,7 +3144,12 @@ export class World {
     );
     if (disengage) {
       this.planGarenQ(u, true);
-      if (this.planLuxCombat(u, true) || this.planCrystalArrow(u, 'peel')) return;
+      if (
+        this.planAhriCombat(u, true) ||
+        this.planLuxCombat(u, true) ||
+        this.planCrystalArrow(u, 'peel')
+      )
+        return;
       if (u.order.type !== 'move' || distance(u.order.point, disengage) > 50)
         this.setOrder(u, { type: 'move', point: disengage });
       return;
@@ -3123,7 +3190,7 @@ export class World {
     if (this.planCrystalArrow(u, 'finish')) return;
     if (this.planGarenR(u)) return;
     if (this.planGarenE(u)) return;
-    if (this.planLuxCombat(u, false)) return;
+    if (this.planAhriCombat(u, false) || this.planLuxCombat(u, false)) return;
     if (this.planLuxWaveClear(u)) return;
     this.planGarenQ(u, false);
     const carry = this.supportCarry(u);

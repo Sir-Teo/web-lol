@@ -24,5 +24,18 @@ export default defineConfig({
       output: { manualChunks: (id) => (id.includes('/node_modules/three/') ? 'three' : undefined) },
     },
   },
-  server: { port: 5173, strictPort: true },
+  server: {
+    port: 5173,
+    strictPort: true,
+    watch: {
+      // Retained QA/toolchain trees include symlinks and are not live app inputs.
+      ignored: [
+        '**/.cache/**',
+        '**/.tools/**',
+        '**/artifacts/**',
+        '**/test-results/**',
+        '**/playwright-report/**',
+      ],
+    },
+  },
 });
