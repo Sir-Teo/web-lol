@@ -37,24 +37,29 @@ export function spatialDragTravel(
     ticks = age * 60,
     whole = Math.floor(ticks),
     fraction = ticks - whole,
-    previous = new Float32Array(3);
+    previous = fraction > 0 ? new Float32Array(3) : null,
+    damping = drag.map((x) => Math.max(0, 1 - x / 60)),
+    fieldDamping = field ? Math.max(0, 1 - field.strength / 60) : 1,
+    fieldRadiusSquared = field ? field.radius ** 2 : 0;
   for (let step = 0; step < whole + (fraction > 0 ? 1 : 0); step++) {
-    previous.set(position);
+    // Only the fractional endpoint needs its preceding position. Keep every
+    // Float32 force/movement write and its evaluation order unchanged.
+    if (previous && step === whole) previous.set(position);
     for (let axis = 0; axis < 3; axis++)
-      travel[axis] = (travel[axis] + acceleration[axis] / 60) * Math.max(0, 1 - drag[axis] / 60);
+      travel[axis] = (travel[axis] + acceleration[axis] / 60) * damping[axis];
     if (field) {
       const squared = field.position.reduce(
         (sum, x, axis) => sum + (x - origin[axis] - position[axis]) ** 2,
         0
       );
-      if (squared <= field.radius ** 2)
-        for (let axis = 0; axis < 3; axis++) travel[axis] *= Math.max(0, 1 - field.strength / 60);
+      if (squared <= fieldRadiusSquared)
+        for (let axis = 0; axis < 3; axis++) travel[axis] *= fieldDamping;
     }
     for (let axis = 0; axis < 3; axis++) position[axis] += travel[axis] / 60;
   }
   return {
     position: [...position].map((x, axis) =>
-      fraction > 0 ? previous[axis] + (x - previous[axis]) * fraction : x
+      previous ? previous[axis] + (x - previous[axis]) * fraction : x
     ),
     travel: [...travel],
   };

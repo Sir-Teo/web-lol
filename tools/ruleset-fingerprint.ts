@@ -131,6 +131,8 @@ export const rulesetModuleRoots = [
   'src/render/masteryi-passive-trail-particles.ts',
   'src/render/masteryi-primary-trails.ts',
   'src/render/masteryi-primary-trail-particles.ts',
+  'src/render/masteryi-primary-hit-particles.ts',
+  'src/render/masteryi-primary-hits.ts',
   'src/render/masteryi-sword-particles.ts',
   'src/render/masteryi-w-damage-particles.ts',
   'src/render/masteryi-r-cast-particles.ts',

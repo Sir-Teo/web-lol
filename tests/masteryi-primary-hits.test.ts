@@ -101,6 +101,36 @@ test('excess drag stops motion without reversing it and fractional seeks interpo
     spatialDragTravel([0, 0, 0], [0, -600, 0], [0, 0, 0], [0, 0, 0], 1 / 60, null).travel
   ).toEqual([0, -10, 0]);
 });
+test('fractional motion retains exact Float32 endpoints while entering and leaving a drag field', () => {
+  const args = [
+      [60, -2, 0.5],
+      [0.1, -6, 1.5],
+      [1, 2, 3],
+      [0, 0, 0],
+    ] as const,
+    field = { position: [1, 0, 0], radius: 0.8, strength: 30 };
+  expect(spatialDragTravel(...args, 5.25 / 60, field)).toEqual({
+    position: [1.9647447168827057, -0.07394232973456383, 0.017885560169816017],
+    travel: [6.78537654876709, -0.48184195160865784, 0.11277882009744644],
+  });
+  expect(spatialDragTravel(...args, 5 / 60, field)).toEqual({
+    position: [1.9364722967147827, -0.07193465530872345, 0.017415648326277733],
+    travel: [6.898716449737549, -0.39845719933509827, 0.09371455013751984],
+  });
+});
+test('motion sampling leaves all caller-owned vectors and the spatial field untouched', () => {
+  const vectors = [
+      [60, -2, 0.5],
+      [0.1, -6, 1.5],
+      [1, 2, 3],
+      [0, 0, 0],
+    ] as const,
+    field = Object.freeze({ position: Object.freeze([1, 0, 0]), radius: 0.8, strength: 30 }),
+    before = structuredClone(vectors);
+  vectors.forEach(Object.freeze);
+  for (const age of [1, 5.25 / 60, 0, 0.5]) spatialDragTravel(...vectors, age, field);
+  expect(vectors).toEqual(before);
+});
 test.each([NaN, Infinity, -1])('invalid force age %s rejects', (age) =>
   expect(() => spatialDragTravel([1, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], age, null)).toThrow()
 );

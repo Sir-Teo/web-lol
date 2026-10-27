@@ -102,3 +102,6 @@ Private Yi ordinary attacks now use [both source-declared body/trail/audio choic
 The [native emitter scalar witness](docs/NATIVE-EMITTER-SCALAR-DEFAULTS.md)
 backs the existing Yi primary-hit atlas and flag defaults with exact frozen
 constructor/registration bytes; generated game data remains unchanged.
+
+[Spatial-drag replay](docs/PARTICLE-SPATIAL-DRAG-REPLAY.md) removes repeated
+per-step work while retaining exact primary-hit particle outputs.

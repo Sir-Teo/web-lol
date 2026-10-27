@@ -112,6 +112,39 @@ test('saved Alpha Strike contacts cover source profiles, sampling, materials and
   }
 });
 
+test('saved primary-hit compatibility covers its renderer, motion, attachment and source controls', () => {
+  const files = [
+    'src/render/masteryi-primary-hit-particles.ts',
+    'src/render/masteryi-primary-hits.ts',
+    'src/render/particle-spatial-drag.ts',
+    'src/render/impact-attachments.ts',
+    'src/content/masteryi-primary-hit-particles.json',
+    'src/content/masteryi-primary-hit-timing.ts',
+  ];
+  for (const file of files) {
+    expect(rulesetFiles, file).toContain(file);
+    expect(affectsRuleset(resolve(file)), file).toBe(true);
+  }
+  const { root, put } = fixture();
+  for (const file of files)
+    put(file, file.endsWith('.json') ? '{"profiles":[]}' : 'export const value = 1;');
+  put(
+    'src/render/masteryi-primary-hits.ts',
+    "import './masteryi-primary-hit-particles'; import './particle-spatial-drag'; import './impact-attachments'; import '../content/masteryi-primary-hit-particles.json'; import '../content/masteryi-primary-hit-timing';"
+  );
+  const before = rulesetFingerprint(root);
+  for (const file of files) {
+    const original = readFileSync(join(root, file), 'utf8');
+    put(
+      file,
+      original + (file.endsWith('.json') ? ' ' : '\n// changed primary hit interpretation\n')
+    );
+    expect(rulesetFingerprint(root), file).not.toBe(before);
+    put(file, original);
+    expect(rulesetFingerprint(root)).toBe(before);
+  }
+});
+
 test('saved Alpha Strike sound compatibility includes state, voice policy and exact float loading', () => {
   for (const file of [
     'src/audio/masteryi-q-state.ts',
