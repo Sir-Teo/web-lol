@@ -72,6 +72,7 @@ function frame(view: LeonaSolarSurfaces) {
     position: m.position.toArray(),
     quaternion: m.quaternion.toArray(),
     scale: m.scale.toArray(),
+    packetColor: Array.from(m.geometry.getAttribute('_source_vertex_bgra')?.array ?? []),
     tint: m.material.uniforms.particleColor.value.toArray(),
     uv: m.material.uniforms.sourceUvTransform?.value.toArray(),
     lookup: m.material.uniforms.lookupUv.value.toArray(),

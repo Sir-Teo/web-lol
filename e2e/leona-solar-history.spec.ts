@@ -15,7 +15,8 @@ for (const [phase, age] of [
     await page.goto('/?scene=fixture&npc=leona');
     await page.waitForFunction(() => (window as any).__GAME__?.ready);
     await page.locator('#loading').waitFor({ state: 'detached' });
-    const prepared = await page.evaluate((age) => {
+    const prepared = await page.evaluate(async (age) => {
+      const { SNAPSHOT_VERSION } = await import('/src/simulation/snapshot.ts');
       const g = (window as any).__GAME__,
         w = g.world;
       g.setPaused(true);
@@ -48,14 +49,22 @@ for (const [phase, age] of [
       w.step(90);
       const future = w.snapshot();
       Object.assign(w, w.constructor.fromSnapshot(saved, w.battlefield));
-      return { saved, future, history, caster: u.id, rejected, startTick };
+      return {
+        saved,
+        future,
+        history,
+        caster: u.id,
+        rejected,
+        startTick,
+        snapshotVersion: SNAPSHOT_VERSION,
+      };
     }, age);
     expect(prepared.rejected).toBe(true);
     expect(prepared.history.startTick).toBe(prepared.startTick);
     if (phase === 'windup') expect(prepared.history.release).toBeNull();
     if (phase === 'released') expect(prepared.history.release).not.toBeNull();
     if (phase === 'impact') expect(prepared.history.impact.contacts).toHaveLength(1);
-    expect(JSON.parse(prepared.saved).version).toBe(130);
+    expect(JSON.parse(prepared.saved).version).toBe(prepared.snapshotVersion);
     if (!(await page.getByRole('button', { name: 'Save match', exact: true }).isVisible()))
       await page.keyboard.press('Escape');
     await page.getByRole('button', { name: 'Save match', exact: true }).click();

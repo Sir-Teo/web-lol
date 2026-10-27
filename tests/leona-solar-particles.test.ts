@@ -185,3 +185,24 @@ test('zero/invalid windows and long stopped seeks remain empty and bounded', () 
     expect(solarParticles(role, 1, 1, Infinity, 0)).toEqual([]);
   }
 });
+
+test('Solar rays retain the packet integration assumptions in their authored definitions', () => {
+  const raw = JSON.parse(readFileSync('docs/reference/leona-r-particles.json', 'utf8'));
+  expect(SOLAR_PROFILES.flatMap((p, index) => (p.kind === 'ray' ? [index] : []))).toEqual([
+    11, 17, 23,
+  ]);
+  for (const index of [11, 17, 23]) {
+    const p = SOLAR_PROFILES[index],
+      definition = raw.resources[p.system].definition.complexEmitterDefinitionData[p.index];
+    expect(definition.modulationFactor).toBeUndefined();
+    expect(p.blend).toBe(index === 23 ? 0 : 4);
+    expect(p.uvMode).toBe(0);
+    expect(p.multiplier).toBeNull();
+    expect(p.lookup).toBeNull();
+    expect(p.uv.divisions).toEqual([1, 1]);
+    expect(p.uv.scale.values).toEqual([[1, 1]]);
+    expect(p.uv.offset.values).toEqual([[0, 0]]);
+    expect(p.uv.birthScroll.values).toEqual([[0, 0]]);
+    expect(p.uv.scroll.values).toEqual([[0, 0]]);
+  }
+});

@@ -130,6 +130,7 @@ async function capture(page: Page) {
       position: m.position.toArray(),
       quaternion: m.quaternion.toArray(),
       scale: m.scale.toArray(),
+      packetColor: Array.from(m.geometry.getAttribute('_source_vertex_bgra')?.array ?? []),
       color: m.material.uniforms.particleColor.value.toArray(),
       uv: m.material.uniforms.sourceUvTransform?.value.toArray(),
       mult: m.material.uniforms.multiplierUvTransform?.value.toArray(),

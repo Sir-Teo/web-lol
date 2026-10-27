@@ -16,7 +16,9 @@ elif not sys.argv[3:]:
  ray_source=None
  for row in request:
   if row['kind']=='ray':
-   packet={'cell':row['cell'],'lookup':[half(v)for v in row['lookup']],'color':[byte_component(v)for v in row['color']]}
+   color=[f32(v)for v in row['color']]
+   if row.get('blend')in (0,2):color=[f32(v*color[3])for v in color[:3]]+[1]
+   packet={'cell':row['cell'],'lookup':[half(v)for v in row['lookup']],'color':[byte_component(v)for v in color]}
    if 'phase'in row:
     if ray_source is None:ray_source=source_ray()
     packet['size']=sizes(ray_source,row['phase'])

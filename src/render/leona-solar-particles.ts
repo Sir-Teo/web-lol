@@ -4,6 +4,7 @@ import { luxEmissionBirthTick, luxEmissionCount } from '../content/lux-emission'
 import { luxHoopChance } from './lux-hoop-particles';
 import { particleTravel } from './particle-motion';
 import { particleColorLookup } from './particle-color-lookup';
+import { particleHalf } from './particle-half';
 import { eclipseValue, eclipsePeak, eclipseUv } from './leona-eclipse-values';
 
 export type SolarRole = 'buff' | 'cast' | 'contact' | 'area-green' | 'area-red' | 'impact';
@@ -179,7 +180,13 @@ export function solarParticles(
       const color = sample(p.birthColor).map((v, i) => v * eclipseValue(p.color, phase)[i]);
       const spin = sample(p.spin),
         rotation = sample(p.rotation).map((v, i) => v + spin[i] * Math.max(0, age));
-      const uvLife = Number.isFinite(life) ? life : 1;
+      const uvLife = Number.isFinite(life) ? life : 1,
+        lookup = particleColorLookup(p, phase, roll, travel);
+      // The Ray packet carries lookup UVs as two binary16 components.
+      if (p.kind === 'ray') {
+        lookup[0] = particleHalf(lookup[0]);
+        lookup[1] = particleHalf(lookup[1]);
+      }
       out.push({
         profileIndex,
         ordinal,
@@ -201,7 +208,7 @@ export function solarParticles(
           ? Math.max(1, Math.hypot(...travel) * p.directionVelocityScale)
           : 1,
         bind: eclipseValue(p.bind, emitterPhase)[0],
-        lookup: particleColorLookup(p, phase, roll, travel),
+        lookup,
         uv: eclipseUv(p.uv, Math.max(0, age), uvLife, phaseAtBirth, phase, chance, roll),
         multUv: p.multiplier
           ? eclipseUv(p.multiplier.uv, Math.max(0, age), uvLife, phaseAtBirth, phase, chance, roll)
