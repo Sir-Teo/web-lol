@@ -6,6 +6,16 @@ Last updated: October 27, 2026 (UTC).
 
 ## Current authoritative state
 
+The latest [cohort recovery tool](MATCH-COHORT-RECOVERY.md) preserves accepted
+results and interrupted evidence, verifies frozen inputs/runtime, refuses live
+ownership and uses an exclusive OS lock for detached recovery. All 13 new
+control-plane cases and all 29 Node QA checks pass, including rollback and
+missing-summary recovery. Its read-only live-cohort check preserves the plan
+and 65 accepted reports. This QA-only iteration retains the accepted Ahri
+application identity and inherits application acceptance below; no frontend
+checks were repeated. The original cohort continues under its earlier checked
+recovery supervisor, with its 100-seed gate still open.
+
 The latest [Ahri Rift trial](AHRI-RIFT-TRIAL.md) gives the human mid on the
 source battlefield with nine Ashe/Lux bots. Separate practice/Rift admission,
 private saves, restart and ordinary selection gates remain covered. Real Q
