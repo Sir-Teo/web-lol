@@ -34,6 +34,11 @@ pauses only owned cohort processes and records each resume. Recent
 [first-input audio activation](INPUT-AUDIO-ACTIVATION.md) have their own bounded
 acceptance records.
 
+The [completed-checkpoint reading](CURRENT-NORMAL-CHECKPOINT-READING.md)
+independently accepts the frozen 24-seed subset and proves byte-exact import,
+offline restore and export of a real 35-minute terminal normal-match state.
+The full 100-seed gate remains open.
+
 ### Earlier foundation and increment notes
 
 The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The older foundation check passed 2,192 tests across 339 files, TypeScript and three Node QA checks. Fifty-five targeted Chrome scenarios pass for the [development Ahri Q](AHRI-Q.md)/[W](AHRI-W.md)/[E](AHRI-E.md), [R base](AHRI-R.md) and [passive](AHRI-PASSIVE.md) controllers, [human practice controls](AHRI-PLAYER.md), private saves/imports and application reloads, her NPC rig/basic attacks, Leona rig recovery, Garen/Lux controls, champion selection, animation and match files, plus the [Master Yi development rig review](MASTER-YI-MODEL.md) and [NPC foundation](MASTER-YI-NPC.md). Production and offline identities for that increment are recorded below. Historical checks describe their own revisions; they do not certify later changes.
@@ -5714,7 +5719,7 @@ Two ten-minute smoke seeds8/38 pass72,000 checked ticks,20 round trips and18
 future checks. All20 checkpoints match the prior frozen schema125 Zenith-history
 smoke after removing only version/ruleset and empty new R histories. This is not
 an immediate-parent rerun; both matches end unfinished at their horizon. The
-full100-seed gate and CPU benchmark remain open. Ruleset755819ef identifies this
+full 100-seed gate and CPU benchmark remain open. Ruleset755819ef identifies this
 increment. Source R drawing/audio and native CPU/terrain/matrix/state/frame
 acceptance remain open. See [scope](LEONA-R-HISTORY.md) and the
 [verification record](reference/leona/r-history-verification.json). Nothing is
