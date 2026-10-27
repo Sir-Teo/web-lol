@@ -1,0 +1,305 @@
+{
+  "format": 1,
+  "parentCommit": "7e9fb753c751596179627e18b4778ef6ce74a255",
+  "scope": "Focus handoff to Cancel during offline download, retry restoration on cancellation/failure and preservation of another focused control on completion.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "offlinePack": {
+      "id": "9c1d6b224cb5d205b36e71557ad0dd06ca092b81cd2472ae256df3219aaf1f9f",
+      "files": 1202,
+      "bytes": 538092294
+    }
+  },
+  "source": [
+    {
+      "path": "src/ui/offline-pack.ts",
+      "bytes": 4534,
+      "sha256": "951944f0f8371a13d68fd10166cb34e1718d0d484eb7a00572d30437695b1ded"
+    },
+    {
+      "path": "tools/qa/offline-pack.mjs",
+      "bytes": 16558,
+      "sha256": "6fc176c2dd111347e6ebe7dd6c456004cdb6d9e1dfea3db6f4795e047b239b16"
+    },
+    {
+      "path": "docs/OFFLINE-KEYBOARD-FOCUS.md",
+      "bytes": 1963,
+      "sha256": "5c3e4c0302ee22df4f98779cea218309b9199d4c08b59e1eddd287ee5b441a23"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "bytes": 740796,
+      "sha256": "5e9a6b48af59ad7d37ab6bb19e79afd26581b80048a75a95f383a9c34f104d39"
+    }
+  ],
+  "verification": {
+    "initialProductionAssertionFailed": true,
+    "typescriptPassed": true,
+    "nodeQaPassed": 14,
+    "buildPassed": true,
+    "completeProductionOfflineAudit": {
+      "manifest": {
+        "id": "9c1d6b224cb5d205b36e71557ad0dd06ca092b81cd2472ae256df3219aaf1f9f",
+        "files": 1202,
+        "bytes": 538092294
+      },
+      "checks": {
+        "integrityFailureRestoresDownloadFocus": true,
+        "integrityFailure": true,
+        "downloadFocusesCancel": true,
+        "cancelRetainsVerified": true,
+        "cancelRestoresDownloadFocus": true,
+        "retryWithoutRedownload": true,
+        "completionPreservesOtherControlFocus": true,
+        "pausedSavedTickBootsOffline": true,
+        "completePackRepairOffline": true,
+        "newLuxLaneMatchOffline": true,
+        "serviceWorkerResponses": 978,
+        "removalKeepsSavedBytes": true,
+        "updateRefusesOtherTabs": true,
+        "explicitAtomicVersionSwitchOffline": true,
+        "missingEntryRevokesReady": true,
+        "scopeOnlyRemoval": true
+      },
+      "result": "passed",
+      "productionErrors": []
+    },
+    "assetDataSizesAndMtimesUnchanged": 1125,
+    "cohortSourcePinsUnchanged": 539,
+    "simulationChanged": false,
+    "inheritedBroaderAcceptance": {
+      "path": "docs/reference/gromp-mesh-color-verification.json",
+      "sha256": "154754cf11f5362314fd06b657aee35d74021e965419fa1bc99b4b9b71425557",
+      "fullUnitPassed": 3324,
+      "baselineUnitFailures": 2,
+      "broadProductionRecordings": 32,
+      "fullUnitOrBroadProductionRerunForThisUiChange": false
+    }
+  },
+  "pauseIntervals": [
+    {
+      "start": "2026-10-27T15:05:04.402441+00:00",
+      "end": "2026-10-27T15:05:35.926920+00:00",
+      "processes": [
+        {
+          "pid": 302400,
+          "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+        },
+        {
+          "pid": 327852,
+          "cmdlineSha256": "860077694a919e12b8735370760c6b9b5ff5d73322ed524d9e26dab0543b6d79"
+        },
+        {
+          "pid": 328203,
+          "cmdlineSha256": "7f23113555669ad0a9674493f06fea27658b57fea3889ff8b557a1b1e2055dc4"
+        },
+        {
+          "pid": 329587,
+          "cmdlineSha256": "1d0fe21f543a5ae7ed5a39a1c2bd118a01f9adb9754aeb8b80db3de5a30592d0"
+        },
+        {
+          "pid": 329660,
+          "cmdlineSha256": "fc8490adf12063010ff00121dd3bcd5798dc5dbf7c2811579177f94c323fad21"
+        }
+      ],
+      "resumed": true
+    },
+    {
+      "start": "2026-10-27T15:07:41.102992+00:00",
+      "end": "2026-10-27T15:08:33.554889+00:00",
+      "processes": [
+        {
+          "pid": 302400,
+          "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+        },
+        {
+          "pid": 327852,
+          "cmdlineSha256": "860077694a919e12b8735370760c6b9b5ff5d73322ed524d9e26dab0543b6d79"
+        },
+        {
+          "pid": 328203,
+          "cmdlineSha256": "7f23113555669ad0a9674493f06fea27658b57fea3889ff8b557a1b1e2055dc4"
+        },
+        {
+          "pid": 329587,
+          "cmdlineSha256": "1d0fe21f543a5ae7ed5a39a1c2bd118a01f9adb9754aeb8b80db3de5a30592d0"
+        },
+        {
+          "pid": 329660,
+          "cmdlineSha256": "fc8490adf12063010ff00121dd3bcd5798dc5dbf7c2811579177f94c323fad21"
+        }
+      ],
+      "resumed": true
+    },
+    {
+      "start": "2026-10-27T15:09:41.935322+00:00",
+      "end": "2026-10-27T15:12:06.612809+00:00",
+      "processes": [
+        {
+          "pid": 302400,
+          "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+        },
+        {
+          "pid": 327852,
+          "cmdlineSha256": "860077694a919e12b8735370760c6b9b5ff5d73322ed524d9e26dab0543b6d79"
+        },
+        {
+          "pid": 328203,
+          "cmdlineSha256": "7f23113555669ad0a9674493f06fea27658b57fea3889ff8b557a1b1e2055dc4"
+        },
+        {
+          "pid": 329587,
+          "cmdlineSha256": "1d0fe21f543a5ae7ed5a39a1c2bd118a01f9adb9754aeb8b80db3de5a30592d0"
+        },
+        {
+          "pid": 329660,
+          "cmdlineSha256": "fc8490adf12063010ff00121dd3bcd5798dc5dbf7c2811579177f94c323fad21"
+        }
+      ],
+      "resumed": true
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/offline-keyboard-focus/after-inputs.json",
+      "bytes": 262,
+      "sha256": "cfbe2d57f72806668e2f6ee8f397651d46d49b2b141ac8eb813220e0d0b9ef7d"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/artifacts/offline-pack-offline-keyboard-after-20261027-lux-lanes.png",
+      "bytes": 522770,
+      "sha256": "b25486a5a37d4dcc090c777095a2b7ee6465c4abda3b117a867ee405261f3ea0"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/artifacts/offline-pack-offline-keyboard-after-20261027-production.json",
+      "bytes": 827,
+      "sha256": "beb80afedfdffcc967a61ab9e23942c35301b00e0a5ab6a0fd262f4caa3c8722"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/artifacts/offline-pack-offline-keyboard-after-20261027-ready.png",
+      "bytes": 573159,
+      "sha256": "364d3d7c0b9ea0bb0e8ec7eefa15c1f7fefffd700239991f74623fe382047d8e"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/artifacts/offline-pack-offline-keyboard-before-20261027-failure.json",
+      "bytes": 386,
+      "sha256": "fa11ed65bba4bf9854fe79abe0ddfafc8afdb53d2f964c35e75cd811b6367d2f"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/before-inputs.json",
+      "bytes": 416,
+      "sha256": "d95a441cdead2aecb88f4557f76b2a15aa752f52dab486a595f3d4d33354d0a7"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/browser-after.log",
+      "bytes": 842,
+      "sha256": "bc7eb9439cfdac0073812f73017afffdecac3502b0e3f4d87d8b876e5db622a8"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/browser-before.log",
+      "bytes": 401,
+      "sha256": "cb3c2aa0d2bac080f8f83e96e43432e30597e411e483970b9e3fdacecc380748"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/browser-inputs.json",
+      "bytes": 262,
+      "sha256": "cfbe2d57f72806668e2f6ee8f397651d46d49b2b141ac8eb813220e0d0b9ef7d"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/build.log",
+      "bytes": 7852,
+      "sha256": "1617aa71d668490cc363416449107038b0f7f936e31c73f39eb37d15699c7310"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/node.log",
+      "bytes": 1251,
+      "sha256": "5e085acbc1142d5d701a38efa146622649b045140447711e085c9961feec2e68"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/offline-after.mjs",
+      "bytes": 16593,
+      "sha256": "9d8ee44882216c187cc0119ed3900228447b98696dd655442a643fc7848c1ffd"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/offline-before.mjs",
+      "bytes": 15334,
+      "sha256": "35d50c5a00ce403a3d123bb4e8da39110e69f2803e35a142c60f5de0d3065275"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/offline-pack.json",
+      "bytes": 172470,
+      "sha256": "af83cb3969b8cfce45dcbb0399ef128aa1d74d84c0dedc789950f4ca7d904829"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/pause-after-record.json",
+      "bytes": 755,
+      "sha256": "61c6a594ca6476628244837370086841f08a22a4c2f51cd971527c2ae936413b"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/pause-before-record.json",
+      "bytes": 755,
+      "sha256": "75ad7ecb6ae842a1779b7483950369de3790d68286b65634bd0065da74bd60ef"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/pause-browser-record.json",
+      "bytes": 755,
+      "sha256": "604499a9620c653d28d6a1014811b5d9bfdb258a4e0faa6d19049594c8bdc187"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/run-after.py",
+      "bytes": 2623,
+      "sha256": "83c8cf26e6576974ee083032c79ea8a058fde9cf360e476db1d21a9beb979699"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/run-before.py",
+      "bytes": 2644,
+      "sha256": "9589da764ba3ad88e586e6e11612bae7fe16a1c0bdbbe24422f80f3ca475b889"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/run-browser.py",
+      "bytes": 2592,
+      "sha256": "25a395e868987531a51c1a5b16c18fe2a028752c3218dcb4fc7dd41370bd4ac8"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/source-before/src/ui/offline-pack.ts",
+      "bytes": 4374,
+      "sha256": "0a226b35fe580dbd946bd0c6fed57f427ffa72ed5d69a5aac7a40476b325b5d4"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/source-before/tools/qa/offline-pack.mjs",
+      "bytes": 15170,
+      "sha256": "caea93530808648b3dc70fa3e6ed9d19d1f76ed6a767125c4c5139ade4e854c0"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/source-final/docs/OFFLINE-KEYBOARD-FOCUS.md",
+      "bytes": 1963,
+      "sha256": "5c3e4c0302ee22df4f98779cea218309b9199d4c08b59e1eddd287ee5b441a23"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/source-final/docs/PROGRESS.md",
+      "bytes": 740796,
+      "sha256": "5e9a6b48af59ad7d37ab6bb19e79afd26581b80048a75a95f383a9c34f104d39"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/source-final/src/ui/offline-pack.ts",
+      "bytes": 4534,
+      "sha256": "951944f0f8371a13d68fd10166cb34e1718d0d484eb7a00572d30437695b1ded"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/source-final/tools/qa/offline-pack.mjs",
+      "bytes": 16558,
+      "sha256": "6fc176c2dd111347e6ebe7dd6c456004cdb6d9e1dfea3db6f4795e047b239b16"
+    },
+    {
+      "path": ".cache/offline-keyboard-focus/types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "limits": [
+    "Fresh full offline-pack/browser behavior; full-unit and broad 32-scenario production checks remain inherited at their earlier identities.",
+    "Software Chromium/SwiftShader does not certify physical device performance.",
+    "The current 100-seed match cohort remains active; its full gate is not claimed."
+  ]
+}

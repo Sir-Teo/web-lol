@@ -6,10 +6,18 @@ Last updated: October 27, 2026 (UTC).
 
 ## Current authoritative state
 
-The latest [pending-import focus repair](IMPORT-DIALOG-FOCUS.md) keeps keyboard
+The latest [offline download focus repair](OFFLINE-KEYBOARD-FOCUS.md) gives
+keyboard focus to Cancel, restores retry focus and preserves another focused
+control on completion. TypeScript, 14 Node QA checks, build and the fresh full
+production offline audit pass. The current pack is
+`9c1d6b224cb5d205b36e71557ad0dd06ca092b81cd2472ae256df3219aaf1f9f`
+(1,202 files / 538,092,294 bytes). Broader unit and 32-scenario production acceptance
+remain inherited at the recorded earlier rendering identity.
+
+The preceding [pending-import focus repair](IMPORT-DIALOG-FOCUS.md) keeps keyboard
 focus inside the loading dialog while its controls are disabled. Nine browser
 cases, TypeScript, 14 Node QA checks, build and the compiled native-write keyboard
-audit pass. Its current pack is
+audit pass. Its pack is
 `d4d63558d110ea46b158a316651fc32fc1fe6677456cc328fcc3ce7cfafd546c`
 (1,202 files / 538,092,203 bytes). Broader unit/production/offline results below
 retain their recorded earlier identities and are inherited for this UI repair.

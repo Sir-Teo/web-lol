@@ -208,6 +208,14 @@ try {
   mode = 'corrupt';
   await page.getByRole('button', { name: 'Download game pack', exact: true }).click();
   await page.locator('.offline-status').filter({ hasText: 'failed verification' }).waitFor();
+  assert.equal(
+    await page
+      .getByRole('button', { name: 'Download game pack', exact: true })
+      .evaluate((node) => document.activeElement === node),
+    true,
+    'Verification failure must preserve retry focus'
+  );
+  report.checks.integrityFailureRestoresDownloadFocus = true;
   report.checks.integrityFailure = true;
   const firstBefore = counts.get(manifest.files[0].path);
   mode = 'hold';
@@ -216,9 +224,25 @@ try {
   });
   await page.getByRole('button', { name: 'Download game pack', exact: true }).click();
   await held;
-  await page.getByRole('button', { name: 'Cancel download', exact: true }).click();
+  assert.equal(
+    await page
+      .getByRole('button', { name: 'Cancel download', exact: true })
+      .evaluate((node) => document.activeElement === node),
+    true,
+    'Starting a download must focus Cancel'
+  );
+  report.checks.downloadFocusesCancel = true;
+  await page.keyboard.press('Enter');
   await page.locator('.offline-status').filter({ hasText: 'cancelled' }).waitFor();
   report.checks.cancelRetainsVerified = true;
+  assert.equal(
+    await page
+      .getByRole('button', { name: 'Download game pack', exact: true })
+      .evaluate((node) => document.activeElement === node),
+    true,
+    'Cancelling must restore the download control'
+  );
+  report.checks.cancelRestoresDownloadFocus = true;
   mode = 'normal';
   console.log(
     JSON.stringify({
@@ -228,6 +252,11 @@ try {
     })
   );
   await page.getByRole('button', { name: 'Download game pack', exact: true }).click();
+  const cancel = page.getByRole('button', { name: 'Cancel download', exact: true });
+  assert.equal(await cancel.evaluate((node) => document.activeElement === node), true);
+  await page.keyboard.press('Tab');
+  const back = page.getByRole('button', { name: 'Back to pause menu', exact: true });
+  assert.equal(await back.evaluate((node) => document.activeElement === node), true);
   await page
     .locator('.offline-status')
     .filter({ hasText: 'Ready for offline use' })
@@ -238,6 +267,12 @@ try {
     'retry must reuse the first verified file'
   );
   report.checks.retryWithoutRedownload = true;
+  assert.equal(
+    await back.evaluate((node) => document.activeElement === node),
+    true,
+    'Completion must retain focus on another control'
+  );
+  report.checks.completionPreservesOtherControlFocus = true;
   const names = await page.evaluate(() => caches.keys());
   assert.equal(names.filter((n) => n.startsWith('rift-offline-v1:')).length, 1);
   await page.screenshot({ path: artifactPrefix + '-ready.png' });
