@@ -17,6 +17,7 @@ const program: SurfaceProgram<EclipseDrawGroup> = {
   profiles: ECLIPSE_PROFILES,
   assets: eclipseSurfaceAssets,
   accepts: (index) => ECLIPSE_PROFILES[index].kind !== 'skin',
+  vertexColor: (index) => (ECLIPSE_PROFILES[index].kind === 'ray' ? 'bgra-unorm8' : undefined),
   *records(world) {
     for (const source of world.units) {
       const state = world.championState(source.id);

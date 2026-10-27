@@ -93,3 +93,8 @@ selected instruction, both kind constructors, callback/vptr/virtual-slot
 changes, function bounds, field hashes/offsets/wrappers and concrete color-path
 counterexamples. The [verification ledger](reference/native-ray-packet-verification.json)
 retains normal/optimized checks and the unchanged application identity.
+
+The [modern ray coverage increment](REMAINING-RAY-PACKETS.md) applies this byte
+format to the two Leona W rays and Garen's critical AA, Q impact and R kill ray.
+It preserves their raw source curves and verifies the new owned streams against
+independent C-derived words, material GPU probes and real game flows.

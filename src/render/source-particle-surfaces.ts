@@ -10,7 +10,7 @@ import { projectGroundQuad } from './ground-quad';
 import { maskGroundWalkability } from './ground-walkability-mask';
 import { groundEffectMaterial, setGroundRenderStage } from './ground-display-list';
 import { writeRayQuad } from './ray-quad';
-import { particleUnorm8 } from './particle-unorm8';
+import { writeRayColor } from './particle-ray-color';
 
 const billboard = new THREE.PlaneGeometry(2, 2),
   quad = new THREE.PlaneGeometry(2, 2);
@@ -454,7 +454,7 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
             packed = this.program.tint?.(p.profileIndex, p.color),
             color = uniforms.particleColor.value as THREE.Vector4;
           color.fromArray(packed ?? p.color);
-          if (!packed && profile.blend === 0) {
+          if (!packed && !mesh.userData.sourcePacketColor && profile.blend === 0) {
             color.x *= color.w;
             color.y *= color.w;
             color.z *= color.w;
@@ -463,18 +463,9 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
             const attribute = mesh.geometry.getAttribute(
                 '_source_vertex_bgra'
               ) as THREE.BufferAttribute,
-              bytes = attribute.array as Uint8Array,
-              b = Math.round(particleUnorm8(color.z) * 255),
-              g = Math.round(particleUnorm8(color.y) * 255),
-              r = Math.round(particleUnorm8(color.x) * 255),
-              a = Math.round(particleUnorm8(color.w) * 255);
-            for (let vertex = 0; vertex < attribute.count; vertex++) {
-              const offset = vertex * 4;
-              bytes[offset] = b;
-              bytes[offset + 1] = g;
-              bytes[offset + 2] = r;
-              bytes[offset + 3] = a;
-            }
+              bytes = attribute.array as Uint8Array;
+            // An explicit tint callback already prepared its packet color.
+            writeRayColor(bytes, 0, attribute.count, packed ?? p.color, packed ? 4 : profile.blend);
             attribute.needsUpdate = true;
             color.set(1, 1, 1, 1);
           }

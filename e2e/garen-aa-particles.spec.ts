@@ -66,6 +66,8 @@ async function capture(page: Page) {
         phase: m.userData.phase,
         bone: m.userData.bone,
         born: m.userData.bornTick,
+        packetColor: Array.from(m.geometry.getAttribute('_source_vertex_bgra')?.array ?? []),
+        packetNormalized: m.geometry.getAttribute('_source_vertex_bgra')?.normalized ?? null,
         geometry: await hash(m.geometry.getAttribute('position').array.slice().buffer),
         uniforms: {
           tint: m.material.uniforms.particleColor.value.toArray(),
@@ -92,6 +94,17 @@ for (const kind of ['attack1', 'attack2', 'crit'] as const)
       true
     );
     if (kind !== 'crit') expect(before.some((p) => p.phase === 'swing')).toBe(true);
+    if (kind === 'crit') {
+      const rays = before.filter((p) => p.packetColor.length > 0);
+      expect(rays.length).toBeGreaterThan(0);
+      for (const ray of rays) {
+        expect(ray.packetColor).toHaveLength(24);
+        expect(ray.packetNormalized).toBe(true);
+        expect(ray.packetColor.some((v) => v !== 0)).toBe(true);
+        expect(ray.uniforms.tint).toEqual([1, 1, 1, 1]);
+        expect(ray.packetColor.filter((_, i) => i % 4 === 3)).toEqual(Array(6).fill(255));
+      }
+    }
     expect(
       before.every((p) =>
         [...p.position, ...p.rotation, ...p.scale, ...p.uniforms.tint].every(Number.isFinite)
@@ -166,7 +179,10 @@ for (const kind of ['attack1', 'attack2', 'crit'] as const)
     await page.getByRole('button', { name: 'Save match', exact: true }).click();
     await expect(page.locator('#toast')).toHaveText('Match saved on this browser.');
     const saved = await page.evaluate(() => (window as any).__GAME__.world.snapshot());
-    expect(JSON.parse(saved).version).toBe(130);
+    const version = await page.evaluate(
+      async () => (await import('/src/simulation/snapshot.ts')).SNAPSHOT_VERSION
+    );
+    expect(JSON.parse(saved).version).toBe(version);
     await page.reload();
     await page.waitForFunction(() => (window as any).__GAME__?.ready);
     await page.locator('#loading').waitFor({ state: 'detached' });

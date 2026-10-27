@@ -12,6 +12,7 @@ import { garenQTrailParticles, garenQCastParticles } from './garen-q-particles';
 import { createParticleColorProductMaterial } from './particle-color-product';
 import { garenQImpactParticles } from './garen-q-impact-particles';
 import { writeRayQuad } from './ray-quad';
+import { writeRayColor } from './particle-ray-color';
 import { garenQGroundParticles } from './garen-q-ground-particles';
 import { garenQSilenceParticles } from './garen-q-silence-particles';
 import { unitBarHeight } from './unit-bar-height';
@@ -119,12 +120,18 @@ export function createGarenQImpactMaterial(
   return createQMaterial(p, `Decisive Strike impact ${p.index}`, base, lookup);
 }
 function createQMaterial(
-  p: { blend: number; miscRenderFlags: number; uvMode?: number },
+  p: { blend: number; miscRenderFlags: number; uvMode?: number; kind?: string },
   name: string,
   base: THREE.Texture,
   lookup: THREE.Texture
 ) {
-  const material = createParticleColorProductMaterial(base, lookup);
+  const material = createParticleColorProductMaterial(
+    base,
+    lookup,
+    'uniform',
+    undefined,
+    p.kind === 'ray' ? 'bgra-unorm8' : false
+  );
   material.uniforms.sourceUvScale = { value: new THREE.Vector2(1, 1) };
   material.vertexShader = material.vertexShader
     .replace(
@@ -370,6 +377,13 @@ export class GarenDecisiveStrike {
                   : p.kind === 'quad'
                     ? quad
                     : billboard;
+            if (p.kind === 'ray')
+              geometry.setAttribute(
+                '_source_vertex_bgra',
+                new THREE.Uint8BufferAttribute(new Uint8Array(24), 4, true).setUsage(
+                  THREE.DynamicDrawUsage
+                )
+              );
             mesh = new THREE.Mesh(
               geometry,
               createGarenQImpactMaterial(
@@ -444,14 +458,29 @@ export class GarenDecisiveStrike {
           }
           if (p.kind !== 'ray')
             mesh.scale.fromArray(particle.scale).multiplyScalar(p.kind === 'mesh' ? 1 : 0.01);
-          const tint = [...particle.color];
-          if (p.blend === 0) {
-            for (let i = 0; i < 3; i++) tint[i] *= tint[3];
-            tint[3] = 1;
-          }
           const uniforms = mesh.material.uniforms,
             [columns, rows] = p.atlas.grid;
-          uniforms.particleColor.value.fromArray(tint);
+          if (p.kind === 'ray') {
+            const attribute = mesh.geometry.getAttribute(
+              '_source_vertex_bgra'
+            ) as THREE.BufferAttribute;
+            writeRayColor(
+              attribute.array as Uint8Array,
+              0,
+              attribute.count,
+              particle.color,
+              p.blend
+            );
+            attribute.needsUpdate = true;
+            uniforms.particleColor.value.set(1, 1, 1, 1);
+          } else {
+            const tint = [...particle.color];
+            if (p.blend === 0) {
+              for (let i = 0; i < 3; i++) tint[i] *= tint[3];
+              tint[3] = 1;
+            }
+            uniforms.particleColor.value.fromArray(tint);
+          }
           uniforms.lookupUv.value.fromArray(particle.lookup);
           uniforms.sourceUvScale.value.set(1 / columns, 1 / rows);
           uniforms.sourceUvOffset.value.set(

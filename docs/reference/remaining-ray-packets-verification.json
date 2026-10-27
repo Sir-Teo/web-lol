@@ -1,0 +1,1685 @@
+{
+  "format": 1,
+  "parentCommit": "3fa44d105cc8467c5315e7182e1fc1841bf20ba6",
+  "scope": "Five modern BIN-backed rays in Leona W and Garen critical AA/Q/R use normalized BGRA color bytes and binary16 lookup coordinates. Reuse one finite Ray word writer with float32 premultiplication for modes0/2. Preserve raw source colors, other sampler fields, geometry policies, default float material streams and the two legacy Gromp rays.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "offlinePack": {
+      "id": "91a9ffd24b729350a6d41c3705dd385abefa642314881f37988440833c124308",
+      "files": 1202,
+      "bytes": 538088016
+    }
+  },
+  "verification": {
+    "newUnitCases": 4,
+    "focusedCases": 65,
+    "fullUnitRun": {
+      "passed": 3103,
+      "failed": 2,
+      "total": 3105,
+      "files": 393
+    },
+    "remainingBaselineFailures": 2,
+    "originalWaveDeadlineUnchanged": true,
+    "nodeQaPassed": 6,
+    "nativeNormalOptimizedChecks": 4,
+    "newNativeWitnessFunctions": 0,
+    "packetBrowserCases": 12,
+    "successfulDistinctGameAndDefaultBrowserCases": 23,
+    "newPacketPixelCases": 420,
+    "nonemptyNewPixelCases": 420,
+    "changedChannelBytes": 0,
+    "priorFloatCounterfactualChangedChannelBytes": [
+      1604,
+      7806,
+      19767,
+      119604,
+      140414
+    ],
+    "earlierSolarPixelCases": 252,
+    "earlierMeditatePixelCases": 168,
+    "earlierPrimaryPacketPixelCases": 84,
+    "earlierPrimaryShapePixelCases": 84,
+    "WSourceFamiliesWithPixels": 26,
+    "samplerCalls": 11403,
+    "nonRayStatesUnchanged": 116590,
+    "rayStates": 111272,
+    "rawSourceColorsExact": true,
+    "allOtherRayFieldsExact": true,
+    "finiteWriterColors": 100256,
+    "CReferencePacketWords": 401024,
+    "doubleOnlyPremultiplicationCounterexamples": 8,
+    "neighborSentinelsExact": true,
+    "borrowedSourceArraysFrozen": true,
+    "assetsAndDataFilesUnchanged": 543,
+    "bytesAndMtimesUnchanged": true,
+    "productionRecordings": 32,
+    "freshProductionScreenshots": 8,
+    "privatePreloads": 0,
+    "legacyGrompBytePolicyChanged": false,
+    "nativeExecuted": false,
+    "nativeShaderExecuted": false
+  },
+  "independentSamplerReference": {
+    "reference": {
+      "commit": "3fa44d105cc8467c5315e7182e1fc1841bf20ba6",
+      "archiveSha256": "4e353661378b4754ca8f8f3569ea3897997feef6ac3d3cc23e5d32c866bb0ce6",
+      "sourceSha256": "6bc159edf82473696ad2ca0477483d15780f9561520862940c6414a9f158b9e4",
+      "moduleSha256": "0a62d90f4ecb51c4570e8114eda09be7a4ce1ecfe6396b1201a47792070d592a",
+      "module": "/workspace/web-lol/.cache/remaining-ray-packets/cpu/reference/baseline.mjs"
+    },
+    "samplerCalls": 11403,
+    "nonRayStates": 116590,
+    "rayStates": 111272,
+    "families": {
+      "W-initial:3": {
+        "samples": 54295,
+        "changedColors": 54295,
+        "changedLookups": 53620,
+        "blend": 0
+      },
+      "W-extended:8": {
+        "samples": 54205,
+        "changedColors": 54205,
+        "changedLookups": 53530,
+        "blend": 0
+      },
+      "AA-crit:9": {
+        "samples": 333,
+        "changedColors": 270,
+        "changedLookups": 324,
+        "blend": 0
+      },
+      "Q:3": {
+        "samples": 468,
+        "changedColors": 450,
+        "changedLookups": 450,
+        "blend": 4
+      },
+      "R:18": {
+        "samples": 1971,
+        "changedColors": 837,
+        "changedLookups": 1944,
+        "blend": 4
+      }
+    },
+    "rawSourceColorsExact": true,
+    "allOtherRayFieldsExact": true,
+    "independentPacketProjectionExact": true,
+    "actualGarenMaterialFlagsChecked": true,
+    "candidateModuleSha256": "650ad7c9cb07dad7cbc67cdd7177e3d545f2f80af4a5b69e19bd342ad6417669",
+    "producerSha256": "82ccb350f17528ff722f4c340f867280fbc8f4834953d3423a95ca319bd98e48",
+    "limits": [
+      "Finite native Ray packet conversions applied to retained local source values; no native game or Metal execution.",
+      "Five modern BIN-backed rays only. Legacy Gromp Troy p-type mappings remain outside this correction.",
+      "Source clocks, RNG, curve arithmetic, external modifiers and actual native dispatch remain unobserved."
+    ]
+  },
+  "independentWriterReference": {
+    "finiteColors": 100256,
+    "packetCases": 401024,
+    "blends": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "allWordsAndNeighborSentinelsExact": true,
+    "sourceColorsFrozen": true,
+    "doubleOnlyPremultiplicationCounterexamples": 8,
+    "sourceSha256": "c4a613aa82be38fa0110275015bc93a806835f2da8d4bc3b4b7f9d62793fa1c5",
+    "componentSourceSha256": "d9606ea6a3afb8df59e76c7968739ccb39c0ade6e021dd9d23b4780c74ac67de",
+    "referenceSha256": "88278c1b31df1a747e6928d1607fb6934cedbd3e6135b4f7d4c6df93f822ef51",
+    "moduleSha256": "f95e132eba67234df3a0a34e428807620465f650cc30bc425f849d07ec48eb05",
+    "producerSha256": "d6d58d530ca768f6e059ec50406d81fb552d9b9f27681d453c2f5df767981a25",
+    "nativeExecuted": false
+  },
+  "pixelEvidence": [
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-AA-r-653d7-and-half-lookup-coordinates/remaining-ray-packet-pixels.json",
+      "bytes": 33816,
+      "sha256": "91594984443a2eed0f80e158528804b4d838838ced0278004a49b97cbe9d8fd6"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-Q-ra-50ee8-and-half-lookup-coordinates/remaining-ray-packet-pixels.json",
+      "bytes": 33678,
+      "sha256": "48ecb2dbdba334062fb8fdba81ddcaf602c6c9f40c1c20a78a1c25577b4c7908"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-R-ra-387d4-and-half-lookup-coordinates/remaining-ray-packet-pixels.json",
+      "bytes": 33782,
+      "sha256": "06f64b541b68de7050df6bdb0e363234dad5cff28c04c62f0a6d17290dbda4c7"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-W-ra-7fbf0-and-half-lookup-coordinates/remaining-ray-packet-pixels.json",
+      "bytes": 33694,
+      "sha256": "9069fd096f729f08d8c18396dfbaba34f2d8f60df72ffda6737e85bfe614490c"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-W-ra-f0f95-and-half-lookup-coordinates/remaining-ray-packet-pixels.json",
+      "bytes": 33624,
+      "sha256": "494cbba911bcf279aec988481215ab4da06f5d2160f4a9baba9cdd4689c64525"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/solar-ray-packets-Solar-ra-ea7fd-and-half-lookup-coordinates/solar-ray-packet-pixels.json",
+      "bytes": 33750,
+      "sha256": "9514dae0adaaf3c3026178ca931ba8b1ddbcd3af26b463e80cdba8c241033a69"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/solar-ray-packets-Solar-ra-bcb42-and-half-lookup-coordinates/solar-ray-packet-pixels.json",
+      "bytes": 33778,
+      "sha256": "05830a53e7bf2d8c01a5f9d2a8b60475388e64fa4478c49ddb70ca5e703f530f"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/solar-ray-packets-Solar-ra-137c1-and-half-lookup-coordinates/solar-ray-packet-pixels.json",
+      "bytes": 33670,
+      "sha256": "6685695cab8e62ef24a0a47df3047319fea6dec37ca8b5085a4253bfeb9dbfb4"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/meditate-ray-packets-Medit-65861-and-half-lookup-coordinates/meditate-ray-packet-pixels.json",
+      "bytes": 33775,
+      "sha256": "f6af69041c987c1d63360f0eac15bacc4961daef5385c74fd785c34fbadab03d"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/meditate-ray-packets-Medit-43dab-and-half-lookup-coordinates/meditate-ray-packet-pixels.json",
+      "bytes": 33367,
+      "sha256": "2cf67f190539c0714af4c1ff66b50d23c49599e899d75f35fbf7d4dfbcee1e23"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/ray-packet-pixels.json",
+      "bytes": 32833,
+      "sha256": "10e33d5b8e4f559cf993e966c960137e65f845cad0530d67a5cfa4672bbf966c"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/primary-hit-ray-shape-prim-129d8-s-against-a-frozen-renderer/ray-shape-pixels.json",
+      "bytes": 28375,
+      "sha256": "bbc56909285beb2f1ee38df439f32b224c1da5618bded8bde18a5624f2d5d432"
+    }
+  ],
+  "WFamilyEvidence": {
+    "path": ".cache/remaining-ray-packets/game-browser-retry/leona-eclipse-surfaces-all-15ef1-uccessful-and-missed-phases/families.json",
+    "bytes": 104677,
+    "sha256": "7053fda84c77d0e7ca5a651e97afdd5ed89805908a33003331e91d6d8195dbeb"
+  },
+  "limits": [
+    "Finite native Ray packet conversions applied to retained local source values; no native game or Metal execution.",
+    "Five modern BIN-backed rays only. Legacy Gromp Troy p-type mappings remain outside this correction.",
+    "Source clocks, RNG, curve arithmetic, external modifiers and actual native dispatch remain unobserved.",
+    "The Garen color calibration uses real material factories and the shared writer on fixture geometry. Actual game renderer streams, Save/reload, disposal and buffer reuse are checked separately.",
+    "Existing Gromp float vertex streams remain active. The added default material shader branch is disabled for those boolean tint callers; their color-factor and game-flow regressions pass.",
+    "The historical Leona archive closure and default-platform Lux golden remain the same two full-suite failures. No simulation assertion or original wave deadline is changed.",
+    "No native Metal execution, full native composition or performance claim."
+  ],
+  "diagnostics": [
+    "The older Garen AA browser suite expected schema130. It now uses the browser-exported current snapshot version and retains exact saved/buffer comparisons.",
+    "W family contribution passed for all26 profiles, but its route set initially listed only the original mesh BGRA streams. The exact expected set now includes the new rays3/8.",
+    "Gromp Save/reload exceeded the default30s browser limit; it passes separately with a120s cloud allowance and the original pixel, draw-count, buffer, fog and disposal assertions.",
+    "A late-NPC R test kept waiting after resources loaded because paused rendering paints once then sleeps. Read-only probes verified ready assets/rig/cast and33 draw candidates after an explicit update. The fixture now requests the existing repaint hook and checks the world tick stays fixed; module1,mesh4,kill-texture2 request counts remain strict.",
+    "The production runner changes only system Chromium launch selection.",
+    "An isolated worktree held the early draft while the Solar checkpoint completed production validation. The modern five-ray patch was applied to the main worktree after Solar commit3fa44d1; Gromp byte conversion was removed from that draft before integration."
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/NATIVE-RAY-PACKET.md",
+      "bytes": 5584,
+      "sha256": "4d2b84000acd650114e54291e100d61b86cedc206001fa55bea12012841b00ad"
+    },
+    {
+      "path": "docs/REMAINING-RAY-PACKETS.md",
+      "bytes": 4629,
+      "sha256": "4bae0006469f210fda86a1bf30992f5671d51dbfb1388e536432d971e0d7cdcc"
+    },
+    {
+      "path": "e2e/garen-aa-particles.spec.ts",
+      "bytes": 15500,
+      "sha256": "7514df26162d6f000ff6f0293089bd337201c9a716bfc61567326982b2e28e3a"
+    },
+    {
+      "path": "e2e/garen-justice.spec.ts",
+      "bytes": 17243,
+      "sha256": "f4996100f8ee07e1b77be1c8d2a5a28b1cb494b380fbaef5972c6034779fcb78"
+    },
+    {
+      "path": "e2e/garen-q-impact.spec.ts",
+      "bytes": 11016,
+      "sha256": "2ead84608f988905f574aedf47cedfb4539e66818c15170c08bbdf51c569d586"
+    },
+    {
+      "path": "e2e/leona-eclipse-surfaces.spec.ts",
+      "bytes": 32117,
+      "sha256": "8bb27003fe05d38364c73e1515d4fac838edbd87d2f44436d37edcb1ba1aa0d9"
+    },
+    {
+      "path": "e2e/remaining-ray-packets.spec.ts",
+      "bytes": 16476,
+      "sha256": "11afe722b9cfda1add309c877e705bd3a5d44a8a8acb5649fd8a6fc44caad6d5"
+    },
+    {
+      "path": "src/render/garen-aa-particles.ts",
+      "bytes": 5325,
+      "sha256": "77a0e9a484581bb4c918d28b618d79bb09075c2d2f81ddc92f684fb3ac3f2320"
+    },
+    {
+      "path": "src/render/garen-basic-attacks.ts",
+      "bytes": 13552,
+      "sha256": "87a5c08cf11732db762d19472369648de6a329d88801d53762de809ca875c5b7"
+    },
+    {
+      "path": "src/render/garen-decisive-strike.ts",
+      "bytes": 27402,
+      "sha256": "45c4aebc8b1bc7ee74b2a27b9e1b0be9960c351357c603a9d9c6b342ddd2b28d"
+    },
+    {
+      "path": "src/render/garen-justice-particles.ts",
+      "bytes": 5180,
+      "sha256": "f31d03fc2ed3efb81ef974e691c4f583462b21fbacc24e7774a850dbd379dece"
+    },
+    {
+      "path": "src/render/garen-justice.ts",
+      "bytes": 14460,
+      "sha256": "94e96a71f4150c81e070bb83cb662ccc0c030f26e7dffebf5530d3c9a5c54efe"
+    },
+    {
+      "path": "src/render/garen-q-impact-particles.ts",
+      "bytes": 3870,
+      "sha256": "a428add11a8487c61b1eeadba65ec300646208d50d1b56da95d7bc024a32f052"
+    },
+    {
+      "path": "src/render/leona-eclipse-particles.ts",
+      "bytes": 6613,
+      "sha256": "3ec2c363c74d3749429db046e3a5e6e70a62dcbde96be79c085687f54ab39669"
+    },
+    {
+      "path": "src/render/leona-eclipse-surfaces.ts",
+      "bytes": 1962,
+      "sha256": "e7598c1ff2c378b20d73c1f804b024aa1bc905e407f3cdca44edfeab3611cdbb"
+    },
+    {
+      "path": "src/render/particle-color-product.ts",
+      "bytes": 5073,
+      "sha256": "3ef1c4f1c04076066aa8f4a17c189a46d9e7a75abb49b494771359862e2d1139"
+    },
+    {
+      "path": "src/render/particle-ray-color.ts",
+      "bytes": 1146,
+      "sha256": "c4a613aa82be38fa0110275015bc93a806835f2da8d4bc3b4b7f9d62793fa1c5"
+    },
+    {
+      "path": "src/render/source-particle-surfaces.ts",
+      "bytes": 22865,
+      "sha256": "0d0b86dc2d22b71488129ab084213cb6b04b1575511204fad02bacfda0c01c76"
+    },
+    {
+      "path": "tests/particle-ray-color.test.ts",
+      "bytes": 1390,
+      "sha256": "2b3c3ce6405802d0715025e30f17d196f66201a6756892b422ba16be1911e49b"
+    },
+    {
+      "path": "tests/remaining-ray-packets.test.ts",
+      "bytes": 2469,
+      "sha256": "e33d5a762ddfa840abff424425c41ea2e74fd5da77f526a79882f6c32c20d712"
+    },
+    {
+      "path": "tools/qa/lib/prepare-remaining-ray-reference.mjs",
+      "bytes": 2861,
+      "sha256": "65352b30ca01e0ab57a798178d8c98d71f94c7353074d4ba84d84226b9d9f704"
+    },
+    {
+      "path": "tools/qa/verify-ray-color-writer.mjs",
+      "bytes": 3589,
+      "sha256": "d6d58d530ca768f6e059ec50406d81fb552d9b9f27681d453c2f5df767981a25"
+    },
+    {
+      "path": "tools/qa/verify-remaining-ray-packets.mjs",
+      "bytes": 7396,
+      "sha256": "82ccb350f17528ff722f4c340f867280fbc8f4834953d3423a95ca319bd98e48"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "src/render/particle-unorm8.ts",
+      "bytes": 522,
+      "sha256": "d9606ea6a3afb8df59e76c7968739ccb39c0ade6e021dd9d23b4780c74ac67de"
+    },
+    {
+      "path": "src/render/particle-half.ts",
+      "bytes": 1001,
+      "sha256": "291a7af941b604de3feb541136cfb62215c16b4d811ba8d3131568cf7180ac3b"
+    },
+    {
+      "path": "src/render/leona-solar-surfaces.ts",
+      "bytes": 3198,
+      "sha256": "590d6e8ed8f9c9479aec01952d9954a7f4ab16aa8eb96d2b5bf3e4f258bd593a"
+    },
+    {
+      "path": "src/render/leona-solar-particles.ts",
+      "bytes": 9608,
+      "sha256": "6e1b7d1282ce8ade4b879f9d1a31fe9cc355a4518cf03a0d6e85c7fb5b35f35f"
+    },
+    {
+      "path": "src/render/leona-eclipse-surface-material.ts",
+      "bytes": 9476,
+      "sha256": "d2c49d481baa708a10eeb7f1af2a0d6b99c529d1c8017bf72475a8e3d3e72a86"
+    },
+    {
+      "path": "src/content/leona-w-particles.json",
+      "bytes": 381115,
+      "sha256": "a773927145276b35bd0c5dd530637f36f9a8021cc8dc04e15e52e1d60a031b73"
+    },
+    {
+      "path": "src/content/garen-aa-particles.json",
+      "bytes": 56783,
+      "sha256": "4e6e49dd8cc0439f3871da5ea6a807f6740ea49ec2b8d08a29c5ef0f8ad66f1c"
+    },
+    {
+      "path": "src/content/garen-q-impact-particles.json",
+      "bytes": 22406,
+      "sha256": "fcf078042e4258d518c2a50f5b528e0f2ef0d3a39f94d1654da76c6232e52101"
+    },
+    {
+      "path": "src/content/garen-r-particles.json",
+      "bytes": 72241,
+      "sha256": "ed5f2b5ef37668d38556d91c6ee19616ca00a4de809814302b18cbf9c0a965ea"
+    },
+    {
+      "path": "src/content/gromp-death.json",
+      "bytes": 35018,
+      "sha256": "683823f0f8c647e973690508f474b9c1e54adf98543b01ba1322fdbd9fdc6bc0"
+    },
+    {
+      "path": "docs/reference/leona-w-particles.json",
+      "bytes": 311380,
+      "sha256": "1284da05e4d12497d4041ec88a4a4dc133e29ee56727e39fdb91784ac36af5f0"
+    },
+    {
+      "path": "docs/reference/garen-aa-particles-source.json",
+      "bytes": 101300,
+      "sha256": "0892687eef9ce4b30be2075a5841f9d31d213f8804eae8959f52753d5ec8d492"
+    },
+    {
+      "path": "docs/reference/garen-q-particles.json",
+      "bytes": 157707,
+      "sha256": "1244519d87867631fba497a6e945aa935fe6341c04af94c900736fdf75886472"
+    },
+    {
+      "path": "docs/reference/garen-r-kill-audio-link.json",
+      "bytes": 12235,
+      "sha256": "e38e3e4361b8fec4ae76fad1d871e0090e9b3d39101d0ae6777372af5074bfe7"
+    },
+    {
+      "path": "docs/reference/native-ray-packet.json",
+      "bytes": 16794,
+      "sha256": "ab9b825f1108ed1e44124ee5f9821753eb73352cbf8738a8eebbb884c892b4ec"
+    },
+    {
+      "path": "docs/reference/native-particle-vertex-format.json",
+      "bytes": 23773,
+      "sha256": "2c45b6fb42a5eea59daa453e96af9f5d49a2afa38a1a84dafaf3be2b8919e1f6"
+    },
+    {
+      "path": "docs/reference/native-atlas-runtime.json",
+      "bytes": 42714,
+      "sha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6"
+    },
+    {
+      "path": "docs/reference/solar-ray-packets-verification.json",
+      "bytes": 224376,
+      "sha256": "2e9abf579227cdf838f3f6d7be61bbfaa7b032ec0a314391677908fd5c21b9b7"
+    },
+    {
+      "path": "tools/qa/lib/primary-hit-packet-reference.py",
+      "bytes": 2352,
+      "sha256": "88278c1b31df1a747e6928d1607fb6934cedbd3e6135b4f7d4c6df93f822ef51"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 30464,
+      "sha256": "68425c70629572add4d8bfb83d3b71e2a4b276c476bd5f1880083659aed7043b"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/remaining-ray-packets/final-source/docs/NATIVE-RAY-PACKET.md",
+      "bytes": 5584,
+      "sha256": "4d2b84000acd650114e54291e100d61b86cedc206001fa55bea12012841b00ad"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/docs/REMAINING-RAY-PACKETS.md",
+      "bytes": 4629,
+      "sha256": "4bae0006469f210fda86a1bf30992f5671d51dbfb1388e536432d971e0d7cdcc"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/docs/reference/garen-aa-particles-source.json",
+      "bytes": 101300,
+      "sha256": "0892687eef9ce4b30be2075a5841f9d31d213f8804eae8959f52753d5ec8d492"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/docs/reference/garen-q-particles.json",
+      "bytes": 157707,
+      "sha256": "1244519d87867631fba497a6e945aa935fe6341c04af94c900736fdf75886472"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/docs/reference/garen-r-kill-audio-link.json",
+      "bytes": 12235,
+      "sha256": "e38e3e4361b8fec4ae76fad1d871e0090e9b3d39101d0ae6777372af5074bfe7"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/docs/reference/leona-w-particles.json",
+      "bytes": 311380,
+      "sha256": "1284da05e4d12497d4041ec88a4a4dc133e29ee56727e39fdb91784ac36af5f0"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/docs/reference/native-atlas-runtime.json",
+      "bytes": 42714,
+      "sha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/docs/reference/native-particle-vertex-format.json",
+      "bytes": 23773,
+      "sha256": "2c45b6fb42a5eea59daa453e96af9f5d49a2afa38a1a84dafaf3be2b8919e1f6"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/docs/reference/native-ray-packet.json",
+      "bytes": 16794,
+      "sha256": "ab9b825f1108ed1e44124ee5f9821753eb73352cbf8738a8eebbb884c892b4ec"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/docs/reference/solar-ray-packets-verification.json",
+      "bytes": 224376,
+      "sha256": "2e9abf579227cdf838f3f6d7be61bbfaa7b032ec0a314391677908fd5c21b9b7"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/e2e/garen-aa-particles.spec.ts",
+      "bytes": 15500,
+      "sha256": "7514df26162d6f000ff6f0293089bd337201c9a716bfc61567326982b2e28e3a"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/e2e/garen-justice.spec.ts",
+      "bytes": 17243,
+      "sha256": "f4996100f8ee07e1b77be1c8d2a5a28b1cb494b380fbaef5972c6034779fcb78"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/e2e/garen-q-impact.spec.ts",
+      "bytes": 11016,
+      "sha256": "2ead84608f988905f574aedf47cedfb4539e66818c15170c08bbdf51c569d586"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/e2e/leona-eclipse-surfaces.spec.ts",
+      "bytes": 32117,
+      "sha256": "8bb27003fe05d38364c73e1515d4fac838edbd87d2f44436d37edcb1ba1aa0d9"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/e2e/remaining-ray-packets.spec.ts",
+      "bytes": 16476,
+      "sha256": "11afe722b9cfda1add309c877e705bd3a5d44a8a8acb5649fd8a6fc44caad6d5"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/src/content/garen-aa-particles.json",
+      "bytes": 56783,
+      "sha256": "4e6e49dd8cc0439f3871da5ea6a807f6740ea49ec2b8d08a29c5ef0f8ad66f1c"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/src/content/garen-q-impact-particles.json",
+      "bytes": 22406,
+      "sha256": "fcf078042e4258d518c2a50f5b528e0f2ef0d3a39f94d1654da76c6232e52101"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/src/content/garen-r-particles.json",
+      "bytes": 72241,
+      "sha256": "ed5f2b5ef37668d38556d91c6ee19616ca00a4de809814302b18cbf9c0a965ea"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/src/content/gromp-death.json",
+      "bytes": 35018,
+      "sha256": "683823f0f8c647e973690508f474b9c1e54adf98543b01ba1322fdbd9fdc6bc0"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/src/content/leona-w-particles.json",
+      "bytes": 381115,
+      "sha256": "a773927145276b35bd0c5dd530637f36f9a8021cc8dc04e15e52e1d60a031b73"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/src/render/garen-aa-particles.ts",
+      "bytes": 5325,
+      "sha256": "77a0e9a484581bb4c918d28b618d79bb09075c2d2f81ddc92f684fb3ac3f2320"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/src/render/garen-basic-attacks.ts",
+      "bytes": 13552,
+      "sha256": "87a5c08cf11732db762d19472369648de6a329d88801d53762de809ca875c5b7"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/src/render/garen-decisive-strike.ts",
+      "bytes": 27402,
+      "sha256": "45c4aebc8b1bc7ee74b2a27b9e1b0be9960c351357c603a9d9c6b342ddd2b28d"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/src/render/garen-justice-particles.ts",
+      "bytes": 5180,
+      "sha256": "f31d03fc2ed3efb81ef974e691c4f583462b21fbacc24e7774a850dbd379dece"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/src/render/garen-justice.ts",
+      "bytes": 14460,
+      "sha256": "94e96a71f4150c81e070bb83cb662ccc0c030f26e7dffebf5530d3c9a5c54efe"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/src/render/garen-q-impact-particles.ts",
+      "bytes": 3870,
+      "sha256": "a428add11a8487c61b1eeadba65ec300646208d50d1b56da95d7bc024a32f052"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/src/render/leona-eclipse-particles.ts",
+      "bytes": 6613,
+      "sha256": "3ec2c363c74d3749429db046e3a5e6e70a62dcbde96be79c085687f54ab39669"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/src/render/leona-eclipse-surface-material.ts",
+      "bytes": 9476,
+      "sha256": "d2c49d481baa708a10eeb7f1af2a0d6b99c529d1c8017bf72475a8e3d3e72a86"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/src/render/leona-eclipse-surfaces.ts",
+      "bytes": 1962,
+      "sha256": "e7598c1ff2c378b20d73c1f804b024aa1bc905e407f3cdca44edfeab3611cdbb"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/src/render/leona-solar-particles.ts",
+      "bytes": 9608,
+      "sha256": "6e1b7d1282ce8ade4b879f9d1a31fe9cc355a4518cf03a0d6e85c7fb5b35f35f"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/src/render/leona-solar-surfaces.ts",
+      "bytes": 3198,
+      "sha256": "590d6e8ed8f9c9479aec01952d9954a7f4ab16aa8eb96d2b5bf3e4f258bd593a"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/src/render/particle-color-product.ts",
+      "bytes": 5073,
+      "sha256": "3ef1c4f1c04076066aa8f4a17c189a46d9e7a75abb49b494771359862e2d1139"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/src/render/particle-half.ts",
+      "bytes": 1001,
+      "sha256": "291a7af941b604de3feb541136cfb62215c16b4d811ba8d3131568cf7180ac3b"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/src/render/particle-ray-color.ts",
+      "bytes": 1146,
+      "sha256": "c4a613aa82be38fa0110275015bc93a806835f2da8d4bc3b4b7f9d62793fa1c5"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/src/render/particle-unorm8.ts",
+      "bytes": 522,
+      "sha256": "d9606ea6a3afb8df59e76c7968739ccb39c0ade6e021dd9d23b4780c74ac67de"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/src/render/source-particle-surfaces.ts",
+      "bytes": 22865,
+      "sha256": "0d0b86dc2d22b71488129ab084213cb6b04b1575511204fad02bacfda0c01c76"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/tests/particle-ray-color.test.ts",
+      "bytes": 1390,
+      "sha256": "2b3c3ce6405802d0715025e30f17d196f66201a6756892b422ba16be1911e49b"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/tests/remaining-ray-packets.test.ts",
+      "bytes": 2469,
+      "sha256": "e33d5a762ddfa840abff424425c41ea2e74fd5da77f526a79882f6c32c20d712"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/tools/qa/lib/prepare-remaining-ray-reference.mjs",
+      "bytes": 2861,
+      "sha256": "65352b30ca01e0ab57a798178d8c98d71f94c7353074d4ba84d84226b9d9f704"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/tools/qa/lib/primary-hit-packet-reference.py",
+      "bytes": 2352,
+      "sha256": "88278c1b31df1a747e6928d1607fb6934cedbd3e6135b4f7d4c6df93f822ef51"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/tools/qa/production-subpath.mjs",
+      "bytes": 30464,
+      "sha256": "68425c70629572add4d8bfb83d3b71e2a4b276c476bd5f1880083659aed7043b"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/tools/qa/verify-ray-color-writer.mjs",
+      "bytes": 3589,
+      "sha256": "d6d58d530ca768f6e059ec50406d81fb552d9b9f27681d453c2f5df767981a25"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/final-source/tools/qa/verify-remaining-ray-packets.mjs",
+      "bytes": 7396,
+      "sha256": "82ccb350f17528ff722f4c340f867280fbc8f4834953d3423a95ca319bd98e48"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/remaining-ray-packets/TASK-STATUS.json",
+      "bytes": 2520,
+      "sha256": "515d28d8a3b4c00728f744e81a70a098e41bae607bc1a1d6e292c9f1e925a0e3"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/acceptance-stages.json",
+      "bytes": 3072,
+      "sha256": "524d6f5cf7943b7a9a2a9d7063c9e3288727c53b5bde962fe4d37653174e237f"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/app-identity.json",
+      "bytes": 106,
+      "sha256": "5ed5145d7f33aa59b319ac5fa4e6c014813776347076b2210498c21310fa3a1d"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/archive-checkpoint.py",
+      "bytes": 11546,
+      "sha256": "f784a5f37f35f415a4041bbb7fd8b5cd88b1314bd5e735241dc15ee496549a79"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/assets-before.json",
+      "bytes": 107986,
+      "sha256": "1195acb05706d90fb7188ee0ab751ba8fd95df7391b1b00fb6f343cac06b5c41"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/assets-check.json",
+      "bytes": 113485,
+      "sha256": "724f4291b77f582effc4ece538baf9efc9efbfcf478e0366363cb8b3a857d549"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/assumptions.log",
+      "bytes": 178,
+      "sha256": "b573b23e05c5901da2d5667f9776b0280798a2f4bd2811a0187ce0dadcdf6521"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/build.log",
+      "bytes": 7124,
+      "sha256": "1b8ff3fce2c9d21bdb4238a211f35087a75bce69f2db4346c8bed2829df69bc6"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/built-identity.json",
+      "bytes": 256,
+      "sha256": "2802e86823172b61091ecfc37a3fa12963fc4a05aebd9eade49ed8dc4b743881"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/cpu/candidate.mjs",
+      "bytes": 389529,
+      "sha256": "650ad7c9cb07dad7cbc67cdd7177e3d545f2f80af4a5b69e19bd342ad6417669"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/cpu/candidate.ts",
+      "bytes": 751,
+      "sha256": "78dec44ece50ae49c271f46364ae6cc739c0f30d81e0a496a8cb017cddf66e23"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/cpu/packet-expected.json",
+      "bytes": 12850297,
+      "sha256": "64e799617b3a05a44cc5dddf5d49a61b40f293d990c3a895b37f92f2955591a7"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/cpu/packet-inputs.json",
+      "bytes": 11747563,
+      "sha256": "05e689725badaba1586923a17cb9b61c1ac2cccce80acb8c260f1e0d91faea99"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/cpu/reading.json",
+      "bytes": 1842,
+      "sha256": "19af28ca2ef86d6c5c68e4ad92b9521642e82d4b7db18b852a633ba1f822c33d"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/cpu/reference/baseline.mjs",
+      "bytes": 381804,
+      "sha256": "0a62d90f4ecb51c4570e8114eda09be7a4ce1ecfe6396b1201a47792070d592a"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/cpu/reference/reference.json",
+      "bytes": 408,
+      "sha256": "079a8700a0f6b33446d44b41444f7789b0a1a95df001a2f986482db01357e2dc"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/cpu/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "4e353661378b4754ca8f8f3569ea3897997feef6ac3d3cc23e5d32c866bb0ce6"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/cpu.log",
+      "bytes": 1524,
+      "sha256": "bf9fafa83e9a2d8b878379069ed2cc5382bf71bfc5f116cc85dd1b059502543b"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/finish-checks-final.log",
+      "bytes": 2379,
+      "sha256": "5871a682a5b7c2768d4d1c11acf1ce2b611dabd91d68cc48ca5984d332d88d4d"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/finish-checks.log",
+      "bytes": 1015,
+      "sha256": "5b106171d13022c71bb1e4c4a517b807440a43eac881a01ea79a890ac5476968"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/finish-checks.py",
+      "bytes": 2515,
+      "sha256": "2eb417e5d2d7282df670b7363ab1334fc8bcdd926282f9df29cc05a6d877cd60"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/focused-first.log",
+      "bytes": 438,
+      "sha256": "d999dad779ff8079a61e23449b793c13b839102f502dd16fc31a8204037652da"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/focused.log",
+      "bytes": 438,
+      "sha256": "9e6d5f402cd60d9c4c8f07034dd162e88aed0cbba3ac9f13f690e056228d58c9"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/full-tests.log",
+      "bytes": 4579,
+      "sha256": "86417afc0dfd3acaad31b0ed0f964b5e1052bed60cf5e4b7e67152190b055d7d"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser/.last-run.json",
+      "bytes": 1130,
+      "sha256": "4fcddc1fcd0ec6d792541e09a87477d75f04b87311a7b8400a8488744c294dbf"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/error-context.md",
+      "bytes": 14397,
+      "sha256": "a2deb009e77bc10336c91831621055124c8db76e22de516850b26b06f4022d0f"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 387,
+      "sha256": "dfe57d3ec76facd10633abd2c22fec298ded6bcf32f7fd3f129976a76031e711"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 810257,
+      "sha256": "e0219a67c6b95d6a0a7d236b64c40a4dcffa1003340c537af922fd2d23e91ee5"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/test-failed-1.png",
+      "bytes": 442098,
+      "sha256": "9eb1e5bd1e7fcd60ab411ec5912023e173b5a45edec06cb2ecd2b09b796d105f"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/trace.zip",
+      "bytes": 65250224,
+      "sha256": "2df5dbd082d091acd40094cdaae8d09cd7158099fa490902b4fd2cb93755af96"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/error-context.md",
+      "bytes": 14397,
+      "sha256": "7f31261d8a4a2c7a42c4a61e5e35e28d9bc3cccaf30e533285d9a67c186ff004"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 387,
+      "sha256": "7570d92006d0e269a801651ff3032cc667c53dde1e292c4837318d2e8500308f"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 816642,
+      "sha256": "3c90b1e7cacf37bf49cba648a1e37a24b9f653d5325405423869a689c98f7a47"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/test-failed-1.png",
+      "bytes": 442077,
+      "sha256": "8ba5efcc0384c69ca316153b692adae94a89f1401e1068ea5944a46d2aa5d860"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/trace.zip",
+      "bytes": 65039150,
+      "sha256": "8cff38c8398ffdf52bd568d9a0c2818b2b80ed196620d0dca7b6f5dbef5234b3"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/error-context.md",
+      "bytes": 9978,
+      "sha256": "6c4ba867469e85eb3d5f52ccee74d89e48a821229efbb55e7436a495ebe287a3"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/test-failed-1.png",
+      "bytes": 912897,
+      "sha256": "7f89eb699e2f5406548734bcdc17267d0b7a33c2fe37afb619aeab84752731da"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/trace.zip",
+      "bytes": 62136912,
+      "sha256": "025c298c8a4eb76561c456a909e05449c53d07aee710fdd7a46150827b7d2c8b"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/.last-run.json",
+      "bytes": 194,
+      "sha256": "5ab4fddaa7ffcdd30b7f309668e8a789091e8026f35c851974e0bc90a1200608"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/garen-aa-particles-a-later-37b50-e-the-viewing-team-audience/audience-evidence.json",
+      "bytes": 310,
+      "sha256": "92407f5bc5fba8619d83dcd5876b20b4428cf0ae2cb7f93534d46153d7a2b794"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/garen-aa-particles-an-acti-ffe0e--advancing-the-winning-save/recovery-terminal.json",
+      "bytes": 174,
+      "sha256": "773e52ac2e92575b6ee3d9ff1f98f11f656d49d22dfc5bdef63d0ee12008f40b"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/evidence.json",
+      "bytes": 34667,
+      "sha256": "39a17bcfc07507ed91eeb8b4112ad296952f51923f25672fc36f491583d5d0e6"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 387,
+      "sha256": "dfe57d3ec76facd10633abd2c22fec298ded6bcf32f7fd3f129976a76031e711"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/garen-aa-particles-attack1-3746b-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 810257,
+      "sha256": "e0219a67c6b95d6a0a7d236b64c40a4dcffa1003340c537af922fd2d23e91ee5"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/evidence.json",
+      "bytes": 34690,
+      "sha256": "d46f1a09a2a53a43989f8e7b760db77fe5910e25c7f2e4d148ad0988406cce14"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 387,
+      "sha256": "7570d92006d0e269a801651ff3032cc667c53dde1e292c4837318d2e8500308f"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/garen-aa-particles-attack2-2d9ca-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 816642,
+      "sha256": "3c90b1e7cacf37bf49cba648a1e37a24b9f653d5325405423869a689c98f7a47"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/evidence.json",
+      "bytes": 51356,
+      "sha256": "a48313cc826963a1a40f11a208c9c333db765110b18136a95f950d2f1d14093d"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/pixel-probe.json",
+      "bytes": 335,
+      "sha256": "54a156ed6d33be1bc104f63264fb65a3aec7fe11501734e883cb26fe6dabfd99"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/garen-aa-particles-crit-so-3f3bf-ut-touching-shared-geometry/source-particles.png",
+      "bytes": 808142,
+      "sha256": "22807e55551a31e3203e0300f91f2db935c9ef7ef6a1611f6ff2ec108e34a32e"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/garen-justice-ordinary-Ash-afcbc-ads-one-shared-resource-set/error-context.md",
+      "bytes": 9119,
+      "sha256": "41702c7f110238340a0f0261f801a00c2e50b5dabacee3d1511bdf7e88dc9199"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/garen-justice-ordinary-Ash-afcbc-ads-one-shared-resource-set/test-failed-1.png",
+      "bytes": 878590,
+      "sha256": "ac1ae413e0bd97f632ca259f88d141511ba829496381d5bebabff639731f1861"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/garen-justice-ordinary-Ash-afcbc-ads-one-shared-resource-set/trace.zip",
+      "bytes": 62308982,
+      "sha256": "eadcbf0f9c94b4b07d1b897d11cc9755434cefe96e412cf13bb447e96f8a47f5"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/gromp-death-all-eight-Grom-1c40b-fers-across-fog-save-reload/error-context.md",
+      "bytes": 4577,
+      "sha256": "5cd6993186e9420c6ae27cd30f99710cced4d37e2a16005760b08b29f2d30132"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/gromp-death-all-eight-Grom-1c40b-fers-across-fog-save-reload/test-failed-1.png",
+      "bytes": 463304,
+      "sha256": "5e6f7c12adc066bf907de5d4d2c65e03b1b513a26c3268ed23e3bd63823489e3"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/gromp-death-all-eight-Grom-1c40b-fers-across-fog-save-reload/trace.zip",
+      "bytes": 37257425,
+      "sha256": "940dab938d2f36ae41c03511786310f5031f5b53c714b74e1a5d0b10e10eef61"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/leona-eclipse-surfaces-all-15ef1-uccessful-and-missed-phases/error-context.md",
+      "bytes": 13401,
+      "sha256": "5c6449118e9c9e25373519644c87d423581baacca50d6b1108fa73f921ec5c9c"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/leona-eclipse-surfaces-all-15ef1-uccessful-and-missed-phases/families.json",
+      "bytes": 104677,
+      "sha256": "7053fda84c77d0e7ca5a651e97afdd5ed89805908a33003331e91d6d8195dbeb"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/leona-eclipse-surfaces-all-15ef1-uccessful-and-missed-phases/hit-187.png",
+      "bytes": 982531,
+      "sha256": "34f591e9d2950188a0872ca9a7d2f5848472818c3a60c5bc5634e76f1474e8c4"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/leona-eclipse-surfaces-all-15ef1-uccessful-and-missed-phases/hit-30.png",
+      "bytes": 832918,
+      "sha256": "949198a775ebb06350b43d2a3eb4592074af5dcb3719aaf637475ab593660bb3"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/leona-eclipse-surfaces-all-15ef1-uccessful-and-missed-phases/miss-187.png",
+      "bytes": 911774,
+      "sha256": "ceb4c6c11bd7526be6acd7ec4d892264725763b9de814ce0d2853174e754550d"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/leona-eclipse-surfaces-all-15ef1-uccessful-and-missed-phases/test-failed-1.png",
+      "bytes": 804083,
+      "sha256": "1a8ecb40420676f4aa0586659e1fae6b77d6a426967bda98800a353c4b4dccd4"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/leona-eclipse-surfaces-all-15ef1-uccessful-and-missed-phases/trace.zip",
+      "bytes": 56663220,
+      "sha256": "14180e34849851903267694590472b45ee98951cce15553be1d47b39c333028c"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/leona-eclipse-surfaces-ear-19e4c-ry-surface-resource-bounded/full-cycle-storage.json",
+      "bytes": 3766,
+      "sha256": "82c56d5714d5892fbcbac1999a07dfa171beae7220397f2bf30488ddb1127d2d"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/leona-eclipse-surfaces-let-1e8a1-s-without-changing-the-save/terminal-resources.json",
+      "bytes": 816,
+      "sha256": "74470899b6ccec36f60f615924aed9921d62fc9794247c190db1bb117cb94551"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/leona-eclipse-surfaces-liv-918ba-eload-and-graphics-recovery/restore-before-assert.json",
+      "bytes": 11962543,
+      "sha256": "526928a973eb07c39b8b68cdbd936d3b0c11add9512ac07421fc62d778563386"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/leona-eclipse-surfaces-liv-918ba-eload-and-graphics-recovery/restore-recovery.json",
+      "bytes": 17943831,
+      "sha256": "be4ea862ec20d2fb68630fdd4ddaffa5f8e370bd67e260c33074d651efcaeb67"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/leona-eclipse-surfaces-liv-918ba-eload-and-graphics-recovery/restored-before-assert.png",
+      "bytes": 966917,
+      "sha256": "2e657c2727509dbc7803b275a87706aa72eb8afe5ad0d9e1b62238aa7283b325"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/leona-eclipse-surfaces-liv-918ba-eload-and-graphics-recovery/world-before.png",
+      "bytes": 999321,
+      "sha256": "56cc44fd5b1a4d2f10229eb75296a36d1a6d5f1314a8a1644798a2ebfd5aee16"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/leona-eclipse-surfaces-liv-918ba-eload-and-graphics-recovery/world-restored.png",
+      "bytes": 999321,
+      "sha256": "56cc44fd5b1a4d2f10229eb75296a36d1a6d5f1314a8a1644798a2ebfd5aee16"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/leona-eclipse-surfaces-sou-9de97-ter-visible-rays-can-appear/visibility.json",
+      "bytes": 869,
+      "sha256": "34842dca2cb349204d91754fc7a3381a7e3e49e6086e33f99ebbbdb3a8f4d860"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed/leona-eclipse-surfaces-sur-a51e8-ch-static-native-arithmetic/arithmetic.json",
+      "bytes": 8600,
+      "sha256": "9d0d095f41a3224e35c844a5119efbcf8076abf3b795e7f39d27c32512fa989b"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-fixed.log",
+      "bytes": 14975,
+      "sha256": "8da073ad2057b05bb66f6beacb69d54cbfcf056fe038a7810478bc4723eb0c02"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-retry/.last-run.json",
+      "bytes": 96,
+      "sha256": "bf1348c0ea0f6e9081809586e4130318adc525ae2ca1075a80ef236f2ffae2e8"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-retry/garen-justice-ordinary-Ash-afcbc-ads-one-shared-resource-set/error-context.md",
+      "bytes": 9122,
+      "sha256": "1741b782257753e57d12a5b7c6590b5f9f91bb0bdafb9e5e3f9ce489898dc992"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-retry/garen-justice-ordinary-Ash-afcbc-ads-one-shared-resource-set/test-failed-1.png",
+      "bytes": 878590,
+      "sha256": "ac1ae413e0bd97f632ca259f88d141511ba829496381d5bebabff639731f1861"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-retry/garen-justice-ordinary-Ash-afcbc-ads-one-shared-resource-set/trace.zip",
+      "bytes": 62156003,
+      "sha256": "93e91e096e6bd95cfb9f39af02861ef5542c69a2d8c0d960e3c3ffebc9a185ef"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-retry/leona-eclipse-surfaces-all-15ef1-uccessful-and-missed-phases/families.json",
+      "bytes": 104677,
+      "sha256": "7053fda84c77d0e7ca5a651e97afdd5ed89805908a33003331e91d6d8195dbeb"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-retry/leona-eclipse-surfaces-all-15ef1-uccessful-and-missed-phases/hit-187.png",
+      "bytes": 982531,
+      "sha256": "34f591e9d2950188a0872ca9a7d2f5848472818c3a60c5bc5634e76f1474e8c4"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-retry/leona-eclipse-surfaces-all-15ef1-uccessful-and-missed-phases/hit-30.png",
+      "bytes": 832918,
+      "sha256": "949198a775ebb06350b43d2a3eb4592074af5dcb3719aaf637475ab593660bb3"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser-retry/leona-eclipse-surfaces-all-15ef1-uccessful-and-missed-phases/miss-187.png",
+      "bytes": 911774,
+      "sha256": "ceb4c6c11bd7526be6acd7ec4d892264725763b9de814ce0d2853174e754550d"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-browser.log",
+      "bytes": 9078,
+      "sha256": "34a21301a9ac1bc197ba43f906a47a5accd8001b3bd1bd3381ee41d4467653d0"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/game-retry-browser.log",
+      "bytes": 3904,
+      "sha256": "d13e65ca75e32f14478729827b39f67dd18a11809dcd1ece33ba1176347d63c3"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/gpu-collection.log",
+      "bytes": 547,
+      "sha256": "39fa41f1ee9cec5d5c1f578475ea29cfc17be5227eb2753fd1bee6b201f14bfe"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/late-npc-browser-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/late-npc-browser-final.log",
+      "bytes": 676,
+      "sha256": "5e6bc8b91ce450f6d44a1798fd44d231a120426e4ffab86ca0b57447a7b53cb2"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/late-npc-probe-browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/late-npc-probe-browser/late-npc-probe-ordinary-As-4f67a-ads-one-shared-resource-set/diagnostic.json",
+      "bytes": 1398,
+      "sha256": "101f1d507df34ebf1ddc1b018500112178b69b90541285c52e304bfe47782a6f"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/late-npc-probe-browser-second/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/late-npc-probe-browser-second/late-npc-probe-ordinary-As-4f67a-ads-one-shared-resource-set/diagnostic.json",
+      "bytes": 1826,
+      "sha256": "e1ab17153ec304c5feb48000a988c18ac420d35b134fbf07c0893b90903571fe"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/late-npc-probe-second.log",
+      "bytes": 1446,
+      "sha256": "5ba392609c129fee3331d3b20a227cdbff0c5f4f9b86288b73d3047a90a02c5a"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/late-npc-probe.config.ts",
+      "bytes": 329,
+      "sha256": "dc7234a7e4569bd911e72cca739dea49023aa4bd64ec76eba452bcad1e11b48a"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/late-npc-probe.log",
+      "bytes": 1284,
+      "sha256": "cd76e3a55efcccb48ba6c8753f1662064970f575fed25e2d9f73417601267681"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/late-npc-probe.spec.ts",
+      "bytes": 2940,
+      "sha256": "6f87964274607688d080a2f4ac614531c3ebb69f3c98adb540243001e2851d99"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/late-npc-simulation-final.log",
+      "bytes": 527,
+      "sha256": "b1fdf3bff4fbe6899ddaa581bec97012b7bde994c150d5b4cc7228d17d0a28f8"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/late-npc-simulation-result.log",
+      "bytes": 485,
+      "sha256": "d349744d4d7073dbbf3e22b61b7a254e41680af75a5db879a69037d2fd88055c"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/late-npc-simulation-second.log",
+      "bytes": 527,
+      "sha256": "b1fdf3bff4fbe6899ddaa581bec97012b7bde994c150d5b4cc7228d17d0a28f8"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/late-npc-simulation.log",
+      "bytes": 786,
+      "sha256": "bfbdfb9ac45e1542a06107e2253a530e02014583cccdf72fe197db3346ebfec7"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/late-npc-simulation.mjs",
+      "bytes": 1482889,
+      "sha256": "334145be6547d43056525c90c31f2fa9fd888f0b81f8ef31ad4d948ebf325573"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/late-npc-simulation.ts",
+      "bytes": 1030,
+      "sha256": "53672465c7fe20e85688345c0528d94a3ee24b0d3bb618ee08d1ebe7221d85f0"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/make-gpu-test.py",
+      "bytes": 6736,
+      "sha256": "fd3aa650cc520ecb5d73ce4e38e7288896a5ecce1b3a5de3301c7eb292699469"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/native_particle_vertex_format.py-normal.log",
+      "bytes": 152,
+      "sha256": "4a554d0303155b3a817cdcf36e1585e2a4293f48ce00bb11c2345c6229c246aa"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/native_particle_vertex_format.py-optimized.log",
+      "bytes": 152,
+      "sha256": "4a554d0303155b3a817cdcf36e1585e2a4293f48ce00bb11c2345c6229c246aa"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/native_ray_packet.py-normal.log",
+      "bytes": 125,
+      "sha256": "8381e5d446c1213abf4876bd176ff19ab45bd3bbe0ce4b854ebe0c8bbd07b2f5"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/native_ray_packet.py-optimized.log",
+      "bytes": 125,
+      "sha256": "8381e5d446c1213abf4876bd176ff19ab45bd3bbe0ce4b854ebe0c8bbd07b2f5"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/node-qa.log",
+      "bytes": 660,
+      "sha256": "b2d7031a63e97f153a7de8a39d58578140047dd3b4c62f76a74ddb891bd07d5c"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/meditate-ray-packets-Medit-43dab-and-half-lookup-coordinates/meditate-ray-packet-pixels.json",
+      "bytes": 33367,
+      "sha256": "2cf67f190539c0714af4c1ff66b50d23c49599e899d75f35fbf7d4dfbcee1e23"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/meditate-ray-packets-Medit-43dab-and-half-lookup-coordinates/packet-inputs.json",
+      "bytes": 868,
+      "sha256": "69d7be8290ae9aa225d5896fa1303417f96e6d2d852b3f291c152478550e4ba7"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/meditate-ray-packets-Medit-43dab-and-half-lookup-coordinates/packet-reference.json",
+      "bytes": 850,
+      "sha256": "a8920d6d2423ffbd2f1ac0cf9108b81ca1071580e1bc1deef50157752623bc0b"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/meditate-ray-packets-Medit-43dab-and-half-lookup-coordinates/reference/baseline.mjs",
+      "bytes": 158502,
+      "sha256": "e7b322941820a73381d53c7e2a717a40055110b0f1201478b1e2ee85e343c078"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/meditate-ray-packets-Medit-43dab-and-half-lookup-coordinates/reference/reference.json",
+      "bytes": 486,
+      "sha256": "b6abb2b8269cecf5279d512bc896f62ba51412e437848c2330004163ad0a6200"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/meditate-ray-packets-Medit-43dab-and-half-lookup-coordinates/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "16371c5148c126eed2dcb0b07c4ac5483801ea3e3fd7ef2a5fb0b157b983eb70"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/meditate-ray-packets-Medit-65861-and-half-lookup-coordinates/meditate-ray-packet-pixels.json",
+      "bytes": 33775,
+      "sha256": "f6af69041c987c1d63360f0eac15bacc4961daef5385c74fd785c34fbadab03d"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/meditate-ray-packets-Medit-65861-and-half-lookup-coordinates/packet-inputs.json",
+      "bytes": 575,
+      "sha256": "d306cf84e98d5b39027ac86b9684a358be36bc0196cc84c128cce03aa7de7355"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/meditate-ray-packets-Medit-65861-and-half-lookup-coordinates/packet-reference.json",
+      "bytes": 602,
+      "sha256": "5deb4bd5a752cc0844f71e40a35cb9081f158d5b2c222786ea92814109422dd5"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/meditate-ray-packets-Medit-65861-and-half-lookup-coordinates/reference/baseline.mjs",
+      "bytes": 158502,
+      "sha256": "8ec483f6605445374ae0930b790f8428ef3ca6d8513f008b4f06cf3db6a27a6c"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/meditate-ray-packets-Medit-65861-and-half-lookup-coordinates/reference/reference.json",
+      "bytes": 486,
+      "sha256": "8cd85c42bf2836f327c43975e4afbc38302cf5c789407102662e66356103449f"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/meditate-ray-packets-Medit-65861-and-half-lookup-coordinates/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "16371c5148c126eed2dcb0b07c4ac5483801ea3e3fd7ef2a5fb0b157b983eb70"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/packet-inputs.json",
+      "bytes": 668,
+      "sha256": "6f8ee6667329abe46a91a2598a9ffbd85ff810c061dc6401bc4786b462220e3d"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/packet-reference.json",
+      "bytes": 600,
+      "sha256": "2deeafb436bfd38d3bcf3eb32840bb6948c2044f2bd5135df8b7d12631e18f46"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/ray-packet-pixels.json",
+      "bytes": 32833,
+      "sha256": "10e33d5b8e4f559cf993e966c960137e65f845cad0530d67a5cfa4672bbf966c"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/baseline.mjs",
+      "bytes": 134328,
+      "sha256": "92fef2f1883934966130c43086165367f5719e641faacba410524ae369029cc8"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/reference.json",
+      "bytes": 486,
+      "sha256": "a9a5673363bec85f1ae696326e6115c81fefe959b113669f3673b98e25f15d5d"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "b12071ef42645e6ee11c816a1a45841f86af5640ade069b001e9447cf0b1cbcb"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/primary-hit-ray-shape-prim-129d8-s-against-a-frozen-renderer/ray-shape-pixels.json",
+      "bytes": 28375,
+      "sha256": "bbc56909285beb2f1ee38df439f32b224c1da5618bded8bde18a5624f2d5d432"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/primary-hit-ray-shape-prim-129d8-s-against-a-frozen-renderer/reference/baseline.mjs",
+      "bytes": 137579,
+      "sha256": "d28c89cdf4d844ec51c184350f02d169dbd4a1b0f7fde08f139d06ed4a66d491"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/primary-hit-ray-shape-prim-129d8-s-against-a-frozen-renderer/reference/reference.json",
+      "bytes": 486,
+      "sha256": "7505151e9f996d23037560a11c8fabe492ee9bf000cee8508bf99ca1cf968787"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/primary-hit-ray-shape-prim-129d8-s-against-a-frozen-renderer/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "86cd768aa884deff961997917a369a794b71089aa5c6f49eaa4d90b06f87ecbd"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/primary-hit-ray-shape-prim-129d8-s-against-a-frozen-renderer/size-inputs.json",
+      "bytes": 207,
+      "sha256": "597a76b4ab9ae5aafef8308675f4da22dc2f3443bf92d2f9fb2e18ae43785568"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/primary-hit-ray-shape-prim-129d8-s-against-a-frozen-renderer/size-reference.json",
+      "bytes": 252,
+      "sha256": "deae5d885545804c2ee3cf1c96284b1d3a5967b863d36c25c5a5f0bf0f020dc5"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-AA-r-653d7-and-half-lookup-coordinates/packet-inputs.json",
+      "bytes": 688,
+      "sha256": "58b7f0eefacefd506e62993ef3e3930d8b948088f8f50e9af1b95d0a95fb689f"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-AA-r-653d7-and-half-lookup-coordinates/packet-reference.json",
+      "bytes": 631,
+      "sha256": "006017cda85a400fc1978d65542f60e1d5904da4dafa40d5aa846c4cfacd43b4"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-AA-r-653d7-and-half-lookup-coordinates/reference/baseline.mjs",
+      "bytes": 385938,
+      "sha256": "9b2d50685ce9ea38108acca8e55954dcd2c2428c8702657d0ab46811ebeb0ed0"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-AA-r-653d7-and-half-lookup-coordinates/reference/reference.json",
+      "bytes": 486,
+      "sha256": "8abc1e2bd6653144b6d632258688456dc3167644a7fbb88ac82ca01072c6e4e1"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-AA-r-653d7-and-half-lookup-coordinates/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "4e353661378b4754ca8f8f3569ea3897997feef6ac3d3cc23e5d32c866bb0ce6"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-AA-r-653d7-and-half-lookup-coordinates/remaining-ray-packet-pixels.json",
+      "bytes": 33816,
+      "sha256": "91594984443a2eed0f80e158528804b4d838838ced0278004a49b97cbe9d8fd6"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-Q-ra-50ee8-and-half-lookup-coordinates/packet-inputs.json",
+      "bytes": 855,
+      "sha256": "60bd624ca0f7dd8a21ca69810d63b6a92e2354e26059407cb06286bb3eb42624"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-Q-ra-50ee8-and-half-lookup-coordinates/packet-reference.json",
+      "bytes": 745,
+      "sha256": "923fcad8cc962116ef9d450666c6c8de776aeca8ad5e2c98b344d9a457f7103a"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-Q-ra-50ee8-and-half-lookup-coordinates/reference/baseline.mjs",
+      "bytes": 385938,
+      "sha256": "a31f35b0e092e929a895d0f29f184dd05350cc22f984f0c6208b14aa387b3df4"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-Q-ra-50ee8-and-half-lookup-coordinates/reference/reference.json",
+      "bytes": 486,
+      "sha256": "27e02af190faf902312d04aac1d791eb83f39eebad7b9259451b824c99433817"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-Q-ra-50ee8-and-half-lookup-coordinates/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "4e353661378b4754ca8f8f3569ea3897997feef6ac3d3cc23e5d32c866bb0ce6"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-Q-ra-50ee8-and-half-lookup-coordinates/remaining-ray-packet-pixels.json",
+      "bytes": 33678,
+      "sha256": "48ecb2dbdba334062fb8fdba81ddcaf602c6c9f40c1c20a78a1c25577b4c7908"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-R-ra-387d4-and-half-lookup-coordinates/packet-inputs.json",
+      "bytes": 653,
+      "sha256": "4af6491c6930304da273cc5e04b5923f10d26b833b85c2c0997aadb553f406b4"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-R-ra-387d4-and-half-lookup-coordinates/packet-reference.json",
+      "bytes": 526,
+      "sha256": "5654f462595d5ba2b33131b2b2269640e2311bb8f74b6453f2d41806fe901535"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-R-ra-387d4-and-half-lookup-coordinates/reference/baseline.mjs",
+      "bytes": 385938,
+      "sha256": "b2b99ee866658409856ad619501a7aee6110261c5f609740d2576b590bbc1dc1"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-R-ra-387d4-and-half-lookup-coordinates/reference/reference.json",
+      "bytes": 486,
+      "sha256": "89357d4eba9ba46073d243f0336426631f664fae6d112f1559d9157ad7927d57"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-R-ra-387d4-and-half-lookup-coordinates/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "4e353661378b4754ca8f8f3569ea3897997feef6ac3d3cc23e5d32c866bb0ce6"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-R-ra-387d4-and-half-lookup-coordinates/remaining-ray-packet-pixels.json",
+      "bytes": 33782,
+      "sha256": "06f64b541b68de7050df6bdb0e363234dad5cff28c04c62f0a6d17290dbda4c7"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-W-ra-7fbf0-and-half-lookup-coordinates/packet-inputs.json",
+      "bytes": 661,
+      "sha256": "0942dd6bdbd8d9dc092814358c208cd2b82970bf32497030f041129f56c25d59"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-W-ra-7fbf0-and-half-lookup-coordinates/packet-reference.json",
+      "bytes": 817,
+      "sha256": "6558f516197b050c6b9c3bd64d72e7a3622d17b0f022a26d4d3bb9423eca931b"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-W-ra-7fbf0-and-half-lookup-coordinates/reference/baseline.mjs",
+      "bytes": 385938,
+      "sha256": "443d3957b7a6f1e7580fea7082c20456d8f624e0b5d2a7d05a70c578a6b77459"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-W-ra-7fbf0-and-half-lookup-coordinates/reference/reference.json",
+      "bytes": 486,
+      "sha256": "4f0d80d4e4301a59ef4737bbe2508fd6616e5c490330dd51e3756ed5df4ae5c2"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-W-ra-7fbf0-and-half-lookup-coordinates/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "4e353661378b4754ca8f8f3569ea3897997feef6ac3d3cc23e5d32c866bb0ce6"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-W-ra-7fbf0-and-half-lookup-coordinates/remaining-ray-packet-pixels.json",
+      "bytes": 33694,
+      "sha256": "9069fd096f729f08d8c18396dfbaba34f2d8f60df72ffda6737e85bfe614490c"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-W-ra-f0f95-and-half-lookup-coordinates/packet-inputs.json",
+      "bytes": 651,
+      "sha256": "efa185ac4d012565ecd400101f506be3f44618375f938c3cd89612c9b4c0fb42"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-W-ra-f0f95-and-half-lookup-coordinates/packet-reference.json",
+      "bytes": 835,
+      "sha256": "4e4b7fc75e6d189fcfc0bc554c9e70b168bf8d771931fa304d939859d242063d"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-W-ra-f0f95-and-half-lookup-coordinates/reference/baseline.mjs",
+      "bytes": 385938,
+      "sha256": "c69544c6273fe74d7f784015871eb229c5785011ce39f74da3507e686a22e4bc"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-W-ra-f0f95-and-half-lookup-coordinates/reference/reference.json",
+      "bytes": 486,
+      "sha256": "62b96ff7a8083f9b9242d1de183bb8cfb282544a4865176c50c572666864823d"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-W-ra-f0f95-and-half-lookup-coordinates/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "4e353661378b4754ca8f8f3569ea3897997feef6ac3d3cc23e5d32c866bb0ce6"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/remaining-ray-packets-W-ra-f0f95-and-half-lookup-coordinates/remaining-ray-packet-pixels.json",
+      "bytes": 33624,
+      "sha256": "494cbba911bcf279aec988481215ab4da06f5d2160f4a9baba9cdd4689c64525"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/solar-ray-packets-Solar-ra-137c1-and-half-lookup-coordinates/packet-inputs.json",
+      "bytes": 908,
+      "sha256": "3b122500cceea03fd73e1493cae8f1a2ce0007b9b421947ada9e31a0ab8d23dd"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/solar-ray-packets-Solar-ra-137c1-and-half-lookup-coordinates/packet-reference.json",
+      "bytes": 808,
+      "sha256": "65d978af4b096005d5a71c02ea7d44c02021c83d77eb9f2f87cab3810d04784b"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/solar-ray-packets-Solar-ra-137c1-and-half-lookup-coordinates/reference/baseline.mjs",
+      "bytes": 315017,
+      "sha256": "cbc8d65626229ae1d8906f67388fcdd84fcccea83560b208eeff943f3fc59dd4"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/solar-ray-packets-Solar-ra-137c1-and-half-lookup-coordinates/reference/reference.json",
+      "bytes": 486,
+      "sha256": "d56afae55a76bb1521aa77f0fea3da3ab86e60e84f6bdcc574388b36fcff9181"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/solar-ray-packets-Solar-ra-137c1-and-half-lookup-coordinates/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "d727f232d09e61916cc3038d2ce200e8e9391710b45428e90d4de06d8973e42a"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/solar-ray-packets-Solar-ra-137c1-and-half-lookup-coordinates/solar-ray-packet-pixels.json",
+      "bytes": 33670,
+      "sha256": "6685695cab8e62ef24a0a47df3047319fea6dec37ca8b5085a4253bfeb9dbfb4"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/solar-ray-packets-Solar-ra-bcb42-and-half-lookup-coordinates/packet-inputs.json",
+      "bytes": 804,
+      "sha256": "e4c91f6f7a43e6fd3565aa76b29f9175dda2e16e237720d55b9bd455143d6610"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/solar-ray-packets-Solar-ra-bcb42-and-half-lookup-coordinates/packet-reference.json",
+      "bytes": 740,
+      "sha256": "9d717f449cd7767dc2101d57084c82e7defa1a5bf795344320eccc5688723f05"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/solar-ray-packets-Solar-ra-bcb42-and-half-lookup-coordinates/reference/baseline.mjs",
+      "bytes": 315017,
+      "sha256": "972071cc3d1fe0b28b46b4a3a8b7d15639e7fbd9241a2309c8bb3b8c41df32be"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/solar-ray-packets-Solar-ra-bcb42-and-half-lookup-coordinates/reference/reference.json",
+      "bytes": 486,
+      "sha256": "3980417569fa5d39dc734ac2f8c266cd1dc2a9a8facc15a7b9fffb9ea2f444cc"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/solar-ray-packets-Solar-ra-bcb42-and-half-lookup-coordinates/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "d727f232d09e61916cc3038d2ce200e8e9391710b45428e90d4de06d8973e42a"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/solar-ray-packets-Solar-ra-bcb42-and-half-lookup-coordinates/solar-ray-packet-pixels.json",
+      "bytes": 33778,
+      "sha256": "05830a53e7bf2d8c01a5f9d2a8b60475388e64fa4478c49ddb70ca5e703f530f"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/solar-ray-packets-Solar-ra-ea7fd-and-half-lookup-coordinates/packet-inputs.json",
+      "bytes": 878,
+      "sha256": "d4b354a68c8a0cd21afdcd3b4cfb82248976f5722fbf768807110a8024e7afd6"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/solar-ray-packets-Solar-ra-ea7fd-and-half-lookup-coordinates/packet-reference.json",
+      "bytes": 808,
+      "sha256": "2b17dc625e560229fce28c6282d6d69661f1b03b24339f89ffd2c44560343aea"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/solar-ray-packets-Solar-ra-ea7fd-and-half-lookup-coordinates/reference/baseline.mjs",
+      "bytes": 315017,
+      "sha256": "c3b94ca8be941d3df011b908f13903f591b493aea4b8f869a951d1b0f7ba84d8"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/solar-ray-packets-Solar-ra-ea7fd-and-half-lookup-coordinates/reference/reference.json",
+      "bytes": 486,
+      "sha256": "9697b92f55bc86cbd33b0cb5c4d53d144106840ad2729972c1986d2cd8a5e850"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/solar-ray-packets-Solar-ra-ea7fd-and-half-lookup-coordinates/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "d727f232d09e61916cc3038d2ce200e8e9391710b45428e90d4de06d8973e42a"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first/solar-ray-packets-Solar-ra-ea7fd-and-half-lookup-coordinates/solar-ray-packet-pixels.json",
+      "bytes": 33750,
+      "sha256": "9514dae0adaaf3c3026178ca931ba8b1ddbcd3af26b463e80cdba8c241033a69"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/packet-browser-first.log",
+      "bytes": 1931,
+      "sha256": "ba7faad1317d37e412e8920631995a141aae79eb3a56783965013c9d28da7189"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/prepare-production.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/prepare-production.py",
+      "bytes": 434,
+      "sha256": "ea5bbb8e7385fbc23a62a97338d23ea9cd9328d5615d8f9671d5b9175b43b190"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1809188,
+      "sha256": "682ca6885096eb860a928b052f52b3aed6f3b4252c1099e205705ad89527168f"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835506,
+      "sha256": "3b8df30d0032ac79a3e248cdd6202883b7ef104218269255c233af06143e111a"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1828809,
+      "sha256": "0dd241856038633ca535270180ee7faabe38458ec4bf22e32f2bec9bf284dbe9"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1812112,
+      "sha256": "e5fefb98dfbfddeb05fbbb8c9e4be83301366e9df9a2a5eedfe359a2104efbb5"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1819750,
+      "sha256": "af071b7fe0242b71f24df1fd602243fc7e4c0e53c4d7511268e00a805887680f"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1352788,
+      "sha256": "638115fdb475d1fd2252b107f209246985359abbb1f0e9b51e2e5f898a094bd0"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1826232,
+      "sha256": "b15e7d3dee87bce2eb96955c5c84d510385e2c8f74b03be82948f4e26f558163"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808777,
+      "sha256": "5e19321a6f614a6d1007de705fa3934ffddf3aac23a6679b7f0f8a774322cf41"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/production-summary.json",
+      "bytes": 3191,
+      "sha256": "2dbfd545aebdb6aa0081e70f472466ead471271e6426aab261715797f82706af"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/production-system.mjs",
+      "bytes": 30506,
+      "sha256": "83265d55f3e6e2d817e9e75fb02cce522f5d180558a305fd95d3d8e8dbf6df2a"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/production.log",
+      "bytes": 2852,
+      "sha256": "3a43a61a46c1083171afc098905a070204ecf85c4ad7711bbae93d93d22a77ac"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/ray-packets-focused-third.log",
+      "bytes": 448,
+      "sha256": "3de06dcd19280e5747dc0229adb3fba760b1f0a9b318e18a16e1a42e230339bc"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/ray-packets-tsc-fourth.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/tsc-first.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/writer/entry.ts",
+      "bytes": 82,
+      "sha256": "2d3e40b16d96d499d5e34a8cf98934bdf761bc9778cba5cf2a5bfbc87262a57f"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/writer/expected.json",
+      "bytes": 31547750,
+      "sha256": "d1d9c0efc0f02d4fa30256b1d0a36fc1036063214011e6934c78e2bc39ab0f6f"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/writer/inputs.json",
+      "bytes": 56433805,
+      "sha256": "d4f6c03af3ceeafeec05be6ce0e52d9240396211fe4832938722bfc3c2736a3b"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/writer/reading.json",
+      "bytes": 697,
+      "sha256": "a7c7ee84ccdd9f26478f19b10814495e91163a99fb3bb981b9fb76d6fcb71a30"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/writer/writer.mjs",
+      "bytes": 1423,
+      "sha256": "f95e132eba67234df3a0a34e428807620465f650cc30bc425f849d07ec48eb05"
+    },
+    {
+      "path": ".cache/remaining-ray-packets/writer.log",
+      "bytes": 625,
+      "sha256": "24feb0872faba575111dc624440c3f146d890dd2645c727706ff5c418bf5db60"
+    }
+  ]
+}
