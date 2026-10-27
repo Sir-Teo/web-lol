@@ -1,0 +1,256 @@
+{
+  "format": 1,
+  "parentCommit": "e41b4435f1c5f91acf8ec04cf4667995b2434e1f",
+  "scope": "Bounded conditional legacy e-color-modulate default chain, native ASCII SDBM key construction and four source-key omissions in complete Gromp typed rows. No application behavior changes.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "offlinePack": {
+      "id": "d45eb611f6ca12e81a4ac010049b72529593b3c3f86c59345ac480bd8b94afd1",
+      "files": 1202,
+      "bytes": 538089866
+    }
+  },
+  "verification": {
+    "completeFunctions": 10,
+    "selectedInstructions": 85,
+    "literals": 2,
+    "vtableSlots": 3,
+    "directCalls": 7,
+    "omittedSourceKeys": 4,
+    "guardGroupsPerMode": 14,
+    "normalOptimizedRecordAndGuardCommands": 4,
+    "offlineWithSubprocessBlocked": true,
+    "sourceAssetFilesUnchanged": 543,
+    "bytesAndMtimesUnchanged": true,
+    "applicationChecksInherited": true,
+    "nativeExecuted": false,
+    "nativeShaderExecuted": false
+  },
+  "limits": [
+    "Static conditional control/data flow with whole-function byte hashes; no native game or Metal execution.",
+    "The native configuration wrapper has multiple mode branches. This witness does not observe live parser flags or certify every backing-store lookup implementation.",
+    "ASCII key spelling and omissions are bound to the retained complete typed Troy source rows; no missing historical archive is restored by this check.",
+    "No native curve resampling, prepared-RGBA arithmetic, live rendering dispatch or complete Gromp composition claim.",
+    "Actual live parser flags and Gromp loader invocation remain unobserved; conditional missing-lookup flow is not proof of every configuration backing-store mode.",
+    "Full application checks are inherited from the unchanged accepted application at e41b443. No heavy app checks were rerun for this source-only evidence addition."
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/NATIVE-LEGACY-MODULATION-DEFAULT.md",
+      "bytes": 4164,
+      "sha256": "396bc19010101c101dd8f8f4902262f5082930de31e8d71d240e3ae57bb3c185"
+    },
+    {
+      "path": "docs/reference/native-legacy-modulation-default.json",
+      "bytes": 22729,
+      "sha256": "49dae3576cb73c396372690f03d839b0df85dd2e68bb256007b256557cc53072"
+    },
+    {
+      "path": "tools/assets/native_legacy_modulation_default.py",
+      "bytes": 11458,
+      "sha256": "bcbd198dcf19ca4bf64663051918979c0cef8f5450116d98f6928a4202e3f24e"
+    },
+    {
+      "path": "tools/assets/test-native-legacy-modulation-default.py",
+      "bytes": 4971,
+      "sha256": "2995ddf4eb6e74b17171bc218ad39edae514bc9bf6c3811dabddf9c63c30f7c0"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "docs/reference/native-legacy-primitive-types.json",
+      "bytes": 31070,
+      "sha256": "2e56236915d08ec883f89de2848a0571dc2085081b837d75e5a412ef8cdfda61"
+    },
+    {
+      "path": "docs/reference/gromp-effects.json",
+      "bytes": 238111,
+      "sha256": "3cb54cd774fbfd66cc52846bb8775d17ab0adb473a570600e274e5f2ae0a1033"
+    },
+    {
+      "path": "src/content/gromp-death.json",
+      "bytes": 35018,
+      "sha256": "683823f0f8c647e973690508f474b9c1e54adf98543b01ba1322fdbd9fdc6bc0"
+    },
+    {
+      "path": "docs/reference/lazy-asset-repaint-verification.json",
+      "bytes": 26164,
+      "sha256": "cf5e8e906f5b2522ca90d4e3a58797aed1abce5d523de9ee220bf2002712a885"
+    },
+    {
+      "path": "tools/assets/native_legacy_primitive_types.py",
+      "bytes": 9043,
+      "sha256": "d5c9ff0145877fa0bd884dac38fdd9e2e166b3ac5a2d285690d170686408cab0"
+    },
+    {
+      "path": "tools/assets/native_constructor_witness.py",
+      "bytes": 12648,
+      "sha256": "5ed4f943e123a3cb9bebfdea394bd8b5551d6b1ac010e7913eb9a245a7234e14"
+    },
+    {
+      "path": "tools/assets/verify-leona-native-particle-bindings.py",
+      "bytes": 13221,
+      "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/native-legacy-modulation-default/final-source/docs/NATIVE-LEGACY-MODULATION-DEFAULT.md",
+      "bytes": 4164,
+      "sha256": "396bc19010101c101dd8f8f4902262f5082930de31e8d71d240e3ae57bb3c185"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/final-source/docs/reference/native-legacy-modulation-default.json",
+      "bytes": 22729,
+      "sha256": "49dae3576cb73c396372690f03d839b0df85dd2e68bb256007b256557cc53072"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/final-source/tools/assets/native_legacy_modulation_default.py",
+      "bytes": 11458,
+      "sha256": "bcbd198dcf19ca4bf64663051918979c0cef8f5450116d98f6928a4202e3f24e"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/final-source/tools/assets/test-native-legacy-modulation-default.py",
+      "bytes": 4971,
+      "sha256": "2995ddf4eb6e74b17171bc218ad39edae514bc9bf6c3811dabddf9c63c30f7c0"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/final-source/docs/reference/native-legacy-primitive-types.json",
+      "bytes": 31070,
+      "sha256": "2e56236915d08ec883f89de2848a0571dc2085081b837d75e5a412ef8cdfda61"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/final-source/docs/reference/gromp-effects.json",
+      "bytes": 238111,
+      "sha256": "3cb54cd774fbfd66cc52846bb8775d17ab0adb473a570600e274e5f2ae0a1033"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/final-source/src/content/gromp-death.json",
+      "bytes": 35018,
+      "sha256": "683823f0f8c647e973690508f474b9c1e54adf98543b01ba1322fdbd9fdc6bc0"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/final-source/docs/reference/lazy-asset-repaint-verification.json",
+      "bytes": 26164,
+      "sha256": "cf5e8e906f5b2522ca90d4e3a58797aed1abce5d523de9ee220bf2002712a885"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/final-source/tools/assets/native_legacy_primitive_types.py",
+      "bytes": 9043,
+      "sha256": "d5c9ff0145877fa0bd884dac38fdd9e2e166b3ac5a2d285690d170686408cab0"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/final-source/tools/assets/native_constructor_witness.py",
+      "bytes": 12648,
+      "sha256": "5ed4f943e123a3cb9bebfdea394bd8b5551d6b1ac010e7913eb9a245a7234e14"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/final-source/tools/assets/verify-leona-native-particle-bindings.py",
+      "bytes": 13221,
+      "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/native-legacy-modulation-default/archive-checkpoint.py",
+      "bytes": 4954,
+      "sha256": "6a6d5a990b38df3ffb4f222b6fa85c6ce7072efdd183b38f0a2c7c50520a2c48"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/candidate.json",
+      "bytes": 22729,
+      "sha256": "49dae3576cb73c396372690f03d839b0df85dd2e68bb256007b256557cc53072"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/candidate.log",
+      "bytes": 81,
+      "sha256": "0acf7f31e21176db6ecd738104a43d17ad0ee0daba81a00c94d8e4353940740f"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/check-normal.log",
+      "bytes": 81,
+      "sha256": "0acf7f31e21176db6ecd738104a43d17ad0ee0daba81a00c94d8e4353940740f"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/check-optimized.log",
+      "bytes": 81,
+      "sha256": "0acf7f31e21176db6ecd738104a43d17ad0ee0daba81a00c94d8e4353940740f"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/generate.py",
+      "bytes": 6657,
+      "sha256": "66fa565223d3c0b756fe35b42a0d2756b5b687418d0210e99bc202b0f47b6e59"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/guards-normal.log",
+      "bytes": 114,
+      "sha256": "abc29c9c7b0fa62e4200a7541c2268f26349407f3073784bd9f25646425af535"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/guards-optimized.log",
+      "bytes": 114,
+      "sha256": "47a3479a0d6f8adf0971236ad423aac253922e70536135507f37e99f2d0c89f4"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/inherited-application.json",
+      "bytes": 524,
+      "sha256": "03b621e3b426a1b27530ed29229c27270e795fef66fdbea25240a796e26f9ed6"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/native_legacy_modulation_default.py",
+      "bytes": 11458,
+      "sha256": "bcbd198dcf19ca4bf64663051918979c0cef8f5450116d98f6928a4202e3f24e"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/original-probe/legacy-color-constant-vtable.json",
+      "bytes": 367,
+      "sha256": "07177177d00d49c9d3c0ab3b9b64b5c74b0c0937d979f17d2e60eecc78cf67f5"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/original-probe/legacy-color-hash-functions.json",
+      "bytes": 327,
+      "sha256": "83bfb998cd5ac121c0f4db41592b511a0e21627f19b0bb4204beb0482c0fb59f"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/original-probe/legacy-color-key-functions.json",
+      "bytes": 166,
+      "sha256": "e3120197e3a74b52917a81fd62a2d0af05b85cacb84c2aade3ed54fa633715aa"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/original-probe/legacy-color-lower-functions.json",
+      "bytes": 330,
+      "sha256": "b757d1b1f425774a7e210b26c77aa192e4d17abc0bfd50eb0283314f031e5b3a"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/original-probe/legacy-color-single-vtable.json",
+      "bytes": 185,
+      "sha256": "5d09fa71d9729695ec5cc4ce73c02084c926d7d80877d6200fdc44c571cdfb41"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/original-probe/legacy-color-string-functions.json",
+      "bytes": 166,
+      "sha256": "28cb20b4fdc4832ed635c3a2fae61d738c60ccada1e74e68e1884cc9b4462a70"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/original-probe/legacy-modulation-candidate-status.json",
+      "bytes": 2920,
+      "sha256": "476e64e3cab9680327c91701cc0f8de7942a623992e66475787b8cb7ad48e12f"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/prepare.py",
+      "bytes": 2434,
+      "sha256": "b72cd638c0e3f5e23e353074c4ae76d2dd1d1491a2fdbe142487cc00c54cd768"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/promote.log",
+      "bytes": 81,
+      "sha256": "0acf7f31e21176db6ecd738104a43d17ad0ee0daba81a00c94d8e4353940740f"
+    },
+    {
+      "path": ".cache/native-legacy-modulation-default/tables.json",
+      "bytes": 7852,
+      "sha256": "9dbb2daf683563cc8d017607d50ca75ddec882736da0bc529671a01904e92125"
+    }
+  ]
+}
