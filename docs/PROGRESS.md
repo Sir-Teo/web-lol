@@ -6,6 +6,35 @@ Last updated: October 27, 2026 (UTC).
 
 ## Current authoritative state
 
+The latest [Ahri bot progression](AHRI-BOT-PROGRESSION.md) gives development
+AI units legal own-kit learning and bounded mage purchases through the existing
+transactions. Seven new cases and all 72 focused regressions pass, including
+both teams through level 18, component consumption, saved futures, death,
+manual human control and ordinary admission. TypeScript and all 29 Node QA
+checks pass. The full run passes **3,405/3,407 tests across 404 files**, retaining
+only the two unchanged baseline failures. Tactical Ahri spell decisions and
+the complete six-character bot roster remain unfinished. Schema remains 163;
+the current rules fingerprint is
+`1c157c003ae34059e931ff6a3409eb6896195e906f6104af9c25b1ee50c26bcd`.
+
+The build and nested-path production smoke pass with all 32 recordings,
+development admission gates and zero page errors. The offline audit passes
+with 978 service-worker responses, including integrity/retry, network-disabled
+restore, a new lane match and atomic version activation. The accepted pack is
+`691ca564ab73a842254e2c1808c39224e76b4874ea0cda7b20c01625c0f35738`
+(1,202 files / 538,093,581 bytes). All 1,125 source asset/data sizes and mtimes
+remain unchanged. This simulation-only change runs no fresh development
+browser cases; earlier human trial UI acceptance is inherited, and manual
+control/saved futures are covered by the fresh focused unit checks.
+
+The original cohort was observed at 76 completed runs: 75 victories, one
+unfinished and zero failures. [Seed 70's diagnosis](MATCH-SEED-70-DIAGNOSIS.md)
+preserves its 60-minute unfinished report and independently continues its exact
+checkpoint under frozen rules to a valid red victory at 68:09. All 543 frozen
+inputs remain unchanged, with 29,351 additional invariant-checked ticks, nine
+round-trips and eight matching saved futures. This does not replace the accepted
+outcome or complete the 100-seed gate, and does not certify the newer rules.
+
 The latest [Ahri material source audit](AHRI-MATERIAL-SOURCE.md) preserves the
 two original custom material definitions, five samplers and four submesh routes.
 An independent raw BIN decode verifies all four local records and 23 linked

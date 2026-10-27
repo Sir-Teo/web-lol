@@ -242,6 +242,7 @@ import { LUX_E_SOURCE as LUX_E } from '../content/lux-e';
 import { LUX_E_POLICY } from '../content/lux-e-policy';
 import { DEATHCAP_AP_AMPLIFICATION, LOST_CHAPTER } from '../content/mage-items';
 import { LUX_BOT_POLICY } from '../content/lux-bot-policy';
+import { AHRI_BOT_POLICY } from '../content/ahri-bot-policy';
 import { LEONA_BOT_POLICY } from '../content/leona-bot-policy';
 import { luxWaveClear } from './lux-wave-clear';
 import { botDisengagePoint } from './bot-disengage';
@@ -1270,7 +1271,6 @@ export class World {
       if (
         state.skillPoints === 0 ||
         !this.unit(state.id)?.ai ||
-        this.unit(state.id)?.champion === 'ahri' ||
         this.unit(state.id)?.champion === 'masteryi'
       )
         continue;
@@ -1281,9 +1281,11 @@ export class World {
             ? { early: ['q', 'w', 'e'] as const, priority: ['r', 'e', 'q', 'w'] as const }
             : this.unit(state.id)?.champion === 'lux'
               ? LUX_BOT_POLICY
-              : this.unit(state.id)?.champion === 'leona'
-                ? LEONA_BOT_POLICY
-                : ASHE_SKILL_RECOMMENDATION;
+              : this.unit(state.id)?.champion === 'ahri'
+                ? AHRI_BOT_POLICY
+                : this.unit(state.id)?.champion === 'leona'
+                  ? LEONA_BOT_POLICY
+                  : ASHE_SKILL_RECOMMENDATION;
         const early = recommendation.early[allocated];
         const choices = early ? [early, ...recommendation.priority] : recommendation.priority;
         const ability = choices.find((key) => this.spellLearningError(key, state.id) === null);
@@ -2369,8 +2371,9 @@ export class World {
         ) ?? Object.values(upgrades).find((item) => !state.inventory.includes(item));
       return ITEMS.find((item) => item.id === id);
     }
-    if (u.champion === 'lux') {
-      let id: string | undefined = LUX_BOT_POLICY.purchases.find(
+    if (u.champion === 'lux' || u.champion === 'ahri') {
+      const policy = u.champion === 'ahri' ? AHRI_BOT_POLICY : LUX_BOT_POLICY;
+      let id: string | undefined = policy.purchases.find(
         (id) =>
           !state.inventory.includes(id) && !(id === 'tome' && state.inventory.includes('chapter'))
       );

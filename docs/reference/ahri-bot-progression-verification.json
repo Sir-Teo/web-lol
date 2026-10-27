@@ -1,0 +1,270 @@
+{
+  "format": 1,
+  "parentCommit": "7e00efe0195b5822b7cfa792edc2fb1619585d55",
+  "scope": "Ahri development NPC legal skill allocation and bounded mage shopping; no tactical spell planner or roster expansion.",
+  "schema": 163,
+  "rulesetFingerprint": "1c157c003ae34059e931ff6a3409eb6896195e906f6104af9c25b1ee50c26bcd",
+  "source": [
+    {
+      "path": "src/simulation/world.ts",
+      "bytes": 296603,
+      "sha256": "c449438169e189558ceaeb06482883edbd9a22753e6f963b1d90034e9a6e8bf2"
+    },
+    {
+      "path": "src/content/ahri-bot-policy.ts",
+      "bytes": 242,
+      "sha256": "bbd5bb8c45b1d62fce9567c94efc3f30eaf1273dbeadce378d9608fb0efccd37"
+    },
+    {
+      "path": "tests/ahri-bot-development.test.ts",
+      "bytes": 5087,
+      "sha256": "d3d82959400f3b4b19e523993bc5d4bd2d94145f4b4de20667bddb361a8d920a"
+    },
+    {
+      "path": "tests/ahri-q.test.ts",
+      "bytes": 10966,
+      "sha256": "b8e189d6fc6a8a8f22046b75774aedec8a6647787bac224f90439d8ff02ab8c3"
+    },
+    {
+      "path": "docs/AHRI-BOT-PROGRESSION.md",
+      "bytes": 3567,
+      "sha256": "78e67f3337f3044c5a0c01df9b6dfa91ec66bc0effc4803b6a17de69c6729823"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "bytes": 750058,
+      "sha256": "317868340d3f975910004259eb144653f90d8392f76ef58f6fd2f68e6e03faa0"
+    }
+  ],
+  "verification": {
+    "newTestsPassed": 7,
+    "focusedPassed": 72,
+    "focusedFiles": 10,
+    "typesPassed": true,
+    "fullUnitPassed": 3405,
+    "fullUnitTotal": 3407,
+    "fullUnitFiles": 404,
+    "baselineFailuresRetained": [
+      "Missing original Leona Eclipse evidence closure",
+      "Host-sensitive Lux missile sampler digest; original expected digest retained"
+    ],
+    "nodeQaPassed": 29,
+    "buildPassed": true,
+    "productionPassed": true,
+    "sourceRecordings": 32,
+    "offlinePassed": true,
+    "sourceAssetsMetadataUnchanged": 1125,
+    "freshDevelopmentBrowserCasesRun": 0,
+    "humanPracticeRiftBrowserAcceptanceInheritedFrom": "docs/reference/ahri-rift-trial-verification.json"
+  },
+  "pack": {
+    "id": "691ca564ab73a842254e2c1808c39224e76b4874ea0cda7b20c01625c0f35738",
+    "files": 1202,
+    "bytes": 538093581,
+    "manifest": {
+      "path": ".cache/ahri-bot-progression/dist/offline-pack.json",
+      "bytes": 172470,
+      "sha256": "304e96298e1e7ec698497f9212039be1c25da2eeb77f798483d42df1a296a699"
+    }
+  },
+  "firstAttempt": {
+    "passed": 21,
+    "failed": 1,
+    "cause": "Old AI point-retention assertion intentionally replaced by new own-policy progression behavior; original Q test and world source plus failure log retained."
+  },
+  "limits": {
+    "tacticalAhriSpellPolicyComplete": false,
+    "ahriAddedToRiftBotRoster": false,
+    "sixChampionMatchComplete": false,
+    "nativeAiRecovered": false,
+    "nativePresentationCertified": false,
+    "fullHundredSeedGateClaimed": false
+  },
+  "evidence": [
+    {
+      "path": ".cache/ahri-bot-progression/accept.log",
+      "bytes": 1043,
+      "sha256": "f346d54e5afd12b4ab9f8a5362184d49372dd5b402684850e325a0689d70fd01"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/accept.py",
+      "bytes": 4086,
+      "sha256": "1408f19d0da8e34de2171ac95c24544c0ec61bb7ee1001b78398b9a77c3759bd"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/ahri-q-before.test.ts",
+      "bytes": 10721,
+      "sha256": "0fb160b2c27cfd1ba7def85b6e5c7b324bdd3761d3f21af8758c274505649293"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/archive.py",
+      "bytes": 4048,
+      "sha256": "1c20139d8c2fb74670b84ac032ce77e81316c58e352eeb07f36f3095ecb77bd6"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/build.log",
+      "bytes": 7911,
+      "sha256": "9f4c872c1b924b53ba1d5e814dff475ca2203c16edbf2e992b90a826f08441f9"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/dist/offline-pack.json",
+      "bytes": 172470,
+      "sha256": "304e96298e1e7ec698497f9212039be1c25da2eeb77f798483d42df1a296a699"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/first-focused.log",
+      "bytes": 1414,
+      "sha256": "3c5d23370d3a2b938e5f3d48bb57ccc35edd4ef3c2aa407ccede5b5cfc34caf3"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/focused.log",
+      "bytes": 384,
+      "sha256": "2b3cbf5c8062f3c5463f04d2d9e669c421c61b1828968edf46a462eb70fa6517"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/format.log",
+      "bytes": 172,
+      "sha256": "cb045fa5a6b8eae7ea40b9ac9dc95aecd1b5a7fd351df0347bd8e31d29ac765b"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/full-tests.log",
+      "bytes": 4677,
+      "sha256": "74a9aa568e3c11e3e5c6a5a5a68cf41a4ecc2137dbadc1dd1127b6a9c254aece"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/inputs.json",
+      "bytes": 156973,
+      "sha256": "965c9818fbd0e74a53bfacca2acfecbd76bcd774c9e9b47fe3e5c78ede3abcdb"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/node.log",
+      "bytes": 2714,
+      "sha256": "a6f9a7189b9742c82e11e971495a2360e3bb06669b681cfddcaeb3b78e5d1cf4"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/offline-artifacts/offline-pack-ahri-bot-progression-20261027-lux-lanes.png",
+      "bytes": 522770,
+      "sha256": "b25486a5a37d4dcc090c777095a2b7ee6465c4abda3b117a867ee405261f3ea0"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/offline-artifacts/offline-pack-ahri-bot-progression-20261027-production.json",
+      "bytes": 827,
+      "sha256": "f90713e43321f64acd287319446df288ab727de2b1e97600737ec56cd705dc87"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/offline-artifacts/offline-pack-ahri-bot-progression-20261027-ready.png",
+      "bytes": 573162,
+      "sha256": "46d4ad9bfd7ae6905683008b86bfd3ba86a12fffc86bb0669f4ff4143763f747"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/offline-system.mjs",
+      "bytes": 16600,
+      "sha256": "3d091435f88a3e61fc7ea5986ad5bbc2031e3232943298ff564fba118ebcb29d"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/offline.log",
+      "bytes": 842,
+      "sha256": "fd886adeed891279ef357dc9f3c3f4ce1caef57e003b4ddec3e4dcf3bfecfc79"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/parent.txt",
+      "bytes": 41,
+      "sha256": "87858720995b405551ecd7ed1d9a3ebf5bf61684960c46633ebcedcaefb050ad"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/pause-record.json",
+      "bytes": 755,
+      "sha256": "9f96f9b01510f49476bbe241529bcd273813a64e94fd3ef4d9356bb3d57694e7"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/production-screens/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1808323,
+      "sha256": "27f65b6d45792172e9b3393b9a995ba865b5a87c27d3dd6f379fcea1d01d7dac"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/production-screens/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835696,
+      "sha256": "7a2cd4c1d4e57ce4a5813099955cab32049383e08544570a3f89f17c551796e7"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/production-screens/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1830369,
+      "sha256": "c8233dc36b00b2b5d9526a5b4f9300c40bca931a6239c0ea952f36e6b1e543d3"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/production-screens/lux-e-hit-production-lux.png",
+      "bytes": 1811485,
+      "sha256": "90aaebcd406b827588339164dcc5dda4921c8a83e14d9345d51043037280932c"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/production-screens/lux-e-hit-production-oracle.png",
+      "bytes": 1820478,
+      "sha256": "46b4afb4c27260596a19232f748500827bc1f16c1b90dee889d2987e38a81edc"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/production-screens/lux-e-hit-production-role-match.png",
+      "bytes": 1353246,
+      "sha256": "50cdb0bc69f535dc83d2d2294f1501d195dd15eb30704e5f9e47f6e683e1dd00"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/production-screens/lux-e-hit-production-subpath.png",
+      "bytes": 1826973,
+      "sha256": "0d013ae7253df7c407412900698cbad1c5192371d6473fede919ff62455e277b"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/production-screens/lux-e-hit-production-ward.png",
+      "bytes": 1808906,
+      "sha256": "9f96048898685f9d254a0be548b6541315e922adff59e0e6db2a4a01d2a8a150"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/production-system.mjs",
+      "bytes": 31523,
+      "sha256": "06eb7a4d5f77fba2dc1cb14f6ea335bd65fc34f70e855781d3585285867216a0"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/production.log",
+      "bytes": 2959,
+      "sha256": "65ef5dadfd7236c4f074e9c34772cb37a9cafa387fa5e4d1bd6821c2d93d0d1b"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/source/docs/AHRI-BOT-PROGRESSION.md",
+      "bytes": 3567,
+      "sha256": "78e67f3337f3044c5a0c01df9b6dfa91ec66bc0effc4803b6a17de69c6729823"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/source/docs/PROGRESS.md",
+      "bytes": 750058,
+      "sha256": "317868340d3f975910004259eb144653f90d8392f76ef58f6fd2f68e6e03faa0"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/source/src/content/ahri-bot-policy.ts",
+      "bytes": 242,
+      "sha256": "bbd5bb8c45b1d62fce9567c94efc3f30eaf1273dbeadce378d9608fb0efccd37"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/source/src/simulation/world.ts",
+      "bytes": 296603,
+      "sha256": "c449438169e189558ceaeb06482883edbd9a22753e6f963b1d90034e9a6e8bf2"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/source/tests/ahri-bot-development.test.ts",
+      "bytes": 5087,
+      "sha256": "d3d82959400f3b4b19e523993bc5d4bd2d94145f4b4de20667bddb361a8d920a"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/source/tests/ahri-q.test.ts",
+      "bytes": 10966,
+      "sha256": "b8e189d6fc6a8a8f22046b75774aedec8a6647787bac224f90439d8ff02ab8c3"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/ahri-bot-progression/world-before.ts",
+      "bytes": 296400,
+      "sha256": "463a9fa32b66bdf94cf27df95f0700a0fb95a4064dcb6e1a79108a3605e8f3c0"
+    }
+  ]
+}

@@ -167,15 +167,19 @@ test('terrain and structures do not consume the orb, and allied targets remain u
   expect(enemy.maxHp - enemy.hp).toBe(70);
 });
 
-test('Ahri keeps manual spell allocation while her own bot spell policy is unfinished', () => {
+test('Ahri AI learns Orb with its own policy and leaves later points available to explicit allocation', () => {
   const w = new World(false, PRACTICE_FIXTURE);
   w.nextWaveTick = Infinity;
   const ahri = w.spawn('champion', 'blue', { x: -650, y: 350 }, 'ahri');
   ahri.ai = true;
   w.step(180);
-  expect(w.championState(ahri.id)?.spellRanks).toEqual({ q: 0, w: 0, e: 0, r: 0 });
+  expect(w.championState(ahri.id)?.spellRanks).toEqual({ q: 1, w: 0, e: 0, r: 0 });
+  expect(w.championState(ahri.id)?.skillPoints).toBe(0);
+  expect(w.championState(ahri.id)?.eCharges).toBe(0);
+  w.gainExperience(280, ahri.id);
   expect(w.championState(ahri.id)?.skillPoints).toBe(1);
-  expect(w.learnSpell('q', ahri.id)).toBeNull();
+  expect(w.learnSpell('e', ahri.id)).toBeNull();
+  expect(w.championState(ahri.id)?.spellRanks).toEqual({ q: 1, w: 0, e: 1, r: 0 });
 });
 
 test('an enemy entering only the return path can be hit without an outward contact', () => {
