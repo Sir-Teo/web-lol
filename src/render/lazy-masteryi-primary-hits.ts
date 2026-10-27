@@ -5,6 +5,8 @@ import type { PrimaryHits } from './masteryi-primary-hits';
 
 /** The private Yi pack stays out of ordinary Ashe/Lux startup. */
 export class LazyPrimaryHits {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: PrimaryHits;
   private pending?: Promise<void>;
   private attempted = false;
@@ -22,6 +24,7 @@ export class LazyPrimaryHits {
       const module = await import('./masteryi-primary-hits');
       await module.loadPrimaryHits();
       this.renderer = new module.PrimaryHits(this.scene, this.ground);
+      this.onReady?.();
     })().catch((error) => {
       this.pending = undefined;
       throw error;

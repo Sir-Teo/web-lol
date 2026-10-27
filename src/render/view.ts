@@ -111,6 +111,8 @@ import { disposeModel, makeModel, type UnitModel } from './models';
 import { unitBarHeight } from './unit-bar-height';
 
 export class GameView {
+  /** Assets completed after the last frame; the application schedules painting. */
+  onAssetsReady?: () => void;
   renderer: THREE.WebGLRenderer;
   scene = new THREE.Scene();
   readonly particleDistortion = new ParticleDistortionPass();
@@ -276,6 +278,39 @@ export class GameView {
     host: HTMLElement,
     readonly battlefield: Battlefield = PRACTICE_FIXTURE
   ) {
+    const renderReady = () => this.onAssetsReady?.();
+    for (const effect of [
+      this.garenBasicAttacks,
+      this.garenCourage,
+      this.garenDecisiveStrike,
+      this.garenJustice,
+      this.garenPerseverance,
+      this.grompAttack,
+      this.grompDeath,
+      this.leonaDaybreak,
+      this.leonaEclipseSkins,
+      this.leonaEclipseSurfaces,
+      this.leonaSolarProjections,
+      this.leonaSolarSkins,
+      this.leonaSolarSurfaces,
+      this.leonaZenithSkins,
+      this.leonaZenithSurfaces,
+      this.leonaZenithTrails,
+      this.passiveTrails,
+      this.primaryHits,
+      this.primaryTrails,
+      this.alphaCasts,
+      this.alphaContacts,
+      this.alphaEnds,
+      this.highlanderCasts,
+      this.highlanderKills,
+      this.swordGlows,
+      this.meditateBuffs,
+      this.meditateCasts,
+      this.meditateDamage,
+      this.sunlight,
+    ])
+      effect.onReady = renderReady;
     // In Three r186, renderer.alpha controls the clear value while its default
     // context always has alpha. Subtractive particles can then expose the page
     // matte. Keep their RGBA blend intact and make the canvas itself opaque.

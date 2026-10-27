@@ -171,6 +171,7 @@ async function boot(): Promise<void> {
     elapsed = 0;
   let input: GameInput | undefined;
   let requestFrame = () => {};
+  view.onAssetsReady = () => requestFrame();
   const setPaused = (value: boolean) => {
     paused = value || document.hidden || !!hud.graphicsState;
     hud.paused = paused;

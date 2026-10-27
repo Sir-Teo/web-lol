@@ -6,6 +6,8 @@ import type { PrimaryTrails } from './masteryi-primary-trails';
 
 /** The private Yi pack stays out of ordinary Ashe/Lux startup. */
 export class LazyPrimaryTrails {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: PrimaryTrails;
   private pending?: Promise<void>;
   private attempted = false;
@@ -23,6 +25,7 @@ export class LazyPrimaryTrails {
       const module = await import('./masteryi-primary-trails');
       await module.loadPrimaryTrails();
       this.renderer = new module.PrimaryTrails(this.scene, this.ground);
+      this.onReady?.();
     })().catch((error) => {
       this.pending = undefined;
       throw error;

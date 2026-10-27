@@ -3,6 +3,8 @@ import type { World } from '../simulation/world';
 import type { Vec2 } from '../simulation/math';
 import type { LeonaDaybreak } from './leona-daybreak';
 export class LazyLeonaDaybreak {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: LeonaDaybreak;
   private pending?: Promise<void>;
   private retryAfter = 0;
@@ -19,6 +21,7 @@ export class LazyLeonaDaybreak {
       const m = await import('./leona-daybreak');
       await m.loadLeonaDaybreak();
       this.renderer = new m.LeonaDaybreak(this.scene, this.ground);
+      this.onReady?.();
     })().catch((e) => {
       this.pending = undefined;
       throw e;

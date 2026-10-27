@@ -5,6 +5,8 @@ import type { HighlanderKills } from './masteryi-r-kills';
 
 /** The private Yi pack stays out of ordinary Ashe/Lux startup. */
 export class LazyHighlanderKills {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: HighlanderKills;
   private pending?: Promise<void>;
   private attempted = false;
@@ -22,6 +24,7 @@ export class LazyHighlanderKills {
       const module = await import('./masteryi-r-kills');
       await module.loadHighlanderKills();
       this.renderer = new module.HighlanderKills(this.scene, this.ground);
+      this.onReady?.();
     })().catch((error) => {
       this.pending = undefined;
       throw error;

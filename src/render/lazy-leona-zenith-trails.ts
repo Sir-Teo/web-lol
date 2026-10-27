@@ -4,6 +4,8 @@ import type { Vec2 } from '../simulation/math';
 import type { LeonaZenithRibbons } from './leona-zenith-ribbons';
 
 export class LazyLeonaZenithTrails {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: LeonaZenithRibbons;
   private pending?: Promise<void>;
   private retryAfter = 0;
@@ -20,7 +22,10 @@ export class LazyLeonaZenithTrails {
     return (this.pending ??= (async () => {
       const m = await import('./leona-zenith-ribbons');
       await m.loadLeonaZenithTrails();
-      if (!this.disposed) this.renderer = new m.LeonaZenithRibbons(this.scene, this.ground);
+      if (!this.disposed) {
+        this.renderer = new m.LeonaZenithRibbons(this.scene, this.ground);
+        this.onReady?.();
+      }
     })().catch((error) => {
       this.pending = undefined;
       throw error;

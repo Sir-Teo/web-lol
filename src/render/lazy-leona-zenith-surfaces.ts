@@ -4,6 +4,8 @@ import type { Vec2 } from '../simulation/math';
 import type { LeonaZenithSurfaces } from './leona-zenith-surfaces';
 
 export class LazyLeonaZenithSurfaces {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: LeonaZenithSurfaces;
   private pending?: Promise<void>;
   private retryAfter = 0;
@@ -21,8 +23,10 @@ export class LazyLeonaZenithSurfaces {
     return (this.pending ??= (async () => {
       const m = await import('./leona-zenith-surfaces');
       await m.loadLeonaZenithSurfaces();
-      if (!this.disposed)
+      if (!this.disposed) {
         this.renderer = new m.LeonaZenithSurfaces(this.scene, this.distortion, this.ground);
+        this.onReady?.();
+      }
     })().catch((error) => {
       this.pending = undefined;
       throw error;

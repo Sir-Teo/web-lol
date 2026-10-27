@@ -6,6 +6,8 @@ import type { GarenJustice } from './garen-justice';
 
 /** Keep Garen-only profiles/materials out of ordinary Ashe/Lux entry loading. */
 export class LazyGarenJustice {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: GarenJustice;
   private pending?: Promise<void>;
   private retryAfter = 0;
@@ -22,6 +24,7 @@ export class LazyGarenJustice {
       const module = await import('./garen-justice');
       await module.loadGarenJustice();
       this.renderer = new module.GarenJustice(this.scene, this.ground);
+      this.onReady?.();
     })().catch((error) => {
       this.pending = undefined;
       throw error;

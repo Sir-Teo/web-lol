@@ -5,6 +5,8 @@ import type { HighlanderCasts } from './masteryi-r-casts';
 
 /** The private Yi pack stays out of ordinary Ashe/Lux startup. */
 export class LazyHighlanderCasts {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: HighlanderCasts;
   private pending?: Promise<void>;
   private attempted = false;
@@ -23,6 +25,7 @@ export class LazyHighlanderCasts {
       const module = await import('./masteryi-r-casts');
       await module.loadHighlanderCasts();
       this.renderer = new module.HighlanderCasts(this.scene, this.early, this.ground);
+      this.onReady?.();
     })().catch((error) => {
       this.pending = undefined;
       throw error;

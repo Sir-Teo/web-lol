@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { writeFileSync } from 'node:fs';
 
 test('Demacian Justice draws source cast, sword and impact layers and restores a killing release after caster death', async ({
   page,
@@ -398,10 +399,19 @@ test('R caster flash and falling sword are visible before damage releases', asyn
 
 test('ordinary Ashe startup skips R assets and a later Garen NPC loads one shared resource set', async ({
   page,
-}) => {
+}, info) => {
   const requests: string[] = [];
   const killTextures: string[] = [];
   const modules: string[] = [];
+  let releaseAssets!: () => void;
+  const assetsBlocked = new Promise<void>((resolve) => {
+    releaseAssets = resolve;
+  });
+  page.on('close', () => releaseAssets());
+  await page.route(/\/assets\/models\/garen-r-[^/?]+\.glb(?:\?.*)?$/, async (route) => {
+    await assetsBlocked;
+    if (!page.isClosed()) await route.continue();
+  });
   page.on('request', (r) => {
     if (r.url().includes('/src/render/garen-justice.ts')) modules.push(r.url());
     if (r.url().includes('/assets/models/garen-r-')) requests.push(r.url());
@@ -430,17 +440,53 @@ test('ordinary Ashe startup skips R assets and a later Garen NPC loads one share
     w.step(25);
   });
   const frozenTick = await page.evaluate(() => (window as any).__GAME__.world.tick);
-  await page.waitForFunction(() => {
+  await expect.poll(() => requests.length, { timeout: 30000 }).toBe(4);
+  // Let other late-NPC loaders finish, then drain their scheduled paints while
+  // Justice's four meshes are still blocked. Only its completion can wake this frame.
+  const before = await page.evaluate(async () => {
     const g = (window as any).__GAME__;
-    // Paused rendering sleeps between interactions. Paint the asynchronously
-    // prepared NPC renderer without advancing the frozen simulation.
-    g.repaint();
-    return g.view.garenJustice.models.size > 0;
+    await Promise.all([
+      g.view.garenBasicAttacks.load(),
+      g.view.garenCourage.load(),
+      g.view.garenDecisiveStrike.load(),
+      g.view.garenPerseverance.load(),
+    ]);
+    await new Promise<void>((resolve) =>
+      requestAnimationFrame(() => requestAnimationFrame(() => resolve()))
+    );
+    return { frame: g.view.renderer.info.render.frame, models: g.view.garenJustice.models.size };
   });
+  expect(before.models).toBe(0);
+  releaseAssets();
+  await page.waitForFunction(() => (window as any).__GAME__.view.garenJustice.models.size > 0);
+  const after = await page.evaluate(() => {
+    const g = (window as any).__GAME__;
+    return {
+      frame: g.view.renderer.info.render.frame,
+      models: g.view.garenJustice.models.size,
+      tick: g.world.tick,
+    };
+  });
+  expect(after.frame).toBe(before.frame + 1);
+  const settledFrame = await page.evaluate(async () => {
+    await new Promise<void>((resolve) =>
+      requestAnimationFrame(() => requestAnimationFrame(() => resolve()))
+    );
+    return (window as any).__GAME__.view.renderer.info.render.frame;
+  });
+  expect(settledFrame).toBe(after.frame);
   expect(await page.evaluate(() => (window as any).__GAME__.world.tick)).toBe(frozenTick);
   expect(modules).toHaveLength(1);
   expect(requests).toHaveLength(4);
   expect(new Set(requests).size).toBe(4);
   expect(killTextures).toHaveLength(2);
   expect(new Set(killTextures).size).toBe(2);
+  writeFileSync(
+    info.outputPath('paused-asset-ready.json'),
+    JSON.stringify(
+      { before, after, settledFrame, frozenTick, requests, killTextures, modules },
+      null,
+      2
+    )
+  );
 });

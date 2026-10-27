@@ -5,6 +5,8 @@ import type { MeditateDamage } from './masteryi-w-damage';
 
 /** The private Yi pack stays out of ordinary Ashe/Lux startup. */
 export class LazyMeditateDamage {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: MeditateDamage;
   private pending?: Promise<void>;
   private attempted = false;
@@ -22,6 +24,7 @@ export class LazyMeditateDamage {
       const module = await import('./masteryi-w-damage');
       await module.loadMeditateDamage();
       this.renderer = new module.MeditateDamage(this.scene, this.ground);
+      this.onReady?.();
     })().catch((error) => {
       this.pending = undefined;
       throw error;

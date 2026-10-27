@@ -5,6 +5,8 @@ import type { MeditateBuffs } from './masteryi-w-buffs';
 
 /** The private Yi pack stays out of ordinary Ashe/Lux startup. */
 export class LazyMeditateBuffs {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: MeditateBuffs;
   private pending?: Promise<void>;
   private attempted = false;
@@ -22,6 +24,7 @@ export class LazyMeditateBuffs {
       const module = await import('./masteryi-w-buffs');
       await module.loadMeditateBuffs();
       this.renderer = new module.MeditateBuffs(this.scene, this.ground);
+      this.onReady?.();
     })().catch((error) => {
       this.pending = undefined;
       throw error;

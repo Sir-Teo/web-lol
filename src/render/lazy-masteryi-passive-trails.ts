@@ -6,6 +6,8 @@ import type { PassiveTrails } from './masteryi-passive-trails';
 
 /** The private Yi pack stays out of ordinary Ashe/Lux startup. */
 export class LazyPassiveTrails {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: PassiveTrails;
   private pending?: Promise<void>;
   private attempted = false;
@@ -23,6 +25,7 @@ export class LazyPassiveTrails {
       const module = await import('./masteryi-passive-trails');
       await module.loadPassiveTrails();
       this.renderer = new module.PassiveTrails(this.scene, this.ground);
+      this.onReady?.();
     })().catch((error) => {
       this.pending = undefined;
       throw error;

@@ -5,6 +5,8 @@ import type { AlphaCasts } from './masteryi-q-casts';
 
 /** The private Yi pack stays out of ordinary Ashe/Lux startup. */
 export class LazyAlphaCasts {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: AlphaCasts;
   private pending?: Promise<void>;
   private attempted = false;
@@ -22,6 +24,7 @@ export class LazyAlphaCasts {
       const module = await import('./masteryi-q-casts');
       await module.loadAlphaCasts();
       this.renderer = new module.AlphaCasts(this.scene, this.ground);
+      this.onReady?.();
     })().catch((error) => {
       this.pending = undefined;
       throw error;

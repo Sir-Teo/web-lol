@@ -5,6 +5,8 @@ import type { MeditateCasts } from './masteryi-w-casts';
 
 /** The private Yi pack stays out of ordinary Ashe/Lux startup. */
 export class LazyMeditateCasts {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: MeditateCasts;
   private pending?: Promise<void>;
   private attempted = false;
@@ -22,6 +24,7 @@ export class LazyMeditateCasts {
       const module = await import('./masteryi-w-casts');
       await module.loadMeditateCasts();
       this.renderer = new module.MeditateCasts(this.scene, this.ground);
+      this.onReady?.();
     })().catch((error) => {
       this.pending = undefined;
       throw error;

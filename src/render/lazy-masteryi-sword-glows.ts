@@ -6,6 +6,8 @@ import type { SwordGlows } from './masteryi-sword-glows';
 
 /** The private Yi pack stays out of ordinary Ashe/Lux startup. */
 export class LazySwordGlows {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: SwordGlows;
   private pending?: Promise<void>;
   private attempted = false;
@@ -26,6 +28,7 @@ export class LazySwordGlows {
       const module = await import('./masteryi-sword-glows');
       await module.loadSwordGlows();
       this.renderer = new module.SwordGlows(this.scene, this.ground);
+      this.onReady?.();
     })().catch((error) => {
       this.pending = undefined;
       throw error;

@@ -5,6 +5,8 @@ import type { AlphaEnds } from './masteryi-q-ends';
 
 /** The private Yi pack stays out of ordinary Ashe/Lux startup. */
 export class LazyAlphaEnds {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: AlphaEnds;
   private pending?: Promise<void>;
   private attempted = false;
@@ -23,6 +25,7 @@ export class LazyAlphaEnds {
       const module = await import('./masteryi-q-ends');
       await module.loadAlphaEnds();
       this.renderer = new module.AlphaEnds(this.scene, this.early, this.ground);
+      this.onReady?.();
     })().catch((error) => {
       this.pending = undefined;
       throw error;

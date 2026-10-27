@@ -5,6 +5,8 @@ import type { Vec2 } from '../simulation/math';
 import type { Sunlight } from './sunlight';
 
 export class LazySunlight {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: Sunlight;
   private pending?: Promise<void>;
   private retryAfter = 0;
@@ -21,6 +23,7 @@ export class LazySunlight {
       const module = await import('./sunlight');
       await module.loadSunlight();
       this.renderer = new module.Sunlight(this.scene, this.ground);
+      this.onReady?.();
     })().catch((error) => {
       this.pending = undefined;
       throw error;

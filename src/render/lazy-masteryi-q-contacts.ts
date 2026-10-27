@@ -5,6 +5,8 @@ import type { AlphaContacts } from './masteryi-q-contacts';
 
 /** The private Yi pack stays out of ordinary Ashe/Lux startup. */
 export class LazyAlphaContacts {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: AlphaContacts;
   private pending?: Promise<void>;
   private attempted = false;
@@ -22,6 +24,7 @@ export class LazyAlphaContacts {
       const module = await import('./masteryi-q-contacts');
       await module.loadAlphaContacts();
       this.renderer = new module.AlphaContacts(this.scene, this.ground);
+      this.onReady?.();
     })().catch((error) => {
       this.pending = undefined;
       throw error;

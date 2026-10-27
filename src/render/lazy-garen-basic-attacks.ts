@@ -5,6 +5,8 @@ import type { GarenBasicAttacks } from './garen-basic-attacks';
 
 /** Keep the source particle pack out of ordinary Ashe/Lux startup. */
 export class LazyGarenBasicAttacks {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: GarenBasicAttacks;
   private pending?: Promise<void>;
   private attempted = false;
@@ -21,6 +23,7 @@ export class LazyGarenBasicAttacks {
       const module = await import('./garen-basic-attacks');
       await module.loadGarenBasicAttacks();
       this.renderer = new module.GarenBasicAttacks(this.scene, this.ground);
+      this.onReady?.();
     })().catch((error) => {
       this.pending = undefined;
       throw error;
