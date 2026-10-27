@@ -107,7 +107,7 @@ const reading = {
   independentPacketProjectionExact: true,
   limits: [
     'Conditional Ray packet projection from retained local values; native prepared-color producer and actual native draw dispatch unobserved.',
-    'Legacy fallback DDS contents and complete composition remain unresolved. Existing local textures, curves, clocks and geometry are preserved.',
+    'Legacy native texture binding, UV routing, sampling and complete composition remain unresolved. Existing local textures, curves, clocks and geometry are preserved.',
   ],
 };
 writeFileSync(resolve(output, 'reading.json'), JSON.stringify(reading, null, 2) + '\n');

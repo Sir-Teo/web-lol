@@ -1,20 +1,30 @@
 import source from '../content/gromp-death.json';
 import { TICK_RATE } from '../content/rules';
 import { Vector3 } from 'three';
-import { sampleParticleCurve, accumulateParticleCurve } from './particle-curves';
+import {
+  sampleParticleCurve,
+  accumulateParticleCurve,
+  type ParticleCurve,
+} from './particle-curves';
 import { luxHoopChance } from './lux-hoop-particles';
 import { luxBeamBirthOffset } from './lux-beam-birth-offset';
 import { particleTravel as grompDeathTravel } from './particle-motion';
 export { particleTravel as grompDeathTravel } from './particle-motion';
 
-function sample(keys: { time: number; value: number[] }[], phase: number, axis: number) {
-  return keys.length
-    ? sampleParticleCurve(
-        { times: keys.map((k) => k.time), values: keys.map((k) => k.value) },
-        phase,
-        axis
-      )
-    : 1;
+function compile(keys: { time: number; value: number[] }[]): ParticleCurve {
+  return { times: keys.map((key) => key.time), values: keys.map((key) => key.value) };
+}
+
+// Source profiles are static. Share their curve views across every particle,
+// corpse and seek instead of rebuilding two arrays for each sampled channel.
+const curves = source.profiles.map((profile) => ({
+  scale: compile(profile.scaleCurve),
+  color: compile(profile.colorCurve),
+  rotation: compile(profile.rotationCurve),
+}));
+
+function sample(curve: ParticleCurve, phase: number, axis: number) {
+  return curve.times.length ? sampleParticleCurve(curve, phase, axis) : 1;
 }
 
 /** All single emitters burst on death+1. Indexed chance/roll reproduce every
@@ -24,7 +34,8 @@ export function grompDeathParticles(deathTick: number, tick: number, id = 0) {
   const age = (tick - deathTick - 1) / TICK_RATE;
   if (age < 0) return [];
   return source.profiles.flatMap((p, profileIndex) => {
-    const seed = id ^ Math.imul(deathTick, 0x9e3779b9) ^ Math.imul(p.sourceIndex + 1, 0x85ebca6b);
+    const curve = curves[profileIndex],
+      seed = id ^ Math.imul(deathTick, 0x9e3779b9) ^ Math.imul(p.sourceIndex + 1, 0x85ebca6b);
     return Array.from({ length: p.count }, (_, index) => {
       const ordinal = index + 1,
         chance = luxHoopChance(seed, ordinal),
@@ -46,7 +57,7 @@ export function grompDeathParticles(deathTick: number, tick: number, id = 0) {
       }
       const motion = grompDeathTravel(velocity.toArray(), p.acceleration, p.drag, age),
         scale = birth(p.size, p.probabilities.size).map(
-          (v, axis) => v * sample(p.scaleCurve, phase, axis)
+          (v, axis) => v * sample(curve.scale, phase, axis)
         ),
         rotation = birth(p.rotation, p.probabilities.rotation);
       if (p.uniform) scale.fill(scale[0]);
@@ -55,15 +66,7 @@ export function grompDeathParticles(deathTick: number, tick: number, id = 0) {
           rotation[axis] +=
             p.rotationRate[axis] *
             TICK_RATE *
-            accumulateParticleCurve(
-              {
-                times: p.rotationCurve.map((k) => k.time),
-                values: p.rotationCurve.map((k) => k.value),
-              },
-              age,
-              life,
-              axis
-            );
+            accumulateParticleCurve(curve.rotation, age, life, axis);
       const frame =
         (p.atlas.start +
           (p.atlas.random ? Math.floor(roll * p.atlas.frames) : 0) +
@@ -79,7 +82,7 @@ export function grompDeathParticles(deathTick: number, tick: number, id = 0) {
           scale,
           rotation,
           frame,
-          color: p.color.map((v, axis) => v * sample(p.colorCurve, phase, axis)),
+          color: p.color.map((v, axis) => v * sample(curve.color, phase, axis)),
           offset: origin.toArray().map((v, axis) => v + p.postOffset[axis] + motion.position[axis]),
           scroll: birth(p.uvOffset, p.probabilities.uvOffset).map(
             (v, axis) => v + p.scroll[axis] * age
