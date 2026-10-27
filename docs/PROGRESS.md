@@ -6,46 +6,32 @@ Last updated: October 27, 2026 (UTC).
 
 ## Current authoritative state
 
-The latest [offline download focus repair](OFFLINE-KEYBOARD-FOCUS.md) gives
-keyboard focus to Cancel, restores retry focus and preserves another focused
-control on completion. TypeScript, 14 Node QA checks, build and the fresh full
-production offline audit pass. The current pack is
-`9c1d6b224cb5d205b36e71557ad0dd06ca092b81cd2472ae256df3219aaf1f9f`
-(1,202 files / 538,092,294 bytes). Broader unit and 32-scenario production acceptance
-remain inherited at the recorded earlier rendering identity.
+The latest rendering checkpoint applies the [Gromp missile color correction](GROMP-ATTACK-COLOR.md):
+all four emitters now follow checked conditional legacy float32 sampling and
+source-mode premultiplying, truncating BGRA packets. The preceding
+[billboard](GROMP-BILLBOARD-COLOR.md), [shadow plane](GROMP-PLANE-COLOR.md) and
+[mesh arithmetic](GROMP-MESH-COLOR.md) corrections retain their existing paths.
+Independent host-C references and 336 fresh missile browser comparisons support
+this bounded color change; they do not certify complete native appearance.
 
-The preceding [pending-import focus repair](IMPORT-DIALOG-FOCUS.md) keeps keyboard
-focus inside the loading dialog while its controls are disabled. Nine browser
-cases, TypeScript, 14 Node QA checks, build and the compiled native-write keyboard
-audit pass. Its pack is
-`d4d63558d110ea46b158a316651fc32fc1fe6677456cc328fcc3ce7cfafd546c`
-(1,202 files / 538,092,203 bytes). Broader unit/production/offline results below
-retain their recorded earlier identities and are inherited for this UI repair.
+The current revision has **3,379 passing unit tests out of 3,381 across 400 files**.
+The two unchanged baseline failures remain the missing original Leona Eclipse
+evidence closure and the host-sensitive Lux missile snapshot digest. Their
+assertions and expected results remain intact. TypeScript, all 16 Node QA checks,
+the build, 256 focused tests and the final eight-case Gromp browser batch pass.
+All 32 nested-path production scenarios and the complete offline audit pass,
+including integrity/retry, saved-tick restore, a new Lux lane match and atomic
+version activation, with 978 service-worker responses and zero page errors.
+All 1,125 source asset/data file sizes and mtimes remain unchanged.
 
-The preceding [modal keyboard repair](MODAL-KEYBOARD-FOCUS.md) makes initial
-Shift+Tab reach the last available dialog button. Its six browser cases,
-TypeScript, 14 Node QA checks, build and targeted nested-host keyboard audit pass.
-Its pack is `6d9e13b2bb8bbdf6de5400f2a6ae4fe9bcc4cfe1096f1e01fdd7a6b8d91627fc`
-(1,202 files / 538,092,175 bytes). Broader unit/production/offline acceptance below
-belongs to the preceding rendering checkpoint and its own pack; it is inherited
-for this focused UI change.
-
-The latest rendering checkpoint has **3,324 passing unit tests out of 3,326**
-across 399 files. The two unchanged baseline failures are a missing original
-Leona Eclipse evidence closure and the host-sensitive Lux missile snapshot digest;
-their assertions and expected results remain intact. TypeScript, all 14 Node QA
-checks, the production build and nine Gromp browser cases pass. The
-[Gromp billboard correction](GROMP-BILLBOARD-COLOR.md) and separate
-[shadow plane correction](GROMP-PLANE-COLOR.md), plus the separate
-[mesh arithmetic correction](GROMP-MESH-COLOR.md), follow checked primitive routes,
-independent host-C arithmetic and exact per-channel browser comparisons. They do
-not certify complete native appearance or physical-device performance.
-
-The new pack is `273e1d8ec876bb239ef52ae674f4ed95f23cb665b4094a1408b0ec37b9fe3390`
-(1,202 files / 538,092,143 bytes). All 32 nested-path production scenarios pass, and the exact pack passes
-offline integrity/recovery, saved-tick restore, a new Lux lane match and atomic
-version activation with zero page errors. Schema 163 and rules fingerprint
-`1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6` stay unchanged.
+The current pack is
+`556315eb1be84a02ce411b2e5aa339a80c0990e5913b80f6820f8e9e206edf88`
+(1,202 files / 538,092,670 bytes). Schema 163 and rules fingerprint
+`1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6`
+remain unchanged. The [offline download focus](OFFLINE-KEYBOARD-FOCUS.md),
+[pending-import focus](IMPORT-DIALOG-FOCUS.md) and
+[initial modal navigation](MODAL-KEYBOARD-FOCUS.md) repairs have separate bounded
+acceptance records; the fresh full offline audit retains its focus assertions.
 
 The current normal-rules [five-seed regression pilot](CURRENT-NORMAL-MATCH-PILOT.md)
 finishes all five matches validly. The fresh 100-seed cohort is still running;

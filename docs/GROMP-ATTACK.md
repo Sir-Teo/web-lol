@@ -6,6 +6,12 @@ surviving particles retain exact checkpoint continuation. This is a source-based
 reconstruction, with native origin/height, attack selection and composition still
 unverified. It does not finish Gromp presentation or standard-mode jungle play.
 
+The later [float32 and BGRA correction](GROMP-ATTACK-COLOR.md) applies the checked
+legacy Complex color routes to these four emitters, with source-mode
+premultiplication and truncating byte storage. Its fresh unit, browser,
+production and offline results are separate from the original acceptance below.
+Root/gravity/height, hit effects/audio and complete native appearance remain open.
+
 ## Source contract
 
 `src/content/gromp-attack.json` derives from the frozen

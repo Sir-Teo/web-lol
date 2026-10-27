@@ -5,6 +5,7 @@ import type { World } from '../simulation/world';
 import type { Vec2 } from '../simulation/math';
 import { grompAttackParticles } from './gromp-attack-particles';
 import { createParticleColorProductMaterial } from './particle-color-product';
+import { writeGrompAttackColor } from './gromp-attack-color';
 
 const textures = new Map<string, THREE.Texture>(),
   white = new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1),
@@ -56,7 +57,7 @@ export function createGrompAttackMaterial(index: number, texture: THREE.Texture,
       white,
       batched ? 'vertex' : 'uniform',
       undefined,
-      batched
+      batched ? 'bgra-unorm8' : false
     );
   Object.assign(m, {
     name: `Gromp attack ${p.name}`,
@@ -118,7 +119,6 @@ export class GrompAttack {
             for (const [name, size] of [
               ['position', 3],
               ['uv', 2],
-              ['particleTint', 4],
               ['particleLookupUv', 2],
             ] as const)
               geometry.setAttribute(
@@ -127,6 +127,12 @@ export class GrompAttack {
                   THREE.DynamicDrawUsage
                 )
               );
+            geometry.setAttribute(
+              '_source_vertex_bgra',
+              new THREE.BufferAttribute(new Uint8Array(capacity * 6 * 4), 4, true).setUsage(
+                THREE.DynamicDrawUsage
+              )
+            );
             mesh = new THREE.Mesh(
               geometry,
               createGrompAttackMaterial(index, textures.get(p.texture)!, true)
@@ -141,7 +147,7 @@ export class GrompAttack {
           }
           const position = mesh.geometry.getAttribute('position') as THREE.BufferAttribute,
             uv = mesh.geometry.getAttribute('uv') as THREE.BufferAttribute,
-            tint = mesh.geometry.getAttribute('particleTint') as THREE.BufferAttribute,
+            tint = mesh.geometry.getAttribute('_source_vertex_bgra') as THREE.BufferAttribute,
             lookup = mesh.geometry.getAttribute('particleLookupUv') as THREE.BufferAttribute,
             base = p.kind === 'quad' ? quad : billboard,
             basePosition = base.getAttribute('position'),
@@ -179,17 +185,18 @@ export class GrompAttack {
             }
             this.scale.fromArray(particle.scale).multiplyScalar(0.01);
             this.matrix.compose(this.position, this.rotation, this.scale);
-            const color = [...particle.color];
-            if (p.blend === 0 || p.blend === 2) {
-              for (let axis = 0; axis < 3; axis++) color[axis] *= color[3];
-              color[3] = 1;
-            }
+            writeGrompAttackColor(
+              tint.array as Uint8Array,
+              ordinal * 6,
+              6,
+              particle.color,
+              p.blend
+            );
             for (let v = 0; v < 6; v++) {
               const at = ordinal * 6 + v;
               this.point.fromBufferAttribute(basePosition, v).applyMatrix4(this.matrix);
               position.setXYZ(at, this.point.x, this.point.y, this.point.z);
               uv.setXY(at, baseUv.getX(v), baseUv.getY(v));
-              tint.setXYZW(at, color[0], color[1], color[2], color[3]);
               lookup.setXY(at, particle.phase, 0.5);
             }
           }

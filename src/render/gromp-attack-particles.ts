@@ -5,6 +5,7 @@ import { luxEmissionCount, luxEmissionBirthTick } from '../content/lux-emission'
 import { luxBeamBirthOffset } from './lux-beam-birth-offset';
 import { luxHoopChance } from './lux-hoop-particles';
 import { sampleParticleCurve } from './particle-curves';
+import { prepareLegacyParticleColor, sampleLegacyParticleColor } from './legacy-particle-color';
 import { grompDeathTravel } from './gromp-death-particles';
 
 /** The saved path has post-step endpoints. A stopped record freezes at contact;
@@ -31,6 +32,12 @@ const sample = (keys: { time: number; value: number[] }[], phase: number, axis: 
         axis
       )
     : 1;
+
+// The checked Complex missile routes share raw-key color arithmetic. The
+// fourth emitter has no numbered keys and keeps its constant white base.
+const rawColors = source.profiles.map((p) =>
+  p.colorCurve.length ? prepareLegacyParticleColor(p.color, p.colorCurve) : null
+);
 
 /** Source birth fields share one indexed chance; constant bind weight translates
  * particles by that fraction of emitter travel since birth. Stop uses the local
@@ -95,7 +102,9 @@ export function grompAttackParticles(effect: GrompAttackVisual, tick: number) {
         ],
         scale,
         rotation: birth(p.rotation, p.probabilities.rotation),
-        color: p.color.map((v, axis) => v * sample(p.colorCurve, phase, axis)),
+        color: rawColors[profileIndex]
+          ? sampleLegacyParticleColor(rawColors[profileIndex], phase)
+          : [...p.color],
       });
     }
     return particles;
