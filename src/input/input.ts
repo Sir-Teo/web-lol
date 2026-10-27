@@ -132,7 +132,7 @@ export class GameInput {
       }
       if (key === 'b') world.enqueue({ type: 'recall', unit: world.player.id });
       const spell = ['q', 'w', 'e', 'r', 'd', 'f'].includes(key) ? (key as Ability) : null;
-      if (spell) this.wardAiming = false;
+      if (spell && this.wardAiming) this.cancelAim();
       if (spell && instantSpell(world, spell)) {
         const point =
           world.summonerSpell(spell) === 'heal' &&
