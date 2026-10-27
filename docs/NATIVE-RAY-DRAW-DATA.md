@@ -40,6 +40,12 @@ attachment, orientation, axis fallback, UV orientation, live FPCR or visual
 parity. No native executable or shader was run. Missing historical archives
 are neither replaced nor certified.
 
+The later [birth-scale trace and correction](NATIVE-RAY-BIRTH-SCALE.md) follows
+the initializer input back through the native birth-preparation routine. It
+preserves the primary ray's independent `[80,180,0]` birth vector and X/Y scale
+curves, correcting a local uniform-fill shortcut. External vector modifiers,
+shared factors, orientation and live dispatch remain separate evidence.
+
 ```sh
 PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/native_ray_draw_data.py --check
 PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/test-native-ray-draw-data.py

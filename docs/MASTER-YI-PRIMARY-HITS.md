@@ -144,6 +144,10 @@ and half lookup precision to the retained unit-corner quad profiles. The
 [ray packet correction](PRIMARY-HIT-RAY-PACKETS.md) adds its separately traced
 lookup/color precision while preserving geometry and frame policies. Live native
 shader selection remains unverified.
+The later [ray birth-scale correction](NATIVE-RAY-BIRTH-SCALE.md) preserves its
+independent width, length and zero near displacement instead of copying X into
+every component. The raw uniform flag remains retained; other primitive size
+policies are unchanged.
 The raw identifier `{08b52819}` matches candidate `censorModulateValue`;
 no global censorship switch or quality filter is inferred. Raw hashes stay
 unchanged in the original definitions.

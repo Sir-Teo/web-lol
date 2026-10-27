@@ -66,3 +66,8 @@ ownership checks cover normalized byte order, a reused dynamic buffer, white
 uniform tint and immutable caller color/tint arrays. Unrequested surfaces retain
 their existing shared geometry and uniform path. Browser, production and artifact details are
 retained in the [verification ledger](reference/primary-hit-ray-packets-verification.json).
+
+The later [birth-scale correction](NATIVE-RAY-BIRTH-SCALE.md) preserves separate
+ray width, length and near displacement. The geometry-equivalence statements
+and counterfactual pixel counts above describe this packet-precision checkpoint;
+its immutable record retains the source snapshot used for those checks.

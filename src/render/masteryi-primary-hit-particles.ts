@@ -92,7 +92,9 @@ export function primaryHitParticles(
             : Math.floor(particleHalf(continuousFrame)),
         lookup = particleColorLookup(p, phase, roll, motion.travel),
         rgba = sample(p.birthColor).map((x, axis) => x * color[axis]);
-      if (p.uniform) size.fill(size[0]);
+      // The recovered ray birth/draw path preserves all three scale lanes.
+      // Its serialized uniform flag does not copy width into length/near offset.
+      if (p.uniform && p.kind !== 'ray') size.fill(size[0]);
       uv.cell = [(frame % columns) / columns, Math.floor(frame / columns) / rows];
       // Both recovered vertex builders pack lookup UVs as half. Their unit
       // UV0 corners are exact; the ray's upstream frame policy stays separate.

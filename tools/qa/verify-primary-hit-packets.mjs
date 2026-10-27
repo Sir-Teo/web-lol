@@ -72,6 +72,7 @@ for (const seed of [0, 1, 47, 91, 144, 312, 1337, 65535, 0xffffffff])
           roll = before.exports.luxHoopChance(emitterSeed ^ 0x27d4eb2d, original.ordinal);
         request.push({
           kind: profile.kind,
+          phase: original.phase,
           age: original.age,
           roll,
           uv: profile.uv,
@@ -102,7 +103,8 @@ let rayParticles = 0,
   changedCells = 0,
   changedLookups = 0,
   changedRayColors = 0,
-  changedRayLookups = 0;
+  changedRayLookups = 0,
+  changedRaySizes = 0;
 for (const row of cases) {
   const e = expected[row.request],
     candidate = row.candidate,
@@ -126,6 +128,8 @@ for (const row of cases) {
     );
   if (row.ray) {
     rayParticles++;
+    assert.deepEqual(candidate.size, e.size, `ray source components seed ${row.seed}`);
+    if (JSON.stringify(original.size) !== JSON.stringify(e.size)) changedRaySizes++;
     assert.deepEqual(candidate.uv, original.uv);
     if (JSON.stringify(original.color) !== JSON.stringify(e.color)) changedRayColors++;
     if (JSON.stringify(original.lookup) !== JSON.stringify(e.lookup)) changedRayLookups++;
@@ -139,6 +143,7 @@ for (const row of cases) {
       ...candidate,
       color: original.color,
       lookup: original.lookup,
+      size: row.ray ? original.size : candidate.size,
       uv: { ...candidate.uv, cell: original.uv.cell },
     },
     original
@@ -149,7 +154,8 @@ assert(
     changedLookups > 0 &&
     rayParticles > 0 &&
     changedRayColors > 0 &&
-    changedRayLookups > 0
+    changedRayLookups > 0 &&
+    changedRaySizes > 0
 );
 const scalarInputs = [-1, -0, 0, 0.5, 1, 1.5, -(2 ** -149), 2 ** -149, 3.4028234663852886e38],
   scalarFloat = new Float32Array(1),
@@ -202,6 +208,8 @@ const reading = {
   vertexFormatWitnessSha256: sha(readFileSync('docs/reference/native-particle-vertex-format.json')),
   nativeWitnessSha256: sha(readFileSync('docs/reference/native-atlas-runtime.json')),
   pythonReferenceSha256: sha(readFileSync('tools/qa/lib/primary-hit-packet-reference.py')),
+  raySizeWitnessSha256: sha(readFileSync('docs/reference/native-ray-birth-scale.json')),
+  raySizeReferenceSha256: sha(readFileSync('tools/qa/lib/primary_hit_ray_size_reference.py')),
   samplerCalls: 9 * 3 * 78,
   quadParticles: request.length - rayParticles,
   rayParticles,
@@ -210,7 +218,9 @@ const reading = {
   otherFieldsExact: true,
   changedRayPacketColors: changedRayColors,
   changedRayLookups,
-  rayFramesAndGeometryExact: true,
+  changedRaySizes,
+  raySizesMatchSourceComponents: true,
+  rayFramesExact: true,
   sourceColorsExact: true,
   quadColorsExact: true,
   independentPacketReferenceExact: true,
@@ -219,6 +229,7 @@ const reading = {
   limits: [
     'Native formula applied to existing local age and indexed random inputs; native RNG/clock producers and live FPCR remain unobserved.',
     'Half nearest-even is an explicit local policy. Ray colors follow the distinct clamped float32 byte path and the observed normalized vertex format; no native game or Metal shader execution.',
+    'Ray width/length/near displacement retain separate source components. Size curves use the existing local linear phase policy; native curve arithmetic, optional modifiers and shared factors remain unobserved.',
   ],
 };
 writeFileSync(resolve(output, 'reading.json'), JSON.stringify(reading, null, 2) + '\n');

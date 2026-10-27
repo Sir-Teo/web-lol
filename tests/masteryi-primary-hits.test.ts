@@ -65,6 +65,21 @@ test('unblended fluid, random atlas omission and last blood atlas cell stay lite
   expect(blood.uv.cell).toEqual([0.75, 0.75]);
   expect(data.profiles[2].uv.frameRate).toBe(1);
 });
+test('the ray retains independent authored width, length and zero near displacement', () => {
+  const ray = data.profiles[9];
+  expect(ray.kind).toBe('ray');
+  expect(ray.uniform).toBe(true);
+  expect(ray.size.constant).toEqual([80, 180, 0]);
+  const birth = primaryHitParticles(91, 1 / 60, 'crit', 30).find((p) => p.profileIndex === 9)!;
+  expect(birth.size).toEqual([80, 180, 0]);
+  const middle = primaryHitParticles(91, 1 / 60 + birth.life / 2, 'crit', 30).find(
+    (p) => p.profileIndex === 9
+  )!;
+  // The source curve independently grows X to 2.5 and Y to 3 after phase 0.2.
+  expect(middle.size[0]).toBeCloseTo(125, 5);
+  expect(middle.size[1]).toBeCloseTo(315, 5);
+  expect(middle.size[2]).toBe(0);
+});
 test('bound-size flex changes particle spawn offset without changing size or indexed life', () => {
   const a = primaryHitParticles(91, 1 / 60, 'attack1', 30),
     b = primaryHitParticles(91, 1 / 60, 'attack1', 60);
