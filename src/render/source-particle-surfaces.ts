@@ -22,7 +22,6 @@ for (let i = 0; i < 4; i++) {
   q.setXY(i, v, 1 - u);
 }
 const up = new THREE.Vector3(0, 1, 0),
-  rollAxis = new THREE.Vector3(0, 0, 1),
   flightTilt = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), Math.PI / 2);
 export type SurfaceParticle = ReturnType<typeof eclipseParticles>[number] & {
   /** World-axis terms stay outside an attachment's orientation. */
@@ -128,6 +127,7 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
   private frameRotation = new THREE.Quaternion();
   private euler = new THREE.Euler(0, 0, 0, 'YXZ');
   private cameraRotation = new THREE.Quaternion();
+  private inverseCameraRotation = new THREE.Quaternion();
   private vector = new THREE.Vector3();
   private eye = new THREE.Vector3();
   constructor(
@@ -250,6 +250,7 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
     const active = new Set<string>(),
       assets = this.resources ?? this.program.assets(),
       tick = world.tick - 1 + alpha + (world.winner ? terminalAge * 60 : 0);
+    let inverseCameraReady = false;
     camera.getWorldQuaternion(this.cameraRotation);
     camera.getWorldPosition(this.eye);
     if (assets)
@@ -346,18 +347,22 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
           mesh.position.copy(position);
           mesh.quaternion.identity();
           mesh.scale.setScalar(1);
-          this.sourceRotation.setFromEuler(
-            this.euler.set(
-              ...(p.rotation.map(THREE.MathUtils.degToRad) as [number, number, number]),
-              'YXZ'
-            )
-          );
-          this.reflectedRotation.set(
-            this.sourceRotation.x,
-            -this.sourceRotation.y,
-            -this.sourceRotation.z,
-            this.sourceRotation.w
-          );
+          // Camera-facing billboards use roll or travel direction below. Their
+          // full source Euler frame is only consumed by other surface paths.
+          if (profile.kind !== 'billboard' || attachmentFrame) {
+            this.sourceRotation.setFromEuler(
+              this.euler.set(
+                ...(p.rotation.map(THREE.MathUtils.degToRad) as [number, number, number]),
+                'YXZ'
+              )
+            );
+            this.reflectedRotation.set(
+              this.sourceRotation.x,
+              -this.sourceRotation.y,
+              -this.sourceRotation.z,
+              this.sourceRotation.w
+            );
+          }
           if (profile.kind === 'ray') {
             const axis = new THREE.Vector3(0, 0, 1).applyQuaternion(this.sourceRotation),
               across = new THREE.Vector3(1, 0, 0).applyQuaternion(this.sourceRotation);
@@ -421,15 +426,13 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
                 stretch = Math.max(1, this.vector.length() * profile.directionVelocityScale);
               }
               if (orbit) this.vector.applyQuaternion(this.orbitRotation);
-              this.vector.applyQuaternion(this.cameraRotation.clone().invert());
+              if (!inverseCameraReady) {
+                this.inverseCameraRotation.copy(this.cameraRotation).invert();
+                inverseCameraReady = true;
+              }
+              this.vector.applyQuaternion(this.inverseCameraRotation);
               mesh.rotateZ(Math.atan2(-this.vector.x, this.vector.y));
-            } else
-              mesh.quaternion.multiply(
-                new THREE.Quaternion().setFromAxisAngle(
-                  rollAxis,
-                  -THREE.MathUtils.degToRad(p.rotation[0])
-                )
-              );
+            } else mesh.rotateZ(-THREE.MathUtils.degToRad(p.rotation[0]));
             mesh.scale.set(p.size[0] * 0.01, p.size[1] * stretch * 0.01, 1);
           } else {
             mesh.quaternion.copy(this.frameRotation).multiply(this.reflectedRotation);
@@ -438,9 +441,13 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
           }
           const uniforms = mesh.material.uniforms,
             packed = this.program.tint?.(p.profileIndex, p.color),
-            color = [...(packed ?? p.color)];
-          if (!packed && profile.blend === 0) for (let i = 0; i < 3; i++) color[i] *= color[3];
-          uniforms.particleColor.value.fromArray(color);
+            color = uniforms.particleColor.value as THREE.Vector4;
+          color.fromArray(packed ?? p.color);
+          if (!packed && profile.blend === 0) {
+            color.x *= color.w;
+            color.y *= color.w;
+            color.z *= color.w;
+          }
           uniforms.lookupUv.value.fromArray(p.lookup);
           if (profile.distortion) uniforms.distortionPower.value = profile.distortion.strength;
           else {

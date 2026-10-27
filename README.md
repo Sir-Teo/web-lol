@@ -111,3 +111,6 @@ restores all 53 original shader resources and artifacts against unchanged hashes
 
 The [Lux FMA reference](docs/LUX-E-FMA-REFERENCE.md) reproduces the original
 sampler golden with controlled compiler arithmetic and preserves game math.
+
+[Source particle placement](docs/PARTICLE-SURFACE-PLACEMENT.md) avoids unused
+rotations and transient allocations with exact state and GPU pixel comparisons.
