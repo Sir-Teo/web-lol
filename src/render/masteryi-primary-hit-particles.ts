@@ -6,6 +6,7 @@ import { luxHoopChance } from './lux-hoop-particles';
 import { eclipseValue, eclipseUv, type EclipseValue } from './leona-eclipse-values';
 import { particleColorLookup } from './particle-color-lookup';
 import { spatialDragTravel } from './particle-spatial-drag';
+import { particleHalf } from './particle-half';
 
 /** All eleven source emitters on the local indexed first-update/force grid.
  * No world RNG, IDs or mutable particle clocks are consumed. */
@@ -72,13 +73,32 @@ export function primaryHitParticles(
         uv = eclipseUv(p.uv, age, life, birthPhase, phase, chance, roll),
         columns = p.uv.divisions[0],
         rows = p.uv.divisions[1],
+        // The frozen quad path takes modulo numFrames before adding startFrame,
+        // packs the continuous frame as half, then floors it in the vertex shader.
+        // All current random atlases have power-of-two frame counts and zero
+        // rate: their float32 product is exact, so no FMA emulation is needed.
+        animation = p.uv.frameRate > 0 ? Math.fround(Math.fround(age) * p.uv.frameRate) : 0,
+        continuousFrame = Math.fround(
+          p.uv.startFrame +
+            (Math.fround((p.uv.randomStart ? Math.fround(roll) * p.uv.frames : 0) + animation) %
+              p.uv.frames)
+        ),
         frame =
-          (p.uv.startFrame +
-            (p.uv.randomStart ? Math.floor(roll * p.uv.frames) : 0) +
-            Math.floor(age * p.uv.frameRate)) %
-          (columns * rows);
+          p.kind === 'ray'
+            ? (p.uv.startFrame +
+                (p.uv.randomStart ? Math.floor(roll * p.uv.frames) : 0) +
+                Math.floor(age * p.uv.frameRate)) %
+              (columns * rows)
+            : Math.floor(particleHalf(continuousFrame)),
+        lookup = particleColorLookup(p, phase, roll, motion.travel);
       if (p.uniform) size.fill(size[0]);
       uv.cell = [(frame % columns) / columns, Math.floor(frame / columns) / rows];
+      // Quad lookup UVs share the native half packet. Unit UV0 corners are
+      // exact. The untraced ray path retains its existing precision.
+      if (p.kind !== 'ray') {
+        lookup[0] = particleHalf(lookup[0]);
+        lookup[1] = particleHalf(lookup[1]);
+      }
       particles.push({
         profileIndex,
         ordinal,
@@ -95,7 +115,7 @@ export function primaryHitParticles(
         travel: motion.travel,
         stretch: 1,
         bind: eclipseValue(p.bind, Math.min(1, time / p.emitterLife))[0],
-        lookup: particleColorLookup(p, phase, roll, motion.travel),
+        lookup,
         uv,
         multUv: null,
         erosion: 0,

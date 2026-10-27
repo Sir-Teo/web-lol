@@ -241,3 +241,48 @@ test('target death freezes the finalized corpse pose, with exact later save futu
   expect(hit.frames.at(-1)).toEqual({ ...last, tick: f.w.tick });
   resume(f.w, 20);
 });
+
+test.each([
+  { seed: 312, ordinal: 5, profile: 0, age: 0, cell: [0.5, 0] },
+  { seed: 47, ordinal: 3, profile: 3, age: 0, cell: [0.5, 0.5] },
+  { seed: 144, ordinal: 1, profile: 2, age: 0.998, cell: [0, 1] },
+])('quad atlas boundary at seed $seed follows half packing before shader flooring', (f) => {
+  const particle = primaryHitParticles(f.seed, 1 / 60 + f.age, 'attack1', 30).find(
+    (p) => p.profileIndex === f.profile && p.ordinal === f.ordinal
+  )!;
+  expect(particle).toBeDefined();
+  expect(particle.age).toBeLessThan(particle.life);
+  expect(particle.uv.cell).toEqual(f.cell);
+});
+
+test('the retained quad profiles satisfy the exact unit-corner and float32 atlas specialization', () => {
+  for (const profile of data.profiles.filter((p) => p.kind !== 'ray')) {
+    for (const [field, value] of [
+      ['scale', [1, 1]],
+      ['offset', [0, 0]],
+      ['birthScroll', [0, 0]],
+      ['scroll', [0, 0]],
+    ] as const) {
+      expect(profile.uv[field].values).toEqual([value]);
+      expect(profile.uv[field].times).toEqual([0]);
+      expect(profile.uv[field].probabilities).toEqual([]);
+    }
+    expect(Number.isInteger(profile.uv.frames) && profile.uv.frames > 0).toBe(true);
+    expect(profile.uv.frames & (profile.uv.frames - 1)).toBe(0);
+    if (profile.uv.randomStart) expect(profile.uv.frameRate).toBe(0);
+  }
+});
+
+test('quad lookup UVs use binary16 while the untraced ray preserves its coordinate precision', () => {
+  const quads = primaryHitParticles(91, 0.08, 'attack1', 30),
+    ray = primaryHitParticles(91, 0.08, 'crit', 30).find((p) => p.profileIndex === 9)!;
+  // Independent binary16 reference values for the four retained source profiles.
+  expect(quads.filter((p) => p.ordinal === 1).map((p) => p.lookup)).toEqual([
+    [0.1453857421875, 0.62353515625],
+    [0.2110595703125, 1],
+    [0.243896484375, 0.994140625],
+    [0.071044921875, 0.7578125],
+  ]);
+  expect(ray.lookup).toEqual([ray.phase, 1]);
+  expect(ray.lookup[0]).not.toBe(0.422119140625);
+});

@@ -56,12 +56,12 @@ native FPCR or GPU execution. UV0.xy and lookup coordinates are also half values
 The mesh routine instead converts its continuous frame with `FCVTZS` before
 forming `vParticleUVTransform`, so the quad packet must not be generalized to it.
 
-The current primary-hit sampler still uses its existing integer-first atlas
-policy. This evidence identifies a fidelity gap at rounding boundaries and for
-future mixed random/animated atlases; this checkpoint changes no game behavior.
-A correction must preserve the distinction among quad, mesh and ray paths and
-account for UV vertex packing, rather than rounding only a global UV uniform.
-Native live shader selection and actual Yi dispatch are not certified here.
+At evidence checkpoint `c0f7504`, the primary-hit sampler still used its
+integer-first atlas policy. The later [primary-hit packet correction](PRIMARY-HIT-HALF-PACKETS.md)
+applies the recovered ordering to the retained quad profiles, whose unit UV
+corners are exact in half precision, and quantizes their lookup inputs. Mesh and
+ray paths retain separate scope. Native live shader selection and actual Yi
+dispatch remain unverified.
 
 The producer reads the restored native executable and reconstructs two shader
 resources from authenticated cached RMAN chunks. It checks the shader TOC's
