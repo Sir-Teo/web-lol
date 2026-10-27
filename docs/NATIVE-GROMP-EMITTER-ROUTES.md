@@ -52,3 +52,7 @@ bytes, the explicit Simple declaration, seven omitted declarations, source/group
 order and primitive scope. Offline replay blocks sockets and child processes.
 The [verification record](reference/native-gromp-emitter-routes-verification.json)
 separates fresh static checks from inherited application acceptance.
+
+The separate [plane color reading](NATIVE-PLANE-COLOR-PACKETS.md) follows the
+Complex shadow profile through the legacy p-type1 factory and its virtual packet
+builder. This source-only extension leaves the application plane policy unchanged.
