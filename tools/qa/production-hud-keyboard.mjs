@@ -61,6 +61,47 @@ await new Promise((resolve, reject) => {
   server.listen(0, '127.0.0.1', resolve);
 });
 const base = `http://127.0.0.1:${server.address().port}${prefix}`;
+async function holdNativeWrite(page, flag) {
+  await page.evaluate((releaseFlag) => {
+    const original = IDBDatabase.prototype.transaction;
+    const complete = Object.getOwnPropertyDescriptor(IDBTransaction.prototype, 'oncomplete');
+    IDBDatabase.prototype.transaction = function (...args) {
+      const tx = Reflect.apply(original, this, args);
+      if (args[1] === 'readwrite')
+        Object.defineProperty(tx, 'oncomplete', {
+          configurable: true,
+          get() {
+            return complete.get.call(tx);
+          },
+          set(callback) {
+            complete.set.call(tx, (event) => {
+              window[releaseFlag] = () => callback.call(tx, event);
+            });
+          },
+        });
+      return tx;
+    };
+  }, flag);
+}
+async function storedMatch(page) {
+  return page.evaluate(async () => {
+    const request = indexedDB.open('rift-local-matches', 1);
+    const db = await new Promise((resolve, reject) => {
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = reject;
+    });
+    try {
+      return await new Promise((resolve, reject) => {
+        const tx = db.transaction('checkpoints', 'readonly'),
+          r = tx.objectStore('checkpoints').get('rift');
+        tx.oncomplete = () => resolve(r.result);
+        tx.onabort = reject;
+      });
+    } finally {
+      db.close();
+    }
+  });
+}
 let browser;
 try {
   browser = await chromium.launch({ channel: 'chrome', headless: true });
@@ -160,33 +201,12 @@ try {
     importState = JSON.parse(importBytes);
   // Hold the native IndexedDB completion callback after the real write. This
   // exercises pending production UI without exposing a development game hook.
-  await page.evaluate(() => {
-    const original = IDBDatabase.prototype.transaction;
-    const complete = Object.getOwnPropertyDescriptor(IDBTransaction.prototype, 'oncomplete');
-    IDBDatabase.prototype.transaction = function (...args) {
-      const tx = Reflect.apply(original, this, args);
-      if (args[1] === 'readwrite')
-        Object.defineProperty(tx, 'oncomplete', {
-          configurable: true,
-          get() {
-            return complete.get.call(tx);
-          },
-          set(callback) {
-            complete.set.call(tx, (event) => {
-              window.__QA_RELEASE_IMPORT__ = () => callback.call(tx, event);
-            });
-          },
-        });
-      return tx;
-    };
+  await holdNativeWrite(page, '__QA_RELEASE_IMPORT__');
+  await page.getByLabel('Match file', { exact: true }).setInputFiles({
+    name: 'paused-keyboard-match.json',
+    mimeType: 'application/json',
+    buffer: importBytes,
   });
-  await page
-    .getByLabel('Match file', { exact: true })
-    .setInputFiles({
-      name: 'paused-keyboard-match.json',
-      mimeType: 'application/json',
-      buffer: importBytes,
-    });
   const load = page.getByRole('button', { name: 'Load this match', exact: true });
   await load.click();
   await page.locator('.file-status').filter({ hasText: 'Loading match…' }).waitFor();
@@ -206,23 +226,7 @@ try {
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   await page.getByRole('heading', { name: 'Game paused', exact: true }).waitFor();
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
-  const restored = await page.evaluate(async () => {
-    const request = indexedDB.open('rift-local-matches', 1);
-    const db = await new Promise((resolve, reject) => {
-      request.onsuccess = () => resolve(request.result);
-      request.onerror = reject;
-    });
-    try {
-      return await new Promise((resolve, reject) => {
-        const tx = db.transaction('checkpoints', 'readonly'),
-          r = tx.objectStore('checkpoints').get('rift');
-        tx.oncomplete = () => resolve(r.result);
-        tx.onabort = reject;
-      });
-    } finally {
-      db.close();
-    }
-  });
+  const restored = await storedMatch(page);
   assert.equal(restored, importBytes.toString());
   const seconds = Math.floor(importState.tick / 60);
   assert.equal(
@@ -236,6 +240,44 @@ try {
   await page
     .getByRole('heading', { name: 'Game paused', exact: true })
     .waitFor({ state: 'detached' });
+  await page.getByRole('button', { name: 'Pause game', exact: true }).focus();
+  await page.keyboard.press('Space');
+  await page.getByRole('heading', { name: 'Game paused', exact: true }).waitFor();
+  await page.getByRole('button', { name: 'New match', exact: true }).click();
+  await page.getByRole('button', { name: 'Lux', exact: true }).click();
+  await holdNativeWrite(page, '__QA_RELEASE_START__');
+  await page.getByRole('button', { name: 'Start 5v5 match', exact: true }).focus();
+  await page.keyboard.press('Enter');
+  await page.waitForFunction(() => typeof window.__QA_RELEASE_START__ === 'function');
+  const startDialog = page.getByRole('dialog');
+  assert.equal(await startDialog.evaluate((node) => document.activeElement === node), true);
+  assert.equal(await startDialog.locator('button:not([disabled])').count(), 0);
+  assert.equal(await startDialog.getByRole('status').textContent(), 'Starting match…');
+  for (const key of ['Tab', 'Shift+Tab']) {
+    await page.keyboard.press(key);
+    assert.equal(await startDialog.evaluate((node) => document.activeElement === node), true);
+  }
+  const createdSnapshot = await storedMatch(page),
+    created = JSON.parse(createdSnapshot);
+  assert.equal(created.matchMode, 'lanes');
+  assert.equal(created.tick, 0);
+  assert.equal(created.units.find((unit) => unit.id === created.player.id).champion, 'lux');
+  await page.screenshot({ path: resolve(output, 'start-pending-focus.png') });
+  await Promise.all([
+    page.waitForEvent('load'),
+    page.evaluate(() => window.__QA_RELEASE_START__()),
+  ]);
+  await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
+  await page.getByRole('heading', { name: 'Game paused', exact: true }).waitFor();
+  assert.equal(await page.evaluate(() => !!window.__GAME__), false);
+  assert.equal(await storedMatch(page), createdSnapshot);
+  assert.equal(await page.locator('.champion-title strong').textContent(), 'LUX');
+  assert.equal(await page.locator('#clock').textContent(), '00:00');
+  await page.screenshot({ path: resolve(output, 'started-lux-match.png') });
+  await page.getByRole('button', { name: 'Match files', exact: true }).click();
+  const createdDownload = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Download current match', exact: true }).click();
+  assert.equal(readFileSync(await (await createdDownload).path()).toString(), createdSnapshot);
   assert.deepEqual(errors, []);
   assert.deepEqual(failed, []);
   assert.deepEqual(outside, []);
@@ -258,7 +300,11 @@ try {
     failed,
     outside,
     browser: await browser.version(),
-    screenshots: 3,
+    pendingMatchStartRetainsDialogFocus: true,
+    pendingMatchStartAnnounced: true,
+    startedLuxLaneMatchExactAfterNativeWrite: true,
+    startedMatchDownloadExact: true,
+    screenshots: 5,
   };
   writeFileSync(resolve(output, 'reading.json'), JSON.stringify(result, null, 2) + '\n');
   console.log(JSON.stringify(result));

@@ -6,6 +6,15 @@ Last updated: October 27, 2026 (UTC).
 
 ## Current authoritative state
 
+The latest [pending-match start repair](MATCH-START-FOCUS.md) retains keyboard
+focus and announces loading while a new match is saved. Its final nine-case
+browser batch, TypeScript, all 16 Node QA checks, build and compiled native-write
+keyboard audit pass. The new Lux lane match restores and exports byte-exactly.
+The current pack is
+`1ba020013994733d8bc4f11dc43ec3a313492d4e93e0d4e8b74b80af874a9377`
+(1,202 files / 538,092,904 bytes). Full unit, broad production and full-offline
+acceptance below remain inherited at their recorded rendering identity.
+
 The latest rendering checkpoint applies the [Gromp missile color correction](GROMP-ATTACK-COLOR.md):
 all four emitters now follow checked conditional legacy float32 sampling and
 source-mode premultiplying, truncating BGRA packets. The preceding
@@ -14,7 +23,7 @@ source-mode premultiplying, truncating BGRA packets. The preceding
 Independent host-C references and 336 fresh missile browser comparisons support
 this bounded color change; they do not certify complete native appearance.
 
-The current revision has **3,379 passing unit tests out of 3,381 across 400 files**.
+The preceding rendering checkpoint has **3,379 passing unit tests out of 3,381 across 400 files**.
 The two unchanged baseline failures remain the missing original Leona Eclipse
 evidence closure and the host-sensitive Lux missile snapshot digest. Their
 assertions and expected results remain intact. TypeScript, all 16 Node QA checks,
@@ -24,7 +33,7 @@ including integrity/retry, saved-tick restore, a new Lux lane match and atomic
 version activation, with 978 service-worker responses and zero page errors.
 All 1,125 source asset/data file sizes and mtimes remain unchanged.
 
-The current pack is
+Its accepted pack is
 `556315eb1be84a02ce411b2e5aa339a80c0990e5913b80f6820f8e9e206edf88`
 (1,202 files / 538,092,670 bytes). Schema 163 and rules fingerprint
 `1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6`

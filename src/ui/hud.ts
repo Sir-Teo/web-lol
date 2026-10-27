@@ -779,6 +779,13 @@ export class Hud {
           backdrop.querySelectorAll<HTMLButtonElement>('button').forEach((control) => {
             control.disabled = true;
           });
+          const dialog = backdrop.querySelector<HTMLElement>('.game-dialog')!;
+          dialog.focus({ preventScroll: true });
+          const status = document.createElement('p');
+          status.className = 'practice-note';
+          status.setAttribute('role', 'status');
+          status.textContent = 'Starting match…';
+          dialog.querySelector('.dialog-rule')!.after(status);
           void this.actions
             .startMatch(
               action === 'start-lanes' ? 'lanes' : 'practice',
