@@ -56,30 +56,40 @@ async function boot(): Promise<void> {
   const fixture = import.meta.env.DEV && query.get('scene') === 'fixture';
   const leonaRiftTrial = import.meta.env.DEV && query.get('scene') === 'leona-rift';
   const garenRiftTrial = import.meta.env.DEV && query.get('scene') === 'garen-rift';
+  const masterYiRiftTrial = import.meta.env.DEV && query.get('scene') === 'masteryi-rift';
+  const ahriRiftTrial = import.meta.env.DEV && query.get('scene') === 'ahri-rift';
   const masterYiNpc = fixture && query.get('npc') === 'masteryi' && !query.has('champion');
   const ahriPlayerFixture = fixture && query.get('champion') === 'ahri';
   const masterYiPlayerFixture = fixture && query.get('champion') === 'masteryi';
   const loadedBattlefield = fixture ? PRACTICE_FIXTURE : await loadRiftBattlefield();
-  const battlefield = leonaRiftTrial
-    ? { ...loadedBattlefield, developmentLeona: true as const }
-    : garenRiftTrial
-      ? { ...loadedBattlefield, developmentGaren: true as const }
-      : masterYiPlayerFixture
-        ? { ...loadedBattlefield, developmentMasterYi: true as const }
-        : ahriPlayerFixture
-          ? { ...loadedBattlefield, developmentAhri: true as const }
-          : loadedBattlefield;
-  const saveKey = masterYiPlayerFixture
-    ? 'development-masteryi-player-fixture'
-    : masterYiNpc
-      ? 'development-masteryi-npc-fixture'
+  const battlefield = ahriRiftTrial
+    ? { ...loadedBattlefield, developmentAhriRift: true as const }
+    : masterYiRiftTrial
+      ? { ...loadedBattlefield, developmentMasterYiRift: true as const }
       : leonaRiftTrial
-        ? 'development-leona-rift'
+        ? { ...loadedBattlefield, developmentLeona: true as const }
         : garenRiftTrial
-          ? 'development-garen-rift'
-          : ahriPlayerFixture
-            ? 'development-ahri-player-fixture'
-            : battlefield.id;
+          ? { ...loadedBattlefield, developmentGaren: true as const }
+          : masterYiPlayerFixture
+            ? { ...loadedBattlefield, developmentMasterYi: true as const }
+            : ahriPlayerFixture
+              ? { ...loadedBattlefield, developmentAhri: true as const }
+              : loadedBattlefield;
+  const saveKey = ahriRiftTrial
+    ? 'development-ahri-rift'
+    : masterYiRiftTrial
+      ? 'development-masteryi-rift'
+      : masterYiPlayerFixture
+        ? 'development-masteryi-player-fixture'
+        : masterYiNpc
+          ? 'development-masteryi-npc-fixture'
+          : leonaRiftTrial
+            ? 'development-leona-rift'
+            : garenRiftTrial
+              ? 'development-garen-rift'
+              : ahriPlayerFixture
+                ? 'development-ahri-player-fixture'
+                : battlefield.id;
   const leonaNpc = fixture && new URLSearchParams(location.search).get('npc') === 'leona';
   const ahriNpc = fixture && query.get('npc') === 'ahri';
   const garenFixture = fixture && new URLSearchParams(location.search).get('champion') === 'garen';
@@ -118,21 +128,25 @@ async function boot(): Promise<void> {
           return next;
         })();
   };
-  let world = leonaRiftTrial
-    ? createLaneMatch(battlefield, 'leona')
-    : garenRiftTrial
-      ? createLaneMatch(battlefield, 'garen')
-      : freshPractice(
-          masterYiPlayerFixture
-            ? 'masteryi'
-            : ahriPlayerFixture
-              ? 'ahri'
-              : garenFixture
-                ? 'garen'
-                : leonaFixture
-                  ? 'leona'
-                  : 'ashe'
-        );
+  let world = ahriRiftTrial
+    ? createLaneMatch(battlefield, 'ahri')
+    : masterYiRiftTrial
+      ? createLaneMatch(battlefield, 'masteryi', { d: 'smite', f: 'flash' })
+      : leonaRiftTrial
+        ? createLaneMatch(battlefield, 'leona')
+        : garenRiftTrial
+          ? createLaneMatch(battlefield, 'garen')
+          : freshPractice(
+              masterYiPlayerFixture
+                ? 'masteryi'
+                : ahriPlayerFixture
+                  ? 'ahri'
+                  : garenFixture
+                    ? 'garen'
+                    : leonaFixture
+                      ? 'leona'
+                      : 'ashe'
+            );
   let restored = false,
     saveNotice = '';
   try {
@@ -224,11 +238,15 @@ async function boot(): Promise<void> {
         world.matchMode === 'lanes'
           ? createLaneMatch(
               battlefield,
-              leonaRiftTrial && world.hero.champion === 'leona'
-                ? 'leona'
-                : garenRiftTrial && world.hero.champion === 'garen'
-                  ? 'garen'
-                  : selectableChampion(world.hero.champion),
+              ahriRiftTrial && world.hero.champion === 'ahri'
+                ? 'ahri'
+                : masterYiRiftTrial && world.hero.champion === 'masteryi'
+                  ? 'masteryi'
+                  : leonaRiftTrial && world.hero.champion === 'leona'
+                    ? 'leona'
+                    : garenRiftTrial && world.hero.champion === 'garen'
+                      ? 'garen'
+                      : selectableChampion(world.hero.champion),
               world.player.summoners
             ).snapshot()
           : grompEncounter ||
@@ -479,6 +497,8 @@ async function boot(): Promise<void> {
   else if (saveNotice) hud.toast(saveNotice);
   else if (leonaRiftTrial) hud.toast('Development trial: Leona support on Summoner’s Rift.');
   else if (garenRiftTrial) hud.toast('Development trial: Garen top on Summoner’s Rift.');
+  else if (masterYiRiftTrial) hud.toast('Development trial: Master Yi jungle on Summoner’s Rift.');
+  else if (ahriRiftTrial) hud.toast('Development trial: Ahri mid on Summoner’s Rift.');
   window.setTimeout(() => loading.remove(), 600);
   let frames = 0,
     frameTime = 0,

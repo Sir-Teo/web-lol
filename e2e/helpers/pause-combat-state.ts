@@ -5,7 +5,14 @@ import type { Page } from '@playwright/test';
 export async function pauseAtCombatState(
   page: Page,
   phase:
-    'garen-q' | 'garen-q-hit' | 'garen-w' | 'garen-e' | 'garen-e-end' | 'pending-cast' | 'leona-q'
+    | 'garen-q'
+    | 'garen-q-hit'
+    | 'garen-w'
+    | 'garen-e'
+    | 'garen-e-end'
+    | 'pending-cast'
+    | 'leona-q'
+    | 'masteryi-q'
 ) {
   await page.evaluate((phase) => {
     const g = (window as any).__GAME__,
@@ -27,7 +34,9 @@ export async function pauseAtCombatState(
                   ? !p.garenE && this.abilityCooldownTicks('e') > 0
                   : phase === 'leona-q'
                     ? !!p.leonaQ
-                    : !!p.pendingCast;
+                    : phase === 'masteryi-q'
+                      ? !!p.alphaStrike && p.alphaStrike.reappearTick === null
+                      : !!p.pendingCast;
       if (ready) {
         this.step = original;
         g.setPaused(true);

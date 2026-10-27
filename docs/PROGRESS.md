@@ -6,7 +6,119 @@ Last updated: October 27, 2026 (UTC).
 
 ## Current authoritative state
 
-The latest [Garen Rift trial](GAREN-RIFT-TRIAL.md) starts a human top laner on
+The latest [Ahri bot progression](AHRI-BOT-PROGRESSION.md) gives development
+AI units legal own-kit learning and bounded mage purchases through the existing
+transactions. Seven new cases and all 72 focused regressions pass, including
+both teams through level 18, component consumption, saved futures, death,
+manual human control and ordinary admission. TypeScript and all 29 Node QA
+checks pass. The full run passes **3,405/3,407 tests across 404 files**, retaining
+only the two unchanged baseline failures. Tactical Ahri spell decisions and
+the complete six-character bot roster remain unfinished. Schema remains 163;
+the current rules fingerprint is
+`1c157c003ae34059e931ff6a3409eb6896195e906f6104af9c25b1ee50c26bcd`.
+
+The build and nested-path production smoke pass with all 32 recordings,
+development admission gates and zero page errors. The offline audit passes
+with 978 service-worker responses, including integrity/retry, network-disabled
+restore, a new lane match and atomic version activation. The accepted pack is
+`691ca564ab73a842254e2c1808c39224e76b4874ea0cda7b20c01625c0f35738`
+(1,202 files / 538,093,581 bytes). All 1,125 source asset/data sizes and mtimes
+remain unchanged. This simulation-only change runs no fresh development
+browser cases; earlier human trial UI acceptance is inherited, and manual
+control/saved futures are covered by the fresh focused unit checks.
+
+The original cohort was observed at 76 completed runs: 75 victories, one
+unfinished and zero failures. [Seed 70's diagnosis](MATCH-SEED-70-DIAGNOSIS.md)
+preserves its 60-minute unfinished report and independently continues its exact
+checkpoint under frozen rules to a valid red victory at 68:09. All 543 frozen
+inputs remain unchanged, with 29,351 additional invariant-checked ticks, nine
+round-trips and eight matching saved futures. This does not replace the accepted
+outcome or complete the 100-seed gate, and does not certify the newer rules.
+
+The latest [Ahri material source audit](AHRI-MATERIAL-SOURCE.md) preserves the
+two original custom material definitions, five samplers and four submesh routes.
+An independent raw BIN decode verifies all four local records and 23 linked
+package names; linked packages remain undecoded. All 15 guard groups, the decode
+and exact exporter check pass in normal and optimized Python. Missing defaults
+remain absent. This source-only iteration inherits the accepted Ahri application
+identity below and changes no renderer or public asset. Native shader behavior
+and presentation fidelity remain open.
+
+The latest [cohort recovery tool](MATCH-COHORT-RECOVERY.md) preserves accepted
+results and interrupted evidence, verifies frozen inputs/runtime, refuses live
+ownership and uses an exclusive OS lock for detached recovery. All 13 new
+control-plane cases and all 29 Node QA checks pass, including rollback and
+missing-summary recovery. Its read-only live-cohort check preserves the plan
+and 65 accepted reports. This QA-only iteration retains the accepted Ahri
+application identity and inherits application acceptance below; no frontend
+checks were repeated. The original cohort continues under its earlier checked
+recovery supervisor, with its 100-seed gate still open.
+
+The latest [Ahri Rift trial](AHRI-RIFT-TRIAL.md) gives the human mid on the
+source battlefield with nine Ashe/Lux bots. Separate practice/Rift admission,
+private saves, restart and ordinary selection gates remain covered. Real Q
+input hits the normal opposing mid Lux on both legs and restores an outbound
+orb and its exact future. Source navigation, Charm impact/forced movement and
+bounded walkable Spirit Rush endpoints pass all 123 focused checks. Ten
+distinct browser cases pass across two retained batches, including the two
+corrected observation/budget probes; all original Ahri assertions remain.
+
+Schema remains 163; the new rules fingerprint is
+`c722d7ca3bb84c44a976e8c72eb57887b4d6a9ba529844a795ac080766139b62`.
+
+The full unit run passes **3,398/3,400 tests across 403 files**, retaining only
+the two unchanged baseline failures: the missing original Leona Eclipse evidence
+closure and the host-sensitive Lux missile golden digest. TypeScript, all 16
+Node QA checks and the production build pass. The nested-path production smoke
+passes with all 32 source recordings and the Ahri development URL rejected.
+All 102 original production assertions remain in order, with two new entry-gate
+assertions. The full offline audit passes with 978 service-worker responses
+and zero production page errors. Its accepted pack is
+`5aff35be26d9be78e6f660f7eb1b6af5112024b90622034aa3b0f2ab933eced2`
+(1,202 files / 538,093,442 bytes). All 1,125 source asset/data file sizes
+and mtimes remain unchanged in this checkout.
+
+During this iteration, the original cohort supervisor and all four workers
+disappeared without a terminal report or logged error; the cause remains unproved
+and the container reports zero OOM kills. All 57 completed results are preserved,
+the four interrupted attempts are archived, and seeds 55–58 restart from zero using
+the same frozen runner/maps/runtime. A detached recovery supervisor retains the
+canonical dispatch/invariant tail byte-for-byte and queues the remaining seeds.
+All 539 original source pins remain exact. This records a recovered execution,
+not an uninterrupted run or a completed 100-seed gate.
+
+The original cohort covers its own earlier ruleset and does not certify this
+changed revision. Ahri mid bot policy and native presentation gaps remain open;
+ordinary production selection remains Ashe/Lux.
+
+The preceding [Master Yi Rift trial](MASTER-YI-RIFT-TRIAL.md) gives the human the
+jungle role and Smite/Flash on the source battlefield with nine Ashe/Lux bots.
+Separate trusted practice/Rift contexts, private saves, restart and ordinary
+selection gates remain covered. Real Q input against the scheduled source Gromp
+reloads an exact vanished checkpoint and follows the same future through
+reappearance. Seven browser cases pass in one batch, preserving all existing
+Yi assertions and deadlines; a separate clear playfield capture verifies the
+returned model and finite bones. All 121 focused checks pass.
+
+Schema remains 163; the new rules fingerprint is
+`806ec24d8b7eb71ba35d868ed3adba66e305dab913ee697a5fa606b96b6327b3`.
+
+The full unit run passes **3,391/3,393 tests across 402 files**, retaining only
+the two unchanged baseline failures: the missing original Leona Eclipse evidence
+closure and the host-sensitive Lux missile golden digest. TypeScript, all 16
+Node QA checks and the production build pass. The nested-path production smoke
+passes with all 32 source recordings and the Yi development URL rejected.
+The full offline audit passes with 978 service-worker responses and zero
+production page errors. Its accepted pack is
+`355d93a562bfb96a067d8f4bcc8e635b71d32ce989c97e3fa6772baa7e26d8b5`
+(1,202 files / 538,093,273 bytes). All 1,125 source asset/data file sizes
+and mtimes remain unchanged in this checkout.
+
+The original 100-seed cohort remains frozen at its own ruleset and does not
+certify this changed revision. Yi jungle bot policy and complete champion
+delivery remain open; ordinary production selection remains Ashe/Lux.
+
+The preceding [Garen Rift trial](GAREN-RIFT-TRIAL.md) starts a human top laner on
 the source battlefield with nine Ashe/Lux bots, trusted development admission
 and a separate save key. All five roles remain assigned on each team; source
 navigation, resource-free controls, private save/reload and restart are covered.

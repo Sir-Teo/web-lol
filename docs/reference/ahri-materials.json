@@ -1,0 +1,1195 @@
+{
+  "format": 1,
+  "sourceSkinRecord": "Characters/Ahri/Skins/Skin0",
+  "linkedPackageNames": [
+    "DATA/Characters/Ahri/Ahri.bin",
+    "DATA/Characters/Ahri/Ahri_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin2_Skins_Skin52_Skins_Skin53_Skins_Skin57_Skins_Skin6.bin",
+    "DATA/Characters/Ahri/Animations/Skin0.bin",
+    "DATA/Characters/Ahri/Ahri_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin21_Skins_Skin22_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin43_Skins_Skin44_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin5_Skins_Skin50_Skins_Skin51_Skins_Skin52_Skins_Skin53_Skins_Skin55_Skins_Skin56_Skins_Skin57_Skins_Skin58_Skins_Skin59_Skins_Skin6_Skins_Skin60_Skins_Skin61_Skins_Skin62_Skins_Skin63_Skins_Skin64_Skins_Skin65_Skins_Skin66_Skins_Skin67_Skins_Skin68_Skins_Skin69_Skins_Skin7_Skins_Skin70_Skins_Skin71_Skins_Skin72_Skins_Skin73_Skins_Skin74_Skins_Skin76_Skins_Skin77_Skins_Skin78_Skins_Skin79_Skins_Skin8_Skins_Skin80_Skins_Skin81_Skins_Skin82_Skins_Skin83_Skins_Skin84_Skins_Skin88_Skins_Skin9_Skins_Skin90_Skins_Skin91_Skins_Skin92_Skins_Skin93_Skins_Skin94_Skins_Skin95.bin",
+    "DATA/Characters/Ahri/Ahri_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin21_Skins_Skin22_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin3_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin5_Skins_Skin52_Skins_Skin53_Skins_Skin54_Skins_Skin55_Skins_Skin56_Skins_Skin57_Skins_Skin58_Skins_Skin59_Skins_Skin6_Skins_Skin60_Skins_Skin61_Skins_Skin62_Skins_Skin63_Skins_Skin66_Skins_Skin67_Skins_Skin68_Skins_Skin69_Skins_Skin7_Skins_Skin70_Skins_Skin71_Skins_Skin72_Skins_Skin73_Skins_Skin74_Skins_Skin75_Skins_Skin8_Skins_Skin88_Skins_Skin9_Skins_Skin90_Skins_Skin91_Skins_Skin92_Skins_Skin93_Skins_Skin94_Skins_Skin95.bin",
+    "DATA/Characters/Ahri/Ahri_Multi_Skins_Skin0_Skins_Skin2_Skins_Skin53_Skins_Skin57_Skins_Skin6.bin",
+    "DATA/Characters/Ahri/Ahri_Multi_Skins_Skin0_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin20_Skins_Skin21_Skins_Skin22_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin43_Skins_Skin44_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin5_Skins_Skin50_Skins_Skin51_Skins_Skin55_Skins_Skin56_Skins_Skin57_Skins_Skin58_Skins_Skin59_Skins_Skin6_Skins_Skin60_Skins_Skin61_Skins_Skin62_Skins_Skin63_Skins_Skin64_Skins_Skin65_Skins_Skin66_Skins_Skin67_Skins_Skin68_Skins_Skin69_Skins_Skin7_Skins_Skin70_Skins_Skin71_Skins_Skin72_Skins_Skin73_Skins_Skin74_Skins_Skin76_Skins_Skin77_Skins_Skin78_Skins_Skin79_Skins_Skin8_Skins_Skin80_Skins_Skin81_Skins_Skin82_Skins_Skin83_Skins_Skin84_Skins_Skin88_Skins_Skin9_Skins_Skin90_Skins_Skin91_Skins_Skin92_Skins_Skin93_Skins_Skin94_Skins_Skin95.bin",
+    "DATA/Characters/Ahri/Ahri_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin18_Skins_Skin2_Skins_Skin5_Skins_Skin52_Skins_Skin53_Skins_Skin56_Skins_Skin57_Skins_Skin6.bin",
+    "DATA/Characters/Ahri/Ahri_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin21_Skins_Skin22_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin3_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin43_Skins_Skin44_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin5_Skins_Skin50_Skins_Skin51_Skins_Skin52_Skins_Skin53_Skins_Skin54_Skins_Skin55_Skins_Skin56_Skins_Skin57_Skins_Skin58_Skins_Skin59_Skins_Skin6_Skins_Skin60_Skins_Skin61_Skins_Skin62_Skins_Skin63_Skins_Skin64_Skins_Skin65_Skins_Skin66_Skins_Skin67_Skins_Skin68_Skins_Skin69_Skins_Skin7_Skins_Skin70_Skins_Skin71_Skins_Skin72_Skins_Skin73_Skins_Skin74_Skins_Skin75_Skins_Skin76_Skins_Skin77_Skins_Skin78_Skins_Skin79_Skins_Skin8_Skins_Skin80_Skins_Skin81_Skins_Skin82_Skins_Skin83_Skins_Skin84_Skins_Skin9.bin",
+    "DATA/Characters/Ahri/Ahri_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin2_Skins_Skin4_Skins_Skin52_Skins_Skin53_Skins_Skin55_Skins_Skin57_Skins_Skin6_Skins_Skin8_Skins_Skin9.bin",
+    "DATA/Characters/Ahri/Ahri_Multi_Skins_Root_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin21_Skins_Skin22_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin28_Skins_Skin3_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin42_Skins_Skin43_Skins_Skin44_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin5_Skins_Skin50_Skins_Skin51_Skins_Skin52_Skins_Skin53_Skins_Skin54_Skins_Skin55_Skins_Skin56_Skins_Skin57_Skins_Skin58_Skins_Skin6_Skins_Skin60_Skins_Skin61_Skins_Skin63_Skins_Skin64_Skins_Skin65_Skins_Skin66_Skins_Skin67_Skins_Skin68_Skins_Skin69_Skins_Skin7_Skins_Skin70_Skins_Skin71_Skins_Skin72_Skins_Skin73_Skins_Skin74_Skins_Skin75_Skins_Skin76_Skins_Skin77_Skins_Skin78_Skins_Skin79_Skins_Skin8_Skins_Skin80_Skins_Skin81_Skins_Skin82_Skins_Skin83_Skins_Skin84_Skins_Skin9.bin",
+    "DATA/Characters/Ahri/Ahri_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin21_Skins_Skin22_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin5_Skins_Skin52_Skins_Skin53_Skins_Skin55_Skins_Skin56_Skins_Skin57_Skins_Skin58_Skins_Skin59_Skins_Skin6_Skins_Skin60_Skins_Skin61_Skins_Skin62_Skins_Skin63_Skins_Skin65_Skins_Skin7_Skins_Skin76_Skins_Skin77_Skins_Skin78_Skins_Skin79_Skins_Skin8_Skins_Skin80_Skins_Skin81_Skins_Skin82_Skins_Skin83_Skins_Skin84_Skins_Skin88_Skins_Skin9_Skins_Skin90_Skins_Skin91_Skins_Skin92_Skins_Skin93_Skins_Skin94_Skins_Skin95.bin",
+    "DATA/Characters/Ahri/Ahri_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin21_Skins_Skin22_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin52_Skins_Skin53_Skins_Skin55_Skins_Skin57_Skins_Skin58_Skins_Skin59_Skins_Skin6_Skins_Skin60_Skins_Skin61_Skins_Skin62_Skins_Skin63_Skins_Skin65_Skins_Skin7_Skins_Skin76_Skins_Skin77_Skins_Skin78_Skins_Skin79_Skins_Skin8_Skins_Skin80_Skins_Skin81_Skins_Skin82_Skins_Skin83_Skins_Skin84_Skins_Skin88_Skins_Skin9_Skins_Skin90_Skins_Skin91_Skins_Skin92_Skins_Skin93_Skins_Skin94_Skins_Skin95.bin",
+    "DATA/Characters/Ahri/Ahri_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin18_Skins_Skin19_Skins_Skin2_Skins_Skin20_Skins_Skin21_Skins_Skin22_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin4_Skins_Skin40_Skins_Skin41_Skins_Skin5_Skins_Skin52_Skins_Skin53_Skins_Skin55_Skins_Skin56_Skins_Skin57_Skins_Skin58_Skins_Skin59_Skins_Skin6_Skins_Skin60_Skins_Skin61_Skins_Skin62_Skins_Skin63_Skins_Skin65_Skins_Skin7_Skins_Skin76_Skins_Skin77_Skins_Skin78_Skins_Skin79_Skins_Skin8_Skins_Skin80_Skins_Skin81_Skins_Skin82_Skins_Skin83_Skins_Skin84_Skins_Skin9.bin",
+    "DATA/Characters/Ahri/Ahri_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin15_Skins_Skin2_Skins_Skin27_Skins_Skin28_Skins_Skin29_Skins_Skin3_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin34_Skins_Skin35_Skins_Skin36_Skins_Skin37_Skins_Skin38_Skins_Skin39_Skins_Skin40_Skins_Skin41_Skins_Skin52_Skins_Skin53_Skins_Skin54_Skins_Skin57_Skins_Skin58_Skins_Skin6_Skins_Skin60_Skins_Skin62_Skins_Skin63_Skins_Skin66_Skins_Skin67_Skins_Skin68_Skins_Skin69_Skins_Skin7_Skins_Skin70_Skins_Skin71_Skins_Skin72_Skins_Skin73_Skins_Skin74_Skins_Skin75_Skins_Skin76_Skins_Skin77_Skins_Skin78_Skins_Skin79_Skins_Skin80_Skins_Skin81_Skins_Skin82_Skins_Skin83_Skins_Skin84_Skins_Skin86_Skins_Skin88_Skins_Skin90_Skins_Skin91_Skins_Skin92_Skins_Skin93_Skins_Skin94_Skins_Skin95.bin",
+    "DATA/Characters/Ahri/Ahri_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin10_Skins_Skin11_Skins_Skin12_Skins_Skin13_Skins_Skin14_Skins_Skin18_Skins_Skin2_Skins_Skin27_Skins_Skin29_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin4_Skins_Skin5_Skins_Skin52_Skins_Skin53_Skins_Skin55_Skins_Skin56_Skins_Skin57_Skins_Skin59_Skins_Skin6_Skins_Skin62_Skins_Skin8_Skins_Skin88_Skins_Skin9_Skins_Skin90_Skins_Skin91_Skins_Skin92_Skins_Skin93_Skins_Skin94_Skins_Skin95.bin",
+    "DATA/Characters/Ahri/Ahri_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin14_Skins_Skin15_Skins_Skin16_Skins_Skin17_Skins_Skin19_Skins_Skin20_Skins_Skin21_Skins_Skin22_Skins_Skin23_Skins_Skin24_Skins_Skin25_Skins_Skin26_Skins_Skin42_Skins_Skin43_Skins_Skin44_Skins_Skin45_Skins_Skin46_Skins_Skin47_Skins_Skin48_Skins_Skin49_Skins_Skin50_Skins_Skin51_Skins_Skin52_Skins_Skin57_Skins_Skin59_Skins_Skin6_Skins_Skin60_Skins_Skin61_Skins_Skin64_Skins_Skin65.bin",
+    "DATA/Characters/Ahri/Ahri_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin14_Skins_Skin2_Skins_Skin27_Skins_Skin29_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin52_Skins_Skin53_Skins_Skin57_Skins_Skin58_Skins_Skin59_Skins_Skin6_Skins_Skin62_Skins_Skin7_Skins_Skin86_Skins_Skin88_Skins_Skin90_Skins_Skin91_Skins_Skin92_Skins_Skin93_Skins_Skin94_Skins_Skin95.bin",
+    "DATA/Characters/Ahri/Ahri_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin14_Skins_Skin2_Skins_Skin27_Skins_Skin29_Skins_Skin30_Skins_Skin31_Skins_Skin32_Skins_Skin33_Skins_Skin52_Skins_Skin53_Skins_Skin57_Skins_Skin59_Skins_Skin6_Skins_Skin62_Skins_Skin88_Skins_Skin90_Skins_Skin91_Skins_Skin92_Skins_Skin93_Skins_Skin94_Skins_Skin95.bin",
+    "DATA/Characters/Ahri/Ahri_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin18_Skins_Skin2_Skins_Skin3_Skins_Skin5_Skins_Skin52_Skins_Skin53_Skins_Skin54_Skins_Skin56_Skins_Skin57_Skins_Skin6_Skins_Skin75.bin",
+    "DATA/Characters/Ahri/Ahri_Multi_Skins_Skin0_Skins_Skin18_Skins_Skin2_Skins_Skin3_Skins_Skin5_Skins_Skin53_Skins_Skin54_Skins_Skin56_Skins_Skin57_Skins_Skin6_Skins_Skin75.bin",
+    "DATA/Characters/Ahri/Ahri_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin2_Skins_Skin3_Skins_Skin52_Skins_Skin53_Skins_Skin54_Skins_Skin57_Skins_Skin6_Skins_Skin75.bin",
+    "DATA/Characters/Ahri/Ahri_Multi_Skins_Skin0_Skins_Skin1_Skins_Skin52_Skins_Skin57_Skins_Skin6.bin"
+  ],
+  "linkedPackagesDecoded": false,
+  "sourceMeshProperties": {
+    "skeleton": "ASSETS/Characters/Ahri/Skins/Base/Ahri_Base.skl",
+    "simpleSkin": "ASSETS/Characters/Ahri/Skins/Base/Ahri_Base.skn",
+    "texture": "assets/characters/ahri/skins/base/ahri_base_tx_cm.tex",
+    "selfIllumination": 0.699999988079071,
+    "reflectionFresnelColor": [
+      0,
+      0,
+      0,
+      255
+    ],
+    "initialSubmeshToHide": "Tail_Large Body_Proxy",
+    "materialOverride": [
+      {
+        "texture": "assets/characters/ahri/skins/base/ahri_base_tails_tx_cm.tex",
+        "submesh": "Tail_Large",
+        "__type": "SkinMeshDataProperties_MaterialOverride"
+      },
+      {
+        "Material": "Characters/Ahri/Skins/Skin0/Materials/MAT_Tails_inst",
+        "submesh": "Tails",
+        "__type": "SkinMeshDataProperties_MaterialOverride"
+      },
+      {
+        "Material": "Characters/Ahri/Skins/Skin0/Materials/MAT_Body_inst",
+        "submesh": "Body",
+        "__type": "SkinMeshDataProperties_MaterialOverride"
+      }
+    ],
+    "rigPoseModifierData": [
+      {
+        "mStartingJointName": "Main_Tail1",
+        "mEndingJointName": "Main_Tail10",
+        "mDefaultMaskName": "{abc5ae88}",
+        "OnlyActivateInTurns": true,
+        "__type": "ConformToPathRigPoseModifierData"
+      },
+      {
+        "mStartingJointName": "R_C_Tail1",
+        "mEndingJointName": "R_C_Tail10",
+        "mDefaultMaskName": "{abc5ae88}",
+        "OnlyActivateInTurns": true,
+        "__type": "ConformToPathRigPoseModifierData"
+      },
+      {
+        "mStartingJointName": "R_D_Tail1",
+        "mEndingJointName": "R_D_Tail10",
+        "mDefaultMaskName": "{abc5ae88}",
+        "OnlyActivateInTurns": true,
+        "__type": "ConformToPathRigPoseModifierData"
+      },
+      {
+        "mStartingJointName": "L_A_Tail1",
+        "mEndingJointName": "L_A_Tail10",
+        "mDefaultMaskName": "{abc5ae88}",
+        "OnlyActivateInTurns": true,
+        "__type": "ConformToPathRigPoseModifierData"
+      },
+      {
+        "mStartingJointName": "L_B_Tail1",
+        "mEndingJointName": "L_B_Tail10",
+        "mDefaultMaskName": "{abc5ae88}",
+        "OnlyActivateInTurns": true,
+        "__type": "ConformToPathRigPoseModifierData"
+      },
+      {
+        "mStartingJointName": "L_C_Tail1",
+        "mEndingJointName": "L_C_Tail10",
+        "mDefaultMaskName": "{abc5ae88}",
+        "OnlyActivateInTurns": true,
+        "__type": "ConformToPathRigPoseModifierData"
+      },
+      {
+        "mStartingJointName": "L_D_Tail1",
+        "mEndingJointName": "L_D_Tail10",
+        "mDefaultMaskName": "{abc5ae88}",
+        "OnlyActivateInTurns": true,
+        "__type": "ConformToPathRigPoseModifierData"
+      },
+      {
+        "mStartingJointName": "R_A_Tail1",
+        "mEndingJointName": "R_A_Tail10",
+        "mDefaultMaskName": "{abc5ae88}",
+        "OnlyActivateInTurns": true,
+        "__type": "ConformToPathRigPoseModifierData"
+      },
+      {
+        "mStartingJointName": "R_B_Tail1",
+        "mEndingJointName": "R_B_Tail10",
+        "mDefaultMaskName": "{abc5ae88}",
+        "OnlyActivateInTurns": true,
+        "__type": "ConformToPathRigPoseModifierData"
+      },
+      {
+        "mStartingJointName": "Hair1",
+        "mEndingJointName": "Hair6",
+        "mDefaultMaskName": "{340d090f}",
+        "mMaxBoneAngle": 90.0,
+        "OnlyActivateInTurns": true,
+        "__type": "ConformToPathRigPoseModifierData"
+      },
+      {
+        "mStartingJointName": "R_shoulder",
+        "mEndingJointName": "weapon",
+        "mDefaultMaskName": "{340d090f}",
+        "mMaxBoneAngle": 150.0,
+        "OnlyActivateInTurns": true,
+        "__type": "ConformToPathRigPoseModifierData"
+      }
+    ],
+    "__type": "SkinMeshDataProperties"
+  },
+  "sourceBindings": [
+    {
+      "submesh": "Body",
+      "route": "customMaterial",
+      "material": "Characters/Ahri/Skins/Skin0/Materials/MAT_Body_inst",
+      "diffuse": "assets/characters/ahri/skins/base/ahri_base_tx_cm.tex",
+      "sourceDraw": {
+        "name": "Body",
+        "firstVertex": 0,
+        "vertices": 9721,
+        "firstIndex": 0,
+        "indices": 45162
+      },
+      "declaredHidden": false
+    },
+    {
+      "submesh": "Eyes",
+      "route": "defaultSkinMeshProperties",
+      "material": null,
+      "diffuse": "assets/characters/ahri/skins/base/ahri_base_tx_cm.tex",
+      "sourceDraw": {
+        "name": "Eyes",
+        "firstVertex": 9721,
+        "vertices": 226,
+        "firstIndex": 45162,
+        "indices": 1248
+      },
+      "declaredHidden": false
+    },
+    {
+      "submesh": "Tails",
+      "route": "customMaterial",
+      "material": "Characters/Ahri/Skins/Skin0/Materials/MAT_Tails_inst",
+      "diffuse": "assets/characters/ahri/skins/base/ahri_base_tails_tx_cm.tex",
+      "sourceDraw": {
+        "name": "Tails",
+        "firstVertex": 9947,
+        "vertices": 3450,
+        "firstIndex": 46410,
+        "indices": 16776
+      },
+      "declaredHidden": false
+    },
+    {
+      "submesh": "Tail_Large",
+      "route": "textureOverride",
+      "material": null,
+      "diffuse": "assets/characters/ahri/skins/base/ahri_base_tails_tx_cm.tex",
+      "sourceDraw": {
+        "name": "Tail_Large",
+        "firstVertex": 13397,
+        "vertices": 383,
+        "firstIndex": 63186,
+        "indices": 1848
+      },
+      "declaredHidden": true
+    }
+  ],
+  "materials": [
+    {
+      "record": "Characters/Ahri/Skins/Skin0/Materials/MAT_Body_inst",
+      "definition": {
+        "name": "Characters/Ahri/Skins/Skin0/Materials/MAT_Body_inst",
+        "samplerValues": [
+          {
+            "TextureName": "Diffuse_Texture",
+            "texturePath": "assets/characters/ahri/skins/base/ahri_base_tx_cm.tex",
+            "addressU": 1,
+            "addressV": 1,
+            "addressW": 1,
+            "__type": "StaticMaterialShaderSamplerDef"
+          },
+          {
+            "TextureName": "Diffuse_Texture_2",
+            "texturePath": "assets/characters/ahri/skins/base/particles/ahri_r_textureswap.tex",
+            "addressU": 1,
+            "addressV": 1,
+            "addressW": 1,
+            "__type": "StaticMaterialShaderSamplerDef"
+          },
+          {
+            "TextureName": "Scroll_Texture",
+            "texturePath": "assets/shared/materials/black.tex",
+            "__type": "StaticMaterialShaderSamplerDef"
+          }
+        ],
+        "paramValues": [
+          {
+            "name": "modelHeight",
+            "value": [
+              275.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "__type": "StaticMaterialShaderParamDef"
+          },
+          {
+            "name": "rimOffset",
+            "value": [
+              0.30000001192092896,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "__type": "StaticMaterialShaderParamDef"
+          },
+          {
+            "name": "albedoNewMax",
+            "value": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "__type": "StaticMaterialShaderParamDef"
+          },
+          {
+            "name": "albedoNewMin",
+            "value": [
+              0.10000000149011612,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "__type": "StaticMaterialShaderParamDef"
+          },
+          {
+            "name": "Diffuse_Lerp_Factor",
+            "__type": "StaticMaterialShaderParamDef"
+          },
+          {
+            "name": "Alpha_Mult",
+            "value": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "__type": "StaticMaterialShaderParamDef"
+          },
+          {
+            "name": "OutlineColor",
+            "__type": "StaticMaterialShaderParamDef"
+          },
+          {
+            "name": "OutlineControl",
+            "__type": "StaticMaterialShaderParamDef"
+          },
+          {
+            "name": "ScrollTex_TintColor",
+            "value": [
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "__type": "StaticMaterialShaderParamDef"
+          },
+          {
+            "name": "ScrollTexB_MaskStrength",
+            "value": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "__type": "StaticMaterialShaderParamDef"
+          },
+          {
+            "name": "ScrollTexR_Color",
+            "value": [
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "__type": "StaticMaterialShaderParamDef"
+          },
+          {
+            "name": "ScrollTexG_Color",
+            "__type": "StaticMaterialShaderParamDef"
+          },
+          {
+            "name": "ScrollTexR_Tiles",
+            "__type": "StaticMaterialShaderParamDef"
+          },
+          {
+            "name": "ScrollTexG_Tiles",
+            "__type": "StaticMaterialShaderParamDef"
+          },
+          {
+            "name": "ScrollTexR_Speed",
+            "__type": "StaticMaterialShaderParamDef"
+          },
+          {
+            "name": "ScrollTexG_Speed",
+            "__type": "StaticMaterialShaderParamDef"
+          }
+        ],
+        "switches": [
+          {
+            "name": "USE_RIM",
+            "__type": "StaticMaterialSwitchDef"
+          },
+          {
+            "name": "USE_ALBEDO_REMAP",
+            "__type": "StaticMaterialSwitchDef"
+          },
+          {
+            "name": "OUTLINE_ON",
+            "on": false,
+            "__type": "StaticMaterialSwitchDef"
+          },
+          {
+            "name": "SCROLLTEX_ON",
+            "on": false,
+            "__type": "StaticMaterialSwitchDef"
+          }
+        ],
+        "shaderMacros": {
+          "NUM_BLEND_WEIGHTS": "4"
+        },
+        "techniques": [
+          {
+            "name": "normal",
+            "passes": [
+              {
+                "shader": "Shaders/SkinnedMesh/2_Diffuse_Lerp",
+                "blendEnable": true,
+                "srcColorBlendFactor": 6,
+                "srcAlphaBlendFactor": 6,
+                "dstColorBlendFactor": 7,
+                "dstAlphaBlendFactor": 7,
+                "__type": "StaticMaterialPassDef"
+              }
+            ],
+            "__type": "StaticMaterialTechniqueDef"
+          }
+        ],
+        "childTechniques": [
+          {
+            "name": "transition",
+            "parentName": "normal",
+            "shaderMacros": {
+              "TRANSITION": "1"
+            },
+            "__type": "StaticMaterialChildTechniqueDef"
+          }
+        ],
+        "dynamicMaterial": {
+          "parameters": [
+            {
+              "name": "Diffuse_Lerp_Factor",
+              "driver": {
+                "mBoolDriver": {
+                  "mScriptName": "AhriR",
+                  "__type": "HasBuffDynamicMaterialBoolDriver"
+                },
+                "mTurnOnTimeSec": 0.25,
+                "mTurnOffTimeSec": 2.5,
+                "__type": "LerpMaterialDriver"
+              },
+              "__type": "DynamicMaterialParameterDef"
+            }
+          ],
+          "__type": "DynamicMaterialDef"
+        },
+        "__type": "StaticMaterialDef"
+      },
+      "parameters": [
+        {
+          "name": "modelHeight",
+          "valuePresent": true,
+          "value": [
+            275.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float32Words": [
+            "43898000",
+            "00000000",
+            "00000000",
+            "00000000"
+          ]
+        },
+        {
+          "name": "rimOffset",
+          "valuePresent": true,
+          "value": [
+            0.30000001192092896,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float32Words": [
+            "3e99999a",
+            "00000000",
+            "00000000",
+            "00000000"
+          ]
+        },
+        {
+          "name": "albedoNewMax",
+          "valuePresent": true,
+          "value": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float32Words": [
+            "3f800000",
+            "00000000",
+            "00000000",
+            "00000000"
+          ]
+        },
+        {
+          "name": "albedoNewMin",
+          "valuePresent": true,
+          "value": [
+            0.10000000149011612,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float32Words": [
+            "3dcccccd",
+            "00000000",
+            "00000000",
+            "00000000"
+          ]
+        },
+        {
+          "name": "Diffuse_Lerp_Factor",
+          "valuePresent": false
+        },
+        {
+          "name": "Alpha_Mult",
+          "valuePresent": true,
+          "value": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float32Words": [
+            "3f800000",
+            "00000000",
+            "00000000",
+            "00000000"
+          ]
+        },
+        {
+          "name": "OutlineColor",
+          "valuePresent": false
+        },
+        {
+          "name": "OutlineControl",
+          "valuePresent": false
+        },
+        {
+          "name": "ScrollTex_TintColor",
+          "valuePresent": true,
+          "value": [
+            1.0,
+            1.0,
+            1.0,
+            0.0
+          ],
+          "float32Words": [
+            "3f800000",
+            "3f800000",
+            "3f800000",
+            "00000000"
+          ]
+        },
+        {
+          "name": "ScrollTexB_MaskStrength",
+          "valuePresent": true,
+          "value": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float32Words": [
+            "3f800000",
+            "00000000",
+            "00000000",
+            "00000000"
+          ]
+        },
+        {
+          "name": "ScrollTexR_Color",
+          "valuePresent": true,
+          "value": [
+            1.0,
+            1.0,
+            1.0,
+            0.0
+          ],
+          "float32Words": [
+            "3f800000",
+            "3f800000",
+            "3f800000",
+            "00000000"
+          ]
+        },
+        {
+          "name": "ScrollTexG_Color",
+          "valuePresent": false
+        },
+        {
+          "name": "ScrollTexR_Tiles",
+          "valuePresent": false
+        },
+        {
+          "name": "ScrollTexG_Tiles",
+          "valuePresent": false
+        },
+        {
+          "name": "ScrollTexR_Speed",
+          "valuePresent": false
+        },
+        {
+          "name": "ScrollTexG_Speed",
+          "valuePresent": false
+        }
+      ],
+      "switches": [
+        {
+          "name": "USE_RIM",
+          "onPresent": false
+        },
+        {
+          "name": "USE_ALBEDO_REMAP",
+          "onPresent": false
+        },
+        {
+          "name": "OUTLINE_ON",
+          "onPresent": true,
+          "on": false
+        },
+        {
+          "name": "SCROLLTEX_ON",
+          "onPresent": true,
+          "on": false
+        }
+      ],
+      "samplers": [
+        {
+          "definition": {
+            "TextureName": "Diffuse_Texture",
+            "texturePath": "assets/characters/ahri/skins/base/ahri_base_tx_cm.tex",
+            "addressU": 1,
+            "addressV": 1,
+            "addressW": 1,
+            "__type": "StaticMaterialShaderSamplerDef"
+          },
+          "source": {
+            "path": "assets/characters/ahri/skins/base/ahri_base_tx_cm.tex",
+            "wadPathHash": "12cf9c27d09be6c5",
+            "sha256": "8d40ce3c62eb5e6794e9bcdc737973b89507442b08661906af0351e4a2617a58",
+            "bytes": 1398140
+          }
+        },
+        {
+          "definition": {
+            "TextureName": "Diffuse_Texture_2",
+            "texturePath": "assets/characters/ahri/skins/base/particles/ahri_r_textureswap.tex",
+            "addressU": 1,
+            "addressV": 1,
+            "addressW": 1,
+            "__type": "StaticMaterialShaderSamplerDef"
+          },
+          "source": {
+            "path": "assets/characters/ahri/skins/base/particles/ahri_r_textureswap.tex",
+            "wadPathHash": "01d568dfc910d67d",
+            "sha256": "e236e19a48565cb9424bf0208659bd2655ebe7c8754edf8e4b5964e48d33e71d",
+            "bytes": 174788
+          }
+        },
+        {
+          "definition": {
+            "TextureName": "Scroll_Texture",
+            "texturePath": "assets/shared/materials/black.tex",
+            "__type": "StaticMaterialShaderSamplerDef"
+          },
+          "source": {
+            "path": "assets/shared/materials/black.tex",
+            "wadPathHash": "392f857d87a0dcbb",
+            "sha256": "205d2cc3f5485e2d03b3ac29b82c6e9e9a9986f43d2b017ace3db6e52898a5b3",
+            "bytes": 36
+          }
+        }
+      ]
+    },
+    {
+      "record": "Characters/Ahri/Skins/Skin0/Materials/MAT_Tails_inst",
+      "definition": {
+        "name": "Characters/Ahri/Skins/Skin0/Materials/MAT_Tails_inst",
+        "samplerValues": [
+          {
+            "TextureName": "Diffuse_Texture",
+            "texturePath": "assets/characters/ahri/skins/base/ahri_base_tails_tx_cm.tex",
+            "addressU": 1,
+            "addressV": 1,
+            "addressW": 1,
+            "__type": "StaticMaterialShaderSamplerDef"
+          },
+          {
+            "TextureName": "Mask_Texture_red",
+            "texturePath": "assets/characters/ahri/skins/base/particles/ahri_base_r_tails_mask_01.tex",
+            "addressU": 1,
+            "addressV": 1,
+            "addressW": 1,
+            "__type": "StaticMaterialShaderSamplerDef"
+          }
+        ],
+        "paramValues": [
+          {
+            "name": "modelHeight",
+            "value": [
+              275.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "__type": "StaticMaterialShaderParamDef"
+          },
+          {
+            "name": "rimOffset",
+            "value": [
+              0.30000001192092896,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "__type": "StaticMaterialShaderParamDef"
+          },
+          {
+            "name": "albedoNewMax",
+            "value": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "__type": "StaticMaterialShaderParamDef"
+          },
+          {
+            "name": "albedoNewMin",
+            "value": [
+              0.10000000149011612,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "__type": "StaticMaterialShaderParamDef"
+          },
+          {
+            "name": "Bloom_Intensity",
+            "value": [
+              0.15000000596046448,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "__type": "StaticMaterialShaderParamDef"
+          },
+          {
+            "name": "Bloom_Color",
+            "value": [
+              0.18039216101169586,
+              0.5490196347236633,
+              1.0,
+              0.0
+            ],
+            "__type": "StaticMaterialShaderParamDef"
+          },
+          {
+            "name": "Alpha_Bias",
+            "value": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "__type": "StaticMaterialShaderParamDef"
+          }
+        ],
+        "switches": [
+          {
+            "name": "BLOOM_USE_DIFFUSE_COLOR",
+            "on": false,
+            "__type": "StaticMaterialSwitchDef"
+          },
+          {
+            "name": "USE_ALBEDO_REMAP",
+            "__type": "StaticMaterialSwitchDef"
+          },
+          {
+            "name": "USE_RIM",
+            "__type": "StaticMaterialSwitchDef"
+          },
+          {
+            "name": "USE_ALPHA",
+            "__type": "StaticMaterialSwitchDef"
+          }
+        ],
+        "shaderMacros": {
+          "NUM_BLEND_WEIGHTS": "4"
+        },
+        "techniques": [
+          {
+            "name": "normal",
+            "passes": [
+              {
+                "shader": "Shaders/SkinnedMesh/Diffuse_Bloom",
+                "blendEnable": true,
+                "srcColorBlendFactor": 6,
+                "srcAlphaBlendFactor": 6,
+                "dstColorBlendFactor": 7,
+                "dstAlphaBlendFactor": 7,
+                "__type": "StaticMaterialPassDef"
+              }
+            ],
+            "__type": "StaticMaterialTechniqueDef"
+          }
+        ],
+        "childTechniques": [
+          {
+            "name": "transition",
+            "parentName": "normal",
+            "shaderMacros": {
+              "TRANSITION": "1"
+            },
+            "__type": "StaticMaterialChildTechniqueDef"
+          }
+        ],
+        "dynamicMaterial": {
+          "parameters": [
+            {
+              "name": "Bloom_Intensity",
+              "driver": {
+                "mBoolDriver": {
+                  "mScriptName": "AhriR",
+                  "__type": "HasBuffDynamicMaterialBoolDriver"
+                },
+                "mOnValue": 1.25,
+                "mOffValue": 0.15000000596046448,
+                "__type": "LerpMaterialDriver"
+              },
+              "__type": "DynamicMaterialParameterDef"
+            }
+          ],
+          "__type": "DynamicMaterialDef"
+        },
+        "__type": "StaticMaterialDef"
+      },
+      "parameters": [
+        {
+          "name": "modelHeight",
+          "valuePresent": true,
+          "value": [
+            275.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float32Words": [
+            "43898000",
+            "00000000",
+            "00000000",
+            "00000000"
+          ]
+        },
+        {
+          "name": "rimOffset",
+          "valuePresent": true,
+          "value": [
+            0.30000001192092896,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float32Words": [
+            "3e99999a",
+            "00000000",
+            "00000000",
+            "00000000"
+          ]
+        },
+        {
+          "name": "albedoNewMax",
+          "valuePresent": true,
+          "value": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float32Words": [
+            "3f800000",
+            "00000000",
+            "00000000",
+            "00000000"
+          ]
+        },
+        {
+          "name": "albedoNewMin",
+          "valuePresent": true,
+          "value": [
+            0.10000000149011612,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float32Words": [
+            "3dcccccd",
+            "00000000",
+            "00000000",
+            "00000000"
+          ]
+        },
+        {
+          "name": "Bloom_Intensity",
+          "valuePresent": true,
+          "value": [
+            0.15000000596046448,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float32Words": [
+            "3e19999a",
+            "00000000",
+            "00000000",
+            "00000000"
+          ]
+        },
+        {
+          "name": "Bloom_Color",
+          "valuePresent": true,
+          "value": [
+            0.18039216101169586,
+            0.5490196347236633,
+            1.0,
+            0.0
+          ],
+          "float32Words": [
+            "3e38b8b9",
+            "3f0c8c8d",
+            "3f800000",
+            "00000000"
+          ]
+        },
+        {
+          "name": "Alpha_Bias",
+          "valuePresent": true,
+          "value": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float32Words": [
+            "3f800000",
+            "00000000",
+            "00000000",
+            "00000000"
+          ]
+        }
+      ],
+      "switches": [
+        {
+          "name": "BLOOM_USE_DIFFUSE_COLOR",
+          "onPresent": true,
+          "on": false
+        },
+        {
+          "name": "USE_ALBEDO_REMAP",
+          "onPresent": false
+        },
+        {
+          "name": "USE_RIM",
+          "onPresent": false
+        },
+        {
+          "name": "USE_ALPHA",
+          "onPresent": false
+        }
+      ],
+      "samplers": [
+        {
+          "definition": {
+            "TextureName": "Diffuse_Texture",
+            "texturePath": "assets/characters/ahri/skins/base/ahri_base_tails_tx_cm.tex",
+            "addressU": 1,
+            "addressV": 1,
+            "addressW": 1,
+            "__type": "StaticMaterialShaderSamplerDef"
+          },
+          "source": {
+            "path": "assets/characters/ahri/skins/base/ahri_base_tails_tx_cm.tex",
+            "wadPathHash": "df549b7becf3810a",
+            "sha256": "9eb512a47fdf47f4d354c1c09ddf13fb6b73201c3055fb1e62f7b08d7899a5de",
+            "bytes": 1398140
+          }
+        },
+        {
+          "definition": {
+            "TextureName": "Mask_Texture_red",
+            "texturePath": "assets/characters/ahri/skins/base/particles/ahri_base_r_tails_mask_01.tex",
+            "addressU": 1,
+            "addressV": 1,
+            "addressW": 1,
+            "__type": "StaticMaterialShaderSamplerDef"
+          },
+          "source": {
+            "path": "assets/characters/ahri/skins/base/particles/ahri_base_r_tails_mask_01.tex",
+            "wadPathHash": "f15a421478940c07",
+            "sha256": "6d17838c6734f26f62102fff598178779f143231b296b9a775e067da318e0c64",
+            "bytes": 1044
+          }
+        }
+      ]
+    }
+  ],
+  "fieldPresence": {
+    "absentParameterValues": [
+      {
+        "material": "Characters/Ahri/Skins/Skin0/Materials/MAT_Body_inst",
+        "parameter": "Diffuse_Lerp_Factor"
+      },
+      {
+        "material": "Characters/Ahri/Skins/Skin0/Materials/MAT_Body_inst",
+        "parameter": "OutlineColor"
+      },
+      {
+        "material": "Characters/Ahri/Skins/Skin0/Materials/MAT_Body_inst",
+        "parameter": "OutlineControl"
+      },
+      {
+        "material": "Characters/Ahri/Skins/Skin0/Materials/MAT_Body_inst",
+        "parameter": "ScrollTexG_Color"
+      },
+      {
+        "material": "Characters/Ahri/Skins/Skin0/Materials/MAT_Body_inst",
+        "parameter": "ScrollTexR_Tiles"
+      },
+      {
+        "material": "Characters/Ahri/Skins/Skin0/Materials/MAT_Body_inst",
+        "parameter": "ScrollTexG_Tiles"
+      },
+      {
+        "material": "Characters/Ahri/Skins/Skin0/Materials/MAT_Body_inst",
+        "parameter": "ScrollTexR_Speed"
+      },
+      {
+        "material": "Characters/Ahri/Skins/Skin0/Materials/MAT_Body_inst",
+        "parameter": "ScrollTexG_Speed"
+      }
+    ],
+    "absentSwitchStates": [
+      {
+        "material": "Characters/Ahri/Skins/Skin0/Materials/MAT_Body_inst",
+        "switch": "USE_RIM"
+      },
+      {
+        "material": "Characters/Ahri/Skins/Skin0/Materials/MAT_Body_inst",
+        "switch": "USE_ALBEDO_REMAP"
+      },
+      {
+        "material": "Characters/Ahri/Skins/Skin0/Materials/MAT_Tails_inst",
+        "switch": "USE_ALBEDO_REMAP"
+      },
+      {
+        "material": "Characters/Ahri/Skins/Skin0/Materials/MAT_Tails_inst",
+        "switch": "USE_RIM"
+      },
+      {
+        "material": "Characters/Ahri/Skins/Skin0/Materials/MAT_Tails_inst",
+        "switch": "USE_ALPHA"
+      }
+    ]
+  },
+  "sourceMeshTable": {
+    "source": {
+      "path": "assets/characters/ahri/skins/base/ahri_base.skn",
+      "wadPathHash": "fca50cac17fc3470",
+      "sha256": "22179a3e0e95b94845fe5a3d3c35ba5f21dec6e2fee34de371ad0e4a3e2a3ae3",
+      "bytes": 847032
+    },
+    "retainedOffset": 0,
+    "retainedBytes": 332,
+    "retainedSha256": "787b1b497a7a70af39e8f4bf3ce191c3d17d3bf8a44deee12c018692e036756f"
+  },
+  "declaredHiddenWithoutMesh": [
+    "Body_Proxy"
+  ],
+  "currentPreviewTransport": {
+    "materials": [
+      {
+        "submesh": "Body",
+        "material": {
+          "name": "Body",
+          "extras": {
+            "sourceSubmesh": "Body",
+            "defaultHidden": false
+          },
+          "alphaMode": "BLEND",
+          "doubleSided": true,
+          "pbrMetallicRoughness": {
+            "baseColorTexture": {
+              "index": 0
+            }
+          },
+          "extensions": {
+            "KHR_materials_unlit": {}
+          }
+        },
+        "indexCount": 45162
+      },
+      {
+        "submesh": "Eyes",
+        "material": {
+          "name": "Eyes",
+          "extras": {
+            "sourceSubmesh": "Eyes",
+            "defaultHidden": false
+          },
+          "doubleSided": true,
+          "pbrMetallicRoughness": {
+            "baseColorTexture": {
+              "index": 0
+            }
+          },
+          "extensions": {
+            "KHR_materials_unlit": {}
+          }
+        },
+        "indexCount": 1248
+      },
+      {
+        "submesh": "Tails",
+        "material": {
+          "name": "Tails",
+          "extras": {
+            "sourceSubmesh": "Tails",
+            "defaultHidden": false
+          },
+          "alphaMode": "BLEND",
+          "doubleSided": true,
+          "pbrMetallicRoughness": {
+            "baseColorTexture": {
+              "index": 1
+            }
+          },
+          "extensions": {
+            "KHR_materials_unlit": {}
+          }
+        },
+        "indexCount": 16776
+      },
+      {
+        "submesh": "Tail_Large",
+        "material": {
+          "name": "Tail_Large",
+          "extras": {
+            "sourceSubmesh": "Tail_Large",
+            "defaultHidden": true
+          },
+          "doubleSided": true,
+          "pbrMetallicRoughness": {
+            "baseColorTexture": {
+              "index": 1
+            }
+          },
+          "extensions": {
+            "KHR_materials_unlit": {}
+          }
+        },
+        "indexCount": 1848
+      }
+    ],
+    "images": [
+      {
+        "mimeType": "image/png",
+        "bufferView": 0
+      },
+      {
+        "mimeType": "image/png",
+        "bufferView": 1
+      }
+    ],
+    "textures": [
+      {
+        "source": 0,
+        "sampler": 0
+      },
+      {
+        "source": 1,
+        "sampler": 0
+      }
+    ],
+    "samplers": [
+      {
+        "wrapS": 10497,
+        "wrapT": 10497
+      }
+    ]
+  },
+  "nativeDefaultsVerified": false,
+  "nativeShaderArithmeticVerified": false,
+  "nativeBlendEnumMappingVerified": false,
+  "nativeDynamicDriverDispatchVerified": false,
+  "previewPixelConversionReaudited": false,
+  "limits": [
+    "Missing value/on/driver fields remain absent; no constructor defaults supplied.",
+    "Shader paths, pass factors and driver declarations are source records, not recovered native execution.",
+    "Current GLB transport is inspected structurally; texture conversion and native pixels are not recertified."
+  ],
+  "sourceInputs": [
+    {
+      "path": "docs/reference/ahri-model.json",
+      "bytes": 234866,
+      "sha256": "74d0b55f5aad08646fbd24f660ed533bc8fd5798e8a60dc0983d97960b47a377"
+    },
+    {
+      "path": "docs/reference/ahri/skin0.bin",
+      "bytes": 20378,
+      "sha256": "cea16ff8c3ef87fe6892595ad26dd710b3a7e9db33dfb05d30e1938ff27bbb17"
+    },
+    {
+      "path": "docs/reference/ahri/mesh-submeshes.bin",
+      "bytes": 332,
+      "sha256": "787b1b497a7a70af39e8f4bf3ce191c3d17d3bf8a44deee12c018692e036756f"
+    },
+    {
+      "path": "public/assets/models/ahri-base.glb",
+      "bytes": 19854544,
+      "sha256": "587c1741a908e23874a87d069505e0e233d4f88c22a828c9d7edda195328e202"
+    },
+    {
+      "path": "public/assets/models/ahri-base.json",
+      "bytes": 25427,
+      "sha256": "c6a42818e2b02c8e4f4e2db7a313beb439521934d083e4262b79210bef27eca4"
+    }
+  ]
+}

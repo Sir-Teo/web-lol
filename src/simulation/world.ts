@@ -242,6 +242,7 @@ import { LUX_E_SOURCE as LUX_E } from '../content/lux-e';
 import { LUX_E_POLICY } from '../content/lux-e-policy';
 import { DEATHCAP_AP_AMPLIFICATION, LOST_CHAPTER } from '../content/mage-items';
 import { LUX_BOT_POLICY } from '../content/lux-bot-policy';
+import { AHRI_BOT_POLICY } from '../content/ahri-bot-policy';
 import { LEONA_BOT_POLICY } from '../content/leona-bot-policy';
 import { luxWaveClear } from './lux-wave-clear';
 import { botDisengagePoint } from './bot-disengage';
@@ -467,16 +468,22 @@ export class World {
   ) {
     if (
       playerChampion === 'masteryi' &&
-      (battlefield.id !== 'practice-fixture' || !battlefield.developmentMasterYi)
-    )
-      throw new Error('Master Yi is available only as a development NPC.');
-    if (
-      playerChampion === 'ahri' &&
-      (battlefield.id !== 'practice-fixture' || !battlefield.developmentAhri)
+      !(
+        (battlefield.id === 'practice-fixture' && battlefield.developmentMasterYi) ||
+        (battlefield.id === 'rift' && battlefield.developmentMasterYiRift)
+      )
     )
       throw new Error(
-        'Ahri is available only as a development NPC or in her trusted player practice scene.'
+        'Master Yi requires a development NPC or trusted player practice/Rift context.'
       );
+    if (
+      playerChampion === 'ahri' &&
+      !(
+        (battlefield.id === 'practice-fixture' && battlefield.developmentAhri) ||
+        (battlefield.id === 'rift' && battlefield.developmentAhriRift)
+      )
+    )
+      throw new Error('Ahri requires a development NPC or trusted player practice/Rift context.');
     if (
       playerChampion === 'leona' &&
       battlefield.id !== 'practice-fixture' &&
@@ -647,8 +654,12 @@ export class World {
     point: Vec2,
     identity: import('./types').ChampionIdentity = 'ashe'
   ): TeamUnit {
-    if (identity === 'ahri' && this.battlefield.id !== 'practice-fixture')
-      throw new Error('Ahri simulation requires the development practice fixture.');
+    if (
+      identity === 'ahri' &&
+      this.battlefield.id !== 'practice-fixture' &&
+      !this.battlefield.developmentAhriRift
+    )
+      throw new Error('Ahri simulation requires the development practice fixture or Rift trial.');
     if (
       identity === 'leona' &&
       this.battlefield.id !== 'practice-fixture' &&
@@ -658,9 +669,10 @@ export class World {
     if (
       kind === 'champion' &&
       identity === 'masteryi' &&
-      this.battlefield.id !== 'practice-fixture'
+      this.battlefield.id !== 'practice-fixture' &&
+      !this.battlefield.developmentMasterYiRift
     )
-      throw new Error('Master Yi requires a development practice NPC.');
+      throw new Error('Master Yi requires a development practice NPC or trusted Rift context.');
     if (kind === 'monster') throw new Error('Use spawnMonster for neutral units.');
     if (kind === 'ward') throw new Error('Use a trinket placement to create a ward.');
     const stats = this.battlefield.unitStats?.[kind]?.[team];
@@ -1259,7 +1271,6 @@ export class World {
       if (
         state.skillPoints === 0 ||
         !this.unit(state.id)?.ai ||
-        this.unit(state.id)?.champion === 'ahri' ||
         this.unit(state.id)?.champion === 'masteryi'
       )
         continue;
@@ -1270,9 +1281,11 @@ export class World {
             ? { early: ['q', 'w', 'e'] as const, priority: ['r', 'e', 'q', 'w'] as const }
             : this.unit(state.id)?.champion === 'lux'
               ? LUX_BOT_POLICY
-              : this.unit(state.id)?.champion === 'leona'
-                ? LEONA_BOT_POLICY
-                : ASHE_SKILL_RECOMMENDATION;
+              : this.unit(state.id)?.champion === 'ahri'
+                ? AHRI_BOT_POLICY
+                : this.unit(state.id)?.champion === 'leona'
+                  ? LEONA_BOT_POLICY
+                  : ASHE_SKILL_RECOMMENDATION;
         const early = recommendation.early[allocated];
         const choices = early ? [early, ...recommendation.priority] : recommendation.priority;
         const ability = choices.find((key) => this.spellLearningError(key, state.id) === null);
@@ -2358,8 +2371,9 @@ export class World {
         ) ?? Object.values(upgrades).find((item) => !state.inventory.includes(item));
       return ITEMS.find((item) => item.id === id);
     }
-    if (u.champion === 'lux') {
-      let id: string | undefined = LUX_BOT_POLICY.purchases.find(
+    if (u.champion === 'lux' || u.champion === 'ahri') {
+      const policy = u.champion === 'ahri' ? AHRI_BOT_POLICY : LUX_BOT_POLICY;
+      let id: string | undefined = policy.purchases.find(
         (id) =>
           !state.inventory.includes(id) && !(id === 'tome' && state.inventory.includes('chapter'))
       );

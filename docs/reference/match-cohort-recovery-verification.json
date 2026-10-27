@@ -1,0 +1,1566 @@
+{
+  "format": 1,
+  "parentCommit": "ae28d2a8b2a358524cd37ee55bfbfbf4a55335a2",
+  "scope": "Durable Linux recovery for interrupted immutable format1match cohorts; no application/runtime changes.",
+  "source": [
+    {
+      "file": "tools/qa/resume-match-cohort.mjs",
+      "bytes": 3882,
+      "sha256": "0001b172a65b6c70a2f359bcaf037ab20e920cf27ed2970d042085e39a675d50"
+    },
+    {
+      "file": "tools/qa/lib/cohort-resume.mjs",
+      "bytes": 19304,
+      "sha256": "1ddcb38ae6f4a76783e6c99decfae3071a929a1ba1ff31f412c299c98585bbca"
+    },
+    {
+      "file": "tools/qa/lib/cohort-resume-driver.mjs",
+      "bytes": 1297,
+      "sha256": "d070c82776a65c3c99b005230986b9082e513552411da3116dcab065b0d608a2"
+    },
+    {
+      "file": "tools/qa/cohort-resume.test.mjs",
+      "bytes": 18202,
+      "sha256": "3906eac1af7f072680fdb7df78769c91b5bf197bed6f1d0978056e4d970aff9a"
+    },
+    {
+      "path": "docs/MATCH-COHORT-RECOVERY.md",
+      "bytes": 4378,
+      "sha256": "a7822d8af955c457e528aadfe3b2b5600b0c86aa4540811fe787b06e1994825e"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "bytes": 747527,
+      "sha256": "2bbcb1912182e3093229cd070f8f624307de0ed6da0a54f3468aea5897e8c281"
+    }
+  ],
+  "verification": {
+    "newControlPlaneTestsPassed": 13,
+    "nodeQaPassed": 29,
+    "nodeQaFailed": 0,
+    "realWorkerFixturesUsed": false,
+    "syntheticControllerFixturesUsed": true,
+    "finalFixtureRootsRetained": [
+      {
+        "original": "/tmp/cohort resume Kqsl4C",
+        "retained": ".cache/cohort-resume-recovery/final-fixtures/0"
+      },
+      {
+        "original": "/tmp/cohort resume cZ47K4",
+        "retained": ".cache/cohort-resume-recovery/final-fixtures/1"
+      },
+      {
+        "original": "/tmp/cohort resume NaI7fj",
+        "retained": ".cache/cohort-resume-recovery/final-fixtures/2"
+      },
+      {
+        "original": "/tmp/cohort resume Olz79n",
+        "retained": ".cache/cohort-resume-recovery/final-fixtures/3"
+      },
+      {
+        "original": "/tmp/cohort resume Q9c7eh",
+        "retained": ".cache/cohort-resume-recovery/final-fixtures/4"
+      },
+      {
+        "original": "/tmp/cohort resume qytvkv",
+        "retained": ".cache/cohort-resume-recovery/final-fixtures/5"
+      },
+      {
+        "original": "/tmp/cohort resume fZKCy1",
+        "retained": ".cache/cohort-resume-recovery/final-fixtures/6"
+      },
+      {
+        "original": "/tmp/cohort resume LaODq8",
+        "retained": ".cache/cohort-resume-recovery/final-fixtures/7"
+      },
+      {
+        "original": "/tmp/cohort resume yQjI87",
+        "retained": ".cache/cohort-resume-recovery/final-fixtures/8"
+      },
+      {
+        "original": "/tmp/cohort resume jlGAI1",
+        "retained": ".cache/cohort-resume-recovery/final-fixtures/9"
+      },
+      {
+        "original": "/tmp/cohort resume MNUlhN",
+        "retained": ".cache/cohort-resume-recovery/final-fixtures/10"
+      },
+      {
+        "original": "/tmp/cohort resume jXJnrZ",
+        "retained": ".cache/cohort-resume-recovery/final-fixtures/11"
+      },
+      {
+        "original": "/tmp/cohort resume 8TPHYF",
+        "retained": ".cache/cohort-resume-recovery/final-fixtures/12"
+      },
+      {
+        "original": "/tmp/cohort resume Ddq9vk",
+        "retained": ".cache/cohort-resume-recovery/final-fixtures/13"
+      },
+      {
+        "original": "/tmp/cohort resume 1ff9Op",
+        "retained": ".cache/cohort-resume-recovery/final-fixtures/14"
+      }
+    ],
+    "canonicalDispatchInvariantTailByteExact": true,
+    "generatedSourceSyntaxCheckedBeforeMoves": true,
+    "exclusiveOsLockAndLiveOwnerRefusalPassed": true,
+    "completedReportBytePreservationPassed": true,
+    "recordedFailureRefusalPassed": true,
+    "archiveRollbackPassed": true,
+    "missingSummaryWithoutRerunPassed": true,
+    "detachedReadinessBeforeCompletionPassed": true,
+    "symlinkDirectoryRefusalPassed": true,
+    "liveOriginalCohortCheck": {
+      "result": "passed",
+      "readOnlyCommandRefusedLiveOwner": true,
+      "response": {
+        "result": "refused",
+        "code": "COHORT_LIVE",
+        "message": "Cohort has live owned processes: supervisor:353408, worker:359420, worker:359606, worker:359617, worker:359835"
+      },
+      "exitCode": 1,
+      "planUnchanged": true,
+      "acceptedReportsUnchanged": 65,
+      "recoveryRequestsUnchanged": true,
+      "originalCohortModifiedByTool": false
+    },
+    "originalSourcePinsUnchanged": 539,
+    "originalCheckoutClean": true
+  },
+  "inheritedApplication": {
+    "acceptanceRevision": "ae28d2a8b2a358524cd37ee55bfbfbf4a55335a2",
+    "schema": 163,
+    "rulesetFingerprint": "c722d7ca3bb84c44a976e8c72eb57887b4d6a9ba529844a795ac080766139b62",
+    "pack": {
+      "id": "5aff35be26d9be78e6f660f7eb1b6af5112024b90622034aa3b0f2ab933eced2",
+      "files": 1202,
+      "bytes": 538093442
+    },
+    "trackedApplicationFilesUnchanged": true,
+    "freshFrontendAcceptanceClaimed": false,
+    "reference": "docs/reference/ahri-rift-trial-verification.json"
+  },
+  "earlierAttempts": {
+    "firstFocused": {
+      "passed": 7,
+      "failed": 1,
+      "cause": "Generated preamble const launch collided with canonical function launch.",
+      "firstTemporaryFixtureRemovedByInitialCleanup": true
+    },
+    "retainedReproduction": "startup-failure-fixture",
+    "repair": "Rename preamble metadata binding and syntax-check generated module before archive moves; preserve failed fixtures."
+  },
+  "originalCohortObservation": {
+    "time": "2026-10-27T19:25:05.455670+00:00",
+    "root": "/workspace/web-lol/.cache/match-cohort/current-normal-100-20261027",
+    "ruleset": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "completed": 65,
+    "requested": 100,
+    "victories": 65,
+    "unfinished": 0,
+    "failures": 0,
+    "fullHundredSeedGateClaimed": false,
+    "newToolRestartedLiveCohort": false
+  },
+  "evidence": [
+    {
+      "path": ".cache/cohort-resume-recovery/all-qa.log",
+      "bytes": 3444,
+      "sha256": "291f79feba8352718c7c3ab7c574d33cf6a1b4ba7bfc68887cae61dc14f380fe"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/archive.py",
+      "bytes": 5582,
+      "sha256": "a1045656f9bfc9547d3763047f5575604add4803033a5b57bab1e13c82662692"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/earlier-private-recovery.json",
+      "bytes": 57860,
+      "sha256": "292e39285d2c3263c84d02509c878c25ccdbf9ac8fcdc2044b173628546c7e5b"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/expanded-tests.log",
+      "bytes": 1747,
+      "sha256": "3848394692454fe800afd220e433c0b6c705b7b87a7a95b24766806fccbc18a9"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/0/cohort/maps/rift-layout.json",
+      "bytes": 24,
+      "sha256": "b613aac82d554a7d389552545648130b5d60862b3f71d3f5f867debb20f15e85"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/0/cohort/maps/rift-nav.bin",
+      "bytes": 20,
+      "sha256": "ca10608c2ad8340d6904e6937fdbc2d56b085cd0dd626e932437338f4457b6da"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/0/cohort/maps/rift-nav.json",
+      "bytes": 21,
+      "sha256": "22ee0a0a62f2d05cc075e8e3058274365c66e34cd6933cd2fe536e5edd2fc1ce"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/0/cohort/plan.json",
+      "bytes": 1458,
+      "sha256": "d4bf0a1f3cf0854ff7b7fc7c77311ed9b4eddee1fa460f66615025bbc734d6ff"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/0/cohort/runner/match-seed.js",
+      "bytes": 738,
+      "sha256": "e924ed0068104642619ac5254e9002195a717617bbc4fd1affc9c8b4910941c1"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/0/cohort/seed-1.log",
+      "bytes": 19,
+      "sha256": "0aa1449226a38a334cdede55102fe611ed9a3f50c5eb37e4781ada560a016927"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/0/cohort/seed-3.log",
+      "bytes": 32,
+      "sha256": "50e3343e8c7a52b311b703f62c9bab54e85ae2626b5e90c0df57909f9e159cf8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/0/cohort/seeds/1/000123.match.json",
+      "bytes": 34,
+      "sha256": "1f04e06444288857dfca2ac404f4371fa33af574582231f3e2883a97be69b714"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/0/cohort/seeds/1/progress.json",
+      "bytes": 31,
+      "sha256": "f154a05281256722b9f0499f6da1f70ef65709025cfef7b73e989a68b00507a1"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/0/cohort/seeds/3/report.json",
+      "bytes": 478,
+      "sha256": "5d94a77e292eb5ad010751c85e5fc0f923207ef39de800444ff702d1ef9ef9db"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/0/cohort/status.json",
+      "bytes": 808,
+      "sha256": "0db7da1cd47068379116d10535978f78a7bd4532719b61f7ae3ab5bf6ca3c5ba"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/0/project/source.txt",
+      "bytes": 21,
+      "sha256": "9677e66ad90a84d9986229032f1a1e016875def267eeeb67b9ba852e2d57d0d8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/0/project/tools/qa/match-cohort.mjs",
+      "bytes": 10784,
+      "sha256": "23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/1/cohort/maps/rift-layout.json",
+      "bytes": 24,
+      "sha256": "b613aac82d554a7d389552545648130b5d60862b3f71d3f5f867debb20f15e85"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/1/cohort/maps/rift-nav.bin",
+      "bytes": 20,
+      "sha256": "ca10608c2ad8340d6904e6937fdbc2d56b085cd0dd626e932437338f4457b6da"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/1/cohort/maps/rift-nav.json",
+      "bytes": 21,
+      "sha256": "22ee0a0a62f2d05cc075e8e3058274365c66e34cd6933cd2fe536e5edd2fc1ce"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/1/cohort/plan.json",
+      "bytes": 1458,
+      "sha256": "dca7be21f7323ac7f4777598ae597773d1d83101236e0a2fd614c78bbeddd77d"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/1/cohort/runner/match-seed.js",
+      "bytes": 738,
+      "sha256": "e924ed0068104642619ac5254e9002195a717617bbc4fd1affc9c8b4910941c1"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/1/cohort/seed-3.log",
+      "bytes": 32,
+      "sha256": "50e3343e8c7a52b311b703f62c9bab54e85ae2626b5e90c0df57909f9e159cf8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/1/cohort/seeds/3/report.json",
+      "bytes": 478,
+      "sha256": "5d94a77e292eb5ad010751c85e5fc0f923207ef39de800444ff702d1ef9ef9db"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/1/cohort/status.json",
+      "bytes": 808,
+      "sha256": "2e1c360b1c79328085ca11e066a6864030ed2eea6f4fb1ab8ec238a7c23ff3b3"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/1/proc/101/cmdline",
+      "bytes": 47,
+      "sha256": "0fc112d3b747ded5809fd8c99fa9afeab05c010bb67379d73fb4c7b36d3b2508"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/1/proc/101/cwd",
+      "kind": "symlink",
+      "target": "/tmp/cohort resume cZ47K4",
+      "sha256": "d24b7d2c70da18f68556552c3dbc703c2f6b257b26c694f685c2972b21929dce"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/1/proc/102/cmdline",
+      "bytes": 109,
+      "sha256": "471a537149e49c780d5129b56bb879b9e701a6d752e3dfb076af5dea3b4586cb"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/1/proc/102/cwd",
+      "kind": "symlink",
+      "target": "/tmp/cohort resume cZ47K4",
+      "sha256": "d24b7d2c70da18f68556552c3dbc703c2f6b257b26c694f685c2972b21929dce"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/1/proc/103/cmdline",
+      "bytes": 110,
+      "sha256": "19f3f18fb38a85844100b5f076ef2953757bf6a54e44d17edb95f4c4f4d1ab25"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/1/proc/103/cwd",
+      "kind": "symlink",
+      "target": "/tmp/cohort resume cZ47K4",
+      "sha256": "d24b7d2c70da18f68556552c3dbc703c2f6b257b26c694f685c2972b21929dce"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/1/project/source.txt",
+      "bytes": 21,
+      "sha256": "9677e66ad90a84d9986229032f1a1e016875def267eeeb67b9ba852e2d57d0d8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/1/project/tools/qa/match-cohort.mjs",
+      "bytes": 10784,
+      "sha256": "23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/10/cohort/.resume.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/10/cohort/maps/rift-layout.json",
+      "bytes": 24,
+      "sha256": "b613aac82d554a7d389552545648130b5d60862b3f71d3f5f867debb20f15e85"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/10/cohort/maps/rift-nav.bin",
+      "bytes": 20,
+      "sha256": "ca10608c2ad8340d6904e6937fdbc2d56b085cd0dd626e932437338f4457b6da"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/10/cohort/maps/rift-nav.json",
+      "bytes": 21,
+      "sha256": "22ee0a0a62f2d05cc075e8e3058274365c66e34cd6933cd2fe536e5edd2fc1ce"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/10/cohort/plan.json",
+      "bytes": 1458,
+      "sha256": "76137ae5c023b22bf9dc6d35b7046f4b595c0513391e2c3ae557dcedc27e5360"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/10/cohort/recovery/rollback/accepted/report-3.json",
+      "bytes": 478,
+      "sha256": "5d94a77e292eb5ad010751c85e5fc0f923207ef39de800444ff702d1ef9ef9db"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/10/cohort/recovery/rollback/before-plan.json",
+      "bytes": 1458,
+      "sha256": "76137ae5c023b22bf9dc6d35b7046f4b595c0513391e2c3ae557dcedc27e5360"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/10/cohort/recovery/rollback/before-status.json",
+      "bytes": 808,
+      "sha256": "3f8f55f0ccd0b44489867de2e90789d539c06241ff30a6a3bdb6433bb36514d6"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/10/cohort/recovery/rollback/preparation-failure.json",
+      "bytes": 242,
+      "sha256": "bafeec1ce227e83ea64d96be5ceab1965c67fb16257dba3ddde46f94f471517e"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/10/cohort/runner/match-seed.js",
+      "bytes": 738,
+      "sha256": "e924ed0068104642619ac5254e9002195a717617bbc4fd1affc9c8b4910941c1"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/10/cohort/seed-1.log",
+      "bytes": 19,
+      "sha256": "0aa1449226a38a334cdede55102fe611ed9a3f50c5eb37e4781ada560a016927"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/10/cohort/seed-3.log",
+      "bytes": 32,
+      "sha256": "50e3343e8c7a52b311b703f62c9bab54e85ae2626b5e90c0df57909f9e159cf8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/10/cohort/seeds/1/000123.match.json",
+      "bytes": 34,
+      "sha256": "1f04e06444288857dfca2ac404f4371fa33af574582231f3e2883a97be69b714"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/10/cohort/seeds/1/progress.json",
+      "bytes": 31,
+      "sha256": "f154a05281256722b9f0499f6da1f70ef65709025cfef7b73e989a68b00507a1"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/10/cohort/seeds/3/report.json",
+      "bytes": 478,
+      "sha256": "5d94a77e292eb5ad010751c85e5fc0f923207ef39de800444ff702d1ef9ef9db"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/10/cohort/status.json",
+      "bytes": 808,
+      "sha256": "3f8f55f0ccd0b44489867de2e90789d539c06241ff30a6a3bdb6433bb36514d6"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/10/project/source.txt",
+      "bytes": 21,
+      "sha256": "9677e66ad90a84d9986229032f1a1e016875def267eeeb67b9ba852e2d57d0d8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/10/project/tools/qa/match-cohort.mjs",
+      "bytes": 10784,
+      "sha256": "23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/11/cohort/maps",
+      "kind": "symlink",
+      "target": "/tmp/cohort resume jXJnrZ/outside",
+      "sha256": "47d5577c470ecf4a85c0b2996476e1a2b6a2cf32828b3ae509ec0123601f9d61"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/11/cohort/plan.json",
+      "bytes": 1458,
+      "sha256": "ad76bb73dbed91f2c35ffcaab540e206e2b47363cdd943d92a86e59863364dbf"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/11/cohort/runner/match-seed.js",
+      "bytes": 738,
+      "sha256": "e924ed0068104642619ac5254e9002195a717617bbc4fd1affc9c8b4910941c1"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/11/cohort/seed-3.log",
+      "bytes": 32,
+      "sha256": "50e3343e8c7a52b311b703f62c9bab54e85ae2626b5e90c0df57909f9e159cf8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/11/cohort/seeds/3/report.json",
+      "bytes": 478,
+      "sha256": "5d94a77e292eb5ad010751c85e5fc0f923207ef39de800444ff702d1ef9ef9db"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/11/cohort/status.json",
+      "bytes": 808,
+      "sha256": "1c3b2829316e81b3957c11a071e81d8aabb37ea320ce5516e74eea9855c383ba"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/11/project/source.txt",
+      "bytes": 21,
+      "sha256": "9677e66ad90a84d9986229032f1a1e016875def267eeeb67b9ba852e2d57d0d8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/11/project/tools/qa/match-cohort.mjs",
+      "bytes": 10784,
+      "sha256": "23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/12/cohort/maps/rift-layout.json",
+      "bytes": 24,
+      "sha256": "b613aac82d554a7d389552545648130b5d60862b3f71d3f5f867debb20f15e85"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/12/cohort/maps/rift-nav.bin",
+      "bytes": 20,
+      "sha256": "ca10608c2ad8340d6904e6937fdbc2d56b085cd0dd626e932437338f4457b6da"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/12/cohort/maps/rift-nav.json",
+      "bytes": 21,
+      "sha256": "22ee0a0a62f2d05cc075e8e3058274365c66e34cd6933cd2fe536e5edd2fc1ce"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/12/cohort/plan.json",
+      "bytes": 1458,
+      "sha256": "1727c8031931ac8020f4365f1132e7f93e5db8762730daa8d8fabe6c9d910b23"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/12/cohort/recovery",
+      "kind": "symlink",
+      "target": "/tmp/cohort resume 8TPHYF/outside",
+      "sha256": "9728cf16695a48cb123927e58a55d5e6f468b0eb99e283aa922eda796d8380f7"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/12/cohort/runner/match-seed.js",
+      "bytes": 738,
+      "sha256": "e924ed0068104642619ac5254e9002195a717617bbc4fd1affc9c8b4910941c1"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/12/cohort/seed-3.log",
+      "bytes": 32,
+      "sha256": "50e3343e8c7a52b311b703f62c9bab54e85ae2626b5e90c0df57909f9e159cf8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/12/cohort/seeds/3/report.json",
+      "bytes": 478,
+      "sha256": "5d94a77e292eb5ad010751c85e5fc0f923207ef39de800444ff702d1ef9ef9db"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/12/cohort/status.json",
+      "bytes": 808,
+      "sha256": "8b5e1ca98e59ed7b89d3544035a14fc857811db2a5c8b90971d92bc05d364e4c"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/12/project/source.txt",
+      "bytes": 21,
+      "sha256": "9677e66ad90a84d9986229032f1a1e016875def267eeeb67b9ba852e2d57d0d8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/12/project/tools/qa/match-cohort.mjs",
+      "bytes": 10784,
+      "sha256": "23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/13/cohort/maps/rift-layout.json",
+      "bytes": 24,
+      "sha256": "b613aac82d554a7d389552545648130b5d60862b3f71d3f5f867debb20f15e85"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/13/cohort/maps/rift-nav.bin",
+      "bytes": 20,
+      "sha256": "ca10608c2ad8340d6904e6937fdbc2d56b085cd0dd626e932437338f4457b6da"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/13/cohort/maps/rift-nav.json",
+      "bytes": 21,
+      "sha256": "22ee0a0a62f2d05cc075e8e3058274365c66e34cd6933cd2fe536e5edd2fc1ce"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/13/cohort/plan.json",
+      "bytes": 1458,
+      "sha256": "1921d54111b1261d47dd970c7a74a8dd96a5eacdc73f1b14e9c24510f030f41f"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/13/cohort/runner/match-seed.js",
+      "bytes": 738,
+      "sha256": "e924ed0068104642619ac5254e9002195a717617bbc4fd1affc9c8b4910941c1"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/13/cohort/seed-3.log",
+      "bytes": 32,
+      "sha256": "50e3343e8c7a52b311b703f62c9bab54e85ae2626b5e90c0df57909f9e159cf8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/13/cohort/seeds/1",
+      "kind": "symlink",
+      "target": "/tmp/cohort resume Ddq9vk/outside",
+      "sha256": "62464908c2053f9b664d88d17d17bfeff8d5b1093c0b90778c8b8aeb405c9ea3"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/13/cohort/seeds/3/report.json",
+      "bytes": 478,
+      "sha256": "5d94a77e292eb5ad010751c85e5fc0f923207ef39de800444ff702d1ef9ef9db"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/13/cohort/status.json",
+      "bytes": 808,
+      "sha256": "cdda03c2a95eb498f5431447549bb3b95df49788595a30223754bc5354b4dc67"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/13/project/source.txt",
+      "bytes": 21,
+      "sha256": "9677e66ad90a84d9986229032f1a1e016875def267eeeb67b9ba852e2d57d0d8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/13/project/tools/qa/match-cohort.mjs",
+      "bytes": 10784,
+      "sha256": "23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/.resume.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/maps/rift-layout.json",
+      "bytes": 24,
+      "sha256": "b613aac82d554a7d389552545648130b5d60862b3f71d3f5f867debb20f15e85"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/maps/rift-nav.bin",
+      "bytes": 20,
+      "sha256": "ca10608c2ad8340d6904e6937fdbc2d56b085cd0dd626e932437338f4457b6da"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/maps/rift-nav.json",
+      "bytes": 21,
+      "sha256": "22ee0a0a62f2d05cc075e8e3058274365c66e34cd6933cd2fe536e5edd2fc1ce"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/plan.json",
+      "bytes": 1458,
+      "sha256": "84b2cd70b1888ff7b3e21cba277c527c0c6a0ad370e7238f05efd3035a4ad148"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/recovery/2026-10-27T19-20-37-540Z-c38f406a-724f-4c0c-bd3c-f3bdb74c70f0/accepted/report-3.json",
+      "bytes": 478,
+      "sha256": "5d94a77e292eb5ad010751c85e5fc0f923207ef39de800444ff702d1ef9ef9db"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/recovery/2026-10-27T19-20-37-540Z-c38f406a-724f-4c0c-bd3c-f3bdb74c70f0/before-plan.json",
+      "bytes": 1458,
+      "sha256": "84b2cd70b1888ff7b3e21cba277c527c0c6a0ad370e7238f05efd3035a4ad148"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/recovery/2026-10-27T19-20-37-540Z-c38f406a-724f-4c0c-bd3c-f3bdb74c70f0/before-status.json",
+      "bytes": 808,
+      "sha256": "6dd5c342a7a986d93a7ecfc2e21180acb8a72127999d659b5fd5768a42ab3cd9"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/recovery/2026-10-27T19-20-37-540Z-c38f406a-724f-4c0c-bd3c-f3bdb74c70f0/launch.json",
+      "bytes": 434,
+      "sha256": "d89c97cc3712e1eadbfb380c00133d69927471c845e8a27d93b1f98a18b56c19"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/recovery/2026-10-27T19-20-37-540Z-c38f406a-724f-4c0c-bd3c-f3bdb74c70f0/recovery.json",
+      "bytes": 2409,
+      "sha256": "716c543575b1b76da807f2a9383f4a6a83870a54fec680e5345d129662cd9a86"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/recovery/2026-10-27T19-20-37-540Z-c38f406a-724f-4c0c-bd3c-f3bdb74c70f0/supervisor/match-cohort.mjs",
+      "bytes": 9459,
+      "sha256": "5a3f4cd792615b774f01efb88145d979bdd219eaf83217d0c91176734861dbf8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/recovery/2026-10-27T19-20-37-540Z-c38f406a-724f-4c0c-bd3c-f3bdb74c70f0/supervisor-exit.json",
+      "bytes": 34,
+      "sha256": "6380f7ebf1263a94abaaef4f5a1323cf0f4fbc88e37d8f1792ae68f163e18807"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/recovery/requests/2026-10-27T19-20-37-540Z-c38f406a-724f-4c0c-bd3c-f3bdb74c70f0/ready.json",
+      "bytes": 434,
+      "sha256": "d89c97cc3712e1eadbfb380c00133d69927471c845e8a27d93b1f98a18b56c19"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/recovery/requests/2026-10-27T19-20-37-540Z-c38f406a-724f-4c0c-bd3c-f3bdb74c70f0/supervisor.log",
+      "bytes": 838,
+      "sha256": "c1518003e94245c5b392658c89c8c0b01d27cd7535d67a79db56a0a7c3feb087"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/runner/match-seed.js",
+      "bytes": 907,
+      "sha256": "225a1cd8408af8e1b955ab503f13dfb476141d2c30fb2e74e9b9e2c8afad0c96"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/seed-1.log",
+      "bytes": 20,
+      "sha256": "ee0576af716b696c0fda7ca36c519ad0020c866db6e153f31a3af3601b7049b8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/seed-2.log",
+      "bytes": 20,
+      "sha256": "78e2c8adf0fdf84eb23b3a6688654e2d4c85d6ed0a578c075a478aff3f830826"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/seed-3.log",
+      "bytes": 32,
+      "sha256": "50e3343e8c7a52b311b703f62c9bab54e85ae2626b5e90c0df57909f9e159cf8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/seed-4.log",
+      "bytes": 20,
+      "sha256": "08a56c920760505ddf01d251bd47ccf139650616c2fca0cc135e12d921a4a401"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/seeds/1/report.json",
+      "bytes": 385,
+      "sha256": "68ce5777a96f2d73f99f81ae2f353e452b2d21b3a260f063120f628162574688"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/seeds/2/report.json",
+      "bytes": 385,
+      "sha256": "e55a50ca39da4ed2041a2a455eb39ac55c51bdd16e76b8ef3ab05d4cc09c46a5"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/seeds/3/report.json",
+      "bytes": 478,
+      "sha256": "5d94a77e292eb5ad010751c85e5fc0f923207ef39de800444ff702d1ef9ef9db"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/seeds/4/report.json",
+      "bytes": 385,
+      "sha256": "32ad798a6dda1e34d8a01a17e0ee7dca49c6ca5a689ecb21c01adace0543c8ad"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/status.json",
+      "bytes": 2862,
+      "sha256": "6d9fd68ab81b09020f024b33230895fbc8f8b37099d83f0f54e7e29e7ca8f3f5"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/cohort/summary.json",
+      "bytes": 2862,
+      "sha256": "a2111ee3973c9af05916332e1c9711d8139b90e89e7d49215020a651d412971f"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/project/source.txt",
+      "bytes": 21,
+      "sha256": "9677e66ad90a84d9986229032f1a1e016875def267eeeb67b9ba852e2d57d0d8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/project/tools/qa/match-cohort.mjs",
+      "bytes": 10784,
+      "sha256": "23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/14/release-workers",
+      "bytes": 8,
+      "sha256": "3933e3274b63dc01fd286d6d939a626867c83a4603fc4347e0f8b8856f1b98fd"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/2/cohort/maps/rift-layout.json",
+      "bytes": 24,
+      "sha256": "b613aac82d554a7d389552545648130b5d60862b3f71d3f5f867debb20f15e85"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/2/cohort/maps/rift-nav.bin",
+      "bytes": 20,
+      "sha256": "ca10608c2ad8340d6904e6937fdbc2d56b085cd0dd626e932437338f4457b6da"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/2/cohort/maps/rift-nav.json",
+      "bytes": 21,
+      "sha256": "22ee0a0a62f2d05cc075e8e3058274365c66e34cd6933cd2fe536e5edd2fc1ce"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/2/cohort/plan.json",
+      "bytes": 1458,
+      "sha256": "47907b83fb41c56a991119ccfca04d6ac9877e57fc616e58e1eac75afdd7be73"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/2/cohort/runner/match-seed.js",
+      "bytes": 738,
+      "sha256": "e924ed0068104642619ac5254e9002195a717617bbc4fd1affc9c8b4910941c1"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/2/cohort/seed-3.log",
+      "bytes": 32,
+      "sha256": "50e3343e8c7a52b311b703f62c9bab54e85ae2626b5e90c0df57909f9e159cf8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/2/cohort/seeds/3/report.json",
+      "bytes": 478,
+      "sha256": "5d94a77e292eb5ad010751c85e5fc0f923207ef39de800444ff702d1ef9ef9db"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/2/cohort/status.json",
+      "bytes": 808,
+      "sha256": "e9330d1222b1da39fb1a50f2916722a8f396d94097f070a894ddf9e86c42722b"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/2/project/source.txt",
+      "bytes": 13,
+      "sha256": "22689eedfa0d5a07b6e6d7e0b198ea13cf6614daeb6481a31b9a39e45854ae5a"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/2/project/tools/qa/match-cohort.mjs",
+      "bytes": 10784,
+      "sha256": "23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/3/cohort/maps/rift-layout.json",
+      "bytes": 24,
+      "sha256": "b613aac82d554a7d389552545648130b5d60862b3f71d3f5f867debb20f15e85"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/3/cohort/maps/rift-nav.bin",
+      "bytes": 20,
+      "sha256": "ca10608c2ad8340d6904e6937fdbc2d56b085cd0dd626e932437338f4457b6da"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/3/cohort/maps/rift-nav.json",
+      "bytes": 21,
+      "sha256": "22ee0a0a62f2d05cc075e8e3058274365c66e34cd6933cd2fe536e5edd2fc1ce"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/3/cohort/plan.json",
+      "bytes": 1458,
+      "sha256": "6d288e379a026664aa786bc1fab18e86ce6e2d66b586f9b4a3265c93a62f209e"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/3/cohort/runner/match-seed.js",
+      "bytes": 738,
+      "sha256": "e924ed0068104642619ac5254e9002195a717617bbc4fd1affc9c8b4910941c1"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/3/cohort/seed-3.log",
+      "bytes": 32,
+      "sha256": "50e3343e8c7a52b311b703f62c9bab54e85ae2626b5e90c0df57909f9e159cf8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/3/cohort/seeds/3/report.json",
+      "bytes": 478,
+      "sha256": "5d94a77e292eb5ad010751c85e5fc0f923207ef39de800444ff702d1ef9ef9db"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/3/cohort/status.json",
+      "bytes": 808,
+      "sha256": "a30305ea7e3b0ccf0d9751e0b37f57db986957e79904da83823bb912246c52cc"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/3/project/source.txt",
+      "bytes": 21,
+      "sha256": "9677e66ad90a84d9986229032f1a1e016875def267eeeb67b9ba852e2d57d0d8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/3/project/tools/qa/match-cohort.mjs",
+      "bytes": 10807,
+      "sha256": "c9e9702f8f57ed856d471c16020853cf2b8af60c712150946bfa9e8582e00f36"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/4/cohort/maps/rift-layout.json",
+      "bytes": 24,
+      "sha256": "b613aac82d554a7d389552545648130b5d60862b3f71d3f5f867debb20f15e85"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/4/cohort/maps/rift-nav.bin",
+      "bytes": 20,
+      "sha256": "ca10608c2ad8340d6904e6937fdbc2d56b085cd0dd626e932437338f4457b6da"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/4/cohort/maps/rift-nav.json",
+      "bytes": 21,
+      "sha256": "22ee0a0a62f2d05cc075e8e3058274365c66e34cd6933cd2fe536e5edd2fc1ce"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/4/cohort/plan.json",
+      "bytes": 1458,
+      "sha256": "cdbecac1514ad6f5966a135e31c6346ca6678d0ee7d1e1956c1cb855d3bfcbf9"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/4/cohort/runner/match-seed.js",
+      "bytes": 738,
+      "sha256": "e924ed0068104642619ac5254e9002195a717617bbc4fd1affc9c8b4910941c1"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/4/cohort/seed-3.log",
+      "bytes": 32,
+      "sha256": "50e3343e8c7a52b311b703f62c9bab54e85ae2626b5e90c0df57909f9e159cf8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/4/cohort/seeds/2/report.json",
+      "bytes": 514,
+      "sha256": "70a138c2f5775dc05724b50fa192e455ded221644d0c3487d2b97238450b082f"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/4/cohort/seeds/3/report.json",
+      "bytes": 478,
+      "sha256": "5d94a77e292eb5ad010751c85e5fc0f923207ef39de800444ff702d1ef9ef9db"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/4/cohort/status.json",
+      "bytes": 808,
+      "sha256": "66ce81a9ec89dbe014d16aadb29ef076591177569978bf021bd4f4db9b0357d4"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/4/project/source.txt",
+      "bytes": 21,
+      "sha256": "9677e66ad90a84d9986229032f1a1e016875def267eeeb67b9ba852e2d57d0d8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/4/project/tools/qa/match-cohort.mjs",
+      "bytes": 10784,
+      "sha256": "23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/5/cohort/maps/rift-layout.json",
+      "bytes": 24,
+      "sha256": "b613aac82d554a7d389552545648130b5d60862b3f71d3f5f867debb20f15e85"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/5/cohort/maps/rift-nav.bin",
+      "bytes": 20,
+      "sha256": "ca10608c2ad8340d6904e6937fdbc2d56b085cd0dd626e932437338f4457b6da"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/5/cohort/maps/rift-nav.json",
+      "bytes": 21,
+      "sha256": "22ee0a0a62f2d05cc075e8e3058274365c66e34cd6933cd2fe536e5edd2fc1ce"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/5/cohort/plan.json",
+      "bytes": 1458,
+      "sha256": "df028e1a1332c88218c3dc75911c9fcc1f6659541d286c8201bf4e1aa54ee7c7"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/5/cohort/runner/match-seed.js",
+      "bytes": 738,
+      "sha256": "e924ed0068104642619ac5254e9002195a717617bbc4fd1affc9c8b4910941c1"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/5/cohort/seed-1.log",
+      "bytes": 19,
+      "sha256": "0aa1449226a38a334cdede55102fe611ed9a3f50c5eb37e4781ada560a016927"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/5/cohort/seed-3.log",
+      "bytes": 32,
+      "sha256": "50e3343e8c7a52b311b703f62c9bab54e85ae2626b5e90c0df57909f9e159cf8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/5/cohort/seeds/1/000123.match.json",
+      "bytes": 34,
+      "sha256": "1f04e06444288857dfca2ac404f4371fa33af574582231f3e2883a97be69b714"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/5/cohort/seeds/1/progress.json",
+      "bytes": 31,
+      "sha256": "f154a05281256722b9f0499f6da1f70ef65709025cfef7b73e989a68b00507a1"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/5/cohort/seeds/3/report.json",
+      "bytes": 478,
+      "sha256": "5d94a77e292eb5ad010751c85e5fc0f923207ef39de800444ff702d1ef9ef9db"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/5/cohort/status.json",
+      "bytes": 808,
+      "sha256": "4488e406c82aa4e1a1cc535d75c5f999f86493e1c043e74847eb224ce7cd1856"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/5/project/source.txt",
+      "bytes": 21,
+      "sha256": "9677e66ad90a84d9986229032f1a1e016875def267eeeb67b9ba852e2d57d0d8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/5/project/tools/qa/match-cohort.mjs",
+      "bytes": 10784,
+      "sha256": "23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/6/cohort/.resume.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/6/cohort/maps/rift-layout.json",
+      "bytes": 24,
+      "sha256": "b613aac82d554a7d389552545648130b5d60862b3f71d3f5f867debb20f15e85"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/6/cohort/maps/rift-nav.bin",
+      "bytes": 20,
+      "sha256": "ca10608c2ad8340d6904e6937fdbc2d56b085cd0dd626e932437338f4457b6da"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/6/cohort/maps/rift-nav.json",
+      "bytes": 21,
+      "sha256": "22ee0a0a62f2d05cc075e8e3058274365c66e34cd6933cd2fe536e5edd2fc1ce"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/6/cohort/plan.json",
+      "bytes": 1458,
+      "sha256": "c27a638b39d62cd1238a01ef6674f46906c0926874adde24dfd7053030c65991"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/6/cohort/recovery/requests/2026-10-27T19-20-30-236Z-6b8d985f-425e-4310-a1e0-cc49beee4ca8/startup-failure.json",
+      "bytes": 268,
+      "sha256": "162945084538727c29157f7115f2779fe52bfc81b6a7f077fa0fff3cb166bc17"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/6/cohort/recovery/requests/2026-10-27T19-20-30-236Z-6b8d985f-425e-4310-a1e0-cc49beee4ca8/supervisor.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/6/cohort/runner/match-seed.js",
+      "bytes": 738,
+      "sha256": "e924ed0068104642619ac5254e9002195a717617bbc4fd1affc9c8b4910941c1"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/6/cohort/seed-1.log",
+      "bytes": 19,
+      "sha256": "0aa1449226a38a334cdede55102fe611ed9a3f50c5eb37e4781ada560a016927"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/6/cohort/seed-3.log",
+      "bytes": 32,
+      "sha256": "50e3343e8c7a52b311b703f62c9bab54e85ae2626b5e90c0df57909f9e159cf8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/6/cohort/seeds/1/000123.match.json",
+      "bytes": 34,
+      "sha256": "1f04e06444288857dfca2ac404f4371fa33af574582231f3e2883a97be69b714"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/6/cohort/seeds/1/progress.json",
+      "bytes": 31,
+      "sha256": "f154a05281256722b9f0499f6da1f70ef65709025cfef7b73e989a68b00507a1"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/6/cohort/seeds/3/report.json",
+      "bytes": 478,
+      "sha256": "5d94a77e292eb5ad010751c85e5fc0f923207ef39de800444ff702d1ef9ef9db"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/6/cohort/status.json",
+      "bytes": 808,
+      "sha256": "00325527a15194426039651e6f114fc6c47c3e274090291ae8a19fafa47e928c"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/6/project/source.txt",
+      "bytes": 21,
+      "sha256": "9677e66ad90a84d9986229032f1a1e016875def267eeeb67b9ba852e2d57d0d8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/6/project/tools/qa/match-cohort.mjs",
+      "bytes": 10784,
+      "sha256": "23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/.resume.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/maps/rift-layout.json",
+      "bytes": 24,
+      "sha256": "b613aac82d554a7d389552545648130b5d60862b3f71d3f5f867debb20f15e85"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/maps/rift-nav.bin",
+      "bytes": 20,
+      "sha256": "ca10608c2ad8340d6904e6937fdbc2d56b085cd0dd626e932437338f4457b6da"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/maps/rift-nav.json",
+      "bytes": 21,
+      "sha256": "22ee0a0a62f2d05cc075e8e3058274365c66e34cd6933cd2fe536e5edd2fc1ce"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/plan.json",
+      "bytes": 1458,
+      "sha256": "906d0868dbb7beee77988c2b1422e911763caad8c769673ff2789fb4d1f6691a"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/recovery/2026-10-27T19-20-32-620Z-4da2aec1-9b2b-4f3b-a9c3-304c7402e9ce/accepted/report-3.json",
+      "bytes": 478,
+      "sha256": "5d94a77e292eb5ad010751c85e5fc0f923207ef39de800444ff702d1ef9ef9db"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/recovery/2026-10-27T19-20-32-620Z-4da2aec1-9b2b-4f3b-a9c3-304c7402e9ce/before-plan.json",
+      "bytes": 1458,
+      "sha256": "906d0868dbb7beee77988c2b1422e911763caad8c769673ff2789fb4d1f6691a"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/recovery/2026-10-27T19-20-32-620Z-4da2aec1-9b2b-4f3b-a9c3-304c7402e9ce/before-status.json",
+      "bytes": 808,
+      "sha256": "fe59e85aad524ed64abc7a1980da11a8f0b3da1b23d41e8010ead24ab1607dae"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/recovery/2026-10-27T19-20-32-620Z-4da2aec1-9b2b-4f3b-a9c3-304c7402e9ce/interrupted/seed-1.log",
+      "bytes": 19,
+      "sha256": "0aa1449226a38a334cdede55102fe611ed9a3f50c5eb37e4781ada560a016927"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/recovery/2026-10-27T19-20-32-620Z-4da2aec1-9b2b-4f3b-a9c3-304c7402e9ce/interrupted/seeds/1/000123.match.json",
+      "bytes": 34,
+      "sha256": "1f04e06444288857dfca2ac404f4371fa33af574582231f3e2883a97be69b714"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/recovery/2026-10-27T19-20-32-620Z-4da2aec1-9b2b-4f3b-a9c3-304c7402e9ce/interrupted/seeds/1/progress.json",
+      "bytes": 31,
+      "sha256": "f154a05281256722b9f0499f6da1f70ef65709025cfef7b73e989a68b00507a1"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/recovery/2026-10-27T19-20-32-620Z-4da2aec1-9b2b-4f3b-a9c3-304c7402e9ce/interrupted/seeds/2/report.json",
+      "bytes": 457,
+      "sha256": "cac2870f0387461b11dc5c3a6247fa7900bf0e7767401a5e333f51bb6c87da07"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/recovery/2026-10-27T19-20-32-620Z-4da2aec1-9b2b-4f3b-a9c3-304c7402e9ce/launch.json",
+      "bytes": 434,
+      "sha256": "85cffe9dad0dac60e2665fe329017b53244b0932b6ffb0c8be1790ca27e6f79a"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/recovery/2026-10-27T19-20-32-620Z-4da2aec1-9b2b-4f3b-a9c3-304c7402e9ce/recovery.json",
+      "bytes": 4335,
+      "sha256": "008d630db382b92ed1f16ceb4914bb8b1d8f12618bded6eb265c69e8e16c0a9f"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/recovery/2026-10-27T19-20-32-620Z-4da2aec1-9b2b-4f3b-a9c3-304c7402e9ce/supervisor/match-cohort.mjs",
+      "bytes": 9459,
+      "sha256": "414a88bc63de54dad49f48634e5768093bca68a93a305c948b349df889dc5c56"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/recovery/2026-10-27T19-20-32-620Z-4da2aec1-9b2b-4f3b-a9c3-304c7402e9ce/supervisor-exit.json",
+      "bytes": 34,
+      "sha256": "6380f7ebf1263a94abaaef4f5a1323cf0f4fbc88e37d8f1792ae68f163e18807"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/recovery/requests/2026-10-27T19-20-32-620Z-4da2aec1-9b2b-4f3b-a9c3-304c7402e9ce/ready.json",
+      "bytes": 434,
+      "sha256": "85cffe9dad0dac60e2665fe329017b53244b0932b6ffb0c8be1790ca27e6f79a"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/recovery/requests/2026-10-27T19-20-32-620Z-4da2aec1-9b2b-4f3b-a9c3-304c7402e9ce/supervisor.log",
+      "bytes": 838,
+      "sha256": "78560ef78c1d86a7f6a2a39f87c59281c959f802c4a9ae3fc7d3271e804c461a"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/runner/match-seed.js",
+      "bytes": 738,
+      "sha256": "e924ed0068104642619ac5254e9002195a717617bbc4fd1affc9c8b4910941c1"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/seed-1.log",
+      "bytes": 20,
+      "sha256": "ee0576af716b696c0fda7ca36c519ad0020c866db6e153f31a3af3601b7049b8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/seed-2.log",
+      "bytes": 20,
+      "sha256": "78e2c8adf0fdf84eb23b3a6688654e2d4c85d6ed0a578c075a478aff3f830826"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/seed-3.log",
+      "bytes": 32,
+      "sha256": "50e3343e8c7a52b311b703f62c9bab54e85ae2626b5e90c0df57909f9e159cf8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/seed-4.log",
+      "bytes": 20,
+      "sha256": "08a56c920760505ddf01d251bd47ccf139650616c2fca0cc135e12d921a4a401"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/seeds/1/report.json",
+      "bytes": 385,
+      "sha256": "68ce5777a96f2d73f99f81ae2f353e452b2d21b3a260f063120f628162574688"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/seeds/2/report.json",
+      "bytes": 385,
+      "sha256": "e55a50ca39da4ed2041a2a455eb39ac55c51bdd16e76b8ef3ab05d4cc09c46a5"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/seeds/3/report.json",
+      "bytes": 478,
+      "sha256": "5d94a77e292eb5ad010751c85e5fc0f923207ef39de800444ff702d1ef9ef9db"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/seeds/4/report.json",
+      "bytes": 385,
+      "sha256": "32ad798a6dda1e34d8a01a17e0ee7dca49c6ca5a689ecb21c01adace0543c8ad"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/status.json",
+      "bytes": 2862,
+      "sha256": "36f9a8e94d709cda5e4ca0dcf1d53176ca6b6857adfec1f712fb22f7174d0689"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/cohort/summary.json",
+      "bytes": 2862,
+      "sha256": "36f9a8e94d709cda5e4ca0dcf1d53176ca6b6857adfec1f712fb22f7174d0689"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/project/source.txt",
+      "bytes": 21,
+      "sha256": "9677e66ad90a84d9986229032f1a1e016875def267eeeb67b9ba852e2d57d0d8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/7/project/tools/qa/match-cohort.mjs",
+      "bytes": 10784,
+      "sha256": "23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/8/cohort/maps/rift-layout.json",
+      "bytes": 24,
+      "sha256": "b613aac82d554a7d389552545648130b5d60862b3f71d3f5f867debb20f15e85"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/8/cohort/maps/rift-nav.bin",
+      "bytes": 20,
+      "sha256": "ca10608c2ad8340d6904e6937fdbc2d56b085cd0dd626e932437338f4457b6da"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/8/cohort/maps/rift-nav.json",
+      "bytes": 21,
+      "sha256": "22ee0a0a62f2d05cc075e8e3058274365c66e34cd6933cd2fe536e5edd2fc1ce"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/8/cohort/plan.json",
+      "bytes": 1458,
+      "sha256": "325731d35033a844f6e654dd10d5024e0a1bfd01c3e29a6bc45f5934a7c6c008"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/8/cohort/runner/match-seed.js",
+      "bytes": 738,
+      "sha256": "e924ed0068104642619ac5254e9002195a717617bbc4fd1affc9c8b4910941c1"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/8/cohort/seed-3.log",
+      "bytes": 32,
+      "sha256": "50e3343e8c7a52b311b703f62c9bab54e85ae2626b5e90c0df57909f9e159cf8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/8/cohort/seeds/3/report.json",
+      "bytes": 460,
+      "sha256": "f2e3a1c8c90bccc6876c288f7fc73403e187495d093822ea5f2984ee6fd366aa"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/8/cohort/status.json",
+      "bytes": 811,
+      "sha256": "fd9384c56812e1614bffaf653c70f22799d7dd443276288281ead045520d4159"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/8/project/source.txt",
+      "bytes": 21,
+      "sha256": "9677e66ad90a84d9986229032f1a1e016875def267eeeb67b9ba852e2d57d0d8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/8/project/tools/qa/match-cohort.mjs",
+      "bytes": 10784,
+      "sha256": "23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/.resume.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/maps/rift-layout.json",
+      "bytes": 24,
+      "sha256": "b613aac82d554a7d389552545648130b5d60862b3f71d3f5f867debb20f15e85"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/maps/rift-nav.bin",
+      "bytes": 20,
+      "sha256": "ca10608c2ad8340d6904e6937fdbc2d56b085cd0dd626e932437338f4457b6da"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/maps/rift-nav.json",
+      "bytes": 21,
+      "sha256": "22ee0a0a62f2d05cc075e8e3058274365c66e34cd6933cd2fe536e5edd2fc1ce"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/plan.json",
+      "bytes": 1458,
+      "sha256": "20b2453d44f4ea6c327a029274259d388cac9b92041a5c76312d080b042357cf"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/recovery/2026-10-27T19-20-35-269Z-cea7fc38-8e74-48b2-8146-fec5b5289470/accepted/report-1.json",
+      "bytes": 457,
+      "sha256": "45ec0d58cbc20d3559803f2066709d7512cc810e1779ea7560dc55a2ff747da2"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/recovery/2026-10-27T19-20-35-269Z-cea7fc38-8e74-48b2-8146-fec5b5289470/accepted/report-2.json",
+      "bytes": 457,
+      "sha256": "cac2870f0387461b11dc5c3a6247fa7900bf0e7767401a5e333f51bb6c87da07"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/recovery/2026-10-27T19-20-35-269Z-cea7fc38-8e74-48b2-8146-fec5b5289470/accepted/report-3.json",
+      "bytes": 478,
+      "sha256": "5d94a77e292eb5ad010751c85e5fc0f923207ef39de800444ff702d1ef9ef9db"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/recovery/2026-10-27T19-20-35-269Z-cea7fc38-8e74-48b2-8146-fec5b5289470/accepted/report-4.json",
+      "bytes": 457,
+      "sha256": "8b333c7d5622f0dfa088cb3e152498f1cb1c5d8f65e2ec9a1bdef297789c2a3f"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/recovery/2026-10-27T19-20-35-269Z-cea7fc38-8e74-48b2-8146-fec5b5289470/before-plan.json",
+      "bytes": 1458,
+      "sha256": "20b2453d44f4ea6c327a029274259d388cac9b92041a5c76312d080b042357cf"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/recovery/2026-10-27T19-20-35-269Z-cea7fc38-8e74-48b2-8146-fec5b5289470/before-status.json",
+      "bytes": 2398,
+      "sha256": "a050ce113c78991d4b4d87d9335f6249ebc9bea53fc5b96a5ccaee5fe45041f1"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/recovery/2026-10-27T19-20-35-269Z-cea7fc38-8e74-48b2-8146-fec5b5289470/launch.json",
+      "bytes": 411,
+      "sha256": "bb37eb3b28d2c30c3d79d1a52c328bef97ebc57d7e077e6804e819930e636958"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/recovery/2026-10-27T19-20-35-269Z-cea7fc38-8e74-48b2-8146-fec5b5289470/recovery.json",
+      "bytes": 2996,
+      "sha256": "e9cdfde83dc9c802d6c67155e891e0742d070070e8c9405098274cf8f478dddc"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/recovery/2026-10-27T19-20-35-269Z-cea7fc38-8e74-48b2-8146-fec5b5289470/supervisor/match-cohort.mjs",
+      "bytes": 9459,
+      "sha256": "dfa23be14f15f442d9a39e61ef271e549df0b491f9d4932968249e92a79c6abe"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/recovery/2026-10-27T19-20-35-269Z-cea7fc38-8e74-48b2-8146-fec5b5289470/supervisor-exit.json",
+      "bytes": 34,
+      "sha256": "6380f7ebf1263a94abaaef4f5a1323cf0f4fbc88e37d8f1792ae68f163e18807"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/recovery/requests/2026-10-27T19-20-35-269Z-cea7fc38-8e74-48b2-8146-fec5b5289470/ready.json",
+      "bytes": 411,
+      "sha256": "bb37eb3b28d2c30c3d79d1a52c328bef97ebc57d7e077e6804e819930e636958"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/recovery/requests/2026-10-27T19-20-35-269Z-cea7fc38-8e74-48b2-8146-fec5b5289470/supervisor.log",
+      "bytes": 589,
+      "sha256": "cc6ef7a6dc065616efef5a364d8c23cb73c1f2c19834d73cb62968c5eb0a6ee6"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/runner/match-seed.js",
+      "bytes": 738,
+      "sha256": "e924ed0068104642619ac5254e9002195a717617bbc4fd1affc9c8b4910941c1"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/seed-1.log",
+      "bytes": 13,
+      "sha256": "e871f527a5a642736fa99d1499b899ae3632e0a743b026aa75ed463511705f5a"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/seed-2.log",
+      "bytes": 13,
+      "sha256": "e871f527a5a642736fa99d1499b899ae3632e0a743b026aa75ed463511705f5a"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/seed-3.log",
+      "bytes": 32,
+      "sha256": "50e3343e8c7a52b311b703f62c9bab54e85ae2626b5e90c0df57909f9e159cf8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/seed-4.log",
+      "bytes": 13,
+      "sha256": "e871f527a5a642736fa99d1499b899ae3632e0a743b026aa75ed463511705f5a"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/seeds/1/report.json",
+      "bytes": 457,
+      "sha256": "45ec0d58cbc20d3559803f2066709d7512cc810e1779ea7560dc55a2ff747da2"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/seeds/2/report.json",
+      "bytes": 457,
+      "sha256": "cac2870f0387461b11dc5c3a6247fa7900bf0e7767401a5e333f51bb6c87da07"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/seeds/3/report.json",
+      "bytes": 478,
+      "sha256": "5d94a77e292eb5ad010751c85e5fc0f923207ef39de800444ff702d1ef9ef9db"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/seeds/4/report.json",
+      "bytes": 457,
+      "sha256": "8b333c7d5622f0dfa088cb3e152498f1cb1c5d8f65e2ec9a1bdef297789c2a3f"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/status.json",
+      "bytes": 2861,
+      "sha256": "20da1204779b40d8030cff598b738d654fd24f4425b70cfd20f206dca2b371b8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/cohort/summary.json",
+      "bytes": 2861,
+      "sha256": "265084878d510bb9c431ad20f7959d2b2deb44fc3f7b964643b6d9a543588a38"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/project/source.txt",
+      "bytes": 21,
+      "sha256": "9677e66ad90a84d9986229032f1a1e016875def267eeeb67b9ba852e2d57d0d8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-fixtures/9/project/tools/qa/match-cohort.mjs",
+      "bytes": 10784,
+      "sha256": "23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/final-focused-tests.log",
+      "bytes": 2153,
+      "sha256": "9202b2c29fa0ce0ed63fa7fee9664fe815f299cdd3bba334654d5a9b2bba11a3"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/first-tests.log",
+      "bytes": 2812,
+      "sha256": "44afb4ca7bf56500ecd64b39da158b4c83be9d4ea9eae01802e71e4876d977fe"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/live-owner-refusal.json",
+      "bytes": 423,
+      "sha256": "176182837df8dbd4daa946b814e0bcd816b8cf52a9977954c1bec94b7e38b2ae"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/original-cohort-status-snapshot.json",
+      "bytes": 18351212,
+      "sha256": "3653027f47f75b583446bb6ced3e9c86c81bb74319e348f9ababe9edabdd842e"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/ruleset.txt",
+      "bytes": 65,
+      "sha256": "6f7133136de94a6e6f550f4b393d37f8729cb22d71d55bac1d9db8710bb11ee9"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/second-tests.log",
+      "bytes": 1297,
+      "sha256": "58c109ad83039f4c3df7c2012bb9cd3ea88dec13e61f293f6102882e2fc6e5ae"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-diagnostic.log",
+      "bytes": 2139,
+      "sha256": "2aa13a79ea63cb093b9473b54c48fd0e9416628e1c9b95d05491af97bee98737"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/cohort/.resume.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/cohort/maps/rift-layout.json",
+      "bytes": 24,
+      "sha256": "b613aac82d554a7d389552545648130b5d60862b3f71d3f5f867debb20f15e85"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/cohort/maps/rift-nav.bin",
+      "bytes": 20,
+      "sha256": "ca10608c2ad8340d6904e6937fdbc2d56b085cd0dd626e932437338f4457b6da"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/cohort/maps/rift-nav.json",
+      "bytes": 21,
+      "sha256": "22ee0a0a62f2d05cc075e8e3058274365c66e34cd6933cd2fe536e5edd2fc1ce"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/cohort/plan.json",
+      "bytes": 1458,
+      "sha256": "76dd7d76d124dea61423aac9f1e8e72e29792ea411fae343c6ec1a84e15ab968"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/cohort/recovery/2026-10-27T19-11-52-213Z-b5ac6f18-1db3-40a5-9b7e-f8eba7e2220f/accepted/report-3.json",
+      "bytes": 430,
+      "sha256": "0179a3596f454f610b530387783deeb02a466dd341f68c5903904ec0abf5b42d"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/cohort/recovery/2026-10-27T19-11-52-213Z-b5ac6f18-1db3-40a5-9b7e-f8eba7e2220f/before-plan.json",
+      "bytes": 1458,
+      "sha256": "76dd7d76d124dea61423aac9f1e8e72e29792ea411fae343c6ec1a84e15ab968"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/cohort/recovery/2026-10-27T19-11-52-213Z-b5ac6f18-1db3-40a5-9b7e-f8eba7e2220f/before-status.json",
+      "bytes": 756,
+      "sha256": "0d9e0e3a64c3905a600c419e5973a551944b8caf9ed9c1ff60c8ce79e530d557"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/cohort/recovery/2026-10-27T19-11-52-213Z-b5ac6f18-1db3-40a5-9b7e-f8eba7e2220f/interrupted/seed-1.log",
+      "bytes": 19,
+      "sha256": "0aa1449226a38a334cdede55102fe611ed9a3f50c5eb37e4781ada560a016927"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/cohort/recovery/2026-10-27T19-11-52-213Z-b5ac6f18-1db3-40a5-9b7e-f8eba7e2220f/interrupted/seeds/1/000123.match.json",
+      "bytes": 34,
+      "sha256": "1f04e06444288857dfca2ac404f4371fa33af574582231f3e2883a97be69b714"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/cohort/recovery/2026-10-27T19-11-52-213Z-b5ac6f18-1db3-40a5-9b7e-f8eba7e2220f/interrupted/seeds/1/progress.json",
+      "bytes": 31,
+      "sha256": "f154a05281256722b9f0499f6da1f70ef65709025cfef7b73e989a68b00507a1"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/cohort/recovery/2026-10-27T19-11-52-213Z-b5ac6f18-1db3-40a5-9b7e-f8eba7e2220f/interrupted/seeds/2/report.json",
+      "bytes": 413,
+      "sha256": "2f8773f0865b87692d34e33e7169a6bb093a359c30b4f5a6a3ecda446bc24e24"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/cohort/recovery/2026-10-27T19-11-52-213Z-b5ac6f18-1db3-40a5-9b7e-f8eba7e2220f/recovery.json",
+      "bytes": 4335,
+      "sha256": "13c947dcb39d06dcccd45bc6f925aa662da8220daf202c6a8fbb0087a7dcfb8d"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/cohort/recovery/2026-10-27T19-11-52-213Z-b5ac6f18-1db3-40a5-9b7e-f8eba7e2220f/supervisor/match-cohort.mjs",
+      "bytes": 9435,
+      "sha256": "d797cc9cffa79c2663732ec57b9743cef75ffc8f02b2f3b4d51ac51127d3f383"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/cohort/recovery/2026-10-27T19-11-52-213Z-b5ac6f18-1db3-40a5-9b7e-f8eba7e2220f/supervisor-exit.json",
+      "bytes": 34,
+      "sha256": "4f28ce20fdc0de466d37924709e00a12b257475dd0f3c52b34da60ddafc9d814"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/cohort/recovery/requests/2026-10-27T19-11-52-213Z-b5ac6f18-1db3-40a5-9b7e-f8eba7e2220f/startup-failure.json",
+      "bytes": 387,
+      "sha256": "54854f17001231b8807f6135edeca2d19b9229568622a5690b50621dc9630094"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/cohort/recovery/requests/2026-10-27T19-11-52-213Z-b5ac6f18-1db3-40a5-9b7e-f8eba7e2220f/supervisor.log",
+      "bytes": 945,
+      "sha256": "1a671a2af6d3247db7bde1c6553ebef57183e87ec833a17c9e7bdacccf716a71"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/cohort/runner/match-seed.js",
+      "bytes": 706,
+      "sha256": "520e87d365abb8f97a3488e1fa97cbe3b97516d73c6721b653997af98e0fa9f0"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/cohort/seed-3.log",
+      "bytes": 32,
+      "sha256": "50e3343e8c7a52b311b703f62c9bab54e85ae2626b5e90c0df57909f9e159cf8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/cohort/seeds/3/report.json",
+      "bytes": 430,
+      "sha256": "0179a3596f454f610b530387783deeb02a466dd341f68c5903904ec0abf5b42d"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/cohort/status.json",
+      "bytes": 756,
+      "sha256": "0d9e0e3a64c3905a600c419e5973a551944b8caf9ed9c1ff60c8ce79e530d557"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/project/source.txt",
+      "bytes": 21,
+      "sha256": "9677e66ad90a84d9986229032f1a1e016875def267eeeb67b9ba852e2d57d0d8"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/startup-failure-fixture/project/tools/qa/match-cohort.mjs",
+      "bytes": 10784,
+      "sha256": "23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/tested-source/docs/MATCH-COHORT-RECOVERY.md",
+      "bytes": 4378,
+      "sha256": "a7822d8af955c457e528aadfe3b2b5600b0c86aa4540811fe787b06e1994825e"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/tested-source/docs/PROGRESS.md",
+      "bytes": 747527,
+      "sha256": "2bbcb1912182e3093229cd070f8f624307de0ed6da0a54f3468aea5897e8c281"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/tested-source/tools/qa/cohort-resume.test.mjs",
+      "bytes": 18202,
+      "sha256": "3906eac1af7f072680fdb7df78769c91b5bf197bed6f1d0978056e4d970aff9a"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/tested-source/tools/qa/lib/cohort-resume-driver.mjs",
+      "bytes": 1297,
+      "sha256": "d070c82776a65c3c99b005230986b9082e513552411da3116dcab065b0d608a2"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/tested-source/tools/qa/lib/cohort-resume.mjs",
+      "bytes": 19304,
+      "sha256": "1ddcb38ae6f4a76783e6c99decfae3071a929a1ba1ff31f412c299c98585bbca"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/tested-source/tools/qa/resume-match-cohort.mjs",
+      "bytes": 3882,
+      "sha256": "0001b172a65b6c70a2f359bcaf037ab20e920cf27ed2970d042085e39a675d50"
+    },
+    {
+      "path": ".cache/cohort-resume-recovery/tested-source.json",
+      "bytes": 635,
+      "sha256": "3434aa3e42cdd5a0304f3f07e78b6622e6afbbde3227d27ebd00fcb6c187da5f"
+    }
+  ],
+  "limits": [
+    "Linux /proc and util-linux flock required; recorded runtime/CPU and frozen input pins must match.",
+    "Only the explicitly pinned canonical controller format is supported; other controller versions are refused.",
+    "Tests use synthetic workers to validate orchestration, not game outcomes.",
+    "The live original cohort continues under its earlier checked recovery supervisor; new tool performed only a read-only refusal check.",
+    "No new application, native visual, browser or physical-device performance acceptance."
+  ]
+}

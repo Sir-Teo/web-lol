@@ -1,0 +1,828 @@
+{
+  "format": 1,
+  "parentCommit": "63b79dabae3a980be2a12ac82f67b8c81d5fab9d",
+  "scope": "Trusted human Master Yi jungle trial on the source Rift; scheduled neutral-camp Q and Smite, private saves and production admission gates.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "806ec24d8b7eb71ba35d868ed3adba66e305dab913ee697a5fa606b96b6327b3",
+    "offlinePack": {
+      "id": "355d93a562bfb96a067d8f4bcc8e635b71d32ce989c97e3fa6772baa7e26d8b5",
+      "files": 1202,
+      "bytes": 538093273
+    }
+  },
+  "source": [
+    {
+      "file": "src/main.ts",
+      "bytes": 23298,
+      "sha256": "792de2ce57c52b655753753fc8139718668c9a985f968dc4610ef98355c9fd36"
+    },
+    {
+      "file": "src/simulation/battlefield.ts",
+      "bytes": 3048,
+      "sha256": "97901d5b91e398eae05e35124f5a23ba0ae8f5491f3b9935081560410f6e4a1c"
+    },
+    {
+      "file": "src/simulation/world.ts",
+      "bytes": 296257,
+      "sha256": "d4e053b4afd0b3000bee013cdb0ffd23c8e7d0a34e917a309fd04373aa1e1192"
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "bytes": 187763,
+      "sha256": "d300db2e47d3627624473b2200f67bc4d1ba93bef3c404646c782fa30effb3b7"
+    },
+    {
+      "file": "src/simulation/lane-match.ts",
+      "bytes": 3143,
+      "sha256": "ad95aad34d0fd44328a55b2161ec6ceabb2f88d3c72a48a3d027c38a234b397a"
+    },
+    {
+      "file": "tests/masteryi-rift-trial.test.ts",
+      "bytes": 8120,
+      "sha256": "44f1eff67b741d79118ddf7a6e782fb3bd4dc6c330ad2b2197bea88bafc57b94"
+    },
+    {
+      "file": "e2e/masteryi-rift-trial.spec.ts",
+      "bytes": 13351,
+      "sha256": "ea2a9bf1a24670575cbed8d07f7d3c6d52ea93c11f2864d9d7a320969be268b3"
+    },
+    {
+      "file": "e2e/masteryi-player.spec.ts",
+      "bytes": 11637,
+      "sha256": "bfc76d8cea9b36b6af2690d29c6d729d46fe254e564dc91bea81e9b77a5dae97"
+    },
+    {
+      "file": "e2e/helpers/pause-combat-state.ts",
+      "bytes": 1476,
+      "sha256": "09b030e8880b1ca1d1bff716f5138e00eb0d2099584b2ad8ed72fec852fa2d69"
+    },
+    {
+      "file": "tools/qa/production-subpath.mjs",
+      "bytes": 31147,
+      "sha256": "f660edb57995e74ee9bb139fe66f4962ab8846acf856db6fdbfe546eb5b477de"
+    },
+    {
+      "path": "docs/MASTER-YI-RIFT-TRIAL.md",
+      "bytes": 4867,
+      "sha256": "8fab1611fdc5046eda7fee76d35a20d6e5e6469389d8eecbd5b5109ce46d13ff"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "bytes": 744514,
+      "sha256": "52af3d30f8e168cd53321f66ad063cd0e11a34f280a37993974c78d4a408dd35"
+    }
+  ],
+  "verification": {
+    "focusedPassed": 121,
+    "focusedFiles": 9,
+    "newUnitCases": 6,
+    "fullUnitPassed": 3391,
+    "fullUnitFailed": 2,
+    "fullUnitTotal": 3393,
+    "fullUnitFiles": 402,
+    "baselineFailuresUnchanged": 2,
+    "typeCheckAndBuildPassed": true,
+    "nodeQaPassed": 16,
+    "browserCasesPassed": 7,
+    "singleGreenSevenCaseBatch": true,
+    "sourceReturnVisual": {
+      "result": "passed",
+      "input": ".cache/masteryi-rift-trial/browser-first/masteryi-rift-trial-human--20eb0--and-reloads-while-vanished/source-gromp.json",
+      "snapshotExact": true,
+      "futureExact": true,
+      "champion": "masteryi",
+      "role": "jungle",
+      "targetable": true,
+      "modelVisible": true,
+      "boneMatrices": 90,
+      "allBonesFinite": true,
+      "pauseMenuClosed": true,
+      "errors": [],
+      "screenshot": ".cache/masteryi-rift-trial/yi-source-gromp-return-visible.png",
+      "futureSha256": "e45ceac3d2cadce178a639d927f6de1fc06c2e60e060bb383918266236f35fca"
+    },
+    "browserAssertionsRetained": [
+      {
+        "path": "e2e/masteryi-player.spec.ts",
+        "originalAssertions": 47,
+        "currentAssertions": 47,
+        "allOriginalAssertionsRetainedInOrder": true
+      },
+      {
+        "path": "e2e/garen-player.spec.ts",
+        "originalAssertions": 47,
+        "currentAssertions": 47,
+        "allOriginalAssertionsRetainedInOrder": true
+      },
+      {
+        "path": "e2e/leona-rift-trial.spec.ts",
+        "originalAssertions": 25,
+        "currentAssertions": 25,
+        "allOriginalAssertionsRetainedInOrder": true
+      }
+    ],
+    "productionAssertionsRetained": {
+      "path": "tools/qa/production-subpath.mjs",
+      "originalAssertions": 100,
+      "currentAssertions": 102,
+      "allOriginalAssertionsRetainedInOrder": true
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 15,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "garenRiftTrialInProduction": false,
+      "masterYiRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderAudioPreloads": 0,
+      "unrequestedMasterYiAlphaAudioPreloads": 0,
+      "unrequestedMasterYiMeditateAudioPreloads": 0,
+      "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+      "unrequestedMasterYiSwordPreloads": 0,
+      "unrequestedMasterYiPrimaryTrailPreloads": 0,
+      "unrequestedMasterYiPrimaryHitPreloads": 0,
+      "unrequestedMasterYiPassiveTrailPreloads": 0,
+      "unrequestedMasterYiMeditateDamagePreloads": 0,
+      "unrequestedMasterYiHighlanderKillPreloads": 0,
+      "unrequestedMasterYiHighlanderCastPreloads": 0,
+      "unrequestedMasterYiQEndPreloads": 0,
+      "unrequestedMasterYiQCastPreloads": 0,
+      "unrequestedMasterYiQContactPreloads": 0,
+      "unrequestedMasterYiMeditateCastPreloads": 0,
+      "unrequestedMasterYiMeditateBuffPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 255,
+      "scheduledBlueRequests": 15,
+      "scheduledRedRequests": 15,
+      "scheduledWolfRequests": 30,
+      "scheduledRaptorRequests": 30,
+      "scheduledKrugRequests": 45,
+      "scheduledScuttlerRequests": 15,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    },
+    "offline": {
+      "manifest": {
+        "id": "355d93a562bfb96a067d8f4bcc8e635b71d32ce989c97e3fa6772baa7e26d8b5",
+        "files": 1202,
+        "bytes": 538093273
+      },
+      "checks": {
+        "integrityFailureRestoresDownloadFocus": true,
+        "integrityFailure": true,
+        "downloadFocusesCancel": true,
+        "cancelRetainsVerified": true,
+        "cancelRestoresDownloadFocus": true,
+        "retryWithoutRedownload": true,
+        "completionPreservesOtherControlFocus": true,
+        "pausedSavedTickBootsOffline": true,
+        "completePackRepairOffline": true,
+        "newLuxLaneMatchOffline": true,
+        "serviceWorkerResponses": 978,
+        "removalKeepsSavedBytes": true,
+        "updateRefusesOtherTabs": true,
+        "explicitAtomicVersionSwitchOffline": true,
+        "missingEntryRevokesReady": true,
+        "scopeOnlyRemoval": true
+      },
+      "result": "passed",
+      "productionErrors": []
+    },
+    "freshProductionScreenshots": 8,
+    "publicAssetsUnchangedInCheckout": 1125,
+    "originalCheckoutClean": true,
+    "originalCohortSourcePinsUnchanged": 539,
+    "schemaChanged": false,
+    "rulesetChanged": true
+  },
+  "originalCohort": {
+    "root": "/workspace/web-lol/.cache/match-cohort/current-normal-100-20261027",
+    "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "certifiesThisChangedRuleset": false,
+    "mainCheckoutRemainedFrozen": true
+  },
+  "pauseIntervals": [
+    {
+      "start": "2026-10-27T17:33:53.106113+00:00",
+      "end": "2026-10-27T17:34:48.312333+00:00",
+      "processes": [
+        {
+          "pid": 302400,
+          "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+        },
+        {
+          "pid": 342670,
+          "cmdlineSha256": "749fa167ad312d39381bf61f2787fe29d39177dc4eef77f8b0399471115f0965"
+        },
+        {
+          "pid": 343443,
+          "cmdlineSha256": "b34a295fe3573e1d01dcd169097a1ea22a018400e0139ee345b73f0bd07141f2"
+        },
+        {
+          "pid": 347854,
+          "cmdlineSha256": "0ca5625559175b574ad1c5f1d8008dbeba0b8cb0e27b4093a2c01b624e03ff21"
+        },
+        {
+          "pid": 348064,
+          "cmdlineSha256": "b15ca50f5328ca5c9652b22d78d1bfe219f21a994c525e6498da90376f78176d"
+        }
+      ],
+      "resumed": true
+    },
+    {
+      "start": "2026-10-27T17:36:43.536332+00:00",
+      "end": "2026-10-27T17:49:44.621633+00:00",
+      "processes": [
+        {
+          "pid": 302400,
+          "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+        },
+        {
+          "pid": 342670,
+          "cmdlineSha256": "749fa167ad312d39381bf61f2787fe29d39177dc4eef77f8b0399471115f0965"
+        },
+        {
+          "pid": 343443,
+          "cmdlineSha256": "b34a295fe3573e1d01dcd169097a1ea22a018400e0139ee345b73f0bd07141f2"
+        },
+        {
+          "pid": 347854,
+          "cmdlineSha256": "0ca5625559175b574ad1c5f1d8008dbeba0b8cb0e27b4093a2c01b624e03ff21"
+        },
+        {
+          "pid": 348064,
+          "cmdlineSha256": "b15ca50f5328ca5c9652b22d78d1bfe219f21a994c525e6498da90376f78176d"
+        }
+      ],
+      "resumed": true
+    },
+    {
+      "start": "2026-10-27T17:49:45.972725+00:00",
+      "end": "2026-10-27T18:04:44.500639+00:00",
+      "processes": [
+        {
+          "pid": 302400,
+          "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+        },
+        {
+          "pid": 342670,
+          "cmdlineSha256": "749fa167ad312d39381bf61f2787fe29d39177dc4eef77f8b0399471115f0965"
+        },
+        {
+          "pid": 343443,
+          "cmdlineSha256": "b34a295fe3573e1d01dcd169097a1ea22a018400e0139ee345b73f0bd07141f2"
+        },
+        {
+          "pid": 347854,
+          "cmdlineSha256": "0ca5625559175b574ad1c5f1d8008dbeba0b8cb0e27b4093a2c01b624e03ff21"
+        },
+        {
+          "pid": 348064,
+          "cmdlineSha256": "b15ca50f5328ca5c9652b22d78d1bfe219f21a994c525e6498da90376f78176d"
+        }
+      ],
+      "resumed": true
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-rift-trial/__pycache__/archive.cpython-312.pyc",
+      "bytes": 13213,
+      "sha256": "8e18fbf97613773153f2213952a5206a55c231ba452e76f4182dd8f0482076ec"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/__pycache__/finalize-docs.cpython-312.pyc",
+      "bytes": 4605,
+      "sha256": "d8de11bef909a3ad9270f1c686af06b3b2454af8094f5891ce560da2842b6696"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/__pycache__/run-acceptance.cpython-312.pyc",
+      "bytes": 10117,
+      "sha256": "3ce5928549a58b75ac9f1de0e7c6892bc27b10263a10832228c144448d88c922"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/application-inputs.json",
+      "bytes": 157954,
+      "sha256": "701b97df069c5c1ad4982f7285ecc33b8c9d8c8bd120344cb470f975a401c08f"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/application-pause-record.json",
+      "bytes": 755,
+      "sha256": "ad9028be3021782753d5c93da98819021f2c64f3846485227c47d05946afa723"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/application-source/docs/MASTER-YI-RIFT-TRIAL.md",
+      "bytes": 4867,
+      "sha256": "8fab1611fdc5046eda7fee76d35a20d6e5e6469389d8eecbd5b5109ce46d13ff"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/application-source/docs/PROGRESS.md",
+      "bytes": 744514,
+      "sha256": "52af3d30f8e168cd53321f66ad063cd0e11a34f280a37993974c78d4a408dd35"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/application-source/e2e/helpers/pause-combat-state.ts",
+      "bytes": 1476,
+      "sha256": "09b030e8880b1ca1d1bff716f5138e00eb0d2099584b2ad8ed72fec852fa2d69"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/application-source/e2e/masteryi-player.spec.ts",
+      "bytes": 11637,
+      "sha256": "bfc76d8cea9b36b6af2690d29c6d729d46fe254e564dc91bea81e9b77a5dae97"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/application-source/e2e/masteryi-rift-trial.spec.ts",
+      "bytes": 13351,
+      "sha256": "ea2a9bf1a24670575cbed8d07f7d3c6d52ea93c11f2864d9d7a320969be268b3"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/application-source/src/main.ts",
+      "bytes": 23298,
+      "sha256": "792de2ce57c52b655753753fc8139718668c9a985f968dc4610ef98355c9fd36"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/application-source/src/simulation/battlefield.ts",
+      "bytes": 3048,
+      "sha256": "97901d5b91e398eae05e35124f5a23ba0ae8f5491f3b9935081560410f6e4a1c"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/application-source/src/simulation/lane-match.ts",
+      "bytes": 3143,
+      "sha256": "ad95aad34d0fd44328a55b2161ec6ceabb2f88d3c72a48a3d027c38a234b397a"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/application-source/src/simulation/snapshot.ts",
+      "bytes": 187763,
+      "sha256": "d300db2e47d3627624473b2200f67bc4d1ba93bef3c404646c782fa30effb3b7"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/application-source/src/simulation/world.ts",
+      "bytes": 296257,
+      "sha256": "d4e053b4afd0b3000bee013cdb0ffd23c8e7d0a34e917a309fd04373aa1e1192"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/application-source/tests/masteryi-rift-trial.test.ts",
+      "bytes": 8120,
+      "sha256": "44f1eff67b741d79118ddf7a6e782fb3bd4dc6c330ad2b2197bea88bafc57b94"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/application-source/tools/qa/production-subpath.mjs",
+      "bytes": 31147,
+      "sha256": "f660edb57995e74ee9bb139fe66f4962ab8846acf856db6fdbfe546eb5b477de"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/archive.py",
+      "bytes": 7408,
+      "sha256": "4f59748bb632f57fba53da22a1129ef3951324276c9ad98cf66667ce53fb666f"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-assertion-retention.json",
+      "bytes": 481,
+      "sha256": "feec63c4a5724697733e9085985c6732a1d02f37c614091dc24421c32a1e5760"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-first/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-first/masteryi-player-held-Q-sel-e13dc--mouse-selected-return-side/human-q.json",
+      "bytes": 2759,
+      "sha256": "97bcd6b021fb34d3dbb5fbc0f8f60ccbe06c55b4f355b4b0f8889876e8ede1be"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-first/masteryi-player-held-Q-sel-e13dc--mouse-selected-return-side/masteryi-player-q-aim.png",
+      "bytes": 784225,
+      "sha256": "ec77a5c630836f66409ca87c30d723a302adeb015b3f9e84c6f646d320a25c9c"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-first/masteryi-player-held-Q-sel-e13dc--mouse-selected-return-side/masteryi-player-q-return.png",
+      "bytes": 777410,
+      "sha256": "12ad395471b1a2f25e0e747ac38405024d2f01c2c42ddb9f80056ad148904705"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-first/masteryi-player-human-Yi-o-23ebe--and-Double-Strike-feedback/human-controls.json",
+      "bytes": 1145,
+      "sha256": "a85eb40bd7df0d727a5c830f1adf28aec6e5263069454d3aff43e1b4d8b7a55b"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-first/masteryi-player-human-Yi-o-23ebe--and-Double-Strike-feedback/masteryi-player-hud.png",
+      "bytes": 786891,
+      "sha256": "126b2b16bf197bb3005b1e37cd4fdd2ca1392ffdabad321822da74cd99b72aad"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-first/masteryi-player-human-acti-8aaac-lated-after-a-real-NPC-save/human-save.json",
+      "bytes": 65863,
+      "sha256": "873b80dbeeb962ee215fabc3e0c82dd0eb6e2b2b2bddc4ca8ee87dfd5a709133"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-first/masteryi-rift-trial-human--20eb0--and-reloads-while-vanished/source-gromp.json",
+      "bytes": 1227561,
+      "sha256": "378788aced5e5cf7f6e6ed9c45e9c55c6da752806f12443cb0ebc88c4213ccde"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-first/masteryi-rift-trial-human--20eb0--and-reloads-while-vanished/yi-source-gromp-return.png",
+      "bytes": 422314,
+      "sha256": "56a83503015f85e9d2fc005797e71354ec6a2f1ec3705b346bed56b63e80f82c"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-first/masteryi-rift-trial-human--20eb0--and-reloads-while-vanished/yi-source-gromp-vanished.png",
+      "bytes": 1423666,
+      "sha256": "b701e510410d81febc14ab9a9ad108fca2032e0382f771cc5b68bc6b2ad7b066"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-first/masteryi-rift-trial-ordina-e0540-rant-development-permission/ordinary-gate.json",
+      "bytes": 83839,
+      "sha256": "97f2dc718bb69bf7dc4a5b1d59ca21b56c2ef9d4fe6646743af41c1b8d23dc0a"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-first/masteryi-rift-trial-the-or-99bc1-oice-survives-the-trial-URL/chooser.json",
+      "bytes": 116,
+      "sha256": "7c35cb56048aa27318857c7d81aa84e9f39b8341ae53ce56c62ffa195f88b417"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-first/masteryi-rift-trial-trial--bdd3c--and-keep-the-ordinary-save/saved-jungle.json",
+      "bytes": 531290,
+      "sha256": "9c689babba33924118c25d99e1067dd431b0b22e4294b47cb3e882768598ce59"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-inputs.json",
+      "bytes": 157954,
+      "sha256": "701b97df069c5c1ad4982f7285ecc33b8c9d8c8bd120344cb470f975a401c08f"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-pause-record.json",
+      "bytes": 755,
+      "sha256": "1bea920a56b33fa4c10515ea6cea1413f6d7070795af1f4a3c6380b0ba3d492d"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-source/e2e/helpers/pause-combat-state.ts",
+      "bytes": 1476,
+      "sha256": "09b030e8880b1ca1d1bff716f5138e00eb0d2099584b2ad8ed72fec852fa2d69"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-source/e2e/masteryi-player.spec.ts",
+      "bytes": 11637,
+      "sha256": "bfc76d8cea9b36b6af2690d29c6d729d46fe254e564dc91bea81e9b77a5dae97"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-source/e2e/masteryi-rift-trial.spec.ts",
+      "bytes": 13351,
+      "sha256": "ea2a9bf1a24670575cbed8d07f7d3c6d52ea93c11f2864d9d7a320969be268b3"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-source/src/main.ts",
+      "bytes": 23298,
+      "sha256": "792de2ce57c52b655753753fc8139718668c9a985f968dc4610ef98355c9fd36"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-source/src/simulation/battlefield.ts",
+      "bytes": 3048,
+      "sha256": "97901d5b91e398eae05e35124f5a23ba0ae8f5491f3b9935081560410f6e4a1c"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-source/src/simulation/lane-match.ts",
+      "bytes": 3143,
+      "sha256": "ad95aad34d0fd44328a55b2161ec6ceabb2f88d3c72a48a3d027c38a234b397a"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-source/src/simulation/snapshot.ts",
+      "bytes": 187763,
+      "sha256": "d300db2e47d3627624473b2200f67bc4d1ba93bef3c404646c782fa30effb3b7"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-source/src/simulation/world.ts",
+      "bytes": 296257,
+      "sha256": "d4e053b4afd0b3000bee013cdb0ffd23c8e7d0a34e917a309fd04373aa1e1192"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-source/tests/masteryi-rift-trial.test.ts",
+      "bytes": 8120,
+      "sha256": "44f1eff67b741d79118ddf7a6e782fb3bd4dc6c330ad2b2197bea88bafc57b94"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser-source/tools/qa/production-subpath.mjs",
+      "bytes": 31147,
+      "sha256": "f660edb57995e74ee9bb139fe66f4962ab8846acf856db6fdbfe546eb5b477de"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/browser.log",
+      "bytes": 3908,
+      "sha256": "b06a1812ceab3caffd0f0d64b185ef9bfeaa9274e17ec00b78f6505ce27d8285"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/build.log",
+      "bytes": 7852,
+      "sha256": "65713df2b27f86f749dfd06a50a1b6b90ea36ecc43b1048452e617f889f41eef"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/capture-source-return.mjs",
+      "bytes": 4367,
+      "sha256": "282d729b29b0515e49d055cacce4f8e2c01a33cd9dc5bbe88486f03685e6a6ee"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/check-browser-assertions.mjs",
+      "bytes": 1264,
+      "sha256": "d1212365b6dd61c7e51d51470644b141d6c2c2b41f75fdc78311483f32da0d6a"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/check-production-assertions.mjs",
+      "bytes": 1078,
+      "sha256": "e07c49ed423d343ebf152fd029dacae614989b4131d596dad9ab0f284a3cb3b2"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/final-component-inputs.json",
+      "bytes": 157289,
+      "sha256": "f8ab3bf7527de7c4d97351f6cc6a05cb990ea91d85d16b510e2649668bbc3579"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/final-component-pause-record.json",
+      "bytes": 755,
+      "sha256": "222423764b64a8c4ddbd819feb8a1c74dadbe2914fb5f3716be8a52f7db30ab4"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/final-component-source/src/main.ts",
+      "bytes": 23298,
+      "sha256": "792de2ce57c52b655753753fc8139718668c9a985f968dc4610ef98355c9fd36"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/final-component-source/src/simulation/battlefield.ts",
+      "bytes": 3048,
+      "sha256": "97901d5b91e398eae05e35124f5a23ba0ae8f5491f3b9935081560410f6e4a1c"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/final-component-source/src/simulation/lane-match.ts",
+      "bytes": 3143,
+      "sha256": "ad95aad34d0fd44328a55b2161ec6ceabb2f88d3c72a48a3d027c38a234b397a"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/final-component-source/src/simulation/snapshot.ts",
+      "bytes": 187763,
+      "sha256": "d300db2e47d3627624473b2200f67bc4d1ba93bef3c404646c782fa30effb3b7"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/final-component-source/src/simulation/world.ts",
+      "bytes": 296257,
+      "sha256": "d4e053b4afd0b3000bee013cdb0ffd23c8e7d0a34e917a309fd04373aa1e1192"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/final-component-source/tests/masteryi-rift-trial.test.ts",
+      "bytes": 8120,
+      "sha256": "44f1eff67b741d79118ddf7a6e782fb3bd4dc6c330ad2b2197bea88bafc57b94"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/finalize-docs.py",
+      "bytes": 3437,
+      "sha256": "4e0098398e23fe27aeca9b5450a3b159d83e28b4b92ce8b6ce66cdd85510922f"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/fingerprint.txt",
+      "bytes": 65,
+      "sha256": "55dc1c870cf79e109feb38fa8d159972a1998036d11b8e3b8e8a806399a2aaf6"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/focused.log",
+      "bytes": 183,
+      "sha256": "30146ad56319c97670efbfab491b0e4cf7de2a59cac7b9deed44da87817be118"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/full-tests.log",
+      "bytes": 4677,
+      "sha256": "fd3c486ff84009130d19362d17adcdc538672472d1fd3c9888665dbca003d92e"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/node.log",
+      "bytes": 1403,
+      "sha256": "c7b865e0d3bede2d0dbec4a86dee3e24df1ed34f496e26fa6ef736dbddc1a0b6"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/offline-artifacts/offline-pack-masteryi-rift-trial-20261027-lux-lanes.png",
+      "bytes": 522770,
+      "sha256": "b25486a5a37d4dcc090c777095a2b7ee6465c4abda3b117a867ee405261f3ea0"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/offline-artifacts/offline-pack-masteryi-rift-trial-20261027-production.json",
+      "bytes": 827,
+      "sha256": "1864922529221cbb7ce3feac448852a806f8b708cf7c5a69935be6b67e504f51"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/offline-artifacts/offline-pack-masteryi-rift-trial-20261027-ready.png",
+      "bytes": 573162,
+      "sha256": "46d4ad9bfd7ae6905683008b86bfd3ba86a12fffc86bb0669f4ff4143763f747"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/offline-system.mjs",
+      "bytes": 16600,
+      "sha256": "3d091435f88a3e61fc7ea5986ad5bbc2031e3232943298ff564fba118ebcb29d"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/offline.log",
+      "bytes": 842,
+      "sha256": "f414cb617dac02c195c25446db0943fa22ca161d45bf860cafc34eb93f3abeb1"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/production-assertion-retention.json",
+      "bytes": 153,
+      "sha256": "32abac8ad4dbfcd63e7c3479d325d66900c41648f87fe34529c90d3070ac43a8"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/production-screens/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1809128,
+      "sha256": "9f57118eb4a1f388acfa1193a06e951193be2db8d9cc948a68037d160b629138"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/production-screens/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835578,
+      "sha256": "e5ce9b03548888b9fbe1edee0327741a3115af8025ef53ed59afbf7a96d15361"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/production-screens/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829908,
+      "sha256": "8c7a89cc478ab125bea32407fc1108b9982a1a8fc95e4854074c53362d4148a4"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/production-screens/lux-e-hit-production-lux.png",
+      "bytes": 1812113,
+      "sha256": "0a5d1c2fa79a048b21473f98bf7fd0637851d897846b6ec193701274f84289b3"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/production-screens/lux-e-hit-production-oracle.png",
+      "bytes": 1819798,
+      "sha256": "28878c0285fd4da1f590afcee51335d379cf0c72bf9453b8bd760d64f2e29c31"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/production-screens/lux-e-hit-production-role-match.png",
+      "bytes": 1351611,
+      "sha256": "c39d5d90239f7d3432352af3a6567e70b5e1e404e7b9059067142058b59eb282"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/production-screens/lux-e-hit-production-subpath.png",
+      "bytes": 1823767,
+      "sha256": "e565ed6cc013f20b0969cc5b81da7bbcb15b057a33591c70646bf9f012ba49f4"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/production-screens/lux-e-hit-production-ward.png",
+      "bytes": 1808173,
+      "sha256": "e418512ce14861c4fd685285a06606769c9f94d64c0f70f1a54f02db2c1e4019"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/production-system.mjs",
+      "bytes": 31189,
+      "sha256": "8adcb515dd770825ef3ac42c8510d16169fd8d9f9b660b945c3392673157e33a"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/production.log",
+      "bytes": 2925,
+      "sha256": "47d6ef5124a64d37701161ac7965aced8283bd39b0439cfe91c2f0cfb78237d1"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/run-acceptance.py",
+      "bytes": 4217,
+      "sha256": "47b51788ba5d6d368d8a5224a5960b238563529d21458b5eb73fd4375895b503"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/run-after-browser.py",
+      "bytes": 625,
+      "sha256": "540890d5009251b7bdbd53c83a719ed7360a3fea773320d001aa7e5799fd60de"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/run-browser.py",
+      "bytes": 3316,
+      "sha256": "5a5a6d01bafa3801fbc08fc905bcb85f0313eefb92fa760d79a0262c70b33361"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/run-components.py",
+      "bytes": 3428,
+      "sha256": "e7188128e7ceae6333be8d86e9a4926f9c21bdad5a24516be5fde5ae2f0d29b0"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/source-camp-browser-case.txt",
+      "bytes": 6363,
+      "sha256": "dd2173ce99c5cbd33521fd03f66fd54392fdd360223a9950b1bd8f64dfba8f25"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/source-return-visual.json",
+      "bytes": 557,
+      "sha256": "e03785f88c3a4ce895f224fa36ba23d18691e2ebe3dd3cec4a587a12aa482546"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/source-return-visual.log",
+      "bytes": 863,
+      "sha256": "714764f5b83177b1cc8f5f59bd7b2b2009164afd0237a8ef4cfdf3458876c192"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/visual-review.json",
+      "bytes": 1433,
+      "sha256": "334bab02ca423d36747720e2cc8b9de5c6b3a2a1dca320c80dce6e2dbf6b7965"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/yi-source-gromp-return-visible.png",
+      "bytes": 1412899,
+      "sha256": "65889f0169f07127e4d1727e5f53f3a14f20c4d02f61454e5f53a76c41690919"
+    }
+  ],
+  "productionScreenshots": [
+    {
+      "path": ".cache/masteryi-rift-trial/production-screens/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1809128,
+      "sha256": "9f57118eb4a1f388acfa1193a06e951193be2db8d9cc948a68037d160b629138"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/production-screens/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835578,
+      "sha256": "e5ce9b03548888b9fbe1edee0327741a3115af8025ef53ed59afbf7a96d15361"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/production-screens/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829908,
+      "sha256": "8c7a89cc478ab125bea32407fc1108b9982a1a8fc95e4854074c53362d4148a4"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/production-screens/lux-e-hit-production-lux.png",
+      "bytes": 1812113,
+      "sha256": "0a5d1c2fa79a048b21473f98bf7fd0637851d897846b6ec193701274f84289b3"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/production-screens/lux-e-hit-production-oracle.png",
+      "bytes": 1819798,
+      "sha256": "28878c0285fd4da1f590afcee51335d379cf0c72bf9453b8bd760d64f2e29c31"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/production-screens/lux-e-hit-production-role-match.png",
+      "bytes": 1351611,
+      "sha256": "c39d5d90239f7d3432352af3a6567e70b5e1e404e7b9059067142058b59eb282"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/production-screens/lux-e-hit-production-subpath.png",
+      "bytes": 1823767,
+      "sha256": "e565ed6cc013f20b0969cc5b81da7bbcb15b057a33591c70646bf9f012ba49f4"
+    },
+    {
+      "path": ".cache/masteryi-rift-trial/production-screens/lux-e-hit-production-ward.png",
+      "bytes": 1808173,
+      "sha256": "e418512ce14861c4fd685285a06606769c9f94d64c0f70f1a54f02db2c1e4019"
+    }
+  ],
+  "limits": [
+    "Trusted development trial; production selection remains Ashe/Lux.",
+    "The original100-seed cohort is baseline evidence only; the changed ruleset has no claimed100-seed acceptance.",
+    "Yi jungle bot policy, full six-character delivery, complete native audiovisual comparison and physical-device performance remain open.",
+    "Two baseline unit failures retain their original missing-evidence and host-sensitive digest assertions."
+  ]
+}

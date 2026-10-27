@@ -1,0 +1,213 @@
+{
+  "format": 1,
+  "scope": "Separate bounded continuation of retained old-rules seed 70, without modifying its accepted horizon outcome.",
+  "sourceRuleset": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+  "original": {
+    "seed": 70,
+    "outcome": "unfinished",
+    "horizonTicks": 216000,
+    "winner": null,
+    "reportSha256": "54d56dc86092c9218421203d2cf0b482ad2718352e372f09ca1b0d7cb5d9e519",
+    "finalStateSha256": "d46fc92612b7b43893a0bff72e4792a4be67555669a81366bd8d8ad691941ec2"
+  },
+  "diagnostic": {
+    "diagnosticOnly": true,
+    "sourceRuleset": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "sourceReportSha256": "54d56dc86092c9218421203d2cf0b482ad2718352e372f09ca1b0d7cb5d9e519",
+    "sourceFinalStateSha256": "d46fc92612b7b43893a0bff72e4792a4be67555669a81366bd8d8ad691941ec2",
+    "originalOutcome": "unfinished",
+    "originalHorizonTicks": 216000,
+    "continuedFromTick": 216000,
+    "finalTick": 245351,
+    "winner": "red",
+    "checkedTicks": 29351,
+    "roundTrips": 9,
+    "futureChecks": 8,
+    "originalFrozenInputsUnchanged": 543,
+    "elapsedSeconds": 275.837
+  },
+  "destruction": [
+    {
+      "tick": 222118,
+      "id": 26,
+      "team": "blue",
+      "role": "inhibitor",
+      "lane": "mid",
+      "healthBarHeight": 370,
+      "regenPerSecond": 3
+    },
+    {
+      "tick": 225348,
+      "id": 6,
+      "team": "blue",
+      "role": "inhibitor-turret",
+      "lane": "bot",
+      "healthBarHeight": 485,
+      "regenPerSecond": 0
+    },
+    {
+      "tick": 226756,
+      "id": 27,
+      "team": "blue",
+      "role": "inhibitor",
+      "lane": "bot",
+      "healthBarHeight": 370,
+      "regenPerSecond": 3
+    },
+    {
+      "tick": 227756,
+      "id": 13,
+      "team": "red",
+      "role": "inhibitor-turret",
+      "lane": "top",
+      "healthBarHeight": 485,
+      "regenPerSecond": 0
+    },
+    {
+      "tick": 228506,
+      "id": 29,
+      "team": "red",
+      "role": "inhibitor",
+      "lane": "top",
+      "healthBarHeight": 370,
+      "regenPerSecond": 3
+    },
+    {
+      "tick": 232236,
+      "id": 30,
+      "team": "red",
+      "role": "inhibitor",
+      "lane": "mid",
+      "healthBarHeight": 370,
+      "regenPerSecond": 3
+    },
+    {
+      "tick": 235810,
+      "id": 5,
+      "team": "red",
+      "role": "nexus-turret",
+      "lane": null,
+      "healthBarHeight": 485,
+      "regenPerSecond": 0
+    },
+    {
+      "tick": 243095,
+      "id": 26,
+      "team": "blue",
+      "role": "inhibitor",
+      "lane": "mid",
+      "healthBarHeight": 370,
+      "regenPerSecond": 3
+    },
+    {
+      "tick": 244234,
+      "id": 2,
+      "team": "blue",
+      "role": "nexus-turret",
+      "lane": null,
+      "healthBarHeight": 485,
+      "regenPerSecond": 0
+    },
+    {
+      "tick": 245034,
+      "id": 3,
+      "team": "blue",
+      "role": "nexus-turret",
+      "lane": null,
+      "healthBarHeight": 485,
+      "regenPerSecond": 0
+    },
+    {
+      "tick": 245351,
+      "id": 25,
+      "team": "blue",
+      "role": "nexus",
+      "lane": null,
+      "healthBarHeight": 500,
+      "regenPerSecond": 4
+    }
+  ],
+  "cohortObservation": {
+    "time": "2026-10-27T19:57:59.433037+00:00",
+    "completed": 76,
+    "requested": 100,
+    "victories": 75,
+    "unfinished": 1,
+    "failures": 0
+  },
+  "limits": {
+    "originalOutcomeReclassified": false,
+    "cohortVictoryCountChanged": false,
+    "clockChanged": false,
+    "rulesChanged": false,
+    "identityBridged": false,
+    "sourceAIChanged": false,
+    "rootCauseOfLateFinishClaimed": false,
+    "hundredSeedGateClaimed": false,
+    "laterApplicationCertified": false
+  },
+  "source": [
+    {
+      "path": "docs/MATCH-SEED-70-DIAGNOSIS.md",
+      "bytes": 2485,
+      "sha256": "85cc8cfd56303481c6e18369ed609b16e225c7cab24cfc1533c458232077d612"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/seed-70-diagnosis/archive.py",
+      "bytes": 2039,
+      "sha256": "49891e948c2c231144a1612395bf262457d68c06904a8e738a332f0f36bfcfbb"
+    },
+    {
+      "path": ".cache/seed-70-diagnosis/build.mjs",
+      "bytes": 487,
+      "sha256": "1d678e6f4b7576ede7bd0a70098efb868cc76d535e5df8188b8c0511294f262e"
+    },
+    {
+      "path": ".cache/seed-70-diagnosis/continuation.json",
+      "bytes": 59698,
+      "sha256": "7f1dbda7817b0dcbf6adfa375b6a3a208213ade74b4abcc13dbc8b6b9a819234"
+    },
+    {
+      "path": ".cache/seed-70-diagnosis/continuation.log",
+      "bytes": 271,
+      "sha256": "ea4d985c0968f9d12382d3b5edc8802af249e58476220292e449b299e2f607bb"
+    },
+    {
+      "path": ".cache/seed-70-diagnosis/continue.ts",
+      "bytes": 3736,
+      "sha256": "eb7db5664610acf88b4ce156991bb532ea99c9ccfa369bf84795ec5ebd0e1f6e"
+    },
+    {
+      "path": ".cache/seed-70-diagnosis/final.match.json",
+      "bytes": 228409,
+      "sha256": "09196c32b2fc8cdbad68f92f85ab14d70bb061923e87a614fc62a64251897185"
+    },
+    {
+      "path": ".cache/seed-70-diagnosis/original/final.match.json",
+      "bytes": 213541,
+      "sha256": "9cdacae76a5ecea6fadefc826819236522866f2b2e1ac39d125853a4ba5e6b4b"
+    },
+    {
+      "path": ".cache/seed-70-diagnosis/original/plan.json",
+      "bytes": 94200,
+      "sha256": "152a1ddb4cf21c928e2b89c5269ede5ebe0f51c0a7eb16031c82ab3e82dbcfe9"
+    },
+    {
+      "path": ".cache/seed-70-diagnosis/original/report.json",
+      "bytes": 304949,
+      "sha256": "54d56dc86092c9218421203d2cf0b482ad2718352e372f09ca1b0d7cb5d9e519"
+    },
+    {
+      "path": ".cache/seed-70-diagnosis/progress.json",
+      "bytes": 55,
+      "sha256": "bc9b0f9c0ba8116dbce61863750f902d25561f6d2368b26062fc18be61ea8ac1"
+    },
+    {
+      "path": ".cache/seed-70-diagnosis/runner/continue.js",
+      "bytes": 1147346,
+      "sha256": "2af41a103a885050b13e77dd278672e3215bd2525cdd19a1d04c9f1162e9af17"
+    }
+  ]
+}
