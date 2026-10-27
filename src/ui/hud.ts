@@ -901,6 +901,7 @@ export class Hud {
         dialog.querySelectorAll<HTMLButtonElement>('button').forEach((button) => {
           button.disabled = true;
         });
+        dialog.focus({ preventScroll: true });
         status.textContent = 'Loading match…';
         void prepared.load().catch((error) => {
           this.replacingMatch = false;

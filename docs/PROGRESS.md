@@ -6,10 +6,18 @@ Last updated: October 27, 2026 (UTC).
 
 ## Current authoritative state
 
-The latest [modal keyboard repair](MODAL-KEYBOARD-FOCUS.md) makes initial
+The latest [pending-import focus repair](IMPORT-DIALOG-FOCUS.md) keeps keyboard
+focus inside the loading dialog while its controls are disabled. Nine browser
+cases, TypeScript, 14 Node QA checks, build and the compiled native-write keyboard
+audit pass. Its current pack is
+`d4d63558d110ea46b158a316651fc32fc1fe6677456cc328fcc3ce7cfafd546c`
+(1,202 files / 538,092,203 bytes). Broader unit/production/offline results below
+retain their recorded earlier identities and are inherited for this UI repair.
+
+The preceding [modal keyboard repair](MODAL-KEYBOARD-FOCUS.md) makes initial
 Shift+Tab reach the last available dialog button. Its six browser cases,
 TypeScript, 14 Node QA checks, build and targeted nested-host keyboard audit pass.
-The current pack is `6d9e13b2bb8bbdf6de5400f2a6ae4fe9bcc4cfe1096f1e01fdd7a6b8d91627fc`
+Its pack is `6d9e13b2bb8bbdf6de5400f2a6ae4fe9bcc4cfe1096f1e01fdd7a6b8d91627fc`
 (1,202 files / 538,092,175 bytes). Broader unit/production/offline acceptance below
 belongs to the preceding rendering checkpoint and its own pack; it is inherited
 for this focused UI change.

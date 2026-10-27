@@ -2,7 +2,7 @@
 import { createServer } from 'node:http';
 import { createReadStream } from 'node:fs';
 import { stat, mkdir } from 'node:fs/promises';
-import { existsSync, writeFileSync } from 'node:fs';
+import { existsSync, writeFileSync, readFileSync } from 'node:fs';
 import { parseArgs } from 'node:util';
 import { resolve, sep, extname } from 'node:path';
 import assert from 'node:assert/strict';
@@ -153,6 +153,84 @@ try {
   await page.screenshot({ path: resolve(output, 'offline-modal-focus.png') });
   await page.keyboard.press('Space');
   await page.getByRole('heading', { name: 'Game paused', exact: true }).waitFor();
+  await page.getByRole('button', { name: 'Match files', exact: true }).click();
+  const exported = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Download current match', exact: true }).click();
+  const importBytes = readFileSync(await (await exported).path()),
+    importState = JSON.parse(importBytes);
+  // Hold the native IndexedDB completion callback after the real write. This
+  // exercises pending production UI without exposing a development game hook.
+  await page.evaluate(() => {
+    const original = IDBDatabase.prototype.transaction;
+    const complete = Object.getOwnPropertyDescriptor(IDBTransaction.prototype, 'oncomplete');
+    IDBDatabase.prototype.transaction = function (...args) {
+      const tx = Reflect.apply(original, this, args);
+      if (args[1] === 'readwrite')
+        Object.defineProperty(tx, 'oncomplete', {
+          configurable: true,
+          get() {
+            return complete.get.call(tx);
+          },
+          set(callback) {
+            complete.set.call(tx, (event) => {
+              window.__QA_RELEASE_IMPORT__ = () => callback.call(tx, event);
+            });
+          },
+        });
+      return tx;
+    };
+  });
+  await page
+    .getByLabel('Match file', { exact: true })
+    .setInputFiles({
+      name: 'paused-keyboard-match.json',
+      mimeType: 'application/json',
+      buffer: importBytes,
+    });
+  const load = page.getByRole('button', { name: 'Load this match', exact: true });
+  await load.click();
+  await page.locator('.file-status').filter({ hasText: 'Loading match…' }).waitFor();
+  await page.waitForFunction(() => typeof window.__QA_RELEASE_IMPORT__ === 'function');
+  const importDialog = page.getByRole('dialog');
+  assert.equal(await importDialog.evaluate((node) => document.activeElement === node), true);
+  assert.equal(await importDialog.locator('button:not([disabled])').count(), 0);
+  for (const key of ['Tab', 'Shift+Tab']) {
+    await page.keyboard.press(key);
+    assert.equal(await importDialog.evaluate((node) => document.activeElement === node), true);
+  }
+  await page.screenshot({ path: resolve(output, 'import-pending-focus.png') });
+  await Promise.all([
+    page.waitForEvent('load'),
+    page.evaluate(() => window.__QA_RELEASE_IMPORT__()),
+  ]);
+  await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
+  await page.getByRole('heading', { name: 'Game paused', exact: true }).waitFor();
+  assert.equal(await page.evaluate(() => !!window.__GAME__), false);
+  const restored = await page.evaluate(async () => {
+    const request = indexedDB.open('rift-local-matches', 1);
+    const db = await new Promise((resolve, reject) => {
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = reject;
+    });
+    try {
+      return await new Promise((resolve, reject) => {
+        const tx = db.transaction('checkpoints', 'readonly'),
+          r = tx.objectStore('checkpoints').get('rift');
+        tx.oncomplete = () => resolve(r.result);
+        tx.onabort = reject;
+      });
+    } finally {
+      db.close();
+    }
+  });
+  assert.equal(restored, importBytes.toString());
+  const seconds = Math.floor(importState.tick / 60);
+  assert.equal(
+    await page.locator('#clock').textContent(),
+    `${Math.floor(seconds / 60)
+      .toString()
+      .padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`
+  );
   await page.getByRole('button', { name: 'Return to the Rift', exact: true }).focus();
   await page.keyboard.press('Space');
   await page
@@ -174,11 +252,13 @@ try {
     offlineDialogReverseInitialFocus: true,
     wardPreviewReplacedByHeal: true,
     resumeSpace: true,
+    pendingImportRetainsDialogFocus: true,
+    importedStateExactAfterNativeWrite: true,
     errors,
     failed,
     outside,
     browser: await browser.version(),
-    screenshots: 2,
+    screenshots: 3,
   };
   writeFileSync(resolve(output, 'reading.json'), JSON.stringify(result, null, 2) + '\n');
   console.log(JSON.stringify(result));
