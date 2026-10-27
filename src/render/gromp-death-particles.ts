@@ -23,10 +23,12 @@ function compile(keys: { time: number; value: number[] }[]): ParticleCurve {
 const curves = source.profiles.map((profile, profileIndex) => ({
   scale: compile(profile.scaleCurve),
   color: compile(profile.colorCurve),
+  // Complex p-type3 mesh6 shares raw-key arithmetic and retains float4 storage.
   rawColor:
     profile.kind === 'ray' ||
     isGrompLegacyBillboard(profileIndex) ||
-    isGrompLegacyPlane(profileIndex)
+    isGrompLegacyPlane(profileIndex) ||
+    profileIndex === 6
       ? prepareLegacyParticleColor(profile.color, profile.colorCurve)
       : null,
   rotation: compile(profile.rotationCurve),

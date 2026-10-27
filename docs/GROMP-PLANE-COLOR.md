@@ -84,3 +84,10 @@ activation. The run records 978 service-worker responses and zero page errors.
 Schema 163, simulation rules and all 539 active-cohort source pins stay unchanged.
 All 1,125 public asset/data files retain their sizes and modification times.
 These software-Chromium checks make no physical-device frame-rate claim.
+
+## Subsequent mesh checkpoint
+
+The [mesh arithmetic correction](GROMP-MESH-COLOR.md) adds only profile6 to the
+raw-key policy while preserving float storage. This page retains the accepted
+plane checkpoint. Its former whole-sampler verifier now freezes that sampler
+at `891abcc`; the current mesh verifier checks all other profiles exactly.

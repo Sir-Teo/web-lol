@@ -6,18 +6,19 @@ Last updated: October 27, 2026 (UTC).
 
 ## Current authoritative state
 
-The latest rendering checkpoint has **3,288 passing unit tests out of 3,290**
-across 398 files. The two unchanged baseline failures are a missing original
+The latest rendering checkpoint has **3,324 passing unit tests out of 3,326**
+across 399 files. The two unchanged baseline failures are a missing original
 Leona Eclipse evidence closure and the host-sensitive Lux missile snapshot digest;
-their assertions and expected results remain intact. TypeScript, all 12 Node QA
-checks, the production build and eight Gromp browser cases pass. The
+their assertions and expected results remain intact. TypeScript, all 14 Node QA
+checks, the production build and nine Gromp browser cases pass. The
 [Gromp billboard correction](GROMP-BILLBOARD-COLOR.md) and separate
-[shadow plane correction](GROMP-PLANE-COLOR.md) follow checked primitive routes,
+[shadow plane correction](GROMP-PLANE-COLOR.md), plus the separate
+[mesh arithmetic correction](GROMP-MESH-COLOR.md), follow checked primitive routes,
 independent host-C arithmetic and exact per-channel browser comparisons. They do
 not certify complete native appearance or physical-device performance.
 
-The new pack is `a62254a879cebdc7116cc5a58bcbf302246d32848bf876feb5398df84e0425eb`
-(1,202 files / 538,092,136 bytes). All 32 nested-path production scenarios pass, and the exact pack passes
+The new pack is `273e1d8ec876bb239ef52ae674f4ed95f23cb665b4094a1408b0ec37b9fe3390`
+(1,202 files / 538,092,143 bytes). All 32 nested-path production scenarios pass, and the exact pack passes
 offline integrity/recovery, saved-tick restore, a new Lux lane match and atomic
 version activation with zero page errors. Schema 163 and rules fingerprint
 `1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6` stay unchanged.

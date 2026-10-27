@@ -1,4 +1,5 @@
-/** Check the audited plane against host C and retain all other sampler state. */
+/** Replay the accepted plane checkpoint and original whole-sampler invariants.
+ * Current sampler acceptance is verify-gromp-mesh-color.mjs. */
 import assert from 'node:assert/strict';
 import { mkdirSync, existsSync, writeFileSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -15,12 +16,16 @@ const reference = await grompRayReference(
     resolve(output, 'reference'),
     '395a4fecba79d1c6d76d1c52129571b342a46f31'
   ),
+  accepted = await grompRayReference(
+    resolve(output, 'accepted'),
+    '891abcc0d25eb0dfbf2af7d18a62d8235fbb8d8c'
+  ),
   entry = resolve(output, 'candidate.ts'),
   module = resolve(output, 'candidate.mjs');
 writeFileSync(
   entry,
   [
-    `export {grompDeathParticles} from ${JSON.stringify(resolve('src/render/gromp-death-particles.ts'))};`,
+    `export {grompDeathParticles} from ${JSON.stringify(resolve(output, 'accepted/source/src/render/gromp-death-particles.ts'))};`,
     `export {isGrompLegacyPlane,writeGrompPlaneColor} from ${JSON.stringify(resolve('src/render/gromp-plane-color.ts'))};`,
     `export {prepareLegacyParticleColor,sampleLegacyParticleColor} from ${JSON.stringify(resolve('src/render/legacy-particle-color.ts'))};`,
   ].join('\n')
@@ -149,6 +154,9 @@ for (let i = 0; i < requests.length; i++) {
 const result = {
   result: 'passed',
   reference,
+  acceptedSamplerReference: accepted,
+  samplerScope:
+    'Frozen pre-mesh accepted sampler; current whole-sampler assertions live in verify-gromp-mesh-color.mjs.',
   samplerCalls,
   retainedPlaneStates: retained,
   unchangedOtherStates,

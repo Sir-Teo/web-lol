@@ -1,0 +1,1811 @@
+{
+  "format": 1,
+  "parentCommit": "d2d6284046614b1df842ab0d58680d5c04712be3",
+  "scope": "Conditional raw-key float32 RGBA only for Gromp mesh profile6; float attribute storage and all renderer paths retained.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "offlinePack": {
+      "id": "273e1d8ec876bb239ef52ae674f4ed95f23cb665b4094a1408b0ec37b9fe3390",
+      "files": 1202,
+      "bytes": 538092143
+    }
+  },
+  "source": [
+    {
+      "file": "src/render/gromp-death-particles.ts",
+      "bytes": 4599,
+      "sha256": "34a69fed57cf4860db1294b837d6f99785977eff99c2321b26742355f8853804"
+    },
+    {
+      "file": "tests/gromp-mesh-color.test.ts",
+      "bytes": 2265,
+      "sha256": "39dc3cdf8e07f9674b364fc67a1ac9edbe945486482bb64ddf49b7731c1b5f69"
+    },
+    {
+      "file": "e2e/gromp-mesh-color.spec.ts",
+      "bytes": 11354,
+      "sha256": "e568728e0a26a22efd10b969c70915dd792c9a39dcb7fe194d64e54894558980"
+    },
+    {
+      "file": "tools/qa/lib/legacy-mesh-color-reference.py",
+      "bytes": 6538,
+      "sha256": "78d5945befc105dfd273da81cebee85d6c79e4ad610d0d22bffd2e556e025ab8"
+    },
+    {
+      "file": "tools/qa/legacy-mesh-color-reference.test.mjs",
+      "bytes": 3015,
+      "sha256": "9ccff5675566c4351f81e7211cac20870ec79e61af3ef4ddf4852403210f5d6f"
+    },
+    {
+      "file": "tools/qa/verify-gromp-mesh-color.mjs",
+      "bytes": 6263,
+      "sha256": "28054138af29ae7a76f0a72549112254dfbfb1966f5788036b3199d6aaae4de0"
+    },
+    {
+      "file": "tools/qa/verify-gromp-plane-color.mjs",
+      "bytes": 7060,
+      "sha256": "c66d77ca1b7ce9ab0aa4209ebab2ed702a045de928eb8cd3b90ab6abbaf5ebd9"
+    },
+    {
+      "file": "docs/reference/gromp-mesh-color-fixtures.json",
+      "bytes": 11777,
+      "sha256": "c64f47492cf5d8d7239b9f3ec7a873a2fb38eaa85073b2d9dfdf4a63697293bd"
+    },
+    {
+      "path": "docs/GROMP-MESH-COLOR.md",
+      "bytes": 5132,
+      "sha256": "008204d1c1b1ef8849208f2ecde23bd51477a12921599a0d7565f396a674de53"
+    },
+    {
+      "path": "docs/GROMP-PLANE-COLOR.md",
+      "bytes": 5626,
+      "sha256": "cf1102c595b55e8784a9f088cf2a63d72585c60025f8a7866c85b711805d395c"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "bytes": 739031,
+      "sha256": "cf746870625257134b5298903b2b800790dbc3d33157470a164bedaa77204b5a"
+    }
+  ],
+  "sampler": {
+    "result": "passed",
+    "reference": {
+      "commit": "891abcc0d25eb0dfbf2af7d18a62d8235fbb8d8c",
+      "archiveSha256": "c7b8a0a1d8895cd38525331b76bf6d1dd946a6d33643442be499219aca110521",
+      "moduleSha256": "3d3cf28403a4efa2318f721bdaedcba71c1dc8366c69311b00d3b2c6ec73d22e",
+      "module": "/workspace/web-lol/.cache/gromp-mesh-color/sampler/reference/baseline.mjs"
+    },
+    "samplerCalls": 16497,
+    "retainedMeshStates": 196431,
+    "unchangedOtherStates": 195391,
+    "extraPhases": 1010,
+    "counts": {
+      "6": {
+        "states": 196431,
+        "changedFloat32ColorStates": 47109,
+        "differentFromOldFloatTint": 47109,
+        "maxFloat32ColorDelta": 1.7881393432617188e-07
+      }
+    },
+    "examples": [
+      {
+        "profileIndex": 6,
+        "phase": 0.7083333333333334,
+        "death": 0,
+        "id": 0,
+        "tick": 86,
+        "before": [
+          0.972222222222222,
+          0.972222222222222,
+          0.972222222222222,
+          0.972222222222222
+        ],
+        "rgba": [
+          0.9722222685813904,
+          0.9722222685813904,
+          0.9722222685813904,
+          0.9722222685813904
+        ]
+      },
+      {
+        "profileIndex": 6,
+        "phase": 0.7125,
+        "death": 0,
+        "id": 0,
+        "tick": 86.5,
+        "before": [
+          0.9583333333333331,
+          0.9583333333333331,
+          0.9583333333333331,
+          0.9583333333333331
+        ],
+        "rgba": [
+          0.9583333730697632,
+          0.9583333730697632,
+          0.9583333730697632,
+          0.9583333730697632
+        ]
+      },
+      {
+        "profileIndex": 6,
+        "phase": 0.7017798290424155,
+        "death": 0,
+        "id": 0,
+        "tick": 86.5,
+        "before": [
+          0.9940672365252814,
+          0.9940672365252814,
+          0.9940672365252814,
+          0.9940672365252814
+        ],
+        "rgba": [
+          0.9940671324729919,
+          0.9940671324729919,
+          0.9940671324729919,
+          0.9940671324729919
+        ]
+      }
+    ],
+    "reading": "Profile6 float colors match independent host C; all other fields and all other profiles, including complex billboards, plane, Rays and Simple flash, match the frozen accepted source exactly. Full four-second mesh lifetime covered; lookup/atlas/geometry inputs and local clocks remain unchanged. Component acceptance, not native execution or full appearance parity."
+  },
+  "historicalPlaneCheckpoint": {
+    "result": "passed",
+    "reference": {
+      "commit": "395a4fecba79d1c6d76d1c52129571b342a46f31",
+      "archiveSha256": "de84f86dae2731d0ea02e9d73d5693da9b10aff109cfc38da8bc5abccad71b35",
+      "moduleSha256": "58ae33b11446500003540ddb9e73c4b3ff61a4555af83da19c9e53c6b34afb9a",
+      "module": "/workspace/web-lol/.cache/gromp-mesh-color/historical-plane/reference/baseline.mjs"
+    },
+    "acceptedSamplerReference": {
+      "commit": "891abcc0d25eb0dfbf2af7d18a62d8235fbb8d8c",
+      "archiveSha256": "c7b8a0a1d8895cd38525331b76bf6d1dd946a6d33643442be499219aca110521",
+      "moduleSha256": "126a8820ae5a461ac6d221742b0ae62fb90d2e88f501bd6159d1644a33ea5c9b",
+      "module": "/workspace/web-lol/.cache/gromp-mesh-color/historical-plane/accepted/baseline.mjs"
+    },
+    "samplerScope": "Frozen pre-mesh accepted sampler; current whole-sampler assertions live in verify-gromp-mesh-color.mjs.",
+    "samplerCalls": 16497,
+    "retainedPlaneStates": 16200,
+    "unchangedOtherStates": 375622,
+    "extraPhases": 1013,
+    "counts": {
+      "4": {
+        "states": 16200,
+        "changedFloat32ColorStates": 3834,
+        "differentFromOldFloatTint": 4617,
+        "maxNormalizedColorDelta": 0.003921568393707275
+      }
+    },
+    "examples": [
+      {
+        "profileIndex": 4,
+        "phase": 0.5016666666666667,
+        "death": 0,
+        "id": 0,
+        "tick": 151.5,
+        "before": [
+          0.9944444444444444,
+          0.9944444444444444,
+          0.9944444444444444,
+          0.9944444444444444
+        ],
+        "rgba": [
+          0.9944444298744202,
+          0.9944444298744202,
+          0.9944444298744202,
+          0.9944444298744202
+        ],
+        "bgra": [
+          253,
+          253,
+          253,
+          253
+        ]
+      },
+      {
+        "profileIndex": 4,
+        "phase": 0.5033333333333333,
+        "death": 0,
+        "id": 0,
+        "tick": 152,
+        "before": [
+          0.988888888888889,
+          0.988888888888889,
+          0.988888888888889,
+          0.988888888888889
+        ],
+        "rgba": [
+          0.9888889193534851,
+          0.9888889193534851,
+          0.9888889193534851,
+          0.9888889193534851
+        ],
+        "bgra": [
+          252,
+          252,
+          252,
+          252
+        ]
+      },
+      {
+        "profileIndex": 4,
+        "phase": 0.505,
+        "death": 0,
+        "id": 0,
+        "tick": 152.5,
+        "before": [
+          0.9833333333333333,
+          0.9833333333333333,
+          0.9833333333333333,
+          0.9833333333333333
+        ],
+        "rgba": [
+          0.9833333492279053,
+          0.9833333492279053,
+          0.9833333492279053,
+          0.9833333492279053
+        ],
+        "bgra": [
+          250,
+          250,
+          250,
+          250
+        ]
+      }
+    ],
+    "reading": "Profile4 colors match independent host C; all other fields and all other profiles, including complex billboards, Rays, Simple flash and mesh, match the frozen accepted source exactly. Full five-second plane lifetime covered; lookup/atlas/geometry inputs and local clocks remain unchanged. Component acceptance, not native execution or full appearance parity."
+  },
+  "gpu": [
+    {
+      "kind": "mesh-pixels.json",
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-mesh-color-Gromp-com-04963-s-independent-C-float-color/mesh-pixels.json",
+      "comparisons": 84,
+      "changedBytes": 0,
+      "oldFloatChangedBytes": 0
+    },
+    {
+      "kind": "plane-pixels.json",
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/plane-pixels.json",
+      "comparisons": 84,
+      "changedBytes": 0,
+      "oldFloatChangedBytes": 8901
+    },
+    {
+      "kind": "billboard-pixels.json",
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/billboard-pixels.json",
+      "comparisons": 84,
+      "changedBytes": 0,
+      "oldFloatChangedBytes": 26693
+    },
+    {
+      "kind": "billboard-pixels.json",
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/billboard-pixels.json",
+      "comparisons": 84,
+      "changedBytes": 0,
+      "oldFloatChangedBytes": 26632
+    },
+    {
+      "kind": "billboard-pixels.json",
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/billboard-pixels.json",
+      "comparisons": 84,
+      "changedBytes": 0,
+      "oldFloatChangedBytes": 184955
+    },
+    {
+      "kind": "gromp-ray-pixels.json",
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/gromp-ray-pixels.json",
+      "comparisons": 84,
+      "changedBytes": 0,
+      "oldFloatChangedBytes": 2311
+    },
+    {
+      "kind": "gromp-ray-pixels.json",
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/gromp-ray-pixels.json",
+      "comparisons": 96,
+      "changedBytes": 0,
+      "oldFloatChangedBytes": 29578
+    }
+  ],
+  "verification": {
+    "focusedPassed": 194,
+    "focusedFiles": 6,
+    "newUnitCases": 36,
+    "fullUnitPassed": 3324,
+    "fullUnitFailed": 2,
+    "fullUnitTotal": 3326,
+    "fullUnitFiles": 399,
+    "baselineFailuresUnchanged": 2,
+    "typeCheckPassed": true,
+    "nodeQaPassed": 14,
+    "browserCasesPassedInSingleBatch": 9,
+    "meshComparisons": 84,
+    "planeComparisons": 84,
+    "billboardComparisons": 252,
+    "rayComparisons": 180,
+    "productionBuildPassed": true,
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 13,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderAudioPreloads": 0,
+      "unrequestedMasterYiAlphaAudioPreloads": 0,
+      "unrequestedMasterYiMeditateAudioPreloads": 0,
+      "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+      "unrequestedMasterYiSwordPreloads": 0,
+      "unrequestedMasterYiPrimaryTrailPreloads": 0,
+      "unrequestedMasterYiPrimaryHitPreloads": 0,
+      "unrequestedMasterYiPassiveTrailPreloads": 0,
+      "unrequestedMasterYiMeditateDamagePreloads": 0,
+      "unrequestedMasterYiHighlanderKillPreloads": 0,
+      "unrequestedMasterYiHighlanderCastPreloads": 0,
+      "unrequestedMasterYiQEndPreloads": 0,
+      "unrequestedMasterYiQCastPreloads": 0,
+      "unrequestedMasterYiQContactPreloads": 0,
+      "unrequestedMasterYiMeditateCastPreloads": 0,
+      "unrequestedMasterYiMeditateBuffPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 221,
+      "scheduledBlueRequests": 13,
+      "scheduledRedRequests": 13,
+      "scheduledWolfRequests": 26,
+      "scheduledRaptorRequests": 26,
+      "scheduledKrugRequests": 39,
+      "scheduledScuttlerRequests": 13,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    },
+    "offline": {
+      "manifest": {
+        "id": "273e1d8ec876bb239ef52ae674f4ed95f23cb665b4094a1408b0ec37b9fe3390",
+        "files": 1202,
+        "bytes": 538092143
+      },
+      "checks": {
+        "integrityFailure": true,
+        "cancelRetainsVerified": true,
+        "retryWithoutRedownload": true,
+        "pausedSavedTickBootsOffline": true,
+        "completePackRepairOffline": true,
+        "newLuxLaneMatchOffline": true,
+        "serviceWorkerResponses": 978,
+        "removalKeepsSavedBytes": true,
+        "updateRefusesOtherTabs": true,
+        "explicitAtomicVersionSwitchOffline": true,
+        "missingEntryRevokesReady": true,
+        "scopeOnlyRemoval": true
+      },
+      "result": "passed",
+      "productionErrors": []
+    },
+    "freshProductionScreenshots": 8,
+    "assetsAndDataSizesAndMtimesUnchanged": 1125,
+    "cohortSourcePinsUnchanged": 539,
+    "schemaChanged": false,
+    "rulesetChanged": false
+  },
+  "storage": {
+    "meshFloatAttributeRetained": true,
+    "rendererChanged": false,
+    "fpsImprovementClaimed": false
+  },
+  "earlierAttempts": {
+    "firstBrowserBatchPassed": 8,
+    "firstBrowserBatchFailed": 1,
+    "meshPixelDifferences": 0,
+    "firstMeshNonemptyComparisons": 76,
+    "meshComparisons": 84,
+    "repair": "Frame the first retained shard at both target resolutions, preserving the complete actual batch and every comparison. Sparse full-batch bounds left eight64px views empty. No runtime geometry, camera or arithmetic changed.",
+    "previousFloatCounterfactualChangedPixelBytes": 0,
+    "visibleImprovementClaimed": false
+  },
+  "pauseIntervals": [
+    {
+      "start": "2026-10-27T14:11:49.117596+00:00",
+      "end": "2026-10-27T14:13:47.726904+00:00",
+      "processes": [
+        {
+          "pid": 302400,
+          "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+        },
+        {
+          "pid": 319503,
+          "cmdlineSha256": "e689e9f9aacb74d1ad7d9a3d390ed2cadf24cf3f2c83af55059819f2a30c2dce"
+        },
+        {
+          "pid": 319658,
+          "cmdlineSha256": "981b0a578a0f466e8b7f11fdc5af0300df75fc43183f5f7a8640a7a0afc353d2"
+        },
+        {
+          "pid": 319753,
+          "cmdlineSha256": "ad8f80374b8cb65ccd06149a07d5c48bddc3b26ec45d74fb286a3b9afdade68e"
+        },
+        {
+          "pid": 319913,
+          "cmdlineSha256": "42eb4eea7d326ee62e68f5648054db82e3008154cfda13bd90aba5a36d3d55d9"
+        }
+      ],
+      "resumed": true
+    },
+    {
+      "start": "2026-10-27T14:14:51.721788+00:00",
+      "end": "2026-10-27T14:17:39.895764+00:00",
+      "processes": [
+        {
+          "pid": 302400,
+          "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+        },
+        {
+          "pid": 319503,
+          "cmdlineSha256": "e689e9f9aacb74d1ad7d9a3d390ed2cadf24cf3f2c83af55059819f2a30c2dce"
+        },
+        {
+          "pid": 319658,
+          "cmdlineSha256": "981b0a578a0f466e8b7f11fdc5af0300df75fc43183f5f7a8640a7a0afc353d2"
+        },
+        {
+          "pid": 319753,
+          "cmdlineSha256": "ad8f80374b8cb65ccd06149a07d5c48bddc3b26ec45d74fb286a3b9afdade68e"
+        },
+        {
+          "pid": 319913,
+          "cmdlineSha256": "42eb4eea7d326ee62e68f5648054db82e3008154cfda13bd90aba5a36d3d55d9"
+        }
+      ],
+      "resumed": true
+    },
+    {
+      "start": "2026-10-27T14:17:51.832531+00:00",
+      "end": "2026-10-27T14:33:48.041120+00:00",
+      "processes": [
+        {
+          "pid": 302400,
+          "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+        },
+        {
+          "pid": 319503,
+          "cmdlineSha256": "e689e9f9aacb74d1ad7d9a3d390ed2cadf24cf3f2c83af55059819f2a30c2dce"
+        },
+        {
+          "pid": 319658,
+          "cmdlineSha256": "981b0a578a0f466e8b7f11fdc5af0300df75fc43183f5f7a8640a7a0afc353d2"
+        },
+        {
+          "pid": 319753,
+          "cmdlineSha256": "ad8f80374b8cb65ccd06149a07d5c48bddc3b26ec45d74fb286a3b9afdade68e"
+        },
+        {
+          "pid": 319913,
+          "cmdlineSha256": "42eb4eea7d326ee62e68f5648054db82e3008154cfda13bd90aba5a36d3d55d9"
+        }
+      ],
+      "resumed": true
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/gromp-mesh-color/__pycache__/archive.cpython-312.pyc",
+      "bytes": 14422,
+      "sha256": "e3b248b556b46030d583d3f92619dc7b631dacab086b62ba7521f78070dbfbc6"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/application-inputs.json",
+      "bytes": 157705,
+      "sha256": "919b19916132a1da2c5cffa02ca0750786b539672059caf9b6821f79121014c3"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/application-pause-record.json",
+      "bytes": 755,
+      "sha256": "b50225be6e7ecfd9535082d992c87a9f01f442381e8d85c6eab7074981dbb12a"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/application-source/docs/GROMP-MESH-COLOR.md",
+      "bytes": 5132,
+      "sha256": "008204d1c1b1ef8849208f2ecde23bd51477a12921599a0d7565f396a674de53"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/application-source/docs/GROMP-PLANE-COLOR.md",
+      "bytes": 5626,
+      "sha256": "cf1102c595b55e8784a9f088cf2a63d72585c60025f8a7866c85b711805d395c"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/application-source/docs/PROGRESS.md",
+      "bytes": 739031,
+      "sha256": "cf746870625257134b5298903b2b800790dbc3d33157470a164bedaa77204b5a"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/application-source/docs/reference/gromp-mesh-color-fixtures.json",
+      "bytes": 11777,
+      "sha256": "c64f47492cf5d8d7239b9f3ec7a873a2fb38eaa85073b2d9dfdf4a63697293bd"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/application-source/e2e/gromp-mesh-color.spec.ts",
+      "bytes": 11354,
+      "sha256": "e568728e0a26a22efd10b969c70915dd792c9a39dcb7fe194d64e54894558980"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/application-source/src/render/gromp-death-particles.ts",
+      "bytes": 4599,
+      "sha256": "34a69fed57cf4860db1294b837d6f99785977eff99c2321b26742355f8853804"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/application-source/tests/gromp-mesh-color.test.ts",
+      "bytes": 2265,
+      "sha256": "39dc3cdf8e07f9674b364fc67a1ac9edbe945486482bb64ddf49b7731c1b5f69"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/application-source/tools/qa/legacy-mesh-color-reference.test.mjs",
+      "bytes": 3015,
+      "sha256": "9ccff5675566c4351f81e7211cac20870ec79e61af3ef4ddf4852403210f5d6f"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/application-source/tools/qa/lib/legacy-mesh-color-reference.py",
+      "bytes": 6538,
+      "sha256": "78d5945befc105dfd273da81cebee85d6c79e4ad610d0d22bffd2e556e025ab8"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/application-source/tools/qa/verify-gromp-mesh-color.mjs",
+      "bytes": 6263,
+      "sha256": "28054138af29ae7a76f0a72549112254dfbfb1966f5788036b3199d6aaae4de0"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/application-source/tools/qa/verify-gromp-plane-color.mjs",
+      "bytes": 7060,
+      "sha256": "c66d77ca1b7ce9ab0aa4209ebab2ed702a045de928eb8cd3b90ab6abbaf5ebd9"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/.last-run.json",
+      "bytes": 96,
+      "sha256": "45f4e737e4572b70c5263a9d413d17213e192818a92972c8334b4c31781410ef"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/billboard-pixels.json",
+      "bytes": 22564,
+      "sha256": "2520dbdb5113e8a7b92f71cafd282c936ca832dd50e73288addbac846aea654c"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/expected.json",
+      "bytes": 204186,
+      "sha256": "83a07aa361c24b55e8f41fb3e4f6c013cbfee99c571a61822d8ce39b6565916d"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/expected.json.c",
+      "bytes": 1871,
+      "sha256": "04d40f19b4849e5a7c720df3662a70d4bbf5a45e8240ee359d90dd7d0f8ab4ec"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/expected.json.compiler.json",
+      "bytes": 1282,
+      "sha256": "1f2b970eeccd88d7617c7b3755f67f232510d15f4ac2e7671b8af4e5d2b2b4f3"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/inputs.json",
+      "bytes": 48637,
+      "sha256": "44c2284090ce66d7489159c6810a7ca5576fd72fd4a7ab40fbadda54cd1b5d97"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/reference/baseline.mjs",
+      "bytes": 42803,
+      "sha256": "63aeadc6b7827b4eb3542ca0a937bac5f85a7209752cdff7ab93b756e9e572fb"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/reference/reference.json",
+      "bytes": 382,
+      "sha256": "edbe95400073c3184b033d05265378d48bd8f076cbe84ee2325eccc55961b218"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "ec0aada8f496a24694f45f7535812c6a03d236dce5dfd15fccd52fdcc2146fb8"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/billboard-pixels.json",
+      "bytes": 22360,
+      "sha256": "1496e5e5aa23d228098d7e708f77d31a69384d7db26102a5cb3920f23a7e2dc4"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/expected.json",
+      "bytes": 1118,
+      "sha256": "ec59fbbbc0e98331102fcdd32ada28e3667ad53c7fa53d2814b8c05292bd9290"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/expected.json.c",
+      "bytes": 1871,
+      "sha256": "04d40f19b4849e5a7c720df3662a70d4bbf5a45e8240ee359d90dd7d0f8ab4ec"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/expected.json.compiler.json",
+      "bytes": 1282,
+      "sha256": "1f2b970eeccd88d7617c7b3755f67f232510d15f4ac2e7671b8af4e5d2b2b4f3"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/inputs.json",
+      "bytes": 329,
+      "sha256": "bd531fd4c3cd13a3198cb050e9c3abd9fbb56121aa3753677e3e2c6146ed4321"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/reference/baseline.mjs",
+      "bytes": 42803,
+      "sha256": "1b30713b8b1687b16d6f730e20488b6acd363d2baa0800deeb783ea7392b816d"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/reference/reference.json",
+      "bytes": 382,
+      "sha256": "a2b2ab061f077da6d91f97cbbd9b32ce8b11f1b24b9d17c24b661b85b49b17bd"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "ec0aada8f496a24694f45f7535812c6a03d236dce5dfd15fccd52fdcc2146fb8"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/billboard-pixels.json",
+      "bytes": 22432,
+      "sha256": "162e0e3048d900c822f677e5669a5f2552d7c69a768c00a6ff3711b9b03c5c0a"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/expected.json",
+      "bytes": 1162,
+      "sha256": "e569ce00f2fbd5a4de108a580585a5073e00f8bf56effb74812c1d6f00dc4966"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/expected.json.c",
+      "bytes": 1871,
+      "sha256": "04d40f19b4849e5a7c720df3662a70d4bbf5a45e8240ee359d90dd7d0f8ab4ec"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/expected.json.compiler.json",
+      "bytes": 1282,
+      "sha256": "1f2b970eeccd88d7617c7b3755f67f232510d15f4ac2e7671b8af4e5d2b2b4f3"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/inputs.json",
+      "bytes": 329,
+      "sha256": "95871a95583487d90ada85a2b325c3ab3303ef494240f68e17d7f856661ad174"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/reference/baseline.mjs",
+      "bytes": 42803,
+      "sha256": "4c1fd04c6fc7d369b41e5286f5970fabbbc7cba25304d6e4d00240c9381343fd"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/reference/reference.json",
+      "bytes": 382,
+      "sha256": "a7e7be9620f0c673dfc4904077d682babde04c878b9ae429471fb52640d8e334"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "ec0aada8f496a24694f45f7535812c6a03d236dce5dfd15fccd52fdcc2146fb8"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-mesh-color-Gromp-com-04963-s-independent-C-float-color/error-context.md",
+      "bytes": 6044,
+      "sha256": "7229c48d0fd2c1f1531824e150e09e7dee9d28a0ed5c4f859af83fd2ad9bb7bc"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-mesh-color-Gromp-com-04963-s-independent-C-float-color/expected.json",
+      "bytes": 12122,
+      "sha256": "de4d3606db0f6dee7cb7f9bee1bec16a5149f4fa72fe4b2b9668790cb93bc9c8"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-mesh-color-Gromp-com-04963-s-independent-C-float-color/expected.json.c",
+      "bytes": 1471,
+      "sha256": "f4f2d7e958182e2b8ce77cbb55a3c46a9fdb04a1ab05a57477ce88cdc3014be4"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-mesh-color-Gromp-com-04963-s-independent-C-float-color/expected.json.compiler.json",
+      "bytes": 1295,
+      "sha256": "224bd9704523d9abf973f5a1b8321b52ad0a13c5d27b8dc6070ebc4e1015b601"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-mesh-color-Gromp-com-04963-s-independent-C-float-color/inputs.json",
+      "bytes": 3306,
+      "sha256": "b6b079fc879c1e54a0fc091901014824ff3f91e7b426dfe69c0653c38210f1d2"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-mesh-color-Gromp-com-04963-s-independent-C-float-color/mesh-pixels.json",
+      "bytes": 24230,
+      "sha256": "0d7e05b5884e2c9ecbb715178ba02aef1530492d9b9283f2733db3b3491691e0"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-mesh-color-Gromp-com-04963-s-independent-C-float-color/reference/baseline.mjs",
+      "bytes": 43656,
+      "sha256": "4c9bccdc54ce21fee0c24725d4a215cadb6623a2826eef61df210bb8ae9ef564"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-mesh-color-Gromp-com-04963-s-independent-C-float-color/reference/reference.json",
+      "bytes": 382,
+      "sha256": "c1944cbc1330cc2d6bef742c6fa51e6d4a27c27bd76bd1a00e2c48d78a21d6bd"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-mesh-color-Gromp-com-04963-s-independent-C-float-color/reference/source.tar",
+      "bytes": 6563840,
+      "sha256": "c7b8a0a1d8895cd38525331b76bf6d1dd946a6d33643442be499219aca110521"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-mesh-color-Gromp-com-04963-s-independent-C-float-color/test-failed-1.png",
+      "bytes": 5851,
+      "sha256": "99db2a93b06fa1bf617f5c495e02dcf6c0b76961108491217e2cf4fed8699d35"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-mesh-color-Gromp-com-04963-s-independent-C-float-color/trace.zip",
+      "bytes": 191298,
+      "sha256": "d8cc34e43c536c6357d959988b9869c5b98d14e1037c5ced0415fa9027ddbffe"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/expected.json",
+      "bytes": 1370,
+      "sha256": "d236a436726fdcb0bf9608903a0a5ab0d0a51f7a54b20f2a57e40a9709dd6771"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/expected.json.c",
+      "bytes": 1737,
+      "sha256": "6607c85a5e3a42bdd093fbdc085427964c9ad3a88085e422f39ebb46fe1a9951"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/expected.json.compiler.json",
+      "bytes": 1268,
+      "sha256": "ebdb1c107573acc58abcf94a981feb085c98a01cc2d448094d193fc8aa697f9d"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/inputs.json",
+      "bytes": 285,
+      "sha256": "03b6cf1ba29bb32b8bf881ae98cd6d52292f3eba15caf7fd7a5594eb4804394d"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/plane-pixels.json",
+      "bytes": 24548,
+      "sha256": "d5b9a15d556636cdfb1e6114ebc3081097a1bd0ff542789a58b50d8d4362cca8"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/reference/baseline.mjs",
+      "bytes": 43306,
+      "sha256": "e8ea323a8ba6091547fa824c69ffb1641b89d497c994376a8ab14dec86da7c4c"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/reference/reference.json",
+      "bytes": 382,
+      "sha256": "b1935a874fcadacd5c3c414e534b1082db22d8ee7184fd8dbcb25c63d250409a"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "de84f86dae2731d0ea02e9d73d5693da9b10aff109cfc38da8bc5abccad71b35"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-expected.json",
+      "bytes": 17940,
+      "sha256": "40e831774fcb1469d91e823c5bc5de7ced7257aee29c838ebbe9893938354e54"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-expected.json.c",
+      "bytes": 1851,
+      "sha256": "a3ee344994bf965d062e4f8cac15b04e59a12978bdffb5b76af32735799f63b1"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-expected.json.compiler.json",
+      "bytes": 956,
+      "sha256": "b921b03bec2451fbd723796552f9114c8f934e95cfd125066cdc98be045a8ca7"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-inputs.json",
+      "bytes": 4869,
+      "sha256": "ada0a58e40fd15d726b279df84b20982609c0c131fce945d4d00346a1713dd62"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/expected.json",
+      "bytes": 9822,
+      "sha256": "68e9f62d987c5c86a3ece9e1501c4cde8cc043a492cd20a307086407dcc20e12"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/gromp-ray-pixels.json",
+      "bytes": 33600,
+      "sha256": "385bb86d9e016838c18ed1e98211c49b505e9ed38349285d921b1c5918461c49"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/inputs.json",
+      "bytes": 12248,
+      "sha256": "7f1e404d6441142d5b1df22dc499fc4acaf8b4750342850f0df6f7e61b8ba11a"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/reference/baseline.mjs",
+      "bytes": 40715,
+      "sha256": "fb50df669741cbcacb4e7dad0aa6f9760a9d3955336297981c0e82f33c7fc971"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/reference/reference.json",
+      "bytes": 382,
+      "sha256": "25d194cd889c7fbcefb318391932256acbdf1ff46f52655934fa33df1d3b139b"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/reference/source.tar",
+      "bytes": 6543360,
+      "sha256": "46af3e7b372318b0a65cf692fd4a7b015a0c0b2697f8c9a3c2c7ce359b70b5c5"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-expected.json",
+      "bytes": 58044,
+      "sha256": "62b77e49be7e9f3adf9a2e960a9d42bcc30369e5199296ca18ac0e93c6d8b490"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-expected.json.c",
+      "bytes": 1851,
+      "sha256": "a3ee344994bf965d062e4f8cac15b04e59a12978bdffb5b76af32735799f63b1"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-expected.json.compiler.json",
+      "bytes": 956,
+      "sha256": "b921b03bec2451fbd723796552f9114c8f934e95cfd125066cdc98be045a8ca7"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-inputs.json",
+      "bytes": 12937,
+      "sha256": "d02a23dacf4e8d0bf85329583fbdae29b488e4cc9bd6ffbddd6f6bb98e7c0e25"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/expected.json",
+      "bytes": 32997,
+      "sha256": "dce8f6dae456a2a13dca97eaa4d6c6b5aa1288e14f2d12577d2c56ad68226ee4"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/gromp-ray-pixels.json",
+      "bytes": 38281,
+      "sha256": "b881624b90ac6bc584f6b3ffad764ade2bce76f370511c246a58aaaef3fa51ed"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/inputs.json",
+      "bytes": 32251,
+      "sha256": "db415ca3da95df1011e4ec8cabfccfcac511904308759863f01da8b8f1837584"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/reference/baseline.mjs",
+      "bytes": 40715,
+      "sha256": "63f914d79db73469714734b9e86115c0ac3773d1607bc82d5f3f2dbd728aed50"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/reference/reference.json",
+      "bytes": 382,
+      "sha256": "83132a1caedbca70b8d5d5bba0437b6bb7195ec5567d99d9c7638eb33e42690a"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/reference/source.tar",
+      "bytes": 6543360,
+      "sha256": "46af3e7b372318b0a65cf692fd4a7b015a0c0b2697f8c9a3c2c7ce359b70b5c5"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/billboard-pixels.json",
+      "bytes": 22564,
+      "sha256": "2520dbdb5113e8a7b92f71cafd282c936ca832dd50e73288addbac846aea654c"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/expected.json",
+      "bytes": 204186,
+      "sha256": "83a07aa361c24b55e8f41fb3e4f6c013cbfee99c571a61822d8ce39b6565916d"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/expected.json.c",
+      "bytes": 1871,
+      "sha256": "04d40f19b4849e5a7c720df3662a70d4bbf5a45e8240ee359d90dd7d0f8ab4ec"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/expected.json.compiler.json",
+      "bytes": 1282,
+      "sha256": "1f2b970eeccd88d7617c7b3755f67f232510d15f4ac2e7671b8af4e5d2b2b4f3"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/inputs.json",
+      "bytes": 48637,
+      "sha256": "44c2284090ce66d7489159c6810a7ca5576fd72fd4a7ab40fbadda54cd1b5d97"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/reference/baseline.mjs",
+      "bytes": 42917,
+      "sha256": "5e5fdab6d367f91aca11478b5780815ab4d348c8528815638ae9b69f5fdafa5f"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/reference/reference.json",
+      "bytes": 388,
+      "sha256": "efee3db7f3a8ab55090783836e25c7dfbc50b31385d3c9b2bec1229b6c49f17f"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "ec0aada8f496a24694f45f7535812c6a03d236dce5dfd15fccd52fdcc2146fb8"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/billboard-pixels.json",
+      "bytes": 22360,
+      "sha256": "1496e5e5aa23d228098d7e708f77d31a69384d7db26102a5cb3920f23a7e2dc4"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/expected.json",
+      "bytes": 1118,
+      "sha256": "ec59fbbbc0e98331102fcdd32ada28e3667ad53c7fa53d2814b8c05292bd9290"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/expected.json.c",
+      "bytes": 1871,
+      "sha256": "04d40f19b4849e5a7c720df3662a70d4bbf5a45e8240ee359d90dd7d0f8ab4ec"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/expected.json.compiler.json",
+      "bytes": 1282,
+      "sha256": "1f2b970eeccd88d7617c7b3755f67f232510d15f4ac2e7671b8af4e5d2b2b4f3"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/inputs.json",
+      "bytes": 329,
+      "sha256": "bd531fd4c3cd13a3198cb050e9c3abd9fbb56121aa3753677e3e2c6146ed4321"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/reference/baseline.mjs",
+      "bytes": 42917,
+      "sha256": "d6d489f3c3e0e5a74288ad17e9dbc7e8d1f5fe9d2ebcb3ef1e8a74c73d0b674d"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/reference/reference.json",
+      "bytes": 388,
+      "sha256": "46cde87f0f99a20cd2c49e97d46422b9413f39f965af2b60d349050b07d48a16"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "ec0aada8f496a24694f45f7535812c6a03d236dce5dfd15fccd52fdcc2146fb8"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/billboard-pixels.json",
+      "bytes": 22432,
+      "sha256": "162e0e3048d900c822f677e5669a5f2552d7c69a768c00a6ff3711b9b03c5c0a"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/expected.json",
+      "bytes": 1162,
+      "sha256": "e569ce00f2fbd5a4de108a580585a5073e00f8bf56effb74812c1d6f00dc4966"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/expected.json.c",
+      "bytes": 1871,
+      "sha256": "04d40f19b4849e5a7c720df3662a70d4bbf5a45e8240ee359d90dd7d0f8ab4ec"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/expected.json.compiler.json",
+      "bytes": 1282,
+      "sha256": "1f2b970eeccd88d7617c7b3755f67f232510d15f4ac2e7671b8af4e5d2b2b4f3"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/inputs.json",
+      "bytes": 329,
+      "sha256": "95871a95583487d90ada85a2b325c3ab3303ef494240f68e17d7f856661ad174"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/reference/baseline.mjs",
+      "bytes": 42917,
+      "sha256": "fd5ed8fc8dc3ef1b35f0de3cf68d0c6139f4956ec3bb9e953cdbfb098ef12842"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/reference/reference.json",
+      "bytes": 388,
+      "sha256": "7aea3fdcba5d908d270bb77937b03a4310610ab130df50f3bb210494881b389a"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "ec0aada8f496a24694f45f7535812c6a03d236dce5dfd15fccd52fdcc2146fb8"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-mesh-color-Gromp-com-04963-s-independent-C-float-color/expected.json",
+      "bytes": 12122,
+      "sha256": "de4d3606db0f6dee7cb7f9bee1bec16a5149f4fa72fe4b2b9668790cb93bc9c8"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-mesh-color-Gromp-com-04963-s-independent-C-float-color/expected.json.c",
+      "bytes": 1471,
+      "sha256": "f4f2d7e958182e2b8ce77cbb55a3c46a9fdb04a1ab05a57477ce88cdc3014be4"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-mesh-color-Gromp-com-04963-s-independent-C-float-color/expected.json.compiler.json",
+      "bytes": 1295,
+      "sha256": "224bd9704523d9abf973f5a1b8321b52ad0a13c5d27b8dc6070ebc4e1015b601"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-mesh-color-Gromp-com-04963-s-independent-C-float-color/inputs.json",
+      "bytes": 3306,
+      "sha256": "b6b079fc879c1e54a0fc091901014824ff3f91e7b426dfe69c0653c38210f1d2"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-mesh-color-Gromp-com-04963-s-independent-C-float-color/mesh-pixels.json",
+      "bytes": 24480,
+      "sha256": "323005492685621e17fa5a3823ca6b1f7949a0a6268063fc475c2e6f3e400b92"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-mesh-color-Gromp-com-04963-s-independent-C-float-color/reference/baseline.mjs",
+      "bytes": 43782,
+      "sha256": "d51bffc2824f44ab7d9be89b68e874beee19e0682e8a7922ebe357b982be8038"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-mesh-color-Gromp-com-04963-s-independent-C-float-color/reference/reference.json",
+      "bytes": 388,
+      "sha256": "c3680c3616fe712c5ca9c33192739a84570cac2bd2c59428c1c50f083ec294f1"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-mesh-color-Gromp-com-04963-s-independent-C-float-color/reference/source.tar",
+      "bytes": 6563840,
+      "sha256": "c7b8a0a1d8895cd38525331b76bf6d1dd946a6d33643442be499219aca110521"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/expected.json",
+      "bytes": 1370,
+      "sha256": "d236a436726fdcb0bf9608903a0a5ab0d0a51f7a54b20f2a57e40a9709dd6771"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/expected.json.c",
+      "bytes": 1737,
+      "sha256": "6607c85a5e3a42bdd093fbdc085427964c9ad3a88085e422f39ebb46fe1a9951"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/expected.json.compiler.json",
+      "bytes": 1268,
+      "sha256": "ebdb1c107573acc58abcf94a981feb085c98a01cc2d448094d193fc8aa697f9d"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/inputs.json",
+      "bytes": 285,
+      "sha256": "03b6cf1ba29bb32b8bf881ae98cd6d52292f3eba15caf7fd7a5594eb4804394d"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/plane-pixels.json",
+      "bytes": 24548,
+      "sha256": "d5b9a15d556636cdfb1e6114ebc3081097a1bd0ff542789a58b50d8d4362cca8"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/reference/baseline.mjs",
+      "bytes": 43426,
+      "sha256": "04bf3d4a51ae0df851848fdd6cd583fdbb0031163cefd1c6309c60ee786869e0"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/reference/reference.json",
+      "bytes": 388,
+      "sha256": "e3e7580a9c4806f89627eb17445d730d6db8053909926fcf3e905286d5e5486a"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "de84f86dae2731d0ea02e9d73d5693da9b10aff109cfc38da8bc5abccad71b35"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-expected.json",
+      "bytes": 17940,
+      "sha256": "40e831774fcb1469d91e823c5bc5de7ced7257aee29c838ebbe9893938354e54"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-expected.json.c",
+      "bytes": 1851,
+      "sha256": "a3ee344994bf965d062e4f8cac15b04e59a12978bdffb5b76af32735799f63b1"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-expected.json.compiler.json",
+      "bytes": 956,
+      "sha256": "b921b03bec2451fbd723796552f9114c8f934e95cfd125066cdc98be045a8ca7"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-inputs.json",
+      "bytes": 4869,
+      "sha256": "ada0a58e40fd15d726b279df84b20982609c0c131fce945d4d00346a1713dd62"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/expected.json",
+      "bytes": 9822,
+      "sha256": "68e9f62d987c5c86a3ece9e1501c4cde8cc043a492cd20a307086407dcc20e12"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/gromp-ray-pixels.json",
+      "bytes": 33600,
+      "sha256": "385bb86d9e016838c18ed1e98211c49b505e9ed38349285d921b1c5918461c49"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/inputs.json",
+      "bytes": 12248,
+      "sha256": "7f1e404d6441142d5b1df22dc499fc4acaf8b4750342850f0df6f7e61b8ba11a"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/reference/baseline.mjs",
+      "bytes": 40823,
+      "sha256": "a1b8e196ad6277529ff31044f012593a7a2bef0bbb058506b0375e92006adb4b"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/reference/reference.json",
+      "bytes": 388,
+      "sha256": "b7e3e35a2751811b7116561a11b583c383797184dc03fcac83f93a99a28ce706"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/reference/source.tar",
+      "bytes": 6543360,
+      "sha256": "46af3e7b372318b0a65cf692fd4a7b015a0c0b2697f8c9a3c2c7ce359b70b5c5"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-expected.json",
+      "bytes": 58044,
+      "sha256": "62b77e49be7e9f3adf9a2e960a9d42bcc30369e5199296ca18ac0e93c6d8b490"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-expected.json.c",
+      "bytes": 1851,
+      "sha256": "a3ee344994bf965d062e4f8cac15b04e59a12978bdffb5b76af32735799f63b1"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-expected.json.compiler.json",
+      "bytes": 956,
+      "sha256": "b921b03bec2451fbd723796552f9114c8f934e95cfd125066cdc98be045a8ca7"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-inputs.json",
+      "bytes": 12937,
+      "sha256": "d02a23dacf4e8d0bf85329583fbdae29b488e4cc9bd6ffbddd6f6bb98e7c0e25"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/expected.json",
+      "bytes": 32997,
+      "sha256": "dce8f6dae456a2a13dca97eaa4d6c6b5aa1288e14f2d12577d2c56ad68226ee4"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/gromp-ray-pixels.json",
+      "bytes": 38281,
+      "sha256": "b881624b90ac6bc584f6b3ffad764ade2bce76f370511c246a58aaaef3fa51ed"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/inputs.json",
+      "bytes": 32251,
+      "sha256": "db415ca3da95df1011e4ec8cabfccfcac511904308759863f01da8b8f1837584"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/reference/baseline.mjs",
+      "bytes": 40823,
+      "sha256": "3ca9a2b17173f0f168a9b9bd9418c5933a1f679a7a8d3145707b004540865810"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/reference/reference.json",
+      "bytes": 388,
+      "sha256": "0ae72215be7c97c260d84c40a5993a019b1275574fb8b9b55ad4d4e71514e608"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/reference/source.tar",
+      "bytes": 6543360,
+      "sha256": "46af3e7b372318b0a65cf692fd4a7b015a0c0b2697f8c9a3c2c7ce359b70b5c5"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser-final.log",
+      "bytes": 1898,
+      "sha256": "b94bfc87cd81ee4297edd73aa3abd63dfc8766600b23296b6c508d51a07f2aa0"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/browser.log",
+      "bytes": 4361,
+      "sha256": "ceac23bf09db7b6bb0892755f27876679e9ac75d852f1c7a52655fbb20903439"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/build.log",
+      "bytes": 7911,
+      "sha256": "0977a03652ee647f5adee3c51590df646930aacdceba304598cdaf05de68f7a7"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/component-inputs.json",
+      "bytes": 157705,
+      "sha256": "9e52ec5b6f9a84853a316481796fd43a4f482e8057ffc905bd53458276fdbe7f"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/component-pause-record.json",
+      "bytes": 755,
+      "sha256": "99e02d4fe92b46156dcc4ceabfb8d4d0b4a6c77c6fc78cf049fe5073a1ee55c9"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/component-source/docs/reference/gromp-mesh-color-fixtures.json",
+      "bytes": 11777,
+      "sha256": "c64f47492cf5d8d7239b9f3ec7a873a2fb38eaa85073b2d9dfdf4a63697293bd"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/component-source/e2e/gromp-mesh-color.spec.ts",
+      "bytes": 11213,
+      "sha256": "3baeef788854c4a85b75f95e313d2368212d39a57db875bc851264a88db8ff5d"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/component-source/src/render/gromp-death-particles.ts",
+      "bytes": 4599,
+      "sha256": "34a69fed57cf4860db1294b837d6f99785977eff99c2321b26742355f8853804"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/component-source/tests/gromp-mesh-color.test.ts",
+      "bytes": 2265,
+      "sha256": "39dc3cdf8e07f9674b364fc67a1ac9edbe945486482bb64ddf49b7731c1b5f69"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/component-source/tools/qa/legacy-mesh-color-reference.test.mjs",
+      "bytes": 3015,
+      "sha256": "9ccff5675566c4351f81e7211cac20870ec79e61af3ef4ddf4852403210f5d6f"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/component-source/tools/qa/lib/legacy-mesh-color-reference.py",
+      "bytes": 6538,
+      "sha256": "78d5945befc105dfd273da81cebee85d6c79e4ad610d0d22bffd2e556e025ab8"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/component-source/tools/qa/verify-gromp-mesh-color.mjs",
+      "bytes": 6263,
+      "sha256": "28054138af29ae7a76f0a72549112254dfbfb1966f5788036b3199d6aaae4de0"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/component-source/tools/qa/verify-gromp-plane-color.mjs",
+      "bytes": 7060,
+      "sha256": "c66d77ca1b7ce9ab0aa4209ebab2ed702a045de928eb8cd3b90ab6abbaf5ebd9"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/final-component-inputs.json",
+      "bytes": 157705,
+      "sha256": "919b19916132a1da2c5cffa02ca0750786b539672059caf9b6821f79121014c3"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/final-component-pause-record.json",
+      "bytes": 755,
+      "sha256": "32bbb66e6837100ab76833ea3bb2f98f4664b6a9ed232273ce6d4932b8a21cb9"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/final-component-source/docs/reference/gromp-mesh-color-fixtures.json",
+      "bytes": 11777,
+      "sha256": "c64f47492cf5d8d7239b9f3ec7a873a2fb38eaa85073b2d9dfdf4a63697293bd"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/final-component-source/e2e/gromp-mesh-color.spec.ts",
+      "bytes": 11354,
+      "sha256": "e568728e0a26a22efd10b969c70915dd792c9a39dcb7fe194d64e54894558980"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/final-component-source/src/render/gromp-death-particles.ts",
+      "bytes": 4599,
+      "sha256": "34a69fed57cf4860db1294b837d6f99785977eff99c2321b26742355f8853804"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/final-component-source/tests/gromp-mesh-color.test.ts",
+      "bytes": 2265,
+      "sha256": "39dc3cdf8e07f9674b364fc67a1ac9edbe945486482bb64ddf49b7731c1b5f69"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/final-component-source/tools/qa/legacy-mesh-color-reference.test.mjs",
+      "bytes": 3015,
+      "sha256": "9ccff5675566c4351f81e7211cac20870ec79e61af3ef4ddf4852403210f5d6f"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/final-component-source/tools/qa/lib/legacy-mesh-color-reference.py",
+      "bytes": 6538,
+      "sha256": "78d5945befc105dfd273da81cebee85d6c79e4ad610d0d22bffd2e556e025ab8"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/final-component-source/tools/qa/verify-gromp-mesh-color.mjs",
+      "bytes": 6263,
+      "sha256": "28054138af29ae7a76f0a72549112254dfbfb1966f5788036b3199d6aaae4de0"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/final-component-source/tools/qa/verify-gromp-plane-color.mjs",
+      "bytes": 7060,
+      "sha256": "c66d77ca1b7ce9ab0aa4209ebab2ed702a045de928eb8cd3b90ab6abbaf5ebd9"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/fixture-inputs.json",
+      "bytes": 1672,
+      "sha256": "cdef252d239812d052b90e1929727ff3e1440ba5e3981132b530ccd4c1993da6"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/fixtures-C.json",
+      "bytes": 5811,
+      "sha256": "07eb0190ff35266aba24000802ad56c31e2bddfedeecdc02ce31feeb6928c800"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/fixtures-C.json.c",
+      "bytes": 1471,
+      "sha256": "f4f2d7e958182e2b8ce77cbb55a3c46a9fdb04a1ab05a57477ce88cdc3014be4"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/fixtures-C.json.compiler.json",
+      "bytes": 1295,
+      "sha256": "224bd9704523d9abf973f5a1b8321b52ad0a13c5d27b8dc6070ebc4e1015b601"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/focused-final.log",
+      "bytes": 437,
+      "sha256": "1c2e5103d88c5da0cf284998ea8634424f5d4b3a5b70855bcb277cdddaaa57e4"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/focused-prototype.log",
+      "bytes": 438,
+      "sha256": "98c26cd6f00ac1d6f98081627ce99b0a6a2cf1fdd8d81e5df08ecf88f4a40f78"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/focused.log",
+      "bytes": 382,
+      "sha256": "3162c97d7918ee31a398786207fe07029f916f611b8dfaf60e83966c32c1d596"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/full-tests.log",
+      "bytes": 4578,
+      "sha256": "2d3e8cac5e09ca0fb2f19ac0187fa6a7839abc77e8e496e5a4b020ba1f0d6d87"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/historical-plane/accepted/baseline.mjs",
+      "bytes": 42543,
+      "sha256": "126a8820ae5a461ac6d221742b0ae62fb90d2e88f501bd6159d1644a33ea5c9b"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/historical-plane/accepted/reference.json",
+      "bytes": 329,
+      "sha256": "4b10adc3b338e4a775c371441d084a05ab2028176a04d0447e92e4ef508e2162"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/historical-plane/accepted/source.tar",
+      "bytes": 6563840,
+      "sha256": "c7b8a0a1d8895cd38525331b76bf6d1dd946a6d33643442be499219aca110521"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/historical-plane/candidate.mjs",
+      "bytes": 44615,
+      "sha256": "bcbf246f9eafbfaef2ed0c4c1fa3fd17ed79798083b7e6a0ff72c7d2c3393140"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/historical-plane/candidate.ts",
+      "bytes": 381,
+      "sha256": "2f7563d94fdc108095e0eb8795d931d89e646100146008f1e3e58c2974b4bed2"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/historical-plane/expected.json",
+      "bytes": 2813566,
+      "sha256": "7189d61308439302312820c8f0a8ff0c7c99f4cd72ff9d65ec9ad7648d46ce91"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/historical-plane/expected.json.c",
+      "bytes": 1737,
+      "sha256": "6607c85a5e3a42bdd093fbdc085427964c9ad3a88085e422f39ebb46fe1a9951"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/historical-plane/expected.json.compiler.json",
+      "bytes": 1268,
+      "sha256": "ebdb1c107573acc58abcf94a981feb085c98a01cc2d448094d193fc8aa697f9d"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/historical-plane/inputs.json",
+      "bytes": 745609,
+      "sha256": "8a8b0898a2d37b6ffb294f88e32acf90576292fb1afd7a6f115271ac783b27c2"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/historical-plane/reading.json",
+      "bytes": 2989,
+      "sha256": "5253a0f7aebe80b4a8493b6dc85cf62ebb94170303a52c065213c7d1326bfea4"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/historical-plane/reference/baseline.mjs",
+      "bytes": 42266,
+      "sha256": "58ae33b11446500003540ddb9e73c4b3ff61a4555af83da19c9e53c6b34afb9a"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/historical-plane/reference/reference.json",
+      "bytes": 330,
+      "sha256": "f0398d083d0f694bbda149fe34028d22c77f6a0d4a5354d3d09a4e330d504a26"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/historical-plane/reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "de84f86dae2731d0ea02e9d73d5693da9b10aff109cfc38da8bc5abccad71b35"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/historical-plane.log",
+      "bytes": 263,
+      "sha256": "22613f8f4852973490d9aa7ed5e986fc0dd7783d73fddbb98d57df27510c1f57"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/legacy-mesh-color-reference.py",
+      "bytes": 6538,
+      "sha256": "78d5945befc105dfd273da81cebee85d6c79e4ad610d0d22bffd2e556e025ab8"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/node.log",
+      "bytes": 1253,
+      "sha256": "5465f8f751a544438dc42f9a5dd689e2a53c1ccc64ce841392f721af7a2288c7"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/offline-artifacts/offline-pack-gromp-mesh-20261027-lux-lanes.png",
+      "bytes": 522770,
+      "sha256": "b25486a5a37d4dcc090c777095a2b7ee6465c4abda3b117a867ee405261f3ea0"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/offline-artifacts/offline-pack-gromp-mesh-20261027-production.json",
+      "bytes": 650,
+      "sha256": "3746c4f451ee79bae164f64640c3d57f80a3e171e57256d30b7d42169aa2a852"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/offline-artifacts/offline-pack-gromp-mesh-20261027-ready.png",
+      "bytes": 573381,
+      "sha256": "409e20e96f0b62fff43cebbf179507ffcde89b8a4dee7d9c90fafd56b178397f"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/offline-system.mjs",
+      "bytes": 15212,
+      "sha256": "0a91783bb645b6b51459ef437cf6ceac9d2c363556772780aea5f510d2037d4c"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/offline.log",
+      "bytes": 689,
+      "sha256": "425ad82c62ab3f69b860ffcc8d98efb3757c13e93b7dc3888e8831b2b47a17c3"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/prepare-archive.py",
+      "bytes": 4619,
+      "sha256": "915c895dd26108c504308181d1e0bbbbfa901597e9119fc833d7444d428d31db"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/prepare-reference.py",
+      "bytes": 1911,
+      "sha256": "2c067264ce1345ab2d5ec2deb86139cde7086351b9edd04d8cf4926c8ab9b6b8"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/probe-C.json",
+      "bytes": 949,
+      "sha256": "dc58b9e0005c9cfef8ff03686c2fa1c178160734c3226e043f8496dddbd2a4bc"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/probe-C.json.c",
+      "bytes": 1471,
+      "sha256": "f4f2d7e958182e2b8ce77cbb55a3c46a9fdb04a1ab05a57477ce88cdc3014be4"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/probe-C.json.compiler.json",
+      "bytes": 1295,
+      "sha256": "224bd9704523d9abf973f5a1b8321b52ad0a13c5d27b8dc6070ebc4e1015b601"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/probe-inputs.json",
+      "bytes": 243,
+      "sha256": "12270835cad410c7996d46f0011b9da6cb10c35aaa197c0d4300ba02eb76136a"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/production-screens/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1808317,
+      "sha256": "7a76ad01b1a9eaf45056bb3f4abbafd62aaf43e619cb6e69a269d49d7779adad"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/production-screens/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835482,
+      "sha256": "bc35a3cdc80596398ac53be151093ae7211d904ed246f63d1d1595cb62aaf311"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/production-screens/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829687,
+      "sha256": "3698d2173222ac9b59241f6e5e527574e6178d3d5cbafb78c7b720c433523fbe"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/production-screens/lux-e-hit-production-lux.png",
+      "bytes": 1811834,
+      "sha256": "d6e2549bfa72b7c37e5d8e75575f354ce59118c29e9fa2e40f3e1eb9701683b8"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/production-screens/lux-e-hit-production-oracle.png",
+      "bytes": 1815229,
+      "sha256": "0efb60f9eb90089aaf6f9f1ae260065358f8edd5fb2c66e6fcbc85547763ade4"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/production-screens/lux-e-hit-production-role-match.png",
+      "bytes": 1352688,
+      "sha256": "d6c2910c8e13fe5772c04ca69d6ca179a8e43d537dcec379f7330017afec9946"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/production-screens/lux-e-hit-production-subpath.png",
+      "bytes": 1826919,
+      "sha256": "04a8b2983c11ad8f18a9f9fbf2bbd24ed2b9ef22d6806976c86b6b8f48e780e3"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/production-screens/lux-e-hit-production-ward.png",
+      "bytes": 1808227,
+      "sha256": "f4d4202a14411db55f10e6ba0c179af6433f77c8f3b5d2c47f43d4df737d9b2a"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/production-system.mjs",
+      "bytes": 30506,
+      "sha256": "83265d55f3e6e2d817e9e75fb02cce522f5d180558a305fd95d3d8e8dbf6df2a"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/production.log",
+      "bytes": 2852,
+      "sha256": "3a43a61a46c1083171afc098905a070204ecf85c4ad7711bbae93d93d22a77ac"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/progress-final-draft.md",
+      "bytes": 739031,
+      "sha256": "cf746870625257134b5298903b2b800790dbc3d33157470a164bedaa77204b5a"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/project-sampler.log",
+      "bytes": 193,
+      "sha256": "05198abed32957f662617723f19adee750a00c994d19ef2ed81f3a4f4353828a"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/project-sampler.mjs",
+      "bytes": 2248,
+      "sha256": "9e4851b1d364e48c5c738f06ec785cfc7cdadc3b7288b707ef8c92e3f0dd89c9"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/projection.mjs",
+      "bytes": 40541,
+      "sha256": "cbd2925c50b7bda7f282c9fa4249d3e770a1e0bf486cac07dd3548567e44dada"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/projection.ts",
+      "bytes": 216,
+      "sha256": "445b283af970bcc98ebd387f7de957a4ad8e49d9daa7f1e81c4988d29265fe43"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/retained-game/gromp-death-burst-diagnostics.json",
+      "bytes": 785,
+      "sha256": "0a43673c07413789a077485deb9dc6a21d3fb92addbbe387b53291e7cc7d4076"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/retained-game/gromp-death-burst.png",
+      "bytes": 876710,
+      "sha256": "a0bc502dc52f571b179ed184208208a49bbd675e89d8092bd0d4e729b3b02768"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/run-acceptance.py",
+      "bytes": 4022,
+      "sha256": "a22469248eac7e45f9de59a8afd2215791331c92cdb597f8928664dad07328fd"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/run-components-final.py",
+      "bytes": 4014,
+      "sha256": "5fb9002ad29d7bf2e49b35fd293f10060aa02f4948bcca111a6bf804853b26dd"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/run-components.py",
+      "bytes": 3978,
+      "sha256": "c08c2389f02813ac40b760062721a804bd471ddda6dac4d84465bde9bb11c453"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler/candidate.mjs",
+      "bytes": 40563,
+      "sha256": "8e6abbc71abe10624662f5a9ec0d53f77f5a76e5d39970fd1572020d4604ff2e"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler/candidate.ts",
+      "bytes": 216,
+      "sha256": "445b283af970bcc98ebd387f7de957a4ad8e49d9daa7f1e81c4988d29265fe43"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler/expected.json",
+      "bytes": 28334884,
+      "sha256": "de3c2cbf36940635d5264b471866385d08eb49b34b26f44d5bc34b5bb3101791"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler/expected.json.c",
+      "bytes": 1471,
+      "sha256": "f4f2d7e958182e2b8ce77cbb55a3c46a9fdb04a1ab05a57477ce88cdc3014be4"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler/expected.json.compiler.json",
+      "bytes": 1295,
+      "sha256": "224bd9704523d9abf973f5a1b8321b52ad0a13c5d27b8dc6070ebc4e1015b601"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler/inputs.json",
+      "bytes": 9124944,
+      "sha256": "4e9f054aa699af36174900bb20655f2bfcf8881b892bb9bda3d545df196201d7"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler/reading.json",
+      "bytes": 2262,
+      "sha256": "3c0e61dbb3b397050f461889c1fafdd1c7c465dadc134f1c5f8c2e009c1c0493"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler/reference/baseline.mjs",
+      "bytes": 42375,
+      "sha256": "3d3cf28403a4efa2318f721bdaedcba71c1dc8366c69311b00d3b2c6ec73d22e"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler/reference/reference.json",
+      "bytes": 321,
+      "sha256": "1c5a055cd97269f58e05867c777b0554f38079cdaff7c438bfdbb03b86e77332"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler/reference/source.tar",
+      "bytes": 6563840,
+      "sha256": "c7b8a0a1d8895cd38525331b76bf6d1dd946a6d33643442be499219aca110521"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler-full-life-C.json",
+      "bytes": 28189931,
+      "sha256": "3ba1430622c704b98633a2ff261d751d9b0d0d68ee1ec66c82d647aabd05fcb9"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler-full-life-C.json.c",
+      "bytes": 1471,
+      "sha256": "f4f2d7e958182e2b8ce77cbb55a3c46a9fdb04a1ab05a57477ce88cdc3014be4"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler-full-life-C.json.compiler.json",
+      "bytes": 1295,
+      "sha256": "224bd9704523d9abf973f5a1b8321b52ad0a13c5d27b8dc6070ebc4e1015b601"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler-full-life-input.json",
+      "bytes": 9078249,
+      "sha256": "2a9e08019c7e2b2de2f2a3028b830b33b4f11ef6589bdf369c0aa545d3b2d33c"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler-full-life-reading.json",
+      "bytes": 218,
+      "sha256": "94c91d22a4b0063022ffe87c94293d63bfa08957c53ce630ded6ea0bd3c48a9c"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler-prototype/candidate.mjs",
+      "bytes": 40563,
+      "sha256": "8e6abbc71abe10624662f5a9ec0d53f77f5a76e5d39970fd1572020d4604ff2e"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler-prototype/candidate.ts",
+      "bytes": 216,
+      "sha256": "445b283af970bcc98ebd387f7de957a4ad8e49d9daa7f1e81c4988d29265fe43"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler-prototype/expected.json",
+      "bytes": 28334884,
+      "sha256": "de3c2cbf36940635d5264b471866385d08eb49b34b26f44d5bc34b5bb3101791"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler-prototype/expected.json.c",
+      "bytes": 1471,
+      "sha256": "f4f2d7e958182e2b8ce77cbb55a3c46a9fdb04a1ab05a57477ce88cdc3014be4"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler-prototype/expected.json.compiler.json",
+      "bytes": 1295,
+      "sha256": "224bd9704523d9abf973f5a1b8321b52ad0a13c5d27b8dc6070ebc4e1015b601"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler-prototype/inputs.json",
+      "bytes": 9124944,
+      "sha256": "4e9f054aa699af36174900bb20655f2bfcf8881b892bb9bda3d545df196201d7"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler-prototype/reading.json",
+      "bytes": 2275,
+      "sha256": "bebd8598213e41e5338b916507ba0eb26cf8318396343196c569de3c53299475"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler-prototype/reference/baseline.mjs",
+      "bytes": 42585,
+      "sha256": "042f5351455f6f1c890d1353795a9bcdef1d56ac202b927a41e63469db99d902"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler-prototype/reference/reference.json",
+      "bytes": 331,
+      "sha256": "e8f4a2b147550bdf290267068561db27c45aeb66b3461b253880687bd83c8223"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler-prototype/reference/source.tar",
+      "bytes": 6563840,
+      "sha256": "c7b8a0a1d8895cd38525331b76bf6d1dd946a6d33643442be499219aca110521"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler-prototype.log",
+      "bytes": 267,
+      "sha256": "09c4b1c8102f20e0ef57d26bbf94566fce8cb27dde49097bb309bfaff6f0e4a7"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/sampler.log",
+      "bytes": 264,
+      "sha256": "9f17b2670167282f864b5d1767fab14710ff4a50763e38952e6cf43151c70681"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "productionScreenshots": [
+    {
+      "path": ".cache/gromp-mesh-color/production-screens/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1808317,
+      "sha256": "7a76ad01b1a9eaf45056bb3f4abbafd62aaf43e619cb6e69a269d49d7779adad"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/production-screens/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835482,
+      "sha256": "bc35a3cdc80596398ac53be151093ae7211d904ed246f63d1d1595cb62aaf311"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/production-screens/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829687,
+      "sha256": "3698d2173222ac9b59241f6e5e527574e6178d3d5cbafb78c7b720c433523fbe"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/production-screens/lux-e-hit-production-lux.png",
+      "bytes": 1811834,
+      "sha256": "d6e2549bfa72b7c37e5d8e75575f354ce59118c29e9fa2e40f3e1eb9701683b8"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/production-screens/lux-e-hit-production-oracle.png",
+      "bytes": 1815229,
+      "sha256": "0efb60f9eb90089aaf6f9f1ae260065358f8edd5fb2c66e6fcbc85547763ade4"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/production-screens/lux-e-hit-production-role-match.png",
+      "bytes": 1352688,
+      "sha256": "d6c2910c8e13fe5772c04ca69d6ca179a8e43d537dcec379f7330017afec9946"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/production-screens/lux-e-hit-production-subpath.png",
+      "bytes": 1826919,
+      "sha256": "04a8b2983c11ad8f18a9f9fbf2bbd24ed2b9ef22d6806976c86b6b8f48e780e3"
+    },
+    {
+      "path": ".cache/gromp-mesh-color/production-screens/lux-e-hit-production-ward.png",
+      "bytes": 1808227,
+      "sha256": "f4d4202a14411db55f10e6ba0c179af6433f77c8f3b5d2c47f43d4df737d9b2a"
+    }
+  ],
+  "limits": [
+    "Checked local raw-key/color policy, not native execution or full native appearance.",
+    "Live loader/admission, backing mode/cache mutation, clocks/RNG, external modifiers, FPCR and actual shader/material/layout selection remain unobserved.",
+    "Simple flash and other profiles, float storage, geometry, UV, atlas and lookup inputs remain unchanged.",
+    "The current mesh verifier checks all other sampler states exactly; the former plane whole-sampler graph is explicitly historical.",
+    "Software Chromium/SwiftShader acceptance is not a physical-FPS or native-GPU measurement."
+  ]
+}
