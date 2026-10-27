@@ -1,0 +1,1078 @@
+{
+  "format": 1,
+  "parentCommit": "7558c5c0e057b6826bd3d7310cb39e4470c19a82",
+  "scope": "Trusted human Ahri mid-lane integration on the source Rift, normal opposing mid-laner Q, private saves and production admission gates.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "c722d7ca3bb84c44a976e8c72eb57887b4d6a9ba529844a795ac080766139b62",
+    "offlinePack": {
+      "id": "5aff35be26d9be78e6f660f7eb1b6af5112024b90622034aa3b0f2ab933eced2",
+      "files": 1202,
+      "bytes": 538093442
+    }
+  },
+  "source": [
+    {
+      "file": "src/main.ts",
+      "bytes": 23850,
+      "sha256": "b4431e96b681e6b61069c72583c10f46dd2b3c2319092cac788144239c5639b7"
+    },
+    {
+      "file": "src/simulation/battlefield.ts",
+      "bytes": 3149,
+      "sha256": "dbb1a5c28faef401e3255129e609d5b878b380aec57da9ba4b1b9d7765615ad4"
+    },
+    {
+      "file": "src/simulation/world.ts",
+      "bytes": 296400,
+      "sha256": "463a9fa32b66bdf94cf27df95f0700a0fb95a4064dcb6e1a79108a3605e8f3c0"
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "bytes": 187921,
+      "sha256": "ec7bf7f9030de012404a6fdb220df00eca3565ade82fc1affd7a1322e2f87bbf"
+    },
+    {
+      "file": "src/simulation/lane-match.ts",
+      "bytes": 3186,
+      "sha256": "4e245c391efcc66c07b3e0444e5459125fe1be6d1eba336f3f06d1735003f0be"
+    },
+    {
+      "file": "tests/ahri-rift-trial.test.ts",
+      "bytes": 10135,
+      "sha256": "ade39ea3ddc84c82c2f571fdfae878f55073b139406cec70d1518e9f769e9ada"
+    },
+    {
+      "file": "e2e/ahri-rift-trial.spec.ts",
+      "bytes": 13939,
+      "sha256": "eb23268853ddfb2f9694947333aa89f280b82bb69952f9a9f46dfc49627a95fa"
+    },
+    {
+      "file": "e2e/ahri-player.spec.ts",
+      "bytes": 16674,
+      "sha256": "fa39cc2f0a708eca1702867d6226ee480db1675c18e7b6d4d18c6185ea72b36f"
+    },
+    {
+      "file": "e2e/helpers/pause-combat-state.ts",
+      "bytes": 1476,
+      "sha256": "09b030e8880b1ca1d1bff716f5138e00eb0d2099584b2ad8ed72fec852fa2d69"
+    },
+    {
+      "file": "tools/qa/production-subpath.mjs",
+      "bytes": 31481,
+      "sha256": "5c9924c5276b15ea534d7b0b372858195b70b57165aa75564a627de92af90b25"
+    },
+    {
+      "path": "docs/AHRI-RIFT-TRIAL.md",
+      "bytes": 6132,
+      "sha256": "37e0ccf1981abd65c8fb710959f9a6e1685e988c632344f797aea017f0c87cd0"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "bytes": 746858,
+      "sha256": "dd448d987bbfd4a641753e1efb0ce3a44a608d116d9399293c0c8463a6c1503b"
+    }
+  ],
+  "verification": {
+    "focusedPassed": 123,
+    "focusedFiles": 11,
+    "newUnitCases": 7,
+    "fullUnitPassed": 3398,
+    "fullUnitFailed": 2,
+    "fullUnitTotal": 3400,
+    "fullUnitFiles": 403,
+    "baselineFailuresUnchanged": 2,
+    "typeCheckAndBuildPassed": true,
+    "nodeQaPassed": 16,
+    "distinctBrowserCasesPassed": 10,
+    "firstBrowserBatchPassed": 8,
+    "firstBrowserBatchFailed": 2,
+    "targetedBrowserRerunPassed": 2,
+    "singleGreenTenCaseBatchClaimed": false,
+    "browserAssertionsRetained": [
+      {
+        "path": "e2e/ahri-player.spec.ts",
+        "originalAssertions": 53,
+        "currentAssertions": 53,
+        "allOriginalAssertionsRetainedInOrder": true
+      },
+      {
+        "path": "e2e/masteryi-player.spec.ts",
+        "originalAssertions": 47,
+        "currentAssertions": 47,
+        "allOriginalAssertionsRetainedInOrder": true
+      },
+      {
+        "path": "e2e/garen-player.spec.ts",
+        "originalAssertions": 47,
+        "currentAssertions": 47,
+        "allOriginalAssertionsRetainedInOrder": true
+      },
+      {
+        "path": "e2e/leona-rift-trial.spec.ts",
+        "originalAssertions": 25,
+        "currentAssertions": 25,
+        "allOriginalAssertionsRetainedInOrder": true
+      }
+    ],
+    "ahriMatchersIncludingPollRetained": {
+      "path": "e2e/ahri-player.spec.ts",
+      "includesPollingMatchers": true,
+      "originalMatcherCalls": 56,
+      "currentMatcherCalls": 56,
+      "allOriginalMatchersRetainedInOrder": true
+    },
+    "productionAssertionsRetained": {
+      "path": "tools/qa/production-subpath.mjs",
+      "originalAssertions": 102,
+      "currentAssertions": 104,
+      "allOriginalAssertionsRetainedInOrder": true
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 16,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "garenRiftTrialInProduction": false,
+      "masterYiRiftTrialInProduction": false,
+      "ahriRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderAudioPreloads": 0,
+      "unrequestedMasterYiAlphaAudioPreloads": 0,
+      "unrequestedMasterYiMeditateAudioPreloads": 0,
+      "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+      "unrequestedMasterYiSwordPreloads": 0,
+      "unrequestedMasterYiPrimaryTrailPreloads": 0,
+      "unrequestedMasterYiPrimaryHitPreloads": 0,
+      "unrequestedMasterYiPassiveTrailPreloads": 0,
+      "unrequestedMasterYiMeditateDamagePreloads": 0,
+      "unrequestedMasterYiHighlanderKillPreloads": 0,
+      "unrequestedMasterYiHighlanderCastPreloads": 0,
+      "unrequestedMasterYiQEndPreloads": 0,
+      "unrequestedMasterYiQCastPreloads": 0,
+      "unrequestedMasterYiQContactPreloads": 0,
+      "unrequestedMasterYiMeditateCastPreloads": 0,
+      "unrequestedMasterYiMeditateBuffPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 272,
+      "scheduledBlueRequests": 16,
+      "scheduledRedRequests": 16,
+      "scheduledWolfRequests": 32,
+      "scheduledRaptorRequests": 32,
+      "scheduledKrugRequests": 48,
+      "scheduledScuttlerRequests": 16,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    },
+    "offline": {
+      "manifest": {
+        "id": "5aff35be26d9be78e6f660f7eb1b6af5112024b90622034aa3b0f2ab933eced2",
+        "files": 1202,
+        "bytes": 538093442
+      },
+      "checks": {
+        "integrityFailureRestoresDownloadFocus": true,
+        "integrityFailure": true,
+        "downloadFocusesCancel": true,
+        "cancelRetainsVerified": true,
+        "cancelRestoresDownloadFocus": true,
+        "retryWithoutRedownload": true,
+        "completionPreservesOtherControlFocus": true,
+        "pausedSavedTickBootsOffline": true,
+        "completePackRepairOffline": true,
+        "newLuxLaneMatchOffline": true,
+        "serviceWorkerResponses": 978,
+        "removalKeepsSavedBytes": true,
+        "updateRefusesOtherTabs": true,
+        "explicitAtomicVersionSwitchOffline": true,
+        "missingEntryRevokesReady": true,
+        "scopeOnlyRemoval": true
+      },
+      "result": "passed",
+      "productionErrors": []
+    },
+    "freshProductionScreenshots": 8,
+    "publicAssetsUnchangedInCheckout": 1125,
+    "originalCheckoutClean": true,
+    "originalCohortSourcePinsUnchanged": 539,
+    "schemaChanged": false,
+    "rulesetChanged": true
+  },
+  "originalCohort": {
+    "root": "/workspace/web-lol/.cache/match-cohort/current-normal-100-20261027",
+    "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "certifiesThisChangedRuleset": false,
+    "originalCheckoutRemainedFrozen": true,
+    "recovery": {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-100-20261027/recovery/20261027-supervisor-loss/recovery.json",
+      "bytes": 57860,
+      "sha256": "292e39285d2c3263c84d02509c878c25ccdbf9ac8fcdc2044b173628546c7e5b"
+    },
+    "completedRetainedAfterSupervisorLoss": 57,
+    "interruptedAttemptsRetained": 4,
+    "restartedSeeds": [
+      55,
+      56,
+      57,
+      58
+    ],
+    "usesOriginalFrozenRunnerAndMaps": true,
+    "claimsUninterruptedExecution": false
+  },
+  "probeRepairs": [
+    "New Charm probe expected forced movement on impact. The source controller cancels to idle on impact and moves next tick; retain the move assertion and add exact impact/next-tick checks.",
+    "Existing HUD case reached its120s deadline during the first aiming screenshot; increase only that case to180s and retain every assertion.",
+    "Existing Q-windup save probe observed null after live frames passed the windup; pause the first real pending-cast tick before retaining its original q and exact save/future assertions."
+  ],
+  "pauseIntervals": [
+    {
+      "start": "2026-10-27T18:21:37.963509+00:00",
+      "end": "2026-10-27T18:22:16.110694+00:00",
+      "processes": [
+        {
+          "pid": 353408,
+          "cmdlineSha256": "d7f73e7903057389e53b73e05e942d0c8f75dc5b98f8e80dfb15a22bba300e24"
+        },
+        {
+          "pid": 353415,
+          "cmdlineSha256": "b34a295fe3573e1d01dcd169097a1ea22a018400e0139ee345b73f0bd07141f2"
+        },
+        {
+          "pid": 353416,
+          "cmdlineSha256": "0ca5625559175b574ad1c5f1d8008dbeba0b8cb0e27b4093a2c01b624e03ff21"
+        },
+        {
+          "pid": 353417,
+          "cmdlineSha256": "b15ca50f5328ca5c9652b22d78d1bfe219f21a994c525e6498da90376f78176d"
+        },
+        {
+          "pid": 353418,
+          "cmdlineSha256": "f9431294176cb25b32aa93e31f4e2fcc2b285fb90fc085ed1b5da9fcc6ee647a"
+        }
+      ],
+      "resumed": true
+    },
+    {
+      "start": "2026-10-27T18:22:51.749580+00:00",
+      "end": "2026-10-27T18:23:51.224052+00:00",
+      "processes": [
+        {
+          "pid": 353408,
+          "cmdlineSha256": "d7f73e7903057389e53b73e05e942d0c8f75dc5b98f8e80dfb15a22bba300e24"
+        },
+        {
+          "pid": 353415,
+          "cmdlineSha256": "b34a295fe3573e1d01dcd169097a1ea22a018400e0139ee345b73f0bd07141f2"
+        },
+        {
+          "pid": 353416,
+          "cmdlineSha256": "0ca5625559175b574ad1c5f1d8008dbeba0b8cb0e27b4093a2c01b624e03ff21"
+        },
+        {
+          "pid": 353417,
+          "cmdlineSha256": "b15ca50f5328ca5c9652b22d78d1bfe219f21a994c525e6498da90376f78176d"
+        },
+        {
+          "pid": 353418,
+          "cmdlineSha256": "f9431294176cb25b32aa93e31f4e2fcc2b285fb90fc085ed1b5da9fcc6ee647a"
+        }
+      ],
+      "resumed": true
+    },
+    {
+      "start": "2026-10-27T18:25:27.202809+00:00",
+      "end": "2026-10-27T18:39:47.011074+00:00",
+      "processes": [
+        {
+          "pid": 353408,
+          "cmdlineSha256": "d7f73e7903057389e53b73e05e942d0c8f75dc5b98f8e80dfb15a22bba300e24"
+        },
+        {
+          "pid": 353415,
+          "cmdlineSha256": "b34a295fe3573e1d01dcd169097a1ea22a018400e0139ee345b73f0bd07141f2"
+        },
+        {
+          "pid": 353416,
+          "cmdlineSha256": "0ca5625559175b574ad1c5f1d8008dbeba0b8cb0e27b4093a2c01b624e03ff21"
+        },
+        {
+          "pid": 353417,
+          "cmdlineSha256": "b15ca50f5328ca5c9652b22d78d1bfe219f21a994c525e6498da90376f78176d"
+        },
+        {
+          "pid": 353418,
+          "cmdlineSha256": "f9431294176cb25b32aa93e31f4e2fcc2b285fb90fc085ed1b5da9fcc6ee647a"
+        }
+      ],
+      "resumed": true
+    },
+    {
+      "start": "2026-10-27T18:40:08.452835+00:00",
+      "end": "2026-10-27T18:44:16.274236+00:00",
+      "processes": [
+        {
+          "pid": 353408,
+          "cmdlineSha256": "d7f73e7903057389e53b73e05e942d0c8f75dc5b98f8e80dfb15a22bba300e24"
+        },
+        {
+          "pid": 353415,
+          "cmdlineSha256": "b34a295fe3573e1d01dcd169097a1ea22a018400e0139ee345b73f0bd07141f2"
+        },
+        {
+          "pid": 353416,
+          "cmdlineSha256": "0ca5625559175b574ad1c5f1d8008dbeba0b8cb0e27b4093a2c01b624e03ff21"
+        },
+        {
+          "pid": 353417,
+          "cmdlineSha256": "b15ca50f5328ca5c9652b22d78d1bfe219f21a994c525e6498da90376f78176d"
+        },
+        {
+          "pid": 353418,
+          "cmdlineSha256": "f9431294176cb25b32aa93e31f4e2fcc2b285fb90fc085ed1b5da9fcc6ee647a"
+        }
+      ],
+      "resumed": true
+    },
+    {
+      "start": "2026-10-27T18:44:17.032917+00:00",
+      "end": "2026-10-27T18:59:55.235816+00:00",
+      "processes": [
+        {
+          "pid": 353408,
+          "cmdlineSha256": "d7f73e7903057389e53b73e05e942d0c8f75dc5b98f8e80dfb15a22bba300e24"
+        },
+        {
+          "pid": 353415,
+          "cmdlineSha256": "b34a295fe3573e1d01dcd169097a1ea22a018400e0139ee345b73f0bd07141f2"
+        },
+        {
+          "pid": 353416,
+          "cmdlineSha256": "0ca5625559175b574ad1c5f1d8008dbeba0b8cb0e27b4093a2c01b624e03ff21"
+        },
+        {
+          "pid": 353417,
+          "cmdlineSha256": "b15ca50f5328ca5c9652b22d78d1bfe219f21a994c525e6498da90376f78176d"
+        },
+        {
+          "pid": 353418,
+          "cmdlineSha256": "f9431294176cb25b32aa93e31f4e2fcc2b285fb90fc085ed1b5da9fcc6ee647a"
+        }
+      ],
+      "resumed": true
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/ahri-rift-trial/__pycache__/archive.cpython-312.pyc",
+      "bytes": 15956,
+      "sha256": "37c75a8026d22e79da683a64c33147b3f2c2c50a9fcb49a87fd754d69510eb02"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/__pycache__/finalize-docs.cpython-312.pyc",
+      "bytes": 6144,
+      "sha256": "5d31af368ea621da74f79dd6eefe225cf3e4d7d9515f176971aac25a844bf7d5"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/all-expect-retention.json",
+      "bytes": 180,
+      "sha256": "219f8bc9cdb1dd3a9c074c9773ad76715a963b79b98feedfad72f89b0aa1a4a3"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/application-inputs.json",
+      "bytes": 157943,
+      "sha256": "cfe71e440b798cc2b6fa00770296357053c88b71347572dc1ce28180b3a3c985"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/application-pause-record.json",
+      "bytes": 755,
+      "sha256": "67f722e29e738d71263959b1c43370894d08bec370e0144518014a1fd2faeaae"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/application-source/docs/AHRI-RIFT-TRIAL.md",
+      "bytes": 6132,
+      "sha256": "37e0ccf1981abd65c8fb710959f9a6e1685e988c632344f797aea017f0c87cd0"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/application-source/docs/PROGRESS.md",
+      "bytes": 746858,
+      "sha256": "dd448d987bbfd4a641753e1efb0ce3a44a608d116d9399293c0c8463a6c1503b"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/application-source/e2e/ahri-player.spec.ts",
+      "bytes": 16674,
+      "sha256": "fa39cc2f0a708eca1702867d6226ee480db1675c18e7b6d4d18c6185ea72b36f"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/application-source/e2e/ahri-rift-trial.spec.ts",
+      "bytes": 13939,
+      "sha256": "eb23268853ddfb2f9694947333aa89f280b82bb69952f9a9f46dfc49627a95fa"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/application-source/e2e/helpers/pause-combat-state.ts",
+      "bytes": 1476,
+      "sha256": "09b030e8880b1ca1d1bff716f5138e00eb0d2099584b2ad8ed72fec852fa2d69"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/application-source/src/main.ts",
+      "bytes": 23850,
+      "sha256": "b4431e96b681e6b61069c72583c10f46dd2b3c2319092cac788144239c5639b7"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/application-source/src/simulation/battlefield.ts",
+      "bytes": 3149,
+      "sha256": "dbb1a5c28faef401e3255129e609d5b878b380aec57da9ba4b1b9d7765615ad4"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/application-source/src/simulation/lane-match.ts",
+      "bytes": 3186,
+      "sha256": "4e245c391efcc66c07b3e0444e5459125fe1be6d1eba336f3f06d1735003f0be"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/application-source/src/simulation/snapshot.ts",
+      "bytes": 187921,
+      "sha256": "ec7bf7f9030de012404a6fdb220df00eca3565ade82fc1affd7a1322e2f87bbf"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/application-source/src/simulation/world.ts",
+      "bytes": 296400,
+      "sha256": "463a9fa32b66bdf94cf27df95f0700a0fb95a4064dcb6e1a79108a3605e8f3c0"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/application-source/tests/ahri-rift-trial.test.ts",
+      "bytes": 10135,
+      "sha256": "ade39ea3ddc84c82c2f571fdfae878f55073b139406cec70d1518e9f769e9ada"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/application-source/tools/qa/production-subpath.mjs",
+      "bytes": 31481,
+      "sha256": "5c9924c5276b15ea534d7b0b372858195b70b57165aa75564a627de92af90b25"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/archive.py",
+      "bytes": 9416,
+      "sha256": "32bf84ef89c2c29e253529c4adc664a1ab12e64b3f999441d4f00d1f6f31ed7f"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-assertion-retention.json",
+      "bytes": 637,
+      "sha256": "b245d1e34ed06f4c6a0b60f91d0c98716563b9e28e1c4e5389120157badafdff"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-first/.last-run.json",
+      "bytes": 145,
+      "sha256": "4fb628272ea705fd5f681b3195173154cd3f1eb481c4057253369fd444f315dd"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-first/ahri-player-Ahri-player-ow-670a0-and-committed-keyboard-cast/error-context.md",
+      "bytes": 13216,
+      "sha256": "cbdbbad84725a0a80c49dccea40c4ab22cb1647e006a8570ccfd0bbf16762865"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-first/ahri-player-Ahri-player-ow-670a0-and-committed-keyboard-cast/test-failed-1.png",
+      "bytes": 821181,
+      "sha256": "0b39b9ff7f6da1099ea57e93acc9e75106cad649283677bd0eaa6360aec6152e"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-first/ahri-player-Ahri-player-ow-670a0-and-committed-keyboard-cast/trace.zip",
+      "bytes": 51038479,
+      "sha256": "84ee1183f970fc62aa452619ded473930741c6ea9baf83e2423affc8fb7799fa"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-first/ahri-player-Ahri-player-q--6722e-ual-private-save-and-reload/error-context.md",
+      "bytes": 13600,
+      "sha256": "41dbc2bad372bf607e63a29e7c73da7a0e2ce9067c8a5cbea1d653a1cc56b265"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-first/ahri-player-Ahri-player-q--6722e-ual-private-save-and-reload/test-failed-1.png",
+      "bytes": 771826,
+      "sha256": "06ed7372008cb7aa52bcd5555288a0e70c53c5454fd909d7fe7211965501ea87"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-first/ahri-player-Ahri-player-q--6722e-ual-private-save-and-reload/trace.zip",
+      "bytes": 43553050,
+      "sha256": "61a67873462b3c30bebe3e72c45d4f3d2945859feb74a91a65dc52318c98a049"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-first/ahri-player-Ahri-player-r--78ce3-ual-private-save-and-reload/ahri-player-r-reset-reload.json",
+      "bytes": 36164,
+      "sha256": "d5f4c6c63593fc3aafad2ffdc00e3e0c9e8afa0973a51b9d328767394ea63347"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-first/ahri-player-W-is-instant-E-f19fe-ws-free-recasts-and-Essence/ahri-player-controls.json",
+      "bytes": 3296,
+      "sha256": "940ee211ff214479cc584cf1af4efea7503852e11c30e895a63afeceacd019a4"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-first/ahri-player-W-is-instant-E-f19fe-ws-free-recasts-and-Essence/ahri-player-r-aim.png",
+      "bytes": 780346,
+      "sha256": "bc228a872d7b912ba57b647dd1b2974a4b05c121e3e72b3122c03e4e070d8f1e"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-first/ahri-player-W-is-instant-E-f19fe-ws-free-recasts-and-Essence/ahri-player-resources.png",
+      "bytes": 742547,
+      "sha256": "db85f19ee1a8ed433623495934008b6bf54f0975761fb2ec4313a823811843a6"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-first/ahri-player-file-controls--edfdb--files-in-ordinary-practice/ahri-player-imports.json",
+      "bytes": 120,
+      "sha256": "b6486038a5c469aaeeacf1570c09228a65519db3990504a4af38af67755a7bdf"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-first/ahri-player-private-save-a-23177-ordinary-fixture-save-exact/ahri-player-save-isolation.json",
+      "bytes": 45843,
+      "sha256": "c439ba6d71fce8dd6c6ef9d2aa99d9c53c3f6cb249d261b2210674190225099a"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-first/ahri-rift-trial-human-Ahri-61743-ds-its-outbound-orb-exactly/ahri-source-mid-q-outbound.png",
+      "bytes": 1406821,
+      "sha256": "b28d0cd3e0286ef8a504585e3d245a923ef371ebb76177afef89db4f62ab2fd6"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-first/ahri-rift-trial-human-Ahri-61743-ds-its-outbound-orb-exactly/ahri-source-mid-return-visible.png",
+      "bytes": 1405197,
+      "sha256": "4efd56a854c50ae5bb0cd8f8e9b62a6d1fcff6985a23ff7ac10661694520161c"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-first/ahri-rift-trial-human-Ahri-61743-ds-its-outbound-orb-exactly/source-mid.json",
+      "bytes": 565300,
+      "sha256": "b3aec125c1e7832c87f6586b93e321e48740c14cbcc3a55f2e610395addd4ebb"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-first/ahri-rift-trial-ordinary-R-f6480-rant-development-permission/ordinary-gate.json",
+      "bytes": 84683,
+      "sha256": "9fa05ca666de91065787746a3e6764907f22262e727709c2dc9135514ee113bf"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-first/ahri-rift-trial-the-ordina-fb391-oice-survives-the-trial-URL/chooser.json",
+      "bytes": 116,
+      "sha256": "7c35cb56048aa27318857c7d81aa84e9f39b8341ae53ce56c62ffa195f88b417"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-first/ahri-rift-trial-trial-Save-5aadb--and-keep-the-ordinary-save/saved-mid.json",
+      "bytes": 535751,
+      "sha256": "1339288d7452ec8484b764ba2e66ad8cc8823570df81c739a4ecf51c4a288bba"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-inputs.json",
+      "bytes": 157943,
+      "sha256": "c89729fa02fe069edbf1d7099162f1319f991531b70efdf313fefd10ed99c881"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-pause-record.json",
+      "bytes": 755,
+      "sha256": "a2046debf26325a45f664bdb976a99e07c02d7c673f13b91b437ac0915255c25"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-source/e2e/ahri-player.spec.ts",
+      "bytes": 16529,
+      "sha256": "2d08c11403c0dc70794026667a958ac28bd95b38eb2ec9a614318acc34102cb6"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-source/e2e/ahri-rift-trial.spec.ts",
+      "bytes": 13939,
+      "sha256": "eb23268853ddfb2f9694947333aa89f280b82bb69952f9a9f46dfc49627a95fa"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-source/e2e/helpers/pause-combat-state.ts",
+      "bytes": 1476,
+      "sha256": "09b030e8880b1ca1d1bff716f5138e00eb0d2099584b2ad8ed72fec852fa2d69"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-source/src/main.ts",
+      "bytes": 23850,
+      "sha256": "b4431e96b681e6b61069c72583c10f46dd2b3c2319092cac788144239c5639b7"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-source/src/simulation/battlefield.ts",
+      "bytes": 3149,
+      "sha256": "dbb1a5c28faef401e3255129e609d5b878b380aec57da9ba4b1b9d7765615ad4"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-source/src/simulation/lane-match.ts",
+      "bytes": 3186,
+      "sha256": "4e245c391efcc66c07b3e0444e5459125fe1be6d1eba336f3f06d1735003f0be"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-source/src/simulation/snapshot.ts",
+      "bytes": 187921,
+      "sha256": "ec7bf7f9030de012404a6fdb220df00eca3565ade82fc1affd7a1322e2f87bbf"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-source/src/simulation/world.ts",
+      "bytes": 296400,
+      "sha256": "463a9fa32b66bdf94cf27df95f0700a0fb95a4064dcb6e1a79108a3605e8f3c0"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-source/tests/ahri-rift-trial.test.ts",
+      "bytes": 10135,
+      "sha256": "ade39ea3ddc84c82c2f571fdfae878f55073b139406cec70d1518e9f769e9ada"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-source/tools/qa/production-subpath.mjs",
+      "bytes": 31481,
+      "sha256": "5c9924c5276b15ea534d7b0b372858195b70b57165aa75564a627de92af90b25"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-targeted/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-targeted/ahri-player-Ahri-player-ow-670a0-and-committed-keyboard-cast/ahri-player-q-aim.png",
+      "bytes": 776176,
+      "sha256": "f67383f48c55c9e79dac038bd2cc0e154b12ef169b673ee2684ba9be4415a6f2"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-targeted/ahri-player-Ahri-player-ow-670a0-and-committed-keyboard-cast/ahri-player-q.json",
+      "bytes": 5373,
+      "sha256": "2df600985c7cc5831b6ac0f8d95a8c019bf14b823bb00b46b66c89950e9aaeef"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser-targeted/ahri-player-Ahri-player-q--6722e-ual-private-save-and-reload/ahri-player-q-windup-reload.json",
+      "bytes": 18327,
+      "sha256": "f62c17c45a48bbc607d3aa7389d369fd6004d299523773b399df1e69e8db49cf"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/browser.log",
+      "bytes": 10165,
+      "sha256": "1d59b7208a9dd4968c026e9a186579241ad7a4601a627459d7c054c65d56deb3"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/build.log",
+      "bytes": 7911,
+      "sha256": "d566f57284afd0a85a4a81eded65d7759548ef2fa7e72debbc6a6c0a8dd09ac8"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/check-all-expect-calls.mjs",
+      "bytes": 1445,
+      "sha256": "6fb79ea5b23439dcff4237f4daa37a7606fb4399ffccd04acfe467f22ea70d96"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/check-browser-assertions.mjs",
+      "bytes": 1286,
+      "sha256": "4100071bef06e6a01041610dbffce0cba6e8e0ea880c9cf2766282f7612ab884"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/check-production-assertions.mjs",
+      "bytes": 1074,
+      "sha256": "e21925f7c4bc60fc56c7fa45a32a6f36c1ca908ba4b822ee8eb764e1d2706c70"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/final-component-inputs.json",
+      "bytes": 157286,
+      "sha256": "1bbc672711b389f81cca253467c46062c3cd2edf83da2867de99558886f079ad"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/final-component-pause-record.json",
+      "bytes": 755,
+      "sha256": "39c0e9ba58a9a1ab24f9063ec703f09f7acfb5b600b0f57cbfc34c0c4329471d"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/final-component-source/src/main.ts",
+      "bytes": 23850,
+      "sha256": "b4431e96b681e6b61069c72583c10f46dd2b3c2319092cac788144239c5639b7"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/final-component-source/src/simulation/battlefield.ts",
+      "bytes": 3149,
+      "sha256": "dbb1a5c28faef401e3255129e609d5b878b380aec57da9ba4b1b9d7765615ad4"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/final-component-source/src/simulation/lane-match.ts",
+      "bytes": 3186,
+      "sha256": "4e245c391efcc66c07b3e0444e5459125fe1be6d1eba336f3f06d1735003f0be"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/final-component-source/src/simulation/snapshot.ts",
+      "bytes": 187921,
+      "sha256": "ec7bf7f9030de012404a6fdb220df00eca3565ade82fc1affd7a1322e2f87bbf"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/final-component-source/src/simulation/world.ts",
+      "bytes": 296400,
+      "sha256": "463a9fa32b66bdf94cf27df95f0700a0fb95a4064dcb6e1a79108a3605e8f3c0"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/final-component-source/tests/ahri-rift-trial.test.ts",
+      "bytes": 10135,
+      "sha256": "ade39ea3ddc84c82c2f571fdfae878f55073b139406cec70d1518e9f769e9ada"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/finalize-docs.py",
+      "bytes": 4791,
+      "sha256": "fd397f809ba5d912b5abf52cce006f2b5f83ffc06f78dc6caf3080764fc151e3"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/fingerprint.txt",
+      "bytes": 65,
+      "sha256": "6f7133136de94a6e6f550f4b393d37f8729cb22d71d55bac1d9db8710bb11ee9"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/first-browser-postcondition.json",
+      "bytes": 121,
+      "sha256": "457ed5248cb945e1550327ec29af5fdb71ad3b64bda04eb0d6b21445c64bc53a"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/first-focused-inputs.json",
+      "bytes": 157285,
+      "sha256": "742c759129ad05e6bb67d3f1e0f7ebf2e61ffe0c787d51162cb6198ad28a16de"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/first-focused-pause-record.json",
+      "bytes": 755,
+      "sha256": "48b2974c9cbec53de3bca17e71ace303b9783b4e62b7ce77c8def6435a07ad8d"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/first-focused-source/src/main.ts",
+      "bytes": 23850,
+      "sha256": "b4431e96b681e6b61069c72583c10f46dd2b3c2319092cac788144239c5639b7"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/first-focused-source/src/simulation/battlefield.ts",
+      "bytes": 3149,
+      "sha256": "dbb1a5c28faef401e3255129e609d5b878b380aec57da9ba4b1b9d7765615ad4"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/first-focused-source/src/simulation/lane-match.ts",
+      "bytes": 3186,
+      "sha256": "4e245c391efcc66c07b3e0444e5459125fe1be6d1eba336f3f06d1735003f0be"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/first-focused-source/src/simulation/snapshot.ts",
+      "bytes": 187921,
+      "sha256": "ec7bf7f9030de012404a6fdb220df00eca3565ade82fc1affd7a1322e2f87bbf"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/first-focused-source/src/simulation/world.ts",
+      "bytes": 296400,
+      "sha256": "463a9fa32b66bdf94cf27df95f0700a0fb95a4064dcb6e1a79108a3605e8f3c0"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/first-focused-source/tests/ahri-rift-trial.test.ts",
+      "bytes": 9926,
+      "sha256": "f00ec52cb4c785cc62ea80dcf74256e01ae46b4dde83f20d73858c281c00b86c"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/first-focused-wrapper.log",
+      "bytes": 455,
+      "sha256": "facb7a9517d41cc0ce3d20d3ab63a56bf3562f49543fb43573f18e1ea12331eb"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/first-focused.log",
+      "bytes": 1115,
+      "sha256": "664dede23c275cfb3ac54dbaae7973a019784ff3ed78d9f3e20968b633b82a39"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/focused.log",
+      "bytes": 185,
+      "sha256": "c97bc8b19274a4b61e7cd118e8012dacae5411d1505efde2ba7c9e04cf118e50"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/full-tests.log",
+      "bytes": 4677,
+      "sha256": "49c24eeb0d11aee4254958bece16be7bb2aa8beabca6d153491e0a4644e692bd"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/initial-no-supervisor-pause-record.json",
+      "bytes": 133,
+      "sha256": "2aaa0ddd220cd5e1c294557b70badf73ada69c5e141670cfc85fa88b9741f8d6"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/initial-no-supervisor.log",
+      "bytes": 411,
+      "sha256": "319e3d019715e031d6d5cb116597fba7b1a4a4d6d53c71126b4cb5f9ba1bcf8b"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/node.log",
+      "bytes": 1403,
+      "sha256": "b465193bd8eba045726aaa125e4fc33e82be5d2bec0aee9f94d0bf1d816e4cdd"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/offline-artifacts/offline-pack-ahri-rift-trial-20261027-lux-lanes.png",
+      "bytes": 522770,
+      "sha256": "b25486a5a37d4dcc090c777095a2b7ee6465c4abda3b117a867ee405261f3ea0"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/offline-artifacts/offline-pack-ahri-rift-trial-20261027-production.json",
+      "bytes": 827,
+      "sha256": "8fb2274a32b9b9bc438084b07100bf76042cb642a8b168ee44f8f97e3faaf3db"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/offline-artifacts/offline-pack-ahri-rift-trial-20261027-ready.png",
+      "bytes": 573161,
+      "sha256": "51e2b59e2fcaf59c0f03960609ca9c0138b8227b2cd73df67a4e9bb351fbd9c9"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/offline-system.mjs",
+      "bytes": 16600,
+      "sha256": "3d091435f88a3e61fc7ea5986ad5bbc2031e3232943298ff564fba118ebcb29d"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/offline.log",
+      "bytes": 842,
+      "sha256": "d7cf74e37f3574ac3b058c2e6e68d3263f292c918e59de2f367304ca03ec6a89"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/practice-probe-delta.json",
+      "bytes": 546,
+      "sha256": "bd6d4ee3b42b7c10dba4ee3c82b3097132de0a91bca622014fdd94a52fa887a9"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/production-assertion-retention.json",
+      "bytes": 153,
+      "sha256": "4d5694996018b483a6efba0f77ecfda6e37c2ff37c17419e65400b7d9baf4fde"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/production-screens/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1808341,
+      "sha256": "9377b6019316c154490749ba306ab7d704094fea5291d841a41f2df70afbe356"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/production-screens/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835567,
+      "sha256": "00abb11f4fa093a87f72abebf16e69d2a647d15a316af8ee1fad851fe4e83a3d"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/production-screens/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829980,
+      "sha256": "3f754845b8a9f250df9513240e64681287418041fd99b69eee616ee7dcc8842f"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/production-screens/lux-e-hit-production-lux.png",
+      "bytes": 1811861,
+      "sha256": "bb385352c03c8e3ed0ae2b34bf36cd0c4d7286d4d1bf26fa9d171e2ae32f146a"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/production-screens/lux-e-hit-production-oracle.png",
+      "bytes": 1815256,
+      "sha256": "fd9fada18ef15c40e92d6973a51135f021c7de45f43ac06016a2a594ed8a7af8"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/production-screens/lux-e-hit-production-role-match.png",
+      "bytes": 1352616,
+      "sha256": "f28256b64b938b68cba3823d975dd0b223c2bf6e632a7fa961f658e351940941"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/production-screens/lux-e-hit-production-subpath.png",
+      "bytes": 1826226,
+      "sha256": "e99c14a26fd4dcf7b957257c1507f2160d0188e2e0419db67fe57616cd059e3b"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/production-screens/lux-e-hit-production-ward.png",
+      "bytes": 1808916,
+      "sha256": "2c23e471977c02b8cc9ff451e91b00b9678a6008136df149cecadd88e99fc987"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/production-system.mjs",
+      "bytes": 31523,
+      "sha256": "06eb7a4d5f77fba2dc1cb14f6ea335bd65fc34f70e855781d3585285867216a0"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/production.log",
+      "bytes": 2959,
+      "sha256": "65ef5dadfd7236c4f074e9c34772cb37a9cafa387fa5e4d1bd6821c2d93d0d1b"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/run-acceptance.py",
+      "bytes": 4126,
+      "sha256": "4e52756b75ba25b047167041542239cef7906de515e60c444292283c9370215f"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/run-after-targeted.py",
+      "bytes": 624,
+      "sha256": "54dfec2f591247e05b0892228956931d44bfd95d5455a529eabf6b04a5ddbeb1"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/run-browser.py",
+      "bytes": 3288,
+      "sha256": "f68222d0a096fc8f162659dd3652cbc16050087b31e7eabd2710174249830dd9"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/run-components.py",
+      "bytes": 3455,
+      "sha256": "5643671eb4d590c39078fb93fdb90b30729adba173aae0abff9245b6a40f4dbe"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/run-targeted.py",
+      "bytes": 3332,
+      "sha256": "832cdc582d402b92f5ba75f7e2468ac1a8dba0d828a5bcc8e5c278c4e68e1d65"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/source-mid-browser-case.txt",
+      "bytes": 6890,
+      "sha256": "ab0120988ca472960cbe95e07aa0a722d060ae6219ac81cd3cab87dc39e852b6"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/targeted-inputs.json",
+      "bytes": 157943,
+      "sha256": "cfe71e440b798cc2b6fa00770296357053c88b71347572dc1ce28180b3a3c985"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/targeted-pause-record.json",
+      "bytes": 755,
+      "sha256": "caadcacfe1f520970b4adfe14a14533e7125cc47c31862cf4d2aa81566b3415a"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/targeted-source/e2e/ahri-player.spec.ts",
+      "bytes": 16674,
+      "sha256": "fa39cc2f0a708eca1702867d6226ee480db1675c18e7b6d4d18c6185ea72b36f"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/targeted-source/e2e/ahri-rift-trial.spec.ts",
+      "bytes": 13939,
+      "sha256": "eb23268853ddfb2f9694947333aa89f280b82bb69952f9a9f46dfc49627a95fa"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/targeted-source/e2e/helpers/pause-combat-state.ts",
+      "bytes": 1476,
+      "sha256": "09b030e8880b1ca1d1bff716f5138e00eb0d2099584b2ad8ed72fec852fa2d69"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/targeted-source/src/main.ts",
+      "bytes": 23850,
+      "sha256": "b4431e96b681e6b61069c72583c10f46dd2b3c2319092cac788144239c5639b7"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/targeted-source/src/simulation/battlefield.ts",
+      "bytes": 3149,
+      "sha256": "dbb1a5c28faef401e3255129e609d5b878b380aec57da9ba4b1b9d7765615ad4"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/targeted-source/src/simulation/lane-match.ts",
+      "bytes": 3186,
+      "sha256": "4e245c391efcc66c07b3e0444e5459125fe1be6d1eba336f3f06d1735003f0be"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/targeted-source/src/simulation/snapshot.ts",
+      "bytes": 187921,
+      "sha256": "ec7bf7f9030de012404a6fdb220df00eca3565ade82fc1affd7a1322e2f87bbf"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/targeted-source/src/simulation/world.ts",
+      "bytes": 296400,
+      "sha256": "463a9fa32b66bdf94cf27df95f0700a0fb95a4064dcb6e1a79108a3605e8f3c0"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/targeted-source/tests/ahri-rift-trial.test.ts",
+      "bytes": 10135,
+      "sha256": "ade39ea3ddc84c82c2f571fdfae878f55073b139406cec70d1518e9f769e9ada"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/targeted-source/tools/qa/production-subpath.mjs",
+      "bytes": 31481,
+      "sha256": "5c9924c5276b15ea534d7b0b372858195b70b57165aa75564a627de92af90b25"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/targeted.log",
+      "bytes": 1018,
+      "sha256": "e874a027d254ff7f7c0ab550aac40093ded6395fffdecf4468493940d5cfe1ae"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/visual-review.json",
+      "bytes": 1240,
+      "sha256": "b944d7aa1cb7c12448764d4510bac3bc83c94e867a16da7247197d032e3e8829"
+    }
+  ],
+  "productionScreenshots": [
+    {
+      "path": ".cache/ahri-rift-trial/production-screens/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1808341,
+      "sha256": "9377b6019316c154490749ba306ab7d704094fea5291d841a41f2df70afbe356"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/production-screens/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835567,
+      "sha256": "00abb11f4fa093a87f72abebf16e69d2a647d15a316af8ee1fad851fe4e83a3d"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/production-screens/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829980,
+      "sha256": "3f754845b8a9f250df9513240e64681287418041fd99b69eee616ee7dcc8842f"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/production-screens/lux-e-hit-production-lux.png",
+      "bytes": 1811861,
+      "sha256": "bb385352c03c8e3ed0ae2b34bf36cd0c4d7286d4d1bf26fa9d171e2ae32f146a"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/production-screens/lux-e-hit-production-oracle.png",
+      "bytes": 1815256,
+      "sha256": "fd9fada18ef15c40e92d6973a51135f021c7de45f43ac06016a2a594ed8a7af8"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/production-screens/lux-e-hit-production-role-match.png",
+      "bytes": 1352616,
+      "sha256": "f28256b64b938b68cba3823d975dd0b223c2bf6e632a7fa961f658e351940941"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/production-screens/lux-e-hit-production-subpath.png",
+      "bytes": 1826226,
+      "sha256": "e99c14a26fd4dcf7b957257c1507f2160d0188e2e0419db67fe57616cd059e3b"
+    },
+    {
+      "path": ".cache/ahri-rift-trial/production-screens/lux-e-hit-production-ward.png",
+      "bytes": 1808916,
+      "sha256": "2c23e471977c02b8cc9ff451e91b00b9678a6008136df149cecadd88e99fc987"
+    }
+  ],
+  "limits": [
+    "Trusted development trial; ordinary production selection remains Ashe/Lux.",
+    "The original100-seed cohort is baseline evidence only and was recovered after process loss; the changed ruleset has no claimed100-seed acceptance.",
+    "Ahri mid bot policy, complete six-character bot delivery, native material/effects/audio/timing agreement and physical-device performance remain open.",
+    "Two baseline unit failures retain their original missing-evidence and host-sensitive digest assertions."
+  ]
+}

@@ -6,7 +6,44 @@ Last updated: October 27, 2026 (UTC).
 
 ## Current authoritative state
 
-The latest [Master Yi Rift trial](MASTER-YI-RIFT-TRIAL.md) gives the human the
+The latest [Ahri Rift trial](AHRI-RIFT-TRIAL.md) gives the human mid on the
+source battlefield with nine Ashe/Lux bots. Separate practice/Rift admission,
+private saves, restart and ordinary selection gates remain covered. Real Q
+input hits the normal opposing mid Lux on both legs and restores an outbound
+orb and its exact future. Source navigation, Charm impact/forced movement and
+bounded walkable Spirit Rush endpoints pass all 123 focused checks. Ten
+distinct browser cases pass across two retained batches, including the two
+corrected observation/budget probes; all original Ahri assertions remain.
+
+Schema remains 163; the new rules fingerprint is
+`c722d7ca3bb84c44a976e8c72eb57887b4d6a9ba529844a795ac080766139b62`.
+
+The full unit run passes **3,398/3,400 tests across 403 files**, retaining only
+the two unchanged baseline failures: the missing original Leona Eclipse evidence
+closure and the host-sensitive Lux missile golden digest. TypeScript, all 16
+Node QA checks and the production build pass. The nested-path production smoke
+passes with all 32 source recordings and the Ahri development URL rejected.
+All 102 original production assertions remain in order, with two new entry-gate
+assertions. The full offline audit passes with 978 service-worker responses
+and zero production page errors. Its accepted pack is
+`5aff35be26d9be78e6f660f7eb1b6af5112024b90622034aa3b0f2ab933eced2`
+(1,202 files / 538,093,442 bytes). All 1,125 source asset/data file sizes
+and mtimes remain unchanged in this checkout.
+
+During this iteration, the original cohort supervisor and all four workers
+disappeared without a terminal report or logged error; the cause remains unproved
+and the container reports zero OOM kills. All 57 completed results are preserved,
+the four interrupted attempts are archived, and seeds 55–58 restart from zero using
+the same frozen runner/maps/runtime. A detached recovery supervisor retains the
+canonical dispatch/invariant tail byte-for-byte and queues the remaining seeds.
+All 539 original source pins remain exact. This records a recovered execution,
+not an uninterrupted run or a completed 100-seed gate.
+
+The original cohort covers its own earlier ruleset and does not certify this
+changed revision. Ahri mid bot policy and native presentation gaps remain open;
+ordinary production selection remains Ashe/Lux.
+
+The preceding [Master Yi Rift trial](MASTER-YI-RIFT-TRIAL.md) gives the human the
 jungle role and Smite/Flash on the source battlefield with nine Ashe/Lux bots.
 Separate trusted practice/Rift contexts, private saves, restart and ordinary
 selection gates remain covered. Real Q input against the scheduled source Gromp

@@ -31,6 +31,8 @@ export interface Battlefield extends TerrainQueries {
   developmentGaren?: true;
   /** Allows an Ahri player only in the dedicated development practice host. */
   developmentAhri?: true;
+  /** Separate trusted host for the human Ahri Rift mid-lane trial. */
+  developmentAhriRift?: true;
   /** Allows a Master Yi player only in the dedicated development practice host. */
   developmentMasterYi?: true;
   /** Separate trusted host for the human Master Yi Rift jungle trial. */

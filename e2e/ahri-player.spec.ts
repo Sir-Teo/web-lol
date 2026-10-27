@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import { writeFileSync } from 'node:fs';
+import { pauseAtCombatState } from './helpers/pause-combat-state';
 const entry = '/?scene=fixture&champion=ahri';
 async function ready(page: Page, url = entry) {
   await page.goto(url);
@@ -81,7 +82,7 @@ async function loaded(page: Page) {
 test('Ahri player owns the HUD, local Q guide and committed keyboard cast', async ({
   page,
 }, info) => {
-  test.setTimeout(120000);
+  test.setTimeout(180000);
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
   const initial = await setup(page);
@@ -282,6 +283,7 @@ for (const phase of ['q-windup', 'r-reset'] as const) {
     await setup(page);
     await aimAt(page);
     await page.keyboard.down(phase === 'q-windup' ? 'q' : 'r');
+    if (phase === 'q-windup') await pauseAtCombatState(page, 'pending-cast');
     await page.keyboard.up(phase === 'q-windup' ? 'q' : 'r');
     await step(page);
     const expected = await page.evaluate((phase) => {

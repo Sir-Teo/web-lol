@@ -477,11 +477,12 @@ export class World {
       );
     if (
       playerChampion === 'ahri' &&
-      (battlefield.id !== 'practice-fixture' || !battlefield.developmentAhri)
+      !(
+        (battlefield.id === 'practice-fixture' && battlefield.developmentAhri) ||
+        (battlefield.id === 'rift' && battlefield.developmentAhriRift)
+      )
     )
-      throw new Error(
-        'Ahri is available only as a development NPC or in her trusted player practice scene.'
-      );
+      throw new Error('Ahri requires a development NPC or trusted player practice/Rift context.');
     if (
       playerChampion === 'leona' &&
       battlefield.id !== 'practice-fixture' &&
@@ -652,8 +653,12 @@ export class World {
     point: Vec2,
     identity: import('./types').ChampionIdentity = 'ashe'
   ): TeamUnit {
-    if (identity === 'ahri' && this.battlefield.id !== 'practice-fixture')
-      throw new Error('Ahri simulation requires the development practice fixture.');
+    if (
+      identity === 'ahri' &&
+      this.battlefield.id !== 'practice-fixture' &&
+      !this.battlefield.developmentAhriRift
+    )
+      throw new Error('Ahri simulation requires the development practice fixture or Rift trial.');
     if (
       identity === 'leona' &&
       this.battlefield.id !== 'practice-fixture' &&
