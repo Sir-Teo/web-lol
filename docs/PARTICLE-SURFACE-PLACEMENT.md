@@ -61,3 +61,10 @@ sword batching, and combined passive/E/R effects across camera angles.
 Strict production validation passes 32 recordings with eight fresh screenshots
 and zero unintended private-effect preloads. The offline pack remains 1,200
 files and grows by 59 bytes. No public asset changes.
+
+The later [ray scratch optimization](RAY-PLACEMENT-SCRATCH.md) removes per-frame
+ray descriptor/vector allocations and temporary finite-check arrays. Its explicit
+reference commit isolates that change from this earlier billboard optimization.
+The benchmark now supports ray-only and packed-color cases, freezes particle
+inputs, and includes packed color attributes in its equality snapshots. Earlier
+timings above retain their original fixture and source provenance.

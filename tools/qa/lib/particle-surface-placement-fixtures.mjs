@@ -31,7 +31,11 @@ export function placementFixtures(before, after, options = {}) {
     for (const time of [0.05, 0.15, 0.4, 0.8])
       for (const view of [0, 1, 2])
         for (const customTint of [false, true]) {
-          const particles = before.primaryHitParticles(91, time, kind, 30),
+          const particles = before
+              .primaryHitParticles(91, time, kind, 30)
+              .filter(
+                (p) => !options.rayOnly || before.data.profiles[p.profileIndex].kind === 'ray'
+              ),
             camera = new THREE.PerspectiveCamera(45, 1.5, 0.1, 1000);
           camera.position.set(
             ...[
@@ -60,6 +64,12 @@ export function placementFixtures(before, after, options = {}) {
               birthVisible: () => true,
               pose: (_g, tick) => ({ x: 100 + tick * 3, y: 200 - tick, facing: 0.2 + tick * 0.01 }),
               ...(customTint ? { tint: (_index, color) => color } : {}),
+              ...(options.packedColors
+                ? {
+                    vertexColor: (index) =>
+                      before.data.profiles[index].kind === 'ray' ? 'bgra-unorm8' : undefined,
+                  }
+                : {}),
             };
           const a = new before.SourceParticleSurfaces(
               new THREE.Scene(),
@@ -101,6 +111,9 @@ export function placementFixtures(before, after, options = {}) {
         ),
         positionData: Array.from(m.geometry.getAttribute('position').array),
         uvData: Array.from(m.geometry.getAttribute('uv').array),
+        ...(m.geometry.hasAttribute('_source_vertex_bgra')
+          ? { colorData: Array.from(m.geometry.getAttribute('_source_vertex_bgra').array) }
+          : {}),
         userData: m.userData,
       };
     });

@@ -5,12 +5,13 @@ import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import assert from 'node:assert/strict';
 import { rolldown } from 'rolldown';
-export async function placementReference(output) {
+export async function placementReference(output, referenceCommit) {
   output = resolve(output);
   assert(!existsSync(output), 'Reference directory already exists');
   mkdirSync(output, { recursive: true });
-  const commit = '6fd50c9aad1aac17891df3bc88e1db32d21b99b4',
-    archive = execFileSync(
+  const commit = referenceCommit ?? '6fd50c9aad1aac17891df3bc88e1db32d21b99b4';
+  assert(/^[0-9a-f]{40}$/.test(commit), 'Reference must be a complete commit hash');
+  const archive = execFileSync(
       'git',
       ['archive', commit, 'src', 'package.json', 'package-lock.json', 'tsconfig.json'],
       { maxBuffer: 32 * 1024 * 1024 }

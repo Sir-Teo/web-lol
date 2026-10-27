@@ -134,6 +134,12 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
   private inverseCameraRotation = new THREE.Quaternion();
   private vector = new THREE.Vector3();
   private eye = new THREE.Vector3();
+  private ray = {
+    center: new THREE.Vector3(),
+    axis: new THREE.Vector3(),
+    fallbackAcross: new THREE.Vector3(),
+    size: [0, 0, 0] as [number, number, number],
+  };
   constructor(
     private scene: THREE.Scene,
     private distortion: THREE.Scene,
@@ -377,26 +383,18 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
             );
           }
           if (profile.kind === 'ray') {
-            const axis = new THREE.Vector3(0, 0, 1).applyQuaternion(this.sourceRotation),
-              across = new THREE.Vector3(1, 0, 0).applyQuaternion(this.sourceRotation);
+            const axis = this.ray.axis.set(0, 0, 1).applyQuaternion(this.sourceRotation),
+              across = this.ray.fallbackAcross.set(1, 0, 0).applyQuaternion(this.sourceRotation);
             axis.x *= -1;
             across.x *= -1;
             axis.applyQuaternion(this.frameRotation);
             across.applyQuaternion(this.frameRotation);
             const positions = mesh.geometry.getAttribute('position') as THREE.BufferAttribute,
               uv = mesh.geometry.getAttribute('uv') as THREE.BufferAttribute;
-            writeRayQuad(
-              positions,
-              uv,
-              0,
-              {
-                center: new THREE.Vector3(),
-                axis,
-                fallbackAcross: across,
-                size: p.size.map((v) => v * 0.01) as [number, number, number],
-              },
-              this.eye.clone().sub(position)
-            );
+            this.ray.size[0] = p.size[0] * 0.01;
+            this.ray.size[1] = p.size[1] * 0.01;
+            this.ray.size[2] = p.size[2] * 0.01;
+            writeRayQuad(positions, uv, 0, this.ray, this.vector.copy(this.eye).sub(position));
             positions.needsUpdate = uv.needsUpdate = true;
             // Three uses the sphere centre for transparent sorting even when
             // frustum culling is disabled. A sphere cached under the startup

@@ -10,14 +10,23 @@ import { rolldown } from 'rolldown';
 import { placementReference } from './lib/prepare-surface-placement-reference.mjs';
 import { placementFixtures } from './lib/particle-surface-placement-fixtures.mjs';
 const { values } = parseArgs({
-    options: { 'output-dir': { type: 'string' }, iterations: { type: 'string', default: '20000' } },
+    options: {
+      'output-dir': { type: 'string' },
+      iterations: { type: 'string', default: '20000' },
+      'reference-commit': { type: 'string' },
+      'ray-only': { type: 'boolean', default: false },
+      'packed-colors': { type: 'boolean', default: false },
+    },
   }),
   output = resolve(values['output-dir'] ?? `.cache/surface-placement-${Date.now()}`),
   iterations = Number(values.iterations);
 assert(!existsSync(output), 'Use a fresh output directory');
 assert(Number.isSafeInteger(iterations) && iterations > 0 && iterations <= 1000000);
 mkdirSync(output, { recursive: true });
-const reference = await placementReference(resolve(output, 'reference')),
+const reference = await placementReference(
+    resolve(output, 'reference'),
+    values['reference-commit']
+  ),
   entry = resolve(output, 'candidate.ts');
 writeFileSync(
   entry,
@@ -32,7 +41,13 @@ try {
 }
 const before = await import(pathToFileURL(reference.module).href),
   after = await import(pathToFileURL(candidate).href),
-  suite = placementFixtures(before, after);
+  suite = placementFixtures(before, after, {
+    freezeInputs: true,
+    rayOnly: values['ray-only'],
+    packedColors: values['packed-colors'],
+  }),
+  measuredFixtures = suite.fixtures.filter((f) => f.particles.length > 0);
+assert(measuredFixtures.length > 0, 'No live particles to measure');
 try {
   for (const f of suite.fixtures) {
     f.a.update(f.world, 1, f.camera);
@@ -43,7 +58,7 @@ try {
     let checksum = 0;
     const start = performance.now();
     for (let i = 0; i < iterations; i++) {
-      const f = suite.fixtures[i % suite.fixtures.length];
+      const f = measuredFixtures[i % measuredFixtures.length];
       f[name].update(f.world, 1, f.camera);
       checksum += f[name].models.size;
     }
@@ -73,6 +88,9 @@ try {
     node: process.version,
     reference,
     fixtures: suite.fixtures.length,
+    measuredFixtures: measuredFixtures.length,
+    rayOnly: values['ray-only'],
+    packedColors: values['packed-colors'],
     particles: suite.particleCount,
     exactMeshStateAndUniforms: true,
     particleInputsUnchanged: true,
