@@ -1,0 +1,616 @@
+{
+  "format": 1,
+  "parentCommit": "8dbfe3003d91c083b08f34ea1517d74f8bc41203",
+  "scope": "Fresh native first particle vertex declaration through Metal factory, constructor, stream binding, format selection, Objective-C selectors and loader imports; official Apple header supplies ABI enum values. No application behavior or asset change.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "96c56f2808a12a114e62b04052b587fbd7a9dede751d10bc24f43f6567a71f82",
+    "offlinePack": {
+      "id": "8d0036b3354ff83f404da64b4487c6d20a35b1676f1502fd8889e77f80255f86",
+      "files": 1200,
+      "bytes": 538084064
+    }
+  },
+  "applicationFingerprintUnchanged": true,
+  "productionPackUnchanged": true,
+  "verification": {
+    "nativeFunctions": 6,
+    "selectedInstructions": 28,
+    "objcSelectorStubs": 7,
+    "dynamicBindings": 2297,
+    "firstLayoutAttributes": 4,
+    "stride": 28,
+    "newGuardsPerMode": 16,
+    "previousGuardsPerMode": 106,
+    "totalGuardsPerMode": 122,
+    "normalOptimizedOutputs": 20,
+    "acceptedRuntimeOutputsUnchanged": 14,
+    "bytesAndMtimesUnchanged": true,
+    "offlineReplayNetworkAndChildProcessesBlocked": true,
+    "nativeExecuted": false,
+    "nativeShaderExecuted": false,
+    "historicalLlvmTextReplaced": false,
+    "fullApplicationTestsRerun": false
+  },
+  "inheritedApplicationVerification": {
+    "record": "docs/reference/primary-hit-half-packets-verification.json",
+    "sha256": "d4cb5222dc7ddfd8df28685e0b6f4bb5fb892beaa42e0df33981fdbbcfcbd35c",
+    "verification": {
+      "newUnitCases": 9,
+      "focusedCases": 45,
+      "fullUnitRun": {
+        "passed": 3086,
+        "failed": 2,
+        "total": 3088,
+        "files": 390
+      },
+      "remainingBaselineFailures": 2,
+      "originalWaveDeadlinePassed": true,
+      "nodeQaPassed": 6,
+      "successfulBrowserCases": 7,
+      "authoredTexturePacketPixelCases": 15,
+      "nonemptyPacketPixelCases": 15,
+      "packetChangedChannelBytes": 0,
+      "oldPolicyChangedChannelBytes": 190566,
+      "samplerCalls": 2106,
+      "independentQuadParticleCases": 13280,
+      "unchangedRayParticleCases": 90,
+      "changedAtlasCells": 84,
+      "changedLookupPairs": 13244,
+      "otherParticleFieldsExact": true,
+      "unchangedRuntimeExports": 14,
+      "runtimeExportsBytesAndMtimesUnchanged": true,
+      "savedFutureTicks": 130,
+      "gpuMipReadbacks": 93,
+      "productionRecordings": 32,
+      "freshProductionScreenshots": 8,
+      "privatePreloads": 0,
+      "publicAssetsChanged": false
+    }
+  },
+  "metalFormats": [
+    {
+      "attribute": 0,
+      "offset": 0,
+      "format": 30
+    },
+    {
+      "attribute": 3,
+      "offset": 12,
+      "format": 9
+    },
+    {
+      "attribute": 8,
+      "offset": 16,
+      "format": 27
+    },
+    {
+      "attribute": 9,
+      "offset": 24,
+      "format": 25
+    }
+  ],
+  "metalApi": {
+    "url": "https://developer.apple.com/metal/cpp/files/metal-cpp_macOS15_iOS18.zip",
+    "archive": {
+      "path": ".cache/native-particle-vertex-format/metal-cpp_macOS15_iOS18.zip",
+      "bytes": 195223,
+      "sha256": "0433df1e0ab13c2b0becbd78665071e3fa28381e9714a3fce28a497892b8a184"
+    },
+    "header": {
+      "archivePath": "metal-cpp/Metal/MTLVertexDescriptor.hpp",
+      "bytes": 12017,
+      "sha256": "4c397dc5e1ff89c440756c87ad534df4a6234f9086f8bc549f3732bf0a73812e"
+    },
+    "enums": {
+      "VertexFormatUChar4Normalized": 9,
+      "VertexFormatHalf2": 25,
+      "VertexFormatHalf4": 27,
+      "VertexFormatFloat3": 30,
+      "VertexFormatUChar4Normalized_BGRA": 42
+    },
+    "scope": "Public Metal ABI enum mapping, not evidence that the native client was built with this SDK."
+  },
+  "limits": [
+    "Static native declaration/factory/constructor/binding/format trace; no native execution, actual Yi dispatch, live GPU state or final visual parity.",
+    "The first 28-byte declaration matches the recovered CPU quad/ray packet. Draw-specific selection of this declaration and of the separately inspected default shader remains unobserved.",
+    "The official Apple header supplies public Metal ABI enum names/values. This does not identify the SDK or compiler used to build the native client.",
+    "Normalized vertex bytes do not establish native color-space, blend, texture-sampler or output-target state.",
+    "No game behavior or asset changes in this witness. Ray color/UV producers, authored size mapping and clocks remain separate work.",
+    "Original missing historical LLVM archives are neither replaced nor certified.",
+    "The accepted application remains at 3086 passing tests out of 3088, the same two baseline failures, seven browser cases, fifteen exact packet pixel cases and the accepted production pack."
+  ],
+  "diagnostics": [
+    "An initial bounded dyld decoder rejected a valid ten-byte ULEB delta because the shift counter exceeded 64 after its final byte. The final decoder bounds decoded integers to 64 bits, permits at most ten bytes and applies unsigned 64-bit address wrapping; a synthetic backwards-address case and malformed integer cases are retained.",
+    "The first import-name hypothesis at 0x102000888 was objc_alloc_init; the existing import guard rejected it. Reading the indirect symbol table identified objc_opt_new, which the final witness checks.",
+    "Several initial instruction/constant scans included unrelated functions. The final particle declaration was identified by the four explicit stream bindings at offsets 0,12,16,24 with stride 28; unrelated candidates are not treated as semantic evidence."
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/NATIVE-PARTICLE-VERTEX-FORMAT.md",
+      "bytes": 4100,
+      "sha256": "53d0589fdad48c604ea9151a2fb6dbcc021c31107b476522dca52d2454259827"
+    },
+    {
+      "path": "docs/NATIVE-RAY-PACKET.md",
+      "bytes": 4613,
+      "sha256": "235e0a94bbd9ae4a2ddb597de9324f6424ea232614df05bc91af6c920a117a48"
+    },
+    {
+      "path": "docs/reference/native-particle-vertex-format.json",
+      "bytes": 23773,
+      "sha256": "2c45b6fb42a5eea59daa453e96af9f5d49a2afa38a1a84dafaf3be2b8919e1f6"
+    },
+    {
+      "path": "tools/assets/native_particle_vertex_format.py",
+      "bytes": 18485,
+      "sha256": "7728f2dda905cf5f19d8572ab5b2ec62b95f6e5c0a4ee080e8ad5b00e0255030"
+    },
+    {
+      "path": "tools/assets/test-native-particle-vertex-format.py",
+      "bytes": 5919,
+      "sha256": "9edf4101ca49c68f162533181a6b9cce4e4b75a3215f29fc8baf80a07d5b668e"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "docs/reference/native-constructor-witness.json",
+      "bytes": 19538,
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": "docs/reference/native-emitter-scalar-defaults.json",
+      "bytes": 18429,
+      "sha256": "a6c381afaed4c5a680276794d8fa613d988d710eca0683ed8ee91cde494de6cf"
+    },
+    {
+      "path": "docs/reference/native-atlas-runtime.json",
+      "bytes": 42714,
+      "sha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6"
+    },
+    {
+      "path": "docs/reference/native-ray-packet.json",
+      "bytes": 16794,
+      "sha256": "ab9b825f1108ed1e44124ee5f9821753eb73352cbf8738a8eebbb884c892b4ec"
+    },
+    {
+      "path": "src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    },
+    {
+      "path": "src/render/masteryi-primary-hit-particles.ts",
+      "bytes": 5418,
+      "sha256": "ddfd14f17337c38b3d87a45df4efeb1531a3218bfabe7f7178d74a24717f75ba"
+    },
+    {
+      "path": "src/render/ray-quad.ts",
+      "bytes": 2030,
+      "sha256": "31c088de066dcf41aff3fc5d15a9f1a36032df060c155ef3c67f113d37bfc195"
+    },
+    {
+      "path": "tools/assets/native_constructor_witness.py",
+      "bytes": 12648,
+      "sha256": "5ed4f943e123a3cb9bebfdea394bd8b5551d6b1ac010e7913eb9a245a7234e14"
+    },
+    {
+      "path": "tools/assets/native_emitter_scalar_defaults.py",
+      "bytes": 7565,
+      "sha256": "44af0bcc9fe7ba1dbf3f76d4a398a2f9ec3f00db54070626ad2bc77f2dc4d85e"
+    },
+    {
+      "path": "tools/assets/native_atlas_runtime.py",
+      "bytes": 15844,
+      "sha256": "fa9d512eb7d883fda1c99944f3f3a4c374c452fcaa95e17d01758d80769371a5"
+    },
+    {
+      "path": "tools/assets/verify-leona-native-particle-bindings.py",
+      "bytes": 13221,
+      "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/native-particle-vertex-format/final-source/docs/NATIVE-PARTICLE-VERTEX-FORMAT.md",
+      "bytes": 4100,
+      "sha256": "53d0589fdad48c604ea9151a2fb6dbcc021c31107b476522dca52d2454259827"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/final-source/docs/NATIVE-RAY-PACKET.md",
+      "bytes": 4613,
+      "sha256": "235e0a94bbd9ae4a2ddb597de9324f6424ea232614df05bc91af6c920a117a48"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/final-source/docs/reference/native-atlas-runtime.json",
+      "bytes": 42714,
+      "sha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/final-source/docs/reference/native-constructor-witness.json",
+      "bytes": 19538,
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/final-source/docs/reference/native-emitter-scalar-defaults.json",
+      "bytes": 18429,
+      "sha256": "a6c381afaed4c5a680276794d8fa613d988d710eca0683ed8ee91cde494de6cf"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/final-source/docs/reference/native-particle-vertex-format.json",
+      "bytes": 23773,
+      "sha256": "2c45b6fb42a5eea59daa453e96af9f5d49a2afa38a1a84dafaf3be2b8919e1f6"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/final-source/docs/reference/native-ray-packet.json",
+      "bytes": 16794,
+      "sha256": "ab9b825f1108ed1e44124ee5f9821753eb73352cbf8738a8eebbb884c892b4ec"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/final-source/src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/final-source/src/render/masteryi-primary-hit-particles.ts",
+      "bytes": 5418,
+      "sha256": "ddfd14f17337c38b3d87a45df4efeb1531a3218bfabe7f7178d74a24717f75ba"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/final-source/src/render/ray-quad.ts",
+      "bytes": 2030,
+      "sha256": "31c088de066dcf41aff3fc5d15a9f1a36032df060c155ef3c67f113d37bfc195"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/final-source/tools/assets/native_atlas_runtime.py",
+      "bytes": 15844,
+      "sha256": "fa9d512eb7d883fda1c99944f3f3a4c374c452fcaa95e17d01758d80769371a5"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/final-source/tools/assets/native_constructor_witness.py",
+      "bytes": 12648,
+      "sha256": "5ed4f943e123a3cb9bebfdea394bd8b5551d6b1ac010e7913eb9a245a7234e14"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/final-source/tools/assets/native_emitter_scalar_defaults.py",
+      "bytes": 7565,
+      "sha256": "44af0bcc9fe7ba1dbf3f76d4a398a2f9ec3f00db54070626ad2bc77f2dc4d85e"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/final-source/tools/assets/native_particle_vertex_format.py",
+      "bytes": 18485,
+      "sha256": "7728f2dda905cf5f19d8572ab5b2ec62b95f6e5c0a4ee080e8ad5b00e0255030"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/final-source/tools/assets/test-native-particle-vertex-format.py",
+      "bytes": 5919,
+      "sha256": "9edf4101ca49c68f162533181a6b9cce4e4b75a3215f29fc8baf80a07d5b668e"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/final-source/tools/assets/verify-leona-native-particle-bindings.py",
+      "bytes": 13221,
+      "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/native-particle-vertex-format/0x10187a5e8.txt",
+      "bytes": 5396,
+      "sha256": "65dd60d594f032a11c4ab923a90581d9bf37da2bc7de1463bf620e5366be11db"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/0x1018a405c.txt",
+      "bytes": 11972,
+      "sha256": "1970b0796b94e0f58c0c5115c6f7808f16bebab12b4c303bc7b571653d50a590"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/0x101a8cae8.txt",
+      "bytes": 6384,
+      "sha256": "b639d632143a36075b2cbb8540402c11a95de5d70503db7abe5997a9d94b9ad7"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/0x101a8edb8.txt",
+      "bytes": 5440,
+      "sha256": "d3b66f4428f53e7fd20bc6e199658b0c39543013cd91e2b8f68d7378f667c6a8"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/0x101a8efd4.txt",
+      "bytes": 907,
+      "sha256": "9f9a5742be39888d5711993e7131000456d55c7a137829178cbc3cfc3492ca76"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/0x101a8f034.txt",
+      "bytes": 534,
+      "sha256": "9491e39a413cde7c07871b5523252195f1846224bf7e89ca560a6427d984462d"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/0x101a8f068.txt",
+      "bytes": 534,
+      "sha256": "753fe2b326a0e53706a7e18350e6b82d1291ef927ace881795de6233e436b48b"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/0x101a8f09c.txt",
+      "bytes": 9913,
+      "sha256": "7abb7034777fe532a4ac1fe501665c14307b04fa7d953a30ec9c42683bdf3200"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/0x101a8f4d8.txt",
+      "bytes": 2376,
+      "sha256": "5b203e75e9075a22ec585398809ea9c87158839aead7b5a55a5e150bbba45c74"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/0x101a8f5c4.txt",
+      "bytes": 23814,
+      "sha256": "af1db4f5710d36b9b2963261bc05df9d30986b8fa788138bc72b537841d6c870"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/MTLVertexDescriptor.hpp",
+      "bytes": 12017,
+      "sha256": "4c397dc5e1ff89c440756c87ad534df4a6234f9086f8bc549f3732bf0a73812e"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/alloc-imports.json",
+      "bytes": 381,
+      "sha256": "41f729d32685d63b531e0a91b71cae3821563f190d96ca7fb0192c37e5bbea73"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/archive-checkpoint.py",
+      "bytes": 5766,
+      "sha256": "09526eca253eea1e7f60bff1b859c16adca39f26ec887d71ca0ccdc09f5378d6"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/declaration-candidates.json",
+      "bytes": 2147,
+      "sha256": "1708bd5632db3f045c33f2a4d01f25d559acba34afee9935666e1afc3606991c"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/declaration-candidates.log",
+      "bytes": 2170,
+      "sha256": "ff5e5446f7f9ea230732eef8110bdbc8287e87f2da0d2515e177ea8118aea5d3"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/device-factory-slots.json",
+      "bytes": 269,
+      "sha256": "ef0cc9bba847fa60c68de21dce48dd14047621bcdd69f3ad3a59becaa896b0e8"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/device-vptr-xrefs.json",
+      "bytes": 279,
+      "sha256": "44627d2b66cde19cf7141aaba4dd573964bcdd7f56b0cf94316824508cfbbede"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/dyld-bindings.json",
+      "bytes": 781,
+      "sha256": "7777fa739a4dd9597845c432bca2bfa52b3bb35d2e5f11864472ca3428008829"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/export-masteryi-primary-hit-particles-check-normal.log",
+      "bytes": 104,
+      "sha256": "70bfcf1db84243681b391a2fd9726e8218ca426894dca2bab8061455948f3447"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/export-masteryi-primary-hit-particles-check-optimized.log",
+      "bytes": 104,
+      "sha256": "70bfcf1db84243681b391a2fd9726e8218ca426894dca2bab8061455948f3447"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/find-format-calls.py",
+      "bytes": 1829,
+      "sha256": "98336527ddffd31a325faf3c736b192c4d93c9482a58f2dfe5b77b5ca00f2294"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/find-format-selector.py",
+      "bytes": 1295,
+      "sha256": "3c32ac557e97285b5e446e3b690d8ca5807d45623e01b1421dd035e54134b027"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/find-format-writers.py",
+      "bytes": 1055,
+      "sha256": "4a2839eee78c0115d9d6f240699210068f9fe4cdad754ffd6d2fa1cc01520367"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/find-half4-descriptors.py",
+      "bytes": 1152,
+      "sha256": "56578a63d881c4ffd4010a076cbd8d9a062314603f5285f8c46c94977bb0d19d"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/find-inline-declarations.py",
+      "bytes": 1020,
+      "sha256": "7e83e10b6bb7ef25eaa017dac0830e3eb46bf0ddda78e4e4d41cd8cdf492163a"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/find-particle-declaration.py",
+      "bytes": 1179,
+      "sha256": "74f161898a47366e446b659f608580599d655c6e3360b3ea22b02d43e889ade2"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/format-calls.log",
+      "bytes": 658,
+      "sha256": "801919032e06db787d585e8da7e1f19777530fe62a6938162ca188e7aa59bad8"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/format-writers.json",
+      "bytes": 109,
+      "sha256": "97c00944d4e8aaf7442142e6ee272aaa0e57b7595ebfc7adcb0e0a1734132670"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/format-writers.log",
+      "bytes": 109,
+      "sha256": "97c00944d4e8aaf7442142e6ee272aaa0e57b7595ebfc7adcb0e0a1734132670"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/guards-normal-first.log",
+      "bytes": 115,
+      "sha256": "db64a70ac29ccb3a2a020df024c3caec8e4501509717108cae232ab2f23212c6"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/half4-constants.json",
+      "bytes": 2635,
+      "sha256": "c388a7a8ca68637e9eb623215511688f7e4801fbf143f85c6a6aab2ba85c3653"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/half4-descriptors.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/half4-descriptors.log",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/half4-descriptors.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/inline-declaration-candidates.json",
+      "bytes": 4836,
+      "sha256": "01a16f4b17162ed9ff72a1e70e6046690f1bcd52a12a48d925ce27fd66115538"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/inline-declaration-candidates.log",
+      "bytes": 2161,
+      "sha256": "930790e342f6c06f210a9fbb89fc61f60e760e4b37076af0561e7ba5905419ec"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/layout-constructors.json",
+      "bytes": 96,
+      "sha256": "78725f2b4da092c55ce392fa9f6d204e243b17121992cd96a61fd1057a3c3f2b"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/metal-api-source.json",
+      "bytes": 572,
+      "sha256": "08b61a33e76c09d7669aec5d93599d4c627bc0fd0ce8e3c054ec23192f647c6d"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/metal-cpp_macOS15_iOS18.zip",
+      "bytes": 195223,
+      "sha256": "0433df1e0ab13c2b0becbd78665071e3fa28381e9714a3fce28a497892b8a184"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/native_particle_vertex_format-check-normal.log",
+      "bytes": 152,
+      "sha256": "4a554d0303155b3a817cdcf36e1585e2a4293f48ce00bb11c2345c6229c246aa"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/native_particle_vertex_format-check-optimized.log",
+      "bytes": 152,
+      "sha256": "4a554d0303155b3a817cdcf36e1585e2a4293f48ce00bb11c2345c6229c246aa"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/native_particle_vertex_format-replay-normal.log",
+      "bytes": 152,
+      "sha256": "4a554d0303155b3a817cdcf36e1585e2a4293f48ce00bb11c2345c6229c246aa"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/native_particle_vertex_format-replay-optimized.log",
+      "bytes": 152,
+      "sha256": "4a554d0303155b3a817cdcf36e1585e2a4293f48ce00bb11c2345c6229c246aa"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/native_ray_packet-check-normal.log",
+      "bytes": 125,
+      "sha256": "8381e5d446c1213abf4876bd176ff19ab45bd3bbe0ce4b854ebe0c8bbd07b2f5"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/native_ray_packet-check-optimized.log",
+      "bytes": 125,
+      "sha256": "8381e5d446c1213abf4876bd176ff19ab45bd3bbe0ce4b854ebe0c8bbd07b2f5"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/read-dyld-bindings.py",
+      "bytes": 2557,
+      "sha256": "34b9330e7e1614136196318cd94cf407d828e8b60117cb4b492974b2cdd17127"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/replay-verification.json",
+      "bytes": 14159,
+      "sha256": "d6cd6a56bff03ac118b03c23382ddb33b25fa98cc0834c65f5d27b71fc8862cd"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/replay.log",
+      "bytes": 876,
+      "sha256": "e0aad67be5c0fd45543e5bf6562bfc6d8d9ae3bffe338fcdb46f527552d57b07"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/selector-calls.json",
+      "bytes": 4744,
+      "sha256": "9bc717439e2efbb93073cb7923fa2da658991cc6c9b8b7cbd95e7bb6cc80a057"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/selector.log",
+      "bytes": 1360,
+      "sha256": "a9cab4653ce9f2adc30ad817acaf3228e2023a35b403b983e4aa9f586c520648"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/selectors.json",
+      "bytes": 593,
+      "sha256": "6ce9400d03fc36bc20fcad0ecf66aaf12965ad8dd1f4941b2d5bec3d2a435330"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/test-masteryi-primary-hit-profiles-normal.log",
+      "bytes": 134,
+      "sha256": "886800101447769756e1b917c8b351f200a84a6d3fe3ce0579238afef6a9f4a0"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/test-masteryi-primary-hit-profiles-optimized.log",
+      "bytes": 134,
+      "sha256": "c8c0c0c6cdc948dc59f939cf34e5d1e8a68d430997534727e74795730278b929"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/test-native-atlas-runtime-normal.log",
+      "bytes": 116,
+      "sha256": "65a78e66fc0a79b13f57f0cd30e541aadb818bf6375c0bfc6c4f9cda7ad42616"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/test-native-atlas-runtime-optimized.log",
+      "bytes": 116,
+      "sha256": "da67e09c55e7a1970fd58cff6f1eedf4fc81eb71ff5d057caf1e949b4e6c73e5"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/test-native-constructor-witness-normal.log",
+      "bytes": 126,
+      "sha256": "3a12236abf7f0439d714d66275e4cf9cbb1b2e0a0d87b225c2c5c3c0656d64ba"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/test-native-constructor-witness-optimized.log",
+      "bytes": 127,
+      "sha256": "927fb59467c5bd69c94fdf37a26168aff529620f8e4c1d5c337ca943f91c88d9"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/test-native-emitter-scalar-defaults-normal.log",
+      "bytes": 114,
+      "sha256": "c42f0f24eb75b29d130625f016867511d513cceb2760fe3bc1f2c4faa1019902"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/test-native-emitter-scalar-defaults-optimized.log",
+      "bytes": 114,
+      "sha256": "304ab853c5e9e7f123746510cfb86233927164aaaa2196d7018ec3b509c347b8"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/test-native-particle-vertex-format-normal.log",
+      "bytes": 115,
+      "sha256": "8a77e8513990ca3cbed49b36b0318b27287e226f797a2c74f582267326c1a9a3"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/test-native-particle-vertex-format-optimized.log",
+      "bytes": 115,
+      "sha256": "602d72ee3331f55b66d84620dcbd98f8d59c340f750ffe31da7b7c17c0e9bca4"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/test-native-ray-packet-normal.log",
+      "bytes": 112,
+      "sha256": "c248c0839b86c729356f6fbc05ef73241e34ce09ffc4847ec1fdc758428f8a07"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/test-native-ray-packet-optimized.log",
+      "bytes": 112,
+      "sha256": "4d9dc6ff98334f9d87764afb2108ff6cfb8ba1e03c5899f54a72850134a690b7"
+    },
+    {
+      "path": ".cache/native-particle-vertex-format/verify-checkpoint.py",
+      "bytes": 2342,
+      "sha256": "6e3b6a667dc393847dcc6aa0fdcf15ccb4ce21d27c4365a1967f2d0a063f8cd2"
+    }
+  ]
+}
