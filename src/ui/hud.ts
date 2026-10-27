@@ -730,7 +730,12 @@ export class Hud {
         backdrop.querySelectorAll<HTMLButtonElement>('button:not([disabled]):not([hidden])')
       );
       const index = buttons.indexOf(document.activeElement as HTMLButtonElement);
-      const next = (index + (event.shiftKey ? -1 : 1) + buttons.length) % buttons.length;
+      const next =
+        index < 0
+          ? event.shiftKey
+            ? buttons.length - 1
+            : 0
+          : (index + (event.shiftKey ? -1 : 1) + buttons.length) % buttons.length;
       event.preventDefault();
       buttons[next]?.focus();
     };

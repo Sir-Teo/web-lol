@@ -130,6 +130,29 @@ try {
     .getByRole('heading', { name: 'Game paused', exact: true })
     .waitFor({ state: 'visible' });
   await page.screenshot({ path: resolve(output, 'paused-with-space.png') });
+  await page.getByRole('button', { name: 'Offline files', exact: true }).click();
+  const offlineDialog = page.getByRole('dialog'),
+    back = page.getByRole('button', { name: 'Back to pause menu', exact: true });
+  await page.locator('.offline-size').filter({ hasText: 'Full game pack:' }).waitFor();
+  assert.equal(await offlineDialog.evaluate((node) => document.activeElement === node), true);
+  await page.keyboard.press('Shift+Tab');
+  assert.equal(
+    await back.evaluate((node) => document.activeElement === node),
+    true,
+    'Initial reverse traversal must reach the last control'
+  );
+  await page.keyboard.press('Tab');
+  assert.equal(
+    await page
+      .getByRole('button', { name: 'Close menu', exact: true })
+      .evaluate((node) => document.activeElement === node),
+    true
+  );
+  await page.keyboard.press('Shift+Tab');
+  assert.equal(await back.evaluate((node) => document.activeElement === node), true);
+  await page.screenshot({ path: resolve(output, 'offline-modal-focus.png') });
+  await page.keyboard.press('Space');
+  await page.getByRole('heading', { name: 'Game paused', exact: true }).waitFor();
   await page.getByRole('button', { name: 'Return to the Rift', exact: true }).focus();
   await page.keyboard.press('Space');
   await page
@@ -148,13 +171,14 @@ try {
     soundEnter: true,
     hudTabNavigation: true,
     pauseSpace: true,
+    offlineDialogReverseInitialFocus: true,
     wardPreviewReplacedByHeal: true,
     resumeSpace: true,
     errors,
     failed,
     outside,
     browser: await browser.version(),
-    screenshots: 1,
+    screenshots: 2,
   };
   writeFileSync(resolve(output, 'reading.json'), JSON.stringify(result, null, 2) + '\n');
   console.log(JSON.stringify(result));
