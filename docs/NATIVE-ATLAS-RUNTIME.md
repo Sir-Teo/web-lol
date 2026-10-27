@@ -63,6 +63,11 @@ corners are exact in half precision, and quantizes their lookup inputs. Mesh and
 ray paths retain separate scope. Native live shader selection and actual Yi
 dispatch remain unverified.
 
+The later [ray packet witness](NATIVE-RAY-PACKET.md) connects its candidate
+type registration, two constructors, virtual dispatch and vertex builder. It
+records half UV stores and a distinct clamped, rounded color path; its input
+record producers and live GPU bindings still require separate tracing.
+
 The producer reads the restored native executable and reconstructs two shader
 resources from authenticated cached RMAN chunks. It checks the shader TOC's
 empty-define selection, Metal payload, bitcode wrapper and bitcode hash. LLVM
