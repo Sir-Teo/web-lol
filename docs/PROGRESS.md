@@ -6,6 +6,34 @@ Last updated: October 27, 2026 (UTC).
 
 ## Current authoritative state
 
+The latest [Ahri bot combat step](AHRI-BOT-COMBAT.md) chooses Q/Charm from team
+observations and queues ordinary source-controller casts. Observed blockers,
+hidden physical interception, copied fog aim, resource/control boundaries,
+retreat and committed windups pass 18 new cases and all 107 focused checks.
+Two distinct new browser cases pass across retained batches, verifying the
+actual NPC body/flight/control, both Q legs, real Charm Save/reload and exact
+saved futures. Original failed/interrupted attempts remain recorded.
+
+The dev watcher now excludes retained cache/toolchain/output trees. The prior
+Vite process exhausted its roughly 4 GB JavaScript heap; with these exclusions,
+the full Charm Save/reload case passes in 36.1 seconds and Q in 17.0 seconds,
+with a sampled Vite RSS high-water of 729 MiB. An actual watcher inspection
+retains simulation/content/public inputs in 36 directories and excludes the
+private trees. These are host diagnostics, not physical-device FPS claims.
+
+The full unit run passes **3,423/3,425 tests across 405 files**, retaining only
+the two unchanged baseline failures. TypeScript, all 29 Node QA checks and the
+build pass. All 1,125 source asset/data sizes and mtimes remain unchanged.
+Schema stays 163; the current rules fingerprint is
+`bf458f8bbb5c0b55cd72d393d09bbc57b921572e1c4844f807480c9527b3e411`.
+The new build pack is
+`3096bfe6416e55e5ba198eb4605bb783c6c28750f9c34889dba89f52312adae0`
+(1,202 files / 538,094,767 bytes). Production/offline browser acceptance is
+inherited from `61392b0` below; no fresh production/offline browser run is
+claimed. UI/render/public/storage/offline-worker source remains unchanged.
+Ahri W/R tactics, roster expansion and complete six-character delivery remain
+unfinished; ordinary production selection stays Ashe/Lux.
+
 The latest [Ahri bot progression](AHRI-BOT-PROGRESSION.md) gives development
 AI units legal own-kit learning and bounded mage purchases through the existing
 transactions. Seven new cases and all 72 focused regressions pass, including
@@ -27,7 +55,7 @@ remain unchanged. This simulation-only change runs no fresh development
 browser cases; earlier human trial UI acceptance is inherited, and manual
 control/saved futures are covered by the fresh focused unit checks.
 
-The original cohort was observed at 76 completed runs: 75 victories, one
+The original cohort was observed at 82 completed runs: 81 victories, one
 unfinished and zero failures. [Seed 70's diagnosis](MATCH-SEED-70-DIAGNOSIS.md)
 preserves its 60-minute unfinished report and independently continues its exact
 checkpoint under frozen rules to a valid red victory at 68:09. All 543 frozen

@@ -1,0 +1,1579 @@
+{
+  "format": 1,
+  "parentCommit": "509a39278568e787f8364c8ce6ef43441e0df3f5",
+  "scope": "Visible-information development Ahri Q/E tactical casting, plus exclusion of retained output/toolchain trees from dev file watching.",
+  "schema": 163,
+  "rulesetFingerprint": "bf458f8bbb5c0b55cd72d393d09bbc57b921572e1c4844f807480c9527b3e411",
+  "source": [
+    {
+      "path": "src/simulation/world.ts",
+      "bytes": 299307,
+      "sha256": "a1cbaa9e7598157d6d3e4ad7eef53f01185292904226e3713579d2ddf705f2b6"
+    },
+    {
+      "path": "src/content/ahri-bot-policy.ts",
+      "bytes": 260,
+      "sha256": "f6a4d7d3fee8da838e6a47dec5ad5fdc8ddbd47275fc3700a114092e6a9b3c30"
+    },
+    {
+      "path": "tests/ahri-bot-combat.test.ts",
+      "bytes": 9488,
+      "sha256": "77662a6a7b444eb515ff72b8d92acef08a83938ce989299b770950a6b2a77213"
+    },
+    {
+      "path": "e2e/ahri-bot-combat.spec.ts",
+      "bytes": 7238,
+      "sha256": "12a384b0afa76a780ad812f70fd2e5e849e93b3299876e8a458d47b7a2d29ed7"
+    },
+    {
+      "path": "vite.config.ts",
+      "bytes": 1157,
+      "sha256": "96bc2244f0b8e7baae264d61f14e2603e66b76e5468c8923d8680eae2c7fe0c3"
+    },
+    {
+      "path": "docs/AHRI-BOT-COMBAT.md",
+      "bytes": 6898,
+      "sha256": "36b6d36b7456cfcbca003c7d28cad97290817b2420764bb36be6c0b5795c7b34"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "bytes": 751858,
+      "sha256": "a02135e34d11f31947747e8238d8b08c8134a35d59f29de501fdc32553992dec"
+    }
+  ],
+  "verification": {
+    "newCombatCasesPassed": 18,
+    "focusedPassed": 107,
+    "focusedFiles": 11,
+    "typesPassed": true,
+    "fullUnitPassed": 3423,
+    "fullUnitTotal": 3425,
+    "fullUnitFiles": 405,
+    "baselineFailuresRetained": [
+      "Missing original Leona Eclipse evidence closure",
+      "Host-sensitive Lux missile sampler digest; expected digest retained"
+    ],
+    "nodeQaPassed": 29,
+    "buildPassed": true,
+    "sourceAssetsMetadataUnchanged": 1125,
+    "browserDistinctPassed": 2,
+    "browserBatches": [
+      {
+        "name": "first",
+        "passed": 0,
+        "failed": 2,
+        "causes": [
+          "Charm body checked after Q follow-up began",
+          "Q initial navigation reached old180s test deadline"
+        ]
+      },
+      {
+        "name": "targeted-interrupted",
+        "acceptedResult": false,
+        "causeProved": false,
+        "retained": "interrupted-targeted/receipt.json"
+      },
+      {
+        "name": "targeted",
+        "passed": 0,
+        "failed": 2,
+        "causes": [
+          "Vite exhausted approximately4GB JS heap during saved reload",
+          "Subsequent Q navigation refused by dead server"
+        ]
+      },
+      {
+        "name": "watch-fixed",
+        "passed": 1,
+        "failed": 1,
+        "acceptedCharmSeconds": 36.1,
+        "cause": "Q body checked after basic attack resumed"
+      },
+      {
+        "name": "final-q",
+        "passed": 1,
+        "failed": 0,
+        "seconds": 17
+      }
+    ],
+    "browserRetention": {
+      "result": "passed",
+      "sharedPinnedFilesExact": [
+        "src/simulation/world.ts",
+        "src/content/ahri-bot-policy.ts",
+        "tests/ahri-bot-combat.test.ts",
+        "vite.config.ts"
+      ],
+      "charmHelperAndCaseExactForFinalQ": true,
+      "qBodyClipAssertionMovedToItsOwnWindup": true
+    },
+    "watcherInspection": {
+      "result": "passed",
+      "directories": 36,
+      "liveSimulationObserved": true,
+      "liveContentObserved": true,
+      "livePublicAssetsObserved": true,
+      "excludedTreesAbsent": true,
+      "ignored": [
+        "**/.cache/**",
+        "**/.tools/**",
+        "**/artifacts/**",
+        "**/test-results/**",
+        "**/playwright-report/**"
+      ],
+      "heapUsed": 108742568,
+      "rss": 559321088
+    },
+    "processRssHighWaterKiB": 746496,
+    "freshProductionOfflineBrowserAcceptanceClaimed": false
+  },
+  "pack": {
+    "id": "3096bfe6416e55e5ba198eb4605bb783c6c28750f9c34889dba89f52312adae0",
+    "files": 1202,
+    "bytes": 538094767,
+    "manifest": {
+      "path": ".cache/ahri-bot-casting/dist/offline-pack.json",
+      "bytes": 172470,
+      "sha256": "e002171f7ef649cb7dd3bd4cde56eeb15cf4bb472bae3a1d91d482bc4b5d8d89"
+    }
+  },
+  "inheritedProductionOffline": {
+    "acceptanceRevision": "61392b0e2569e8da929a9321112aecf10ba8a267",
+    "reference": "docs/reference/ahri-bot-progression-verification.json",
+    "sourceRecordings": 32,
+    "serviceWorkerResponses": 978,
+    "errors": 0,
+    "uiRendererPublicStorageOfflineWorkerUnchanged": true
+  },
+  "limits": {
+    "ahriWRTacticalPolicyComplete": false,
+    "ahriAddedToRiftBotRoster": false,
+    "sixChampionMatchComplete": false,
+    "nativeAiRecovered": false,
+    "nativePresentationCertified": false,
+    "physicalDevicePerformanceCertified": false,
+    "fullHundredSeedGateClaimed": false
+  },
+  "evidence": [
+    {
+      "path": ".cache/ahri-bot-casting/accept.log",
+      "bytes": 721,
+      "sha256": "3d220b757471ee84694a97f2e807139ec23b116b193542aea3c6fd0325e5f1b3"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/accept.py",
+      "bytes": 3967,
+      "sha256": "baa10468d376922a488ae919a7b8bba84f0c6d4b574dc9622f09a1cc8b6ebdf9"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/after-browser-launch.json",
+      "bytes": 66,
+      "sha256": "625d9636d6db5b9c96d0d4356a41bdf6c4cff52b94b59fee7e4ecca7d5827195"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/after-browser.json",
+      "bytes": 114,
+      "sha256": "b095a5d46e291953796eb02aac51854218d4352779b753db70c5a2f2e462b411"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/after-browser.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/after-browser.py",
+      "bytes": 1069,
+      "sha256": "3953a86f822a6c50830fd48a2f18dd00e44a2ebd2413289b53c82875c4c7fe4f"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/after-final-q-launch.json",
+      "bytes": 20,
+      "sha256": "c5584cb1be350172a9d75bf97eed93688cffc4199fd23b7f9c35156528d7c7c0"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/after-final-q.json",
+      "bytes": 102,
+      "sha256": "e76b21647ff15d0c62357e3adab4e9c824cbe03bece16d2a3bdbfde34a6237e6"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/after-final-q.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/after-final-q.py",
+      "bytes": 1446,
+      "sha256": "98c4f4d9dc7f27e447e24bfe883f91611d9e3c5d813b901964c49078e5435f8e"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/after-watch-fixed-launch.json",
+      "bytes": 20,
+      "sha256": "86bb3bd553a662c6f14a10e9bf7bbafce977fec25f92f6f04e20c66891fb51b3"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/after-watch-fixed.json",
+      "bytes": 114,
+      "sha256": "b71c24657c14b586db8d744d57403583ec3e53100067e041f422bcb376b9c913"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/after-watch-fixed.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/after-watch-fixed.py",
+      "bytes": 1084,
+      "sha256": "acad5299d0344ad1368d3e82a7e42c4c0c371ce111f6d69b5e2e8c716f506102"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/ahri-bot-casting-targeted.config.ts",
+      "bytes": 179,
+      "sha256": "c5ab9f2bdea035f28118e97a4cb3eafdf601920e380409936950319e7dbb5e46"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/ahri-bot-casting.config.ts",
+      "bytes": 306,
+      "sha256": "3a4ec67b9174589292d4db93fde41ded303ee950711b705d9ab1c01df1b1ed2a"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/ahri-bot-final-q.config.ts",
+      "bytes": 178,
+      "sha256": "2820fbd2fd0242723d3ca1c6b77891ed552408cd022d9ac3b32766ab947000fe"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/ahri-bot-watch-fixed.config.ts",
+      "bytes": 182,
+      "sha256": "65f6125874a6b984da1cd85cf411e0f9ff51238e0e3ee4d7574ddc803d01307d"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/archive.py",
+      "bytes": 4549,
+      "sha256": "92040df78150704f56b4ae3a9b64689737197945b29acd7ea52fa5d1ad3751a3"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser/.last-run.json",
+      "bytes": 145,
+      "sha256": "95bbaf21323e6f5d2f973d4885a3ef367def5bfcf78039384987fc7f16ca0fa2"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser/ahri-bot-combat-AI-learned-3ee00-es-through-real-Save-reload/error-context.md",
+      "bytes": 12386,
+      "sha256": "5ec70d9c79b0503969b12d157a5c60681bba199c4441aadea72bea14c05e32d5"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser/ahri-bot-combat-AI-learned-3ee00-es-through-real-Save-reload/test-failed-1.png",
+      "bytes": 796421,
+      "sha256": "bbefb90953079ccdd797d84dae87f5f3939b5c48d284741b49a6f083dd516a9b"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser/ahri-bot-combat-AI-learned-3ee00-es-through-real-Save-reload/trace.zip",
+      "bytes": 42396815,
+      "sha256": "d1902125f6d34b93b4c3060b225db93039b3d706ef2fe3d538b5b8a46f23d912"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser/ahri-bot-combat-level-one--e22b2-egs-with-exact-saved-flight/error-context.md",
+      "bytes": 5675,
+      "sha256": "1f526318f26681bcf99f3abd309ffb1428d01708ef6222d45c9438ae32e4a19f"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser/ahri-bot-combat-level-one--e22b2-egs-with-exact-saved-flight/test-failed-1.png",
+      "bytes": 14065,
+      "sha256": "81fee5f0cb50b817019e02660f37f86b53ad68925e1a9daf5513a01866bf5567"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser/ahri-bot-combat-level-one--e22b2-egs-with-exact-saved-flight/trace.zip",
+      "bytes": 47401,
+      "sha256": "f2c8f430c7ed39bf27be2c9e8ac65a460f224f63e7f6c375ac07e5d78a15a0c9"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-final-q/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-final-q/ahri-bot-combat-level-one--e22b2-egs-with-exact-saved-flight/ahri-bot-orb-flight.png",
+      "bytes": 801033,
+      "sha256": "67dd6eee7ba99d3a50cd0f2a90652430aba017cfc9e04149915b525cceaee30f"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-final-q/ahri-bot-combat-level-one--e22b2-egs-with-exact-saved-flight/ahri-bot-orb.json",
+      "bytes": 14258,
+      "sha256": "2e1555e9b4d9fc565c054c5551507504cec3662bbba42185c24df3f98cd62be8"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-inputs.json",
+      "bytes": 156974,
+      "sha256": "caf476c0ed02735c4b560e296bac17d7b26449b332d2613c64572135ea81edc5"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-pause-record.json",
+      "bytes": 755,
+      "sha256": "346325bb8ca9c0cbd314b67a9f63d60683e9357e45055dc5ec2d7d81675db741"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-retention.json",
+      "bytes": 280,
+      "sha256": "84b40aa0fe707f92658fc99f70f4bbe17dbe9e5eb06e2836c8571f53795a5309"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-run.log",
+      "bytes": 613,
+      "sha256": "f3361d2c200b6d4e054cdadc4c48ead2654b1ccddf628245ca5b1b92cc561bc0"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-source/e2e/ahri-bot-combat.spec.ts",
+      "bytes": 7101,
+      "sha256": "d0c4224071f66d763ecf56e48600b4040c291d65fa5bd25cff7cc25b86f75977"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-source/src/content/ahri-bot-policy.ts",
+      "bytes": 260,
+      "sha256": "f6a4d7d3fee8da838e6a47dec5ad5fdc8ddbd47275fc3700a114092e6a9b3c30"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-source/src/simulation/world.ts",
+      "bytes": 299307,
+      "sha256": "a1cbaa9e7598157d6d3e4ad7eef53f01185292904226e3713579d2ddf705f2b6"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-source/tests/ahri-bot-combat.test.ts",
+      "bytes": 9488,
+      "sha256": "77662a6a7b444eb515ff72b8d92acef08a83938ce989299b770950a6b2a77213"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-targeted/.last-run.json",
+      "bytes": 145,
+      "sha256": "95bbaf21323e6f5d2f973d4885a3ef367def5bfcf78039384987fc7f16ca0fa2"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-targeted/ahri-bot-combat-AI-learned-3ee00-es-through-real-Save-reload/ahri-bot-charm-flight.png",
+      "bytes": 796421,
+      "sha256": "bbefb90953079ccdd797d84dae87f5f3939b5c48d284741b49a6f083dd516a9b"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-targeted/ahri-bot-combat-AI-learned-3ee00-es-through-real-Save-reload/error-context.md",
+      "bytes": 9562,
+      "sha256": "294fdb711f4e514bda940a0ed7e2a0da9e67f7f16f262e46cd707a6b36515c74"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-targeted/ahri-bot-combat-AI-learned-3ee00-es-through-real-Save-reload/test-failed-1.png",
+      "bytes": 14065,
+      "sha256": "81fee5f0cb50b817019e02660f37f86b53ad68925e1a9daf5513a01866bf5567"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-targeted/ahri-bot-combat-AI-learned-3ee00-es-through-real-Save-reload/trace.zip",
+      "bytes": 39245604,
+      "sha256": "2d5675deb6286d178c2e93747c7c10cadbceca5159da1c8e0a54209fe9cefb7d"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-targeted/ahri-bot-combat-level-one--e22b2-egs-with-exact-saved-flight/error-context.md",
+      "bytes": 6317,
+      "sha256": "360fb5ee8d1773a9198e27befd49209615b2bb876cafbec4e9d9798b9c7b4dd0"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-targeted/ahri-bot-combat-level-one--e22b2-egs-with-exact-saved-flight/test-failed-1.png",
+      "bytes": 26559,
+      "sha256": "3b1e3ed07d0804f3f6de29c0874085e5adbe543a320af10599a62abc083dd534"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-targeted/ahri-bot-combat-level-one--e22b2-egs-with-exact-saved-flight/trace.zip",
+      "bytes": 40501,
+      "sha256": "a5416de964863a2de5dd58ad9ac6a1daf70b89534d5b0cddb47259cee47f6bc9"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-watch-fixed/.last-run.json",
+      "bytes": 96,
+      "sha256": "c5d184a1f66001462bdae26fc1631f844e65eb4fec48deb007bae9362735062b"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-watch-fixed/ahri-bot-combat-AI-learned-3ee00-es-through-real-Save-reload/ahri-bot-charm-control.png",
+      "bytes": 902372,
+      "sha256": "5596379750f9254d972d065a47c36ac0009bb47027f0e2d52d62be17a56ff3b8"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-watch-fixed/ahri-bot-combat-AI-learned-3ee00-es-through-real-Save-reload/ahri-bot-charm-flight.png",
+      "bytes": 796539,
+      "sha256": "36781a51e9155ff509f1d0e84a72ea5c97bbc5526331438d1c7e4464526000d0"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-watch-fixed/ahri-bot-combat-AI-learned-3ee00-es-through-real-Save-reload/ahri-bot-charm.json",
+      "bytes": 47713,
+      "sha256": "b70dff2e967a890d72d41029def88a5603a1f6278f20b4d1c98f974d7b03e31c"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-watch-fixed/ahri-bot-combat-level-one--e22b2-egs-with-exact-saved-flight/error-context.md",
+      "bytes": 10495,
+      "sha256": "0d22ca6f601ce5124fd0112771bb47ea399630fafd25389a41dc6f59cf6e273d"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-watch-fixed/ahri-bot-combat-level-one--e22b2-egs-with-exact-saved-flight/test-failed-1.png",
+      "bytes": 801033,
+      "sha256": "67dd6eee7ba99d3a50cd0f2a90652430aba017cfc9e04149915b525cceaee30f"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser-watch-fixed/ahri-bot-combat-level-one--e22b2-egs-with-exact-saved-flight/trace.zip",
+      "bytes": 33271584,
+      "sha256": "d44dc3609ad77601442afdc8d1b35204fbbd2c99e20cc75f023a482fc0f1d56c"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/browser.log",
+      "bytes": 5829,
+      "sha256": "2f6bd652b714a5f0254a30943d1af70e15b0ccf354fb04f8ec642879ab0e0cb0"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/build.log",
+      "bytes": 7852,
+      "sha256": "b0fac78fe4d2e9bfae0f2818bc61263de6c37ff6de9a42b0bfc266df8944984e"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/detached-launch.json",
+      "bytes": 212,
+      "sha256": "ff9c3c37a869ead5efca9eb440a05a97f99103ba66b2ede2315b6304cc5b8bc6"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/dist/offline-pack.json",
+      "bytes": 172470,
+      "sha256": "e002171f7ef649cb7dd3bd4cde56eeb15cf4bb472bae3a1d91d482bc4b5d8d89"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/expanded-first.test.ts",
+      "bytes": 9471,
+      "sha256": "acf463580a3147167c16e929bfe7b3d4f7c706a5de6ee8ec33544967014ec199"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/final-q-inputs.json",
+      "bytes": 157123,
+      "sha256": "88dacf5c979aa2fcaba0522562ee389c243a7f24ecaeab4dd2e0268a7c8f9f72"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/final-q-launch.json",
+      "bytes": 66,
+      "sha256": "2a0a1a3e396f5c59c1d1e8b525933a83baba6fdfb51a7ca5a0702f5b006d80b5"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/final-q-pause-record.json",
+      "bytes": 755,
+      "sha256": "07b5f42673f7ecaaa18bc4578e5ce7e123e74bdb17a9283f12b75e8cc7a875a0"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/final-q-run.log",
+      "bytes": 225,
+      "sha256": "5e223397cec07f497826a42ade5ae54dd785f148a285f471a2336888b7954093"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/final-q-source/e2e/ahri-bot-combat.spec.ts",
+      "bytes": 7238,
+      "sha256": "12a384b0afa76a780ad812f70fd2e5e849e93b3299876e8a458d47b7a2d29ed7"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/final-q-source/src/content/ahri-bot-policy.ts",
+      "bytes": 260,
+      "sha256": "f6a4d7d3fee8da838e6a47dec5ad5fdc8ddbd47275fc3700a114092e6a9b3c30"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/final-q-source/src/simulation/world.ts",
+      "bytes": 299307,
+      "sha256": "a1cbaa9e7598157d6d3e4ad7eef53f01185292904226e3713579d2ddf705f2b6"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/final-q-source/tests/ahri-bot-combat.test.ts",
+      "bytes": 9488,
+      "sha256": "77662a6a7b444eb515ff72b8d92acef08a83938ce989299b770950a6b2a77213"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/final-q-source/vite.config.ts",
+      "bytes": 1157,
+      "sha256": "96bc2244f0b8e7baae264d61f14e2603e66b76e5468c8923d8680eae2c7fe0c3"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/final-q.log",
+      "bytes": 673,
+      "sha256": "d657e5800ba66559f4acad7a229b866235005ef99ef47b5ed80a586fc3949ca2"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/first-focused.log",
+      "bytes": 436,
+      "sha256": "b2bd11d5b51bcae9d69e2cec6e64245786dec11604e3aa76b62f6488ac2fa7e6"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/focused-final.log",
+      "bytes": 386,
+      "sha256": "48fe357a66f62cc5b0a39e1e86417d8b0d56095b803520ee09cd6501b46a05b3"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/focused.log",
+      "bytes": 1130,
+      "sha256": "e3aa0f271b597287ee91b9ddbd0a7ed7a8067831f2665ca5716ba538feadaddb"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/format-browser.log",
+      "bytes": 34,
+      "sha256": "f2e2af3ef9fa4389fc94b01af3fa7180f0d534229b0e9fac22d85e28b8cfa459"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/format-targeted.log",
+      "bytes": 46,
+      "sha256": "63be21b24dc5275ecd844ee0cc48bd95e8e54c4fdf0be5281e0f13091c450730"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/format-tests.log",
+      "bytes": 36,
+      "sha256": "f96d6fa2fc76fc29bb17cb7c4f73a2e145f402e3e813c44313e857aedb2c17fa"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/format.log",
+      "bytes": 115,
+      "sha256": "25170e7f4c03ae84218cd04e37228e7dee70221437d6595e1e8f144c8ae7cd73"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/full-tests.log",
+      "bytes": 4676,
+      "sha256": "5e63632bda4776cf1b5a93334b08f556eeb2b78e7dfcbeb2a22839a595703ffd"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/heap-failure-run.log",
+      "bytes": 457,
+      "sha256": "b40b0361804723cfa1aba5cf307bb1b17b55813df99d095ee9d963d0e2b948ec"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/heap-failure.log",
+      "bytes": 7117,
+      "sha256": "cbb457412aa9d0595e21fad19a08251f37c9175ab9b940805c267fcbf5cce0e9"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/inputs.json",
+      "bytes": 157123,
+      "sha256": "88dacf5c979aa2fcaba0522562ee389c243a7f24ecaeab4dd2e0268a7c8f9f72"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/92058d7a2e68bd5e69ca-35826943ac1a145cd0ee-recording1.network",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/92058d7a2e68bd5e69ca-35826943ac1a145cd0ee-recording1.trace",
+      "bytes": 342,
+      "sha256": "32823e5b9446399595df1d2b809159dd1f7f07206fbdde34a7224cac24c5cf7b"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/92058d7a2e68bd5e69ca-35826943ac1a145cd0ee.network",
+      "bytes": 1201377,
+      "sha256": "9adf6a5f766501d70f5f1ad584664267aa1f95a3da09fdac533512125bfdbcf1"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/92058d7a2e68bd5e69ca-35826943ac1a145cd0ee.trace",
+      "bytes": 75281,
+      "sha256": "2d1bbb9ab8a8eb75f85856956d5060197d9a403c119b2f9dca6825724754c539"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/019d40debdd85208119aa93853d86d34e5a8cd36.glb",
+      "bytes": 485488,
+      "sha256": "274fd87c0181db308592ca924eeac19659da61ce79307e904fb938ffed7cb98b"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/02e54bcd86da5069a38410b148ff64b829f75846.wav",
+      "bytes": 154392,
+      "sha256": "67ff22a44e0959d16c8c41685a1c1263baa6d5ebc821c448870b03410b918dd6"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/0c20d9a15ce8214a7d335ebd804e4e9fe41b2521.glb",
+      "bytes": 739140,
+      "sha256": "0ad412436a18756a4e08f9ade8789192cbb5932cd97c04fe814d36cc867b859e"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/1168f132210b9daf1f4ada1d6627486695f116a6.wav",
+      "bytes": 823184,
+      "sha256": "09dd171a56f0b1517f8242e0f5cfcfe388930d8d9a517202a78686f2264d9668"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/134f1f059b1a1d6787bbc30dc72e9e34c331cc36.wav",
+      "bytes": 209516,
+      "sha256": "ed44e7414b249b29b36e3a99c77fcbfbd78dbfdf373f8cea7fb4f045177e0792"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/1ccc720c5740235825c403e0d22ff5d5ffdb6af6.wav",
+      "bytes": 411728,
+      "sha256": "a380cef9385614cabd155f8f01eb683b82fb0cc06a1a7693dd38bfa8c8bfc616"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/2694e8222b0faa74aa6a1cc58911a9c21d319c32.glb",
+      "bytes": 525748,
+      "sha256": "66a4f8679d695444725f6c02947d3e4075fc5a5e7232a06d0f010393c054f29c"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/28ee72e26f248f8131a5b0a75a3219dcc33104a3.wav",
+      "bytes": 294804,
+      "sha256": "b4387e514af08df33943e208d992fb0ae0fd06372974b6758a51c5e7247f24ea"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/2b08de6182d68921b9fca359cea9d77613fae705.wav",
+      "bytes": 150924,
+      "sha256": "6d232a7742deddbd047334904f6e8a3dbc735779f08e0dd8e0e1a0377aaf4bd2"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/334bdcb5ed612d79c7713ccaf179de502492a21f.glb",
+      "bytes": 730752,
+      "sha256": "d3fc25fd36ef7f53ed0b77c9d500e7d9035468bb7068d2e644a90529725b9c90"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/35a21318783652bc0d4fe6adc0b5508aa8051068.glb",
+      "bytes": 500496,
+      "sha256": "ff550b7d9b25224b0c721f65e622a3100425d627001e5966e0c677200f709ee5"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/37bead923ef1827fd9ec6b22ee1d8b1c5882c9cd.glb",
+      "bytes": 89540,
+      "sha256": "e2d09e1950417d078331a3c399b25f8c0ef2ad70934b334318d1c7a363914af8"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/3a8488cb34939b244a44312976c9375799a5cd60.wav",
+      "bytes": 331000,
+      "sha256": "d2e7af32b0e01bf43c831e096e8b7896eb01d2f498f784240c12615646e54894"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/3b7a1127e3054062178349383c6a1b7fb9a1f1eb.glb",
+      "bytes": 41400,
+      "sha256": "2916712c50fbae610a67cc9df7dfe47664e7e40d19cf7fbb659b1784368f2dd2"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/3da6b2a6081fba1c280a55c7ad0317f4e4b63d6d.glb",
+      "bytes": 2764444,
+      "sha256": "93fe5d8fcb2d9041ac501b6c658eeacba3b84149d9e9b381d21cbc29ff494575"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/4392ce9783e2da0ca64bccdf7e58554c6dccefb2.wav",
+      "bytes": 872244,
+      "sha256": "3582640d174ef9f49419ef36f1dcb2314e6393325985632e64cf3254455d38e3"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/4490722c7cc612b5bb8e3e861361a64029ab4cc7.wav",
+      "bytes": 661544,
+      "sha256": "c13366901965e3d7bb4ae65324abed00eff2d1d11a6c3e0431e0250e5a557bdb"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/467f5d61aaa0cd366f030d5afbea11a94294639d.glb",
+      "bytes": 3864360,
+      "sha256": "d063e8b7435eede85f1a8617c5bf6ff3571590cb19f22a314281fe2e43cb6bee"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/53d146fe7a3de784ccd23d26dc1a30e1427889bf.glb",
+      "bytes": 29532,
+      "sha256": "138062cb091396dd0160c357f6dbb6fcaf6a066451c89e95300ac41c5a456ccd"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/584e7e05b6cd1e48ae9e9e91818734aaa4f6331a.glb",
+      "bytes": 49788,
+      "sha256": "bcf9dfc5c1cd64dcd0c3d3f628f220f0c0c0c748f89d6053b300f4c4462cbefb"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/5f609391bdf05dbc0b8f6e3a13a4df11e32b1217.glb",
+      "bytes": 424436,
+      "sha256": "ed2e1dc508ebb5d96e73904501e72599cdbe167b325840cb33d3211d1a37e536"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/60d0815f11eee645641a448de60ad4aadd8c39d8.glb",
+      "bytes": 80440,
+      "sha256": "4e08fc931adb5ac15b7dcbcda0f7b55b336a327b87e286b305c4837698f79efe"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/6355b7800f7c6747faecf82cc98884733b9b97ba.glb",
+      "bytes": 1170516,
+      "sha256": "5fb43a919fa3d98548dc62c6234629bb4f56ede60b182429976283160ef4c95b"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/675c1bdf199104c66deeddb73a9170978e6f6851.glb",
+      "bytes": 516764,
+      "sha256": "9b21a8cbd9351f12ee40d513b001493616bb7b837e20cc78e72e57b65df390ff"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/688658f05eb19d3765f52156c60e18810eea40b2.otf",
+      "bytes": 128964,
+      "sha256": "2f3575cc882cc70cf527ce6f599ee5e075fa4f56d01041fdc08713ae29c39a00"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/6aa06a8fdb9590b046a678f34d2167ff59dee0dc.wav",
+      "bytes": 297484,
+      "sha256": "21beaa2337a9acc94213fdccb9c4c970ffc0f3f9963c20a92770f1af04569de5"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/71cbb8c4e31a179becfbc8c1af8f6b24691fba0e.glb",
+      "bytes": 69572,
+      "sha256": "5f123f6f7e34f48e4b2e096d85e16297adf404f3a54cf8563f7e38ea573334b6"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/72059f2c803d061290f5b664d158aff81a807488.otf",
+      "bytes": 131836,
+      "sha256": "4ad72bc2e96d1a037103e9c626755bd628a4be29d1cd3dd273ce44b64525af60"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/73c6312e1b9602b48110fd21973e6fe5b31cda00.wav",
+      "bytes": 253616,
+      "sha256": "7862ad5cb6f74ad732a596c691744778c9f4055a00be7983b12dc278e967e992"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/7eb368bba8c3009e8220c9ec3dd29470308111d0.wav",
+      "bytes": 318284,
+      "sha256": "f26c00b6233e6ed07ecc1ba12232508a2bde1e43bc9a171c196a711ed2efc276"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/853cba86b972be5d841c68511686e5fcd66d9bd6.glb",
+      "bytes": 3953864,
+      "sha256": "e45069db38b628d9113faa284bce54a5b1ddb7170e2b5029ad5994e1e81a46d5"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/8bf26bd8253c1ba92ea9633f31a36bcfb6798b1d.wav",
+      "bytes": 863152,
+      "sha256": "d155e66279ed86939580da4a0673dfcd7c28516a3c0c65618d2e9ac116dd608b"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/8e85a52054dc2c718b1096e9fcfb5d9919f34aa1.otf",
+      "bytes": 84184,
+      "sha256": "4caf3363ac873db5213203d97dce3eb24e3ba74d65e819989894becff79ffa2e"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/92f681edfff16735fa20935103ae5e0c4062f525.glb",
+      "bytes": 2843196,
+      "sha256": "a7febe0579fd49c2b213ed9fc16470f0daf011220af2e1340eda030c7a421e02"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/93bd962a6e1b7708328e69981261e1877e31910b.wav",
+      "bytes": 424428,
+      "sha256": "2edea0589754383fd8389fa3e9e25b2b692628a0e023829a1437c490d962a743"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/9a86e5837b200953142c177cbe7bc59fee35a240.wav",
+      "bytes": 289088,
+      "sha256": "a50c64cebc00c21779c4cdbc443495882259705ad511b1123a39d8c477ce7ded"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/9e5251ce3d6c459e14eb858cee05b41231ceb986.wav",
+      "bytes": 1271592,
+      "sha256": "be61d372023b1eab08c9a1f04eaf0206182835b8f595e5ccfff4bb4727dd2fca"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/9f9f95740f03e87589de1b862defdafdd07c685a.wav",
+      "bytes": 815120,
+      "sha256": "bd4cb654d72934c6b3d65bdf9bc53448320e47993521adb32e630b3adce528af"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/a00af079d4a7658e362d47e37bcad9c218a1eef0.otf",
+      "bytes": 130164,
+      "sha256": "6fbe02b1c5abfa1a45222149050368a3d0f6ed1d5c1ec62904f727b8e1374acf"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/a25eb4fb6cecce198dac4ca8ad0ee0c910c16beb.wav",
+      "bytes": 240816,
+      "sha256": "0b7acb2e7fb2fe1b464977ce4cc9865ef62db8e601fc96f539373fcb340af380"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/aa274d0887d345b5a576fbaf989e9e242516852f.wav",
+      "bytes": 789012,
+      "sha256": "744ed5f6c6a0c343aaa3e447e234e415bfba71ab60a95aae1eb5410ac632b943"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/b238063ef8d1b8e87b1a869afd785c18f8e028da.glb",
+      "bytes": 12296,
+      "sha256": "b751e04390eefde55a1a9503606773144abfc80134135ccd22a429fe98ad0031"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/b6e727568b9301a8a1c8a7af706f4a18f2a44a0e.wav",
+      "bytes": 362396,
+      "sha256": "e2627a5abfc093096785c35f8bc81399992bd0fd7476404e610c2501f6c28591"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/b8259f684e12f3d4c1373ebd26daa3a7ee097ff2.glb",
+      "bytes": 20216,
+      "sha256": "856b0322e28ae38c1373aed3f5120adee0ab1c301964d576d93903e9d48fb7a9"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/c3b27cb8cda36d55b3250a9bf37613421c20c9bb.wav",
+      "bytes": 277044,
+      "sha256": "1ce5701e95a4590de00aff0f5d49f2836f714eba73a6505591f2a5a81b871ec2"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/c7504684eae8bd3ccd3249c6a0e5ca32842d39b1.glb",
+      "bytes": 509788,
+      "sha256": "bddd62e8113229de501afa313f642a0163d7608f3002abf4b170e4ecd8b59178"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/c9d2dfdd813cf721e1f69c037e1eb48b8d898856.otf",
+      "bytes": 85332,
+      "sha256": "f056036d22af8d0b3c3efe1b6087724efc46d9fd3711f76bcd1e40fc8e1c4d43"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/ca32fd04bb8bd6b786a37395d50bbf36a1a4a80f.glb",
+      "bytes": 2608616,
+      "sha256": "068f03acfca1ee2f8bcab30c2ec117a53f472b67cf6328a69f9e668ebcb02ae0"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/cd708430268dbf2344f06af32a7fc58217ae8cef.wav",
+      "bytes": 154392,
+      "sha256": "dabd88f42ceb0ac619f15705a17c3d69e6e782728ee258fe11e5953201b3e2f5"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/da39a3ee5e6b4b0d3255bfef95601890afd80709.png",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/db4930a1e32b84a9702ac401acd2939172120b52.glb",
+      "bytes": 1923476,
+      "sha256": "9d16305c0687e78bdbdfaccbc6c81269e4bbdfd02772ee7f1d5b43d12d360d4e"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/de5f6d2f5e0de224ed31eb13c0095f104944457d.wav",
+      "bytes": 661544,
+      "sha256": "b4038992259af00b555bc529f477e44655ca46ebbb7eba529fd934ea1db0b4f7"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/de62732546030e73bfa401aa45e7cc9d3a4089dd.html",
+      "bytes": 797,
+      "sha256": "e0481201467db87cd8a2ed8cbc601f723f61e839144d36e50c8bca20b8c6a198"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/e06d3e82a7b56abee5f6df285d277d2ed589cc26.wav",
+      "bytes": 154392,
+      "sha256": "a8c7e9371b117c8c3a59b3eec80d95252fabc62ea4d0ded11b16cbda1793ea99"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/e1d9efa86c7fdd65ae8a2bc7f0ee38211bc2393e.wav",
+      "bytes": 241344,
+      "sha256": "e68141ec281f2bf57b4610f0fcc0d9ba0bbaec029e6905b670edbd5f5980068e"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/e646b58e19d062d6752dd4e50b9bcab0f2240fb6.glb",
+      "bytes": 912440,
+      "sha256": "9eef6c5e808f0c948ee7e794800d123ffa884f0a0d244917cfe96c2758ea0373"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/ed258c6fdf869fe3da376b8d0be9f62757513337.wav",
+      "bytes": 240816,
+      "sha256": "961a426c6db16d8aa084bc2f055ffde0833ef82ba4ae403ecbd2c639badf1337"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/fbf14918ba40cf977d6e52567e0e7f607803502d.wav",
+      "bytes": 240816,
+      "sha256": "20bc233933853f10b4b038621c841c06b7b62914d1e32230c64f71a5da67d442"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/fe39dfff0c934a8e13155e5bcc5fe9e1785aed16.wav",
+      "bytes": 661544,
+      "sha256": "c2bbbf82c19bd7f8f2d86f495ed526f8b67cc118b9aa13b5b34e99cf290a646d"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/resources/fee7bdbf290e9de923132f56d1b97ee00c879bc7.wav",
+      "bytes": 186044,
+      "sha256": "a0f70a910690b9362248d9f894b61fef6e08263db76d1b49ebb95eb32339df5a"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133139321.jpeg",
+      "bytes": 2684,
+      "sha256": "e629341910f73497e6d4bb6f9a9d5436f479f49ab43fc1162ce67aec4893c00c"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133139760.jpeg",
+      "bytes": 6722,
+      "sha256": "2cdcd86a600d757e8f66a5f5f41bce6a56db7c836c4d0b5e8382de989104c4f3"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155140.jpeg",
+      "bytes": 11331,
+      "sha256": "553a56ed7950846e95faf0e3333e4ae749a127cca07ce8faa035a5d656a79b0b"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155141.jpeg",
+      "bytes": 11323,
+      "sha256": "b107018fa96bb762104d127f2b113e42f9ce10a63040dd1e642502eaa7e357f9"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155162.jpeg",
+      "bytes": 11259,
+      "sha256": "a3f303e32e527145370cd7e2c80ce467c087efb7f6fe6637b4dc2141d4e05ab5"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155178.jpeg",
+      "bytes": 11257,
+      "sha256": "d1665a0228a56242b10ec69d6315e79e21937f8b055e7e36612711d357f015a5"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155194.jpeg",
+      "bytes": 11250,
+      "sha256": "c509b063eb95e49e82ced246791b1b69c491cd261d6f3293e728bb9f71c9539e"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155211.jpeg",
+      "bytes": 11231,
+      "sha256": "77017cc9476e03e06dede4b38549494e543d8baa1ced4e9e3095c98b691c7b28"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155227.jpeg",
+      "bytes": 11237,
+      "sha256": "9acff2ba1aefe35bde949b2fb19d61a96b5f112ad1726f978f9706f149218aea"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155245.jpeg",
+      "bytes": 11221,
+      "sha256": "962b10a4f89309a233b22e4d1de912c6c35dc0972d2940e9837f384ca9516c3f"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155261.jpeg",
+      "bytes": 11233,
+      "sha256": "53d9d847c6353b8422b04c4986432c5925121b5c0b54535c14ac39fc2b244e2d"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155286.jpeg",
+      "bytes": 11218,
+      "sha256": "383a850117ec2489616ddbe6619a50a30248da1375bb5711c560301fcfcfa587"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155305.jpeg",
+      "bytes": 11206,
+      "sha256": "e6349ae7ace8fbde7f5d7b6b816861e6332ba258070534a35aaaca8ea8835075"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155310.jpeg",
+      "bytes": 11200,
+      "sha256": "d1088155474a0d55f0520e6bb1cf484c68cdc6bdc58b80dd608d200967a64255"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155326.jpeg",
+      "bytes": 11198,
+      "sha256": "5d5d039ec3f5baa735d0c13a59e02eab73572a40281d5385e322364abcee365b"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155349.jpeg",
+      "bytes": 11201,
+      "sha256": "a788f606c838dc2f812abf332fdb7a9f7762c2f28473db248a904d2d92889d05"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155360.jpeg",
+      "bytes": 11204,
+      "sha256": "c4c969502be21bca4092ed0b468892925379389ac94d817f1d1aacf3594593cf"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155375.jpeg",
+      "bytes": 11195,
+      "sha256": "9369677e593475b4c9e55284d46325a4fb027e6e274335f1dce628f6c27652ca"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155395.jpeg",
+      "bytes": 11181,
+      "sha256": "0376524d75793db1b6dada1f49b1a55a0aff643daa536bfb099d4751b4661bec"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155411.jpeg",
+      "bytes": 11189,
+      "sha256": "46f1a25fc96b86ab04b5e8c00cf0048ce1f37556c72761355f908ea388f3b808"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155437.jpeg",
+      "bytes": 11179,
+      "sha256": "9a3a6cc1d8ea02b88efe66ee60ef0ad1690f8ae6dfa2b9f63cb3af5f6881f7bc"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155450.jpeg",
+      "bytes": 11173,
+      "sha256": "d409d75ae72f7cf32f51bc5cdda1690c6f36ce0074a9b1c1b86a3915865a7390"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155461.jpeg",
+      "bytes": 11184,
+      "sha256": "34d9ad0840367df6c97ceb381e6dfe3c51adbf07d0838ee9ed1a21e232d1f535"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155475.jpeg",
+      "bytes": 11182,
+      "sha256": "e1e2e4db48043a2ab10cca81e3fbf91518bff140894642d496f13565c2f1aeb3"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155493.jpeg",
+      "bytes": 11168,
+      "sha256": "65df3ac64f5d5666a845896a0cc88259470de05a97c6ea2faab737fa232fa275"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155512.jpeg",
+      "bytes": 11166,
+      "sha256": "943fca23fd93fdb2d0b93de8ba9e0b8d8361bb71e5cd20db11849ba602e4bfe1"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155527.jpeg",
+      "bytes": 11174,
+      "sha256": "8d0196724faa7b688f908ad2b43d0aee6db17e849beef74e2a7a8455abedf1ea"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155544.jpeg",
+      "bytes": 11171,
+      "sha256": "0803dc0b7f263a2361e1d0256c9d0845b85f0361379f127174b8c5ebed357130"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155560.jpeg",
+      "bytes": 11167,
+      "sha256": "897b63c858af84cf129ea2e89fd24f5c8990084a1a0507a6f8462982188bcf30"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155584.jpeg",
+      "bytes": 11163,
+      "sha256": "40ba23f97e79651f9975ea824817ae6a1e07ba211e8f3757f7d9644e1c789dfe"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155596.jpeg",
+      "bytes": 11170,
+      "sha256": "5320be96f0785cfe56346df4a4d531ec12ce5cbcbbf25f3a17720fb5ef704e2e"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155609.jpeg",
+      "bytes": 11157,
+      "sha256": "9ff97de7c11ae2f9714713cee0e93f211d19b9d4ab30af41a914d506b7c1ac05"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155626.jpeg",
+      "bytes": 11174,
+      "sha256": "4bd7fae71ce24dac5c9d71bbea3c5d4cf188ada10053cd7c00ddf578708eadf9"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155644.jpeg",
+      "bytes": 11165,
+      "sha256": "f2fbe664acf0dfaaaac2502b10bc3bdd640770c70e0c2690e3b8a9e844eb3ed7"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133155861.jpeg",
+      "bytes": 11152,
+      "sha256": "451c6ca10dc0db01ad3c79cb6df485137916d4cce132a1cdab8a917cac509d6b"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133156073.jpeg",
+      "bytes": 11224,
+      "sha256": "e40bc407330a90a07ae6d2554578d2e5efffbe7286ea1be07b2b5e78415e9802"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133156292.jpeg",
+      "bytes": 11288,
+      "sha256": "1d394cc28d72b5c1119af6f1a48acd59b75c956f7acdcebd0e8531a3ccf0f78b"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133156499.jpeg",
+      "bytes": 11325,
+      "sha256": "352f5f030480e513d5d917bc16b43e4a59f785536bf2eb9b6935d1befc2986ab"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133156803.jpeg",
+      "bytes": 11317,
+      "sha256": "4f6d5ca0e41f706a6aa0505fe12f67bee0715f4cf4163aa2a4de671713af044b"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133156806.jpeg",
+      "bytes": 11317,
+      "sha256": "6b4579ad50be5f403318b7e40daa18aa137b43e7d1875f5faca39a67d8188fc1"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133156875.jpeg",
+      "bytes": 11328,
+      "sha256": "276af24024f17ddc507495833896f4ae74add1366711f06830423379b8be6a1d"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133156924.jpeg",
+      "bytes": 11324,
+      "sha256": "8a2086a12ab6192aecf8c19f0f704aa952a01ba00f60670d965985cca5bc27c7"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133156937.jpeg",
+      "bytes": 11277,
+      "sha256": "1354fa51567f80b5e07d23535c67e0439c05c9a45f953bb8bd289998305830a2"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133156951.jpeg",
+      "bytes": 11267,
+      "sha256": "b1eaf80e007e0b803b1c13982479f1c3ffa9614c827d7878269d61f00c8c8d5b"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133156966.jpeg",
+      "bytes": 11264,
+      "sha256": "e94d090f5c306cb3976da37d19570927e24257c23cef46503ac8429e05203075"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133156982.jpeg",
+      "bytes": 11265,
+      "sha256": "70588fdb9709fd1632a7329cb213d773dbf8523f87ffb260338c28f0fcfcccd3"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133157006.jpeg",
+      "bytes": 11249,
+      "sha256": "9615fb0ef41740313a50e67e377617a6cb5561b5503ba89ee3b0dd2cf5b19a5c"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133157023.jpeg",
+      "bytes": 11243,
+      "sha256": "a09799d365ed0e897bdb8219aac4df7c05c1dcd3f3440bfcc46d6ad8181bf87b"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133157039.jpeg",
+      "bytes": 11249,
+      "sha256": "b560eb6d2f29cf9ce719beefe1d4c46ff6f165d7f89433741473f1ea234b18d7"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133157115.jpeg",
+      "bytes": 11241,
+      "sha256": "4778405d4deb23db56a546b6c503dd22074af314f77d6a5207365afd2e215adc"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133157122.jpeg",
+      "bytes": 11226,
+      "sha256": "8ba8ee1f62c9438220967be5c6a6483617056699a9af954e0eff1ed753951d8e"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133157209.jpeg",
+      "bytes": 11204,
+      "sha256": "6addf46255fbe28627c7f60b3d753e6baee6c658b63fb4cae9d0a2622485ac43"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133157210.jpeg",
+      "bytes": 11209,
+      "sha256": "39da4821ee321244a702bd7a27e0149b04c5a25e3d7e197a5690b629fa01aa27"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133157211.jpeg",
+      "bytes": 11205,
+      "sha256": "be59b1fc8f85deff8a29ac6c28aa6d005c939cc3a96a6dfaa618d38ba08d4747"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133157224.jpeg",
+      "bytes": 11200,
+      "sha256": "ac6b48b66786779d7f1551d4e216065a69d550a743d8825bf4587eb94563f866"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133157243.jpeg",
+      "bytes": 11187,
+      "sha256": "713a6834939febc4074d46c1dd06678ab4abe049ca8aed6cba09291b48f35dee"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133157326.jpeg",
+      "bytes": 11191,
+      "sha256": "e828599093f9887a967cce0064b83c718cbd32ab85291118a558b32962d5db71"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133157530.jpeg",
+      "bytes": 11163,
+      "sha256": "4a85dbf092713f353bd6a03ceae5df6f1c24ab2b66368a9c18ae5e7d1d7ff1ff"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133157757.jpeg",
+      "bytes": 11172,
+      "sha256": "f62f76fbd610f6307fc2ef1aa4488210cbc921a828e76886d1c45b35b8f2f8b3"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133157976.jpeg",
+      "bytes": 11254,
+      "sha256": "6438cc0a63854af2a4c31c3e9639f2917628624f73b5bffaef749f9932a7127b"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133158215.jpeg",
+      "bytes": 11311,
+      "sha256": "d0a0199b41e38dba9dd07a42b89032f7395e873b25fc811b23b347e5c0f186b3"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133158417.jpeg",
+      "bytes": 11317,
+      "sha256": "6b4579ad50be5f403318b7e40daa18aa137b43e7d1875f5faca39a67d8188fc1"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133158642.jpeg",
+      "bytes": 11324,
+      "sha256": "8a2086a12ab6192aecf8c19f0f704aa952a01ba00f60670d965985cca5bc27c7"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133158846.jpeg",
+      "bytes": 11249,
+      "sha256": "b560eb6d2f29cf9ce719beefe1d4c46ff6f165d7f89433741473f1ea234b18d7"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133159110.jpeg",
+      "bytes": 11187,
+      "sha256": "713a6834939febc4074d46c1dd06678ab4abe049ca8aed6cba09291b48f35dee"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133159318.jpeg",
+      "bytes": 11167,
+      "sha256": "e4030f838ac088564da20ca3236b96e87b5ec485a54ac7d74b08e102ef347c4e"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133159520.jpeg",
+      "bytes": 11172,
+      "sha256": "f62f76fbd610f6307fc2ef1aa4488210cbc921a828e76886d1c45b35b8f2f8b3"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133159731.jpeg",
+      "bytes": 11263,
+      "sha256": "3925f8b178fbb157aeb7085dd8583e607bbf142cc642be30d9c290521e65a889"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133160050.jpeg",
+      "bytes": 11283,
+      "sha256": "3752d7ab5f52d12e57b248ff4e20f863e7f47ffc57049106bebd325262d3ed45"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133160256.jpeg",
+      "bytes": 11339,
+      "sha256": "7f34e9b620f4b7dc0a9c0e4785477f13d0491777b5a9e6b123e3d0954fc9975b"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133160462.jpeg",
+      "bytes": 11310,
+      "sha256": "3b850e708b5a16e809e5bae502e34fa53a977d5679f9111d312e000fd3ca7c6f"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133160673.jpeg",
+      "bytes": 11226,
+      "sha256": "c110151180e42d9ed9dba95a03f6c398e0d284c47e61e1d748d3d550936ad37a"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133160886.jpeg",
+      "bytes": 11191,
+      "sha256": "c001a3a0479948649c1e7aeda323bd3f6f82886e2bba0a5684e5b39100532ff7"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133161088.jpeg",
+      "bytes": 11163,
+      "sha256": "54a8dd469a43104273cc1317aa075c247a2edf5002112ec5f8747aaf27fefb85"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133161293.jpeg",
+      "bytes": 11163,
+      "sha256": "7cb0000cf746aef66bd55613243c8913cf34defe2cf260abe694bacaa0508960"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133161500.jpeg",
+      "bytes": 11241,
+      "sha256": "606b73d12375aa2ed8ee470f85fcab19372017c50a3f1210d26055dfe52d29e7"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133161852.jpeg",
+      "bytes": 11265,
+      "sha256": "1f0bd00a2558150762f6ec9059eca7c3a7ff6dc7b5c7708bbee902938e456106"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133162054.jpeg",
+      "bytes": 11325,
+      "sha256": "fb33ee6c65d94edbb7ee73e63c7664c9c98f3890cc6315567402cdb0b467c453"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133162269.jpeg",
+      "bytes": 11310,
+      "sha256": "3b850e708b5a16e809e5bae502e34fa53a977d5679f9111d312e000fd3ca7c6f"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133162479.jpeg",
+      "bytes": 11225,
+      "sha256": "4be2c02119091a33922bd951b1153f82ee28e7ded6aa59ab5a226a86e369c189"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133162683.jpeg",
+      "bytes": 11187,
+      "sha256": "04fa57271fa079a5e106ae3d5e3956553e7e04ea72d17bb5a7673d3773439712"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133162891.jpeg",
+      "bytes": 11163,
+      "sha256": "e303ddbaa0d3bfc82ffa8398b5c1c96aac66fb840f42c4da147c7ec6b28a7e92"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133163101.jpeg",
+      "bytes": 11176,
+      "sha256": "d178bd5d8bd75d50ff6326b4b6dc546f259f48ece7f03e89891292561ffd2f98"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133163314.jpeg",
+      "bytes": 11257,
+      "sha256": "c29a870c4625243ffed0a34134977a094798712f0925688e711c75009e5b2c7f"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133163552.jpeg",
+      "bytes": 11293,
+      "sha256": "61f54ff7d1cb87a54888267186bda0a51d4fb82b2d6314ae75c092a55a9d3b4f"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133163766.jpeg",
+      "bytes": 11322,
+      "sha256": "f00c37ce8f386c701f83369a35a32f1b77e1210e6a1a84df9cf7838154fe01ff"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133163986.jpeg",
+      "bytes": 11322,
+      "sha256": "f00c37ce8f386c701f83369a35a32f1b77e1210e6a1a84df9cf7838154fe01ff"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133164197.jpeg",
+      "bytes": 11247,
+      "sha256": "af8c5942a53a3ddcf917dc12056e2c3a7757376a8b388a0ed9a84df4725d8251"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/browser-targeted/.playwright-artifacts-0/traces/screencast/page@e4ee3e2c557cc15fae9f879356c87dfb-1793133164467.jpeg",
+      "bytes": 11227,
+      "sha256": "ccce101f0da5f8878e7a6e41670e900f5a044df4b15c96282aeb3e605c66e713"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/cohort-status.json",
+      "bytes": 22547553,
+      "sha256": "f9c60c9e3eccb7e8049af2c8646ff972e237e7edc9e7830f1c2271135e30f036"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/receipt.json",
+      "bytes": 1498,
+      "sha256": "f66dbbe254e47eb6a539ddec40fdab20f31e8c3f9f030a7f62682730e280b68e"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/run-targeted.py",
+      "bytes": 3098,
+      "sha256": "c6e5de6e4c6098ef6143bfc63a3a9aac0c775f50e6cafe1bb69434fb95edbe95"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/targeted-inputs.json",
+      "bytes": 156974,
+      "sha256": "942f73b54f4fcfed9e401f5602dfe642d7d11035319aa25b88ff6ca271db71af"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/targeted-run.log",
+      "bytes": 86,
+      "sha256": "053262f079974592c15a2e5082848915c4f9fcfadf58cedfb6216595ba285606"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/targeted-source/e2e/ahri-bot-combat.spec.ts",
+      "bytes": 7239,
+      "sha256": "216d264d182e30de4075b804b3d761ffce93332c776812de9ca52e4b7046609e"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/targeted-source/src/content/ahri-bot-policy.ts",
+      "bytes": 260,
+      "sha256": "f6a4d7d3fee8da838e6a47dec5ad5fdc8ddbd47275fc3700a114092e6a9b3c30"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/targeted-source/src/simulation/world.ts",
+      "bytes": 299307,
+      "sha256": "a1cbaa9e7598157d6d3e4ad7eef53f01185292904226e3713579d2ddf705f2b6"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/targeted-source/tests/ahri-bot-combat.test.ts",
+      "bytes": 9488,
+      "sha256": "77662a6a7b444eb515ff72b8d92acef08a83938ce989299b770950a6b2a77213"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/interrupted-targeted/targeted.log",
+      "bytes": 387,
+      "sha256": "029a6ed28ed0e3c6e3445e3304bbdb72e529638cc629c6ab026e1e19065fae9b"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/monitor-vite-launch.json",
+      "bytes": 20,
+      "sha256": "7715c8507f6ea7f9205a1b18bf3005399b579fc1b61380732917f4b4b2d884c1"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/monitor-vite.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/monitor-vite.py",
+      "bytes": 934,
+      "sha256": "c248068d5f3879f4bceac137ccbeeb99d7159616bc556e20966397676692450f"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/node.log",
+      "bytes": 2714,
+      "sha256": "912d964f3fee6823051544967553acc0bf31064123b655a88be381e618a92581"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/pause-record.json",
+      "bytes": 755,
+      "sha256": "25d8e3ed51f13130275edbad00025cbbe5cb6b81f0493ce46cf56bf951f732db"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/policy-before.ts",
+      "bytes": 242,
+      "sha256": "bbd5bb8c45b1d62fce9567c94efc3f30eaf1273dbeadce378d9608fb0efccd37"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/ruleset.txt",
+      "bytes": 65,
+      "sha256": "57626bae3d173e8bcb306dd065725c6f33dfd726eb74bdb2b08bea5452067300"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/run-browser.py",
+      "bytes": 3120,
+      "sha256": "b6ac27ea66587cbb97b0e1b28c7fcd1268d1141508c73de35153447c17527ddd"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/run-final-q.py",
+      "bytes": 3130,
+      "sha256": "2b85a4fb06ea500472d7ed41e06701ff4f1254b5f998f3aa12a5d28507a2b988"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/run-targeted.py",
+      "bytes": 3098,
+      "sha256": "c6e5de6e4c6098ef6143bfc63a3a9aac0c775f50e6cafe1bb69434fb95edbe95"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/run-watch-fixed.py",
+      "bytes": 3122,
+      "sha256": "b99c1581545e3b0d440d2a28ef013d0df03276b32f7f3d168c86ee364592e443"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/source/docs/AHRI-BOT-COMBAT.md",
+      "bytes": 6898,
+      "sha256": "36b6d36b7456cfcbca003c7d28cad97290817b2420764bb36be6c0b5795c7b34"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/source/docs/PROGRESS.md",
+      "bytes": 751858,
+      "sha256": "a02135e34d11f31947747e8238d8b08c8134a35d59f29de501fdc32553992dec"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/source/e2e/ahri-bot-combat.spec.ts",
+      "bytes": 7238,
+      "sha256": "12a384b0afa76a780ad812f70fd2e5e849e93b3299876e8a458d47b7a2d29ed7"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/source/src/content/ahri-bot-policy.ts",
+      "bytes": 260,
+      "sha256": "f6a4d7d3fee8da838e6a47dec5ad5fdc8ddbd47275fc3700a114092e6a9b3c30"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/source/src/simulation/world.ts",
+      "bytes": 299307,
+      "sha256": "a1cbaa9e7598157d6d3e4ad7eef53f01185292904226e3713579d2ddf705f2b6"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/source/tests/ahri-bot-combat.test.ts",
+      "bytes": 9488,
+      "sha256": "77662a6a7b444eb515ff72b8d92acef08a83938ce989299b770950a6b2a77213"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/source/vite.config.ts",
+      "bytes": 1157,
+      "sha256": "96bc2244f0b8e7baae264d61f14e2603e66b76e5468c8923d8680eae2c7fe0c3"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/targeted-inputs.json",
+      "bytes": 156974,
+      "sha256": "942f73b54f4fcfed9e401f5602dfe642d7d11035319aa25b88ff6ca271db71af"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/targeted-pause-record.json",
+      "bytes": 755,
+      "sha256": "dd19690ac51e7ca0a299560c09917aafc252a9677a93c904768b283bf426a674"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/targeted-run.log",
+      "bytes": 457,
+      "sha256": "b40b0361804723cfa1aba5cf307bb1b17b55813df99d095ee9d963d0e2b948ec"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/targeted-source/e2e/ahri-bot-combat.spec.ts",
+      "bytes": 7239,
+      "sha256": "216d264d182e30de4075b804b3d761ffce93332c776812de9ca52e4b7046609e"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/targeted-source/src/content/ahri-bot-policy.ts",
+      "bytes": 260,
+      "sha256": "f6a4d7d3fee8da838e6a47dec5ad5fdc8ddbd47275fc3700a114092e6a9b3c30"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/targeted-source/src/simulation/world.ts",
+      "bytes": 299307,
+      "sha256": "a1cbaa9e7598157d6d3e4ad7eef53f01185292904226e3713579d2ddf705f2b6"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/targeted-source/tests/ahri-bot-combat.test.ts",
+      "bytes": 9488,
+      "sha256": "77662a6a7b444eb515ff72b8d92acef08a83938ce989299b770950a6b2a77213"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/targeted.log",
+      "bytes": 7117,
+      "sha256": "cbb457412aa9d0595e21fad19a08251f37c9175ab9b940805c267fcbf5cce0e9"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/types-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/watch-fixed-inputs.json",
+      "bytes": 157123,
+      "sha256": "5103a462affd7f19f122895ed4c7c717c59058eec4f9cf7e041837fc2582c40b"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/watch-fixed-launch.json",
+      "bytes": 66,
+      "sha256": "211776cb3655d4eb5aaf633529780e134a0365271821d3d14f683269a9d44124"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/watch-fixed-pause-record.json",
+      "bytes": 755,
+      "sha256": "37a88e63b8aef4100fb17d9cf3a01a72790758375a3bdbffc198ad0d29eda432"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/watch-fixed-run.log",
+      "bytes": 469,
+      "sha256": "11bdd9420611fda31aabcdfe323c9b3f1281b7729a64db24646f1aaf796bd15a"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/watch-fixed-source/e2e/ahri-bot-combat.spec.ts",
+      "bytes": 7239,
+      "sha256": "216d264d182e30de4075b804b3d761ffce93332c776812de9ca52e4b7046609e"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/watch-fixed-source/src/content/ahri-bot-policy.ts",
+      "bytes": 260,
+      "sha256": "f6a4d7d3fee8da838e6a47dec5ad5fdc8ddbd47275fc3700a114092e6a9b3c30"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/watch-fixed-source/src/simulation/world.ts",
+      "bytes": 299307,
+      "sha256": "a1cbaa9e7598157d6d3e4ad7eef53f01185292904226e3713579d2ddf705f2b6"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/watch-fixed-source/tests/ahri-bot-combat.test.ts",
+      "bytes": 9488,
+      "sha256": "77662a6a7b444eb515ff72b8d92acef08a83938ce989299b770950a6b2a77213"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/watch-fixed-source/vite.config.ts",
+      "bytes": 1157,
+      "sha256": "96bc2244f0b8e7baae264d61f14e2603e66b76e5468c8923d8680eae2c7fe0c3"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/watch-fixed-vite-memory.jsonl",
+      "bytes": 677,
+      "sha256": "ea12f4a5fd4767592ddb5ae9038bcd30b5ae0c9b8b84652bbbc7b4dda826903c"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/watch-fixed.log",
+      "bytes": 3515,
+      "sha256": "ae3ea6515ae9125ca2210c9668b08991359356bc980f47866aaf160a0e04a71a"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/watch-scope.json",
+      "bytes": 362,
+      "sha256": "4cdb717cae290b2242d0f482d533c085876c16d052bf01afa621c3ef01cba60e"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/watch-scope.log",
+      "bytes": 297,
+      "sha256": "ace126b632298a2850f7a33ae95a9cd432587a4d2bd810e3c385294d11109c7a"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/watch-scope.mjs",
+      "bytes": 1501,
+      "sha256": "b75cf5f05269f99b875e49de4ffe77cb6dfd4b841857d36b19a13def02c22302"
+    },
+    {
+      "path": ".cache/ahri-bot-casting/world-before.ts",
+      "bytes": 296603,
+      "sha256": "c449438169e189558ceaeb06482883edbd9a22753e6f963b1d90034e9a6e8bf2"
+    }
+  ]
+}
