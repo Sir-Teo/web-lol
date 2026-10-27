@@ -1,0 +1,330 @@
+{
+  "format": 1,
+  "parentCommit": "b4d8ee9c7d0efc6d2071f2d14ab1a68c755103b5",
+  "scope": "Original Gromp group types through the checked Troy reader into native queue classes; no runtime change.",
+  "witness": {
+    "path": "docs/reference/native-gromp-emitter-routes.json",
+    "bytes": 25229,
+    "sha256": "8e268d02303addefa4c70b311215329d4ef1782eac4ae12378a54039dd6eff3c"
+  },
+  "verification": {
+    "fresh": {
+      "completeFunctions": 3,
+      "completeFunctionBytes": 2500,
+      "selectedInstructions": 112,
+      "literals": 4,
+      "originalTroyBytes": 2720,
+      "typedRows": 272,
+      "simpleProfiles": [
+        0
+      ],
+      "complexProfiles": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "complexCameraQuadProfiles": [
+        1,
+        2,
+        3
+      ],
+      "guardsPerPythonMode": 15,
+      "pythonModes": [
+        "normal",
+        "optimized"
+      ],
+      "actualChecksAndReplaysPassed": true,
+      "witnessAndSourceBytesAndMtimesPreserved": true,
+      "outputPolicy": [
+        {
+          "mode": "normal",
+          "conflictRejectedWithoutMutation": true,
+          "missingCheckRejectedWithoutCreation": true
+        },
+        {
+          "mode": "optimized",
+          "conflictRejectedWithoutMutation": true,
+          "missingCheckRejectedWithoutCreation": true
+        }
+      ],
+      "applicationSourcePinsUnchanged": 3,
+      "assetsAndDataBytesAndMtimesUnchanged": 1125,
+      "activeCohortSourcePinsUnchanged": 539
+    },
+    "inheritedApplication": {
+      "certificate": {
+        "path": "docs/reference/hud-tab-navigation-verification.json",
+        "bytes": 12240,
+        "sha256": "81d85aafed529746e58a690ff0e69e84bb945e99f86992b0f9e20d267167dd9a"
+      },
+      "identity": {
+        "schema": 163,
+        "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+        "offlinePack": {
+          "id": "6b1935aabc8fb7e8148092d1ab9379d71cf104cb7d3430eeee5cbc68c2ef36ee",
+          "files": 1202,
+          "bytes": 538091532
+        }
+      },
+      "freshAtThatCheckpoint": {
+        "browserCases": 10,
+        "newBrowserCases": 2,
+        "cleanBatch": true,
+        "typeCheckPassed": true,
+        "nodeQaPassed": 8,
+        "productionBuildPassed": true,
+        "production": {
+          "result": "passed",
+          "prefix": "/nested/rift/",
+          "developmentHook": false,
+          "firstKeyboardAudio": true,
+          "audioContextsCreated": 1,
+          "soundSpace": true,
+          "soundEnter": true,
+          "hudTabNavigation": true,
+          "pauseSpace": true,
+          "wardPreviewReplacedByHeal": true,
+          "resumeSpace": true,
+          "errors": [],
+          "failed": [],
+          "outside": [],
+          "browser": "154.0.8037.57",
+          "screenshots": 1
+        },
+        "assetsAndDataFilesUnchanged": 1125,
+        "bytesAndMtimesUnchanged": true
+      },
+      "broaderInherited": {
+        "audioCommit": "9a09e48d3df1b2d1edd652e1fb195f735d742b82",
+        "audioCertificate": {
+          "path": "docs/reference/input-audio-activation-verification.json",
+          "bytes": 16089,
+          "sha256": "c27d4e1cfb0c5f8f6750634f26922e77bfaca1f936df73ceda37081951c3491a"
+        },
+        "renderCertificate": {
+          "path": "docs/reference/gromp-ray-raw-color-verification.json",
+          "bytes": 52259,
+          "sha256": "f2edf7710308cf8b5b4c3b91d5c08f39ec01134f804313ca4c9680d05d864f8a"
+        },
+        "fullUnitRun": {
+          "passed": 3191,
+          "failed": 2,
+          "total": 3193,
+          "files": 396
+        },
+        "baselineFailuresUnchanged": 2,
+        "productionRecordings": 32,
+        "productionScreenshots": 8,
+        "privatePreloads": 0
+      }
+    },
+    "freshApplicationChecks": false,
+    "nativeExecuted": false,
+    "nativeShaderExecuted": false,
+    "applicationBehaviorChanged": false
+  },
+  "sources": [
+    {
+      "path": "tools/assets/native_gromp_emitter_routes.py",
+      "bytes": 15019,
+      "sha256": "5824e8884fb18007fcd9bd11c54473023f8c20e935b75767e6b3512dbde35a55"
+    },
+    {
+      "path": "tools/assets/test-native-gromp-emitter-routes.py",
+      "bytes": 7045,
+      "sha256": "730380894c5bc7b5257e9e2137a67924f931edb3619d33cb668fa67c0c0d51f5"
+    },
+    {
+      "path": "docs/reference/native-gromp-emitter-routes.json",
+      "bytes": 25229,
+      "sha256": "8e268d02303addefa4c70b311215329d4ef1782eac4ae12378a54039dd6eff3c"
+    },
+    {
+      "path": "docs/NATIVE-GROMP-EMITTER-ROUTES.md",
+      "bytes": 3234,
+      "sha256": "2b1be059a60b25a6e4b64c31957759a8e772d4444a7cf5ae37a8c0c5bbe41348"
+    },
+    {
+      "path": "docs/NATIVE-PARTICLE-QUEUE-ROUTES.md",
+      "bytes": 4319,
+      "sha256": "149006b0aafa2de8fadf3973d773450aea64b80d9bf8a6ee45471dbb2720ff0b"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/gromp-emitter-route-audit/0x1016302dc.txt",
+      "bytes": 1452,
+      "sha256": "f122e0510c0cffe1ed4b59030d25a12b09b316917ae548710102cec211b535fd"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/0x1016aa608.txt",
+      "bytes": 662,
+      "sha256": "2f81887f14667c0e0f28be55d1d83501d7cfc40cd4d473bccf20e98671d8920c"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/0x101899a28.txt",
+      "bytes": 22999,
+      "sha256": "d7ed8bfed4ef33ac5d8df2010b6476d632b45fb03f7434dd6db04a423e10c563"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/accepted-inputs.json",
+      "bytes": 626,
+      "sha256": "f0b3d605b5e36eebc786b6cd660539a6390da02276260e4500bf91ac587f345f"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/accepted-source/docs/NATIVE-GROMP-EMITTER-ROUTES.md",
+      "bytes": 3234,
+      "sha256": "2b1be059a60b25a6e4b64c31957759a8e772d4444a7cf5ae37a8c0c5bbe41348"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/accepted-source/docs/NATIVE-PARTICLE-QUEUE-ROUTES.md",
+      "bytes": 4319,
+      "sha256": "149006b0aafa2de8fadf3973d773450aea64b80d9bf8a6ee45471dbb2720ff0b"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/accepted-source/docs/reference/hud-tab-navigation-verification.json",
+      "bytes": 12240,
+      "sha256": "81d85aafed529746e58a690ff0e69e84bb945e99f86992b0f9e20d267167dd9a"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/accepted-source/docs/reference/native-gromp-emitter-routes.json",
+      "bytes": 25229,
+      "sha256": "8e268d02303addefa4c70b311215329d4ef1782eac4ae12378a54039dd6eff3c"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/accepted-source/tools/assets/native_gromp_emitter_routes.py",
+      "bytes": 15019,
+      "sha256": "5824e8884fb18007fcd9bd11c54473023f8c20e935b75767e6b3512dbde35a55"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/accepted-source/tools/assets/test-native-gromp-emitter-routes.py",
+      "bytes": 7045,
+      "sha256": "730380894c5bc7b5257e9e2137a67924f931edb3619d33cb668fa67c0c0d51f5"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/check-normal.log",
+      "bytes": 126,
+      "sha256": "fe1958778318595ecb5e543877ba73b9aac4fbfad903a6b586b04b45e766cded"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/check-optimized.log",
+      "bytes": 126,
+      "sha256": "fe1958778318595ecb5e543877ba73b9aac4fbfad903a6b586b04b45e766cded"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/check-output-policy.py",
+      "bytes": 1155,
+      "sha256": "4ef22b3019ae7078c274374710b6567fa6345c17679faab7bbe8997cd11b8f5c"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/conflict-normal.json",
+      "bytes": 27,
+      "sha256": "024552894a93f87d18f0a60b55b7351ef27056b552018951db963a83a636daa4"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/conflict-normal.log",
+      "bytes": 610,
+      "sha256": "e69895acb185621ca52bc613f0e295687e192e3bf72d87c75bd213b96d19265c"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/conflict-optimized.json",
+      "bytes": 27,
+      "sha256": "024552894a93f87d18f0a60b55b7351ef27056b552018951db963a83a636daa4"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/conflict-optimized.log",
+      "bytes": 613,
+      "sha256": "33576c68f876ed5b9154389922912ede727121a10f0f37bd3f127330d8431850"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/create.log",
+      "bytes": 126,
+      "sha256": "fe1958778318595ecb5e543877ba73b9aac4fbfad903a6b586b04b45e766cded"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/final-checks.sh",
+      "bytes": 590,
+      "sha256": "9cb3efb54afe0ee7acab0f20bbc336ce86744c08eb82d2b294245eb4079d4248"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/guards-normal.log",
+      "bytes": 116,
+      "sha256": "d401eb1a95a24c8525c4aa66461f331666e257b218c483d0da9c5e7f5f7c3eb8"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/guards-optimized.log",
+      "bytes": 116,
+      "sha256": "47d296166e59aae888d4b4f7fe437a24176c3fd733a25fdece1ce86390fb606c"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/missing-normal.log",
+      "bytes": 505,
+      "sha256": "428ec2a86312206e48a245e0e9c6c78d43ba1c5f0236795814d9c6e91581dd4a"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/missing-optimized.log",
+      "bytes": 508,
+      "sha256": "9fd7fec24711bcccc65a933b82adfd238aa6d38efa211dac6e01a142884b520d"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/output-policy.json",
+      "bytes": 254,
+      "sha256": "4f29992e471d66df24f5c872dd01ee68403ef4dd2872106d03b9c2f3ebbbbf76"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/prepare.log",
+      "bytes": 54,
+      "sha256": "6feb0deaa02733ae033d71a523872ef0b0e614fbd703cc4b5ed204ad16b7b0d2"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/prepare.py",
+      "bytes": 2102,
+      "sha256": "3dee2e0373d4662c91c2acd37529edf998550323ddfd680f369e7e471064f2e2"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/read-string-wrapper.py",
+      "bytes": 629,
+      "sha256": "ad2851b386df04e3f0cfa4b85e89a6dff04e7b39791440c56861fc792b41cd24"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/read.log",
+      "bytes": 327,
+      "sha256": "b1d01458779d9111ef1e48f90f36d3da5a547a3d8c4bc132989af44d5ba43738"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/read.py",
+      "bytes": 641,
+      "sha256": "4be5c00369de01364d8e01e9d525040ac58900db4a25bb1303d05c4dc0401380"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/replay-normal.log",
+      "bytes": 126,
+      "sha256": "fe1958778318595ecb5e543877ba73b9aac4fbfad903a6b586b04b45e766cded"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/replay-optimized.log",
+      "bytes": 126,
+      "sha256": "fe1958778318595ecb5e543877ba73b9aac4fbfad903a6b586b04b45e766cded"
+    },
+    {
+      "path": ".cache/gromp-emitter-route-audit/string-wrapper.log",
+      "bytes": 165,
+      "sha256": "fbbd15e7a1f30974cbeb8c94caa9989e2a6743ad35cc42717a7f0aff2a929c49"
+    },
+    {
+      "path": ".cache/gromp-emitter-routes-output-policy.log",
+      "bytes": 216,
+      "sha256": "10301f5eb0f6a6b8d37df2b01c19280603b9f5e0fe59e9e2ba26a79e583214f8"
+    }
+  ],
+  "limits": [
+    "Static checked loader/source branch, not live native loading or drawing.",
+    "Alternate construction/mutation, live admission and final material/layout binding remain unobserved.",
+    "Flash orientation, plane/mesh packing and full native appearance remain separate.",
+    "The two baseline unit failures remain retained in inherited application acceptance."
+  ]
+}

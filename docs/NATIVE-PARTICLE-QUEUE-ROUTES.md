@@ -61,3 +61,9 @@ calls and job vptr/slot. Inherited packet checks remain active. Outputs use the
 existing immutable writer: conflicts reject, check mode creates nothing, and
 identical replays preserve timestamps. The [verification record](reference/native-particle-queue-routes-verification.json)
 records fresh static checks separately from inherited application acceptance.
+
+The subsequent [Gromp source audit](NATIVE-GROMP-EMITTER-ROUTES.md) applies this
+lineage to its original Troy group declarations: one explicit Simple flash and
+seven default Complex groups. Three Complex CameraQuad profiles are distinguished
+from that flash, two Rays, the plane and the mesh. The queue witness remains
+unchanged; the audit supplies a separate source-specific conditional connection.
