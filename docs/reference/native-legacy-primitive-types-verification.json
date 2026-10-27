@@ -1,0 +1,408 @@
+{
+  "format": 1,
+  "parentCommit": "519e4bc5fd343948dfe605ed5727e515430d0ae4",
+  "scope": "Static legacy p-type reader/caller,13-byte primitive switch and type2 allocation/vtable link to the checked current Ray builder. Identify texture key/fallback argument literals. No game behavior or resource conversion.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "offlinePack": {
+      "id": "91a9ffd24b729350a6d41c3705dd385abefa642314881f37988440833c124308",
+      "files": 1202,
+      "bytes": 538088016
+    }
+  },
+  "applicationFingerprintUnchanged": true,
+  "productionPackUnchanged": true,
+  "verification": {
+    "newNativeFunctions": 2,
+    "selectedInstructions": 43,
+    "switchBytes": 13,
+    "literalStrings": 4,
+    "newGuardsPerMode": 15,
+    "normalOptimizedReplayCommands": 6,
+    "outputsWithUnchangedBytesAndMtimes": 552,
+    "acceptedAssetDataFilesUnchanged": 543,
+    "offlineObservationBlocksNetworkAndChildProcesses": true,
+    "legacyGrompRayProfiles": 2,
+    "nativeExecuted": false,
+    "nativeShaderExecuted": false,
+    "applicationBehaviorChanged": false,
+    "fullGameChecksRerun": false
+  },
+  "rayLink": {
+    "legacyPType": 2,
+    "kind": 2,
+    "objectBytes": 24,
+    "vptr": "0x102482228",
+    "virtualSlotOffset": 40,
+    "virtualSlotAddress": "0x102482250",
+    "vertexBuilder": "0x1018d9178"
+  },
+  "sourceRays": [
+    {
+      "profileIndex": 5,
+      "name": "pop",
+      "sourceRecord": "data/particles/sru_gromp_death_pop.troybin",
+      "sourceSection": "pop",
+      "sourceIndex": 5,
+      "pType": 2
+    },
+    {
+      "profileIndex": 7,
+      "name": "popshards",
+      "sourceRecord": "data/particles/sru_gromp_death_pop.troybin",
+      "sourceSection": "popshards",
+      "sourceIndex": 7,
+      "pType": 2
+    }
+  ],
+  "inheritedApplicationVerification": {
+    "record": "docs/reference/remaining-ray-packets-verification.json",
+    "sha256": "325e8debd5c31056a2e98a7cb9dc366f3239b63a408856f2dde7b232fa00cde5",
+    "verification": {
+      "newUnitCases": 4,
+      "focusedCases": 65,
+      "fullUnitRun": {
+        "passed": 3103,
+        "failed": 2,
+        "total": 3105,
+        "files": 393
+      },
+      "remainingBaselineFailures": 2,
+      "originalWaveDeadlineUnchanged": true,
+      "nodeQaPassed": 6,
+      "nativeNormalOptimizedChecks": 4,
+      "newNativeWitnessFunctions": 0,
+      "packetBrowserCases": 12,
+      "successfulDistinctGameAndDefaultBrowserCases": 23,
+      "newPacketPixelCases": 420,
+      "nonemptyNewPixelCases": 420,
+      "changedChannelBytes": 0,
+      "priorFloatCounterfactualChangedChannelBytes": [
+        1604,
+        7806,
+        19767,
+        119604,
+        140414
+      ],
+      "earlierSolarPixelCases": 252,
+      "earlierMeditatePixelCases": 168,
+      "earlierPrimaryPacketPixelCases": 84,
+      "earlierPrimaryShapePixelCases": 84,
+      "WSourceFamiliesWithPixels": 26,
+      "samplerCalls": 11403,
+      "nonRayStatesUnchanged": 116590,
+      "rayStates": 111272,
+      "rawSourceColorsExact": true,
+      "allOtherRayFieldsExact": true,
+      "finiteWriterColors": 100256,
+      "CReferencePacketWords": 401024,
+      "doubleOnlyPremultiplicationCounterexamples": 8,
+      "neighborSentinelsExact": true,
+      "borrowedSourceArraysFrozen": true,
+      "assetsAndDataFilesUnchanged": 543,
+      "bytesAndMtimesUnchanged": true,
+      "productionRecordings": 32,
+      "freshProductionScreenshots": 8,
+      "privatePreloads": 0,
+      "legacyGrompBytePolicyChanged": false,
+      "nativeExecuted": false,
+      "nativeShaderExecuted": false
+    }
+  },
+  "limits": [
+    "Static factory/caller/table/vtable linkage, not native execution or proof of actual live Gromp loader/shader selection.",
+    "Native legacy defaults, fallback texture contents, sampler state, prepared-color producers and exact UV dispatch require further evidence before a complete native composition claim.",
+    "The existing local Gromp curves, color policy and byte streams are unchanged by this witness.",
+    "Historical LLVM/source archives are not replaced or certified by fresh bounded byte checks.",
+    "This source-only checkpoint inherits the accepted application certificate:3103/3105 tests with the same two baseline failures,12packet browser cases,23distinct game/default-material cases and32production recordings/8freshshots/0unintended privatepreloads. No new full-suite or game-performance rerun."
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/NATIVE-LEGACY-PRIMITIVE-TYPES.md",
+      "bytes": 3083,
+      "sha256": "85bc093a551dba49c5f5ad793eb3b4522ef3c15d8cdc9e6d62cbf017ec07620d"
+    },
+    {
+      "path": "docs/NATIVE-RAY-PACKET.md",
+      "bytes": 5819,
+      "sha256": "454f1872ab2707f49962b246483afc23c9c68cea79ed69aa90a326c12f72e37e"
+    },
+    {
+      "path": "docs/reference/native-legacy-primitive-types.json",
+      "bytes": 31070,
+      "sha256": "2e56236915d08ec883f89de2848a0571dc2085081b837d75e5a412ef8cdfda61"
+    },
+    {
+      "path": "tools/assets/native_legacy_primitive_types.py",
+      "bytes": 9043,
+      "sha256": "d5c9ff0145877fa0bd884dac38fdd9e2e166b3ac5a2d285690d170686408cab0"
+    },
+    {
+      "path": "tools/assets/test-native-legacy-primitive-types.py",
+      "bytes": 4736,
+      "sha256": "9329955cc4c37eb13b9e09f5e12115e66807da8a5ee07a65ac71eaf8f4278dac"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "docs/reference/native-constructor-witness.json",
+      "bytes": 19538,
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": "docs/reference/native-emitter-scalar-defaults.json",
+      "bytes": 18429,
+      "sha256": "a6c381afaed4c5a680276794d8fa613d988d710eca0683ed8ee91cde494de6cf"
+    },
+    {
+      "path": "docs/reference/native-atlas-runtime.json",
+      "bytes": 42714,
+      "sha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6"
+    },
+    {
+      "path": "docs/reference/native-ray-packet.json",
+      "bytes": 16794,
+      "sha256": "ab9b825f1108ed1e44124ee5f9821753eb73352cbf8738a8eebbb884c892b4ec"
+    },
+    {
+      "path": "docs/reference/native-particle-vertex-format.json",
+      "bytes": 23773,
+      "sha256": "2c45b6fb42a5eea59daa453e96af9f5d49a2afa38a1a84dafaf3be2b8919e1f6"
+    },
+    {
+      "path": "docs/reference/gromp-effects.json",
+      "bytes": 238111,
+      "sha256": "3cb54cd774fbfd66cc52846bb8775d17ab0adb473a570600e274e5f2ae0a1033"
+    },
+    {
+      "path": "src/content/gromp-death.json",
+      "bytes": 35018,
+      "sha256": "683823f0f8c647e973690508f474b9c1e54adf98543b01ba1322fdbd9fdc6bc0"
+    },
+    {
+      "path": "tools/assets/native_constructor_witness.py",
+      "bytes": 12648,
+      "sha256": "5ed4f943e123a3cb9bebfdea394bd8b5551d6b1ac010e7913eb9a245a7234e14"
+    },
+    {
+      "path": "tools/assets/native_ray_packet.py",
+      "bytes": 9600,
+      "sha256": "189751276e69be1244e308592aeb36aae6aee89c72deb23efb0e325417d6de1f"
+    },
+    {
+      "path": "tools/assets/native_atlas_runtime.py",
+      "bytes": 15844,
+      "sha256": "fa9d512eb7d883fda1c99944f3f3a4c374c452fcaa95e17d01758d80769371a5"
+    },
+    {
+      "path": "tools/assets/verify-leona-native-particle-bindings.py",
+      "bytes": 13221,
+      "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+    },
+    {
+      "path": "src/render/gromp-death.ts",
+      "bytes": 11942,
+      "sha256": "818c37f067d52dbf8d062064760dfc70d08d2a6ab17a278f5211889efd1bb135"
+    },
+    {
+      "path": "src/render/particle-ray-color.ts",
+      "bytes": 1146,
+      "sha256": "c4a613aa82be38fa0110275015bc93a806835f2da8d4bc3b4b7f9d62793fa1c5"
+    },
+    {
+      "path": "docs/reference/remaining-ray-packets-verification.json",
+      "bytes": 75872,
+      "sha256": "325e8debd5c31056a2e98a7cb9dc366f3239b63a408856f2dde7b232fa00cde5"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/native-legacy-primitive-types/final-source/docs/NATIVE-LEGACY-PRIMITIVE-TYPES.md",
+      "bytes": 3083,
+      "sha256": "85bc093a551dba49c5f5ad793eb3b4522ef3c15d8cdc9e6d62cbf017ec07620d"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/final-source/docs/NATIVE-RAY-PACKET.md",
+      "bytes": 5819,
+      "sha256": "454f1872ab2707f49962b246483afc23c9c68cea79ed69aa90a326c12f72e37e"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/final-source/docs/reference/gromp-effects.json",
+      "bytes": 238111,
+      "sha256": "3cb54cd774fbfd66cc52846bb8775d17ab0adb473a570600e274e5f2ae0a1033"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/final-source/docs/reference/native-atlas-runtime.json",
+      "bytes": 42714,
+      "sha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/final-source/docs/reference/native-constructor-witness.json",
+      "bytes": 19538,
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/final-source/docs/reference/native-emitter-scalar-defaults.json",
+      "bytes": 18429,
+      "sha256": "a6c381afaed4c5a680276794d8fa613d988d710eca0683ed8ee91cde494de6cf"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/final-source/docs/reference/native-legacy-primitive-types.json",
+      "bytes": 31070,
+      "sha256": "2e56236915d08ec883f89de2848a0571dc2085081b837d75e5a412ef8cdfda61"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/final-source/docs/reference/native-particle-vertex-format.json",
+      "bytes": 23773,
+      "sha256": "2c45b6fb42a5eea59daa453e96af9f5d49a2afa38a1a84dafaf3be2b8919e1f6"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/final-source/docs/reference/native-ray-packet.json",
+      "bytes": 16794,
+      "sha256": "ab9b825f1108ed1e44124ee5f9821753eb73352cbf8738a8eebbb884c892b4ec"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/final-source/docs/reference/remaining-ray-packets-verification.json",
+      "bytes": 75872,
+      "sha256": "325e8debd5c31056a2e98a7cb9dc366f3239b63a408856f2dde7b232fa00cde5"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/final-source/src/content/gromp-death.json",
+      "bytes": 35018,
+      "sha256": "683823f0f8c647e973690508f474b9c1e54adf98543b01ba1322fdbd9fdc6bc0"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/final-source/src/render/gromp-death.ts",
+      "bytes": 11942,
+      "sha256": "818c37f067d52dbf8d062064760dfc70d08d2a6ab17a278f5211889efd1bb135"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/final-source/src/render/particle-ray-color.ts",
+      "bytes": 1146,
+      "sha256": "c4a613aa82be38fa0110275015bc93a806835f2da8d4bc3b4b7f9d62793fa1c5"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/final-source/tools/assets/native_atlas_runtime.py",
+      "bytes": 15844,
+      "sha256": "fa9d512eb7d883fda1c99944f3f3a4c374c452fcaa95e17d01758d80769371a5"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/final-source/tools/assets/native_constructor_witness.py",
+      "bytes": 12648,
+      "sha256": "5ed4f943e123a3cb9bebfdea394bd8b5551d6b1ac010e7913eb9a245a7234e14"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/final-source/tools/assets/native_legacy_primitive_types.py",
+      "bytes": 9043,
+      "sha256": "d5c9ff0145877fa0bd884dac38fdd9e2e166b3ac5a2d285690d170686408cab0"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/final-source/tools/assets/native_ray_packet.py",
+      "bytes": 9600,
+      "sha256": "189751276e69be1244e308592aeb36aae6aee89c72deb23efb0e325417d6de1f"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/final-source/tools/assets/test-native-legacy-primitive-types.py",
+      "bytes": 4736,
+      "sha256": "9329955cc4c37eb13b9e09f5e12115e66807da8a5ee07a65ac71eaf8f4278dac"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/final-source/tools/assets/verify-leona-native-particle-bindings.py",
+      "bytes": 13221,
+      "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/native-legacy-primitive-types/archive-checkpoint.py",
+      "bytes": 4907,
+      "sha256": "7e72d15988416cb83b2597fcce82846f11c228bf47a3cfefa39d9855f8692aa8"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/build-candidate.py",
+      "bytes": 8202,
+      "sha256": "dadd3ba1c5e5e9408518739982b23a3a60a97d5b57905e5540de122d86a7c994"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/candidate.json",
+      "bytes": 31070,
+      "sha256": "2e56236915d08ec883f89de2848a0571dc2085081b837d75e5a412ef8cdfda61"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/candidate.log",
+      "bytes": 242,
+      "sha256": "1938895f8f58c699f37418e27365009a7db93d609e2e7a1f50b20f3f73874bb0"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/check-normal.log",
+      "bytes": 242,
+      "sha256": "1938895f8f58c699f37418e27365009a7db93d609e2e7a1f50b20f3f73874bb0"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/check-optimized.log",
+      "bytes": 242,
+      "sha256": "1938895f8f58c699f37418e27365009a7db93d609e2e7a1f50b20f3f73874bb0"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/final-guards-normal.log",
+      "bytes": 115,
+      "sha256": "8d82390a4297d6e82288577d43425a376901d9517c10711649d123407c4c995e"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/final-guards-optimized.log",
+      "bytes": 115,
+      "sha256": "74fed15faee10f003c9a29e19382bfd84abd5344f61df9ad497c41f8f0cf97f2"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/first-final-write.log",
+      "bytes": 242,
+      "sha256": "1938895f8f58c699f37418e27365009a7db93d609e2e7a1f50b20f3f73874bb0"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/guards-normal.log",
+      "bytes": 115,
+      "sha256": "43b109de930389907c901558631a2d16384ec27a4b11d9a5a5a3909b148f7ef5"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/guards-optimized.log",
+      "bytes": 115,
+      "sha256": "0a45795b9c1045d6725f923befe4a2204cbe8ed0197bd05d3347a9274d444f3e"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/native_legacy_primitive_types.py",
+      "bytes": 9043,
+      "sha256": "d5c9ff0145877fa0bd884dac38fdd9e2e166b3ac5a2d285690d170686408cab0"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/replay-normal.log",
+      "bytes": 242,
+      "sha256": "1938895f8f58c699f37418e27365009a7db93d609e2e7a1f50b20f3f73874bb0"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/replay-optimized.log",
+      "bytes": 242,
+      "sha256": "1938895f8f58c699f37418e27365009a7db93d609e2e7a1f50b20f3f73874bb0"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/replay-verification.json",
+      "bytes": 232213,
+      "sha256": "657a2885443dacb6f40a47739fe55f21d83b9c16910f1e2d500d4abbb6431555"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/replay.log",
+      "bytes": 84,
+      "sha256": "e25a0166759d0d93fb354f97b6144b43ed2f6b1d4044a44274e19b049415ecee"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/replay.py",
+      "bytes": 2394,
+      "sha256": "96d1ba26babcf813cbf71d4d8b102def1838bfa8ef01cef6af565fd058647ec4"
+    },
+    {
+      "path": ".cache/native-legacy-primitive-types/test-candidate.py",
+      "bytes": 4861,
+      "sha256": "19fb6043821f81b3f9470c7de52245b02f1684c5062d14d7d5dd59c6fd6a2975"
+    }
+  ]
+}

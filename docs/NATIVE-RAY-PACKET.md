@@ -98,3 +98,7 @@ The [modern ray coverage increment](REMAINING-RAY-PACKETS.md) applies this byte
 format to the two Leona W rays and Garen's critical AA, Q impact and R kill ray.
 It preserves their raw source curves and verifies the new owned streams against
 independent C-derived words, material GPU probes and real game flows.
+
+The [legacy primitive conversion witness](NATIVE-LEGACY-PRIMITIVE-TYPES.md)
+links Troy `p-type=2` through the checked switch/factory to the same Ray vtable
+and builder. Legacy texture defaults and live Gromp dispatch remain separate.
