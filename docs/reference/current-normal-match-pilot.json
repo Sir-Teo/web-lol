@@ -1,0 +1,4095 @@
+{
+  "format": 1,
+  "scope": "Five selected normal-rules regression matches from zero, with QA-only automated human carry. No runtime/rule/asset change.",
+  "sourceCommit": "dbf6c6ef33fd833c9364936cfdc23e9eb29be4e4",
+  "ruleset": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+  "schema": 163,
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "offlinePack": {
+      "id": "fc95b432cfc873f92b1fb31130b974c3b37a878edd07058a5df81a9352a045fd",
+      "files": 1202,
+      "bytes": 538091468
+    }
+  },
+  "seeds": [
+    8,
+    38,
+    42,
+    54,
+    63
+  ],
+  "roster": "six Ashe/four Lux; five roles per team",
+  "qaAutomatedHumanCarry": true,
+  "horizonTicks": 216000,
+  "verification": {
+    "independentlyVerified": true,
+    "victories": 5,
+    "unfinished": 0,
+    "failures": 0,
+    "checkedTicks": 867943,
+    "roundTrips": 243,
+    "futureChecks": 238,
+    "futureCheckedTicks": 14280,
+    "sourceSnapshotFiles": 539,
+    "hundredSeedGate": false,
+    "roadmapMilestone4Complete": false
+  },
+  "runtime": {
+    "node": "v24.19.0",
+    "v8": "13.6.233.17-node.51",
+    "platform": "linux",
+    "arch": "x64",
+    "cpu": "INTEL(R) XEON(R) PLATINUM 8573C"
+  },
+  "plan": {
+    "path": ".cache/match-cohort/current-normal-pilot-20261027/plan.json",
+    "bytes": 93427,
+    "sha256": "20206637b1b4d41e23627a111501e6f504ae578793d189e5cd97997b93309b70"
+  },
+  "summary": {
+    "path": ".cache/match-cohort/current-normal-pilot-20261027/summary.json",
+    "bytes": 1443673,
+    "sha256": "164fc718b74cb1630a9418e48603b06efac07b0f16e87d064a6da621561c2883"
+  },
+  "runner": {
+    "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/runner/match-seed.js",
+    "bytes": 1151056,
+    "sha256": "87e9e238b05f9bbd4337fad5b856282126445f389ff7cabbfc07b55210ca72cd"
+  },
+  "maps": [
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/maps/rift-nav.bin",
+      "bytes": 1925772,
+      "sha256": "b46933464275e15fe6790a8169a77c63524a8d34fa7f4977614898e997da0edf"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/maps/rift-nav.json",
+      "bytes": 1645,
+      "sha256": "d7a0a29c0300056e035b46f3e19f049a8c564da2783ac94f34a6e0cdabfde6ec"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/maps/rift-layout.json",
+      "bytes": 39399,
+      "sha256": "40258299911730959e5dd05340541fce293e20ae46b5fef2e8bf0a2aa4d7d4f9"
+    }
+  ],
+  "sourceSnapshots": [
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/docs/reference/leona-e-particles.json",
+      "bytes": 177177,
+      "sha256": "613560569d82f27abdf362a7065ad4645abb1637fbe55f8790e6d8769eb65f83"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/docs/reference/leona-q-particles-decoded.json",
+      "bytes": 10199,
+      "sha256": "b1e7cc877bd7d39594e90d1018ffb82e849912b5b854691975d8d7a8b084452d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/docs/reference/leona-r-particles.json",
+      "bytes": 266001,
+      "sha256": "7fd43bb68c5d93e04ae4db7a0ef64d2fb83424ae9752d0f162b99a1ccfade38e"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/docs/reference/leona-sunlight-particles-decoded.json",
+      "bytes": 7383,
+      "sha256": "9598b1eef872634d38903b5e593343a130c8a95c322bd72ae2818be902d85baf"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/docs/reference/leona-w-particle-profiles.json",
+      "bytes": 22658,
+      "sha256": "952eb3c6d7194d429ef75bd768c22857949c4b0fbf064ef55be62af1e33fce23"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/docs/reference/leona-w-particles-decoded.json",
+      "bytes": 80927,
+      "sha256": "325082384d32fc6bd03fca8d234ff08dc7a27c63a6b8424f06e054021532c9ee"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/package.json",
+      "bytes": 1147,
+      "sha256": "12108b696b046919346d6c157339b37b20ff57c3b3c2448949af3d8a98d8b2b6"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/alphaslice_mesh.png",
+      "bytes": 16102,
+      "sha256": "63161cce3aaf827c67523ac35ed92b2981012662e0c8194c1dc5da6e65435679"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/aura_self.png",
+      "bytes": 639,
+      "sha256": "6586873635ca5d1e0025240b616b6be2dd05d64bcf57506f4640ed8876f085eb"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/base_brightspark_11.png",
+      "bytes": 553,
+      "sha256": "5f4d8c2ef2c35b1cae5acf5d0f566652605c33ddedb50c8ac390ce67cb37affb"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_ash.png",
+      "bytes": 6336,
+      "sha256": "c65854848441f980cfa859bbba0e283f9399a4d22f8d30951f6bd57a64c5ddf0"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_blastring.png",
+      "bytes": 6718,
+      "sha256": "7f0ae23cbe6f32489c28c98c76992d16b63efa505fedb863c0721f32a89bbc57"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_flare_1.png",
+      "bytes": 12753,
+      "sha256": "344c61ae3f459be214cfa722973de5ca4a7c5ed4ab77c34616b027af64125cb9"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_flicker_04.png",
+      "bytes": 13032,
+      "sha256": "0821de3a7d30b27d74caae1dc82cd4db4e09ff5186e47d394ed29f9833adc6bc"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_glow5.png",
+      "bytes": 7321,
+      "sha256": "4210ad7d951fb0524e122450c9cd1ac7d858d9ea33022617926aca64307c65f4"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_mult_windblast.png",
+      "bytes": 2431,
+      "sha256": "1681314837c12bf069a804f9bd4d8487fae777d76d34de776abacb21951726c7"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_q_color-alphabend32.png",
+      "bytes": 1459,
+      "sha256": "79f2935b48a92ded3a7a505a76ead563f5322013cfd75765cfe2c990f03060f9"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_q_dust.png",
+      "bytes": 48380,
+      "sha256": "7cdabba6cd0f4000334ccf1b462c3d15b66b6e49624c8c5b9e9d6a3227c57507"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_q_flash_2.png",
+      "bytes": 3973,
+      "sha256": "c9a0e556bbb0d5e1074f4a1ce1069a90b642749dbc8a53726664afa30bf0fe29"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_q_stardust.png",
+      "bytes": 1697,
+      "sha256": "c8cdd0082e838ed152378fd604acb7eccf377b8af41abc60429810e4ffb59e3f"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_q_stun_groundsigil.png",
+      "bytes": 48222,
+      "sha256": "f823c6b977edf851885c18a8e1f5fc2be83cf8f9ff611ec9f4e17e8088a0193e"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_r_buf_mult.png",
+      "bytes": 60579,
+      "sha256": "64574bed6fc991c6beb34baf796c7da374948207cca097a8ba75e372640a1b8c"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_sun_flare.png",
+      "bytes": 67693,
+      "sha256": "d76adcab8895a8350d03c47b990a968ae7462b1e36e3dc3b0a10bb4748721626"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_w_avatarmask.png",
+      "bytes": 3109,
+      "sha256": "87324f0a5104ac820c5a523950aed4a68c218bb98287b1ee2b235642389893d9"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_w_avatarmask_erosion.png",
+      "bytes": 11087,
+      "sha256": "d3d3e60beee7e0636a8e5c9662788606824f817bf348af1f0fc7879d9ba5a43d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_w_circle_normal.png",
+      "bytes": 4386,
+      "sha256": "507b8eeec244976b3d55993992d88110c0e7ccbaa3bf84fdc19f19cb1b7f8350"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_w_decalbase.png",
+      "bytes": 18810,
+      "sha256": "c64a16335ba270f910dee31e98abe2cd432ec4b618b691fca7db5a3a72cdc15d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_w_glow.png",
+      "bytes": 43920,
+      "sha256": "32ab6aa54f4d3c14543a8cb2e185e33c2984172ea007dc5fc66efa225591ff6d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_w_mask02.png",
+      "bytes": 3373,
+      "sha256": "a90b0944966ce39ab1855de08e743fbe462edbf38799fa7f0b114f81b81ce81d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_w_praxis.png",
+      "bytes": 13191,
+      "sha256": "683ae0520d2f70591992ef420f7bf0355ad0ea41b0d3f460874dff5a6b4f3b67"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_w_praxiswaves_ruined.png",
+      "bytes": 18361,
+      "sha256": "dfdcc7bdb796249af4bf9f6a76a5094e38a31daaf50fe4de8abbc5bc16522930"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_w_rainbowray.png",
+      "bytes": 13747,
+      "sha256": "be91ebc7138f61c206d0b41b26123179f385d1c85a49191f73e97d9dc7c702da"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_w_rainbowray01.png",
+      "bytes": 330,
+      "sha256": "87284c8cae0b935d5359b3424d4f7954ca699b072a4c36750d7e2b3979be8979"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_wisps2.png",
+      "bytes": 34921,
+      "sha256": "f0c867cd9bdaa2e84ba1affc120bf8ad2f6fa3f03159e911de56a6c1e788a1e6"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_color-bellcurve.png",
+      "bytes": 402,
+      "sha256": "39846c14d90228cf20b8972a3aabc1f8eae3ecd470b904507bd18ba657345c41"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_color-bellramp.png",
+      "bytes": 2357,
+      "sha256": "de124c056b7e9b37930b02770a4d026c93502c16a247682e5df3f17ab2546795"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_color-brandblaze.png",
+      "bytes": 3630,
+      "sha256": "745c64bd2be86afc41df45bad03b33c5391eed15e55b6680f2daa8fde94018dc"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_color-eyefade.png",
+      "bytes": 267,
+      "sha256": "160f95195967eba462fbd3026483397aa63240d341488c9b651dbe2428ec89b3"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_color-rampdown.png",
+      "bytes": 277,
+      "sha256": "5adfa52eb02d5a3dd8e86e2b7eb8d8c9f418170e1809cb76b798f3bcb92001fe"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_color-rampdown32.png",
+      "bytes": 232,
+      "sha256": "29fced3875029e5f28c51c727c73f4dedeb7d807d6ac27a0196740bb0cd03383"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_color-solar-corona-reverse.png",
+      "bytes": 432,
+      "sha256": "e3622e73bc602dbbafb764255d772019ba8e0c5a26b2b859c02eac0c00e534fc"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_color-solar-corona.png",
+      "bytes": 612,
+      "sha256": "9aff3e1affbd0bd70bb0d406db553f793d2f4a74a99fdaa341d2d98122942241"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_color-wildcard.png",
+      "bytes": 244,
+      "sha256": "359367dcc90f6b1bf5374d2b85fffaf2365e80673981d7636fc3b5350818c858"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_color_passive_rampdown.png",
+      "bytes": 354,
+      "sha256": "629927a0a1148730a2b8b294d0418886867baa3d2f43949fc9e80e83e8ec825f"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_color_rampdown.png",
+      "bytes": 306,
+      "sha256": "08ed79201e5e22b085c70fde11727fa66f576407a2092e6ba129f717eff46317"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_eclipse-bead.png",
+      "bytes": 8640,
+      "sha256": "f444b2c3a84d266ce4252d0ba7475ea3d3246978511cc3efe683ff61468e971a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_exploshaft-yellow.png",
+      "bytes": 30022,
+      "sha256": "623ba5b1d009ce5fed7a635eea4816ae60c018a3ffa27137aed3c3ba8abc312a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_flare-fire.png",
+      "bytes": 33579,
+      "sha256": "83b0bb90a6007aebfd1878c2049aaaf219d089c977da612d4a7564efcd41b485"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_flare_streak.png",
+      "bytes": 89128,
+      "sha256": "a64a9352f5d9a860b909577b1ed2ef136b5d3c3b423eabf0f7ba23c147750b69"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_gradient_01.png",
+      "bytes": 1090,
+      "sha256": "e4128ddc3bc8b49a269893c7a2fb02ebdbbb089f000c6ecbe99ae76509587ffa"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_lens-halo-sun.png",
+      "bytes": 162695,
+      "sha256": "c061eeaae62093bbe15e39e358fbc5bf64b70f8428b583bde378cdf67e9037fb"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_passive_flares_02.png",
+      "bytes": 72078,
+      "sha256": "0610ed37a981c1027970cb5c39e4dfe92546c2fb6c3f47868b837863327a95bd"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_passive_flicker.png",
+      "bytes": 2389,
+      "sha256": "539336b93bacf7d1206f307f984c9a2e6ccebd928a87b837b9c129c697fee4b4"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_passive_rays.png",
+      "bytes": 25676,
+      "sha256": "7a817e8ffdb510e98c8e39c35fcab6c6a728688a60aee85dca700a4392efac0f"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_passive_ringflare.png",
+      "bytes": 110297,
+      "sha256": "5041346cbe1f742c79890b7302ee26bca3b3d46cba7b7b5cfa743341edf01e03"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_pinwheel.png",
+      "bytes": 7071,
+      "sha256": "8d89e7392b31edf84f11ee06b827207e80537fc054014fe4af31c193e88a1615"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_ring_gold_04.png",
+      "bytes": 45709,
+      "sha256": "f787a66abbdec2703870381a80b5011e883af52d9db4191902175ab0785b405e"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_shadow_step_12.png",
+      "bytes": 10383,
+      "sha256": "0dc5f83f3ab81cd229d1e2ad1adffb92a4949e4ee13283a9aaddcb5d47ec41f3"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_shockwavesolar.png",
+      "bytes": 23518,
+      "sha256": "0fc90ae4aabbdc1bfc9c021e950228676fe05e7df058fd726896128d28d056e6"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_solar-corona.png",
+      "bytes": 83928,
+      "sha256": "9838bec2efd0a3bbc4a8685d002e2c6f72398572dc201169c7b934b25d14b91a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_solar-wave3.png",
+      "bytes": 48804,
+      "sha256": "dcc307a6bbb2ac700f5c5d7b0f1588d838dda6613a75138d149a92cdec5b8b94"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_solar_tag.png",
+      "bytes": 79884,
+      "sha256": "f872ff7845d70fa6f17481666c8c33be026c41f5363d57a1c9c130324c722299"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_sowflash.png",
+      "bytes": 6202,
+      "sha256": "43b153d0ad96acea7b5944362e53ee3836a0972b9cab3ed3dce1d114c5cce84f"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_base_z_sundisc32.png",
+      "bytes": 51998,
+      "sha256": "b2357854b91571b11ad5d5f5e00e35a94cd89437628c527dd4ba321144d9f54e"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/leona_w_tar_tornado_burstwind_erosion_v01.png",
+      "bytes": 35441,
+      "sha256": "6db7efa78efd7829c711c819854d25d94e9a6d9996b305652b90bea4aa2c38f8"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/lux_skin07_w_distort_rgba_2.png",
+      "bytes": 1690,
+      "sha256": "03a46aa9763b722bc95a939cd8f53b5d5f07c9837f6fc7195f7f05886b37142e"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/effects/tft_crack_noise_mult.png",
+      "bytes": 81215,
+      "sha256": "d2095e28f110b51b35291116c6100c7ea26c7562b8437015f705cdf260e00ac5"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/maps/rift-layout.json",
+      "bytes": 39399,
+      "sha256": "40258299911730959e5dd05340541fce293e20ae46b5fef2e8bf0a2aa4d7d4f9"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/maps/rift-nav.bin",
+      "bytes": 1925772,
+      "sha256": "b46933464275e15fe6790a8169a77c63524a8d34fa7f4977614898e997da0edf"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/maps/rift-nav.json",
+      "bytes": 1645,
+      "sha256": "d7a0a29c0300056e035b46f3e19f049a8c564da2783ac94f34a6e0cdabfde6ec"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/models/ahri-base.glb",
+      "bytes": 19854544,
+      "sha256": "587c1741a908e23874a87d069505e0e233d4f88c22a828c9d7edda195328e202"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/models/ahri-base.json",
+      "bytes": 25427,
+      "sha256": "c6a42818e2b02c8e4f4e2db7a313beb439521934d083e4262b79210bef27eca4"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/models/leona-base.glb",
+      "bytes": 6253628,
+      "sha256": "5b845c3ba98ca15fdf61bb3eb549d54b858709c051c3c03f1cb26f76c890e5a9"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/models/leona-base.json",
+      "bytes": 13194,
+      "sha256": "e3a64ec2fe9d8a9e450050aa2e708079d62ea30e467d274b3c400ce45c45e7f4"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/models/leona-e-sword-normals.bin",
+      "bytes": 23328,
+      "sha256": "d6606d78c5c5c1a6a4f25cf8b14e8abfeff4bf4921d91aa65048a589b6732158"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/models/leona-w-contact-cone.glb",
+      "bytes": 39796,
+      "sha256": "f715e1c03ee469b883fb2f96577628f4bedefd0fa92e524f059cda43b02996bb"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/models/leona-w-contact-cone.json",
+      "bytes": 1611,
+      "sha256": "e9dfad47db4012f961982222821bbc9385928402d5777a164e8bd097842c653a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/models/leona-w-praxis.glb",
+      "bytes": 21224,
+      "sha256": "4c5561954ed4eb151de007f580c4cfcc415eacfd65bde58a25a46b514d5f719a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/models/leona-w-praxis.json",
+      "bytes": 1623,
+      "sha256": "e2c0a141f47f3edca19f69fa1352855aab62f2bf6e07f3e8bdf92c71cafead99"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/models/leona-w-shockwave.glb",
+      "bytes": 126124,
+      "sha256": "eae4eadf19bac15f9454789842604ff004f5bc196d21075d076344b0fc41f46c"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/models/leona-w-shockwave.json",
+      "bytes": 1464,
+      "sha256": "11420365d96cbcdad09a8cf25254dfadacdc16e1c84ca3044311f722b88b494d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/models/leona-w-smoke-01.glb",
+      "bytes": 79600,
+      "sha256": "e7d4ea231fed41317d09d66f74c3ba5d4b0ab4aa78fb7f009c5eb8a919f36808"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/models/leona-w-smoke-01.json",
+      "bytes": 1579,
+      "sha256": "cf4167d9e3839075a093eaabe2d780b8848416813cfe38bdecdb32e9aa811bd7"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/models/leona-w-smoke-02.glb",
+      "bytes": 71016,
+      "sha256": "065e14e3de5292d5e719c82ca6db20bba6c61525b5f1ca9b45be2d37517fb06c"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/models/leona-w-smoke-02.json",
+      "bytes": 1617,
+      "sha256": "31a17f1afa7bde1dfdef1cf43fc2e27dedac1f543bb9952c890204f6aa671701"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/models/leona-w-solar-flare.glb",
+      "bytes": 4836,
+      "sha256": "207228fb6480ae9e9c200e9be0420b62e235c575f4e8df66fe573ac69dc498f9"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/models/leona-w-solar-flare.json",
+      "bytes": 1512,
+      "sha256": "7d424ff1ad45c666be98ca32aee24dd23e2dbe61cb87af03b3b84a5b7692c495"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/models/masteryi-base.glb",
+      "bytes": 6487088,
+      "sha256": "7aae9e8e486c34d780113349c4a4d06830a5498a906ff291a49263090da471cc"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/public/assets/models/masteryi-base.json",
+      "bytes": 26307,
+      "sha256": "673903cc7a42a98a419a47100f1b5fdfd2f2159920473919f072fe4771339941"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/audio/float-source-wav.ts",
+      "bytes": 3165,
+      "sha256": "2f64559d375e46177e1ac7d96206173a1ffa8f74a75a32c795f6adf194b60fb1"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/audio/leona-aa-state.ts",
+      "bytes": 5717,
+      "sha256": "bfcda8dc192c98fc18000e8021f93168425408b3d163f7f66b00751662c5d428"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/audio/leona-death-state.ts",
+      "bytes": 2098,
+      "sha256": "162d46d6058ac7f37bb2c8492231b152c3e8151051a14b2ea992d5d056fd8214"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/audio/leona-e-state.ts",
+      "bytes": 5195,
+      "sha256": "c7c32b751f1883582e07546df2b549672a1bda87821a49abb72a251152894cb0"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/audio/leona-q-state.ts",
+      "bytes": 4565,
+      "sha256": "a56ab5b1d61bd5749ff7222e12b355006a7cdbe5738e6f51785d6938ba4b00a9"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/audio/leona-r-state.ts",
+      "bytes": 2809,
+      "sha256": "e0e4785195d5746a5bb03448801f5d876338e1afd0337cd4da06010abde5f030"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/audio/leona-sunlight-state.ts",
+      "bytes": 2233,
+      "sha256": "19111a941ee6c1c78b4e5492141ca959fd881a4280c893828c05abe7a957a21b"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/audio/leona-w-state.ts",
+      "bytes": 3297,
+      "sha256": "6b02498b57a13d945b3a71bb6f6c993c5f8838eae6ad686f887cfa8dad7f2cd8"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/audio/masteryi-aa-state.ts",
+      "bytes": 2592,
+      "sha256": "3f1ea8c6272e6b31431b0c9f02a8b94e4c1284fb32a5d82651421447caa3d0fd"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/audio/masteryi-aa.ts",
+      "bytes": 5118,
+      "sha256": "cacafada1d0d6277aba09104aecb6a3c18bffbe71c8680b3d679e6ab61effe38"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/audio/masteryi-e-state.ts",
+      "bytes": 2213,
+      "sha256": "0d1199fd0951ad8c27468a96b4c83ec9fbd761d22d10a69649b11fd89c169017"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/audio/masteryi-e.ts",
+      "bytes": 5177,
+      "sha256": "26e59636d01716a7a92068a4a343963da96eef01e6036b1659ef1c7694a87a59"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/audio/masteryi-q-state.ts",
+      "bytes": 2884,
+      "sha256": "7f6e9d19f5d9c9f01641d514de3698b44bd5712e94627e9494caa523223a847f"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/audio/masteryi-q.ts",
+      "bytes": 5187,
+      "sha256": "466e8f611013d85b4e32a5f709e4bbda0a8c988bb70d10096df768ce4ac78153"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/audio/masteryi-w-state.ts",
+      "bytes": 1911,
+      "sha256": "0020d6462d48aaa4947a37d27b6a95832efb0919162644bb40bd7c1b4dd74216"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/audio/masteryi-w.ts",
+      "bytes": 5170,
+      "sha256": "6d0dd48dcb9e88c6c72b1a7981ad8413a8e2c9aadae8dee89a1aac8ffb322f7b"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/audio/wwise145-attenuation.ts",
+      "bytes": 1618,
+      "sha256": "27006c46bced5e66e6b8c3ba5b052b293b22d7f3965d5608086d406a14ca924c"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ahri-combat-policy.ts",
+      "bytes": 567,
+      "sha256": "cf49a673e3337fc56bc64254dfda9c7b3dd4192056626eb6064483ba3f0bd69b"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ahri-e-policy.ts",
+      "bytes": 456,
+      "sha256": "3365dbe1b811d4adad043f60d8b3da3432379b5437d14d5ac4cf103177120e0a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ahri-e.ts",
+      "bytes": 1456,
+      "sha256": "ea5c54a299db86c395bb96d1dff829be9f26dcf60e65c426dd479da1045c5e0e"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ahri-passive-policy.ts",
+      "bytes": 431,
+      "sha256": "7e71112ca121de610852f63a8d65624884492a37951400922e16d6ecbbe666db"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ahri-passive.ts",
+      "bytes": 935,
+      "sha256": "2b059b6c6ed8c3369c7d0cf044753082e776adbaf469c618432fac5e269445f7"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ahri-progression.ts",
+      "bytes": 877,
+      "sha256": "55908d29a2afbeca6927502b4ea5ffa5733c418f204a035cb7caa3e519b3af3b"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ahri-q-policy.ts",
+      "bytes": 571,
+      "sha256": "4fa5ebefa6fd6a5be9f3c73161ac7acb5ae3cd1ce3314f2267eec793cafe0dd4"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ahri-q.ts",
+      "bytes": 1472,
+      "sha256": "cd634f93c4cd638bdf8204ddb77a4bbbd03c198a966d17402e1f66eea7b011a2"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ahri-r-policy.ts",
+      "bytes": 462,
+      "sha256": "a9fb0d6deb6d23ea40d486169b18015c5d7a329c9c0705b6c28bb48815d27c8a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ahri-r.ts",
+      "bytes": 1341,
+      "sha256": "3b77ae394e9cf32f1d070f597635d8fafcf2a8ebfc326cbf8d77634d7b98e542"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ahri-w-policy.ts",
+      "bytes": 741,
+      "sha256": "b534ce0ea5db3215acfee94bd128330284271931bca97f47bfe7d9d411fe7816"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ahri-w.ts",
+      "bytes": 1461,
+      "sha256": "5112b98ddbec02093275cdb87d72cb0e40b7be61faeb87d377f16c3036e8e0be"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ambient-gold.ts",
+      "bytes": 209,
+      "sha256": "361910a3fb95c55fc868dd1da862f8ee39a62f8dd9679c7754a7e7250cf71d17"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ashe-arrow-glow.ts",
+      "bytes": 1695,
+      "sha256": "9fed28b4317667ee79bbd8bc554cea6c860a16a8010d972be7d1b493743352d6"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ashe-basic-arrow.ts",
+      "bytes": 151,
+      "sha256": "fbd8b2bf52eb126b848deb3bd6c250b272bac86d94169b764c9ab856889405ac"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ashe-casting.ts",
+      "bytes": 256,
+      "sha256": "834c872574cb42cdf62827f0db46c340d1c3fb64c0c17515b7a91f57abbff618"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ashe-e.ts",
+      "bytes": 367,
+      "sha256": "f79c57cf6e1e19b5fc520d359a1aa0fc286c9c9a14a8dd4b21a698f6bf87c0e7"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ashe-flurry-timing.ts",
+      "bytes": 124,
+      "sha256": "489d7ea27593a13742314fc04e1462d956ea3c8c744d18c839eaf6e8e33a6f1a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ashe-passive.ts",
+      "bytes": 230,
+      "sha256": "5211ff65b85bf774a09f378e3660ef48802dd62534189dd9df0ad7e2496eb6bf"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ashe-progression.ts",
+      "bytes": 705,
+      "sha256": "13e0d277da364b80c0f7bff56a16a47029b47fc63124d783677b7c7d04a11d8c"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ashe-projectiles.ts",
+      "bytes": 109,
+      "sha256": "195dbd403ad3e1a95118467d88cf0def7c0f92fa29759ec11c8bcabc70e32767"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ashe-q.ts",
+      "bytes": 628,
+      "sha256": "8809e02584cde92e7cf0200624ebdd0874eed740580b2e34d8cf183cde680d64"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ashe-r.ts",
+      "bytes": 517,
+      "sha256": "faae626a895f20a84f89b515c39f7e4cd874767a8688a65b38aff7a8962c86bf"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ashe-selection.ts",
+      "bytes": 171,
+      "sha256": "6fdf61de6790ee23c9342b9b2b05ba48dcda9a9f613ada101e0228bb0e7ff84e"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ashe-skill-recommendation.ts",
+      "bytes": 223,
+      "sha256": "eaf1b5b02088e8981a02423d4b3f472bfc8cbcc7a2e0cf024758f1f4d00e1329"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ashe-spell-ranks.ts",
+      "bytes": 895,
+      "sha256": "6d1c4a81674bc1d78150f76bafba2f5d321c8ab934c90dcb65178bb0beb80bb7"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/ashe-w.ts",
+      "bytes": 386,
+      "sha256": "2afc4d999c4fdc0aea27836f62393fa957245359f3e1486e821b8f8d9f6e5354"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/assist-window.ts",
+      "bytes": 132,
+      "sha256": "ec11754e1b5ab31be4070ed2f89100053b36b8a986f13ea22db219b97307b680"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/attack-sound-material.ts",
+      "bytes": 1117,
+      "sha256": "f19d67a78e7d3d543dd8db45ee6538ec67f236bef3a45fc5b653be1a54d1b2fe"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/attack-sound-materials.json",
+      "bytes": 804,
+      "sha256": "282f923e5ff3b0001c610cb321849b75f00c1c0085199e3a1d12dd42d2c5b05d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/blue-sentinel.json",
+      "bytes": 2444,
+      "sha256": "0e600a6c23f3e98c4e11122ddaadadcd3188820f47c29a32c7169c27e0c646f4"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/bot-roles.ts",
+      "bytes": 576,
+      "sha256": "47c13f1d7eb2a0c2a04ed48c6f788ceaba9441c5a42af9d6d4d59cb81c770abb"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/bot-team-policy.ts",
+      "bytes": 499,
+      "sha256": "50626bd3f7f0e6ece81b57761fbdf587640a1f066f2828d910f09b7787cab079"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/cast-animation.ts",
+      "bytes": 1595,
+      "sha256": "4b82765f89f9613968118e7e0f25bf7ee7f0d6766dbe705f2a0ed3170f4da115"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/champion-attack-sound-materials.json",
+      "bytes": 80,
+      "sha256": "321dbf7c814f4abc58374e49fd9b71a873ef38d41b231baa5e7383e6b2ce717d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/champion-clip-durations.json",
+      "bytes": 7539,
+      "sha256": "4036b163f9d6220a30ed3180b85a0978de7b09c949b9d39c5e4b22decc3e39f3"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/champion-death-times.ts",
+      "bytes": 610,
+      "sha256": "514c01971e680d09686f643fb986ffc91cc18158aababc7d9945dd5aed8f4004"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/champion-kill-gold.ts",
+      "bytes": 310,
+      "sha256": "a72ce5afd2e6ecfc404addb1b4e687a9d5c1ef703540bc02ce7af23bea2f2fb2"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/champion-kill-xp.ts",
+      "bytes": 685,
+      "sha256": "f9afa4219b81d18d8a3622c1ec455c77bfee232a531ccbe0b285d6e9fd472a20"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/champion-profiles.ts",
+      "bytes": 2386,
+      "sha256": "64c3104c946d82c115cd44192b247920b0544bade92a0504c1c6f04b9678b585"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/companion-items-policy.ts",
+      "bytes": 409,
+      "sha256": "8127ff50e08ec40778e2177ee0cb7516135383c03e4d44775fe6a69310dfa094"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/companion-items.ts",
+      "bytes": 1229,
+      "sha256": "5b8134f49a94417007232edcdd355ec2494ac9273796e7598376538e1add4028"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/companion-policy.ts",
+      "bytes": 2249,
+      "sha256": "da0ac7668f2270ffcfe0df06347c9e5d43b1c478fc8e147e99d21c576f5ce897"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/crest-of-cinders.ts",
+      "bytes": 800,
+      "sha256": "e8bb941e5d73c42715f12256e6d4a0b074def4377875e244f2b64af6bfc92977"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/crest-of-insight.ts",
+      "bytes": 520,
+      "sha256": "162d49b9739d04ef329f6d03f88d495be961f374583225fbdd46ebd3db74537c"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/critical-attacks.ts",
+      "bytes": 222,
+      "sha256": "e34fba1bf5cd0cedce465991fbad7a058107293348046ee2b8880d1e810ffbea"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/critical-items.ts",
+      "bytes": 766,
+      "sha256": "c33b73d0179c68153e03850ea0ab6c0d5f3debe831e855c91fbec973c5f2c841"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/execution-credit.ts",
+      "bytes": 189,
+      "sha256": "adb447901d1c058bc85f4f54fa382bceada30df036887fe70dbed199e778c1fb"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-aa-audio-timing.ts",
+      "bytes": 147,
+      "sha256": "dd3fe3c72560fb5d23d96007ae7804f51ad063a4e5d38d864253006c93d54793"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-aa-audio.ts",
+      "bytes": 40722,
+      "sha256": "5df590cec5a583f12e3dd034ebbd679afd9d18f3e79106c0e043155e2abd98bd"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-aa-particle-timing.ts",
+      "bytes": 707,
+      "sha256": "e272bf5374383935fe7661dd07deda0014ca9d0025e17c2fcdf654c85803663f"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-aa-particles.json",
+      "bytes": 56783,
+      "sha256": "4e6e49dd8cc0439f3871da5ea6a807f6740ea49ec2b8d08a29c5ef0f8ad66f1c"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-attack-animation.ts",
+      "bytes": 541,
+      "sha256": "25e59c27f6952e780ab4157107991b78924395a6bab8f9c40296bc841aace489"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-e-audio.ts",
+      "bytes": 8882,
+      "sha256": "e997d85a9d999b1d6818fcd4b62f575b46e68f10e25b1d922bbc0234228dd8dc"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-e.ts",
+      "bytes": 711,
+      "sha256": "78ff32e8ae15d8de973fe47e803cad14ed95144626edd5f365ae61ddb66f63c7"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-p-audio-timing.ts",
+      "bytes": 194,
+      "sha256": "09c32d3063451f9d8ec961b814e9b6f27a0e375033d6312063ad151431409112"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-p-audio.ts",
+      "bytes": 3483,
+      "sha256": "1cecac8cd2e261e3465ce48967ec362d0f1d7cb466b7e647143d6d4cf8612c7b"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-passive-particles.json",
+      "bytes": 3303,
+      "sha256": "7a1e9f2eea4c6278550317bcc810f8a6be10cd54e7db316a653f7144e5db8d25"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-passive-presentation.ts",
+      "bytes": 459,
+      "sha256": "bb93060e67a8bfc677a08ac47d1b20e41ef94272bb8729903dedd6d03ebcab5a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-passive.ts",
+      "bytes": 381,
+      "sha256": "d607e0a9ec258d144d226eb9674118af2b43c3bf6d8bf24d6a8a4ab3d0c8df4e"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-progression.ts",
+      "bytes": 799,
+      "sha256": "6e329d768a622eeb48589680686adf81860a1f46da0376ca7dcccd04c4bfa02c"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-q-audio-timing.ts",
+      "bytes": 173,
+      "sha256": "57a90b1d847ab707c2084803da5ee3e5e2846fb65996580c4f3dc4c0c09b2584"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-q-audio.ts",
+      "bytes": 9962,
+      "sha256": "b17d97abed067e79af4c19b41a39058f7eb246aaadf3f459c7787a053ecd9af3"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-q-presentation.ts",
+      "bytes": 443,
+      "sha256": "c6cf3e0d42c7662826e13624af5d179c48320bd00ac3c5c6f4d5cb833261b1bb"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-q.ts",
+      "bytes": 811,
+      "sha256": "82cd21f075d4259a7706ed2a8459febea7daee09bd1106ec8612a9e1701251a1"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-r-audio-timing.ts",
+      "bytes": 168,
+      "sha256": "6f8535b7c03389eb05a8cf665de2dc9a720844d67fe498c251e42ba8d8399682"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-r-audio.ts",
+      "bytes": 5597,
+      "sha256": "f57c98092687f513e2ac1525f807e163e588f8063c1c815a402f182ea372c621"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-r-policy.ts",
+      "bytes": 468,
+      "sha256": "b9b7e5804f03d9a6c8dded653a535206b452e665b39abb481f45c9e9902f3504"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-r-presentation.ts",
+      "bytes": 582,
+      "sha256": "a462dda5de188132d6c778e893dfc23d129369fbf69195fdd36aa50a214409ce"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-r.ts",
+      "bytes": 648,
+      "sha256": "6d6742456a37d104946c0dd10761c82573a588480d49b3d5df6e1ce37c64b9b6"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-w-audio-timing.ts",
+      "bytes": 183,
+      "sha256": "f458578b0e1a3976d3a6c71987be890e090096292781ea1165be41349740c646"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-w-audio.ts",
+      "bytes": 6452,
+      "sha256": "1d1a6a9e47e67fd499228e045515d66d41b60227f10bda5540550a0759d6d664"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-w-particle-timing.ts",
+      "bytes": 184,
+      "sha256": "f7aa75bfd8bf7ba6b8c0fb4e21b49cbb9c0ee17d2d9bdea985403140a6d8cefa"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-w-presentation.ts",
+      "bytes": 617,
+      "sha256": "cfb0f924156e31a4d503818ced9b1ae2e5a296f3e2fa452b3c5ea8954f793634"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/garen-w.ts",
+      "bytes": 739,
+      "sha256": "178d9f366cc08a21612443665e662ac8cdc9de2cc8b6ddb66a33fa6c5ecd6af2"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/gromp-attack-presentation.ts",
+      "bytes": 282,
+      "sha256": "171ba5f664bba586f9c14e79f248bbf3944f1964390609faec46f5f47e2f6679"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/gromp-attack.json",
+      "bytes": 16101,
+      "sha256": "6d42ccb6a3e2b60076abd9a5112ffc8f59def01271c3468f128c00141ee345a8"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/gromp-death-timing.ts",
+      "bytes": 164,
+      "sha256": "bec12acee17cd9527d61800d9335ef4b2c21ac8853e359dd17e8f547be740ad2"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/gromp-death.json",
+      "bytes": 35018,
+      "sha256": "683823f0f8c647e973690508f474b9c1e54adf98543b01ba1322fdbd9fdc6bc0"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/gromp.json",
+      "bytes": 1650,
+      "sha256": "222f7c42a5f6c01b3113952eae8e5fd2b7c49902c6e0285f914ecbc0283b3aad"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/gromp.ts",
+      "bytes": 903,
+      "sha256": "07d8e13c18e9a0480e96c91397949003fd8e1794e3b1edb03bc26652f89ac84e"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/hawkshot-arrival-audio.ts",
+      "bytes": 317,
+      "sha256": "3c2a4e90de495ae0eceb9d2d01296300efd03fa1d95c36d976cd7e12f83a8f82"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/hawkshot-arrival-glows.ts",
+      "bytes": 2290,
+      "sha256": "a7ed02df43e38db813e9b4c165095babf34a6d5dcf391f467ce1a5a31f915516"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/hawkshot-arrival.ts",
+      "bytes": 705,
+      "sha256": "b554fd39244e0a9f294db8f5868be14e632b1fe6055b58a69c267d3315986ccb"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/hawkshot-assist.ts",
+      "bytes": 208,
+      "sha256": "5ad8eb1de3786f96c34797db13fed88c1478d41ca4592f1ca7ab230131c5cbb1"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/hawkshot-attenuation.ts",
+      "bytes": 911,
+      "sha256": "0a9b8131f4945a94fbb7ad5143458f0ea6a028715213b1ae19f5858f226b77dd"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/hawkshot-cast-audio.ts",
+      "bytes": 729,
+      "sha256": "f1d3a03836c519c52d19cb7dea2d3bb8e913d30832e0031c3719d72b33e9a57d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/hawkshot-darkness.ts",
+      "bytes": 928,
+      "sha256": "ec9a686ec7c726dbe96a49ab98977c3a41fcff572d3116ae4c4f98a09ef47ff8"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/hawkshot-dust.ts",
+      "bytes": 724,
+      "sha256": "66edad43e55f5c436450d2c360b700df8efd5d20eb867fe0a6f18822fee14366"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/hawkshot-echo.ts",
+      "bytes": 373,
+      "sha256": "900146b5afd590a78c12f8edf9080af1d63692c7f62d8bf60cfcdee7103b748f"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/hawkshot-flight-audio.ts",
+      "bytes": 944,
+      "sha256": "30fa5918aba459830728cd06270f226f7e786d44aa759ee2ad7ae17b7e9a87c3"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/hawkshot-glow.ts",
+      "bytes": 957,
+      "sha256": "0aec98ff5c8c11fe3f8198e869be3594a13f10c355db6f070e4665ecfaea54af"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/hawkshot-linger-audio.ts",
+      "bytes": 373,
+      "sha256": "8f3d7a84e81f42e556c32fd96137e09bb06bf495ffed1528068a77b06698d64f"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/hawkshot-linger-aurora.ts",
+      "bytes": 745,
+      "sha256": "8042b88f7a5f3341bd0903f422f43c18b39ec22a1d20a8e0baa37383e379d9b8"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/hawkshot-linger-timing.ts",
+      "bytes": 517,
+      "sha256": "cb29432f2d9f1681a0cc39d7cd1d78b330ecb64d90be042d4b4c6e3fa1e27719"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/hawkshot-radial.ts",
+      "bytes": 797,
+      "sha256": "e41d4affd86d5888139925287911ebd66a5db10dab32450a2976324b515de878"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/hawkshot-smoke.ts",
+      "bytes": 696,
+      "sha256": "212536b2db854e66b1e4b402ebba0674859f274a326277bd8eb08ddbe826efc4"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/hawkshot-snow.ts",
+      "bytes": 2145,
+      "sha256": "c7fbc7954bab2506b3a8e6b6e79f9823be5f7c1784c992ee37e66149f400da7d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/hawkshot-sparkle.ts",
+      "bytes": 677,
+      "sha256": "fb2d3b95631292c473bfbaedc3e7946a2c75660355c908d33b4da50d4864f85a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/hawkshot-wind.ts",
+      "bytes": 1002,
+      "sha256": "594087a92c6f38b016f6bd382047b38d93c1500f1ba2ae9781c19c437947e9f3"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/impact-target.ts",
+      "bytes": 473,
+      "sha256": "a1f7762ca408f617245346308497de8c04316f1e7c46ae1ae05349699bc80783"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/krug-camps.json",
+      "bytes": 7765,
+      "sha256": "35e55accd59b01ffec1fde6fda8c467d011a3930fb9e0f220e8f98e352f6b59d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-aa-audio-timing.ts",
+      "bytes": 211,
+      "sha256": "ec7fbdda7d19bc7edf105aa27b87efcd28b60d8cb4fdaa392f9a85635a7ef508"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-aa-audio.ts",
+      "bytes": 45794,
+      "sha256": "88c557951bf77dca8e0e991fadebf53e862fb940de9f0da4ff3b42657cffa24a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-bot-policy.ts",
+      "bytes": 465,
+      "sha256": "6a4e695d652597fcd752a2c22a6af074c5099a1da4949a09965a4a84678d8591"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-combat-policy.ts",
+      "bytes": 1369,
+      "sha256": "8380d6c3b6fc9826c976d0415538a2c574710f77d2425fc99aa1d50e2aad3ac2"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-death-audio-timing.ts",
+      "bytes": 176,
+      "sha256": "174c6b5ce5c5393981868efc7fabf90d01a9fa2aaf40320056b523fa8497d62d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-death-audio.ts",
+      "bytes": 4694,
+      "sha256": "585e8c4c1d2353c7b25928b2615fde35fd3827ddf663b70814b4c18680191d59"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-e-audio.ts",
+      "bytes": 17742,
+      "sha256": "206715f1af40b0fa27e626a5f63cd09bb449c15637e027999e3253932ce28053"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-e-history-bounds.json",
+      "bytes": 6989,
+      "sha256": "8d6fcd266917b78dc18b238f427ca421d8c89f138a2aa9fe5ebfab43a7ea320d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-e-particles.json",
+      "bytes": 229574,
+      "sha256": "e193280f3236b5fc3652ca208278f491128045fa5e66c8acd1bcbf3e05e06ea2"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-e-sword-material.json",
+      "bytes": 1486,
+      "sha256": "1956a5fc840f162864563b4c795bccf8a0919ce8299ae3f36912d45cbf0d8634"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-e-sword-normals.json",
+      "bytes": 1431,
+      "sha256": "a1066ecb951fb7250094cf7025cca7c654ebdfefeb63c0d1c87396f8221b42f8"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-presentation.ts",
+      "bytes": 760,
+      "sha256": "f834ee2c9e557e6e95036f80ec35aeac1d8db7eac7e55005738fe54670e76b75"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-progression.ts",
+      "bytes": 791,
+      "sha256": "075c6933490c7eb5b665d877d748b82f14f4756d6dd84f6dd4b64df5f43df66c"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-q-audio-timing.ts",
+      "bytes": 270,
+      "sha256": "e73d66a5ed06d4fd02d7f1718d725969de6f45345ab2c891939a8e2d2c75aaa1"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-q-audio.ts",
+      "bytes": 12425,
+      "sha256": "c14d0d6adf8ae870b372579b52e94bdf5c165ccbd4f0f49ca5d6f8eb3ef5c645"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-q-particles.json",
+      "bytes": 50882,
+      "sha256": "671ed4f0137940fb2c99fd99023a236a4277eec0a26f7eb6ba7d74e0f502c40b"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-q-presentation.ts",
+      "bytes": 454,
+      "sha256": "deba1ec5398d1ebd9f294cb0ab128abe993bf171a81a7664c152ae555a032bfb"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-r-audio.ts",
+      "bytes": 8263,
+      "sha256": "fb5361c56fbc5a90c9e3a9a71f9743232c0465b5c7b44ffefd348b2be5131c3e"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-r-history-bounds.json",
+      "bytes": 14577,
+      "sha256": "71519148c0f02ebd0a37ff0364e081574d284d6cfc42f40bfa86d77622c00a6c"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-r-particles.json",
+      "bytes": 449969,
+      "sha256": "f9b646921579c813e4e1f79ecafe52c63cadbc8bf38892f2ea2e90e281e1c013"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-spells.ts",
+      "bytes": 2957,
+      "sha256": "17f54e5e8e48059ed37c87e4a016cc120831c3cba66f4963d8d863c6ef11d07c"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-sunlight-audio.ts",
+      "bytes": 6348,
+      "sha256": "3f8344990cde22d8530e1535152151f65ffc1d020ed2cdd50ef2f550fd4b1aef"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-sunlight-particles.json",
+      "bytes": 23631,
+      "sha256": "4c95b5c7939d73ec070a539296af1811ffe2a3db8a1a21c9280418e86b4c00ef"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-sunlight-presentation.ts",
+      "bytes": 698,
+      "sha256": "b0bd6c7ae89bfd970eb3b27ca83f43b76ad3fea64c352ab5937a3b8c8b501f9b"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-w-audio.ts",
+      "bytes": 11798,
+      "sha256": "0db2c81fee924bd6b79824f5be0362e8091eeed37630ced72167502ee03d9c76"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-w-particles.json",
+      "bytes": 381115,
+      "sha256": "a773927145276b35bd0c5dd530637f36f9a8021cc8dc04e15e52e1d60a031b73"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-w-presentation.json",
+      "bytes": 224,
+      "sha256": "97d832eb1f34ca026f3c3850cf999074af54a67f53c6a630d2822da927b6e7cc"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/leona-w-skin-fresnel.json",
+      "bytes": 603,
+      "sha256": "65898adbd59d63a8ced08aceffe98dfb2b0701e65606f47c576dbcb702680cbc"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-attack-animation.ts",
+      "bytes": 557,
+      "sha256": "d755f15abb76e49f5d4c66ca479aef5dbf9d097222c7b934a488d1f11e148ba1"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-attack-origin-2.json",
+      "bytes": 140473,
+      "sha256": "5380577b5dbe36e4e572ef1a0c20b8a73a142f1d3b4a56e17df0cd3154bab0d3"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-attack-origin.json",
+      "bytes": 181350,
+      "sha256": "40d053e462b2d034b49309ec1b518d7fcaf66ed9e697b61a6c9af99554d0be44"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-attack-origin.ts",
+      "bytes": 1133,
+      "sha256": "619973832edb10b9a2600901093f169c1dbd849ae6b48bae95fbb76adb72b87b"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-attack-presentation.ts",
+      "bytes": 654,
+      "sha256": "79908a8037d5e1369a9a493f5de0d0295b2846a6edd421424e496f98fb7c0cf0"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-basic-crescent.ts",
+      "bytes": 747,
+      "sha256": "6ba1e6e93a8ffd2750636ef412f4a3a9452834237f1291f8f392c522bcd2d361"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-basic-linger.ts",
+      "bytes": 1435,
+      "sha256": "9c5cb29d97602cebea987b31a7f1445fa1a5e4166b18e32abab80dae3316a0e4"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-basic-lookups.ts",
+      "bytes": 530,
+      "sha256": "0f17cc1588fb374b4a70d4d62bfdb3c4b846172cb0b596528ac1070dfca55ace"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-basic-trail.ts",
+      "bytes": 1782,
+      "sha256": "e6b5612fde83358c3b283b7cf569475d80c47113c59c8a761d5254bc734af9fc"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-beam-layers.ts",
+      "bytes": 33589,
+      "sha256": "17db2c0be52544644daaa574c28bd3dd45e0aa67cab011b741807b582ad0d15b"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-binding-attenuation.ts",
+      "bytes": 922,
+      "sha256": "ab3ac192b601874c961153569dc27ac58ad83827f60b396655e5084fbe88e589"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-binding-audio.ts",
+      "bytes": 15879,
+      "sha256": "9e64f46324acc5b4d0e3ca0b1adfd511a1761b939c631a9794391dbdd3c08668"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-binding-cast-audio.ts",
+      "bytes": 1752,
+      "sha256": "15bb84765e7157202427005b41277a1790e58a110798512c943be295b1caa114"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-binding-flight-audio.ts",
+      "bytes": 1396,
+      "sha256": "5a138a6fcb8757411f223c4b32364e8e4583f2a4f04fd2c2c026b854d523de35"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-binding-presentation.ts",
+      "bytes": 314,
+      "sha256": "58f0d354c6a6066824e332f90d2b02cc0df500e62906e86cc965c32ddfb53e15"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-binding-target-appearance.ts",
+      "bytes": 4373,
+      "sha256": "e5323c3bb99d98372418a164d691691be69edb95d459078cf763fc02153cf28b"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-binding-target-births.ts",
+      "bytes": 12462,
+      "sha256": "793cae6ff1ac6f02e95f83b0ad6dc22df5a41cb603a9b1b254a767667dca2daa"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-binding-target-lookups.ts",
+      "bytes": 2037,
+      "sha256": "926ae2bd52b8a7cb59ed05432d2a10938aaa5f17313f20e6234d7228646c9787"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-binding.ts",
+      "bytes": 419,
+      "sha256": "0557d8ff533203d385c13d0ecee83e7023708fbba2b29dae4358658d75670012"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-bot-policy.ts",
+      "bytes": 516,
+      "sha256": "d2c2c74c8eddfc39de907baf23cab4ac2a03dfd5f4560cc5b26bfc96c1150e98"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-e-audio-timing.ts",
+      "bytes": 175,
+      "sha256": "f6d36eb3b8ea9fe005923bb56f74af6d2bbdb26282aa141ccf3b554196d9035a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-e-audio.ts",
+      "bytes": 8904,
+      "sha256": "6396faf0c300cb0d4440c4af38f40e7801393b8baf7fee04f6d23cd15cbeb9e0"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-e-burst.json",
+      "bytes": 14010,
+      "sha256": "4fdbf90f6491ea6bef6dbb923e381bb1d9f85d69749075a079ea1ed9930dae7e"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-e-field.json",
+      "bytes": 129231,
+      "sha256": "4d1924a55ea7fb439afe972133bf8c6883aaba7483fea88af6b99d6fbed93931"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-e-hit.ts",
+      "bytes": 368,
+      "sha256": "7c0351a61f427bc8862635d1c7762f2b33eb4ad340c425b67c0bfae02af27516"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-e-particle-timing.ts",
+      "bytes": 171,
+      "sha256": "98afe6c1b4ef560f25d7996652efbb95582ed66a5da4fb985d38fddb82910202"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-e-particles.json",
+      "bytes": 95330,
+      "sha256": "7548169b92397920e6f3840d5aa5022e311cbd220a79f4554dbdd5d1361be773"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-e-policy.ts",
+      "bytes": 334,
+      "sha256": "6eab69aee0bfedbccebd9c1ba1f55c63caca4623dcd9933f5b54f2a32785f78a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-e.ts",
+      "bytes": 664,
+      "sha256": "74e7cad65a60590afcac1fcddf4bf0fa296fadc62bebc413e894c05dc91e7294"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-emission.ts",
+      "bytes": 693,
+      "sha256": "9199e12f2b0c8e012b3c8727f18ec3a708eda8510f98d562110306988c559c91"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-ground-charge.ts",
+      "bytes": 164,
+      "sha256": "52c4ea5c7404df7f60e4b523d0a36b5d8f573695a354afe7509532de0a11bc04"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-ground-layers.json",
+      "bytes": 50064,
+      "sha256": "ba3fff0333fbe113ecc6bb59bae24b8a892cb487a27d329571f496d3927963d5"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-ground-warnings.ts",
+      "bytes": 136,
+      "sha256": "63a5de65ca3c7a7b8bc102c8d91c15cf3d43b6028f3c048ecdb58c88df5bf373"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-hit-bones.json",
+      "bytes": 86,
+      "sha256": "4a2135d653f9c7dd503727fae31e54094c870fc1c523e66025f4f9d16135d110"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-illumination-attenuation.ts",
+      "bytes": 927,
+      "sha256": "628697f34bf2f8ca6b57ad70c1a8156bf41d2d61e279d8d74ca500edbf6bec87"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-illumination-audio.ts",
+      "bytes": 1395,
+      "sha256": "a60dc7179ea7865ed1e6c24468ea81bdfebf042aa60db1594cc5dc48b81940bf"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-illumination-presentation.ts",
+      "bytes": 205,
+      "sha256": "bf87a81e6be53faaab126f60631e80c4a960d4ce7e49a443421ff13ff8efc49b"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-illumination-trigger-vfx.ts",
+      "bytes": 14569,
+      "sha256": "2237f997be58f1a369ad7c75d0186602dfea9340dacb2ef7fdad665c5f60c9bc"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-illumination-vfx.ts",
+      "bytes": 5777,
+      "sha256": "9f1445fcdb4da8dfe1068ac57c970d0eb05df71dcef9807b893f6a7f899a78d1"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-illumination.ts",
+      "bytes": 352,
+      "sha256": "f5dce36c1bce90b015f553bc906889918e32accab81021e5f2fb783128bf80c4"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-impact-presentation.ts",
+      "bytes": 200,
+      "sha256": "8ab7dd5258dc4197e3ba5dc6f2248d7b89dae020c2af441239e79d054d7f0218"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-progression.ts",
+      "bytes": 598,
+      "sha256": "82c1727180aaa6b0667cbd567f0f8fed45cd28e84e8d13c139f9a3fbcb84ff71"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-r.ts",
+      "bytes": 720,
+      "sha256": "467818380998af78f12ab32f857be433130bae0eb935e54dda3a915403cb64b2"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-scorches.ts",
+      "bytes": 223,
+      "sha256": "2c69474daf8de5b01fc40de9a1c5f677817eada9501fc82d125b267fc1a3b483"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/lux-w.ts",
+      "bytes": 581,
+      "sha256": "bdb17accbfbe429ae897208180680717aeaaca2126dd09ebd953786894ad0d64"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/mage-items.ts",
+      "bytes": 2329,
+      "sha256": "b39910557a6c9a270dd1002cc876e40d5e4498e58140725ea82c5aaaf90ae2c8"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/map.ts",
+      "bytes": 948,
+      "sha256": "cb0f7521d960280b87652d040893256099d0ea1a8415787a9b4f44ba2fc0e461"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-aa-audio-timing.ts",
+      "bytes": 155,
+      "sha256": "81decb325d051849c0264c292beee0abcf8f88fd8d787b9490973605dbcfc50f"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-aa-audio.ts",
+      "bytes": 38116,
+      "sha256": "a5b3fd27c3178a47d8ccec9b5784cde298fb0d1eac14b0bf92b4ec0792779182"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-attack-selection.ts",
+      "bytes": 316,
+      "sha256": "06c6924140ddad3c2330afa8846bd160b517c739aa35db074a2b7993de972421"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-combat-policy.ts",
+      "bytes": 642,
+      "sha256": "0df61015a8ac4c151c7f106f5bdd5d73cac0d827451b3458692fa67cd202db96"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-e-audio-timing.ts",
+      "bytes": 201,
+      "sha256": "ff9248648c02ae7ccdc06174033a71b9757b8fe9aa21ff923a73de6132196a78"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-e-audio.ts",
+      "bytes": 5737,
+      "sha256": "0f807b0ed68defd0df18e26a9cf8cadf10eb7d46994a233225eedebb4ef456b2"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-e.ts",
+      "bytes": 852,
+      "sha256": "ee6cecc87b610779ed4b4713b6b80edb1b9ae3fd957e84e79ae1b37146acd0f1"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-passive-trail-particles.json",
+      "bytes": 22685,
+      "sha256": "6171ec50b6258a4169f86e673f1b5e30548c9df9edb4e1ea1b373cdc415cf399"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-passive-trail-timing.ts",
+      "bytes": 355,
+      "sha256": "46b38d233c9a0d7ed50bf52ee39b7227090b34be9b4937b670f0a067f311013a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-passive.ts",
+      "bytes": 680,
+      "sha256": "59be02c6ecce07872a696e8c18ca29f7ae2c2461d4aee88b86d20c223917fdc0"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-primary-hit-timing.ts",
+      "bytes": 132,
+      "sha256": "4c0a265af2d44b8569af462cc8ea04b18bdd484aceed9b1e696e165660b505be"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-primary-trail-particles.json",
+      "bytes": 32750,
+      "sha256": "9a9df65137a32744f901b6e8e310b3d5d3b1e3cf2101b7f6d01c14e0431e0b28"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-primary-trail-timing.ts",
+      "bytes": 469,
+      "sha256": "9e226f5d45ec40a6cca4695a1e57db21b1454d321c416ed9dea5ced42eea6771"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-progression.ts",
+      "bytes": 988,
+      "sha256": "be77b0b91c28a8222f10268646afa1851f71f5fd18c83387de92e43e931b0559"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-q-audio-timing.ts",
+      "bytes": 168,
+      "sha256": "571f9bc2b1b8ca23aa624b295eb9ce4090212af4d9fa855d07f88b9c3ff81a19"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-q-audio.ts",
+      "bytes": 6484,
+      "sha256": "4653d6995307834366c2fca8b72032d44016183c2b17e45171d34004038d3761"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-q-cast-particles.json",
+      "bytes": 24297,
+      "sha256": "5e547d2a47d826dbbbab1b75400bc0baab499b49a79c09a9bbc00b41793ba3d4"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-q-cast-timing.ts",
+      "bytes": 122,
+      "sha256": "7e8428c193014c4135e70caca1c5057928cb2ee6966503d56f51a1cc94a2206f"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-q-contact-particles.json",
+      "bytes": 38125,
+      "sha256": "ade04d77fe7d7900ac4300cb870192cec9ca2a63f4215e55cac5d63cba88cd57"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-q-contact-timing.ts",
+      "bytes": 284,
+      "sha256": "dd52c92af28ed2dcd82778aa602a6698734a6b616e7b6244799cbf7ba6b83264"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-q-end-particles.json",
+      "bytes": 26401,
+      "sha256": "9d61e11e9f71b54e2b0ec78336f5480b15958f088607731b8b328598f35f1fd6"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-q-end-timing.ts",
+      "bytes": 121,
+      "sha256": "024a977e5b18e4fdac6b375675db9e5f7f8aec011479ae1b94a16cad72c59412"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-q.ts",
+      "bytes": 1681,
+      "sha256": "63516549b036df5ec1fd7403531f8f6a46605720aff20c403a52120c87724190"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-r-audio-timing.ts",
+      "bytes": 161,
+      "sha256": "4bd93997f5fe227b544c7ec3fc5554b5adbd0c652722d6124598653966796e50"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-r-audio.ts",
+      "bytes": 2800,
+      "sha256": "8f8ba569a3a6711bf4748177156db028732a23e2a0779dde9cdde66b4ae7c68d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-r-cast-particles.json",
+      "bytes": 84355,
+      "sha256": "68d576314a51cec1efa258d2e8b7698bd41de8cd5def868ed3d728dd30d8fed1"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-r-cast-timing.ts",
+      "bytes": 137,
+      "sha256": "0127364f26686d0adf9b372e53a9609484b13f80132719b846ebc00429c5497d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-r-kill-particles.json",
+      "bytes": 33703,
+      "sha256": "d19c30cf7357cbebdd2b0a0981f5a819407799ac408798056d2bca7ea4f779c3"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-r-kill-timing.ts",
+      "bytes": 127,
+      "sha256": "c32b1041bdf677e0d94ec74fce5b16374a4c85dcd902b90b78195fe8ffd3b521"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-r.ts",
+      "bytes": 1125,
+      "sha256": "a6d01f4cacd06fac077264fe275917d7856e1973dc5f998363b4af7a94bf4162"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-sword-particles.json",
+      "bytes": 157588,
+      "sha256": "da8a6980294bcee470ff4ff07123e632ea9fe0136dc9ee43e887d4b7089b05b2"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-sword-timing.ts",
+      "bytes": 132,
+      "sha256": "d16f614e4489d5003db81bd97d2743b9298067f7bb31e30dd3e9b26557991e34"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-w-audio-timing.ts",
+      "bytes": 150,
+      "sha256": "ba0de60d50d4a831df52721959417efe3404e98a32fa931fbf1121d6ecbba99c"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-w-audio.ts",
+      "bytes": 3195,
+      "sha256": "8740a3a728fc63ac3c2a982fc0414c9b751871bfe2f07785cc909d6b94d4a6e7"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-w-buff-particles.json",
+      "bytes": 54673,
+      "sha256": "d27d0316b45e8a401efc34e277733d03ad0664524b08bdd12a214b80f82d64e2"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-w-buff-timing.ts",
+      "bytes": 165,
+      "sha256": "5fdc377d188abf0408eefadbd244ad3d5a7de4fd4bd6f2ba3b4195d16e650672"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-w-cast-particles.json",
+      "bytes": 82548,
+      "sha256": "4816b254781e5768add9b3cf64b40f4b35c45b9144c9945c7c8b175cc001d7d9"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-w-cast-timing.ts",
+      "bytes": 123,
+      "sha256": "2ffdf3a6905f905153a65d2328e82ce5807d13dfc8832098352cc88984b4b886"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-w-damage-particles.json",
+      "bytes": 23786,
+      "sha256": "e187ff2d0aaf06504e5eac57daf7ce88771b27eab81855e32bbd167fe54abd86"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-w-damage-timing.ts",
+      "bytes": 127,
+      "sha256": "4ce8808bdc091ae6adb15f9f486cc861d6021fbd98f15292d7039545861eb1ab"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/masteryi-w.ts",
+      "bytes": 1756,
+      "sha256": "a3a8156d187b7b71e17fc6c409388d42e03ddc151d9b6d3df5aeb646eda37e6c"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/minion-xp-sharing.ts",
+      "bytes": 180,
+      "sha256": "bc0afa5bd0663bbd21ba4b7c2ac674d522e049bb3864b4cba382ff045e3afcda"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/mobile-clip-durations.json",
+      "bytes": 8933,
+      "sha256": "f35df9c105eba79f2189e154ed8c85076a9b7bc8c4e6392a21aca3fb181aa4bc"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/mobile-clip-durations.ts",
+      "bytes": 2333,
+      "sha256": "d3fc65492416e27ea2f5972923029bb20c88e07b9403cd2bade8a4784adb99c6"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/monsters.ts",
+      "bytes": 5310,
+      "sha256": "0a936e4b0f1d0ed4776874466d57a95dcac4d7ab6c7be7f18b8e6489010a2b7d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/omnivamp.ts",
+      "bytes": 250,
+      "sha256": "4e5cde6b9d61de4f8af83e06ea356efd1d7a77d49c7376bfa1b5444a0a769f68"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/oracle-audio-timing.ts",
+      "bytes": 176,
+      "sha256": "4eea12e4051bb6845e6229e5bdd71edbebf43bb1d4bd28846736a7c256b3098c"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/oracle-audio.ts",
+      "bytes": 3455,
+      "sha256": "839d6ebdfc0c49a5a7581279d652a1cc75ca94a37417f2d22be058333e23cca3"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/oracle-lens.json",
+      "bytes": 1276,
+      "sha256": "b41e8c03d04ef82cbb25f9b3971443288e2e8114c86f437ba2a8a4f91f4e757b"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/oracle-presentation.json",
+      "bytes": 273,
+      "sha256": "0d2c22034f940616ad198c4a5db7c0bb1e199b1b583d25dc3c76821681252425"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/oracle-presentation.ts",
+      "bytes": 1467,
+      "sha256": "d06493b2324e5eb810950b8cee0747c5619d6480321e2a3aa07bad1df384fb85"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/owned-companions.json",
+      "bytes": 10205,
+      "sha256": "fa2abd2d104dd1bccfa8de1c5fe1d228b83ec1279d39c6aa907752acceacd2e7"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/practice-fixture.ts",
+      "bytes": 1414,
+      "sha256": "9abed808e847448645056784f15ed5f636fc4328fb0c7989ca2203836cbda125"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/raptor-camps.json",
+      "bytes": 8136,
+      "sha256": "3f971e73a3fbd617e1f3f317c4173f544767174d820616ba0cbe39d16e203b52"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/red-brambleback.json",
+      "bytes": 2453,
+      "sha256": "6d177684631dee4ce2427c0c103e52c0ca58f3e89edc55d4b11d9487f6da3f80"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/rift-camps.ts",
+      "bytes": 5140,
+      "sha256": "b6234f2fb3ba9950f810e636cb6ea59c92e0000724366df241ad673a34cf4026"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/rift-gromp-camps.json",
+      "bytes": 1308,
+      "sha256": "738d9dafa56067b0c55420de726a59714eadfbe1a47cb848841a3052a367255c"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/rift-gromp-camps.ts",
+      "bytes": 422,
+      "sha256": "85a5948f8859d02d94351931611809a0c6d3d4cb83b593a4bb4df5f59e84f585"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/rift.ts",
+      "bytes": 5340,
+      "sha256": "fd384bc0884f6bf04b5ad103a92f9549d2292b340fb16ec61f5bb3bea3e131d7"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/rules.ts",
+      "bytes": 7187,
+      "sha256": "5720c49e3955ea0f74dc6eae6ccc7fe45d092a78d23b14bc71e9b125dd111e3b"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/scuttler-policy.ts",
+      "bytes": 1136,
+      "sha256": "66ed9ca9335af1c619c59e6b5442feea1a2586cad76bb71923e39f749da1d5e3"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/scuttler.json",
+      "bytes": 8442,
+      "sha256": "c812bae87a35b4ac6973b91dff7c79af2a3b593cdd57fa1612d71ab2a92f7f8b"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/structure-animation-profiles.json",
+      "bytes": 2259,
+      "sha256": "f49bd98063955bb6b1b054ae9e2e6ba454f87072b0ae72db301ca9dfac8a3bc1"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/structure-animation.ts",
+      "bytes": 695,
+      "sha256": "7f251ea57d1e45fbc3f06fde8cc32e70cde4b40ced2d9c1880b9fd84e6e4b826"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/summoner-heal.ts",
+      "bytes": 439,
+      "sha256": "c4c9e8aa0026aca07a9454373bea0a7f506432c9d6ee0d945ae9a7d19479fe5d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/summoner-smite.ts",
+      "bytes": 1575,
+      "sha256": "ddde1f291c0441ca8eddc7589ed52c44acc4beafb774b9c461cc3e4783369bc5"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/summoners.ts",
+      "bytes": 1071,
+      "sha256": "df04755d632a7e488d6f4b318be3f80fdf9a10543e17bc132105c79feacdf4fb"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/trinkets.ts",
+      "bytes": 1455,
+      "sha256": "15450f96bfcd36a34d30f1097ceed1900635318a4c9588d342bf132788a451c9"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/warding-totem.json",
+      "bytes": 971,
+      "sha256": "7e7c8b4cff54025658179035aa1735fb6581981a6a16ac51b4a0ed7e955928f4"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/warding-totem.ts",
+      "bytes": 1167,
+      "sha256": "55b9f1f43315925b4b7a9be1b943218c1dfc323dc5d7256c6c9f35c34aa93f0a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/content/wolf-camps.json",
+      "bytes": 5774,
+      "sha256": "0c4dc129e6229f8029cde48b153baa908a0055c7181b3055ca64d09c2b55aa44"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/animation-bounds.ts",
+      "bytes": 8787,
+      "sha256": "211730cb4372e828f4bfc45cde179d49a34cf74fcfda10e2ff5c4ba003320daa"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/authored-mip-texture-cache.ts",
+      "bytes": 2227,
+      "sha256": "38eb289ed0a373e57cd4bc1654f43273e1794b94067c37fca23bfce5244a728d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/authored-mip-texture.ts",
+      "bytes": 4222,
+      "sha256": "f6ad2fae689f245f680501b1212b117bde33a57dc789a8eae6fdc9658fbfe0f1"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/authored-static-geometry.ts",
+      "bytes": 3055,
+      "sha256": "fa8bf0ba8eeecf1ad6d0c8012430d29b5f879aa41fd1f695b1e4e36e92049e59"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/constant-bone-tracks.ts",
+      "bytes": 2119,
+      "sha256": "7fb7bf0af2f25cf09ccea23868645f796d603cf1c10db4d5fbd91c7d56ca3c59"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/finite-trail-particles.ts",
+      "bytes": 3804,
+      "sha256": "4b98058b8b4389ded53c27126f59f776cf02f831b592d12d50ebc53b92bc2455"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/ground-display-list.ts",
+      "bytes": 2804,
+      "sha256": "ea838316ced01160ea3ad1c98c5aad5fd739f38bf4a826d6c607b901772fb34c"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/ground-quad.ts",
+      "bytes": 4818,
+      "sha256": "c72e6bee1df38e7e3d0abb998f387b4c9f80966922ad8e807fb593e578bcc3b8"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/ground-walkability-mask.ts",
+      "bytes": 1421,
+      "sha256": "59739f16fc311f1f713bb4b3380f08d0654817fe8f691a45d995b730e048d073"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/impact-attachments.ts",
+      "bytes": 3561,
+      "sha256": "a41fe4661fcaed53a697c59c8fc674989cb171be5f1b7d3792f9f9d9b54ad9df"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/leona-eclipse-particles.ts",
+      "bytes": 6613,
+      "sha256": "3ec2c363c74d3749429db046e3a5e6e70a62dcbde96be79c085687f54ab39669"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/leona-eclipse-skin-material.ts",
+      "bytes": 5643,
+      "sha256": "7d270981e6445be5bbd5ff7395a97a388e1e4d52c50c222d07ea391a809c8905"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/leona-eclipse-surface-material.ts",
+      "bytes": 9476,
+      "sha256": "d2c49d481baa708a10eeb7f1af2a0d6b99c529d1c8017bf72475a8e3d3e72a86"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/leona-eclipse-values.ts",
+      "bytes": 2618,
+      "sha256": "5bb3491afd3dffb4409fdc37e65c1bf6350e889149b8dd58ddd08ddb472e1d22"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/leona-solar-frame.ts",
+      "bytes": 1452,
+      "sha256": "796a54089e1486d4d31e30e86198f6ea80629081d47ed6ada889d98d3b4bb331"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/leona-solar-history.ts",
+      "bytes": 3133,
+      "sha256": "5d303956d6fa20a41115246c4d48e3c33d6ee1673c37ceced0060b70cf7802f0"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/leona-solar-particles.ts",
+      "bytes": 9608,
+      "sha256": "6e1b7d1282ce8ade4b879f9d1a31fe9cc355a4518cf03a0d6e85c7fb5b35f35f"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/leona-solar-projection-assets.ts",
+      "bytes": 1538,
+      "sha256": "e224a482d69a023ebd3431bfdf9e42bb92ee628c415792dcdeee700dec5a882e"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/leona-solar-projection-frame.ts",
+      "bytes": 1759,
+      "sha256": "5025347c5ae14076a5475927a233b47b8a0a3040da1fbf9027131e91394ebd9a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/leona-solar-projections.ts",
+      "bytes": 6439,
+      "sha256": "8f9d73383804197a05ad8ec23e40856a1938a3d1046a0dd1826d4b388df99f98"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/leona-solar-surface-assets.ts",
+      "bytes": 3247,
+      "sha256": "18948f4088708478ce81725888cd636424d1022110e2fedc598867652be5c7c0"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/leona-solar-surface-profiles.ts",
+      "bytes": 586,
+      "sha256": "8427408e6e0c29d8b929738edf4c7b1ffff7d6a002f7afab7e9d6edabeee50a8"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/leona-solar-surfaces.ts",
+      "bytes": 3198,
+      "sha256": "590d6e8ed8f9c9479aec01952d9954a7f4ab16aa8eb96d2b5bf3e4f258bd593a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/leona-zenith-history.ts",
+      "bytes": 5266,
+      "sha256": "9175200433c81dffa5080a347b711fefdcebd132d05bcd5d879c89c3b9b6a881"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/leona-zenith-particles.ts",
+      "bytes": 7552,
+      "sha256": "8576f3b3c93dc5343ed0c1680c22470ea38b461a61abbc72d458b896540d3b8c"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/leona-zenith-surface-assets.ts",
+      "bytes": 3679,
+      "sha256": "9d81723c13693dec8445cd9b2527b3dbe4d9cbfd3081ad38717fd912114d98ec"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/leona-zenith-surface-profiles.ts",
+      "bytes": 446,
+      "sha256": "ff7020f1714e5dc7bf8fee6959093fa2daca872af00bced7a54d5c3fd55ab920"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/leona-zenith-surfaces.ts",
+      "bytes": 3194,
+      "sha256": "effad58a8218848b5f29a475e7143bc090cc34047884ae1c24b3da5c3a19a5fc"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/leona-zenith-sword-material.ts",
+      "bytes": 2619,
+      "sha256": "0f0bed761f6fa7ecb960710f387baaee4352b9dc3de027c9501fb39a12c9b3c7"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/leona-zenith-sword-normals.ts",
+      "bytes": 3083,
+      "sha256": "6cf39b4af3b89e116ed91a0a86ff3a978a70f184304b202ba0609232e712b2e6"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/leona-zenith-trails.ts",
+      "bytes": 6386,
+      "sha256": "e03e845239a9d5877ee078828eb871080de9a4b28b94b2118d3f40f3a92da915"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/lux-beam-birth-offset.ts",
+      "bytes": 1302,
+      "sha256": "515ab73748674022b3f02ec7c8e1c68dbc076e8c258ccc12f2bb85e2551d7d20"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/lux-hoop-particles.ts",
+      "bytes": 4419,
+      "sha256": "815d6e785282c8aeb148bd865218e1348da6e8f946d4a922d2ef2fc876d46f12"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/lux-particle-textures.ts",
+      "bytes": 1334,
+      "sha256": "d13a5b76bebd6fbca94586464d1081cc3edcb6d27d20b8a4ce5e05bb26a948be"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-passive-trail-particles.ts",
+      "bytes": 360,
+      "sha256": "996bebe744a49446d162b2a98b1cbfcbb19b5353fddec3a668ba892d88e3400f"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-passive-trails.ts",
+      "bytes": 7196,
+      "sha256": "6f682ea255b8397551a8fc1c023d9f85f4b189999ced36e0181de89940bb36b9"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-primary-hit-particles.ts",
+      "bytes": 5585,
+      "sha256": "3dfa23c0e30d541c54a1b1a0c9dae5703cace83a1b0d40631462c6296e97d7b6"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-primary-hits.ts",
+      "bytes": 6410,
+      "sha256": "0617393b4538fa3629fe3e4f7a54bfbd765ed8ef27e4944718b8a72ff984dc27"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-primary-trail-particles.ts",
+      "bytes": 360,
+      "sha256": "475d736feed3cc2c3427aac6433c82f809b6c76e3d987e52663a748d86115ff3"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-primary-trails.ts",
+      "bytes": 7215,
+      "sha256": "f07fec33175d7c91b1afdde0a86bea2bd02c7cb2f354c730b92dc67a8724490d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-q-cast-particles.ts",
+      "bytes": 3500,
+      "sha256": "f7db12d8246730f79770ad982a0490fe1ccb5a36e50148c280dc452f0f13df87"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-q-casts.ts",
+      "bytes": 4017,
+      "sha256": "4ed707314221b66ea09886598541c11d849b5d78bc07f75561426ed0b70f87b6"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-q-contact-particles.ts",
+      "bytes": 4147,
+      "sha256": "b838eb2f0eca942c04213c5a02b3b283d924721c8f6c25cb474f4600b151cd8a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-q-contacts.ts",
+      "bytes": 6575,
+      "sha256": "c60108e480cbcd2450b541e4a0cf594d90407447e584ac1674335bf81be39087"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-q-end-particles.ts",
+      "bytes": 3498,
+      "sha256": "263850ebe79311de8aade2df616541a4300db49208ab527c1c1a4762422d48b2"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-q-ends.ts",
+      "bytes": 4257,
+      "sha256": "a2e9fd8cb7d1d20c7d13bbe15de0fa34db8294ed1635c05f5f6975f2124c8fd8"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-r-cast-particles.ts",
+      "bytes": 3300,
+      "sha256": "5d4eba5599af1b50614d35c4fd362940f599b6739cdca0bf7c36b8d215e5ec2f"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-r-casts.ts",
+      "bytes": 5929,
+      "sha256": "17d6b141642f1c68671fdf8bba920ecc8689ceac56ac67a972cf351a48505cbe"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-r-kill-particles.ts",
+      "bytes": 3307,
+      "sha256": "40133a8d50327df8bed3a1fd3add7141f5b59beaf99a5cefda2fbb7065f86331"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-r-kills.ts",
+      "bytes": 4893,
+      "sha256": "4937348ae7553473e4770e3fc66f2cb30ffb07d158cfdabb7447d187d20ea371"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-source-geometry.ts",
+      "bytes": 212,
+      "sha256": "b1a1cf1776b622df57a0a68d8dba8b7167c46e8b0e6f416e51f97c94a9be70c1"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-source-textures.ts",
+      "bytes": 298,
+      "sha256": "4a7d461284da5e55897d5be3038f6b7cbc171b4a757314ed4079ad5b441137ac"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-sword-glows.ts",
+      "bytes": 7259,
+      "sha256": "2e2e586e9f044c85bd22fb51e94d366ae37c46073cca28ef195e48199ebf949e"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-sword-instances.ts",
+      "bytes": 12952,
+      "sha256": "af52e161e3fb26863242b21ac1c3dbcc3bdae48e8ef3ff53d5b4469a3be5a5f5"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-sword-particles.ts",
+      "bytes": 3877,
+      "sha256": "116907f4051c11753a2f2f8ca03246e666d6bd05f2fdd073d445ed958969c217"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-w-buff-particles.ts",
+      "bytes": 5221,
+      "sha256": "fff82b61140f7f78d08dc5bba8d1a43fd91d25762b4f0e1a3f41088560000cba"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-w-buffs.ts",
+      "bytes": 5922,
+      "sha256": "17855a912062f67f5d026aba31340e8932d6aaaeb082af394916bbda94fde7fc"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-w-cast-particles.ts",
+      "bytes": 3682,
+      "sha256": "f74eb63772b5cd980ae1c6ccc82000a4e3984d8baa5e09ade6ab686028822e3f"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-w-casts.ts",
+      "bytes": 6996,
+      "sha256": "c4c693061b43108df2c30a995bf2cce53e9c83c78925ca9954f86d30fc59ec93"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-w-damage-particles.ts",
+      "bytes": 3302,
+      "sha256": "a5d4e4b59c72e6bf092dc1c8ba77bf7172d06a8a4e594366d44725a73a129281"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-w-damage.ts",
+      "bytes": 4071,
+      "sha256": "3c33cc24f5da3033d40b1d341ade06364c71787902a44db338b68820f68d8f61"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/masteryi-w-textures.ts",
+      "bytes": 162,
+      "sha256": "0f47537ee424c7fc6564adebcee125ba744ab65cf1a5690ff6f389f6262e8880"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/mobile-pose.ts",
+      "bytes": 10782,
+      "sha256": "38a9f935ea359eef5da606b620e30f084a4b6e05e7e873e66de322287f4214db"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/models.ts",
+      "bytes": 11696,
+      "sha256": "dfd5c4cdf5c7716d6876fe1012495bb5f3955483813610a827a79d12eb4dbc61"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/monster-clip-aliases.ts",
+      "bytes": 777,
+      "sha256": "5fc69fca8c49350de0c2988673f648b5788096606e0fb162816c37f3768baaef"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/particle-color-lookup.ts",
+      "bytes": 1175,
+      "sha256": "a61c220f19ca761b3f9110f709fc1af8f23963690021f57baa6ad064dc5d0a47"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/particle-color-phase.ts",
+      "bytes": 3350,
+      "sha256": "ed731cc4b51af364b706da819271c7adc444807fbebe0f4a9af21575767ca847"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/particle-color-product.ts",
+      "bytes": 5073,
+      "sha256": "3ef1c4f1c04076066aa8f4a17c189a46d9e7a75abb49b494771359862e2d1139"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/particle-curves.ts",
+      "bytes": 1156,
+      "sha256": "53ddfbba5133a9f9091ea46317cfce92a970c375b5a5462565a2ef593894295c"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/particle-decal-material.ts",
+      "bytes": 6005,
+      "sha256": "5359b0364523a5c7a34d150980b47853d5cbef6a3041223a01d568a46ee8349d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/particle-decal-receivers.ts",
+      "bytes": 11612,
+      "sha256": "94834791cb5ab8e15f7fc852303d5c585ae573a702cdeb9cf7e1d2b2f0443d34"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/particle-distortion-pass.ts",
+      "bytes": 3683,
+      "sha256": "5b62940a1dc05d483be239f2f1bf58c1cfbcb4803d8e74a30afc0fdcda1069b5"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/particle-distortion.ts",
+      "bytes": 3797,
+      "sha256": "cbef8d100de38f6eb3813f3e4d3faa574154a6735f8d8f9545ee6217e3ce1d1a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/particle-half.ts",
+      "bytes": 1001,
+      "sha256": "291a7af941b604de3feb541136cfb62215c16b4d811ba8d3131568cf7180ac3b"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/particle-lookup.ts",
+      "bytes": 873,
+      "sha256": "d222caed084d535aa8a9d43e111bcd28a6361dbabb7ad62e3f420c7c2c8ff157"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/particle-mesh-reflection-material.ts",
+      "bytes": 7408,
+      "sha256": "56ddcbc14d9a5f0dcd88ebc9535119dc841123713824a676ec15a19c008b54d9"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/particle-motion.ts",
+      "bytes": 979,
+      "sha256": "79e9c081fd6e57e26b08e1ffeea07c7e77e27f19e7d206012321f2ce3ceda728"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/particle-orbital-motion.ts",
+      "bytes": 4889,
+      "sha256": "5a7173549e503f3a1c26911710d80073d5654548f229c1f0437df55d011ab9c4"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/particle-ray-color.ts",
+      "bytes": 1146,
+      "sha256": "c4a613aa82be38fa0110275015bc93a806835f2da8d4bc3b4b7f9d62793fa1c5"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/particle-skin-mult-material.ts",
+      "bytes": 4079,
+      "sha256": "7fea5b8bcee583c4a9ad17b1fcad9397e2ddc4c2578568fda36a3a8af4bcfc28"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/particle-spatial-drag.ts",
+      "bytes": 2566,
+      "sha256": "c29f464a4c4ed1ca0f95186a9e9f7a9451cb404be48b3c995569db30240e6bb8"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/particle-unorm8.ts",
+      "bytes": 522,
+      "sha256": "d9606ea6a3afb8df59e76c7968739ccb39c0ade6e021dd9d23b4780c74ac67de"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/ray-quad.ts",
+      "bytes": 2245,
+      "sha256": "78e764ac34e34b069c1fa29c4602c41bd8e8cefc4b8f77b7ec41806ced942543"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/recall-animation.ts",
+      "bytes": 1399,
+      "sha256": "9e884294fb9cfcd4b4c0ec67095466a8ce795904239b288a59b07c7e7fa582dc"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/scene-depth.ts",
+      "bytes": 3025,
+      "sha256": "ba7fff1816afd51cbc86e9492ec26b1ec5fbefc7b461085018012244264ede04"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/source-particle-surfaces.ts",
+      "bytes": 22865,
+      "sha256": "0d0b86dc2d22b71488129ab084213cb6b04b1575511204fad02bacfda0c01c76"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/stable-opaque-order.ts",
+      "bytes": 1245,
+      "sha256": "ebc08dd1df41f3d7e7031107c18f3ed1964b559df9e9e3426dcff2f04b665292"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/structure-pose.ts",
+      "bytes": 1843,
+      "sha256": "9d57eac826ec037426f7a00369cfd34db71cd57917ded0900a44c94966fda188"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/structure-transform.ts",
+      "bytes": 425,
+      "sha256": "7b29aaa5f93ed3b173968d0c3c9fa8529678bb7cc6466e85da9854304092643d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/render/target-pose-sampler.ts",
+      "bytes": 4782,
+      "sha256": "02f68f89338464a90e6284f9b09235c16b6dd2e7915bbfd33de851fbf7808e20"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/ability-haste.ts",
+      "bytes": 781,
+      "sha256": "adb995d00994f35ba7c6a1a49366672f56c049246d45277ff34ab76860aa5dd3"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/actor-root-history.ts",
+      "bytes": 2809,
+      "sha256": "6ce5ab72c5b54091b20f0a962fec3b7a8599e49f2c7c679c53656042be32d59f"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/ahri-essence-validation.ts",
+      "bytes": 3255,
+      "sha256": "f94b97c2a682dba50848af298dfe0d5ce12daacd6af47b3662359d5d2480d5d1"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/ahri-essences.ts",
+      "bytes": 6638,
+      "sha256": "f2900d5427db61582472370deada70162916a31f4aec9d875210220e342ea258"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/ahri-fox-fire-validation.ts",
+      "bytes": 5416,
+      "sha256": "6f843f29caad6689d34a5c6afc1a150ca613cfc05a237c4140a6a98f577e180d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/ahri-fox-fires.ts",
+      "bytes": 8916,
+      "sha256": "136e99275da65e389d5fe186ba22f5b3838f922b72db9f5d4b047612fd2d184f"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/ahri-orb-motion.ts",
+      "bytes": 5195,
+      "sha256": "48cd12b64d84d0614df4157cbfe90ed9719ec3b262d324da8627fc6d38a0002d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/ahri-orbs.ts",
+      "bytes": 3604,
+      "sha256": "62ccbf6653a61000f9b563e682dc2d9f01729d6fba5630556f99b8b396461495"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/ahri-spirit-rush-validation.ts",
+      "bytes": 8419,
+      "sha256": "ff5362459ac22922f6d6dcce86a9c8aa3d7077859256218828bc7bee61a630ec"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/ahri-spirit-rush.ts",
+      "bytes": 12164,
+      "sha256": "1329c6b619eea3568d7632b5b58c097268f2451a02b71388dfa410d60c97fbf1"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/animation-timeline.ts",
+      "bytes": 4554,
+      "sha256": "9fd2195ee568fa71515cde16b957da4b733e213e5c1686ee8bca196d8dfbcc1d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/ashe-spell-values.ts",
+      "bytes": 2189,
+      "sha256": "21a2fc907702d1e51013e34675df76fefb867b12a39b06a16530f8b965b8e52a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/battlefield.ts",
+      "bytes": 2840,
+      "sha256": "636b45e8b6430a35609c485203e8edc89e1f36db05bbcaa1bbf8154bb2732189"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/blue-buff.ts",
+      "bytes": 1752,
+      "sha256": "00768ea7fc1a22e9a62109d33967b14b4ddfa4b04559c2a4dd6baf02f65aa092"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/bot-disengage.ts",
+      "bytes": 2470,
+      "sha256": "fb3fee49ae5dbbd26a1255f38c9bf0aa9f3bafc29b8616dd3de891082d87d439"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/bot-jungle.ts",
+      "bytes": 3577,
+      "sha256": "e8c7f635983416439409e910d64d7a2c4583d6f0cb0265e29f14163ee9d9655b"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/bot-team.ts",
+      "bytes": 11486,
+      "sha256": "5b8a0f7724322d64ade57d80de80fa61e5b6c761f6f2edb7fd845ca31ed24184"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/champion-death.ts",
+      "bytes": 1035,
+      "sha256": "abff41b9101ce33390fe30ade440f22499e97fd4eb5806869cc6a8e242ccbd10"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/champion-kill-experience.ts",
+      "bytes": 1306,
+      "sha256": "81e0c7a1f2beec20e70a35c6fe4395b571c3e66517a5509c58f6e4d91717345f"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/champion-state.ts",
+      "bytes": 4279,
+      "sha256": "d5ca652750864737bcd31d5b57c257b0d429c017a4e65bee8cc68aee7f4b431f"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/companion-passives.ts",
+      "bytes": 5975,
+      "sha256": "120a23d82dd87a13556f6673909b2009da96473c76cf92d3d774915f0c5ebf09"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/crystal-arrow.ts",
+      "bytes": 582,
+      "sha256": "bbfb34f3bebc184ca67231b4c95cfcc93faecc79b6f1c5848a805af7b920cd01"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/damage-math.ts",
+      "bytes": 269,
+      "sha256": "c4c0915d1dd92e9ff8f3cdd45e2386337b0bd7ab6238cdc931da634833385c51"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/garen-aa-presentation.ts",
+      "bytes": 9868,
+      "sha256": "e611ace4f25d766ac9dc02b66337ef5b7bbc9d4de9ee6d9c5716f191ed3cbbb0"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/garen-attack-timing.ts",
+      "bytes": 1848,
+      "sha256": "40ce742c3bf6a993d76f4a3fd70f40c804bc0311d160c558390b011b2c05b995"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/garen-e.ts",
+      "bytes": 1519,
+      "sha256": "a58839f036147ed97c96299f03de97f7d16bc6b02082a3494f016c983084b9c7"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/garen-passive-visuals.ts",
+      "bytes": 2602,
+      "sha256": "c8337e2a0d31142808e32805ea49fe218d10acebfc262dbe2177eaa2f3d9f8eb"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/garen-r.ts",
+      "bytes": 455,
+      "sha256": "a960a2b59d904383c2bd607b26e66221dfb33da1fff4e5d8b30f9bf994d430ce"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/gromp-encounter.ts",
+      "bytes": 699,
+      "sha256": "472bc7e0839328015f77b2feca51a76e6403503f90f9b4acdaab8e9c83123493"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/lane-match.ts",
+      "bytes": 2916,
+      "sha256": "92bf69799ce92e46d78457a4cb1f5ecfdac2192e5e7aac6fdb7ba1e78fb9b3db"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/leona-aa-visuals.ts",
+      "bytes": 11258,
+      "sha256": "e2ab152101728927f1dc835d9e11fb993006b5ce00fd9ae41f0565f339e81033"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/leona-death-visuals.ts",
+      "bytes": 2396,
+      "sha256": "eed98675f1ac152b2090df9f960f5642f98f81db197404d623549f3643f17b66"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/leona-e-visual-validation.ts",
+      "bytes": 12582,
+      "sha256": "8cbf975f1e42d4153fb654169a8da0062606443eaf3e4bfc92ef944e8909ce8f"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/leona-e-visuals.ts",
+      "bytes": 10956,
+      "sha256": "ddc960ee24512f8faa3a503dacd668cdbb5bb50a1a4701b3db29c9a1428206e8"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/leona-eclipse.ts",
+      "bytes": 2113,
+      "sha256": "2a964b5db5e4426538beb9641fe5bf8ab502c464b396936935a72f04ceb05eeb"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/leona-q-visuals.ts",
+      "bytes": 9566,
+      "sha256": "6417f2e7de474854425782b0370f14e6ef472bd04c6130eed5d194e16c4e2ec4"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/leona-r-visual-validation.ts",
+      "bytes": 6192,
+      "sha256": "77521be5dbe97e2330d328d9980d3748cf5a125eb1598361f8e954f1b067c421"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/leona-r-visuals.ts",
+      "bytes": 6032,
+      "sha256": "f4617eb52b5c1197b7dd1f8053dcdf2a4c2c427e1aa5113e5c741739a1dedab4"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/leona-spell-values.ts",
+      "bytes": 3192,
+      "sha256": "64256ba4b205fb345db8361ccfe9080c943d4545b4155df05f27a825e7f4e53a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/leona-w-visuals.ts",
+      "bytes": 9327,
+      "sha256": "8ccd29b30bed1d79755b132f3963cc54e82786e7729de550fefac1c2588365a6"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/lux-e-audio-validation.ts",
+      "bytes": 5328,
+      "sha256": "c547005258f5a358f93af4443d3fde51f25d157d1b8734fb9232f8effbd7d852"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/lux-e-audio.ts",
+      "bytes": 2340,
+      "sha256": "25387c4141473227f68458da7f73d7b54f8666d7ba1c7225caf3913e32d6752c"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/lux-e-hits-validation.ts",
+      "bytes": 2104,
+      "sha256": "1ec18fc2e4a489cd6c9b3edd79c971094c0682b8481127db50285c09c9800e03"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/lux-e-hits.ts",
+      "bytes": 1725,
+      "sha256": "20fe14f1cc1313b82a931c1ce4315536bc9db7a84774425c531e313de9fac5f6"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/lux-wave-clear.ts",
+      "bytes": 5416,
+      "sha256": "1623235bbb59f07fd3fde5d8314062fbee2bfccbb7a60471f36ce23fd7202f76"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-aa-presentation.ts",
+      "bytes": 5872,
+      "sha256": "1970b60d631782b3e1d43bd1dece7f9a8f59f77f6b48715a3819101050974700"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-alpha-strike.ts",
+      "bytes": 12581,
+      "sha256": "1d3f961307369676a5b42f9f5e62318fdcdbdd29346f9f3e134427227da89fd7"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-attack-kind.ts",
+      "bytes": 1159,
+      "sha256": "2290362c0d3237f8cd1aa4492bde73e812106b97b31c4f6ba47f3a65a4f5d6d7"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-double-strike.ts",
+      "bytes": 3867,
+      "sha256": "b4ba453a26f213cfc41f3038b27ddfc94349c1e187aa2bfca59296442961dfc0"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-highlander-audio.ts",
+      "bytes": 4265,
+      "sha256": "926b3acf97d0ecea435cd1e3ff034ea70b409be2407e1797fc4c08d5da49ab12"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-highlander-cast.ts",
+      "bytes": 4184,
+      "sha256": "3a45295299a4b1411d0f2b302ffbb702603423f11218e15cc6b95024df5276ef"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-highlander-kill.ts",
+      "bytes": 5744,
+      "sha256": "5fc42a483fb2985a0b00cd739776af4c8b5302e8f7650843adb7d0bb12c6f54d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-highlander.ts",
+      "bytes": 3036,
+      "sha256": "b6e6db7a60379631c8c50d0363308ce0b3fd3665e2fa6dba445c8d3bc7214e65"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-meditate-audio.ts",
+      "bytes": 4281,
+      "sha256": "434d149529843c29c306fac5b2a4e57e810c819f379d95a0be5020f840917dd5"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-meditate-buff.ts",
+      "bytes": 5754,
+      "sha256": "363d62b2441c07e213230dab87d7526e84b6512f8878c17ebf2e2a45323f5626"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-meditate-cast.ts",
+      "bytes": 4190,
+      "sha256": "13e1ab762cbc0151c449fec71e37536d065e1a89664ea13448f8297e3e41253b"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-meditate-damage.ts",
+      "bytes": 4010,
+      "sha256": "df7ac0407a1978eab8a1b9b99554bddd3c700ea774a909fd65c4cf3317523063"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-meditate.ts",
+      "bytes": 7510,
+      "sha256": "5d43326e01281b4cda2d7c8b463781a4f370813503788930c4ec8b23a08db91f"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-passive-trails.ts",
+      "bytes": 6464,
+      "sha256": "c2a990a758515c3d1ec2b63d73c52fe0e600d459f308926ac4e07373a0bf0704"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-primary-hit-poses.ts",
+      "bytes": 3358,
+      "sha256": "3f4e014acb03027138253f3ca0e92c15aa5c382653258af8b81f0342f2d67aa0"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-primary-trails.ts",
+      "bytes": 2988,
+      "sha256": "c5ba2ff40b80a6548ff733811f03961979c8e4914d0876771ce9567e49c4c5b8"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-q-audio.ts",
+      "bytes": 6704,
+      "sha256": "80d2d09d8bb350c2b1556834cfba7036e7842bf9e4b15aa9b5150ad886e3018d"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-q-cast.ts",
+      "bytes": 3935,
+      "sha256": "edef4e7cb390c9905b1b7739229cd9c5dfeffe565ab904ca4c5a85e1354f9eee"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-q-contact-visuals.ts",
+      "bytes": 7001,
+      "sha256": "cc6a0b4a9f1e899aa47a04c102fbd988056996449a4bcfe42923487be7c9964a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-q-end.ts",
+      "bytes": 5010,
+      "sha256": "c4dc1e633768a0a83fc29406ea94402005366da0702063dde1ade236c8da959a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-sword-glow.ts",
+      "bytes": 3976,
+      "sha256": "0cc89be634c64ed7267ec79724ac0ca50d7fa2e851e2b7f474b78a5ecb66b191"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-wuju-style-audio.ts",
+      "bytes": 3822,
+      "sha256": "d6654a7c8ce404dd7c11e1aa2aaccba4bdf107828a35190bdb22c1d190810a47"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/masteryi-wuju-style.ts",
+      "bytes": 1974,
+      "sha256": "bbda6f34271e26bc128593d12b3c41d13b34fe4910b22fd70b9e7ac7f7f8b0dc"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/math.ts",
+      "bytes": 1707,
+      "sha256": "62044b9f845e8d71a4581d26df96bab1398bfbcd33a8bfc1e7c9753d82f410bb"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/navgrid.ts",
+      "bytes": 15447,
+      "sha256": "92a1f6da3733a5a2b48bba1541bd0c55ddce6bd57cd47362229124f923764005"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/navigation.ts",
+      "bytes": 2358,
+      "sha256": "e36b9733cbefeaecf6d9c810c1441466f102401429dea1ff6a9055c5a432d8eb"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/oracle-lens.ts",
+      "bytes": 2512,
+      "sha256": "861c3d6d81e4263515403afb58bd404218131205f32fd0496199bbf31a4458c9"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/oracle-presentation.ts",
+      "bytes": 1455,
+      "sha256": "44cf512845983cef5cc69bdd69a25730525ccda97d4ee6b27432bc3ab153bf8b"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/owned-companions.ts",
+      "bytes": 10951,
+      "sha256": "aff40a24b3aaa11336aafac716fc0caae4ab10a8de19e8f9ef36f890ee5b3069"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/pose-history.ts",
+      "bytes": 2730,
+      "sha256": "a8a60d8f76d0b608d1849c82b88c06ba3ed3beb204d4fd098239e482e4176a94"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/progression.ts",
+      "bytes": 430,
+      "sha256": "4918a38009c9c3a176aa882bcabf71d5d2338a4164128a8f2efd19297ef12345"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/red-buff.ts",
+      "bytes": 2519,
+      "sha256": "9bc373b001085741ecd70e9ca57e41327680673597d7a15241e3342fd6143224"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/rendered-event-clock.ts",
+      "bytes": 1159,
+      "sha256": "bf8f674bfe2a4652868fa3d1b92983bb4a6a0fd13c984076f3e66d741a0a0ca8"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/scuttler.ts",
+      "bytes": 7551,
+      "sha256": "470dc8034c0593a40a5a2600a8d6ac59b2fe861878a453aa66ffffacb7e7f3a9"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/smite.ts",
+      "bytes": 2073,
+      "sha256": "36e574a8b68ed8f483c52b1d9df80d5e3cde8c21661c8a28db521d422a5e5d25"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/snapshot.ts",
+      "bytes": 187481,
+      "sha256": "8105dee7ef6cf071bafbecb2047ad8e2cbf242946a382c9e3f82a4191c11f745"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/sunlight-visuals.ts",
+      "bytes": 2004,
+      "sha256": "46c27d30e60243674deb16d403bf937f256b5fb9c3adf015858a6b2703704bd7"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/trinkets.ts",
+      "bytes": 4607,
+      "sha256": "3ef3a9b3ef91b406fa70f7cc7591d87bcd13ba7610e2912cec3bd29296a58ed3"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/types.ts",
+      "bytes": 22851,
+      "sha256": "da0edefa9801b82f814f49a3ee163eb3d32b0dc902d35e17ceed7b2366c73350"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/vision.ts",
+      "bytes": 1354,
+      "sha256": "552bb9f6a6804df257e08b79bd3d27911dab45325f66358cdb75d66e831bdc6a"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/wards.ts",
+      "bytes": 3389,
+      "sha256": "243621aa472e1e249c1564d3ad227276bbfc6de8bb2d9b06cf9ae3eacd775525"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/src/simulation/world.ts",
+      "bytes": 295983,
+      "sha256": "a3f813fc5ec947389677ae999998f884896ec2e6568ea5db3f518cc045b8c627"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/tools/qa/match-cohort.mjs",
+      "bytes": 10784,
+      "sha256": "23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/tools/qa/match-contract.ts",
+      "bytes": 3606,
+      "sha256": "e28509284bbc068248e9d5b1a60de3c25bcdcdb078db94ed5b3321bfaa762ae9"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/tools/qa/match-seed.ts",
+      "bytes": 7934,
+      "sha256": "fa30a40cb80268c2a2ace6c01a6f31e016517d3abd6d0c3351a8bcf73a7e236f"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/tools/qa/verify-match-cohort.mjs",
+      "bytes": 5325,
+      "sha256": "d58b0354f3c6fddf2698884c4428de8d647f031fd36ad9f93176456c1b628e9b"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/tools/ruleset-fingerprint.ts",
+      "bytes": 12870,
+      "sha256": "c6f8e9b0b39ce153d43f4ef2c2ff3e2e58dc94f49cd3807ced782426692e5363"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-pilot-20261027/frozen-source/tsconfig.json",
+      "bytes": 522,
+      "sha256": "4055e05cf991ec8f34c5e21f91b801426d6bab1bccff02a2553c7d923e0e4c8b"
+    }
+  ],
+  "reports": [
+    {
+      "seed": 8,
+      "winner": "red",
+      "tick": 186796,
+      "roundTrips": 52,
+      "futureChecks": 51,
+      "report": {
+        "path": ".cache/match-cohort/current-normal-pilot-20261027/seeds/8/report.json",
+        "bytes": 265612,
+        "sha256": "40e7ad8e81fb6793ea38868e0fe9aa3ebdd65471259750d46682bd06eb8c55f7"
+      },
+      "finalState": {
+        "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/final.match.json",
+        "bytes": 245538,
+        "sha256": "1a7eb94bf357bc9964de72a0572c6258fbaa5d508677228afa0158e69bfb9ec9"
+      }
+    },
+    {
+      "seed": 38,
+      "winner": "red",
+      "tick": 154233,
+      "roundTrips": 43,
+      "futureChecks": 42,
+      "report": {
+        "path": ".cache/match-cohort/current-normal-pilot-20261027/seeds/38/report.json",
+        "bytes": 219029,
+        "sha256": "02517543164e03c1b3a449c1fe4f88fd3c469d6ac583c907269a3e74efeb4ce4"
+      },
+      "finalState": {
+        "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/final.match.json",
+        "bytes": 205694,
+        "sha256": "45bd8cc8c4d56709162a3fb149aabb67a98ed906e70def80da28190b70df4a2d"
+      }
+    },
+    {
+      "seed": 42,
+      "winner": "red",
+      "tick": 207939,
+      "roundTrips": 58,
+      "futureChecks": 57,
+      "report": {
+        "path": ".cache/match-cohort/current-normal-pilot-20261027/seeds/42/report.json",
+        "bytes": 294741,
+        "sha256": "228bc47ab82593066de4626aae0c626f6875e46c6ab2362e0f92c882ce901e19"
+      },
+      "finalState": {
+        "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/final.match.json",
+        "bytes": 217069,
+        "sha256": "0c9d5b96b56c2933720076aa2bf151fc93ce621f5cc5420f494c3eed127542c8"
+      }
+    },
+    {
+      "seed": 54,
+      "winner": "blue",
+      "tick": 162967,
+      "roundTrips": 46,
+      "futureChecks": 45,
+      "report": {
+        "path": ".cache/match-cohort/current-normal-pilot-20261027/seeds/54/report.json",
+        "bytes": 234430,
+        "sha256": "35ccf662e3cff3b20681eba256b222cf5028ef06e3d9fe5c336ed4e373745241"
+      },
+      "finalState": {
+        "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/final.match.json",
+        "bytes": 219170,
+        "sha256": "6019e39985d950797cb7cccadf5166b09d856fd84b9c9a468ae6a69d9bc05a99"
+      }
+    },
+    {
+      "seed": 63,
+      "winner": "red",
+      "tick": 156008,
+      "roundTrips": 44,
+      "futureChecks": 43,
+      "report": {
+        "path": ".cache/match-cohort/current-normal-pilot-20261027/seeds/63/report.json",
+        "bytes": 224155,
+        "sha256": "57a7e522943d1cafaeb22ea2c3d488f84b725a920b5d006ebe57ba6c3e8e3d0f"
+      },
+      "finalState": {
+        "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/final.match.json",
+        "bytes": 232737,
+        "sha256": "a72f7138f39f0d4d4e072332202f8360cc993fb64eb923a5a98526681bc9c78c"
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/003600.match.json",
+      "bytes": 173409,
+      "sha256": "b9aed9c58ff2cb609c4159580239592b054615007bc84724c90ef551d3a7c915"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/007200.match.json",
+      "bytes": 194060,
+      "sha256": "a6d615b904a572951dc6f4e0cb995428804be2e71102bf2a567e901e6cf1e7aa"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/010800.match.json",
+      "bytes": 184889,
+      "sha256": "52bfccbd90d815a0c9cca9cacfed0e08eb6ca73c9d49d6a3221ccbcb1497679b"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/014400.match.json",
+      "bytes": 175465,
+      "sha256": "4a938fa352340b7e54744a69c4d42328b2b5ea2675a0d24af9a51b6e21dd22db"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/018000.match.json",
+      "bytes": 195481,
+      "sha256": "c0a7783c4627f3a2c1606b1b12f1ad64434198c41e528f2549b1c8c99a053f99"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/021600.match.json",
+      "bytes": 210588,
+      "sha256": "93b89e4bc199c8ab707b27382cb0529ef296a6e0f3aa098e3d573f73c0848290"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/025200.match.json",
+      "bytes": 218958,
+      "sha256": "ed93e080b647eccb94cf4f2b2e0fde1eaab052588ee505b4f4aed2e3e3516184"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/028800.match.json",
+      "bytes": 179612,
+      "sha256": "3012fe4e5ceec4bca881c913773669f233551c6b0139759aa9f38a3389080113"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/032400.match.json",
+      "bytes": 172062,
+      "sha256": "5423deb5b4b2418bfaa67e3cbfff5f72a79d4ccec267687eed6a92e092706e4a"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/036000.match.json",
+      "bytes": 195404,
+      "sha256": "da40c4dbcf94b1c12c8253cfa76606f045408223bc709570f50c00c7645ae64e"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/039600.match.json",
+      "bytes": 253962,
+      "sha256": "aba414202db5c567861eaa796a7dd27b4c81b889a34509f0681f9494ade45d25"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/043200.match.json",
+      "bytes": 202306,
+      "sha256": "c2d22a42eedf28235b63fd646ab43b72350e0f689fe277c16fe5e993b6b6ae00"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/046800.match.json",
+      "bytes": 194685,
+      "sha256": "4158a4558c628966a06f0e5dedcf9c934330869db1e2d7e8b089d5dfbdbc1ab2"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/050400.match.json",
+      "bytes": 202382,
+      "sha256": "a36e26626f50cd1f4633fa808c05c46ac337269b0fd268c19e7a412f0373441a"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/054000.match.json",
+      "bytes": 210799,
+      "sha256": "bd5f57af12c1ef3e9277dd1159ab7a966a6b607f92cfc592924c4a56f9977724"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/057600.match.json",
+      "bytes": 176898,
+      "sha256": "b7eb364f185784cf76bb81adeca147e784d6ef644e75850fde5271047f304cbe"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/061200.match.json",
+      "bytes": 232193,
+      "sha256": "eb19b8ca817cb6f4ca57a71ca52d357e0b5ceeea1ba7f2b33467f1545db4e53e"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/064800.match.json",
+      "bytes": 176606,
+      "sha256": "62cb0a373e5933b6aec22750d898b7c57315493f7baff30837f0fcfc817a3eba"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/068400.match.json",
+      "bytes": 185738,
+      "sha256": "8866e5f844023ad7c44e53f0fd26e1ddc2e426c5d032acfc8d4d318563a402c9"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/072000.match.json",
+      "bytes": 210293,
+      "sha256": "5894a84de06b25a0e145c11b5114dd8ac00a7a6c10df3070acbc2fcd1ef92853"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/075600.match.json",
+      "bytes": 239998,
+      "sha256": "83c91a4a7359cfba890604d416329bb51e0fe3b6214eee0d418443d14c73690b"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/079200.match.json",
+      "bytes": 272937,
+      "sha256": "cd162f75c1535993384742f1e88ee56964475cd9862a53b57a1510fa5f463c67"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/082800.match.json",
+      "bytes": 202949,
+      "sha256": "f0a37fb9262ed960e81c92513cdd26c68bda5a4117a7411f26176af960d7db5c"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/086400.match.json",
+      "bytes": 190121,
+      "sha256": "b6aeb9797f8d4be2ea72a7b1fca389f8af7434d74e16f3dbccac2cbe30df76e2"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/090000.match.json",
+      "bytes": 217406,
+      "sha256": "7ba99f8bbbf3f7dd27121c8ace44ac2d924f5266fe68a83d54b500ef6e09db11"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/093600.match.json",
+      "bytes": 231791,
+      "sha256": "afcf97101cac185a0baaf6bb1fd7342128ed3b78cc4883a1bc8bd7e0054de7c3"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/097200.match.json",
+      "bytes": 217158,
+      "sha256": "9e2a4935b34cf279d64434915d44d6e0ade2a88d79405a697439573bf54a9e8b"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/100800.match.json",
+      "bytes": 242138,
+      "sha256": "87bbeffe2287355b74d0e1a34b50fa2b4243febf75b8f02ca73d6b4fdadb4153"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/104400.match.json",
+      "bytes": 198586,
+      "sha256": "c45f78434eb67c1e8f88f7105f8b8ce4a6336760a2ad3cffb1bc8559516bccb3"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/108000.match.json",
+      "bytes": 219708,
+      "sha256": "1f4a26f36e009b3a0a9df6c6f8140575ca710b15783747eeb80981cf23bb81a4"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/111600.match.json",
+      "bytes": 203896,
+      "sha256": "7388619b526debd78cb5c086cf0af124d1effdebe29940cbfe5b62ff1af5c943"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/115200.match.json",
+      "bytes": 210298,
+      "sha256": "fda2077e28507f8a90f352eede8d7fbeb618cec44318013a8c972611f635550d"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/118800.match.json",
+      "bytes": 260169,
+      "sha256": "d810938ea2efd06982c79e429bfb92189b8c1956b71a895ab56a59b5d568e662"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/122400.match.json",
+      "bytes": 219489,
+      "sha256": "e5a625da86f9c38656859e7877d1f9df590acce509854818aa6cdf8edd3e7c5d"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/126000.match.json",
+      "bytes": 210672,
+      "sha256": "1853ae50f9f6e0272a10523c3cba75e11f13b7bc32ad8f6c90cbc134c5fe7576"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/129600.match.json",
+      "bytes": 216163,
+      "sha256": "3fd6f7dc153594ea5137923d6a0eaccdf3a90b7a2f09c44a0e325bb9f67d4c6c"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/133200.match.json",
+      "bytes": 205133,
+      "sha256": "3f5f3894e8b1b5e4ee2f0488e2977ae52136dd42f0654ac082565c598997d731"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/136800.match.json",
+      "bytes": 192679,
+      "sha256": "5671915a427d0eb1ede5b5edfbc54741724373ef69f35a8a56eab304b2275119"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/140400.match.json",
+      "bytes": 215292,
+      "sha256": "158212887d28145be9773ec97f344d04568d2eadb287b5912d01a09f96cb0c2c"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/144000.match.json",
+      "bytes": 219111,
+      "sha256": "edd13a737d37de65befbf3ec4f9da0fdb4b7647b4c0edf87e74d722b7fae5814"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/147600.match.json",
+      "bytes": 214556,
+      "sha256": "140aa26fab2bc0bc907b207704289c7b444c45a25b1840c4610db32142b20d5a"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/151200.match.json",
+      "bytes": 242548,
+      "sha256": "0161143a68bbaa14ade425dbd7c596c76cd1f92394733b3dbdbcbe760a7e301e"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/154800.match.json",
+      "bytes": 214499,
+      "sha256": "1eccb4130f681897b654a65b5056388c0d7d14a6e9105088f526fbff98ca3652"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/158400.match.json",
+      "bytes": 205028,
+      "sha256": "ab2dbcabc51c20e54836e84d92d596f14781ac2ed4e9ca11c70b2646c19069d6"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/162000.match.json",
+      "bytes": 224092,
+      "sha256": "00fe47015108eb185f35fdba82721efbe8d81e8ed8c01a05c5ec24d3540fcc01"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/165600.match.json",
+      "bytes": 221036,
+      "sha256": "a14e7fa8b4dd06eb82f2655509f0b26b53d44959fd2d97f5f12a83e68e07b8a1"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/169200.match.json",
+      "bytes": 232782,
+      "sha256": "e7987fcb00a0a1bd3a0a3062ece8a98eed821efe71e33023ef3b86bae67e116e"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/172800.match.json",
+      "bytes": 283819,
+      "sha256": "32c23db1cee069f589b1a4a480607133c5e6128a2a417be8b4754f1ff45cb3f9"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/176400.match.json",
+      "bytes": 283506,
+      "sha256": "3d1ff23b4a05a1f9eb81cfa66de42257c64e1395e373ee37b47fdbbde477d16e"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/180000.match.json",
+      "bytes": 224632,
+      "sha256": "d375a6f23285b5eb604fa00ba5a2912ae5a4d3f431862c5fcb4a328512525481"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/183600.match.json",
+      "bytes": 220523,
+      "sha256": "56633f9253d9fe48a5ccc7d13a8d751335386e6ae445a1643d48763a9ca529d7"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/8/186796.match.json",
+      "bytes": 245538,
+      "sha256": "1a7eb94bf357bc9964de72a0572c6258fbaa5d508677228afa0158e69bfb9ec9"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/003600.match.json",
+      "bytes": 173410,
+      "sha256": "ed934eb99632f969e36034145d1e6805b444d8787a16f100e48f577acfcd6c5a"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/007200.match.json",
+      "bytes": 194061,
+      "sha256": "6eb31d21ab584ad4de61c06cf1f8d097e594a8085a29930801a47260ede6ae68"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/010800.match.json",
+      "bytes": 184890,
+      "sha256": "059403b044459ee8bc739353fdca2633d91e736aae766ba69ec20943a891a859"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/014400.match.json",
+      "bytes": 175466,
+      "sha256": "962ca975e700ccc78f1888cf138e136ff9f8583f5e9dd961f3cf74eb8b6673e0"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/018000.match.json",
+      "bytes": 195219,
+      "sha256": "c9a501ac12c645c3d77a8c2d693d2912904a74b2dfdb0ce6eb3df0d8df5b68b3"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/021600.match.json",
+      "bytes": 210279,
+      "sha256": "f64a88de4b05605d0c1b29a2738d730976d160ff165eede9321e7b675f05fe0d"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/025200.match.json",
+      "bytes": 218818,
+      "sha256": "e0cb34449d5e5c6ea8bd7dd5c4fd4672152e583868032b32d2ab75fb43e3eed4"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/028800.match.json",
+      "bytes": 181497,
+      "sha256": "aea6f04cebe6e0285826aad39b6f42281cc6904385597ddb0f6ecf37be532efe"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/032400.match.json",
+      "bytes": 173784,
+      "sha256": "234e351f54c2a7e5f1394007b1085d8807c3a3fd04c2f6919ca3a652eaa5d4b6"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/036000.match.json",
+      "bytes": 204512,
+      "sha256": "09604ade030b426b19c3a938d7403cc62003ba06585eb3349b506983a0862882"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/039600.match.json",
+      "bytes": 235023,
+      "sha256": "07ea993622696e2237b14a53c54e5cb7d3b9e75407a42f75cc0d59b7a2a3359d"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/043200.match.json",
+      "bytes": 193834,
+      "sha256": "80a74b49a0ab2534e5393b78e291034f10b9d48b4c57d846f5726f87ec78004f"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/046800.match.json",
+      "bytes": 173498,
+      "sha256": "3041b0723956b407f60aa954c358660bc9f49a0fac853968f32033f35623c5b0"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/050400.match.json",
+      "bytes": 196168,
+      "sha256": "f784d64e484015f17625a7717e17f353dec394d8e28e9fe6b91ab91f7c0dcb58"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/054000.match.json",
+      "bytes": 219197,
+      "sha256": "58920dc64861991847fcf944a34fd13b00ed5549cc0adec5859052f2f38238c5"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/057600.match.json",
+      "bytes": 221966,
+      "sha256": "b1ad9bb28bd4952a44bbcfb378c2b17a0ab2dff4ff99ee503a457bc72652bf8a"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/061200.match.json",
+      "bytes": 225921,
+      "sha256": "54c00f0aaceb8cf1bc3308c71a276933ebba80c9f083448cab47b4c28dc09806"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/064800.match.json",
+      "bytes": 191951,
+      "sha256": "7261ed2be41df4e45e8b01a2551de08c96137e17af1d73fca7d801c02d22bca2"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/068400.match.json",
+      "bytes": 213048,
+      "sha256": "4df809a2cf8daebd649d8e490364b169411e621aca5b7b10c0583b2d4c211a30"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/072000.match.json",
+      "bytes": 229626,
+      "sha256": "ab9c17a9258912e5c5116a689937d3a92ea419de58c5cac7211807df16fb4080"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/075600.match.json",
+      "bytes": 195172,
+      "sha256": "c42f74da22b1f3d8313ca0c40a0012dcbca1a86e7471e541ff9a91abab452635"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/079200.match.json",
+      "bytes": 231108,
+      "sha256": "a50ff338cef7096f825c108ce026c3ce01a726efddd918142b3cd0554b20a1de"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/082800.match.json",
+      "bytes": 204673,
+      "sha256": "517001432fd8e46282ac46d430350124e2036b26c33f8817b53030a8763ac30f"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/086400.match.json",
+      "bytes": 189556,
+      "sha256": "0994e3a2aa9912d6bfadad6778e2d037e234f0c10d4e52edb8dc14527d5794b9"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/090000.match.json",
+      "bytes": 208321,
+      "sha256": "227ea36893d744060c6c2240826e00396e6bb2578339c184c1ea289b93fd975c"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/093600.match.json",
+      "bytes": 193910,
+      "sha256": "e1294a16b4c87933301d44065c442d61cfea74eb9d11676a7e3c7166c8b7a14d"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/097200.match.json",
+      "bytes": 209022,
+      "sha256": "fd8294fdd0693fda07569bfc05cd76f8fb04dd6cbb23f0344a58a0c3f7a2c5ef"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/100800.match.json",
+      "bytes": 210292,
+      "sha256": "49c5e85b20764b59af5a1a3dc43465fd8fb605f7aafd593f2f896e88689e7054"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/104400.match.json",
+      "bytes": 212205,
+      "sha256": "2ef2ef88c8675084b2846cfaa362c0cc7070bf38289b730329118a0e758b537e"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/108000.match.json",
+      "bytes": 208249,
+      "sha256": "46e0143f28500fadc3c39df99ea6e8936ce87d382a92d0269872946e8eaf79be"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/111600.match.json",
+      "bytes": 242165,
+      "sha256": "df9b53ed1adb0e437af9bf2071c9cf04203595f7acf06368cd29b9448b7d8265"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/115200.match.json",
+      "bytes": 211912,
+      "sha256": "67192ab4d63f11c4e02fd35ade4948b4d73df4d54861a422d672b416dfb1d093"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/118800.match.json",
+      "bytes": 214742,
+      "sha256": "2eb9f14f9929d7bb5027ed5183d47f33e81e3851b501f3b9c3acc79e86bb15b1"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/122400.match.json",
+      "bytes": 224897,
+      "sha256": "2ed3b93a4f8638d736bf37e9d039a9d646bbe5af9b58408b7d50e741c0677011"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/126000.match.json",
+      "bytes": 224732,
+      "sha256": "bb52da4408038d57fd2df2f533eab0c98f4786b1cf979a57a81143030e9ebead"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/129600.match.json",
+      "bytes": 217432,
+      "sha256": "7dfdd7512dfe83fb79d1db81e8a049b60d9eeb0bf702ab5298910f21bfb6ec1a"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/133200.match.json",
+      "bytes": 211769,
+      "sha256": "02cdfd65da3e087fd6c0159d3650eda633e30ebb95ea8f502db15e63a76dc518"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/136800.match.json",
+      "bytes": 202799,
+      "sha256": "5dd6808b6c2590801f10212e22ea8accb87b7e08364e8da6e4dfec8beaebdca9"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/140400.match.json",
+      "bytes": 217472,
+      "sha256": "0bcd0006c7d575c4a861808d7f001385a2ed0a6508ffdf75529d7282942b2d5e"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/144000.match.json",
+      "bytes": 247617,
+      "sha256": "54e9f88f1735d285460568c24c326958ebf96fe612aa53cc5ba46a4cc5429cd1"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/147600.match.json",
+      "bytes": 226567,
+      "sha256": "710e3be408c1f2605fb11db94f9b075d9bf94cfa411b226cb87b66b81261b3fe"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/151200.match.json",
+      "bytes": 276216,
+      "sha256": "db53c94a75f30fb20c75bd0c201c2e512387c860832127c43362f42629bf6d51"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/38/154233.match.json",
+      "bytes": 205694,
+      "sha256": "45bd8cc8c4d56709162a3fb149aabb67a98ed906e70def80da28190b70df4a2d"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/003600.match.json",
+      "bytes": 173410,
+      "sha256": "a86a12eaea980ae55452048a4c5d0551276dbbd121dab3578aa4b75d88b083b4"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/007200.match.json",
+      "bytes": 194061,
+      "sha256": "25fc2bec7abe169e2edecd0fb211a45e3ec4007565483418e5502c69e3f72dce"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/010800.match.json",
+      "bytes": 184890,
+      "sha256": "19d1a7cc975c3970d8f493b0e2fa20db9e2fd5a1a65a2036ec4a1c39a167d6dd"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/014400.match.json",
+      "bytes": 175466,
+      "sha256": "a2c00084b0f097e95ec6dbc6773194a6155cb5168c267d327f9b3f0d4e2f20a0"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/018000.match.json",
+      "bytes": 195219,
+      "sha256": "13b2536f4dcb257e1f7268e73a123a21eb81d745bea44548469e7d45816a04fd"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/021600.match.json",
+      "bytes": 196044,
+      "sha256": "0db7de7e95b0d07ddb5aca324ee1e50717f7f539647070e539184848c4cd5e12"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/025200.match.json",
+      "bytes": 197443,
+      "sha256": "7f78a97a855675a323ff537c6ed3edff062e807e85352f393c09f6e68c3f74e7"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/028800.match.json",
+      "bytes": 182111,
+      "sha256": "2ef46f8b782fca87ad488a4e3df29322e35e963de3a84561ee10c7f45a625cbf"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/032400.match.json",
+      "bytes": 163036,
+      "sha256": "9a15de5508d56618b9f086fe92a1d14f1b78549e3e3daf0cc706d7b3f88a8b2d"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/036000.match.json",
+      "bytes": 186246,
+      "sha256": "ec34f4e75901d3ad6e9c667df53b826aa8df37d687808a9c2637077812480a6c"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/039600.match.json",
+      "bytes": 191622,
+      "sha256": "5ac31dedea495032c18e7933496a143b63898951d0c5bc55235e024e6d969718"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/043200.match.json",
+      "bytes": 188608,
+      "sha256": "e45168315a1563e8871d475c8c1670a62f680183dfabe8ac2f06ba258586407d"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/046800.match.json",
+      "bytes": 182822,
+      "sha256": "8248bd0c9965a2dcf05bc83b1e4a2a34542c18f0976a20d8ec59aac2f809f367"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/050400.match.json",
+      "bytes": 188620,
+      "sha256": "dd656b84b3226f29ff86fef38a2a82f9f8d9a9d306d8758dfc015dd3cb594b43"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/054000.match.json",
+      "bytes": 198724,
+      "sha256": "28ffbb88b112d6ffb9979e22d434ee07f5685ee5608aad40415c4c9d3caf2f3d"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/057600.match.json",
+      "bytes": 186277,
+      "sha256": "d0c974567ecc3dfd142b4ce53b32c5a884aaba229376da7c4c882c20690906ab"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/061200.match.json",
+      "bytes": 228430,
+      "sha256": "f5958edd684974c25ee16bc6c3a47f8c3454c6f526f6a75112df231592f1ed78"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/064800.match.json",
+      "bytes": 213300,
+      "sha256": "196a73f00d4ded4736c4ecb4dfdd85d910bbdbd2be9cab9d7c225a1a39db7f15"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/068400.match.json",
+      "bytes": 194484,
+      "sha256": "4745d4bb677fd71f8e1db89208fb6c332ad153de8ec310ad5edc153a8565451e"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/072000.match.json",
+      "bytes": 218801,
+      "sha256": "0599008ddcd90d23ab12e07d67b68be5e39b933da991dc160c1541457ac40e6d"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/075600.match.json",
+      "bytes": 200330,
+      "sha256": "5d67005bb7f943bcaee5f84765b12b3743402d6e198e16151b92c570c452dc74"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/079200.match.json",
+      "bytes": 210968,
+      "sha256": "0f68a14828a655a4d1bc864c545f743dcee28fa2c8e4412df0d0004c27aa91f1"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/082800.match.json",
+      "bytes": 221801,
+      "sha256": "263eae7f8064f7189c08c131e3bc5b7f34736355fc4a6bedc0314b3e3bb197c6"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/086400.match.json",
+      "bytes": 236734,
+      "sha256": "4d89a9345c3d97b0fca98d7b13fbdd0ae307075e68cb880c764b33810e98c1dc"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/090000.match.json",
+      "bytes": 229862,
+      "sha256": "c2067f7de76f2b929719fe3860abca834289b6e547051f32d50743de3b75c91a"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/093600.match.json",
+      "bytes": 203078,
+      "sha256": "d541017d075efbce840063616dfa603e3e3a1d8b2713f7622d4a6935729d7bd1"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/097200.match.json",
+      "bytes": 207478,
+      "sha256": "3ef585237801ba87c3d91d2210baed5adb705e12f9601c5166e9980f2dd97800"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/100800.match.json",
+      "bytes": 190842,
+      "sha256": "d6392128301622ff59e2ef96b6844f51cfd82d689592127e2be76a7415ca438a"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/104400.match.json",
+      "bytes": 170152,
+      "sha256": "b221e689fda073ca90bf21a8c9471d50dbf26145d266c585f613b6b417f422f9"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/108000.match.json",
+      "bytes": 204058,
+      "sha256": "9902d16afa98857ec090035778715ba65af1caa7b9a8879602eb40f1d02cbe89"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/111600.match.json",
+      "bytes": 214072,
+      "sha256": "76330068480ce8d97fb5ea8240994a44bebf13b2fc6dc468368b7947abef384c"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/115200.match.json",
+      "bytes": 221083,
+      "sha256": "c9a765eceb76fbfce1e91f8be2cb39e9527e08a94331a71a49bf672b766355fd"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/118800.match.json",
+      "bytes": 217542,
+      "sha256": "a9c59b0627c5c58a4ba21c21b053a19160c123f78948872fb72a9dd172c99aab"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/122400.match.json",
+      "bytes": 211034,
+      "sha256": "eac5ca5a85b48efdc830d9b0d1e666bffba76d7eb739f204f8c99c33cc784de4"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/126000.match.json",
+      "bytes": 242295,
+      "sha256": "421f6af598ab9a017b341b6cb042f3c0af19c27550f3f1fa5795864b3069a977"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/129600.match.json",
+      "bytes": 224380,
+      "sha256": "6316e746a66466af33ce7174e45c4a465a1a2abca1c92174d377534fd65b8fe8"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/133200.match.json",
+      "bytes": 225066,
+      "sha256": "05396745aa2baf77dea5a3c47a71a69aa9a2eea45786ace4bba26fdd94b85747"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/136800.match.json",
+      "bytes": 217609,
+      "sha256": "4fcbee5684ee6d0d2aa924b9f8cf08bb1a24f557223c7f4788ffe3161c4bd1b9"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/140400.match.json",
+      "bytes": 194150,
+      "sha256": "8a43756a1af3c14a74c8cbdf56cb64552f1ad88d1267b5cee0b425ec8cdf022a"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/144000.match.json",
+      "bytes": 227922,
+      "sha256": "894901e0e739f8be06c4e9f94ccc33128f344347c8375001b0cf46793001420c"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/147600.match.json",
+      "bytes": 190947,
+      "sha256": "7903b9ed5c1fc1b15a9f3aecdd35b63e1714e80c250ab7de432c721d162f6ee3"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/151200.match.json",
+      "bytes": 221557,
+      "sha256": "7afb28d7187be7490c1f3ee5e200882adbf6150b427d7ba9dd29b3f0edfbd968"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/154800.match.json",
+      "bytes": 220491,
+      "sha256": "5e0bdb72af8ae602f5ced7b95062c935acb8325af87e3a5e9ccdc1bea6cbdea4"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/158400.match.json",
+      "bytes": 242391,
+      "sha256": "7d28dd6b2732ae730e9e998518915d877008bfa974f69f495183b9ad0ef45bea"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/162000.match.json",
+      "bytes": 252647,
+      "sha256": "54d2c9fb9ddf1cc1879187f8e3474f8d5f49554e5397d97fe5ae1609368655b7"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/165600.match.json",
+      "bytes": 207006,
+      "sha256": "20fa86ce3f68f303cc8174fa719602e91ce9664095cf3eb262a497b160663fea"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/169200.match.json",
+      "bytes": 197315,
+      "sha256": "7add52f6cc93e3eb537c8de6d02878f1d4ce72487046ee6e80be12f7c4c09573"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/172800.match.json",
+      "bytes": 215782,
+      "sha256": "6efcd5fc4bb5a67e72bcd311adad16eb6c2055fd15296fb121ab4fa2e6ca8c8d"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/176400.match.json",
+      "bytes": 213292,
+      "sha256": "3c84b54efef74ea26d6aece8df77dfc5ec92e92cc796a5b1d703c6fb9966f1a2"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/180000.match.json",
+      "bytes": 261795,
+      "sha256": "d9e92d4fa91d170e2e46d2d164cbc6e20b89a9c479f2754deb5e8de17caa988e"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/183600.match.json",
+      "bytes": 219039,
+      "sha256": "1b95576f901a7f28560c81c906557694a3bf4d8dd20b04b05c706cf37e485b36"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/187200.match.json",
+      "bytes": 227660,
+      "sha256": "ce71ed29a31eb109799c8f821cb23cd89e76aad9f58bc173cf05dc708bd9856c"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/190800.match.json",
+      "bytes": 203347,
+      "sha256": "6227fdd3f487ed1dabf7a2589d32d7801052d783d0b8d21c9f5373a614121b02"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/194400.match.json",
+      "bytes": 226166,
+      "sha256": "4dbc0a759e6f6a7d9f8062485ab80c1796d8b7b80540872fa0ea181067765a12"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/198000.match.json",
+      "bytes": 213249,
+      "sha256": "1116e9e75515c2a624a1f6aeb87aa075de0a87813a9783b2f66a088d58f6e001"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/201600.match.json",
+      "bytes": 209677,
+      "sha256": "6bc63a011b359f111e3d38f689e5021966c113e59a94827f69cb9e36480509ba"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/205200.match.json",
+      "bytes": 235542,
+      "sha256": "c341fff7bea8e3e475d84db38a754be2efbf5bdfc91e5f9da8d21c2b4acb40da"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/42/207939.match.json",
+      "bytes": 217069,
+      "sha256": "0c9d5b96b56c2933720076aa2bf151fc93ce621f5cc5420f494c3eed127542c8"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/003600.match.json",
+      "bytes": 173410,
+      "sha256": "45eef837b5721dc661919f9dac09a321d96bb1b9e14bd38e36ddddf5be1d663b"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/007200.match.json",
+      "bytes": 194061,
+      "sha256": "9e3d197703e750838835689174119d0cc9a3e9868783340fcf0b784f6c0cd70e"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/010800.match.json",
+      "bytes": 184890,
+      "sha256": "7609bbbdaed55328c21dbad2d94dc64fba859b68d916069c422671346277a77f"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/014400.match.json",
+      "bytes": 175466,
+      "sha256": "40e644c5f97a6b83176bf1c072946f6719f00d1acda6cc2f649e1da0ca7af510"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/018000.match.json",
+      "bytes": 195219,
+      "sha256": "3b4bb269e5dceb9479a2b3b40b0369a9b5e3c7dbf5700e43e6898fbffccafeca"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/021600.match.json",
+      "bytes": 210485,
+      "sha256": "f1ec6e6ba0f2ca5cc943d7d557874d2c0f70fbfb5eea7fc7779779c20094a58f"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/025200.match.json",
+      "bytes": 218855,
+      "sha256": "581295708659c258e46c469ab3bb79765743a8cad802e5fcf6ca2b5e10c574d4"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/028800.match.json",
+      "bytes": 179810,
+      "sha256": "b8884605886ff8e7b9cf2fe1adfb5bead00a9f259f232d34b4273c64b26a87d9"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/032400.match.json",
+      "bytes": 173715,
+      "sha256": "7a1e621d21e669185958508ce0410b25f10b7c95948812c95b5fbd05eac06950"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/036000.match.json",
+      "bytes": 210929,
+      "sha256": "7220c7c20cbd5882fe372c1cbf8082234a9b73a5c5b12616bc7c978a0c062e7b"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/039600.match.json",
+      "bytes": 200714,
+      "sha256": "6b7f051ca05589d69a372db6a96b9bf7374fa464d9b8b027b8728cc895fdabbf"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/043200.match.json",
+      "bytes": 201879,
+      "sha256": "737ef64e966a80ca07d1858e528dc65960e3e79fe377840cfab6490045801606"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/046800.match.json",
+      "bytes": 169221,
+      "sha256": "aa1b9541cfc3b7260ebe64c5d70b36905ed4e387f2a5c7c733c09f346d08f092"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/050400.match.json",
+      "bytes": 220195,
+      "sha256": "a9149b8ce05a255069e67f5964bd705aba6d56858bcca837123b416f40a0cdaa"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/054000.match.json",
+      "bytes": 250243,
+      "sha256": "d7bc67992efbdb259f7aff36b45807e0579a30502af280c3f66389ffc50d66af"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/057600.match.json",
+      "bytes": 188959,
+      "sha256": "6ecf071e4c7e8bd25e9bb1ec556846861140eec83e31514f3cebad5ac4ee8b2c"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/061200.match.json",
+      "bytes": 262868,
+      "sha256": "803eb0269163ac070e1107639a44ffe0e6666138e0ce2d399fc041b66d60bd23"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/064800.match.json",
+      "bytes": 194884,
+      "sha256": "88dfd4e2215a0d1bb7bec584850035e3c47937443789ca176e8f6b9c4508e02d"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/068400.match.json",
+      "bytes": 180644,
+      "sha256": "e8030c9db811ecb662aba84dcb1eafa570f02a7af1bd0d2302cc5a7bd78ec718"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/072000.match.json",
+      "bytes": 232970,
+      "sha256": "442b34e1a71c35974f716f1916cf2f50285d6559c38d171fb985d8356c29431d"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/075600.match.json",
+      "bytes": 195774,
+      "sha256": "0271cf0a81e42d835dbc9ab76c130e4c4609aad99b17dc642b5dec0e0f641d2e"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/079200.match.json",
+      "bytes": 238000,
+      "sha256": "67d14b66687ddc8b1d0e6fc744088402ec65e9be8dc8b8f3919d764218117821"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/082800.match.json",
+      "bytes": 223206,
+      "sha256": "f053f24734868bd1dab65bc6b67da54a42ff6cbc77c63438e6e1cfa050569176"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/086400.match.json",
+      "bytes": 194175,
+      "sha256": "d6423f77ef1498d4434f496a76c266e0be8fdee79502602aa1f4682938312945"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/090000.match.json",
+      "bytes": 212376,
+      "sha256": "045452c0fbab6b615cfc73965a57cec7151958ab6f68e91d893be1cb73708102"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/093600.match.json",
+      "bytes": 186462,
+      "sha256": "b0c610e13ef004d0c26ab816cd83a5871afd851a3e8ccd132a9b7773cb10caed"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/097200.match.json",
+      "bytes": 245579,
+      "sha256": "c978ef76ac12a5dd5cc07b97e8dcde986d79ddd1d2232aba839bcbb8e5732e42"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/100800.match.json",
+      "bytes": 196588,
+      "sha256": "224979ec9c8f04b3743da3880711ca41ce24ebc90b5d04c95295ca93ce858c9f"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/104400.match.json",
+      "bytes": 172309,
+      "sha256": "baaa1f10e879552e694dbd321c206f32730bb0064fddc1c5c58958afd2baab6b"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/108000.match.json",
+      "bytes": 226752,
+      "sha256": "c5bd1c355e49ece612ca4a12b0dfbfbb5010c895c39cad7d021f457bc6b8c50b"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/111600.match.json",
+      "bytes": 206490,
+      "sha256": "83d65525dbe99afeade0efcbd336a254bc5479aa951e1941b585606219c57a89"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/115200.match.json",
+      "bytes": 197589,
+      "sha256": "fe9bb5c68c1f0b5125b78e045bc49f99bf973ac75798e45a75e1621c9b2adfc6"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/118800.match.json",
+      "bytes": 207329,
+      "sha256": "897b36541c5b44642e362f05b920d19fae11b13ac82c45850d7013e3955fc6ab"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/122400.match.json",
+      "bytes": 198720,
+      "sha256": "b31c72f743e6f8f48441c530dfa867c66965620a4c01e45e433eb9f74ab8ed05"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/126000.match.json",
+      "bytes": 224385,
+      "sha256": "7a16e71b491e88a294fe9cb7b30a3dbbd0d41547d19c04b0bd406939293d3dbd"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/129600.match.json",
+      "bytes": 260055,
+      "sha256": "40dd20d006f5f354d8a30290c0da44557b259d3a789803bac8c5bd3b8fb490c2"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/133200.match.json",
+      "bytes": 230746,
+      "sha256": "7a854ca6227d73f68dc4e600517f427054664228e4faa03c270320195e2009bf"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/136800.match.json",
+      "bytes": 224564,
+      "sha256": "5e5e1bcae21c6563ddb8998bc4c9dc62b092cece5540388709023a0283ff25be"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/140400.match.json",
+      "bytes": 232995,
+      "sha256": "408e08a5ab0612df804898fc9801ef7cdcd8b257e30062a0700d6537dbae8a1c"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/144000.match.json",
+      "bytes": 229177,
+      "sha256": "3989bc55908de93d3e27a0623be58c88698090c0758b0faeb37e0b8f3311d5af"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/147600.match.json",
+      "bytes": 209721,
+      "sha256": "3cc6ad6ad56e23d5339e4172a5f0209ce36a72adfdee8485cedb270277c09ea3"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/151200.match.json",
+      "bytes": 263024,
+      "sha256": "42c6282377ad4ebe2f92afc8db9a116d5c9133833f0d05b490e5afd8a0fd77bc"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/154800.match.json",
+      "bytes": 235957,
+      "sha256": "7e260e05720be0e4f778ffddfe739eb0e9f525dae0071876b65cf3a7ba17680d"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/158400.match.json",
+      "bytes": 251408,
+      "sha256": "d7d742e1e1ffe871b6e0981bfa8c05fa1710806ba8bb3538b00ee6e3fe271d3a"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/162000.match.json",
+      "bytes": 215067,
+      "sha256": "da134eda8f88ba0ee101c35cd1a528dc6260ef54430eb3338c6b367ca7aead20"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/54/162967.match.json",
+      "bytes": 219170,
+      "sha256": "6019e39985d950797cb7cccadf5166b09d856fd84b9c9a468ae6a69d9bc05a99"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/003600.match.json",
+      "bytes": 173410,
+      "sha256": "b6d7db636807b812455a4409356ced20e660ef754cd89ded87994061a6978df1"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/007200.match.json",
+      "bytes": 194061,
+      "sha256": "53edfbf29e733a36556cb0c5a2a3138a1c2e0a807367ce96ac293040ec959ba1"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/010800.match.json",
+      "bytes": 184890,
+      "sha256": "650769284ff784aa117c5e4142755e67077e456b60098338d5407e060728d0b9"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/014400.match.json",
+      "bytes": 175466,
+      "sha256": "8a7d1914d01d385e57169ee2214fd19b878ad84eeca7a6aeabb04e5a07054f50"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/018000.match.json",
+      "bytes": 195481,
+      "sha256": "dea64300c47f79231f8e0857d939482cfb56f7fd62ab5d901cfdca839bed6dbe"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/021600.match.json",
+      "bytes": 195941,
+      "sha256": "1c4b9f69152dcd4cd3ac3f7a439b9411aa52f27797feae548cc9db5dbb0b8fb7"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/025200.match.json",
+      "bytes": 194905,
+      "sha256": "33b2858ade3c5655173e64e9615593477a22e4bdb8e17c690c8af986dfd38483"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/028800.match.json",
+      "bytes": 178782,
+      "sha256": "87266f1d216b437744db143c57db9912b53943fe049e61a80cefb2093834132e"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/032400.match.json",
+      "bytes": 168615,
+      "sha256": "bc50b1e90d0445225a354c2e539689f3db5b7b4277c19e460d74a850f660ab92"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/036000.match.json",
+      "bytes": 185995,
+      "sha256": "a63e7a29b8e6410a143685251c2e2918bcc3cf4bffb4b0a75303990c640c5d80"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/039600.match.json",
+      "bytes": 190474,
+      "sha256": "30e47d6369d1fdecf9464a2fc556d891a160ed5b4589838e700c6056af10071d"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/043200.match.json",
+      "bytes": 176606,
+      "sha256": "f2515b8ee9e98c13fa35b782f890bf8b841d7b3a2555a3a70831efb2a939380d"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/046800.match.json",
+      "bytes": 204040,
+      "sha256": "3844ac8408027f3638905f53b537396dbeb9f353f9470235c5261e7fbb71ba39"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/050400.match.json",
+      "bytes": 186070,
+      "sha256": "cbe56aa97c92ce70ca5825f00c6421f1a2f58a0fa99e24cb5c68032c0981a558"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/054000.match.json",
+      "bytes": 209827,
+      "sha256": "3b05d33fad162c98da83ed1cb36ff9c773fecca67a6e4ac286d0b2c29db5e099"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/057600.match.json",
+      "bytes": 180767,
+      "sha256": "8838433b68912f82d2f4a91d55834610a451e9d7f9fdd44058a6965d9a5b37cd"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/061200.match.json",
+      "bytes": 214179,
+      "sha256": "328680eddcdad1b8d25883b779bf179fed5339a3f30beeb818d5049bc1a30ac7"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/064800.match.json",
+      "bytes": 200951,
+      "sha256": "d2e635881d04605a460d17e56f8cc56c80f912c9effb5b99d7e5b9b07425c462"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/068400.match.json",
+      "bytes": 185694,
+      "sha256": "410570a1ee2e083e17f1aeb23a0dbc50385569c5f29d365a52f270e3bc43f5ad"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/072000.match.json",
+      "bytes": 211816,
+      "sha256": "e4e272e0928aaae90b0037638e512176f0654208437c82309588ce86c7481767"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/075600.match.json",
+      "bytes": 200244,
+      "sha256": "6504bb9a34bf2bb806e39f01a52f08c4bc6352517284afb3eded5db31ff976c9"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/079200.match.json",
+      "bytes": 236588,
+      "sha256": "c7b288bc59eea3be21424478c217cfcb9eb49a491bc085d1dde332fb2a5510b0"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/082800.match.json",
+      "bytes": 221339,
+      "sha256": "8cdfaf86ac21dcd9ce3fbd1e3cb6515253a15274fbd8cd393be515378828323e"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/086400.match.json",
+      "bytes": 272760,
+      "sha256": "f12d0c25de080a5fb15688e12639ade1111168f15fa9e0f5d940964540ee7b17"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/090000.match.json",
+      "bytes": 230078,
+      "sha256": "8ca0978402b3e43f0ce17ec13de04f4815eefc1a60beed11760aef52b59d804e"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/093600.match.json",
+      "bytes": 190380,
+      "sha256": "84682de4d0551d954e684ddd01fe4ee7c1a7739bcf8f4e4206eade267fbd7cfb"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/097200.match.json",
+      "bytes": 225169,
+      "sha256": "a6e72005c69c00fdc41b60c696adb9e317d2cabc268549fb87bc8d78d135254b"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/100800.match.json",
+      "bytes": 225070,
+      "sha256": "2fdd662278597824bb96a6c92f78c99c205ec1a06116b3c7a326dc6b4280f840"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/104400.match.json",
+      "bytes": 181853,
+      "sha256": "070cb2942d7a306e365c19cd0bc4533599a1c83e9ecb5b5156437f0500060f44"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/108000.match.json",
+      "bytes": 232971,
+      "sha256": "1197772af8bb90c4c8543ef3d81846baa5a1488406690ab5254bd03fc1ec6e8b"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/111600.match.json",
+      "bytes": 249310,
+      "sha256": "56fd999e8eead3254265f1101e854ee441a7845541b0b7bfc9683b482b99f430"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/115200.match.json",
+      "bytes": 217620,
+      "sha256": "1f3483eaa3a5e8983eb969d04acfada52c036876ac2041fae9edb3c53b212f85"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/118800.match.json",
+      "bytes": 233378,
+      "sha256": "82175b96aec9f0d318575dab5b523f48462491f49ad132d2a3d455623d9a7cfa"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/122400.match.json",
+      "bytes": 216085,
+      "sha256": "e3587df9ace9525944a8c6838ac9c01e0588b2f85045120d049c84dfa70df259"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/126000.match.json",
+      "bytes": 223897,
+      "sha256": "5a4c033bba55605a0e7eb50c870f1d709d17bd8a6a0b4a3ad742c368ed49b221"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/129600.match.json",
+      "bytes": 284715,
+      "sha256": "d4309335faa7780c4798205193ce69481a601e78ace23aecec1b6364762fc691"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/133200.match.json",
+      "bytes": 196933,
+      "sha256": "176113767e204569ea5a7fdca7032601838e40158f3578419fd95e359c04c29f"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/136800.match.json",
+      "bytes": 217788,
+      "sha256": "9aae6ad19e8d9a9961a49544118c7a470656db1f0bfe34ca535edb6d5b96060f"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/140400.match.json",
+      "bytes": 209930,
+      "sha256": "108e62139742037b42f259cf626c20ccab45f4fe68231f1327c928f88590f58d"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/144000.match.json",
+      "bytes": 234679,
+      "sha256": "b350b01021e838d4e7491802d4eaadba16c9ea752a1b0f3ebb864b52442b4759"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/147600.match.json",
+      "bytes": 214601,
+      "sha256": "7acd096a2c2ef093cd69939359b2ad89962b753cfbcf94e2a6eba3b2580fd47f"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/151200.match.json",
+      "bytes": 257401,
+      "sha256": "a25a4af3975eaea3ea035642c3e3f96558c2743418f107ca5cf7078b56de0932"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/154800.match.json",
+      "bytes": 234663,
+      "sha256": "1b5be7b6a88b48bfd5f4c3302b0f861273078f0da089f4773bae1d31b340f270"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-pilot-20261027/seeds/63/156008.match.json",
+      "bytes": 232737,
+      "sha256": "a72f7138f39f0d4d4e072332202f8360cc993fb64eb923a5a98526681bc9c78c"
+    }
+  ],
+  "independentVerification": {
+    "path": ".cache/current-normal-pilot-verification.log",
+    "bytes": 357,
+    "sha256": "6ac4ab14ef99ed6d7abf8aea88470848d19a697e04cd8c17f7c1c5c95d7b46da"
+  },
+  "inheritedApplicationCertificate": {
+    "path": "docs/reference/input-modifier-shortcuts-verification.json",
+    "bytes": 21667,
+    "sha256": "fdda46d71ea61df77108fe78d97c9c1eeac2d127494171f981c1ad484cf61555"
+  },
+  "limits": [
+    "Selected regression seeds, not a general win-rate or balance sample.",
+    "Interim two-champion roster with automated human carry for QA; the six-character/full-project gate remains open.",
+    "Headless invariant/save checks, not native or human-play/browser/performance certification.",
+    "No unit or broad production rerun is attributed to this source-only evidence addition."
+  ]
+}
