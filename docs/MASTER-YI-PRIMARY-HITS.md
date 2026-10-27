@@ -140,8 +140,10 @@ actual native dispatch and orientation interpretation remain unobserved.
 The [native atlas runtime trace](NATIVE-ATLAS-RUNTIME.md) additionally establishes
 continuous-frame modulo, quad half packing and shader-side flooring. The
 [quad packet correction](PRIMARY-HIT-HALF-PACKETS.md) now applies this ordering
-and half lookup precision to the retained unit-corner quad profiles. The ray
-path retains its prior policy; live native shader selection remains unverified.
+and half lookup precision to the retained unit-corner quad profiles. The
+[ray packet correction](PRIMARY-HIT-RAY-PACKETS.md) adds its separately traced
+lookup/color precision while preserving geometry and frame policies. Live native
+shader selection remains unverified.
 The raw identifier `{08b52819}` matches candidate `censorModulateValue`;
 no global censorship switch or quality filter is inferred. Raw hashes stay
 unchanged in the original definitions.

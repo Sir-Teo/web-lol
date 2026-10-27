@@ -44,6 +44,9 @@ test('all primary-hit families use saved target chest poses, exact GPU mips and 
         scale: mesh.scale.toArray(),
         uv: mesh.material.uniforms.sourceUvTransform.value.toArray(),
         color: mesh.material.uniforms.particleColor.value.toArray(),
+        vertexColor: mesh.geometry.getAttribute('_source_vertex_bgra')
+          ? Array.from(mesh.geometry.getAttribute('_source_vertex_bgra').array)
+          : null,
         blending: mesh.material.blending,
       }));
     for (const kind of ['attack1', 'attack2', 'crit']) {
@@ -200,6 +203,9 @@ test('all primary-hit families use saved target chest poses, exact GPU mips and 
         scale: mesh.scale.toArray(),
         uv: mesh.material.uniforms.sourceUvTransform.value.toArray(),
         color: mesh.material.uniforms.particleColor.value.toArray(),
+        vertexColor: mesh.geometry.getAttribute('_source_vertex_bgra')
+          ? Array.from(mesh.geometry.getAttribute('_source_vertex_bgra').array)
+          : null,
         blending: mesh.material.blending,
       })),
     };

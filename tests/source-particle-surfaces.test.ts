@@ -17,7 +17,7 @@ afterEach(() => {
     f.texture.dispose();
   }
 });
-function fixture(direction = false, attached = false) {
+function fixture(direction = false, attached = false, packet = false) {
   const texture = new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1),
     particle = {
       ...primaryHitParticles(91, 0.05, 'attack1', 30).find((p) => p.profileIndex === 1)!,
@@ -30,6 +30,7 @@ function fixture(direction = false, attached = false) {
     },
     profile = {
       ...data.profiles[1],
+      ...(packet ? { kind: 'ray', blend: 4 } : {}),
       directionOriented: direction,
       particleLocal: attached,
     } as unknown as SurfaceProfile,
@@ -49,6 +50,7 @@ function fixture(direction = false, attached = false) {
         },
       }),
       accepts: () => true,
+      ...(packet ? { vertexColor: () => 'bgra-unorm8' as const } : {}),
       records: () => [{ sourceId: 1, castTick: 0, group }],
       particles: () => [particle],
       birthVisible: () => true,
@@ -107,4 +109,34 @@ test('attached billboards retain their complete reflected source rotation', () =
   mesh.quaternion
     .toArray()
     .forEach((value, index) => expect(value).toBeCloseTo(expected[index], 12));
+});
+
+test('packed ray color owns a normalized BGRA byte stream and preserves caller values', () => {
+  const f = fixture(false, false, true),
+    mesh = f.update(),
+    attribute = mesh.geometry.getAttribute('_source_vertex_bgra') as THREE.BufferAttribute,
+    bytes = attribute.array;
+  expect(attribute.normalized).toBe(true);
+  expect(attribute.count).toBe(6);
+  expect(attribute.usage).toBe(THREE.DynamicDrawUsage);
+  expect(Array.from(bytes)).toEqual(Array.from({ length: 6 }, () => [191, 128, 64, 128]).flat());
+  expect(mesh.material.defines.SOURCE_VERTEX_BGRA).toBe(1);
+  expect(mesh.material.uniforms.particleColor.value.toArray()).toEqual([1, 1, 1, 1]);
+  expect(f.particle.color).toEqual([0.25, 0.5, 0.75, 0.5]);
+  const packed = Object.freeze([1, 0.5, 0, 0.5039215683937073]);
+  f.program.tint = () => packed;
+  f.update();
+  expect(mesh.geometry.getAttribute('_source_vertex_bgra').array).toBe(bytes);
+  expect(Array.from(bytes)).toEqual(Array.from({ length: 6 }, () => [0, 128, 255, 129]).flat());
+  expect(packed).toEqual([1, 0.5, 0, 0.5039215683937073]);
+});
+
+test('unrequested surfaces retain uniform color and shared billboard geometry', () => {
+  const first = fixture(),
+    second = fixture();
+  const a = first.update(),
+    b = second.update();
+  expect(a.geometry).toBe(b.geometry);
+  expect(a.geometry.getAttribute('_source_vertex_bgra')).toBeUndefined();
+  expect(a.material.defines.SOURCE_VERTEX_BGRA).toBeUndefined();
 });

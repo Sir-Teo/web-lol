@@ -273,7 +273,7 @@ test('the retained quad profiles satisfy the exact unit-corner and float32 atlas
   }
 });
 
-test('quad lookup UVs use binary16 while the untraced ray preserves its coordinate precision', () => {
+test('primary lookup UVs use binary16 while source ray color stays unquantized', () => {
   const quads = primaryHitParticles(91, 0.08, 'attack1', 30),
     ray = primaryHitParticles(91, 0.08, 'crit', 30).find((p) => p.profileIndex === 9)!;
   // Independent binary16 reference values for the four retained source profiles.
@@ -283,6 +283,35 @@ test('quad lookup UVs use binary16 while the untraced ray preserves its coordina
     [0.243896484375, 0.994140625],
     [0.071044921875, 0.7578125],
   ]);
-  expect(ray.lookup).toEqual([ray.phase, 1]);
-  expect(ray.lookup[0]).not.toBe(0.422119140625);
+  expect(ray.lookup).toEqual([0.422119140625, 1]);
+  expect(ray.lookup[0]).not.toBe(ray.phase);
+  expect(ray.color).toEqual([1, 1, 1, 0.7777811746614955]);
+});
+
+test('the retained ray satisfies the normalized-color and unit-UV specialization', () => {
+  const rays = data.profiles.filter((p) => p.kind === 'ray');
+  expect(rays).toHaveLength(1);
+  const ray = rays[0];
+  expect(ray.blend).toBe(4);
+  expect(ray.multiplier).toBeNull();
+  expect(ray.uv).toMatchObject({ startFrame: 0, frames: 1, frameRate: 0, randomStart: false });
+  expect(ray.lookupTypes).toEqual([1, 0]);
+  expect(ray.lookupScales).toEqual([1, 1]);
+  expect(ray.lookupOffsets).toEqual([0, 0]);
+  for (const [field, value] of [
+    ['scale', [1, 1]],
+    ['offset', [0, 0]],
+    ['birthScroll', [0, 0]],
+    ['scroll', [0, 0]],
+  ] as const) {
+    expect(ray.uv[field].values).toEqual([value]);
+    expect(ray.uv[field].times).toEqual([0]);
+    expect(ray.uv[field].probabilities).toEqual([]);
+  }
+  expect(ray.birthColor.values).toEqual([[1, 1, 1, 1]]);
+  expect(ray.birthColor.probabilities).toEqual([]);
+  expect(
+    ray.color.values.every((v) => v.slice(0, 3).every((x) => x === 1) && v[3] >= 0 && v[3] <= 1)
+  ).toBe(true);
+  expect(ray.color.probabilities).toEqual([]);
 });

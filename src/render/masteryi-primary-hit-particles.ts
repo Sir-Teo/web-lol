@@ -90,15 +90,14 @@ export function primaryHitParticles(
                 Math.floor(age * p.uv.frameRate)) %
               (columns * rows)
             : Math.floor(particleHalf(continuousFrame)),
-        lookup = particleColorLookup(p, phase, roll, motion.travel);
+        lookup = particleColorLookup(p, phase, roll, motion.travel),
+        rgba = sample(p.birthColor).map((x, axis) => x * color[axis]);
       if (p.uniform) size.fill(size[0]);
       uv.cell = [(frame % columns) / columns, Math.floor(frame / columns) / rows];
-      // Quad lookup UVs share the native half packet. Unit UV0 corners are
-      // exact. The untraced ray path retains its existing precision.
-      if (p.kind !== 'ray') {
-        lookup[0] = particleHalf(lookup[0]);
-        lookup[1] = particleHalf(lookup[1]);
-      }
+      // Both recovered vertex builders pack lookup UVs as half. Their unit
+      // UV0 corners are exact; the ray's upstream frame policy stays separate.
+      lookup[0] = particleHalf(lookup[0]);
+      lookup[1] = particleHalf(lookup[1]);
       particles.push({
         profileIndex,
         ordinal,
@@ -109,7 +108,7 @@ export function primaryHitParticles(
         phase,
         offset: origin.map((x, axis) => x + motion.position[axis]),
         size,
-        color: sample(p.birthColor).map((x, axis) => x * color[axis]),
+        color: rgba,
         rotation: sample(p.rotation),
         spawnTurn: turn.toArray(),
         travel: motion.travel,

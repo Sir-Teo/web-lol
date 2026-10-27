@@ -28,8 +28,9 @@ uniform matrix produces the recovered atlas coordinates for these profiles.
 Random atlases have power-of-two frame counts and zero animation rate, making
 the float32 product exact without a general FMA emulation. A profile-assumption
 guard rejects future source drift that would invalidate this specialization.
-The ray profile keeps its previous frame and lookup calculation; its native
-packet has not been traced here.
+The initial quad checkpoint retained the ray's previous frame and lookup
+calculation. The later [ray packet correction](PRIMARY-HIT-RAY-PACKETS.md) applies
+its separately traced half lookup and normalized-byte color path.
 
 `particleHalf` rounds float32 input to IEEE binary16 with ties to even, including
 subnormals, signed zero and overflow. It uses reusable typed-array storage and
@@ -54,7 +55,8 @@ and its complete `src` graph, verifies the lock and profile bytes, and compares
 2,106 sampler calls. An independent Python/C reference uses float32 `fmaf`,
 `fmodf` and Python's binary16 conversion. All 13,280 quad particles match that
 reference; 84 cells and 13,244 lookup pairs change in this selected corpus.
-Every other output field is exact, and all 90 ray samples are exact.
+At that quad checkpoint, every other output field and all 90 ray samples were
+exact. The current verifier additionally checks the later ray packet correction.
 These counts describe the test corpus, not native event frequencies.
 
 The authored-texture GPU probe uses the actual shared surface material and a

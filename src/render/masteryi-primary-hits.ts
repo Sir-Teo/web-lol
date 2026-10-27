@@ -89,6 +89,7 @@ export class PrimaryHits extends SourceParticleSurfaces<Group> {
       profiles: data.profiles,
       assets: () => (ready ? assets : undefined),
       accepts: () => true,
+      vertexColor: (index) => (data.profiles[index].kind === 'ray' ? 'bgra-unorm8' : undefined),
       *records(world) {
         retained.clear();
         for (const owner of world.units) {

@@ -61,10 +61,11 @@ rearrange or derive values. The mapping to authored `birthScale0` components,
 orientation, history and clocks remains unverified. This trace does not justify
 reordering the game's size vector or changing its ray geometry.
 
-No game behavior changes in this checkpoint. The accepted primary-hit quad
-precision correction remains in effect; the ray retains its previous local
-frame, lookup, color and geometry policies. Actual Yi dispatch, live shader
-selection, per-particle record producers and live FPCR remain unresolved.
+No game behavior changed in this evidence checkpoint. The later
+[ray packet correction](PRIMARY-HIT-RAY-PACKETS.md) applies half lookup and
+normalized-byte color precision to the local sampler while preserving its
+frame and geometry policies. Actual Yi dispatch, live shader selection,
+per-particle record producers and live FPCR remain unresolved.
 Original missing historical LLVM archives are neither replaced nor certified.
 
 The later [particle vertex-format witness](NATIVE-PARTICLE-VERTEX-FORMAT.md)

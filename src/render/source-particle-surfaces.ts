@@ -10,6 +10,7 @@ import { projectGroundQuad } from './ground-quad';
 import { maskGroundWalkability } from './ground-walkability-mask';
 import { groundEffectMaterial, setGroundRenderStage } from './ground-display-list';
 import { writeRayQuad } from './ray-quad';
+import { particleUnorm8 } from './particle-unorm8';
 
 const billboard = new THREE.PlaneGeometry(2, 2),
   quad = new THREE.PlaneGeometry(2, 2);
@@ -86,6 +87,9 @@ export interface SurfaceProgram<G extends SurfaceGroup> {
   /** Optional native-family tint packing. Omission retains the existing local
    * blend-zero RGB premultiplication with preserved alpha. */
   tint?(index: number, color: readonly number[]): readonly number[] | undefined;
+  /** Requests a packed color stream on owned ray geometry. The default source
+   * material consumes this normalized BGRA attribute with a white tint uniform. */
+  vertexColor?(index: number): 'bgra-unorm8' | undefined;
   /** Explicit caller routing, separate from native mode/phase recovery. */
   distortionTarget?(index: number): THREE.Scene;
   records(world: World): Iterable<{ sourceId: number; castTick: number; group: G }>;
@@ -139,12 +143,15 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
   ) {}
   private create(index: number, assets: EclipseSurfaceAssets) {
     const p = this.program.profiles[index],
+      vertexColor = this.program.vertexColor?.(index),
       e = p.erosion,
       destination = p.distortion
         ? (this.program.distortionTarget?.(index) ?? this.distortion)
         : this.scene,
       sourceGeometry = p.mesh ? assets.mesh(p.mesh) : undefined;
     if (!p.texture) throw Error('Source surface requires an explicit base texture');
+    if (vertexColor && p.kind !== 'ray')
+      throw Error('Packed surface color requires owned ray geometry');
     const material =
       this.program.material?.(index, assets, sourceGeometry) ??
       (p.distortion
@@ -157,7 +164,7 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
             kind: p.kind === 'mesh' ? 'mesh' : 'quad',
             texture: assets.texture(p.texture, p.uv.address),
             lookup: assets.texture(p.lookup ?? '', 2),
-            vertexBgra: !!sourceGeometry?.getAttribute('_source_vertex_bgra'),
+            vertexBgra: !!vertexColor || !!sourceGeometry?.getAttribute('_source_vertex_bgra'),
             ...(p.multiplier
               ? { multiplier: assets.texture(p.multiplier.texture, p.multiplier.uv.address) }
               : {}),
@@ -206,6 +213,11 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
             : p.kind === 'quad'
               ? quad
               : billboard;
+    if (vertexColor)
+      geometry.setAttribute(
+        '_source_vertex_bgra',
+        new THREE.Uint8BufferAttribute(new Uint8Array(24), 4, true).setUsage(THREE.DynamicDrawUsage)
+      );
     Object.assign(material, {
       depthWrite: false,
       depthTest: (p.miscRenderFlags & 1) === 0,
@@ -233,6 +245,7 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
       sourceNoCull: p.noCull,
       attachment: this.program.attachment,
       sourceVertexColors: !!geometry.getAttribute('_source_vertex_bgra'),
+      ...(vertexColor ? { sourcePacketColor: true } : {}),
       sourceFaceColors: !!geometry.getAttribute('_source_face_rgb'),
     });
     // The source vertex format selects the observed native BGRA color path.
@@ -447,6 +460,25 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
             color.x *= color.w;
             color.y *= color.w;
             color.z *= color.w;
+          }
+          if (mesh.userData.sourcePacketColor) {
+            const attribute = mesh.geometry.getAttribute(
+                '_source_vertex_bgra'
+              ) as THREE.BufferAttribute,
+              bytes = attribute.array as Uint8Array,
+              b = Math.round(particleUnorm8(color.z) * 255),
+              g = Math.round(particleUnorm8(color.y) * 255),
+              r = Math.round(particleUnorm8(color.x) * 255),
+              a = Math.round(particleUnorm8(color.w) * 255);
+            for (let vertex = 0; vertex < attribute.count; vertex++) {
+              const offset = vertex * 4;
+              bytes[offset] = b;
+              bytes[offset + 1] = g;
+              bytes[offset + 2] = r;
+              bytes[offset + 3] = a;
+            }
+            attribute.needsUpdate = true;
+            color.set(1, 1, 1, 1);
           }
           uniforms.lookupUv.value.fromArray(p.lookup);
           if (profile.distortion) uniforms.distortionPower.value = profile.distortion.strength;
