@@ -1,0 +1,1916 @@
+{
+  "format": 1,
+  "parentCommit": "a24dc2bc899d5fae956684fd6e3e43bd22057288",
+  "scope": "Conditional raw-key float32 color and truncating BGRA only for Gromp shadow plane profile4; shared unit writer preserves accepted complex billboards.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "offlinePack": {
+      "id": "a62254a879cebdc7116cc5a58bcbf302246d32848bf876feb5398df84e0425eb",
+      "files": 1202,
+      "bytes": 538092136
+    }
+  },
+  "source": [
+    {
+      "file": "src/render/gromp-billboard-color.ts",
+      "bytes": 394,
+      "sha256": "f1589012a043d886ae68690ccce5a824013fcacd3cbc065a34f09043887a09f6"
+    },
+    {
+      "file": "src/render/gromp-plane-color.ts",
+      "bytes": 334,
+      "sha256": "90672fa22722a818bc2d92d14d014171f62b82648af4b9fbc227b20528b31242"
+    },
+    {
+      "file": "src/render/legacy-unit-color.ts",
+      "bytes": 1015,
+      "sha256": "8f2887843a64864af53aaab91fe4eb953f6b0bd96608d4a5d44c2514e0a67441"
+    },
+    {
+      "file": "src/render/gromp-death-particles.ts",
+      "bytes": 4492,
+      "sha256": "d96ba4feb40e46e665e13559ec54ef592559843a17326290f7627bb9d0864441"
+    },
+    {
+      "file": "src/render/gromp-death.ts",
+      "bytes": 13449,
+      "sha256": "37080940ec1006c61c6451d212894f89e607069af212a0cb9ea145c570d14017"
+    },
+    {
+      "file": "tests/gromp-plane-color.test.ts",
+      "bytes": 3420,
+      "sha256": "4a49b04a58001fbe3a6ab0d16e23874ed879c3ca31a10178ca186830552c13d0"
+    },
+    {
+      "file": "tests/gromp-ray-packets.test.ts",
+      "bytes": 2739,
+      "sha256": "af103fec8f8df14e8d227b86e51a878702e89313008a17ad933f1409da6059f2"
+    },
+    {
+      "file": "e2e/gromp-plane-color.spec.ts",
+      "bytes": 11499,
+      "sha256": "df0647a9e7d59bc2b136389786f45c3651caf1e320bae1eff874b3343d0674fa"
+    },
+    {
+      "file": "tools/qa/lib/legacy-plane-color-reference.py",
+      "bytes": 6835,
+      "sha256": "048cf86e1930fc2a7a6b9097ebc6e195548a6e4d5eb78433e2b21f1ef7be5662"
+    },
+    {
+      "file": "tools/qa/legacy-plane-color-reference.test.mjs",
+      "bytes": 3250,
+      "sha256": "6fb9c21a780691596d1347780b87ca2476facbf4910e4a223751a43810027510"
+    },
+    {
+      "file": "tools/qa/verify-gromp-plane-color.mjs",
+      "bytes": 6685,
+      "sha256": "c082d9f3ce71dbdf58be661c889a7e6ec202730b5ebc84d374b54064530a5d15"
+    },
+    {
+      "file": "tools/qa/verify-gromp-billboard-color.mjs",
+      "bytes": 7069,
+      "sha256": "69ec85f81ef0b05963a570fb6ca3edbfddd68b7c60e7c5231c78df1e37907128"
+    },
+    {
+      "file": "docs/reference/gromp-plane-color-fixtures.json",
+      "bytes": 11717,
+      "sha256": "c2608a437e88151b579d56199b61ec4b04eee00fb048b285dd3c153d18f9a011"
+    },
+    {
+      "path": "docs/GROMP-PLANE-COLOR.md",
+      "bytes": 5284,
+      "sha256": "2fed367ab3f0a06d860c5ea25450e1412d2f29901b3a5f51a6acdb8321d734e2"
+    },
+    {
+      "path": "docs/GROMP-BILLBOARD-COLOR.md",
+      "bytes": 6933,
+      "sha256": "8f2c9a78a318cd066afa12b6da32efc88a5fb31aa3b5cd125ac756ff411aeafd"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "bytes": 738962,
+      "sha256": "46f33a91d9795b60740af07a50d05ef4c81e928e56835f710e24a54ac25c79fd"
+    }
+  ],
+  "sampler": {
+    "result": "passed",
+    "reference": {
+      "commit": "395a4fecba79d1c6d76d1c52129571b342a46f31",
+      "archiveSha256": "de84f86dae2731d0ea02e9d73d5693da9b10aff109cfc38da8bc5abccad71b35",
+      "moduleSha256": "90bf3f4cb37887cf58ce41e4607e3a5271e6057f4101ebf559397d02469054a4",
+      "module": "/workspace/web-lol/.cache/gromp-plane-color/sampler-final/reference/baseline.mjs"
+    },
+    "samplerCalls": 16497,
+    "retainedPlaneStates": 16200,
+    "unchangedOtherStates": 375622,
+    "extraPhases": 1013,
+    "counts": {
+      "4": {
+        "states": 16200,
+        "changedFloat32ColorStates": 3834,
+        "differentFromOldFloatTint": 4617,
+        "maxNormalizedColorDelta": 0.003921568393707275
+      }
+    },
+    "examples": [
+      {
+        "profileIndex": 4,
+        "phase": 0.5016666666666667,
+        "death": 0,
+        "id": 0,
+        "tick": 151.5,
+        "before": [
+          0.9944444444444444,
+          0.9944444444444444,
+          0.9944444444444444,
+          0.9944444444444444
+        ],
+        "rgba": [
+          0.9944444298744202,
+          0.9944444298744202,
+          0.9944444298744202,
+          0.9944444298744202
+        ],
+        "bgra": [
+          253,
+          253,
+          253,
+          253
+        ]
+      },
+      {
+        "profileIndex": 4,
+        "phase": 0.5033333333333333,
+        "death": 0,
+        "id": 0,
+        "tick": 152,
+        "before": [
+          0.988888888888889,
+          0.988888888888889,
+          0.988888888888889,
+          0.988888888888889
+        ],
+        "rgba": [
+          0.9888889193534851,
+          0.9888889193534851,
+          0.9888889193534851,
+          0.9888889193534851
+        ],
+        "bgra": [
+          252,
+          252,
+          252,
+          252
+        ]
+      },
+      {
+        "profileIndex": 4,
+        "phase": 0.505,
+        "death": 0,
+        "id": 0,
+        "tick": 152.5,
+        "before": [
+          0.9833333333333333,
+          0.9833333333333333,
+          0.9833333333333333,
+          0.9833333333333333
+        ],
+        "rgba": [
+          0.9833333492279053,
+          0.9833333492279053,
+          0.9833333492279053,
+          0.9833333492279053
+        ],
+        "bgra": [
+          250,
+          250,
+          250,
+          250
+        ]
+      }
+    ],
+    "reading": "Profile4 colors match independent host C; all other fields and all other profiles, including complex billboards, Rays, Simple flash and mesh, match the frozen accepted source exactly. Full five-second plane lifetime covered; lookup/atlas/geometry inputs and local clocks remain unchanged. Component acceptance, not native execution or full appearance parity."
+  },
+  "historicalBillboardCheckpoint": {
+    "result": "passed",
+    "reference": {
+      "commit": "46e69f71b258b86e3bfa25032bc69515ba28b718",
+      "archiveSha256": "ec0aada8f496a24694f45f7535812c6a03d236dce5dfd15fccd52fdcc2146fb8",
+      "moduleSha256": "3dd7c38d66d40df3f554b903f75762451ba72c93fd45a3d361440142960df55b",
+      "module": "/workspace/web-lol/.cache/gromp-plane-color/historical-billboards/reference/baseline.mjs"
+    },
+    "acceptedSamplerReference": {
+      "commit": "395a4fecba79d1c6d76d1c52129571b342a46f31",
+      "archiveSha256": "de84f86dae2731d0ea02e9d73d5693da9b10aff109cfc38da8bc5abccad71b35",
+      "moduleSha256": "c583dce12a6b7df248331ce4f90272175ca96b7eb176f5d8a5b4087f92ac1b29",
+      "module": "/workspace/web-lol/.cache/gromp-plane-color/historical-billboards/accepted/baseline.mjs"
+    },
+    "samplerScope": "Frozen pre-plane accepted sampler; current whole-sampler assertions live in verify-gromp-plane-color.mjs.",
+    "samplerCalls": 6507,
+    "retainedBillboardStates": 118988,
+    "unchangedOtherStates": 195716,
+    "extraPhases": 3027,
+    "counts": {
+      "1": {
+        "states": 648,
+        "changedFloat32ColorStates": 378,
+        "differentFromOldFloatTint": 621,
+        "maxNormalizedColorDelta": 0.003799019381403923
+      },
+      "2": {
+        "states": 648,
+        "changedFloat32ColorStates": 297,
+        "differentFromOldFloatTint": 513,
+        "maxNormalizedColorDelta": 0.003799019381403923
+      },
+      "3": {
+        "states": 117692,
+        "changedFloat32ColorStates": 68666,
+        "differentFromOldFloatTint": 113641,
+        "maxNormalizedColorDelta": 0.0039215534925460815
+      }
+    },
+    "examples": [
+      {
+        "profileIndex": 1,
+        "phase": 0.041666666666666664,
+        "death": 0,
+        "id": 0,
+        "tick": 1.5,
+        "before": [
+          1,
+          1,
+          1,
+          0.20833333333333331
+        ],
+        "rgba": [
+          1,
+          1,
+          1,
+          0.2083333432674408
+        ],
+        "bgra": [
+          255,
+          255,
+          255,
+          53
+        ]
+      },
+      {
+        "profileIndex": 3,
+        "phase": 0.029673913591920398,
+        "death": 0,
+        "id": 0,
+        "tick": 1.5,
+        "before": [
+          0.9604347818774395,
+          0.9604347818774395,
+          0.9604347818774395,
+          1
+        ],
+        "rgba": [
+          0.9604347944259644,
+          0.9604347944259644,
+          0.9604347944259644,
+          1
+        ],
+        "bgra": [
+          244,
+          244,
+          244,
+          255
+        ]
+      },
+      {
+        "profileIndex": 3,
+        "phase": 0.10070427592332556,
+        "death": 0,
+        "id": 0,
+        "tick": 1.5,
+        "before": [
+          0.8657276321022326,
+          0.8657276321022326,
+          0.8657276321022326,
+          1
+        ],
+        "rgba": [
+          0.8657276630401611,
+          0.8657276630401611,
+          0.8657276630401611,
+          1
+        ],
+        "bgra": [
+          220,
+          220,
+          220,
+          255
+        ]
+      },
+      {
+        "profileIndex": 3,
+        "phase": 0.10416666666666664,
+        "death": 0,
+        "id": 0,
+        "tick": 1.5,
+        "before": [
+          0.8611111111111112,
+          0.8611111111111112,
+          0.8611111111111112,
+          1
+        ],
+        "rgba": [
+          0.8611111044883728,
+          0.8611111044883728,
+          0.8611111044883728,
+          1
+        ],
+        "bgra": [
+          219,
+          219,
+          219,
+          255
+        ]
+      },
+      {
+        "profileIndex": 1,
+        "phase": 0.08333333333333333,
+        "death": 0,
+        "id": 0,
+        "tick": 2,
+        "before": [
+          1,
+          1,
+          1,
+          0.41666666666666663
+        ],
+        "rgba": [
+          1,
+          1,
+          1,
+          0.4166666865348816
+        ],
+        "bgra": [
+          255,
+          255,
+          255,
+          106
+        ]
+      },
+      {
+        "profileIndex": 1,
+        "phase": 0.125,
+        "death": 0,
+        "id": 0,
+        "tick": 2.5,
+        "before": [
+          1,
+          1,
+          1,
+          0.625
+        ],
+        "rgba": [
+          1,
+          1,
+          1,
+          0.625
+        ],
+        "bgra": [
+          255,
+          255,
+          255,
+          159
+        ]
+      },
+      {
+        "profileIndex": 2,
+        "phase": 0.20833333333333331,
+        "death": 0,
+        "id": 0,
+        "tick": 3.5,
+        "before": [
+          1,
+          1,
+          1,
+          0.9854166666666667
+        ],
+        "rgba": [
+          1,
+          1,
+          1,
+          0.9854167103767395
+        ],
+        "bgra": [
+          255,
+          255,
+          255,
+          251
+        ]
+      },
+      {
+        "profileIndex": 2,
+        "phase": 0.25,
+        "death": 0,
+        "id": 0,
+        "tick": 4,
+        "before": [
+          1,
+          1,
+          1,
+          0.9125
+        ],
+        "rgba": [
+          1,
+          1,
+          1,
+          0.9125000238418579
+        ],
+        "bgra": [
+          255,
+          255,
+          255,
+          232
+        ]
+      },
+      {
+        "profileIndex": 2,
+        "phase": 0.29166666666666663,
+        "death": 0,
+        "id": 0,
+        "tick": 4.5,
+        "before": [
+          1,
+          1,
+          1,
+          0.8395833333333333
+        ],
+        "rgba": [
+          1,
+          1,
+          1,
+          0.8395833969116211
+        ],
+        "bgra": [
+          255,
+          255,
+          255,
+          214
+        ]
+      }
+    ],
+    "reading": "Profiles1/2/3 colors match independent host C; all other fields and all other profiles, including Rays and Simple flash, match the frozen accepted source exactly. Lookup/atlas/geometry inputs and local clocks remain unchanged. Component acceptance, not native execution or full appearance parity."
+  },
+  "gpu": [
+    {
+      "kind": "plane-pixels.json",
+      "path": ".cache/gromp-plane-color/browser-final/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/plane-pixels.json",
+      "comparisons": 84,
+      "changedBytes": 0,
+      "oldFloatChangedBytes": 8901
+    },
+    {
+      "kind": "billboard-pixels.json",
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/billboard-pixels.json",
+      "comparisons": 84,
+      "changedBytes": 0,
+      "oldFloatChangedBytes": 26693
+    },
+    {
+      "kind": "billboard-pixels.json",
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/billboard-pixels.json",
+      "comparisons": 84,
+      "changedBytes": 0,
+      "oldFloatChangedBytes": 26632
+    },
+    {
+      "kind": "billboard-pixels.json",
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/billboard-pixels.json",
+      "comparisons": 84,
+      "changedBytes": 0,
+      "oldFloatChangedBytes": 184955
+    },
+    {
+      "kind": "gromp-ray-pixels.json",
+      "path": ".cache/gromp-plane-color/browser-final/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/gromp-ray-pixels.json",
+      "comparisons": 84,
+      "changedBytes": 0,
+      "oldFloatChangedBytes": 2311
+    },
+    {
+      "kind": "gromp-ray-pixels.json",
+      "path": ".cache/gromp-plane-color/browser-final/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/gromp-ray-pixels.json",
+      "comparisons": 96,
+      "changedBytes": 0,
+      "oldFloatChangedBytes": 29578
+    }
+  ],
+  "verification": {
+    "focusedPassed": 158,
+    "focusedFiles": 5,
+    "newUnitCases": 37,
+    "fullUnitPassed": 3288,
+    "fullUnitFailed": 2,
+    "fullUnitTotal": 3290,
+    "fullUnitFiles": 398,
+    "baselineFailuresUnchanged": 2,
+    "typeCheckPassed": true,
+    "nodeQaPassed": 12,
+    "browserCasesPassedInSingleBatch": 8,
+    "planeComparisons": 84,
+    "billboardComparisons": 252,
+    "rayComparisons": 180,
+    "productionBuildPassed": true,
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 13,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderAudioPreloads": 0,
+      "unrequestedMasterYiAlphaAudioPreloads": 0,
+      "unrequestedMasterYiMeditateAudioPreloads": 0,
+      "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+      "unrequestedMasterYiSwordPreloads": 0,
+      "unrequestedMasterYiPrimaryTrailPreloads": 0,
+      "unrequestedMasterYiPrimaryHitPreloads": 0,
+      "unrequestedMasterYiPassiveTrailPreloads": 0,
+      "unrequestedMasterYiMeditateDamagePreloads": 0,
+      "unrequestedMasterYiHighlanderKillPreloads": 0,
+      "unrequestedMasterYiHighlanderCastPreloads": 0,
+      "unrequestedMasterYiQEndPreloads": 0,
+      "unrequestedMasterYiQCastPreloads": 0,
+      "unrequestedMasterYiQContactPreloads": 0,
+      "unrequestedMasterYiMeditateCastPreloads": 0,
+      "unrequestedMasterYiMeditateBuffPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 221,
+      "scheduledBlueRequests": 13,
+      "scheduledRedRequests": 13,
+      "scheduledWolfRequests": 26,
+      "scheduledRaptorRequests": 26,
+      "scheduledKrugRequests": 39,
+      "scheduledScuttlerRequests": 13,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    },
+    "offline": {
+      "manifest": {
+        "id": "a62254a879cebdc7116cc5a58bcbf302246d32848bf876feb5398df84e0425eb",
+        "files": 1202,
+        "bytes": 538092136
+      },
+      "checks": {
+        "integrityFailure": true,
+        "cancelRetainsVerified": true,
+        "retryWithoutRedownload": true,
+        "pausedSavedTickBootsOffline": true,
+        "completePackRepairOffline": true,
+        "newLuxLaneMatchOffline": true,
+        "serviceWorkerResponses": 978,
+        "removalKeepsSavedBytes": true,
+        "updateRefusesOtherTabs": true,
+        "explicitAtomicVersionSwitchOffline": true,
+        "missingEntryRevokesReady": true,
+        "scopeOnlyRemoval": true
+      },
+      "result": "passed",
+      "productionErrors": []
+    },
+    "freshProductionScreenshots": 8,
+    "assetsAndDataSizesAndMtimesUnchanged": 1125,
+    "cohortSourcePinsUnchanged": 539,
+    "schemaChanged": false,
+    "rulesetChanged": false
+  },
+  "storage": {
+    "planeParticles": 1,
+    "localVerticesPerParticle": 6,
+    "previousColorBytes": 96,
+    "currentColorBytes": 24,
+    "savedColorBytesPerCorpse": 72,
+    "fpsImprovementClaimed": false
+  },
+  "earlierAttempts": {
+    "firstBrowserBatchPassed": 7,
+    "firstBrowserBatchFailed": 1,
+    "planePixelDifferences": 0,
+    "firstPlaneNonemptyRgb": 78,
+    "planeCases": 84,
+    "repair": "Count nonzero RGBA contribution: six late-fade runtime views retain alpha despite RGB rounding to black. Every exact per-channel comparison and all84 nonempty checks retained. No app arithmetic changed.",
+    "firstUnfrozenSamplerProjectionRetainedAsDiagnostic": true,
+    "initialTwoSecondPlaneSweepFoundNoDifference": "Five-second shadow stays constant through the first two seconds; accepted sampler covers the full fade."
+  },
+  "pauseIntervals": [
+    {
+      "start": "2026-10-27T13:43:54.102184+00:00",
+      "end": "2026-10-27T13:45:22.368261+00:00",
+      "processes": [
+        {
+          "pid": 302400,
+          "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+        },
+        {
+          "pid": 313459,
+          "cmdlineSha256": "8ff36db29ddab8019e1de69d82c62e4b6f137a973c314a03b8152a6e78e28a54"
+        },
+        {
+          "pid": 313688,
+          "cmdlineSha256": "1f99593e3f28f4e9dc0658c3196ede256b3f4b4d6922ee4f9b4b3543734cf1ff"
+        },
+        {
+          "pid": 313695,
+          "cmdlineSha256": "afdba539f392f5731bb6a5d3b04b60c7ee940a0b3d7f004cf28dcba61916240e"
+        },
+        {
+          "pid": 313784,
+          "cmdlineSha256": "3faae6a28c70fc953b7d95a6358ca6c46090bb58dff4580c9748150e8233425a"
+        }
+      ],
+      "resumed": true
+    },
+    {
+      "start": "2026-10-27T13:46:07.723191+00:00",
+      "end": "2026-10-27T13:48:11.146156+00:00",
+      "processes": [
+        {
+          "pid": 302400,
+          "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+        },
+        {
+          "pid": 313459,
+          "cmdlineSha256": "8ff36db29ddab8019e1de69d82c62e4b6f137a973c314a03b8152a6e78e28a54"
+        },
+        {
+          "pid": 313688,
+          "cmdlineSha256": "1f99593e3f28f4e9dc0658c3196ede256b3f4b4d6922ee4f9b4b3543734cf1ff"
+        },
+        {
+          "pid": 313695,
+          "cmdlineSha256": "afdba539f392f5731bb6a5d3b04b60c7ee940a0b3d7f004cf28dcba61916240e"
+        },
+        {
+          "pid": 313784,
+          "cmdlineSha256": "3faae6a28c70fc953b7d95a6358ca6c46090bb58dff4580c9748150e8233425a"
+        }
+      ],
+      "resumed": true
+    },
+    {
+      "start": "2026-10-27T13:48:24.168467+00:00",
+      "end": "2026-10-27T14:03:21.322194+00:00",
+      "processes": [
+        {
+          "pid": 302400,
+          "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+        },
+        {
+          "pid": 313459,
+          "cmdlineSha256": "8ff36db29ddab8019e1de69d82c62e4b6f137a973c314a03b8152a6e78e28a54"
+        },
+        {
+          "pid": 313688,
+          "cmdlineSha256": "1f99593e3f28f4e9dc0658c3196ede256b3f4b4d6922ee4f9b4b3543734cf1ff"
+        },
+        {
+          "pid": 313695,
+          "cmdlineSha256": "afdba539f392f5731bb6a5d3b04b60c7ee940a0b3d7f004cf28dcba61916240e"
+        },
+        {
+          "pid": 313784,
+          "cmdlineSha256": "3faae6a28c70fc953b7d95a6358ca6c46090bb58dff4580c9748150e8233425a"
+        }
+      ],
+      "resumed": true
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/gromp-plane-color/application-inputs.json",
+      "bytes": 158542,
+      "sha256": "8c03df0b7b54a44fd82d669996d9d7f507fad7ed3b7dff217c83b49715ae2cf4"
+    },
+    {
+      "path": ".cache/gromp-plane-color/application-pause-record.json",
+      "bytes": 755,
+      "sha256": "7d7fef6f4e36a158ff7555127c1ba5e7f08c0bf636c8b516e59888a66af06713"
+    },
+    {
+      "path": ".cache/gromp-plane-color/application-source/docs/GROMP-BILLBOARD-COLOR.md",
+      "bytes": 6933,
+      "sha256": "8f2c9a78a318cd066afa12b6da32efc88a5fb31aa3b5cd125ac756ff411aeafd"
+    },
+    {
+      "path": ".cache/gromp-plane-color/application-source/docs/GROMP-PLANE-COLOR.md",
+      "bytes": 5284,
+      "sha256": "2fed367ab3f0a06d860c5ea25450e1412d2f29901b3a5f51a6acdb8321d734e2"
+    },
+    {
+      "path": ".cache/gromp-plane-color/application-source/docs/PROGRESS.md",
+      "bytes": 738962,
+      "sha256": "46f33a91d9795b60740af07a50d05ef4c81e928e56835f710e24a54ac25c79fd"
+    },
+    {
+      "path": ".cache/gromp-plane-color/application-source/docs/reference/gromp-plane-color-fixtures.json",
+      "bytes": 11717,
+      "sha256": "c2608a437e88151b579d56199b61ec4b04eee00fb048b285dd3c153d18f9a011"
+    },
+    {
+      "path": ".cache/gromp-plane-color/application-source/e2e/gromp-plane-color.spec.ts",
+      "bytes": 11499,
+      "sha256": "df0647a9e7d59bc2b136389786f45c3651caf1e320bae1eff874b3343d0674fa"
+    },
+    {
+      "path": ".cache/gromp-plane-color/application-source/src/render/gromp-billboard-color.ts",
+      "bytes": 394,
+      "sha256": "f1589012a043d886ae68690ccce5a824013fcacd3cbc065a34f09043887a09f6"
+    },
+    {
+      "path": ".cache/gromp-plane-color/application-source/src/render/gromp-death-particles.ts",
+      "bytes": 4492,
+      "sha256": "d96ba4feb40e46e665e13559ec54ef592559843a17326290f7627bb9d0864441"
+    },
+    {
+      "path": ".cache/gromp-plane-color/application-source/src/render/gromp-death.ts",
+      "bytes": 13449,
+      "sha256": "37080940ec1006c61c6451d212894f89e607069af212a0cb9ea145c570d14017"
+    },
+    {
+      "path": ".cache/gromp-plane-color/application-source/src/render/gromp-plane-color.ts",
+      "bytes": 334,
+      "sha256": "90672fa22722a818bc2d92d14d014171f62b82648af4b9fbc227b20528b31242"
+    },
+    {
+      "path": ".cache/gromp-plane-color/application-source/src/render/legacy-unit-color.ts",
+      "bytes": 1015,
+      "sha256": "8f2887843a64864af53aaab91fe4eb953f6b0bd96608d4a5d44c2514e0a67441"
+    },
+    {
+      "path": ".cache/gromp-plane-color/application-source/tests/gromp-plane-color.test.ts",
+      "bytes": 3420,
+      "sha256": "4a49b04a58001fbe3a6ab0d16e23874ed879c3ca31a10178ca186830552c13d0"
+    },
+    {
+      "path": ".cache/gromp-plane-color/application-source/tests/gromp-ray-packets.test.ts",
+      "bytes": 2739,
+      "sha256": "af103fec8f8df14e8d227b86e51a878702e89313008a17ad933f1409da6059f2"
+    },
+    {
+      "path": ".cache/gromp-plane-color/application-source/tools/qa/legacy-plane-color-reference.test.mjs",
+      "bytes": 3250,
+      "sha256": "6fb9c21a780691596d1347780b87ca2476facbf4910e4a223751a43810027510"
+    },
+    {
+      "path": ".cache/gromp-plane-color/application-source/tools/qa/lib/legacy-plane-color-reference.py",
+      "bytes": 6835,
+      "sha256": "048cf86e1930fc2a7a6b9097ebc6e195548a6e4d5eb78433e2b21f1ef7be5662"
+    },
+    {
+      "path": ".cache/gromp-plane-color/application-source/tools/qa/verify-gromp-billboard-color.mjs",
+      "bytes": 7069,
+      "sha256": "69ec85f81ef0b05963a570fb6ca3edbfddd68b7c60e7c5231c78df1e37907128"
+    },
+    {
+      "path": ".cache/gromp-plane-color/application-source/tools/qa/verify-gromp-plane-color.mjs",
+      "bytes": 6685,
+      "sha256": "c082d9f3ce71dbdf58be661c889a7e6ec202730b5ebc84d374b54064530a5d15"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/billboard-pixels.json",
+      "bytes": 22564,
+      "sha256": "2520dbdb5113e8a7b92f71cafd282c936ca832dd50e73288addbac846aea654c"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/expected.json",
+      "bytes": 204186,
+      "sha256": "83a07aa361c24b55e8f41fb3e4f6c013cbfee99c571a61822d8ce39b6565916d"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/expected.json.c",
+      "bytes": 1871,
+      "sha256": "04d40f19b4849e5a7c720df3662a70d4bbf5a45e8240ee359d90dd7d0f8ab4ec"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/expected.json.compiler.json",
+      "bytes": 1282,
+      "sha256": "1f2b970eeccd88d7617c7b3755f67f232510d15f4ac2e7671b8af4e5d2b2b4f3"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/inputs.json",
+      "bytes": 48637,
+      "sha256": "44c2284090ce66d7489159c6810a7ca5576fd72fd4a7ab40fbadda54cd1b5d97"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/reference/baseline.mjs",
+      "bytes": 42936,
+      "sha256": "92a34b44014fe05adbb36172c8f43b34bbd02461c26c344127375b3da39ce5f7"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/reference/reference.json",
+      "bytes": 389,
+      "sha256": "2f8187cf41306824a0aad972d2655104609d90d7d86b56bb191c819497f68dc2"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "ec0aada8f496a24694f45f7535812c6a03d236dce5dfd15fccd52fdcc2146fb8"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/billboard-pixels.json",
+      "bytes": 22360,
+      "sha256": "1496e5e5aa23d228098d7e708f77d31a69384d7db26102a5cb3920f23a7e2dc4"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/expected.json",
+      "bytes": 1118,
+      "sha256": "ec59fbbbc0e98331102fcdd32ada28e3667ad53c7fa53d2814b8c05292bd9290"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/expected.json.c",
+      "bytes": 1871,
+      "sha256": "04d40f19b4849e5a7c720df3662a70d4bbf5a45e8240ee359d90dd7d0f8ab4ec"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/expected.json.compiler.json",
+      "bytes": 1282,
+      "sha256": "1f2b970eeccd88d7617c7b3755f67f232510d15f4ac2e7671b8af4e5d2b2b4f3"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/inputs.json",
+      "bytes": 329,
+      "sha256": "bd531fd4c3cd13a3198cb050e9c3abd9fbb56121aa3753677e3e2c6146ed4321"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/reference/baseline.mjs",
+      "bytes": 42936,
+      "sha256": "d94a41555b52fd9d8992d928c370982c87aec04062bb69d6349f68380011bcde"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/reference/reference.json",
+      "bytes": 389,
+      "sha256": "8fee479902e0aa31e53a92dcf1e3dedee1411ca2e5b1549829b828d443982bf3"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "ec0aada8f496a24694f45f7535812c6a03d236dce5dfd15fccd52fdcc2146fb8"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/billboard-pixels.json",
+      "bytes": 22432,
+      "sha256": "162e0e3048d900c822f677e5669a5f2552d7c69a768c00a6ff3711b9b03c5c0a"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/expected.json",
+      "bytes": 1162,
+      "sha256": "e569ce00f2fbd5a4de108a580585a5073e00f8bf56effb74812c1d6f00dc4966"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/expected.json.c",
+      "bytes": 1871,
+      "sha256": "04d40f19b4849e5a7c720df3662a70d4bbf5a45e8240ee359d90dd7d0f8ab4ec"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/expected.json.compiler.json",
+      "bytes": 1282,
+      "sha256": "1f2b970eeccd88d7617c7b3755f67f232510d15f4ac2e7671b8af4e5d2b2b4f3"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/inputs.json",
+      "bytes": 329,
+      "sha256": "95871a95583487d90ada85a2b325c3ab3303ef494240f68e17d7f856661ad174"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/reference/baseline.mjs",
+      "bytes": 42936,
+      "sha256": "9293d1ee625b7a434b4da1a8bfc49a28afd230f6b6618b3ca6c28fb848b2203c"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/reference/reference.json",
+      "bytes": 389,
+      "sha256": "26560df5799ba242fabbdee20ae3fed8795de0c54f5a0c72397178d5d8cf07cb"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "ec0aada8f496a24694f45f7535812c6a03d236dce5dfd15fccd52fdcc2146fb8"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/expected.json",
+      "bytes": 1370,
+      "sha256": "d236a436726fdcb0bf9608903a0a5ab0d0a51f7a54b20f2a57e40a9709dd6771"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/expected.json.c",
+      "bytes": 1737,
+      "sha256": "6607c85a5e3a42bdd093fbdc085427964c9ad3a88085e422f39ebb46fe1a9951"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/expected.json.compiler.json",
+      "bytes": 1268,
+      "sha256": "ebdb1c107573acc58abcf94a981feb085c98a01cc2d448094d193fc8aa697f9d"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/inputs.json",
+      "bytes": 285,
+      "sha256": "03b6cf1ba29bb32b8bf881ae98cd6d52292f3eba15caf7fd7a5594eb4804394d"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/plane-pixels.json",
+      "bytes": 24548,
+      "sha256": "d5b9a15d556636cdfb1e6114ebc3081097a1bd0ff542789a58b50d8d4362cca8"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/reference/baseline.mjs",
+      "bytes": 43446,
+      "sha256": "aabfd8e5de88ec21989838aff412a2c5b7c2681ff3a88ce6863fafc682d92ea0"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/reference/reference.json",
+      "bytes": 389,
+      "sha256": "3aa64793ab67f013881bb19107fd91486344bbc943d3ee87b93d0a95bebf67e1"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "de84f86dae2731d0ea02e9d73d5693da9b10aff109cfc38da8bc5abccad71b35"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-expected.json",
+      "bytes": 17940,
+      "sha256": "40e831774fcb1469d91e823c5bc5de7ced7257aee29c838ebbe9893938354e54"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-expected.json.c",
+      "bytes": 1851,
+      "sha256": "a3ee344994bf965d062e4f8cac15b04e59a12978bdffb5b76af32735799f63b1"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-expected.json.compiler.json",
+      "bytes": 956,
+      "sha256": "b921b03bec2451fbd723796552f9114c8f934e95cfd125066cdc98be045a8ca7"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-inputs.json",
+      "bytes": 4869,
+      "sha256": "ada0a58e40fd15d726b279df84b20982609c0c131fce945d4d00346a1713dd62"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/expected.json",
+      "bytes": 9822,
+      "sha256": "68e9f62d987c5c86a3ece9e1501c4cde8cc043a492cd20a307086407dcc20e12"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/gromp-ray-pixels.json",
+      "bytes": 33600,
+      "sha256": "385bb86d9e016838c18ed1e98211c49b505e9ed38349285d921b1c5918461c49"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/inputs.json",
+      "bytes": 12248,
+      "sha256": "7f1e404d6441142d5b1df22dc499fc4acaf8b4750342850f0df6f7e61b8ba11a"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/reference/baseline.mjs",
+      "bytes": 40841,
+      "sha256": "57c40c4b6e280eb641b8ab897326e4d54f909e41c582fae6cab62d18eca746e5"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/reference/reference.json",
+      "bytes": 389,
+      "sha256": "8e55b207f2838b5831a2a8c7e240db59fbfad5dd02c476ecdc58b22cca8a6a33"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/reference/source.tar",
+      "bytes": 6543360,
+      "sha256": "46af3e7b372318b0a65cf692fd4a7b015a0c0b2697f8c9a3c2c7ce359b70b5c5"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-expected.json",
+      "bytes": 58044,
+      "sha256": "62b77e49be7e9f3adf9a2e960a9d42bcc30369e5199296ca18ac0e93c6d8b490"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-expected.json.c",
+      "bytes": 1851,
+      "sha256": "a3ee344994bf965d062e4f8cac15b04e59a12978bdffb5b76af32735799f63b1"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-expected.json.compiler.json",
+      "bytes": 956,
+      "sha256": "b921b03bec2451fbd723796552f9114c8f934e95cfd125066cdc98be045a8ca7"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-inputs.json",
+      "bytes": 12937,
+      "sha256": "d02a23dacf4e8d0bf85329583fbdae29b488e4cc9bd6ffbddd6f6bb98e7c0e25"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/expected.json",
+      "bytes": 32997,
+      "sha256": "dce8f6dae456a2a13dca97eaa4d6c6b5aa1288e14f2d12577d2c56ad68226ee4"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/gromp-ray-pixels.json",
+      "bytes": 38281,
+      "sha256": "b881624b90ac6bc584f6b3ffad764ade2bce76f370511c246a58aaaef3fa51ed"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/inputs.json",
+      "bytes": 32251,
+      "sha256": "db415ca3da95df1011e4ec8cabfccfcac511904308759863f01da8b8f1837584"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/reference/baseline.mjs",
+      "bytes": 40841,
+      "sha256": "d74ae68394b1dfdd84bcf909d1132f95509b112aec723b38f3c7da7ab3d70cf7"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/reference/reference.json",
+      "bytes": 389,
+      "sha256": "7d8511ded9669b203b833afac3eafe9d24bb28c73cc51853d48e1fdc114b1f54"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/reference/source.tar",
+      "bytes": 6543360,
+      "sha256": "46af3e7b372318b0a65cf692fd4a7b015a0c0b2697f8c9a3c2c7ce359b70b5c5"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-final.log",
+      "bytes": 1789,
+      "sha256": "8b27bf8264b37a83bfba51ce24f81905568abb4b8d8dad116e33ee9a7480cf82"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/.last-run.json",
+      "bytes": 96,
+      "sha256": "9142e14992567e891a5ed59c5d21b389ebc446f2c659547ffd0e9aa994c64fd6"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/billboard-pixels.json",
+      "bytes": 22564,
+      "sha256": "2520dbdb5113e8a7b92f71cafd282c936ca832dd50e73288addbac846aea654c"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/expected.json",
+      "bytes": 204186,
+      "sha256": "83a07aa361c24b55e8f41fb3e4f6c013cbfee99c571a61822d8ce39b6565916d"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/expected.json.c",
+      "bytes": 1871,
+      "sha256": "04d40f19b4849e5a7c720df3662a70d4bbf5a45e8240ee359d90dd7d0f8ab4ec"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/expected.json.compiler.json",
+      "bytes": 1282,
+      "sha256": "1f2b970eeccd88d7617c7b3755f67f232510d15f4ac2e7671b8af4e5d2b2b4f3"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/inputs.json",
+      "bytes": 48637,
+      "sha256": "44c2284090ce66d7489159c6810a7ca5576fd72fd4a7ab40fbadda54cd1b5d97"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/reference/baseline.mjs",
+      "bytes": 42974,
+      "sha256": "b13f764374e71978c9773a56cfaa819c3bcb9ed71bfda17210ea8bcee0625f2d"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/reference/reference.json",
+      "bytes": 391,
+      "sha256": "8ea9183ca1173ec964f865cac73a2b49f44d255b775ae653aec4629250dcbe67"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-1027d-s-independent-C-color-bytes/reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "ec0aada8f496a24694f45f7535812c6a03d236dce5dfd15fccd52fdcc2146fb8"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/billboard-pixels.json",
+      "bytes": 22360,
+      "sha256": "1496e5e5aa23d228098d7e708f77d31a69384d7db26102a5cb3920f23a7e2dc4"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/expected.json",
+      "bytes": 1118,
+      "sha256": "ec59fbbbc0e98331102fcdd32ada28e3667ad53c7fa53d2814b8c05292bd9290"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/expected.json.c",
+      "bytes": 1871,
+      "sha256": "04d40f19b4849e5a7c720df3662a70d4bbf5a45e8240ee359d90dd7d0f8ab4ec"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/expected.json.compiler.json",
+      "bytes": 1282,
+      "sha256": "1f2b970eeccd88d7617c7b3755f67f232510d15f4ac2e7671b8af4e5d2b2b4f3"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/inputs.json",
+      "bytes": 329,
+      "sha256": "bd531fd4c3cd13a3198cb050e9c3abd9fbb56121aa3753677e3e2c6146ed4321"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/reference/baseline.mjs",
+      "bytes": 42974,
+      "sha256": "8f2e22b55f8accb2d0d7124d791222e1012f4a5fed7034c129f3829a6b7e1dd0"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/reference/reference.json",
+      "bytes": 391,
+      "sha256": "184f477038d1ae550e4cff88c2b54de890eb91bb8c1bf4552d287fbdf0f969b3"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-3c685-s-independent-C-color-bytes/reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "ec0aada8f496a24694f45f7535812c6a03d236dce5dfd15fccd52fdcc2146fb8"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/billboard-pixels.json",
+      "bytes": 22432,
+      "sha256": "162e0e3048d900c822f677e5669a5f2552d7c69a768c00a6ff3711b9b03c5c0a"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/expected.json",
+      "bytes": 1162,
+      "sha256": "e569ce00f2fbd5a4de108a580585a5073e00f8bf56effb74812c1d6f00dc4966"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/expected.json.c",
+      "bytes": 1871,
+      "sha256": "04d40f19b4849e5a7c720df3662a70d4bbf5a45e8240ee359d90dd7d0f8ab4ec"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/expected.json.compiler.json",
+      "bytes": 1282,
+      "sha256": "1f2b970eeccd88d7617c7b3755f67f232510d15f4ac2e7671b8af4e5d2b2b4f3"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/inputs.json",
+      "bytes": 329,
+      "sha256": "95871a95583487d90ada85a2b325c3ab3303ef494240f68e17d7f856661ad174"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/reference/baseline.mjs",
+      "bytes": 42974,
+      "sha256": "0c342e2d46bf18e2c9087e8d7a3bb268982e85709a1dcadad545071471cf7ffd"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/reference/reference.json",
+      "bytes": 391,
+      "sha256": "942d759779341fa79681545fe3c15d5e1cf03d76053ed080d04441bd03dcaafd"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-billboard-color-Grom-45832-s-independent-C-color-bytes/reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "ec0aada8f496a24694f45f7535812c6a03d236dce5dfd15fccd52fdcc2146fb8"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/error-context.md",
+      "bytes": 6000,
+      "sha256": "a3c8548d81bf5f5d1646600332154ee179b314fdf5d0e66621fd9842acad59f2"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/expected.json",
+      "bytes": 1370,
+      "sha256": "d236a436726fdcb0bf9608903a0a5ab0d0a51f7a54b20f2a57e40a9709dd6771"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/expected.json.c",
+      "bytes": 1737,
+      "sha256": "6607c85a5e3a42bdd093fbdc085427964c9ad3a88085e422f39ebb46fe1a9951"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/expected.json.compiler.json",
+      "bytes": 1268,
+      "sha256": "ebdb1c107573acc58abcf94a981feb085c98a01cc2d448094d193fc8aa697f9d"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/inputs.json",
+      "bytes": 285,
+      "sha256": "03b6cf1ba29bb32b8bf881ae98cd6d52292f3eba15caf7fd7a5594eb4804394d"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/plane-pixels.json",
+      "bytes": 22275,
+      "sha256": "d21120780091d4219b449f0746562e82bc7868c2b6d81764306ed6cf6ef2cfe0"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/reference/baseline.mjs",
+      "bytes": 43486,
+      "sha256": "e0dcad67834e52e2c6c025e9901bb6ba74cdf85ce87e643e7b290aaa8ab5967c"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/reference/reference.json",
+      "bytes": 391,
+      "sha256": "2e37a422529663899488a09e408341fa3b3da5eea37fc7a4d57d20c8bd253175"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "de84f86dae2731d0ea02e9d73d5693da9b10aff109cfc38da8bc5abccad71b35"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/test-failed-1.png",
+      "bytes": 5851,
+      "sha256": "99db2a93b06fa1bf617f5c495e02dcf6c0b76961108491217e2cf4fed8699d35"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-plane-color-Gromp-co-9bb84-s-independent-C-color-bytes/trace.zip",
+      "bytes": 178708,
+      "sha256": "27e4d0ecb0a1304fc90abd0d7d68c563c00131b8c88f1d723c48f54f92a76fd1"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-expected.json",
+      "bytes": 17940,
+      "sha256": "40e831774fcb1469d91e823c5bc5de7ced7257aee29c838ebbe9893938354e54"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-expected.json.c",
+      "bytes": 1851,
+      "sha256": "a3ee344994bf965d062e4f8cac15b04e59a12978bdffb5b76af32735799f63b1"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-expected.json.compiler.json",
+      "bytes": 956,
+      "sha256": "b921b03bec2451fbd723796552f9114c8f934e95cfd125066cdc98be045a8ca7"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-inputs.json",
+      "bytes": 4869,
+      "sha256": "ada0a58e40fd15d726b279df84b20982609c0c131fce945d4d00346a1713dd62"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/expected.json",
+      "bytes": 9822,
+      "sha256": "68e9f62d987c5c86a3ece9e1501c4cde8cc043a492cd20a307086407dcc20e12"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/gromp-ray-pixels.json",
+      "bytes": 33600,
+      "sha256": "385bb86d9e016838c18ed1e98211c49b505e9ed38349285d921b1c5918461c49"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/inputs.json",
+      "bytes": 12248,
+      "sha256": "7f1e404d6441142d5b1df22dc499fc4acaf8b4750342850f0df6f7e61b8ba11a"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/reference/baseline.mjs",
+      "bytes": 40877,
+      "sha256": "a5a2e888ad84e2650f6917eb7ae8e921cf3a9b555b296ce1ae56fcaf1e7dc63f"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/reference/reference.json",
+      "bytes": 391,
+      "sha256": "07cbd88269a9f693d00436f6c19eebb7c2c7d2eb7195800ef23c448756f4f2d5"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/reference/source.tar",
+      "bytes": 6543360,
+      "sha256": "46af3e7b372318b0a65cf692fd4a7b015a0c0b2697f8c9a3c2c7ce359b70b5c5"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-expected.json",
+      "bytes": 58044,
+      "sha256": "62b77e49be7e9f3adf9a2e960a9d42bcc30369e5199296ca18ac0e93c6d8b490"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-expected.json.c",
+      "bytes": 1851,
+      "sha256": "a3ee344994bf965d062e4f8cac15b04e59a12978bdffb5b76af32735799f63b1"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-expected.json.compiler.json",
+      "bytes": 956,
+      "sha256": "b921b03bec2451fbd723796552f9114c8f934e95cfd125066cdc98be045a8ca7"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-inputs.json",
+      "bytes": 12937,
+      "sha256": "d02a23dacf4e8d0bf85329583fbdae29b488e4cc9bd6ffbddd6f6bb98e7c0e25"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/expected.json",
+      "bytes": 32997,
+      "sha256": "dce8f6dae456a2a13dca97eaa4d6c6b5aa1288e14f2d12577d2c56ad68226ee4"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/gromp-ray-pixels.json",
+      "bytes": 38281,
+      "sha256": "b881624b90ac6bc584f6b3ffad764ade2bce76f370511c246a58aaaef3fa51ed"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/inputs.json",
+      "bytes": 32251,
+      "sha256": "db415ca3da95df1011e4ec8cabfccfcac511904308759863f01da8b8f1837584"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/reference/baseline.mjs",
+      "bytes": 40877,
+      "sha256": "d7e2f0963066d5dbcadb5d53e7caa498f473794d2b9659ff52e10b1aa84a94a1"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/reference/reference.json",
+      "bytes": 391,
+      "sha256": "2a208e2b6f753fa7bc3713ad62ee2860c28473521708ac8ffbb081f52915b7bc"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/reference/source.tar",
+      "bytes": 6543360,
+      "sha256": "46af3e7b372318b0a65cf692fd4a7b015a0c0b2697f8c9a3c2c7ce359b70b5c5"
+    },
+    {
+      "path": ".cache/gromp-plane-color/browser-initial.log",
+      "bytes": 4274,
+      "sha256": "1600d9e8b6ab8515a80db117872e642163f1fb672971b40bb4c515769a323d45"
+    },
+    {
+      "path": ".cache/gromp-plane-color/build.log",
+      "bytes": 7911,
+      "sha256": "321b97743751bfe0c4b024afa1fb7ed940e58e33f15096b2241ea2f69c8a35d2"
+    },
+    {
+      "path": ".cache/gromp-plane-color/final-inputs.json",
+      "bytes": 158542,
+      "sha256": "8c03df0b7b54a44fd82d669996d9d7f507fad7ed3b7dff217c83b49715ae2cf4"
+    },
+    {
+      "path": ".cache/gromp-plane-color/final-pause-record.json",
+      "bytes": 755,
+      "sha256": "731dee72de4ab07f4995e603b4377a33110cb5e324cf755b34ff16821a0f8254"
+    },
+    {
+      "path": ".cache/gromp-plane-color/final-source/docs/reference/gromp-plane-color-fixtures.json",
+      "bytes": 11717,
+      "sha256": "c2608a437e88151b579d56199b61ec4b04eee00fb048b285dd3c153d18f9a011"
+    },
+    {
+      "path": ".cache/gromp-plane-color/final-source/e2e/gromp-plane-color.spec.ts",
+      "bytes": 11499,
+      "sha256": "df0647a9e7d59bc2b136389786f45c3651caf1e320bae1eff874b3343d0674fa"
+    },
+    {
+      "path": ".cache/gromp-plane-color/final-source/src/render/gromp-billboard-color.ts",
+      "bytes": 394,
+      "sha256": "f1589012a043d886ae68690ccce5a824013fcacd3cbc065a34f09043887a09f6"
+    },
+    {
+      "path": ".cache/gromp-plane-color/final-source/src/render/gromp-death-particles.ts",
+      "bytes": 4492,
+      "sha256": "d96ba4feb40e46e665e13559ec54ef592559843a17326290f7627bb9d0864441"
+    },
+    {
+      "path": ".cache/gromp-plane-color/final-source/src/render/gromp-death.ts",
+      "bytes": 13449,
+      "sha256": "37080940ec1006c61c6451d212894f89e607069af212a0cb9ea145c570d14017"
+    },
+    {
+      "path": ".cache/gromp-plane-color/final-source/src/render/gromp-plane-color.ts",
+      "bytes": 334,
+      "sha256": "90672fa22722a818bc2d92d14d014171f62b82648af4b9fbc227b20528b31242"
+    },
+    {
+      "path": ".cache/gromp-plane-color/final-source/src/render/legacy-unit-color.ts",
+      "bytes": 1015,
+      "sha256": "8f2887843a64864af53aaab91fe4eb953f6b0bd96608d4a5d44c2514e0a67441"
+    },
+    {
+      "path": ".cache/gromp-plane-color/final-source/tests/gromp-plane-color.test.ts",
+      "bytes": 3420,
+      "sha256": "4a49b04a58001fbe3a6ab0d16e23874ed879c3ca31a10178ca186830552c13d0"
+    },
+    {
+      "path": ".cache/gromp-plane-color/final-source/tests/gromp-ray-packets.test.ts",
+      "bytes": 2739,
+      "sha256": "af103fec8f8df14e8d227b86e51a878702e89313008a17ad933f1409da6059f2"
+    },
+    {
+      "path": ".cache/gromp-plane-color/final-source/tools/qa/legacy-plane-color-reference.test.mjs",
+      "bytes": 3250,
+      "sha256": "6fb9c21a780691596d1347780b87ca2476facbf4910e4a223751a43810027510"
+    },
+    {
+      "path": ".cache/gromp-plane-color/final-source/tools/qa/lib/legacy-plane-color-reference.py",
+      "bytes": 6835,
+      "sha256": "048cf86e1930fc2a7a6b9097ebc6e195548a6e4d5eb78433e2b21f1ef7be5662"
+    },
+    {
+      "path": ".cache/gromp-plane-color/final-source/tools/qa/verify-gromp-billboard-color.mjs",
+      "bytes": 7069,
+      "sha256": "69ec85f81ef0b05963a570fb6ca3edbfddd68b7c60e7c5231c78df1e37907128"
+    },
+    {
+      "path": ".cache/gromp-plane-color/final-source/tools/qa/verify-gromp-plane-color.mjs",
+      "bytes": 6685,
+      "sha256": "c082d9f3ce71dbdf58be661c889a7e6ec202730b5ebc84d374b54064530a5d15"
+    },
+    {
+      "path": ".cache/gromp-plane-color/fixtures-C.json",
+      "bytes": 5133,
+      "sha256": "5320cc2c556e017e16f18878d5a6f2e9b56605ed258f3ed7413dae59fb03cd78"
+    },
+    {
+      "path": ".cache/gromp-plane-color/fixtures-C.json.c",
+      "bytes": 1737,
+      "sha256": "6607c85a5e3a42bdd093fbdc085427964c9ad3a88085e422f39ebb46fe1a9951"
+    },
+    {
+      "path": ".cache/gromp-plane-color/fixtures-C.json.compiler.json",
+      "bytes": 1268,
+      "sha256": "ebdb1c107573acc58abcf94a981feb085c98a01cc2d448094d193fc8aa697f9d"
+    },
+    {
+      "path": ".cache/gromp-plane-color/focused-final.log",
+      "bytes": 382,
+      "sha256": "cd09f673cd4915d8f878c74d31330b5a25691d5fdf8e3d1971ecaa534c07c9dc"
+    },
+    {
+      "path": ".cache/gromp-plane-color/focused.log",
+      "bytes": 382,
+      "sha256": "4e8fa570bd28b15b1d6bca34cbaebe774da46fde7e3d4a285c3e1ad0652f02aa"
+    },
+    {
+      "path": ".cache/gromp-plane-color/full-tests.log",
+      "bytes": 4578,
+      "sha256": "3ec51653eef8f8b7e48ab2ca05cfd73bf5d4597e093175a865422ac7fa32bba7"
+    },
+    {
+      "path": ".cache/gromp-plane-color/guide-draft.md",
+      "bytes": 4092,
+      "sha256": "32ec3cb14828d2a91f7d3a32e9d3c3baeee378ffadfb31f4c647e32e8705da30"
+    },
+    {
+      "path": ".cache/gromp-plane-color/historical-billboards/accepted/baseline.mjs",
+      "bytes": 42366,
+      "sha256": "c583dce12a6b7df248331ce4f90272175ca96b7eb176f5d8a5b4087f92ac1b29"
+    },
+    {
+      "path": ".cache/gromp-plane-color/historical-billboards/accepted/reference.json",
+      "bytes": 335,
+      "sha256": "17ca8e72e4bbbb523e38a4f08a55640348a88ed11ec26e2a756fd6f0c2baccd7"
+    },
+    {
+      "path": ".cache/gromp-plane-color/historical-billboards/accepted/source.tar",
+      "bytes": 6553600,
+      "sha256": "de84f86dae2731d0ea02e9d73d5693da9b10aff109cfc38da8bc5abccad71b35"
+    },
+    {
+      "path": ".cache/gromp-plane-color/historical-billboards/candidate.mjs",
+      "bytes": 44581,
+      "sha256": "6bc1e716c7fa7dac9f01e2fab9c5fb8c50cfa3c4b249ae996bb9da3e7fa26f84"
+    },
+    {
+      "path": ".cache/gromp-plane-color/historical-billboards/candidate.ts",
+      "bytes": 399,
+      "sha256": "025b40d89662446fff0cbe051dbe1214d67a5e01bf29edda0b193cf30c35f9a4"
+    },
+    {
+      "path": ".cache/gromp-plane-color/historical-billboards/expected.json",
+      "bytes": 23398903,
+      "sha256": "49ca606e7942258f226d7ab25d46838d3ca52abffa68b89670424a0def9e2d81"
+    },
+    {
+      "path": ".cache/gromp-plane-color/historical-billboards/expected.json.c",
+      "bytes": 1871,
+      "sha256": "04d40f19b4849e5a7c720df3662a70d4bbf5a45e8240ee359d90dd7d0f8ab4ec"
+    },
+    {
+      "path": ".cache/gromp-plane-color/historical-billboards/expected.json.compiler.json",
+      "bytes": 1282,
+      "sha256": "1f2b970eeccd88d7617c7b3755f67f232510d15f4ac2e7671b8af4e5d2b2b4f3"
+    },
+    {
+      "path": ".cache/gromp-plane-color/historical-billboards/inputs.json",
+      "bytes": 5568401,
+      "sha256": "a08d2228dfbc672214ee135998d07383dfb019a616b6aca7f95d3a887606e9e4"
+    },
+    {
+      "path": ".cache/gromp-plane-color/historical-billboards/reading.json",
+      "bytes": 5380,
+      "sha256": "11062ee3fcd31ef22120afea7970b3826d92646bb787caf0e951848fc6444075"
+    },
+    {
+      "path": ".cache/gromp-plane-color/historical-billboards/reference/baseline.mjs",
+      "bytes": 41929,
+      "sha256": "3dd7c38d66d40df3f554b903f75762451ba72c93fd45a3d361440142960df55b"
+    },
+    {
+      "path": ".cache/gromp-plane-color/historical-billboards/reference/reference.json",
+      "bytes": 336,
+      "sha256": "a0a4cc8c2c895002630b079decbcb87c0c1ef431411e3bee762573f4e8a5d3d5"
+    },
+    {
+      "path": ".cache/gromp-plane-color/historical-billboards/reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "ec0aada8f496a24694f45f7535812c6a03d236dce5dfd15fccd52fdcc2146fb8"
+    },
+    {
+      "path": ".cache/gromp-plane-color/historical-billboards.log",
+      "bytes": 532,
+      "sha256": "b0b85948036c19cd53e7cc914646147d2b5b4d0a28ebad5971a7e591337b212b"
+    },
+    {
+      "path": ".cache/gromp-plane-color/initial-inputs.json",
+      "bytes": 158542,
+      "sha256": "bc365c99cca0eb0d1c4c05f3c18b5c18758ec7c991285ae8c9f3f2dc9413bc21"
+    },
+    {
+      "path": ".cache/gromp-plane-color/initial-pause-record.json",
+      "bytes": 755,
+      "sha256": "c4eadbc04c58b2c704b51f6c077be03fd5204aadad89033d3d60faf5270c2737"
+    },
+    {
+      "path": ".cache/gromp-plane-color/initial-source/docs/reference/gromp-plane-color-fixtures.json",
+      "bytes": 11717,
+      "sha256": "c2608a437e88151b579d56199b61ec4b04eee00fb048b285dd3c153d18f9a011"
+    },
+    {
+      "path": ".cache/gromp-plane-color/initial-source/e2e/gromp-plane-color.spec.ts",
+      "bytes": 11343,
+      "sha256": "5db5854aaa1d87de2af43ad649b62df29a581571db4b0649884337446bd72426"
+    },
+    {
+      "path": ".cache/gromp-plane-color/initial-source/src/render/gromp-billboard-color.ts",
+      "bytes": 394,
+      "sha256": "f1589012a043d886ae68690ccce5a824013fcacd3cbc065a34f09043887a09f6"
+    },
+    {
+      "path": ".cache/gromp-plane-color/initial-source/src/render/gromp-death-particles.ts",
+      "bytes": 4492,
+      "sha256": "d96ba4feb40e46e665e13559ec54ef592559843a17326290f7627bb9d0864441"
+    },
+    {
+      "path": ".cache/gromp-plane-color/initial-source/src/render/gromp-death.ts",
+      "bytes": 13449,
+      "sha256": "37080940ec1006c61c6451d212894f89e607069af212a0cb9ea145c570d14017"
+    },
+    {
+      "path": ".cache/gromp-plane-color/initial-source/src/render/gromp-plane-color.ts",
+      "bytes": 334,
+      "sha256": "90672fa22722a818bc2d92d14d014171f62b82648af4b9fbc227b20528b31242"
+    },
+    {
+      "path": ".cache/gromp-plane-color/initial-source/src/render/legacy-unit-color.ts",
+      "bytes": 1015,
+      "sha256": "8f2887843a64864af53aaab91fe4eb953f6b0bd96608d4a5d44c2514e0a67441"
+    },
+    {
+      "path": ".cache/gromp-plane-color/initial-source/tests/gromp-plane-color.test.ts",
+      "bytes": 3420,
+      "sha256": "4a49b04a58001fbe3a6ab0d16e23874ed879c3ca31a10178ca186830552c13d0"
+    },
+    {
+      "path": ".cache/gromp-plane-color/initial-source/tests/gromp-ray-packets.test.ts",
+      "bytes": 2739,
+      "sha256": "af103fec8f8df14e8d227b86e51a878702e89313008a17ad933f1409da6059f2"
+    },
+    {
+      "path": ".cache/gromp-plane-color/initial-source/tools/qa/legacy-plane-color-reference.test.mjs",
+      "bytes": 3250,
+      "sha256": "6fb9c21a780691596d1347780b87ca2476facbf4910e4a223751a43810027510"
+    },
+    {
+      "path": ".cache/gromp-plane-color/initial-source/tools/qa/lib/legacy-plane-color-reference.py",
+      "bytes": 6835,
+      "sha256": "048cf86e1930fc2a7a6b9097ebc6e195548a6e4d5eb78433e2b21f1ef7be5662"
+    },
+    {
+      "path": ".cache/gromp-plane-color/initial-source/tools/qa/verify-gromp-billboard-color.mjs",
+      "bytes": 7069,
+      "sha256": "69ec85f81ef0b05963a570fb6ca3edbfddd68b7c60e7c5231c78df1e37907128"
+    },
+    {
+      "path": ".cache/gromp-plane-color/initial-source/tools/qa/verify-gromp-plane-color.mjs",
+      "bytes": 6685,
+      "sha256": "c082d9f3ce71dbdf58be661c889a7e6ec202730b5ebc84d374b54064530a5d15"
+    },
+    {
+      "path": ".cache/gromp-plane-color/node-final.log",
+      "bytes": 1100,
+      "sha256": "0294280a7e9897322b956d90d09de7e0885fb6c03a641de28b45a56e485b60b6"
+    },
+    {
+      "path": ".cache/gromp-plane-color/offline-artifacts/offline-pack-gromp-plane-20261027-lux-lanes.png",
+      "bytes": 522442,
+      "sha256": "302b3b6f975269f6520c05d8cbff1edbdf9487060cca0bdf3f2f96a2adad727e"
+    },
+    {
+      "path": ".cache/gromp-plane-color/offline-artifacts/offline-pack-gromp-plane-20261027-production.json",
+      "bytes": 650,
+      "sha256": "3ebbed7c62bd6d79f15f895cdcd95e175f6a75dbe7281883d07add3fc52b24f6"
+    },
+    {
+      "path": ".cache/gromp-plane-color/offline-artifacts/offline-pack-gromp-plane-20261027-ready.png",
+      "bytes": 573381,
+      "sha256": "409e20e96f0b62fff43cebbf179507ffcde89b8a4dee7d9c90fafd56b178397f"
+    },
+    {
+      "path": ".cache/gromp-plane-color/offline-system.mjs",
+      "bytes": 15212,
+      "sha256": "0a91783bb645b6b51459ef437cf6ceac9d2c363556772780aea5f510d2037d4c"
+    },
+    {
+      "path": ".cache/gromp-plane-color/offline.log",
+      "bytes": 689,
+      "sha256": "2b4a91a2c98792a6b0b68a362e235065af666213a6624eced1ab1c954c594587"
+    },
+    {
+      "path": ".cache/gromp-plane-color/production-screens/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1808976,
+      "sha256": "28ac2fa889e77d9ebf8ecacdebf565df49d3f043cb8df4bff2191a3c64ba5587"
+    },
+    {
+      "path": ".cache/gromp-plane-color/production-screens/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1834932,
+      "sha256": "ed9d0e4b37ac44cd0dd109cac4ed0fe40d38230975ab07a6e327a384a99a492d"
+    },
+    {
+      "path": ".cache/gromp-plane-color/production-screens/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1830216,
+      "sha256": "bf4832be18d601441599ff3b20c283be9d918a8015a95472f0f0c3e09b2f2df8"
+    },
+    {
+      "path": ".cache/gromp-plane-color/production-screens/lux-e-hit-production-lux.png",
+      "bytes": 1812176,
+      "sha256": "d1baa231f4b0f18f30ee0141a8944f2917079f0f3500eafd0acd0bd0a6e82363"
+    },
+    {
+      "path": ".cache/gromp-plane-color/production-screens/lux-e-hit-production-oracle.png",
+      "bytes": 1815639,
+      "sha256": "040fa5efc5294aa05682a5b83fbfd1f7ef3cf424d3d39f7533d7770c3ace4e61"
+    },
+    {
+      "path": ".cache/gromp-plane-color/production-screens/lux-e-hit-production-role-match.png",
+      "bytes": 1352761,
+      "sha256": "6a8cebe538721f09e94fec005be34d1f8a86664d21d3df4e75af81f234a12b1b"
+    },
+    {
+      "path": ".cache/gromp-plane-color/production-screens/lux-e-hit-production-subpath.png",
+      "bytes": 1826232,
+      "sha256": "b15e7d3dee87bce2eb96955c5c84d510385e2c8f74b03be82948f4e26f558163"
+    },
+    {
+      "path": ".cache/gromp-plane-color/production-screens/lux-e-hit-production-ward.png",
+      "bytes": 1808554,
+      "sha256": "d0a43f7dece16343b5d64ffc25975846c43124e83eb7620c6d6185c6e9216a0e"
+    },
+    {
+      "path": ".cache/gromp-plane-color/production-system.mjs",
+      "bytes": 30506,
+      "sha256": "83265d55f3e6e2d817e9e75fb02cce522f5d180558a305fd95d3d8e8dbf6df2a"
+    },
+    {
+      "path": ".cache/gromp-plane-color/production.log",
+      "bytes": 2852,
+      "sha256": "3a43a61a46c1083171afc098905a070204ecf85c4ad7711bbae93d93d22a77ac"
+    },
+    {
+      "path": ".cache/gromp-plane-color/progress-prefix-draft.md",
+      "bytes": 1773,
+      "sha256": "a905a91bf2d13b59b9fdb21cc73fa93c656789bb4e080836b24d519694cefde1"
+    },
+    {
+      "path": ".cache/gromp-plane-color/retained-game/gromp-death-burst-diagnostics.json",
+      "bytes": 785,
+      "sha256": "a2aec7bfd2d685d9672c3e93805082d636bbd765a8db08065386db9fcc0c3be1"
+    },
+    {
+      "path": ".cache/gromp-plane-color/retained-game/gromp-death-burst.png",
+      "bytes": 877648,
+      "sha256": "d76d0677644097c5bc805ed1378651603daa65b2dc4daaba8c5be452f6ff2d28"
+    },
+    {
+      "path": ".cache/gromp-plane-color/run-acceptance.py",
+      "bytes": 4207,
+      "sha256": "edcc99dbc650e7e418784fe21eed0a5b3a3e468ab7acb93ca0520701105e4f36"
+    },
+    {
+      "path": ".cache/gromp-plane-color/run-final.py",
+      "bytes": 4144,
+      "sha256": "1643899e857842fc17fd139a619c9fc98a7ae5271251512363b1902357d95131"
+    },
+    {
+      "path": ".cache/gromp-plane-color/run-initial.py",
+      "bytes": 4144,
+      "sha256": "8c2ef0e4d0ee206fb16dd11c0dc0562570a4911fdb748332ee8e243735029ee3"
+    },
+    {
+      "path": ".cache/gromp-plane-color/sampler/candidate.mjs",
+      "bytes": 41562,
+      "sha256": "e7cb146a6f42831df2c3dadaf91daef4452470f296e511f210f46dff02310b25"
+    },
+    {
+      "path": ".cache/gromp-plane-color/sampler/candidate.ts",
+      "bytes": 324,
+      "sha256": "d380c723f973784bc55c3e85c1e6e0eeb160cc549186252aaa57ca3318682a99"
+    },
+    {
+      "path": ".cache/gromp-plane-color/sampler/expected.json",
+      "bytes": 2813566,
+      "sha256": "7189d61308439302312820c8f0a8ff0c7c99f4cd72ff9d65ec9ad7648d46ce91"
+    },
+    {
+      "path": ".cache/gromp-plane-color/sampler/expected.json.c",
+      "bytes": 1737,
+      "sha256": "6607c85a5e3a42bdd093fbdc085427964c9ad3a88085e422f39ebb46fe1a9951"
+    },
+    {
+      "path": ".cache/gromp-plane-color/sampler/expected.json.compiler.json",
+      "bytes": 1268,
+      "sha256": "ebdb1c107573acc58abcf94a981feb085c98a01cc2d448094d193fc8aa697f9d"
+    },
+    {
+      "path": ".cache/gromp-plane-color/sampler/inputs.json",
+      "bytes": 745609,
+      "sha256": "8a8b0898a2d37b6ffb294f88e32acf90576292fb1afd7a6f115271ac783b27c2"
+    },
+    {
+      "path": ".cache/gromp-plane-color/sampler/reading.json",
+      "bytes": 2486,
+      "sha256": "8aa9577701d5577ea119449448db56af07464141939e35d8ef2dc7d333a26f14"
+    },
+    {
+      "path": ".cache/gromp-plane-color/sampler/reference/baseline.mjs",
+      "bytes": 42106,
+      "sha256": "fe1be1c213f1a1d931dd766c7e4c9bdff7fdc0b9ca59c7c6ee2ceb0ab15b3f93"
+    },
+    {
+      "path": ".cache/gromp-plane-color/sampler/reference/reference.json",
+      "bytes": 322,
+      "sha256": "b2b8ed920b6b06fdab3fe5f4f57a4ad7c5d58a2a20324d01b1e1b120b07edd08"
+    },
+    {
+      "path": ".cache/gromp-plane-color/sampler/reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "de84f86dae2731d0ea02e9d73d5693da9b10aff109cfc38da8bc5abccad71b35"
+    },
+    {
+      "path": ".cache/gromp-plane-color/sampler-final/candidate.mjs",
+      "bytes": 41562,
+      "sha256": "e7cb146a6f42831df2c3dadaf91daef4452470f296e511f210f46dff02310b25"
+    },
+    {
+      "path": ".cache/gromp-plane-color/sampler-final/candidate.ts",
+      "bytes": 324,
+      "sha256": "d380c723f973784bc55c3e85c1e6e0eeb160cc549186252aaa57ca3318682a99"
+    },
+    {
+      "path": ".cache/gromp-plane-color/sampler-final/expected.json",
+      "bytes": 2813566,
+      "sha256": "7189d61308439302312820c8f0a8ff0c7c99f4cd72ff9d65ec9ad7648d46ce91"
+    },
+    {
+      "path": ".cache/gromp-plane-color/sampler-final/expected.json.c",
+      "bytes": 1737,
+      "sha256": "6607c85a5e3a42bdd093fbdc085427964c9ad3a88085e422f39ebb46fe1a9951"
+    },
+    {
+      "path": ".cache/gromp-plane-color/sampler-final/expected.json.compiler.json",
+      "bytes": 1268,
+      "sha256": "ebdb1c107573acc58abcf94a981feb085c98a01cc2d448094d193fc8aa697f9d"
+    },
+    {
+      "path": ".cache/gromp-plane-color/sampler-final/inputs.json",
+      "bytes": 745609,
+      "sha256": "8a8b0898a2d37b6ffb294f88e32acf90576292fb1afd7a6f115271ac783b27c2"
+    },
+    {
+      "path": ".cache/gromp-plane-color/sampler-final/reading.json",
+      "bytes": 2492,
+      "sha256": "f98b8735eea8d774ed5f0e12deedea6ae0ce57bae7224628b062bd112884c8f7"
+    },
+    {
+      "path": ".cache/gromp-plane-color/sampler-final/reference/baseline.mjs",
+      "bytes": 42226,
+      "sha256": "90bf3f4cb37887cf58ce41e4607e3a5271e6057f4101ebf559397d02469054a4"
+    },
+    {
+      "path": ".cache/gromp-plane-color/sampler-final/reference/reference.json",
+      "bytes": 328,
+      "sha256": "b2e42575b100d4b173fc40a1d4fa74b1e83b4131146b8e2e199d6799bc765a8c"
+    },
+    {
+      "path": ".cache/gromp-plane-color/sampler-final/reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "de84f86dae2731d0ea02e9d73d5693da9b10aff109cfc38da8bc5abccad71b35"
+    },
+    {
+      "path": ".cache/gromp-plane-color/sampler-final.log",
+      "bytes": 263,
+      "sha256": "22613f8f4852973490d9aa7ed5e986fc0dd7783d73fddbb98d57df27510c1f57"
+    },
+    {
+      "path": ".cache/gromp-plane-color/sampler.log",
+      "bytes": 263,
+      "sha256": "22613f8f4852973490d9aa7ed5e986fc0dd7783d73fddbb98d57df27510c1f57"
+    },
+    {
+      "path": ".cache/gromp-plane-color/types-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "productionScreenshots": [
+    {
+      "path": ".cache/gromp-plane-color/production-screens/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1808976,
+      "sha256": "28ac2fa889e77d9ebf8ecacdebf565df49d3f043cb8df4bff2191a3c64ba5587"
+    },
+    {
+      "path": ".cache/gromp-plane-color/production-screens/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1834932,
+      "sha256": "ed9d0e4b37ac44cd0dd109cac4ed0fe40d38230975ab07a6e327a384a99a492d"
+    },
+    {
+      "path": ".cache/gromp-plane-color/production-screens/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1830216,
+      "sha256": "bf4832be18d601441599ff3b20c283be9d918a8015a95472f0f0c3e09b2f2df8"
+    },
+    {
+      "path": ".cache/gromp-plane-color/production-screens/lux-e-hit-production-lux.png",
+      "bytes": 1812176,
+      "sha256": "d1baa231f4b0f18f30ee0141a8944f2917079f0f3500eafd0acd0bd0a6e82363"
+    },
+    {
+      "path": ".cache/gromp-plane-color/production-screens/lux-e-hit-production-oracle.png",
+      "bytes": 1815639,
+      "sha256": "040fa5efc5294aa05682a5b83fbfd1f7ef3cf424d3d39f7533d7770c3ace4e61"
+    },
+    {
+      "path": ".cache/gromp-plane-color/production-screens/lux-e-hit-production-role-match.png",
+      "bytes": 1352761,
+      "sha256": "6a8cebe538721f09e94fec005be34d1f8a86664d21d3df4e75af81f234a12b1b"
+    },
+    {
+      "path": ".cache/gromp-plane-color/production-screens/lux-e-hit-production-subpath.png",
+      "bytes": 1826232,
+      "sha256": "b15e7d3dee87bce2eb96955c5c84d510385e2c8f74b03be82948f4e26f558163"
+    },
+    {
+      "path": ".cache/gromp-plane-color/production-screens/lux-e-hit-production-ward.png",
+      "bytes": 1808554,
+      "sha256": "d0a43f7dece16343b5d64ffc25975846c43124e83eb7620c6d6185c6e9216a0e"
+    }
+  ],
+  "limits": [
+    "Checked local raw-key/color policy, not native execution or full native appearance.",
+    "Live loader/admission, backing mode/cache mutation, clocks/RNG, external modifiers, FPCR and actual shader/material/layout selection remain unobserved.",
+    "Simple flash and mesh color paths, geometry, UV, atlas and lookup inputs remain unchanged.",
+    "The current plane verifier checks all other sampler states exactly; the former billboard whole-sampler graph is explicitly historical.",
+    "Software Chromium/SwiftShader acceptance is not a physical-FPS or native-GPU measurement."
+  ]
+}

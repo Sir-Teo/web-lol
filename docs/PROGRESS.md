@@ -1,14 +1,43 @@
 # Development status
 
-Last updated: October 25, 2026 (America/New_York).
+Last updated: October 27, 2026 (UTC).
 
 **Goal remains active:** continuously develop the highest-quality, visually authentic League-like browser game, without an application backend, through small commits. The required final state is a verified production-level full match experience. This file describes progress toward that goal; it does not reduce its scope.
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 2,192 tests across 339 files, TypeScript and three Node QA checks. Fifty-five targeted Chrome scenarios pass for the [development Ahri Q](AHRI-Q.md)/[W](AHRI-W.md)/[E](AHRI-E.md), [R base](AHRI-R.md) and [passive](AHRI-PASSIVE.md) controllers, [human practice controls](AHRI-PLAYER.md), private saves/imports and application reloads, her NPC rig/basic attacks, Leona rig recovery, Garen/Lux controls, champion selection, animation and match files, plus the [Master Yi development rig review](MASTER-YI-MODEL.md) and [NPC foundation](MASTER-YI-NPC.md). Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
+The latest rendering checkpoint has **3,288 passing unit tests out of 3,290**
+across 398 files. The two unchanged baseline failures are a missing original
+Leona Eclipse evidence closure and the host-sensitive Lux missile snapshot digest;
+their assertions and expected results remain intact. TypeScript, all 12 Node QA
+checks, the production build and eight Gromp browser cases pass. The
+[Gromp billboard correction](GROMP-BILLBOARD-COLOR.md) and separate
+[shadow plane correction](GROMP-PLANE-COLOR.md) follow checked primitive routes,
+independent host-C arithmetic and exact per-channel browser comparisons. They do
+not certify complete native appearance or physical-device performance.
 
-The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). Current targeted evidence does not certify full-match completion or native visual parity.
+The new pack is `a62254a879cebdc7116cc5a58bcbf302246d32848bf876feb5398df84e0425eb`
+(1,202 files / 538,092,136 bytes). All 32 nested-path production scenarios pass, and the exact pack passes
+offline integrity/recovery, saved-tick restore, a new Lux lane match and atomic
+version activation with zero page errors. Schema 163 and rules fingerprint
+`1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6` stay unchanged.
+
+The current normal-rules [five-seed regression pilot](CURRENT-NORMAL-MATCH-PILOT.md)
+finishes all five matches validly. The fresh 100-seed cohort is still running;
+its completion and full invariant gate remain open. It freezes 539 simulation
+inputs and uses the interim six-Ashe/four-Lux QA roster with an automated carry,
+not the complete six-character human-playable milestone. Rendering validation
+pauses only owned cohort processes and records each resume. Recent
+[HUD Tab navigation](HUD-TAB-NAVIGATION.md), [button Space activation](HUD-SPACE-KEY.md),
+[browser-shortcut handling](INPUT-MODIFIER-SHORTCUTS.md) and
+[first-input audio activation](INPUT-AUDIO-ACTIVATION.md) have their own bounded
+acceptance records.
+
+### Earlier foundation and increment notes
+
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The older foundation check passed 2,192 tests across 339 files, TypeScript and three Node QA checks. Fifty-five targeted Chrome scenarios pass for the [development Ahri Q](AHRI-Q.md)/[W](AHRI-W.md)/[E](AHRI-E.md), [R base](AHRI-R.md) and [passive](AHRI-PASSIVE.md) controllers, [human practice controls](AHRI-PLAYER.md), private saves/imports and application reloads, her NPC rig/basic attacks, Leona rig recovery, Garen/Lux controls, champion selection, animation and match files, plus the [Master Yi development rig review](MASTER-YI-MODEL.md) and [NPC foundation](MASTER-YI-NPC.md). Production and offline identities for that increment are recorded below. Historical checks describe their own revisions; they do not certify later changes.
+
+The earlier complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). Current targeted evidence does not certify full-match completion or native visual parity.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.

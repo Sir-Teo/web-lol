@@ -1,6 +1,7 @@
 import source from '../content/gromp-death.json';
 import { TICK_RATE } from '../content/rules';
 import { isGrompLegacyBillboard } from './gromp-billboard-color';
+import { isGrompLegacyPlane } from './gromp-plane-color';
 import { Vector3 } from 'three';
 import { prepareLegacyParticleColor, sampleLegacyParticleColor } from './legacy-particle-color';
 import {
@@ -23,7 +24,9 @@ const curves = source.profiles.map((profile, profileIndex) => ({
   scale: compile(profile.scaleCurve),
   color: compile(profile.colorCurve),
   rawColor:
-    profile.kind === 'ray' || isGrompLegacyBillboard(profileIndex)
+    profile.kind === 'ray' ||
+    isGrompLegacyBillboard(profileIndex) ||
+    isGrompLegacyPlane(profileIndex)
       ? prepareLegacyParticleColor(profile.color, profile.colorCurve)
       : null,
   rotation: compile(profile.rotationCurve),

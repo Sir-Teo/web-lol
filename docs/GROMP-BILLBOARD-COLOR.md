@@ -106,3 +106,11 @@ checkpoint. The current whole-sampler verifier above checks the new billboards
 and requires every other profile—including Rays—to stay exactly unchanged.
 Historical curve-view performance comparisons remain frozen at both original
 endpoints and make no performance claim for this arithmetic change.
+
+## Subsequent plane checkpoint
+
+The separate [plane correction](GROMP-PLANE-COLOR.md) now changes only shadow
+profile4. This page and its verification record retain the original billboard
+checkpoint. Its historical whole-sampler tool freezes the accepted sampler at
+`395a4fe`; the current plane verifier checks the complete five-second lifetime
+and requires every billboard/Ray/Simple-flash/mesh state to remain exact.

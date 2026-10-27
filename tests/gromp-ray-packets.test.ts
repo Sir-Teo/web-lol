@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import data from '../src/content/gromp-death.json';
 import { createGrompDeathMaterial } from '../src/render/gromp-death';
 
-test('Gromp byte streams stay bound to independently mapped Rays and complex CameraQuads', () => {
+test('Gromp byte streams stay bound to independently mapped Rays, complex CameraQuads and the plane', () => {
   const raw = readFileSync('docs/reference/native-legacy-primitive-types.json'),
     witness = JSON.parse(raw.toString()),
     source = JSON.parse(readFileSync('docs/reference/gromp-effects.json', 'utf8'));
@@ -21,11 +21,19 @@ test('Gromp byte streams stay bound to independently mapped Rays and complex Cam
   );
   expect(billboardWitness.source.complexCameraQuadProfiles).toEqual([1, 2, 3]);
   expect(billboardWitness.source.simpleProfiles).toEqual([0]);
+  const planeRaw = readFileSync('docs/reference/native-plane-color-packets.json'),
+    planeWitness = JSON.parse(planeRaw.toString());
+  expect(createHash('sha256').update(planeRaw).digest('hex')).toBe(
+    'bb9528c072b7223dd85c9a2ab678b1cb1564ea28885a97ec438d626b2d3bb2ea'
+  );
+  expect(planeWitness.source.profileIndex).toBe(4);
+  expect(planeWitness.primitive.legacyPType).toBe(1);
   const packed = new Set([
     ...witness.grompRays.map((p: any) => p.profileIndex),
     ...billboardWitness.source.complexCameraQuadProfiles,
+    planeWitness.source.profileIndex,
   ]);
-  expect([...packed].sort()).toEqual([1, 2, 3, 5, 7]);
+  expect([...packed].sort()).toEqual([1, 2, 3, 4, 5, 7]);
   const white = new THREE.Texture();
   try {
     for (const [index, p] of data.profiles.entries()) {

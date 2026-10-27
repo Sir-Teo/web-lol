@@ -9,6 +9,7 @@ import { createParticleColorProductMaterial } from './particle-color-product';
 import { writeRayQuad } from './ray-quad';
 import { writeRayColor } from './particle-ray-color';
 import { isGrompLegacyBillboard, writeGrompBillboardColor } from './gromp-billboard-color';
+import { isGrompLegacyPlane, writeGrompPlaneColor } from './gromp-plane-color';
 import { particleHalf } from './particle-half';
 
 const textures = new Map<string, THREE.Texture>(),
@@ -94,7 +95,9 @@ export function createGrompDeathMaterial(
       lookup,
       batched ? 'vertex' : 'uniform',
       undefined,
-      batched && (p.kind === 'ray' || isGrompLegacyBillboard(index)) ? 'bgra-unorm8' : batched
+      batched && (p.kind === 'ray' || isGrompLegacyBillboard(index) || isGrompLegacyPlane(index))
+        ? 'bgra-unorm8'
+        : batched
     );
   if (p.alphaRef)
     material.fragmentShader = material.fragmentShader.replace(
@@ -121,7 +124,7 @@ function baseGeometry(index: number) {
 }
 function batchGeometry(index: number) {
   const p = source.profiles[index],
-    packed = p.kind === 'ray' || isGrompLegacyBillboard(index),
+    packed = p.kind === 'ray' || isGrompLegacyBillboard(index) || isGrompLegacyPlane(index),
     count = p.count * (p.kind === 'ray' ? 6 : baseGeometry(index).getAttribute('position').count),
     geometry = new THREE.BufferGeometry();
   for (const [name, size] of [
@@ -193,7 +196,10 @@ export class GrompDeath {
         this.frame.setFromAxisAngle(THREE.Object3D.DEFAULT_UP, unit.facing);
         for (let profileIndex = 0; profileIndex < source.profiles.length; profileIndex++) {
           const p = source.profiles[profileIndex],
-            packed = p.kind === 'ray' || isGrompLegacyBillboard(profileIndex),
+            packed =
+              p.kind === 'ray' ||
+              isGrompLegacyBillboard(profileIndex) ||
+              isGrompLegacyPlane(profileIndex),
             selected = particles.filter((v) => v.profileIndex === profileIndex);
           if (!selected.length) continue;
           const key = `${unit.id}:${unit.deadAt}:${profileIndex}`;
@@ -288,6 +294,8 @@ export class GrompDeath {
               writeRayColor(tint.array as Uint8Array, first, vertices, particle.color, p.blend);
             else if (isGrompLegacyBillboard(profileIndex))
               writeGrompBillboardColor(tint.array as Uint8Array, first, vertices, particle.color);
+            else if (isGrompLegacyPlane(profileIndex))
+              writeGrompPlaneColor(tint.array as Uint8Array, first, vertices, particle.color);
             else if (p.blend === 0) {
               for (let i = 0; i < 3; i++) color[i] *= color[3];
               color[3] = 1;
