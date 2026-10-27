@@ -1,0 +1,1108 @@
+{
+  "format": 1,
+  "parentCommit": "1e50b8a66d89a639f8aa09b3b2327fa53b0b770d",
+  "scope": "Development-only human Garen top-lane trial on source Rift, private save/restart and context validation; ordinary production selection retained.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "74942d93a2bc384af0eef175c78a9033a050c87a2d3445b04d51d08ac6c5f86d",
+    "offlinePack": {
+      "id": "66b0b2091ba6e9d3ad414cff1826fa652d6936049bd0567b1e927268eb9885da",
+      "files": 1202,
+      "bytes": 538093030
+    }
+  },
+  "source": [
+    {
+      "file": "src/main.ts",
+      "bytes": 22678,
+      "sha256": "f0452fce6cd28cbaa55843287a92e4a0bc0075b6d170fcd8caf8daffb2122a46"
+    },
+    {
+      "file": "src/simulation/battlefield.ts",
+      "bytes": 2940,
+      "sha256": "651886c9c7b3dd5271d81a934f4749855b16e6da3909147c7291b7471cae0bec"
+    },
+    {
+      "file": "src/simulation/world.ts",
+      "bytes": 296042,
+      "sha256": "56607e662f2041e0b30b255405915e9cb455f22936c7f3253675ae5a2152fea5"
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "bytes": 187601,
+      "sha256": "80e909226755cc84c6657b2dedb91611fd79138c34a4ea0a9b231eefd6aba679"
+    },
+    {
+      "file": "src/simulation/lane-match.ts",
+      "bytes": 3052,
+      "sha256": "162b78d4d4ca0db18df75eea9e026f9b3a0308f4795a9dc98ad6413d46568789"
+    },
+    {
+      "file": "tests/garen-rift-trial.test.ts",
+      "bytes": 6521,
+      "sha256": "aae617d3126a93c15d47317dbf4dd2c986964560228194c4900017e50fef7518"
+    },
+    {
+      "file": "e2e/garen-rift-trial.spec.ts",
+      "bytes": 10289,
+      "sha256": "95b53d81479f9af8a5464fb48898d5a4e44506a87eaf560e486b4a23b7618933"
+    },
+    {
+      "file": "e2e/garen-player.spec.ts",
+      "bytes": 12978,
+      "sha256": "81d7a6d9d2a8d2f1578cb0d5d49a3b6c9f4fc317f37bfb5e7940b153488cf864"
+    },
+    {
+      "file": "e2e/leona-rift-trial.spec.ts",
+      "bytes": 10330,
+      "sha256": "515735f56497a3e175e05f8fd4aa3d3775c529e93adf18c0b7d69b7bd6edb6b9"
+    },
+    {
+      "file": "e2e/helpers/pause-combat-state.ts",
+      "bytes": 1305,
+      "sha256": "c313965316710d18a893a901a102baeff7f5af29ff317a314e3a6ef01ce409eb"
+    },
+    {
+      "file": "tools/qa/production-subpath.mjs",
+      "bytes": 30801,
+      "sha256": "dc8d488b5f38bc00ced5974b3f21891864e1fc6e0e4b6d82228aa8cb6b0044f1"
+    },
+    {
+      "path": "docs/GAREN-RIFT-TRIAL.md",
+      "bytes": 4520,
+      "sha256": "235c4fe74d026bd2def535090814c3711ce70b74e2d0f76148bd4437081e4118"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "bytes": 742870,
+      "sha256": "55e3241d4825a025aac3a60e1274373500c836094ec211a74fa15d79486652b1"
+    }
+  ],
+  "verification": {
+    "focusedPassed": 47,
+    "focusedFiles": 6,
+    "newUnitCases": 6,
+    "fullUnitPassed": 3385,
+    "fullUnitFailed": 2,
+    "fullUnitTotal": 3387,
+    "fullUnitFiles": 401,
+    "baselineFailuresUnchanged": 2,
+    "typeCheckAndBuildPassed": true,
+    "nodeQaPassed": 16,
+    "distinctBrowserCasesPassed": 8,
+    "firstScopedBatchPassed": 7,
+    "firstScopedBatchFailed": 1,
+    "targetedLeonaSaveRerunPassed": 1,
+    "singleGreenEightCaseBatchClaimed": false,
+    "browserAssertionsRetained": [
+      {
+        "path": "e2e/garen-player.spec.ts",
+        "originalAssertions": 47,
+        "currentAssertions": 47,
+        "allOriginalAssertionsRetainedInOrder": true
+      },
+      {
+        "path": "e2e/leona-rift-trial.spec.ts",
+        "originalAssertions": 25,
+        "currentAssertions": 25,
+        "allOriginalAssertionsRetainedInOrder": true
+      }
+    ],
+    "productionAssertionsRetained": {
+      "path": "tools/qa/production-subpath.mjs",
+      "originalAssertions": 98,
+      "currentAssertions": 100,
+      "allOriginalAssertionsRetainedInOrder": true
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 14,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "garenRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderAudioPreloads": 0,
+      "unrequestedMasterYiAlphaAudioPreloads": 0,
+      "unrequestedMasterYiMeditateAudioPreloads": 0,
+      "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+      "unrequestedMasterYiSwordPreloads": 0,
+      "unrequestedMasterYiPrimaryTrailPreloads": 0,
+      "unrequestedMasterYiPrimaryHitPreloads": 0,
+      "unrequestedMasterYiPassiveTrailPreloads": 0,
+      "unrequestedMasterYiMeditateDamagePreloads": 0,
+      "unrequestedMasterYiHighlanderKillPreloads": 0,
+      "unrequestedMasterYiHighlanderCastPreloads": 0,
+      "unrequestedMasterYiQEndPreloads": 0,
+      "unrequestedMasterYiQCastPreloads": 0,
+      "unrequestedMasterYiQContactPreloads": 0,
+      "unrequestedMasterYiMeditateCastPreloads": 0,
+      "unrequestedMasterYiMeditateBuffPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 238,
+      "scheduledBlueRequests": 14,
+      "scheduledRedRequests": 14,
+      "scheduledWolfRequests": 28,
+      "scheduledRaptorRequests": 28,
+      "scheduledKrugRequests": 42,
+      "scheduledScuttlerRequests": 14,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    },
+    "offline": {
+      "manifest": {
+        "id": "66b0b2091ba6e9d3ad414cff1826fa652d6936049bd0567b1e927268eb9885da",
+        "files": 1202,
+        "bytes": 538093030
+      },
+      "checks": {
+        "integrityFailureRestoresDownloadFocus": true,
+        "integrityFailure": true,
+        "downloadFocusesCancel": true,
+        "cancelRetainsVerified": true,
+        "cancelRestoresDownloadFocus": true,
+        "retryWithoutRedownload": true,
+        "completionPreservesOtherControlFocus": true,
+        "pausedSavedTickBootsOffline": true,
+        "completePackRepairOffline": true,
+        "newLuxLaneMatchOffline": true,
+        "serviceWorkerResponses": 978,
+        "removalKeepsSavedBytes": true,
+        "updateRefusesOtherTabs": true,
+        "explicitAtomicVersionSwitchOffline": true,
+        "missingEntryRevokesReady": true,
+        "scopeOnlyRemoval": true
+      },
+      "result": "passed",
+      "productionErrors": []
+    },
+    "freshProductionScreenshots": 8,
+    "publicAssetsUnchangedInCheckout": 1125,
+    "originalCheckoutClean": true,
+    "originalCohortSourcePinsUnchanged": 539,
+    "schemaChanged": false,
+    "rulesetChanged": true
+  },
+  "originalCohort": {
+    "root": "/workspace/web-lol/.cache/match-cohort/current-normal-100-20261027",
+    "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "certifiesThisChangedRuleset": false,
+    "mainCheckoutRemainedFrozen": true
+  },
+  "probeRepairs": [
+    "The copied new Rift header expectation initially still named LEONA; changed it to the actual GAREN label.",
+    "Existing live combat probes could miss short states or observe regenerated mana. Pause the first real matching tick without changing game rules; all prior assertions retained.",
+    "Restore the original target HP fixture at the R cast boundary after live aim probes.",
+    "The final Leona save/restart probe exceeded120s during cold scene reloads. Increase that case to180s and rerun it alone; retain every state assertion."
+  ],
+  "pauseIntervals": [
+    {
+      "start": "2026-10-27T16:39:34.765408+00:00",
+      "end": "2026-10-27T16:40:07.845447+00:00",
+      "processes": [
+        {
+          "pid": 302400,
+          "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+        },
+        {
+          "pid": 337820,
+          "cmdlineSha256": "0aeb26da996bc6f6b3f85fe29721c3aa1353099e0eba04fc31a227af606e3b6b"
+        },
+        {
+          "pid": 340650,
+          "cmdlineSha256": "925a8c8a325ec174b2ef98fc0944e32431543021e35d807474a3f813ee8b3ddc"
+        },
+        {
+          "pid": 340713,
+          "cmdlineSha256": "e9a772d94b5af269eee728b785df21fcb7cc0b5a18f5149407943db048dd9567"
+        },
+        {
+          "pid": 340888,
+          "cmdlineSha256": "9cf2d67340266a1f37a508e6790eaa78518b9a25061f5f6152674d13a9d28fba"
+        }
+      ],
+      "resumed": true
+    },
+    {
+      "start": "2026-10-27T16:42:28.843949+00:00",
+      "end": "2026-10-27T16:53:10.643233+00:00",
+      "processes": [
+        {
+          "pid": 302400,
+          "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+        },
+        {
+          "pid": 340650,
+          "cmdlineSha256": "925a8c8a325ec174b2ef98fc0944e32431543021e35d807474a3f813ee8b3ddc"
+        },
+        {
+          "pid": 340713,
+          "cmdlineSha256": "e9a772d94b5af269eee728b785df21fcb7cc0b5a18f5149407943db048dd9567"
+        },
+        {
+          "pid": 340888,
+          "cmdlineSha256": "9cf2d67340266a1f37a508e6790eaa78518b9a25061f5f6152674d13a9d28fba"
+        },
+        {
+          "pid": 341103,
+          "cmdlineSha256": "c76b29724f90437cafc0f65a554e9c4a6128a5f9416d93d9e1b6ee1c14ea0c55"
+        }
+      ],
+      "resumed": true
+    },
+    {
+      "start": "2026-10-27T16:58:17.619117+00:00",
+      "end": "2026-10-27T17:10:15.250770+00:00",
+      "processes": [
+        {
+          "pid": 302400,
+          "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+        },
+        {
+          "pid": 340713,
+          "cmdlineSha256": "e9a772d94b5af269eee728b785df21fcb7cc0b5a18f5149407943db048dd9567"
+        },
+        {
+          "pid": 340888,
+          "cmdlineSha256": "9cf2d67340266a1f37a508e6790eaa78518b9a25061f5f6152674d13a9d28fba"
+        },
+        {
+          "pid": 341103,
+          "cmdlineSha256": "c76b29724f90437cafc0f65a554e9c4a6128a5f9416d93d9e1b6ee1c14ea0c55"
+        },
+        {
+          "pid": 342670,
+          "cmdlineSha256": "749fa167ad312d39381bf61f2787fe29d39177dc4eef77f8b0399471115f0965"
+        }
+      ],
+      "resumed": true
+    },
+    {
+      "start": "2026-10-27T17:11:33.612680+00:00",
+      "end": "2026-10-27T17:13:25.176052+00:00",
+      "processes": [
+        {
+          "pid": 302400,
+          "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+        },
+        {
+          "pid": 340713,
+          "cmdlineSha256": "e9a772d94b5af269eee728b785df21fcb7cc0b5a18f5149407943db048dd9567"
+        },
+        {
+          "pid": 341103,
+          "cmdlineSha256": "c76b29724f90437cafc0f65a554e9c4a6128a5f9416d93d9e1b6ee1c14ea0c55"
+        },
+        {
+          "pid": 342670,
+          "cmdlineSha256": "749fa167ad312d39381bf61f2787fe29d39177dc4eef77f8b0399471115f0965"
+        },
+        {
+          "pid": 343443,
+          "cmdlineSha256": "b34a295fe3573e1d01dcd169097a1ea22a018400e0139ee345b73f0bd07141f2"
+        }
+      ],
+      "resumed": true
+    },
+    {
+      "start": "2026-10-27T17:13:25.821949+00:00",
+      "end": "2026-10-27T17:28:33.929652+00:00",
+      "processes": [
+        {
+          "pid": 302400,
+          "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+        },
+        {
+          "pid": 340713,
+          "cmdlineSha256": "e9a772d94b5af269eee728b785df21fcb7cc0b5a18f5149407943db048dd9567"
+        },
+        {
+          "pid": 341103,
+          "cmdlineSha256": "c76b29724f90437cafc0f65a554e9c4a6128a5f9416d93d9e1b6ee1c14ea0c55"
+        },
+        {
+          "pid": 342670,
+          "cmdlineSha256": "749fa167ad312d39381bf61f2787fe29d39177dc4eef77f8b0399471115f0965"
+        },
+        {
+          "pid": 343443,
+          "cmdlineSha256": "b34a295fe3573e1d01dcd169097a1ea22a018400e0139ee345b73f0bd07141f2"
+        }
+      ],
+      "resumed": true
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/garen-rift-trial/acceptance-wait-initial.log",
+      "bytes": 878,
+      "sha256": "fbe582cb9ededa72160adaa2e5b4bfebe575979f9c5f875e3c24f7c8b76f6603"
+    },
+    {
+      "path": ".cache/garen-rift-trial/application-inputs.json",
+      "bytes": 158109,
+      "sha256": "8c92006c566d30a9db8ad4301b53fa0476e08904a7e79c88fe5b27c3d21584d1"
+    },
+    {
+      "path": ".cache/garen-rift-trial/application-pause-record.json",
+      "bytes": 755,
+      "sha256": "cb054eb048aa2a2cabcc91f0b449e39c474889e3fa27bbc5f3f49544904643da"
+    },
+    {
+      "path": ".cache/garen-rift-trial/application-source/docs/GAREN-RIFT-TRIAL.md",
+      "bytes": 4520,
+      "sha256": "235c4fe74d026bd2def535090814c3711ce70b74e2d0f76148bd4437081e4118"
+    },
+    {
+      "path": ".cache/garen-rift-trial/application-source/docs/PROGRESS.md",
+      "bytes": 742870,
+      "sha256": "55e3241d4825a025aac3a60e1274373500c836094ec211a74fa15d79486652b1"
+    },
+    {
+      "path": ".cache/garen-rift-trial/application-source/e2e/garen-player.spec.ts",
+      "bytes": 12978,
+      "sha256": "81d7a6d9d2a8d2f1578cb0d5d49a3b6c9f4fc317f37bfb5e7940b153488cf864"
+    },
+    {
+      "path": ".cache/garen-rift-trial/application-source/e2e/garen-rift-trial.spec.ts",
+      "bytes": 10289,
+      "sha256": "95b53d81479f9af8a5464fb48898d5a4e44506a87eaf560e486b4a23b7618933"
+    },
+    {
+      "path": ".cache/garen-rift-trial/application-source/e2e/helpers/pause-combat-state.ts",
+      "bytes": 1305,
+      "sha256": "c313965316710d18a893a901a102baeff7f5af29ff317a314e3a6ef01ce409eb"
+    },
+    {
+      "path": ".cache/garen-rift-trial/application-source/e2e/leona-rift-trial.spec.ts",
+      "bytes": 10330,
+      "sha256": "515735f56497a3e175e05f8fd4aa3d3775c529e93adf18c0b7d69b7bd6edb6b9"
+    },
+    {
+      "path": ".cache/garen-rift-trial/application-source/src/main.ts",
+      "bytes": 22678,
+      "sha256": "f0452fce6cd28cbaa55843287a92e4a0bc0075b6d170fcd8caf8daffb2122a46"
+    },
+    {
+      "path": ".cache/garen-rift-trial/application-source/src/simulation/battlefield.ts",
+      "bytes": 2940,
+      "sha256": "651886c9c7b3dd5271d81a934f4749855b16e6da3909147c7291b7471cae0bec"
+    },
+    {
+      "path": ".cache/garen-rift-trial/application-source/src/simulation/lane-match.ts",
+      "bytes": 3052,
+      "sha256": "162b78d4d4ca0db18df75eea9e026f9b3a0308f4795a9dc98ad6413d46568789"
+    },
+    {
+      "path": ".cache/garen-rift-trial/application-source/src/simulation/snapshot.ts",
+      "bytes": 187601,
+      "sha256": "80e909226755cc84c6657b2dedb91611fd79138c34a4ea0a9b231eefd6aba679"
+    },
+    {
+      "path": ".cache/garen-rift-trial/application-source/src/simulation/world.ts",
+      "bytes": 296042,
+      "sha256": "56607e662f2041e0b30b255405915e9cb455f22936c7f3253675ae5a2152fea5"
+    },
+    {
+      "path": ".cache/garen-rift-trial/application-source/tests/garen-rift-trial.test.ts",
+      "bytes": 6521,
+      "sha256": "aae617d3126a93c15d47317dbf4dd2c986964560228194c4900017e50fef7518"
+    },
+    {
+      "path": ".cache/garen-rift-trial/application-source/tools/qa/production-subpath.mjs",
+      "bytes": 30801,
+      "sha256": "dc8d488b5f38bc00ced5974b3f21891864e1fc6e0e4b6d82228aa8cb6b0044f1"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-assertion-retention.json",
+      "bytes": 321,
+      "sha256": "aa0ddecddd14ebf4ec6c5cf9e324e3fdc26dfc75769ff909219a502cf88020cd"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-final/.last-run.json",
+      "bytes": 96,
+      "sha256": "8216264fef7187bc961c3a7d943f8db435cc5489a27374f2b4dbfafad8e7d70c"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-final/garen-rift-trial-ordinary--14903-rant-development-permission/ordinary-gate.json",
+      "bytes": 84723,
+      "sha256": "552d51dccc79f54b984f30e37146be3c1207b42f39263826265b8fb0a0df0630"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-final/garen-rift-trial-the-devel-7490c-ols-and-the-ten-role-roster/garen-on-rift.png",
+      "bytes": 1577412,
+      "sha256": "049d9f65c708e8550cf711e3b34a0f03f48847470f635caf3dc7e95eced593c2"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-final/garen-rift-trial-the-devel-7490c-ols-and-the-ten-role-roster/rift-top.json",
+      "bytes": 87277,
+      "sha256": "35a8b922b444351e6fd8933e25a30c11eac3e04326489fe22dfe0218e636197d"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-final/garen-rift-trial-the-ordin-804c6-oice-survives-the-trial-URL/chooser.json",
+      "bytes": 116,
+      "sha256": "7c35cb56048aa27318857c7d81aa84e9f39b8341ae53ce56c62ffa195f88b417"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-final/garen-rift-trial-trial-Sav-e727f--and-keep-the-ordinary-save/saved-top.json",
+      "bytes": 535316,
+      "sha256": "dcd4469ab26b95bfdd320362722f098af568df8e4636ef5234cf4b35ce8a79d2"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-final/leona-rift-trial-the-devel-82b64-ols-and-the-ten-role-roster/leona-on-rift.png",
+      "bytes": 1530001,
+      "sha256": "df7dd6d2d8bb0ce45244209223aa5f06cc38c445fa051615571e98d29eb66d16"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-final/leona-rift-trial-the-devel-82b64-ols-and-the-ten-role-roster/rift-support.json",
+      "bytes": 226279,
+      "sha256": "31323ef7f32f2374c0c99ab86575f9bc2278c09b7804f28ba095defc032cebab"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-final/leona-rift-trial-trial-Sav-b3843--and-keep-the-ordinary-save/error-context.md",
+      "bytes": 4639,
+      "sha256": "53fac336c24dcf2cd7a02bb7b016781b20fb46a0457ee113ca4ebc0ffbce5489"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-final/leona-rift-trial-trial-Sav-b3843--and-keep-the-ordinary-save/saved-support.json",
+      "bytes": 535368,
+      "sha256": "96e48d185a87e459a344d056406c861adcb2e136b3c84c4980c8d780fa12b624"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-final/leona-rift-trial-trial-Sav-b3843--and-keep-the-ordinary-save/test-failed-1.png",
+      "bytes": 492305,
+      "sha256": "b91b087cda4352d1b80140b5792c93e8056ef24f3ba284cb877d19978bd84c03"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-final/leona-rift-trial-trial-Sav-b3843--and-keep-the-ordinary-save/trace.zip",
+      "bytes": 219314111,
+      "sha256": "fe74878778f4802800c7cf40f5e0d8811a04d02105834f3a91383f4d90387d8b"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-first/.last-run.json",
+      "bytes": 346,
+      "sha256": "925a358b3b51c2a20cbbf9a76fa08e465a1a3969a6bca4b15da5db12a79451e2"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-first/garen-player-Garen-R-captu-680ab--targets-ground-and-minimap/error-context.md",
+      "bytes": 4312,
+      "sha256": "d49208a4b1909a8717edabac5efb418eace2845cd5438d76bdd0b5c5efdc483d"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-first/garen-player-Garen-R-captu-680ab--targets-ground-and-minimap/test-failed-1.png",
+      "bytes": 887206,
+      "sha256": "2530b3f61a1b461dbd3f3e86097d0e8d059ff380854892c42ce9abfad11bc591"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-first/garen-player-Garen-R-captu-680ab--targets-ground-and-minimap/trace.zip",
+      "bytes": 75552258,
+      "sha256": "b421bad5e1483ec175a3dd8557f70729d5517fb7cf12aa59c5a61e4ac9d8f7b9"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-first/garen-player-Garen-player--cfad2-survive-browser-save-reload/error-context.md",
+      "bytes": 13137,
+      "sha256": "c49d76c2ad2db7ecc6385ebfb959adfcbd4985bdd792371304886378e8018f2c"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-first/garen-player-Garen-player--cfad2-survive-browser-save-reload/test-failed-1.png",
+      "bytes": 858786,
+      "sha256": "369cabe3f265859e32be2d8c984b9d343e1857d5793f710741cfb40cb38d116e"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-first/garen-player-Garen-player--cfad2-survive-browser-save-reload/trace.zip",
+      "bytes": 70502171,
+      "sha256": "667050a9d97f3d702e0a61cdf537d571f13e0c8e9f1f948861cfed02df912043"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-first/garen-rift-trial-ordinary--14903-rant-development-permission/ordinary-gate.json",
+      "bytes": 84723,
+      "sha256": "552d51dccc79f54b984f30e37146be3c1207b42f39263826265b8fb0a0df0630"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-first/garen-rift-trial-the-devel-7490c-ols-and-the-ten-role-roster/error-context.md",
+      "bytes": 6968,
+      "sha256": "0203b5b74026ece77d061ef13cc13ea63dec711b39c3ef0a7812c9f581c8173a"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-first/garen-rift-trial-the-devel-7490c-ols-and-the-ten-role-roster/test-failed-1.png",
+      "bytes": 1508104,
+      "sha256": "0cb3a32c674a58cf45f8ccba5490744c11fe3dbe704078286e28f6e00996f9ea"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-first/garen-rift-trial-the-devel-7490c-ols-and-the-ten-role-roster/trace.zip",
+      "bytes": 223055084,
+      "sha256": "f1369920dceb152c82c5bd49a40c786fb24ba002e58e95ffad05b8dfe8cf53e4"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-first/garen-rift-trial-the-ordin-804c6-oice-survives-the-trial-URL/chooser.json",
+      "bytes": 116,
+      "sha256": "7c35cb56048aa27318857c7d81aa84e9f39b8341ae53ce56c62ffa195f88b417"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-first/garen-rift-trial-trial-Sav-e727f--and-keep-the-ordinary-save/saved-top.json",
+      "bytes": 535316,
+      "sha256": "dcd4469ab26b95bfdd320362722f098af568df8e4636ef5234cf4b35ce8a79d2"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-first/leona-rift-trial-the-devel-82b64-ols-and-the-ten-role-roster/error-context.md",
+      "bytes": 12612,
+      "sha256": "f798cfb0d8dcfb471d015d737a7512a9933173b05771f4b1d670c12f92f6f2ae"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-first/leona-rift-trial-the-devel-82b64-ols-and-the-ten-role-roster/test-failed-1.png",
+      "bytes": 1516412,
+      "sha256": "d91cae4fada8f2a095fb1009251b0a922494aba8320a3b039d9c48c1f5bcab02"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-first/leona-rift-trial-the-devel-82b64-ols-and-the-ten-role-roster/trace.zip",
+      "bytes": 216552961,
+      "sha256": "032f812d271b01fa018920cac920fbe3ee75a2c228298a862d1b83f30e56b0e0"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-first/leona-rift-trial-trial-Sav-b3843--and-keep-the-ordinary-save/error-context.md",
+      "bytes": 5141,
+      "sha256": "6667ecd19a112f8c9c1b50db32c91de20f5cc6b8ab32c102df2e63e6c8a384d4"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-first/leona-rift-trial-trial-Sav-b3843--and-keep-the-ordinary-save/trace.zip",
+      "bytes": 189929979,
+      "sha256": "4019fc29748e29761fa992633c309b38131ecf5e5dea317f1635ac6f7c0f8a8c"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-inputs.json",
+      "bytes": 157942,
+      "sha256": "623c03bad72003e0c2185e7091d06795471d7caa5128e731c17c32f4c7d4ac91"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-leona-save/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-leona-save/leona-rift-trial-trial-Sav-b3843--and-keep-the-ordinary-save/saved-support.json",
+      "bytes": 535368,
+      "sha256": "96e48d185a87e459a344d056406c861adcb2e136b3c84c4980c8d780fa12b624"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-pause-record.json",
+      "bytes": 755,
+      "sha256": "2c0165bd369f4052bde3c9cddf3e89d0088ca362e00c091fb6620991013bd652"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-source/e2e/garen-player.spec.ts",
+      "bytes": 12978,
+      "sha256": "81d7a6d9d2a8d2f1578cb0d5d49a3b6c9f4fc317f37bfb5e7940b153488cf864"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-source/e2e/garen-rift-trial.spec.ts",
+      "bytes": 10289,
+      "sha256": "95b53d81479f9af8a5464fb48898d5a4e44506a87eaf560e486b4a23b7618933"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-source/e2e/helpers/pause-combat-state.ts",
+      "bytes": 1305,
+      "sha256": "c313965316710d18a893a901a102baeff7f5af29ff317a314e3a6ef01ce409eb"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-source/e2e/leona-rift-trial.spec.ts",
+      "bytes": 10303,
+      "sha256": "36f4aef3f75817ec7e6737cfa4102b59293ef8a16c0e25a5641a28f8631c4e06"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-source/src/main.ts",
+      "bytes": 22678,
+      "sha256": "f0452fce6cd28cbaa55843287a92e4a0bc0075b6d170fcd8caf8daffb2122a46"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-source/src/simulation/battlefield.ts",
+      "bytes": 2940,
+      "sha256": "651886c9c7b3dd5271d81a934f4749855b16e6da3909147c7291b7471cae0bec"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-source/src/simulation/lane-match.ts",
+      "bytes": 3052,
+      "sha256": "162b78d4d4ca0db18df75eea9e026f9b3a0308f4795a9dc98ad6413d46568789"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-source/src/simulation/snapshot.ts",
+      "bytes": 187601,
+      "sha256": "80e909226755cc84c6657b2dedb91611fd79138c34a4ea0a9b231eefd6aba679"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-source/src/simulation/world.ts",
+      "bytes": 296042,
+      "sha256": "56607e662f2041e0b30b255405915e9cb455f22936c7f3253675ae5a2152fea5"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser-source/tests/garen-rift-trial.test.ts",
+      "bytes": 6521,
+      "sha256": "aae617d3126a93c15d47317dbf4dd2c986964560228194c4900017e50fef7518"
+    },
+    {
+      "path": ".cache/garen-rift-trial/browser.log",
+      "bytes": 6122,
+      "sha256": "17948d472b22ea378ebf2edb0a04eb295207079ba94b26b7bb8eb448aa9e0b9b"
+    },
+    {
+      "path": ".cache/garen-rift-trial/build.log",
+      "bytes": 7124,
+      "sha256": "433c82990e87872e99fe21ec6d0f83ab7f9446b926f4229799bae352d625d391"
+    },
+    {
+      "path": ".cache/garen-rift-trial/cache-preparation.json",
+      "bytes": 12147,
+      "sha256": "e855b132ab8cf73a17545f127979ad409660ac8704fb5ea2afa90eedbc4ff1f9"
+    },
+    {
+      "path": ".cache/garen-rift-trial/check-browser-assertions.mjs",
+      "bytes": 1231,
+      "sha256": "4e82a54a0fc9ef852e92055d67b76ecae564eb92678870e9b6eb7e5158021f5a"
+    },
+    {
+      "path": ".cache/garen-rift-trial/check-production-assertions.mjs",
+      "bytes": 1075,
+      "sha256": "5ee973fcc80a3a3e0f2a71f4b582c1462b3c8d4059e5cb51174050b3f94cd39b"
+    },
+    {
+      "path": ".cache/garen-rift-trial/component-postcondition.json",
+      "bytes": 466,
+      "sha256": "4ef21e4bb0c68d83be10c20739193c3d49c71207f6e3e1a4e5cfec8f4906ac51"
+    },
+    {
+      "path": ".cache/garen-rift-trial/final-component-inputs.json",
+      "bytes": 157286,
+      "sha256": "69895cebeb028b3f67566c7cd0f3ea0e86fe39510b0213c765f32f6abc0ff927"
+    },
+    {
+      "path": ".cache/garen-rift-trial/final-component-pause-record.json",
+      "bytes": 755,
+      "sha256": "4d5251434109dbdf2eadd0c79d6d79bfae627e5b6c39b88ffdda1c18c0d110ce"
+    },
+    {
+      "path": ".cache/garen-rift-trial/final-component-source/src/main.ts",
+      "bytes": 22678,
+      "sha256": "f0452fce6cd28cbaa55843287a92e4a0bc0075b6d170fcd8caf8daffb2122a46"
+    },
+    {
+      "path": ".cache/garen-rift-trial/final-component-source/src/simulation/battlefield.ts",
+      "bytes": 2940,
+      "sha256": "651886c9c7b3dd5271d81a934f4749855b16e6da3909147c7291b7471cae0bec"
+    },
+    {
+      "path": ".cache/garen-rift-trial/final-component-source/src/simulation/lane-match.ts",
+      "bytes": 3052,
+      "sha256": "162b78d4d4ca0db18df75eea9e026f9b3a0308f4795a9dc98ad6413d46568789"
+    },
+    {
+      "path": ".cache/garen-rift-trial/final-component-source/src/simulation/snapshot.ts",
+      "bytes": 187601,
+      "sha256": "80e909226755cc84c6657b2dedb91611fd79138c34a4ea0a9b231eefd6aba679"
+    },
+    {
+      "path": ".cache/garen-rift-trial/final-component-source/src/simulation/world.ts",
+      "bytes": 296042,
+      "sha256": "56607e662f2041e0b30b255405915e9cb455f22936c7f3253675ae5a2152fea5"
+    },
+    {
+      "path": ".cache/garen-rift-trial/final-component-source/tests/garen-rift-trial.test.ts",
+      "bytes": 6521,
+      "sha256": "aae617d3126a93c15d47317dbf4dd2c986964560228194c4900017e50fef7518"
+    },
+    {
+      "path": ".cache/garen-rift-trial/first-browser-inputs.json",
+      "bytes": 157450,
+      "sha256": "29d50486d84b08e6cfa15c684181f0d7c02c466bb5cd9dfe53d919e98869dec4"
+    },
+    {
+      "path": ".cache/garen-rift-trial/first-browser-interruption.json",
+      "bytes": 249,
+      "sha256": "b6ac481371c00eed13b9f4f7335b2e62faef80fcfa4c925e7f60c93feda05407"
+    },
+    {
+      "path": ".cache/garen-rift-trial/first-browser-pause-record.json",
+      "bytes": 755,
+      "sha256": "2cabaf75e773aece98ba2cd0903a042e43f7693fd9a177a373072fb336354cc6"
+    },
+    {
+      "path": ".cache/garen-rift-trial/first-browser-source/e2e/garen-rift-trial.spec.ts",
+      "bytes": 10177,
+      "sha256": "e8999bf8be82d5df9a9cfe34a24620ec4a1dce48c2d9f0b863baaded797c64e6"
+    },
+    {
+      "path": ".cache/garen-rift-trial/first-browser-source/src/main.ts",
+      "bytes": 22678,
+      "sha256": "f0452fce6cd28cbaa55843287a92e4a0bc0075b6d170fcd8caf8daffb2122a46"
+    },
+    {
+      "path": ".cache/garen-rift-trial/first-browser-source/src/simulation/battlefield.ts",
+      "bytes": 2940,
+      "sha256": "651886c9c7b3dd5271d81a934f4749855b16e6da3909147c7291b7471cae0bec"
+    },
+    {
+      "path": ".cache/garen-rift-trial/first-browser-source/src/simulation/lane-match.ts",
+      "bytes": 3052,
+      "sha256": "162b78d4d4ca0db18df75eea9e026f9b3a0308f4795a9dc98ad6413d46568789"
+    },
+    {
+      "path": ".cache/garen-rift-trial/first-browser-source/src/simulation/snapshot.ts",
+      "bytes": 187601,
+      "sha256": "80e909226755cc84c6657b2dedb91611fd79138c34a4ea0a9b231eefd6aba679"
+    },
+    {
+      "path": ".cache/garen-rift-trial/first-browser-source/src/simulation/world.ts",
+      "bytes": 296042,
+      "sha256": "56607e662f2041e0b30b255405915e9cb455f22936c7f3253675ae5a2152fea5"
+    },
+    {
+      "path": ".cache/garen-rift-trial/first-browser-source/tests/garen-rift-trial.test.ts",
+      "bytes": 6521,
+      "sha256": "aae617d3126a93c15d47317dbf4dd2c986964560228194c4900017e50fef7518"
+    },
+    {
+      "path": ".cache/garen-rift-trial/first-browser.log",
+      "bytes": 15924,
+      "sha256": "d5cf58bd438058ad18a339f25d77732430e56abcc27dcddb83f7dbe50f038c41"
+    },
+    {
+      "path": ".cache/garen-rift-trial/focused.log",
+      "bytes": 381,
+      "sha256": "6df62dfed5d362ffb91dd5e0311e2a0cd52e4b7dacc40ad6d21655d7f5974f26"
+    },
+    {
+      "path": ".cache/garen-rift-trial/full-tests.log",
+      "bytes": 4677,
+      "sha256": "0368e8f7e69cccfa7cd22d368f176676197e5897c50b92500537e7a64e831c68"
+    },
+    {
+      "path": ".cache/garen-rift-trial/garen-player-before-clock-control.spec.ts",
+      "bytes": 12298,
+      "sha256": "8d162583794c23f2d66c272329d9bf89bde84b41ec4e3a73b61ac155ce9fdb09"
+    },
+    {
+      "path": ".cache/garen-rift-trial/garen-rift-trial.spec.ts.before-clock-control",
+      "bytes": 10177,
+      "sha256": "e8999bf8be82d5df9a9cfe34a24620ec4a1dce48c2d9f0b863baaded797c64e6"
+    },
+    {
+      "path": ".cache/garen-rift-trial/initial-path-resolution-pause.json",
+      "bytes": 133,
+      "sha256": "d4d133ba48603493523d31286b391396bb60489d58d5ff914a790c30c685d08b"
+    },
+    {
+      "path": ".cache/garen-rift-trial/initial-path-resolution.log",
+      "bytes": 412,
+      "sha256": "ac3e1e212ddeb218bd316f06dee6425d8213fc136551f9973fc49532baa9775a"
+    },
+    {
+      "path": ".cache/garen-rift-trial/leona-rift-trial.spec.ts.before-clock-control",
+      "bytes": 10191,
+      "sha256": "e967d487fdb39c3de5e0b0d68d75ea5baa2e4cbd99769229abf197ea8e4b5d9c"
+    },
+    {
+      "path": ".cache/garen-rift-trial/leona-save-inputs.json",
+      "bytes": 157942,
+      "sha256": "ef8ae9ed9fd37e570b123eb8b2ceba1f037835c2d44e29d5ae0a5df3c2608c67"
+    },
+    {
+      "path": ".cache/garen-rift-trial/leona-save-pause-record.json",
+      "bytes": 755,
+      "sha256": "3cf089f73a614bf4de7074c73d05e6ef1b2ff03c20dab8db36c5e5a2a3bf1bbb"
+    },
+    {
+      "path": ".cache/garen-rift-trial/leona-save-source/e2e/garen-player.spec.ts",
+      "bytes": 12978,
+      "sha256": "81d7a6d9d2a8d2f1578cb0d5d49a3b6c9f4fc317f37bfb5e7940b153488cf864"
+    },
+    {
+      "path": ".cache/garen-rift-trial/leona-save-source/e2e/garen-rift-trial.spec.ts",
+      "bytes": 10289,
+      "sha256": "95b53d81479f9af8a5464fb48898d5a4e44506a87eaf560e486b4a23b7618933"
+    },
+    {
+      "path": ".cache/garen-rift-trial/leona-save-source/e2e/helpers/pause-combat-state.ts",
+      "bytes": 1305,
+      "sha256": "c313965316710d18a893a901a102baeff7f5af29ff317a314e3a6ef01ce409eb"
+    },
+    {
+      "path": ".cache/garen-rift-trial/leona-save-source/e2e/leona-rift-trial.spec.ts",
+      "bytes": 10330,
+      "sha256": "515735f56497a3e175e05f8fd4aa3d3775c529e93adf18c0b7d69b7bd6edb6b9"
+    },
+    {
+      "path": ".cache/garen-rift-trial/leona-save-source/src/main.ts",
+      "bytes": 22678,
+      "sha256": "f0452fce6cd28cbaa55843287a92e4a0bc0075b6d170fcd8caf8daffb2122a46"
+    },
+    {
+      "path": ".cache/garen-rift-trial/leona-save-source/src/simulation/battlefield.ts",
+      "bytes": 2940,
+      "sha256": "651886c9c7b3dd5271d81a934f4749855b16e6da3909147c7291b7471cae0bec"
+    },
+    {
+      "path": ".cache/garen-rift-trial/leona-save-source/src/simulation/lane-match.ts",
+      "bytes": 3052,
+      "sha256": "162b78d4d4ca0db18df75eea9e026f9b3a0308f4795a9dc98ad6413d46568789"
+    },
+    {
+      "path": ".cache/garen-rift-trial/leona-save-source/src/simulation/snapshot.ts",
+      "bytes": 187601,
+      "sha256": "80e909226755cc84c6657b2dedb91611fd79138c34a4ea0a9b231eefd6aba679"
+    },
+    {
+      "path": ".cache/garen-rift-trial/leona-save-source/src/simulation/world.ts",
+      "bytes": 296042,
+      "sha256": "56607e662f2041e0b30b255405915e9cb455f22936c7f3253675ae5a2152fea5"
+    },
+    {
+      "path": ".cache/garen-rift-trial/leona-save-source/tests/garen-rift-trial.test.ts",
+      "bytes": 6521,
+      "sha256": "aae617d3126a93c15d47317dbf4dd2c986964560228194c4900017e50fef7518"
+    },
+    {
+      "path": ".cache/garen-rift-trial/leona-save.log",
+      "bytes": 1055,
+      "sha256": "9aad27b8fc91d96c499266dda498a5fc78a0ed9e0d0ed9d192ac17fb5a73c978"
+    },
+    {
+      "path": ".cache/garen-rift-trial/node.log",
+      "bytes": 1405,
+      "sha256": "0a2f09d39e0e29aec45819041c963923963a7caf4310684cac89a85949eddcfa"
+    },
+    {
+      "path": ".cache/garen-rift-trial/offline-artifacts/offline-pack-garen-rift-trial-20261027-lux-lanes.png",
+      "bytes": 522770,
+      "sha256": "b25486a5a37d4dcc090c777095a2b7ee6465c4abda3b117a867ee405261f3ea0"
+    },
+    {
+      "path": ".cache/garen-rift-trial/offline-artifacts/offline-pack-garen-rift-trial-20261027-production.json",
+      "bytes": 827,
+      "sha256": "73e696d25c65b266275e40c7d7ebfcf2d1a0592e585c905225ca48f95da8676d"
+    },
+    {
+      "path": ".cache/garen-rift-trial/offline-artifacts/offline-pack-garen-rift-trial-20261027-ready.png",
+      "bytes": 573162,
+      "sha256": "46d4ad9bfd7ae6905683008b86bfd3ba86a12fffc86bb0669f4ff4143763f747"
+    },
+    {
+      "path": ".cache/garen-rift-trial/offline-system.mjs",
+      "bytes": 16600,
+      "sha256": "3d091435f88a3e61fc7ea5986ad5bbc2031e3232943298ff564fba118ebcb29d"
+    },
+    {
+      "path": ".cache/garen-rift-trial/offline.log",
+      "bytes": 842,
+      "sha256": "68c728d59c87ce6413c7d461f55c88792cad0040cc2a8e9b96d46350d61cfbe9"
+    },
+    {
+      "path": ".cache/garen-rift-trial/production-assertion-retention.json",
+      "bytes": 152,
+      "sha256": "ad2aaf47d4586dbf95d09f0a40b5d48d1b864b296a937485389ef53e61ea26fb"
+    },
+    {
+      "path": ".cache/garen-rift-trial/production-screens/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1807720,
+      "sha256": "3f24bf3e72c384a9b0d90418e86cdda87e3079c9c724c1080da25a7b2775a8a5"
+    },
+    {
+      "path": ".cache/garen-rift-trial/production-screens/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835043,
+      "sha256": "b267e2ade267cead6f94dd501ad4c22bf9eb2d6153077664218f328af5e31740"
+    },
+    {
+      "path": ".cache/garen-rift-trial/production-screens/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1830251,
+      "sha256": "d141f01f43549d1a9f2194a0d8358aa27e9dc046a61ca1dfb84274ad2f991da6"
+    },
+    {
+      "path": ".cache/garen-rift-trial/production-screens/lux-e-hit-production-lux.png",
+      "bytes": 1811817,
+      "sha256": "7d5981a8da80a8d7b988947ec30777f7b8a32cb33534d6f54e4a3fbae9987bdb"
+    },
+    {
+      "path": ".cache/garen-rift-trial/production-screens/lux-e-hit-production-oracle.png",
+      "bytes": 1815312,
+      "sha256": "b98232de88181de0ac5e4c390078bea37e1fee98381b26cb6cd9c05088d720a5"
+    },
+    {
+      "path": ".cache/garen-rift-trial/production-screens/lux-e-hit-production-role-match.png",
+      "bytes": 1351539,
+      "sha256": "a4e3ce47336732ce9c5ea47b62f65a121ca350ab51d4eff4f6bba53dfd3fdbc6"
+    },
+    {
+      "path": ".cache/garen-rift-trial/production-screens/lux-e-hit-production-subpath.png",
+      "bytes": 1825964,
+      "sha256": "03be821b53e5ada0346b17f623c5808ed209778208b6d8fea3901375738ac77d"
+    },
+    {
+      "path": ".cache/garen-rift-trial/production-screens/lux-e-hit-production-ward.png",
+      "bytes": 1809077,
+      "sha256": "eb9cf9d0d898dd7e6ba912a5b42e5c4537b88606c89929d2e754d573da3eb3eb"
+    },
+    {
+      "path": ".cache/garen-rift-trial/production-system.mjs",
+      "bytes": 30843,
+      "sha256": "889df78f46045ed2e1398aadc4972019654aeeae0f6f733c05bf7f48b4e9532d"
+    },
+    {
+      "path": ".cache/garen-rift-trial/production.log",
+      "bytes": 2887,
+      "sha256": "d69cae0e6b9f1b83bfc249978aa2dd29daf2726721a4c8989cc4ff585f28cddf"
+    },
+    {
+      "path": ".cache/garen-rift-trial/retained-garen-fixture/browser-garen-player-judgment.png",
+      "bytes": 954992,
+      "sha256": "ed863986d35aa8abda805fab6d821ac621ce7c284ffde7bb33af860637e0b4a8"
+    },
+    {
+      "path": ".cache/garen-rift-trial/retained-garen-fixture/browser-garen-player-r-aim.png",
+      "bytes": 866145,
+      "sha256": "15f09e7f2d613a9804bbaeb9cf6ce033e6c648623caf717f3b0be336bd2f881e"
+    },
+    {
+      "path": ".cache/garen-rift-trial/retained-garen-fixture/browser-garen-player-small.png",
+      "bytes": 687239,
+      "sha256": "9679a0174b97e9078de71382343295bfab64551efd1a16e53e772bf3c9125f76"
+    },
+    {
+      "path": ".cache/garen-rift-trial/run-acceptance.py",
+      "bytes": 4163,
+      "sha256": "e1f23f0a12998d4cbb34e737a4f588ee1b410a620c3ea3d7c8f4c7233aeaad70"
+    },
+    {
+      "path": ".cache/garen-rift-trial/run-after-leona-save.py",
+      "bytes": 621,
+      "sha256": "e40446bb5f6d92b5b149eb23a7368d8e5a1f9f45276377401f9659ba023ee4c6"
+    },
+    {
+      "path": ".cache/garen-rift-trial/run-browser.py",
+      "bytes": 3438,
+      "sha256": "50ea27dbb3b90f6083d327db9a286dd86d0b1392717ca1a910b9b76601d706c1"
+    },
+    {
+      "path": ".cache/garen-rift-trial/run-components-before-postcondition-fix.py",
+      "bytes": 3333,
+      "sha256": "7ed59e3388303d16b1e90fe0bd0ba34a6d80203e33f6c60b318b0446aa76d30d"
+    },
+    {
+      "path": ".cache/garen-rift-trial/run-components.py",
+      "bytes": 3310,
+      "sha256": "b0f363c54eafed6f9dcd238f74825db2883702f2c206c1fda674cf969393c911"
+    },
+    {
+      "path": ".cache/garen-rift-trial/run-leona-save.py",
+      "bytes": 3329,
+      "sha256": "2dda3578247e68acabed9fabfc1292bd967f34d61e247da3a65889308e0f87de"
+    },
+    {
+      "path": ".cache/garen-rift-trial/run-when-browser-completes.py",
+      "bytes": 597,
+      "sha256": "1827554d66a5a47c716bd4d7e4ae8ff1e88de11ebbdca6cd829e813e4be8e8f2"
+    },
+    {
+      "path": ".cache/garen-rift-trial/types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/garen-rift-trial/unpushed-history.txt",
+      "bytes": 7892,
+      "sha256": "b5f3d5087738b2c035936058583606029f93ba08e78a558a3b85020f27e5aa29"
+    }
+  ],
+  "productionScreenshots": [
+    {
+      "path": ".cache/garen-rift-trial/production-screens/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1807720,
+      "sha256": "3f24bf3e72c384a9b0d90418e86cdda87e3079c9c724c1080da25a7b2775a8a5"
+    },
+    {
+      "path": ".cache/garen-rift-trial/production-screens/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835043,
+      "sha256": "b267e2ade267cead6f94dd501ad4c22bf9eb2d6153077664218f328af5e31740"
+    },
+    {
+      "path": ".cache/garen-rift-trial/production-screens/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1830251,
+      "sha256": "d141f01f43549d1a9f2194a0d8358aa27e9dc046a61ca1dfb84274ad2f991da6"
+    },
+    {
+      "path": ".cache/garen-rift-trial/production-screens/lux-e-hit-production-lux.png",
+      "bytes": 1811817,
+      "sha256": "7d5981a8da80a8d7b988947ec30777f7b8a32cb33534d6f54e4a3fbae9987bdb"
+    },
+    {
+      "path": ".cache/garen-rift-trial/production-screens/lux-e-hit-production-oracle.png",
+      "bytes": 1815312,
+      "sha256": "b98232de88181de0ac5e4c390078bea37e1fee98381b26cb6cd9c05088d720a5"
+    },
+    {
+      "path": ".cache/garen-rift-trial/production-screens/lux-e-hit-production-role-match.png",
+      "bytes": 1351539,
+      "sha256": "a4e3ce47336732ce9c5ea47b62f65a121ca350ab51d4eff4f6bba53dfd3fdbc6"
+    },
+    {
+      "path": ".cache/garen-rift-trial/production-screens/lux-e-hit-production-subpath.png",
+      "bytes": 1825964,
+      "sha256": "03be821b53e5ada0346b17f623c5808ed209778208b6d8fea3901375738ac77d"
+    },
+    {
+      "path": ".cache/garen-rift-trial/production-screens/lux-e-hit-production-ward.png",
+      "bytes": 1809077,
+      "sha256": "eb9cf9d0d898dd7e6ba912a5b42e5c4537b88606c89929d2e754d573da3eb3eb"
+    }
+  ],
+  "limits": [
+    "Trusted development trial, not production Garen selection or a completed six-character roster.",
+    "The original100-seed cohort is baseline evidence only; the changed ruleset has no claimed100-seed acceptance.",
+    "Garen bot policy, complete native audiovisual agreement and physical-device performance remain unverified.",
+    "Two baseline unit failures retain their original missing-evidence and host-sensitive digest assertions."
+  ]
+}

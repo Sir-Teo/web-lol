@@ -27,6 +27,8 @@ export interface Battlefield extends TerrainQueries {
   visibilityRevision?: number;
   /** Trusted development host context; never serialized into a saved match. */
   developmentLeona?: true;
+  /** Allows Garen only in the dedicated development Rift lane trial. */
+  developmentGaren?: true;
   /** Allows an Ahri player only in the dedicated development practice host. */
   developmentAhri?: true;
   /** Allows a Master Yi player only in the dedicated development practice host. */

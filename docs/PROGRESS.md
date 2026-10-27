@@ -6,11 +6,35 @@ Last updated: October 27, 2026 (UTC).
 
 ## Current authoritative state
 
-The latest [pending-match start repair](MATCH-START-FOCUS.md) retains keyboard
+The latest [Garen Rift trial](GAREN-RIFT-TRIAL.md) starts a human top laner on
+the source battlefield with nine Ashe/Lux bots, trusted development admission
+and a separate save key. All five roles remain assigned on each team; source
+navigation, resource-free controls, private save/reload and restart are covered.
+Ordinary production selection remains Ashe/Lux. The trial retains schema 163
+and changes the rules fingerprint to
+`74942d93a2bc384af0eef175c78a9033a050c87a2d3445b04d51d08ac6c5f86d`.
+
+Its 47 focused checks pass. The full unit run passes **3,385/3,387 tests across
+401 files**, retaining only the two baseline failures described below.
+TypeScript, all 16 Node QA checks and the build pass. Eight distinct browser
+cases pass across two retained batches: seven passes and a Leona cold-reload
+timeout, followed by the passing targeted save/restart rerun. Every original
+Garen and Leona combat assertion remains in order.
+
+The nested-path production smoke passes with all 32 source recordings,
+no development hook and the Garen trial URL rejected. The full offline audit
+passes with 978 service-worker responses and zero production page errors,
+including integrity/retry, network-disabled restore, a new lane match and
+atomic version activation. Its accepted pack is
+`66b0b2091ba6e9d3ad414cff1826fa652d6936049bd0567b1e927268eb9885da`
+(1,202 files / 538,093,030 bytes). All 1,125 source asset/data
+file sizes and mtimes remain unchanged in this checkout.
+
+The earlier [pending-match start repair](MATCH-START-FOCUS.md) retains keyboard
 focus and announces loading while a new match is saved. Its final nine-case
 browser batch, TypeScript, all 16 Node QA checks, build and compiled native-write
 keyboard audit pass. The new Lux lane match restores and exports byte-exactly.
-The current pack is
+Its accepted pack is
 `1ba020013994733d8bc4f11dc43ec3a313492d4e93e0d4e8b74b80af874a9377`
 (1,202 files / 538,092,904 bytes). Full unit, broad production and full-offline
 acceptance below remain inherited at their recorded rendering identity.

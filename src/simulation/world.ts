@@ -483,8 +483,12 @@ export class World {
       !battlefield.developmentLeona
     )
       throw new Error('Leona player kit requires the development practice fixture or Rift trial.');
-    if (playerChampion === 'garen' && battlefield.id !== 'practice-fixture')
-      throw new Error('Garen player kit is available only in the development practice fixture.');
+    if (
+      playerChampion === 'garen' &&
+      battlefield.id !== 'practice-fixture' &&
+      !battlefield.developmentGaren
+    )
+      throw new Error('Garen player kit requires the development practice fixture or Rift trial.');
     this.nextWaveTick = Math.round(battlefield.waves.initialSeconds * TICK_RATE);
     if (battlefield.id === 'rift') {
       this.scuttlers = newRiverScuttlers();

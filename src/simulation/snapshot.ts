@@ -2936,9 +2936,12 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     throw new Error('Controlled neutral encounters require the development practice fixture.');
   if (
     state.units.find((u) => u.id === state.player.id)?.champion === 'garen' &&
-    state.battlefield !== 'practice-fixture'
+    !(
+      state.battlefield === 'practice-fixture' ||
+      (state.battlefield === 'rift' && battlefield.developmentGaren && state.matchMode === 'lanes')
+    )
   )
-    throw new Error('Garen player kit is available only in the development practice fixture.');
+    throw new Error('Garen player kit requires the development practice fixture or Rift trial.');
   for (const unit of state.units) {
     if (unit.charm) {
       const c = unit.charm,
