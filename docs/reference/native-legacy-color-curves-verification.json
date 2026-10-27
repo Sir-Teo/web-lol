@@ -1,0 +1,358 @@
+{
+  "format": 1,
+  "parentCommit": "baaaa8f302ba192b7d2b696d0688b9f93c5919e9",
+  "scope": "Restore the original Gromp death Troy resource and trace a conditional legacy raw-key color component through native key preparation, probability cleanup, interpolation and later draw-color factors. No game arithmetic change.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "offlinePack": {
+      "id": "c9049612660d52ec54080972430269235653f25a28160b0ef01ae57c44ff955a",
+      "files": 1202,
+      "bytes": 538089925
+    }
+  },
+  "verification": {
+    "completeFunctionSpans": 7,
+    "selectedInstructions": 231,
+    "literals": 2,
+    "sampleVtableSlots": 1,
+    "directCalls": 11,
+    "sourceBytes": 2720,
+    "originalTypedRows": 272,
+    "sourceProfiles": 8,
+    "sourceColorKeys": 27,
+    "absentSourceKeys": 80,
+    "hostScanfSourceWordsExact": true,
+    "guardGroupsPerMode": 22,
+    "normalOptimizedRecordGuardAndRestoreCommands": 6,
+    "offlineWithSubprocessBlocked": true,
+    "sourceAssetFilesUnchanged": 543,
+    "bytesAndMtimesUnchanged": true,
+    "applicationChecksInherited": true,
+    "nativeExecuted": false,
+    "nativeShaderExecuted": false,
+    "applicationArithmeticChanged": false
+  },
+  "diagnosticProjection": {
+    "states": 59204,
+    "intermediateFloat32ColorDifferences": {
+      "pop": 18085,
+      "popshards": 8733
+    },
+    "packedRayDifferences": 1,
+    "maxChannelByteDelta": 1,
+    "conditionalOnly": true,
+    "evidence": {
+      "path": ".cache/native-legacy-color-curves/original-probe/conditional-curve-comparison.json",
+      "bytes": 1988,
+      "sha256": "1312987436fe4d3831620379c21077bc5dfd9988a4da6258d4c8d1fe4275c41d"
+    }
+  },
+  "limits": [
+    "Static code/dataflow and a restored2720-byte original source resource, not target execution. Source restoration does not restore all36 old Gromp resources or any missing historical Leona certificate.",
+    "The raw-key/no-probability component is conditional on the checked initialized metadata and missing-field branches. Live parser flags and backing-store modes are not observed.",
+    "Host sscanf/Python source-word agreement does not establish target locale or live FPCR.",
+    "Raw color-component arithmetic does not establish native phase construction, birth RNG, external modifiers, live primitive/shader selection or complete native composition.",
+    "Later runtime curve-cache mutation and actual live path selection remain unobserved. The conditional raw-key projection is not an actual native framebuffer comparison.",
+    "The draw-data producer span was already byte-pinned by the earlier Ray draw-data witness; this checkpoint adds color-field interpretation rather than claiming a wholly new producer discovery.",
+    "Full app checks are inherited from the unchanged application at baaaa8f. No heavy app checks were rerun for this source-only addition."
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/NATIVE-LEGACY-COLOR-CURVES.md",
+      "bytes": 4651,
+      "sha256": "cac13c57c7b9366aedc6e3c8b01aef1e678eb9ae0ff921547007770fef8ff8ec"
+    },
+    {
+      "path": "docs/reference/native-legacy-color-curves.json",
+      "bytes": 92689,
+      "sha256": "b41ba9cea4d747af9e39b94ab59738120e83e83743179c5851bf2e4e8d282e72"
+    },
+    {
+      "path": "tools/assets/native_legacy_color_curves.py",
+      "bytes": 22859,
+      "sha256": "0945bfb9bdb1d80bbe05d1e45095353093dbee4d761f320410023195e1045eff"
+    },
+    {
+      "path": "tools/assets/restore-gromp-death-source.py",
+      "bytes": 3366,
+      "sha256": "d4bb80d8e81ea838ad805762bb9edab9dbc17c2047b7be64e5ef408a0eed9e20"
+    },
+    {
+      "path": "tools/assets/test-native-legacy-color-curves.py",
+      "bytes": 6827,
+      "sha256": "71222e6dffdc2e1068f5732acdc3df136f0d8be0559b03b5271ada0483d94928"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "docs/reference/native-legacy-modulation-default.json",
+      "bytes": 22729,
+      "sha256": "49dae3576cb73c396372690f03d839b0df85dd2e68bb256007b256557cc53072"
+    },
+    {
+      "path": "docs/reference/gromp-effects.json",
+      "bytes": 238111,
+      "sha256": "3cb54cd774fbfd66cc52846bb8775d17ab0adb473a570600e274e5f2ae0a1033"
+    },
+    {
+      "path": "src/content/gromp-death.json",
+      "bytes": 35018,
+      "sha256": "683823f0f8c647e973690508f474b9c1e54adf98543b01ba1322fdbd9fdc6bc0"
+    },
+    {
+      "path": "docs/reference/gromp-curve-views-verification.json",
+      "bytes": 25894,
+      "sha256": "9486efbb57c3915e7f67490f1b4c9247b72e96c4f4ba2896e76255af33207539"
+    },
+    {
+      "path": "tools/assets/native_legacy_modulation_default.py",
+      "bytes": 11458,
+      "sha256": "bcbd198dcf19ca4bf64663051918979c0cef8f5450116d98f6928a4202e3f24e"
+    },
+    {
+      "path": "tools/assets/legacy_troy.py",
+      "bytes": 4088,
+      "sha256": "2ee060a18ca37a035565d4c610ab762f44541b56b412f57354a549bb2a9f01c0"
+    },
+    {
+      "path": "tools/assets/riot_archive.py",
+      "bytes": 7454,
+      "sha256": "7444e2d6dd84c10d2b7b58105a9cdb56edb963d7a3f33fe61dc2932334e5eeb6"
+    },
+    {
+      "path": "tools/assets/native_client_restore.py",
+      "bytes": 6954,
+      "sha256": "6ab14163aa03528ae8255948ecf66b106bbedd921aabc17c5a9dfafe8d44c711"
+    },
+    {
+      "path": ".cache/native-legacy-color-curve-source-v1/sru_gromp_death_pop.troybin",
+      "bytes": 2720,
+      "sha256": "4099aaf7d86f3e137dfe8778078c74bced209685c163b4c5e0e7d67dc63c5850"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/native-legacy-color-curves/final-source/docs/NATIVE-LEGACY-COLOR-CURVES.md",
+      "bytes": 4651,
+      "sha256": "cac13c57c7b9366aedc6e3c8b01aef1e678eb9ae0ff921547007770fef8ff8ec"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/final-source/docs/reference/native-legacy-color-curves.json",
+      "bytes": 92689,
+      "sha256": "b41ba9cea4d747af9e39b94ab59738120e83e83743179c5851bf2e4e8d282e72"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/final-source/tools/assets/native_legacy_color_curves.py",
+      "bytes": 22859,
+      "sha256": "0945bfb9bdb1d80bbe05d1e45095353093dbee4d761f320410023195e1045eff"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/final-source/tools/assets/restore-gromp-death-source.py",
+      "bytes": 3366,
+      "sha256": "d4bb80d8e81ea838ad805762bb9edab9dbc17c2047b7be64e5ef408a0eed9e20"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/final-source/tools/assets/test-native-legacy-color-curves.py",
+      "bytes": 6827,
+      "sha256": "71222e6dffdc2e1068f5732acdc3df136f0d8be0559b03b5271ada0483d94928"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/final-source/docs/reference/native-legacy-modulation-default.json",
+      "bytes": 22729,
+      "sha256": "49dae3576cb73c396372690f03d839b0df85dd2e68bb256007b256557cc53072"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/final-source/docs/reference/gromp-effects.json",
+      "bytes": 238111,
+      "sha256": "3cb54cd774fbfd66cc52846bb8775d17ab0adb473a570600e274e5f2ae0a1033"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/final-source/src/content/gromp-death.json",
+      "bytes": 35018,
+      "sha256": "683823f0f8c647e973690508f474b9c1e54adf98543b01ba1322fdbd9fdc6bc0"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/final-source/docs/reference/gromp-curve-views-verification.json",
+      "bytes": 25894,
+      "sha256": "9486efbb57c3915e7f67490f1b4c9247b72e96c4f4ba2896e76255af33207539"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/final-source/tools/assets/native_legacy_modulation_default.py",
+      "bytes": 11458,
+      "sha256": "bcbd198dcf19ca4bf64663051918979c0cef8f5450116d98f6928a4202e3f24e"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/final-source/tools/assets/legacy_troy.py",
+      "bytes": 4088,
+      "sha256": "2ee060a18ca37a035565d4c610ab762f44541b56b412f57354a549bb2a9f01c0"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/final-source/tools/assets/riot_archive.py",
+      "bytes": 7454,
+      "sha256": "7444e2d6dd84c10d2b7b58105a9cdb56edb963d7a3f33fe61dc2932334e5eeb6"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/final-source/tools/assets/native_client_restore.py",
+      "bytes": 6954,
+      "sha256": "6ab14163aa03528ae8255948ecf66b106bbedd921aabc17c5a9dfafe8d44c711"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/final-source/.cache/native-legacy-color-curve-source-v1/sru_gromp_death_pop.troybin",
+      "bytes": 2720,
+      "sha256": "4099aaf7d86f3e137dfe8778078c74bced209685c163b4c5e0e7d67dc63c5850"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/native-legacy-color-curves/archive-checkpoint.py",
+      "bytes": 6713,
+      "sha256": "c826cf8f7a18ea415882da0000f80a11eb9567c343d6eba64cb21ba941a688b4"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/candidate.json",
+      "bytes": 92689,
+      "sha256": "b41ba9cea4d747af9e39b94ab59738120e83e83743179c5851bf2e4e8d282e72"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/candidate.log",
+      "bytes": 151,
+      "sha256": "cb49e4b9b7b06050435432d0086e0a9ebcfd050eccc8d3155bbe067bf020de40"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/check-normal.log",
+      "bytes": 151,
+      "sha256": "cb49e4b9b7b06050435432d0086e0a9ebcfd050eccc8d3155bbe067bf020de40"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/check-optimized.log",
+      "bytes": 151,
+      "sha256": "cb49e4b9b7b06050435432d0086e0a9ebcfd050eccc8d3155bbe067bf020de40"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/conditional-replay.json",
+      "bytes": 1494,
+      "sha256": "b769fe335cf7062dd45a57808dcf892454c8ba4cbc50fd118f2ab3d02c28bd23"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/conditional-replay.log",
+      "bytes": 231,
+      "sha256": "a36e8fa42074d36632f2f35b83c4d9012227001a24ebc361faebbe2520102962"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/generate.py",
+      "bytes": 11403,
+      "sha256": "146ec548fc3bdab9c4994432f54e75fd1f7fbe35ce5dc717b03202cdefdf3c94"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/guards-normal.log",
+      "bytes": 122,
+      "sha256": "8227810e60e9a4609df5dab2cdd3239fe3a5ab45497c99d5d83400384a8e4027"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/guards-optimized.log",
+      "bytes": 122,
+      "sha256": "d126a389a91b7b5765a32ae38c8a3313709e5110d281ec8761b159f07eb221be"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/inherited-application.json",
+      "bytes": 523,
+      "sha256": "ad5e3cd68ecb2db2f6d6246ef963eeed42c5ad19b118e0b0aa9a494484809adf"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/native_legacy_color_curves.py",
+      "bytes": 22699,
+      "sha256": "af9339fcd5981c8920091b5e23c331cd9db5a40d23cfebcb9812541a04e41a39"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/original-probe/compare-conditional.py",
+      "bytes": 2147,
+      "sha256": "80d3826c677dada38e4c1912c39d7bdcc16bf767dc19d9eaa82d19023d9afa05"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/original-probe/compiler.json",
+      "bytes": 397,
+      "sha256": "21ae28c5a2fe746cd22cffa2d2d838fe1897832ae87bbd36611ff06f4942cd9a"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/original-probe/conditional-curve-comparison.json",
+      "bytes": 1988,
+      "sha256": "1312987436fe4d3831620379c21077bc5dfd9988a4da6258d4c8d1fe4275c41d"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/original-probe/curve-oracle.c",
+      "bytes": 2290,
+      "sha256": "18266a40a0b3267250dd40ce041d2e4f3b07e80468dd24b60b9849b1fdaf47bf"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/original-probe/curve-source-strings.json",
+      "bytes": 1165,
+      "sha256": "6d7dcd485b3dae666eba47a7a429cca921d5610ad20c6e4d1a9d6964db7ce9b8"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/original-probe/fetch-receipts.jsonl",
+      "bytes": 394,
+      "sha256": "dc3be9b5b562353ed26d42acc4e1ddf53b068f891dd9d7e3ef2db71b8ab40edc"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/original-probe/gromp-color-source-shapes.json",
+      "bytes": 9983,
+      "sha256": "3fa6ac9ceb07cd8b8ac2a5707cb03d5cc3cbaa77868e88786f470a57f98886be"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/original-probe/legacy-color-curve-candidate-status.json",
+      "bytes": 4384,
+      "sha256": "f54d5c81b2ac9ae0d65a86f5276bc65dbd931bb41d78bd158d7269c7333a434d"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/original-probe/prepare-curve-oracle.py",
+      "bytes": 3320,
+      "sha256": "77a3d67b9fb3fcf2969d7351cf7671bb08858e4e6e77c35856001dc8b97ffa7d"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/original-probe/restoration.json",
+      "bytes": 2191,
+      "sha256": "702128092f75b06d2682a0a1548af80cd2a0a641d3826402d6507737e20bbb0d"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/original-probe/restore-gromp-death-source.py",
+      "bytes": 2731,
+      "sha256": "f71c03e9ea764fdea28a3a71ade5ebbed99ef472ab96f19857e092724f66e220"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/prepare.py",
+      "bytes": 1931,
+      "sha256": "8f9b6b6709c1e4c0c214e651d0622d55121798e3c014a60f43f75e3a0eb33611"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/promote.log",
+      "bytes": 151,
+      "sha256": "cb49e4b9b7b06050435432d0086e0a9ebcfd050eccc8d3155bbe067bf020de40"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/restore-normal.json",
+      "bytes": 1703,
+      "sha256": "babd3f01232b2e5169ea10565939d157835f97274ebec4b8866f922241f58c00"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/restore-normal.log",
+      "bytes": 59,
+      "sha256": "55a36bef803ae4a12db85f5dbf43550a01dae7266b33fa8621e05949cc30c718"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/restore-optimized.json",
+      "bytes": 1703,
+      "sha256": "babd3f01232b2e5169ea10565939d157835f97274ebec4b8866f922241f58c00"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/restore-optimized.log",
+      "bytes": 59,
+      "sha256": "55a36bef803ae4a12db85f5dbf43550a01dae7266b33fa8621e05949cc30c718"
+    },
+    {
+      "path": ".cache/native-legacy-color-curves/tables.json",
+      "bytes": 18321,
+      "sha256": "2ce836c90a2f7aeec5fbb62aaf058bfe5fd566a329f1d31db9d3e1b5cc8039fe"
+    }
+  ]
+}

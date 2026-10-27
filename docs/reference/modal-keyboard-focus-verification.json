@@ -1,0 +1,383 @@
+{
+  "format": 1,
+  "parentCommit": "695bdda20a528c9104dc89b3b2c98f14f7f32d87",
+  "scope": "Initial dialog-container focus now traverses to first/last available button correctly; normal button wrap retained.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "offlinePack": {
+      "id": "6d9e13b2bb8bbdf6de5400f2a6ae4fe9bcc4cfe1096f1e01fdd7a6b8d91627fc",
+      "files": 1202,
+      "bytes": 538092175
+    }
+  },
+  "source": [
+    {
+      "path": "src/ui/hud.ts",
+      "bytes": 84708,
+      "sha256": "d023c08319a64119d5bfb6e5bde6cd897e137ad1453cf614d2d2dc00c1dfce0c"
+    },
+    {
+      "path": "e2e/modal-focus.spec.ts",
+      "bytes": 2248,
+      "sha256": "53f1daf929063d408e915ecc4fe62ef4b3ca3ff1e9cd58249cecc968edaea35b"
+    },
+    {
+      "path": "tools/qa/production-hud-keyboard.mjs",
+      "bytes": 7411,
+      "sha256": "effc4bfcea2ecd3202702590b7c3f4751f9850275a8c2798b4fa85ec3949bfc8"
+    },
+    {
+      "path": "docs/MODAL-KEYBOARD-FOCUS.md",
+      "bytes": 2648,
+      "sha256": "e332090baead73a7cb507a774ad160d5d026d9b3df9a6626d5ac6ffd716db50b"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "bytes": 739807,
+      "sha256": "11f322483cfa6f5f3c2c58b8e423c7d7235980651781b1a325c4a461dc553d58"
+    }
+  ],
+  "verification": {
+    "originalActualHudFailures": 2,
+    "actualHudCasesPassed": 6,
+    "firstBrowserBatch": 4,
+    "secondBrowserBatch": 2,
+    "singleSixCaseBatchClaimed": false,
+    "typescriptPassed": true,
+    "nodeQaPassed": 14,
+    "buildPassed": true,
+    "targetedProductionKeyboard": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "developmentHook": false,
+      "firstKeyboardAudio": true,
+      "audioContextsCreated": 1,
+      "soundSpace": true,
+      "soundEnter": true,
+      "hudTabNavigation": true,
+      "pauseSpace": true,
+      "offlineDialogReverseInitialFocus": true,
+      "wardPreviewReplacedByHeal": true,
+      "resumeSpace": true,
+      "errors": [],
+      "failed": [],
+      "outside": [],
+      "browser": "154.0.8037.57",
+      "screenshots": 2
+    },
+    "assetDataSizesAndMtimesUnchanged": 1125,
+    "cohortSourcePinsUnchanged": 539,
+    "simulationChanged": false,
+    "inheritedAcceptance": {
+      "path": "docs/reference/gromp-mesh-color-verification.json",
+      "sha256": "154754cf11f5362314fd06b657aee35d74021e965419fa1bc99b4b9b71425557",
+      "fullUnitPassed": 3324,
+      "baselineUnitFailures": 2,
+      "broadProductionRecordings": 32,
+      "fullUnitOrBroadProductionOrOfflineRerunForThisUiChange": false,
+      "previousOfflinePack": "273e1d8ec876bb239ef52ae674f4ed95f23cb665b4094a1408b0ec37b9fe3390"
+    }
+  },
+  "pauseIntervals": [
+    {
+      "start": "2026-10-27T14:43:13.910618+00:00",
+      "end": "2026-10-27T14:44:28.915372+00:00",
+      "processes": [
+        {
+          "pid": 302400,
+          "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+        },
+        {
+          "pid": 319753,
+          "cmdlineSha256": "ad8f80374b8cb65ccd06149a07d5c48bddc3b26ec45d74fb286a3b9afdade68e"
+        },
+        {
+          "pid": 319913,
+          "cmdlineSha256": "42eb4eea7d326ee62e68f5648054db82e3008154cfda13bd90aba5a36d3d55d9"
+        },
+        {
+          "pid": 326252,
+          "cmdlineSha256": "7a292cee7f19f01d89b0e599cf81aab7e6360f2da65a397ee2f4d69384e92ed3"
+        },
+        {
+          "pid": 326273,
+          "cmdlineSha256": "227abd1f9506983b47b8092bc54ca1568282e371c12700803890cde9e910afcd"
+        }
+      ],
+      "resumed": true
+    },
+    {
+      "start": "2026-10-27T14:45:09.251353+00:00",
+      "end": "2026-10-27T14:47:03.970440+00:00",
+      "processes": [
+        {
+          "pid": 302400,
+          "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+        },
+        {
+          "pid": 319753,
+          "cmdlineSha256": "ad8f80374b8cb65ccd06149a07d5c48bddc3b26ec45d74fb286a3b9afdade68e"
+        },
+        {
+          "pid": 319913,
+          "cmdlineSha256": "42eb4eea7d326ee62e68f5648054db82e3008154cfda13bd90aba5a36d3d55d9"
+        },
+        {
+          "pid": 326252,
+          "cmdlineSha256": "7a292cee7f19f01d89b0e599cf81aab7e6360f2da65a397ee2f4d69384e92ed3"
+        },
+        {
+          "pid": 326273,
+          "cmdlineSha256": "227abd1f9506983b47b8092bc54ca1568282e371c12700803890cde9e910afcd"
+        }
+      ],
+      "resumed": true
+    },
+    {
+      "start": "2026-10-27T14:47:10.417597+00:00",
+      "end": "2026-10-27T14:49:53.888574+00:00",
+      "processes": [
+        {
+          "pid": 302400,
+          "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+        },
+        {
+          "pid": 319753,
+          "cmdlineSha256": "ad8f80374b8cb65ccd06149a07d5c48bddc3b26ec45d74fb286a3b9afdade68e"
+        },
+        {
+          "pid": 319913,
+          "cmdlineSha256": "42eb4eea7d326ee62e68f5648054db82e3008154cfda13bd90aba5a36d3d55d9"
+        },
+        {
+          "pid": 326252,
+          "cmdlineSha256": "7a292cee7f19f01d89b0e599cf81aab7e6360f2da65a397ee2f4d69384e92ed3"
+        },
+        {
+          "pid": 326273,
+          "cmdlineSha256": "227abd1f9506983b47b8092bc54ca1568282e371c12700803890cde9e910afcd"
+        }
+      ],
+      "resumed": true
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/modal-focus/after-inputs.json",
+      "bytes": 393,
+      "sha256": "2c95b26009b40259692822821d531bb1b0f4ea09a77a50a265514dbf181c275f"
+    },
+    {
+      "path": ".cache/modal-focus/before-inputs.json",
+      "bytes": 251,
+      "sha256": "87dabcec1b8d202d2626553144ad1c16ce6556464f03abef786efa17a1f72e4c"
+    },
+    {
+      "path": ".cache/modal-focus/browser-after/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/modal-focus/browser-after/input-hud-tab-HUD-Tab-and--7ded6-ld-Tab-holds-the-scoreboard/hud-tab.json",
+      "bytes": 772,
+      "sha256": "da0c93a3cb10c8067a4fecd9be4672342668274e42a71e9662aa607aefcf7c5d"
+    },
+    {
+      "path": ".cache/modal-focus/browser-after/input-hud-tab-the-actual-H-00b1e-pport-native-Tab-navigation/actual-hud-tab.json",
+      "bytes": 61,
+      "sha256": "617556198f5165f302b722257cc4f632c938e83f87f89d1571152b79aab42c60"
+    },
+    {
+      "path": ".cache/modal-focus/browser-after/modal-focus-graphics-dialo-a03ff-er-focus-in-both-directions/modal-focus.json",
+      "bytes": 73,
+      "sha256": "8cc795ceccb392d2aa5686df956ad362c8c9004e90cf1f45b092a5328e5f440d"
+    },
+    {
+      "path": ".cache/modal-focus/browser-after/modal-focus-offline-dialog-ed188-er-focus-in-both-directions/modal-focus.json",
+      "bytes": 72,
+      "sha256": "377eddbc6c2ce4b86be2a94f257d36ea7305ff7f9b05a6f8c0bbb995272316b4"
+    },
+    {
+      "path": ".cache/modal-focus/browser-after.log",
+      "bytes": 1291,
+      "sha256": "ea39d50363e41551d4dcf87a4e881fbfec3b400ad0f1ef17dd11c417e8ec3185"
+    },
+    {
+      "path": ".cache/modal-focus/browser-before/.last-run.json",
+      "bytes": 145,
+      "sha256": "7f4c600c358372c2788ec24545b92d36246e51d68957fea033f84994805e59d8"
+    },
+    {
+      "path": ".cache/modal-focus/browser-before/modal-focus-graphics-dialo-a03ff-er-focus-in-both-directions/error-context.md",
+      "bytes": 3670,
+      "sha256": "e2640d5f38d5698ab05fa3fc8c4dd78b6e1a6e56c16dafa647d875c00c24ae6e"
+    },
+    {
+      "path": ".cache/modal-focus/browser-before/modal-focus-graphics-dialo-a03ff-er-focus-in-both-directions/test-failed-1.png",
+      "bytes": 516450,
+      "sha256": "2786658d5801728aaad75001c574ac4b0313bcb8efdcee8a309bab928117c986"
+    },
+    {
+      "path": ".cache/modal-focus/browser-before/modal-focus-graphics-dialo-a03ff-er-focus-in-both-directions/trace.zip",
+      "bytes": 32718970,
+      "sha256": "0948b331d345c0730fbe05cd707828b3d3953ef1528c31764a6bf746c1f25fd0"
+    },
+    {
+      "path": ".cache/modal-focus/browser-before/modal-focus-offline-dialog-ed188-er-focus-in-both-directions/error-context.md",
+      "bytes": 3675,
+      "sha256": "9efdc93f910fd5c35abafeca2131798755725d298f0a1588a79f1520cf800508"
+    },
+    {
+      "path": ".cache/modal-focus/browser-before/modal-focus-offline-dialog-ed188-er-focus-in-both-directions/test-failed-1.png",
+      "bytes": 537511,
+      "sha256": "42a473d12af70920a1d3f8302c36db4e48b37a1f68dd00e2f8e374d6f4ba31a1"
+    },
+    {
+      "path": ".cache/modal-focus/browser-before/modal-focus-offline-dialog-ed188-er-focus-in-both-directions/trace.zip",
+      "bytes": 32845641,
+      "sha256": "e37ca99464662c66b70a895264c0bee6c3c26205db5c08a91e5698b4ba9ed1ec"
+    },
+    {
+      "path": ".cache/modal-focus/browser-before.log",
+      "bytes": 6655,
+      "sha256": "2586e78c58b2f9ca2b519dfbf3f4522c67eb15712c6816d9d07473fc548efa33"
+    },
+    {
+      "path": ".cache/modal-focus/browser-space/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/modal-focus/browser-space/input-space-key-Space-acti-479c3-hile-canvas-Space-recenters/space-button.json",
+      "bytes": 69,
+      "sha256": "ed8732cf7a80e3b25c24509c0c488802bd62624f73e9947f2b128d4a41001f21"
+    },
+    {
+      "path": ".cache/modal-focus/browser-space/input-space-key-Space-togg-497e2-l-recenters-the-battlefield/hud-space.json",
+      "bytes": 380,
+      "sha256": "d4d41cdb1fddf5fdcc9fedf4ae4820c922277162d9ccc3894cb246d3563456ad"
+    },
+    {
+      "path": ".cache/modal-focus/browser-space.log",
+      "bytes": 807,
+      "sha256": "e9b53254592e060c4d0f459ccdb0e756e80f652b5fc8f5c596ccee68430426fa"
+    },
+    {
+      "path": ".cache/modal-focus/build.log",
+      "bytes": 7852,
+      "sha256": "eb2b18aa6ede33694b82df123bc6f3a18cd13945868dbca3048625de55ff99ed"
+    },
+    {
+      "path": ".cache/modal-focus/hud-before.ts",
+      "bytes": 84602,
+      "sha256": "d1888f1d93344c3fd135ba0d5e1c9f85769d959a3067fb8581d9b34eb25b6fcd"
+    },
+    {
+      "path": ".cache/modal-focus/node.log",
+      "bytes": 1249,
+      "sha256": "ae848a53bb4aa16b21769c2cb7a88293cc7d8661474e70e3bbbdea3d5b50fb3f"
+    },
+    {
+      "path": ".cache/modal-focus/offline-pack.json",
+      "bytes": 172470,
+      "sha256": "8174f9566e3695940a15c42bcef091f6317108c6f81d6a3b499044af82758dc6"
+    },
+    {
+      "path": ".cache/modal-focus/pause-after-record.json",
+      "bytes": 755,
+      "sha256": "4a5bfe04af8e50d7c74a428071d81fdeb492a3f16edbb99a3f290b4fee2e0042"
+    },
+    {
+      "path": ".cache/modal-focus/pause-before-record.json",
+      "bytes": 755,
+      "sha256": "815f090d9d5a9cfa2f2f85786a8e3e87a9caa747c9a2e7be61e9bb850a38f1d3"
+    },
+    {
+      "path": ".cache/modal-focus/pause-production-record.json",
+      "bytes": 755,
+      "sha256": "2c6e6777dd5031384e86a7d6ca449f44a6ca9d75bdf98db7c7db6911b7df8ffd"
+    },
+    {
+      "path": ".cache/modal-focus/production/offline-modal-focus.png",
+      "bytes": 621452,
+      "sha256": "1249e0846bebe13627fc65e8715b24a266cbed074df7290607c2d633a5bb0313"
+    },
+    {
+      "path": ".cache/modal-focus/production/paused-with-space.png",
+      "bytes": 560865,
+      "sha256": "0557c090fe766f25008635dddaaff2fd6533df1c478a3a86dab7c3aa37bdbe3a"
+    },
+    {
+      "path": ".cache/modal-focus/production/reading.json",
+      "bytes": 438,
+      "sha256": "fcc0de7d056cc2dc60ff141ad607cfe5d5c5874474cdddb29ff37acca6d36021"
+    },
+    {
+      "path": ".cache/modal-focus/production-inputs.json",
+      "bytes": 393,
+      "sha256": "2c95b26009b40259692822821d531bb1b0f4ea09a77a50a265514dbf181c275f"
+    },
+    {
+      "path": ".cache/modal-focus/production-system.mjs",
+      "bytes": 7446,
+      "sha256": "86054036236adf77d8672e2aa58e9cadefb96f5f2adc2d5a505bca5555caedcf"
+    },
+    {
+      "path": ".cache/modal-focus/production.log",
+      "bytes": 369,
+      "sha256": "0bc029766d7e29e16e17244f75552ce639093ef270ee5158a61a1c0681a44c38"
+    },
+    {
+      "path": ".cache/modal-focus/run-after.py",
+      "bytes": 2818,
+      "sha256": "56f7679d19dff7220aac48fab20ad8296ce7f0af68f41f329a4b20f9a055bcef"
+    },
+    {
+      "path": ".cache/modal-focus/run-before.py",
+      "bytes": 2600,
+      "sha256": "b6748e34142cd0a361e4c726ff79fc51794929cea99433f361eb3674a4373213"
+    },
+    {
+      "path": ".cache/modal-focus/run-production.py",
+      "bytes": 2743,
+      "sha256": "788f12812db7f5e87d1fdfbffff2c5581b2d53b24a508a8a22f13ef9a936f931"
+    },
+    {
+      "path": ".cache/modal-focus/source-final/docs/MODAL-KEYBOARD-FOCUS.md",
+      "bytes": 2648,
+      "sha256": "e332090baead73a7cb507a774ad160d5d026d9b3df9a6626d5ac6ffd716db50b"
+    },
+    {
+      "path": ".cache/modal-focus/source-final/docs/PROGRESS.md",
+      "bytes": 739807,
+      "sha256": "11f322483cfa6f5f3c2c58b8e423c7d7235980651781b1a325c4a461dc553d58"
+    },
+    {
+      "path": ".cache/modal-focus/source-final/e2e/modal-focus.spec.ts",
+      "bytes": 2248,
+      "sha256": "53f1daf929063d408e915ecc4fe62ef4b3ca3ff1e9cd58249cecc968edaea35b"
+    },
+    {
+      "path": ".cache/modal-focus/source-final/src/ui/hud.ts",
+      "bytes": 84708,
+      "sha256": "d023c08319a64119d5bfb6e5bde6cd897e137ad1453cf614d2d2dc00c1dfce0c"
+    },
+    {
+      "path": ".cache/modal-focus/source-final/tools/qa/production-hud-keyboard.mjs",
+      "bytes": 7411,
+      "sha256": "effc4bfcea2ecd3202702590b7c3f4751f9850275a8c2798b4fa85ec3949bfc8"
+    },
+    {
+      "path": ".cache/modal-focus/types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "limits": [
+    "Targeted UI focus/activation acceptance; earlier full-unit/broad-production/offline checks are inherited at their own application/pack identity.",
+    "Graphics case sets the HUD dialog state after a complete first scene; it is not a fresh WebGL recovery certification.",
+    "System Chromium/SwiftShader checks do not certify physical GPU performance.",
+    "Current 100-seed cohort remains active; its full gate is not claimed."
+  ]
+}

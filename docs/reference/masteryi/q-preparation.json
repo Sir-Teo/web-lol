@@ -1,0 +1,90 @@
+{
+  "recordedAt": "2026-10-25T18:51:30.055092+00:00",
+  "status": "Preparation only: no Q runtime, targetability, damage, body or VFX controller is enabled.",
+  "frozenTarget": {
+    "patch": "26.18",
+    "riotBuild": "16.18.8175716",
+    "dataDragon": "16.18.1"
+  },
+  "projection": {
+    "exporter": "tools/assets/export-masteryi-q.py",
+    "mutationTests": "tools/assets/test-masteryi-q.py",
+    "stagingOutput": ".cache/masteryi-q-cloud/masteryi-q-v2.ts",
+    "normalAndOptimizedGuardCasesPerMode": 11,
+    "runtimeOutputNotCreated": true
+  },
+  "source": [
+    {
+      "file": "docs/reference/masteryi/character.json",
+      "bytes": 104698,
+      "sha256": "3f100c1148e1006766060822298c87aed02e86e359c385fbc2c248e4255d12fa"
+    },
+    {
+      "file": "docs/reference/masteryi/character.bin",
+      "bytes": 27930,
+      "sha256": "a4e05e2f6eee68116478fd56893ee320ac4955645d45e887860c88e67e4547f1"
+    },
+    {
+      "file": "docs/reference/masteryi/ddragon-16.18.1.json",
+      "bytes": 16404,
+      "sha256": "3033f20c6b3ca69c0d56cdd55231e93971c7123e1a56dc8611bb7367b95a974a"
+    }
+  ],
+  "observations": [
+    "Standard Q uses its own root spell, rank damage/mana/cooldown arrays, four named bounces, 0.25 repeated-hit and 0.75 on-hit multipliers; Arena overrides remain separate.",
+    "TotalDamage references raw stat 2 while omitting its stat formula. The projection preserves that omission rather than claiming total versus bonus AD was serialized.",
+    "The root omits both mAnimationName and mTargetingTypeData. Their absence is retained independently of the prepared spell1 clip and secondary unit-target description.",
+    "FixedTimeMovement children declare approximately 0.20 seconds for the first missile, 0.18 for bounce and 0.15 for return. The root legacy spellCastTime is 0.25 and spellTotalTime 1.0. These are distinct declarations, not a recovered full dispatch timeline.",
+    "BasicAttackCDR explicitly multiplies BaseBasicAttackCDR by a CooldownMultiplierCalculationPart. A future basic-hit callback must preserve this distinction from R remaining-cooldown refund and from Q on-hit dispatch.",
+    "The root also declares radius 300 and secondary radius 550. They are retained as authored radii, not renamed to a 600-unit native bounce radius from the community description."
+  ],
+  "secondaryReference": {
+    "url": "https://wiki.leagueoflegends.com/en-us/Master_Yi?oldid=4016673",
+    "observedRevision": 4016673,
+    "observedPageModified": "2026-05-12T03:01:00Z",
+    "cachedHtml": ".cache/masteryi-q-cloud/wiki.html",
+    "sha256": "a50c434f229677f5e6314b0f7827a671f2f5c0bb83bfcabe00f0223cc759831a",
+    "authority": "Community behavior description; no controlled 26.18 native timing capture.",
+    "researchLeads": [
+      "Marks accumulate in a sequence; repeated marks can damage immediately while first marks resolve after reappearance.",
+      "The community mark interval and recovery do not directly match the three frozen child movement durations. Do not add the child travel times together and call that native Alpha Strike timing.",
+      "Exit direction, following the primary target, target loss and large displacement need independent saved policy.",
+      "Untargetability must differ from invulnerability: new target acquisition/collision and already-attached damage-over-time need separate handling.",
+      "W/E/R duration interactions and on-hit suppression of Double Strike stacking/Q self-refund need separate callbacks; do not route all Q hits blindly through ordinary attack contact."
+    ]
+  },
+  "nextAcceptanceWork": [
+    "Define an explicit development targeting/mark/reappearance policy with saved clocks and limits, keeping unresolved native timing visible.",
+    "Introduce separate targetability without turning Alpha Strike into immunity to all damage. Audit attacks, projectiles, area collision, controls, bot acquisition, rendering and attached damage.",
+    "Test target death/untargetability, multiple enemies, repeated marks, monsters, crit sampling, on-hit scaling, E/R refresh, basic-hit cooldown reduction, cancellation, resource rejection, death/victory and actual private save continuation.",
+    "Keep production selection and unsupported player/role behavior gated until the own kit and presentation are accepted."
+  ],
+  "baselineCommit": "75d7a02",
+  "verification": {
+    "exporterNormalAndOptimizedCheck": true,
+    "guardCasesPerMode": 11,
+    "runtimeModuleCreated": false,
+    "logs": [
+      {
+        "file": ".cache/masteryi-q-cloud/export-v2.log",
+        "bytes": 116,
+        "sha256": "7641b3a4fbe69ab7de8829b32a0db884316ffba3cad59ae31a57e74ea7c74509"
+      },
+      {
+        "file": ".cache/masteryi-q-cloud/export-v2-optimized.log",
+        "bytes": 116,
+        "sha256": "7641b3a4fbe69ab7de8829b32a0db884316ffba3cad59ae31a57e74ea7c74509"
+      },
+      {
+        "file": ".cache/masteryi-q-cloud/export-tests-v2-normal.log",
+        "bytes": 110,
+        "sha256": "cb5cf60da919dcdc345f5a156e491cba65625dc5ecd319eb5a2720f875a8fe44"
+      },
+      {
+        "file": ".cache/masteryi-q-cloud/export-tests-v2-optimized.log",
+        "bytes": 110,
+        "sha256": "0bb71ee0e102ca3a4fa3015e038d684d8e0a3092eff30c9833011de7cef4b7a2"
+      }
+    ]
+  }
+}

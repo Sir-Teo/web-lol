@@ -430,6 +430,7 @@ export interface SimEvent extends Vec2 {
   /** Captured Q swing identity for source/fallback coordination at release. */
   garenQStartTick?: number;
   garenAAStartTick?: number;
+  masterYiAAStartTick?: number;
   leonaQStartTick?: number;
   leonaQAttackStartTick?: number;
   leonaAAStartTick?: number;
@@ -492,6 +493,8 @@ export interface ChampionState {
   trinket: TrinketState;
   observedStats: Record<Team, { level: number; cs: number; inventory: (string | null)[] } | null>;
   revealContributors: { sourceId: number; lastRevealTick: number }[];
+  /** Incoming Alpha Strike marks qualify assists without damage/execution credit. */
+  alphaMarkContributors: { sourceId: number; lastMarkTick: number }[];
   assists: number;
   damageContributors: { sourceId: number; lastDamageTick: number; creditSourceId?: number }[];
   /** Allied Heal casters; support attribution is resolved when a victim dies. */
@@ -509,6 +512,28 @@ export interface ChampionState {
   qStacks: number;
   qUntil: number;
   qStackExpiry: number;
+  /** Own counter and independently committed extra melee contact. */
+  doubleStrike: import('./masteryi-double-strike').DoubleStrikeState | null;
+  wujuStyleAudio: import('./masteryi-wuju-style-audio').WujuStyleAudioRecord[];
+  wujuStyle: import('./masteryi-wuju-style').WujuStyleState | null;
+  meditate: import('./masteryi-meditate').MeditateState | null;
+  meditateCastVisuals: import('./masteryi-meditate-cast').MeditateCastVisual[];
+  meditateAudio: import('./masteryi-meditate-audio').MeditateAudioRecord[];
+  meditateBuffVisuals: import('./masteryi-meditate-buff').MeditateBuffVisual[];
+  highlander: import('./masteryi-highlander').HighlanderState | null;
+  swordGlowVisuals: import('./masteryi-sword-glow').SwordGlowVisual[];
+  meditateDamageVisuals: import('./masteryi-meditate-damage').MeditateDamageVisual[];
+  highlanderKillVisuals: import('./masteryi-highlander-kill').HighlanderKillVisual[];
+  highlanderCastVisuals: import('./masteryi-highlander-cast').HighlanderCastVisual[];
+  highlanderAudio: import('./masteryi-highlander-audio').HighlanderAudioRecord[];
+  alphaStrike: import('./masteryi-alpha-strike').AlphaStrikeState | null;
+  alphaEndVisuals: import('./masteryi-q-end').AlphaEndVisual[];
+  alphaCastVisuals: import('./masteryi-q-cast').AlphaCastVisual[];
+  alphaContactVisuals: import('./masteryi-q-contact-visuals').AlphaContactVisual[];
+  alphaAudio: import('./masteryi-q-audio').AlphaAudioRecord[];
+  /** Finite primary attack cues; no invented Double Strike composite binding. */
+  masterYiAAAudio: import('./masteryi-aa-presentation').MasterYiAttackAudio[];
+  passiveTrailVisuals: import('./masteryi-passive-trails').PassiveTrailVisual[];
   /** Accepted ordinary swings and separately confirmed contacts. Cast one-shots
    * survive cancellation; hits exist only for accepted melee contacts. */
   garenAAVisuals: {

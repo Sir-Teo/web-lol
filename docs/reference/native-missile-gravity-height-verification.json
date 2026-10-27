@@ -1,0 +1,970 @@
+{
+  "format": 1,
+  "parentCommit": "09a15149407b9c19abcbcb09cdd1aad31232fa9a",
+  "scope": "Source-only gravity-height configuration, runtime factory, FixedSpeedMovement progress and conditional height consumer; frozen Gromp source fields, no runtime height change.",
+  "source": [
+    {
+      "path": "tools/assets/native_missile_gravity_height.py",
+      "bytes": 35322,
+      "sha256": "6e7284afd2b14e0be29fbcd9e669873f38b9c8f91899131da814407819d4ee38"
+    },
+    {
+      "path": "tools/assets/test-native-missile-gravity-height.py",
+      "bytes": 7064,
+      "sha256": "d060bfa4042aec5996e7c2392c4026437bb28a3d50089cb4a6576199417765cd"
+    },
+    {
+      "path": "docs/reference/native-missile-gravity-height.json",
+      "bytes": 90753,
+      "sha256": "3c73b0b052c7a71c8eb1c563ecbb6c025f646beed51dd8d8745d655f19055314"
+    },
+    {
+      "path": "docs/NATIVE-MISSILE-GRAVITY-HEIGHT.md",
+      "bytes": 4559,
+      "sha256": "dea480a152c5f265c5be61d3b0eee06ad578dedd16b1f692906bcff0d311f216"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "bytes": 740833,
+      "sha256": "b53649181034bb7aa10406c95fbca8f15001c72a2a0dedbb99bcf345dd6de03a"
+    }
+  ],
+  "verification": {
+    "normalGuards": 17,
+    "optimizedGuards": 17,
+    "checkReplayBothModes": true,
+    "identicalOutputBytesAndMtimeRetainedBothModes": true,
+    "conflictRejectedWithoutMutationBothModes": true,
+    "checkMissingOutputRejectedWithoutCreationBothModes": true,
+    "nativeExecuted": false,
+    "nativeShaderExecuted": false,
+    "applicationBehaviorChanged": false,
+    "cohortSourcePinsUnchanged": 539,
+    "cohortPausedForThisWork": false,
+    "inheritedApplicationAcceptance": {
+      "path": "docs/reference/gromp-attack-color-verification.json",
+      "sha256": "db51017444a2c1717aa841c00dd78fb49f830ce819c175a64372301ef972783d",
+      "identity": {
+        "schema": 163,
+        "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+        "offlinePack": {
+          "id": "556315eb1be84a02ce411b2e5aa339a80c0990e5913b80f6820f8e9e206edf88",
+          "files": 1202,
+          "bytes": 538092670
+        }
+      },
+      "checksRerunForSourceOnlyChange": false
+    }
+  },
+  "scopeClarification": "The provisional reading was extended with the FixedSpeed config constructor and exact descriptor links. Early exploratory descriptor searches included parent metadata. The final record binds the exact child identities; incoming origin overrides, bone sampling, property preparation and target refresh remain unresolved.",
+  "evidence": [
+    {
+      "path": ".cache/native-missile-height-audit/acceptance.log",
+      "bytes": 224,
+      "sha256": "2547496d8036f71e3c83a29e4eae3ce61cff1dc749e809a51f9c8ec44cf12902"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/acceptance.py",
+      "bytes": 2457,
+      "sha256": "5423815490fd90f8bb1560107506f59e12bfb708cecc32af287a081b51d020d1"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/body.py",
+      "bytes": 11159,
+      "sha256": "caa7a7b2bd5e719636e55705aa6734c690578520b00721afeb87f24c832e338d"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/check-normal.log",
+      "bytes": 107,
+      "sha256": "3e946e14d0298f7fce4283292ca3f0fe92283b376164aa3771dd7805c16cc4b5"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/check-optimized.log",
+      "bytes": 107,
+      "sha256": "3e946e14d0298f7fce4283292ca3f0fe92283b376164aa3771dd7805c16cc4b5"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/conflict-normal.json",
+      "bytes": 30,
+      "sha256": "d1b66eb0af9628d0e752cfe98dbbe05bd21e4c73ce43e66aa76f1bf22f43888b"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/conflict-normal.log",
+      "bytes": 614,
+      "sha256": "56dc4672019fee787ef4fa9c88b347cdd86d73e42b40508b2a03e0ae4c1275c8"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/conflict-optimized.json",
+      "bytes": 30,
+      "sha256": "d1b66eb0af9628d0e752cfe98dbbe05bd21e4c73ce43e66aa76f1bf22f43888b"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/conflict-optimized.log",
+      "bytes": 617,
+      "sha256": "19b7149189e941d35a1b6557ed2b43ee9739cbcdea8c34b0da3dc016fc6debc1"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x10006de34.txt",
+      "bytes": 27,
+      "sha256": "2d96128db252a297bc76dd82985d675db85ad0d3ada5423e26817f308b0d6dde"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x10007e314.txt",
+      "bytes": 579,
+      "sha256": "e069cf1e431139c1e23b36ada46cde19a9f65fbd97febd4555b6b814ad0fa836"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ac255c.txt",
+      "bytes": 66529,
+      "sha256": "c9f5a0ca1282b6d8828f8cf9265402d205b78855e94e48ba864fe33cd135a974"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100acc9b8.txt",
+      "bytes": 5743,
+      "sha256": "db9637f33e41554dd442781bce4c4e9168cbadcc7b4ac029889dfa875dc8c489"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100acce1c.txt",
+      "bytes": 632,
+      "sha256": "d6fa325a1ed834a886eb0444f3fc75760919bd0b53ac32493565450ba3167192"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100acfbb4.txt",
+      "bytes": 2110,
+      "sha256": "ae9e1e3f254e0ebc90ff0efee455907b124cfdd32de232f6872e90e622c9702d"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100acfca0.txt",
+      "bytes": 2890,
+      "sha256": "e468a8e843557aed04d48304142c9d1683f0ce5c5709eea37848e79aaddbfd9e"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100acfdd8.txt",
+      "bytes": 850,
+      "sha256": "5ce4eae8f065400f518152e29b9745c841bd3021e37fe15d11a12c4ec22632d7"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100acff4c.txt",
+      "bytes": 3723,
+      "sha256": "f9912cd2d1e8d5047cb6899ae4846f4d5f9801eae30ca35de7b22e7d82122352"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ad0678.txt",
+      "bytes": 2633,
+      "sha256": "50694e0ae89eed7d23667baad461bc1bea415abec71cefc94fa66b31d0f3627d"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ad1740.txt",
+      "bytes": 1303,
+      "sha256": "5d8066ae45fbe95bb3276347d17bbca1fa2dfb6c41f074fa1cc252cdcafca87c"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ad7568.txt",
+      "bytes": 696,
+      "sha256": "7a150f314dcdd08980c3ae1a23cf974c4e7d78ae39a593f6f6a71d06db8e9490"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ad75ac.txt",
+      "bytes": 706,
+      "sha256": "b8caab360449c4fbcc5e985527918d5bb2404da344e0056a525e0bb4a97b3739"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ad75f0.txt",
+      "bytes": 112,
+      "sha256": "a263ff2a6b798a886fc285ac4bf74abcdf7feac18aeb241cbcff55df8b01ca78"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ad89f4.txt",
+      "bytes": 27,
+      "sha256": "4ee55efabd08bfc10417f29880f985032bb056a6fd500e2c579ae2845f521af8"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ad89f8.txt",
+      "bytes": 37,
+      "sha256": "19faf8bf6463afcf40cf203bb88fd25a2d8d5c9ead816779d92b2c58e0df5d59"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ad89fc.txt",
+      "bytes": 112,
+      "sha256": "1833de73fc78bb01589ef364a7f5246afa9fc00cc2f71a2333afabc0e0366e71"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ad9dfc.txt",
+      "bytes": 112,
+      "sha256": "6f04cb47b8edf57346e6c07246ac7f7e44a0aa71ff76174fe7a46bf9be85a797"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ada0b8.txt",
+      "bytes": 1497,
+      "sha256": "461a3694de899ac35c97a8e13a92c2e521c2614018f79a47c7f526a105e8f37b"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100adc470.txt",
+      "bytes": 2822,
+      "sha256": "562c7d19391383d92de8ff66e9e60f1f4137390b676b09d511baf6d7ddb412b8"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ade3d8.txt",
+      "bytes": 523,
+      "sha256": "19ff7f22c1247be6797ca3a9ce6523ba57d0d45ffce0fc5c94dd71e89db83ae5"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ade40c.txt",
+      "bytes": 172,
+      "sha256": "189b80cda8a6653af154955634d4e674bdce3eabf4a1441711936e9fdf62c7a9"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ade420.txt",
+      "bytes": 317,
+      "sha256": "c791e68419f6b9aa8357cf96248873e6c64ec03b86f15198d4354faa6180c9d4"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ade440.txt",
+      "bytes": 98,
+      "sha256": "fa58244d17102fcfa9eb0daca0758e4b276fd429ca8db4afe85984c39d91a976"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ade44c.txt",
+      "bytes": 105,
+      "sha256": "acf78cbf678075ca0f7a5b6aed1a8f800c7c1c7ec105a6abf17b9e54ca489d84"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100adf3e0.txt",
+      "bytes": 1973,
+      "sha256": "bf00a392ea647f3d3995896f329c7040aff9a4569e580032a8a190fbc2a49f83"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ae0ed8.txt",
+      "bytes": 350,
+      "sha256": "5f8d3c612d871e37308c51e94368a01c769760e3823e7a028d59dfdb664288e3"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ae1cb8.txt",
+      "bytes": 92088,
+      "sha256": "8e1d18f71c63e05acc2c083658dec756bbbd6cc474efe0bfac7a2dc7b4b12487"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ae4888.txt",
+      "bytes": 3636,
+      "sha256": "a0c532c9a960c2717458865ad4869dca4a9da48a56617278aa782a5fdc6661b9"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ae49e8.txt",
+      "bytes": 1057,
+      "sha256": "7d28a4a2b2e8e79f3a76fac4ad850400183ac4e1492fa6de350e91a00c8fd2e7"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ae50bc.txt",
+      "bytes": 3034,
+      "sha256": "3dd572390f8a5114bc4745c0dc4607dbfbdc4f4ee665eef82c30089a2b8e56f5"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ae553c.txt",
+      "bytes": 22048,
+      "sha256": "9bd288f34811081da4bb015ce96495e00636ce119c58921363bd623e2e73dce8"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ae5da0.txt",
+      "bytes": 15935,
+      "sha256": "91466679fe0555c0a08129fa9ee55e2e800a0115bb81cd7c21a86a0e70a18c1c"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ae64c0.txt",
+      "bytes": 1057,
+      "sha256": "d39b6cf0de8aab4638a94b62db7a3f2e3ade5d0b454a5d38bf1cf50fbd312e5f"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ae6528.txt",
+      "bytes": 1067,
+      "sha256": "87f60e61967b81fa72d940d57108498bde175551da788149b47f9b1f214203de"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ae6658.txt",
+      "bytes": 1448,
+      "sha256": "85141f65bc2aa42c918fdcb95a6da9000cda2c2f1ca0b468081dff421fef6270"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ae6d9c.txt",
+      "bytes": 149,
+      "sha256": "1482dff6b427ef51aa9210345e7747c6c3a94bc5a8075d8d5ba6309f17d8d917"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ae7f08.txt",
+      "bytes": 3570,
+      "sha256": "b18ea79b00e05eea782e1b5bae6bf4a66d0c2e2c48fb0b49746cba9ab1bf7adc"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ae806c.txt",
+      "bytes": 585,
+      "sha256": "a50c5570adb09c354efe8f8414dfd640f34407b5726d98b749febd330e1d4036"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ae80a4.txt",
+      "bytes": 60,
+      "sha256": "e99efa48b2c54d72e6cc05ff1fc09131682c564024d06978871f87ff328ddf2e"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ae80ac.txt",
+      "bytes": 769,
+      "sha256": "34645d248b496367b54e98a7c1e0b252532e4a2b04e31b2cdd0bffa868a2875e"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ae80f4.txt",
+      "bytes": 1186,
+      "sha256": "755d3d702770cefaa41968ef98ee56e238cf68f593ca7db86a0cbb67a6385f1c"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100ae8e34.txt",
+      "bytes": 1838,
+      "sha256": "a65215a177cea8a61acca69d52f65942922bf783e0353ff841dc2e234ce962e6"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100aeae64.txt",
+      "bytes": 27,
+      "sha256": "a50a9709558f906cca22cdd703522f5b3c35cda643d8264a34c12975aefa7945"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100aeae68.txt",
+      "bytes": 1690,
+      "sha256": "e68dfdb1a3744425373b530987aad2d9b76696e19cac9c06074c8081490c6f95"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100aeaf18.txt",
+      "bytes": 2560,
+      "sha256": "0e93f6275b0d372f55a1f43264cbd6fb6b4df4a17d2ecd2f9832303013bf5d7f"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100aeb0b0.txt",
+      "bytes": 1803,
+      "sha256": "4e60ea727c1c0e552ae474eb48eaec8968c5fa0fe6beb3492417911dbd91b063"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100aeb354.txt",
+      "bytes": 1057,
+      "sha256": "f5d95bf87f4ea6ad9d755722f673d48f98f0088df7809a6ca5a3e3964285a8d4"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100aeb3bc.txt",
+      "bytes": 1067,
+      "sha256": "60c5d7789087e8d7bce1249126c25d43011945a4afb8c62180736fc5d08abec6"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100aebb68.txt",
+      "bytes": 10568,
+      "sha256": "de1e1088156605c034845e4d3404ac2fc5f674c07013e425b19c782471421e0f"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100aebfa8.txt",
+      "bytes": 517,
+      "sha256": "dffdd0cbb53619f4c78d35b5ce1d8304e38d36eb0c4a2af4a24e39e9019a9f85"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100aebfdc.txt",
+      "bytes": 565,
+      "sha256": "4068463dc59d20da0a1e9314da0453ebaf16e15f018964b71d23ecbc0b7c271b"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100aec02c.txt",
+      "bytes": 994,
+      "sha256": "00a22e62518534affcc380709f3c36248562f1b0d59d647a49310689471d80a2"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100aec090.txt",
+      "bytes": 147,
+      "sha256": "0bab1aa6796fd874f143b33a393aecd6ef89521aaf68a8dd1a3d5cf9e1cabca1"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100aec0a0.txt",
+      "bytes": 67,
+      "sha256": "6769cd9733db802debdd481477663832c91f77ca5835fad2fef911c5c0c148f5"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100aec344.txt",
+      "bytes": 110,
+      "sha256": "e418a07e87774933bdcac5f957af2ee0390ac6ba0ba70e37dcde1fd45018e738"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100aec350.txt",
+      "bytes": 5016,
+      "sha256": "63f5d8ff544eaa3789e40c917c00dffaf854a73c7548a6c0e1887378f5055fa6"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100aec52c.txt",
+      "bytes": 27,
+      "sha256": "53895681b5dc5f7875676a6e69e746a05e9457d2d4fef3ff866f7ca866d9e51e"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100aec530.txt",
+      "bytes": 27,
+      "sha256": "e4ae49f34981e330ddc2f0bafa48c4cd9fdbcf1301d0969e661039fa8b2e3160"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100aec534.txt",
+      "bytes": 27,
+      "sha256": "59554c2033746ce89ea2208b2e2fc6ef1ef7067723c15d962fb4398b8f1d03ef"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100aec538.txt",
+      "bytes": 2193,
+      "sha256": "40dddb396ff1324b4ef73e68bbbf7fef01f0ebffbf98c082144731c520a1a359"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100aec61c.txt",
+      "bytes": 60,
+      "sha256": "4d3ff9da0db37675fcdbbab1e7bc5ab0d221383f278c7ff55e88db51fd6ab309"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100af43f8.txt",
+      "bytes": 15814,
+      "sha256": "e394ed59031a9e4a8405d07dc4940d8b7cc875cccb14aa047245686d1de0e571"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100af7018.txt",
+      "bytes": 18265,
+      "sha256": "99eaa317508a220bd20b374678b9b817ddf3cb68ef9db45e87aa3b45b60cb743"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afb558.txt",
+      "bytes": 3458,
+      "sha256": "bd87a7c7956a823e34eee1062d3556592a8b0ebedc7e07248c56cb515dca254c"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afb8d8.txt",
+      "bytes": 60,
+      "sha256": "ef9201a62edfe343dadf17dc3b6db46d05324203961974eee333979a4856fff5"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afb8e0.txt",
+      "bytes": 70,
+      "sha256": "9307539c3877785dc7bf689356a7f5a4c0b9d111a96313b9a2135d797222c28a"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afb8e8.txt",
+      "bytes": 27,
+      "sha256": "06ce74925b112e18cdbd2b6a58f7cfb68e1a1f93efe26be231b9ee075e8a95e0"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afb8ec.txt",
+      "bytes": 37,
+      "sha256": "acb1607e68e7479fec57c2a515698a775f41dd437379332c01218178a2c4a3f1"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afb8f0.txt",
+      "bytes": 27,
+      "sha256": "4f6cf3e9be3a1bad0c1ee77d37f82c3a4171d7b209b4e15ed09bac3774956a7d"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afb8f4.txt",
+      "bytes": 37,
+      "sha256": "7438c4c9323c2da7d80885af91ac482a502aa7abc5af6f1e7a35a8d8994cd7c1"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afb908.txt",
+      "bytes": 1057,
+      "sha256": "52a4b0d3aeee879f0481741c0aa5a5dac046c5fc429695c7d5efc606a67ca866"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afb970.txt",
+      "bytes": 1067,
+      "sha256": "dbca0f034b61df0479ba56a07ae61026bd0313c26ec0da955874506c27b1b769"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afb9d8.txt",
+      "bytes": 70,
+      "sha256": "a5d8037c7c65f5d13fd66dfa7fe4ecb19456d743e481e6e7dcec7e0ec1d42bd0"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afb9e0.txt",
+      "bytes": 71,
+      "sha256": "7a11892204d4f0997eb4b98188babf81fd9a9dd273e5419673676ce3af9c20de"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afb9e8.txt",
+      "bytes": 69,
+      "sha256": "f05cfe9799e5fcbfb9cc3c80cd4ef8939658b14f4852849e61578b07fcab4625"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afb9f0.txt",
+      "bytes": 67,
+      "sha256": "fb27af4cb3a346b8a0eca59d7ee3c33139c01643fd9b81cbcd820aef008fc448"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afb9f8.txt",
+      "bytes": 67,
+      "sha256": "9fb0e8ff213939a64372c1bf42435030308c02e25281c767e322ffa92f6478e5"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afba00.txt",
+      "bytes": 60,
+      "sha256": "a605eebfa6be2e062d45da87b335159b70861679dfeb12b3e357fc353581512b"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afba08.txt",
+      "bytes": 67,
+      "sha256": "cd79a1be3f6bdfcdbd4907efd9f620f4b8aa0712075de1b704c05e51967c5d9e"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afba10.txt",
+      "bytes": 112,
+      "sha256": "9ddf9cd83107fc7986ba1fadb582028c10d7dfabb40197a8825261f14491cc33"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afba24.txt",
+      "bytes": 60,
+      "sha256": "42ade107fec53129f54268e29bc5b022c1de419fb8351391be5fdd8329287ad3"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afba2c.txt",
+      "bytes": 60,
+      "sha256": "d625436c76eba0dc6cd2d18c5d1dba5e093cad216f9da4fdb25fd692a3cf7f96"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afba34.txt",
+      "bytes": 27,
+      "sha256": "757559957f2040f7ac2e7cc5e81613152765960229b116d4da1db498737b2f3d"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afba50.txt",
+      "bytes": 112,
+      "sha256": "0883853a0401c625a3f01025b28df2b1437b93a8e9d70ac1fb781ba19fe5d0dc"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afba5c.txt",
+      "bytes": 1057,
+      "sha256": "2719d60c06f7e84feae62b37c1f3517a47fdcd5fedab10ff6fa30433e3a24cf1"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afbac4.txt",
+      "bytes": 1067,
+      "sha256": "148e19cec98359a663ad13c39606973709a1503bde8bad35b48262d9d008a7f2"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afbb2c.txt",
+      "bytes": 1057,
+      "sha256": "04b7533d6761d4621bce2b8eb0f7790c1e543cceef6c726ee2f99b0d7d7db8ac"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afbb94.txt",
+      "bytes": 1067,
+      "sha256": "f1d31b97be3c4eb556f135ca5f506b468c45b6463631b5c229edeb6469244070"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afbbfc.txt",
+      "bytes": 1057,
+      "sha256": "5db2e02350da6f17668b7cfe79a9ad3371a7e1aeacf954dace08522081bca369"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afbc64.txt",
+      "bytes": 1067,
+      "sha256": "69468b01a6b0afab4fae83b0da3b417fc45c35103ee5ca1082897cc8ff89261a"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afbcd8.txt",
+      "bytes": 1057,
+      "sha256": "88a05e174eb6fa64af35c49e8b4bb86d303e78802e148be0ba2e058fddc6d950"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afbd40.txt",
+      "bytes": 1067,
+      "sha256": "b7a759f62626a774ab1844148d7d179209075fe9ddc8ec554e973fa0fdd026bb"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afbda8.txt",
+      "bytes": 1057,
+      "sha256": "c6dd7381071f7216f11f60e2d7f7db81145ab8527f26b70326627a612dc3f070"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afbe10.txt",
+      "bytes": 1067,
+      "sha256": "3cc98a337f2090c7e93597eb1e8f4744f2de6b081478506e0d569aecb4e6a53e"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afbe80.txt",
+      "bytes": 1057,
+      "sha256": "97876fc3494717069f47f5bc9adfc0ebf042e54b898491712af6616ab93f4996"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afbee8.txt",
+      "bytes": 1067,
+      "sha256": "c7c701f2ec5dad1901e8f5c37612f46990346e487d21ac05345ae6cfba9da6f9"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afbf70.txt",
+      "bytes": 1057,
+      "sha256": "64a05a6a89fe0d77272dd45a201af71cb695a5e26cc93f6cbf7592971beb3508"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afbfd8.txt",
+      "bytes": 1067,
+      "sha256": "cd23ee00eefba9166e12fa5f9db946a2cff529a110bf5d3efce1ee26cf811e15"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afc048.txt",
+      "bytes": 1057,
+      "sha256": "d6cc19582ef75ab543960a2c7b9500bf17edfccce1b246d39edd5ddc8b9c2d9b"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afc0b0.txt",
+      "bytes": 1067,
+      "sha256": "afcd4a0440d193d71806f0046a1a990e9d76f23f043fdd33b1f0fe152a150649"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afc138.txt",
+      "bytes": 1391,
+      "sha256": "422487f088a13fb849fe79862c3a24bb5ccf7edf32c51899a222b353a9a283ec"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afc1c0.txt",
+      "bytes": 1401,
+      "sha256": "8b966a19373dc63f7e6bb063ba62bc8f8363d54a627b4085779ee53ba0f2f456"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afc824.txt",
+      "bytes": 3661,
+      "sha256": "0032c927ae521a1d8788a939c0f1ee67937595c9c0ed24f29242f0a31673c842"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100afc9fc.txt",
+      "bytes": 2002,
+      "sha256": "68829033015027748f8c1d8beb986856de8e6f2ee9c0340fe30226ffcf28d85b"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100b14958.txt",
+      "bytes": 27181,
+      "sha256": "025eb3660538b5374111305b604be1c0c7e409e9e159a8080bc887b4ce93d32d"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100b15438.txt",
+      "bytes": 2599,
+      "sha256": "e2e74dd2703802d6648fcbc155a767cbdd5586304641097cfa0809bac80816ca"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100b157b8.txt",
+      "bytes": 3886,
+      "sha256": "505a54ef84898fc371dd27dd14e3c20ba9d11cf381d6339647273fd753460223"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100b189f0.txt",
+      "bytes": 12817,
+      "sha256": "80ba2650a11e54c42a5c2a6fa1ae6b15839769d21af17d9930a28277d29efc0d"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100b194c8.txt",
+      "bytes": 7861,
+      "sha256": "ce260184a24553243b4a940cf7eb5e008f8bf6d7ccb9d7d448bab96e1647d8e6"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100b199d0.txt",
+      "bytes": 8439,
+      "sha256": "1a96accbe201781af0bdd5b311cbb7e0285e24f93629575be75b738aa6a9b7bb"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100b19d1c.txt",
+      "bytes": 1800,
+      "sha256": "c82ceaa16f78e67ab8fc88de06add0c0356a830336e7af424f5d181eb3ed6315"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100b21bf4.txt",
+      "bytes": 5798,
+      "sha256": "006fff36c4d81c61d5cfc5f57779ac9a12e24516547ffa2c09c0b3501fa2143c"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100b25930.txt",
+      "bytes": 9038,
+      "sha256": "a6763904f6180eafa24819b44fd64010a7d7b95c32e0713364d7ac5f53b62ac1"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x100b28fb8.txt",
+      "bytes": 1730,
+      "sha256": "90c70f5410625eb1c370329b2b37bec3f835545041983f349c80ec6141e97db1"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x10169e674.txt",
+      "bytes": 5463,
+      "sha256": "e2a0a3c0f87faf3df165409888783a6da7277484b5d3e3cb8f87c5ef873f06be"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/0x1016a65f8.txt",
+      "bytes": 514,
+      "sha256": "9c840d1197a4a1b877ce4cf5ef18c73d557d595e1c9fdd17d8a19f3067246917"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/constructor-functions.json",
+      "bytes": 1306,
+      "sha256": "4759085db317a00120e783136f214765bcd5300f603b7468db2a204383b1ca55"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/descriptor-consumers.json",
+      "bytes": 3967,
+      "sha256": "0a5c523518beeb46756152373492de35147186c35d7a7a50b483ca1b2327170f"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/descriptor-consumers.log",
+      "bytes": 3967,
+      "sha256": "0a5c523518beeb46756152373492de35147186c35d7a7a50b483ca1b2327170f"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/field-candidates.json",
+      "bytes": 889,
+      "sha256": "5f5eab206f18a1f5b8f78f99358b0b26687ff4d57d7abdf4a0c41085d90b80d0"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/field-candidates.log",
+      "bytes": 1812,
+      "sha256": "ed7b0c535e43c9629dc4d76a636a1549a3402c8bf2e2746621f1f683944667e2"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/find-calls.py",
+      "bytes": 861,
+      "sha256": "2861676d3adaa7f3341009f4775344a7b17cbe6ff1f4abcab1543b3efb816b6b"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/find-descriptor.py",
+      "bytes": 1062,
+      "sha256": "c8f41ffc0db3fe786569ac28cd7fc03bb0cf268bac608e9c1f6aede1e9cde135"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/find-fields.py",
+      "bytes": 1008,
+      "sha256": "6898851d1c00c2911f464276269950dfd4227380ee5e646c7fa07ddfdaf1288d"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/find-runtime.py",
+      "bytes": 1051,
+      "sha256": "cd20e6a2dd756a8338aa14211d33fbb1556f8ed922dd5430c68bb7347835db3f"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/fmsub.c",
+      "bytes": 160,
+      "sha256": "b8e5523075ba2d8da1b8905e3261f21d886a67580e0ad128258b25a83af405c7"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/fmsub_float.html",
+      "bytes": 11887,
+      "sha256": "49f5cce8c95d366c9ca6d5040f46595cd83b4fb5c6f827c2e2e5a60db5f42839"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/hash-consumers.json",
+      "bytes": 451,
+      "sha256": "9d6a6aa5eea3101b4499eb2e08f6ab55448de7e74eab64f74e21832d01f0cd6b"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/hash-consumers.log",
+      "bytes": 617,
+      "sha256": "2ff440d8aebe3c38a46fb2803b254d0594fca8dc58fbfe2a34ad5d9c3145d74a"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/literal-offsets.json",
+      "bytes": 445,
+      "sha256": "8f00f0a795db44fa27a4d59b478e0d5353ef534f80e1678bbf007ca10a8c5178"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/metadata-functions.json",
+      "bytes": 1118,
+      "sha256": "5a51516ca16a68f3ad0f0a3cb374cee223c24a5584a9f21fb3cbdce369de6e58"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/movement-config-vtable.json",
+      "bytes": 1255,
+      "sha256": "0cf3e3e721e741418dcd4459e2e757745bd491cba421da5a0fbd63166064f7b8"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/movement-owner-functions.json",
+      "bytes": 189,
+      "sha256": "fd99d66b4e6c991e4951bcabc95c63f90df2cf66b2d9d2a07362d961fbecbe2c"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/movement-owner-methods.json",
+      "bytes": 1479,
+      "sha256": "41ac46ecdc9d03b64dfd242f9da0c43c02dc69c8d3eff6f5eef5eedc772c8260"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/owner-vtable-full.json",
+      "bytes": 2642,
+      "sha256": "18830e3493c8e77501af3e0ddcf95115ec4f21da79d671ffd629cfe382bdff9e"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/owner-vtable-full.log",
+      "bytes": 2642,
+      "sha256": "18830e3493c8e77501af3e0ddcf95115ec4f21da79d671ffd629cfe382bdff9e"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/owner30-calls.json",
+      "bytes": 5899,
+      "sha256": "17382b9028c13cc0d857caca73513f03d523b0badc3c7a9de5edf14840ba9fbd"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/owner30-calls.log",
+      "bytes": 5899,
+      "sha256": "17382b9028c13cc0d857caca73513f03d523b0badc3c7a9de5edf14840ba9fbd"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/private-reading.json",
+      "bytes": 2474,
+      "sha256": "ec0c4b563060e9667c9dd31c6002c3ec238e0ecf691b1e4e875109c52a8e7774"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/read-constructors.py",
+      "bytes": 784,
+      "sha256": "9199ed2f3c0fd323fc9d40613605ffc981840e8958da1e162a9da6f8e6c47353"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/read-metadata.py",
+      "bytes": 769,
+      "sha256": "80c865833ea3e06f3109dcc1e12aa28469be7ad38a21face2869e079a7d55425"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/read-movement-factory.py",
+      "bytes": 862,
+      "sha256": "e1a2295ae4888326b2c149b3310b52553b96831d64042e38b796d0bb8ed50a5c"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/read-movement-owner.py",
+      "bytes": 715,
+      "sha256": "84db715d4a62a63a5a55d4218c8c4f38574496352310f77446db9a9fe22fd028"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/read-owner-methods.py",
+      "bytes": 906,
+      "sha256": "e95686c85ce5359c2861f7b9e4806649930f7d8f326521d71291c39afd4d4165"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/read-owner-table.py",
+      "bytes": 830,
+      "sha256": "d0a0e548703170f1a93b0d0efbd83f0a9ac227e70af78313b659c4b29957aac0"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/read-registration-helpers.py",
+      "bytes": 732,
+      "sha256": "cfa03f5d3889c5b94afdd76bd9d7e12600e3008933da3e42c56dfd67c9d095c4"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/read-registration.py",
+      "bytes": 749,
+      "sha256": "055ec5152f0f062b2510833d6f5d55586cdbf2414f49cb4753e30e22abe2d30a"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/read-runtime-vtable.py",
+      "bytes": 855,
+      "sha256": "4c0d988bc340a8f371e26324ae521038c55c0c37dfe8fedb7c77355382dfe573"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/read-sink.py",
+      "bytes": 717,
+      "sha256": "80838f1541619ca5cd2cacad15b514bfa173f255b38c40d3033e4df876c754bf"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/registration-functions.json",
+      "bytes": 752,
+      "sha256": "45d7dfa4f7b20cfe7b065a085654c0c95bb8ac9b06f8ecb805a989e5b2b26902"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/registration-helper-functions.json",
+      "bytes": 376,
+      "sha256": "8848dad88ca149be4fae9ce651c7c3a11401d507f2945c26cfce5cb5be4d6d58"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/runtime-vtable.json",
+      "bytes": 2181,
+      "sha256": "8db9de01fc96222383f691dbee3f8965ef26ff278a167199f46c83cee051672c"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/exploration/sink-functions.json",
+      "bytes": 375,
+      "sha256": "2e47d067bdd90dbe75ed2751297f0271b61af35e1cc3ad9b50ffa4e11a66ebed"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/final-source/docs/NATIVE-MISSILE-GRAVITY-HEIGHT.md",
+      "bytes": 4559,
+      "sha256": "dea480a152c5f265c5be61d3b0eee06ad578dedd16b1f692906bcff0d311f216"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/final-source/docs/PROGRESS.md",
+      "bytes": 740833,
+      "sha256": "b53649181034bb7aa10406c95fbca8f15001c72a2a0dedbb99bcf345dd6de03a"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/final-source/docs/reference/native-missile-gravity-height.json",
+      "bytes": 90753,
+      "sha256": "3c73b0b052c7a71c8eb1c563ecbb6c025f646beed51dd8d8745d655f19055314"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/final-source/tools/assets/native_missile_gravity_height.py",
+      "bytes": 35322,
+      "sha256": "6e7284afd2b14e0be29fbcd9e669873f38b9c8f91899131da814407819d4ee38"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/final-source/tools/assets/test-native-missile-gravity-height.py",
+      "bytes": 7064,
+      "sha256": "d060bfa4042aec5996e7c2392c4026437bb28a3d50089cb4a6576199417765cd"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/guards-normal.log",
+      "bytes": 116,
+      "sha256": "19720ef495e24b725b0e407698b1e907aa995b42e7adb02ec811dcdf809241a0"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/guards-optimized.log",
+      "bytes": 117,
+      "sha256": "a2e25512c7d6404f4985cb85bc90ad89438d6840c4402334caf247524cee7bb6"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/identical-normal.log",
+      "bytes": 107,
+      "sha256": "3e946e14d0298f7fce4283292ca3f0fe92283b376164aa3771dd7805c16cc4b5"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/identical-optimized.log",
+      "bytes": 107,
+      "sha256": "3e946e14d0298f7fce4283292ca3f0fe92283b376164aa3771dd7805c16cc4b5"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/missing-normal.log",
+      "bytes": 503,
+      "sha256": "87e101fe25955d6892b401fcf6200466fa0db721358a0377898b990e2563f6a5"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/missing-optimized.log",
+      "bytes": 506,
+      "sha256": "0350aa37f2f9ea4f7b0ec9a1a5728ebcd8408bf02c41da6f8293c86086179fb2"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/observe-final.log",
+      "bytes": 107,
+      "sha256": "3e946e14d0298f7fce4283292ca3f0fe92283b376164aa3771dd7805c16cc4b5"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/observe.log",
+      "bytes": 107,
+      "sha256": "af33047648da815fe99d531ce4e82d2914c63976282277afd21446cf0a6b2b79"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/prepare.py",
+      "bytes": 3291,
+      "sha256": "f85bb71b526292dbba6107be5bd28bc86db717645308031584fc57c0344ceedd"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/provisional-before-config-constructor.json",
+      "bytes": 86067,
+      "sha256": "d104059982f1208674db704142133b7ef22e1944fbca293bbacdfb555a2f74a0"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/provisional-before-exact-type-links.json",
+      "bytes": 90121,
+      "sha256": "7c3a56582281f778da4833cdf0612aee90f346a6c6e06c60d4fb2b6587163159"
+    },
+    {
+      "path": ".cache/native-missile-height-audit/source-freeze.json",
+      "bytes": 524,
+      "sha256": "f8e6b7a1c8966ef8c243bba7550a3e82fdc4ab3699050d2999d60524f70edbcc"
+    }
+  ],
+  "limits": [
+    "Static exact bytes and frozen source objects only; no native target execution or runtime height correction.",
+    "FNV field/type names are candidates, not native literal strings.",
+    "Initial root/bone sampling, incoming encoded overrides, live target refresh and admission remain unobserved.",
+    "The algebra is restricted to finite nondegenerate inputs and does not establish target FPCR, rounding/flush modes, clocks or physical comparison.",
+    "The FixedSpeed factory calls a property-preparation helper100ad1210 before constructing movement; that helper body is outside this reading.",
+    "Gromp source gravity1500/speed1800/height fields100 do not alone establish actual native loaded values or local flight identity."
+  ]
+}

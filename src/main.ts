@@ -55,21 +55,31 @@ async function boot(): Promise<void> {
   const query = new URLSearchParams(location.search);
   const fixture = import.meta.env.DEV && query.get('scene') === 'fixture';
   const leonaRiftTrial = import.meta.env.DEV && query.get('scene') === 'leona-rift';
+  const garenRiftTrial = import.meta.env.DEV && query.get('scene') === 'garen-rift';
   const masterYiNpc = fixture && query.get('npc') === 'masteryi' && !query.has('champion');
   const ahriPlayerFixture = fixture && query.get('champion') === 'ahri';
+  const masterYiPlayerFixture = fixture && query.get('champion') === 'masteryi';
   const loadedBattlefield = fixture ? PRACTICE_FIXTURE : await loadRiftBattlefield();
   const battlefield = leonaRiftTrial
     ? { ...loadedBattlefield, developmentLeona: true as const }
-    : ahriPlayerFixture
-      ? { ...loadedBattlefield, developmentAhri: true as const }
-      : loadedBattlefield;
-  const saveKey = masterYiNpc
-    ? 'development-masteryi-npc-fixture'
-    : leonaRiftTrial
-      ? 'development-leona-rift'
-      : ahriPlayerFixture
-        ? 'development-ahri-player-fixture'
-        : battlefield.id;
+    : garenRiftTrial
+      ? { ...loadedBattlefield, developmentGaren: true as const }
+      : masterYiPlayerFixture
+        ? { ...loadedBattlefield, developmentMasterYi: true as const }
+        : ahriPlayerFixture
+          ? { ...loadedBattlefield, developmentAhri: true as const }
+          : loadedBattlefield;
+  const saveKey = masterYiPlayerFixture
+    ? 'development-masteryi-player-fixture'
+    : masterYiNpc
+      ? 'development-masteryi-npc-fixture'
+      : leonaRiftTrial
+        ? 'development-leona-rift'
+        : garenRiftTrial
+          ? 'development-garen-rift'
+          : ahriPlayerFixture
+            ? 'development-ahri-player-fixture'
+            : battlefield.id;
   const leonaNpc = fixture && new URLSearchParams(location.search).get('npc') === 'leona';
   const ahriNpc = fixture && query.get('npc') === 'ahri';
   const garenFixture = fixture && new URLSearchParams(location.search).get('champion') === 'garen';
@@ -110,9 +120,19 @@ async function boot(): Promise<void> {
   };
   let world = leonaRiftTrial
     ? createLaneMatch(battlefield, 'leona')
-    : freshPractice(
-        ahriPlayerFixture ? 'ahri' : garenFixture ? 'garen' : leonaFixture ? 'leona' : 'ashe'
-      );
+    : garenRiftTrial
+      ? createLaneMatch(battlefield, 'garen')
+      : freshPractice(
+          masterYiPlayerFixture
+            ? 'masteryi'
+            : ahriPlayerFixture
+              ? 'ahri'
+              : garenFixture
+                ? 'garen'
+                : leonaFixture
+                  ? 'leona'
+                  : 'ashe'
+        );
   let restored = false,
     saveNotice = '';
   try {
@@ -122,6 +142,8 @@ async function boot(): Promise<void> {
       candidate &&
       (!garenFixture || candidate.hero.champion === 'garen') &&
       (!leonaFixture || candidate.hero.champion === 'leona') &&
+      (!masterYiPlayerFixture ||
+        (candidate.hero.champion === 'masteryi' && candidate.matchMode === 'practice')) &&
       (!ahriPlayerFixture ||
         (candidate.hero.champion === 'ahri' && candidate.matchMode === 'practice')) &&
       (!leonaNpc || candidate.units.some((u) => u.champion === 'leona')) &&
@@ -156,6 +178,7 @@ async function boot(): Promise<void> {
     elapsed = 0;
   let input: GameInput | undefined;
   let requestFrame = () => {};
+  view.onAssetsReady = () => requestFrame();
   const setPaused = (value: boolean) => {
     paused = value || document.hidden || !!hud.graphicsState;
     hud.paused = paused;
@@ -203,7 +226,9 @@ async function boot(): Promise<void> {
               battlefield,
               leonaRiftTrial && world.hero.champion === 'leona'
                 ? 'leona'
-                : selectableChampion(world.hero.champion),
+                : garenRiftTrial && world.hero.champion === 'garen'
+                  ? 'garen'
+                  : selectableChampion(world.hero.champion),
               world.player.summoners
             ).snapshot()
           : grompEncounter ||
@@ -211,6 +236,7 @@ async function boot(): Promise<void> {
               world.hero.champion === 'garen' ||
               world.hero.champion === 'leona' ||
               world.hero.champion === 'ahri' ||
+              world.hero.champion === 'masteryi' ||
               world.player.summoners.d !== 'flash' ||
               world.player.summoners.f !== 'heal'
             ? (() => {
@@ -242,7 +268,13 @@ async function boot(): Promise<void> {
           await writeMatch(saveKey, snapshot);
           window.location.reload();
         },
-        ahriPlayerFixture ? 'ahri' : masterYiNpc ? 'ashe' : undefined,
+        masterYiPlayerFixture
+          ? 'masteryi'
+          : ahriPlayerFixture
+            ? 'ahri'
+            : masterYiNpc
+              ? 'ashe'
+              : undefined,
         masterYiNpc ? 'masteryi' : undefined
       ),
     sound: (enabled) => {
@@ -276,7 +308,10 @@ async function boot(): Promise<void> {
       : []),
     loadOwnedCompanions(world.companions.map((p) => p.kind)),
     loadInterfaceFonts(),
-    audio.load(world.units.some((u) => u.champion === 'garen')),
+    audio.load(
+      world.units.some((u) => u.champion === 'garen'),
+      world.units.some((u) => u.champion === 'masteryi')
+    ),
     loadReferenceModels(
       monsterSpecies,
       world.units.some((u) => u.champion === 'leona'),
@@ -306,6 +341,37 @@ async function boot(): Promise<void> {
         ]
       : []),
     loadGarenSpin(),
+    ...(world.units.some((u) => u.champion === 'masteryi')
+      ? [
+          view.highlanderCasts.load(),
+          view.highlanderKills.load(),
+          view.primaryHits.load().catch((error) => {
+            console.warn(
+              'Primary hit effects unavailable; explicit retry remains available.',
+              error
+            );
+          }),
+          view.meditateDamage.load(),
+          view.swordGlows.load(),
+          view.passiveTrails.load().catch((error) => {
+            console.warn(
+              'Passive attack trails unavailable; explicit retry remains available.',
+              error
+            );
+          }),
+          view.primaryTrails.load().catch((error) => {
+            console.warn(
+              'Primary attack trails unavailable; explicit retry remains available.',
+              error
+            );
+          }),
+          view.alphaCasts.load(),
+          view.alphaEnds.load(),
+          view.alphaContacts.load(),
+          view.meditateCasts.load(),
+          view.meditateBuffs.load(),
+        ]
+      : []),
     ...(world.units.some((u) => u.champion === 'garen')
       ? [
           view.garenJustice.load(),
@@ -412,6 +478,7 @@ async function boot(): Promise<void> {
   if (restored) hud.toast('Saved match restored. Resume when you’re ready.');
   else if (saveNotice) hud.toast(saveNotice);
   else if (leonaRiftTrial) hud.toast('Development trial: Leona support on Summoner’s Rift.');
+  else if (garenRiftTrial) hud.toast('Development trial: Garen top on Summoner’s Rift.');
   window.setTimeout(() => loading.remove(), 600);
   let frames = 0,
     frameTime = 0,

@@ -1967,3 +1967,7 @@ button {
 .offline-size {
   color: #c8aa6e;
 }
+
+.yi-double-strike { display: inline-flex; align-items: center; gap: 4px; }
+.yi-double-strike img { width: 16px; height: 16px; }
+.yi-double-strike.ready { color: #f5d98a; border-color: #c89b3c; box-shadow: 0 0 8px #c89b3c55; }

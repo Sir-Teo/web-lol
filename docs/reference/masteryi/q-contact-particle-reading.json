@@ -1,0 +1,76 @@
+{
+  "format": 1,
+  "sourcePinSha256": "95531b1e61b44fc39d6458534174fe183fdf75e57cf7528a93a045e836322776",
+  "transport": {
+    "path": "docs/reference/masteryi/q-contact-texture-transport.json",
+    "sha256": "2851d25d5639cab3476a0161862fb96ba4296f6a6f4af82ede6beb1aebfcd687"
+  },
+  "mesh": {
+    "source": {
+      "path": "assets/characters/masteryi/skins/base/particles/common_hecarim_qtrail.scb",
+      "wadPathHash": "51536e0eac6b2592",
+      "sha256": "dff8b7119ea6e2ae3d215aa42afe13b13a47d964a7f8b62a67a28aead5357ccf",
+      "bytes": 172716
+    },
+    "decoded": {
+      "path": ".cache/masteryi-q-particles-decoded/meshes/51536e0eac6b2592.json",
+      "sha256": "b131d256bd76ba5e873864016fe0280d75dc697b96f0e57079a44293a35ffce1"
+    },
+    "output": {
+      "path": ".cache/masteryi-q-contact-packed-v2/masteryi-q-contact-trail.glb",
+      "bytes": 112976,
+      "sha256": "11e8d520c3ba72a1e301d1ab7ecaad4ac0f0c2e4b426d46948185fc6891f2192"
+    },
+    "sourceVertices": 750,
+    "triangles": 1500,
+    "exportedCorners": 4500,
+    "attributes": {
+      "positionFloat32Sha256": "6f15df9bb31bc96fc88156319319a298327c6091d24224c28cd27de00d91e773",
+      "uvFloat32Sha256": "3847b0223b5b7ffbd6b7e94e4d6f6fd0459ef05f6aed760c9fa88a3f618ec515",
+      "faceRgbSha256": "14b414dd5a97558adefa5c17f325310791c4a202a046baf815c6a521f06e0502"
+    },
+    "centralPoint": [
+      7.31024169921875,
+      128.59190368652344,
+      15.0963134765625
+    ],
+    "rawSourceBounds": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "measuredMinMax": [
+      -187.23199462890625,
+      55.312198638916016,
+      -188.1470947265625,
+      201.8524932861328,
+      201.87159729003906,
+      218.33970642089844
+    ],
+    "tailHex": "29ede94087970043728a7141000000000000000000000000",
+    "flags": 5,
+    "sourceHasVertexColors": false,
+    "sourceFaceRgbAppliedAsMaterial": false,
+    "normalsGenerated": false,
+    "validation": {
+      "errors": 0,
+      "warnings": 0,
+      "roundTripAttributesExact": true
+    }
+  },
+  "readerDefaults": {
+    "path": "docs/reference/garen-spin-defaults.json",
+    "sha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb"
+  },
+  "profileSha256": "ade04d77fe7d7900ac4300cb870192cec9ca2a63f4215e55cac5d63cba88cd57",
+  "historyTicks": 22,
+  "limits": [
+    "Native target systems retained completely: ordinary four emitters and critical three.",
+    "Local accepted-contact dispatch, first-update timing, indexed cosmetic randomness, root attachment, collision-diameter bound-size reading and captured source-to-target heading are not native callback/frame certificates.",
+    "Omitted fields stay visible through explicitFields and full source pin; compiled fallbacks are pinned-reader/local rendering policy.",
+    "Particle/emitter linger values are retained, not invented visible lifespan extensions. Empty Q_Hit and Q_AP_Mis/cast/missile/end systems are not dispatched here."
+  ]
+}

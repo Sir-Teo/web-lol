@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { writeFileSync } from 'node:fs';
 
 test('Demacian Justice draws source cast, sword and impact layers and restores a killing release after caster death', async ({
   page,
@@ -35,12 +36,22 @@ test('Demacian Justice draws source cast, sword and impact layers and restores a
     let finite = true,
       loaded = true,
       bone = '',
-      multiplier = false;
+      multiplier = false,
+      rayPackets = [];
     for (const delta of [17, 24, 29, 38]) {
       w.step(start + delta - w.tick);
       g.view.render(w, 1, g.view.previousElapsed);
       for (const mesh of g.view.garenJustice.models.values()) {
         names.add(mesh.name);
+        const packet = mesh.geometry.getAttribute('_source_vertex_bgra');
+        if (packet)
+          rayPackets.push({
+            normalized: packet.normalized,
+            type: packet.array.constructor.name,
+            bytes: Array.from(packet.array),
+            uniform: mesh.material.uniforms.particleColor.value.toArray(),
+            shader: mesh.material.defines.VERTEX_BGRA,
+          });
         finite &&= [...mesh.position, ...mesh.quaternion, ...mesh.scale].every(Number.isFinite);
         loaded &&= mesh.material.uniforms.sourceTexture.value.image.width > 0;
         if (mesh.name.includes('cast')) bone = mesh.userData.attachment;
@@ -52,6 +63,7 @@ test('Demacian Justice draws source cast, sword and impact layers and restores a
     }
     return {
       names: [...names].sort(),
+      rayPackets,
       finite,
       loaded,
       bone,
@@ -61,6 +73,15 @@ test('Demacian Justice draws source cast, sword and impact layers and restores a
     };
   });
   expect(state.names).toHaveLength(19);
+  expect(state.rayPackets.length).toBeGreaterThan(0);
+  for (const packet of state.rayPackets) {
+    expect(packet.normalized).toBe(true);
+    expect(packet.type).toBe('Uint8Array');
+    expect(packet.bytes).toHaveLength(24);
+    expect(packet.bytes.some((v) => v !== 0)).toBe(true);
+    expect(packet.uniform).toEqual([1, 1, 1, 1]);
+    expect(packet.shader).toBe(1);
+  }
   expect(state.names).toContain('Garen R impact 3 ground_decal');
   expect(state.names).toContain('Garen R sword 1 sword_drop');
   expect(state.names).toContain('Garen R kill 0 shockwave');
@@ -88,6 +109,7 @@ test('Demacian Justice draws source cast, sword and impact layers and restores a
           name: m.name,
           position: m.position.toArray(),
           scale: m.scale.toArray(),
+          packetColor: Array.from(m.geometry.getAttribute('_source_vertex_bgra')?.array ?? []),
         })),
     };
   });
@@ -118,6 +140,7 @@ test('Demacian Justice draws source cast, sword and impact layers and restores a
           name: m.name,
           position: m.position.toArray(),
           scale: m.scale.toArray(),
+          packetColor: Array.from(m.geometry.getAttribute('_source_vertex_bgra')?.array ?? []),
         }));
     w.step(360);
     g.view.render(w, 1, g.view.previousElapsed);
@@ -207,6 +230,8 @@ test('kill rays turn toward the camera with stable buffers; nonfatal, later-deat
     const rays = kills().filter((m) => m.userData.ownedGeometry);
     const geometries = rays.map((m) => m.geometry),
       buffers = rays.map((m) => m.geometry.getAttribute('position').array),
+      colors = rays.map((m) => m.geometry.getAttribute('_source_vertex_bgra').array),
+      colorValues = colors.map((b) => Array.from(b)),
       before = buffers.map((b) => [...b]);
     g.view.locked = false;
     g.view.recenter({ x: 1500, y: 0 });
@@ -218,7 +243,10 @@ test('kill rays turn toward the camera with stable buffers; nonfatal, later-deat
     );
     const stable = rays.every(
       (m, i) =>
-        m.geometry === geometries[i] && m.geometry.getAttribute('position').array === buffers[i]
+        m.geometry === geometries[i] &&
+        m.geometry.getAttribute('position').array === buffers[i] &&
+        m.geometry.getAttribute('_source_vertex_bgra').array === colors[i] &&
+        JSON.stringify(Array.from(colors[i])) === JSON.stringify(colorValues[i])
     );
     const finite = rays.every((m) =>
       [...m.geometry.getAttribute('position').array].every(Number.isFinite)
@@ -371,10 +399,19 @@ test('R caster flash and falling sword are visible before damage releases', asyn
 
 test('ordinary Ashe startup skips R assets and a later Garen NPC loads one shared resource set', async ({
   page,
-}) => {
+}, info) => {
   const requests: string[] = [];
   const killTextures: string[] = [];
   const modules: string[] = [];
+  let releaseAssets!: () => void;
+  const assetsBlocked = new Promise<void>((resolve) => {
+    releaseAssets = resolve;
+  });
+  page.on('close', () => releaseAssets());
+  await page.route(/\/assets\/models\/garen-r-[^/?]+\.glb(?:\?.*)?$/, async (route) => {
+    await assetsBlocked;
+    if (!page.isClosed()) await route.continue();
+  });
   page.on('request', (r) => {
     if (r.url().includes('/src/render/garen-justice.ts')) modules.push(r.url());
     if (r.url().includes('/assets/models/garen-r-')) requests.push(r.url());
@@ -402,10 +439,54 @@ test('ordinary Ashe startup skips R assets and a later Garen NPC loads one share
     w.enqueue({ type: 'cast', unit: enemy.id, ability: 'r', targetId: w.hero.id, point: w.hero });
     w.step(25);
   });
+  const frozenTick = await page.evaluate(() => (window as any).__GAME__.world.tick);
+  await expect.poll(() => requests.length, { timeout: 30000 }).toBe(4);
+  // Let other late-NPC loaders finish, then drain their scheduled paints while
+  // Justice's four meshes are still blocked. Only its completion can wake this frame.
+  const before = await page.evaluate(async () => {
+    const g = (window as any).__GAME__;
+    await Promise.all([
+      g.view.garenBasicAttacks.load(),
+      g.view.garenCourage.load(),
+      g.view.garenDecisiveStrike.load(),
+      g.view.garenPerseverance.load(),
+    ]);
+    await new Promise<void>((resolve) =>
+      requestAnimationFrame(() => requestAnimationFrame(() => resolve()))
+    );
+    return { frame: g.view.renderer.info.render.frame, models: g.view.garenJustice.models.size };
+  });
+  expect(before.models).toBe(0);
+  releaseAssets();
   await page.waitForFunction(() => (window as any).__GAME__.view.garenJustice.models.size > 0);
+  const after = await page.evaluate(() => {
+    const g = (window as any).__GAME__;
+    return {
+      frame: g.view.renderer.info.render.frame,
+      models: g.view.garenJustice.models.size,
+      tick: g.world.tick,
+    };
+  });
+  expect(after.frame).toBe(before.frame + 1);
+  const settledFrame = await page.evaluate(async () => {
+    await new Promise<void>((resolve) =>
+      requestAnimationFrame(() => requestAnimationFrame(() => resolve()))
+    );
+    return (window as any).__GAME__.view.renderer.info.render.frame;
+  });
+  expect(settledFrame).toBe(after.frame);
+  expect(await page.evaluate(() => (window as any).__GAME__.world.tick)).toBe(frozenTick);
   expect(modules).toHaveLength(1);
   expect(requests).toHaveLength(4);
   expect(new Set(requests).size).toBe(4);
   expect(killTextures).toHaveLength(2);
   expect(new Set(killTextures).size).toBe(2);
+  writeFileSync(
+    info.outputPath('paused-asset-ready.json'),
+    JSON.stringify(
+      { before, after, settledFrame, frozenTick, requests, killTextures, modules },
+      null,
+      2
+    )
+  );
 });

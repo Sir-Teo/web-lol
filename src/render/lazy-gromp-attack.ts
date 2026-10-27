@@ -4,6 +4,8 @@ import type { Vec2 } from '../simulation/math';
 import type { GrompAttack } from './gromp-attack';
 
 export class LazyGrompAttack {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: GrompAttack;
   private pending?: Promise<void>;
   private retryAfter = 0;
@@ -20,6 +22,7 @@ export class LazyGrompAttack {
       const module = await import('./gromp-attack');
       await module.loadGrompAttack();
       this.renderer = new module.GrompAttack(this.scene, this.ground);
+      this.onReady?.();
     })().catch((e) => {
       this.pending = undefined;
       throw e;

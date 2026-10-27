@@ -1,0 +1,388 @@
+{
+  "format": 1,
+  "parentCommit": "0808c8c0d61778556f78aca7acc06c9412b56161",
+  "scope": "Replace generic timeline serialization in historical pose capture with an owned copy of the known scalar/layer schema, preserving every current value, property order and independent mutable object. No asset, particle, numerical clock or schema changes.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "d7e71965d6aa7ac28ff74c6526b48d83dd73b0111a67c72eeb76af89163f3747",
+    "offlinePack": {
+      "id": "5ef2d43afc9bb16878ced8d214fb0877fab5817e7949b2ee0823513d6aa8782d",
+      "files": 1200,
+      "bytes": 538083368
+    }
+  },
+  "verification": {
+    "newOwnershipCases": 2,
+    "focusedCases": 86,
+    "fullUnitRun": {
+      "passed": 3070,
+      "failed": 3,
+      "total": 3073,
+      "files": 388
+    },
+    "remainingBaselineFailures": 3,
+    "originalWaveDeadlinePassed": true,
+    "nodeQaPassed": 6,
+    "realSaveReloadBrowserCases": 1,
+    "savedFutureTicks": 130,
+    "gpuMipReadbacks": 93,
+    "unchangedParentOutputs": 14,
+    "publicAssetsChanged": false,
+    "productionRecordings": 32,
+    "freshProductionScreenshots": 8,
+    "privatePreloads": 0
+  },
+  "copyBenchmarks": {
+    "node": {
+      "input": ".cache/masteryi-primary-hit-runtime/browser/masteryi-primary-hits-all--0c76f-U-mips-and-real-Save-reload/primary-hit-gpu-save.json",
+      "inputSha256": "0b5a3ab178ca369aa1733c45cee670beba782b99bbed1fd1f138971738baba52",
+      "producerSha256": "5df8f03eedefa312a07869e04c4fca4c6005ce379d29b0624e8b4bd9848aa293",
+      "helperSha256": "9fd2195ee568fa71515cde16b957da4b733e213e5c1686ee8bca196d8dfbcc1d",
+      "node": "v24.19.0",
+      "timelineShapes": 6,
+      "transitionShapes": 1,
+      "iterationsPerTrial": 100000,
+      "trials": [
+        {
+          "baselineMs": 230.354606,
+          "focusedMs": 4.5537910000000466
+        },
+        {
+          "baselineMs": 248.839293,
+          "focusedMs": 4.650844000000006
+        },
+        {
+          "baselineMs": 245.60080700000003,
+          "focusedMs": 4.485902000000124
+        },
+        {
+          "baselineMs": 224.12776899999994,
+          "focusedMs": 5.040925000000016
+        },
+        {
+          "baselineMs": 250.51865799999996,
+          "focusedMs": 4.660609000000022
+        },
+        {
+          "baselineMs": 243.93601599999988,
+          "focusedMs": 4.537064999999984
+        },
+        {
+          "baselineMs": 279.07188900000006,
+          "focusedMs": 7.363040000000183
+        }
+      ],
+      "baselineMedianMs": 245.60080700000003,
+      "focusedMedianMs": 4.650844000000006,
+      "ratio": 52.8077929511288,
+      "exactValuesAndPropertyOrder": true,
+      "independentMutableObjects": true,
+      "limits": [
+        "Standalone Node copy microbenchmark on the provided timeline corpus, not game FPS or complete-world throughput.",
+        "Alternating warmed trial order and retained result ring; wall-clock timing depends on the environment."
+      ]
+    },
+    "browser": {
+      "input": ".cache/masteryi-primary-hit-runtime/browser/masteryi-primary-hits-all--0c76f-U-mips-and-real-Save-reload/primary-hit-gpu-save.json",
+      "timelineShapes": 6,
+      "iterationsPerTrial": 100000,
+      "trials": [
+        {
+          "baselineMs": 369.5,
+          "focusedMs": 5.800000011920929
+        },
+        {
+          "baselineMs": 306.29999999701977,
+          "focusedMs": 5.5999999940395355
+        },
+        {
+          "baselineMs": 350.30000001192093,
+          "focusedMs": 6.199999988079071
+        },
+        {
+          "baselineMs": 354.5,
+          "focusedMs": 5.5
+        },
+        {
+          "baselineMs": 403,
+          "focusedMs": 6.0999999940395355
+        },
+        {
+          "baselineMs": 291.5,
+          "focusedMs": 5.399999991059303
+        },
+        {
+          "baselineMs": 268.79999999701977,
+          "focusedMs": 5.300000011920929
+        }
+      ],
+      "baselineMedianMs": 350.30000001192093,
+      "focusedMedianMs": 5.5999999940395355,
+      "ratio": 62.553571497280224,
+      "exactValuesAndOrder": true,
+      "independentMutableObjects": true,
+      "gameBooted": false,
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+      "limits": [
+        "Browser copy microbenchmark without game startup; not physical game FPS or full-world throughput."
+      ]
+    }
+  },
+  "limits": [
+    "Only the known timeline schema is copied; adding nested mutable fields requires reviewing ownership checks.",
+    "Microbenchmark ratios measure copying alone, not match FPS, total simulation throughput or native-client performance.",
+    "Native rendering/source certificates are inherited from the unchanged primary-hit integration.",
+    "Three previous baseline failures remain: missing Leona source archive, missing original distortion shader archive and original Lux sampler golden mismatch. Pins, golden and wave deadline remain unchanged."
+  ],
+  "parentRuntimeCertificate": {
+    "path": "docs/reference/masteryi/primary-hit-runtime-verification.json",
+    "bytes": 32492,
+    "sha256": "c31dfd9e907caab7ff373586043e5e9e39d0045095bbb088234278bafb2a4f4b"
+  },
+  "archivedBenchmarkInput": {
+    "path": ".cache/pose-history-capture/inputs/primary-hit-gpu-save.json",
+    "bytes": 128242,
+    "sha256": "0b5a3ab178ca369aa1733c45cee670beba782b99bbed1fd1f138971738baba52"
+  },
+  "sourceFiles": [
+    {
+      "path": "README.md",
+      "bytes": 18656,
+      "sha256": "dcdccbb98bf1fb798c047d7fc39a5cd7b0ce9552d898344c2ab6d04daf8dfb3a"
+    },
+    {
+      "path": "docs/POSE-HISTORY-CAPTURE.md",
+      "bytes": 3117,
+      "sha256": "c2f1772822ec632956fe15bb77de44809cc5e7ae6dec75c1a0375d1c258c4233"
+    },
+    {
+      "path": "src/simulation/animation-timeline.ts",
+      "bytes": 4554,
+      "sha256": "9fd2195ee568fa71515cde16b957da4b733e213e5c1686ee8bca196d8dfbcc1d"
+    },
+    {
+      "path": "src/simulation/pose-history.ts",
+      "bytes": 2730,
+      "sha256": "a8a60d8f76d0b608d1849c82b88c06ba3ed3beb204d4fd098239e482e4176a94"
+    },
+    {
+      "path": "tests/animation-timeline.test.ts",
+      "bytes": 8561,
+      "sha256": "ddd42e6a17473dc1e8914e0c3a65687cf57aa4ad9e5b14a6ac63812723b69b2a"
+    },
+    {
+      "path": "tools/qa/benchmark-pose-history.mjs",
+      "bytes": 4427,
+      "sha256": "5df8f03eedefa312a07869e04c4fca4c6005ce379d29b0624e8b4bd9848aa293"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/pose-history-capture/final-source/README.md",
+      "bytes": 18656,
+      "sha256": "dcdccbb98bf1fb798c047d7fc39a5cd7b0ce9552d898344c2ab6d04daf8dfb3a"
+    },
+    {
+      "path": ".cache/pose-history-capture/final-source/docs/POSE-HISTORY-CAPTURE.md",
+      "bytes": 3117,
+      "sha256": "c2f1772822ec632956fe15bb77de44809cc5e7ae6dec75c1a0375d1c258c4233"
+    },
+    {
+      "path": ".cache/pose-history-capture/final-source/src/simulation/animation-timeline.ts",
+      "bytes": 4554,
+      "sha256": "9fd2195ee568fa71515cde16b957da4b733e213e5c1686ee8bca196d8dfbcc1d"
+    },
+    {
+      "path": ".cache/pose-history-capture/final-source/src/simulation/pose-history.ts",
+      "bytes": 2730,
+      "sha256": "a8a60d8f76d0b608d1849c82b88c06ba3ed3beb204d4fd098239e482e4176a94"
+    },
+    {
+      "path": ".cache/pose-history-capture/final-source/tests/animation-timeline.test.ts",
+      "bytes": 8561,
+      "sha256": "ddd42e6a17473dc1e8914e0c3a65687cf57aa4ad9e5b14a6ac63812723b69b2a"
+    },
+    {
+      "path": ".cache/pose-history-capture/final-source/tools/qa/benchmark-pose-history.mjs",
+      "bytes": 4427,
+      "sha256": "5df8f03eedefa312a07869e04c4fca4c6005ce379d29b0624e8b4bd9848aa293"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/pose-history-capture/actual-helper-benchmark.json",
+      "bytes": 1410,
+      "sha256": "ba0e91d85d7a84188bbc53b7aa7c70ead68a7183aec87bbea696ca31b091a46d"
+    },
+    {
+      "path": ".cache/pose-history-capture/actual-helper-benchmark.log",
+      "bytes": 1159,
+      "sha256": "1e0f780c55bb88360bb4869dd594379d80cb1328daa811b116dd8838898d72c7"
+    },
+    {
+      "path": ".cache/pose-history-capture/app-identity.json",
+      "bytes": 90,
+      "sha256": "b715cd8724e34694d5dfeced683f0eb8b42f4ae7a34cf9e007f57cea03ccc142"
+    },
+    {
+      "path": ".cache/pose-history-capture/archive-checkpoint.py",
+      "bytes": 6660,
+      "sha256": "b906fd8b02518c1e99bb145a54d3cb3cac737ede44680ea42c78cecdfd86111d"
+    },
+    {
+      "path": ".cache/pose-history-capture/benchmark-candidate.mjs",
+      "bytes": 3364,
+      "sha256": "85280933b25afaa3aad996fac6136ecbe1e5b2bb5f989a9b978d2d9835119907"
+    },
+    {
+      "path": ".cache/pose-history-capture/browser-copy-benchmark.json",
+      "bytes": 1390,
+      "sha256": "d67405fe2f01a3949370818dba0727f4d47af0102a6d96f626f2a50ef8aa1b1e"
+    },
+    {
+      "path": ".cache/pose-history-capture/browser-copy-benchmark.log",
+      "bytes": 747,
+      "sha256": "9d6421037d7a08b988b9ee107a0daec73f049f2e10e22e686fdeafc0a3b7c909"
+    },
+    {
+      "path": ".cache/pose-history-capture/browser-copy-probe.mjs",
+      "bytes": 4339,
+      "sha256": "a9f5ca08c97b2c48bce28504c1a97ff36df13d543c859d40be5f5c440fe943b6"
+    },
+    {
+      "path": ".cache/pose-history-capture/browser-save/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/pose-history-capture/browser-save/masteryi-primary-hits-all--0c76f-U-mips-and-real-Save-reload/primary-critical-hit.png",
+      "bytes": 794759,
+      "sha256": "e576e5dfb2ad78c65b6fe18f2c2bde6f361da6d3cba3f91c9a2ab06a94611478"
+    },
+    {
+      "path": ".cache/pose-history-capture/browser-save/masteryi-primary-hits-all--0c76f-U-mips-and-real-Save-reload/primary-hit-gpu-save.json",
+      "bytes": 128242,
+      "sha256": "f34df7257f7fdebb9a7ae279dc92de9d5c200bf48f8a2ae1e3749aa958fd0421"
+    },
+    {
+      "path": ".cache/pose-history-capture/browser-save.log",
+      "bytes": 814,
+      "sha256": "9a31f2117066711df544204614043024482be7f83bcf0d31ffb545128cf8364c"
+    },
+    {
+      "path": ".cache/pose-history-capture/build.log",
+      "bytes": 6954,
+      "sha256": "3753af70008be6a212bd0f9ca29aa01fefa3282c171fe740cfa3e92a128df704"
+    },
+    {
+      "path": ".cache/pose-history-capture/built-identity.json",
+      "bytes": 256,
+      "sha256": "9a00777c28c0d56ae1884f1c9d87c041b9310b4515e6c27579df3957cef43d0e"
+    },
+    {
+      "path": ".cache/pose-history-capture/candidate-benchmark.json",
+      "bytes": 1420,
+      "sha256": "c2c8f0f4daba1fa6189b3181c1a49f2c41664876ee0d53dec55fdb5dc784d56e"
+    },
+    {
+      "path": ".cache/pose-history-capture/focused-initial.log",
+      "bytes": 181,
+      "sha256": "a0f71fd47a5edbef747586b07c95469f1a825d3d5d0030156a0927c4c8cf0b0f"
+    },
+    {
+      "path": ".cache/pose-history-capture/focused-other-families.log",
+      "bytes": 380,
+      "sha256": "1bea8bd5f1480f4c763024d44f7d658071c55826d230070f5b160ef56d53b575"
+    },
+    {
+      "path": ".cache/pose-history-capture/full-unit.log",
+      "bytes": 5485,
+      "sha256": "6497c7d3fb681d38235871a8813c529c430c48cd634dab3538812449115cadc6"
+    },
+    {
+      "path": ".cache/pose-history-capture/inputs/primary-hit-gpu-save.json",
+      "bytes": 128242,
+      "sha256": "0b5a3ab178ca369aa1733c45cee670beba782b99bbed1fd1f138971738baba52"
+    },
+    {
+      "path": ".cache/pose-history-capture/node-copy-benchmark-final.json",
+      "bytes": 1576,
+      "sha256": "3c6df7cbb09ef8be98cb8c920dc74646e955074837e340c3ed026fa2b8b4ee27"
+    },
+    {
+      "path": ".cache/pose-history-capture/node-copy-benchmark-final.log",
+      "bytes": 1317,
+      "sha256": "b3c5a354d4ad475b0936e71a05d45d06b20715b189897a8f6897595e3c0b674e"
+    },
+    {
+      "path": ".cache/pose-history-capture/node-qa.log",
+      "bytes": 660,
+      "sha256": "8730f8068df5efd3f8305b96caae348061764bd5ebb1326c58d8ed419dd8ef8c"
+    },
+    {
+      "path": ".cache/pose-history-capture/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1808958,
+      "sha256": "f4ecdb92188faea7f44449f63582683b7d4aeb3057df673812748f7b5beffd00"
+    },
+    {
+      "path": ".cache/pose-history-capture/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835593,
+      "sha256": "ded44b7e0465e7382df461afd78ad8821dba1d5a436743835805761ed4171bab"
+    },
+    {
+      "path": ".cache/pose-history-capture/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1831195,
+      "sha256": "88421167b24c04e322ddc672ed2b3291d8cefb6ae39f9f1c8722d17d1c73ed45"
+    },
+    {
+      "path": ".cache/pose-history-capture/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1811460,
+      "sha256": "a27af78dbe44a6a83de8ed0557b76e7fc83c75e6d58b5517d1d6cba780d19aa1"
+    },
+    {
+      "path": ".cache/pose-history-capture/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1815494,
+      "sha256": "4221ae74aaad54d3338de07ff4c656029f591f1dcd7c35a1c13b93d65bb32582"
+    },
+    {
+      "path": ".cache/pose-history-capture/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1351455,
+      "sha256": "c9256e0c38ae8878a12a510906bf0d2198b3629bdfe9ec783f4c4c08d2f8b733"
+    },
+    {
+      "path": ".cache/pose-history-capture/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1826158,
+      "sha256": "ae47fa42457433a648c77cdcbc5198d453478171ffdccf83f85240a3ad5ed2b4"
+    },
+    {
+      "path": ".cache/pose-history-capture/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808788,
+      "sha256": "738696a14d7351a13ad2ae4c9ce1beb93daa7402311c0f0a2515af96e8051e75"
+    },
+    {
+      "path": ".cache/pose-history-capture/production-summary.json",
+      "bytes": 3191,
+      "sha256": "2dbfd545aebdb6aa0081e70f472466ead471271e6426aab261715797f82706af"
+    },
+    {
+      "path": ".cache/pose-history-capture/production-system.mjs",
+      "bytes": 30506,
+      "sha256": "83265d55f3e6e2d817e9e75fb02cce522f5d180558a305fd95d3d8e8dbf6df2a"
+    },
+    {
+      "path": ".cache/pose-history-capture/production.log",
+      "bytes": 2852,
+      "sha256": "3a43a61a46c1083171afc098905a070204ecf85c4ad7711bbae93d93d22a77ac"
+    },
+    {
+      "path": ".cache/pose-history-capture/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/pose-history-capture/unchanged-primary-hit-outputs.json",
+      "bytes": 3327,
+      "sha256": "727f76cdf8478990144f8bab0ffee1623d0fc62f38513348d88df07aa207d082"
+    }
+  ]
+}

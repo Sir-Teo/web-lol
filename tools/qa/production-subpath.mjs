@@ -65,6 +65,23 @@ try {
     leonaPreviewRequests = [],
     ahriPreviewRequests = [],
     masterYiPreviewRequests = [],
+    masterYiAttackAudioRequests = [],
+    masterYiHighlanderAudioRequests = [],
+    masterYiAlphaAudioRequests = [],
+    masterYiMeditateAudioRequests = [],
+    masterYiWujuStyleAudioRequests = [],
+    masterYiQCastRequests = [],
+    masterYiQEndRequests = [],
+    masterYiRCastRequests = [],
+    masterYiRKillRequests = [],
+    masterYiMeditateDamageRequests = [],
+    masterYiSwordRequests = [],
+    masterYiPrimaryTrailRequests = [],
+    masterYiPrimaryHitRequests = [],
+    masterYiPassiveTrailRequests = [],
+    masterYiQContactRequests = [],
+    masterYiMeditateCastRequests = [],
+    masterYiMeditateBuffRequests = [],
     preparedCompanionRequests = [],
     wardRigRequests = [],
     oracleRigRequests = [],
@@ -85,6 +102,40 @@ try {
   page.on('request', (request) => {
     if (request.url().endsWith('/ahri-base.glb')) ahriPreviewRequests.push(request.url());
     if (request.url().endsWith('/masteryi-base.glb')) masterYiPreviewRequests.push(request.url());
+    if (/\/masteryi-aa-\d+\.wav$/.test(request.url()))
+      masterYiAttackAudioRequests.push(request.url());
+    if (/\/masteryi-r-\d+\.wav$/.test(request.url()))
+      masterYiHighlanderAudioRequests.push(request.url());
+    if (/\/masteryi-q-\d+\.wav$/.test(request.url()))
+      masterYiAlphaAudioRequests.push(request.url());
+    if (/\/masteryi-w-\d+\.wav$/.test(request.url()))
+      masterYiMeditateAudioRequests.push(request.url());
+    if (/\/masteryi-e-\d+\.wav$/.test(request.url()))
+      masterYiWujuStyleAudioRequests.push(request.url());
+    if (/\/masteryi-q-cast-[^/]+\.png$/.test(request.url()))
+      masterYiQCastRequests.push(request.url());
+    if (/\/masteryi-q-end-[^/]+\.png$/.test(request.url()))
+      masterYiQEndRequests.push(request.url());
+    if (/\/masteryi-r-cast-[^/]+\.(?:png|glb)$/.test(request.url()))
+      masterYiRCastRequests.push(request.url());
+    if (/\/masteryi-sword-(?:[^/]+\.png|glows-[^/]+\.js)$/.test(request.url()))
+      masterYiSwordRequests.push(request.url());
+    if (/\/masteryi-primary-trail(?:-[^/]+\.png|s-[^/]+\.js|\.glb)$/.test(request.url()))
+      masterYiPrimaryTrailRequests.push(request.url());
+    if (/\/masteryi-primary-hit(?:-[^/]+\.png|s-[^/]+\.js)$/.test(request.url()))
+      masterYiPrimaryHitRequests.push(request.url());
+    if (/\/masteryi-passive-trail(?:-[^/]+\.png|s-[^/]+\.js)$/.test(request.url()))
+      masterYiPassiveTrailRequests.push(request.url());
+    if (/\/masteryi-w-damage-[^/]+\.js$/.test(request.url()))
+      masterYiMeditateDamageRequests.push(request.url());
+    if (/\/masteryi-r-kill-[^/]+\.png$/.test(request.url()))
+      masterYiRKillRequests.push(request.url());
+    if (/\/masteryi-q-contact-(?:[0-9a-f]+\.png|trail\.glb)$/.test(request.url()))
+      masterYiQContactRequests.push(request.url());
+    if (/\/masteryi-w-cast-[^/]+\.(?:png|glb)$/.test(request.url()))
+      masterYiMeditateCastRequests.push(request.url());
+    if (/\/masteryi-w-buff-[^/]+\.(?:png|glb)$/.test(request.url()))
+      masterYiMeditateBuffRequests.push(request.url());
     if (/\/(?:leona[^/]*\.(?:glb|png|wav)|base_brightspark_11\.png)$/i.test(request.url()))
       leonaPreviewRequests.push(request.url());
     if (request.url().endsWith('/sightward-base.glb')) wardRigRequests.push(request.url());
@@ -180,7 +231,16 @@ try {
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
+  await page.goto(`${base}?scene=fixture&champion=masteryi`);
+  await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
+  assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
+  assert.equal(await page.locator('#masteryi-double-strike').count(), 0);
+  assert.equal(await page.evaluate(() => !!window.__GAME__), false);
   await page.goto(`${base}?scene=leona-rift&champion=leona`);
+  await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
+  assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
+  assert.equal(await page.evaluate(() => !!window.__GAME__), false);
+  await page.goto(`${base}?scene=garen-rift&champion=garen`);
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
@@ -466,6 +526,91 @@ try {
     [],
     'Production must not preload the development Master Yi rig'
   );
+  assert.deepEqual(
+    masterYiAttackAudioRequests,
+    [],
+    'Production must not preload development Master Yi attack audio'
+  );
+  assert.deepEqual(
+    masterYiHighlanderAudioRequests,
+    [],
+    'Production must not preload development Highlander audio'
+  );
+  assert.deepEqual(
+    masterYiSwordRequests,
+    [],
+    'Production must not preload development sword effects'
+  );
+  assert.deepEqual(
+    masterYiPrimaryTrailRequests,
+    [],
+    'Production must not preload development primary attack trails'
+  );
+  assert.deepEqual(
+    masterYiPrimaryHitRequests,
+    [],
+    'Production must not preload development primary hit effects'
+  );
+  assert.deepEqual(
+    masterYiPassiveTrailRequests,
+    [],
+    'Production must not preload development passive attack trails'
+  );
+  assert.deepEqual(
+    masterYiRKillRequests,
+    [],
+    'Production must not preload development Highlander takedown assets'
+  );
+  assert.deepEqual(
+    masterYiMeditateDamageRequests,
+    [],
+    'Production must not preload development Meditate damage code'
+  );
+  assert.deepEqual(
+    masterYiRCastRequests,
+    [],
+    'Production must not preload development Highlander cast assets'
+  );
+  assert.deepEqual(
+    masterYiQEndRequests,
+    [],
+    'Production must not preload development Alpha Strike reappearance assets'
+  );
+  assert.deepEqual(
+    masterYiQCastRequests,
+    [],
+    'Production must not preload development Alpha Strike cast assets'
+  );
+  assert.deepEqual(
+    masterYiQContactRequests,
+    [],
+    'Production must not preload development Alpha Strike contact assets'
+  );
+  assert.deepEqual(
+    masterYiMeditateCastRequests,
+    [],
+    'Production must not preload development Meditate cast assets'
+  );
+  assert.deepEqual(
+    masterYiMeditateBuffRequests,
+    [],
+    'Production must not preload development Meditate buff assets'
+  );
+  assert.deepEqual(
+    masterYiWujuStyleAudioRequests,
+    [],
+    'Production must not preload development Wuju Style audio'
+  );
+  assert.deepEqual(
+    masterYiMeditateAudioRequests,
+    [],
+    'Production must not preload development Meditate audio'
+  );
+  assert.deepEqual(
+    masterYiAlphaAudioRequests,
+    [],
+    'Production must not preload development Alpha Strike audio'
+  );
   console.log(
     JSON.stringify({
       result: 'passed',
@@ -492,11 +637,30 @@ try {
       garenFixtureInProduction: false,
       leonaPlayerFixtureInProduction: false,
       leonaRiftTrialInProduction: false,
+      garenRiftTrialInProduction: false,
       ahriNpcFixtureInProduction: false,
       ahriPlayerFixtureInProduction: false,
       unrequestedAhriPreloads: ahriPreviewRequests.length,
       unrequestedMasterYiPreloads: masterYiPreviewRequests.length,
+      unrequestedMasterYiAttackAudioPreloads: masterYiAttackAudioRequests.length,
+      unrequestedMasterYiHighlanderAudioPreloads: masterYiHighlanderAudioRequests.length,
+      unrequestedMasterYiAlphaAudioPreloads: masterYiAlphaAudioRequests.length,
+      unrequestedMasterYiMeditateAudioPreloads: masterYiMeditateAudioRequests.length,
+      unrequestedMasterYiWujuStyleAudioPreloads: masterYiWujuStyleAudioRequests.length,
+      unrequestedMasterYiSwordPreloads: masterYiSwordRequests.length,
+      unrequestedMasterYiPrimaryTrailPreloads: masterYiPrimaryTrailRequests.length,
+      unrequestedMasterYiPrimaryHitPreloads: masterYiPrimaryHitRequests.length,
+      unrequestedMasterYiPassiveTrailPreloads: masterYiPassiveTrailRequests.length,
+      unrequestedMasterYiMeditateDamagePreloads: masterYiMeditateDamageRequests.length,
+      unrequestedMasterYiHighlanderKillPreloads: masterYiRKillRequests.length,
+      unrequestedMasterYiHighlanderCastPreloads: masterYiRCastRequests.length,
+      unrequestedMasterYiQEndPreloads: masterYiQEndRequests.length,
+      unrequestedMasterYiQCastPreloads: masterYiQCastRequests.length,
+      unrequestedMasterYiQContactPreloads: masterYiQContactRequests.length,
+      unrequestedMasterYiMeditateCastPreloads: masterYiMeditateCastRequests.length,
+      unrequestedMasterYiMeditateBuffPreloads: masterYiMeditateBuffRequests.length,
       masterYiNpcFixtureInProduction: false,
+      masterYiPlayerFixtureInProduction: false,
       junglePreviewRequests: junglePreviewRequests.length,
       unrequestedLeonaPreloads: leonaPreviewRequests.length,
       preparedCompanionRequests: preparedCompanionRequests.length,

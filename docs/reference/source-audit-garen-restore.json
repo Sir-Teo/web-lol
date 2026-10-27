@@ -1,0 +1,361 @@
+{
+  "recordedAt": "2026-10-25T18:59:14.775402+00:00",
+  "baselineCommit": "26ed8f7",
+  "scope": "Restore exact ignored source caches for three existing Garen audit groups, with a reusable immutable WEM restore. No game/presentation behavior or public asset change.",
+  "toolchain": {
+    "cdtbRevision": "ba981db2a2c814a0d78e55f6483e0636b527850f",
+    "pythonRequirements": "tools/assets/requirements.txt",
+    "requirementsIdentity": {
+      "file": "tools/assets/requirements.txt",
+      "bytes": 233,
+      "sha256": "ad9de3886c6c6fda3e682802cc045cc6b6914b5ad17ae100d1f23df4b62a2822"
+    }
+  },
+  "sourceInputs": [
+    {
+      "file": "docs/reference/garen-audio-extraction.json",
+      "bytes": 4176,
+      "sha256": "ccf2ccdd83fd15b5bd81683c3e64ab18806e00b48f4a5d09ecfd39afdebace00"
+    },
+    {
+      "file": "docs/reference/garen-aa-audio.json",
+      "bytes": 893392,
+      "sha256": "b500a49db69831be35bc5e8c4b3664817c0b941abcceae87bcf510e2eec6c7be"
+    },
+    {
+      "file": "docs/reference/garen-aa-audio-decoded.json",
+      "bytes": 43545,
+      "sha256": "0b427246648bcb421b84229aacf06e571065322b1e2f85bde60748d90f2dd9e2"
+    },
+    {
+      "file": "docs/reference/garen-p-audio.json",
+      "bytes": 81349,
+      "sha256": "863fd39cc3276ee7f2a1624337d98764889efb04960a54e711aa3cc4255e1d2b"
+    },
+    {
+      "file": "docs/reference/garen-p-audio-decoded.json",
+      "bytes": 3865,
+      "sha256": "ee298ccbfff85bcb9a3ecfbb1c2a59a2c8a4987719449af09f0e05af289c54e0"
+    },
+    {
+      "file": "docs/reference/garen-model.json",
+      "bytes": 172875,
+      "sha256": "192a7d7b696ed983b6bf25564a688ea3ac35dfdb5ff5b2a89d5eca285125cf71"
+    },
+    {
+      "file": "docs/reference/garen-passive-particles.json",
+      "bytes": 26924,
+      "sha256": "dd2a6ea4c5fbd092c3ae3be9ffdbaa3701583f73b1364bb00b749bc656897e54"
+    }
+  ],
+  "restoredOriginals": [
+    {
+      "file": ".cache/garen-audio-sources/assets/sounds/wwise2016/sfx/characters/garen/skins/base/garen_base_sfx_audio.bnk",
+      "bytes": 1596249,
+      "sha256": "5af59f84279984a490cc3c5acc5252c6ae532fb7eb007a9e5e8ce5d33dd6655b"
+    },
+    {
+      "file": ".cache/garen-audio-sources/assets/sounds/wwise2016/sfx/characters/garen/skins/base/garen_base_sfx_events.bnk",
+      "bytes": 14533,
+      "sha256": "961fafe52335fdb85eb3ea7fdf8520aaaa208962141f1bbe3da1a81b08cc0217"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/1246050.wem",
+      "bytes": 4051,
+      "sha256": "3c6fb9a24409f9ef300131be9dc05ac6453ffce8b64f0b7894309ba66f47a53b"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/3618390.wem",
+      "bytes": 4299,
+      "sha256": "42710d4065dffbe688f51f4896c2ba339921cecad393509e0da53c3a144461e6"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/13912708.wem",
+      "bytes": 13062,
+      "sha256": "2dbdc407547a72a111f3bce17cd821766b7254fc6d17319ecd710ace8568538c"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/14110164.wem",
+      "bytes": 7921,
+      "sha256": "9e4e4a5922de00a2763a17390411363cf08f530e783eb72369ec2d3b3566560a"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/15473303.wem",
+      "bytes": 4241,
+      "sha256": "921d383cf58f08d6f5ac915417925cdf800964fca0094359e50b0eb5a4cf7aa8"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/18709251.wem",
+      "bytes": 9161,
+      "sha256": "6d5e0022829bc3a0d65ff8c65f3fc6cc3ea6397365ba57121ca268dcd68ea88e"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/19449746.wem",
+      "bytes": 8240,
+      "sha256": "75a2c70e869c6f7c2dc82d2bcee68b37a7579a53882c850e94902433813364ab"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/20848802.wem",
+      "bytes": 4515,
+      "sha256": "b87d098488a107d673415e4c4c75091ce9ba9ef52eb9652e37ada8e85e26cca5"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/36191544.wem",
+      "bytes": 9975,
+      "sha256": "66534fe99583155542e2099467370c14392eb9dd0d6c102d5fdcfba6358e5f26"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/45134918.wem",
+      "bytes": 11702,
+      "sha256": "9382e84dc4982f1ed669faa02c006d515a6d91e89b9209ad4637341250c58f06"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/53736152.wem",
+      "bytes": 7701,
+      "sha256": "c638158aa8effca018675091398b10b10b4b9e5282eeb69fb5146dc00dbc731e"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/57311359.wem",
+      "bytes": 7946,
+      "sha256": "624333d2be6166cb1c123c7f1223966aaea108263458894595990440db112a21"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/63889480.wem",
+      "bytes": 6415,
+      "sha256": "5213715ce9d7134037805279d3d78a0373c5d58290f070fb1ebcf42ebd0eb5a5"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/79667740.wem",
+      "bytes": 7603,
+      "sha256": "0674080a7c654b30c616cceace7067038733408c706d72f0e49ddc2d1a89fe28"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/117531801.wem",
+      "bytes": 8781,
+      "sha256": "e6e2d68c9ff21ff271fe80aa652fb3324042c8f0590932f885328d2e0fcde514"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/120191057.wem",
+      "bytes": 8659,
+      "sha256": "83c9b7e1f7c6d482825899ff8cccdb5a30a28b6776c8a5d7c6a1da084a2547bd"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/147893136.wem",
+      "bytes": 4331,
+      "sha256": "c29f8ea391675258e6c520d53d16530e87caa1db2908b90acc1ca550e4579090"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/160268863.wem",
+      "bytes": 3788,
+      "sha256": "9bb1ffb4f2e9f36d66eaeb94b14ca869173eb47359281ff6f99919a43523b9da"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/162685102.wem",
+      "bytes": 10673,
+      "sha256": "2a95a947538cce2fe9330be57d2c306923aae5dbb33f71ca96b40647ba3d421c"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/178848513.wem",
+      "bytes": 10373,
+      "sha256": "ba831ef9672a97263fef49aa36c0ab0a3e14a784bcd2fb97a6bee614d20b7981"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/188285667.wem",
+      "bytes": 12082,
+      "sha256": "157770a9a6473ad28cad582f07cc2534298497728fcc364db9285eb0fd684603"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/206316614.wem",
+      "bytes": 7139,
+      "sha256": "d517b88bb10beb93c6849c4df32d8a664ce7e1a79eb2d9ed8ece318e6fbf4a0d"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/470705115.wem",
+      "bytes": 4549,
+      "sha256": "47944e1a8ed909b3bade89629e52e099284c259675140e1fde0d6ffa4f248386"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/498203661.wem",
+      "bytes": 4585,
+      "sha256": "00223dd63b72b2358e5dac34ec52db4ff8d68d84dcb5b868b9303ab50299dccb"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/665834665.wem",
+      "bytes": 11766,
+      "sha256": "8c624616605ef3e22de086420e26b96bdcbdcb1710291ae28cad6ad38f6f87a8"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/733285383.wem",
+      "bytes": 5136,
+      "sha256": "82205315b4bbdc0938aff3850c37f6e000d1dc2fa15bdde1f25a821d38aa8cd3"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/745780724.wem",
+      "bytes": 4244,
+      "sha256": "27045aada2f4f737ff0798367aa1fe0ddcd0762973b296aad78911a95d2e4ba1"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/758426192.wem",
+      "bytes": 9379,
+      "sha256": "16e6c894d4666f1c6714f9a6abbe7c72d6008db04c44869665b06348a5c237af"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/842033896.wem",
+      "bytes": 7896,
+      "sha256": "3c1e62914bcca85ea18e66546533a99cf00ff6daffd96e3266f4c3b8954fb3bd"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/848225933.wem",
+      "bytes": 8024,
+      "sha256": "f78cb4c32da67ef3dbea78130dba01435a6ddf994c965e8a140dcb0c9ce606d6"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/885443311.wem",
+      "bytes": 12164,
+      "sha256": "341fc887609ce6b6dfc96df5c936e1b670c3748c2174a2bab6654aa3370b75b8"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/966832008.wem",
+      "bytes": 8144,
+      "sha256": "8ae848438edac733f59aef5adcc4d236477d901867144140a90711aa4421df34"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/971158791.wem",
+      "bytes": 5091,
+      "sha256": "e6019ed909842d474899116d9fc6c0f5e54685d1facc5dda810488da048185a2"
+    },
+    {
+      "file": ".cache/garen-aa-audio-media/1029430216.wem",
+      "bytes": 5152,
+      "sha256": "018d32fa30ac1ae0dcb7c08233f39bc671beb332609ac46fde8122f8052138a5"
+    },
+    {
+      "file": ".cache/garen-p-audio-media/111098527.wem",
+      "bytes": 37255,
+      "sha256": "fe2f4c1c46b4c27e796322b6a326e3cd1447e92c9839a67426f7c8774a6d1656"
+    },
+    {
+      "file": ".cache/garen-p-audio-media/433054605.wem",
+      "bytes": 32756,
+      "sha256": "96db31b55cc371acd31c7f9218fc3acb348da971875179f3f894b75130a3c60f"
+    },
+    {
+      "file": ".cache/garen-passive-particle-sources/24b36b25156dc172.bin",
+      "bytes": 6188,
+      "sha256": "8ad96b17cb488c90c67387b52b163120ae5f81777db4a5f8614b9fd5ae90b2c7"
+    },
+    {
+      "file": ".cache/garen-passive-particle-sources/7fb83b948d1dc476.bin",
+      "bytes": 2519,
+      "sha256": "cede8a2484f5e393b247aa7fce1f1fbeb597c959d355866ceb441bfd61a27c90"
+    },
+    {
+      "file": ".cache/garen-passive-particle-sources/156f4fe1214e688b.bin",
+      "bytes": 1710,
+      "sha256": "3c6827b85ed905ea24c2a67ff153c87402ace66b2f6792e9bada0b04ef20ec70"
+    },
+    {
+      "file": ".cache/garen-passive-particle-sources/b18e22ec37ce194f.tex",
+      "bytes": 87452,
+      "sha256": "40815833237ce2799f196539f662f0d28207eb8f7a699be6d0284cfa58ceec24"
+    },
+    {
+      "file": ".cache/garen-passive-particle-sources/acb69c2524427905.tex",
+      "bytes": 43740,
+      "sha256": "0664fa5b59751a2f54918bf752941b2b9b19cd4dd97ed503f3b4c84091bbdfb4"
+    },
+    {
+      "file": ".cache/garen-passive-particle-sources/4ad53eae88bfa1f2.tex",
+      "bytes": 5500,
+      "sha256": "15aa99c5555d17997d5498b987e586f65e6d12da86178571e43eaa98cd2f428d"
+    }
+  ],
+  "validation": {
+    "unchangedAuditGroups": [
+      "tests/garen-aa.test.ts",
+      "tests/garen-p-audio.test.ts",
+      "tests/garen-passive-particles.test.ts"
+    ],
+    "testsPassed": 20,
+    "testsFailed": 0,
+    "offlineMutationCasesPerPythonMode": 10,
+    "normalAndOptimizedRestoreChecksPassed": true,
+    "sourceMetadataChanged": false,
+    "publicAssetsChanged": false,
+    "assertionsChanged": false,
+    "schema": 142,
+    "ruleset": "6e9ae9dddc9111a6d568308368a6ec2a4c79edc104c34199bb9d0c0778ad1f93",
+    "productionPack": "556eaf226816257a74f33ee9abf8aff72fff2b58ee0ef4907560ee4868e29e4b",
+    "freshBuildOrProductionSmokeRequired": false
+  },
+  "remainingPriorFailureGroups": [
+    "Leona native/research input caches",
+    "Distortion original Metal/bitcode/Apple-clang-disassembly caches",
+    "Lux unchanged baseline sampler digest discrepancy"
+  ],
+  "fullSuiteRerun": false,
+  "logs": [
+    {
+      "file": ".cache/source-audit-bootstrap-pip.log",
+      "bytes": 3737,
+      "sha256": "1a7720d98649b6d76533f72dea3120235c5b509fb441e4d40692ea2f54bff0d5"
+    },
+    {
+      "file": ".cache/source-audit-garen-audio-extraction.log",
+      "bytes": 489,
+      "sha256": "aafac5779ba53fc6a8cb95cdbdda2fe1d5a731b0d9aec34eed27d5c091587bc3"
+    },
+    {
+      "file": ".cache/source-audit-garen-particle-extraction.log",
+      "bytes": 111,
+      "sha256": "eff38160b5c62ac87ab5d619f394401908c07965cc53f2b5bf80804372d71df5"
+    },
+    {
+      "file": ".cache/source-audit-garen-media-restore.log",
+      "bytes": 47,
+      "sha256": "4758e084f8cf6e04e462380bd64b9ff916883ddeff5b6c6da6bd2c54e8bb517b"
+    },
+    {
+      "file": ".cache/source-audit-garen-media-check-optimized.log",
+      "bytes": 46,
+      "sha256": "5039750f836f3cc5d96572973c683db1ba9c35c74b4e323fffd41a3e1ba73c1d"
+    },
+    {
+      "file": ".cache/source-audit-garen-tests.log",
+      "bytes": 425,
+      "sha256": "03b7393b5003e50e91e88ae76aba91d2b5b8e95da7d96ed2188f69fc6346837a"
+    },
+    {
+      "file": ".cache/source-audit-restore-guards.log",
+      "bytes": 109,
+      "sha256": "006ac55040db8bd82eeb2e5abab682d80dc719e313b23af3bbac2921bafb69a1"
+    },
+    {
+      "file": ".cache/source-audit-restore-guards-optimized.log",
+      "bytes": 109,
+      "sha256": "40e6a3053d86436d6aa245501343227a2e81436f4f14da71a21257468605aff6"
+    },
+    {
+      "file": ".cache/source-audit-garen-media-check.log",
+      "bytes": 46,
+      "sha256": "5039750f836f3cc5d96572973c683db1ba9c35c74b4e323fffd41a3e1ba73c1d"
+    },
+    {
+      "file": ".cache/source-audit-ruleset-check.log",
+      "bytes": 29,
+      "sha256": "947be5855c0b6850d45fa2f7412f6813a64b66855fb7fdaf2cf012c659eeecc9"
+    }
+  ],
+  "utilityInputs": [
+    {
+      "file": "tools/assets/restore-garen-audio-media.py",
+      "bytes": 4570,
+      "sha256": "646ef0d6401b43414c970e180a739e43895122e5afdc43159df69942d743658e"
+    },
+    {
+      "file": "tools/assets/test-restore-garen-audio-media.py",
+      "bytes": 5469,
+      "sha256": "f35576d070612e36c9c633a8933a00de3d904870677924273e805558e6ee96ff"
+    }
+  ]
+}

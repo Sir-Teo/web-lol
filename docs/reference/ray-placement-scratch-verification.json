@@ -1,0 +1,787 @@
+{
+  "format": 1,
+  "parentCommit": "552e1562caaab7280113c17649097ded9a693ee0",
+  "scope": "Reuse owned ray descriptor, vectors and size tuple in shared source placement; check finite vector components without transient iterable arrays. Preserve arithmetic, ownership, packed color attributes, geometry and sorting.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "46d3621bb31bdd01d406f398861a971e06bf9cc1ceb7a1b9bf401ca618bd85c4",
+    "offlinePack": {
+      "id": "1435aed4f7ded166ba10c8153a0b7769323595c9b8f3391ae9e2dfcb49861c8b",
+      "files": 1200,
+      "bytes": 538085030
+    }
+  },
+  "verification": {
+    "newUnitCases": 0,
+    "focusedCases": 48,
+    "fullUnitRun": {
+      "passed": 3095,
+      "failed": 2,
+      "total": 3097,
+      "files": 391
+    },
+    "remainingBaselineFailures": 2,
+    "originalWaveDeadlinePassed": true,
+    "nodeQaPassed": 6,
+    "successfulBrowserCases": 10,
+    "defaultPlacementPixelCases": 72,
+    "packedPlacementPixelCases": 72,
+    "rayPacketPixelCases": 84,
+    "quadPacketPixelCases": 15,
+    "allPixelChannelBytesExact": true,
+    "mixedSourceFixtures": 72,
+    "mixedSourceParticleStates": 714,
+    "packedLiveRayFixtures": 12,
+    "uniformLiveRayFixtures": 12,
+    "particleInputsFrozenAndUnchanged": true,
+    "unchangedRuntimeExports": 14,
+    "runtimeExportBytesAndMtimesUnchanged": true,
+    "savedFutureTicks": 130,
+    "gpuMipReadbacks": 93,
+    "productionRecordings": 32,
+    "freshProductionScreenshots": 8,
+    "privatePreloads": 0,
+    "publicAssetsChanged": false
+  },
+  "timings": {
+    "node": {
+      "node": "v24.19.0",
+      "reference": {
+        "commit": "552e1562caaab7280113c17649097ded9a693ee0",
+        "archiveSha256": "86cd768aa884deff961997917a369a794b71089aa5c6f49eaa4d90b06f87ecbd",
+        "sourceSha256": "72e68765f789f47e2af33417e56d345389bcc53104e71e2ba76915aabab7c5c1",
+        "moduleSha256": "1aa1a25d210d2f5781e2eb97b65dae4d9616f515bf556257dc24ae56b75d7501",
+        "module": "/workspace/web-lol/.cache/ray-placement-scratch/node-packed-final/reference/baseline.mjs"
+      },
+      "fixtures": 72,
+      "measuredFixtures": 12,
+      "rayOnly": true,
+      "packedColors": true,
+      "particles": 12,
+      "exactMeshStateAndUniforms": true,
+      "particleInputsUnchanged": true,
+      "iterationsPerTrial": 500000,
+      "trials": [
+        {
+          "baselineMs": 1282.4334319999998,
+          "focusedMs": 923.2325309999997
+        },
+        {
+          "baselineMs": 1275.3043019999996,
+          "focusedMs": 926.4898130000001
+        },
+        {
+          "baselineMs": 1278.6058300000004,
+          "focusedMs": 930.3320779999995
+        },
+        {
+          "baselineMs": 1293.6920790000004,
+          "focusedMs": 933.9668129999991
+        },
+        {
+          "baselineMs": 1300.0796769999997,
+          "focusedMs": 987.6710170000006
+        },
+        {
+          "baselineMs": 1295.6557260000009,
+          "focusedMs": 927.8079899999993
+        },
+        {
+          "baselineMs": 1297.7413849999994,
+          "focusedMs": 933.0810569999994
+        }
+      ],
+      "baselineMedianMs": 1293.6920790000004,
+      "focusedMedianMs": 930.3320779999995,
+      "ratio": 1.3905702163695586,
+      "sourceSha256": "6bc159edf82473696ad2ca0477483d15780f9561520862940c6414a9f158b9e4",
+      "producerSha256": "7115a9b0ea9b2a3c65139be8422d7d906879d03f386a197146f7d1faad9ab60b",
+      "fixtureProducerSha256": "cf81ccc42b5e06eed5899d7f6860b4ce3d1f1453a8ba3bea949fc9631e6332ad",
+      "limits": [
+        "Standalone placement-update timings on captured source particles, not game FPS or complete-world throughput.",
+        "Particle sampling and asset/GPU work are excluded; all source assets and numerical force policies are unchanged."
+      ]
+    },
+    "chromium": {
+      "fixtures": 72,
+      "measuredFixtures": 12,
+      "packedColors": true,
+      "rayOnly": true,
+      "particles": 12,
+      "iterationsPerTrial": 100000,
+      "trials": [
+        {
+          "baselineMs": 248,
+          "focusedMs": 182.20000000298023
+        },
+        {
+          "baselineMs": 249.1000000089407,
+          "focusedMs": 190.19999998807907
+        },
+        {
+          "baselineMs": 249.70000000298023,
+          "focusedMs": 183.5
+        },
+        {
+          "baselineMs": 250.20000000298023,
+          "focusedMs": 185.09999999403954
+        },
+        {
+          "baselineMs": 255.29999999701977,
+          "focusedMs": 188.70000000298023
+        },
+        {
+          "baselineMs": 243.90000000596046,
+          "focusedMs": 179.59999999403954
+        },
+        {
+          "baselineMs": 244.09999999403954,
+          "focusedMs": 183.90000000596046
+        }
+      ],
+      "baselineMedianMs": 249.1000000089407,
+      "focusedMedianMs": 183.90000000596046,
+      "ratio": 1.3545405111520772,
+      "exactMeshStateAndUniforms": true,
+      "particleInputsUnchanged": true,
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+      "gameBooted": false,
+      "errors": [],
+      "limits": [
+        "Placement-only browser timing without game startup, particle sampling, asset decoding or GPU rendering. No full-match FPS claim."
+      ]
+    },
+    "nodeReduction": 0.2808705463210932,
+    "chromiumReduction": 0.26174227218241697
+  },
+  "pixelReferences": [
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/particle-surface-placement-c8003-xels-with-authored-textures/placement-pixels.json",
+      "bytes": 14656,
+      "sha256": "a44dd6568932bd5412a00ac52e710e953d506cc9228c4eedcba0212fb54590b1"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-packed/packed-placement-packed-ra-0f4d4-xels-with-authored-textures/placement-pixels.json",
+      "bytes": 14657,
+      "sha256": "d0629b2a32a0f473b8e8f0ff14745550b0c6fed565a67734ad768306d5cd855d"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/ray-packet-pixels.json",
+      "bytes": 32852,
+      "sha256": "6d0c94d1a5e9b35a6a3e600182655fdc5461620873136ede15fd4a8fb9f353d9"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/primary-hit-half-packets-p-19838--with-authored-GPU-textures/quad-packet-pixels.json",
+      "bytes": 6274,
+      "sha256": "24abbd0736c0abf0c37a65ee9a61650f1111a8554cdf10238f04271e231dcc07"
+    }
+  ],
+  "limits": [
+    "Placement-update CPU measurements on captured source particles, excluding sampling, asset decoding and GPU work; no game-FPS or full-match throughput claim.",
+    "Mixed and uniform-color short runs establish numerical and input-ownership equivalence only; their timings are not used for a performance claim.",
+    "The historical Leona archive closure and default-platform Lux golden remain the same two full-suite failures. No assertion, golden or wave deadline was weakened.",
+    "Local ray axes, reflected source transforms and authored size policies remain as at the frozen reference. Native birth-scale and orientation investigation is separate."
+  ],
+  "diagnostics": [
+    "The first50000-update Node timing sample was noisier. The retained final sample uses500000 updates per trial; seven warmed trials alternate order in both runtimes.",
+    "The benchmark snapshot initially looked for an attribute named vertexColor during setup. Inspecting the existing renderer established _source_vertex_bgra; this was corrected before the timing and equality runs."
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/PARTICLE-SURFACE-PLACEMENT.md",
+      "bytes": 4267,
+      "sha256": "e9aeb3b2c5af62a280ed03b603c64cd742ca47c076292d06f16f0c8442446d59"
+    },
+    {
+      "path": "docs/RAY-PLACEMENT-SCRATCH.md",
+      "bytes": 3448,
+      "sha256": "b99432163847bd868e5611ad06a55054f5f9bc5955353e47f6f55f2bd9612e70"
+    },
+    {
+      "path": "src/render/ray-quad.ts",
+      "bytes": 2245,
+      "sha256": "78e764ac34e34b069c1fa29c4602c41bd8e8cefc4b8f77b7ec41806ced942543"
+    },
+    {
+      "path": "src/render/source-particle-surfaces.ts",
+      "bytes": 23164,
+      "sha256": "6bc159edf82473696ad2ca0477483d15780f9561520862940c6414a9f158b9e4"
+    },
+    {
+      "path": "tools/qa/benchmark-surface-placement.mjs",
+      "bytes": 4504,
+      "sha256": "7115a9b0ea9b2a3c65139be8422d7d906879d03f386a197146f7d1faad9ab60b"
+    },
+    {
+      "path": "tools/qa/lib/particle-surface-placement-fixtures.mjs",
+      "bytes": 5143,
+      "sha256": "cf81ccc42b5e06eed5899d7f6860b4ce3d1f1453a8ba3bea949fc9631e6332ad"
+    },
+    {
+      "path": "tools/qa/lib/prepare-surface-placement-reference.mjs",
+      "bytes": 2343,
+      "sha256": "265ca141ab2cd65881fa64bc9c19206d562939ef582754f8517edc84ffe04265"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    },
+    {
+      "path": "src/render/masteryi-primary-hit-particles.ts",
+      "bytes": 5407,
+      "sha256": "b21aafa72f8af0a8c2ec6fa311743b97cbd75a540a12a92a4ad12522c2f21ec5"
+    },
+    {
+      "path": "src/render/masteryi-primary-hits.ts",
+      "bytes": 6410,
+      "sha256": "0617393b4538fa3629fe3e4f7a54bfbd765ed8ef27e4944718b8a72ff984dc27"
+    },
+    {
+      "path": "src/render/particle-unorm8.ts",
+      "bytes": 522,
+      "sha256": "d9606ea6a3afb8df59e76c7968739ccb39c0ade6e021dd9d23b4780c74ac67de"
+    },
+    {
+      "path": "src/render/leona-eclipse-surface-material.ts",
+      "bytes": 9476,
+      "sha256": "d2c49d481baa708a10eeb7f1af2a0d6b99c529d1c8017bf72475a8e3d3e72a86"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 30464,
+      "sha256": "68425c70629572add4d8bfb83d3b71e2a4b276c476bd5f1880083659aed7043b"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    },
+    {
+      "path": "e2e/particle-surface-placement.spec.ts",
+      "bytes": 6928,
+      "sha256": "1669dc7b6b1067ff272641b66cda98ae3b7bfd7abd79795fd5f81f9d56bc4645"
+    },
+    {
+      "path": "e2e/primary-hit-ray-packets.spec.ts",
+      "bytes": 10270,
+      "sha256": "8ed6596e429afb9ef74dd8b1034a9d3bedb4e3813d0665677212f2d541d81bb0"
+    },
+    {
+      "path": "docs/reference/primary-hit-ray-packets-verification.json",
+      "bytes": 48586,
+      "sha256": "3a58314aba840363fa5e4bae561ed229eb6258bb6d874deced67c8db40d70214"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/ray-placement-scratch/final-source/docs/PARTICLE-SURFACE-PLACEMENT.md",
+      "bytes": 4267,
+      "sha256": "e9aeb3b2c5af62a280ed03b603c64cd742ca47c076292d06f16f0c8442446d59"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/final-source/docs/RAY-PLACEMENT-SCRATCH.md",
+      "bytes": 3448,
+      "sha256": "b99432163847bd868e5611ad06a55054f5f9bc5955353e47f6f55f2bd9612e70"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/final-source/docs/reference/primary-hit-ray-packets-verification.json",
+      "bytes": 48586,
+      "sha256": "3a58314aba840363fa5e4bae561ed229eb6258bb6d874deced67c8db40d70214"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/final-source/e2e/particle-surface-placement.spec.ts",
+      "bytes": 6928,
+      "sha256": "1669dc7b6b1067ff272641b66cda98ae3b7bfd7abd79795fd5f81f9d56bc4645"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/final-source/e2e/primary-hit-ray-packets.spec.ts",
+      "bytes": 10270,
+      "sha256": "8ed6596e429afb9ef74dd8b1034a9d3bedb4e3813d0665677212f2d541d81bb0"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/final-source/package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/final-source/src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/final-source/src/render/leona-eclipse-surface-material.ts",
+      "bytes": 9476,
+      "sha256": "d2c49d481baa708a10eeb7f1af2a0d6b99c529d1c8017bf72475a8e3d3e72a86"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/final-source/src/render/masteryi-primary-hit-particles.ts",
+      "bytes": 5407,
+      "sha256": "b21aafa72f8af0a8c2ec6fa311743b97cbd75a540a12a92a4ad12522c2f21ec5"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/final-source/src/render/masteryi-primary-hits.ts",
+      "bytes": 6410,
+      "sha256": "0617393b4538fa3629fe3e4f7a54bfbd765ed8ef27e4944718b8a72ff984dc27"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/final-source/src/render/particle-unorm8.ts",
+      "bytes": 522,
+      "sha256": "d9606ea6a3afb8df59e76c7968739ccb39c0ade6e021dd9d23b4780c74ac67de"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/final-source/src/render/ray-quad.ts",
+      "bytes": 2245,
+      "sha256": "78e764ac34e34b069c1fa29c4602c41bd8e8cefc4b8f77b7ec41806ced942543"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/final-source/src/render/source-particle-surfaces.ts",
+      "bytes": 23164,
+      "sha256": "6bc159edf82473696ad2ca0477483d15780f9561520862940c6414a9f158b9e4"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/final-source/tools/qa/benchmark-surface-placement.mjs",
+      "bytes": 4504,
+      "sha256": "7115a9b0ea9b2a3c65139be8422d7d906879d03f386a197146f7d1faad9ab60b"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/final-source/tools/qa/lib/particle-surface-placement-fixtures.mjs",
+      "bytes": 5143,
+      "sha256": "cf81ccc42b5e06eed5899d7f6860b4ce3d1f1453a8ba3bea949fc9631e6332ad"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/final-source/tools/qa/lib/prepare-surface-placement-reference.mjs",
+      "bytes": 2343,
+      "sha256": "265ca141ab2cd65881fa64bc9c19206d562939ef582754f8517edc84ffe04265"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/final-source/tools/qa/production-subpath.mjs",
+      "bytes": 30464,
+      "sha256": "68425c70629572add4d8bfb83d3b71e2a4b276c476bd5f1880083659aed7043b"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/ray-placement-scratch/app-identity.json",
+      "bytes": 103,
+      "sha256": "03ed43a17931bfa82d979c7853b4dbacff1e69f5999389444883cfbafc6aff6b"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/archive-checkpoint.py",
+      "bytes": 9490,
+      "sha256": "1af6e0480b152bf3d0da5b93f9e5cf7e69599a09675450bb2a94e0dc6d3087ca"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-benchmark.json",
+      "bytes": 1273,
+      "sha256": "c89594afc2e2eff9e15921393f5358dc57a0a5c9721734bc553d07d5688e13e1"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-benchmark.log",
+      "bytes": 935,
+      "sha256": "96b633f3b3c4407701e7393e5924e1aea6f8b47f64d22b7131f067f1abe2ee96"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-benchmark.mjs",
+      "bytes": 3260,
+      "sha256": "78b98c0f79f98f19b67f392041b1a098ba46ab25fbb60c4c35c50dcc856acf6d"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/masteryi-passive-sword-ord-c4050-pixels-across-camera-angles/passive-sword-gpu-order.json",
+      "bytes": 556,
+      "sha256": "de332e3b109a8efbb9a9dd79e43ab9f2f725ecf2cc5a84e053e5ff8d81c8282a"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/masteryi-primary-hits-all--0c76f-U-mips-and-real-Save-reload/primary-critical-hit.png",
+      "bytes": 794850,
+      "sha256": "bdb395ec3ac3e3caf58d1928c3326eade246dc19069c392419afb6cc234faa4a"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/masteryi-primary-hits-all--0c76f-U-mips-and-real-Save-reload/primary-hit-gpu-save.json",
+      "bytes": 131244,
+      "sha256": "d98ace0dbf583be880235398b8582843861512a0508898e3e66f8be8cddce05b"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/masteryi-primary-hits-each-0e129-its-actual-runtime-material/all-emitter-gpu-pixels.json",
+      "bytes": 1175,
+      "sha256": "2ac0079f2b6e3821002949fd5d62beecb1be24c4778decbbb7d36599731ff37e"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/masteryi-primary-hits-know-90612-t-stays-absent-after-reveal/visibility-corpse-terminal.json",
+      "bytes": 148,
+      "sha256": "4bebc0211c68e04d61d2329fff436b2142698c31a04fb3367643afcf11286e9f"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/masteryi-primary-hits-ordi-2ff62-s-only-the-failed-transport/selective-retry.json",
+      "bytes": 1458,
+      "sha256": "d666533004c6b8f2fffaebd4ac09a32c0a567a791785336e40cbb5c13eb217ce"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/masteryi-sword-instancing--e809a--reducing-actual-draw-calls/instance-pixel-comparison.json",
+      "bytes": 12315,
+      "sha256": "109257cf4e66f108574ca8340e83a0756596739a0ec6ca89d96a1985be1edf80"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/particle-surface-placement-c8003-xels-with-authored-textures/attachments/placement-pixels-json-9a35ef67f3dda3cc05a66b8f4d57c792cc6a45d4.json",
+      "bytes": 14656,
+      "sha256": "a44dd6568932bd5412a00ac52e710e953d506cc9228c4eedcba0212fb54590b1"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/particle-surface-placement-c8003-xels-with-authored-textures/placement-pixels.json",
+      "bytes": 14656,
+      "sha256": "a44dd6568932bd5412a00ac52e710e953d506cc9228c4eedcba0212fb54590b1"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/particle-surface-placement-c8003-xels-with-authored-textures/reference/baseline.mjs",
+      "bytes": 134188,
+      "sha256": "00cf3460e52577dc8063a1f03f451da35a1e3472d1dc80aa47f4be338dd92000"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/particle-surface-placement-c8003-xels-with-authored-textures/reference/reference.json",
+      "bytes": 479,
+      "sha256": "cf8ef4f9ae29c8c24cd50595fa2b2e91efd05a2a179af36ce7a1f5f71dc11099"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/particle-surface-placement-c8003-xels-with-authored-textures/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "b12071ef42645e6ee11c816a1a45841f86af5640ade069b001e9447cf0b1cbcb"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/primary-hit-half-packets-p-19838--with-authored-GPU-textures/quad-packet-pixels.json",
+      "bytes": 6274,
+      "sha256": "24abbd0736c0abf0c37a65ee9a61650f1111a8554cdf10238f04271e231dcc07"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/packet-inputs.json",
+      "bytes": 668,
+      "sha256": "6f8ee6667329abe46a91a2598a9ffbd85ff810c061dc6401bc4786b462220e3d"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/packet-reference.json",
+      "bytes": 600,
+      "sha256": "2deeafb436bfd38d3bcf3eb32840bb6948c2044f2bd5135df8b7d12631e18f46"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/ray-packet-pixels.json",
+      "bytes": 32852,
+      "sha256": "6d0c94d1a5e9b35a6a3e600182655fdc5461620873136ede15fd4a8fb9f353d9"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/baseline.mjs",
+      "bytes": 134188,
+      "sha256": "305d474995ac2fb511a2e77284d6366b9c0f3386cc60b9c29278177c5a453911"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/reference.json",
+      "bytes": 479,
+      "sha256": "2fba32a296897f9dadbdbccb9a6c5689b041693793364746e1eeefab9531510c"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "b12071ef42645e6ee11c816a1a45841f86af5640ade069b001e9447cf0b1cbcb"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-final.log",
+      "bytes": 3684,
+      "sha256": "2c43269b11d946f2d6c6a1ff8d485d38c1338fcd79322bfbea8b5c27e61c5282"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-packed/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-packed/packed-placement-packed-ra-0f4d4-xels-with-authored-textures/attachments/placement-pixels-json-20eb227c48ccba6b9659f0207a63980570829b2e.json",
+      "bytes": 14657,
+      "sha256": "d0629b2a32a0f473b8e8f0ff14745550b0c6fed565a67734ad768306d5cd855d"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-packed/packed-placement-packed-ra-0f4d4-xels-with-authored-textures/placement-pixels.json",
+      "bytes": 14657,
+      "sha256": "d0629b2a32a0f473b8e8f0ff14745550b0c6fed565a67734ad768306d5cd855d"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-packed/packed-placement-packed-ra-0f4d4-xels-with-authored-textures/reference/baseline.mjs",
+      "bytes": 137447,
+      "sha256": "750665dfe3507e5c428f5fbc96b40ce84e921f798631faa88f6724382dc0338a"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-packed/packed-placement-packed-ra-0f4d4-xels-with-authored-textures/reference/reference.json",
+      "bytes": 480,
+      "sha256": "c02bccdf7ba476e6be14d024c61722fbed2ff5e6e3217e2f4ebae620f3618514"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-packed/packed-placement-packed-ra-0f4d4-xels-with-authored-textures/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "86cd768aa884deff961997917a369a794b71089aa5c6f49eaa4d90b06f87ecbd"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-packed.log",
+      "bytes": 575,
+      "sha256": "f43c6686493a7f29471eee8efddb5dc47b0db8e1afe6be2604d0944ee9c556b3"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/browser-runner.log",
+      "bytes": 85,
+      "sha256": "ef8f6effdd644fd62ad786e695e9cd461a52287371f4e4e20c73a41602eb7130"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/build.log",
+      "bytes": 7682,
+      "sha256": "7298f62b1c7dd94df1fa7601311d4d24b027d5d87f853fffb07c88db9619b1b4"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/built-identity.json",
+      "bytes": 256,
+      "sha256": "62a2e19e76664ad8666e6699fd670a1e0d520164d4cc01d2848bfb16adebaa9d"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/export-check.json",
+      "bytes": 3157,
+      "sha256": "7264d46527816b5f421a0593505c7ccbc4b68474cfac4527aea7f5fb23cde263"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/focused.log",
+      "bytes": 380,
+      "sha256": "cdad5fe213420b192a974fb8ee4d4e076e8508858c725cffbf91c96ca72c66ca"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/full-tests.log",
+      "bytes": 4578,
+      "sha256": "fa34c096a659db1c726d380ba8a9a9812b2a16270ef2f87e9c0b5d8b61cf9b23"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-float/candidate.mjs",
+      "bytes": 36203,
+      "sha256": "b2594fa915e194354df36beedc57139aa85701c70e810d02497cb3723b0bee47"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-float/candidate.ts",
+      "bytes": 100,
+      "sha256": "17a0b639cf3ed0e4ef557aa297c883f3dc69e91d9e5e222588ef553f41d15660"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-float/reading.json",
+      "bytes": 1963,
+      "sha256": "b3e220e0c4779965c2e4980375989e4ef1baa3d34dd3ec0d92cbb68d08c65d63"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-float/reference/baseline.mjs",
+      "bytes": 136017,
+      "sha256": "2b9412f066faf5754ec30c428dedb285ae9fd9a529f3074bd829b0d698c5d6f5"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-float/reference/reference.json",
+      "bytes": 415,
+      "sha256": "8727aa83d9b54af509b80a35144e8687f4afb64bd8f76ec7df2faec1bc25a21f"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-float/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "86cd768aa884deff961997917a369a794b71089aa5c6f49eaa4d90b06f87ecbd"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-float.log",
+      "bytes": 1659,
+      "sha256": "32400fc9064b77567c62116aa181c2635c116a8f3fb90d3f2d7da93cf704ebea"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-mixed/candidate.mjs",
+      "bytes": 36203,
+      "sha256": "b2594fa915e194354df36beedc57139aa85701c70e810d02497cb3723b0bee47"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-mixed/candidate.ts",
+      "bytes": 100,
+      "sha256": "17a0b639cf3ed0e4ef557aa297c883f3dc69e91d9e5e222588ef553f41d15660"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-mixed/reading.json",
+      "bytes": 1962,
+      "sha256": "4fe9ad5989932d75d2951590e40c7ddb064e5d9b8641618495372bbb9164d26f"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-mixed/reference/baseline.mjs",
+      "bytes": 136017,
+      "sha256": "f45a9be16ab94f218496d75028b7b6bca55123798a8dea6470588769025d25dd"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-mixed/reference/reference.json",
+      "bytes": 415,
+      "sha256": "c791f077334d360236c71967db351f4181ab45648cd86d6858b5cdc3e110de3e"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-mixed/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "86cd768aa884deff961997917a369a794b71089aa5c6f49eaa4d90b06f87ecbd"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-mixed.log",
+      "bytes": 1658,
+      "sha256": "0dea5a76517cf4c904db844225a956d385e527441236a30a027bc62a2d34ef8f"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-packed/candidate.mjs",
+      "bytes": 36203,
+      "sha256": "b2594fa915e194354df36beedc57139aa85701c70e810d02497cb3723b0bee47"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-packed/candidate.ts",
+      "bytes": 100,
+      "sha256": "17a0b639cf3ed0e4ef557aa297c883f3dc69e91d9e5e222588ef553f41d15660"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-packed/reading.json",
+      "bytes": 1964,
+      "sha256": "16f9cb2aacadf932caea9692ebc51229762890bba08642357da1004fd867261e"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-packed/reference/baseline.mjs",
+      "bytes": 136039,
+      "sha256": "4c90d6c7be880babc78829ba8320a8adb6927f9afb2ff5be4be075ba6fc53059"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-packed/reference/reference.json",
+      "bytes": 416,
+      "sha256": "33430adc7142e2a73ef8add44d9095a30bd5d287d2cff2f074af0c22bec4f73d"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-packed/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "86cd768aa884deff961997917a369a794b71089aa5c6f49eaa4d90b06f87ecbd"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-packed-final/candidate.mjs",
+      "bytes": 36203,
+      "sha256": "b2594fa915e194354df36beedc57139aa85701c70e810d02497cb3723b0bee47"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-packed-final/candidate.ts",
+      "bytes": 100,
+      "sha256": "17a0b639cf3ed0e4ef557aa297c883f3dc69e91d9e5e222588ef553f41d15660"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-packed-final/reading.json",
+      "bytes": 1969,
+      "sha256": "612a233808afd050dfb44424a53542aec347ff3808f3144bc00e2ccc143bbc10"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-packed-final/reference/baseline.mjs",
+      "bytes": 136171,
+      "sha256": "1aa1a25d210d2f5781e2eb97b65dae4d9616f515bf556257dc24ae56b75d7501"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-packed-final/reference/reference.json",
+      "bytes": 422,
+      "sha256": "eaadf5169cbb766bcf36654e77499ba2e1b830663e5f202c627534bc120ec40e"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-packed-final/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "86cd768aa884deff961997917a369a794b71089aa5c6f49eaa4d90b06f87ecbd"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-packed-final.log",
+      "bytes": 1665,
+      "sha256": "a6845ecc99d340ce80f87c78033386d0550021fca64225236d7caf19476ce3a9"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-packed.log",
+      "bytes": 1660,
+      "sha256": "81079de14ebea5f5de8f83a5091b832495ea30a76262f09dd4f897a320c8f556"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/node-qa.log",
+      "bytes": 659,
+      "sha256": "f375802f6792d0e4f6f10458a22e3345ccf27a8aa7209c7e4c0746dab88e96af"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/packed-placement.spec.ts",
+      "bytes": 7095,
+      "sha256": "bf983b41cbcaa3a91c4cd1113d4afae02bca452bd49564556e7ab7df92709e61"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1814035,
+      "sha256": "25039663b16d5265acd50cbeb40e839a6f33baec5b5f218c586ee1b0a3254944"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835722,
+      "sha256": "2b76a8045ece04d23a21c70ce83402310fc95125ae928eca157cd00bdeb41407"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1831656,
+      "sha256": "1b0722d977747ebb8cd48b04b0d2b0b2ed6a5da9fd3a0f3f6240d78461bb053d"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1811530,
+      "sha256": "97b8f50f2bd731cfab70c5e8ea5173582e383785907a6a5ac87815df763bce2d"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1819792,
+      "sha256": "47d233889a3a09aff9d989b23ae37664a90ff16159ad11667baa8c08bfdf3425"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1351500,
+      "sha256": "dd1cd40ebee6a9a150997079e60f9d53136596b7e16536e75a397e41d48013b9"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1826245,
+      "sha256": "52057bd58f7011d51d635a9ca6fcadfcecf09697bc1059bb1d6439e1115cb1ae"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808814,
+      "sha256": "955c373dd717e16563f7df3a1ee2554a0a1f65d6c19ba46d238c2f0647c9dff1"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/production-runner.log",
+      "bytes": 48,
+      "sha256": "7bf7f67cc0a81dc82f3e3f358a10769ac8b0395cc4094b78d3ab87ed28527a3c"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/production-summary.json",
+      "bytes": 3191,
+      "sha256": "2dbfd545aebdb6aa0081e70f472466ead471271e6426aab261715797f82706af"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/production-system.mjs",
+      "bytes": 30506,
+      "sha256": "83265d55f3e6e2d817e9e75fb02cce522f5d180558a305fd95d3d8e8dbf6df2a"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/production.log",
+      "bytes": 2852,
+      "sha256": "3a43a61a46c1083171afc098905a070204ecf85c4ad7711bbae93d93d22a77ac"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/run-browser.py",
+      "bytes": 943,
+      "sha256": "f15030bcfd96323355040abd67e673f56d64f102a6d40b04423064597c28551e"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/run-production.py",
+      "bytes": 835,
+      "sha256": "eae40ddd77f26d35fd46dc82e0801add8e881039438fea550126d2adb8c98c92"
+    },
+    {
+      "path": ".cache/ray-placement-scratch/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

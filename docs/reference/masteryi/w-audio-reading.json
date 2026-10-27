@@ -1,0 +1,380 @@
+{
+  "format": 1,
+  "characterSource": {
+    "path": "docs/reference/masteryi/character.json",
+    "sha256": "3f100c1148e1006766060822298c87aed02e86e359c385fbc2c248e4255d12fa"
+  },
+  "particleSourceSha256": "f2b3e3cc1759b39b8a08d75a15a43649fecaa5a60c16392eff6893935e9a6517",
+  "finiteTailTicks": {
+    "cast": 151,
+    "deactivate": 155
+  },
+  "audioGraphSha256": "b7879c088d3544626d70c9ecaf4abfd0aebae007db5a6ee841c0caed7a2b33e3",
+  "decodedRecordSha256": "28ac362788bb76709a226e76d282eb25a1805a474b9bc7348cedd59bbee33a32",
+  "rawSpellSuffixes": {
+    "12": "Play_sfx_MasterYi_Meditate_OnCast\n",
+    "18": "Stop_sfx_MasterYi_Meditate_OnBuffActivate\n",
+    "19": "Play_sfx_MasterYi_Meditate_OnBuffDeactivate\n"
+  },
+  "particleOnCreateBindings": [
+    {
+      "system": "MasterYi_W_Tenacity",
+      "present": false
+    },
+    {
+      "system": "MasterYi_W_Buf",
+      "present": false
+    },
+    {
+      "system": "MasterYi_W_Cas",
+      "present": false
+    },
+    {
+      "system": "MasterYi_W_Dmg",
+      "present": false
+    }
+  ],
+  "profiles": [
+    {
+      "kind": "cast",
+      "layer": 0,
+      "eventName": "Play_sfx_MasterYi_Meditate_OnCast",
+      "eventId": 1993359075,
+      "actionId": 564507745,
+      "containerId": 9222,
+      "gainDb": -9,
+      "policy": {
+        "eMode": 0,
+        "eRandomMode": 1,
+        "wAvoidRepeatCount": 0,
+        "bResetPlayListAtEachPlay": 1,
+        "bIsGlobal": 1,
+        "bIsContinuous": 0,
+        "_bIsUsingWeight": 0,
+        "u16MaxNumInstance": 2,
+        "bKillNewest": 0,
+        "sLoopCount": 1,
+        "sLoopModMin": 0,
+        "sLoopModMax": 0,
+        "eTransitionMode": 0
+      },
+      "actionProperties": {},
+      "fadeCurve": 4,
+      "variants": [
+        {
+          "id": 637673445,
+          "soundId": 478738253,
+          "privatePath": ".cache/masteryi-audio-decoded/637673445.wav",
+          "wavSha256": "4fe29a56a697d4e40342e7bcda7aea6d6e148e3a3e4e1f57c1e5bcff0f06dcf3",
+          "pcmSha256": "fc6faa3f8b62bb465a5410452503205023eaf69336ddb3a1c980a25fe334795c",
+          "wavBytes": 441644,
+          "frames": 110400,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 2.503401360544218,
+          "peak": 1.110612154006958,
+          "leafProperties": {},
+          "encodedLoopingInfo": null
+        }
+      ]
+    },
+    {
+      "kind": "deactivate",
+      "layer": 0,
+      "eventName": "Play_sfx_MasterYi_Meditate_OnBuffDeactivate",
+      "eventId": 3001880735,
+      "actionId": 521497891,
+      "containerId": 9224,
+      "gainDb": -13,
+      "policy": {
+        "eMode": 0,
+        "eRandomMode": 1,
+        "wAvoidRepeatCount": 0,
+        "bResetPlayListAtEachPlay": 1,
+        "bIsGlobal": 1,
+        "bIsContinuous": 0,
+        "_bIsUsingWeight": 0,
+        "u16MaxNumInstance": 4,
+        "bKillNewest": 0,
+        "sLoopCount": 1,
+        "sLoopModMin": 0,
+        "sLoopModMax": 0,
+        "eTransitionMode": 0
+      },
+      "actionProperties": {},
+      "fadeCurve": 4,
+      "variants": [
+        {
+          "id": 584858889,
+          "soundId": 141286740,
+          "privatePath": ".cache/masteryi-audio-decoded/584858889.wav",
+          "wavSha256": "f8235368bf886192e3e8a5a87b62405cd65361480c247e9edf1c8001448c135c",
+          "pcmSha256": "4b24affb6997e63d57143bd34b5fe4e9b812e484ca7ae0a69571bd14abcbda98",
+          "wavBytes": 454256,
+          "frames": 113553,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 2.5748979591836734,
+          "peak": 1.0251330137252808,
+          "leafProperties": {},
+          "encodedLoopingInfo": null
+        }
+      ]
+    },
+    {
+      "kind": "unbound-activate",
+      "layer": 0,
+      "eventName": "Play_sfx_MasterYi_Meditate_OnBuffActivate",
+      "eventId": 705762910,
+      "actionId": 220196976,
+      "containerId": 9223,
+      "gainDb": -12,
+      "policy": {
+        "eMode": 0,
+        "eRandomMode": 1,
+        "wAvoidRepeatCount": 0,
+        "bResetPlayListAtEachPlay": 1,
+        "bIsGlobal": 1,
+        "bIsContinuous": 0,
+        "_bIsUsingWeight": 0,
+        "u16MaxNumInstance": 4,
+        "bKillNewest": 0,
+        "sLoopCount": 1,
+        "sLoopModMin": 0,
+        "sLoopModMax": 0,
+        "eTransitionMode": 0
+      },
+      "actionProperties": {
+        "TransitionTime": 2000
+      },
+      "fadeCurve": 5,
+      "variants": [
+        {
+          "id": 610915723,
+          "soundId": 666860738,
+          "privatePath": ".cache/masteryi-audio-decoded/610915723.wav",
+          "wavSha256": "6c55003fad1cd2dbbf0eb25a738684031d11c529993284cff7166c9748f35ab6",
+          "pcmSha256": "1672780edc473914ca03ab941fb11ce428a8afb48368a364d2f81691d2533f0d",
+          "wavBytes": 463100,
+          "frames": 115764,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 2.625034013605442,
+          "peak": 0.8894200325012207,
+          "leafProperties": {
+            "Loop": 0.0
+          },
+          "encodedLoopingInfo": null
+        }
+      ]
+    },
+    {
+      "kind": "unbound-activate",
+      "layer": 1,
+      "eventName": "Play_sfx_MasterYi_Meditate_OnBuffActivate",
+      "eventId": 705762910,
+      "actionId": 429719545,
+      "containerId": 449614214,
+      "gainDb": -19,
+      "policy": {
+        "eMode": 0,
+        "eRandomMode": 1,
+        "wAvoidRepeatCount": 0,
+        "bResetPlayListAtEachPlay": 1,
+        "bIsGlobal": 1,
+        "bIsContinuous": 0,
+        "_bIsUsingWeight": 0,
+        "u16MaxNumInstance": 4,
+        "bKillNewest": 0,
+        "sLoopCount": 1,
+        "sLoopModMin": 0,
+        "sLoopModMax": 0,
+        "eTransitionMode": 0
+      },
+      "actionProperties": {
+        "TransitionTime": 2000
+      },
+      "fadeCurve": 5,
+      "variants": [
+        {
+          "id": 795081856,
+          "soundId": 100633668,
+          "privatePath": ".cache/masteryi-audio-decoded/795081856.wav",
+          "wavSha256": "dff073865b97e6599bafe32a7070a55e261c20aa70572c9978e03b29ca709667",
+          "pcmSha256": "e730ff17c9fa5637ad35955ed952e314ce7792ee9e425976eaabdb9634ebc1c2",
+          "wavBytes": 437228,
+          "frames": 109296,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 2.4783673469387755,
+          "peak": 0.9238690733909607,
+          "leafProperties": {
+            "Loop": 0.0
+          },
+          "encodedLoopingInfo": null
+        },
+        {
+          "id": 501197314,
+          "soundId": 306747173,
+          "privatePath": ".cache/masteryi-audio-decoded/501197314.wav",
+          "wavSha256": "72291527b402c547b50395a030230cf5b95446ea7226f02bacbbd24aa3f56667",
+          "pcmSha256": "64da38041659ae93c335ceb8e656ffed9f793eaad582ca77d75c391f5f4ac7ac",
+          "wavBytes": 454072,
+          "frames": 113507,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 2.573854875283447,
+          "peak": 0.8549147844314575,
+          "leafProperties": {
+            "Loop": 0.0
+          },
+          "encodedLoopingInfo": null
+        }
+      ]
+    },
+    {
+      "kind": "unbound-foley",
+      "layer": 0,
+      "eventName": "Play_sfx_MasterYi_Meditate_foley",
+      "eventId": 3748379910,
+      "actionId": 1002732503,
+      "containerId": 242685979,
+      "gainDb": -10,
+      "policy": {
+        "eMode": 0,
+        "eRandomMode": 1,
+        "wAvoidRepeatCount": 0,
+        "bResetPlayListAtEachPlay": 1,
+        "bIsGlobal": 1,
+        "bIsContinuous": 0,
+        "_bIsUsingWeight": 0,
+        "u16MaxNumInstance": 1,
+        "bKillNewest": 0,
+        "sLoopCount": 1,
+        "sLoopModMin": 0,
+        "sLoopModMax": 0,
+        "eTransitionMode": 0
+      },
+      "actionProperties": {},
+      "fadeCurve": 4,
+      "variants": [
+        {
+          "id": 136213286,
+          "soundId": 553860281,
+          "privatePath": ".cache/masteryi-audio-decoded/136213286.wav",
+          "wavSha256": "33c2bec0c099ebf035a18d2809aeaf1b80df046b89fd377229ec792cb07228c9",
+          "pcmSha256": "6e35f464d2a6fe2592b3ff929bc96550f2f83a76afe00373f680ecc67f6815fa",
+          "wavBytes": 123352,
+          "frames": 30827,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.6990249433106576,
+          "peak": 0.9212883710861206,
+          "leafProperties": {},
+          "encodedLoopingInfo": null
+        }
+      ]
+    }
+  ],
+  "stops": [
+    {
+      "eventName": "Stop_sfx_MasterYi_Meditate_OnBuffActivate",
+      "eventId": 414825484,
+      "actionId": 282436744,
+      "targetContainerId": 449614214,
+      "properties": {
+        "TransitionTime": 500
+      },
+      "parameters": {
+        "ulActionType": 259,
+        "eFadeCurve": 4,
+        "bIsBus": 0,
+        "bApplyToStateTransitions": 1,
+        "bApplyToDynamicSequence": 1,
+        "ulExceptionListSize": 0
+      },
+      "targetNodes": [
+        100633668,
+        306747173,
+        449614214
+      ],
+      "affectedMediaIds": [
+        501197314,
+        795081856
+      ]
+    },
+    {
+      "eventName": "Stop_sfx_MasterYi_Meditate_OnBuffActivate",
+      "eventId": 414825484,
+      "actionId": 29521780,
+      "targetContainerId": 9223,
+      "properties": {
+        "TransitionTime": 500
+      },
+      "parameters": {
+        "ulActionType": 259,
+        "eFadeCurve": 4,
+        "bIsBus": 0,
+        "bApplyToStateTransitions": 1,
+        "bApplyToDynamicSequence": 1,
+        "ulExceptionListSize": 0
+      },
+      "targetNodes": [
+        9223,
+        666860738
+      ],
+      "affectedMediaIds": [
+        610915723
+      ]
+    }
+  ],
+  "attenuation": {
+    "id": 339248780,
+    "scaling": 2,
+    "unresolvedOutputBusId": 1259461568,
+    "priority": 60,
+    "points": [
+      {
+        "distance": 0.0,
+        "storedValue": 0.0,
+        "interpolation": 9
+      },
+      {
+        "distance": 1750.0,
+        "storedValue": 0.0,
+        "interpolation": 2
+      },
+      {
+        "distance": 2000.0,
+        "storedValue": -0.7488113641738892,
+        "interpolation": 2
+      },
+      {
+        "distance": 2300.0,
+        "storedValue": -0.93690425157547,
+        "interpolation": 2
+      },
+      {
+        "distance": 2750.0,
+        "storedValue": -1.0,
+        "interpolation": 9
+      },
+      {
+        "distance": 3000.0,
+        "storedValue": -1.0,
+        "interpolation": 4
+      }
+    ]
+  },
+  "media": 6,
+  "wavBytes": 2373652,
+  "peaksAboveOne": 2,
+  "peak": 1.110612154006958,
+  "limits": [
+    "Source-only audit; no public media, runtime dispatch, state/schema or app identity changes.",
+    "Slot18 binds Stop, not Play. The bank Play activation event and foley have no binding in these retained spell/particle declarations. Native script/animation callbacks remain unverified.",
+    "Three leaves explicitly author Loop=0 while encoded files omit loop-point metadata. Keep Wwise playback policy separate from source float masters; no loop expansion or seam repair.",
+    "Two activation play actions retain 2000ms SCurve transitions; two object stop actions retain 500ms linear transitions. No linear fade substitutes the source curve.",
+    "Headroom above one is retained without normalization, clipping, resampling or mixing. No native bus/listening certificate."
+  ]
+}

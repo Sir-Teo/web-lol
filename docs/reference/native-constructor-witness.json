@@ -1,0 +1,779 @@
+{
+  "format": 1,
+  "native": {
+    "path": ".cache/leona-native-matching-v1-20261024/native/LeagueofLegends.app/Contents/MacOS/LeagueofLegends",
+    "bytes": 82268192,
+    "sha256": "97edcf2c88fec3169a1ec36345276569de3329e27fd9b32c8162957a77135c6c",
+    "architecture": {
+      "architecture": "arm64",
+      "cpuType": 16777228,
+      "cpuSubtype": 0,
+      "offset": 42663936,
+      "bytes": 39604256,
+      "alignPower": 14,
+      "magic": "FEEDFACF",
+      "fileType": 2,
+      "loadCommands": 45,
+      "loadCommandBytes": 5920,
+      "flags": 10518661,
+      "reserved": 0,
+      "sha256": "18c6f615d1963d7062f4133fab351dc4550ce460e869c76f5c8604627f349885"
+    }
+  },
+  "inputPins": [
+    {
+      "path": "docs/reference/leona-native-emitter-defaults.json",
+      "sha256": "17bf7879489412c1f28b9a36a46fc15668cd40d7ad76ceb5e3a2d32893ea051e"
+    },
+    {
+      "path": "docs/reference/leona-native-bin-loader.json",
+      "sha256": "2488eba52b75e2c61f36fdd960311a490092bbfd64190f0cc688ad06e27650c6"
+    },
+    {
+      "path": "tools/assets/verify-leona-native-particle-bindings.py",
+      "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+    }
+  ],
+  "sections": [
+    {
+      "name": "__text",
+      "segment": "__TEXT",
+      "address": 4295015272,
+      "bytes": 33503480,
+      "offset": 47976,
+      "flags": 2147484672
+    },
+    {
+      "name": "__stubs",
+      "segment": "__TEXT",
+      "address": 4328518752,
+      "bytes": 7428,
+      "offset": 33551456,
+      "flags": 2147484680
+    },
+    {
+      "name": "__stub_helper",
+      "segment": "__TEXT",
+      "address": 4328526180,
+      "bytes": 7452,
+      "offset": 33558884,
+      "flags": 2147484672
+    },
+    {
+      "name": "__objc_stubs",
+      "segment": "__TEXT",
+      "address": 4328533632,
+      "bytes": 9248,
+      "offset": 33566336,
+      "flags": 2147484672
+    },
+    {
+      "name": "__objc_methlist",
+      "segment": "__TEXT",
+      "address": 4328542880,
+      "bytes": 1584,
+      "offset": 33575584,
+      "flags": 0
+    },
+    {
+      "name": "__gcc_except_tab",
+      "segment": "__TEXT",
+      "address": 4328544464,
+      "bytes": 1073712,
+      "offset": 33577168,
+      "flags": 0
+    },
+    {
+      "name": "__const",
+      "segment": "__TEXT",
+      "address": 4329618176,
+      "bytes": 1189880,
+      "offset": 34650880,
+      "flags": 0
+    },
+    {
+      "name": "__cstring",
+      "segment": "__TEXT",
+      "address": 4330808056,
+      "bytes": 553098,
+      "offset": 35840760,
+      "flags": 2
+    },
+    {
+      "name": "__ustring",
+      "segment": "__TEXT",
+      "address": 4331361154,
+      "bytes": 350,
+      "offset": 36393858,
+      "flags": 0
+    },
+    {
+      "name": "__objc_methname",
+      "segment": "__TEXT",
+      "address": 4331361504,
+      "bytes": 12420,
+      "offset": 36394208,
+      "flags": 2
+    },
+    {
+      "name": "__objc_classname",
+      "segment": "__TEXT",
+      "address": 4331373924,
+      "bytes": 217,
+      "offset": 36406628,
+      "flags": 2
+    },
+    {
+      "name": "__objc_methtype",
+      "segment": "__TEXT",
+      "address": 4331374141,
+      "bytes": 4879,
+      "offset": 36406845,
+      "flags": 2
+    },
+    {
+      "name": "__unwind_info",
+      "segment": "__TEXT",
+      "address": 4331379020,
+      "bytes": 642992,
+      "offset": 36411724,
+      "flags": 0
+    },
+    {
+      "name": "__eh_frame",
+      "segment": "__TEXT",
+      "address": 4332022016,
+      "bytes": 5860,
+      "offset": 37054720,
+      "flags": 0
+    },
+    {
+      "name": "__got",
+      "segment": "__DATA_CONST",
+      "address": 4332027904,
+      "bytes": 648,
+      "offset": 37060608,
+      "flags": 6
+    },
+    {
+      "name": "__mod_init_func",
+      "segment": "__DATA_CONST",
+      "address": 4332028552,
+      "bytes": 7264,
+      "offset": 37061256,
+      "flags": 9
+    },
+    {
+      "name": "__const",
+      "segment": "__DATA_CONST",
+      "address": 4332035824,
+      "bytes": 1682432,
+      "offset": 37068528,
+      "flags": 0
+    },
+    {
+      "name": "__cfstring",
+      "segment": "__DATA_CONST",
+      "address": 4333718256,
+      "bytes": 768,
+      "offset": 38750960,
+      "flags": 0
+    },
+    {
+      "name": "__objc_classlist",
+      "segment": "__DATA_CONST",
+      "address": 4333719024,
+      "bytes": 80,
+      "offset": 38751728,
+      "flags": 268435456
+    },
+    {
+      "name": "__objc_protolist",
+      "segment": "__DATA_CONST",
+      "address": 4333719104,
+      "bytes": 32,
+      "offset": 38751808,
+      "flags": 0
+    },
+    {
+      "name": "__objc_imageinfo",
+      "segment": "__DATA_CONST",
+      "address": 4333719136,
+      "bytes": 8,
+      "offset": 38751840,
+      "flags": 0
+    },
+    {
+      "name": "__la_symbol_ptr",
+      "segment": "__DATA",
+      "address": 4333731840,
+      "bytes": 4952,
+      "offset": 38764544,
+      "flags": 7
+    },
+    {
+      "name": "__objc_const",
+      "segment": "__DATA",
+      "address": 4333736792,
+      "bytes": 7520,
+      "offset": 38769496,
+      "flags": 0
+    },
+    {
+      "name": "__objc_selrefs",
+      "segment": "__DATA",
+      "address": 4333744312,
+      "bytes": 3056,
+      "offset": 38777016,
+      "flags": 268435461
+    },
+    {
+      "name": "__objc_classrefs",
+      "segment": "__DATA",
+      "address": 4333747368,
+      "bytes": 344,
+      "offset": 38780072,
+      "flags": 268435456
+    },
+    {
+      "name": "__objc_superrefs",
+      "segment": "__DATA",
+      "address": 4333747712,
+      "bytes": 24,
+      "offset": 38780416,
+      "flags": 268435456
+    },
+    {
+      "name": "__objc_ivar",
+      "segment": "__DATA",
+      "address": 4333747736,
+      "bytes": 128,
+      "offset": 38780440,
+      "flags": 0
+    },
+    {
+      "name": "__objc_data",
+      "segment": "__DATA",
+      "address": 4333747864,
+      "bytes": 800,
+      "offset": 38780568,
+      "flags": 0
+    },
+    {
+      "name": "__data",
+      "segment": "__DATA",
+      "address": 4333748672,
+      "bytes": 142456,
+      "offset": 38781376,
+      "flags": 0
+    },
+    {
+      "name": "__thread_vars",
+      "segment": "__DATA",
+      "address": 4333891128,
+      "bytes": 288,
+      "offset": 38923832,
+      "flags": 19
+    },
+    {
+      "name": "crashpad_info",
+      "segment": "__DATA",
+      "address": 4333891416,
+      "bytes": 56,
+      "offset": 38924120,
+      "flags": 0
+    },
+    {
+      "name": "__thread_data",
+      "segment": "__DATA",
+      "address": 4333891472,
+      "bytes": 1,
+      "offset": 38924176,
+      "flags": 17
+    },
+    {
+      "name": "__thread_bss",
+      "segment": "__DATA",
+      "address": 4333891480,
+      "bytes": 288,
+      "offset": 0,
+      "flags": 18
+    },
+    {
+      "name": "__common",
+      "segment": "__DATA",
+      "address": 4333891776,
+      "bytes": 93032,
+      "offset": 0,
+      "flags": 1
+    },
+    {
+      "name": "__bss",
+      "segment": "__DATA",
+      "address": 4333984816,
+      "bytes": 858184,
+      "offset": 0,
+      "flags": 1
+    }
+  ],
+  "functionStarts": {
+    "offset": 39006176,
+    "bytes": 233544,
+    "sha256": "499634e01a146b84c2c1fc7e3fe2e8bf973f6e66b222abe0d01bcf28bd5dfd04",
+    "count": 173303,
+    "declaredBounds": [
+      {
+        "kind": "constructor",
+        "start": "0x1018c10b4",
+        "next": "0x1018c1e24"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x10192612c",
+        "next": "0x101926160"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x101926190",
+        "next": "0x1019261b0"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x1018ae388",
+        "next": "0x1018ae45c"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x1018c320c",
+        "next": "0x1018c39d0"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x1018ac500",
+        "next": "0x1018ac540"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x10006c3e0",
+        "next": "0x10006c41c"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x10007e314",
+        "next": "0x10007e350"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x10169ebe8",
+        "next": "0x10169ec4c"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x10169ec4c",
+        "next": "0x10169edc0"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x10188ee40",
+        "next": "0x10188fc5c"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x101893400",
+        "next": "0x101893784"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x1018befb0",
+        "next": "0x1018bf16c"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x101917da8",
+        "next": "0x1019180d4"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x1018ac82c",
+        "next": "0x1018acc54"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x10190fdd8",
+        "next": "0x10190fddc"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x10190fddc",
+        "next": "0x10190fdf0"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x10190fdf0",
+        "next": "0x10190fdfc"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x10190fdfc",
+        "next": "0x10190fe54"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x10190fe54",
+        "next": "0x10190fe5c"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x10190fe5c",
+        "next": "0x10190fe64"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x10190fe64",
+        "next": "0x10190fe6c"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x10190fe6c",
+        "next": "0x10190fe74"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x1018c10a8",
+        "next": "0x1018c10b4"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x1018aaf9c",
+        "next": "0x1018abee4"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x1018d7e08",
+        "next": "0x1018d7f34"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x101925434",
+        "next": "0x101925474"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x101925474",
+        "next": "0x101925490"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x101925490",
+        "next": "0x101925494"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x101925494",
+        "next": "0x101925498"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x101925498",
+        "next": "0x101925524"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x10193aadc",
+        "next": "0x10193ab0c"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x10193ab0c",
+        "next": "0x10193ab20"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x10193ab20",
+        "next": "0x10193ab3c"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x10193ab3c",
+        "next": "0x10193ab48"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x10193ab48",
+        "next": "0x10193ab54"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x10169e674",
+        "next": "0x10169e888"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x1018ac310",
+        "next": "0x1018ac350"
+      },
+      {
+        "kind": "constructor",
+        "start": "0x10006a1b0",
+        "next": "0x10006a1ec"
+      },
+      {
+        "kind": "loader",
+        "start": "0x1016a50fc",
+        "next": "0x1016a5264"
+      },
+      {
+        "kind": "loader",
+        "start": "0x1016a5264",
+        "next": "0x1016a552c"
+      },
+      {
+        "kind": "loader",
+        "start": "0x1016a49bc",
+        "next": "0x1016a4b34"
+      },
+      {
+        "kind": "loader",
+        "start": "0x10169e414",
+        "next": "0x10169e62c"
+      },
+      {
+        "kind": "loader",
+        "start": "0x1016a552c",
+        "next": "0x1016a575c"
+      }
+    ],
+    "historicalLlvmTextReverified": false
+  },
+  "verifiedInlineSpans": [
+    {
+      "kind": "constructor",
+      "name": "emitter-registration",
+      "address": "0x1018aafac",
+      "bytes": 80,
+      "sha256": "ef6399bd01536e3170725ffc75feb95aff171c7156c7a40bc2549b485718d432"
+    },
+    {
+      "kind": "constructor",
+      "name": "camera-type-registration",
+      "address": "0x1018d7e08",
+      "bytes": 128,
+      "sha256": "dfbc2440b34c1b06b76e0430c79310534bcf3cfd6aaf97899024cc4efab7705e"
+    },
+    {
+      "kind": "constructor",
+      "name": "arbitrary-type-registration",
+      "address": "0x101945bec",
+      "bytes": 80,
+      "sha256": "b5f140ef5f239ea9a4735131d676ea941794bbd4d628528da119e7c48b9d50ab"
+    },
+    {
+      "kind": "constructor",
+      "name": "planar-type-registration",
+      "address": "0x101945f4c",
+      "bytes": 80,
+      "sha256": "1e9982a0c331e76fda3cefb6bb4641f26aeefa0385e190114e3bc0913685ea33"
+    },
+    {
+      "kind": "constructor",
+      "name": "emitter-default-camera-and-resource",
+      "address": "0x1018ac82c",
+      "bytes": 208,
+      "sha256": "478fffa0a482815a433ab2995f7c88267669914d35360721f588d011185958d9"
+    },
+    {
+      "kind": "constructor",
+      "name": "emitter-allocating-callback",
+      "address": "0x101925434",
+      "bytes": 104,
+      "sha256": "5031182b06758a53d4bfbc43210b4738774178db87b7834518aa467db6465f3f"
+    },
+    {
+      "kind": "constructor",
+      "name": "camera-factory-and-inplace-callbacks",
+      "address": "0x10193aadc",
+      "bytes": 120,
+      "sha256": "77db81ed4162724669898439f8f474c3b98b0ef3a433c0255aff3d09388bc093"
+    },
+    {
+      "kind": "constructor",
+      "name": "type-descriptor-storage",
+      "address": "0x10169e69c",
+      "bytes": 56,
+      "sha256": "104cc66ec13214f972dcdab4707a085e05992f92332cdc01d19b5df82b2e68a7"
+    },
+    {
+      "kind": "constructor",
+      "name": "field-descriptor-storage",
+      "address": "0x10169ed2c",
+      "bytes": 104,
+      "sha256": "b43c59bb9ce53d6d5e039b2b4197be43ab7b349db16f120b7375978a5832f36a"
+    },
+    {
+      "kind": "constructor",
+      "name": "distortion-descriptor-initializer",
+      "address": "0x101941760",
+      "bytes": 300,
+      "sha256": "d3af1faef7871b3e36d088ce531f1cdccd91faa4c7af4d33a67894fca70ee07f"
+    },
+    {
+      "kind": "constructor",
+      "name": "distortion-wrapper",
+      "address": "0x1018ac500",
+      "bytes": 64,
+      "sha256": "4c25b0f4c2c4537691a9c80d5629b9c37448032ee348135f8e42a58be2437192"
+    },
+    {
+      "kind": "constructor",
+      "name": "old-distortion-field-consumer",
+      "address": "0x10188f168",
+      "bytes": 92,
+      "sha256": "6125d4d8fa0e4dbf2efcad7995fd097efe10cb9b909eb4236ea78f3a84f97286"
+    },
+    {
+      "kind": "constructor",
+      "name": "new-distortion-field-consumer",
+      "address": "0x1018c13b4",
+      "bytes": 80,
+      "sha256": "3e4c761245bbefb1464c0b0750d05fc8a18dae2f914ab04a383430b9f790ecc0"
+    },
+    {
+      "kind": "constructor",
+      "name": "old-base-resource-call",
+      "address": "0x10188f62c",
+      "bytes": 40,
+      "sha256": "0e1581b3320ee98c9882bcc7122e650f46edeb97bd95155108c48bf2d2e3ad00"
+    },
+    {
+      "kind": "constructor",
+      "name": "old-base-resource-fallback",
+      "address": "0x1018935cc",
+      "bytes": 156,
+      "sha256": "5447ae36695eccc70974f0a0b9a26a99f03f02508ddcf9450929844dbc719c93"
+    },
+    {
+      "kind": "constructor",
+      "name": "VfxEmitterDefinitionData.primitive",
+      "address": "0x1018ab590",
+      "bytes": 24,
+      "sha256": "5f3a5500940827b0ae8383bd789c60f2409c9bb29ea3fb0b8819ff50d2439dae"
+    },
+    {
+      "kind": "constructor",
+      "name": "VfxEmitterDefinitionData.texture",
+      "address": "0x1018abc3c",
+      "bytes": 24,
+      "sha256": "c5e180f33284be5afe25fb6a6da3a980eddb86e82bbd377f82f26f9079207e97"
+    },
+    {
+      "kind": "constructor",
+      "name": "VfxEmitterDefinitionData.alphaRef",
+      "address": "0x1018ab6c4",
+      "bytes": 24,
+      "sha256": "96b9a53e2642afd0a6965c45a141528cfc634bd9f3eb42c00a75835646639ca9"
+    },
+    {
+      "kind": "constructor",
+      "name": "VfxEmitterDefinitionData.distortionDefinition",
+      "address": "0x1018ab7c0",
+      "bytes": 24,
+      "sha256": "b236bd0af934095ae891eac7e17cb5d04c28c7052510f65980fa50e2013d036f"
+    },
+    {
+      "kind": "constructor",
+      "name": "VfxLegacyRenderComponent.distortionDefinition",
+      "address": "0x1018c3488",
+      "bytes": 24,
+      "sha256": "777276e49f480c96902c84db2b8a89ad684692c2dd93ac4892b9f06453bcacdb"
+    },
+    {
+      "kind": "constructor",
+      "name": "VfxDistortionDefinitionData.distortion",
+      "address": "0x1018ae3e4",
+      "bytes": 24,
+      "sha256": "4d0f508c1bd6a909a69ff05ccb8cf27bbc5733e6ab70cf2e9df44833c910fd3b"
+    },
+    {
+      "kind": "constructor",
+      "name": "VfxDistortionDefinitionData.normalMapTexture",
+      "address": "0x1018ae41c",
+      "bytes": 24,
+      "sha256": "31576b0e37452dae0ae80f29a72fbce70e62b6e6c881a2df3c32986d59bcf1ef"
+    },
+    {
+      "kind": "loader",
+      "name": "0x1016a50fc",
+      "address": "0x1016a50fc",
+      "bytes": 360,
+      "sha256": "815ef5db30460964fe7ff4b1932adb62250226b7a8f960c03ae2d28ed2f925aa"
+    },
+    {
+      "kind": "loader",
+      "name": "0x1016a5264",
+      "address": "0x1016a5264",
+      "bytes": 712,
+      "sha256": "89d3dafed7f18dcf69b9468d426daecbf622218a310c679ef880fcf4d99cedee"
+    },
+    {
+      "kind": "loader",
+      "name": "0x1016a49bc",
+      "address": "0x1016a49bc",
+      "bytes": 376,
+      "sha256": "b00d5854aca323e8b5f2dccad651da47467b55f0137a28f4cc1e31c189e327eb"
+    },
+    {
+      "kind": "loader",
+      "name": "0x10169e414",
+      "address": "0x10169e414",
+      "bytes": 536,
+      "sha256": "a328ecce87ac4acb98fe2b7539d61f9ce3d8418a91752834558621b3acb9d017"
+    },
+    {
+      "kind": "loader",
+      "name": "0x1016a552c",
+      "address": "0x1016a552c",
+      "bytes": 560,
+      "sha256": "3224922db6136905216a2c56bfeffbafea2e27e9da0cbb0084eff9ad71050fa2"
+    },
+    {
+      "kind": "loader",
+      "name": "0x10212b6f8",
+      "address": "0x10212b6f8",
+      "bytes": 8,
+      "sha256": "74df925c12c232cb377f28dc1941fb813d299f0693137c64b133c49c1d0ee236"
+    }
+  ],
+  "checks": {
+    "inlineSpans": 28,
+    "exactWords": 73,
+    "directBranches": 20,
+    "typeRegistrations": 6,
+    "fieldRegistrations": 7,
+    "functionStarts": 173303,
+    "declaredFunctionBounds": 44
+  },
+  "constructorDefaults": {
+    "primitive": {
+      "candidate": "VfxPrimitiveCameraQuad",
+      "kindByte": 0,
+      "objectBytes": 24,
+      "definitionPointerOffset": 96,
+      "vptr": "0x102481ef8"
+    },
+    "texture": {
+      "definitionOffset": 152,
+      "value": "",
+      "stringAddress": "0x102230369"
+    },
+    "alphaRef": {
+      "definitionOffset": 119,
+      "byte": 5
+    }
+  },
+  "limits": [
+    "Fresh static byte witness for inline spans, selected words, direct branches and registrations only. No native game/shader execution or full historical LLVM/archive certificate.",
+    "Type and field labels are FNV/layout candidates; matching hashes do not exclude collisions or authenticate literal native names.",
+    "Constructor defaults and the identified generic loader chain do not establish actual Yi dispatch, later overrides, attachments, sampler state, shader selection or native visual parity.",
+    "Compiled alpha normalization by 255 remains a local reader/material policy; this witness establishes constructor byte 5 and alignment, not native upload conversion."
+  ]
+}

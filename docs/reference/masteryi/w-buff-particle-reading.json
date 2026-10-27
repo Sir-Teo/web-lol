@@ -1,0 +1,82 @@
+{
+  "format": 1,
+  "sourcePinSha256": "f2b3e3cc1759b39b8a08d75a15a43649fecaa5a60c16392eff6893935e9a6517",
+  "transport": {
+    "path": "docs/reference/masteryi/w-particle-texture-transport.json",
+    "sha256": "66ce933143a662f0f2506b96520d2d4f6e7ab206a1cb58d8da6b3b94e01e5cfd"
+  },
+  "mesh": {
+    "source": {
+      "path": "assets/characters/masteryi/skins/base/particles/masteryi_base_w_heal_mesh.scb",
+      "wadPathHash": "9eb4899793c343eb",
+      "sha256": "35173d1a04be1908898c4615f4b18949f574095e5507d5b9ca2bd8a526eeef0e",
+      "bytes": 84949
+    },
+    "decoded": {
+      "path": ".cache/masteryi-w-particles-decoded/meshes/9eb4899793c343eb.json",
+      "sha256": "493978846b8a2db7e120acd7568ad884f72fbb05abca6b9ce23fe433bcb3423d"
+    },
+    "output": {
+      "path": ".cache/masteryi-w-packed-meshes/masteryi-w-heal.glb",
+      "bytes": 56212,
+      "sha256": "538220d5c8cef2a643f5381ea40a27eb58b815f6b4908d33cd1a831212915e4b"
+    },
+    "sourceVertices": 403,
+    "triangles": 733,
+    "exportedCorners": 2199,
+    "attributes": {
+      "positionFloat32Sha256": "e5c939f0d429446d715c9d313991c017a864bc34ed2cc3379d06f44c4a47c2d5",
+      "uvFloat32Sha256": "b03b8d847e4ea53fb7f08b1c0621353b35e376d0da59319dbb248c75105396ee",
+      "faceRgbSha256": "77b84872ac4143b84123518bd547a6ce7151b26ecccd10759bdb1f57813e89ad"
+    },
+    "centralPoint": [
+      0.03534984588623047,
+      0.42455005645751953,
+      -0.20759963989257812
+    ],
+    "rawSourceBounds": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "measuredMinMax": [
+      -8.038900375366211,
+      -5.781899929046631,
+      -8.259499549865723,
+      8.109600067138672,
+      6.63100004196167,
+      7.844299793243408
+    ],
+    "tailHex": "dbf93e3ea3923a3ebada8a3edbf93e3ea3923a3ebada8a3e",
+    "flags": 5,
+    "sourceHasVertexColors": false,
+    "sourceFaceRgbAppliedAsMaterial": false,
+    "normalsGenerated": false,
+    "validation": {
+      "errors": 0,
+      "warnings": 0,
+      "roundTripAttributesExact": true
+    }
+  },
+  "readerDefaults": {
+    "path": "docs/reference/garen-spin-defaults.json",
+    "sha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb"
+  },
+  "profileSha256": "d27d0316b45e8a401efc34e277733d03ad0664524b08bdd12a214b80f82d64e2",
+  "historyTicks": 361,
+  "tailTicks": 121,
+  "fieldReader": {
+    "path": "docs/reference/masteryi/w-fields-reader.json",
+    "sha256": "b67cb8e90ae6521816579a06ae1b4274bd6ae11befc28d75fca948fd8abff3c7"
+  },
+  "limits": [
+    "Complete four-emitter W_Buf only. Tenacity and damage systems remain separate.",
+    "Accepted local W dispatch, first-update grid, actor-root source-X reflection, indexed draws, source shape interpretation and fixed-grid field force integration are local adapters; native callbacks/frames/RNG remain unverified.",
+    "Exact field-name hash candidates are recorded separately; raw source hashes stay unchanged.",
+    "Omitted shader/UV controls use explicit shared local defaults, including alphaRef 5/255, repeated base textures, clamped linear lookup, white neutral lookup when absent and identity UV transforms.",
+    "Source linger values are retained without extending visible particle lifetimes. No sound is inferred from W_Buf."
+  ]
+}

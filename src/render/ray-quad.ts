@@ -18,6 +18,9 @@ const corners = [
   [0.5, 0.5],
   [-0.5, 0.5],
 ] as const;
+function finiteVector(value: THREE.Vector3): boolean {
+  return Number.isFinite(value.x) && Number.isFinite(value.y) && Number.isFinite(value.z);
+}
 
 /** Write a VfxPrimitiveRay into existing particle buffers. The reflected source
  * frame reverses the cross product. When the eye lies on the ray's axis, use the
@@ -38,7 +41,11 @@ export function writeRayQuad(
     uv.itemSize !== 2 ||
     position.count < firstVertex + 6 ||
     uv.count < firstVertex + 6 ||
-    ![...ray.center, ...ray.axis, ...ray.fallbackAcross, ...ray.size, ...eye].every(Number.isFinite)
+    !finiteVector(ray.center) ||
+    !finiteVector(ray.axis) ||
+    !finiteVector(ray.fallbackAcross) ||
+    !ray.size.every(Number.isFinite) ||
+    !finiteVector(eye)
   )
     throw new RangeError('Invalid ray quad buffers or input');
   towardEye.subVectors(eye, ray.center);

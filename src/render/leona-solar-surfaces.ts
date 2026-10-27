@@ -15,6 +15,7 @@ const program: SurfaceProgram<SolarDrawGroup> = {
   profiles: SOLAR_PROFILES,
   assets: solarSurfaceAssets,
   accepts: solarSurfaceAccepted,
+  vertexColor: (index) => (SOLAR_PROFILES[index].kind === 'ray' ? 'bgra-unorm8' : undefined),
   *records(world) {
     for (const source of world.units) {
       const state = world.championState(source.id);
@@ -47,12 +48,23 @@ export class LeonaSolarSurfaces extends SourceParticleSurfaces<SolarDrawGroup> {
     resources?: EclipseSurfaceAssets,
     early?: THREE.Scene
   ) {
+    const rayTint = [0, 0, 0, 1];
     super(
       scene,
       distortion,
       ground,
       {
         ...program,
+        tint(index, color) {
+          const p = SOLAR_PROFILES[index];
+          if (p.kind !== 'ray' || (p.blend !== 0 && p.blend !== 2)) return undefined;
+          // Native Ray mode0/2 multiplies float32 RGB by A, then writes A=1
+          // before byte conversion. Retain the sampler's authored RGBA array.
+          const alpha = Math.fround(color[3]);
+          for (let lane = 0; lane < 3; lane++)
+            rayTint[lane] = Math.fround(Math.fround(color[lane]) * alpha);
+          return rayTint;
+        },
         distortionTarget(index) {
           const mode = SOLAR_PROFILES[index].distortion?.mode;
           if (mode === 1) return distortion;

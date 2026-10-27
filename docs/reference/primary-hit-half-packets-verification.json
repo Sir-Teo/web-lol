@@ -1,0 +1,589 @@
+{
+  "format": 1,
+  "parentCommit": "c0f75042056ee6d919c93b371e9741e1a5e08fa6",
+  "scope": "Apply the bounded native quad half packet to retained unit-corner primary-hit profiles: float32 continuous atlas modulo/start, binary16 nearest-even packing before shader floor, and half lookup UVs. Preserve all other particle fields and the untraced ray path.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "96c56f2808a12a114e62b04052b587fbd7a9dede751d10bc24f43f6567a71f82",
+    "offlinePack": {
+      "id": "8d0036b3354ff83f404da64b4487c6d20a35b1676f1502fd8889e77f80255f86",
+      "files": 1200,
+      "bytes": 538084064
+    }
+  },
+  "verification": {
+    "newUnitCases": 9,
+    "focusedCases": 45,
+    "fullUnitRun": {
+      "passed": 3086,
+      "failed": 2,
+      "total": 3088,
+      "files": 390
+    },
+    "remainingBaselineFailures": 2,
+    "originalWaveDeadlinePassed": true,
+    "nodeQaPassed": 6,
+    "successfulBrowserCases": 7,
+    "authoredTexturePacketPixelCases": 15,
+    "nonemptyPacketPixelCases": 15,
+    "packetChangedChannelBytes": 0,
+    "oldPolicyChangedChannelBytes": 190566,
+    "samplerCalls": 2106,
+    "independentQuadParticleCases": 13280,
+    "unchangedRayParticleCases": 90,
+    "changedAtlasCells": 84,
+    "changedLookupPairs": 13244,
+    "otherParticleFieldsExact": true,
+    "unchangedRuntimeExports": 14,
+    "runtimeExportsBytesAndMtimesUnchanged": true,
+    "savedFutureTicks": 130,
+    "gpuMipReadbacks": 93,
+    "productionRecordings": 32,
+    "freshProductionScreenshots": 8,
+    "privatePreloads": 0,
+    "publicAssetsChanged": false
+  },
+  "independentReference": {
+    "referenceCommit": "c0f75042056ee6d919c93b371e9741e1a5e08fa6",
+    "archiveSha256": "6987d6518042877f7edb1998296b165fbe09e0d273bfb0ef5e423be0b17b9a83",
+    "beforeModuleSha256": "f69184f0a7523d0bdc162abe4d7353657b4ced2ee0773b6559b5761e93fac0f8",
+    "afterModuleSha256": "c8550362bc03d34a49d9c4cf07ed9de885e968efaf1f05da8fd4e08eff913873",
+    "sourceSha256": "ddfd14f17337c38b3d87a45df4efeb1531a3218bfabe7f7178d74a24717f75ba",
+    "halfSourceSha256": "291a7af941b604de3feb541136cfb62215c16b4d811ba8d3131568cf7180ac3b",
+    "nativeWitnessSha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6",
+    "pythonReferenceSha256": "e8c79a7eb0289fddf2b298e857bf1087fcd1f3c608251f2317b57fbc71acae87",
+    "samplerCalls": 2106,
+    "quadParticles": 13280,
+    "rayParticles": 90,
+    "changedCells": 84,
+    "changedLookups": 13244,
+    "otherFieldsExact": true,
+    "rayParticlesExact": true,
+    "independentPacketReferenceExact": true,
+    "limits": [
+      "Native formula applied to existing local age and indexed random inputs; native RNG/clock producers and live FPCR remain unobserved.",
+      "Nearest-even is an explicit local packet rounding policy; no native game or Metal shader execution."
+    ]
+  },
+  "pixelReference": {
+    "path": ".cache/primary-hit-half-packets/browser-pixels/primary-hit-half-packets-p-19838--with-authored-GPU-textures/quad-packet-pixels.json",
+    "sha256": "24abbd0736c0abf0c37a65ee9a61650f1111a8554cdf10238f04271e231dcc07",
+    "cases": 15,
+    "allNonempty": true,
+    "changedBytes": 0,
+    "oldPolicyChangedBytes": 190566
+  },
+  "limits": [
+    "Native formula applied to existing local age and indexed random inputs; native RNG/clock producers and live FPCR remain unobserved.",
+    "Nearest-even is an explicit local packet rounding policy; no native game or Metal shader execution.",
+    "All ten retained quad/billboard UV0 profiles have exact half unit corners; the specialization is guarded. This does not implement arbitrary per-vertex half UV transforms for other families.",
+    "The selected GPU port uses authored base textures and an independent atlas vertex expression. Atlas cases neutralize black endpoint lookup colors; midlife cases retain authored lookup textures. Tint, size and blending are normalized. No native Metal execution or complete native visual parity is claimed.",
+    "Node 22-compatible tests use literal integration coordinates and skip only the optional ECMAScript conversion corpus when Math.f16round is unavailable. Node 24 executes all 45 focused cases.",
+    "The existing original Leona archive closure and default-platform Lux sampler golden remain the same two full-suite failures. Existing golden values, assertions and wave deadlines are unchanged."
+  ],
+  "diagnostics": [
+    "An initial TypeScript draft widened the lookup tuple through Array.map; final code quantizes the locally owned tuple in place.",
+    "An initial test draft used an unparenthesized negative exponent expression; it was corrected before acceptance.",
+    "The first browser command included a nonexistent sword-spec name, so its four primary cases ran successfully while the new packet probe failed. The second run explicitly selected both existing sword regression specs and the corrected packet probe, retaining a separate output directory.",
+    "The first packet pixel probe used black birth/near-expiry LUT endpoints. Its required old-policy difference guard failed, preventing an empty-image pass. Final atlas rows use a neutral lookup and separate midlife rows retain authored LUTs; all fifteen final reference outputs are nonempty.",
+    "The final 45-case focused run follows the optional-standard-conversion guard and literal lookup-coordinate integration update for Node 22 compatibility; game source was unchanged after the full suite."
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/MASTER-YI-PRIMARY-HITS.md",
+      "bytes": 13152,
+      "sha256": "7387b75c0f94f39984210f6104eaaa21cdd9b70d6076a4b2ecef8222c8a945e2"
+    },
+    {
+      "path": "docs/NATIVE-ATLAS-RUNTIME.md",
+      "bytes": 4628,
+      "sha256": "002b6667055af5c962b4dcb038ebd2742ac472dbec2b8d8425dd23c988144d45"
+    },
+    {
+      "path": "docs/PRIMARY-HIT-HALF-PACKETS.md",
+      "bytes": 4380,
+      "sha256": "d61bfd5491b618594a6fb2a76bd852c82466e3984e241771419e09d9f43fb6da"
+    },
+    {
+      "path": "e2e/primary-hit-half-packets.spec.ts",
+      "bytes": 9763,
+      "sha256": "93ca105b47268281aeded4bcb35487ba4ef4070965b08b248d40d649dd0c165f"
+    },
+    {
+      "path": "src/render/masteryi-primary-hit-particles.ts",
+      "bytes": 5418,
+      "sha256": "ddfd14f17337c38b3d87a45df4efeb1531a3218bfabe7f7178d74a24717f75ba"
+    },
+    {
+      "path": "src/render/particle-half.ts",
+      "bytes": 1001,
+      "sha256": "291a7af941b604de3feb541136cfb62215c16b4d811ba8d3131568cf7180ac3b"
+    },
+    {
+      "path": "tests/masteryi-primary-hits.test.ts",
+      "bytes": 11980,
+      "sha256": "1a0d5db79094239fe7b6d15507410f3f18705c2882c6685b6e1fa7fde201aa04"
+    },
+    {
+      "path": "tests/particle-half.test.ts",
+      "bytes": 2597,
+      "sha256": "a4d63b2f1cd85ec157f02d4d28c8e97f3324f3ae20ea018f8106e910329e2a2f"
+    },
+    {
+      "path": "tools/qa/lib/primary-hit-packet-reference.py",
+      "bytes": 1308,
+      "sha256": "e8c79a7eb0289fddf2b298e857bf1087fcd1f3c608251f2317b57fbc71acae87"
+    },
+    {
+      "path": "tools/qa/verify-primary-hit-packets.mjs",
+      "bytes": 5933,
+      "sha256": "d967af63a6dc140f8ade08e8c68d3ea63b539b12a78ccf8fc2cd0be4dccc68fd"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "docs/reference/native-atlas-runtime.json",
+      "bytes": 42714,
+      "sha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6"
+    },
+    {
+      "path": "docs/reference/native-emitter-scalar-defaults.json",
+      "bytes": 18429,
+      "sha256": "a6c381afaed4c5a680276794d8fa613d988d710eca0683ed8ee91cde494de6cf"
+    },
+    {
+      "path": "docs/reference/native-constructor-witness.json",
+      "bytes": 19538,
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-particles.json",
+      "bytes": 82989,
+      "sha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-profile-reading.json",
+      "bytes": 137463,
+      "sha256": "93a4f4500e3ee3fd5e8881cfaf08f823cae40750de16afdf2ca235f4aad1142a"
+    },
+    {
+      "path": "src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    },
+    {
+      "path": "src/render/source-particle-surfaces.ts",
+      "bytes": 21549,
+      "sha256": "8cce310f46c6c75a692a27514d9b4751e8b7dc6ec26777b47c290c8bac5b7929"
+    },
+    {
+      "path": "src/render/leona-eclipse-surface-material.ts",
+      "bytes": 9476,
+      "sha256": "d2c49d481baa708a10eeb7f1af2a0d6b99c529d1c8017bf72475a8e3d3e72a86"
+    },
+    {
+      "path": "src/render/particle-color-lookup.ts",
+      "bytes": 1175,
+      "sha256": "a61c220f19ca761b3f9110f709fc1af8f23963690021f57baa6ad064dc5d0a47"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 30464,
+      "sha256": "68425c70629572add4d8bfb83d3b71e2a4b276c476bd5f1880083659aed7043b"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/primary-hit-half-packets/final-source/docs/MASTER-YI-PRIMARY-HITS.md",
+      "bytes": 13152,
+      "sha256": "7387b75c0f94f39984210f6104eaaa21cdd9b70d6076a4b2ecef8222c8a945e2"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/final-source/docs/NATIVE-ATLAS-RUNTIME.md",
+      "bytes": 4628,
+      "sha256": "002b6667055af5c962b4dcb038ebd2742ac472dbec2b8d8425dd23c988144d45"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/final-source/docs/PRIMARY-HIT-HALF-PACKETS.md",
+      "bytes": 4380,
+      "sha256": "d61bfd5491b618594a6fb2a76bd852c82466e3984e241771419e09d9f43fb6da"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/final-source/docs/reference/masteryi/primary-hit-particles.json",
+      "bytes": 82989,
+      "sha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/final-source/docs/reference/masteryi/primary-hit-profile-reading.json",
+      "bytes": 137463,
+      "sha256": "93a4f4500e3ee3fd5e8881cfaf08f823cae40750de16afdf2ca235f4aad1142a"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/final-source/docs/reference/native-atlas-runtime.json",
+      "bytes": 42714,
+      "sha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/final-source/docs/reference/native-constructor-witness.json",
+      "bytes": 19538,
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/final-source/docs/reference/native-emitter-scalar-defaults.json",
+      "bytes": 18429,
+      "sha256": "a6c381afaed4c5a680276794d8fa613d988d710eca0683ed8ee91cde494de6cf"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/final-source/e2e/primary-hit-half-packets.spec.ts",
+      "bytes": 9763,
+      "sha256": "93ca105b47268281aeded4bcb35487ba4ef4070965b08b248d40d649dd0c165f"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/final-source/package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/final-source/src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/final-source/src/render/leona-eclipse-surface-material.ts",
+      "bytes": 9476,
+      "sha256": "d2c49d481baa708a10eeb7f1af2a0d6b99c529d1c8017bf72475a8e3d3e72a86"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/final-source/src/render/masteryi-primary-hit-particles.ts",
+      "bytes": 5418,
+      "sha256": "ddfd14f17337c38b3d87a45df4efeb1531a3218bfabe7f7178d74a24717f75ba"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/final-source/src/render/particle-color-lookup.ts",
+      "bytes": 1175,
+      "sha256": "a61c220f19ca761b3f9110f709fc1af8f23963690021f57baa6ad064dc5d0a47"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/final-source/src/render/particle-half.ts",
+      "bytes": 1001,
+      "sha256": "291a7af941b604de3feb541136cfb62215c16b4d811ba8d3131568cf7180ac3b"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/final-source/src/render/source-particle-surfaces.ts",
+      "bytes": 21549,
+      "sha256": "8cce310f46c6c75a692a27514d9b4751e8b7dc6ec26777b47c290c8bac5b7929"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/final-source/tests/masteryi-primary-hits.test.ts",
+      "bytes": 11980,
+      "sha256": "1a0d5db79094239fe7b6d15507410f3f18705c2882c6685b6e1fa7fde201aa04"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/final-source/tests/particle-half.test.ts",
+      "bytes": 2597,
+      "sha256": "a4d63b2f1cd85ec157f02d4d28c8e97f3324f3ae20ea018f8106e910329e2a2f"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/final-source/tools/qa/lib/primary-hit-packet-reference.py",
+      "bytes": 1308,
+      "sha256": "e8c79a7eb0289fddf2b298e857bf1087fcd1f3c608251f2317b57fbc71acae87"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/final-source/tools/qa/production-subpath.mjs",
+      "bytes": 30464,
+      "sha256": "68425c70629572add4d8bfb83d3b71e2a4b276c476bd5f1880083659aed7043b"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/final-source/tools/qa/verify-primary-hit-packets.mjs",
+      "bytes": 5933,
+      "sha256": "d967af63a6dc140f8ade08e8c68d3ea63b539b12a78ccf8fc2cd0be4dccc68fd"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/primary-hit-half-packets/app-identity.json",
+      "bytes": 90,
+      "sha256": "fc4126ee8b5fb0848cc46e5f43c3244f3cf5952786dd86057459b7f2d7db6136"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/archive-checkpoint.py",
+      "bytes": 9456,
+      "sha256": "da4341ed4c5da4e0eaf22a73c8cdda258ff92706e295df7b8e731b560fe5ce58"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/boundary-inputs.json",
+      "bytes": 284,
+      "sha256": "8966f87e83d80d27448b41a74b2ce5c8f1fe680311d6928b0b8ad5465259c7d8"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/browser/.last-run.json",
+      "bytes": 96,
+      "sha256": "7d3383b7cd5814c9e8ff47fa9c2471041d318a7c387ecfa0290b3e588069c732"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/browser/masteryi-primary-hits-all--0c76f-U-mips-and-real-Save-reload/primary-critical-hit.png",
+      "bytes": 794622,
+      "sha256": "17c021deaacab5921916c963f3375801ea9f6bca1e6d3162e6e63d3523cf335d"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/browser/masteryi-primary-hits-all--0c76f-U-mips-and-real-Save-reload/primary-hit-gpu-save.json",
+      "bytes": 128242,
+      "sha256": "d366717dae1de859e06ab3c3b0e9c639a26c065192812807d5a866adee7f8565"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/browser/masteryi-primary-hits-each-0e129-its-actual-runtime-material/all-emitter-gpu-pixels.json",
+      "bytes": 1175,
+      "sha256": "2ac0079f2b6e3821002949fd5d62beecb1be24c4778decbbb7d36599731ff37e"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/browser/masteryi-primary-hits-know-90612-t-stays-absent-after-reveal/visibility-corpse-terminal.json",
+      "bytes": 148,
+      "sha256": "4bebc0211c68e04d61d2329fff436b2142698c31a04fb3367643afcf11286e9f"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/browser/masteryi-primary-hits-ordi-2ff62-s-only-the-failed-transport/selective-retry.json",
+      "bytes": 1458,
+      "sha256": "d666533004c6b8f2fffaebd4ac09a32c0a567a791785336e40cbb5c13eb217ce"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/browser/primary-hit-half-packets-p-19838--with-authored-GPU-textures/error-context.md",
+      "bytes": 5479,
+      "sha256": "6fcb8384da8c6e09a6fb59dd44f286caba1ea5f62033712de5cb43e63941573b"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/browser/primary-hit-half-packets-p-19838--with-authored-GPU-textures/quad-packet-pixels.json",
+      "bytes": 3139,
+      "sha256": "a7c271ff2cb82d6e969d0fc37244cd689e6e24bff0b071674d61a516343bde75"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/browser/primary-hit-half-packets-p-19838--with-authored-GPU-textures/test-failed-1.png",
+      "bytes": 5851,
+      "sha256": "99db2a93b06fa1bf617f5c495e02dcf6c0b76961108491217e2cf4fed8699d35"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/browser/primary-hit-half-packets-p-19838--with-authored-GPU-textures/trace.zip",
+      "bytes": 364621,
+      "sha256": "2cb63d680eb8ea048a7df7551c7a960df4cdb822591fd4654a95b6278c6fb1fc"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/browser-pixels/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/browser-pixels/masteryi-passive-sword-ord-c4050-pixels-across-camera-angles/passive-sword-gpu-order.json",
+      "bytes": 556,
+      "sha256": "de332e3b109a8efbb9a9dd79e43ab9f2f725ecf2cc5a84e053e5ff8d81c8282a"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/browser-pixels/masteryi-sword-instancing--e809a--reducing-actual-draw-calls/instance-pixel-comparison.json",
+      "bytes": 12315,
+      "sha256": "109257cf4e66f108574ca8340e83a0756596739a0ec6ca89d96a1985be1edf80"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/browser-pixels/primary-hit-half-packets-p-19838--with-authored-GPU-textures/quad-packet-pixels.json",
+      "bytes": 6274,
+      "sha256": "24abbd0736c0abf0c37a65ee9a61650f1111a8554cdf10238f04271e231dcc07"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/browser-pixels.log",
+      "bytes": 1099,
+      "sha256": "7b9e18dd4dfb53f7bdd4fcea6760e7688ef4262c6632b76a7f2f73c003f024a9"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/browser.log",
+      "bytes": 5219,
+      "sha256": "41c1ebf5743ec2cc6e0a5e956c419ec33ca1df7aa0cfb7bf4a5486f33e8b57ed"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/build.log",
+      "bytes": 7682,
+      "sha256": "cf72532b8b317f60edce3aa62accde61335c3970eb8461e9285b14c66ff3d3f9"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/built-identity.json",
+      "bytes": 256,
+      "sha256": "6c0ff44c4ac25c0ce88f9105d2312e1dbe5ef616e47873649c283bf2451bf573"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/current.mjs",
+      "bytes": 98952,
+      "sha256": "8b7ac3130039c1d4fec267761a9227af108d79bd631b7353b8decec07eb8b21c"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/entry.ts",
+      "bytes": 307,
+      "sha256": "122a18ead69194cf449b0522828ca9fe3043ec7f5af1a5814089c03b41d8bdaf"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/export-check.json",
+      "bytes": 3157,
+      "sha256": "7264d46527816b5f421a0593505c7ccbc4b68474cfac4527aea7f5fb23cde263"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/find-boundaries.mjs",
+      "bytes": 1557,
+      "sha256": "eaf26bb4dae56075a5174c0fabec1127ca32d1ff7bd60a9ee383deac444be3f2"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/focused-draft.log",
+      "bytes": 2394,
+      "sha256": "82d725171ba1f0db77db6dabc10be08ed82822fba1ee5fd4ce573febbcf90615"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/focused-final.log",
+      "bytes": 380,
+      "sha256": "898b6bc2b871d100df7c01262ecd17673b58ea8ead7185b2c1483c77bb25656f"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/focused-portable-final.log",
+      "bytes": 380,
+      "sha256": "3b37bbe404d51eb04301bbd259490c86da09360c9b91b59409e33c478e8059b8"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/focused-second.log",
+      "bytes": 170,
+      "sha256": "92b05c58b72cb0b339495616eb9c099fe21faad686232817711d8028021eed88"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/full-tests.log",
+      "bytes": 4579,
+      "sha256": "067c89cdd1636e4dc8a6b59aa5c9a87b991e49a9e7f9357bc05d2fa3f85141bc"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/node-qa.log",
+      "bytes": 660,
+      "sha256": "f41a8f6ab27c1f264101fc076d350649edb574ebdfd0fce6590918f7e7726fd7"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1814083,
+      "sha256": "2ce5aadce41142aa6e1b2f0db105a7a0b246f8df8cc75ae58d4e05a50d9674f9"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835907,
+      "sha256": "9c1b5a95ba197faf73c99889df1ddd599a763fe62352ad724615088ff54fd7fa"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829554,
+      "sha256": "d757f2b03036cedf8c782cbd894b8fb888d28f47fe37056da3a501cd431b2360"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1811248,
+      "sha256": "5cff9244d7c5823f869354984ce8f90bec0ee5e7485a3adc7fd4a738b73d6158"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1820010,
+      "sha256": "03b56ef9064c0026a849aa756c9d1524c9171c7f8888f7d2b12cf6e4f8ecd7dc"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1351980,
+      "sha256": "131dbece602e146e64d2f151609211aface245f9d68404835081ff2c0d8a848f"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1826158,
+      "sha256": "ae47fa42457433a648c77cdcbc5198d453478171ffdccf83f85240a3ad5ed2b4"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808722,
+      "sha256": "01895fe4892d790b8464c41010dd060c8586e296e1d9ec0eb69be690b3ed081d"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/production-runner.log",
+      "bytes": 48,
+      "sha256": "7bf7f67cc0a81dc82f3e3f358a10769ac8b0395cc4094b78d3ab87ed28527a3c"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/production-summary.json",
+      "bytes": 3191,
+      "sha256": "2dbfd545aebdb6aa0081e70f472466ead471271e6426aab261715797f82706af"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/production-system.mjs",
+      "bytes": 30506,
+      "sha256": "83265d55f3e6e2d817e9e75fb02cce522f5d180558a305fd95d3d8e8dbf6df2a"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/production.log",
+      "bytes": 2852,
+      "sha256": "3a43a61a46c1083171afc098905a070204ecf85c4ad7711bbae93d93d22a77ac"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/reference-final/after.mjs",
+      "bytes": 98938,
+      "sha256": "c8550362bc03d34a49d9c4cf07ed9de885e968efaf1f05da8fd4e08eff913873"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/reference-final/after.ts",
+      "bytes": 284,
+      "sha256": "434491b3c76b15e9f8b3d0b3b4cb52d020d620b65732e8f1448f0def8346ab72"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/reference-final/before.mjs",
+      "bytes": 98178,
+      "sha256": "f69184f0a7523d0bdc162abe4d7353657b4ced2ee0773b6559b5761e93fac0f8"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/reference-final/before.ts",
+      "bytes": 458,
+      "sha256": "73057c6fc2e8931e256f737977fa126d8af2818bbe115009256f6270138651ea"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/reference-final/reading.json",
+      "bytes": 1187,
+      "sha256": "bd1703221063309836b9e7194a33e53d53c8afbbf8da7a1d723dbdde7b4fd013"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/reference-final/reference-inputs.json",
+      "bytes": 6856432,
+      "sha256": "3ea11e57e756d389c1102d6bb93ba0a7f540cd3688780d4fa47490c75961a824"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/reference-final/reference-output.json",
+      "bytes": 1575597,
+      "sha256": "6423d155c0458d5b2110f43542e3d33327842b4eee799f99c1337d8dbd1f26b1"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/reference-final/source.tar",
+      "bytes": 6522880,
+      "sha256": "6987d6518042877f7edb1998296b165fbe09e0d273bfb0ef5e423be0b17b9a83"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/reference-final.log",
+      "bytes": 1105,
+      "sha256": "e04d8bf2dfd907b138e82932e1ba615875b22325926e196fb7840cd07d7d18d4"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/run-production.py",
+      "bytes": 838,
+      "sha256": "db4f4aaadfbd13a47234cb4ef51d0744ca9d2ddf14b4d7ab74620ddaa9a65738"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/tsc-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/tsc-portable-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/primary-hit-half-packets/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

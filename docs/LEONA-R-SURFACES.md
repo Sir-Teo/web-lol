@@ -117,3 +117,7 @@ The [early distortion increment](LEONA-R-EARLY-DISTORTION.md) expands surface
 support from 35 to 38 families. With the separate owner skin and two planar
 alternatives, 41 of 44 enabled R families are integrated. Historical source
 surface acceptance above remains frozen; its verifier requires `--historical`.
+
+The [Solar ray packet correction](SOLAR-RAY-PACKETS.md) adds normalized BGRA
+byte colors and half lookup coordinates for profiles11/17/23. The impact ray
+also uses the recovered mode0 float32 RGB premultiplication and alpha1 packet.

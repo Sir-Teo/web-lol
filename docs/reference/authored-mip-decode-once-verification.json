@@ -1,0 +1,287 @@
+{
+  "format": 1,
+  "parentCommit": "9836e8ba80f4e57d3e1e6f63881ebefe3615e2a8",
+  "identity": {
+    "schema": 149,
+    "ruleset": "f9c200c69fa38c572dc5399f38d6e808d229f5edee0994c1dd9b75b7f9a33c71",
+    "pack": {
+      "id": "035b651b18cea9bd3ed562c4e528715672523f47a011c3293f1eeba9d29adb96",
+      "files": 1119,
+      "bytes": 531443344
+    }
+  },
+  "scope": "Decode every authored texture PNG once, crop independent authored ImageBitmap mips, and close all temporary/retained bitmaps safely. No source pixel/sampler/quality change.",
+  "generated": [
+    {
+      "path": "docs/MASTER-YI-Q-CONTACTS.md",
+      "bytes": 8832,
+      "sha256": "d604df6d81cc128d9423c963d090ca566f8fd0dbce50cb0697c0271f168f0498",
+      "archived": ".cache/authored-mip-decode-once-cloud/source/docs/MASTER-YI-Q-CONTACTS.md"
+    },
+    {
+      "path": "docs/MASTER-YI-W-PARTICLES.md",
+      "bytes": 7154,
+      "sha256": "b66c3c7bcc9dc8f7f7a527b6d66d56f07d64996c610c11ad8ddf3f1a2999ada0",
+      "archived": ".cache/authored-mip-decode-once-cloud/source/docs/MASTER-YI-W-PARTICLES.md"
+    },
+    {
+      "path": "src/render/authored-mip-texture.ts",
+      "bytes": 4222,
+      "sha256": "f6ad2fae689f245f680501b1212b117bde33a57dc789a8eae6fdc9658fbfe0f1",
+      "archived": ".cache/authored-mip-decode-once-cloud/source/src/render/authored-mip-texture.ts"
+    },
+    {
+      "path": "tests/authored-mip-texture.test.ts",
+      "bytes": 6767,
+      "sha256": "35070f5eaba80ec3c36f9868161b06f99609f8748bd0513b905702f3c1a3699d",
+      "archived": ".cache/authored-mip-decode-once-cloud/source/tests/authored-mip-texture.test.ts"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/browser-q/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/browser-q/masteryi-q-contacts-ordina-15f40-a-failed-texture-explicitly/late-load-explicit-retry.json",
+      "bytes": 964,
+      "sha256": "f7cbdbceb6b360411c5a808819e73d462e65468ef163d9ec4b74fc4ec502f3d0"
+    },
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/browser-q/masteryi-q-contacts-real-c-2e79d-rticles-through-Save-reload/contact-save-reload.json",
+      "bytes": 31069,
+      "sha256": "9df971c127ae8d3a8ac1f3b2b91c749330ab524535ac8cb5edcdcb9f4022c724"
+    },
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/browser-q/masteryi-q-contacts-real-c-2e79d-rticles-through-Save-reload/critical-contact.png",
+      "bytes": 792301,
+      "sha256": "978df5889cbc5b86f094508cab495a53c8580516612f0f5cf3368190409f5fc4"
+    },
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/browser-q/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/contact-save-reload.json",
+      "bytes": 35593,
+      "sha256": "c495fa38f52c2f2491c21f7c6338edd2ed87194d4ecf82e89d4de677c8b3a5d4"
+    },
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/browser-q/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/ordinary-contact.png",
+      "bytes": 801761,
+      "sha256": "c16472d5d94b7fe52a7a3059e153f9c6ac08ac16d8f25163e0ed29c34cfa8f90"
+    },
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/browser-q/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/three-authored-mip-readback.json",
+      "bytes": 10563,
+      "sha256": "9b97f1644009edc39fc69b3a985007f0d4920bc9dae8c0302baec8fc2be1dcdb"
+    },
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/browser-q.log",
+      "bytes": 1448,
+      "sha256": "b2a55831bae6d868614fb717f79a6e8728a0a8b7cdc44cda7996075afade3098"
+    },
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/build.log",
+      "bytes": 6041,
+      "sha256": "6f624817f65ad77ba790138897f7b44114eff842796c1c6daf190935f71521cc"
+    },
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/format-final.log",
+      "bytes": 53,
+      "sha256": "0a108ca19b350ce6591a541b13e4db8ccfe3b30b6186f736cafa68564a6aff39"
+    },
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/format-green.log",
+      "bytes": 53,
+      "sha256": "349c4fce1322de6d7eba7f7941f5a37d7a1738317151d3246d7ab42130215739"
+    },
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/format-red.log",
+      "bytes": 41,
+      "sha256": "dfe477149822659533a3abfc19ee566a491bb18321fedaf5bc0e657beadc2337"
+    },
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/gpu-w-probe.log",
+      "bytes": 164,
+      "sha256": "aa89aea514c84eb1b6ff994df8bb0266776776703d21864625c5f2281cb3089a"
+    },
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/gpu-w-probe.mjs",
+      "bytes": 4928,
+      "sha256": "0e7e607622d4fc85518ff7ffe2452718387cbe08d2e97c98aed6531e4065fe8b"
+    },
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/gpu-w-result.json",
+      "bytes": 33593,
+      "sha256": "d4c19f0cd440a1943b2cc6d835243211fe61a81e970f0873c6e464154157fea7"
+    },
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/gpu-w-server.log",
+      "bytes": 189,
+      "sha256": "128acf8d6b4d8e698443560b54628853a734094667553f59cc7fbd14a5733436"
+    },
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/identity.json",
+      "bytes": 238,
+      "sha256": "aab43caa4f97bf285cc5792a5344e5935e1f3add3751eb0e0fcfa722d9eb7101"
+    },
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/offline-pack.json",
+      "bytes": 160294,
+      "sha256": "61c0b1b302f8875506b892f5194a026deca9dc16a2c42b58aa90241e453c25d4"
+    },
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/pack-w-probe.log",
+      "bytes": 79,
+      "sha256": "35b8798d8d04b850f5f034507d8f8aea9a126d395cf4dd416a99dbc84e138869"
+    },
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/pack-w-probe.py",
+      "bytes": 1716,
+      "sha256": "5cdbe5d07bfd60e77446092dea5c58bf9f54821e0e3b8c62d9cad44994c25bd3"
+    },
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/unit-final.log",
+      "bytes": 368,
+      "sha256": "daab602f742ebaa827e9d00e7ea972d4875025f7b957c37ef07a7f36a278bff6"
+    },
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/unit-green.log",
+      "bytes": 169,
+      "sha256": "2e8c85526e4f6f617adb2a30ad045b0a9ff2e2b290063698fa2147bc9a1e8354"
+    },
+    {
+      "path": ".cache/authored-mip-decode-once-cloud/unit-red.log",
+      "bytes": 3339,
+      "sha256": "c3c1288ba300bda33cc8fe4fed5036e07120d61f729a0d050e852b03a935816a"
+    }
+  ],
+  "privateWTransport": [
+    {
+      "path": ".cache/masteryi-w-packed/0d03c8a3630230da.png",
+      "bytes": 460516,
+      "sha256": "fe4baa3d66104fa8c51ba1eb0fcc04202dbeb6119725dd1d06998a3bfd0b608d"
+    },
+    {
+      "path": ".cache/masteryi-w-packed/18fcb3717db5402a.png",
+      "bytes": 52070,
+      "sha256": "a815dfdb22367f768aa44090305ead895038047ae57e7f245a4a7c633b79241d"
+    },
+    {
+      "path": ".cache/masteryi-w-packed/271a48230fb860e5.png",
+      "bytes": 13488,
+      "sha256": "9a7f552bed2d78a583a2ad9b712b2834b7dbd341e3ba306ec88869969c5b9749"
+    },
+    {
+      "path": ".cache/masteryi-w-packed/3b507059b6eab878.png",
+      "bytes": 553,
+      "sha256": "8cd7ceb153e840cdc941a9371c2a2462711fc5607a0bb8f17f95f7e25c3b7851"
+    },
+    {
+      "path": ".cache/masteryi-w-packed/433b18542280cbff.png",
+      "bytes": 2725,
+      "sha256": "0ab6dc56e50c09542bc5e59ae56875be2fcdac4fa01c023fd19138ff01136054"
+    },
+    {
+      "path": ".cache/masteryi-w-packed/465912348c9681fa.png",
+      "bytes": 335472,
+      "sha256": "a38b82d8090b8a96bc55a57430ff0b8178de5515169c9d1c6aee14b0b698e882"
+    },
+    {
+      "path": ".cache/masteryi-w-packed/48a39dc90b87ae45.png",
+      "bytes": 655,
+      "sha256": "96bcb47a5d968d00cfe9c59eef702da8e226a9ed58c1fbc13da547fde53744d9"
+    },
+    {
+      "path": ".cache/masteryi-w-packed/5197de0e107eedc3.png",
+      "bytes": 10665,
+      "sha256": "b15f46f6628b6cb152fb9772c8e4c6b87bd3e834f44e88a54849408ebe383673"
+    },
+    {
+      "path": ".cache/masteryi-w-packed/52d46b565e0705c2.png",
+      "bytes": 382597,
+      "sha256": "421c7b2a98bc9a9b78b14c60ee9bcc15cb2098f995ea572eecd46eb95fefae9a"
+    },
+    {
+      "path": ".cache/masteryi-w-packed/68bb88b7ac5270f2.png",
+      "bytes": 85,
+      "sha256": "89626d044546c465df98f35ee2a64ec4409526b15d7b1ad9a05bd3949d627bb8"
+    },
+    {
+      "path": ".cache/masteryi-w-packed/69151717fd1ca98f.png",
+      "bytes": 27809,
+      "sha256": "c3d88cee759210b77b5bbcd80858292458fa98fe6003d206073734267e7656bd"
+    },
+    {
+      "path": ".cache/masteryi-w-packed/71c64f17c578499d.png",
+      "bytes": 7230,
+      "sha256": "584e367d64cc80296993fce40e5b33a22cfc86c41a7c26e02ccda56d31427585"
+    },
+    {
+      "path": ".cache/masteryi-w-packed/9267facfa5a7a719.png",
+      "bytes": 101914,
+      "sha256": "64cc218f93b4f85ed979a1f7ca54a6c0fab317c856996e7aa371cdd69badb740"
+    },
+    {
+      "path": ".cache/masteryi-w-packed/b37742b742dcc108.png",
+      "bytes": 46923,
+      "sha256": "cdd747e134d449d65247e4ac5a11d10804303feccd62bd24f10e7888ff03a13b"
+    },
+    {
+      "path": ".cache/masteryi-w-packed/c5fe8968add9d67d.png",
+      "bytes": 45820,
+      "sha256": "1ee8c37a509ea0e6eb456f5a4d93975d3d7238f38d334106a994c080249b67dc"
+    },
+    {
+      "path": ".cache/masteryi-w-packed/d521d07fa10b91b1.png",
+      "bytes": 33080,
+      "sha256": "d273da8c0a66838f6ed496d8cee47d52e5112440b5b4166bd3eb0b03c110afea"
+    },
+    {
+      "path": ".cache/masteryi-w-packed/dba30aea46f8d87f.png",
+      "bytes": 702,
+      "sha256": "30df4a0ee4cd6cc8d680584586e77e764328930403fae425708a9e845c0edcc8"
+    },
+    {
+      "path": ".cache/masteryi-w-packed/fa8fa48842c270f4.png",
+      "bytes": 9595,
+      "sha256": "d32e41a08bbf3db755051bd5fdd4ca0745cae7864c05d482b295d61e3c31aef3"
+    },
+    {
+      "path": ".cache/masteryi-w-packed/textures.json",
+      "bytes": 44743,
+      "sha256": "335c3934bb2c0042d40485288edc372b0096fac43053eb47ab74882c8f023c1e"
+    }
+  ],
+  "checks": {
+    "focused": {
+      "passed": 45,
+      "files": 3
+    },
+    "build": "TypeScript and production build passed; existing chunk-size warning retained.",
+    "qBrowser": {
+      "passed": 3,
+      "retries": 0,
+      "gpuMipHashes": 59,
+      "ordinaryAndCriticalSavesAndSelectiveRetry": "passed"
+    },
+    "wPrivateProbe": {
+      "textures": 18,
+      "gpuMipHashes": 153,
+      "pngDecodes": 18,
+      "bitmapCrops": 153,
+      "temporaryClosedBeforeDispose": 18,
+      "totalClosedExactlyOnce": 171,
+      "worldUnchanged": true,
+      "pageErrors": 0
+    },
+    "environment": "Chromium 154 / SwiftShader, same runtime dependency fingerprint as build."
+  },
+  "retainedDiagnostics": [
+    "Four decode-once allocation/crop expectations fail against the original per-crop PNG decoder.",
+    "All original pixel, sampler, layout, asset integrity and failure assertions retained; mocks distinguish PNG decode from bitmap crop. Additional container failure/resize guards check early cleanup."
+  ],
+  "limits": [
+    "No native GPU decoder/frame parity, physical-device, FPS, full browser/production-input, service-worker or offline-install certificate.",
+    "W transport and probe are private supplemental evidence; no public files or Meditate effect dispatch.",
+    "Ignored local source/evidence caches require preservation; exact archived changed sources are indexed here."
+  ]
+}

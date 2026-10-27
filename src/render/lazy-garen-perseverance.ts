@@ -5,6 +5,8 @@ import type { GarenPerseverance } from './garen-perseverance';
 
 /** Keep Garen-only profiles/materials out of ordinary Ashe/Lux entry loading. */
 export class LazyGarenPerseverance {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: GarenPerseverance;
   private pending?: Promise<void>;
   private retryAfter = 0;
@@ -21,6 +23,7 @@ export class LazyGarenPerseverance {
       const module = await import('./garen-perseverance');
       await module.loadGarenPerseverance();
       this.renderer = new module.GarenPerseverance(this.scene, this.ground);
+      this.onReady?.();
     })().catch((error) => {
       this.pending = undefined;
       throw error;

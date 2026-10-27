@@ -1,0 +1,428 @@
+{
+  "format": 1,
+  "parentCommit": "2b47425842f12ffc3fe1c56988047f7896085af8",
+  "scope": "Restore exact original frozen native payloads for static fidelity work; verify bounded fresh official-CDN transport, complete selected reconstruction and identical frozen Leona/Metal content sequences. No native execution, installation, source-pin rebasing or runtime/public changes.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "d7e71965d6aa7ac28ff74c6526b48d83dd73b0111a67c72eeb76af89163f3747",
+    "offlinePack": {
+      "id": "5ef2d43afc9bb16878ced8d214fb0877fab5817e7949b2ee0823513d6aa8782d",
+      "files": 1200,
+      "bytes": 538083368
+    }
+  },
+  "applicationFingerprintUnchanged": true,
+  "productionPackUnchanged": true,
+  "sourcePin": {
+    "path": "docs/reference/leona-native-matching.json",
+    "bytes": 23862,
+    "sha256": "57a8cf95b813290d512bc0d99dc7ced639709b02d206e2a6bb3fab7034d8168e"
+  },
+  "verification": {
+    "normalHttpCacheGuards": 18,
+    "optimizedHttpCacheGuards": 18,
+    "actualFaultInjectionsRejected": 5,
+    "payloadFiles": 21,
+    "newPayloadFiles": 20,
+    "payloadBytes": 140462443,
+    "newHttpRequests": 15,
+    "http206Ranges": 14,
+    "compressedChunkBytes": 24730508,
+    "newDownloadBytes": 41508905,
+    "nativeExecutableBytes": 82268192,
+    "nativeSha256": "97edcf2c88fec3169a1ec36345276569de3329e27fd9b32c8162957a77135c6c",
+    "architectures": [
+      "x86_64",
+      "arm64"
+    ],
+    "metadataAndPlistFiles": 4,
+    "normalOptimizedOfflineChecksAndReplays": 4,
+    "networkDeniedDuringReplays": true,
+    "payloadBytesMtimesAndModesUnchanged": true,
+    "nativeExecuteBitSet": false,
+    "nativeExecuted": false,
+    "nativeInstalled": false,
+    "historicalFullAuditRestored": false,
+    "fullApplicationTestsRerun": false
+  },
+  "diagnostics": [
+    "Initial attempt used the pinned CDTB file-like constructor branch, which raises UnboundLocalError before publishing payloads. The restorer now verifies/decompresses RMAN headers and calls the unchanged pinned body parser explicitly. Initial source snapshots and failure log are retained.",
+    "The historical full verifier still requires original collector/command/inventory/disassembly evidence files; its expected missing-selected-metadata failure is retained. The prior missing-archive application test failures are not declared resolved."
+  ],
+  "limits": [
+    "This restores selected exact bytes; code signing, notarization and native runtime/visual behavior are not certified.",
+    "Only the selected executable and four metadata/plist files are reconstructed, not a complete native client.",
+    "The existing source pin and CDTB reader bytes remain unchanged. Further native semantic conclusions require separately inspected ranges and verification.",
+    "Prior application acceptance is inherited from pose-history-capture-verification.json; this tools/cache checkpoint changes no game code or public assets."
+  ],
+  "sourceFiles": [
+    {
+      "path": "README.md",
+      "bytes": 18794,
+      "sha256": "f98439223e615537e8eab31fcab810f182ba2d461f166c94ff3ac0dc5ec7a643"
+    },
+    {
+      "path": "docs/NATIVE-CLIENT-RESTORATION.md",
+      "bytes": 3656,
+      "sha256": "ebe523b389b047c9045c6b1b216cd4b35c5863167117b7c4ecd10e8010d6c69f"
+    },
+    {
+      "path": "tools/assets/native_client_restore.py",
+      "bytes": 6954,
+      "sha256": "6ab14163aa03528ae8255948ecf66b106bbedd921aabc17c5a9dfafe8d44c711"
+    },
+    {
+      "path": "tools/assets/restore-native-client.py",
+      "bytes": 2371,
+      "sha256": "cbad0fd57dc50d8ba5102758596b88d4971263e40639daed89f3a4d502af3771"
+    },
+    {
+      "path": "tools/assets/test-native-client-restore.py",
+      "bytes": 4775,
+      "sha256": "d94c841d1a5dfe5a6bd8bf977780988ba5254a40350fa467546137a6c62d1b2c"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "docs/reference/leona-native-matching.json",
+      "bytes": 23862,
+      "sha256": "57a8cf95b813290d512bc0d99dc7ced639709b02d206e2a6bb3fab7034d8168e"
+    },
+    {
+      "path": "tools/assets/verify-leona-native-matching.py",
+      "bytes": 9774,
+      "sha256": "05d9ee04bded7fd98f7baf771c8f0286fa1335c75fd69eab16fab6578e18f643"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/__init__.py",
+      "bytes": 52,
+      "sha256": "be6459509876854380a0704ab435a5c2028abac61f92d1e62fbf7267752246f2"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/patcher.py",
+      "bytes": 24249,
+      "sha256": "9e538818c29c3f43b239d65e1f5474cfc937d5e8afaed7423b07b72bb22cadc6"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/tools.py",
+      "bytes": 3725,
+      "sha256": "72dbd480621b1af930d33b76e9e7e19854a9f5e0eb2a49957e45ac5df590b982"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/storage.py",
+      "bytes": 14834,
+      "sha256": "9708f7bcd973c672812325eba12e46cb2443f12f5c4126f3d637501fadc7c0ec"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/native-client-restoration/final-source/.tools/cdtb/cdtb/__init__.py",
+      "bytes": 52,
+      "sha256": "be6459509876854380a0704ab435a5c2028abac61f92d1e62fbf7267752246f2"
+    },
+    {
+      "path": ".cache/native-client-restoration/final-source/.tools/cdtb/cdtb/patcher.py",
+      "bytes": 24249,
+      "sha256": "9e538818c29c3f43b239d65e1f5474cfc937d5e8afaed7423b07b72bb22cadc6"
+    },
+    {
+      "path": ".cache/native-client-restoration/final-source/.tools/cdtb/cdtb/storage.py",
+      "bytes": 14834,
+      "sha256": "9708f7bcd973c672812325eba12e46cb2443f12f5c4126f3d637501fadc7c0ec"
+    },
+    {
+      "path": ".cache/native-client-restoration/final-source/.tools/cdtb/cdtb/tools.py",
+      "bytes": 3725,
+      "sha256": "72dbd480621b1af930d33b76e9e7e19854a9f5e0eb2a49957e45ac5df590b982"
+    },
+    {
+      "path": ".cache/native-client-restoration/final-source/README.md",
+      "bytes": 18794,
+      "sha256": "f98439223e615537e8eab31fcab810f182ba2d461f166c94ff3ac0dc5ec7a643"
+    },
+    {
+      "path": ".cache/native-client-restoration/final-source/docs/NATIVE-CLIENT-RESTORATION.md",
+      "bytes": 3656,
+      "sha256": "ebe523b389b047c9045c6b1b216cd4b35c5863167117b7c4ecd10e8010d6c69f"
+    },
+    {
+      "path": ".cache/native-client-restoration/final-source/docs/reference/leona-native-matching.json",
+      "bytes": 23862,
+      "sha256": "57a8cf95b813290d512bc0d99dc7ced639709b02d206e2a6bb3fab7034d8168e"
+    },
+    {
+      "path": ".cache/native-client-restoration/final-source/tools/assets/native_client_restore.py",
+      "bytes": 6954,
+      "sha256": "6ab14163aa03528ae8255948ecf66b106bbedd921aabc17c5a9dfafe8d44c711"
+    },
+    {
+      "path": ".cache/native-client-restoration/final-source/tools/assets/restore-native-client.py",
+      "bytes": 2371,
+      "sha256": "cbad0fd57dc50d8ba5102758596b88d4971263e40639daed89f3a4d502af3771"
+    },
+    {
+      "path": ".cache/native-client-restoration/final-source/tools/assets/test-native-client-restore.py",
+      "bytes": 4775,
+      "sha256": "d94c841d1a5dfe5a6bd8bf977780988ba5254a40350fa467546137a6c62d1b2c"
+    },
+    {
+      "path": ".cache/native-client-restoration/final-source/tools/assets/verify-leona-native-matching.py",
+      "bytes": 9774,
+      "sha256": "05d9ee04bded7fd98f7baf771c8f0286fa1335c75fd69eab16fab6578e18f643"
+    }
+  ],
+  "payloadFiles": [
+    {
+      "path": "/workspace/web-lol/.cache/leona-native-matching-v1-20261024/524F266AA13F85A9.manifest",
+      "bytes": 16778397,
+      "sha256": "a47010ec6b22299c3480ea9764f20674b05ddc4c8b4697bb70c483498273ffac"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/riot-reference/29CE6E781C3B6368.manifest",
+      "bytes": 16683525,
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/leona-native-matching-v1-20261024/chunks/C8F1835EE65A9BC3.zst",
+      "bytes": 72,
+      "sha256": "9680ab840710149f2616ff6f4ae2e4ba5fe3e14952eed4d2c46730ce90a33034"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/leona-native-matching-v1-20261024/chunks/C66C5F045D44951D.zst",
+      "bytes": 102,
+      "sha256": "8f210ea15b719a5eace98d64bbb5a01890cae3d40d10ce8af168f4468973d4f4"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/leona-native-matching-v1-20261024/chunks/529FC6A7D927B3D1.zst",
+      "bytes": 76,
+      "sha256": "f3e4a7e844afd367df58d7aa4326accb2c781d49e7c72b67b3b928e733985b98"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/leona-native-matching-v1-20261024/chunks/1147F1F0AB9C3584.zst",
+      "bytes": 633,
+      "sha256": "5043c140fa661fc5c159b2d367e46f9461868d3c2a13ab52208c011a44cbc76f"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/leona-native-matching-v1-20261024/chunks/2C11A00406D80732.zst",
+      "bytes": 2409071,
+      "sha256": "dda396c1b6c100a388dbb2853d22d3b1c51091df088b2b27ad0e0dcf0b731ba7"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/leona-native-matching-v1-20261024/chunks/35ACAF63790588AB.zst",
+      "bytes": 2264100,
+      "sha256": "4f9ba760dd0f72c5f4868a9c6e08157ecd0461f0623e490dd0ecdcc348099e3f"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/leona-native-matching-v1-20261024/chunks/895C89713EB56C70.zst",
+      "bytes": 2111726,
+      "sha256": "1a0489e65f1e12c20b4c5f1e3e3f9f0ebed4fea2d943c6edfd1e0f377baf0b6e"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/leona-native-matching-v1-20261024/chunks/2C7EF50FD1467815.zst",
+      "bytes": 3006526,
+      "sha256": "af8cc95f88dbcfac7a9309059852432cd33f8638bcfedf57b0ed75aa6d841a1f"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/leona-native-matching-v1-20261024/chunks/3CB8C7E495842A74.zst",
+      "bytes": 2935875,
+      "sha256": "b3e4dd42f673968943c80ba93574355b7964c6e7c3015e76124b22a5ef6c94dc"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/leona-native-matching-v1-20261024/chunks/24309AF287FD3F99.zst",
+      "bytes": 2577055,
+      "sha256": "f12f4a80dc10c26698e2c7f694950c83138eb9729d960f33cd6e66f04b6f91d0"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/leona-native-matching-v1-20261024/chunks/756D905CF1299954.zst",
+      "bytes": 2200147,
+      "sha256": "cf6faed1cf8d6b54ddeb331a8ada1db13057431f7e8eecad4ea411292e4bbcc3"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/leona-native-matching-v1-20261024/chunks/2D14C68B4E17D15E.zst",
+      "bytes": 1869167,
+      "sha256": "e8bc0a25b2e1225cc8b259da0777522201a772ac34b9759de96d9127735d47e1"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/leona-native-matching-v1-20261024/chunks/A0842DDC25618E41.zst",
+      "bytes": 2969728,
+      "sha256": "fdf28b7d1c3bbf59b8e91d205bca5365b453299e9dde931ac88ed0516c3847d4"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/leona-native-matching-v1-20261024/chunks/A17003B90F31CBAC.zst",
+      "bytes": 2386230,
+      "sha256": "e5648afd12be9c7155e65a182a6416541e33c537f39e7879d9a0ba0f154e5154"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/leona-native-matching-v1-20261024/native/code-metadata.json",
+      "bytes": 68,
+      "sha256": "441e34c444e054a7b601071930eb21903e4348cb9af0ad1b94576530bcbee17f"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/leona-native-matching-v1-20261024/native/compat-version-metadata.json",
+      "bytes": 105,
+      "sha256": "d78067b1f13f6491442e6374c67474050600412be157d21b171f10a572135d2f"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/leona-native-matching-v1-20261024/native/content-metadata.json",
+      "bytes": 74,
+      "sha256": "89308d2e997e3f45bdd81fda7a844760660a4637ec7608c7ecf061952e5f5884"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/leona-native-matching-v1-20261024/native/LeagueofLegends.app/Contents/Info.plist",
+      "bytes": 1574,
+      "sha256": "d751154e30965bda981f8425a47c3af0010d85bcbb4904d0b106e7394b73dd46"
+    },
+    {
+      "path": "/workspace/web-lol/.cache/leona-native-matching-v1-20261024/native/LeagueofLegends.app/Contents/MacOS/LeagueofLegends",
+      "bytes": 82268192,
+      "sha256": "97edcf2c88fec3169a1ec36345276569de3329e27fd9b32c8162957a77135c6c"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/native-client-restoration/app-identity.json",
+      "bytes": 90,
+      "sha256": "b715cd8724e34694d5dfeced683f0eb8b42f4ae7a34cf9e007f57cea03ccc142"
+    },
+    {
+      "path": ".cache/native-client-restoration/archive-checkpoint.py",
+      "bytes": 6254,
+      "sha256": "8dc01305e61b599f403b305517033319be77893571adee1cd29dda6eb8b4d881"
+    },
+    {
+      "path": ".cache/native-client-restoration/check-normal-final-receipt.json",
+      "bytes": 821,
+      "sha256": "e0784312725c55af9f5ccae3fa64716c87422ca5c386c1dfb95eeade64f4d284"
+    },
+    {
+      "path": ".cache/native-client-restoration/check-normal-final.log",
+      "bytes": 755,
+      "sha256": "4be311d53c89f12a96e16c4c7730b98c4baae92c57fe58190a97e8ec365eca87"
+    },
+    {
+      "path": ".cache/native-client-restoration/check-normal-receipt.json",
+      "bytes": 821,
+      "sha256": "c1750687aa0985043f6ca54ec244f4b5309c27657cbe9dd0808e6e158cacb637"
+    },
+    {
+      "path": ".cache/native-client-restoration/check-normal.log",
+      "bytes": 755,
+      "sha256": "aa48197d64dc7c09168b31bc537e502b98fd09d03fe22b252aebc35f93cd5d3d"
+    },
+    {
+      "path": ".cache/native-client-restoration/check-optimized-final-receipt.json",
+      "bytes": 821,
+      "sha256": "e0784312725c55af9f5ccae3fa64716c87422ca5c386c1dfb95eeade64f4d284"
+    },
+    {
+      "path": ".cache/native-client-restoration/check-optimized-final.log",
+      "bytes": 755,
+      "sha256": "4be311d53c89f12a96e16c4c7730b98c4baae92c57fe58190a97e8ec365eca87"
+    },
+    {
+      "path": ".cache/native-client-restoration/check-optimized-receipt.json",
+      "bytes": 821,
+      "sha256": "c1750687aa0985043f6ca54ec244f4b5309c27657cbe9dd0808e6e158cacb637"
+    },
+    {
+      "path": ".cache/native-client-restoration/check-optimized.log",
+      "bytes": 755,
+      "sha256": "aa48197d64dc7c09168b31bc537e502b98fd09d03fe22b252aebc35f93cd5d3d"
+    },
+    {
+      "path": ".cache/native-client-restoration/guards-final-normal.log",
+      "bytes": 117,
+      "sha256": "f6a7ca1bb8354dd4a96ce5b18e6ef9a20fa2a4585a46b6c12a17980ea1dc4087"
+    },
+    {
+      "path": ".cache/native-client-restoration/guards-final-optimized.log",
+      "bytes": 117,
+      "sha256": "f6a7ca1bb8354dd4a96ce5b18e6ef9a20fa2a4585a46b6c12a17980ea1dc4087"
+    },
+    {
+      "path": ".cache/native-client-restoration/guards-normal.log",
+      "bytes": 117,
+      "sha256": "f6a7ca1bb8354dd4a96ce5b18e6ef9a20fa2a4585a46b6c12a17980ea1dc4087"
+    },
+    {
+      "path": ".cache/native-client-restoration/guards-optimized.log",
+      "bytes": 117,
+      "sha256": "f6a7ca1bb8354dd4a96ce5b18e6ef9a20fa2a4585a46b6c12a17980ea1dc4087"
+    },
+    {
+      "path": ".cache/native-client-restoration/historical-full-verifier.log",
+      "bytes": 159,
+      "sha256": "2c6985f19acce3c79e3d7b4da282ef5bc6fa229a5f2ef35c36cfcfe95cb9be3f"
+    },
+    {
+      "path": ".cache/native-client-restoration/initial-source/tools/assets/native_client_restore.py",
+      "bytes": 6724,
+      "sha256": "39bddd0148de28dc42d5be5aec65413f37769a5b44b9c623f8a28f9b58c4416d"
+    },
+    {
+      "path": ".cache/native-client-restoration/initial-source/tools/assets/restore-native-client.py",
+      "bytes": 2322,
+      "sha256": "9938384b8bf2ace59392af909136422a16d57cf3d1632b4feb26c77f0bdbb71e"
+    },
+    {
+      "path": ".cache/native-client-restoration/offline-replay.py",
+      "bytes": 299,
+      "sha256": "7d39c49897a4ee0093bede4e76980abbf2bde8746eabc886457d3391fe5da2ab"
+    },
+    {
+      "path": ".cache/native-client-restoration/replay-verification.json",
+      "bytes": 14030,
+      "sha256": "aaceed7fa94f73208e0b1a65fbf1ba839e3833011edd52eb258f00e7bfa35646"
+    },
+    {
+      "path": ".cache/native-client-restoration/restore-corrected.log",
+      "bytes": 1948,
+      "sha256": "47815366b51fbe42a683e43a087ca65fdc2834d3ba8be4124f91cfe29e3bfe9e"
+    },
+    {
+      "path": ".cache/native-client-restoration/restore-receipt.json",
+      "bytes": 8099,
+      "sha256": "2e0d47cedf23636d7c47d25c2a43fb7e39b6dabb767ca3a9fe1b43a35560ecb5"
+    },
+    {
+      "path": ".cache/native-client-restoration/restore-replay-normal-final-receipt.json",
+      "bytes": 823,
+      "sha256": "4227a62f4285ac513ba655634060f89bdaac427f31a647bf5dc4cc1440a804ad"
+    },
+    {
+      "path": ".cache/native-client-restoration/restore-replay-normal-final.log",
+      "bytes": 757,
+      "sha256": "9c03089572379166f204beeac55da1f9aeb04715a92fb8b90d8c54f6a2ba52b8"
+    },
+    {
+      "path": ".cache/native-client-restoration/restore-replay-optimized-final-receipt.json",
+      "bytes": 823,
+      "sha256": "4227a62f4285ac513ba655634060f89bdaac427f31a647bf5dc4cc1440a804ad"
+    },
+    {
+      "path": ".cache/native-client-restoration/restore-replay-optimized-final.log",
+      "bytes": 757,
+      "sha256": "9c03089572379166f204beeac55da1f9aeb04715a92fb8b90d8c54f6a2ba52b8"
+    },
+    {
+      "path": ".cache/native-client-restoration/restore.log",
+      "bytes": 826,
+      "sha256": "c796c12bb2bffe490cb4cc971f0b1d99bcbab353c6a8166c1747c40fcb1f4a15"
+    },
+    {
+      "path": ".cache/native-client-restoration/unchanged-application.json",
+      "bytes": 256,
+      "sha256": "9a00777c28c0d56ae1884f1c9d87c041b9310b4515e6c27579df3957cef43d0e"
+    },
+    {
+      "path": ".cache/native-client-restoration/verification.log",
+      "bytes": 521,
+      "sha256": "aafe215e279d9fa15bfc1ffbee172384409fd7c1d7a660a2675f440793e3e2a5"
+    },
+    {
+      "path": ".cache/native-client-restoration/verify-checkpoint.py",
+      "bytes": 3724,
+      "sha256": "1b0d869e76ccac1b99d58541e85dc62e54d04a94f6cb8740a5c987679c8ac1d2"
+    }
+  ]
+}

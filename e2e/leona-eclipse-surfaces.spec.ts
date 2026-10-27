@@ -149,11 +149,11 @@ test('all 26 enabled non-skin W families draw source pixels across successful an
     29,
   ]);
   expect([...seen].filter(([, changed]) => changed === 0)).toEqual([]);
-  const sourceColored = new Set([14, 18, 20, 24, 25, 26]);
+  const byteColored = new Set([3, 8, 14, 18, 20, 24, 25, 26]);
   for (const stage of stages)
     for (const p of stage.profiles)
       expect(p.vertexBgra, 'source vertex color route ' + p.profile).toBe(
-        sourceColored.has(p.profile)
+        byteColored.has(p.profile)
       );
   expect(errors).toEqual([]);
 });
@@ -535,6 +535,7 @@ async function surfaceState(page: Page) {
         position: m.position.toArray(),
         rotation: m.quaternion.toArray(),
         scale: m.scale.toArray(),
+        packetColor: Array.from(m.geometry.getAttribute('_source_vertex_bgra')?.array ?? []),
         tint: m.material.uniforms.particleColor.value.toArray(),
         lookup: m.material.uniforms.lookupUv.value.toArray(),
         uv: m.material.uniforms.sourceUvTransform?.value.toArray(),

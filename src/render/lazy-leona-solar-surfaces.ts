@@ -4,6 +4,8 @@ import type { Vec2 } from '../simulation/math';
 import type { LeonaSolarSurfaces } from './leona-solar-surfaces';
 
 export class LazyLeonaSolarSurfaces {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: LeonaSolarSurfaces;
   private pending?: Promise<void>;
   private retryAfter = 0;
@@ -22,7 +24,7 @@ export class LazyLeonaSolarSurfaces {
     return (this.pending ??= (async () => {
       const m = await import('./leona-solar-surfaces');
       await m.loadLeonaSolarSurfaces();
-      if (!this.disposed)
+      if (!this.disposed) {
         this.renderer = new m.LeonaSolarSurfaces(
           this.scene,
           this.distortion,
@@ -30,6 +32,8 @@ export class LazyLeonaSolarSurfaces {
           undefined,
           this.early
         );
+        this.onReady?.();
+      }
     })().catch((error) => {
       this.pending = undefined;
       throw error;

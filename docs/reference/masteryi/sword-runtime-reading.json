@@ -1,0 +1,16 @@
+{
+  "format": 1,
+  "sourcePinSha256": "5137067c8206b7db14075d29816e08bd5281c25f8ec959f8e1b13ee5c305d9d2",
+  "transportSha256": "52b94f42a2bbac40c4fd8b7037566138d2f3a979af67193e60049c4fc3e0255f",
+  "bindingSha256": "0ea42eebba35d04152a78696b5cce02050f1d50ab6dd4cf2b2c79aaba3456c1c",
+  "profileSha256": "da8a6980294bcee470ff4ff07123e632ea9fe0136dc9ee43e887d4b7089b05b2",
+  "tailTicks": 62,
+  "limits": [
+    "All 14 source profiles remain complete; runtime dispatch follows only the five skin-declared instances/four unique systems, rather than inferred resource-name selection.",
+    "Named full-bind/local-orientation attachments use the current posed joint frame; source-X reflection and .01 VFX units remain explicit local adapters, separate from the rig's baked .015 translations and uncalibrated native inheritance.",
+    "All nine textures retain 78 authored mip levels. The omitted lookup uses an explicit local neutral product.",
+    "Flares retain numFrames=4 with omitted texDiv; local default grid [1,1] stays separate from the beams' authored [2,2] grid. Native atlas/sampler semantics remain unverified.",
+    "Local persistent clocks advance during Q/W buff pauses, stop at actual local buff removal, and allow finite one-second tails. Native creation/removal, tail/destruction and reveal callbacks remain unverified.",
+    "Fixed cosmetic samples, first-update emission and UV_MODE=2 shader mapping retain existing local policies; no audio is added."
+  ]
+}

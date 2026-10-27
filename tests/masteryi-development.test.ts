@@ -58,14 +58,13 @@ test('Master Yi owns his checked NPC stats and remains outside player selection 
   expect(() => World.fromSnapshot(JSON.stringify(raw), w.battlefield)).toThrow();
 });
 
-test('all unfinished spells reject learning and queued casts without spending or borrowing Ashe capabilities', () => {
+test('unlearned Q keeps own metadata and rejects queued casts without spending or borrowing Ashe capabilities', () => {
   const { w, masteryi, state } = setup();
   w.gainExperience(1e6, masteryi.id);
   const mana = masteryi.mana;
-  for (const ability of ['q', 'w', 'e', 'r'] as const) {
-    expect(w.spellLearningError(ability, masteryi.id)).toMatch(/not implemented/);
-    expect(w.learnSpell(ability, masteryi.id)).toMatch(/not implemented/);
-    expect(() => w.abilitySpec(ability, masteryi.id)).toThrow(/not implemented/);
+  for (const ability of ['q'] as const) {
+    expect(w.spellLearningError(ability, masteryi.id)).toBeNull();
+    expect(w.abilitySpec(ability, masteryi.id).name).toBe('Alpha Strike');
     w.enqueue({ type: 'cast', unit: masteryi.id, ability, point: { x: 600, y: 0 } });
   }
   masteryi.stunUntil = w.tick + 20;
@@ -172,7 +171,7 @@ test('pending swings and melee recovery restore exact state and 300-tick futures
   }
 });
 
-test('strict continuation rejects learned/cooling/casting Master Yi spells and former schemas', () => {
+test('strict continuation rejects unbudgeted/cooling/casting Master Yi spells and former schemas', () => {
   const { w, masteryi } = setup();
   const saved = w.snapshot();
   for (const field of ['rank', 'cooldown', 'skillPoints', 'cast', 'version']) {

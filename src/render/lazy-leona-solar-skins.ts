@@ -4,6 +4,8 @@ import type { Vec2 } from '../simulation/math';
 import type { LeonaSolarSkins } from './leona-solar-skins';
 
 export class LazyLeonaSolarSkins {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: LeonaSolarSkins;
   private pending?: Promise<void>;
   private retryAfter = 0;
@@ -20,7 +22,10 @@ export class LazyLeonaSolarSkins {
     return (this.pending ??= (async () => {
       const m = await import('./leona-solar-skins');
       await m.loadLeonaSolarSkins();
-      if (!this.disposed) this.renderer = new m.LeonaSolarSkins(this.scene, this.ground);
+      if (!this.disposed) {
+        this.renderer = new m.LeonaSolarSkins(this.scene, this.ground);
+        this.onReady?.();
+      }
     })().catch((error) => {
       this.pending = undefined;
       throw error;

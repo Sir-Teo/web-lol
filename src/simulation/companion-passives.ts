@@ -104,7 +104,7 @@ export function triggerScorchclaw(w: World, source: Unit, primary: Unit, categor
     if (
       target.team === source.team ||
       !w.alive(target) ||
-      !w.vulnerable(target) ||
+      !w.targetable(target) ||
       isStructureKind(target.kind) ||
       distance(primary, target) > S.scorchclaw.radius ||
       (target.kind === 'monster' && target.monster.phase === 'returning')

@@ -14,7 +14,14 @@ import { TRINKETS, ORACLE_SOURCE, type TrinketKind } from '../content/trinkets';
 import { trinketSwapError } from '../simulation/trinkets';
 import { shrinePoint } from '../simulation/scuttler';
 import { selectableChampion } from '../content/champion-profiles';
-import { championProfile } from '../content/champion-profiles';
+import { championProfile, isMeleeChampion } from '../content/champion-profiles';
+import { MASTER_YI } from '../content/masteryi-progression';
+import {
+  isMasterYiSpell,
+  masterYiPreviewResources,
+  masterYiDescription,
+  masterYiPassiveDescription,
+} from './masteryi-spells';
 import { GAREN } from '../content/garen-progression';
 import { GAREN_W } from '../content/garen-w';
 import { garenEStrikes } from '../simulation/garen-e';
@@ -106,6 +113,8 @@ export interface HudActions {
 }
 export class Hud {
   root: HTMLDivElement;
+  /** A HUD instant spell can replace an active targeting gesture. */
+  onInstantCast?: () => void;
   modal: string | null = null;
   paused = false;
   graphicsState: 'lost' | 'restoring' | 'failed' | null = null;
@@ -145,7 +154,7 @@ export class Hud {
       <section class="champion-hud" aria-label="Champion controls">
         <div class="champion-portrait"><img src="assets/icons/${world.hero.champion}.png" alt="${championProfile(world.hero.champion!).name}"><span id="level">1</span><div class="portrait-frame"></div></div>
         <div class="champion-stats"><span title="Attack damage" aria-label="Attack damage"><i class="stat-icon stat-ad" aria-hidden="true"></i><b id="ad">59</b></span><span title="Ability power" aria-label="Ability power"><i class="stat-icon stat-ap" aria-hidden="true"></i><b id="ap">0</b></span><span title="Armor" aria-label="Armor"><i class="stat-icon stat-armor" aria-hidden="true"></i><b id="armor">26</b></span><span title="Magic resistance" aria-label="Magic resistance"><i class="stat-icon stat-mr" aria-hidden="true"></i><b id="mr">33</b></span><span title="Attack speed" aria-label="Attack speed"><i class="stat-icon stat-as" aria-hidden="true"></i><b id="as">0.66</b></span><span title="Movement speed" aria-label="Movement speed"><i class="stat-icon stat-ms" aria-hidden="true"></i><b id="ms">325</b></span></div>
-        <div class="champion-core"><div class="champion-buffs" id="champion-buffs" aria-label="Active buffs" hidden><span class="blue-buff" id="blue-buff" tabindex="0" role="img" hidden><img src="assets/icons/buffcampblue.png" alt=""><b>Crest of Insight</b><time id="blue-buff-time"></time><i class="buff-duration"><i id="blue-buff-fill"></i></i></span><span class="blue-buff red-buff" id="red-buff" tabindex="0" role="img" hidden><img src="assets/icons/buffcampred.png" alt=""><b>Crest of Cinders</b><time id="red-buff-time"></time><i class="buff-duration"><i id="red-buff-fill"></i></i></span></div><div class="champion-title"><strong>${championProfile(world.hero.champion!).name.toUpperCase()}</strong><span>${world.hero.champion === 'garen' ? 'THE MIGHT OF DEMACIA' : world.hero.champion === 'lux' ? 'THE LADY OF LUMINOSITY' : world.hero.champion === 'leona' ? 'THE RADIANT DAWN' : world.hero.champion === 'ahri' ? 'THE NINE-TAILED FOX' : 'THE FROST ARCHER'}</span>${world.hero.champion === 'ashe' ? '<div class="focus-pips" aria-label="Focus stacks"><i></i><i></i><i></i><i></i></div>' : world.hero.champion === 'ahri' ? '<span id="ahri-essence" class="essence-counter" tabindex="0" aria-label="Essence Theft, 0 of 9 kills">0 / 9</span>' : ''}</div>
+        <div class="champion-core"><div class="champion-buffs" id="champion-buffs" aria-label="Active buffs" hidden><span class="blue-buff" id="blue-buff" tabindex="0" role="img" hidden><img src="assets/icons/buffcampblue.png" alt=""><b>Crest of Insight</b><time id="blue-buff-time"></time><i class="buff-duration"><i id="blue-buff-fill"></i></i></span><span class="blue-buff red-buff" id="red-buff" tabindex="0" role="img" hidden><img src="assets/icons/buffcampred.png" alt=""><b>Crest of Cinders</b><time id="red-buff-time"></time><i class="buff-duration"><i id="red-buff-fill"></i></i></span></div><div class="champion-title"><strong>${championProfile(world.hero.champion!).name.toUpperCase()}</strong><span>${world.hero.champion === 'garen' ? 'THE MIGHT OF DEMACIA' : world.hero.champion === 'lux' ? 'THE LADY OF LUMINOSITY' : world.hero.champion === 'leona' ? 'THE RADIANT DAWN' : world.hero.champion === 'ahri' ? 'THE NINE-TAILED FOX' : world.hero.champion === 'masteryi' ? 'THE WUJU BLADESMAN' : 'THE FROST ARCHER'}</span>${world.hero.champion === 'ashe' ? '<div class="focus-pips" aria-label="Focus stacks"><i></i><i></i><i></i><i></i></div>' : world.hero.champion === 'ahri' ? '<span id="ahri-essence" class="essence-counter" tabindex="0" aria-label="Essence Theft, 0 of 9 kills">0 / 9</span>' : world.hero.champion === 'masteryi' ? '<span id="masteryi-double-strike" class="essence-counter yi-double-strike" tabindex="0" aria-label="Double Strike, 0 of 3 stacks"><img src="assets/icons/MasterYi_Passive1.png" alt=""><b>0 / 3</b></span>' : ''}</div>
           <div class="ability-row">${(['q', 'w', 'e', 'r'] as Ability[]).map((a) => this.abilityMarkup(a)).join('')}<div class="summoners">${(['d', 'f'] as Ability[]).map((a) => this.abilityMarkup(a)).join('')}</div></div>
           <div class="resource health"><i id="health-fill"></i><span id="health-text">610 / 610</span><small id="health-regen">+0.7</small></div>
           <div class="resource mana" ${world.hero.champion === 'garen' ? 'hidden' : ''}><i id="mana-fill"></i><span id="mana-text">280 / 280</span></div>
@@ -181,7 +190,12 @@ export class Hud {
       world.matchMode === 'lanes';
   }
   private spellSpec(a: Ability) {
-    if (isSummonerSlot(a) || this.world.hero.champion === 'ahri') return this.world.abilitySpec(a);
+    if (
+      isSummonerSlot(a) ||
+      this.world.hero.champion === 'ahri' ||
+      this.world.hero.champion === 'masteryi'
+    )
+      return this.world.abilitySpec(a);
     if (this.world.hero.champion === 'garen' && isGarenSpell(a)) return GAREN_SPELLS[a];
     if (this.world.hero.champion === 'leona' && isLeonaSpell(a)) return LEONA_HUD_SPELLS[a];
     return this.world.hero.champion === 'lux' && isLuxSpell(a) ? LUX_SPELLS[a] : ABILITIES[a];
@@ -195,6 +209,13 @@ export class Hud {
   private tooltipResources(a: Ability) {
     if (this.isLuxRecast(a)) return { mana: 0, cooldownSeconds: 0 };
     if (a === 'd' || a === 'f' || this.world.abilityRank(a)) return this.world.abilityResources(a);
+    if (this.world.hero.champion === 'masteryi' && isMasterYiSpell(a)) {
+      const preview = masterYiPreviewResources(a);
+      return {
+        ...preview,
+        cooldownSeconds: (preview.cooldownSeconds * 100) / (100 + this.world.abilityHaste()),
+      };
+    }
     if (this.world.hero.champion === 'ahri' && isAhriSpell(a)) {
       const preview = ahriPreviewResources(a);
       return {
@@ -277,6 +298,18 @@ export class Hud {
         h.damage,
         bonusHealth,
         garenEStrikes(this.world.player.level)
+      );
+    }
+    if (this.world.hero.champion === 'masteryi' && isMasterYiSpell(ability)) {
+      const h = this.world.hero;
+      const base =
+        MASTER_YI.damage + MASTER_YI.damageGrowth * growthAtLevel(this.world.player.level);
+      return masterYiDescription(
+        ability,
+        rank,
+        h.damage,
+        Math.max(0, h.damage - base),
+        this.world.abilityPower()
       );
     }
     if (this.world.hero.champion === 'ahri' && isAhriSpell(ability))
@@ -494,14 +527,15 @@ export class Hud {
       });
       button.addEventListener('click', () => {
         if (this.paused || this.modal) return;
-        if (instantSpell(this.world, ability))
+        if (instantSpell(this.world, ability)) {
+          this.onInstantCast?.();
           this.world.enqueue({
             type: 'cast',
             unit: this.world.player.id,
             ability,
             point: this.world.hero,
           });
-        else
+        } else
           this.toast(
             targetedSpell(this.world, ability)
               ? targetInstruction(this.world, ability)
@@ -567,7 +601,8 @@ export class Hud {
     let chosenChampion =
       this.world.hero.champion === 'garen' ||
       this.world.hero.champion === 'leona' ||
-      this.world.hero.champion === 'ahri'
+      this.world.hero.champion === 'ahri' ||
+      this.world.hero.champion === 'masteryi'
         ? ('ashe' as const)
         : selectableChampion(this.world.hero.champion);
     const laneDescription = () =>
@@ -623,33 +658,40 @@ export class Hud {
         ['A → click', 'Attack move'],
         ['Shift + right-click', 'Attack move immediately'],
         ['S', 'Stop'],
-        ...(this.world.hero.champion === 'garen'
+        ...(this.world.hero.champion === 'masteryi'
           ? [
-              ['Q / W / E', 'Activate Decisive Strike / Courage / Judgment'],
-              ['E again', 'End Judgment after its first second'],
-              ['Hold R', 'Point at an enemy champion in range, then release'],
+              ['Hold Q', 'Point at an enemy in range, then release Alpha Strike'],
+              ['W / E / R', 'Activate Meditate / Wuju Style / Highlander'],
+              ['Right-click during Q', 'Choose your return side'],
+              ['Move or Stop during W', 'End Meditate'],
             ]
-          : this.world.hero.champion === 'ahri'
+          : this.world.hero.champion === 'garen'
             ? [
-                ['Hold Q / E / R', 'Aim Orb of Deception / Charm / Spirit Rush, then release'],
-                ['W', 'Activate Fox-Fire'],
-                ['R again', 'Use a stored Spirit Rush cast while its window is active'],
+                ['Q / W / E', 'Activate Decisive Strike / Courage / Judgment'],
+                ['E again', 'End Judgment after its first second'],
+                ['Hold R', 'Point at an enemy champion in range, then release'],
               ]
-            : this.world.hero.champion === 'leona'
+            : this.world.hero.champion === 'ahri'
               ? [
-                  ['Q / W', 'Activate Shield of Daybreak / Eclipse'],
-                  ['Hold E / R', 'Aim Zenith Blade / Solar Flare, then release'],
+                  ['Hold Q / E / R', 'Aim Orb of Deception / Charm / Spirit Rush, then release'],
+                  ['W', 'Activate Fox-Fire'],
+                  ['R again', 'Use a stored Spirit Rush cast while its window is active'],
                 ]
-              : this.world.hero.champion === 'lux'
+              : this.world.hero.champion === 'leona'
                 ? [
-                    ['Hold Q / W / E / R', 'Aim, then release to cast'],
-                    ['E again', 'Detonate Lucent Singularity'],
+                    ['Q / W', 'Activate Shield of Daybreak / Eclipse'],
+                    ['Hold E / R', 'Aim Zenith Blade / Solar Flare, then release'],
                   ]
-                : [
-                    ['Q', 'Activate Focus at 4 stacks'],
-                    ['Hold W / E / R', 'Aim, then release to cast'],
-                    ['E / R over minimap', 'Aim across the map without moving the camera'],
-                  ]),
+                : this.world.hero.champion === 'lux'
+                  ? [
+                      ['Hold Q / W / E / R', 'Aim, then release to cast'],
+                      ['E again', 'Detonate Lucent Singularity'],
+                    ]
+                  : [
+                      ['Q', 'Activate Focus at 4 stacks'],
+                      ['Hold W / E / R', 'Aim, then release to cast'],
+                      ['E / R over minimap', 'Aim across the map without moving the camera'],
+                    ]),
         ['D / F', `${this.spellSpec('d').name} / ${this.spellSpec('f').name}`],
         ['B', 'Recall to fountain'],
         ['4', 'Hold to aim Stealth Ward; press to activate Oracle Lens'],
@@ -688,7 +730,12 @@ export class Hud {
         backdrop.querySelectorAll<HTMLButtonElement>('button:not([disabled]):not([hidden])')
       );
       const index = buttons.indexOf(document.activeElement as HTMLButtonElement);
-      const next = (index + (event.shiftKey ? -1 : 1) + buttons.length) % buttons.length;
+      const next =
+        index < 0
+          ? event.shiftKey
+            ? buttons.length - 1
+            : 0
+          : (index + (event.shiftKey ? -1 : 1) + buttons.length) % buttons.length;
       event.preventDefault();
       buttons[next]?.focus();
     };
@@ -732,6 +779,13 @@ export class Hud {
           backdrop.querySelectorAll<HTMLButtonElement>('button').forEach((control) => {
             control.disabled = true;
           });
+          const dialog = backdrop.querySelector<HTMLElement>('.game-dialog')!;
+          dialog.focus({ preventScroll: true });
+          const status = document.createElement('p');
+          status.className = 'practice-note';
+          status.setAttribute('role', 'status');
+          status.textContent = 'Starting match…';
+          dialog.querySelector('.dialog-rule')!.after(status);
           void this.actions
             .startMatch(
               action === 'start-lanes' ? 'lanes' : 'practice',
@@ -854,6 +908,7 @@ export class Hud {
         dialog.querySelectorAll<HTMLButtonElement>('button').forEach((button) => {
           button.disabled = true;
         });
+        dialog.focus({ preventScroll: true });
         status.textContent = 'Loading match…';
         void prepared.load().catch((error) => {
           this.replacingMatch = false;
@@ -1214,7 +1269,7 @@ export class Hud {
         w.tick < p.redBuffHealReadyTick
           ? 'Healing paused after damage'
           : `+${redBuffHealingPerSecond(p, h.maxHp, w.tick).toFixed(1)} Health per second`;
-      const description = `Crest of Cinders: attacks burn for ${(3 * cinderDamagePerTick(p.level)).toFixed(1)} true damage and slow by ${(100 * cinderSlow(p.level, h.champion === 'garen')).toFixed(1)}%. ${healing}. ${seconds}s remaining. Transfers to your killer when slain.`;
+      const description = `Crest of Cinders: attacks burn for ${(3 * cinderDamagePerTick(p.level)).toFixed(1)} true damage and slow by ${(100 * cinderSlow(p.level, isMeleeChampion(h.champion))).toFixed(1)}%. ${healing}. ${seconds}s remaining. Transfers to your killer when slain.`;
       buff.title = description;
       buff.setAttribute('aria-label', description);
     }
@@ -1266,6 +1321,17 @@ export class Hud {
     this.root
       .querySelectorAll<HTMLElement>('.focus-pips i')
       .forEach((pip, i) => pip.classList.toggle('charged', i < p.qStacks));
+    const yiCounter = this.root.querySelector<HTMLElement>('#masteryi-double-strike');
+    if (yiCounter) {
+      const stacks = p.doubleStrike?.stacks ?? 0;
+      yiCounter.querySelector('b')!.textContent = `${stacks} / 3`;
+      yiCounter.classList.toggle('ready', stacks === 3);
+      yiCounter.setAttribute(
+        'aria-label',
+        stacks === 3 ? 'Double Strike ready' : `Double Strike, ${stacks} of 3 stacks`
+      );
+      yiCounter.title = masterYiPassiveDescription(stacks);
+    }
     const ahriRush = h.champion === 'ahri' ? activeSpiritRush(w, h.id) : undefined;
     const essence = this.root.querySelector<HTMLElement>('#ahri-essence');
     if (essence) {
@@ -1313,6 +1379,11 @@ export class Hud {
               (a === 'w' && !!p.leonaW && w.tick < p.leonaW.endTick) ||
               (a === 'e' && (!!p.leonaEWindup || !!p.leonaDash)) ||
               (a === 'r' && !!p.leonaR))) ||
+          (h.champion === 'masteryi' &&
+            ((a === 'q' && !!p.alphaStrike) ||
+              (a === 'w' && p.meditate?.stopTick === null) ||
+              (a === 'e' && !!p.wujuStyle && w.tick < p.wujuStyle.endTick) ||
+              (a === 'r' && !!p.highlander && w.tick < p.highlander.endTick))) ||
           (h.champion === 'garen' &&
             ((a === 'q' && !!p.garenQ && !p.garenQ.consumed && w.tick < p.garenQ.attackUntil) ||
               (a === 'w' && !!p.garenW && w.tick < p.garenW.defenseUntil) ||
@@ -1454,7 +1525,7 @@ export class Hud {
             event.type === 'gold'
               ? `+${event.value}g`
               : event.type === 'heal'
-                ? `+${event.value}`
+                ? `+${Math.round(event.value ?? 0)}`
                 : event.type === 'level'
                   ? 'LEVEL UP!'
                   : String(event.value);

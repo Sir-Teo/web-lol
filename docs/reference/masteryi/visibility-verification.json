@@ -1,0 +1,119 @@
+{
+  "recordedAt": "2026-10-25T21:36:23.917882+00:00",
+  "baselineCommit": "ebbb4d8",
+  "scope": "Align vanished Alpha Strike body, cursor picking and selection/hover rings; retain protected structure selection. Complete own Q tooltip monster/critical description.",
+  "schema": 144,
+  "ruleset": "58d4bb60164c316712b1f3b92eff8ec71be784db6ab7bf3cba9c03ada4d6cdab",
+  "pack": {
+    "id": "1d810b42e4440c150b5b7eef2b98f3610580136e98de4db4c856972a4ee6ffac",
+    "files": 1073,
+    "bytes": 526661765
+  },
+  "changedInputs": [
+    {
+      "file": "src/render/unit-visibility.ts",
+      "bytes": 445,
+      "sha256": "3c3c9d1532ace39ab129918f7c2f8683c5d112d73ad98756862bef76dcc49ecb"
+    },
+    {
+      "file": "src/render/view.ts",
+      "bytes": 60852,
+      "sha256": "0db01b5ba06894eba2cd836a417251ce1733d230eee472330ad66a39ef8da88a"
+    },
+    {
+      "file": "src/ui/masteryi-spells.ts",
+      "bytes": 3274,
+      "sha256": "74c56121d63d80b09ad6bfde682204f8fc73adc454b57a182a700f74513b8ecc"
+    },
+    {
+      "file": "tests/masteryi-picking.test.ts",
+      "bytes": 3010,
+      "sha256": "d377337dbf4f0d892705bd234f155674d0fd203d38b51f781f45795c18984f80"
+    },
+    {
+      "file": "tests/masteryi-player.test.ts",
+      "bytes": 7281,
+      "sha256": "598bef926d8d79733752d305e39f47d13418f13c95936c083a41e1ff7516a444"
+    },
+    {
+      "file": "e2e/masteryi-player.spec.ts",
+      "bytes": 11637,
+      "sha256": "bfc76d8cea9b36b6af2690d29c6d729d46fe254e564dc91bea81e9b77a5dae97"
+    }
+  ],
+  "validation": {
+    "before": "Real vanished Q remained fog-visible and unpickable by combat rules, yet actual GameView.pick returned Yi; one failed reproduction retained.",
+    "focusedPassed": 67,
+    "focusedFiles": 4,
+    "typescript": true,
+    "build": true,
+    "browserPassed": 1,
+    "hidden": {
+      "visible": false,
+      "selectionVisible": false,
+      "hoverVisible": false,
+      "picked": null
+    },
+    "revealed": {
+      "visible": true,
+      "selectionVisible": true,
+      "picked": 1,
+      "heroId": 1
+    },
+    "publicAssetChanges": [],
+    "fullUnitBrowserProductionOfflineRepeated": false,
+    "previousMilestone": "docs/reference/masteryi/player-verification.json"
+  },
+  "evidence": [
+    {
+      "file": ".cache/masteryi-visibility-cloud/after-v1.log",
+      "bytes": 425,
+      "sha256": "ba8eb32e1f2928584afdbc07baeb6882cf762b3647688febf9e7dc71d18a2424"
+    },
+    {
+      "file": ".cache/masteryi-visibility-cloud/after-v2.log",
+      "bytes": 425,
+      "sha256": "2f5e9d43ebd432e364855ec6c9cb22c8909cbe8e4b5fc3d7daf2de3f3e9a87eb"
+    },
+    {
+      "file": ".cache/masteryi-visibility-cloud/before.log",
+      "bytes": 2456,
+      "sha256": "3c37612c30ee8f1a8acda91ae77534c92f475833bc84b6ac3811fa4e45c37bdc"
+    },
+    {
+      "file": ".cache/masteryi-visibility-cloud/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/masteryi-visibility-cloud/browser/masteryi-player-held-Q-sel-e13dc--mouse-selected-return-side/human-q.json",
+      "bytes": 2759,
+      "sha256": "8a6e21f5687f36e20d130dd74c1ed780dc31575865510d0a8734bc96a25b5149"
+    },
+    {
+      "file": ".cache/masteryi-visibility-cloud/browser/masteryi-player-held-Q-sel-e13dc--mouse-selected-return-side/masteryi-player-q-aim.png",
+      "bytes": 784234,
+      "sha256": "52aee56daf46426a1ea44a10dd82e86d0e80a493189b8c7bb6156c34c6061c6d"
+    },
+    {
+      "file": ".cache/masteryi-visibility-cloud/browser/masteryi-player-held-Q-sel-e13dc--mouse-selected-return-side/masteryi-player-q-return.png",
+      "bytes": 776836,
+      "sha256": "508eb2dc11016bd76ad8207d994f8f27ef7d1f4d4e7888ec4c9e5854c7352855"
+    },
+    {
+      "file": ".cache/masteryi-visibility-cloud/browser.log",
+      "bytes": 669,
+      "sha256": "b81f80fbdb6b5dbe76efe07e199bdc956e1bad4c2ab23e88ae76c27b4fbb7c51"
+    },
+    {
+      "file": ".cache/masteryi-visibility-cloud/build.log",
+      "bytes": 4829,
+      "sha256": "ed1ff3d79d95b870774afcf0a0eed0b70cd2e605315ad6b3c2714dd9e1bb5344"
+    },
+    {
+      "file": ".cache/masteryi-visibility-cloud/typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+[
+  {
+    "rig": "leona-base",
+    "path": "docs/reference/leona-model.json",
+    "sha256": "4afb6c31fc7d23c6c820d380d6ac789fada29866776dea29d4f60355b2348cc7",
+    "recordPath": [
+      "skin",
+      "data",
+      "Characters/Leona/Skins/Skin0"
+    ],
+    "material": "Metal"
+  },
+  {
+    "rig": "ahri-base",
+    "path": "docs/reference/ahri-model.json",
+    "sha256": "74d0b55f5aad08646fbd24f660ed533bc8fd5798e8a60dc0983d97960b47a377",
+    "recordPath": [
+      "skin",
+      "data",
+      "Characters/Ahri/Skins/Skin0"
+    ],
+    "material": "Flesh"
+  },
+  {
+    "rig": "masteryi-base",
+    "path": "docs/reference/masteryi-model.json",
+    "sha256": "4295bceeba96cfb15e006d392e7d0f3c480bb51bf8cff8872a9c39fc9873c7ce",
+    "recordPath": [
+      "skin",
+      "data",
+      "Characters/MasterYi/Skins/Skin0"
+    ],
+    "material": "Flesh"
+  }
+]

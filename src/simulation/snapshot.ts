@@ -1,4 +1,38 @@
+import { PRIMARY_HIT_HISTORY_TICKS } from '../content/masteryi-primary-hit-timing';
+import { validatePassiveTrails } from './masteryi-passive-trails';
+import { PASSIVE_TRAIL_HISTORY_TICKS } from '../content/masteryi-passive-trail-timing';
+import { validatePrimaryTrailRoots } from './masteryi-primary-trails';
+import { PRIMARY_TRAIL_HISTORY_TICKS } from '../content/masteryi-primary-trail-timing';
+import { validateSwordGlows } from './masteryi-sword-glow';
+import { SWORD_GLOW_TAIL_TICKS } from '../content/masteryi-sword-timing';
+import { validateMeditateDamage } from './masteryi-meditate-damage';
+import { MEDITATE_DAMAGE_HISTORY_TICKS } from '../content/masteryi-w-damage-timing';
+import { validateHighlanderKills } from './masteryi-highlander-kill';
+import { HIGHLANDER_KILL_HISTORY_TICKS } from '../content/masteryi-r-kill-timing';
+import { validateHighlanderCasts } from './masteryi-highlander-cast';
+import { HIGHLANDER_CAST_HISTORY_TICKS } from '../content/masteryi-r-cast-timing';
+import { validateAlphaEnds } from './masteryi-q-end';
+import { ALPHA_END_HISTORY_TICKS } from '../content/masteryi-q-end-timing';
+import { validateAlphaCasts } from './masteryi-q-cast';
+import { ALPHA_CAST_HISTORY_TICKS } from '../content/masteryi-q-cast-timing';
+import { validateWujuStyleAudio } from './masteryi-wuju-style-audio';
+import { validateMeditateAudio } from './masteryi-meditate-audio';
+import { validateMeditateBuffs } from './masteryi-meditate-buff';
+import { MEDITATE_BUFF_MAX_HISTORY_TICKS } from '../content/masteryi-w-buff-timing';
+import { validateMeditateCasts } from './masteryi-meditate-cast';
+import { MEDITATE_CAST_HISTORY_TICKS } from '../content/masteryi-w-cast-timing';
+import { validateHighlanderAudio } from './masteryi-highlander-audio';
+import { validateAlphaContacts } from './masteryi-q-contact-visuals';
+import { validateAlphaAudio } from './masteryi-q-audio';
+import { ALPHA_CONTACT_HISTORY_TICKS } from '../content/masteryi-q-contact-timing';
+import { validateMasterYiAttacks } from './masteryi-aa-presentation';
 import { validateLeonaDeaths } from './leona-death-visuals';
+import { validateDoubleStrikes } from './masteryi-double-strike';
+import { validateWujuStyles } from './masteryi-wuju-style';
+import { validateMeditates } from './masteryi-meditate';
+import { validateHighlanders } from './masteryi-highlander';
+import { validateAlphaStrikes } from './masteryi-alpha-strike';
+import { isMeleeChampion } from '../content/champion-profiles';
 import { AHRI_Q } from '../content/ahri-q';
 import { AHRI_Q_POLICY } from '../content/ahri-q-policy';
 import { AHRI_Q_OUTWARD_SECONDS, acceleratingMotion } from './ahri-orb-motion';
@@ -136,7 +170,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 138;
+export const SNAPSHOT_VERSION = 163;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -674,6 +708,7 @@ const player: z.ZodType<PlayerState> = z
         .nullable(),
     }),
     revealContributors: z.array(z.strictObject({ sourceId: id, lastRevealTick: tick })).max(10000),
+    alphaMarkContributors: z.array(z.strictObject({ sourceId: id, lastMarkTick: tick })).max(10000),
     assists: tick,
     damageContributors: z
       .array(z.strictObject({ sourceId: id, lastDamageTick: tick, creditSourceId: id.optional() }))
@@ -699,6 +734,396 @@ const player: z.ZodType<PlayerState> = z
     qStacks: z.number().int().min(0).max(4),
     qUntil: deadline,
     qStackExpiry: deadline,
+    doubleStrike: z
+      .strictObject({
+        stacks: z.number().int().min(0).max(3),
+        expiresTick: tick,
+        strike: z
+          .strictObject({
+            startTick: tick,
+            releaseTick: tick,
+            endTick: tick,
+            targetId: id,
+            damage: nonnegative,
+            critical: z.boolean(),
+            result: z.enum(['pending', 'hit', 'lost']),
+            poseStopTick: tick.nullable(),
+          })
+          .nullable(),
+      })
+      .nullable(),
+    wujuStyle: z
+      .strictObject({
+        startTick: tick,
+        endTick: tick,
+        rank: z.number().int().min(1).max(5),
+        pausedTicks: tick,
+      })
+      .nullable(),
+    alphaStrike: z
+      .strictObject({
+        startTick: tick,
+        rank: z.number().int().min(1).max(5),
+        origin: point,
+        primaryTargetId: id,
+        primaryPoint: point,
+        nextMarkTick: tick,
+        lastTick: tick,
+        exitDirection: point.nullable(),
+        marks: z
+          .array(
+            z.strictObject({
+              tick,
+              targetId: id,
+              point,
+              damage: nonnegative,
+              onHitScale: nonnegative,
+              critical: z.boolean(),
+              repeatIndex: z.number().int().min(0).max(3),
+              result: z.enum(['pending', 'hit', 'lost']),
+            })
+          )
+          .max(4),
+        reappearTick: tick.nullable(),
+        endTick: tick.nullable(),
+        returnPoint: point.nullable(),
+        stopReason: z.enum(['complete', 'lost']).nullable(),
+        resumeOrder: order.nullable(),
+      })
+      .nullable(),
+    meditateAudio: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          endTick: tick,
+          rank: z.number().int().min(1).max(5),
+          origin: point,
+          castAudience: daybreakFrame.shape.audience,
+          stop: z
+            .strictObject({
+              tick,
+              reason: z.enum(['complete', 'order', 'control', 'mana', 'death', 'victory']),
+              point,
+              audience: daybreakFrame.shape.audience,
+            })
+            .nullable(),
+        })
+      )
+      .max(1000),
+    meditateBuffVisuals: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          endTick: tick,
+          rank: z.number().int().min(1).max(5),
+          audience: daybreakFrame.shape.audience,
+          stopTick: tick.nullable(),
+          stopReason: z
+            .enum(['complete', 'order', 'control', 'mana', 'death', 'victory'])
+            .nullable(),
+          detachedTick: tick.nullable(),
+          frames: z
+            .array(
+              z.strictObject({
+                tick,
+                endTick: tick,
+                x: z.number(),
+                y: z.number(),
+                facing: z.number(),
+                audience: daybreakFrame.shape.audience,
+              })
+            )
+            .min(1)
+            .max(MEDITATE_BUFF_MAX_HISTORY_TICKS),
+        })
+      )
+      .max(1000),
+    meditateCastVisuals: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          rank: z.number().int().min(1).max(5),
+          audience: daybreakFrame.shape.audience,
+          detachedTick: tick.nullable(),
+          frames: z
+            .array(
+              z.strictObject({
+                tick,
+                x: z.number(),
+                y: z.number(),
+                facing: z.number(),
+                audience: daybreakFrame.shape.audience,
+              })
+            )
+            .min(1)
+            .max(MEDITATE_CAST_HISTORY_TICKS),
+        })
+      )
+      .max(1000),
+    swordGlowVisuals: z
+      .array(
+        z.strictObject({
+          castTick: tick,
+          condition: z.union([z.literal(0), z.literal(1)]),
+          frames: z
+            .array(
+              z.strictObject({
+                tick,
+                endTick: tick,
+                x: z.number(),
+                y: z.number(),
+                facing: z.number(),
+                audience: daybreakFrame.shape.audience,
+              })
+            )
+            .min(1)
+            .max(SWORD_GLOW_TAIL_TICKS),
+        })
+      )
+      .max(1000),
+    meditateDamageVisuals: z
+      .array(
+        z.strictObject({
+          castTick: tick,
+          tick,
+          rank: z.number().int().min(1).max(5),
+          audience: daybreakFrame.shape.audience,
+          detachedTick: tick.nullable(),
+          frames: z
+            .array(
+              z.strictObject({
+                tick,
+                endTick: tick,
+                x: z.number(),
+                y: z.number(),
+                facing: z.number(),
+                audience: daybreakFrame.shape.audience,
+              })
+            )
+            .min(1)
+            .max(MEDITATE_DAMAGE_HISTORY_TICKS),
+        })
+      )
+      .max(MEDITATE_DAMAGE_HISTORY_TICKS),
+    highlanderKillVisuals: z
+      .array(
+        z.strictObject({
+          castTick: tick,
+          tick,
+          extensionIndex: z.number().int().min(1),
+          victimId: id,
+          victimTeam: z.enum(['blue', 'red']),
+          rank: z.number().int().min(1).max(3),
+          audience: daybreakFrame.shape.audience,
+          detachedTick: tick.nullable(),
+          frames: z
+            .array(
+              z.strictObject({
+                tick,
+                endTick: tick,
+                x: z.number(),
+                y: z.number(),
+                facing: z.number(),
+                audience: daybreakFrame.shape.audience,
+              })
+            )
+            .min(1)
+            .max(HIGHLANDER_KILL_HISTORY_TICKS),
+        })
+      )
+      .max(1000),
+    highlanderCastVisuals: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          rank: z.number().int().min(1).max(3),
+          origin: point,
+          audience: daybreakFrame.shape.audience,
+          detachedTick: tick.nullable(),
+          frames: z
+            .array(
+              z.strictObject({
+                tick,
+                endTick: tick,
+                x: z.number(),
+                y: z.number(),
+                facing: z.number(),
+                audience: daybreakFrame.shape.audience,
+              })
+            )
+            .min(1)
+            .max(HIGHLANDER_CAST_HISTORY_TICKS),
+        })
+      )
+      .max(1000),
+    alphaCastVisuals: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          rank: z.number().int().min(1).max(5),
+          origin: point,
+          audience: daybreakFrame.shape.audience,
+          detachedTick: tick.nullable(),
+          frames: z
+            .array(
+              z.strictObject({
+                tick,
+                endTick: tick,
+                x: z.number(),
+                y: z.number(),
+                facing: z.number(),
+                audience: daybreakFrame.shape.audience,
+              })
+            )
+            .min(1)
+            .max(ALPHA_CAST_HISTORY_TICKS),
+        })
+      )
+      .max(1000),
+    alphaEndVisuals: z
+      .array(
+        z.strictObject({
+          castTick: tick,
+          startTick: tick,
+          markCount: z.number().int().min(0).max(4),
+          stopReason: z.enum(['complete', 'lost']),
+          rank: z.number().int().min(1).max(5),
+          point,
+          audience: daybreakFrame.shape.audience,
+          detachedTick: tick.nullable(),
+          frames: z
+            .array(
+              z.strictObject({
+                tick,
+                endTick: tick,
+                x: z.number(),
+                y: z.number(),
+                facing: z.number(),
+                audience: daybreakFrame.shape.audience,
+              })
+            )
+            .min(1)
+            .max(ALPHA_END_HISTORY_TICKS),
+        })
+      )
+      .max(1000),
+    alphaContactVisuals: z
+      .array(
+        z.strictObject({
+          castTick: tick,
+          rank: z.number().int().min(1).max(5),
+          markIndex: z.number().int().min(0).max(3),
+          markTick: tick,
+          repeatIndex: z.number().int().min(0).max(3),
+          critical: z.boolean(),
+          tick,
+          targetId: id,
+          targetTeam: faction,
+          targetKind: kind,
+          point,
+          audience: daybreakFrame.shape.audience,
+          radius: z.number().positive(),
+          facing: z.number(),
+          detachedTick: tick.nullable(),
+          frames: z
+            .array(z.strictObject({ tick, point, audience: daybreakFrame.shape.audience }))
+            .min(1)
+            .max(ALPHA_CONTACT_HISTORY_TICKS),
+        })
+      )
+      .max(1000),
+    alphaAudio: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          rank: z.number().int().min(1).max(5),
+          primaryTargetId: id,
+          primaryTargetTeam: faction,
+          origin: point,
+          castAudience: daybreakFrame.shape.audience,
+          contacts: z
+            .array(
+              z.strictObject({
+                tick,
+                markTick: tick,
+                markIndex: z.number().int().min(0).max(3),
+                repeatIndex: z.number().int().min(0).max(3),
+                targetId: id,
+                targetTeam: faction,
+                point,
+                audience: daybreakFrame.shape.audience,
+              })
+            )
+            .max(4),
+        })
+      )
+      .max(1000),
+    highlander: z
+      .strictObject({
+        startTick: tick,
+        endTick: tick,
+        rank: z.number().int().min(1).max(3),
+        pausedTicks: tick,
+        extensionCount: tick,
+        takedownsAtCast: tick,
+        lastExtensionTick: tick.nullable(),
+      })
+      .nullable(),
+    wujuStyleAudio: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          rank: z.number().int().min(1).max(5),
+          origin: point,
+          castAudience: daybreakFrame.shape.audience,
+          stop: z
+            .strictObject({
+              tick,
+              reason: z.enum(['expired', 'death', 'victory', 'recast']),
+              endTick: tick,
+              pausedTicks: tick,
+              point,
+              audience: daybreakFrame.shape.audience,
+            })
+            .nullable(),
+        })
+      )
+      .max(1000),
+    highlanderAudio: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          rank: z.number().int().min(1).max(3),
+          takedownsAtCast: tick,
+          origin: point,
+          castAudience: daybreakFrame.shape.audience,
+          stop: z
+            .strictObject({
+              tick,
+              reason: z.enum(['expired', 'death', 'match-end', 'recast']),
+              endTick: tick,
+              pausedTicks: tick,
+              extensionCount: tick,
+              point,
+              audience: daybreakFrame.shape.audience,
+            })
+            .nullable(),
+        })
+      )
+      .max(1000),
+    meditate: z
+      .strictObject({
+        startTick: tick,
+        endTick: tick,
+        rank: z.number().int().min(1).max(5),
+        power: nonnegative,
+        lastTick: tick,
+        nextHealTick: tick,
+        nextStackTick: tick,
+        stopTick: tick.nullable(),
+        stopReason: z.enum(['complete', 'order', 'control', 'mana']).nullable(),
+      })
+      .nullable(),
     garenRReveal: z.strictObject({ targetId: id, startTick: tick, endTick: tick }).nullable(),
     garenRVisual: z
       .strictObject({
@@ -773,6 +1198,79 @@ const player: z.ZodType<PlayerState> = z
         })
       )
       .max(1000),
+    passiveTrailVisuals: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          releaseTick: tick,
+          endTick: tick,
+          targetId: id,
+          targetTeam: z.enum(['blue', 'red', 'neutral']),
+          stopTick: tick.nullable(),
+          events: z.tuple([z.boolean().nullable(), z.boolean().nullable()]),
+          frames: z
+            .array(
+              z.strictObject({
+                tick,
+                endTick: tick,
+                x: z.number(),
+                y: z.number(),
+                facing: z.number(),
+                audience: daybreakFrame.shape.audience,
+              })
+            )
+            .min(1)
+            .max(PASSIVE_TRAIL_HISTORY_TICKS),
+        })
+      )
+      .max(1000),
+    masterYiAAAudio: z
+      .array(
+        z.strictObject({
+          startTick: tick,
+          trailFrames: z
+            .array(
+              z.strictObject({
+                tick,
+                endTick: tick,
+                x: z.number(),
+                y: z.number(),
+                facing: z.number(),
+                audience: daybreakFrame.shape.audience,
+              })
+            )
+            .max(PRIMARY_TRAIL_HISTORY_TICKS),
+          releaseTick: tick,
+          endTick: tick,
+          kind: z.enum(['attack1', 'attack2', 'crit']),
+          targetId: id,
+          targetTeam: z.enum(['blue', 'red', 'neutral']),
+          targetRig: attackRig.nullable(),
+          origin: point,
+          castAudience: z
+            .array(z.enum(['blue', 'red']))
+            .max(2)
+            .refine((a) => new Set(a).size === a.length),
+          cancelTick: tick.nullable(),
+          impact: z
+            .strictObject({
+              tick,
+              point,
+              facing: z.number(),
+              radius: nonnegative,
+              targetTransform: z.array(z.number()).length(16).nullable(),
+              detachedTick: tick.nullable(),
+              frames: z.array(daybreakFrame).min(1).max(PRIMARY_HIT_HISTORY_TICKS),
+              material: z.enum(['Flesh', 'Metal', 'Stone', 'Wood']),
+              audience: z
+                .array(z.enum(['blue', 'red']))
+                .max(2)
+                .refine((a) => new Set(a).size === a.length),
+            })
+            .nullable(),
+        })
+      )
+      .max(1000),
     garenAAVisuals: z
       .array(
         z.strictObject({
@@ -782,7 +1280,7 @@ const player: z.ZodType<PlayerState> = z
           kind: z.enum(['attack1', 'attack2', 'crit']),
           targetId: id,
           targetTeam: z.enum(['blue', 'red', 'neutral']),
-          targetRig: z.enum(Object.keys(armorMaterials) as [string, ...string[]]).nullable(),
+          targetRig: attackRig.nullable(),
           origin: point,
           castAudience: z
             .array(z.enum(['blue', 'red']))
@@ -2438,9 +2936,12 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     throw new Error('Controlled neutral encounters require the development practice fixture.');
   if (
     state.units.find((u) => u.id === state.player.id)?.champion === 'garen' &&
-    state.battlefield !== 'practice-fixture'
+    !(
+      state.battlefield === 'practice-fixture' ||
+      (state.battlefield === 'rift' && battlefield.developmentGaren && state.matchMode === 'lanes')
+    )
   )
-    throw new Error('Garen player kit is available only in the development practice fixture.');
+    throw new Error('Garen player kit requires the development practice fixture or Rift trial.');
   for (const unit of state.units) {
     if (unit.charm) {
       const c = unit.charm,
@@ -2483,9 +2984,11 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     }
     if (
       unit.champion === 'masteryi' &&
-      (state.battlefield !== 'practice-fixture' || unit.id === state.player.id)
+      (state.battlefield !== 'practice-fixture' ||
+        (unit.id === state.player.id &&
+          (!battlefield.developmentMasterYi || state.matchMode !== 'practice')))
     )
-      throw new Error('Master Yi requires a non-player development practice unit.');
+      throw new Error('Master Yi requires a trusted development practice context.');
     if (
       unit.champion === 'ahri' &&
       (state.battlefield !== 'practice-fixture' ||
@@ -3244,9 +3747,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
             slow.endMultiplier !== slow.startMultiplier ||
             !CREST_OF_CINDERS.slowTiers.some(
               (t) =>
-                slow.startMultiplier ===
-                1 -
-                  (source.champion === 'garen' || source.champion === 'leona' ? t.melee : t.ranged)
+                slow.startMultiplier === 1 - (isMeleeChampion(source.champion) ? t.melee : t.ranged)
             ))) ||
         slows.has(key)
       )
@@ -3377,6 +3878,11 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     }
   }
   const owners = [state.player, ...state.otherChampions];
+  validateDoubleStrikes(owners, state.units, state.tick, state.winner);
+  validateWujuStyles(owners, state.units, state.tick, state.winner);
+  validateMeditates(owners, state.units, state.tick, state.winner);
+  validateHighlanders(owners, state.units, state.tick, state.winner);
+  validateAlphaStrikes(owners, state.units, state.tick, state.winner, state.nextId);
   validateEssences(
     state.ahriCounters,
     state.ahriEssences,
@@ -3483,9 +3989,19 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   for (const owner of owners)
     if (state.units.find((u) => u.id === owner.id)?.champion === 'masteryi') {
       if (
-        owner.skillPoints !== owner.level ||
-        Object.values(owner.spellRanks).some((rank) => rank !== 0) ||
-        (['q', 'w', 'e', 'r'] as const).some((a) => owner.cooldowns[a] !== 0) ||
+        owner.skillPoints +
+          owner.spellRanks.q +
+          owner.spellRanks.e +
+          owner.spellRanks.w +
+          owner.spellRanks.r !==
+          owner.level ||
+        (owner.spellRanks.r > 0 && owner.level < 6 + (owner.spellRanks.r - 1) * 5) ||
+        (!owner.spellRanks.r && owner.cooldowns.r !== 0) ||
+        (['q', 'w', 'e'] as const).some(
+          (a) =>
+            (owner.spellRanks[a] > 0 && owner.level < 1 + (owner.spellRanks[a] - 1) * 2) ||
+            (!owner.spellRanks[a] && owner.cooldowns[a] !== 0)
+        ) ||
         owner.castAnimation !== null ||
         owner.pendingCast !== null
       )
@@ -3625,6 +4141,22 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         throw new Error('Saved match contains invalid damage contributions.');
       contributors.add(source.id);
       previousDamageTick = contribution.lastDamageTick;
+    }
+    const markSources = new Set<number>();
+    for (const entry of owner.alphaMarkContributors) {
+      const source = champions.find((u) => u.id === entry.sourceId);
+      const sourceState = owners.find((s) => s.id === entry.sourceId);
+      if (
+        !source ||
+        source.champion !== 'masteryi' ||
+        !sourceState?.spellRanks.q ||
+        source.team === champion.team ||
+        markSources.has(source.id) ||
+        entry.lastMarkTick > state.tick ||
+        (champion.deadAt !== null && entry.lastMarkTick > champion.deadAt)
+      )
+        throw new Error('Saved match contains invalid Alpha Strike assist contributions.');
+      markSources.add(source.id);
     }
     const revealers = new Set<number>();
     const supporters = new Set<number>();
@@ -4040,6 +4572,22 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       throw new Error('Saved match contains invalid Perseverance timing.');
     validatePerseveranceVisual(owner, champion, state.tick, state.winner);
     validateGarenAttacks(owner, champion, state);
+    validateMasterYiAttacks(owner, champion, state);
+    validatePrimaryTrailRoots(owner, champion, state);
+    validatePassiveTrails(owner, champion, state);
+    validateHighlanderAudio(owner, champion, state);
+    validateHighlanderCasts(owner, champion, state);
+    validateHighlanderKills(owner, champion, state);
+    validateMeditateDamage(owner, champion, state);
+    validateSwordGlows(owner, champion, state);
+    validateWujuStyleAudio(owner, champion, state);
+    validateMeditateBuffs(owner, champion, state);
+    validateMeditateAudio(owner, champion, state);
+    validateMeditateCasts(owner, champion, state);
+    validateAlphaContacts(owner, champion, state);
+    validateAlphaAudio(owner, champion, state);
+    validateAlphaCasts(owner, champion, state);
+    validateAlphaEnds(owner, champion, state);
     const qCycle = champion.attackCycle;
     if (
       qCycle?.garenQReleaseTick !== undefined &&
@@ -4326,6 +4874,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     const owner = owners.find((s) => s.id === command.unit);
     if (
       !(source?.champion === 'garen' && command.ability === 'r') &&
+      !(source?.champion === 'masteryi' && command.ability === 'q') &&
       !(owner && isSummonerSlot(command.ability) && owner.summoners[command.ability] === 'smite')
     )
       throw new Error('Saved match contains incompatible targeted cast data.');

@@ -1,0 +1,351 @@
+{
+  "format": 1,
+  "parentCommit": "395a4fecba79d1c6d76d1c52129571b342a46f31",
+  "scope": "Source-only p-type1 plane factory, virtual dispatch and truncating color route; Gromp shadow source binding.",
+  "source": [
+    {
+      "path": "tools/assets/native_plane_color_packets.py",
+      "bytes": 11114,
+      "sha256": "0ea660f3d76c43404cf955bf9b8ef4f05a9e3acbbf834482214bf8924296bca6"
+    },
+    {
+      "path": "tools/assets/test-native-plane-color-packets.py",
+      "bytes": 6283,
+      "sha256": "464a00a0474aa966d8c75bd4180e5e78181c674b9b89265144c65fb978448626"
+    },
+    {
+      "path": "docs/reference/native-plane-color-packets.json",
+      "bytes": 14451,
+      "sha256": "bb9528c072b7223dd85c9a2ab678b1cb1564ea28885a97ec438d626b2d3bb2ea"
+    },
+    {
+      "path": "docs/NATIVE-PLANE-COLOR-PACKETS.md",
+      "bytes": 3669,
+      "sha256": "862e83c79d99dad7e418093d319ed4e9535f8639cdb837955ff3797de602c86f"
+    },
+    {
+      "path": "docs/NATIVE-GROMP-EMITTER-ROUTES.md",
+      "bytes": 3477,
+      "sha256": "aa8be48a0921532c9f0fffe3cfc7a0fc29a99ac920d52c7eadf7a928af116deb"
+    }
+  ],
+  "verification": {
+    "normalGuards": 15,
+    "optimizedGuards": 15,
+    "checkReplayBothModes": true,
+    "identicalOutputBytesAndMtimeRetainedBothModes": true,
+    "conflictRejectedWithoutMutationBothModes": true,
+    "checkMissingOutputRejectedWithoutCreationBothModes": true,
+    "networkOrChildProcessRequiredForObserve": false,
+    "nativeExecuted": false,
+    "applicationBehaviorChanged": false,
+    "cohortSourcePinsUnchanged": 539,
+    "inheritedApplicationAcceptance": {
+      "path": "docs/reference/gromp-billboard-color-verification.json",
+      "sha256": "8f2035aa1fa191fbc5cc83109dfa078fd1bbb9b2af52e68c5b6bd3a9a43f6ece",
+      "identity": {
+        "schema": 163,
+        "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+        "offlinePack": {
+          "id": "174aa16a30410ad6a3a346861478f57a332ea4efe36de1a0e26e9e531cb0f2f5",
+          "files": 1202,
+          "bytes": 538092047
+        }
+      },
+      "checksRerunForSourceOnlyChange": false
+    }
+  },
+  "earlierAttempts": {
+    "firstGuardRun": "14 pass,1 test failure: attempted sourceIndex mutation used the existing index3; changed test to invalid index2. No witness or application correction was needed.",
+    "initialLog": {
+      "path": ".cache/native-plane-color-audit/guards-normal-initial.log",
+      "bytes": 750,
+      "sha256": "99fff178a4d84bf9c354a02a136e6a0a98e6ffd1cb9dde1f90e3c855782fe8e3"
+    }
+  },
+  "privateProjection": "The host-C plane projection is preparatory evidence only. No runtime plane arithmetic or GPU acceptance claimed.",
+  "evidence": [
+    {
+      "path": ".cache/native-plane-color-audit/0x1018d5924.txt",
+      "bytes": 17316,
+      "sha256": "aa10983ddf436136db4b889632947d3a73892e0ec323376c929a16379d328fc7"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/acceptance.log",
+      "bytes": 279,
+      "sha256": "9cb32feade04df52cb5d0aa790af62131683ef326ea547b8d9a0856ee3ba7179"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/acceptance.py",
+      "bytes": 2456,
+      "sha256": "4838f07e273e5a9e4be2ff5b0430776740afd3432bf23558e29d96fcc76c835e"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/builder.log",
+      "bytes": 166,
+      "sha256": "cfab1bbdd32e2700e4487110f91d5a8de377c216c385f33c66db87d2e630f727"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/c-phases.json",
+      "bytes": 1348,
+      "sha256": "3d0bdb3a267f06727ccc9e05cee8c027bb76ac321d1642dfec79740995c493e9"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/c-projection.json",
+      "bytes": 5133,
+      "sha256": "5320cc2c556e017e16f18878d5a6f2e9b56605ed258f3ed7413dae59fb03cd78"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/c-projection.json.c",
+      "bytes": 1737,
+      "sha256": "6607c85a5e3a42bdd093fbdc085427964c9ad3a88085e422f39ebb46fe1a9951"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/c-projection.json.compiler.json",
+      "bytes": 1268,
+      "sha256": "ebdb1c107573acc58abcf94a981feb085c98a01cc2d448094d193fc8aa697f9d"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/candidate-reading.json",
+      "bytes": 1666,
+      "sha256": "6b25409db0038ab0b77ac52aa4128f416921d3918478af82cb9a41789046165c"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/check-normal.log",
+      "bytes": 644,
+      "sha256": "7d953603a9221ea6e2f029f7c37e098849ea9e56c21365401f4362257cdee408"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/check-optimized.log",
+      "bytes": 644,
+      "sha256": "7d953603a9221ea6e2f029f7c37e098849ea9e56c21365401f4362257cdee408"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/conflict-normal.json",
+      "bytes": 30,
+      "sha256": "d1b66eb0af9628d0e752cfe98dbbe05bd21e4c73ce43e66aa76f1bf22f43888b"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/conflict-normal.log",
+      "bytes": 608,
+      "sha256": "36a314103f8d3fee1a150a93b21b3e307500d264ed4cbb8f4e60590eb8a63796"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/conflict-optimized.json",
+      "bytes": 30,
+      "sha256": "d1b66eb0af9628d0e752cfe98dbbe05bd21e4c73ce43e66aa76f1bf22f43888b"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/conflict-optimized.log",
+      "bytes": 611,
+      "sha256": "26439d5b213a3c4b6b2f5439687fad567d67119d738faa91bd20ad24682dbbc4"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/factory.txt",
+      "bytes": 426,
+      "sha256": "d45d2a6f6925ff7ff0e49bf6a07291151c5cf6c9ea9d1bd231125dc70a9e4c71"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/final-source/docs/NATIVE-GROMP-EMITTER-ROUTES.md",
+      "bytes": 3477,
+      "sha256": "aa8be48a0921532c9f0fffe3cfc7a0fc29a99ac920d52c7eadf7a928af116deb"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/final-source/docs/NATIVE-PLANE-COLOR-PACKETS.md",
+      "bytes": 3669,
+      "sha256": "862e83c79d99dad7e418093d319ed4e9535f8639cdb837955ff3797de602c86f"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/final-source/docs/reference/native-plane-color-packets.json",
+      "bytes": 14451,
+      "sha256": "bb9528c072b7223dd85c9a2ab678b1cb1564ea28885a97ec438d626b2d3bb2ea"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/final-source/tools/assets/native_plane_color_packets.py",
+      "bytes": 11114,
+      "sha256": "0ea660f3d76c43404cf955bf9b8ef4f05a9e3acbbf834482214bf8924296bca6"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/final-source/tools/assets/test-native-plane-color-packets.py",
+      "bytes": 6283,
+      "sha256": "464a00a0474aa966d8c75bd4180e5e78181c674b9b89265144c65fb978448626"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/guards-normal-initial.log",
+      "bytes": 750,
+      "sha256": "99fff178a4d84bf9c354a02a136e6a0a98e6ffd1cb9dde1f90e3c855782fe8e3"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/guards-normal.log",
+      "bytes": 115,
+      "sha256": "956d5e186c47f997a84c19818c75923653c40f2d45090b4c5b17d2e37f4deddd"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/guards-optimized.log",
+      "bytes": 115,
+      "sha256": "4c21b2155845ec316caeff2acc5aca42e34e1a60bfec05cc0c23299b65d303e3"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/identical-normal.log",
+      "bytes": 644,
+      "sha256": "7d953603a9221ea6e2f029f7c37e098849ea9e56c21365401f4362257cdee408"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/identical-optimized.log",
+      "bytes": 644,
+      "sha256": "7d953603a9221ea6e2f029f7c37e098849ea9e56c21365401f4362257cdee408"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/legacy-plane-color-reference.py",
+      "bytes": 6589,
+      "sha256": "b098e7c0ece69c720dc54576efeed33e0b94a7070daf6fe0f92ba96b89d3c1d5"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/make-witness.py",
+      "bytes": 8346,
+      "sha256": "71af7ca40781688be5c3e51ecf651e214ba1ee9e8e937e63145b2729bc6bfaea"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/missing-normal.log",
+      "bytes": 497,
+      "sha256": "578f99e6aaba2d6f66083a9a51e09fd13f40aec6184a885723786e57e47fdd94"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/missing-optimized.log",
+      "bytes": 500,
+      "sha256": "b93bc2b1e79460e85ebb85c280dfce71907b9e9bdcf179cea6fbb1cc245e0478"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/observe.log",
+      "bytes": 644,
+      "sha256": "7d953603a9221ea6e2f029f7c37e098849ea9e56c21365401f4362257cdee408"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/project-c-reference.py",
+      "bytes": 1696,
+      "sha256": "67b1749a14b74a1912c1bd630cd30a38564c312c39130a7a7d2ff8b688aab0a4"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/project-full-life.mjs",
+      "bytes": 2423,
+      "sha256": "592b8606323ba6c8c13379f88162196b819f70f64ccde4e08814f648a34f1d98"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/project-sampler.mjs",
+      "bytes": 2426,
+      "sha256": "c73c8935c1a96cadfaa3c24921763af9b88d38705a73d68768e3f7cd3579bba6"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/projection.mjs",
+      "bytes": 40301,
+      "sha256": "b66cf2c5f13fa9507e5ce7fc6b79ce7b80de6f9226a4bcb78b560d7d74feae85"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/projection.ts",
+      "bytes": 216,
+      "sha256": "445b283af970bcc98ebd387f7de957a4ad8e49d9daa7f1e81c4988d29265fe43"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/read-builder.py",
+      "bytes": 628,
+      "sha256": "d00dc11aab7634c5ebe7e9870a0b08a2c8805c777d2c8a873924267007d9dae0"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/read-factory.py",
+      "bytes": 337,
+      "sha256": "3242cd7a30ffa0b6350b5c1cd8226e21d87c3f10454c3ada4b52fee5cbb1c847"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/read-vtable.py",
+      "bytes": 394,
+      "sha256": "f21c6f9b201d333275f259555a25825de9fddf474d9e1bc9d95494fe7e31bb36"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/sampler-full-life-C.json",
+      "bytes": 2644733,
+      "sha256": "236b61c59af8606caafe619c906769fc4e2f4db33468cb7efc2a0457989e0efc"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/sampler-full-life-C.json.c",
+      "bytes": 1737,
+      "sha256": "6607c85a5e3a42bdd093fbdc085427964c9ad3a88085e422f39ebb46fe1a9951"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/sampler-full-life-C.json.compiler.json",
+      "bytes": 1268,
+      "sha256": "ebdb1c107573acc58abcf94a981feb085c98a01cc2d448094d193fc8aa697f9d"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/sampler-full-life-input.json",
+      "bytes": 698788,
+      "sha256": "5c035439064c75a7e8b90ddc07e198e7e0935d81e8ac2baf2e1bd70997a3965c"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/sampler-full-life-reading.json",
+      "bytes": 239,
+      "sha256": "8303f864a1aaf5f4c5a649a3c970d1de7dbf28a294b2d95ccd6aa1923530484d"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/sampler-full-life.log",
+      "bytes": 210,
+      "sha256": "b72dd243cae3ac9954376a7f0a24da11ad253b4856851774def69a0275b74d3b"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/sampler-projection-C.json",
+      "bytes": 950807,
+      "sha256": "fee8279c9b9c64797555464d75e1161dbb49c54ec1e28576118f7ba4601bea80"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/sampler-projection-C.json.c",
+      "bytes": 1737,
+      "sha256": "6607c85a5e3a42bdd093fbdc085427964c9ad3a88085e422f39ebb46fe1a9951"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/sampler-projection-C.json.compiler.json",
+      "bytes": 1268,
+      "sha256": "ebdb1c107573acc58abcf94a981feb085c98a01cc2d448094d193fc8aa697f9d"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/sampler-projection-input.json",
+      "bytes": 279694,
+      "sha256": "481d8e3997eb212296395d1cb3ca0d5f9d4902c3ff3f3260bb316c9b0510c72c"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/sampler-projection-reading.json",
+      "bytes": 212,
+      "sha256": "488b0ad17a00b327288d612d6169451754605945b298f9d1c9d0b89c17a8b4da"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/sampler-projection.log",
+      "bytes": 183,
+      "sha256": "fcda10c9b347fb4b1e7ac6429e0003bab564557a64190486f725aedd7346b04d"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/selected-words.json",
+      "bytes": 4120,
+      "sha256": "45f5e5d749539e33b452c7d5b8889c946bcda11d18c8de146cc05b4d7cfa7fd2"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/source-freeze.json",
+      "bytes": 515,
+      "sha256": "60542107fab64b86ac1d010752de89d3e23fba03dbb03a85e1b97e342205a87d"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/vtable.json",
+      "bytes": 596,
+      "sha256": "e931bc3e9c94586748e7deaa6a723bce524f2f0a5889e08727c4157050cb502e"
+    },
+    {
+      "path": ".cache/native-plane-color-audit/vtable.log",
+      "bytes": 596,
+      "sha256": "e931bc3e9c94586748e7deaa6a723bce524f2f0a5889e08727c4157050cb502e"
+    }
+  ],
+  "limits": [
+    "Bounded static linkage and conditional color arithmetic; actual native loader, draw admission, backing mode/cache mutation, phase, clocks/RNG, external modifiers and FPCR remain unobserved.",
+    "The first28-byte declaration is inherited evidence, not proof of the live plane material/layout/shader binding or complete native appearance.",
+    "UV half-conversion sites are present in the complete bytes, but UV phase/frame/lookup sources and geometry are outside this color witness.",
+    "No runtime plane color, geometry, UV, blend or texture behavior changes. Independent arithmetic and GPU projections are required before a local color correction.",
+    "Fresh static bytes do not reconstruct missing historical evidence closures."
+  ]
+}

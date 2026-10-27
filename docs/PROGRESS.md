@@ -1,14 +1,108 @@
 # Development status
 
-Last updated: October 25, 2026 (America/New_York).
+Last updated: October 27, 2026 (UTC).
 
 **Goal remains active:** continuously develop the highest-quality, visually authentic League-like browser game, without an application backend, through small commits. The required final state is a verified production-level full match experience. This file describes progress toward that goal; it does not reduce its scope.
 
 ## Current authoritative state
 
-The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The latest standard check passes 2,192 tests across 339 files, TypeScript and three Node QA checks. Fifty-five targeted Chrome scenarios pass for the [development Ahri Q](AHRI-Q.md)/[W](AHRI-W.md)/[E](AHRI-E.md), [R base](AHRI-R.md) and [passive](AHRI-PASSIVE.md) controllers, [human practice controls](AHRI-PLAYER.md), private saves/imports and application reloads, her NPC rig/basic attacks, Leona rig recovery, Garen/Lux controls, champion selection, animation and match files, plus the [Master Yi development rig review](MASTER-YI-MODEL.md) and [NPC foundation](MASTER-YI-NPC.md). Current production and offline identities are recorded with that increment below. Historical checks describe their own revisions; they do not certify later changes.
+The latest [Garen Rift trial](GAREN-RIFT-TRIAL.md) starts a human top laner on
+the source battlefield with nine Ashe/Lux bots, trusted development admission
+and a separate save key. All five roles remain assigned on each team; source
+navigation, resource-free controls, private save/reload and restart are covered.
+Ordinary production selection remains Ashe/Lux. The trial retains schema 163
+and changes the rules fingerprint to
+`74942d93a2bc384af0eef175c78a9033a050c87a2d3445b04d51d08ac6c5f86d`.
 
-The latest complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). Current targeted evidence does not certify full-match completion or native visual parity.
+Its 47 focused checks pass. The full unit run passes **3,385/3,387 tests across
+401 files**, retaining only the two baseline failures described below.
+TypeScript, all 16 Node QA checks and the build pass. Eight distinct browser
+cases pass across two retained batches: seven passes and a Leona cold-reload
+timeout, followed by the passing targeted save/restart rerun. Every original
+Garen and Leona combat assertion remains in order.
+
+The nested-path production smoke passes with all 32 source recordings,
+no development hook and the Garen trial URL rejected. The full offline audit
+passes with 978 service-worker responses and zero production page errors,
+including integrity/retry, network-disabled restore, a new lane match and
+atomic version activation. Its accepted pack is
+`66b0b2091ba6e9d3ad414cff1826fa652d6936049bd0567b1e927268eb9885da`
+(1,202 files / 538,093,030 bytes). All 1,125 source asset/data
+file sizes and mtimes remain unchanged in this checkout.
+
+The earlier [pending-match start repair](MATCH-START-FOCUS.md) retains keyboard
+focus and announces loading while a new match is saved. Its final nine-case
+browser batch, TypeScript, all 16 Node QA checks, build and compiled native-write
+keyboard audit pass. The new Lux lane match restores and exports byte-exactly.
+Its accepted pack is
+`1ba020013994733d8bc4f11dc43ec3a313492d4e93e0d4e8b74b80af874a9377`
+(1,202 files / 538,092,904 bytes). Full unit, broad production and full-offline
+acceptance below remain inherited at their recorded rendering identity.
+
+The latest rendering checkpoint applies the [Gromp missile color correction](GROMP-ATTACK-COLOR.md):
+all four emitters now follow checked conditional legacy float32 sampling and
+source-mode premultiplying, truncating BGRA packets. The preceding
+[billboard](GROMP-BILLBOARD-COLOR.md), [shadow plane](GROMP-PLANE-COLOR.md) and
+[mesh arithmetic](GROMP-MESH-COLOR.md) corrections retain their existing paths.
+Independent host-C references and 336 fresh missile browser comparisons support
+this bounded color change; they do not certify complete native appearance.
+
+The preceding rendering checkpoint has **3,379 passing unit tests out of 3,381 across 400 files**.
+The two unchanged baseline failures remain the missing original Leona Eclipse
+evidence closure and the host-sensitive Lux missile snapshot digest. Their
+assertions and expected results remain intact. TypeScript, all 16 Node QA checks,
+the build, 256 focused tests and the final eight-case Gromp browser batch pass.
+All 32 nested-path production scenarios and the complete offline audit pass,
+including integrity/retry, saved-tick restore, a new Lux lane match and atomic
+version activation, with 978 service-worker responses and zero page errors.
+All 1,125 source asset/data file sizes and mtimes remain unchanged.
+
+Its accepted pack is
+`556315eb1be84a02ce411b2e5aa339a80c0990e5913b80f6820f8e9e206edf88`
+(1,202 files / 538,092,670 bytes). Schema 163 and rules fingerprint
+`1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6`
+remain unchanged. The [offline download focus](OFFLINE-KEYBOARD-FOCUS.md),
+[pending-import focus](IMPORT-DIALOG-FOCUS.md) and
+[initial modal navigation](MODAL-KEYBOARD-FOCUS.md) repairs have separate bounded
+acceptance records; the fresh full offline audit retains its focus assertions.
+
+The current normal-rules [five-seed regression pilot](CURRENT-NORMAL-MATCH-PILOT.md)
+finishes all five matches validly. The fresh 100-seed cohort is still running;
+its completion and full invariant gate remain open. It freezes 539 simulation
+inputs and uses the interim six-Ashe/four-Lux QA roster with an automated carry,
+not the complete six-character human-playable milestone. Rendering validation
+pauses only owned cohort processes and records each resume. Recent
+[HUD Tab navigation](HUD-TAB-NAVIGATION.md), [button Space activation](HUD-SPACE-KEY.md),
+[browser-shortcut handling](INPUT-MODIFIER-SHORTCUTS.md) and
+[first-input audio activation](INPUT-AUDIO-ACTIVATION.md) have their own bounded
+acceptance records.
+
+The source-only [missile gravity-height reading](NATIVE-MISSILE-GRAVITY-HEIGHT.md)
+checks 21 complete functions connecting gravity configuration, FixedSpeedMovement
+progress and height output, with 17 guards in each Python mode. Initial bone
+sampling, incoming overrides and live target refresh remain unresolved; the
+current runtime height policy is unchanged.
+
+The source-only [missile color-route reading](NATIVE-GROMP-ATTACK-COLORS.md)
+restores the original four-emitter Troy record and checks its legacy class,
+raw keys and truncating color routes. Thirteen guards pass in each Python mode;
+application acceptance is inherited without runtime changes.
+
+The source-only [particle lookup-coordinate reading](NATIVE-PARTICLE-LOOKUP-COORDINATES.md)
+checks the legacy producer, defaults and conditional half-precision UV1 paths
+with 17 guards in each Python mode. It changes no runtime behavior and inherits
+the current application acceptance above.
+
+The [completed-checkpoint reading](CURRENT-NORMAL-CHECKPOINT-READING.md)
+independently accepts the frozen 24-seed subset and proves byte-exact import,
+offline restore and export of a real 35-minute terminal normal-match state.
+The full 100-seed gate remains open.
+
+### Earlier foundation and increment notes
+
+The application opens on the imported source Rift. The separate `?scene=fixture` development scene is a controlled low-poly test map. The older foundation check passed 2,192 tests across 339 files, TypeScript and three Node QA checks. Fifty-five targeted Chrome scenarios pass for the [development Ahri Q](AHRI-Q.md)/[W](AHRI-W.md)/[E](AHRI-E.md), [R base](AHRI-R.md) and [passive](AHRI-PASSIVE.md) controllers, [human practice controls](AHRI-PLAYER.md), private saves/imports and application reloads, her NPC rig/basic attacks, Leona rig recovery, Garen/Lux controls, champion selection, animation and match files, plus the [Master Yi development rig review](MASTER-YI-MODEL.md) and [NPC foundation](MASTER-YI-NPC.md). Production and offline identities for that increment are recorded below. Historical checks describe their own revisions; they do not certify later changes.
+
+The earlier complete Chrome audit ran 453 scenarios: 451 passed and two findings were repaired and verified in 18 focused checks; it was not repeated as a single green full run. The preceding all-green full audit passed 221 scenarios at commit `8098f1f`. Scope and repairs are recorded in [BROWSER-REGRESSION.md](BROWSER-REGRESSION.md). Current targeted evidence does not certify full-match completion or native visual parity.
 
 - TypeScript/Vite/Three.js application with a fixed-step simulation, wall-aware navigation, swept skillshots, ranged attack windups, death, recall, respawn and local saved matches. No application backend is used.
 - Pinned patch 16.18 source terrain, navigation, elevation, vegetation, structures, animated minions and Ashe/Lux rigs. Both bases have inhibitors, Nexus objects and source turret placements with structural progression and rubble.
@@ -5684,7 +5778,7 @@ Two ten-minute smoke seeds8/38 pass72,000 checked ticks,20 round trips and18
 future checks. All20 checkpoints match the prior frozen schema125 Zenith-history
 smoke after removing only version/ruleset and empty new R histories. This is not
 an immediate-parent rerun; both matches end unfinished at their horizon. The
-full100-seed gate and CPU benchmark remain open. Ruleset755819ef identifies this
+full 100-seed gate and CPU benchmark remain open. Ruleset755819ef identifies this
 increment. Source R drawing/audio and native CPU/terrain/matrix/state/frame
 acceptance remain open. See [scope](LEONA-R-HISTORY.md) and the
 [verification record](reference/leona/r-history-verification.json). Nothing is
@@ -7676,3 +7770,410 @@ Master Yi kit, player/roster/role integration, native behavior/presentation, ful
 performance and project completion remain open. Next is the source-grounded
 Double Strike controller, keeping its separate child permissions and unresolved
 counter/proc policies explicit.
+
+## 2026-10-25 — Development Double Strike and independent saved melee contact
+
+[Double Strike](MASTER-YI-PASSIVE.md) now runs in the private Master Yi NPC
+fixture. The offline projection checks source count/duration 4, the half-stat
+formula, child disabled/autoattack timing declarations and the exact Passive body
+binding. Eight mutation checks pass under both normal and optimized Python.
+Native counter dispatch, critical/proc order, retargeting and contact timing
+remain explicit unresolved policies.
+
+Three accepted contacts prepare readiness; the fourth consumes it and, when its
+original target survives, schedules a separate half-AD melee contact. The child
+captures critical damage and scaled timing, uses ordinary shields/armor/on-hits,
+contributes once to the next counter and never resets the primary cooldown.
+Movement/disables can leave the committed child alive while ordinary windups
+still cancel. Death, vision/protection loss and victory follow documented local
+boundaries. Cinders now classifies Master Yi through his melee attack profile.
+
+Schema 139 saves counter/expiry plus the pending or ended current child. Strict
+decoding checks own/foreign ownership, clocks, phases, targets and terminal state.
+The source Passive pose reconstructs from saved absolute clocks. Browser testing
+caught and fixed a renderer assumption that every attack pose had an ordinary
+attack cycle; the new child retains its own clock after movement cancels that
+cycle. No public asset bytes, player selection or production NPC gates change.
+
+The final focused run passes 74 cases, including 28 passive cases and terminal
+Nexus destruction. TypeScript, three Node QA cases and the production build pass.
+Six existing NPC browser cases pass, and all three added phase Save/reloads pass
+after the renderer repair: exact world bytes, 90-bone matrices and 300-tick
+futures. Pending/contact screenshots were reviewed. Nested production hosting
+passes 32 recordings and zero Master Yi preloads. Browser checks use Chromium
+154 on Debian 13 with only the launcher path overridden.
+
+The broad unit run passes 2,213/2,219 cases before the additional terminal case.
+Its six failures also reproduce on untouched main `9c2b451`: unavailable local
+Garen encoded audio/recovery sources, particle shader provenance, the Python/
+native-reader environment, and an identical Lux sampler digest mismatch. Those
+assertions remain intact; the final focused run covers the subsequent terminal
+cleanup adjustment. A completely green broad suite remains blocked by these
+pre-existing cloud-checkout audit conditions.
+
+The [verification record](reference/masteryi/passive-verification.json) preserves
+changed-input hashes, phase/save/pose digests, raw log identities, baseline failure
+names and the production result. Ruleset is
+`7329f9a3be5432313a2689a9d24a0b0b0e035e043099b61f885996c1c72ad1bd`;
+pack is `5369b064ced0c5038c43975419f6f4114a52880b1f05d18d454ab6b7219c811c`
+(1,068 files / 526,609,061 bytes). No fresh offline/full-browser/native/performance
+certification is claimed. Master Yi Q/W/E/R and the full project remain open.
+
+## 2026-10-25 — Development Wuju Style and full secondary on-hit damage
+
+[Wuju Style](MASTER-YI-E.md) now supports E learning/casting for the private
+Master Yi NPC. Its guarded projection retains standard ranks 20/25/30/35/40,
+the exact bonus-AD coefficient, five-second duration and fourteen-second cooldown.
+Omitted BIN mana and body animation remain null; public zero mana is a separate
+development resource policy. Legacy cast/VFX fields are retained without treating
+them as proven native callbacks. Eight mutation cases pass in each Python mode.
+
+The local instant self empowerment preserves ordinary windups and attack
+deadlines. Eligible contacts receive separate true damage from the accepted rank
+and live bonus AD; base/level AD, including the existing explicit BIN growth
+choice, does not count as bonus AD. Critical hits do not multiply this proc.
+Double Strike receives full E on-hit damage on both contacts while retaining its
+captured half-AD physical child. Activation after commitment, expiry between hits,
+lethal primary procs, rank upgrades, armor/MR/shields, controls, ability haste and
+death/victory cleanup have dedicated checks. Source effects/audio remain open.
+
+Schema 140 adds start/end/rank empowerment and permits only E in the NPC spell
+budget. Decoder guards reject foreign/dead/terminal/expired/over-ranked buffs,
+unsupported Q/W/R/cast state and invalid budgets. E grants no Hawkshot charges.
+The public roster, production NPC gates and public asset bytes stay unchanged.
+
+The broad run passes 2,243/2,249 cases across 341 files, including all 29 E cases.
+Its same six audit failures and identical Lux sampler digest match the untouched
+main reproduction retained by the passive checkpoint; no assertion is weakened.
+TypeScript, three Node QA cases and the production build pass. All ten targeted
+Chromium 154/Linux browser cases pass without skips/retries. Real private
+E-plus-child Save/reload retains complete world bytes, 90-bone matrices and the
+300-tick future; its screenshot was reviewed. Nested production hosting passes
+32 recordings, save/reload and zero Master Yi preloads. Only browser launcher
+paths are overridden; original assertions/deadlines are retained.
+
+The [verification record](reference/masteryi/e-verification.json) preserves
+changed-input and save/pose hashes, baseline failures, local log identities and
+the production result. It explicitly records a behavior-preserving local
+variable rename after browser validation. Ruleset is
+`21d7aa5b3f691b028344b8f93dcf26158ed5f6616f2e798ee38a83e09fa7e5da`;
+pack `0691702251f132c790b6466db58a07558f9ea3098b019c92440f27e0b8efdc6f`
+contains 1,068 files / 526,611,202 bytes. No fresh offline/full-browser/native/
+performance certification is claimed. Q/W/R and full champion/project completion
+remain open; Meditate declaration preparation is isolated outside runtime inputs.
+
+## 2026-10-25 — Development Meditate, paused E and independent reset contacts
+
+[Meditate](MASTER-YI-W.md) adds own W learning/casting, a four-second channel,
+eight half-second heals, continuous upkeep, timed mitigation/linger, attack reset,
+passive stack pulses and paused E duration. Source ranks/formulas/traits and the
+exact `Spell2` loop binding are checked offline. Omitted BIN cooldown and heal
+stat ID remain null; public ten-second cooldown and AP are explicit local
+controller choices. Eight mutation cases pass in normal and optimized Python.
+Native dispatch/order, source effects/audio and presentation calibration stay open.
+
+Commands interrupt before due pulses; paid elapsed intervals settle before E
+expiry. Stun/silence/Charm stop the channel at application. Root and ordinary
+damage leave it active. Death/victory clear it. A committed Double Strike survives
+the attack reset and can contact during W. Its separate pose-stop clock lets the
+body own the channel and prevents an old child pose overriding a newer primary.
+The level-change/reset overlap retains both contact clocks and counter growth.
+Schema 141 validates these states plus pulse alignment, budgets, finite linger
+and E pause accounting. The public roster/assets and NPC save/import gates stay
+unchanged. HUD healing labels now round visually while actual HP/events remain
+precise; screenshot review caught and repaired the long-decimal display.
+
+All 47 Meditate cases pass in the broad run. The complete batch passes
+2,289/2,296 cases across 342 files: the same six pre-existing source-audit failures
+remain, plus an existing wave-scheduler five-second deadline miss. That scheduler
+and all channel cases then pass isolated (56 cases, original limits). The
+earlier focused run passes 134 cases. TypeScript, three Node QA cases and the
+production build pass. No assertion or deadline was weakened.
+
+Thirteen distinct targeted Chromium 154/Linux browser cases have passing runs.
+The first batch passes twelve and times out the existing pending-NPC reload;
+its unchanged isolated rerun passes in 26 seconds under the original thirty-second
+limit. All three new channel phases pass again after the HUD repair, preserving
+world bytes, all 90 bone matrices and 300-tick futures. Loop and overlap captures
+were reviewed. Nested production hosting passes 32 recordings, ordinary saved
+continuation, development URL rejection and zero Master Yi preloads.
+
+The [verification record](reference/masteryi/w-verification.json) preserves
+source/test hashes, phase/save/pose digests, the corrected feedback-ID assumption,
+both timing failures and isolated passes, HUD repair and production result.
+Ruleset is `0392157a812acbbb4b8e48f4d5aeb5d06905aec3aa40ee37c4f26cc464fae468`;
+pack `f710e23c20ffd324d689cad2ec838955e0ac9311b8403ed70bc1f6d1c7eb8c6f`
+contains 1,068 files / 526,616,922 bytes. No fresh offline/full-browser/native/
+performance certification is claimed. Q/R, full Master Yi and full project
+completion stay open. Highlander declaration preparation remains staging-only.
+
+
+## 2026-10-25 — development Master Yi Highlander
+
+The manual NPC fixture now supports [Highlander](MASTER-YI-R.md): frozen own
+rank bonuses, seven-second duration, slow cleanse/immunity, champion kill/assist
+extension and learned-R passive W/E remaining-cooldown refunds. Meditate pauses
+both E and R before expiry. Acceptance preserves ordinary/secondary attack clocks
+and its own body pose; it pays 100 mana and starts the hasted 85-second cooldown.
+Source empty animation and omitted calculation table remain distinct. The local
+refund retains the exact float and ceil quantization; 100 updates become 31.
+A May 2026 secondary reference prompted correction of initial ignore-only slow
+handling: existing slows clear, new slow callbacks reject, damage and separate
+Charm/root/stun behavior remain. Native dispatch/calibration, ghosting, cripples,
+movement-speed caps, Q, source R effects/audio and player/role integration stay open.
+
+Schema 142 retains rank, start/end, pause count, extension count, score at cast
+and last extension clock, with ownership, phase, exact score-delta and duration
+checks. Own R learning follows levels 6/11/16. Public player selection and private
+save-slot gates stay unchanged. Identity guards avoid new Highlander lookups on
+unrelated moving or hit units.
+
+The final broad one-worker run passes 2,323/2,329 cases in 343 files, including
+all 33 R and 147 Master Yi cases. Six source-audit failures match the untouched
+baseline. The initial two-worker run also hit the existing 5,000 ms wave-clock
+deadline and an explicit former-schema Lux assertion. The final wave clock passes
+unchanged; the Lux assertion is updated to142. TypeScript, three Node QA cases,
+source checks, eight guard cases in each Python mode, build and nested production
+smoke pass. Production prepares 32 recordings and no Master Yi assets. No
+assertion, quality setting or deadline was weakened.
+
+Sixteen distinct browser cases have passing runs across batches: initial nine
+old cases passed before an intentional R screenshot interruption for the slow
+correction; seven R/W/E cases passed afterward; final three R phases passed again
+after own-identity lookup guards. Exact world bytes, all 90 bone matrices and
+300-tick futures match after real private Save/reload. The final verification
+record preserves each batch and its scope rather than calling this one clean
+sixteen-case final run.
+
+Ruleset `6e9ae9dddc9111a6d568308368a6ec2a4c79edc104c34199bb9d0c0778ad1f93` and pack
+`556eaf226816257a74f33ee9abf8aff72fff2b58ee0ef4907560ee4868e29e4b` retain 1,068 files /
+526,620,268 bytes. No public asset bytes changed. The existing large chunk
+warning remains. [R verification](reference/masteryi/r-verification.json) records
+source/test hashes, failed fixture assumptions and command-gate correction,
+interruption, slow-policy correction, final proofs and production results. No
+fresh full-browser/offline/native/performance or full-project completion claim.
+Alpha Strike source projection/guard preparation remains outside runtime inputs.
+
+
+## 2026-10-25 — Alpha Strike source preparation
+
+`export-masteryi-q.py` adds a guarded projection for the frozen root/children,
+rank resources, named damage/on-hit/repeat/monster values, formula references,
+raw stat ID, omitted stat formula/animation/targeting fields, authored radii and
+three distinct child travel durations. It keeps the legacy root cast/total time
+separate and does not rename a radius or sum missile durations into a native
+bounce controller. Eleven mutation cases pass in normal and optimized Python;
+staged output checks match. No runtime Q module is created, so schema142,
+Highlander ruleset and pack remain unchanged.
+
+The [preparation record](reference/masteryi/q-preparation.json) pins inputs,
+secondary reference and remaining acceptance work. The community mark/recovery
+schedule is a research lead, not a decoded consequence of the three missile
+movement durations. New-target untargetability must be separated from the
+existing damage/protection check so Q does not become blanket invulnerability.
+Q remains unavailable while these controllers and saved interaction policies are
+implemented and checked. No new game behavior or native calibration is claimed.
+
+
+## 2026-10-25 — restore three Garen source audit groups in cloud
+
+Installed the exact Python extraction requirements and pinned CDTB checkout,
+then selectively re-extracted both Garen banks and the passive's three BIN/three
+TEX inputs from the frozen archive. A new immutable media-cache helper restores
+36 original WEM slices (328,799 bytes) using the checked bank/graph/decoded hash
+chain and exact offsets, with validation before any writes. It refuses differing
+existing files, supports check mode and retains guards under Python optimization.
+Ten offline mutation cases pass in each Python mode. No authoring graph, source
+pin, public WAV/PNG, runtime code or test assertion changed.
+
+All 20 unchanged cases in the three formerly failing Garen source-audit groups
+now pass. [Reproduction](SOURCE-AUDIT-CACHES.md) and the
+[restore record](reference/source-audit-garen-restore.json) preserve input hashes,
+original bytes, toolchain identity and logs. The preceding broad run's Leona
+native/research-input, distortion-source/disassembly and Lux sampler-digest groups
+are not repaired by this restore; no fresh full-suite pass is claimed. Schema142,
+Highlander ruleset and production pack remain unchanged, so no game build or
+browser rerun was needed for these tool/cache-only changes.
+
+
+## 2026-10-25 — development Master Yi Alpha Strike
+
+The manual NPC now owns all four development ability controllers. [Alpha Strike](MASTER-YI-Q.md)
+adds explicit unit targeting, local fourteen-update marks and ten-update recovery,
+delayed first and immediate repeated contacts, separately captured damage/crit
+payloads, scaled E on-hits, target loss, return selection and buffered recovery
+orders. Existing primary recovery is retained; committed Double Strike survives
+with its body pose stopped. Q freezes E/R while vanished and permits E/R plus
+supported Heal/Smite, while W/Flash/recall/trinket actions cannot replace it.
+Own basic contacts reduce current Q cooldown using the source cooldown multiplier;
+Highlander now refunds Q/W/E on actual awarded champion takedowns.
+
+Targetability is separate from damage permission. Incoming attacks, area effects,
+controls, Ahri controllers, Smite and companions reject vanished Yi; attached
+Cinders/Scorchclaw damage continues. The model and bar hide without inventing a
+Spell1 binding. A corrected monster fixture exposed real reset healing between
+marks: engaged neutrals now retain aggro and wait through temporary untargetability
+within the existing sight/leash rules, including inherited Krug aggro/cleanup.
+The waiting phase saves/resumes exactly. This is not a general patience rewrite.
+
+Schema143 saves all phases, captured marks/results, payloads, exit/return points
+and buffered orders with strict clock/result/repeat/ID/ownership checks. Own
+Q/W/E/R ranks share the budget. The full broad one-worker run passes 2,379/2,382
+cases across344 files, including all53 Q/all200 Master Yi cases. Three known
+baseline groups remain (Leona inputs, distortion originals and Lux sampler
+digest); no source assertion was relaxed. Focused Q/neighbor checks pass282,
+normal/optimized source guards pass11 each, and TypeScript/three Node QA/build
+checks pass. The original wave-clock deadline passes unchanged.
+
+The three new actual private Q Save/reload phases pass exact bytes and300-update
+futures. Visible recovery restores all90 bone matrices; hidden phases verify
+root/bar suppression and finite own-rig reveal instead of comparing invisible
+cached poses. Sixteen older browser cases pass15, with one existing30s recovery
+reload timeout after its assertions/proof completed. Its unchanged isolated
+rerun passes29.0s. All19 distinct cases have passing runs across batches; no
+single clean19-case batch is claimed and no deadline/assertion/quality was lowered.
+
+Nested production smoke passes32 recordings, real save/restore, development URL
+rejection and zero Master Yi preloads. Source timing, stat/crit/proc, return,
+selection and buffering decisions remain explicit local policies. Mark-only
+assist credit, target-area vision, source Q effects/audio, native transition/
+appearance calibration and player/role integration stay open. No public asset
+bytes changed. Ruleset `1228a6d9dd799df0e1ee9e2d4447f631a3437a17ae362ac5e5bc041040c9cc1d`;
+pack `983a00ead5156f3aba448d873c637541f4e8a918e46f203b954306d742fc5abf` has 1,068 files /
+526,628,509 bytes. [Q verification](reference/masteryi/q-verification.json)
+retains hashes, failures/corrections, the real neutral bug, timeout and phase/
+production proofs. No fresh offline/full-browser/native/performance certification.
+
+### Human Master Yi private practice controls (schema 144)
+
+The development-only `/?scene=fixture&champion=masteryi` scene now supplies a
+trusted human-player context, own HUD/title/portrait/passive counter, all five
+pinned passive/spell icons, rank/resource/damage descriptions and real Q unit
+selection plus instant W/E/R controls. Q previews 600 range; mouse orders during
+vanish choose the return side. Meditate can be stopped through ordinary input.
+The Cinders tooltip shares combat's melee classification. Production selection
+remains Ashe/Lux.
+
+Permission is supplied by the practice scene, never by serialized data. Decoding
+rejects human Yi in ordinary/Rift contexts and lane mode; file import checks the
+human identity before persistence. The human fixture has its own private save
+key, separate from both ordinary practice and the existing Yi NPC fixture.
+Actual restart keeps Yi and resets unlearned ranks/passive state. Five exact
+16.18.1 PNGs add 27,656 bytes; the 105 previous reference records remain exact.
+
+Focused checks pass 87 in five files, including eight new player cases. The broad
+one-worker run passes 2,387/2,390 across 345 files, all 208 Yi cases included. The
+three previously recorded source-audit failures remain unchanged. TypeScript,
+three Node QA cases and the production build pass.
+
+Seven distinct Yi browser cases have passing runs across batches: human own
+HUD/keys/passive/restart, actual targeted Q and mouse return side, exact vanished
+human-Q save/300-tick future after a separate NPC save, three NPC Q checkpoints,
+and ordinary entry's closed selection/asset gate. Human reveal retains 90 finite
+bones. The verification record keeps coordinate/clock fixture corrections and
+a dev reload caused by a temporary baseline checkout under the watched cache;
+the checkout moved outside the project and the affected checks pass.
+
+Existing Garen 60s/30s browser deadline failures reproduce on untouched ee4948b
+with the same original test file and launcher. Ahri's old real-time windup check
+observed its already-launched orb; a one-shot keyup pause now preserves the exact
+checkpoint and every original assertion passes. That run still exceeds 120s in
+cleanup after writing proof, so it remains a recorded failure. No assertions,
+deadlines or quality were weakened; no full-browser certification is claimed.
+Native effects/audio, exact transition/timing calibration and role/public roster
+integration remain open. See [human fixture](MASTER-YI-PLAYER.md) and its
+[verification](reference/masteryi/player-verification.json).
+
+Nested production smoke passes 32 recordings, real spell/save/purchase/restore
+flows, exact human/NPC Yi URL rejection, no hook and zero Yi rig preloads. Ruleset
+`58d4bb60164c316712b1f3b92eff8ec71be784db6ab7bf3cba9c03ada4d6cdab`; pack
+`f43a7afcb43f3510af23f3ffc6650e6849ff8f7e45d8c81d97b7ec66974015c6` contains
+1,073 files / 526,661,647 bytes. Existing bundle/performance/native gates remain
+open; no fresh offline certification is claimed.
+
+### Alpha Strike cursor and ring disappearance
+
+A direct real-Q/picker reproduction exposed invisible Yi still being selectable.
+Body rendering, cursor picking and selection/hover rings now share visibility.
+Reappearance restores selection; damage-protected structures remain selectable.
+Own Q tooltips now include the ranked monster bonus and critical capability.
+All 67 focused cases, TypeScript, build and the actual human-Q browser case pass.
+The browser proves hidden body/rings/no pick and restored selection/pick after
+return. Schema/ruleset and public asset bytes remain unchanged. The previous
+broad/production results are not presented as a fresh full-suite run. See
+[visibility verification](reference/masteryi/visibility-verification.json).
+
+### Q mark-only assist eligibility (schema 145)
+
+Accepted Q champion marks now retain a separate incoming source/tick history
+before first damage. Repeats refresh one entry. The pinned standard-mode
+15-second inclusive window feeds the existing direct/support assist set and
+Highlander callback, deduplicating damage/mark participation. Mark history is
+excluded from damage and execution credit: actual attacker attribution remains
+intact, including turret executions. Respawn clears the incoming history.
+Decoding checks source identity/team/learned Q, duplicates and historical tick/
+death bounds. Older schemas/fingerprints remain incompatible.
+
+The retained community V6.21 note supports eligibility before delayed damage;
+it is a historical behavior lead, not controlled 26.18 native dispatch evidence.
+The local callback follows the existing mark pulse. No target-area vision,
+source presentation or speculative assist-gold formula was added. The original
+focused failure (pending first mark, full health, no damage, lost assist) is
+retained. The 23 new cases cover timing boundaries, independent/repeated sources,
+execution attribution, R/posthumous callbacks, respawn, saved futures and forged
+records. Q/R focused checks pass 109; the full one-worker suite passes
+2,413/2,416 across 347 files, all 234 Yi cases included. Three known source-audit
+failures remain unchanged. TypeScript, three Node QA cases and build pass.
+
+Three actual browser save/reload checks pass, including new mark-only eligibility,
+NPC marked Q and human/NPC save isolation. The new proof records full target health,
+empty damage history, exact checkpoint/future, one assist and one R extension with
+visible personal score and no page errors. [Mark assist documentation](MASTER-YI-MARK-ASSISTS.md)
+and [reference evidence](reference/masteryi/q-assist-reference.json) distinguish
+source declarations, historical community evidence and local controller policy.
+
+Nested production smoke passes 32 recordings and the existing real spell,
+purchase and save/restore checks under a host prefix. Both exact Yi fixture URLs
+remain disabled, with no development hook or Yi rig preloads. Ruleset
+`01df38573feae5954330b5a1a2ca9dad87d320d0ec3b024ba2a31d971bb96022`; pack
+`e663ac994747306aa587d489212542c13de96c9afd874a6f26966f743f834011` has
+1,073 files / 526,662,603 bytes. Public asset bytes are unchanged.
+No fresh full-browser/offline/native/performance certification is claimed.
+
+### Master Yi base SFX source graph
+
+Pinned the two declared base SFX banks (751,976 bytes), excluding voice-over.
+All 31 event names resolve to actual FNV bank IDs. The static closure retains
+223 native hierarchy nodes and all 69 embedded media records (737,501 encoded
+bytes), including separate Q-launch layers, Double Strike hit switches and both
+Meditate stop targets. Parameters/branches and three unresolved external buses
+remain explicit. The raw attack slots retain omitted names/probabilities; source
+availability is not treated as proof of active native script binding.
+
+New immutable extraction/mapping tools check frozen source hashes and a clean
+pinned parser checkout. The mapper bypasses optional name databases and verifies
+its FNV implementation independently. Twenty-nine offline guards pass per Python
+mode; actual source/graph checks pass normally and with optimization. Conflicting
+outputs reject before creation, and identical/check outputs remain untouched.
+The initial incomplete-parser rejection and successful pinned-parser follow-up
+are retained. No decoding, public media or gameplay playback changed; schema 145,
+current ruleset and the prior runtime pack remain intact. See
+[Master Yi audio source preparation](MASTER-YI-AUDIO.md).
+
+### Master Yi float source masters
+
+Built pinned vgmstream/Ogg/Vorbis sources with a separately recorded Linux
+compiler/static-codec provenance. All 69 source clips decode to mono 44.1 kHz
+IEEE float32: 3,798,546 frames / 15,197,220 WAV bytes. Thirty-five retain native
+headroom above one; no sample is clipped, normalized, resampled or mixed. Container
+loops/gains/pitch/fades remain outside these masters.
+
+New checks pin the source graph and decode record, validate RIFF extents, float
+format, exact native frames/rate/channels, finite PCM and full identities/stats.
+All source inputs preflight before decoder access; outputs preflight before any
+creation. Thirty offline guards pass per Python mode. Full normal/optimized
+repeat decodes reproduce all files and record bytes without touching masters.
+Independent checking needs no decoder binary. Public assets, gameplay audio,
+schema 145, ruleset and the prior runtime pack remain unchanged. Runtime binding,
+source bank policies, pause/seeking and listening/mix acceptance continue next.
+See [decoded source masters](MASTER-YI-AUDIO.md#decoded-source-masters).

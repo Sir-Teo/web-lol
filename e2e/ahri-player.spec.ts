@@ -145,6 +145,13 @@ test('Ahri player owns the HUD, local Q guide and committed keyboard cast', asyn
   expect(await page.evaluate(() => (window as any).__GAME__.world.player.cooldowns.q)).toBe(0);
   await aimAt(page);
   await page.keyboard.down('q');
+  // Freeze after the real input listener queues Q, before live frames can finish
+  // the windup that this checkpoint inspects. Accepted commands survive pause.
+  await page.evaluate(() => {
+    window.addEventListener('keyup', () => (window as any).__GAME__.setPaused(true), {
+      once: true,
+    });
+  });
   await page.keyboard.up('q');
   await step(page);
   const accepted = await page.evaluate(() => {

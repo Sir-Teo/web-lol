@@ -1,6 +1,217 @@
 # Local match checkpoints
 
-Current schema **123** adds per-owner Daybreak presentation with captured
+Current schema **163** adds independent target pose and visibility frames to
+accepted Master Yi primary contacts. The saved target rig, radius, structure
+transform, source facing and detach tick drive the declared chest attachment.
+Coverage is bounded to 75 ticks, including source life-probability endpoints;
+decoding rejects gaps, invalid rig poses, changed transforms/radius, lost
+own-team audience and inconsistent detached or latest endpoints. Finite known
+births survive source death and terminal presentation. Earlier schemas and
+fingerprints remain incompatible. See [primary hit effects](MASTER-YI-PRIMARY-HITS.md).
+
+Schema **162** admits both ordinary Master Yi attack kinds alongside
+critical attacks. Saved primary kind must match the indexed local cosmetic
+choice from the two explicit source weights, and current-cycle linkage remains
+strict. Body, trail and distinct source audio cues share that identity. Existing
+root windows and finite audio tails remain bounded; gameplay RNG and timing are
+unchanged. Earlier schemas/fingerprints remain incompatible. See
+[source attack choices](MASTER-YI-ATTACK-SELECTION.md).
+
+Schema **161** adds separate saved Double Strike trail histories. Each
+accepted child stores its clocks/target, two current-pose marker decisions, pose
+cut and rolling lossless 16-tick root/visibility window. Decoding checks ordered
+identity, active-child linkage, decision clocks, canonical coverage/endpoints and
+expiry. Finite particles survive child removal; victory decides no future events.
+Historical combat/pose decisions cannot be independently reconstructed without a
+complete ledger. Earlier schemas/fingerprints remain incompatible. See
+[Double Strike trails](MASTER-YI-PASSIVE-TRAILS.md).
+
+Schema **160** adds rolling lossless 20-tick actor-root/visibility runs
+to accepted ordinary and critical primary attacks. Exact current rendered-clip
+marker crossings admit finite trails on the named center joint. Decoding checks
+canonical coverage, endpoints and audience, and expired roots are cleared while
+audio history can remain retained. Cancellation before the marker suppresses new
+trails; admitted corpse and victory tails finish through presentation. Earlier
+schemas/fingerprints remain incompatible. See
+[primary attack trails](MASTER-YI-PRIMARY-TRAILS.md).
+
+Schema **159** adds skin-declared E/R sword glow histories. Each accepted
+condition stores cast identity and a rolling, lossless 62-tick root/visibility
+window. Fully bound/local particles use current animated sword-joint frames;
+actual buff removals cap emission and retain finite source tails. Decoding checks
+matching accepted E/R lifecycle records, mandatory recent admissions, unique
+ordered conditions, exact rolling coverage and current endpoints. Death tails
+follow current known corpse poses; victory presentation drains without stepping
+the world. Earlier schemas/fingerprints remain incompatible. See
+[sword glow presentation](MASTER-YI-SWORD-GLOWS.md).
+
+Schema **158** adds finite Meditate damage reactions. Positive reduced
+physical/magic hits coalesce once per owner/tick and retain W cast/rank, admission
+audience and lossless root pose/visibility runs for both finite emitters. The
+15-tick source clock is independent of W channel and reduction linger. Decoding
+checks accepted W/window linkage, ordered unique ticks, canonical coverage,
+endpoints and frozen death roots. A complete damage ledger is not saved, so
+structural checks do not independently prove historical damage amounts or every
+missing reaction. Earlier schemas/fingerprints remain incompatible. See
+[Meditate damage effects](MASTER-YI-W-DAMAGE.md).
+
+Schema **157** adds finite Highlander takedown histories. Actual living
+active-R extensions record cast/rank, extension sequence, victim/team, admission
+audience and lossless root pose/visibility runs. Each complete three-emitter
+system retains an 88-tick source bound, independent of the extended buff. Q-hidden
+births stay hidden while later known births can appear after return. Death freezes
+roots; terminal tails finish without stepping the world. Decoding checks accepted
+R linkage, awarded counts, victim death clocks, unique ordered identities and
+canonical root coverage/endpoints. Earlier schemas/fingerprints remain incompatible.
+See [Highlander takedown effects](MASTER-YI-R-KILL.md).
+
+Schema **156** adds finite Highlander cast histories. Accepted R records
+rank, creation origin/audience and lossless root pose/visibility runs for the
+complete eight-emitter cast. Its 27-tick source clock keeps advancing while Q/W
+pauses the buff. R accepted during Q keeps admission separate from hidden birth
+frames. Death freezes existing roots; terminal presentation finishes without
+stepping the world. Decoding checks the matching R audio admission, ownership,
+rank, exact endpoints and canonical coverage. Earlier schemas/fingerprints remain
+incompatible. See [Highlander cast effects](MASTER-YI-R-CAST.md).
+
+Schema **155** adds Alpha Strike reappearance histories. Actual completed
+and target-loss returns capture the accepted cast, mark count/reason, return point,
+creation audience and lossless root runs. Both finite emitters retain an 18-tick
+bound after recovery clears. Death freezes existing roots; vanished cancellation
+and victory create no new return effect. Decoding checks accepted cast/audio,
+return clocks, creation point, canonical coverage, live endpoints and frozen death
+frames. Earlier schemas/fingerprints remain incompatible. See [Q reappearance](MASTER-YI-Q-END.md).
+
+Schema **154** adds Alpha Strike cast particle histories. Accepted Q
+stores its rank, creation origin/audience and lossless root pose/visibility runs
+for the complete two-emitter cast system. The 15-tick finite history remains
+visible independently of Q body hiding; death freezes its root. Decoding checks
+ownership, matching accepted Q audio, canonical coverage and endpoint clocks.
+Earlier schemas/fingerprints remain incompatible. See [Q cast effects](MASTER-YI-Q-CAST.md).
+
+Schema **153** adds Wuju Style audio histories. Accepted E records its
+rank, cast point/audience and a separate actual removal with paused end clock,
+point and audience. Q/W pauses extend the live buff without changing finite
+cast/activation audio. Natural expiry admits an ending; death, victory and
+replacement retain finite onsets. Decoding checks ownership, ordered clocks,
+active-buff linkage, exact pause accounting, recasts and finite retention.
+Earlier schemas/fingerprints remain incompatible. See
+[Wuju Style audio](MASTER-YI-E-AUDIO.md).
+
+Schema **152** adds finite Meditate audio histories. Each accepted W
+retains rank, planned channel end, cast point/audience and its actual stop
+reason, point and audience. Living completion/interruption admits an ending;
+death/victory retain finite onset without inventing an ending callback. Audio
+retention is independent of particle cleanup. Decoding checks channel and buff
+links, creation audiences, ordered clocks, ownership, stop reasons and finite
+expiry. Earlier schemas/fingerprints remain incompatible. See
+[Meditate audio](MASTER-YI-W-AUDIO.md).
+
+Schema **151** adds sustained Meditate buff presentation. Each accepted
+W retains its four-second emission bound, actual stop tick/reason and finite
+121-tick tail. Position, facing and audience endpoints use lossless runs of
+identical frames; moving and visibility transitions remain exact. Death freezes
+the root. Decoding checks run coverage/canonical form, owner/rank, channel links,
+stop clocks, live endpoints and finite retention. Earlier schemas/fingerprints
+remain incompatible. See [Meditate buff effects](MASTER-YI-W-BUFF.md).
+
+Schema **150** adds Meditate cast presentation histories. Each accepted
+W retains its creation audience and a finite 55-tick sequence of source position,
+facing and visibility endpoints. Cast effects can finish after channel interruption;
+death freezes their saved root. Decoding checks Yi ownership, learned rank,
+ordered cast clocks, active-channel linkage, contiguous frames, live endpoints,
+detachment and expiry. Cosmetic sampling consumes no gameplay IDs or RNG.
+Earlier schemas/fingerprints remain incompatible. See [Meditate cast effects](MASTER-YI-W-CAST.md).
+
+Schema **149** adds a separate Alpha Strike audio history for each
+accepted cast. It retains the declared two-layer cast cue and ordinary contact
+creation points/audiences through finite recording tails, including after Q and
+visual cleanup. Critical contacts keep their missing hit-sound binding.
+Decoding checks active Q ownership, targets, ranks, ordered mark/contact clocks,
+normal-versus-critical bindings, linked contact visuals and finite retention.
+These records use no additional gameplay RNG or entity IDs. Earlier
+schemas/fingerprints remain incompatible. See [Q sound playback](MASTER-YI-Q-AUDIO.md).
+
+Schema **148** adds accepted Alpha Strike contact histories: cast/mark
+identity, critical/repeat payload, actual contact root, visibility, collision
+radius, heading and a finite root-frame history. Decoding requires matching
+active hit marks, rejects missing/forged contacts and validates ordered clocks,
+targets, frames, detachment and retention. Pending/lost marks create no contact
+record. Confirmed tails survive Q cleanup, caster death and victory. Queued
+explicit Yi Q targets now survive Save/reload; other Yi abilities still reject
+explicit target IDs. Earlier schemas/fingerprints remain incompatible. See
+[Q contact effects](MASTER-YI-Q-CONTACTS.md).
+
+Schema **147** adds Highlander audio lifecycle histories. Each accepted
+R retains its activation clock, rank, score and audience. Natural expiry records
+the effective end after takedown extensions and W/Q pauses; death, victory and
+recast close the history with separate reasons. Decoding checks ownership,
+active-buff links, stopped duration/accounting, removal reasons and finite tails.
+Earlier schemas/fingerprints remain incompatible. See [Highlander audio](MASTER-YI-R-AUDIO.md).
+
+Schema **146** adds finite Master Yi primary-attack audio histories:
+accepted windup/contact clocks, normal/critical kind, target identity/material,
+creation/contact audiences and cancellation. Decoding requires matching active
+combat cycles and rejects foreign, expired, future or forged records. These
+histories use no gameplay IDs or RNG. Earlier schemas/fingerprints remain
+incompatible. See [attack audio](MASTER-YI-AA-AUDIO.md).
+Garen attack histories also accept the known Leona/Ahri/Yi target rigs; the shared
+material lookup retains their frozen base-skin values, including Leona Metal.
+
+Schema **145** adds separate incoming Alpha Strike mark-assist histories.
+Champion targets retain source IDs and mark ticks without granting damage or
+execution credit. Decoding checks ownership, learned Q, opposing teams, unique
+sources and historical tick/death bounds. Respawn clears the history. Earlier
+schemas/fingerprints remain incompatible. See
+[mark assist credit](MASTER-YI-MARK-ASSISTS.md).
+
+Schema **144** permits a human Master Yi only in a trusted development
+practice fixture. The permission comes from the scene context and is never
+serialized. Player Yi files require that context and practice mode; Rift and
+ordinary fixture loading remain rejected. Human and NPC Yi use separate private
+save keys. Earlier formats/fingerprints remain incompatible. See
+[human Master Yi fixture](MASTER-YI-PLAYER.md).
+
+Schema **143** adds Alpha Strike origin/target, settled/pulse clocks,
+rank, captured marks and payloads, repeat/critical decisions, pending/hit/lost
+results, return/recovery phase, exit direction and buffered order. Targetability
+is derived from the vanished phase; ordinary damage protection remains separate.
+The development NPC can allocate all own Q/W/E/R ranks. Decoding checks phase,
+clock, payload/result relationships, ownership, range and past ID bounds.
+Earlier formats/fingerprints are incompatible. See [Alpha Strike](MASTER-YI-Q.md).
+
+Schema **142** adds Highlander start/end/rank, pause accounting,
+takedown extension count, score at cast and latest extension clock. W/E/R ranks
+are permitted on the development Master Yi NPC with own level/resource rules;
+Q and unsupported generic cast state remain rejected. Meditate pauses both
+E and R before expiry. Decoding rejects foreign, stale, unearned and forged
+buff state. Earlier formats and fingerprints are incompatible. See
+[Highlander](MASTER-YI-R.md).
+
+Schema **141** adds Meditate channel/pulse/stop clocks, captured rank/AP,
+paid E-pause accounting and Double Strike's separate pose-stop clock. A new primary
+can overlap an older pending child after W's reset; save and body clocks retain
+both contacts. Validation checks pulse alignment, controls, rank/budget/terminal
+ownership, finite linger and E duration accounting. Older schemas/hashes remain
+incompatible. See [Meditate](MASTER-YI-W.md).
+
+Schema **140** adds Master Yi's start/end/rank Wuju Style empowerment and
+permits only E learning/cooldown state in the private NPC fixture. Validation
+rejects foreign/dead/terminal/expired buffs, invalid rank budgets and unsupported
+Q/W/R or body-cast state. E and a pending Double Strike retain the same future
+contacts. Earlier schema/hash combinations remain incompatible. See
+[Wuju Style](MASTER-YI-E.md).
+
+Schema **139** adds Master Yi's own Double Strike counter and independent
+secondary contact, including captured target/damage/critical state and absolute
+pending/release/presentation clocks. Other champions must retain null. Decoder
+guards reject foreign ownership, expired or inconsistent phases and active state
+after death/victory. Private NPC saves retain exact future contacts and source
+poses. Earlier schemas and different ruleset fingerprints remain incompatible;
+there is no migration. See [Double Strike](MASTER-YI-PASSIVE.md). The entries below
+retain earlier schema checkpoints rather than an exhaustive migration history.
+
+Schema **123** adds per-owner Daybreak presentation with captured
 activation/rank/stop reason, shield poses and a confirmed contact's rig/radius/
 transform, posed frames and creation/birth audiences. Active empowerment must
 have its matching visual. Validation checks clocks, phase labels, recast links,

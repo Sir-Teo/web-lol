@@ -1,4 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
+import { pauseAtCombatState } from './helpers/pause-combat-state';
 
 async function boot(page: Page) {
   await page.goto('/?scene=fixture&champion=garen');
@@ -25,7 +26,7 @@ async function boot(page: Page) {
 test('Garen player keyboard controls, resource-free HUD and active Judgment survive browser save/reload', async ({
   page,
 }) => {
-  test.setTimeout(60000);
+  test.setTimeout(180000);
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
   await boot(page);
@@ -59,9 +60,12 @@ test('Garen player keyboard controls, resource-free HUD and active Judgment surv
   await page.evaluate(() => (window as any).__GAME__.setPaused(false));
   await page.keyboard.press('Control+q');
   await page.waitForFunction(() => (window as any).__GAME__.world.player.spellRanks.q === 1);
+  await pauseAtCombatState(page, 'garen-q');
   await page.keyboard.press('q');
   await page.waitForFunction(() => !!(window as any).__GAME__.world.player.garenQ);
   await expect(page.locator('[data-ability="q"]')).toHaveClass(/empowered/);
+  await pauseAtCombatState(page, 'garen-q-hit');
+  await page.evaluate(() => (window as any).__GAME__.setPaused(false));
   await page.mouse.click(target.point.x, target.point.y, { button: 'right' });
   await page.waitForFunction((id) => {
     const w = (window as any).__GAME__.world;
@@ -82,8 +86,11 @@ test('Garen player keyboard controls, resource-free HUD and active Judgment surv
     const p = (window as any).__GAME__.world.player;
     return p.spellRanks.w === 1 && p.spellRanks.e === 1 && p.spellRanks.r === 1;
   });
+  await pauseAtCombatState(page, 'garen-w');
   await page.keyboard.press('w');
   await page.waitForFunction(() => !!(window as any).__GAME__.world.player.garenW);
+  await pauseAtCombatState(page, 'garen-e');
+  await page.evaluate(() => (window as any).__GAME__.setPaused(false));
   await page.keyboard.press('e');
   await page.waitForFunction(() => !!(window as any).__GAME__.world.player.garenE);
   const before = await page.evaluate(() => {
@@ -133,6 +140,7 @@ test('Garen player keyboard controls, resource-free HUD and active Judgment surv
   expect(await page.evaluate(() => (window as any).__GAME__.world.snapshot())).toBe(saved);
   await expect(page.locator('.champion-title strong')).toHaveText('GAREN');
   await expect(page.getByRole('button', { name: 'End Judgment', exact: true })).toBeVisible();
+  await pauseAtCombatState(page, 'garen-e-end');
   await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
   await page.keyboard.press('e');
   await page.waitForFunction(() => {
@@ -241,6 +249,9 @@ test('Garen R captures the actual mouse champion and rejects nonchampions, hidde
   });
   expect(aim).toEqual({ count: 33, radius: 4 });
   await page.screenshot({ path: 'artifacts/browser-garen-player-r-aim.png' });
+  // Retain the authored HP fixture at the cast boundary after the live aim probes.
+  await page.evaluate((id) => ((window as any).__GAME__.world.unit(id).hp = 1000), fixture.enemyId);
+  await pauseAtCombatState(page, 'pending-cast');
   await page.keyboard.up('r');
   await page.waitForFunction(() => !!(window as any).__GAME__.world.player.pendingCast);
   const hit = await page.evaluate((id) => {

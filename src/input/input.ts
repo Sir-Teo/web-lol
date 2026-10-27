@@ -24,12 +24,16 @@ export class GameInput {
     unlockAudio: () => void
   ) {
     const canvas = view.renderer.domElement;
+    hud.onInstantCast = () => {
+      if (this.wardAiming) this.cancelAim();
+    };
     window.addEventListener('pointermove', (e) => {
       this.pointer = { x: e.clientX, y: e.clientY };
       if (this.wardAiming) view.setAim('ward', this.wardPoint() ?? world.hero);
       else if (this.aiming) view.setAim(this.aiming, this.castPoint(this.aiming));
     });
     window.addEventListener('pointerdown', (e) => {
+      unlockAudio();
       this.pointer = { x: e.clientX, y: e.clientY };
       if (e.button === 2 && hud.minimapPoint(e.clientX, e.clientY)) this.cancelAim();
     });
@@ -44,7 +48,6 @@ export class GameInput {
       this.updateHover();
     });
     canvas.addEventListener('pointerdown', (e) => {
-      unlockAudio();
       if (hud.paused || hud.modal) return;
       canvas.focus({ preventScroll: true });
       this.pointer = { x: e.clientX, y: e.clientY };
@@ -84,6 +87,26 @@ export class GameInput {
         e.target instanceof HTMLSelectElement;
       if (typing) return;
       const key = e.key.toLowerCase();
+      const learnShortcut =
+        e.ctrlKey && !e.altKey && !e.metaKey && ['q', 'w', 'e', 'r'].includes(key);
+      if ((e.ctrlKey || e.altKey || e.metaKey) && !learnShortcut) return;
+      // Reserve learning chords even on repeat; enqueue only on first keydown.
+      if (learnShortcut && !hud.paused && !hud.modal) e.preventDefault();
+      // Autoplay activation belongs to the first real gameplay/HUD gesture.
+      // Printable keys and button Enter/Space qualify; repeats and browser
+      // modifier shortcuts must not enqueue more context transitions.
+      if (
+        !e.repeat &&
+        !e.ctrlKey &&
+        !e.altKey &&
+        !e.metaKey &&
+        (key.length === 1 || (key === 'enter' && e.target instanceof HTMLButtonElement))
+      )
+        unlockAudio();
+      // HUD controls retain native focus traversal, including focusable buffs.
+      if (key === 'tab' && e.target instanceof Node && hud.root.contains(e.target)) return;
+      // Let focused HUD buttons keep their native Space activation.
+      if (key === ' ' && e.target instanceof HTMLButtonElement) return;
       if (!hud.modal && ['tab', ' ', 'arrowup', 'arrowdown'].includes(key)) e.preventDefault();
       if (e.repeat) return;
       if (key === 'escape') {
@@ -103,7 +126,7 @@ export class GameInput {
         return;
       }
       if (hud.paused || hud.modal) return;
-      if (e.ctrlKey && ['q', 'w', 'e', 'r'].includes(key)) {
+      if (learnShortcut) {
         e.preventDefault();
         this.cancelAim();
         world.enqueue({
@@ -132,7 +155,7 @@ export class GameInput {
       }
       if (key === 'b') world.enqueue({ type: 'recall', unit: world.player.id });
       const spell = ['q', 'w', 'e', 'r', 'd', 'f'].includes(key) ? (key as Ability) : null;
-      if (spell) this.wardAiming = false;
+      if (spell && this.wardAiming) this.cancelAim();
       if (spell && instantSpell(world, spell)) {
         const point =
           world.summonerSpell(spell) === 'heal' &&

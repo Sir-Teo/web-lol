@@ -1,0 +1,1061 @@
+{
+  "format": 1,
+  "parentCommit": "98d1e03086c019f26d8b3816f34e4c47c1b06f36",
+  "identity": {
+    "schema": 162,
+    "rulesetFingerprint": "c28af9e676d0cacc775ef924a3ce5a3140cb7a763e34d82413174d7f744cf318",
+    "offlinePack": {
+      "id": "6f59d0e3300662ecd20059b576effc36935d96a2e0e9463d1e91060b3ccc8e58",
+      "files": 1192,
+      "bytes": 537574563
+    }
+  },
+  "scope": "Use the two explicit source ordinary weights for a local indexed cosmetic choice, with critical override. Share saved attack kind across body, complete trail and distinct audio cues. Retain original cue indices, 24 WAV bytes/timestamps, gameplay RNG/IDs/timing and separate passive dispatch.",
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/character.json",
+      "bytes": 104698,
+      "sha256": "3f100c1148e1006766060822298c87aed02e86e359c385fbc2c248e4255d12fa"
+    },
+    {
+      "path": "docs/reference/masteryi/audio-graph.json",
+      "bytes": 1598681,
+      "sha256": "b7879c088d3544626d70c9ecaf4abfd0aebae007db5a6ee841c0caed7a2b33e3"
+    },
+    {
+      "path": "docs/reference/masteryi/audio-decoded.json",
+      "bytes": 87738,
+      "sha256": "28ac362788bb76709a226e76d282eb25a1805a474b9bc7348cedd59bbee33a32"
+    },
+    {
+      "path": "docs/reference/masteryi/attack-trail-particles.json",
+      "bytes": 26723,
+      "sha256": "66516333b70c1557feab0b1b69a29bc119dd3675d3b04df36484cd842100c7e1"
+    },
+    {
+      "path": "docs/reference/masteryi/attack-trail-mesh-transport.json",
+      "bytes": 1634,
+      "sha256": "a7b5eb7e27d0f0ff64627a0eb256fb8643718ccd1d12a105e61f8bdf7fcc1673"
+    },
+    {
+      "path": "docs/reference/masteryi/passive-trail-runtime-reading.json",
+      "bytes": 2094,
+      "sha256": "2e7be1deefe6c50fd4a0e389b13b45fd0ed5b39464c528a22262306cb26d75a4"
+    },
+    {
+      "path": "docs/reference/masteryi/sword-segmented-order-verification.json",
+      "bytes": 20401,
+      "sha256": "3423a0e98afccb4ed205a705c5734711faf6bf4c8ea5df9ed9c574437d53a344"
+    },
+    {
+      "path": "docs/reference/lux-e-sampler-portability-verification.json",
+      "bytes": 20282,
+      "sha256": "554a9e5f5dd7d1caf2f4f6fb7b6a895ef94969e3c86dc132320bdcf24fe4a825"
+    },
+    {
+      "path": "public/assets/models/masteryi-base.glb",
+      "bytes": 6487088,
+      "sha256": "7aae9e8e486c34d780113349c4a4d06830a5498a906ff291a49263090da471cc"
+    },
+    {
+      "path": "public/assets/models/masteryi-primary-trail.glb",
+      "bytes": 38976,
+      "sha256": "dcda4441fb23413a7672b2aa26e23f1bda81920353d25c6e0f3168b0055450b2"
+    },
+    {
+      "path": "src/render/finite-trail-particles.ts",
+      "bytes": 3804,
+      "sha256": "4b98058b8b4389ded53c27126f59f776cf02f831b592d12d50ebc53b92bc2455"
+    },
+    {
+      "path": "src/render/masteryi-sword-instances.ts",
+      "bytes": 12952,
+      "sha256": "af52e161e3fb26863242b21ac1c3dbcc3bdae48e8ef3ff53d5b4469a3be5a5f5"
+    },
+    {
+      "path": "src/simulation/masteryi-double-strike.ts",
+      "bytes": 3867,
+      "sha256": "b4ba453a26f213cfc41f3038b27ddfc94349c1e187aa2bfca59296442961dfc0"
+    },
+    {
+      "path": "src/audio/masteryi-aa-state.ts",
+      "bytes": 2592,
+      "sha256": "3f1ea8c6272e6b31431b0c9f02a8b94e4c1284fb32a5d82651421447caa3d0fd"
+    },
+    {
+      "path": "tests/lane-rules.test.ts",
+      "bytes": 5533,
+      "sha256": "d12c8deaba4ba8933dca9a045b1eeae20b1869167f5b9e1fcf0dbfc39e8c1d4a"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-attack2-runtime/final-source-index.json",
+    "bytes": 9311,
+    "sha256": "e8eda9ae7187898bff79c0995c09375eaad5930a2217d4d14d1ef4b108775abd"
+  },
+  "generated": [
+    {
+      "path": "README.md",
+      "bytes": 18312,
+      "sha256": "f0576a9fc09f67368334606bbd50da027ecd1fcae314ce84ee4f5d4234d792c1",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/README.md"
+    },
+    {
+      "path": "docs/MASTER-YI-AA-AUDIO.md",
+      "bytes": 7462,
+      "sha256": "c45acbf3dac0a0523f961dfa5d19f396fce81f04206d3f0dfbc6eb7cbb676abd",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/docs/MASTER-YI-AA-AUDIO.md"
+    },
+    {
+      "path": "docs/MASTER-YI-ATTACK-SELECTION.md",
+      "bytes": 3098,
+      "sha256": "79520ce9a5a07b9ae1bf1abceab00d11e23281c80465da454af225cb6609f99d",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/docs/MASTER-YI-ATTACK-SELECTION.md"
+    },
+    {
+      "path": "docs/MASTER-YI-PRIMARY-TRAILS.md",
+      "bytes": 2750,
+      "sha256": "918fe7d80a54182919898cc03d4d5ad85ca3af1a462626161592d5e9431dfd16",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/docs/MASTER-YI-PRIMARY-TRAILS.md"
+    },
+    {
+      "path": "docs/SAVES.md",
+      "bytes": 64290,
+      "sha256": "8777f2a2a48b701bc4c8ac443e69dbea56e7d4a1924f17e46f44ccdbd3f5b13d",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/docs/SAVES.md"
+    },
+    {
+      "path": "docs/reference/masteryi/aa-audio-reading.json",
+      "bytes": 2751,
+      "sha256": "7496b47110febdcdbd883f08ae93f21b879738443e7cf98a3d291856c3d4ea08",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/docs/reference/masteryi/aa-audio-reading.json"
+    },
+    {
+      "path": "docs/reference/masteryi/attack-selection-reading.json",
+      "bytes": 3230,
+      "sha256": "bbf8bc8049a423182511ba726b6aff25107314c34a8a304c23949ee32a61929f",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/docs/reference/masteryi/attack-selection-reading.json"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-trail-runtime-reading.json",
+      "bytes": 2776,
+      "sha256": "662981c263a4427a05e949972283669afbabac1fdf561c66c0629ebffe388669",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/docs/reference/masteryi/primary-trail-runtime-reading.json"
+    },
+    {
+      "path": "e2e/masteryi-aa-audio.spec.ts",
+      "bytes": 16352,
+      "sha256": "108ed34a96ffdda68ca52cbf1f41a4c7de477303be0db8e40d5dca18ddd3c54b",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/e2e/masteryi-aa-audio.spec.ts"
+    },
+    {
+      "path": "e2e/masteryi-primary-trails.spec.ts",
+      "bytes": 20590,
+      "sha256": "79a3d19dfd5cbe22fc1d89e78b66015aa5a6afdf86910e8e7c8198d2370d30c9",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/e2e/masteryi-primary-trails.spec.ts"
+    },
+    {
+      "path": "public/assets/audio/masteryi-aa-410080597.wav",
+      "bytes": 80836,
+      "sha256": "d004b66f33436916b5579c650af9ffb5527db46326dcea4ba35f44c8114fd25d",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/public/assets/audio/masteryi-aa-410080597.wav"
+    },
+    {
+      "path": "public/assets/audio/masteryi-aa-522993466.wav",
+      "bytes": 98700,
+      "sha256": "179543f172255e5e1f81cc23ddbe2f43814e78bcb8d532a8718e2d395a57bdfe",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/public/assets/audio/masteryi-aa-522993466.wav"
+    },
+    {
+      "path": "public/assets/audio/masteryi-aa-63444143.wav",
+      "bytes": 79332,
+      "sha256": "14399854b8e8ee426d517cb99e12818670d865e7d5defed2665dbda96aed563e",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/public/assets/audio/masteryi-aa-63444143.wav"
+    },
+    {
+      "path": "public/assets/audio/masteryi-aa-903113665.wav",
+      "bytes": 93680,
+      "sha256": "b80cf2d80ac841cfa5c5c1604cac21383fa82a72b706135efb7d0d58d11815e1",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/public/assets/audio/masteryi-aa-903113665.wav"
+    },
+    {
+      "path": "src/content/masteryi-aa-audio.ts",
+      "bytes": 38116,
+      "sha256": "a5b3fd27c3178a47d8ccec9b5784cde298fb0d1eac14b0bf92b4ec0792779182",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/src/content/masteryi-aa-audio.ts"
+    },
+    {
+      "path": "src/content/masteryi-attack-selection.ts",
+      "bytes": 316,
+      "sha256": "06c6924140ddad3c2330afa8846bd160b517c739aa35db074a2b7993de972421",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/src/content/masteryi-attack-selection.ts"
+    },
+    {
+      "path": "src/content/masteryi-primary-trail-particles.json",
+      "bytes": 32750,
+      "sha256": "9a9df65137a32744f901b6e8e310b3d5d3b1e3cf2101b7f6d01c14e0431e0b28",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/src/content/masteryi-primary-trail-particles.json"
+    },
+    {
+      "path": "src/content/masteryi-primary-trail-timing.ts",
+      "bytes": 469,
+      "sha256": "9e226f5d45ec40a6cca4695a1e57db21b1454d321c416ed9dea5ced42eea6771",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/src/content/masteryi-primary-trail-timing.ts"
+    },
+    {
+      "path": "src/render/masteryi-primary-trails.ts",
+      "bytes": 7215,
+      "sha256": "f07fec33175d7c91b1afdde0a86bea2bd02c7cb2f354c730b92dc67a8724490d",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/src/render/masteryi-primary-trails.ts"
+    },
+    {
+      "path": "src/render/mobile-pose.ts",
+      "bytes": 10782,
+      "sha256": "38a9f935ea359eef5da606b620e30f084a4b6e05e7e873e66de322287f4214db",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/src/render/mobile-pose.ts"
+    },
+    {
+      "path": "src/simulation/masteryi-aa-presentation.ts",
+      "bytes": 5040,
+      "sha256": "772669ec2b6b24e6c9928c3294b62fa5138b6f5b0a9314c27e9a55c4e529cd36",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/src/simulation/masteryi-aa-presentation.ts"
+    },
+    {
+      "path": "src/simulation/masteryi-attack-kind.ts",
+      "bytes": 1159,
+      "sha256": "2290362c0d3237f8cd1aa4492bde73e812106b97b31c4f6ba47f3a65a4f5d6d7",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/src/simulation/masteryi-attack-kind.ts"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "bytes": 187125,
+      "sha256": "87d9f5f14b5533b6e52e2eeb7bfa9e8f475ca660de794e7a86ae649b0e52f299",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/src/simulation/snapshot.ts"
+    },
+    {
+      "path": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "6ede13fef7957b475ba87c524a78a2ec9756a06ab9e867fb1728c1f3beb136bc",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/tests/lux-e-hit.test.ts"
+    },
+    {
+      "path": "tests/masteryi-aa-audio.test.ts",
+      "bytes": 8338,
+      "sha256": "8f4920a07356958373db70312cdfb98e51f7b7648f3553fffc4880cdddd05215",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/tests/masteryi-aa-audio.test.ts"
+    },
+    {
+      "path": "tests/masteryi-attack-selection.test.ts",
+      "bytes": 4804,
+      "sha256": "89b650268765bebbf0f2285a11762188ee05ab15f0c56ecd6bac2ee97627946b",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/tests/masteryi-attack-selection.test.ts"
+    },
+    {
+      "path": "tests/masteryi-passive-trails.test.ts",
+      "bytes": 8857,
+      "sha256": "bedcd3ac0ed761239eb74e7bcbd23c650167ecf4f05c6c283be7d9c607f4462a",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/tests/masteryi-passive-trails.test.ts"
+    },
+    {
+      "path": "tests/masteryi-primary-trails.test.ts",
+      "bytes": 9696,
+      "sha256": "24f73849410467e6715e931988daa04582fc763a35836c26a547c93be3427132",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/tests/masteryi-primary-trails.test.ts"
+    },
+    {
+      "path": "tools/assets/export-masteryi-aa-audio.py",
+      "bytes": 11874,
+      "sha256": "580ae180e5a60c1d06f558a1a7e2c74584b64dd4dbc66b4d61da319345bce115",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/tools/assets/export-masteryi-aa-audio.py"
+    },
+    {
+      "path": "tools/assets/export-masteryi-attack-selection.py",
+      "bytes": 4257,
+      "sha256": "747e38aa0fc81dcdbb6e200d61a278451e528a57b462fea63fe3993b2fde7cf1",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/tools/assets/export-masteryi-attack-selection.py"
+    },
+    {
+      "path": "tools/assets/export-masteryi-primary-trails.py",
+      "bytes": 7962,
+      "sha256": "5ee2bd72d76e6876646174da3e6d800faa3d0e28b17993290de9e3fe344d1f46",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/tools/assets/export-masteryi-primary-trails.py"
+    },
+    {
+      "path": "tools/assets/masteryi_primary_trail_particles.py",
+      "bytes": 3743,
+      "sha256": "391caeab490e9141e114022d90642ed1c9db6ed31e302017ef78c5819606f1c6",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/tools/assets/masteryi_primary_trail_particles.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-aa-audio.py",
+      "bytes": 4528,
+      "sha256": "caa2b73a2dc68636befc48516472e56d1186cb8d2228f44605ddd86f2ed73357",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/tools/assets/test-masteryi-aa-audio.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-attack-selection.py",
+      "bytes": 3335,
+      "sha256": "a22a5f11480e8ac7945026448ff7f5d4d1560305597161fc5643db94dba2003a",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/tools/assets/test-masteryi-attack-selection.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-primary-trails.py",
+      "bytes": 5973,
+      "sha256": "b4a98aee80ce3ba168fedd9c399356f214a540c856464a8166db6f5d48019673",
+      "archived": ".cache/masteryi-attack2-runtime/final-source/tools/assets/test-masteryi-primary-trails.py"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-attack2-runtime/DESIGN.md",
+      "bytes": 3955,
+      "sha256": "f7936a64d003340c3ada499996459e4ff8eca1dc78f11ad32dffc19d5331cc58"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/aa-audio-check-normal.log",
+      "bytes": 93,
+      "sha256": "82bc9d5a32359c79385078544ca02c1f3c29146bb09a73b64113df3d7ac47617"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/aa-audio-check-optimized.log",
+      "bytes": 93,
+      "sha256": "82bc9d5a32359c79385078544ca02c1f3c29146bb09a73b64113df3d7ac47617"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/aa-audio-guards-normal.log",
+      "bytes": 111,
+      "sha256": "acfe7be3d895413b499ab627c6d0d63ccbe62e26b6ed29a1ed1ed01c53af69b8"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/aa-audio-guards-optimized.log",
+      "bytes": 111,
+      "sha256": "20ee94fd0e6fc159d9f1c687fd4327d92691cd95f59554a272d81bc6c611b282"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/aa-audio-replay-normal.log",
+      "bytes": 93,
+      "sha256": "82bc9d5a32359c79385078544ca02c1f3c29146bb09a73b64113df3d7ac47617"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/aa-audio-replay-optimized.log",
+      "bytes": 93,
+      "sha256": "82bc9d5a32359c79385078544ca02c1f3c29146bb09a73b64113df3d7ac47617"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/apply-reviewed-exports.py",
+      "bytes": 1730,
+      "sha256": "6c29b40e3fae788694a96309d1be0920284b8b0f85883ca850606d16503a35dd"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/attack-selection-check-normal.log",
+      "bytes": 58,
+      "sha256": "45a030131e01dcf3167a6cf577904cd13d630e2a138f9633f3c7ba0dc759a7ed"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/attack-selection-check-optimized.log",
+      "bytes": 58,
+      "sha256": "45a030131e01dcf3167a6cf577904cd13d630e2a138f9633f3c7ba0dc759a7ed"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/attack-selection-guards-normal.log",
+      "bytes": 115,
+      "sha256": "89cabf9b9b5985001e11bad3fc6b6bf8bcd672743551c595c216cec1eca03e8f"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/attack-selection-guards-optimized.log",
+      "bytes": 115,
+      "sha256": "653cae11d53ac442fa22b33e10b7f09cd3bd6942a3a20866b362159ad3581feb"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/attack-selection-replay-normal.log",
+      "bytes": 58,
+      "sha256": "45a030131e01dcf3167a6cf577904cd13d630e2a138f9633f3c7ba0dc759a7ed"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/attack-selection-replay-optimized.log",
+      "bytes": 58,
+      "sha256": "45a030131e01dcf3167a6cf577904cd13d630e2a138f9633f3c7ba0dc759a7ed"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/audio-export-initial.log",
+      "bytes": 614,
+      "sha256": "fabb8c6c8872adfe64a4d740e4359e425f872a79a7bf2a25e59f31c07264b483"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/audio-guards-initial.log",
+      "bytes": 111,
+      "sha256": "c8145f53c03f36a7ee430d98c66897c84950d7732c92f7d8a2c55650cfe81d36"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/audio-prefix-check.log",
+      "bytes": 70,
+      "sha256": "b8979428181695df4d5f42d1b6a566b1348dbd0c6a80b4c4f1e52c572f8fceb8"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/audio-probe.json",
+      "bytes": 5783,
+      "sha256": "ef494d7471fe95367942802fe29b5e6a3de137fcf4b2e4ceefd68898d3d1235d"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/audio-profiles-probe.ts",
+      "bytes": 38116,
+      "sha256": "9cc0765d6020e528ca3724437858d0059117612ff62d91a1bbc8f5b3c016d53f"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/before-generated/docs/reference/masteryi/aa-audio-reading.json",
+      "bytes": 2024,
+      "sha256": "5833aacb20ce5c3a804349f676a69c06ed33f1a12223a0a2cb15ae7b613406f0"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/before-generated/docs/reference/masteryi/primary-trail-runtime-reading.json",
+      "bytes": 2299,
+      "sha256": "ad72ca22c3a95cec9723468123ff3f1a630dc355cfb66d1fbda014f2075747f9"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/before-generated/src/content/masteryi-aa-audio.ts",
+      "bytes": 25587,
+      "sha256": "8f3276d94af0f8e2ec8a849e1538405201dfab9093161fc4cc02bed9a88db92e"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/before-generated/src/content/masteryi-primary-trail-particles.json",
+      "bytes": 23019,
+      "sha256": "adbee13c3b7a8ab516cf60d656cf61e2501a3c5aaf3672b2e93239a7cbfb8fbe"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/before-generated/src/content/masteryi-primary-trail-timing.ts",
+      "bytes": 368,
+      "sha256": "d7cbd672831b0aa272b594c1be6cf23f85911b563c52c5f6177fd5ffda399697"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-audio-retry/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-audio-retry.log",
+      "bytes": 1424,
+      "sha256": "a5ed1cf40115fc196d33757b6da80f7fcd57f9719f8bd415b59226d8deb1135b"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-primary/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-primary/masteryi-primary-trails-ca-61db2--tails-preserve-saved-state/primary-visibility-terminal.json",
+      "bytes": 182,
+      "sha256": "3a9dac88e5e4a179df8e2d8bf95656e298deb0e550b6f0246a15b4b5e1bc0436"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-primary/masteryi-primary-trails-hi-42141-nd-restores-an-exact-future/primary-hidden-birth.json",
+      "bytes": 74,
+      "sha256": "49426eec36806fd45cc5aa9b17b1e4d9593bd172e704ec0cf94da1cdb480196b"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-primary/masteryi-primary-trails-or-3fe7b-reserves-verified-resources/primary-selective-retry.json",
+      "bytes": 750,
+      "sha256": "f75d7c1b5487cdedecab1b0345e67c8ad66e004eafea0e2c626654749877ad2c"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-primary/masteryi-primary-trails-pr-5e614-nt-frames-and-saved-futures/critical-primary-trail.png",
+      "bytes": 804613,
+      "sha256": "944bf3a416bd0df5b1d18e949275cf5ecf6383769337107af323f901b10e1518"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-primary/masteryi-primary-trails-pr-5e614-nt-frames-and-saved-futures/primary-trail-gpu-save.json",
+      "bytes": 38631,
+      "sha256": "e650455bb7a93403a76de47133bfa23040cf440b1001de27d4027516f7e85748"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-primary.log",
+      "bytes": 3620,
+      "sha256": "1b7108a8f30a0ff4c6d1f45204492952788ce474fcbf1a9f769a9d784e8ad0c9"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-regression/.last-run.json",
+      "bytes": 96,
+      "sha256": "9d36b70c112bacdfb2578c1edea0f648a0b3d295667c3afc62d9607bed8448b5"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-regression/masteryi-aa-audio-Leona-us-0f1eb-i-saves-and-reloads-exactly/champion-material-save.json",
+      "bytes": 147912,
+      "sha256": "a2c7600fe493f670889ef73d05bbd0492067d8839bc587efe8b35c59fd2b03ea"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-regression/masteryi-aa-audio-all-28-s-9b6d3-n-real-browser-AudioBuffers/float-masters.json",
+      "bytes": 4125,
+      "sha256": "0e54c640d868afdef692e8d344ca13092b64aed46a53ec1ff0ecf7d0766ff259"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-regression/masteryi-aa-audio-attack1--73a75-sted-seek-and-future-impact/attack-save-reload.json",
+      "bytes": 20278,
+      "sha256": "5cf303e46e6dd551bd0ad4093c69c1357cd375552d59b06f30ce65b0fe3c0154"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-regression/masteryi-aa-audio-attack2--c14f0-sted-seek-and-future-impact/attack-save-reload.json",
+      "bytes": 20268,
+      "sha256": "eefb02966005a4fe75bf1962d018107365c5eb3b2fba95479694cab8ca47a8ef"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-regression/masteryi-aa-audio-both-ord-aea2b-hout-synthesized-duplicates/attack-playback.json",
+      "bytes": 4608,
+      "sha256": "7e4dddaea2ee47c022ac25153d091b7a8fa9448a2e08a129e3c2f456e784e180"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-regression/masteryi-aa-audio-crit-mid-201b9-sted-seek-and-future-impact/attack-save-reload.json",
+      "bytes": 20506,
+      "sha256": "67de1e7ca928213ffa9bddd363a2d5a783401dda2c6a9976e4332f621cdee74a"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-regression/masteryi-aa-audio-missing--501f8-ry-never-doubles-that-swing/error-context.md",
+      "bytes": 11252,
+      "sha256": "203b35b8f8df45aea1ae292a47238929ffe76620161030d1b515f209883509a6"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-regression/masteryi-aa-audio-missing--501f8-ry-never-doubles-that-swing/test-failed-1.png",
+      "bytes": 897955,
+      "sha256": "aa2eb19c5faa05d69239acf49d2be37edb074fdeda6aa89f1d38dc0fd58f0ec5"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-regression/masteryi-aa-audio-missing--501f8-ry-never-doubles-that-swing/trace.zip",
+      "bytes": 44935035,
+      "sha256": "f7e47631a0f25de8bb3effd7d49815f2e65800d9d7a2c99608e7b810b2a598fc"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-regression/masteryi-aa-audio-ordinary-a67df-hes-each-unique-master-once/late-presence.json",
+      "bytes": 27,
+      "sha256": "03d5902aba0af0b889dd0ae5ee61a60dd4d8f2003c252a78d8af9ee761ed874c"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-regression/masteryi-passive-sword-ord-c4050-pixels-across-camera-angles/passive-sword-gpu-order.json",
+      "bytes": 555,
+      "sha256": "b4d935876f5a3408257df4c740f5a19834f18ed8b697a6767b09c3303d344213"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-regression/masteryi-passive-trails-bo-c20d5-nt-frames-and-saved-futures/passive-trail-events.png",
+      "bytes": 814113,
+      "sha256": "bd0b382c8749a87e4c759e591d6e1d257ed97cd89be103e07fb098ab5f0543bf"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-regression/masteryi-passive-trails-bo-c20d5-nt-frames-and-saved-futures/passive-trail-gpu-save.json",
+      "bytes": 38552,
+      "sha256": "8921a27a499f24cc2191dd03111d8d557375c50a703101e8dae3a4f07380c1ff"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-regression/masteryi-passive-trails-bo-eefea-d-preserve-the-saved-future/passive-hidden-birth.json",
+      "bytes": 98,
+      "sha256": "dd32f77b9a7bd164d66c3e3c8115ed9e24e8521c3f3d52b2de6fca7506c24c70"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-regression/masteryi-passive-trails-mo-0a432-ictory-tails-preserve-saves/passive-visibility-terminal.json",
+      "bytes": 264,
+      "sha256": "6236506860afb75321e88957a63acaa243875aad7802cb8ebc9a7a65e2ae43ed"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-regression/masteryi-passive-trails-or-869bf-s-shared-verified-downloads/passive-selective-retry.json",
+      "bytes": 918,
+      "sha256": "9f24e463d166f8c3381b082623d3396bfdac823fb42c0795bb6f41ea8194cd39"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-regression/masteryi-sword-instancing--e809a--reducing-actual-draw-calls/instance-pixel-comparison.json",
+      "bytes": 12315,
+      "sha256": "109257cf4e66f108574ca8340e83a0756596739a0ec6ca89d96a1985be1edf80"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/browser-regression.log",
+      "bytes": 10583,
+      "sha256": "1f879f31e9097bca20e23408f96254169c0a16795f5173512472cf0aa6cec004"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/build.log",
+      "bytes": 7597,
+      "sha256": "d64c5a78a79f8aa4b4f90aa75c29a5adcde8761950a65ec7074363c1328eddf1"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/capture-identity.py",
+      "bytes": 918,
+      "sha256": "35756a82061c7639bbc456b3c6614993c2e55438db143b5712ff607b92a453c3"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/check-phase.json",
+      "bytes": 357,
+      "sha256": "0d29b6c15f910bc14f278efc936abc7c2e113e211b257bb2abe27d371bc02953"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/existing-wavs.json",
+      "bytes": 4963,
+      "sha256": "8074b2dfab0f5d46201769f095cf86f5c6261836e5ba29a1dec4bd63caa536a3"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/final-source-index.json",
+      "bytes": 9311,
+      "sha256": "e8eda9ae7187898bff79c0995c09375eaad5930a2217d4d14d1ef4b108775abd"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/finish-checks.py",
+      "bytes": 1602,
+      "sha256": "bf9a18337db3f3f9c27848ee494a4ad06df4c4c37f7a52bb907e0e3b3a110898"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/format-browser-audio.log",
+      "bytes": 36,
+      "sha256": "80a09c5d60a5ddd67fa424d546fe645dafa0634719c88aa122e27124181efcbf"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/format-browser-primary.log",
+      "bytes": 42,
+      "sha256": "4e291f13f09c440b89a2ea41dd4228e71bf220556dbd4f4a0b4798ee801d8bf8"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/format-second-trail-test.log",
+      "bytes": 44,
+      "sha256": "d3228c44e47960b66a2206449ea59aba0b3c55e0c265f69216aa16f701adce4d"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/format-selection-tests.log",
+      "bytes": 46,
+      "sha256": "af5051a342b8e199ecda3db044b20d653a214743ddcb8bc843d37da8d7cbbe92"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/format-selector.log",
+      "bytes": 44,
+      "sha256": "b462e1562b9ee02101a525c8a2114d0e31c781cf7868f563b3cc8cb0490d988b"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/format-tests-initial.log",
+      "bytes": 160,
+      "sha256": "9fe5f8481a431fd27331d0a79cb470fc49c00ea26070775d3fe89a4aecd65241"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/format-wiring.log",
+      "bytes": 363,
+      "sha256": "c9e396f25ca36b370cd1b2def20aa80430ae26569336976e7372c22c86e6b0f6"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/full-unit.log",
+      "bytes": 5486,
+      "sha256": "250a0aa660d3073c6890e31725e3cffd575ccf5da5407b19405074d4ddd3ec48"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/identity.json",
+      "bytes": 256,
+      "sha256": "89c4570b7ac5b75e206dcf7619b0bf432f915caf8d4f05be69bab1d370469ecb"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/intermediate-generated-audio/docs/reference/masteryi/aa-audio-reading.json",
+      "bytes": 2751,
+      "sha256": "786f4755f748a8fcde9f314e6bf0f32fe7bf4fcd3ce60278aedf19c2f47fc7b9"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/intermediate-generated-audio/src/content/masteryi-aa-audio.ts",
+      "bytes": 38116,
+      "sha256": "9cc0765d6020e528ca3724437858d0059117612ff62d91a1bbc8f5b3c016d53f"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/masteryi-aa-failure.json",
+      "bytes": 775,
+      "sha256": "3b95c15207177376f670b5ccc5e50bf1de0ffc417304e5e5cd7480e8a95de400"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/node-qa.log",
+      "bytes": 660,
+      "sha256": "4492821f9cefd51c5f328fdf9b7fabf8e61f97e9c54617cbce69e561f7aaf751"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/offline-pack.json",
+      "bytes": 170957,
+      "sha256": "494b88252b389fe4c93983eeb8e38cbb423116d709dd1fb2b18913a1edff09d7"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/original-aa-audio.ts",
+      "bytes": 25587,
+      "sha256": "8f3276d94af0f8e2ec8a849e1538405201dfab9093161fc4cc02bed9a88db92e"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/passive-check-initial.log",
+      "bytes": 98,
+      "sha256": "b1a1fc4d89e5469c3027289d5dd864e4cbac2187630793180730fb53ab5afd2f"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/passive-guards-initial.log",
+      "bytes": 126,
+      "sha256": "2bc5fb35deace3a78e130f8029d09e6ff6883900d247e0eda748e75c48ec008e"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/passive-trails-check-normal.log",
+      "bytes": 98,
+      "sha256": "b1a1fc4d89e5469c3027289d5dd864e4cbac2187630793180730fb53ab5afd2f"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/passive-trails-check-optimized.log",
+      "bytes": 98,
+      "sha256": "b1a1fc4d89e5469c3027289d5dd864e4cbac2187630793180730fb53ab5afd2f"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/passive-trails-guards-normal.log",
+      "bytes": 126,
+      "sha256": "a8e0e48db0758029cfe05a9c4b8cb9b0f484a61af3652ca01005b68a0089d42a"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/passive-trails-guards-optimized.log",
+      "bytes": 126,
+      "sha256": "9fff2dfd4814ba1633a9fdf80a786b5811d3c18ce1aee30934d305d6b7a239c3"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/passive-trails-replay-normal.log",
+      "bytes": 98,
+      "sha256": "b1a1fc4d89e5469c3027289d5dd864e4cbac2187630793180730fb53ab5afd2f"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/passive-trails-replay-optimized.log",
+      "bytes": 98,
+      "sha256": "b1a1fc4d89e5469c3027289d5dd864e4cbac2187630793180730fb53ab5afd2f"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/pipeline.log",
+      "bytes": 201,
+      "sha256": "7aa2b17c7a446ddd5e2f4bcdfffa41b4cbaea00da5db5e15150c5cafbb7a9f38"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/primary-guards-initial.log",
+      "bytes": 124,
+      "sha256": "be19d6cec6d0290ac1759136ba6a6c7d922e919592b097a9422aa3123b8511c7"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/primary-trails-check-normal.log",
+      "bytes": 98,
+      "sha256": "54b3787232f9e30370a21c6081a716528b1d98f6eec96d2330bdc9a49da22342"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/primary-trails-check-optimized.log",
+      "bytes": 98,
+      "sha256": "54b3787232f9e30370a21c6081a716528b1d98f6eec96d2330bdc9a49da22342"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/primary-trails-guards-normal.log",
+      "bytes": 127,
+      "sha256": "75b5b4d01066ee3fbb2547a1258c912787bb544164b7a614fc2584700ae7ea58"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/primary-trails-guards-optimized.log",
+      "bytes": 127,
+      "sha256": "bfe917d7389c9f84ce553e0f909a8aec3720be4d985446b7f35f4d2baa8a8c60"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/primary-trails-replay-normal.log",
+      "bytes": 98,
+      "sha256": "54b3787232f9e30370a21c6081a716528b1d98f6eec96d2330bdc9a49da22342"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/primary-trails-replay-optimized.log",
+      "bytes": 98,
+      "sha256": "54b3787232f9e30370a21c6081a716528b1d98f6eec96d2330bdc9a49da22342"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1814002,
+      "sha256": "d009cc90a2d0d5f25e7eb2e3c93b1b4f354fbe7807df3f877ef67868665b5637"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835026,
+      "sha256": "c42f6bb84508af1014cf99c0ac14c27e1f3fc43435f3da784c71da9b19937016"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1828397,
+      "sha256": "c3a8258765bee8b8345e5b966641403a118cabe3f7dc69c16af573e2794a9112"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1811831,
+      "sha256": "db2ec720689b41ae9a3eb2fd98480e4cc49aea63cfe417507b73527b85fb8b29"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1815150,
+      "sha256": "ca7877c0124ad450fc9400f15a44ee6ecb3509bf617e81749ad076953f3fc68c"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1351455,
+      "sha256": "c9256e0c38ae8878a12a510906bf0d2198b3629bdfe9ec783f4c4c08d2f8b733"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1826232,
+      "sha256": "b15e7d3dee87bce2eb96955c5c84d510385e2c8f74b03be82948f4e26f558163"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808209,
+      "sha256": "cb25f997b9886cbaf556250441aecde3f818ff9ccff326f83c50230238a866f3"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/production-system.mjs",
+      "bytes": 30122,
+      "sha256": "0ee4c94b520b678b8e95dafcf1eaa0aa1bc8c24d28a0b6a5236b8331763bd483"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/production.log",
+      "bytes": 2810,
+      "sha256": "b54638d9494ad225955005f32755e1283f387f9bec4a40c4a4003f84a378ed5e"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/record-verification.py",
+      "bytes": 9513,
+      "sha256": "0d5f8813b6f8df9bcb13fa84681d43ff5efd237bc29a32fc472aa76826dc281e"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/reviewed-audio-prefix-preservation.json",
+      "bytes": 478,
+      "sha256": "8b7871c14a503c490401016ff6799376c8e577916d42b0df6242fdffc38382b2"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/reviewed-output-changes.json",
+      "bytes": 2084,
+      "sha256": "aaa10cae21f15951888dfd899cafc90dd0dda5906895819aec4dd49b39fa96ae"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/ruleset.txt",
+      "bytes": 65,
+      "sha256": "77bca2bbcd70a22b94255969c1d5d75337d0e71ed4ffcc68df7215fcc64a67f6"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/selection-export-initial.log",
+      "bytes": 58,
+      "sha256": "45a030131e01dcf3167a6cf577904cd13d630e2a138f9633f3c7ba0dc759a7ed"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/selection-guards-initial.log",
+      "bytes": 115,
+      "sha256": "0673a0ff7cb84c6637a1827073b806cbc5281558a5c532316aca56bc6d89afd0"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/selection-unit-initial.log",
+      "bytes": 170,
+      "sha256": "2d0b591c5587dfc17442126c6f763168b87eaa9b67b737a97f5f664e79674a2b"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/source-replay.json",
+      "bytes": 9867,
+      "sha256": "251d7a4d33bd838cf00ea59b4d9ef144b9d9441aa92fa028b946616db7b12b2a"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/source-scope.json",
+      "bytes": 1536,
+      "sha256": "6d7e8977915dd88dc7b31c7372c46a95e0ef06abfd940d7e2058887d200ff082"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/source-verification.log",
+      "bytes": 90,
+      "sha256": "56d82e4ed3e680d66dfe6f6707a20a953ba9b11e502663b68a76477a77b427aa"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/stage-and-commit.py",
+      "bytes": 1274,
+      "sha256": "410fffb992a736ff083e23d20681057766dcc63fc905c6dbd6d69461456a467e"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/types-initial.log",
+      "bytes": 615,
+      "sha256": "9abf7f0b8ba22220adbd1d442615a03842e39150b13a5a2aae2d8f2ba4011d35"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/types-selector-fixed.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/unit-final.log",
+      "bytes": 427,
+      "sha256": "a21780b74b2afd08b0a540d28b2607e5d24326b03f7c4223c2d0425c3005fd4d"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/unit-fixtures-updated.log",
+      "bytes": 382,
+      "sha256": "c00155720a7c908b5662eca9ac7a2b3fa8e9221d229cfa726eb6cfe3c41aef61"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/unit-initial.log",
+      "bytes": 4304,
+      "sha256": "5675bcc9d26e66506b0c8a923643995acf9e1380afea1e5f0a5127faa0f6599b"
+    },
+    {
+      "path": ".cache/masteryi-attack2-runtime/verify-source.py",
+      "bytes": 1856,
+      "sha256": "85abfb59d7e9c8b99eef7110e02316bebb55da26fb53a480c7026bf86aade1c4"
+    }
+  ],
+  "checks": {
+    "source": {
+      "guardsPerMode": 82,
+      "modes": [
+        "normal",
+        "optimized"
+      ],
+      "audioGuards": 11,
+      "primaryTrailGuards": 28,
+      "passiveTrailGuards": 27,
+      "selectionGuards": 16,
+      "distinctOutputs": 44,
+      "replayBytesAndMtimes": "unchanged",
+      "old24Wavs": "exact bytes and original mtimes",
+      "old10AudioProfiles": "exact ordered values; existing sampling salts retained",
+      "passiveOutputs": "byte-identical"
+    },
+    "focused": {
+      "passed": 133,
+      "files": 6,
+      "newSelectorCases": 13,
+      "newThreeKindClockAndAudioCases": 3,
+      "newLiteralAttack2ParticleCase": 1
+    },
+    "fullUnit": {
+      "passed": 3037,
+      "failed": 3,
+      "total": 3040,
+      "files": 387,
+      "originalFiveSecondWaveClock": "passed"
+    },
+    "browser": {
+      "acceptedUniqueCases": 19,
+      "environment": "system Chromium154 / SwiftShader",
+      "primaryTrailCases": 4,
+      "attackAudioCases": 9,
+      "passiveTrailCases": 4,
+      "swordPixelCases": 2,
+      "allThreePrimaryFamiliesWithVisiblePixels": true,
+      "primaryGpuMips": 34,
+      "passiveGpuMips": 25,
+      "nativeSharedMeshCorners": 1500,
+      "actualFullJointFrames": "position/quaternion errors below1e-6",
+      "geometryAttributes": "exact logical native attribute bytes",
+      "sourceAudioBuffers": {
+        "masters": 28,
+        "pcm": "exact float32 channels; no decoder normalization",
+        "attack2CastMasters": 4
+      },
+      "saveReloadAndFuture": "exact for all three primary kinds and presentation",
+      "selectiveRetry": "28 unique WAV requests plus one explicit failed-master retry",
+      "fallback": "one bounded fallback; suppressed old swing never doubles after recovery",
+      "ordinaryStartupAndPrivateRoster": "passed",
+      "QFogDeathVictory": "passed"
+    },
+    "publishedAudio": {
+      "uniqueMasters": 28,
+      "wavBytes": 2595148,
+      "newMasters": 4,
+      "newWavBytes": 352548,
+      "castTailTicks": 88,
+      "hitTailTicks": 51
+    },
+    "build": "passed; includes TypeScript",
+    "nodeQA": {
+      "passed": 6
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 13,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderAudioPreloads": 0,
+      "unrequestedMasterYiAlphaAudioPreloads": 0,
+      "unrequestedMasterYiMeditateAudioPreloads": 0,
+      "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+      "unrequestedMasterYiSwordPreloads": 0,
+      "unrequestedMasterYiPrimaryTrailPreloads": 0,
+      "unrequestedMasterYiPassiveTrailPreloads": 0,
+      "unrequestedMasterYiMeditateDamagePreloads": 0,
+      "unrequestedMasterYiHighlanderKillPreloads": 0,
+      "unrequestedMasterYiHighlanderCastPreloads": 0,
+      "unrequestedMasterYiQEndPreloads": 0,
+      "unrequestedMasterYiQCastPreloads": 0,
+      "unrequestedMasterYiQContactPreloads": 0,
+      "unrequestedMasterYiMeditateCastPreloads": 0,
+      "unrequestedMasterYiMeditateBuffPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 221,
+      "scheduledBlueRequests": 13,
+      "scheduledRedRequests": 13,
+      "scheduledWolfRequests": 26,
+      "scheduledRaptorRequests": 26,
+      "scheduledKrugRequests": 39,
+      "scheduledScuttlerRequests": 13,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    }
+  },
+  "baselineFailures": [
+    "Original Leona attached-skin reflection check.py absent.",
+    "Original distortion metallib, bitcode and disassembly compiler artifacts unavailable.",
+    "Lux first fifteen sampler actual 4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a versus pinned 09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df; previously reproduced on untouched baseline."
+  ],
+  "retainedDiagnostics": [
+    "The first type check exposed the existing optional cycle.critical flag. The selector now uses the same explicit false default as the preceding conditional selection.",
+    "The first unit run had five expected coverage/index assumptions:24media, two primary profiles/25mips, critical profile index1 and only two shared passive textures. Final assertions retain exact PCM, source values, UV/rotation and retry behavior across28media, three primary families/34mips and all three shared passive transports.",
+    "The immutable exporter correctly refused to overwrite changed generated tables. Reviewed writes verify known old/new hashes; all24 original WAV bytes and mtimes remain unchanged.",
+    "Attack2 audio is appended after the original ten profiles so their indexed variant salts stay unchanged. A direct ordered-value comparison verifies that prefix.",
+    "The first expanded browser regression retained a final retry count25 from the old24-master pack. It was updated to29 for28unique downloads plus one retry, retaining no-double/fallback assertions. The corrected single case passes; the other14 cases were not needlessly repeated."
+  ],
+  "limits": [
+    "Two explicit .5 weights are retained; other extra slots keep omitted probabilities. Actor/start-tick indexed choice and critical override are current local cosmetic policies, not native PRNG or graph-dispatch parity.",
+    "Default slot/spell names remain omitted in raw source; the existing Attack1/default aliases remain local. Attack2 and critical names are explicitly declared. Shared gameplay windup remains the existing local policy.",
+    "Rendered marker sample indexing, fixed-step crossing and next-tick birth remain local display choices. Native callback, mask and transition behavior are uncalibrated.",
+    "Attack1/Crit blend omissions remain raw null with local zero adapter; Attack2 authors4. Current full center-joint transform, source-X reflection and .01 units remain local reconstruction choices; inherited native rig scale, placement and shader parity are uncalibrated.",
+    "Attack2 cast retains its own55ms action, source gain/pitch and four masters; hit retains its distinct event/action while sharing the source material switch. Native shuffle, voice arbitration, bus mix and listening calibration remain separate. No passive composite audio or new contact-particle callback is inferred.",
+    "The original Lux sampler golden is unchanged and unresolved; measured runtime trig variance is documented separately. Missing original Leona/distortion evidence failures remain separate.",
+    "Chromium/SwiftShader checks do not establish physical-device FPS, native-client parity or offline-install certification.",
+    "Ignored evidence requires preservation; exact final sources are independently archived."
+  ]
+}

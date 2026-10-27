@@ -1,0 +1,451 @@
+{
+  "format": 1,
+  "parentCommit": "bd80219fdfc1b0fd80d5632bff060ceac2070eac",
+  "identityUnchanged": {
+    "schema": 159,
+    "rulesetFingerprint": "71111678d445f50ff88fa7903d82ff3200eeca9f0189105d0c65981dd19e3eec",
+    "offlinePack": {
+      "id": "6043491cef1aafacfe45b3c34e6301eb351f6e83b3aae686e159d5f2c0370f67",
+      "files": 1180,
+      "bytes": 537099451
+    }
+  },
+  "scope": "Retain five explicitly event-bound ordinary/critical/passive attack trail systems, four parallel parent definitions and all eight atomic entries, five literal particle events and their exact center-joint bridge. Preserve complete native dependencies, source blend/sound/local-orientation omissions and authored frame values. No runtime dispatch or public assets.",
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi-model.json",
+      "bytes": 82053,
+      "sha256": "4295bceeba96cfb15e006d392e7d0f3c480bb51bf8cff8872a9c39fc9873c7ce"
+    },
+    {
+      "path": "docs/reference/masteryi/sword-instancing-verification.json",
+      "bytes": 45969,
+      "sha256": "86ff1124d3a42d8e2c026a8b01b66e6812510622c66f6535b442029b157c1618"
+    },
+    {
+      "path": "tools/assets/masteryi_q_particles.py",
+      "bytes": 7165,
+      "sha256": "8373108c738d00d23c47e485b609db18464a81cf6146b608ee9d608e4e604b44"
+    },
+    {
+      "path": "tools/assets/masteryi_q_decode.py",
+      "bytes": 7372,
+      "sha256": "552f2cf9a0cb552a97332a142bbea6f25a3b0e2c2974359a58659a2c17517ecd"
+    },
+    {
+      "path": "tools/assets/verify-masteryi-model.py",
+      "bytes": 3929,
+      "sha256": "e862c8644be151e5a9d0ef8d13b2cac828589edefc607a31b262d5daea72f0b6"
+    },
+    {
+      "path": "tools/assets/verify-masteryi-character.py",
+      "bytes": 3680,
+      "sha256": "d3153b5f60540ad68d5ca690895cd6293666672a27bb2fc018cee7928e280a98"
+    },
+    {
+      "path": "tools/assets/masteryi_audio_graph.py",
+      "bytes": 8829,
+      "sha256": "0a894875ec7c8273d32c1e14c745651a09abc5b59f1a7e4c80ad2f6b6f97e465"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/binfile.py",
+      "bytes": 17236,
+      "sha256": "0c1825135763c98f705535eecf2b4b1a8e667c53181e9e1d43ad7a83d1d844fd"
+    },
+    {
+      "path": ".cache/masteryi-particle-discovery-cloud/native-discovery.json",
+      "bytes": 483272,
+      "sha256": "b19eff1f3e46f051bed9c34f0ae690f3b9ac4c54e113b25dbbca3424b4caa872"
+    },
+    {
+      "path": ".cache/masteryi-particle-discovery-cloud/linked-extraction.json",
+      "bytes": 13161,
+      "sha256": "865fc941465cc5b61766206571158e19a55ad7fefb56171885c70c9f6b1c2853"
+    },
+    {
+      "path": "public/assets/models/masteryi-base.glb",
+      "bytes": 6487088,
+      "sha256": "7aae9e8e486c34d780113349c4a4d06830a5498a906ff291a49263090da471cc"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-attack-trail-source-cloud/final-source-index.json",
+    "bytes": 2761,
+    "sha256": "c99c4106a9ac7ce2af82058b8516082f56899c53cadef59bf4a490cf4935de34"
+  },
+  "generated": [
+    {
+      "path": "README.md",
+      "bytes": 17601,
+      "sha256": "ca9bb418468419d4914bf84ec464c859b87cb13f8d96e1d7c227dfe3343f6b58",
+      "archived": ".cache/masteryi-attack-trail-source-cloud/final-source/README.md"
+    },
+    {
+      "path": "docs/MASTER-YI-AA-AUDIO.md",
+      "bytes": 7348,
+      "sha256": "433d3d0f6d864abe50c6f6f82830abd6bcd9b95e4a51fa004f50afbd52e7721b",
+      "archived": ".cache/masteryi-attack-trail-source-cloud/final-source/docs/MASTER-YI-AA-AUDIO.md"
+    },
+    {
+      "path": "docs/MASTER-YI-ATTACK-TRAILS.md",
+      "bytes": 3654,
+      "sha256": "da0bcf2f05d009defc9527984ddf2562339ea9d494386ad1fa46412a6dbe44fa",
+      "archived": ".cache/masteryi-attack-trail-source-cloud/final-source/docs/MASTER-YI-ATTACK-TRAILS.md"
+    },
+    {
+      "path": "docs/MASTER-YI-PASSIVE-AUDIO.md",
+      "bytes": 5210,
+      "sha256": "90e29c24c0c56d3c7555b00d4225f72ada0123db02cf74fcf950f56d8b3dfe05",
+      "archived": ".cache/masteryi-attack-trail-source-cloud/final-source/docs/MASTER-YI-PASSIVE-AUDIO.md"
+    },
+    {
+      "path": "docs/reference/masteryi/attack-trail-binding-reading.json",
+      "bytes": 26481,
+      "sha256": "e689b3cb1e440e6e4c3b8161a43c2e19e84522128c76e6e3ff17748d50ce6950",
+      "archived": ".cache/masteryi-attack-trail-source-cloud/final-source/docs/reference/masteryi/attack-trail-binding-reading.json"
+    },
+    {
+      "path": "docs/reference/masteryi/attack-trail-particles.json",
+      "bytes": 26723,
+      "sha256": "66516333b70c1557feab0b1b69a29bc119dd3675d3b04df36484cd842100c7e1",
+      "archived": ".cache/masteryi-attack-trail-source-cloud/final-source/docs/reference/masteryi/attack-trail-particles.json"
+    },
+    {
+      "path": "tools/assets/extract-masteryi-attack-trails.py",
+      "bytes": 1901,
+      "sha256": "cf303416574db8fb8045d167ddb30f76be478ef226a7834f57689c5ca994a085",
+      "archived": ".cache/masteryi-attack-trail-source-cloud/final-source/tools/assets/extract-masteryi-attack-trails.py"
+    },
+    {
+      "path": "tools/assets/masteryi_attack_trails.py",
+      "bytes": 7088,
+      "sha256": "a917d7b6dca7c1f9b07ee90991b46406c683349edc7bed8e05bb55aefad240dc",
+      "archived": ".cache/masteryi-attack-trail-source-cloud/final-source/tools/assets/masteryi_attack_trails.py"
+    },
+    {
+      "path": "tools/assets/prepare-masteryi-attack-trails.py",
+      "bytes": 869,
+      "sha256": "496ff65d150f071266c0c075b7d998bcb3cc05badd33add1dffe81c57721fa72",
+      "archived": ".cache/masteryi-attack-trail-source-cloud/final-source/tools/assets/prepare-masteryi-attack-trails.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-attack-trails.py",
+      "bytes": 5179,
+      "sha256": "5498eab917779de7bafc561ab3ebad3135b349db6097ea93483f06c219169500",
+      "archived": ".cache/masteryi-attack-trail-source-cloud/final-source/tools/assets/test-masteryi-attack-trails.py"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/attack-trail-binding-reading.json",
+      "bytes": 26481,
+      "sha256": "e689b3cb1e440e6e4c3b8161a43c2e19e84522128c76e6e3ff17748d50ce6950"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/attack-trail-particles.json",
+      "bytes": 26723,
+      "sha256": "66516333b70c1557feab0b1b69a29bc119dd3675d3b04df36484cd842100c7e1"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/check-replay.log",
+      "bytes": 58,
+      "sha256": "7260db0acc62d0d8e7b76d48b1511775ce42aa98daeee3178a7d7e58c3fe7a84"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/check-replay.py",
+      "bytes": 1554,
+      "sha256": "b24527ad45ed63ad9ea3d92147a6f674150480ee21a87027274cbb969667618d"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/export.log",
+      "bytes": 117,
+      "sha256": "585df95b562285d89ecc1141d3434a5829a44c469e1253b673a857bf5318da5e"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/extract-initial.log",
+      "bytes": 217,
+      "sha256": "873695bffcbb7dda606717a5d72629fd1dd24d7593c6f50d2e280a7f0d0a0342"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/extract-initial.py",
+      "bytes": 4252,
+      "sha256": "a8cc81c2c182b7df7d5edd5651ffd6b8a43ee09217604b45d9310baca54da245"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/extract-masteryi-attack-trails.py",
+      "bytes": 1908,
+      "sha256": "5b7ed521a7dab87d2296b5d7c5712b2a001c2fb81a6ee91d5687ba8e2b24ff71"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/final-source-index.json",
+      "bytes": 2761,
+      "sha256": "c99c4106a9ac7ce2af82058b8516082f56899c53cadef59bf4a490cf4935de34"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/guards-draft.log",
+      "bytes": 126,
+      "sha256": "089e851e4b3bed62c2c7f890aaf2c835571e7652e3d219cedadb54416e125675"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/guards-initial.log",
+      "bytes": 129,
+      "sha256": "1df06daf71874decba279f85518721d57f7a1d57863d812c79efffb2013191e1"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/guards-normal.log",
+      "bytes": 129,
+      "sha256": "c5fff550e7b7ab945c6a9af7217c7bed09952edef313706f7e9dfc163c49f395"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/guards-optimized.log",
+      "bytes": 129,
+      "sha256": "3a98ab4ffae4fd3970402582cf30bced7147aba85296bb0dbfbbb11b26abdce8"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/identity.json",
+      "bytes": 256,
+      "sha256": "18f57cc8da501b5c6ad7c2da23fcbd2859b269976d02ffff405d8217a4ee6339"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/masteryi_attack_trails.py",
+      "bytes": 7088,
+      "sha256": "a917d7b6dca7c1f9b07ee90991b46406c683349edc7bed8e05bb55aefad240dc"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/mesh-byte-reading.json",
+      "bytes": 128906,
+      "sha256": "420342d5bfd77ae62f3675572f18ca74901b539167605be7246807b8e3b534a3"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/mesh-header-audit.json",
+      "bytes": 736,
+      "sha256": "7a8537b5243bc183c8f75f2287b8c9e7d078271cf0f19de7225f98ef43352b7d"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/mesh-roundtrip.json",
+      "bytes": 527,
+      "sha256": "627c0aea25486e606a298f6cb9819201d4eee243ce2c45e29365970d8999abf8"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/mesh-roundtrip.log",
+      "bytes": 485,
+      "sha256": "a708546229fd597089fc4f57eada1991f624b10a988a7ac273f58b59ac3b70e3"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/mesh-roundtrip.py",
+      "bytes": 932,
+      "sha256": "17490c151fe7ec6789f11b4c04fa751e01edd23669e94a03e75e3cc911338a2e"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/project-initial.log",
+      "bytes": 230,
+      "sha256": "e9238cc7b6ccbd33f11d6ae12563722700b5dd5db5846ee3c2372f24ef85301d"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/reading-check-normal.log",
+      "bytes": 117,
+      "sha256": "585df95b562285d89ecc1141d3434a5829a44c469e1253b673a857bf5318da5e"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/reading-check-optimized.log",
+      "bytes": 117,
+      "sha256": "585df95b562285d89ecc1141d3434a5829a44c469e1253b673a857bf5318da5e"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/reading-replay-normal.log",
+      "bytes": 117,
+      "sha256": "585df95b562285d89ecc1141d3434a5829a44c469e1253b673a857bf5318da5e"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/reading-replay-optimized.log",
+      "bytes": 117,
+      "sha256": "585df95b562285d89ecc1141d3434a5829a44c469e1253b673a857bf5318da5e"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/record-verification.py",
+      "bytes": 5593,
+      "sha256": "c661945cf9699e6325925b262bbb98885ce0bdf0370d43a6bda59afa07dbbb0f"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/replay.json",
+      "bytes": 3495,
+      "sha256": "97734ac44604f4e793d2d4b0c16b0d9e888e13a229b9743b2c53ba59e95de0ba"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/ruleset.txt",
+      "bytes": 65,
+      "sha256": "330a01ae4ed46a7353a0a604fb7bcbd5646170600dc2544a5dfa2c4ecba27772"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/source-check-normal.log",
+      "bytes": 170,
+      "sha256": "901104b9b69aad962bcedc65aa1211c229be567b79c84fad69ba1d3e91f16dc7"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/source-check-optimized.log",
+      "bytes": 170,
+      "sha256": "901104b9b69aad962bcedc65aa1211c229be567b79c84fad69ba1d3e91f16dc7"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/source-restore-normal.log",
+      "bytes": 172,
+      "sha256": "a77da3aa91aa2c611e166ab1aae9fee4f559d429a1f6775c354880ef91eda409"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/source-restore-optimized.log",
+      "bytes": 172,
+      "sha256": "a77da3aa91aa2c611e166ab1aae9fee4f559d429a1f6775c354880ef91eda409"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/source-scope.json",
+      "bytes": 441,
+      "sha256": "8e74a290b9e999f743884f1ac5d7b053b0dba169641afd8fac0f446f1d98a47d"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/1561bab5609df7c1.bin",
+      "bytes": 18345,
+      "sha256": "8a91c8c0a460e4ef202829f470932370c2262d73973c93fc2d0324b03ed8000c"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/1d5c271d91e85aed.bin",
+      "bytes": 9198,
+      "sha256": "af5c09a4f0336e735da558fd5973236943766ac072a2b8a989fba75a54860973"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/4679d8d214f61c77.bin",
+      "bytes": 7859,
+      "sha256": "f5bc3c1f71853353fd8869578c90243b7e947c9be787a286803cdd7e8144f132"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/52a4a423e68d3e41.tex",
+      "bytes": 43716,
+      "sha256": "65327e86b1221a2dbd121616cf253d4b8bc832d3247095115ea9181963d399d7"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/7e6f398c1b239116.tex",
+      "bytes": 43716,
+      "sha256": "6fcbc6941ef3e71a2ae605620ea21afb599c7e91ef89328da154fe91c5071295"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/872702ffe967d829.anm",
+      "bytes": 102320,
+      "sha256": "58a7fe3ace9ed902c81fda08e993bda5b983d4d7b76e147bc46897b4c247345e"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/c50c28e04b24520d.scb",
+      "bytes": 57716,
+      "sha256": "245641757e8b039187d485d4353664635ad800607b68a7d23344d62effd0c7b1"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/cf0e2d42d914fcea.tex",
+      "bytes": 43716,
+      "sha256": "16e839b0a34b0e4a06da29d135363fd413531bb3ae86ae2142e9116653cccbdc"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/dba30aea46f8d87f.tex",
+      "bytes": 2756,
+      "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/f270dcb52660307f.anm",
+      "bytes": 93524,
+      "sha256": "115a90cdc0521e746b1950075ca1be75d159164ccc81cf119b7e71db21a5d6f1"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/fc56205a47bf1655.anm",
+      "bytes": 27538,
+      "sha256": "080db524f0a585960ec5d76f4198d893ed47cc7d689365c8c524ad1e49064586"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/sources/fd8f7ef25ded936e.anm",
+      "bytes": 99348,
+      "sha256": "29ccc45d9148958ddb43fb924a49956bb72ae136c41cecc6a1eb9bbf226a963e"
+    },
+    {
+      "path": ".cache/masteryi-attack-trail-source-cloud/test-masteryi-attack-trails.py",
+      "bytes": 5180,
+      "sha256": "d722d9e33d40655d8aaf64ce78e28557d9f4aad95b2245a9317daac38d97e03c"
+    }
+  ],
+  "checks": {
+    "sourceGuards": {
+      "casesPerMode": 30,
+      "modes": [
+        "normal",
+        "optimized"
+      ],
+      "rigCases": [
+        "missing joint",
+        "duplicate joint name",
+        "non-skin joint"
+      ]
+    },
+    "nativeClosure": {
+      "files": 12,
+      "bytes": 549752,
+      "compressedReadBytes": 265918,
+      "bins": 3,
+      "textures": 4,
+      "meshes": 1,
+      "animations": 4,
+      "completeSkinAndAnimationBins": "exact typed native reparse",
+      "completeParticleDefinitions": 5,
+      "originalAnms": "all four exact original model-pinned bytes"
+    },
+    "bindings": {
+      "events": 5,
+      "parallelParents": 4,
+      "atomicEntries": 8,
+      "literalFrames": [
+        5.0,
+        5.0,
+        8.0,
+        6.0,
+        9.0
+      ],
+      "jointNodes": [
+        85
+      ],
+      "omittedBlendMode": [
+        "MasterYi_BA1_Trail",
+        "MasterYi_Crit_Trail"
+      ],
+      "soundDefaults": "both absent on all five systems",
+      "tickDuration": "omitted on all event clips"
+    },
+    "meshByteRoundtrip": {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/common_hecarim_weapontrail_1.scb",
+        "wadPathHash": "c50c28e04b24520d",
+        "sha256": "245641757e8b039187d485d4353664635ad800607b68a7d23344d62effd0c7b1",
+        "bytes": 57716
+      },
+      "byteExactRoundtrip": true,
+      "roundtripSha256": "245641757e8b039187d485d4353664635ad800607b68a7d23344d62effd0c7b1",
+      "vertices": 250,
+      "triangles": 500,
+      "expandedCorners": 1500,
+      "flags": 5,
+      "tailBytes": 24,
+      "faceRgbBytes": 4500,
+      "decoderChanged": false
+    },
+    "checkRestoreAndReadingReplay": {
+      "filesUnchangedBytesAndMtimes": 15,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "application": "No src/public/tests changes. Schema, current ruleset and built offline-pack identity unchanged. Full app checks remain the accepted rendering parent evidence."
+  },
+  "limits": [
+    "Source-only pin, literal graph/resource projection and private byte inspection; no decoded texture transport, GLB, renderer, gameplay or app identity change.",
+    "Frame values do not establish seconds, simulation ticks, attack-speed scaling, masked track behavior, native callback timing or cancellation policy.",
+    "The unique case-insensitive GLB joint bridge retains original spellings without establishing native VFX reflection, scale or transform inheritance.",
+    "Two passive visual events do not establish two spell-audio callbacks or child audio-suffix propagation.",
+    "Omitted blend/local/particle-local and sound fields stay omitted. No default blend mode, local frame, audio cue or source primitive behavior is inferred.",
+    "SCB byte equality preserves face colors, UVs, materials and tail; it is not a native shader, sampler or GPU/frame certificate.",
+    "Ignored evidence needs preservation; exact changed sources are independently archived."
+  ]
+}

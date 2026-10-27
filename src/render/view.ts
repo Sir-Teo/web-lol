@@ -1,4 +1,13 @@
+import { LazyPrimaryHits } from './lazy-masteryi-primary-hits';
+import { LazyPrimaryTrails } from './lazy-masteryi-primary-trails';
+import { LazyPassiveTrails } from './lazy-masteryi-passive-trails';
+import { LazySwordGlows } from './lazy-masteryi-sword-glows';
+import { LazyMeditateDamage } from './lazy-masteryi-w-damage';
+import { LazyMeditateBuffs } from './lazy-masteryi-w-buffs';
+import { LazyMeditateCasts } from './lazy-masteryi-w-casts';
+import { unitVisible } from './unit-visibility';
 import { MASTER_YI } from '../content/masteryi-progression';
+import { MASTER_YI_PASSIVE } from '../content/masteryi-passive';
 import { ahriAimGeometry } from './ahri-aim';
 import { spiritRushDestination } from '../simulation/ahri-spirit-rush';
 import { renderParticleColorPhase } from './particle-color-phase';
@@ -40,6 +49,11 @@ import { RigPoseCulling } from './rig-pose-culling';
 import { mobilePose } from './mobile-pose';
 import { LuxImpacts } from './lux-impacts';
 import { LazyGarenBasicAttacks } from './lazy-garen-basic-attacks';
+import { LazyHighlanderKills } from './lazy-masteryi-r-kills';
+import { LazyHighlanderCasts } from './lazy-masteryi-r-casts';
+import { LazyAlphaEnds } from './lazy-masteryi-q-ends';
+import { LazyAlphaCasts } from './lazy-masteryi-q-casts';
+import { LazyAlphaContacts } from './lazy-masteryi-q-contacts';
 import { LuxAttackCrescents } from './lux-attack-crescents';
 import { LuxAttackTrails } from './lux-attack-trails';
 import { LuxAttackHoops } from './lux-attack-hoops';
@@ -97,6 +111,8 @@ import { disposeModel, makeModel, type UnitModel } from './models';
 import { unitBarHeight } from './unit-bar-height';
 
 export class GameView {
+  /** Assets completed after the last frame; the application schedules painting. */
+  onAssetsReady?: () => void;
   renderer: THREE.WebGLRenderer;
   scene = new THREE.Scene();
   readonly particleDistortion = new ParticleDistortionPass();
@@ -160,6 +176,22 @@ export class GameView {
   sunlight = new LazySunlight(this.scene, (p) => this.ground(p));
   garenPerseverance = new LazyGarenPerseverance(this.scene, (p) => this.ground(p));
   garenBasicAttacks = new LazyGarenBasicAttacks(this.scene, (p) => this.ground(p));
+  primaryTrails = new LazyPrimaryTrails(this.scene, (p) => this.ground(p));
+  passiveTrails = new LazyPassiveTrails(this.scene, (p) => this.ground(p));
+  swordGlows = new LazySwordGlows(this.scene, (p) => this.ground(p));
+  primaryHits = new LazyPrimaryHits(this.scene, (p) => this.ground(p));
+  meditateDamage = new LazyMeditateDamage(this.scene, (p) => this.ground(p));
+  highlanderKills = new LazyHighlanderKills(this.scene, (p) => this.ground(p));
+  highlanderCasts = new LazyHighlanderCasts(this.scene, this.particleEarlyDistortion.scene, (p) =>
+    this.ground(p)
+  );
+  meditateBuffs = new LazyMeditateBuffs(this.scene, (p) => this.ground(p));
+  meditateCasts = new LazyMeditateCasts(this.scene, (p) => this.ground(p));
+  alphaEnds = new LazyAlphaEnds(this.scene, this.particleEarlyDistortion.scene, (p) =>
+    this.ground(p)
+  );
+  alphaCasts = new LazyAlphaCasts(this.scene, (p) => this.ground(p));
+  alphaContacts = new LazyAlphaContacts(this.scene, (p) => this.ground(p));
   garenCourage = new LazyGarenCourage(this.scene, (p) => this.ground(p));
   grompDeath = new LazyGrompDeath(this.scene);
   riverShrines = new RiverShrines(this.scene);
@@ -246,6 +278,39 @@ export class GameView {
     host: HTMLElement,
     readonly battlefield: Battlefield = PRACTICE_FIXTURE
   ) {
+    const renderReady = () => this.onAssetsReady?.();
+    for (const effect of [
+      this.garenBasicAttacks,
+      this.garenCourage,
+      this.garenDecisiveStrike,
+      this.garenJustice,
+      this.garenPerseverance,
+      this.grompAttack,
+      this.grompDeath,
+      this.leonaDaybreak,
+      this.leonaEclipseSkins,
+      this.leonaEclipseSurfaces,
+      this.leonaSolarProjections,
+      this.leonaSolarSkins,
+      this.leonaSolarSurfaces,
+      this.leonaZenithSkins,
+      this.leonaZenithSurfaces,
+      this.leonaZenithTrails,
+      this.passiveTrails,
+      this.primaryHits,
+      this.primaryTrails,
+      this.alphaCasts,
+      this.alphaContacts,
+      this.alphaEnds,
+      this.highlanderCasts,
+      this.highlanderKills,
+      this.swordGlows,
+      this.meditateBuffs,
+      this.meditateCasts,
+      this.meditateDamage,
+      this.sunlight,
+    ])
+      effect.onReady = renderReady;
     // In Three r186, renderer.alpha controls the clear value while its default
     // context always has alpha. Subtractive particles can then expose the page
     // matte. Keep their RGBA blend intact and make the canvas itself opaque.
@@ -558,7 +623,7 @@ export class GameView {
     let target: Unit | undefined,
       best = Infinity;
     for (const u of world.units) {
-      if (!world.alive(u) || !world.visible(u)) continue;
+      if (!world.alive(u) || !unitVisible(world, u)) continue;
       const champion = u.kind === 'champion';
       const selection =
         u.champion === 'masteryi'
@@ -664,7 +729,7 @@ export class GameView {
       const deathAge =
         u.deadAt === null ? 0 : Math.max(0, (world.tick - u.deadAt + alpha - 1) / 60) + terminalAge;
       const knownDestroyed = world.knownStructureDestroyed(u);
-      const visible = world.visible(u);
+      const visible = unitVisible(world, u);
       model.root.visible =
         knownDestroyed !== null ||
         (visible &&
@@ -787,7 +852,11 @@ export class GameView {
         const layers = animationLayers(timeline, at, model.clipDurations);
         if (!skipPose) applyMobileAnimation(model.mixer, model.actions, pose, layers);
         model.actionName = pose.clip;
-        if (pose.kind === 'attack') model.animationAttackTick = u.attackCycle!.startTick;
+        if (pose.kind === 'attack')
+          model.animationAttackTick =
+            u.champion === 'masteryi' && pose.clip === MASTER_YI_PASSIVE.defaultPoseClip
+              ? world.championState(u.id)?.doubleStrike?.strike?.startTick
+              : u.attackCycle?.startTick;
       }
 
       this.updateBar(u, world, { x, y }, visible);
@@ -840,6 +909,18 @@ export class GameView {
     this.grompAttack.update(world, alpha, this.camera, terminalAge);
     this.garenDecisiveStrike.update(world, alpha, this.camera, this.models, terminalAge);
     this.garenBasicAttacks.update(world, alpha, this.camera, terminalAge);
+    this.primaryTrails.update(world, alpha, this.camera, this.models, terminalAge);
+    this.passiveTrails.update(world, alpha, this.camera, this.models, terminalAge);
+    this.swordGlows.update(world, alpha, this.camera, this.models, terminalAge);
+    this.primaryHits.update(world, alpha, this.camera, terminalAge);
+    this.meditateDamage.update(world, alpha, this.camera, terminalAge);
+    this.highlanderKills.update(world, alpha, this.camera, terminalAge);
+    this.highlanderCasts.update(world, alpha, this.camera, terminalAge);
+    this.alphaEnds.update(world, alpha, this.camera, terminalAge);
+    this.alphaCasts.update(world, alpha, this.camera, terminalAge);
+    this.alphaContacts.update(world, alpha, this.camera, terminalAge);
+    this.meditateCasts.update(world, alpha, this.camera, terminalAge);
+    this.meditateBuffs.update(world, alpha, this.camera, terminalAge);
     this.dust.update(world, this.camera);
     this.smoke.update(world, this.camera);
     this.echoes.update(world);
@@ -851,7 +932,7 @@ export class GameView {
     this.snow.forEach((layer) => layer.update(world, this.camera));
     this.lingerAurora.update(world);
     const selected = world.unit(this.selected ?? world.player.id);
-    this.selection.visible = !!selected && world.alive(selected) && world.visible(selected);
+    this.selection.visible = !!selected && world.alive(selected) && unitVisible(world, selected);
     if (selected) {
       this.selection.position.x = selected.x * SCALE;
       this.selection.position.z = selected.y * SCALE;
@@ -859,7 +940,7 @@ export class GameView {
       this.selection.scale.setScalar(isStructureKind(selected.kind) ? selected.radius / 47.5 : 1);
     }
     const hovered = this.hovered === null ? undefined : world.unit(this.hovered);
-    this.hover.visible = !!hovered && world.alive(hovered) && world.visible(hovered);
+    this.hover.visible = !!hovered && world.alive(hovered) && unitVisible(world, hovered);
     if (hovered) {
       this.hover.position.x = hovered.x * SCALE;
       this.hover.position.z = hovered.y * SCALE;
@@ -901,6 +982,8 @@ export class GameView {
       this.updateFog(world);
       this.lastFogTick = world.tick;
     }
+    // Decide batching after every transparent effect has its current pose.
+    this.swordGlows.prepare(this.camera);
     this.mapTextureResidency?.beginFrame();
     this.smoke.prepareDepth(this.renderer, this.camera);
     this.leonaEclipseSurfaces.prepareDepth(this.renderer, this.camera);
@@ -1289,13 +1372,21 @@ export class GameView {
       sightPositions.needsUpdate = true;
     }
     const smite = isSummonerSlot(this.aimMode) && world.summonerSpell(this.aimMode) === 'smite';
-    if (this.aimMode === 'ward' || smite || (hero.champion === 'garen' && this.aimMode === 'r')) {
+    const yiQ = hero.champion === 'masteryi' && this.aimMode === 'q';
+    if (
+      this.aimMode === 'ward' ||
+      smite ||
+      yiQ ||
+      (hero.champion === 'garen' && this.aimMode === 'r')
+    ) {
       const radius =
         this.aimMode === 'ward'
           ? WARD_SOURCE.range
           : smite
             ? SUMMONER_SMITE.range + hero.radius
-            : GAREN_R.castRange;
+            : yiQ
+              ? world.abilitySpec('q').range
+              : GAREN_R.castRange;
       for (let i = 0; i <= 32; i++) {
         const angle = (i / 32) * Math.PI * 2;
         positions.setXYZ(

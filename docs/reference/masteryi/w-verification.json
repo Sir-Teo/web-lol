@@ -1,0 +1,439 @@
+{
+  "recordedAt": "2026-10-25T18:09:52.638027+00:00",
+  "scope": "Development Master Yi NPC Meditate channel, local healing/upkeep/mitigation/pause/reset policies and saved/body continuation. Native dispatch, complete presentation/kit/roster and full performance remain open.",
+  "baselineCommit": "afc04dc",
+  "schema": 141,
+  "ruleset": "0392157a812acbbb4b8e48f4d5aeb5d06905aec3aa40ee37c4f26cc464fae468",
+  "browser": "Chromium 154.0.8037.57 on Debian 13 through launcher-only executable-path overrides",
+  "changedRuntimeAndTestInputs": [
+    {
+      "file": "src/content/masteryi-w.ts",
+      "bytes": 1756,
+      "sha256": "a3a8156d187b7b71e17fc6c409388d42e03ddc151d9b6d3df5aeb646eda37e6c"
+    },
+    {
+      "file": "src/simulation/masteryi-meditate.ts",
+      "bytes": 7026,
+      "sha256": "6144e98a7bce286343c7a6bb51945831f7ba8fb252673b4f608ba8432c04dec4"
+    },
+    {
+      "file": "src/simulation/masteryi-double-strike.ts",
+      "bytes": 3867,
+      "sha256": "b4ba453a26f213cfc41f3038b27ddfc94349c1e187aa2bfca59296442961dfc0"
+    },
+    {
+      "file": "src/simulation/masteryi-wuju-style.ts",
+      "bytes": 1974,
+      "sha256": "bbda6f34271e26bc128593d12b3c41d13b34fe4910b22fd70b9e7ac7f7f8b0dc"
+    },
+    {
+      "file": "src/simulation/world.ts",
+      "bytes": 281679,
+      "sha256": "fbc76440384778d5aa40ad1a6de54a90713966c53f54f7a05be9f2b8fbcb0ca2"
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "bytes": 170825,
+      "sha256": "fae94786555c2b416f86359329a4a4714f8aad2a6b6d65cfbf34fec531cc8618"
+    },
+    {
+      "file": "src/simulation/types.ts",
+      "bytes": 21271,
+      "sha256": "53b20adcb1d009220c3695524650b6741776aa9d542029706b8e71e4a2f6f3b2"
+    },
+    {
+      "file": "src/simulation/champion-state.ts",
+      "bytes": 3800,
+      "sha256": "54c558707080965151310e0cda854d1a02ea28771412b45682ac0ead4b5a6b41"
+    },
+    {
+      "file": "src/render/mobile-pose.ts",
+      "bytes": 10619,
+      "sha256": "0d1bafc45edfe86340088fa9dce78441ca5aa19d59d393534a81a341e8875d08"
+    },
+    {
+      "file": "src/render/view.ts",
+      "bytes": 60611,
+      "sha256": "16f87fe5f450856c27bad75054b3d9e5b0b75e57ba12d2787a942ff59628e389"
+    },
+    {
+      "file": "src/ui/hud.ts",
+      "bytes": 81938,
+      "sha256": "f5d19955a54581a8c08f48e3335e5814542dc9781baf6d1f6b24e67756d5b6b7"
+    },
+    {
+      "file": "tests/masteryi-meditate.test.ts",
+      "bytes": 18957,
+      "sha256": "3ac54bf045e93edfc5896559c429006559f4259a400c186bb8663cb63646e112"
+    },
+    {
+      "file": "tests/masteryi-development.test.ts",
+      "bytes": 9681,
+      "sha256": "84bd0e6d26b3922eea98e61585e50195cef62dce1355abb922b340d1c738ff62"
+    },
+    {
+      "file": "tests/masteryi-wuju-style.test.ts",
+      "bytes": 11651,
+      "sha256": "51e0e4664b036565bd2754258330cced95aa8d80dc6daf905c442494b3310fbe"
+    },
+    {
+      "file": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "37da2dfc07947df073e165d9acb9370edbd839f794ec7a98b0156eb2145e7e74"
+    },
+    {
+      "file": "e2e/masteryi-meditate.spec.ts",
+      "bytes": 6090,
+      "sha256": "f2e91b339d05e3cda45e5b8536decb1da2b3ff037767a58c194fe2f4864645bc"
+    },
+    {
+      "file": "e2e/masteryi-development.spec.ts",
+      "bytes": 13719,
+      "sha256": "66c3ae415a4c853bdc24c802d2de5639231219c612e1858f17086dd2769dec58"
+    },
+    {
+      "file": "tools/assets/export-masteryi-w.py",
+      "bytes": 6766,
+      "sha256": "3e862c32011e9742d7836b9b2b986ed732e1df1fe3d8c4a1e4e2055ce16c3912"
+    },
+    {
+      "file": "tools/assets/test-masteryi-w.py",
+      "bytes": 2011,
+      "sha256": "ca69a2bc4488226bb9ee780f40e03be2382baaa78cd5d37af74ac27a29008b8c"
+    }
+  ],
+  "sourceProjection": {
+    "normalAndOptimizedCheck": true,
+    "mutationTestsPerPythonMode": 8,
+    "sourceCooldown": null,
+    "publicCooldownSeconds": [
+      10,
+      10,
+      10,
+      10,
+      10
+    ],
+    "sourceHealStatId": null
+  },
+  "validation": {
+    "meditateCases": 47,
+    "focusedBeforeAdditionalCases": 134,
+    "typecheck": true,
+    "broad": {
+      "passed": 2289,
+      "failed": 7,
+      "total": 2296,
+      "files": 342
+    },
+    "knownBaselineFailures": [
+      "tests/garen-aa.test.ts > all eight source play actions retain seventeen routed profiles, thirty-four exact masters and all four material hashes",
+      "tests/garen-p-audio.test.ts > recovery sound retains exact bank/media masters, distinct attenuation, play transitions and the reader-derived whole-file loop",
+      "tests/garen-passive-particles.test.ts > the recovery profile and lossless textures retain the frozen three-resource provenance",
+      "tests/leona-eclipse-skin-material.test.ts > Eclipse maps the authored rim control through the checked native CPU input",
+      "tests/lux-e-missile.test.ts > the fifteen existing streams preserve 24 full sampler snapshots",
+      "tests/particle-distortion.test.ts > all fifteen native variants retain exact original libraries, wrapper bitcode and static disassembly identities"
+    ],
+    "additionalBroadTimingFailure": [
+      "tests/lane-rules.test.ts > versioned lane cadence and starting rewards > runs the full wave clock through both interval transitions without duplicate or delayed waves"
+    ],
+    "isolatedSchedulerAndMeditate": {
+      "passed": 56,
+      "workers": 1,
+      "originalSchedulerDeadlineMS": 5000,
+      "noDeadlineChange": true
+    },
+    "nodeQA": 3,
+    "build": true,
+    "browser": {
+      "initialBatchPassed": 12,
+      "initialBatchFailed": 1,
+      "initialFailure": "Existing NPC pending reload exceeded original 30000ms deadline; state/future output was retained.",
+      "singlePendingRerunPassed": 1,
+      "rerunDurationSeconds": 26.0,
+      "originalDeadlineMS": 30000,
+      "finalMeditateBatchPassed": 3,
+      "distinctCasesWithPassingRuns": 13,
+      "automaticRetries": 0,
+      "scope": "New channel phases rerun after HUD-only rounding repair; other scenario core behavior is unchanged."
+    },
+    "freshOfflineAudit": false,
+    "fullBrowserSuite": false,
+    "nativeAcceptance": false,
+    "fullMatchPerformance": false
+  },
+  "phaseEvidence": [
+    {
+      "phase": "active-loop",
+      "tick": 173,
+      "clip": "spell2_loop",
+      "channel": {
+        "startTick": 38,
+        "endTick": 278,
+        "rank": 1,
+        "power": 0,
+        "lastTick": 173,
+        "nextHealTick": 188,
+        "nextStackTick": 218,
+        "stopTick": null,
+        "stopReason": null
+      },
+      "empowerment": {
+        "startTick": 37,
+        "endTick": 472,
+        "rank": 1,
+        "pausedTicks": 135
+      },
+      "child": {
+        "stacks": 2,
+        "expiresTick": 398,
+        "strike": null
+      },
+      "visibleAttackTick": null,
+      "boneCount": 90,
+      "exactSavedBytes": true,
+      "exactFuture300Ticks": true,
+      "exactBoneMatrices": true,
+      "savedSHA256": "883c5a9b403e1e01af5965a2fc82a4ab90e508e9a353831a42bd8a26a627c208",
+      "futureSHA256": "5bca675e469c2021b20ab109e85e26c61200e641c9c2a28694f78f0e79bd3fac",
+      "boneMatricesSHA256": "e7b161f314536bbed15aa6badf17906d1714a6db557f36ed953cbc36a00b575d",
+      "errors": []
+    },
+    {
+      "phase": "control-linger",
+      "tick": 48,
+      "clip": "entry_56f6d84b",
+      "channel": {
+        "startTick": 38,
+        "endTick": 278,
+        "rank": 1,
+        "power": 0,
+        "lastTick": 48,
+        "nextHealTick": 68,
+        "nextStackTick": 98,
+        "stopTick": 48,
+        "stopReason": "control"
+      },
+      "empowerment": {
+        "startTick": 37,
+        "endTick": 347,
+        "rank": 1,
+        "pausedTicks": 10
+      },
+      "child": {
+        "stacks": 0,
+        "expiresTick": 0,
+        "strike": null
+      },
+      "visibleAttackTick": null,
+      "boneCount": 90,
+      "exactSavedBytes": true,
+      "exactFuture300Ticks": true,
+      "exactBoneMatrices": true,
+      "savedSHA256": "3e5e051c6ecd246c33fb8fdbb0b441d253cd71a6c2be8e484b89a2c8085bb8f9",
+      "futureSHA256": "0f70f1e23f9c2168ff4a1b5bac80adc923c487f58d6beca90f0e99435881ccd8",
+      "boneMatricesSHA256": "cbefc6cfdf6da015e6a2eb2a6165948920fa7597030e95f288d95aa09a0e4c2c",
+      "errors": []
+    },
+    {
+      "phase": "reset-child-overlap",
+      "tick": 340,
+      "clip": "entry_d5c55cfd",
+      "channel": {
+        "startTick": 324,
+        "endTick": 564,
+        "rank": 1,
+        "power": 0,
+        "lastTick": 324,
+        "nextHealTick": 354,
+        "nextStackTick": 384,
+        "stopTick": 324,
+        "stopReason": "order"
+      },
+      "empowerment": null,
+      "child": {
+        "stacks": 1,
+        "expiresTick": 580,
+        "strike": {
+          "startTick": 323,
+          "releaseTick": 345,
+          "endTick": 389,
+          "poseStopTick": 324,
+          "targetId": 7,
+          "damage": 32.5,
+          "critical": false,
+          "result": "pending"
+        }
+      },
+      "visibleAttackTick": 325,
+      "boneCount": 90,
+      "exactSavedBytes": true,
+      "exactFuture300Ticks": true,
+      "exactBoneMatrices": true,
+      "savedSHA256": "1b29c0ede2bf9e2b8efd9bc02ad0c555bdb84f14da07c397e2d5f0982a9ca782",
+      "futureSHA256": "0bba7db203e49e418d2c29bf3c6f84e17f0a3837f439eb5d071153f17d6feef6",
+      "boneMatricesSHA256": "959c799b648866edd5adab77dfc5af43be6efcaff2b924e5892ada49050a4915",
+      "errors": []
+    }
+  ],
+  "production": {
+    "result": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 12,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 204,
+      "scheduledBlueRequests": 12,
+      "scheduledRedRequests": 12,
+      "scheduledWolfRequests": 24,
+      "scheduledRaptorRequests": 24,
+      "scheduledKrugRequests": 36,
+      "scheduledScuttlerRequests": 12,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    },
+    "runner": "tools/qa/production-subpath.mjs",
+    "adaptation": "Temporary copy changes only channel: 'chrome' to executablePath: '/usr/bin/chromium'; assertions/deadlines unchanged."
+  },
+  "pack": {
+    "id": "f710e23c20ffd324d689cad2ec838955e0ac9311b8403ed70bc1f6d1c7eb8c6f",
+    "files": 1068,
+    "bytes": 526616922
+  },
+  "retainedFailures": [
+    "Initial normal-completion test assumed no shared IDs. The shared event allocator correctly assigns nine IDs to cast plus eight heal events; corrected assertion accounts for these and rejects any additional entity/effect IDs.",
+    "First full browser batch had one existing 30-second reload deadline failure; its isolated rerun passes unchanged in 26.0 seconds.",
+    "First channel capture displayed full fractional heal values. HUD now rounds labels while keeping actual healing and events precise; the new browser assertion and reviewed captures use integer labels.",
+    "Broad run had one scheduler 5000ms deadline failure in addition to the six existing audit failures. The same scheduler and all 47 channel cases pass isolated with original deadlines."
+  ],
+  "localEvidence": [
+    {
+      "file": ".cache/masteryi-w-cloud/existing-focused.log",
+      "bytes": 425,
+      "sha256": "d62acb62c74820f8c710537980c3c319d01c3349c2bb2b36a6800ec85c2620b5"
+    },
+    {
+      "file": ".cache/masteryi-w-cloud/focused.log",
+      "bytes": 1364,
+      "sha256": "732392a2facdd614bb9654068a40a3ab0665517adc032a0a13903a84888d744d"
+    },
+    {
+      "file": ".cache/masteryi-w-cloud/focused-v2.log",
+      "bytes": 427,
+      "sha256": "3783a746b82c1e053e82ade03b7d74f9588beeee2a3cb5a15c1221a47da5c8b1"
+    },
+    {
+      "file": ".cache/masteryi-w-cloud/typecheck-v2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/masteryi-w-cloud/export-runtime-check.log",
+      "bytes": 111,
+      "sha256": "ce914118d71ed0084f6e960cd46a065fb7b906089fc59facd5d1bfe1b17b530b"
+    },
+    {
+      "file": ".cache/masteryi-w-cloud/export-runtime-check-optimized.log",
+      "bytes": 111,
+      "sha256": "ce914118d71ed0084f6e960cd46a065fb7b906089fc59facd5d1bfe1b17b530b"
+    },
+    {
+      "file": ".cache/masteryi-w-cloud/export-tests-normal-v2.log",
+      "bytes": 106,
+      "sha256": "eb60f9bd0c6db873d2d7d02543af30846bdc2eadf4252f1169f6043c8ca48163"
+    },
+    {
+      "file": ".cache/masteryi-w-cloud/export-tests-optimized-v2.log",
+      "bytes": 106,
+      "sha256": "04e4d170edc749537f9b49333e16e6dc9549f6cd57372f7e4a5333159ad1c3f5"
+    },
+    {
+      "file": ".cache/masteryi-w-cloud/browser.log",
+      "bytes": 7738,
+      "sha256": "3397063a60618cb5b1d0ed2eb10e498adccde8d9bcef324aed72ff6d31b459c7"
+    },
+    {
+      "file": ".cache/masteryi-w-cloud/browser-pending-v2.log",
+      "bytes": 792,
+      "sha256": "128b2ce5987b8a41802c8f69a46cdd48d281e9f05e7917e5b936dcbc05716ddc"
+    },
+    {
+      "file": ".cache/masteryi-w-cloud/browser-v2.log",
+      "bytes": 1642,
+      "sha256": "00cb3e09c2ebf1d6d077ee7b1e29cbe0ad9eeaa858c7e4be870a914fff4f6300"
+    },
+    {
+      "file": ".cache/masteryi-w-cloud/check.log",
+      "bytes": 7004,
+      "sha256": "19834c1bc630c7e4673bf137d7ba62d5c31cb4040dd521353aa24639a479b546"
+    },
+    {
+      "file": ".cache/masteryi-w-cloud/scheduler-and-channel-v2.log",
+      "bytes": 170,
+      "sha256": "fad7bd43157dea25ae80695851130c97045b65b0e36cf3d8c076018eb619ad28"
+    },
+    {
+      "file": ".cache/masteryi-w-cloud/node-qa.log",
+      "bytes": 430,
+      "sha256": "9154d6cbe9bd1edd89f0033b2ead22357b4c95a5fd3a6f26da05f47c5557f582"
+    },
+    {
+      "file": ".cache/masteryi-w-cloud/build.log",
+      "bytes": 4829,
+      "sha256": "361e22c95ca5aef30982170fbb503bce5b50be52741738afd1e523d53906bf09"
+    },
+    {
+      "file": ".cache/masteryi-w-cloud/production.log",
+      "bytes": 2081,
+      "sha256": "4c66b75594e1516082d7f34a34ce93e56fa4efc3ce47339b2c71c99b1ce66775"
+    }
+  ]
+}

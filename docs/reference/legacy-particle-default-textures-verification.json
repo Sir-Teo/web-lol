@@ -1,0 +1,310 @@
+{
+  "format": 1,
+  "parentCommit": "9c22c4e8f03f96ee41b341f5fef6e6953280ad92",
+  "scope": "Verify the exact legacy default color/falloff DDS resources, frozen archive chunk binding and ten declared BC1/BC3 mip decodes. No application behavior changes.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "offlinePack": {
+      "id": "5f30db8b082879c7e026a6cf97a6a13fd35a21e5ee0df6c02e0a735ebd783c13",
+      "files": 1202,
+      "bytes": 538088455
+    }
+  },
+  "verification": {
+    "resources": 2,
+    "declaredMips": 10,
+    "independentMipMatches": 10,
+    "negativeGuardsPerMode": 13,
+    "knownBlockChecksPerMode": 3,
+    "normalOptimizedRecordAndGuardCommands": 4,
+    "offlineWithSubprocessBlocked": true,
+    "newObservedFalloffChunkBytes": 453,
+    "oldGrompCertificateModified": false,
+    "assetDataFilesUnchanged": 543,
+    "bytesAndMtimesUnchanged": true,
+    "applicationChecksInherited": true,
+    "nativeExecuted": false,
+    "nativeShaderExecuted": false
+  },
+  "limits": [
+    "Archive resource bytes and independent mip decoding only. No native game or Metal execution.",
+    "The453-byte falloff RMAN chunk was newly observed and checked against its xxh3 checksum in the already SHA-bound WAD header, then frozen by SHA256. It is not part of the older Gromp chunk certificate.",
+    "DDS decoded pixels do not establish color space, filtering, selected mip, UV routing, actual shader selection or complete native composition.",
+    "Live native Gromp loader/shader/UV/sampler selection remains unobserved. No falloff application change follows from this resource checkpoint.",
+    "Full app/unit/production checks are inherited from the unchanged application tree at the accepted Gromp checkpoint; no app checks were rerun for this source-only addition."
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/LEGACY-PARTICLE-DEFAULT-TEXTURES.md",
+      "bytes": 3023,
+      "sha256": "97195dcedb62eb7a088cb54b5b8a790e4c2b4c8c3a513fb023753d521a33efd6"
+    },
+    {
+      "path": "docs/reference/legacy-particle-default-textures.json",
+      "bytes": 14444,
+      "sha256": "a26e3177a9ac7d1f6a17581e28d4f589ca80b7544a6a4e151852f25c5bc1feb2"
+    },
+    {
+      "path": "tools/assets/legacy_particle_default_textures.py",
+      "bytes": 9474,
+      "sha256": "eb3e1aa85cfe55501f593833185d59a5878ef23300652f312453d0001d0a7b4a"
+    },
+    {
+      "path": "tools/assets/test-legacy-particle-default-textures.py",
+      "bytes": 2472,
+      "sha256": "c96284412ec64582a48267487418f9da5850493d4c4794f63b799748810997c2"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "docs/reference/gromp-effects.json",
+      "bytes": 238111,
+      "sha256": "3cb54cd774fbfd66cc52846bb8775d17ab0adb473a570600e274e5f2ae0a1033"
+    },
+    {
+      "path": "docs/reference/native-legacy-primitive-types.json",
+      "bytes": 31070,
+      "sha256": "2e56236915d08ec883f89de2848a0571dc2085081b837d75e5a412ef8cdfda61"
+    },
+    {
+      "path": "docs/reference/gromp-ray-packets-verification.json",
+      "bytes": 30038,
+      "sha256": "7b725d528db5ed1bc0ee4801ef185cb469e4ff19f183c164fc38166d847b1830"
+    },
+    {
+      "path": "tools/assets/riot_archive.py",
+      "bytes": 7454,
+      "sha256": "7444e2d6dd84c10d2b7b58105a9cdb56edb963d7a3f33fe61dc2932334e5eeb6"
+    },
+    {
+      "path": "tools/assets/native_client_restore.py",
+      "bytes": 6954,
+      "sha256": "6ab14163aa03528ae8255948ecf66b106bbedd921aabc17c5a9dfafe8d44c711"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/wad.py",
+      "bytes": 12880,
+      "sha256": "a375025be883f4931aad80f8f8bf18266959c5072151d533d5412a4b1919547a"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/native-legacy-default-textures/final-source/docs/LEGACY-PARTICLE-DEFAULT-TEXTURES.md",
+      "bytes": 3023,
+      "sha256": "97195dcedb62eb7a088cb54b5b8a790e4c2b4c8c3a513fb023753d521a33efd6"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/final-source/docs/reference/legacy-particle-default-textures.json",
+      "bytes": 14444,
+      "sha256": "a26e3177a9ac7d1f6a17581e28d4f589ca80b7544a6a4e151852f25c5bc1feb2"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/final-source/tools/assets/legacy_particle_default_textures.py",
+      "bytes": 9474,
+      "sha256": "eb3e1aa85cfe55501f593833185d59a5878ef23300652f312453d0001d0a7b4a"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/final-source/tools/assets/test-legacy-particle-default-textures.py",
+      "bytes": 2472,
+      "sha256": "c96284412ec64582a48267487418f9da5850493d4c4794f63b799748810997c2"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/final-source/docs/reference/gromp-effects.json",
+      "bytes": 238111,
+      "sha256": "3cb54cd774fbfd66cc52846bb8775d17ab0adb473a570600e274e5f2ae0a1033"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/final-source/docs/reference/native-legacy-primitive-types.json",
+      "bytes": 31070,
+      "sha256": "2e56236915d08ec883f89de2848a0571dc2085081b837d75e5a412ef8cdfda61"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/final-source/docs/reference/gromp-ray-packets-verification.json",
+      "bytes": 30038,
+      "sha256": "7b725d528db5ed1bc0ee4801ef185cb469e4ff19f183c164fc38166d847b1830"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/final-source/tools/assets/riot_archive.py",
+      "bytes": 7454,
+      "sha256": "7444e2d6dd84c10d2b7b58105a9cdb56edb963d7a3f33fe61dc2932334e5eeb6"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/final-source/tools/assets/native_client_restore.py",
+      "bytes": 6954,
+      "sha256": "6ab14163aa03528ae8255948ecf66b106bbedd921aabc17c5a9dfafe8d44c711"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/final-source/.tools/cdtb/cdtb/wad.py",
+      "bytes": 12880,
+      "sha256": "a375025be883f4931aad80f8f8bf18266959c5072151d533d5412a4b1919547a"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/native-legacy-default-textures/DB536396C2D43D58.chunk",
+      "bytes": 453,
+      "sha256": "c744931f8a602fa1b7fffee95dbcf262fbf614b2f40e3f3b7ce0a044574903a4"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/archive-checkpoint.py",
+      "bytes": 5030,
+      "sha256": "c7b378c7b459b3e9e89bd98fc81b64829aead93e90ed24c6d3164ba98e6a2c3c"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/candidate.json",
+      "bytes": 14444,
+      "sha256": "a26e3177a9ac7d1f6a17581e28d4f589ca80b7544a6a4e151852f25c5bc1feb2"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/check-accepted-normal.log",
+      "bytes": 54,
+      "sha256": "554ef2aa0c2444d271031c71c0523a8365421b4d1a57b4f9aa9f74e781a7a768"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/check-accepted-optimized.log",
+      "bytes": 54,
+      "sha256": "554ef2aa0c2444d271031c71c0523a8365421b4d1a57b4f9aa9f74e781a7a768"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/check-normal.log",
+      "bytes": 54,
+      "sha256": "554ef2aa0c2444d271031c71c0523a8365421b4d1a57b4f9aa9f74e781a7a768"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/check-optimized.log",
+      "bytes": 54,
+      "sha256": "554ef2aa0c2444d271031c71c0523a8365421b4d1a57b4f9aa9f74e781a7a768"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/decode.log",
+      "bytes": 2240,
+      "sha256": "9abb03fd0597c9dfc0111dac0929d8a64e8d6a89fcb09689e8f36964628b781d"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/decode.py",
+      "bytes": 3125,
+      "sha256": "96f2118800404baddf61de0d35be0352a874dd6fd85cc4ada43db3f4e7193614"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/default-color-reading.json",
+      "bytes": 2089,
+      "sha256": "f7bd7245920e5d2ec831988a8a5cdfe98be70cd3c1236113111d74a9b8a1aa39"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/default-falloff-reading.json",
+      "bytes": 6149,
+      "sha256": "e1dce0707ef298820503a95ff12f7205012328a7c373bacdb83d70c2aaa89487"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/defaultcoloroverlifetime.dds",
+      "bytes": 136,
+      "sha256": "3860afa00c25245d4a8dd0893089b7ba67d2bb16b8ca83cb96103617932abdef"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/defaultfalloff.dds",
+      "bytes": 2192,
+      "sha256": "5a3513bdd4b8d5499d7533eab7a052aede226993e6722add45c854fee51bcec2"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/defaultfalloff.png",
+      "bytes": 126,
+      "sha256": "a97cc7b80ec981945855644c5544d7ef7024d3f7ffc5bd1e6fcdeb9aca32bb69"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/defaultfalloff.rgba",
+      "bytes": 1024,
+      "sha256": "915e7f28e797470fe4fd0be947d755f281ae5f02c9bf7aad86834235663d2bf3"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/falloff-fetch.log",
+      "bytes": 1405,
+      "sha256": "833d4139b74d58b1d3a751d012082357d9bc0b4237e25c4a0312ce2486d2402d"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/guards-accepted-normal.log",
+      "bytes": 137,
+      "sha256": "6c00fe4e2274c0c5ab34e80e6535a2e315d1e6efb855a4463905a209a2c9b745"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/guards-accepted-optimized.log",
+      "bytes": 137,
+      "sha256": "6c00fe4e2274c0c5ab34e80e6535a2e315d1e6efb855a4463905a209a2c9b745"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/guards-final-normal.log",
+      "bytes": 137,
+      "sha256": "6c00fe4e2274c0c5ab34e80e6535a2e315d1e6efb855a4463905a209a2c9b745"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/guards-final-optimized.log",
+      "bytes": 137,
+      "sha256": "6c00fe4e2274c0c5ab34e80e6535a2e315d1e6efb855a4463905a209a2c9b745"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/guards-normal.log",
+      "bytes": 98,
+      "sha256": "0c2b7c89e8a429ace9683da41138636b649b2ed4844d8297c19ec6b57fda65f3"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/guards-optimized.log",
+      "bytes": 98,
+      "sha256": "0c2b7c89e8a429ace9683da41138636b649b2ed4844d8297c19ec6b57fda65f3"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/independent-mips.json",
+      "bytes": 4922,
+      "sha256": "ff9865cf10ba1408631d2b38605eefa6d6fadc7b3f637bb01cc5a849f1d03c25"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/inherited-application.json",
+      "bytes": 542,
+      "sha256": "b33373bf801e12f430230037065225dcf01a90fba11f431dbb7ee4a22c7e5871"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/legacy_particle_default_textures.py",
+      "bytes": 9094,
+      "sha256": "1906cf9c8b9f6334f961cf8835d21c8bf870720216aff79f775397dfd49bcb99"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/original-probe/default-color.py",
+      "bytes": 2413,
+      "sha256": "df49e20a1b04a3255c6dbd83f043ffb34c6bc76158dce3ea3bf9a38a3eefa1a4"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/original-probe/default-falloff.py",
+      "bytes": 4690,
+      "sha256": "55a522324975d9b6f559c88592788b73a0fb5afbf9ddae24a254bacec081b054"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/original-probe/legacy-default-paths.json",
+      "bytes": 2760,
+      "sha256": "814f6100f1260f9ab8b3fb5ec8beef55b2b4b2a693791eea0b59d19cc79e8f2d"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/original-probe/legacy-default-paths.log",
+      "bytes": 638,
+      "sha256": "aa0225a84539f221a0b43810e683171b19583cd198a1baba89d95b9e1fec8e76"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/original-probe/probe-legacy-default-paths.py",
+      "bytes": 2114,
+      "sha256": "b1eff43586424ed55f6ecd952f24f95fe59f7c763323a58036b4e4997971bd98"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/prepare-witness.py",
+      "bytes": 7434,
+      "sha256": "8b77834bc58a5dc2212e81cb286005a8689a3636299c6e66c1787accb1a891b2"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/promote.log",
+      "bytes": 54,
+      "sha256": "554ef2aa0c2444d271031c71c0523a8365421b4d1a57b4f9aa9f74e781a7a768"
+    },
+    {
+      "path": ".cache/native-legacy-default-textures/witness-candidate.log",
+      "bytes": 54,
+      "sha256": "554ef2aa0c2444d271031c71c0523a8365421b4d1a57b4f9aa9f74e781a7a768"
+    }
+  ]
+}

@@ -1,0 +1,1152 @@
+{
+  "textures": [
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/common_alpha_12.tex",
+        "wadPathHash": "433b18542280cbff",
+        "sha256": "01bfc2cebd91b2a3b4397afcc5357395b9aecdc72b0018a428e2b89d19def43b",
+        "bytes": 10948
+      },
+      "path": ".cache/masteryi-q-cast-packed-v2/433b18542280cbff.png",
+      "bytes": 2725,
+      "sha256": "0ab6dc56e50c09542bc5e59ae56875be2fcdac4fa01c023fd19138ff01136054",
+      "width": 128,
+      "height": 255,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "3be55ea512eb94adbfaf7307c201cbd4457b1ba906838572296a8b458f01c31b"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 128,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "c667fb8e0e6edf4e8fc4fcc8260ebf35c00bf0f074361bc414f45ecaac57b126"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 192,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "343fca81670d0c7592b5a14edfc9cdcd1437e4b11d570db081cd218eae2c8b04"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 224,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "8f7199aedaeb81f1944df67fc85ff973627aa1e906a9184fc35f99b3c471fd5c"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 240,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "be7e008374f6ba14b9217bbb8979124686842589deb4348d83daf6eeb11aaf49"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 248,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "9f98b22cd37b2a0a8dc907f1921886ba21e4528a7204a375ef648bd32543aa3c"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 252,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "0042c5c54bcaddd88d0eaf7dc6cba26ad363b0d510bad2058c74d35f4cb5f0ac"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 254,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "9c48f4202ed2778bd8a336acdb7e742a8ed039e7fdada0c1194ad78c674e3706"
+        }
+      ],
+      "rgbaSha256": "84f999d7431cad9e841a8dcfe4d679c91633cdc7ee5b165876b939024727b4a1",
+      "key": "433b18542280cbff",
+      "url": "assets/effects/masteryi-q-contact-433b18542280cbff.png"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/common_color-rampdown.tex",
+        "wadPathHash": "dba30aea46f8d87f",
+        "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220",
+        "bytes": 2756
+      },
+      "path": ".cache/masteryi-q-cast-packed-v2/dba30aea46f8d87f.png",
+      "bytes": 702,
+      "sha256": "30df4a0ee4cd6cc8d680584586e77e764328930403fae425708a9e845c0edcc8",
+      "width": 64,
+      "height": 127,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "a68bebcceb44829831933cc46ecfd600216db342a7de11fd487ea322d32867ae"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 64,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "be029289119efe7b2b0fb7efefd5c51e0ff05f75083d12b6747c579f59613c99"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 96,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "6f79c0ea4535cba64df8ddd6d79930fe6bcc500f812a757b54167f3c746b147a"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 112,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "b2639ba82a91940a4adda2158ba57ba7cbac3da0a8aa13f95d072cac3b7c602f"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 120,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "e872cb747415d934a6d9fcf27eb574fef59b38c339e892d97016ac4f238de421"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 124,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "37a44c961c76dd94235d2550d738dfd7dbd49365ad69b2614f7a51c956447313"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 126,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "1b329170a887a6f72094dcfad111b2756f714ee42a538d8b5c14188547ecb507"
+        }
+      ],
+      "rgbaSha256": "32c4bf2d5e2dba42c4d509cb504791201a7707c907ec3443e0f2458a71f5c189",
+      "key": "dba30aea46f8d87f",
+      "url": "assets/effects/masteryi-q-contact-dba30aea46f8d87f.png"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/masteryi_base_q_cas_bubble.tex",
+        "wadPathHash": "b5d1506e0819aaa8",
+        "sha256": "66ead3a3e687c555757a20de22f39e645d4c7e00a3056ebeeb3b6778019a930a",
+        "bytes": 174788
+      },
+      "path": ".cache/masteryi-q-cast-packed-v2/b5d1506e0819aaa8.png",
+      "bytes": 121911,
+      "sha256": "7ae9e2d1edf213c61582f40803735c4e109e8ccf4a2c7ba416e7da08cd91f6dc",
+      "width": 512,
+      "height": 1023,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 512,
+          "height": 512,
+          "rgbaSha256": "6fb01ff89b2252f0ebed1ae55c17d5ba43c446f1ebb3b5fe0f4c1240fedc8a6b"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 512,
+          "width": 256,
+          "height": 256,
+          "rgbaSha256": "4fc8c1e09287ac3ae6c29047aa1917faaceb522d042a3f14d6d3708d9f53f414"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 768,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "49b9d59deb90cd8eb42cd731edd7ed4693d15fb1eac9caaaa6deac85d1d8ca3d"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 896,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "c38469227617d899a5ad87ac3c06e38e753ce571adbd48e29d9042962dc65280"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 960,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "257cd1ab8418535c5f4d06b3e251fa57b38d8efa7fa4164f6cc10e2b11f7bd3a"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 992,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "275fed8eed85e8465705ef39283bb9bd1380270b97975b1dcf1d9c8b96586333"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 1008,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "d50d959e0b51cf04c42cbcd9729ce33bf4fb3127aa0b20204fd22a5cb4acb6af"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 1016,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "adb087ad5a972bcaee221ea653791a483f067d045016e32d24670af4c7923cf3"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 1020,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "af96a2926eac70a591fdf37876c2edb39d1feb710007eaed9d02bb92f4e8bcdb"
+        },
+        {
+          "level": 9,
+          "x": 0,
+          "y": 1022,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "adf67b60b03edac6843d3cb0afdc6cb4247a0e963e45027bb9b6b178c7351b86"
+        }
+      ],
+      "rgbaSha256": "0431aab6a6659c6b5f0369afb70356a6a5f08a9b2154218809933faf12a4468d",
+      "key": "b5d1506e0819aaa8",
+      "url": "assets/effects/masteryi-q-cast-b5d1506e0819aaa8.png"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/masteryi_base_q_disappear.tex",
+        "wadPathHash": "4fecd70af75bf6ca",
+        "sha256": "c2f8b706adeeb1ced3f9a2e8aa012c72d6fc4f34afc0cfa5016002cd7d44e287",
+        "bytes": 174788
+      },
+      "path": ".cache/masteryi-q-cast-packed-v2/4fecd70af75bf6ca.png",
+      "bytes": 83749,
+      "sha256": "439bcb1e02f62228f37b903e6268fbf394f92fa14fab993efa6e825c2fb71467",
+      "width": 512,
+      "height": 1023,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 512,
+          "height": 512,
+          "rgbaSha256": "298fdb3d11cc1527d657a0c5e88a183681e09c5badf24ca69a971f20a3c12ddd"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 512,
+          "width": 256,
+          "height": 256,
+          "rgbaSha256": "e1a999c881bfc3cfa27c5d44ed9dff5ce51f931b4216f2ac32f744b5a1990c68"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 768,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "4ded58572e53a12fd45a29ec1d41c7782c761b67c80724623573ed62ee5d7eea"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 896,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "ff517c43e16edff982c046a770be32bbcf7350af99423fcd0495595db86e8105"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 960,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "adbc47a199fb6e2e6712beb8858e9f9d30b6feb05e9b55fbf52066f17b9c9418"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 992,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "0f5b8b5ed38c448bac86fcbbca73544533e01199db70933e6e8f62a7f3ee6dc3"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 1008,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "3ccb8b353f66e360fed9872ef728611e8184882b140b7d4f8fe9325c59004b65"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 1016,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "ccf552ae44b9f3113017948f77c864751a7dae2f8c2a7615348c36c321443624"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 1020,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "cac879f03f5ac06ff458cc0dbaf16101af2b1818e10b8b04830eb7eacacf89d2"
+        },
+        {
+          "level": 9,
+          "x": 0,
+          "y": 1022,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "e954ca2864cdb01683679b4ce50d29c074a713276e8d386dd8534752da4d48a6"
+        }
+      ],
+      "rgbaSha256": "7ef6afdf4385cadf1901fb42d5e5aced2a1a6cc043e8e6e46e8529d7684d8088",
+      "key": "4fecd70af75bf6ca",
+      "url": "assets/effects/masteryi-q-cast-4fecd70af75bf6ca.png"
+    }
+  ],
+  "profiles": [
+    {
+      "system": "MasterYi_Q_Cas",
+      "role": "cast",
+      "index": 0,
+      "name": "disappear",
+      "kind": "billboard",
+      "mesh": null,
+      "texture": "assets/effects/masteryi-q-cast-4fecd70af75bf6ca.png",
+      "lookup": "assets/effects/masteryi-q-contact-dba30aea46f8d87f.png",
+      "rate": {
+        "constant": [
+          24.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            24.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "single": false,
+      "emitterLife": 0.10000000149011612,
+      "emitterLinger": null,
+      "linger": 10.140000343322754,
+      "life": {
+        "constant": [
+          0.14000000059604645
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0.14000000059604645
+          ]
+        ],
+        "probabilities": []
+      },
+      "bind": {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "position": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "shape": {
+        "offset": {
+          "constant": [
+            0.0,
+            10.0,
+            0.0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0.0,
+              10.0,
+              0.0
+            ]
+          ],
+          "probabilities": []
+        }
+      },
+      "velocity": {
+        "constant": [
+          0.0,
+          150.0,
+          0.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0.0,
+            150.0,
+            0.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "worldAcceleration": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "rotation": {
+        "constant": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "times": [
+          0.0
+        ],
+        "values": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [
+              0.0,
+              1.0
+            ],
+            "values": [
+              0.0,
+              360.0
+            ],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "spin": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "size": {
+        "constant": [
+          10.0,
+          10.0,
+          10.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            10.0,
+            10.0,
+            10.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "scale": {
+        "constant": [
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          [
+            1.0,
+            20.0,
+            1.0
+          ],
+          [
+            25.0,
+            20.0,
+            25.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "uniform": false,
+      "birthColor": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "color": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "uv": {
+        "scale": {
+          "constant": [
+            1,
+            1
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              1,
+              1
+            ]
+          ],
+          "probabilities": []
+        },
+        "offset": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "birthScroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "scroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "clamp": false,
+        "address": 0,
+        "divisions": [
+          2.0,
+          2.0
+        ],
+        "frames": 4,
+        "randomStart": true,
+        "startFrame": 0,
+        "frameRate": 10.0
+      },
+      "uvMode": 0,
+      "multiplier": null,
+      "lookupTypes": [
+        1,
+        0
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ],
+      "local": true,
+      "particleLocal": false,
+      "directionOriented": false,
+      "directionVelocityScale": 0,
+      "ground": false,
+      "navmesh": false,
+      "blend": 0,
+      "renderOrder": 0,
+      "miscRenderFlags": 0,
+      "meshRenderFlags": 0,
+      "noCull": false,
+      "depthBias": [
+        0,
+        0
+      ],
+      "alphaRef": 0.0196078431372549,
+      "erosion": null,
+      "distortion": null,
+      "soft": null,
+      "palette": null,
+      "explicitFields": [
+        "SpawnShape",
+        "__type",
+        "bindWeight",
+        "birthRotation0",
+        "birthScale0",
+        "birthVelocity",
+        "emitterName",
+        "isRandomStartFrame",
+        "lifetime",
+        "numFrames",
+        "particleColorTexture",
+        "particleLifetime",
+        "particleLinger",
+        "rate",
+        "scale0",
+        "texDiv",
+        "texture",
+        "{9b111ae4}"
+      ]
+    },
+    {
+      "system": "MasterYi_Q_Cas",
+      "role": "cast",
+      "index": 1,
+      "name": "bubble1",
+      "kind": "billboard",
+      "mesh": null,
+      "texture": "assets/effects/masteryi-q-cast-b5d1506e0819aaa8.png",
+      "lookup": "assets/effects/masteryi-q-contact-433b18542280cbff.png",
+      "rate": {
+        "constant": [
+          4.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            4.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "single": true,
+      "emitterLife": 1.0,
+      "emitterLinger": null,
+      "linger": 10.0,
+      "life": {
+        "constant": [
+          0.15000000596046448
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0.15000000596046448
+          ]
+        ],
+        "probabilities": []
+      },
+      "bind": {
+        "constant": [
+          1.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "position": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "shape": {
+        "offset": {
+          "constant": [
+            0.0,
+            140.0,
+            0.0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0.0,
+              140.0,
+              0.0
+            ]
+          ],
+          "probabilities": []
+        }
+      },
+      "velocity": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "worldAcceleration": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "rotation": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": []
+      },
+      "spin": {
+        "constant": [
+          120.0,
+          0.0,
+          0.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            120.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "size": {
+        "constant": [
+          20.0,
+          20.0,
+          20.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            20.0,
+            20.0,
+            20.0
+          ]
+        ],
+        "probabilities": []
+      },
+      "scale": {
+        "constant": [
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0.0,
+          1.0
+        ],
+        "values": [
+          [
+            2.0,
+            2.0,
+            2.0
+          ],
+          [
+            11.0,
+            11.0,
+            11.0
+          ]
+        ],
+        "probabilities": [
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          },
+          {
+            "times": [],
+            "values": [],
+            "single": 1
+          }
+        ]
+      },
+      "uniform": true,
+      "birthColor": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "color": {
+        "constant": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "probabilities": []
+      },
+      "uv": {
+        "scale": {
+          "constant": [
+            1,
+            1
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              1,
+              1
+            ]
+          ],
+          "probabilities": []
+        },
+        "offset": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "birthScroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "scroll": {
+          "constant": [
+            0,
+            0
+          ],
+          "times": [
+            0
+          ],
+          "values": [
+            [
+              0,
+              0
+            ]
+          ],
+          "probabilities": []
+        },
+        "clamp": false,
+        "address": 0,
+        "divisions": [
+          1,
+          1
+        ],
+        "frames": 1,
+        "randomStart": false,
+        "startFrame": 0,
+        "frameRate": 0
+      },
+      "uvMode": 0,
+      "multiplier": null,
+      "lookupTypes": [
+        1,
+        0
+      ],
+      "lookupScales": [
+        1,
+        1
+      ],
+      "lookupOffsets": [
+        0,
+        0
+      ],
+      "local": true,
+      "particleLocal": false,
+      "directionOriented": false,
+      "directionVelocityScale": 0,
+      "ground": false,
+      "navmesh": false,
+      "blend": 0,
+      "renderOrder": 0,
+      "miscRenderFlags": 0,
+      "meshRenderFlags": 0,
+      "noCull": false,
+      "depthBias": [
+        0,
+        0
+      ],
+      "alphaRef": 0.0196078431372549,
+      "erosion": null,
+      "distortion": null,
+      "soft": null,
+      "palette": null,
+      "explicitFields": [
+        "SpawnShape",
+        "__type",
+        "bindWeight",
+        "birthRotationalVelocity0",
+        "birthScale0",
+        "emitterName",
+        "isSingleParticle",
+        "isUniformScale",
+        "lifetime",
+        "meshRenderFlags",
+        "particleColorTexture",
+        "particleLifetime",
+        "particleLinger",
+        "rate",
+        "scale0",
+        "texture"
+      ]
+    }
+  ]
+}

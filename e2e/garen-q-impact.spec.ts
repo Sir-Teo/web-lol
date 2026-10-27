@@ -35,6 +35,8 @@ async function poses(page: Page) {
         ray: m.userData.ownedGeometry
           ? Array.from(m.geometry.getAttribute('position').array)
           : null,
+        packetColor: Array.from(m.geometry.getAttribute('_source_vertex_bgra')?.array ?? []),
+        packetNormalized: m.geometry.getAttribute('_source_vertex_bgra')?.normalized ?? null,
         attachment: m.userData.attachment,
       }));
   });
@@ -82,6 +84,10 @@ test('all seven real Q contact layers reload exactly, survive later movement/dea
   expect(flash.position[1]).toBeCloseTo(contact.ground + 0.1);
   expect(flash.position[2]).toBeCloseTo(point.y * 0.01 + 0.2 * Math.cos(facing));
   const ray = first.find((m) => m.index === 3)!;
+  expect(ray.packetColor).toHaveLength(24);
+  expect(ray.packetNormalized).toBe(true);
+  expect(ray.packetColor.some((v) => v !== 0)).toBe(true);
+  expect(ray.color).toEqual([1, 1, 1, 1]);
   expect(ray.position[0]).toBeCloseTo(point.x * 0.01 - 0.84 * Math.sin(facing));
   expect(ray.position[1]).toBeCloseTo(contact.ground);
   expect(ray.position[2]).toBeCloseTo(point.y * 0.01 - 0.84 * Math.cos(facing));

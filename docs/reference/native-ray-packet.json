@@ -1,0 +1,340 @@
+{
+  "format": 1,
+  "native": {
+    "path": ".cache/leona-native-matching-v1-20261024/native/LeagueofLegends.app/Contents/MacOS/LeagueofLegends",
+    "bytes": 82268192,
+    "sha256": "97edcf2c88fec3169a1ec36345276569de3329e27fd9b32c8162957a77135c6c",
+    "architecture": {
+      "architecture": "arm64",
+      "cpuType": 16777228,
+      "cpuSubtype": 0,
+      "offset": 42663936,
+      "bytes": 39604256,
+      "alignPower": 14,
+      "magic": "FEEDFACF",
+      "fileType": 2,
+      "loadCommands": 45,
+      "loadCommandBytes": 5920,
+      "flags": 10518661,
+      "reserved": 0,
+      "sha256": "18c6f615d1963d7062f4133fab351dc4550ce460e869c76f5c8604627f349885"
+    }
+  },
+  "constructorWitness": {
+    "path": "docs/reference/native-constructor-witness.json",
+    "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+  },
+  "functionSpans": [
+    {
+      "name": "rayTypeRegistration",
+      "start": "0x1018d904c",
+      "next": "0x1018d9178",
+      "bytes": 300,
+      "sha256": "e4e321ff50bed3493b2a8bc8bb2e8627be587b10e61abf462a5c2dd9efcf3f70",
+      "hex": "ff0301d1f65701a9f44f02a9fd7b03a9fdc30091f30300aaff13007908018052e80300f902e130101f2003d563e230101f2003d5c4e230101f2003d585e330101f2003d5a6e330101f2003d5019a9a526129b472070380527415f7971f0000f9c868009008010491081c00f915244e29a8060011297940923f01086be20200542905498b3f0108eb3681889ac0ee7cd39ee8f697f40300aa697240b909010034683640f90911098bea0314aa0005c13c4005813c1f0109eba3ffff54687640b96800f837603640f9a8e8f697743600f9755a0e2902000014743640f98812158ba96800f029a12c91090100f909028052090900b9687240b908050011687200b9e00313aafd7b43a9f44f42a9f65741a9ff030191c0035fd6f40300aae00313aaff15f797e00314aac3991c94"
+    },
+    {
+      "name": "rayAllocatingConstructor",
+      "start": "0x10193ac90",
+      "next": "0x10193acc4",
+      "bytes": 52,
+      "sha256": "e6f35d5719c0453c733dac1809832c2025033b0d348f14ac3acc309ce9822cda",
+      "hex": "fd7bbfa9fd030091000380520d62f5974800805208200039485a009008a10891080000f908810591080800f9fd7bc1a8c0035fd6"
+    },
+    {
+      "name": "rayInPlaceConstructor",
+      "start": "0x10193acd8",
+      "next": "0x10193acf8",
+      "bytes": 32,
+      "sha256": "7c0075fa786829c58cd2f78911d30bbfb98ecd2a2d5c485a0206ebae93a9e1d1",
+      "hex": "4800805208200039485a009008a10891080000f908810591080800f9c0035fd6"
+    },
+    {
+      "name": "rayVertexBuilder",
+      "start": "0x1018d9178",
+      "next": "0x1018d9908",
+      "bytes": 1936,
+      "sha256": "544ab015a34e00347ea83290bc152713585cdba5d081a5e725a4c7fdd550d0c1",
+      "hex": "ffc306d1ef3b116ded33126deb2b136de923146dfc6f15a9fa6716a9f85f17a9f65718a9f44f19a9fd7b1aa9fd830691f30301aa35d841a9a85e40a9e82700f9a85240f914214079e80a40f9007140fde02300fd01015d2de007072dc86100d00861209108c1bf38c8370036e80a40f9003943bd0820201ef70f00f9e0000054092143393f010071e9179f1ae93700b994000035a7010014ff3700b9b4340034690a40f93b014079e90f40f9292940f9e91700f9085140399c06009109038052897ea99b376100d189058052897ea99b395100d1891580529a7ea99b08011f32e82700b9884100d0007d46fde00b00fd884100f000e141fde00700fd11102e1eb60000140be0bf522801082a49010b2a0801092a880e00b9882a00b9884600b9886200b98939211ec20e402d4238201e04040c5e6338241ec40a40bd8138211e2489231e85d6a00ee517803da0040c5e2410a55fa188211e2105021fa4072b2d0088221e6010855fa00316bca0a302d1998cf697e017c03da08314fca90315bca0e302d1948cf697a00355bce51b43ada108201e8129211ec008201e0028211ea20356bce723c03de208221e03102c1e4208231e0338221ea48354fc8590850ff037c03d05d6250e8490860f84d4250ea68355fcc690870fe767010fc6dc272e87d4a60e870200fd830a00bd0028221e83d4260e83c201fc802600bd2028221ea3d4260e831e00fd804200bd2038221ea1d4a60e814205fc805e00bd07e4002fc0dd272e01d5200ee0cc280e00d42d0e10e4002f4209301ee309101ff34b45ad432a231ef1cf40bd240a301e6511101f46060c5ec528251ef427c03d8006146e60061c6e0068210e800a00fd60c0231e8032007da0c0231e8036007d20d42d0e41282f1e412a211e82282b1ec228221e8006146e60061c6e0068210e80c202fc20c0231e806a007d40c0231e806e007d00d52e0e00d42d0e41292f1e412a211e222a2b1ec228221e8006146e60061c6e0068210e802600fd20c0231e80a2007d40c0231e80a6007deecc280ec0d52d0ee129101f412a211e6245101fc228221e8006146e60061c6e0068210e804206fc20c0231e80da007d40c0231e80de007d88c20191680600f9680a40f9090940b929090011090900b9680a40f9090d40b929110011090d00b9680240f909090091690200f91b010079683f0012690700116a0240f94b0900916b0200f949010079690b00116a0240f94b0900916b0200f9490100796a0240f94b0900916b0200f95b0100796a0240f94b0900916b0200f949010079690f00116a0240f94b0900911b1100119c0700d16b0200f949010079f76200d139b300d15ab302d19f0700f111102e1ee91a0054a85240f9a90640f92a7143390a0100340a3d40f94c01178b29754339e9000034094540f92b01178b050000140c0080d22975433969ffff350b0080d2094d40f92a01198b40c15efc41897e2de32340fd72dc202ee03f40bd0908211ee03b40bd1308221eed2740b9bf090071810000545292930f2909331e13102e1e8c0100b4955d406d800940fda11640fdec1740f98c0100b48b0200b46f2d402d6a09412de2cf00bd620940fd1500001400e4002ff5df406da11640fdec1740f9ccfeffb52b01198b620540fde22f803d02e4002fe2cf00bd0ae4002f0be4002f0fe4002f0900001402e4002f0ae4002f03102e1ee3cf00bd0be4002f0f102e1e22d4220ee22f803d2b01198b63815ebc421140bd181d40f908031a8b14415dfc0cc15dbcca6100d01f2003d5580944fd0dd4210eea3740b9e38b04adf437803d8a060034147101d1c006402d803a201e82060c5e4138211ec20a40bd8239221ee80f40f9080940f9033943bd0008231e2808231e4108231ea10316bca0e302d1f323803def7300bd6f41201eea5300bdaa42601e8e41201eec42601ef21b803d0b43601e369c1c94a08315bca0e302d10041201e329c1c94a0c315bca1a302d1e00314aa888ef6977841601ef21bc03d9741601ecc41201e5541601eea5340bdeb41201eef7340bdf437c03df323c03d11102e1ea1d5a20e02040c6ea0d5220e01240c6ea85240f9094d40f92d40601e08031a8b00415cfc01c15cbc740640f92801198b028d7f2d040540bde82740f9054941bd4022311e064d41bdaa0100544822201e49030054e86fa8520701271e10102c1e4742071fe800391e083d105347060c5ee020311ecb00005414000014e81fa05247060c5ee020311e0a020054e820201e29030054e96fa8523001271e12102c1ee748101fe900391e295d18532021311e2b010054130000140800805247060c5ee020311e4bfeff5409e09f522021311e8a0100542821201e89010054ea6fa8524701271e10102c1e2741071fea00391e07000014090080522021311ecbfeff54ea1f8052020000140a008052a8de382eeede382e80d6a00e8139211ea508261e4208251e6308251e8408251e6022311ee38b03ade41b803d2ad0ff546822201e09010054eb6fa8526201271e03102c1e620e021f4b00391e6b1d085379feff170b00805277feff17fd7b5aa9f44f59a9f65758a9f85f57a9fa6756a9fc6f55a9e923546deb2b536ded33526def3b516dffc30691c0035fd6c06100d00060209198991c9400c8ff34c86100d01f2003d500f6030f000904fdc06100d00060209193991c9438feff17"
+    },
+    {
+      "name": "primitiveVirtualDispatch",
+      "start": "0x1018decbc",
+      "next": "0x1018def30",
+      "bytes": 628,
+      "sha256": "1f9413be802ab97b14fbc46ea8009d8fa0f8d3d83614e180613bf1ca77ee3a0e",
+      "hex": "ff0302d1fa6703a9f85f04a9f65705a9f44f06a9fd7b07a9fdc30191f60300aa080040f9150540f9a90a40f9203140f90a2040395f4500712b0080526a21ca1a0b1181526b00a0724a010b0a4499407a00010054fd7b47a9f44f46a9f65745a9f85f44a9fa6743a9ff030291c0035fd6f40303aaf70302aaf30301aa293540f9890300b4098d40f9890300b4e90300f928710191290080520801e9b8e00340f9400500b4184440f9180200b4080340f9080940f9e00318aa00013fd6f90300aaf1f90194e20300aae00319aae10318aa4d00f797e80300aae00340f91f0100f1f8079f1a400300b411da0194180000141800805218000014080140f9181540f900b740f9600100b4080040f9083940f900013fd6e000003400b740f9080040f9087540f900013fd6e10300aa02000014010080d2e8030091e00315aaa3cffe97e00340f900fbffb518008052a80a40f9003140f9080040f9084140f900013fd6fa0300aaa80a40f9003140f9080040f9084540f900013fd6c82640a9294d378b376941f9d70300b4f90300aa085140f908214079027d1a1be00317aae10318aae30314aa34000094c80240f9e9024039e9020034e91e40f9c90200b40a5140f94a2140794a7d191beb4240b9ec0a40b96d010a0bbf010c6bc203005429050b8b8b0600b9e84240b908010a0be84200b9c80240f9000100b597ffff17090080d2000080d2800000b593ffff17090080d220f2ffb409f2ffb40a5140f94a214079aaf1ff34e90300a9f42301a9f31300f9f8a30039a80a40f9003140f9080040f9081540f9e103009100013fd682ffff17090080d200feffb57fffff17a0bf9c97f30300aae00300911f9da497e00313aa55821c94"
+    },
+    {
+      "name": "fastColorPacker",
+      "start": "0x10167faf0",
+      "next": "0x10167fb50",
+      "bytes": 96,
+      "sha256": "b5fcbb8d9642f1a100574a9f8d8e8b7c92221731cda08afa387cda18662dfb16",
+      "hex": "e86fa852000d040e0101271e2308412d4208211e4800391e220040fd40dc202e00b8a12ee95400b022b945fd0044a22e82e4012f001c220e093c0c0e0a00261e6008211e0b00391e4861082a6a1d001208010a2a0801092a080000b9c0035fd6"
+    },
+    {
+      "name": "float4RegistrationWrapper",
+      "start": "0x10034f3fc",
+      "next": "0x10034f438",
+      "bytes": 60,
+      "sha256": "2bd4f87894a99db64cd1d2f48ca3d792e3d75c273171a2433ead7e2f0de77a4b",
+      "hex": "ff0301d1fd7b03a9fdc30091ff7f00a9ff9301a9e30b00f9a301805204008052050080d2060080d2070080d2f03d4d94fd7b43a9ff030191c0035fd6"
+    }
+  ],
+  "selectedInstructions": [
+    {
+      "address": "0x10193aca4",
+      "word": "39002008",
+      "reading": "Allocating constructor STRB kind at +8"
+    },
+    {
+      "address": "0x10193acdc",
+      "word": "39002008",
+      "reading": "In-place constructor STRB kind at +8"
+    },
+    {
+      "address": "0x1018deef0",
+      "word": "f9400aa8",
+      "reading": "Dispatch loads emitter definition at +0x10"
+    },
+    {
+      "address": "0x1018deef4",
+      "word": "f9403100",
+      "reading": "Dispatch loads definition primitive at +0x60"
+    },
+    {
+      "address": "0x1018deef8",
+      "word": "f9400008",
+      "reading": "Dispatch loads primitive vptr"
+    },
+    {
+      "address": "0x1018deefc",
+      "word": "f9401508",
+      "reading": "Dispatch loads virtual slot +0x28"
+    },
+    {
+      "address": "0x1018def00",
+      "word": "910003e1",
+      "reading": "Dispatch passes stack render context as X1"
+    },
+    {
+      "address": "0x1018def04",
+      "word": "d63f0100",
+      "reading": "Dispatch BLR X8"
+    },
+    {
+      "address": "0x1018d91c4",
+      "word": "fd407100",
+      "reading": "Load definition modulation RG at +0xe0"
+    },
+    {
+      "address": "0x1018d922c",
+      "word": "39405108",
+      "reading": "Load definition blendMode byte at +0x14"
+    },
+    {
+      "address": "0x1018d9234",
+      "word": "52800309",
+      "reading": "24-byte optional per-particle UV record stride"
+    },
+    {
+      "address": "0x1018d9240",
+      "word": "52800589",
+      "reading": "44-byte per-particle draw record stride"
+    },
+    {
+      "address": "0x1018d924c",
+      "word": "52801589",
+      "reading": "172-byte particle transform record stride"
+    },
+    {
+      "address": "0x1018d9254",
+      "word": "321f0108",
+      "reading": "ORR definition mode byte, 2"
+    },
+    {
+      "address": "0x1018d95b8",
+      "word": "710009bf",
+      "reading": "CMP combined mode, 2"
+    },
+    {
+      "address": "0x1018d95c0",
+      "word": "0f939252",
+      "reading": "Conditional multiply RG by alpha"
+    },
+    {
+      "address": "0x1018d95c4",
+      "word": "1e330929",
+      "reading": "Conditional multiply B by alpha"
+    },
+    {
+      "address": "0x1018d95c8",
+      "word": "1e2e1013",
+      "reading": "Conditional alpha set to 1"
+    },
+    {
+      "address": "0x1018d93dc",
+      "word": "0e216800",
+      "reading": "Vertex 0 UV0 float4 to half4"
+    },
+    {
+      "address": "0x1018d93e0",
+      "word": "fd000a80",
+      "reading": "Vertex 0 half4 at +16"
+    },
+    {
+      "address": "0x1018d93e4",
+      "word": "1e23c060",
+      "reading": "Vertex 0 lookup U float32 to half"
+    },
+    {
+      "address": "0x1018d93e8",
+      "word": "7d003280",
+      "reading": "Vertex 0 lookup U at +24"
+    },
+    {
+      "address": "0x1018d93ec",
+      "word": "1e23c0a0",
+      "reading": "Vertex 0 lookup V float32 to half"
+    },
+    {
+      "address": "0x1018d93f0",
+      "word": "7d003680",
+      "reading": "Vertex 0 lookup V at +26"
+    },
+    {
+      "address": "0x1018d9410",
+      "word": "0e216800",
+      "reading": "Vertex 1 UV0 float4 to half4"
+    },
+    {
+      "address": "0x1018d9448",
+      "word": "0e216800",
+      "reading": "Vertex 2 UV0 float4 to half4"
+    },
+    {
+      "address": "0x1018d9480",
+      "word": "0e216800",
+      "reading": "Vertex 3 UV0 float4 to half4"
+    },
+    {
+      "address": "0x1018d9498",
+      "word": "9101c288",
+      "reading": "Advance vertex cursor by four 28-byte vertices"
+    },
+    {
+      "address": "0x1018d94a8",
+      "word": "11000929",
+      "reading": "Increment triangle count by 2"
+    },
+    {
+      "address": "0x1018d94b8",
+      "word": "11001129",
+      "reading": "Increment vertex count by 4"
+    },
+    {
+      "address": "0x1018d97a0",
+      "word": "1f074247",
+      "reading": "Ray R: float32 FMA(value,255,0.5) before truncation"
+    },
+    {
+      "address": "0x1018d97a4",
+      "word": "1e3900e8",
+      "reading": "Ray R: unsigned integer conversion"
+    },
+    {
+      "address": "0x1018d97e0",
+      "word": "1f1048e7",
+      "reading": "Ray G: float32 FMA(value,255,0.5)"
+    },
+    {
+      "address": "0x1018d9828",
+      "word": "1f074127",
+      "reading": "Ray B: float32 FMA(value,255,0.5)"
+    },
+    {
+      "address": "0x1018d9890",
+      "word": "1f020e62",
+      "reading": "Ray A: float32 FMA(value,255,0.5)"
+    },
+    {
+      "address": "0x10167fb00",
+      "word": "1e210842",
+      "reading": "Fast packer: alpha times 255"
+    },
+    {
+      "address": "0x10167fb04",
+      "word": "1e390048",
+      "reading": "Fast packer: truncate alpha without +0.5"
+    },
+    {
+      "address": "0x10167fb10",
+      "word": "2ea1b800",
+      "reading": "Fast packer: truncate RG without +0.5"
+    },
+    {
+      "address": "0x1018ac934",
+      "word": "4f03f600",
+      "reading": "Emitter constructor modulation vector = ones"
+    },
+    {
+      "address": "0x1018ac938",
+      "word": "ad068261",
+      "reading": "Store Q1,Q0 at definition +0xd0; Q0 at +0xe0"
+    }
+  ],
+  "rayType": {
+    "candidate": "VfxPrimitiveRay",
+    "hash": "a14bd4d0",
+    "objectBytes": 24,
+    "kindOffset": 8,
+    "kind": 2,
+    "vptr": "0x102482228",
+    "virtualSlotOffset": 40,
+    "virtualSlotAddress": "0x102482250",
+    "virtualMethod": "0x1018d9178",
+    "slotBytes": "78918d0101000000"
+  },
+  "fieldRegistrations": [
+    {
+      "candidate": "blendMode",
+      "hash": "fa784eab",
+      "address": "0x1018ab5e4",
+      "definitionOffset": 20,
+      "wrapper": "0x1018ac350"
+    },
+    {
+      "candidate": "modulationFactor",
+      "hash": "6592b854",
+      "address": "0x1018ab76c",
+      "definitionOffset": 224,
+      "wrapper": "0x10034f3fc"
+    }
+  ],
+  "modulationConstructorDefault": [
+    1,
+    1,
+    1,
+    1
+  ],
+  "reading": {
+    "packet": "Four indexed vertices, two triangles; stride 28: position float3 +0, packed BGRA +12, UV0 half4 +16, UV1 half2 +24",
+    "uv0": "Per-vertex affine UV plus two supplied per-particle frame components; all four float lanes convert to half. The frame components are read from the 44-byte draw record, not recomputed here.",
+    "uv1": "Per-vertex affine coordinates when optional UV data is selected. One branch instead reads the draw-record float2 at +32 and zeros all affine coefficients, giving one half-rounded coordinate pair on all four vertices. Origins and mode producers are not established here.",
+    "color": "Definition modulationFactor at +0xe0 multiplies draw-record RGBA. If (blendMode | 2) == 2, multiply RGB by A and set A=1. For finite components, clamp at 0/1; inside that range convert float32 fma(component,255,0.5) to uint32. Pack BGRA bytes.",
+    "fastColorPacker": "Separate fast quad helper multiplies by 255 and truncates; it has no +0.5 operation. Do not apply either color packer globally.",
+    "sizes": "The builder consumes three scaled components of the 44-byte draw record and two positions from a 172-byte transform record. Their producer-side mapping to authored size/orientation is not attested."
+  },
+  "nativeExecuted": false,
+  "nativeShaderExecuted": false,
+  "historicalLlvmTextReplaced": false,
+  "limits": [
+    "Exact bounded static native bytes, not native execution, actual Yi dispatch, live shader selection or visual parity.",
+    "Type and field names are FNV/layout candidates; hashes neither exclude collisions nor authenticate native literal names.",
+    "Ray registration, both constructors, the virtual slot and a definition-primitive dispatch site identify this builder. The native producers of its context, transforms, clocks, color, UV modes, frames and 44-byte draw records remain unresolved.",
+    "Float32 arithmetic and half conversion retain the native floating-point environment. Nearest-even half examples would be conditional on FPCR; no live FPCR is measured.",
+    "Ray colors and the separate fast quad packer have different rounding/clamping paths. No application color or ray behavior is changed by this witness.",
+    "Missing historical LLVM archives remain missing; the inline bytes and static exploration are additional evidence only."
+  ]
+}

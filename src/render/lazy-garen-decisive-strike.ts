@@ -7,6 +7,8 @@ import type { OverheadLabelReader } from './billboard-label-clearance';
 
 /** Keep Garen-only profiles/materials out of ordinary Ashe/Lux entry loading. */
 export class LazyGarenDecisiveStrike {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: GarenDecisiveStrike;
   private pending?: Promise<void>;
   private retryAfter = 0;
@@ -24,6 +26,7 @@ export class LazyGarenDecisiveStrike {
       const module = await import('./garen-decisive-strike');
       await module.loadGarenDecisiveStrike();
       this.renderer = new module.GarenDecisiveStrike(this.scene, this.ground, this.labels);
+      this.onReady?.();
     })().catch((error) => {
       this.pending = undefined;
       throw error;

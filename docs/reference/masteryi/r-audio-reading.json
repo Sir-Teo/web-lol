@@ -1,0 +1,42 @@
+{
+  "sourceGraphSha256": "b7879c088d3544626d70c9ecaf4abfd0aebae007db5a6ee841c0caed7a2b33e3",
+  "decodedRecordSha256": "28ac362788bb76709a226e76d282eb25a1805a474b9bc7348cedd59bbee33a32",
+  "bindings": [
+    {
+      "kind": "activate",
+      "slot": "18",
+      "rawSuffix": "Play_sfx_MasterYi_Highlander_OnBuffActivate\n",
+      "eventName": "Play_sfx_MasterYi_Highlander_OnBuffActivate",
+      "resolution": "declared",
+      "ancestorIds": [
+        9116,
+        9114,
+        1056413114
+      ]
+    },
+    {
+      "kind": "deactivate",
+      "slot": "19",
+      "rawSuffix": "Play_sfx_MasterYi_Highlander_OnBuffDeactivate\n",
+      "eventName": "Play_sfx_MasterYi_Highlander_OnBuffDeactivate",
+      "resolution": "declared",
+      "ancestorIds": [
+        9117,
+        9114,
+        1056413114
+      ]
+    }
+  ],
+  "media": 2,
+  "wavBytes": 852024,
+  "tails": {
+    "activate": 181,
+    "deactivate": 110
+  },
+  "attenuationId": 339248780,
+  "unresolvedOutputBusId": 1259461568,
+  "limits": [
+    "Activation dispatch at accepted local R and deactivation only at natural buff expiry. Death/recast/match end retain finite activation tails without inventing a deactivation.",
+    "No Highlander trail dispatch or native bus/listening/lifecycle calibration."
+  ]
+}

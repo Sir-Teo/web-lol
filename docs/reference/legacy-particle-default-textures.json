@@ -1,0 +1,369 @@
+{
+  "format": 1,
+  "inputs": [
+    {
+      "path": "docs/reference/gromp-effects.json",
+      "sha256": "3cb54cd774fbfd66cc52846bb8775d17ab0adb473a570600e274e5f2ae0a1033"
+    },
+    {
+      "path": "docs/reference/native-legacy-primitive-types.json",
+      "sha256": "2e56236915d08ec883f89de2848a0571dc2085081b837d75e5a412ef8cdfda61"
+    }
+  ],
+  "manifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "archive": "DATA/FINAL/DATA.wad.client",
+  "chunks": {
+    "A5ACB224D573EBBF": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/D453DEAE4D67E120.bundle",
+      "offset": 6111311,
+      "bytes": 97328,
+      "sha256": "22d0aa31b0ed668654e659b4f9e3c1bdaaa17047d724b54693afcd00658418bb"
+    },
+    "E47A4E055277648C": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/D453DEAE4D67E120.bundle",
+      "offset": 6208639,
+      "bytes": 13663,
+      "sha256": "1093301d4369e5d3a51cca50c5417a8accb2ebf932a85d7b1abf48c9431a07f1"
+    },
+    "5BB8A230CF7FA716": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/196B617AE6DE84C2.bundle",
+      "offset": 1653227,
+      "bytes": 68,
+      "sha256": "6b838d5e0147232c25bfbbb4ad4b0f4bdffc78ed7a437e60be73adb7a1c761ca"
+    },
+    "DB536396C2D43D58": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6859BDE6E142DF38.bundle",
+      "offset": 9837393,
+      "bytes": 453,
+      "sha256": "c744931f8a602fa1b7fffee95dbcf262fbf614b2f40e3f3b7ce0a044574903a4"
+    }
+  },
+  "newObservedChunk": {
+    "id": "DB536396C2D43D58",
+    "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6859BDE6E142DF38.bundle",
+    "offset": 9837393,
+    "bytes": 453,
+    "sha256": "c744931f8a602fa1b7fffee95dbcf262fbf614b2f40e3f3b7ce0a044574903a4",
+    "decodedBytes": 443
+  },
+  "resources": [
+    {
+      "path": "data/particles/defaultcoloroverlifetime.dds",
+      "wadPathHash": "0577843c62637de9",
+      "offset": 31602268,
+      "compressedBytes": 59,
+      "compressedXxh3": "839a6059c32200ab",
+      "compressedSha256": "61bcae6bb7d1851619235c92ce5de076728c3e1f512e71ffed0a4ed64b776457",
+      "bytes": 136,
+      "sha256": "3860afa00c25245d4a8dd0893089b7ba67d2bb16b8ca83cb96103617932abdef",
+      "ddsHex": "444453207c00000007100a000400000004000000080000000100000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000040000004458543100000000000000000000000000000000000000000010000000000000000000000000000000000000ffffffff00000000",
+      "fourCC": "DXT1",
+      "mips": [
+        {
+          "level": 0,
+          "width": 4,
+          "height": 4,
+          "offset": 128,
+          "compressedBytes": 8,
+          "rgbaSha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+          "extrema": [
+            [
+              255,
+              255
+            ],
+            [
+              255,
+              255
+            ],
+            [
+              255,
+              255
+            ],
+            [
+              255,
+              255
+            ]
+          ],
+          "nonwhiteTexels": 0
+        }
+      ]
+    },
+    {
+      "path": "data/particles/defaultfalloff.dds",
+      "wadPathHash": "f2e73725e7ded94d",
+      "offset": 22444453,
+      "compressedBytes": 443,
+      "compressedXxh3": "5a80717a96c578ae",
+      "compressedSha256": "42d119f75a68580a8906c0cfabde4bf669d9e0003257d90927114298ab701f70",
+      "bytes": 2192,
+      "sha256": "5a3513bdd4b8d5499d7533eab7a052aede226993e6722add45c854fee51bcec2",
+      "ddsHex": "444453207c00000007100a000100000000010000000400000000000009000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000050000004458543500000000000000000000000000000000000000000810400000000000000000000000000000000000feff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff4902000000000000ffff55fffffffeff490200000000ffffb294a0fffffffeff490200000000fce6dad6fffffffffeff490200000000718cdbdea5fffffffeff49020000000096b5b6b5aafffffffeff490200000000cf7bae73aafffffffeff49020000000054a5a318fefffffffeff4902000000004d6b00005afffffffeff4902000000000000010000ffffffae80480200000000b7cf2e5afeffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000001084ef7baaffffff80810000000000009294eb5afeffffff80810000000000006d6ba739a8ffffff8081000000000000494a24217affffff80810000000000004d6b000057ffffffc07a010000000000bbd5094257ffffffc0c10000000000002c630842a5ffffffc0c100000000000079ce0000afffffffc0c1000000000000bad6694aa5ffffffc0c100000000000075ad04210fffffffc0c100000000000034a504210fffffffc0c1000000000000494ab29450ffffffc0c1000000000000ef7b45290fffffffc0c1000000000000cf7b0842a5ffffffc0c100000000000008426d6ba0ffffffc0c1000000000000cb5aa631afffffffc0c1000000000000494ae739afffffffc0c100000000000008422842a0ffffffc0c1000000000000e839284aaaffffffc0c1000000000000e739663178ffffffc0c10000000000000421000078ffffff76506f05000000004f74052118ffffff93610c06000000000829ce7b68ffffff8e89070100000000dbdecb5addffffff97571a0e000000008e73e73963ffffff7f60090200000000a6312421e1ffffff606100000000000045290421d9ffffff60b05b01000000000a616409cfffffff7f604102000000004521000072ffffffc55c9100000000004b5b05211cffffffbdc6490100000000af73695262ffffffb7b0410200000000c739a21078ffffffc0b0400300000000e418210868ffffff7660ca0300000000c5320829f4ffffff60580e0c00000000c31841087cffffff672e600400000000453243109cffffff5c230800000000004f466310f7ffffff5152000000000000671a6922feffffff",
+      "fourCC": "DXT5",
+      "mips": [
+        {
+          "level": 0,
+          "width": 256,
+          "height": 1,
+          "offset": 128,
+          "compressedBytes": 1024,
+          "rgbaSha256": "915e7f28e797470fe4fd0be947d755f281ae5f02c9bf7aad86834235663d2bf3",
+          "extrema": [
+            [
+              0,
+              255
+            ],
+            [
+              0,
+              255
+            ],
+            [
+              0,
+              255
+            ],
+            [
+              255,
+              255
+            ]
+          ],
+          "nonwhiteTexels": 30
+        },
+        {
+          "level": 1,
+          "width": 128,
+          "height": 1,
+          "offset": 1152,
+          "compressedBytes": 512,
+          "rgbaSha256": "2bab80038c450d7b3e8385493a7eeb4cbe66b4949054019001f0f184dbcc54bb",
+          "extrema": [
+            [
+              0,
+              167
+            ],
+            [
+              0,
+              187
+            ],
+            [
+              0,
+              164
+            ],
+            [
+              128,
+              174
+            ]
+          ],
+          "nonwhiteTexels": 128
+        },
+        {
+          "level": 2,
+          "width": 64,
+          "height": 1,
+          "offset": 1664,
+          "compressedBytes": 256,
+          "rgbaSha256": "c4701ae4932725927acd6ef13cefc527d8400e837bfc14d573a5877986af5823",
+          "extrema": [
+            [
+              0,
+              173
+            ],
+            [
+              0,
+              174
+            ],
+            [
+              0,
+              173
+            ],
+            [
+              122,
+              192
+            ]
+          ],
+          "nonwhiteTexels": 64
+        },
+        {
+          "level": 3,
+          "width": 32,
+          "height": 1,
+          "offset": 1920,
+          "compressedBytes": 128,
+          "rgbaSha256": "27b9e280403c4346640e2daf94f90eccf134afe573e7ecb7702dc48a2293e38b",
+          "extrema": [
+            [
+              0,
+              134
+            ],
+            [
+              0,
+              138
+            ],
+            [
+              0,
+              134
+            ],
+            [
+              85,
+              160
+            ]
+          ],
+          "nonwhiteTexels": 32
+        },
+        {
+          "level": 4,
+          "width": 16,
+          "height": 1,
+          "offset": 2048,
+          "compressedBytes": 64,
+          "rgbaSha256": "7f3f98b4c874c68d3f9f8edcd0b9a22b505b7c00de1ea187145f78985ce0ac69",
+          "extrema": [
+            [
+              8,
+              115
+            ],
+            [
+              4,
+              117
+            ],
+            [
+              8,
+              123
+            ],
+            [
+              92,
+              198
+            ]
+          ],
+          "nonwhiteTexels": 16
+        },
+        {
+          "level": 5,
+          "width": 8,
+          "height": 1,
+          "offset": 2112,
+          "compressedBytes": 32,
+          "rgbaSha256": "1533e027ae2f2e12f5e5a0cdcdc686561fc7f3ac2bd888c9d2979b453aa29532",
+          "extrema": [
+            [
+              8,
+              49
+            ],
+            [
+              8,
+              89
+            ],
+            [
+              8,
+              66
+            ],
+            [
+              88,
+              114
+            ]
+          ],
+          "nonwhiteTexels": 8
+        },
+        {
+          "level": 6,
+          "width": 4,
+          "height": 1,
+          "offset": 2144,
+          "compressedBytes": 16,
+          "rgbaSha256": "92dfb8d68a47160a691edc17b5d11a01c2d48e8e1530da54e43f588da52f73d4",
+          "extrema": [
+            [
+              16,
+              49
+            ],
+            [
+              8,
+              73
+            ],
+            [
+              24,
+              41
+            ],
+            [
+              46,
+              103
+            ]
+          ],
+          "nonwhiteTexels": 4
+        },
+        {
+          "level": 7,
+          "width": 2,
+          "height": 1,
+          "offset": 2160,
+          "compressedBytes": 16,
+          "rgbaSha256": "52a15eae9d78ea970679013657a451274696dce7b61203e0d221cd9a472f2d00",
+          "extrema": [
+            [
+              16,
+              32
+            ],
+            [
+              12,
+              75
+            ],
+            [
+              24,
+              57
+            ],
+            [
+              35,
+              92
+            ]
+          ],
+          "nonwhiteTexels": 2
+        },
+        {
+          "level": 8,
+          "width": 1,
+          "height": 1,
+          "offset": 2176,
+          "compressedBytes": 16,
+          "rgbaSha256": "4ccf130fadd8fea929a13854264f91f9592ab7fdaace6c0a88f18b291e74c843",
+          "extrema": [
+            [
+              27,
+              27
+            ],
+            [
+              77,
+              77
+            ],
+            [
+              62,
+              62
+            ],
+            [
+              81,
+              81
+            ]
+          ],
+          "nonwhiteTexels": 1
+        }
+      ]
+    }
+  ],
+  "decoder": {
+    "independent": "bounded BC1/BC3 block decoder",
+    "comparison": "Pillow",
+    "version": "12.3.0"
+  },
+  "reading": {
+    "color": "The exact legacy DATA/Particles/DefaultColorOverLifetime.dds source decodes to4x4 opaque white at its only mip.",
+    "falloff": "The exact legacy DATA/Particles/DefaultFalloff.dds declares9 mips. Its256x1 base has opaque alpha and30 nonwhite RGB texels at its end. Smaller declared mips are recorded individually; native selection and usage remain unobserved.",
+    "binding": "The earlier static legacy loader witness supplies these two literal paths as fallback arguments. This resource check does not prove actual live Gromp texture binding, UV routing or sampler state."
+  },
+  "nativeExecuted": false,
+  "applicationBehaviorChanged": false,
+  "limits": [
+    "Archive resource bytes and independent mip decoding only. No native game or Metal execution.",
+    "The453-byte falloff RMAN chunk was newly observed and checked against its xxh3 checksum in the already SHA-bound WAD header, then frozen by SHA256. It is not part of the older Gromp chunk certificate.",
+    "DDS decoded pixels do not establish color space, filtering, selected mip, UV routing, actual shader selection or complete native composition."
+  ]
+}

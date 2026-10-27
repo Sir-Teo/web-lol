@@ -1,0 +1,525 @@
+{
+  "format": 1,
+  "parentCommit": "fcd84e9c1f7f0914bb13e21665e6cb7232dc18d6",
+  "scope": "Fresh bounded native ray type/constructor/vtable/dispatch/vertex packet witness, distinct color conversions and selected modulation/blend field registrations. No application behavior or asset change.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "96c56f2808a12a114e62b04052b587fbd7a9dede751d10bc24f43f6567a71f82",
+    "offlinePack": {
+      "id": "8d0036b3354ff83f404da64b4487c6d20a35b1676f1502fd8889e77f80255f86",
+      "files": 1200,
+      "bytes": 538084064
+    }
+  },
+  "applicationFingerprintUnchanged": true,
+  "productionPackUnchanged": true,
+  "verification": {
+    "nativeFunctions": 7,
+    "selectedInstructions": 40,
+    "rayTypeKind": 2,
+    "newGuardsPerMode": 13,
+    "atlasGuardsPerMode": 16,
+    "constructorGuardsPerMode": 27,
+    "scalarGuardsPerMode": 15,
+    "profileGuardsPerMode": 35,
+    "totalGuardsPerMode": 106,
+    "normalOptimizedOutputs": 18,
+    "acceptedRuntimeOutputsUnchanged": 14,
+    "bytesAndMtimesUnchanged": true,
+    "offlineReplayNetworkAndChildProcessesBlocked": true,
+    "nativeExecuted": false,
+    "nativeShaderExecuted": false,
+    "historicalLlvmTextReplaced": false,
+    "fullApplicationTestsRerun": false
+  },
+  "inheritedApplicationVerification": {
+    "record": "docs/reference/primary-hit-half-packets-verification.json",
+    "sha256": "d4cb5222dc7ddfd8df28685e0b6f4bb5fb892beaa42e0df33981fdbbcfcbd35c",
+    "verification": {
+      "newUnitCases": 9,
+      "focusedCases": 45,
+      "fullUnitRun": {
+        "passed": 3086,
+        "failed": 2,
+        "total": 3088,
+        "files": 390
+      },
+      "remainingBaselineFailures": 2,
+      "originalWaveDeadlinePassed": true,
+      "nodeQaPassed": 6,
+      "successfulBrowserCases": 7,
+      "authoredTexturePacketPixelCases": 15,
+      "nonemptyPacketPixelCases": 15,
+      "packetChangedChannelBytes": 0,
+      "oldPolicyChangedChannelBytes": 190566,
+      "samplerCalls": 2106,
+      "independentQuadParticleCases": 13280,
+      "unchangedRayParticleCases": 90,
+      "changedAtlasCells": 84,
+      "changedLookupPairs": 13244,
+      "otherParticleFieldsExact": true,
+      "unchangedRuntimeExports": 14,
+      "runtimeExportsBytesAndMtimesUnchanged": true,
+      "savedFutureTicks": 130,
+      "gpuMipReadbacks": 93,
+      "productionRecordings": 32,
+      "freshProductionScreenshots": 8,
+      "privatePreloads": 0,
+      "publicAssetsChanged": false
+    }
+  },
+  "limits": [
+    "Exact bounded static native bytes, not native execution, actual Yi dispatch, live shader selection or visual parity.",
+    "Type and field names are FNV/layout candidates; hashes neither exclude collisions nor authenticate native literal names.",
+    "Ray registration, both constructors, the virtual slot and a definition-primitive dispatch site identify this builder. The native producers of its context, transforms, clocks, color, UV modes, frames and 44-byte draw records remain unresolved.",
+    "Float32 arithmetic and half conversion retain the native floating-point environment. Nearest-even half examples would be conditional on FPCR; no live FPCR is measured.",
+    "Ray colors and the separate fast quad packer have different rounding/clamping paths. No application color or ray behavior is changed by this witness.",
+    "Missing historical LLVM archives remain missing; the inline bytes and static exploration are additional evidence only.",
+    "The accepted application remains at 3086 passing tests out of 3088, the same two baseline failures, seven browser cases, fifteen exact packet pixel cases and the accepted production pack.",
+    "The generic native builder consumes prepared draw/transform records; this witness does not attest their mapping to authored size, color, frame and lookup controls."
+  ],
+  "diagnostics": [
+    "A first exploratory script was named inspect.py and shadowed the Python standard-library module needed by Capstone. It was renamed before the inspection completed.",
+    "The first type-search prototype omitted the struct import; it was corrected before results were produced.",
+    "Two selected instruction checks and finite-color wording were added after the first untracked record draft. The immutable-output writer rejected the changed draft; that draft was archived in the cache and the final record regenerated. The initial exact-record guard consequently failed; the final 106-case normal and optimized runs both pass.",
+    "A naive mapping from draw-record scale fields to authored birthScale0 would make the retained source ray degenerate. This is treated as evidence that producer-side mapping remains unresolved, not as authorization to reorder game data or geometry."
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/NATIVE-ATLAS-RUNTIME.md",
+      "bytes": 4930,
+      "sha256": "1a5ff3cddf45e5d1e6009192aa47701e36e93c269493f67ebce73fad9ed0b3fa"
+    },
+    {
+      "path": "docs/NATIVE-RAY-PACKET.md",
+      "bytes": 4327,
+      "sha256": "94513afbf33d1e4f9cc1ada8daa66dad827249f16e566ee6d0965397037516d5"
+    },
+    {
+      "path": "docs/reference/native-ray-packet.json",
+      "bytes": 16794,
+      "sha256": "ab9b825f1108ed1e44124ee5f9821753eb73352cbf8738a8eebbb884c892b4ec"
+    },
+    {
+      "path": "tools/assets/native_ray_packet.py",
+      "bytes": 9600,
+      "sha256": "189751276e69be1244e308592aeb36aae6aee89c72deb23efb0e325417d6de1f"
+    },
+    {
+      "path": "tools/assets/test-native-ray-packet.py",
+      "bytes": 4699,
+      "sha256": "f771bc20a37824fdbc5325169c904f597041aa624086dada16b3ccc793057207"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "docs/reference/native-constructor-witness.json",
+      "bytes": 19538,
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": "docs/reference/native-emitter-scalar-defaults.json",
+      "bytes": 18429,
+      "sha256": "a6c381afaed4c5a680276794d8fa613d988d710eca0683ed8ee91cde494de6cf"
+    },
+    {
+      "path": "docs/reference/native-atlas-runtime.json",
+      "bytes": 42714,
+      "sha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-particles.json",
+      "bytes": 82989,
+      "sha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301"
+    },
+    {
+      "path": "src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    },
+    {
+      "path": "src/render/masteryi-primary-hit-particles.ts",
+      "bytes": 5418,
+      "sha256": "ddfd14f17337c38b3d87a45df4efeb1531a3218bfabe7f7178d74a24717f75ba"
+    },
+    {
+      "path": "src/render/ray-quad.ts",
+      "bytes": 2030,
+      "sha256": "31c088de066dcf41aff3fc5d15a9f1a36032df060c155ef3c67f113d37bfc195"
+    },
+    {
+      "path": "tools/assets/native_constructor_witness.py",
+      "bytes": 12648,
+      "sha256": "5ed4f943e123a3cb9bebfdea394bd8b5551d6b1ac010e7913eb9a245a7234e14"
+    },
+    {
+      "path": "tools/assets/native_emitter_scalar_defaults.py",
+      "bytes": 7565,
+      "sha256": "44af0bcc9fe7ba1dbf3f76d4a398a2f9ec3f00db54070626ad2bc77f2dc4d85e"
+    },
+    {
+      "path": "tools/assets/native_atlas_runtime.py",
+      "bytes": 15844,
+      "sha256": "fa9d512eb7d883fda1c99944f3f3a4c374c452fcaa95e17d01758d80769371a5"
+    },
+    {
+      "path": "tools/assets/verify-leona-native-particle-bindings.py",
+      "bytes": 13221,
+      "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/native-particle-color-runtime/final-source/docs/NATIVE-ATLAS-RUNTIME.md",
+      "bytes": 4930,
+      "sha256": "1a5ff3cddf45e5d1e6009192aa47701e36e93c269493f67ebce73fad9ed0b3fa"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/final-source/docs/NATIVE-RAY-PACKET.md",
+      "bytes": 4327,
+      "sha256": "94513afbf33d1e4f9cc1ada8daa66dad827249f16e566ee6d0965397037516d5"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/final-source/docs/reference/masteryi/primary-hit-particles.json",
+      "bytes": 82989,
+      "sha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/final-source/docs/reference/native-atlas-runtime.json",
+      "bytes": 42714,
+      "sha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/final-source/docs/reference/native-constructor-witness.json",
+      "bytes": 19538,
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/final-source/docs/reference/native-emitter-scalar-defaults.json",
+      "bytes": 18429,
+      "sha256": "a6c381afaed4c5a680276794d8fa613d988d710eca0683ed8ee91cde494de6cf"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/final-source/docs/reference/native-ray-packet.json",
+      "bytes": 16794,
+      "sha256": "ab9b825f1108ed1e44124ee5f9821753eb73352cbf8738a8eebbb884c892b4ec"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/final-source/src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/final-source/src/render/masteryi-primary-hit-particles.ts",
+      "bytes": 5418,
+      "sha256": "ddfd14f17337c38b3d87a45df4efeb1531a3218bfabe7f7178d74a24717f75ba"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/final-source/src/render/ray-quad.ts",
+      "bytes": 2030,
+      "sha256": "31c088de066dcf41aff3fc5d15a9f1a36032df060c155ef3c67f113d37bfc195"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/final-source/tools/assets/native_atlas_runtime.py",
+      "bytes": 15844,
+      "sha256": "fa9d512eb7d883fda1c99944f3f3a4c374c452fcaa95e17d01758d80769371a5"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/final-source/tools/assets/native_constructor_witness.py",
+      "bytes": 12648,
+      "sha256": "5ed4f943e123a3cb9bebfdea394bd8b5551d6b1ac010e7913eb9a245a7234e14"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/final-source/tools/assets/native_emitter_scalar_defaults.py",
+      "bytes": 7565,
+      "sha256": "44af0bcc9fe7ba1dbf3f76d4a398a2f9ec3f00db54070626ad2bc77f2dc4d85e"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/final-source/tools/assets/native_ray_packet.py",
+      "bytes": 9600,
+      "sha256": "189751276e69be1244e308592aeb36aae6aee89c72deb23efb0e325417d6de1f"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/final-source/tools/assets/test-native-ray-packet.py",
+      "bytes": 4699,
+      "sha256": "f771bc20a37824fdbc5325169c904f597041aa624086dada16b3ccc793057207"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/final-source/tools/assets/verify-leona-native-particle-bindings.py",
+      "bytes": 13221,
+      "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/native-particle-color-runtime/0x10167faf0.txt",
+      "bytes": 956,
+      "sha256": "95ff1954426560aaf6c69e5a2f61050830462da207a9d9f3c6733e38f606a182"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/0x1018d7f34.txt",
+      "bytes": 22069,
+      "sha256": "e64f5579ca7d497c7c07a793aa3509f61d20d90e45ca4ad2572ee6c36ce04cea"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/0x1018d9178.txt",
+      "bytes": 20007,
+      "sha256": "e579b4d98e9083516d2b7f7d1b72c98ac681750b720f7a37a1613f348742de06"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/0x1018f11c4.txt",
+      "bytes": 17576,
+      "sha256": "9fd9e681d22657badc88a59e1aff069acccf04ea4a0aeb95e7c97f022c7fedf2"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/0x1018f2234.txt",
+      "bytes": 7291,
+      "sha256": "ca387c6446c063b4c88c63a7c29d63564bf744356c2535be8bc501bcd3ea75c1"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/0x1018f24ec.txt",
+      "bytes": 9538,
+      "sha256": "dc51b1f29cf1f7606a4a9d8dbc6b70b064651df0152f5640a68a63d18d571332"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/0x1018f28a8.txt",
+      "bytes": 3890,
+      "sha256": "40d6d190d5644bf1eff896a1ebd6d5ba6b4b0db9e752aeab1b0fb4264a15140f"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/archive-checkpoint.py",
+      "bytes": 5712,
+      "sha256": "b2d940f15d18dd5ee2b09d5e268251038a75d3a83919b9715b28109e69863bd2"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/color-callers.json",
+      "bytes": 723,
+      "sha256": "86f539f75a2b184f23d0f69278766dfd9a443d1023bb1cc82d378dd4b84aeba0"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/color-callers.log",
+      "bytes": 723,
+      "sha256": "86f539f75a2b184f23d0f69278766dfd9a443d1023bb1cc82d378dd4b84aeba0"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/export-masteryi-primary-hit-particles-check-normal.log",
+      "bytes": 104,
+      "sha256": "70bfcf1db84243681b391a2fd9726e8218ca426894dca2bab8061455948f3447"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/export-masteryi-primary-hit-particles-check-optimized.log",
+      "bytes": 104,
+      "sha256": "70bfcf1db84243681b391a2fd9726e8218ca426894dca2bab8061455948f3447"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/find-color-callers.py",
+      "bytes": 602,
+      "sha256": "607008296c9348b86e35305e8a5d73d3b06469656b33a583d3615a9f3511306b"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/find-primitive-dispatch.py",
+      "bytes": 1101,
+      "sha256": "ceff51a3ff1c3f4324e8ad40fcec8c22d0a780e5fba4a9625dbeab309cd567ef"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/find-ray-dispatch-call.py",
+      "bytes": 1183,
+      "sha256": "04e2f103466506aa95e4ceaa109d204212399475641b9a233b5775e51b71e9d7"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/find-ray-renderer.py",
+      "bytes": 1091,
+      "sha256": "9cdcb2c3141d480d027eabd2aa0bdb857d135e5f3224b46a5518694da6e6da45"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/find-ray-type.py",
+      "bytes": 809,
+      "sha256": "1acf980e7441209a1d2227ae37c0fd7910ae9b153eb52c9ee5f90284f52c4910"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/first-draft-ray-packet.json",
+      "bytes": 16527,
+      "sha256": "3a446143fc793d24fdc5646878ad0da298ed7949202abbdaf61b40c0cc8a8705"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/guards-final-normal.log",
+      "bytes": 112,
+      "sha256": "86259ec413b592b27c714243ab221ffbc03ceac3e757727b4dc718fbd8f82030"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/guards-first.log",
+      "bytes": 1129,
+      "sha256": "95cd9de6c2f0a1e0c3fa2796fd3d04dcd17cec4d3549a440b67c7a4acd412831"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/inspection.log",
+      "bytes": 1141,
+      "sha256": "f2782e3191673a705aaba63ea64b8472f7acb6d71dffb715b92b001bda9083e2"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/native_atlas_runtime-check-normal.log",
+      "bytes": 168,
+      "sha256": "d6a99d8af2e61b87a68948b948006c1ed0081af5df8a70366a8d35570749351d"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/native_atlas_runtime-check-optimized.log",
+      "bytes": 168,
+      "sha256": "d6a99d8af2e61b87a68948b948006c1ed0081af5df8a70366a8d35570749351d"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/native_ray_packet-check-normal.log",
+      "bytes": 125,
+      "sha256": "8381e5d446c1213abf4876bd176ff19ab45bd3bbe0ce4b854ebe0c8bbd07b2f5"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/native_ray_packet-check-optimized.log",
+      "bytes": 125,
+      "sha256": "8381e5d446c1213abf4876bd176ff19ab45bd3bbe0ce4b854ebe0c8bbd07b2f5"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/native_ray_packet-replay-normal.log",
+      "bytes": 125,
+      "sha256": "8381e5d446c1213abf4876bd176ff19ab45bd3bbe0ce4b854ebe0c8bbd07b2f5"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/native_ray_packet-replay-optimized.log",
+      "bytes": 125,
+      "sha256": "8381e5d446c1213abf4876bd176ff19ab45bd3bbe0ce4b854ebe0c8bbd07b2f5"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/primitive-dispatch.json",
+      "bytes": 4002,
+      "sha256": "980b2accd2c6c887418266bbaea8ef42f424e671e782ad9b216a50e6b1e0032b"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/primitive-dispatch.log",
+      "bytes": 23591,
+      "sha256": "47cf464c9a9f184a86c173f1406baf816e86e0a919cbeb915bd2132f0aa4b200"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/primitive-dispatch.txt",
+      "bytes": 23580,
+      "sha256": "f40d06f115b4845808ed3dd96843588c2181c91e07dfe761d89eb81163f56f91"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/ray-constructors.txt",
+      "bytes": 1357,
+      "sha256": "bff7946496a25f4ddc643039699afde0c2fc5dba4d002280ff6fa3d46fb282ec"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/ray-dispatch-calls.json",
+      "bytes": 294,
+      "sha256": "8cda71658e90b265ae292dd30a47630bf43dd0480144452a1d5a9d524b857c47"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/ray-dispatch-calls.log",
+      "bytes": 1907,
+      "sha256": "8403719be3715517201891a6085fdc3058517c4305ce0350688a386f2fbc5996"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/ray-dispatch-calls.txt",
+      "bytes": 1907,
+      "sha256": "8403719be3715517201891a6085fdc3058517c4305ce0350688a386f2fbc5996"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/ray-renderer-candidates.json",
+      "bytes": 1491,
+      "sha256": "be9b18313a8cc4f2099096bcd38de042a16a8ac0ca56f8c8823f579e2512e9d7"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/ray-renderer-candidates.txt",
+      "bytes": 9266,
+      "sha256": "7b92210a4c6e96446642e9d3da04a544af55c4b9c6003b09f5f2a43bb9bfe292"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/ray-renderer-scan.log",
+      "bytes": 9266,
+      "sha256": "7b92210a4c6e96446642e9d3da04a544af55c4b9c6003b09f5f2a43bb9bfe292"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/ray-types.log",
+      "bytes": 229402,
+      "sha256": "3821e3b4baa8154cbe8b11beca547cb8659621e7fe75a4efa8bdd1fdff733213"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/ray-vtable-methods.txt",
+      "bytes": 513,
+      "sha256": "3974aa95825818b7d407db62eac1eab2c59670a5e8c59f95a3762b3943ae5bc3"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/read-color-functions.py",
+      "bytes": 686,
+      "sha256": "e7d9bc758d912692a6863e0bf919608a65db169fb914a647482984819138f2f3"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/replay-verification.json",
+      "bytes": 12670,
+      "sha256": "85ccf978ea18fecf1b5c58a3c467f59f0dc2e5083db12d31c5117f4131041fae"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/replay.log",
+      "bytes": 737,
+      "sha256": "e2dde66d2a85a24ca5ccca6f6fbb8301a8357fbef246d87139f607519e169659"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/selected-field-registration.txt",
+      "bytes": 2013,
+      "sha256": "b837c6d344e70eebff8b9d95197e92aeecefef19976f9ba49e72b9cc28863c0a"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/test-masteryi-primary-hit-profiles-normal.log",
+      "bytes": 134,
+      "sha256": "fa008e38406bed7b5246a0482be825a0e5c1dcd19d394f192b8853043adda0f4"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/test-masteryi-primary-hit-profiles-optimized.log",
+      "bytes": 134,
+      "sha256": "253f56666bea769e12916a2d840b986ec1102a453b36e2a445325eed796b169c"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/test-native-atlas-runtime-normal.log",
+      "bytes": 116,
+      "sha256": "9b9c29a22336f0fdd8e10a882b38a58cb25abdce5897ff4db33d2082ee08f4d5"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/test-native-atlas-runtime-optimized.log",
+      "bytes": 116,
+      "sha256": "ff36a3aa5a125fecf8c2d80053e0cefa25f5b1d25faa4908d077844edaf16501"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/test-native-constructor-witness-normal.log",
+      "bytes": 126,
+      "sha256": "74e979318d23ef065e4c39852bdc6318d6fba8d2c18f21cc6df3e1bc1ce7036e"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/test-native-constructor-witness-optimized.log",
+      "bytes": 126,
+      "sha256": "8a376f4d64c80f14623b933360dd9ac824ec9f67a3e72569725949f3485f5115"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/test-native-emitter-scalar-defaults-normal.log",
+      "bytes": 114,
+      "sha256": "d45a5d643fcfb017a2a9fb745560c763d5032171c27eb84701fed7a6fc321fd0"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/test-native-emitter-scalar-defaults-optimized.log",
+      "bytes": 114,
+      "sha256": "5073c88f53d703299ee5b9ec759c57ccb9fa37600df635607614267ee61d3455"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/test-native-ray-packet-normal.log",
+      "bytes": 112,
+      "sha256": "60e3d399ba76c93bb9cd25db18993437c51d4a22341aeb2599c9bf5fb8c483a6"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/test-native-ray-packet-optimized.log",
+      "bytes": 112,
+      "sha256": "8b3b94d2ada7103e9330c5d11459d25f84cfa92a2f8b05536e3f0637577b6c01"
+    },
+    {
+      "path": ".cache/native-particle-color-runtime/verify-checkpoint.py",
+      "bytes": 2174,
+      "sha256": "e709290d83f7aae98fa7d05b2442624f9b76c7423aefe2053c5f9caa4eddee18"
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "format": 1,
+  "parentCommit": "dba0d7d8183b18fda160ae948f0eea2505b08e3b",
+  "scope": "Private complete eleven-emitter primary-hit profile preparation; no runtime or public files.",
+  "identity": {
+    "schema": 162,
+    "rulesetFingerprint": "c28af9e676d0cacc775ef924a3ce5a3140cb7a763e34d82413174d7f744cf318",
+    "offlinePack": {
+      "id": "6f59d0e3300662ecd20059b576effc36935d96a2e0e9463d1e91060b3ccc8e58",
+      "files": 1192,
+      "bytes": 537574563
+    }
+  },
+  "verification": {
+    "normalGuards": 32,
+    "optimizedGuards": 32,
+    "textures": 11,
+    "mips": 93,
+    "meshes": 0,
+    "profiles": 11,
+    "historyTicks": 75,
+    "ordinaryEmitterDefinitionsIdentical": true,
+    "replayDistinctOutputs": 1,
+    "bytesAndMtimesUnchanged": true,
+    "applicationFingerprintUnchanged": true,
+    "offlinePackUnchanged": true,
+    "fullApplicationTestsRerun": false
+  },
+  "limits": [
+    "Private complete profile preparation only; no runtime creation, public assets or save changes.",
+    "Compiled bind zero, local true, particle-local false, omitted blend zero and other defaults are explicit reconstruction policies, not authored values. Raw presences and complete source remain separately retained.",
+    "Blend 3 is the pinned reader none mode and requires unblended/alpha-tested rendering; do not pass it through an additive renderer. Native GPU shader/sampler/CPU parity remains uncalibrated.",
+    "Field label hashes match candidates; stepped 60 Hz force order, spatial drag falloff, target attachment and source frame integration require an explicit local adapter and acceptance tests.",
+    "Fluid has random-start and a 2x2 grid but omits numFrames; compiled one-frame default is not a proven native frame-count recovery. Blood declares startFrame 15, 16 frames, 4x4 grid and raw frame-rate 1.",
+    "Censor modulation and importance values are retained without inventing global censorship switches or quality filtering. All eleven emitter profiles remain present.",
+    "Critical ground_glow stays an arbitrary quad at the declared target attachment; its name does not authorize terrain projection.",
+    "The 75-tick retention is a conservative local first-update bound including the float32 1.2000000476837158 life multiplier. Source linger does not extend finite visible life."
+  ],
+  "sourceFiles": [
+    {
+      "path": "tools/assets/masteryi_primary_hit_profiles.py",
+      "bytes": 6187,
+      "sha256": "635a2a8e99d38fcf00d3f286d55a16e1fb0981bd5800d7e2d826bde264027182"
+    },
+    {
+      "path": "tools/assets/prepare-masteryi-primary-hit-profiles.py",
+      "bytes": 3932,
+      "sha256": "7954097d9804fe668f44201eab6be4d43fa84a873bd832b681f333a9022937fa"
+    },
+    {
+      "path": "tools/assets/test-masteryi-primary-hit-profiles.py",
+      "bytes": 6097,
+      "sha256": "64dbc4fd778024489b194b709f025f5fc92b3969f2fc34bb1c750c87dbc94262"
+    },
+    {
+      "path": "tools/assets/masteryi_w_cast.py",
+      "bytes": 8252,
+      "sha256": "67db765dbf4c62c0cd0e5d39d99589c657d6ae826e79a9453a599e203d6d4b5e"
+    },
+    {
+      "path": "tools/assets/masteryi_w_buff.py",
+      "bytes": 6301,
+      "sha256": "30d3b7f47b7d0a3258dbf7c9394f48a35f204cf5be76fd4dc40483131b630c81"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-particles.json",
+      "bytes": 82989,
+      "sha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-texture-transport.json",
+      "bytes": 27991,
+      "sha256": "6aa657899684411475571d7aa20d83a5a6d591244c4291f0f0590193a9e7f83a"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-profile-reading.json",
+      "bytes": 137463,
+      "sha256": "93a4f4500e3ee3fd5e8881cfaf08f823cae40750de16afdf2ca235f4aad1142a"
+    },
+    {
+      "path": "docs/MASTER-YI-PRIMARY-HITS.md",
+      "bytes": 7821,
+      "sha256": "762b9b1aa983fc4da5f4b55b787b7025a716f3ad8456106be5e8ad7b220235ba"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/masteryi-primary-hit-profile-cloud/source-snapshot/tools/assets/masteryi_primary_hit_profiles.py",
+      "bytes": 6187,
+      "sha256": "635a2a8e99d38fcf00d3f286d55a16e1fb0981bd5800d7e2d826bde264027182"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-profile-cloud/source-snapshot/tools/assets/prepare-masteryi-primary-hit-profiles.py",
+      "bytes": 3932,
+      "sha256": "7954097d9804fe668f44201eab6be4d43fa84a873bd832b681f333a9022937fa"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-profile-cloud/source-snapshot/tools/assets/test-masteryi-primary-hit-profiles.py",
+      "bytes": 6097,
+      "sha256": "64dbc4fd778024489b194b709f025f5fc92b3969f2fc34bb1c750c87dbc94262"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-profile-cloud/source-snapshot/tools/assets/masteryi_w_cast.py",
+      "bytes": 8252,
+      "sha256": "67db765dbf4c62c0cd0e5d39d99589c657d6ae826e79a9453a599e203d6d4b5e"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-profile-cloud/source-snapshot/tools/assets/masteryi_w_buff.py",
+      "bytes": 6301,
+      "sha256": "30d3b7f47b7d0a3258dbf7c9394f48a35f204cf5be76fd4dc40483131b630c81"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-profile-cloud/source-snapshot/docs/reference/masteryi/primary-hit-particles.json",
+      "bytes": 82989,
+      "sha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-profile-cloud/source-snapshot/docs/reference/masteryi/primary-hit-texture-transport.json",
+      "bytes": 27991,
+      "sha256": "6aa657899684411475571d7aa20d83a5a6d591244c4291f0f0590193a9e7f83a"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-profile-cloud/source-snapshot/docs/reference/masteryi/primary-hit-profile-reading.json",
+      "bytes": 137463,
+      "sha256": "93a4f4500e3ee3fd5e8881cfaf08f823cae40750de16afdf2ca235f4aad1142a"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-profile-cloud/source-snapshot/docs/MASTER-YI-PRIMARY-HITS.md",
+      "bytes": 7821,
+      "sha256": "762b9b1aa983fc4da5f4b55b787b7025a716f3ad8456106be5e8ad7b220235ba"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-primary-hit-profile-cloud/app-identity.json",
+      "bytes": 91,
+      "sha256": "cbbd9cd6bd042066edf134a77f1bbb83ed9a674faffb77d85eb6fdc4c2a50fd9"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-profile-cloud/archive-checkpoint.py",
+      "bytes": 3068,
+      "sha256": "e67e52cd10b002b94aa9b82c31e57537c1ba5aafb8376056b9fbcf87632089ab"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-profile-cloud/enums.ts",
+      "bytes": 4874,
+      "sha256": "229255a8ecd474ba46003662e271a49de01aa1db756cebe4e281f3cf3b96e3e0"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-profile-cloud/guards-normal.log",
+      "bytes": 131,
+      "sha256": "7e46435d08eabdaabf037d5e923838f93bcc5b75bd1f757b87709dc1fc29c8cf"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-profile-cloud/guards-optimized.log",
+      "bytes": 131,
+      "sha256": "341da5c740b73698a7aef6cc29ac93ddf9ff4e8c7f46fecca1f715d1b7d90ef6"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-profile-cloud/hashes.binfields.txt",
+      "bytes": 262924,
+      "sha256": "64dec2657a42964b91153fc3aa6c4280038c664d37ca118a8eb789bb99183e3f"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-profile-cloud/profile-check-normal.log",
+      "bytes": 90,
+      "sha256": "919ed934995d9007990d85d64b2e16b29d4fcb1a808609a0d21c228e9adf5181"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-profile-cloud/profile-check-optimized.log",
+      "bytes": 90,
+      "sha256": "919ed934995d9007990d85d64b2e16b29d4fcb1a808609a0d21c228e9adf5181"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-profile-cloud/profile-replay-normal.log",
+      "bytes": 90,
+      "sha256": "919ed934995d9007990d85d64b2e16b29d4fcb1a808609a0d21c228e9adf5181"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-profile-cloud/profile-replay-optimized.log",
+      "bytes": 90,
+      "sha256": "919ed934995d9007990d85d64b2e16b29d4fcb1a808609a0d21c228e9adf5181"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-profile-cloud/readSurface.ts",
+      "bytes": 13876,
+      "sha256": "7493b13c0f3fa6a8d9fc8efe6e2ac02d5d872f1f7db5f3a47722f1039e4148a2"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-profile-cloud/replay-verification.json",
+      "bytes": 1948,
+      "sha256": "66a96ae9bbb1eb6e04b8ce2d8898deedc9358aefbf46a2454015ffcb395fa401"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-profile-cloud/verify-checkpoint.py",
+      "bytes": 1231,
+      "sha256": "3a2cd5cdd621c1bcb3684de4c424b01470ce4fad7e284ec1a80c424bc4cc0fcb"
+    }
+  ]
+}

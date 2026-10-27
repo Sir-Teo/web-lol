@@ -1,0 +1,369 @@
+{
+  "format": 1,
+  "parentCommit": "03738d71fa7760eb6bc4fa64b4174d062b6d573c",
+  "scope": "Private canonical decode of complete Highlander source: twenty textures/177 authored mips and four byte-round-trippable SCB meshes. Shared decoder takes an explicit mesh count with its existing two-mesh default preserved. No runtime, public assets or source defaults.",
+  "applicationIdentityBefore": {
+    "schema": 155,
+    "ruleset": "1a41b7b3872b89fdd7987132d29ee7cdb6c4022934da46a0a517bbc134b99af5",
+    "pack": {
+      "id": "f710b07cd3047f4f895decdbd52451de292efbb023a510fd78d3d6b291bdcb2e",
+      "files": 1154,
+      "bytes": 535808998
+    }
+  },
+  "applicationIdentityAfter": {
+    "schema": 155,
+    "ruleset": "1a41b7b3872b89fdd7987132d29ee7cdb6c4022934da46a0a517bbc134b99af5",
+    "pack": {
+      "id": "f710b07cd3047f4f895decdbd52451de292efbb023a510fd78d3d6b291bdcb2e",
+      "files": 1154,
+      "bytes": 535808998
+    }
+  },
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/r-particles.json",
+      "bytes": 113047,
+      "sha256": "e8630aeae0aa33c6f369bde1ac3c80aeb333a16e78924ab1417f56f75e7f1ccd"
+    },
+    {
+      "path": "docs/reference/masteryi/q-particles-decoded.json",
+      "bytes": 148372,
+      "sha256": "783317cf9c44a36b3e07fbda8d27829ec6ae674119fcb5c8fddac46a959360fd"
+    },
+    {
+      "path": "docs/reference/masteryi/w-particles-decoded.json",
+      "bytes": 116153,
+      "sha256": "883a15ed890b9e00aff316de67e58f5e99a123ff0f72337b98b7fc06e2866503"
+    },
+    {
+      "path": "tools/assets/masteryi_q_decode.py",
+      "bytes": 7372,
+      "sha256": "552f2cf9a0cb552a97332a142bbea6f25a3b0e2c2974359a58659a2c17517ecd"
+    },
+    {
+      "path": "tools/assets/masteryi_r_particles.py",
+      "bytes": 3812,
+      "sha256": "fbcf9abca93dfa8fae675482712cf4e758abb4ce5ddd7a568a8cbecc6542809e"
+    },
+    {
+      "path": "tools/assets/decode-masteryi-w-particles.py",
+      "bytes": 3143,
+      "sha256": "2b0724991031b7c0427ff0e6e05688874527e426c59d0f5d2ed49276c0f3df1a"
+    },
+    {
+      "path": "tools/assets/test-masteryi-q-decode.py",
+      "bytes": 8686,
+      "sha256": "3006f23cd8105fac3a45b2a6479853f2620182c5d78fb66c0ac984161c114758"
+    },
+    {
+      "path": "tools/assets/test-masteryi-w-decode.py",
+      "bytes": 6715,
+      "sha256": "b8c6883708b5fb36ecc036e8e815bc5f408d2182632de693ddc5ff422f48f914"
+    },
+    {
+      "path": "/workspace/web-lol/.tools/cdtb/cdtb/export.py",
+      "bytes": 34168,
+      "sha256": "225ce9d8fb41dc36a17342a7a86dbfc4d5dae51f80316e6a8f065ea878972096"
+    },
+    {
+      "path": "/workspace/web-lol/.tools/cdtb-venv/lib/python3.12/site-packages/PIL/__init__.py",
+      "bytes": 2035,
+      "sha256": "7361b6ad3878589affe5956e4a4da24d71398b0891fd3a8c15e9362217b4ca01"
+    },
+    {
+      "path": "/workspace/web-lol/.tools/cdtb-venv/lib/python3.12/site-packages/PIL/Image.py",
+      "bytes": 153786,
+      "sha256": "04af3f2db7ffdd61e829fa7aa8f5481d394a0a4129a8fd8aa5b13908928fcd6d"
+    },
+    {
+      "path": "/workspace/web-lol/.tools/cdtb-venv/lib/python3.12/site-packages/PIL/DdsImagePlugin.py",
+      "bytes": 19101,
+      "sha256": "85cf455296d054ac95c971d03cd3a8ea245cba2d1138b495d3533c2333f09050"
+    },
+    {
+      "path": "/workspace/web-lol/.tools/cdtb-venv/lib/python3.12/site-packages/PIL/PngImagePlugin.py",
+      "bytes": 52399,
+      "sha256": "5911ebb3c8e58edf4fccace85ade20c3a062cc41dc55340bfb7b40f0bf1861c5"
+    },
+    {
+      "path": "/workspace/web-lol/.tools/cdtb-venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-x86_64-linux-gnu.so",
+      "bytes": 3402345,
+      "sha256": "94310f4a073e9773a067df88513804649f50a974f78bd85a52c52d21170783f2"
+    },
+    {
+      "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+      "bytes": 30894944,
+      "sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7"
+    },
+    {
+      "path": ".cache/masteryi-q-particle-readers/StaticMesh.cs",
+      "bytes": 10456,
+      "sha256": "eab04b1454081c56f86d93f568f804b812b8e3dbe44f99caea9efd2eff9272da"
+    },
+    {
+      "path": ".cache/masteryi-q-particle-readers/StaticMeshFace.cs",
+      "bytes": 4021,
+      "sha256": "053418afb28e627ff0709975ef4d5b363e0e44508a6efba27c5243064fb45a37"
+    },
+    {
+      "path": ".cache/masteryi-q-particle-readers/Texture.cs",
+      "bytes": 9076,
+      "sha256": "60d56e23760b212b78f10e41c4a7f73cd345969e2031df6a9813e6b8e4e692a6"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-r-decode-cloud/final-source-index.json",
+    "bytes": 1353,
+    "sha256": "f8b9f7882e00c5e287aea1929db6fd1dc8e9b24d45093c94de8a101b14c63960"
+  },
+  "generated": [
+    {
+      "path": "docs/MASTER-YI-R-PARTICLES.md",
+      "bytes": 4784,
+      "sha256": "b121874f64d029b8a5cbc73b1988c9f03510370d3f81fd2b0bc61732abd7f48e",
+      "archived": ".cache/masteryi-r-decode-cloud/final-source/docs/MASTER-YI-R-PARTICLES.md"
+    },
+    {
+      "path": "docs/reference/masteryi/r-particles-decoded.json",
+      "bytes": 135932,
+      "sha256": "c55d3b2b5aa5c6b3263e91b99e36097d7b200ce3e49d8e5ea62d290bc174258f",
+      "archived": ".cache/masteryi-r-decode-cloud/final-source/docs/reference/masteryi/r-particles-decoded.json"
+    },
+    {
+      "path": "tools/assets/decode-masteryi-q-particles.py",
+      "bytes": 10590,
+      "sha256": "9f114c141799f6dc84a6f3884b17b50f6a2a0dc21a2e626a20cbfaf9c9de6964",
+      "archived": ".cache/masteryi-r-decode-cloud/final-source/tools/assets/decode-masteryi-q-particles.py"
+    },
+    {
+      "path": "tools/assets/decode-masteryi-r-particles.py",
+      "bytes": 2994,
+      "sha256": "3099240d0d389cb76a630574f9dc359930a286896ff0a3db6166655b04a445f9",
+      "archived": ".cache/masteryi-r-decode-cloud/final-source/tools/assets/decode-masteryi-r-particles.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-r-decode.py",
+      "bytes": 6043,
+      "sha256": "12f7fc478ea0e54c51c3b39959f08898082b3c9863ade3f8d2648fdd22c77d19",
+      "archived": ".cache/masteryi-r-decode-cloud/final-source/tools/assets/test-masteryi-r-decode.py"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-r-decode-cloud/build-candidate.py",
+      "bytes": 1251,
+      "sha256": "a92a22ecc3ce8665058daa76d0bf9961f5188090b87be91e1cedea2cd0a3fcf6"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/candidate-venv.log",
+      "bytes": 260,
+      "sha256": "47dd7abea8bc952cf1bd0fc4f28a45eefb272e5fa361954c0e1d05779a8e7bd3"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/candidate.log",
+      "bytes": 890,
+      "sha256": "9352d5639aae40d61261b93a74cdd2ea09496b2269f4953d2022e9ea30f292bc"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/final-source-index.json",
+      "bytes": 1353,
+      "sha256": "f8b9f7882e00c5e287aea1929db6fd1dc8e9b24d45093c94de8a101b14c63960"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/guards-q-normal.log",
+      "bytes": 133,
+      "sha256": "f7f88b43eb833a9bcc083bfa3bafaaecfac195a832e657116568af54bee93364"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/guards-q-optimized.log",
+      "bytes": 133,
+      "sha256": "ef5b1d6f5dbd7cb6cada949ef4cd97ab0fb2106d2a517f4b8c74f15300ac95b2"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/guards-r-normal.log",
+      "bytes": 113,
+      "sha256": "b73e73c46399f047a3aa60bcdea007440f0d2971ea0f106d9b50e6e60361589d"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/guards-r-optimized.log",
+      "bytes": 113,
+      "sha256": "17c25f27b8bb455df2837bc0b247091c032b68c13f99a52d10f65bdfad9d14c1"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/guards-w-normal.log",
+      "bytes": 116,
+      "sha256": "009b27a05a7ff09c4bf0f2a1b0934adf7e6c87c03f2481df8d12410b61cf1378"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/guards-w-optimized.log",
+      "bytes": 116,
+      "sha256": "f4b3b3141ccb7dcd257fb3fdc107f714e8030c92793ec104d90e4f7d0818b3a9"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/identity-after.json",
+      "bytes": 238,
+      "sha256": "3260d7a062403b550eccc2cf81e6560b9f88e6c2f4bef3c5050d4d659334f36a"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/identity-before.json",
+      "bytes": 238,
+      "sha256": "3260d7a062403b550eccc2cf81e6560b9f88e6c2f4bef3c5050d4d659334f36a"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/identity.log",
+      "bytes": 204,
+      "sha256": "19057e91f55979d1696b19a71c46054fdd6b4ed54b2e3dfc4a32618b2c90fa5f"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/identity.mjs",
+      "bytes": 552,
+      "sha256": "3faa3e2437a00cc9b16d31da55e02267c437798c2744485e30eb18997689bda4"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/next.json",
+      "bytes": 135932,
+      "sha256": "c55d3b2b5aa5c6b3263e91b99e36097d7b200ce3e49d8e5ea62d290bc174258f"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/q-check-normal.log",
+      "bytes": 106,
+      "sha256": "86eb37b3a1e1a7a666e2b7bb01fc412e8472b5e8362137e6b47320e530688a26"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/q-check-optimized.log",
+      "bytes": 106,
+      "sha256": "86eb37b3a1e1a7a666e2b7bb01fc412e8472b5e8362137e6b47320e530688a26"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/q-decode-replay-normal.log",
+      "bytes": 107,
+      "sha256": "c597ea4ce60f044d2e55345702150cc71f831ab9bf4f16d650b6e12c6acf5d87"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/q-decode-replay-optimized.log",
+      "bytes": 107,
+      "sha256": "c597ea4ce60f044d2e55345702150cc71f831ab9bf4f16d650b6e12c6acf5d87"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/r-check-normal.log",
+      "bytes": 106,
+      "sha256": "d56d2702467f2b0b4cf15570c1ab63bc3cdbc3ddd7832bafbbef518dada7c594"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/r-check-optimized.log",
+      "bytes": 106,
+      "sha256": "d56d2702467f2b0b4cf15570c1ab63bc3cdbc3ddd7832bafbbef518dada7c594"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/r-decode-replay-normal.log",
+      "bytes": 107,
+      "sha256": "db323f6c473a2f1215cb3d3d1c71ba154a2aa8154a23b77535348a298e284889"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/r-decode-replay-optimized.log",
+      "bytes": 107,
+      "sha256": "db323f6c473a2f1215cb3d3d1c71ba154a2aa8154a23b77535348a298e284889"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/record-verification.py",
+      "bytes": 4329,
+      "sha256": "1f8be49cab5b5acfdc329c16b33a7ea35652d718fc542ce93daf4d2e52f0b00e"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/replay.json",
+      "bytes": 137148,
+      "sha256": "bb3fbac264e9645f0e169ee8b2ee9cdf0dfb67708395455f17845384766272c2"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/verify-all-profiles.py",
+      "bytes": 2166,
+      "sha256": "9595ca462dbc9ea524794465fbbd80a87e951612421bf10f38306dcc27cadd3e"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/w-check-normal.log",
+      "bytes": 106,
+      "sha256": "81ecdf21ed080223fb2fa428010fcfa8a12d35bc9c600bee279c44d1de43a6b7"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/w-check-optimized.log",
+      "bytes": 106,
+      "sha256": "81ecdf21ed080223fb2fa428010fcfa8a12d35bc9c600bee279c44d1de43a6b7"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/w-decode-replay-normal.log",
+      "bytes": 107,
+      "sha256": "59b0eb02fc43599e771787ee0b4f4defb8047e78cb67d16f7cd9c9c3664cfc36"
+    },
+    {
+      "path": ".cache/masteryi-r-decode-cloud/w-decode-replay-optimized.log",
+      "bytes": 107,
+      "sha256": "59b0eb02fc43599e771787ee0b4f4defb8047e78cb67d16f7cd9c9c3664cfc36"
+    }
+  ],
+  "checks": {
+    "guardsPerPythonMode": {
+      "q": 34,
+      "w": 17,
+      "r": 14,
+      "total": 65,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "completeActualChecksAndDecodeReplays": {
+      "filesUnchangedBytesAndMtimes": 539,
+      "profiles": {
+        "q": 201,
+        "w": 156,
+        "r": 182
+      },
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "highlanderTextures": {
+      "textures": 20,
+      "authoredMips": 177,
+      "pngBytes": 1130814,
+      "rgbaBytes": 8104616,
+      "sharedQTextures": 9,
+      "compressedBlocksPixelsAndPngs": "all exact"
+    },
+    "highlanderMeshes": {
+      "count": 4,
+      "jsonBytes": 724983,
+      "sourceVertices": 2378,
+      "triangles": 2304,
+      "nativeByteRoundTrips": "all exact",
+      "sharedQMeshes": 2,
+      "layouts": [
+        {
+          "flags": 1,
+          "tailBytes": 0
+        },
+        {
+          "flags": 5,
+          "tailBytes": 24
+        }
+      ],
+      "normalsGenerated": false,
+      "unitScaleApplied": 1
+    },
+    "independentChecker": "No Pillow/CDTB imports; native compressed ranges, mip dimensions, RGBA/alpha statistics, complete SCB bytes and selected source identities checked.",
+    "applicationIdentity": "Schema, ruleset and production pack unchanged."
+  },
+  "retainedDiagnostics": [
+    "Initial default-interpreter candidate lacked the CDTB producer dependency requests and wrote no outputs. Accepted generation/replay uses the existing pinned CDTB virtual environment and retains actual producer artifacts."
+  ],
+  "limits": [
+    "Canonical Pillow BC1-with-alpha/BC3 software decode, not a native GPU decoding/visual certificate.",
+    "Every authored mip retains its own size, compressed block identity and RGBA; no resize, generated mips, gamma conversion or premultiplication.",
+    "Source mesh points/indices/face UV/material bytes/RGB/pivot/header and unparsed tail are retained. No normals, pivot offset, reflection, winding, unit scale or emitter/material behavior is applied.",
+    "Private decode only; no public files or runtime bindings.",
+    "Mesh-count API extends the selected source profile only; it does not establish runtime attachment, rank dispatch, shader flags or sound lifecycle.",
+    "Ignored private outputs/evidence require preservation; changed source files are separately archived."
+  ]
+}

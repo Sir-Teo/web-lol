@@ -1,0 +1,408 @@
+{
+  "format": 1,
+  "native": {
+    "path": ".cache/leona-native-matching-v1-20261024/native/LeagueofLegends.app/Contents/MacOS/LeagueofLegends",
+    "bytes": 82268192,
+    "sha256": "97edcf2c88fec3169a1ec36345276569de3329e27fd9b32c8162957a77135c6c",
+    "architecture": {
+      "architecture": "arm64",
+      "cpuType": 16777228,
+      "cpuSubtype": 0,
+      "offset": 42663936,
+      "bytes": 39604256,
+      "alignPower": 14,
+      "magic": "FEEDFACF",
+      "fileType": 2,
+      "loadCommands": 45,
+      "loadCommandBytes": 5920,
+      "flags": 10518661,
+      "reserved": 0,
+      "sha256": "18c6f615d1963d7062f4133fab351dc4550ce460e869c76f5c8604627f349885"
+    }
+  },
+  "inputs": [
+    {
+      "path": "docs/reference/native-gromp-emitter-routes.json",
+      "sha256": "8e268d02303addefa4c70b311215329d4ef1782eac4ae12378a54039dd6eff3c"
+    },
+    {
+      "path": "docs/reference/native-cameraquad-packets.json",
+      "sha256": "a9e4fe941a973f6a0a24c2f05ada8992fb915cf63a25980251185e3bc50eb920"
+    },
+    {
+      "path": "docs/reference/native-particle-vertex-format.json",
+      "sha256": "2c45b6fb42a5eea59daa453e96af9f5d49a2afa38a1a84dafaf3be2b8919e1f6"
+    }
+  ],
+  "functionSpans": [
+    {
+      "name": "planeVertexBuilder",
+      "start": "0x1018d5924",
+      "next": "0x1018d5fa8",
+      "bytes": 1668,
+      "sha256": "8299261c48117fd2293f84b97adbebfe39c235f26a63cc81a56982d16596becf",
+      "hex": "ffc306d1ef3b116ded33126deb2b136de923146dfc6f15a9fa6716a9f85f17a9f65718a9f44f19a9fd7b1aa9fd830691f30301aa285441a9b60640f9a95240f934214079c90a40f929294e6d371040f91901407928d142b9e84f00b9e86100d00861209108c1bf38682f0036c80a40f9003943bd0820201ef60700f9e0000054092143393f010071e9179f1ae94b00b99400003564010014ff4b00b9542c00340b3143bd0c3543bde90740f9292940f9e92300f9085140399c06009109038052897ea99b366100d189158052897ea99b387101d1890580529a7ea99b08011f32e83f00b9a84100d00049c33de00b803d0de4002f0ee4002f9d000014a07302d1a1c302d1e017803de207803d30a8f697a84356b8880e00b9882a00b9884600b9886200b9a007682de407c03d8228201e83040c5e941ca44e6428211ea58354bce629251ef317c03d672a221e70060c5e112a241e1229261e8746002d920a00bd4238331e8438301ec638281e8292032d862600bd0038341e2138231ea2382f1e0338331e2438301e4538281e8312072d854200bd602a201e012a211e0229221e80860a2d825e00bde0074c6d22dc2d2e03d4220ea2cd200ee46b40fd82d4220ee417552d86082e1ee743542df1180e1ff24f562d512a311eb2082e1e144a0e1ff51bc03da206146e732a341ef41fc03d82061c6e4268210e820a00fd22c2231e8232007d62c2231e8236007de26b40fd63d4220ee628261ef14f562dc628311e122a321ea306146e522a331e83061c6e6368210e83c202fcc3c0231e836a007d43c2231e836e007d03d4210e63d4220ee628241ec628311e122a251ea306146e83061c6e522a331e6368210e832600fdc3c0231e83a2007d43c2231e83a6007da1cd200e20d4220ee1100e1f2128311e02160e1f4228331ea006146e80061c6e0068210e804206fc20c0231e80da007d40c0231e80de007d88c20191680600f9680a40f9090940b929090011090900b9680a40f9090d40b929110011090d00b9680240f909090091690200f919010079283f0012290700116a0240f94b0900916b0200f949010079290b00116a0240f94b0900916b0200f9490100796a0240f94b0900916b0200f9590100796a0240f94b0900916b0200f949010079290f00116a0240f94b090091191100119c0700d16b0200f949010079d66200d118b302d15ab300d19f0700f1e9150054a85240f9a90640f92a7143390a0100340a3d40f94b01168b29754339e9000034094540f92a01168b050000140b0080d22975433969ffff350a0080d2094d40f92c011a8b84415dbc2c011a8b83c15fbc80897d6d21dd202e40dd222ea103356dec3f40b99f090071e10000542190a00fa10315fc0090a00fa08315bc0cf0a752acc315b81b1d40f97403188b8c1a40f9ac0314f88c3a40b9ac8314b8e00bc03de033803d01e4002fe16b00fde02b803de15b00fdeb0000b46c0940f96001c03de033803dec6b00f9e033c03de16b40fdeb6100d01f2003d5620944fd4204186e00dc226ee033803da01640fd01d4210ee16b00fdeb2340f9e40f03ad0b0100b4ca0100b44101c03d4a0940f9ea5b00f9e12b803de207562d0a0000142a011a8b41817e2dff7f0aa9e103162dea4b40b94a0100352700001401e4002f02e4002f0228221e00040c5e0028211ee203162dea4b40b9ea030034a007682de20e402d0038221e2138231ea28354bce30a40bd4238231ee80740f9080940f9033943bd0008231e2808231e4108231ee19b00bde003029169aa1c94e09300bde00302910041201e65aa1c94e09700bde1430291e00314aabb9cf697e10f5a2d2138221e0028231ee1031a2da85240f9094d40f9aa0240f929011a8b20057d2d424941bd434d41bd4208231e0308221e2008221ee94f40b93f011d72080c231e6821201e20020054081d40f90801188b004940bd012140fde14b00fde09b00bde0430291e1030291e317803d7ba3f697e317c03de08340bd6009201e00202c1e804d201e6308201e6803188b000940bd6f08201e000140fd0290830fe24b00fdef9b00bd0041211e011940bd0889211e010940fd2090800fe04300fde88b00bd68a24039740640f91f05007141d8ff54a00303d1e1430291e2030291a3c302d1e5030391e6830291e40314aae00743ad1b0000948882029127ffff17fd7b5aa9f44f59a9f65758a9f85f57a9fa6756a9fc6f55a9e923546deb2b536ded33526def3b516dffc30691c0035fd6e06100d000602091f0a71c9460d0ff34e86100d01f2003d500f6030f000904fde06100d000602091eba71c947bfeff17"
+    }
+  ],
+  "selectedInstructions": [
+    {
+      "address": "0x10189bb2c",
+      "word": "52800200",
+      "reading": "mov w0, #0x10"
+    },
+    {
+      "address": "0x10189bb30",
+      "word": "97f7de68",
+      "reading": "bl #0x1016934d0"
+    },
+    {
+      "address": "0x10189bb34",
+      "word": "52800028",
+      "reading": "mov w8, #1"
+    },
+    {
+      "address": "0x10189bb38",
+      "word": "39002008",
+      "reading": "strb w8, [x0, #8]"
+    },
+    {
+      "address": "0x10189bb3c",
+      "word": "d0005f28",
+      "reading": "adrp x8, #0x102481000"
+    },
+    {
+      "address": "0x10189bb40",
+      "word": "91304108",
+      "reading": "add x8, x8, #0xc10"
+    },
+    {
+      "address": "0x10189bb44",
+      "word": "f9000008",
+      "reading": "str x8, [x0]"
+    },
+    {
+      "address": "0x10189bb48",
+      "word": "f9000260",
+      "reading": "str x0, [x19]"
+    },
+    {
+      "address": "0x10189bb4c",
+      "word": "a9417bfd",
+      "reading": "ldp x29, x30, [sp, #0x10]"
+    },
+    {
+      "address": "0x10189bb50",
+      "word": "a8c24ff4",
+      "reading": "ldp x20, x19, [sp], #0x20"
+    },
+    {
+      "address": "0x10189bb54",
+      "word": "d65f03c0",
+      "reading": "ret "
+    },
+    {
+      "address": "0x1018d5954",
+      "word": "aa0103f3",
+      "reading": "mov x19, x1"
+    },
+    {
+      "address": "0x1018d5958",
+      "word": "a9415428",
+      "reading": "ldp x8, x21, [x1, #0x10]"
+    },
+    {
+      "address": "0x1018d595c",
+      "word": "f94006b6",
+      "reading": "ldr x22, [x21, #8]"
+    },
+    {
+      "address": "0x1018d5960",
+      "word": "f94052a9",
+      "reading": "ldr x9, [x21, #0xa0]"
+    },
+    {
+      "address": "0x1018d5964",
+      "word": "79402134",
+      "reading": "ldrh w20, [x9, #0x10]"
+    },
+    {
+      "address": "0x1018d5968",
+      "word": "f9400ac9",
+      "reading": "ldr x9, [x22, #0x10]"
+    },
+    {
+      "address": "0x1018d596c",
+      "word": "6d4e2929",
+      "reading": "ldp d9, d10, [x9, #0xe0]"
+    },
+    {
+      "address": "0x1018d5970",
+      "word": "f9401037",
+      "reading": "ldr x23, [x1, #0x20]"
+    },
+    {
+      "address": "0x1018d5974",
+      "word": "79400119",
+      "reading": "ldrh w25, [x8]"
+    },
+    {
+      "address": "0x1018d5978",
+      "word": "b942d128",
+      "reading": "ldr w8, [x9, #0x2d0]"
+    },
+    {
+      "address": "0x1018d597c",
+      "word": "b9004fe8",
+      "reading": "str w8, [sp, #0x4c]"
+    },
+    {
+      "address": "0x1018d59d8",
+      "word": "39405108",
+      "reading": "ldrb w8, [x8, #0x14]"
+    },
+    {
+      "address": "0x1018d59dc",
+      "word": "9100069c",
+      "reading": "add x28, x20, #1"
+    },
+    {
+      "address": "0x1018d59e0",
+      "word": "52800309",
+      "reading": "mov w9, #0x18"
+    },
+    {
+      "address": "0x1018d59e4",
+      "word": "9ba97e89",
+      "reading": "umull x9, w20, w9"
+    },
+    {
+      "address": "0x1018d59e8",
+      "word": "d1006136",
+      "reading": "sub x22, x9, #0x18"
+    },
+    {
+      "address": "0x1018d59ec",
+      "word": "52801589",
+      "reading": "mov w9, #0xac"
+    },
+    {
+      "address": "0x1018d59f0",
+      "word": "9ba97e89",
+      "reading": "umull x9, w20, w9"
+    },
+    {
+      "address": "0x1018d59f4",
+      "word": "d1017138",
+      "reading": "sub x24, x9, #0x5c"
+    },
+    {
+      "address": "0x1018d59f8",
+      "word": "52800589",
+      "reading": "mov w9, #0x2c"
+    },
+    {
+      "address": "0x1018d59fc",
+      "word": "9ba97e9a",
+      "reading": "umull x26, w20, w9"
+    },
+    {
+      "address": "0x1018d5a00",
+      "word": "321f0108",
+      "reading": "orr w8, w8, #2"
+    },
+    {
+      "address": "0x1018d5a04",
+      "word": "b9003fe8",
+      "reading": "str w8, [sp, #0x3c]"
+    },
+    {
+      "address": "0x1018d5a20",
+      "word": "d10273a0",
+      "reading": "sub x0, x29, #0x9c"
+    },
+    {
+      "address": "0x1018d5a24",
+      "word": "d102c3a1",
+      "reading": "sub x1, x29, #0xb0"
+    },
+    {
+      "address": "0x1018d5a28",
+      "word": "3d8017e0",
+      "reading": "str q0, [sp, #0x50]"
+    },
+    {
+      "address": "0x1018d5a2c",
+      "word": "3d8007e2",
+      "reading": "str q2, [sp, #0x10]"
+    },
+    {
+      "address": "0x1018d5a30",
+      "word": "97f6a830",
+      "reading": "bl #0x10167faf0"
+    },
+    {
+      "address": "0x1018d5a34",
+      "word": "b85643a8",
+      "reading": "ldur w8, [x29, #-0x9c]"
+    },
+    {
+      "address": "0x1018d5a38",
+      "word": "b9000e88",
+      "reading": "str w8, [x20, #0xc]"
+    },
+    {
+      "address": "0x1018d5a3c",
+      "word": "b9002a88",
+      "reading": "str w8, [x20, #0x28]"
+    },
+    {
+      "address": "0x1018d5a40",
+      "word": "b9004688",
+      "reading": "str w8, [x20, #0x44]"
+    },
+    {
+      "address": "0x1018d5a44",
+      "word": "b9006288",
+      "reading": "str w8, [x20, #0x60]"
+    },
+    {
+      "address": "0x1018d5ccc",
+      "word": "f9404d09",
+      "reading": "ldr x9, [x8, #0x98]"
+    },
+    {
+      "address": "0x1018d5cd0",
+      "word": "8b1a012c",
+      "reading": "add x12, x9, x26"
+    },
+    {
+      "address": "0x1018d5cd4",
+      "word": "bc5d4184",
+      "reading": "ldur s4, [x12, #-0x2c]"
+    },
+    {
+      "address": "0x1018d5cd8",
+      "word": "8b1a012c",
+      "reading": "add x12, x9, x26"
+    },
+    {
+      "address": "0x1018d5cdc",
+      "word": "bc5fc183",
+      "reading": "ldur s3, [x12, #-4]"
+    },
+    {
+      "address": "0x1018d5ce0",
+      "word": "6d7d8980",
+      "reading": "ldp d0, d2, [x12, #-0x28]"
+    },
+    {
+      "address": "0x1018d5ce4",
+      "word": "2e20dd21",
+      "reading": "fmul v1.2s, v9.2s, v0.2s"
+    },
+    {
+      "address": "0x1018d5ce8",
+      "word": "2e22dd40",
+      "reading": "fmul v0.2s, v10.2s, v2.2s"
+    },
+    {
+      "address": "0x1018d5cec",
+      "word": "6d3503a1",
+      "reading": "stp d1, d0, [x29, #-0xb0]"
+    },
+    {
+      "address": "0x1018d5cf0",
+      "word": "b9403fec",
+      "reading": "ldr w12, [sp, #0x3c]"
+    },
+    {
+      "address": "0x1018d5cf4",
+      "word": "7100099f",
+      "reading": "cmp w12, #2"
+    },
+    {
+      "address": "0x1018d5cf8",
+      "word": "540000e1",
+      "reading": "b.ne #0x1018d5d14"
+    },
+    {
+      "address": "0x1018d5cfc",
+      "word": "0fa09021",
+      "reading": "fmul v1.2s, v1.2s, v0.s[1]"
+    },
+    {
+      "address": "0x1018d5d00",
+      "word": "fc1503a1",
+      "reading": "stur d1, [x29, #-0xb0]"
+    },
+    {
+      "address": "0x1018d5d04",
+      "word": "0fa09000",
+      "reading": "fmul v0.2s, v0.2s, v0.s[1]"
+    },
+    {
+      "address": "0x1018d5d08",
+      "word": "bc1583a0",
+      "reading": "stur s0, [x29, #-0xa8]"
+    },
+    {
+      "address": "0x1018d5d0c",
+      "word": "52a7f00c",
+      "reading": "mov w12, #0x3f800000"
+    },
+    {
+      "address": "0x1018d5d10",
+      "word": "b815c3ac",
+      "reading": "stur w12, [x29, #-0xa4]"
+    }
+  ],
+  "primitive": {
+    "legacyPType": 1,
+    "factoryBranch": "0x10189bb2c",
+    "allocationBytes": 16,
+    "kind": 1,
+    "kindOffset": 8,
+    "vptr": "0x102481c10",
+    "virtualSlotOffset": 40,
+    "virtualSlotAddress": "0x102481c38",
+    "virtualMethod": "0x1018d5924",
+    "slotBytes": "24598d0101000000",
+    "colorHelper": "0x10167faf0"
+  },
+  "firstLayoutFormats": [
+    30,
+    9,
+    27,
+    25
+  ],
+  "source": {
+    "profileIndex": 4,
+    "name": "shadow",
+    "group": 4,
+    "legacyPType": 1,
+    "queue": "legacy-record",
+    "effectiveGroupType": "Complex",
+    "blendMode": 1,
+    "premultiplyBranchTaken": false,
+    "colorPolicyCandidate": "raw-key float32 plus truncating BGRA",
+    "applicationPolicyChanged": false
+  },
+  "reading": {
+    "factory": "The checked13-entry legacy switch maps p-type1 to10189bb2c. It allocates16B, stores kind1 at+8 and vptr102481c10 at+0, then returns directly through the result pointer. This branch does not use the Ray common+10 initializer.",
+    "dispatch": "Vtable slot+40 at102481c38 selects the complete function1018d5924..1018d5fa8. The inherited queue witness traces Complex definitions to the legacy consumer and its primitive virtual dispatch.",
+    "inputs": "The builder loads definition modulation RGBA at+E0 through X22+10, and draw RGBA at+4 of a44-byte record. FMUL at1018d5ce4/ce8 forms four float32 products into X29-B0 scratch.",
+    "premultiply": "The blend byte at definition+14 is ORed with2. If that equals2, RGB is multiplied by A and A becomes1. The checked Gromp shadow mode1 skips this branch.",
+    "packing": "The call1018d5a30 passes the RGBA scratch to inherited helper10167faf0, which multiplies float32 components by255, converts with unsigned truncation and keeps low bytes. The resulting BGRA word is stored at+12 in four28-byte vertices.",
+    "scope": "The original source group4/profile4 is the single legacy p-type1 Gromp plane candidate. Its runtime color remains unchanged in this source-only witness."
+  },
+  "nativeExecuted": false,
+  "nativeShaderExecuted": false,
+  "applicationBehaviorChanged": false,
+  "limits": [
+    "Bounded static linkage and conditional color arithmetic; actual native loader, draw admission, backing mode/cache mutation, phase, clocks/RNG, external modifiers and FPCR remain unobserved.",
+    "The first28-byte declaration is inherited evidence, not proof of the live plane material/layout/shader binding or complete native appearance.",
+    "UV half-conversion sites are present in the complete bytes, but UV phase/frame/lookup sources and geometry are outside this color witness.",
+    "No runtime plane color, geometry, UV, blend or texture behavior changes. Independent arithmetic and GPU projections are required before a local color correction.",
+    "Fresh static bytes do not reconstruct missing historical evidence closures."
+  ]
+}

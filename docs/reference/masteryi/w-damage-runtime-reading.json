@@ -1,0 +1,21 @@
+{
+  "format": 1,
+  "sourcePinSha256": "f2b3e3cc1759b39b8a08d75a15a43649fecaa5a60c16392eff6893935e9a6517",
+  "transport": {
+    "path": "docs/reference/masteryi/w-particle-texture-transport.json",
+    "sha256": "66ce933143a662f0f2506b96520d2d4f6e7ab206a1cb58d8da6b3b94e01e5cfd"
+  },
+  "profileSha256": "e187ff2d0aaf06504e5eac57daf7ce88771b27eab81855e32bbd167fe54abd86",
+  "historyTicks": 15,
+  "readerDefaults": {
+    "path": "docs/reference/garen-spin-defaults.json",
+    "sha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb"
+  },
+  "limits": [
+    "Complete two-emitter W_Dmg only; local admission follows positive physical/magic damage actually reduced by Meditate, including linger, shields and lethal hits, coalesced once per owner/tick. Native trigger/coalescing remain unverified.",
+    "All four texture URLs reuse existing exact Q contact transports; no public PNG or geometry is added.",
+    "Hit retains miscRenderFlags=1 and root bind; omitted flash bind remains a distinct explicit local default. Source pass, scale, rotation probability and lookup controls remain exact.",
+    "The system omits sound declarations; it adds no audio.",
+    "First-update emission, fixed cosmetic draws, default blend/lookup controls, root reflection and visibility are local reconstruction choices. Source linger does not extend visible lives."
+  ]
+}

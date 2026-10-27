@@ -1,0 +1,364 @@
+{
+  "format": 1,
+  "parentCommit": "62b7f6a1a2e525f656090a968896761595e7c527",
+  "scope": "Cancel an active ward gesture through the shared cancellation path when a keyboard spell replaces it, clearing both reticle and aiming cursor while preserving spell dispatch.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "offlinePack": {
+      "id": "9f6717aca885b0c58652f0dd4756856719b52a812a68362eb6e7356689493345",
+      "files": 1202,
+      "bytes": 538089938
+    }
+  },
+  "verification": {
+    "originalBugReproduced": true,
+    "newBrowserCases": 1,
+    "browserCases": 5,
+    "wardGesturePaths": [
+      "held key",
+      "clicked trinket"
+    ],
+    "newUnitCases": 0,
+    "focusedCases": 49,
+    "fullUnitRun": {
+      "passed": 3140,
+      "failed": 2,
+      "total": 3142,
+      "files": 395
+    },
+    "baselineFailuresUnchanged": 2,
+    "nodeQaPassed": 6,
+    "assetsAndDataFilesUnchanged": 543,
+    "bytesAndMtimesUnchanged": true,
+    "productionRecordings": 32,
+    "freshProductionScreenshots": 8,
+    "privatePreloads": 0,
+    "schemaChanged": false,
+    "rulesetChanged": false
+  },
+  "originalProof": {
+    "path": ".cache/ward-spell-transition/browser-before/ward-spell-transition-an-i-7573b-iews-without-placing-a-ward/ward-spell-transition.json",
+    "bytes": 362,
+    "sha256": "2ebe5ce7163492393c690afd3623321423ce90c313d45bf0ea792e6cac226f13"
+  },
+  "correctedProof": {
+    "path": ".cache/ward-spell-transition/browser-accepted/ward-spell-transition-an-i-7573b-iews-without-placing-a-ward/ward-spell-transition.json",
+    "bytes": 1374,
+    "sha256": "3f745d15d74f9284a7264125614c8ef01fc017751add33d75c87bde6ca35981e"
+  },
+  "limits": [
+    "Local input/DOM/view-state verification, not a native-client input comparison.",
+    "The regression holds simulation at the accepted-command boundary; existing ward and production checks exercise actual placement and saved restoration.",
+    "The same two historical/platform-dependent unit failures remain. No baselines or numerical assertions are changed.",
+    "The production runner changes only system Chromium launch selection."
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/WARD-SPELL-TRANSITION.md",
+      "bytes": 2249,
+      "sha256": "53dcf6828a9b33d57292bdfc00de1bf9b2cc15e22bbe8b2599ff0c992dff79e7"
+    },
+    {
+      "path": "e2e/ward-spell-transition.spec.ts",
+      "bytes": 2687,
+      "sha256": "7b9d072ecf4372118a9aadf3ab07e75880dee3e2eb257bc68666ebc2bd1c5b88"
+    },
+    {
+      "path": "src/input/input.ts",
+      "bytes": 9398,
+      "sha256": "e0506836f8d3ef89b70793f02f0ac0a91c0f24bfc14dcd58ade7196e22c35f3a"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "src/input/spell-controls.ts",
+      "bytes": 3590,
+      "sha256": "c67d816aa635ff428541688fca917e2f03a98b24421d5f8b4e8fec2adc3708cc"
+    },
+    {
+      "path": "src/ui/hud.ts",
+      "bytes": 84464,
+      "sha256": "f7533f3739efc9fd1b5b967dbb78d4cdc69f5b5a45881c47a96920edf40d3d7f"
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 22149,
+      "sha256": "f560678615975942527b735d74f016893a28425283fde831847473180811b10e"
+    },
+    {
+      "path": "e2e/warding-totem.spec.ts",
+      "bytes": 12046,
+      "sha256": "e8d27dae21575a68c1e76dfebe1a061fb733dc9f3570fd054bab8427b37eb6e7"
+    },
+    {
+      "path": "e2e/attack-move-target.spec.ts",
+      "bytes": 5946,
+      "sha256": "5a1a9f252e72db1b0292807b4ae2571492f6e390ff45dc9f310965ed6ab6f98d"
+    },
+    {
+      "path": "e2e/lux-player-input.spec.ts",
+      "bytes": 5793,
+      "sha256": "87291c8a8bbff60376392df1267e2811b2c0d22fddb0bb47c41470033ec904d8"
+    },
+    {
+      "path": "e2e/recovery.spec.ts",
+      "bytes": 12323,
+      "sha256": "12cfa1a497be8c713499c0d0061e0a3a502c9c464ed996427d8906b2c0ee8db3"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 30464,
+      "sha256": "68425c70629572add4d8bfb83d3b71e2a4b276c476bd5f1880083659aed7043b"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    },
+    {
+      "path": "docs/reference/gromp-curve-views-verification.json",
+      "bytes": 25894,
+      "sha256": "9486efbb57c3915e7f67490f1b4c9247b72e96c4f4ba2896e76255af33207539"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/ward-spell-transition/final-source/docs/WARD-SPELL-TRANSITION.md",
+      "bytes": 2249,
+      "sha256": "53dcf6828a9b33d57292bdfc00de1bf9b2cc15e22bbe8b2599ff0c992dff79e7"
+    },
+    {
+      "path": ".cache/ward-spell-transition/final-source/e2e/ward-spell-transition.spec.ts",
+      "bytes": 2687,
+      "sha256": "7b9d072ecf4372118a9aadf3ab07e75880dee3e2eb257bc68666ebc2bd1c5b88"
+    },
+    {
+      "path": ".cache/ward-spell-transition/final-source/src/input/input.ts",
+      "bytes": 9398,
+      "sha256": "e0506836f8d3ef89b70793f02f0ac0a91c0f24bfc14dcd58ade7196e22c35f3a"
+    },
+    {
+      "path": ".cache/ward-spell-transition/final-source/src/input/spell-controls.ts",
+      "bytes": 3590,
+      "sha256": "c67d816aa635ff428541688fca917e2f03a98b24421d5f8b4e8fec2adc3708cc"
+    },
+    {
+      "path": ".cache/ward-spell-transition/final-source/src/ui/hud.ts",
+      "bytes": 84464,
+      "sha256": "f7533f3739efc9fd1b5b967dbb78d4cdc69f5b5a45881c47a96920edf40d3d7f"
+    },
+    {
+      "path": ".cache/ward-spell-transition/final-source/src/main.ts",
+      "bytes": 22149,
+      "sha256": "f560678615975942527b735d74f016893a28425283fde831847473180811b10e"
+    },
+    {
+      "path": ".cache/ward-spell-transition/final-source/e2e/warding-totem.spec.ts",
+      "bytes": 12046,
+      "sha256": "e8d27dae21575a68c1e76dfebe1a061fb733dc9f3570fd054bab8427b37eb6e7"
+    },
+    {
+      "path": ".cache/ward-spell-transition/final-source/e2e/attack-move-target.spec.ts",
+      "bytes": 5946,
+      "sha256": "5a1a9f252e72db1b0292807b4ae2571492f6e390ff45dc9f310965ed6ab6f98d"
+    },
+    {
+      "path": ".cache/ward-spell-transition/final-source/e2e/lux-player-input.spec.ts",
+      "bytes": 5793,
+      "sha256": "87291c8a8bbff60376392df1267e2811b2c0d22fddb0bb47c41470033ec904d8"
+    },
+    {
+      "path": ".cache/ward-spell-transition/final-source/e2e/recovery.spec.ts",
+      "bytes": 12323,
+      "sha256": "12cfa1a497be8c713499c0d0061e0a3a502c9c464ed996427d8906b2c0ee8db3"
+    },
+    {
+      "path": ".cache/ward-spell-transition/final-source/tools/qa/production-subpath.mjs",
+      "bytes": 30464,
+      "sha256": "68425c70629572add4d8bfb83d3b71e2a4b276c476bd5f1880083659aed7043b"
+    },
+    {
+      "path": ".cache/ward-spell-transition/final-source/package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    },
+    {
+      "path": ".cache/ward-spell-transition/final-source/docs/reference/gromp-curve-views-verification.json",
+      "bytes": 25894,
+      "sha256": "9486efbb57c3915e7f67490f1b4c9247b72e96c4f4ba2896e76255af33207539"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/ward-spell-transition/acceptance-stages.json",
+      "bytes": 1251,
+      "sha256": "00d43fcaafa1bd2bd9d1c0f4426f561e615c31042bf3547a6bb39775d9e2a85f"
+    },
+    {
+      "path": ".cache/ward-spell-transition/accepted-source-hashes.json",
+      "bytes": 202,
+      "sha256": "8c87d4706eda55b3659c7a26e18d2987427995a247efe9b555486efb88985806"
+    },
+    {
+      "path": ".cache/ward-spell-transition/archive-checkpoint.py",
+      "bytes": 7217,
+      "sha256": "eb8adab5337c01451c73caa1846c4ff63ee15278dd0b69ba01ab0438f831c03d"
+    },
+    {
+      "path": ".cache/ward-spell-transition/assets-check.json",
+      "bytes": 113485,
+      "sha256": "724f4291b77f582effc4ece538baf9efc9efbfcf478e0366363cb8b3a857d549"
+    },
+    {
+      "path": ".cache/ward-spell-transition/browser-accepted/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/ward-spell-transition/browser-accepted/ward-spell-transition-an-i-7573b-iews-without-placing-a-ward/ward-spell-transition.json",
+      "bytes": 1374,
+      "sha256": "3f745d15d74f9284a7264125614c8ef01fc017751add33d75c87bde6ca35981e"
+    },
+    {
+      "path": ".cache/ward-spell-transition/browser-accepted/ward-spell-transition-an-i-7573b-iews-without-placing-a-ward/ward-spell-transition.png",
+      "bytes": 901809,
+      "sha256": "dd988c3b4ade66c6e3d5bd64dca206a8cfa12aacba0edce21e112dc94146b77b"
+    },
+    {
+      "path": ".cache/ward-spell-transition/browser-accepted.log",
+      "bytes": 2000,
+      "sha256": "4f6c6442eeb526c63e1cdcfa391069ebd37828d758e15ae61ea414525a02cfbe"
+    },
+    {
+      "path": ".cache/ward-spell-transition/browser-before/.last-run.json",
+      "bytes": 96,
+      "sha256": "b519d5d5ee80087777b956fbd06f6867b49cb4738fd044dd2d2482fa9e229fa6"
+    },
+    {
+      "path": ".cache/ward-spell-transition/browser-before/ward-spell-transition-an-i-7573b-iews-without-placing-a-ward/error-context.md",
+      "bytes": 7185,
+      "sha256": "b0ce0cb0451078b1ab0835b0984d122c307c1d448d9419def6a90516514cd787"
+    },
+    {
+      "path": ".cache/ward-spell-transition/browser-before/ward-spell-transition-an-i-7573b-iews-without-placing-a-ward/test-failed-1.png",
+      "bytes": 911957,
+      "sha256": "234808f626a95f1467a64cdc9e2ae3353ad1f2594241629b2e5eb0fb9656f7dc"
+    },
+    {
+      "path": ".cache/ward-spell-transition/browser-before/ward-spell-transition-an-i-7573b-iews-without-placing-a-ward/trace.zip",
+      "bytes": 35683572,
+      "sha256": "2d714dedec8f49624b0c4a35412e2fcf8ade67aeae134205c2c79cd43ea62a8c"
+    },
+    {
+      "path": ".cache/ward-spell-transition/browser-before/ward-spell-transition-an-i-7573b-iews-without-placing-a-ward/ward-spell-transition.json",
+      "bytes": 362,
+      "sha256": "2ebe5ce7163492393c690afd3623321423ce90c313d45bf0ea792e6cac226f13"
+    },
+    {
+      "path": ".cache/ward-spell-transition/browser-before.log",
+      "bytes": 3004,
+      "sha256": "7af1aedcb1888b288ff6e09ec989b7b5bc41660cd99a3fa4b23ff19b5c8d5061"
+    },
+    {
+      "path": ".cache/ward-spell-transition/build.log",
+      "bytes": 7760,
+      "sha256": "51ac96a90e336f5a27a3657b6a1d0199aa0c242980873ede58930f3a6c78b1bc"
+    },
+    {
+      "path": ".cache/ward-spell-transition/built-identity.json",
+      "bytes": 256,
+      "sha256": "a126a6acaa9199f0e02cc727cca7b482f5a5ba20803b735e60ca2df9cd00b50c"
+    },
+    {
+      "path": ".cache/ward-spell-transition/finish-checks.py",
+      "bytes": 2059,
+      "sha256": "cdd01efdd84acd2dc7f9b2ab27bed2079ded68d3a6eec7e446aaf8ed77ac778f"
+    },
+    {
+      "path": ".cache/ward-spell-transition/focused.log",
+      "bytes": 369,
+      "sha256": "ff2cf6efd8fa2e1281fe360ed8c0507d530a2118cc6b9a7c1338c63c38942496"
+    },
+    {
+      "path": ".cache/ward-spell-transition/full-tests.log",
+      "bytes": 4579,
+      "sha256": "c7a7a89934880d3e0218540788f78e3128d378df4eeea1023014f87bd5fcb914"
+    },
+    {
+      "path": ".cache/ward-spell-transition/node-qa.log",
+      "bytes": 660,
+      "sha256": "7a542a8f22cb9f1f91384e644493f853d8b5904b1c408c848805af69931d1bc0"
+    },
+    {
+      "path": ".cache/ward-spell-transition/original-source/src/input/input.ts",
+      "bytes": 9386,
+      "sha256": "50a71c35521b643589e0f4677148247a27c36aeed69cde6c9643d90da0aa9c48"
+    },
+    {
+      "path": ".cache/ward-spell-transition/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1814415,
+      "sha256": "09be9c1f45d05f808f002c4fe0ebb4b3072f2e72fa6d05681ff93b5596ae7268"
+    },
+    {
+      "path": ".cache/ward-spell-transition/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835498,
+      "sha256": "3c2cfe4da1ed2bc86d3b182c2358197c25bd1af6ed3acee7f5a7c8958f5de673"
+    },
+    {
+      "path": ".cache/ward-spell-transition/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1828824,
+      "sha256": "c36b3b76304094e14e6bc150d35cc688a8a81e4db51f41e52fd573ea8f95bfa4"
+    },
+    {
+      "path": ".cache/ward-spell-transition/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1811532,
+      "sha256": "db0483ee0b5934c57d46b5ebeccd2763c1a5d6e34483782a167ececcaea4957d"
+    },
+    {
+      "path": ".cache/ward-spell-transition/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1815053,
+      "sha256": "a92fdd7a75d78d9534438f54480d6bc0f9bcb2e418d77fbb4b079373a95f8aa6"
+    },
+    {
+      "path": ".cache/ward-spell-transition/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1351503,
+      "sha256": "bcbe309917eba51eae4521c3b4c141058c2d91a24d6792a2c016cb68281973ea"
+    },
+    {
+      "path": ".cache/ward-spell-transition/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1826332,
+      "sha256": "f584cbbfa00f8f4bb8cf520f1302a18dcef740f755702fca4534102f70fd1233"
+    },
+    {
+      "path": ".cache/ward-spell-transition/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808972,
+      "sha256": "aa7e8bc6701533cbbfd0df6253b407c9ba2b2c53d99f36c5b2a1b85ddbfafbb5"
+    },
+    {
+      "path": ".cache/ward-spell-transition/production-summary.json",
+      "bytes": 3191,
+      "sha256": "2dbfd545aebdb6aa0081e70f472466ead471271e6426aab261715797f82706af"
+    },
+    {
+      "path": ".cache/ward-spell-transition/production-system.mjs",
+      "bytes": 30506,
+      "sha256": "83265d55f3e6e2d817e9e75fb02cce522f5d180558a305fd95d3d8e8dbf6df2a"
+    },
+    {
+      "path": ".cache/ward-spell-transition/production.log",
+      "bytes": 2852,
+      "sha256": "3a43a61a46c1083171afc098905a070204ecf85c4ad7711bbae93d93d22a77ac"
+    },
+    {
+      "path": ".cache/ward-spell-transition/task-notes.json",
+      "bytes": 682,
+      "sha256": "f5211ec5be33ed3b1c042bc17631e441de7811e598f0e4faa231db3ab72405db"
+    },
+    {
+      "path": ".cache/ward-spell-transition/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

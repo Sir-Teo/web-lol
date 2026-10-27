@@ -1,0 +1,636 @@
+{
+  "format": 1,
+  "parentCommit": "6fd50c9aad1aac17891df3bc88e1db32d21b99b4",
+  "scope": "Skip unused source Euler work for camera-facing billboards without joint orientation frames; reuse directional camera inverses and Three roll scratch; write tint into owned uniform storage. Preserve exact source transforms, values, geometry, ordering and authored texture pixels.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "3bbb19e3194921ddf60a35a0a12eb509e3e49569b7e5fec4f02b27f52e613947",
+    "offlinePack": {
+      "id": "715ec17f2b167d6789141b3326ff1d21d15d4a0e20ef63537e385b29c90d0a4d",
+      "files": 1200,
+      "bytes": 538083474
+    }
+  },
+  "verification": {
+    "newUnitCases": 3,
+    "focusedCases": 36,
+    "strengthenedCameraCases": 3,
+    "fullUnitRun": {
+      "passed": 3077,
+      "failed": 2,
+      "total": 3079,
+      "files": 389
+    },
+    "remainingBaselineFailures": 2,
+    "originalWaveDeadlinePassed": true,
+    "nodeQaPassed": 6,
+    "browserCases": 7,
+    "exactPlacementPixelCases": 72,
+    "nonemptyPlacementPixelCases": 60,
+    "placementChangedBytes": 0,
+    "referenceMeshFixtures": 72,
+    "sourceParticleStates": 714,
+    "savedFutureTicks": 130,
+    "gpuMipReadbacks": 93,
+    "unchangedParentOutputs": 14,
+    "publicAssetsChanged": false,
+    "productionRecordings": 32,
+    "freshProductionScreenshots": 8,
+    "privatePreloads": 0
+  },
+  "placementBenchmarks": {
+    "node": {
+      "node": "v24.19.0",
+      "reference": {
+        "commit": "6fd50c9aad1aac17891df3bc88e1db32d21b99b4",
+        "archiveSha256": "b12071ef42645e6ee11c816a1a45841f86af5640ade069b001e9447cf0b1cbcb",
+        "sourceSha256": "b9fe8637fd66fc62aff4ed654b8e54bfa38bcd15bdc93600b02306c21aefc826",
+        "moduleSha256": "7dfb80b87fa4c2629738c160fead0ae07274aa5f78ad5e54e8b94e775b116530",
+        "module": "/workspace/web-lol/.cache/particle-surface-placement/node-final/reference/baseline.mjs"
+      },
+      "fixtures": 72,
+      "particles": 714,
+      "exactMeshStateAndUniforms": true,
+      "particleInputsUnchanged": true,
+      "iterationsPerTrial": 20000,
+      "trials": [
+        {
+          "baselineMs": 293.74695900000006,
+          "focusedMs": 214.3302789999998
+        },
+        {
+          "baselineMs": 305.45624499999985,
+          "focusedMs": 215.83341100000007
+        },
+        {
+          "baselineMs": 357.2572869999999,
+          "focusedMs": 289.4973890000001
+        },
+        {
+          "baselineMs": 271.9872779999996,
+          "focusedMs": 228.08364900000015
+        },
+        {
+          "baselineMs": 443.5565739999997,
+          "focusedMs": 248.08544799999981
+        },
+        {
+          "baselineMs": 331.80503899999985,
+          "focusedMs": 236.6676379999999
+        },
+        {
+          "baselineMs": 354.5824299999995,
+          "focusedMs": 225.55673100000058
+        }
+      ],
+      "baselineMedianMs": 331.80503899999985,
+      "focusedMedianMs": 228.08364900000015,
+      "ratio": 1.4547515372309727,
+      "sourceSha256": "8cce310f46c6c75a692a27514d9b4751e8b7dc6ec26777b47c290c8bac5b7929",
+      "producerSha256": "61eac57c5ec04fa7d4e4640f1abdc0a3608e390b6fdaaa7ebf09640ead2da310",
+      "fixtureProducerSha256": "93e5a7acca193de44f354cd74744b1d64e4d69dbc2c2cc1a1006dcbcdd30f138",
+      "limits": [
+        "Standalone placement-update timings on captured source particles, not game FPS or complete-world throughput.",
+        "Particle sampling and asset/GPU work are excluded; all source assets and numerical force policies are unchanged."
+      ]
+    },
+    "browser": {
+      "fixtures": 72,
+      "particles": 714,
+      "iterationsPerTrial": 20000,
+      "trials": [
+        {
+          "baselineMs": 243,
+          "focusedMs": 189.1000000089407
+        },
+        {
+          "baselineMs": 230.20000000298023,
+          "focusedMs": 176.8999999910593
+        },
+        {
+          "baselineMs": 231,
+          "focusedMs": 174.79999999701977
+        },
+        {
+          "baselineMs": 231.79999999701977,
+          "focusedMs": 174.40000000596046
+        },
+        {
+          "baselineMs": 224.70000000298023,
+          "focusedMs": 178.09999999403954
+        },
+        {
+          "baselineMs": 231.70000000298023,
+          "focusedMs": 173.70000000298023
+        },
+        {
+          "baselineMs": 227.5,
+          "focusedMs": 175.29999999701977
+        }
+      ],
+      "baselineMedianMs": 231,
+      "focusedMedianMs": 175.29999999701977,
+      "ratio": 1.3177410154245703,
+      "exactMeshStateAndUniforms": true,
+      "particleInputsUnchanged": true,
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+      "gameBooted": false,
+      "errors": [],
+      "limits": [
+        "Placement-only browser timing without game startup, particle sampling, asset decoding or GPU rendering. No full-match FPS claim."
+      ]
+    }
+  },
+  "pixelReading": {
+    "path": ".cache/particle-surface-placement/pixel-final/particle-surface-placement-c8003-xels-with-authored-textures/placement-pixels.json",
+    "bytes": 14659,
+    "sha256": "c5119ea509f53feb456549d107a14b500bcae60533a3846c8c33baffb2a906e3"
+  },
+  "savedGameReading": {
+    "path": ".cache/particle-surface-placement/browser-regenerated/masteryi-primary-hits-all--0c76f-U-mips-and-real-Save-reload/primary-hit-gpu-save.json",
+    "bytes": 128242,
+    "sha256": "a16671e2d2caf91652751505a31b3f3bd8dea6bc5759b8ed213a803d7c19dd2e"
+  },
+  "combinedSwordReading": {
+    "path": ".cache/particle-surface-placement/browser-combined-artifacts/masteryi-passive-sword-ord-c4050-pixels-across-camera-angles/passive-sword-gpu-order.json",
+    "bytes": 556,
+    "sha256": "de332e3b109a8efbb9a9dd79e43ab9f2f725ecf2cc5a84e053e5ff8d81c8282a"
+  },
+  "limits": [
+    "Benchmarks measure placement only, excluding particle sampling, asset/GPU work and the rest of the game; no physical FPS or full-match throughput claim.",
+    "The optimization preserves the previous local source-frame interpretation. It supplies no new native dispatch, attachment, force or sampler certificate.",
+    "The same historical Leona archive and default x64 Lux checksum failures remain; original pins, golden and wave deadline are unchanged."
+  ],
+  "diagnostics": [
+    "Initial allocation-only prototype had timing within noise. The unused-Euler gate supplied the measured gain; earlier prototypes remain retained.",
+    "The combined browser run reused the first output folder and cleared earlier attachments. It was archived separately, and all six earlier cases were rerun into browser-regenerated before acceptance.",
+    "Playwright retained the body attachment in reporter memory. The oracle now writes placement-pixels.json explicitly, and its final single-case rerun materializes that reading.",
+    "The camera test was strengthened to compare a moved camera against a fresh renderer at that camera; its three-case focused suite and TypeScript passed after the assertion was added."
+  ],
+  "sourceFiles": [
+    {
+      "path": "README.md",
+      "bytes": 19816,
+      "sha256": "7c1cb70ef6a45705da95d53006866251057203881d06a603b3a4efd81a464db9"
+    },
+    {
+      "path": "docs/PARTICLE-SURFACE-PLACEMENT.md",
+      "bytes": 3799,
+      "sha256": "e0fef021afb0aae4fd8b76e7c63033f5d0847a1307548c20eae8489e150ee423"
+    },
+    {
+      "path": "e2e/particle-surface-placement.spec.ts",
+      "bytes": 6928,
+      "sha256": "1669dc7b6b1067ff272641b66cda98ae3b7bfd7abd79795fd5f81f9d56bc4645"
+    },
+    {
+      "path": "src/render/source-particle-surfaces.ts",
+      "bytes": 21549,
+      "sha256": "8cce310f46c6c75a692a27514d9b4751e8b7dc6ec26777b47c290c8bac5b7929"
+    },
+    {
+      "path": "tests/source-particle-surfaces.test.ts",
+      "bytes": 4124,
+      "sha256": "e6d8191fe6886480acf66f550b6dd68ab62439782883a3e92e5634c0c4406d9a"
+    },
+    {
+      "path": "tools/qa/benchmark-surface-placement.mjs",
+      "bytes": 3908,
+      "sha256": "61eac57c5ec04fa7d4e4640f1abdc0a3608e390b6fdaaa7ebf09640ead2da310"
+    },
+    {
+      "path": "tools/qa/lib/particle-surface-placement-fixtures.mjs",
+      "bytes": 4586,
+      "sha256": "93e5a7acca193de44f354cd74744b1d64e4d69dbc2c2cc1a1006dcbcdd30f138"
+    },
+    {
+      "path": "tools/qa/lib/prepare-surface-placement-reference.mjs",
+      "bytes": 2218,
+      "sha256": "94a5dbfb8fecc5224d1328a90f59120deabe33af2bfce001fef22d30fac37eb5"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/particle-surface-placement/final-source/README.md",
+      "bytes": 19816,
+      "sha256": "7c1cb70ef6a45705da95d53006866251057203881d06a603b3a4efd81a464db9"
+    },
+    {
+      "path": ".cache/particle-surface-placement/final-source/docs/PARTICLE-SURFACE-PLACEMENT.md",
+      "bytes": 3799,
+      "sha256": "e0fef021afb0aae4fd8b76e7c63033f5d0847a1307548c20eae8489e150ee423"
+    },
+    {
+      "path": ".cache/particle-surface-placement/final-source/e2e/particle-surface-placement.spec.ts",
+      "bytes": 6928,
+      "sha256": "1669dc7b6b1067ff272641b66cda98ae3b7bfd7abd79795fd5f81f9d56bc4645"
+    },
+    {
+      "path": ".cache/particle-surface-placement/final-source/src/render/source-particle-surfaces.ts",
+      "bytes": 21549,
+      "sha256": "8cce310f46c6c75a692a27514d9b4751e8b7dc6ec26777b47c290c8bac5b7929"
+    },
+    {
+      "path": ".cache/particle-surface-placement/final-source/tests/source-particle-surfaces.test.ts",
+      "bytes": 4124,
+      "sha256": "e6d8191fe6886480acf66f550b6dd68ab62439782883a3e92e5634c0c4406d9a"
+    },
+    {
+      "path": ".cache/particle-surface-placement/final-source/tools/qa/benchmark-surface-placement.mjs",
+      "bytes": 3908,
+      "sha256": "61eac57c5ec04fa7d4e4640f1abdc0a3608e390b6fdaaa7ebf09640ead2da310"
+    },
+    {
+      "path": ".cache/particle-surface-placement/final-source/tools/qa/lib/particle-surface-placement-fixtures.mjs",
+      "bytes": 4586,
+      "sha256": "93e5a7acca193de44f354cd74744b1d64e4d69dbc2c2cc1a1006dcbcdd30f138"
+    },
+    {
+      "path": ".cache/particle-surface-placement/final-source/tools/qa/lib/prepare-surface-placement-reference.mjs",
+      "bytes": 2218,
+      "sha256": "94a5dbfb8fecc5224d1328a90f59120deabe33af2bfce001fef22d30fac37eb5"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/particle-surface-placement/app-identity.json",
+      "bytes": 90,
+      "sha256": "5bd5d9f766a6b73094bbd94b8a0ab334cec3ae638d1c74f4e2a1ee70f7ad5d13"
+    },
+    {
+      "path": ".cache/particle-surface-placement/archive-checkpoint.py",
+      "bytes": 8667,
+      "sha256": "28683cbc571f0012727106f012851ebbf45fc112e1d580b34102bd84e9e19990"
+    },
+    {
+      "path": ".cache/particle-surface-placement/baseline.mjs",
+      "bytes": 131768,
+      "sha256": "443b2a83435b2d305c6aa1b56128f5221d8af92529bd8e07ed97cd9f57946ef9"
+    },
+    {
+      "path": ".cache/particle-surface-placement/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/particle-surface-placement/browser/masteryi-passive-sword-ord-c4050-pixels-across-camera-angles/passive-sword-gpu-order.json",
+      "bytes": 556,
+      "sha256": "de332e3b109a8efbb9a9dd79e43ab9f2f725ecf2cc5a84e053e5ff8d81c8282a"
+    },
+    {
+      "path": ".cache/particle-surface-placement/browser-benchmark.json",
+      "bytes": 1174,
+      "sha256": "b16002de1822d6b652f14e291c01d56ede31ddac39ada688cef313618eb220cc"
+    },
+    {
+      "path": ".cache/particle-surface-placement/browser-benchmark.log",
+      "bytes": 842,
+      "sha256": "19e9b63c95be033477beda0a145cce336d4b3b99241fe44ffa94baf561fb1ade"
+    },
+    {
+      "path": ".cache/particle-surface-placement/browser-benchmark.mjs",
+      "bytes": 3077,
+      "sha256": "b4e63039b24a26cdd3951d80984032e27f7cb982936aef9e091b191e563298c1"
+    },
+    {
+      "path": ".cache/particle-surface-placement/browser-combined-artifacts/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/particle-surface-placement/browser-combined-artifacts/masteryi-passive-sword-ord-c4050-pixels-across-camera-angles/passive-sword-gpu-order.json",
+      "bytes": 556,
+      "sha256": "de332e3b109a8efbb9a9dd79e43ab9f2f725ecf2cc5a84e053e5ff8d81c8282a"
+    },
+    {
+      "path": ".cache/particle-surface-placement/browser-combined.log",
+      "bytes": 686,
+      "sha256": "badc698474af7ac3cb1d6d9dcc203eea05ec82e2cac68feeb13fe7e2201ec86d"
+    },
+    {
+      "path": ".cache/particle-surface-placement/browser-regenerated/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/particle-surface-placement/browser-regenerated/masteryi-primary-hits-all--0c76f-U-mips-and-real-Save-reload/primary-critical-hit.png",
+      "bytes": 794850,
+      "sha256": "bdb395ec3ac3e3caf58d1928c3326eade246dc19069c392419afb6cc234faa4a"
+    },
+    {
+      "path": ".cache/particle-surface-placement/browser-regenerated/masteryi-primary-hits-all--0c76f-U-mips-and-real-Save-reload/primary-hit-gpu-save.json",
+      "bytes": 128242,
+      "sha256": "a16671e2d2caf91652751505a31b3f3bd8dea6bc5759b8ed213a803d7c19dd2e"
+    },
+    {
+      "path": ".cache/particle-surface-placement/browser-regenerated/masteryi-primary-hits-each-0e129-its-actual-runtime-material/all-emitter-gpu-pixels.json",
+      "bytes": 1175,
+      "sha256": "2ac0079f2b6e3821002949fd5d62beecb1be24c4778decbbb7d36599731ff37e"
+    },
+    {
+      "path": ".cache/particle-surface-placement/browser-regenerated/masteryi-primary-hits-know-90612-t-stays-absent-after-reveal/visibility-corpse-terminal.json",
+      "bytes": 148,
+      "sha256": "4bebc0211c68e04d61d2329fff436b2142698c31a04fb3367643afcf11286e9f"
+    },
+    {
+      "path": ".cache/particle-surface-placement/browser-regenerated/masteryi-primary-hits-ordi-2ff62-s-only-the-failed-transport/selective-retry.json",
+      "bytes": 1458,
+      "sha256": "d666533004c6b8f2fffaebd4ac09a32c0a567a791785336e40cbb5c13eb217ce"
+    },
+    {
+      "path": ".cache/particle-surface-placement/browser-regenerated/masteryi-sword-instancing--e809a--reducing-actual-draw-calls/instance-pixel-comparison.json",
+      "bytes": 12315,
+      "sha256": "109257cf4e66f108574ca8340e83a0756596739a0ec6ca89d96a1985be1edf80"
+    },
+    {
+      "path": ".cache/particle-surface-placement/browser-regenerated/particle-surface-placement-c8003-xels-with-authored-textures/reference/baseline.mjs",
+      "bytes": 134408,
+      "sha256": "11989e21aa3ceff19638bf11355a100b9fd579ad5f0171a6ae6f59155587bb23"
+    },
+    {
+      "path": ".cache/particle-surface-placement/browser-regenerated/particle-surface-placement-c8003-xels-with-authored-textures/reference/reference.json",
+      "bytes": 490,
+      "sha256": "1330f9d25ee5b80b405bc0e2acde479dc9c36ca628bec0c41f93765f6a92cf53"
+    },
+    {
+      "path": ".cache/particle-surface-placement/browser-regenerated/particle-surface-placement-c8003-xels-with-authored-textures/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "b12071ef42645e6ee11c816a1a45841f86af5640ade069b001e9447cf0b1cbcb"
+    },
+    {
+      "path": ".cache/particle-surface-placement/browser-tests-initial.log",
+      "bytes": 3113,
+      "sha256": "187266f0df3e96a7833d0365a17717940cb5269687304957b9a6b008ce56ab91"
+    },
+    {
+      "path": ".cache/particle-surface-placement/browser-tests-regenerated.log",
+      "bytes": 3113,
+      "sha256": "fde8ceb592c916d30a1f11271b2e0f75b75dd8d410d1028cca3291c31d649516"
+    },
+    {
+      "path": ".cache/particle-surface-placement/browser-tests.log",
+      "bytes": 3113,
+      "sha256": "187266f0df3e96a7833d0365a17717940cb5269687304957b9a6b008ce56ab91"
+    },
+    {
+      "path": ".cache/particle-surface-placement/build.log",
+      "bytes": 7682,
+      "sha256": "4aada714d70f9afef1e663dddc35ccabdcb52fd5eb52e59afe03500c405a5d32"
+    },
+    {
+      "path": ".cache/particle-surface-placement/built-identity.json",
+      "bytes": 256,
+      "sha256": "c96731998270eee7aae6dcc6faa55498e92ad2881d4af39391df16993c3bc81e"
+    },
+    {
+      "path": ".cache/particle-surface-placement/candidate-rotation.mjs",
+      "bytes": 131973,
+      "sha256": "c558c20d93875a98fcde8c2ff750cd4a0cb9b45d88048b2b979708c9e39db9af"
+    },
+    {
+      "path": ".cache/particle-surface-placement/candidate.mjs",
+      "bytes": 131906,
+      "sha256": "b2cc4e6c49bf3c94262b6320289af44a9d6f0a9f24d844b57a6f1eeceae8749a"
+    },
+    {
+      "path": ".cache/particle-surface-placement/entry.ts",
+      "bytes": 260,
+      "sha256": "150ed712f18062ca188e1fee44e74ad49f8fe9ade52224c124515fa0445a7229"
+    },
+    {
+      "path": ".cache/particle-surface-placement/finish-browser-validation.log",
+      "bytes": 617,
+      "sha256": "c8004fa57e74abe9e543980a01d61c3b31fc50679382ebe943d5427fd14d909b"
+    },
+    {
+      "path": ".cache/particle-surface-placement/finish-browser-validation.py",
+      "bytes": 1349,
+      "sha256": "948df7f544c8ba6cca21fc84452abd3e7f84d0f4d485795327b68db7ffc19a46"
+    },
+    {
+      "path": ".cache/particle-surface-placement/focused.log",
+      "bytes": 424,
+      "sha256": "a89f1295c497e9dca4faa7092c68de7724d45d7cd6ca0b3336e8b0d80bd52b42"
+    },
+    {
+      "path": ".cache/particle-surface-placement/full-tests.log",
+      "bytes": 4578,
+      "sha256": "38dfa4132f423f6cd0fc89625abcbcbfdb3446afab0ee5459169080d8bc4a1be"
+    },
+    {
+      "path": ".cache/particle-surface-placement/gpu-probe.mjs",
+      "bytes": 4725,
+      "sha256": "fbfc387772f47c4039a0d838dfd037a0ed22e9af661c3900f313c5b76f9adf9a"
+    },
+    {
+      "path": ".cache/particle-surface-placement/gpu-reading.json",
+      "bytes": 14149,
+      "sha256": "c21cec6b5dc2bd0a889578961cb387cc5fa94a9ed6d1c7a1ebd17e3e2048b818"
+    },
+    {
+      "path": ".cache/particle-surface-placement/gpu.log",
+      "bytes": 248,
+      "sha256": "ce744e7b77d00d40c45676d0c2f98463138756c59c8f6c0a812d09ee66d45389"
+    },
+    {
+      "path": ".cache/particle-surface-placement/mutable-reading.json",
+      "bytes": 912,
+      "sha256": "1cd5141933e4d43c650c822bff736d61179061ddd1efe3f18c8185892c285b96"
+    },
+    {
+      "path": ".cache/particle-surface-placement/mutable.log",
+      "bytes": 754,
+      "sha256": "02e58136c8a3bf37136f5ef4119c76031d7cb7539630fc3134fc8c10e6e03148"
+    },
+    {
+      "path": ".cache/particle-surface-placement/node-final/candidate.mjs",
+      "bytes": 34459,
+      "sha256": "ed5ae271f1e10754fc1e94d3d51693a094e59ebdc03699367d9c472d4a4b6380"
+    },
+    {
+      "path": ".cache/particle-surface-placement/node-final/candidate.ts",
+      "bytes": 100,
+      "sha256": "17a0b639cf3ed0e4ef557aa297c883f3dc69e91d9e5e222588ef553f41d15660"
+    },
+    {
+      "path": ".cache/particle-surface-placement/node-final/reading.json",
+      "bytes": 1899,
+      "sha256": "7bf14234fc3d40f5aed584db880cc102735a741b4d82f7f22280aba94fffaa6a"
+    },
+    {
+      "path": ".cache/particle-surface-placement/node-final/reference/baseline.mjs",
+      "bytes": 133008,
+      "sha256": "7dfb80b87fa4c2629738c160fead0ae07274aa5f78ad5e54e8b94e775b116530"
+    },
+    {
+      "path": ".cache/particle-surface-placement/node-final/reference/reference.json",
+      "bytes": 420,
+      "sha256": "ea7d2e9819515d1802053f3d78611b7d3430f61bd385fba586b1043608b4f63b"
+    },
+    {
+      "path": ".cache/particle-surface-placement/node-final/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "b12071ef42645e6ee11c816a1a45841f86af5640ade069b001e9447cf0b1cbcb"
+    },
+    {
+      "path": ".cache/particle-surface-placement/node-final.log",
+      "bytes": 1607,
+      "sha256": "7fe7edcddcba440e7eb78ba6bb6548d94e5bc7ef63d192f06e6227aadca68994"
+    },
+    {
+      "path": ".cache/particle-surface-placement/node-qa.log",
+      "bytes": 659,
+      "sha256": "05479ce4c903f789cad44cc6a04c6163b05e3e8c5ba55cb79bf5a7e0ad0e629c"
+    },
+    {
+      "path": ".cache/particle-surface-placement/ownership-camera-final.log",
+      "bytes": 178,
+      "sha256": "2acc277c8cbd73b785b5982599d1fb31bac0fcd3a29f7ccb3833d3929f4b690a"
+    },
+    {
+      "path": ".cache/particle-surface-placement/pixel-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/particle-surface-placement/pixel-final/particle-surface-placement-c8003-xels-with-authored-textures/attachments/placement-pixels-json-d14512623141b642a4e0d98cc472da751c0d7a4a.json",
+      "bytes": 14659,
+      "sha256": "c5119ea509f53feb456549d107a14b500bcae60533a3846c8c33baffb2a906e3"
+    },
+    {
+      "path": ".cache/particle-surface-placement/pixel-final/particle-surface-placement-c8003-xels-with-authored-textures/placement-pixels.json",
+      "bytes": 14659,
+      "sha256": "c5119ea509f53feb456549d107a14b500bcae60533a3846c8c33baffb2a906e3"
+    },
+    {
+      "path": ".cache/particle-surface-placement/pixel-final/particle-surface-placement-c8003-xels-with-authored-textures/reference/baseline.mjs",
+      "bytes": 134248,
+      "sha256": "e418ebfdd72c7ac6c25bacc02f4c269b199ff5b8a8da22e802b92d5ae9d568d6"
+    },
+    {
+      "path": ".cache/particle-surface-placement/pixel-final/particle-surface-placement-c8003-xels-with-authored-textures/reference/reference.json",
+      "bytes": 482,
+      "sha256": "7bbe5e023bb5e146e892bfaa5b28ce6cfde306cdd5b8531083a3b284788eda00"
+    },
+    {
+      "path": ".cache/particle-surface-placement/pixel-final/particle-surface-placement-c8003-xels-with-authored-textures/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "b12071ef42645e6ee11c816a1a45841f86af5640ade069b001e9447cf0b1cbcb"
+    },
+    {
+      "path": ".cache/particle-surface-placement/pixel-final.log",
+      "bytes": 545,
+      "sha256": "11f6596d9638810857226a20998e1daacaafe9d8d78f890f6634788a076443f9"
+    },
+    {
+      "path": ".cache/particle-surface-placement/probe-mutable.mjs",
+      "bytes": 3884,
+      "sha256": "3716b0e260cf8bba9b660e33f179d3da8f99b915d2ea8a7b3f7fd804d763826e"
+    },
+    {
+      "path": ".cache/particle-surface-placement/probe-rotation.mjs",
+      "bytes": 3759,
+      "sha256": "14e6b942f74af70bfdd38efd2a93cb7bc6efcbff839035bce4cca46fc9e2538e"
+    },
+    {
+      "path": ".cache/particle-surface-placement/probe.mjs",
+      "bytes": 3751,
+      "sha256": "6c585aab6861515fee82b33aef2dd54b8120c694ebb24ad67f27eba636425d9a"
+    },
+    {
+      "path": ".cache/particle-surface-placement/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1814093,
+      "sha256": "c35194073adb0b45bd867bb35044b526216b1801229f9ab3aef0f0d8d09f2980"
+    },
+    {
+      "path": ".cache/particle-surface-placement/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835722,
+      "sha256": "2b76a8045ece04d23a21c70ce83402310fc95125ae928eca157cd00bdeb41407"
+    },
+    {
+      "path": ".cache/particle-surface-placement/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1831656,
+      "sha256": "1b0722d977747ebb8cd48b04b0d2b0b2ed6a5da9fd3a0f3f6240d78461bb053d"
+    },
+    {
+      "path": ".cache/particle-surface-placement/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1811532,
+      "sha256": "db0483ee0b5934c57d46b5ebeccd2763c1a5d6e34483782a167ececcaea4957d"
+    },
+    {
+      "path": ".cache/particle-surface-placement/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1815454,
+      "sha256": "64301f9e7c575d85dd0922e11ecdbe9890d8d16f93ec5f43a679b5371ce54c33"
+    },
+    {
+      "path": ".cache/particle-surface-placement/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1351503,
+      "sha256": "bcbe309917eba51eae4521c3b4c141058c2d91a24d6792a2c016cb68281973ea"
+    },
+    {
+      "path": ".cache/particle-surface-placement/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1826166,
+      "sha256": "63dcd7c3ae60aaae33e33a5ba9d3b57323f7ee8a1ddb67383651adfc05d3217f"
+    },
+    {
+      "path": ".cache/particle-surface-placement/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808816,
+      "sha256": "4c42ac3fb3eae8ac1fd4ece7d9a67781b9b089285ac77a8f4e88c8ff62745f2b"
+    },
+    {
+      "path": ".cache/particle-surface-placement/production-summary.json",
+      "bytes": 3191,
+      "sha256": "2dbfd545aebdb6aa0081e70f472466ead471271e6426aab261715797f82706af"
+    },
+    {
+      "path": ".cache/particle-surface-placement/production-system.mjs",
+      "bytes": 30506,
+      "sha256": "83265d55f3e6e2d817e9e75fb02cce522f5d180558a305fd95d3d8e8dbf6df2a"
+    },
+    {
+      "path": ".cache/particle-surface-placement/production.log",
+      "bytes": 2852,
+      "sha256": "3a43a61a46c1083171afc098905a070204ecf85c4ad7711bbae93d93d22a77ac"
+    },
+    {
+      "path": ".cache/particle-surface-placement/prototype-reading.json",
+      "bytes": 894,
+      "sha256": "2fc16daef5f90bafd110928ee02607b3e4d189e110cb94b3df722b5971cfbaf7"
+    },
+    {
+      "path": ".cache/particle-surface-placement/prototype.log",
+      "bytes": 736,
+      "sha256": "2e4e0495bd0877c4a7b62845b9ef6d422fefb22d98dd774dd094d168ccfda69c"
+    },
+    {
+      "path": ".cache/particle-surface-placement/reference.ts",
+      "bytes": 21161,
+      "sha256": "b9fe8637fd66fc62aff4ed654b8e54bfa38bcd15bdc93600b02306c21aefc826"
+    },
+    {
+      "path": ".cache/particle-surface-placement/rotation-reading.json",
+      "bytes": 891,
+      "sha256": "2250732f31e966e54cd4225cec27152e7f9f8a28e96210866ce0bd2e054e1bff"
+    },
+    {
+      "path": ".cache/particle-surface-placement/rotation.log",
+      "bytes": 733,
+      "sha256": "b08ad61115daffb4a8f1bcfd616cb4e13b0b324c1285cae1af3042abbb0f9d5f"
+    },
+    {
+      "path": ".cache/particle-surface-placement/tsc-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/particle-surface-placement/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/particle-surface-placement/unchanged-primary-hit-outputs.json",
+      "bytes": 3131,
+      "sha256": "08bc58d2a7306627d386b19fee1d0d6e11d4d040bddf252ff88fb9ed378b12ec"
+    }
+  ]
+}

@@ -1,0 +1,479 @@
+{
+  "format": 1,
+  "parentCommit": "33715415d8770806bcd63efe1c54277ae66a87fc",
+  "scope": "Static CameraQuad registration/constructors/vtable/legacy builder, plus optimized primitive filtering and orientation-selected local versus billboard color packets. Preserve distinct truncating versus rounded/clamped paths. No game behavior or asset change.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "77e44b72ba6b6f31a956fdf271390a7638e5937420056789a5e94737eedf564e",
+    "offlinePack": {
+      "id": "c939b3fe534688125a7c637d8babf0c87e38a3e97dd45140b515d88b2c3fcbfc",
+      "files": 1201,
+      "bytes": 538085472
+    }
+  },
+  "applicationFingerprintUnchanged": true,
+  "productionPackUnchanged": true,
+  "verification": {
+    "nativeFunctions": 8,
+    "selectedInstructions": 90,
+    "newGuardsPerMode": 17,
+    "replayCommands": 6,
+    "normalOptimizedOutputs": 36,
+    "acceptedDistinctRuntimeOutputsUnchanged": 30,
+    "bytesAndMtimesUnchanged": true,
+    "offlineReplayNetworkAndChildProcessesBlocked": true,
+    "nativeExecuted": false,
+    "nativeShaderExecuted": false,
+    "fullApplicationTestsRerun": false
+  },
+  "inheritedApplicationVerification": {
+    "record": "docs/reference/meditate-ray-packets-verification.json",
+    "sha256": "e6417be9de65056d2466b78b4849551f7d55628b80be4e5a567c9d56e22a5a45",
+    "verification": {
+      "newUnitCases": 2,
+      "focusedCases": 39,
+      "fullUnitRun": {
+        "passed": 3098,
+        "failed": 2,
+        "total": 3100,
+        "files": 391
+      },
+      "remainingBaselineFailures": 2,
+      "originalWaveDeadlinePassed": true,
+      "nodeQaPassed": 6,
+      "nativeNormalOptimizedChecks": 4,
+      "newNativeWitnessFunctions": 0,
+      "successfulBrowserCases": 15,
+      "actualCastBrowserCases": 4,
+      "actualBuffBrowserCases": 5,
+      "meditatePacketPixelCases": 168,
+      "nonemptyMeditateCases": 168,
+      "meditateChangedChannelBytes": 0,
+      "oldCastFloatChangedBytes": 5826,
+      "oldBuffFloatChangedBytes": 5320,
+      "primaryRayPacketPixelCases": 84,
+      "primaryRayShapePixelCases": 84,
+      "quadPacketPixelCases": 15,
+      "defaultPlacementPixelCases": 72,
+      "allPixelChannelBytesExact": true,
+      "independentSamplerCalls": 2178,
+      "nonRayStatesUnchanged": 50969,
+      "rayStates": 1062,
+      "changedColorPackets": 837,
+      "changedLookupPairs": 1017,
+      "rawSourceColorsExact": true,
+      "allOtherRayFieldsExact": true,
+      "meditateAssetDataOutputsUnchanged": 18,
+      "primaryExportsUnchanged": 14,
+      "outputBytesAndMtimesUnchanged": true,
+      "productionRecordings": 32,
+      "freshProductionScreenshots": 8,
+      "privatePreloads": 0,
+      "publicAssetsChanged": false,
+      "nativeExecuted": false,
+      "nativeShaderExecuted": false
+    }
+  },
+  "primitive": {
+    "candidate": "VfxPrimitiveCameraQuad",
+    "hash": "96ddbc74",
+    "kind": 0,
+    "objectBytes": 24,
+    "vptr": "0x102481ef8",
+    "virtualSlotOffset": 40,
+    "virtualSlotAddress": "0x102481f20",
+    "virtualMethod": "0x1018d7f34",
+    "slotBytes": "347f8d0101000000"
+  },
+  "packetRoutes": {
+    "legacy": "CameraQuad virtual builder -> truncating helper",
+    "optimizedLocal": "kind<=1, flag mask0x2 set -> local packet -> truncating helper",
+    "optimizedBillboard": "kind<=1, flag mask0x2 clear -> billboard packet -> unit clamps and FMA(value,255,0.5)"
+  },
+  "limits": [
+    "Bounded native bytes and selected-word checks, not native execution or visual parity.",
+    "Field/type names are FNV/layout candidates. Native FPCR, live clocks, actual renderer dispatch and shader selection remain unobserved.",
+    "The first Metal 28-byte declaration supplies normalized unsigned-byte color, half4 UV0 and half2 UV1; actual draw-specific declaration/shader selection remains conditional.",
+    "Legacy/local packet truncation and optimized billboard rounded/clamped conversion differ within the quad family. Do not apply either policy globally; optimized source-color-curve and shader binding remain unresolved.",
+    "No game behavior or historical LLVM/source archives are changed by this witness.",
+    "The optimized RGBA argument is traced from the parent +0x10/+0xe0 block into X4. Its relation to source color curves, generated/author textures and material binding is unresolved. Do not substitute the legacy prepared RGBA product without further evidence.",
+    "This source-only checkpoint inherits the accepted application certificate:3098/3100 tests with the same two baseline failures,15browser cases and32production recordings/8freshshots/0privatepreloads. No full game or performance rerun."
+  ],
+  "diagnostics": [
+    "An initial draft covered the legacy virtual builder. Auditing the optimized quad caller exposed a separate orientation-selected rounded/clamped billboard path and a truncating local path. The final witness includes all three optimized function spans and explicit kind-filter/branch/argument lineage guards.",
+    "Early draft wording called mask0x8 bit8. The final record identifies mask0x8 as bit3, distinct from the optimized orientation mask0x2 bit1. Draft records remain separate diagnostics, not the final witness."
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/NATIVE-ATLAS-RUNTIME.md",
+      "bytes": 5166,
+      "sha256": "f021d660ad8e72ccbe3d9f03b0187a4b743bb82d2ab277e4895a6938d587ac8e"
+    },
+    {
+      "path": "docs/NATIVE-CAMERAQUAD-PACKETS.md",
+      "bytes": 4946,
+      "sha256": "5daf1429196bc9c13d079bfb2e31b05fec6c8eb27e7107a9790d7bea35cd167d"
+    },
+    {
+      "path": "docs/NATIVE-PARTICLE-VERTEX-FORMAT.md",
+      "bytes": 4305,
+      "sha256": "eaa9a24c52b0129c0b6f4abe4f789311c097b016eed65129a4e3a8fcde3590b2"
+    },
+    {
+      "path": "docs/NATIVE-RAY-PACKET.md",
+      "bytes": 5272,
+      "sha256": "d2010a85972b42f7e8499e57064e64381ba2e94aecf31ff6051a13036d121f33"
+    },
+    {
+      "path": "docs/reference/native-cameraquad-packets.json",
+      "bytes": 31490,
+      "sha256": "a9e4fe941a973f6a0a24c2f05ada8992fb915cf63a25980251185e3bc50eb920"
+    },
+    {
+      "path": "tools/assets/native_cameraquad_packets.py",
+      "bytes": 12280,
+      "sha256": "45d64c5ad84ce90beca22b13a3a59251e597040f8df9a4a79f67e5e71d7ed7dc"
+    },
+    {
+      "path": "tools/assets/test-native-cameraquad-packets.py",
+      "bytes": 5329,
+      "sha256": "14b4238c7e755e6d5db7bc63a7b4b7b26890803311c8cd4c4b2d2fdded8c306e"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "docs/reference/native-constructor-witness.json",
+      "bytes": 19538,
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": "docs/reference/native-emitter-scalar-defaults.json",
+      "bytes": 18429,
+      "sha256": "a6c381afaed4c5a680276794d8fa613d988d710eca0683ed8ee91cde494de6cf"
+    },
+    {
+      "path": "docs/reference/native-atlas-runtime.json",
+      "bytes": 42714,
+      "sha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6"
+    },
+    {
+      "path": "docs/reference/native-ray-packet.json",
+      "bytes": 16794,
+      "sha256": "ab9b825f1108ed1e44124ee5f9821753eb73352cbf8738a8eebbb884c892b4ec"
+    },
+    {
+      "path": "docs/reference/native-particle-vertex-format.json",
+      "bytes": 23773,
+      "sha256": "2c45b6fb42a5eea59daa453e96af9f5d49a2afa38a1a84dafaf3be2b8919e1f6"
+    },
+    {
+      "path": "docs/reference/native-ray-birth-scale.json",
+      "bytes": 30390,
+      "sha256": "98eefa0524f2ef726b5a789f54eaab04d97007cf5a914b8c6e7424b9cd57f5f1"
+    },
+    {
+      "path": "tools/assets/native_constructor_witness.py",
+      "bytes": 12648,
+      "sha256": "5ed4f943e123a3cb9bebfdea394bd8b5551d6b1ac010e7913eb9a245a7234e14"
+    },
+    {
+      "path": "tools/assets/native_emitter_scalar_defaults.py",
+      "bytes": 7565,
+      "sha256": "44af0bcc9fe7ba1dbf3f76d4a398a2f9ec3f00db54070626ad2bc77f2dc4d85e"
+    },
+    {
+      "path": "tools/assets/native_atlas_runtime.py",
+      "bytes": 15844,
+      "sha256": "fa9d512eb7d883fda1c99944f3f3a4c374c452fcaa95e17d01758d80769371a5"
+    },
+    {
+      "path": "tools/assets/native_ray_packet.py",
+      "bytes": 9600,
+      "sha256": "189751276e69be1244e308592aeb36aae6aee89c72deb23efb0e325417d6de1f"
+    },
+    {
+      "path": "tools/assets/verify-leona-native-particle-bindings.py",
+      "bytes": 13221,
+      "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+    },
+    {
+      "path": "src/render/source-particle-surfaces.ts",
+      "bytes": 23164,
+      "sha256": "6bc159edf82473696ad2ca0477483d15780f9561520862940c6414a9f158b9e4"
+    },
+    {
+      "path": "src/render/particle-unorm8.ts",
+      "bytes": 522,
+      "sha256": "d9606ea6a3afb8df59e76c7968739ccb39c0ade6e021dd9d23b4780c74ac67de"
+    },
+    {
+      "path": "src/render/particle-half.ts",
+      "bytes": 1001,
+      "sha256": "291a7af941b604de3feb541136cfb62215c16b4d811ba8d3131568cf7180ac3b"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/native-cameraquad-packets/final-source/docs/NATIVE-ATLAS-RUNTIME.md",
+      "bytes": 5166,
+      "sha256": "f021d660ad8e72ccbe3d9f03b0187a4b743bb82d2ab277e4895a6938d587ac8e"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/final-source/docs/NATIVE-CAMERAQUAD-PACKETS.md",
+      "bytes": 4946,
+      "sha256": "5daf1429196bc9c13d079bfb2e31b05fec6c8eb27e7107a9790d7bea35cd167d"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/final-source/docs/NATIVE-PARTICLE-VERTEX-FORMAT.md",
+      "bytes": 4305,
+      "sha256": "eaa9a24c52b0129c0b6f4abe4f789311c097b016eed65129a4e3a8fcde3590b2"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/final-source/docs/NATIVE-RAY-PACKET.md",
+      "bytes": 5272,
+      "sha256": "d2010a85972b42f7e8499e57064e64381ba2e94aecf31ff6051a13036d121f33"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/final-source/docs/reference/native-atlas-runtime.json",
+      "bytes": 42714,
+      "sha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/final-source/docs/reference/native-cameraquad-packets.json",
+      "bytes": 31490,
+      "sha256": "a9e4fe941a973f6a0a24c2f05ada8992fb915cf63a25980251185e3bc50eb920"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/final-source/docs/reference/native-constructor-witness.json",
+      "bytes": 19538,
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/final-source/docs/reference/native-emitter-scalar-defaults.json",
+      "bytes": 18429,
+      "sha256": "a6c381afaed4c5a680276794d8fa613d988d710eca0683ed8ee91cde494de6cf"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/final-source/docs/reference/native-particle-vertex-format.json",
+      "bytes": 23773,
+      "sha256": "2c45b6fb42a5eea59daa453e96af9f5d49a2afa38a1a84dafaf3be2b8919e1f6"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/final-source/docs/reference/native-ray-birth-scale.json",
+      "bytes": 30390,
+      "sha256": "98eefa0524f2ef726b5a789f54eaab04d97007cf5a914b8c6e7424b9cd57f5f1"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/final-source/docs/reference/native-ray-packet.json",
+      "bytes": 16794,
+      "sha256": "ab9b825f1108ed1e44124ee5f9821753eb73352cbf8738a8eebbb884c892b4ec"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/final-source/src/render/particle-half.ts",
+      "bytes": 1001,
+      "sha256": "291a7af941b604de3feb541136cfb62215c16b4d811ba8d3131568cf7180ac3b"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/final-source/src/render/particle-unorm8.ts",
+      "bytes": 522,
+      "sha256": "d9606ea6a3afb8df59e76c7968739ccb39c0ade6e021dd9d23b4780c74ac67de"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/final-source/src/render/source-particle-surfaces.ts",
+      "bytes": 23164,
+      "sha256": "6bc159edf82473696ad2ca0477483d15780f9561520862940c6414a9f158b9e4"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/final-source/tools/assets/native_atlas_runtime.py",
+      "bytes": 15844,
+      "sha256": "fa9d512eb7d883fda1c99944f3f3a4c374c452fcaa95e17d01758d80769371a5"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/final-source/tools/assets/native_cameraquad_packets.py",
+      "bytes": 12280,
+      "sha256": "45d64c5ad84ce90beca22b13a3a59251e597040f8df9a4a79f67e5e71d7ed7dc"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/final-source/tools/assets/native_constructor_witness.py",
+      "bytes": 12648,
+      "sha256": "5ed4f943e123a3cb9bebfdea394bd8b5551d6b1ac010e7913eb9a245a7234e14"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/final-source/tools/assets/native_emitter_scalar_defaults.py",
+      "bytes": 7565,
+      "sha256": "44af0bcc9fe7ba1dbf3f76d4a398a2f9ec3f00db54070626ad2bc77f2dc4d85e"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/final-source/tools/assets/native_ray_packet.py",
+      "bytes": 9600,
+      "sha256": "189751276e69be1244e308592aeb36aae6aee89c72deb23efb0e325417d6de1f"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/final-source/tools/assets/test-native-cameraquad-packets.py",
+      "bytes": 5329,
+      "sha256": "14b4238c7e755e6d5db7bc63a7b4b7b26890803311c8cd4c4b2d2fdded8c306e"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/final-source/tools/assets/verify-leona-native-particle-bindings.py",
+      "bytes": 13221,
+      "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/native-cameraquad-packets/0x1018ac82c.txt",
+      "bytes": 11074,
+      "sha256": "30215d6e0891b86acbaa40434db29b21c018a6b6d5423a7d764eb5982cfda262"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/0x1018d7e08.txt",
+      "bytes": 2980,
+      "sha256": "742af90ccabdeffa287c71e92626df98f643e0edede65c0c60ea44fa2bbc4e7d"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/0x1018d7f34.txt",
+      "bytes": 22069,
+      "sha256": "e64f5579ca7d497c7c07a793aa3509f61d20d90e45ca4ad2572ee6c36ce04cea"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/0x1018f18d8.txt",
+      "bytes": 7412,
+      "sha256": "b1a967def53fd7b9bbce244f7c0108dd75e611002e516d0d3bb8d28fed517bd8"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/0x10193aadc.txt",
+      "bytes": 477,
+      "sha256": "0b02d5d8d907e492b2c79f4d030e97fa4da693f1b11cde5561bd3d8371715b64"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/0x10193ab20.txt",
+      "bytes": 271,
+      "sha256": "70cd22de3189c29041402a81f7c8aa04c471e3ddd2feb67dc2e4f6ce683e67ab"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/app-identity.json",
+      "bytes": 90,
+      "sha256": "f1ad4f32c4817552db44bdf7062467b304c30c7cabb2e3479679831142e477ee"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/archive-checkpoint.py",
+      "bytes": 5984,
+      "sha256": "16833210892a4e181a74e0ea2c9a147ca47fb36cf0b7d9577d919672645fe3d7"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/cameraquad.txt",
+      "bytes": 22069,
+      "sha256": "e64f5579ca7d497c7c07a793aa3509f61d20d90e45ca4ad2572ee6c36ce04cea"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/discovery.json",
+      "bytes": 1607,
+      "sha256": "4df43f057a173b3ce69f89b9d7f2e29d5707b3374975c6013e343ea5b36851ff"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/draft-reading-v2.json",
+      "bytes": 18143,
+      "sha256": "133dca6eb8fbd4396903f5587ee635cc0eeb6b6ca7e362adf7102fcceb31d20d"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/draft-reading-v3.json",
+      "bytes": 31385,
+      "sha256": "b0cf772f16eb951f3a7bfac15d9ee17f1e07f16e494b6840ed80b3de890f93b2"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/draft-reading.json",
+      "bytes": 18127,
+      "sha256": "7eb30552efd683cceaec4abffd0fc074a727126067328a23fcaf1c023c13b406"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/draft-v2.log",
+      "bytes": 316,
+      "sha256": "4c52dcf9c262e6189dc725dab7c14d64a812b3d3241c064a70c271a3fca06a94"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/draft-v3.log",
+      "bytes": 316,
+      "sha256": "d3fe8da6f4f82dec294be3b6daa7009d39be53f709f2fbcfdd8decb73e360a89"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/draft.log",
+      "bytes": 316,
+      "sha256": "4c52dcf9c262e6189dc725dab7c14d64a812b3d3241c064a70c271a3fca06a94"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/expand-draft.py",
+      "bytes": 3749,
+      "sha256": "02481b75cc27e072beb44a66b8794cd162ca9a2c6642a8e85f45618267568192"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/functions.json",
+      "bytes": 728,
+      "sha256": "55af1c15d2fea42d75b57c3a3e3888756585debd3f029a3e2a39f5ca77db16a6"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/guards-normal.log",
+      "bytes": 117,
+      "sha256": "f82b464598717ef550fe406439f01543960bbc698686e50239fa19cde2e39740"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/native_cameraquad_packets-check-normal.log",
+      "bytes": 316,
+      "sha256": "d3fe8da6f4f82dec294be3b6daa7009d39be53f709f2fbcfdd8decb73e360a89"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/native_cameraquad_packets-check-optimized.log",
+      "bytes": 316,
+      "sha256": "d3fe8da6f4f82dec294be3b6daa7009d39be53f709f2fbcfdd8decb73e360a89"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/native_cameraquad_packets-replay-normal.log",
+      "bytes": 316,
+      "sha256": "d3fe8da6f4f82dec294be3b6daa7009d39be53f709f2fbcfdd8decb73e360a89"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/native_cameraquad_packets-replay-optimized.log",
+      "bytes": 316,
+      "sha256": "d3fe8da6f4f82dec294be3b6daa7009d39be53f709f2fbcfdd8decb73e360a89"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/native_cameraquad_packets_draft.py",
+      "bytes": 8878,
+      "sha256": "27e376c0e4e8710430051a605758d759ba93c8fd8b9025acd0c47d44a9620779"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/native_cameraquad_packets_draft_v3.py",
+      "bytes": 12167,
+      "sha256": "8eb82a154dd2a91a13bb88974992b41c4c7a07ce05b6156b6a64caa05e7e311a"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/observe.log",
+      "bytes": 316,
+      "sha256": "d3fe8da6f4f82dec294be3b6daa7009d39be53f709f2fbcfdd8decb73e360a89"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/prepare-draft.py",
+      "bytes": 7030,
+      "sha256": "a141b93bcd1da9407761a804d19b53acbbba52a0653eabbc2db52be7dbc7f8a8"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/replay-verification.json",
+      "bytes": 17231,
+      "sha256": "6f3b10a28fb33c52c244f7d63b738610e45558eb13dab0ac5912d0ae8cc7d05b"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/replay.log",
+      "bytes": 260,
+      "sha256": "51f572c68d7f2d98d59260b0d9fe57e2528ba30d0bf1ca15f4fc8ced08bc0a89"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/test-native-cameraquad-packets-optimized.log",
+      "bytes": 117,
+      "sha256": "236a6f9c34c7547514e350ab0b08eaf06134959543e2ca8d37c192e4e537e7f5"
+    },
+    {
+      "path": ".cache/native-cameraquad-packets/verify-checkpoint.py",
+      "bytes": 2459,
+      "sha256": "6cb8769d3bcaa7dac5f8f0dfd8454eca6e11c7fadbf26263107ba08804d0af32"
+    }
+  ]
+}

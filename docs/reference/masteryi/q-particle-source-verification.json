@@ -1,0 +1,356 @@
+{
+  "recordedAt": "2026-10-26T00:39:08.410576+00:00",
+  "baselineCommit": "a85a89cd6acf8b7adccb5fc3e8666b68fb6a2e57",
+  "scope": "Complete frozen Alpha Strike particle resource and dependency source closure only; no runtime/defaults/visual dispatch.",
+  "schema": 147,
+  "ruleset": "15e8aba4de030fcb97f98588280168ac9597461f72424209585f06c19a159556",
+  "pack": {
+    "id": "574c85f07036eed2d7e4f158f403725f524b5aa7ef5f44896214055c1b5ed414",
+    "files": 1102,
+    "bytes": 529793761
+  },
+  "runtimeChanged": false,
+  "pin": {
+    "file": "docs/reference/masteryi/q-particles.json",
+    "bytes": 87880,
+    "sha256": "95531b1e61b44fc39d6458534174fe183fdf75e57cf7528a93a045e836322776"
+  },
+  "changedInputs": [
+    {
+      "file": "docs/MASTER-YI-Q-PARTICLES.md",
+      "bytes": 4170,
+      "sha256": "07fa6a840f4eb94fdbc6fcd858884a32afbd19ce514ba8a7ea3dc435f83e83fb"
+    },
+    {
+      "file": "docs/MASTER-YI-Q.md",
+      "bytes": 11488,
+      "sha256": "5e6d5fa650d6ad2f2c9f7f5e2fd5df2b459eb6f5721b707673ed2805fd5dd9f4"
+    },
+    {
+      "file": "docs/reference/masteryi/q-particles.json",
+      "bytes": 87880,
+      "sha256": "95531b1e61b44fc39d6458534174fe183fdf75e57cf7528a93a045e836322776"
+    },
+    {
+      "file": "tools/assets/extract-masteryi-q-particles.py",
+      "bytes": 2330,
+      "sha256": "3302a4e7655679647b3808105c18aea813a2aabd0a9df6a95b3e2c05340984cf"
+    },
+    {
+      "file": "tools/assets/masteryi_q_particles.py",
+      "bytes": 6830,
+      "sha256": "df5648f1c79cd9a74f9e5fc5dc15c010dfd38030b903e7194db8d5d3de904596"
+    },
+    {
+      "file": "tools/assets/test-masteryi-q-particles.py",
+      "bytes": 5349,
+      "sha256": "239f42a72cc4f6e16e92f7b75a7f0f44c319add12da8b5de39ca5416770966b1"
+    }
+  ],
+  "nativeInputs": [
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/84b92eb7df646e40.bin",
+      "bytes": 963,
+      "sha256": "5d1e51a7344f48600e2ba240a03b7e43dbaa41ed3c92490d12ddb45db8ab0b04"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/1ee3bd17b4a8bc23.bin",
+      "bytes": 428,
+      "sha256": "6cf9109bde20a876ed72374f8d02f3f3fe784ded9987bca3203bf7a76d25245d"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/e3cd8fc76f9a31dc.bin",
+      "bytes": 3717,
+      "sha256": "c4f575d55036256c33fbf60f663fd004addc452a107659dfc605a46c860552bb"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/0f99d0150cca4214.bin",
+      "bytes": 1431,
+      "sha256": "9d85cfa9a9ffc05e42562959fd67f7a224d3fe7b5ced253005a014c27fd0135a"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/4b7490ca9d433917.bin",
+      "bytes": 3733,
+      "sha256": "2a7283ffa52abab14be16b2e05c3c7beea1103ba22473a5488ffe5013809f492"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/55702f7da1b40993.bin",
+      "bytes": 49259,
+      "sha256": "6f76fa524201dd97205e44ea74652fcd36a5e7a9b9603f931fcf21e5db52973d"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/1d5c271d91e85aed.bin",
+      "bytes": 9198,
+      "sha256": "af5c09a4f0336e735da558fd5973236943766ac072a2b8a989fba75a54860973"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/433b18542280cbff.tex",
+      "bytes": 10948,
+      "sha256": "01bfc2cebd91b2a3b4397afcc5357395b9aecdc72b0018a428e2b89d19def43b"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/1feb1bfe0ace203e.tex",
+      "bytes": 21884,
+      "sha256": "33f3f834ff89266709f07f46f8ad945111717e2fe93d76ca7a0a162a60ce38b0"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/f7b790bffcb906a6.tex",
+      "bytes": 21884,
+      "sha256": "41241eafa700d7aa8a280bc7d943c090005324d146d33777a5b8b4bda3ab977b"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/dddf936bb11fcf32.tex",
+      "bytes": 21884,
+      "sha256": "cb6dd0c86a70c2be4cb8e24732796c728fd4469b79302b0781e4ac4f9a42b4a0"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/48e276ae1f73662f.tex",
+      "bytes": 36,
+      "sha256": "2045ec159a292a51b46725ab2135ff9e76521870e97a54e22c62c36137f8a6aa"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/fc9dc17f3b485a42.tex",
+      "bytes": 5500,
+      "sha256": "e82fa00ed0aea98ab6229d0b27f37a57249db6b0ad4d17c9efbe1f658a641e4a"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/48a39dc90b87ae45.tex",
+      "bytes": 5500,
+      "sha256": "637570d26d3e7ecfb8adef77aa1c2dca8a054673effd7a349767667c17d7733f"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/dba30aea46f8d87f.tex",
+      "bytes": 2756,
+      "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/3444655f66070a9f.tex",
+      "bytes": 87420,
+      "sha256": "53132720a423ce822525e9f2373e59772fa04091f020c4a1a6284aa505c9b212"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/342ac0a051e1bd17.tex",
+      "bytes": 87420,
+      "sha256": "7f0f6895783b45de63df97b2919abef9ce75fa27ef737bfeed74b57886a1c28b"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/51536e0eac6b2592.scb",
+      "bytes": 172716,
+      "sha256": "dff8b7119ea6e2ae3d215aa42afe13b13a47d964a7f8b62a67a28aead5357ccf"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/a48d50edd6869141.tex",
+      "bytes": 349564,
+      "sha256": "161073946a1485301ad60a2e19ff36e8feb5c33f08db2ecdf56c7dfe005b8145"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/b5d1506e0819aaa8.tex",
+      "bytes": 174788,
+      "sha256": "66ead3a3e687c555757a20de22f39e645d4c7e00a3056ebeeb3b6778019a930a"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/4fecd70af75bf6ca.tex",
+      "bytes": 174788,
+      "sha256": "c2f8b706adeeb1ced3f9a2e8aa012c72d6fc4f34afc0cfa5016002cd7d44e287"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/e8148d5a7ddf3fbf.tex",
+      "bytes": 10964,
+      "sha256": "6720d1f52067e3b1eeb7ea554725c3672f6ffad971f3b70e670ac3f70b534dd5"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/76f9beecc8b5f2c1.tex",
+      "bytes": 174812,
+      "sha256": "5dc7ee0215ad36c3d00db40adae782e85f0b11c9056b215dd60989a478eacad5"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/05dd3b0814357a70.tex",
+      "bytes": 174812,
+      "sha256": "72ac6af5c25446d830afcde709f6a13abf863226a9bfb737f0b31443d888a89f"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/66d45ee8ba1b0dae.tex",
+      "bytes": 87452,
+      "sha256": "88ca859de71abdafbb8a814d35404efe33e59bb473a7a4b581e408b8a01b38bf"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/271a48230fb860e5.tex",
+      "bytes": 21916,
+      "sha256": "00177201215b68795dbcf576c553430a747dfbe7d68bde118e15b76aacbb66fb"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/b885bf2594e01a38.tex",
+      "bytes": 174788,
+      "sha256": "a5b9137efd801b73247dfcdd5d0a3f8da6fe7ed9fadda5f98abe6f17f1dbb2c3"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/26b6f26494a9af96.tex",
+      "bytes": 43740,
+      "sha256": "031cd5cbc1b8b0540e52ca269bc718ee270315b72b74cd9deceb651f6bccde26"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/69151717fd1ca98f.tex",
+      "bytes": 43716,
+      "sha256": "bf413b48cf77e8572da35dbbf78b11c9f14501b18e4ecb1c1bb77f519441c750"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/3e81efb313a0c426.tex",
+      "bytes": 43716,
+      "sha256": "994b4079ca4411dd43a4ca148168cda54a5a07bd9d94a7478d38c6674eb2f551"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/697357e76927bfc4.scb",
+      "bytes": 3156,
+      "sha256": "df3c3ea55ada6f5d82f5303cedbb8870b5e06ffee147bd8503ce5580c5dd5226"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/sources/2fc72189202d828e.tex",
+      "bytes": 43716,
+      "sha256": "931c521d26edd906ccd3db9eb8c82a78283a0f34800bb22563ca2b98b1a1ebf0"
+    }
+  ],
+  "coverage": {
+    "systems": 8,
+    "complexEmitters": 20,
+    "bins": 7,
+    "textures": 23,
+    "meshes": 2,
+    "files": 32,
+    "sourceBytes": 2028605,
+    "compressedReadBytes": 713334,
+    "emptyQHitPreserved": true,
+    "unknownField": "{9b111ae4}",
+    "unknownFieldOccurrences": 5,
+    "unknownShapeType": "{ee39916f}",
+    "unknownShapeOccurrences": 8
+  },
+  "validation": {
+    "guardsPerPythonMode": 20,
+    "modes": [
+      "normal",
+      "optimized"
+    ],
+    "nativeChecks": "Both modes pass complete skin/resource and eight-definition equality against original BINs.",
+    "restore": "Both modes pass exact provenance and staged/native verification; all 32 existing source-file bytes/timestamps remain unchanged.",
+    "initialVerifierFailure": "The first replay omitted resource-map dictionary keys from hash-value aliases; diagnostic retained. Added the same key aliases used by the existing pinned model verifier; full equality then passed without relaxing assertions.",
+    "candidateJSON": "Long shared-skin URLs and tested hash aliases returned 404s. No candidate JSON was published or used. Retained field/type names and exact native hashes supplied discovery.",
+    "gameplay": "Schema/ruleset/pack unchanged from baseline; no repeat build/browser certificate claimed for this source-only checkpoint."
+  },
+  "limits": [
+    "Q_Hit has no emitter list; no invented flash or default flags.",
+    "Q_AP_Mis availability and the audio-labelled dummy system do not prove active dispatch.",
+    "Unknown hashes remain raw. Primitive/birth/shader/attachment/lifecycle/native visual behavior and texture/mesh conversion remain separate acceptance work."
+  ],
+  "evidence": [
+    {
+      "file": ".cache/masteryi-particle-discovery-cloud/2d00db8f15dcb147-alias-probe.json",
+      "bytes": 162,
+      "sha256": "766c1d6bcb81d3e983fb7adbc19c616d7fc01dafb7893738edc242e2adc59c07"
+    },
+    {
+      "file": ".cache/masteryi-particle-discovery-cloud/5c5850f051298ae2-alias-probe.json",
+      "bytes": 162,
+      "sha256": "766c1d6bcb81d3e983fb7adbc19c616d7fc01dafb7893738edc242e2adc59c07"
+    },
+    {
+      "file": ".cache/masteryi-particle-discovery-cloud/community-index.html",
+      "bytes": 7854,
+      "sha256": "67c8beb7a05d412f5d6928bae48fc9ab340b57c74491898e5b37b971c9f90268"
+    },
+    {
+      "file": ".cache/masteryi-particle-discovery-cloud/ecddf8b06274d059-alias-probe.json",
+      "bytes": 162,
+      "sha256": "766c1d6bcb81d3e983fb7adbc19c616d7fc01dafb7893738edc242e2adc59c07"
+    },
+    {
+      "file": ".cache/masteryi-particle-discovery-cloud/extract-linked.log",
+      "bytes": 169,
+      "sha256": "a6bed7a13fd420a72c33b4577ec938702e7935781ee4d6aeb1b7f0e69381ecf1"
+    },
+    {
+      "file": ".cache/masteryi-particle-discovery-cloud/fetch-candidates.log",
+      "bytes": 3741,
+      "sha256": "1d3c159a23d7aebcdec5001a3f5d2e3941bd6599c84ec6489fe5a274f21f73a7"
+    },
+    {
+      "file": ".cache/masteryi-particle-discovery-cloud/linked-extraction.json",
+      "bytes": 13161,
+      "sha256": "865fc941465cc5b61766206571158e19a55ad7fefb56171885c70c9f6b1c2853"
+    },
+    {
+      "file": ".cache/masteryi-particle-discovery-cloud/native-discovery.json",
+      "bytes": 483272,
+      "sha256": "b19eff1f3e46f051bed9c34f0ae690f3b9ac4c54e113b25dbbca3424b4caa872"
+    },
+    {
+      "file": ".cache/masteryi-particle-discovery-cloud/parse-native.log",
+      "bytes": 417,
+      "sha256": "4749ed4c00688bd3833e2a3fed93d4ec559af39f0d8b80294b89dd049b2cdb21"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/app-identity.json",
+      "bytes": 265,
+      "sha256": "66c95c9486b9c527e0ead8b6afd3baa48529b189774962b5508c29126431fab7"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/extract-source.log",
+      "bytes": 145,
+      "sha256": "c19cee8e783b04c9fec533d35e45b4f0a27e5c0586564da856714ab555e8ac9f"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/extract-source.py",
+      "bytes": 2888,
+      "sha256": "12cdb9a7ebd52c7d99ca2c33e16c9894f9c828d900d597fa65024653744e2dda"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/extraction.json",
+      "bytes": 18686,
+      "sha256": "7098283181e0e22673376e46bff2780c2c7a9bbd7b9b9842ac3c82618d993de5"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/guards-optimized-v1.log",
+      "bytes": 119,
+      "sha256": "d3a6908ac68f904336d4baa17659ab3481325c6c76f62c0e8d11b7c2b51604aa"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/guards-v1.log",
+      "bytes": 119,
+      "sha256": "7fc55490f355db06a12ba39b47e85087eca7ab09967912ee637002253a294e04"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/mtime-proof.log",
+      "bytes": 343,
+      "sha256": "d1f485f1c189576689ddd380bb900102c2282a00453085e5c07c2f8e2e6ee1c6"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/native-check-optimized.log",
+      "bytes": 131,
+      "sha256": "e4be910bfafc1fc95644ca55354b609b0cf1b736d47a8347f291d8e4877225ce"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/native-check-v1.log",
+      "bytes": 878,
+      "sha256": "a8f63f7028a610247f9cf4938495c6cffa7c2a37a3422553b3173140499a75c8"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/native-check-v2.log",
+      "bytes": 131,
+      "sha256": "e4be910bfafc1fc95644ca55354b609b0cf1b736d47a8347f291d8e4877225ce"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/native-skin-diff-v1.log",
+      "bytes": 2185,
+      "sha256": "7709afb981cd8a5c6812641958b46ac07f24838a0c9784c3c814c87a2a6a7dcd"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/restore-optimized.log",
+      "bytes": 133,
+      "sha256": "869dc6333ee52fb8e4bf4b7dc4730d3928e6f16b2c4c085be57de513b291c93d"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/restore-v1.log",
+      "bytes": 133,
+      "sha256": "869dc6333ee52fb8e4bf4b7dc4730d3928e6f16b2c4c085be57de513b291c93d"
+    }
+  ]
+}

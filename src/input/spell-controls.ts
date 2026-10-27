@@ -6,12 +6,15 @@ import { distance } from '../simulation/math';
 import type { World } from '../simulation/world';
 import { isSummonerSlot } from '../content/summoners';
 import { smiteTarget } from '../simulation/smite';
+import { alphaTarget } from '../simulation/masteryi-alpha-strike';
+import { MASTER_YI_Q } from '../content/masteryi-q';
 
 /** Input policy follows the current caster, including Lux's point-free E recast. */
 export function instantSpell(world: World, ability: Ability): boolean {
   if (isSummonerSlot(ability)) return world.summonerSpell(ability) === 'heal';
   if (world.hero.champion === 'garen') return ability === 'q' || ability === 'w' || ability === 'e';
   if (world.hero.champion === 'ahri') return ability === 'w';
+  if (world.hero.champion === 'masteryi') return ability !== 'q';
   if (world.hero.champion === 'leona') return ability === 'q' || ability === 'w';
   if (world.hero.champion !== 'lux') return ability === 'q';
   return (
@@ -30,7 +33,9 @@ export function minimapSpell(world: World, ability: Ability): boolean {
 
 export function targetedSpell(world: World, ability: Ability): boolean {
   return (
-    world.summonerSpell(ability) === 'smite' || (world.hero.champion === 'garen' && ability === 'r')
+    world.summonerSpell(ability) === 'smite' ||
+    (world.hero.champion === 'garen' && ability === 'r') ||
+    (world.hero.champion === 'masteryi' && ability === 'q')
   );
 }
 export function spellTarget(
@@ -42,12 +47,19 @@ export function spellTarget(
     ? smiteTarget(world, world.hero, target)
       ? target
       : undefined
-    : garenRTarget(world, target);
+    : world.hero.champion === 'masteryi' && ability === 'q'
+      ? alphaTarget(world, world.hero, target) &&
+        distance(world.hero, target) <= MASTER_YI_Q.castRange
+        ? target
+        : undefined
+      : garenRTarget(world, target);
 }
 export function targetInstruction(world: World, ability: Ability): string {
   return world.summonerSpell(ability) === 'smite'
     ? `Hold ${ability.toUpperCase()}, point at a large or medium monster or enemy lane minion${world.companions.some((p) => p.ownerId === world.player.id && p.fed >= 15) ? ' or champion' : ''} within 500 range, then release`
-    : 'Hold R, point at an enemy champion in range, then release';
+    : world.hero.champion === 'masteryi' && ability === 'q'
+      ? 'Hold Q, point at a visible enemy within 600 range, then release'
+      : 'Hold R, point at an enemy champion in range, then release';
 }
 
 /** Input preview only. The queued command is revalidated by the simulation. */
@@ -57,7 +69,7 @@ export function garenRTarget(world: World, target: Unit | undefined): Unit | und
     target.team !== world.hero.team &&
     world.alive(target) &&
     world.visible(target, world.hero.team) &&
-    world.vulnerable(target) &&
+    world.targetable(target) &&
     distance(world.hero, target) <= GAREN_R.castRange
     ? target
     : undefined;

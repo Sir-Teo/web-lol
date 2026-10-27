@@ -1,0 +1,548 @@
+{
+  "format": 1,
+  "parentCommit": "86b9600b8dc5d4c5a136195c889a1c5ca012b662",
+  "scope": "Fresh bounded native atlas runtime/quad packet witness, authenticated shader reconstruction and AIR decode. No application source or asset change.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "3bbb19e3194921ddf60a35a0a12eb509e3e49569b7e5fec4f02b27f52e613947",
+    "offlinePack": {
+      "id": "715ec17f2b167d6789141b3326ff1d21d15d4a0e20ef63537e385b29c90d0a4d",
+      "files": 1200,
+      "bytes": 538083474
+    }
+  },
+  "applicationFingerprintUnchanged": true,
+  "productionPackUnchanged": true,
+  "verification": {
+    "nativeFunctions": 5,
+    "selectedInstructions": 34,
+    "nativeImports": 2,
+    "quadShaderPrograms": 1,
+    "newGuardsPerMode": 16,
+    "previousConstructorGuardsPerMode": 27,
+    "previousScalarGuardsPerMode": 15,
+    "profileGuardsPerMode": 35,
+    "totalGuardsPerMode": 93,
+    "normalOptimizedReplayOutputs": 18,
+    "acceptedRuntimeOutputsUnchanged": 14,
+    "bytesAndMtimesUnchanged": true,
+    "offlineReplayNetworkAndChildProcessesBlocked": true,
+    "nativeExecuted": false,
+    "nativeShaderExecuted": false,
+    "historicalLlvmTextReplaced": false,
+    "applicationTestsRerun": false
+  },
+  "inheritedApplicationVerification": {
+    "record": "docs/reference/particle-surface-placement-verification.json",
+    "sha256": "7f0ed92eaab7bea27e3cda7b81c9b8305416cfb8ca024fe01092f2d51417f74c",
+    "verification": {
+      "newUnitCases": 3,
+      "focusedCases": 36,
+      "strengthenedCameraCases": 3,
+      "fullUnitRun": {
+        "passed": 3077,
+        "failed": 2,
+        "total": 3079,
+        "files": 389
+      },
+      "remainingBaselineFailures": 2,
+      "originalWaveDeadlinePassed": true,
+      "nodeQaPassed": 6,
+      "browserCases": 7,
+      "exactPlacementPixelCases": 72,
+      "nonemptyPlacementPixelCases": 60,
+      "placementChangedBytes": 0,
+      "referenceMeshFixtures": 72,
+      "sourceParticleStates": 714,
+      "savedFutureTicks": 130,
+      "gpuMipReadbacks": 93,
+      "unchangedParentOutputs": 14,
+      "publicAssetsChanged": false,
+      "productionRecordings": 32,
+      "freshProductionScreenshots": 8,
+      "privatePreloads": 0
+    }
+  },
+  "limits": [
+    "Bounded static witness, not native execution or proof of actual Yi dispatch, live shader selection, later overrides or visual parity.",
+    "Emitter field +0xf0 minus per-particle array +0x10 is consistent with age; clock units and array producers are not established here. Array +0xa0 is consumed as a fraction; its RNG distribution and relation to the local indexed sampler are not established.",
+    "Quad primitive gate accepts kinds 0 and 1; default CameraQuad kind 0 is separately witnessed. Ray and mesh paths must be traced independently.",
+    "ARM64 half conversions use the active floating-point environment. Round-to-nearest-even examples are conditional on that rounding mode; this witness does not attest live FPCR.",
+    "Fresh LLVM 19 text retains the original AIR target. It is additional evidence, not a replacement for missing historical LLVM archives. Shader fast-math transformations and actual GPU arithmetic are not attested.",
+    "No runtime correction is included in this evidence checkpoint; the current sampler retains integer-first atlas selection.",
+    "The inherited full suite remains 3077 passing out of 3079, with the same two baseline failures."
+  ],
+  "diagnostics": [
+    "The first producer invocation used the Capstone-only environment; the second used system Python. Both stopped for missing asset dependencies. The existing CDTB virtual environment supplies the required dependencies.",
+    "The first replay runner omitted the required CDTB PYTHONPATH and stopped in an existing constructor guard. The final replay supplies the established asset environment explicitly.",
+    "A broad exploratory TEXTURE_INFO string search initially exceeded the tool output budget; exact NUL-delimited literal matching identified 0x102277770."
+  ],
+  "sourceFiles": [
+    {
+      "path": "tools/assets/native_atlas_runtime.py",
+      "bytes": 15844,
+      "sha256": "fa9d512eb7d883fda1c99944f3f3a4c374c452fcaa95e17d01758d80769371a5"
+    },
+    {
+      "path": "tools/assets/test-native-atlas-runtime.py",
+      "bytes": 5631,
+      "sha256": "c8d9feb97632012ab8e149dfc74c33b2ff3c0052ed6d3424722933e2712300a0"
+    },
+    {
+      "path": "docs/NATIVE-ATLAS-RUNTIME.md",
+      "bytes": 4662,
+      "sha256": "64e9dd152800360a9e4ccdca4706148955789117d2743551f75bcd89db4182c6"
+    },
+    {
+      "path": "docs/reference/native-atlas-runtime.json",
+      "bytes": 42714,
+      "sha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6"
+    },
+    {
+      "path": "docs/MASTER-YI-PRIMARY-HITS.md",
+      "bytes": 13064,
+      "sha256": "05e77e291ec577000594e7fbc5fbe57077069fd98a755c1348c551c0880be0b8"
+    },
+    {
+      "path": "docs/PARTICLE-SHADERS.md",
+      "bytes": 10800,
+      "sha256": "338d8b17b21016dc6a7a58a7e890857b259219ae3d21362b1ba33179395af969"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "docs/reference/native-constructor-witness.json",
+      "bytes": 19538,
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": "docs/reference/native-emitter-scalar-defaults.json",
+      "bytes": 18429,
+      "sha256": "a6c381afaed4c5a680276794d8fa613d988d710eca0683ed8ee91cde494de6cf"
+    },
+    {
+      "path": "docs/reference/particle-shaders.json",
+      "bytes": 19572,
+      "sha256": "6c837e13f6f4abecff49aee3bbe91b12247ccd70a2df69fec0568916d0535ca6"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-particles.json",
+      "bytes": 82989,
+      "sha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301"
+    },
+    {
+      "path": "src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    },
+    {
+      "path": "src/render/masteryi-primary-hit-particles.ts",
+      "bytes": 4362,
+      "sha256": "0380264b4f0cc0384930913b39d89e339cdcc58d7a1ee079c8743c5ddeab3550"
+    },
+    {
+      "path": "tools/assets/native_constructor_witness.py",
+      "bytes": 12648,
+      "sha256": "5ed4f943e123a3cb9bebfdea394bd8b5551d6b1ac010e7913eb9a245a7234e14"
+    },
+    {
+      "path": "tools/assets/native_emitter_scalar_defaults.py",
+      "bytes": 7565,
+      "sha256": "44af0bcc9fe7ba1dbf3f76d4a398a2f9ec3f00db54070626ad2bc77f2dc4d85e"
+    },
+    {
+      "path": "tools/assets/particle_distortion_recovery.py",
+      "bytes": 11176,
+      "sha256": "b50a542a15e90446f10108ccb74b2887a4fb1a6c0588d328f7523a6046013f62"
+    },
+    {
+      "path": "tools/assets/riot_archive.py",
+      "bytes": 7454,
+      "sha256": "7444e2d6dd84c10d2b7b58105a9cdb56edb963d7a3f33fe61dc2932334e5eeb6"
+    },
+    {
+      "path": "tools/assets/verify-leona-native-particle-bindings.py",
+      "bytes": 13221,
+      "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/native-atlas-runtime-scan/final-source/docs/MASTER-YI-PRIMARY-HITS.md",
+      "bytes": 13064,
+      "sha256": "05e77e291ec577000594e7fbc5fbe57077069fd98a755c1348c551c0880be0b8"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/final-source/docs/NATIVE-ATLAS-RUNTIME.md",
+      "bytes": 4662,
+      "sha256": "64e9dd152800360a9e4ccdca4706148955789117d2743551f75bcd89db4182c6"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/final-source/docs/PARTICLE-SHADERS.md",
+      "bytes": 10800,
+      "sha256": "338d8b17b21016dc6a7a58a7e890857b259219ae3d21362b1ba33179395af969"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/final-source/docs/reference/masteryi/primary-hit-particles.json",
+      "bytes": 82989,
+      "sha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/final-source/docs/reference/native-atlas-runtime.json",
+      "bytes": 42714,
+      "sha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/final-source/docs/reference/native-constructor-witness.json",
+      "bytes": 19538,
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/final-source/docs/reference/native-emitter-scalar-defaults.json",
+      "bytes": 18429,
+      "sha256": "a6c381afaed4c5a680276794d8fa613d988d710eca0683ed8ee91cde494de6cf"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/final-source/docs/reference/particle-shaders.json",
+      "bytes": 19572,
+      "sha256": "6c837e13f6f4abecff49aee3bbe91b12247ccd70a2df69fec0568916d0535ca6"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/final-source/src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/final-source/src/render/masteryi-primary-hit-particles.ts",
+      "bytes": 4362,
+      "sha256": "0380264b4f0cc0384930913b39d89e339cdcc58d7a1ee079c8743c5ddeab3550"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/final-source/tools/assets/native_atlas_runtime.py",
+      "bytes": 15844,
+      "sha256": "fa9d512eb7d883fda1c99944f3f3a4c374c452fcaa95e17d01758d80769371a5"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/final-source/tools/assets/native_constructor_witness.py",
+      "bytes": 12648,
+      "sha256": "5ed4f943e123a3cb9bebfdea394bd8b5551d6b1ac010e7913eb9a245a7234e14"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/final-source/tools/assets/native_emitter_scalar_defaults.py",
+      "bytes": 7565,
+      "sha256": "44af0bcc9fe7ba1dbf3f76d4a398a2f9ec3f00db54070626ad2bc77f2dc4d85e"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/final-source/tools/assets/particle_distortion_recovery.py",
+      "bytes": 11176,
+      "sha256": "b50a542a15e90446f10108ccb74b2887a4fb1a6c0588d328f7523a6046013f62"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/final-source/tools/assets/riot_archive.py",
+      "bytes": 7454,
+      "sha256": "7444e2d6dd84c10d2b7b58105a9cdb56edb963d7a3f33fe61dc2932334e5eeb6"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/final-source/tools/assets/test-native-atlas-runtime.py",
+      "bytes": 5631,
+      "sha256": "c8d9feb97632012ab8e149dfc74c33b2ff3c0052ed6d3424722933e2712300a0"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/final-source/tools/assets/verify-leona-native-particle-bindings.py",
+      "bytes": 13221,
+      "sha256": "34884e6c3c0096dcfc27f3240bcca71db499aed7fb35dcbb0c44c677a21de058"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/native-atlas-runtime-scan/0x1018f1bc4.txt",
+      "bytes": 16894,
+      "sha256": "d1db3945ba9c88ef9c356c0076c3815049fa4a56a7c7db7037404ae00657e175"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/0x1018f2a2c.txt",
+      "bytes": 18493,
+      "sha256": "fd014e017ee68605774b63e3ce6d4194de0e502a5b22f9f949eb6fa0bd07b865"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/0x101b4be30.txt",
+      "bytes": 192485,
+      "sha256": "913f5cfb0ebe016b6d910a449bf4b64c9bd9ae35fca61a94dbb27401f048feef"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/0x101b50c20.txt",
+      "bytes": 3909,
+      "sha256": "c73631b65fe52b6cfa27e3c404f9f3f32d3f859f2b2064177a060afd01844db6"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/archive-checkpoint.py",
+      "bytes": 5032,
+      "sha256": "42b4fccb1be3ba0b50132d875ac803398d86af934a49ce0e3e54802954aa1cac"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/billboard-helper.txt",
+      "bytes": 17576,
+      "sha256": "9fd9e681d22657badc88a59e1aff069acccf04ea4a0aeb95e7c97f022c7fedf2"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/decode-quad-ir.log",
+      "bytes": 1934,
+      "sha256": "58a9fb4b4ed4cef8c36ef9979e10bb57e39d5a35cf2b7a6ea1086c280628f565"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/decode-quad-ir.py",
+      "bytes": 1078,
+      "sha256": "571ab430cadcc70cf38c260546897508aa96830686de2144e1ac8f62040ee520"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/disassemble-billboard.py",
+      "bytes": 522,
+      "sha256": "359d8359a2a5efeb86d8d5a71b03066bcd203b7609385533547bd0e817654b63"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/disassemble-quad.py",
+      "bytes": 529,
+      "sha256": "ea4f0b857bf2fc319b4c369e8c0335ec68b40e6ac3ab2127caf7e48523d5f49e"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/disassemble.py",
+      "bytes": 1479,
+      "sha256": "d24bd9187abc416260ea4e207b39f336b70fae5dfb409f66deb4217a40be9767"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/disassembly.json",
+      "bytes": 898476,
+      "sha256": "61a497a7e114bd1fcce44cdd1f75fd07494d619892a159c9008e13d67a2b28fd"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/disassembly.log",
+      "bytes": 3123,
+      "sha256": "70fc147e10514646ea1b5fdbd875ac257036edbd9036f8a7452261ca92e55c97"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/export-masteryi-primary-hit-particles-check-normal.log",
+      "bytes": 104,
+      "sha256": "70bfcf1db84243681b391a2fd9726e8218ca426894dca2bab8061455948f3447"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/export-masteryi-primary-hit-particles-check-optimized.log",
+      "bytes": 104,
+      "sha256": "70bfcf1db84243681b391a2fd9726e8218ca426894dca2bab8061455948f3447"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/extract-quad-shader.log",
+      "bytes": 57,
+      "sha256": "3c767f9cb5981f7d2c48c41ceb308b0ff129bd6b7dae1bd59595c51c07825b11"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/extract-quad-shader.py",
+      "bytes": 2709,
+      "sha256": "0c6b88fe91d534147a4f562b32e7aacd49a598f4738cbef550022decb880b938"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/find-texture-info.py",
+      "bytes": 1121,
+      "sha256": "0c26fd24a7c7cd3912ea2b6f5ccd558637eed3ed705583f53412c7009d97ba53"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/guards.log",
+      "bytes": 116,
+      "sha256": "e8f49f36562e75768f20dbdbaeed12067371f121e3ee1c95d0f6d5f51f8f2090"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/imports.json",
+      "bytes": 993,
+      "sha256": "0312bf97d638864157484c27dea7632ed988d9488f23d97d6e94a7b0920b59d0"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/imports.py",
+      "bytes": 2541,
+      "sha256": "7e720427b16047740815e593a88145a0ba01fc12fa66226518b058b0741c01dc"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/loads.json",
+      "bytes": 3953,
+      "sha256": "26fff457eb114a4d748f87083c7102bf3a1ada45a65d646a764933cbafce2754"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/native_atlas_runtime-check-normal.log",
+      "bytes": 168,
+      "sha256": "d6a99d8af2e61b87a68948b948006c1ed0081af5df8a70366a8d35570749351d"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/native_atlas_runtime-check-optimized.log",
+      "bytes": 168,
+      "sha256": "d6a99d8af2e61b87a68948b948006c1ed0081af5df8a70366a8d35570749351d"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/native_atlas_runtime-replay-normal.log",
+      "bytes": 168,
+      "sha256": "d6a99d8af2e61b87a68948b948006c1ed0081af5df8a70366a8d35570749351d"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/native_atlas_runtime-replay-optimized.log",
+      "bytes": 168,
+      "sha256": "d6a99d8af2e61b87a68948b948006c1ed0081af5df8a70366a8d35570749351d"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/quad-helper.log",
+      "bytes": 7412,
+      "sha256": "b1a967def53fd7b9bbce244f7c0108dd75e611002e516d0d3bb8d28fed517bd8"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/quad-helper.txt",
+      "bytes": 7412,
+      "sha256": "b1a967def53fd7b9bbce244f7c0108dd75e611002e516d0d3bb8d28fed517bd8"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/quad-shader-ir.json",
+      "bytes": 2080,
+      "sha256": "37ae4a0680f453288ea9bc191acc349e9f8805bd1a155b94ef1a83ad290d7d6c"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/quad-shader-source.json",
+      "bytes": 4832,
+      "sha256": "b9d9e5063e629cb2e0d31428516cbdbba2a56a2ccbe1d13945af85351b2a46c8"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/read-strings.py",
+      "bytes": 550,
+      "sha256": "aa9924864102270a138afdc2af214926ace5ed7c598f7ce5e982a4fa8e3819d1"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/replay-final.log",
+      "bytes": 607,
+      "sha256": "83f98368e34fa0d2e46289615b6dbe9e998f313f9bbd487cc49845e4a59600cc"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/replay-verification.json",
+      "bytes": 11623,
+      "sha256": "46b561100fc80cb07787bc7bb3f28b34d08cb9d85a2a30f37f227f35f735363b"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/replay.log",
+      "bytes": 1929,
+      "sha256": "f1c059678537dd2c6122c9aefd980d87533840783250e059f3549a1c90518ac5"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/scan-loads.py",
+      "bytes": 2779,
+      "sha256": "862ee812e959a8bfcda445dd143c3c6bbee877a86273702f210fb135e3948548"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/scan.log",
+      "bytes": 428,
+      "sha256": "b3239402938612f6018b4582b3d689524c4889062cc0673e780258f811bbc089"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/shaders/native/assets/shaders/hlsl/particlesystem/quad_vs.vs-metal",
+      "bytes": 319,
+      "sha256": "9bc26a17d5bdb16f08e32013d27741969e8f48e22c15709712b6e0b0e88a2fbc"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/shaders/native/assets/shaders/hlsl/particlesystem/quad_vs.vs-metal_0",
+      "bytes": 73600,
+      "sha256": "5a92f61dd00bd08d76acac588f232e0fa34385c44392b465e3d5a8fbba4aeb7b"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/shaders/quad_vs.vs-metal-0.bc",
+      "bytes": 4156,
+      "sha256": "6d46f205c6f1f1e6faf28837c3769685edb04460d7c4401e9b5c26fa5389bab4"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/shaders/quad_vs.vs-metal-0.ll",
+      "bytes": 9568,
+      "sha256": "d6d7a539f9113e911a83838d74b0c3f692bfb8243ea54e047d0cebaff4803fad"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/shaders/quad_vs.vs-metal-0.metallib",
+      "bytes": 4466,
+      "sha256": "e35d35fe08a495bd9dff70846aed99f9a3553807dc44533079a88f1c8484b615"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/shaders/quad_vs.vs-metal-1.bc",
+      "bytes": 4204,
+      "sha256": "82fb97c3f753b3130c2ea653b750d01e6dbb7d776e536e686756cfb9da062d47"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/shaders/quad_vs.vs-metal-1.ll",
+      "bytes": 10003,
+      "sha256": "38b681d06c05b6787d944b78c9dc576e2ef80f2137a188eb94e6473e897dc3ff"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/shaders/quad_vs.vs-metal-1.metallib",
+      "bytes": 4514,
+      "sha256": "236469863433fb3bc58b4ac5077c1af050e2d375d0ee4679088c0427a82f7703"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/shaders/quad_vs.vs-metal-8.bc",
+      "bytes": 4288,
+      "sha256": "d28b9c9500826ebed9fa6f4193f0e8cc7ab402d24f33ca4deeee0b57d6ea759e"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/shaders/quad_vs.vs-metal-8.ll",
+      "bytes": 10688,
+      "sha256": "cb59abe74b4089275bddc3a3e42374e1749ecebe077a390812f185e629c3db1b"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/shaders/quad_vs.vs-metal-8.metallib",
+      "bytes": 4610,
+      "sha256": "bda27907a07f232da6a6f9a97bbb6e2c5a099763b823c1cca62ed266b73ab5b3"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/test-masteryi-primary-hit-profiles-normal.log",
+      "bytes": 134,
+      "sha256": "aa95033d8c135d3fcb1f9d518e72a48896c1016ee60ac8246500dac144dab96e"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/test-masteryi-primary-hit-profiles-optimized.log",
+      "bytes": 134,
+      "sha256": "f66711e07b74e2d101af4f9238c4deca1730dcead60eca0b4132703bf0727062"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/test-native-atlas-runtime-normal.log",
+      "bytes": 116,
+      "sha256": "6cfc88971289427027cfc70840f905e7dbb6d99bc078e4a52f24865e790737b1"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/test-native-atlas-runtime-optimized.log",
+      "bytes": 116,
+      "sha256": "cedf926ff6f068e9aeb3664729a72eb90d2f0cee81f99a61d170cb5460bdd3ea"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/test-native-constructor-witness-normal.log",
+      "bytes": 126,
+      "sha256": "666126c467fee9f8d8c638e4d43f557b855d4100210cbbfe17f522316f34cec0"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/test-native-constructor-witness-optimized.log",
+      "bytes": 126,
+      "sha256": "70ccaeb335446326b0f9be550c5499cff4920a9c9d2d2887f88dd50db239e28b"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/test-native-emitter-scalar-defaults-normal.log",
+      "bytes": 114,
+      "sha256": "20460f598e1e630b2bd81ff8922ab5cb80f59d158b641a181f501940bacbc348"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/test-native-emitter-scalar-defaults-optimized.log",
+      "bytes": 114,
+      "sha256": "4b0d8c19bdb54f50473550698c5a4430d1ba9f4090ec3493267e62259173e7bc"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/texture-info-xrefs.json",
+      "bytes": 291,
+      "sha256": "3c1e06a79faaa1bf22ed9e1dbce4705e32f3161540206b2dd2d2654bbed10a89"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/texture-info-xrefs.log",
+      "bytes": 6461,
+      "sha256": "c63fb943560d4d65236078d45ebe8d374e1ad5a6cdf41058d74835a801f83af1"
+    },
+    {
+      "path": ".cache/native-atlas-runtime-scan/verify-checkpoint.py",
+      "bytes": 2254,
+      "sha256": "0526cefb36f250a2f24235b746746251ce2780a57598a79bd9136b5dde4371da"
+    }
+  ]
+}

@@ -730,6 +730,36 @@
       "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/MasterYi.png",
       "sha256": "1c23534926a7956a260591fb3cee8f38cb6de3d9d4f064fe93fb88c8f76b1b66",
       "bytes": 29421
+    },
+    {
+      "path": "/assets/icons/MasterYi_Passive1.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/passive/MasterYi_Passive1.png",
+      "sha256": "e2fec7b43f9e2bc724baa0cee0b036c5ba684443513616b7373ff303b425d611",
+      "bytes": 4477
+    },
+    {
+      "path": "/assets/icons/AlphaStrike.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/AlphaStrike.png",
+      "sha256": "dd7d81c33bd1d35781a1f28813f649fa94b9d99fe099f512bf156c40dc22e7cf",
+      "bytes": 4893
+    },
+    {
+      "path": "/assets/icons/Meditate.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/Meditate.png",
+      "sha256": "b7464d80adfefdbf9002ee0d97c4210299f97757e8df1910aa394f0b5ee39056",
+      "bytes": 6124
+    },
+    {
+      "path": "/assets/icons/WujuStyle.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/WujuStyle.png",
+      "sha256": "927c1152295f5e7731a89eef0784f20633dd35523d07c0592e122c265aac39c7",
+      "bytes": 5924
+    },
+    {
+      "path": "/assets/icons/Highlander.png",
+      "source": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/spell/Highlander.png",
+      "sha256": "0e56c7df1cc9ad719c4c1004ce7307567d428b7746bbb5b6c79076fc49696a88",
+      "bytes": 6238
     }
   ]
 }

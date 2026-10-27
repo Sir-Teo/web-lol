@@ -1,4 +1,7 @@
+import { masterYiAttackKind, masterYiAttackClip } from '../simulation/masteryi-attack-kind';
 import { MASTER_YI_COMBAT_POLICY } from '../content/masteryi-combat-policy';
+import { MASTER_YI_PASSIVE } from '../content/masteryi-passive';
+import { MASTER_YI_W } from '../content/masteryi-w';
 import { leonaAttackAnimation } from '../content/leona-presentation';
 import { AHRI_COMBAT_POLICY } from '../content/ahri-combat-policy';
 import { LEONA_COMBAT_POLICY } from '../content/leona-combat-policy';
@@ -37,7 +40,8 @@ export function mobilePose(
   tick: number,
   alpha: number,
   durations: Readonly<Record<string, number>>,
-  terminalAge = 0
+  terminalAge = 0,
+  movementSample?: boolean
 ): MobilePose {
   const at = tick - 1 + alpha;
   const duration = (name: string) => {
@@ -79,11 +83,20 @@ export function mobilePose(
       true
     );
   const leonaCycle = unit.champion === 'leona' ? unit.attackCycle : null;
-  const leonaMoving = Math.hypot(unit.x - unit.previous.x, unit.y - unit.previous.y) > 0.01;
+  const meditate = unit.champion === 'masteryi' ? state?.meditate : null;
+  if (meditate && meditate.stopTick === null && tick < meditate.endTick) {
+    const clip = MASTER_YI_W.preparedLoopClip;
+    const time = Math.max(0, (at - meditate.startTick) / TICK_RATE);
+    return { ...fixed('cast', clip, time, true), time: time % duration(clip), loop: true };
+  }
+  // The fixed-step updater already measured this endpoint. Other callers keep
+  // the same full-precision distance calculation; no pose/time is approximated.
+  const moving =
+    movementSample ?? Math.hypot(unit.x - unit.previous.x, unit.y - unit.previous.y) > 0.01;
   if (
     leonaCycle?.leonaQReleaseTick !== undefined &&
     tick < leonaCycle.endTick &&
-    (!leonaMoving || unit.releaseTick !== null)
+    (!moving || unit.releaseTick !== null)
   ) {
     const clip = 'spell1',
       contact = LEONA_COMBAT_POLICY.daybreakWindupTicks / TICK_RATE;
@@ -125,8 +138,19 @@ export function mobilePose(
     return fixed('recall', pose.clip, pose.unclampedTime, true);
   }
 
-  const moving = Math.hypot(unit.x - unit.previous.x, unit.y - unit.previous.y) > 0.01,
-    cycle = unit.attackCycle;
+  const cycle = unit.attackCycle;
+  const secondary = unit.champion === 'masteryi' ? state?.doubleStrike?.strike : null;
+  if (!moving && secondary && secondary.poseStopTick === null && tick < secondary.endTick) {
+    const clip = MASTER_YI_PASSIVE.defaultPoseClip;
+    const rate = duration(clip) / ((secondary.endTick - secondary.startTick) / TICK_RATE);
+    return fixed(
+      'attack',
+      clip,
+      Math.max(0, (at - secondary.startTick) / TICK_RATE) * rate,
+      false,
+      rate
+    );
+  }
   if (!moving && cycle && tick < cycle.endTick) {
     if (unit.kind === 'monster') {
       if (unit.monster.species === 'scuttler')
@@ -161,9 +185,7 @@ export function mobilePose(
                 ? 'crit'
                 : luxAttackAnimation(unit.id, cycle.startTick)
               : unit.champion === 'masteryi'
-                ? cycle.critical
-                  ? MASTER_YI_COMBAT_POLICY.criticalClip
-                  : MASTER_YI_COMBAT_POLICY.attackClip
+                ? masterYiAttackClip(masterYiAttackKind(unit.id, cycle.startTick, cycle.critical))
                 : unit.champion === 'ahri'
                   ? cycle.critical
                     ? AHRI_COMBAT_POLICY.criticalClip

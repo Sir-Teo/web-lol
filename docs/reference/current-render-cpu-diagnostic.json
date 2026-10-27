@@ -1,0 +1,878 @@
+{
+  "format": 1,
+  "reading": "Scoped current-rules rendering diagnostic; no runtime change or performance improvement claim.",
+  "sourceRevision": "ddc0888437d2ed4cb4de5601c1978ad385f8b1b7",
+  "sources": [
+    {
+      "file": "tools/qa/benchmark-rift.mjs",
+      "bytes": 13420,
+      "sha256": "6af86231e358154d96fcf11ce067e902e6a8fdf0188fcfc481a3e14a1aeb77d5"
+    },
+    {
+      "file": "tools/qa/summarize-cpu-profile.mjs",
+      "bytes": 2588,
+      "sha256": "1da487789cdcef778d5c7a53e254d63701cace0121d97f11e7337f27c23e99bc"
+    },
+    {
+      "file": "src/render/view.ts",
+      "bytes": 64615,
+      "sha256": "5f5901dc89890e2e84ed7fb4c57a720ac9603c42513798a4c71ab9c5b5689fa9"
+    },
+    {
+      "file": "src/render/fog-sampler.ts",
+      "bytes": 3310,
+      "sha256": "9b9bd7ab50f11744cb9e41bce6520d95135b470bcbc27a08fe989d789a578dd2"
+    },
+    {
+      "file": "src/render/rig-pose-culling.ts",
+      "bytes": 5539,
+      "sha256": "84927e46551f57a2bf7a753896b4cb552c3bf2b2f2a10780fc189559b53013b7"
+    },
+    {
+      "file": "src/render/constant-bone-tracks.ts",
+      "bytes": 2119,
+      "sha256": "7fb7bf0af2f25cf09ccea23868645f796d603cf1c10db4d5fbd91c7d56ca3c59"
+    },
+    {
+      "file": ".cache/match-cohort/current-normal-pilot-20261027/seeds/8/072000.match.json",
+      "bytes": 210293,
+      "sha256": "5894a84de06b25a0e145c11b5114dd8ac00a7a6c10df3070acbc2fcd1ef92853"
+    }
+  ],
+  "evidence": [
+    {
+      "file": ".cache/render-cpu-review/cpu-summary.json",
+      "bytes": 15158,
+      "sha256": "39931fd22ba1d34aca372758217dd887881f9095c3886f98b97e5e8735bed5e7"
+    },
+    {
+      "file": ".cache/render-cpu-review/current.cpuprofile",
+      "bytes": 1950752,
+      "sha256": "014d8edb5a24514a6799e52c91ad41fc63b0e8559d6393bea7e63a75737256b9"
+    },
+    {
+      "file": ".cache/render-cpu-review/current.json",
+      "bytes": 3877,
+      "sha256": "d576b36c4aedc71f6e64e46a0c4c0b63fdc2c7f6e4b618eb85068065c70a9244"
+    },
+    {
+      "file": ".cache/render-cpu-review/current.png",
+      "bytes": 2196673,
+      "sha256": "e77ebb9d2fd92b7c9430c371f5da807a7b50a0c5eb50e7ad95182f0422fe9650"
+    },
+    {
+      "file": ".cache/render-cpu-review/pause-record.json",
+      "bytes": 880,
+      "sha256": "ec47f7422823c54cd6a7554d02bcd1198f07b7cb85ca37f28f7e2d4dec6fd288"
+    },
+    {
+      "file": ".cache/render-cpu-review/profile-system.mjs",
+      "bytes": 13460,
+      "sha256": "eca7456ee354257f6c67b1766899473fb6a53402d0a5c4b5435c1ecf3d05d1b0"
+    },
+    {
+      "file": ".cache/render-cpu-review/profile.log",
+      "bytes": 3877,
+      "sha256": "d576b36c4aedc71f6e64e46a0c4c0b63fdc2c7f6e4b618eb85068065c70a9244"
+    },
+    {
+      "file": ".cache/render-cpu-review/run-profile.py",
+      "bytes": 3738,
+      "sha256": "df58c69df1ba24d754b44f1517e45619231f1ee37ecedad5e6699edaf9b71710"
+    },
+    {
+      "file": ".cache/render-cpu-review/vite.log",
+      "bytes": 307,
+      "sha256": "1ce280408fc51c9bf7b01db83d00996420a64773e7a44ef43aa522241b405203"
+    }
+  ],
+  "measurement": {
+    "result": "measured",
+    "developmentLeona": false,
+    "followPlayer": false,
+    "saveKey": "rift",
+    "benchmarkURL": "http://127.0.0.1:5198/",
+    "exactCheckpointRestored": true,
+    "canonicalSnapshotSHA256": "7cb9ba63d729a8628f58988d109b0cf8f54697bb0b0d0bd4e7a3165a3ef35ea6",
+    "cpuProfileEnabled": true,
+    "rawBoneTracks": false,
+    "gpuTiming": false,
+    "revision": "ddc0888437d2ed4cb4de5601c1978ad385f8b1b7",
+    "snapshotPath": ".cache/match-cohort/current-normal-pilot-20261027/seeds/8/072000.match.json",
+    "snapshotSHA256": "5894a84de06b25a0e145c11b5114dd8ac00a7a6c10df3070acbc2fcd1ef92853",
+    "benchmarkSHA256": "eca7456ee354257f6c67b1766899473fb6a53402d0a5c4b5435c1ecf3d05d1b0",
+    "browser": "154.0.8037.57",
+    "hardware": {
+      "platform": "linux",
+      "arch": "x64",
+      "cpu": "INTEL(R) XEON(R) PLATINUM 8573C",
+      "memoryGiB": 17.585861206054688
+    },
+    "viewport": [
+      1920,
+      1080
+    ],
+    "fixture": "Canonical ten-champion checkpoint restored through browser storage; camera follows the living blue champion with most nearby visible enemies at start, retaining that subject through death/respawn",
+    "startingTick": 72000,
+    "graphicsContext": {
+      "vendor": "WebKit",
+      "renderer": "WebKit WebGL",
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "unmaskedVendor": "Google Inc. (Google)",
+      "unmaskedRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+    },
+    "audioContextState": "not-unlocked",
+    "cameraPolicy": "visible-opponent-density",
+    "warmupCount": 30,
+    "sampleCount": 180,
+    "cameraSubject": {
+      "id": 1,
+      "champion": "ashe"
+    },
+    "championRoster": [
+      {
+        "id": 1,
+        "team": "blue",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 32,
+        "team": "blue",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 33,
+        "team": "blue",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 34,
+        "team": "blue",
+        "champion": "lux",
+        "ai": true
+      },
+      {
+        "id": 35,
+        "team": "blue",
+        "champion": "lux",
+        "ai": true
+      },
+      {
+        "id": 36,
+        "team": "red",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 37,
+        "team": "red",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 38,
+        "team": "red",
+        "champion": "lux",
+        "ai": true
+      },
+      {
+        "id": 39,
+        "team": "red",
+        "champion": "ashe",
+        "ai": true
+      },
+      {
+        "id": 40,
+        "team": "red",
+        "champion": "lux",
+        "ai": true
+      }
+    ],
+    "activity": {
+      "maxProjectiles": 17,
+      "maxSingularities": 2,
+      "maxLuxBeams": 0,
+      "maxVisibleChampions": 4
+    },
+    "advanceMS": 0,
+    "time": 1220.9,
+    "units": 145,
+    "frames": {
+      "n": 180,
+      "median": 1033.300000000003,
+      "p95": 2300,
+      "p99": 2733.2000000000116
+    },
+    "frameClock": "requestAnimationFrame timestamp; not physical display presentation time",
+    "callbackDeliveryIntervals": {
+      "n": 180,
+      "median": 1040.9000000059605,
+      "p95": 2342,
+      "p99": 2731
+    },
+    "intervalsAbove25MS": 180,
+    "fog": {
+      "n": 90,
+      "median": 5.700000017881393,
+      "p95": 12.599999994039536,
+      "p99": 49.599999994039536
+    },
+    "simulationSteps": {
+      "n": 1080,
+      "median": 2.0999999940395355,
+      "p95": 8.5,
+      "p99": 17.400000005960464
+    },
+    "hudUpdates": {
+      "n": 180,
+      "median": 0.8999999761581421,
+      "p95": 2.2000000178813934,
+      "p99": 3.199999988079071
+    },
+    "renderCalls": {
+      "n": 180,
+      "median": 20,
+      "p95": 62.19999998807907,
+      "p99": 84.09999999403954
+    },
+    "gpu": null,
+    "drawCalls": {
+      "n": 180,
+      "median": 133,
+      "p95": 150,
+      "p99": 156
+    },
+    "renderedTriangles": {
+      "n": 180,
+      "median": 299822,
+      "p95": 327071,
+      "p99": 327503
+    },
+    "calls": 119,
+    "triangles": 304433,
+    "fogResolution": 256
+  },
+  "profile": {
+    "profileSHA256": "014d8edb5a24514a6799e52c91ad41fc63b0e8559d6393bea7e63a75737256b9",
+    "durationMS": 253467.607,
+    "sampledMS": 253466.132,
+    "samples": 176814,
+    "note": "Sampled function attribution, not GPU timing. Inclusive times overlap across functions; do not sum them. Idle and program time are retained.",
+    "self": [
+      {
+        "function": "(program)",
+        "url": "",
+        "line": 0,
+        "selfMS": 243710.883,
+        "inclusiveMS": 243710.883
+      },
+      {
+        "function": "distance",
+        "url": "http://127.0.0.1:5198/src/simulation/math.ts",
+        "line": 1,
+        "selfMS": 609.299,
+        "inclusiveMS": 609.299
+      },
+      {
+        "function": "(garbage collector)",
+        "url": "",
+        "line": 0,
+        "selfMS": 531.56,
+        "inclusiveMS": 531.56
+      },
+      {
+        "function": "visionSources",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 1201,
+        "selfMS": 374.004,
+        "inclusiveMS": 571.854
+      },
+      {
+        "function": "getProgramInfoLog",
+        "url": "",
+        "line": 0,
+        "selfMS": 330.336,
+        "inclusiveMS": 330.336
+      },
+      {
+        "function": "update",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 727,
+        "selfMS": 314.516,
+        "inclusiveMS": 3555.565
+      },
+      {
+        "function": "texSubImage2D",
+        "url": "",
+        "line": 0,
+        "selfMS": 292.999,
+        "inclusiveMS": 292.999
+      },
+      {
+        "function": "trace",
+        "url": "http://127.0.0.1:5198/src/simulation/navgrid.ts",
+        "line": 182,
+        "selfMS": 279.86,
+        "inclusiveMS": 448.469
+      },
+      {
+        "function": "updateMatrixWorld",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 10046,
+        "selfMS": 223.152,
+        "inclusiveMS": 456.083
+      },
+      {
+        "function": "advanceUnit",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 2397,
+        "selfMS": 213.951,
+        "inclusiveMS": 1165.619
+      },
+      {
+        "function": "projectObject",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 52080,
+        "selfMS": 206.348,
+        "inclusiveMS": 401.801
+      },
+      {
+        "function": "multiplyMatrices",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 8252,
+        "selfMS": 157.22,
+        "inclusiveMS": 157.22
+      },
+      {
+        "function": "renderFrame",
+        "url": "http://127.0.0.1:5198/src/render/view.ts",
+        "line": 567,
+        "selfMS": 149.281,
+        "inclusiveMS": 4981.261
+      },
+      {
+        "function": "nearest",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 1275,
+        "selfMS": 134.354,
+        "inclusiveMS": 621.684
+      },
+      {
+        "function": "compose",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 8562,
+        "selfMS": 126.002,
+        "inclusiveMS": 126.002
+      },
+      {
+        "function": "",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 1261,
+        "selfMS": 122.505,
+        "inclusiveMS": 122.505
+      },
+      {
+        "function": "updateBar",
+        "url": "http://127.0.0.1:5198/src/render/view.ts",
+        "line": 826,
+        "selfMS": 115.689,
+        "inclusiveMS": 139.564
+      },
+      {
+        "function": "vulnerable",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 1258,
+        "selfMS": 102.594,
+        "inclusiveMS": 259.964
+      },
+      {
+        "function": "evaluate",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 30086,
+        "selfMS": 101.918,
+        "inclusiveMS": 243.598
+      },
+      {
+        "function": "renderObject",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 47372,
+        "selfMS": 95.013,
+        "inclusiveMS": 332.32
+      },
+      {
+        "function": "alive",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 253,
+        "selfMS": 91.127,
+        "inclusiveMS": 91.127
+      },
+      {
+        "function": "sample",
+        "url": "http://127.0.0.1:5198/src/render/fog-sampler.ts",
+        "line": 21,
+        "selfMS": 89.101,
+        "inclusiveMS": 513.392
+      },
+      {
+        "function": "updateFog",
+        "url": "http://127.0.0.1:5198/src/render/view.ts",
+        "line": 1169,
+        "selfMS": 87.433,
+        "inclusiveMS": 625.513
+      },
+      {
+        "function": "_setValue_fromArray_setMatrixWorldNeedsUpdate",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 37174,
+        "selfMS": 87.214,
+        "inclusiveMS": 252.073
+      },
+      {
+        "function": "",
+        "url": "http://127.0.0.1:5198/src/simulation/navgrid.ts",
+        "line": 239,
+        "selfMS": 85.748,
+        "inclusiveMS": 102.264
+      },
+      {
+        "function": "step",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 721,
+        "selfMS": 80.172,
+        "inclusiveMS": 3645.441
+      },
+      {
+        "function": "advanceProjectiles",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 3339,
+        "selfMS": 78.817,
+        "inclusiveMS": 392.213
+      },
+      {
+        "function": "element.addEventListener.once",
+        "url": "http://127.0.0.1:5198/src/ui/hud.ts",
+        "line": 1110,
+        "selfMS": 75.158,
+        "inclusiveMS": 101.918
+      },
+      {
+        "function": "unitVisible",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 1160,
+        "selfMS": 74.645,
+        "inclusiveMS": 1094.892
+      },
+      {
+        "function": "advanceAnimationClocks",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 3252,
+        "selfMS": 73.476,
+        "inclusiveMS": 212.531
+      },
+      {
+        "function": "slerpFlat",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 3425,
+        "selfMS": 69.213,
+        "inclusiveMS": 69.213
+      },
+      {
+        "function": "accumulate",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 36845,
+        "selfMS": 66.388,
+        "inclusiveMS": 67.595
+      },
+      {
+        "function": "interpolate_",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 30285,
+        "selfMS": 61.621,
+        "inclusiveMS": 61.621
+      },
+      {
+        "function": "fromArray",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 3947,
+        "selfMS": 61.163,
+        "inclusiveMS": 155.995
+      },
+      {
+        "function": "",
+        "url": "http://127.0.0.1:5198/src/simulation/oracle-lens.ts",
+        "line": 36,
+        "selfMS": 60.031,
+        "inclusiveMS": 91.844
+      },
+      {
+        "function": "_update",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 37949,
+        "selfMS": 59.581,
+        "inclusiveMS": 371.581
+      },
+      {
+        "function": "advanceImpactVisuals",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 3313,
+        "selfMS": 58.732,
+        "inclusiveMS": 105.991
+      },
+      {
+        "function": "setFromRotationMatrix",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 8932,
+        "selfMS": 57.145,
+        "inclusiveMS": 57.145
+      },
+      {
+        "function": "update",
+        "url": "http://127.0.0.1:5198/src/ui/hud.ts",
+        "line": 872,
+        "selfMS": 55.456,
+        "inclusiveMS": 203.056
+      },
+      {
+        "function": "pointVisible",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 1246,
+        "selfMS": 55.043,
+        "inclusiveMS": 1079.296
+      }
+    ],
+    "inclusive": [
+      {
+        "function": "(root)",
+        "url": "",
+        "line": 0,
+        "selfMS": 0,
+        "inclusiveMS": 253466.132
+      },
+      {
+        "function": "(program)",
+        "url": "",
+        "line": 0,
+        "selfMS": 243710.883,
+        "inclusiveMS": 243710.883
+      },
+      {
+        "function": "onAnimationFrame",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 42007,
+        "selfMS": 29.963,
+        "inclusiveMS": 8980.452
+      },
+      {
+        "function": "onAnimationFrame",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 51956,
+        "selfMS": 5.935,
+        "inclusiveMS": 8944.684
+      },
+      {
+        "function": "frame",
+        "url": "http://127.0.0.1:5198/src/main.ts",
+        "line": 377,
+        "selfMS": 11.078,
+        "inclusiveMS": 8938.749
+      },
+      {
+        "function": "withVisionSnapshot",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 1189,
+        "selfMS": 5.739,
+        "inclusiveMS": 5287.587
+      },
+      {
+        "function": "",
+        "url": "http://127.0.0.1:5198/src/main.ts",
+        "line": 405,
+        "selfMS": 9.603,
+        "inclusiveMS": 5263.828
+      },
+      {
+        "function": "render",
+        "url": "http://127.0.0.1:5198/src/render/view.ts",
+        "line": 564,
+        "selfMS": 0,
+        "inclusiveMS": 5021.351
+      },
+      {
+        "function": "",
+        "url": "http://127.0.0.1:5198/src/render/view.ts",
+        "line": 565,
+        "selfMS": 38.943,
+        "inclusiveMS": 5021.351
+      },
+      {
+        "function": "renderFrame",
+        "url": "http://127.0.0.1:5198/src/render/view.ts",
+        "line": 567,
+        "selfMS": 149.281,
+        "inclusiveMS": 4981.261
+      },
+      {
+        "function": "v.render",
+        "url": "",
+        "line": 92,
+        "selfMS": 0,
+        "inclusiveMS": 4403.608
+      },
+      {
+        "function": "step",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 721,
+        "selfMS": 80.172,
+        "inclusiveMS": 3645.441
+      },
+      {
+        "function": "update",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 727,
+        "selfMS": 314.516,
+        "inclusiveMS": 3555.565
+      },
+      {
+        "function": "w.step",
+        "url": "",
+        "line": 72,
+        "selfMS": 8.896,
+        "inclusiveMS": 3043.557
+      },
+      {
+        "function": "renderParticleColorPhase",
+        "url": "http://127.0.0.1:5198/src/render/particle-color-phase.ts",
+        "line": 16,
+        "selfMS": 4.435,
+        "inclusiveMS": 2274.245
+      },
+      {
+        "function": "WebGLRenderer.render",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 51996,
+        "selfMS": 10.988,
+        "inclusiveMS": 2268.727
+      },
+      {
+        "function": "advanceUnit",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 2397,
+        "selfMS": 213.951,
+        "inclusiveMS": 1165.619
+      },
+      {
+        "function": "visible",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 1151,
+        "selfMS": 26.001,
+        "inclusiveMS": 1120.893
+      },
+      {
+        "function": "WebGLRenderer.renderBufferDirect",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 51786,
+        "selfMS": 27.227,
+        "inclusiveMS": 1105.773
+      },
+      {
+        "function": "unitVisible",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 1160,
+        "selfMS": 74.645,
+        "inclusiveMS": 1094.892
+      },
+      {
+        "function": "pointVisible",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 1246,
+        "selfMS": 55.043,
+        "inclusiveMS": 1079.296
+      },
+      {
+        "function": "renderScene",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 52125,
+        "selfMS": 1.539,
+        "inclusiveMS": 1002.937
+      },
+      {
+        "function": "renderObjects",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 52200,
+        "selfMS": 3.76,
+        "inclusiveMS": 999.206
+      },
+      {
+        "function": "renderObject",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 52210,
+        "selfMS": 9.55,
+        "inclusiveMS": 994.394
+      },
+      {
+        "function": "setProgram",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 52328,
+        "selfMS": 26.177,
+        "inclusiveMS": 969.427
+      },
+      {
+        "function": "seenFrom",
+        "url": "http://127.0.0.1:5198/src/simulation/vision.ts",
+        "line": 12,
+        "selfMS": 33.615,
+        "inclusiveMS": 847.678
+      },
+      {
+        "function": "",
+        "url": "http://127.0.0.1:5198/src/simulation/vision.ts",
+        "line": 13,
+        "selfMS": 37.747,
+        "inclusiveMS": 841.605
+      },
+      {
+        "function": "update",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 38434,
+        "selfMS": 11.74,
+        "inclusiveMS": 659.349
+      },
+      {
+        "function": "updateFog",
+        "url": "http://127.0.0.1:5198/src/render/view.ts",
+        "line": 1169,
+        "selfMS": 87.433,
+        "inclusiveMS": 625.513
+      },
+      {
+        "function": "nearest",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 1275,
+        "selfMS": 134.354,
+        "inclusiveMS": 621.684
+      },
+      {
+        "function": "distance",
+        "url": "http://127.0.0.1:5198/src/simulation/math.ts",
+        "line": 1,
+        "selfMS": 609.299,
+        "inclusiveMS": 609.299
+      },
+      {
+        "function": "visionSources",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 1201,
+        "selfMS": 374.004,
+        "inclusiveMS": 571.854
+      },
+      {
+        "function": "v.updateFog",
+        "url": "",
+        "line": 78,
+        "selfMS": 6.528,
+        "inclusiveMS": 545.398
+      },
+      {
+        "function": "(garbage collector)",
+        "url": "",
+        "line": 0,
+        "selfMS": 531.56,
+        "inclusiveMS": 531.56
+      },
+      {
+        "function": "sample",
+        "url": "http://127.0.0.1:5198/src/render/fog-sampler.ts",
+        "line": 21,
+        "selfMS": 89.101,
+        "inclusiveMS": 513.392
+      },
+      {
+        "function": "think",
+        "url": "http://127.0.0.1:5198/src/simulation/world.ts",
+        "line": 2009,
+        "selfMS": 18.691,
+        "inclusiveMS": 499.822
+      },
+      {
+        "function": "applyMobileAnimation",
+        "url": "http://127.0.0.1:5198/src/render/mobile-animation.ts",
+        "line": 5,
+        "selfMS": 10.963,
+        "inclusiveMS": 485.912
+      },
+      {
+        "function": "updateMatrixWorld",
+        "url": "http://127.0.0.1:5198/node_modules/.vite/deps/three.module-Bj7iJlUn.js?v=7816ce4e",
+        "line": 10046,
+        "selfMS": 223.152,
+        "inclusiveMS": 456.083
+      },
+      {
+        "function": "trace",
+        "url": "http://127.0.0.1:5198/src/simulation/navgrid.ts",
+        "line": 182,
+        "selfMS": 279.86,
+        "inclusiveMS": 448.469
+      },
+      {
+        "function": "lineOfSight",
+        "url": "http://127.0.0.1:5198/src/simulation/navgrid.ts",
+        "line": 229,
+        "selfMS": 39.841,
+        "inclusiveMS": 444.109
+      }
+    ]
+  },
+  "adaptation": {
+    "browser": "System Chromium instead of installed Chrome channel",
+    "matchWarmup": 30,
+    "matchSamples": 180,
+    "otherBenchmarkCodeUnchanged": true
+  },
+  "limits": [
+    "Software SwiftShader renderer in a cloud container; not native GPU performance or physical display presentation.",
+    "CPU profiling perturbs timings. The program category is not an attribution of GPU time.",
+    "Audio stayed not unlocked.",
+    "Short diagnostic, not the original 1800-frame encounter certification, a complete-match performance gate, or a controlled before/after comparison."
+  ],
+  "applicationValidation": {
+    "inheritedFrom": "docs/reference/input-modifier-shortcuts-verification.json",
+    "freshApplicationChecks": false,
+    "reason": "No tracked runtime, simulation, content or asset change."
+  },
+  "cohortPause": {
+    "start": "2026-10-27T12:17:10.505597+00:00",
+    "end": "2026-10-27T12:22:21.858752+00:00",
+    "processes": [
+      {
+        "pid": 302400,
+        "kind": "coordinator",
+        "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+      },
+      {
+        "pid": 302428,
+        "kind": "worker",
+        "cmdlineSha256": "8e41c3a448458897db33c7eee15725ef66e554740d4a16c637446616c20389f2"
+      },
+      {
+        "pid": 302429,
+        "kind": "worker",
+        "cmdlineSha256": "0242822eaa67e8b5497836a6e2d21dde3a5fc5345bb70cf0ce45d941b4d1da0f"
+      },
+      {
+        "pid": 302435,
+        "kind": "worker",
+        "cmdlineSha256": "8b2d06169651cad335af5b231e7651740333ad536d2cc6831b7f9a058fc06643"
+      },
+      {
+        "pid": 302436,
+        "kind": "worker",
+        "cmdlineSha256": "3838963c8667cc88d90b3d6e6bb67eaef86539e3a51dfd21bc75d5a4b38301e9"
+      }
+    ],
+    "resumed": true
+  }
+}

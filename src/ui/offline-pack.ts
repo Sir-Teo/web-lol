@@ -66,6 +66,7 @@ export function mountOfflinePack(host: HTMLElement): () => void {
     button('remove').disabled = true;
     button('reload').hidden = true;
     button('cancel').hidden = false;
+    button('cancel').focus();
     bar.hidden = false;
     status.textContent = 'Downloading and verifying game files…';
     try {
@@ -82,8 +83,10 @@ export function mountOfflinePack(host: HTMLElement): () => void {
       if (!disposed) {
         button('download').disabled = false;
         button('remove').disabled = false;
+        const cancelFocused = document.activeElement === button('cancel');
         button('cancel').hidden = true;
         bar.hidden = true;
+        if (cancelFocused) button('download').focus();
       }
     }
   };

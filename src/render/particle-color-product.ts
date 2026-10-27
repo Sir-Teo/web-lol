@@ -23,7 +23,7 @@ export function createParticleColorProductMaterial(
   lookup: THREE.Texture,
   coordinates: 'uniform' | 'vertex' = 'uniform',
   quadMultiplier?: THREE.Texture,
-  vertexTint = false,
+  vertexTint: boolean | 'bgra-unorm8' = false,
   palette?: ParticlePalette
 ) {
   return new THREE.ShaderMaterial({
@@ -48,6 +48,7 @@ export function createParticleColorProductMaterial(
       ...(palette ? { PALETTIZE_TEXTURES: 1 } : {}),
       ...(coordinates === 'vertex' ? { VERTEX_LOOKUP: 1 } : {}),
       ...(vertexTint ? { VERTEX_TINT: 1 } : {}),
+      ...(vertexTint === 'bgra-unorm8' ? { VERTEX_BGRA: 1 } : {}),
       ...(quadMultiplier ? { QUAD_MULT_PASS: 1 } : {}),
     },
     vertexShader: `
@@ -56,7 +57,11 @@ export function createParticleColorProductMaterial(
       uniform vec2 lookupUv;
       uniform vec2 sourceUvOffset;
       #ifdef VERTEX_TINT
-        attribute vec4 particleTint;
+        #ifdef VERTEX_BGRA
+          attribute vec4 _source_vertex_bgra;
+        #else
+          attribute vec4 particleTint;
+        #endif
         varying vec4 vertexColor;
       #endif
       #ifdef VERTEX_LOOKUP
@@ -65,7 +70,11 @@ export function createParticleColorProductMaterial(
       void main() {
         sourceUv = uv + sourceUvOffset;
         #ifdef VERTEX_TINT
-          vertexColor = particleTint;
+          #ifdef VERTEX_BGRA
+            vertexColor = _source_vertex_bgra.bgra;
+          #else
+            vertexColor = particleTint;
+          #endif
         #endif
         #ifdef VERTEX_LOOKUP
           colorUv = particleLookupUv;

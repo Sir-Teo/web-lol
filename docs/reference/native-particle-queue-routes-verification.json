@@ -1,0 +1,608 @@
+{
+  "format": 1,
+  "parentCommit": "eced05b874b1f10719508acfb18cfc4390518eac",
+  "scope": "Static complex/simple definition through runtime emitters, queue insertion and draw consumption; no application behavior change.",
+  "witness": {
+    "path": "docs/reference/native-particle-queue-routes.json",
+    "bytes": 74723,
+    "sha256": "72d17aaf1287ca93f51d00c5d845cecf65c134526e3028a8fd4e1e34cbc6558e"
+  },
+  "verification": {
+    "fresh": {
+      "functions": 8,
+      "completeFunctionBytes": 19356,
+      "selectedInstructions": 260,
+      "directCalls": 10,
+      "routes": 2,
+      "jobVirtualTargetChecked": true,
+      "guardsPerPythonMode": 15,
+      "pythonModes": [
+        "normal",
+        "optimized"
+      ],
+      "actualChecksAndReplaysPassed": true,
+      "witnessAndSourceBytesAndMtimesPreserved": true,
+      "outputPolicy": [
+        {
+          "mode": "normal",
+          "conflictRejectedWithoutMutation": true,
+          "missingCheckRejectedWithoutCreation": true
+        },
+        {
+          "mode": "optimized",
+          "conflictRejectedWithoutMutation": true,
+          "missingCheckRejectedWithoutCreation": true
+        }
+      ],
+      "priorApplicationSourcesUnchanged": 3,
+      "assetsAndDataBytesAndMtimesUnchanged": 1125,
+      "activeCohortSourcePinsUnchanged": 539
+    },
+    "inheritedApplication": {
+      "certificate": {
+        "path": "docs/reference/hud-tab-navigation-verification.json",
+        "bytes": 12240,
+        "sha256": "81d85aafed529746e58a690ff0e69e84bb945e99f86992b0f9e20d267167dd9a"
+      },
+      "identity": {
+        "schema": 163,
+        "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+        "offlinePack": {
+          "id": "6b1935aabc8fb7e8148092d1ab9379d71cf104cb7d3430eeee5cbc68c2ef36ee",
+          "files": 1202,
+          "bytes": 538091532
+        }
+      },
+      "freshChecksAtThatCheckpoint": {
+        "browserCases": 10,
+        "newBrowserCases": 2,
+        "cleanBatch": true,
+        "typeCheckPassed": true,
+        "nodeQaPassed": 8,
+        "productionBuildPassed": true,
+        "production": {
+          "result": "passed",
+          "prefix": "/nested/rift/",
+          "developmentHook": false,
+          "firstKeyboardAudio": true,
+          "audioContextsCreated": 1,
+          "soundSpace": true,
+          "soundEnter": true,
+          "hudTabNavigation": true,
+          "pauseSpace": true,
+          "wardPreviewReplacedByHeal": true,
+          "resumeSpace": true,
+          "errors": [],
+          "failed": [],
+          "outside": [],
+          "browser": "154.0.8037.57",
+          "screenshots": 1
+        },
+        "assetsAndDataFilesUnchanged": 1125,
+        "bytesAndMtimesUnchanged": true
+      },
+      "broaderInheritedChecks": {
+        "audioCommit": "9a09e48d3df1b2d1edd652e1fb195f735d742b82",
+        "audioCertificate": {
+          "path": "docs/reference/input-audio-activation-verification.json",
+          "bytes": 16089,
+          "sha256": "c27d4e1cfb0c5f8f6750634f26922e77bfaca1f936df73ceda37081951c3491a"
+        },
+        "renderCertificate": {
+          "path": "docs/reference/gromp-ray-raw-color-verification.json",
+          "bytes": 52259,
+          "sha256": "f2edf7710308cf8b5b4c3b91d5c08f39ec01134f804313ca4c9680d05d864f8a"
+        },
+        "fullUnitRun": {
+          "passed": 3191,
+          "failed": 2,
+          "total": 3193,
+          "files": 396
+        },
+        "baselineFailuresUnchanged": 2,
+        "productionRecordings": 32,
+        "productionScreenshots": 8,
+        "privatePreloads": 0
+      }
+    },
+    "freshApplicationChecks": false,
+    "nativeExecuted": false,
+    "nativeShaderExecuted": false,
+    "applicationBehaviorChanged": false
+  },
+  "sources": [
+    {
+      "path": "tools/assets/native_particle_queue_routes.py",
+      "bytes": 21818,
+      "sha256": "6d74cdffb81a4138ba96cfe7e409f4703e3df0e5bc0cb137bc37cbd1a87fdfc0"
+    },
+    {
+      "path": "tools/assets/test-native-particle-queue-routes.py",
+      "bytes": 5237,
+      "sha256": "92d63002128c36b1a3dd8b2e921d2ce6ff300eafc4b5e4a588aae2062798d9bd"
+    },
+    {
+      "path": "docs/reference/native-particle-queue-routes.json",
+      "bytes": 74723,
+      "sha256": "72d17aaf1287ca93f51d00c5d845cecf65c134526e3028a8fd4e1e34cbc6558e"
+    },
+    {
+      "path": "docs/NATIVE-PARTICLE-QUEUE-ROUTES.md",
+      "bytes": 3918,
+      "sha256": "5824d685ca803c904d9fb48b0783c8a5f1d24572e245bd1808cef181c230895a"
+    },
+    {
+      "path": "docs/NATIVE-CAMERAQUAD-PACKETS.md",
+      "bytes": 5526,
+      "sha256": "5421d634e43151f6197ee0342242df2984c82b72830420f2285e95c6b3c09575"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/native-particle-queue-population/0x1000b7a50.txt",
+      "bytes": 34993,
+      "sha256": "d5c91dad5b6a402a51f216c47282af105ff0042249113fff5dbaf88e7c37b9bd"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1000bfb2c.txt",
+      "bytes": 873,
+      "sha256": "76459c244d8f4428b035624687ad456f28951221c753e0d758a3166b4d3cc813"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1000bfb84.txt",
+      "bytes": 873,
+      "sha256": "d564a5171d7f03f6116e8e84fc006b019cb4da7e1f585003271f779fdad3404d"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1000f6638.txt",
+      "bytes": 3918,
+      "sha256": "160e93cea9c024120bf8ce76a706f5346c56f3e1694ccbc5cfd61fa8a737f8fb"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x10012e914.txt",
+      "bytes": 45892,
+      "sha256": "2dfea15c69d132ccc96140b9a90ad9617802d82eaaa7496c41b7d6d2ea5f548a"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1005bbb18.txt",
+      "bytes": 30260,
+      "sha256": "d903711badcf844ca17ebc80a00c879960336f76b91f6aaf952535513cbd9496"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x101892d88.txt",
+      "bytes": 3720,
+      "sha256": "9aedc41cd3e0308aed99741d84a239def9c56e83df510cc217cd0bfa56a9e2bf"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x101896c10.txt",
+      "bytes": 9906,
+      "sha256": "692be2ca4562272c06b5d9ad7df662ddc61cad2a337df4ce7b3a0187a3158a24"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x101897108.txt",
+      "bytes": 2156,
+      "sha256": "5c462363bad7cb21ca8159e7c3b29e2464fc8af724b24e3b2e02a9053100b652"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x101898bc8.txt",
+      "bytes": 19787,
+      "sha256": "09c23529b89505c908523afb6783d42e5ededa291c1359d28ff532cdd21ee34c"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x101899374.txt",
+      "bytes": 5044,
+      "sha256": "b2c22809ffe7f0c5abe252fec6547e75c93fa1119d401bf87a7f11628da5ab5c"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1018995a0.txt",
+      "bytes": 2601,
+      "sha256": "d7c646896b3330d804b5e986a81dcc4f356ea71a37fa61b3f3ce0e45209f974c"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1018996b0.txt",
+      "bytes": 5132,
+      "sha256": "61c361a57595ce69b60d55d0e265084deb8145a30d6164de5d3f881ca7f88df2"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x10189a314.txt",
+      "bytes": 60003,
+      "sha256": "083c80c51893c0c7901d31fa4b22f8260f0d5c7b374daa0b2101d46ad8875893"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1018d7f34.txt",
+      "bytes": 22069,
+      "sha256": "e64f5579ca7d497c7c07a793aa3509f61d20d90e45ca4ad2572ee6c36ce04cea"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1018e6f58.txt",
+      "bytes": 1021,
+      "sha256": "1cdd4837962214ae1877a86d3fb39c325b1522d02d56a061214f1737e7b92254"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1018e7220.txt",
+      "bytes": 3130,
+      "sha256": "8cfb862bdeeb804796a9a9899ace6969cb5963b4d277c9cfbd75f1602a2c9da9"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1018e735c.txt",
+      "bytes": 58294,
+      "sha256": "e280adc03e80cb22a97aeaba652c616ca797d83953bf4aa1ba8afc1c5060ed34"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1018e8f58.txt",
+      "bytes": 27768,
+      "sha256": "8a6e874bd170e6b7303cd8f05cd982d0ba05f016138b601c123bff17bed9c579"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1018e9bc4.txt",
+      "bytes": 1626,
+      "sha256": "1cce535f0021c27186f6294867a303176be97973c2cb0c1554b4bdda20401db2"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1018e9c64.txt",
+      "bytes": 44008,
+      "sha256": "b3a8a23847ed0c5ae1235cbdb3d7f04d0ea098c63dff8bb3dde84546ea9e61e0"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1018eb920.txt",
+      "bytes": 2873,
+      "sha256": "b263253e435466ad501555e1d022d5f686c7043206099c6c9aa55592b9c1d39d"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1018eba3c.txt",
+      "bytes": 6777,
+      "sha256": "00154dacfa58bd4c96b81bde39c79ee7070f4ea3862d93e9789e12f3af7c949d"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1018ebcec.txt",
+      "bytes": 3847,
+      "sha256": "3bcd5054ad08c2fe1dcece638924919dfe622a723c02523060d58ced75179f8c"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1018ec1b0.txt",
+      "bytes": 5222,
+      "sha256": "0fc492dca7251ebe7ccd423a8638867c1eaf1d23e1a179542d39c8b9de7076f8"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1018ec500.txt",
+      "bytes": 4489,
+      "sha256": "2b82a838fafbcb02c137a370fc616b51d77e39d504a4599d3db25e82f7b376dd"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1018ed348.txt",
+      "bytes": 13841,
+      "sha256": "4f1c83a37a17f8c2e5115cfa5394a9659b327399617cb548153e5a63cf02a962"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1018ee0d4.txt",
+      "bytes": 4605,
+      "sha256": "193dd81569f11e6320b69c7e43430db4435e3bc9dc2967c3c00ceebdb7c06c21"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1018f1bc4.txt",
+      "bytes": 16894,
+      "sha256": "d1db3945ba9c88ef9c356c0076c3815049fa4a56a7c7db7037404ae00657e175"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1018f2a2c.txt",
+      "bytes": 18493,
+      "sha256": "fd014e017ee68605774b63e3ce6d4194de0e502a5b22f9f949eb6fa0bd07b865"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1018fc7b4.txt",
+      "bytes": 9175,
+      "sha256": "5b224c021144371901a97ed5cb28e6360cf5dd840978e90b55559b9c77cd166f"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1018fd41c.txt",
+      "bytes": 14911,
+      "sha256": "1582c4dda228c1a9906edb064c827fed2371ae9299286d2d8514443b255708d4"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1018fda18.txt",
+      "bytes": 20664,
+      "sha256": "a608a1be9034f8a9c5e4420658f9a613cfdbae414d72804ba01e44de87fac3b7"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1018fe21c.txt",
+      "bytes": 534,
+      "sha256": "94eba82961846d32dbccdea9c710ecd7cabb18ea3bfea6590bd4d82ca128a240"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x101903eb8.txt",
+      "bytes": 22136,
+      "sha256": "c9f081539fb66a47fccad499e95ef44d53e59b92a86007ad986ec02d09b6bbcc"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x1019052ec.txt",
+      "bytes": 8287,
+      "sha256": "e259c452f45f1d4a9b242d37a524f95a81e114643112a6690b991b8e8cbb5540"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x101915d68.txt",
+      "bytes": 44548,
+      "sha256": "64b271a01ef1324501277e90c93469b81d88a9f04c85da043db48764ae02c4e7"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/0x10193f848.txt",
+      "bytes": 305984,
+      "sha256": "78793ee31cbee241618cb9b81c197855b816245a80b74ec0cab81a378d3ab594"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/accepted-inputs.json",
+      "bytes": 826,
+      "sha256": "69344860c55975ec8eda404d3d9231b58109add4721549fd7a7410aa91ae598d"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/accepted-source/docs/NATIVE-CAMERAQUAD-PACKETS.md",
+      "bytes": 5526,
+      "sha256": "5421d634e43151f6197ee0342242df2984c82b72830420f2285e95c6b3c09575"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/accepted-source/docs/NATIVE-PARTICLE-QUEUE-ROUTES.md",
+      "bytes": 3918,
+      "sha256": "5824d685ca803c904d9fb48b0783c8a5f1d24572e245bd1808cef181c230895a"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/accepted-source/docs/reference/hud-tab-navigation-verification.json",
+      "bytes": 12240,
+      "sha256": "81d85aafed529746e58a690ff0e69e84bb945e99f86992b0f9e20d267167dd9a"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/accepted-source/docs/reference/native-cameraquad-packets.json",
+      "bytes": 31490,
+      "sha256": "a9e4fe941a973f6a0a24c2f05ada8992fb915cf63a25980251185e3bc50eb920"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/accepted-source/docs/reference/native-particle-queue-routes.json",
+      "bytes": 74723,
+      "sha256": "72d17aaf1287ca93f51d00c5d845cecf65c134526e3028a8fd4e1e34cbc6558e"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/accepted-source/tools/assets/native_particle_queue_routes.py",
+      "bytes": 21818,
+      "sha256": "6d74cdffb81a4138ba96cfe7e409f4703e3df0e5bc0cb137bc37cbd1a87fdfc0"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/accepted-source/tools/assets/test-native-particle-queue-routes.py",
+      "bytes": 5237,
+      "sha256": "92d63002128c36b1a3dd8b2e921d2ce6ff300eafc4b5e4a588aae2062798d9bd"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/callers.log",
+      "bytes": 593,
+      "sha256": "fc169cde776969e1232cea669b2174c43c0627556e966133f53e4a782c7dfe90"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/callers.py",
+      "bytes": 971,
+      "sha256": "52595ab0700c823f505faf69203e5f630b4a1b7967a56aec6e6af76474c08aaa"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/check-normal.log",
+      "bytes": 76,
+      "sha256": "20e09e38f5fd62a87bf6be76a3ca83957a6ca2bd00679e1810b594f0441eb637"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/check-optimized.log",
+      "bytes": 76,
+      "sha256": "20e09e38f5fd62a87bf6be76a3ca83957a6ca2bd00679e1810b594f0441eb637"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/check-output-policy.py",
+      "bytes": 1164,
+      "sha256": "9e4c7221f68bf11392fe7f3dc7a6b127bce3e6ee6a365cd4d4ca446504f5dd86"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/conflict-normal.json",
+      "bytes": 27,
+      "sha256": "024552894a93f87d18f0a60b55b7351ef27056b552018951db963a83a636daa4"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/conflict-normal.log",
+      "bytes": 618,
+      "sha256": "6fa885658e72123d021e5bc0c8183ebeef309ba5348321a2141d9a8794f10504"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/conflict-optimized.json",
+      "bytes": 27,
+      "sha256": "024552894a93f87d18f0a60b55b7351ef27056b552018951db963a83a636daa4"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/conflict-optimized.log",
+      "bytes": 621,
+      "sha256": "8afc53e22e63a909f532e421a93a1fbfbc457d84a2b5baa4c306193ec73fa00e"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/definition-key-candidates.json",
+      "bytes": 1242,
+      "sha256": "adad5543cb5ee979c9641fafa23cad76cc750761f71dd7562995cf3762cbaa94"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/direct-callers.json",
+      "bytes": 593,
+      "sha256": "fc169cde776969e1232cea669b2174c43c0627556e966133f53e4a782c7dfe90"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/final-checks.sh",
+      "bytes": 630,
+      "sha256": "876d743fed0ff3d3c8e4338def5ad219063196bf3746cf2995fa03d02980fdca"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/find-runtime-constructor-callers.py",
+      "bytes": 960,
+      "sha256": "fec769b7f5a5e18dad95e3acb53e7a23a4cc9a7d06aa74da97e159fb5c5e66f0"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/find-system-runtime-callers.py",
+      "bytes": 967,
+      "sha256": "6bac4392f22ae2329809d0ae353c8ce26e1095ad765eb79243e8a174e9182169"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/guards-normal.log",
+      "bytes": 116,
+      "sha256": "7c8f7017a71078b1403ee03b82e6999e46c44a99e94c52261068ed44ae9f3c16"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/guards-optimized.log",
+      "bytes": 116,
+      "sha256": "a249f0c67633eebd30df1bd847bb0357b90736ee58671f1b439b3df334b3c244"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/job-vtable.json",
+      "bytes": 835,
+      "sha256": "78779e0a0a943ae0bf0b567f51698314622216d0084e83bfef28f755690abb13"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/job-vtable.log",
+      "bytes": 835,
+      "sha256": "78779e0a0a943ae0bf0b567f51698314622216d0084e83bfef28f755690abb13"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/missing-normal.log",
+      "bytes": 513,
+      "sha256": "12b3f2573f6db06783d72ac153230484ec3df5044927b3320a0bb2e0126bc7ca"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/missing-optimized.log",
+      "bytes": 516,
+      "sha256": "8fdeb0682061f84df3388fe48c406401174942eadbfdc3eabd59c536619520c3"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/output-policy.json",
+      "bytes": 254,
+      "sha256": "4f29992e471d66df24f5c872dd01ee68403ef4dd2872106d03b9c2f3ebbbbf76"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/prepare-witness.log",
+      "bytes": 12,
+      "sha256": "0a26c7e1097465d9b906f165e08feab1e66f6a1954b4b4aaa262c490ef1d27f4"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/prepare-witness.py",
+      "bytes": 2821,
+      "sha256": "3dd0a9b400583dcf510b7c88549b7c38241e87ba328ce2c2a90303f6bc50beb3"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/read-job-vtable.py",
+      "bytes": 406,
+      "sha256": "6c99209b77d3a91e473f39e0b4537b00c9d3f2434e0fb1ee6284bf61896e5e0e"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/read-more.log",
+      "bytes": 1082,
+      "sha256": "a238417d86bb37a5bf87fd6a1be4d56cf58548c743b9fd89068905da4f7e051e"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/read-more.py",
+      "bytes": 1554,
+      "sha256": "011583c7b7bbb6f295e8a38adfc9a95b12068c27bbb7531fd651f2de3b78e6b1"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/read-runtime-system.log",
+      "bytes": 488,
+      "sha256": "9efee1c46f695b8fa3fd2162daa1daa3c3fc439422b8bc0919a2ef31ced3b8b8"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/read-runtime-system.py",
+      "bytes": 660,
+      "sha256": "8edaafc55a57366e1961938ac860a80b88f46c82128bdb238350e64061c23e07"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/read-system-cache.log",
+      "bytes": 327,
+      "sha256": "b8cbc9ae3018351e6092d8517b15ee1c554fef6f8fde6ead210456f5deb1a931"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/read-system-cache.py",
+      "bytes": 648,
+      "sha256": "830f800df8fa088bff737e40e244c17b83c13c96b1ad0c16e8195e5e7a20f896"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/read-system-conversion.log",
+      "bytes": 652,
+      "sha256": "df4f3a4c74b5daf1a64b027e5ba8c11a227dd80b19fa1824c1089bfa01788f3a"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/read-system-conversion.py",
+      "bytes": 672,
+      "sha256": "b02634eb0c7b7fa03b8addd5c80ac6754274d41b05cdb054e5d162a2212b3423"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/replay-normal.log",
+      "bytes": 76,
+      "sha256": "20e09e38f5fd62a87bf6be76a3ca83957a6ca2bd00679e1810b594f0441eb637"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/replay-optimized.log",
+      "bytes": 76,
+      "sha256": "20e09e38f5fd62a87bf6be76a3ca83957a6ca2bd00679e1810b594f0441eb637"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/runtime-constructor-callers.json",
+      "bytes": 239,
+      "sha256": "bd78aa1f16e1b6d9ee5b77503e219f3334f57a2b7ff2e0fc33967d91e98e7eba"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/runtime-constructor-callers.log",
+      "bytes": 239,
+      "sha256": "bd78aa1f16e1b6d9ee5b77503e219f3334f57a2b7ff2e0fc33967d91e98e7eba"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/scan-system-definition.py",
+      "bytes": 965,
+      "sha256": "9c9527223153b5ca33be108b334103f4da8356342a6e5e3e8e3a80c5282f8514"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/scan.log",
+      "bytes": 897,
+      "sha256": "acff72895dd7e22ff6138fdb525f4df43bdde9fcbe90f10719275cd0b9f8fb25"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/scan.py",
+      "bytes": 1384,
+      "sha256": "5fcfe7e47cddcb963c6a81d1c8e48417307682d402b12b5c91d26c7213d7568e"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/stride-candidates.json",
+      "bytes": 7697,
+      "sha256": "b2f0fc5f1332817267e7948e36aa779a6c7d936f632fe7d623216d997444578d"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/system-definition-writers.json",
+      "bytes": 1031,
+      "sha256": "107ead69dd5f764d977dcf7ff86a8f08e12eb7803d323e49e8bcc671c5bfb177"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/system-definition-writers.log",
+      "bytes": 1031,
+      "sha256": "107ead69dd5f764d977dcf7ff86a8f08e12eb7803d323e49e8bcc671c5bfb177"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/system-runtime-callers.json",
+      "bytes": 239,
+      "sha256": "4e03ed34970755b3c5e036aab1428981470443c9b482ab9b24080218b95218dc"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/system-runtime-callers.log",
+      "bytes": 239,
+      "sha256": "4e03ed34970755b3c5e036aab1428981470443c9b482ab9b24080218b95218dc"
+    },
+    {
+      "path": ".cache/native-particle-queue-population/witness-create.log",
+      "bytes": 76,
+      "sha256": "20e09e38f5fd62a87bf6be76a3ca83957a6ca2bd00679e1810b594f0441eb637"
+    },
+    {
+      "path": ".cache/native-particle-queue-routes-output-policy.log",
+      "bytes": 216,
+      "sha256": "10301f5eb0f6a6b8d37df2b01c19280603b9f5e0fe59e9e2ba26a79e583214f8"
+    }
+  ],
+  "limits": [
+    "Bounded static native lineage; no target, native shader, actual live invocation or pixel parity.",
+    "Individual exported effects are not audited for source-class membership here.",
+    "Other loaders, mutations, live admission, final material/layout selection and color/texture composition remain conditional.",
+    "Current application checks are inherited; the two baseline unit failures remain unchanged."
+  ]
+}

@@ -1,0 +1,836 @@
+{
+  "format": 1,
+  "characterSource": {
+    "path": "docs/reference/masteryi/character.json",
+    "sha256": "3f100c1148e1006766060822298c87aed02e86e359c385fbc2c248e4255d12fa"
+  },
+  "audioGraphSha256": "b7879c088d3544626d70c9ecaf4abfd0aebae007db5a6ee841c0caed7a2b33e3",
+  "decodedRecordSha256": "28ac362788bb76709a226e76d282eb25a1805a474b9bc7348cedd59bbee33a32",
+  "bindings": [
+    {
+      "record": "Characters/MasterYi/Spells/MasterYiPassiveAbility/MasterYiPassive",
+      "suffixesPresent": true,
+      "rawSuffixes": {
+        "12": "Play_sfx_MasterYi_MasterYiDoubleStrike_OnCast\n",
+        "13": "Play_sfx_MasterYi_MasterYiDoubleStrike_OnHit\n"
+      },
+      "materialFlagPresent": false,
+      "materialFlag": null
+    },
+    {
+      "record": "Characters/MasterYi/Spells/MasterYiPassiveAbility/MasterYiDoubleStrike",
+      "suffixesPresent": false,
+      "rawSuffixes": null,
+      "materialFlagPresent": true,
+      "materialFlag": true
+    }
+  ],
+  "profiles": [
+    {
+      "phase": "cast",
+      "actionIndex": 0,
+      "eventName": "Play_sfx_MasterYi_MasterYiDoubleStrike_OnCast",
+      "eventId": 657081849,
+      "actionId": 689096161,
+      "targetId": 3840,
+      "containerId": 3840,
+      "material": null,
+      "gainDb": -11,
+      "pitchCents": 0,
+      "pitchModifiers": [
+        {
+          "nodeId": 3840,
+          "property": "Pitch",
+          "minimum": -100,
+          "maximum": 100
+        }
+      ],
+      "delaySeconds": 0,
+      "policy": {
+        "eMode": 0,
+        "eRandomMode": 1,
+        "wAvoidRepeatCount": 0,
+        "bResetPlayListAtEachPlay": 1,
+        "bIsGlobal": 1,
+        "bIsContinuous": 0,
+        "_bIsUsingWeight": 0,
+        "u16MaxNumInstance": 2,
+        "bKillNewest": 0,
+        "sLoopCount": 1,
+        "sLoopModMin": 0,
+        "sLoopModMax": 0,
+        "eTransitionMode": 0
+      },
+      "variants": [
+        {
+          "id": 425476853,
+          "soundId": 741028075,
+          "privatePath": ".cache/masteryi-audio-decoded/425476853.wav",
+          "wavSha256": "75ef9d4412392e37ca80823f9b5b91cd9701364dcf032d7d93618aff08cfdb2b",
+          "pcmSha256": "2d10c56724b283a935edfb74761f9c4e84bac392f47cef8ab5f0a2cdacbbebbf",
+          "wavBytes": 117876,
+          "frames": 29458,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.6679818594104309,
+          "peak": 0.9207677245140076
+        },
+        {
+          "id": 271120929,
+          "soundId": 962895114,
+          "privatePath": ".cache/masteryi-audio-decoded/271120929.wav",
+          "wavSha256": "b4568ccedb198335fa3fc5ef9a9cdfd425e7296993aefbae96d2f62f5f9c3f9d",
+          "pcmSha256": "7ee19fa07e2e64337e818bb0d33ddc2c75f298c968f5c15daef6864153f3faff",
+          "wavBytes": 112480,
+          "frames": 28109,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.6373922902494331,
+          "peak": 0.9724119901657104
+        },
+        {
+          "id": 860189031,
+          "soundId": 305213932,
+          "privatePath": ".cache/masteryi-audio-decoded/860189031.wav",
+          "wavSha256": "fc0f20100507ec948fa1ec9ed42c5abc254f7dc31d89e8bb083e5b9e6bdf88d7",
+          "pcmSha256": "a1cf1fb666d0c2192749d3713fbec5b4c708af76ad2ac5b4c5cdd03077f0851a",
+          "wavBytes": 96164,
+          "frames": 24030,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.5448979591836735,
+          "peak": 0.9998716115951538
+        }
+      ]
+    },
+    {
+      "phase": "hit",
+      "actionIndex": 0,
+      "eventName": "Play_sfx_MasterYi_MasterYiDoubleStrike_OnHit",
+      "eventId": 2349492419,
+      "actionId": 224235074,
+      "targetId": 391185571,
+      "containerId": 1022689189,
+      "material": "Flesh",
+      "gainDb": -11,
+      "pitchCents": 0,
+      "pitchModifiers": [],
+      "delaySeconds": 0,
+      "policy": {
+        "eMode": 0,
+        "eRandomMode": 1,
+        "wAvoidRepeatCount": 0,
+        "bResetPlayListAtEachPlay": 1,
+        "bIsGlobal": 1,
+        "bIsContinuous": 0,
+        "_bIsUsingWeight": 0,
+        "u16MaxNumInstance": 4,
+        "bKillNewest": 0,
+        "sLoopCount": 1,
+        "sLoopModMin": 0,
+        "sLoopModMax": 0,
+        "eTransitionMode": 0
+      },
+      "variants": [
+        {
+          "id": 112126905,
+          "soundId": 117468042,
+          "privatePath": ".cache/masteryi-audio-decoded/112126905.wav",
+          "wavSha256": "95077b1763e7374c601b6a40e711b352c43f93735bdd72a40dc66de910035c89",
+          "pcmSha256": "3e1fe6f29fb906b05b24bbff0cdf4d6c5df27f3292d07d1a99905ae9d6370bf8",
+          "wavBytes": 100364,
+          "frames": 25080,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.5687074829931973,
+          "peak": 1.1294002532958984
+        },
+        {
+          "id": 16380216,
+          "soundId": 488120687,
+          "privatePath": ".cache/masteryi-audio-decoded/16380216.wav",
+          "wavSha256": "f5f1e48e9f1781292f405bd0d69dabc7141bfcb84fe5c39eeb3b31a7a6702ce7",
+          "pcmSha256": "0adb0c1e030acb740fd8b9ded445139dfff9fa5773dae57ce45340405d38f109",
+          "wavBytes": 113780,
+          "frames": 28434,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.6447619047619048,
+          "peak": 1.0578397512435913
+        },
+        {
+          "id": 33081959,
+          "soundId": 616457912,
+          "privatePath": ".cache/masteryi-audio-decoded/33081959.wav",
+          "wavSha256": "9b5078b2a972015a0f01486c1555a99ec304b1c799b6ede23e1d663608d66d69",
+          "pcmSha256": "654268950dbfddc85e8eb079a06fd711fabd5a4086c1097c203986c717acf9d6",
+          "wavBytes": 139768,
+          "frames": 34931,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.7920861678004535,
+          "peak": 1.123749852180481
+        },
+        {
+          "id": 7394909,
+          "soundId": 60000865,
+          "privatePath": ".cache/masteryi-audio-decoded/7394909.wav",
+          "wavSha256": "c8ef7edf0a538e493aab8a9baf972fa760e0d85664978997282cf05852441c1c",
+          "pcmSha256": "c56f9b9a27f0f5c7e7a7ace7439daab3253a4c861a63d47f838663ce685bd443",
+          "wavBytes": 147508,
+          "frames": 36866,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.8359637188208616,
+          "peak": 1.154091715812683
+        }
+      ]
+    },
+    {
+      "phase": "hit",
+      "actionIndex": 0,
+      "eventName": "Play_sfx_MasterYi_MasterYiDoubleStrike_OnHit",
+      "eventId": 2349492419,
+      "actionId": 224235074,
+      "targetId": 391185571,
+      "containerId": 139790345,
+      "material": "Metal",
+      "gainDb": -12,
+      "pitchCents": 0,
+      "pitchModifiers": [],
+      "delaySeconds": 0,
+      "policy": {
+        "eMode": 0,
+        "eRandomMode": 1,
+        "wAvoidRepeatCount": 0,
+        "bResetPlayListAtEachPlay": 1,
+        "bIsGlobal": 1,
+        "bIsContinuous": 0,
+        "_bIsUsingWeight": 0,
+        "u16MaxNumInstance": 4,
+        "bKillNewest": 0,
+        "sLoopCount": 1,
+        "sLoopModMin": 0,
+        "sLoopModMax": 0,
+        "eTransitionMode": 0
+      },
+      "variants": [
+        {
+          "id": 142894910,
+          "soundId": 597617131,
+          "privatePath": ".cache/masteryi-audio-decoded/142894910.wav",
+          "wavSha256": "d27e84cc0d4e527b31c068aff455bfc9af39d640dcc87b3fa690a95d5c43e223",
+          "pcmSha256": "6cdbb06f99cb771574d029e5086b0d6265495473001517065e7c88fe61622275",
+          "wavBytes": 63404,
+          "frames": 15840,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.35918367346938773,
+          "peak": 1.2146522998809814
+        },
+        {
+          "id": 789302,
+          "soundId": 202309561,
+          "privatePath": ".cache/masteryi-audio-decoded/789302.wav",
+          "wavSha256": "1fc2eb75310bc02fd8563363cdad60011271d39b3a977f2c50d9e50d2c70e67d",
+          "pcmSha256": "1b3e093235d46572b7e01288da07477061b4ad21328b4496962e7c47f85e4841",
+          "wavBytes": 62340,
+          "frames": 15574,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.35315192743764173,
+          "peak": 1.1715078353881836
+        },
+        {
+          "id": 52272044,
+          "soundId": 279967499,
+          "privatePath": ".cache/masteryi-audio-decoded/52272044.wav",
+          "wavSha256": "564a40c533c0de3991e36e29648487c9fed16fcc0c71659c9774c4fa08d3bfc5",
+          "pcmSha256": "ef423a3f63f69ac0c7b641d3a5ad940b3659ca40cadbf1ae2b7be5d81a0b882d",
+          "wavBytes": 58472,
+          "frames": 14607,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.33122448979591834,
+          "peak": 1.2872376441955566
+        },
+        {
+          "id": 95976721,
+          "soundId": 33315206,
+          "privatePath": ".cache/masteryi-audio-decoded/95976721.wav",
+          "wavSha256": "74ececa4374ba6d81842342ba1deeaa99858c74681995969ea95dbae4cfdbb81",
+          "pcmSha256": "51003047e3fe114066762f6447721f625d97e84a182f5a1f910f8b4ea6a7ab4e",
+          "wavBytes": 60620,
+          "frames": 15144,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.34340136054421766,
+          "peak": 1.0334484577178955
+        }
+      ]
+    },
+    {
+      "phase": "hit",
+      "actionIndex": 0,
+      "eventName": "Play_sfx_MasterYi_MasterYiDoubleStrike_OnHit",
+      "eventId": 2349492419,
+      "actionId": 224235074,
+      "targetId": 391185571,
+      "containerId": 1030627532,
+      "material": "Stone",
+      "gainDb": -11,
+      "pitchCents": 0,
+      "pitchModifiers": [],
+      "delaySeconds": 0,
+      "policy": {
+        "eMode": 0,
+        "eRandomMode": 1,
+        "wAvoidRepeatCount": 0,
+        "bResetPlayListAtEachPlay": 1,
+        "bIsGlobal": 1,
+        "bIsContinuous": 0,
+        "_bIsUsingWeight": 0,
+        "u16MaxNumInstance": 4,
+        "bKillNewest": 0,
+        "sLoopCount": 1,
+        "sLoopModMin": 0,
+        "sLoopModMax": 0,
+        "eTransitionMode": 0
+      },
+      "variants": [
+        {
+          "id": 84648135,
+          "soundId": 1000129541,
+          "privatePath": ".cache/masteryi-audio-decoded/84648135.wav",
+          "wavSha256": "931608c58958f086a4ae360066b2d0b293f3d12dc57193cee2193dd315611d00",
+          "pcmSha256": "8b2e6b6d4bf8d92d6f0f48782554971cdd20902f865f08b95b10c7cb5a9d5b11",
+          "wavBytes": 78684,
+          "frames": 19660,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.44580498866213153,
+          "peak": 1.2852332592010498
+        },
+        {
+          "id": 204395837,
+          "soundId": 795340758,
+          "privatePath": ".cache/masteryi-audio-decoded/204395837.wav",
+          "wavSha256": "84982ce05d45a8f4bb5fe51b6faac5892ae2906e9a021e8f57ee1d44f08ead87",
+          "pcmSha256": "113fada62b62afd21367047475eddf7ec1e656adf3a8c5e498a71d2e28b6099f",
+          "wavBytes": 96308,
+          "frames": 24066,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.5457142857142857,
+          "peak": 1.2544187307357788
+        },
+        {
+          "id": 33473320,
+          "soundId": 59430926,
+          "privatePath": ".cache/masteryi-audio-decoded/33473320.wav",
+          "wavSha256": "5028acc98471cf3246b4c043c8712a3b8e62d3fb4fcac61a3425316be322d715",
+          "pcmSha256": "3249b5d8c37b2e2ceaa6e16bd2e83265bea253e2a1d607da6eef3c51057ce0de",
+          "wavBytes": 74096,
+          "frames": 18513,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.4197959183673469,
+          "peak": 1.2166343927383423
+        },
+        {
+          "id": 21301409,
+          "soundId": 747506722,
+          "privatePath": ".cache/masteryi-audio-decoded/21301409.wav",
+          "wavSha256": "64039d5062d5ff772cf65b36c36875deb0f172556526abec78b1b02a3fd2a632",
+          "pcmSha256": "4156f7e455747c9bb8b09e44ccb9722610d273421552d0a5aec8e33e93637317",
+          "wavBytes": 70812,
+          "frames": 17692,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.4011791383219955,
+          "peak": 1.1283113956451416
+        }
+      ]
+    },
+    {
+      "phase": "hit",
+      "actionIndex": 0,
+      "eventName": "Play_sfx_MasterYi_MasterYiDoubleStrike_OnHit",
+      "eventId": 2349492419,
+      "actionId": 224235074,
+      "targetId": 391185571,
+      "containerId": 700954476,
+      "material": "Wood",
+      "gainDb": -11,
+      "pitchCents": 0,
+      "pitchModifiers": [],
+      "delaySeconds": 0,
+      "policy": {
+        "eMode": 0,
+        "eRandomMode": 1,
+        "wAvoidRepeatCount": 0,
+        "bResetPlayListAtEachPlay": 1,
+        "bIsGlobal": 1,
+        "bIsContinuous": 0,
+        "_bIsUsingWeight": 0,
+        "u16MaxNumInstance": 4,
+        "bKillNewest": 0,
+        "sLoopCount": 1,
+        "sLoopModMin": 0,
+        "sLoopModMax": 0,
+        "eTransitionMode": 0
+      },
+      "variants": [
+        {
+          "id": 126775659,
+          "soundId": 505352885,
+          "privatePath": ".cache/masteryi-audio-decoded/126775659.wav",
+          "wavSha256": "94cb8b22fbe4bda5ba9b349fa7b68cb07f153b618cef269d93ad700f209649ea",
+          "pcmSha256": "e716fc95b2342b62af809165bf813d54d53bcea87542b0418caf11b86597f8b7",
+          "wavBytes": 68388,
+          "frames": 17086,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.387437641723356,
+          "peak": 1.26473867893219
+        },
+        {
+          "id": 31491481,
+          "soundId": 691721188,
+          "privatePath": ".cache/masteryi-audio-decoded/31491481.wav",
+          "wavSha256": "857a777702ad8b2a09c556b2f3e313bfb2d5534eb17dc60f04e075b2637b25c6",
+          "pcmSha256": "0c363cc9332c7a26f8d22fe4d934caf15155d6637cfb589aa238ff22c22e76ee",
+          "wavBytes": 58780,
+          "frames": 14684,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.3329705215419501,
+          "peak": 1.3174407482147217
+        },
+        {
+          "id": 116463815,
+          "soundId": 961183867,
+          "privatePath": ".cache/masteryi-audio-decoded/116463815.wav",
+          "wavSha256": "9ff5e1d6527c2cad7df2a6ee1b636e1ab2797881ff0f7490747042a66b74e853",
+          "pcmSha256": "dc84e79de4dd549244e849ee8cac5af5d9262e78f2816b4f5560a5bd22b505b0",
+          "wavBytes": 69900,
+          "frames": 17464,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.3960090702947846,
+          "peak": 1.1192631721496582
+        },
+        {
+          "id": 19763561,
+          "soundId": 346978129,
+          "privatePath": ".cache/masteryi-audio-decoded/19763561.wav",
+          "wavSha256": "1eccd53bdfc7b7edfb04a60085d81bec2225cec09b26190cf0cc629cdc181013",
+          "pcmSha256": "530148bd3eaaf65e372b14b62a7d8f8cb328ce137c68092b4ee313b94a1a389e",
+          "wavBytes": 64596,
+          "frames": 16138,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.36594104308390024,
+          "peak": 1.0438235998153687
+        }
+      ]
+    },
+    {
+      "phase": "hit",
+      "actionIndex": 1,
+      "eventName": "Play_sfx_MasterYi_MasterYiDoubleStrike_OnHit",
+      "eventId": 2349492419,
+      "actionId": 743235254,
+      "targetId": 391185571,
+      "containerId": 1022689189,
+      "material": "Flesh",
+      "gainDb": -11,
+      "pitchCents": 0,
+      "pitchModifiers": [],
+      "delaySeconds": 0.2,
+      "policy": {
+        "eMode": 0,
+        "eRandomMode": 1,
+        "wAvoidRepeatCount": 0,
+        "bResetPlayListAtEachPlay": 1,
+        "bIsGlobal": 1,
+        "bIsContinuous": 0,
+        "_bIsUsingWeight": 0,
+        "u16MaxNumInstance": 4,
+        "bKillNewest": 0,
+        "sLoopCount": 1,
+        "sLoopModMin": 0,
+        "sLoopModMax": 0,
+        "eTransitionMode": 0
+      },
+      "variants": [
+        {
+          "id": 112126905,
+          "soundId": 117468042,
+          "privatePath": ".cache/masteryi-audio-decoded/112126905.wav",
+          "wavSha256": "95077b1763e7374c601b6a40e711b352c43f93735bdd72a40dc66de910035c89",
+          "pcmSha256": "3e1fe6f29fb906b05b24bbff0cdf4d6c5df27f3292d07d1a99905ae9d6370bf8",
+          "wavBytes": 100364,
+          "frames": 25080,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.5687074829931973,
+          "peak": 1.1294002532958984
+        },
+        {
+          "id": 16380216,
+          "soundId": 488120687,
+          "privatePath": ".cache/masteryi-audio-decoded/16380216.wav",
+          "wavSha256": "f5f1e48e9f1781292f405bd0d69dabc7141bfcb84fe5c39eeb3b31a7a6702ce7",
+          "pcmSha256": "0adb0c1e030acb740fd8b9ded445139dfff9fa5773dae57ce45340405d38f109",
+          "wavBytes": 113780,
+          "frames": 28434,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.6447619047619048,
+          "peak": 1.0578397512435913
+        },
+        {
+          "id": 33081959,
+          "soundId": 616457912,
+          "privatePath": ".cache/masteryi-audio-decoded/33081959.wav",
+          "wavSha256": "9b5078b2a972015a0f01486c1555a99ec304b1c799b6ede23e1d663608d66d69",
+          "pcmSha256": "654268950dbfddc85e8eb079a06fd711fabd5a4086c1097c203986c717acf9d6",
+          "wavBytes": 139768,
+          "frames": 34931,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.7920861678004535,
+          "peak": 1.123749852180481
+        },
+        {
+          "id": 7394909,
+          "soundId": 60000865,
+          "privatePath": ".cache/masteryi-audio-decoded/7394909.wav",
+          "wavSha256": "c8ef7edf0a538e493aab8a9baf972fa760e0d85664978997282cf05852441c1c",
+          "pcmSha256": "c56f9b9a27f0f5c7e7a7ace7439daab3253a4c861a63d47f838663ce685bd443",
+          "wavBytes": 147508,
+          "frames": 36866,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.8359637188208616,
+          "peak": 1.154091715812683
+        }
+      ]
+    },
+    {
+      "phase": "hit",
+      "actionIndex": 1,
+      "eventName": "Play_sfx_MasterYi_MasterYiDoubleStrike_OnHit",
+      "eventId": 2349492419,
+      "actionId": 743235254,
+      "targetId": 391185571,
+      "containerId": 139790345,
+      "material": "Metal",
+      "gainDb": -12,
+      "pitchCents": 0,
+      "pitchModifiers": [],
+      "delaySeconds": 0.2,
+      "policy": {
+        "eMode": 0,
+        "eRandomMode": 1,
+        "wAvoidRepeatCount": 0,
+        "bResetPlayListAtEachPlay": 1,
+        "bIsGlobal": 1,
+        "bIsContinuous": 0,
+        "_bIsUsingWeight": 0,
+        "u16MaxNumInstance": 4,
+        "bKillNewest": 0,
+        "sLoopCount": 1,
+        "sLoopModMin": 0,
+        "sLoopModMax": 0,
+        "eTransitionMode": 0
+      },
+      "variants": [
+        {
+          "id": 142894910,
+          "soundId": 597617131,
+          "privatePath": ".cache/masteryi-audio-decoded/142894910.wav",
+          "wavSha256": "d27e84cc0d4e527b31c068aff455bfc9af39d640dcc87b3fa690a95d5c43e223",
+          "pcmSha256": "6cdbb06f99cb771574d029e5086b0d6265495473001517065e7c88fe61622275",
+          "wavBytes": 63404,
+          "frames": 15840,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.35918367346938773,
+          "peak": 1.2146522998809814
+        },
+        {
+          "id": 789302,
+          "soundId": 202309561,
+          "privatePath": ".cache/masteryi-audio-decoded/789302.wav",
+          "wavSha256": "1fc2eb75310bc02fd8563363cdad60011271d39b3a977f2c50d9e50d2c70e67d",
+          "pcmSha256": "1b3e093235d46572b7e01288da07477061b4ad21328b4496962e7c47f85e4841",
+          "wavBytes": 62340,
+          "frames": 15574,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.35315192743764173,
+          "peak": 1.1715078353881836
+        },
+        {
+          "id": 52272044,
+          "soundId": 279967499,
+          "privatePath": ".cache/masteryi-audio-decoded/52272044.wav",
+          "wavSha256": "564a40c533c0de3991e36e29648487c9fed16fcc0c71659c9774c4fa08d3bfc5",
+          "pcmSha256": "ef423a3f63f69ac0c7b641d3a5ad940b3659ca40cadbf1ae2b7be5d81a0b882d",
+          "wavBytes": 58472,
+          "frames": 14607,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.33122448979591834,
+          "peak": 1.2872376441955566
+        },
+        {
+          "id": 95976721,
+          "soundId": 33315206,
+          "privatePath": ".cache/masteryi-audio-decoded/95976721.wav",
+          "wavSha256": "74ececa4374ba6d81842342ba1deeaa99858c74681995969ea95dbae4cfdbb81",
+          "pcmSha256": "51003047e3fe114066762f6447721f625d97e84a182f5a1f910f8b4ea6a7ab4e",
+          "wavBytes": 60620,
+          "frames": 15144,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.34340136054421766,
+          "peak": 1.0334484577178955
+        }
+      ]
+    },
+    {
+      "phase": "hit",
+      "actionIndex": 1,
+      "eventName": "Play_sfx_MasterYi_MasterYiDoubleStrike_OnHit",
+      "eventId": 2349492419,
+      "actionId": 743235254,
+      "targetId": 391185571,
+      "containerId": 1030627532,
+      "material": "Stone",
+      "gainDb": -11,
+      "pitchCents": 0,
+      "pitchModifiers": [],
+      "delaySeconds": 0.2,
+      "policy": {
+        "eMode": 0,
+        "eRandomMode": 1,
+        "wAvoidRepeatCount": 0,
+        "bResetPlayListAtEachPlay": 1,
+        "bIsGlobal": 1,
+        "bIsContinuous": 0,
+        "_bIsUsingWeight": 0,
+        "u16MaxNumInstance": 4,
+        "bKillNewest": 0,
+        "sLoopCount": 1,
+        "sLoopModMin": 0,
+        "sLoopModMax": 0,
+        "eTransitionMode": 0
+      },
+      "variants": [
+        {
+          "id": 84648135,
+          "soundId": 1000129541,
+          "privatePath": ".cache/masteryi-audio-decoded/84648135.wav",
+          "wavSha256": "931608c58958f086a4ae360066b2d0b293f3d12dc57193cee2193dd315611d00",
+          "pcmSha256": "8b2e6b6d4bf8d92d6f0f48782554971cdd20902f865f08b95b10c7cb5a9d5b11",
+          "wavBytes": 78684,
+          "frames": 19660,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.44580498866213153,
+          "peak": 1.2852332592010498
+        },
+        {
+          "id": 204395837,
+          "soundId": 795340758,
+          "privatePath": ".cache/masteryi-audio-decoded/204395837.wav",
+          "wavSha256": "84982ce05d45a8f4bb5fe51b6faac5892ae2906e9a021e8f57ee1d44f08ead87",
+          "pcmSha256": "113fada62b62afd21367047475eddf7ec1e656adf3a8c5e498a71d2e28b6099f",
+          "wavBytes": 96308,
+          "frames": 24066,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.5457142857142857,
+          "peak": 1.2544187307357788
+        },
+        {
+          "id": 33473320,
+          "soundId": 59430926,
+          "privatePath": ".cache/masteryi-audio-decoded/33473320.wav",
+          "wavSha256": "5028acc98471cf3246b4c043c8712a3b8e62d3fb4fcac61a3425316be322d715",
+          "pcmSha256": "3249b5d8c37b2e2ceaa6e16bd2e83265bea253e2a1d607da6eef3c51057ce0de",
+          "wavBytes": 74096,
+          "frames": 18513,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.4197959183673469,
+          "peak": 1.2166343927383423
+        },
+        {
+          "id": 21301409,
+          "soundId": 747506722,
+          "privatePath": ".cache/masteryi-audio-decoded/21301409.wav",
+          "wavSha256": "64039d5062d5ff772cf65b36c36875deb0f172556526abec78b1b02a3fd2a632",
+          "pcmSha256": "4156f7e455747c9bb8b09e44ccb9722610d273421552d0a5aec8e33e93637317",
+          "wavBytes": 70812,
+          "frames": 17692,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.4011791383219955,
+          "peak": 1.1283113956451416
+        }
+      ]
+    },
+    {
+      "phase": "hit",
+      "actionIndex": 1,
+      "eventName": "Play_sfx_MasterYi_MasterYiDoubleStrike_OnHit",
+      "eventId": 2349492419,
+      "actionId": 743235254,
+      "targetId": 391185571,
+      "containerId": 700954476,
+      "material": "Wood",
+      "gainDb": -11,
+      "pitchCents": 0,
+      "pitchModifiers": [],
+      "delaySeconds": 0.2,
+      "policy": {
+        "eMode": 0,
+        "eRandomMode": 1,
+        "wAvoidRepeatCount": 0,
+        "bResetPlayListAtEachPlay": 1,
+        "bIsGlobal": 1,
+        "bIsContinuous": 0,
+        "_bIsUsingWeight": 0,
+        "u16MaxNumInstance": 4,
+        "bKillNewest": 0,
+        "sLoopCount": 1,
+        "sLoopModMin": 0,
+        "sLoopModMax": 0,
+        "eTransitionMode": 0
+      },
+      "variants": [
+        {
+          "id": 126775659,
+          "soundId": 505352885,
+          "privatePath": ".cache/masteryi-audio-decoded/126775659.wav",
+          "wavSha256": "94cb8b22fbe4bda5ba9b349fa7b68cb07f153b618cef269d93ad700f209649ea",
+          "pcmSha256": "e716fc95b2342b62af809165bf813d54d53bcea87542b0418caf11b86597f8b7",
+          "wavBytes": 68388,
+          "frames": 17086,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.387437641723356,
+          "peak": 1.26473867893219
+        },
+        {
+          "id": 31491481,
+          "soundId": 691721188,
+          "privatePath": ".cache/masteryi-audio-decoded/31491481.wav",
+          "wavSha256": "857a777702ad8b2a09c556b2f3e313bfb2d5534eb17dc60f04e075b2637b25c6",
+          "pcmSha256": "0c363cc9332c7a26f8d22fe4d934caf15155d6637cfb589aa238ff22c22e76ee",
+          "wavBytes": 58780,
+          "frames": 14684,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.3329705215419501,
+          "peak": 1.3174407482147217
+        },
+        {
+          "id": 116463815,
+          "soundId": 961183867,
+          "privatePath": ".cache/masteryi-audio-decoded/116463815.wav",
+          "wavSha256": "9ff5e1d6527c2cad7df2a6ee1b636e1ab2797881ff0f7490747042a66b74e853",
+          "pcmSha256": "dc84e79de4dd549244e849ee8cac5af5d9262e78f2816b4f5560a5bd22b505b0",
+          "wavBytes": 69900,
+          "frames": 17464,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.3960090702947846,
+          "peak": 1.1192631721496582
+        },
+        {
+          "id": 19763561,
+          "soundId": 346978129,
+          "privatePath": ".cache/masteryi-audio-decoded/19763561.wav",
+          "wavSha256": "1eccd53bdfc7b7edfb04a60085d81bec2225cec09b26190cf0cc629cdc181013",
+          "pcmSha256": "530148bd3eaaf65e372b14b62a7d8f8cb328ce137c68092b4ee313b94a1a389e",
+          "wavBytes": 64596,
+          "frames": 16138,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.36594104308390024,
+          "peak": 1.0438235998153687
+        }
+      ]
+    }
+  ],
+  "materialSwitch": {
+    "id": 391185571,
+    "groupId": 1559186049,
+    "defaultSwitch": 1153642577,
+    "branchLabels": {
+      "Flesh": 1153642577,
+      "Metal": 2473969246,
+      "Stone": 1216965916,
+      "Wood": 2058049674
+    },
+    "limit": 0
+  },
+  "attenuation": {
+    "id": 339248780,
+    "scaling": 2,
+    "unresolvedOutputBusId": 1259461568,
+    "priority": 60,
+    "points": [
+      {
+        "distance": 0.0,
+        "storedValue": 0.0,
+        "interpolation": 9
+      },
+      {
+        "distance": 1750.0,
+        "storedValue": 0.0,
+        "interpolation": 2
+      },
+      {
+        "distance": 2000.0,
+        "storedValue": -0.7488113641738892,
+        "interpolation": 2
+      },
+      {
+        "distance": 2300.0,
+        "storedValue": -0.93690425157547,
+        "interpolation": 2
+      },
+      {
+        "distance": 2750.0,
+        "storedValue": -1.0,
+        "interpolation": 9
+      },
+      {
+        "distance": 3000.0,
+        "storedValue": -1.0,
+        "interpolation": 4
+      }
+    ]
+  },
+  "finiteTailTicks": {
+    "cast": 43,
+    "hit": 63
+  },
+  "media": 19,
+  "wavBytes": 1654340,
+  "peaksAboveOne": 16,
+  "peak": 1.3174407482147217,
+  "limits": [
+    "Source-only projection; no public WAVs, runtime dispatch, save state or application identity changes.",
+    "Composite audio suffixes belong to MasterYiPassive; MasterYiDoubleStrike omits them. The parent omits the material flag while the secondary explicitly enables it. Native script callback timing and material propagation remain unverified.",
+    "Both hit actions retain their shared four branch containers/caps and independent zero/200ms action delays. Do not collapse them or silently dispatch the composite once per physical hit.",
+    "Native global shuffle, pitch, voice arbitration, default material routing and unresolved bus mix remain declarations, separate from any local runtime adapter.",
+    "Canonical private float masters retain source samples/headroom without clipping, normalization, resampling, mixing or loop expansion. No official decoder/bus/listening certificate."
+  ]
+}

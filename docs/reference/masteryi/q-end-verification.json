@@ -1,0 +1,765 @@
+{
+  "format": 1,
+  "parentCommit": "38e1eccff91c26da0f7da5361632a85385f091cb",
+  "identity": {
+    "schema": 155,
+    "ruleset": "1a41b7b3872b89fdd7987132d29ee7cdb6c4022934da46a0a517bbc134b99af5",
+    "pack": {
+      "id": "f710b07cd3047f4f895decdbd52451de292efbb023a510fd78d3d6b291bdcb2e",
+      "files": 1154,
+      "bytes": 535808998
+    }
+  },
+  "scope": "Complete two-emitter Q_End at accepted complete/target-loss return, exact authored mips, separate source defaults, raw frame-rate atlas seek and explicit mode-2 early-copy distortion. Saved root/visibility/return clocks survive recovery, later body hiding, death and terminal display. Shared verified texture ownership and independent selective retry; public roster remains Ashe/Lux.",
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/q-particles.json",
+      "bytes": 87880,
+      "sha256": "95531b1e61b44fc39d6458534174fe183fdf75e57cf7528a93a045e836322776"
+    },
+    {
+      "path": "docs/reference/masteryi/q-particles-decoded.json",
+      "bytes": 148372,
+      "sha256": "783317cf9c44a36b3e07fbda8d27829ec6ae674119fcb5c8fddac46a959360fd"
+    },
+    {
+      "path": "docs/reference/masteryi/q-end-texture-transport.json",
+      "bytes": 12811,
+      "sha256": "4dd2ab7ec55069934bb1a15889bcb24dfcce0825680f85263fb70067047c1b0d"
+    },
+    {
+      "path": "docs/reference/masteryi/q-end-particle-reading.json",
+      "bytes": 27413,
+      "sha256": "91eb75745c2a287d8552fe43c5cb388c62554282968f1c0a4d0aac0ef9c663e8"
+    },
+    {
+      "path": "docs/reference/masteryi/q-end-source-verification.json",
+      "bytes": 10405,
+      "sha256": "5f28419021bf6f6f0240a52a1a8ddab6d78682886aa367b2a163d3ceeb4c8b6e"
+    },
+    {
+      "path": "docs/reference/garen-spin-defaults.json",
+      "bytes": 1772,
+      "sha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb"
+    },
+    {
+      "path": "tools/assets/masteryi_q_particles.py",
+      "bytes": 7165,
+      "sha256": "8373108c738d00d23c47e485b609db18464a81cf6146b608ee9d608e4e604b44"
+    },
+    {
+      "path": "tools/assets/masteryi_q_decode.py",
+      "bytes": 7372,
+      "sha256": "552f2cf9a0cb552a97332a142bbea6f25a3b0e2c2974359a58659a2c17517ecd"
+    },
+    {
+      "path": "tools/assets/masteryi_q_end.py",
+      "bytes": 3765,
+      "sha256": "3a4dd4a351298b33a565d98a9ac010d52f60ecd9669918cd0be476cffa4f0f15"
+    },
+    {
+      "path": "tools/assets/masteryi_w_cast.py",
+      "bytes": 8252,
+      "sha256": "67db765dbf4c62c0cd0e5d39d99589c657d6ae826e79a9453a599e203d6d4b5e"
+    },
+    {
+      "path": "tools/assets/masteryi_w_buff.py",
+      "bytes": 6301,
+      "sha256": "30d3b7f47b7d0a3258dbf7c9394f48a35f204cf5be76fd4dc40483131b630c81"
+    },
+    {
+      "path": "tools/assets/particle_mip_atlas.py",
+      "bytes": 4181,
+      "sha256": "4ba50521c7a4c0d061bbf2f8363b7a84b4db9a4bf480e3d52ae101aec6538fd6"
+    },
+    {
+      "path": "tests/lane-rules.test.ts",
+      "bytes": 5533,
+      "sha256": "d12c8deaba4ba8933dca9a045b1eeae20b1869167f5b9e1fcf0dbfc39e8c1d4a"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-q-end-runtime/final-source-index.json",
+    "bytes": 7119,
+    "sha256": "77ee20529d29de2ff58fd43c1933a99a71d67766736af4f75a04525fb99bbf9d"
+  },
+  "generated": [
+    {
+      "path": "README.md",
+      "bytes": 15485,
+      "sha256": "d0864962b6f8e4d16cdf444b66b54ca1ab1225dbcacf975967e351ec54211bc8",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/README.md"
+    },
+    {
+      "path": "docs/MASTER-YI-Q-END.md",
+      "bytes": 4794,
+      "sha256": "e45668670439e25f64c9426e44620cbba3dbefbfe229fb918e5414d25680a58e",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/docs/MASTER-YI-Q-END.md"
+    },
+    {
+      "path": "docs/SAVES.md",
+      "bytes": 59962,
+      "sha256": "22ad61cd5affdf522a4aa016d99db8d9e854517ca47e6cce89c7cdfac6074356",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/docs/SAVES.md"
+    },
+    {
+      "path": "docs/reference/masteryi/q-end-runtime-reading.json",
+      "bytes": 1541,
+      "sha256": "c339e0e8cd86eb8d2bc295f6b15fcd77ee169597c737c3488b43f586085cd9bc",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/docs/reference/masteryi/q-end-runtime-reading.json"
+    },
+    {
+      "path": "e2e/masteryi-q-end.spec.ts",
+      "bytes": 14181,
+      "sha256": "170b42df2970052d04bd468b6f91fb85e0c81447b32f8ea8e1697714cf20aa51",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/e2e/masteryi-q-end.spec.ts"
+    },
+    {
+      "path": "public/assets/effects/masteryi-q-end-3444655f66070a9f.png",
+      "bytes": 82162,
+      "sha256": "bab48f4f91762b41254eb7e59126de0ce7d83794709ddb259e9fd7a66ef68593",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/public/assets/effects/masteryi-q-end-3444655f66070a9f.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-q-end-f7b790bffcb906a6.png",
+      "bytes": 11381,
+      "sha256": "56cb28452a955a5b1a5698180f1747c2aca5a9506ccf69ee6e5ad4d2f685de17",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/public/assets/effects/masteryi-q-end-f7b790bffcb906a6.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-q-end-fc9dc17f3b485a42.png",
+      "bytes": 524,
+      "sha256": "8c9656bb665de13efd0169e58c33944f6e8268dfc8f8f179fc4873743a9b987e",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/public/assets/effects/masteryi-q-end-fc9dc17f3b485a42.png"
+    },
+    {
+      "path": "src/content/masteryi-q-end-particles.json",
+      "bytes": 26401,
+      "sha256": "9d61e11e9f71b54e2b0ec78336f5480b15958f088607731b8b328598f35f1fd6",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/src/content/masteryi-q-end-particles.json"
+    },
+    {
+      "path": "src/content/masteryi-q-end-timing.ts",
+      "bytes": 121,
+      "sha256": "024a977e5b18e4fdac6b375675db9e5f7f8aec011479ae1b94a16cad72c59412",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/src/content/masteryi-q-end-timing.ts"
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 21310,
+      "sha256": "2f97056f36ffe65f5bd191fd53e6c5bf29b468ee5a07662f49dfffd27d9a3062",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/src/main.ts"
+    },
+    {
+      "path": "src/render/lazy-masteryi-q-ends.ts",
+      "bytes": 1406,
+      "sha256": "74c61a955a18ff2ce981c3541a721b04dc0675a0d43d3204d8509a0a6e5fbf07",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/src/render/lazy-masteryi-q-ends.ts"
+    },
+    {
+      "path": "src/render/masteryi-q-end-particles.ts",
+      "bytes": 3498,
+      "sha256": "263850ebe79311de8aade2df616541a4300db49208ab527c1c1a4762422d48b2",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/src/render/masteryi-q-end-particles.ts"
+    },
+    {
+      "path": "src/render/masteryi-q-ends.ts",
+      "bytes": 4257,
+      "sha256": "a2e9fd8cb7d1d20c7d13bbe15de0fa34db8294ed1635c05f5f6975f2124c8fd8",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/src/render/masteryi-q-ends.ts"
+    },
+    {
+      "path": "src/render/view.ts",
+      "bytes": 61909,
+      "sha256": "b8283400553de1c723a649cdec40d84f3a38feea1672bded344a3f3de6f97b1c",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/src/render/view.ts"
+    },
+    {
+      "path": "src/simulation/champion-state.ts",
+      "bytes": 4131,
+      "sha256": "e10c172e29708e4ec36af66a6b3f16a8bed229130989975f2476e3b3f0e912ee",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/src/simulation/champion-state.ts"
+    },
+    {
+      "path": "src/simulation/masteryi-alpha-strike.ts",
+      "bytes": 12581,
+      "sha256": "1d3f961307369676a5b42f9f5e62318fdcdbdd29346f9f3e134427227da89fd7",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/src/simulation/masteryi-alpha-strike.ts"
+    },
+    {
+      "path": "src/simulation/masteryi-q-end.ts",
+      "bytes": 5010,
+      "sha256": "c4dc1e633768a0a83fc29406ea94402005366da0702063dde1ade236c8da959a",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/src/simulation/masteryi-q-end.ts"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "bytes": 182072,
+      "sha256": "da2518831f0b834767e7630c7d53e4ae60261cc9ee1b7a889e2b5153bf8172e1",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/src/simulation/snapshot.ts"
+    },
+    {
+      "path": "src/simulation/types.ts",
+      "bytes": 22441,
+      "sha256": "3154c1437a8db89089c705baa820c7e99e42feb748c5b2b7f8ea55fcdab145ea",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/src/simulation/types.ts"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "bytes": 293454,
+      "sha256": "290c2d0f96d7d5e9e623051d5734ea76f1e142ece8b2f2178b02b93daeea7096",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/src/simulation/world.ts"
+    },
+    {
+      "path": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "391d2e716afd78e9ed3a08d6ad2eba40f14c3958d1210c54e4f83752517bd066",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/tests/lux-e-hit.test.ts"
+    },
+    {
+      "path": "tests/masteryi-q-end-history.test.ts",
+      "bytes": 8050,
+      "sha256": "8fd2f9b8d90a3208cc8efc4ab9800a4aba203d7f89ac28a8e85e2d2f25c6b857",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/tests/masteryi-q-end-history.test.ts"
+    },
+    {
+      "path": "tests/masteryi-q-end-particles.test.ts",
+      "bytes": 2458,
+      "sha256": "14c016922db0b5357dee95651d15b95523c75016050dd8c51712bd7745f45a77",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/tests/masteryi-q-end-particles.test.ts"
+    },
+    {
+      "path": "tools/assets/export-masteryi-q-end-particles.py",
+      "bytes": 4417,
+      "sha256": "cc32230c8974978f641ce008047ee84f5640b3ca9764e2a166ae7f41eecadd00",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/tools/assets/export-masteryi-q-end-particles.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-q-end-export.py",
+      "bytes": 1523,
+      "sha256": "ef42dfc93ef252d59beb7b3a938cb4e294cce2797c29d7050a6be659f4c49637",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/tools/assets/test-masteryi-q-end-export.py"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 27830,
+      "sha256": "93641c29c2d7ffefb8891ad23ff0e4b0aab0e6a385be655fae5a9ad631e58b3d",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/tools/qa/production-subpath.mjs"
+    },
+    {
+      "path": "tools/ruleset-fingerprint.ts",
+      "bytes": 12259,
+      "sha256": "48e72e885a07990a8f2dd3b91ad1bc842a7bb83fa645fbeb8e1b9e79afb45541",
+      "archived": ".cache/masteryi-q-end-runtime/final-source/tools/ruleset-fingerprint.ts"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-q-end-runtime/__pycache__/record-verification.cpython-312.pyc",
+      "bytes": 10366,
+      "sha256": "08271f36199604f8814e5e86eafc2d4cbbbe76de697a464255b5a9f926cce35b"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-final/masteryi-q-end-hidden-retu-7afcd-e-death-victory-tails-drain/return-fog-movement-death-terminal.json",
+      "bytes": 765,
+      "sha256": "72f36f54fcceeee68950b24ffa18e2feb8d67dc65286ef6562ef3c8c4071224f"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-final/masteryi-q-end-ordinary-st-1c82f-sts-only-the-failed-texture/retry.json",
+      "bytes": 586,
+      "sha256": "cb42bd724521d2fd2eb879c8365848ad00bb3738e75a2a309c948b0fd73686aa"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-final/masteryi-q-end-real-comple-755cd-ed-mips-through-Save-reload/active-three-mip-readback.json",
+      "bytes": 7215,
+      "sha256": "bbbf9c6672cea817a1b219f2458e517e8d69607889d0eb7b3accf9506c2c93f9"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-final/masteryi-q-end-real-comple-755cd-ed-mips-through-Save-reload/alpha-end.png",
+      "bytes": 813438,
+      "sha256": "5ad7fbfde6ab691f314df63c3a4b482e250dc9b1e1a19aad4f71d846a2fe461f"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-final/masteryi-q-end-real-comple-755cd-ed-mips-through-Save-reload/cast-save-reload.json",
+      "bytes": 46752,
+      "sha256": "c7234e854482c8e4915460434bb6be1939961855eb6a241c0378983badb64acd"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-final/masteryi-q-end-real-lost-Q-4a038-ed-mips-through-Save-reload/active-three-mip-readback.json",
+      "bytes": 7215,
+      "sha256": "bbbf9c6672cea817a1b219f2458e517e8d69607889d0eb7b3accf9506c2c93f9"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-final/masteryi-q-end-real-lost-Q-4a038-ed-mips-through-Save-reload/alpha-end.png",
+      "bytes": 801807,
+      "sha256": "f5a9ad44e3c20c84f10359dea08bd12fc57d8a59226030a264a1608dfb8bb4eb"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-final/masteryi-q-end-real-lost-Q-4a038-ed-mips-through-Save-reload/cast-save-reload.json",
+      "bytes": 35827,
+      "sha256": "f4780184876468d2e78c6e59e4ae49a024383b3336d47e67769e1b5fb978b468"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-final.log",
+      "bytes": 1778,
+      "sha256": "03daeb5016024a71487c049e5fbf3412828379d5ad7cf9e365b7cb959723cd0c"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-initial/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-initial/masteryi-q-cast-hidden-cre-caf3f--without-changing-the-world/fog-death-terminal.json",
+      "bytes": 546,
+      "sha256": "88c5614f0b429bd9ab9978d552d9d45592b564693190910f782292d45e2f9884"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-initial/masteryi-q-cast-ordinary-s-faf2a-sts-only-the-failed-texture/retry.json",
+      "bytes": 512,
+      "sha256": "3efffe220a6da0019dc5645991980e2de04310da6acd4194764da9bf32219d10"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-initial/masteryi-q-cast-real-Q-cas-c322a-estores-through-Save-reload/active-three-mip-readback.json",
+      "bytes": 6207,
+      "sha256": "fd3698b01b746ae3e7ec6d6dd914a03874f1a1dc39132f7d5b73bdd6dbf347d3"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-initial/masteryi-q-cast-real-Q-cas-c322a-estores-through-Save-reload/alpha-cast.png",
+      "bytes": 809301,
+      "sha256": "22f70460aea76d9bc46e5c12bdfc5a71b3e919c65682077ebb3ab5b3ca63a195"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-initial/masteryi-q-cast-real-Q-cas-c322a-estores-through-Save-reload/cast-save-reload.json",
+      "bytes": 42682,
+      "sha256": "c281e7e4bac1c363934f2e83a69d182818f88e4baf2a0cf83be145bbc1fd05c9"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-initial/masteryi-q-contacts-ordina-15f40-a-failed-texture-explicitly/late-load-explicit-retry.json",
+      "bytes": 964,
+      "sha256": "3db799346a6258152eff20a93c3308ded9299a88ddff4e84c2ef17255592d6d7"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-initial/masteryi-q-contacts-real-c-2e79d-rticles-through-Save-reload/contact-save-reload.json",
+      "bytes": 31501,
+      "sha256": "5508233252cf12234d299bc429ee9230796c1242ff920c167ccfb513401fb34f"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-initial/masteryi-q-contacts-real-c-2e79d-rticles-through-Save-reload/critical-contact.png",
+      "bytes": 792301,
+      "sha256": "978df5889cbc5b86f094508cab495a53c8580516612f0f5cf3368190409f5fc4"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-initial/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/contact-save-reload.json",
+      "bytes": 36025,
+      "sha256": "777988b0348b3d450e510acb8ee5b650b336c83ef7fc0c368158eba0116c40fd"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-initial/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/ordinary-contact.png",
+      "bytes": 801761,
+      "sha256": "c16472d5d94b7fe52a7a3059e153f9c6ac08ac16d8f25163e0ed29c34cfa8f90"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-initial/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/three-authored-mip-readback.json",
+      "bytes": 10563,
+      "sha256": "9b97f1644009edc39fc69b3a985007f0d4920bc9dae8c0302baec8fc2be1dcdb"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-initial/masteryi-q-end-hidden-retu-7afcd-e-death-victory-tails-drain/return-fog-movement-death-terminal.json",
+      "bytes": 765,
+      "sha256": "72f36f54fcceeee68950b24ffa18e2feb8d67dc65286ef6562ef3c8c4071224f"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-initial/masteryi-q-end-ordinary-st-1c82f-sts-only-the-failed-texture/retry.json",
+      "bytes": 586,
+      "sha256": "cb42bd724521d2fd2eb879c8365848ad00bb3738e75a2a309c948b0fd73686aa"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-initial/masteryi-q-end-real-comple-755cd-ed-mips-through-Save-reload/active-three-mip-readback.json",
+      "bytes": 7215,
+      "sha256": "bbbf9c6672cea817a1b219f2458e517e8d69607889d0eb7b3accf9506c2c93f9"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-initial/masteryi-q-end-real-comple-755cd-ed-mips-through-Save-reload/alpha-end.png",
+      "bytes": 813928,
+      "sha256": "edafeef14d63c1c09325798ef4a3f7dc24accc5950b61dce1eda99dc67320866"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-initial/masteryi-q-end-real-comple-755cd-ed-mips-through-Save-reload/cast-save-reload.json",
+      "bytes": 46752,
+      "sha256": "f0b907889f161f9f1eb0fac2ae19dbaeee2db7f391777d1db6cf8d8b40af602e"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-initial/masteryi-q-end-real-lost-Q-4a038-ed-mips-through-Save-reload/active-three-mip-readback.json",
+      "bytes": 7215,
+      "sha256": "bbbf9c6672cea817a1b219f2458e517e8d69607889d0eb7b3accf9506c2c93f9"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-initial/masteryi-q-end-real-lost-Q-4a038-ed-mips-through-Save-reload/alpha-end.png",
+      "bytes": 801961,
+      "sha256": "023ecece56a5a0517c43221369a00641b2e9a65cceeda4635d6a966bbf4fe13e"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-initial/masteryi-q-end-real-lost-Q-4a038-ed-mips-through-Save-reload/cast-save-reload.json",
+      "bytes": 35827,
+      "sha256": "3a1ac141596135148cf2af64bfa9aa21e9a00ebae17c671f87cdf55064db6ab2"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/browser-initial.log",
+      "bytes": 3812,
+      "sha256": "e785e870e60daa909adfd97af8dc50f0f97cc1f997834fe1977314554ada5c7a"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/build.log",
+      "bytes": 6662,
+      "sha256": "b2bd563b5c6b43c1c90446cfc8c1e481a60affb1f2cf86b081c7767fe7f62e0e"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/check-phase.json",
+      "bytes": 416,
+      "sha256": "fd8bd051e1a7618688a1bf3aac60c33593bc7823a1eec14574dd7050bcc9266f"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/check-replay.py",
+      "bytes": 1019,
+      "sha256": "5bc65490d6ddd72ce4ea186f7e43fa63f19d2b9f36de722e7e32a22f76c478d4"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/export-check-normal.log",
+      "bytes": 63,
+      "sha256": "f32221def6cea00d708c02a7eeaedc5121bd4da7d708eedf8301f54836e04fa8"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/export-check-optimized.log",
+      "bytes": 63,
+      "sha256": "f32221def6cea00d708c02a7eeaedc5121bd4da7d708eedf8301f54836e04fa8"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/export-guards-normal.log",
+      "bytes": 101,
+      "sha256": "cc1f4b6005544782c32297deb998207928ab526b62777ee39e02655e4190eb5c"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/export-guards-optimized.log",
+      "bytes": 101,
+      "sha256": "f94832db32e824f34ac65796a81d3a457deac56628e2988399a1b60b9d81a068"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/export-replay-normal.log",
+      "bytes": 63,
+      "sha256": "f32221def6cea00d708c02a7eeaedc5121bd4da7d708eedf8301f54836e04fa8"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/export-replay-optimized.log",
+      "bytes": 63,
+      "sha256": "f32221def6cea00d708c02a7eeaedc5121bd4da7d708eedf8301f54836e04fa8"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/export.log",
+      "bytes": 63,
+      "sha256": "f32221def6cea00d708c02a7eeaedc5121bd4da7d708eedf8301f54836e04fa8"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/final-source-index.json",
+      "bytes": 7119,
+      "sha256": "77ee20529d29de2ff58fd43c1933a99a71d67766736af4f75a04525fb99bbf9d"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/finish-checks.py",
+      "bytes": 2392,
+      "sha256": "9de4a5f1b1d7484d654f4557a1715218d486a2339e75169e00fb4130cdd0c93d"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/focused-final.log",
+      "bytes": 386,
+      "sha256": "ecfb033cd28b33d49f88a6e09924bf91fa22acf5cc601cac18bd957dad8b733a"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/focused-initial.log",
+      "bytes": 386,
+      "sha256": "10c81efb73d284aab53e1fe0e0bade66219549d01fc5eee1e74e13e736d61e57"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/full-unit.log",
+      "bytes": 5486,
+      "sha256": "985e42a38229eb001dc475278115a6b522607025c23c9b1aaf728dc92054de9a"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/identity.json",
+      "bytes": 238,
+      "sha256": "3260d7a062403b550eccc2cf81e6560b9f88e6c2f4bef3c5050d4d659334f36a"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/identity.log",
+      "bytes": 204,
+      "sha256": "19057e91f55979d1696b19a71c46054fdd6b4ed54b2e3dfc4a32618b2c90fa5f"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/identity.mjs",
+      "bytes": 545,
+      "sha256": "51023bae15006c77a376e8fb40fd2715c191e7cc4cef4c9899da57920de0468b"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/node-qa.log",
+      "bytes": 370,
+      "sha256": "b70c86f04d5f04d8ebc896994577462aa139f9beaf825e41a5a5c0d5f17e7f78"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/offline-pack.json",
+      "bytes": 165385,
+      "sha256": "d5e27b6c8dfc7bed6ca7a993e49e98d881087933112e4ab03d40e93dabb84bcf"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1808307,
+      "sha256": "c818afec2bf25310c4aaa872ab707a07a0d2a722344b2db1f58efcbdfa48eac6"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835500,
+      "sha256": "69f680b6db88a998f02e5ce1d570608f7d7bdfc3059bea3ab2cb927bf99b6e1e"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1828893,
+      "sha256": "6c91b318a38cc763ec7bfa2b08767e73ba7a98d7b419fa45063307bbcdd7bc48"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1811620,
+      "sha256": "370500c57853847372f87e47289bab1ce4535a13e467ac7e811a2d65287851e2"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1820365,
+      "sha256": "ef8263f79f92ca40eb8e7a9da7fd52438367cb9d6bb318006a88d5b73555ae31"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1351474,
+      "sha256": "8e836df0e74361a5b9d2034c9bbf1e8772cfd148957385757c77f60f8d95a0b2"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1825949,
+      "sha256": "4130c49b720a242bfe5ada921a3bfef8df3a249b5d15ac8521ba16c47dc46941"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808773,
+      "sha256": "b95e5f26f904e72ec7096e5761a0633554f2b1bb0f9cf30746f3d024dba9f974"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/production-final.json",
+      "bytes": 2858,
+      "sha256": "9cae55a7c6299fd2ca928ac28e25afc5c6ccb1f3ce0a99e1cdc3558747fe634f"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/production-system.mjs",
+      "bytes": 27872,
+      "sha256": "07b5c70ef521c16279efd543130ac68f80a8f9f78d0ca712b8abe8a149e17eec"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/production.log",
+      "bytes": 2547,
+      "sha256": "8c8287c1721192d423c13e010eae285fe804cc88fa12475e434b372c82f51fb1"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/record-verification.py",
+      "bytes": 6680,
+      "sha256": "e458a47e2dc697d792ea9ad320a069c025a367849223d5f49db5d6292ee19f65"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/replay-summary.log",
+      "bytes": 2,
+      "sha256": "aa67a169b0bba217aa0aa88a65346920c84c42447c36ba5f7ea65f422c1fe5d8"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/replay.json",
+      "bytes": 1933,
+      "sha256": "13b0318568101f9d98dda616adc64998d33634e2345a0978123a401ef7d6ed0c"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/source-scope.json",
+      "bytes": 1090,
+      "sha256": "58e5a4de26afc8a92fae9a9c46bc0916f564e06a0696aa86596e2eb16334cb4b"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/types-browser.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/types-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/types-render.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-q-end-runtime/types-state.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "checks": {
+    "fullUnit": {
+      "passed": 2809,
+      "failed": 3,
+      "total": 2812,
+      "files": 372,
+      "originalFiveSecondWaveClock": "passed"
+    },
+    "focused": {
+      "passed": 600,
+      "files": 31
+    },
+    "sourceGuardReference": {
+      "commit": "38e1ecc",
+      "casesPerPythonMode": 19
+    },
+    "deliveryGuards": {
+      "casesPerPythonMode": 3,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "exportCheckAndReplay": {
+      "filesUnchangedBytesAndMtimes": 8,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "textures": {
+      "count": 5,
+      "newPublicPngs": 3,
+      "sharedUrls": 2,
+      "authoredMips": 41,
+      "packedBytes": 178518,
+      "gpuMipPixelHashes": "all exact"
+    },
+    "build": "TypeScript and production build passed; existing build diagnostics retained.",
+    "nodeQA": {
+      "passed": 3
+    },
+    "browser": {
+      "acceptedUniqueCases": 10,
+      "initialPassed": 10,
+      "finalPassed": 4,
+      "retries": 0,
+      "environment": "system Chromium154 / SwiftShader",
+      "coverage": [
+        "real complete and target-loss Q returns; both source emitters; exact Save/reload particles and future world",
+        "all 41 actual Three GPU mip pixels exact",
+        "two cast/end transports share actual Three texture objects",
+        "explicit early-copy distortion scene and raw source power binding",
+        "ordinary startup skips assets; five initial textures and explicit one-file retry",
+        "hidden creation, bound movement versus unbound birth point, later Q body hiding and finite frozen death/victory tails",
+        "all six original Q cast/contact source, GPU mip, retry and save cases",
+        "final post-recovery creation-point validation and full new browser rerun"
+      ]
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 13,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderAudioPreloads": 0,
+      "unrequestedMasterYiAlphaAudioPreloads": 0,
+      "unrequestedMasterYiMeditateAudioPreloads": 0,
+      "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+      "unrequestedMasterYiQEndPreloads": 0,
+      "unrequestedMasterYiQCastPreloads": 0,
+      "unrequestedMasterYiQContactPreloads": 0,
+      "unrequestedMasterYiMeditateCastPreloads": 0,
+      "unrequestedMasterYiMeditateBuffPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 221,
+      "scheduledBlueRequests": 13,
+      "scheduledRedRequests": 13,
+      "scheduledWolfRequests": 26,
+      "scheduledRaptorRequests": 26,
+      "scheduledKrugRequests": 39,
+      "scheduledScuttlerRequests": 13,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    }
+  },
+  "retainedDiagnostics": [
+    "Review found that the return point needed an independent creation-frame check after Q recovery clears. The validator now retains that check, with a new corrupt-save regression and a complete focused/new-browser rerun. Initial logs remain retained."
+  ],
+  "baselineFailures": [
+    "Original Leona attached-skin reflection check.py absent.",
+    "Original distortion metallib, bitcode and disassembly compiler artifacts unavailable.",
+    "Lux first fifteen sampler actual 4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a versus pinned 09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df; previously reproduced on untouched baseline."
+  ],
+  "limits": [
+    "Accepted complete/target-loss reappearance is the explicit local creation adapter; source resource names do not prove native script timing.",
+    "Raw distortion mode 2 uses the existing local early-copy route and raw strength binding. Native CPU phase selection, source-to-power conversion and sampler/default setup remain unverified.",
+    "Raw frame-rate hash matches a name candidate; atlas seek, first-update grid, cosmetic draws, root attachment and source-X reflection are explicit local adapters.",
+    "Source linger does not extend finite visible life; Q_End adds no sound. Missile/AP systems remain separate work.",
+    "Canonical software decoding and exact authored GPU upload do not certify native texture/GPU or physical-device/FPS parity.",
+    "Focused browser checks are not a whole-suite, service-worker or offline-install certificate.",
+    "Ignored evidence needs preservation; exact changed sources are separately archived."
+  ]
+}

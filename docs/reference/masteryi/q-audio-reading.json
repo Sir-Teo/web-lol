@@ -1,0 +1,327 @@
+{
+  "format": 1,
+  "particleSourceSha256": "95531b1e61b44fc39d6458534174fe183fdf75e57cf7528a93a045e836322776",
+  "audioGraphSha256": "b7879c088d3544626d70c9ecaf4abfd0aebae007db5a6ee841c0caed7a2b33e3",
+  "decodedRecordSha256": "28ac362788bb76709a226e76d282eb25a1805a474b9bc7348cedd59bbee33a32",
+  "bindings": [
+    {
+      "system": "MasterYi_Q_AP_Mis",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_Q_AP_Mis",
+      "present": false,
+      "soundOnCreateDefault": null
+    },
+    {
+      "system": "MasterYi_Q_AlphaStrikeMissileBegin_audio",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_Q_AlphaStrikeMissileBegin_audio",
+      "present": false,
+      "soundOnCreateDefault": null
+    },
+    {
+      "system": "MasterYi_Q_Cas",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_Q_Cas",
+      "present": true,
+      "soundOnCreateDefault": "Play_sfx_MasterYi_AlphaStrike_missilecast"
+    },
+    {
+      "system": "MasterYi_Q_Crit_tar",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_Q_Crit_tar",
+      "present": false,
+      "soundOnCreateDefault": null
+    },
+    {
+      "system": "MasterYi_Q_End",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_Q_End",
+      "present": false,
+      "soundOnCreateDefault": null
+    },
+    {
+      "system": "MasterYi_Q_Hit",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_Q_Hit",
+      "present": false,
+      "soundOnCreateDefault": null
+    },
+    {
+      "system": "MasterYi_Q_Mis",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_Q_Mis",
+      "present": false,
+      "soundOnCreateDefault": null
+    },
+    {
+      "system": "MasterYi_Q_Tar",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_Q_Tar",
+      "present": true,
+      "soundOnCreateDefault": "Play_sfx_MasterYi_AlphaStrike_hit"
+    }
+  ],
+  "profiles": [
+    {
+      "kind": "cast",
+      "system": "MasterYi_Q_Cas",
+      "layer": 0,
+      "eventName": "Play_sfx_MasterYi_AlphaStrike_missilecast",
+      "eventId": 2699364725,
+      "actionId": 522026001,
+      "containerId": 8847,
+      "ancestors": [
+        8847,
+        8845,
+        1056413114
+      ],
+      "gainDb": -12,
+      "pitchCents": 0,
+      "pitchModifiers": [
+        {
+          "nodeId": 8847,
+          "property": "Pitch",
+          "minimum": -100.0,
+          "maximum": 100.0
+        }
+      ],
+      "delaySeconds": 0,
+      "policy": {
+        "eMode": 0,
+        "eRandomMode": 1,
+        "wAvoidRepeatCount": 0,
+        "bResetPlayListAtEachPlay": 1,
+        "bIsGlobal": 1,
+        "bIsContinuous": 0,
+        "_bIsUsingWeight": 0,
+        "u16MaxNumInstance": 3,
+        "bKillNewest": 1,
+        "sLoopCount": 1,
+        "sLoopModMin": 0,
+        "sLoopModMax": 0,
+        "eTransitionMode": 0
+      },
+      "variants": [
+        {
+          "id": 378075409,
+          "soundId": 298602543,
+          "privatePath": ".cache/masteryi-audio-decoded/378075409.wav",
+          "sha256": "040bda6bdce9419190d318e8193fec0107712f69e89a4f6f7216fc4b2587e3ce",
+          "pcmSha256": "3cf47232bca64f60fdac073e08e80d5870bab54c48fdc8b6600bf6094791b654",
+          "bytes": 363240,
+          "frames": 90799,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 2.0589342403628117,
+          "peak": 1.0170748233795166,
+          "gainDb": 0
+        }
+      ]
+    },
+    {
+      "kind": "cast",
+      "system": "MasterYi_Q_Cas",
+      "layer": 1,
+      "eventName": "Play_sfx_MasterYi_AlphaStrike_missilecast",
+      "eventId": 2699364725,
+      "actionId": 285905342,
+      "containerId": 8848,
+      "ancestors": [
+        8848,
+        8845,
+        1056413114
+      ],
+      "gainDb": -10,
+      "pitchCents": 0,
+      "pitchModifiers": [
+        {
+          "nodeId": 8848,
+          "property": "Pitch",
+          "minimum": -100.0,
+          "maximum": 100.0
+        }
+      ],
+      "delaySeconds": 0,
+      "policy": {
+        "eMode": 0,
+        "eRandomMode": 1,
+        "wAvoidRepeatCount": 0,
+        "bResetPlayListAtEachPlay": 1,
+        "bIsGlobal": 1,
+        "bIsContinuous": 0,
+        "_bIsUsingWeight": 0,
+        "u16MaxNumInstance": 3,
+        "bKillNewest": 0,
+        "sLoopCount": 1,
+        "sLoopModMin": 0,
+        "sLoopModMax": 0,
+        "eTransitionMode": 0
+      },
+      "variants": [
+        {
+          "id": 642434939,
+          "soundId": 365953260,
+          "privatePath": ".cache/masteryi-audio-decoded/642434939.wav",
+          "sha256": "db4f50537b73ff43d759166cedbb9de56f06754dbccdab016b3953d6edc265b4",
+          "pcmSha256": "d1d9011e5eab54a2ded8fa7f64cd1794c180205efc46512b190005c46a740ea0",
+          "bytes": 396944,
+          "frames": 99225,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 2.25,
+          "peak": 1.039229393005371,
+          "gainDb": 0
+        }
+      ]
+    },
+    {
+      "kind": "hit",
+      "system": "MasterYi_Q_Tar",
+      "layer": 0,
+      "eventName": "Play_sfx_MasterYi_AlphaStrike_hit",
+      "eventId": 2548689647,
+      "actionId": 448316895,
+      "containerId": 8846,
+      "ancestors": [
+        8846,
+        8845,
+        1056413114
+      ],
+      "gainDb": -11,
+      "pitchCents": 0,
+      "pitchModifiers": [],
+      "delaySeconds": 0,
+      "policy": {
+        "eMode": 0,
+        "eRandomMode": 1,
+        "wAvoidRepeatCount": 0,
+        "bResetPlayListAtEachPlay": 1,
+        "bIsGlobal": 1,
+        "bIsContinuous": 0,
+        "_bIsUsingWeight": 0,
+        "u16MaxNumInstance": 2,
+        "bKillNewest": 0,
+        "sLoopCount": 1,
+        "sLoopModMin": 0,
+        "sLoopModMax": 0,
+        "eTransitionMode": 0
+      },
+      "variants": [
+        {
+          "id": 142077803,
+          "soundId": 920289726,
+          "privatePath": ".cache/masteryi-audio-decoded/142077803.wav",
+          "sha256": "ab5c04fac95e8cee3dab37150b4414a9029d7dcfe3a005f3d9a37b17027f9cb7",
+          "pcmSha256": "f75ea9b98421fe710ecc53214493831501fae9ef30e97d40e782a11566ac9e61",
+          "bytes": 110284,
+          "frames": 27560,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.6249433106575963,
+          "peak": 0.8713916540145874,
+          "gainDb": 0
+        },
+        {
+          "id": 48797763,
+          "soundId": 800291757,
+          "privatePath": ".cache/masteryi-audio-decoded/48797763.wav",
+          "sha256": "7105320936844bc488b73cde9e6e330913e63e877524362ae1d1b17b0d78533e",
+          "pcmSha256": "f027d577fae59f5cb23fa976ab4cdb0962c7a062ae195c018b656f258869a4d2",
+          "bytes": 110476,
+          "frames": 27608,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.626031746031746,
+          "peak": 0.8733435273170471,
+          "gainDb": 0
+        },
+        {
+          "id": 108844688,
+          "soundId": 427505932,
+          "privatePath": ".cache/masteryi-audio-decoded/108844688.wav",
+          "sha256": "83a70133732d583db6100ce38351c70b848bca2efbc358afdc9548e0e3f1a4e6",
+          "pcmSha256": "a9fb0173a41dda2ae97bd0e5ea5a85712ad316c574ecba16ec485d1390d23de2",
+          "bytes": 109412,
+          "frames": 27342,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.62,
+          "peak": 0.9897510409355164,
+          "gainDb": 0
+        },
+        {
+          "id": 555085050,
+          "soundId": 104090482,
+          "privatePath": ".cache/masteryi-audio-decoded/555085050.wav",
+          "sha256": "2b056eca0544faa8eb3e0d4367e8e5bfe44581e1afa91ba5e244f6e6062ecaf6",
+          "pcmSha256": "cc7d93c4dadce0887c5a06340bb95e5de51f01408623f1f7602f9390263ed04c",
+          "bytes": 87524,
+          "frames": 21870,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.4959183673469388,
+          "peak": 1.0220081806182861,
+          "gainDb": 0
+        },
+        {
+          "id": 924931329,
+          "soundId": 698865901,
+          "privatePath": ".cache/masteryi-audio-decoded/924931329.wav",
+          "sha256": "3f3599f8eb51e9ed0aaab308267302543146904d1d9f733873f986dba79968a6",
+          "pcmSha256": "bc2241e55c84c09b7186f73218bd590596c1240a178c34fee2c88b4f06538b58",
+          "bytes": 122292,
+          "frames": 30562,
+          "sampleRate": 44100,
+          "channels": 1,
+          "durationSeconds": 0.693015873015873,
+          "peak": 0.9103811979293823,
+          "gainDb": 0
+        }
+      ]
+    }
+  ],
+  "attenuation": {
+    "id": 339248780,
+    "scaling": 2,
+    "unresolvedOutputBusId": 1259461568,
+    "priority": 60,
+    "points": [
+      {
+        "distance": 0.0,
+        "storedValue": 0.0,
+        "interpolation": 9
+      },
+      {
+        "distance": 1750.0,
+        "storedValue": 0.0,
+        "interpolation": 2
+      },
+      {
+        "distance": 2000.0,
+        "storedValue": -0.7488113641738892,
+        "interpolation": 2
+      },
+      {
+        "distance": 2300.0,
+        "storedValue": -0.93690425157547,
+        "interpolation": 2
+      },
+      {
+        "distance": 2750.0,
+        "storedValue": -1.0,
+        "interpolation": 9
+      },
+      {
+        "distance": 3000.0,
+        "storedValue": -1.0,
+        "interpolation": 4
+      }
+    ]
+  },
+  "tails": {
+    "cast": 144,
+    "hit": 42
+  },
+  "media": 7,
+  "wavBytes": 1300172,
+  "peaksAboveOne": 3,
+  "peak": 1.039229393005371,
+  "limits": [
+    "Declared particle soundOnCreateDefault bindings only. Native Q script/particle creation callbacks remain unverified.",
+    "Critical target and audio-named dummy omit the binding; no critical or dummy sound is inferred.",
+    "Native gains, pitch ranges, finite policies, oldest/newest voice limits and attenuation remain declarations. Indexed choice, admission, dispatch and unresolved bus mixing need explicit local runtime adapters.",
+    "Private float masters retain headroom, rate, channels and samples without normalization, clipping or resampling. No new public WAVs or runtime state in this preparation."
+  ]
+}

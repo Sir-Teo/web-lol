@@ -1,0 +1,378 @@
+"""Native lookup selectors, constructor values and conditional quad UV1 transfer; static only."""
+from pathlib import Path
+import bisect,json,runpy,struct
+import native_cameraquad_packets as quad
+import native_legacy_color_curves as curves
+from masteryi_audio_graph import write_outputs
+witness=quad.witness
+require=witness.require
+OUTPUT=Path('docs/reference/native-particle-lookup-coordinates.json')
+PINS={'docs/reference/native-cameraquad-packets.json':'a9e4fe941a973f6a0a24c2f05ada8992fb915cf63a25980251185e3bc50eb920',
+      'docs/reference/native-legacy-color-curves.json':'b41ba9cea4d747af9e39b94ab59738120e83e83743179c5851bf2e4e8d282e72',
+      'docs/reference/legacy-particle-default-textures.json':'a26e3177a9ac7d1f6a17581e28d4f589ca80b7544a6a4e151852f25c5bc1feb2'}
+FIELDS=[('colorLookUpTypeX',0x1018ab670,0xcc,0x1018ac3c8,3),
+        ('colorLookUpTypeY',0x1018ab68c,0xcd,0x1018ac3c8,3),
+        ('colorLookUpScales',0x1018ab6a8,0xd0,0x10036637c,11),
+        ('colorLookUpOffsets',0x1018ab6e0,0xd8,0x10036637c,11)]
+SPANS=[('emitterDefinitionConstructor',
+  4320839724,
+  4320840788,
+  '2dcad45a377031f968f1853db3115140f15b014a00aa7ff3ea035bbf219b1684'),
+ ('emitterFieldRegistration',
+  4320833436,
+  4320837348,
+  '5e0ede5819fbf40590348b9fb87767271b547af3a6acf124e7e08b25e87ac60e'),
+ ('lookupTypeDescriptor',
+  4320838600,
+  4320838660,
+  'b6af7d56651d5573a01f336be5bc14c2e43680075973136821534f547faffe1b'),
+ ('lookupFloat2Descriptor',
+  4298531708,
+  4298531768,
+  'ecbd02eebda02b1441e1963fbf47fcb307f422a5909e5f2f2db5a3c78d4b8b70'),
+ ('legacyDrawDataProducer',
+  4321164580,
+  4321167284,
+  '9003dcd8e3206693289e787ced091a08fc374af6a2b777295261169699341e8a'),
+ ('cameraQuadVertexBuilder',
+  4321017652,
+  4321019780,
+  '149990c9d303295ffed9dfea94c1b8377cb40f0c8bfc7747607ca904bfa7d55d'),
+ ('planeVertexBuilder',
+  4321007908,
+  4321009576,
+  '8299261c48117fd2293f84b97adbebfe39c235f26a63cc81a56982d16596becf')]
+WORDS=[(4320835184, 1385563201, 'mov w1, #0xb022'),
+ (4320835188, 1923395201, 'movk w1, #0x2574, lsl #16'),
+ (4320835192, 1384126850, 'mov w2, #0xcc'),
+ (4320835196, 3531603971, 'mov x3, #0'),
+ (4320835200, 3531603972, 'mov x4, #0'),
+ (4320835204, 2483028817, 'bl #0x1018ac3c8'),
+ (4320835212, 1385576097, 'mov w1, #0xb1b5'),
+ (4320835216, 1923403393, 'movk w1, #0x2674, lsl #16'),
+ (4320835220, 1384126882, 'mov w2, #0xcd'),
+ (4320835224, 3531603971, 'mov x3, #0'),
+ (4320835228, 3531603972, 'mov x4, #0'),
+ (4320835232, 2483028810, 'bl #0x1018ac3c8'),
+ (4320835240, 1385859489, 'mov w1, #0xd44d'),
+ (4320835244, 1925055841, 'movk w1, #0xf02b, lsl #16'),
+ (4320835248, 1384126978, 'mov w2, #0xd0'),
+ (4320835252, 3531603971, 'mov x3, #0'),
+ (4320835256, 3531603972, 'mov x4, #0'),
+ (4320835260, 2544560944, 'bl #0x10036637c'),
+ (4320835296, 1384531905, 'mov w1, #0x323e'),
+ (4320835300, 1924770625, 'movk w1, #0xcd5a, lsl #16'),
+ (4320835304, 1384127234, 'mov w2, #0xd8'),
+ (4320835308, 3531603971, 'mov x3, #0'),
+ (4320835312, 3531603972, 'mov x4, #0'),
+ (4320835316, 2544560930, 'bl #0x10036637c'),
+ (4320838624, 1384120419, 'mov w3, #3'),
+ (4320838628, 1384120324, 'mov w4, #0'),
+ (4320838632, 3531603973, 'mov x5, #0'),
+ (4320838636, 3531603974, 'mov x6, #0'),
+ (4320838640, 3531603975, 'mov x7, #0'),
+ (4320838644, 2549598717, 'bl #0x10169ebe8'),
+ (4298531732, 1384120675, 'mov w3, #0xb'),
+ (4298531736, 1384120324, 'mov w4, #0'),
+ (4298531740, 3531603973, 'mov x5, #0'),
+ (4298531744, 3531603974, 'mov x6, #0'),
+ (4298531748, 3531603975, 'mov x7, #0'),
+ (4298531752, 2488066576, 'bl #0x10169ebe8'),
+ (4320839972, 1384120360, 'mov w8, #1'),
+ (4320839976, 2030148200, 'strh w8, [x19, #0xcc]'),
+ (4320839980, 2952807176, 'adrp x8, #0x10210d000'),
+ (4320839984, 1036120321, 'ldr q1, [x8, #0x7c0]'),
+ (4320839988, 1325659648, 'fmov v0.4s, #1.00000000'),
+ (4320839992, 2902884961, 'stp q1, q0, [x19, #0xd0]'),
+ (4321164708, 960704546, 'ldrb w2, [x1, #0xcc]'),
+ (4321164712, 960705571, 'ldrb w3, [x1, #0xcd]'),
+ (4321165180, 4177534945, 'str x1, [sp, #0x38]'),
+ (4321165184, 688262115, 'stp w3, w2, [sp, #0x30]'),
+ (4321165268, 3175088394, 'ldr s10, [x8]'),
+ (4321165272, 505422152, 'fcmp s10, #0.0'),
+ (4321165276, 788587520, 'movi d0, #0000000000000000'),
+ (4321165280, 1409286285, 'b.le #0x1018fbff0'),
+ (4321165284, 3160391936, 'ldur s0, [x8, #-4]'),
+ (4321165288, 505428384, 'fsub s0, s13, s0'),
+ (4321165292, 506075136, 'fdiv s0, s0, s10'),
+ (4321165296, 505421832, 'fcmp s0, #0.0'),
+ (4321165300, 788587529, 'movi d9, #0000000000000000'),
+ (4321165304, 505433377, 'fcsel s1, s9, s0, mi'),
+ (4321165308, 506335234, 'fmov s2, #1.00000000'),
+ (4321165312, 505552896, 'fcmp s0, s2'),
+ (4321165316, 505531464, 'fcsel s8, s2, s1, gt'),
+ (4321166444, 4181729272, 'ldr x24, [sp, #0x38]'),
+ (4321166448, 3175142154, 'ldr s10, [x24, #0xd0]'),
+ (4321166452, 3175144203, 'ldr s11, [x24, #0xd8]'),
+ (4321166456, 3107993576, 'ldr w8, [sp, #0x34]'),
+ (4321166460, 1895828767, 'cmp w8, #3'),
+ (4321166464, 1409286816, 'b.eq #0x1018fc4d4'),
+ (4321166468, 1895827743, 'cmp w8, #2'),
+ (4321166472, 3107992569, 'ldr w25, [sp, #0x30]'),
+ (4321166476, 1409287168, 'b.eq #0x1018fc50c'),
+ (4321166480, 1895826719, 'cmp w8, #1'),
+ (4321166484, 1409286209, 'b.ne #0x1018fc49c'),
+ (4321166488, 520629578, 'fmadd s10, s10, s8, s11'),
+ (4321166492, 313528328, 'mov w8, #0x7f7fffff'),
+ (4321166496, 505872640, 'fmov s0, w8'),
+ (4321166500, 2333868776, 'add x8, x23, x28'),
+ (4321166504, 3156181258, 'stur s10, [x8, #-8]'),
+ (4321166508, 3175143178, 'ldr s10, [x24, #0xd4]'),
+ (4321166512, 3175145227, 'ldr s11, [x24, #0xdc]'),
+ (4321166516, 1895829311, 'cmp w25, #3'),
+ (4321166520, 1409288736, 'b.eq #0x1018fc5fc'),
+ (4321166524, 1895828287, 'cmp w25, #2'),
+ (4321166528, 1409287232, 'b.eq #0x1018fc548'),
+ (4321166532, 1895827263, 'cmp w25, #1'),
+ (4321166536, 1409288737, 'b.ne #0x1018fc60c'),
+ (4321166540, 520629578, 'fmadd s10, s10, s8, s11'),
+ (4321166544, 335544399, 'b #0x1018fc60c'),
+ (4321166548, 4181730952, 'ldr x8, [x20, #0x48]'),
+ (4321166552, 2333278472, 'add x8, x8, x19'),
+ (4321166556, 3175096576, 'ldr s0, [x8, #0x20]'),
+ (4321166744, 4181721128, 'ldr x8, [x1]'),
+ (4321166748, 4177544168, 'str x8, [sp, #0x80]'),
+ (4321166752, 3107981352, 'ldr w8, [x1, #8]'),
+ (4321166756, 3103820776, 'str w8, [sp, #0x88]'),
+ (4321166760, 4181736425, 'ldr x9, [sp, #0x70]'),
+ (4321166764, 2332623528, 'add x8, x21, x9'),
+ (4321166768, 760219616, 'ldp s0, s1, [sp, #0x80]'),
+ (4321166772, 3175094530, 'ldr s2, [x8, #0x18]'),
+ (4321166776, 505554944, 'fadd s0, s0, s2'),
+ (4321166780, 2332623528, 'add x8, x21, x9'),
+ (4321166784, 759401730, 'ldp s2, s3, [x8, #0x1c]'),
+ (4321166788, 505554977, 'fadd s1, s1, s2'),
+ (4321166792, 3175123938, 'ldr s2, [sp, #0x88]'),
+ (4321166796, 505620546, 'fadd s2, s2, s3'),
+ (4321166800, 505481249, 'fmul s1, s1, s1'),
+ (4321166804, 520094720, 'fmadd s0, s0, s0, s1'),
+ (4321166808, 520224832, 'fmadd s0, s2, s2, s0'),
+ (4321166812, 505528320, 'fsqrt s0, s0'),
+ (4321166816, 520105290, 'fmadd s10, s10, s0, s11'),
+ (4321166820, 2333868776, 'add x8, x23, x28'),
+ (4321166824, 3156181258, 'stur s10, [x8, #-8]'),
+ (4321166828, 3175143178, 'ldr s10, [x24, #0xd4]'),
+ (4321166832, 3175145227, 'ldr s11, [x24, #0xdc]'),
+ (4321166836, 1895829311, 'cmp w25, #3'),
+ (4321166840, 1426060833, 'b.ne #0x1018fc4bc'),
+ (4321166844, 4181730952, 'ldr x8, [x20, #0x48]'),
+ (4321166848, 2333278472, 'add x8, x8, x19'),
+ (4321166852, 3175096576, 'ldr s0, [x8, #0x20]'),
+ (4321166856, 520105290, 'fmadd s10, s10, s0, s11'),
+ (4321166860, 4181727225, 'ldr x25, [sp, #0x28]'),
+ (4321166864, 2333868776, 'add x8, x23, x28'),
+ (4321166868, 3156197642, 'stur s10, [x8, #-4]'),
+ (4321167028, 4181721128, 'ldr x8, [x1]'),
+ (4321167032, 4177544168, 'str x8, [sp, #0x80]'),
+ (4321167036, 3107981352, 'ldr w8, [x1, #8]'),
+ (4321167040, 3103820776, 'str w8, [sp, #0x88]'),
+ (4321167044, 4181736425, 'ldr x9, [sp, #0x70]'),
+ (4321167048, 2332623528, 'add x8, x21, x9'),
+ (4321167052, 760219616, 'ldp s0, s1, [sp, #0x80]'),
+ (4321167056, 3175094530, 'ldr s2, [x8, #0x18]'),
+ (4321167060, 505554944, 'fadd s0, s0, s2'),
+ (4321167064, 2332623528, 'add x8, x21, x9'),
+ (4321167068, 759401730, 'ldp s2, s3, [x8, #0x1c]'),
+ (4321167072, 505554977, 'fadd s1, s1, s2'),
+ (4321167076, 3175123938, 'ldr s2, [sp, #0x88]'),
+ (4321167080, 505620546, 'fadd s2, s2, s3'),
+ (4321167084, 505481249, 'fmul s1, s1, s1'),
+ (4321167088, 520094720, 'fmadd s0, s0, s0, s1'),
+ (4321167092, 520224832, 'fmadd s0, s2, s2, s0'),
+ (4321167096, 505528320, 'fsqrt s0, s0'),
+ (4321167100, 520105290, 'fmadd s10, s10, s0, s11'),
+ (4321167104, 2333868776, 'add x8, x23, x28'),
+ (4321167108, 3156197642, 'stur s10, [x8, #-4]'),
+ (4321017892, 4181731305, 'ldr x9, [sp, #0x48]'),
+ (4321017896, 4181731625, 'ldr x9, [x9, #0x50]'),
+ (4321017900, 4177532905, 'str x9, [sp, #0x28]'),
+ (4321017904, 960516360, 'ldrb w8, [x8, #0x14]'),
+ (4321017908, 1384121751, 'mov w23, #0x2c'),
+ (4321018136, 760682468, 'ldp s4, s5, [sp, #0xb8]'),
+ (4321018140, 788587541, 'movi d21, #0000000000000000'),
+ (4321018144, 506792070, 'fmul s6, s4, s21'),
+ (4321018148, 760628199, 'ldp s7, s16, [sp, #0xb0]'),
+ (4321018152, 521476337, 'fmadd s17, s7, s21, s6'),
+ (4321018156, 760762354, 'ldp s18, s19, [sp, #0xc0]'),
+ (4321018160, 506538577, 'fadd s17, s18, s17'),
+ (4321018164, 506792114, 'fmul s18, s5, s21'),
+ (4321018168, 521488916, 'fmadd s20, s16, s21, s18'),
+ (4321018172, 1036000246, 'ldr q22, [sp, #0x60]'),
+ (4321018176, 1846806210, 'mov v2.s[2], v22.s[0]'),
+ (4321018180, 506735219, 'fadd s19, s19, s20'),
+ (4321018184, 1035999220, 'ldr q20, [sp, #0x50]'),
+ (4321018188, 1847330434, 'mov v2.s[3], v20.s[0]'),
+ (4321018192, 237070402, 'fcvtn v2.4h, v2.4s'),
+ (4321018196, 4244638338, 'str d2, [x20, #0x10]'),
+ (4321018200, 505659938, 'fcvt h2, s17'),
+ (4321018204, 2097164930, 'str h2, [x20, #0x18]'),
+ (4321018208, 505660002, 'fcvt h2, s19'),
+ (4321018212, 2097165954, 'str h2, [x20, #0x1a]'),
+ (4321018260, 505659587, 'fcvt h3, s6'),
+ (4321018264, 2097179267, 'str h3, [x20, #0x34]'),
+ (4321018268, 505659971, 'fcvt h3, s18'),
+ (4321018272, 2097180291, 'str h3, [x20, #0x36]'),
+ (4321018316, 505659587, 'fcvt h3, s6'),
+ (4321018320, 2097193603, 'str h3, [x20, #0x50]'),
+ (4321018324, 505659971, 'fcvt h3, s18'),
+ (4321018328, 2097194627, 'str h3, [x20, #0x52]'),
+ (4321018372, 505659424, 'fcvt h0, s1'),
+ (4321018376, 2097207936, 'str h0, [x20, #0x6c]'),
+ (4321018380, 505659456, 'fcvt h0, s2'),
+ (4321018384, 2097208960, 'str h0, [x20, #0x6e]'),
+ (4321018824, 4181727212, 'ldr x12, [sp, #0x28]'),
+ (4321018828, 2902626276, 'stp q4, q3, [sp, #0x50]'),
+ (4321018832, 3019899148, 'cbz x12, #0x1018d83f0'),
+ (4321018836, 3019899339, 'cbz x11, #0x1018d840c'),
+ (4321018840, 1035993441, 'ldr q1, [x11]'),
+ (4321018844, 4181723499, 'ldr x11, [x11, #0x10]'),
+ (4321018848, 4177552363, 'str x11, [sp, #0xc0]'),
+ (4321018852, 1031811041, 'str q1, [sp, #0xb0]'),
+ (4321018856, 760743906, 'ldp s2, s1, [sp, #0xc0]'),
+ (4321018860, 335544330, 'b #0x1018d8414'),
+ (4321018864, 2601999115, 'madd x11, x24, x23, x22'),
+ (4321018868, 759431521, 'ldp s1, s0, [x11, #0x20]'),
+ (4321018872, 2836103167, 'stp xzr, xzr, [sp, #0xb0]'),
+ (4321018876, 756548577, 'stp s1, s0, [sp, #0xc0]'),
+ (4321018880, 3107992555, 'ldr w11, [sp, #0x30]'),
+ (4321008076, 4181723113, 'ldr x9, [sp, #8]'),
+ (4321008080, 4181731625, 'ldr x9, [x9, #0x50]'),
+ (4321008084, 4177535977, 'str x9, [sp, #0x40]'),
+ (4321008352, 237163650, 'fadd v2.2s, v4.2s, v2.2s'),
+ (4321008356, 760551396, 'ldp s4, s5, [sp, #0xa8]'),
+ (4321008360, 506333318, 'fmul s6, s4, s14'),
+ (4321008364, 760497127, 'ldp s7, s16, [sp, #0xa0]'),
+ (4321008368, 521017585, 'fmadd s17, s7, s14, s6'),
+ (4321008372, 760631282, 'ldp s18, s19, [sp, #0xb0]'),
+ (4321008376, 506538577, 'fadd s17, s18, s17'),
+ (4321008380, 506333362, 'fmul s18, s5, s14'),
+ (4321008384, 521030164, 'fmadd s20, s16, s14, s18'),
+ (4321008388, 1036000245, 'ldr q21, [sp, #0x60]'),
+ (4321008392, 1846806178, 'mov v2.s[2], v21.s[0]'),
+ (4321008396, 506735219, 'fadd s19, s19, s20'),
+ (4321008400, 1036001268, 'ldr q20, [sp, #0x70]'),
+ (4321008404, 1847330434, 'mov v2.s[3], v20.s[0]'),
+ (4321008408, 237070402, 'fcvtn v2.4h, v2.4s'),
+ (4321008412, 4244638338, 'str d2, [x20, #0x10]'),
+ (4321008416, 505659938, 'fcvt h2, s17'),
+ (4321008420, 2097164930, 'str h2, [x20, #0x18]'),
+ (4321008424, 505660002, 'fcvt h2, s19'),
+ (4321008428, 2097165954, 'str h2, [x20, #0x1a]'),
+ (4321008476, 505659587, 'fcvt h3, s6'),
+ (4321008480, 2097179267, 'str h3, [x20, #0x34]'),
+ (4321008484, 505659971, 'fcvt h3, s18'),
+ (4321008488, 2097180291, 'str h3, [x20, #0x36]'),
+ (4321008532, 505659587, 'fcvt h3, s6'),
+ (4321008536, 2097193603, 'str h3, [x20, #0x50]'),
+ (4321008540, 505659971, 'fcvt h3, s18'),
+ (4321008544, 2097194627, 'str h3, [x20, #0x52]'),
+ (4321008588, 505659424, 'fcvt h0, s1'),
+ (4321008592, 2097207936, 'str h0, [x20, #0x6c]'),
+ (4321008596, 505659456, 'fcvt h0, s2'),
+ (4321008600, 2097208960, 'str h0, [x20, #0x6e]'),
+ (4321009028, 4181730283, 'ldr x11, [sp, #0x40]'),
+ (4321009032, 2902659044, 'stp q4, q3, [sp, #0x60]'),
+ (4321009036, 3019899147, 'cbz x11, #0x1018d5dac'),
+ (4321009040, 3019899338, 'cbz x10, #0x1018d5dc8'),
+ (4321009044, 1035993409, 'ldr q1, [x10]'),
+ (4321009048, 4181723466, 'ldr x10, [x10, #0x10]'),
+ (4321009052, 4177550314, 'str x10, [sp, #0xb0]'),
+ (4321009056, 1031810017, 'str q1, [sp, #0xa0]'),
+ (4321009060, 760612834, 'ldp s2, s1, [sp, #0xb0]'),
+ (4321009064, 335544330, 'b #0x1018d5dd0'),
+ (4321009068, 2333737258, 'add x10, x9, x26'),
+ (4321009072, 763265345, 'ldp s1, s0, [x10, #-0xc]'),
+ (4321009076, 2836037631, 'stp xzr, xzr, [sp, #0xa0]'),
+ (4321009080, 756417505, 'stp s1, s0, [sp, #0xb0]'),
+ (4321009084, 3107998698, 'ldr w10, [sp, #0x48]')]
+
+WORDS += [(4321019624, 960537192, 'ldrb w8, [x19, #0x28]'),
+ (4321019628, 4181722740, 'ldr x20, [x19, #8]'),
+ (4321019632, 1895826719, 'cmp w8, #1'),
+ (4321019636, 1426049793, 'b.ne #0x1018d8054'),
+ (4321019672, 2550135139, 'bl #0x1018d6ca4'),
+ (4321009420, 960537192, 'ldrb w8, [x19, #0x28]'),
+ (4321009424, 4181722740, 'ldr x20, [x19, #8]'),
+ (4321009428, 1895826719, 'cmp w8, #1'),
+ (4321009432, 1426053185, 'b.ne #0x1018d5a20'),
+ (4321009468, 2483027995, 'bl #0x1018d5fa8')]
+
+def default_vector_address(image):
+ pc=0x1018ac92c;w=image.word(pc);load=image.word(pc+4)
+ require(w&0x9f00001f==0x90000008 and load&0xffc003ff==0x3dc00101,'Lookup literal pointer opcode differs')
+ immediate=(((w>>5)&0x7ffff)<<2)|((w>>29)&3)
+ if immediate&(1<<20):immediate-=1<<21
+ return (pc&~4095)+immediate*4096+((load>>10)&4095)*16
+
+def verify(image,core):
+ for name,digest in PINS.items():witness.pinned(Path(name),digest)
+ selected=[]
+ for pc,word,reading in WORDS:
+  require(image.word(pc)==word,'Lookup selected instruction differs: '+reading)
+  selected.append({'address':hex(pc),'word':f'{word:08x}','reading':reading})
+ starts=quad.function_starts(image.data,core['functionStarts']);spans=[]
+ for name,start,end,digest in SPANS:
+  slot=bisect.bisect_left(starts,start)
+  require(starts[slot:slot+2]==[start,end],'Lookup function bounds differ: '+name)
+  raw=image.at(start,end-start);require(witness.sha(raw)==digest,'Lookup complete function bytes differ: '+name)
+  spans.append({'name':name,'start':hex(start),'next':hex(end),'bytes':len(raw),'sha256':digest,'hex':raw.hex()})
+ fields=[]
+ for name,pc,offset,wrapper,tag in FIELDS:
+  image.pair({'name':name,'hash':witness.fnv(name),'hashPair':[pc,pc+4]})
+  image.movz(pc+8,2,offset)
+  require(image.branch(pc+20)==wrapper,'Lookup field wrapper differs')
+  descriptor=0x1018ac3e0 if tag==3 else 0x100366394
+  image.movz(descriptor,3,tag)
+  require(image.branch(descriptor+20)==0x10169ebe8,'Lookup descriptor registry call differs')
+  fields.append({'candidate':name,'hash':f'{witness.fnv(name):08x}','registration':hex(pc),'definitionOffset':offset,'wrapper':hex(wrapper),'descriptorTag':tag})
+ image.movz(0x1018ac924,8,1)
+ require(image.word(0x1018ac928)==0x79019a68,'Lookup constructor type bytes differ')
+ require(image.word(0x1018ac92c)==0xb0004308 and image.word(0x1018ac930)==0x3dc1f101,'Lookup default vector load differs')
+ require(default_vector_address(image)==0x10210d7c0,'Lookup literal address differs')
+ vector=image.at(default_vector_address(image),16)
+ require(vector.hex()=='0000803f0000803f0000000000000000','Lookup default vector differs')
+ require(image.word(0x1018ac938)==0xad068261,'Lookup constructor vector stores differ')
+ require(quad.conditional_branch(image,0x1018d86f4)==(1,0x1018d8054) and quad.conditional_branch(image,0x1018d5f18)==(1,0x1018d5a20),'Inline packet branches differ')
+ require(image.branch(0x1018d8718)==0x1018d6ca4 and image.branch(0x1018d5f3c)==0x1018d5fa8,'Alternate packet helper calls differ')
+ quad.verify(image,core);curves.verify(image,core)
+ return {'functionSpans':spans,'selectedInstructions':selected,'fieldRegistrations':fields,
+         'constructorDefaults':{'types':[1,0],'scales':[1,1],'offsets':[0,0],'literalAddress':'0x10210d7c0','literalHex':vector.hex(),'literalSha256':witness.sha(vector)},
+         'inlinePacketBranches':[{'primitive':'CameraQuad','byteOffset':40,'compare':'0x1018d86f0','branch':'0x1018d86f4','inlineWhen':'byte !=1','inlineTarget':'0x1018d8054','alternateHelper':'0x1018d6ca4'},{'primitive':'plane','byteOffset':40,'compare':'0x1018d5f14','branch':'0x1018d5f18','inlineWhen':'byte !=1','inlineTarget':'0x1018d5a20','alternateHelper':'0x1018d5fa8'}],
+         'drawRecord':{'stride':44,'xOffset':32,'yOffset':36,'xStore':'0x1018fc4a8','yStore':'0x1018fc614','xModeOffset':204,'yModeOffset':205},
+         'defaultUv1Consumers':[{'primitive':'CameraQuad','selector':'0x1018d83d0','drawPairLoad':'0x1018d83f4','zeroAffine':'0x1018d83f8','baseStore':'0x1018d83fc','halfConversions':['0x1018d8158','0x1018d8160'],'vertexOffsets':[24,26]},
+                                {'primitive':'plane','selector':'0x1018d5d8c','drawPairLoad':'0x1018d5db0','zeroAffine':'0x1018d5db4','baseStore':'0x1018d5db8','halfConversions':['0x1018d5b20','0x1018d5b28'],'vertexOffsets':[24,26]}]}
+
+def observe():
+ defaults=quad.ray.defaults
+ core=json.loads(witness.pinned(defaults.CORE,defaults.CORE_SHA256))
+ raw=witness.restored.checked(Path(core['native']['path']).read_bytes(),core['native'])
+ witness.pinned(witness.PARSER,witness.PARSER_SHA256)
+ data,sections=runpy.run_path(str(witness.PARSER))['arm64_sections'](raw,core['native']['architecture'])
+ resource=json.loads(witness.pinned(Path('docs/reference/legacy-particle-default-textures.json'),PINS['docs/reference/legacy-particle-default-textures.json']))['resources'][0]
+ require(resource['path']=='data/particles/defaultcoloroverlifetime.dds'and len(resource['mips'])==1 and resource['mips'][0]['nonwhiteTexels']==0 and resource['mips'][0]['extrema']==[[255,255]]*4,'Opaque white fallback record differs')
+ return {'format':1,'native':core['native'],'inputs':[{'path':name,'sha256':digest}for name,digest in PINS.items()],**verify(witness.Image(data,sections),core),
+         'selectors':[
+          {'mode':0,'drive':'Stored scale itself; the default fallthrough ignores offset.'},
+          {'mode':1,'drive':'Float32 clamped normalized particle lifetime S8.','arithmetic':'FMADD(scale,S8,offset)'},
+          {'mode':2,'drive':'Norm of the selected float3 plus per-particle float3. The selected float3 can be sampled through a definition curve.','arithmetic':'Float32 additions, multiply/FMA dot product, FSQRT, then FMADD(scale,norm,offset).','limit':'Physical clock/velocity bindings and conditional auxiliary paths are not certified here.'},
+          {'mode':3,'drive':'Scalar at+32 in the36-byte particle record.','arithmetic':'FMADD(scale,storedScalar,offset)','limit':'No random generator, seed or distribution is attested by this path.'}],
+         'opaqueWhiteFallback':{'resource':resource['path'],'sha256':resource['sha256'],'rgbaSha256':resource['mips'][0]['rgbaSha256'],'nonwhiteTexels':0,'conditionalCoordinateIndependentSample':True},
+         'reading':{
+          'fields':'Four FNV candidate registrations bind type bytes at definition+CC/CD and float2 scales/offsets at+D0/D8. Descriptor tags are3 and11, and the actual producer loads bytes/floats at those offsets.',
+          'defaults':'The constructor writes little-endian type bytes1/0, then copies literal float4[1,1,0,0] into the scales/offsets block. Legacy/live later overrides remain separate.',
+          'producer':'The44-byte draw record receives lookup X/Y at+32/+36 through mode-specific paths. Its+0 slot is separately populated by atlas frame logic at1018fc468, not copied directly from normalized lifetime.',
+          'consumer':'On the checked inline28-byte packet branch (context byte+40 !=1), when each checked UV1 selector takes its null-context branch, CameraQuad and plane load the draw pair, zero the affine coefficients, and use the pair as the base for each corner before FCVT to half at packet+24/+26. Nonnull optional data selects a separate affine path.',
+          'scope':'This source-only reading does not change local UVs. The already accepted default color DDS is opaque white; its coordinate-independent sampled color supports the existing substitution only under matching binding and sampling.'},
+         'nativeExecuted':False,'nativeShaderExecuted':False,'applicationBehaviorChanged':False,
+         'limits':[
+          'The alternate packet helper bodies are not attested by this reading. Static field/constructor/producer/conditional-inline-consumer linkage, not actual live emitter selection, UV1 branch admission or shader/material/layout binding.',
+          'Constructor defaults do not certify later legacy loader writes, live values or cache mutation. FNV names remain candidates rather than authenticated literal names.',
+          'Type2 auxiliary curve and physical vector/clock bindings, type3 random provenance, local phase mapping and native FPCR/FZ/rounding remain unobserved.',
+          'Opaque-white fallback content does not establish the native sampler or selected binding. DefaultFalloff remains a distinct nonwhite/mip-dependent resource whose use is unresolved.',
+          'No runtime sampling, half rounding, geometry, shader, textures, game rules or rendering storage changes.']}
+
+if __name__=='__main__':
+ import argparse
+ parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--check',action='store_true');parser.add_argument('--output',type=Path,default=OUTPUT);args=parser.parse_args()
+ result=observe();write_outputs([(args.output,(json.dumps(result,indent=2,allow_nan=False)+'\n').encode())],args.check)
+ print(json.dumps({'functions':len(result['functionSpans']),'instructions':len(result['selectedInstructions']),'fields':len(result['fieldRegistrations']),'constructorDefaults':result['constructorDefaults'],'nativeExecuted':False,'appChanged':False}))

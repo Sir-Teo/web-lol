@@ -54,6 +54,13 @@ Next establish the CPU/vertex mapping from lookup types, scales, offsets, partic
 
 Further tracing of native quad VS program **1** establishes that input **ATTR9**, a float2 at location 9, passes directly to output `TEXCOORD1.zw`, which quad PS 2 samples as particle-color UV. The vertex shader neither evaluates lookup-type enums nor computes age-derived lookup coordinates. It separately computes atlas UV from ATTR8 and TEXTURE_INFO, and swizzles the packed color input ATTR3 from BGRA to RGBA. These input-packing operations are not implied by the custom WebGL attribute name and must be implemented when building native-compatible particle geometry.
 
+The [native atlas runtime witness](NATIVE-ATLAS-RUNTIME.md) now records the CPU
+continuous-frame calculation, half4/half2 quad vertex stores, the literal
+TEXTURE_INFO binding and program 1's atlas AIR instructions. Half conversion
+precedes the shader's frame floor. The separately traced mesh path truncates
+before constructing its UV transform. These bounded observations do not establish
+live shader selection or recover missing historical LLVM archives.
+
 Open `/tools/qa/particle-color-preview.html` on the development server to inspect Crescent/Ring04 and Hoop/mote color products. The controls supply explicit lookup coordinates; they do not pretend to map animation age to those coordinates. Inspection textures use raw bytes, clamped addressing and linear filtering; native sampler/color-space state remains unresolved. The display offers raw RGB or alpha compositing over black; neither selects a verified native blend mode. The full RGBA output is verified separately in an offscreen target.
 
 The browser test compares actual GPU render-target bytes against CPU products of hash-verified PNG texels: nine source/second-texture sample pairs, with uniform/vertex coordinates and the optional quad multiplier (36 samples, 144 channel comparisons, tolerance one byte). `sample-particle-colors.py` records the texels directly through Pillow and verifies each PNG against the existing Lux source pin. The tests verify the PNG file hashes before using those reference values. The vertex path deliberately supplies an unrelated uniform coordinate; fractional RGBA tint and translucent trail pixels exercise alpha. Numerical probes use nearest filtering at texel centers; visual inspection uses linear filtering. These checks do not establish native sampler state, interpolation of varying lookup coordinates across a triangle, or the final blended effect.

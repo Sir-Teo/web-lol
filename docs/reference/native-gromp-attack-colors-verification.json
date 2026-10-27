@@ -1,0 +1,249 @@
+{
+  "format": 1,
+  "parentCommit": "753606115a77b6642027eca32a411362eaf9e107",
+  "scope": "Source-only original Gromp missile restoration, Complex source routing, raw float32 color keys and conditional premultiplying truncating BGRA routes.",
+  "source": [
+    {
+      "path": "tools/assets/native_gromp_attack_colors.py",
+      "bytes": 8326,
+      "sha256": "aa8c949910fc929ba249f42b7267d667be50c8aa1e6e7d3872c03bd19cc2ad8b"
+    },
+    {
+      "path": "tools/assets/test-native-gromp-attack-colors.py",
+      "bytes": 4678,
+      "sha256": "d96c9da0e302ed6626ce4091c2b14e0ca541bb6dbf3254a3254c66805e52ab5f"
+    },
+    {
+      "path": "docs/reference/native-gromp-attack-colors.json",
+      "bytes": 20338,
+      "sha256": "c5d66aa96e6568c38dd87453bee93e9a925854142cdfcf7f6ce27616480b4f61"
+    },
+    {
+      "path": "docs/NATIVE-GROMP-ATTACK-COLORS.md",
+      "bytes": 2277,
+      "sha256": "8c4865bfaad9fb3b9afa01f97bbc3ec247b89527bac89c4d828e52934faf049d"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "bytes": 741384,
+      "sha256": "ca67c4c97967ec101f3116cb3f64028e5bb21805f631aa75eae1def6604cfe2b"
+    }
+  ],
+  "verification": {
+    "normalGuards": 13,
+    "optimizedGuards": 13,
+    "checkReplayBothModes": true,
+    "identicalOutputBytesAndMtimeRetainedBothModes": true,
+    "conflictRejectedWithoutMutationBothModes": true,
+    "checkMissingOutputRejectedWithoutCreationBothModes": true,
+    "nativeExecuted": false,
+    "nativeShaderExecuted": false,
+    "applicationBehaviorChanged": false,
+    "cohortSourcePinsUnchanged": 539,
+    "cohortPausedForThisWork": false,
+    "inheritedApplicationAcceptance": {
+      "path": "docs/reference/offline-keyboard-focus-verification.json",
+      "sha256": "52e9fa2c4ef21ed82b1b97c0583a69fbcea205e2c7e8ae0b8cce80c6f2b515f8",
+      "identity": {
+        "schema": 163,
+        "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+        "offlinePack": {
+          "id": "9c1d6b224cb5d205b36e71557ad0dd06ca092b81cd2472ae256df3219aaf1f9f",
+          "files": 1202,
+          "bytes": 538092294
+        }
+      },
+      "checksRerunForSourceOnlyChange": false
+    }
+  },
+  "restoration": {
+    "resource": {
+      "path": "data/particles/sru_gromp_ba1_mis.troybin",
+      "wadPathHash": "0004870c2c5489aa",
+      "sha256": "22800fca4d3b9b9e9b339692e29325e13739927973399862dba7aecd7130a4c0",
+      "bytes": 1114
+    },
+    "path": ".cache/gromp-attack-color-source/sru_gromp_ba1_mis.troybin",
+    "parsedTypedRows": 114,
+    "originalTypedAndDecodedRecordsExact": true,
+    "receiptsThisRun": [
+      {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6859BDE6E142DF38.bundle",
+        "finalUrl": "https://lol.dyn.riotcdn.net/channels/public/bundles/6859BDE6E142DF38.bundle",
+        "range": [
+          1670447,
+          1671314
+        ],
+        "status": 206,
+        "contentRange": "bytes 1670447-1671314/15988652",
+        "contentLength": "868",
+        "bytes": 868,
+        "sha256": "d47642be08003ed5c92dcde940201c92b5ceecddf692cc695cd38dfaf8aa3f80"
+      }
+    ],
+    "archive": {
+      "referenceVersion": "16.18.8175716",
+      "manifest": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+        "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+      },
+      "archive": "DATA/FINAL/DATA.wad.client",
+      "chunks": {
+        "A5ACB224D573EBBF": {
+          "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/D453DEAE4D67E120.bundle",
+          "offset": 6111311,
+          "bytes": 97328,
+          "sha256": "22d0aa31b0ed668654e659b4f9e3c1bdaaa17047d724b54693afcd00658418bb"
+        },
+        "E47A4E055277648C": {
+          "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/D453DEAE4D67E120.bundle",
+          "offset": 6208639,
+          "bytes": 13663,
+          "sha256": "1093301d4369e5d3a51cca50c5417a8accb2ebf932a85d7b1abf48c9431a07f1"
+        },
+        "B80D584350985639": {
+          "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6859BDE6E142DF38.bundle",
+          "offset": 1670447,
+          "bytes": 868,
+          "sha256": "d47642be08003ed5c92dcde940201c92b5ceecddf692cc695cd38dfaf8aa3f80"
+        }
+      },
+      "files": []
+    },
+    "scope": "One original Gromp missile Troy resource; not all36 Gromp resources or any missing historical Leona certificate.",
+    "nativeExecuted": false
+  },
+  "evidence": [
+    {
+      "path": ".cache/gromp-attack-color-source/acceptance.log",
+      "bytes": 164,
+      "sha256": "994489221972e3e15cb8fff726627a18f9f0656b8aef5ae0a484463aee4a2fe1"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/acceptance.py",
+      "bytes": 2423,
+      "sha256": "332a234f8ab0518f962ad537b8e733830237e41bdcd36c38932064c9eba57a5a"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/check-normal.log",
+      "bytes": 71,
+      "sha256": "6c2f2ed0eb23428ba5bd77fecbbb1c389b1a3282bc6a3cfdfd6fe2189fff077c"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/check-optimized.log",
+      "bytes": 71,
+      "sha256": "6c2f2ed0eb23428ba5bd77fecbbb1c389b1a3282bc6a3cfdfd6fe2189fff077c"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/conflict-normal.json",
+      "bytes": 30,
+      "sha256": "d1b66eb0af9628d0e752cfe98dbbe05bd21e4c73ce43e66aa76f1bf22f43888b"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/conflict-normal.log",
+      "bytes": 608,
+      "sha256": "c47b3ea52e66baa960742cf310d8d1a35192a6cd371d42a6cf282938669dce96"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/conflict-optimized.json",
+      "bytes": 30,
+      "sha256": "d1b66eb0af9628d0e752cfe98dbbe05bd21e4c73ce43e66aa76f1bf22f43888b"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/conflict-optimized.log",
+      "bytes": 611,
+      "sha256": "394b131b43039f8239f796c581d77264366b2b22f3294cc4f5ce14d206f12341"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/fetch-receipts.jsonl",
+      "bytes": 388,
+      "sha256": "b2786cb3bf8cc62114e7d36e8c475a5ee0d07e0845f1cd00b9f2d9884252e478"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/final-source/docs/NATIVE-GROMP-ATTACK-COLORS.md",
+      "bytes": 2277,
+      "sha256": "8c4865bfaad9fb3b9afa01f97bbc3ec247b89527bac89c4d828e52934faf049d"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/final-source/docs/PROGRESS.md",
+      "bytes": 741384,
+      "sha256": "ca67c4c97967ec101f3116cb3f64028e5bb21805f631aa75eae1def6604cfe2b"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/final-source/docs/reference/native-gromp-attack-colors.json",
+      "bytes": 20338,
+      "sha256": "c5d66aa96e6568c38dd87453bee93e9a925854142cdfcf7f6ce27616480b4f61"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/final-source/tools/assets/native_gromp_attack_colors.py",
+      "bytes": 8326,
+      "sha256": "aa8c949910fc929ba249f42b7267d667be50c8aa1e6e7d3872c03bd19cc2ad8b"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/final-source/tools/assets/test-native-gromp-attack-colors.py",
+      "bytes": 4678,
+      "sha256": "d96c9da0e302ed6626ce4091c2b14e0ca541bb6dbf3254a3254c66805e52ab5f"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/guards-normal.log",
+      "bytes": 112,
+      "sha256": "1f26a8c9299f942df935fd367a5b7028e3590824d9d572a79f140d419cd10b0c"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/guards-optimized.log",
+      "bytes": 112,
+      "sha256": "a493ac245554aa981093e4f37e97d33b79424005b3f4ac41ce8e586d5963d5d1"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/identical-normal.log",
+      "bytes": 71,
+      "sha256": "6c2f2ed0eb23428ba5bd77fecbbb1c389b1a3282bc6a3cfdfd6fe2189fff077c"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/identical-optimized.log",
+      "bytes": 71,
+      "sha256": "6c2f2ed0eb23428ba5bd77fecbbb1c389b1a3282bc6a3cfdfd6fe2189fff077c"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/missing-normal.log",
+      "bytes": 497,
+      "sha256": "a6ef1226a064843dbd63f99079aebe3f80391b7d87208baec48fdd9d9ca3f487"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/missing-optimized.log",
+      "bytes": 500,
+      "sha256": "64e8defd8fb17e307b573dbcd00c7c8fa0cd871ff60188e50279eb0deb30994b"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/observe.log",
+      "bytes": 71,
+      "sha256": "6c2f2ed0eb23428ba5bd77fecbbb1c389b1a3282bc6a3cfdfd6fe2189fff077c"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/restore-check.json",
+      "bytes": 2162,
+      "sha256": "0b948cb64b1306fe8e96e9dcf5ab5cdb5b1e21333a1b103c2566cb27bd425136"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/restore.py",
+      "bytes": 3356,
+      "sha256": "fdaa1ebedb25fc45fdabc3be02818cb34495b5a689ffe0381e23acec1286627c"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/source-freeze.json",
+      "bytes": 514,
+      "sha256": "17adde2bb9b44b2eba505eeb27ceb0bc3da2e0d82443b94d823a4387a09bd6a9"
+    },
+    {
+      "path": ".cache/gromp-attack-color-source/sru_gromp_ba1_mis.troybin",
+      "bytes": 1114,
+      "sha256": "22800fca4d3b9b9e9b339692e29325e13739927973399862dba7aecd7130a4c0"
+    }
+  ],
+  "limits": [
+    "Static source and instruction replay only; no native game execution.",
+    "Live cache backing mode, parser flags, external/birth/modulation values and FPCR remain unobserved.",
+    "Local phase, emission, RNG, motion, geometry and blending remain separate from this color component.",
+    "No hit-effect, sound, root/gravity solver or full native composition claim."
+  ]
+}

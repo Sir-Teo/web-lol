@@ -1,0 +1,319 @@
+{
+  "format": 1,
+  "parentCommit": "89021eec3ef4087cdd4ab726657988d67444270f",
+  "scope": "Source-only legacy particle lookup selectors, defaults, draw-record coordinates and conditional inline CameraQuad/plane half UV1 consumers.",
+  "source": [
+    {
+      "path": "tools/assets/native_particle_lookup_coordinates.py",
+      "bytes": 22732,
+      "sha256": "8cf7802b252f4ffbd05f4c121cb43b287603fbe14ff9812da75e5ebd99b7b848"
+    },
+    {
+      "path": "tools/assets/test-native-particle-lookup-coordinates.py",
+      "bytes": 7678,
+      "sha256": "cb468266f9ce7d59fb81fd25606d6c2298f0b770bd0544e3c68d37e50eeb0526"
+    },
+    {
+      "path": "docs/reference/native-particle-lookup-coordinates.json",
+      "bytes": 59480,
+      "sha256": "2d86a1683e49e7f5ff037cb8db754014838e08cb5e3396f9096a6a0135e9c3c6"
+    },
+    {
+      "path": "docs/NATIVE-PARTICLE-LOOKUP-COORDINATES.md",
+      "bytes": 3736,
+      "sha256": "997357bd7ccb8a84fe36650545682393247174187845afab0f5f5ed98d6ed166"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "bytes": 741089,
+      "sha256": "05d8c90933f3064aa46e1c55f811be387a747521158f7cb40ac65bf86c9c41ca"
+    }
+  ],
+  "verification": {
+    "normalGuards": 17,
+    "optimizedGuards": 17,
+    "checkReplayBothModes": true,
+    "identicalOutputBytesAndMtimeRetainedBothModes": true,
+    "conflictRejectedWithoutMutationBothModes": true,
+    "checkMissingOutputRejectedWithoutCreationBothModes": true,
+    "nativeExecuted": false,
+    "nativeShaderExecuted": false,
+    "applicationBehaviorChanged": false,
+    "cohortSourcePinsUnchanged": 539,
+    "cohortPausedForThisWork": false,
+    "inheritedApplicationAcceptance": {
+      "path": "docs/reference/offline-keyboard-focus-verification.json",
+      "sha256": "52e9fa2c4ef21ed82b1b97c0583a69fbcea205e2c7e8ae0b8cce80c6f2b515f8",
+      "identity": {
+        "schema": 163,
+        "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+        "offlinePack": {
+          "id": "9c1d6b224cb5d205b36e71557ad0dd06ca092b81cd2472ae256df3219aaf1f9f",
+          "files": 1202,
+          "bytes": 538092294
+        }
+      },
+      "checksRerunForSourceOnlyChange": false
+    }
+  },
+  "scopeClarification": "The provisional reading was extended to attest the inline packet selectors; alternate packet helper bodies remain outside scope. Final 17 guards passed in both modes.",
+  "evidence": [
+    {
+      "path": ".cache/gromp-lookup-phase/0x10036637c.txt",
+      "bytes": 579,
+      "sha256": "2c5f4f0512423c89e5d5c53464648a2bcfee33b290fb623a4ec8d2097e08c2bc"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/0x10189be6c.txt",
+      "bytes": 25290,
+      "sha256": "818d018e6ed6820c930a8830013021c81c9633a25b55e7dc2f35971ee0d48a5e"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/0x1018aaf9c.txt",
+      "bytes": 36513,
+      "sha256": "b75fea93d49a52c581e05a36f8eb3975c64f2d2bbfa66bd4ea978ce98128fac2"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/0x1018ac3c8.txt",
+      "bytes": 577,
+      "sha256": "052d36ee9d9f9caa44b7c697eaeee07a076647bbe7e5f70dc72947d773e06db1"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/0x1018ac82c.txt",
+      "bytes": 11074,
+      "sha256": "30215d6e0891b86acbaa40434db29b21c018a6b6d5423a7d764eb5982cfda262"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/0x1018d5924.txt",
+      "bytes": 17316,
+      "sha256": "aa10983ddf436136db4b889632947d3a73892e0ec323376c929a16379d328fc7"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/0x1018d7f34.txt",
+      "bytes": 22069,
+      "sha256": "e64f5579ca7d497c7c07a793aa3509f61d20d90e45ca4ad2572ee6c36ce04cea"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/0x1018d9178.txt",
+      "bytes": 20007,
+      "sha256": "e579b4d98e9083516d2b7f7d1b72c98ac681750b720f7a37a1613f348742de06"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/0x1018fbd24.txt",
+      "bytes": 27207,
+      "sha256": "880f8c50275eb13426533b02d657f6926e1a812f5242e5e00f4270529757e3bc"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/acceptance.log",
+      "bytes": 223,
+      "sha256": "94d40a6fc392d49524482770137a51bc90136ae56cf72aec5c8a090e92e232eb"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/acceptance.py",
+      "bytes": 2468,
+      "sha256": "ad8723971e1f7a722f8aa6302e9e699931b59466b8a5b3e5556b16f5fe7da113"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/check-normal.log",
+      "bytes": 344,
+      "sha256": "2271be16b2370ffad9f89705322e69afc9ad9fba5f89f20e1adc810260268c08"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/check-optimized.log",
+      "bytes": 344,
+      "sha256": "2271be16b2370ffad9f89705322e69afc9ad9fba5f89f20e1adc810260268c08"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/conflict-normal.json",
+      "bytes": 30,
+      "sha256": "d1b66eb0af9628d0e752cfe98dbbe05bd21e4c73ce43e66aa76f1bf22f43888b"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/conflict-normal.log",
+      "bytes": 744,
+      "sha256": "e2482d95ec574f082ee4189c61d7123ede33b1694598627fb0ed674997ed1805"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/conflict-optimized.json",
+      "bytes": 30,
+      "sha256": "d1b66eb0af9628d0e752cfe98dbbe05bd21e4c73ce43e66aa76f1bf22f43888b"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/conflict-optimized.log",
+      "bytes": 747,
+      "sha256": "436a7dd1341e7126417a17a9499bb31b5358bbac76e0b24eda7041f45ddb007d"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/default-vector.json",
+      "bytes": 211,
+      "sha256": "91456cfd1a2c091ec406d49eeaa597f7249ea17ccfb63b5864ba1f0d0afd4f19"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/field-candidates.json",
+      "bytes": 582,
+      "sha256": "919d028c0502caf74a52ef033ed596a5649a0cd8febd0fb8fb82341d0d3385f8"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/final-source/docs/NATIVE-PARTICLE-LOOKUP-COORDINATES.md",
+      "bytes": 3736,
+      "sha256": "997357bd7ccb8a84fe36650545682393247174187845afab0f5f5ed98d6ed166"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/final-source/docs/PROGRESS.md",
+      "bytes": 741089,
+      "sha256": "05d8c90933f3064aa46e1c55f811be387a747521158f7cb40ac65bf86c9c41ca"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/final-source/docs/reference/native-particle-lookup-coordinates.json",
+      "bytes": 59480,
+      "sha256": "2d86a1683e49e7f5ff037cb8db754014838e08cb5e3396f9096a6a0135e9c3c6"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/final-source/tools/assets/native_particle_lookup_coordinates.py",
+      "bytes": 22732,
+      "sha256": "8cf7802b252f4ffbd05f4c121cb43b287603fbe14ff9812da75e5ebd99b7b848"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/final-source/tools/assets/test-native-particle-lookup-coordinates.py",
+      "bytes": 7678,
+      "sha256": "cb468266f9ce7d59fb81fd25606d6c2298f0b770bd0544e3c68d37e50eeb0526"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/find-fields.log",
+      "bytes": 1159,
+      "sha256": "308a0c11c2804042ceb9fcba29a67df067e0c8edb797cd86e3dd240c7dd44be4"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/find-fields.py",
+      "bytes": 942,
+      "sha256": "202c61456b32cdf345da146069da59b024bf502784e8500bbc642e2e5f9e881a"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/functions.json",
+      "bytes": 492,
+      "sha256": "2b2d4f26c1d01cc1c694983d47d2ac50cedb244668ee2ed6ac03950d0768f020"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/guards-normal-before-inline-metadata.log",
+      "bytes": 115,
+      "sha256": "667623b2585a7475da98415541687e3ab3842d4c235f8437d11a8a3a09642b0e"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/guards-normal-incomplete.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/guards-normal.log",
+      "bytes": 116,
+      "sha256": "e8d2b64314489f496277b4010f80dd0e8e80e7fd0f73a2a8a0392738f37a1816"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/guards-optimized.log",
+      "bytes": 116,
+      "sha256": "81b20142ee6d6d81a8a314efe4be7a6b0557e13a2f4b6eb84a34f17259cfdf48"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/identical-normal.log",
+      "bytes": 344,
+      "sha256": "2271be16b2370ffad9f89705322e69afc9ad9fba5f89f20e1adc810260268c08"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/identical-optimized.log",
+      "bytes": 344,
+      "sha256": "2271be16b2370ffad9f89705322e69afc9ad9fba5f89f20e1adc810260268c08"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/initialization-functions.json",
+      "bytes": 814,
+      "sha256": "7a8b5b2346269ce95697f1e00d865e461a7701c07341b29380486ba6c8218d1f"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/missing-normal.log",
+      "bytes": 633,
+      "sha256": "383dcd6817713acc7c12855e97dd6aa681a49b43807d25d5fd07cd33b10743c4"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/missing-optimized.log",
+      "bytes": 636,
+      "sha256": "425063fef464799b4fe4b4f7db3ef244671fc15b6c51f3e7848c7b1e66708af1"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/observe-final.log",
+      "bytes": 344,
+      "sha256": "2271be16b2370ffad9f89705322e69afc9ad9fba5f89f20e1adc810260268c08"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/observe.log",
+      "bytes": 344,
+      "sha256": "4e6da6d1ced195a3cfbc37ecaa891f2d343b96ca9f935fd4fbc980c90da1009c"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/prepare-witness.py",
+      "bytes": 2817,
+      "sha256": "6a7c2e3070504d046248f5a27154184fe44e404d05b922f0852ef1a05fd6536e"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/producer-function.json",
+      "bytes": 166,
+      "sha256": "dcc6a7d4f0fee85583a42a00c5c431be4ea7df4ad70f23d60f14e260bb758d41"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/provisional-before-inline-metadata.json",
+      "bytes": 57757,
+      "sha256": "a928ff586c3f3661453f83e2ebda467f8c79c351cb3e0a212f40b340d86ca5f1"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/read-builders.log",
+      "bytes": 424,
+      "sha256": "cd48f5a686dda80048e071ce42540ec9fde06c08114042ca959013a1dc923943"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/read-builders.py",
+      "bytes": 699,
+      "sha256": "8822f208fa86fcb1c37a308866cafb5841de65431b70b3d9a33cc9e848cfa6d4"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/read-defaults.py",
+      "bytes": 392,
+      "sha256": "5213c2530b292106f4a5482b3515a83c34c57b6f451a6064bac630b9ecd51a62"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/read-initialization.log",
+      "bytes": 702,
+      "sha256": "7fa2b83bcad92e0b4e0210ada17ac4b0c52c6f91110f6238b7fbbfc28969c52e"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/read-initialization.py",
+      "bytes": 741,
+      "sha256": "7a5e88da30a1447edc73535dbf2498ae29ee2a6c22b8b208c31f1023af658b05"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/read-producer.log",
+      "bytes": 142,
+      "sha256": "67f3f7024cf1ffbfd0f52bac79da86c799dc033da2bf4452ea39dd8d00ad68c2"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/read-producer.py",
+      "bytes": 683,
+      "sha256": "606a66fb999e8c7a369424607e40b463dd1085f20b2b01509b68147d823fc815"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/selected-words.json",
+      "bytes": 15850,
+      "sha256": "5e13b8bb7ed9cba2e47695434aea327efbec708643459c3afa56f2ae71a6db3d"
+    },
+    {
+      "path": ".cache/gromp-lookup-phase/source-freeze.json",
+      "bytes": 539,
+      "sha256": "6a5e2d37522c9e00de835e4b9053f7d421376887903d06a65d50655aacced194"
+    }
+  ],
+  "limits": [
+    "The alternate packet helper bodies are not attested by this reading. Static field/constructor/producer/conditional-inline-consumer linkage, not actual live emitter selection, UV1 branch admission or shader/material/layout binding.",
+    "Constructor defaults do not certify later legacy loader writes, live values or cache mutation. FNV names remain candidates rather than authenticated literal names.",
+    "Type2 auxiliary curve and physical vector/clock bindings, type3 random provenance, local phase mapping and native FPCR/FZ/rounding remain unobserved.",
+    "Opaque-white fallback content does not establish the native sampler or selected binding. DefaultFalloff remains a distinct nonwhite/mip-dependent resource whose use is unresolved.",
+    "No runtime sampling, half rounding, geometry, shader, textures, game rules or rendering storage changes."
+  ]
+}

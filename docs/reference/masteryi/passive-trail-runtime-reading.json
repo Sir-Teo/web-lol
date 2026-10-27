@@ -1,0 +1,46 @@
+{
+  "format": 1,
+  "sourcePinSha256": "66516333b70c1557feab0b1b69a29bc119dd3675d3b04df36484cd842100c7e1",
+  "textureTransportSha256": "877c8dcc1750c70226ba5f08c56fb3d2621dac3d75fc95e598e3c05ddf6b363b",
+  "meshTransportSha256": "a7b5eb7e27d0f0ff64627a0eb256fb8643718ccd1d12a105e61f8bdf7fcc1673",
+  "profileSha256": "6171ec50b6258a4169f86e673f1b5e30548c9df9edb4e1ea1b373cdc415cf399",
+  "markers": [
+    {
+      "system": "MasterYi_P_Trail_1",
+      "parent": "Passive",
+      "clip": "entry_85dac0b3",
+      "eventClip": "entry_c722c9e7",
+      "eventKey": "{cf40bfff}",
+      "sourceFrame": 6.0,
+      "renderedSeconds": 0.20000001788139343,
+      "renderedDuration": 1.8333333730697632,
+      "sampleCount": 56,
+      "sourceBone": "C_Buffbone_Glb_Center_Loc",
+      "glbNode": 85,
+      "glbBone": "C_Buffbone_Glb_Center_Loc",
+      "profileIndex": 0
+    },
+    {
+      "system": "MasterYi_P_Trail_2",
+      "parent": "Passive",
+      "clip": "entry_85dac0b3",
+      "eventClip": "entry_c722c9e7",
+      "eventKey": "{d040c192}",
+      "sourceFrame": 9.0,
+      "renderedSeconds": 0.30000001192092896,
+      "renderedDuration": 1.8333333730697632,
+      "sampleCount": 56,
+      "sourceBone": "C_Buffbone_Glb_Center_Loc",
+      "glbNode": 85,
+      "glbBone": "C_Buffbone_Glb_Center_Loc",
+      "profileIndex": 1
+    }
+  ],
+  "historyTicks": 16,
+  "limits": [
+    "Both complete authored Passive trail events retain separate marker identities on the same accepted current-controller pose. Two particle events do not establish two audio callbacks.",
+    "Literal source frames index identical retained default/event rendered clocks. Fixed-step crossing and one-tick first update are local display policies; native callback timing remains uncalibrated.",
+    "Full current named center-joint position/quaternion, source-X reflection and .01 VFX units remain local adapters. Both source blend4 values are explicit; omitted local/particle-local fields stay null.",
+    "Native rig scale inheritance, placement, shader inputs, visibility and cancellation behavior remain calibration limits."
+  ]
+}

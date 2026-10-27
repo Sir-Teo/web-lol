@@ -6,6 +6,7 @@ import { luxBeamBirthOffset } from './lux-beam-birth-offset';
 import { luxHoopChance } from './lux-hoop-particles';
 import { sampleParticleCurve } from './particle-curves';
 import { particleColorLookup } from './particle-color-lookup';
+import { particleHalf } from './particle-half';
 
 /** Confirmed contacts alone dispatch this local one-shot. Later pose/armed stops
  * do not cancel it. Indexed birth chance/roll consume no simulation RNG; source
@@ -52,6 +53,11 @@ export function garenQImpactParticles(
           const scale = size.map((v, axis) => v * sampleParticleCurve(p.scale, phase, axis));
           if (p.direction && p.kind !== 'ray' && velocity.lengthSq() > 0)
             scale[1] *= Math.max(p.directionMinScale, velocity.length() * p.directionScale);
+          const lookup = particleColorLookup(p, phase, roll, velocity.toArray());
+          if (p.kind === 'ray') {
+            lookup[0] = particleHalf(lookup[0]);
+            lookup[1] = particleHalf(lookup[1]);
+          }
           particles.push({
             castTick: record.startTick,
             startTick: attack.startTick,
@@ -70,7 +76,7 @@ export function garenQImpactParticles(
             scale,
             rotation: sample(p.rotation),
             color: [0, 1, 2, 3].map((axis) => sampleParticleCurve(p.color, phase, axis)),
-            lookup: particleColorLookup(p, phase, roll, velocity.toArray()),
+            lookup,
             frame:
               (p.atlas.start + (p.atlas.random ? Math.floor(roll * p.atlas.frames) : 0)) %
               (p.atlas.grid[0] * p.atlas.grid[1]),

@@ -1,0 +1,31 @@
+{
+  "recordedAt": "2026-10-25T21:49:50.798746+00:00",
+  "baselineCommit": "1578be8",
+  "frozenGameVersion": "26.18 / 16.18.8175716 / Data Dragon16.18.1",
+  "secondaryReference": {
+    "url": "https://wiki.leagueoflegends.com/en-us/Master_Yi?oldid=4016673",
+    "observedRevision": 4016673,
+    "observedPageModified": "2026-05-12T03:01:00Z",
+    "cachedHtml": ".cache/masteryi-q-cloud/wiki.html",
+    "sha256": "a50c434f229677f5e6314b0f7827a671f2f5c0bb83bfcabe00f0223cc759831a",
+    "historicalPatchNote": "V6.21",
+    "quote": "Master Yi now becomes eligible for assists as soon as Alpha Strike visually bounces to a target (even though damage is only applied at the end of the animation).",
+    "authority": "Community historical behavior evidence; not a controlled standard 26.18 native callback/timing capture."
+  },
+  "sharedAssistWindow": {
+    "recordFile": "docs/reference/assist-window.json",
+    "recordSha256": "832be0dd8caab610e2a0d32b59bbd131a95d4b6611e533296e8b99af0d8356bd",
+    "sourceUrl": "https://raw.communitydragon.org/16.18/game/data/maps/shipping/map11/map11.bin.json",
+    "sourceSha256": "ad684528be94c3f6981daa2c1ff3e32724596a24e8c4f21ab8df8c291ca980f7",
+    "mode": "Maps/Shipping/Map11/Modes/CLASSIC",
+    "config": "{4fd6b68d}",
+    "field": "AssistDurationOverride",
+    "seconds": 15
+  },
+  "localPolicy": [
+    "Record incoming champion mark eligibility when the existing local Q mark pulse is accepted, before delayed first damage.",
+    "Keep mark-only assist history separate from damage history and execution kill attribution.",
+    "Reuse the existing inclusive standard assist window, one-hop support eligibility and awarded-takedown Highlander callback.",
+    "Do not infer target-area vision, source effects/audio or an assist-gold formula from this behavior lead."
+  ]
+}

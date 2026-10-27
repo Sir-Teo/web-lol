@@ -1,0 +1,862 @@
+{
+  "recordedAt": "2026-10-25T23:46:31.635117+00:00",
+  "baselineCommit": "b55cdecd54ebd830e72d421282abf239c8e369d0",
+  "scope": "Private current Attack1/critical source playback, finite saved primary histories, frozen later-champion armor materials and Garen target-rig save repair.",
+  "ruleset": "0f89b0be5e55a8abd689f77d1bc3a214d7c6054a6c64c6710a319b02ccb3a852",
+  "schema": 146,
+  "pack": {
+    "id": "56e84bb5c13801ac845db8f42c67d1693c9aee30eb0e52c991cec77507cf56f4",
+    "files": 1098,
+    "bytes": 528932898
+  },
+  "yiWaves": 24,
+  "yiChunks": [
+    "assets/masteryi-aa-F0Sa53eH.js"
+  ],
+  "sourceInputs": [
+    {
+      "file": "docs/reference/masteryi/character.json",
+      "bytes": 104698,
+      "sha256": "3f100c1148e1006766060822298c87aed02e86e359c385fbc2c248e4255d12fa"
+    },
+    {
+      "file": "docs/reference/masteryi/audio-graph.json",
+      "bytes": 1598681,
+      "sha256": "b7879c088d3544626d70c9ecaf4abfd0aebae007db5a6ee841c0caed7a2b33e3"
+    },
+    {
+      "file": "docs/reference/masteryi/audio-decoded.json",
+      "bytes": 87738,
+      "sha256": "28ac362788bb76709a226e76d282eb25a1805a474b9bc7348cedd59bbee33a32"
+    },
+    {
+      "file": "docs/reference/masteryi-model.json",
+      "bytes": 82053,
+      "sha256": "4295bceeba96cfb15e006d392e7d0f3c480bb51bf8cff8872a9c39fc9873c7ce"
+    },
+    {
+      "file": "docs/reference/leona-model.json",
+      "bytes": 93535,
+      "sha256": "4afb6c31fc7d23c6c820d380d6ac789fada29866776dea29d4f60355b2348cc7"
+    },
+    {
+      "file": "docs/reference/ahri-model.json",
+      "bytes": 234866,
+      "sha256": "74d0b55f5aad08646fbd24f660ed533bc8fd5798e8a60dc0983d97960b47a377"
+    },
+    {
+      "file": "src/content/attack-sound-materials.json",
+      "bytes": 804,
+      "sha256": "282f923e5ff3b0001c610cb321849b75f00c1c0085199e3a1d12dd42d2c5b05d"
+    },
+    {
+      "file": "docs/reference/garen-aa-source-reading.json",
+      "bytes": 10897,
+      "sha256": "9f22a37125d16c12b9b9a8f628f95a04d80096f3b686213f0b7ba61195c1d261"
+    }
+  ],
+  "changedInputs": [
+    {
+      "file": "README.md",
+      "bytes": 13468,
+      "sha256": "1baa9d144a92b6fb05d2591174b67ce49e6115cc548898aac503bdd40795c546"
+    },
+    {
+      "file": "docs/MASTER-YI-AA-AUDIO.md",
+      "bytes": 5746,
+      "sha256": "35d56585420c2490a592f43dc22081c9157b8591d80b74018b5f8f67f64a22bd"
+    },
+    {
+      "file": "docs/MASTER-YI-AUDIO.md",
+      "bytes": 6959,
+      "sha256": "241918552252e980f0c9ca75f307144a5cd5ab1cb839f8a453ceea5831bd6c36"
+    },
+    {
+      "file": "docs/SAVES.md",
+      "bytes": 54922,
+      "sha256": "51bcafe0c8db506fbce1bc6ad3a8282b917fe17421a8cc0fed5aaa4d8f2abb4e"
+    },
+    {
+      "file": "docs/reference/champion-attack-materials.json",
+      "bytes": 846,
+      "sha256": "33a80dd502b4dc40472395608008043b65e71bec902200d7e08f85538487d3c6"
+    },
+    {
+      "file": "docs/reference/masteryi/aa-audio-reading.json",
+      "bytes": 2024,
+      "sha256": "5833aacb20ce5c3a804349f676a69c06ed33f1a12223a0a2cb15ae7b613406f0"
+    },
+    {
+      "file": "e2e/masteryi-aa-audio.spec.ts",
+      "bytes": 15678,
+      "sha256": "0457b31a3d39a5af24253890fb7402b30a3181b99905d26e0834adb1c42c9e29"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-104024387.wav",
+      "bytes": 56132,
+      "sha256": "70e934cb431b8c16c2bb80a6710cf5ac53071205d762cedcad8aac5af7065125"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-112126905.wav",
+      "bytes": 100364,
+      "sha256": "95077b1763e7374c601b6a40e711b352c43f93735bdd72a40dc66de910035c89"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-116463815.wav",
+      "bytes": 69900,
+      "sha256": "9ff5e1d6527c2cad7df2a6ee1b636e1ab2797881ff0f7490747042a66b74e853"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-126775659.wav",
+      "bytes": 68388,
+      "sha256": "94cb8b22fbe4bda5ba9b349fa7b68cb07f153b618cef269d93ad700f209649ea"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-142894910.wav",
+      "bytes": 63404,
+      "sha256": "d27e84cc0d4e527b31c068aff455bfc9af39d640dcc87b3fa690a95d5c43e223"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-146897317.wav",
+      "bytes": 198476,
+      "sha256": "b89397e1113a2ccd9d2a8c1f838ab1939928013c34c2e6904e25ea3f005556b0"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-16380216.wav",
+      "bytes": 113780,
+      "sha256": "f5f1e48e9f1781292f405bd0d69dabc7141bfcb84fe5c39eeb3b31a7a6702ce7"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-19763561.wav",
+      "bytes": 64596,
+      "sha256": "1eccd53bdfc7b7edfb04a60085d81bec2225cec09b26190cf0cc629cdc181013"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-204395837.wav",
+      "bytes": 96308,
+      "sha256": "84982ce05d45a8f4bb5fe51b6faac5892ae2906e9a021e8f57ee1d44f08ead87"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-21301409.wav",
+      "bytes": 70812,
+      "sha256": "64039d5062d5ff772cf65b36c36875deb0f172556526abec78b1b02a3fd2a632"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-215114899.wav",
+      "bytes": 198476,
+      "sha256": "0a3e29e3734ae5a5132810cfab7b2b9d0e583dce8cb3e390557b8db5780319dd"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-287617305.wav",
+      "bytes": 198476,
+      "sha256": "d99a0a5b50a385dd540febafba5b72c0de8a757a65c4e6e1868a92e7421b0deb"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-314446760.wav",
+      "bytes": 60272,
+      "sha256": "13c4b49b378b024ec3e873be204cc8caaa278b3ba5e0aecefef169416bbdbf7f"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-31491481.wav",
+      "bytes": 58780,
+      "sha256": "857a777702ad8b2a09c556b2f3e313bfb2d5534eb17dc60f04e075b2637b25c6"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-33081959.wav",
+      "bytes": 139768,
+      "sha256": "9b5078b2a972015a0f01486c1555a99ec304b1c799b6ede23e1d663608d66d69"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-33473320.wav",
+      "bytes": 74096,
+      "sha256": "5028acc98471cf3246b4c043c8712a3b8e62d3fb4fcac61a3425316be322d715"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-49002591.wav",
+      "bytes": 57068,
+      "sha256": "d1d7a95a9911e605fd70b413e9c193ee606882724a0844e1474493d56ee45f46"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-505054137.wav",
+      "bytes": 76316,
+      "sha256": "72b91334bf132d85b9c2bd445daaf907994dc5b3a2c8de7365fc7acac4cad95a"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-506082516.wav",
+      "bytes": 69564,
+      "sha256": "82730e7e5700049a3c46a329ded03d298261f0bbb376f3aef9f8668bdc375a62"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-52272044.wav",
+      "bytes": 58472,
+      "sha256": "564a40c533c0de3991e36e29648487c9fed16fcc0c71659c9774c4fa08d3bfc5"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-7394909.wav",
+      "bytes": 147508,
+      "sha256": "c8ef7edf0a538e493aab8a9baf972fa760e0d85664978997282cf05852441c1c"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-789302.wav",
+      "bytes": 62340,
+      "sha256": "1fc2eb75310bc02fd8563363cdad60011271d39b3a977f2c50d9e50d2c70e67d"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-84648135.wav",
+      "bytes": 78684,
+      "sha256": "931608c58958f086a4ae360066b2d0b293f3d12dc57193cee2193dd315611d00"
+    },
+    {
+      "file": "public/assets/audio/masteryi-aa-95976721.wav",
+      "bytes": 60620,
+      "sha256": "74ececa4374ba6d81842342ba1deeaa99858c74681995969ea95dbae4cfdbb81"
+    },
+    {
+      "file": "src/audio/audio.ts",
+      "bytes": 39253,
+      "sha256": "5c985c9dee965334388b9c1c1d6e69f3590c7e01e6f8404c8aeecac9e6e91839"
+    },
+    {
+      "file": "src/audio/float-source-wav.ts",
+      "bytes": 3165,
+      "sha256": "2f64559d375e46177e1ac7d96206173a1ffa8f74a75a32c795f6adf194b60fb1"
+    },
+    {
+      "file": "src/audio/masteryi-aa-lazy.ts",
+      "bytes": 1867,
+      "sha256": "910b23bc4f9349fbeed2d203e97896bc3fe4b6ce2d143787efcd544a0a624b43"
+    },
+    {
+      "file": "src/audio/masteryi-aa-state.ts",
+      "bytes": 2491,
+      "sha256": "512ca2f1bd8fcfbfef0f9845322bab6fd41f97aee4bf6c2e4f93f800d4c3178c"
+    },
+    {
+      "file": "src/audio/masteryi-aa.ts",
+      "bytes": 5118,
+      "sha256": "cacafada1d0d6277aba09104aecb6a3c18bffbe71c8680b3d679e6ab61effe38"
+    },
+    {
+      "file": "src/content/attack-sound-material.ts",
+      "bytes": 1117,
+      "sha256": "f19d67a78e7d3d543dd8db45ee6538ec67f236bef3a45fc5b653be1a54d1b2fe"
+    },
+    {
+      "file": "src/content/champion-attack-sound-materials.json",
+      "bytes": 80,
+      "sha256": "321dbf7c814f4abc58374e49fd9b71a873ef38d41b231baa5e7383e6b2ce717d"
+    },
+    {
+      "file": "src/content/masteryi-aa-audio-timing.ts",
+      "bytes": 155,
+      "sha256": "81decb325d051849c0264c292beee0abcf8f88fd8d787b9490973605dbcfc50f"
+    },
+    {
+      "file": "src/content/masteryi-aa-audio.ts",
+      "bytes": 25587,
+      "sha256": "8f3276d94af0f8e2ec8a849e1538405201dfab9093161fc4cc02bed9a88db92e"
+    },
+    {
+      "file": "src/main.ts",
+      "bytes": 21040,
+      "sha256": "43c1a11b51cfa218e0cacc6e86d2125cdd4851f4e51214fbc324d65992485e94"
+    },
+    {
+      "file": "src/simulation/champion-state.ts",
+      "bytes": 3901,
+      "sha256": "63d539490d39b030726fbdbecd20397a3b3a949afa712ac42ebd06d52623ee61"
+    },
+    {
+      "file": "src/simulation/masteryi-aa-presentation.ts",
+      "bytes": 4754,
+      "sha256": "92902e57c6d8a4cef10896ca1fdb6e7c8f589001788dcfd037e8f2552db8fb1a"
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "bytes": 174345,
+      "sha256": "764dfba8642483c812580559e3cba182b1bd0cf060f1de11cdb3cb5a0b1c29f0"
+    },
+    {
+      "file": "src/simulation/types.ts",
+      "bytes": 21765,
+      "sha256": "a013ad862943c1970776f5be10d781847d219a5e5e837c73231fe19129018159"
+    },
+    {
+      "file": "src/simulation/world.ts",
+      "bytes": 288836,
+      "sha256": "f6818bcf731e87eada128d3dbd011110596971424d1b26052d1eb71ac125a145"
+    },
+    {
+      "file": "tests/champion-attack-materials.test.ts",
+      "bytes": 2495,
+      "sha256": "d0b6ddd543332b1ddcd024ade256b1e8672d5439e5b494bf7dcd6fbdbe838cb7"
+    },
+    {
+      "file": "tests/leona-aa-history.test.ts",
+      "bytes": 13143,
+      "sha256": "23374ea3386dbf1cd310b209501853e328e15a1864d77f78feb5c2020d3cc2a5"
+    },
+    {
+      "file": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "1194bbef9cf73306f603d970a075b0ffa28b2b16191fad4022c9a62e1e306b6c"
+    },
+    {
+      "file": "tests/masteryi-aa-audio.test.ts",
+      "bytes": 7763,
+      "sha256": "424aa5f1ec610ffd3e77583600aa070a9bf794991678ddc1fbed1fd79a783dd5"
+    },
+    {
+      "file": "tests/masteryi-aa-history.test.ts",
+      "bytes": 3922,
+      "sha256": "87dd5a645ffe96c3088b47c5b6917c24d4630569bd06fb21d261735c71c8425d"
+    },
+    {
+      "file": "tools/assets/export-champion-attack-materials.py",
+      "bytes": 1827,
+      "sha256": "ed87367af14464a8eef7e1ddc8efc0bdc6d90b0c1b480cb9e04451ff35423c56"
+    },
+    {
+      "file": "tools/assets/export-masteryi-aa-audio.py",
+      "bytes": 11550,
+      "sha256": "8b0150180b024577be2abaed3e836e8fb941e28bcebf23c99a121c7e7f78eedb"
+    },
+    {
+      "file": "tools/assets/test-champion-attack-materials.py",
+      "bytes": 1316,
+      "sha256": "762b1f56861ba3a8b6846b38320293cb9f39334a742c9d1407335380ceb52de7"
+    },
+    {
+      "file": "tools/assets/test-masteryi-aa-audio.py",
+      "bytes": 2971,
+      "sha256": "a49623a4b5ad7248782031c5f792b53c9ae00ee24e3b11aa18d073e7e62798fc"
+    },
+    {
+      "file": "tools/qa/production-subpath.mjs",
+      "bytes": 24523,
+      "sha256": "7578e7876ab791f82e614a510ed62334e7cb54f9015709036114a77d63a69a37"
+    }
+  ],
+  "selectedAudio": {
+    "profiles": 10,
+    "uniqueMasters": 24,
+    "frames": 560386,
+    "wavBytes": 2242600,
+    "headroomMasters": 19,
+    "maximumPeak": 1.3174407482147217,
+    "originalMaterialRowsUntouched": 29,
+    "supplementalMaterialRows": 3
+  },
+  "validation": {
+    "typeScript": "passed, including final production build",
+    "nodeQA": {
+      "passed": 3
+    },
+    "python": {
+      "primaryGuardsPerMode": 6,
+      "materialGuardsPerMode": 3,
+      "modes": [
+        "normal",
+        "optimized"
+      ],
+      "actualPrimaryAndMaterialExportChecks": "passed in both modes without writes"
+    },
+    "beforeMaterialRepair": "Four new regressions failed: missing frozen Leona Metal mapping and rejected Garen target rig; retained before log.",
+    "focused": {
+      "passed": 75,
+      "files": 6
+    },
+    "broadBeforeMaterialRepair": {
+      "passed": 2447,
+      "failed": 3,
+      "files": 349
+    },
+    "broadFinalRuntime": {
+      "passed": 2450,
+      "failed": 4,
+      "files": 350,
+      "seconds": 219.88,
+      "newFailure": "An existing Flesh/pose case used Leona, whose frozen skin is Metal. Only that test fixture changed afterward: Ahri supplies Flesh, Leona adds explicit Metal coverage, and all contact/pose/future assertions remain. Its final 18 cases pass within the 75-case focused run. No runtime inputs changed after this broad run.",
+      "baselineFailures": [
+        "Missing Leona native/research check.py",
+        "Missing original distortion shader libraries/bitcode/disassembly",
+        "Unchanged Lux fifteen-stream sampler digest discrepancy"
+      ],
+      "cleanFullSuiteClaimed": false
+    },
+    "browser": {
+      "finalPassed": 7,
+      "retries": 0,
+      "newCaseTimeoutMilliseconds": 120000,
+      "executable": "/usr/bin/chromium",
+      "driverOverride": "System Chromium executable only; existing assertions, deadlines and quality retained.",
+      "initialBatch": "Three passed; late-presence setup inserted Yi before his rig was loaded and produced model errors. Interrupted that batch, retained logs/trace, prepared the rig before spawn. Six subsequent cases passed before material repair; all seven final cases passed afterward.",
+      "warnings": "Final log retains intentional failed-Yi-media warnings and late Leona loading warnings around reload. No page errors were accepted."
+    },
+    "build": "passed; existing large-bundle warning retained",
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 13,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 221,
+      "scheduledBlueRequests": 13,
+      "scheduledRedRequests": 13,
+      "scheduledWolfRequests": 26,
+      "scheduledRaptorRequests": 26,
+      "scheduledKrugRequests": 39,
+      "scheduledScuttlerRequests": 13,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    }
+  },
+  "limits": [
+    "Current ordinary Attack1/critical policy only; Attack2, Double Strike composite and ability cue dispatch remain separate.",
+    "Raw critical-hit suffix omits Play_; prefix resolution is explicitly local.",
+    "Indexed pitch/variant selection, queue-time caps, master gain and unresolved bus mix are local adapters; no native listening or RNG calibration.",
+    "No new full browser, offline/service-worker, hardware GPU/device or FPS certificate. Public production selection remains Ashe/Lux."
+  ],
+  "evidence": [
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-final-format.log",
+      "bytes": 48,
+      "sha256": "32d009509861274925c0b3854cf9d62db8e945965f93f1a78f38addc0fcc1016"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-format-v2.log",
+      "bytes": 36,
+      "sha256": "e43dcfdd31846df2b0ac17e1fdaff5a907c7248f267fee7455e442a182e9627a"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-format-v3.log",
+      "bytes": 36,
+      "sha256": "04454ad4b742508882261e556bb2e6aad035cd56377b914c5c398b1f834d13ae"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-format.log",
+      "bytes": 36,
+      "sha256": "b6c4b46ce59eb4ea094d3aee524eddbcc200a9192abee16f0a62ed356b3a8a5e"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v1/.last-run.json",
+      "bytes": 101,
+      "sha256": "ee464a8b0f942bc37c473f83dc32b8a87c9020c16e2eda7d34c83e67e45132a1"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v1/masteryi-aa-audio-all-24-s-f1d7b-n-real-browser-AudioBuffers/float-masters.json",
+      "bytes": 3535,
+      "sha256": "a8a10ff0da6d90cbff04d60b105bfff780887f158cd131b1d0edb843fdb8ed0a"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v1/masteryi-aa-audio-mid-wind-8cd8b-sted-seek-and-future-impact/attack-save-reload.json",
+      "bytes": 18603,
+      "sha256": "0801fad6c04adf1ba3533a1e4d7c449b956b30a84206fecee892a7a2f6031e65"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v1/masteryi-aa-audio-normal-a-21368-hout-synthesized-duplicates/attack-playback.json",
+      "bytes": 2525,
+      "sha256": "8899053e7ce110f4a1503164cc69ec68116791c8f607ef82e537c2f3a0fb674e"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v1/masteryi-aa-audio-ordinary-a67df-hes-each-unique-master-once/test-failed-1.png",
+      "bytes": 912399,
+      "sha256": "ad1224ed1ef3aaed727cca2eaabc81fdc0d1648a2549a81caf77b2c4cbb7bba2"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v1/masteryi-aa-audio-ordinary-a67df-hes-each-unique-master-once/trace.zip",
+      "bytes": 33714234,
+      "sha256": "2eb4d2b3f52556a3473356aa5f8f216fc64270a64cf7f0bb4cc0942846cb81c6"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v1.log",
+      "bytes": 3252994,
+      "sha256": "967a27682128be31472fb7a718038b92343ffaa63f4897240eb61f5c0ce3d6c2"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v2/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v2/masteryi-aa-audio-all-24-s-f1d7b-n-real-browser-AudioBuffers/float-masters.json",
+      "bytes": 3535,
+      "sha256": "a8a10ff0da6d90cbff04d60b105bfff780887f158cd131b1d0edb843fdb8ed0a"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v2/masteryi-aa-audio-mid-wind-8cd8b-sted-seek-and-future-impact/attack-save-reload.json",
+      "bytes": 18604,
+      "sha256": "44d70589fba14b3b5786dc22e1edda65860a93994065a5e252407c091845d07e"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v2/masteryi-aa-audio-normal-a-21368-hout-synthesized-duplicates/attack-playback.json",
+      "bytes": 2526,
+      "sha256": "afcc51c712b1b5b73833dddb137903bf8e4ee542269f4b7916258d1f27114d2c"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v2/masteryi-aa-audio-ordinary-a67df-hes-each-unique-master-once/late-presence.json",
+      "bytes": 27,
+      "sha256": "2a7f156bfc7a3e435d6932b307fdde050ac0182e871c5712b084c6427ef48bf9"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v2/masteryi-aa-failure.json",
+      "bytes": 776,
+      "sha256": "edc425752b14e1b4f03f4f6618d55e8d2d3df55ec8a6697b472644e47d108633"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v2/masteryi-aa-fog-lethal.json",
+      "bytes": 432,
+      "sha256": "ba1aba64811e3accfe400228b1fac734419024602455e653ad8f89a9dc4980ed"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v2.log",
+      "bytes": 2953,
+      "sha256": "8d946dc9ea6c2dc897d115fa02ef5931e0b5542b5b1b4ac4b362cca52ae70715"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v3/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v3/masteryi-aa-audio-Leona-us-0f1eb-i-saves-and-reloads-exactly/champion-material-save.json",
+      "bytes": 143461,
+      "sha256": "4b9183d72a6980edd8ebba111f20d76f45b2f113f731d7e15d3179394de2171a"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v3/masteryi-aa-audio-all-24-s-f1d7b-n-real-browser-AudioBuffers/float-masters.json",
+      "bytes": 3535,
+      "sha256": "a8a10ff0da6d90cbff04d60b105bfff780887f158cd131b1d0edb843fdb8ed0a"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v3/masteryi-aa-audio-mid-wind-8cd8b-sted-seek-and-future-impact/attack-save-reload.json",
+      "bytes": 18606,
+      "sha256": "db76e4237dc79926d77f9edcdc8d4101df4348228f05aa88ecf7b41bf2d80ba3"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v3/masteryi-aa-audio-normal-a-21368-hout-synthesized-duplicates/attack-playback.json",
+      "bytes": 2526,
+      "sha256": "afcc51c712b1b5b73833dddb137903bf8e4ee542269f4b7916258d1f27114d2c"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v3/masteryi-aa-audio-ordinary-a67df-hes-each-unique-master-once/late-presence.json",
+      "bytes": 27,
+      "sha256": "2a7f156bfc7a3e435d6932b307fdde050ac0182e871c5712b084c6427ef48bf9"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v3/masteryi-aa-failure.json",
+      "bytes": 775,
+      "sha256": "3777810b1d96dd8907e7ce4b3b45c40da66254a926917e19ebdcbdbb60e06f19"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v3/masteryi-aa-fog-lethal.json",
+      "bytes": 432,
+      "sha256": "0939c4a63f61e64065d1870e40fbacf45eadaa46d8cf5a586fd36ebf8502d5e3"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-browser-v3.log",
+      "bytes": 7460,
+      "sha256": "46aea6587d7fcd42fc39549041a677e014da83b74412ca6e005f77caa9acc128"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-build-identity.json",
+      "bytes": 313,
+      "sha256": "3890fbde265f598d55e78386647b7a1c392fa476287481e55cd9258f55f38c64"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-build.log",
+      "bytes": 4914,
+      "sha256": "cecec10b7bfef62a905e833379db17565666b26f16210294ef3acc126df3cc70"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-core-regression-v1.log",
+      "bytes": 427,
+      "sha256": "5dd0fb4737603f02ea778285967e31dbeb788375db0ed764d94e60dd8f50e4fa"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-export-check-optimized.log",
+      "bytes": 93,
+      "sha256": "4f20547acbd6737c1f68b3b8b835471bda64d0b87739e5ec5f8f8508f0aff974"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-export-check.log",
+      "bytes": 93,
+      "sha256": "4f20547acbd6737c1f68b3b8b835471bda64d0b87739e5ec5f8f8508f0aff974"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-export-guards-optimized-v1.log",
+      "bytes": 1099,
+      "sha256": "a341d5bba71ab2929d1b9aea2196955242888899101b22ec8b2dc1c087a9713c"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-export-guards-optimized-v2.log",
+      "bytes": 104,
+      "sha256": "3463daaeb254f2287b19acaeed27d52d21b97505e9e8206a52bb58e9dde26777"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-export-guards-v1.log",
+      "bytes": 1099,
+      "sha256": "f9c586ffde41482f848a5bdfa497c8d9dd1dad001995cac6bb70cf875e3007f8"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-export-guards-v2.log",
+      "bytes": 104,
+      "sha256": "8a2f3c6b6f0c556cb40d36395c0bd215e0cf623d7191ceb3e33b0a587185ef58"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-final-focused.log",
+      "bytes": 380,
+      "sha256": "5721cea0d14972b4e17e79b0d07133184dfeb0bc2dc2944de5147211213f4873"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-final-format.log",
+      "bytes": 86,
+      "sha256": "a66ad9438c5d8bf24790a8df65af83e8573c2aa78c0634783a01781a13189b96"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-focused-v1.log",
+      "bytes": 170,
+      "sha256": "cbe0f4f1c21f5a5c19a31b38820dd3538ae0e6af4034d179c01018d83537c604"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-format.log",
+      "bytes": 199,
+      "sha256": "c3e48e95b125e605ea4d938bb67f95aedf0f183c18b4ce946225ff898cb02dad"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-full-unit-v1.log",
+      "bytes": 5486,
+      "sha256": "c1dd47d2844c73fd7a7fb748f9e1e8fcf458aa29acf00da22076625d86f185b5"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-full-unit-v2.log",
+      "bytes": 6205,
+      "sha256": "6dd8fec3a5a71d12d1e646e096fb46a50f349adc0da46a02450ff7b7615768a7"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-node-qa-final.log",
+      "bytes": 371,
+      "sha256": "405c5943a49b44319f172dd2b1b41ddeede870df6bccfecb898f6a7924f7d6d3"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-node-qa.log",
+      "bytes": 431,
+      "sha256": "b842b45985351d047ce264cfe2536e948f2806eba949dae705118354eff43cf7"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-production-script-check.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-production-subpath.log",
+      "bytes": 2166,
+      "sha256": "38883663f707ce6fab5f80f29621957a9b6d7628ddfafd6c826cb4da7e6d16a4"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-production-subpath.mjs",
+      "bytes": 24541,
+      "sha256": "7aa7c2afd635b19bf5228a7e541b16235ca11c0f817f1111b1d899becf7a6b71"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-typecheck-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-typecheck-v2.log",
+      "bytes": 806,
+      "sha256": "6f6c3e972b7a589490db862e826dfe040f50851914a9a2cc5435f4a2b0031fee"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-typecheck-v3.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-typecheck-v4.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/aa-typecheck-v5.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/champion-material-after.log",
+      "bytes": 380,
+      "sha256": "98c413c669118207155afb0de4fea161dc9ba26892adbe2cbf69f7210c4099e5"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/champion-material-before.log",
+      "bytes": 8773,
+      "sha256": "5ba469d915da5eb1f826b87a4a02199486bc2182907d8a0327f078c3b4d2c356"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/champion-material-check-optimized.log",
+      "bytes": 41,
+      "sha256": "216669d090ac151deffbb62a491adbe4f55375179e76b95b931ba512a3e50572"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/champion-material-check.log",
+      "bytes": 41,
+      "sha256": "216669d090ac151deffbb62a491adbe4f55375179e76b95b931ba512a3e50572"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/champion-material-export.log",
+      "bytes": 41,
+      "sha256": "216669d090ac151deffbb62a491adbe4f55375179e76b95b931ba512a3e50572"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/champion-material-format.log",
+      "bytes": 194,
+      "sha256": "df9cb84d7c2d99cd2bec1f567075bbee935cedee30a60c550961ca5474bf442a"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/champion-material-guards-optimized.log",
+      "bytes": 101,
+      "sha256": "7d59a8fbca92ef540f42b6883247c3844892d23f501b6cf2621d0e535813fb81"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/champion-material-guards.log",
+      "bytes": 101,
+      "sha256": "921b60a7fd52e978fbb551cacd29df2d6708879400278e1fcc70fceeb0c6f8e0"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/decoder-metadata.json",
+      "bytes": 38649,
+      "sha256": "d56397f56f02726ef23398b020e9edf496d6ad22b7f1a1b781bb6f67c6abd089"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/event-map.json",
+      "bytes": 8320,
+      "sha256": "41c034663682dbfd8d2305bbd75d84f595aa08097a9479216f75f4a6da91f46f"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/export-aa-v1.log",
+      "bytes": 670,
+      "sha256": "d9d6e3d73a1a09019bc270b80bb7af5d3428bee2ff9071725425bee4b71606c4"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/export-aa-v2.log",
+      "bytes": 93,
+      "sha256": "4f20547acbd6737c1f68b3b8b835471bda64d0b87739e5ec5f8f8508f0aff974"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/extraction.json",
+      "bytes": 2640,
+      "sha256": "579c704813d156d4dddefc8c27fc66070c50d4f5997e615c62a446532b6a098a"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/inventory.json",
+      "bytes": 857,
+      "sha256": "1fc354c60e72e76e4490e7e80a744144891b874ac81f65076aa89a0e84c4926a"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/leona-material-fixture-format.log",
+      "bytes": 37,
+      "sha256": "acfe8afe1824d7f2a0ff262ab55bc251c9cdbd0b94ddaec48533ea84a9601f62"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1814005,
+      "sha256": "6b150349de4387327350157efc5aae9e3cc744a4a9944c18638c6a7c29e4026e"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835905,
+      "sha256": "c9682eb3513c5ffa39e094b45ba5f5814d5cfaeeb8c282f9b621cc5525606d4f"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829815,
+      "sha256": "ab1d67df93df1485d3e4e1d9788becb6914dbbf59de1b756227fae2eaa139252"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/lux-e-hit-production-lux.png",
+      "bytes": 1811893,
+      "sha256": "75ac7726d43e7d0c44a8706e158ebee5e30a4ca318efe02b6ccbe66f11d7bf2a"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/lux-e-hit-production-oracle.png",
+      "bytes": 1819072,
+      "sha256": "729db8ff1a79c9ed8c9f6344de29d953b4e98cc735c77bb9af8fe614944ec18f"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/lux-e-hit-production-role-match.png",
+      "bytes": 1352310,
+      "sha256": "84e2bb0b35b78556861ede4436db39bb530a0090b4e59e897b71c717317b97f8"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/lux-e-hit-production-subpath.png",
+      "bytes": 1826166,
+      "sha256": "63dcd7c3ae60aaae33e33a5ba9d3b57323f7ee8a1ddb67383651adfc05d3217f"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/lux-e-hit-production-ward.png",
+      "bytes": 1808793,
+      "sha256": "f444f44969ab2725527af99c2946d1a469c8a407143d5871742b040caec7b1ad"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/masters-mtimes-before.json",
+      "bytes": 4815,
+      "sha256": "f5e4a479e6757b4822268a36eb770cc8c3f7dfecf64e5111a1c9325118f4fe22"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/skin-sfx.json",
+      "bytes": 2061,
+      "sha256": "fbd9533ed6ef1a242ed9c14c73aefa2fe89482e6301a8a96ecf86e89cbcb01df"
+    }
+  ]
+}

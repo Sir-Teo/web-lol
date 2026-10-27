@@ -223,7 +223,7 @@ export function advanceOwnedCompanions(w: World): void {
       target &&
       target.kind === 'monster' &&
       w.alive(target) &&
-      w.vulnerable(target) &&
+      w.targetable(target) &&
       target.monster.phase !== 'returning' &&
       w.visible(target, owner.team) &&
       distance(owner, target) <= P.targetRange &&
@@ -244,7 +244,7 @@ export function advanceOwnedCompanions(w: World): void {
         (u) =>
           u.kind === 'monster' &&
           w.alive(u) &&
-          w.vulnerable(u) &&
+          w.targetable(u) &&
           distance(u, center) <= P.cleaveRadius
       );
       for (const u of victims) w.damage(owner, u, amount, 'true', 'companion');

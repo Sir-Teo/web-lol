@@ -4,6 +4,25 @@ import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
 import durations from '../src/content/champion-clip-durations.json';
 import { mobilePose } from '../src/render/mobile-pose';
 import { RECALL_DURATION_TICKS } from '../src/content/rules';
+it.each([
+  [0, 0, 'idle'],
+  [0.01, 0, 'idle'],
+  [-0.01, 0, 'idle'],
+  [0.006, 0.008, 'idle'],
+  [0.010000000001, 0, 'run'],
+  [0, 0.010000000001, 'run'],
+] as const)('fixed-step movement reuse keeps the exact pose boundary at (%s,%s)', (x, y, kind) => {
+  const w = new World(false, { ...PRACTICE_FIXTURE, initialUnits: [] });
+  const u = w.hero;
+  u.previous = { x: 0, y: 0 };
+  u.x = x;
+  u.y = y;
+  w.tick = 1;
+  (w as any).advanceAnimationClocks();
+  expect(u.animationTimeline!.primary.kind).toBe(kind);
+  const sampled = mobilePose(u, w.player, w.tick, 1, durations.ashe);
+  expect(u.animationTimeline!.primary).toEqual(sampled);
+});
 it('selects death, cast, recall, attacks and locomotion with explicit source clip time', () => {
   const w = new World(false, PRACTICE_FIXTURE, 'lux'),
     u = w.hero,

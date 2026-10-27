@@ -1,0 +1,1183 @@
+{
+  "recordedAt": "2026-10-26T01:09:00.438517+00:00",
+  "baselineCommit": "9dc31f6be21116579476f90400ed3e3cea522ff6",
+  "scope": "Private complete Q texture-mip/software decode and lossless native SCB data; no public assets or runtime binding.",
+  "schema": 147,
+  "ruleset": "15e8aba4de030fcb97f98588280168ac9597461f72424209585f06c19a159556",
+  "pack": {
+    "id": "574c85f07036eed2d7e4f158f403725f524b5aa7ef5f44896214055c1b5ed414",
+    "files": 1102,
+    "bytes": 529793761
+  },
+  "runtimeChanged": false,
+  "decodedRecord": {
+    "file": "docs/reference/masteryi/q-particles-decoded.json",
+    "bytes": 148372,
+    "sha256": "783317cf9c44a36b3e07fbda8d27829ec6ae674119fcb5c8fddac46a959360fd"
+  },
+  "changedInputs": [
+    {
+      "file": "docs/MASTER-YI-Q-PARTICLES.md",
+      "bytes": 7085,
+      "sha256": "170d5ce23cb787cbba28e608fd94a6fd71b5922c9a55d1f86f36d59e54e72a0b"
+    },
+    {
+      "file": "docs/reference/masteryi/q-particles-decoded.json",
+      "bytes": 148372,
+      "sha256": "783317cf9c44a36b3e07fbda8d27829ec6ae674119fcb5c8fddac46a959360fd"
+    },
+    {
+      "file": "tools/assets/decode-masteryi-q-particles.py",
+      "bytes": 10246,
+      "sha256": "6200734acec495bca5dd1e850c650932282ff8eee8be1970a60b734c2d088719"
+    },
+    {
+      "file": "tools/assets/masteryi_q_decode.py",
+      "bytes": 7284,
+      "sha256": "7662d39e3d65db726d0fa61ecbe09b0738937f8e39edc977ede664fc4bbce3b4"
+    },
+    {
+      "file": "tools/assets/test-masteryi-q-decode.py",
+      "bytes": 8686,
+      "sha256": "3006f23cd8105fac3a45b2a6479853f2620182c5d78fb66c0ac984161c114758"
+    }
+  ],
+  "assets": [
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/433b18542280cbff-mip0.png",
+      "bytes": 2221,
+      "sha256": "6269727efbc927715e06df599096859f1d3ab4bdff700267014d6d58b9e9bd75"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/433b18542280cbff-mip1.png",
+      "bytes": 553,
+      "sha256": "379c81f6121ba750dea3a530de72eb39aceaf5f6736f45ce8a30152f162e0770"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/433b18542280cbff-mip2.png",
+      "bytes": 211,
+      "sha256": "e9e44c2f64671fb708d642ef3e361382b899162ccff8c10b98584dd974aa89db"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/433b18542280cbff-mip3.png",
+      "bytes": 140,
+      "sha256": "3563a35a4b947f03a8b7e4b54fa5df7b420814cb5f89018e3c954fc710988166"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/433b18542280cbff-mip4.png",
+      "bytes": 101,
+      "sha256": "014a5073cc71831465a2d6a85577dad2a2d250030c4255c2359f988b39f1683a"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/433b18542280cbff-mip5.png",
+      "bytes": 89,
+      "sha256": "c63c0d85398507789316fc914d849d606ed67babf16a0fa858db00bcbd7b0a3f"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/433b18542280cbff-mip6.png",
+      "bytes": 78,
+      "sha256": "383f0685fbf2893991b40672abc58619538f0b0b77d6cf4920bb29cf0c70f04d"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/433b18542280cbff-mip7.png",
+      "bytes": 70,
+      "sha256": "54b8ee469ca3f7b99179cb12bcc9e9e8122153ecc966e40441eb0243e1090bc1"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/1feb1bfe0ace203e-mip0.png",
+      "bytes": 2894,
+      "sha256": "e6c7935cc2708281642549f9859c2fe8c972d5dd6b0261925096eeef57d3143d"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/1feb1bfe0ace203e-mip1.png",
+      "bytes": 611,
+      "sha256": "13c244324b942f24c138e141671292cf200f8b7da26d1e9282a716e544fab034"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/1feb1bfe0ace203e-mip2.png",
+      "bytes": 171,
+      "sha256": "0626910abc038885c09beb3c1737d1fb377069a2b30010684b24d20d0f429245"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/1feb1bfe0ace203e-mip3.png",
+      "bytes": 119,
+      "sha256": "3b7bf845d967bf74884899c6a1b77fa367e3a42bfc4940f5608b2759bd789a3a"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/1feb1bfe0ace203e-mip4.png",
+      "bytes": 94,
+      "sha256": "84c605410acf61bab6ebfd9cb30cd536d8ea00124b1a269d761b07b4d3a1d173"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/1feb1bfe0ace203e-mip5.png",
+      "bytes": 80,
+      "sha256": "6af91c2f91be9cb81becb2e854b67134c601a31ca20ee033daf13fd0a29d52fb"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/1feb1bfe0ace203e-mip6.png",
+      "bytes": 78,
+      "sha256": "b1322c0ac842449e3a2a8a4d5985c1ca4cd4053331295a60cc70ae7073d757da"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/1feb1bfe0ace203e-mip7.png",
+      "bytes": 70,
+      "sha256": "d3a9e9f7cea7603097c24f14743e0fa29c0e56eb2fff54e76d49c4d98b79f82f"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/f7b790bffcb906a6-mip0.png",
+      "bytes": 5023,
+      "sha256": "8f4cae2c46e539fd3b33d06277384485d9eba2526b48dd8221efba561291c56b"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/f7b790bffcb906a6-mip1.png",
+      "bytes": 1789,
+      "sha256": "faecf2b5397af71bfa58271ea8b6d48b2cfd452b7d8ea01ed68d687ca97f0cf1"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/f7b790bffcb906a6-mip2.png",
+      "bytes": 679,
+      "sha256": "14949dd0139cfd7915fcf0a75316812d449fad438f9f831242dfc2014553c0fb"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/f7b790bffcb906a6-mip3.png",
+      "bytes": 268,
+      "sha256": "d4b4b35b3b67d80a0f70e98589dc9cb9a06f9e8f0431a608b780d4f5b20d31d0"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/f7b790bffcb906a6-mip4.png",
+      "bytes": 147,
+      "sha256": "0503f1644359d15f70dc1e0b5de18f7602fa31f216211a65266c87e37eac09ff"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/f7b790bffcb906a6-mip5.png",
+      "bytes": 91,
+      "sha256": "f309ae1ff6beb00d612054f293d76ea2cd98be38e2b0d7b0bd67c89c49e50b9d"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/f7b790bffcb906a6-mip6.png",
+      "bytes": 78,
+      "sha256": "ee6f793e99a81d68671760f34191809d9094ef8a5f388cd8b7f1c2840aab21d4"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/f7b790bffcb906a6-mip7.png",
+      "bytes": 70,
+      "sha256": "4b7380252783e9c27a136d1d210fafa22c4abd4d2ffc998306b3e4bf4fa07634"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/dddf936bb11fcf32-mip0.png",
+      "bytes": 4454,
+      "sha256": "01f9e2f659f01fa215297b5033983fbed65b61cd26236b60b4afb908fcfef2b0"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/dddf936bb11fcf32-mip1.png",
+      "bytes": 1605,
+      "sha256": "68d7a4784e450a9501aeeaf2687013ac332d89e0eb9861bf78b56253f569b1db"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/dddf936bb11fcf32-mip2.png",
+      "bytes": 611,
+      "sha256": "542464ff4a813fa053ee8d8d3ed15808ce8cf7406681058c3720f11b374b3b15"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/dddf936bb11fcf32-mip3.png",
+      "bytes": 277,
+      "sha256": "0a81cd7447eb2b66d30a358a2a9a93ebfa4e39626588545df38f1f6d974f700e"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/dddf936bb11fcf32-mip4.png",
+      "bytes": 153,
+      "sha256": "f51b696762d5604d949eab554e6083c9edb57df42965e73df851c883ba1d2d9d"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/dddf936bb11fcf32-mip5.png",
+      "bytes": 105,
+      "sha256": "7834dfaa0013e1503a8114111743ca353eb9fcb7886276b02fa014c2b6453139"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/dddf936bb11fcf32-mip6.png",
+      "bytes": 78,
+      "sha256": "ea8add2a348f14fbdfb9c54256a9cc7a761159216fa07deec67010bba63d155c"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/dddf936bb11fcf32-mip7.png",
+      "bytes": 70,
+      "sha256": "334148c02683dee27c586e4c92cb7a9a58ee7c7ac6d6ad3b677613b7c3492b3d"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/48e276ae1f73662f-mip0.png",
+      "bytes": 78,
+      "sha256": "4a4a78d33e86973a6099724ae2544c996a18132e911cc98130c4ea32bba45daa"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/48e276ae1f73662f-mip1.png",
+      "bytes": 77,
+      "sha256": "0f76f6e2c4a6919dc1149a49bbc447cad946b6b719840358b80fa33d1b92b512"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/48e276ae1f73662f-mip2.png",
+      "bytes": 70,
+      "sha256": "c19578c11b5b95ae0c59bddc98471df7ff50b77baaecb85f1bebf7334538c0c0"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/fc9dc17f3b485a42-mip0.png",
+      "bytes": 243,
+      "sha256": "4a7719477655047053c09fb31c2182426fb6b096f60c59a9c93d93c71a6f563c"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/fc9dc17f3b485a42-mip1.png",
+      "bytes": 155,
+      "sha256": "ce26cf59bfbff0ef16d63619e7cadfeb574ddd422bab279f3d5d13258393cf7f"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/fc9dc17f3b485a42-mip2.png",
+      "bytes": 123,
+      "sha256": "ab38da91376dee0427a707bebd6de97bbfe0f27e6d03c09c4af51cf89809270a"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/fc9dc17f3b485a42-mip3.png",
+      "bytes": 100,
+      "sha256": "c2160f4319c036d819e8fe67278cf2aa00269803819950d349b1411ace9aedb2"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/fc9dc17f3b485a42-mip4.png",
+      "bytes": 83,
+      "sha256": "2e8dad89ee88c38beab83aeed626039c550167c4e94345d057bb494360eeaca2"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/fc9dc17f3b485a42-mip5.png",
+      "bytes": 78,
+      "sha256": "92ecb23d0ac165452edc5b6532a3e1e1dda074e82825aa5f170a087a10347b54"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/fc9dc17f3b485a42-mip6.png",
+      "bytes": 70,
+      "sha256": "38f60efb604246cf7990b5fae79e55000d96cfd6aecec4a9c861d4f9ac5fdb09"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/48a39dc90b87ae45-mip0.png",
+      "bytes": 306,
+      "sha256": "0c9fdc2c09ea8b9b946f9aeb0e74956d73f4b7bafbf90215ce01b81a90403fff"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/48a39dc90b87ae45-mip1.png",
+      "bytes": 175,
+      "sha256": "1ca7f705cd5471db41d399df79a1603d2db436af651556a0d5a08d9b3234b1f6"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/48a39dc90b87ae45-mip2.png",
+      "bytes": 135,
+      "sha256": "5943ffee0fead41fccb7505370e573df4882036abb0c50b1b0919c52330d4bc9"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/48a39dc90b87ae45-mip3.png",
+      "bytes": 107,
+      "sha256": "d68e12c8575b1355d5557e15ff2b3454ca8ff2e9359f26fddec1df9d7f8600ea"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/48a39dc90b87ae45-mip4.png",
+      "bytes": 89,
+      "sha256": "c421faf2efd8032eeeee2eb1898fd3d9c74db84a18a2bf2c90e4ef17f1d13868"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/48a39dc90b87ae45-mip5.png",
+      "bytes": 78,
+      "sha256": "cc20a649a164e5aeebe4a483eafee2856ea4002e79d73f053b9c9f7c05ff5533"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/48a39dc90b87ae45-mip6.png",
+      "bytes": 70,
+      "sha256": "c6e3b124817ae4af814ad1a3b12bc0adbab8e6ff90984a102909bddd2ee96638"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/dba30aea46f8d87f-mip0.png",
+      "bytes": 251,
+      "sha256": "3898d5d2750e8e8ef8425bffca98bff788ceab3d9ba11294237e2730cffbb33d"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/dba30aea46f8d87f-mip1.png",
+      "bytes": 159,
+      "sha256": "fff4f0195841889c44fc1b05289d6295a3c5d5d412444d42ef8d71cd44ee7186"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/dba30aea46f8d87f-mip2.png",
+      "bytes": 128,
+      "sha256": "401426e695db891419bb425198048e89330596da2fb654309d4a3be1b4598f5d"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/dba30aea46f8d87f-mip3.png",
+      "bytes": 103,
+      "sha256": "1a1c3b44f40ac3ff8804d864b87a402132bf357c368fc3c146c2f64f974e9d7b"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/dba30aea46f8d87f-mip4.png",
+      "bytes": 89,
+      "sha256": "05effaaee2286bb1dc289ec7ad51fcb5446eda5bcbccceae68814f28d5c8147f"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/dba30aea46f8d87f-mip5.png",
+      "bytes": 78,
+      "sha256": "65db1d24b33a9f81321ab51bdb6be073393c0702641bba889ba0e4aa7db5d5e0"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/dba30aea46f8d87f-mip6.png",
+      "bytes": 70,
+      "sha256": "b61c4b9393798573affecf04e00174f0cf52030ac253d2df9f23f4e47779bf51"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/3444655f66070a9f-mip0.png",
+      "bytes": 29919,
+      "sha256": "7232f2ac6b51a2e432e23f11e92b8525fe759e476a5560054091944ae165dcc1"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/3444655f66070a9f-mip1.png",
+      "bytes": 10959,
+      "sha256": "c3cae54fe1d7ad24d1843269b864e6d4e647a1ce044b839e0493783a6c1bf2cf"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/3444655f66070a9f-mip2.png",
+      "bytes": 4234,
+      "sha256": "535c407f97bffebd5e31430049b491d183514cf28c930cc06be7d89fde6a8ece"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/3444655f66070a9f-mip3.png",
+      "bytes": 1498,
+      "sha256": "798b7317b5bea21c642a79af410e87200d55323dc0630f743a71b5e3cdaf1fd1"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/3444655f66070a9f-mip4.png",
+      "bytes": 535,
+      "sha256": "f7a954305bf4841aa511956e8878007f89eece0c55f63252a5dc9cc9a348cabb"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/3444655f66070a9f-mip5.png",
+      "bytes": 185,
+      "sha256": "d9eacaeaac2206a442cb82472fdbd12c70a1ba8bf9de84a2be42afcee9448ed1"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/3444655f66070a9f-mip6.png",
+      "bytes": 101,
+      "sha256": "bef35e752e43ac94ffebf4a01f42dfc20ae02f6762696d0d728de4a4fb5bbc24"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/3444655f66070a9f-mip7.png",
+      "bytes": 77,
+      "sha256": "93924bd595969250e8de1ce2c925d889d028f58e3595e79dc76f366b9d3b1bcb"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/3444655f66070a9f-mip8.png",
+      "bytes": 70,
+      "sha256": "7bfdcf72f2b941c02d869fe36106adc4a5726c3dfefc80d52c1b1ed5bb8baa42"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/342ac0a051e1bd17-mip0.png",
+      "bytes": 29379,
+      "sha256": "49b95062aa1217995a6c0b6a3da6d015b0add7b1f87188812a0c006645a04789"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/342ac0a051e1bd17-mip1.png",
+      "bytes": 9739,
+      "sha256": "0ca1b8bb21d4c4dba553a5d089728e2ca60d45434499161d23825532ef90c047"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/342ac0a051e1bd17-mip2.png",
+      "bytes": 3300,
+      "sha256": "49208da211279d8892d963d67ece2932ecfe5b1071f05a9acb246053d438225a"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/342ac0a051e1bd17-mip3.png",
+      "bytes": 1119,
+      "sha256": "5c572c5f11fbdfae977f02f8dd8828ec4a0e7e8ab34408e5eafe1363aa4d9418"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/342ac0a051e1bd17-mip4.png",
+      "bytes": 415,
+      "sha256": "6a1e6a99c8a3e95c38ef84850f2e3532e2321f2076c824366b1dc2f4d8702855"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/342ac0a051e1bd17-mip5.png",
+      "bytes": 182,
+      "sha256": "970525ca540a4139bd5b75bc678577dda16b3e8acf2487f59925cd04f1ce3fe5"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/342ac0a051e1bd17-mip6.png",
+      "bytes": 96,
+      "sha256": "db219b0a7b345488e076190611a2d6d9c004483da45e0e7b911c582d3b2b17e4"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/342ac0a051e1bd17-mip7.png",
+      "bytes": 77,
+      "sha256": "a830753b57abef09ab9061a87c000dddf42b0be3dfd0ec4e6f64a193826a5f5f"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/342ac0a051e1bd17-mip8.png",
+      "bytes": 70,
+      "sha256": "45fd41d6cb9170a96cff9fa344f040d0e8b1d3f0319c2753db480b4b5f4208f6"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/a48d50edd6869141-mip0.png",
+      "bytes": 145167,
+      "sha256": "16810eeb0010dd5d47eaa772bf8617ac7ebecfd65acf1eb1df9fca312df4df16"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/a48d50edd6869141-mip1.png",
+      "bytes": 40942,
+      "sha256": "c9c520d609d9e493968e6c0083611d26c7a46c9a6e49b1c7cfd031c6abe890d4"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/a48d50edd6869141-mip2.png",
+      "bytes": 12459,
+      "sha256": "81bd1761d796e063a614eba9222a4a5e77217c8c74b1da85f3b24982d4f76b92"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/a48d50edd6869141-mip3.png",
+      "bytes": 4241,
+      "sha256": "239eb263742ff0fd3dce4227ef8fc5b8740c1d72c53f3abe6c8778060cbf47ad"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/a48d50edd6869141-mip4.png",
+      "bytes": 1480,
+      "sha256": "9c3fe3ed1a60acff11e7717897efde7d37e1711d742efbfc3a5dc40bc10120e0"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/a48d50edd6869141-mip5.png",
+      "bytes": 610,
+      "sha256": "ee75da5481dba016d7847dc4dbcec6390f021496cfb67dc26d5db1c7dbbbae1b"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/a48d50edd6869141-mip6.png",
+      "bytes": 256,
+      "sha256": "148994ec7b57713899b58a1f82b156cbf38e6816471d798936759450265663b8"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/a48d50edd6869141-mip7.png",
+      "bytes": 117,
+      "sha256": "ca34f8762224b6bcbb876feff746db92dbe68743dce4e63bd4689f8cff119831"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/a48d50edd6869141-mip8.png",
+      "bytes": 78,
+      "sha256": "456544dcab8313a1c00953ca2567904d137818d9a57e5cc8fd5dc3a36b5162b2"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/a48d50edd6869141-mip9.png",
+      "bytes": 70,
+      "sha256": "70023ed9eebfa09afcb2da9e8b0cba242c5ae47ad147f517ced811714c73b66f"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/b5d1506e0819aaa8-mip0.png",
+      "bytes": 86145,
+      "sha256": "7e3b877282c270509826ddf058bdbd0aefc7f8e0e32cec6ec39b33823046d5ad"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/b5d1506e0819aaa8-mip1.png",
+      "bytes": 27318,
+      "sha256": "aa730e905eb507e5a1556d3e099ee80a45c3cea6d229254f63e07a5bba45ed5f"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/b5d1506e0819aaa8-mip2.png",
+      "bytes": 9051,
+      "sha256": "338663c07d0b1842a5e14ea5edb9b76ae353dd1d9d0896740c7748add36f6eef"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/b5d1506e0819aaa8-mip3.png",
+      "bytes": 3017,
+      "sha256": "d2dc3793c0a3c80d336da2c51452402fd732e24f365699b0c252a7dd16cedff7"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/b5d1506e0819aaa8-mip4.png",
+      "bytes": 1080,
+      "sha256": "ba18c559898a9c7cff2965fd1817b068e6aed6aa5926623bfdce60cee8183e40"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/b5d1506e0819aaa8-mip5.png",
+      "bytes": 482,
+      "sha256": "e16771679ce32118678caa85d258bce8812034a8797cdbbb456c9cd178cb81c6"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/b5d1506e0819aaa8-mip6.png",
+      "bytes": 224,
+      "sha256": "af0bf586ce71ba5e054a73986dc111047c9f6a6f438a642cce5bbe750840a66f"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/b5d1506e0819aaa8-mip7.png",
+      "bytes": 114,
+      "sha256": "053a8728b7ee42a37a5dc07bf0fc38ba170326c1e411037a996aacc10980e23d"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/b5d1506e0819aaa8-mip8.png",
+      "bytes": 78,
+      "sha256": "f855876dd4819ad7a6c09700557a00283c9653bd5588538a62092862a907a55f"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/b5d1506e0819aaa8-mip9.png",
+      "bytes": 70,
+      "sha256": "3d22f8a9352833205a939e46acdad509542e03f539eb28701022b509e427accc"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/4fecd70af75bf6ca-mip0.png",
+      "bytes": 54880,
+      "sha256": "6a3732d88b1b6058df6a1d9bb07ba2fdfb1367e360ab63be3a11e7195ebc3d76"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/4fecd70af75bf6ca-mip1.png",
+      "bytes": 16377,
+      "sha256": "79db8f5cef47ef79ee115ff33831c7e452fa3e24c41a2b04a4cde4cc2308fcb3"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/4fecd70af75bf6ca-mip2.png",
+      "bytes": 5495,
+      "sha256": "d1fab4931bf850c9a1d24f87fca230846e3b00071aa176dfe238c15e4017f27d"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/4fecd70af75bf6ca-mip3.png",
+      "bytes": 1894,
+      "sha256": "09fbfd8e7cfdf9c615c705aba9ac77f18384515ad1741647e860553fb3ff7666"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/4fecd70af75bf6ca-mip4.png",
+      "bytes": 691,
+      "sha256": "d026354f0d5781333c7ce41aef15a79b593a584a7a8ed33159f6b69c16466430"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/4fecd70af75bf6ca-mip5.png",
+      "bytes": 300,
+      "sha256": "4cf71f0b41ca4047541ce5da39c6679d46dc230eb3b50f7732809337ccd6142b"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/4fecd70af75bf6ca-mip6.png",
+      "bytes": 178,
+      "sha256": "18046d1190222085ffd0c29468a9524f35d9fa11e128e363b97ceb0dab3f5676"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/4fecd70af75bf6ca-mip7.png",
+      "bytes": 109,
+      "sha256": "0fce99087548f46779ae1332ecde2b3b7760c89cd5042985fdf22bb3066351e2"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/4fecd70af75bf6ca-mip8.png",
+      "bytes": 77,
+      "sha256": "731b357aa0a43a669ef2e7724e21b6c74efbb7db0b20531815366522d60c97e2"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/4fecd70af75bf6ca-mip9.png",
+      "bytes": 70,
+      "sha256": "5117c23ca05223b69643187b7c51f26027cfbd4bc15eea6588e739cf9b866d9d"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/e8148d5a7ddf3fbf-mip0.png",
+      "bytes": 8631,
+      "sha256": "234af450b528155e930feef04161984a2853f8e376ee5847a9840ce3a3daa365"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/e8148d5a7ddf3fbf-mip1.png",
+      "bytes": 2838,
+      "sha256": "a0f51deec4fc10483254f60acad70bcc7dee565e9a787225986c4bd2685ca23f"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/e8148d5a7ddf3fbf-mip2.png",
+      "bytes": 939,
+      "sha256": "afcc374250f40687d96a631f91f887dae68d01fa41178d0f7cb1c9745893e41d"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/e8148d5a7ddf3fbf-mip3.png",
+      "bytes": 369,
+      "sha256": "0ddd84e9060aac2e9b9b4fbf59d6753c41f897a5ce11ebc7aecc3e92c0d8e9d4"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/e8148d5a7ddf3fbf-mip4.png",
+      "bytes": 180,
+      "sha256": "bdf1ee2c3f862fe66a9f05eed9324860f74e59d041b07569c71ac9a546dcde4a"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/e8148d5a7ddf3fbf-mip5.png",
+      "bytes": 107,
+      "sha256": "fa3a6dce606065584d6c48bb53b6fc1759e716dd0e245541dc0a6b606737f0c3"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/e8148d5a7ddf3fbf-mip6.png",
+      "bytes": 82,
+      "sha256": "0bd47fcd98df6cbadf4e2f912c5510409e4b26d764362308de39f7dd6b47ff8b"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/e8148d5a7ddf3fbf-mip7.png",
+      "bytes": 74,
+      "sha256": "57f05d0919bac2fbada5eb9676c6f1ebd3a2ba0b6b4a6c8b1bcecf82591b4f4a"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/e8148d5a7ddf3fbf-mip8.png",
+      "bytes": 70,
+      "sha256": "714cbe4eb8019407ba38517862496aa957232454dc467a5cba4e7c4229e4f9ce"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/76f9beecc8b5f2c1-mip0.png",
+      "bytes": 117028,
+      "sha256": "daa08c73f4300a394ca8fdfa239e182a6858da67dfbc4315386cfbc4e9b32386"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/76f9beecc8b5f2c1-mip1.png",
+      "bytes": 36552,
+      "sha256": "82bf4f13a6b3c18ebf4edc03006507067ebeb0202946457c0ecc07510a1f2e57"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/76f9beecc8b5f2c1-mip2.png",
+      "bytes": 11291,
+      "sha256": "1f3973f22c395ca85da5e06e4cad34ed0efbd940fe687a056ee624b42263fdb2"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/76f9beecc8b5f2c1-mip3.png",
+      "bytes": 3513,
+      "sha256": "a8ad6ac723dbbfe73ec9348c7dd5687cce04ef1bbf30753d131fdff5253f32ae"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/76f9beecc8b5f2c1-mip4.png",
+      "bytes": 1182,
+      "sha256": "fcf33efbe74ae383d223c42021b8065d19f2e039cd2278e25ed202243744d223"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/76f9beecc8b5f2c1-mip5.png",
+      "bytes": 446,
+      "sha256": "62982b88626396d008934d90032ae4e95f9f7999d412a8624efbe34d07f09652"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/76f9beecc8b5f2c1-mip6.png",
+      "bytes": 175,
+      "sha256": "1d8b6a318345ea734792c31b0c98282f2009308d2ad9a8b09d321cace2708a20"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/76f9beecc8b5f2c1-mip7.png",
+      "bytes": 95,
+      "sha256": "055e2110ce12223ac1c11e4e2518ea3f29278167a3c4f5d90f61381264713356"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/76f9beecc8b5f2c1-mip8.png",
+      "bytes": 74,
+      "sha256": "09a76e539fc125a5c5b80dfa42e953b2fa9052ec84575112745065708a8a7a3e"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/76f9beecc8b5f2c1-mip9.png",
+      "bytes": 70,
+      "sha256": "16f6df10210382d04ee9edf4d73efd49eb4647241866dfc252b5626cd1199318"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/05dd3b0814357a70-mip0.png",
+      "bytes": 61457,
+      "sha256": "b19d1cf3eef099f9b6d980b61e7230fb6a111908938624beff101217ecc5b1fb"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/05dd3b0814357a70-mip1.png",
+      "bytes": 20325,
+      "sha256": "7e0e86edcfd2624d2bce2d923f3af6c882f0df562ae7e1f5b223971fde1b0a82"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/05dd3b0814357a70-mip2.png",
+      "bytes": 6409,
+      "sha256": "1c021ea84269c67faf9e0e732fbb36a9c7df36dbfd90c2c6f2dabf6cad8c08c7"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/05dd3b0814357a70-mip3.png",
+      "bytes": 2290,
+      "sha256": "6ae2719b83ba3f4b84457826443837124a6ab06f1f184c9c31d66653c1458374"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/05dd3b0814357a70-mip4.png",
+      "bytes": 808,
+      "sha256": "a6c4d98f70e73c324583673e7d4f748db3819f67c60bd8eb2fae27a815d56775"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/05dd3b0814357a70-mip5.png",
+      "bytes": 309,
+      "sha256": "0b6d21888a114aa6bed60c6a30e633649554746df6ba59c6b311bb76b0e94a9d"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/05dd3b0814357a70-mip6.png",
+      "bytes": 152,
+      "sha256": "2d8d27f59f26879781e28c0b0d9eecc379421f2a18cd6d6a819824c726f87040"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/05dd3b0814357a70-mip7.png",
+      "bytes": 86,
+      "sha256": "a817c04e3c450027bbc1eccd28dc8dc808a5c5cb1086233257085859f6b8d5a0"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/05dd3b0814357a70-mip8.png",
+      "bytes": 74,
+      "sha256": "12cd29147a37f6e8eb89649185dbdcb833c65e0586806893f32c443276de72e0"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/05dd3b0814357a70-mip9.png",
+      "bytes": 70,
+      "sha256": "500812ab0fc5d5b31cfe55a45a5beee98e89b0ebaa32531cb42b50dd42b30e5e"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/66d45ee8ba1b0dae-mip0.png",
+      "bytes": 19821,
+      "sha256": "79ec931756fea13e784b35447789c13079e62b93481468427583132002a79a60"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/66d45ee8ba1b0dae-mip1.png",
+      "bytes": 6104,
+      "sha256": "87ea9c2a24d482df64f2a8f42739dcbc4e86c23973ee280019112aaaaef4a0a0"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/66d45ee8ba1b0dae-mip2.png",
+      "bytes": 2159,
+      "sha256": "1df3a56d248df975a0acf02480b684b9df8b948eb7a54f81fba4c1f6be387295"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/66d45ee8ba1b0dae-mip3.png",
+      "bytes": 847,
+      "sha256": "151904ef8acc87fb687d377a357d75eac69221b0f404703bc5397c6867db6f9f"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/66d45ee8ba1b0dae-mip4.png",
+      "bytes": 341,
+      "sha256": "194b56deb19f1e6e0cf5266710ccd4de31724b8f76cb2bbd7aa2a476e4c2aa65"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/66d45ee8ba1b0dae-mip5.png",
+      "bytes": 167,
+      "sha256": "c8b6a4da0353b78b3edad0eb436444c5d8df7d9b7d87da168bf4ed5518384d1e"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/66d45ee8ba1b0dae-mip6.png",
+      "bytes": 107,
+      "sha256": "e45ff81c4b116f4dacdec6501ec9fbf0ee5d92a036f1b0788f2c440cc47516fc"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/66d45ee8ba1b0dae-mip7.png",
+      "bytes": 82,
+      "sha256": "1b1cb7793a38acad5eca0b7ad24ea01c7ccbc3a5e7c5b7f19bde5fca4e377139"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/66d45ee8ba1b0dae-mip8.png",
+      "bytes": 74,
+      "sha256": "77ad2f277a7089fae68fa035e7c2083e059ea0eaeef5b798f7a7885d3ca2d552"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/66d45ee8ba1b0dae-mip9.png",
+      "bytes": 70,
+      "sha256": "9f91925a8a219128f59945dd995441a6fcea517ce4c2d3fc7d77bba1ff68ca4a"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/271a48230fb860e5-mip0.png",
+      "bytes": 8369,
+      "sha256": "a96c50b7ded0e6691da9cbef9d27f3d260b8e8c871d30062b59a6e521d20a1d3"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/271a48230fb860e5-mip1.png",
+      "bytes": 3140,
+      "sha256": "8a2f03d38c8b3eb81032a5378fb6bea9fac236e18cf2ef5510c3c357f2ba4b69"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/271a48230fb860e5-mip2.png",
+      "bytes": 1159,
+      "sha256": "78011f6db349f97dda272f52a60bfba3eb0e9246f6173bc69257d0a2eaefce8a"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/271a48230fb860e5-mip3.png",
+      "bytes": 394,
+      "sha256": "be2c476d51747aec4fdfd0276acb7e4362e3e0ad9f914b120655078cd47d75a9"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/271a48230fb860e5-mip4.png",
+      "bytes": 174,
+      "sha256": "92ed91ca88a171443ccf34bedfa1ae5c5b2d403572e1695ef0a705814897636c"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/271a48230fb860e5-mip5.png",
+      "bytes": 105,
+      "sha256": "53af30e58e26d52b81c0642f87e30a91c9fa64743bf8d6f71bbf45454f142828"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/271a48230fb860e5-mip6.png",
+      "bytes": 82,
+      "sha256": "68174542853fd72d8d6f2531d63fdf632a8ed497c9d8d1ff1ec20d16fc052cd1"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/271a48230fb860e5-mip7.png",
+      "bytes": 74,
+      "sha256": "edb2cd9634f09020d01f44c1b4e1c2fa05004114db2589aa3eb48bc470171409"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/271a48230fb860e5-mip8.png",
+      "bytes": 70,
+      "sha256": "23dd7ca0f5fcf53905f64ad72533fdd4c054acf92cf395730306d7d5fb5d9b61"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/b885bf2594e01a38-mip0.png",
+      "bytes": 95128,
+      "sha256": "5a4d77e7ac60b05d7ebc031b9dbf419d96041a88a3cd0e0cbb2d7cffbfd35c09"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/b885bf2594e01a38-mip1.png",
+      "bytes": 28935,
+      "sha256": "e553f0cdfd41b3211d057ad6eabfdccd0a595025f558a34814306da03f391074"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/b885bf2594e01a38-mip2.png",
+      "bytes": 9378,
+      "sha256": "afb84adb71177e0836e24e4db73433adea5bbe40e4d6cae59dacfe7a008073e9"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/b885bf2594e01a38-mip3.png",
+      "bytes": 2923,
+      "sha256": "11bb36d8ae0f63ded36e021996fc80fdecd110b4ce1f748ff6d5c31e21f39d59"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/b885bf2594e01a38-mip4.png",
+      "bytes": 993,
+      "sha256": "f9b85111305da7b63ad33fc22de910715b2f15165d9717579dcd07bfcf32b1ed"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/b885bf2594e01a38-mip5.png",
+      "bytes": 294,
+      "sha256": "9a6d894018f0812b929c21d6a41ed0d7134c5faa5b64db66058d6b94945b7a8c"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/b885bf2594e01a38-mip6.png",
+      "bytes": 160,
+      "sha256": "54f94e3925a57ea5c31adc6835c723f75d6ff3a7f37f23129b28fb1825984e51"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/b885bf2594e01a38-mip7.png",
+      "bytes": 102,
+      "sha256": "9d4d1bdbff1ac1e30058fca240ce7639eb57850a3796e04df8d3a0d3d9fe5e37"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/b885bf2594e01a38-mip8.png",
+      "bytes": 77,
+      "sha256": "722bdf8168ca61394bef9f9fa3ae0ad2b820f688c62af08ba8adea671c8b1549"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/b885bf2594e01a38-mip9.png",
+      "bytes": 70,
+      "sha256": "c077bb8f1954fd8137762581a9552966c50130abb9352abf3c14989db4d7ee1e"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/26b6f26494a9af96-mip0.png",
+      "bytes": 19287,
+      "sha256": "02f1a37a52cb1adec514a215cb61e64e8bc17256f2aeccbf0f57ff4bf0bf25f0"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/26b6f26494a9af96-mip1.png",
+      "bytes": 5824,
+      "sha256": "bd99dcab30bd6c485da824beb368b92b4eaaf4e8e3328d0369d4a25a6878577a"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/26b6f26494a9af96-mip2.png",
+      "bytes": 1971,
+      "sha256": "c4208945a580f9de713262d247aee5929fa5bebc4856432d282e7fd4d76556da"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/26b6f26494a9af96-mip3.png",
+      "bytes": 719,
+      "sha256": "170091d5d7fd3c006fd90fd9ad26ad5b93b8db8bdca153d7795d1b0d5213f79a"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/26b6f26494a9af96-mip4.png",
+      "bytes": 290,
+      "sha256": "0c9ad5f1ab369562d15f13efca3af87c7d4ab7d0c461c41ce9e0a1e429397c64"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/26b6f26494a9af96-mip5.png",
+      "bytes": 148,
+      "sha256": "457d97c26fae6b7c3b3f7b0d18c82f512ef985047ca0b9a36f6264dde3d28da8"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/26b6f26494a9af96-mip6.png",
+      "bytes": 101,
+      "sha256": "208afcc3b96196d989eecc4e0db1ed7a256843d689482f61a56bec9463f56853"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/26b6f26494a9af96-mip7.png",
+      "bytes": 75,
+      "sha256": "89fa425176b16eaac8ebf5750a770b45bdd8aad19a5ba1d3b59355e58e948930"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/26b6f26494a9af96-mip8.png",
+      "bytes": 70,
+      "sha256": "8c409c7d0a1fceb58ba974b5dfe57a9edb8dd96be4299fc087711b38d56f43cb"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/69151717fd1ca98f-mip0.png",
+      "bytes": 20074,
+      "sha256": "89f0eb616ba9022c6d015bd83069bd49d1fead97f007d9acb501cac0c22fea34"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/69151717fd1ca98f-mip1.png",
+      "bytes": 7140,
+      "sha256": "2c0ba2e99bc9d2f75cf1f15d7bedaca09834b2f3f56e5d24e47ed59047b8ade7"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/69151717fd1ca98f-mip2.png",
+      "bytes": 2364,
+      "sha256": "83a09dbce3319648acbc678048d2a6c8c06a1dfc1dceb0a321f3a87ed68e7535"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/69151717fd1ca98f-mip3.png",
+      "bytes": 777,
+      "sha256": "e3972903a23a8f6c45ef66bc2f963cda3beac28bc34db3b4c89068a29283b91f"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/69151717fd1ca98f-mip4.png",
+      "bytes": 307,
+      "sha256": "1a6d53e7cdc4676c36517dc16fa0920b1822dc91ef3343c44c5ace5192c553bb"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/69151717fd1ca98f-mip5.png",
+      "bytes": 137,
+      "sha256": "08dd087a2fd429af96f3fbce6bc0bcbd5c25165fe256c58e1e05174aedb649d8"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/69151717fd1ca98f-mip6.png",
+      "bytes": 91,
+      "sha256": "9449cd0ae4a38491c17c041e0ab4e66f5272fa87c4adabaa6ec076174b4e04ae"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/69151717fd1ca98f-mip7.png",
+      "bytes": 77,
+      "sha256": "6bf629c1d03c2497d554ce366341faba5c7fb4f2e998254f3ecb48a5b7aca1b2"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/69151717fd1ca98f-mip8.png",
+      "bytes": 70,
+      "sha256": "47c9977e0bcca5eb2d5a2a5997babeedd5fc14b72a5872aa6fd55ef833faedbb"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/3e81efb313a0c426-mip0.png",
+      "bytes": 46483,
+      "sha256": "d585dddb266ea99be4bb3a9fe05bf361b88880c2cac424a0aabed1e7410d552b"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/3e81efb313a0c426-mip1.png",
+      "bytes": 15238,
+      "sha256": "6ab2260a2b24b0e46a0c815174a0e7604d1169f2a09e8641d2017a1224c1abe6"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/3e81efb313a0c426-mip2.png",
+      "bytes": 4773,
+      "sha256": "a3db3a89e7541d050839a7dfacaac45f81a06a09ada7be188a79259360185deb"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/3e81efb313a0c426-mip3.png",
+      "bytes": 1315,
+      "sha256": "52532b62ff5fa8da85dda931a89ef33f0062ca04634d5d9536d31543aaaf31a0"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/3e81efb313a0c426-mip4.png",
+      "bytes": 394,
+      "sha256": "f6b0ab0d470309741493258813652e61cc4c84957e88e9f5f22dd6ca1d6d71ef"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/3e81efb313a0c426-mip5.png",
+      "bytes": 156,
+      "sha256": "3e9a0c35e2c477e77bff1aa1a795e3c583ca4c5e87079bbaab525a590b002ecb"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/3e81efb313a0c426-mip6.png",
+      "bytes": 106,
+      "sha256": "b597c98b5bcd9d80185ff351c926be08d5249836eea9c7194a6d7475f338792c"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/3e81efb313a0c426-mip7.png",
+      "bytes": 77,
+      "sha256": "8ded56773c24c71e93e87b18027ebc87bcf1c01a95d36747e3642fc3870032fa"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/3e81efb313a0c426-mip8.png",
+      "bytes": 70,
+      "sha256": "b32fa4b37a7e96246aabea3f67a798c1b83396c1630ce9f73b429d98a2385d81"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/2fc72189202d828e-mip0.png",
+      "bytes": 11424,
+      "sha256": "2e3bcbcd9d1c0a0ae95c1f2b4013b20bb661c91dbc059717bf11fc84c70a7a04"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/2fc72189202d828e-mip1.png",
+      "bytes": 4513,
+      "sha256": "7caf364f4ddb2a4d0f289c01b5194687a3c2f5e97e5c6010fa7851a73786f893"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/2fc72189202d828e-mip2.png",
+      "bytes": 1795,
+      "sha256": "953e0fa00753c118f905f50a1eb04a8a1281ed4ee208248c4a6c97e10f89aa6e"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/2fc72189202d828e-mip3.png",
+      "bytes": 650,
+      "sha256": "5a9a0f15b10fe58c48d5e2ef7b2f6b16eaa3786a78545270b37ff1c2bd461076"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/2fc72189202d828e-mip4.png",
+      "bytes": 260,
+      "sha256": "a7554fb5f18050292d967a0b095b053ed583c5b617813285fe4a298b119537e5"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/2fc72189202d828e-mip5.png",
+      "bytes": 141,
+      "sha256": "dffe6d484a9deaf711662775fd998d3708f346cb8f5efea84fd5029b07f4682c"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/2fc72189202d828e-mip6.png",
+      "bytes": 88,
+      "sha256": "29e4d07956dc9e507b10dd6a76f1249442b5ea4078c74058eb5c21b28cc7fca0"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/2fc72189202d828e-mip7.png",
+      "bytes": 77,
+      "sha256": "ee5055d8f486839b956ae4d60298aee480aaf685b4ffb50000e1bd670ba87755"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/textures/2fc72189202d828e-mip8.png",
+      "bytes": 70,
+      "sha256": "76613199fb85c65fa59dd2546f77fa8cc9e48ebbcbf930b2fa5e14597156087f"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/meshes/51536e0eac6b2592.json",
+      "bytes": 399857,
+      "sha256": "b131d256bd76ba5e873864016fe0280d75dc697b96f0e57079a44293a35ffce1"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-decoded/meshes/697357e76927bfc4.json",
+      "bytes": 6961,
+      "sha256": "a62a627483974e23389c07d7256919fb9b0d2239609ff313f2a073f1f85358f8"
+    }
+  ],
+  "readerInputs": [
+    {
+      "file": ".cache/masteryi-q-particle-readers/StaticMesh.cs",
+      "bytes": 10456,
+      "sha256": "eab04b1454081c56f86d93f568f804b812b8e3dbe44f99caea9efd2eff9272da"
+    },
+    {
+      "file": ".cache/masteryi-q-particle-readers/StaticMeshFace.cs",
+      "bytes": 4021,
+      "sha256": "053418afb28e627ff0709975ef4d5b363e0e44508a6efba27c5243064fb45a37"
+    },
+    {
+      "file": ".cache/masteryi-q-particle-readers/Texture.cs",
+      "bytes": 9076,
+      "sha256": "60d56e23760b212b78f10e41c4a7f73cd345969e2031df6a9813e6b8e4e692a6"
+    }
+  ],
+  "coverage": {
+    "textures": 23,
+    "authoredMips": 198,
+    "pngBytes": 1135265,
+    "rgbaBytes": 9852332,
+    "meshes": 2,
+    "meshJsonBytes": 406818,
+    "meshVertices": [
+      750,
+      27
+    ],
+    "meshTriangles": [
+      1500,
+      24
+    ],
+    "allMipLevelsPreserved": true,
+    "scbRoundTripByteExact": true,
+    "meshNormalsOrTransformsAdded": false
+  },
+  "validation": {
+    "guardsPerPythonMode": 34,
+    "modes": [
+      "normal",
+      "optimized"
+    ],
+    "independentCheck": "Actual complete dataset checks without importing Pillow/CDTB; hand-calculated PNG filter controls, CRC/extent/alpha checks and full SCB byte replay.",
+    "redecode": "Normal and optimized complete re-decodes match the frozen record; all 201 record/asset mtimes remain unchanged.",
+    "profile": "Python 3.12.14/Pillow 12.3.0; Pillow zlib 1.3.1 and independent builtin stdlib zlib 1.3.2 are recorded separately. Different profiles require separate outputs/record and reviewed checksum.",
+    "layout": "Pinned Texture.LoadTex explicitly confirms reverse smallest-first storage and BC1-with-alpha/BC3; StaticMesh/Face readers guide observed SCB3.2. Nonzero 24-byte tails remain opaque.",
+    "visualInspection": "Viewed original-size decoded speed-shadow and hit-flare source textures only. No native game/frame comparison claimed.",
+    "runtime": "No new runtime tests/build/browser certificate claimed; schema/ruleset/pack unchanged from Highlander baseline."
+  },
+  "limits": [
+    "Canonical software BC1/BC3 decode is not native GPU decoding parity.",
+    "No resizing, generated mipmaps, gamma conversion, premultiplication, geometry unit scaling/reflection/winding/pivot changes or normals are baked.",
+    "Private assets only; render materials, native lifecycle/attachment, timing, unknown fields and visual/native matching remain separate."
+  ],
+  "evidence": [
+    {
+      "file": ".cache/masteryi-q-particles-cloud/decode-app-identity.json",
+      "bytes": 265,
+      "sha256": "66c95c9486b9c527e0ead8b6afd3baa48529b189774962b5508c29126431fab7"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/decode-check-optimized.log",
+      "bytes": 106,
+      "sha256": "86eb37b3a1e1a7a666e2b7bb01fc412e8472b5e8362137e6b47320e530688a26"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/decode-check.log",
+      "bytes": 106,
+      "sha256": "86eb37b3a1e1a7a666e2b7bb01fc412e8472b5e8362137e6b47320e530688a26"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/decode-final-check-optimized.log",
+      "bytes": 106,
+      "sha256": "86eb37b3a1e1a7a666e2b7bb01fc412e8472b5e8362137e6b47320e530688a26"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/decode-final-check.log",
+      "bytes": 106,
+      "sha256": "86eb37b3a1e1a7a666e2b7bb01fc412e8472b5e8362137e6b47320e530688a26"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/decode-final-replay.log",
+      "bytes": 107,
+      "sha256": "c597ea4ce60f044d2e55345702150cc71f831ab9bf4f16d650b6e12c6acf5d87"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/decode-guards-optimized-v1.log",
+      "bytes": 132,
+      "sha256": "df75625b0283a33711e90db31f62777a319babd2d4401711bd0a54f49cd909f6"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/decode-guards-optimized-v2.log",
+      "bytes": 133,
+      "sha256": "74924befbf144d1f282475515ba5efcd43a4544e062a07677e39cc922fee839c"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/decode-guards-v1.log",
+      "bytes": 132,
+      "sha256": "a16757509065491ec216dabe9cab9d2005d0fd683b6d9e72149fbe56123f6029"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/decode-guards-v2.log",
+      "bytes": 133,
+      "sha256": "b39c75319947a4301f0ef6a5e1a68943600c9184c5319b8a8f7b35e58604f674"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/decode-mtime-proof.log",
+      "bytes": 317,
+      "sha256": "115947a75575dab2a79b591e7d1abb542ec1a2ba7b429029c5f443613c53d20a"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/decode-v1.log",
+      "bytes": 107,
+      "sha256": "c597ea4ce60f044d2e55345702150cc71f831ab9bf4f16d650b6e12c6acf5d87"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/decoder-inspection-v2.json",
+      "bytes": 1756,
+      "sha256": "ed1e4c3018c054995bf7af50ff00c81cea7a7609d41dc3c1ccdd84379ac8f7ef"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/decoder-inspection.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/redecode-optimized.log",
+      "bytes": 107,
+      "sha256": "c597ea4ce60f044d2e55345702150cc71f831ab9bf4f16d650b6e12c6acf5d87"
+    },
+    {
+      "file": ".cache/masteryi-q-particles-cloud/redecode.log",
+      "bytes": 107,
+      "sha256": "c597ea4ce60f044d2e55345702150cc71f831ab9bf4f16d650b6e12c6acf5d87"
+    }
+  ]
+}

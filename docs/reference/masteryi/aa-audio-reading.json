@@ -1,0 +1,92 @@
+{
+  "sourceGraphSha256": "b7879c088d3544626d70c9ecaf4abfd0aebae007db5a6ee841c0caed7a2b33e3",
+  "decodedRecordSha256": "28ac362788bb76709a226e76d282eb25a1805a474b9bc7348cedd59bbee33a32",
+  "bindings": [
+    {
+      "kind": "attack1",
+      "phase": "cast",
+      "spell": "MasterYiBasicAttack",
+      "slot": "12",
+      "rawSuffix": "Play_sfx_MasterYi_MasterYiBasicAttack_OnCast\n",
+      "eventName": "Play_sfx_MasterYi_MasterYiBasicAttack_OnCast",
+      "resolution": "declared"
+    },
+    {
+      "kind": "attack1",
+      "phase": "hit",
+      "spell": "MasterYiBasicAttack",
+      "slot": "13",
+      "rawSuffix": "Play_sfx_MasterYi_MasterYiBasicAttack_OnHit\n",
+      "eventName": "Play_sfx_MasterYi_MasterYiBasicAttack_OnHit",
+      "resolution": "declared"
+    },
+    {
+      "kind": "crit",
+      "phase": "cast",
+      "spell": "MasterYiCritAttack",
+      "slot": "12",
+      "rawSuffix": "Play_sfx_MasterYi_MasterYiCritAttack_OnCast\n",
+      "eventName": "Play_sfx_MasterYi_MasterYiCritAttack_OnCast",
+      "resolution": "declared"
+    },
+    {
+      "kind": "crit",
+      "phase": "hit",
+      "spell": "MasterYiCritAttack",
+      "slot": "13",
+      "rawSuffix": "sfx_MasterYi_MasterYiCritAttack_OnHit\n",
+      "eventName": "Play_sfx_MasterYi_MasterYiCritAttack_OnHit",
+      "resolution": "local-Play-prefix"
+    },
+    {
+      "kind": "attack2",
+      "phase": "cast",
+      "spell": "MasterYiBasicAttack2",
+      "slot": "12",
+      "rawSuffix": "Play_sfx_MasterYi_MasterYiBasicAttack2_OnCast\n",
+      "eventName": "Play_sfx_MasterYi_MasterYiBasicAttack2_OnCast",
+      "resolution": "declared"
+    },
+    {
+      "kind": "attack2",
+      "phase": "hit",
+      "spell": "MasterYiBasicAttack2",
+      "slot": "13",
+      "rawSuffix": "Play_sfx_MasterYi_MasterYiBasicAttack2_OnHit\n",
+      "eventName": "Play_sfx_MasterYi_MasterYiBasicAttack2_OnHit",
+      "resolution": "declared"
+    }
+  ],
+  "selectedProfiles": 15,
+  "media": 28,
+  "wavBytes": 2595148,
+  "tails": {
+    "cast": 88,
+    "hit": 51
+  },
+  "sourcePitchRanges": {
+    "attack1": [
+      -100,
+      100
+    ],
+    "attack2": [
+      -100,
+      100
+    ],
+    "crit": [
+      -200,
+      200
+    ]
+  },
+  "sourceActionDelaysSeconds": {
+    "attack1-cast": 0.05,
+    "attack2-cast": 0.055,
+    "crit-cast": 0.2,
+    "hit": 0
+  },
+  "limits": [
+    "Both declared ordinary and critical cues retain separate event/action identities. Indexed body selection remains a local cosmetic policy; Double Strike composite audio dispatch stays separate.",
+    "The raw critical hit suffix omits Play_; prefix resolution is explicitly local, not a repaired source field.",
+    "Indexed pitch/variant choices and unresolved global bus mix are not native RNG/mix calibration."
+  ]
+}

@@ -1,0 +1,989 @@
+{
+  "format": 1,
+  "decodedRecordSha256": "783317cf9c44a36b3e07fbda8d27829ec6ae674119fcb5c8fddac46a959360fd",
+  "systems": [
+    "MasterYi_Q_Mis",
+    "MasterYi_Q_AP_Mis"
+  ],
+  "producer": {
+    "scriptSha256": "38811826017951e382e6c92358e8d7c2d5503a4e2c0d89c1a88a3f4f44912676",
+    "atlasModuleSha256": "4ba50521c7a4c0d061bbf2f8363b7a84b4db9a4bf480e3d52ae101aec6538fd6",
+    "zlibVersion": "1.3.2",
+    "zlibRuntimeVersion": "1.3.2"
+  },
+  "textures": [
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/common_alpha_20.tex",
+        "wadPathHash": "1feb1bfe0ace203e",
+        "sha256": "33f3f834ff89266709f07f46f8ad945111717e2fe93d76ca7a0a162a60ce38b0",
+        "bytes": 21884
+      },
+      "path": ".cache/masteryi-q-missile-packed-v2/1feb1bfe0ace203e.png",
+      "bytes": 4449,
+      "sha256": "5a3d2dc9c6c61b94037ab35cb84572d74b8690f5b51163314865a0313867dfe1",
+      "width": 128,
+      "height": 255,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "f1124f64a7afbae57c4599a536267f2d7101fd7f1436aa7dcf8212ce7e397de4"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 128,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "e0993fb4a7700c7616e11755a190e13b47605d78d904cbbbd9397611323b529c"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 192,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "88800fa92212faacb33bce24a25d7fafdacb41069ed2af80f9ddc971036e03cd"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 224,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "25f7b0e7224dc9caa00ecafcd94ce8261c9fa3dfd9ca9cacce31e65c16105945"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 240,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "293a2d2df3b965246b7e8c57c141499e53c47b96325f48ae6309bad5dc009fc1"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 248,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "208dc8f065a421d9b68913b2925c518b782e0b55c077d74d49e4fe804ea95ddd"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 252,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "c28bb3afb4cac90612211bf32a516b32ffe52401663dd69aa02f23dde248ca8b"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 254,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "6c1761df0602c466082efacf5837859ea560fccd979be00b7b9787d2d43d6129"
+        }
+      ],
+      "rgbaSha256": "55af85dfa56c120517330f2f6344a3a83781d2084167602ecc774599b6d78790"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/common_aura_self_02.tex",
+        "wadPathHash": "dddf936bb11fcf32",
+        "sha256": "cb6dd0c86a70c2be4cb8e24732796c728fd4469b79302b0781e4ac4f9a42b4a0",
+        "bytes": 21884
+      },
+      "path": ".cache/masteryi-q-missile-packed-v2/dddf936bb11fcf32.png",
+      "bytes": 8243,
+      "sha256": "17e35ebe0b797a7a5e80236a276d6b78de5545b80f401cab91fb28fc27dc9897",
+      "width": 128,
+      "height": 255,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "e66cb5cde78227937b25d65b55c4347d1dc5763a0419dd8d3d973da52ec794f4"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 128,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "225248a5dc2ec3e30872bbfe021f44e5c11bb49737bcb7340d8049c3a114889e"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 192,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "8fdf8e37d18392a028524bf269a5fc03c121781d4a6b155e8d00774397e25311"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 224,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "6419b548b4227c9acd44a47924d18758d8f98e2214ba6f35067bc8804f2c5521"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 240,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "22dfb58d3d3a55d9ebef54ed0080d2c10a7cbb8ddf089f4c1d7f635bf0e88cb6"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 248,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "3785f10322f6898f4dc1b0227c901882bbe16e2619f876ff861173d729b3b208"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 252,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "102fd32fb8f1546846f40706fc24f8898bfbf351fd00358efa41d9ee20bbabf0"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 254,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "bb2ae095b9f0960711b90813af0b24ed1c4684491d134539d0d63ebb07a209a6"
+        }
+      ],
+      "rgbaSha256": "95aa75644c73aaddc86ac7977425a45c3b1d48048c5d2551147a46dd29e34616"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/common_color-rampdown.tex",
+        "wadPathHash": "dba30aea46f8d87f",
+        "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220",
+        "bytes": 2756
+      },
+      "path": ".cache/masteryi-q-missile-packed-v2/dba30aea46f8d87f.png",
+      "bytes": 702,
+      "sha256": "30df4a0ee4cd6cc8d680584586e77e764328930403fae425708a9e845c0edcc8",
+      "width": 64,
+      "height": 127,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "a68bebcceb44829831933cc46ecfd600216db342a7de11fd487ea322d32867ae"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 64,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "be029289119efe7b2b0fb7efefd5c51e0ff05f75083d12b6747c579f59613c99"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 96,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "6f79c0ea4535cba64df8ddd6d79930fe6bcc500f812a757b54167f3c746b147a"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 112,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "b2639ba82a91940a4adda2158ba57ba7cbac3da0a8aa13f95d072cac3b7c602f"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 120,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "e872cb747415d934a6d9fcf27eb574fef59b38c339e892d97016ac4f238de421"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 124,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "37a44c961c76dd94235d2550d738dfd7dbd49365ad69b2614f7a51c956447313"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 126,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "1b329170a887a6f72094dcfad111b2756f714ee42a538d8b5c14188547ecb507"
+        }
+      ],
+      "rgbaSha256": "32c4bf2d5e2dba42c4d509cb504791201a7707c907ec3443e0f2458a71f5c189"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/common_distortion_soundwaves_01.tex",
+        "wadPathHash": "342ac0a051e1bd17",
+        "sha256": "7f0f6895783b45de63df97b2919abef9ce75fa27ef737bfeed74b57886a1c28b",
+        "bytes": 87420
+      },
+      "path": ".cache/masteryi-q-missile-packed-v2/342ac0a051e1bd17.png",
+      "bytes": 54695,
+      "sha256": "204a0e00eeab07671728828412ae9bf2cd2331a0f855df5744fed52d0ae62610",
+      "width": 256,
+      "height": 511,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 256,
+          "height": 256,
+          "rgbaSha256": "ddcdf8b95fbe10646ffc019fa3ebad1778f01abc8abbdfca5b8bc3a48c9b4738"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 256,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "152a3baa506c3be3fa78a6520cae6554e505af5cf06bb8417b51cdecb361376a"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "5310e720323166c82029e5f369d09c3d80fea0b40da0168cc1d4488098a868cd"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 448,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "3c5d040922a92237430b251213ad236aea5dd432cd575cb60bf67eae631a91c9"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 480,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "be89ac5522f312a38eee43b8b593e168176f313bf57343f31633a2028a811137"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 496,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "59d06a8e438fceaf9b8633ebf9c46a597bd9501eea6571b2163105180245f51a"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 504,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "cfd71414ef315621c1095092f634bdfe781ddecf2f4c898229ce910c45733e88"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 508,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "387dafb4fcf68b2d66bc1301d4483e12ad7934658162df7f95c7e3b2967e0b78"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 510,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "2d9b366a6c1d30125e7418e565ce3eec1e669b3c34783fc0d551b916dc5e546c"
+        }
+      ],
+      "rgbaSha256": "b69c676d99266130c173c210733e961c7072bcf442f27c0d08637e1fbe3fd54a"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/masteryi_base_q_ap_speedshadow.tex",
+        "wadPathHash": "a48d50edd6869141",
+        "sha256": "161073946a1485301ad60a2e19ff36e8feb5c33f08db2ecdf56c7dfe005b8145",
+        "bytes": 349564
+      },
+      "path": ".cache/masteryi-q-missile-packed-v2/a48d50edd6869141.png",
+      "bytes": 211072,
+      "sha256": "f13fedd865501b1d4594660763087987763e35f1d167c40e6324098e659217fc",
+      "width": 512,
+      "height": 1023,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 512,
+          "height": 512,
+          "rgbaSha256": "3904087f201afd3c166f1a256acaaec7447b4c61039b30554b6ca4dc073d1eab"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 512,
+          "width": 256,
+          "height": 256,
+          "rgbaSha256": "21682996ecebcd39ea033515abf88b47e6172cead6db99ed49e4368ed18b8cbd"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 768,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "894bff0cd58f424e8f3b531834f5245958c5b767b60ad26f6d85b15569ac5c0d"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 896,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "e6c20baa2427c7b1a73f37836d2275eead6a08f99093991cd9a867190b7d24ad"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 960,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "c41146ec712ef2274dd5ede57e8578aa3687f46d7d97e3a6048bd04c658fa671"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 992,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "1fa120696271565847909a6d2395f08ddbb65defc05f956fbb485b4879ee1ef9"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 1008,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "014dc35d8c2dbabc9cd78ce404c697e10b5f15d399a81572e8e1da721e7df828"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 1016,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "80b32fb6d3564f46bdfe032ec60b1a63792ddb8c5ea77d3e789dcc597c05624c"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 1020,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "aae05369949a0b0491b849955aa27e98868993f0aee091b251211db57447e3e6"
+        },
+        {
+          "level": 9,
+          "x": 0,
+          "y": 1022,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "53d3a3b5b25529c6a2788ceeba46146ad775eb8107e84b2d0d75aa7cc44bbfd8"
+        }
+      ],
+      "rgbaSha256": "594d37d1f949964b52033b5f0015167ca2900eb8f47dc8496e95b60c2cbd6b71"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/masteryi_base_q_speedshadow.tex",
+        "wadPathHash": "76f9beecc8b5f2c1",
+        "sha256": "5dc7ee0215ad36c3d00db40adae782e85f0b11c9056b215dd60989a478eacad5",
+        "bytes": 174812
+      },
+      "path": ".cache/masteryi-q-missile-packed-v2/76f9beecc8b5f2c1.png",
+      "bytes": 179313,
+      "sha256": "a771bc3cb1a4733668a01a179752ca333daa4022e20530de6bfc9893dcc16df2",
+      "width": 512,
+      "height": 512,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 512,
+          "height": 256,
+          "rgbaSha256": "0bfc3dfa3ba586cf703926f72da16b5a2516ec0692ea38f3ac11856087bd2724"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 256,
+          "width": 256,
+          "height": 128,
+          "rgbaSha256": "901b4d75c7a1bdf3d1d8daaceb53adb584d7a4dcf2b2df01ded57438da58e9cc"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 384,
+          "width": 128,
+          "height": 64,
+          "rgbaSha256": "2802fdcb3ece1ae44459482093b94c136f43dfb82e420dd862890e044d9d3018"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 448,
+          "width": 64,
+          "height": 32,
+          "rgbaSha256": "f84f47b7bf707ea6a6ab684a4a1eb44dff8abdb5932affc12e602bc159126cc7"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 480,
+          "width": 32,
+          "height": 16,
+          "rgbaSha256": "30295364dd2a1492df29aa24ce3b2baa80ce90ef77d2002ff9f767609de38d60"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 496,
+          "width": 16,
+          "height": 8,
+          "rgbaSha256": "2fd53b954300d0729be5db97eb0797b4d10fcaddd164f52e838763fbbde72661"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 504,
+          "width": 8,
+          "height": 4,
+          "rgbaSha256": "959183643b83085ccb8b7390000914610a31fcdfc86ef0ec71fcedca502655a9"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 508,
+          "width": 4,
+          "height": 2,
+          "rgbaSha256": "0026191a496b12691f29c0f354baa389f31175b04b93ed466151e5c78dd0b8f3"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 510,
+          "width": 2,
+          "height": 1,
+          "rgbaSha256": "2633866977cea960324a4f70fc0fb367c0506036eac7a9676e4676789891007c"
+        },
+        {
+          "level": 9,
+          "x": 0,
+          "y": 511,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "4791ebeea99302d61adb0e7c20aaa5c436d47ee53b8fc11a4b628bb608a09bee"
+        }
+      ],
+      "rgbaSha256": "032f89d32757ba52b569594867489f87afd729d49c4f4965d19569d0e91f0219"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/masteryi_base_q_speedshadow_mult.tex",
+        "wadPathHash": "05dd3b0814357a70",
+        "sha256": "72ac6af5c25446d830afcde709f6a13abf863226a9bfb737f0b31443d888a89f",
+        "bytes": 174812
+      },
+      "path": ".cache/masteryi-q-missile-packed-v2/05dd3b0814357a70.png",
+      "bytes": 135536,
+      "sha256": "2c1b8851f54fda28c07932ef2ff36eb41e5f570caafc3545917d5b154359273f",
+      "width": 512,
+      "height": 512,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 512,
+          "height": 256,
+          "rgbaSha256": "8cb067552437dab86332df87ac1e99c899a952507661610a46814fc05b78c1f4"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 256,
+          "width": 256,
+          "height": 128,
+          "rgbaSha256": "59d62f2df926cd6446c294e95d776fcced97042c1ed1c08960b15b13cc2bfdab"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 384,
+          "width": 128,
+          "height": 64,
+          "rgbaSha256": "06c31c500fc08795207fe1813fee3951c43b587c7f4b74d3c7358bfc066e67f9"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 448,
+          "width": 64,
+          "height": 32,
+          "rgbaSha256": "9a93ebc0ce6d67ec0c273ad7056b1c171d585aacb668cecffda7c135693ce5fb"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 480,
+          "width": 32,
+          "height": 16,
+          "rgbaSha256": "33d4cdde7715cc6cbe8ab9630804b9bfa898a77f3985e593b571787e9d8544fb"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 496,
+          "width": 16,
+          "height": 8,
+          "rgbaSha256": "a73553873edfbdffae54ca6f4508f679ecaa316780a48c47b899d411136a9b0a"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 504,
+          "width": 8,
+          "height": 4,
+          "rgbaSha256": "03ccdeff2c1d1b9a9547ce55069ea7296319d93819a1f0f3bd80ca43c503a071"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 508,
+          "width": 4,
+          "height": 2,
+          "rgbaSha256": "ab2916abc783278738fe6aec36753c38982f55b802872cd01d10aec2ed595324"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 510,
+          "width": 2,
+          "height": 1,
+          "rgbaSha256": "66cc3492f7b627441353ce456789deb20f2327bb49064564c9d9e87dc0e4c2e4"
+        },
+        {
+          "level": 9,
+          "x": 0,
+          "y": 511,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "ecee21d57c08bfb830e49902d5da69017dd91c12517be81719145d32f51ac0a2"
+        }
+      ],
+      "rgbaSha256": "bac85bb2f4250038b6cfd0fc44069be297407ca993cd0b3b529925d4abba10e5"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/masteryi_base_r_boltline.tex",
+        "wadPathHash": "66d45ee8ba1b0dae",
+        "sha256": "88ca859de71abdafbb8a814d35404efe33e59bb473a7a4b581e408b8a01b38bf",
+        "bytes": 87452
+      },
+      "path": ".cache/masteryi-q-missile-packed-v2/66d45ee8ba1b0dae.png",
+      "bytes": 44308,
+      "sha256": "dafb13b4d40f5b513bb1b8187f115b971cbb9cdd8f36362c3b3457bb5695f9b9",
+      "width": 512,
+      "height": 257,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 512,
+          "height": 128,
+          "rgbaSha256": "04b052897607c73e522d87c7593d708a7544015d4b3bf71a8b6c1f008e992883"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 128,
+          "width": 256,
+          "height": 64,
+          "rgbaSha256": "c64f688934343706c1c961a1eb1aee9be1b87554cdba5ccf840c245159402306"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 192,
+          "width": 128,
+          "height": 32,
+          "rgbaSha256": "2e1a12f254ff560744673db9fea97ab380d947c21631ed795b2f7a1417836cfe"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 224,
+          "width": 64,
+          "height": 16,
+          "rgbaSha256": "d8e4683c740cbcdd27c60c53e7d96d7559e8a17d17e32403f75a3b0a9f5f1d66"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 240,
+          "width": 32,
+          "height": 8,
+          "rgbaSha256": "332c6777a0e11f205b46d3527df8ac6f8dd5443360a16403d29397b26591f450"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 248,
+          "width": 16,
+          "height": 4,
+          "rgbaSha256": "529d871974101ba37343f6e8b9d5668fa193e8b2fda1fe2f4e0361b006e7c5d3"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 252,
+          "width": 8,
+          "height": 2,
+          "rgbaSha256": "8541d73f10e931518b215ebab53d91d2c8cad72a5834ae96f7248f3708db7ac2"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 254,
+          "width": 4,
+          "height": 1,
+          "rgbaSha256": "06360502eb3b705b655e913e76241357b336de05087a8561e6145ed5c838227a"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 255,
+          "width": 2,
+          "height": 1,
+          "rgbaSha256": "885652cd42e6eb350e7ab8e5057e5c14d726ea6d14478565b4a311f6977eaede"
+        },
+        {
+          "level": 9,
+          "x": 0,
+          "y": 256,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "1ee0224e42b6e5e3bb27d4244897f0248754544b38042b59a2c018d573e68a77"
+        }
+      ],
+      "rgbaSha256": "0e6658ab2e43e9ac41342b8bd11e419491c2cbe6c714b55dc87fbe0b9f33dc28"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/masteryi_base_z_fireline.tex",
+        "wadPathHash": "26b6f26494a9af96",
+        "sha256": "031cd5cbc1b8b0540e52ca269bc718ee270315b72b74cd9deceb651f6bccde26",
+        "bytes": 43740
+      },
+      "path": ".cache/masteryi-q-missile-packed-v2/26b6f26494a9af96.png",
+      "bytes": 42001,
+      "sha256": "9c669cc50f0d56e3ccfdbadeb06c1a0325f39491e192c3b9ab167287e84e14c8",
+      "width": 128,
+      "height": 511,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 128,
+          "height": 256,
+          "rgbaSha256": "b7bbf2ee5d0592d549506c91702da6aa8b263e4d96684e9698adca1c5dd55626"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 256,
+          "width": 64,
+          "height": 128,
+          "rgbaSha256": "cb3afee31184c4b9e7fec1d8b2e9f0205c3c162df05affd264c842b3ec57ade8"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 384,
+          "width": 32,
+          "height": 64,
+          "rgbaSha256": "20e038fbfbff9fa1f7a508bb8a6c0bf887ae738d9aa0e17e1b87c4ed73772afd"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 448,
+          "width": 16,
+          "height": 32,
+          "rgbaSha256": "de448809ea9609c6e3f5e6217070d062a70da4783630fb808cc09fc2b0b5a35e"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 480,
+          "width": 8,
+          "height": 16,
+          "rgbaSha256": "9eabde4b13ce1068b550d2bbc25885a379c9b91b5a22b33b503a4fbcf0836c42"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 496,
+          "width": 4,
+          "height": 8,
+          "rgbaSha256": "2cba064179afac32c74b46107c4e7eac74438a1acd58f10462eb5565d8f8ae83"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 504,
+          "width": 2,
+          "height": 4,
+          "rgbaSha256": "23de544a48a9807adfb82e83d9702e36cca5c7bc6b96725293d4ad0756c95f29"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 508,
+          "width": 1,
+          "height": 2,
+          "rgbaSha256": "c40eae901a73c8753e6fb88400e010bd729a1a4e2d4f36ae0731b567e455d7c7"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 510,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "cdbf26db8d256604bc834447b1df32134fe1eb002f067aaf32fe4d87a763f6ee"
+        }
+      ],
+      "rgbaSha256": "1e3e17b47d5705db1ea2a6754f48ad0ca5629c0953bf1dce5b85ed64ad7ec79c"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/masteryi_base_z_ring.tex",
+        "wadPathHash": "3e81efb313a0c426",
+        "sha256": "994b4079ca4411dd43a4ca148168cda54a5a07bd9d94a7478d38c6674eb2f551",
+        "bytes": 43716
+      },
+      "path": ".cache/masteryi-q-missile-packed-v2/3e81efb313a0c426.png",
+      "bytes": 57441,
+      "sha256": "0670e1fe9778ea23831abafd145bca4d54c50c8c6115a358f7b52da190b33e6e",
+      "width": 256,
+      "height": 511,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 256,
+          "height": 256,
+          "rgbaSha256": "3b16ab374eb2f63bbdea2e26d61d00e42406580e899552b1b445b3c8d2cb12b0"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 256,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "3cdd3d766a196a06162249f57a30e548a4502650b5c4411caf5629d03c4a4872"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "20bf1414c812c820523f71a0cb447e32949e91b2285e2d951922f50c014cfd86"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 448,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "d94db8e8c4fd1968547276db230f0df994c371220da01e7b9c7d8dfb4056489f"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 480,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "43053d171e68f37dca0bca32d35e8f8c69d47e0f2d36ab28009459d6fe7a8669"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 496,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "ff3f566564e75ef3b78ff24f84dc7b8f3bd193cdd5fc8d36fe77c2b3e2439e6a"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 504,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "291f8bd81b124ab1fece90d10bee48971967f5e8410fb6a43cf3346635ad0508"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 508,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "5194748ad7dbb1b277cf57efebbe592a72c8ed39b52f95404327ceb58dac45ce"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 510,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "858c22023213c5189ab084c92b33e14e01a055efdfcae28e9cb6ef8058d440fb"
+        }
+      ],
+      "rgbaSha256": "f6ef393f5135f865ad11ebdf09359a2ed50d5ffc89bff4504a7ce81be0dbe218"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/masteryi_yellow_glow.tex",
+        "wadPathHash": "2fc72189202d828e",
+        "sha256": "931c521d26edd906ccd3db9eb8c82a78283a0f34800bb22563ca2b98b1a1ebf0",
+        "bytes": 43716
+      },
+      "path": ".cache/masteryi-q-missile-packed-v2/2fc72189202d828e.png",
+      "bytes": 18359,
+      "sha256": "02b22b0c4b2b713213a26fb866cf345aba6b71d52f90463d0b84ace0c0d49832",
+      "width": 256,
+      "height": 511,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 256,
+          "height": 256,
+          "rgbaSha256": "18aa75d1ba57bca0b80e42797445aed203555ccd10b9f6b2f2f9be75c0433f37"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 256,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "c74e63208d30dae4c3d5af0f682aab783e89f3fe06280b167238576d2655554e"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "d15a0bcc454354206476a32d5437b54dd568de89514ad2d35ec0f17ea5530c3f"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 448,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "96bf937ef10fbced8605c5460b1def1ed164684eff6946888595978db8680d76"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 480,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "70adf37ac2f975a8f023e5016402cbf4c735fe58ebe69907c56a9889c9dd466d"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 496,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "5988c59f8535c354c6aad272394a5041f32bb374f4d6e4391c03a4d1349e7365"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 504,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "7f5d07e3b89212d87f99588d96389ee4f2889aacb45fb90484829038a90498ce"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 508,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "bfc9d49b0fcdc7456080d34efaa5599c72b8870953338a77b8527643b374b4d7"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 510,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "fb77ad0a3aaaf57f9534cd4b12a136024fd59ca82744bb677eb1f0c9cf63ef99"
+        }
+      ],
+      "rgbaSha256": "c295b8d7b7e2fe60f47b74dd3b5b877adc84b038a88619ddc169b94d73743002"
+    }
+  ],
+  "limits": [
+    "Lossless transport of canonical software-decoded authored mip pixels; native GPU parity is not established.",
+    "Extract every rectangle as a distinct texture mip including level zero. Sampling the atlas directly is invalid.",
+    "Private staging only; no runtime effect, simulation dispatch or public asset preload."
+  ]
+}

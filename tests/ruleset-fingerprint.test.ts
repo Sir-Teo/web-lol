@@ -82,6 +82,144 @@ test('Garen particle clock inputs remain explicitly pinned without a simulation 
   expect(rulesetFingerprint(root)).not.toBe(before);
 });
 
+test('saved Alpha Strike contacts cover source profiles, sampling, materials and mip decoding', () => {
+  const files = [
+    'src/render/masteryi-q-contact-particles.ts',
+    'src/render/masteryi-q-contacts.ts',
+    'src/render/authored-mip-texture.ts',
+    'src/render/particle-color-product.ts',
+    'src/content/masteryi-q-contact-particles.json',
+    'src/content/masteryi-q-contact-timing.ts',
+  ];
+  for (const file of files) {
+    expect(rulesetFiles, file).toContain(file);
+    expect(affectsRuleset(resolve(file)), file).toBe(true);
+  }
+  const { root, put } = fixture();
+  for (const file of files)
+    put(file, file.endsWith('.json') ? '{"profiles":[]}' : 'export const value = 1;');
+  put(
+    'src/render/masteryi-q-contacts.ts',
+    "import './masteryi-q-contact-particles'; import './authored-mip-texture'; import './particle-color-product'; import '../content/masteryi-q-contact-particles.json'; import '../content/masteryi-q-contact-timing';"
+  );
+  const before = rulesetFingerprint(root);
+  for (const file of files) {
+    const original = readFileSync(join(root, file), 'utf8');
+    put(file, original + (file.endsWith('.json') ? ' ' : '\n// changed contact interpretation\n'));
+    expect(rulesetFingerprint(root), file).not.toBe(before);
+    put(file, original);
+    expect(rulesetFingerprint(root)).toBe(before);
+  }
+});
+
+test('saved primary-hit compatibility covers its renderer, motion, attachment and source controls', () => {
+  const files = [
+    'src/render/masteryi-primary-hit-particles.ts',
+    'src/render/masteryi-primary-hits.ts',
+    'src/render/particle-spatial-drag.ts',
+    'src/render/impact-attachments.ts',
+    'src/content/masteryi-primary-hit-particles.json',
+    'src/content/masteryi-primary-hit-timing.ts',
+  ];
+  for (const file of files) {
+    expect(rulesetFiles, file).toContain(file);
+    expect(affectsRuleset(resolve(file)), file).toBe(true);
+  }
+  const { root, put } = fixture();
+  for (const file of files)
+    put(file, file.endsWith('.json') ? '{"profiles":[]}' : 'export const value = 1;');
+  put(
+    'src/render/masteryi-primary-hits.ts',
+    "import './masteryi-primary-hit-particles'; import './particle-spatial-drag'; import './impact-attachments'; import '../content/masteryi-primary-hit-particles.json'; import '../content/masteryi-primary-hit-timing';"
+  );
+  const before = rulesetFingerprint(root);
+  for (const file of files) {
+    const original = readFileSync(join(root, file), 'utf8');
+    put(
+      file,
+      original + (file.endsWith('.json') ? ' ' : '\n// changed primary hit interpretation\n')
+    );
+    expect(rulesetFingerprint(root), file).not.toBe(before);
+    put(file, original);
+    expect(rulesetFingerprint(root)).toBe(before);
+  }
+});
+
+test('saved Alpha Strike sound compatibility includes state, voice policy and exact float loading', () => {
+  for (const file of [
+    'src/audio/masteryi-q-state.ts',
+    'src/audio/masteryi-q.ts',
+    'src/audio/float-source-wav.ts',
+    'src/content/masteryi-q-audio.ts',
+    'src/content/masteryi-q-audio-timing.ts',
+    'src/simulation/masteryi-q-audio.ts',
+  ]) {
+    expect(rulesetFiles, file).toContain(file);
+    expect(affectsRuleset(resolve(file)), file).toBe(true);
+  }
+  const { root, put } = fixture();
+  put('src/audio/masteryi-q.ts', "import './masteryi-q-state'; import './float-source-wav';");
+  put('src/audio/masteryi-q-state.ts', 'export const phase=1;');
+  put('src/audio/float-source-wav.ts', 'export const preserveFloat=true;');
+  const before = rulesetFingerprint(root);
+  put('src/audio/masteryi-q-state.ts', 'export const phase=2;');
+  expect(rulesetFingerprint(root)).not.toBe(before);
+  put('src/audio/masteryi-q-state.ts', 'export const phase=1;');
+  expect(rulesetFingerprint(root)).toBe(before);
+  put('src/audio/float-source-wav.ts', 'export const preserveFloat=false;');
+  expect(rulesetFingerprint(root)).not.toBe(before);
+});
+
+test('Meditate cast compatibility includes its complete presentation and saved history', () => {
+  for (const file of [
+    'src/render/masteryi-w-casts.ts',
+    'src/render/masteryi-w-cast-particles.ts',
+    'src/render/authored-mip-texture.ts',
+    'src/render/source-particle-surfaces.ts',
+    'src/render/leona-eclipse-values.ts',
+    'src/render/particle-motion.ts',
+    'src/render/particle-orbital-motion.ts',
+    'src/content/masteryi-w-cast-particles.json',
+    'src/content/masteryi-w-cast-timing.ts',
+    'src/simulation/masteryi-meditate-cast.ts',
+  ]) {
+    expect(rulesetFiles, file).toContain(file);
+    expect(affectsRuleset(resolve(file)), file).toBe(true);
+  }
+  const { root, put } = fixture();
+  put('src/render/masteryi-w-casts.ts', "import './masteryi-w-cast-particles';");
+  put('src/render/masteryi-w-cast-particles.ts', 'export const cast=1;');
+  const before = rulesetFingerprint(root);
+  put('src/render/masteryi-w-cast-particles.ts', 'export const cast=2;');
+  expect(rulesetFingerprint(root)).not.toBe(before);
+});
+
+test('saved Yi attack audio includes applied pitch, voice policy and float loading', () => {
+  const files = [
+    'src/audio/masteryi-aa-state.ts',
+    'src/audio/masteryi-aa.ts',
+    'src/audio/float-source-wav.ts',
+    'src/content/masteryi-aa-audio.ts',
+    'src/content/masteryi-aa-audio-timing.ts',
+  ];
+  for (const file of files) {
+    expect(rulesetFiles, file).toContain(file);
+    expect(affectsRuleset(resolve(file)), file).toBe(true);
+  }
+  const { root, put } = fixture();
+  put('src/audio/masteryi-aa.ts', "import './masteryi-aa-state'; import './float-source-wav';");
+  put('src/audio/masteryi-aa-state.ts', 'export const appliedRate=1;');
+  put('src/audio/float-source-wav.ts', 'export const preserveFloat=true;');
+  const before = rulesetFingerprint(root);
+  for (const file of files.slice(0, 3)) {
+    const original = readFileSync(join(root, file), 'utf8');
+    put(file, original + '\n// changed saved sound interpretation\n');
+    expect(rulesetFingerprint(root), file).not.toBe(before);
+    put(file, original);
+    expect(rulesetFingerprint(root)).toBe(before);
+  }
+});
+
 test('Ahri and Master Yi saved-pose compatibility includes fetched rig inputs without importing binary modules', () => {
   const { root, put } = fixture();
   const before = rulesetFingerprint(root);
@@ -214,7 +352,9 @@ test('explicit Eclipse module roots include transitive kernels and fail closed o
   const { root, put } = fixture(),
     baseline = rulesetFingerprint(root);
   for (const entry of rulesetModuleRoots) expect(collectRulesetFiles(root)).toContain(entry);
-  put(rulesetModuleRoots[0], "import './curve-policy';");
+  const entry = 'src/render/leona-eclipse-particles.ts';
+  expect(rulesetModuleRoots).toContain(entry);
+  put(entry, "import './curve-policy';");
   put('src/render/curve-policy.ts', "import curve from './curve-data.json'; export default curve;");
   put('src/render/curve-data.json', '{"rate":1}');
   const changed = rulesetFingerprint(root);

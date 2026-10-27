@@ -1,0 +1,117 @@
+{
+  "format": 1,
+  "meshes": [
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/common_ezreal_pulsefire_muzzle_cone.scb",
+        "wadPathHash": "324d2a00dbae27e5",
+        "sha256": "f1b4eb37c19ee36b81764f260692906af388cede34d9e575a4b951cff9424cee",
+        "bytes": 69792
+      },
+      "decoded": {
+        "path": ".cache/masteryi-r-particles-decoded/meshes/324d2a00dbae27e5.json",
+        "sha256": "793777422287d6fa92d853b36d86ddbd9b77e8df3de8bd6da7538e89ba0674ac"
+      },
+      "output": {
+        "path": ".cache/masteryi-r-cast-packed-v2/masteryi-r-cast-cone.glb",
+        "bytes": 37452,
+        "sha256": "c0ace317f2e9d439c5d021cae9851fcd923dfeac1ecc518703833bf24e4b4a68"
+      },
+      "sourceVertices": 1440,
+      "triangles": 480,
+      "exportedCorners": 1440,
+      "attributes": {
+        "positionFloat32Sha256": "8b0b56ab0a0e702929f096d9499eab8a269074930b7d81549c0f446e6b065376",
+        "uvFloat32Sha256": "8c73216dbfb39b282af8378098597b802d1f4fa9b66f95558b245eac32e498d4",
+        "faceRgbSha256": "7dabd08dcacc92f1b1a5c53b96d5b976c2f622a799ae98d2ef94c9dc239b396e"
+      },
+      "centralPoint": [
+        -0.15094995498657227,
+        1.445449948310852,
+        0
+      ],
+      "rawSourceBounds": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "measuredMinMax": [
+        -4.070199966430664,
+        0.16590000689029694,
+        -3.9191999435424805,
+        3.7683000564575195,
+        2.7249999046325684,
+        3.9191999435424805
+      ],
+      "tailHex": "",
+      "flags": 1,
+      "sourceHasVertexColors": false,
+      "sourceFaceRgbAppliedAsMaterial": false,
+      "normalsGenerated": false,
+      "validation": {
+        "errors": 0,
+        "warnings": 0,
+        "roundTripAttributesExact": true
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/masteryi_base_r_fireball_front.scb",
+        "wadPathHash": "07da05c90e2b78d7",
+        "sha256": "2b8b01025b7623e934b79d989088cfa3894cbe66385369eec1af944bed03b06d",
+        "bytes": 34848
+      },
+      "decoded": {
+        "path": ".cache/masteryi-r-particles-decoded/meshes/07da05c90e2b78d7.json",
+        "sha256": "915baf3c043e427272889366b84811c0e9b423f319cf6ed2cd416470b4f788ed"
+      },
+      "output": {
+        "path": ".cache/masteryi-r-cast-packed-v2/masteryi-r-cast-fireball.glb",
+        "bytes": 24200,
+        "sha256": "40bebcd896e9a294b6317b104bc5dc796a4121ec57cfdb7316ebb30a08fd3883"
+      },
+      "sourceVertices": 161,
+      "triangles": 300,
+      "exportedCorners": 900,
+      "attributes": {
+        "positionFloat32Sha256": "352aad5d0846d1289df1ea92a763cf03a395002d4a817698cb997ce3ae528d57",
+        "uvFloat32Sha256": "fc95eada6e6248c45e40d720d3aa2dff7c52f2241227f2f7fc283e58933118ce",
+        "faceRgbSha256": "a47eeaca29edf666cb29425fe1a378c35daf47d8e33b39d20d0a73c4542f4b9d"
+      },
+      "centralPoint": [
+        2.6150498390197754,
+        1.3149499893188477,
+        -0.0020499229431152344
+      ],
+      "rawSourceBounds": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "measuredMinMax": [
+        -1.3224999904632568,
+        -0.17489999532699585,
+        -3.9395999908447266,
+        6.552599906921387,
+        2.804800033569336,
+        3.935499906539917
+      ],
+      "tailHex": "295c2740dbf9863f89d2debb00000000dbf9863f89d2debb",
+      "flags": 5,
+      "sourceHasVertexColors": false,
+      "sourceFaceRgbAppliedAsMaterial": false,
+      "normalsGenerated": false,
+      "validation": {
+        "errors": 0,
+        "warnings": 0,
+        "roundTripAttributesExact": true
+      }
+    }
+  ]
+}

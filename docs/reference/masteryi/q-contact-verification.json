@@ -1,0 +1,723 @@
+{
+  "format": 1,
+  "parentCommit": "62455eb",
+  "identity": {
+    "schema": 148,
+    "ruleset": "e50982ba2e775909960043a0b04a93e2e7696700986a93b9ecabc986d8968f72",
+    "pack": {
+      "id": "574324bff16654b414d2cb9bdd1deec10bf700700fe0ee72fdd297bde369ec3e",
+      "files": 1111,
+      "bytes": 530129881
+    }
+  },
+  "scope": "Complete seven-emitter native target closure rendered on accepted local Q contacts. Native dispatch/frame calibration remains unverified. Public selection is Ashe/Lux.",
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/q-particles.json",
+      "bytes": 87880,
+      "sha256": "95531b1e61b44fc39d6458534174fe183fdf75e57cf7528a93a045e836322776"
+    },
+    {
+      "path": "docs/reference/masteryi/q-particles-decoded.json",
+      "bytes": 148372,
+      "sha256": "783317cf9c44a36b3e07fbda8d27829ec6ae674119fcb5c8fddac46a959360fd"
+    },
+    {
+      "path": "docs/reference/masteryi/q-contact-texture-transport.json",
+      "bytes": 18046,
+      "sha256": "2851d25d5639cab3476a0161862fb96ba4296f6a6f4af82ede6beb1aebfcd687"
+    },
+    {
+      "path": "docs/reference/garen-spin-defaults.json",
+      "bytes": 1772,
+      "sha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb"
+    },
+    {
+      "path": ".cache/masteryi-q-contact-packed-v2/masteryi-q-contact-trail.glb.json",
+      "bytes": 1618,
+      "sha256": "f3aa1adfb0834c7c0e8c1c40ba32b9e6fac50a0480209227ad20d56190000acf"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-q-particles-cloud/contact-final-source-index.json",
+    "bytes": 11037,
+    "sha256": "359662bd2e7a259a5a3e24922477fadafaecf60d075b9b00e7431b374f52409d"
+  },
+  "generated": [
+    {
+      "path": "README.md",
+      "bytes": 13799,
+      "sha256": "8088f5ef515ce3b807975498b513c4213c3347960907ef656f26ee1bd7bf517e",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/README.md"
+    },
+    {
+      "path": "docs/MASTER-YI-Q-CONTACTS.md",
+      "bytes": 7250,
+      "sha256": "63a4175c7f46400a71d755b843fbd4014be8510a86f6ddd73b144599a93b5904",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/docs/MASTER-YI-Q-CONTACTS.md"
+    },
+    {
+      "path": "docs/MASTER-YI-Q.md",
+      "bytes": 11705,
+      "sha256": "0f3dcd58d65fb80cdd16df99877ce8cb1d40b92d12e8e8514075f11cb40fb150",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/docs/MASTER-YI-Q.md"
+    },
+    {
+      "path": "docs/SAVES.md",
+      "bytes": 56070,
+      "sha256": "8d62ac0e22dfbbf5a2ffab7b47d512f38042f78713174e93ff39ad2a3de23155",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/docs/SAVES.md"
+    },
+    {
+      "path": "docs/reference/masteryi/q-contact-particle-reading.json",
+      "bytes": 2940,
+      "sha256": "013859d20ab694e0c6214ff2fbf0268c3c5d996417148be31b5451f622e2cc08",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/docs/reference/masteryi/q-contact-particle-reading.json"
+    },
+    {
+      "path": "e2e/masteryi-q-contacts.spec.ts",
+      "bytes": 10988,
+      "sha256": "59dbf511abdc705698c0bc187ec0ac4865fe3ce43bf6d09f85a68a20bc2f60b1",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/e2e/masteryi-q-contacts.spec.ts"
+    },
+    {
+      "path": "public/assets/effects/masteryi-q-contact-271a48230fb860e5.png",
+      "bytes": 13488,
+      "sha256": "9a7f552bed2d78a583a2ad9b712b2834b7dbd341e3ba306ec88869969c5b9749",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/public/assets/effects/masteryi-q-contact-271a48230fb860e5.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-q-contact-433b18542280cbff.png",
+      "bytes": 2725,
+      "sha256": "0ab6dc56e50c09542bc5e59ae56875be2fcdac4fa01c023fd19138ff01136054",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/public/assets/effects/masteryi-q-contact-433b18542280cbff.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-q-contact-48a39dc90b87ae45.png",
+      "bytes": 655,
+      "sha256": "96bcb47a5d968d00cfe9c59eef702da8e226a9ed58c1fbc13da547fde53744d9",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/public/assets/effects/masteryi-q-contact-48a39dc90b87ae45.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-q-contact-69151717fd1ca98f.png",
+      "bytes": 27809,
+      "sha256": "c3d88cee759210b77b5bbcd80858292458fa98fe6003d206073734267e7656bd",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/public/assets/effects/masteryi-q-contact-69151717fd1ca98f.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-q-contact-b885bf2594e01a38.png",
+      "bytes": 134100,
+      "sha256": "1bb320d9db1f0fd45ad4e84f1289f6a254d986513968f2fb28469a50d1e69766",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/public/assets/effects/masteryi-q-contact-b885bf2594e01a38.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-q-contact-dba30aea46f8d87f.png",
+      "bytes": 702,
+      "sha256": "30df4a0ee4cd6cc8d680584586e77e764328930403fae425708a9e845c0edcc8",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/public/assets/effects/masteryi-q-contact-dba30aea46f8d87f.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-q-contact-e8148d5a7ddf3fbf.png",
+      "bytes": 13735,
+      "sha256": "e0ee1c20791998f0de1557feec8caa4dced785a46eccf4cd3ec199a531e5d1c9",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/public/assets/effects/masteryi-q-contact-e8148d5a7ddf3fbf.png"
+    },
+    {
+      "path": "public/assets/models/masteryi-q-contact-trail.glb",
+      "bytes": 112976,
+      "sha256": "11e8d520c3ba72a1e301d1ab7ecaad4ac0f0c2e4b426d46948185fc6891f2192",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/public/assets/models/masteryi-q-contact-trail.glb"
+    },
+    {
+      "path": "src/content/masteryi-q-contact-particles.json",
+      "bytes": 38125,
+      "sha256": "ade04d77fe7d7900ac4300cb870192cec9ca2a63f4215e55cac5d63cba88cd57",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/src/content/masteryi-q-contact-particles.json"
+    },
+    {
+      "path": "src/content/masteryi-q-contact-timing.ts",
+      "bytes": 284,
+      "sha256": "dd52c92af28ed2dcd82778aa602a6698734a6b616e7b6244799cbf7ba6b83264",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/src/content/masteryi-q-contact-timing.ts"
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 21136,
+      "sha256": "5cad47a27cddfdd8304d012f7b406938ad6e5092381208a64949c35d2eb8a29c",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/src/main.ts"
+    },
+    {
+      "path": "src/render/authored-mip-texture.ts",
+      "bytes": 3734,
+      "sha256": "0b36d93f9b03b65d838728035d4d68a50c7eb5d11f4485a605d3962ae1707c7f",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/src/render/authored-mip-texture.ts"
+    },
+    {
+      "path": "src/render/lazy-masteryi-q-contacts.ts",
+      "bytes": 1390,
+      "sha256": "f3fe8ee4161632153def6b163b9c484ba8abb7d89915929246f5569137c2d7b1",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/src/render/lazy-masteryi-q-contacts.ts"
+    },
+    {
+      "path": "src/render/masteryi-q-contact-particles.ts",
+      "bytes": 4147,
+      "sha256": "b838eb2f0eca942c04213c5a02b3b283d924721c8f6c25cb474f4600b151cd8a",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/src/render/masteryi-q-contact-particles.ts"
+    },
+    {
+      "path": "src/render/masteryi-q-contacts.ts",
+      "bytes": 7342,
+      "sha256": "017fe60e320e5aa0565e07b2bba172b07ce60cacdd83f82fd600813225da31e3",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/src/render/masteryi-q-contacts.ts"
+    },
+    {
+      "path": "src/render/view.ts",
+      "bytes": 61063,
+      "sha256": "bd330dc6b9972389cc1e2ba92a20cf0e51420e5fd3aa003a2b78f88327d98235",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/src/render/view.ts"
+    },
+    {
+      "path": "src/simulation/champion-state.ts",
+      "bytes": 3955,
+      "sha256": "5e55808cf05a6d562dc32e9a0122f39eb04cac7d46c59c553be0437a63a82c94",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/src/simulation/champion-state.ts"
+    },
+    {
+      "path": "src/simulation/masteryi-alpha-strike.ts",
+      "bytes": 12494,
+      "sha256": "6e90326405c463fb7b754b7798771c05b6b4e969e763c4a162248501621548d1",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/src/simulation/masteryi-alpha-strike.ts"
+    },
+    {
+      "path": "src/simulation/masteryi-q-contact-visuals.ts",
+      "bytes": 6953,
+      "sha256": "8c62134778e466daa1041ce5676a0e3ae621ee4a1d51f9ef45845492f7f1b977",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/src/simulation/masteryi-q-contact-visuals.ts"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "bytes": 176186,
+      "sha256": "1254be6a8861e3a97860611d2294e2f64de28a752fb47f502beac315d0eb3bc3",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/src/simulation/snapshot.ts"
+    },
+    {
+      "path": "src/simulation/types.ts",
+      "bytes": 21931,
+      "sha256": "8592a62258712ed0ef91e36039ea9a194006e161b60adea6491ccb09d675c916",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/src/simulation/types.ts"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "bytes": 290051,
+      "sha256": "2c9e87754c35fece649f64d85a763c1d7dbae64e46f948592b5f0d73a298686f",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/src/simulation/world.ts"
+    },
+    {
+      "path": "tests/authored-mip-texture.test.ts",
+      "bytes": 5191,
+      "sha256": "06655fbd074ef42836bf921f1e31860d993ce1696cc019d09abd77e795c067da",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/tests/authored-mip-texture.test.ts"
+    },
+    {
+      "path": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "085fdedf0a8345b61904065facadff8d00884cca66fc8461062ff9b81ae79368",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/tests/lux-e-hit.test.ts"
+    },
+    {
+      "path": "tests/masteryi-q-contact-history.test.ts",
+      "bytes": 11725,
+      "sha256": "5e57bf623f57cf554b8fc3efdaa0c4763539c62b5e3a94ddf39a7505c5494177",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/tests/masteryi-q-contact-history.test.ts"
+    },
+    {
+      "path": "tests/masteryi-q-contact-particles.test.ts",
+      "bytes": 7952,
+      "sha256": "c73c31648f1cc8e4734508db7f969af71b1342673bee690abc7181344f76a390",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/tests/masteryi-q-contact-particles.test.ts"
+    },
+    {
+      "path": "tests/ruleset-fingerprint.test.ts",
+      "bytes": 13108,
+      "sha256": "11c6080e026758a56af38d32c13fb8694c280e921641f19c2d89374ddf6c4959",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/tests/ruleset-fingerprint.test.ts"
+    },
+    {
+      "path": "tools/assets/convert-masteryi-q-contact-mesh.mjs",
+      "bytes": 5236,
+      "sha256": "d466d9d767ae27dec9d7cdf947297308d1c5885d5da01bd8b6ee82a7c0400335",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/tools/assets/convert-masteryi-q-contact-mesh.mjs"
+    },
+    {
+      "path": "tools/assets/export-masteryi-q-contact-particles.py",
+      "bytes": 10642,
+      "sha256": "7abe4706a2e8219d526ee980f1c6a9558203af849e073afcd9498a6b26289c38",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/tools/assets/export-masteryi-q-contact-particles.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-q-contact-export.py",
+      "bytes": 4892,
+      "sha256": "7cfc79f0bb6d753b876f387f4277b63351c28fa88799885a7cef8196c0109a0c",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/tools/assets/test-masteryi-q-contact-export.py"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 25284,
+      "sha256": "70d160fb8c47a1efba61facf4d495af5cdd56a3bd1dc98b96fd860549647371a",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/tools/qa/production-subpath.mjs"
+    },
+    {
+      "path": "tools/ruleset-fingerprint.ts",
+      "bytes": 11679,
+      "sha256": "e3bb140a821b8e8af7fdc097826457c1be9d73e28bb4c021a441940830681727",
+      "archived": ".cache/masteryi-q-particles-cloud/contact-final-source/tools/ruleset-fingerprint.ts"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-app-identity.json",
+      "bytes": 238,
+      "sha256": "53029a7733998996949c665b4e0494f990685042344a2cc29c659d24e69797a1"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-browser/masteryi-q-contacts-ordina-15f40-a-failed-texture-explicitly/late-load-explicit-retry.json",
+      "bytes": 964,
+      "sha256": "f7cbdbceb6b360411c5a808819e73d462e65468ef163d9ec4b74fc4ec502f3d0"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-browser/masteryi-q-contacts-real-c-2e79d-rticles-through-Save-reload/contact-save-reload.json",
+      "bytes": 30523,
+      "sha256": "1b17933178449d9c5ab3f03221e64d063ed6492365ff023361825251e95f2a2f"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-browser/masteryi-q-contacts-real-c-2e79d-rticles-through-Save-reload/critical-contact.png",
+      "bytes": 792103,
+      "sha256": "e3109f12e61a3ea418aededdc0bb2fc3f672feadd4d41dc4feeffb044d05fef1"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-browser/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/contact-save-reload.json",
+      "bytes": 33568,
+      "sha256": "73dc67f468c89757b8398a2989d8563866bff8db17a37416be4abc469e8d4ef2"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-browser/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/ordinary-contact.png",
+      "bytes": 801761,
+      "sha256": "c16472d5d94b7fe52a7a3059e153f9c6ac08ac16d8f25163e0ed29c34cfa8f90"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-browser/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/three-authored-mip-readback.json",
+      "bytes": 10563,
+      "sha256": "9b97f1644009edc39fc69b3a985007f0d4920bc9dae8c0302baec8fc2be1dcdb"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-browser-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-browser-final/masteryi-q-contacts-ordina-15f40-a-failed-texture-explicitly/late-load-explicit-retry.json",
+      "bytes": 964,
+      "sha256": "f7cbdbceb6b360411c5a808819e73d462e65468ef163d9ec4b74fc4ec502f3d0"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-browser-final/masteryi-q-contacts-real-c-2e79d-rticles-through-Save-reload/contact-save-reload.json",
+      "bytes": 30523,
+      "sha256": "7134b64bc5fe375c2cf0d34bb0e7778d344eb8c8074fa47f558f9ff85055a688"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-browser-final/masteryi-q-contacts-real-c-2e79d-rticles-through-Save-reload/critical-contact.png",
+      "bytes": 792997,
+      "sha256": "2c3796fe15beaf2cbc23eae2652a8c28deb4b14b13e76cf0d745b6d762d62f6b"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-browser-final/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/contact-save-reload.json",
+      "bytes": 33568,
+      "sha256": "c31e6257aabeb583fda02f472986c3d198047b72b42977d312adec73d05d39cd"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-browser-final/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/ordinary-contact.png",
+      "bytes": 801761,
+      "sha256": "c16472d5d94b7fe52a7a3059e153f9c6ac08ac16d8f25163e0ed29c34cfa8f90"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-browser-final/masteryi-q-contacts-real-o-dd586-rticles-through-Save-reload/three-authored-mip-readback.json",
+      "bytes": 10563,
+      "sha256": "9b97f1644009edc39fc69b3a985007f0d4920bc9dae8c0302baec8fc2be1dcdb"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-browser-final.log",
+      "bytes": 1448,
+      "sha256": "d5f9373d27866f16c489208cd8eb021888d4247b47c5cf817a779d4f1b54635d"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-browser.log",
+      "bytes": 1448,
+      "sha256": "341e52ff2522abc741c68eae020a93b39d0e96d3f0e48beb028340c542fd6846"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-build-final.log",
+      "bytes": 5169,
+      "sha256": "5a6a214552b00e6245bcb95bbbdd175e846f2a3096fa13a00093c6aadfb77b40"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-build-initial.log",
+      "bytes": 5956,
+      "sha256": "8bd463448144b7f0c8ba6e974a70660bd86faf8025af96b1792b7931ab6f9d97"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-export-check-optimized.log",
+      "bytes": 81,
+      "sha256": "568dc9750af456965f2c05da31ec570b65e379dc1fd22afddc1d4ab59029478c"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-export-check.log",
+      "bytes": 81,
+      "sha256": "568dc9750af456965f2c05da31ec570b65e379dc1fd22afddc1d4ab59029478c"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-export-final-check.log",
+      "bytes": 81,
+      "sha256": "568dc9750af456965f2c05da31ec570b65e379dc1fd22afddc1d4ab59029478c"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-export-guards-optimized-v2.log",
+      "bytes": 118,
+      "sha256": "4368fdb066ecbfcd64bff04903b6a5375c6cf07c9cabf3b88d0340d71238c5a9"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-export-guards-optimized.log",
+      "bytes": 1043,
+      "sha256": "656eefc60a148196bc6aaf2f89556ee3f7b4095afbf6c9ec44e0e4949a83f63a"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-export-guards-v2.log",
+      "bytes": 118,
+      "sha256": "4368fdb066ecbfcd64bff04903b6a5375c6cf07c9cabf3b88d0340d71238c5a9"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-export-guards.log",
+      "bytes": 1043,
+      "sha256": "b412b02229f62fad739c52223218daec674ba95e6f2cac200822bd72349a052f"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-export-initial.log",
+      "bytes": 82,
+      "sha256": "6e69d5c7972beb2384209a0e71eae818cf6a25b1edf34dc81f24fb52fb403965"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-final-focused.log",
+      "bytes": 426,
+      "sha256": "ef3c20401f91b6bc24a8cd47ed545d9ea8168f179faebb22194a6293c235d965"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-focused-v5.log",
+      "bytes": 181,
+      "sha256": "a981811850b0e87f336a830c03b1a60d01dde4715432780fdb95289d09a18b5b"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-format-final.log",
+      "bytes": 137,
+      "sha256": "83d73482b376793a191321eb7d7846cac2f51ec13d3fc5beed26a999add15e35"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-format-v2.log",
+      "bytes": 568,
+      "sha256": "e0756494fde83d5e032683ea12bc64d6177199621ed2ff1ff016d412f1253f6b"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-format.log",
+      "bytes": 408,
+      "sha256": "7bb95ac62289e0c57240b4950280caebf6efd4005d4300b9a55c7d95a80c5655"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-full-unit-final.log",
+      "bytes": 5485,
+      "sha256": "e707c9e26dffe6432c5ba8144c8e55cc172ffbac0fb8251ec4f2296455919847"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-full-unit.log",
+      "bytes": 5484,
+      "sha256": "dd3a5493cf2d4a3c76ac7537b20bbaabd0f251da9f3974e542fffab03c43dbc6"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-history-tests-initial.log",
+      "bytes": 4481,
+      "sha256": "f82b6ba9d447bd7dd804b5cdaf3540b1b26c8f7b4b0b061296e51ff179d1579e"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-history-tests-v2.log",
+      "bytes": 170,
+      "sha256": "4c4129c7b97c4b7a0e40a2926b7269209c2d5dc2fb238134deb29b030eacf654"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-history-tests-v3.log",
+      "bytes": 4161,
+      "sha256": "adb8f5c899ea6dfe7545190935fbfef94033fdf6bd95737acef8f0c3bbb64595"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-history-tests-v4.log",
+      "bytes": 371,
+      "sha256": "a532753f70f0aefab29636fbe485a7b6b4e1742cebe5a99a8bd4d5e3cb1ceeb6"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-initial-tests.log",
+      "bytes": 170,
+      "sha256": "f3d5d96a80aa52592a031984f091da941b042cfe4100ee1614b398b3045740b6"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-mesh-conversion.log",
+      "bytes": 1724,
+      "sha256": "2c2f362d502ae4994386d7ca2b86a42df0b400ddd40ec0544ea18a9586e85c28"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-mesh-replay-v2.log",
+      "bytes": 1724,
+      "sha256": "2c2f362d502ae4994386d7ca2b86a42df0b400ddd40ec0544ea18a9586e85c28"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-mesh-replay.log",
+      "bytes": 1831,
+      "sha256": "365c8ceb798ac5b6054b375588f00e7d255bb9d4e7edf34fbdf842ac9f962491"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-node-qa.log",
+      "bytes": 431,
+      "sha256": "f9794b17db3c7948dc9a67decea73fe330bce68c971a31a875d5dc453019fc46"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-offline-pack.json",
+      "bytes": 159186,
+      "sha256": "969d9556fa43d03d33ff296aa431c949eaddaf593b91bea402685f02977174b0"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-particle-tests-initial.log",
+      "bytes": 180,
+      "sha256": "2e986a0ae4b646dd12a7eb42ef179d5dbb40b45cce7fcd65066d8fc5205c7a65"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-producer-idempotence.json",
+      "bytes": 2802,
+      "sha256": "c79f16719988d993dd8fb12977aa9cdcf25290a65fee05d69a1a5e68489bedee"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-producer-replay-0.log",
+      "bytes": 82,
+      "sha256": "6e69d5c7972beb2384209a0e71eae818cf6a25b1edf34dc81f24fb52fb403965"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-producer-replay-1.log",
+      "bytes": 82,
+      "sha256": "6e69d5c7972beb2384209a0e71eae818cf6a25b1edf34dc81f24fb52fb403965"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1814217,
+      "sha256": "58d1d82b4b759e597750bd0290f0b28b5c493d2d56a1b2a6b5af5eaa8ca15ec0"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835500,
+      "sha256": "69f680b6db88a998f02e5ce1d570608f7d7bdfc3059bea3ab2cb927bf99b6e1e"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1828893,
+      "sha256": "6c91b318a38cc763ec7bfa2b08767e73ba7a98d7b419fa45063307bbcdd7bc48"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1812037,
+      "sha256": "e0ee7504ea871d8e0cde6b6536ebd6d978795b46e025cd2e752c6347fff997a7"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1820534,
+      "sha256": "b5d1c3d6b042892854c8ce2c9fcf09cc190a1cf6624ad4ec8834187897b443f3"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1351497,
+      "sha256": "8b9fea107b93066e807c74ecd0f00c2c8556b3f78e49d937cd8c2fcafcbf7378"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1826332,
+      "sha256": "f584cbbfa00f8f4bb8cf520f1302a18dcef740f755702fca4534102f70fd1233"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808906,
+      "sha256": "9f96048898685f9d254a0be548b6541315e922adff59e0e6db2a4a01d2a8a150"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-production-artifacts.json",
+      "bytes": 1809,
+      "sha256": "769b9c4250913ccbdd1cf9741ecbbd41c096dd1413bd727c322edb3aef3bfc3f"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-production-final.json",
+      "bytes": 2253,
+      "sha256": "a613e7b42a0c79eb9afd810b4e72310e82fa2303b724d5fe2a84b2fe110bbc69"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-production-final.mjs",
+      "bytes": 25302,
+      "sha256": "64f55ebbed20c9c1c2d1ff43aebe63decde1de95d6f579612ea4a47f338916ed"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-production-final.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-production-subpath.mjs",
+      "bytes": 25302,
+      "sha256": "64f55ebbed20c9c1c2d1ff43aebe63decde1de95d6f579612ea4a47f338916ed"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-production.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-production.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-render-types-initial.log",
+      "bytes": 358,
+      "sha256": "8623a3c9698debb5496979a530a32fb8466d142c74abba1e336768a4f18f855a"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-types-initial.log",
+      "bytes": 1593,
+      "sha256": "68e77b99e56c3275abcc16f67b50a0be9bbf939980b02ea0024ce1ee26811bac"
+    },
+    {
+      "path": ".cache/masteryi-q-particles-cloud/contact-types-v2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "checks": {
+    "fullUnit": {
+      "passed": 2546,
+      "failed": 3,
+      "files": 355,
+      "maxWorkers": 1,
+      "originalDeadlinesAndAssertions": true
+    },
+    "finalFocused": {
+      "passed": 77,
+      "files": 4
+    },
+    "sourceExportGuards": {
+      "normal": 19,
+      "optimized": 19
+    },
+    "finalBrowser": {
+      "passed": 3,
+      "retries": 0,
+      "timeoutMs": 120000,
+      "chromium": "154.0.8037.57",
+      "gpu": "SwiftShader"
+    },
+    "threePixelExactAuthoredMipReadbacks": 59,
+    "producerReplay": {
+      "unchangedFiles": 12,
+      "bytesAndTimestampsUnchanged": true
+    },
+    "nodeQA": {
+      "passed": 3
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 13,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderAudioPreloads": 0,
+      "unrequestedMasterYiQContactPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 221,
+      "scheduledBlueRequests": 13,
+      "scheduledRedRequests": 13,
+      "scheduledWolfRequests": 26,
+      "scheduledRaptorRequests": 26,
+      "scheduledKrugRequests": 39,
+      "scheduledScuttlerRequests": 13,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    }
+  },
+  "baselineFailures": [
+    "Leona attached-skin reflection original check.py is absent.",
+    "Original distortion metallib/bitcode/disassembly compiler artifacts remain unavailable.",
+    "Lux first fifteen sampler hash remains 4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a versus pinned 09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df; reproduced on untouched baseline."
+  ],
+  "retainedDiagnostics": [
+    "Initial test setups used the wrong serialized champion field, omitted the existing damage-event ID and critical roll, or saved immediately after direct fixture teleports. Setups were corrected without weakening runtime validation.",
+    "Initial mesh replay compared Buffer versus Uint8Array types despite identical bytes. Final replay compares exact file bytes and retains all source hashes.",
+    "Initial production smoke was interrupted to register the presentation dependency graph in saved-match fingerprints; final production and browser checks use the final identity."
+  ],
+  "limits": [
+    "Source pixels use the pinned canonical Pillow software decode. Local Chromium/SwiftShader upload/readback is exact, not a native Riot GPU decoder/frame certificate.",
+    "Native callback, attachment frame, size/default interpretation and RNG calibration remain unverified; local policies are documented.",
+    "No physical-device, FPS, listening, complete-browser-suite, service-worker or offline-install acceptance certificate."
+  ]
+}

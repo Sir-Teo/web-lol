@@ -6,6 +6,7 @@ import { luxBeamBirthOffset } from './lux-beam-birth-offset';
 import { luxHoopChance } from './lux-hoop-particles';
 import { sampleParticleCurve } from './particle-curves';
 import { particleColorLookup } from './particle-color-lookup';
+import { particleHalf } from './particle-half';
 import { particleTravel } from './particle-motion';
 
 /** Source probabilities remain correlated per birth. Indexed cosmetic draws
@@ -88,6 +89,11 @@ export function garenAAParticles(
             p.directionMinScale,
             Math.hypot(...motion.travel) * p.directionScale
           );
+        const lookup = particleColorLookup(p, phase, roll, motion.travel);
+        if (p.kind === 'ray') {
+          lookup[0] = particleHalf(lookup[0]);
+          lookup[1] = particleHalf(lookup[1]);
+        }
         particles.push({
           record,
           profileIndex,
@@ -102,7 +108,7 @@ export function garenAAParticles(
           scale,
           rotation: rotation.map((v, axis) => v + angular[axis] * age),
           color: [0, 1, 2, 3].map((axis) => sampleParticleCurve(p.color, phase, axis)),
-          lookup: particleColorLookup(p, phase, roll, motion.travel),
+          lookup,
           scroll: sample(p.scroll).map((v) => v * age),
           frame:
             (p.atlas.random ? Math.floor(roll * p.atlas.frames) : 0) %

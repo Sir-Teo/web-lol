@@ -7,6 +7,7 @@ import { luxBeamBirthOffset } from './lux-beam-birth-offset';
 import { luxHoopChance } from './lux-hoop-particles';
 import { sampleParticleCurve } from './particle-curves';
 import { particleColorLookup } from './particle-color-lookup';
+import { particleHalf } from './particle-half';
 
 /** Local analytic motion with constant acceleration and exponential birth drag.
  * Values remain source units. This is not proof of native integrator semantics. */
@@ -100,6 +101,11 @@ export function garenJusticeParticles(
       const frame =
         (p.atlas.start + (p.atlas.random ? Math.floor(chance(16) * p.atlas.frames) : 0)) %
         (p.atlas.grid[0] * p.atlas.grid[1]);
+      const lookup = particleColorLookup(p, phase, chance(17), motion.travel);
+      if (p.kind === 'ray') {
+        lookup[0] = particleHalf(lookup[0]);
+        lookup[1] = particleHalf(lookup[1]);
+      }
       particles.push({
         profileIndex,
         ordinal,
@@ -113,7 +119,7 @@ export function garenJusticeParticles(
         color: [0, 1, 2, 3].map((axis) => sampleParticleCurve(p.color, phase, axis)),
         scroll: scroll.map((v, axis) => v * age + offset[axis]),
         multiplier: multiplier.map((v) => v * age),
-        lookup: particleColorLookup(p, phase, chance(17), motion.travel),
+        lookup,
         frame,
       });
     }

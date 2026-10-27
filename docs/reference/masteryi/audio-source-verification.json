@@ -1,0 +1,588 @@
+{
+  "recordedAt": "2026-10-25T22:28:27.930666+00:00",
+  "baselineCommit": "ee62a7d",
+  "scope": "Immutable base SFX source banks, complete declared-event static graph and encoded media only; no decoding, public media or runtime playback.",
+  "schema": 145,
+  "unchangedRuleset": "01df38573feae5954330b5a1a2ca9dad87d320d0ec3b024ba2a31d971bb96022",
+  "unchangedRuntimePack": {
+    "id": "e663ac994747306aa587d489212542c13de96c9afd874a6f26966f743f834011",
+    "files": 1073,
+    "bytes": 526662603
+  },
+  "inputs": [
+    {
+      "file": "tools/assets/extract-masteryi-audio.py",
+      "bytes": 1457,
+      "sha256": "effe8e63f6341d746a34ea1b3e892e6644fa4b9ac51dbf4456e69db0297458c8"
+    },
+    {
+      "file": "tools/assets/masteryi_audio_source.py",
+      "bytes": 2297,
+      "sha256": "fdeb76c6bf623a420a16851ab659368f349cc9e61748b890f0fec76b8e407c3c"
+    },
+    {
+      "file": "tools/assets/map-masteryi-audio.py",
+      "bytes": 1265,
+      "sha256": "1dbe9519550ba61c5e92ea67df64c61da164f940990d3e07a019ea026d20a05d"
+    },
+    {
+      "file": "tools/assets/masteryi_audio_graph.py",
+      "bytes": 8829,
+      "sha256": "0a894875ec7c8273d32c1e14c745651a09abc5b59f1a7e4c80ad2f6b6f97e465"
+    },
+    {
+      "file": "tools/assets/test-masteryi-audio-source.py",
+      "bytes": 4028,
+      "sha256": "1ded05ec8204908b2580af5c7935f0abd2419cc88a027b8ef294c543d5469b62"
+    },
+    {
+      "file": "tools/assets/test-masteryi-audio-graph.py",
+      "bytes": 7576,
+      "sha256": "535e1abee4f6f77120078e69ea29029830029637912bdf5b7b6f4ba8c7bf9dad"
+    },
+    {
+      "file": "docs/reference/masteryi/audio-extraction.json",
+      "bytes": 2640,
+      "sha256": "579c704813d156d4dddefc8c27fc66070c50d4f5997e615c62a446532b6a098a"
+    },
+    {
+      "file": "docs/reference/masteryi/audio-inventory.json",
+      "bytes": 857,
+      "sha256": "1fc354c60e72e76e4490e7e80a744144891b874ac81f65076aa89a0e84c4926a"
+    },
+    {
+      "file": "docs/reference/masteryi/audio-graph.json",
+      "bytes": 1598681,
+      "sha256": "b7879c088d3544626d70c9ecaf4abfd0aebae007db5a6ee841c0caed7a2b33e3"
+    },
+    {
+      "file": "docs/reference/masteryi/audio-reading.json",
+      "bytes": 2800,
+      "sha256": "2a272bfe49728002645ed217c073ef58669b7912407dae263c53979f5827c020"
+    }
+  ],
+  "sourceBanks": [
+    {
+      "file": ".cache/masteryi-audio-sources/assets/sounds/wwise2016/sfx/characters/masteryi/skins/base/masteryi_base_sfx_audio.bnk",
+      "bytes": 738923,
+      "sha256": "88f1e27c0d42dac80be948f82909ded4e208a28c34db35bb361caa3fc980c2c5"
+    },
+    {
+      "file": ".cache/masteryi-audio-sources/assets/sounds/wwise2016/sfx/characters/masteryi/skins/base/masteryi_base_sfx_events.bnk",
+      "bytes": 13053,
+      "sha256": "af6aebc07d4759770ae01e047a14bfc7a55c602291acacd8fbb13c6be87389e5"
+    }
+  ],
+  "encodedMedia": [
+    {
+      "file": ".cache/masteryi-audio-media/789302.wem",
+      "bytes": 3449,
+      "sha256": "906542a58b22807cbc0208c5b3fbe37afffbd1294a768ecf2a1dc1b868fcd48c"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/7394909.wem",
+      "bytes": 5271,
+      "sha256": "1c0b80abeac80f31ad3c8768075a9a3d12ceadbc60d8ba596dea9bf0f068c5c0"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/16380216.wem",
+      "bytes": 5876,
+      "sha256": "2a820999721eb3ce72c39963e79350f10cfd81409395deb131a6490935070eab"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/19763561.wem",
+      "bytes": 3667,
+      "sha256": "07a40fd04b64cb31a343d029e5c3b0d0297586f99c5f5e3eb9e65f291c365b0f"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/21301409.wem",
+      "bytes": 3929,
+      "sha256": "fd4020684dfe854872998d1843acb325238b54acbdd2602cd2af80279bc13197"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/31491481.wem",
+      "bytes": 3435,
+      "sha256": "e1c239a7c2b752f38c7150a318e3166149c3148e3a208f58d950b105692cf91c"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/33081959.wem",
+      "bytes": 5878,
+      "sha256": "effecb3c202541d6d0685b48a1414fcc7a62da4974c0d92e0058dc56d738c2c0"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/33473320.wem",
+      "bytes": 4327,
+      "sha256": "65039adc1f33fd8dc73cb275aea0cac42bf11d82bf818bd19fc706ce641d4769"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/48797763.wem",
+      "bytes": 5523,
+      "sha256": "a1de464fc000e9d6f610c974e5ad895375938e94d0e070697085fbbc05eeeb08"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/49002591.wem",
+      "bytes": 3417,
+      "sha256": "6f870de0c2943e68d6850cb8485859fb56c86595503a1744f554c5cd1e3bb797"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/50658123.wem",
+      "bytes": 5698,
+      "sha256": "7efb1806610cc03dde6d6581bdbc3fd5ebc26843157e3734d186c04b821c8f28"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/52272044.wem",
+      "bytes": 3364,
+      "sha256": "dae98cf0c26c4102593549991fb2d3772bf821c8db1e86a14740d892c1b64628"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/63363042.wem",
+      "bytes": 9019,
+      "sha256": "838675d3bb50cbe5f663c9f0da4d4e53a3be9be38509d2bacd14e8cb18cc4407"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/63444143.wem",
+      "bytes": 4354,
+      "sha256": "8c281feca5b83fdc281c49a35b0b745ec8049f1bd7f5c0c3ca04e1b524e7fbde"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/84648135.wem",
+      "bytes": 4620,
+      "sha256": "49c901e7ba1c1dc4a83aef9c42c6c7a3ebfeeeefec389fc011b021e7a134e7e5"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/95976721.wem",
+      "bytes": 3400,
+      "sha256": "02d9a99ef636cf82a895b75c43b74dc3683284acfb2c627166e356c0d1d2e90c"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/104024387.wem",
+      "bytes": 3248,
+      "sha256": "7650fe15b6b4b138e74947afe8d0fdd45dbc15b52a8adc426033fdf4c599de50"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/108844688.wem",
+      "bytes": 5479,
+      "sha256": "6b379707f7737b1f1b1a64a17f4405ee62069ad8094b0cd875adc956153f17c0"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/111931036.wem",
+      "bytes": 73125,
+      "sha256": "1b7e9a119687df7f1e579ea3c30d4d40f8d7ece8fa3b917b92e04228cc7ab8f8"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/112126905.wem",
+      "bytes": 5723,
+      "sha256": "40a7b2855d02c37ab7e39a1bf9cb9aabae93a139b5ac7ee22495d19f8a179da4"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/116463815.wem",
+      "bytes": 4017,
+      "sha256": "ea69e53082d8543451867b5bd3dc1d1f69fcef93dc862737455cdb1337bdd7f6"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/126775659.wem",
+      "bytes": 3917,
+      "sha256": "d9ee6b72b93e05c1c23d8cdb012bae53cf2e543991441fd8bb52acfa861ae13c"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/136213286.wem",
+      "bytes": 7092,
+      "sha256": "b8d52a175d5630d30bb84ec98a4868fc63b8ea501973abf1af83f0888e6b56af"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/142077803.wem",
+      "bytes": 5729,
+      "sha256": "3ca31cc3045c08f06efe73a527b8f6484a990e4ead475b7e5c0ca8da6c2b86c9"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/142894910.wem",
+      "bytes": 3597,
+      "sha256": "ad671b1e168f61c125397cbca2f96193fc0100e83844450240c6d90877667f73"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/146897317.wem",
+      "bytes": 6301,
+      "sha256": "9d4ddbef808ad44ddb6cde71ae763bdb8435e9bcbf4f82506c7c1018f04f4748"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/204395837.wem",
+      "bytes": 5260,
+      "sha256": "cf83b0bac4bbb64614e3438c433d1779f45a04469ceff4016c35fd8e8fa9a72f"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/209385861.wem",
+      "bytes": 17527,
+      "sha256": "04caf4934ea3df0c6cd549f37977994eaca39f520bbcc183551615ddcad082c5"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/215114899.wem",
+      "bytes": 6602,
+      "sha256": "a75a805024b0667ab583463d75d93d582d58263cedf894572e00966e018cfa71"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/232061786.wem",
+      "bytes": 5488,
+      "sha256": "394678501048ed6906b925514d82b6c05c86532ca1133ee588eca1a42d775292"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/263514790.wem",
+      "bytes": 7473,
+      "sha256": "e34955ed3d8fb58a46f380034b4367cf8b4528ac4ce9bc51ffffcac08e1b2173"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/271120929.wem",
+      "bytes": 5667,
+      "sha256": "f7d994f2703e6f7bd3f9fdfc125b7fc32ce98f620d72e672ca2330930d8c1c36"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/287617305.wem",
+      "bytes": 6413,
+      "sha256": "fa2504356f8edeeee5a55fa6e782b831cab3a75937e1f6a92932260063720161"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/287994890.wem",
+      "bytes": 6701,
+      "sha256": "2de74a90cbd8c72de413d8f270b52a8c307361734107c9b9a89c6e609f3f18e0"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/289182248.wem",
+      "bytes": 7924,
+      "sha256": "703f61fc2dec925251feb3a2e0fd5b8bcbba302e3f858274412dc20f8fc8ae02"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/304144186.wem",
+      "bytes": 6185,
+      "sha256": "2f69bf15a1086b18da4f9364d44b9891b9183b9cc36159125e93e230f896874c"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/313710654.wem",
+      "bytes": 5306,
+      "sha256": "a123ebddae1dcf8c59b0b8ec5609b6be6ae0e1dfd4cfcb7117f6bc108574c72e"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/314446760.wem",
+      "bytes": 3287,
+      "sha256": "bcdea54eaca2024209b13ce64b22d42ade4f805f18620e2df85339d65269fa36"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/378075409.wem",
+      "bytes": 16981,
+      "sha256": "e6545c2ab57300ca5eddad8206a04b7d8c6265f362eb5331d1d83e8c015e78ff"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/396990359.wem",
+      "bytes": 21621,
+      "sha256": "a9f77f018e3bbb70b1677cf86bda7fc9e759e5c198a1e2919882df2161c90f80"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/410080597.wem",
+      "bytes": 4415,
+      "sha256": "fd1a3453eebc97e4d6c99ff5fa4ab8722a3e2d11840141d9ab0ef28d884e2b1d"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/418782952.wem",
+      "bytes": 9099,
+      "sha256": "6cef0b8d0b5f1fe221391f005fb4c4dea624e83d98fd5d468257f45e49175273"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/418795702.wem",
+      "bytes": 15948,
+      "sha256": "41b39d306adc3ccc1fae0975e94e3ecfb642a71649b1cb8f2ed5047b2dbba0f8"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/422747152.wem",
+      "bytes": 22927,
+      "sha256": "63afc74d7229502a220f698f32c9480896895047f0a41e427c9ed58efbefaf81"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/425476853.wem",
+      "bytes": 5759,
+      "sha256": "3bc4508c4656e72fcaf445816c0109e7c9a3b12ca64cbf5ea4d41070a7a1eba2"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/449771614.wem",
+      "bytes": 14820,
+      "sha256": "964e3fa46729a00b8112e7bbfcb274a58b08d76d3898a813b3f250c339c95f84"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/501197314.wem",
+      "bytes": 23225,
+      "sha256": "87a10b919253798d6c3588ec68b239e9b5b0c233e36954342f918f81968704b2"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/505054137.wem",
+      "bytes": 4213,
+      "sha256": "3f1ee5f8681ce07989fd19818f8a23d8e19ff8efe6f29c1affc41e5bfc51a33d"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/506082516.wem",
+      "bytes": 3888,
+      "sha256": "be484b842863397abad8be4fc645d695a32118cba3c161d568f7681f347f5ff1"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/507585233.wem",
+      "bytes": 4817,
+      "sha256": "8fd0f9e84b8acc781ffd6ae3605d35a75350b84492e61d8a57a8190c9d8a76be"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/522993466.wem",
+      "bytes": 5124,
+      "sha256": "159e0bf87552248c9bc6f5fdbd03bb06afad1ccacad6f32337d2be4b8f58324a"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/555085050.wem",
+      "bytes": 4672,
+      "sha256": "d0b63fa89d393b7890f20a32b5853071916e1cea04c39cb5547151ac452fc65e"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/560618281.wem",
+      "bytes": 63313,
+      "sha256": "eefb97297d3062cd2f93ac5c766b2b7e76a0dda7b6527323096730e70f50a207"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/584858889.wem",
+      "bytes": 21598,
+      "sha256": "3d3857e06eef166d6aeb2bce838cf5b87e4d69b538fe9f0e1c99f76b95ba7d4b"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/610915723.wem",
+      "bytes": 21193,
+      "sha256": "42d75a7d82db2e16731b70b4a45eb26622ec6be78da8b83e842524c225e43f21"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/637673445.wem",
+      "bytes": 20770,
+      "sha256": "4e90922b0bcd5d1ce63d1a545d5938b54606702b118f5dc1e9599125f7b20923"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/642434939.wem",
+      "bytes": 19935,
+      "sha256": "6003d1a1d5ea0db0a02d5176b0761d6c31d894c7549bd968fae0d0a85ac51f89"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/645424874.wem",
+      "bytes": 27425,
+      "sha256": "0c87a4ef91e6637c5b325c7ca8d3246fb8766fc09d1fbf14acacd04b49c73315"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/723103372.wem",
+      "bytes": 7589,
+      "sha256": "e71a34cb7a6ee1120e44636ba7a0f4466ecb7caeb1b6da0ada17fef6c32806f1"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/778800605.wem",
+      "bytes": 17164,
+      "sha256": "e535554e3c7aa407dfed5212c2cb026300b9b68ce23670a921db9ec02eab7ef3"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/795081856.wem",
+      "bytes": 22234,
+      "sha256": "04ca4576ba3db1d7448e16d5f67132ccec488d833de319291633779858dcc081"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/834889418.wem",
+      "bytes": 6444,
+      "sha256": "d7bfb713724df09b81929ea5a33d764845342aeddd948930539ceb4d7f0ecad8"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/860189031.wem",
+      "bytes": 4952,
+      "sha256": "f2b223e2fff9e8b0283fcbaa24eb38ccdaec4ef5e8e7a463addc71865fbc06c8"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/873615538.wem",
+      "bytes": 24762,
+      "sha256": "e86d2cee567f807f6ea43bd84b8f3c85f823e8f1d61ae093af452bacf2826233"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/876933713.wem",
+      "bytes": 18003,
+      "sha256": "8cb25e65e4b920b2b6d692cdb359a252b00f7d61ef86239fbd16b95b407f7ddf"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/903113665.wem",
+      "bytes": 4949,
+      "sha256": "9b16a2194eb297582950cd7a16a3557b36080751c8ad6bebb63c0533339ae433"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/924931329.wem",
+      "bytes": 6346,
+      "sha256": "239c746f7ed478b22b3c2a99f82c26fb13a055ce15d9b6e6c30132dbd1444613"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/975357315.wem",
+      "bytes": 9632,
+      "sha256": "3709b778dcbe0adaf300203f4cd0c0f2f51abf1c4d1709b972063298fdbf4bf9"
+    },
+    {
+      "file": ".cache/masteryi-audio-media/1062997320.wem",
+      "bytes": 6395,
+      "sha256": "17fbf48b690746398093fae2597f9a3d19f2c8e5923965792d51a2467f1f5a2d"
+    }
+  ],
+  "validation": {
+    "bankCount": 2,
+    "bankBytes": 751976,
+    "declaredEvents": 31,
+    "selectedHierarchyNodes": 223,
+    "encodedMedia": 69,
+    "encodedBytes": 737501,
+    "unresolvedOverrideBusIds": [
+      211064428,
+      1259461568,
+      2232828494
+    ],
+    "normalAndOptimizedGuards": {
+      "sourceCasesPerMode": 11,
+      "graphCasesPerMode": 18
+    },
+    "actualSourceAndGraphChecksBothModes": true,
+    "optionalNameDatabasesLoaded": false,
+    "parserRootAndCleanRevisionVerified": true,
+    "initialInspection": "Incomplete existing parser path safely rejected; exact pinned clean checkout prepared outside project and follow-up passed.",
+    "runtimePublicChanges": [],
+    "broadBrowserBuildRerun": false
+  },
+  "evidence": [
+    {
+      "file": ".cache/masteryi-audio-cloud/banks.xml",
+      "bytes": 1025347,
+      "sha256": "6f64cd8adf3e00ab82857965f12048d1cff573d7f91f3048cb3c12d6079efbf7"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/check-normal.log",
+      "bytes": 69,
+      "sha256": "25efb4325c03da1891f22fb399fa34c48cd2a650b09141015010923c0a6460c5"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/check-optimized.log",
+      "bytes": 69,
+      "sha256": "25efb4325c03da1891f22fb399fa34c48cd2a650b09141015010923c0a6460c5"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/event-map.json",
+      "bytes": 8320,
+      "sha256": "41c034663682dbfd8d2305bbd75d84f595aa08097a9479216f75f4a6da91f46f"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/event-map.log",
+      "bytes": 2439,
+      "sha256": "d7116f0b2603f2a3cdfaa2ecdad3108a21c05db28dccad556d2be3ea6df2678f"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/extract.log",
+      "bytes": 521,
+      "sha256": "d7772bb202a1f99f32951173fe24710d9ae102275b17daf5f0a3467540c87a48"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/extraction.json",
+      "bytes": 2640,
+      "sha256": "579c704813d156d4dddefc8c27fc66070c50d4f5997e615c62a446532b6a098a"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/graph-guards-final-normal.log",
+      "bytes": 117,
+      "sha256": "defaf30680e28b2cc9db52ed49f3fbd20bef2bf53c3921551c7f02e14285b584"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/graph-guards-final-optimized.log",
+      "bytes": 117,
+      "sha256": "23647b6b5f82f22241b887655fa005b67e271c456b33cadb6bb20cb490b0af80"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/graph-guards-normal.log",
+      "bytes": 117,
+      "sha256": "2ca01b395e1430576463ddf19b56bd5b58c56406e3ba46218be355b043a4e24d"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/graph-guards-optimized.log",
+      "bytes": 117,
+      "sha256": "23647b6b5f82f22241b887655fa005b67e271c456b33cadb6bb20cb490b0af80"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/guards-final-normal.log",
+      "bytes": 110,
+      "sha256": "107c5c58a93f234b4eedbc7bbb493a73524fe2a57bbb091eeefd5b5404a89d38"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/guards-final-optimized.log",
+      "bytes": 110,
+      "sha256": "107c5c58a93f234b4eedbc7bbb493a73524fe2a57bbb091eeefd5b5404a89d38"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/guards-normal.log",
+      "bytes": 110,
+      "sha256": "c31e811c47f992d66e20f9b41cd43f0634edac76521e17dbdc11a485fe59c061"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/guards-optimized.log",
+      "bytes": 110,
+      "sha256": "c31e811c47f992d66e20f9b41cd43f0634edac76521e17dbdc11a485fe59c061"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/inspect-v1.log",
+      "bytes": 427,
+      "sha256": "d405459527971699fd7a0f345d6aaaf47acbd95bf454d3848bfb918233d34fea"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/inspect-v2.log",
+      "bytes": 884,
+      "sha256": "e1f5059318f340199e73d046325f7f4ec0b906ca7d31cea4dac51a1d32dfe933"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/inventory.json",
+      "bytes": 857,
+      "sha256": "1fc354c60e72e76e4490e7e80a744144891b874ac81f65076aa89a0e84c4926a"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/map-check-final-optimized.log",
+      "bytes": 129,
+      "sha256": "edf9bbe2cc28020597bec9f9f4f5f6e4cffbb5d28bd33e9c77826b9178e1aa14"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/map-check-normal.log",
+      "bytes": 129,
+      "sha256": "edf9bbe2cc28020597bec9f9f4f5f6e4cffbb5d28bd33e9c77826b9178e1aa14"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/map-check-optimized.log",
+      "bytes": 129,
+      "sha256": "edf9bbe2cc28020597bec9f9f4f5f6e4cffbb5d28bd33e9c77826b9178e1aa14"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/map-check-v2-optimized.log",
+      "bytes": 129,
+      "sha256": "edf9bbe2cc28020597bec9f9f4f5f6e4cffbb5d28bd33e9c77826b9178e1aa14"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/map-check-v2.log",
+      "bytes": 129,
+      "sha256": "edf9bbe2cc28020597bec9f9f4f5f6e4cffbb5d28bd33e9c77826b9178e1aa14"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/map-v1.log",
+      "bytes": 129,
+      "sha256": "edf9bbe2cc28020597bec9f9f4f5f6e4cffbb5d28bd33e9c77826b9178e1aa14"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/parser-bootstrap.log",
+      "bytes": 178,
+      "sha256": "a02999a5f5f9d8fc35ecd0f94afbaffdc649e795d9dc807ca73aebad5fdd718b"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/restore-v1.log",
+      "bytes": 71,
+      "sha256": "5e2d8a5c8ba73ba1881778b3a4b47d2d02ca63764d5a34558bd470eda5dc059e"
+    },
+    {
+      "file": ".cache/masteryi-audio-cloud/skin-sfx.json",
+      "bytes": 2061,
+      "sha256": "fbd9533ed6ef1a242ed9c14c73aefa2fe89482e6301a8a96ecf86e89cbcb01df"
+    }
+  ],
+  "limits": [
+    "Skin declarations and event IDs do not establish current native spell/script bindings.",
+    "Omitted attack names/probabilities remain omitted; no inferred ordinary random pool.",
+    "Native dispatch/mix, decoded masters, runtime variant/material inputs, stop/linger/seeking and listening remain separate acceptance work."
+  ]
+}

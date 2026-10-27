@@ -112,3 +112,7 @@ into one guessed production stage. E coverage remains 56 rendered records, one
 base-skin exclusion and eight deferred records including the nonvisual sound
 binding. Native comparison, six complete champions, full objectives/quests,
 offline delivery and full-match browser/performance gates remain open.
+
+The later [exact evidence recovery](PARTICLE-DISTORTION-RECOVERY.md) restores
+all eight native resources and fifteen Metal/bitcode/text triples against this
+original pin, including byte-identical historical disassembly.

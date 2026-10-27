@@ -9,6 +9,7 @@ import { ImpactAttachments, type AttachmentHistory } from './impact-attachments'
 import { garenAAParticles } from './garen-aa-particles';
 import { createParticleColorProductMaterial } from './particle-color-product';
 import { writeRayQuad } from './ray-quad';
+import { writeRayColor } from './particle-ray-color';
 
 const profiles = data.profiles;
 const textures = new Map<string, THREE.Texture>(),
@@ -74,7 +75,13 @@ for (let i = 0; i < 4; i++) {
 }
 export function createGarenAAMaterial(index: number, base: THREE.Texture, lookup: THREE.Texture) {
   const p = profiles[index],
-    m = createParticleColorProductMaterial(base, lookup);
+    m = createParticleColorProductMaterial(
+      base,
+      lookup,
+      'uniform',
+      undefined,
+      p.kind === 'ray' ? 'bgra-unorm8' : false
+    );
   m.uniforms.sourceUvScale = { value: new THREE.Vector2(1, 1) };
   m.vertexShader = m.vertexShader
     .replace(
@@ -192,6 +199,13 @@ export class GarenBasicAttacks {
                   : p.kind === 'quad'
                     ? quad
                     : billboard;
+            if (p.kind === 'ray')
+              geometry.setAttribute(
+                '_source_vertex_bgra',
+                new THREE.Uint8BufferAttribute(new Uint8Array(24), 4, true).setUsage(
+                  THREE.DynamicDrawUsage
+                )
+              );
             mesh = new THREE.Mesh(
               geometry,
               createGarenAAMaterial(
@@ -259,14 +273,29 @@ export class GarenBasicAttacks {
                 .multiply(this.rotation);
             mesh.scale.fromArray(particle.scale).multiplyScalar(p.kind === 'mesh' ? 1 : 0.01);
           }
-          const tint = [...particle.color];
-          if (p.blend === 0) {
-            for (let i = 0; i < 3; i++) tint[i] *= tint[3];
-            tint[3] = 1;
-          }
           const uniforms = mesh.material.uniforms,
             [columns, rows] = p.atlas.grid;
-          uniforms.particleColor.value.fromArray(tint);
+          if (p.kind === 'ray') {
+            const attribute = mesh.geometry.getAttribute(
+              '_source_vertex_bgra'
+            ) as THREE.BufferAttribute;
+            writeRayColor(
+              attribute.array as Uint8Array,
+              0,
+              attribute.count,
+              particle.color,
+              p.blend
+            );
+            attribute.needsUpdate = true;
+            uniforms.particleColor.value.set(1, 1, 1, 1);
+          } else {
+            const tint = [...particle.color];
+            if (p.blend === 0) {
+              for (let i = 0; i < 3; i++) tint[i] *= tint[3];
+              tint[3] = 1;
+            }
+            uniforms.particleColor.value.fromArray(tint);
+          }
           uniforms.lookupUv.value.fromArray(particle.lookup);
           uniforms.sourceUvScale.value.set(1 / columns, 1 / rows);
           uniforms.sourceUvOffset.value.set(

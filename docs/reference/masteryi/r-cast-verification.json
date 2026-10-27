@@ -1,0 +1,886 @@
+{
+  "format": 1,
+  "parentCommit": "b03da49016f26ce4be901b446690a9593aaf0f0a",
+  "identity": {
+    "schema": 156,
+    "ruleset": "3416966a5b324f19070974eda6934d184cf61cc7b83d68e32c6cddf11bec17a4",
+    "pack": {
+      "id": "15b47626609f5f6617a5549d6693a7c0d40d912b922cc3f5671699e052df7d11",
+      "files": 1163,
+      "bytes": 536299479
+    }
+  },
+  "scope": "Complete eight-emitter R_Cas with exact authored mip transports, cone/fireball GLBs, delayed first update and preserved omitted lifetime. Saved root/visibility admission is separate from finite cast time and Q/W-paused buff clocks. Shared verified texture ownership and explicit retry; public roster remains Ashe/Lux.",
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/q-particles.json",
+      "bytes": 87880,
+      "sha256": "95531b1e61b44fc39d6458534174fe183fdf75e57cf7528a93a045e836322776"
+    },
+    {
+      "path": "docs/reference/masteryi/q-particles-decoded.json",
+      "bytes": 148372,
+      "sha256": "783317cf9c44a36b3e07fbda8d27829ec6ae674119fcb5c8fddac46a959360fd"
+    },
+    {
+      "path": "docs/reference/masteryi/r-cast-texture-transport.json",
+      "bytes": 25761,
+      "sha256": "b5e024640d924e8aaa5f209b6c7b2d6c98b030dfc5600c7273f5c645708f46e8"
+    },
+    {
+      "path": "docs/reference/masteryi/r-cast-mesh-transport.json",
+      "bytes": 3680,
+      "sha256": "b15e9c43540b2012ef6e1e072f358f4ee83920a3c8cae695e8628cf4c8e5b97c"
+    },
+    {
+      "path": "docs/reference/masteryi/r-particles.json",
+      "bytes": 113047,
+      "sha256": "e8630aeae0aa33c6f369bde1ac3c80aeb333a16e78924ab1417f56f75e7f1ccd"
+    },
+    {
+      "path": "docs/reference/masteryi/r-particles-decoded.json",
+      "bytes": 135932,
+      "sha256": "c55d3b2b5aa5c6b3263e91b99e36097d7b200ce3e49d8e5ea62d290bc174258f"
+    },
+    {
+      "path": "docs/reference/masteryi/r-particle-source-verification.json",
+      "bytes": 14230,
+      "sha256": "84c88aeb35b7dcc1698466146e3535f1df418ef42f992c103e00c3633f59cd2a"
+    },
+    {
+      "path": "docs/reference/masteryi/r-particle-decode-verification.json",
+      "bytes": 14029,
+      "sha256": "f1bee7c0b2cfe492f12acb4253ec84d6821c22e3db999a3efcae14488655347a"
+    },
+    {
+      "path": "docs/reference/garen-spin-defaults.json",
+      "bytes": 1772,
+      "sha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb"
+    },
+    {
+      "path": "tools/assets/masteryi_q_particles.py",
+      "bytes": 7165,
+      "sha256": "8373108c738d00d23c47e485b609db18464a81cf6146b608ee9d608e4e604b44"
+    },
+    {
+      "path": "tools/assets/masteryi_q_decode.py",
+      "bytes": 7372,
+      "sha256": "552f2cf9a0cb552a97332a142bbea6f25a3b0e2c2974359a58659a2c17517ecd"
+    },
+    {
+      "path": "tools/assets/masteryi_r_cast.py",
+      "bytes": 4756,
+      "sha256": "c6ecc7be980582b402be36cf0737a2e709ee5c9ddca95832f6c75d082358490e"
+    },
+    {
+      "path": "tools/assets/masteryi_w_cast.py",
+      "bytes": 8252,
+      "sha256": "67db765dbf4c62c0cd0e5d39d99589c657d6ae826e79a9453a599e203d6d4b5e"
+    },
+    {
+      "path": "tools/assets/masteryi_w_buff.py",
+      "bytes": 6301,
+      "sha256": "30d3b7f47b7d0a3258dbf7c9394f48a35f204cf5be76fd4dc40483131b630c81"
+    },
+    {
+      "path": "tools/assets/particle_mip_atlas.py",
+      "bytes": 4181,
+      "sha256": "4ba50521c7a4c0d061bbf2f8363b7a84b4db9a4bf480e3d52ae101aec6538fd6"
+    },
+    {
+      "path": "tests/lane-rules.test.ts",
+      "bytes": 5533,
+      "sha256": "d12c8deaba4ba8933dca9a045b1eeae20b1869167f5b9e1fcf0dbfc39e8c1d4a"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-r-cast-runtime/final-source-index.json",
+    "bytes": 9857,
+    "sha256": "713b3fc6017a0300e8b5a18d56fa0cc5ac8255ccba232903ea1dfa76e92ad303"
+  },
+  "generated": [
+    {
+      "path": "README.md",
+      "bytes": 15874,
+      "sha256": "d7b5f885b1408f4eb822b895dba797e4fe2ed1dea66d2aaa48ae4aa8ca646a86",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/README.md"
+    },
+    {
+      "path": "docs/MASTER-YI-R-CAST.md",
+      "bytes": 4696,
+      "sha256": "a8edd03f5dc6a6180e1eb28a5e742e9ca6704c736d5a7b85389698570a8a36ab",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/docs/MASTER-YI-R-CAST.md"
+    },
+    {
+      "path": "docs/SAVES.md",
+      "bytes": 60578,
+      "sha256": "4d9fc92b51a17f0854a55223da43d4397f464c867566d97fe8bd74a0b816541b",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/docs/SAVES.md"
+    },
+    {
+      "path": "docs/reference/masteryi/r-cast-mesh-transport.json",
+      "bytes": 3680,
+      "sha256": "b15e9c43540b2012ef6e1e072f358f4ee83920a3c8cae695e8628cf4c8e5b97c",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/docs/reference/masteryi/r-cast-mesh-transport.json"
+    },
+    {
+      "path": "docs/reference/masteryi/r-cast-runtime-reading.json",
+      "bytes": 1647,
+      "sha256": "915c88d7a07a05e7a257387296d7b76de8b62dbd684e4ea2988cb6528e1a3071",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/docs/reference/masteryi/r-cast-runtime-reading.json"
+    },
+    {
+      "path": "docs/reference/masteryi/r-cast-texture-transport.json",
+      "bytes": 25761,
+      "sha256": "b5e024640d924e8aaa5f209b6c7b2d6c98b030dfc5600c7273f5c645708f46e8",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/docs/reference/masteryi/r-cast-texture-transport.json"
+    },
+    {
+      "path": "e2e/masteryi-highlander-cast.spec.ts",
+      "bytes": 18851,
+      "sha256": "bf023fc1e7c904c4bf018dc11f3b4d6f993bef7d663e7be5ed5e4b215ae44732",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/e2e/masteryi-highlander-cast.spec.ts"
+    },
+    {
+      "path": "public/assets/effects/masteryi-r-cast-1ae935c7ce410640.png",
+      "bytes": 8925,
+      "sha256": "91af4051756e92d4b8b90941f530dcd1cba1dc523642fe2ef24a2d97614ed88a",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/public/assets/effects/masteryi-r-cast-1ae935c7ce410640.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-r-cast-2c920f98a75b7d42.png",
+      "bytes": 14761,
+      "sha256": "b2f41e4cf7ec129a4484e758a7289bfface261e3b257faa005264895acf65c42",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/public/assets/effects/masteryi-r-cast-2c920f98a75b7d42.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-r-cast-2fc72189202d828e.png",
+      "bytes": 18359,
+      "sha256": "02b22b0c4b2b713213a26fb866cf345aba6b71d52f90463d0b84ace0c0d49832",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/public/assets/effects/masteryi-r-cast-2fc72189202d828e.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-r-cast-6e58da61bc4b57cb.png",
+      "bytes": 103948,
+      "sha256": "58fb13dd79a2a89527b92eff34fe716e72c540f3a7387347dbce5a1bfb5092a1",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/public/assets/effects/masteryi-r-cast-6e58da61bc4b57cb.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-r-cast-75eab0096cfb56bb.png",
+      "bytes": 115366,
+      "sha256": "3ed16e4ad478f4d3e7ac0a553ecb3ee5af637259998f2738f0bb37d84dcb6e08",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/public/assets/effects/masteryi-r-cast-75eab0096cfb56bb.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-r-cast-bf0fa07d7d0149e5.png",
+      "bytes": 123810,
+      "sha256": "e8d071d19bcfa044b37ef2e3229ab4f85c36ef832dc061d2d90f34b492bbc46a",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/public/assets/effects/masteryi-r-cast-bf0fa07d7d0149e5.png"
+    },
+    {
+      "path": "public/assets/models/masteryi-r-cast-cone.glb",
+      "bytes": 37452,
+      "sha256": "c0ace317f2e9d439c5d021cae9851fcd923dfeac1ecc518703833bf24e4b4a68",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/public/assets/models/masteryi-r-cast-cone.glb"
+    },
+    {
+      "path": "public/assets/models/masteryi-r-cast-fireball.glb",
+      "bytes": 24200,
+      "sha256": "40bebcd896e9a294b6317b104bc5dc796a4121ec57cfdb7316ebb30a08fd3883",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/public/assets/models/masteryi-r-cast-fireball.glb"
+    },
+    {
+      "path": "src/content/masteryi-r-cast-particles.json",
+      "bytes": 84355,
+      "sha256": "68d576314a51cec1efa258d2e8b7698bd41de8cd5def868ed3d728dd30d8fed1",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/src/content/masteryi-r-cast-particles.json"
+    },
+    {
+      "path": "src/content/masteryi-r-cast-timing.ts",
+      "bytes": 137,
+      "sha256": "0127364f26686d0adf9b372e53a9609484b13f80132719b846ebc00429c5497d",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/src/content/masteryi-r-cast-timing.ts"
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 21349,
+      "sha256": "374e8c960274925a5a6a3c753a8d1b6f51fbc7bd3295f491bff6d4a50aad5140",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/src/main.ts"
+    },
+    {
+      "path": "src/render/lazy-masteryi-r-casts.ts",
+      "bytes": 1438,
+      "sha256": "63c8f28af64cfc77df131367505fd46fa1de4033fb2110130348bf6dc9750422",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/src/render/lazy-masteryi-r-casts.ts"
+    },
+    {
+      "path": "src/render/masteryi-r-cast-particles.ts",
+      "bytes": 3300,
+      "sha256": "5d4eba5599af1b50614d35c4fd362940f599b6739cdca0bf7c36b8d215e5ec2f",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/src/render/masteryi-r-cast-particles.ts"
+    },
+    {
+      "path": "src/render/masteryi-r-casts.ts",
+      "bytes": 5929,
+      "sha256": "17d6b141642f1c68671fdf8bba920ecc8689ceac56ac67a972cf351a48505cbe",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/src/render/masteryi-r-casts.ts"
+    },
+    {
+      "path": "src/render/view.ts",
+      "bytes": 62168,
+      "sha256": "9310d2b3bb1070aaeaa123a1a007e3b2227e64babb93f638d68193d4567adf3a",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/src/render/view.ts"
+    },
+    {
+      "path": "src/simulation/champion-state.ts",
+      "bytes": 4162,
+      "sha256": "d23b9cd28e6e591d05521a74ce2e6a8ff4f4c8670e0d1c44dace3a91d22c7f16",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/src/simulation/champion-state.ts"
+    },
+    {
+      "path": "src/simulation/masteryi-highlander-cast.ts",
+      "bytes": 4184,
+      "sha256": "3a45295299a4b1411d0f2b302ffbb702603423f11218e15cc6b95024df5276ef",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/src/simulation/masteryi-highlander-cast.ts"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "bytes": 182952,
+      "sha256": "38d15e5bc2c4f0d5e1caabc445f0f61f0c4daa2cee6973cd80ebc77454b9282e",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/src/simulation/snapshot.ts"
+    },
+    {
+      "path": "src/simulation/types.ts",
+      "bytes": 22527,
+      "sha256": "e86090b49b05a94e7102fda9959e2280bca66b666c1422738e0afd80ec98c487",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/src/simulation/types.ts"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "bytes": 293941,
+      "sha256": "93201f16801b515956d55fbf5f92ef29b7097ee75337a576d69e4950c09e09da",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/src/simulation/world.ts"
+    },
+    {
+      "path": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "aeaeb71b68cc69f9c000f32e5c578633bbd6f9724101d492492b2a266031e149",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/tests/lux-e-hit.test.ts"
+    },
+    {
+      "path": "tests/masteryi-highlander-cast-history.test.ts",
+      "bytes": 7330,
+      "sha256": "e5483cafae0680d52e06ba48b3ce2984aadc2334a4f5f94de87c57eb2c172727",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/tests/masteryi-highlander-cast-history.test.ts"
+    },
+    {
+      "path": "tests/masteryi-highlander-cast-particles.test.ts",
+      "bytes": 3148,
+      "sha256": "61addb039d949d37f3146c1de9c23607ae2fa9ebd2216c8096547a90087d3015",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/tests/masteryi-highlander-cast-particles.test.ts"
+    },
+    {
+      "path": "tools/assets/convert-masteryi-r-cast-meshes.mjs",
+      "bytes": 5604,
+      "sha256": "87a79986f946499fc6649938083aef0357ede40a5489c6af99ec73daa14e8434",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/tools/assets/convert-masteryi-r-cast-meshes.mjs"
+    },
+    {
+      "path": "tools/assets/export-masteryi-r-cast-particles.py",
+      "bytes": 5047,
+      "sha256": "b99211a4984a951b4f3fe1a7f68c147ff9279e2f439a42e08db28d79132b92c1",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/tools/assets/export-masteryi-r-cast-particles.py"
+    },
+    {
+      "path": "tools/assets/masteryi_r_cast.py",
+      "bytes": 4756,
+      "sha256": "c6ecc7be980582b402be36cf0737a2e709ee5c9ddca95832f6c75d082358490e",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/tools/assets/masteryi_r_cast.py"
+    },
+    {
+      "path": "tools/assets/pack-masteryi-r-cast-textures.py",
+      "bytes": 5761,
+      "sha256": "61a9eccdd1b1cb2c37118a02f8d168494dbe297fc4dc2f2130f2df0deb7db8a5",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/tools/assets/pack-masteryi-r-cast-textures.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-r-cast.py",
+      "bytes": 4308,
+      "sha256": "01b725e077ba6c205cc04c1cbd54736103d3c520399e6e6b9e5bd4a86b76668d",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/tools/assets/test-masteryi-r-cast.py"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 28188,
+      "sha256": "50c37f56241d0a14685ab4af1e3fa5e1e8b03f97480908bed275b35a573828c4",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/tools/qa/production-subpath.mjs"
+    },
+    {
+      "path": "tools/ruleset-fingerprint.ts",
+      "bytes": 12340,
+      "sha256": "8d7f2099c615dbd70b4df1997a18f2a8164628184559fe35afe6ae9ce02c458f",
+      "archived": ".cache/masteryi-r-cast-runtime/final-source/tools/ruleset-fingerprint.ts"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-highlander-cast-R-9d357-ts-independent-finite-clock/r-during-q-save.json",
+      "bytes": 26794,
+      "sha256": "9732022884b895b39290f9eaece9a6445a02d3a791ac5ea99258abb0a41c58db"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-highlander-cast-h-98412-tory-drain-finite-particles/r-fog-q-death-terminal.json",
+      "bytes": 357,
+      "sha256": "40bb3cc76e8bc09a0c3ffc664f5b95c5946ff89dca3d5a8ac59be0c9e1f6e7c6"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-highlander-cast-o-63324-sts-only-the-failed-texture/retry.json",
+      "bytes": 808,
+      "sha256": "08c114ae3ec9f0b9386663f975bd971a1e6b27451c9e38cfbef8218f35a802a1"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-highlander-cast-r-b864a-and-exact-native-mip-pixels/active-three-mip-readback.json",
+      "bytes": 15135,
+      "sha256": "d648e708c2836f53e104b3108f54e71cb04d9d1fd8fc02fbf68a8be59c4c06cb"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-highlander-cast-r-b864a-and-exact-native-mip-pixels/ordinary-family-pixel-coverage.json",
+      "bytes": 838,
+      "sha256": "819d454f07d9901389785c70df28d9258e2c979fd59951cd4a682bba625c03b8"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-highlander-cast-r-b864a-and-exact-native-mip-pixels/r-moving.png",
+      "bytes": 865066,
+      "sha256": "9a8d899cc92d4ccae948a6dde9e6c16a2f4806f842da5d1bf28886bebf01bbf5"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-highlander-cast-r-b864a-and-exact-native-mip-pixels/r-save-reload.json",
+      "bytes": 97668,
+      "sha256": "486cd17e00ae5578d5696f92387e1cb5e833c947f91f09c9a9bf415f7eb18b43"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-highlander-cast-r-c88aa-and-exact-native-mip-pixels/r-during-w.png",
+      "bytes": 883362,
+      "sha256": "10c39570c716982cb58fe4b13ea3eaa0baf5c3a2ece05d8e7be6c282cef7362d"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-highlander-cast-r-c88aa-and-exact-native-mip-pixels/r-save-reload.json",
+      "bytes": 94144,
+      "sha256": "e2b124abc0f2fa7cfe33d0374e37b9cde4e5fab88a7ce71563c425863e7a197f"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-q-end-hidden-retu-7afcd-e-death-victory-tails-drain/return-fog-movement-death-terminal.json",
+      "bytes": 765,
+      "sha256": "72f36f54fcceeee68950b24ffa18e2feb8d67dc65286ef6562ef3c8c4071224f"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-q-end-ordinary-st-e36c4-sts-only-the-failed-texture/retry.json",
+      "bytes": 586,
+      "sha256": "cb42bd724521d2fd2eb879c8365848ad00bb3738e75a2a309c948b0fd73686aa"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-q-end-real-comple-755cd-ed-mips-through-Save-reload/active-three-mip-readback.json",
+      "bytes": 7215,
+      "sha256": "bbbf9c6672cea817a1b219f2458e517e8d69607889d0eb7b3accf9506c2c93f9"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-q-end-real-comple-755cd-ed-mips-through-Save-reload/alpha-end.png",
+      "bytes": 812714,
+      "sha256": "00fbd69f536d34bed4bb9df1aeb20c8c0cad6ec7c341d4ba42b5666e4a00a381"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-q-end-real-comple-755cd-ed-mips-through-Save-reload/cast-save-reload.json",
+      "bytes": 46841,
+      "sha256": "6d2d1a8395459e7fa64143c1499703d2cd1d801152026a958cffe74efc683e87"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-q-end-real-lost-Q-4a038-ed-mips-through-Save-reload/active-three-mip-readback.json",
+      "bytes": 7215,
+      "sha256": "bbbf9c6672cea817a1b219f2458e517e8d69607889d0eb7b3accf9506c2c93f9"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-q-end-real-lost-Q-4a038-ed-mips-through-Save-reload/alpha-end.png",
+      "bytes": 801961,
+      "sha256": "023ecece56a5a0517c43221369a00641b2e9a65cceeda4635d6a966bbf4fe13e"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-q-end-real-lost-Q-4a038-ed-mips-through-Save-reload/cast-save-reload.json",
+      "bytes": 35943,
+      "sha256": "31cf2e693457cd9849eca0eb3f613dd8bb3e44929abe347415c8de93f35d3458"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-r-audio-a-missing-9a2d3-the-separate-natural-ending/highlander-media-retry.json",
+      "bytes": 467,
+      "sha256": "dadd3348cab2ca86622507e04ae57a3b8cebb3500a8dc1436e29cb25ad45bd2c"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-r-audio-an-onset--e1b66-or-changing-the-saved-match/highlander-terminal-tail.json",
+      "bytes": 12535,
+      "sha256": "f5752ce95b1d10a374aa8909a0eba25aff0a8b30f7981da5791493edd4713593"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-r-audio-both-High-1083b-oom-in-browser-AudioBuffers/highlander-float-masters.json",
+      "bytes": 287,
+      "sha256": "478b865504984d70c1ba73ab294a42f6f1ec162817e3aee794810df9a084b528"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-r-audio-ordinary--e8cde-resence-loads-each-one-once/highlander-late-loading.json",
+      "bytes": 26,
+      "sha256": "2e8e1eaef4c0f4a63886f103b90c88e53e1254f3698cb9623b47bf712dcfeca5"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-r-audio-real-R-in-e3372-iry-without-duplicate-tones/highlander-input-save-reload.json",
+      "bytes": 15734,
+      "sha256": "ce5a88a3500611c47000f21e700cbd37e80f7d8f1e63138d2cb58a9e4abb3225"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final/masteryi-r-audio-takedown--e6a06-restarting-its-finite-onset/highlander-extended-expiry.json",
+      "bytes": 1364,
+      "sha256": "08bb9ad5e14c121beb8794e7441f23c831567fc164d4d37fb4f895d701b30aca"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-final.log",
+      "bytes": 6095,
+      "sha256": "97dbc4390937cfa2b48b596fbb43cc4c824af465a7647a41869745e52288b56f"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-gpu-fragment.txt",
+      "bytes": 2420,
+      "sha256": "659a4ed8abd7be12511869be71f9a2deef6d01f30b4d09e934172c1621cf2547"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-initial/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-initial/masteryi-highlander-cast-r-b864a-and-exact-native-mip-pixels/active-three-mip-readback.json",
+      "bytes": 15135,
+      "sha256": "d648e708c2836f53e104b3108f54e71cb04d9d1fd8fc02fbf68a8be59c4c06cb"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-initial/masteryi-highlander-cast-r-b864a-and-exact-native-mip-pixels/ordinary-family-pixel-coverage.json",
+      "bytes": 838,
+      "sha256": "819d454f07d9901389785c70df28d9258e2c979fd59951cd4a682bba625c03b8"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-initial/masteryi-highlander-cast-r-b864a-and-exact-native-mip-pixels/r-moving.png",
+      "bytes": 865055,
+      "sha256": "ac268b2e0961be23ee28fdfc80fef7e669b8aed4f2e187c0c943a31f0a22fa0f"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-initial/masteryi-highlander-cast-r-b864a-and-exact-native-mip-pixels/r-save-reload.json",
+      "bytes": 97668,
+      "sha256": "38f24cb8738c78a12e62399bf7bf0ad72e84f7dc04928f403912dd986fe5be3b"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-initial/masteryi-highlander-cast-r-c88aa-and-exact-native-mip-pixels/r-during-w.png",
+      "bytes": 878693,
+      "sha256": "1064887c6be2d77fe086676cb67eeedec2764d00341ddb818ce151c4d325550d"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-initial/masteryi-highlander-cast-r-c88aa-and-exact-native-mip-pixels/r-save-reload.json",
+      "bytes": 94972,
+      "sha256": "2f6dc3942be12c9a94083aa9d9c23d3444bf513d1b7328bed2dcd1d46147866a"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/browser-initial.log",
+      "bytes": 1203,
+      "sha256": "032d6781e2b71db81b06a86bcf23e226c45e34dc8ed90a8dc7f122c7516240fe"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/build.log",
+      "bytes": 6747,
+      "sha256": "4cd5753dad7f1f5e8557fe7c68665e0589ec3c57e0ede99d76226740d79d8bb1"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/check-phase.json",
+      "bytes": 351,
+      "sha256": "6f1838061e90c54a39f9c3c7c0c9c988b7da25407fce609e458d50a0fe8c4323"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/check-replay.py",
+      "bytes": 1021,
+      "sha256": "404a0e5cf4e6c2a992ad6dd5fc0d73e3aabe2e2a6efc9a781a5f173e397a3fbd"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/export-check-normal.log",
+      "bytes": 77,
+      "sha256": "88541440a38d95b78f6b44d3ba55bcb1f2d7e05c447c6e10b16f70e27281377e"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/export-check-optimized.log",
+      "bytes": 77,
+      "sha256": "88541440a38d95b78f6b44d3ba55bcb1f2d7e05c447c6e10b16f70e27281377e"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/export-replay-normal.log",
+      "bytes": 77,
+      "sha256": "88541440a38d95b78f6b44d3ba55bcb1f2d7e05c447c6e10b16f70e27281377e"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/export-replay-optimized.log",
+      "bytes": 77,
+      "sha256": "88541440a38d95b78f6b44d3ba55bcb1f2d7e05c447c6e10b16f70e27281377e"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/export.log",
+      "bytes": 77,
+      "sha256": "88541440a38d95b78f6b44d3ba55bcb1f2d7e05c447c6e10b16f70e27281377e"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/final-source-index.json",
+      "bytes": 9857,
+      "sha256": "713b3fc6017a0300e8b5a18d56fa0cc5ac8255ccba232903ea1dfa76e92ad303"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/finish-checks.py",
+      "bytes": 1289,
+      "sha256": "57d733e7a722d9313b759c86842ad363d810f6ef3f8b2e5f8b6542d58f281a5f"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/focused-final.log",
+      "bytes": 481,
+      "sha256": "93f1813615bc2ca3adeb567e66617e210df292fd3d21467419b67437527a0d8a"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/focused-initial.log",
+      "bytes": 1614,
+      "sha256": "d5b7b1c7e67b995ee77cf500e731a0f532175d43cc2923cf5fae6aa5b79330e2"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/full-unit.log",
+      "bytes": 5486,
+      "sha256": "fee2277041dcb57a16bd89cb75063e10a57fe40d029d409feb77dc42ff29b90b"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/guards-normal.log",
+      "bytes": 119,
+      "sha256": "b9b2dc09438fbea89f6b664b0640c12febcea0ec8425003cba9ab07d6f623778"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/guards-optimized.log",
+      "bytes": 119,
+      "sha256": "836d7872b0cb73627d7e66d22a44bcb2cd83d91acfdb2f2258c7c96b4f24eb74"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/identity.json",
+      "bytes": 238,
+      "sha256": "f7453342adbc8f723ea6d77050a73084f5a5044927ada1b13344e41bf6539f6f"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/identity.log",
+      "bytes": 204,
+      "sha256": "a8e5ee4d0905b94c2aaca0d8f88f63a2f3f3022cf9142e9671d1bd5b42c0bdf4"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/identity.mjs",
+      "bytes": 546,
+      "sha256": "92cd3180354e1e7ba7af2c7f9c93a62c4c328d46804df1ee0a5cc6395658310b"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/mesh-normal.log",
+      "bytes": 3300,
+      "sha256": "5de0975839bf7280648263a6168b511a60788d249203ab7ca9439d5d439001f7"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/node-qa.log",
+      "bytes": 371,
+      "sha256": "aa8758d36cfba3e250e193fcc36a303044fe7a6f5fd67d97c6408f8ca6496bb0"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/offline-pack.json",
+      "bytes": 166726,
+      "sha256": "fc83d9dcb1f12c17860a0ac17b4f90099ce2a67826f212347be6c9a1ae496ac7"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/pack-normal-accepted.log",
+      "bytes": 101,
+      "sha256": "8028fd10c6fbf8912cb5ebbd432631b2b4216a5b0273efa82af5f4b605d2f3ef"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/pack-normal.log",
+      "bytes": 2192,
+      "sha256": "d9115d2f8d294a3efb3be1f602071a344dded2a07b2086044124b77834624a1d"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/pack-optimized-accepted.log",
+      "bytes": 102,
+      "sha256": "78916876ef9485a41a06a5d9a9802a62c81a87651130ffe84b085a3e04bba76d"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/pack-optimized.log",
+      "bytes": 1017,
+      "sha256": "3d2e62b8534e681290455b6fe8a66404810738afde430971c68a8234208eb5bc"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1813587,
+      "sha256": "ecfb6b1dc99b0625333c0674c5665fd29ca1d16561665f3210c24c63e9fdf09e"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835344,
+      "sha256": "1adbabf6ee4fe6f55ac3254beb15822c3f4c744faec0161636edf818db9da361"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1828941,
+      "sha256": "3508c0d4ad8504813ef001b688b45df904b3ad98a12ddfa9c9a23b1f6bc1acad"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1812129,
+      "sha256": "5d6425baaef929b56798fc4194166967c670a4281e9899a9efc07c40b988c606"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1819831,
+      "sha256": "0b41e9441494dab02ac1c5d0eaf31448f0b334b94a06927941ea66cb2b959018"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1351394,
+      "sha256": "00a324e3d9d6c468314adf396c7af0aeced13eb2d24daa5ddd70abc13e956558"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1823957,
+      "sha256": "ce37cbb3a82220efc5a0f55592f7f73cbb0ee98b4c1ae6facca1ffeb9df637d5"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808577,
+      "sha256": "89a2e161c37b1b918a171d651ff819c650e6265245827fd490a1e7e0811d7e66"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/production-final.json",
+      "bytes": 2908,
+      "sha256": "afc6481a98856930bafa0976bf45109956270d32f0d4d002105addbcbe653012"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/production-system.mjs",
+      "bytes": 28230,
+      "sha256": "0a71f49008f25fc4a6770975e0e0fbc37d6eae417e26f379b32f650425a222cf"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/production.log",
+      "bytes": 2593,
+      "sha256": "9222f5ef5a5cc7023b060ae7a5cf7779c5ed9457232fc5683402424e1d485c0a"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/record-verification.py",
+      "bytes": 7571,
+      "sha256": "d7b98c1fcbba7d268646ee494aa4d445289493506d2341c114f4d7c45d39d9d0"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/replay-summary.log",
+      "bytes": 3,
+      "sha256": "238903180cc104ec2c5d8b3f20c5bc61b389ec0a967df8cc208cdc7cd454174f"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/replay.json",
+      "bytes": 3541,
+      "sha256": "da097cc9a46fa64df419248bde89b937b24a6e515b56a81693e62250c3ee2179"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/types-browser.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/types-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/types-render.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-r-cast-runtime/types-state.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "checks": {
+    "fullUnit": {
+      "passed": 2839,
+      "failed": 3,
+      "total": 2842,
+      "files": 374,
+      "originalFiveSecondWaveClock": "passed"
+    },
+    "focused": {
+      "passed": 630,
+      "files": 33
+    },
+    "sourceGuards": {
+      "casesPerPythonMode": 20,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "exportCheckAndReplay": {
+      "filesUnchangedBytesAndMtimes": 15,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "textures": {
+      "count": 10,
+      "newPublicPngs": 6,
+      "sharedUrls": 4,
+      "authoredMips": 86,
+      "packedBytes": 479938,
+      "gpuMipPixelHashes": "all exact"
+    },
+    "meshes": {
+      "count": 2,
+      "cone": {
+        "sourceVertices": 1440,
+        "triangles": 480,
+        "exportedCorners": 1440,
+        "flags": 1,
+        "tailBytes": 0
+      },
+      "fireball": {
+        "sourceVertices": 161,
+        "triangles": 300,
+        "exportedCorners": 900,
+        "flags": 5,
+        "tailBytes": 24
+      },
+      "validationErrors": 0,
+      "validationWarnings": 0,
+      "roundTripAttributeArrays": "all exact",
+      "coneGeometrySharedByFamilies": 3,
+      "normalsGenerated": false,
+      "faceRgbAppliedAsTint": false
+    },
+    "build": "TypeScript/production build passed; existing diagnostics retained.",
+    "nodeQA": {
+      "passed": 3
+    },
+    "browser": {
+      "acceptedUniqueCases": 15,
+      "initialPassed": 2,
+      "finalPassed": 15,
+      "retries": 0,
+      "environment": "system Chromium154 / SwiftShader",
+      "coverage": [
+        "real R while moving and during W; all eight families; exact Save/reload particles and world future",
+        "all 86 actual GPU mip pixels exact",
+        "seven ordinary families produce nonblack offscreen pixels across exact copied finite source lifetimes; two views handle one-sided geometry",
+        "two native geometries; three cone families share actual geometry",
+        "ordinary startup skips assets; eight unique new resources and explicit one-file retry",
+        "R during Q stays hidden; separate admission/birth visibility survives Save/reload",
+        "hidden creation, later Q bound suppression, finite frozen death/victory tails and no world mutation",
+        "six existing R audio PCM, source controls, pause/extension, retry, terminal and late-loading cases",
+        "four existing Q return source/GPU/save/retry/visibility cases"
+      ]
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 13,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderAudioPreloads": 0,
+      "unrequestedMasterYiAlphaAudioPreloads": 0,
+      "unrequestedMasterYiMeditateAudioPreloads": 0,
+      "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderCastPreloads": 0,
+      "unrequestedMasterYiQEndPreloads": 0,
+      "unrequestedMasterYiQCastPreloads": 0,
+      "unrequestedMasterYiQContactPreloads": 0,
+      "unrequestedMasterYiMeditateCastPreloads": 0,
+      "unrequestedMasterYiMeditateBuffPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 221,
+      "scheduledBlueRequests": 13,
+      "scheduledRedRequests": 13,
+      "scheduledWolfRequests": 26,
+      "scheduledRaptorRequests": 26,
+      "scheduledKrugRequests": 39,
+      "scheduledScuttlerRequests": 13,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    }
+  },
+  "retainedDiagnostics": [
+    "An initial new test assumed cosmetic seed variation. The retained R cast has no varying probability tables or random atlas starts; the test now verifies those source facts and requires identical samples across seeds. Complete focused/browser/full checks follow.",
+    "An initial texture pack adapter still referenced the Q decoder and failed before any outputs. Accepted pack/check uses the explicit R profile; the initial diagnostics remain retained."
+  ],
+  "baselineFailures": [
+    "Original Leona attached-skin reflection check.py absent.",
+    "Original distortion metallib, bitcode and disassembly compiler artifacts unavailable.",
+    "Lux first fifteen sampler actual 4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a versus pinned 09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df; previously reproduced on untouched baseline."
+  ],
+  "limits": [
+    "R_Cas only; sustained rank variants, attached overlay and takedown effect remain separate. The authored persistent trail sound is not dispatched by this cast renderer.",
+    "Existing local early-copy mode-2 route binds raw strength 1.0. Native CPU phase/power/default/sampler setup remains unverified.",
+    "Source-X reflection, actor-root attachment, first-update/delay grid, neutral omitted lookup product and other render defaults are explicit local adapters.",
+    "Omitted lens emitter lifetime stays null; one-burst sampling uses unbounded-emitter phase zero. Source linger does not extend visible finite life.",
+    "Canonical software decoding and exact authored GPU upload do not certify native compressed-texture decoding, native frame matching or physical-device/FPS parity.",
+    "Focused browser checks are not a whole-suite, service-worker or offline-install certificate.",
+    "Ignored evidence needs preservation; exact changed sources are separately archived."
+  ]
+}

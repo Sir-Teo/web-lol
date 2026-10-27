@@ -1,0 +1,275 @@
+{
+  "recordedAt": "2026-10-25T17:15:47.317038+00:00",
+  "scope": "Development NPC Wuju Style mechanics and saved Double Strike interaction. Native activation/proc dispatch, source visuals/audio and full champion completion remain unverified.",
+  "baselineCommit": "0a89c15",
+  "schema": 140,
+  "ruleset": "21d7aa5b3f691b028344b8f93dcf26158ed5f6616f2e798ee38a83e09fa7e5da",
+  "browser": "Chromium 154.0.8037.57 on Debian 13 through temporary executable-path override",
+  "changedRuntimeAndTestInputs": [
+    {
+      "file": "src/content/masteryi-e.ts",
+      "bytes": 852,
+      "sha256": "ee6cecc87b610779ed4b4713b6b80edb1b9ae3fd957e84e79ae1b37146acd0f1"
+    },
+    {
+      "file": "src/simulation/masteryi-wuju-style.ts",
+      "bytes": 1882,
+      "sha256": "44eb9d9cf42897951ca3cd6d7126d6c310ecd098cc1b972cb439a520d49905c0"
+    },
+    {
+      "file": "src/simulation/world.ts",
+      "bytes": 279615,
+      "sha256": "fe05e544db2f998180548d41f9f1eefa9f543bcbf9ecfa2bf74bd101124ea28d"
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "bytes": 170174,
+      "sha256": "7359334bb57f5f0e05892e88e02321eafd086340334737bb89fb53e712577382"
+    },
+    {
+      "file": "src/simulation/champion-state.ts",
+      "bytes": 3780,
+      "sha256": "ca31717bbd24a0ba60cc527a2108b425e0ffdfad5a6026da975d56b8856a7c9a"
+    },
+    {
+      "file": "src/simulation/types.ts",
+      "bytes": 21207,
+      "sha256": "f69161070120fa3e09aab6c850c35dec74f5d629acb8dbe51c698e30130a5ede"
+    },
+    {
+      "file": "tests/masteryi-wuju-style.test.ts",
+      "bytes": 11623,
+      "sha256": "4b6306a4aec8a03cc92af4b8a6894fd28594fdf13a6e867bd88614bdeda491b8"
+    },
+    {
+      "file": "tests/masteryi-development.test.ts",
+      "bytes": 9688,
+      "sha256": "675eed92fc6052f8f2540924c316b228aa8b12ee861e404ba78bccf42ce46f3a"
+    },
+    {
+      "file": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "52b4e78300492308963c9b53f90bf44eb51298ebf29acceb3cfa9aee6f084784"
+    },
+    {
+      "file": "e2e/masteryi-wuju-style.spec.ts",
+      "bytes": 4248,
+      "sha256": "9149d8fb8969b2d455915c99ef0c449d3dd71c5dc9a668f29943c8a8407c0a6e"
+    },
+    {
+      "file": "e2e/masteryi-development.spec.ts",
+      "bytes": 13724,
+      "sha256": "31bc642943a4bc72cf0a2252259fbc2af3a40ae436367579de1d642c1f421793"
+    },
+    {
+      "file": "tools/assets/export-masteryi-e.py",
+      "bytes": 3450,
+      "sha256": "9502c18101e8f9e38d5090a22c0f0bd4066b00d629ac212201ae14d77e46dbd2"
+    },
+    {
+      "file": "tools/assets/test-masteryi-e.py",
+      "bytes": 1775,
+      "sha256": "a5ddfa1d18bce512da7ea1db3be1ed3408e0ea2acdd1ec578fe46be7f7f0a5e8"
+    }
+  ],
+  "sourceProjection": {
+    "normalAndOptimized": true,
+    "mutationTestsPerPythonMode": 8,
+    "sourceMana": null,
+    "publicMana": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "sourceAnimation": null
+  },
+  "validation": {
+    "wujuCases": 29,
+    "fullUnitPassed": 2243,
+    "fullUnitFailed": 6,
+    "fullUnitTotal": 2249,
+    "unitFiles": 341,
+    "typecheck": true,
+    "nodeQA": 3,
+    "build": true,
+    "browserPassed": 10,
+    "browserRetries": 0,
+    "browserSkipped": 0,
+    "freshOfflineAudit": false,
+    "fullBrowserSuite": false,
+    "nativeAcceptance": false,
+    "fullMatchPerformance": false
+  },
+  "baselineFailures": {
+    "reference": "docs/reference/masteryi/passive-verification.json",
+    "originalBaseline": "9c2b451",
+    "sameSixCases": true,
+    "sameLuxDigest": true,
+    "cases": [
+      "tests/garen-aa.test.ts > all eight source play actions retain seventeen routed profiles, thirty-four exact masters and all four material hashes",
+      "tests/garen-p-audio.test.ts > recovery sound retains exact bank/media masters, distinct attenuation, play transitions and the reader-derived whole-file loop",
+      "tests/garen-passive-particles.test.ts > the recovery profile and lossless textures retain the frozen three-resource provenance",
+      "tests/leona-eclipse-skin-material.test.ts > Eclipse maps the authored rim control through the checked native CPU input",
+      "tests/lux-e-missile.test.ts > the fifteen existing streams preserve 24 full sampler snapshots",
+      "tests/particle-distortion.test.ts > all fifteen native variants retain exact original libraries, wrapper bitcode and static disassembly identities"
+    ]
+  },
+  "browserRuntimeVariation": {
+    "file": "src/simulation/world.ts",
+    "browserSHA256": "0d591472469072c5db0269608350a731ad7189f113f5e527e09c6da1dd9f647b",
+    "finalSHA256": "fe05e544db2f998180548d41f9f1eefa9f543bcbf9ecfa2bf74bd101124ea28d",
+    "change": "The local eligibility variable was renamed after browser checks; conditions/control flow are identical. The broad unit run and build/production checks use the final name."
+  },
+  "savedBuffEvidence": {
+    "buff": {
+      "startTick": 236,
+      "endTick": 536,
+      "rank": 1
+    },
+    "spellRanks": {
+      "q": 0,
+      "w": 0,
+      "e": 1,
+      "r": 0
+    },
+    "primaryDamage": 280,
+    "secondaryDamage": 52.5,
+    "pose": "entry_85dac0b3",
+    "bones": 90,
+    "exactSave": true,
+    "exactFuture300Ticks": true,
+    "exactBones": true,
+    "paused": true,
+    "savedSHA256": "08bf6695325198760c1a18f7dbed3fc7e981bb187237d73d835e8f7e216c0f44",
+    "futureSHA256": "27bcbd70f196b338371b919c1c0f903695e87bd9e4f67562fbbf222d07c4d084",
+    "boneMatricesSHA256": "0b7e88b31534d330c9289646dcc6b84b2d4e09812630cc4d5b3f8b322e56dc09",
+    "errors": []
+  },
+  "production": {
+    "result": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 12,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 204,
+      "scheduledBlueRequests": 12,
+      "scheduledRedRequests": 12,
+      "scheduledWolfRequests": 24,
+      "scheduledRaptorRequests": 24,
+      "scheduledKrugRequests": 36,
+      "scheduledScuttlerRequests": 12,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    },
+    "runner": "tools/qa/production-subpath.mjs",
+    "adaptation": "Temporary copy changes only channel: 'chrome' to executablePath: '/usr/bin/chromium'; no assertion or deadline change."
+  },
+  "pack": {
+    "id": "0691702251f132c790b6466db58a07558f9ea3098b019c92440f27e0b8efdc6f",
+    "files": 1068,
+    "bytes": 526611202
+  },
+  "localEvidence": [
+    {
+      "file": ".cache/masteryi-e-cloud/focused.log",
+      "bytes": 425,
+      "sha256": "431e32105221c076457fbd42bcd79a5952969f4f996702ee94ee601612b53346"
+    },
+    {
+      "file": ".cache/masteryi-e-cloud/browser.log",
+      "bytes": 4517,
+      "sha256": "328dfe9ccc651b9e54b007635713e25e751b134e1caef3525f6c317db774dca6"
+    },
+    {
+      "file": ".cache/masteryi-e-cloud/check.log",
+      "bytes": 6005,
+      "sha256": "2d48216b16631da0020d6f0aafec393187fc840b80b6a18a361afab1ca6d73d1"
+    },
+    {
+      "file": ".cache/masteryi-e-cloud/node-qa.log",
+      "bytes": 431,
+      "sha256": "2ccd5970f4f91d2b10e97caa240a13255d610bcba91e226310255bbbea1a447c"
+    },
+    {
+      "file": ".cache/masteryi-e-cloud/build.log",
+      "bytes": 4829,
+      "sha256": "3684ff4d3eae2c603675186ab5a2fc1b6aeed7acbc301624a5f280aad68d5b91"
+    },
+    {
+      "file": ".cache/masteryi-e-cloud/production.log",
+      "bytes": 2081,
+      "sha256": "4c66b75594e1516082d7f34a34ce93e56fa4efc3ce47339b2c71c99b1ce66775"
+    },
+    {
+      "file": ".cache/masteryi-e-cloud/export.log",
+      "bytes": 108,
+      "sha256": "55fff03d155e14318c39874c4ddf8a9b0a9bc6fb7cfeac8f1b384882489310f7"
+    },
+    {
+      "file": ".cache/masteryi-e-cloud/export-optimized.log",
+      "bytes": 108,
+      "sha256": "55fff03d155e14318c39874c4ddf8a9b0a9bc6fb7cfeac8f1b384882489310f7"
+    },
+    {
+      "file": ".cache/masteryi-e-cloud/export-tests-normal.log",
+      "bytes": 106,
+      "sha256": "31d461d4f5ea9a76ac910ab10c6f0bdaffcf73105fffad0bef6b67b23d0e121f"
+    },
+    {
+      "file": ".cache/masteryi-e-cloud/export-tests-optimized.log",
+      "bytes": 106,
+      "sha256": "988ce78dcbc6ad958a909868f1540f1f8e04035fd67fb203dd52fc889230c6b1"
+    }
+  ]
+}

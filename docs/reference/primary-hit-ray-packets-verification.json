@@ -1,0 +1,1083 @@
+{
+  "format": 1,
+  "parentCommit": "a4b16bc4032b654565cd3f97eee0bc8fa82f9395",
+  "scope": "Private Yi ray uses half lookup inputs and an owned normalized Uint8 BGRA color stream matching the recovered packet. Preserve raw source color curves, frame/motion/geometry policy and all other surface programs. Reuse existing BGRA shader support.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "a5ca8ae7c6e7f98c54d5ec7a81808ce389b6c0c1f7106c707a13d79a663881d2",
+    "offlinePack": {
+      "id": "7992480e79aae567346dde2ae327434a14cf1b0186c7350f52aac0fc7765a02b",
+      "files": 1200,
+      "bytes": 538084791
+    }
+  },
+  "verification": {
+    "newUnitCases": 9,
+    "focusedCases": 58,
+    "fullUnitRun": {
+      "passed": 3095,
+      "failed": 2,
+      "total": 3097,
+      "files": 391
+    },
+    "remainingBaselineFailures": 2,
+    "originalWaveDeadlinePassed": true,
+    "nodeQaPassed": 6,
+    "successfulFinalBrowserCases": 9,
+    "rayPixelCases": 84,
+    "nonemptyRayPixelCases": 84,
+    "rayChangedChannelBytes": 0,
+    "rayOldPolicyChangedChannelBytes": 76513,
+    "quadPixelCases": 15,
+    "quadChangedChannelBytes": 0,
+    "defaultPlacementPixelCases": 72,
+    "defaultPlacementChangedChannelBytes": 0,
+    "sourcePlacementFixtures": 72,
+    "sourceParticleStates": 714,
+    "independentSamplerCalls": 2106,
+    "quadParticleCases": 13280,
+    "rayParticleCases": 90,
+    "changedRayPacketColors": 81,
+    "changedRayLookupPairs": 81,
+    "sourceColorCurvesExact": true,
+    "rayFramesAndGeometryExact": true,
+    "independentUnormComponentCases": 101030,
+    "doubleOnlyByteDifferences": 128,
+    "unchangedRuntimeExports": 14,
+    "runtimeExportBytesAndMtimesUnchanged": true,
+    "savedFutureTicks": 130,
+    "gpuMipReadbacks": 93,
+    "productionRecordings": 32,
+    "freshProductionScreenshots": 8,
+    "privatePreloads": 0,
+    "publicAssetsChanged": false
+  },
+  "independentReference": {
+    "referenceCommit": "c0f75042056ee6d919c93b371e9741e1a5e08fa6",
+    "archiveSha256": "6987d6518042877f7edb1998296b165fbe09e0d273bfb0ef5e423be0b17b9a83",
+    "beforeModuleSha256": "6965091eaccbfb85c15c0c7ee01a6cff1cc28aed5e09baa4bc0890f327cb93fc",
+    "afterModuleSha256": "7012304ed38e87d11ad178bcfc7387771f14176e95ff3aadfb06debd48c31085",
+    "sourceSha256": "b21aafa72f8af0a8c2ec6fa311743b97cbd75a540a12a92a4ad12522c2f21ec5",
+    "halfSourceSha256": "291a7af941b604de3feb541136cfb62215c16b4d811ba8d3131568cf7180ac3b",
+    "surfaceSourceSha256": "72e68765f789f47e2af33417e56d345389bcc53104e71e2ba76915aabab7c5c1",
+    "primaryRendererSourceSha256": "0617393b4538fa3629fe3e4f7a54bfbd765ed8ef27e4944718b8a72ff984dc27",
+    "unormSourceSha256": "d9606ea6a3afb8df59e76c7968739ccb39c0ade6e021dd9d23b4780c74ac67de",
+    "rayWitnessSha256": "ab9b825f1108ed1e44124ee5f9821753eb73352cbf8738a8eebbb884c892b4ec",
+    "vertexFormatWitnessSha256": "2c45b6fb42a5eea59daa453e96af9f5d49a2afa38a1a84dafaf3be2b8919e1f6",
+    "nativeWitnessSha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6",
+    "pythonReferenceSha256": "a52ea6d9364222466feba20421c55bf7b5f95ea3938374fa5f4b438f36ab3087",
+    "samplerCalls": 2106,
+    "quadParticles": 13280,
+    "rayParticles": 90,
+    "changedCells": 84,
+    "changedLookups": 13244,
+    "otherFieldsExact": true,
+    "changedRayPacketColors": 81,
+    "changedRayLookups": 81,
+    "rayFramesAndGeometryExact": true,
+    "sourceColorsExact": true,
+    "quadColorsExact": true,
+    "independentPacketReferenceExact": true,
+    "independentUnormComponentCases": 101030,
+    "doubleOnlyByteDifferences": 128,
+    "limits": [
+      "Native formula applied to existing local age and indexed random inputs; native RNG/clock producers and live FPCR remain unobserved.",
+      "Half nearest-even is an explicit local policy. Ray colors follow the distinct clamped float32 byte path and the observed normalized vertex format; no native game or Metal shader execution."
+    ]
+  },
+  "pixelReferences": [
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/ray-packet-pixels.json",
+      "bytes": 32852,
+      "sha256": "6d0c94d1a5e9b35a6a3e600182655fdc5461620873136ede15fd4a8fb9f353d9"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/primary-hit-half-packets-p-19838--with-authored-GPU-textures/quad-packet-pixels.json",
+      "bytes": 6274,
+      "sha256": "24abbd0736c0abf0c37a65ee9a61650f1111a8554cdf10238f04271e231dcc07"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/particle-surface-placement-c8003-xels-with-authored-textures/placement-pixels.json",
+      "bytes": 14658,
+      "sha256": "b56730ae57408a3d83f75b672b97500f5c587003dd6c9d82f47bfe33b9853ac8"
+    }
+  ],
+  "limits": [
+    "Native formula applied to existing local age and indexed random inputs; native RNG/clock producers and live FPCR remain unobserved.",
+    "Half nearest-even is an explicit local policy. Ray colors follow the distinct clamped float32 byte path and the observed normalized vertex format; no native game or Metal shader execution.",
+    "Only the private primary ray opts into the normalized BGRA stream. Its source mode 4, white omitted modulation factor and unit UV/no-multiplier specialization are guarded. Other families retain their existing packet and shading policies.",
+    "The first native 28-byte layout and default quad shader compose conditionally; native draw-specific selection, record producers and live FPCR remain unobserved. This is not a complete native visual parity certificate.",
+    "Final GPU comparisons use actual runtime geometry/material code and an independent normalized Uint8 attribute reference from C/Python packet values. The omitted ray lookup texture uses the production white fallback.",
+    "The default placement timing loop is retained only for exact numerical/ownership equivalence on unrequested paths; no new performance or game-FPS claim is made.",
+    "The historical Leona archive closure and default-platform Lux golden remain the same two full-suite failures; no golden, assertion or wave deadline was weakened."
+  ],
+  "diagnostics": [
+    "An initial integration expectation guessed the ray alpha byte as 123. The unchanged source curve and independent C reference establish byte 198 at time 0.08; the expectation was corrected without changing curve evaluation.",
+    "The first GPU setup assumed the ray had an authored lookup texture; it instead uses the production white fallback. A failed text replacement briefly left the probe white variable undefined; an explicit patch corrected the fixture.",
+    "A provisional float-uniform representation differed from normalized vertex attributes by one channel byte at one pixel (time 0.1, runtime blend, 64 target). The final path stores actual normalized BGRA bytes and retains zero-difference acceptance; source colors stay unquantized.",
+    "The full suite and final nine-case browser run were repeated after adopting the actual byte attribute. Earlier provisional logs remain diagnostics, not the final certificate."
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/MASTER-YI-PRIMARY-HITS.md",
+      "bytes": 13265,
+      "sha256": "d4fd001a8c3ca45c621db665b47769342272e584877b07fa636fad8f7c4be79f"
+    },
+    {
+      "path": "docs/NATIVE-RAY-PACKET.md",
+      "bytes": 4662,
+      "sha256": "fa4a0fdfdaad084937bf91820a0797cb78762d2670c1dc63b19cc47228d89290"
+    },
+    {
+      "path": "docs/PRIMARY-HIT-HALF-PACKETS.md",
+      "bytes": 4583,
+      "sha256": "bd4b3bf95ae7754571cce9017a1e01e0a83a9a0589f922bb5c485c7027fbd9b8"
+    },
+    {
+      "path": "docs/PRIMARY-HIT-RAY-PACKETS.md",
+      "bytes": 4522,
+      "sha256": "b034507382a5f5f969c608cc9bb9c19389d66c2cbc8d807b80de6dc7d08d7192"
+    },
+    {
+      "path": "e2e/masteryi-primary-hits.spec.ts",
+      "bytes": 20112,
+      "sha256": "f13be0f597aa840cb1babc4d95176f7fe5510c6bb5f7cdbefed766e9a1795436"
+    },
+    {
+      "path": "e2e/primary-hit-ray-packets.spec.ts",
+      "bytes": 10270,
+      "sha256": "8ed6596e429afb9ef74dd8b1034a9d3bedb4e3813d0665677212f2d541d81bb0"
+    },
+    {
+      "path": "src/render/masteryi-primary-hit-particles.ts",
+      "bytes": 5407,
+      "sha256": "b21aafa72f8af0a8c2ec6fa311743b97cbd75a540a12a92a4ad12522c2f21ec5"
+    },
+    {
+      "path": "src/render/masteryi-primary-hits.ts",
+      "bytes": 6410,
+      "sha256": "0617393b4538fa3629fe3e4f7a54bfbd765ed8ef27e4944718b8a72ff984dc27"
+    },
+    {
+      "path": "src/render/particle-unorm8.ts",
+      "bytes": 522,
+      "sha256": "d9606ea6a3afb8df59e76c7968739ccb39c0ade6e021dd9d23b4780c74ac67de"
+    },
+    {
+      "path": "src/render/source-particle-surfaces.ts",
+      "bytes": 23099,
+      "sha256": "72e68765f789f47e2af33417e56d345389bcc53104e71e2ba76915aabab7c5c1"
+    },
+    {
+      "path": "tests/masteryi-primary-hits.test.ts",
+      "bytes": 13115,
+      "sha256": "c117088fca580c813c3214e6af05146a142a9456776d9f001ba787f9128785fe"
+    },
+    {
+      "path": "tests/particle-unorm8.test.ts",
+      "bytes": 920,
+      "sha256": "6b51ccf71e67e4aaebc19c3a15ce2638d9dd14f7badd91aac11fb6c63b42421e"
+    },
+    {
+      "path": "tests/source-particle-surfaces.test.ts",
+      "bytes": 5710,
+      "sha256": "d8d11706922faafb4c068d686aeeadd1c138985633946d54bfb49582f25cdad7"
+    },
+    {
+      "path": "tools/qa/lib/primary-hit-packet-reference.py",
+      "bytes": 2028,
+      "sha256": "a52ea6d9364222466feba20421c55bf7b5f95ea3938374fa5f4b438f36ab3087"
+    },
+    {
+      "path": "tools/qa/verify-primary-hit-packets.mjs",
+      "bytes": 9275,
+      "sha256": "08284808293641c52bbd40ae835107fa714815312e5d0084d0fe2e594afe57b1"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "docs/reference/native-atlas-runtime.json",
+      "bytes": 42714,
+      "sha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6"
+    },
+    {
+      "path": "docs/reference/native-ray-packet.json",
+      "bytes": 16794,
+      "sha256": "ab9b825f1108ed1e44124ee5f9821753eb73352cbf8738a8eebbb884c892b4ec"
+    },
+    {
+      "path": "docs/reference/native-particle-vertex-format.json",
+      "bytes": 23773,
+      "sha256": "2c45b6fb42a5eea59daa453e96af9f5d49a2afa38a1a84dafaf3be2b8919e1f6"
+    },
+    {
+      "path": "docs/reference/native-emitter-scalar-defaults.json",
+      "bytes": 18429,
+      "sha256": "a6c381afaed4c5a680276794d8fa613d988d710eca0683ed8ee91cde494de6cf"
+    },
+    {
+      "path": "docs/reference/native-constructor-witness.json",
+      "bytes": 19538,
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-particles.json",
+      "bytes": 82989,
+      "sha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-profile-reading.json",
+      "bytes": 137463,
+      "sha256": "93a4f4500e3ee3fd5e8881cfaf08f823cae40750de16afdf2ca235f4aad1142a"
+    },
+    {
+      "path": "src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    },
+    {
+      "path": "src/render/particle-half.ts",
+      "bytes": 1001,
+      "sha256": "291a7af941b604de3feb541136cfb62215c16b4d811ba8d3131568cf7180ac3b"
+    },
+    {
+      "path": "src/render/leona-eclipse-surface-material.ts",
+      "bytes": 9476,
+      "sha256": "d2c49d481baa708a10eeb7f1af2a0d6b99c529d1c8017bf72475a8e3d3e72a86"
+    },
+    {
+      "path": "src/render/ray-quad.ts",
+      "bytes": 2030,
+      "sha256": "31c088de066dcf41aff3fc5d15a9f1a36032df060c155ef3c67f113d37bfc195"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 30464,
+      "sha256": "68425c70629572add4d8bfb83d3b71e2a4b276c476bd5f1880083659aed7043b"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/docs/MASTER-YI-PRIMARY-HITS.md",
+      "bytes": 13265,
+      "sha256": "d4fd001a8c3ca45c621db665b47769342272e584877b07fa636fad8f7c4be79f"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/docs/NATIVE-RAY-PACKET.md",
+      "bytes": 4662,
+      "sha256": "fa4a0fdfdaad084937bf91820a0797cb78762d2670c1dc63b19cc47228d89290"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/docs/PRIMARY-HIT-HALF-PACKETS.md",
+      "bytes": 4583,
+      "sha256": "bd4b3bf95ae7754571cce9017a1e01e0a83a9a0589f922bb5c485c7027fbd9b8"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/docs/PRIMARY-HIT-RAY-PACKETS.md",
+      "bytes": 4522,
+      "sha256": "b034507382a5f5f969c608cc9bb9c19389d66c2cbc8d807b80de6dc7d08d7192"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/docs/reference/masteryi/primary-hit-particles.json",
+      "bytes": 82989,
+      "sha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/docs/reference/masteryi/primary-hit-profile-reading.json",
+      "bytes": 137463,
+      "sha256": "93a4f4500e3ee3fd5e8881cfaf08f823cae40750de16afdf2ca235f4aad1142a"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/docs/reference/native-atlas-runtime.json",
+      "bytes": 42714,
+      "sha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/docs/reference/native-constructor-witness.json",
+      "bytes": 19538,
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/docs/reference/native-emitter-scalar-defaults.json",
+      "bytes": 18429,
+      "sha256": "a6c381afaed4c5a680276794d8fa613d988d710eca0683ed8ee91cde494de6cf"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/docs/reference/native-particle-vertex-format.json",
+      "bytes": 23773,
+      "sha256": "2c45b6fb42a5eea59daa453e96af9f5d49a2afa38a1a84dafaf3be2b8919e1f6"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/docs/reference/native-ray-packet.json",
+      "bytes": 16794,
+      "sha256": "ab9b825f1108ed1e44124ee5f9821753eb73352cbf8738a8eebbb884c892b4ec"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/e2e/masteryi-primary-hits.spec.ts",
+      "bytes": 20112,
+      "sha256": "f13be0f597aa840cb1babc4d95176f7fe5510c6bb5f7cdbefed766e9a1795436"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/e2e/primary-hit-ray-packets.spec.ts",
+      "bytes": 10270,
+      "sha256": "8ed6596e429afb9ef74dd8b1034a9d3bedb4e3813d0665677212f2d541d81bb0"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/src/render/leona-eclipse-surface-material.ts",
+      "bytes": 9476,
+      "sha256": "d2c49d481baa708a10eeb7f1af2a0d6b99c529d1c8017bf72475a8e3d3e72a86"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/src/render/masteryi-primary-hit-particles.ts",
+      "bytes": 5407,
+      "sha256": "b21aafa72f8af0a8c2ec6fa311743b97cbd75a540a12a92a4ad12522c2f21ec5"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/src/render/masteryi-primary-hits.ts",
+      "bytes": 6410,
+      "sha256": "0617393b4538fa3629fe3e4f7a54bfbd765ed8ef27e4944718b8a72ff984dc27"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/src/render/particle-half.ts",
+      "bytes": 1001,
+      "sha256": "291a7af941b604de3feb541136cfb62215c16b4d811ba8d3131568cf7180ac3b"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/src/render/particle-unorm8.ts",
+      "bytes": 522,
+      "sha256": "d9606ea6a3afb8df59e76c7968739ccb39c0ade6e021dd9d23b4780c74ac67de"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/src/render/ray-quad.ts",
+      "bytes": 2030,
+      "sha256": "31c088de066dcf41aff3fc5d15a9f1a36032df060c155ef3c67f113d37bfc195"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/src/render/source-particle-surfaces.ts",
+      "bytes": 23099,
+      "sha256": "72e68765f789f47e2af33417e56d345389bcc53104e71e2ba76915aabab7c5c1"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/tests/masteryi-primary-hits.test.ts",
+      "bytes": 13115,
+      "sha256": "c117088fca580c813c3214e6af05146a142a9456776d9f001ba787f9128785fe"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/tests/particle-unorm8.test.ts",
+      "bytes": 920,
+      "sha256": "6b51ccf71e67e4aaebc19c3a15ce2638d9dd14f7badd91aac11fb6c63b42421e"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/tests/source-particle-surfaces.test.ts",
+      "bytes": 5710,
+      "sha256": "d8d11706922faafb4c068d686aeeadd1c138985633946d54bfb49582f25cdad7"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/tools/qa/lib/primary-hit-packet-reference.py",
+      "bytes": 2028,
+      "sha256": "a52ea6d9364222466feba20421c55bf7b5f95ea3938374fa5f4b438f36ab3087"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/tools/qa/production-subpath.mjs",
+      "bytes": 30464,
+      "sha256": "68425c70629572add4d8bfb83d3b71e2a4b276c476bd5f1880083659aed7043b"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/final-source/tools/qa/verify-primary-hit-packets.mjs",
+      "bytes": 9275,
+      "sha256": "08284808293641c52bbd40ae835107fa714815312e5d0084d0fe2e594afe57b1"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/primary-hit-ray-packets/app-identity.json",
+      "bytes": 90,
+      "sha256": "6838d0013db315b30ed8eed93cab419a3588a38180f090d16d544a3754654f25"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/archive-checkpoint.py",
+      "bytes": 10842,
+      "sha256": "3c48c588402d38781ca6367fd556212f3275babcd5be818665bf8ddb142d8fd1"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser/.last-run.json",
+      "bytes": 96,
+      "sha256": "7471359bc6d14e4ec151af49a47bae1333b9076c63c9c4bfdbc5f4859bf59804"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser/masteryi-passive-sword-ord-c4050-pixels-across-camera-angles/passive-sword-gpu-order.json",
+      "bytes": 556,
+      "sha256": "de332e3b109a8efbb9a9dd79e43ab9f2f725ecf2cc5a84e053e5ff8d81c8282a"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser/masteryi-primary-hits-all--0c76f-U-mips-and-real-Save-reload/primary-critical-hit.png",
+      "bytes": 794850,
+      "sha256": "bdb395ec3ac3e3caf58d1928c3326eade246dc19069c392419afb6cc234faa4a"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser/masteryi-primary-hits-all--0c76f-U-mips-and-real-Save-reload/primary-hit-gpu-save.json",
+      "bytes": 128242,
+      "sha256": "18dc3fe3052e07eab5e22bda914cbde21ab1c1e57443af941419c2e338d00f92"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser/masteryi-primary-hits-each-0e129-its-actual-runtime-material/all-emitter-gpu-pixels.json",
+      "bytes": 1175,
+      "sha256": "2ac0079f2b6e3821002949fd5d62beecb1be24c4778decbbb7d36599731ff37e"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser/masteryi-primary-hits-know-90612-t-stays-absent-after-reveal/visibility-corpse-terminal.json",
+      "bytes": 148,
+      "sha256": "4bebc0211c68e04d61d2329fff436b2142698c31a04fb3367643afcf11286e9f"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser/masteryi-primary-hits-ordi-2ff62-s-only-the-failed-transport/selective-retry.json",
+      "bytes": 1458,
+      "sha256": "d666533004c6b8f2fffaebd4ac09a32c0a567a791785336e40cbb5c13eb217ce"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser/masteryi-sword-instancing--e809a--reducing-actual-draw-calls/instance-pixel-comparison.json",
+      "bytes": 12315,
+      "sha256": "109257cf4e66f108574ca8340e83a0756596739a0ec6ca89d96a1985be1edf80"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser/primary-hit-half-packets-p-19838--with-authored-GPU-textures/quad-packet-pixels.json",
+      "bytes": 6274,
+      "sha256": "24abbd0736c0abf0c37a65ee9a61650f1111a8554cdf10238f04271e231dcc07"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/error-context.md",
+      "bytes": 541,
+      "sha256": "8e5974e268c7323effc59d9bc187d9d9404408eb38c65f112069d1118ebcd26f"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/packet-inputs.json",
+      "bytes": 668,
+      "sha256": "6f8ee6667329abe46a91a2598a9ffbd85ff810c061dc6401bc4786b462220e3d"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/packet-reference.json",
+      "bytes": 600,
+      "sha256": "2deeafb436bfd38d3bcf3eb32840bb6948c2044f2bd5135df8b7d12631e18f46"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/baseline.mjs",
+      "bytes": 134108,
+      "sha256": "fb49f2095d1214e6fa5c14285e838589c54021b5acf3692c78883dc751404fc8"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/reference.json",
+      "bytes": 475,
+      "sha256": "43469fd123ad46b9ba36540e287c4456a4e80cee6c384dd4b0ca0ccc285d0bfb"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "b12071ef42645e6ee11c816a1a45841f86af5640ade069b001e9447cf0b1cbcb"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/test-failed-1.png",
+      "bytes": 5851,
+      "sha256": "99db2a93b06fa1bf617f5c495e02dcf6c0b76961108491217e2cf4fed8699d35"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/trace.zip",
+      "bytes": 79476,
+      "sha256": "dcd77a40d70a40ce0c3052e2d181db72203f95dce15ddfc8fb50bcce69915d15"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-attributes-probe/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-attributes-probe/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/packet-inputs.json",
+      "bytes": 668,
+      "sha256": "6f8ee6667329abe46a91a2598a9ffbd85ff810c061dc6401bc4786b462220e3d"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-attributes-probe/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/packet-reference.json",
+      "bytes": 600,
+      "sha256": "2deeafb436bfd38d3bcf3eb32840bb6948c2044f2bd5135df8b7d12631e18f46"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-attributes-probe/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/ray-packet-pixels.json",
+      "bytes": 32852,
+      "sha256": "6d0c94d1a5e9b35a6a3e600182655fdc5461620873136ede15fd4a8fb9f353d9"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-attributes-probe/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/baseline.mjs",
+      "bytes": 134448,
+      "sha256": "ada9ab0112609568119c95efc36cc66745557d43c0ec4593a6afc8080433b3f5"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-attributes-probe/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/reference.json",
+      "bytes": 492,
+      "sha256": "448df7959a3dd786f02fff987026eb87356bbf211ac1e2f4b5304a9daea9f1ca"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-attributes-probe/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "b12071ef42645e6ee11c816a1a45841f86af5640ade069b001e9447cf0b1cbcb"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-attributes-probe.log",
+      "bytes": 555,
+      "sha256": "5a0aeb967bea89ae285e3eb624ed68265c6c161d8f658d09ce056c7d819fe5d2"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/masteryi-passive-sword-ord-c4050-pixels-across-camera-angles/passive-sword-gpu-order.json",
+      "bytes": 556,
+      "sha256": "de332e3b109a8efbb9a9dd79e43ab9f2f725ecf2cc5a84e053e5ff8d81c8282a"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/masteryi-primary-hits-all--0c76f-U-mips-and-real-Save-reload/primary-critical-hit.png",
+      "bytes": 794622,
+      "sha256": "17c021deaacab5921916c963f3375801ea9f6bca1e6d3162e6e63d3523cf335d"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/masteryi-primary-hits-all--0c76f-U-mips-and-real-Save-reload/primary-hit-gpu-save.json",
+      "bytes": 131244,
+      "sha256": "2ffec1f7f6d49f8af5af154d5ef94c6f25916bdbe15c403787658d1ebfc37bea"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/masteryi-primary-hits-each-0e129-its-actual-runtime-material/all-emitter-gpu-pixels.json",
+      "bytes": 1175,
+      "sha256": "2ac0079f2b6e3821002949fd5d62beecb1be24c4778decbbb7d36599731ff37e"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/masteryi-primary-hits-know-90612-t-stays-absent-after-reveal/visibility-corpse-terminal.json",
+      "bytes": 148,
+      "sha256": "4bebc0211c68e04d61d2329fff436b2142698c31a04fb3367643afcf11286e9f"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/masteryi-primary-hits-ordi-2ff62-s-only-the-failed-transport/selective-retry.json",
+      "bytes": 1458,
+      "sha256": "d666533004c6b8f2fffaebd4ac09a32c0a567a791785336e40cbb5c13eb217ce"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/masteryi-sword-instancing--e809a--reducing-actual-draw-calls/instance-pixel-comparison.json",
+      "bytes": 11261,
+      "sha256": "f982d67c6f60bda26882312bce839e6f8125a5467fbe8dbfee44875707e4565e"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/particle-surface-placement-c8003-xels-with-authored-textures/attachments/placement-pixels-json-99f740b3572034210c67c66c04adfa0c99241716.json",
+      "bytes": 14658,
+      "sha256": "b56730ae57408a3d83f75b672b97500f5c587003dd6c9d82f47bfe33b9853ac8"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/particle-surface-placement-c8003-xels-with-authored-textures/placement-pixels.json",
+      "bytes": 14658,
+      "sha256": "b56730ae57408a3d83f75b672b97500f5c587003dd6c9d82f47bfe33b9853ac8"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/particle-surface-placement-c8003-xels-with-authored-textures/reference/baseline.mjs",
+      "bytes": 134228,
+      "sha256": "5071e0692099a14a1dd09762f4ecfa0d884721a3ce84fe3c7fcef001e8cafaf3"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/particle-surface-placement-c8003-xels-with-authored-textures/reference/reference.json",
+      "bytes": 481,
+      "sha256": "ad1e7ace2c6cc01fadb8e4438f8bd3e9707f8105a32b2e65d1aaf78d6ffb94fc"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/particle-surface-placement-c8003-xels-with-authored-textures/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "b12071ef42645e6ee11c816a1a45841f86af5640ade069b001e9447cf0b1cbcb"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/primary-hit-half-packets-p-19838--with-authored-GPU-textures/quad-packet-pixels.json",
+      "bytes": 6274,
+      "sha256": "24abbd0736c0abf0c37a65ee9a61650f1111a8554cdf10238f04271e231dcc07"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/packet-inputs.json",
+      "bytes": 668,
+      "sha256": "6f8ee6667329abe46a91a2598a9ffbd85ff810c061dc6401bc4786b462220e3d"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/packet-reference.json",
+      "bytes": 600,
+      "sha256": "2deeafb436bfd38d3bcf3eb32840bb6948c2044f2bd5135df8b7d12631e18f46"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/ray-packet-pixels.json",
+      "bytes": 32852,
+      "sha256": "6d0c94d1a5e9b35a6a3e600182655fdc5461620873136ede15fd4a8fb9f353d9"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/baseline.mjs",
+      "bytes": 134228,
+      "sha256": "edeee26657f69a415babe4e9e37c344f6ac20fdd5170ab52cb1628f4a03f7264"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/reference.json",
+      "bytes": 481,
+      "sha256": "9aeba5d121f7ec70499e251619812f12d04628f924097752254772cbc4e0a605"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "b12071ef42645e6ee11c816a1a45841f86af5640ade069b001e9447cf0b1cbcb"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-final.log",
+      "bytes": 3684,
+      "sha256": "4b1350a974d2407880e401adde2afb69d406ef5ba24bc0efa37376e0121873bf"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-ray-pixel/.last-run.json",
+      "bytes": 96,
+      "sha256": "7471359bc6d14e4ec151af49a47bae1333b9076c63c9c4bfdbc5f4859bf59804"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-ray-pixel/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/error-context.md",
+      "bytes": 541,
+      "sha256": "5d3af9dd724c913878fa81b8c2323b4214b906e1ce1172615e248fb4ad6acbc8"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-ray-pixel/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/packet-inputs.json",
+      "bytes": 668,
+      "sha256": "6f8ee6667329abe46a91a2598a9ffbd85ff810c061dc6401bc4786b462220e3d"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-ray-pixel/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/packet-reference.json",
+      "bytes": 600,
+      "sha256": "2deeafb436bfd38d3bcf3eb32840bb6948c2044f2bd5135df8b7d12631e18f46"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-ray-pixel/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/baseline.mjs",
+      "bytes": 134308,
+      "sha256": "a8c300ca618f534772b4c76049eaf263af899a461cb6357b521d69624f6d8ebb"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-ray-pixel/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/reference.json",
+      "bytes": 485,
+      "sha256": "4381fed2a029226341473bf2ed0cf549482fe1631f7e420a6ccb280d67556e2d"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-ray-pixel/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "b12071ef42645e6ee11c816a1a45841f86af5640ade069b001e9447cf0b1cbcb"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-ray-pixel/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/test-failed-1.png",
+      "bytes": 5851,
+      "sha256": "99db2a93b06fa1bf617f5c495e02dcf6c0b76961108491217e2cf4fed8699d35"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-ray-pixel/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/trace.zip",
+      "bytes": 18963,
+      "sha256": "1680c5adeb7dd04b750b310f404eb4e7cf3807aeffef1cbc2bc852abdb253995"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-ray-pixel-final/.last-run.json",
+      "bytes": 96,
+      "sha256": "7471359bc6d14e4ec151af49a47bae1333b9076c63c9c4bfdbc5f4859bf59804"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-ray-pixel-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/error-context.md",
+      "bytes": 6005,
+      "sha256": "36ece52dc036b4a184c82c18a3fdabc1a6a8d198497975b43433b95d6f2fbff5"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-ray-pixel-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/packet-inputs.json",
+      "bytes": 668,
+      "sha256": "6f8ee6667329abe46a91a2598a9ffbd85ff810c061dc6401bc4786b462220e3d"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-ray-pixel-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/packet-reference.json",
+      "bytes": 600,
+      "sha256": "2deeafb436bfd38d3bcf3eb32840bb6948c2044f2bd5135df8b7d12631e18f46"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-ray-pixel-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/ray-packet-pixels.json",
+      "bytes": 32852,
+      "sha256": "4bfc070f0c472008d3dbf5f3de7c30691f4fd25746e980d09b3e063cd51d5389"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-ray-pixel-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/baseline.mjs",
+      "bytes": 134428,
+      "sha256": "1e1a823a9aae3a279e0472fa8c5a58d51cec03ad234a7a133e25dc437f4e07d6"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-ray-pixel-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/reference.json",
+      "bytes": 491,
+      "sha256": "bf9d092973d100ad6702e5a04572468893a2b7a3f254fd75c7a42be999dd0c10"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-ray-pixel-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "b12071ef42645e6ee11c816a1a45841f86af5640ade069b001e9447cf0b1cbcb"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-ray-pixel-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/test-failed-1.png",
+      "bytes": 5851,
+      "sha256": "99db2a93b06fa1bf617f5c495e02dcf6c0b76961108491217e2cf4fed8699d35"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-ray-pixel-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/trace.zip",
+      "bytes": 83538,
+      "sha256": "f10155ffc53d93925e1a144e781a1a85e6ee2a5dca39ac023a593b0a9306b77d"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-ray-pixel-final.log",
+      "bytes": 3059,
+      "sha256": "45fb4daa7ccf044f442d55185aba1d8c83607bd4e168742d2f4cac5965645748"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser-ray-pixel.log",
+      "bytes": 2748,
+      "sha256": "773a0431106b5e539ab72e537fe7a30a73649668a545e0c5707517d0d0c368b9"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/browser.log",
+      "bytes": 5718,
+      "sha256": "279d24059bc19d41decab509b9e924fc9c1f21ce8fdbfe8c9f48b28e32c0c937"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/build.log",
+      "bytes": 7682,
+      "sha256": "075d7743c9c9adad2764ae3333987932f2b3c1afe5c398e73bf643e924eb1958"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/built-identity.json",
+      "bytes": 256,
+      "sha256": "5b85444efba5fb6bce4d1373728761c2357eb6a33c58d4f6063b711f33b0896c"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/byte-boundary-counterexamples.json",
+      "bytes": 15603,
+      "sha256": "da5f51764dde02b9a36197d289790dece8834fe03c01c77dfca3c1b9e9769828"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/default-placement/candidate.mjs",
+      "bytes": 35872,
+      "sha256": "fdeb44defb88f1d0aaa9e49ce753033586a18ecc07ef3c3e28bf3046755e1c86"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/default-placement/candidate.ts",
+      "bytes": 100,
+      "sha256": "17a0b639cf3ed0e4ef557aa297c883f3dc69e91d9e5e222588ef553f41d15660"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/default-placement/reading.json",
+      "bytes": 1888,
+      "sha256": "f238e44343c98c1225a766ac69909e159b0d71b4d1c694c9ad7c38d8497f2f11"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/default-placement/reference/baseline.mjs",
+      "bytes": 133088,
+      "sha256": "796a35422050cdc5ea54c12995ce7e28a8f84d3605496460319c6c1e2646471b"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/default-placement/reference/reference.json",
+      "bytes": 424,
+      "sha256": "ce84d8ca4d2c6aff46ee2eeaff51d06cccf8b80caad268c9016ca8700198afb6"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/default-placement/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "b12071ef42645e6ee11c816a1a45841f86af5640ade069b001e9447cf0b1cbcb"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/default-placement.log",
+      "bytes": 1596,
+      "sha256": "9330730b1f41f35ea350d0ccc53634ca7cd8cc2fe613b8b6feb8919564387854"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/export-check.json",
+      "bytes": 3157,
+      "sha256": "7264d46527816b5f421a0593505c7ccbc4b68474cfac4527aea7f5fb23cde263"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/focused-attributes.log",
+      "bytes": 380,
+      "sha256": "864df9041fa2080b0a3221c7a3b84615b7170299fb6e487d99c89b8d08ec35a4"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/focused-final.log",
+      "bytes": 380,
+      "sha256": "c138eda7d157fd2e5a876b828bcf1590bf8e0ed06339cf094ca16751a183e0d6"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/focused-first.log",
+      "bytes": 1297,
+      "sha256": "79fd21ef95f93c95f49add772ea60d807742641f04728aaf0fa9f819ccfbca37"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/full-tests-final.log",
+      "bytes": 4578,
+      "sha256": "e113e5c5c650236c2ba3dfb1e4c48a4d89b77e046ba566318eae28e68803cfd2"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/full-tests.log",
+      "bytes": 4579,
+      "sha256": "4acf83431550d0b51d8d9bdf998a6e4d6bc03d5236f8f2c61b3fa44e31087c86"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/node-qa-final.log",
+      "bytes": 657,
+      "sha256": "b2cd561b9c5c877491b45721de062f74c0c6bd8074bb60eff7d77077259dcc58"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/node-qa.log",
+      "bytes": 659,
+      "sha256": "68ee66dcaedc0e1b7b1dbfb2428f28272fe533a2a86b1e9c7a3e87ae2fbb976f"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1813810,
+      "sha256": "60d835d4a003c8608bc0ea42cf8d6b2e36079a9a474bb258b420580fb88e619d"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835500,
+      "sha256": "69f680b6db88a998f02e5ce1d570608f7d7bdfc3059bea3ab2cb927bf99b6e1e"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829823,
+      "sha256": "deae783ed646c973294c5f8a9fc71b45d0f4234853819a5f9b5b696e016fafde"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1811890,
+      "sha256": "946b196e97d967508e33b4f8755238120451fec6e039efbcaae3521c665f3233"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1819853,
+      "sha256": "45be9726e6952d96b621614698414efd495ff13de9bb6c75234635bbfe274c90"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1352856,
+      "sha256": "d12fb3d120919834109ce2523e24680675bc7f8b8848621062a151a9b64a1e08"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1823824,
+      "sha256": "ca449492b41d60b73d5bd2ff208637fb50eac8513f6e3dbbdf3e91001404d6f1"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808247,
+      "sha256": "9cdcd6876eb27dba5b32e9ffbddbc047556e34dfa273641c3e3ff17d973c859a"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/production-runner.log",
+      "bytes": 48,
+      "sha256": "7bf7f67cc0a81dc82f3e3f358a10769ac8b0395cc4094b78d3ab87ed28527a3c"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/production-summary.json",
+      "bytes": 3191,
+      "sha256": "2dbfd545aebdb6aa0081e70f472466ead471271e6426aab261715797f82706af"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/production-system.mjs",
+      "bytes": 30506,
+      "sha256": "83265d55f3e6e2d817e9e75fb02cce522f5d180558a305fd95d3d8e8dbf6df2a"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/production.log",
+      "bytes": 2852,
+      "sha256": "3a43a61a46c1083171afc098905a070204ecf85c4ad7711bbae93d93d22a77ac"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-attributes/after.mjs",
+      "bytes": 99332,
+      "sha256": "7012304ed38e87d11ad178bcfc7387771f14176e95ff3aadfb06debd48c31085"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-attributes/after.ts",
+      "bytes": 365,
+      "sha256": "7520c60f60761bfc5e5f1562dc2a1ac42fdfd7e44ccf8d98d97bb6b54f6b120f"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-attributes/before.mjs",
+      "bytes": 98222,
+      "sha256": "6965091eaccbfb85c15c0c7ee01a6cff1cc28aed5e09baa4bc0890f327cb93fc"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-attributes/before.ts",
+      "bytes": 470,
+      "sha256": "128f1bbc62dc9d05f135ad5114c3bde009886039b98e85596e0a1337fd5d7d4e"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-attributes/component-inputs.json",
+      "bytes": 1946501,
+      "sha256": "edc74bd4ee48de3f97f83d2ad25b0ae122d685b0ed67d97aaa24b7995c711fb2"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-attributes/component-reference.json",
+      "bytes": 1919981,
+      "sha256": "a6e7b86a0fee7f1cbdebe09a177761291efdefc31b7eb6df663dc588d1b0d56e"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-attributes/reading.json",
+      "bytes": 1953,
+      "sha256": "d8fec772f66ecee6387bdd906b1e67787661e9a872b13c8ea4153b38799244d0"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-attributes/reference-inputs.json",
+      "bytes": 7606622,
+      "sha256": "203d9d560a4b7158afc720a868c32375dd7822a11817e595ea50c64698fd580b"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-attributes/reference-output.json",
+      "bytes": 1821810,
+      "sha256": "146f6043940ac75d5e12358f1d4f5231786c9f8a7f86a9e6d8421bf9b90a31b9"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-attributes/source.tar",
+      "bytes": 6522880,
+      "sha256": "6987d6518042877f7edb1998296b165fbe09e0d273bfb0ef5e423be0b17b9a83"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-attributes.log",
+      "bytes": 1827,
+      "sha256": "84cc459c797eebce1ce12855ba080c48df13d2a1fc1b7dbe1a0fad6ca3d07890"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-complete/after.mjs",
+      "bytes": 99450,
+      "sha256": "82c9046832e6b5e85571ac19a0a56230fa739bc71548bd47083aec08c27fba4e"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-complete/after.ts",
+      "bytes": 365,
+      "sha256": "7520c60f60761bfc5e5f1562dc2a1ac42fdfd7e44ccf8d98d97bb6b54f6b120f"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-complete/before.mjs",
+      "bytes": 98200,
+      "sha256": "a4bebc23711adb41bb1e1ae59b465ee3dc587b21f0d6ccdbc58468bca8daa638"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-complete/before.ts",
+      "bytes": 464,
+      "sha256": "76e50ccc1d0f0b22b25bdd0d2ee7c7926b17321e0ba997287dc82de15c314952"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-complete/component-inputs.json",
+      "bytes": 1946501,
+      "sha256": "edc74bd4ee48de3f97f83d2ad25b0ae122d685b0ed67d97aaa24b7995c711fb2"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-complete/component-reference.json",
+      "bytes": 1919981,
+      "sha256": "a6e7b86a0fee7f1cbdebe09a177761291efdefc31b7eb6df663dc588d1b0d56e"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-complete/reading.json",
+      "bytes": 1724,
+      "sha256": "8d05a3d85379e7b82a5d7e0a7f8e6b744646b85588c155eab6a4839fcb3e1c25"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-complete/reference-inputs.json",
+      "bytes": 7606622,
+      "sha256": "203d9d560a4b7158afc720a868c32375dd7822a11817e595ea50c64698fd580b"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-complete/reference-output.json",
+      "bytes": 1821810,
+      "sha256": "146f6043940ac75d5e12358f1d4f5231786c9f8a7f86a9e6d8421bf9b90a31b9"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-complete/source.tar",
+      "bytes": 6522880,
+      "sha256": "6987d6518042877f7edb1998296b165fbe09e0d273bfb0ef5e423be0b17b9a83"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-complete.log",
+      "bytes": 1610,
+      "sha256": "3b550a91d078d5d77edc46642c58b43e9f6c318c244750215f63a6744f015455"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-final/after.mjs",
+      "bytes": 99434,
+      "sha256": "1426fa1b60e4fd16f2a358c4fd2c08497e2add755aca8eba1694d08a3fca6d25"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-final/after.ts",
+      "bytes": 284,
+      "sha256": "434491b3c76b15e9f8b3d0b3b4cb52d020d620b65732e8f1448f0def8346ab72"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-final/before.mjs",
+      "bytes": 98167,
+      "sha256": "fe07fa7726a96b9cb9486610a0eee419fd91c0ebf4c127c4d2e07342ec1d926a"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-final/before.ts",
+      "bytes": 455,
+      "sha256": "94fc83904d87b24675bb76dbe9aa473b54dc3b2c3bd46a02854dc874f63f9e9e"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-final/reading.json",
+      "bytes": 1644,
+      "sha256": "50bc0f81a8c5136acf188248dfc4e3a8ac801f24f1f94b30e7bb42f23fbf972f"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-final/reference-inputs.json",
+      "bytes": 7606622,
+      "sha256": "203d9d560a4b7158afc720a868c32375dd7822a11817e595ea50c64698fd580b"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-final/reference-output.json",
+      "bytes": 1821810,
+      "sha256": "146f6043940ac75d5e12358f1d4f5231786c9f8a7f86a9e6d8421bf9b90a31b9"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-final/source.tar",
+      "bytes": 6522880,
+      "sha256": "6987d6518042877f7edb1998296b165fbe09e0d273bfb0ef5e423be0b17b9a83"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/reference-final.log",
+      "bytes": 1538,
+      "sha256": "815736122d4b959a9fde53241149c947734ef2d48dfee69f6f0d88317da15435"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/run-production.py",
+      "bytes": 837,
+      "sha256": "04e1d9ffd5bee7b1c7dc6e8e3811cfa340f150031f40ddc27f2c59b9f6abe68e"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/tsc-attributes.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/tsc-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/primary-hit-ray-packets/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

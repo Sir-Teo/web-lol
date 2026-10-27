@@ -1,0 +1,132 @@
+{
+  "format": 1,
+  "scope": "Exact historical Lux sampler checksum reproduction through controlled compiler FMA contraction. Diagnostic only; production math and original assertion unchanged.",
+  "originalSource": {
+    "commit": "ee5b92c1a8a69910f8c2837133158d892564ada2",
+    "archiveBytes": 3041280,
+    "archiveSha256": "416479ffe8bf4c2fae0f4f5de50b6aadfeda410da2a08c5d2f3b63e2cf5f54b5",
+    "originalLockSha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e",
+    "currentLockSha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e",
+    "lockfilesIdentical": true
+  },
+  "fdlibmSource": {
+    "url": "https://raw.githubusercontent.com/nodejs/node/v26.12.1/deps/v8/src/base/ieee754.cc",
+    "sha256": "badd30a2643ed785dcfbbce42f95c2522ccea3605cd39e2933467688aae1de14"
+  },
+  "lockedThree": {
+    "version": "0.186.0",
+    "tarball": "three-0.186.0.tgz",
+    "integrity": "sha512-cr/fIM2ddMSVbYVgkfD4jLJv7Fh/8ZTjvo+7gQeSVGUZHxpx9FDwoL5iC7hUz/LiRA8wMbqfnb90xKfm1/HHkQ==",
+    "matchesOriginalLock": true,
+    "installedRuntimeModulesIdentical": [
+      {
+        "path": "node_modules/three/package.json",
+        "bytes": 3672,
+        "sha256": "ab4ff6950aab522dfe6980f19914a5eb2cadb689a36c6c44f4d3869c5e46dc89"
+      },
+      {
+        "path": "node_modules/three/build/three.module.js",
+        "bytes": 662772,
+        "sha256": "9052042d676cb0fdc1ddfefe193053f34b7ac0513a616fdac4535d49987812ea"
+      },
+      {
+        "path": "node_modules/three/build/three.core.js",
+        "bytes": 1458113,
+        "sha256": "9edde002b066a9a05676a6127f67735b62baf399bdea529f2f7e31657da769e6"
+      }
+    ]
+  },
+  "node24": {
+    "node": "v24.19.0",
+    "v8": "13.6.233.17-node.51",
+    "defaultSha256": "4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a"
+  },
+  "node26": {
+    "node": "v26.12.1",
+    "v8": "14.6.202.34-node.40",
+    "sha256": "4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a",
+    "expected": "09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df"
+  },
+  "originalGolden": "09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df",
+  "compilers": [
+    {
+      "name": "GCC14",
+      "version": "g++ (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+      "variants": [
+        {
+          "contraction": "off",
+          "sha256": "4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a",
+          "replayedCalls": 17888
+        },
+        {
+          "contraction": "on",
+          "sha256": "09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df",
+          "replayedCalls": 17888
+        },
+        {
+          "contraction": "fast",
+          "sha256": "09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df",
+          "replayedCalls": 17888
+        }
+      ]
+    },
+    {
+      "name": "Clang21",
+      "version": "Debian clang version 21.1.8 (++20251221033036+2078da43e25a-1~exp1~20251221153213.50)\nTarget: x86_64-pc-linux-gnu\nThread model: posix\nInstalledDir: /workspace/web-lol/.tools/llvm21/usr/lib/llvm-21/bin\n",
+      "variants": [
+        {
+          "contraction": "off",
+          "sha256": "4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a",
+          "replayedCalls": 17888
+        },
+        {
+          "contraction": "on",
+          "sha256": "09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df",
+          "replayedCalls": 17888
+        },
+        {
+          "contraction": "fast",
+          "sha256": "09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df",
+          "replayedCalls": 17888
+        }
+      ]
+    }
+  ],
+  "causality": {
+    "oneChangedTrigInput": "cos:3fe96796f5ab7d51",
+    "beforeBits": "3fe66f30a33dc4c9",
+    "afterBits": "3fe66f30a33dc4c8",
+    "changedCalls": 2,
+    "digest": "09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df",
+    "differingScalars": 2,
+    "maxAbsoluteDelta": 5.684341886080802e-14,
+    "allDifferencesSameFloat32": true,
+    "mathFunctionRestored": true,
+    "differences": [
+      {
+        "path": "/3/particles/7/position/2",
+        "before": -235.99822635267654,
+        "after": -235.99822635267657,
+        "delta": 2.842170943040401e-14,
+        "sameFloat32": true
+      },
+      {
+        "path": "/3/particles/7/travel/2",
+        "before": 348.8642981057244,
+        "after": 348.86429810572434,
+        "delta": 5.684341886080802e-14,
+        "sameFloat32": true
+      }
+    ]
+  },
+  "productionMathChanged": false,
+  "originalAssertionChanged": false,
+  "nativeGameExecuted": false,
+  "limits": [
+    "Controlled compiler experiment reproduces the historical checksum; it does not identify the original machine, Node build or compiler flags.",
+    "Only two measured output scalars differ and cast to identical Float32 values; no cross-engine GPU or native visual parity claim.",
+    "Game math, the original checksum assertion and golden remain unchanged.",
+    "The original producing machine and its build flags remain unidentified; the controlled path reproduces the exact checksum.",
+    "The default x64 Node golden case still fails. This is an independent compiler reference, not a clean full-suite certificate."
+  ]
+}

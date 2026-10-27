@@ -1,0 +1,646 @@
+{
+  "format": 1,
+  "sourcePinSha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301",
+  "completeResourcesSha256": "9d5b40aeee85d4f4a340ca80bc31b90f371d572888fcd460ab50e2bf490d7f7a",
+  "bindings": [
+    {
+      "kind": "attack1",
+      "spell": "Characters/MasterYi/Spells/MasterYiBasicAttack",
+      "rawFields": {
+        "mHitEffectKey": "MasterYi_BA_Tar_01",
+        "bHaveHitEffect": true,
+        "bHaveHitBone": true,
+        "mHitBoneName": "C_BUFFBONE_GLB_CHEST_LOC"
+      }
+    },
+    {
+      "kind": "attack2",
+      "spell": "Characters/MasterYi/Spells/MasterYiBasicAttack2",
+      "rawFields": {
+        "mHitEffectKey": "MasterYi_BA_Tar_02",
+        "bHaveHitEffect": true,
+        "bHaveHitBone": true,
+        "mHitBoneName": "C_BUFFBONE_GLB_CHEST_LOC"
+      }
+    },
+    {
+      "kind": "crit",
+      "spell": "Characters/MasterYi/Spells/MasterYiCritAttack",
+      "rawFields": {
+        "mHitEffectKey": "MasterYi_Crit_tar",
+        "bHaveHitEffect": true,
+        "bHaveHitBone": true,
+        "mHitBoneName": "C_BUFFBONE_GLB_CHEST_LOC"
+      }
+    }
+  ],
+  "systems": [
+    {
+      "key": "MasterYi_BA_Tar_01",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_BA_Tar_01",
+      "sourceBin": "data/characters/masteryi/masteryi_multi_skins_skin0_skins_skin1_skins_skin2_skins_skin3_skins_skin4_skins_skin5_skins_skin6_skins_skin7_skins_skin8.bin",
+      "nativeSha256": "6f76fa524201dd97205e44ea74652fcd36a5e7a9b9603f931fcf21e5db52973d",
+      "sourceFlags": null,
+      "soundOnCreateDefault": null,
+      "soundPersistentDefault": null,
+      "emitters": [
+        {
+          "index": 0,
+          "name": "fluid",
+          "completeFields": [
+            "FlexShapeDefinition",
+            "SpawnShape",
+            "__type",
+            "alphaRef",
+            "birthDrag",
+            "birthScale0",
+            "birthVelocity",
+            "blendMode",
+            "colorLookUpTypeY",
+            "emitterName",
+            "isDirectionOriented",
+            "isRandomStartFrame",
+            "isSingleParticle",
+            "lifetime",
+            "particleColorTexture",
+            "particleLifetime",
+            "particleLinger",
+            "rate",
+            "scale0",
+            "texDiv",
+            "texture",
+            "worldAcceleration",
+            "{08b52819}"
+          ],
+          "rawBlendMode": 3,
+          "rawBindWeight": null,
+          "rawLocalOrientation": null,
+          "rawParticleLocalOrientation": null,
+          "primitive": null,
+          "lifetime": 0.10000000149011612,
+          "particleLifetime": {
+            "constantValue": 0.550000011920929,
+            "dynamics": {
+              "probabilityTables": [
+                {
+                  "keyTimes": [
+                    0.0,
+                    0.800000011920929,
+                    1.0
+                  ],
+                  "keyValues": [
+                    0.5,
+                    0.800000011920929,
+                    1.2000000476837158
+                  ],
+                  "__type": "VfxProbabilityTableData"
+                }
+              ],
+              "times": [
+                0.0
+              ],
+              "values": [
+                0.550000011920929
+              ],
+              "__type": "VfxAnimatedFloatVariableData"
+            },
+            "__type": "ValueFloat"
+          }
+        },
+        {
+          "index": 1,
+          "name": "flash",
+          "completeFields": [
+            "__type",
+            "bindWeight",
+            "birthRotation0",
+            "birthScale0",
+            "emitterName",
+            "isSingleParticle",
+            "isUniformScale",
+            "lifetime",
+            "meshRenderFlags",
+            "miscRenderFlags",
+            "particleColorTexture",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "rate",
+            "scale0",
+            "texture"
+          ],
+          "rawBlendMode": null,
+          "rawBindWeight": {
+            "constantValue": 1.0,
+            "__type": "ValueFloat"
+          },
+          "rawLocalOrientation": null,
+          "rawParticleLocalOrientation": null,
+          "primitive": null,
+          "lifetime": 1.0,
+          "particleLifetime": {
+            "constantValue": 0.30000001192092896,
+            "__type": "ValueFloat"
+          }
+        },
+        {
+          "index": 2,
+          "name": "blood_drops",
+          "completeFields": [
+            "FlexShapeDefinition",
+            "SpawnShape",
+            "__type",
+            "birthScale0",
+            "birthVelocity",
+            "blendMode",
+            "colorLookUpTypeY",
+            "emitterName",
+            "fieldCollectionDefinition",
+            "importance",
+            "isSingleParticle",
+            "isUniformScale",
+            "lifetime",
+            "meshRenderFlags",
+            "numFrames",
+            "particleColorTexture",
+            "particleLifetime",
+            "particleLinger",
+            "rate",
+            "startFrame",
+            "texDiv",
+            "texture",
+            "{08b52819}",
+            "{9b111ae4}"
+          ],
+          "rawBlendMode": 1,
+          "rawBindWeight": null,
+          "rawLocalOrientation": null,
+          "rawParticleLocalOrientation": null,
+          "primitive": null,
+          "lifetime": 1.0,
+          "particleLifetime": {
+            "constantValue": 0.5,
+            "dynamics": {
+              "probabilityTables": [
+                {
+                  "keyTimes": [
+                    0.0,
+                    0.5,
+                    1.0
+                  ],
+                  "keyValues": [
+                    0.5,
+                    0.800000011920929,
+                    2.0
+                  ],
+                  "__type": "VfxProbabilityTableData"
+                }
+              ],
+              "times": [
+                0.0
+              ],
+              "values": [
+                0.5
+              ],
+              "__type": "VfxAnimatedFloatVariableData"
+            },
+            "__type": "ValueFloat"
+          }
+        },
+        {
+          "index": 3,
+          "name": "soft",
+          "completeFields": [
+            "FlexShapeDefinition",
+            "SpawnShape",
+            "__type",
+            "alphaRef",
+            "birthRotation0",
+            "birthScale0",
+            "birthVelocity",
+            "blendMode",
+            "colorLookUpTypeY",
+            "emitterName",
+            "fieldCollectionDefinition",
+            "isRandomStartFrame",
+            "isSingleParticle",
+            "isUniformScale",
+            "lifetime",
+            "meshRenderFlags",
+            "numFrames",
+            "particleColorTexture",
+            "particleLifetime",
+            "particleLinger",
+            "rate",
+            "scale0",
+            "texDiv",
+            "texture",
+            "{08b52819}"
+          ],
+          "rawBlendMode": 1,
+          "rawBindWeight": null,
+          "rawLocalOrientation": null,
+          "rawParticleLocalOrientation": null,
+          "primitive": null,
+          "lifetime": 0.10000000149011612,
+          "particleLifetime": {
+            "constantValue": 1.0,
+            "dynamics": {
+              "probabilityTables": [
+                {
+                  "keyTimes": [
+                    0.0,
+                    0.800000011920929,
+                    1.0
+                  ],
+                  "keyValues": [
+                    0.5,
+                    0.800000011920929,
+                    1.2000000476837158
+                  ],
+                  "__type": "VfxProbabilityTableData"
+                }
+              ],
+              "times": [
+                0.0
+              ],
+              "values": [
+                1.0
+              ],
+              "__type": "VfxAnimatedFloatVariableData"
+            },
+            "__type": "ValueFloat"
+          }
+        }
+      ]
+    },
+    {
+      "key": "MasterYi_BA_Tar_02",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_BA_Tar_02",
+      "sourceBin": "data/characters/masteryi/masteryi_multi_skins_skin0_skins_skin1_skins_skin2_skins_skin3_skins_skin4_skins_skin5_skins_skin6_skins_skin7_skins_skin8.bin",
+      "nativeSha256": "6f76fa524201dd97205e44ea74652fcd36a5e7a9b9603f931fcf21e5db52973d",
+      "sourceFlags": null,
+      "soundOnCreateDefault": null,
+      "soundPersistentDefault": null,
+      "emitters": [
+        {
+          "index": 0,
+          "name": "fluid",
+          "completeFields": [
+            "FlexShapeDefinition",
+            "SpawnShape",
+            "__type",
+            "alphaRef",
+            "birthDrag",
+            "birthScale0",
+            "birthVelocity",
+            "blendMode",
+            "colorLookUpTypeY",
+            "emitterName",
+            "isDirectionOriented",
+            "isRandomStartFrame",
+            "isSingleParticle",
+            "lifetime",
+            "particleColorTexture",
+            "particleLifetime",
+            "particleLinger",
+            "rate",
+            "scale0",
+            "texDiv",
+            "texture",
+            "worldAcceleration",
+            "{08b52819}"
+          ],
+          "rawBlendMode": 3,
+          "rawBindWeight": null,
+          "rawLocalOrientation": null,
+          "rawParticleLocalOrientation": null,
+          "primitive": null,
+          "lifetime": 0.10000000149011612,
+          "particleLifetime": {
+            "constantValue": 0.550000011920929,
+            "dynamics": {
+              "probabilityTables": [
+                {
+                  "keyTimes": [
+                    0.0,
+                    0.800000011920929,
+                    1.0
+                  ],
+                  "keyValues": [
+                    0.5,
+                    0.800000011920929,
+                    1.2000000476837158
+                  ],
+                  "__type": "VfxProbabilityTableData"
+                }
+              ],
+              "times": [
+                0.0
+              ],
+              "values": [
+                0.550000011920929
+              ],
+              "__type": "VfxAnimatedFloatVariableData"
+            },
+            "__type": "ValueFloat"
+          }
+        },
+        {
+          "index": 1,
+          "name": "flash",
+          "completeFields": [
+            "__type",
+            "bindWeight",
+            "birthRotation0",
+            "birthScale0",
+            "emitterName",
+            "isSingleParticle",
+            "isUniformScale",
+            "lifetime",
+            "meshRenderFlags",
+            "miscRenderFlags",
+            "particleColorTexture",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "rate",
+            "scale0",
+            "texture"
+          ],
+          "rawBlendMode": null,
+          "rawBindWeight": {
+            "constantValue": 1.0,
+            "__type": "ValueFloat"
+          },
+          "rawLocalOrientation": null,
+          "rawParticleLocalOrientation": null,
+          "primitive": null,
+          "lifetime": 1.0,
+          "particleLifetime": {
+            "constantValue": 0.30000001192092896,
+            "__type": "ValueFloat"
+          }
+        },
+        {
+          "index": 2,
+          "name": "blood_drops",
+          "completeFields": [
+            "FlexShapeDefinition",
+            "SpawnShape",
+            "__type",
+            "birthScale0",
+            "birthVelocity",
+            "blendMode",
+            "colorLookUpTypeY",
+            "emitterName",
+            "fieldCollectionDefinition",
+            "importance",
+            "isSingleParticle",
+            "isUniformScale",
+            "lifetime",
+            "meshRenderFlags",
+            "numFrames",
+            "particleColorTexture",
+            "particleLifetime",
+            "particleLinger",
+            "rate",
+            "startFrame",
+            "texDiv",
+            "texture",
+            "{08b52819}",
+            "{9b111ae4}"
+          ],
+          "rawBlendMode": 1,
+          "rawBindWeight": null,
+          "rawLocalOrientation": null,
+          "rawParticleLocalOrientation": null,
+          "primitive": null,
+          "lifetime": 1.0,
+          "particleLifetime": {
+            "constantValue": 0.5,
+            "dynamics": {
+              "probabilityTables": [
+                {
+                  "keyTimes": [
+                    0.0,
+                    0.5,
+                    1.0
+                  ],
+                  "keyValues": [
+                    0.5,
+                    0.800000011920929,
+                    2.0
+                  ],
+                  "__type": "VfxProbabilityTableData"
+                }
+              ],
+              "times": [
+                0.0
+              ],
+              "values": [
+                0.5
+              ],
+              "__type": "VfxAnimatedFloatVariableData"
+            },
+            "__type": "ValueFloat"
+          }
+        },
+        {
+          "index": 3,
+          "name": "soft",
+          "completeFields": [
+            "FlexShapeDefinition",
+            "SpawnShape",
+            "__type",
+            "alphaRef",
+            "birthRotation0",
+            "birthScale0",
+            "birthVelocity",
+            "blendMode",
+            "colorLookUpTypeY",
+            "emitterName",
+            "fieldCollectionDefinition",
+            "isRandomStartFrame",
+            "isSingleParticle",
+            "isUniformScale",
+            "lifetime",
+            "meshRenderFlags",
+            "numFrames",
+            "particleColorTexture",
+            "particleLifetime",
+            "particleLinger",
+            "rate",
+            "scale0",
+            "texDiv",
+            "texture",
+            "{08b52819}"
+          ],
+          "rawBlendMode": 1,
+          "rawBindWeight": null,
+          "rawLocalOrientation": null,
+          "rawParticleLocalOrientation": null,
+          "primitive": null,
+          "lifetime": 0.10000000149011612,
+          "particleLifetime": {
+            "constantValue": 1.0,
+            "dynamics": {
+              "probabilityTables": [
+                {
+                  "keyTimes": [
+                    0.0,
+                    0.800000011920929,
+                    1.0
+                  ],
+                  "keyValues": [
+                    0.5,
+                    0.800000011920929,
+                    1.2000000476837158
+                  ],
+                  "__type": "VfxProbabilityTableData"
+                }
+              ],
+              "times": [
+                0.0
+              ],
+              "values": [
+                1.0
+              ],
+              "__type": "VfxAnimatedFloatVariableData"
+            },
+            "__type": "ValueFloat"
+          }
+        }
+      ]
+    },
+    {
+      "key": "MasterYi_Crit_tar",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_Crit_tar",
+      "sourceBin": "data/characters/masteryi/masteryi_multi_skins_skin0_skins_skin1_skins_skin2_skins_skin3_skins_skin4_skins_skin5_skins_skin6_skins_skin7_skins_skin8.bin",
+      "nativeSha256": "6f76fa524201dd97205e44ea74652fcd36a5e7a9b9603f931fcf21e5db52973d",
+      "sourceFlags": null,
+      "soundOnCreateDefault": null,
+      "soundPersistentDefault": null,
+      "emitters": [
+        {
+          "index": 0,
+          "name": "ground_glow",
+          "completeFields": [
+            "SpawnShape",
+            "__type",
+            "bindWeight",
+            "birthRotation0",
+            "birthScale0",
+            "blendMode",
+            "emitterName",
+            "isSingleParticle",
+            "lifetime",
+            "particleColorTexture",
+            "particleLifetime",
+            "particleLinger",
+            "primitive",
+            "rate",
+            "texture"
+          ],
+          "rawBlendMode": 4,
+          "rawBindWeight": {
+            "constantValue": 1.0,
+            "__type": "ValueFloat"
+          },
+          "rawLocalOrientation": null,
+          "rawParticleLocalOrientation": null,
+          "primitive": {
+            "__type": "VfxPrimitiveArbitraryQuad"
+          },
+          "lifetime": 0.10000000149011612,
+          "particleLifetime": {
+            "constantValue": 0.25,
+            "__type": "ValueFloat"
+          }
+        },
+        {
+          "index": 1,
+          "name": "flash",
+          "completeFields": [
+            "Color",
+            "EmitterPosition",
+            "__type",
+            "birthRotation0",
+            "birthScale0",
+            "birthVelocity",
+            "blendMode",
+            "emitterName",
+            "isSingleParticle",
+            "isUniformScale",
+            "lifetime",
+            "meshRenderFlags",
+            "miscRenderFlags",
+            "particleLifetime",
+            "particleLinger",
+            "pass",
+            "primitive",
+            "rate",
+            "scale0",
+            "texture"
+          ],
+          "rawBlendMode": 4,
+          "rawBindWeight": null,
+          "rawLocalOrientation": null,
+          "rawParticleLocalOrientation": null,
+          "primitive": {
+            "__type": "VfxPrimitiveRay"
+          },
+          "lifetime": 1.0,
+          "particleLifetime": {
+            "constantValue": 0.15000000596046448,
+            "__type": "ValueFloat"
+          }
+        },
+        {
+          "index": 2,
+          "name": "bubble",
+          "completeFields": [
+            "SpawnShape",
+            "__type",
+            "birthRotation0",
+            "birthScale0",
+            "emitterName",
+            "isUniformScale",
+            "lifetime",
+            "meshRenderFlags",
+            "particleColorTexture",
+            "particleLifetime",
+            "particleLinger",
+            "rate",
+            "scale0",
+            "texture"
+          ],
+          "rawBlendMode": null,
+          "rawBindWeight": null,
+          "rawLocalOrientation": null,
+          "rawParticleLocalOrientation": null,
+          "primitive": null,
+          "lifetime": 0.10000000149011612,
+          "particleLifetime": {
+            "constantValue": 0.15000000596046448,
+            "__type": "ValueFloat"
+          }
+        }
+      ]
+    }
+  ],
+  "sourceFiles": {
+    "particleBins": 2,
+    "textures": 11,
+    "meshes": 0,
+    "nativeParticleBytes": 974269,
+    "characterBinBytes": 27930
+  },
+  "limits": [
+    "Complete source-only primary hit systems and spell declarations; no runtime callback or target-joint dispatch is added.",
+    "Target chest-bone names are declared. Native per-rig fallback, initial/bound transforms, visibility, callback ordering and lifetime behavior remain separate calibration work.",
+    "All eleven emitters and all source omissions/curves/flags are retained. Both sound-default fields are absent; no additional audio is inferred.",
+    "Blend3 fluid, blend1 blood/soft, authored full-bind flashes and omitted bind/local controls remain distinct. Emitter names such as ground_glow do not establish native terrain projection.",
+    "This reading preserves complete definitions separately from the selected field summary. It does not drop unsupported fields or certify target-bone transforms, fallback, material filtering, sampler state or shader parity."
+  ]
+}

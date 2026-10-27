@@ -21,16 +21,23 @@ async function poses(page: Page) {
         ordinals: m.userData.ordinals,
         drawCount: m.geometry.drawRange.count,
         buffers: await Promise.all(
-          ['position', 'uv', 'particleTint', 'particleLookupUv'].map(async (name) => {
+          [
+            'position',
+            'uv',
+            m.geometry.hasAttribute('_source_vertex_bgra') ? '_source_vertex_bgra' : 'particleTint',
+            'particleLookupUv',
+          ].map(async (name) => {
             const a = m.geometry.getAttribute(name),
               bytes = new Uint8Array(
                 a.array.buffer,
                 a.array.byteOffset,
-                m.geometry.drawRange.count * a.itemSize * 4
+                m.geometry.drawRange.count * a.itemSize * a.array.BYTES_PER_ELEMENT
               ),
               hash = await crypto.subtle.digest('SHA-256', bytes);
             return {
               name,
+              normalized: a.normalized,
+              arrayType: a.array.constructor.name,
               hash: [...new Uint8Array(hash)].map((v) => v.toString(16).padStart(2, '0')).join(''),
             };
           })

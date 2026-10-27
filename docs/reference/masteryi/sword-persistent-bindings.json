@@ -1,0 +1,136 @@
+{
+  "format": 1,
+  "modelSha256": "4295bceeba96cfb15e006d392e7d0f3c480bb51bf8cff8872a9c39fc9873c7ce",
+  "particleSourceSha256": "5137067c8206b7db14075d29816e08bd5281c25f8ec959f8e1b13ee5c305d9d2",
+  "characterSha256": "3f100c1148e1006766060822298c87aed02e86e359c385fbc2c248e4255d12fa",
+  "glb": {
+    "path": "public/assets/models/masteryi-base.glb",
+    "sha256": "7aae9e8e486c34d780113349c4a4d06830a5498a906ff291a49263090da471cc",
+    "bytes": 6487088
+  },
+  "conditionsSha256": "75f9c6c153d28627d76f23f86f471562afeea94be68b1deefa1ffc27a62e859e",
+  "conditions": [
+    {
+      "OwnerCondition": {
+        "Spell": "Characters/MasterYi/Spells/WujuStyleAbility/WujuStyleSuperCharged",
+        "__type": "HasBuffDynamicMaterialBoolDriver"
+      },
+      "PersistentVfxs": [
+        {
+          "boneName": "BUFFBONE_Cstm_Sword1_loc",
+          "effectKey": "MasterYi_E_SuperChraged_buf",
+          "__type": "PersistentVfxData"
+        },
+        {
+          "boneName": "BUFFBONE_Cstm_Sword2_loc",
+          "effectKey": "MasterYi_E_SuperChraged_Sword1_buf",
+          "__type": "PersistentVfxData"
+        },
+        {
+          "boneName": "BUFFBONE_Cstm_Sword3_loc",
+          "effectKey": "MasterYi_E_SuperChraged_Sword1_buf",
+          "__type": "PersistentVfxData"
+        },
+        {
+          "boneName": "BUFFBONE_Cstm_Sword4_loc",
+          "effectKey": "MasterYi_E_SuperChraged_Sword4_buf",
+          "__type": "PersistentVfxData"
+        }
+      ],
+      "__type": "PersistentEffectConditionData"
+    },
+    {
+      "OwnerCondition": {
+        "Spell": "Characters/MasterYi/Spells/HighlanderAbility/Highlander",
+        "__type": "HasBuffDynamicMaterialBoolDriver"
+      },
+      "PersistentVfxs": [
+        {
+          "boneName": "BUFFBONE_Cstm_Sword1_loc",
+          "effectKey": "MasterYi_E_buff",
+          "__type": "PersistentVfxData"
+        }
+      ],
+      "__type": "PersistentEffectConditionData"
+    }
+  ],
+  "bindings": [
+    {
+      "conditionIndex": 0,
+      "index": 0,
+      "spell": "Characters/MasterYi/Spells/WujuStyleAbility/WujuStyleSuperCharged",
+      "effectKey": "MasterYi_E_SuperChraged_buf",
+      "sourceBone": "BUFFBONE_Cstm_Sword1_loc",
+      "glbNode": 87,
+      "glbBone": "Buffbone_Cstm_Sword1_Loc",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_E_SuperChraged_buf",
+      "emitters": 4
+    },
+    {
+      "conditionIndex": 0,
+      "index": 1,
+      "spell": "Characters/MasterYi/Spells/WujuStyleAbility/WujuStyleSuperCharged",
+      "effectKey": "MasterYi_E_SuperChraged_Sword1_buf",
+      "sourceBone": "BUFFBONE_Cstm_Sword2_loc",
+      "glbNode": 88,
+      "glbBone": "Buffbone_Cstm_Sword2_Loc",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_E_SuperChraged_Sword1_buf",
+      "emitters": 2
+    },
+    {
+      "conditionIndex": 0,
+      "index": 2,
+      "spell": "Characters/MasterYi/Spells/WujuStyleAbility/WujuStyleSuperCharged",
+      "effectKey": "MasterYi_E_SuperChraged_Sword1_buf",
+      "sourceBone": "BUFFBONE_Cstm_Sword3_loc",
+      "glbNode": 89,
+      "glbBone": "Buffbone_Cstm_Sword3_Loc",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_E_SuperChraged_Sword1_buf",
+      "emitters": 2
+    },
+    {
+      "conditionIndex": 0,
+      "index": 3,
+      "spell": "Characters/MasterYi/Spells/WujuStyleAbility/WujuStyleSuperCharged",
+      "effectKey": "MasterYi_E_SuperChraged_Sword4_buf",
+      "sourceBone": "BUFFBONE_Cstm_Sword4_loc",
+      "glbNode": 90,
+      "glbBone": "Buffbone_Cstm_Sword4_Loc",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_E_SuperChraged_Sword4_buf",
+      "emitters": 1
+    },
+    {
+      "conditionIndex": 1,
+      "index": 0,
+      "spell": "Characters/MasterYi/Spells/HighlanderAbility/Highlander",
+      "effectKey": "MasterYi_E_buff",
+      "sourceBone": "BUFFBONE_Cstm_Sword1_loc",
+      "glbNode": 87,
+      "glbBone": "Buffbone_Cstm_Sword1_Loc",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_E_buff",
+      "emitters": 4
+    }
+  ],
+  "activeChild": {
+    "record": "Characters/MasterYi/Spells/WujuStyleAbility/WujuStyleSuperCharged",
+    "mBuff": {
+      "mDescription": "game_buff_tooltip_Wuju_Style_Active",
+      "__type": "BuffData"
+    }
+  },
+  "sourceSkinScale": 1.5,
+  "glbBakedUnitScale": 0.015,
+  "declaredEKeysNotBoundByThisTable": [
+    "MasterYi_E_Sword1_buf",
+    "MasterYi_E_Sword4_buf"
+  ],
+  "limits": [
+    "Source-only declarations and rig-name bridge; no runtime or public-asset change.",
+    "The first condition tests the WujuStyleSuperCharged buff and declares four bone-bound instances. The second tests Highlander and binds MasterYi_E_buff on sword bone one.",
+    "HasBuff declarations establish these client conditions; native server buff creation/removal callbacks, component restart and tail behavior remain separate.",
+    "Names match the existing rig case-insensitively, with one unique skin joint per source name. Source spelling and GLB spelling are both retained.",
+    "All referenced emitters author bindWeight=1 and local orientation; current full joint transforms are available, but native inheritance/reflection/scale/shader behavior still needs calibration.",
+    "The GLB bakes source skinScale=1.5 into .015 translations. This does not by itself establish VFX size/offset inheritance.",
+    "Unbound-by-table keys are retained resources, rather than inferred globally unused effects."
+  ]
+}

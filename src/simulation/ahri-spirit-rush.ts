@@ -57,7 +57,7 @@ interface RushWorld {
   battlefield: { reachable(point: Vec2, radius: number, team: Team): Vec2 };
   unit(id: number): Unit | undefined;
   alive(unit: Unit): boolean;
-  vulnerable(unit: Unit): boolean;
+  targetable(unit: Unit): boolean;
   visible(unit: Unit, team: Team): boolean;
   damage(source: Unit, target: Unit, raw: number, kind: 'magic', category: 'area'): void;
 }
@@ -190,7 +190,7 @@ export function beginSpiritRush(
       (u) =>
         u.team !== source.team &&
         world.alive(u) &&
-        world.vulnerable(u) &&
+        world.targetable(u) &&
         !isStructureKind(u.kind) &&
         u.kind !== 'ward' &&
         !(u.kind === 'monster' && u.monster.phase === 'returning') &&
@@ -324,7 +324,7 @@ export function advanceSpiritBolts(world: RushWorld): void {
           !source ||
           !target ||
           !world.alive(target) ||
-          !world.vulnerable(target) ||
+          !world.targetable(target) ||
           (target.kind === 'monster' && target.monster.phase === 'returning')
         ) {
           bolt.stopTick = world.tick;

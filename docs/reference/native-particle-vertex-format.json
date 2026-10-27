@@ -1,0 +1,481 @@
+{
+  "format": 1,
+  "native": {
+    "path": ".cache/leona-native-matching-v1-20261024/native/LeagueofLegends.app/Contents/MacOS/LeagueofLegends",
+    "bytes": 82268192,
+    "sha256": "97edcf2c88fec3169a1ec36345276569de3329e27fd9b32c8162957a77135c6c",
+    "architecture": {
+      "architecture": "arm64",
+      "cpuType": 16777228,
+      "cpuSubtype": 0,
+      "offset": 42663936,
+      "bytes": 39604256,
+      "alignPower": 14,
+      "magic": "FEEDFACF",
+      "fileType": 2,
+      "loadCommands": 45,
+      "loadCommandBytes": 5920,
+      "flags": 10518661,
+      "reserved": 0,
+      "sha256": "18c6f615d1963d7062f4133fab351dc4550ce460e869c76f5c8604627f349885"
+    }
+  },
+  "inputs": [
+    {
+      "path": "docs/reference/native-constructor-witness.json",
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": "docs/reference/native-atlas-runtime.json",
+      "sha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6"
+    },
+    {
+      "path": "docs/reference/native-ray-packet.json",
+      "sha256": "ab9b825f1108ed1e44124ee5f9821753eb73352cbf8738a8eebbb884c892b4ec"
+    }
+  ],
+  "functionSpans": [
+    {
+      "name": "particleDeclarations",
+      "start": "0x1018a405c",
+      "next": "0x1018a454c",
+      "bytes": 1264,
+      "sha256": "746300e2f38b88f4bafcfdbbcb54ecde70e19753eddc674620e2575106d7e231",
+      "hex": "f657bda9f44f01a9fd7b02a9fd830091f30301aaf40300aa286a009008a1139108c1bf38281900364e440794080040f9087540f9356a0090b5c21391a1320a918200805200013fd6800200f9080040f9080140f901008052e20313aa030080528403805200013fd6800240f9080040f9080140f961008052e20313aa830180528403805200013fd6800240f9080040f9080140f901018052e20313aa030280528403805200013fd6800240f9080040f9080140f921018052e20313aa030380528403805200013fd6a8c2bf38e816003624440794080040f9087540f9356a0090b5e21391a1c20b91c200805200013fd6800600f9080040f9080140f901008052e20313aa030080520405805200013fd6800640f9080040f9080140f941008052e20313aa830180520405805200013fd6800640f9080040f9080140f961008052e20313aa830280520405805200013fd6800640f9080040f9080140f901018052e20313aa030380520405805200013fd6800640f9080040f9080140f921018052e20313aa030480520405805200013fd6800640f9080040f9080140f941018052e20313aa830480520405805200013fd6a8c2bf3868130036ea430794080040f9087540f9356a0090b5021491a1720a918200805200013fd6800a00f9080040f9080140f901008052e20313aa030080528403805200013fd6800a40f9080040f9080140f961008052e20313aa830180528403805200013fd6800a40f9080040f9080140f901018052e20313aa030280528403805200013fd6800a40f9080040f9080140f921018052e20313aa830280528403805200013fd6a8c2bf38e8100036c0430794080040f9087540f9216a009021602091c200805200013fd6800e00f9080040f9080140f901008052e20313aa030080520405805200013fd6800e40f9080040f9080140f941008052e20313aa830180520405805200013fd6800e40f9080040f9080140f961008052e20313aa830280520405805200013fd6800e40f9080040f9080140f901018052e20313aa030380520405805200013fd6800e40f9080040f9080140f921018052e20313aa830380520405805200013fd6800e40f9080040f9050140f941018052e20313aa8304805204058052fd7b42a9f44f41a9f657c3a8a0001fd6356a0090b5a21391e00315aae46e1d9480e6ff346044000fa09602bd28008052a89a02b9694400d0201d46fda09e02bda8a202b9694400f0203941fda0a602bda8aa02b9694400d0202546fda0ae02bda8b202b9e00315aad46e1d9421ffff17e00315aace6e1d9400e9ff346044000fa0fa02bd28008052a8fe02b9694400f0203d41fda00203bda80603b9694400d0201d46fda00a03bda80e03b9694400f0203941fda01203bda81603b9694400d0202546fda01a03bda81e03b9694400f0204141fda02203bda82603b9e00315aab66e1d942dffff17e00315aab06e1d9480ecff346044000fa0a602bd28008052a8aa02b9694400d0201d46fda0ae02bda8b202b91f2003d5202146fda0b602bda8ba02b9694400f0204541fda0be02bda8c202b9e00315aaa06e1d9451ffff17e00315aa9a6e1d9400efff346044000fa01a03bd28008052a81e03b9694400f0203d41fda02203bda82603b9694400d0201d46fda02a03bda82e03b91f2003d5202146fda03203bda83603b9694400f0204541fda03a03bda83e03b91f2003d5204141fda04203bda84603b9e00315aa826e1d945dffff17"
+    },
+    {
+      "name": "metalLayoutConstructor",
+      "start": "0x101a8edb8",
+      "next": "0x101a8efd4",
+      "bytes": 540,
+      "sha256": "bb903ee168564b6512d05e50e981c477d37bea41d125940dd716943d69e260be",
+      "hex": "f657bda9f44f01a9fd7b02a9fd830091f50302aae20301aaf30300aa485000b008a13291080000f9283500b000cd45fd001000bd001800bd002000bd002800bd003000bd003800bd004000bd004800bd005000bd005800bd006000bd006800bd007000bd007800bd008000bd0800261e088c00b828008052680e00b9681600b9681e00b9682600b9682e00b9683600b9683e00b9684600b9684e00b9685600b9685e00b9686600b9686e00b9687600b9687e00b9688600b900e4006ff40313aa808e883c800203ad800202ad800201ad8006803d9f020439950601b988220491a37e7dd30001803d896204912001803d00c1813c01108052fbe4ef9780020291b5010034e803152a692a00918a0080520400001429210091080500f1c00000542bf15f387f05007161ffff542a010039f9ffff170100805202088052ede4ef97602205910100805202088052e9e4ef97685300b000e946f95ec6159460ca00f9e00313aafd7b42a9f44f41a9f657c3a8c0035fd6f50300aa60a20691766206913f000094e00316aa4a000094600204912300009460e203912100009460c203911f00009460a203911d000094608203911b000094606203911900009460420391170000946022039115000094600203911300009460e202911100009460c202910f00009460a202910d000094608202910b00009460620291090000946042029107000094e00314aa05000094e00313aa5ab8ff97e00315aa2cc21594"
+    },
+    {
+      "name": "metalAttributeBinding",
+      "start": "0x101a8f4d8",
+      "next": "0x101a8f5c4",
+      "bytes": 236,
+      "sha256": "b675b00eade2f96d56ef15f0644f1f56a793d3fedd2f6d4d9b6c0f49d3087971",
+      "hex": "fa67bba9f85f01a9f65702a9f44f03a9fd7b04a9fd030191088c41b9c8010034f30304aaf50303aaf60302aaf40300aa1820059119200291290358383f01016b600100541813009139230091080500f141ffff54fd7b44a9f44f43a9f65742a9f85f41a9fa67c5a8c0035fd6280340f91f0116eb80020054c80100b45ea4ff97f70300aa080040f9081d40f900013fd6e80240f9081940f9e00317aa00013fd6210340f9080040f9086940f900013fd6360300f9960000b4c84640b908050011c84600b915031cb8130300b92800805288220639fd7b44a9f44f43a9f65742a9f85f41a9fa67c5a8c0035fd6"
+    },
+    {
+      "name": "metalFormatUpdate",
+      "start": "0x101a8f5c4",
+      "next": "0x101a8ff24",
+      "bytes": 2400,
+      "sha256": "8ba8999f0fb57fb73d39329f2a223acddcfb7510253fb96019a829dae5a9ecdd",
+      "hex": "fc6fbaa9fa6701a9f85f02a9f65703a9f44f04a9fd7b05a9fd430191ff8308d1484600b0089d40f9080140f9a8031af80820463968450034f30300aa00c840f9dfd215947fa201b97fb201b90810c0d20800f0f2e903009129410091e92300a9698e41b9c942003408008052170080d2d80380527c028052393500b039c31b910a000014f50340f9b47a36b8e80b40b908050011e80b00b9698e41b9f7060091ff0209eb82210054750e178bfa0315aa4a8f48f84affffb4b48e4038a80640391f19007148010054a90000102a6b683829090a8b3601805220011fd6680e178b08294039166d009119000014160080d2170000147600805215000014680e178b082940391f1100716903805229019f9a1f090071280380521601899a0c000014680e178b08294039168d009108000014680e178b082940391f110071a902805229019f9a1f0900719603899a60ca40f96bce1594e20314aa19d21594e20316aabfd31594680a178b160941b960ca40f963ce1594e20314aa11d21594e20316aaa7d41594410340f9680a178b024941b9e00313aae30315aaf2010094f50300aa60ca40f956ce1594e20314aa04d215940203154bfad2159460ca40f950ce1594e20314aafed11594d5cf1594f50300aafa27412948070011297940923f01086b220500542905498b3f0108eb3b81889a60f77ed3e70ef097f60300aae80b40b908050034ea0340f94809088b491100911f0109eb0981899aeb032aaa2b010b8b7ff100f143030054cc020acbe90316aa9f0101f1e302005469fd42d32b0500916ce97c928df57ed3c9020d8b4d010d8bce8200914a810091ef030caa40057fad420dc2acc0053fadc20d82acef4100f161ffff54ea030daa7f010ceba100005408000014f60340f90c000014e90316aa4b4540b82b4500b85f0108eba3ffff54e80f40b96800f837e00340f9d10ef097f60300f9fa6f0129d57a3ab8e80b40b908050011e80b00b960ca40f90cce1594e20314aabad11594c9d11594f50300aafa27412948070011297940923f01086b220500542905498b3f0108eb3b81889a60f77ed3a30ef097f60300aae80b40b908050034ea0340f94809088b491100911f0109eb0981899aeb032aaa2b010b8b7ff100f143030054cc020acbe90316aa9f0101f1e302005469fd42d32b0500916ce97c928df57ed3c9020d8b4d010d8bce8200914a810091ef030caa40057fad420dc2acc0053fadc20d82acef4100f161ffff54ea030daa7f010ceba100005408000014f60340f90c000014e90316aa4b4540b82b4500b85f0108eba3ffff54e80f40b96800f837e00340f98d0ef097f60300f9fa6f0129d57a3ab8e80b40b908050011e80b00b960ca40f9c8cd1594e20314aa76d11594f5cd1594f40300aaf6274129c8060011297940923f01086b22e4ff542905498b3f0108eb3a81889a40f77ed35f0ef097f50300aae80b40b9c8040034ea0340f94809088b491100911f0109eb0981899aeb032aaa2b010b8b7ff100f103030054ac020acbe90315aa9f0101f1a302005469fd42d32b0500916ce97c928df57ed3a9020d8b4d010d8bae8200914a810091ef030caa40057fad420dc2acc0053fadc20d82acef4100f161ffff54ea030daa7f010ceb6100005406000014e90315aa4b4540b82b4500b85f0108eba3ffff54e80f40b96800f837e00340f94b0ef097f50300f9f66b0129eefeff1769b241b9491f0034170080d2d8038052390080520a000014f50340f9b47a36b8e80b40b908050011e80b00b9f706009169b241b9ff0209eba21d005468d640f9e9ee7cd3156969b860ca40f937d015941403174be20314aa24d11594e20315aa72d4159468d640f90811178b081140391f0500713517999a60ca40f92bd01594e20314aa19d11594e20315aa4fd4159468d640f90811178b081140391f05007181000054680e178b150d40b9020000143500805260ca40f91cd01594e20314aa0ad11594e20315aa48d4159460ca40f916d01594e20314aa04d1159433d51594f50300aafa27412948070011297940923f01086b220500542905498b3f0108eb3b81889a60f77ed3ed0df097f60300aae80b40b908050034ea0340f94809088b491100911f0109eb0981899aeb032aaa2b010b8b7ff100f143030054cc020acbe90316aa9f0101f1e302005469fd42d32b0500916ce97c928df57ed3c9020d8b4d010d8bce8200914a810091ef030caa40057fad420dc2acc0053fadc20d82acef4100f161ffff54ea030daa7f010ceba100005408000014f60340f90c000014e90316aa4b4540b82b4500b85f0108eba3ffff54e80f40b96800f837e00340f9d70df097f60300f9fa6f0129d57a3ab8e80b40b908050011e80b00b960ca40f9d2cf1594e20314aac0d01594d7d41594f50300aafa27412948070011297940923f01086b220500542905498b3f0108eb3b81889a60f77ed3a90df097f60300aae80b40b908050034ea0340f94809088b491100911f0109eb0981899aeb032aaa2b010b8b7ff100f143030054cc020acbe90316aa9f0101f1e302005469fd42d32b0500916ce97c928df57ed3c9020d8b4d010d8bce8200914a810091ef030caa40057fad420dc2acc0053fadc20d82acef4100f161ffff54ea030daa7f010ceba100005408000014f60340f90c000014e90316aa4b4540b82b4500b85f0108eba3ffff54e80f40b96800f837e00340f9930df097f60300f9fa6f0129d57a3ab8e80b40b908050011e80b00b960ca40f98ecf1594e20314aa7cd015949bd41594f40300aaf6274129c8060011297940923f01086b22e8ff542905498b3f0108eb3a81889a40f77ed3650df097f50300aae80b40b9c8040034ea0340f94809088b491100911f0109eb0981899aeb032aaa2b010b8b7ff100f103030054ac020acbe90315aa9f0101f1a302005469fd42d32b0500916ce97c928df57ed3a9020d8b4d010d8bae8200914a810091ef030caa40057fad420dc2acc0053fadc20d82acef4100f161ffff54ea030daa7f010ceb6100005406000014e90315aa4b4540b82b4500b85f0108eba3ffff54e80f40b96800f837e00340f9510df097f50300f9f66b01290effff1708008052e00340f9017d7ed3b286059460ba01b9e80f40b96800f837e00340f9450df097a8035af8494600b0299d40f9290140f93f0108eb21010054ff830891fd7b45a9f44f44a9f65743a9f85f42a9fa6741a9fc6fc6a8c0035fd643c01594f30300aac1010034e00313aaabfb95970800001407000014060000140500001404000014030000140200001401000014f30300aae00300919f000094e00313aa58be1594"
+    },
+    {
+      "name": "metalLayoutFactory",
+      "start": "0x101a86a94",
+      "next": "0x101a86aec",
+      "bytes": 88,
+      "sha256": "cfbc134a7c3017769ddbbd67781d85c6e0a728cdde137a8d9fe12a7215d54cb0",
+      "hex": "f657bda9f44f01a9fd7b02a9fd830091f40302aaf50301aa003880528832f097f30300aae10315aae20314aabe200094e00313aafd7b42a9f44f41a9f657c3a8c0035fd6f40300aae00313aa1d31f097e00314aa66e31594"
+    },
+    {
+      "name": "descriptorCopyWrapper",
+      "start": "0x10168829c",
+      "next": "0x1016882a8",
+      "bytes": 12,
+      "sha256": "cc3fa510aebeb4254d9c17891dfb0536700b2e0fea0fd8f4282ebe12012acc10",
+      "hex": "e10302aae20303aa34e12514"
+    }
+  ],
+  "selectedInstructions": [
+    {
+      "address": "0x1018a408c",
+      "word": "f9407508",
+      "reading": "Device virtual layout factory slot +0xe8"
+    },
+    {
+      "address": "0x1018a40a0",
+      "word": "d63f0100",
+      "reading": "Call device layout factory"
+    },
+    {
+      "address": "0x1018a43b8",
+      "word": "0f004460",
+      "reading": "Position descriptor word 0x00030000"
+    },
+    {
+      "address": "0x1018a43c0",
+      "word": "52800028",
+      "reading": "Descriptor auxiliary word 1"
+    },
+    {
+      "address": "0x101a8ede8",
+      "word": "bd001000",
+      "reading": "Initialize descriptor slots"
+    },
+    {
+      "address": "0x101a8ee28",
+      "word": "b8008c08",
+      "reading": "Advance descriptor destination to this+8"
+    },
+    {
+      "address": "0x101a8ee78",
+      "word": "3c888e80",
+      "reading": "Advance resource cursor to this+0x88"
+    },
+    {
+      "address": "0x101a8ee90",
+      "word": "b9010695",
+      "reading": "Store supplied attribute count at this+0x18c"
+    },
+    {
+      "address": "0x101a8ee98",
+      "word": "d37d7ea3",
+      "reading": "Descriptor copy bytes = count * 8"
+    },
+    {
+      "address": "0x101a8eed8",
+      "word": "385ff12b",
+      "reading": "Read copied internal type byte"
+    },
+    {
+      "address": "0x101a8eedc",
+      "word": "7100057f",
+      "reading": "Compare internal type with 1"
+    },
+    {
+      "address": "0x101a8eee4",
+      "word": "3900012a",
+      "reading": "Force that type to four components"
+    },
+    {
+      "address": "0x10168829c",
+      "word": "aa0203e1",
+      "reading": "Descriptor copy wrapper moves source to X1"
+    },
+    {
+      "address": "0x1016882a0",
+      "word": "aa0303e2",
+      "reading": "Descriptor copy wrapper moves size to X2"
+    },
+    {
+      "address": "0x101a8f67c",
+      "word": "38408eb4",
+      "reading": "Read attribute index from copied descriptor"
+    },
+    {
+      "address": "0x101a8f680",
+      "word": "394006a8",
+      "reading": "Read internal type byte"
+    },
+    {
+      "address": "0x101a8f698",
+      "word": "52800136",
+      "reading": "Initial selected Metal format = 9"
+    },
+    {
+      "address": "0x101a8f6a8",
+      "word": "91006d16",
+      "reading": "Float format = component count + 27"
+    },
+    {
+      "address": "0x101a8f6c8",
+      "word": "7100111f",
+      "reading": "Half path compares component count with 4"
+    },
+    {
+      "address": "0x101a8f6cc",
+      "word": "52800369",
+      "reading": "Half4 selected format = 27"
+    },
+    {
+      "address": "0x101a8f6d0",
+      "word": "9a9f0129",
+      "reading": "Half4 selection else invalid format"
+    },
+    {
+      "address": "0x101a8f6d4",
+      "word": "7100091f",
+      "reading": "Half path compares component count with 2"
+    },
+    {
+      "address": "0x101a8f6d8",
+      "word": "52800328",
+      "reading": "Half2 selected format = 25"
+    },
+    {
+      "address": "0x101a8f6dc",
+      "word": "9a890116",
+      "reading": "Select Half2 or prior Half4 result"
+    },
+    {
+      "address": "0x101a8f718",
+      "word": "aa1403e2",
+      "reading": "Metal attribute index argument"
+    },
+    {
+      "address": "0x101a8f720",
+      "word": "aa1603e2",
+      "reading": "Metal format argument"
+    },
+    {
+      "address": "0x101a8f740",
+      "word": "aa1603e2",
+      "reading": "Metal byte-offset argument"
+    },
+    {
+      "address": "0x101a8f5a8",
+      "word": "39062288",
+      "reading": "Binding a stream marks descriptor dirty"
+    }
+  ],
+  "descriptorConstants": [
+    {
+      "address": "0x102132c38",
+      "bytes": 8,
+      "hex": "0301010000000000",
+      "sha256": "2a784aed0fcba18eddde0f1028a5c358b594710a5b4f11353b69f19a868955d4"
+    },
+    {
+      "address": "0x102133270",
+      "bytes": 8,
+      "hex": "0804040000000000",
+      "sha256": "292adeadcc8434420716707113043ce4eabc0ad58acaa0adaf85efa25fc14d75"
+    },
+    {
+      "address": "0x102132c48",
+      "bytes": 8,
+      "hex": "0904020000000000",
+      "sha256": "f79ec7198a4dc68ce3c59adec55de4cddcf9178c5f956d55c6e7d8c1d3c13d4c"
+    }
+  ],
+  "firstParticleLayout": [
+    {
+      "attribute": 0,
+      "initializerAddress": "0x1025e877c",
+      "initializerHex": "0000030001000000",
+      "internalType": 0,
+      "initialComponents": 3,
+      "metalComponents": 3,
+      "byteOffset": 0,
+      "stride": 28,
+      "metalFormat": 30,
+      "formatBranch": "0x101a8f6a0"
+    },
+    {
+      "attribute": 3,
+      "initializerAddress": "0x1025e8784",
+      "initializerHex": "0301010001000000",
+      "internalType": 1,
+      "initialComponents": 1,
+      "metalComponents": 4,
+      "byteOffset": 12,
+      "stride": 28,
+      "metalFormat": 9,
+      "formatBranch": "0x101a8f710"
+    },
+    {
+      "attribute": 8,
+      "initializerAddress": "0x1025e878c",
+      "initializerHex": "0804040001000000",
+      "internalType": 4,
+      "initialComponents": 4,
+      "metalComponents": 4,
+      "byteOffset": 16,
+      "stride": 28,
+      "metalFormat": 27,
+      "formatBranch": "0x101a8f6c0"
+    },
+    {
+      "attribute": 9,
+      "initializerAddress": "0x1025e8794",
+      "initializerHex": "0904020001000000",
+      "internalType": 4,
+      "initialComponents": 2,
+      "metalComponents": 2,
+      "byteOffset": 24,
+      "stride": 28,
+      "metalFormat": 25,
+      "formatBranch": "0x101a8f6c0"
+    }
+  ],
+  "switchTable": {
+    "address": "0x1021346f0",
+    "hex": "001c061c081115"
+  },
+  "objectiveCSelectors": [
+    {
+      "name": "attributes",
+      "stub": "0x1020030c0",
+      "reference": "0x1024fb1b0",
+      "literal": "0x1022b6030",
+      "messagePointer": "0x102358210",
+      "bytes": 32,
+      "sha256": "e64e3324603ca8e74c1f700af79a524f288c2b16ea61347ff7084d863a8c0cf9",
+      "hex": "c127009021d840f9b01a00b0100a41f900021fd6200020d4200020d4200020d4"
+    },
+    {
+      "name": "objectAtIndexedSubscript:",
+      "stub": "0x102003f80",
+      "reference": "0x1024fb6c0",
+      "literal": "0x1022b71e2",
+      "messagePointer": "0x102358210",
+      "bytes": 32,
+      "sha256": "a87c7618401131445a8fea32f69605476b4117f2da05c50f3341ba8297d71877",
+      "hex": "c1270090216043f9b01a00b0100a41f900021fd6200020d4200020d4200020d4"
+    },
+    {
+      "name": "layouts",
+      "stub": "0x102003bc0",
+      "reference": "0x1024fb508",
+      "literal": "0x1022b5598",
+      "messagePointer": "0x102358210",
+      "bytes": 32,
+      "sha256": "9b7a2f56da1d988a4c7cffd4d3657a37cd9343725b2d741dfc0b46fb2a54141d",
+      "hex": "c1270090218442f9b01a00b0100a41f900021fd6200020d4200020d4200020d4"
+    },
+    {
+      "name": "setBufferIndex:",
+      "stub": "0x102004360",
+      "reference": "0x1024fb820",
+      "literal": "0x1022b5a52",
+      "messagePointer": "0x102358210",
+      "bytes": 32,
+      "sha256": "21cc889d8d1d9daf2ee32ef1324136b9dd1a60421cafb8a29d369adaa7c5c825",
+      "hex": "a12700f0211044f9b01a0090100a41f900021fd6200020d4200020d4200020d4"
+    },
+    {
+      "name": "setFormat:",
+      "stub": "0x102004620",
+      "reference": "0x1024fb950",
+      "literal": "0x1022b78b4",
+      "messagePointer": "0x102358210",
+      "bytes": 32,
+      "sha256": "7e1246f0f73a24093402a09f29a23403ffacadcab3d61b63f4e6d4ba4db5577a",
+      "hex": "a12700f021a844f9b01a0090100a41f900021fd6200020d4200020d4200020d4"
+    },
+    {
+      "name": "setOffset:",
+      "stub": "0x1020049e0",
+      "reference": "0x1024fba48",
+      "literal": "0x1022b7af8",
+      "messagePointer": "0x102358210",
+      "bytes": 32,
+      "sha256": "b806b40341cc5cee3920645ab638f03f8a97f06abced733f4097abc1e0a28b4c",
+      "hex": "a12700f0212445f9b01a0090100a41f900021fd6200020d4200020d4200020d4"
+    },
+    {
+      "name": "setStride:",
+      "stub": "0x102004cc0",
+      "reference": "0x1024fbb08",
+      "literal": "0x1022b7cbc",
+      "messagePointer": "0x102358210",
+      "bytes": 32,
+      "sha256": "844d638e39492d6fa50db7d38e4bf448de411b013a181f9c6132f692696d1008",
+      "hex": "a12700f0218445f9b01a0090100a41f900021fd6200020d4200020d4200020d4"
+    }
+  ],
+  "nativeImports": [
+    {
+      "address": "0x102000888",
+      "indirectSlot": 430,
+      "symbolIndex": 610,
+      "name": "_objc_opt_new",
+      "descriptor": 6144
+    },
+    {
+      "address": "0x1020008a0",
+      "indirectSlot": 432,
+      "symbolIndex": 612,
+      "name": "_objc_release",
+      "descriptor": 6144
+    },
+    {
+      "address": "0x102000774",
+      "indirectSlot": 407,
+      "symbolIndex": 586,
+      "name": "_memcpy",
+      "descriptor": 6656
+    }
+  ],
+  "dynamicBindings": {
+    "offset": 38975488,
+    "bytes": 11360,
+    "sha256": "c242686286b75bdc7f1ae4858bd648ab6e2c63c895b3df8b5bd53d21b7ce65ba",
+    "count": 2297,
+    "selected": [
+      {
+        "address": "0x1024fbdd0",
+        "segment": "__DATA",
+        "symbol": "_OBJC_CLASS_$_MTLVertexDescriptor",
+        "library": "/System/Library/Frameworks/Metal.framework/Versions/A/Metal",
+        "ordinal": 16,
+        "type": 1,
+        "flags": 1,
+        "addend": 0
+      },
+      {
+        "address": "0x102358210",
+        "segment": "__DATA_CONST",
+        "symbol": "_objc_msgSend",
+        "library": "/usr/lib/libobjc.A.dylib",
+        "ordinal": 24,
+        "type": 1,
+        "flags": 0,
+        "addend": 0
+      }
+    ]
+  },
+  "virtualSlots": [
+    {
+      "address": "0x102497650",
+      "deviceVptr": "0x102497568",
+      "slotOffset": 232,
+      "method": "0x101a86a94"
+    },
+    {
+      "address": "0x102497ca8",
+      "layoutVptr": "0x102497ca8",
+      "slotOffset": 0,
+      "method": "0x101a8f4d8"
+    }
+  ],
+  "metalApi": {
+    "url": "https://developer.apple.com/metal/cpp/files/metal-cpp_macOS15_iOS18.zip",
+    "archive": {
+      "path": ".cache/native-particle-vertex-format/metal-cpp_macOS15_iOS18.zip",
+      "bytes": 195223,
+      "sha256": "0433df1e0ab13c2b0becbd78665071e3fa28381e9714a3fce28a497892b8a184"
+    },
+    "header": {
+      "archivePath": "metal-cpp/Metal/MTLVertexDescriptor.hpp",
+      "bytes": 12017,
+      "sha256": "4c397dc5e1ff89c440756c87ad534df4a6234f9086f8bc549f3732bf0a73812e"
+    },
+    "enums": {
+      "VertexFormatUChar4Normalized": 9,
+      "VertexFormatHalf2": 25,
+      "VertexFormatHalf4": 27,
+      "VertexFormatFloat3": 30,
+      "VertexFormatUChar4Normalized_BGRA": 42
+    },
+    "scope": "Public Metal ABI enum mapping, not evidence that the native client was built with this SDK."
+  },
+  "reading": {
+    "position": "Attribute 0: Float3 at byte 0",
+    "color": "Attribute 3: UChar4Normalized at byte 12. Internal color type 1 starts with component count 1; the Metal constructor changes it to 4. Format 9 normalizes byte lanes; it is distinct from BGRA-swizzling format 42.",
+    "uv0": "Attribute 8: Half4 at byte 16",
+    "uv1": "Attribute 9: Half2 at byte 24",
+    "stride": 28,
+    "declaration": "The first of four declarations assembled by 0x1018a405c. BSS descriptor bytes are reconstructed from verified initialization instructions and constant-pool loads; BSS memory was not read as initialized native data.",
+    "shader": "The separately pinned default quad shader swizzles ATTR3 from BGRA and floors ATTR8.z. CPU packet/declaration/shader observations compose conditionally when this layout and shader are selected."
+  },
+  "nativeExecuted": false,
+  "nativeShaderExecuted": false,
+  "historicalLlvmTextReplaced": false,
+  "limits": [
+    "Static native declaration/factory/constructor/binding/format trace; no native execution, actual Yi dispatch, live GPU state or final visual parity.",
+    "The first 28-byte declaration matches the recovered CPU quad/ray packet. Draw-specific selection of this declaration and of the separately inspected default shader remains unobserved.",
+    "The official Apple header supplies public Metal ABI enum names/values. This does not identify the SDK or compiler used to build the native client.",
+    "Normalized vertex bytes do not establish native color-space, blend, texture-sampler or output-target state.",
+    "No game behavior or asset changes in this witness. Ray color/UV producers, authored size mapping and clocks remain separate work.",
+    "Original missing historical LLVM archives are neither replaced nor certified."
+  ]
+}

@@ -10,6 +10,7 @@ import { projectGroundQuad } from './ground-quad';
 import { maskGroundWalkability } from './ground-walkability-mask';
 import { groundEffectMaterial, setGroundRenderStage } from './ground-display-list';
 import { writeRayQuad } from './ray-quad';
+import { writeRayColor } from './particle-ray-color';
 
 const billboard = new THREE.PlaneGeometry(2, 2),
   quad = new THREE.PlaneGeometry(2, 2);
@@ -22,7 +23,6 @@ for (let i = 0; i < 4; i++) {
   q.setXY(i, v, 1 - u);
 }
 const up = new THREE.Vector3(0, 1, 0),
-  rollAxis = new THREE.Vector3(0, 0, 1),
   flightTilt = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), Math.PI / 2);
 export type SurfaceParticle = ReturnType<typeof eclipseParticles>[number] & {
   /** World-axis terms stay outside an attachment's orientation. */
@@ -87,12 +87,21 @@ export interface SurfaceProgram<G extends SurfaceGroup> {
   /** Optional native-family tint packing. Omission retains the existing local
    * blend-zero RGB premultiplication with preserved alpha. */
   tint?(index: number, color: readonly number[]): readonly number[] | undefined;
+  /** Requests a packed color stream on owned ray geometry. The default source
+   * material consumes this normalized BGRA attribute with a white tint uniform. */
+  vertexColor?(index: number): 'bgra-unorm8' | undefined;
   /** Explicit caller routing, separate from native mode/phase recovery. */
   distortionTarget?(index: number): THREE.Scene;
   records(world: World): Iterable<{ sourceId: number; castTick: number; group: G }>;
   particles(group: G, tick: number): readonly SurfaceParticle[];
   birthVisible(group: G, bornTick: number, terminal: boolean): boolean;
+  /** Explicit creation-history visibility policy; omission retains point visibility. */
+  visible?(group: G, particle: SurfaceParticle, tick: number): boolean;
   pose(group: G, tick: number): { x: number; y: number; facing: number } | null;
+  /** Independent historical attachment point; offsets retain the program source frame. */
+  attachmentPoint?(group: G, tick: number): THREE.Vector3 | null;
+  /** Explicit current joint frame, restricted to fully bound/local profiles. */
+  attachmentFrame?(group: G): { position: THREE.Vector3; rotation: THREE.Quaternion } | null;
   /** Local adapter for a missile object's source-Y-forward/source-Z-down frame. */
   missileFrame?(group: G): boolean;
   particleFacing?(profile: SurfaceProfile, born: number, current: number, bind: number): number;
@@ -122,8 +131,15 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
   private frameRotation = new THREE.Quaternion();
   private euler = new THREE.Euler(0, 0, 0, 'YXZ');
   private cameraRotation = new THREE.Quaternion();
+  private inverseCameraRotation = new THREE.Quaternion();
   private vector = new THREE.Vector3();
   private eye = new THREE.Vector3();
+  private ray = {
+    center: new THREE.Vector3(),
+    axis: new THREE.Vector3(),
+    fallbackAcross: new THREE.Vector3(),
+    size: [0, 0, 0] as [number, number, number],
+  };
   constructor(
     private scene: THREE.Scene,
     private distortion: THREE.Scene,
@@ -133,12 +149,15 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
   ) {}
   private create(index: number, assets: EclipseSurfaceAssets) {
     const p = this.program.profiles[index],
+      vertexColor = this.program.vertexColor?.(index),
       e = p.erosion,
       destination = p.distortion
         ? (this.program.distortionTarget?.(index) ?? this.distortion)
         : this.scene,
       sourceGeometry = p.mesh ? assets.mesh(p.mesh) : undefined;
     if (!p.texture) throw Error('Source surface requires an explicit base texture');
+    if (vertexColor && p.kind !== 'ray')
+      throw Error('Packed surface color requires owned ray geometry');
     const material =
       this.program.material?.(index, assets, sourceGeometry) ??
       (p.distortion
@@ -151,7 +170,7 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
             kind: p.kind === 'mesh' ? 'mesh' : 'quad',
             texture: assets.texture(p.texture, p.uv.address),
             lookup: assets.texture(p.lookup ?? '', 2),
-            vertexBgra: !!sourceGeometry?.getAttribute('_source_vertex_bgra'),
+            vertexBgra: !!vertexColor || !!sourceGeometry?.getAttribute('_source_vertex_bgra'),
             ...(p.multiplier
               ? { multiplier: assets.texture(p.multiplier.texture, p.multiplier.uv.address) }
               : {}),
@@ -200,12 +219,17 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
             : p.kind === 'quad'
               ? quad
               : billboard;
+    if (vertexColor)
+      geometry.setAttribute(
+        '_source_vertex_bgra',
+        new THREE.Uint8BufferAttribute(new Uint8Array(24), 4, true).setUsage(THREE.DynamicDrawUsage)
+      );
     Object.assign(material, {
       depthWrite: false,
       depthTest: (p.miscRenderFlags & 1) === 0,
       transparent: true,
       forceSinglePass: true,
-      blending: THREE.CustomBlending,
+      blending: p.blend === 3 ? THREE.NoBlending : THREE.CustomBlending,
       blendEquation: THREE.AddEquation,
       blendSrc: p.blend === 0 ? THREE.OneFactor : THREE.SrcAlphaFactor,
       blendDst: p.blend === 1 ? THREE.OneMinusSrcAlphaFactor : THREE.OneFactor,
@@ -227,6 +251,7 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
       sourceNoCull: p.noCull,
       attachment: this.program.attachment,
       sourceVertexColors: !!geometry.getAttribute('_source_vertex_bgra'),
+      ...(vertexColor ? { sourcePacketColor: true } : {}),
       sourceFaceColors: !!geometry.getAttribute('_source_face_rgb'),
     });
     // The source vertex format selects the observed native BGRA color path.
@@ -244,10 +269,13 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
     const active = new Set<string>(),
       assets = this.resources ?? this.program.assets(),
       tick = world.tick - 1 + alpha + (world.winner ? terminalAge * 60 : 0);
+    let inverseCameraReady = false;
     camera.getWorldQuaternion(this.cameraRotation);
     camera.getWorldPosition(this.eye);
     if (assets)
       for (const { sourceId, castTick, group } of this.program.records(world)) {
+        const attachmentFrame = this.program.attachmentFrame?.(group);
+        if (this.program.attachmentFrame && !attachmentFrame) continue;
         for (const p of this.program.particles(group, tick)) {
           const profile = this.program.profiles[p.profileIndex];
           if (!this.program.accepts(p.profileIndex)) continue;
@@ -266,7 +294,11 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
                 (bind === 1 ? now.facing : born.facing))
               : 0,
             missileFrame = profile.local && !!this.program.missileFrame?.(group);
-          this.frameRotation.setFromAxisAngle(up, facing);
+          if (attachmentFrame) {
+            if (bind !== 1 || !profile.local || !profile.particleLocal)
+              throw Error('Joint surface requires fully bound local particles');
+            this.frameRotation.copy(attachmentFrame.rotation);
+          } else this.frameRotation.setFromAxisAngle(up, facing);
           if (missileFrame) this.frameRotation.multiply(flightTilt);
           this.vector
             .set(-p.offset[0], p.offset[1], p.offset[2])
@@ -276,7 +308,33 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
             (origin.x - (p.worldOffset?.[0] ?? 0)) * 0.01,
             this.ground(origin) + (p.worldOffset?.[1] ?? 0) * 0.01,
             (origin.y + (p.worldOffset?.[2] ?? 0)) * 0.01
-          ).add(this.vector);
+          );
+          if (this.program.attachmentPoint) {
+            const birthPoint = this.program.attachmentPoint(group, group.startTick + p.bornTick),
+              currentPoint = this.program.attachmentPoint(group, tick);
+            if (!birthPoint || !currentPoint) continue;
+            position
+              .copy(birthPoint)
+              .lerp(currentPoint, bind)
+              .add(
+                new THREE.Vector3(
+                  -(p.worldOffset?.[0] ?? 0),
+                  p.worldOffset?.[1] ?? 0,
+                  p.worldOffset?.[2] ?? 0
+                ).multiplyScalar(0.01)
+              );
+          }
+          if (attachmentFrame)
+            position
+              .copy(attachmentFrame.position)
+              .add(
+                new THREE.Vector3(
+                  -(p.worldOffset?.[0] ?? 0) * 0.01,
+                  (p.worldOffset?.[1] ?? 0) * 0.01,
+                  (p.worldOffset?.[2] ?? 0) * 0.01
+                )
+              );
+          position.add(this.vector);
           const orbit = p.orbitTurn?.some((v, i) => i < 3 && v !== 0);
           if (orbit) {
             const q = p.orbitTurn!,
@@ -296,7 +354,11 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
               .add(center)
               .add(acceleration);
           }
-          if (!world.pointVisible({ x: position.x * 100, y: position.z * 100 })) continue;
+          if (!(
+            this.program.visible?.(group, p, tick) ??
+            world.pointVisible({ x: position.x * 100, y: position.z * 100 })
+          ))
+            continue;
           const id = `${group.key}:${p.profileIndex}:${p.ordinal}`;
           active.add(id);
           let mesh = this.models.get(id);
@@ -304,39 +366,35 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
           mesh.position.copy(position);
           mesh.quaternion.identity();
           mesh.scale.setScalar(1);
-          this.sourceRotation.setFromEuler(
-            this.euler.set(
-              ...(p.rotation.map(THREE.MathUtils.degToRad) as [number, number, number]),
-              'YXZ'
-            )
-          );
-          this.reflectedRotation.set(
-            this.sourceRotation.x,
-            -this.sourceRotation.y,
-            -this.sourceRotation.z,
-            this.sourceRotation.w
-          );
+          // Camera-facing billboards use roll or travel direction below. Their
+          // full source Euler frame is only consumed by other surface paths.
+          if (profile.kind !== 'billboard' || attachmentFrame) {
+            this.sourceRotation.setFromEuler(
+              this.euler.set(
+                ...(p.rotation.map(THREE.MathUtils.degToRad) as [number, number, number]),
+                'YXZ'
+              )
+            );
+            this.reflectedRotation.set(
+              this.sourceRotation.x,
+              -this.sourceRotation.y,
+              -this.sourceRotation.z,
+              this.sourceRotation.w
+            );
+          }
           if (profile.kind === 'ray') {
-            const axis = new THREE.Vector3(0, 0, 1).applyQuaternion(this.sourceRotation),
-              across = new THREE.Vector3(1, 0, 0).applyQuaternion(this.sourceRotation);
+            const axis = this.ray.axis.set(0, 0, 1).applyQuaternion(this.sourceRotation),
+              across = this.ray.fallbackAcross.set(1, 0, 0).applyQuaternion(this.sourceRotation);
             axis.x *= -1;
             across.x *= -1;
             axis.applyQuaternion(this.frameRotation);
             across.applyQuaternion(this.frameRotation);
             const positions = mesh.geometry.getAttribute('position') as THREE.BufferAttribute,
               uv = mesh.geometry.getAttribute('uv') as THREE.BufferAttribute;
-            writeRayQuad(
-              positions,
-              uv,
-              0,
-              {
-                center: new THREE.Vector3(),
-                axis,
-                fallbackAcross: across,
-                size: p.size.map((v) => v * 0.01) as [number, number, number],
-              },
-              this.eye.clone().sub(position)
-            );
+            this.ray.size[0] = p.size[0] * 0.01;
+            this.ray.size[1] = p.size[1] * 0.01;
+            this.ray.size[2] = p.size[2] * 0.01;
+            writeRayQuad(positions, uv, 0, this.ray, this.vector.copy(this.eye).sub(position));
             positions.needsUpdate = uv.needsUpdate = true;
             // Three uses the sphere centre for transparent sorting even when
             // frustum culling is disabled. A sphere cached under the startup
@@ -362,7 +420,7 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
             if (profile.navmesh)
               maskGroundWalkability(mesh.geometry, (q) => world.battlefield.lineWalkable(q, q, 0));
             mesh.position.set(0, 0, 0);
-          } else if (profile.kind === 'billboard') {
+          } else if (profile.kind === 'billboard' && !attachmentFrame) {
             mesh.quaternion.copy(this.cameraRotation);
             let stretch = p.stretch;
             if (
@@ -379,15 +437,13 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
                 stretch = Math.max(1, this.vector.length() * profile.directionVelocityScale);
               }
               if (orbit) this.vector.applyQuaternion(this.orbitRotation);
-              this.vector.applyQuaternion(this.cameraRotation.clone().invert());
+              if (!inverseCameraReady) {
+                this.inverseCameraRotation.copy(this.cameraRotation).invert();
+                inverseCameraReady = true;
+              }
+              this.vector.applyQuaternion(this.inverseCameraRotation);
               mesh.rotateZ(Math.atan2(-this.vector.x, this.vector.y));
-            } else
-              mesh.quaternion.multiply(
-                new THREE.Quaternion().setFromAxisAngle(
-                  rollAxis,
-                  -THREE.MathUtils.degToRad(p.rotation[0])
-                )
-              );
+            } else mesh.rotateZ(-THREE.MathUtils.degToRad(p.rotation[0]));
             mesh.scale.set(p.size[0] * 0.01, p.size[1] * stretch * 0.01, 1);
           } else {
             mesh.quaternion.copy(this.frameRotation).multiply(this.reflectedRotation);
@@ -396,9 +452,23 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
           }
           const uniforms = mesh.material.uniforms,
             packed = this.program.tint?.(p.profileIndex, p.color),
-            color = [...(packed ?? p.color)];
-          if (!packed && profile.blend === 0) for (let i = 0; i < 3; i++) color[i] *= color[3];
-          uniforms.particleColor.value.fromArray(color);
+            color = uniforms.particleColor.value as THREE.Vector4;
+          color.fromArray(packed ?? p.color);
+          if (!packed && !mesh.userData.sourcePacketColor && profile.blend === 0) {
+            color.x *= color.w;
+            color.y *= color.w;
+            color.z *= color.w;
+          }
+          if (mesh.userData.sourcePacketColor) {
+            const attribute = mesh.geometry.getAttribute(
+                '_source_vertex_bgra'
+              ) as THREE.BufferAttribute,
+              bytes = attribute.array as Uint8Array;
+            // An explicit tint callback already prepared its packet color.
+            writeRayColor(bytes, 0, attribute.count, packed ?? p.color, packed ? 4 : profile.blend);
+            attribute.needsUpdate = true;
+            color.set(1, 1, 1, 1);
+          }
           uniforms.lookupUv.value.fromArray(p.lookup);
           if (profile.distortion) uniforms.distortionPower.value = profile.distortion.strength;
           else {

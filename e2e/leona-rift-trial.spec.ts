@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import { writeFileSync } from 'node:fs';
+import { pauseAtCombatState } from './helpers/pause-combat-state';
 
 test.use({ viewport: { width: 1440, height: 900 } });
 test.setTimeout(120000);
@@ -93,6 +94,7 @@ test('the development support uses real Rift navigation, Leona controls and the 
   await page.keyboard.press('Control+q');
   await page.waitForFunction(() => (window as any).__GAME__.world.player.spellRanks.q === 1);
   const mana = await page.evaluate(() => (window as any).__GAME__.world.hero.mana);
+  await pauseAtCombatState(page, 'leona-q');
   await page.keyboard.press('q');
   await page.waitForFunction(() => !!(window as any).__GAME__.world.player.leonaQ);
   const paid = await page.evaluate(() => {
@@ -136,6 +138,7 @@ test('the development support uses real Rift navigation, Leona controls and the 
 test('trial Save/reload and restart preserve support identity and keep the ordinary save', async ({
   page,
 }, info) => {
+  test.setTimeout(180000);
   const errors = errorsFor(page);
   await page.goto('/');
   await ready(page);

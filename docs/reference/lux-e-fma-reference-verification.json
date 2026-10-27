@@ -1,0 +1,831 @@
+{
+  "format": 1,
+  "parentCommit": "fa1eec5f116f4bdca119322e29c26fedcdad52fe",
+  "scope": "Reproduce the original exact Lux checksum through controlled FMA contraction of pinned V8 trig source, with complete historical source/dependency closure and independent GCC/Clang confirmation. Production math, golden and original assertion remain unchanged.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "9db64775d98bbc1fe60d2a39d8bd15f546d5e5893ea9d984a39ac5b622dd2aab",
+    "offlinePack": {
+      "id": "7a230ac1a1b54abdc3cbf8f901e7ce567c88b5054556f38f4b81f7991eea1441",
+      "files": 1200,
+      "bytes": 538083415
+    }
+  },
+  "applicationFingerprintUnchanged": true,
+  "productionPackUnchanged": true,
+  "verification": {
+    "historicalSourceCommit": "ee5b92c1a8a69910f8c2837133158d892564ada2",
+    "originalLockMatchesCurrent": true,
+    "lockedThreeRuntimeVerified": true,
+    "compilers": 2,
+    "contractionModesPerCompiler": 3,
+    "completeSnapshots": 24,
+    "distinctTrigInputs": 810,
+    "replayedCallsPerVariant": 17888,
+    "changedTrigInputs": 1,
+    "affectedCalls": 2,
+    "differingOutputScalars": 2,
+    "allDifferencesSameFloat32": true,
+    "maxAbsoluteDelta": 5.684341886080802e-14,
+    "originalGoldenReproduced": true,
+    "originalProducingMachineIdentified": false,
+    "nodeQaPassed": 6,
+    "negativeProducerChecks": 2,
+    "defaultOriginalGoldenTestStillFails": true,
+    "productionMathChanged": false,
+    "fullUnitRunInherited": {
+      "passed": 3074,
+      "failed": 2,
+      "total": 3076,
+      "files": 388
+    }
+  },
+  "reading": {
+    "path": "docs/reference/lux-e-fma-reference.json",
+    "bytes": 5398,
+    "sha256": "c67d9052794aa877bc7412bc14eae2e8eaf4c5c563f7742b43bcc02593c0e7a7"
+  },
+  "compilerReadings": {
+    "gcc": {
+      "sourceSha256": "badd30a2643ed785dcfbbce42f95c2522ccea3605cd39e2933467688aae1de14",
+      "generatedSourceSha256": "305366ab717ffbb1bb28376c270d1d1ebe7efb0549394400cc5032f6b836144b",
+      "compilerVersion": "g++ (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+      "variants": [
+        {
+          "contraction": "off",
+          "command": [
+            "g++",
+            "-std=c++20",
+            "-O2",
+            "-shared",
+            "-fPIC",
+            "-mfma",
+            "-mavx2",
+            "-ffp-contract=off",
+            "/workspace/web-lol/.cache/lux-e-fma-gcc-final/reference/trig-reference.cc",
+            "-o",
+            "/workspace/web-lol/.cache/lux-e-fma-gcc-final/reference/trig-off.so"
+          ],
+          "librarySha256": "d0e57107c819a9e2026eed3e4486769b4f61a73e2c6fed39a24a64619b254cab",
+          "callsPath": "/workspace/web-lol/.cache/lux-e-fma-gcc-final/reference/calls-off.json",
+          "callsSha256": "29b2a4d6f684dae8f996368d731c5156ac552516f30a46b3607a5c92746dce08",
+          "distinctCalls": 810
+        },
+        {
+          "contraction": "on",
+          "command": [
+            "g++",
+            "-std=c++20",
+            "-O2",
+            "-shared",
+            "-fPIC",
+            "-mfma",
+            "-mavx2",
+            "-ffp-contract=on",
+            "/workspace/web-lol/.cache/lux-e-fma-gcc-final/reference/trig-reference.cc",
+            "-o",
+            "/workspace/web-lol/.cache/lux-e-fma-gcc-final/reference/trig-on.so"
+          ],
+          "librarySha256": "187a5bfa26467aeb1579ac5700ddd6adbdccd2576aa81911ffb5399ca663720a",
+          "callsPath": "/workspace/web-lol/.cache/lux-e-fma-gcc-final/reference/calls-on.json",
+          "callsSha256": "ef3b20658fc3179e5daf5b284645120dd1f4caeb9f4ab7f5b797792f9a3d437d",
+          "distinctCalls": 810
+        },
+        {
+          "contraction": "fast",
+          "command": [
+            "g++",
+            "-std=c++20",
+            "-O2",
+            "-shared",
+            "-fPIC",
+            "-mfma",
+            "-mavx2",
+            "-ffp-contract=fast",
+            "/workspace/web-lol/.cache/lux-e-fma-gcc-final/reference/trig-reference.cc",
+            "-o",
+            "/workspace/web-lol/.cache/lux-e-fma-gcc-final/reference/trig-fast.so"
+          ],
+          "librarySha256": "3f08d1c954b52566c271c812a9abbb0f26a22c85d70ad36e1187bf071127e7bf",
+          "callsPath": "/workspace/web-lol/.cache/lux-e-fma-gcc-final/reference/calls-fast.json",
+          "callsSha256": "ef3b20658fc3179e5daf5b284645120dd1f4caeb9f4ab7f5b797792f9a3d437d",
+          "distinctCalls": 810
+        }
+      ],
+      "nativeGameExecuted": false,
+      "limits": [
+        "Controlled x64 FMA-capable compiler experiment; not a reproduction of the complete historical producing machine.",
+        "Only the pinned trig/helper bodies are retained. Header macros use standard bit_cast; arithmetic bodies are unchanged."
+      ]
+    },
+    "clang": {
+      "sourceSha256": "badd30a2643ed785dcfbbce42f95c2522ccea3605cd39e2933467688aae1de14",
+      "generatedSourceSha256": "305366ab717ffbb1bb28376c270d1d1ebe7efb0549394400cc5032f6b836144b",
+      "compilerVersion": "Debian clang version 21.1.8 (++20251221033036+2078da43e25a-1~exp1~20251221153213.50)\nTarget: x86_64-pc-linux-gnu\nThread model: posix\nInstalledDir: /workspace/web-lol/.tools/llvm21/usr/lib/llvm-21/bin\n",
+      "variants": [
+        {
+          "contraction": "off",
+          "command": [
+            "/workspace/web-lol/.tools/llvm21/usr/lib/llvm-21/bin/clang",
+            "-x",
+            "c++",
+            "-isystem",
+            "/usr/lib/gcc/x86_64-linux-gnu/14/include",
+            "-std=c++20",
+            "-O2",
+            "-shared",
+            "-fPIC",
+            "-mfma",
+            "-mavx2",
+            "-ffp-contract=off",
+            "/workspace/web-lol/.cache/lux-e-fma-clang-final/reference/trig-reference.cc",
+            "-o",
+            "/workspace/web-lol/.cache/lux-e-fma-clang-final/reference/trig-off.so"
+          ],
+          "librarySha256": "f613a4abfc5f6d522e6a057407da8e3c44080eb61d4525d9db7dcf2b7041e46e",
+          "callsPath": "/workspace/web-lol/.cache/lux-e-fma-clang-final/reference/calls-off.json",
+          "callsSha256": "29b2a4d6f684dae8f996368d731c5156ac552516f30a46b3607a5c92746dce08",
+          "distinctCalls": 810
+        },
+        {
+          "contraction": "on",
+          "command": [
+            "/workspace/web-lol/.tools/llvm21/usr/lib/llvm-21/bin/clang",
+            "-x",
+            "c++",
+            "-isystem",
+            "/usr/lib/gcc/x86_64-linux-gnu/14/include",
+            "-std=c++20",
+            "-O2",
+            "-shared",
+            "-fPIC",
+            "-mfma",
+            "-mavx2",
+            "-ffp-contract=on",
+            "/workspace/web-lol/.cache/lux-e-fma-clang-final/reference/trig-reference.cc",
+            "-o",
+            "/workspace/web-lol/.cache/lux-e-fma-clang-final/reference/trig-on.so"
+          ],
+          "librarySha256": "4a81b101e6c77b48ddad12ab785d0dac0f4a24e6388a49e66ea058fd4e1b79e4",
+          "callsPath": "/workspace/web-lol/.cache/lux-e-fma-clang-final/reference/calls-on.json",
+          "callsSha256": "ef3b20658fc3179e5daf5b284645120dd1f4caeb9f4ab7f5b797792f9a3d437d",
+          "distinctCalls": 810
+        },
+        {
+          "contraction": "fast",
+          "command": [
+            "/workspace/web-lol/.tools/llvm21/usr/lib/llvm-21/bin/clang",
+            "-x",
+            "c++",
+            "-isystem",
+            "/usr/lib/gcc/x86_64-linux-gnu/14/include",
+            "-std=c++20",
+            "-O2",
+            "-shared",
+            "-fPIC",
+            "-mfma",
+            "-mavx2",
+            "-ffp-contract=fast",
+            "/workspace/web-lol/.cache/lux-e-fma-clang-final/reference/trig-reference.cc",
+            "-o",
+            "/workspace/web-lol/.cache/lux-e-fma-clang-final/reference/trig-fast.so"
+          ],
+          "librarySha256": "dd491f9b8a44a48157997f100027009d42c25c3264548fa86dffe9723721dcd5",
+          "callsPath": "/workspace/web-lol/.cache/lux-e-fma-clang-final/reference/calls-fast.json",
+          "callsSha256": "ef3b20658fc3179e5daf5b284645120dd1f4caeb9f4ab7f5b797792f9a3d437d",
+          "distinctCalls": 810
+        }
+      ],
+      "nativeGameExecuted": false,
+      "limits": [
+        "Controlled x64 FMA-capable compiler experiment; not a reproduction of the complete historical producing machine.",
+        "Only the pinned trig/helper bodies are retained. Header macros use standard bit_cast; arithmetic bodies are unchanged."
+      ]
+    }
+  },
+  "parentApplicationAcceptance": {
+    "path": "docs/reference/particle-distortion-recovery-verification.json",
+    "bytes": 91572,
+    "sha256": "10cd38453d5e2aac7a1f90eb3efd68bcfd0f1e9037191395dee80f102c563312"
+  },
+  "limits": [
+    "Controlled compiler experiment reproduces the historical checksum; it does not identify the original machine, Node build or compiler flags.",
+    "Only two measured output scalars differ and cast to identical Float32 values; no cross-engine GPU or native visual parity claim.",
+    "Game math, the original checksum assertion and golden remain unchanged.",
+    "The original producing machine and its build flags remain unidentified; the controlled path reproduces the exact checksum.",
+    "The default x64 Node golden case still fails. This is an independent compiler reference, not a clean full-suite certificate.",
+    "No full application rerun is needed for this diagnostic/source-only checkpoint; the unchanged application acceptance is inherited from the parent."
+  ],
+  "diagnostics": [
+    "Node 26.12.1 x64 also produces the uncontracted checksum; no runtime upgrade is applied. Its official release archive and checksum receipt are retained.",
+    "The first standalone Clang probe lacked the stddef resource header. Adding the existing GCC 14 header include path allowed the independent Clang builds; this does not install system packages."
+  ],
+  "sourceFiles": [
+    {
+      "path": "README.md",
+      "bytes": 19657,
+      "sha256": "ece890c7cd9a97dbcdecc1ad4cd75c25d589c0ff7ecd6cf19246ea8747ff9e3f"
+    },
+    {
+      "path": "docs/LUX-E-FMA-REFERENCE.md",
+      "bytes": 3633,
+      "sha256": "71ce5b1b78d17e0d62e10c99c4bc782a433c3fb05f02246409a91588bc337fa8"
+    },
+    {
+      "path": "docs/LUX-E-SAMPLER-PORTABILITY.md",
+      "bytes": 3192,
+      "sha256": "cd364b1c02ad21e47522777d27d36d4d03dee80bb49fc445793725e72256fdcf"
+    },
+    {
+      "path": "docs/reference/lux-e-fma-reference.json",
+      "bytes": 5398,
+      "sha256": "c67d9052794aa877bc7412bc14eae2e8eaf4c5c563f7742b43bcc02593c0e7a7"
+    },
+    {
+      "path": "tools/qa/lib/lux-e-fdlibm-reference.py",
+      "bytes": 4276,
+      "sha256": "698a24be798d00ffdd9d36de7c7010194db3361eac6e5a19b4bf1406b22a4c8c"
+    },
+    {
+      "path": "tools/qa/lux-e-fma-audit.mjs",
+      "bytes": 9431,
+      "sha256": "feb84c4810b4e0981f7c05e15d04d25de91c85593d09259c5e5a41081dd349b9"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "tests/lux-e-missile.test.ts",
+      "bytes": 11975,
+      "sha256": "d07b3dfe69a6aaff7535d38680d96169d89ae983ac35a856ca8142ae00da18f1"
+    },
+    {
+      "path": "tools/qa/lib/lux-e-sampler-audit.ts",
+      "bytes": 3091,
+      "sha256": "e0a796d1e3d994736abf1da249b444f3bb2a5da46c79ae8b910cc96dcc695f81"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/lux-e-original-closure/final-source/README.md",
+      "bytes": 19657,
+      "sha256": "ece890c7cd9a97dbcdecc1ad4cd75c25d589c0ff7ecd6cf19246ea8747ff9e3f"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/final-source/docs/LUX-E-FMA-REFERENCE.md",
+      "bytes": 3633,
+      "sha256": "71ce5b1b78d17e0d62e10c99c4bc782a433c3fb05f02246409a91588bc337fa8"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/final-source/docs/LUX-E-SAMPLER-PORTABILITY.md",
+      "bytes": 3192,
+      "sha256": "cd364b1c02ad21e47522777d27d36d4d03dee80bb49fc445793725e72256fdcf"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/final-source/docs/reference/lux-e-fma-reference.json",
+      "bytes": 5398,
+      "sha256": "c67d9052794aa877bc7412bc14eae2e8eaf4c5c563f7742b43bcc02593c0e7a7"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/final-source/package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/final-source/tests/lux-e-missile.test.ts",
+      "bytes": 11975,
+      "sha256": "d07b3dfe69a6aaff7535d38680d96169d89ae983ac35a856ca8142ae00da18f1"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/final-source/tools/qa/lib/lux-e-fdlibm-reference.py",
+      "bytes": 4276,
+      "sha256": "698a24be798d00ffdd9d36de7c7010194db3361eac6e5a19b4bf1406b22a4c8c"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/final-source/tools/qa/lib/lux-e-sampler-audit.ts",
+      "bytes": 3091,
+      "sha256": "e0a796d1e3d994736abf1da249b444f3bb2a5da46c79ae8b910cc96dcc695f81"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/final-source/tools/qa/lux-e-fma-audit.mjs",
+      "bytes": 9431,
+      "sha256": "feb84c4810b4e0981f7c05e15d04d25de91c85593d09259c5e5a41081dd349b9"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/lux-e-original-closure/archive-checkpoint.py",
+      "bytes": 5963,
+      "sha256": "63eb08a2f6094a9faa62f3e25eab6b4edb6d5efd7c20ad7b1f41a347f0162951"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/build-trig-probe.py",
+      "bytes": 1739,
+      "sha256": "0f1bd61a1492fabb1f6dde27cb54e2c1a1b0ff68862f0c32a7ccac281fd1bfeb"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/changed-v8-source.cc",
+      "bytes": 15,
+      "sha256": "82f119e16852279fe2ee5e2a148d5aaeb85e63e6438500fc04679a7195649aea"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/clang-contraction-reading.json",
+      "bytes": 437,
+      "sha256": "338661c45bffcbd61c2de574255ffb3fcd2369a11498a20ac20d2e39c1c8935c"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/clang-trig-build.json",
+      "bytes": 1617,
+      "sha256": "28cb3a4aff3d7e0c773385999c4d57d898fb0794f0cb8a0ed68a5468a6aca901"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/clang-trig-fast.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/clang-trig-fast.so",
+      "bytes": 19984,
+      "sha256": "3177dfa901e3aacdd90575e05545484242182fc68d30b0fd22d47f99185fcb24"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/clang-trig-initial.log",
+      "bytes": 406,
+      "sha256": "7008ed7e36110b7047b2b451575f87c5e63c8dc237d3b0d4b5787fd00154e11a"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/clang-trig-off.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/clang-trig-off.so",
+      "bytes": 19984,
+      "sha256": "079a93685d4d3cb283fea748847bd3fd5d0d31e5376ecbbf79baff57e077d9bb"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/clang-trig-on.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/clang-trig-on.so",
+      "bytes": 19984,
+      "sha256": "a136483394d3defecac8d31fccfe72a8bee4715cfd4ac482e26dcc6ffe345162"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/compile-contracted.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/compile-uncontracted.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/fetch-node.py",
+      "bytes": 1835,
+      "sha256": "6d7faef13fe9c4f4d77c1c6bcfba5fbdc99780ea9c6c89e0c3087585bf6b86d5"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/fetch-node26.log",
+      "bytes": 456,
+      "sha256": "789747cebc734eff4523555a1249c1c3bebc445924ce2bb48ebee43798c947df"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/final-clang-audit.log",
+      "bytes": 451,
+      "sha256": "67680f8d5ee13cf007a60bfc33fe249bba161eb3abcdc066f3d52ca7d9aae787"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/final-gcc-audit.log",
+      "bytes": 451,
+      "sha256": "67680f8d5ee13cf007a60bfc33fe249bba161eb3abcdc066f3d52ca7d9aae787"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/final-node-qa.log",
+      "bytes": 660,
+      "sha256": "9a0fd848b6502e233b23cd8a0f60fd9ae2891230b121b7d3e1fc4690a228ca9d"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/ieee754.cc",
+      "bytes": 103178,
+      "sha256": "badd30a2643ed785dcfbbce42f95c2522ccea3605cd39e2933467688aae1de14"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/ieee754.h",
+      "bytes": 3729,
+      "sha256": "d04cd7f71eae974bbb2fb64fd27241c7753678f042acd5ee89c2fa30ef37c4c3"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/node-dist-index.json",
+      "bytes": 334935,
+      "sha256": "6c56f52ff7be0efb8199281e5dcc774709166cf8b55be1b08dc1dba14f1060a0"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/node-v26.12.1-linux-x64.tar.xz",
+      "bytes": 34122264,
+      "sha256": "6170b2d474e1c626f43cff3adc118df9fe3b573258a4fc3d850c8dbc6b079bbd"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/node-version-selection.json",
+      "bytes": 2937,
+      "sha256": "0ee130a267d3d562b148f906cb0afff621cb4b89913e609f41a4a209b5c1a48a"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/node26-reading.json",
+      "bytes": 218,
+      "sha256": "a78de863d59cd2d26a3810b7a203ba2dcdf6721468d616c94d018ca0c32f627d"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/original-golden-final.log",
+      "bytes": 1145,
+      "sha256": "1de79a103b8a5a7a93744cc3ff8e70e798fb61749b57bdda4c82526964cb8886"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/original-node-math.json",
+      "bytes": 249200,
+      "sha256": "eb040a4e1307f2bcfb3dd9bff8066ed9cb822d645613f384be2bfacbfc5a2b23"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/original-node-reading.json",
+      "bytes": 218,
+      "sha256": "19f9390ff5c78a0a149316d15ddfc849766dd8557afcffe23fe37f082106788d"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/original-node-samples.json",
+      "bytes": 613711,
+      "sha256": "5e057c5858b2dbccce0a45f0adc3f9eb07230e1f5bf6a3d3c9a382db532792a3"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/original-sampler.mjs",
+      "bytes": 94993,
+      "sha256": "cbffbacc12f077d1f1beb19a2e5255df1b903309bbc054001e1e1083136aecd0"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/original-source.tar",
+      "bytes": 3041280,
+      "sha256": "416479ffe8bf4c2fae0f4f5de50b6aadfeda410da2a08c5d2f3b63e2cf5f54b5"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/producer-rejection-0.log",
+      "bytes": 570,
+      "sha256": "a0e2b73ddb8575aba3c5765cbb14ebfdbd5e432e6f0d3e424a48c70f49ac1a4a"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/producer-rejection-1.log",
+      "bytes": 1443,
+      "sha256": "57ff54b6157837e0773924b4fc5dc636a5c4e6b0a2ebe961bc689e84f0567fb8"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/producer-rejections.json",
+      "bytes": 650,
+      "sha256": "57590781f35ed4e6e93492c83edfcfec69c9af40652190fe00cb25705fc2d1b5"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/replay-variants.py",
+      "bytes": 889,
+      "sha256": "a7505b630271f6ba56aa7b1ea6c10f025d763c7883c7ec8c3430be202fa60a88"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/same-isa-fast-samples.json",
+      "bytes": 613712,
+      "sha256": "f0501883ba716458919630c0126d861084b37181664e6668b155adaeade59d94"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/same-isa-off-samples.json",
+      "bytes": 613711,
+      "sha256": "5e057c5858b2dbccce0a45f0adc3f9eb07230e1f5bf6a3d3c9a382db532792a3"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/same-isa-on-samples.json",
+      "bytes": 613712,
+      "sha256": "f0501883ba716458919630c0126d861084b37181664e6668b155adaeade59d94"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/single-call-causality.json",
+      "bytes": 767,
+      "sha256": "d1832a4d50ca3b453357e22969857fcab4f7dddcc0bdec2a6c84bf25eaa4da8b"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/source-identity.json",
+      "bytes": 386,
+      "sha256": "a9578b48cace7e9e9ecd5231f40f3de89f7018e8e40c9f008c4bb048dab5712c"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/three-0.186.0.tgz",
+      "bytes": 4648491,
+      "sha256": "61eeff9d7616005c9a481c796f52287d81fbbbc0d55eaca5565322924252c1aa"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/three-integrity-verification.json",
+      "bytes": 769,
+      "sha256": "07416d7631ee5d7d489ea1bf5e97f8fbe4f372d15d0f2dec053094c799064eb3"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/three-package.json",
+      "bytes": 149790,
+      "sha256": "ad7ebfed1f7da28ee50d1c68ce98bb00be3d47de1f7d10f37ab8c15e60aae768"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/trig-contracted-calls.json",
+      "bytes": 155052,
+      "sha256": "ef3b20658fc3179e5daf5b284645120dd1f4caeb9f4ab7f5b797792f9a3d437d"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/trig-contracted.so",
+      "bytes": 20080,
+      "sha256": "0e477f968ef1a183f91b63b1fd0a13dd22e4210748c73e174032dca03fa5550a"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/trig-contraction-reading.json",
+      "bytes": 299,
+      "sha256": "57af1a5140217d51b0a746c1758aa183512a612403aed6812a9e38554da39d6b"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/trig-probe-build.json",
+      "bytes": 1041,
+      "sha256": "67e5605e4b6e3c3b9b3e7169c80d99e1c0edfadaac8ab7249ec4277247c33a20"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/trig-probe.cc",
+      "bytes": 29482,
+      "sha256": "305366ab717ffbb1bb28376c270d1d1ebe7efb0549394400cc5032f6b836144b"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/trig-same-isa-build.json",
+      "bytes": 1212,
+      "sha256": "10b52b240e66338e5fb51e6e52ca58ef097e238c2064024d1d223fa2785a6569"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/trig-same-isa-fast-calls.json",
+      "bytes": 155052,
+      "sha256": "ef3b20658fc3179e5daf5b284645120dd1f4caeb9f4ab7f5b797792f9a3d437d"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/trig-same-isa-fast.so",
+      "bytes": 20080,
+      "sha256": "0e477f968ef1a183f91b63b1fd0a13dd22e4210748c73e174032dca03fa5550a"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/trig-same-isa-off-calls.json",
+      "bytes": 155052,
+      "sha256": "29b2a4d6f684dae8f996368d731c5156ac552516f30a46b3607a5c92746dce08"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/trig-same-isa-off.so",
+      "bytes": 20080,
+      "sha256": "ed151ed3dffd3734f90ae3e8624a3e71cdc1cef2222464c1f7c627a8334f970f"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/trig-same-isa-on-calls.json",
+      "bytes": 155052,
+      "sha256": "ef3b20658fc3179e5daf5b284645120dd1f4caeb9f4ab7f5b797792f9a3d437d"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/trig-same-isa-on.so",
+      "bytes": 20080,
+      "sha256": "167cb88ccf1faf699c585b2edd28c98f43a0f89d7a9c17fd91a024097487bb41"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/trig-same-isa-reading.json",
+      "bytes": 450,
+      "sha256": "03dd8cb4cad4e340cbd869659132c059f41bc4d9baec673ec386e1b68d6a77e0"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/trig-uncontracted-calls.json",
+      "bytes": 155052,
+      "sha256": "29b2a4d6f684dae8f996368d731c5156ac552516f30a46b3607a5c92746dce08"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/trig-uncontracted.so",
+      "bytes": 20080,
+      "sha256": "9cb4b530c9bfc1780ad0e36b6baad8ba562ccce16726937e3a84a804d4318745"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/v26.12.1-SHASUMS256.txt",
+      "bytes": 3171,
+      "sha256": "5f4c83027c433198a63e1f15eddc5dab519e843c4e67566fe7dd33832dee67f4"
+    },
+    {
+      "path": ".cache/lux-e-original-closure/v26.12.1-runtime-receipt.json",
+      "bytes": 474,
+      "sha256": "0c134e0becdc7ca5b05706addd9812b91d1eedbed45757d30ef2f94953cf32d6"
+    },
+    {
+      "path": ".cache/lux-e-fma-gcc-final/default-math.json",
+      "bytes": 249200,
+      "sha256": "eb040a4e1307f2bcfb3dd9bff8066ed9cb822d645613f384be2bfacbfc5a2b23"
+    },
+    {
+      "path": ".cache/lux-e-fma-gcc-final/default-samples.json",
+      "bytes": 613711,
+      "sha256": "5e057c5858b2dbccce0a45f0adc3f9eb07230e1f5bf6a3d3c9a382db532792a3"
+    },
+    {
+      "path": ".cache/lux-e-fma-gcc-final/ieee754.cc",
+      "bytes": 103178,
+      "sha256": "badd30a2643ed785dcfbbce42f95c2522ccea3605cd39e2933467688aae1de14"
+    },
+    {
+      "path": ".cache/lux-e-fma-gcc-final/original-sampler.mjs",
+      "bytes": 94960,
+      "sha256": "1ccc81ef9849fd74782131c74a8ca012bbd9ab8eec09e829b1d405878e336fbb"
+    },
+    {
+      "path": ".cache/lux-e-fma-gcc-final/original-source.tar",
+      "bytes": 3041280,
+      "sha256": "416479ffe8bf4c2fae0f4f5de50b6aadfeda410da2a08c5d2f3b63e2cf5f54b5"
+    },
+    {
+      "path": ".cache/lux-e-fma-gcc-final/reading.json",
+      "bytes": 6024,
+      "sha256": "ab49ad38724130e116c14d17c388c8172bee520e9681f24457ddab08e7e9459b"
+    },
+    {
+      "path": ".cache/lux-e-fma-gcc-final/reference/calls-fast.json",
+      "bytes": 155052,
+      "sha256": "ef3b20658fc3179e5daf5b284645120dd1f4caeb9f4ab7f5b797792f9a3d437d"
+    },
+    {
+      "path": ".cache/lux-e-fma-gcc-final/reference/calls-off.json",
+      "bytes": 155052,
+      "sha256": "29b2a4d6f684dae8f996368d731c5156ac552516f30a46b3607a5c92746dce08"
+    },
+    {
+      "path": ".cache/lux-e-fma-gcc-final/reference/calls-on.json",
+      "bytes": 155052,
+      "sha256": "ef3b20658fc3179e5daf5b284645120dd1f4caeb9f4ab7f5b797792f9a3d437d"
+    },
+    {
+      "path": ".cache/lux-e-fma-gcc-final/reference/compile-fast.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/lux-e-fma-gcc-final/reference/compile-off.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/lux-e-fma-gcc-final/reference/compile-on.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/lux-e-fma-gcc-final/reference/reference.json",
+      "bytes": 2855,
+      "sha256": "314e0aba363ead8036a56418f75c8bc96efbff96641070d83aa6ed7951c4be54"
+    },
+    {
+      "path": ".cache/lux-e-fma-gcc-final/reference/trig-fast.so",
+      "bytes": 20088,
+      "sha256": "3f08d1c954b52566c271c812a9abbb0f26a22c85d70ad36e1187bf071127e7bf"
+    },
+    {
+      "path": ".cache/lux-e-fma-gcc-final/reference/trig-off.so",
+      "bytes": 20088,
+      "sha256": "d0e57107c819a9e2026eed3e4486769b4f61a73e2c6fed39a24a64619b254cab"
+    },
+    {
+      "path": ".cache/lux-e-fma-gcc-final/reference/trig-on.so",
+      "bytes": 20088,
+      "sha256": "187a5bfa26467aeb1579ac5700ddd6adbdccd2576aa81911ffb5399ca663720a"
+    },
+    {
+      "path": ".cache/lux-e-fma-gcc-final/reference/trig-reference.cc",
+      "bytes": 29482,
+      "sha256": "305366ab717ffbb1bb28376c270d1d1ebe7efb0549394400cc5032f6b836144b"
+    },
+    {
+      "path": ".cache/lux-e-fma-gcc-final/samples-fast.json",
+      "bytes": 613712,
+      "sha256": "f0501883ba716458919630c0126d861084b37181664e6668b155adaeade59d94"
+    },
+    {
+      "path": ".cache/lux-e-fma-gcc-final/samples-off.json",
+      "bytes": 613711,
+      "sha256": "5e057c5858b2dbccce0a45f0adc3f9eb07230e1f5bf6a3d3c9a382db532792a3"
+    },
+    {
+      "path": ".cache/lux-e-fma-gcc-final/samples-on.json",
+      "bytes": 613712,
+      "sha256": "f0501883ba716458919630c0126d861084b37181664e6668b155adaeade59d94"
+    },
+    {
+      "path": ".cache/lux-e-fma-gcc-final/three.tgz",
+      "bytes": 4648491,
+      "sha256": "61eeff9d7616005c9a481c796f52287d81fbbbc0d55eaca5565322924252c1aa"
+    },
+    {
+      "path": ".cache/lux-e-fma-clang-final/default-math.json",
+      "bytes": 249200,
+      "sha256": "eb040a4e1307f2bcfb3dd9bff8066ed9cb822d645613f384be2bfacbfc5a2b23"
+    },
+    {
+      "path": ".cache/lux-e-fma-clang-final/default-samples.json",
+      "bytes": 613711,
+      "sha256": "5e057c5858b2dbccce0a45f0adc3f9eb07230e1f5bf6a3d3c9a382db532792a3"
+    },
+    {
+      "path": ".cache/lux-e-fma-clang-final/ieee754.cc",
+      "bytes": 103178,
+      "sha256": "badd30a2643ed785dcfbbce42f95c2522ccea3605cd39e2933467688aae1de14"
+    },
+    {
+      "path": ".cache/lux-e-fma-clang-final/original-sampler.mjs",
+      "bytes": 94982,
+      "sha256": "5fb1b1c8d892d31e4ca82ea40e9d8e6731c14135d83171e777bb23e442ab0246"
+    },
+    {
+      "path": ".cache/lux-e-fma-clang-final/original-source.tar",
+      "bytes": 3041280,
+      "sha256": "416479ffe8bf4c2fae0f4f5de50b6aadfeda410da2a08c5d2f3b63e2cf5f54b5"
+    },
+    {
+      "path": ".cache/lux-e-fma-clang-final/reading.json",
+      "bytes": 6501,
+      "sha256": "6ac547f9854d652d46497f345c10b13cddb1548bbae4717719b5e06f95c1f09f"
+    },
+    {
+      "path": ".cache/lux-e-fma-clang-final/reference/calls-fast.json",
+      "bytes": 155052,
+      "sha256": "ef3b20658fc3179e5daf5b284645120dd1f4caeb9f4ab7f5b797792f9a3d437d"
+    },
+    {
+      "path": ".cache/lux-e-fma-clang-final/reference/calls-off.json",
+      "bytes": 155052,
+      "sha256": "29b2a4d6f684dae8f996368d731c5156ac552516f30a46b3607a5c92746dce08"
+    },
+    {
+      "path": ".cache/lux-e-fma-clang-final/reference/calls-on.json",
+      "bytes": 155052,
+      "sha256": "ef3b20658fc3179e5daf5b284645120dd1f4caeb9f4ab7f5b797792f9a3d437d"
+    },
+    {
+      "path": ".cache/lux-e-fma-clang-final/reference/compile-fast.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/lux-e-fma-clang-final/reference/compile-off.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/lux-e-fma-clang-final/reference/compile-on.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/lux-e-fma-clang-final/reference/reference.json",
+      "bytes": 3308,
+      "sha256": "7bb562cf1434207404217eee5cddb37df551bf905fa743d650df3b36856d335d"
+    },
+    {
+      "path": ".cache/lux-e-fma-clang-final/reference/trig-fast.so",
+      "bytes": 19992,
+      "sha256": "dd491f9b8a44a48157997f100027009d42c25c3264548fa86dffe9723721dcd5"
+    },
+    {
+      "path": ".cache/lux-e-fma-clang-final/reference/trig-off.so",
+      "bytes": 19992,
+      "sha256": "f613a4abfc5f6d522e6a057407da8e3c44080eb61d4525d9db7dcf2b7041e46e"
+    },
+    {
+      "path": ".cache/lux-e-fma-clang-final/reference/trig-on.so",
+      "bytes": 19992,
+      "sha256": "4a81b101e6c77b48ddad12ab785d0dac0f4a24e6388a49e66ea058fd4e1b79e4"
+    },
+    {
+      "path": ".cache/lux-e-fma-clang-final/reference/trig-reference.cc",
+      "bytes": 29482,
+      "sha256": "305366ab717ffbb1bb28376c270d1d1ebe7efb0549394400cc5032f6b836144b"
+    },
+    {
+      "path": ".cache/lux-e-fma-clang-final/samples-fast.json",
+      "bytes": 613712,
+      "sha256": "f0501883ba716458919630c0126d861084b37181664e6668b155adaeade59d94"
+    },
+    {
+      "path": ".cache/lux-e-fma-clang-final/samples-off.json",
+      "bytes": 613711,
+      "sha256": "5e057c5858b2dbccce0a45f0adc3f9eb07230e1f5bf6a3d3c9a382db532792a3"
+    },
+    {
+      "path": ".cache/lux-e-fma-clang-final/samples-on.json",
+      "bytes": 613712,
+      "sha256": "f0501883ba716458919630c0126d861084b37181664e6668b155adaeade59d94"
+    },
+    {
+      "path": ".cache/lux-e-fma-clang-final/three.tgz",
+      "bytes": 4648491,
+      "sha256": "61eeff9d7616005c9a481c796f52287d81fbbbc0d55eaca5565322924252c1aa"
+    }
+  ]
+}

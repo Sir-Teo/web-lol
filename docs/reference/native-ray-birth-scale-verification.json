@@ -1,0 +1,989 @@
+{
+  "format": 1,
+  "parentCommit": "541d7bddbda752f997a473f330568ffd9499a88b",
+  "scope": "Preserve independent primary ray birth/scale components. Remove its local uniform-fill shortcut; retain source flag and all other primitive/family policies. Add bounded native birth preparation witness and independent source-size/GPU shape checks.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "6b1b44eba5f7af2090092c7721b52f934a4df85860672c36d6905c1006ee5175",
+    "offlinePack": {
+      "id": "b193606918bc5c0819dd81d79bf976e5aa614eb4d3e6f4ea95dec7a786b80b6a",
+      "files": 1200,
+      "bytes": 538085046
+    }
+  },
+  "verification": {
+    "newNativeFunctions": 1,
+    "newNativeSelectedInstructions": 89,
+    "newNativeGuardsPerMode": 12,
+    "newUnitCases": 1,
+    "focusedCases": 59,
+    "fullUnitRun": {
+      "passed": 3096,
+      "failed": 2,
+      "total": 3098,
+      "files": 391
+    },
+    "remainingBaselineFailures": 2,
+    "originalWaveDeadlinePassed": true,
+    "nodeQaPassed": 6,
+    "successfulBrowserCases": 10,
+    "rayShapePixelCases": 84,
+    "nonemptyRayShapeCases": 84,
+    "rayShapeChangedBytes": 0,
+    "oldUniformShapeChangedBytes": 312021,
+    "oldUniformShapeDetectedEveryCase": true,
+    "rayPacketPixelCases": 84,
+    "quadPacketPixelCases": 15,
+    "defaultPlacementPixelCases": 72,
+    "allPixelChannelBytesExact": true,
+    "independentSamplerCalls": 2106,
+    "quadStatesUnchanged": 13280,
+    "raySizeSamples": 90,
+    "changedRaySizes": 90,
+    "rayFramesAndOtherFieldsExact": true,
+    "sourceColorsExact": true,
+    "independentUnormComponentCases": 101030,
+    "doubleOnlyByteDifferences": 128,
+    "unchangedRuntimeExports": 14,
+    "runtimeExportBytesAndMtimesUnchanged": true,
+    "savedFutureTicks": 130,
+    "gpuMipReadbacks": 93,
+    "productionRecordings": 32,
+    "freshProductionScreenshots": 8,
+    "privatePreloads": 0,
+    "publicAssetsChanged": false,
+    "nativeExecuted": false,
+    "nativeShaderExecuted": false
+  },
+  "independentReference": {
+    "referenceCommit": "c0f75042056ee6d919c93b371e9741e1a5e08fa6",
+    "archiveSha256": "6987d6518042877f7edb1998296b165fbe09e0d273bfb0ef5e423be0b17b9a83",
+    "beforeModuleSha256": "fe0284ba669e45c0743dbe3c2dcdb0b17a602ff3e846e295f96140b719a1d51e",
+    "afterModuleSha256": "5f1ae37f51a6e7d8a405e46b8ce713057798eda6465ae3d44057f2e3344350bb",
+    "sourceSha256": "3dfa23c0e30d541c54a1b1a0c9dae5703cace83a1b0d40631462c6296e97d7b6",
+    "halfSourceSha256": "291a7af941b604de3feb541136cfb62215c16b4d811ba8d3131568cf7180ac3b",
+    "surfaceSourceSha256": "6bc159edf82473696ad2ca0477483d15780f9561520862940c6414a9f158b9e4",
+    "primaryRendererSourceSha256": "0617393b4538fa3629fe3e4f7a54bfbd765ed8ef27e4944718b8a72ff984dc27",
+    "unormSourceSha256": "d9606ea6a3afb8df59e76c7968739ccb39c0ade6e021dd9d23b4780c74ac67de",
+    "rayWitnessSha256": "ab9b825f1108ed1e44124ee5f9821753eb73352cbf8738a8eebbb884c892b4ec",
+    "vertexFormatWitnessSha256": "2c45b6fb42a5eea59daa453e96af9f5d49a2afa38a1a84dafaf3be2b8919e1f6",
+    "nativeWitnessSha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6",
+    "pythonReferenceSha256": "14ed405958469ee430a8c6f998e557044230c50a433b9b664b458cbee622f33b",
+    "raySizeWitnessSha256": "98eefa0524f2ef726b5a789f54eaab04d97007cf5a914b8c6e7424b9cd57f5f1",
+    "raySizeReferenceSha256": "2887144b0ddd97b940fcd9d7a5fbc8073053557e75a036d23ab48132e5e40d3c",
+    "samplerCalls": 2106,
+    "quadParticles": 13280,
+    "rayParticles": 90,
+    "changedCells": 84,
+    "changedLookups": 13244,
+    "otherFieldsExact": true,
+    "changedRayPacketColors": 81,
+    "changedRayLookups": 81,
+    "changedRaySizes": 90,
+    "raySizesMatchSourceComponents": true,
+    "rayFramesExact": true,
+    "sourceColorsExact": true,
+    "quadColorsExact": true,
+    "independentPacketReferenceExact": true,
+    "independentUnormComponentCases": 101030,
+    "doubleOnlyByteDifferences": 128,
+    "limits": [
+      "Native formula applied to existing local age and indexed random inputs; native RNG/clock producers and live FPCR remain unobserved.",
+      "Half nearest-even is an explicit local policy. Ray colors follow the distinct clamped float32 byte path and the observed normalized vertex format; no native game or Metal shader execution.",
+      "Ray width/length/near displacement retain separate source components. Size curves use the existing local linear phase policy; native curve arithmetic, optional modifiers and shared factors remain unobserved."
+    ]
+  },
+  "nativeSourceRay": {
+    "system": "MasterYi_Crit_tar",
+    "emitterIndex": 1,
+    "emitterName": "flash",
+    "primitive": "VfxPrimitiveRay",
+    "isUniformScale": true,
+    "birthScale": [
+      80,
+      180,
+      0
+    ],
+    "scaleTimes": [
+      0.0,
+      0.20000000298023224,
+      1.0
+    ],
+    "scaleValues": [
+      [
+        1.0,
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0,
+        0.0
+      ],
+      [
+        2.5,
+        3.0,
+        0.0
+      ]
+    ]
+  },
+  "pixelReferences": [
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/particle-surface-placement-c8003-xels-with-authored-textures/placement-pixels.json",
+      "bytes": 14657,
+      "sha256": "29bcc2b955fa8676987b4f4c60d92ce8cbed9b31857d96941605dacdae4c7471"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/ray-packet-pixels.json",
+      "bytes": 32833,
+      "sha256": "10e33d5b8e4f559cf993e966c960137e65f845cad0530d67a5cfa4672bbf966c"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/primary-hit-half-packets-p-19838--with-authored-GPU-textures/quad-packet-pixels.json",
+      "bytes": 6274,
+      "sha256": "24abbd0736c0abf0c37a65ee9a61650f1111a8554cdf10238f04271e231dcc07"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/primary-hit-ray-shape-prim-129d8-s-against-a-frozen-renderer/ray-shape-pixels.json",
+      "bytes": 28375,
+      "sha256": "bbc56909285beb2f1ee38df439f32b224c1da5618bded8bde18a5624f2d5d432"
+    }
+  ],
+  "limits": [
+    "Bounded static native bytes and frozen source data, not native execution, actual Yi dispatch or visual parity.",
+    "Optional external vector modifiers and shared factors remain unresolved; the existing local adapter assumes their identity/unit behavior.",
+    "Native curve interpolation, RNG, clock production, transform inheritance and FPCR are not established by this component trace.",
+    "Do not generalize this ray size path to camera quads, meshes, trails or other families.",
+    "Original historical source and LLVM archives remain unchanged.",
+    "Native formula applied to existing local age and indexed random inputs; native RNG/clock producers and live FPCR remain unobserved.",
+    "Half nearest-even is an explicit local policy. Ray colors follow the distinct clamped float32 byte path and the observed normalized vertex format; no native game or Metal shader execution.",
+    "Ray width/length/near displacement retain separate source components. Size curves use the existing local linear phase policy; native curve arithmetic, optional modifiers and shared factors remain unobserved.",
+    "Only this private primary-ray size policy changes. Source RNG, emitter clocks, rotation, movement, frame, lookup, byte colors, texture transports and other families retain their earlier policies.",
+    "The shape reference evaluates raw source size curves under the existing local linear phase policy and renders them with the frozen renderer. It tests the component correction, not native orientation or full native pixel parity.",
+    "Native source/byte replay adds 12 fresh guards per Python mode. The earlier 133 guard cases remain separate accepted evidence; they were not all rerun for this application correction.",
+    "No new timing, full-match FPS or native execution claim.",
+    "The historical Leona archive closure and default-platform Lux golden remain the same two full-suite failures. No assertion, golden or wave deadline was weakened."
+  ],
+  "diagnostics": [
+    "The original failing regression receives [80,80,80] at birth instead of source [80,180,0]. The correction bypasses the final uniform-fill copy for the ray while retaining the serialized flag.",
+    "The normalized-byte color GPU oracle clones geometry to isolate packet precision. A separate shape oracle was therefore added: its reference receives independently evaluated XYZ sizes through a frozen renderer, and every case detects the old uniform-fill geometry."
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/MASTER-YI-PRIMARY-HITS.md",
+      "bytes": 13525,
+      "sha256": "5e97a23165fa45fbea30c85e54f1593fff7bc87627c07c885add06906a2dc2a0"
+    },
+    {
+      "path": "docs/NATIVE-RAY-BIRTH-SCALE.md",
+      "bytes": 5024,
+      "sha256": "9f1ae8aceca9130238d9fcf371411c09160710fc99b161ee71b7d57b4ca225e2"
+    },
+    {
+      "path": "docs/NATIVE-RAY-DRAW-DATA.md",
+      "bytes": 3384,
+      "sha256": "b1a7e56bfe81197779159f9b9933439d864668d03d6de3dc9f148160ba08cad3"
+    },
+    {
+      "path": "docs/PRIMARY-HIT-RAY-PACKETS.md",
+      "bytes": 4834,
+      "sha256": "b221c20d0f294a3dc5e401c732d25fa56cbcc937284373d79c383eac2bc7085e"
+    },
+    {
+      "path": "docs/reference/native-ray-birth-scale.json",
+      "bytes": 30390,
+      "sha256": "98eefa0524f2ef726b5a789f54eaab04d97007cf5a914b8c6e7424b9cd57f5f1"
+    },
+    {
+      "path": "e2e/primary-hit-ray-shape.spec.ts",
+      "bytes": 9254,
+      "sha256": "e07f558b98bc2a0fbe34dc7e28e408b1280250360593b2716d024344efdb4830"
+    },
+    {
+      "path": "src/render/masteryi-primary-hit-particles.ts",
+      "bytes": 5585,
+      "sha256": "3dfa23c0e30d541c54a1b1a0c9dae5703cace83a1b0d40631462c6296e97d7b6"
+    },
+    {
+      "path": "tests/masteryi-primary-hits.test.ts",
+      "bytes": 13829,
+      "sha256": "d4c13a8dbdf6800043be5129c1d6d70fdf5740f276eb4078489094c6229ac12d"
+    },
+    {
+      "path": "tools/assets/native_ray_birth_scale.py",
+      "bytes": 9904,
+      "sha256": "ebb2355ea0340c3b60a78fbc639d93684a9647c93a95bdb276cb26494486d06c"
+    },
+    {
+      "path": "tools/assets/test-native-ray-birth-scale.py",
+      "bytes": 4105,
+      "sha256": "90187777c7f8fb7321a41aa7416e5af521f8d5580e10d5d45d15b2fb77c89165"
+    },
+    {
+      "path": "tools/qa/lib/primary-hit-packet-reference.py",
+      "bytes": 2243,
+      "sha256": "14ed405958469ee430a8c6f998e557044230c50a433b9b664b458cbee622f33b"
+    },
+    {
+      "path": "tools/qa/lib/primary_hit_ray_size_reference.py",
+      "bytes": 1615,
+      "sha256": "2887144b0ddd97b940fcd9d7a5fbc8073053557e75a036d23ab48132e5e40d3c"
+    },
+    {
+      "path": "tools/qa/verify-primary-hit-packets.mjs",
+      "bytes": 10031,
+      "sha256": "ab2859f7efe1132340802a71cfd0d06691ab44c35790feb79b8197b20ccd8b5d"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "docs/reference/native-ray-draw-data.json",
+      "bytes": 22393,
+      "sha256": "62af9657abc0ab9697f8098a91aaf3462033b099223e0390453556b4cf226da4"
+    },
+    {
+      "path": "docs/reference/native-ray-packet.json",
+      "bytes": 16794,
+      "sha256": "ab9b825f1108ed1e44124ee5f9821753eb73352cbf8738a8eebbb884c892b4ec"
+    },
+    {
+      "path": "docs/reference/native-particle-vertex-format.json",
+      "bytes": 23773,
+      "sha256": "2c45b6fb42a5eea59daa453e96af9f5d49a2afa38a1a84dafaf3be2b8919e1f6"
+    },
+    {
+      "path": "docs/reference/native-atlas-runtime.json",
+      "bytes": 42714,
+      "sha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6"
+    },
+    {
+      "path": "docs/reference/native-emitter-scalar-defaults.json",
+      "bytes": 18429,
+      "sha256": "a6c381afaed4c5a680276794d8fa613d988d710eca0683ed8ee91cde494de6cf"
+    },
+    {
+      "path": "docs/reference/native-constructor-witness.json",
+      "bytes": 19538,
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-particles.json",
+      "bytes": 82989,
+      "sha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-profile-reading.json",
+      "bytes": 137463,
+      "sha256": "93a4f4500e3ee3fd5e8881cfaf08f823cae40750de16afdf2ca235f4aad1142a"
+    },
+    {
+      "path": "src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    },
+    {
+      "path": "src/render/source-particle-surfaces.ts",
+      "bytes": 23164,
+      "sha256": "6bc159edf82473696ad2ca0477483d15780f9561520862940c6414a9f158b9e4"
+    },
+    {
+      "path": "src/render/ray-quad.ts",
+      "bytes": 2245,
+      "sha256": "78e764ac34e34b069c1fa29c4602c41bd8e8cefc4b8f77b7ec41806ced942543"
+    },
+    {
+      "path": "src/render/particle-unorm8.ts",
+      "bytes": 522,
+      "sha256": "d9606ea6a3afb8df59e76c7968739ccb39c0ade6e021dd9d23b4780c74ac67de"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 30464,
+      "sha256": "68425c70629572add4d8bfb83d3b71e2a4b276c476bd5f1880083659aed7043b"
+    },
+    {
+      "path": "tools/qa/lib/prepare-surface-placement-reference.mjs",
+      "bytes": 2343,
+      "sha256": "265ca141ab2cd65881fa64bc9c19206d562939ef582754f8517edc84ffe04265"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    },
+    {
+      "path": "docs/reference/ray-placement-scratch-verification.json",
+      "bytes": 32161,
+      "sha256": "d15c9bcd65e293f37f2fc67748fd5604f6a53ec8dd751690ac595b562c528489"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/docs/MASTER-YI-PRIMARY-HITS.md",
+      "bytes": 13525,
+      "sha256": "5e97a23165fa45fbea30c85e54f1593fff7bc87627c07c885add06906a2dc2a0"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/docs/NATIVE-RAY-BIRTH-SCALE.md",
+      "bytes": 5024,
+      "sha256": "9f1ae8aceca9130238d9fcf371411c09160710fc99b161ee71b7d57b4ca225e2"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/docs/NATIVE-RAY-DRAW-DATA.md",
+      "bytes": 3384,
+      "sha256": "b1a7e56bfe81197779159f9b9933439d864668d03d6de3dc9f148160ba08cad3"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/docs/PRIMARY-HIT-RAY-PACKETS.md",
+      "bytes": 4834,
+      "sha256": "b221c20d0f294a3dc5e401c732d25fa56cbcc937284373d79c383eac2bc7085e"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/docs/reference/masteryi/primary-hit-particles.json",
+      "bytes": 82989,
+      "sha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/docs/reference/masteryi/primary-hit-profile-reading.json",
+      "bytes": 137463,
+      "sha256": "93a4f4500e3ee3fd5e8881cfaf08f823cae40750de16afdf2ca235f4aad1142a"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/docs/reference/native-atlas-runtime.json",
+      "bytes": 42714,
+      "sha256": "1755709dceba19f907e1f754ba84ecab00206905751d6b9e894cf7e84a7c46d6"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/docs/reference/native-constructor-witness.json",
+      "bytes": 19538,
+      "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/docs/reference/native-emitter-scalar-defaults.json",
+      "bytes": 18429,
+      "sha256": "a6c381afaed4c5a680276794d8fa613d988d710eca0683ed8ee91cde494de6cf"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/docs/reference/native-particle-vertex-format.json",
+      "bytes": 23773,
+      "sha256": "2c45b6fb42a5eea59daa453e96af9f5d49a2afa38a1a84dafaf3be2b8919e1f6"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/docs/reference/native-ray-birth-scale.json",
+      "bytes": 30390,
+      "sha256": "98eefa0524f2ef726b5a789f54eaab04d97007cf5a914b8c6e7424b9cd57f5f1"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/docs/reference/native-ray-draw-data.json",
+      "bytes": 22393,
+      "sha256": "62af9657abc0ab9697f8098a91aaf3462033b099223e0390453556b4cf226da4"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/docs/reference/native-ray-packet.json",
+      "bytes": 16794,
+      "sha256": "ab9b825f1108ed1e44124ee5f9821753eb73352cbf8738a8eebbb884c892b4ec"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/docs/reference/ray-placement-scratch-verification.json",
+      "bytes": 32161,
+      "sha256": "d15c9bcd65e293f37f2fc67748fd5604f6a53ec8dd751690ac595b562c528489"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/e2e/primary-hit-ray-shape.spec.ts",
+      "bytes": 9254,
+      "sha256": "e07f558b98bc2a0fbe34dc7e28e408b1280250360593b2716d024344efdb4830"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/src/render/masteryi-primary-hit-particles.ts",
+      "bytes": 5585,
+      "sha256": "3dfa23c0e30d541c54a1b1a0c9dae5703cace83a1b0d40631462c6296e97d7b6"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/src/render/particle-unorm8.ts",
+      "bytes": 522,
+      "sha256": "d9606ea6a3afb8df59e76c7968739ccb39c0ade6e021dd9d23b4780c74ac67de"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/src/render/ray-quad.ts",
+      "bytes": 2245,
+      "sha256": "78e764ac34e34b069c1fa29c4602c41bd8e8cefc4b8f77b7ec41806ced942543"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/src/render/source-particle-surfaces.ts",
+      "bytes": 23164,
+      "sha256": "6bc159edf82473696ad2ca0477483d15780f9561520862940c6414a9f158b9e4"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/tests/masteryi-primary-hits.test.ts",
+      "bytes": 13829,
+      "sha256": "d4c13a8dbdf6800043be5129c1d6d70fdf5740f276eb4078489094c6229ac12d"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/tools/assets/native_ray_birth_scale.py",
+      "bytes": 9904,
+      "sha256": "ebb2355ea0340c3b60a78fbc639d93684a9647c93a95bdb276cb26494486d06c"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/tools/assets/test-native-ray-birth-scale.py",
+      "bytes": 4105,
+      "sha256": "90187777c7f8fb7321a41aa7416e5af521f8d5580e10d5d45d15b2fb77c89165"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/tools/qa/lib/prepare-surface-placement-reference.mjs",
+      "bytes": 2343,
+      "sha256": "265ca141ab2cd65881fa64bc9c19206d562939ef582754f8517edc84ffe04265"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/tools/qa/lib/primary-hit-packet-reference.py",
+      "bytes": 2243,
+      "sha256": "14ed405958469ee430a8c6f998e557044230c50a433b9b664b458cbee622f33b"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/tools/qa/lib/primary_hit_ray_size_reference.py",
+      "bytes": 1615,
+      "sha256": "2887144b0ddd97b940fcd9d7a5fbc8073053557e75a036d23ab48132e5e40d3c"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/tools/qa/production-subpath.mjs",
+      "bytes": 30464,
+      "sha256": "68425c70629572add4d8bfb83d3b71e2a4b276c476bd5f1880083659aed7043b"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/final-source/tools/qa/verify-primary-hit-packets.mjs",
+      "bytes": 10031,
+      "sha256": "ab2859f7efe1132340802a71cfd0d06691ab44c35790feb79b8197b20ccd8b5d"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/native-ray-birth-scale/app-identity.json",
+      "bytes": 103,
+      "sha256": "5299d2f6631823221a1b9301bd76093a7f48debd9e3c1edea29781e2b16ee5d2"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/archive-checkpoint.py",
+      "bytes": 11079,
+      "sha256": "ff6ba49f8676824a0a1e5c49019cb7df82e03cd69f0b9cc22526e0fdfe11088f"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/masteryi-passive-sword-ord-c4050-pixels-across-camera-angles/passive-sword-gpu-order.json",
+      "bytes": 556,
+      "sha256": "de332e3b109a8efbb9a9dd79e43ab9f2f725ecf2cc5a84e053e5ff8d81c8282a"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/masteryi-primary-hits-all--0c76f-U-mips-and-real-Save-reload/primary-critical-hit.png",
+      "bytes": 794883,
+      "sha256": "ae170242450db83124a4fd98b9488eaa1d5671304a06e6c7f0b85c680b49daf4"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/masteryi-primary-hits-all--0c76f-U-mips-and-real-Save-reload/primary-hit-gpu-save.json",
+      "bytes": 131244,
+      "sha256": "647cb26a954589af49be31b0fc1671d3884459382d51716c54491f556c818c16"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/masteryi-primary-hits-each-0e129-its-actual-runtime-material/all-emitter-gpu-pixels.json",
+      "bytes": 1175,
+      "sha256": "7de0490543755903958984345beb5dcb9bdda9c1d3ec8f5b41f5035a07c4272d"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/masteryi-primary-hits-know-90612-t-stays-absent-after-reveal/visibility-corpse-terminal.json",
+      "bytes": 148,
+      "sha256": "4bebc0211c68e04d61d2329fff436b2142698c31a04fb3367643afcf11286e9f"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/masteryi-primary-hits-ordi-2ff62-s-only-the-failed-transport/selective-retry.json",
+      "bytes": 1458,
+      "sha256": "d666533004c6b8f2fffaebd4ac09a32c0a567a791785336e40cbb5c13eb217ce"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/masteryi-sword-instancing--e809a--reducing-actual-draw-calls/instance-pixel-comparison.json",
+      "bytes": 12315,
+      "sha256": "109257cf4e66f108574ca8340e83a0756596739a0ec6ca89d96a1985be1edf80"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/particle-surface-placement-c8003-xels-with-authored-textures/attachments/placement-pixels-json-74033afa763d8feaef29ee7c7e6fec582d630269.json",
+      "bytes": 14657,
+      "sha256": "29bcc2b955fa8676987b4f4c60d92ce8cbed9b31857d96941605dacdae4c7471"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/particle-surface-placement-c8003-xels-with-authored-textures/placement-pixels.json",
+      "bytes": 14657,
+      "sha256": "29bcc2b955fa8676987b4f4c60d92ce8cbed9b31857d96941605dacdae4c7471"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/particle-surface-placement-c8003-xels-with-authored-textures/reference/baseline.mjs",
+      "bytes": 134208,
+      "sha256": "91a34d965075fe34beb868788a5c6a17b7a2dc583f3548a4cb3b20355ab50061"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/particle-surface-placement-c8003-xels-with-authored-textures/reference/reference.json",
+      "bytes": 480,
+      "sha256": "7b7fb1a86eb7fb8cb1baa4cdebfc4831fd9d402c110443380445e2eb92074651"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/particle-surface-placement-c8003-xels-with-authored-textures/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "b12071ef42645e6ee11c816a1a45841f86af5640ade069b001e9447cf0b1cbcb"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/primary-hit-half-packets-p-19838--with-authored-GPU-textures/quad-packet-pixels.json",
+      "bytes": 6274,
+      "sha256": "24abbd0736c0abf0c37a65ee9a61650f1111a8554cdf10238f04271e231dcc07"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/packet-inputs.json",
+      "bytes": 668,
+      "sha256": "6f8ee6667329abe46a91a2598a9ffbd85ff810c061dc6401bc4786b462220e3d"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/packet-reference.json",
+      "bytes": 600,
+      "sha256": "2deeafb436bfd38d3bcf3eb32840bb6948c2044f2bd5135df8b7d12631e18f46"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/ray-packet-pixels.json",
+      "bytes": 32833,
+      "sha256": "10e33d5b8e4f559cf993e966c960137e65f845cad0530d67a5cfa4672bbf966c"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/baseline.mjs",
+      "bytes": 134208,
+      "sha256": "a6aeaea17f2e47cf8257f3384289a6e89e58dd0862720d69fb505578e9fadf5f"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/reference.json",
+      "bytes": 480,
+      "sha256": "1ced3d46d6c90323146719680acdfe785f21f263384ecadda33487b2fc8d11e1"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/primary-hit-ray-packets-ra-e5a5c-okup-coordinates-on-the-GPU/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "b12071ef42645e6ee11c816a1a45841f86af5640ade069b001e9447cf0b1cbcb"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/primary-hit-ray-shape-prim-129d8-s-against-a-frozen-renderer/ray-shape-pixels.json",
+      "bytes": 28375,
+      "sha256": "bbc56909285beb2f1ee38df439f32b224c1da5618bded8bde18a5624f2d5d432"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/primary-hit-ray-shape-prim-129d8-s-against-a-frozen-renderer/reference/baseline.mjs",
+      "bytes": 137447,
+      "sha256": "b8246ce7870df9822b6bac8605c175227fc886795998d73cac629dbfb5866f7c"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/primary-hit-ray-shape-prim-129d8-s-against-a-frozen-renderer/reference/reference.json",
+      "bytes": 480,
+      "sha256": "1ca0ca8d8581fa3dca07d157229eacfa2944100ce2721215bc5ea01cf386c21e"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/primary-hit-ray-shape-prim-129d8-s-against-a-frozen-renderer/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "86cd768aa884deff961997917a369a794b71089aa5c6f49eaa4d90b06f87ecbd"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/primary-hit-ray-shape-prim-129d8-s-against-a-frozen-renderer/size-inputs.json",
+      "bytes": 207,
+      "sha256": "597a76b4ab9ae5aafef8308675f4da22dc2f3443bf92d2f9fb2e18ae43785568"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final/primary-hit-ray-shape-prim-129d8-s-against-a-frozen-renderer/size-reference.json",
+      "bytes": 252,
+      "sha256": "deae5d885545804c2ee3cf1c96284b1d3a5967b863d36c25c5a5f0bf0f020dc5"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-final.log",
+      "bytes": 3839,
+      "sha256": "bd63e2daca9a814b91ee49beb5801cf3513bd532d53b9118744de85a07702b1c"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-runner.log",
+      "bytes": 59,
+      "sha256": "0dc5dc3fe0e64ae5c940e039e8a46c4cdf67d0cf785568b65c34056fd060e7a2"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-shape-probe/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-shape-probe/primary-hit-ray-shape-prim-129d8-s-against-a-frozen-renderer/ray-shape-pixels.json",
+      "bytes": 28375,
+      "sha256": "bbc56909285beb2f1ee38df439f32b224c1da5618bded8bde18a5624f2d5d432"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-shape-probe/primary-hit-ray-shape-prim-129d8-s-against-a-frozen-renderer/reference/baseline.mjs",
+      "bytes": 137579,
+      "sha256": "21273c723b955d2704113d74a02c6995b43c8f7521a1ae926a7e6919f4667afa"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-shape-probe/primary-hit-ray-shape-prim-129d8-s-against-a-frozen-renderer/reference/reference.json",
+      "bytes": 486,
+      "sha256": "d2554e7d29a904524b7b9ce22e6d60d0e7c0d7fcded60967fdfba94cb684e42a"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-shape-probe/primary-hit-ray-shape-prim-129d8-s-against-a-frozen-renderer/reference/source.tar",
+      "bytes": 6533120,
+      "sha256": "86cd768aa884deff961997917a369a794b71089aa5c6f49eaa4d90b06f87ecbd"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-shape-probe/primary-hit-ray-shape-prim-129d8-s-against-a-frozen-renderer/size-inputs.json",
+      "bytes": 207,
+      "sha256": "597a76b4ab9ae5aafef8308675f4da22dc2f3443bf92d2f9fb2e18ae43785568"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-shape-probe/primary-hit-ray-shape-prim-129d8-s-against-a-frozen-renderer/size-reference.json",
+      "bytes": 252,
+      "sha256": "deae5d885545804c2ee3cf1c96284b1d3a5967b863d36c25c5a5f0bf0f020dc5"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/browser-shape-probe.log",
+      "bytes": 549,
+      "sha256": "1793bf583a73d2e5fce8f1b7968587bcc694b22e66fc49f1e936ff31fe7d9908"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/build.log",
+      "bytes": 7682,
+      "sha256": "b1db71b0577b3aa870118b18eb326f0fe2fa061252bb0b4c27854a4e37feebd3"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/built-identity.json",
+      "bytes": 256,
+      "sha256": "f0477fdbae479b9587d5f72d4301a9ea94863374d414d4ab4bd0610b34831db9"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/discovery.json",
+      "bytes": 7194,
+      "sha256": "625f674edce8fd0eccd2075dbc80645c54a539b2e93ced6ac0e8905a65f119b2"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/draft-reading.json",
+      "bytes": 30390,
+      "sha256": "98eefa0524f2ef726b5a789f54eaab04d97007cf5a914b8c6e7424b9cd57f5f1"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/draft.log",
+      "bytes": 364,
+      "sha256": "944261ac55cf858be4303702ca585e86600b081fa60a3e56a9f2c5d0e25bd772"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/export-check.json",
+      "bytes": 3157,
+      "sha256": "7264d46527816b5f421a0593505c7ccbc4b68474cfac4527aea7f5fb23cde263"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/focused.log",
+      "bytes": 380,
+      "sha256": "8e18540aa0676dbbd6bf14c87b1340d2f0f0e5a1591b4ecf565145f5bfcdac50"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/full-tests.log",
+      "bytes": 4579,
+      "sha256": "eb3a0655642c18b16d4325c8549595c0f54f15fb5cf76d2f5fa1850a06a52eb4"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/full-unit-summary.json",
+      "bytes": 104,
+      "sha256": "81eb721d3b3908e8475ae16fe494938bdc7c317e46d0b60d7d52fafccc5016c6"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/guards-normal.log",
+      "bytes": 112,
+      "sha256": "44becb0858ff744ed9a5c54f705d87efc3c56f26eea42f6d8313135f050d554d"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/guards-normal.pid",
+      "bytes": 7,
+      "sha256": "14a907aa673d4eb5cc972769a1309543d8b24591a11676bfcbdc7da3352375f9"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/native-disassembly/0x1018d9178.txt",
+      "bytes": 20007,
+      "sha256": "e579b4d98e9083516d2b7f7d1b72c98ac681750b720f7a37a1613f348742de06"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/native-disassembly/0x1018f6cac.txt",
+      "bytes": 85345,
+      "sha256": "b76102c3927dde99da4ebe7bd495aab96e55c9432008a0f94f8efef930e6497f"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/native-disassembly/0x1018f9404.txt",
+      "bytes": 34016,
+      "sha256": "8c093e1f19d4f69b003302b550b3da05441987ff42aebe90fe2b6a52aeee8e66"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/native-disassembly/0x1018fbd24.txt",
+      "bytes": 27207,
+      "sha256": "880f8c50275eb13426533b02d657f6926e1a812f5242e5e00f4270529757e3bc"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/native-validation.json",
+      "bytes": 1352,
+      "sha256": "ceeabf73ca3c7f39f374dfe59955d45b4a201617e3bfa53ae0c7369de50bd74a"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/native_ray_birth_scale-normal.log",
+      "bytes": 364,
+      "sha256": "944261ac55cf858be4303702ca585e86600b081fa60a3e56a9f2c5d0e25bd772"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/native_ray_birth_scale-optimized.log",
+      "bytes": 364,
+      "sha256": "944261ac55cf858be4303702ca585e86600b081fa60a3e56a9f2c5d0e25bd772"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/native_ray_birth_scale_draft.py",
+      "bytes": 9910,
+      "sha256": "0d2777fc2a3dc7967f5746895249dc76692f7c46575e83b19a8376f50bcdb5fd"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/node-qa.log",
+      "bytes": 658,
+      "sha256": "8762149626f81298fc08b9114f1e78bb58702b1a970a09b41a2d035387992374"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/observe.log",
+      "bytes": 364,
+      "sha256": "944261ac55cf858be4303702ca585e86600b081fa60a3e56a9f2c5d0e25bd772"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/original-regression.log",
+      "bytes": 1162,
+      "sha256": "ffc1e790d020afeae42819f204382546c4b81268c239ccc567878a9bd78be085"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/packet-final/after.mjs",
+      "bytes": 99352,
+      "sha256": "5f1ae37f51a6e7d8a405e46b8ce713057798eda6465ae3d44057f2e3344350bb"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/packet-final/after.ts",
+      "bytes": 365,
+      "sha256": "7520c60f60761bfc5e5f1562dc2a1ac42fdfd7e44ccf8d98d97bb6b54f6b120f"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/packet-final/before.mjs",
+      "bytes": 98123,
+      "sha256": "fe0284ba669e45c0743dbe3c2dcdb0b17a602ff3e846e295f96140b719a1d51e"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/packet-final/before.ts",
+      "bytes": 443,
+      "sha256": "73a4849a9570e86c7ff05377e2383e8dfc4f4c9e7f19030b80107b662fef5e5f"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/packet-final/component-inputs.json",
+      "bytes": 1946501,
+      "sha256": "edc74bd4ee48de3f97f83d2ad25b0ae122d685b0ed67d97aaa24b7995c711fb2"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/packet-final/component-reference.json",
+      "bytes": 1919981,
+      "sha256": "a6e7b86a0fee7f1cbdebe09a177761291efdefc31b7eb6df663dc588d1b0d56e"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/packet-final/reading.json",
+      "bytes": 2413,
+      "sha256": "72e7206cb5a11a70eb86104b0d28fa39a213ff626a946e247c8ea9de032fa75a"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/packet-final/reference-inputs.json",
+      "bytes": 7963058,
+      "sha256": "fc13aeb9569196e20d8a8683374d5b4aea9f4de559a82a7cefb386c1a5f169d1"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/packet-final/reference-output.json",
+      "bytes": 1825824,
+      "sha256": "51a181d8f0904f6e11b34c730da966d9225b8d3f0832a445f18989c3df3fb70d"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/packet-final/source.tar",
+      "bytes": 6522880,
+      "sha256": "6987d6518042877f7edb1998296b165fbe09e0d273bfb0ef5e423be0b17b9a83"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/packet-final.log",
+      "bytes": 2266,
+      "sha256": "fa66aa5282b624b47e531340af70229df1bd9cca498d3dd97462387a883b2bd7"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/packet-reference/after.mjs",
+      "bytes": 99352,
+      "sha256": "5f1ae37f51a6e7d8a405e46b8ce713057798eda6465ae3d44057f2e3344350bb"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/packet-reference/after.ts",
+      "bytes": 365,
+      "sha256": "7520c60f60761bfc5e5f1562dc2a1ac42fdfd7e44ccf8d98d97bb6b54f6b120f"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/packet-reference/before.mjs",
+      "bytes": 98167,
+      "sha256": "a368d7e1d9ac19eba70e02ac52b06e3afa86c7cf33f9a810c45cc441f0f2de41"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/packet-reference/before.ts",
+      "bytes": 455,
+      "sha256": "4da15d40922fe1324e6925b6cec4449896e3fd2d937d9b35585e9405e9632722"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/packet-reference/component-inputs.json",
+      "bytes": 1946501,
+      "sha256": "edc74bd4ee48de3f97f83d2ad25b0ae122d685b0ed67d97aaa24b7995c711fb2"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/packet-reference/component-reference.json",
+      "bytes": 1919981,
+      "sha256": "a6e7b86a0fee7f1cbdebe09a177761291efdefc31b7eb6df663dc588d1b0d56e"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/packet-reference/reading.json",
+      "bytes": 2223,
+      "sha256": "f3f0323399893bf2ce12a4f206cccf43976089e5b7556d2d672317979271e2e7"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/packet-reference/reference-inputs.json",
+      "bytes": 7963058,
+      "sha256": "fc13aeb9569196e20d8a8683374d5b4aea9f4de559a82a7cefb386c1a5f169d1"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/packet-reference/reference-output.json",
+      "bytes": 1825824,
+      "sha256": "51a181d8f0904f6e11b34c730da966d9225b8d3f0832a445f18989c3df3fb70d"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/packet-reference/source.tar",
+      "bytes": 6522880,
+      "sha256": "6987d6518042877f7edb1998296b165fbe09e0d273bfb0ef5e423be0b17b9a83"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/packet-reference.log",
+      "bytes": 2084,
+      "sha256": "6cca13bc34ed91b800589cae4529a0ae51b362c406c278cc620c9818ed1f51b0"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/prepare-archive.py",
+      "bytes": 8719,
+      "sha256": "a98a835851c9cf8a2cb8a672309da4c9627e756d29a736624a18e50efa9ff229"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/prepare-draft.py",
+      "bytes": 6319,
+      "sha256": "a6ffbeb28b65bd3613fcb5449c5ebc9e3a690e224c8a4bdee6783a8a47c8dedb"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1814086,
+      "sha256": "2df5bfbe42d7053ce5c71a09943a23cdb8b35ba7b8d1915b2540d30f4c7a36b8"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835888,
+      "sha256": "0c2bb0e65e522114770485a8f1a0165236758939fd0ed541871ef9c80f9b55f0"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829654,
+      "sha256": "0ed4cb776a4ff2774ea087a81827f5a68945b70457049c4cca5625fc29d81cac"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1811409,
+      "sha256": "e6cf4d0433472f78809fc3ffced189eb4a514584c9c96683035fe328dc8f6f0e"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1820260,
+      "sha256": "32e09c64a37a7ab2e3ce81d8cdca57fd2d3e0b4f70d63b7b4922af1297d0aab0"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1353314,
+      "sha256": "eea8b75b6bc6b96c3723b00a224e908e88356bcd4918813628cd478ae99fc6bb"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1826045,
+      "sha256": "8e032120979ea2f74fb9b4f26311c12e68328bd2211d21af0097c1907a6831c9"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808788,
+      "sha256": "738696a14d7351a13ad2ae4c9ce1beb93daa7402311c0f0a2515af96e8051e75"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/production-runner.log",
+      "bytes": 48,
+      "sha256": "7bf7f67cc0a81dc82f3e3f358a10769ac8b0395cc4094b78d3ab87ed28527a3c"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/production-summary.json",
+      "bytes": 3191,
+      "sha256": "2dbfd545aebdb6aa0081e70f472466ead471271e6426aab261715797f82706af"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/production-system.mjs",
+      "bytes": 30506,
+      "sha256": "83265d55f3e6e2d817e9e75fb02cce522f5d180558a305fd95d3d8e8dbf6df2a"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/production.log",
+      "bytes": 2852,
+      "sha256": "3a43a61a46c1083171afc098905a070204ecf85c4ad7711bbae93d93d22a77ac"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/run-browser.py",
+      "bytes": 840,
+      "sha256": "3cd6035947c7a8e5bb023d929335845de389debb37d39daf49b748d45a930680"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/run-production.py",
+      "bytes": 836,
+      "sha256": "96ddbfec2a795164e9d0526a7425edca42e57ba2eac29840a2de89cb806ac3cf"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/run-validation.py",
+      "bytes": 1640,
+      "sha256": "7ecad049aaa35627902f459d70ac56653e0b3bc57e328ff87f46c047b9bc1ad5"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/shape-template.ts",
+      "bytes": 10270,
+      "sha256": "8ed6596e429afb9ef74dd8b1034a9d3bedb4e3813d0665677212f2d541d81bb0"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/test-native-ray-birth-scale-normal.log",
+      "bytes": 112,
+      "sha256": "e820daf92d5c8d527ac8318193e2fc34dc41fa12746cd1c64ce03b6ce3163913"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/test-native-ray-birth-scale-optimized.log",
+      "bytes": 112,
+      "sha256": "45eb8fd92c7d1ef4fdddb1e39626c090dfb33c2a52f23200bb1a1a6ceccb1c39"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/native-ray-birth-scale/validation-runner.log",
+      "bytes": 263,
+      "sha256": "e1a2385675294378f4cd650a61a6d0bf2433e13f61587d5bd9fcf297402ebb42"
+    }
+  ]
+}

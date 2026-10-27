@@ -5,6 +5,8 @@ import type { GrompDeath } from './gromp-death';
 
 /** Keep legacy profiles/materials and textures out of ordinary lane entry. */
 export class LazyGrompDeath {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: GrompDeath;
   private pending?: Promise<void>;
   private retryAfter = 0;
@@ -18,6 +20,7 @@ export class LazyGrompDeath {
       const module = await import('./gromp-death');
       await module.loadGrompDeath();
       this.renderer = new module.GrompDeath(this.scene);
+      this.onReady?.();
     })().catch((error) => {
       this.pending = undefined;
       throw error;

@@ -1,0 +1,394 @@
+{
+  "format": 1,
+  "parentCommit": "07c4c86a69fdb5fc4cedf2dd34782023b9f0c9c9",
+  "identity": {
+    "schema": 150,
+    "ruleset": "de92e281f9311ad0543f2fc8f715b7f8d4518a4b558fab9b47e9a087350f9fa4",
+    "pack": {
+      "id": "2fb5cb549a21e6b4bcfa35e3470253a440dd0a8171ba0d6a799a7e4c79f79877",
+      "files": 1130,
+      "bytes": 532470394
+    }
+  },
+  "scope": "Correct sparse Meditate cast orbital field to the pinned reader up-axis default and zero-time newborn turn; retain original source hashes/omissions, source assets, clocks and schema.",
+  "generated": [
+    {
+      "path": "docs/MASTER-YI-W-CAST.md",
+      "bytes": 9900,
+      "sha256": "a2d5fedb7cbdfedcae73c20df7f22bbf0a3807e46b646b66ae2b6480e507fe43",
+      "archived": ".cache/masteryi-field-motion-cloud/final-source/docs/MASTER-YI-W-CAST.md"
+    },
+    {
+      "path": "docs/reference/masteryi/w-cast-particle-reading.json",
+      "bytes": 3173,
+      "sha256": "5e9ff57d354b5083033267ab83dd25888ad425777916eb1eadd21c94680f214d",
+      "archived": ".cache/masteryi-field-motion-cloud/final-source/docs/reference/masteryi/w-cast-particle-reading.json"
+    },
+    {
+      "path": "docs/reference/masteryi/w-fields-reader.json",
+      "bytes": 3629,
+      "sha256": "b67cb8e90ae6521816579a06ae1b4274bd6ae11befc28d75fca948fd8abff3c7",
+      "archived": ".cache/masteryi-field-motion-cloud/final-source/docs/reference/masteryi/w-fields-reader.json"
+    },
+    {
+      "path": "src/content/masteryi-w-cast-particles.json",
+      "bytes": 82548,
+      "sha256": "4816b254781e5768add9b3cf64b40f4b35c45b9144c9945c7c8b175cc001d7d9",
+      "archived": ".cache/masteryi-field-motion-cloud/final-source/src/content/masteryi-w-cast-particles.json"
+    },
+    {
+      "path": "src/render/masteryi-w-cast-particles.ts",
+      "bytes": 3495,
+      "sha256": "d06af7106bea06e4495249d70ecbaa3b909d0f6e77a02bca56958dba922afa48",
+      "archived": ".cache/masteryi-field-motion-cloud/final-source/src/render/masteryi-w-cast-particles.ts"
+    },
+    {
+      "path": "src/render/particle-orbital-motion.ts",
+      "bytes": 3594,
+      "sha256": "817a4a1a08c13ea554278da997d4222f1b41734baff3d3c722f47cda185d16b7",
+      "archived": ".cache/masteryi-field-motion-cloud/final-source/src/render/particle-orbital-motion.ts"
+    },
+    {
+      "path": "tests/masteryi-meditate-cast-particles.test.ts",
+      "bytes": 4403,
+      "sha256": "b5205864974ffd2db38629f3818b46e209f18723128c35d1694b0dc74a01179a",
+      "archived": ".cache/masteryi-field-motion-cloud/final-source/tests/masteryi-meditate-cast-particles.test.ts"
+    },
+    {
+      "path": "tests/particle-orbital-motion.test.ts",
+      "bytes": 3411,
+      "sha256": "15c472a0b09239c15f5b1099bbe65246b8b02c3d584174df9b99541560223a58",
+      "archived": ".cache/masteryi-field-motion-cloud/final-source/tests/particle-orbital-motion.test.ts"
+    },
+    {
+      "path": "tests/ruleset-fingerprint.test.ts",
+      "bytes": 16499,
+      "sha256": "a2834e0020d1055da8a30bc7938459e70096afeed4ffb5e64df196dd055d45d3",
+      "archived": ".cache/masteryi-field-motion-cloud/final-source/tests/ruleset-fingerprint.test.ts"
+    },
+    {
+      "path": "tools/assets/export-masteryi-w-cast-particles.py",
+      "bytes": 6491,
+      "sha256": "c6465dbbadbcc5b1e2aaf10f8487e86729b8047bd984f612292751f172fc98fa",
+      "archived": ".cache/masteryi-field-motion-cloud/final-source/tools/assets/export-masteryi-w-cast-particles.py"
+    },
+    {
+      "path": "tools/assets/masteryi_w_cast.py",
+      "bytes": 8252,
+      "sha256": "67db765dbf4c62c0cd0e5d39d99589c657d6ae826e79a9453a599e203d6d4b5e",
+      "archived": ".cache/masteryi-field-motion-cloud/final-source/tools/assets/masteryi_w_cast.py"
+    },
+    {
+      "path": "tools/assets/restore-masteryi-field-readers.py",
+      "bytes": 2312,
+      "sha256": "1c07b5336b442d6e941ad84e8cd672fe13aee08c9511fecefbece670d5084a83",
+      "archived": ".cache/masteryi-field-motion-cloud/final-source/tools/assets/restore-masteryi-field-readers.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-w-cast.py",
+      "bytes": 5289,
+      "sha256": "f16878e9eee2a409490b1b289df52f1bf3bbea3920a08c01a0a7e6a7da1451af",
+      "archived": ".cache/masteryi-field-motion-cloud/final-source/tools/assets/test-masteryi-w-cast.py"
+    },
+    {
+      "path": "tools/qa/orbital-field-conformance.mjs",
+      "bytes": 3595,
+      "sha256": "c720f4da22451aabfe732e6602564d2c07a381d9f18cf7caa2094f307ae7d4de",
+      "archived": ".cache/masteryi-field-motion-cloud/final-source/tools/qa/orbital-field-conformance.mjs"
+    }
+  ],
+  "readerFiles": [
+    {
+      "path": ".cache/masteryi-w-buff-cloud/forceFields.ts",
+      "bytes": 12419,
+      "sha256": "c67cd99bb0fdc0d33515f07c149ba7f3c8a0a75c6028d48357bd9a008d019065"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-cloud/readMotion.ts",
+      "bytes": 12535,
+      "sha256": "5cda76779e25463c3b7ebcb187aea094b4ec265658fb496e1dd94924ca37a3b5"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-cloud/integrate.ts",
+      "bytes": 21927,
+      "sha256": "4de5853807d9a0362aa9957343e4b23c5d21939efe87546209be37ca226895dc"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-cloud/definitions.ts",
+      "bytes": 2944,
+      "sha256": "a8d50a45e193ab18ed42587a7f7f320570ca6b451cbc7a6fd0d4aaafd51a411a"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-cloud/readVfxSystem.ts",
+      "bytes": 14468,
+      "sha256": "a5765fc5676e4f58d0ae156bad93bf5e84936fe181c8bfe47c503a37da52a844"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-cloud/__tests__-forceFields.test.ts",
+      "bytes": 10861,
+      "sha256": "1d469e206496e2ee3cfd13b68539df841b4548d4be23afce3b8d25a018a5523b"
+    },
+    {
+      "path": ".cache/masteryi-w-buff-cloud/__tests__-integrate.test.ts",
+      "bytes": 51734,
+      "sha256": "04cb29b95e97a3dd04737b4ac6dd539291208f690e1ce3154f1fc31097d16d58"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-field-motion-cloud/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/browser/masteryi-meditate-cast-ord-f73c1-uad-UV-selects-exact-pixels/secondary-uv-and-retry.json",
+      "bytes": 1290,
+      "sha256": "26e0ccaaac89c2c50746d762f16a7ff771327e6a443278287968efc6ed96b0e0"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/browser/masteryi-meditate-cast-rea-3ca6d-ven-source-emitter-families/active-cast.png",
+      "bytes": 824580,
+      "sha256": "a4dc39de0c0a2fb2bd62dc27c9a2a679d4cee8e4816883632a06cf6aee0dae95"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/browser/masteryi-meditate-cast-rea-3ca6d-ven-source-emitter-families/active-three-mip-readback.json",
+      "bytes": 15359,
+      "sha256": "b70ba416fcbca5a8033cc292611e6d56b3214dd92c3848206646c63a5f512df3"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/browser/masteryi-meditate-cast-rea-3ca6d-ven-source-emitter-families/cast-save-reload.json",
+      "bytes": 105195,
+      "sha256": "ec88a7ca5c4195970c60405d2ccfc78a4c73e895f5c434f809f65fcf672bd8f5"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/browser/masteryi-meditate-cast-rea-b0cf3-ven-source-emitter-families/cancelled-cast.png",
+      "bytes": 821349,
+      "sha256": "afb7424c9d3a4c6084d350bd8b1a04c28d6a128bce52ebf95ffd503cd43e45b3"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/browser/masteryi-meditate-cast-rea-b0cf3-ven-source-emitter-families/cast-save-reload.json",
+      "bytes": 108018,
+      "sha256": "cf3b36de829074ee88dc0aa0f80776e8c01217ade6b46dff0e7244167ee9c0f7"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/browser/masteryi-meditate-cast-uns-d46cb-without-simulation-mutation/creation-death-terminal.json",
+      "bytes": 105,
+      "sha256": "844113db47cd79217c62fa1124bcb6a8cf79c3ba8f7fe76e1bc52d8deb6fc5d0"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/browser.log",
+      "bytes": 1763,
+      "sha256": "e9d20c6edcbe33d2702f7d328f324f9f573e9e7dc13b0f765d26b21511ba2535"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/build.log",
+      "bytes": 6211,
+      "sha256": "da9a7a52ffbb4f6b8218473ec297fa61a58d76d525b8d2c7e0aca740744fbc3d"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/cast-green.log",
+      "bytes": 424,
+      "sha256": "7ee6a1f1fcb160defc1f14583a9f4bd2710c1be4455245af4a33448d5867bc5f"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/cast-red.log",
+      "bytes": 1972,
+      "sha256": "9db17ce10442f0f164509c65967d2c9b95447d08d34d19f76db38cb50670192d"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/export-check-optimized.log",
+      "bytes": 72,
+      "sha256": "1d9643e75e3c0fa34949961be1eef80a4c606c4117b005ff60f4a2874800f13c"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/export-check.log",
+      "bytes": 72,
+      "sha256": "1d9643e75e3c0fa34949961be1eef80a4c606c4117b005ff60f4a2874800f13c"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/fingerprint-final.log",
+      "bytes": 169,
+      "sha256": "ee5528920870c200f67850c8beb8282239a60058fcd48d98d3ea2c1934b848d6"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/focused-final.log",
+      "bytes": 372,
+      "sha256": "cf31ad1f84b581b8891d36c51015be26ce70859c54086aa042d727fae762c0af"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/focused.log",
+      "bytes": 1581,
+      "sha256": "88a2784717624cea68bcc7c80c406ddd2564d6142abe62451ad23f7b4352c43a"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/format-final.log",
+      "bytes": 108,
+      "sha256": "29edd1e022b91d98acbc76aee90f43084a0dc7972e2b2d077802427a4ef77b7c"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/format-v2.log",
+      "bytes": 131,
+      "sha256": "58e93d9b167a5ccab49f4cdfaa1c4d265e656bca7781d542c0149d146d3acd9b"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/format.log",
+      "bytes": 153,
+      "sha256": "c73d414c17a5939a98da6179f373c26bd4e415bdc15f7a9ebab47a99f08f1c28"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/guards-final-normal.log",
+      "bytes": 120,
+      "sha256": "9f883cf66f48534e1ecbcced63cad612707ca871a48f11e049c04395cb9167a4"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/guards-final-optimized.log",
+      "bytes": 120,
+      "sha256": "6316110af476efc796030aeb019d03c32f41fcd174c0ea36f4e37233ad23d0ce"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/guards-normal.log",
+      "bytes": 120,
+      "sha256": "fadabb96f9f0908f8dee2373e026cb973c2865a79b73a6b79807ce161a1c0e12"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/guards-optimized.log",
+      "bytes": 120,
+      "sha256": "97eb5bf5a548c5f55b1e2bfcd2ba5871b6413d6694dcee342ee117164133e076"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/idempotence.json",
+      "bytes": 5478,
+      "sha256": "d09d23aae9dfe3580dfdc2ed8861343db069f3b3c027a7c13544ee46fdffebe9"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/identity.json",
+      "bytes": 238,
+      "sha256": "6c22a63c8f419746854fd9f05f28e031702e54b07141f016500782253792ad58"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/oracle/local.mjs",
+      "bytes": 3589,
+      "sha256": "b7d4df1c197d0d1cb7391d6134d7b1050428acc871a482f3adc33b4cc956689f"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/oracle/pinned.mjs",
+      "bytes": 1613,
+      "sha256": "76a4a2eecacab58eb95ab012a08bd19b1ac11bf385abd9c6311ffd382c21c0f9"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/oracle/result.json",
+      "bytes": 931344,
+      "sha256": "e872d11aee90de0520e34f58db22dc7fc767fa522803fa837b8b060951143aba"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/oracle-final.log",
+      "bytes": 307,
+      "sha256": "7dd9467e18525f83ed92de4d0ea2f1427073f4d008fe4a4e3dc26211ec05b89c"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/oracle.log",
+      "bytes": 307,
+      "sha256": "7dd9467e18525f83ed92de4d0ea2f1427073f4d008fe4a4e3dc26211ec05b89c"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/original/docs/reference/masteryi/w-cast-particle-reading.json",
+      "bytes": 3008,
+      "sha256": "4b8087072b809b4cf1e3e533f9b4cde1b47c6649ed7fc6861d5026869eaf4787"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/original/src/content/masteryi-w-cast-particles.json",
+      "bytes": 82216,
+      "sha256": "0a98222d116290239a92fb2ced53e7d7a195edbc8f42f9460975aa42b2a3a1c2"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/reader-check-optimized.log",
+      "bytes": 45,
+      "sha256": "25dbc892ee09c73a0e7e1af8c277bc98879a3fb2c71504cbeb23d95784c202a7"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/reader-check.log",
+      "bytes": 45,
+      "sha256": "25dbc892ee09c73a0e7e1af8c277bc98879a3fb2c71504cbeb23d95784c202a7"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/reader-restore-optimized.log",
+      "bytes": 47,
+      "sha256": "b04a4ce5c07e797a4571e9bf8ea62b54fde9bb4711a8d05c1824b696d1ff0697"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/reader-restore-proof.log",
+      "bytes": 141,
+      "sha256": "d336e964a53557d04e2b927a78f0c3dc830ff193a95ff66580af7df2b6232446"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/reader-restore.log",
+      "bytes": 47,
+      "sha256": "b04a4ce5c07e797a4571e9bf8ea62b54fde9bb4711a8d05c1824b696d1ff0697"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/replay-0.log",
+      "bytes": 72,
+      "sha256": "1d9643e75e3c0fa34949961be1eef80a4c606c4117b005ff60f4a2874800f13c"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/replay-1.log",
+      "bytes": 72,
+      "sha256": "1d9643e75e3c0fa34949961be1eef80a4c606c4117b005ff60f4a2874800f13c"
+    },
+    {
+      "path": ".cache/masteryi-field-motion-cloud/test-format.log",
+      "bytes": 43,
+      "sha256": "3981e955165581a322cf38fa7b27b9e2d0e907ce65a748776e72a47dd7003796"
+    }
+  ],
+  "checks": {
+    "focused": {
+      "passed": 104,
+      "files": 5
+    },
+    "fingerprint": {
+      "passed": 19
+    },
+    "sourceGuardsPerMode": 21,
+    "pythonModes": [
+      "normal",
+      "optimized"
+    ],
+    "operatorOracle": {
+      "sourceSha256": "c67cd99bb0fdc0d33515f07c149ba7f3c8a0a75c6028d48357bd9a008d019065",
+      "sourceFunctionSha256": "fe60e2b1528ad1618d147516a946f678032b03e50ef97fa33a47160dfe66c903",
+      "localSha256": "817a4a1a08c13ea554278da997d4222f1b41734baff3d3c722f47cda185d16b7",
+      "cases": 2072,
+      "exactFloat32Matches": true
+    },
+    "build": "TypeScript and production build passed.",
+    "browser": {
+      "passed": 4,
+      "retries": 0,
+      "environment": "Chromium 154 / SwiftShader",
+      "gpuMips": 87,
+      "exactParticleSaveAndFuture": true,
+      "independentUvPixelsRetryFogDeathTerminal": "passed"
+    },
+    "exportReplay": {
+      "unchangedFilesAndMtimes": 14
+    },
+    "readerRestore": {
+      "restoredFromEmpty": 7,
+      "normalAndOptimizedChecksAndReplays": true,
+      "bytesAndMtimesUnchanged": true,
+      "conflictRejectedBeforeNetwork": true
+    }
+  },
+  "retainedDiagnostics": [
+    "Two new regressions fail against the prior omitted/default-zero field projection and radial newborn velocity.",
+    "Three new axis-control fixtures initially passed scalar arguments via test.each rather than complete vectors. Corrected the fixture loop; expected vectors/operator unchanged."
+  ],
+  "limits": [
+    "Pinned reconstruction defaults and operator conformance are distinct from native Riot CPU execution.",
+    "Only the standalone orbital operator matches the original reader exactly in Float32; whole-trajectory positions retain the explicit local 60 Hz/interpolation policy.",
+    "Raw native source records keep their missing direction and hash labels; compiled defaults are separate.",
+    "No new source pixels, source meshes, game mechanics, record shape or schema.",
+    "No repeat full-suite, full production-input, offline/device/FPS/listening/native-frame certificate. Historical initial acceptance remains in the prior ledger."
+  ]
+}

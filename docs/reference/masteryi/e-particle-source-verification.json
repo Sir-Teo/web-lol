@@ -1,0 +1,321 @@
+{
+  "format": 1,
+  "parentCommit": "c6657389ad738d7e15042ac79cf70c3710edb990",
+  "identityUnchanged": {
+    "schema": 158,
+    "ruleset": "5520fbbf600522f9d7d0c0a4ccacf3e08726a540b0d34368229cd524c6a1bf58",
+    "pack": {
+      "id": "a31f3ecfaa8db3bef178c8e6635a0f7ea37e55e04493d9d2034d9c0f24893b0d",
+      "files": 1169,
+      "bytes": 536420615
+    }
+  },
+  "scope": "Complete frozen Wuju Style particle source closure: six resources with exact SuperChraged names, 14 emitters, four BINs and nine TEX textures. Full native skin and emitter reparse; original omissions and numeric/Boolean distinctions retained. No runtime, public asset, schema/ruleset or production-pack change.",
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi-model.json",
+      "bytes": 82053,
+      "sha256": "4295bceeba96cfb15e006d392e7d0f3c480bb51bf8cff8872a9c39fc9873c7ce"
+    },
+    {
+      "path": "docs/reference/masteryi/character.json",
+      "bytes": 104698,
+      "sha256": "3f100c1148e1006766060822298c87aed02e86e359c385fbc2c248e4255d12fa"
+    },
+    {
+      "path": "tools/assets/masteryi_q_particles.py",
+      "bytes": 7165,
+      "sha256": "8373108c738d00d23c47e485b609db18464a81cf6146b608ee9d608e4e604b44"
+    },
+    {
+      "path": "tools/assets/verify-masteryi-character.py",
+      "bytes": 3680,
+      "sha256": "d3153b5f60540ad68d5ca690895cd6293666672a27bb2fc018cee7928e280a98"
+    },
+    {
+      "path": "tools/assets/riot_archive.py",
+      "bytes": 7454,
+      "sha256": "7444e2d6dd84c10d2b7b58105a9cdb56edb963d7a3f33fe61dc2932334e5eeb6"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/binfile.py",
+      "bytes": 17236,
+      "sha256": "0c1825135763c98f705535eecf2b4b1a8e667c53181e9e1d43ad7a83d1d844fd"
+    },
+    {
+      "path": ".cache/masteryi-particle-discovery-cloud/native-discovery.json",
+      "bytes": 483272,
+      "sha256": "b19eff1f3e46f051bed9c34f0ae690f3b9ac4c54e113b25dbbca3424b4caa872"
+    },
+    {
+      "path": "docs/reference/masteryi/w-damage-verification.json",
+      "bytes": 47772,
+      "sha256": "c1bf0d282d0555df1a0fb8a4f98b0f7fc06c660131d2111e9ad376bad31b9590"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-e-particles-cloud/final-source-index.json",
+    "bytes": 1555,
+    "sha256": "78c4e80f3912ef181099912d0f4fcd3596e03aba92a6b25493d5beecf7a6e865"
+  },
+  "generated": [
+    {
+      "path": "README.md",
+      "bytes": 16721,
+      "sha256": "aa07163c3d0a4c4f5a5f3910bc622efd6fb4f560125a6b1f5b033574d047f9ea",
+      "archived": ".cache/masteryi-e-particles-cloud/final-source/README.md"
+    },
+    {
+      "path": "docs/MASTER-YI-E-PARTICLES.md",
+      "bytes": 2750,
+      "sha256": "2bca3512c9b103066b110e5f735f7126dd2fcdbe43c059e68b830ee88b4163c5",
+      "archived": ".cache/masteryi-e-particles-cloud/final-source/docs/MASTER-YI-E-PARTICLES.md"
+    },
+    {
+      "path": "docs/reference/masteryi/e-particles.json",
+      "bytes": 98427,
+      "sha256": "5137067c8206b7db14075d29816e08bd5281c25f8ec959f8e1b13ee5c305d9d2",
+      "archived": ".cache/masteryi-e-particles-cloud/final-source/docs/reference/masteryi/e-particles.json"
+    },
+    {
+      "path": "tools/assets/extract-masteryi-e-particles.py",
+      "bytes": 2339,
+      "sha256": "1ecec8cf3f08ef3cdd842bb3c670d7791496e133501204f94ff5293720411eef",
+      "archived": ".cache/masteryi-e-particles-cloud/final-source/tools/assets/extract-masteryi-e-particles.py"
+    },
+    {
+      "path": "tools/assets/masteryi_e_particles.py",
+      "bytes": 3580,
+      "sha256": "0b560d67da2c708f4c3596a64016cdbca431fd7ba9a598121f8f04bc3960d8c1",
+      "archived": ".cache/masteryi-e-particles-cloud/final-source/tools/assets/masteryi_e_particles.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-e-particles.py",
+      "bytes": 6582,
+      "sha256": "a0c80e74b9efc4a651bb07acd8fbae5521c7a2896f4c29b5309ef85fe9676ace",
+      "archived": ".cache/masteryi-e-particles-cloud/final-source/tools/assets/test-masteryi-e-particles.py"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-e-particles-cloud/check-normal.log",
+      "bytes": 130,
+      "sha256": "ab901a316b55bdd59fff86f9cdfca9d38b2a0eeebc6b919181b6aff158fcd91c"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/check-optimized.log",
+      "bytes": 130,
+      "sha256": "ab901a316b55bdd59fff86f9cdfca9d38b2a0eeebc6b919181b6aff158fcd91c"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/check-replay.py",
+      "bytes": 1106,
+      "sha256": "61b231e823dc89bc2be1eccaabc38316721df78a611f1f571364769ff6d22b5e"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/extract-source.py",
+      "bytes": 3086,
+      "sha256": "11e26fd0123a1777e07a6bbdf330b1151a343048f19153c12561e7bbc3ba2fce"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/extraction.json",
+      "bytes": 7821,
+      "sha256": "1bba9fe51fc8dad8fe1df2842ad695233dae0b541de61d03b44cc544b618c1d9"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/extraction.log",
+      "bytes": 144,
+      "sha256": "ec0fe55e53fc670b1dff3138b64782af47a5d34447d2faae1251a6fe5c548f00"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/final-source-index.json",
+      "bytes": 1555,
+      "sha256": "78c4e80f3912ef181099912d0f4fcd3596e03aba92a6b25493d5beecf7a6e865"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/guards-initial-normal.log",
+      "bytes": 1261,
+      "sha256": "225916e69a54bac57c0bf81e2619ba41e2e377db493cf3ab87999953052afcfd"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/guards-initial-optimized.log",
+      "bytes": 1261,
+      "sha256": "c75b7ed8eb0ee0a1a244ec0c18a0502ae311316ca218e90d6509c95a207356d1"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/guards-normal.log",
+      "bytes": 126,
+      "sha256": "20cb985ede15e2072a26dcd521e9308f41e6e38ffe51a23538ab9f3498e9631a"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/guards-optimized.log",
+      "bytes": 126,
+      "sha256": "0b9ddf63a8797e0c1d6ec53d35d092ab7e2fb05a1dd86be055482baf9bbec5b7"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/identity-after.json",
+      "bytes": 238,
+      "sha256": "6a4cf5e204fe760e46acbd0a0bf509afad1ad42bb69a9f6bd954c5063d1d72ae"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/identity-before.json",
+      "bytes": 238,
+      "sha256": "6a4cf5e204fe760e46acbd0a0bf509afad1ad42bb69a9f6bd954c5063d1d72ae"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/native-check.log",
+      "bytes": 130,
+      "sha256": "ab901a316b55bdd59fff86f9cdfca9d38b2a0eeebc6b919181b6aff158fcd91c"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/record-verification.py",
+      "bytes": 3926,
+      "sha256": "800c45e6aee673dd0bc6fca430739a9bbe4045a0e58ed2fe219c7ecd75de9d3d"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/replay-count.log",
+      "bytes": 3,
+      "sha256": "1a252402972f6057fa53cc172b52b9ffca698e18311facd0f3b06ecaaef79e17"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/replay.json",
+      "bytes": 3202,
+      "sha256": "0bf49008a3de52bf0d345b9317c43ac66ec8661235fa71d799771cbc9364ed14"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/restore-replay-normal.log",
+      "bytes": 132,
+      "sha256": "c6a13bc0670c27af61fd3288a36be41a7dfe3b6483cc68a8cafceab072119ce6"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/restore-replay-optimized.log",
+      "bytes": 132,
+      "sha256": "c6a13bc0670c27af61fd3288a36be41a7dfe3b6483cc68a8cafceab072119ce6"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/ruleset-after.txt",
+      "bytes": 65,
+      "sha256": "ee323bfcd5cc3267ba47845804d6fd27cb74090bbaa8fdfd7577c31c82ca6635"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/selection-preview.json",
+      "bytes": 89174,
+      "sha256": "2c5d618708fd5744a66f683e1b75d969040a53a7fc67b8c73806a70f1919e7f2"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/source-scope.json",
+      "bytes": 238,
+      "sha256": "1c612b92b4b7af20d30502ea85dfef9dd61ae0247a1fc2a086a2034e32db728d"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/sources/05af7bc709ef294f.tex",
+      "bytes": 349556,
+      "sha256": "87c58b3070031ba92792f99ca2949e832529ebf9846937a0585a32100af4d00d"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/sources/1561bab5609df7c1.bin",
+      "bytes": 18345,
+      "sha256": "8a91c8c0a460e4ef202829f470932370c2262d73973c93fc2d0324b03ed8000c"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/sources/1d5c271d91e85aed.bin",
+      "bytes": 9198,
+      "sha256": "af5c09a4f0336e735da558fd5973236943766ac072a2b8a989fba75a54860973"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/sources/3223cc66834fc21b.tex",
+      "bytes": 43716,
+      "sha256": "8503d46b516047b8a7f8ac82bd6ef1d1a93405ef52f784478aab3f9a55944858"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/sources/3a551b631ca17cdd.tex",
+      "bytes": 87420,
+      "sha256": "de3ebf4dae9140420655db2002a13ef9aaa457d59cc397a50c9cf520d3b70137"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/sources/550625434969ce4a.tex",
+      "bytes": 87420,
+      "sha256": "8178fa6801f1c6a71fdf1c66765e4c2a086510037451d05da328a5a2e3e52bbc"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/sources/613d5e8a169d7c07.tex",
+      "bytes": 87420,
+      "sha256": "2b84a6f689d2cf270557f2c626f7bc113d6ed0511a27527fc5346a34cdea5a27"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/sources/86e1ae430501aebc.tex",
+      "bytes": 349556,
+      "sha256": "3975548c57591083677d256756b7455197ae3f39f55834134964c6a84133e99a"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/sources/93f71ffb77aedf95.tex",
+      "bytes": 43716,
+      "sha256": "dee6613b0222cc86e8657697e0190c0b8623b9a9213b027237dbe46331499de9"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/sources/9cce66503e5e2c83.bin",
+      "bytes": 5124,
+      "sha256": "cf596ff223c9daf05ac5b8acfa7230029e2e83538a4e172d69b673f02650bb86"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/sources/dba30aea46f8d87f.tex",
+      "bytes": 2756,
+      "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/sources/de3746dbaf722630.tex",
+      "bytes": 68,
+      "sha256": "bc06557b44402fee1498430bd4008df9598085f44b29fea2f02218473674b2f8"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/sources/ecddf8b06274d059.bin",
+      "bytes": 2432,
+      "sha256": "ecee15a9cfdef6ae6cfb759b381873967ff81205867d1dd70b5b0167a76d8318"
+    },
+    {
+      "path": ".cache/masteryi-e-particles-cloud/texture-headers.json",
+      "bytes": 1549,
+      "sha256": "3bfe300ffa22c09e7a4f07eeccae13c2fa1cca2dc66b6cadec3fc63b3291fff8"
+    }
+  ],
+  "checks": {
+    "sourceGuards": {
+      "casesPerMode": 27,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "checkAndRestoreReplay": {
+      "filesUnchangedBytesAndMtimes": 13,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "nativeClosure": {
+      "systems": 6,
+      "emitters": 14,
+      "bins": 4,
+      "textures": 9,
+      "meshes": 0,
+      "bytes": 1086727,
+      "compressedReadBytes": 370895
+    },
+    "publicAssetsChanged": false,
+    "runtimeChanged": false,
+    "simulationSchemaChanged": false,
+    "rulesetChanged": false,
+    "productionPackChanged": false
+  },
+  "retainedDiagnostics": [
+    "Initial guards copied from R expected an opaque source type and an authored Boolean True. The complete E records have neither; the final checks require the actual empty opaque-value set and mutate an authored numeric flag to a Boolean for exact native type rejection. No native fields were changed."
+  ],
+  "limits": [
+    "Resource names do not establish native branch selection, weapon attachment bones, spawning, stop/extension or script callbacks.",
+    "All six source systems omit system flags and sounds; separate existing E audio bindings do not authorize inferred particle audio.",
+    "Source extraction retains native TEX bytes; decoding, sampler/shader mapping, attachment transforms and GPU/frame comparison remain separate work.",
+    "This source-only checkpoint has no additional runtime/browser/device certificate.",
+    "Ignored evidence needs preservation; changed sources are independently archived."
+  ]
+}

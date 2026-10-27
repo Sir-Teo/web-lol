@@ -1,0 +1,421 @@
+{
+  "format": 1,
+  "parentCommit": "f99cb20d216c73de58b99997a772978a75f439b6",
+  "identityUnchanged": {
+    "schema": 159,
+    "rulesetFingerprint": "71111678d445f50ff88fa7903d82ff3200eeca9f0189105d0c65981dd19e3eec",
+    "offlinePack": {
+      "id": "6043491cef1aafacfe45b3c34e6301eb351f6e83b3aae686e159d5f2c0370f67",
+      "files": 1180,
+      "bytes": 537099451
+    }
+  },
+  "scope": "Preserve the literal Spell2_In frame-1 particle event, exact lower-case W foley skin resource, complete native particle persistent-sound declaration and the existing bank/master profile. Expand the earlier spell/four-system source scope without inferring a frame-time conversion, playback callback or activation-loop binding.",
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi-model.json",
+      "bytes": 82053,
+      "sha256": "4295bceeba96cfb15e006d392e7d0f3c480bb51bf8cff8872a9c39fc9873c7ce"
+    },
+    {
+      "path": "docs/reference/masteryi/w-audio-reading.json",
+      "bytes": 11200,
+      "sha256": "3c49d4a653422133b7a23f4a250dd5c5d7c7b3a366683f91d4c611c4c830c7bc"
+    },
+    {
+      "path": "docs/reference/masteryi/w-audio-source-verification.json",
+      "bytes": 10105,
+      "sha256": "96f5be3369eadf1cc1feff15188052441756b716b063df5e24df09eb9236d276"
+    },
+    {
+      "path": "docs/reference/masteryi/audio-graph.json",
+      "bytes": 1598681,
+      "sha256": "b7879c088d3544626d70c9ecaf4abfd0aebae007db5a6ee841c0caed7a2b33e3"
+    },
+    {
+      "path": "docs/reference/masteryi/audio-decoded.json",
+      "bytes": 87738,
+      "sha256": "28ac362788bb76709a226e76d282eb25a1805a474b9bc7348cedd59bbee33a32"
+    },
+    {
+      "path": "docs/reference/masteryi/sword-instancing-verification.json",
+      "bytes": 45969,
+      "sha256": "86ff1124d3a42d8e2c026a8b01b66e6812510622c66f6535b442029b157c1618"
+    },
+    {
+      "path": "tools/assets/masteryi_q_particles.py",
+      "bytes": 7165,
+      "sha256": "8373108c738d00d23c47e485b609db18464a81cf6146b608ee9d608e4e604b44"
+    },
+    {
+      "path": "tools/assets/verify-masteryi-model.py",
+      "bytes": 3929,
+      "sha256": "e862c8644be151e5a9d0ef8d13b2cac828589edefc607a31b262d5daea72f0b6"
+    },
+    {
+      "path": "tools/assets/verify-masteryi-character.py",
+      "bytes": 3680,
+      "sha256": "d3153b5f60540ad68d5ca690895cd6293666672a27bb2fc018cee7928e280a98"
+    },
+    {
+      "path": "tools/assets/masteryi_audio_decode.py",
+      "bytes": 8199,
+      "sha256": "1daac83459300db4b01688688cf6d454ad7d3c1d20a5dd420a00850447470e20"
+    },
+    {
+      "path": "tools/assets/masteryi_q_audio.py",
+      "bytes": 9938,
+      "sha256": "fc9c7fe4939f390d25b3383684a3b293659f0e290eceed6afccc93eef543a76a"
+    },
+    {
+      "path": "tools/assets/masteryi_audio_graph.py",
+      "bytes": 8829,
+      "sha256": "0a894875ec7c8273d32c1e14c745651a09abc5b59f1a7e4c80ad2f6b6f97e465"
+    },
+    {
+      "path": "tools/assets/masteryi_audio_source.py",
+      "bytes": 2297,
+      "sha256": "fdeb76c6bf623a420a16851ab659368f349cc9e61748b890f0fec76b8e407c3c"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/binfile.py",
+      "bytes": 17236,
+      "sha256": "0c1825135763c98f705535eecf2b4b1a8e667c53181e9e1d43ad7a83d1d844fd"
+    },
+    {
+      "path": ".cache/masteryi-particle-discovery-cloud/native-discovery.json",
+      "bytes": 483272,
+      "sha256": "b19eff1f3e46f051bed9c34f0ae690f3b9ac4c54e113b25dbbca3424b4caa872"
+    },
+    {
+      "path": ".cache/masteryi-particle-discovery-cloud/linked-extraction.json",
+      "bytes": 13161,
+      "sha256": "865fc941465cc5b61766206571158e19a55ad7fefb56171885c70c9f6b1c2853"
+    },
+    {
+      "path": ".cache/masteryi-audio-decoded/136213286.wav",
+      "bytes": 123352,
+      "sha256": "33c2bec0c099ebf035a18d2809aeaf1b80df046b89fd377229ec792cb07228c9"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-w-foley-source-cloud/final-source-index.json",
+    "bytes": 2611,
+    "sha256": "8dca54ba9c2de2915da16e8f8aaba1329d0ad1bcd5605a25e2660ebfba02ec73"
+  },
+  "generated": [
+    {
+      "path": "README.md",
+      "bytes": 17407,
+      "sha256": "2fd8d946508c324ed46d2f56aa3cdbd04205e6898973350ecb5144b0803fac5c",
+      "archived": ".cache/masteryi-w-foley-source-cloud/final-source/README.md"
+    },
+    {
+      "path": "docs/MASTER-YI-AUDIO.md",
+      "bytes": 8745,
+      "sha256": "db9dad2693be590bb0646c40a36766b06728d2f98ec5984e73ef3980e1d058d1",
+      "archived": ".cache/masteryi-w-foley-source-cloud/final-source/docs/MASTER-YI-AUDIO.md"
+    },
+    {
+      "path": "docs/MASTER-YI-W-AUDIO.md",
+      "bytes": 9232,
+      "sha256": "72a4453c1e85ad2a860fba6b28b9867d0be94b576116c6448650f90e5167c93c",
+      "archived": ".cache/masteryi-w-foley-source-cloud/final-source/docs/MASTER-YI-W-AUDIO.md"
+    },
+    {
+      "path": "docs/MASTER-YI-W-FOLEY.md",
+      "bytes": 3562,
+      "sha256": "1a4d5c8019ce3e2cdb9938d42f809867bdaf82ae0bb6f4f671f2db5e1dfb87a5",
+      "archived": ".cache/masteryi-w-foley-source-cloud/final-source/docs/MASTER-YI-W-FOLEY.md"
+    },
+    {
+      "path": "docs/reference/masteryi/w-foley-binding-reading.json",
+      "bytes": 7418,
+      "sha256": "c00729f6b78b28571470fe10dd44c331af74f80634b99fe71a7dba24c47a28a8",
+      "archived": ".cache/masteryi-w-foley-source-cloud/final-source/docs/reference/masteryi/w-foley-binding-reading.json"
+    },
+    {
+      "path": "docs/reference/masteryi/w-foley-particles.json",
+      "bytes": 7965,
+      "sha256": "cbf93c100aaa635dbee9511ff8e548155309f59860d1c090e016fdf12a38ac18",
+      "archived": ".cache/masteryi-w-foley-source-cloud/final-source/docs/reference/masteryi/w-foley-particles.json"
+    },
+    {
+      "path": "tools/assets/extract-masteryi-w-foley.py",
+      "bytes": 1875,
+      "sha256": "7ea199714534d800dd9afa13afa15e38c4ee3c0ef9b5e3f5dc47ee5cc79c580d",
+      "archived": ".cache/masteryi-w-foley-source-cloud/final-source/tools/assets/extract-masteryi-w-foley.py"
+    },
+    {
+      "path": "tools/assets/masteryi_w_foley.py",
+      "bytes": 8416,
+      "sha256": "9d6ab489fc1b27ee8da189c32e73cb132613c914784a41877fc5fe8634905ab5",
+      "archived": ".cache/masteryi-w-foley-source-cloud/final-source/tools/assets/masteryi_w_foley.py"
+    },
+    {
+      "path": "tools/assets/prepare-masteryi-w-foley.py",
+      "bytes": 900,
+      "sha256": "3696ea242047eb60c84e20124b5b9412c8c970a62db9a0e2f2b681d39049b797",
+      "archived": ".cache/masteryi-w-foley-source-cloud/final-source/tools/assets/prepare-masteryi-w-foley.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-w-foley.py",
+      "bytes": 4587,
+      "sha256": "7443a5cd5ef34aa9a17313092d0d9ba482eab653317878f41954eb852ad8fef1",
+      "archived": ".cache/masteryi-w-foley-source-cloud/final-source/tools/assets/test-masteryi-w-foley.py"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/MASTER-YI-W-FOLEY.md",
+      "bytes": 2598,
+      "sha256": "3b1017321bc8aa01de4a45c754bd8cbfe30b91fe28ea0e75c8eae40545941ecd"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/check-replay.log",
+      "bytes": 57,
+      "sha256": "f97a6cc1cb86fb23eedcd1e4a4f6a8692b48711b3a43c45a1c3589881ef9391b"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/check-replay.py",
+      "bytes": 1509,
+      "sha256": "baae02581b82d48c8b9c68c61a9f4c513e1d152e6fca6d3af6fd4679fcf6126b"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/export.log",
+      "bytes": 157,
+      "sha256": "8e5df69bdf8da8ac6cf0aff1c81eb3930dafc0aa7109b6bacb155c74dcee1487"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/extract-initial.log",
+      "bytes": 147,
+      "sha256": "102c06f061cc27ed11533774efac4b9eab7bd4b1636aa07c31c43c4691bf916f"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/extract-initial.py",
+      "bytes": 3128,
+      "sha256": "e277930e6ba9d2678092511de0b36cca480f13dfad9077366fcde6427c39fad4"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/extract-masteryi-w-foley.py",
+      "bytes": 1875,
+      "sha256": "7ea199714534d800dd9afa13afa15e38c4ee3c0ef9b5e3f5dc47ee5cc79c580d"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/final-source-index.json",
+      "bytes": 2611,
+      "sha256": "8dca54ba9c2de2915da16e8f8aaba1329d0ad1bcd5605a25e2660ebfba02ec73"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/guards-draft-optimized.log",
+      "bytes": 123,
+      "sha256": "06ebc693779af828d4e3bc59fd145f22dda2708a6d8d91dd6fe3edf6baa10633"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/guards-draft.log",
+      "bytes": 123,
+      "sha256": "f0f0b259aeff1df1bda3e3494b8d237b19a361087d81e12d477186405b393042"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/guards-normal.log",
+      "bytes": 123,
+      "sha256": "17f5cbd363fa4bb87101cc0eee2a403541588cb907a551423935865a4965e14e"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/guards-optimized.log",
+      "bytes": 123,
+      "sha256": "cd864cf85ce08211b6812e84493039ecf799abcd32ec5aa1a9e0f910ef165859"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/identity.json",
+      "bytes": 256,
+      "sha256": "18f57cc8da501b5c6ad7c2da23fcbd2859b269976d02ffff405d8217a4ee6339"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/masteryi_w_foley.py",
+      "bytes": 8416,
+      "sha256": "9d6ab489fc1b27ee8da189c32e73cb132613c914784a41877fc5fe8634905ab5"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/native-check-draft.log",
+      "bytes": 126,
+      "sha256": "ef3f98f8f7fc73d66b18d1931b03938adcebf8b1bfd941a92b712819c9ed6781"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/prepare-masteryi-w-foley.py",
+      "bytes": 900,
+      "sha256": "3696ea242047eb60c84e20124b5b9412c8c970a62db9a0e2f2b681d39049b797"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/project-initial.log",
+      "bytes": 102,
+      "sha256": "48e64f80e499f4be552050ad3f703054df7575f48afbbb4d29f7f12d0132b579"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/reading-check-normal.log",
+      "bytes": 157,
+      "sha256": "8e5df69bdf8da8ac6cf0aff1c81eb3930dafc0aa7109b6bacb155c74dcee1487"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/reading-check-optimized.log",
+      "bytes": 157,
+      "sha256": "8e5df69bdf8da8ac6cf0aff1c81eb3930dafc0aa7109b6bacb155c74dcee1487"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/reading-replay-normal.log",
+      "bytes": 157,
+      "sha256": "8e5df69bdf8da8ac6cf0aff1c81eb3930dafc0aa7109b6bacb155c74dcee1487"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/reading-replay-optimized.log",
+      "bytes": 157,
+      "sha256": "8e5df69bdf8da8ac6cf0aff1c81eb3930dafc0aa7109b6bacb155c74dcee1487"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/record-verification.py",
+      "bytes": 5652,
+      "sha256": "b6a4949836e65ca598d62c68a4c68ca781de5779e9d04169c890918da59ba7f1"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/replay.json",
+      "bytes": 1846,
+      "sha256": "5e7b10568caebe0a4fc6458ffa6fb020b92bf55f27162998f683cb58d02a2779"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/ruleset.txt",
+      "bytes": 65,
+      "sha256": "330a01ae4ed46a7353a0a604fb7bcbd5646170600dc2544a5dfa2c4ecba27772"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/source-check-normal.log",
+      "bytes": 168,
+      "sha256": "47481e8fced5c253a808533af41dc1ff85bd886a78a2626133212f0b5fc51305"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/source-check-optimized.log",
+      "bytes": 168,
+      "sha256": "47481e8fced5c253a808533af41dc1ff85bd886a78a2626133212f0b5fc51305"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/source-restore-normal.log",
+      "bytes": 170,
+      "sha256": "d0265ce6d0c85c5ae08acec05d1e433ac9ea9a7477466c71afcdf753283c5bf1"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/source-restore-optimized.log",
+      "bytes": 170,
+      "sha256": "d0265ce6d0c85c5ae08acec05d1e433ac9ea9a7477466c71afcdf753283c5bf1"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/source-scope.json",
+      "bytes": 392,
+      "sha256": "7daa96a1f6fafabef158148c551c6d78c76b2b7dfa387e71bedf23d81e4029d6"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/sources/1d5c271d91e85aed.bin",
+      "bytes": 9198,
+      "sha256": "af5c09a4f0336e735da558fd5973236943766ac072a2b8a989fba75a54860973"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/sources/4679d8d214f61c77.bin",
+      "bytes": 7859,
+      "sha256": "f5bc3c1f71853353fd8869578c90243b7e947c9be787a286803cdd7e8144f132"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/sources/48e276ae1f73662f.tex",
+      "bytes": 36,
+      "sha256": "2045ec159a292a51b46725ab2135ff9e76521870e97a54e22c62c36137f8a6aa"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/sources/80298427f6efc3a4.anm",
+      "bytes": 25492,
+      "sha256": "85582306abf911f1a8574bffe501023cce6e2e735e15f6ab3b862c6899d1b28a"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/sources/84b92eb7df646e40.bin",
+      "bytes": 963,
+      "sha256": "5d1e51a7344f48600e2ba240a03b7e43dbaa41ed3c92490d12ddb45db8ab0b04"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/test-masteryi-w-foley.py",
+      "bytes": 4587,
+      "sha256": "7443a5cd5ef34aa9a17313092d0d9ba482eab653317878f41954eb852ad8fef1"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/w-foley-binding-reading.json",
+      "bytes": 6635,
+      "sha256": "0da9a6940fc10b37af037665858acacfab4dd043f68874b9caf8d4ea2d01eada"
+    },
+    {
+      "path": ".cache/masteryi-w-foley-source-cloud/w-foley-particles.json",
+      "bytes": 7965,
+      "sha256": "cbf93c100aaa635dbee9511ff8e548155309f59860d1c090e016fdf12a38ac18"
+    }
+  ],
+  "checks": {
+    "sourceGuards": {
+      "casesPerMode": 24,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "nativeClosure": {
+      "files": 5,
+      "bytes": 43548,
+      "compressedReadBytes": 136291,
+      "bins": 3,
+      "textures": 1,
+      "animations": 1,
+      "completeSkinAndAnimationBins": "exact typed native reparse",
+      "completeParticleDefinition": "exact typed native reparse",
+      "entryAnm": "exact original model-pinned bytes"
+    },
+    "binding": {
+      "clip": "Spell2_In",
+      "eventKey": "{875c32d5}",
+      "literalFrame": 1.0,
+      "mTickDurationPresent": false,
+      "eventLoop": false,
+      "effectKey": "MasterYi_w_foley_sound",
+      "particleSoundField": "soundPersistentDefault",
+      "eventName": "Play_sfx_MasterYi_Meditate_foley"
+    },
+    "floatMaster": {
+      "wavSha256": "33c2bec0c099ebf035a18d2809aeaf1b80df046b89fd377229ec792cb07228c9",
+      "pcmSha256": "6e35f464d2a6fe2592b3ff929bc96550f2f83a76afe00373f680ecc67f6815fa",
+      "wavBytes": 123352,
+      "format": "IEEE float32 little-endian WAV",
+      "channels": 1,
+      "sampleRate": 44100,
+      "frames": 30827,
+      "durationSeconds": 0.6990249433106576,
+      "peak": 0.9212883710861206,
+      "rms": 0.20600437503675134,
+      "samplesOutsideUnitRange": 0,
+      "endpointDelta": [
+        0.005483948378241621
+      ]
+    },
+    "checkRestoreAndReadingReplay": {
+      "filesUnchangedBytesAndMtimes": 8,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "application": "No src/public/tests changes. Schema, current ruleset and built offline-pack identity unchanged. Full app checks remain the accepted parent evidence."
+  },
+  "retainedDiagnostics": [
+    "The shared particle cache verifier correctly rejects ANM extensions. The new closure checks the separately pinned animation bytes and complete animation BIN while preserving that original guard.",
+    "The earlier unbound-foley label applies to the prior spell/four-system audit. The expanded animation/skin/particle records supply the missing authored declaration chain; they do not establish native runtime timing."
+  ],
+  "limits": [
+    "No public WAV/PNG/mesh, playback, gameplay, schema or application identity change.",
+    "Literal mStartFrame=1.0 and omitted mTickDuration do not establish seconds, simulation ticks, native frame sampling or callback ordering.",
+    "Empty ParticleEventDataPair fields remain omitted; no spatial attachment is assigned. Persistent component creation, removal, tail and voice-stop behavior remain uncalibrated.",
+    "Slot18 remains Stop. The separate bank OnBuffActivate Play still lacks a binding in these records.",
+    "Finite float-master identity, source policies and inherited attenuation are not a native listening, bus or voice-lifecycle certificate.",
+    "Ignored evidence needs preservation; exact changed sources are independently archived."
+  ]
+}

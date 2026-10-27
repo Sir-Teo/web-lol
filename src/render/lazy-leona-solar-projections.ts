@@ -5,6 +5,8 @@ import type { LeonaSolarProjections } from './leona-solar-projections';
 import type { ParticleDecalReceivers } from './particle-decal-receivers';
 
 export class LazyLeonaSolarProjections {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: LeonaSolarProjections;
   private pending?: Promise<void>;
   private retryAfter = 0;
@@ -22,8 +24,10 @@ export class LazyLeonaSolarProjections {
     return (this.pending ??= (async () => {
       const m = await import('./leona-solar-projections');
       await m.loadLeonaSolarProjections();
-      if (!this.disposed)
+      if (!this.disposed) {
         this.renderer = new m.LeonaSolarProjections(this.scene, this.ground, this.receivers);
+        this.onReady?.();
+      }
     })().catch((error) => {
       this.pending = undefined;
       throw error;

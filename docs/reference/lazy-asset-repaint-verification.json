@@ -1,0 +1,681 @@
+{
+  "format": 1,
+  "parentCommit": "3e4811168e1f4e04ed3ed33d9196e5d5bd50703f",
+  "scope": "All29 lazy effect loaders notify the view after successful renderer installation; the application requests its existing guarded frame so paused matches paint new assets once and sleep again. Shared preparation, disposal and retry policies remain intact.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "offlinePack": {
+      "id": "d45eb611f6ca12e81a4ac010049b72529593b3c3f86c59345ac480bd8b94afd1",
+      "files": 1202,
+      "bytes": 538089866
+    }
+  },
+  "verification": {
+    "newUnitCases": 36,
+    "completionCases": 29,
+    "disposalCases": 6,
+    "retryCases": 1,
+    "focusedCases": 49,
+    "fullUnitRun": {
+      "passed": 3140,
+      "failed": 2,
+      "total": 3142,
+      "files": 395
+    },
+    "baselineFailuresUnchanged": 2,
+    "nodeQaPassed": 6,
+    "browserCases": 10,
+    "pausedAssetCompletionFrames": 1,
+    "worldTickFrozen": true,
+    "sleepAfterCompletion": true,
+    "GarenRModuleRequests": 1,
+    "GarenRMeshRequests": 4,
+    "GarenRKillTextureRequests": 2,
+    "assetsAndDataFilesUnchanged": 543,
+    "bytesAndMtimesUnchanged": true,
+    "productionRecordings": 32,
+    "freshProductionScreenshots": 8,
+    "privatePreloads": 0,
+    "schemaChanged": false
+  },
+  "pausedLoadEvidence": {
+    "path": ".cache/paused-asset-repaint/browser-accepted/garen-justice-ordinary-Ash-afcbc-ads-one-shared-resource-set/paused-asset-ready.json",
+    "bytes": 676,
+    "sha256": "5ce96980ce94cf853a84cb4f59abd4030a73d957e633043f37b6e9bc0c31f957"
+  },
+  "limits": [
+    "Actual new late-load browser wake-up is exercised through Garen R; all29 loaders have controlled-promise unit coverage. Existing Garen/Gromp/Solar Save/reload flows and production scenarios pass.",
+    "A request is coalesced through the existing loop state. This is not a performance/FPS measurement.",
+    "The same historical Leona certificate and platform-sensitive Lux golden failures remain; no assertions or baselines are weakened.",
+    "Production runner changes only system Chromium launch selection."
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/LAZY-ASSET-REPAINT.md",
+      "bytes": 2699,
+      "sha256": "d9b9b27a422648dc0d7dc2b9ad1f77df7c3a5fd36b0ed756cb3fccf36ba59fb5"
+    },
+    {
+      "path": "e2e/garen-justice.spec.ts",
+      "bytes": 18995,
+      "sha256": "19509d3fa269a370faf1fa4b4636d7cead30f24755b41b4b51f1e36f5c331a0c"
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 22149,
+      "sha256": "f560678615975942527b735d74f016893a28425283fde831847473180811b10e"
+    },
+    {
+      "path": "src/render/lazy-garen-basic-attacks.ts",
+      "bytes": 1533,
+      "sha256": "881182afe55312a9930ce509d1944ae3c920a2036b8395838dba18c472e20a28"
+    },
+    {
+      "path": "src/render/lazy-garen-courage.ts",
+      "bytes": 1651,
+      "sha256": "c4e3e5957646f80552ffbba57b506fbad5e64578f9cdecdfd480879c71b1916a"
+    },
+    {
+      "path": "src/render/lazy-garen-decisive-strike.ts",
+      "bytes": 1829,
+      "sha256": "592f9e8559a8f64e0a7e4c68cd2e7e0a3641fcab7361dde2b3c0cb47bab77d9f"
+    },
+    {
+      "path": "src/render/lazy-garen-justice.ts",
+      "bytes": 1651,
+      "sha256": "ae8ce18541d7e1501fb0a8dc8a415281c39d717996dec1da1c24aa52d9f48fd1"
+    },
+    {
+      "path": "src/render/lazy-garen-perseverance.ts",
+      "bytes": 1541,
+      "sha256": "8d051a07086cfe59c61cad275c89dd728bad6d6c82899a1ca0dd27f705aa7880"
+    },
+    {
+      "path": "src/render/lazy-gromp-attack.ts",
+      "bytes": 1515,
+      "sha256": "6ec9c1f8163a2c159cff4fdf7c5d9498e597020ff72196ef32a5a9ae6ef11e4b"
+    },
+    {
+      "path": "src/render/lazy-gromp-death.ts",
+      "bytes": 1555,
+      "sha256": "76834bf0c1c35deeb4082b8c0c3d969c4fea771977b3d48cb7ccdfa5f8f05405"
+    },
+    {
+      "path": "src/render/lazy-leona-daybreak.ts",
+      "bytes": 1420,
+      "sha256": "91106561b10c1a2961a511b55cab4fbd9f7c62ad813732d2047666b3a50275ec"
+    },
+    {
+      "path": "src/render/lazy-leona-eclipse-skins.ts",
+      "bytes": 1322,
+      "sha256": "34430ae2bbc97f0c865135cdac5f90f6ada0db56a88fe5a13a664287d2b312bf"
+    },
+    {
+      "path": "src/render/lazy-leona-eclipse-surfaces.ts",
+      "bytes": 1729,
+      "sha256": "30b50432faabd695b22bcfa0d89bd503ae41748e773bfaa1a027cc84af290e9d"
+    },
+    {
+      "path": "src/render/lazy-leona-solar-projections.ts",
+      "bytes": 1753,
+      "sha256": "a6d16e7461fa82b882de7a591d96f7be9d7a83b49ec5f4cba59abfc17e6382d2"
+    },
+    {
+      "path": "src/render/lazy-leona-solar-skins.ts",
+      "bytes": 1568,
+      "sha256": "f72ebcbec41ebb011b7dc7e45f08e736fce443c17870c8ad7180e1c9f27bca3a"
+    },
+    {
+      "path": "src/render/lazy-leona-solar-surfaces.ts",
+      "bytes": 1928,
+      "sha256": "0827423386ad48fa886c47cb4260194bed6c501b5bd7e71aac072131b2a19cdd"
+    },
+    {
+      "path": "src/render/lazy-leona-zenith-skins.ts",
+      "bytes": 1576,
+      "sha256": "c6ef2f6251fe13e2ff1931742f31deafe1528da2865a058931404ea2fd208156"
+    },
+    {
+      "path": "src/render/lazy-leona-zenith-surfaces.ts",
+      "bytes": 1820,
+      "sha256": "62b42901bf2cf6412c7572f9519c19776f0dcfaa860c4aec6b000848ff58ee36"
+    },
+    {
+      "path": "src/render/lazy-leona-zenith-trails.ts",
+      "bytes": 1589,
+      "sha256": "f53373fe86dbe9c71f9d81ed11add74d9562762e0e85fd1355f01e9f4dc8934d"
+    },
+    {
+      "path": "src/render/lazy-masteryi-passive-trails.ts",
+      "bytes": 1649,
+      "sha256": "3c95823fd556875df7907071e2336141b3b38e4c1a0296369e4c4cd189f472d0"
+    },
+    {
+      "path": "src/render/lazy-masteryi-primary-hits.ts",
+      "bytes": 1512,
+      "sha256": "e96ed11767cc39f8caed583a2fa26fee169c31811fb91df413b7d7cb86701f59"
+    },
+    {
+      "path": "src/render/lazy-masteryi-primary-trails.ts",
+      "bytes": 1649,
+      "sha256": "fee397891c4b765d90d2dd40853ce69c8b10c8976b8098897288bbbb59a3db4a"
+    },
+    {
+      "path": "src/render/lazy-masteryi-q-casts.ts",
+      "bytes": 1497,
+      "sha256": "cfd92e77a73b95ad3e8560f9d3583bdde0d8aa7a935f49c4fd06d09297f39e5b"
+    },
+    {
+      "path": "src/render/lazy-masteryi-q-contacts.ts",
+      "bytes": 1518,
+      "sha256": "3bedef4f0a169b72a074fd2e81991dcc90a72b2bcb125e7cea37cdc38bec9ec9"
+    },
+    {
+      "path": "src/render/lazy-masteryi-q-ends.ts",
+      "bytes": 1534,
+      "sha256": "8d771af7fb3723204af3a9ed3471e7f33576684f991a4d05b3377052d0f5ea1d"
+    },
+    {
+      "path": "src/render/lazy-masteryi-r-casts.ts",
+      "bytes": 1566,
+      "sha256": "2fd3cc4746c57e6d376a665bd886994fe91237ef74bdc44d604f1d0b0574df7b"
+    },
+    {
+      "path": "src/render/lazy-masteryi-r-kills.ts",
+      "bytes": 1522,
+      "sha256": "f6fffff9b10bd291b8af88b21c5f8dbb2770438dde173bf275f0cc308bdbabe0"
+    },
+    {
+      "path": "src/render/lazy-masteryi-sword-glows.ts",
+      "bytes": 1769,
+      "sha256": "fcffc602fac282020d9e87fc98c4d51f640cf04a7ed120a3be04a3c98ba15520"
+    },
+    {
+      "path": "src/render/lazy-masteryi-w-buffs.ts",
+      "bytes": 1512,
+      "sha256": "8bb37bcc0db522976aeaa05a348d762ea6cb3d45d843bc1c8853163eabf833c2"
+    },
+    {
+      "path": "src/render/lazy-masteryi-w-casts.ts",
+      "bytes": 1512,
+      "sha256": "1c274333c59a313d35a88d456ee485f16f9162766d1ad31637d001c61c503ecf"
+    },
+    {
+      "path": "src/render/lazy-masteryi-w-damage.ts",
+      "bytes": 1519,
+      "sha256": "14667ad4f50303fc43e327fba78d2dbb876d1dd5feb887cc7274d8977c0ee3f2"
+    },
+    {
+      "path": "src/render/lazy-sunlight.ts",
+      "bytes": 1573,
+      "sha256": "a958b3ec3e858e31234e5b3de1a32553e728bc774ecc022c14ab4d0c91e9caa6"
+    },
+    {
+      "path": "src/render/view.ts",
+      "bytes": 64615,
+      "sha256": "5f5901dc89890e2e84ed7fb4c57a720ac9603c42513798a4c71ab9c5b5689fa9"
+    },
+    {
+      "path": "tests/lazy-render-ready.test.ts",
+      "bytes": 9384,
+      "sha256": "c988736d817bcfb0b2464ffd7d29b2ffb2c4e3dd050655c5cb05cfa0363b5089"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "src/render/frame-pacer.ts",
+      "bytes": 507,
+      "sha256": "451eacf8bbb3c6ec66c6ac0f0cf8a3d1d8da82530a4e241c9ca61ff45e4fb60e"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "bytes": 187481,
+      "sha256": "8105dee7ef6cf071bafbecb2047ad8e2cbf242946a382c9e3f82a4191c11f745"
+    },
+    {
+      "path": "docs/reference/gromp-ray-packets-verification.json",
+      "bytes": 30038,
+      "sha256": "7b725d528db5ed1bc0ee4801ef185cb469e4ff19f183c164fc38166d847b1830"
+    },
+    {
+      "path": "docs/reference/legacy-particle-default-textures-verification.json",
+      "bytes": 12468,
+      "sha256": "eb0cf4c7f6c6563b4fac9905a3039de183b7914a42356d75954cd11b5572aa46"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 30464,
+      "sha256": "68425c70629572add4d8bfb83d3b71e2a4b276c476bd5f1880083659aed7043b"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/paused-asset-repaint/final-source/docs/LAZY-ASSET-REPAINT.md",
+      "bytes": 2699,
+      "sha256": "d9b9b27a422648dc0d7dc2b9ad1f77df7c3a5fd36b0ed756cb3fccf36ba59fb5"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/e2e/garen-justice.spec.ts",
+      "bytes": 18995,
+      "sha256": "19509d3fa269a370faf1fa4b4636d7cead30f24755b41b4b51f1e36f5c331a0c"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/main.ts",
+      "bytes": 22149,
+      "sha256": "f560678615975942527b735d74f016893a28425283fde831847473180811b10e"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-garen-basic-attacks.ts",
+      "bytes": 1533,
+      "sha256": "881182afe55312a9930ce509d1944ae3c920a2036b8395838dba18c472e20a28"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-garen-courage.ts",
+      "bytes": 1651,
+      "sha256": "c4e3e5957646f80552ffbba57b506fbad5e64578f9cdecdfd480879c71b1916a"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-garen-decisive-strike.ts",
+      "bytes": 1829,
+      "sha256": "592f9e8559a8f64e0a7e4c68cd2e7e0a3641fcab7361dde2b3c0cb47bab77d9f"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-garen-justice.ts",
+      "bytes": 1651,
+      "sha256": "ae8ce18541d7e1501fb0a8dc8a415281c39d717996dec1da1c24aa52d9f48fd1"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-garen-perseverance.ts",
+      "bytes": 1541,
+      "sha256": "8d051a07086cfe59c61cad275c89dd728bad6d6c82899a1ca0dd27f705aa7880"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-gromp-attack.ts",
+      "bytes": 1515,
+      "sha256": "6ec9c1f8163a2c159cff4fdf7c5d9498e597020ff72196ef32a5a9ae6ef11e4b"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-gromp-death.ts",
+      "bytes": 1555,
+      "sha256": "76834bf0c1c35deeb4082b8c0c3d969c4fea771977b3d48cb7ccdfa5f8f05405"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-leona-daybreak.ts",
+      "bytes": 1420,
+      "sha256": "91106561b10c1a2961a511b55cab4fbd9f7c62ad813732d2047666b3a50275ec"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-leona-eclipse-skins.ts",
+      "bytes": 1322,
+      "sha256": "34430ae2bbc97f0c865135cdac5f90f6ada0db56a88fe5a13a664287d2b312bf"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-leona-eclipse-surfaces.ts",
+      "bytes": 1729,
+      "sha256": "30b50432faabd695b22bcfa0d89bd503ae41748e773bfaa1a027cc84af290e9d"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-leona-solar-projections.ts",
+      "bytes": 1753,
+      "sha256": "a6d16e7461fa82b882de7a591d96f7be9d7a83b49ec5f4cba59abfc17e6382d2"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-leona-solar-skins.ts",
+      "bytes": 1568,
+      "sha256": "f72ebcbec41ebb011b7dc7e45f08e736fce443c17870c8ad7180e1c9f27bca3a"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-leona-solar-surfaces.ts",
+      "bytes": 1928,
+      "sha256": "0827423386ad48fa886c47cb4260194bed6c501b5bd7e71aac072131b2a19cdd"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-leona-zenith-skins.ts",
+      "bytes": 1576,
+      "sha256": "c6ef2f6251fe13e2ff1931742f31deafe1528da2865a058931404ea2fd208156"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-leona-zenith-surfaces.ts",
+      "bytes": 1820,
+      "sha256": "62b42901bf2cf6412c7572f9519c19776f0dcfaa860c4aec6b000848ff58ee36"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-leona-zenith-trails.ts",
+      "bytes": 1589,
+      "sha256": "f53373fe86dbe9c71f9d81ed11add74d9562762e0e85fd1355f01e9f4dc8934d"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-masteryi-passive-trails.ts",
+      "bytes": 1649,
+      "sha256": "3c95823fd556875df7907071e2336141b3b38e4c1a0296369e4c4cd189f472d0"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-masteryi-primary-hits.ts",
+      "bytes": 1512,
+      "sha256": "e96ed11767cc39f8caed583a2fa26fee169c31811fb91df413b7d7cb86701f59"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-masteryi-primary-trails.ts",
+      "bytes": 1649,
+      "sha256": "fee397891c4b765d90d2dd40853ce69c8b10c8976b8098897288bbbb59a3db4a"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-masteryi-q-casts.ts",
+      "bytes": 1497,
+      "sha256": "cfd92e77a73b95ad3e8560f9d3583bdde0d8aa7a935f49c4fd06d09297f39e5b"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-masteryi-q-contacts.ts",
+      "bytes": 1518,
+      "sha256": "3bedef4f0a169b72a074fd2e81991dcc90a72b2bcb125e7cea37cdc38bec9ec9"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-masteryi-q-ends.ts",
+      "bytes": 1534,
+      "sha256": "8d771af7fb3723204af3a9ed3471e7f33576684f991a4d05b3377052d0f5ea1d"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-masteryi-r-casts.ts",
+      "bytes": 1566,
+      "sha256": "2fd3cc4746c57e6d376a665bd886994fe91237ef74bdc44d604f1d0b0574df7b"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-masteryi-r-kills.ts",
+      "bytes": 1522,
+      "sha256": "f6fffff9b10bd291b8af88b21c5f8dbb2770438dde173bf275f0cc308bdbabe0"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-masteryi-sword-glows.ts",
+      "bytes": 1769,
+      "sha256": "fcffc602fac282020d9e87fc98c4d51f640cf04a7ed120a3be04a3c98ba15520"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-masteryi-w-buffs.ts",
+      "bytes": 1512,
+      "sha256": "8bb37bcc0db522976aeaa05a348d762ea6cb3d45d843bc1c8853163eabf833c2"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-masteryi-w-casts.ts",
+      "bytes": 1512,
+      "sha256": "1c274333c59a313d35a88d456ee485f16f9162766d1ad31637d001c61c503ecf"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-masteryi-w-damage.ts",
+      "bytes": 1519,
+      "sha256": "14667ad4f50303fc43e327fba78d2dbb876d1dd5feb887cc7274d8977c0ee3f2"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/lazy-sunlight.ts",
+      "bytes": 1573,
+      "sha256": "a958b3ec3e858e31234e5b3de1a32553e728bc774ecc022c14ab4d0c91e9caa6"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/view.ts",
+      "bytes": 64615,
+      "sha256": "5f5901dc89890e2e84ed7fb4c57a720ac9603c42513798a4c71ab9c5b5689fa9"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/tests/lazy-render-ready.test.ts",
+      "bytes": 9384,
+      "sha256": "c988736d817bcfb0b2464ffd7d29b2ffb2c4e3dd050655c5cb05cfa0363b5089"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/render/frame-pacer.ts",
+      "bytes": 507,
+      "sha256": "451eacf8bbb3c6ec66c6ac0f0cf8a3d1d8da82530a4e241c9ca61ff45e4fb60e"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/src/simulation/snapshot.ts",
+      "bytes": 187481,
+      "sha256": "8105dee7ef6cf071bafbecb2047ad8e2cbf242946a382c9e3f82a4191c11f745"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/docs/reference/gromp-ray-packets-verification.json",
+      "bytes": 30038,
+      "sha256": "7b725d528db5ed1bc0ee4801ef185cb469e4ff19f183c164fc38166d847b1830"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/docs/reference/legacy-particle-default-textures-verification.json",
+      "bytes": 12468,
+      "sha256": "eb0cf4c7f6c6563b4fac9905a3039de183b7914a42356d75954cd11b5572aa46"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/tools/qa/production-subpath.mjs",
+      "bytes": 30464,
+      "sha256": "68425c70629572add4d8bfb83d3b71e2a4b276c476bd5f1880083659aed7043b"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/final-source/package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/paused-asset-repaint/acceptance-driver.log",
+      "bytes": 1064,
+      "sha256": "fc4a70b6fb3a6970ecfb8db8d42c03b8e2b23e11d54f2fb7f1f4ed5e1caf8347"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/acceptance-stages.json",
+      "bytes": 1415,
+      "sha256": "431fca39409967b86b2f5a2e880f995e05c9922d21646b92d4e6a840d8c3c8b8"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/app-identity.json",
+      "bytes": 112,
+      "sha256": "5d649c6b48fa06cff807cf08b1aefe489d46a76a39804bbd73c820cfee3fd826"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/archive-checkpoint.py",
+      "bytes": 6996,
+      "sha256": "328bbab686be4e1d3fe6cdc2cb3bf9950dad624895138c42136f7275ce51cae8"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/assets-check.json",
+      "bytes": 113485,
+      "sha256": "724f4291b77f582effc4ece538baf9efc9efbfcf478e0366363cb8b3a857d549"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/browser-accepted/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/browser-accepted/garen-justice-ordinary-Ash-afcbc-ads-one-shared-resource-set/paused-asset-ready.json",
+      "bytes": 676,
+      "sha256": "5ce96980ce94cf853a84cb4f59abd4030a73d957e633043f37b6e9bc0c31f957"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/browser-accepted/leona-solar-history-Solar--79880-reload-and-following-combat/evidence.json",
+      "bytes": 177153,
+      "sha256": "8b86d00da9a0737e646c940230862c31fbc86d06bdde7b7341b68aea11e8b46c"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/browser-accepted/leona-solar-history-Solar--a4a1b-reload-and-following-combat/evidence.json",
+      "bytes": 222896,
+      "sha256": "c33646b8aed7e3565ec9680851717c419a9272d3ec29db36bb8122c82fecab0a"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/browser-accepted/leona-solar-history-Solar--a5df7-reload-and-following-combat/evidence.json",
+      "bytes": 328522,
+      "sha256": "5064a91563ab8cb3acd05a813fb35aacf700b0262cb084807a8f7742108d939f"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/browser-accepted.log",
+      "bytes": 3808,
+      "sha256": "294b6a3cbcaec9be5020b5efc3faf865f910c91f6511756ddcddee895ee02013"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/browser-first/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/browser-first/garen-justice-ordinary-Ash-afcbc-ads-one-shared-resource-set/paused-asset-ready.json",
+      "bytes": 654,
+      "sha256": "bd6f7d863bbf6db7d500b27ea4bb98c57a8e9dc4d4890468689f05068d065cad"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/browser-first.log",
+      "bytes": 676,
+      "sha256": "1f52be3ade5574651844e57fc3ad1096ff30c7aafd166fc99b964182f1b5cce7"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/build.log",
+      "bytes": 7852,
+      "sha256": "87fa60d88adf667348a6480dc3594744489384143fdd9e4debe57c97a006a12f"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/built-identity.json",
+      "bytes": 256,
+      "sha256": "3ff8cdab9187f35414a1ae7c790f93320dc82e53ca83cc393481553b7c0df40b"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/default-chunks.py",
+      "bytes": 1749,
+      "sha256": "0c0bab929b5b178dc99e0453a28507194a5bf39f879d1dac68b7fb47bd131fd7"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/default-color.py",
+      "bytes": 2413,
+      "sha256": "df49e20a1b04a3255c6dbd83f043ffb34c6bc76158dce3ea3bf9a38a3eefa1a4"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/default-falloff.py",
+      "bytes": 4690,
+      "sha256": "55a522324975d9b6f559c88592788b73a0fb5afbf9ddae24a254bacec081b054"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/finish-checks.py",
+      "bytes": 2203,
+      "sha256": "7e135b55d1354fa01bd70c537efa6a1b3332363b6e39dec8642dc4616e1f2777"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/focused-first.log",
+      "bytes": 168,
+      "sha256": "d08ac7f72917b2e28dbdec1f3b53b60381a470ef359129d5bac5482c576869e2"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/focused.log",
+      "bytes": 380,
+      "sha256": "3c46815a6ed3395c358a7a4955280de466000141cd4338d1174eeae549f2b735"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/format.log",
+      "bytes": 1657,
+      "sha256": "6f3afc1bc42ce514ca736f8627dff3e77ae54c576b93e68bafbf561eee13098c"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/full-tests.log",
+      "bytes": 4577,
+      "sha256": "8565d116b612fb157408739fbc6d4a2df46d2d89ca7584e54a0c627e8c4a1312"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/inventory.json",
+      "bytes": 3437,
+      "sha256": "1159323ce6daef7f333f63000ab67d0434ed943eefd8a51ad8a88501c582ce99"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/legacy-default-paths.json",
+      "bytes": 2760,
+      "sha256": "814f6100f1260f9ab8b3fb5ec8beef55b2b4b2a693791eea0b59d19cc79e8f2d"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/legacy-default-paths.log",
+      "bytes": 638,
+      "sha256": "aa0225a84539f221a0b43810e683171b19583cd198a1baba89d95b9e1fec8e76"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/loader-test-draft.ts",
+      "bytes": 9185,
+      "sha256": "fa523a10ca746fcb7f3dc00170171aeed41040c0d7175faa7171730fe0df6b3f"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/node-qa.log",
+      "bytes": 660,
+      "sha256": "c0f3fe8021e898eabdf05ba8ed8db12187e0b876b0c63599ae1d421f1dfebb14"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/prepare-draft.py",
+      "bytes": 2257,
+      "sha256": "234ec3e3aa33f3160b8dd4542e9cd5c395b0ccfb0d7aeb364fcfb2192b1191db"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/probe-legacy-default-paths.py",
+      "bytes": 2114,
+      "sha256": "b1eff43586424ed55f6ecd952f24f95fe59f7c763323a58036b4e4997971bd98"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1814093,
+      "sha256": "c35194073adb0b45bd867bb35044b526216b1801229f9ab3aef0f0d8d09f2980"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835953,
+      "sha256": "3e90e50ff65bc4b18d17e262ec7f5328942f278299000ace5617d826a039fbc5"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829862,
+      "sha256": "1c9902b4597f33967eb2a9d462cb2e413c24256f08577845a0597c849b4aee19"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1811971,
+      "sha256": "814cf106c40b9ca2cfb2eeeaf18ad45f2c2727f44d4bcd2aad1ca8126df824e0"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1819600,
+      "sha256": "c0a49f701b039ada94ec5ac33294910e4cf4f40e18e93cd9b12e32d96db07235"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1352722,
+      "sha256": "d4e8bb25e8f76b11f9a125c9336bbe3eae072e442f77bc25b648aef38b74467e"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1826166,
+      "sha256": "63dcd7c3ae60aaae33e33a5ba9d3b57323f7ee8a1ddb67383651adfc05d3217f"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808779,
+      "sha256": "d8be965fc0074e3b7d4cc73896f7664fe70c1da63fb70ec8aa290513a31f57bb"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/production-summary.json",
+      "bytes": 3191,
+      "sha256": "2dbfd545aebdb6aa0081e70f472466ead471271e6426aab261715797f82706af"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/production-system.mjs",
+      "bytes": 30506,
+      "sha256": "83265d55f3e6e2d817e9e75fb02cce522f5d180558a305fd95d3d8e8dbf6df2a"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/production.log",
+      "bytes": 2852,
+      "sha256": "3a43a61a46c1083171afc098905a070204ecf85c4ad7711bbae93d93d22a77ac"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/test-inventory.json",
+      "bytes": 6159,
+      "sha256": "a2a79f212963a83df657530d4ca20510b9a9f788e4c7424ef9abd4c25c054839"
+    },
+    {
+      "path": ".cache/paused-asset-repaint/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

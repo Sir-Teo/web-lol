@@ -42,6 +42,11 @@ export function championProfile(identity: keyof typeof CHAMPION_PROFILES) {
   return profile;
 }
 
+/** Contact classification follows the integrated attack profile, including new NPCs. */
+export function isMeleeChampion(identity: keyof typeof CHAMPION_PROFILES | undefined): boolean {
+  return identity !== undefined && CHAMPION_PROFILES[identity].missileSpeed === 0;
+}
+
 /** Selection remains limited to integrated player kits during roster expansion. */
 export function selectableChampion(
   identity: keyof typeof CHAMPION_PROFILES | undefined

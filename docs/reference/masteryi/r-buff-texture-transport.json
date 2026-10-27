@@ -1,0 +1,566 @@
+{
+  "format": 1,
+  "decodedRecordSha256": "c55d3b2b5aa5c6b3263e91b99e36097d7b200ce3e49d8e5ea62d290bc174258f",
+  "systems": [
+    "MasterYi_R_Buf",
+    "MasterYi_R_Buf_Lvl2",
+    "MasterYi_R_Buf_Lvl3"
+  ],
+  "producer": {
+    "scriptSha256": "98589a793c7077609275d68894ada3f9c58c7fe0db3256310c051a6714c672ad",
+    "atlasModuleSha256": "4ba50521c7a4c0d061bbf2f8363b7a84b4db9a4bf480e3d52ae101aec6538fd6",
+    "zlibVersion": "1.3.2",
+    "zlibRuntimeVersion": "1.3.2"
+  },
+  "textures": [
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/common_color-bellcurve4.tex",
+        "wadPathHash": "573c4c1806844ba1",
+        "sha256": "eda0d7f51d8ddf72e1d1e6a56793ef0a1e7f2225c8cc4316196e65e966574560",
+        "bytes": 2756
+      },
+      "path": ".cache/masteryi-r-buff-packed-v2/573c4c1806844ba1.png",
+      "bytes": 656,
+      "sha256": "dc0a9b7855091ebe599fcdb539e74a5066c27d4db04c8bfe8d87e80d60b76cb4",
+      "width": 64,
+      "height": 127,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "b4e7d9c999dab3102dd50efed43fc65fe13b37374ee9d1af56fd51703ca765dd"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 64,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "dacb57441b98072d78f275f53fdc3dcb9e1099363581059c9460415cc0915467"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 96,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "ca228fd3548d366d811838c50af5072dc0d5209cfbab11f104b8f08f5dba674a"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 112,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "9a2ed31ac153843d0a66ff2ffc526dd008ea509744e83a96db3d925a5fde6908"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 120,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "44ba38d6ba49da64356ab6f066a13189ce016feb97b13924b7b0f17aa45efce9"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 124,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "3d87a21a2b9b5cfe6bacaf69351ec596c7a1807946b0678c329cd945bd68a3c8"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 126,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "83efb0f339659bc0848a6a44767182e7cdf94f4bad0fd08b20cfc1bcc9e4f944"
+        }
+      ],
+      "rgbaSha256": "cc86728d4b2fa5a02ea668b304f74bc5089f5cbf467b86be69d885152b25f332"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/masteryi_base_q_speedshadow.tex",
+        "wadPathHash": "76f9beecc8b5f2c1",
+        "sha256": "5dc7ee0215ad36c3d00db40adae782e85f0b11c9056b215dd60989a478eacad5",
+        "bytes": 174812
+      },
+      "path": ".cache/masteryi-r-buff-packed-v2/76f9beecc8b5f2c1.png",
+      "bytes": 179313,
+      "sha256": "a771bc3cb1a4733668a01a179752ca333daa4022e20530de6bfc9893dcc16df2",
+      "width": 512,
+      "height": 512,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 512,
+          "height": 256,
+          "rgbaSha256": "0bfc3dfa3ba586cf703926f72da16b5a2516ec0692ea38f3ac11856087bd2724"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 256,
+          "width": 256,
+          "height": 128,
+          "rgbaSha256": "901b4d75c7a1bdf3d1d8daaceb53adb584d7a4dcf2b2df01ded57438da58e9cc"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 384,
+          "width": 128,
+          "height": 64,
+          "rgbaSha256": "2802fdcb3ece1ae44459482093b94c136f43dfb82e420dd862890e044d9d3018"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 448,
+          "width": 64,
+          "height": 32,
+          "rgbaSha256": "f84f47b7bf707ea6a6ab684a4a1eb44dff8abdb5932affc12e602bc159126cc7"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 480,
+          "width": 32,
+          "height": 16,
+          "rgbaSha256": "30295364dd2a1492df29aa24ce3b2baa80ce90ef77d2002ff9f767609de38d60"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 496,
+          "width": 16,
+          "height": 8,
+          "rgbaSha256": "2fd53b954300d0729be5db97eb0797b4d10fcaddd164f52e838763fbbde72661"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 504,
+          "width": 8,
+          "height": 4,
+          "rgbaSha256": "959183643b83085ccb8b7390000914610a31fcdfc86ef0ec71fcedca502655a9"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 508,
+          "width": 4,
+          "height": 2,
+          "rgbaSha256": "0026191a496b12691f29c0f354baa389f31175b04b93ed466151e5c78dd0b8f3"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 510,
+          "width": 2,
+          "height": 1,
+          "rgbaSha256": "2633866977cea960324a4f70fc0fb367c0506036eac7a9676e4676789891007c"
+        },
+        {
+          "level": 9,
+          "x": 0,
+          "y": 511,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "4791ebeea99302d61adb0e7c20aaa5c436d47ee53b8fc11a4b628bb608a09bee"
+        }
+      ],
+      "rgbaSha256": "032f89d32757ba52b569594867489f87afd729d49c4f4965d19569d0e91f0219"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/masteryi_base_q_speedshadow_mult.tex",
+        "wadPathHash": "05dd3b0814357a70",
+        "sha256": "72ac6af5c25446d830afcde709f6a13abf863226a9bfb737f0b31443d888a89f",
+        "bytes": 174812
+      },
+      "path": ".cache/masteryi-r-buff-packed-v2/05dd3b0814357a70.png",
+      "bytes": 135536,
+      "sha256": "2c1b8851f54fda28c07932ef2ff36eb41e5f570caafc3545917d5b154359273f",
+      "width": 512,
+      "height": 512,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 512,
+          "height": 256,
+          "rgbaSha256": "8cb067552437dab86332df87ac1e99c899a952507661610a46814fc05b78c1f4"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 256,
+          "width": 256,
+          "height": 128,
+          "rgbaSha256": "59d62f2df926cd6446c294e95d776fcced97042c1ed1c08960b15b13cc2bfdab"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 384,
+          "width": 128,
+          "height": 64,
+          "rgbaSha256": "06c31c500fc08795207fe1813fee3951c43b587c7f4b74d3c7358bfc066e67f9"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 448,
+          "width": 64,
+          "height": 32,
+          "rgbaSha256": "9a93ebc0ce6d67ec0c273ad7056b1c171d585aacb668cecffda7c135693ce5fb"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 480,
+          "width": 32,
+          "height": 16,
+          "rgbaSha256": "33d4cdde7715cc6cbe8ab9630804b9bfa898a77f3985e593b571787e9d8544fb"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 496,
+          "width": 16,
+          "height": 8,
+          "rgbaSha256": "a73553873edfbdffae54ca6f4508f679ecaa316780a48c47b899d411136a9b0a"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 504,
+          "width": 8,
+          "height": 4,
+          "rgbaSha256": "03ccdeff2c1d1b9a9547ce55069ea7296319d93819a1f0f3bd80ca43c503a071"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 508,
+          "width": 4,
+          "height": 2,
+          "rgbaSha256": "ab2916abc783278738fe6aec36753c38982f55b802872cd01d10aec2ed595324"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 510,
+          "width": 2,
+          "height": 1,
+          "rgbaSha256": "66cc3492f7b627441353ce456789deb20f2327bb49064564c9d9e87dc0e4c2e4"
+        },
+        {
+          "level": 9,
+          "x": 0,
+          "y": 511,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "ecee21d57c08bfb830e49902d5da69017dd91c12517be81719145d32f51ac0a2"
+        }
+      ],
+      "rgbaSha256": "bac85bb2f4250038b6cfd0fc44069be297407ca993cd0b3b529925d4abba10e5"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/masteryi_base_r_boltline.tex",
+        "wadPathHash": "66d45ee8ba1b0dae",
+        "sha256": "88ca859de71abdafbb8a814d35404efe33e59bb473a7a4b581e408b8a01b38bf",
+        "bytes": 87452
+      },
+      "path": ".cache/masteryi-r-buff-packed-v2/66d45ee8ba1b0dae.png",
+      "bytes": 44308,
+      "sha256": "dafb13b4d40f5b513bb1b8187f115b971cbb9cdd8f36362c3b3457bb5695f9b9",
+      "width": 512,
+      "height": 257,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 512,
+          "height": 128,
+          "rgbaSha256": "04b052897607c73e522d87c7593d708a7544015d4b3bf71a8b6c1f008e992883"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 128,
+          "width": 256,
+          "height": 64,
+          "rgbaSha256": "c64f688934343706c1c961a1eb1aee9be1b87554cdba5ccf840c245159402306"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 192,
+          "width": 128,
+          "height": 32,
+          "rgbaSha256": "2e1a12f254ff560744673db9fea97ab380d947c21631ed795b2f7a1417836cfe"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 224,
+          "width": 64,
+          "height": 16,
+          "rgbaSha256": "d8e4683c740cbcdd27c60c53e7d96d7559e8a17d17e32403f75a3b0a9f5f1d66"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 240,
+          "width": 32,
+          "height": 8,
+          "rgbaSha256": "332c6777a0e11f205b46d3527df8ac6f8dd5443360a16403d29397b26591f450"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 248,
+          "width": 16,
+          "height": 4,
+          "rgbaSha256": "529d871974101ba37343f6e8b9d5668fa193e8b2fda1fe2f4e0361b006e7c5d3"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 252,
+          "width": 8,
+          "height": 2,
+          "rgbaSha256": "8541d73f10e931518b215ebab53d91d2c8cad72a5834ae96f7248f3708db7ac2"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 254,
+          "width": 4,
+          "height": 1,
+          "rgbaSha256": "06360502eb3b705b655e913e76241357b336de05087a8561e6145ed5c838227a"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 255,
+          "width": 2,
+          "height": 1,
+          "rgbaSha256": "885652cd42e6eb350e7ab8e5057e5c14d726ea6d14478565b4a311f6977eaede"
+        },
+        {
+          "level": 9,
+          "x": 0,
+          "y": 256,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "1ee0224e42b6e5e3bb27d4244897f0248754544b38042b59a2c018d573e68a77"
+        }
+      ],
+      "rgbaSha256": "0e6658ab2e43e9ac41342b8bd11e419491c2cbe6c714b55dc87fbe0b9f33dc28"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/masteryi_base_r_buf_lines.tex",
+        "wadPathHash": "5352122dd7b00d44",
+        "sha256": "8bc75364f6f8b86343ade95004f6ecd97df5c1a62f0c558b37ba40b042ab813b",
+        "bytes": 349564
+      },
+      "path": ".cache/masteryi-r-buff-packed-v2/5352122dd7b00d44.png",
+      "bytes": 244353,
+      "sha256": "3eab50dca60ab888fe96ad0bf055826cacddb0f3e7372f3c59a9447c56ccc276",
+      "width": 512,
+      "height": 1023,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 512,
+          "height": 512,
+          "rgbaSha256": "e894ca12fc8c127331a2241c9430937c887f1d9875e21fc5959bd32b6c942759"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 512,
+          "width": 256,
+          "height": 256,
+          "rgbaSha256": "8ba676d20fd8352a2d8e187034e0b4a14ecc213359d851842a8d89eb7c6b43e8"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 768,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "caaac296a2443715b47f718f9c5aefe2e45f19ba3c43463ee28b1de0fe5ef02e"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 896,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "10214196c20d3fec6e1fcd3beb488674ccbbfe61f9979e2d2e4f0cb80532a1ae"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 960,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "e9d75c4effce1b086658b28d40b89fc5f60b6206b5754f062ca753cd62d676f3"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 992,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "bcb748e5206c5d6d2ba6f8e3bec435291e63f2f42ff4e14932d310ac52a099a1"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 1008,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "7e125bb9ee2c4a870f18ebefceac71796dd5c6ca2d7173baa90a50d2e9c9dfad"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 1016,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "ff0802324e8030f3caacbb2b204120cfd30423863b41de1174f688edd5119e1a"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 1020,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "eebfc7fdc35c66dbac3706d2a389adff1a7b95fd63af4f518dcc0aa22d94f095"
+        },
+        {
+          "level": 9,
+          "x": 0,
+          "y": 1022,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "d6679cc1453606dcfe0bf7327ca7eda83678536a7e9ccc0a24b188a390f269d4"
+        }
+      ],
+      "rgbaSha256": "dfa44cb437aa292584273b9ba30f5fba17f8919e1b0428773f0a40200dd1cb7a"
+    },
+    {
+      "source": {
+        "path": "assets/characters/masteryi/skins/base/particles/masteryi_base_r_overlay.tex",
+        "wadPathHash": "c96beaadc54d677a",
+        "sha256": "3ff605783c0a6ef5db4256cad623ebd3493ed579f689000a6dbe0b2a4cd135c3",
+        "bytes": 87420
+      },
+      "path": ".cache/masteryi-r-buff-packed-v2/c96beaadc54d677a.png",
+      "bytes": 137560,
+      "sha256": "da775403b313350d552a53c2732320dd5bc988529eaea239fb0582b13a6999c0",
+      "width": 256,
+      "height": 511,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 256,
+          "height": 256,
+          "rgbaSha256": "81d24668da491d777c7bd2c293667b9befdfe009ea4001d01e6131654d0d4f26"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 256,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "f911c81a3e7ed2a7a94b6bb21d300fe36a0c4f4ac1015caf2fdad751dd59a851"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "000c6ddeae449fba7ebc6c5fb1adc43fa2e7dcf296eeb8bdcca82aa3706cbab6"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 448,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "11af1fc7191352665b089576017484fc4200492ffb6c3e5e3ad433e85b3d5b16"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 480,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "37992b36d58fc4a530ca1c2604d1e57bb9a62603d0d1af697362c1fe3d4489cb"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 496,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "009e6af9d05119b5616fd427982a8c963a144a23582489defe0694e7d2ac0c2a"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 504,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "0834ed7751b29562d463422e004530a5546c3a2a275cbe49e9a17d7bd437570e"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 508,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "587995716789d685f5d4fe38f92fbb2ada0154f3fb9e415d368b6b9502aacdea"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 510,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "68a24b411766b9ca6fc304e2176398bddcac15e9642c33be704a14f06d2c3fa1"
+        }
+      ],
+      "rgbaSha256": "bab194ac0036abc1804da265e4caafdc7c602a7c3a92cad519978e8887ff7f22"
+    }
+  ],
+  "limits": [
+    "Lossless transport of canonical software-decoded authored mip pixels; native GPU parity is not established.",
+    "Extract every rectangle as a distinct texture mip including level zero. Sampling the atlas directly is invalid.",
+    "Private staging only; no runtime effect, simulation dispatch or public asset preload."
+  ]
+}

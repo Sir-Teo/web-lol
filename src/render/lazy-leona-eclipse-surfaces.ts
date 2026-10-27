@@ -4,6 +4,8 @@ import type { Vec2 } from '../simulation/math';
 import type { LeonaEclipseSurfaces } from './leona-eclipse-surfaces';
 
 export class LazyLeonaEclipseSurfaces {
+  /** Request a frame after a new renderer is ready, including while paused. */
+  onReady?: () => void;
   private renderer?: LeonaEclipseSurfaces;
   private pending?: Promise<void>;
   private retryAfter = 0;
@@ -21,6 +23,7 @@ export class LazyLeonaEclipseSurfaces {
       const m = await import('./leona-eclipse-surfaces');
       await m.loadLeonaEclipseSurfaces();
       this.renderer = new m.LeonaEclipseSurfaces(this.scene, this.distortion, this.ground);
+      this.onReady?.();
     })().catch((error) => {
       this.pending = undefined;
       throw error;

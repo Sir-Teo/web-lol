@@ -15,12 +15,12 @@ async function poses(page: Page) {
           ordinals: m.userData.ordinals,
           drawCount: m.geometry.drawRange.count,
           buffers: await Promise.all(
-            ['position', 'uv', 'particleTint', 'particleLookupUv'].map(async (name) => {
+            ['position', 'uv', '_source_vertex_bgra', 'particleLookupUv'].map(async (name) => {
               const a = m.geometry.getAttribute(name),
                 bytes = new Uint8Array(
                   a.array.buffer,
                   a.array.byteOffset,
-                  m.geometry.drawRange.count * a.itemSize * 4
+                  m.geometry.drawRange.count * a.itemSize * a.array.BYTES_PER_ELEMENT
                 ),
                 digest = await crypto.subtle.digest('SHA-256', bytes);
               return {

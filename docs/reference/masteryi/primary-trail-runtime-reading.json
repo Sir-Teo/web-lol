@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "sourcePinSha256": "66516333b70c1557feab0b1b69a29bc119dd3675d3b04df36484cd842100c7e1",
+  "textureTransportSha256": "877c8dcc1750c70226ba5f08c56fb3d2621dac3d75fc95e598e3c05ddf6b363b",
+  "meshTransportSha256": "a7b5eb7e27d0f0ff64627a0eb256fb8643718ccd1d12a105e61f8bdf7fcc1673",
+  "profileSha256": "9a9df65137a32744f901b6e8e310b3d5d3b1e3cf2101b7f6d01c14e0431e0b28",
+  "markers": [
+    {
+      "system": "MasterYi_BA1_Trail",
+      "parent": "Attack1",
+      "clip": "entry_d5c55cfd",
+      "eventClip": "entry_ab887b52",
+      "eventKey": "{2d55b65c}",
+      "sourceFrame": 5.0,
+      "renderedSeconds": 0.1666666716337204,
+      "renderedDuration": 1.8000000715255737,
+      "sampleCount": 55,
+      "sourceBone": "C_Buffbone_Glb_Center_Loc",
+      "glbNode": 85,
+      "glbBone": "C_Buffbone_Glb_Center_Loc",
+      "profileIndex": 0
+    },
+    {
+      "system": "MasterYi_BA2_Trail",
+      "parent": "Attack2",
+      "clip": "entry_0d6139b0",
+      "eventClip": "entry_67da3820",
+      "eventKey": "{5aaabd3e}",
+      "sourceFrame": 5.0,
+      "renderedSeconds": 0.1666666716337204,
+      "renderedDuration": 1.8333333730697632,
+      "sampleCount": 56,
+      "sourceBone": "C_Buffbone_Glb_Center_Loc",
+      "glbNode": 85,
+      "glbBone": "C_Buffbone_Glb_Center_Loc",
+      "profileIndex": 1
+    },
+    {
+      "system": "MasterYi_Crit_Trail",
+      "parent": "Crit",
+      "clip": "entry_e1798980",
+      "eventClip": "entry_db40631e",
+      "eventKey": "{f3056ffb}",
+      "sourceFrame": 8.0,
+      "renderedSeconds": 0.2666666805744171,
+      "renderedDuration": 1.8333333730697632,
+      "sampleCount": 56,
+      "sourceBone": "C_Buffbone_Glb_Center_Loc",
+      "glbNode": 85,
+      "glbBone": "C_Buffbone_Glb_Center_Loc",
+      "profileIndex": 2
+    }
+  ],
+  "historyTicks": 20,
+  "limits": [
+    "Both current ordinary and critical trails are complete. Native ordinary selection/PRNG remains uncalibrated; passive uses its separate saved event dispatch.",
+    "Literal source frames index the exact retained rendered sample clock; default/event alias arrays must match. Ceil fixed-step marker admission and the existing one-tick first update are local display policies, not native mTickDuration or callback calibration.",
+    "Current named center-joint full position/quaternion, source-X reflection and .01 transport units are explicit local placement. Raw local/particle-local omissions remain null; profile frame flags enable the joint adapter rather than attesting native controls. Rig skin-scale inheritance remains uncalibrated.",
+    "Omitted blend uses the existing local zero policy; source offsets, critical rotation, scale, lookup/default adapters and scrolling remain explicit. Both systems omit sound defaults; no audio is added."
+  ]
+}

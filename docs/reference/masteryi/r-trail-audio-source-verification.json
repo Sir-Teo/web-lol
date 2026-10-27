@@ -1,0 +1,263 @@
+{
+  "format": 1,
+  "parentCommit": "f8347b8e68b192ffbbe624f3cccb2d7e7992558e",
+  "scope": "Three explicit Highlander persistent trail sound bindings, single source master, leaf loop declaration, immediate play action, source gain/caps/routing and complete raw five-point volume RTPC. No runtime dispatch or public WAV.",
+  "applicationIdentityBefore": {
+    "schema": 156,
+    "ruleset": "3416966a5b324f19070974eda6934d184cf61cc7b83d68e32c6cddf11bec17a4",
+    "pack": {
+      "id": "15b47626609f5f6617a5549d6693a7c0d40d912b922cc3f5671699e052df7d11",
+      "files": 1163,
+      "bytes": 536299479
+    }
+  },
+  "applicationIdentityAfter": {
+    "schema": 156,
+    "ruleset": "3416966a5b324f19070974eda6934d184cf61cc7b83d68e32c6cddf11bec17a4",
+    "pack": {
+      "id": "15b47626609f5f6617a5549d6693a7c0d40d912b922cc3f5671699e052df7d11",
+      "files": 1163,
+      "bytes": 536299479
+    }
+  },
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/r-particles.json",
+      "bytes": 113047,
+      "sha256": "e8630aeae0aa33c6f369bde1ac3c80aeb333a16e78924ab1417f56f75e7f1ccd"
+    },
+    {
+      "path": "docs/reference/masteryi/audio-graph.json",
+      "bytes": 1598681,
+      "sha256": "b7879c088d3544626d70c9ecaf4abfd0aebae007db5a6ee841c0caed7a2b33e3"
+    },
+    {
+      "path": "docs/reference/masteryi/audio-decoded.json",
+      "bytes": 87738,
+      "sha256": "28ac362788bb76709a226e76d282eb25a1805a474b9bc7348cedd59bbee33a32"
+    },
+    {
+      "path": "tools/assets/masteryi_q_audio.py",
+      "bytes": 9938,
+      "sha256": "fc9c7fe4939f390d25b3383684a3b293659f0e290eceed6afccc93eef543a76a"
+    },
+    {
+      "path": "tools/assets/masteryi_audio_decode.py",
+      "bytes": 8199,
+      "sha256": "1daac83459300db4b01688688cf6d454ad7d3c1d20a5dd420a00850447470e20"
+    },
+    {
+      "path": "tools/assets/masteryi_audio_source.py",
+      "bytes": 2297,
+      "sha256": "fdeb76c6bf623a420a16851ab659368f349cc9e61748b890f0fec76b8e407c3c"
+    },
+    {
+      "path": ".cache/masteryi-audio-decoded/560618281.wav",
+      "bytes": 1347272,
+      "sha256": "1a80c48ffe56baf99728d48bc4ba743a96664fe680bd49d1f6cb7988d5b9936d"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-r-trail-audio-source/final-source-index.json",
+    "bytes": 1647,
+    "sha256": "7f67ec4dcd1d5971656141ea50045130082401b97644db698a9e25b8a028d75a"
+  },
+  "generated": [
+    {
+      "path": "docs/MASTER-YI-R-PARTICLES.md",
+      "bytes": 4814,
+      "sha256": "1864a0e71168a2e9c3efd600c9e720a3b8bbc5a29fd9f53c8cdde12db692a68d",
+      "archived": ".cache/masteryi-r-trail-audio-source/final-source/docs/MASTER-YI-R-PARTICLES.md"
+    },
+    {
+      "path": "docs/MASTER-YI-R-TRAIL-AUDIO.md",
+      "bytes": 2727,
+      "sha256": "ef0a7088ed2879de1aaa5370676062712f6842fe22e09ce972f5ae91f6448f56",
+      "archived": ".cache/masteryi-r-trail-audio-source/final-source/docs/MASTER-YI-R-TRAIL-AUDIO.md"
+    },
+    {
+      "path": "docs/reference/masteryi/r-trail-audio-reading.json",
+      "bytes": 6340,
+      "sha256": "7927f63a728ffd36c06bfddc2a01ce4350f7e9326302cec54b3b25a5a79aee2f",
+      "archived": ".cache/masteryi-r-trail-audio-source/final-source/docs/reference/masteryi/r-trail-audio-reading.json"
+    },
+    {
+      "path": "tools/assets/masteryi_r_trail_audio.py",
+      "bytes": 6915,
+      "sha256": "4031c264ab951b005d4d50e429b7ef49409b2ab5bf3bad8fc44122f9d36026b3",
+      "archived": ".cache/masteryi-r-trail-audio-source/final-source/tools/assets/masteryi_r_trail_audio.py"
+    },
+    {
+      "path": "tools/assets/prepare-masteryi-r-trail-audio.py",
+      "bytes": 1071,
+      "sha256": "9f1ca39b0f387cb6b70233a801062cc1080ae0dd03eadc5fd0b62169c5f023c6",
+      "archived": ".cache/masteryi-r-trail-audio-source/final-source/tools/assets/prepare-masteryi-r-trail-audio.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-r-trail-audio.py",
+      "bytes": 4613,
+      "sha256": "da59dfe4b2a8b23eda2335b32b0c1eb82d56567a2c81918c3a3b388384d27b9d",
+      "archived": ".cache/masteryi-r-trail-audio-source/final-source/tools/assets/test-masteryi-r-trail-audio.py"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-r-trail-audio-source/__pycache__/masteryi_r_trail_audio.cpython-312.pyc",
+      "bytes": 12416,
+      "sha256": "ae93b4ea33ef2a503225fed6f9884e0ab356b9d6b5f3db9b37889b181416bd92"
+    },
+    {
+      "path": ".cache/masteryi-r-trail-audio-source/__pycache__/test-masteryi-r-trail-audio.cpython-312.pyc",
+      "bytes": 16664,
+      "sha256": "2151fc3effd9261e3c82b786f4777dc9a3d9a9388bf75d65aa1a9dcaf63276db"
+    },
+    {
+      "path": ".cache/masteryi-r-trail-audio-source/check-normal.log",
+      "bytes": 62,
+      "sha256": "4305ae5d413c7601b0a734aa45b56fc35f5801a49974a6973613a98a6b5db08f"
+    },
+    {
+      "path": ".cache/masteryi-r-trail-audio-source/check-optimized.log",
+      "bytes": 62,
+      "sha256": "4305ae5d413c7601b0a734aa45b56fc35f5801a49974a6973613a98a6b5db08f"
+    },
+    {
+      "path": ".cache/masteryi-r-trail-audio-source/check-replay.py",
+      "bytes": 1509,
+      "sha256": "8f654e4b1480438abddbfdd60c2dc7dd097a724eef5d90edf6d33609ceaed157"
+    },
+    {
+      "path": ".cache/masteryi-r-trail-audio-source/final-source-index.json",
+      "bytes": 1647,
+      "sha256": "7f67ec4dcd1d5971656141ea50045130082401b97644db698a9e25b8a028d75a"
+    },
+    {
+      "path": ".cache/masteryi-r-trail-audio-source/guards-normal.log",
+      "bytes": 126,
+      "sha256": "d749ab492ad476ecb21f9de54563d70dbc5258f9bd0df023cb7a9d8cccb2699e"
+    },
+    {
+      "path": ".cache/masteryi-r-trail-audio-source/guards-optimized.log",
+      "bytes": 126,
+      "sha256": "9f96a57fb7e1cb8b3f88297369f62055cf850eda35fed73b7b58387ef4bb82ad"
+    },
+    {
+      "path": ".cache/masteryi-r-trail-audio-source/guards-provisional.log",
+      "bytes": 126,
+      "sha256": "8ce8be1e1a13d730f04ca12ae2d4199a3b7fb2dac63d5f4dac7b14821ada140c"
+    },
+    {
+      "path": ".cache/masteryi-r-trail-audio-source/identity-after.json",
+      "bytes": 238,
+      "sha256": "f7453342adbc8f723ea6d77050a73084f5a5044927ada1b13344e41bf6539f6f"
+    },
+    {
+      "path": ".cache/masteryi-r-trail-audio-source/identity-before.json",
+      "bytes": 238,
+      "sha256": "f7453342adbc8f723ea6d77050a73084f5a5044927ada1b13344e41bf6539f6f"
+    },
+    {
+      "path": ".cache/masteryi-r-trail-audio-source/identity.log",
+      "bytes": 204,
+      "sha256": "a8e5ee4d0905b94c2aaca0d8f88f63a2f3f3022cf9142e9671d1bd5b42c0bdf4"
+    },
+    {
+      "path": ".cache/masteryi-r-trail-audio-source/identity.mjs",
+      "bytes": 558,
+      "sha256": "866e017fd072eff9e1490e1561b2dd25e8cc187096769f6dfd2584af5a21cfea"
+    },
+    {
+      "path": ".cache/masteryi-r-trail-audio-source/masteryi_r_trail_audio.py",
+      "bytes": 6915,
+      "sha256": "4031c264ab951b005d4d50e429b7ef49409b2ab5bf3bad8fc44122f9d36026b3"
+    },
+    {
+      "path": ".cache/masteryi-r-trail-audio-source/next.json",
+      "bytes": 6099,
+      "sha256": "221d25c0e3f78a30bf6b1cbe0b081672545cec3a4ce8aae18a738b9eaaa4cf67"
+    },
+    {
+      "path": ".cache/masteryi-r-trail-audio-source/prepare-masteryi-r-trail-audio.py",
+      "bytes": 1071,
+      "sha256": "9f1ca39b0f387cb6b70233a801062cc1080ae0dd03eadc5fd0b62169c5f023c6"
+    },
+    {
+      "path": ".cache/masteryi-r-trail-audio-source/prepare-normal.log",
+      "bytes": 62,
+      "sha256": "4305ae5d413c7601b0a734aa45b56fc35f5801a49974a6973613a98a6b5db08f"
+    },
+    {
+      "path": ".cache/masteryi-r-trail-audio-source/prepare-replay-normal.log",
+      "bytes": 62,
+      "sha256": "4305ae5d413c7601b0a734aa45b56fc35f5801a49974a6973613a98a6b5db08f"
+    },
+    {
+      "path": ".cache/masteryi-r-trail-audio-source/prepare-replay-optimized.log",
+      "bytes": 62,
+      "sha256": "4305ae5d413c7601b0a734aa45b56fc35f5801a49974a6973613a98a6b5db08f"
+    },
+    {
+      "path": ".cache/masteryi-r-trail-audio-source/record-verification.py",
+      "bytes": 3460,
+      "sha256": "f6496c65e936965b3ca808bf8ad37827b4bdb3b4637497474729383fa8c4ff6c"
+    },
+    {
+      "path": ".cache/masteryi-r-trail-audio-source/replay.json",
+      "bytes": 588,
+      "sha256": "ed1db191a7e1ff4127c5098b2d5989aa90945d01ec3ff1f3436670e72df24fa6"
+    },
+    {
+      "path": ".cache/masteryi-r-trail-audio-source/test-masteryi-r-trail-audio.py",
+      "bytes": 4613,
+      "sha256": "da59dfe4b2a8b23eda2335b32b0c1eb82d56567a2c81918c3a3b388384d27b9d"
+    }
+  ],
+  "checks": {
+    "guards": {
+      "casesPerPythonMode": 27,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "sourceClosure": {
+      "particleBindings": 3,
+      "events": 1,
+      "playActions": 1,
+      "containers": 1,
+      "sounds": 1,
+      "media": 1,
+      "wavBytes": 1347272,
+      "frames": 336807,
+      "sampleRate": 44100,
+      "channels": 1,
+      "peak": 1.0218539237976074,
+      "samplesOutsideUnitRange": 4
+    },
+    "rtpc": {
+      "parameterId": 745018932,
+      "curveId": 751387390,
+      "points": 5,
+      "inputDefinitionPresent": false,
+      "inputMeaning": null,
+      "storedValuesAreLiteralDb": false
+    },
+    "actualChecksAndPrepareReplays": {
+      "filesUnchangedBytesAndMtimes": 2,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "applicationIdentity": "Schema, ruleset and production pack unchanged. Broad runtime checks remain referenced by the parent cast checkpoint."
+  },
+  "limits": [
+    "Source-only reading; no runtime audio, public WAV, save/ruleset or production-pack change.",
+    "The three retained buff systems explicitly bind the same persistent event; cast and takedown systems omit it. This does not prove native rank-selection or client start/stop callbacks.",
+    "Leaf Loop=0 stays separate from encoded loopingInfo=None. No loop expansion, seam repair, normalization, clipping or resampling is applied.",
+    "Volume retains its raw RTPC scaling/accumulation codes and ordinates; stored values are not literal decibels. The retained graph has no definition/default for parameter 745018932; its meaning and live input cannot be inferred from curve shape.",
+    "Native source-to-output-bus processing, scheduling, callback fade and physical listening remain unverified.",
+    "Source identity/loop declarations are not a native callback, volume input, bus or physical listening certificate.",
+    "Ignored cache inputs/evidence require preservation; changed source files are separately archived."
+  ]
+}

@@ -1,0 +1,264 @@
+{
+  "format": 1,
+  "parentCommit": "2e0ae99e4791617b30b097faf2af17a65eef4bd0",
+  "scope": "Complete two-emitter Q_End source projection, five private exact texture transports/41 authored mips, raw frame-rate hash, explicit distortion mode/strength, omitted sound binding, native fields and separate local defaults. No runtime dispatch or public assets.",
+  "applicationIdentityBefore": {
+    "schema": 154,
+    "ruleset": "e9f93ba881209805785c05e0938f7fefb710d02a240de3795df72f31407064d6",
+    "pack": {
+      "id": "6121c3abf9a82d4be2acd857f3f4a439ca9cb30138fc239a547f7236de6eba80",
+      "files": 1150,
+      "bytes": 535695709
+    }
+  },
+  "applicationIdentityAfter": {
+    "schema": 154,
+    "ruleset": "e9f93ba881209805785c05e0938f7fefb710d02a240de3795df72f31407064d6",
+    "pack": {
+      "id": "6121c3abf9a82d4be2acd857f3f4a439ca9cb30138fc239a547f7236de6eba80",
+      "files": 1150,
+      "bytes": 535695709
+    }
+  },
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/q-particles.json",
+      "bytes": 87880,
+      "sha256": "95531b1e61b44fc39d6458534174fe183fdf75e57cf7528a93a045e836322776"
+    },
+    {
+      "path": "docs/reference/masteryi/q-particles-decoded.json",
+      "bytes": 148372,
+      "sha256": "783317cf9c44a36b3e07fbda8d27829ec6ae674119fcb5c8fddac46a959360fd"
+    },
+    {
+      "path": "docs/reference/garen-spin-defaults.json",
+      "bytes": 1772,
+      "sha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb"
+    },
+    {
+      "path": "tools/assets/masteryi_q_particles.py",
+      "bytes": 7165,
+      "sha256": "8373108c738d00d23c47e485b609db18464a81cf6146b608ee9d608e4e604b44"
+    },
+    {
+      "path": "tools/assets/masteryi_q_decode.py",
+      "bytes": 7372,
+      "sha256": "552f2cf9a0cb552a97332a142bbea6f25a3b0e2c2974359a58659a2c17517ecd"
+    },
+    {
+      "path": "tools/assets/masteryi_w_cast.py",
+      "bytes": 8252,
+      "sha256": "67db765dbf4c62c0cd0e5d39d99589c657d6ae826e79a9453a599e203d6d4b5e"
+    },
+    {
+      "path": "tools/assets/masteryi_w_buff.py",
+      "bytes": 6301,
+      "sha256": "30d3b7f47b7d0a3258dbf7c9394f48a35f204cf5be76fd4dc40483131b630c81"
+    },
+    {
+      "path": "tools/assets/particle_mip_atlas.py",
+      "bytes": 4181,
+      "sha256": "4ba50521c7a4c0d061bbf2f8363b7a84b4db9a4bf480e3d52ae101aec6538fd6"
+    },
+    {
+      "path": ".cache/masteryi-q-end-packed-v2/f7b790bffcb906a6.png",
+      "bytes": 11381,
+      "sha256": "56cb28452a955a5b1a5698180f1747c2aca5a9506ccf69ee6e5ad4d2f685de17"
+    },
+    {
+      "path": ".cache/masteryi-q-end-packed-v2/fc9dc17f3b485a42.png",
+      "bytes": 524,
+      "sha256": "8c9656bb665de13efd0169e58c33944f6e8268dfc8f8f179fc4873743a9b987e"
+    },
+    {
+      "path": ".cache/masteryi-q-end-packed-v2/dba30aea46f8d87f.png",
+      "bytes": 702,
+      "sha256": "30df4a0ee4cd6cc8d680584586e77e764328930403fae425708a9e845c0edcc8"
+    },
+    {
+      "path": ".cache/masteryi-q-end-packed-v2/3444655f66070a9f.png",
+      "bytes": 82162,
+      "sha256": "bab48f4f91762b41254eb7e59126de0ce7d83794709ddb259e9fd7a66ef68593"
+    },
+    {
+      "path": ".cache/masteryi-q-end-packed-v2/4fecd70af75bf6ca.png",
+      "bytes": 83749,
+      "sha256": "439bcb1e02f62228f37b903e6268fbf394f92fa14fab993efa6e825c2fb71467"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-q-end-source-cloud/final-source-index.json",
+    "bytes": 2153,
+    "sha256": "a3a96adf0cfbf3225c15506b5323e3123acd6ad18875274297864ccc84236299"
+  },
+  "generated": [
+    {
+      "path": "docs/MASTER-YI-Q-END.md",
+      "bytes": 2639,
+      "sha256": "8fb6f78a21e4098f843552d9eb1ecebde084fbf2a0dfc66c763370f96acea65c",
+      "archived": ".cache/masteryi-q-end-source-cloud/final-source/docs/MASTER-YI-Q-END.md"
+    },
+    {
+      "path": "docs/MASTER-YI-Q-PARTICLES.md",
+      "bytes": 9678,
+      "sha256": "d6d43f5532f5a519cd4abe45d89f2b6c449c95d3752967460023a2b90a937f42",
+      "archived": ".cache/masteryi-q-end-source-cloud/final-source/docs/MASTER-YI-Q-PARTICLES.md"
+    },
+    {
+      "path": "docs/reference/masteryi/q-end-particle-reading.json",
+      "bytes": 27413,
+      "sha256": "91eb75745c2a287d8552fe43c5cb388c62554282968f1c0a4d0aac0ef9c663e8",
+      "archived": ".cache/masteryi-q-end-source-cloud/final-source/docs/reference/masteryi/q-end-particle-reading.json"
+    },
+    {
+      "path": "docs/reference/masteryi/q-end-texture-transport.json",
+      "bytes": 12811,
+      "sha256": "4dd2ab7ec55069934bb1a15889bcb24dfcce0825680f85263fb70067047c1b0d",
+      "archived": ".cache/masteryi-q-end-source-cloud/final-source/docs/reference/masteryi/q-end-texture-transport.json"
+    },
+    {
+      "path": "tools/assets/masteryi_q_end.py",
+      "bytes": 3765,
+      "sha256": "3a4dd4a351298b33a565d98a9ac010d52f60ecd9669918cd0be476cffa4f0f15",
+      "archived": ".cache/masteryi-q-end-source-cloud/final-source/tools/assets/masteryi_q_end.py"
+    },
+    {
+      "path": "tools/assets/pack-masteryi-q-end-textures.py",
+      "bytes": 5586,
+      "sha256": "83b8457c262d59757c18fd95b0038caaea90f8720bff736d74a7dcfb5fe0bea0",
+      "archived": ".cache/masteryi-q-end-source-cloud/final-source/tools/assets/pack-masteryi-q-end-textures.py"
+    },
+    {
+      "path": "tools/assets/prepare-masteryi-q-end.py",
+      "bytes": 3348,
+      "sha256": "c0ee032e767168b17a3d4470178ebed10153f5cf9b8729ee515d7eb3248cd3d9",
+      "archived": ".cache/masteryi-q-end-source-cloud/final-source/tools/assets/prepare-masteryi-q-end.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-q-end.py",
+      "bytes": 4149,
+      "sha256": "8c41f4ca8dd322a8166d6afe317055242def9c62c5f175b8cc29d8cfb1c63ba5",
+      "archived": ".cache/masteryi-q-end-source-cloud/final-source/tools/assets/test-masteryi-q-end.py"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-q-end-source-cloud/check-normal.log",
+      "bytes": 96,
+      "sha256": "562dec3f1cbb50cf89c0ca4ca1c311c8b6ed1158787a541607f25cbd8feeecc6"
+    },
+    {
+      "path": ".cache/masteryi-q-end-source-cloud/check-optimized.log",
+      "bytes": 96,
+      "sha256": "562dec3f1cbb50cf89c0ca4ca1c311c8b6ed1158787a541607f25cbd8feeecc6"
+    },
+    {
+      "path": ".cache/masteryi-q-end-source-cloud/final-source-index.json",
+      "bytes": 2153,
+      "sha256": "a3a96adf0cfbf3225c15506b5323e3123acd6ad18875274297864ccc84236299"
+    },
+    {
+      "path": ".cache/masteryi-q-end-source-cloud/guards-normal.log",
+      "bytes": 118,
+      "sha256": "5fc1850431c0150eae2c6c749812375d460ff5f8c2c01acd5b6a5b969dc5bc70"
+    },
+    {
+      "path": ".cache/masteryi-q-end-source-cloud/guards-optimized.log",
+      "bytes": 118,
+      "sha256": "2292473f142d2da73aeb3635391d9fd79c7407ee08324c8c0c356517d22067bf"
+    },
+    {
+      "path": ".cache/masteryi-q-end-source-cloud/identity-after.json",
+      "bytes": 238,
+      "sha256": "a475035f71f2070c3b929025a535e61fc8f8b8c2c8d7cfa8755c34bc198a1ee4"
+    },
+    {
+      "path": ".cache/masteryi-q-end-source-cloud/identity-before.json",
+      "bytes": 238,
+      "sha256": "a475035f71f2070c3b929025a535e61fc8f8b8c2c8d7cfa8755c34bc198a1ee4"
+    },
+    {
+      "path": ".cache/masteryi-q-end-source-cloud/identity.log",
+      "bytes": 204,
+      "sha256": "cfc62a05258d5220093871dd4dd7e0828ee87887fbeaa4b3e6718fba58b750bc"
+    },
+    {
+      "path": ".cache/masteryi-q-end-source-cloud/identity.mjs",
+      "bytes": 556,
+      "sha256": "b9cd2954145fcb9eaa0ced9b785af889bab115806bc27a2587181b10bddab0b5"
+    },
+    {
+      "path": ".cache/masteryi-q-end-source-cloud/pack-normal.log",
+      "bytes": 100,
+      "sha256": "96ebf6af68bba80697487170e16c5369e1d54c838025280bf2b2a5122cb414b8"
+    },
+    {
+      "path": ".cache/masteryi-q-end-source-cloud/pack-optimized.log",
+      "bytes": 101,
+      "sha256": "f4a437c84a26c9d965b68b359d2db45390d258b46cbbd8bf286ddd5a3712bde0"
+    },
+    {
+      "path": ".cache/masteryi-q-end-source-cloud/prepare.log",
+      "bytes": 96,
+      "sha256": "562dec3f1cbb50cf89c0ca4ca1c311c8b6ed1158787a541607f25cbd8feeecc6"
+    },
+    {
+      "path": ".cache/masteryi-q-end-source-cloud/record-verification.py",
+      "bytes": 3632,
+      "sha256": "5c1714a9190de1cc7bff06110e5ffaf29a174f62c301649040bfcf48c9f18c94"
+    },
+    {
+      "path": ".cache/masteryi-q-end-source-cloud/replay-normal.log",
+      "bytes": 96,
+      "sha256": "562dec3f1cbb50cf89c0ca4ca1c311c8b6ed1158787a541607f25cbd8feeecc6"
+    },
+    {
+      "path": ".cache/masteryi-q-end-source-cloud/replay-optimized.log",
+      "bytes": 96,
+      "sha256": "562dec3f1cbb50cf89c0ca4ca1c311c8b6ed1158787a541607f25cbd8feeecc6"
+    },
+    {
+      "path": ".cache/masteryi-q-end-source-cloud/replay.json",
+      "bytes": 1927,
+      "sha256": "6e410f4a50505e47e62bb5476995f7d8e4c7a720ae8ec93c091be1886bbb5d98"
+    }
+  ],
+  "checks": {
+    "sourceGuards": {
+      "casesPerPythonMode": 19,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "privateTextureTransport": {
+      "textures": 5,
+      "authoredMips": 41,
+      "packedBytes": 178518,
+      "allCanonicalDecodedRgbaHashes": "exact",
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "readingAndPrivateTransportReplay": {
+      "filesUnchangedBytesAndMtimes": 8,
+      "modes": [
+        "normal",
+        "optimized"
+      ],
+      "actualChecksAndReplays": true
+    },
+    "applicationIdentity": "Schema, ruleset fingerprint and existing production pack unchanged; broad runtime/build/browser checks remain referenced by parent cast checkpoint."
+  },
+  "limits": [
+    "Source reading and private transport only; no runtime dispatch or public assets.",
+    "Raw distortionMode 2 and strength 0.09000000357627869 remain explicit; native CPU mode/phase/power binding is not proven by shader arithmetic.",
+    "Frame-rate hash matches a name candidate. Local atlas seek, first-update grid, cosmetic random draws, root attachment and source defaults remain separate reconstruction choices.",
+    "Source linger and emitter linger stay recorded without extending finite visible life. No on-create sound field is authored.",
+    "Reappearance-system naming and resource binding alone do not prove native script creation timing. Gameplay integration must declare its lifecycle adapter.",
+    "Canonical software decoding and lossless mip transports do not certify native texture/GPU behavior.",
+    "Ignored cache inputs/evidence require preservation; changed source files are separately archived."
+  ]
+}

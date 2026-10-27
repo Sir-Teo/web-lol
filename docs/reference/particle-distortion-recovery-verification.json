@@ -1,0 +1,2026 @@
+{
+  "format": 1,
+  "parentCommit": "5210aea925c63f4c04d50f59342a8e3da491fa47",
+  "scope": "Restore all original frozen distortion resources, Metal libraries, wrapper bitcode and byte-identical historical textual disassembly against unchanged source pins and assertions. No application source or asset changes.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "9db64775d98bbc1fe60d2a39d8bd15f546d5e5893ea9d984a39ac5b622dd2aab",
+    "offlinePack": {
+      "id": "7a230ac1a1b54abdc3cbf8f901e7ce567c88b5054556f38f4b81f7991eea1441",
+      "files": 1200,
+      "bytes": 538083415
+    }
+  },
+  "applicationFingerprintUnchanged": true,
+  "productionPackUnchanged": true,
+  "verification": {
+    "canonicalOutputs": 53,
+    "canonicalBytes": 328650,
+    "nativeResources": 8,
+    "metalLibraries": 15,
+    "bitcodePayloads": 15,
+    "exactOriginalDisassemblies": 15,
+    "sourceRangeChunks": 9,
+    "freshRiotDownloadBytes": 81660,
+    "guardsPerPythonMode": 17,
+    "unchangedReplayFiles": 64,
+    "offlineReplayPreservesBytesAndMtimes": true,
+    "networkAndChildProcessesDeniedDuringReplay": true,
+    "originalShaderTestCasesPassed": 3,
+    "fullUnitRun": {
+      "passed": 3074,
+      "failed": 2,
+      "total": 3076,
+      "files": 388
+    },
+    "baselineFailuresRemoved": 1,
+    "remainingBaselineFailures": 2,
+    "originalWaveDeadlinePassed": true,
+    "originalPinsAndAssertionsUnchanged": true,
+    "nativeGameExecuted": false,
+    "nativeMetalShaderExecuted": false,
+    "productionAcceptanceInheritedFromParent": true
+  },
+  "toolchain": {
+    "compiler": {
+      "path": ".tools/llvm21/usr/lib/llvm-21/bin/clang",
+      "bytes": 133784,
+      "sha256": "6349abc605e082ae7900b3bb6bf70f3b5946af795e4cba647125834c6fd17d3f"
+    },
+    "compilerVersion": "Debian clang version 21.1.8 (++20251221033036+2078da43e25a-1~exp1~20251221153213.50)\nTarget: x86_64-pc-linux-gnu\nThread model: posix\nInstalledDir: /workspace/web-lol/.tools/llvm21/usr/lib/llvm-21/bin\n",
+    "llvmLibrary": {
+      "path": ".tools/llvm21/usr/lib/x86_64-linux-gnu/libLLVM.so.21.1",
+      "bytes": 139532456,
+      "sha256": "67c3534263c4ede26683fa362a91c1af4debad94db5a1e74905d4c5a7064a406"
+    },
+    "clangCppLibrary": {
+      "path": ".tools/llvm21/usr/lib/x86_64-linux-gnu/libclang-cpp.so.21.1",
+      "bytes": 61294664,
+      "sha256": "954699b54241ec42485f186b6853adb46475dea31c95535ae44210cd88219cea"
+    },
+    "packageSignature": {
+      "command": [
+        "gpg",
+        "--batch",
+        "--homedir",
+        ".cache/particle-distortion-restoration/gpg-home",
+        "--no-default-keyring",
+        "--keyring",
+        "/workspace/web-lol/.cache/particle-distortion-restoration/llvm-archive-keyring.gpg",
+        "--no-auto-key-retrieve",
+        "--status-fd",
+        "2",
+        "--decrypt",
+        ".cache/particle-distortion-restoration/llvm21-InRelease"
+      ],
+      "exitCode": 0,
+      "signingFingerprint": "6084F3CF814B57C1CF12EFD515CF4D18AF4F7421",
+      "packageIndexMatchesSignedRelease": true,
+      "indexSha256": "f9042fa0b250d5c6178e6e17762ad58eac3fecab2fa0f80cb509911e1fc601e7"
+    },
+    "packages": [
+      {
+        "package": "clang-21",
+        "version": "1:21.1.8~++20251221033036+2078da43e25a-1~exp1~20251221153213.50",
+        "path": ".cache/particle-distortion-restoration/llvm21-debs/clang-21_21.1.8~++20251221033036+2078da43e25a-1~exp1~20251221153213.50_amd64.deb",
+        "bytes": 169472,
+        "sha256": "b29399ec1bcbda6ad6760ddb10291a21fc442d3e426193c7e83d58e2ed5021a2",
+        "url": "https://apt.llvm.org/trixie/pool/main/l/llvm-toolchain-21/clang-21_21.1.8~++20251221033036+2078da43e25a-1~exp1~20251221153213.50_amd64.deb"
+      },
+      {
+        "package": "libclang-cpp21",
+        "version": "1:21.1.8~++20251221033036+2078da43e25a-1~exp1~20251221153213.50",
+        "path": ".cache/particle-distortion-restoration/llvm21-debs/libclang-cpp21_21.1.8~++20251221033036+2078da43e25a-1~exp1~20251221153213.50_amd64.deb",
+        "bytes": 12859204,
+        "sha256": "f17f302cd393d15f513a16555a6a209f8e5db80a56a1924063190f684ba8d0a4",
+        "url": "https://apt.llvm.org/trixie/pool/main/l/llvm-toolchain-21/libclang-cpp21_21.1.8~++20251221033036+2078da43e25a-1~exp1~20251221153213.50_amd64.deb"
+      },
+      {
+        "package": "libllvm21",
+        "version": "1:21.1.8~++20251221033036+2078da43e25a-1~exp1~20251221153213.50",
+        "path": ".cache/particle-distortion-restoration/llvm21-debs/libllvm21_21.1.8~++20251221033036+2078da43e25a-1~exp1~20251221153213.50_amd64.deb",
+        "bytes": 28343788,
+        "sha256": "991d8f67b8414d7bcab70832538ef3def6a3a6eecdc4261d173009b516a0ab18",
+        "url": "https://apt.llvm.org/trixie/pool/main/l/llvm-toolchain-21/libllvm21_21.1.8~++20251221033036+2078da43e25a-1~exp1~20251221153213.50_amd64.deb"
+      }
+    ],
+    "systemPackagesInstalled": false,
+    "maintainerScriptsExecuted": false
+  },
+  "recovery": {
+    "sourcePinSha256": "d1eaaf2ebc4a8f0ba34c60028db9aff61f1beddd201c7ade14a63d2ee9517ca2",
+    "nativeResources": 8,
+    "metalPrograms": 15,
+    "bitcodePayloads": 15,
+    "exactDisassemblyPayloads": 15,
+    "canonicalPayloads": 53,
+    "nativeExecuted": false,
+    "originalPinsChanged": false,
+    "downloads": [],
+    "compilerRuns": [
+      {
+        "command": [
+          "/workspace/web-lol/.tools/llvm21/usr/lib/llvm-21/bin/clang",
+          "-S",
+          "-emit-llvm",
+          "-Xclang",
+          "-disable-llvm-passes",
+          "--target=arm64-apple-macosx26.5.0",
+          ".cache/particle-distortion-shaders/distortion_ps.ps-metal-0.bc",
+          "-o",
+          "/workspace/web-lol/.cache/particle-distortion-recovery/run-00yg1at5/compiler-sandbox/distortion_ps.ps-metal-0.ll"
+        ],
+        "stderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+        "sha256": "ea26d9050c19a19f0ed765ebd35dabd21982c844a81e828424922c96e4f6522c"
+      },
+      {
+        "command": [
+          "/workspace/web-lol/.tools/llvm21/usr/lib/llvm-21/bin/clang",
+          "-S",
+          "-emit-llvm",
+          "-Xclang",
+          "-disable-llvm-passes",
+          "--target=arm64-apple-macosx26.5.0",
+          ".cache/particle-distortion-shaders/distortion_ps.ps-metal-1.bc",
+          "-o",
+          "/workspace/web-lol/.cache/particle-distortion-recovery/run-00yg1at5/compiler-sandbox/distortion_ps.ps-metal-1.ll"
+        ],
+        "stderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+        "sha256": "4c2dae3be1a03ae5a4c1a5249144bbfd33c38f6c24eee70dde272ea591eaf6a3"
+      },
+      {
+        "command": [
+          "/workspace/web-lol/.tools/llvm21/usr/lib/llvm-21/bin/clang",
+          "-S",
+          "-emit-llvm",
+          "-Xclang",
+          "-disable-llvm-passes",
+          "--target=arm64-apple-macosx26.5.0",
+          ".cache/particle-distortion-shaders/distortion_ps.ps-metal-2.bc",
+          "-o",
+          "/workspace/web-lol/.cache/particle-distortion-recovery/run-00yg1at5/compiler-sandbox/distortion_ps.ps-metal-2.ll"
+        ],
+        "stderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+        "sha256": "56a2e4dc53e426319fb5be7fb671449ec6139b29103759b5031503093690657d"
+      },
+      {
+        "command": [
+          "/workspace/web-lol/.tools/llvm21/usr/lib/llvm-21/bin/clang",
+          "-S",
+          "-emit-llvm",
+          "-Xclang",
+          "-disable-llvm-passes",
+          "--target=arm64-apple-macosx26.5.0",
+          ".cache/particle-distortion-shaders/distortion_ps.ps-metal-3.bc",
+          "-o",
+          "/workspace/web-lol/.cache/particle-distortion-recovery/run-00yg1at5/compiler-sandbox/distortion_ps.ps-metal-3.ll"
+        ],
+        "stderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+        "sha256": "589e7042cf5c8bed70b61ff2bc655aea6ae8beb8bdedc62d7b22de03f6971b0f"
+      },
+      {
+        "command": [
+          "/workspace/web-lol/.tools/llvm21/usr/lib/llvm-21/bin/clang",
+          "-S",
+          "-emit-llvm",
+          "-Xclang",
+          "-disable-llvm-passes",
+          "--target=arm64-apple-macosx26.5.0",
+          ".cache/particle-distortion-shaders/distortion_vs.vs-metal-0.bc",
+          "-o",
+          "/workspace/web-lol/.cache/particle-distortion-recovery/run-00yg1at5/compiler-sandbox/distortion_vs.vs-metal-0.ll"
+        ],
+        "stderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+        "sha256": "d86b372b27f93bc5402ddd2f5d98145e8ab65b7f991bf32add7100e67c6c6beb"
+      },
+      {
+        "command": [
+          "/workspace/web-lol/.tools/llvm21/usr/lib/llvm-21/bin/clang",
+          "-S",
+          "-emit-llvm",
+          "-Xclang",
+          "-disable-llvm-passes",
+          "--target=arm64-apple-macosx26.5.0",
+          ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-0.bc",
+          "-o",
+          "/workspace/web-lol/.cache/particle-distortion-recovery/run-00yg1at5/compiler-sandbox/distortion_mesh_ps.ps-metal-0.ll"
+        ],
+        "stderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+        "sha256": "e69360d0dd981ecd004bc92912a8af753f0a43d0b5fec23bd160c0f99b2a6bc3"
+      },
+      {
+        "command": [
+          "/workspace/web-lol/.tools/llvm21/usr/lib/llvm-21/bin/clang",
+          "-S",
+          "-emit-llvm",
+          "-Xclang",
+          "-disable-llvm-passes",
+          "--target=arm64-apple-macosx26.5.0",
+          ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-1.bc",
+          "-o",
+          "/workspace/web-lol/.cache/particle-distortion-recovery/run-00yg1at5/compiler-sandbox/distortion_mesh_ps.ps-metal-1.ll"
+        ],
+        "stderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+        "sha256": "d2f66829f9112ff5dcd5fe7b791100d1717b60dcad6b224b887afe84f87e6b9f"
+      },
+      {
+        "command": [
+          "/workspace/web-lol/.tools/llvm21/usr/lib/llvm-21/bin/clang",
+          "-S",
+          "-emit-llvm",
+          "-Xclang",
+          "-disable-llvm-passes",
+          "--target=arm64-apple-macosx26.5.0",
+          ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-2.bc",
+          "-o",
+          "/workspace/web-lol/.cache/particle-distortion-recovery/run-00yg1at5/compiler-sandbox/distortion_mesh_ps.ps-metal-2.ll"
+        ],
+        "stderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+        "sha256": "655969fb47f2602495138b9e119dcd2ff510df759acdee9644fe2837bab73965"
+      },
+      {
+        "command": [
+          "/workspace/web-lol/.tools/llvm21/usr/lib/llvm-21/bin/clang",
+          "-S",
+          "-emit-llvm",
+          "-Xclang",
+          "-disable-llvm-passes",
+          "--target=arm64-apple-macosx26.5.0",
+          ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-3.bc",
+          "-o",
+          "/workspace/web-lol/.cache/particle-distortion-recovery/run-00yg1at5/compiler-sandbox/distortion_mesh_ps.ps-metal-3.ll"
+        ],
+        "stderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+        "sha256": "3133b00d2d0572908a024235c9a4d8d18ad42651bbe8fcbb46fd796149215af1"
+      },
+      {
+        "command": [
+          "/workspace/web-lol/.tools/llvm21/usr/lib/llvm-21/bin/clang",
+          "-S",
+          "-emit-llvm",
+          "-Xclang",
+          "-disable-llvm-passes",
+          "--target=arm64-apple-macosx26.5.0",
+          ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-4.bc",
+          "-o",
+          "/workspace/web-lol/.cache/particle-distortion-recovery/run-00yg1at5/compiler-sandbox/distortion_mesh_ps.ps-metal-4.ll"
+        ],
+        "stderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+        "sha256": "5ae87d20e1a751d778cf031f62a6198df8cbf6e27f57e70eaba9738f760fbe52"
+      },
+      {
+        "command": [
+          "/workspace/web-lol/.tools/llvm21/usr/lib/llvm-21/bin/clang",
+          "-S",
+          "-emit-llvm",
+          "-Xclang",
+          "-disable-llvm-passes",
+          "--target=arm64-apple-macosx26.5.0",
+          ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-5.bc",
+          "-o",
+          "/workspace/web-lol/.cache/particle-distortion-recovery/run-00yg1at5/compiler-sandbox/distortion_mesh_ps.ps-metal-5.ll"
+        ],
+        "stderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+        "sha256": "24beddcf4dc0a7191e29d24937f590c4f538f27f8b242050ba06ed4f0cc24b50"
+      },
+      {
+        "command": [
+          "/workspace/web-lol/.tools/llvm21/usr/lib/llvm-21/bin/clang",
+          "-S",
+          "-emit-llvm",
+          "-Xclang",
+          "-disable-llvm-passes",
+          "--target=arm64-apple-macosx26.5.0",
+          ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-6.bc",
+          "-o",
+          "/workspace/web-lol/.cache/particle-distortion-recovery/run-00yg1at5/compiler-sandbox/distortion_mesh_ps.ps-metal-6.ll"
+        ],
+        "stderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+        "sha256": "bbba14ae85398bd93c4f42435ec5324b361cd94170289e29e03b270878cf1805"
+      },
+      {
+        "command": [
+          "/workspace/web-lol/.tools/llvm21/usr/lib/llvm-21/bin/clang",
+          "-S",
+          "-emit-llvm",
+          "-Xclang",
+          "-disable-llvm-passes",
+          "--target=arm64-apple-macosx26.5.0",
+          ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-7.bc",
+          "-o",
+          "/workspace/web-lol/.cache/particle-distortion-recovery/run-00yg1at5/compiler-sandbox/distortion_mesh_ps.ps-metal-7.ll"
+        ],
+        "stderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+        "sha256": "84471bb62c1081b671909f8aae67b7e7bc4fc1c69b3536e8e3fa9bbbfb71902f"
+      },
+      {
+        "command": [
+          "/workspace/web-lol/.tools/llvm21/usr/lib/llvm-21/bin/clang",
+          "-S",
+          "-emit-llvm",
+          "-Xclang",
+          "-disable-llvm-passes",
+          "--target=arm64-apple-macosx26.5.0",
+          ".cache/particle-distortion-shaders/distortion_mesh_vs.vs-metal-0.bc",
+          "-o",
+          "/workspace/web-lol/.cache/particle-distortion-recovery/run-00yg1at5/compiler-sandbox/distortion_mesh_vs.vs-metal-0.ll"
+        ],
+        "stderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+        "sha256": "cf7088a336dba438dd0672d3479af65947cf28cd0180611c851bf1578e2da45f"
+      },
+      {
+        "command": [
+          "/workspace/web-lol/.tools/llvm21/usr/lib/llvm-21/bin/clang",
+          "-S",
+          "-emit-llvm",
+          "-Xclang",
+          "-disable-llvm-passes",
+          "--target=arm64-apple-macosx26.5.0",
+          ".cache/particle-distortion-shaders/distortion_mesh_vs.vs-metal-1.bc",
+          "-o",
+          "/workspace/web-lol/.cache/particle-distortion-recovery/run-00yg1at5/compiler-sandbox/distortion_mesh_vs.vs-metal-1.ll"
+        ],
+        "stderr": "warning: overriding the module target triple with arm64-apple-macosx26.5.0 [-Woverride-module]\n1 warning generated.\n",
+        "sha256": "7f81d61b724c8514858d902c2a55daaeee5621cd28b36c8fcb47273c784d7593"
+      }
+    ],
+    "alreadyComplete": false
+  },
+  "restoredFiles": {
+    ".cache/particle-distortion-shaders/native/assets/shaders/hlsl/particlesystem/distortion_ps.ps-metal": {
+      "bytes": 151,
+      "sha256": "aa1304a1e2af5f9ab9ce25170b8af93b1cc7869ed041e854bd3f1b167a1f761e",
+      "mtimeNs": 1793059722881542768
+    },
+    ".cache/particle-distortion-shaders/native/assets/shaders/hlsl/particlesystem/distortion_vs.vs-metal": {
+      "bytes": 64,
+      "sha256": "54a5d83c407f4839229612bd7455aedbef23012efd02fc188308d17fe73aeb09",
+      "mtimeNs": 1793059722881645419
+    },
+    ".cache/particle-distortion-shaders/native/assets/shaders/hlsl/particlesystem/distortion_mesh_ps.ps-metal": {
+      "bytes": 214,
+      "sha256": "50acf32d9f7c44bdbd028e4869faa4f7f54877a83edc2a1c89f6aecb9dd58880",
+      "mtimeNs": 1793059722881752408
+    },
+    ".cache/particle-distortion-shaders/native/assets/shaders/hlsl/particlesystem/distortion_mesh_vs.vs-metal": {
+      "bytes": 91,
+      "sha256": "c19cad1f4cbe8d19f6f41bd7dde44e09976bf032488828e776abcb35d9ec2136",
+      "mtimeNs": 1793059722881833776
+    },
+    ".cache/particle-distortion-shaders/native/assets/shaders/hlsl/particlesystem/distortion_ps.ps-metal_0": {
+      "bytes": 16440,
+      "sha256": "299341fd05f2539b7d90bcf97b2c76d2d9e1f270666830df8f0aa2de75950ce7",
+      "mtimeNs": 1793059722881911695
+    },
+    ".cache/particle-distortion-shaders/native/assets/shaders/hlsl/particlesystem/distortion_vs.vs-metal_0": {
+      "bytes": 4534,
+      "sha256": "7cd61215611233052fc41877dbdaf4e7eb14135cc306d03859d1881d82deca05",
+      "mtimeNs": 1793059722881984715
+    },
+    ".cache/particle-distortion-shaders/native/assets/shaders/hlsl/particlesystem/distortion_mesh_ps.ps-metal_0": {
+      "bytes": 34080,
+      "sha256": "3834370e72956a608cbd31bc917ff07b4fb46a9718ed425a8ec8d867c63168f0",
+      "mtimeNs": 1793059722882087906
+    },
+    ".cache/particle-distortion-shaders/native/assets/shaders/hlsl/particlesystem/distortion_mesh_vs.vs-metal_0": {
+      "bytes": 10136,
+      "sha256": "29afa031c05c62930af75d2f504d73af30030754c5f1a36566fa5ee13bd9386c",
+      "mtimeNs": 1793059722882193210
+    },
+    ".cache/particle-distortion-shaders/distortion_ps.ps-metal-0.metallib": {
+      "bytes": 3934,
+      "sha256": "3e1bd60c47ede0c0d3548c066b43555dbba8f30a6f3117f7eb8ab8b6cea2c02b",
+      "mtimeNs": 1793059722882265474
+    },
+    ".cache/particle-distortion-shaders/distortion_ps.ps-metal-0.bc": {
+      "bytes": 3672,
+      "sha256": "57c920f3f82592a2cd1afb29c966f9e327932a4a8e0fcecb6bff7f8c916b5b44",
+      "mtimeNs": 1793059722882352073
+    },
+    ".cache/particle-distortion-shaders/distortion_ps.ps-metal-0.ll": {
+      "bytes": 6814,
+      "sha256": "ea26d9050c19a19f0ed765ebd35dabd21982c844a81e828424922c96e4f6522c",
+      "mtimeNs": 1793059722882426390
+    },
+    ".cache/particle-distortion-shaders/distortion_ps.ps-metal-1.metallib": {
+      "bytes": 4062,
+      "sha256": "725357c7db5cd2b2a80849e2d081000238395d343165c85e578ac46bf2f7e8b9",
+      "mtimeNs": 1793059722882495185
+    },
+    ".cache/particle-distortion-shaders/distortion_ps.ps-metal-1.bc": {
+      "bytes": 3796,
+      "sha256": "3b5a498a34ee5dbc946e6306d04279f6342dc01465aed018b2af6f7767cf97bf",
+      "mtimeNs": 1793059722882545676
+    },
+    ".cache/particle-distortion-shaders/distortion_ps.ps-metal-1.ll": {
+      "bytes": 7438,
+      "sha256": "4c2dae3be1a03ae5a4c1a5249144bbfd33c38f6c24eee70dde272ea591eaf6a3",
+      "mtimeNs": 1793059722882603342
+    },
+    ".cache/particle-distortion-shaders/distortion_ps.ps-metal-2.metallib": {
+      "bytes": 4142,
+      "sha256": "33574cf41438beb2a6fc35af340642ab233c4dc076aea53dc8a78cec78cd1b81",
+      "mtimeNs": 1793059722882669513
+    },
+    ".cache/particle-distortion-shaders/distortion_ps.ps-metal-2.bc": {
+      "bytes": 3884,
+      "sha256": "5e18eb557aee689d4c8291910ff0f668cb9ba5c7b59c49cff096509fdd1fef28",
+      "mtimeNs": 1793059722882723909
+    },
+    ".cache/particle-distortion-shaders/distortion_ps.ps-metal-2.ll": {
+      "bytes": 8533,
+      "sha256": "56a2e4dc53e426319fb5be7fb671449ec6139b29103759b5031503093690657d",
+      "mtimeNs": 1793059722882768446
+    },
+    ".cache/particle-distortion-shaders/distortion_ps.ps-metal-3.metallib": {
+      "bytes": 4286,
+      "sha256": "35df6bb482fc8a60f7a605e914630ced63adc33329af7f25785a91078adc5d9f",
+      "mtimeNs": 1793059722882840118
+    },
+    ".cache/particle-distortion-shaders/distortion_ps.ps-metal-3.bc": {
+      "bytes": 4020,
+      "sha256": "a14b10fa32e190a6cb908521c0f49485bfd656ebcbca4bace7008502aa7ba26f",
+      "mtimeNs": 1793059722882915247
+    },
+    ".cache/particle-distortion-shaders/distortion_ps.ps-metal-3.ll": {
+      "bytes": 9203,
+      "sha256": "589e7042cf5c8bed70b61ff2bc655aea6ae8beb8bdedc62d7b22de03f6971b0f",
+      "mtimeNs": 1793059722882992062
+    },
+    ".cache/particle-distortion-shaders/distortion_vs.vs-metal-0.metallib": {
+      "bytes": 4530,
+      "sha256": "cde73c750737eb937cedc6eb17a43df71bb8d9315557b0d52b06b5380e3a7c7b",
+      "mtimeNs": 1793059722883074082
+    },
+    ".cache/particle-distortion-shaders/distortion_vs.vs-metal-0.bc": {
+      "bytes": 4216,
+      "sha256": "809cbc42c45af82cfd30fd7f2a580344c69915572beb3837aa74b2df20cc75d2",
+      "mtimeNs": 1793059722883158187
+    },
+    ".cache/particle-distortion-shaders/distortion_vs.vs-metal-0.ll": {
+      "bytes": 10046,
+      "sha256": "d86b372b27f93bc5402ddd2f5d98145e8ab65b7f991bf32add7100e67c6c6beb",
+      "mtimeNs": 1793059722883212399
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-0.metallib": {
+      "bytes": 3934,
+      "sha256": "5a5dcfe7e7f47de3c0f0441a12a073aac43f4ef769bf50cf9b5e3863e1601b42",
+      "mtimeNs": 1793059722883260694
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-0.bc": {
+      "bytes": 3668,
+      "sha256": "80f3a3130cf2fda1a09e314b7363bd11326e24db2335eca9faaa84fbbe058f03",
+      "mtimeNs": 1793059722883305943
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-0.ll": {
+      "bytes": 6906,
+      "sha256": "e69360d0dd981ecd004bc92912a8af753f0a43d0b5fec23bd160c0f99b2a6bc3",
+      "mtimeNs": 1793059722883348439
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-1.metallib": {
+      "bytes": 4078,
+      "sha256": "17e9efd97862fe1dccbcbbe3c1bc46da631e3a8b7d8d5747424cdce8d311e200",
+      "mtimeNs": 1793059722883395286
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-1.bc": {
+      "bytes": 3820,
+      "sha256": "4273310152c75b007f7300ce6022581aaac74b7e8f8a4d459584cbedef7c6b40",
+      "mtimeNs": 1793059722883439915
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-1.ll": {
+      "bytes": 7733,
+      "sha256": "d2f66829f9112ff5dcd5fe7b791100d1717b60dcad6b224b887afe84f87e6b9f",
+      "mtimeNs": 1793059722883481157
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-2.metallib": {
+      "bytes": 4158,
+      "sha256": "3f2094d526834db103e3d24310c8afac95395285312bf06c9d47256ea2404a06",
+      "mtimeNs": 1793059722883525746
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-2.bc": {
+      "bytes": 3888,
+      "sha256": "0ddf85779e338138522d610e3423167672fb894571ba98ab5413a79cf9477184",
+      "mtimeNs": 1793059722883603584
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-2.ll": {
+      "bytes": 8623,
+      "sha256": "655969fb47f2602495138b9e119dcd2ff510df759acdee9644fe2837bab73965",
+      "mtimeNs": 1793059722883680416
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-3.metallib": {
+      "bytes": 4190,
+      "sha256": "4d9977efd0deed637420a081d17d773ca7e614974c8a17fc3b561ca27dcfe8c5",
+      "mtimeNs": 1793059722883798300
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-3.bc": {
+      "bytes": 3932,
+      "sha256": "d546f635552afcfa2bc641308d6b7d4667bacf7153a57a6eceba05b13e55b605",
+      "mtimeNs": 1793059722883866426
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-3.ll": {
+      "bytes": 8002,
+      "sha256": "3133b00d2d0572908a024235c9a4d8d18ad42651bbe8fcbb46fd796149215af1",
+      "mtimeNs": 1793059722883929175
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-4.metallib": {
+      "bytes": 4318,
+      "sha256": "19c46d5fa2a847801a75791ac076055a7a8d60a467fcea8860b7be01c286508e",
+      "mtimeNs": 1793059722884009006
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-4.bc": {
+      "bytes": 4052,
+      "sha256": "f15ed7a214e2b0aae5361d41a8d75002f1271862f689b5a3d9ab4c6c4c62ebfa",
+      "mtimeNs": 1793059722884090996
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-4.ll": {
+      "bytes": 9544,
+      "sha256": "5ae87d20e1a751d778cf031f62a6198df8cbf6e27f57e70eaba9738f760fbe52",
+      "mtimeNs": 1793059722884137681
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-5.metallib": {
+      "bytes": 4350,
+      "sha256": "7e9f04a209da8d1abf148090d1dfae46362c2e331c8660f1040dc06fb0fc4fb1",
+      "mtimeNs": 1793059722884203186
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-5.bc": {
+      "bytes": 4088,
+      "sha256": "8a7e245b641200f9adb4403bb4256e4e212aaa88ed0b030218004b4282f92b81",
+      "mtimeNs": 1793059722884269326
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-5.ll": {
+      "bytes": 8829,
+      "sha256": "24beddcf4dc0a7191e29d24937f590c4f538f27f8b242050ba06ed4f0cc24b50",
+      "mtimeNs": 1793059722884331094
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-6.metallib": {
+      "bytes": 4430,
+      "sha256": "174f89925aabc16a463a34aa1d36e025264afa3e671dacc1e518797dff5f6ebf",
+      "mtimeNs": 1793059722884381751
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-6.bc": {
+      "bytes": 4160,
+      "sha256": "c1c1011feb134de7514dc3db2ef73eeef41ad25509981bc52d23edd91679ec59",
+      "mtimeNs": 1793059722884443565
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-6.ll": {
+      "bytes": 9821,
+      "sha256": "bbba14ae85398bd93c4f42435ec5324b361cd94170289e29e03b270878cf1805",
+      "mtimeNs": 1793059722884492577
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-7.metallib": {
+      "bytes": 4590,
+      "sha256": "a5db96a1e1159a46af7ee31b5f86d705392967790ee75d7b61202ebc4909526d",
+      "mtimeNs": 1793059722884539559
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-7.bc": {
+      "bytes": 4332,
+      "sha256": "38f98e50d9e4a4718dcb7a39473d99348270c73ac084326e1cfe627af58c614d",
+      "mtimeNs": 1793059722884583698
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-7.ll": {
+      "bytes": 10696,
+      "sha256": "84471bb62c1081b671909f8aae67b7e7bc4fc1c69b3536e8e3fa9bbbfb71902f",
+      "mtimeNs": 1793059722884649882
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_vs.vs-metal-0.metallib": {
+      "bytes": 5024,
+      "sha256": "fff1592bf2ea574184b064d70d9bd08f16ba57181f4fe533a97974aa3ca08542",
+      "mtimeNs": 1793059722884718434
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_vs.vs-metal-0.bc": {
+      "bytes": 4720,
+      "sha256": "830c90328657b227195f9227030b732a32e192f9b865bf86b219b1ba363f4a8d",
+      "mtimeNs": 1793059722884771851
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_vs.vs-metal-0.ll": {
+      "bytes": 11900,
+      "sha256": "cf7088a336dba438dd0672d3479af65947cf28cd0180611c851bf1578e2da45f",
+      "mtimeNs": 1793059722884816228
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_vs.vs-metal-1.metallib": {
+      "bytes": 5104,
+      "sha256": "e7a7d9203db0e568806f81c99b73197aafd79327d905586781a3e5b07ab07b0d",
+      "mtimeNs": 1793059722884860702
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_vs.vs-metal-1.bc": {
+      "bytes": 4812,
+      "sha256": "ac12588d4e9e862859099f4aea5d490a3690ce4787e3acd9e042db1d1aa48c3c",
+      "mtimeNs": 1793059722884906366
+    },
+    ".cache/particle-distortion-shaders/distortion_mesh_vs.vs-metal-1.ll": {
+      "bytes": 12662,
+      "sha256": "7f81d61b724c8514858d902c2a55daaeee5621cd28b36c8fcb47273c784d7593",
+      "mtimeNs": 1793059722884951579
+    },
+    ".cache/riot-reference/45E944192F8380B7.chunk": {
+      "bytes": 51065,
+      "sha256": "b32acb9ce2eab9db5da8ab75af82f63811ff6866f71099d321b9090ca43db635",
+      "mtimeNs": 1793059073197919290
+    },
+    ".cache/riot-reference/03E13763FA2EDAA6.chunk": {
+      "bytes": 158,
+      "sha256": "81a740565e904be05bb860ce9677b19bc272c48e32c0558024b436efdc93ab66",
+      "mtimeNs": 1793059073198193826
+    },
+    ".cache/riot-reference/F9C6BAAF1044664C.chunk": {
+      "bytes": 68,
+      "sha256": "04839b12f97e7b5d2b7b4196fe6a91bdc3688ce76f7047e18f8281f66920e974",
+      "mtimeNs": 1793059073198325814
+    },
+    ".cache/riot-reference/E49A1164FD352539.chunk": {
+      "bytes": 221,
+      "sha256": "5e20633be9dbffef028e743bb44df305422dba060d0d3bcf4d241f81d0ee2715",
+      "mtimeNs": 1793059073198406987
+    },
+    ".cache/riot-reference/E11F864109E9ABBD.chunk": {
+      "bytes": 96,
+      "sha256": "33607a4d4fb60663ab8f463bc2b9cecde7f25a4a09eb467186ae1c5e2a0e9abd",
+      "mtimeNs": 1793059073198451404
+    },
+    ".cache/riot-reference/B04D1707C4D9CD3D.chunk": {
+      "bytes": 7286,
+      "sha256": "2f5015fc46a6db7c765d1ae945b665f89b97ca51af7eecaade5b7338ee9e1508",
+      "mtimeNs": 1793059073198493802
+    },
+    ".cache/riot-reference/DF636226DF602B6C.chunk": {
+      "bytes": 3864,
+      "sha256": "ad70f70d2fb302bfa6bfccce4b9adcadc186c7b72f21373aa641f973b6e9733e",
+      "mtimeNs": 1793059073198537515
+    },
+    ".cache/riot-reference/114A6EE68DE36026.chunk": {
+      "bytes": 12333,
+      "sha256": "d42359724cf10c1f2b32a5da0ecd1f38802908486f4512946195c11b4ee47858",
+      "mtimeNs": 1793059073198600677
+    },
+    ".cache/riot-reference/5FDB9F5ED93C5C69.chunk": {
+      "bytes": 6569,
+      "sha256": "5bbbf9cc49b2e1633355030d1cc959cb7960b8c8aaa1a1ed4a0370b25b918fd5",
+      "mtimeNs": 1793059073198649603
+    },
+    ".cache/riot-reference/29CE6E781C3B6368.manifest": {
+      "bytes": 16683525,
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb",
+      "mtimeNs": 1792954331492081939
+    },
+    "docs/reference/particle-distortion-shaders.json": {
+      "bytes": 20709,
+      "sha256": "d1eaaf2ebc4a8f0ba34c60028db9aff61f1beddd201c7ade14a63d2ee9517ca2",
+      "mtimeNs": 1792941129414381120
+    }
+  },
+  "parentApplicationAcceptance": {
+    "path": "docs/reference/particle-spatial-drag-replay-verification.json",
+    "bytes": 20700,
+    "sha256": "83f9b546162a5c8197c34be14fb7ce5fc614135fbebda09af93efee1aca5c984"
+  },
+  "limits": [
+    "Matching canonical Metal/bitcode/text bytes restores the original evidence identity; it does not execute a native game or Metal program or establish new runtime dispatch, samplers or visual parity.",
+    "The original text retargets its module header to arm64-apple-macosx26.5.0; its host header is not the original AIR target.",
+    "No claim is made that the historical Apple clang executable ran; Debian Clang 21.1.8 produces the same fifteen pinned text byte streams.",
+    "The historical Leona archive and original Lux sampler golden mismatch remain unresolved; their pins and assertions are unchanged.",
+    "The accepted parent application build/browser/production evidence is inherited because game sources, assets, fingerprint and offline pack remain unchanged."
+  ],
+  "diagnostics": [
+    "Fresh LLVM 19 and direct LLVM 21 module printing matched zero historical text hashes. Static Clang 21 with passes disabled, the original host triple and logical input paths matched all fifteen.",
+    "gpgv was unavailable. GnuPG verified the signed LLVM InRelease data against the explicit LLVM archive fingerprint, and the selected package hashes matched its signed index.",
+    "The original extraction script was never run or modified; its top-level writes could replace original pins. Recovery uses an independent bounded producer and preflights every canonical output."
+  ],
+  "sourceFiles": [
+    {
+      "path": "README.md",
+      "bytes": 19503,
+      "sha256": "da42a274cccfacb6c519bed5ad5245255ac5d503266da5429de3d7e913b4665d"
+    },
+    {
+      "path": "docs/PARTICLE-DISTORTION-RECOVERY.md",
+      "bytes": 4548,
+      "sha256": "618ac65e6c118793b09ffcca5fa86c508c720fb9523ed112663c7063be53bfe0"
+    },
+    {
+      "path": "docs/PARTICLE-DISTORTION.md",
+      "bytes": 6853,
+      "sha256": "42886117513d3820601ee53396f1619e23d3f938c03138da3e0760ae0e0089ef"
+    },
+    {
+      "path": "tools/assets/particle_distortion_recovery.py",
+      "bytes": 11176,
+      "sha256": "b50a542a15e90446f10108ccb74b2887a4fb1a6c0588d328f7523a6046013f62"
+    },
+    {
+      "path": "tools/assets/test-particle-distortion-recovery.py",
+      "bytes": 5686,
+      "sha256": "9b422d4a2021fdb1a3f223e0336365231d6f2df38edd95d2e5473af8cf3b70d6"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "docs/reference/particle-distortion-shaders.json",
+      "bytes": 20709,
+      "sha256": "d1eaaf2ebc4a8f0ba34c60028db9aff61f1beddd201c7ade14a63d2ee9517ca2"
+    },
+    {
+      "path": "tests/particle-distortion.test.ts",
+      "bytes": 4918,
+      "sha256": "df2b072a89f7458ef515156c514be7325d16524bc2a58694c6d305e9efd9bdec"
+    },
+    {
+      "path": "tools/assets/riot_archive.py",
+      "bytes": 7454,
+      "sha256": "7444e2d6dd84c10d2b7b58105a9cdb56edb963d7a3f33fe61dc2932334e5eeb6"
+    },
+    {
+      "path": "tools/assets/native_client_restore.py",
+      "bytes": 6954,
+      "sha256": "6ab14163aa03528ae8255948ecf66b106bbedd921aabc17c5a9dfafe8d44c711"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/__init__.py",
+      "bytes": 52,
+      "sha256": "be6459509876854380a0704ab435a5c2028abac61f92d1e62fbf7267752246f2"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/patcher.py",
+      "bytes": 24249,
+      "sha256": "9e538818c29c3f43b239d65e1f5474cfc937d5e8afaed7423b07b72bb22cadc6"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/tools.py",
+      "bytes": 3725,
+      "sha256": "72dbd480621b1af930d33b76e9e7e19854a9f5e0eb2a49957e45ac5df590b982"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/storage.py",
+      "bytes": 14834,
+      "sha256": "9708f7bcd973c672812325eba12e46cb2443f12f5c4126f3d637501fadc7c0ec"
+    },
+    {
+      "path": ".tools/cdtb/cdtb/wad.py",
+      "bytes": 12880,
+      "sha256": "a375025be883f4931aad80f8f8bf18266959c5072151d533d5412a4b1919547a"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/particle-distortion-restoration/final-source/.tools/cdtb/cdtb/__init__.py",
+      "bytes": 52,
+      "sha256": "be6459509876854380a0704ab435a5c2028abac61f92d1e62fbf7267752246f2"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/final-source/.tools/cdtb/cdtb/patcher.py",
+      "bytes": 24249,
+      "sha256": "9e538818c29c3f43b239d65e1f5474cfc937d5e8afaed7423b07b72bb22cadc6"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/final-source/.tools/cdtb/cdtb/storage.py",
+      "bytes": 14834,
+      "sha256": "9708f7bcd973c672812325eba12e46cb2443f12f5c4126f3d637501fadc7c0ec"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/final-source/.tools/cdtb/cdtb/tools.py",
+      "bytes": 3725,
+      "sha256": "72dbd480621b1af930d33b76e9e7e19854a9f5e0eb2a49957e45ac5df590b982"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/final-source/.tools/cdtb/cdtb/wad.py",
+      "bytes": 12880,
+      "sha256": "a375025be883f4931aad80f8f8bf18266959c5072151d533d5412a4b1919547a"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/final-source/README.md",
+      "bytes": 19503,
+      "sha256": "da42a274cccfacb6c519bed5ad5245255ac5d503266da5429de3d7e913b4665d"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/final-source/docs/PARTICLE-DISTORTION-RECOVERY.md",
+      "bytes": 4548,
+      "sha256": "618ac65e6c118793b09ffcca5fa86c508c720fb9523ed112663c7063be53bfe0"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/final-source/docs/PARTICLE-DISTORTION.md",
+      "bytes": 6853,
+      "sha256": "42886117513d3820601ee53396f1619e23d3f938c03138da3e0760ae0e0089ef"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/final-source/docs/reference/particle-distortion-shaders.json",
+      "bytes": 20709,
+      "sha256": "d1eaaf2ebc4a8f0ba34c60028db9aff61f1beddd201c7ade14a63d2ee9517ca2"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/final-source/tests/particle-distortion.test.ts",
+      "bytes": 4918,
+      "sha256": "df2b072a89f7458ef515156c514be7325d16524bc2a58694c6d305e9efd9bdec"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/final-source/tools/assets/native_client_restore.py",
+      "bytes": 6954,
+      "sha256": "6ab14163aa03528ae8255948ecf66b106bbedd921aabc17c5a9dfafe8d44c711"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/final-source/tools/assets/particle_distortion_recovery.py",
+      "bytes": 11176,
+      "sha256": "b50a542a15e90446f10108ccb74b2887a4fb1a6c0588d328f7523a6046013f62"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/final-source/tools/assets/riot_archive.py",
+      "bytes": 7454,
+      "sha256": "7444e2d6dd84c10d2b7b58105a9cdb56edb963d7a3f33fe61dc2932334e5eeb6"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/final-source/tools/assets/test-particle-distortion-recovery.py",
+      "bytes": 5686,
+      "sha256": "9b422d4a2021fdb1a3f223e0336365231d6f2df38edd95d2e5473af8cf3b70d6"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/particle-distortion-restoration/app-identity.json",
+      "bytes": 256,
+      "sha256": "9b43d8c2f7657b15a3d9f27379754985b074799173f6e4d3d9c962fee8fe2591"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/archive-checkpoint.py",
+      "bytes": 7938,
+      "sha256": "5ce2206c951f1133d2ec3b5d590e5caca31560ac5a60fa03bba828ebfcaa6fde"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/candidate-closure-verification.json",
+      "bytes": 195,
+      "sha256": "a9a293d1707ddb410b33b709197f34d0b5231efe3c0abf20a44470af2e4658ae"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/candidate-recovery.py",
+      "bytes": 11176,
+      "sha256": "b50a542a15e90446f10108ccb74b2887a4fb1a6c0588d328f7523a6046013f62"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/canonical-recovery-receipt.json",
+      "bytes": 10580,
+      "sha256": "8e282a330f95f4bc6cd4ebb99d5d605a0a4bede59eba8dc83a5267564aaf51b7"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/canonical-recovery.log",
+      "bytes": 241,
+      "sha256": "add44e69316563947ab2cc2bba642e653bf46b1c88e056b5d11459f20b85f98b"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/chunks/03E13763FA2EDAA6.chunk",
+      "bytes": 158,
+      "sha256": "81a740565e904be05bb860ce9677b19bc272c48e32c0558024b436efdc93ab66"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/chunks/114A6EE68DE36026.chunk",
+      "bytes": 12333,
+      "sha256": "d42359724cf10c1f2b32a5da0ecd1f38802908486f4512946195c11b4ee47858"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/chunks/45E944192F8380B7.chunk",
+      "bytes": 51065,
+      "sha256": "b32acb9ce2eab9db5da8ab75af82f63811ff6866f71099d321b9090ca43db635"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/chunks/5FDB9F5ED93C5C69.chunk",
+      "bytes": 6569,
+      "sha256": "5bbbf9cc49b2e1633355030d1cc959cb7960b8c8aaa1a1ed4a0370b25b918fd5"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/chunks/B04D1707C4D9CD3D.chunk",
+      "bytes": 7286,
+      "sha256": "2f5015fc46a6db7c765d1ae945b665f89b97ca51af7eecaade5b7338ee9e1508"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/chunks/DF636226DF602B6C.chunk",
+      "bytes": 3864,
+      "sha256": "ad70f70d2fb302bfa6bfccce4b9adcadc186c7b72f21373aa641f973b6e9733e"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/chunks/E11F864109E9ABBD.chunk",
+      "bytes": 96,
+      "sha256": "33607a4d4fb60663ab8f463bc2b9cecde7f25a4a09eb467186ae1c5e2a0e9abd"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/chunks/E49A1164FD352539.chunk",
+      "bytes": 221,
+      "sha256": "5e20633be9dbffef028e743bb44df305422dba060d0d3bcf4d241f81d0ee2715"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/chunks/F9C6BAAF1044664C.chunk",
+      "bytes": 68,
+      "sha256": "04839b12f97e7b5d2b7b4196fe6a91bdc3688ce76f7047e18f8281f66920e974"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/clang21-sandbox/.cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-0.bc",
+      "bytes": 3668,
+      "sha256": "80f3a3130cf2fda1a09e314b7363bd11326e24db2335eca9faaa84fbbe058f03"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/clang21-sandbox/.cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-1.bc",
+      "bytes": 3820,
+      "sha256": "4273310152c75b007f7300ce6022581aaac74b7e8f8a4d459584cbedef7c6b40"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/clang21-sandbox/.cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-2.bc",
+      "bytes": 3888,
+      "sha256": "0ddf85779e338138522d610e3423167672fb894571ba98ab5413a79cf9477184"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/clang21-sandbox/.cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-3.bc",
+      "bytes": 3932,
+      "sha256": "d546f635552afcfa2bc641308d6b7d4667bacf7153a57a6eceba05b13e55b605"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/clang21-sandbox/.cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-4.bc",
+      "bytes": 4052,
+      "sha256": "f15ed7a214e2b0aae5361d41a8d75002f1271862f689b5a3d9ab4c6c4c62ebfa"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/clang21-sandbox/.cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-5.bc",
+      "bytes": 4088,
+      "sha256": "8a7e245b641200f9adb4403bb4256e4e212aaa88ed0b030218004b4282f92b81"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/clang21-sandbox/.cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-6.bc",
+      "bytes": 4160,
+      "sha256": "c1c1011feb134de7514dc3db2ef73eeef41ad25509981bc52d23edd91679ec59"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/clang21-sandbox/.cache/particle-distortion-shaders/distortion_mesh_ps.ps-metal-7.bc",
+      "bytes": 4332,
+      "sha256": "38f98e50d9e4a4718dcb7a39473d99348270c73ac084326e1cfe627af58c614d"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/clang21-sandbox/.cache/particle-distortion-shaders/distortion_mesh_vs.vs-metal-0.bc",
+      "bytes": 4720,
+      "sha256": "830c90328657b227195f9227030b732a32e192f9b865bf86b219b1ba363f4a8d"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/clang21-sandbox/.cache/particle-distortion-shaders/distortion_mesh_vs.vs-metal-1.bc",
+      "bytes": 4812,
+      "sha256": "ac12588d4e9e862859099f4aea5d490a3690ce4787e3acd9e042db1d1aa48c3c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/clang21-sandbox/.cache/particle-distortion-shaders/distortion_ps.ps-metal-0.bc",
+      "bytes": 3672,
+      "sha256": "57c920f3f82592a2cd1afb29c966f9e327932a4a8e0fcecb6bff7f8c916b5b44"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/clang21-sandbox/.cache/particle-distortion-shaders/distortion_ps.ps-metal-1.bc",
+      "bytes": 3796,
+      "sha256": "3b5a498a34ee5dbc946e6306d04279f6342dc01465aed018b2af6f7767cf97bf"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/clang21-sandbox/.cache/particle-distortion-shaders/distortion_ps.ps-metal-2.bc",
+      "bytes": 3884,
+      "sha256": "5e18eb557aee689d4c8291910ff0f668cb9ba5c7b59c49cff096509fdd1fef28"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/clang21-sandbox/.cache/particle-distortion-shaders/distortion_ps.ps-metal-3.bc",
+      "bytes": 4020,
+      "sha256": "a14b10fa32e190a6cb908521c0f49485bfd656ebcbca4bace7008502aa7ba26f"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/clang21-sandbox/.cache/particle-distortion-shaders/distortion_vs.vs-metal-0.bc",
+      "bytes": 4216,
+      "sha256": "809cbc42c45af82cfd30fd7f2a580344c69915572beb3837aa74b2df20cc75d2"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/clang21-version.log",
+      "bytes": 200,
+      "sha256": "eb105a6aa387b96b6e4a486237ef8d3906defaa125e4b357b692c7a4621028b9"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/download-receipts.json",
+      "bytes": 5192,
+      "sha256": "ad52cbf3b2c60145e88ba2d6771cf33af5b01598b08a2fa0b2d5c69a684ef957"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fetch-chunks.py",
+      "bytes": 1405,
+      "sha256": "c5907c43d86eccbd026cb9859ee0699c4348848506e6094a731218c80549f4fb"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fetch-llvm21.log",
+      "bytes": 109,
+      "sha256": "eeb4e07885ccd84a9f0892ee934e98d6f9b4f9e78c0a1ea90ef815a5b14d9639"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fetch-llvm21.py",
+      "bytes": 2423,
+      "sha256": "c14d6c1611e3be78ac5c00a67ddfd99ac2e3750895dd985a51afe3b1229d937f"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fetch.log",
+      "bytes": 944,
+      "sha256": "a232dde89031fdf88eec7a67f75bdd5f5d9b84d76ede61b6925cb98a728c59f2"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_mesh_ps.ps-metal-0.ll",
+      "bytes": 6906,
+      "sha256": "e69360d0dd981ecd004bc92912a8af753f0a43d0b5fec23bd160c0f99b2a6bc3"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_mesh_ps.ps-metal-0.stderr",
+      "bytes": 116,
+      "sha256": "18b9a88c833fcede0e8bedadeaa92b3d3ed515f278f50d0b4a73122797f57e7c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_mesh_ps.ps-metal-1.ll",
+      "bytes": 7733,
+      "sha256": "d2f66829f9112ff5dcd5fe7b791100d1717b60dcad6b224b887afe84f87e6b9f"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_mesh_ps.ps-metal-1.stderr",
+      "bytes": 116,
+      "sha256": "18b9a88c833fcede0e8bedadeaa92b3d3ed515f278f50d0b4a73122797f57e7c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_mesh_ps.ps-metal-2.ll",
+      "bytes": 8623,
+      "sha256": "655969fb47f2602495138b9e119dcd2ff510df759acdee9644fe2837bab73965"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_mesh_ps.ps-metal-2.stderr",
+      "bytes": 116,
+      "sha256": "18b9a88c833fcede0e8bedadeaa92b3d3ed515f278f50d0b4a73122797f57e7c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_mesh_ps.ps-metal-3.ll",
+      "bytes": 8002,
+      "sha256": "3133b00d2d0572908a024235c9a4d8d18ad42651bbe8fcbb46fd796149215af1"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_mesh_ps.ps-metal-3.stderr",
+      "bytes": 116,
+      "sha256": "18b9a88c833fcede0e8bedadeaa92b3d3ed515f278f50d0b4a73122797f57e7c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_mesh_ps.ps-metal-4.ll",
+      "bytes": 9544,
+      "sha256": "5ae87d20e1a751d778cf031f62a6198df8cbf6e27f57e70eaba9738f760fbe52"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_mesh_ps.ps-metal-4.stderr",
+      "bytes": 116,
+      "sha256": "18b9a88c833fcede0e8bedadeaa92b3d3ed515f278f50d0b4a73122797f57e7c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_mesh_ps.ps-metal-5.ll",
+      "bytes": 8829,
+      "sha256": "24beddcf4dc0a7191e29d24937f590c4f538f27f8b242050ba06ed4f0cc24b50"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_mesh_ps.ps-metal-5.stderr",
+      "bytes": 116,
+      "sha256": "18b9a88c833fcede0e8bedadeaa92b3d3ed515f278f50d0b4a73122797f57e7c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_mesh_ps.ps-metal-6.ll",
+      "bytes": 9821,
+      "sha256": "bbba14ae85398bd93c4f42435ec5324b361cd94170289e29e03b270878cf1805"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_mesh_ps.ps-metal-6.stderr",
+      "bytes": 116,
+      "sha256": "18b9a88c833fcede0e8bedadeaa92b3d3ed515f278f50d0b4a73122797f57e7c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_mesh_ps.ps-metal-7.ll",
+      "bytes": 10696,
+      "sha256": "84471bb62c1081b671909f8aae67b7e7bc4fc1c69b3536e8e3fa9bbbfb71902f"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_mesh_ps.ps-metal-7.stderr",
+      "bytes": 116,
+      "sha256": "18b9a88c833fcede0e8bedadeaa92b3d3ed515f278f50d0b4a73122797f57e7c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_mesh_vs.vs-metal-0.ll",
+      "bytes": 11900,
+      "sha256": "cf7088a336dba438dd0672d3479af65947cf28cd0180611c851bf1578e2da45f"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_mesh_vs.vs-metal-0.stderr",
+      "bytes": 116,
+      "sha256": "18b9a88c833fcede0e8bedadeaa92b3d3ed515f278f50d0b4a73122797f57e7c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_mesh_vs.vs-metal-1.ll",
+      "bytes": 12662,
+      "sha256": "7f81d61b724c8514858d902c2a55daaeee5621cd28b36c8fcb47273c784d7593"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_mesh_vs.vs-metal-1.stderr",
+      "bytes": 116,
+      "sha256": "18b9a88c833fcede0e8bedadeaa92b3d3ed515f278f50d0b4a73122797f57e7c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_ps.ps-metal-0.ll",
+      "bytes": 6814,
+      "sha256": "ea26d9050c19a19f0ed765ebd35dabd21982c844a81e828424922c96e4f6522c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_ps.ps-metal-0.stderr",
+      "bytes": 116,
+      "sha256": "18b9a88c833fcede0e8bedadeaa92b3d3ed515f278f50d0b4a73122797f57e7c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_ps.ps-metal-1.ll",
+      "bytes": 7438,
+      "sha256": "4c2dae3be1a03ae5a4c1a5249144bbfd33c38f6c24eee70dde272ea591eaf6a3"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_ps.ps-metal-1.stderr",
+      "bytes": 116,
+      "sha256": "18b9a88c833fcede0e8bedadeaa92b3d3ed515f278f50d0b4a73122797f57e7c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_ps.ps-metal-2.ll",
+      "bytes": 8533,
+      "sha256": "56a2e4dc53e426319fb5be7fb671449ec6139b29103759b5031503093690657d"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_ps.ps-metal-2.stderr",
+      "bytes": 116,
+      "sha256": "18b9a88c833fcede0e8bedadeaa92b3d3ed515f278f50d0b4a73122797f57e7c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_ps.ps-metal-3.ll",
+      "bytes": 9203,
+      "sha256": "589e7042cf5c8bed70b61ff2bc655aea6ae8beb8bdedc62d7b22de03f6971b0f"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_ps.ps-metal-3.stderr",
+      "bytes": 116,
+      "sha256": "18b9a88c833fcede0e8bedadeaa92b3d3ed515f278f50d0b4a73122797f57e7c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_vs.vs-metal-0.ll",
+      "bytes": 10046,
+      "sha256": "d86b372b27f93bc5402ddd2f5d98145e8ab65b7f991bf32add7100e67c6c6beb"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21/distortion_vs.vs-metal-0.stderr",
+      "bytes": 116,
+      "sha256": "18b9a88c833fcede0e8bedadeaa92b3d3ed515f278f50d0b4a73122797f57e7c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-clang21-reading.json",
+      "bytes": 17870,
+      "sha256": "89ca276c19a3c91c52c86195b6fe29f3c1a61f68f924b498180a7d9f3ca8f3f5"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-0-native-air.ll",
+      "bytes": 7004,
+      "sha256": "3c6dd4424f6f0741c47407b8c77368b0542c9c61975a84a98eeebd55ccab7c74"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-0-original-host-triple-standard-layout.ll",
+      "bytes": 6826,
+      "sha256": "7cb07e0067f4821efb52871a51ecea2b8723b35f01fd1873f11753a856b2443c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-0-original-host-triple.ll",
+      "bytes": 7003,
+      "sha256": "1e92aee5b46809baf5818e3d552f4283b73b43000f8aa098877aa8a00cd35cc8"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-1-native-air.ll",
+      "bytes": 7847,
+      "sha256": "a91491cf6a27b11c68dc61f8c69a2ddca951aa7152961d982320aaa957781f86"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-1-original-host-triple-standard-layout.ll",
+      "bytes": 7669,
+      "sha256": "a22a49c30a27d819f8ffc7a67ce52ae22bf4af1959cb3571cd8ecc04db4e4a8a"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-1-original-host-triple.ll",
+      "bytes": 7846,
+      "sha256": "5b80fe0df8501c5239bacedc8467a3aa08c6de413e458fd12cac1ab22d16f38e"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-2-native-air.ll",
+      "bytes": 8734,
+      "sha256": "d3d07d11c633225bceb90168d95b5f84a1b31fe290c0afa011ed0b4ad1ac835c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-2-original-host-triple-standard-layout.ll",
+      "bytes": 8556,
+      "sha256": "3cb01702b6ca31fb8a41bc66e2dedb2271c8991f60acc40eed09a097150d5f6b"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-2-original-host-triple.ll",
+      "bytes": 8733,
+      "sha256": "5e51ed4aeaae0cd4062b041c63a678c3fa4a446e7f5c800ec81c9c0964b52ce2"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-3-native-air.ll",
+      "bytes": 8085,
+      "sha256": "aa717f858b72f5a8015abc6fea2e2c9f33293ff1ed396359cbb0676fd2f63b1c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-3-original-host-triple-standard-layout.ll",
+      "bytes": 7907,
+      "sha256": "d9e5508fb1d08e0271a715412ff4d091fc16007518f44cdee27295cb76147c87"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-3-original-host-triple.ll",
+      "bytes": 8084,
+      "sha256": "fea1c304a5e5f7e50c00950791de81102c0c70ca442ee76e20fe819d0daec49f"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-4-native-air.ll",
+      "bytes": 9661,
+      "sha256": "c90c09463fdf89de5b3f5a4c8291a42602ca33007598f7c9e10d0532af003cbd"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-4-original-host-triple-standard-layout.ll",
+      "bytes": 9483,
+      "sha256": "b6b56c1031400fdb6ca0ce9bc5d8e93e18555b3a9f48db7d717118f588b348cc"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-4-original-host-triple.ll",
+      "bytes": 9660,
+      "sha256": "47b8eecedd87f9f232216e29f2283cc955c533f6e5d4efd717f599ddcee21cd5"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-5-native-air.ll",
+      "bytes": 8928,
+      "sha256": "bc6d256352f8ea2795f9374aaafab11b9f6d8ca6a138a11487e89cc6c410f101"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-5-original-host-triple-standard-layout.ll",
+      "bytes": 8750,
+      "sha256": "27e287956cc1faffa6acc7eef35b67c1ec2684ae1c3e5c66c8a7ec1578bbf4fd"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-5-original-host-triple.ll",
+      "bytes": 8927,
+      "sha256": "ccf4eaab8f9c9bf97748a6e7fe4aee24d7b7c601254b83580c9c7d657678a5f9"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-6-native-air.ll",
+      "bytes": 9917,
+      "sha256": "16c509b50d6ca07f0f8da34c3aea4cfb4f8606f237ae1cd5b78cfae09393f189"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-6-original-host-triple-standard-layout.ll",
+      "bytes": 9739,
+      "sha256": "f66aee3dfb327fabe2a1d65954d5e63ca730cab1ed2bb0225bf03fa025bbce1d"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-6-original-host-triple.ll",
+      "bytes": 9916,
+      "sha256": "a8a6d0d6098744cd56bbb9a84445368cc46082dd36daee9f72839659be3d315a"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-7-native-air.ll",
+      "bytes": 10798,
+      "sha256": "2e89d9305c43c09bd21b15a7d36e0384af74444f5d69168ab08d5c3d0519a0a0"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-7-original-host-triple-standard-layout.ll",
+      "bytes": 10620,
+      "sha256": "ef536ed2d37e14f2ffbc81c4f36e1804bf5a64666cacfa51761c7ee81cbd6842"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_ps.ps-metal-7-original-host-triple.ll",
+      "bytes": 10797,
+      "sha256": "d0635cfae47eae3c504c6b9093c3508ba1ac7d2f6197cc994b69ed3fda0990b1"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_vs.vs-metal-0-native-air.ll",
+      "bytes": 12118,
+      "sha256": "cd2e459a5ea0d4c721c68b9ada485bf4649e89d0b45057f247815e602ac5b0e8"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_vs.vs-metal-0-original-host-triple-standard-layout.ll",
+      "bytes": 11940,
+      "sha256": "df0b2716bd973b52771b992158aa2d00c31e34483898b7fb19b5bca9cc15c3b6"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_vs.vs-metal-0-original-host-triple.ll",
+      "bytes": 12117,
+      "sha256": "89ecf542e729be464c24e883ebdf27fea2f1ae81147061996192442f6ab2072f"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_vs.vs-metal-1-native-air.ll",
+      "bytes": 12904,
+      "sha256": "0427b0de86b93df216135713ea16bc07efd924fe6597bb0dac9de12dcc62c2db"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_vs.vs-metal-1-original-host-triple-standard-layout.ll",
+      "bytes": 12726,
+      "sha256": "639fe3112f74011e84398168316c30cec9e6304bdd4549cd6e6998c952da17ae"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_mesh_vs.vs-metal-1-original-host-triple.ll",
+      "bytes": 12903,
+      "sha256": "f462529ff636ef8ff724c7b993f1e5de78fde689fd1b2664d12b4f7e6c985756"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_ps.ps-metal-0-native-air.ll",
+      "bytes": 6903,
+      "sha256": "1698c894622f0c0906cce84cc2487954d5a3b846a195ebb93325f3d384b4b8ab"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_ps.ps-metal-0-original-host-triple-standard-layout.ll",
+      "bytes": 6725,
+      "sha256": "97d0c765dc525c675616fca0c3890a7313b84da6645e10fa912647ceababe31f"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_ps.ps-metal-0-original-host-triple.ll",
+      "bytes": 6902,
+      "sha256": "5bb1dc39246fd8bef40ba08fdfb4094077abfd87892057b36912145c9ccfe186"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_ps.ps-metal-1-native-air.ll",
+      "bytes": 7533,
+      "sha256": "c03b5afba05b88a017de9d7074c2498f1318fcc0c19dc62f83e9b7b3fd94df95"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_ps.ps-metal-1-original-host-triple-standard-layout.ll",
+      "bytes": 7355,
+      "sha256": "dfcc96d53e57bf9da3c959f76f1582a16444acba81fc276e4516ad798b22188e"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_ps.ps-metal-1-original-host-triple.ll",
+      "bytes": 7532,
+      "sha256": "f94080adfd5f7d0951c25c09e674c3da397a0ec9c3206ac62c7f5c0ecc698277"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_ps.ps-metal-2-native-air.ll",
+      "bytes": 8638,
+      "sha256": "2e65622f049db6dc74102ad8562d7e18501e90f621344131a461c9cd2c892b0b"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_ps.ps-metal-2-original-host-triple-standard-layout.ll",
+      "bytes": 8460,
+      "sha256": "87663afb509d225b8c0e6011e115b5c7d34f408adef620f7054059e539a46119"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_ps.ps-metal-2-original-host-triple.ll",
+      "bytes": 8637,
+      "sha256": "61a71b881c63a84bd4967abc833f0ae517fd1c97909e6b87f2dd52cecd6ed67e"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_ps.ps-metal-3-native-air.ll",
+      "bytes": 9310,
+      "sha256": "c30850561c0878590e274ad9964e57c67efd88668625f53cbad963a011e37895"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_ps.ps-metal-3-original-host-triple-standard-layout.ll",
+      "bytes": 9132,
+      "sha256": "a0436fa95d0ec8b0876295c7c7ec8de921a596da88c95cc5b30e1bba3f52ae6f"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_ps.ps-metal-3-original-host-triple.ll",
+      "bytes": 9309,
+      "sha256": "0517e517c562ffd65e9ebcedd0535313546962e8839ecf2f9f59154320da40a6"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_vs.vs-metal-0-native-air.ll",
+      "bytes": 10215,
+      "sha256": "2e7223e3c8ec9e9bb3767b0225a49dd417d36ec5e98d602d837e93c00fdac53c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_vs.vs-metal-0-original-host-triple-standard-layout.ll",
+      "bytes": 10037,
+      "sha256": "adefac920a2ae7ca9560411fa4ffd63544294536561c1e119ec83bcba88a03e2"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19/distortion_vs.vs-metal-0-original-host-triple.ll",
+      "bytes": 10214,
+      "sha256": "29563e654652164205b81521a18b83c18541a0c28e674761bbdb43395a4608a0"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm19-reading.json",
+      "bytes": 27402,
+      "sha256": "e112b51410b35bdebeed90929c64ac289584d1a3c3fe9faaebadf8fd3170b525"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-0-native-air.ll",
+      "bytes": 7060,
+      "sha256": "fa07823d23917f8b177256323ab1394aa723834d2b35ef36b0b31f6dd0e5bd1d"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-0-original-host-triple-standard-layout.ll",
+      "bytes": 6882,
+      "sha256": "2c510819cd880b0d5a333f553803d2866722bafc0af1bfaae17ef964cc7c6e74"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-0-original-host-triple.ll",
+      "bytes": 7059,
+      "sha256": "67fa648506fba8fa23ac7e228450e6f493a53f42a44ca5cb5b130202437e12db"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-1-native-air.ll",
+      "bytes": 7893,
+      "sha256": "4306e91e0e719c77185200790b2d3e9938c8e07df0d92103b42a253a973e391d"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-1-original-host-triple-standard-layout.ll",
+      "bytes": 7715,
+      "sha256": "285f754890c178b7079f7b4b403eb89fd45b94a6f1c48235aba4adba99281f18"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-1-original-host-triple.ll",
+      "bytes": 7892,
+      "sha256": "15433e39da9f02def20f4d3bc3d2bb775823583b37723df55586023627b32d1b"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-2-native-air.ll",
+      "bytes": 8780,
+      "sha256": "a3530e901a0aea66db1c169dc98ec3beaa4b4f32eade2a03cda13c059408fef4"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-2-original-host-triple-standard-layout.ll",
+      "bytes": 8602,
+      "sha256": "60289df42b79bc20da54301eab6f041ca42817998481d112ece9e44ec3457209"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-2-original-host-triple.ll",
+      "bytes": 8779,
+      "sha256": "298f235ea026dea85a8be831de672398efeb60983cf6e4efddaa278a24d4512a"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-3-native-air.ll",
+      "bytes": 8156,
+      "sha256": "7bced907ecd68180bf7e7d56509fbdbb8f9d11b023bae9e13e6d0bf4d0a324d3"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-3-original-host-triple-standard-layout.ll",
+      "bytes": 7978,
+      "sha256": "f99c6de2f815f1d1e2215e2cfa8e8c8dee13b1acbd151fe6cd0ea07d28bb4b9b"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-3-original-host-triple.ll",
+      "bytes": 8155,
+      "sha256": "f84e256b082fdc6c16a0373d594c2562c0f5df243dc75cf100a01b12878b8076"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-4-native-air.ll",
+      "bytes": 9707,
+      "sha256": "3de63865749e98e095ade086f05c5ff1e699be05e0e1ce18fca6d4082cc397d2"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-4-original-host-triple-standard-layout.ll",
+      "bytes": 9529,
+      "sha256": "b03de527c50589961d3532958274145fcc566ab5095ae7dde385b668fdeff707"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-4-original-host-triple.ll",
+      "bytes": 9706,
+      "sha256": "61d906bf744726ed94454e74e42a13f11ffb3415143c9bbb27447889fca0fa90"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-5-native-air.ll",
+      "bytes": 8989,
+      "sha256": "8cf43d2f22f02a424ac64a99cc83dbc01890ee7c4bd5ca5435be095277a4b15e"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-5-original-host-triple-standard-layout.ll",
+      "bytes": 8811,
+      "sha256": "1bb8424d15927d9a036a16664e85f36d1b813fb0891bd5d359c3d7758b29967f"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-5-original-host-triple.ll",
+      "bytes": 8988,
+      "sha256": "033aadc4bdcf118407e2543e60414852c7be9b267241019c9d03a646692a92c1"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-6-native-air.ll",
+      "bytes": 9978,
+      "sha256": "8225943e7c7632070e57d6693af0527f60bc59ec3ebf4ffda34208a6b94470c2"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-6-original-host-triple-standard-layout.ll",
+      "bytes": 9800,
+      "sha256": "406a7c8e68b3a06f5ef2f14e21c3f48ffe632becc41a7213c9ad2452eb325481"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-6-original-host-triple.ll",
+      "bytes": 9977,
+      "sha256": "c9ce0dae87c2041ddb7a2beaa3c864af43392abcb151e8a189fc2e016de26a0c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-7-native-air.ll",
+      "bytes": 10859,
+      "sha256": "fc14c1a776673b9a6a99fb23cffc6edaadded8839e472d0f1057d8defa5faf49"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-7-original-host-triple-standard-layout.ll",
+      "bytes": 10681,
+      "sha256": "f0209f3053e0a1ba5c55e3ce365eb96f9013002e89f91181bfa3ed5f0a75f54b"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_ps.ps-metal-7-original-host-triple.ll",
+      "bytes": 10858,
+      "sha256": "09c2b5097691e0679fda086259e2b4daf5f65ee9157fda241a67b42889e38660"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_vs.vs-metal-0-native-air.ll",
+      "bytes": 12105,
+      "sha256": "20f25e1056fb7f364c6b279a8c737340a8fa8aab17596e9533fa9750cfdd3931"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_vs.vs-metal-0-original-host-triple-standard-layout.ll",
+      "bytes": 11927,
+      "sha256": "dd0b443cb67d6d9c99b41617c8206dcb4cb830069cf2aedb99e2285063a44965"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_vs.vs-metal-0-original-host-triple.ll",
+      "bytes": 12104,
+      "sha256": "2014452824f4240a98371e349740f992d300a2f94a4789663929a24b35eec515"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_vs.vs-metal-1-native-air.ll",
+      "bytes": 12891,
+      "sha256": "9715656d78c79cb2eadfa37bf3747995443cf59ecf0cae0a00ccf48165760916"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_vs.vs-metal-1-original-host-triple-standard-layout.ll",
+      "bytes": 12713,
+      "sha256": "ad849d2a5b0a3be1d40787c0a46d0cc451b367befe117df4595a92c648fb0c6b"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_mesh_vs.vs-metal-1-original-host-triple.ll",
+      "bytes": 12890,
+      "sha256": "95b1d53ded2bd87847bf1738beb3a30264e10009eaaccf60ab5735714bb01d1d"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_ps.ps-metal-0-native-air.ll",
+      "bytes": 6959,
+      "sha256": "103f9992474afc9f25a81d0b9b794840effa17e5eae0f8f22a5727277d0ca12c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_ps.ps-metal-0-original-host-triple-standard-layout.ll",
+      "bytes": 6781,
+      "sha256": "e18fec7a706e5e03ccebfa57989d14e4faeb09667c261d9c12a187b3671d34ec"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_ps.ps-metal-0-original-host-triple.ll",
+      "bytes": 6958,
+      "sha256": "3edfe01e0168742393c7d78486334f0183df369cdb381c37d07b6f5bcb53dbbd"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_ps.ps-metal-1-native-air.ll",
+      "bytes": 7589,
+      "sha256": "f4c2d270182e17dbdabe89c055cc76da5b50c1b01ea5af71d3ff260d8035261c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_ps.ps-metal-1-original-host-triple-standard-layout.ll",
+      "bytes": 7411,
+      "sha256": "924e7ab3fe179cee7fe0effed65bf8b14049ef7f959c942136c8af3d76024259"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_ps.ps-metal-1-original-host-triple.ll",
+      "bytes": 7588,
+      "sha256": "1c74d20c1757169b7eed61ff25218cec7856e5cc6448d33a8f69b9f82cb7b9fe"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_ps.ps-metal-2-native-air.ll",
+      "bytes": 8684,
+      "sha256": "c85007f14f1aa21af252090743ff9e7d03ebddf719031297b404caf4370664e5"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_ps.ps-metal-2-original-host-triple-standard-layout.ll",
+      "bytes": 8506,
+      "sha256": "de8d6d9eba1fc09ba1a0d195d41ada60c812093b427c7d0aff026ec9eee6ecce"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_ps.ps-metal-2-original-host-triple.ll",
+      "bytes": 8683,
+      "sha256": "4ee1188a7fc4988340e61098c2fa1f9691dc6cb82b47a594e2b75bb5935bb922"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_ps.ps-metal-3-native-air.ll",
+      "bytes": 9356,
+      "sha256": "b48dc83c37b8fabda1e82118bfbddb3d1143fab9002f926030c20de58c6bfeb4"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_ps.ps-metal-3-original-host-triple-standard-layout.ll",
+      "bytes": 9178,
+      "sha256": "546cd5c1f425225ba3d8569440a35e564e689af2fca201d2ec762012fb74aee4"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_ps.ps-metal-3-original-host-triple.ll",
+      "bytes": 9355,
+      "sha256": "a5519ca9c155eef42bf14d90725ac651c0d64b3ccb0cf8ff036b158a45683679"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_vs.vs-metal-0-native-air.ll",
+      "bytes": 10197,
+      "sha256": "da5802ff07776c6651ed1d6527fba9e345407690388616a126aedae6a9697532"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_vs.vs-metal-0-original-host-triple-standard-layout.ll",
+      "bytes": 10019,
+      "sha256": "77acd1d982f60d486476f3e363e81dec343787e44801d51101f21821f2923bad"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21/distortion_vs.vs-metal-0-original-host-triple.ll",
+      "bytes": 10196,
+      "sha256": "414939b9e105d9b195093c8d8489e1175d638d56c78452eaba182dfa452b9d4d"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/fresh-llvm21-reading.json",
+      "bytes": 27415,
+      "sha256": "0a4ba0dae82caa831a631b02f1e2752bcc171c4a4b0a81bcb109532d2b63d9de"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/full-tests.log",
+      "bytes": 4578,
+      "sha256": "f735faac338c4609a7a404f6b68d5fecc36c28a6f8c92deed714717f8d18c4aa"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/gpg-home/random_seed",
+      "bytes": 600,
+      "sha256": "a6c8c8739e68d9508d4b6915f1fcf83a9b5d686e9853b912048cb63a27d6b9e9"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/gpg-home/trustdb.gpg",
+      "bytes": 1200,
+      "sha256": "c53834c222dffada6971d4b20fdf89fe22614d5eb5c3990c66d0219b41863cae"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/guards-normal.log",
+      "bytes": 116,
+      "sha256": "43ab52b562a2b9e17a189bbd8038e78bd14deb19adbd7db0e122ec2f3e94825f"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/inspect-bitcode.log",
+      "bytes": 83,
+      "sha256": "c356482a031d3a388fe450bb725d49074efe4a4853a3abad05d651df6cc099bb"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/inspect-bitcode.py",
+      "bytes": 3500,
+      "sha256": "56e6df0a4e08cffb154fd52ed65b4fca90c67efeba86443807309a4257a22ad0"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/inspect-bitcode21.log",
+      "bytes": 83,
+      "sha256": "e6676c89ff499e3a07304371893323ed25bb75d1e895b1aa8ccbec2f2b411e29"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/inspect-bitcode21.py",
+      "bytes": 3513,
+      "sha256": "ae705ab22847a167ab45e8d6a249ea905d9b8adcbe9a9a1e2de933c5f23f4eda"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/inspect-clang21.log",
+      "bytes": 84,
+      "sha256": "62fc6113256a47c58f320284a6fb51222a2b59637e11b0a512a5a79f3afc2b27"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/inspect-clang21.py",
+      "bytes": 1983,
+      "sha256": "cebcf4579535ea4d954c1f2090030b746c4cb856c21faf02fb354358bede6def"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/llvm-archive-key.asc",
+      "bytes": 3167,
+      "sha256": "8b2a587ffd672c4687e7581dad4b2f6c1bb2ad6b480cd9771ba2ff48e0b8c75d"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/llvm-archive-keyring.gpg",
+      "bytes": 2279,
+      "sha256": "99f4985fd25cdf4c15b07fd6139d5e205cbd39bab1c65d83484efc92a1d67344"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/llvm21-InRelease",
+      "bytes": 6837,
+      "sha256": "dc2b9e937b047f603083978ca3757ccfc977dfe4a28df5f5c85b2fe6c1d750c0"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/llvm21-Release",
+      "bytes": 5955,
+      "sha256": "0cce12a7c752db70ca8e9b0a3894a2c112d839333488c9d518473719ced2bc5b"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/llvm21-debs/clang-21_21.1.8~++20251221033036+2078da43e25a-1~exp1~20251221153213.50_amd64.deb",
+      "bytes": 169472,
+      "sha256": "b29399ec1bcbda6ad6760ddb10291a21fc442d3e426193c7e83d58e2ed5021a2"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/llvm21-debs/libclang-cpp21_21.1.8~++20251221033036+2078da43e25a-1~exp1~20251221153213.50_amd64.deb",
+      "bytes": 12859204,
+      "sha256": "f17f302cd393d15f513a16555a6a209f8e5db80a56a1924063190f684ba8d0a4"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/llvm21-debs/libllvm21_21.1.8~++20251221033036+2078da43e25a-1~exp1~20251221153213.50_amd64.deb",
+      "bytes": 28343788,
+      "sha256": "991d8f67b8414d7bcab70832538ef3def6a3a6eecdc4261d173009b516a0ab18"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/llvm21-gpg-signature.log",
+      "bytes": 981,
+      "sha256": "51774643f17a9ae29136112c3650cf19b6da366a5ab097629a7476fe637700cc"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/llvm21-package-receipts.json",
+      "bytes": 1588,
+      "sha256": "2d1cdc00d8e89bf3cfa5004d574a396aeaa932764931587443126d7c74a79ae5"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/llvm21-package-selection.json",
+      "bytes": 3941,
+      "sha256": "2a492484cbd1db6da115a1f0c57f37fa23f27582c3ce665d0f8577e471c464e8"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/llvm21-packages.gz",
+      "bytes": 22184,
+      "sha256": "f9042fa0b250d5c6178e6e17762ad58eac3fecab2fa0f80cb509911e1fc601e7"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/llvm21-packages.txt",
+      "bytes": 99443,
+      "sha256": "9f7e04e8ad6b319aeab1f3389261b0f3429f65ed6c91bc863255b7a7e56128a8"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/llvm21-signature-verification.json",
+      "bytes": 607,
+      "sha256": "f5b3b9b88f1ebbefabe56c85a1dde514db21f1c66c8fbd5db17bd056a7169e56"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/llvm21-signature.log",
+      "bytes": 44,
+      "sha256": "7c4c6094824e06d5534705e722a407a93663f34ed1ba567e4f81ad16f67e8e50"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/llvm21-signing-downloads.json",
+      "bytes": 507,
+      "sha256": "647979617633d5653dd8485cb07f14ddab6c7979338aebee7ee2299930079c1a"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/offline-guards/__pycache__/sitecustomize.cpython-312.opt-1.pyc",
+      "bytes": 529,
+      "sha256": "4fdbb18433b2fd9b875fd63e07eded4c40de71586a7cf92bc9f05b44027039cc"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/offline-guards/__pycache__/sitecustomize.cpython-312.pyc",
+      "bytes": 529,
+      "sha256": "4fdbb18433b2fd9b875fd63e07eded4c40de71586a7cf92bc9f05b44027039cc"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/offline-guards/sitecustomize.py",
+      "bytes": 193,
+      "sha256": "b636080532511c394281557acbf9ad5cddd1862168a8920c274e5e30b3146b72"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/particle_distortion_recovery-check-normal.log",
+      "bytes": 214,
+      "sha256": "ed692a15ccec43c3410afd7416af355fceea5f7f193425cf596ab0147cdab11b"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/particle_distortion_recovery-check-optimized.log",
+      "bytes": 214,
+      "sha256": "ed692a15ccec43c3410afd7416af355fceea5f7f193425cf596ab0147cdab11b"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/particle_distortion_recovery-replay-normal.log",
+      "bytes": 239,
+      "sha256": "28cebbad6af3ec3f99f74d9951de49083d53f959206753aa6166303fd4ba66d9"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/particle_distortion_recovery-replay-optimized.log",
+      "bytes": 239,
+      "sha256": "28cebbad6af3ec3f99f74d9951de49083d53f959206753aa6166303fd4ba66d9"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/replay-verification.json",
+      "bytes": 30925,
+      "sha256": "f1504f609898f514b4147fe3796f3c58588454d6149db47d0e3b2c83b7bcf296"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/replay.log",
+      "bytes": 1201,
+      "sha256": "e83303467c94144816b04dff40b69b31eff208f817ce41e883ba1fc74f527442"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/shader-tests.log",
+      "bytes": 179,
+      "sha256": "320d42d4179310dc2d395dbe1abb448c6dc9e61c066854118ab301c7a6115b18"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/stage-programs.log",
+      "bytes": 258,
+      "sha256": "eaf05abf3eba14cdaaa5a5fd49bcb56cdb4ab2f27d6ee333aef27033af2450cd"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/stage-programs.py",
+      "bytes": 3405,
+      "sha256": "ca38e368389af040fc5236e3dec0d0fbff2356e061ac9cbfb338bca4a498173f"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-native/assets/shaders/hlsl/particlesystem/distortion_mesh_ps.ps-metal",
+      "bytes": 214,
+      "sha256": "50acf32d9f7c44bdbd028e4869faa4f7f54877a83edc2a1c89f6aecb9dd58880"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-native/assets/shaders/hlsl/particlesystem/distortion_mesh_ps.ps-metal_0",
+      "bytes": 34080,
+      "sha256": "3834370e72956a608cbd31bc917ff07b4fb46a9718ed425a8ec8d867c63168f0"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-native/assets/shaders/hlsl/particlesystem/distortion_mesh_vs.vs-metal",
+      "bytes": 91,
+      "sha256": "c19cad1f4cbe8d19f6f41bd7dde44e09976bf032488828e776abcb35d9ec2136"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-native/assets/shaders/hlsl/particlesystem/distortion_mesh_vs.vs-metal_0",
+      "bytes": 10136,
+      "sha256": "29afa031c05c62930af75d2f504d73af30030754c5f1a36566fa5ee13bd9386c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-native/assets/shaders/hlsl/particlesystem/distortion_ps.ps-metal",
+      "bytes": 151,
+      "sha256": "aa1304a1e2af5f9ab9ce25170b8af93b1cc7869ed041e854bd3f1b167a1f761e"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-native/assets/shaders/hlsl/particlesystem/distortion_ps.ps-metal_0",
+      "bytes": 16440,
+      "sha256": "299341fd05f2539b7d90bcf97b2c76d2d9e1f270666830df8f0aa2de75950ce7"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-native/assets/shaders/hlsl/particlesystem/distortion_vs.vs-metal",
+      "bytes": 64,
+      "sha256": "54a5d83c407f4839229612bd7455aedbef23012efd02fc188308d17fe73aeb09"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-native/assets/shaders/hlsl/particlesystem/distortion_vs.vs-metal_0",
+      "bytes": 4534,
+      "sha256": "7cd61215611233052fc41877dbdaf4e7eb14135cc306d03859d1881d82deca05"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-program-verification.json",
+      "bytes": 10003,
+      "sha256": "203ae630d09e742b313b491848c7b027b5664e3ed0529e9f0c953239e67152a0"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_mesh_ps.ps-metal-0.bc",
+      "bytes": 3668,
+      "sha256": "80f3a3130cf2fda1a09e314b7363bd11326e24db2335eca9faaa84fbbe058f03"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_mesh_ps.ps-metal-0.metallib",
+      "bytes": 3934,
+      "sha256": "5a5dcfe7e7f47de3c0f0441a12a073aac43f4ef769bf50cf9b5e3863e1601b42"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_mesh_ps.ps-metal-1.bc",
+      "bytes": 3820,
+      "sha256": "4273310152c75b007f7300ce6022581aaac74b7e8f8a4d459584cbedef7c6b40"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_mesh_ps.ps-metal-1.metallib",
+      "bytes": 4078,
+      "sha256": "17e9efd97862fe1dccbcbbe3c1bc46da631e3a8b7d8d5747424cdce8d311e200"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_mesh_ps.ps-metal-2.bc",
+      "bytes": 3888,
+      "sha256": "0ddf85779e338138522d610e3423167672fb894571ba98ab5413a79cf9477184"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_mesh_ps.ps-metal-2.metallib",
+      "bytes": 4158,
+      "sha256": "3f2094d526834db103e3d24310c8afac95395285312bf06c9d47256ea2404a06"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_mesh_ps.ps-metal-3.bc",
+      "bytes": 3932,
+      "sha256": "d546f635552afcfa2bc641308d6b7d4667bacf7153a57a6eceba05b13e55b605"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_mesh_ps.ps-metal-3.metallib",
+      "bytes": 4190,
+      "sha256": "4d9977efd0deed637420a081d17d773ca7e614974c8a17fc3b561ca27dcfe8c5"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_mesh_ps.ps-metal-4.bc",
+      "bytes": 4052,
+      "sha256": "f15ed7a214e2b0aae5361d41a8d75002f1271862f689b5a3d9ab4c6c4c62ebfa"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_mesh_ps.ps-metal-4.metallib",
+      "bytes": 4318,
+      "sha256": "19c46d5fa2a847801a75791ac076055a7a8d60a467fcea8860b7be01c286508e"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_mesh_ps.ps-metal-5.bc",
+      "bytes": 4088,
+      "sha256": "8a7e245b641200f9adb4403bb4256e4e212aaa88ed0b030218004b4282f92b81"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_mesh_ps.ps-metal-5.metallib",
+      "bytes": 4350,
+      "sha256": "7e9f04a209da8d1abf148090d1dfae46362c2e331c8660f1040dc06fb0fc4fb1"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_mesh_ps.ps-metal-6.bc",
+      "bytes": 4160,
+      "sha256": "c1c1011feb134de7514dc3db2ef73eeef41ad25509981bc52d23edd91679ec59"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_mesh_ps.ps-metal-6.metallib",
+      "bytes": 4430,
+      "sha256": "174f89925aabc16a463a34aa1d36e025264afa3e671dacc1e518797dff5f6ebf"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_mesh_ps.ps-metal-7.bc",
+      "bytes": 4332,
+      "sha256": "38f98e50d9e4a4718dcb7a39473d99348270c73ac084326e1cfe627af58c614d"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_mesh_ps.ps-metal-7.metallib",
+      "bytes": 4590,
+      "sha256": "a5db96a1e1159a46af7ee31b5f86d705392967790ee75d7b61202ebc4909526d"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_mesh_vs.vs-metal-0.bc",
+      "bytes": 4720,
+      "sha256": "830c90328657b227195f9227030b732a32e192f9b865bf86b219b1ba363f4a8d"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_mesh_vs.vs-metal-0.metallib",
+      "bytes": 5024,
+      "sha256": "fff1592bf2ea574184b064d70d9bd08f16ba57181f4fe533a97974aa3ca08542"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_mesh_vs.vs-metal-1.bc",
+      "bytes": 4812,
+      "sha256": "ac12588d4e9e862859099f4aea5d490a3690ce4787e3acd9e042db1d1aa48c3c"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_mesh_vs.vs-metal-1.metallib",
+      "bytes": 5104,
+      "sha256": "e7a7d9203db0e568806f81c99b73197aafd79327d905586781a3e5b07ab07b0d"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_ps.ps-metal-0.bc",
+      "bytes": 3672,
+      "sha256": "57c920f3f82592a2cd1afb29c966f9e327932a4a8e0fcecb6bff7f8c916b5b44"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_ps.ps-metal-0.metallib",
+      "bytes": 3934,
+      "sha256": "3e1bd60c47ede0c0d3548c066b43555dbba8f30a6f3117f7eb8ab8b6cea2c02b"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_ps.ps-metal-1.bc",
+      "bytes": 3796,
+      "sha256": "3b5a498a34ee5dbc946e6306d04279f6342dc01465aed018b2af6f7767cf97bf"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_ps.ps-metal-1.metallib",
+      "bytes": 4062,
+      "sha256": "725357c7db5cd2b2a80849e2d081000238395d343165c85e578ac46bf2f7e8b9"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_ps.ps-metal-2.bc",
+      "bytes": 3884,
+      "sha256": "5e18eb557aee689d4c8291910ff0f668cb9ba5c7b59c49cff096509fdd1fef28"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_ps.ps-metal-2.metallib",
+      "bytes": 4142,
+      "sha256": "33574cf41438beb2a6fc35af340642ab233c4dc076aea53dc8a78cec78cd1b81"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_ps.ps-metal-3.bc",
+      "bytes": 4020,
+      "sha256": "a14b10fa32e190a6cb908521c0f49485bfd656ebcbca4bace7008502aa7ba26f"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_ps.ps-metal-3.metallib",
+      "bytes": 4286,
+      "sha256": "35df6bb482fc8a60f7a605e914630ced63adc33329af7f25785a91078adc5d9f"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_vs.vs-metal-0.bc",
+      "bytes": 4216,
+      "sha256": "809cbc42c45af82cfd30fd7f2a580344c69915572beb3837aa74b2df20cc75d2"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/staged-programs/distortion_vs.vs-metal-0.metallib",
+      "bytes": 4530,
+      "sha256": "cde73c750737eb937cedc6eb17a43df71bb8d9315557b0d52b06b5380e3a7c7b"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/test-particle-distortion-recovery-normal.log",
+      "bytes": 116,
+      "sha256": "364bdb1b9906903a5d91e8a5ee26c7671a33c37b30f2ccc9478280057c9a8d05"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/test-particle-distortion-recovery-optimized.log",
+      "bytes": 116,
+      "sha256": "e76f22eaebd12b7dd71787f9ae3f8639f5e20f30a8edb1b3891570125fd8fbd7"
+    },
+    {
+      "path": ".cache/particle-distortion-restoration/verify-replay.py",
+      "bytes": 1899,
+      "sha256": "ecfa9024aa4d3d75b5f6f4f66a1a0d252b90699ef592019b5eb45a1590c98f55"
+    }
+  ]
+}

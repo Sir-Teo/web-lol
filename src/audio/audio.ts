@@ -1,3 +1,8 @@
+import { LazyMasterYiWujuStyleAudio } from './masteryi-e-lazy';
+import { LazyMasterYiMeditateAudio } from './masteryi-w-lazy';
+import { LazyMasterYiAttackAudio } from './masteryi-aa-lazy';
+import { LazyMasterYiHighlanderAudio } from './masteryi-r-lazy';
+import { LazyMasterYiAlphaAudio } from './masteryi-q-lazy';
 import { LazyGarenBasicAttackAudio } from './garen-aa-lazy';
 import { LazyGarenPerseveranceAudio } from './garen-p-lazy';
 import { LuxSingularityAudio } from './lux-e';
@@ -41,6 +46,11 @@ export class GameAudio {
   private luxETerminal = false;
   bindingFlight = new LuxBindingFlightAudio();
   garenAA = new LazyGarenBasicAttackAudio();
+  masterYiAA = new LazyMasterYiAttackAudio();
+  masterYiE = new LazyMasterYiWujuStyleAudio();
+  masterYiW = new LazyMasterYiMeditateAudio();
+  masterYiR = new LazyMasterYiHighlanderAudio();
+  masterYiQ = new LazyMasterYiAlphaAudio();
   garenP = new LazyGarenPerseveranceAudio();
   private garenPTerminalWorld?: World;
   private garenPTerminalStart = 0;
@@ -101,7 +111,7 @@ export class GameAudio {
     this.audible = value;
     if (!value) this.stopVoices();
   }
-  async load(garenPresent = false): Promise<void> {
+  async load(garenPresent = false, masterYiPresent = false): Promise<void> {
     await Promise.all([
       this.loadCast(),
       this.loadArrival(),
@@ -111,6 +121,15 @@ export class GameAudio {
       this.loadBindingCast(),
       this.bindingFlight.load(),
       this.luxE.load(),
+      ...(masterYiPresent
+        ? [
+            this.masterYiAA.load(),
+            this.masterYiR.load(),
+            this.masterYiQ.load(),
+            this.masterYiW.load(),
+            this.masterYiE.load(),
+          ]
+        : []),
       ...(garenPresent
         ? [
             this.garenAA.load(),
@@ -306,6 +325,11 @@ export class GameAudio {
     this.bindingFlight.stop();
     this.luxE.stop();
     this.garenAA.stop();
+    this.masterYiAA.stop();
+    this.masterYiR.stop();
+    this.masterYiW.stop();
+    this.masterYiE.stop();
+    this.masterYiQ.stop();
     this.garenP.stop();
     this.garenE.stop();
     this.garenR.stop();
@@ -675,6 +699,102 @@ export class GameAudio {
       }
       recoveryTick += Math.max(0, this.context.currentTime - this.garenPTerminalStart) * 60;
     }
+    const yiUnits = world.units.filter((u) => u.champion === 'masteryi');
+    if (yiUnits.length && this.masterYiAA.status === 'idle') void this.masterYiAA.load();
+    if (yiUnits.length && this.masterYiE.status === 'idle') void this.masterYiE.load();
+    if (yiUnits.length && this.masterYiW.status === 'idle') void this.masterYiW.load();
+    if (yiUnits.length && this.masterYiR.status === 'idle') void this.masterYiR.load();
+    if (yiUnits.length && this.masterYiQ.status === 'idle') void this.masterYiQ.load();
+    this.masterYiQ.update(
+      this.context,
+      this.enabled && !this.paused,
+      yiUnits.flatMap((u) =>
+        world.championState(u.id)!.alphaAudio.map((r) => ({
+          ...r,
+          id: u.id,
+          castVisible: r.castAudience.includes(world.hero.team),
+          contacts: r.contacts.map((contact) => ({
+            ...contact,
+            visible: contact.audience.includes(world.hero.team),
+          })),
+        }))
+      ),
+      recoveryTick,
+      listener
+    );
+    const yiAttacks = yiUnits.flatMap((u) =>
+      world.championState(u.id)!.masterYiAAAudio.map((r) => ({
+        ...r,
+        id: u.id,
+        x: u.x,
+        y: u.y,
+        castVisible:
+          r.castAudience.includes(world.hero.team) &&
+          (u.team === world.hero.team || world.visible(u, world.hero.team)),
+        hitVisible: r.impact?.audience.includes(world.hero.team) ?? false,
+      }))
+    );
+    this.masterYiAA.update(
+      this.context,
+      this.enabled && !this.paused,
+      yiAttacks,
+      recoveryTick,
+      listener
+    );
+    this.masterYiR.update(
+      this.context,
+      this.enabled && !this.paused,
+      yiUnits.flatMap((u) =>
+        world.championState(u.id)!.highlanderAudio.map((r) => ({
+          ...r,
+          id: u.id,
+          x: u.x,
+          y: u.y,
+          castVisible:
+            r.castAudience.includes(world.hero.team) &&
+            (u.team === world.hero.team || world.visible(u, world.hero.team)),
+          stopVisible: r.stop?.audience.includes(world.hero.team) ?? false,
+        }))
+      ),
+      recoveryTick,
+      listener
+    );
+    this.masterYiW.update(
+      this.context,
+      this.enabled && !this.paused,
+      yiUnits.flatMap((u) =>
+        world.championState(u.id)!.meditateAudio.map((r) => ({
+          ...r,
+          id: u.id,
+          x: u.x,
+          y: u.y,
+          castVisible:
+            r.castAudience.includes(world.hero.team) &&
+            (u.team === world.hero.team || world.visible(u, world.hero.team)),
+          stopVisible: r.stop?.audience.includes(world.hero.team) ?? false,
+        }))
+      ),
+      recoveryTick,
+      listener
+    );
+    this.masterYiE.update(
+      this.context,
+      this.enabled && !this.paused,
+      yiUnits.flatMap((u) =>
+        world.championState(u.id)!.wujuStyleAudio.map((r) => ({
+          ...r,
+          id: u.id,
+          x: u.x,
+          y: u.y,
+          castVisible:
+            r.castAudience.includes(world.hero.team) &&
+            (u.team === world.hero.team || world.visible(u, world.hero.team)),
+          stopVisible: r.stop?.audience.includes(world.hero.team) ?? false,
+        }))
+      ),
+      recoveryTick,
+      listener
+    );
     if (garens.length && this.garenAA.status === 'idle') void this.garenAA.load();
     const attacks = garens.flatMap((u) =>
       world.championState(u.id)!.garenAAVisuals.map((r) => ({
@@ -809,6 +929,11 @@ export class GameAudio {
               this.leonaAA.suppressSwing(event.unit, event.leonaAAStartTick);
               this.tone(650, 260, 0.065, 0.012, 'triangle');
             }
+          } else if (event.masterYiAAStartTick !== undefined && event.unit !== undefined) {
+            if (this.masterYiAA.status !== 'ready') {
+              this.masterYiAA.suppressSwing(event.unit, event.masterYiAAStartTick);
+              this.tone(650, 260, 0.065, 0.012, 'triangle');
+            }
           } else if (event.garenAAStartTick !== undefined && event.unit !== undefined) {
             if (this.garenAA.status !== 'ready') {
               this.garenAA.suppressSwing(event.unit, event.garenAAStartTick);
@@ -825,7 +950,35 @@ export class GameAudio {
           }
         }
         if (event.type === 'cast') {
-          if (event.text === 'q' && event.champion === 'leona' && this.leonaQ.status === 'ready') {
+          if (
+            event.text === 'q' &&
+            event.champion === 'masteryi' &&
+            this.masterYiQ.status === 'ready'
+          ) {
+            // Saved accepted Q cast/contact histories own the declared source cues.
+          } else if (
+            event.text === 'e' &&
+            event.champion === 'masteryi' &&
+            this.masterYiE.status === 'ready'
+          ) {
+            // Saved Wuju Style cast/activation/natural ending own the finite source cues.
+          } else if (
+            event.text === 'w' &&
+            event.champion === 'masteryi' &&
+            this.masterYiW.status === 'ready'
+          ) {
+            // Saved Meditate cast/ending histories own the finite source cues.
+          } else if (
+            event.text === 'r' &&
+            event.champion === 'masteryi' &&
+            this.masterYiR.status === 'ready'
+          ) {
+            // Saved Highlander onset/expiry histories own the two finite source cues.
+          } else if (
+            event.text === 'q' &&
+            event.champion === 'leona' &&
+            this.leonaQ.status === 'ready'
+          ) {
             // Saved Daybreak activation, attack attempts, contact and stop own Q audio.
           } else if (
             event.text === 'w' &&
@@ -888,6 +1041,14 @@ export class GameAudio {
           )
             this.bindingCast(event, tick, listener);
           else {
+            if (event.text === 'q' && event.champion === 'masteryi' && event.unit !== undefined)
+              this.masterYiQ.suppressCast(event.unit, event.tick);
+            if (event.text === 'e' && event.champion === 'masteryi' && event.unit !== undefined)
+              this.masterYiE.suppressCast(event.unit, event.tick);
+            if (event.text === 'w' && event.champion === 'masteryi' && event.unit !== undefined)
+              this.masterYiW.suppressCast(event.unit, event.tick);
+            if (event.text === 'r' && event.champion === 'masteryi' && event.unit !== undefined)
+              this.masterYiR.suppressCast(event.unit, event.tick);
             if (event.text === 'q' && event.champion === 'leona' && event.unit !== undefined)
               this.leonaQ.suppressCast(event.unit, event.tick);
             if (event.text === 'w' && event.champion === 'leona' && event.unit !== undefined)

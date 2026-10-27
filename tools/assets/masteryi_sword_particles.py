@@ -1,0 +1,24 @@
+"""Complete sword particle profiles with explicit local UV/default adapters."""
+from masteryi_e_particles import require
+import math
+from masteryi_w_cast import value,uv as base_uv
+ALLOWED=set('rate particleLifetime emitterName birthUvScrollRate birthVelocity bindWeight EmitterPosition primitive blendMode colorLookUpTypeY colorLookUpScales colorLookUpOffsets particleIsLocalOrientation birthRotation0 birthScale0 scale0 texture textureMult uvMode __type isSingleParticle lifetime isRandomStartFrame particleColorTexture numFrames texDiv'.split())
+def layer(raw,mult=False):
+ result=base_uv(raw,mult);divisions=raw.get('texDiv',[1,1]);frames=raw.get('numFrames',1)
+ require(divisions in([1,1],[2.,2.])and type(frames)is int and frames in(1,4),'Unsupported sword frame/grid declaration')
+ require((divisions,frames)in[([1,1],1),([1,1],4),([2.,2.],4)],'Unsupported sword frame/grid pair')
+ result.update(divisions=divisions,frames=frames,randomStart=bool(raw.get('isRandomStartFrame',False)),startFrame=0);return result
+def profiles(pin,textures,defaults):
+ out=[]
+ for system,row in pin['resources'].items():
+  d=row['definition'];require(not any(k.lower().startswith('sound')for k in d)and'flags'not in d,'Sword sound/flag omission differs')
+  for index,e in enumerate(d['complexEmitterDefinitionData']):
+   require(not set(e)-ALLOWED and not e.get('fieldCollectionDefinition'),'Unhandled sword emitter field');kind=e.get('primitive',{}).get('__type','billboard');require(e.get('primitive',{})in ({},{'__type':'VfxPrimitiveArbitraryQuad'}),'Unhandled sword primitive');require(e.get('uvMode',0)in(0,2)and e.get('blendMode',0)in(0,1,4),'Unhandled sword render mode')
+   require(e.get('bindWeight')=={'constantValue':1.0,'__type':'ValueFloat'}and type(e['bindWeight']['constantValue'])is float and type(e.get('particleIsLocalOrientation'))is int and e['particleIsLocalOrientation']==1,'Sword attachment requires authored full bind/local orientation')
+   require(all(type(e[k])is int for k in ['isSingleParticle','isRandomStartFrame','particleIsLocalOrientation','blendMode','uvMode','numFrames','colorLookUpTypeY']if k in e),'Sword numeric controls changed type')
+   require(all(len(e.get(k,[]))==2 and all(type(v)in(int,float)and math.isfinite(v)for v in e[k])for k in ['colorLookUpScales','colorLookUpOffsets']),'Invalid sword lookup controls')
+   mult=e.get('textureMult');uv=layer(e);require(uv['divisions']in([1,1],[2.,2.])and uv['frames']in(1,4),'Unsupported sword frame/grid profile')
+   p={'system':system,'role':'sword','index':index,'name':e['emitterName'],'kind':'quad'if kind=='VfxPrimitiveArbitraryQuad'else'billboard','mesh':None,'texture':textures[e['texture'].lower()],'lookup':textures[e['particleColorTexture'].lower()]if'particleColorTexture'in e else None,'rate':value(e['rate'],0),'single':bool(e.get('isSingleParticle',False)),'delay':0,'emitterLife':e.get('lifetime'),'emitterLinger':e.get('emitterLinger'),'linger':e.get('particleLinger'),'life':value(e['particleLifetime'],3),'bind':value(e['bindWeight'],0),'position':value(e.get('EmitterPosition',{}),[0,0,0]),'shape':{'offset':value({},[0,0,0])},'velocity':value(e.get('birthVelocity',{}),[0,0,0]),'worldAcceleration':value({},[0,0,0]),'rotation':value(e.get('birthRotation0',{}),[0,0,0]),'spin':value({},[0,0,0]),'size':value(e.get('birthScale0',{}),defaults['birthScale']),'scale':value(e.get('scale0',{}),defaults['scale']),'uniform':False,'birthColor':value({},defaults['color']),'color':value({},defaults['color']),'uv':uv,'uvMode':e.get('uvMode',0),'rawUv':{'numFrames':e.get('numFrames'),'texDiv':e.get('texDiv'),'randomStart':e.get('isRandomStartFrame')},'multiplier':{'texture':textures[mult['textureMult'].lower()],'uv':layer(mult,True)}if mult else None,'lookupTypes':[defaults['lookupTypes'][0],e.get('colorLookUpTypeY',defaults['lookupTypes'][1])],'lookupScales':e.get('colorLookUpScales',defaults['lookupScales']),'lookupOffsets':e.get('colorLookUpOffsets',defaults['lookupOffsets']),'local':True,'particleLocal':True,'directionOriented':False,'directionVelocityScale':0,'ground':False,'navmesh':False,'blend':e.get('blendMode',0),'renderOrder':e.get('pass',0),'miscRenderFlags':0,'meshRenderFlags':0,'noCull':False,'depthBias':[0,0],'alphaRef':5/255,'erosion':None,'distortion':None,'soft':None,'palette':None,'explicitFields':sorted(e)}
+   require(p['emitterLife']is None or(type(p['emitterLife'])in(int,float)and math.isfinite(p['emitterLife'])and p['emitterLife']>0),'Invalid sword emitter lifetime')
+   require(p['rate']['times']==[0]and len(p['rate']['values'])==1 and not p['rate']['probabilities'],'Unsupported sword rate dynamics');require(p['life']['times']==[0]and len(p['life']['values'])==1 and not p['life']['probabilities']and 0<p['life']['values'][0][0]<=1,'Unsupported sword particle life');out.append(p)
+ require(len(out)==14,'Incomplete sword emitter closure');return out

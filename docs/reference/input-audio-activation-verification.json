@@ -1,0 +1,401 @@
+{
+  "format": 1,
+  "parentCommit": "7a32793fa2d4db5b83202bca926acc3f3048d654",
+  "scope": "Request audio activation from the first printable game key, native-button Enter, and HUD/battlefield pointer gesture, without repeat/typing requests or duplicate canvas activation.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "offlinePack": {
+      "id": "bdef24dc6786600843bdbfd39e6b5a2a66c2f2e99179288de9d9e5692da590db",
+      "files": 1202,
+      "bytes": 538091358
+    }
+  },
+  "verification": {
+    "fresh": {
+      "typeCheckPassed": true,
+      "nodeQaPassed": 8,
+      "browserCases": 6,
+      "newBrowserCases": 2,
+      "firstKeyboardHealContextRunning": true,
+      "inputActivationRequests": 5,
+      "duplicateCanvasActivation": false,
+      "repeatAndTypingActivation": false,
+      "productionKeyboardCases": 1,
+      "productionFirstKeyboardAudio": true,
+      "productionAudioContextsCreated": 1,
+      "freshProductionScreenshots": 1,
+      "assetsAndDataFilesUnchanged": 543,
+      "bytesAndMtimesUnchanged": true
+    },
+    "inherited": {
+      "uiCommit": "7a32793fa2d4db5b83202bca926acc3f3048d654",
+      "uiCertificate": {
+        "path": "docs/reference/ward-hud-cast-verification.json",
+        "bytes": 13427,
+        "sha256": "02c9f8840cc431822cfb64a2d1a0b63b1242c0edf684132b539a9c8dacc4c57c"
+      },
+      "renderCertificate": {
+        "path": "docs/reference/gromp-ray-raw-color-verification.json",
+        "bytes": 52259,
+        "sha256": "f2edf7710308cf8b5b4c3b91d5c08f39ec01134f804313ca4c9680d05d864f8a"
+      },
+      "fullUnitRun": {
+        "passed": 3191,
+        "failed": 2,
+        "total": 3193,
+        "files": 396
+      },
+      "baselineFailuresUnchanged": 2,
+      "productionRecordings": 32,
+      "productionScreenshots": 8,
+      "privatePreloads": 0
+    },
+    "schemaChanged": false,
+    "rulesetChanged": false
+  },
+  "originalInputProof": {
+    "path": ".cache/input-audio-activation/browser-before/probe-trusted-keyboard-and-ab1c6-repeat-or-typing-activation/input-audio.json",
+    "bytes": 180,
+    "sha256": "b39605d938f16070956a2e6801a1f6b9b190e5caf4fa48d84e64073e44deb0da"
+  },
+  "correctedInputProof": {
+    "path": ".cache/input-audio-activation/browser-accepted/input-audio-activation-tru-66835-repeat-or-typing-activation/input-audio.json",
+    "bytes": 354,
+    "sha256": "d71806393655e40c07497fa6036466731f73793dda105b60f7be75b6aee16180"
+  },
+  "originalGameProof": {
+    "path": ".cache/input-audio-activation/browser-before/probe-the-first-keyboard-H-31a0e--before-any-pointer-gesture/first-keyboard-audio.json",
+    "bytes": 158,
+    "sha256": "480cf7c9e88a1510bdde0e98d1adcf442c1a4471fc34f988d3fa52918b43439e"
+  },
+  "correctedGameProof": {
+    "path": ".cache/input-audio-activation/browser-accepted/input-audio-activation-the-bfbd6--before-any-pointer-gesture/first-keyboard-audio.json",
+    "bytes": 187,
+    "sha256": "8837284d1abb528ac6ea1670a3887fd15eed60af3c504962c52f72febb41e4f7"
+  },
+  "productionProof": {
+    "path": ".cache/input-audio-activation/production-accepted/reading.json",
+    "bytes": 366,
+    "sha256": "838e6fc918c4beeee21f23dfa2ae0a5b3f98c9c158d2c757960f552d3e0ba402"
+  },
+  "limits": [
+    "Audio-context readiness is tested; physical audibility and native-client mix/timing parity are not claimed.",
+    "Production observes real context construction through a test-only proxy of the browser AudioContext constructor; the compiled application has no development hook.",
+    "Full-unit and broad production results are inherited; fresh checks target input/audio activation.",
+    "The production runner changes only system Chromium launch selection."
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/INPUT-AUDIO-ACTIVATION.md",
+      "bytes": 2206,
+      "sha256": "7333360c502500103666aa1a131e5bae625ecb1cd2741b5415cd1974ebc9a593"
+    },
+    {
+      "path": "e2e/input-audio-activation.spec.ts",
+      "bytes": 4167,
+      "sha256": "460b93dcdb6cb2a0621f7df06987905206232ece6c037bb22df327279b88f503"
+    },
+    {
+      "path": "src/input/input.ts",
+      "bytes": 10064,
+      "sha256": "e3bcdccd51894ba2eccc297208a257ea457b007b84c0ceef5591f783fbb21db2"
+    },
+    {
+      "path": "tools/qa/production-hud-keyboard.mjs",
+      "bytes": 5747,
+      "sha256": "13516a9b87a1d276f451f6a3765de4496970c025fde4e53c880e12a771cd9abf"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "src/audio/audio.ts",
+      "bytes": 44151,
+      "sha256": "8acb444466f0446bdef933ac2a85cc94f258e233366fb0d004bf6eaea88f1348"
+    },
+    {
+      "path": "src/ui/hud.ts",
+      "bytes": 84602,
+      "sha256": "d1888f1d93344c3fd135ba0d5e1c9f85769d959a3067fb8581d9b34eb25b6fcd"
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 22149,
+      "sha256": "f560678615975942527b735d74f016893a28425283fde831847473180811b10e"
+    },
+    {
+      "path": "src/input/spell-controls.ts",
+      "bytes": 3590,
+      "sha256": "c67d816aa635ff428541688fca917e2f03a98b24421d5f8b4e8fec2adc3708cc"
+    },
+    {
+      "path": "e2e/input-space-key.spec.ts",
+      "bytes": 4540,
+      "sha256": "915932598c563bce1497838126a1e6fda573b6ba0a285e627413abee11b84e27"
+    },
+    {
+      "path": "e2e/ward-hud-cast.spec.ts",
+      "bytes": 2831,
+      "sha256": "c2bc93a336f75e0463ac516fec23a85758678290338991f90526f977efdeabb1"
+    },
+    {
+      "path": "e2e/recovery.spec.ts",
+      "bytes": 12323,
+      "sha256": "12cfa1a497be8c713499c0d0061e0a3a502c9c464ed996427d8906b2c0ee8db3"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    },
+    {
+      "path": "docs/reference/gromp-ray-raw-color-verification.json",
+      "bytes": 52259,
+      "sha256": "f2edf7710308cf8b5b4c3b91d5c08f39ec01134f804313ca4c9680d05d864f8a"
+    },
+    {
+      "path": "docs/reference/ward-hud-cast-verification.json",
+      "bytes": 13427,
+      "sha256": "02c9f8840cc431822cfb64a2d1a0b63b1242c0edf684132b539a9c8dacc4c57c"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/input-audio-activation/final-source/docs/INPUT-AUDIO-ACTIVATION.md",
+      "bytes": 2206,
+      "sha256": "7333360c502500103666aa1a131e5bae625ecb1cd2741b5415cd1974ebc9a593"
+    },
+    {
+      "path": ".cache/input-audio-activation/final-source/e2e/input-audio-activation.spec.ts",
+      "bytes": 4167,
+      "sha256": "460b93dcdb6cb2a0621f7df06987905206232ece6c037bb22df327279b88f503"
+    },
+    {
+      "path": ".cache/input-audio-activation/final-source/src/input/input.ts",
+      "bytes": 10064,
+      "sha256": "e3bcdccd51894ba2eccc297208a257ea457b007b84c0ceef5591f783fbb21db2"
+    },
+    {
+      "path": ".cache/input-audio-activation/final-source/tools/qa/production-hud-keyboard.mjs",
+      "bytes": 5747,
+      "sha256": "13516a9b87a1d276f451f6a3765de4496970c025fde4e53c880e12a771cd9abf"
+    },
+    {
+      "path": ".cache/input-audio-activation/final-source/src/audio/audio.ts",
+      "bytes": 44151,
+      "sha256": "8acb444466f0446bdef933ac2a85cc94f258e233366fb0d004bf6eaea88f1348"
+    },
+    {
+      "path": ".cache/input-audio-activation/final-source/src/ui/hud.ts",
+      "bytes": 84602,
+      "sha256": "d1888f1d93344c3fd135ba0d5e1c9f85769d959a3067fb8581d9b34eb25b6fcd"
+    },
+    {
+      "path": ".cache/input-audio-activation/final-source/src/main.ts",
+      "bytes": 22149,
+      "sha256": "f560678615975942527b735d74f016893a28425283fde831847473180811b10e"
+    },
+    {
+      "path": ".cache/input-audio-activation/final-source/src/input/spell-controls.ts",
+      "bytes": 3590,
+      "sha256": "c67d816aa635ff428541688fca917e2f03a98b24421d5f8b4e8fec2adc3708cc"
+    },
+    {
+      "path": ".cache/input-audio-activation/final-source/e2e/input-space-key.spec.ts",
+      "bytes": 4540,
+      "sha256": "915932598c563bce1497838126a1e6fda573b6ba0a285e627413abee11b84e27"
+    },
+    {
+      "path": ".cache/input-audio-activation/final-source/e2e/ward-hud-cast.spec.ts",
+      "bytes": 2831,
+      "sha256": "c2bc93a336f75e0463ac516fec23a85758678290338991f90526f977efdeabb1"
+    },
+    {
+      "path": ".cache/input-audio-activation/final-source/e2e/recovery.spec.ts",
+      "bytes": 12323,
+      "sha256": "12cfa1a497be8c713499c0d0061e0a3a502c9c464ed996427d8906b2c0ee8db3"
+    },
+    {
+      "path": ".cache/input-audio-activation/final-source/package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    },
+    {
+      "path": ".cache/input-audio-activation/final-source/docs/reference/gromp-ray-raw-color-verification.json",
+      "bytes": 52259,
+      "sha256": "f2edf7710308cf8b5b4c3b91d5c08f39ec01134f804313ca4c9680d05d864f8a"
+    },
+    {
+      "path": ".cache/input-audio-activation/final-source/docs/reference/ward-hud-cast-verification.json",
+      "bytes": 13427,
+      "sha256": "02c9f8840cc431822cfb64a2d1a0b63b1242c0edf684132b539a9c8dacc4c57c"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/input-audio-activation/acceptance-stages.json",
+      "bytes": 847,
+      "sha256": "438399c2396f862c2f3a29e8107ecfcbae44ac5ec014dc70ca3fe3941b2fd914"
+    },
+    {
+      "path": ".cache/input-audio-activation/accepted-source-hashes.json",
+      "bytes": 313,
+      "sha256": "ed70fce4141b369d1761ac465f394e62e96af6e5abbc45a68b1d7a07c5bf3c5d"
+    },
+    {
+      "path": ".cache/input-audio-activation/archive-checkpoint.py",
+      "bytes": 8194,
+      "sha256": "a606c82885029ef18abec97bae5debec5ce756dbbf3561c314555be801bc556e"
+    },
+    {
+      "path": ".cache/input-audio-activation/assets-check.json",
+      "bytes": 113485,
+      "sha256": "724f4291b77f582effc4ece538baf9efc9efbfcf478e0366363cb8b3a857d549"
+    },
+    {
+      "path": ".cache/input-audio-activation/browser-accepted/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/input-audio-activation/browser-accepted/input-audio-activation-the-bfbd6--before-any-pointer-gesture/first-keyboard-audio.json",
+      "bytes": 187,
+      "sha256": "8837284d1abb528ac6ea1670a3887fd15eed60af3c504962c52f72febb41e4f7"
+    },
+    {
+      "path": ".cache/input-audio-activation/browser-accepted/input-audio-activation-tru-66835-repeat-or-typing-activation/input-audio.json",
+      "bytes": 354,
+      "sha256": "d71806393655e40c07497fa6036466731f73793dda105b60f7be75b6aee16180"
+    },
+    {
+      "path": ".cache/input-audio-activation/browser-accepted/input-space-key-Space-acti-479c3-hile-canvas-Space-recenters/space-button.json",
+      "bytes": 69,
+      "sha256": "ed8732cf7a80e3b25c24509c0c488802bd62624f73e9947f2b128d4a41001f21"
+    },
+    {
+      "path": ".cache/input-audio-activation/browser-accepted/input-space-key-Space-togg-497e2-l-recenters-the-battlefield/hud-space.json",
+      "bytes": 380,
+      "sha256": "d4d41cdb1fddf5fdcc9fedf4ae4820c922277162d9ccc3894cb246d3563456ad"
+    },
+    {
+      "path": ".cache/input-audio-activation/browser-accepted/ward-hud-cast-HUD-instant--45cf3-ugh-pointer-Space-and-Enter/ward-hud-cast.json",
+      "bytes": 2663,
+      "sha256": "39c31e20fa7bcefc6451269a7b9aa09c75bc0a0a264ffe453647860f0b6d8e7d"
+    },
+    {
+      "path": ".cache/input-audio-activation/browser-accepted.log",
+      "bytes": 1731,
+      "sha256": "d7b0ec62a5c184cc9b8b6b305f32f184e544a8649ae5998b86f3718511ed84f8"
+    },
+    {
+      "path": ".cache/input-audio-activation/browser-before/.last-run.json",
+      "bytes": 145,
+      "sha256": "5e69d9a39442f83449b3daf2cc8048752aa5a2401e7f84582f478f4e50a1441c"
+    },
+    {
+      "path": ".cache/input-audio-activation/browser-before/probe-the-first-keyboard-H-31a0e--before-any-pointer-gesture/error-context.md",
+      "bytes": 7968,
+      "sha256": "00e86fa465cf136e919054fe2542a98eb8990eb0b676144513defde61d97a119"
+    },
+    {
+      "path": ".cache/input-audio-activation/browser-before/probe-the-first-keyboard-H-31a0e--before-any-pointer-gesture/first-keyboard-audio.json",
+      "bytes": 158,
+      "sha256": "480cf7c9e88a1510bdde0e98d1adcf442c1a4471fc34f988d3fa52918b43439e"
+    },
+    {
+      "path": ".cache/input-audio-activation/browser-before/probe-the-first-keyboard-H-31a0e--before-any-pointer-gesture/test-failed-1.png",
+      "bytes": 917818,
+      "sha256": "87774010cd048f3bad847e78c461e9753bee2995d2e95c9b7b922fdebf5d9df5"
+    },
+    {
+      "path": ".cache/input-audio-activation/browser-before/probe-the-first-keyboard-H-31a0e--before-any-pointer-gesture/trace.zip",
+      "bytes": 37095562,
+      "sha256": "7628a663e51d8b6cf32db8c1096fe613eca64a0db97e2fe4074b6de1211fc8c4"
+    },
+    {
+      "path": ".cache/input-audio-activation/browser-before/probe-trusted-keyboard-and-ab1c6-repeat-or-typing-activation/error-context.md",
+      "bytes": 4509,
+      "sha256": "ceebb91a1572272853d53b78f68198c1f5c55bbfa065c5c111720ba461684805"
+    },
+    {
+      "path": ".cache/input-audio-activation/browser-before/probe-trusted-keyboard-and-ab1c6-repeat-or-typing-activation/input-audio.json",
+      "bytes": 180,
+      "sha256": "b39605d938f16070956a2e6801a1f6b9b190e5caf4fa48d84e64073e44deb0da"
+    },
+    {
+      "path": ".cache/input-audio-activation/browser-before/probe-trusted-keyboard-and-ab1c6-repeat-or-typing-activation/test-failed-1.png",
+      "bytes": 7518,
+      "sha256": "547e9b2be8b9b3e7910059d6060569e78865c62e0a14effa3fb2d888aa020b65"
+    },
+    {
+      "path": ".cache/input-audio-activation/browser-before/probe-trusted-keyboard-and-ab1c6-repeat-or-typing-activation/trace.zip",
+      "bytes": 22872,
+      "sha256": "90cbd9e638ef6ac456bebb5e306801d1de8b24c964dc1a886656a3f1ae10e6f6"
+    },
+    {
+      "path": ".cache/input-audio-activation/browser-before.log",
+      "bytes": 6336,
+      "sha256": "e7383416db6b887acbc355d3c455142352812cbae7635807cac87490219da444"
+    },
+    {
+      "path": ".cache/input-audio-activation/build.log",
+      "bytes": 7852,
+      "sha256": "efbcb8d25c422f39709f502f8821c456422d650db8f1547257fc2fa15146ea61"
+    },
+    {
+      "path": ".cache/input-audio-activation/built-identity.json",
+      "bytes": 256,
+      "sha256": "6962fb9a943820160c5baf372663629f7527fb1fb51ff8a077ebdd2bb9283489"
+    },
+    {
+      "path": ".cache/input-audio-activation/finish-checks.py",
+      "bytes": 1630,
+      "sha256": "650e5fefa3cfd5a8e56289e073a190101cf921e848aa0d27b0d8726e31f47209"
+    },
+    {
+      "path": ".cache/input-audio-activation/node-qa.log",
+      "bytes": 808,
+      "sha256": "c1add3fc99b328448c27a21f3370183320f4f6b62fb5ff76e3a13131111278f3"
+    },
+    {
+      "path": ".cache/input-audio-activation/original-source/src/input/input.ts",
+      "bytes": 9623,
+      "sha256": "cd64341c0288f362ca7aecdca1cad4b146c3dea268544116120a4ceedb8eb2e5"
+    },
+    {
+      "path": ".cache/input-audio-activation/original-source/tools/qa/production-hud-keyboard.mjs",
+      "bytes": 4999,
+      "sha256": "b814ec92f7c6fed079135aca809307d60ec63ccff2b2f01f58bfe99d110bf5d4"
+    },
+    {
+      "path": ".cache/input-audio-activation/probe.spec.ts",
+      "bytes": 3544,
+      "sha256": "676122a143ea1cebb1b3606b90092a64003d4334c403488d9f9e9678d60cffa1"
+    },
+    {
+      "path": ".cache/input-audio-activation/production-accepted/paused-with-space.png",
+      "bytes": 560913,
+      "sha256": "c38af0f74e7569fb459bf01a8ff0f0f7606a191008c526578264221fb5600f15"
+    },
+    {
+      "path": ".cache/input-audio-activation/production-accepted/reading.json",
+      "bytes": 366,
+      "sha256": "838e6fc918c4beeee21f23dfa2ae0a5b3f98c9c158d2c757960f552d3e0ba402"
+    },
+    {
+      "path": ".cache/input-audio-activation/production-keyboard.log",
+      "bytes": 305,
+      "sha256": "cbd84afab9faa0bafd457d22fef144cef34ae632778e17d4a3930259bb623d05"
+    },
+    {
+      "path": ".cache/input-audio-activation/production-system.mjs",
+      "bytes": 5789,
+      "sha256": "9179513502c18a5cd801e3f4067308737a78d8189b6503b109ecf2cb34061a2e"
+    },
+    {
+      "path": ".cache/input-audio-activation/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

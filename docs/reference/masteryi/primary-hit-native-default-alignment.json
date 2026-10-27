@@ -1,0 +1,156 @@
+{
+  "format": 1,
+  "nativeWitness": {
+    "path": "docs/reference/native-constructor-witness.json",
+    "sha256": "613708926130a286adc8ad170d2769ee5cbf56b012c8815fa771a934564f5c97"
+  },
+  "sourcePinSha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301",
+  "compiledContentSha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4",
+  "emitters": [
+    {
+      "system": "MasterYi_BA_Tar_01",
+      "index": 0,
+      "emitter": "fluid",
+      "listWireType": 128,
+      "elementWireType": 130,
+      "concreteTypeHash": "09cde442",
+      "primitiveOmitted": true,
+      "alphaRefOmitted": false,
+      "compiledKind": "billboard",
+      "compiledAlphaRef": 0.058823529411764705
+    },
+    {
+      "system": "MasterYi_BA_Tar_01",
+      "index": 1,
+      "emitter": "flash",
+      "listWireType": 128,
+      "elementWireType": 130,
+      "concreteTypeHash": "09cde442",
+      "primitiveOmitted": true,
+      "alphaRefOmitted": true,
+      "compiledKind": "billboard",
+      "compiledAlphaRef": 0.0196078431372549
+    },
+    {
+      "system": "MasterYi_BA_Tar_01",
+      "index": 2,
+      "emitter": "blood_drops",
+      "listWireType": 128,
+      "elementWireType": 130,
+      "concreteTypeHash": "09cde442",
+      "primitiveOmitted": true,
+      "alphaRefOmitted": true,
+      "compiledKind": "billboard",
+      "compiledAlphaRef": 0.0196078431372549
+    },
+    {
+      "system": "MasterYi_BA_Tar_01",
+      "index": 3,
+      "emitter": "soft",
+      "listWireType": 128,
+      "elementWireType": 130,
+      "concreteTypeHash": "09cde442",
+      "primitiveOmitted": true,
+      "alphaRefOmitted": false,
+      "compiledKind": "billboard",
+      "compiledAlphaRef": 0.06274509803921569
+    },
+    {
+      "system": "MasterYi_BA_Tar_02",
+      "index": 0,
+      "emitter": "fluid",
+      "listWireType": 128,
+      "elementWireType": 130,
+      "concreteTypeHash": "09cde442",
+      "primitiveOmitted": true,
+      "alphaRefOmitted": false,
+      "compiledKind": "billboard",
+      "compiledAlphaRef": 0.058823529411764705
+    },
+    {
+      "system": "MasterYi_BA_Tar_02",
+      "index": 1,
+      "emitter": "flash",
+      "listWireType": 128,
+      "elementWireType": 130,
+      "concreteTypeHash": "09cde442",
+      "primitiveOmitted": true,
+      "alphaRefOmitted": true,
+      "compiledKind": "billboard",
+      "compiledAlphaRef": 0.0196078431372549
+    },
+    {
+      "system": "MasterYi_BA_Tar_02",
+      "index": 2,
+      "emitter": "blood_drops",
+      "listWireType": 128,
+      "elementWireType": 130,
+      "concreteTypeHash": "09cde442",
+      "primitiveOmitted": true,
+      "alphaRefOmitted": true,
+      "compiledKind": "billboard",
+      "compiledAlphaRef": 0.0196078431372549
+    },
+    {
+      "system": "MasterYi_BA_Tar_02",
+      "index": 3,
+      "emitter": "soft",
+      "listWireType": 128,
+      "elementWireType": 130,
+      "concreteTypeHash": "09cde442",
+      "primitiveOmitted": true,
+      "alphaRefOmitted": false,
+      "compiledKind": "billboard",
+      "compiledAlphaRef": 0.06274509803921569
+    },
+    {
+      "system": "MasterYi_Crit_tar",
+      "index": 0,
+      "emitter": "ground_glow",
+      "listWireType": 128,
+      "elementWireType": 130,
+      "concreteTypeHash": "09cde442",
+      "primitiveOmitted": false,
+      "alphaRefOmitted": true,
+      "compiledKind": "quad",
+      "compiledAlphaRef": 0.0196078431372549
+    },
+    {
+      "system": "MasterYi_Crit_tar",
+      "index": 1,
+      "emitter": "flash",
+      "listWireType": 128,
+      "elementWireType": 130,
+      "concreteTypeHash": "09cde442",
+      "primitiveOmitted": false,
+      "alphaRefOmitted": true,
+      "compiledKind": "ray",
+      "compiledAlphaRef": 0.0196078431372549
+    },
+    {
+      "system": "MasterYi_Crit_tar",
+      "index": 2,
+      "emitter": "bubble",
+      "listWireType": 128,
+      "elementWireType": 130,
+      "concreteTypeHash": "09cde442",
+      "primitiveOmitted": true,
+      "alphaRefOmitted": true,
+      "compiledKind": "billboard",
+      "compiledAlphaRef": 0.0196078431372549
+    }
+  ],
+  "nativeAssetCohort": {
+    "archive": "DATA/FINAL/Champions/MasterYi.wad.client",
+    "bytes": 116876257,
+    "chunks": 3851,
+    "orderedChunkIdsAndDecodedSizesIdentical": true,
+    "sequenceSha256": "2badef070739588eadc792993da5e3b2ef4e444873d1f71ff2fd1540f518bca2",
+    "nativeManifestSha256": "a47010ec6b22299c3480ea9764f20674b05ddc4c8b4697bb70c483498273ffac",
+    "assetsManifestSha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "limits": [
+    "Current source/compiled alignment only; constructor defaults do not establish actual native dispatch or later overrides.",
+    "Alpha byte normalization by 255 remains the local reader/material policy."
+  ]
+}

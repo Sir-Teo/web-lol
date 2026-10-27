@@ -1,0 +1,1083 @@
+{
+  "format": 1,
+  "parentCommit": "7c32e62d151159c0e0d3833c9355e687f23dc6d9",
+  "identity": {
+    "schema": 159,
+    "rulesetFingerprint": "c03ebb641d6e476132f5c00f494164fa8588106cf5f5ecd566860a83db41e7a0",
+    "offlinePack": {
+      "id": "fdfeaa87fe2562839089426fab21f4db946268ba7e55abe7d6a57d12e18e168e",
+      "files": 1180,
+      "bytes": 537092259
+    }
+  },
+  "scope": "Render all five skin-declared E/R persistent sword instances on four posed joints, using 11 source families/13 emitter instances from complete 14-profile content. Shared authored mips, explicit full joint-frame surface adapter, rolling bounded visibility/lifecycle histories, selective retry and finite removal tails. Public roster remains Ashe/Lux.",
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/e-particles.json",
+      "bytes": 98427,
+      "sha256": "5137067c8206b7db14075d29816e08bd5281c25f8ec959f8e1b13ee5c305d9d2"
+    },
+    {
+      "path": "docs/reference/masteryi/e-particles-decoded.json",
+      "bytes": 59543,
+      "sha256": "9d7abf9623979dca4c09581d0adc6433a43b3ad8f2fd15a690fc647ef9c74d68"
+    },
+    {
+      "path": "docs/reference/masteryi/e-texture-transport.json",
+      "bytes": 23567,
+      "sha256": "52b94f42a2bbac40c4fd8b7037566138d2f3a979af67193e60049c4fc3e0255f"
+    },
+    {
+      "path": "docs/reference/masteryi/sword-persistent-bindings.json",
+      "bytes": 5461,
+      "sha256": "0ea42eebba35d04152a78696b5cce02050f1d50ab6dd4cf2b2c79aaba3456c1c"
+    },
+    {
+      "path": "docs/reference/masteryi/sword-binding-verification.json",
+      "bytes": 11546,
+      "sha256": "b649da68b9f0262c4c0fa0dce9703f35591b8fb9c8198021fc510d27f0e26b99"
+    },
+    {
+      "path": "docs/reference/masteryi-model.json",
+      "bytes": 82053,
+      "sha256": "4295bceeba96cfb15e006d392e7d0f3c480bb51bf8cff8872a9c39fc9873c7ce"
+    },
+    {
+      "path": "docs/reference/masteryi/character.json",
+      "bytes": 104698,
+      "sha256": "3f100c1148e1006766060822298c87aed02e86e359c385fbc2c248e4255d12fa"
+    },
+    {
+      "path": "docs/reference/garen-spin-defaults.json",
+      "bytes": 1772,
+      "sha256": "51aaa77125b84ae77e05586d31c7e45de3037028345222a0addd1ed188debefb"
+    },
+    {
+      "path": "public/assets/models/masteryi-base.glb",
+      "bytes": 6487088,
+      "sha256": "7aae9e8e486c34d780113349c4a4d06830a5498a906ff291a49263090da471cc"
+    },
+    {
+      "path": "tools/assets/masteryi_e_particles.py",
+      "bytes": 3580,
+      "sha256": "0b560d67da2c708f4c3596a64016cdbca431fd7ba9a598121f8f04bc3960d8c1"
+    },
+    {
+      "path": "tools/assets/masteryi_w_cast.py",
+      "bytes": 8252,
+      "sha256": "67db765dbf4c62c0cd0e5d39d99589c657d6ae826e79a9453a599e203d6d4b5e"
+    },
+    {
+      "path": "tools/assets/particle_mip_atlas.py",
+      "bytes": 4181,
+      "sha256": "4ba50521c7a4c0d061bbf2f8363b7a84b4db9a4bf480e3d52ae101aec6538fd6"
+    },
+    {
+      "path": "tests/lane-rules.test.ts",
+      "bytes": 5533,
+      "sha256": "d12c8deaba4ba8933dca9a045b1eeae20b1869167f5b9e1fcf0dbfc39e8c1d4a"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-sword-runtime/final-source-index.json",
+    "bytes": 9803,
+    "sha256": "95b44f7d08463d2da33f8d999fd964060c44c947c8f5b35898720efd54305af9"
+  },
+  "generated": [
+    {
+      "path": "README.md",
+      "bytes": 17060,
+      "sha256": "c8e0c642f5f637539781cad46e6a28e8b45763f0d699793f1f70469507ba89a1",
+      "archived": ".cache/masteryi-sword-runtime/final-source/README.md"
+    },
+    {
+      "path": "docs/MASTER-YI-SWORD-GLOWS.md",
+      "bytes": 3387,
+      "sha256": "fde5f86d17879b75482be59b218bf5464bcd90a8a38084072198493a4137ac0b",
+      "archived": ".cache/masteryi-sword-runtime/final-source/docs/MASTER-YI-SWORD-GLOWS.md"
+    },
+    {
+      "path": "docs/SAVES.md",
+      "bytes": 62609,
+      "sha256": "d05a2695d24313944b09389ca22ec26013b47a7e75c6f08b6115bf01c86c1c7b",
+      "archived": ".cache/masteryi-sword-runtime/final-source/docs/SAVES.md"
+    },
+    {
+      "path": "docs/reference/masteryi/sword-runtime-reading.json",
+      "bytes": 1471,
+      "sha256": "1dda20f1e5adb26924aac14c658669121987c6d1169ce368c9b515e0763743d8",
+      "archived": ".cache/masteryi-sword-runtime/final-source/docs/reference/masteryi/sword-runtime-reading.json"
+    },
+    {
+      "path": "e2e/masteryi-sword-glows.spec.ts",
+      "bytes": 20292,
+      "sha256": "c5b393c08c43f5c8ac9acd6df3fe90f2151a8d44894078e5a5802ccb51584838",
+      "archived": ".cache/masteryi-sword-runtime/final-source/e2e/masteryi-sword-glows.spec.ts"
+    },
+    {
+      "path": "public/assets/effects/masteryi-sword-05af7bc709ef294f.png",
+      "bytes": 103843,
+      "sha256": "095c4216529a8ed94c2aa8fc326a4ffaf85319ceacc2ace59cff19ecb5f840dd",
+      "archived": ".cache/masteryi-sword-runtime/final-source/public/assets/effects/masteryi-sword-05af7bc709ef294f.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-sword-3223cc66834fc21b.png",
+      "bytes": 49360,
+      "sha256": "e8de12e67f72f070bb5ce04731b1e4878d3e20f884773ba0bba9360d6c6ab738",
+      "archived": ".cache/masteryi-sword-runtime/final-source/public/assets/effects/masteryi-sword-3223cc66834fc21b.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-sword-3a551b631ca17cdd.png",
+      "bytes": 133452,
+      "sha256": "6c5e990abf43a420424a7435cd9c8e8bbbd05ca2d878901d0094f7ff1855f526",
+      "archived": ".cache/masteryi-sword-runtime/final-source/public/assets/effects/masteryi-sword-3a551b631ca17cdd.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-sword-550625434969ce4a.png",
+      "bytes": 74937,
+      "sha256": "3b27c8484b9fdb965fda476224dd1f9677237158c97d4bfcfab9e0bc9ac8f7a6",
+      "archived": ".cache/masteryi-sword-runtime/final-source/public/assets/effects/masteryi-sword-550625434969ce4a.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-sword-613d5e8a169d7c07.png",
+      "bytes": 77338,
+      "sha256": "e4cfdbc9dce5759fdc7e60db3109482cab0db3ab8dfbc3c0ae10e5b74ce16cba",
+      "archived": ".cache/masteryi-sword-runtime/final-source/public/assets/effects/masteryi-sword-613d5e8a169d7c07.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-sword-86e1ae430501aebc.png",
+      "bytes": 124305,
+      "sha256": "e64d160d7f97b5e5b09a36e637763043872c56f6af7bd9d22c74608f1c7aca0e",
+      "archived": ".cache/masteryi-sword-runtime/final-source/public/assets/effects/masteryi-sword-86e1ae430501aebc.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-sword-93f71ffb77aedf95.png",
+      "bytes": 41661,
+      "sha256": "716200720b31e7ce04155ed0b558a5b0183c0d4e76a41ea2a2232abda5e6f2be",
+      "archived": ".cache/masteryi-sword-runtime/final-source/public/assets/effects/masteryi-sword-93f71ffb77aedf95.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-sword-de3746dbaf722630.png",
+      "bytes": 85,
+      "sha256": "89626d044546c465df98f35ee2a64ec4409526b15d7b1ad9a05bd3949d627bb8",
+      "archived": ".cache/masteryi-sword-runtime/final-source/public/assets/effects/masteryi-sword-de3746dbaf722630.png"
+    },
+    {
+      "path": "src/content/masteryi-sword-particles.json",
+      "bytes": 157588,
+      "sha256": "da8a6980294bcee470ff4ff07123e632ea9fe0136dc9ee43e887d4b7089b05b2",
+      "archived": ".cache/masteryi-sword-runtime/final-source/src/content/masteryi-sword-particles.json"
+    },
+    {
+      "path": "src/content/masteryi-sword-timing.ts",
+      "bytes": 132,
+      "sha256": "d16f614e4489d5003db81bd97d2743b9298067f7bb31e30dd3e9b26557991e34",
+      "archived": ".cache/masteryi-sword-runtime/final-source/src/content/masteryi-sword-timing.ts"
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 21460,
+      "sha256": "22e85d19f22747e16fcb8da2fd17d86fe052e78e6957d094602bc7d62ebb73b5",
+      "archived": ".cache/masteryi-sword-runtime/final-source/src/main.ts"
+    },
+    {
+      "path": "src/render/lazy-masteryi-sword-glows.ts",
+      "bytes": 1500,
+      "sha256": "ee7ec8a445193969e5b07f0993856b7f51b269444ca75f47d67d9472f3606b94",
+      "archived": ".cache/masteryi-sword-runtime/final-source/src/render/lazy-masteryi-sword-glows.ts"
+    },
+    {
+      "path": "src/render/masteryi-sword-glows.ts",
+      "bytes": 6914,
+      "sha256": "ec5dbbfb0c5dba8a4a6894e99d3e5a2d0856433d66c655f4b35dc0d3761c1c36",
+      "archived": ".cache/masteryi-sword-runtime/final-source/src/render/masteryi-sword-glows.ts"
+    },
+    {
+      "path": "src/render/masteryi-sword-particles.ts",
+      "bytes": 3877,
+      "sha256": "116907f4051c11753a2f2f8ca03246e666d6bd05f2fdd073d445ed958969c217",
+      "archived": ".cache/masteryi-sword-runtime/final-source/src/render/masteryi-sword-particles.ts"
+    },
+    {
+      "path": "src/render/source-particle-surfaces.ts",
+      "bytes": 20350,
+      "sha256": "350c3dd411941f039a61d4b08d3b691ae2cfe1f20e43e4eaf38b45dbc4e80590",
+      "archived": ".cache/masteryi-sword-runtime/final-source/src/render/source-particle-surfaces.ts"
+    },
+    {
+      "path": "src/render/view.ts",
+      "bytes": 62810,
+      "sha256": "db60867b6995b05c3391c46bb55329629b4e8e0b2943ec4cbb661a05168b0a32",
+      "archived": ".cache/masteryi-sword-runtime/final-source/src/render/view.ts"
+    },
+    {
+      "path": "src/simulation/champion-state.ts",
+      "bytes": 4250,
+      "sha256": "16410d831ed3833ebe758add7bcc5d1a14ee6b42a491f15c570f8b55a1854862",
+      "archived": ".cache/masteryi-sword-runtime/final-source/src/simulation/champion-state.ts"
+    },
+    {
+      "path": "src/simulation/masteryi-sword-glow.ts",
+      "bytes": 3976,
+      "sha256": "0cc89be634c64ed7267ec79724ac0ca50d7fa2e851e2b7f474b78a5ecb66b191",
+      "archived": ".cache/masteryi-sword-runtime/final-source/src/simulation/masteryi-sword-glow.ts"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "bytes": 185577,
+      "sha256": "df1fa497cdb05cd460090310f75efb2d1e39504d19d816e8f305dab5e2eb12be",
+      "archived": ".cache/masteryi-sword-runtime/final-source/src/simulation/snapshot.ts"
+    },
+    {
+      "path": "src/simulation/types.ts",
+      "bytes": 22770,
+      "sha256": "e09a2292ce44b3fd3f8b52f302ab66feb35d27cbc7100a72e5f5e1968c0810a2",
+      "archived": ".cache/masteryi-sword-runtime/final-source/src/simulation/types.ts"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "bytes": 295516,
+      "sha256": "4f4c4b783333a2ca997c3e1221220d9d8697305df3af23cd14259ed6269ed195",
+      "archived": ".cache/masteryi-sword-runtime/final-source/src/simulation/world.ts"
+    },
+    {
+      "path": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "77383b8226a8cc8c9b9f75db1b1ce4f5e36181bf71be44420ea5fcfca1cac73b",
+      "archived": ".cache/masteryi-sword-runtime/final-source/tests/lux-e-hit.test.ts"
+    },
+    {
+      "path": "tests/masteryi-highlander-cast-history.test.ts",
+      "bytes": 7431,
+      "sha256": "055b93d1a7992958f201962b5e207f0d33c714eab7aaf4a38f1e564d184bd586",
+      "archived": ".cache/masteryi-sword-runtime/final-source/tests/masteryi-highlander-cast-history.test.ts"
+    },
+    {
+      "path": "tests/masteryi-highlander-kill-history.test.ts",
+      "bytes": 7569,
+      "sha256": "742037d32e4d511e469aab76bd3515f003ca9379ad1cd050a8276e9661ce7f01",
+      "archived": ".cache/masteryi-sword-runtime/final-source/tests/masteryi-highlander-kill-history.test.ts"
+    },
+    {
+      "path": "tests/masteryi-sword-glow-history.test.ts",
+      "bytes": 7758,
+      "sha256": "63250fc31e7305d198de67ec61da5e506ff20bb9a452e7f9c18ccf28039f9af0",
+      "archived": ".cache/masteryi-sword-runtime/final-source/tests/masteryi-sword-glow-history.test.ts"
+    },
+    {
+      "path": "tests/masteryi-sword-particles.test.ts",
+      "bytes": 3227,
+      "sha256": "966566b0ff7247889464781ac61c878ffbdad5e94ca109e75c573372d3a3cd32",
+      "archived": ".cache/masteryi-sword-runtime/final-source/tests/masteryi-sword-particles.test.ts"
+    },
+    {
+      "path": "tests/source-particle-joint-frame.test.ts",
+      "bytes": 4417,
+      "sha256": "79976426a86bbee8ab606db4fc1ecf30f20c3bbfa0c95847a3f655a1c97f7ffb",
+      "archived": ".cache/masteryi-sword-runtime/final-source/tests/source-particle-joint-frame.test.ts"
+    },
+    {
+      "path": "tools/assets/export-masteryi-sword-particles.py",
+      "bytes": 3932,
+      "sha256": "68cfeb89b4bc4c0adceea9ba76ff25e6b08ee48debc15c031e6a2a5f8c204546",
+      "archived": ".cache/masteryi-sword-runtime/final-source/tools/assets/export-masteryi-sword-particles.py"
+    },
+    {
+      "path": "tools/assets/masteryi_sword_particles.py",
+      "bytes": 4882,
+      "sha256": "356e2c647d8fc19b499317c2343ecca24cc56c7c6d92b22e1f7cec5138bc0de5",
+      "archived": ".cache/masteryi-sword-runtime/final-source/tools/assets/masteryi_sword_particles.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-sword-particles.py",
+      "bytes": 3425,
+      "sha256": "78d543f856a96b71e00137c7e66900cc0ee2ca41ccd813af397d283ca29d7cbe",
+      "archived": ".cache/masteryi-sword-runtime/final-source/tools/assets/test-masteryi-sword-particles.py"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 29278,
+      "sha256": "b92494b7e4e4f6b20713e6c4b7729b0bf88c5d46200bafa46230e871b745eab5",
+      "archived": ".cache/masteryi-sword-runtime/final-source/tools/qa/production-subpath.mjs"
+    },
+    {
+      "path": "tools/ruleset-fingerprint.ts",
+      "bytes": 12589,
+      "sha256": "d0c67916321729ccb51c314c73b2843c34f6865bd6a301a1fee71766e1d7c440",
+      "archived": ".cache/masteryi-sword-runtime/final-source/tools/ruleset-fingerprint.ts"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-e-audio-Meditate--2f579-etching-either-finite-onset/wujuStyle-extended-expiry.json",
+      "bytes": 1689,
+      "sha256": "6da32d14535bef983536335fbd101b05f56af52dc0f4bdcd6082605d81569a6d"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-e-audio-a-missing-d82f9-the-separate-natural-ending/wujuStyle-media-retry.json",
+      "bytes": 724,
+      "sha256": "ebb31a8ad47f821e0c480c7cda554f214466df69a3ad5b8fe6e7c932a50a3129"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-e-audio-all-six-W-ae403-oom-in-browser-AudioBuffers/wujuStyle-float-masters.json",
+      "bytes": 853,
+      "sha256": "2a393724033154fe2bb96209e5f9d3298bd5d92c64735d326cb40b88d9c7cc33"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-e-audio-an-onset--11020-or-changing-the-saved-match/wujuStyle-terminal-tail.json",
+      "bytes": 12382,
+      "sha256": "7760f79a27b030ba87376548ed987147ba6226681134638929aab1d90d78f2b5"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-e-audio-ordinary--15d26-resence-loads-each-one-once/wujuStyle-late-loading.json",
+      "bytes": 26,
+      "sha256": "36bd3dc042516b1114f2c612a451e40cc600fc93095abdfbdb467257400fcfc5"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-e-audio-real-E-in-dbb15-iry-without-duplicate-tones/wujuStyle-input-save-reload.json",
+      "bytes": 16953,
+      "sha256": "fbaf1c14ade66ba2a0526ae8de48964cbb59f6f0a14d934ba13617be3728887e"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-highlander-cast-R-9d357-ts-independent-finite-clock/r-during-q-save.json",
+      "bytes": 27896,
+      "sha256": "220f27ae69e70eb2cc0ab01112323c0ec6bddde72267989f119faa66621ed6ef"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-highlander-cast-h-98412-tory-drain-finite-particles/r-fog-q-death-terminal.json",
+      "bytes": 357,
+      "sha256": "40bb3cc76e8bc09a0c3ffc664f5b95c5946ff89dca3d5a8ac59be0c9e1f6e7c6"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-highlander-cast-o-93efa-sts-only-the-failed-texture/retry.json",
+      "bytes": 808,
+      "sha256": "08c114ae3ec9f0b9386663f975bd971a1e6b27451c9e38cfbef8218f35a802a1"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-highlander-cast-r-b864a-and-exact-native-mip-pixels/active-three-mip-readback.json",
+      "bytes": 15135,
+      "sha256": "d648e708c2836f53e104b3108f54e71cb04d9d1fd8fc02fbf68a8be59c4c06cb"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-highlander-cast-r-b864a-and-exact-native-mip-pixels/ordinary-family-pixel-coverage.json",
+      "bytes": 838,
+      "sha256": "819d454f07d9901389785c70df28d9258e2c979fd59951cd4a682bba625c03b8"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-highlander-cast-r-b864a-and-exact-native-mip-pixels/r-moving.png",
+      "bytes": 865800,
+      "sha256": "83125e53839f6ae7496f9a59362859d4e18aa25a761d4fea341a407e9c7d4971"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-highlander-cast-r-b864a-and-exact-native-mip-pixels/r-save-reload.json",
+      "bytes": 100980,
+      "sha256": "2cd263ac1fd932c2f4cca47a3ac2ee0984c1748848c82caa1f64fbe85fb4b9be"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-highlander-cast-r-c88aa-and-exact-native-mip-pixels/r-during-w.png",
+      "bytes": 880273,
+      "sha256": "cd807b92cb4a9b53c7e2484da09280f0747806f85a6eba8c3c1f6fcf0ceccfdb"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-highlander-cast-r-c88aa-and-exact-native-mip-pixels/r-save-reload.json",
+      "bytes": 95824,
+      "sha256": "a9862bf594232875c05c6021db98d0c6c455aeb127740b62732184ba420f7a69"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-meditate-cast-ord-f73c1-uad-UV-selects-exact-pixels/secondary-uv-and-retry.json",
+      "bytes": 1290,
+      "sha256": "6a654c47e8748e907c6be447f65878d9e554198065ab61f3174a7e53aba5dc92"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-meditate-cast-rea-3ca6d-ven-source-emitter-families/active-cast.png",
+      "bytes": 825942,
+      "sha256": "b0dfdc38c6d380e9a67daaf02373cdcc06735776d5c9ce7cd3b9bc2de2cf0eae"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-meditate-cast-rea-3ca6d-ven-source-emitter-families/active-three-mip-readback.json",
+      "bytes": 15359,
+      "sha256": "b70ba416fcbca5a8033cc292611e6d56b3214dd92c3848206646c63a5f512df3"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-meditate-cast-rea-3ca6d-ven-source-emitter-families/cast-save-reload.json",
+      "bytes": 106907,
+      "sha256": "36d4a41799a55eac9163051cf0ae55ca5c43270aeb9ec8cb9e7d194d15136971"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-meditate-cast-rea-b0cf3-ven-source-emitter-families/cancelled-cast.png",
+      "bytes": 819874,
+      "sha256": "fcc7e5b61062480a41f8fa33efe92aa2d23b466b1c3ffbaa99c197e25b676721"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-meditate-cast-rea-b0cf3-ven-source-emitter-families/cast-save-reload.json",
+      "bytes": 111419,
+      "sha256": "0a3d864d240c179c2e3b743724384281e0e04f520966c8153fb07316bc4efe3a"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-meditate-cast-uns-d46cb-without-simulation-mutation/creation-death-terminal.json",
+      "bytes": 105,
+      "sha256": "844113db47cd79217c62fa1124bcb6a8cf79c3ba8f7fe76e1bc52d8deb6fc5d0"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-meditate-damage-a-2af99-ctory-tails-remain-distinct/fog-q-death-terminal.json",
+      "bytes": 190,
+      "sha256": "c7ecb2c2332c2d83833f06af4b5281344de4ec3068d43c7bf41f80e13c5e40b5"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-meditate-damage-o-5d3de-ll-verified-shared-textures/retry.json",
+      "bytes": 482,
+      "sha256": "c16ba9c216d1e3d67ba0d98986cf2c09863b9b4bf2230f8e5598adcf97042be1"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/active-three-mip-readback.json",
+      "bytes": 5730,
+      "sha256": "1a40a98495840785c6c4084071a5398d9aaea3dcc3739acab4f8defdf4abcbe1"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/ordinary-family-pixel-coverage.json",
+      "bytes": 245,
+      "sha256": "44cc369c14a2e505b378d547755e3af6b99dbf26c922187066dee20483e74920"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/texture-sharing.json",
+      "bytes": 610,
+      "sha256": "3dcabd01abbd1d1eaebce8747f4ea847132fd10cc7664fb2253701fc4a07d81d"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/w-channel-damage.png",
+      "bytes": 845008,
+      "sha256": "8332f12f4a18ef307764af0a00c35cac3e1d2f8b54f2053d5b50642da6de8a82"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-meditate-damage-r-96328-icles-and-exact-shared-mips/w-damage-save-reload.json",
+      "bytes": 37046,
+      "sha256": "6047945a9ed0ac69259fce7baee18564940d13f9cf11b3b9932a2709cb24517a"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-meditate-damage-r-c0c01-icles-and-exact-shared-mips/texture-sharing.json",
+      "bytes": 610,
+      "sha256": "3dcabd01abbd1d1eaebce8747f4ea847132fd10cc7664fb2253701fc4a07d81d"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-meditate-damage-r-c0c01-icles-and-exact-shared-mips/w-damage-save-reload.json",
+      "bytes": 53966,
+      "sha256": "5ab465e5f13fdc07979a7afe4bf8328694fe45759a7355dc9e9badf6d04f71f1"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-meditate-damage-r-c0c01-icles-and-exact-shared-mips/w-linger-damage.png",
+      "bytes": 838569,
+      "sha256": "8b5900ceac121bd4675690c40149392dcf1684bf13bff6c2cd7ffd5119844a79"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-r-audio-a-missing-9a2d3-the-separate-natural-ending/highlander-media-retry.json",
+      "bytes": 467,
+      "sha256": "4f31e336f1d87812ff1f7ee23d76d0f72cbe154fdbf09498452553b4696f1a0a"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-r-audio-an-onset--e1b66-or-changing-the-saved-match/highlander-terminal-tail.json",
+      "bytes": 12901,
+      "sha256": "74ce586e4325f6ab9a42eea269ef3c02d96b57ad0e60a78b15ea2e7c4d035214"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-r-audio-both-High-1083b-oom-in-browser-AudioBuffers/highlander-float-masters.json",
+      "bytes": 287,
+      "sha256": "478b865504984d70c1ba73ab294a42f6f1ec162817e3aee794810df9a084b528"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-r-audio-ordinary--e8cde-resence-loads-each-one-once/highlander-late-loading.json",
+      "bytes": 26,
+      "sha256": "2e8e1eaef4c0f4a63886f103b90c88e53e1254f3698cb9623b47bf712dcfeca5"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-r-audio-real-R-in-e3372-iry-without-duplicate-tones/highlander-input-save-reload.json",
+      "bytes": 16589,
+      "sha256": "f3a82d58ebb48da0ac7c16bafb398856183818ad5410eec8fd99e47746a8d004"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-r-audio-takedown--e6a06-restarting-its-finite-onset/highlander-extended-expiry.json",
+      "bytes": 1364,
+      "sha256": "27b1b95b4182614a6ac1228a641da5ca5d6c6f887c5309ded2b3c74ce1ae8e10"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-sword-glows-e-alo-adc74-le-Meditate-pauses-the-buff/e-during-meditate.png",
+      "bytes": 826951,
+      "sha256": "9fbd1135bc20415a018ae9848a2def462170a9006dd09365aa924f4c71be18f3"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-sword-glows-e-alo-adc74-le-Meditate-pauses-the-buff/single-condition.json",
+      "bytes": 47419,
+      "sha256": "eabe8f0984dda1d2b98b074022094e0dc9b07eab107a9e00107d91ae423d0933"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-sword-glows-hidde-4bb4d-ls-preserve-the-saved-world/sword-visibility-terminal.json",
+      "bytes": 668,
+      "sha256": "9b97445c42244c979b735153fa07cb90a16e7a00a9cea597c7d0bed905e1c404"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-sword-glows-ordin-f0b1e-retains-verified-transports/sword-retry.json",
+      "bytes": 866,
+      "sha256": "9a40402899f931dc133b65a0b0150526abadc27aa3fdd98f2de4c5958dfeb452"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-sword-glows-r-alo-b321a-le-Meditate-pauses-the-buff/r-during-meditate.png",
+      "bytes": 824882,
+      "sha256": "00d642d55d28959c5479edc3e6e974e519e4613113201fb402d8860044447a22"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-sword-glows-r-alo-b321a-le-Meditate-pauses-the-buff/single-condition.json",
+      "bytes": 18795,
+      "sha256": "c2b91f5821af0505c1faf300ea2272e738b789b5f2ef1f096f187b943277e6c7"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-sword-glows-real--9d74d-store-exact-saved-particles/active-three-mip-readback.json",
+      "bytes": 13682,
+      "sha256": "fb9416a436c06d8ec832e01d111de838dfc28d49fd071630fe169dcbe0e4641c"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-sword-glows-real--9d74d-store-exact-saved-particles/actual-joint-transforms.json",
+      "bytes": 12439,
+      "sha256": "bbc009741bc8f067a18903587b9b66fcfa642953c46579ba81ae5b9750dde008"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-sword-glows-real--9d74d-store-exact-saved-particles/e-r-sword-glows.png",
+      "bytes": 852506,
+      "sha256": "fe39df996030f336803d996ab3f0b109b3b16b45c3d6e5ed40998ac4e1b7e5fe"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-sword-glows-real--9d74d-store-exact-saved-particles/ordinary-family-pixel-coverage.json",
+      "bytes": 1354,
+      "sha256": "cc843b7726933046c84f475c447fb69c721e4c3674b6fc1dfb1918700aa60800"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final/masteryi-sword-glows-real--9d74d-store-exact-saved-particles/sword-save-reload.json",
+      "bytes": 260676,
+      "sha256": "9292b1d6da581f5c773f6bfbc9170d81bd9807c1d6e4f6fa9d24d48f779ecd34"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-final.log",
+      "bytes": 11376,
+      "sha256": "7b61895fd33ead95cbbf213c15a4a392ccbd46bf731ae5e2cd2a410713dbcf18"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-gpu/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-gpu/masteryi-sword-glows-real--9d74d-store-exact-saved-particles/active-three-mip-readback.json",
+      "bytes": 13682,
+      "sha256": "fb9416a436c06d8ec832e01d111de838dfc28d49fd071630fe169dcbe0e4641c"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-gpu/masteryi-sword-glows-real--9d74d-store-exact-saved-particles/actual-joint-transforms.json",
+      "bytes": 8758,
+      "sha256": "76f29ba11153820ccdcb85ebfeff7f01731e5cba2ac97b05f1124cb69bafccf3"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-gpu/masteryi-sword-glows-real--9d74d-store-exact-saved-particles/e-r-sword-glows.png",
+      "bytes": 865311,
+      "sha256": "a3fed3aa6e6a9dd20473f36f578cfbd5fa09135f0f009e2816da381ea74ff773"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-gpu/masteryi-sword-glows-real--9d74d-store-exact-saved-particles/ordinary-family-pixel-coverage.json",
+      "bytes": 1350,
+      "sha256": "8100c8d21b40b3691d73a9b723d8404d0752922660b3c6211cdf84a1bae6cc40"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-gpu/masteryi-sword-glows-real--9d74d-store-exact-saved-particles/sword-save-reload.json",
+      "bytes": 188506,
+      "sha256": "f8d6eeb5af5bf340293896612dd96c6b4ee925287be1e24ba0ba59f1c6593f60"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-gpu.log",
+      "bytes": 804,
+      "sha256": "a81d99ef4581b67aa19e76a496cd931ca70bd5123a2a8e50e1f7f88883bbd04c"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-initial/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-initial/masteryi-sword-glows-real--9d74d-store-exact-saved-particles/e-r-sword-glows.png",
+      "bytes": 864776,
+      "sha256": "ee7ad6160fa6a7b4a7c0b80e057e459537ebafeb3c0e9836bb54edddbe0a761e"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-initial/masteryi-sword-glows-real--9d74d-store-exact-saved-particles/sword-save-reload.json",
+      "bytes": 188484,
+      "sha256": "23a7b00e939e36e63fa9ea002a741c7b008b45e5c64626ea3ce6fc0f201d908c"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/browser-initial.log",
+      "bytes": 804,
+      "sha256": "1611bf9f22b3ce9c43959584523005feedcbc6e5125666b002ac59937a79ac32"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/build.log",
+      "bytes": 7257,
+      "sha256": "6a63cb67095197a9d2cb392f03a542694364c9c84ac45fb41dfbfe1a2f3ff7c6"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/check-phase.json",
+      "bytes": 351,
+      "sha256": "857e7f5c9fe6058cd0dae425530be5b9f83f815f54368d7b07894ce9e2ab923e"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/check-replay.py",
+      "bytes": 1019,
+      "sha256": "05e712be919b4da20196028105ab175df092e9547b41edc86bc1f71987f02a70"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/export-check-normal.log",
+      "bytes": 76,
+      "sha256": "2729fee8416d40007caabe58729253a403cc4ca11c466227a84336558aa27cca"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/export-check-optimized.log",
+      "bytes": 76,
+      "sha256": "2729fee8416d40007caabe58729253a403cc4ca11c466227a84336558aa27cca"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/export-initial.log",
+      "bytes": 2363,
+      "sha256": "9b7c03853c7e0ec6187cd7cc4725c290985cf8ff0f85eb6f40e99099c336fd9b"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/export-replay-normal.log",
+      "bytes": 76,
+      "sha256": "2729fee8416d40007caabe58729253a403cc4ca11c466227a84336558aa27cca"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/export-replay-optimized.log",
+      "bytes": 76,
+      "sha256": "2729fee8416d40007caabe58729253a403cc4ca11c466227a84336558aa27cca"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/export.log",
+      "bytes": 76,
+      "sha256": "2729fee8416d40007caabe58729253a403cc4ca11c466227a84336558aa27cca"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/final-source-index.json",
+      "bytes": 9803,
+      "sha256": "95b44f7d08463d2da33f8d999fd964060c44c947c8f5b35898720efd54305af9"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/finish-checks-output.log",
+      "bytes": 195,
+      "sha256": "c773dbfee917d779792c365b7ae84c321559e98197d87d3741aac3feb504c286"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/finish-checks.py",
+      "bytes": 1289,
+      "sha256": "053686aa36e7820188f1399fc773570f2dc7a70114006cad95ef715ce458710d"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/focus-initial.log",
+      "bytes": 4075,
+      "sha256": "c020c4a2a900fb2f457f8d4fffc88e4bdbbcab5b6f1b044ff9cc92d003190eea"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/focus.log",
+      "bytes": 481,
+      "sha256": "ad42dcc5e7b25c9bd9155b1915af0ba84ecffa8a8ef4fc2cde13c2aa578233d9"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/focused-final.log",
+      "bytes": 481,
+      "sha256": "426677b32f8ea073e631c11a5da546562ae3682f51e6a4a2d088efd5a8fa8507"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/format-bone-proof.log",
+      "bytes": 39,
+      "sha256": "1441980b8c47ccc8d1e4705f39fe26a8e16bbd3290b0ff4f7772b9638e85cca6"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/format-browser.log",
+      "bytes": 77,
+      "sha256": "815743bb868a71b52c88adb3ba513db5a9b150f56d9871ac3a1c6f1bbac555a2"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/format-final-browser.log",
+      "bytes": 39,
+      "sha256": "314ba73392fa79b3bbe4077649c4ad2c6b903944132685b1a9f44e83d91e355b"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/format-final.log",
+      "bytes": 554,
+      "sha256": "cdc236a8092f81a23329b3829684f71ee1ccebd09690969a71bddd25daad639d"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/format-fixes.log",
+      "bytes": 233,
+      "sha256": "581852b4e2b0bcecad655f1ca9516f184fdc50df165a52294c1d8dc485108e8d"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/format-gpu-test.log",
+      "bytes": 39,
+      "sha256": "1e86dde144124269c87eaa2663b5b128be5a4a7e042dd336a1719be4e33c47dc"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/format-history.log",
+      "bytes": 48,
+      "sha256": "0090bda67a87aec307160327c6013a58a321ec502bbe29b29e33b96b881c638e"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/format-joint-tests.log",
+      "bytes": 47,
+      "sha256": "2426a9c60edd5d319d518c747dbeedf3ac5ac4a4bd8c54e58cdc4e9732c87204"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/format-more-browser.log",
+      "bytes": 39,
+      "sha256": "6a996b48d705a30e105c2feb4940932184c6acca77c9343795b6f5b44458e450"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/format-render.log",
+      "bytes": 174,
+      "sha256": "d782c35ec4d4b6a77d59a6c278c35a40e93d4b7557269fdee207285060ff5913"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/format-state.log",
+      "bytes": 44,
+      "sha256": "732b6fd3c4e8e1ef043dac07fbdd909dfd9a1a8412d723b49b22aa7bc594d38a"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/format-stop-test.log",
+      "bytes": 45,
+      "sha256": "d5cdd5a9ed661dcc06dd1577c1350a5d202e165fa6981bdcb8d05b905ca80112"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/format-tests.log",
+      "bytes": 92,
+      "sha256": "515d1b9386f482270fde4c1c2b17a63ae07e38a08a9119e939f3ec9566b3828f"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/full-unit.log",
+      "bytes": 5486,
+      "sha256": "58ae85c25c065e0e0195003ccef4c1658a17e2ba7378dcd0501a5e450194ae0c"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/guards-initial.log",
+      "bytes": 2612,
+      "sha256": "da9396a1e5738d7ce7672a0d5eafae19fe3a195a4f4aa117855e0c21b552a9f8"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/guards-normal.log",
+      "bytes": 119,
+      "sha256": "78f0d872cc20924704ce0972e5e1111f6c73397c8d5ab443d4d5d21b64a4d1d8"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/guards-optimized.log",
+      "bytes": 119,
+      "sha256": "fce2a60a9cca060ced834e7d34d80575b7d9030cd3618bb32a54a60ddf030177"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/history-initial.log",
+      "bytes": 1053,
+      "sha256": "2c053a6b2e39baae69f79ffe554f44fc3c765f95837ebc3cf07bf9c9d68f402b"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/identity.json",
+      "bytes": 256,
+      "sha256": "6436b45d9dba78183a0e91cd5278a3583cb9c804f76e986b3951db1bd60c57b3"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/initial-unit.log",
+      "bytes": 170,
+      "sha256": "ae47c5a0ee9a2b7d10e50a881ad25a0116f7084a8d9af015aea90cb89a563fee"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/joint-browser-block.txt",
+      "bytes": 2338,
+      "sha256": "96c92ebd25d20db8a9533d886f4d4f298d67bd9bacccf0e66c2f1746480411f4"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/node-qa.log",
+      "bytes": 370,
+      "sha256": "5bec19bca7246e6403350156024629c6512de6daa179281b24ddbddb36b659c1"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/offline-pack.json",
+      "bytes": 169210,
+      "sha256": "909fadd1b329b9dabf0e9353ff4894b3e86fea2b2a173ed2f8bdd2acc0d01e1f"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1813996,
+      "sha256": "c27fd5bcf92dcacccbb16567726e9eb49404c68befa09dff44cb08c49bd3623b"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835413,
+      "sha256": "79eac2217af3f13ac5eee1b7e2ec58b03802c79ac6395c8bb6c66d57af330d00"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1828778,
+      "sha256": "501a4dbeca11bd0d8fb5214750038fbb409155600260b852ef07517aed3a610e"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1811536,
+      "sha256": "5157bf515de286bf9d4cbcb24133501cf5c70b6409478ef9c206e25d3ec27f4f"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1819833,
+      "sha256": "e1c5d64e05a9b1f2c72346f69c47e9df7c32548ea04b1db3e1ea4a9099dabf63"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1351499,
+      "sha256": "f49faa9cc8ebe1301c24d345b70b36d02fd84d1b3cc678add9447c0569af486f"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1823747,
+      "sha256": "bd54d535c01ec8c82f9ee97dd7c381473ab7caa0995a3ddafb6b1cbe31c6428f"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808722,
+      "sha256": "01895fe4892d790b8464c41010dd060c8586e296e1d9ec0eb69be690b3ed081d"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/production-final.json",
+      "bytes": 3049,
+      "sha256": "4d03b597ede089058d850507b0b2bd342ed1b0e862c38fa5cd08a46201ebe84b"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/production-system.mjs",
+      "bytes": 29320,
+      "sha256": "8dcb49652055c65d6b2542237bfb5e97c226c844af8a9d26a1d106f61cad1e02"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/production.log",
+      "bytes": 2722,
+      "sha256": "a6279e07a3985475516951601bdac679f258817b488eed9dcac05a616e8eb5aa"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/record-verification.py",
+      "bytes": 7658,
+      "sha256": "69f6be05056083901289f46135118a17241e6acd17de187c2c081e13fb3e92c7"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/replay-count.log",
+      "bytes": 3,
+      "sha256": "a1fb50e6c86fae1679ef3351296fd6713411a08cf8dd1790a4fd05fae8688164"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/replay.json",
+      "bytes": 2860,
+      "sha256": "2bce5a6def698e38b3ecbca01542a6f757d174a02360483319c8ce16ef7ce3c5"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/ruleset.txt",
+      "bytes": 65,
+      "sha256": "e02da5d1451ca3ba9e5b056617c8673278cdcc33fa21d57485b72e4397464953"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/source-scope.json",
+      "bytes": 1636,
+      "sha256": "32fff196b64a272911dd1e4f44912a9d978a7693855fc821e6e168c95e811cdd"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/types-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/types-render.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/types-state.log",
+      "bytes": 112,
+      "sha256": "4cb998dd4d4a61af08f7948ea75cf1a9d5418df00babeaacce5392bcbdd1ed9e"
+    },
+    {
+      "path": ".cache/masteryi-sword-runtime/types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "checks": {
+    "fullUnit": {
+      "passed": 2953,
+      "failed": 3,
+      "total": 2956,
+      "files": 382,
+      "originalFiveSecondWaveClock": "passed"
+    },
+    "focused": {
+      "passed": 735,
+      "files": 40
+    },
+    "sourceGuards": {
+      "casesPerMode": 20,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "checkAndReplay": {
+      "filesUnchangedBytesAndMtimes": 12,
+      "modes": [
+        "normal",
+        "optimized"
+      ]
+    },
+    "textures": {
+      "count": 9,
+      "authoredMips": 78,
+      "newPublicPngs": 8,
+      "sharedUrls": 1,
+      "packedBytes": 605683,
+      "gpuMipPixelHashes": "all exact"
+    },
+    "bindings": {
+      "conditions": 2,
+      "instances": 5,
+      "uniqueEffects": 4,
+      "uniqueRenderedFamilies": 11,
+      "emitterInstances": 13,
+      "jointNodes": [
+        87,
+        88,
+        89,
+        90
+      ],
+      "actualPosedJointPositionsAndQuaternions": "all matched within numeric tolerance",
+      "nonYawRotationVerified": true
+    },
+    "boundedHistoryTicks": 62,
+    "boundedLiveParticleSampling": true,
+    "jointAdapterCases": 6,
+    "build": "TypeScript/production build passed; diagnostics retained.",
+    "nodeQA": {
+      "passed": 3
+    },
+    "browser": {
+      "acceptedUniqueCases": 30,
+      "retries": 0,
+      "environment": "system Chromium154 / SwiftShader",
+      "coverage": [
+        "real E/R input, five authored joint instances, exact Save/reload particles and future",
+        "all 78 actual GPU mip pixels exact; all 11 skin-bound source families produce nonblack isolated pixels",
+        "actual particle positions/full quaternions match current posed sword joints, including non-yaw rotations",
+        "solo E/four instances and solo R/one instance; W-paused buff clocks, rolling frames and exact future",
+        "ordinary startup omits assets; explicit retry retains verified successes",
+        "hidden births stay hidden; new known births appear on reveal; Q hides bindings and saved future restores",
+        "bone-bound corpse tails and finite victory drain without world mutation",
+        "six existing E audio, six R audio, five R cast, four W cast and four W damage cases"
+      ]
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 13,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderAudioPreloads": 0,
+      "unrequestedMasterYiAlphaAudioPreloads": 0,
+      "unrequestedMasterYiMeditateAudioPreloads": 0,
+      "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+      "unrequestedMasterYiSwordPreloads": 0,
+      "unrequestedMasterYiMeditateDamagePreloads": 0,
+      "unrequestedMasterYiHighlanderKillPreloads": 0,
+      "unrequestedMasterYiHighlanderCastPreloads": 0,
+      "unrequestedMasterYiQEndPreloads": 0,
+      "unrequestedMasterYiQCastPreloads": 0,
+      "unrequestedMasterYiQContactPreloads": 0,
+      "unrequestedMasterYiMeditateCastPreloads": 0,
+      "unrequestedMasterYiMeditateBuffPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 221,
+      "scheduledBlueRequests": 13,
+      "scheduledRedRequests": 13,
+      "scheduledWolfRequests": 26,
+      "scheduledRaptorRequests": 26,
+      "scheduledKrugRequests": 39,
+      "scheduledScuttlerRequests": 13,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    }
+  },
+  "retainedDiagnostics": [
+    "Initial export used the stricter W atlas helper, which rejects numFrames=4 with no texDiv. The E-specific adapter keeps that raw distinction and explicitly defaults the omitted grid to 1x1.",
+    "A strict field whitelist initially omitted the already-supported birthUvScrollRate field; the final guard set includes it and rejects unimplemented fields.",
+    "A red-caster reveal test initially lacked a nearby blue observer. The fixture now supplies actual blue vision for exact saved future comparison.",
+    "Two existing frozen R-particle death tests move the corpse directly. They now refresh only the new current-corpse sword history before saving; their frozen R pose assertions remain unchanged.",
+    "New joint fixture assertions were corrected for authored rotation and signed-zero normalization."
+  ],
+  "baselineFailures": [
+    "Original Leona attached-skin reflection check.py absent.",
+    "Original distortion metallib, bitcode and disassembly compiler artifacts unavailable.",
+    "Lux first fifteen sampler actual 4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a versus pinned 09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df; previously reproduced on untouched baseline."
+  ],
+  "limits": [
+    "Native buff creation/removal, reveal, component restart and destruction/tail callbacks remain uncalibrated; authored conditions/named joints are retained separately from local lifecycle policy.",
+    "Source-X reflection, .01 VFX units, neutral omitted lookup, first-update grid, fixed cosmetic draws and UV_MODE=2 shader mapping remain explicit local adapters. Rig translations separately bake .015 skin scale; native VFX inheritance is unresolved.",
+    "Flare numFrames=4 with omitted grid is retained separately from a local 1x1 default and beams' authored 2x2 grid; native atlas/sampler semantics remain unverified.",
+    "Accepted source-rig shading and non-unit rotation conversion limitations remain documented; exact local joint math is not native client frame or hardware certification.",
+    "Focused browser and strict subpath checks are not whole-suite, service-worker, offline-install or physical-device/FPS certificates.",
+    "Ignored evidence needs preservation; exact changed sources are independently archived."
+  ]
+}

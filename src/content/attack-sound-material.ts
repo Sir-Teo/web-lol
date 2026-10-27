@@ -1,7 +1,9 @@
 import materials from './attack-sound-materials.json';
+import championMaterials from './champion-attack-sound-materials.json';
 import { impactTargetRig } from './impact-target';
 import type { Unit } from '../simulation/types';
 export type AttackSoundMaterial = 'Flesh' | 'Metal' | 'Stone' | 'Wood';
+const knownMaterials = { ...materials, ...championMaterials };
 export function attackSoundRig(
   unit: Pick<Unit, 'kind' | 'champion' | 'team' | 'monster'>
 ): string | null {
@@ -11,7 +13,9 @@ export function attackSoundRig(
  * use the bank's explicit Flesh default; native dispatch remains unverified. */
 export function attackSoundMaterialForRig(rig: string | null): AttackSoundMaterial {
   return (
-    rig && Object.hasOwn(materials, rig) ? materials[rig as keyof typeof materials] : 'Flesh'
+    rig && Object.hasOwn(knownMaterials, rig)
+      ? knownMaterials[rig as keyof typeof knownMaterials]
+      : 'Flesh'
   ) as AttackSoundMaterial;
 }
 export function attackSoundMaterial(unit: Pick<Unit, 'kind' | 'champion' | 'team' | 'monster'>) {

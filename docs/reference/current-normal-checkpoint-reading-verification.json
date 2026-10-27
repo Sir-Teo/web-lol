@@ -1,0 +1,382 @@
+{
+  "format": 1,
+  "parentCommit": "8332f5af6de714ecdb1f5ccffb69ef3380b44e53",
+  "scope": "Independent completed 24-seed checkpoint reading and real terminal normal-match import/reload/export through cached production UI.",
+  "source": [
+    {
+      "path": "tools/qa/offline-completed-match.mjs",
+      "bytes": 10016,
+      "sha256": "c11470731576b4f443c5a18e03d949c458915567b689dd16b311d120fb5f3181"
+    },
+    {
+      "path": "tools/qa/verify-match-cohort.mjs",
+      "bytes": 5325,
+      "sha256": "d58b0354f3c6fddf2698884c4428de8d647f031fd36ad9f93176456c1b628e9b"
+    },
+    {
+      "path": "docs/CURRENT-NORMAL-CHECKPOINT-READING.md",
+      "bytes": 3050,
+      "sha256": "6a3291567ae5eb0d1043fec4df6072f6b58d00f2671841e15464569986302885"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "bytes": 739297,
+      "sha256": "eee6ad44e2f600c51c6166aca1cecea17179bea915e31894cfa6ec25de696d9e"
+    }
+  ],
+  "completedSubset": {
+    "result": "passed",
+    "ruleset": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "seeds": 24,
+    "horizonTicks": 216000,
+    "victories": 24,
+    "unfinished": 0,
+    "checkedTicks": 4033896,
+    "roundTrips": 1134,
+    "futureChecks": 1110,
+    "developmentLeona": false,
+    "hundredSeedInvariantGate": false,
+    "hundredSeedDevelopmentLeonaInvariantGate": false,
+    "roadmapMilestone4Complete": false
+  },
+  "offlineCompletedMatch": {
+    "runtime": {
+      "node": "v24.19.0",
+      "v8": "13.6.233.17-node.51",
+      "arch": "x64"
+    },
+    "sourceReport": {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-100-20261027/seeds/21/report.json",
+      "sha256": "3c94804523f0d90c55a672af2615ddf29be1a8d2f7087934b78e6854bcce43bb"
+    },
+    "sourceSnapshot": {
+      "path": "/workspace/web-lol/.cache/match-cohort/current-normal-100-20261027/seeds/21/final.match.json",
+      "sha256": "0a67622e6380af4569e8bc21a01e1b9233919f67f04508f978a16268da449899",
+      "tick": 126248,
+      "winner": "blue",
+      "ruleset": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6"
+    },
+    "manifest": {
+      "id": "273e1d8ec876bb239ef52ae674f4ed95f23cb665b4094a1408b0ec37b9fe3390",
+      "files": 1202,
+      "bytes": 538092143
+    },
+    "checks": {
+      "fullPackReady": true,
+      "normalCompletedPreviewOffline": true,
+      "exactCompletedStateImportAndExportOffline": true,
+      "exactCompletedStateReloadAndExportOffline": true,
+      "sourceReportSnapshotAndManifestUnchanged": true,
+      "serviceWorkerResponses": 973
+    },
+    "limits": [
+      "Completed-match import, offline restore and exact export; not full browser-match simulation or the 100-seed gate."
+    ],
+    "browser": {
+      "version": "154.0.8037.57",
+      "systemChromium": true
+    },
+    "productionErrors": [],
+    "failedRequests": [],
+    "outsidePrefixRequests": [],
+    "result": "passed"
+  },
+  "verification": {
+    "applicationChanged": false,
+    "nativeExecuted": false,
+    "developmentHookExposed": false,
+    "hundredSeedGateClaimed": false,
+    "fullBrowserMatchSimulationClaimed": false,
+    "inheritedApplicationAcceptance": {
+      "path": "docs/reference/gromp-mesh-color-verification.json",
+      "sha256": "154754cf11f5362314fd06b657aee35d74021e965419fa1bc99b4b9b71425557",
+      "identity": {
+        "schema": 163,
+        "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+        "offlinePack": {
+          "id": "273e1d8ec876bb239ef52ae674f4ed95f23cb665b4094a1408b0ec37b9fe3390",
+          "files": 1202,
+          "bytes": 538092143
+        }
+      },
+      "appChecksRerunForQaOnlyChange": false
+    }
+  },
+  "earlierAttempts": {
+    "initialBrowserRun": "Failed before completed-match import: unsaved initial game was correctly unpaused after reload. Setup now uses the normal Save action before the offline reload. No app change or assertion relaxation."
+  },
+  "pauseIntervals": [
+    {
+      "start": "2026-10-27T14:35:51.936398+00:00",
+      "end": "2026-10-27T14:37:16.618402+00:00",
+      "processes": [
+        {
+          "pid": 302400,
+          "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+        },
+        {
+          "pid": 319503,
+          "cmdlineSha256": "e689e9f9aacb74d1ad7d9a3d390ed2cadf24cf3f2c83af55059819f2a30c2dce"
+        },
+        {
+          "pid": 319658,
+          "cmdlineSha256": "981b0a578a0f466e8b7f11fdc5af0300df75fc43183f5f7a8640a7a0afc353d2"
+        },
+        {
+          "pid": 319753,
+          "cmdlineSha256": "ad8f80374b8cb65ccd06149a07d5c48bddc3b26ec45d74fb286a3b9afdade68e"
+        },
+        {
+          "pid": 319913,
+          "cmdlineSha256": "42eb4eea7d326ee62e68f5648054db82e3008154cfda13bd90aba5a36d3d55d9"
+        }
+      ],
+      "resumed": true
+    },
+    {
+      "start": "2026-10-27T14:37:55.700366+00:00",
+      "end": "2026-10-27T14:40:23.089401+00:00",
+      "processes": [
+        {
+          "pid": 302400,
+          "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+        },
+        {
+          "pid": 319503,
+          "cmdlineSha256": "e689e9f9aacb74d1ad7d9a3d390ed2cadf24cf3f2c83af55059819f2a30c2dce"
+        },
+        {
+          "pid": 319658,
+          "cmdlineSha256": "981b0a578a0f466e8b7f11fdc5af0300df75fc43183f5f7a8640a7a0afc353d2"
+        },
+        {
+          "pid": 319753,
+          "cmdlineSha256": "ad8f80374b8cb65ccd06149a07d5c48bddc3b26ec45d74fb286a3b9afdade68e"
+        },
+        {
+          "pid": 319913,
+          "cmdlineSha256": "42eb4eea7d326ee62e68f5648054db82e3008154cfda13bd90aba5a36d3d55d9"
+        }
+      ],
+      "resumed": true
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/offline-completed-match/browser-final.log",
+      "bytes": 1200,
+      "sha256": "a3e812aa0ddbeb49c2dd0eeb06951ac26228dd6ec7d83b94d02e000c07c33911"
+    },
+    {
+      "path": ".cache/offline-completed-match/browser.log",
+      "bytes": 448,
+      "sha256": "a14dd3c07143d191f856975483825863cea80981b09f4fb48c3aa94ccdc0e47b"
+    },
+    {
+      "path": ".cache/offline-completed-match/final-checks.log",
+      "bytes": 237,
+      "sha256": "78d3784099904b8d9cc037a7b241e4bd088846ad84b6dbf686b78607effdaf2a"
+    },
+    {
+      "path": ".cache/offline-completed-match/initial-checks.log",
+      "bytes": 441,
+      "sha256": "60a71391fe82d10fcc5d1879d49e91d7cb5c79bb2b116e8a2d1085de7cf06aef"
+    },
+    {
+      "path": ".cache/offline-completed-match/inputs-final.json",
+      "bytes": 157855,
+      "sha256": "88dc3aa89579ba052848a7e5a34c111b3e005434691ffda24f1765deb1641fdf"
+    },
+    {
+      "path": ".cache/offline-completed-match/inputs.json",
+      "bytes": 157855,
+      "sha256": "d831b21870a397b788e3b6d1a284f1a251782f114b12ba0b3483459d3f060677"
+    },
+    {
+      "path": ".cache/offline-completed-match/offline-completed-match.mjs",
+      "bytes": 9051,
+      "sha256": "63e3611cc19c4ecf43dbbd06b9f177942369b3c34e1caf9b42c2497d9de87fc3"
+    },
+    {
+      "path": ".cache/offline-completed-match/pause-final-record.json",
+      "bytes": 755,
+      "sha256": "cd61943547eed51e5f9bd2ebc985e6d1e2772024a0dd4570c2caec98a30fa110"
+    },
+    {
+      "path": ".cache/offline-completed-match/pause-record.json",
+      "bytes": 755,
+      "sha256": "c1328104ccb97c888816d3535413b68c2007cdaa048c29da1774d6ebff0ba0e3"
+    },
+    {
+      "path": ".cache/offline-completed-match/run-final.py",
+      "bytes": 3115,
+      "sha256": "f6679ecd55492aa5444976bb37f3e75d28e4e29479be49423efaaa2b2d943a72"
+    },
+    {
+      "path": ".cache/offline-completed-match/run.py",
+      "bytes": 3085,
+      "sha256": "e1e72ea696fdf79ca997373ea5b393ad9ce0d6e4e77be4acee1362eeb7400065"
+    },
+    {
+      "path": ".cache/offline-completed-match/seed-21/failure.json",
+      "bytes": 1245,
+      "sha256": "d3c4fbe4662ae90f9c9e06eb4d4a51ac12d64ad2d40c219df746e32896721543"
+    },
+    {
+      "path": ".cache/offline-completed-match/seed-21-final/first-export.json",
+      "bytes": 211220,
+      "sha256": "3fcc2e1d4bf2717f261fef23703e4c3082a7d00e1e5b2c2361bcf10fd19ba735"
+    },
+    {
+      "path": ".cache/offline-completed-match/seed-21-final/preview.png",
+      "bytes": 587984,
+      "sha256": "a69244287caccdbdb45adbf4ba0ec327816dd479d8a51c3d88e2d8cba7411d4d"
+    },
+    {
+      "path": ".cache/offline-completed-match/seed-21-final/reading.json",
+      "bytes": 1397,
+      "sha256": "b10146b9cad77048c5bf226fdb94c5d9f1c6ced676e07798fee86cb000d055ec"
+    },
+    {
+      "path": ".cache/offline-completed-match/seed-21-final/reloaded-export.json",
+      "bytes": 211220,
+      "sha256": "3fcc2e1d4bf2717f261fef23703e4c3082a7d00e1e5b2c2361bcf10fd19ba735"
+    },
+    {
+      "path": ".cache/offline-completed-match/seed-21-final/result-offline.png",
+      "bytes": 618606,
+      "sha256": "fd58d4d6541ca27ab4a8be976420ba1ecf64f893e9213e82de5f9a552475bff6"
+    },
+    {
+      "path": ".cache/offline-completed-match/source/docs/reference/gromp-mesh-color-fixtures.json",
+      "bytes": 11777,
+      "sha256": "c64f47492cf5d8d7239b9f3ec7a873a2fb38eaa85073b2d9dfdf4a63697293bd"
+    },
+    {
+      "path": ".cache/offline-completed-match/source/e2e/gromp-mesh-color.spec.ts",
+      "bytes": 11354,
+      "sha256": "e568728e0a26a22efd10b969c70915dd792c9a39dcb7fe194d64e54894558980"
+    },
+    {
+      "path": ".cache/offline-completed-match/source/src/render/gromp-death-particles.ts",
+      "bytes": 4599,
+      "sha256": "34a69fed57cf4860db1294b837d6f99785977eff99c2321b26742355f8853804"
+    },
+    {
+      "path": ".cache/offline-completed-match/source/tests/gromp-mesh-color.test.ts",
+      "bytes": 2265,
+      "sha256": "39dc3cdf8e07f9674b364fc67a1ac9edbe945486482bb64ddf49b7731c1b5f69"
+    },
+    {
+      "path": ".cache/offline-completed-match/source/tools/qa/legacy-mesh-color-reference.test.mjs",
+      "bytes": 3015,
+      "sha256": "9ccff5675566c4351f81e7211cac20870ec79e61af3ef4ddf4852403210f5d6f"
+    },
+    {
+      "path": ".cache/offline-completed-match/source/tools/qa/lib/legacy-mesh-color-reference.py",
+      "bytes": 6538,
+      "sha256": "78d5945befc105dfd273da81cebee85d6c79e4ad610d0d22bffd2e556e025ab8"
+    },
+    {
+      "path": ".cache/offline-completed-match/source/tools/qa/offline-completed-match.mjs",
+      "bytes": 9774,
+      "sha256": "62cb135855f4b0a2cbd666bbf9ba32e3f86c5d677a5493ce69c71d6813038378"
+    },
+    {
+      "path": ".cache/offline-completed-match/source/tools/qa/verify-gromp-mesh-color.mjs",
+      "bytes": 6263,
+      "sha256": "28054138af29ae7a76f0a72549112254dfbfb1966f5788036b3199d6aaae4de0"
+    },
+    {
+      "path": ".cache/offline-completed-match/source/tools/qa/verify-gromp-plane-color.mjs",
+      "bytes": 7060,
+      "sha256": "c66d77ca1b7ce9ab0aa4209ebab2ed702a045de928eb8cd3b90ab6abbaf5ebd9"
+    },
+    {
+      "path": ".cache/offline-completed-match/source-final/docs/reference/gromp-mesh-color-fixtures.json",
+      "bytes": 11777,
+      "sha256": "c64f47492cf5d8d7239b9f3ec7a873a2fb38eaa85073b2d9dfdf4a63697293bd"
+    },
+    {
+      "path": ".cache/offline-completed-match/source-final/e2e/gromp-mesh-color.spec.ts",
+      "bytes": 11354,
+      "sha256": "e568728e0a26a22efd10b969c70915dd792c9a39dcb7fe194d64e54894558980"
+    },
+    {
+      "path": ".cache/offline-completed-match/source-final/src/render/gromp-death-particles.ts",
+      "bytes": 4599,
+      "sha256": "34a69fed57cf4860db1294b837d6f99785977eff99c2321b26742355f8853804"
+    },
+    {
+      "path": ".cache/offline-completed-match/source-final/tests/gromp-mesh-color.test.ts",
+      "bytes": 2265,
+      "sha256": "39dc3cdf8e07f9674b364fc67a1ac9edbe945486482bb64ddf49b7731c1b5f69"
+    },
+    {
+      "path": ".cache/offline-completed-match/source-final/tools/qa/legacy-mesh-color-reference.test.mjs",
+      "bytes": 3015,
+      "sha256": "9ccff5675566c4351f81e7211cac20870ec79e61af3ef4ddf4852403210f5d6f"
+    },
+    {
+      "path": ".cache/offline-completed-match/source-final/tools/qa/lib/legacy-mesh-color-reference.py",
+      "bytes": 6538,
+      "sha256": "78d5945befc105dfd273da81cebee85d6c79e4ad610d0d22bffd2e556e025ab8"
+    },
+    {
+      "path": ".cache/offline-completed-match/source-final/tools/qa/offline-completed-match.mjs",
+      "bytes": 10016,
+      "sha256": "c11470731576b4f443c5a18e03d949c458915567b689dd16b311d120fb5f3181"
+    },
+    {
+      "path": ".cache/offline-completed-match/source-final/tools/qa/verify-gromp-mesh-color.mjs",
+      "bytes": 6263,
+      "sha256": "28054138af29ae7a76f0a72549112254dfbfb1966f5788036b3199d6aaae4de0"
+    },
+    {
+      "path": ".cache/offline-completed-match/source-final/tools/qa/verify-gromp-plane-color.mjs",
+      "bytes": 7060,
+      "sha256": "c66d77ca1b7ce9ab0aa4209ebab2ed702a045de928eb8cd3b90ab6abbaf5ebd9"
+    },
+    {
+      "path": ".cache/offline-completed-match/subset-verification.log",
+      "bytes": 362,
+      "sha256": "250153dfba640110a74bfae86d4023a5901632187b14040ac325dee1c1ff0068"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-completed-24-reading-20261027/original-plan.json",
+      "bytes": 94200,
+      "sha256": "152a1ddb4cf21c928e2b89c5269ede5ebe0f51c0a7eb16031c82ab3e82dbcfe9"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-completed-24-reading-20261027/original-status.json",
+      "bytes": 6725397,
+      "sha256": "01460bc730319e1a727374ee0803fa2b44f1d1bf5cd4dd39022659fb30721df2"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-completed-24-reading-20261027/plan.json",
+      "bytes": 93568,
+      "sha256": "77aa3957fb7a6d5a6ca650a732066cbeaff663d695465b2748efa613c8a63bda"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-completed-24-reading-20261027/summary.json",
+      "bytes": 1055,
+      "sha256": "349a6f4ff0a30a34ad1d4c3a79ac536e0ad706ee021e7cef77e89507dfc4c320"
+    },
+    {
+      "path": ".cache/match-cohort/current-normal-completed-24-reading-20261027/subset-reading.json",
+      "bytes": 6716,
+      "sha256": "3658d7fddc868cd715453536be0d9e86c6b1c431606a882dfd742f2108c3f8f9"
+    },
+    {
+      "path": ".cache/prepare-current-completed-checkpoints.py",
+      "bytes": 2456,
+      "sha256": "53404f9339f6ac0127e50e492750f61cd5133c87177357eb88e593eea6a466ef"
+    }
+  ],
+  "limits": [
+    "Completed-match import, offline restore and exact export; not full browser-match simulation or the 100-seed gate.",
+    "The current 100-seed cohort is still active; only the fixed 24-seed reading is independently accepted here.",
+    "The current interim roster and automated QA carry do not certify the six-character human-playable milestone.",
+    "System Chromium/SwiftShader acceptance is not physical device performance."
+  ]
+}

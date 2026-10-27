@@ -1,0 +1,777 @@
+{
+  "format": 1,
+  "parentCommit": "778ada6971499d87c3ada8dbb2b3c21853d2c9a9",
+  "scope": "Complete eleven-emitter accepted primary contact effects with independent saved target chest poses and finite visibility histories. Reuse four source texture transports; add seven; preserve native raw omissions and declare local reconstruction policies.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "9cb94310c2e9ff8ca8475310adc9df79d6e60f416ba00f2fff55b781ac376e7e",
+    "offlinePack": {
+      "id": "a3d23efc1b4518a534c30d67c5173a6cb139758684b0331c3a868dfb46a751f5",
+      "files": 1200,
+      "bytes": 538083220
+    }
+  },
+  "verification": {
+    "newUnitCases": 31,
+    "initialRegressionCases": 92,
+    "fullUnitRun": {
+      "passed": 3067,
+      "failed": 4,
+      "total": 3071,
+      "files": 388
+    },
+    "schemaAssertionCorrection": {
+      "suitePassed": 6,
+      "change": "Update explicit version 162 to 163; all tamper assertions retained."
+    },
+    "remainingBaselineFailures": 3,
+    "originalWaveDeadlinePassed": true,
+    "nodeQaPassed": 6,
+    "primaryBrowserUniqueCases": 4,
+    "swordBrowserUniqueCases": 2,
+    "exactSwordPixelComparisons": 73,
+    "runtimeGpuMipReadbacks": 93,
+    "emittersWithNonzeroGpuPixels": 11,
+    "minimumIsolatedEmitterPixels": 35,
+    "sourceGuardsPerMode": 85,
+    "normalAndOptimizedReplayOutputs": 14,
+    "bytesAndMtimesUnchanged": true,
+    "productionRecordings": 32,
+    "freshProductionScreenshots": 8,
+    "privatePreloads": 0,
+    "targetRigChestAvailability": {
+      "rigs": 32,
+      "joints": 27,
+      "missing": 5
+    }
+  },
+  "diagnostics": [
+    "Initial browser request filter counted shared simulation/timing modules; corrected filter tracks effect images and renderer module. Retry then proves only failed PNG is requested again.",
+    "Initial corpse fixture killed source on the same first-birth tick, whose visibility endpoint is finalized again by damage. Advancing past the completed birth tick preserves the required known-birth tail without changing runtime visibility rules.",
+    "Full unit run includes one stale hardcoded schema assertion; its corrected six-test suite passes. The three prior baseline failures remain unresolved.",
+    "Fixture HUD uses update(60); no physical FPS certificate is inferred. Chromium/SwiftShader GPU results do not establish native-client shader, sampler, transform or force cadence parity."
+  ],
+  "remainingBaselineDetails": [
+    "Missing .cache/leona-attached-skin-reflection-reading-v1-20261024/check.py source archive.",
+    "Missing original particle distortion metallib/bitcode/disassembly inputs; original pins unchanged.",
+    "Original Lux sampler golden 09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df remains unreproduced; current Node value 4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a unchanged."
+  ],
+  "sourceFiles": [
+    {
+      "path": "README.md",
+      "bytes": 18516,
+      "sha256": "f8d4c7dec0f44bbdc23af045f7d61c429ff5eb108fc73ff6d5963c0ba2caf437"
+    },
+    {
+      "path": "docs/MASTER-YI-PRIMARY-HITS.md",
+      "bytes": 12058,
+      "sha256": "e77042e323baacdf71924524bce072a1ca5f62ad3e2b83edce2ba0b8d0546a15"
+    },
+    {
+      "path": "docs/SAVES.md",
+      "bytes": 64908,
+      "sha256": "f367b6af1f0d72246798391adee691147f1bd0b4b240337fa063660382fa1dd0"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-runtime-reading.json",
+      "bytes": 4520,
+      "sha256": "e19035e576f61fd84f03c51b1aee93d4cafb9eb5b3e8b05f3c4a5bfa83a73b2a"
+    },
+    {
+      "path": "e2e/masteryi-primary-hits.spec.ts",
+      "bytes": 19774,
+      "sha256": "9e5009b246824d90afc8bf89439aab61deffe8bf1ea3100b545b46ff15da2ccc"
+    },
+    {
+      "path": "public/assets/effects/masteryi-primary-hit-0e1d8e1bfc6a9099.png",
+      "bytes": 8949,
+      "sha256": "f1267b7b129df6cf2312025facffeb5f792a5550e813f436f6d3b275d864caa3"
+    },
+    {
+      "path": "public/assets/effects/masteryi-primary-hit-1d3a3b7cb6e52a86.png",
+      "bytes": 350,
+      "sha256": "ad330060bd5bcdf74cb889b613f51bb7b4719f50264dcb3beb4d536a9408db7a"
+    },
+    {
+      "path": "public/assets/effects/masteryi-primary-hit-3551411d4218c8ea.png",
+      "bytes": 1623,
+      "sha256": "4f5943b270c3806b16f6a63e82e850b37547b1a2d439ac1ada691450d52f75d7"
+    },
+    {
+      "path": "public/assets/effects/masteryi-primary-hit-5ae94417a3c8c5a5.png",
+      "bytes": 63167,
+      "sha256": "68f69efe69aeb5ac5b13754ef9dc86368b0a4fd00f0ebdf2d6848efa7de50537"
+    },
+    {
+      "path": "public/assets/effects/masteryi-primary-hit-914aefb195e69d4f.png",
+      "bytes": 32596,
+      "sha256": "57000dbf4a63e3b0aeeb18afe94ef7e20444931d74fc052b2853ecd6c51bdfbd"
+    },
+    {
+      "path": "public/assets/effects/masteryi-primary-hit-9db3dfd192460de5.png",
+      "bytes": 1834,
+      "sha256": "00ad67070fcd035d750f8628681b01f1021e19da15386c198cdf952b856ce28f"
+    },
+    {
+      "path": "public/assets/effects/masteryi-primary-hit-db69a3a0b80ce5e1.png",
+      "bytes": 341243,
+      "sha256": "4afb4b40eae31df54bdab6dc1f086952fc5d242e886416366f208fd1dc741a8f"
+    },
+    {
+      "path": "src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    },
+    {
+      "path": "src/content/masteryi-primary-hit-timing.ts",
+      "bytes": 132,
+      "sha256": "4c0a265af2d44b8569af462cc8ea04b18bdd484aceed9b1e696e165660b505be"
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 22104,
+      "sha256": "a6e954151421733851ee0a6b14ef583b35f772b05c157147f9d24eaf942c3216"
+    },
+    {
+      "path": "src/render/lazy-masteryi-primary-hits.ts",
+      "bytes": 1384,
+      "sha256": "605d4699440cf20e90654c24e104bb3b066ae15ef0b9549c90f90266f7211571"
+    },
+    {
+      "path": "src/render/masteryi-primary-hit-particles.ts",
+      "bytes": 4362,
+      "sha256": "0380264b4f0cc0384930913b39d89e339cdcc58d7a1ee079c8743c5ddeab3550"
+    },
+    {
+      "path": "src/render/masteryi-primary-hits.ts",
+      "bytes": 6313,
+      "sha256": "1fe2acdae00432100b8e3e63093f59eb1901329bab54144c1561256f43d14b37"
+    },
+    {
+      "path": "src/render/particle-spatial-drag.ts",
+      "bytes": 2228,
+      "sha256": "52b35ce02ba9b1fa73529615a218a5b941d7f3bf2b72fda552c0e0c36a571b86"
+    },
+    {
+      "path": "src/render/source-particle-surfaces.ts",
+      "bytes": 21161,
+      "sha256": "b9fe8637fd66fc62aff4ed654b8e54bfa38bcd15bdc93600b02306c21aefc826"
+    },
+    {
+      "path": "src/render/view.ts",
+      "bytes": 63589,
+      "sha256": "309de414314be81d3d10abd4b1ef82f4cd7467c5217ee30be6fc5ce575a1ceba"
+    },
+    {
+      "path": "src/simulation/masteryi-aa-presentation.ts",
+      "bytes": 5872,
+      "sha256": "1970b60d631782b3e1d43bd1dece7f9a8f59f77f6b48715a3819101050974700"
+    },
+    {
+      "path": "src/simulation/masteryi-primary-hit-poses.ts",
+      "bytes": 3358,
+      "sha256": "3f4e014acb03027138253f3ca0e92c15aa5c382653258af8b81f0342f2d67aa0"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "bytes": 187481,
+      "sha256": "8105dee7ef6cf071bafbecb2047ad8e2cbf242946a382c9e3f82a4191c11f745"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "bytes": 295983,
+      "sha256": "a3f813fc5ec947389677ae999998f884896ec2e6568ea5db3f518cc045b8c627"
+    },
+    {
+      "path": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "e3b81dd55bdcd9704d4f43cb2b9967c71bd348f979493ccc086e0ce62b28b3b6"
+    },
+    {
+      "path": "tests/masteryi-aa-audio.test.ts",
+      "bytes": 8592,
+      "sha256": "324176ad1b0530f6afa6f8970710619ee83a63dedcfc762e1b984a0f9d19b235"
+    },
+    {
+      "path": "tests/masteryi-primary-hits.test.ts",
+      "bytes": 8754,
+      "sha256": "923688c1aa118c03145fe04de0dc4b8dcf3c575b1fed6552361a76ee9756e636"
+    },
+    {
+      "path": "tools/assets/export-masteryi-primary-hit-particles.py",
+      "bytes": 4165,
+      "sha256": "aae556223461ab3dc0a8e4dbaf98cbf6e1fed2a9a79c804f7851894eb5e00cb8"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 30464,
+      "sha256": "68425c70629572add4d8bfb83d3b71e2a4b276c476bd5f1880083659aed7043b"
+    }
+  ],
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/primary-hit-particles.json",
+      "bytes": 82989,
+      "sha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-particles-decoded.json",
+      "bytes": 71236,
+      "sha256": "68aa4932fc861a5ee24e8b043a5b4b9e86ac340780fc1eedbfb3ffc6cb18bdb7"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-texture-transport.json",
+      "bytes": 27991,
+      "sha256": "6aa657899684411475571d7aa20d83a5a6d591244c4291f0f0590193a9e7f83a"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-hit-profile-reading.json",
+      "bytes": 137463,
+      "sha256": "93a4f4500e3ee3fd5e8881cfaf08f823cae40750de16afdf2ca235f4aad1142a"
+    },
+    {
+      "path": "docs/reference/masteryi/character.json",
+      "bytes": 104698,
+      "sha256": "3f100c1148e1006766060822298c87aed02e86e359c385fbc2c248e4255d12fa"
+    },
+    {
+      "path": "docs/reference/masteryi/character.bin",
+      "bytes": 27930,
+      "sha256": "a4e05e2f6eee68116478fd56893ee320ac4955645d45e887860c88e67e4547f1"
+    },
+    {
+      "path": "docs/reference/masteryi-model.json",
+      "bytes": 82053,
+      "sha256": "4295bceeba96cfb15e006d392e7d0f3c480bb51bf8cff8872a9c39fc9873c7ce"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/README.md",
+      "bytes": 18516,
+      "sha256": "f8d4c7dec0f44bbdc23af045f7d61c429ff5eb108fc73ff6d5963c0ba2caf437"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/docs/MASTER-YI-PRIMARY-HITS.md",
+      "bytes": 12058,
+      "sha256": "e77042e323baacdf71924524bce072a1ca5f62ad3e2b83edce2ba0b8d0546a15"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/docs/SAVES.md",
+      "bytes": 64908,
+      "sha256": "f367b6af1f0d72246798391adee691147f1bd0b4b240337fa063660382fa1dd0"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/docs/reference/masteryi/character.bin",
+      "bytes": 27930,
+      "sha256": "a4e05e2f6eee68116478fd56893ee320ac4955645d45e887860c88e67e4547f1"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/docs/reference/masteryi/character.json",
+      "bytes": 104698,
+      "sha256": "3f100c1148e1006766060822298c87aed02e86e359c385fbc2c248e4255d12fa"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/docs/reference/masteryi/primary-hit-particles-decoded.json",
+      "bytes": 71236,
+      "sha256": "68aa4932fc861a5ee24e8b043a5b4b9e86ac340780fc1eedbfb3ffc6cb18bdb7"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/docs/reference/masteryi/primary-hit-particles.json",
+      "bytes": 82989,
+      "sha256": "30e017180fd0778afec27ba6f2ea03f83317040e4ec51992e51472a211417301"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/docs/reference/masteryi/primary-hit-profile-reading.json",
+      "bytes": 137463,
+      "sha256": "93a4f4500e3ee3fd5e8881cfaf08f823cae40750de16afdf2ca235f4aad1142a"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/docs/reference/masteryi/primary-hit-runtime-reading.json",
+      "bytes": 4520,
+      "sha256": "e19035e576f61fd84f03c51b1aee93d4cafb9eb5b3e8b05f3c4a5bfa83a73b2a"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/docs/reference/masteryi/primary-hit-texture-transport.json",
+      "bytes": 27991,
+      "sha256": "6aa657899684411475571d7aa20d83a5a6d591244c4291f0f0590193a9e7f83a"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/docs/reference/masteryi-model.json",
+      "bytes": 82053,
+      "sha256": "4295bceeba96cfb15e006d392e7d0f3c480bb51bf8cff8872a9c39fc9873c7ce"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/e2e/masteryi-primary-hits.spec.ts",
+      "bytes": 19774,
+      "sha256": "9e5009b246824d90afc8bf89439aab61deffe8bf1ea3100b545b46ff15da2ccc"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/public/assets/effects/masteryi-primary-hit-0e1d8e1bfc6a9099.png",
+      "bytes": 8949,
+      "sha256": "f1267b7b129df6cf2312025facffeb5f792a5550e813f436f6d3b275d864caa3"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/public/assets/effects/masteryi-primary-hit-1d3a3b7cb6e52a86.png",
+      "bytes": 350,
+      "sha256": "ad330060bd5bcdf74cb889b613f51bb7b4719f50264dcb3beb4d536a9408db7a"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/public/assets/effects/masteryi-primary-hit-3551411d4218c8ea.png",
+      "bytes": 1623,
+      "sha256": "4f5943b270c3806b16f6a63e82e850b37547b1a2d439ac1ada691450d52f75d7"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/public/assets/effects/masteryi-primary-hit-5ae94417a3c8c5a5.png",
+      "bytes": 63167,
+      "sha256": "68f69efe69aeb5ac5b13754ef9dc86368b0a4fd00f0ebdf2d6848efa7de50537"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/public/assets/effects/masteryi-primary-hit-914aefb195e69d4f.png",
+      "bytes": 32596,
+      "sha256": "57000dbf4a63e3b0aeeb18afe94ef7e20444931d74fc052b2853ecd6c51bdfbd"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/public/assets/effects/masteryi-primary-hit-9db3dfd192460de5.png",
+      "bytes": 1834,
+      "sha256": "00ad67070fcd035d750f8628681b01f1021e19da15386c198cdf952b856ce28f"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/public/assets/effects/masteryi-primary-hit-db69a3a0b80ce5e1.png",
+      "bytes": 341243,
+      "sha256": "4afb4b40eae31df54bdab6dc1f086952fc5d242e886416366f208fd1dc741a8f"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/src/content/masteryi-primary-hit-particles.json",
+      "bytes": 134593,
+      "sha256": "44ca712279ad0c967864b8fb0be45918ef0daac5c4a6748909ad6906694b7ed4"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/src/content/masteryi-primary-hit-timing.ts",
+      "bytes": 132,
+      "sha256": "4c0a265af2d44b8569af462cc8ea04b18bdd484aceed9b1e696e165660b505be"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/src/main.ts",
+      "bytes": 22104,
+      "sha256": "a6e954151421733851ee0a6b14ef583b35f772b05c157147f9d24eaf942c3216"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/src/render/lazy-masteryi-primary-hits.ts",
+      "bytes": 1384,
+      "sha256": "605d4699440cf20e90654c24e104bb3b066ae15ef0b9549c90f90266f7211571"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/src/render/masteryi-primary-hit-particles.ts",
+      "bytes": 4362,
+      "sha256": "0380264b4f0cc0384930913b39d89e339cdcc58d7a1ee079c8743c5ddeab3550"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/src/render/masteryi-primary-hits.ts",
+      "bytes": 6313,
+      "sha256": "1fe2acdae00432100b8e3e63093f59eb1901329bab54144c1561256f43d14b37"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/src/render/particle-spatial-drag.ts",
+      "bytes": 2228,
+      "sha256": "52b35ce02ba9b1fa73529615a218a5b941d7f3bf2b72fda552c0e0c36a571b86"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/src/render/source-particle-surfaces.ts",
+      "bytes": 21161,
+      "sha256": "b9fe8637fd66fc62aff4ed654b8e54bfa38bcd15bdc93600b02306c21aefc826"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/src/render/view.ts",
+      "bytes": 63589,
+      "sha256": "309de414314be81d3d10abd4b1ef82f4cd7467c5217ee30be6fc5ce575a1ceba"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/src/simulation/masteryi-aa-presentation.ts",
+      "bytes": 5872,
+      "sha256": "1970b60d631782b3e1d43bd1dece7f9a8f59f77f6b48715a3819101050974700"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/src/simulation/masteryi-primary-hit-poses.ts",
+      "bytes": 3358,
+      "sha256": "3f4e014acb03027138253f3ca0e92c15aa5c382653258af8b81f0342f2d67aa0"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/src/simulation/snapshot.ts",
+      "bytes": 187481,
+      "sha256": "8105dee7ef6cf071bafbecb2047ad8e2cbf242946a382c9e3f82a4191c11f745"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/src/simulation/world.ts",
+      "bytes": 295983,
+      "sha256": "a3f813fc5ec947389677ae999998f884896ec2e6568ea5db3f518cc045b8c627"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "e3b81dd55bdcd9704d4f43cb2b9967c71bd348f979493ccc086e0ce62b28b3b6"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/tests/masteryi-aa-audio.test.ts",
+      "bytes": 8592,
+      "sha256": "324176ad1b0530f6afa6f8970710619ee83a63dedcfc762e1b984a0f9d19b235"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/tests/masteryi-primary-hits.test.ts",
+      "bytes": 8754,
+      "sha256": "923688c1aa118c03145fe04de0dc4b8dcf3c575b1fed6552361a76ee9756e636"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/tools/assets/export-masteryi-primary-hit-particles.py",
+      "bytes": 4165,
+      "sha256": "aae556223461ab3dc0a8e4dbaf98cbf6e1fed2a9a79c804f7851894eb5e00cb8"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/final-source/tools/qa/production-subpath.mjs",
+      "bytes": 30464,
+      "sha256": "68425c70629572add4d8bfb83d3b71e2a4b276c476bd5f1880083659aed7043b"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/app-identity.json",
+      "bytes": 90,
+      "sha256": "997d30c49b9acfea5e6dcfe55cd99a4d5504e991d980709d848d80b10019968c"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/archive-checkpoint.py",
+      "bytes": 7568,
+      "sha256": "6d79ade591d28549a806a0d9db33442eab4635db14e28f789df7a2821993007b"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/browser/.last-run.json",
+      "bytes": 145,
+      "sha256": "7a2d4f521726e0558431736f65e54c5b30453c2cf3bb6066e80558dea3c24237"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/browser/masteryi-primary-hits-all--0c76f-U-mips-and-real-Save-reload/primary-critical-hit.png",
+      "bytes": 794850,
+      "sha256": "bdb395ec3ac3e3caf58d1928c3326eade246dc19069c392419afb6cc234faa4a"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/browser/masteryi-primary-hits-all--0c76f-U-mips-and-real-Save-reload/primary-hit-gpu-save.json",
+      "bytes": 128242,
+      "sha256": "0b5a3ab178ca369aa1733c45cee670beba782b99bbed1fd1f138971738baba52"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/browser/masteryi-primary-hits-each-0e129-its-actual-runtime-material/all-emitter-gpu-pixels.json",
+      "bytes": 1175,
+      "sha256": "2ac0079f2b6e3821002949fd5d62beecb1be24c4778decbbb7d36599731ff37e"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/browser/masteryi-primary-hits-know-90612-t-stays-absent-after-reveal/error-context.md",
+      "bytes": 13517,
+      "sha256": "dc7d7132424907332ce365997f22c8a842b7fe5766d01b1f51e19f798c966033"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/browser/masteryi-primary-hits-know-90612-t-stays-absent-after-reveal/test-failed-1.png",
+      "bytes": 868811,
+      "sha256": "eda816e70cc8bc1531a4c6f76a2f0c16945df3fed970ae5ad7171fc4c844eff8"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/browser/masteryi-primary-hits-know-90612-t-stays-absent-after-reveal/trace.zip",
+      "bytes": 45017854,
+      "sha256": "54fee50f4171bef5bc32c2bbd9c71f8e5b1e50d1b0a870cd4684fe81e9aabc18"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/browser/masteryi-primary-hits-ordi-2ff62-s-only-the-failed-transport/error-context.md",
+      "bytes": 14197,
+      "sha256": "b96715c9199f16b22965855f86041b63b5885ffbf2587e824a59d081f2df4d27"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/browser/masteryi-primary-hits-ordi-2ff62-s-only-the-failed-transport/test-failed-1.png",
+      "bytes": 918007,
+      "sha256": "0efe84e5e67b2235aeb5eb3d75014533ae0c9785145cc69d75d956c65df6fec8"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/browser/masteryi-primary-hits-ordi-2ff62-s-only-the-failed-transport/trace.zip",
+      "bytes": 33096265,
+      "sha256": "5fa59198d7b3f2b15d05ab978611f68d730a934d4e63f5905509e66d289d82fe"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/browser-corrected/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/browser-corrected/masteryi-primary-hits-know-90612-t-stays-absent-after-reveal/visibility-corpse-terminal.json",
+      "bytes": 148,
+      "sha256": "4bebc0211c68e04d61d2329fff436b2142698c31a04fb3367643afcf11286e9f"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/browser-corrected/masteryi-primary-hits-ordi-2ff62-s-only-the-failed-transport/selective-retry.json",
+      "bytes": 1458,
+      "sha256": "d666533004c6b8f2fffaebd4ac09a32c0a567a791785336e40cbb5c13eb217ce"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/browser-corrected.log",
+      "bytes": 2034,
+      "sha256": "98323425f74e6160942b0478fa3a4339e27e9c58141c4ab34bf35dbf3f83ac41"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/browser-final.log",
+      "bytes": 6983,
+      "sha256": "b5f7ede165b247510fd6d7506284a9170834085144c4f9ae36e4b12ee2d6563b"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/browser-initial.log",
+      "bytes": 812,
+      "sha256": "cbe494e829b4d4db8b15d3c7c7669c04c2b777b2fa1a85069a91c4f80e669ca6"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/browser-order/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/browser-order/masteryi-passive-sword-ord-c4050-pixels-across-camera-angles/passive-sword-gpu-order.json",
+      "bytes": 556,
+      "sha256": "de332e3b109a8efbb9a9dd79e43ab9f2f725ecf2cc5a84e053e5ff8d81c8282a"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/browser-order.log",
+      "bytes": 687,
+      "sha256": "837c00b803822238835ae85ee14aeba5c45838a396acd1186e4b36f0c1f31045"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/browser-regression/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/browser-regression/masteryi-sword-instancing--e809a--reducing-actual-draw-calls/instance-pixel-comparison.json",
+      "bytes": 12315,
+      "sha256": "109257cf4e66f108574ca8340e83a0756596739a0ec6ca89d96a1985be1edf80"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/browser-regression.log",
+      "bytes": 677,
+      "sha256": "81277608c34ddd49315ea827d0f530f628f256f2614a6da1b3fea929449c74af"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/build.log",
+      "bytes": 7682,
+      "sha256": "6a19fa927aa72a33a5f71b7580d4b4420ad932599318208e0d4ed4c71cabd8bb"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/built-identity.json",
+      "bytes": 249,
+      "sha256": "755a48b3045138faa7b554d2a1bc0454b847c70d1e23f8726a65432724d93867"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/export-masteryi-primary-hit-particles-check-normal.log",
+      "bytes": 104,
+      "sha256": "70bfcf1db84243681b391a2fd9726e8218ca426894dca2bab8061455948f3447"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/export-masteryi-primary-hit-particles-check-optimized.log",
+      "bytes": 104,
+      "sha256": "70bfcf1db84243681b391a2fd9726e8218ca426894dca2bab8061455948f3447"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/export-masteryi-primary-hit-particles-replay-normal.log",
+      "bytes": 104,
+      "sha256": "70bfcf1db84243681b391a2fd9726e8218ca426894dca2bab8061455948f3447"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/export-masteryi-primary-hit-particles-replay-optimized.log",
+      "bytes": 104,
+      "sha256": "70bfcf1db84243681b391a2fd9726e8218ca426894dca2bab8061455948f3447"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/focused-hits-corrected.log",
+      "bytes": 1096,
+      "sha256": "339807da7a642029224b52a20aa96aefdf0b7da4feb891613c475a01c2a20897"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/focused-hits-final.log",
+      "bytes": 1092,
+      "sha256": "17342ee2b04ad73c5935cd49c8f6717a1e5b5836e2394ad673f9c5afa506237b"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/focused-hits-initial.log",
+      "bytes": 2285,
+      "sha256": "7aa130b89a517433e50d49187f9d587eaf990597de68e64b0c1e0c576dd0ae6f"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/focused-hits-verified.log",
+      "bytes": 170,
+      "sha256": "da5a270b567f39028de0feb53c7fc6a770dabafe5cd6c022c7a15e28836c3b75"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/focused-initial.log",
+      "bytes": 380,
+      "sha256": "bf43fba5a5866ce14886b9a0f468e2ae67bcd0d673d9dfd061dd885cf350ee67"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/full-unit.log",
+      "bytes": 6342,
+      "sha256": "b4ae6a0506b554282a9b085bc3a8499f3749965ae9eb4c6c93d97e7023ec14a7"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/initial-runtime-reading.json",
+      "bytes": 3722,
+      "sha256": "7e0014c12d62489b96526cb377ba88ca94c5e7a2abc4747507fbdc2d36faecda"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/lux-schema-correction.log",
+      "bytes": 167,
+      "sha256": "df98ec90340028f2c499fcf8c94501438a7872aaba89ce85c8fa7907653d7c69"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/node-qa.log",
+      "bytes": 658,
+      "sha256": "158b5f0fc1f569a98fccb728dae8a116acd32c5fbf900004bd8da583fdec53b0"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/pre-policy-runtime-reading.json",
+      "bytes": 3620,
+      "sha256": "56303a13e35d119027263f1de3f0a71f1d37dc7bef90f7be71a753e1c46a3603"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1808267,
+      "sha256": "a356a066ff5113204ceca999f7c74a59def04d6a4c7fcb14c30c13b8f0a94d09"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1836110,
+      "sha256": "0a40bbd9da1bdb45d92940ed6bf1c006e8855d76896bf9454c5ad9a3cb9a6e43"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1828778,
+      "sha256": "501a4dbeca11bd0d8fb5214750038fbb409155600260b852ef07517aed3a610e"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1811845,
+      "sha256": "2d741f856ca6f7dffccc3f976aef182126fe70b6ffe17af141fe501cd6c62660"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1819825,
+      "sha256": "e809e742f474abbfff59d0d180715d95aeb9aecd123159583bfff3318a27e789"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1351449,
+      "sha256": "2a514f16e21528bf031a6eff56c3c637f6ba51affc06a9e306deb47f12221cfb"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1826232,
+      "sha256": "b15e7d3dee87bce2eb96955c5c84d510385e2c8f74b03be82948f4e26f558163"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808835,
+      "sha256": "d8cfc8aad312ab4e29a0fe5ac188e720a7214f3ae202bb34b5b0d963b9b7ef17"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/production-summary.json",
+      "bytes": 3191,
+      "sha256": "2dbfd545aebdb6aa0081e70f472466ead471271e6426aab261715797f82706af"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/production-system.mjs",
+      "bytes": 30506,
+      "sha256": "83265d55f3e6e2d817e9e75fb02cce522f5d180558a305fd95d3d8e8dbf6df2a"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/production.log",
+      "bytes": 2852,
+      "sha256": "3a43a61a46c1083171afc098905a070204ecf85c4ad7711bbae93d93d22a77ac"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/source-replay-verification.json",
+      "bytes": 9521,
+      "sha256": "0df96a076e96258a77b73fa18a28346adfe75d938c84f79f9ed7898e641e861d"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/source-verification.log",
+      "bytes": 1380,
+      "sha256": "c97b373becc7780f1fda181f9014ee87b5d4cbd154db07829022843691f69689"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/target-bone-audit.py",
+      "bytes": 2551,
+      "sha256": "4dab823c1b597aaa8c8a0716fa3d49b2a413250e5655e6a41a243b42777aff34"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/target-bone-reading.json",
+      "bytes": 10456,
+      "sha256": "01353fae275eb6d04dfb78ea1075d3ee6897c017adc8c6ae989d6ca861c6b8a1"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/test-masteryi-primary-hit-decode-normal.log",
+      "bytes": 112,
+      "sha256": "be00b61bae9fb6c45bf2268ec79477398a8bbff504c89161cb4fa7d23612991c"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/test-masteryi-primary-hit-decode-optimized.log",
+      "bytes": 112,
+      "sha256": "4e4cea6d1156f2a2a7bca5c97b935d9ca7cf652f8186b235637058173f74ad81"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/test-masteryi-primary-hit-profiles-normal.log",
+      "bytes": 131,
+      "sha256": "e44b81ffff4126549134aec51f740cc09f5783fbe7769244fc590e74795278e3"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/test-masteryi-primary-hit-profiles-optimized.log",
+      "bytes": 131,
+      "sha256": "ebfa04a97f42399dc536fe2aac88ba0b154e048eedf2f31192f3db3d2ba9b6ce"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/test-masteryi-primary-hit-transport-normal.log",
+      "bytes": 110,
+      "sha256": "dc7aefb6c0eca2148321e4b421e0528990dc6eb4d1aa6a4797eb55454f2fa6f7"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/test-masteryi-primary-hit-transport-optimized.log",
+      "bytes": 110,
+      "sha256": "116588b5c5270db4eeb0fc9bba2be08d21f77c63da3d284e6648bfbde2b90574"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/test-masteryi-primary-hits-normal.log",
+      "bytes": 129,
+      "sha256": "91f8e4bb45a681337e8b7fb55bc2c827532e3d2b7ba859b0ea1a638d4054ad91"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/test-masteryi-primary-hits-optimized.log",
+      "bytes": 129,
+      "sha256": "4fc4ace555c8aaeb9719c0fd4c1c46af22c44ce3e8be5029f800a97b6ef4d8b8"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/tsc-implementation.log",
+      "bytes": 105,
+      "sha256": "8772c4fbbdfd73a130801d169de9961debd8654f531f2b998fc5424b2cad8631"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/tsc-initial.log",
+      "bytes": 982,
+      "sha256": "1622b217e3a6112e8118859f0d4f65a9d5a5e483d00f8fbe94ee7dd3a0584ab5"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/tsc-tests.log",
+      "bytes": 105,
+      "sha256": "8772c4fbbdfd73a130801d169de9961debd8654f531f2b998fc5424b2cad8631"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/tsc-verified.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-primary-hit-runtime/verify-exports.py",
+      "bytes": 1625,
+      "sha256": "a820102a6334406530f64d42126c5f7ef4b08396c12e97fd7de0fb03e81658fd"
+    }
+  ]
+}

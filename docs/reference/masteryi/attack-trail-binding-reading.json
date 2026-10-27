@@ -1,0 +1,737 @@
+{
+  "format": 1,
+  "sourcePin": {
+    "path": "docs/reference/masteryi/attack-trail-particles.json",
+    "sha256": "66516333b70c1557feab0b1b69a29bc119dd3675d3b04df36484cd842100c7e1"
+  },
+  "modelSha256": "4295bceeba96cfb15e006d392e7d0f3c480bb51bf8cff8872a9c39fc9873c7ce",
+  "glb": {
+    "path": "public/assets/models/masteryi-base.glb",
+    "bytes": 6487088,
+    "sha256": "7aae9e8e486c34d780113349c4a4d06830a5498a906ff291a49263090da471cc"
+  },
+  "bindings": [
+    {
+      "parent": "Attack1",
+      "parentDefinition": {
+        "mClipNameList": [
+          "{d5c55cfd}",
+          "{ab887b52}"
+        ],
+        "__type": "ParallelClipData"
+      },
+      "atomicClip": "{ab887b52}",
+      "clipDefinition": {
+        "mMaskDataName": "{29bd1970}",
+        "mTrackDataName": "{308026a3}",
+        "mEventDataMap": {
+          "{2d55b65c}": {
+            "mName": "{2d55b65c}",
+            "mStartFrame": 5.0,
+            "mEffectKey": "MasterYi_BA1_Trail",
+            "mParticleEventDataPairList": [
+              {
+                "mBoneName": "C_Buffbone_Glb_Center_Loc",
+                "__type": "ParticleEventDataPair"
+              }
+            ],
+            "mIsLoop": false,
+            "__type": "ParticleEventData"
+          }
+        },
+        "mAnimationResourceData": {
+          "mAnimationFilePath": "assets/characters/masteryi/skins/base/animations/masteryi_2013_attack1.anm",
+          "__type": "AnimationResourceData"
+        },
+        "__type": "AtomicClipData"
+      },
+      "eventKey": "{2d55b65c}",
+      "event": {
+        "mName": "{2d55b65c}",
+        "mStartFrame": 5.0,
+        "mEffectKey": "MasterYi_BA1_Trail",
+        "mParticleEventDataPairList": [
+          {
+            "mBoneName": "C_Buffbone_Glb_Center_Loc",
+            "__type": "ParticleEventDataPair"
+          }
+        ],
+        "mIsLoop": false,
+        "__type": "ParticleEventData"
+      },
+      "pairs": [
+        {
+          "sourcePair": {
+            "mBoneName": "C_Buffbone_Glb_Center_Loc",
+            "__type": "ParticleEventDataPair"
+          },
+          "glbNode": 85,
+          "glbBone": "C_Buffbone_Glb_Center_Loc"
+        }
+      ],
+      "resource": "MasterYi_BA1_Trail"
+    },
+    {
+      "parent": "Attack2",
+      "parentDefinition": {
+        "mClipNameList": [
+          "{0d6139b0}",
+          "{67da3820}"
+        ],
+        "__type": "ParallelClipData"
+      },
+      "atomicClip": "{67da3820}",
+      "clipDefinition": {
+        "mMaskDataName": "{29bd1970}",
+        "mTrackDataName": "{308026a3}",
+        "mEventDataMap": {
+          "{5aaabd3e}": {
+            "mName": "{5aaabd3e}",
+            "mStartFrame": 5.0,
+            "mEffectKey": "MasterYi_BA2_Trail",
+            "mParticleEventDataPairList": [
+              {
+                "mBoneName": "C_Buffbone_Glb_Center_Loc",
+                "__type": "ParticleEventDataPair"
+              }
+            ],
+            "mIsLoop": false,
+            "__type": "ParticleEventData"
+          }
+        },
+        "mAnimationResourceData": {
+          "mAnimationFilePath": "assets/characters/masteryi/skins/base/animations/masteryi_2013_attack2.anm",
+          "__type": "AnimationResourceData"
+        },
+        "__type": "AtomicClipData"
+      },
+      "eventKey": "{5aaabd3e}",
+      "event": {
+        "mName": "{5aaabd3e}",
+        "mStartFrame": 5.0,
+        "mEffectKey": "MasterYi_BA2_Trail",
+        "mParticleEventDataPairList": [
+          {
+            "mBoneName": "C_Buffbone_Glb_Center_Loc",
+            "__type": "ParticleEventDataPair"
+          }
+        ],
+        "mIsLoop": false,
+        "__type": "ParticleEventData"
+      },
+      "pairs": [
+        {
+          "sourcePair": {
+            "mBoneName": "C_Buffbone_Glb_Center_Loc",
+            "__type": "ParticleEventDataPair"
+          },
+          "glbNode": 85,
+          "glbBone": "C_Buffbone_Glb_Center_Loc"
+        }
+      ],
+      "resource": "MasterYi_BA2_Trail"
+    },
+    {
+      "parent": "Crit",
+      "parentDefinition": {
+        "mClipNameList": [
+          "{e1798980}",
+          "{db40631e}"
+        ],
+        "__type": "ParallelClipData"
+      },
+      "atomicClip": "{db40631e}",
+      "clipDefinition": {
+        "mMaskDataName": "{29bd1970}",
+        "mTrackDataName": "{308026a3}",
+        "mEventDataMap": {
+          "{f3056ffb}": {
+            "mName": "{f3056ffb}",
+            "mStartFrame": 8.0,
+            "mEffectKey": "MasterYi_Crit_Trail",
+            "mParticleEventDataPairList": [
+              {
+                "mBoneName": "C_Buffbone_Glb_Center_Loc",
+                "__type": "ParticleEventDataPair"
+              }
+            ],
+            "mIsLoop": false,
+            "__type": "ParticleEventData"
+          }
+        },
+        "mAnimationResourceData": {
+          "mAnimationFilePath": "assets/characters/masteryi/skins/base/animations/masteryi_2013_crit.anm",
+          "__type": "AnimationResourceData"
+        },
+        "__type": "AtomicClipData"
+      },
+      "eventKey": "{f3056ffb}",
+      "event": {
+        "mName": "{f3056ffb}",
+        "mStartFrame": 8.0,
+        "mEffectKey": "MasterYi_Crit_Trail",
+        "mParticleEventDataPairList": [
+          {
+            "mBoneName": "C_Buffbone_Glb_Center_Loc",
+            "__type": "ParticleEventDataPair"
+          }
+        ],
+        "mIsLoop": false,
+        "__type": "ParticleEventData"
+      },
+      "pairs": [
+        {
+          "sourcePair": {
+            "mBoneName": "C_Buffbone_Glb_Center_Loc",
+            "__type": "ParticleEventDataPair"
+          },
+          "glbNode": 85,
+          "glbBone": "C_Buffbone_Glb_Center_Loc"
+        }
+      ],
+      "resource": "MasterYi_Crit_Trail"
+    },
+    {
+      "parent": "Passive",
+      "parentDefinition": {
+        "mClipNameList": [
+          "{85dac0b3}",
+          "{c722c9e7}"
+        ],
+        "__type": "ParallelClipData"
+      },
+      "atomicClip": "{c722c9e7}",
+      "clipDefinition": {
+        "mMaskDataName": "{29bd1970}",
+        "mTrackDataName": "{308026a3}",
+        "mEventDataMap": {
+          "{cf40bfff}": {
+            "mName": "{cf40bfff}",
+            "mStartFrame": 6.0,
+            "mEffectKey": "MasterYi_P_Trail_1",
+            "mParticleEventDataPairList": [
+              {
+                "mBoneName": "C_Buffbone_Glb_Center_Loc",
+                "__type": "ParticleEventDataPair"
+              }
+            ],
+            "mIsLoop": false,
+            "__type": "ParticleEventData"
+          },
+          "{d040c192}": {
+            "mName": "{d040c192}",
+            "mStartFrame": 9.0,
+            "mEffectKey": "MasterYi_P_Trail_2",
+            "mParticleEventDataPairList": [
+              {
+                "mBoneName": "C_Buffbone_Glb_Center_Loc",
+                "__type": "ParticleEventDataPair"
+              }
+            ],
+            "mIsLoop": false,
+            "__type": "ParticleEventData"
+          }
+        },
+        "mAnimationResourceData": {
+          "mAnimationFilePath": "assets/characters/masteryi/skins/base/animations/masteryi_2013_passive.anm",
+          "__type": "AnimationResourceData"
+        },
+        "__type": "AtomicClipData"
+      },
+      "eventKey": "{cf40bfff}",
+      "event": {
+        "mName": "{cf40bfff}",
+        "mStartFrame": 6.0,
+        "mEffectKey": "MasterYi_P_Trail_1",
+        "mParticleEventDataPairList": [
+          {
+            "mBoneName": "C_Buffbone_Glb_Center_Loc",
+            "__type": "ParticleEventDataPair"
+          }
+        ],
+        "mIsLoop": false,
+        "__type": "ParticleEventData"
+      },
+      "pairs": [
+        {
+          "sourcePair": {
+            "mBoneName": "C_Buffbone_Glb_Center_Loc",
+            "__type": "ParticleEventDataPair"
+          },
+          "glbNode": 85,
+          "glbBone": "C_Buffbone_Glb_Center_Loc"
+        }
+      ],
+      "resource": "MasterYi_P_Trail_1"
+    },
+    {
+      "parent": "Passive",
+      "parentDefinition": {
+        "mClipNameList": [
+          "{85dac0b3}",
+          "{c722c9e7}"
+        ],
+        "__type": "ParallelClipData"
+      },
+      "atomicClip": "{c722c9e7}",
+      "clipDefinition": {
+        "mMaskDataName": "{29bd1970}",
+        "mTrackDataName": "{308026a3}",
+        "mEventDataMap": {
+          "{cf40bfff}": {
+            "mName": "{cf40bfff}",
+            "mStartFrame": 6.0,
+            "mEffectKey": "MasterYi_P_Trail_1",
+            "mParticleEventDataPairList": [
+              {
+                "mBoneName": "C_Buffbone_Glb_Center_Loc",
+                "__type": "ParticleEventDataPair"
+              }
+            ],
+            "mIsLoop": false,
+            "__type": "ParticleEventData"
+          },
+          "{d040c192}": {
+            "mName": "{d040c192}",
+            "mStartFrame": 9.0,
+            "mEffectKey": "MasterYi_P_Trail_2",
+            "mParticleEventDataPairList": [
+              {
+                "mBoneName": "C_Buffbone_Glb_Center_Loc",
+                "__type": "ParticleEventDataPair"
+              }
+            ],
+            "mIsLoop": false,
+            "__type": "ParticleEventData"
+          }
+        },
+        "mAnimationResourceData": {
+          "mAnimationFilePath": "assets/characters/masteryi/skins/base/animations/masteryi_2013_passive.anm",
+          "__type": "AnimationResourceData"
+        },
+        "__type": "AtomicClipData"
+      },
+      "eventKey": "{d040c192}",
+      "event": {
+        "mName": "{d040c192}",
+        "mStartFrame": 9.0,
+        "mEffectKey": "MasterYi_P_Trail_2",
+        "mParticleEventDataPairList": [
+          {
+            "mBoneName": "C_Buffbone_Glb_Center_Loc",
+            "__type": "ParticleEventDataPair"
+          }
+        ],
+        "mIsLoop": false,
+        "__type": "ParticleEventData"
+      },
+      "pairs": [
+        {
+          "sourcePair": {
+            "mBoneName": "C_Buffbone_Glb_Center_Loc",
+            "__type": "ParticleEventDataPair"
+          },
+          "glbNode": 85,
+          "glbBone": "C_Buffbone_Glb_Center_Loc"
+        }
+      ],
+      "resource": "MasterYi_P_Trail_2"
+    }
+  ],
+  "resources": {
+    "MasterYi_BA1_Trail": {
+      "sourceBin": "data/characters/masteryi/masteryi_multi_skins_skin0_skins_skin1_skins_skin3_skins_skin4_skins_skin5_skins_skin6_skins_skin7_skins_skin8.bin",
+      "nativeSha256": "8a91c8c0a460e4ef202829f470932370c2262d73973c93fc2d0324b03ed8000c",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_BA1_Trail",
+      "definition": {
+        "complexEmitterDefinitionData": [
+          {
+            "rate": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 0.28999999165534973,
+              "__type": "ValueFloat"
+            },
+            "lifetime": 1.0,
+            "isSingleParticle": 1,
+            "emitterName": "WeaponTrail",
+            "bindWeight": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "EmitterPosition": {
+              "constantValue": [
+                0.0,
+                0.0,
+                -70.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "primitive": {
+              "mMesh": {
+                "mSimpleMeshName": "ASSETS/Characters/MasterYi/Skins/Base/Particles/common_Hecarim_WeaponTrail_1.scb",
+                "__type": "VfxMeshDefinitionData"
+              },
+              "__type": "VfxPrimitiveMesh"
+            },
+            "particleColorTexture": "ASSETS/Characters/MasterYi/Skins/Base/Particles/common_color-rampdown.tex",
+            "disableBackfaceCull": true,
+            "birthScale0": {
+              "constantValue": [
+                0.699999988079071,
+                0.699999988079071,
+                0.699999988079071
+              ],
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/MasterYi/Skins/Base/Particles/MasterYi_White_WeaponTrail_2.tex",
+            "birthUvScrollRate": {
+              "constantValue": [
+                -1.600000023841858,
+                0.0
+              ],
+              "__type": "ValueVector2"
+            },
+            "__type": "VfxEmitterDefinitionData"
+          }
+        ],
+        "particleName": "MasterYi_Base_BA1_Trail",
+        "particlePath": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_BA1_Trail",
+        "objectPath": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_BA1_Trail",
+        "__type": "VfxSystemDefinitionData"
+      }
+    },
+    "MasterYi_BA2_Trail": {
+      "sourceBin": "data/characters/masteryi/masteryi_multi_skins_skin0_skins_skin1_skins_skin3_skins_skin4_skins_skin5_skins_skin6_skins_skin7_skins_skin8.bin",
+      "nativeSha256": "8a91c8c0a460e4ef202829f470932370c2262d73973c93fc2d0324b03ed8000c",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_BA2_Trail",
+      "definition": {
+        "complexEmitterDefinitionData": [
+          {
+            "rate": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 0.2199999988079071,
+              "__type": "ValueFloat"
+            },
+            "lifetime": 1.0,
+            "isSingleParticle": 1,
+            "emitterName": "WeaponTrail",
+            "bindWeight": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "EmitterPosition": {
+              "constantValue": [
+                0.0,
+                -40.0,
+                -20.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "primitive": {
+              "mMesh": {
+                "mSimpleMeshName": "ASSETS/Characters/MasterYi/Skins/Base/Particles/common_Hecarim_WeaponTrail_1.scb",
+                "__type": "VfxMeshDefinitionData"
+              },
+              "__type": "VfxPrimitiveMesh"
+            },
+            "particleColorTexture": "ASSETS/Characters/MasterYi/Skins/Base/Particles/common_color-rampdown.tex",
+            "blendMode": 4,
+            "disableBackfaceCull": true,
+            "texture": "ASSETS/Characters/MasterYi/Skins/Base/Particles/MasterYi_White_WeaponTrail_1.tex",
+            "birthUvScrollRate": {
+              "constantValue": [
+                1.399999976158142,
+                0.0
+              ],
+              "__type": "ValueVector2"
+            },
+            "__type": "VfxEmitterDefinitionData"
+          }
+        ],
+        "particleName": "MasterYi_Base_BA2_Trail",
+        "particlePath": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_BA2_Trail",
+        "objectPath": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_BA2_Trail",
+        "__type": "VfxSystemDefinitionData"
+      }
+    },
+    "MasterYi_Crit_Trail": {
+      "sourceBin": "data/characters/masteryi/masteryi_multi_skins_skin0_skins_skin1_skins_skin3_skins_skin4_skins_skin5_skins_skin6_skins_skin7_skins_skin8.bin",
+      "nativeSha256": "8a91c8c0a460e4ef202829f470932370c2262d73973c93fc2d0324b03ed8000c",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_Crit_Trail",
+      "definition": {
+        "complexEmitterDefinitionData": [
+          {
+            "rate": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 0.15000000596046448,
+              "__type": "ValueFloat"
+            },
+            "lifetime": 1.0,
+            "isSingleParticle": 1,
+            "emitterName": "WeaponTrail",
+            "bindWeight": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "EmitterPosition": {
+              "constantValue": [
+                0.0,
+                50.0,
+                -45.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "primitive": {
+              "mMesh": {
+                "mSimpleMeshName": "ASSETS/Characters/MasterYi/Skins/Base/Particles/common_Hecarim_WeaponTrail_1.scb",
+                "__type": "VfxMeshDefinitionData"
+              },
+              "__type": "VfxPrimitiveMesh"
+            },
+            "particleColorTexture": "ASSETS/Characters/MasterYi/Skins/Base/Particles/common_color-rampdown.tex",
+            "disableBackfaceCull": true,
+            "birthRotation0": {
+              "constantValue": [
+                0.0,
+                0.0,
+                100.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "birthScale0": {
+              "constantValue": [
+                0.699999988079071,
+                1.0,
+                0.699999988079071
+              ],
+              "__type": "ValueVector3"
+            },
+            "texture": "ASSETS/Characters/MasterYi/Skins/Base/Particles/MasterYi_White_WeaponTrail_Crit.tex",
+            "birthUvScrollRate": {
+              "constantValue": [
+                -2.799999952316284,
+                0.0
+              ],
+              "__type": "ValueVector2"
+            },
+            "__type": "VfxEmitterDefinitionData"
+          }
+        ],
+        "particleName": "MasterYi_Base_Crit_Trail",
+        "particlePath": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_Crit_Trail",
+        "objectPath": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_Crit_Trail",
+        "__type": "VfxSystemDefinitionData"
+      }
+    },
+    "MasterYi_P_Trail_1": {
+      "sourceBin": "data/characters/masteryi/masteryi_multi_skins_skin0_skins_skin1_skins_skin3_skins_skin4_skins_skin5_skins_skin6_skins_skin7_skins_skin8.bin",
+      "nativeSha256": "8a91c8c0a460e4ef202829f470932370c2262d73973c93fc2d0324b03ed8000c",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_P_Trail_1",
+      "definition": {
+        "complexEmitterDefinitionData": [
+          {
+            "rate": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 0.2199999988079071,
+              "__type": "ValueFloat"
+            },
+            "lifetime": 1.0,
+            "isSingleParticle": 1,
+            "emitterName": "WeaponTrail",
+            "bindWeight": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "EmitterPosition": {
+              "constantValue": [
+                0.0,
+                -40.0,
+                -20.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "primitive": {
+              "mMesh": {
+                "mSimpleMeshName": "ASSETS/Characters/MasterYi/Skins/Base/Particles/common_Hecarim_WeaponTrail_1.scb",
+                "__type": "VfxMeshDefinitionData"
+              },
+              "__type": "VfxPrimitiveMesh"
+            },
+            "particleColorTexture": "ASSETS/Characters/MasterYi/Skins/Base/Particles/common_color-rampdown.tex",
+            "blendMode": 4,
+            "disableBackfaceCull": true,
+            "texture": "ASSETS/Characters/MasterYi/Skins/Base/Particles/MasterYi_White_WeaponTrail_1.tex",
+            "birthUvScrollRate": {
+              "constantValue": [
+                1.399999976158142,
+                0.0
+              ],
+              "__type": "ValueVector2"
+            },
+            "__type": "VfxEmitterDefinitionData"
+          }
+        ],
+        "particleName": "MasterYi_Base_P_Trail_1",
+        "particlePath": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_P_Trail_1",
+        "objectPath": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_P_Trail_1",
+        "__type": "VfxSystemDefinitionData"
+      }
+    },
+    "MasterYi_P_Trail_2": {
+      "sourceBin": "data/characters/masteryi/masteryi_multi_skins_skin0_skins_skin1_skins_skin3_skins_skin4_skins_skin5_skins_skin6_skins_skin7_skins_skin8.bin",
+      "nativeSha256": "8a91c8c0a460e4ef202829f470932370c2262d73973c93fc2d0324b03ed8000c",
+      "record": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_P_Trail_2",
+      "definition": {
+        "complexEmitterDefinitionData": [
+          {
+            "rate": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "particleLifetime": {
+              "constantValue": 0.1899999976158142,
+              "__type": "ValueFloat"
+            },
+            "lifetime": 1.0,
+            "isSingleParticle": 1,
+            "emitterName": "WeaponTrail",
+            "bindWeight": {
+              "constantValue": 1.0,
+              "__type": "ValueFloat"
+            },
+            "EmitterPosition": {
+              "constantValue": [
+                0.0,
+                -40.0,
+                -20.0
+              ],
+              "__type": "ValueVector3"
+            },
+            "primitive": {
+              "mMesh": {
+                "mSimpleMeshName": "ASSETS/Characters/MasterYi/Skins/Base/Particles/common_Hecarim_WeaponTrail_1.scb",
+                "__type": "VfxMeshDefinitionData"
+              },
+              "__type": "VfxPrimitiveMesh"
+            },
+            "particleColorTexture": "ASSETS/Characters/MasterYi/Skins/Base/Particles/common_color-rampdown.tex",
+            "blendMode": 4,
+            "disableBackfaceCull": true,
+            "texture": "ASSETS/Characters/MasterYi/Skins/Base/Particles/MasterYi_White_WeaponTrail_2.tex",
+            "birthUvScrollRate": {
+              "constantValue": [
+                -3.0999999046325684,
+                0.0
+              ],
+              "__type": "ValueVector2"
+            },
+            "__type": "VfxEmitterDefinitionData"
+          }
+        ],
+        "particleName": "MasterYi_Base_P_Trail_2",
+        "particlePath": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_P_Trail_2",
+        "objectPath": "Characters/MasterYi/Skins/Skin0/Particles/MasterYi_Base_P_Trail_2",
+        "__type": "VfxSystemDefinitionData"
+      }
+    }
+  },
+  "omittedBlendMode": [
+    "MasterYi_BA1_Trail",
+    "MasterYi_Crit_Trail"
+  ],
+  "sourceFiles": [
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_attack1.anm",
+      "wadPathHash": "fc56205a47bf1655",
+      "sha256": "080db524f0a585960ec5d76f4198d893ed47cc7d689365c8c524ad1e49064586",
+      "bytes": 27538
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_attack2.anm",
+      "wadPathHash": "f270dcb52660307f",
+      "sha256": "115a90cdc0521e746b1950075ca1be75d159164ccc81cf119b7e71db21a5d6f1",
+      "bytes": 93524
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_crit.anm",
+      "wadPathHash": "fd8f7ef25ded936e",
+      "sha256": "29ccc45d9148958ddb43fb924a49956bb72ae136c41cecc6a1eb9bbf226a963e",
+      "bytes": 99348
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/animations/masteryi_2013_passive.anm",
+      "wadPathHash": "872702ffe967d829",
+      "sha256": "58a7fe3ace9ed902c81fda08e993bda5b983d4d7b76e147bc46897b4c247345e",
+      "bytes": 102320
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/particles/common_color-rampdown.tex",
+      "wadPathHash": "dba30aea46f8d87f",
+      "sha256": "3fac764e02b2cb8dc91ff01feb7401681e8dffd631f9661a3452d210eea43220",
+      "bytes": 2756
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/particles/common_hecarim_weapontrail_1.scb",
+      "wadPathHash": "c50c28e04b24520d",
+      "sha256": "245641757e8b039187d485d4353664635ad800607b68a7d23344d62effd0c7b1",
+      "bytes": 57716
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/particles/masteryi_white_weapontrail_1.tex",
+      "wadPathHash": "7e6f398c1b239116",
+      "sha256": "6fcbc6941ef3e71a2ae605620ea21afb599c7e91ef89328da154fe91c5071295",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/particles/masteryi_white_weapontrail_2.tex",
+      "wadPathHash": "52a4a423e68d3e41",
+      "sha256": "65327e86b1221a2dbd121616cf253d4b8bc832d3247095115ea9181963d399d7",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/characters/masteryi/skins/base/particles/masteryi_white_weapontrail_crit.tex",
+      "wadPathHash": "cf0e2d42d914fcea",
+      "sha256": "16e839b0a34b0e4a06da29d135363fd413531bb3ae86ae2142e9116653cccbdc",
+      "bytes": 43716
+    },
+    {
+      "path": "data/characters/masteryi/animations/skin0.bin",
+      "wadPathHash": "4679d8d214f61c77",
+      "sha256": "f5bc3c1f71853353fd8869578c90243b7e947c9be787a286803cdd7e8144f132",
+      "bytes": 7859
+    },
+    {
+      "path": "data/characters/masteryi/masteryi_multi_skins_skin0_skins_skin1_skins_skin3_skins_skin4_skins_skin5_skins_skin6_skins_skin7_skins_skin8.bin",
+      "wadPathHash": "1561bab5609df7c1",
+      "sha256": "8a91c8c0a460e4ef202829f470932370c2262d73973c93fc2d0324b03ed8000c",
+      "bytes": 18345
+    },
+    {
+      "path": "data/characters/masteryi/skins/skin0.bin",
+      "wadPathHash": "1d5c271d91e85aed",
+      "sha256": "af5c09a4f0336e735da558fd5973236943766ac072a2b8a989fba75a54860973",
+      "bytes": 9198
+    }
+  ],
+  "limits": [
+    "Source-only complete ordinary, critical and passive trail closure with four parallel parent definitions, eight atomic entries and five particle events. No public asset, renderer, gameplay, schema or app identity change.",
+    "Literal event start frames are 5.0, 5.0, 8.0, 6.0 and 9.0. These clips omit mTickDuration; no seconds, tick offsets, attack-speed scaling, callback ordering or cancellation policy is inferred.",
+    "Opaque animation mask/track hashes remain literal; two passive trail events do not establish two spell-audio callbacks or the secondary Double Strike suffix dispatch.",
+    "Each event names C_Buffbone_Glb_Center_Loc. The unique case-insensitive GLB joint bridge retains both spellings; native transform inheritance, reflection and VFX scale remain uncalibrated.",
+    "All five systems omit soundOnCreateDefault and soundPersistentDefault. No audio is inferred from animation or resource names.",
+    "First ordinary and critical trail emitters omit blendMode, while BA2 and both passive trails author 4. Bind=1, no-cull Boolean, lifetime, offsets, rotations, scales and scrolling are retained without filling omitted defaults.",
+    "All five emitters share one native SCB and use four TEX assets. Mesh flags/tail, face streams, sampler behavior and shader dispatch require their own byte-preserving transport and native calibration."
+  ]
+}

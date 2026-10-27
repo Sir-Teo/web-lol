@@ -1,0 +1,1045 @@
+{
+  "format": 1,
+  "parentCommit": "066f8c0ca85213fed94d8b2cd2ee53ca0fa0aff9",
+  "identity": {
+    "schema": 160,
+    "rulesetFingerprint": "d475b0748332b1e7542cadcf2345a1a5fd877eb075ed8d88e31e11bf05898861",
+    "offlinePack": {
+      "id": "8ca5703641f3ecc2808c50aadace43845e6a30102d91ad714bfe03ab45d4ddff",
+      "files": 1185,
+      "bytes": 537176776
+    }
+  },
+  "scope": "Complete current ordinary Attack1 and critical primary trail systems, retained rendered-sample marker clocks, saved rolling visibility roots, current full center-joint attachment and finite tails. Reuse existing accepted attack admissions, verified mip/geometry caches and current shader adapters. Keep private assets out of ordinary production startup.",
+  "sourcePins": [
+    {
+      "path": "docs/reference/masteryi/attack-trail-particles.json",
+      "bytes": 26723,
+      "sha256": "66516333b70c1557feab0b1b69a29bc119dd3675d3b04df36484cd842100c7e1"
+    },
+    {
+      "path": "docs/reference/masteryi/attack-trail-binding-reading.json",
+      "bytes": 26481,
+      "sha256": "e689b3cb1e440e6e4c3b8161a43c2e19e84522128c76e6e3ff17748d50ce6950"
+    },
+    {
+      "path": "docs/reference/masteryi/attack-trail-particles-decoded.json",
+      "bytes": 29959,
+      "sha256": "93bf9c506872bd7ba6d47e74588133b559c6e8f26ea548abff7e75878bcd27e1"
+    },
+    {
+      "path": "docs/reference/masteryi/attack-trail-texture-transport.json",
+      "bytes": 10828,
+      "sha256": "877c8dcc1750c70226ba5f08c56fb3d2621dac3d75fc95e598e3c05ddf6b363b"
+    },
+    {
+      "path": "docs/reference/masteryi/attack-trail-mesh-transport.json",
+      "bytes": 1634,
+      "sha256": "a7b5eb7e27d0f0ff64627a0eb256fb8643718ccd1d12a105e61f8bdf7fcc1673"
+    },
+    {
+      "path": "public/assets/models/masteryi-base.glb",
+      "bytes": 6487088,
+      "sha256": "7aae9e8e486c34d780113349c4a4d06830a5498a906ff291a49263090da471cc"
+    },
+    {
+      "path": "src/render/source-particle-surfaces.ts",
+      "bytes": 20350,
+      "sha256": "350c3dd411941f039a61d4b08d3b691ae2cfe1f20e43e4eaf38b45dbc4e80590"
+    },
+    {
+      "path": "src/render/masteryi-source-geometry.ts",
+      "bytes": 212,
+      "sha256": "b1a1cf1776b622df57a0a68d8dba8b7167c46e8b0e6f416e51f97c94a9be70c1"
+    },
+    {
+      "path": "src/render/masteryi-source-textures.ts",
+      "bytes": 298,
+      "sha256": "4a7d461284da5e55897d5be3038f6b7cbc171b4a757314ed4079ad5b441137ac"
+    },
+    {
+      "path": "src/render/mobile-pose.ts",
+      "bytes": 10735,
+      "sha256": "eb9ebfdcdad233925b6342f867c8ecbc54afb9a94eea84b494ec16067da572a3"
+    },
+    {
+      "path": "src/simulation/actor-root-history.ts",
+      "bytes": 2809,
+      "sha256": "6ce5ab72c5b54091b20f0a962fec3b7a8599e49f2c7c679c53656042be32d59f"
+    },
+    {
+      "path": "tests/lane-rules.test.ts",
+      "bytes": 5533,
+      "sha256": "d12c8deaba4ba8933dca9a045b1eeae20b1869167f5b9e1fcf0dbfc39e8c1d4a"
+    }
+  ],
+  "sourceArchive": {
+    "path": ".cache/masteryi-primary-trail-runtime/final-source-index.json",
+    "bytes": 7290,
+    "sha256": "25dbfea21055f555e082738125cf25f715f0c674ab8a4897937fb76cef6d9ac3"
+  },
+  "generated": [
+    {
+      "path": "README.md",
+      "bytes": 17781,
+      "sha256": "13b5e55dae7c3a3a18b64def42912ab0556aa07e1ea8ed2d6d0a7e5ba1fcf115",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/README.md"
+    },
+    {
+      "path": "docs/MASTER-YI-PRIMARY-TRAILS.md",
+      "bytes": 2604,
+      "sha256": "9e3d74dd3b4ab07c36feec290f30bf14729356f36e3b1eca94a30c3e1279037b",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/docs/MASTER-YI-PRIMARY-TRAILS.md"
+    },
+    {
+      "path": "docs/SAVES.md",
+      "bytes": 63181,
+      "sha256": "765af60e3a35df9c0490f3f8705f6e82b522a8e6892da3b35f30828f8de2328b",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/docs/SAVES.md"
+    },
+    {
+      "path": "docs/reference/masteryi/primary-trail-runtime-reading.json",
+      "bytes": 2299,
+      "sha256": "ad72ca22c3a95cec9723468123ff3f1a630dc355cfb66d1fbda014f2075747f9",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/docs/reference/masteryi/primary-trail-runtime-reading.json"
+    },
+    {
+      "path": "e2e/masteryi-primary-trails.spec.ts",
+      "bytes": 20355,
+      "sha256": "80c89ab8f9802c169f816c412f32ebda3aee01dc97023c7e3ce37258f5fa1d64",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/e2e/masteryi-primary-trails.spec.ts"
+    },
+    {
+      "path": "public/assets/effects/masteryi-primary-trail-52a4a423e68d3e41.png",
+      "bytes": 9611,
+      "sha256": "83ae474e0009a1ddc3668c18ef0dd00e57d831a898537924b6dc47784b736d0c",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/public/assets/effects/masteryi-primary-trail-52a4a423e68d3e41.png"
+    },
+    {
+      "path": "public/assets/effects/masteryi-primary-trail-cf0e2d42d914fcea.png",
+      "bytes": 10186,
+      "sha256": "95e438ccce22641aebd677028380c62069b6a9b105c64a573c75f6d5d7c05bb7",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/public/assets/effects/masteryi-primary-trail-cf0e2d42d914fcea.png"
+    },
+    {
+      "path": "public/assets/models/masteryi-primary-trail.glb",
+      "bytes": 38976,
+      "sha256": "dcda4441fb23413a7672b2aa26e23f1bda81920353d25c6e0f3168b0055450b2",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/public/assets/models/masteryi-primary-trail.glb"
+    },
+    {
+      "path": "src/content/masteryi-primary-trail-particles.json",
+      "bytes": 23019,
+      "sha256": "adbee13c3b7a8ab516cf60d656cf61e2501a3c5aaf3672b2e93239a7cbfb8fbe",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/src/content/masteryi-primary-trail-particles.json"
+    },
+    {
+      "path": "src/content/masteryi-primary-trail-timing.ts",
+      "bytes": 368,
+      "sha256": "d7cbd672831b0aa272b594c1be6cf23f85911b563c52c5f6177fd5ffda399697",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/src/content/masteryi-primary-trail-timing.ts"
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 21676,
+      "sha256": "27c875caa4bc3c3af4eaa9a777a25f487f94aba6cc8560690822e689d02a0e36",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/src/main.ts"
+    },
+    {
+      "path": "src/render/lazy-masteryi-primary-trails.ts",
+      "bytes": 1521,
+      "sha256": "d5f867051e68d75820844fbbdd60621ccfa65840996e64ee5e40bb33d1aabe0d",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/src/render/lazy-masteryi-primary-trails.ts"
+    },
+    {
+      "path": "src/render/masteryi-primary-trail-particles.ts",
+      "bytes": 3397,
+      "sha256": "76252c09e2264c2789bfcca619be17c1647c57976c2ea6431ce68eda3c301dfa",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/src/render/masteryi-primary-trail-particles.ts"
+    },
+    {
+      "path": "src/render/masteryi-primary-trails.ts",
+      "bytes": 7180,
+      "sha256": "73cb93133d6af057b80f4c2e60d268a1afa167d5eb8c5ea035fa8a4a199cd002",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/src/render/masteryi-primary-trails.ts"
+    },
+    {
+      "path": "src/render/view.ts",
+      "bytes": 63156,
+      "sha256": "b5b87ea9d369ab15b52459a09d562efec5b7df9e764ec26f7195a74726173b8d",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/src/render/view.ts"
+    },
+    {
+      "path": "src/simulation/masteryi-aa-presentation.ts",
+      "bytes": 4837,
+      "sha256": "3a17216cb196ae4b749f6f08a7c8af22efdd74109b72980604345f976570f564",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/src/simulation/masteryi-aa-presentation.ts"
+    },
+    {
+      "path": "src/simulation/masteryi-primary-trails.ts",
+      "bytes": 3468,
+      "sha256": "fa7dac6103c63fc9a7c6d0b58a6a2cbf57abc123df66a5715716c59611bda7f7",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/src/simulation/masteryi-primary-trails.ts"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "bytes": 186152,
+      "sha256": "8f0bbb211a52792b7527177faa43813c55f44ee8f1b31283794cb540b38ce21c",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/src/simulation/snapshot.ts"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "bytes": 295590,
+      "sha256": "03073b964991be2641eedddfa25817a3ca259f32e15ada67f9337a2d218f0b6b",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/src/simulation/world.ts"
+    },
+    {
+      "path": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "b580da3956eb163670dcb00e36a4f902d5b615539917fabeca1aec7f354840b6",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/tests/lux-e-hit.test.ts"
+    },
+    {
+      "path": "tests/masteryi-aa-audio.test.ts",
+      "bytes": 8275,
+      "sha256": "bae5bee9079cb2640c62afc7c815e5a10e4c61fa29cc6c22c52fb22008eb6456",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/tests/masteryi-aa-audio.test.ts"
+    },
+    {
+      "path": "tests/masteryi-primary-trails.test.ts",
+      "bytes": 9114,
+      "sha256": "a411544e782c09dbe033538a4e863ba355371ad98134c2d7082f0d86a55ea1a6",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/tests/masteryi-primary-trails.test.ts"
+    },
+    {
+      "path": "tools/assets/export-masteryi-primary-trails.py",
+      "bytes": 7864,
+      "sha256": "9ec46f9e4f460a5c43527c254471c313f44fd9abd46fafcebc77efbb7d167908",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/tools/assets/export-masteryi-primary-trails.py"
+    },
+    {
+      "path": "tools/assets/masteryi_primary_trail_particles.py",
+      "bytes": 3558,
+      "sha256": "8485899c2c1b28b0edd8c0d46e629b409118a1f69559ecfa23a54b9ffee419c5",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/tools/assets/masteryi_primary_trail_particles.py"
+    },
+    {
+      "path": "tools/assets/test-masteryi-primary-trails.py",
+      "bytes": 5080,
+      "sha256": "97bff68f0bb703fc9ce1507169aa3956f9665380e6fe5b3701317332f0e6a646",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/tools/assets/test-masteryi-primary-trails.py"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 29682,
+      "sha256": "2afb3544b55ffe4de848a79787ef118717b8dab8378d6ff5e3c2b4de4cdd1c1b",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/tools/qa/production-subpath.mjs"
+    },
+    {
+      "path": "tools/ruleset-fingerprint.ts",
+      "bytes": 12684,
+      "sha256": "3ebc5779948a4ac03fd6b6e7bf842cd6fb0d9ac960a5d948420a297694814bd8",
+      "archived": ".cache/masteryi-primary-trail-runtime/final-source/tools/ruleset-fingerprint.ts"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/DESIGN.md",
+      "bytes": 2054,
+      "sha256": "e72ee68f095e5a76e94cb2a161fda23c23510fd528beb27a717f3633adfbf38c"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-expanded/.last-run.json",
+      "bytes": 145,
+      "sha256": "521076e50083f9b8f90d334bf79d505d94a11f60dcda80c3cff729d5b4b1ce57"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-expanded/masteryi-primary-trails-ca-61db2--tails-preserve-saved-state/primary-visibility-terminal.json",
+      "bytes": 182,
+      "sha256": "3a9dac88e5e4a179df8e2d8bf95656e298deb0e550b6f0246a15b4b5e1bc0436"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-expanded/masteryi-primary-trails-hi-42141-nd-restores-an-exact-future/error-context.md",
+      "bytes": 4412,
+      "sha256": "3bd01ff2a32864406b5a9dd3969e8654b759b7f3973d49a5f33d997838e7adfa"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-expanded/masteryi-primary-trails-hi-42141-nd-restores-an-exact-future/test-failed-1.png",
+      "bytes": 879387,
+      "sha256": "636ee94baddb5f6691f8d4c0b973e5bde0ed19855c799a6b0f43dc49856bb05f"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-expanded/masteryi-primary-trails-hi-42141-nd-restores-an-exact-future/trace.zip",
+      "bytes": 44835215,
+      "sha256": "4a5ab4a6afbc96184af8a93ca039f59278f10931c3c5729f73eb89587378e3d8"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-expanded/masteryi-primary-trails-or-3fe7b-reserves-verified-resources/error-context.md",
+      "bytes": 13625,
+      "sha256": "a5ad7fc26011792ece2e387c35ef8a3bd76adef9e89bd6be77f87ba0d026abe0"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-expanded/masteryi-primary-trails-or-3fe7b-reserves-verified-resources/test-failed-1.png",
+      "bytes": 918018,
+      "sha256": "eef2e1a66ca580e8a1ab6bf2538f1681dc734ae8aeac5ea3263d2eb7ffd7b972"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-expanded/masteryi-primary-trails-or-3fe7b-reserves-verified-resources/trace.zip",
+      "bytes": 33169104,
+      "sha256": "c33639031e08169eaae1e59bf57d405be3b42ff96089269f9f9a6896b2573d20"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-expanded/masteryi-primary-trails-pr-5e614-nt-frames-and-saved-futures/critical-primary-trail.png",
+      "bytes": 804580,
+      "sha256": "72e75f8b77b61969c064f029134c8d86708c1b1e7336a4b4ded12cda39ca4ef0"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-expanded/masteryi-primary-trails-pr-5e614-nt-frames-and-saved-futures/primary-trail-gpu-save.json",
+      "bytes": 35148,
+      "sha256": "4f9a5ffb2d240a7f1405aa2dff2e32a4bf1ad35796ce8f0acbe8a14c9315820a"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-expanded.log",
+      "bytes": 7096,
+      "sha256": "68934791337cb5925d67012be3c83b05c757c67722be050fe27c4641db65653f"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/masteryi-aa-audio-Leona-us-0f1eb-i-saves-and-reloads-exactly/champion-material-save.json",
+      "bytes": 147588,
+      "sha256": "581331d1e9b5b2d3ac8d60653210852a17c387c291d95175c10b22178754fb5f"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/masteryi-aa-audio-all-24-s-f1d7b-n-real-browser-AudioBuffers/float-masters.json",
+      "bytes": 3535,
+      "sha256": "a8a10ff0da6d90cbff04d60b105bfff780887f158cd131b1d0edb843fdb8ed0a"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/masteryi-aa-audio-critical-1e38e-sted-seek-and-future-impact/attack-save-reload.json",
+      "bytes": 20421,
+      "sha256": "e4825d7557c4e54f2558814b76a294dcf07b5cdd30218714f5d6b696d864f19c"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/masteryi-aa-audio-normal-a-21368-hout-synthesized-duplicates/attack-playback.json",
+      "bytes": 3079,
+      "sha256": "01ff1c450145c4b906d03e8da33429710ada066783fc314c21b66b9eb7ef534a"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/masteryi-aa-audio-normal-m-e3a69-sted-seek-and-future-impact/attack-save-reload.json",
+      "bytes": 20201,
+      "sha256": "71c2782c2693fff4a9a364f9cfe3e5d6f9df5d33b49f9fb1028fcdd72b0e6f83"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/masteryi-aa-audio-ordinary-a67df-hes-each-unique-master-once/late-presence.json",
+      "bytes": 27,
+      "sha256": "2a7f156bfc7a3e435d6932b307fdde050ac0182e871c5712b084c6427ef48bf9"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/masteryi-primary-trails-ca-61db2--tails-preserve-saved-state/primary-visibility-terminal.json",
+      "bytes": 182,
+      "sha256": "3a9dac88e5e4a179df8e2d8bf95656e298deb0e550b6f0246a15b4b5e1bc0436"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/masteryi-primary-trails-hi-42141-nd-restores-an-exact-future/primary-hidden-birth.json",
+      "bytes": 74,
+      "sha256": "49426eec36806fd45cc5aa9b17b1e4d9593bd172e704ec0cf94da1cdb480196b"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/masteryi-primary-trails-or-3fe7b-reserves-verified-resources/primary-selective-retry.json",
+      "bytes": 750,
+      "sha256": "2453f57736b32bc02f7f6cd2eeed468b40841767523c0a9f6aa067f87dd420ff"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/masteryi-primary-trails-pr-5e614-nt-frames-and-saved-futures/critical-primary-trail.png",
+      "bytes": 804580,
+      "sha256": "72e75f8b77b61969c064f029134c8d86708c1b1e7336a4b4ded12cda39ca4ef0"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/masteryi-primary-trails-pr-5e614-nt-frames-and-saved-futures/primary-trail-gpu-save.json",
+      "bytes": 35148,
+      "sha256": "03425735a9239a7587857fd03fc5462cd1c4d9556f970cec23432a4fea7ddf73"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/masteryi-sword-glows-e-alo-adc74-le-Meditate-pauses-the-buff/e-during-meditate.png",
+      "bytes": 827272,
+      "sha256": "a2225f5e863ca29aa8a46f37e97d55bfe41c1b4714b952473235efe96b8896ee"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/masteryi-sword-glows-e-alo-adc74-le-Meditate-pauses-the-buff/single-condition.json",
+      "bytes": 47383,
+      "sha256": "c8523b85412b3c52f7f0889df66b122e3cf6000957d9a11c005701ba5c4bf522"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/masteryi-sword-glows-hidde-4bb4d-ls-preserve-the-saved-world/sword-visibility-terminal.json",
+      "bytes": 668,
+      "sha256": "db3dd51a0de1fdb8e7d3610e536bec20e84af9bcb641bc073314d2933e2cf9c1"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/masteryi-sword-glows-ordin-f0b1e-retains-verified-transports/sword-retry.json",
+      "bytes": 866,
+      "sha256": "9a40402899f931dc133b65a0b0150526abadc27aa3fdd98f2de4c5958dfeb452"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/masteryi-sword-glows-r-alo-b321a-le-Meditate-pauses-the-buff/r-during-meditate.png",
+      "bytes": 826373,
+      "sha256": "c11af20e8be82017c15416cab08e90d8398baa8b2cc1eb00480de9fbd605900f"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/masteryi-sword-glows-r-alo-b321a-le-Meditate-pauses-the-buff/single-condition.json",
+      "bytes": 18796,
+      "sha256": "eb7cf4f1cf54ef8a30e91181c81a75fd70a5cc1a21c38d125647a9b27d52ad96"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/masteryi-sword-glows-real--9d74d-store-exact-saved-particles/active-three-mip-readback.json",
+      "bytes": 13682,
+      "sha256": "fb9416a436c06d8ec832e01d111de838dfc28d49fd071630fe169dcbe0e4641c"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/masteryi-sword-glows-real--9d74d-store-exact-saved-particles/actual-joint-transforms.json",
+      "bytes": 8708,
+      "sha256": "b62b0363990aa064280aa2ada662802f46921f247b000caaa7c4061a4eaad52a"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/masteryi-sword-glows-real--9d74d-store-exact-saved-particles/e-r-sword-glows.png",
+      "bytes": 864866,
+      "sha256": "cb1ca2e114e4a113362a271fd8a291a25578ec93cfb8b117aa833449bc0bc4d0"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/masteryi-sword-glows-real--9d74d-store-exact-saved-particles/ordinary-family-pixel-coverage.json",
+      "bytes": 1350,
+      "sha256": "3dff3ab5df498653bd49b588760835b2d17deb0c5034009c1c4a11d9cc655233"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final/masteryi-sword-glows-real--9d74d-store-exact-saved-particles/sword-save-reload.json",
+      "bytes": 188556,
+      "sha256": "1f1771ef7c3c9dd9bb17662e09505a1d0a9b0c0b863629f3b5960f6676dd522f"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-final.log",
+      "bytes": 7538,
+      "sha256": "75799df137718803bc4bfcfc1c0f204f334a975f753c3a085ea6af15187f03bd"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-fixture-fixed/.last-run.json",
+      "bytes": 96,
+      "sha256": "e53836ae3aa7acd70bada92bcfa83bc23936000c59ab4810b461de15c83cba5d"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-fixture-fixed/masteryi-primary-trails-ca-61db2--tails-preserve-saved-state/primary-visibility-terminal.json",
+      "bytes": 182,
+      "sha256": "3a9dac88e5e4a179df8e2d8bf95656e298deb0e550b6f0246a15b4b5e1bc0436"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-fixture-fixed/masteryi-primary-trails-hi-42141-nd-restores-an-exact-future/primary-hidden-birth.json",
+      "bytes": 74,
+      "sha256": "49426eec36806fd45cc5aa9b17b1e4d9593bd172e704ec0cf94da1cdb480196b"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-fixture-fixed/masteryi-primary-trails-or-3fe7b-reserves-verified-resources/error-context.md",
+      "bytes": 13581,
+      "sha256": "c25b77aa5e1b7f22ad8bc495f00f0037b09e070be0ae6c452fc682d328c309c2"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-fixture-fixed/masteryi-primary-trails-or-3fe7b-reserves-verified-resources/test-failed-1.png",
+      "bytes": 490496,
+      "sha256": "33297b32e7ad134057ec3d02b1ee6f8098d16ea856c3643d80fc5f7ed1dd0313"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-fixture-fixed/masteryi-primary-trails-or-3fe7b-reserves-verified-resources/trace.zip",
+      "bytes": 44195868,
+      "sha256": "1bead2a4f7c16f639d5a10c5cb3808024848455f53286f8fbfbdb0819813ca33"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-fixture-fixed/masteryi-primary-trails-pr-5e614-nt-frames-and-saved-futures/critical-primary-trail.png",
+      "bytes": 804580,
+      "sha256": "72e75f8b77b61969c064f029134c8d86708c1b1e7336a4b4ded12cda39ca4ef0"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-fixture-fixed/masteryi-primary-trails-pr-5e614-nt-frames-and-saved-futures/primary-trail-gpu-save.json",
+      "bytes": 35148,
+      "sha256": "4f9a5ffb2d240a7f1405aa2dff2e32a4bf1ad35796ce8f0acbe8a14c9315820a"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-fixture-fixed.log",
+      "bytes": 5239,
+      "sha256": "4235e05299c186401759a486884038351e73c088ad35b11bccc2ef4bf0667f2c"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-geometry/.last-run.json",
+      "bytes": 96,
+      "sha256": "56e7b2d45602af6c467b4d116575114374ac6c46256fbb55bb9b93e37b458202"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-geometry/masteryi-primary-trails-pr-5e614-nt-frames-and-saved-futures/error-context.md",
+      "bytes": 4470,
+      "sha256": "4d779cafb19c36fc326609cd03a88087951047a8a1b670f9ad42ed87f4a792f1"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-geometry/masteryi-primary-trails-pr-5e614-nt-frames-and-saved-futures/test-failed-1.png",
+      "bytes": 804580,
+      "sha256": "72e75f8b77b61969c064f029134c8d86708c1b1e7336a4b4ded12cda39ca4ef0"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-geometry/masteryi-primary-trails-pr-5e614-nt-frames-and-saved-futures/trace.zip",
+      "bytes": 43959671,
+      "sha256": "a95a9376586235358043f57656c6e48234ea1ad84c134373128464c6138aa4dc"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-geometry.log",
+      "bytes": 3165,
+      "sha256": "193d49e2b6420381144423f7b2b4bb27759f00ff6beb4eb284f19748ba268931"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-gpu-save/.last-run.json",
+      "bytes": 96,
+      "sha256": "56e7b2d45602af6c467b4d116575114374ac6c46256fbb55bb9b93e37b458202"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-gpu-save/masteryi-primary-trails-pr-5e614-nt-frames-and-saved-futures/critical-primary-trail.png",
+      "bytes": 804580,
+      "sha256": "72e75f8b77b61969c064f029134c8d86708c1b1e7336a4b4ded12cda39ca4ef0"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-gpu-save/masteryi-primary-trails-pr-5e614-nt-frames-and-saved-futures/error-context.md",
+      "bytes": 10689,
+      "sha256": "b3bcf08ab152670cdb245d3835af8c23eb9d4bc1a267a7107e2d6fae141c0d6c"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-gpu-save/masteryi-primary-trails-pr-5e614-nt-frames-and-saved-futures/test-failed-1.png",
+      "bytes": 804580,
+      "sha256": "72e75f8b77b61969c064f029134c8d86708c1b1e7336a4b4ded12cda39ca4ef0"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-gpu-save/masteryi-primary-trails-pr-5e614-nt-frames-and-saved-futures/trace.zip",
+      "bytes": 44322746,
+      "sha256": "553311235b306204e34e337febad827271753f1bfe1683ce21b282af0714acb8"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-gpu-save.log",
+      "bytes": 3313,
+      "sha256": "fc3d2f27d0e1abdb92dea91c5b81e7ef148b8f69f0e02423af5d7703cd983b77"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-initial/.last-run.json",
+      "bytes": 96,
+      "sha256": "56e7b2d45602af6c467b4d116575114374ac6c46256fbb55bb9b93e37b458202"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-initial/masteryi-primary-trails-pr-5e614-nt-frames-and-saved-futures/error-context.md",
+      "bytes": 4191,
+      "sha256": "050f6b1f2247b888a027117ad74175f8e7744d05554b6dfe0d5c18194c9321c8"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-initial/masteryi-primary-trails-pr-5e614-nt-frames-and-saved-futures/test-failed-1.png",
+      "bytes": 804580,
+      "sha256": "72e75f8b77b61969c064f029134c8d86708c1b1e7336a4b4ded12cda39ca4ef0"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-initial/masteryi-primary-trails-pr-5e614-nt-frames-and-saved-futures/trace.zip",
+      "bytes": 44744596,
+      "sha256": "98045a2b9abf8b8ca9d3041d9465eca37cf5961f5c9fae33fb609eedcc725090"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-initial.log",
+      "bytes": 2882,
+      "sha256": "58bce9b9280d910961016a7290310435b23d32d11db4f2dcd11b0a1918588865"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-save-fixed/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-save-fixed/masteryi-primary-trails-pr-5e614-nt-frames-and-saved-futures/critical-primary-trail.png",
+      "bytes": 804580,
+      "sha256": "72e75f8b77b61969c064f029134c8d86708c1b1e7336a4b4ded12cda39ca4ef0"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-save-fixed/masteryi-primary-trails-pr-5e614-nt-frames-and-saved-futures/primary-trail-gpu-save.json",
+      "bytes": 35102,
+      "sha256": "78ef56f57b34b30be1727f51f9666d07e28fd6c86e616ad2c82b3e64b6ff3329"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/browser-save-fixed.log",
+      "bytes": 807,
+      "sha256": "5801aa6cd690696517c2ba8e1c47cc9805e83a9cc0cf5057b9fde98a9a0cfcab"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/build.log",
+      "bytes": 7486,
+      "sha256": "c77492bc363edee6d2ba80374d1311d4133506d9ec4d590208770bc89e1874a0"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/capture-identity.py",
+      "bytes": 924,
+      "sha256": "7055f4fea6f506e3cc7c9b8779cedeccb3d091ec22309703c57758f7eede195e"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/check-normal.log",
+      "bytes": 98,
+      "sha256": "82b20c9031fdd4fb250482c99e00eff18165d4aafae2eb15113b97d9923a4594"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/check-optimized.log",
+      "bytes": 98,
+      "sha256": "82b20c9031fdd4fb250482c99e00eff18165d4aafae2eb15113b97d9923a4594"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/check-phase.json",
+      "bytes": 498,
+      "sha256": "0fcc709c80ca2c58c3a55e929cd1fe9a11fda6568fdd3e7c325c3dfd769cec54"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/export-check.log",
+      "bytes": 98,
+      "sha256": "82b20c9031fdd4fb250482c99e00eff18165d4aafae2eb15113b97d9923a4594"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/export-initial.log",
+      "bytes": 98,
+      "sha256": "82b20c9031fdd4fb250482c99e00eff18165d4aafae2eb15113b97d9923a4594"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/final-source-index.json",
+      "bytes": 7290,
+      "sha256": "25dbfea21055f555e082738125cf25f715f0c674ab8a4897937fb76cef6d9ac3"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/finish-checks.py",
+      "bytes": 1672,
+      "sha256": "00d956aa12e8e2c9ac06402089fe97a388ead716004864ede7506d5963202b70"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/focused-final.log",
+      "bytes": 1565,
+      "sha256": "6f8e176ebd5575d4a664fd46d01a06d8f8fca177447b13a80bb97b6dcfc2306f"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/focused-initial-wave-timeout.log",
+      "bytes": 1565,
+      "sha256": "6f8e176ebd5575d4a664fd46d01a06d8f8fca177447b13a80bb97b6dcfc2306f"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/format-audio-fixture.log",
+      "bytes": 50,
+      "sha256": "0a2a69a3e4d9c9816c650b5c0bbd473d949e070d3b1f07a09949a81b0ba77009"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/format-browser-more.log",
+      "bytes": 42,
+      "sha256": "4201af4a7869b57ecf2b550b749c9b5a48bac5b8b32783511839e7af7eeec79d"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/format-browser.log",
+      "bytes": 42,
+      "sha256": "658b70094b312b69ff1a312220839f075fdcb42dd22045cc4266b9c376b0d516"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/format-fixture-fixes.log",
+      "bytes": 42,
+      "sha256": "c139c025a64f0e6fedb4bd571b88cd8fa1f8c909ef9206d32ba9a5513756718d"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/format-geometry-check.log",
+      "bytes": 42,
+      "sha256": "234bab6b331efb60112c12529027aaf3c4d85fb5baab67adcea5651ad9bc329c"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/format-render.log",
+      "bytes": 298,
+      "sha256": "a28baf5420f1b93a1b24b181df63ad8a76b1a3bfb3e3ebd62816228439b9aa76"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/format-save-fixture.log",
+      "bytes": 54,
+      "sha256": "b9bd4294770fd4cecae59ed196b99c09952e5d1f7a419fef42677be4fb1ba014"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/format-startup.log",
+      "bytes": 166,
+      "sha256": "ad930dcf33b47fa5c9ffcf5ff0e1b51a5ea0e09fc81ea713d8d473877c44e305"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/format-state.log",
+      "bytes": 273,
+      "sha256": "f7738f95a1fae5226da0b573e11be30b06097bc61c3ee06caa3c554c62d54169"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/format-tests.log",
+      "bytes": 91,
+      "sha256": "d4520ccc0ada4b52a558fbb2643df331f59d9bf71f7bb3ce0b127b7a6bd88820"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/format-uv-fixture.log",
+      "bytes": 44,
+      "sha256": "acce9b090dd854e0f1848a08a573c778b59dd7f834660988104007f7004ffec7"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/full-unit.log",
+      "bytes": 5486,
+      "sha256": "b15976edeb6a304ace84ede26be3c4cc0191e7f103b32794602e2fbb89b4bede"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/guards-initial.log",
+      "bytes": 124,
+      "sha256": "95a74552588cfc046446fd1d1c03599542338cae19eaf21ecbf139b60fbddf00"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/guards-normal.log",
+      "bytes": 124,
+      "sha256": "657e967f868a9f37b091a37f8a86bce7de5f65279323f000469f44404c4b01a6"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/guards-optimized.log",
+      "bytes": 124,
+      "sha256": "20ec5e69633e4bbb807c9652e8d964e01531ba519bfa33e44831b7acc9ba9548"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/identity.json",
+      "bytes": 256,
+      "sha256": "512ee9e903205d11261edd0e6af6e42e24ff01b5e91c20691c9e6bf133b0c48f"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/marker-probe.json",
+      "bytes": 529,
+      "sha256": "4d44e5e2435c94b84161ac45507069048767281db77eb9adb5fc63d63d21e011"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/marker-probe.py",
+      "bytes": 1191,
+      "sha256": "32cabc9a034dbd7673e43b7f620b50f65e584fe5ce16e955aa4d6d8ef8786864"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/node-qa.log",
+      "bytes": 371,
+      "sha256": "d48a7c836461a16c3051822ef6566d6d3fef483ece45d8cd49c95eac636acd81"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/offline-pack.json",
+      "bytes": 169953,
+      "sha256": "f5370ec58a41e63bf2695ab79462ecb8bdea97f91f3607c29c7e85706e40cc30"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/parent-checkout.log",
+      "bytes": 2586,
+      "sha256": "3c479fed1f86b71602d2d15aeb38c838a17a030110d0be03168fea6c9ed9bfb8"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/pipeline-final.log",
+      "bytes": 298,
+      "sha256": "72ae18e49b888a217420a26d2f6011b78ea1aa9b75a46dcdca67b1e96823f533"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/pipeline.log",
+      "bytes": 93,
+      "sha256": "e198949434f90c50879ad4e8557b55c7b5533e80e12987b12d19a27414fb5750"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1813894,
+      "sha256": "0a97f41ebb5c3e74a89252a3abc580295e0f42db3406c2f11ee240fa0699598c"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835826,
+      "sha256": "6417bdebe358fe5084e6d8b88c7e35c08dc19018ea28e8c2dd2ff680e4891aee"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1829658,
+      "sha256": "217e8048c2a370024f8d3fd4ad6e12c6f017c63784a7f5492d3e0ff9e1c810ad"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1811923,
+      "sha256": "5b8614e9ffa3f030a6b3e2ff3f253851b505ca40a372069b8f26f924290177ba"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1816220,
+      "sha256": "7dff58a342a2ec79d0aacd858149b0fcd160559524052d5d52c7e5b16d727bdb"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1351356,
+      "sha256": "bc6f096378d6dcf81bad0d52f942133ba3d0abacda3952bf97144df841c1cbab"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1823703,
+      "sha256": "59c363559816e283d513410ab102ba05c6dcb3173fbff222516dc921ea7f9062"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808814,
+      "sha256": "955c373dd717e16563f7df3a1ee2554a0a1f65d6c19ba46d238c2f0647c9dff1"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/production-system.mjs",
+      "bytes": 29724,
+      "sha256": "6d61af2356200e4d9303344b9d3edfc740a8d1873025edb675708e171e43f5ff"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/production.log",
+      "bytes": 2766,
+      "sha256": "1926f3ff0452843680084d0e5630c18650ad9c30957820caa7e622db36ddb072"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/record-verification.py",
+      "bytes": 8489,
+      "sha256": "7cce7fc8fe3b357bccfdbf83ddae1ede12b867a75eb959509ff8465cf3ef5359"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/replay-normal.log",
+      "bytes": 98,
+      "sha256": "82b20c9031fdd4fb250482c99e00eff18165d4aafae2eb15113b97d9923a4594"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/replay-optimized.log",
+      "bytes": 98,
+      "sha256": "82b20c9031fdd4fb250482c99e00eff18165d4aafae2eb15113b97d9923a4594"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/ruleset.txt",
+      "bytes": 65,
+      "sha256": "379024e92be2ec4400cd3ba3e1a866aa7bc2104bdebdad3bab6d9c901be7aaed"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/source-replay.json",
+      "bytes": 1706,
+      "sha256": "6247127cb1d78f10afb53368fd6cae260d1b289210625a50b2fd40792bc90709"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/source-scope.json",
+      "bytes": 1156,
+      "sha256": "b5eb5398412415c76ea07fb331cd78330cdea23f63c592d9e6cba8924ccc8371"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/source-verification-initial.log",
+      "bytes": 77,
+      "sha256": "8d5daadc43334de94c151565b19b094c57445caf4006e661c7fd6860a96e28df"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/stage-and-commit.py",
+      "bytes": 1286,
+      "sha256": "77465611ba805c9c822c00d67528614384ca053f64deffc7152538ae9da33c0d"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/state-regression-initial.log",
+      "bytes": 380,
+      "sha256": "cb7454687a7edb272c75a906a22df4a22df2fb3a4750d2d35c8d3e0b2aabc4e7"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/types-render.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/types-state-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/types-state.log",
+      "bytes": 395,
+      "sha256": "2a70e86f9f547e6f56f0ac8b64fb953991700b5373524cba5c8aa86e928102ba"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/types-tests.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/unit-fixed.log",
+      "bytes": 380,
+      "sha256": "f839b513bc9c6bab9450459cc7de042a780be93c270876c6dcfc7186db6cb728"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/unit-initial.log",
+      "bytes": 1232,
+      "sha256": "15a1f351f23fb4cd3dfdc88b4919dc7b68a788fa8ed82beef40aa53790a79909"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/unit-startup.log",
+      "bytes": 170,
+      "sha256": "7063360ed856a7f29d6a6345e4eb8c0e43168f80d2fd3d5fb981b184fd61de95"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/verify-source.py",
+      "bytes": 1137,
+      "sha256": "59911c315258a5f2dfa0554fde26e9ff43e6f7991e4d857fb36da17f5d305cbc"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/visual-review.txt",
+      "bytes": 248,
+      "sha256": "f4701919dc2f9089515a364df2fac7d5cad805f0400c94b77634766567efe512"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/wave-clock-focused-final.log",
+      "bytes": 422,
+      "sha256": "c65314be71e241b37ec771cc0f3a2579012ef373aecaf424d5fa2f1ea4defc00"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/wave-clock-focused.log",
+      "bytes": 1238,
+      "sha256": "0031e87b1d5abb77d4da0efe5df670253a848a4652fd2e5b91ccb5076f4fa77d"
+    },
+    {
+      "path": ".cache/masteryi-primary-trail-runtime/wave-clock-parent.log",
+      "bytes": 1294,
+      "sha256": "792212d38509609edefb68ba45d34ca0e53f0c9cf6ac31b7ede393a1bce2c648"
+    }
+  ],
+  "checks": {
+    "source": {
+      "guardsPerMode": 25,
+      "modes": [
+        "normal",
+        "optimized"
+      ],
+      "outputs": 7,
+      "replayBytesAndMtimes": "unchanged"
+    },
+    "focused": {
+      "passed": 778,
+      "initialTimingFailures": 1,
+      "files": 43,
+      "newTrailCases": 27,
+      "originalFiveSecondWaveClock": "initial timeout; unchanged dedicated final passed all 9 cases; final full suite passed"
+    },
+    "fullUnit": {
+      "passed": 2988,
+      "failed": 3,
+      "total": 2991,
+      "files": 384,
+      "originalFiveSecondWaveClock": "passed"
+    },
+    "browser": {
+      "acceptedUniqueCases": 17,
+      "environment": "system Chromium154 / SwiftShader",
+      "primaryTrailCases": 4,
+      "attackAudioAndSwordRegressionCases": 13,
+      "authoredGpuMips": 25,
+      "meshCorners": 1500,
+      "geometryAttributes": "exact logical attribute bytes; interleaved strides respected",
+      "familiesWithNonblackPixels": [
+        "attack1",
+        "crit"
+      ],
+      "actualFullJointFrames": "position and quaternion errors below 1e-6",
+      "saveReloadAndFuture": "exact",
+      "ordinaryStartupAndSelectiveRetry": "passed",
+      "cancelQFogCorpseVictory": "passed"
+    },
+    "build": "passed; diagnostics retained",
+    "nodeQA": {
+      "passed": 3
+    },
+    "production": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 13,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderAudioPreloads": 0,
+      "unrequestedMasterYiAlphaAudioPreloads": 0,
+      "unrequestedMasterYiMeditateAudioPreloads": 0,
+      "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+      "unrequestedMasterYiSwordPreloads": 0,
+      "unrequestedMasterYiPrimaryTrailPreloads": 0,
+      "unrequestedMasterYiMeditateDamagePreloads": 0,
+      "unrequestedMasterYiHighlanderKillPreloads": 0,
+      "unrequestedMasterYiHighlanderCastPreloads": 0,
+      "unrequestedMasterYiQEndPreloads": 0,
+      "unrequestedMasterYiQCastPreloads": 0,
+      "unrequestedMasterYiQContactPreloads": 0,
+      "unrequestedMasterYiMeditateCastPreloads": 0,
+      "unrequestedMasterYiMeditateBuffPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 221,
+      "scheduledBlueRequests": 13,
+      "scheduledRedRequests": 13,
+      "scheduledWolfRequests": 26,
+      "scheduledRaptorRequests": 26,
+      "scheduledKrugRequests": 39,
+      "scheduledScuttlerRequests": 13,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    }
+  },
+  "baselineFailures": [
+    "Original Leona attached-skin reflection check.py absent.",
+    "Original distortion metallib, bitcode and disassembly compiler artifacts unavailable.",
+    "Lux first fifteen sampler actual 4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a versus pinned 09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df; previously reproduced on untouched baseline."
+  ],
+  "retainedDiagnostics": [
+    "The original five-second wave-clock test initially took 9938ms in the focused suite. A dedicated run took 5031ms while an owned parent checkout was being prepared, so that comparison is confounded. The untouched 066f8c0 parent separately took 9225ms. The current code then passed all nine lane cases without source or deadline changes. All logs remain; the final full suite must have only the three established baseline failures.",
+    "Initial browser geometry comparison hashed whole interleaved backing buffers; final extraction respects each attribute stride and offset. Actual GPU logical attributes match the retained 1500-corner native transport.",
+    "The initial Save fixture used an incorrect button label; final coverage uses the real Escape / Save match menu, checks the toast, reloads and compares particles plus exact future world state.",
+    "The startup request fixture initially included legitimate eager wrappers and the tiny simulation marker table; final filters target the private asset URLs and actual dynamic renderer.",
+    "The hidden-birth fixture initially used a neutral dummy, which the existing snapshot schema forbids. The final fixture uses a blue target, checks actual blue vision and waits for the real joint pose before asserting no revealed particles.",
+    "Injected missing texture exposed startup rejection. Startup now reports the optional trail failure and becomes usable; no frame-driven retry is added. Final explicit retry reuses all other verified downloads.",
+    "The initial UV expectation omitted the existing repeat wrapping; final expected values retain the authored negative rate through the existing wrap adapter."
+  ],
+  "limits": [
+    "Rendered sample indexing, fixed-step admission and one-tick first update are local policies. Native mTickDuration, event callbacks and clock parity remain uncalibrated.",
+    "Current full center-joint transform, source-X reflection, .01 VFX units and blend-zero omission policy are explicit reconstruction choices. Raw omitted local/particle-local/blend flags remain separately retained. Native rig scale inheritance, placement, shader inputs and GPU parity are not certified.",
+    "Attack2 and passive systems remain retained but undispatched by this checkpoint. Both selected source systems omit sound defaults; no new audio is inferred.",
+    "Visibility, cancellation and finite-tail rules are current local presentation policies. Existing attack history validation does not independently reconstruct every past combat event.",
+    "System Chromium/SwiftShader screenshots and logical GPU checks do not establish physical-device FPS, native-client parity or offline-install certification.",
+    "Ignored evidence requires preservation; exact changed source files are independently archived."
+  ]
+}
