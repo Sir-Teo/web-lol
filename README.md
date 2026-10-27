@@ -105,3 +105,6 @@ constructor/registration bytes; generated game data remains unchanged.
 
 [Spatial-drag replay](docs/PARTICLE-SPATIAL-DRAG-REPLAY.md) removes repeated
 per-step work while retaining exact primary-hit particle outputs.
+
+The [distortion evidence recovery](docs/PARTICLE-DISTORTION-RECOVERY.md)
+restores all 53 original shader resources and artifacts against unchanged hashes.
