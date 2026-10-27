@@ -137,6 +137,10 @@ rate 1. Fluid's random-start 2×2 grid omits `numFrames`; the compiled one-frame
 fallback now aligns with the [native constructor scalar witness](NATIVE-EMITTER-SCALAR-DEFAULTS.md).
 The constructor also supports local=true and particle-local=false defaults;
 actual native dispatch and orientation interpretation remain unobserved.
+The [native atlas runtime trace](NATIVE-ATLAS-RUNTIME.md) additionally establishes
+continuous-frame modulo, quad half packing and shader-side flooring. The current
+integer-first sampler has boundary differences; the evidence checkpoint itself
+does not change that policy or certify live shader selection.
 The raw identifier `{08b52819}` matches candidate `censorModulateValue`;
 no global censorship switch or quality filter is inferred. Raw hashes stay
 unchanged in the original definitions.
