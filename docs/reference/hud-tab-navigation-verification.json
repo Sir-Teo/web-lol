@@ -1,0 +1,325 @@
+{
+  "format": 1,
+  "parentCommit": "87ef0ffe35e908544740f7c47dd467cf5c42e889",
+  "scope": "Preserve native Tab/Shift+Tab focus traversal within the HUD, retaining held battlefield scoreboard.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "offlinePack": {
+      "id": "6b1935aabc8fb7e8148092d1ab9379d71cf104cb7d3430eeee5cbc68c2ef36ee",
+      "files": 1202,
+      "bytes": 538091532
+    }
+  },
+  "verification": {
+    "fresh": {
+      "browserCases": 10,
+      "newBrowserCases": 2,
+      "cleanBatch": true,
+      "typeCheckPassed": true,
+      "nodeQaPassed": 8,
+      "productionBuildPassed": true,
+      "production": {
+        "result": "passed",
+        "prefix": "/nested/rift/",
+        "developmentHook": false,
+        "firstKeyboardAudio": true,
+        "audioContextsCreated": 1,
+        "soundSpace": true,
+        "soundEnter": true,
+        "hudTabNavigation": true,
+        "pauseSpace": true,
+        "wardPreviewReplacedByHeal": true,
+        "resumeSpace": true,
+        "errors": [],
+        "failed": [],
+        "outside": [],
+        "browser": "154.0.8037.57",
+        "screenshots": 1
+      },
+      "assetsAndDataFilesUnchanged": 1125,
+      "bytesAndMtimesUnchanged": true
+    },
+    "inherited": {
+      "audioCommit": "9a09e48d3df1b2d1edd652e1fb195f735d742b82",
+      "audioCertificate": {
+        "path": "docs/reference/input-audio-activation-verification.json",
+        "bytes": 16089,
+        "sha256": "c27d4e1cfb0c5f8f6750634f26922e77bfaca1f936df73ceda37081951c3491a"
+      },
+      "renderCertificate": {
+        "path": "docs/reference/gromp-ray-raw-color-verification.json",
+        "bytes": 52259,
+        "sha256": "f2edf7710308cf8b5b4c3b91d5c08f39ec01134f804313ca4c9680d05d864f8a"
+      },
+      "fullUnitRun": {
+        "passed": 3191,
+        "failed": 2,
+        "total": 3193,
+        "files": 396
+      },
+      "baselineFailuresUnchanged": 2,
+      "productionRecordings": 32,
+      "productionScreenshots": 8,
+      "privatePreloads": 0
+    },
+    "priorCertificate": {
+      "path": "docs/reference/input-modifier-shortcuts-verification.json",
+      "bytes": 21667,
+      "sha256": "fdda46d71ea61df77108fe78d97c9c1eeac2d127494171f981c1ad484cf61555"
+    },
+    "fullUnitSuiteRerun": false,
+    "broadProductionRerun": false,
+    "schemaChanged": false,
+    "rulesetChanged": false
+  },
+  "before": {
+    "reproductionFailedAsExpected": true,
+    "source": {
+      "path": ".cache/hud-tab-navigation/input-before.ts",
+      "bytes": 10370,
+      "sha256": "8ef6535d1dcebe6a7d364ea44fd6c57b03560acb7b05f2867cab26b0bf863fff"
+    },
+    "log": {
+      "path": ".cache/hud-tab-navigation/browser-before.log",
+      "bytes": 3146,
+      "sha256": "ccfa284d7e6a2c50025ffa7109b517ee6e2b77c0d53fd92977a3e81eb53cc35b"
+    }
+  },
+  "sources": [
+    {
+      "file": "src/input/input.ts",
+      "bytes": 10542,
+      "sha256": "644eaa06aeac2bbfab2ae94dd47d7fa40a210ac669a4a656ec240adacf304ba1"
+    },
+    {
+      "file": "e2e/input-hud-tab.spec.ts",
+      "bytes": 4390,
+      "sha256": "d4b2a2e28a9e34d35b627f96a5f08cdea6aa4be77d81b02879a509102007dceb"
+    },
+    {
+      "file": "tools/qa/production-hud-keyboard.mjs",
+      "bytes": 6236,
+      "sha256": "77262b937752782fac087fd4cca68382ef9d5ba556c7b31504ac5de949a97c73"
+    },
+    {
+      "path": "docs/HUD-TAB-NAVIGATION.md",
+      "bytes": 2009,
+      "sha256": "8d1f89a5cf1892b6d7c14e98c4cd9e119542e2cd16094ef00b6632e2bca47d8e"
+    }
+  ],
+  "cohortPause": {
+    "start": "2026-10-27T12:25:17.764868+00:00",
+    "end": "2026-10-27T12:28:50.977599+00:00",
+    "processes": [
+      {
+        "pid": 302400,
+        "cmdlineSha256": "a8caf0a0aed53a0b9a9aa588c3e550abc05f8f442fa4d19aaf269687d20ce40a"
+      },
+      {
+        "pid": 302435,
+        "cmdlineSha256": "8b2d06169651cad335af5b231e7651740333ad536d2cc6831b7f9a058fc06643"
+      },
+      {
+        "pid": 302436,
+        "cmdlineSha256": "3838963c8667cc88d90b3d6e6bb67eaef86539e3a51dfd21bc75d5a4b38301e9"
+      },
+      {
+        "pid": 303189,
+        "cmdlineSha256": "3b22d65181c55d3f8e80d20bd28b07e60c1a53c7f44de3c7c6e61ed0e0a044ff"
+      },
+      {
+        "pid": 303227,
+        "cmdlineSha256": "57c65a4310f6808c95f46ebc4dcc57778620bf94e858fdcbfc65ae6faf2edd84"
+      }
+    ],
+    "resumed": true
+  },
+  "limits": [
+    "Local browser focus/input acceptance; no native-client input comparison.",
+    "Actual-game development fixture stops rendering after a complete scene; no performance/pixel assertion.",
+    "Production uses normal shipped entry and native AudioContext through the existing test-only constructor proxy."
+  ],
+  "evidence": [
+    {
+      "path": ".cache/hud-tab-navigation/browser-before/.last-run.json",
+      "bytes": 96,
+      "sha256": "5dc86092b1e866441725ad5089dd5b9ff9422a70adad92eea0aca8cfe786c0c7"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/browser-before/input-hud-tab-HUD-Tab-and--7ded6-ld-Tab-holds-the-scoreboard/error-context.md",
+      "bytes": 5751,
+      "sha256": "097cbed501ce76191f92e294413f91dded12b6ddc30955edaad712ff687e290a"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/browser-before/input-hud-tab-HUD-Tab-and--7ded6-ld-Tab-holds-the-scoreboard/test-failed-1.png",
+      "bytes": 8886,
+      "sha256": "4b19b07d1c9835ddc2d0c545db0719ea8c45855526f9758363562f283806f5a5"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/browser-before/input-hud-tab-HUD-Tab-and--7ded6-ld-Tab-holds-the-scoreboard/trace.zip",
+      "bytes": 27329,
+      "sha256": "7f7f69cd8f9b624c0885504d15faab7010d329f84d36c9cac83c9977ce4e38e7"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/browser-before.log",
+      "bytes": 3146,
+      "sha256": "ccfa284d7e6a2c50025ffa7109b517ee6e2b77c0d53fd92977a3e81eb53cc35b"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/browser-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/browser-final/input-audio-activation-the-bfbd6--before-any-pointer-gesture/first-keyboard-audio.json",
+      "bytes": 187,
+      "sha256": "8837284d1abb528ac6ea1670a3887fd15eed60af3c504962c52f72febb41e4f7"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/browser-final/input-audio-activation-tru-66835-repeat-or-typing-activation/input-audio.json",
+      "bytes": 354,
+      "sha256": "d71806393655e40c07497fa6036466731f73793dda105b60f7be75b6aee16180"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/browser-final/input-hud-tab-HUD-Tab-and--7ded6-ld-Tab-holds-the-scoreboard/hud-tab.json",
+      "bytes": 772,
+      "sha256": "da0c93a3cb10c8067a4fecd9be4672342668274e42a71e9662aa607aefcf7c5d"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/browser-final/input-hud-tab-the-actual-H-00b1e-pport-native-Tab-navigation/actual-hud-tab.json",
+      "bytes": 61,
+      "sha256": "617556198f5165f302b722257cc4f632c938e83f87f89d1571152b79aab42c60"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/browser-final/input-modifier-shortcuts-A-1a190-tcut-without-a-Heal-command/modifier-shortcut.json",
+      "bytes": 314,
+      "sha256": "835c22f822b86709dbb34ce70a01acb9d1d624a8a5696624bd75667870ffcdb0"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/browser-final/input-modifier-shortcuts-C-15803-al-game-keys-still-dispatch/modifier-learning.json",
+      "bytes": 6713,
+      "sha256": "768f3b6fca4a8a1c413c2a78e61d87bc482e49a8fb561b15975ab60af7084f81"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/browser-final/input-modifier-shortcuts-C-6cbe3-tcut-without-a-Heal-command/modifier-shortcut.json",
+      "bytes": 322,
+      "sha256": "e0b08e56e175bd179e6e937cf3616d5be768841edde21460a408a8faf0dc54a2"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/browser-final/input-modifier-shortcuts-M-a0e19-tcut-without-a-Heal-command/modifier-shortcut.json",
+      "bytes": 316,
+      "sha256": "d0da629fbdf00a2e168b8d937606bd2b5b4adbc3023166017da80c8f6b40f7d3"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/browser-final/input-space-key-Space-acti-479c3-hile-canvas-Space-recenters/space-button.json",
+      "bytes": 69,
+      "sha256": "ed8732cf7a80e3b25c24509c0c488802bd62624f73e9947f2b128d4a41001f21"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/browser-final/input-space-key-Space-togg-497e2-l-recenters-the-battlefield/hud-space.json",
+      "bytes": 380,
+      "sha256": "d4d41cdb1fddf5fdcc9fedf4ae4820c922277162d9ccc3894cb246d3563456ad"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/browser.log",
+      "bytes": 2115,
+      "sha256": "e533b08efc5585f50b778d944093a441df4406279ee6af0fade84341611fafef"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/build.log",
+      "bytes": 7852,
+      "sha256": "e9d04e0fe38ce895234eb4f08e0fe460fd08e244c816406a68f40caa74a1c0be"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/input-before.ts",
+      "bytes": 10370,
+      "sha256": "8ef6535d1dcebe6a7d364ea44fd6c57b03560acb7b05f2867cab26b0bf863fff"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/inputs.json",
+      "bytes": 156809,
+      "sha256": "c46f7d4acb4795f73b2d18662a0ea422af2c4e4d7496085f9fd8342199bbd5bb"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/node.log",
+      "bytes": 809,
+      "sha256": "a7a013e1ba2ce907546487fc3a73088f91458765bb30aea992bd982f2576cc39"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/pause-record.json",
+      "bytes": 755,
+      "sha256": "bedee5d9c2d0a1dc509a38cd3ab898e8edd310a980f986495c170a7dfc472d27"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/production/paused-with-space.png",
+      "bytes": 560878,
+      "sha256": "a4306c6e84132da5b3ba4c4dc043e94d11bf3614816f0d43623000e6d0606daa"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/production/reading.json",
+      "bytes": 394,
+      "sha256": "52db3ae5d66ffb58da13de3e0a1db8cd7a560ce81022609bf1330c42a8855da8"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/production-system.mjs",
+      "bytes": 6278,
+      "sha256": "3d86d76ea1db18809abaa53897907ead215ca8387e366e2e482019a244b3641b"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/production.log",
+      "bytes": 329,
+      "sha256": "db1aaa4715c6e34f1fde4ddcfd8a0ea4fff1e79adb3949809fa7f32eb0b72f87"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/run-checks.py",
+      "bytes": 3271,
+      "sha256": "b59458dbd729d79e4382e90cf2c8e7eb60185feacaf0b17d8dc4e6a0912d351b"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/source/dist/offline-pack.json",
+      "bytes": 172470,
+      "sha256": "47576679cf4c183b357b286bbf25cbb93cf745d2ba3ba2be4ca03d9f7d1e4c80"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/source/docs/HUD-TAB-NAVIGATION.md",
+      "bytes": 2009,
+      "sha256": "8d1f89a5cf1892b6d7c14e98c4cd9e119542e2cd16094ef00b6632e2bca47d8e"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/source/docs/reference/gromp-ray-raw-color-verification.json",
+      "bytes": 52259,
+      "sha256": "f2edf7710308cf8b5b4c3b91d5c08f39ec01134f804313ca4c9680d05d864f8a"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/source/docs/reference/input-modifier-shortcuts-verification.json",
+      "bytes": 21667,
+      "sha256": "fdda46d71ea61df77108fe78d97c9c1eeac2d127494171f981c1ad484cf61555"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/source/e2e/input-hud-tab.spec.ts",
+      "bytes": 4390,
+      "sha256": "d4b2a2e28a9e34d35b627f96a5f08cdea6aa4be77d81b02879a509102007dceb"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/source/src/input/input.ts",
+      "bytes": 10542,
+      "sha256": "644eaa06aeac2bbfab2ae94dd47d7fa40a210ac669a4a656ec240adacf304ba1"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/source/tools/qa/production-hud-keyboard.mjs",
+      "bytes": 6236,
+      "sha256": "77262b937752782fac087fd4cca68382ef9d5ba556c7b31504ac5de949a97c73"
+    },
+    {
+      "path": ".cache/hud-tab-navigation/types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/hud-tab-navigation-checks.log",
+      "bytes": 873,
+      "sha256": "6be14b2562e3fe199ae8b40493d9356f96c07c49a046939ca35971b2bbe6b956"
+    }
+  ]
+}

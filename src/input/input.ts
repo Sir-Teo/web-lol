@@ -103,6 +103,8 @@ export class GameInput {
         (key.length === 1 || (key === 'enter' && e.target instanceof HTMLButtonElement))
       )
         unlockAudio();
+      // HUD controls retain native focus traversal, including focusable buffs.
+      if (key === 'tab' && e.target instanceof Node && hud.root.contains(e.target)) return;
       // Let focused HUD buttons keep their native Space activation.
       if (key === ' ' && e.target instanceof HTMLButtonElement) return;
       if (!hud.modal && ['tab', ' ', 'arrowup', 'arrowdown'].includes(key)) e.preventDefault();

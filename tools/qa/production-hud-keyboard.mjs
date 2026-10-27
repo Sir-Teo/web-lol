@@ -98,9 +98,16 @@ try {
   assert.equal(await page.evaluate(() => window.__QA_AUDIO_CONTEXTS__.length), 1);
 
   const sound = page.getByRole('button', { name: 'Toggle sound', exact: true }),
+    camera = page.getByRole('button', { name: 'Toggle camera lock', exact: true }),
     isMuted = () => sound.evaluate((node) => node.classList.contains('off'));
   const before = await isMuted();
-  await sound.focus();
+  await camera.focus();
+  await page.keyboard.press('Tab');
+  assert.equal(await sound.evaluate((node) => document.activeElement === node), true);
+  await page.keyboard.press('Shift+Tab');
+  assert.equal(await camera.evaluate((node) => document.activeElement === node), true);
+  await page.keyboard.press('Tab');
+  assert.equal(await sound.evaluate((node) => document.activeElement === node), true);
   await page.keyboard.press('Space');
   assert.equal(await isMuted(), !before, 'Focused sound button must activate with Space');
   await page.keyboard.press('Enter');
@@ -139,6 +146,7 @@ try {
     audioContextsCreated: 1,
     soundSpace: true,
     soundEnter: true,
+    hudTabNavigation: true,
     pauseSpace: true,
     wardPreviewReplacedByHeal: true,
     resumeSpace: true,
