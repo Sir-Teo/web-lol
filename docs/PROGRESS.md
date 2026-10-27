@@ -58,6 +58,11 @@ pauses only owned cohort processes and records each resume. Recent
 [first-input audio activation](INPUT-AUDIO-ACTIVATION.md) have their own bounded
 acceptance records.
 
+The source-only [particle lookup-coordinate reading](NATIVE-PARTICLE-LOOKUP-COORDINATES.md)
+checks the legacy producer, defaults and conditional half-precision UV1 paths
+with 17 guards in each Python mode. It changes no runtime behavior and inherits
+the current application acceptance above.
+
 The [completed-checkpoint reading](CURRENT-NORMAL-CHECKPOINT-READING.md)
 independently accepts the frozen 24-seed subset and proves byte-exact import,
 offline restore and export of a real 35-minute terminal normal-match state.
