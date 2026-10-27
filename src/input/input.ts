@@ -87,6 +87,11 @@ export class GameInput {
         e.target instanceof HTMLSelectElement;
       if (typing) return;
       const key = e.key.toLowerCase();
+      const learnShortcut =
+        e.ctrlKey && !e.altKey && !e.metaKey && ['q', 'w', 'e', 'r'].includes(key);
+      if ((e.ctrlKey || e.altKey || e.metaKey) && !learnShortcut) return;
+      // Reserve learning chords even on repeat; enqueue only on first keydown.
+      if (learnShortcut && !hud.paused && !hud.modal) e.preventDefault();
       // Autoplay activation belongs to the first real gameplay/HUD gesture.
       // Printable keys and button Enter/Space qualify; repeats and browser
       // modifier shortcuts must not enqueue more context transitions.
@@ -119,7 +124,7 @@ export class GameInput {
         return;
       }
       if (hud.paused || hud.modal) return;
-      if (e.ctrlKey && ['q', 'w', 'e', 'r'].includes(key)) {
+      if (learnShortcut) {
         e.preventDefault();
         this.cancelAim();
         world.enqueue({

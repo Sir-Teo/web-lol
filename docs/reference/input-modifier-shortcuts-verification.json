@@ -1,0 +1,516 @@
+{
+  "format": 1,
+  "parentCommit": "9a09e48d3df1b2d1edd652e1fb195f735d742b82",
+  "scope": "Keep Ctrl/Alt/Meta browser chords out of normal game-key dispatch, preserving Ctrl Q/W/E/R learning and preventing its native default even on repeat during active gameplay.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "offlinePack": {
+      "id": "fc95b432cfc873f92b1fb31130b974c3b37a878edd07058a5df81a9352a045fd",
+      "files": 1202,
+      "bytes": 538091468
+    }
+  },
+  "verification": {
+    "fresh": {
+      "typeCheckPassed": true,
+      "nodeQaPassed": 8,
+      "browserCases": 8,
+      "newBrowserCases": 4,
+      "passingRunsAcrossBatches": true,
+      "cleanEightCaseBatchClaimed": false,
+      "initialBatchPassed": 7,
+      "initialBatchDeadlineFailures": 1,
+      "isolatedOriginalDeadlineFailures": 1,
+      "inputFixtureRenderLoopHeld": true,
+      "modifierChordsWithoutCast": [
+        "Control+f",
+        "Meta+f",
+        "Alt+f"
+      ],
+      "learningChordsPreserved": [
+        "Control+q",
+        "Control+w",
+        "Control+e",
+        "Control+r"
+      ],
+      "learningRepeatsReservedWithoutCommands": true,
+      "pausedLearningDefaultAvailable": true,
+      "actualEarnedRankUpgrade": true,
+      "productionKeyboardCases": 1,
+      "productionFirstKeyboardAudio": true,
+      "freshProductionScreenshots": 1,
+      "assetsAndDataFilesUnchanged": 543,
+      "bytesAndMtimesUnchanged": true
+    },
+    "inherited": {
+      "audioCommit": "9a09e48d3df1b2d1edd652e1fb195f735d742b82",
+      "audioCertificate": {
+        "path": "docs/reference/input-audio-activation-verification.json",
+        "bytes": 16089,
+        "sha256": "c27d4e1cfb0c5f8f6750634f26922e77bfaca1f936df73ceda37081951c3491a"
+      },
+      "renderCertificate": {
+        "path": "docs/reference/gromp-ray-raw-color-verification.json",
+        "bytes": 52259,
+        "sha256": "f2edf7710308cf8b5b4c3b91d5c08f39ec01134f804313ca4c9680d05d864f8a"
+      },
+      "fullUnitRun": {
+        "passed": 3191,
+        "failed": 2,
+        "total": 3193,
+        "files": 396
+      },
+      "baselineFailuresUnchanged": 2,
+      "productionRecordings": 32,
+      "productionScreenshots": 8,
+      "privatePreloads": 0
+    },
+    "schemaChanged": false,
+    "rulesetChanged": false
+  },
+  "originalShortcutProofs": [
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-before/probe-Alt-f-remains-a-brow-6ef1d-tcut-without-a-Heal-command/modifier-shortcut.json",
+      "bytes": 446,
+      "sha256": "f39ea00135a17735a6a9692e214e2015379dc5ff687f27945becc10a40bba52d"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-before/probe-Control-f-remains-a--9b657-tcut-without-a-Heal-command/modifier-shortcut.json",
+      "bytes": 454,
+      "sha256": "2812e246b1639fcdc9e5898e86f2b7d4bb0cade671ef3c0ca556cf3ac4e96301"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-before/probe-Meta-f-remains-a-bro-4c556-tcut-without-a-Heal-command/modifier-shortcut.json",
+      "bytes": 448,
+      "sha256": "227487982c4363814ee738fbe261a186865f9ffd63f77a97724abf919b824ebe"
+    }
+  ],
+  "correctedShortcutProofs": [
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-accepted/input-modifier-shortcuts-A-1a190-tcut-without-a-Heal-command/modifier-shortcut.json",
+      "bytes": 314,
+      "sha256": "835c22f822b86709dbb34ce70a01acb9d1d624a8a5696624bd75667870ffcdb0"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-accepted/input-modifier-shortcuts-C-6cbe3-tcut-without-a-Heal-command/modifier-shortcut.json",
+      "bytes": 322,
+      "sha256": "e0b08e56e175bd179e6e937cf3616d5be768841edde21460a408a8faf0dc54a2"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-accepted/input-modifier-shortcuts-M-a0e19-tcut-without-a-Heal-command/modifier-shortcut.json",
+      "bytes": 316,
+      "sha256": "d0da629fbdf00a2e168b8d937606bd2b5b4adbc3023166017da80c8f6b40f7d3"
+    }
+  ],
+  "learningProof": {
+    "path": ".cache/input-modifier-shortcuts/browser-accepted/input-modifier-shortcuts-C-15803-al-game-keys-still-dispatch/modifier-learning.json",
+    "bytes": 6713,
+    "sha256": "768f3b6fca4a8a1c413c2a78e61d87bc482e49a8fb561b15975ab60af7084f81"
+  },
+  "productionProof": {
+    "path": ".cache/input-modifier-shortcuts/production-accepted/reading.json",
+    "bytes": 366,
+    "sha256": "838e6fc918c4beeee21f23dfa2ae0a5b3f98c9c158d2c757960f552d3e0ba402"
+  },
+  "limits": [
+    "Local browser/input behavior, not native-client keyboard parity.",
+    "Learning-repeat events are synthetic to avoid closing/reloading the browser on a regression; ordinary shortcut and learning presses use real keyboard input.",
+    "Seven cases pass in the initial batch; the unchanged ward assertions pass after holding rendering in its command-boundary fixture. No single clean eight-case batch is claimed.",
+    "Full-unit and broad production results are inherited; fresh checks target this input-only change.",
+    "The production runner changes only system Chromium launch selection."
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/INPUT-MODIFIER-SHORTCUTS.md",
+      "bytes": 2327,
+      "sha256": "56cff4bc9145ec8fe1bf7d223653cb085cd59c78e4fe02abe96629a9ba35f097"
+    },
+    {
+      "path": "e2e/input-modifier-shortcuts.spec.ts",
+      "bytes": 4517,
+      "sha256": "d7efd05e0286c0e83bb5a4976a0cba0909222b3cc0ae75222bcdcadaf9099935"
+    },
+    {
+      "path": "e2e/ward-hud-cast.spec.ts",
+      "bytes": 3084,
+      "sha256": "2f34f656b95eeba616a8f910de6c7185ee2872c344e5196e788ccee8950f836d"
+    },
+    {
+      "path": "src/input/input.ts",
+      "bytes": 10370,
+      "sha256": "8ef6535d1dcebe6a7d364ea44fd6c57b03560acb7b05f2867cab26b0bf863fff"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "src/ui/hud.ts",
+      "bytes": 84602,
+      "sha256": "d1888f1d93344c3fd135ba0d5e1c9f85769d959a3067fb8581d9b34eb25b6fcd"
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 22149,
+      "sha256": "f560678615975942527b735d74f016893a28425283fde831847473180811b10e"
+    },
+    {
+      "path": "src/input/spell-controls.ts",
+      "bytes": 3590,
+      "sha256": "c67d816aa635ff428541688fca917e2f03a98b24421d5f8b4e8fec2adc3708cc"
+    },
+    {
+      "path": "e2e/input-audio-activation.spec.ts",
+      "bytes": 4167,
+      "sha256": "460b93dcdb6cb2a0621f7df06987905206232ece6c037bb22df327279b88f503"
+    },
+    {
+      "path": "e2e/spell-learning.spec.ts",
+      "bytes": 1910,
+      "sha256": "53a93c83527024c7b36b972415cc5facac0e5c5406154e060e745628bc31c51e"
+    },
+    {
+      "path": "tools/qa/production-hud-keyboard.mjs",
+      "bytes": 5747,
+      "sha256": "13516a9b87a1d276f451f6a3765de4496970c025fde4e53c880e12a771cd9abf"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    },
+    {
+      "path": "docs/reference/gromp-ray-raw-color-verification.json",
+      "bytes": 52259,
+      "sha256": "f2edf7710308cf8b5b4c3b91d5c08f39ec01134f804313ca4c9680d05d864f8a"
+    },
+    {
+      "path": "docs/reference/input-audio-activation-verification.json",
+      "bytes": 16089,
+      "sha256": "c27d4e1cfb0c5f8f6750634f26922e77bfaca1f936df73ceda37081951c3491a"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/input-modifier-shortcuts/final-source/docs/INPUT-MODIFIER-SHORTCUTS.md",
+      "bytes": 2327,
+      "sha256": "56cff4bc9145ec8fe1bf7d223653cb085cd59c78e4fe02abe96629a9ba35f097"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/final-source/e2e/input-modifier-shortcuts.spec.ts",
+      "bytes": 4517,
+      "sha256": "d7efd05e0286c0e83bb5a4976a0cba0909222b3cc0ae75222bcdcadaf9099935"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/final-source/e2e/ward-hud-cast.spec.ts",
+      "bytes": 3084,
+      "sha256": "2f34f656b95eeba616a8f910de6c7185ee2872c344e5196e788ccee8950f836d"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/final-source/src/input/input.ts",
+      "bytes": 10370,
+      "sha256": "8ef6535d1dcebe6a7d364ea44fd6c57b03560acb7b05f2867cab26b0bf863fff"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/final-source/src/ui/hud.ts",
+      "bytes": 84602,
+      "sha256": "d1888f1d93344c3fd135ba0d5e1c9f85769d959a3067fb8581d9b34eb25b6fcd"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/final-source/src/main.ts",
+      "bytes": 22149,
+      "sha256": "f560678615975942527b735d74f016893a28425283fde831847473180811b10e"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/final-source/src/input/spell-controls.ts",
+      "bytes": 3590,
+      "sha256": "c67d816aa635ff428541688fca917e2f03a98b24421d5f8b4e8fec2adc3708cc"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/final-source/e2e/input-audio-activation.spec.ts",
+      "bytes": 4167,
+      "sha256": "460b93dcdb6cb2a0621f7df06987905206232ece6c037bb22df327279b88f503"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/final-source/e2e/spell-learning.spec.ts",
+      "bytes": 1910,
+      "sha256": "53a93c83527024c7b36b972415cc5facac0e5c5406154e060e745628bc31c51e"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/final-source/tools/qa/production-hud-keyboard.mjs",
+      "bytes": 5747,
+      "sha256": "13516a9b87a1d276f451f6a3765de4496970c025fde4e53c880e12a771cd9abf"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/final-source/package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/final-source/docs/reference/gromp-ray-raw-color-verification.json",
+      "bytes": 52259,
+      "sha256": "f2edf7710308cf8b5b4c3b91d5c08f39ec01134f804313ca4c9680d05d864f8a"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/final-source/docs/reference/input-audio-activation-verification.json",
+      "bytes": 16089,
+      "sha256": "c27d4e1cfb0c5f8f6750634f26922e77bfaca1f936df73ceda37081951c3491a"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/input-modifier-shortcuts/acceptance-stages.json",
+      "bytes": 852,
+      "sha256": "bed4338827d54935a00c12c37ccdadc6daf47b1632e5bc3efd4a33729d43fbd1"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/accepted-source-hashes.json",
+      "bytes": 304,
+      "sha256": "d347244365b6d1ea96bfb27f67d0b5dd6500d0a32e192dbe14d8482da6caf3f3"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/archive-checkpoint.py",
+      "bytes": 10088,
+      "sha256": "7533bfd0533c2edd7989835661ccb3756bfe26e87205bebf87848e5f9ac2ed0f"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/assets-check.json",
+      "bytes": 113485,
+      "sha256": "724f4291b77f582effc4ece538baf9efc9efbfcf478e0366363cb8b3a857d549"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-accepted/.last-run.json",
+      "bytes": 96,
+      "sha256": "c9426979e7bbc394a44079d73a26f89a6513a9272c103abd140733bbd4c655e9"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-accepted/input-audio-activation-the-bfbd6--before-any-pointer-gesture/first-keyboard-audio.json",
+      "bytes": 187,
+      "sha256": "8837284d1abb528ac6ea1670a3887fd15eed60af3c504962c52f72febb41e4f7"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-accepted/input-audio-activation-tru-66835-repeat-or-typing-activation/input-audio.json",
+      "bytes": 354,
+      "sha256": "d71806393655e40c07497fa6036466731f73793dda105b60f7be75b6aee16180"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-accepted/input-modifier-shortcuts-A-1a190-tcut-without-a-Heal-command/modifier-shortcut.json",
+      "bytes": 314,
+      "sha256": "835c22f822b86709dbb34ce70a01acb9d1d624a8a5696624bd75667870ffcdb0"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-accepted/input-modifier-shortcuts-C-15803-al-game-keys-still-dispatch/modifier-learning.json",
+      "bytes": 6713,
+      "sha256": "768f3b6fca4a8a1c413c2a78e61d87bc482e49a8fb561b15975ab60af7084f81"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-accepted/input-modifier-shortcuts-C-6cbe3-tcut-without-a-Heal-command/modifier-shortcut.json",
+      "bytes": 322,
+      "sha256": "e0b08e56e175bd179e6e937cf3616d5be768841edde21460a408a8faf0dc54a2"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-accepted/input-modifier-shortcuts-M-a0e19-tcut-without-a-Heal-command/modifier-shortcut.json",
+      "bytes": 316,
+      "sha256": "d0da629fbdf00a2e168b8d937606bd2b5b4adbc3023166017da80c8f6b40f7d3"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-accepted/ward-hud-cast-HUD-instant--45cf3-ugh-pointer-Space-and-Enter/error-context.md",
+      "bytes": 4502,
+      "sha256": "13ecd70ff573b530d419fc64951c2bc52035b3fc8df22b1a1b392457edaa12a2"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-accepted/ward-hud-cast-HUD-instant--45cf3-ugh-pointer-Space-and-Enter/test-failed-1.png",
+      "bytes": 946904,
+      "sha256": "1cbece0746b3de6563eb64a3a1111239a49386c0644001e2b2b058770197d0d5"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-accepted/ward-hud-cast-HUD-instant--45cf3-ugh-pointer-Space-and-Enter/trace.zip",
+      "bytes": 47558750,
+      "sha256": "204ca4c72b8963f58bb49de1d3fada42b75dd56efffc181c59c1daff42b775e7"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-accepted/ward-hud-cast-HUD-instant--45cf3-ugh-pointer-Space-and-Enter/ward-hud-cast.json",
+      "bytes": 2663,
+      "sha256": "39c31e20fa7bcefc6451269a7b9aa09c75bc0a0a264ffe453647860f0b6d8e7d"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-accepted.log",
+      "bytes": 3702,
+      "sha256": "89dcd24605da1d31e1c71fa9fcbce6f31d2e24c29c5375dc206dc5c8077dd68b"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-before/.last-run.json",
+      "bytes": 194,
+      "sha256": "2958c938d1003047b74e76530cf42cf8ecc283bee527c8a9d1825ebc21071db9"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-before/probe-Alt-f-remains-a-brow-6ef1d-tcut-without-a-Heal-command/error-context.md",
+      "bytes": 3838,
+      "sha256": "60c0adf9a03538fdc102ff7adca2365942c4f4c149ae7d23899b8c40a4f5a0ec"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-before/probe-Alt-f-remains-a-brow-6ef1d-tcut-without-a-Heal-command/modifier-shortcut.json",
+      "bytes": 446,
+      "sha256": "f39ea00135a17735a6a9692e214e2015379dc5ff687f27945becc10a40bba52d"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-before/probe-Alt-f-remains-a-brow-6ef1d-tcut-without-a-Heal-command/test-failed-1.png",
+      "bytes": 7108,
+      "sha256": "3e75e393e06dd9ea8228b7e1b01d6a10d84aaae821df59d925a02a34ff0603c5"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-before/probe-Alt-f-remains-a-brow-6ef1d-tcut-without-a-Heal-command/trace.zip",
+      "bytes": 20890,
+      "sha256": "3997582e4dc633e519c6769a7e8f24bc8bf11d65e50487350df4b0c576d4183d"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-before/probe-Control-f-remains-a--9b657-tcut-without-a-Heal-command/error-context.md",
+      "bytes": 3842,
+      "sha256": "055c36168284b19bf055d0ba3ebcd7d2471ab9dc38118b0d64a3f155788d170e"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-before/probe-Control-f-remains-a--9b657-tcut-without-a-Heal-command/modifier-shortcut.json",
+      "bytes": 454,
+      "sha256": "2812e246b1639fcdc9e5898e86f2b7d4bb0cade671ef3c0ca556cf3ac4e96301"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-before/probe-Control-f-remains-a--9b657-tcut-without-a-Heal-command/test-failed-1.png",
+      "bytes": 7108,
+      "sha256": "3e75e393e06dd9ea8228b7e1b01d6a10d84aaae821df59d925a02a34ff0603c5"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-before/probe-Control-f-remains-a--9b657-tcut-without-a-Heal-command/trace.zip",
+      "bytes": 21046,
+      "sha256": "f567637fbc663183a1dd3a30fa0a2d088bfb940cb85df7775ac690e81fec96f5"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-before/probe-Ctrl-learning-stays--46fcd-al-game-keys-still-dispatch/modifier-learning.json",
+      "bytes": 3256,
+      "sha256": "60f16aa044430d46a2a32b6c92412e22987e7f2c30d5930ecbfb369adec4e1f9"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-before/probe-Meta-f-remains-a-bro-4c556-tcut-without-a-Heal-command/error-context.md",
+      "bytes": 3839,
+      "sha256": "55e34856a1b9d6ea15087746022393de3cf546a830e8a86949cd8fda127a1d2a"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-before/probe-Meta-f-remains-a-bro-4c556-tcut-without-a-Heal-command/modifier-shortcut.json",
+      "bytes": 448,
+      "sha256": "227487982c4363814ee738fbe261a186865f9ffd63f77a97724abf919b824ebe"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-before/probe-Meta-f-remains-a-bro-4c556-tcut-without-a-Heal-command/test-failed-1.png",
+      "bytes": 7108,
+      "sha256": "3e75e393e06dd9ea8228b7e1b01d6a10d84aaae821df59d925a02a34ff0603c5"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-before/probe-Meta-f-remains-a-bro-4c556-tcut-without-a-Heal-command/trace.zip",
+      "bytes": 20992,
+      "sha256": "79b4eadb158e52167a8196408f251112b774484a5779d28a08ba5168dcc8aa09"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-before.log",
+      "bytes": 9756,
+      "sha256": "c6d157e0c0f3720ca3d2a9912968ec6c67da6411176c7ce7dc9cfbf1ef0f2f9b"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-final/ward-hud-cast-HUD-instant--45cf3-ugh-pointer-Space-and-Enter/ward-hud-cast.json",
+      "bytes": 2663,
+      "sha256": "39c31e20fa7bcefc6451269a7b9aa09c75bc0a0a264ffe453647860f0b6d8e7d"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-final.log",
+      "bytes": 663,
+      "sha256": "4afa2020aca72d0fd90b3b6fdf30fc064596e887ed0a35bd281c9d3913ad9c5a"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-retry/.last-run.json",
+      "bytes": 96,
+      "sha256": "c9426979e7bbc394a44079d73a26f89a6513a9272c103abd140733bbd4c655e9"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-retry/ward-hud-cast-HUD-instant--45cf3-ugh-pointer-Space-and-Enter/error-context.md",
+      "bytes": 8436,
+      "sha256": "f1cdff1ba7deadc601275ce97b2a31d1f3428784b6f8975040cc3a4d088b1460"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-retry/ward-hud-cast-HUD-instant--45cf3-ugh-pointer-Space-and-Enter/trace.zip",
+      "bytes": 42496636,
+      "sha256": "f9b93dfdd23822033be8a00b447ef8dad84ee6d56ea210bc3c3491ac41d493b6"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-retry/ward-hud-cast-HUD-instant--45cf3-ugh-pointer-Space-and-Enter/ward-hud-cast.json",
+      "bytes": 1381,
+      "sha256": "f4c0398e581de277560fb399c8ebbe251990f564714d1a60abe786a97f12844f"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/browser-retry.log",
+      "bytes": 2951,
+      "sha256": "eb48e1a76039dbf919a0d2482eb284dc459c31a04261413a95c75e00f04c7671"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/build.log",
+      "bytes": 7852,
+      "sha256": "97fa3d58085bbc75542e7d442f06bd0153eb7f46bc6727761a612bbce0dfadde"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/built-identity.json",
+      "bytes": 256,
+      "sha256": "071aa195c888022c4bdc78064f2481c8da57e84e62d827aa9e61c6d85832b0b2"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/finish-checks.py",
+      "bytes": 1632,
+      "sha256": "c47116698941bdf802be73c109611a30c6d7b11f7da8a38b363cbf384acdd0b0"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/node-qa.log",
+      "bytes": 806,
+      "sha256": "8d01a7307e801fe0cbfa611f3720ba6cfa131c8a4212e96f3f9e952efc2e4a23"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/original-source/e2e/ward-hud-cast.spec.ts",
+      "bytes": 2831,
+      "sha256": "c2bc93a336f75e0463ac516fec23a85758678290338991f90526f977efdeabb1"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/original-source/src/input/input.ts",
+      "bytes": 10064,
+      "sha256": "e3bcdccd51894ba2eccc297208a257ea457b007b84c0ceef5591f783fbb21db2"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/probe.spec.ts",
+      "bytes": 2805,
+      "sha256": "ea89b6e46b22fda0c2e7fb33548467863e1649bea77c4d9d206c95e638474a80"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/production-accepted/paused-with-space.png",
+      "bytes": 560894,
+      "sha256": "e85fbf234bab8118f9e2b9b61a67cb3d83d19e8e513d83ee98d16999a94960b3"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/production-accepted/reading.json",
+      "bytes": 366,
+      "sha256": "838e6fc918c4beeee21f23dfa2ae0a5b3f98c9c158d2c757960f552d3e0ba402"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/production-keyboard.log",
+      "bytes": 305,
+      "sha256": "cbd84afab9faa0bafd457d22fef144cef34ae632778e17d4a3930259bb623d05"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/production-system.mjs",
+      "bytes": 5789,
+      "sha256": "9179513502c18a5cd801e3f4067308737a78d8189b6503b109ecf2cb34061a2e"
+    },
+    {
+      "path": ".cache/input-modifier-shortcuts/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

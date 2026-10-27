@@ -17,6 +17,10 @@ test('HUD instant casting replaces ward selection through pointer, Space and Ent
     w.pendingSpawns = [];
     w.commands = [];
     w.step = () => {};
+    // This fixture exercises accepted input commands, not animation. Keep a
+    // complete initial scene while avoiding continuous WebGL work between clicks.
+    g.view.render(w, 1, g.view.previousElapsed);
+    g.view.renderer.setAnimationLoop(null);
     return g.view.screenPoint({ x: w.hero.x + 150, y: w.hero.y });
   });
   const rows = [];
