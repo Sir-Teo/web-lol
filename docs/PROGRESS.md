@@ -44,6 +44,12 @@ pauses only owned cohort processes and records each resume. Recent
 [first-input audio activation](INPUT-AUDIO-ACTIVATION.md) have their own bounded
 acceptance records.
 
+The source-only [missile gravity-height reading](NATIVE-MISSILE-GRAVITY-HEIGHT.md)
+checks 21 complete functions connecting gravity configuration, FixedSpeedMovement
+progress and height output, with 17 guards in each Python mode. Initial bone
+sampling, incoming overrides and live target refresh remain unresolved; the
+current runtime height policy is unchanged.
+
 The source-only [missile color-route reading](NATIVE-GROMP-ATTACK-COLORS.md)
 restores the original four-emitter Troy record and checks its legacy class,
 raw keys and truncating color routes. Thirteen guards pass in each Python mode;
