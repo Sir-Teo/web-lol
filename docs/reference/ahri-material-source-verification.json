@@ -1,0 +1,239 @@
+{
+  "format": 1,
+  "parentCommit": "ec43a8fd5d122fc948bbc1ade7729a3696615202",
+  "scope": "Source-only Ahri base material declarations and current GLB structural transport; no application changes.",
+  "source": [
+    {
+      "path": "tools/assets/export-ahri-materials.py",
+      "bytes": 11622,
+      "sha256": "c52025dac7625b1c212a4deba2875bdbe71b7e53cf6f73e2194c509deec5c420"
+    },
+    {
+      "path": "tools/assets/verify-ahri-skin.py",
+      "bytes": 3691,
+      "sha256": "4ac74ef5a9b70f81bee5e75ae4721a26eea4ab591bae80f3560f1b27c57e727f"
+    },
+    {
+      "path": "tools/assets/test-ahri-materials.py",
+      "bytes": 11567,
+      "sha256": "869805226dd921aa8a78f000e84b7e0c0d944efd2948f47bb2e77f3c44eb8277"
+    },
+    {
+      "path": "docs/reference/ahri-materials.json",
+      "bytes": 43362,
+      "sha256": "a825153c16fec391e2b6f45e72f838fba84e3931dfd199618110e1fe9cb3eb08"
+    },
+    {
+      "path": "docs/reference/ahri/skin0.bin",
+      "bytes": 20378,
+      "sha256": "cea16ff8c3ef87fe6892595ad26dd710b3a7e9db33dfb05d30e1938ff27bbb17"
+    },
+    {
+      "path": "docs/reference/ahri/mesh-submeshes.bin",
+      "bytes": 332,
+      "sha256": "787b1b497a7a70af39e8f4bf3ce191c3d17d3bf8a44deee12c018692e036756f"
+    },
+    {
+      "path": "docs/AHRI-MATERIAL-SOURCE.md",
+      "bytes": 3727,
+      "sha256": "4145ee11683b8bb5e538c5dbf96c5420d6e821fbfc21a3262852062c91921275"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "bytes": 748123,
+      "sha256": "053673c57f72bfa92fc71f85ab7a0c3a9530cfdb7a5c82f961f987d826307a9e"
+    }
+  ],
+  "verification": {
+    "guardsNormalPassed": 15,
+    "guardsOptimizedPassed": 15,
+    "independentDecodePassedBothModes": true,
+    "exportCheckPassedBothModes": true,
+    "localSkinRecords": 4,
+    "linkedPackageNames": 23,
+    "linkedPackagesDecoded": false,
+    "postcondition": {
+      "localRecords": 4,
+      "linkedPackageNames": 23,
+      "materials": 2,
+      "samplers": 5,
+      "submeshes": 4,
+      "absentValues": 8,
+      "absentSwitchStates": 5,
+      "sourceFilesRestoredAndVerified": 7,
+      "sourceAssetsMetadataUnchanged": 1125,
+      "applicationFilesUnchanged": true,
+      "nativeDefaultsVerified": false,
+      "nativeShaderArithmeticVerified": false
+    },
+    "firstAttempt": "Incorrect empty-linked-package assumption rejected; first export.log retained; corrected projection preserves all 23 names."
+  },
+  "inheritedApplication": {
+    "acceptanceRevision": "ae28d2a8b2a358524cd37ee55bfbfbf4a55335a2",
+    "schema": 163,
+    "rulesetFingerprint": "c722d7ca3bb84c44a976e8c72eb57887b4d6a9ba529844a795ac080766139b62",
+    "pack": {
+      "id": "5aff35be26d9be78e6f660f7eb1b6af5112024b90622034aa3b0f2ab933eced2",
+      "files": 1202,
+      "bytes": 538093442
+    },
+    "trackedApplicationFilesUnchanged": true,
+    "freshFrontendAcceptanceClaimed": false,
+    "reference": "docs/reference/ahri-rift-trial-verification.json"
+  },
+  "limits": {
+    "nativeDefaultsVerified": false,
+    "nativeShaderArithmeticVerified": false,
+    "nativeBlendEnumMappingVerified": false,
+    "nativeDynamicDriverDispatchVerified": false,
+    "previewPixelConversionReaudited": false,
+    "linkedPackagesDecoded": false
+  },
+  "evidence": [
+    {
+      "path": ".cache/ahri-material-source/archive.py",
+      "bytes": 2249,
+      "sha256": "34d3a982c2c112800ee520afa963d067c6804de9c1b5b2cccfd059a96ad8495e"
+    },
+    {
+      "path": ".cache/ahri-material-source/decode-optimized.log",
+      "bytes": 139,
+      "sha256": "8ea05019e86aa5bec79cd8cec423712b65e3e99e99f8f95be57f956f93a2237f"
+    },
+    {
+      "path": ".cache/ahri-material-source/decode.log",
+      "bytes": 139,
+      "sha256": "8ea05019e86aa5bec79cd8cec423712b65e3e99e99f8f95be57f956f93a2237f"
+    },
+    {
+      "path": ".cache/ahri-material-source/export-check-optimized.log",
+      "bytes": 126,
+      "sha256": "aed3ca5bca334d9226b2de6d5c8d69d6a3c0d6e7f1fadcf4898ed78a7765f9d3"
+    },
+    {
+      "path": ".cache/ahri-material-source/export-check.log",
+      "bytes": 126,
+      "sha256": "aed3ca5bca334d9226b2de6d5c8d69d6a3c0d6e7f1fadcf4898ed78a7765f9d3"
+    },
+    {
+      "path": ".cache/ahri-material-source/export-second.log",
+      "bytes": 126,
+      "sha256": "aed3ca5bca334d9226b2de6d5c8d69d6a3c0d6e7f1fadcf4898ed78a7765f9d3"
+    },
+    {
+      "path": ".cache/ahri-material-source/export.log",
+      "bytes": 823,
+      "sha256": "1412a39d377c46077177ed5897b655f2813958fc027e03955badacdd434a57ad"
+    },
+    {
+      "path": ".cache/ahri-material-source/original/assets/characters/ahri/skins/base/ahri_base.skn",
+      "bytes": 847032,
+      "sha256": "22179a3e0e95b94845fe5a3d3c35ba5f21dec6e2fee34de371ad0e4a3e2a3ae3"
+    },
+    {
+      "path": ".cache/ahri-material-source/original/assets/characters/ahri/skins/base/ahri_base_tails_tx_cm.tex",
+      "bytes": 1398140,
+      "sha256": "9eb512a47fdf47f4d354c1c09ddf13fb6b73201c3055fb1e62f7b08d7899a5de"
+    },
+    {
+      "path": ".cache/ahri-material-source/original/assets/characters/ahri/skins/base/ahri_base_tx_cm.tex",
+      "bytes": 1398140,
+      "sha256": "8d40ce3c62eb5e6794e9bcdc737973b89507442b08661906af0351e4a2617a58"
+    },
+    {
+      "path": ".cache/ahri-material-source/original/assets/characters/ahri/skins/base/particles/ahri_base_r_tails_mask_01.tex",
+      "bytes": 1044,
+      "sha256": "6d17838c6734f26f62102fff598178779f143231b296b9a775e067da318e0c64"
+    },
+    {
+      "path": ".cache/ahri-material-source/original/assets/characters/ahri/skins/base/particles/ahri_r_textureswap.tex",
+      "bytes": 174788,
+      "sha256": "e236e19a48565cb9424bf0208659bd2655ebe7c8754edf8e4b5964e48d33e71d"
+    },
+    {
+      "path": ".cache/ahri-material-source/original/assets/shared/materials/black.tex",
+      "bytes": 36,
+      "sha256": "205d2cc3f5485e2d03b3ac29b82c6e9e9a9986f43d2b017ace3db6e52898a5b3"
+    },
+    {
+      "path": ".cache/ahri-material-source/original/data/characters/ahri/skins/skin0.bin",
+      "bytes": 20378,
+      "sha256": "cea16ff8c3ef87fe6892595ad26dd710b3a7e9db33dfb05d30e1938ff27bbb17"
+    },
+    {
+      "path": ".cache/ahri-material-source/postcondition.json",
+      "bytes": 348,
+      "sha256": "c3dfd5f6f9adc10dc938fb79b75e46c3126f54b524c54861077551f1bc8b2951"
+    },
+    {
+      "path": ".cache/ahri-material-source/restoration-provenance.json",
+      "bytes": 5507,
+      "sha256": "3de4b3e8dbb253927684d773b930c4ca731ed258dff7f02af1c64becd97e18dd"
+    },
+    {
+      "path": ".cache/ahri-material-source/restore.py",
+      "bytes": 1633,
+      "sha256": "a88964f2393067baa377e6a3e703eae1e313a574af44afa4d79f9049c98ae2ff"
+    },
+    {
+      "path": ".cache/ahri-material-source/ruleset.txt",
+      "bytes": 65,
+      "sha256": "6f7133136de94a6e6f550f4b393d37f8729cb22d71d55bac1d9db8710bb11ee9"
+    },
+    {
+      "path": ".cache/ahri-material-source/source/docs/AHRI-MATERIAL-SOURCE.md",
+      "bytes": 3727,
+      "sha256": "4145ee11683b8bb5e538c5dbf96c5420d6e821fbfc21a3262852062c91921275"
+    },
+    {
+      "path": ".cache/ahri-material-source/source/docs/PROGRESS.md",
+      "bytes": 748123,
+      "sha256": "053673c57f72bfa92fc71f85ab7a0c3a9530cfdb7a5c82f961f987d826307a9e"
+    },
+    {
+      "path": ".cache/ahri-material-source/source/docs/reference/ahri/mesh-submeshes.bin",
+      "bytes": 332,
+      "sha256": "787b1b497a7a70af39e8f4bf3ce191c3d17d3bf8a44deee12c018692e036756f"
+    },
+    {
+      "path": ".cache/ahri-material-source/source/docs/reference/ahri/skin0.bin",
+      "bytes": 20378,
+      "sha256": "cea16ff8c3ef87fe6892595ad26dd710b3a7e9db33dfb05d30e1938ff27bbb17"
+    },
+    {
+      "path": ".cache/ahri-material-source/source/docs/reference/ahri-materials.json",
+      "bytes": 43362,
+      "sha256": "a825153c16fec391e2b6f45e72f838fba84e3931dfd199618110e1fe9cb3eb08"
+    },
+    {
+      "path": ".cache/ahri-material-source/source/tools/assets/export-ahri-materials.py",
+      "bytes": 11622,
+      "sha256": "c52025dac7625b1c212a4deba2875bdbe71b7e53cf6f73e2194c509deec5c420"
+    },
+    {
+      "path": ".cache/ahri-material-source/source/tools/assets/test-ahri-materials.py",
+      "bytes": 11567,
+      "sha256": "869805226dd921aa8a78f000e84b7e0c0d944efd2948f47bb2e77f3c44eb8277"
+    },
+    {
+      "path": ".cache/ahri-material-source/source/tools/assets/verify-ahri-skin.py",
+      "bytes": 3691,
+      "sha256": "4ac74ef5a9b70f81bee5e75ae4721a26eea4ab591bae80f3560f1b27c57e727f"
+    },
+    {
+      "path": ".cache/ahri-material-source/source-inputs.json",
+      "bytes": 961,
+      "sha256": "b6ee6faebf55e121959910ef9139cbf450d1e04d7262833d9463a2a1f5756814"
+    },
+    {
+      "path": ".cache/ahri-material-source/tests-optimized.log",
+      "bytes": 114,
+      "sha256": "5e77ae8e006a177d2db8813f82f18c33f41ccf7741079966e3080496cb9679cd"
+    },
+    {
+      "path": ".cache/ahri-material-source/tests.log",
+      "bytes": 114,
+      "sha256": "1f9ebacaac215aa23e178bfbe343b062df6fa6f2c8f81d1639dd3d121bab12af"
+    }
+  ]
+}

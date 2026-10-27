@@ -6,6 +6,15 @@ Last updated: October 27, 2026 (UTC).
 
 ## Current authoritative state
 
+The latest [Ahri material source audit](AHRI-MATERIAL-SOURCE.md) preserves the
+two original custom material definitions, five samplers and four submesh routes.
+An independent raw BIN decode verifies all four local records and 23 linked
+package names; linked packages remain undecoded. All 15 guard groups, the decode
+and exact exporter check pass in normal and optimized Python. Missing defaults
+remain absent. This source-only iteration inherits the accepted Ahri application
+identity below and changes no renderer or public asset. Native shader behavior
+and presentation fidelity remain open.
+
 The latest [cohort recovery tool](MATCH-COHORT-RECOVERY.md) preserves accepted
 results and interrupted evidence, verifies frozen inputs/runtime, refuses live
 ownership and uses an exclusive OS lock for detached recovery. All 13 new
