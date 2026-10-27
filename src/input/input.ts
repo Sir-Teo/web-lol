@@ -84,6 +84,8 @@ export class GameInput {
         e.target instanceof HTMLSelectElement;
       if (typing) return;
       const key = e.key.toLowerCase();
+      // Let focused HUD buttons keep their native Space activation.
+      if (key === ' ' && e.target instanceof HTMLButtonElement) return;
       if (!hud.modal && ['tab', ' ', 'arrowup', 'arrowdown'].includes(key)) e.preventDefault();
       if (e.repeat) return;
       if (key === 'escape') {
