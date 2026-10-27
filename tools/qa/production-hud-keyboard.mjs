@@ -76,9 +76,27 @@ try {
     const url = request.url();
     if (url.startsWith('http') && !url.startsWith(base)) outside.push(url);
   });
+  await page.addInitScript(() => {
+    const contexts = [];
+    Object.defineProperty(window, '__QA_AUDIO_CONTEXTS__', { value: contexts });
+    window.AudioContext = new Proxy(window.AudioContext, {
+      construct(target, args) {
+        const context = Reflect.construct(target, args);
+        contexts.push(context);
+        return context;
+      },
+    });
+  });
   await page.goto(base);
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
+  assert.equal(await page.evaluate(() => window.__QA_AUDIO_CONTEXTS__.length), 0);
+  await page.keyboard.press('s');
+  await page.waitForFunction(() =>
+    window.__QA_AUDIO_CONTEXTS__.some((context) => context.state === 'running')
+  );
+  assert.equal(await page.evaluate(() => window.__QA_AUDIO_CONTEXTS__.length), 1);
+
   const sound = page.getByRole('button', { name: 'Toggle sound', exact: true }),
     isMuted = () => sound.evaluate((node) => node.classList.contains('off'));
   const before = await isMuted();
@@ -117,6 +135,8 @@ try {
     result: 'passed',
     prefix,
     developmentHook: false,
+    firstKeyboardAudio: true,
+    audioContextsCreated: 1,
     soundSpace: true,
     soundEnter: true,
     pauseSpace: true,

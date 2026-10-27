@@ -33,6 +33,7 @@ export class GameInput {
       else if (this.aiming) view.setAim(this.aiming, this.castPoint(this.aiming));
     });
     window.addEventListener('pointerdown', (e) => {
+      unlockAudio();
       this.pointer = { x: e.clientX, y: e.clientY };
       if (e.button === 2 && hud.minimapPoint(e.clientX, e.clientY)) this.cancelAim();
     });
@@ -47,7 +48,6 @@ export class GameInput {
       this.updateHover();
     });
     canvas.addEventListener('pointerdown', (e) => {
-      unlockAudio();
       if (hud.paused || hud.modal) return;
       canvas.focus({ preventScroll: true });
       this.pointer = { x: e.clientX, y: e.clientY };
@@ -87,6 +87,17 @@ export class GameInput {
         e.target instanceof HTMLSelectElement;
       if (typing) return;
       const key = e.key.toLowerCase();
+      // Autoplay activation belongs to the first real gameplay/HUD gesture.
+      // Printable keys and button Enter/Space qualify; repeats and browser
+      // modifier shortcuts must not enqueue more context transitions.
+      if (
+        !e.repeat &&
+        !e.ctrlKey &&
+        !e.altKey &&
+        !e.metaKey &&
+        (key.length === 1 || (key === 'enter' && e.target instanceof HTMLButtonElement))
+      )
+        unlockAudio();
       // Let focused HUD buttons keep their native Space activation.
       if (key === ' ' && e.target instanceof HTMLButtonElement) return;
       if (!hud.modal && ['tab', ' ', 'arrowup', 'arrowdown'].includes(key)) e.preventDefault();
