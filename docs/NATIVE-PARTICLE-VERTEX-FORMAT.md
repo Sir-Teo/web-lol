@@ -1,5 +1,9 @@
 # Native particle vertex declaration and Metal bindings
 
+The later [camera-quad packet trace](NATIVE-CAMERAQUAD-PACKETS.md) distinguishes
+the CPU color conversions that can supply this layout. Draw-specific layout and
+shader selection remain separate evidence.
+
 The [vertex-format witness](reference/native-particle-vertex-format.json)
 connects the first declaration assembled by the particle buffer setup routine to
 its Metal factory, constructor, stream binder and format setter. It checks six

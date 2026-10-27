@@ -77,6 +77,12 @@ traces the matching first 28-byte layout through Metal's normalized-byte color,
 half4 UV0 and half2 UV1 declarations. Prepared-record producers and draw-specific
 layout/shader selection remain separate work.
 
+The later [camera-quad packet trace](NATIVE-CAMERAQUAD-PACKETS.md) locates the
+truncating helper in legacy and optimized-local quad routes. Its optimized
+billboard route instead uses clamped, rounded packing. The optimized quad
+dispatcher skips ray kind 2; these paths do not establish one color conversion
+for every primitive.
+
 ```sh
 PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/native_ray_packet.py --check
 PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/test-native-ray-packet.py

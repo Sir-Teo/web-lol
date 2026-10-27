@@ -1,5 +1,9 @@
 # Native atlas frame and quad vertex packing
 
+The later [camera-quad packet trace](NATIVE-CAMERAQUAD-PACKETS.md) adds explicit
+color-input and conversion evidence for legacy, optimized-local and optimized
+billboard routes. The atlas observations below retain their original scope.
+
 The frozen ARM64 renderer calculates a continuous atlas frame, converts it to
 half precision in a quad vertex, and lets the quad vertex shader floor it.
 [The static record](reference/native-atlas-runtime.json) retains five complete
