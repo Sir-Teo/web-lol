@@ -1,6 +1,7 @@
 import source from '../content/gromp-death.json';
 import { TICK_RATE } from '../content/rules';
 import { Vector3 } from 'three';
+import { prepareLegacyParticleColor, sampleLegacyParticleColor } from './legacy-particle-color';
 import {
   sampleParticleCurve,
   accumulateParticleCurve,
@@ -20,6 +21,8 @@ function compile(keys: { time: number; value: number[] }[]): ParticleCurve {
 const curves = source.profiles.map((profile) => ({
   scale: compile(profile.scaleCurve),
   color: compile(profile.colorCurve),
+  rayColor:
+    profile.kind === 'ray' ? prepareLegacyParticleColor(profile.color, profile.colorCurve) : null,
   rotation: compile(profile.rotationCurve),
 }));
 
@@ -82,7 +85,9 @@ export function grompDeathParticles(deathTick: number, tick: number, id = 0) {
           scale,
           rotation,
           frame,
-          color: p.color.map((v, axis) => v * sample(curve.color, phase, axis)),
+          color: curve.rayColor
+            ? sampleLegacyParticleColor(curve.rayColor, phase)
+            : p.color.map((v, axis) => v * sample(curve.color, phase, axis)),
           offset: origin.toArray().map((v, axis) => v + p.postOffset[axis] + motion.position[axis]),
           scroll: birth(p.uvOffset, p.probabilities.uvOffset).map(
             (v, axis) => v + p.scroll[axis] * age

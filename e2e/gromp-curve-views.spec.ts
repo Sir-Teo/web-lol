@@ -3,11 +3,16 @@ import { writeFileSync } from 'node:fs';
 import { relative, sep } from 'node:path';
 import { grompRayReference } from '../tools/qa/lib/prepare-gromp-ray-reference.mjs';
 
-test('prepared Gromp curve views preserve source samples and reduce sampler work', async ({
+test('historical prepared Gromp curve views preserve source samples and reduce sampler work', async ({
   page,
 }, info) => {
   test.setTimeout(180000);
   const reference = await grompRayReference(info.outputPath('reference')),
+    optimizedReference = await grompRayReference(
+      info.outputPath('optimized-reference'),
+      'baaaa8f302ba192b7d2b696d0688b9f93c5919e9'
+    ),
+    optimizedUrl = '/' + relative(process.cwd(), optimizedReference.module).split(sep).join('/'),
     referenceUrl = '/' + relative(process.cwd(), reference.module).split(sep).join('/'),
     errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
@@ -19,9 +24,9 @@ test('prepared Gromp curve views preserve source samples and reduce sampler work
   );
   await page.goto('/gromp-curve-probe');
   const reading = await page.evaluate(
-    async ({ referenceUrl }) => {
+    async ({ referenceUrl, optimizedUrl }) => {
       const before = await import(referenceUrl),
-        after = await import('/src/render/gromp-death-particles.ts'),
+        after = await import(optimizedUrl),
         samplers = { before: before.grompDeathParticles, after: after.grompDeathParticles },
         fixtures = [],
         census = [];
@@ -105,7 +110,7 @@ test('prepared Gromp curve views preserve source samples and reduce sampler work
         allRetainedFixtureStatesExact: true,
       };
     },
-    { referenceUrl }
+    { referenceUrl, optimizedUrl }
   );
   writeFileSync(
     info.outputPath('gromp-curve-sampler.json'),
@@ -113,9 +118,11 @@ test('prepared Gromp curve views preserve source samples and reduce sampler work
       {
         ...reading,
         reference,
+        optimizedReference,
         errors,
         limits: [
           'Isolated browser sampler CPU times and counted Array.map results; no GPU, full-world throughput or game-FPS measurement.',
+          'Historical accepted endpoints are frozen; later color arithmetic changes are validated separately.',
           'One-time static curve preparation is outside steady-state measurements.',
         ],
       },

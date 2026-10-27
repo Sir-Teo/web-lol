@@ -1,0 +1,1273 @@
+{
+  "format": 1,
+  "parentCommit": "35c207a072c55a8a38c5a8746eff4a1d19cbce64",
+  "scope": "Align the two Gromp Ray raw-key color components with checked float32 preparation/interpolation, preserving all other sampled fields and the six non-Ray profiles. Retain historical curve-view benchmarks using both frozen endpoints.",
+  "identity": {
+    "schema": 163,
+    "rulesetFingerprint": "1a1c286c5148bc1fef511cbf6ac28915e3638c0cd8834faed99ee2bc10fbb7d6",
+    "offlinePack": {
+      "id": "a53ddcc25a0ab95bae46c5a7a79182a8c88ed8def55e73184cb39167831c724d",
+      "files": 1202,
+      "bytes": 538091145
+    }
+  },
+  "verification": {
+    "newUnitCases": 51,
+    "focusedCases": 75,
+    "fullUnitRun": {
+      "passed": 3191,
+      "failed": 2,
+      "total": 3193,
+      "files": 396
+    },
+    "baselineFailuresUnchanged": 2,
+    "nodeQaPassed": 8,
+    "referencePythonModes": [
+      "normal",
+      "optimized"
+    ],
+    "browserCases": 5,
+    "samplerCalls": 6507,
+    "exactNonRayStates": 255500,
+    "rayColorAndPacketStates": 59204,
+    "otherRayFieldsUnchanged": true,
+    "additionalColorPhases": 2017,
+    "cBackedUnitFixtures": 34,
+    "changedRetainedPackets": 1,
+    "maxRetainedByteDelta": 1,
+    "nonemptyPixelCases": 180,
+    "changedChannelBytesAgainstC": 0,
+    "oldCurveChangedChannelBytes": 30,
+    "oldCurveChangedPixelCases": 8,
+    "assetsAndDataFilesUnchanged": 543,
+    "bytesAndMtimesUnchanged": true,
+    "productionRecordings": 32,
+    "freshProductionScreenshots": 8,
+    "privatePreloads": 0,
+    "schemaChanged": false,
+    "rulesetChanged": false
+  },
+  "retainedComparison": {
+    "reference": {
+      "commit": "4ebf87e10cabf9f7eeafc94929b9486165cc5b79",
+      "archiveSha256": "46af3e7b372318b0a65cf692fd4a7b015a0c0b2697f8c9a3c2c7ce359b70b5c5",
+      "moduleSha256": "2c3f0822f1441cb92aa01cbee1e6bbcbdf12a9270b412f6ac52681dad8f461f1",
+      "module": "/workspace/web-lol/.cache/gromp-raw-color/retained-final/reference/baseline.mjs"
+    },
+    "samplerCalls": 6507,
+    "nonRayStates": 255500,
+    "rayStates": 59204,
+    "additionalCurvePhases": 2017,
+    "counts": {
+      "5": {
+        "states": 32523,
+        "changedColorTuples": 29100,
+        "changedFloat32ColorStates": 18085,
+        "changedPackets": 0,
+        "maxByteDelta": 0
+      },
+      "7": {
+        "states": 26681,
+        "changedColorTuples": 26681,
+        "changedFloat32ColorStates": 8733,
+        "changedPackets": 1,
+        "maxByteDelta": 1
+      }
+    },
+    "examples": [
+      {
+        "death": 0,
+        "id": 0,
+        "tick": 8,
+        "ordinal": 8,
+        "profileIndex": 7,
+        "phase": 0.7291666666666665,
+        "beforeBgra": [
+          111,
+          28,
+          55,
+          255
+        ],
+        "afterBgra": [
+          110,
+          28,
+          55,
+          255
+        ]
+      }
+    ],
+    "allNonRayStatesExact": true,
+    "allOtherRayFieldsExact": true,
+    "allRayColorWordsExact": true,
+    "independentPacketProjectionExact": true,
+    "atlasAndLookupUnchanged": true,
+    "limits": [
+      "Conditional raw-key color and Ray packet components at retained local phases and unit birth/external colors; native live dispatch, backing-store mode and later cache mutation unobserved.",
+      "Native actor clocks, external modifiers, texture binding, UV routing, sampling and complete composition remain unresolved."
+    ]
+  },
+  "historicalBenchmark": {
+    "node": {
+      "path": ".cache/gromp-raw-color/historical-node/reading.json",
+      "bytes": 11358,
+      "sha256": "165724c296f844a13582f52b0f29f33be03b19c8bb5b54fbd6a2e44136df0850"
+    },
+    "browser": {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-curve-views-historic-486f9-les-and-reduce-sampler-work/gromp-curve-sampler.json",
+      "bytes": 11473,
+      "sha256": "9cd2bb3844cb38624bb28a92f7089275dad79e6d71fbc4a6cacc32f66799732a"
+    },
+    "currentArithmeticPerformanceClaimed": false
+  },
+  "pixelEvidence": [
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/gromp-ray-pixels.json",
+      "bytes": 33600,
+      "sha256": "385bb86d9e016838c18ed1e98211c49b505e9ed38349285d921b1c5918461c49"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/gromp-ray-pixels.json",
+      "bytes": 38281,
+      "sha256": "b881624b90ac6bc584f6b3ffad764ade2bce76f370511c246a58aaaef3fa51ed"
+    }
+  ],
+  "compilerEvidence": [
+    {
+      "path": ".cache/gromp-raw-color/retained-final/curve-expected.json.compiler.json",
+      "bytes": 956,
+      "sha256": "b921b03bec2451fbd723796552f9114c8f934e95cfd125066cdc98be045a8ca7"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-expected.json.compiler.json",
+      "bytes": 956,
+      "sha256": "b921b03bec2451fbd723796552f9114c8f934e95cfd125066cdc98be045a8ca7"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-expected.json.compiler.json",
+      "bytes": 956,
+      "sha256": "b921b03bec2451fbd723796552f9114c8f934e95cfd125066cdc98be045a8ca7"
+    }
+  ],
+  "nativeBoundaryReading": {
+    "path": ".cache/gromp-raw-color/boundary-reading.json",
+    "bytes": 583,
+    "sha256": "cb4525436ed5091755f98cb39b9fc31db8eee2118f57fc97ec9f13eb6ffdf06e"
+  },
+  "boundaryRegression": {
+    "path": ".cache/gromp-raw-color/boundary-equivalence.json",
+    "bytes": 758,
+    "sha256": "f8c956fedf1a20909132c965da59e04850f201cc1c01384649a929957aaa3676"
+  },
+  "limits": [
+    "Conditional raw-key color and Ray packet components at retained local phases and unit birth/external colors; native live dispatch, backing-store mode and later cache mutation unobserved.",
+    "Native actor clocks, external modifiers, texture binding, UV routing, sampling and complete composition remain unresolved.",
+    "Native FPCR, flush-to-zero and live process locale remain unobserved.",
+    "GPU comparison validates the local material using independent C color/lookup inputs and shared geometry; it is not native GPU or full appearance parity.",
+    "The same two historical/platform-dependent unit failures remain; their assertions are unchanged.",
+    "The corrected test freeze callback changes inference only; the draft type failure remains in the evidence archive.",
+    "The production runner changes only system Chromium launch selection."
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/GROMP-CURVE-VIEWS.md",
+      "bytes": 3797,
+      "sha256": "1080d6633d1a1a681e038b144ba69b6fdb204bedae676505ae831bbe9a54f5ae"
+    },
+    {
+      "path": "docs/GROMP-RAY-RAW-COLOR.md",
+      "bytes": 5652,
+      "sha256": "f59cd232ca006576967ae10aac70b29990877e805f3a9838a6c59cacc59530cc"
+    },
+    {
+      "path": "docs/reference/gromp-ray-raw-color-fixtures.json",
+      "bytes": 14051,
+      "sha256": "0b485d9beae4663d011b89f64ec469a1a7fe57d503d0c9a738b600a5d0d16222"
+    },
+    {
+      "path": "e2e/gromp-curve-views.spec.ts",
+      "bytes": 5567,
+      "sha256": "3d26e1990833e52a24c22a2242769ed388ec26c8325e305cea91f2f77f6b88c1"
+    },
+    {
+      "path": "e2e/gromp-ray-packets.spec.ts",
+      "bytes": 14287,
+      "sha256": "920f7ade64fa2ceff459c48834fcda15173910f0349ccc89519ccd0e1e7ae766"
+    },
+    {
+      "path": "src/render/gromp-death-particles.ts",
+      "bytes": 4258,
+      "sha256": "ec26c73a2f335f5c28adc63c41d3550a2abb5e0c107b72ea581c9508a3f77a70"
+    },
+    {
+      "path": "src/render/legacy-particle-color.ts",
+      "bytes": 2119,
+      "sha256": "57e4ed0dce09e02602a61352d6f55a5d21d61f5804c38ee3b6be132903db5458"
+    },
+    {
+      "path": "tests/legacy-particle-color.test.ts",
+      "bytes": 6135,
+      "sha256": "4ba9328606343ce81822d7f16116f424971450ae95946805a6d6e0e10e733952"
+    },
+    {
+      "path": "tools/qa/benchmark-gromp-curves.mjs",
+      "bytes": 4583,
+      "sha256": "b0acdfce2d170771fa8b51e14e766286ee1bdf53463c8213202d3c0834fdccb8"
+    },
+    {
+      "path": "tools/qa/legacy-ray-color-reference.test.mjs",
+      "bytes": 3006,
+      "sha256": "b9d1535c77cc0724389282fc6502b6680bc1689d0e2c90679294308919dbbab1"
+    },
+    {
+      "path": "tools/qa/lib/legacy-ray-color-reference.py",
+      "bytes": 5788,
+      "sha256": "b613ce15603d4bbfadeb73c5e91c5718945a3433a5d7aefe0568f42c442d40d5"
+    },
+    {
+      "path": "tools/qa/lib/prepare-gromp-ray-reference.mjs",
+      "bytes": 2057,
+      "sha256": "0449d3d9c284a7df83330b0817d7d0db1948cc203679c959278eb2bad32f1660"
+    },
+    {
+      "path": "tools/qa/verify-gromp-ray-packets.mjs",
+      "bytes": 8157,
+      "sha256": "5386979b022ec9bf2e1cca8921844c67624daba9d5110640355ad17261a9565f"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "src/content/gromp-death.json",
+      "bytes": 35018,
+      "sha256": "683823f0f8c647e973690508f474b9c1e54adf98543b01ba1322fdbd9fdc6bc0"
+    },
+    {
+      "path": "src/render/gromp-death.ts",
+      "bytes": 12698,
+      "sha256": "3359d4998d862fd17e1e4f3701148357363a1d63f3eb1fc25b2b288d5cc05777"
+    },
+    {
+      "path": "src/render/particle-curves.ts",
+      "bytes": 1156,
+      "sha256": "53ddfbba5133a9f9091ea46317cfce92a970c375b5a5462565a2ef593894295c"
+    },
+    {
+      "path": "src/render/particle-ray-color.ts",
+      "bytes": 1146,
+      "sha256": "c4a613aa82be38fa0110275015bc93a806835f2da8d4bc3b4b7f9d62793fa1c5"
+    },
+    {
+      "path": "src/render/particle-unorm8.ts",
+      "bytes": 522,
+      "sha256": "d9606ea6a3afb8df59e76c7968739ccb39c0ade6e021dd9d23b4780c74ac67de"
+    },
+    {
+      "path": "src/render/particle-half.ts",
+      "bytes": 1001,
+      "sha256": "291a7af941b604de3feb541136cfb62215c16b4d811ba8d3131568cf7180ac3b"
+    },
+    {
+      "path": "src/render/particle-color-product.ts",
+      "bytes": 5073,
+      "sha256": "3ef1c4f1c04076066aa8f4a17c189a46d9e7a75abb49b494771359862e2d1139"
+    },
+    {
+      "path": "tools/qa/lib/primary-hit-packet-reference.py",
+      "bytes": 2352,
+      "sha256": "88278c1b31df1a747e6928d1607fb6934cedbd3e6135b4f7d4c6df93f822ef51"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 30464,
+      "sha256": "68425c70629572add4d8bfb83d3b71e2a4b276c476bd5f1880083659aed7043b"
+    },
+    {
+      "path": "e2e/gromp-death.spec.ts",
+      "bytes": 10958,
+      "sha256": "22fc8da5f72da062b8a0027ab57cce8a966230c844c1cedcaa6fcfd07187c4d4"
+    },
+    {
+      "path": "docs/reference/native-legacy-color-curves.json",
+      "bytes": 92689,
+      "sha256": "b41ba9cea4d747af9e39b94ab59738120e83e83743179c5851bf2e4e8d282e72"
+    },
+    {
+      "path": "docs/reference/native-legacy-color-curves-verification.json",
+      "bytes": 14504,
+      "sha256": "c3e083127eb91129f0870461a192a24dfb760690448fb64d839b59ea3d7962ba"
+    },
+    {
+      "path": "docs/reference/native-ray-packet.json",
+      "bytes": 16794,
+      "sha256": "ab9b825f1108ed1e44124ee5f9821753eb73352cbf8738a8eebbb884c892b4ec"
+    },
+    {
+      "path": "docs/reference/native-legacy-modulation-default.json",
+      "bytes": 22729,
+      "sha256": "49dae3576cb73c396372690f03d839b0df85dd2e68bb256007b256557cc53072"
+    },
+    {
+      "path": "docs/reference/gromp-effects.json",
+      "bytes": 238111,
+      "sha256": "3cb54cd774fbfd66cc52846bb8775d17ab0adb473a570600e274e5f2ae0a1033"
+    },
+    {
+      "path": "docs/reference/gromp-curve-views-verification.json",
+      "bytes": 25894,
+      "sha256": "9486efbb57c3915e7f67490f1b4c9247b72e96c4f4ba2896e76255af33207539"
+    },
+    {
+      "path": "docs/reference/hud-space-key-verification.json",
+      "bytes": 12929,
+      "sha256": "3adeb39eb1585343ca1d2fba1d59ed20539636dac4a6c0b9ad93e664e5fe0009"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    }
+  ],
+  "archivedSources": [
+    {
+      "path": ".cache/gromp-raw-color/final-source/docs/GROMP-CURVE-VIEWS.md",
+      "bytes": 3797,
+      "sha256": "1080d6633d1a1a681e038b144ba69b6fdb204bedae676505ae831bbe9a54f5ae"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/docs/GROMP-RAY-RAW-COLOR.md",
+      "bytes": 5652,
+      "sha256": "f59cd232ca006576967ae10aac70b29990877e805f3a9838a6c59cacc59530cc"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/docs/reference/gromp-ray-raw-color-fixtures.json",
+      "bytes": 14051,
+      "sha256": "0b485d9beae4663d011b89f64ec469a1a7fe57d503d0c9a738b600a5d0d16222"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/e2e/gromp-curve-views.spec.ts",
+      "bytes": 5567,
+      "sha256": "3d26e1990833e52a24c22a2242769ed388ec26c8325e305cea91f2f77f6b88c1"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/e2e/gromp-ray-packets.spec.ts",
+      "bytes": 14287,
+      "sha256": "920f7ade64fa2ceff459c48834fcda15173910f0349ccc89519ccd0e1e7ae766"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/src/render/gromp-death-particles.ts",
+      "bytes": 4258,
+      "sha256": "ec26c73a2f335f5c28adc63c41d3550a2abb5e0c107b72ea581c9508a3f77a70"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/src/render/legacy-particle-color.ts",
+      "bytes": 2119,
+      "sha256": "57e4ed0dce09e02602a61352d6f55a5d21d61f5804c38ee3b6be132903db5458"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/tests/legacy-particle-color.test.ts",
+      "bytes": 6135,
+      "sha256": "4ba9328606343ce81822d7f16116f424971450ae95946805a6d6e0e10e733952"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/tools/qa/benchmark-gromp-curves.mjs",
+      "bytes": 4583,
+      "sha256": "b0acdfce2d170771fa8b51e14e766286ee1bdf53463c8213202d3c0834fdccb8"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/tools/qa/legacy-ray-color-reference.test.mjs",
+      "bytes": 3006,
+      "sha256": "b9d1535c77cc0724389282fc6502b6680bc1689d0e2c90679294308919dbbab1"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/tools/qa/lib/legacy-ray-color-reference.py",
+      "bytes": 5788,
+      "sha256": "b613ce15603d4bbfadeb73c5e91c5718945a3433a5d7aefe0568f42c442d40d5"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/tools/qa/lib/prepare-gromp-ray-reference.mjs",
+      "bytes": 2057,
+      "sha256": "0449d3d9c284a7df83330b0817d7d0db1948cc203679c959278eb2bad32f1660"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/tools/qa/verify-gromp-ray-packets.mjs",
+      "bytes": 8157,
+      "sha256": "5386979b022ec9bf2e1cca8921844c67624daba9d5110640355ad17261a9565f"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/src/content/gromp-death.json",
+      "bytes": 35018,
+      "sha256": "683823f0f8c647e973690508f474b9c1e54adf98543b01ba1322fdbd9fdc6bc0"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/src/render/gromp-death.ts",
+      "bytes": 12698,
+      "sha256": "3359d4998d862fd17e1e4f3701148357363a1d63f3eb1fc25b2b288d5cc05777"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/src/render/particle-curves.ts",
+      "bytes": 1156,
+      "sha256": "53ddfbba5133a9f9091ea46317cfce92a970c375b5a5462565a2ef593894295c"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/src/render/particle-ray-color.ts",
+      "bytes": 1146,
+      "sha256": "c4a613aa82be38fa0110275015bc93a806835f2da8d4bc3b4b7f9d62793fa1c5"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/src/render/particle-unorm8.ts",
+      "bytes": 522,
+      "sha256": "d9606ea6a3afb8df59e76c7968739ccb39c0ade6e021dd9d23b4780c74ac67de"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/src/render/particle-half.ts",
+      "bytes": 1001,
+      "sha256": "291a7af941b604de3feb541136cfb62215c16b4d811ba8d3131568cf7180ac3b"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/src/render/particle-color-product.ts",
+      "bytes": 5073,
+      "sha256": "3ef1c4f1c04076066aa8f4a17c189a46d9e7a75abb49b494771359862e2d1139"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/tools/qa/lib/primary-hit-packet-reference.py",
+      "bytes": 2352,
+      "sha256": "88278c1b31df1a747e6928d1607fb6934cedbd3e6135b4f7d4c6df93f822ef51"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/tools/qa/production-subpath.mjs",
+      "bytes": 30464,
+      "sha256": "68425c70629572add4d8bfb83d3b71e2a4b276c476bd5f1880083659aed7043b"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/e2e/gromp-death.spec.ts",
+      "bytes": 10958,
+      "sha256": "22fc8da5f72da062b8a0027ab57cce8a966230c844c1cedcaa6fcfd07187c4d4"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/docs/reference/native-legacy-color-curves.json",
+      "bytes": 92689,
+      "sha256": "b41ba9cea4d747af9e39b94ab59738120e83e83743179c5851bf2e4e8d282e72"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/docs/reference/native-legacy-color-curves-verification.json",
+      "bytes": 14504,
+      "sha256": "c3e083127eb91129f0870461a192a24dfb760690448fb64d839b59ea3d7962ba"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/docs/reference/native-ray-packet.json",
+      "bytes": 16794,
+      "sha256": "ab9b825f1108ed1e44124ee5f9821753eb73352cbf8738a8eebbb884c892b4ec"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/docs/reference/native-legacy-modulation-default.json",
+      "bytes": 22729,
+      "sha256": "49dae3576cb73c396372690f03d839b0df85dd2e68bb256007b256557cc53072"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/docs/reference/gromp-effects.json",
+      "bytes": 238111,
+      "sha256": "3cb54cd774fbfd66cc52846bb8775d17ab0adb473a570600e274e5f2ae0a1033"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/docs/reference/gromp-curve-views-verification.json",
+      "bytes": 25894,
+      "sha256": "9486efbb57c3915e7f67490f1b4c9247b72e96c4f4ba2896e76255af33207539"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/docs/reference/hud-space-key-verification.json",
+      "bytes": 12929,
+      "sha256": "3adeb39eb1585343ca1d2fba1d59ed20539636dac4a6c0b9ad93e664e5fe0009"
+    },
+    {
+      "path": ".cache/gromp-raw-color/final-source/package-lock.json",
+      "bytes": 68924,
+      "sha256": "19dd99464b7c612b757eb945a887e876c889e7dd169f922bba390d72d40aaf7e"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".cache/gromp-raw-color/acceptance-stages.json",
+      "bytes": 1410,
+      "sha256": "8844a7daada5e60e51cefb4dcb478b30592f89c8750d3c7a167970df6fc9c978"
+    },
+    {
+      "path": ".cache/gromp-raw-color/accepted-source-hashes.json",
+      "bytes": 1230,
+      "sha256": "dca2170caf7818144686a79b607e59ab58ebdf26404c60ce389df99ae3f51f22"
+    },
+    {
+      "path": ".cache/gromp-raw-color/archive-checkpoint.py",
+      "bytes": 11581,
+      "sha256": "27413326e2aebc63fa0f454edfb32195c89712b5b0d0d81e9e9da1fffd690378"
+    },
+    {
+      "path": ".cache/gromp-raw-color/assets-check.json",
+      "bytes": 113485,
+      "sha256": "724f4291b77f582effc4ece538baf9efc9efbfcf478e0366363cb8b3a857d549"
+    },
+    {
+      "path": ".cache/gromp-raw-color/boundary-equivalence.json",
+      "bytes": 758,
+      "sha256": "f8c956fedf1a20909132c965da59e04850f201cc1c01384649a929957aaa3676"
+    },
+    {
+      "path": ".cache/gromp-raw-color/boundary-focused.log",
+      "bytes": 170,
+      "sha256": "19ceba24ec0166eb047ff35ab69c6de9a8269786f9b6496d9ab8665100973792"
+    },
+    {
+      "path": ".cache/gromp-raw-color/boundary-reading.json",
+      "bytes": 583,
+      "sha256": "cb4525436ed5091755f98cb39b9fc31db8eee2118f57fc97ec9f13eb6ffdf06e"
+    },
+    {
+      "path": ".cache/gromp-raw-color/boundary-reference-guards.log",
+      "bytes": 264,
+      "sha256": "0c99ff7fa781ae6770d47935a9e04a5725fcb361f9db386eb063a2e451d133fe"
+    },
+    {
+      "path": ".cache/gromp-raw-color/boundary-source.log",
+      "bytes": 539,
+      "sha256": "cdb439de458752b2e34ec9f7079d68bf74bf5b282380a8b004b653a5b542cf3f"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-curve-views-historic-486f9-les-and-reduce-sampler-work/gromp-curve-sampler.json",
+      "bytes": 11473,
+      "sha256": "9cd2bb3844cb38624bb28a92f7089275dad79e6d71fbc4a6cacc32f66799732a"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-curve-views-historic-486f9-les-and-reduce-sampler-work/optimized-reference/baseline.mjs",
+      "bytes": 41203,
+      "sha256": "415eacd1a2abd2985925bf1d1ae5f32b3a31f83b6fc6a32e05b160be8543dcf8"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-curve-views-historic-486f9-les-and-reduce-sampler-work/optimized-reference/reference.json",
+      "bytes": 400,
+      "sha256": "a780062109ce3e1498df05905191e16ff4003508328ab8d1935a9ce84b9823ff"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-curve-views-historic-486f9-les-and-reduce-sampler-work/optimized-reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "040e1f4fd3ecddfebfe6f34247ae30897a0b89f8099ea9d1ae875e4d98a091f4"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-curve-views-historic-486f9-les-and-reduce-sampler-work/reference/baseline.mjs",
+      "bytes": 40859,
+      "sha256": "6d65e8b63cfd0cb3f81765cafadbfce98acd82e648606d3108b3accc8958e589"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-curve-views-historic-486f9-les-and-reduce-sampler-work/reference/reference.json",
+      "bytes": 390,
+      "sha256": "e4f42d4758e91f9bbe2ea0c1623ba5d55d7046f0d69ec78d0bbf9a6d3a7fe66f"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-curve-views-historic-486f9-les-and-reduce-sampler-work/reference/source.tar",
+      "bytes": 6543360,
+      "sha256": "46af3e7b372318b0a65cf692fd4a7b015a0c0b2697f8c9a3c2c7ce359b70b5c5"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-expected.json",
+      "bytes": 17940,
+      "sha256": "40e831774fcb1469d91e823c5bc5de7ced7257aee29c838ebbe9893938354e54"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-expected.json.c",
+      "bytes": 1851,
+      "sha256": "a3ee344994bf965d062e4f8cac15b04e59a12978bdffb5b76af32735799f63b1"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-expected.json.compiler.json",
+      "bytes": 956,
+      "sha256": "b921b03bec2451fbd723796552f9114c8f934e95cfd125066cdc98be045a8ca7"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-inputs.json",
+      "bytes": 4869,
+      "sha256": "ada0a58e40fd15d726b279df84b20982609c0c131fce945d4d00346a1713dd62"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/expected.json",
+      "bytes": 9822,
+      "sha256": "68e9f62d987c5c86a3ece9e1501c4cde8cc043a492cd20a307086407dcc20e12"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/gromp-ray-pixels.json",
+      "bytes": 33600,
+      "sha256": "385bb86d9e016838c18ed1e98211c49b505e9ed38349285d921b1c5918461c49"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/inputs.json",
+      "bytes": 12248,
+      "sha256": "7f1e404d6441142d5b1df22dc499fc4acaf8b4750342850f0df6f7e61b8ba11a"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/reference/baseline.mjs",
+      "bytes": 40859,
+      "sha256": "6ba5b40b1dba19341b54bac765e9161353d23963762e6df5fa0c90b351b690fe"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/reference/reference.json",
+      "bytes": 390,
+      "sha256": "e2e1cb15b81103fbd5f11ef4ec190e9d1c2961ca57c40c28b1b82db19eda952a"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/reference/source.tar",
+      "bytes": 6543360,
+      "sha256": "46af3e7b372318b0a65cf692fd4a7b015a0c0b2697f8c9a3c2c7ce359b70b5c5"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-expected.json",
+      "bytes": 58044,
+      "sha256": "62b77e49be7e9f3adf9a2e960a9d42bcc30369e5199296ca18ac0e93c6d8b490"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-expected.json.c",
+      "bytes": 1851,
+      "sha256": "a3ee344994bf965d062e4f8cac15b04e59a12978bdffb5b76af32735799f63b1"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-expected.json.compiler.json",
+      "bytes": 956,
+      "sha256": "b921b03bec2451fbd723796552f9114c8f934e95cfd125066cdc98be045a8ca7"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-inputs.json",
+      "bytes": 12937,
+      "sha256": "d02a23dacf4e8d0bf85329583fbdae29b488e4cc9bd6ffbddd6f6bb98e7c0e25"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/expected.json",
+      "bytes": 32997,
+      "sha256": "dce8f6dae456a2a13dca97eaa4d6c6b5aa1288e14f2d12577d2c56ad68226ee4"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/gromp-ray-pixels.json",
+      "bytes": 38281,
+      "sha256": "b881624b90ac6bc584f6b3ffad764ade2bce76f370511c246a58aaaef3fa51ed"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/inputs.json",
+      "bytes": 32251,
+      "sha256": "db415ca3da95df1011e4ec8cabfccfcac511904308759863f01da8b8f1837584"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/reference/baseline.mjs",
+      "bytes": 40859,
+      "sha256": "360d7e6aed0f0df1834458214666e91df59efb2fdda47bf966fdc89dc92c55e5"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/reference/reference.json",
+      "bytes": 390,
+      "sha256": "ecf6b844cd4c0d1c47bb19264a9dfae9ac81751ed6fc86d4bbe007bb3aae26b8"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/reference/source.tar",
+      "bytes": 6543360,
+      "sha256": "46af3e7b372318b0a65cf692fd4a7b015a0c0b2697f8c9a3c2c7ce359b70b5c5"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-accepted.log",
+      "bytes": 1465,
+      "sha256": "5fbb1a62f2d255fe5c0b1e4896447c89f5b9bd8c40c2bac2cf9483a64b14541b"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-curve-views-historic-486f9-les-and-reduce-sampler-work/gromp-curve-sampler.json",
+      "bytes": 11493,
+      "sha256": "2b9072847881175d1d0b7cda406360e75a9c3dd94bf290c4ee2f1466d7eb7843"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-curve-views-historic-486f9-les-and-reduce-sampler-work/optimized-reference/baseline.mjs",
+      "bytes": 41149,
+      "sha256": "8560b6e85506bb5a73af5a86608805df1eeaaa1833f76b732e02662eb1db319d"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-curve-views-historic-486f9-les-and-reduce-sampler-work/optimized-reference/reference.json",
+      "bytes": 397,
+      "sha256": "bf256d85e9ce5525596d1be3409c45dd8360ef13ae32456e6dca4de5f649ea3d"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-curve-views-historic-486f9-les-and-reduce-sampler-work/optimized-reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "040e1f4fd3ecddfebfe6f34247ae30897a0b89f8099ea9d1ae875e4d98a091f4"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-curve-views-historic-486f9-les-and-reduce-sampler-work/reference/baseline.mjs",
+      "bytes": 40805,
+      "sha256": "c2786715a24e868db7acc1f9199e117834d19a9384ce5a2e8af0e3302be3a900"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-curve-views-historic-486f9-les-and-reduce-sampler-work/reference/reference.json",
+      "bytes": 387,
+      "sha256": "1e7e238f41a9839f245edc40ed1c9facc74f6644d640f0921e08da2e0f833bd8"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-curve-views-historic-486f9-les-and-reduce-sampler-work/reference/source.tar",
+      "bytes": 6543360,
+      "sha256": "46af3e7b372318b0a65cf692fd4a7b015a0c0b2697f8c9a3c2c7ce359b70b5c5"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-expected.json",
+      "bytes": 17940,
+      "sha256": "40e831774fcb1469d91e823c5bc5de7ced7257aee29c838ebbe9893938354e54"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-expected.json.c",
+      "bytes": 1852,
+      "sha256": "ad6292e78ef5b1f6f6995b6b8d2b67ac50fa33be2bad3db30162d26d79797293"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-expected.json.compiler.json",
+      "bytes": 956,
+      "sha256": "99b927092e4579c8b3f5f708c6c5c7ee5661243b963d0e46dfd004dd315286ca"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/curve-inputs.json",
+      "bytes": 4869,
+      "sha256": "ada0a58e40fd15d726b279df84b20982609c0c131fce945d4d00346a1713dd62"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/expected.json",
+      "bytes": 9822,
+      "sha256": "68e9f62d987c5c86a3ece9e1501c4cde8cc043a492cd20a307086407dcc20e12"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/gromp-ray-pixels.json",
+      "bytes": 33600,
+      "sha256": "385bb86d9e016838c18ed1e98211c49b505e9ed38349285d921b1c5918461c49"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/inputs.json",
+      "bytes": 12248,
+      "sha256": "7f1e404d6441142d5b1df22dc499fc4acaf8b4750342850f0df6f7e61b8ba11a"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/reference/baseline.mjs",
+      "bytes": 40805,
+      "sha256": "0dddc0d78b4b70f4a98a0017f1fb2433c929f2f80ddfe1db63f3da2ebf0c4563"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/reference/reference.json",
+      "bytes": 387,
+      "sha256": "ede39b451e7172da0528361653b6b076bea3313c2b65a392e58a98ad104fb945"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-ray-packets-Gromp-Ra-a501e-endent-native-packet-values/reference/source.tar",
+      "bytes": 6543360,
+      "sha256": "46af3e7b372318b0a65cf692fd4a7b015a0c0b2697f8c9a3c2c7ce359b70b5c5"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-expected.json",
+      "bytes": 58044,
+      "sha256": "62b77e49be7e9f3adf9a2e960a9d42bcc30369e5199296ca18ac0e93c6d8b490"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-expected.json.c",
+      "bytes": 1852,
+      "sha256": "ad6292e78ef5b1f6f6995b6b8d2b67ac50fa33be2bad3db30162d26d79797293"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-expected.json.compiler.json",
+      "bytes": 956,
+      "sha256": "99b927092e4579c8b3f5f708c6c5c7ee5661243b963d0e46dfd004dd315286ca"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/curve-inputs.json",
+      "bytes": 12937,
+      "sha256": "d02a23dacf4e8d0bf85329583fbdae29b488e4cc9bd6ffbddd6f6bb98e7c0e25"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/expected.json",
+      "bytes": 32997,
+      "sha256": "dce8f6dae456a2a13dca97eaa4d6c6b5aa1288e14f2d12577d2c56ad68226ee4"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/gromp-ray-pixels.json",
+      "bytes": 38281,
+      "sha256": "b881624b90ac6bc584f6b3ffad764ade2bce76f370511c246a58aaaef3fa51ed"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/inputs.json",
+      "bytes": 32251,
+      "sha256": "db415ca3da95df1011e4ec8cabfccfcac511904308759863f01da8b8f1837584"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/reference/baseline.mjs",
+      "bytes": 40805,
+      "sha256": "db243e92a29305356087f0708dad6fa30b3ca5344f67e18156e3be7774940e61"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/reference/reference.json",
+      "bytes": 387,
+      "sha256": "47b0519d80611145dbf2c8fa9f692d039777cebb02af014314fccd0ba4af5855"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first/gromp-ray-packets-Gromp-Ra-e5f7d-endent-native-packet-values/reference/source.tar",
+      "bytes": 6543360,
+      "sha256": "46af3e7b372318b0a65cf692fd4a7b015a0c0b2697f8c9a3c2c7ce359b70b5c5"
+    },
+    {
+      "path": ".cache/gromp-raw-color/browser-first.log",
+      "bytes": 1465,
+      "sha256": "c3879f36d3e1d656c71e58c5c32b5a166d45ab9d8732bd780cadf010cadcde80"
+    },
+    {
+      "path": ".cache/gromp-raw-color/build.log",
+      "bytes": 7852,
+      "sha256": "b27f204530f84fba52fecea969bab1eea23d14ac41c4d34e54d05e77f49b0ccc"
+    },
+    {
+      "path": ".cache/gromp-raw-color/built-identity.json",
+      "bytes": 256,
+      "sha256": "85c327587b8959f1e28ef256cf75940d2358369f6b63b804b15499b754f118f3"
+    },
+    {
+      "path": ".cache/gromp-raw-color/check-boundary-source.py",
+      "bytes": 1101,
+      "sha256": "8a0cb327f9054916cbc1b6f2aa8e987f9921cc8d253bee5af5084f6846e94311"
+    },
+    {
+      "path": ".cache/gromp-raw-color/draft-checks/acceptance-stages.json",
+      "bytes": 614,
+      "sha256": "395a669ba5817693fa0cb0f26f5e5668f865eca81cb26e0cbb34cd615918ef89"
+    },
+    {
+      "path": ".cache/gromp-raw-color/draft-checks/focused.log",
+      "bytes": 380,
+      "sha256": "629aa627cc12c2897e7f83b3cd1bd7a275cc5c790c7d8f8ac4a5764d54d140c2"
+    },
+    {
+      "path": ".cache/gromp-raw-color/draft-checks/tsc.log",
+      "bytes": 384,
+      "sha256": "26409acd0c335c9a4ba1be3679885a01e716f8fe55a1f95aef118ced375ff5b8"
+    },
+    {
+      "path": ".cache/gromp-raw-color/finish-checks.py",
+      "bytes": 2151,
+      "sha256": "13f69b62af4e366af501dfea995e98e29ec80834e9a5702a65a483f50954c4f7"
+    },
+    {
+      "path": ".cache/gromp-raw-color/first-focused.log",
+      "bytes": 170,
+      "sha256": "365c1b36b84871f330a33fa5b14222762ca28af493aa11d6bd39649a70c6aae9"
+    },
+    {
+      "path": ".cache/gromp-raw-color/fixture-boundary.json",
+      "bytes": 5909,
+      "sha256": "c6ac699d955f5cc9f5ff3c162410319281ff5b84150b85ddf7d04b41df5f177c"
+    },
+    {
+      "path": ".cache/gromp-raw-color/fixture-boundary.json.c",
+      "bytes": 1851,
+      "sha256": "a3ee344994bf965d062e4f8cac15b04e59a12978bdffb5b76af32735799f63b1"
+    },
+    {
+      "path": ".cache/gromp-raw-color/fixture-boundary.json.compiler.json",
+      "bytes": 956,
+      "sha256": "b921b03bec2451fbd723796552f9114c8f934e95cfd125066cdc98be045a8ca7"
+    },
+    {
+      "path": ".cache/gromp-raw-color/fixture-expected.json",
+      "bytes": 5909,
+      "sha256": "c6ac699d955f5cc9f5ff3c162410319281ff5b84150b85ddf7d04b41df5f177c"
+    },
+    {
+      "path": ".cache/gromp-raw-color/fixture-expected.json.c",
+      "bytes": 1852,
+      "sha256": "ad6292e78ef5b1f6f6995b6b8d2b67ac50fa33be2bad3db30162d26d79797293"
+    },
+    {
+      "path": ".cache/gromp-raw-color/fixture-expected.json.compiler.json",
+      "bytes": 956,
+      "sha256": "99b927092e4579c8b3f5f708c6c5c7ee5661243b963d0e46dfd004dd315286ca"
+    },
+    {
+      "path": ".cache/gromp-raw-color/fixture-inputs.json",
+      "bytes": 1435,
+      "sha256": "9ab6410331b87dc34af6515bb9cbc8644a6d84a2275e60373a30c105e8495085"
+    },
+    {
+      "path": ".cache/gromp-raw-color/focused.log",
+      "bytes": 380,
+      "sha256": "58319d9cab29f80052bd61ffeadbaaa6cffe80d48602610c9129c4865ac8ea1e"
+    },
+    {
+      "path": ".cache/gromp-raw-color/full-tests.log",
+      "bytes": 4579,
+      "sha256": "4fb5ae0bd9e7d26f2a20e085c24c101dfe619d2ec6bfacaabc0a5428c37f54c6"
+    },
+    {
+      "path": ".cache/gromp-raw-color/historical-node/optimized-reference/baseline.mjs",
+      "bytes": 40087,
+      "sha256": "4677898cacafc22715c892b61134b852fd9d881b34d6a56d503c584598c65b60"
+    },
+    {
+      "path": ".cache/gromp-raw-color/historical-node/optimized-reference/reference.json",
+      "bytes": 338,
+      "sha256": "443ede20de3c70967abc6d6bdc2010f6053128c8db65c56f1a84e62e7c93a6b6"
+    },
+    {
+      "path": ".cache/gromp-raw-color/historical-node/optimized-reference/source.tar",
+      "bytes": 6553600,
+      "sha256": "040e1f4fd3ecddfebfe6f34247ae30897a0b89f8099ea9d1ae875e4d98a091f4"
+    },
+    {
+      "path": ".cache/gromp-raw-color/historical-node/reading.json",
+      "bytes": 11358,
+      "sha256": "165724c296f844a13582f52b0f29f33be03b19c8bb5b54fbd6a2e44136df0850"
+    },
+    {
+      "path": ".cache/gromp-raw-color/historical-node/reference/baseline.mjs",
+      "bytes": 39743,
+      "sha256": "f8489ea1ebb6f5b764c13ad7fdd176c298fa848071df2886eb797e2c195240c8"
+    },
+    {
+      "path": ".cache/gromp-raw-color/historical-node/reference/reference.json",
+      "bytes": 328,
+      "sha256": "63f940fa9d270d436a0fbdf12f91afcf5f2cfe1ff3edd779b89ef4a177761d83"
+    },
+    {
+      "path": ".cache/gromp-raw-color/historical-node/reference/source.tar",
+      "bytes": 6543360,
+      "sha256": "46af3e7b372318b0a65cf692fd4a7b015a0c0b2697f8c9a3c2c7ce359b70b5c5"
+    },
+    {
+      "path": ".cache/gromp-raw-color/historical-node.log",
+      "bytes": 166,
+      "sha256": "2c839e5f2222f741d1944041937141d1525e7ed650bb482989b0aa3e8439ec8e"
+    },
+    {
+      "path": ".cache/gromp-raw-color/node-qa.log",
+      "bytes": 809,
+      "sha256": "b4cacd6589e0f08c88ce24cc0aa006aa3e82e2803dcb8f71df744b943796a61c"
+    },
+    {
+      "path": ".cache/gromp-raw-color/pre-boundary-acceptance/acceptance-stages.json",
+      "bytes": 1408,
+      "sha256": "da60d8fa4df9480b5de1c29f388726bf1caf77c30c236683700720173274967e"
+    },
+    {
+      "path": ".cache/gromp-raw-color/pre-boundary-acceptance/accepted-source-hashes.json",
+      "bytes": 1230,
+      "sha256": "de4e5e0646475892f135a9a980fe736deb23609f531cc746330ebcd2e7cebb16"
+    },
+    {
+      "path": ".cache/gromp-raw-color/pre-boundary-acceptance/build.log",
+      "bytes": 7124,
+      "sha256": "1e083d3a77a6ecc850b019e9aa1824f4490c9fdaaf6bf91495d758610cb2f87c"
+    },
+    {
+      "path": ".cache/gromp-raw-color/pre-boundary-acceptance/focused.log",
+      "bytes": 380,
+      "sha256": "56152fce92489f8c4c82cd4b720a7e32004dbb19b8f671fc83521bf8e6cc3a00"
+    },
+    {
+      "path": ".cache/gromp-raw-color/pre-boundary-acceptance/full-tests.log",
+      "bytes": 4578,
+      "sha256": "f4c3841e38607a21544a7cff9bd9da130623d51a565055a81189d902aa3c62ea"
+    },
+    {
+      "path": ".cache/gromp-raw-color/pre-boundary-acceptance/node-qa.log",
+      "bytes": 809,
+      "sha256": "f93ac7514e953798d1a46d9d07aeb6bab6634220cd7ee1e68a6a7c5f83c90060"
+    },
+    {
+      "path": ".cache/gromp-raw-color/pre-boundary-acceptance/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1814143,
+      "sha256": "f0ac3e58669235bb5c49eeaeee5505e48a5df66fd152f86e45ffb7897fb7c7bd"
+    },
+    {
+      "path": ".cache/gromp-raw-color/pre-boundary-acceptance/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835506,
+      "sha256": "3b8df30d0032ac79a3e248cdd6202883b7ef104218269255c233af06143e111a"
+    },
+    {
+      "path": ".cache/gromp-raw-color/pre-boundary-acceptance/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1828809,
+      "sha256": "0dd241856038633ca535270180ee7faabe38458ec4bf22e32f2bec9bf284dbe9"
+    },
+    {
+      "path": ".cache/gromp-raw-color/pre-boundary-acceptance/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1811269,
+      "sha256": "3227a04528be5ef3d31d956eb29fd0f1fbcd49b7b4a3356ea3aa13d1af32826a"
+    },
+    {
+      "path": ".cache/gromp-raw-color/pre-boundary-acceptance/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1815911,
+      "sha256": "dae8c3477cfc08059dcb387bd3231194c47780ea48b6f2a5cddf0ae02c0d8389"
+    },
+    {
+      "path": ".cache/gromp-raw-color/pre-boundary-acceptance/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1351663,
+      "sha256": "ead2bdb25d1b230400d5014703debca46239538eeb0e72b863d9a47389fe53cc"
+    },
+    {
+      "path": ".cache/gromp-raw-color/pre-boundary-acceptance/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1826488,
+      "sha256": "e9e6dc7e38308824ff4e5faba5fd573fa09f90cf2e3ac76b4c46d45c38abd84e"
+    },
+    {
+      "path": ".cache/gromp-raw-color/pre-boundary-acceptance/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1809001,
+      "sha256": "bd3e2448bfebddd9e33b622a05b2d66ca823d978ab784fb9b0ceccc66dae3fe6"
+    },
+    {
+      "path": ".cache/gromp-raw-color/pre-boundary-acceptance/production-system.mjs",
+      "bytes": 30506,
+      "sha256": "83265d55f3e6e2d817e9e75fb02cce522f5d180558a305fd95d3d8e8dbf6df2a"
+    },
+    {
+      "path": ".cache/gromp-raw-color/pre-boundary-acceptance/production.log",
+      "bytes": 2852,
+      "sha256": "3a43a61a46c1083171afc098905a070204ecf85c4ad7711bbae93d93d22a77ac"
+    },
+    {
+      "path": ".cache/gromp-raw-color/pre-boundary-acceptance/source/docs/reference/gromp-ray-raw-color-fixtures.json",
+      "bytes": 13234,
+      "sha256": "da6885563f73fac108455e32aff33a0d4db0de47c75fce3b8336989d4c656bd1"
+    },
+    {
+      "path": ".cache/gromp-raw-color/pre-boundary-acceptance/source/src/render/legacy-particle-color.ts",
+      "bytes": 2118,
+      "sha256": "0a1340635300259e7f324b0c0e8a3d98cdce44411f872365a29b195792893288"
+    },
+    {
+      "path": ".cache/gromp-raw-color/pre-boundary-acceptance/source/tests/legacy-particle-color.test.ts",
+      "bytes": 5078,
+      "sha256": "fce87c2398fc42d6ccab38d34f863af69eaa55d623d8db41b97931a210d0343f"
+    },
+    {
+      "path": ".cache/gromp-raw-color/pre-boundary-acceptance/source/tools/qa/lib/legacy-ray-color-reference.py",
+      "bytes": 5789,
+      "sha256": "2b4fd52bc4dd9edebbd53977f10334e504d59e5ea8380cffbf077e4e69e05995"
+    },
+    {
+      "path": ".cache/gromp-raw-color/pre-boundary-acceptance/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/gromp-raw-color/production-artifacts/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1808878,
+      "sha256": "03585b856749b295c667eb259b86852919fa10a143acb632e246f4c45d7c2b51"
+    },
+    {
+      "path": ".cache/gromp-raw-color/production-artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1835988,
+      "sha256": "7081a9ff8d6fa0a1e6fc0837f8a46332d4a2fc4da989f115e96b7c9f29ad57ac"
+    },
+    {
+      "path": ".cache/gromp-raw-color/production-artifacts/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1828835,
+      "sha256": "dfbfac998fb14a33218f6bb307347254cd28e4e5a160a9c324451cdc27b2a0a4"
+    },
+    {
+      "path": ".cache/gromp-raw-color/production-artifacts/lux-e-hit-production-lux.png",
+      "bytes": 1811620,
+      "sha256": "370500c57853847372f87e47289bab1ce4535a13e467ac7e811a2d65287851e2"
+    },
+    {
+      "path": ".cache/gromp-raw-color/production-artifacts/lux-e-hit-production-oracle.png",
+      "bytes": 1819412,
+      "sha256": "bd96e417c4d0bc7ea52ff87292dccba086ed561fe7c975e8f4015380335131b9"
+    },
+    {
+      "path": ".cache/gromp-raw-color/production-artifacts/lux-e-hit-production-role-match.png",
+      "bytes": 1351474,
+      "sha256": "8e836df0e74361a5b9d2034c9bbf1e8772cfd148957385757c77f60f8d95a0b2"
+    },
+    {
+      "path": ".cache/gromp-raw-color/production-artifacts/lux-e-hit-production-subpath.png",
+      "bytes": 1826332,
+      "sha256": "f584cbbfa00f8f4bb8cf520f1302a18dcef740f755702fca4534102f70fd1233"
+    },
+    {
+      "path": ".cache/gromp-raw-color/production-artifacts/lux-e-hit-production-ward.png",
+      "bytes": 1808825,
+      "sha256": "4533f43883d87eeba7b50af1564169db00e64bf20342545b8f7f77cb6ec02d0c"
+    },
+    {
+      "path": ".cache/gromp-raw-color/production-summary.json",
+      "bytes": 3191,
+      "sha256": "2dbfd545aebdb6aa0081e70f472466ead471271e6426aab261715797f82706af"
+    },
+    {
+      "path": ".cache/gromp-raw-color/production-system.mjs",
+      "bytes": 30506,
+      "sha256": "83265d55f3e6e2d817e9e75fb02cce522f5d180558a305fd95d3d8e8dbf6df2a"
+    },
+    {
+      "path": ".cache/gromp-raw-color/production.log",
+      "bytes": 2852,
+      "sha256": "3a43a61a46c1083171afc098905a070204ecf85c4ad7711bbae93d93d22a77ac"
+    },
+    {
+      "path": ".cache/gromp-raw-color/reference-guards.log",
+      "bytes": 264,
+      "sha256": "e9f2e10cfb63ccbebff668d4b5328ab3e4e1090a8bbcb086c68ad8b3bc40bebc"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-final/candidate.mjs",
+      "bytes": 42315,
+      "sha256": "f8f58ab538dcf2d8e6a5bc15fca3a7c47d10f8458831d1a0fbf197ee06ceecd0"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-final/candidate.ts",
+      "bytes": 376,
+      "sha256": "71914be3754c19abfe46b3f3d979af02c38d01f2b1cb72b765be0cbc5c95225a"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-final/curve-expected.json",
+      "bytes": 11748228,
+      "sha256": "f824599c2be02d761b611fb545e7973129b40aff71a6b31aed6885437183fc6c"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-final/curve-expected.json.c",
+      "bytes": 1851,
+      "sha256": "a3ee344994bf965d062e4f8cac15b04e59a12978bdffb5b76af32735799f63b1"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-final/curve-expected.json.compiler.json",
+      "bytes": 956,
+      "sha256": "b921b03bec2451fbd723796552f9114c8f934e95cfd125066cdc98be045a8ca7"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-final/curve-inputs.json",
+      "bytes": 2807951,
+      "sha256": "ab8613426add2cd1c27931f8278df8bd2b0a0ab81dc6f04da7fb1f7037f3fd37"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-final/packet-expected.json",
+      "bytes": 6462046,
+      "sha256": "223920b9c58c09e225fbb08a2a338d284f1a9e201e7a462932eb4c6e3b6d6d1b"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-final/packet-inputs.json",
+      "bytes": 7220830,
+      "sha256": "c1537e84d6648b913644a74d7e8d664aed45293e87a5b797399ba87ac416b5d9"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-final/reading.json",
+      "bytes": 1657,
+      "sha256": "a18986553181ab11e3cd84e60a28eab8e9b5757faac789d1ed9a065dcd986966"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-final/reference/baseline.mjs",
+      "bytes": 39725,
+      "sha256": "2c3f0822f1441cb92aa01cbee1e6bbcbdf12a9270b412f6ac52681dad8f461f1"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-final/reference/reference.json",
+      "bytes": 327,
+      "sha256": "7592c6f6b1db7ca8ffbcf67cda3eb8d6f278d5face6ea1d474546c31388e1736"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-final/reference/source.tar",
+      "bytes": 6543360,
+      "sha256": "46af3e7b372318b0a65cf692fd4a7b015a0c0b2697f8c9a3c2c7ce359b70b5c5"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-final.log",
+      "bytes": 1296,
+      "sha256": "8dd0fa891bd0689a9f5ca62de53d08143ae092a5ace9039171294dc25e2a0119"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-first/candidate.mjs",
+      "bytes": 42314,
+      "sha256": "cb07e8db612829585ef581f91820686003c110922c9f7ddbbf2171c1832dd916"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-first/candidate.ts",
+      "bytes": 376,
+      "sha256": "71914be3754c19abfe46b3f3d979af02c38d01f2b1cb72b765be0cbc5c95225a"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-first/curve-expected.json",
+      "bytes": 11748228,
+      "sha256": "f824599c2be02d761b611fb545e7973129b40aff71a6b31aed6885437183fc6c"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-first/curve-expected.json.c",
+      "bytes": 1852,
+      "sha256": "ad6292e78ef5b1f6f6995b6b8d2b67ac50fa33be2bad3db30162d26d79797293"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-first/curve-expected.json.compiler.json",
+      "bytes": 956,
+      "sha256": "99b927092e4579c8b3f5f708c6c5c7ee5661243b963d0e46dfd004dd315286ca"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-first/curve-inputs.json",
+      "bytes": 2807951,
+      "sha256": "ab8613426add2cd1c27931f8278df8bd2b0a0ab81dc6f04da7fb1f7037f3fd37"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-first/packet-expected.json",
+      "bytes": 6462046,
+      "sha256": "223920b9c58c09e225fbb08a2a338d284f1a9e201e7a462932eb4c6e3b6d6d1b"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-first/packet-inputs.json",
+      "bytes": 7220830,
+      "sha256": "c1537e84d6648b913644a74d7e8d664aed45293e87a5b797399ba87ac416b5d9"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-first/reading.json",
+      "bytes": 1657,
+      "sha256": "35dbc25ef323223a4e870481723f47198ce2459c7b12955cd71d374a2d1ea2f1"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-first/reference/baseline.mjs",
+      "bytes": 39725,
+      "sha256": "20808e074c1de2635b08b19cb4af104fab36f3d969a0251adf31760b642f49eb"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-first/reference/reference.json",
+      "bytes": 327,
+      "sha256": "3d548f174bab227d56bb99b1b10b53418871073f3f6f1dbdd648b0bc2330d1c3"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-first/reference/source.tar",
+      "bytes": 6543360,
+      "sha256": "46af3e7b372318b0a65cf692fd4a7b015a0c0b2697f8c9a3c2c7ce359b70b5c5"
+    },
+    {
+      "path": ".cache/gromp-raw-color/retained-first.log",
+      "bytes": 1296,
+      "sha256": "49bfc1015d5c83984169ea81567c0b36db87475428c5c88cfe3927ccdb88a935"
+    },
+    {
+      "path": ".cache/gromp-raw-color/second-focused.log",
+      "bytes": 170,
+      "sha256": "19977aad2f832bf7aa95aeb1b4192b9a85034dc16a29a1ba77a4a2e707e8eef6"
+    },
+    {
+      "path": ".cache/gromp-raw-color/test-type-correction.json",
+      "bytes": 345,
+      "sha256": "bc8b00565f2eac3527b683fad83982066667b5caa8dc42b0e4b283e7ecbe2287"
+    },
+    {
+      "path": ".cache/gromp-raw-color/tsc-first.log",
+      "bytes": 384,
+      "sha256": "26409acd0c335c9a4ba1be3679885a01e716f8fe55a1f95aef118ced375ff5b8"
+    },
+    {
+      "path": ".cache/gromp-raw-color/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".cache/gromp-raw-color/update-pixels.py",
+      "bytes": 6154,
+      "sha256": "2778acaae668bcf29c351cea8ff3773d7b51e5096e016421fd7e2c0ad9de2b9d"
+    }
+  ]
+}

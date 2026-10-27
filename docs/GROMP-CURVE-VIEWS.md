@@ -56,3 +56,9 @@ fresh screenshots and no unintended private-asset preloads. Save schema 163
 and the ruleset fingerprint are unchanged. The
 [verification ledger](reference/gromp-curve-views-verification.json) records
 the final source identities, benchmark samples and acceptance evidence.
+
+The replay tools now also freeze the optimized endpoint at
+`baaaa8f302ba192b7d2b696d0688b9f93c5919e9`, retaining this historical comparison
+when later raw-key color arithmetic changes. The original fixture, equality,
+allocation-count and timing assertions are retained. Current raw-key color
+behavior has separate [C and rendering checks](GROMP-RAY-RAW-COLOR.md).

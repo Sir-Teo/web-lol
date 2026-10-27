@@ -5,12 +5,15 @@ import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import assert from 'node:assert/strict';
 import { rolldown } from 'rolldown';
-export async function grompRayReference(output) {
+export async function grompRayReference(
+  output,
+  commit = '4ebf87e10cabf9f7eeafc94929b9486165cc5b79'
+) {
   output = resolve(output);
   assert(!existsSync(output), 'Use a fresh reference directory');
   mkdirSync(output, { recursive: true });
-  const commit = '4ebf87e10cabf9f7eeafc94929b9486165cc5b79',
-    archive = execFileSync(
+  assert(/^[0-9a-f]{40}$/.test(commit), 'Reference requires a full commit identity');
+  const archive = execFileSync(
       'git',
       ['archive', commit, 'src', 'package.json', 'package-lock.json', 'tsconfig.json'],
       { maxBuffer: 32 * 1024 * 1024 }

@@ -18,8 +18,10 @@ for (const profileIndex of [5, 7])
           ? [0.111, 0.137, 0.173, 0.213, 0.257, 0.319, 0.357]
           : [0.111, 0.137, 0.173, 0.357, 0.519, 0.623, 0.719]
       ).map((phase) => 101 + phase * born.life * 60),
-      raw = ticks.map((tick) =>
-        before.grompDeathParticles(100, tick, 91).filter((p) => p.profileIndex === profileIndex)
+      cases = ticks.map((tick) => ({ tick, death: 100, id: 91 }));
+    if (profileIndex === 7) cases.push({ tick: 8, death: 0, id: 0 });
+    const raw = cases.map(({ tick, death, id }) =>
+        before.grompDeathParticles(death, tick, id).filter((p) => p.profileIndex === profileIndex)
       ),
       input = info.outputPath('inputs.json'),
       output = info.outputPath('expected.json');
@@ -37,10 +39,33 @@ for (const profileIndex of [5, 7])
       )
     );
     execFileSync('python3', ['tools/qa/lib/primary-hit-packet-reference.py', input, output]);
-    const all = JSON.parse(readFileSync(output, 'utf8'));
+    const oldAll = JSON.parse(readFileSync(output, 'utf8')),
+      curveInput = info.outputPath('curve-inputs.json'),
+      curveOutput = info.outputPath('curve-expected.json');
+    writeFileSync(
+      curveInput,
+      JSON.stringify(raw.flat().map((p) => ({ profileIndex, phase: p.phase })))
+    );
+    execFileSync('python3', [
+      'tools/qa/lib/legacy-ray-color-reference.py',
+      curveInput,
+      curveOutput,
+    ]);
+    const colors = JSON.parse(readFileSync(curveOutput, 'utf8')),
+      all = oldAll.map((packet, index) => ({
+        ...packet,
+        color: [
+          colors[index].bgra[2],
+          colors[index].bgra[1],
+          colors[index].bgra[0],
+          colors[index].bgra[3],
+        ].map((v) => v / 255),
+      }));
     let offset = 0;
+    const oldPackets = [];
     const packets = raw.map((p) => {
       const rows = all.slice(offset, offset + p.length);
+      oldPackets.push(oldAll.slice(offset, offset + p.length));
       offset += p.length;
       return rows;
     });
@@ -54,7 +79,7 @@ for (const profileIndex of [5, 7])
     );
     await page.goto('/gromp-packet-probe');
     const reading = await page.evaluate(
-      async ({ profileIndex, ticks, raw, packets, profile }) => {
+      async ({ profileIndex, cases, raw, packets, oldPackets, profile }) => {
         const THREE = await import('/node_modules/three/build/three.module.js'),
           { GrompDeath, loadGrompDeath } = await import('/src/render/gromp-death.ts');
         await loadGrompDeath();
@@ -66,7 +91,10 @@ for (const profileIndex of [5, 7])
         bone.name = 'Buffbone_Glb_Ground_Loc';
         root.add(bone);
         root.updateMatrixWorld(true);
-        const models = new Map([[91, { root }]]),
+        const models = new Map([
+            [91, { root }],
+            [0, { root }],
+          ]),
           unit = {
             id: 91,
             kind: 'monster',
@@ -83,9 +111,10 @@ for (const profileIndex of [5, 7])
         let changed = 0,
           maxDelta = 0,
           oldChanged = 0,
+          oldCurveChanged = 0,
           nonempty = 0;
         try {
-          for (let sample = 0; sample < ticks.length; sample++)
+          for (let sample = 0; sample < cases.length; sample++)
             for (const direction of [
               [3, 2, 4],
               [-3, 1, 2],
@@ -95,7 +124,9 @@ for (const profileIndex of [5, 7])
               camera.position.set(...direction);
               camera.lookAt(0, 0, 0);
               camera.updateMatrixWorld();
-              world.tick = ticks[sample];
+              world.tick = cases[sample].tick;
+              unit.id = cases[sample].id;
+              unit.deadAt = cases[sample].death;
               controller.update(world, 1, camera, models);
               const mesh = [...controller.models.values()].find(
                 (m) => m.name === 'Gromp death ' + profile.name
@@ -113,16 +144,20 @@ for (const profileIndex of [5, 7])
               const candidateScene = new THREE.Scene(),
                 refScene = new THREE.Scene(),
                 oldScene = new THREE.Scene(),
+                oldCurveScene = new THREE.Scene(),
                 refGeometry = mesh.geometry.clone(),
                 oldGeometry = mesh.geometry.clone(),
+                oldCurveGeometry = mesh.geometry.clone(),
                 bytes = new Uint8Array(tint.array.length),
                 oldTint = new Float32Array(tint.array.length),
+                oldCurveBytes = new Uint8Array(tint.array.length),
                 refLookup = refGeometry.getAttribute('particleLookupUv'),
                 oldLookup = oldGeometry.getAttribute('particleLookupUv');
               for (let i = 0; i < raw[sample].length; i++) {
                 const p = raw[sample][i],
                   packet = packets[sample][i],
                   rgba = packet.color.map((v) => Math.round(v * 255)),
+                  oldRgba = oldPackets[sample][i].color.map((v) => Math.round(v * 255)),
                   color = [...p.color];
                 if (profile.blend === 0) {
                   for (let lane = 0; lane < 3; lane++) color[lane] *= color[3];
@@ -131,6 +166,13 @@ for (const profileIndex of [5, 7])
                 for (let vertex = i * 6; vertex < (i + 1) * 6; vertex++) {
                   bytes.set([rgba[2], rgba[1], rgba[0], rgba[3]], vertex * 4);
                   oldTint.set(color, vertex * 4);
+                  oldCurveBytes.set([oldRgba[2], oldRgba[1], oldRgba[0], oldRgba[3]], vertex * 4);
+                  const actualLookup = mesh.geometry.getAttribute('particleLookupUv');
+                  if (
+                    actualLookup.getX(vertex) !== packet.lookup[0] ||
+                    actualLookup.getY(vertex) !== packet.lookup[1]
+                  )
+                    throw Error('Actual lookup differs from C reference');
                   refLookup.setXY(vertex, ...packet.lookup);
                   oldLookup.setXY(vertex, p.phase, 0.5);
                 }
@@ -148,11 +190,17 @@ for (const profileIndex of [5, 7])
                 'particleTint',
                 new THREE.Float32BufferAttribute(oldTint, 4)
               );
+              oldCurveGeometry.setAttribute(
+                '_source_vertex_bgra',
+                new THREE.Uint8BufferAttribute(oldCurveBytes, 4, true)
+              );
               const refMaterial = mesh.material.clone(),
                 oldMaterial = mesh.material.clone(),
+                oldCurveMaterial = mesh.material.clone(),
                 candidate = mesh.clone(),
                 ref = mesh.clone(),
-                old = mesh.clone();
+                old = mesh.clone(),
+                oldCurve = mesh.clone();
               delete oldMaterial.defines.VERTEX_BGRA;
               ref.geometry = refGeometry;
               ref.material = refMaterial;
@@ -161,6 +209,9 @@ for (const profileIndex of [5, 7])
               candidateScene.add(candidate);
               refScene.add(ref);
               oldScene.add(old);
+              oldCurve.geometry = oldCurveGeometry;
+              oldCurve.material = oldCurveMaterial;
+              oldCurveScene.add(oldCurve);
               // Framing uses only active vertices: batch capacity can retain old positions.
               const bounds = new THREE.Box3(),
                 position = mesh.geometry.getAttribute('position'),
@@ -180,11 +231,16 @@ for (const profileIndex of [5, 7])
                     const target = new THREE.WebGLRenderTarget(size, size),
                       buffers = [];
                     renderer.setSize(size, size);
-                    for (const material of [mesh.material, refMaterial, oldMaterial])
+                    for (const material of [
+                      mesh.material,
+                      refMaterial,
+                      oldMaterial,
+                      oldCurveMaterial,
+                    ])
                       material.blending = blend === 'raw' ? THREE.NoBlending : THREE.CustomBlending;
                     try {
                       renderer.setRenderTarget(target);
-                      for (const s of [candidateScene, refScene, oldScene]) {
+                      for (const s of [candidateScene, refScene, oldScene, oldCurveScene]) {
                         renderer.clear();
                         renderer.render(s, camera);
                         const b = new Uint8Array(size * size * 4);
@@ -194,17 +250,20 @@ for (const profileIndex of [5, 7])
                       let differences = 0,
                         delta = 0,
                         oldDifferences = 0,
+                        oldCurveDifferences = 0,
                         rgb = 0;
                       for (let i = 0; i < buffers[0].length; i++) {
                         const d = Math.abs(buffers[0][i] - buffers[1][i]);
                         if (d) differences++;
                         delta = Math.max(delta, d);
                         if (buffers[2][i] !== buffers[1][i]) oldDifferences++;
+                        if (buffers[3][i] !== buffers[1][i]) oldCurveDifferences++;
                         if (i % 4 !== 3 && buffers[1][i]) rgb++;
                       }
                       changed += differences;
                       maxDelta = Math.max(maxDelta, delta);
                       oldChanged += oldDifferences;
+                      oldCurveChanged += oldCurveDifferences;
                       if (rgb) nonempty++;
                       rows.push({
                         sample,
@@ -215,6 +274,8 @@ for (const profileIndex of [5, 7])
                         changedBytes: differences,
                         maxDelta: delta,
                         oldChangedBytes: oldDifferences,
+                        oldCurveChangedBytes: oldCurveDifferences,
+                        sourceCase: cases[sample],
                         nonzeroRgb: rgb,
                       });
                     } finally {
@@ -225,8 +286,10 @@ for (const profileIndex of [5, 7])
               } finally {
                 refGeometry.dispose();
                 oldGeometry.dispose();
+                oldCurveGeometry.dispose();
                 refMaterial.dispose();
                 oldMaterial.dispose();
+                oldCurveMaterial.dispose();
               }
             }
           return {
@@ -234,6 +297,7 @@ for (const profileIndex of [5, 7])
             changed,
             maxDelta,
             oldChanged,
+            oldCurveChanged,
             nonempty,
             glError: renderer.getContext().getError(),
           };
@@ -243,17 +307,19 @@ for (const profileIndex of [5, 7])
           renderer.dispose();
         }
       },
-      { profileIndex, ticks, raw, packets, profile }
+      { profileIndex, cases, raw, packets, oldPackets, profile }
     );
     writeFileSync(
       info.outputPath('gromp-ray-pixels.json'),
       JSON.stringify({ ...reading, errors }, null, 2)
     );
-    expect(reading.rows).toHaveLength(84);
+    expect(reading.rows).toHaveLength(cases.length * 12);
     expect(reading.changed).toBe(0);
     expect(reading.maxDelta).toBe(0);
-    expect(reading.nonempty).toBe(84);
+    expect(reading.nonempty).toBe(cases.length * 12);
     expect(reading.oldChanged).toBeGreaterThan(0);
+    if (profileIndex === 7) expect(reading.oldCurveChanged).toBeGreaterThan(0);
+    else expect(reading.oldCurveChanged).toBe(0);
     expect(reading.glError).toBe(0);
     expect(errors).toEqual([]);
   });

@@ -5,7 +5,6 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { parseArgs } from 'node:util';
 import { pathToFileURL } from 'node:url';
 import { performance } from 'node:perf_hooks';
-import { rolldown } from 'rolldown';
 import { grompRayReference } from './lib/prepare-gromp-ray-reference.mjs';
 const { values } = parseArgs({
     options: { 'output-dir': { type: 'string' }, iterations: { type: 'string', default: '2000' } },
@@ -16,18 +15,11 @@ assert(!existsSync(output), 'Use a fresh output directory');
 assert(Number.isSafeInteger(iterations) && iterations > 0 && iterations <= 100000);
 mkdirSync(output, { recursive: true });
 const reference = await grompRayReference(resolve(output, 'reference')),
-  entry = resolve(output, 'candidate.ts'),
-  module = resolve(output, 'candidate.mjs');
-writeFileSync(
-  entry,
-  `export {grompDeathParticles} from ${JSON.stringify(resolve('src/render/gromp-death-particles.ts'))};`
-);
-const bundle = await rolldown({ input: entry, platform: 'node', external: ['three'] });
-try {
-  await bundle.write({ file: module, format: 'esm' });
-} finally {
-  await bundle.close();
-}
+  optimizedReference = await grompRayReference(
+    resolve(output, 'optimized-reference'),
+    'baaaa8f302ba192b7d2b696d0688b9f93c5919e9'
+  ),
+  module = optimizedReference.module;
 const before = await import(pathToFileURL(reference.module).href),
   after = await import(pathToFileURL(module).href),
   fixtures = [];
@@ -93,6 +85,7 @@ const median = (rows) => [...rows].sort((a, b) => a - b)[Math.floor(rows.length 
   reading = {
     node: process.version,
     reference,
+    optimizedReference,
     fixtures: fixtures.length,
     measuredFixtures: measured.length,
     iterationsPerTrial: iterations,
@@ -104,6 +97,7 @@ const median = (rows) => [...rows].sort((a, b) => a - b)[Math.floor(rows.length 
     allRetainedFixtureStatesExact: true,
     limits: [
       'Isolated sampler CPU times and counted Array.map results, not total allocations, full-world throughput, rendering cost or game FPS.',
+      'Historical accepted endpoints are frozen at 4ebf87e and baaaa8f; this is not a benchmark of later color arithmetic changes.',
       'Static source curve views are prepared at module initialization; their one-time preparation is outside steady-state measurements.',
     ],
   };
