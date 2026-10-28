@@ -8,6 +8,7 @@ import { NavGrid } from '../../src/simulation/navgrid';
 import { createLaneMatch } from '../../src/simulation/lane-match';
 import { World } from '../../src/simulation/world';
 import { assertMatchResources, assertMatchVictory, observeStructureDamage } from './match-contract';
+import { cohortProfile } from './lib/cohort-profile';
 
 declare const __SIMULATION_HASH__: string;
 
@@ -17,9 +18,11 @@ const { values, positionals } = parseArgs({
     output: { type: 'string' },
     data: { type: 'string', default: 'public/assets/maps' },
     'development-leona': { type: 'boolean', default: false },
+    'development-roster': { type: 'boolean', default: false },
   },
   allowPositionals: true,
 });
+const profile = cohortProfile(values['development-leona'], values['development-roster']);
 const seed = Number(positionals[0]),
   minutes = Number(values.minutes);
 if (
@@ -48,15 +51,13 @@ function freshBattlefield() {
     ),
     JSON.parse(layout)
   );
-  return values['development-leona']
-    ? { ...battlefield, developmentLeona: true as const }
-    : battlefield;
+  return { ...battlefield, ...profile.permissions };
 }
 const battlefield = freshBattlefield();
-const world = createLaneMatch(battlefield, values['development-leona'] ? 'leona' : 'ashe');
+const world = createLaneMatch(battlefield, profile.playerChampion);
 world.random.state = seed;
 world.hero.ai = true; // QA automation only; the production player is unchanged.
-world.hero.lane = battlefield.lanes.findIndex((lane) => lane.name === 'bot');
+world.hero.lane = battlefield.lanes.findIndex((lane) => lane.name === profile.humanLane);
 const started = performance.now(),
   samples: object[] = [],
   destruction: object[] = [];
@@ -201,8 +202,9 @@ const report = {
   futureChecks,
   futureCheckedTicks,
   developmentLeona: values['development-leona'],
-  automatedHumanCarry: !values['development-leona'],
-  automatedHumanRole: values['development-leona'] ? 'support' : 'carry',
+  developmentRoster: values['development-roster'],
+  automatedHumanCarry: profile.humanRole === 'carry',
+  automatedHumanRole: profile.humanRole,
   elapsedSeconds: (performance.now() - started) / 1000,
   runtime: {
     node: process.version,

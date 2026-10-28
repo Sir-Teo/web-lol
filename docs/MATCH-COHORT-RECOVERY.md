@@ -24,6 +24,11 @@ reports must also match.
 
 The supported canonical controller is pinned by SHA-256
 `23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45`.
+The combined-roster controller is also supported at SHA-256
+`0634da0d495f977909b756a19747197f4dcd0f1a443a0a574e62af46d02c00f3`.
+Its profile flags survive recovery, and its private invariant gate remains
+separate from the ordinary gate. The historical controller above is retained
+byte for byte as a test fixture.
 The tool rejects an unknown controller rather than wrapping unverified code.
 Its generated supervisor keeps the canonical dispatch/invariant tail byte-for-byte.
 The recovery preamble supports completions arriving out of order: accepted
@@ -71,3 +76,7 @@ device performance acceptance is claimed. The original live cohort continues
 under its earlier checked recovery supervisor; the new tool was not used to
 restart it again. Evidence is retained in the
 [verification ledger](reference/match-cohort-recovery-verification.json).
+
+The newer [combined-roster audit](COMBINED-ROSTER-COHORT.md) records 39 passing
+Node QA checks and an actual interrupted three-seed game recovery. These newer
+results supplement the historical verification above.

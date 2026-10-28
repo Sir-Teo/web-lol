@@ -1,0 +1,344 @@
+{
+  "date": "2026-10-28",
+  "previousCommit": "3df544e",
+  "schema": 163,
+  "ruleset": "033bd826b7f5899449adbec1cbb02ff826f636cf3b75c758f4effe4f7c5a02be",
+  "sources": [
+    {
+      "path": "tools/qa/match-cohort.mjs",
+      "bytes": 11888,
+      "sha256": "0634da0d495f977909b756a19747197f4dcd0f1a443a0a574e62af46d02c00f3"
+    },
+    {
+      "path": "tools/qa/match-seed.ts",
+      "bytes": 8088,
+      "sha256": "f95cf3d4a1deb6edbb63d10bbc21c33e11c99d3eb4e6c736afcefe7e8770a82f"
+    },
+    {
+      "path": "tools/qa/verify-match-cohort.mjs",
+      "bytes": 7920,
+      "sha256": "0b7a4fc4f75a3b1558c92b9888291b8209fb5027aa3fed2e7817d687baf242c2"
+    },
+    {
+      "path": "tools/qa/lib/cohort-profile.ts",
+      "bytes": 1513,
+      "sha256": "65fac81107f61d0d5eaa43b5780933215bc37643fe918ef5a2ce730fe94744ad"
+    },
+    {
+      "path": "tools/qa/lib/cohort-resume.mjs",
+      "bytes": 20604,
+      "sha256": "9e87ba77e57032cfa892cb6a25a43f17fef2fd1bec7d23b4ef63a63a24a49985"
+    },
+    {
+      "path": "tools/qa/cohort-resume.test.mjs",
+      "bytes": 22924,
+      "sha256": "b81c88896a4fce23360712562d33f383389e3fa34019947871fd250a917d68a7"
+    },
+    {
+      "path": "tools/qa/cohort-profile.test.mjs",
+      "bytes": 5625,
+      "sha256": "a032b2a40f4e9affc2337c9efb651eb6f5cfe3387d32f0f26775df6ec392c369"
+    },
+    {
+      "path": "tools/qa/fixtures/match-cohort-legacy.mjs",
+      "bytes": 10784,
+      "sha256": "23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45"
+    }
+  ],
+  "checks": {
+    "nodeQa": {
+      "passed": 39,
+      "total": 39
+    },
+    "typescript": true,
+    "format": true
+  },
+  "realCorpora": [
+    {
+      "name": "pilot-ordinary",
+      "plan": {
+        "path": "artifacts/roster-cohort/pilot-ordinary/plan.json",
+        "bytes": 94306,
+        "sha256": "3c8ba235ac6f68f37cc6fbb96051729e68fa88030a1172465932fdf2d94518e9"
+      },
+      "summary": {
+        "path": "artifacts/roster-cohort/pilot-ordinary/summary.json",
+        "bytes": 19228,
+        "sha256": "4d8bbd885303daa65c0db92abd1a75f4f1653992574e511bc2f8d5f2d7f6bdb1"
+      },
+      "seeds": [26018],
+      "developmentLeona": false,
+      "developmentRoster": false,
+      "horizonTicks": 10800,
+      "checkedTicks": 10800,
+      "roundTrips": 3,
+      "futureChecks": 2,
+      "reports": [
+        {
+          "path": "artifacts/roster-cohort/pilot-ordinary/seeds/26018/report.json",
+          "bytes": 15811,
+          "sha256": "3a45be70a3d7f5d61f38bd794a7e5a7f78edb67ac6eeaf387429e63a875da3e4"
+        }
+      ]
+    },
+    {
+      "name": "pilot-leona",
+      "plan": {
+        "path": "artifacts/roster-cohort/pilot-leona/plan.json",
+        "bytes": 94304,
+        "sha256": "11d590814be67340bbbaf2373fdaca54bf8b33cdb2cd4ecdf4eca2619af6863b"
+      },
+      "summary": {
+        "path": "artifacts/roster-cohort/pilot-leona/summary.json",
+        "bytes": 18750,
+        "sha256": "a29686ac6a4d92027c8f1a9b2ebfea373b76467fb626bdea5a7207b47f99128c"
+      },
+      "seeds": [26018],
+      "developmentLeona": true,
+      "developmentRoster": false,
+      "horizonTicks": 10800,
+      "checkedTicks": 10800,
+      "roundTrips": 3,
+      "futureChecks": 2,
+      "reports": [
+        {
+          "path": "artifacts/roster-cohort/pilot-leona/seeds/26018/report.json",
+          "bytes": 15409,
+          "sha256": "4c6b4c899cb77ca3939a672413b1b2481e5e571f2978be044c247c65fbbf7b1e"
+        }
+      ]
+    },
+    {
+      "name": "pilot-combined",
+      "plan": {
+        "path": "artifacts/roster-cohort/pilot-combined/plan.json",
+        "bytes": 94355,
+        "sha256": "514afd1a6d38a384638afa8e55692ffcba263506eb8cba617a5e987e29d0e824"
+      },
+      "summary": {
+        "path": "artifacts/roster-cohort/pilot-combined/summary.json",
+        "bytes": 37168,
+        "sha256": "68fbd3e2a6e5e242627eac3ae1fe32ee5dec74b04e10db947017338e9a7ac97c"
+      },
+      "seeds": [26018, 719],
+      "developmentLeona": false,
+      "developmentRoster": true,
+      "horizonTicks": 10800,
+      "checkedTicks": 21600,
+      "roundTrips": 6,
+      "futureChecks": 4,
+      "reports": [
+        {
+          "path": "artifacts/roster-cohort/pilot-combined/seeds/26018/report.json",
+          "bytes": 15610,
+          "sha256": "d20d7b6b9af5e3035d877e4961005cac77f15b6428654649fabf16a03117ba34"
+        },
+        {
+          "path": "artifacts/roster-cohort/pilot-combined/seeds/719/report.json",
+          "bytes": 15600,
+          "sha256": "d57218eaaa2214ebe985a3d1c65baec8521c3e0bb6c70b363cc7edb41663af1e"
+        }
+      ]
+    },
+    {
+      "name": "recovery-real",
+      "plan": {
+        "path": "artifacts/roster-cohort/recovery-real/plan.json",
+        "bytes": 94359,
+        "sha256": "b940f953e37ac56669b151c175aca59c29087845d98a70e30e71fc13c0d0c3ef"
+      },
+      "summary": {
+        "path": "artifacts/roster-cohort/recovery-real/summary.json",
+        "bytes": 93483,
+        "sha256": "0790f5c54b97fca1e263c70e9a40f00104c66a9c8ce68cc5e9cd94b18c2cd7cf"
+      },
+      "seeds": [26018, 719, 927],
+      "developmentLeona": false,
+      "developmentRoster": true,
+      "horizonTicks": 18000,
+      "checkedTicks": 54000,
+      "roundTrips": 15,
+      "futureChecks": 12,
+      "reports": [
+        {
+          "path": "artifacts/roster-cohort/recovery-real/seeds/26018/report.json",
+          "bytes": 26495,
+          "sha256": "ad9e4a7d060ffd6717c16f7566f185eb05c53742bf0de909b08fa34ed0035b83"
+        },
+        {
+          "path": "artifacts/roster-cohort/recovery-real/seeds/719/report.json",
+          "bytes": 26481,
+          "sha256": "934d3d98270b51ca32015e8762aba5023f66c23025653a01bc36042c862e93c9"
+        },
+        {
+          "path": "artifacts/roster-cohort/recovery-real/seeds/927/report.json",
+          "bytes": 26475,
+          "sha256": "087712392e68acea76f9afb8a57d9e968be99a3fd34ff2f9f6d71fdc7617ab00"
+        }
+      ]
+    }
+  ],
+  "acceptedTotals": {
+    "runs": 7,
+    "checkedTicks": 97200,
+    "roundTrips": 27,
+    "futureChecks": 20,
+    "futureCheckedTicks": 1200,
+    "victories": 0,
+    "unfinished": 7
+  },
+  "realRecovery": {
+    "passed": true,
+    "intentionalInterruption": true,
+    "root": "/workspace/web-lol/artifacts/roster-cohort/recovery-real",
+    "profile": "development-roster",
+    "acceptedSeed": 26018,
+    "partialSeed": 719,
+    "pendingSeeds": [719, 927],
+    "acceptedSha256": "ad9e4a7d060ffd6717c16f7566f185eb05c53742bf0de909b08fa34ed0035b83",
+    "partialCheckpointSha256": "d0af99f6f4b07da0f24c6ebd5d4294ac6dacc25e562b495d5de4ddcc622a12c6",
+    "acceptedBytesRetained": true,
+    "partialArchivedExactly": true,
+    "planUnchanged": true,
+    "preflightReadOnly": true,
+    "recovery": "/workspace/web-lol/artifacts/roster-cohort/recovery-real/recovery/2026-10-28T08-14-06-903Z-ffd6ee9c-c387-405f-b7bf-eb58ba4ed864",
+    "claimsUninterruptedExecution": false,
+    "verification": {
+      "result": "passed",
+      "ruleset": "033bd826b7f5899449adbec1cbb02ff826f636cf3b75c758f4effe4f7c5a02be",
+      "seeds": 3,
+      "horizonTicks": 18000,
+      "victories": 0,
+      "unfinished": 3,
+      "checkedTicks": 54000,
+      "roundTrips": 15,
+      "futureChecks": 12,
+      "developmentLeona": false,
+      "developmentRoster": true,
+      "hundredSeedInvariantGate": false,
+      "hundredSeedDevelopmentLeonaInvariantGate": false,
+      "hundredSeedDevelopmentRosterInvariantGate": false,
+      "roadmapMilestone4Complete": false
+    }
+  },
+  "recoveryEvidence": [
+    {
+      "path": "artifacts/roster-cohort/real-recovery.json",
+      "bytes": 1282,
+      "sha256": "166704c72137eeb7cfb74cc825ae6b8cd4d00d220728332c92ee9b39257da4e7"
+    },
+    {
+      "path": "artifacts/roster-cohort/real-recovery.mjs",
+      "bytes": 3750,
+      "sha256": "87bd3f82288a12ba22ff47a8cbafa7b82a2b2c677be7bce5805ebfbda63eddcf"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/roster-cohort/recovery-real/recovery/2026-10-28T08-14-06-903Z-ffd6ee9c-c387-405f-b7bf-eb58ba4ed864/before-plan.json",
+      "bytes": 94359,
+      "sha256": "b940f953e37ac56669b151c175aca59c29087845d98a70e30e71fc13c0d0c3ef"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/roster-cohort/recovery-real/recovery/2026-10-28T08-14-06-903Z-ffd6ee9c-c387-405f-b7bf-eb58ba4ed864/before-status.json",
+      "bytes": 31712,
+      "sha256": "908badf339a4d73d7ecfd635ef0f4e1b77804c28660de0e1595a5903281939a0"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/roster-cohort/recovery-real/recovery/2026-10-28T08-14-06-903Z-ffd6ee9c-c387-405f-b7bf-eb58ba4ed864/launch.json",
+      "bytes": 479,
+      "sha256": "edc1c6c9ddbbeed5b86eb5ceaf89145e6a6b1dfbeffcff75c3d5532ba434664f"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/roster-cohort/recovery-real/recovery/2026-10-28T08-14-06-903Z-ffd6ee9c-c387-405f-b7bf-eb58ba4ed864/recovery.json",
+      "bytes": 4170,
+      "sha256": "6bf7a6145a86ea862eef0fa25ab684aa3ce7d96453ad210e1a93e423e82a37b3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/roster-cohort/recovery-real/recovery/2026-10-28T08-14-06-903Z-ffd6ee9c-c387-405f-b7bf-eb58ba4ed864/supervisor-exit.json",
+      "bytes": 34,
+      "sha256": "6380f7ebf1263a94abaaef4f5a1323cf0f4fbc88e37d8f1792ae68f163e18807"
+    }
+  ],
+  "logs": [
+    {
+      "path": "artifacts/roster-cohort/logs/format.log",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/nodeqa-final.log",
+      "bytes": 3707,
+      "sha256": "1f489145108cf715966372535f2a381620f748fe545752df17485051659e7e9a"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/nodeqa-initial.log",
+      "bytes": 2771,
+      "sha256": "90dc8c75d3c0b6ccaf62669a6a07dfa0784757d0dc208b5eb41c3f3da883da5b"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/nodeqa.log",
+      "bytes": 3194,
+      "sha256": "874c95841b647c90abb76e53a99066b1adb013faf1444b138bffa6b351163ac9"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/pilot-combined.log",
+      "bytes": 726,
+      "sha256": "1404db59e8ddd835f96aac535a95c3ae49d2ba1b29d8fd1f446ec0ae87b35ebd"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/pilot-leona.log",
+      "bytes": 628,
+      "sha256": "76da67707727c6e66826124450a66d2ce6f690777e1fdab19acc71ae6a4b0dac"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/pilot-ordinary.log",
+      "bytes": 635,
+      "sha256": "2b8e297e3193de467d80f6aa158881d45209428776f98e6f17d2d092d775ac6d"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/profile-test-format.log",
+      "bytes": 38,
+      "sha256": "d30d63f31cac2c7a03b9a548520b291984c920c1c2de2c3371705a53e974afd0"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/real-recovery.log",
+      "bytes": 1111,
+      "sha256": "c5d230cd9723707b07bf8a3e62d4718cf75e5d109d39146bd8544442fe3f64d4"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/recovery-format.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/resume-format.log",
+      "bytes": 123,
+      "sha256": "5fca7e92f0cd512a2cd4b98f2c4fda85d553a698073e905883b149e665c0602e"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/verify-combined.log",
+      "bytes": 426,
+      "sha256": "383a424ef8cd7ec5d904becba3829305efc0a9fcde788c552ef6c46474769ac5"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/verify-leona.log",
+      "bytes": 426,
+      "sha256": "563bab3009d425bb4e0d8d1286ef2ee4fcb96e931fc87d3629aa5ecee46b6d32"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/verify-ordinary.log",
+      "bytes": 427,
+      "sha256": "62f8b41a449893e53653ac645ada977047ce4beff55743959a9be376d5f7c3ce"
+    }
+  ],
+  "applicationChanged": false,
+  "freshApplicationTests": false,
+  "precedingApplicationEvidence": "docs/reference/roster-player-selection-verification.json",
+  "realHundredSeedGate": false,
+  "syntheticHundredSeedGateFixtureOnly": true,
+  "legacyControllerSha256": "23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45"
+}

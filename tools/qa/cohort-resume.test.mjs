@@ -27,6 +27,7 @@ import {
 const cli = fileURLToPath(new URL('./resume-match-cohort.mjs', import.meta.url)),
   driver = fileURLToPath(new URL('./lib/cohort-resume-driver.mjs', import.meta.url)),
   canonical = fileURLToPath(new URL('./match-cohort.mjs', import.meta.url));
+const legacy = fileURLToPath(new URL('./fixtures/match-cohort-legacy.mjs', import.meta.url));
 const digest = (bytes) => createHash('sha256').update(bytes).digest('hex');
 function pin(file, label = file) {
   const bytes = readFileSync(file);
@@ -56,7 +57,7 @@ function report(seed, overrides = {}) {
     ...overrides,
   };
 }
-function fixture(t) {
+function fixture(t, legacyController = false) {
   const base = mkdtempSync(resolve(tmpdir(), 'cohort resume ')),
     project = base + '/project',
     root = base + '/cohort',
@@ -70,8 +71,13 @@ function fixture(t) {
   ])
     mkdirSync(path, { recursive: true });
   const controller = project + '/tools/qa/match-cohort.mjs';
-  copyFileSync(canonical, controller);
-  assert.equal(pin(controller).sha256, SUPPORTED_CONTROLLER_SHA256);
+  copyFileSync(legacyController ? legacy : canonical, controller);
+  assert.equal(
+    pin(controller).sha256,
+    legacyController
+      ? '23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45'
+      : SUPPORTED_CONTROLLER_SHA256
+  );
   writeFileSync(project + '/source.txt', 'frozen fixture input\n');
   for (const name of ['rift-nav.bin', 'rift-nav.json', 'rift-layout.json'])
     writeFileSync(root + '/maps/' + name, 'fixture:' + name);
@@ -81,7 +87,8 @@ function fixture(t) {
     `import {mkdirSync,writeFileSync} from 'node:fs';
 const args=process.argv.slice(2),output=args[args.indexOf('--output')+1],seed=Number(args.at(-1));
 mkdirSync(output);await new Promise(r=>setTimeout(r,20));
-writeFileSync(output+'/report.json',JSON.stringify({...${JSON.stringify(report(0))},seed,finalTick:1,checkedTicks:1})+'\\n');
+const developmentRoster=args.includes('--development-roster'),developmentLeona=args.includes('--development-leona');
+writeFileSync(output+'/report.json',JSON.stringify({...${JSON.stringify(report(0))},seed,finalTick:1,checkedTicks:1,developmentRoster,developmentLeona,automatedHumanCarry:!developmentRoster&&!developmentLeona,automatedHumanRole:developmentRoster?'mid':developmentLeona?'support':'carry'})+'\\n');
 console.log(JSON.stringify({fixtureWorker:seed}));\n`
   );
   const plan = {
@@ -473,4 +480,115 @@ test('detached readiness returns while fixture workers are active and keeps the 
   writeFileSync(barrier, 'release\n');
   await waitFor(f.launch.recovery + '/supervisor-exit.json');
   assert.equal(JSON.parse(readFileSync(f.root + '/summary.json')).completed, 4);
+});
+
+test('combined fixture recovery forwards its profile and separates the hundred-seed gate from public cohorts', async (t) => {
+  const f = fixture(t);
+  f.plan.seeds = Array.from({ length: 100 }, (_, i) => i + 1);
+  f.plan.jobs = 8;
+  f.plan.horizonTicks = 216000;
+  f.plan.developmentRoster = true;
+  f.plan.qaAutomatedHumanCarry = false;
+  f.plan.qaAutomatedHumanRole = 'mid';
+  f.plan.roster =
+    'two Garen/two Master Yi/two Ashe/two Leona/one Ahri/one Lux; five roles per team';
+  f.status.requested = 100;
+  f.status.results[0] = {
+    ...f.status.results[0],
+    developmentLeona: false,
+    developmentRoster: true,
+    automatedHumanCarry: false,
+    automatedHumanRole: 'mid',
+  };
+  writeJson(f.root + '/seeds/3/report.json', f.status.results[0]);
+  writeJson(f.root + '/plan.json', f.plan);
+  writeJson(f.root + '/status.json', f.status);
+  const accepted = readFileSync(f.root + '/seeds/3/report.json');
+  f.launch = JSON.parse(
+    execFileSync(process.execPath, [cli, '--output', f.root, '--project', f.project], {
+      encoding: 'utf8',
+      stdio: 'pipe',
+    }).trim()
+  );
+  await waitFor(f.launch.recovery + '/supervisor-exit.json', 30000);
+  const summary = JSON.parse(readFileSync(f.root + '/summary.json'));
+  assert.equal(summary.completed, 100);
+  assert.equal(summary.failures, 0);
+  assert.equal(summary.hundredSeedInvariantGate, false);
+  assert.equal(summary.hundredSeedDevelopmentLeonaInvariantGate, false);
+  assert.equal(summary.hundredSeedDevelopmentRosterInvariantGate, true);
+  for (const row of summary.results) {
+    assert.equal(row.developmentRoster, true);
+    assert.equal(row.automatedHumanCarry, false);
+    assert.equal(row.automatedHumanRole, 'mid');
+  }
+  assert.deepEqual(readFileSync(f.root + '/seeds/3/report.json'), accepted);
+});
+
+test('the previous pinned controller still resumes with its exact legacy invariant tail', async (t) => {
+  const f = fixture(t, true);
+  interrupted(f);
+  const accepted = readFileSync(f.root + '/seeds/3/report.json');
+  f.launch = JSON.parse(
+    execFileSync(process.execPath, [cli, '--output', f.root, '--project', f.project], {
+      encoding: 'utf8',
+      stdio: 'pipe',
+    }).trim()
+  );
+  await waitFor(f.launch.recovery + '/supervisor-exit.json');
+  const summary = JSON.parse(readFileSync(f.root + '/summary.json'));
+  assert.equal(summary.completed, 4);
+  assert.equal(summary.failures, 0);
+  assert.deepEqual(readFileSync(f.root + '/seeds/3/report.json'), accepted);
+  const record = JSON.parse(readFileSync(f.launch.recovery + '/recovery.json'));
+  const generated = readFileSync(record.controller.file, 'utf8'),
+    original = readFileSync(legacy, 'utf8');
+  assert.equal(
+    generated.slice(generated.indexOf('function state()')),
+    original.slice(original.indexOf('function state()'))
+  );
+});
+
+test('mixed, malformed and mismatched frozen profiles refuse before mutating retained evidence', (t) => {
+  for (const flags of [
+    { developmentLeona: true, developmentRoster: true },
+    { developmentRoster: 'true' },
+    { developmentRoster: null },
+  ]) {
+    const f = fixture(t),
+      before = readFileSync(f.root + '/status.json');
+    Object.assign(f.plan, flags);
+    writeJson(f.root + '/plan.json', f.plan);
+    assert.throws(() => inspect(f));
+    assert.deepEqual(readFileSync(f.root + '/status.json'), before);
+    assert(!existsSync(f.root + '/recovery'));
+  }
+  const f = fixture(t);
+  f.status.results[0].developmentRoster = true;
+  writeJson(f.root + '/status.json', f.status);
+  writeJson(f.root + '/seeds/3/report.json', f.status.results[0]);
+  assert.throws(() => inspect(f), { code: 'COHORT_REPORT_MISMATCH' });
+  assert(!existsSync(f.root + '/recovery'));
+});
+
+test('mutually exclusive launcher profiles reject before creating the corpus', (t) => {
+  const f = fixture(t),
+    output = f.base + '/invalid launch';
+  assert.throws(() =>
+    execFileSync(
+      process.execPath,
+      [
+        canonical,
+        '--development-leona',
+        '--development-roster',
+        '--minutes',
+        '1',
+        '--output',
+        output,
+        '1',
+      ],
+      { encoding: 'utf8', stdio: 'pipe' }
+    )
+  );
+  assert(!existsSync(output));
 });

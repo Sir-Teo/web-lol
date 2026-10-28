@@ -17,8 +17,13 @@ import { createHash } from 'node:crypto';
 import { isDeepStrictEqual } from 'node:util';
 import { cpus } from 'node:os';
 import { spawnSync } from 'node:child_process';
+import { cohortProfile } from './cohort-profile.ts';
 export const SUPPORTED_CONTROLLER_SHA256 =
-  '23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45';
+  '0634da0d495f977909b756a19747197f4dcd0f1a443a0a574e62af46d02c00f3';
+const SUPPORTED_CONTROLLERS = new Set([
+  SUPPORTED_CONTROLLER_SHA256,
+  '23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45',
+]);
 const sha = (bytes) => createHash('sha256').update(bytes).digest('hex');
 function check(condition, message, code = 'COHORT_INVALID') {
   if (!condition) throw Object.assign(new Error(message), { code });
@@ -99,6 +104,14 @@ export function inspectResume({ output, project, procRoot = '/proc' }) {
     plan.format === 1 && Array.isArray(plan.seeds) && plan.seeds.length > 0,
     'Unsupported or empty cohort plan.'
   );
+  const profile = cohortProfile(plan.developmentLeona, plan.developmentRoster);
+  if (plan.developmentRoster) {
+    check(
+      plan.qaAutomatedHumanCarry === false && plan.qaAutomatedHumanRole === 'mid',
+      'Invalid combined-roster automation metadata.'
+    );
+    check(plan.roster === profile.roster, 'Invalid combined-roster composition metadata.');
+  }
   check(
     plan.seeds.every((n) => Number.isInteger(n) && n >= 1 && n <= 0xffffffff) &&
       new Set(plan.seeds).size === plan.seeds.length,
@@ -158,7 +171,7 @@ export function inspectResume({ output, project, procRoot = '/proc' }) {
   }
   const controllerRow = plan.sources.find((row) => row.file === 'tools/qa/match-cohort.mjs');
   check(
-    controllerRow?.sha256 === SUPPORTED_CONTROLLER_SHA256,
+    SUPPORTED_CONTROLLERS.has(controllerRow?.sha256),
     'Unsupported frozen controller format.',
     'COHORT_UNSUPPORTED_CONTROLLER'
   );
@@ -202,6 +215,19 @@ export function inspectResume({ output, project, procRoot = '/proc' }) {
         ),
       `Accepted report identity differs: ${row.seed}`
     );
+    cohortProfile(report.developmentLeona, report.developmentRoster);
+    check(
+      (report.developmentLeona ?? false) === (plan.developmentLeona ?? false) &&
+        (report.developmentRoster ?? false) === (plan.developmentRoster ?? false),
+      `Accepted report composition differs: ${row.seed}`,
+      'COHORT_REPORT_MISMATCH'
+    );
+    if (plan.developmentRoster)
+      check(
+        report.automatedHumanCarry === false && report.automatedHumanRole === 'mid',
+        `Accepted report automation differs: ${row.seed}`,
+        'COHORT_REPORT_MISMATCH'
+      );
     check(
       ['victory', 'unfinished'].includes(report.outcome) &&
         Number.isSafeInteger(report.finalTick) &&
@@ -321,7 +347,9 @@ function treePins(directory) {
 function controllerText(inspected, recovery, readyFile) {
   const source = readFileSync(inspected.controller, 'utf8');
   check(
-    sha(source) === SUPPORTED_CONTROLLER_SHA256,
+    SUPPORTED_CONTROLLERS.has(sha(source)) &&
+      sha(source) ===
+        inspected.plan.sources.find((row) => row.file === 'tools/qa/match-cohort.mjs')?.sha256,
     'Frozen controller source changed.',
     'COHORT_UNSUPPORTED_CONTROLLER'
   );
@@ -353,7 +381,7 @@ const results=baseline.results.map(row=>{const actual=JSON.parse(readFileSync(ro
 const accepted=new Set(results.map(row=>row.seed));
 const seeds=[...plan.seeds.filter(seed=>accepted.has(seed)),...plan.seeds.filter(seed=>!accepted.has(seed))];
 const ruleset=plan.ruleset,runner=plan.runner.file,jobs=plan.jobs,minutes=plan.horizonTicks/3600;
-const values={'development-leona':plan.developmentLeona,'keep-going':false},active=new Map();
+const values={'development-leona':plan.developmentLeona??false,'development-roster':plan.developmentRoster??false,'keep-going':false},active=new Map();
 let next=results.length,halted=false,interrupted=false;
 const started=Date.now()-(baseline.elapsedSeconds??0)*1000;
 const recoveryLaunch={pid:process.pid,cmdlineSha256:createHash('sha256').update(readFileSync('/proc/self/cmdline')).digest('hex'),root,recovery:${literal(recovery)},completedRetained:results.length,pending:seeds.slice(next),dispatchOrder:seeds,claimsUninterruptedExecution:false};

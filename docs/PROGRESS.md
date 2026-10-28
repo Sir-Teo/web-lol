@@ -35,8 +35,14 @@ Nested production passes all 32 recordings and development gates, now including
 an actual exactly-Ashe/Lux menu assertion on the private-roster URL. No
 unsolicited development champion assets load. See the
 [verification ledger](reference/roster-player-selection-verification.json).
-Next is a repeatable combined-roster profile in the immutable match-cohort
-launcher/verifier/resume tools, preserving the ordinary profile and gate labels.
+The [combined-roster cohort tools](COMBINED-ROSTER-COHORT.md) now provide that
+private profile with an independent gate, archived source bytes and recovery
+compatible with the exact historical controller. All 39 Node QA checks pass.
+Real short pilots and an intentional crash/recovery independently verify
+97,200 ticks, 27 exact round-trips and 20 saved futures covering 1,200 ticks.
+The completed report and interrupted checkpoint survive byte for byte; only
+pending seeds restart. These are seven short unfinished diagnostics, not a
+hundred-seed result. Next is longer combined-roster seed coverage.
 
 The preceding [supported Leona engage](LEONA-SUPPORTED-ENGAGE.md) lets support-role
 bots join an actual allied attack on an observed unheld champion. It requires

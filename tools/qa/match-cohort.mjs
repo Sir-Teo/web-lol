@@ -16,6 +16,7 @@ import { resolve } from 'node:path';
 import { cpus } from 'node:os';
 import { parseArgs } from 'node:util';
 import { rulesetFiles, rulesetFingerprint } from '../ruleset-fingerprint.ts';
+import { cohortProfile } from './lib/cohort-profile.ts';
 
 const { values, positionals } = parseArgs({
   allowPositionals: true,
@@ -25,8 +26,10 @@ const { values, positionals } = parseArgs({
     output: { type: 'string' },
     'keep-going': { type: 'boolean', default: false },
     'development-leona': { type: 'boolean', default: false },
+    'development-roster': { type: 'boolean', default: false },
   },
 });
+const profile = cohortProfile(values['development-leona'], values['development-roster']);
 const jobs = Number(values.jobs),
   minutes = Number(values.minutes);
 const seeds = positionals.length
@@ -70,10 +73,16 @@ const sources = [
     'tools/qa/match-seed.ts',
     'tools/qa/match-contract.ts',
     'tools/qa/verify-match-cohort.mjs',
+    'tools/qa/lib/cohort-profile.ts',
   ]),
 ]
   .sort()
   .map(pin);
+for (const source of sources) {
+  const file = `${root}/frozen-source/${source.file}`;
+  mkdirSync(resolve(file, '..'), { recursive: true });
+  copyFileSync(source.file, file);
+}
 mkdirSync(`${root}/maps`);
 const inputs = ['rift-nav.bin', 'rift-nav.json', 'rift-layout.json'].map((name) => {
   const file = `${root}/maps/${name}`;
@@ -113,11 +122,11 @@ const plan = {
   jobs,
   horizonTicks: minutes * 3600,
   developmentLeona: values['development-leona'],
-  qaAutomatedHumanCarry: !values['development-leona'],
-  qaAutomatedHumanRole: values['development-leona'] ? 'support' : 'carry',
-  roster: values['development-leona']
-    ? 'six Ashe/three Lux/one Leona; five roles per team'
-    : 'six Ashe/four Lux; five roles per team',
+  developmentRoster: values['development-roster'],
+  qaAutomatedHumanCarry: profile.humanRole === 'carry',
+  qaAutomatedHumanRole: profile.humanRole,
+  roster: profile.roster,
+  sourceArchive: `${root}/frozen-source`,
   runtime: {
     node: process.version,
     v8: process.versions.v8,
@@ -180,6 +189,7 @@ function state() {
     allRequestedExecuted: results.length === seeds.length,
     hundredSeedInvariantGate:
       !values['development-leona'] &&
+      !values['development-roster'] &&
       minutes === 60 &&
       seeds.length >= 100 &&
       results.length === seeds.length &&
@@ -188,6 +198,12 @@ function state() {
     elapsedSeconds: (Date.now() - started) / 1000,
     hundredSeedDevelopmentLeonaInvariantGate:
       values['development-leona'] &&
+      minutes === 60 &&
+      seeds.length >= 100 &&
+      results.length === seeds.length &&
+      failed.length === 0,
+    hundredSeedDevelopmentRosterInvariantGate:
+      values['development-roster'] &&
       minutes === 60 &&
       seeds.length >= 100 &&
       results.length === seeds.length &&
@@ -213,6 +229,7 @@ function launch(seed) {
       '--output',
       `${root}/seeds/${seed}`,
       ...(values['development-leona'] ? ['--development-leona'] : []),
+      ...(values['development-roster'] ? ['--development-roster'] : []),
       String(seed),
     ],
     { stdio: ['ignore', log, log] }
@@ -230,6 +247,11 @@ function launch(seed) {
         report = JSON.parse(readFileSync(`${root}/seeds/${seed}/report.json`, 'utf8'));
         if (report.seed !== seed || report.ruleset !== ruleset)
           throw new Error('Seed/ruleset mismatch');
+        if (
+          (report.developmentLeona ?? false) !== !!values['development-leona'] ||
+          (report.developmentRoster ?? false) !== !!values['development-roster']
+        )
+          throw new Error('Worker composition differs from the frozen plan');
         if (report.runtime.node !== plan.runtime.node || report.runtime.v8 !== plan.runtime.v8)
           throw new Error('Worker runtime differs from the frozen plan');
         if (!['victory', 'unfinished', 'failed'].includes(report.outcome))
@@ -320,7 +342,9 @@ console.log(
   JSON.stringify({
     type: 'finished',
     developmentLeona: values['development-leona'],
+    developmentRoster: values['development-roster'],
     hundredSeedDevelopmentLeonaInvariantGate: summary.hundredSeedDevelopmentLeonaInvariantGate,
+    hundredSeedDevelopmentRosterInvariantGate: summary.hundredSeedDevelopmentRosterInvariantGate,
     root,
     status: summary.status,
     completed: summary.completed,

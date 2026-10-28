@@ -7,11 +7,18 @@ time. Every match keeps the normal 60-minute diagnostic horizon; the clock,
 rewards, damage, AI tactics and victory conditions are unchanged. A horizon
 stops the audit and retains an unfinished match. It never awards a winner.
 
-The current roster remains six Ashe/four Lux with five roles on each team. The
+The default roster remains six Ashe/four Lux with five roles on each team. The
 human bottom-lane Ashe is automated only for QA, using existing bot decisions.
 This tests the current interim match foundation; it cannot certify the target
 six-champion roster, balance, natural human play or native audiovisual fidelity.
 The full project's completion standard is unchanged.
+
+The private combined profile is available with `--development-roster`. It uses
+Garen top, Master Yi jungle, Ashe carry and Leona support on both teams, with
+a QA-automated human Lux mid against Ahri mid. It enables only the existing
+private roster gates; ordinary simulation rules and victory checks remain in
+force. `--development-leona` retains its separate support profile. The two
+flags are mutually exclusive. See [combined cohort validation](COMBINED-ROSTER-COHORT.md).
 
 ## Reproduction
 
@@ -27,7 +34,8 @@ rejected. Do not rerun into a frozen result directory.
 
 The launcher builds an immutable SSR bundle with npm dependencies included and
 without loading the application's production/offline-pack config. It copies the
-three map inputs, pins all simulation/content dependencies, QA sources, runtime
+three map inputs and archives every pinned source under `frozen-source/`,
+then pins all simulation/content dependencies, QA sources, runtime
 and runner bytes, then starts the workers. Restored checkpoints use fresh terrain
 objects and independent navigation buffers. Do not edit runtime, tests or assets
 while the cohort is live. Even after a stop request, verify the actual process
