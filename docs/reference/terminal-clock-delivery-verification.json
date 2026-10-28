@@ -1,0 +1,163 @@
+{
+  "date": "2026-10-28",
+  "applicationRevision": "7a347e7",
+  "applicationChangedDuringDeliveryChecks": false,
+  "ruleset": "5a53795c8d62dac8ec171d6021a4e4f4d29c9946fe186076ec33fea2e0c0f1b9",
+  "schema": 163,
+  "pack": {
+    "id": "16429f3c30452493f95c68cff4805c1b86113a273f51350ae2da3b53216795b1",
+    "files": 1204,
+    "bytes": 551658225
+  },
+  "fullPackChecks": {
+    "integrityFailureRestoresDownloadFocus": true,
+    "integrityFailure": true,
+    "downloadFocusesCancel": true,
+    "cancelRetainsVerified": true,
+    "cancelRestoresDownloadFocus": true,
+    "retryWithoutRedownload": true,
+    "completionPreservesOtherControlFocus": true,
+    "pausedSavedTickBootsOffline": true,
+    "completePackRepairOffline": true,
+    "newLuxLaneMatchOffline": true,
+    "serviceWorkerResponses": 978,
+    "removalKeepsSavedBytes": true,
+    "updateRefusesOtherTabs": true,
+    "explicitAtomicVersionSwitchOffline": true,
+    "missingEntryRevokesReady": true,
+    "scopeOnlyRemoval": true
+  },
+  "completedMatchChecks": {
+    "fullPackReady": true,
+    "normalCompletedPreviewOffline": true,
+    "exactCompletedStateImportAndExportOffline": true,
+    "exactCompletedStateReloadAndExportOffline": true,
+    "sourceReportSnapshotAndManifestUnchanged": true,
+    "serviceWorkerResponses": 975
+  },
+  "errors": {
+    "pack": [],
+    "completed": [],
+    "failedRequests": [],
+    "outsidePrefix": []
+  },
+  "sourceReport": {
+    "path": "/workspace/web-lol/artifacts/certification-5a5379/ordinary-selected/seeds/26018/report.json",
+    "sha256": "a7c4b7ed49d8faf09fccc3362757744e66cc486da824437a9e6a58187a6ed6b3"
+  },
+  "sourceSnapshot": {
+    "path": "/workspace/web-lol/artifacts/certification-5a5379/ordinary-selected/seeds/26018/final.match.json",
+    "sha256": "3f31fab9d8ac414b0c68cc9f6bac9280918c69730590365c99aebaff62703c9b",
+    "tick": 169837,
+    "winner": "blue",
+    "ruleset": "5a53795c8d62dac8ec171d6021a4e4f4d29c9946fe186076ec33fea2e0c0f1b9"
+  },
+  "browser": {
+    "version": "154.0.8037.57",
+    "systemChromium": true
+  },
+  "interruptedAttempt": "The first foreground attempt retained a ready screenshot and partial log but no final result after the workspace transition. A fresh detached attempt passes the same unmodified tool and deadlines.",
+  "auditPauseResumed": true,
+  "liveAuditProcessesPaused": 0,
+  "capturesReviewed": [
+    "result-offline.png"
+  ],
+  "scope": "Fresh static pack and completed-state import/restore/export. Existing full-match and unit evidence retain their recorded source; no new full-browser-match or hardware-performance claim.",
+  "evidence": [
+    {
+      "file": "artifacts/offline-pack-5a5379-terminal-clock-20261028-retry-production.json",
+      "bytes": 827,
+      "sha256": "449d2b2f6694a960b4078ce79ec08f73c4b63cc8431cf8c929303879a21b37b9"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/offline-pause.json",
+      "bytes": 1067,
+      "sha256": "a0fb261e7acfd68ffde1d31d196042049fd4d25865fc0d673fb0a009c20edf75"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/offline-refresh-retry/exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/offline-refresh-retry/output.log",
+      "bytes": 842,
+      "sha256": "6378233cd5642193222adab99410736a8bf793cb326f9832fef0c7440074b447"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/offline-refresh-retry/process.json",
+      "bytes": 667,
+      "sha256": "a8b176b92a3c209faeceb132803d49303877735f01c39521dcf3e0f493e80916"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/offline-refresh-retry/run.sh",
+      "bytes": 282,
+      "sha256": "2bcecdb06bf686ca7d510f7da9f310e1d2715a4dd945e0fa2ff207ef5b6f83e1"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/completed-refresh/exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/completed-refresh/output.log",
+      "bytes": 1208,
+      "sha256": "de822f4913e362ea2889b083c45651952c177fd842ea2d1cc4f4a87cf97938d1"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/completed-refresh/process.json",
+      "bytes": 567,
+      "sha256": "86e5bb09fc8e53960f36f2c1b8e22c0154f8c776b81877adeab32c315e73487b"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/completed-refresh/run.sh",
+      "bytes": 384,
+      "sha256": "13973a23b93b2465150eea7ab47cbe0a5dfa499115b4171d698921b7eb243e2b"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/offline-completed-match/first-export.json",
+      "bytes": 228355,
+      "sha256": "7fa01907504d6c4f385ec2f20bd5493edf0a4b5cdb3a04fd1c2f563c8ffafc3a"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/offline-completed-match/preview.png",
+      "bytes": 592854,
+      "sha256": "b148699b7a4a0e898d68b997d2c338c3eca2a44b6bd7fff1d2968bc3523f60c3"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/offline-completed-match/reading.json",
+      "bytes": 1405,
+      "sha256": "6c7d4daa9460ba16270a10e3917afb264dee95085e8d27251871a4809cd07a66"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/offline-completed-match/reloaded-export.json",
+      "bytes": 228355,
+      "sha256": "7fa01907504d6c4f385ec2f20bd5493edf0a4b5cdb3a04fd1c2f563c8ffafc3a"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/offline-completed-match/result-offline.png",
+      "bytes": 568304,
+      "sha256": "9967f125d0909afbde87ec79d1646acf8bfa91e4152d39eb380790cbaad3fd12"
+    },
+    {
+      "file": "artifacts/offline-pack-5a5379-terminal-clock-20261028-retry-lux-lanes.png",
+      "bytes": 528656,
+      "sha256": "2e4e184351594a4aa201d3108593a9cd8630f7907727a57af56e4c2051692b80"
+    },
+    {
+      "file": "artifacts/offline-pack-5a5379-terminal-clock-20261028-retry-ready.png",
+      "bytes": 573500,
+      "sha256": "093153c0f1e66e2bb77541535e41c89c80101efd3bb9e77bb6a86e1f734a85a4"
+    },
+    {
+      "file": "/tmp/web-lol-terminal-clock-offline-pack.log",
+      "bytes": 73,
+      "sha256": "ddf803d3d990a40ae59bc9d8ccaed77a22f25fc575d4a8ee051447c9c598b669"
+    },
+    {
+      "file": "artifacts/offline-pack-5a5379-terminal-clock-20261028-ready.png",
+      "bytes": 573500,
+      "sha256": "093153c0f1e66e2bb77541535e41c89c80101efd3bb9e77bb6a86e1f734a85a4"
+    }
+  ]
+}

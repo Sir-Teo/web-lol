@@ -33,3 +33,10 @@ contains 1,204 files / 551,658,225 bytes. The prior full unit result
 remains 3,628/3,630 at `3c461ce`; the historical archive/checksum failures are
 unchanged. Earlier full-match and offline checks retain their original pack
 identity until repeated for this build.
+
+Fresh [offline delivery checks](reference/terminal-clock-delivery-verification.json)
+now pass for this pack: corruption/cancellation/repair, offline Lux play, atomic
+version switching and the actual completed victory file imported, reloaded and
+exported exactly with network disabled. There are no page errors, failed or
+outside-prefix requests. A foreground run interrupted during workspace transition
+remains retained; a fresh detached run passes the original assertions/deadlines.

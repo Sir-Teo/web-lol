@@ -6,6 +6,16 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+Fresh offline delivery now passes for the result-clock build `7a347e7`, pack
+`16429f3c30452493f95c68cff4805c1b86113a273f51350ae2da3b53216795b1`
+(1,204 files / 551,658,225 bytes). Full-pack corruption/retry,
+cancellation, offline Lux play and atomic version checks pass; the retained
+`5a5379…` victory imports, restores and exports exactly offline with no page
+errors, failed or outside-prefix requests. [The delivery record](reference/terminal-clock-delivery-verification.json)
+keeps the interrupted foreground attempt and passing fresh retry. Both historical
+hundred-seed audits are independently verified and all audit processes have
+finished. The two pre-existing Leona archive/Lux sampler assertions remain open.
+
 The historical `abc8dc…` ordinary audit now passes its hundred-seed invariant
 gate: 100 checked games, 98 natural victories, two original 60-minute timeouts,
 zero failures, 16,653,420 checked ticks, 4,676 round-trips and 4,576 future checks
