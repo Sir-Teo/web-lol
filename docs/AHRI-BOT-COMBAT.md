@@ -25,8 +25,9 @@ retain their existing boundaries. Offensive planning yields to tower danger.
 The ordinary world control path handles stun, Charm and active dashes before
 tactical planning. Human Ahri remains manual.
 
-This is local tactical tuning, not recovered native AI. W/R decisions, lane
-wave spell use, prediction and a full Ahri Rift bot trial remain unfinished.
+This is local tactical tuning, not recovered native AI. The subsequent
+[mobility step](AHRI-BOT-MOBILITY.md) adds close W and defensive R decisions.
+Offensive R, lane wave spell use, prediction and a full Ahri Rift bot trial remain unfinished.
 No champion is added to ordinary production selection or its roster. Existing
 practice and trusted human Rift trial boundaries remain intact, and no public
 asset, renderer or spell controller changes.

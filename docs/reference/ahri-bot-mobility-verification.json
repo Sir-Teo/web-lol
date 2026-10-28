@@ -1,0 +1,152 @@
+{
+  "date": "2026-10-27",
+  "baselineCommit": "5d907425f4f52557893ac6dcaf1acf721ea7fa1c",
+  "schema": 163,
+  "ruleset": "52c3564e30be1716ce281e01793a1857884e1ea1026cee7aa76e5bf801c553a0",
+  "sources": [
+    {
+      "path": "src/content/ahri-bot-policy.ts",
+      "bytes": 316,
+      "sha256": "cc5734f93f03edb36d15c036470ce444a9c711da656fa100302e250653848d28"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "bytes": 301940,
+      "sha256": "63a45304ccd51522cf0460565e1a3d6b0c3d9f07c8a57d909528c929fca2334a"
+    },
+    {
+      "path": "tests/ahri-bot-mobility.test.ts",
+      "bytes": 10182,
+      "sha256": "ec1f2e168a1df0821f38faddc14a00cbfef5cf329734f9a0f81f46a256b8a9cd"
+    },
+    {
+      "path": "e2e/ahri-bot-mobility.spec.ts",
+      "bytes": 5595,
+      "sha256": "4d82ec22748701785577b87e55821739d13072a8b148461aecdb111738096372"
+    }
+  ],
+  "focused": {
+    "passed": 214,
+    "total": 214,
+    "files": 18,
+    "newCases": 15
+  },
+  "broad": {
+    "passed": 3434,
+    "total": 3440,
+    "files": 406,
+    "failuresReproducedOnBaseline": true,
+    "unchangedFailures": [
+      "garen-aa source media",
+      "garen-p-audio source media",
+      "garen-passive-particles source BIN",
+      "leona-eclipse-skin-material source toolchain",
+      "lux-e-missile host digest",
+      "particle-distortion original libraries"
+    ]
+  },
+  "checks": {
+    "typescript": true,
+    "nodeQa": {
+      "passed": 29,
+      "total": 29
+    },
+    "build": true,
+    "publicAssetsChanged": false,
+    "savedFieldsChanged": false
+  },
+  "browser": {
+    "passed": 3,
+    "total": 3,
+    "retries": 0,
+    "launcher": "/usr/bin/chromium",
+    "defaultConfigChanged": false,
+    "saveReloadExact": true,
+    "futureTicks": 180,
+    "boneCount": 211,
+    "pageErrors": [],
+    "screenshotsReviewed": true,
+    "initialFailure": "New probe inspected a nonexistent model.skeleton; corrected to traverse the existing model.root without changing the game."
+  },
+  "logs": [
+    {
+      "path": "artifacts/ahri-bot-mobility/logs/web-lol-ahri-focused.log",
+      "bytes": 375,
+      "sha256": "18be173fbe22398d2d2452a74186c1a61a158a1eba6ccd6c0b7f3ff55a85a216"
+    },
+    {
+      "path": "artifacts/ahri-bot-mobility/logs/web-lol-baseline-extra-tests.log",
+      "bytes": 1879,
+      "sha256": "b64c4ab4d5a5160d1fa394b320063fef41f167728ed562e72948dd0a1efaf0fc"
+    },
+    {
+      "path": "artifacts/ahri-bot-mobility/logs/web-lol-baseline-tests.log",
+      "bytes": 4159,
+      "sha256": "6261560a74c20f7168acea1d8e6f57050649542e8436f1e5945a32226a49845c"
+    },
+    {
+      "path": "artifacts/ahri-bot-mobility/logs/web-lol-full-tests.log",
+      "bytes": 5892,
+      "sha256": "21294631e0cd02c4205e27ae82c20aefb91d88f5e5f68454c24ce468f7a9e528"
+    },
+    {
+      "path": "artifacts/ahri-bot-mobility/logs/web-lol-mobility-browser.log",
+      "bytes": 1466,
+      "sha256": "58ce5c8a58e05318477ed5b124debc499237748d0ed1595f1545d3eb31acf7e1"
+    }
+  ],
+  "proofs": [
+    {
+      "path": "artifacts/ahri-bot-mobility/browser-2/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "artifacts/ahri-bot-mobility/browser-2/ahri-bot-combat-AI-learned-3ee00-es-through-real-Save-reload/ahri-bot-charm-control.png",
+      "bytes": 902328,
+      "sha256": "5654396163196a720af89dcc682409cb87c173977c001fa05c9f1a9d6731c226"
+    },
+    {
+      "path": "artifacts/ahri-bot-mobility/browser-2/ahri-bot-combat-AI-learned-3ee00-es-through-real-Save-reload/ahri-bot-charm-flight.png",
+      "bytes": 797429,
+      "sha256": "6737e07fe82dd675dfeceab2f5b8f809e19e888f66740a6c7a2767efde9b825f"
+    },
+    {
+      "path": "artifacts/ahri-bot-mobility/browser-2/ahri-bot-combat-AI-learned-3ee00-es-through-real-Save-reload/ahri-bot-charm.json",
+      "bytes": 47713,
+      "sha256": "1270cb81e1f55ee65b88bf491e7f509013484d779e56ec775d9e954d1f9cf9bd"
+    },
+    {
+      "path": "artifacts/ahri-bot-mobility/browser-2/ahri-bot-combat-level-one--e22b2-egs-with-exact-saved-flight/ahri-bot-orb-flight.png",
+      "bytes": 800096,
+      "sha256": "3e41c569f29e22f4fe9054942ba56b1b6d98eabb0ce15c93bcfc882020704ec2"
+    },
+    {
+      "path": "artifacts/ahri-bot-mobility/browser-2/ahri-bot-combat-level-one--e22b2-egs-with-exact-saved-flight/ahri-bot-orb.json",
+      "bytes": 14260,
+      "sha256": "a2999d849f9314ec28f1bd0d62fea26c5f5ecf57e89296bc31d246fc18fc721d"
+    },
+    {
+      "path": "artifacts/ahri-bot-mobility/browser-2/ahri-bot-mobility-Ahri-bot-1ebae-at-dash-through-Save-reload/ahri-bot-fox-fire.png",
+      "bytes": 761098,
+      "sha256": "7d6053bedcf7719a4d0b7399063daa2b2772de0574eefcc562bf6c4b5eef1761"
+    },
+    {
+      "path": "artifacts/ahri-bot-mobility/browser-2/ahri-bot-mobility-Ahri-bot-1ebae-at-dash-through-Save-reload/ahri-bot-mobility.json",
+      "bytes": 52110,
+      "sha256": "c345506b129f1b40e8e475ac2164ab834a6ea24c519670f949512dacb498b044"
+    },
+    {
+      "path": "artifacts/ahri-bot-mobility/browser-2/ahri-bot-mobility-Ahri-bot-1ebae-at-dash-through-Save-reload/ahri-bot-spirit-escape.png",
+      "bytes": 802105,
+      "sha256": "895156a99c4b245071f5e3c6440fb9ee67093430d415f8a3394769405cc5c3c1"
+    }
+  ],
+  "limitations": [
+    "Local tactical policy, not native AI",
+    "No offensive R pursuit or wave spell farming",
+    "No production roster expansion",
+    "No native appearance or physical-device performance certification",
+    "Production smoke for this exact final rules fingerprint is not claimed in this ledger"
+  ]
+}

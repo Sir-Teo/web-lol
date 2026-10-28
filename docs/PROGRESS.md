@@ -6,7 +6,30 @@ Last updated: October 27, 2026 (UTC).
 
 ## Current authoritative state
 
-The latest [Ahri bot combat step](AHRI-BOT-COMBAT.md) chooses Q/Charm from team
+The latest [Ahri bot mobility step](AHRI-BOT-MOBILITY.md) adds close Fox-Fire
+and defensive Spirit Rush through the existing source controllers. Escape
+planning compares all nearby observed threats, rejects unsafe corrected
+landings and holds the accepted origin until ordinary next-tick validation.
+Charm keeps priority; stored dashes retain lockout, free recasts and exhaustion.
+Human control and the ordinary production roster remain unchanged.
+
+All 214 focused checks, TypeScript, all 29 Node QA cases and three actual
+browser cases pass. The browser batch covers existing Q/Charm, all three
+Fox-Fire contacts, own W/R clips and an actual mid-dash Save/reload with an
+exact 180-tick future and 211 finite posed bones. Its first attempt used an
+incorrect test-only skeleton property; inspecting the model's actual root
+fixes the probe without changing application code or prior assertions.
+
+The full run passes **3,434/3,440 tests across 406 files**. All six failures
+reproduce on untouched `5d90742` in this environment: three missing Garen
+source caches, missing Leona Python/native evidence, missing original
+distortion libraries and the host-sensitive Lux missile digest. Their
+assertions remain unchanged. Schema stays 163; the current rules fingerprint
+is `52c3564e30be1716ce281e01793a1857884e1ea1026cee7aa76e5bf801c553a0`.
+No public assets, source spell numbers, saved fields or renderer change.
+Offensive R, wave spell farming and a complete Ahri bot Rift trial remain open.
+
+The preceding [Ahri bot combat step](AHRI-BOT-COMBAT.md) chooses Q/Charm from team
 observations and queues ordinary source-controller casts. Observed blockers,
 hidden physical interception, copied fog aim, resource/control boundaries,
 retreat and committed windups pass 18 new cases and all 107 focused checks.

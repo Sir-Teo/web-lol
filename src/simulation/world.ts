@@ -2419,11 +2419,11 @@ export class World {
   }
 
   private planAhriCombat(u: Unit, retreating: boolean): boolean {
-    if (u.champion !== 'ahri' || u.silenceUntil > this.tick) return false;
+    if (u.kind !== 'champion' || u.champion !== 'ahri' || u.silenceUntil > this.tick) return false;
     const state = this.championState(u.id)!;
     if (state.pendingCast || state.recallEnd !== null || u.releaseTick !== null) return false;
     if (!retreating && this.threateningTower(u, u, true)) return false;
-    const ready = (ability: 'q' | 'e') =>
+    const ready = (ability: 'q' | 'w' | 'e' | 'r') =>
       state.spellRanks[ability] > 0 &&
       this.abilityCooldownTicks(ability, u.id) === 0 &&
       u.mana >= this.abilityResources(ability, u.id).mana + this.queuedCastMana(u);
@@ -2444,12 +2444,12 @@ export class World {
         (retreating ? AHRI_BOT_POLICY.peelRange : AHRI_Q_POLICY.outwardDistance)
     );
     if (!target) return false;
-    const cast = (ability: 'q' | 'e') => {
+    const cast = (ability: 'q' | 'w' | 'e', point = target) => {
       this.enqueue({
         type: 'cast',
         unit: u.id,
         ability,
-        point: { x: target.x, y: target.y },
+        point: { x: point.x, y: point.y },
       });
       return true;
     };
@@ -2474,10 +2474,71 @@ export class World {
         .sort((a, b) => a.t - b.t || a.id - b.id)[0];
       if (first?.id === target.id) return cast('e');
     }
+    if (retreating && ready('r') && this.planAhriEscape(u, enemies)) return true;
+    // Use the ordinary acquisition radius conservatively from the caster's
+    // center. The controller still chooses each fire's visible target at launch.
+    if (
+      ready('w') &&
+      distance(u, target) <= AHRI_W.acquisitionRange &&
+      !this.ahriFoxFires.some(
+        (fire) =>
+          fire.sourceId === u.id &&
+          fire.stopTick === null &&
+          fire.fires.some((shot) => shot.phase === 'orbit')
+      )
+    ) {
+      if (retreating)
+        this.setOrder(u, { type: 'move', point: { ...this.battlefield.spawns[u.team] } });
+      return cast('w', u);
+    }
     // Q pierces lane units. Aim at the observed position, without promising a
     // second-leg hit or tracking the target through fog after the command.
     if (!retreating && ready('q')) return cast('q');
     return false;
+  }
+  private planAhriEscape(u: Unit, observedEnemies: Unit[]): boolean {
+    if (u.kind !== 'champion') return false;
+    const home = this.battlefield.spawns[u.team];
+    if (u.rootUntil > this.tick || distance(u, home) <= 400) return false;
+    const threats = observedEnemies.filter((enemy) => distance(u, enemy) <= 1150);
+    if (!threats.length || distance(u, threats[0]) > AHRI_BOT_POLICY.peelRange) return false;
+    let away = direction(threats[0], u);
+    if (!away.x && !away.y) away = direction(u, home);
+    const directions = [
+      away,
+      direction(u, home),
+      { x: (away.x - away.y) / Math.SQRT2, y: (away.x + away.y) / Math.SQRT2 },
+      { x: (away.x + away.y) / Math.SQRT2, y: (away.y - away.x) / Math.SQRT2 },
+      { x: -away.y, y: away.x },
+      { x: away.y, y: -away.x },
+    ];
+    const currentClearance = distance(u, threats[0]);
+    let aim: Vec2 | undefined;
+    let bestScore = -Infinity;
+    for (const dir of directions) {
+      const point = {
+        x: u.x + dir.x * AHRI_R.dashDistance,
+        y: u.y + dir.y * AHRI_R.dashDistance,
+      };
+      const landing = spiritRushDestination(this, u, point);
+      if (!landing || distance(u, landing) < AHRI_BOT_POLICY.escapeMinimumTravel) continue;
+      const clearance = Math.min(...threats.map((enemy) => distance(landing, enemy)));
+      if (
+        clearance < currentClearance + AHRI_BOT_POLICY.escapeClearanceGain ||
+        this.threateningTower(u, landing, true)
+      )
+        continue;
+      const score = clearance - distance(landing, home) * 0.1;
+      if (score > bestScore) {
+        aim = point;
+        bestScore = score;
+      }
+    }
+    if (!aim) return false;
+    // Keep the evaluated origin until normal next-tick cast validation.
+    if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
+    this.enqueue({ type: 'cast', unit: u.id, ability: 'r', point: aim });
+    return true;
   }
   private planLuxCombat(u: Unit, retreating: boolean): boolean {
     if (u.champion !== 'lux' || u.silenceUntil > this.tick) return false;

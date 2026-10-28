@@ -4,4 +4,6 @@ export const AHRI_BOT_POLICY = {
   priority: ['r', 'q', 'w', 'e'],
   purchases: ['tome', 'boots'],
   peelRange: 700,
+  escapeMinimumTravel: 200,
+  escapeClearanceGain: 150,
 } as const;
