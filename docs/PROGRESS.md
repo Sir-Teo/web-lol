@@ -6,6 +6,19 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+Fresh [offline checks after the camera controls](OFFLINE-CONTROLS-REFRESH.md)
+pass for pack `180aadb3005305d4982afdacd9328e58b8b98fc302203f3bffc703a49c8d710e`
+(1,202 files / 538,110,595 bytes). Actual production controls verify integrity
+failure, retry/cancel/focus, exact paused offline startup, repair, a new Lux
+match and save-preserving removal; a two-version fixture verifies atomic
+activation and scoped cleanup. A natural ordinary Blue victory at tick 169,837
+imports, reloads and exports exactly offline. The gates observe 978 / 973
+service-worker responses, with no page errors; the completed-match check also
+has no failed or outside-prefix requests. Four captures are reviewed. Both
+audits resume under their unchanged frozen source. This evidence-only step
+changes no application build, simulation, assets or saved fields. Full-browser
+match, hundred-seed, native and performance gates retain their separate scope.
+
 The latest [minimap camera dragging](MINIMAP-CAMERA-DRAG.md) captures the
 primary left pointer, clamps outside coordinates, rejects secondary pointers,
 and clears on release, pause, modal, blur, cancellation or lost capture.

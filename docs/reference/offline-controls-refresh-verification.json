@@ -1,0 +1,190 @@
+{
+  "date": "2026-10-28",
+  "applicationRevision": "61d4dd7",
+  "schema": 163,
+  "ruleset": "abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f",
+  "pack": {
+    "id": "180aadb3005305d4982afdacd9328e58b8b98fc302203f3bffc703a49c8d710e",
+    "files": 1202,
+    "bytes": 538110595
+  },
+  "packChecks": {
+    "integrityFailureRestoresDownloadFocus": true,
+    "integrityFailure": true,
+    "downloadFocusesCancel": true,
+    "cancelRetainsVerified": true,
+    "cancelRestoresDownloadFocus": true,
+    "retryWithoutRedownload": true,
+    "completionPreservesOtherControlFocus": true,
+    "pausedSavedTickBootsOffline": true,
+    "completePackRepairOffline": true,
+    "newLuxLaneMatchOffline": true,
+    "serviceWorkerResponses": 978,
+    "removalKeepsSavedBytes": true,
+    "updateRefusesOtherTabs": true,
+    "explicitAtomicVersionSwitchOffline": true,
+    "missingEntryRevokesReady": true,
+    "scopeOnlyRemoval": true
+  },
+  "completedMatch": {
+    "runtime": {
+      "node": "v24.19.0",
+      "v8": "13.6.233.17-node.51",
+      "arch": "x64"
+    },
+    "sourceReport": {
+      "path": "/workspace/web-lol/artifacts/team-detour/ordinary-two/seeds/26018/report.json",
+      "sha256": "d4e59965e48a5838f2b9c2fcec0258c4cc2f41b502b098205a066b3a63e001d8"
+    },
+    "sourceSnapshot": {
+      "path": "/workspace/web-lol/artifacts/team-detour/ordinary-two/seeds/26018/final.match.json",
+      "sha256": "5c8ccd31fc377190604b2f93f24511d9f6021648f92b32255d607667a3c36fbd",
+      "tick": 169837,
+      "winner": "blue",
+      "ruleset": "abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f"
+    },
+    "manifest": {
+      "id": "180aadb3005305d4982afdacd9328e58b8b98fc302203f3bffc703a49c8d710e",
+      "files": 1202,
+      "bytes": 538110595
+    },
+    "checks": {
+      "fullPackReady": true,
+      "normalCompletedPreviewOffline": true,
+      "exactCompletedStateImportAndExportOffline": true,
+      "exactCompletedStateReloadAndExportOffline": true,
+      "sourceReportSnapshotAndManifestUnchanged": true,
+      "serviceWorkerResponses": 973
+    },
+    "limits": [
+      "Completed-match import, offline restore and exact export; not full browser-match simulation or the 100-seed gate."
+    ],
+    "browser": {
+      "version": "154.0.8037.57",
+      "systemChromium": true
+    },
+    "productionErrors": [],
+    "failedRequests": [],
+    "outsidePrefixRequests": [],
+    "result": "passed"
+  },
+  "sourceChecksums": [
+    {
+      "file": "tools/qa/offline-pack.mjs",
+      "bytes": 16558,
+      "sha256": "6fc176c2dd111347e6ebe7dd6c456004cdb6d9e1dfea3db6f4795e047b239b16"
+    },
+    {
+      "file": "tools/qa/offline-completed-match.mjs",
+      "bytes": 10016,
+      "sha256": "c11470731576b4f443c5a18e03d949c458915567b689dd16b311d120fb5f3181"
+    },
+    {
+      "file": "tools/offline-worker.js",
+      "bytes": 3222,
+      "sha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+    },
+    {
+      "file": "src/storage/offline-pack.ts",
+      "bytes": 13429,
+      "sha256": "af4ce9d3a260b200ab86c2bad520b09b5e1765ee389cba3e5a395a0cb0968004"
+    },
+    {
+      "file": "src/ui/offline-pack.ts",
+      "bytes": 4534,
+      "sha256": "951944f0f8371a13d68fd10166cb34e1718d0d484eb7a00572d30437695b1ded"
+    },
+    {
+      "file": "src/storage/match-files.ts",
+      "bytes": 2370,
+      "sha256": "215d175a1bea1447461860728305d631735dcee444ddbf6e646860f6f6689d44"
+    },
+    {
+      "file": "src/main.ts",
+      "bytes": 25695,
+      "sha256": "46c58b656fe5fa82695c8ad8df002d29386eea9cc4d4328ca8c0745cf322634c"
+    },
+    {
+      "file": "src/ui/hud.ts",
+      "bytes": 89051,
+      "sha256": "f1f408ec91e5e178b85efb4a411426f0e9415176d80c1756814d1f71545d6a2d"
+    }
+  ],
+  "reviewedCaptures": 4,
+  "freshBroadOrNodeQATests": false,
+  "newHeadlessSeedsCounted": 0,
+  "applicationChanges": false,
+  "limits": "Offline delivery and completed-match import/reload/exact export. Other match, native and device-performance gates retain their own scope.",
+  "evidence": [
+    {
+      "file": "artifacts/certification-abc8dc/pauses/offline-pack-controls.json",
+      "bytes": 1609,
+      "sha256": "5b17c090c014109c4e70d5c2e2b614acbeb04c2a0a21cbb3bb3f6d214f286b37"
+    },
+    {
+      "file": "artifacts/minimap-drag/offline-input.json",
+      "bytes": 719,
+      "sha256": "8ee4af88c734a44ebb83e6e1267c5a190ed8d076fc9f85116c2766c632516d6c"
+    },
+    {
+      "file": "artifacts/offline-abc8dc-controls-completed/first-export.json",
+      "bytes": 228355,
+      "sha256": "8bfd16e4ed1c9aa0dd3ce0bfbd0744ea200de548d369f19567e5f06a1ffa5f50"
+    },
+    {
+      "file": "artifacts/offline-abc8dc-controls-completed/preview.png",
+      "bytes": 587834,
+      "sha256": "a3481e9d53b45528e03ba2bb05029146e0aefa34923c8f67acdff0559412532e"
+    },
+    {
+      "file": "artifacts/offline-abc8dc-controls-completed/reading.json",
+      "bytes": 1377,
+      "sha256": "01e022fb3dbee232abc0533b089c1c555d362754a747c34f4ae7616eeb2b6447"
+    },
+    {
+      "file": "artifacts/offline-abc8dc-controls-completed/reloaded-export.json",
+      "bytes": 228355,
+      "sha256": "8bfd16e4ed1c9aa0dd3ce0bfbd0744ea200de548d369f19567e5f06a1ffa5f50"
+    },
+    {
+      "file": "artifacts/offline-abc8dc-controls-completed/result-offline.png",
+      "bytes": 560955,
+      "sha256": "543c9612a3236b5f6b3d1a124987ddc571948ec646e91f494f35c7d5a4d19a70"
+    },
+    {
+      "file": "artifacts/offline-controls-abc8dc/completed.log",
+      "bytes": 1180,
+      "sha256": "13b82c6048ddf62d45c42854faf040162665b4fb893ac0916771818877e1982e"
+    },
+    {
+      "file": "artifacts/offline-controls-abc8dc/offline-pack.json",
+      "bytes": 172470,
+      "sha256": "8d1203ce1f3245b341ab653c3e6b10d7e5b8f46f63bd4b990e9dce937c9152d3"
+    },
+    {
+      "file": "artifacts/offline-controls-abc8dc/pack.log",
+      "bytes": 842,
+      "sha256": "3489d3d66773f13869441454ce597823312b0976fa27ddf5a4fe0e360aba9a19"
+    },
+    {
+      "file": "artifacts/offline-controls-abc8dc/system-chromium.mjs",
+      "bytes": 344,
+      "sha256": "b79b031f9ed0d9f69ba090055dc2db785c50fb08c635c0872afc87e834df6710"
+    },
+    {
+      "file": "artifacts/offline-pack-abc8dc-controls-20261028-lux-lanes.png",
+      "bytes": 523288,
+      "sha256": "a0ab9c075344de803bba571dbc0e12d95ddacb987b55856b00037e1a3f088ae0"
+    },
+    {
+      "file": "artifacts/offline-pack-abc8dc-controls-20261028-production.json",
+      "bytes": 827,
+      "sha256": "3e8a8c926349e5cda1c5fb2b779d86e26a25607a4ba9a22444a57d8330249939"
+    },
+    {
+      "file": "artifacts/offline-pack-abc8dc-controls-20261028-ready.png",
+      "bytes": 573626,
+      "sha256": "1d7ea37bdb573732573ad576b0affacc5c372e452e5cfaa734a7be881918c1ea"
+    }
+  ]
+}

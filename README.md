@@ -73,6 +73,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Held F1–F5 champion cameras](docs/TEAM-CAMERA.md)
 - [Camera-aligned held spell and ward previews](docs/AIM-CAMERA.md)
 - [Minimap camera dragging](docs/MINIMAP-CAMERA-DRAG.md)
+- [Fresh offline delivery and completed-match checks](docs/OFFLINE-CONTROLS-REFRESH.md)
 - [Bot group-combat decisions](docs/BOT-GROUP-COMBAT.md)
 - [Master Yi character source foundation](docs/MASTER-YI.md) — complete retained records, ranked declarations and explicit source/client omissions; [development rig review](docs/MASTER-YI-MODEL.md) is available at `/tools/qa/masteryi-model.html`, and the [manual NPC fixture](docs/MASTER-YI-NPC.md) at `/?scene=fixture&npc=masteryi` adds own melee attacks and private saves; the playable kit remains unfinished.
 - [Garen and Ahri roster expansion](docs/ROSTER-EXPANSION.md)
