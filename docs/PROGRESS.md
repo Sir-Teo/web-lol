@@ -6,6 +6,16 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+The historical `abc8dc…` ordinary audit now passes its hundred-seed invariant
+gate: 100 checked games, 98 natural victories, two original 60-minute timeouts,
+zero failures, 16,653,420 checked ticks, 4,676 round-trips and 4,576 future checks
+covering 274,560 ticks. Independent verification passes. Seeds 2 and 25 retain
+their unfinished reports; separate exact continuations finish naturally after
+60 minutes without relabeling the corpus. [The ordinary report](ORDINARY-HUNDRED-ABC8DC.md)
+records quantiles among the 98 victories. Both original hundred-game corpora
+are complete and verified at their frozen source; current-fingerprint and
+full-roadmap claims remain separate.
+
 The [result presentation clock](TERMINAL-WALL-CLOCK.md) now uses full visible
 wall intervals while the simulation stays frozen. A controlled lethal Nexus
 impact reproduces the old 100 ms/250 ms mismatch, then passes at 2.25 seconds
