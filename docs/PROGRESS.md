@@ -6,7 +6,52 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
-The latest [combined roster trial](ROSTER-RIFT.md), `/?scene=roster-rift`, adds
+The latest [supported Leona engage](LEONA-SUPPORTED-ENGAGE.md) lets support-role
+bots join an actual allied attack on an observed unheld champion. It requires
+healthy support, available Q follow-through, adequate observed numbers and
+reserved Q/W mana. Prepared Q receives credit only with two seconds remaining;
+near-expiry Q needs a ready/funded replacement. Known later ray contacts,
+unsafe terrain and known-tower normal-motion margins veto the forecast. Held
+E/R follow-ups retain priority; source spells and manual casts are unchanged.
+
+All 74 focused checks, TypeScript, 29 Node QA cases, final build and
+**3,528/3,534 broad cases across 413 files** pass; only the six reproduced
+baseline failures remain. Three browser scenarios pass the new supported E
+plus existing E/R; the final budget/capture case passes real midflight Save/
+reload, its exact 180-tick future, actual root/Sunlight/dash/Q and zero errors.
+The corrected final landing is unobstructed and reviewed. The old E visual
+fixture's 30-second timeout reproduces on parent `0072059`; it now seeks to
+four asserted ages while retaining all 70 simulation ticks, assertions and
+original deadline. Both old traces and the covered capture remain retained.
+
+The initially wrong expiring-Q W/E decision at 105 mana has its failed
+regression retained. The fix preserves W alone there; 140 mana funds W/E plus
+a fresh Q after arrival with exact saved continuation. The first candidate's
+frozen seed passed a 40:16.1 Blue victory, 41 round-trips and 40 saved futures,
+but the expiry case was found separately; it is not labeled final-code proof.
+Schema stays 163; final rules fingerprint is
+`42e156074f8039d55a6149207abf4c280dce65798da8354c8e25f62357c1841d`.
+Matching pack `fdf9593396b39f485e42208a38a9141e706347678d8452bd711ab1b6496c27d4`
+contains 1,202 files / 538,105,726 bytes. Source values, public assets,
+controllers and saved fields are unchanged.
+
+The final frozen replay also ends naturally in Blue victory at 40:16.1:
+144,967 checked ticks, 41 exact round-trips and 40 original-future comparisons
+covering 2,400 ticks. Independent verification passes 42 states and all 542
+archived source/QA inputs, runner and maps. Blue Leona uses E14 and Red E11
+against the preceding roster seed's E2/E0. R remains held-group/finisher follow-up
+(Blue 1/Red 0). The normalized final state matches the first candidate; the
+expiry regression therefore covers a separate edge. Full support tactics and
+the 100-seed/full-browser/native/performance gates remain open.
+
+Final nested production passes all 32 recordings and development gates with
+zero unrequested Leona preloads. Fresh offline acceptance is not repeated for
+this private AI change. See the
+[verification ledger](reference/leona-supported-engage-verification.json).
+Next is all six human champion choices inside the private combined-roster menu,
+while production selection retains Ashe/Lux.
+
+The preceding [combined roster trial](ROSTER-RIFT.md), `/?scene=roster-rift`, adds
 Garen top, Yi jungle, Ahri mid and Leona support around an Ashe carry. Real Lux
 selection brings all six identities into one match. All four existing trusted
 Rift permissions and both NPC selectors are required. Normal and separate

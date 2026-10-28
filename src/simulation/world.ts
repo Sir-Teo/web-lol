@@ -1966,8 +1966,7 @@ export class World {
       0
     );
   }
-  /** Conservative local follow-up on an isolated, observed immobilized champion. */
-  private planLeonaE(u: Unit): boolean {
+  private leonaZenithReady(u: Unit): u is TeamUnit {
     if (
       u.champion !== 'leona' ||
       u.team === 'neutral' ||
@@ -1991,6 +1990,11 @@ export class World {
       this.threateningTower(u, u, true)
     )
       return false;
+    return true;
+  }
+  /** Conservative local follow-up on an isolated, observed immobilized champion. */
+  private planLeonaE(u: Unit): boolean {
+    if (!this.leonaZenithReady(u)) return false;
     // Observe sight before consulting enemy health, control clocks or positions.
     const enemies = this.units.filter(
       (other) =>
@@ -2040,6 +2044,104 @@ export class World {
       )
         continue;
       // Hold the checked launch position until ordinary next-tick dispatch.
+      if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
+      this.enqueue({ type: 'cast', unit: u.id, ability: 'e', point: { x: target.x, y: target.y } });
+      return true;
+    }
+    return false;
+  }
+  /** Support an observed allied attack without requiring a pre-existing hold. */
+  private planLeonaSupportedE(u: Unit): boolean {
+    if (!this.leonaZenithReady(u)) return false;
+    const state = this.championState(u.id)!;
+    const preparedQ =
+      !!state.leonaQ &&
+      state.leonaQ.endTick >= this.tick + LEONA_BOT_POLICY.supportEngageQMinimumTicks;
+    if (
+      state.role !== 'support' ||
+      u.hp < u.maxHp * LEONA_BOT_POLICY.supportEngageHealth ||
+      !state.spellRanks.q ||
+      (!preparedQ && this.abilityCooldownTicks('q', u.id) > 0)
+    )
+      return false;
+    const queued = new Set(
+      this.commands.flatMap((command) =>
+        command.type === 'cast' && command.unit === u.id ? [command.ability] : []
+      )
+    );
+    let budget = this.abilityResources('e', u.id).mana + this.queuedCastMana(u);
+    if (!preparedQ && !queued.has('q')) budget += this.abilityResources('q', u.id).mana;
+    if (
+      state.spellRanks.w &&
+      !state.leonaW &&
+      !queued.has('w') &&
+      this.abilityCooldownTicks('w', u.id) === 0
+    )
+      budget += this.abilityResources('w', u.id).mana;
+    if (u.mana < budget) return false;
+    const enemies = this.units.filter(
+      (other) =>
+        other.kind === 'champion' &&
+        other.team !== u.team &&
+        this.visible(other, u.team) &&
+        this.alive(other)
+    );
+    const reach = LEONA_SPELLS.e.missile.castRange,
+      flightTicks =
+        1 +
+        LEONA_COMBAT_POLICY.zenithWindupTicks +
+        Math.ceil(reach / (LEONA_SPELLS.e.missile.speed * DT));
+    for (const target of [...enemies].sort(
+      (a, b) => distance(u, a) - distance(u, b) || a.id - b.id
+    )) {
+      const d = distance(u, target);
+      if (!this.targetable(target) || d <= this.attackRange(u) + target.radius || d > reach)
+        continue;
+      const away = direction(target, u),
+        dir = direction(u, target),
+        landing = {
+          x: target.x + away.x * (u.radius + target.radius),
+          y: target.y + away.y * (u.radius + target.radius),
+        },
+        end = { x: u.x + dir.x * reach, y: u.y + dir.y * reach };
+      const supporters = this.units.filter(
+        (ally) =>
+          ally.id !== u.id &&
+          ally.kind === 'champion' &&
+          ally.team === u.team &&
+          this.visible(ally, u.team) &&
+          this.alive(ally) &&
+          ally.hp >= ally.maxHp * LEONA_BOT_POLICY.supportEngageAllyHealth &&
+          ally.stunUntil <= this.tick &&
+          !ally.charm &&
+          !ally.aiRetreating &&
+          distance(ally, target) <= this.attackRange(ally) + target.radius &&
+          ((ally.order.type === 'attack' && ally.order.target === target.id) ||
+            (ally.releaseTick !== null && ally.attackTarget === target.id))
+      );
+      const threats = enemies.filter(
+        (other) => distance(other, landing) <= LEONA_BOT_POLICY.zenithIsolationRadius
+      ).length;
+      if (!supporters.length || supporters.length + 1 < threats) continue;
+      // Zenith dashes to its last champion contact. Reject an observed later
+      // contact instead of checking safety against the wrong landing target.
+      const contact = sweepCircle(u, end, target, LEONA_COMBAT_POLICY.zenithRadius + target.radius);
+      if (
+        contact === null ||
+        enemies.some((other) => {
+          if (other.id === target.id) return false;
+          const hit = sweepCircle(u, end, other, LEONA_COMBAT_POLICY.zenithRadius + other.radius);
+          return hit !== null && hit >= contact;
+        }) ||
+        this.knownTeamTowers(u.team).some(
+          (tower) =>
+            distance(tower, landing) <=
+            tower.range + u.radius + 100 + this.movementSpeed(target) * DT * flightTicks
+        ) ||
+        !this.battlefield.lineWalkable(u, landing, u.radius, u.team) ||
+        distance(landing, this.battlefield.reachable(landing, u.radius, u.team)) > 1
+      )
+        continue;
       if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
       this.enqueue({ type: 'cast', unit: u.id, ability: 'e', point: { x: target.x, y: target.y } });
       return true;
@@ -3489,6 +3591,7 @@ export class World {
     if (this.planRoleWard(u)) return;
     if (this.planLeonaE(u)) return;
     if (this.planLeonaR(u)) return;
+    if (this.planLeonaSupportedE(u)) return;
     if (this.planCrystalArrow(u, 'finish')) return;
     if (this.planGarenR(u)) return;
     if (this.planGarenE(u)) return;

@@ -81,8 +81,10 @@ test('Leona follows a visible isolated catch through a paid saved Zenith and sou
       copy.step();
       control.step();
       if (i === 0) paidMana = leona.mana;
-      v.render(w, 1, 25.5);
       if ([8, 30, 50, 65].includes(i)) {
+        // Seek to the asserted ages; intermediate ticks advance all three
+        // simulations without spending the visual-check budget on extra draws.
+        v.render(w, 1, 25.5);
         const models = [...v.leonaZenithSurfaces.models.values()] as any[],
           all = draw(),
           visibility = models.map((m) => m.visible);

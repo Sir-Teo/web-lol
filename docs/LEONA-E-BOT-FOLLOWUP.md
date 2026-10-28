@@ -62,3 +62,8 @@ The [verification ledger](reference/leona/e-bot-followup-verification.json)
 records the exact source, build and acceptance evidence. Player and ordinary Rift
 selection, full E/R tactics, complete support/roster behavior, native frames and
 performance acceptance remain open.
+
+The [supported engage](LEONA-SUPPORTED-ENGAGE.md) now adds a separate support-role
+E decision after existing held E/R follow-ups, with healthy allied commitment,
+reserved Q/W resources and observed landing safety. The isolated follow-up
+boundaries above retain their original priority and behavior.

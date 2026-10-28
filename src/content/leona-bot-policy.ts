@@ -7,6 +7,9 @@ export const LEONA_BOT_POLICY = {
   defenseHorizonTicks: 45,
   supportApproachTicks: 45,
   supportStagingDistance: 250,
+  supportEngageHealth: 0.65,
+  supportEngageAllyHealth: 0.45,
+  supportEngageQMinimumTicks: 120,
   zenithIsolationRadius: 1000,
   solarMinimumHeldTargets: 2,
 } as const;

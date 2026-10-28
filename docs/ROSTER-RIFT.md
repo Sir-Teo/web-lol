@@ -70,3 +70,7 @@ npm run dev
 npx vitest run tests/roster-rift.test.ts tests/lane-match.test.ts tests/masteryi-bot-rift.test.ts tests/ahri-bot-rift.test.ts tests/leona-rift-trial.test.ts tests/garen-rift-trial.test.ts --maxWorkers=1
 npx playwright test e2e/roster-rift.spec.ts
 ```
+
+Support bots also have [supported Zenith engages](LEONA-SUPPORTED-ENGAGE.md),
+which can join a healthy ally already attacking an unheld visible target while
+preserving Q/W resources and known landing boundaries.

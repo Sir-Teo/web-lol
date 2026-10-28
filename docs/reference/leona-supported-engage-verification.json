@@ -1,0 +1,779 @@
+{
+  "date": "2026-10-28",
+  "previousCommit": "0072059",
+  "schema": 163,
+  "ruleset": "42e156074f8039d55a6149207abf4c280dce65798da8354c8e25f62357c1841d",
+  "sources": [
+    {
+      "path": "src/simulation/world.ts",
+      "bytes": 315588,
+      "sha256": "79fe840d6799b382e33086c752713155d82489bd710f22c19015ce50d2356a9d"
+    },
+    {
+      "path": "src/content/leona-bot-policy.ts",
+      "bytes": 562,
+      "sha256": "986f8ad878b24b6fb32cd372751c436dd4a1fd1d32aa5063642c5fcc11af3f8c"
+    },
+    {
+      "path": "tests/leona-supported-engage.test.ts",
+      "bytes": 10539,
+      "sha256": "c642eb3c0fe90633f6c7dc7e0c2bd33a6dcf7ec229d44b8e974a5beba17ce249"
+    },
+    {
+      "path": "e2e/leona-supported-engage.spec.ts",
+      "bytes": 6394,
+      "sha256": "077a46da5ac1cbcb759765e5e6b07dc50e53fc20342fbdb39a1eaecd59a653df"
+    },
+    {
+      "path": "e2e/leona-e-ai.spec.ts",
+      "bytes": 5589,
+      "sha256": "3513b07cbce72cb83946707cf11aeb9db6d3967039241c08f47ae2013daacf16"
+    }
+  ],
+  "behavior": {
+    "supportRoleOnly": true,
+    "visibleAlliedAttackRequired": true,
+    "minimumActorHealth": 0.65,
+    "minimumAllyHealth": 0.45,
+    "observedNumbersGuard": true,
+    "readyQAndWReserved": true,
+    "preparedQCreditMinimumTicks": 120,
+    "queuedWCountedOnce": true,
+    "lastObservedChampionContactChecked": true,
+    "currentNormalMotionInKnownTowerMargin": true,
+    "copiedAimCanMiss": true,
+    "legacyHeldERetainsPriority": true,
+    "legacyHeldRRetainsPriority": true
+  },
+  "focused": {
+    "passed": 74,
+    "total": 74,
+    "files": 4,
+    "newCases": 29
+  },
+  "broad": {
+    "passed": 3528,
+    "total": 3534,
+    "files": 413,
+    "unchangedBaselineFailures": 6,
+    "baselineEvidence": "docs/reference/ahri-bot-mobility-verification.json"
+  },
+  "checks": {
+    "typescript": true,
+    "nodeQa": {
+      "passed": 29,
+      "total": 29
+    },
+    "build": true,
+    "publicAssetsChanged": false,
+    "spellControllersChanged": false,
+    "sourceSpellValuesChanged": false,
+    "savedFieldsAdded": false
+  },
+  "pack": {
+    "id": "fdf9593396b39f485e42208a38a9141e706347678d8452bd711ab1b6496c27d4",
+    "files": 1202,
+    "bytes": 538105726,
+    "buildRulesetMatches": true
+  },
+  "browser": {
+    "initialBatch": {
+      "passed": 2,
+      "total": 3,
+      "existingEVisualDeadlineFailure": true
+    },
+    "cleanBatch": {
+      "passed": 3,
+      "total": 3
+    },
+    "finalBudgetAndCaptureCase": {
+      "passed": 1,
+      "total": 1
+    },
+    "retries": 0,
+    "launcher": "/usr/bin/chromium",
+    "actualMidflightSaveReload": true,
+    "exactFutureTicks": 180,
+    "actualRootSunlightDashAndQ": true,
+    "humanRemainsManual": true,
+    "originalPracticeGeometry": true,
+    "glErrors": [],
+    "pageErrors": [],
+    "finalScreenshotsReviewed": true,
+    "proofs": [
+      {
+        "path": "artifacts/leona-supported-engage/browser-final/leona-supported-engage-Leo-59107-ght-save-and-source-landing/supported-engage.json",
+        "bytes": 598159,
+        "sha256": "c9a47cd8253c3c79a4cf49301207fcd4246c252b2eb738ef9e033ff645f94d44"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/browser-final/leona-supported-engage-Leo-59107-ght-save-and-source-landing/supported-zenith-flight.png",
+        "bytes": 808918,
+        "sha256": "d7217eef9057b4d18d6cd0f9ea2fa8aa4a4847d557e8f4fc19becdb7e04b9691"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/browser-final/leona-supported-engage-Leo-59107-ght-save-and-source-landing/supported-zenith-landing.png",
+        "bytes": 802371,
+        "sha256": "e3547c31e666ecfd60668cd2e9d786f29f18c3a20a613ff53b53a353c6305a9f"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/browser-after/leona-e-ai-Leona-follows-a-e6a5c-d-Zenith-and-source-landing/evidence.json",
+        "bytes": 12320,
+        "sha256": "b57ec15dbea30d0c7cfd6a02166352c5feac7eba9ad9975f22dd5e2527926295"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/browser-after/leona-e-ai-Leona-follows-a-e6a5c-d-Zenith-and-source-landing/zenith-followup.png",
+        "bytes": 792583,
+        "sha256": "b683ae855461b4587cfb03cd399d04ba75c3eb3951d0e5e15b98a2d6d9084e96"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/browser-after/leona-r-ai-Leona-follows-a-9732f-lar-Flare-and-source-impact/evidence.json",
+        "bytes": 16462,
+        "sha256": "62fd2609c9f9f711266576d6dcaf6495a64287351f639c192c98a530a780a14d"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/browser-after/leona-r-ai-Leona-follows-a-9732f-lar-Flare-and-source-impact/solar-followup.png",
+        "bytes": 868340,
+        "sha256": "f8a0d70f5f259646266ae3a01a8f3082e745d39d78d73afc479e3307d0b23740"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/browser-after/leona-supported-engage-Leo-59107-ght-save-and-source-landing/supported-engage.json",
+        "bytes": 597950,
+        "sha256": "e50dc016e36878c6bc23481b951ccae03b6c222a6f1860c2afe2779fd853e7af"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/browser-after/leona-supported-engage-Leo-59107-ght-save-and-source-landing/supported-zenith-flight.png",
+        "bytes": 808971,
+        "sha256": "e1bcac257ea5361478d6f755916abdd0bee8d9d3e8241788d35f57d1bae9f0a7"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/browser-after/leona-supported-engage-Leo-59107-ght-save-and-source-landing/supported-zenith-landing.png",
+        "bytes": 436866,
+        "sha256": "9fa8198e06eec1d9dbcefef32d91fdc627c348487cd9f2c4b6c664c3ab993561"
+      }
+    ]
+  },
+  "visualFixture": {
+    "parentCommit": "0072059",
+    "originalDeadlineMs": 30000,
+    "parentReproducesTimeout": true,
+    "simulationTicksRetained": 70,
+    "assertedLoopIndices": [8, 30, 50, 65],
+    "drawsSeekToAssertedAges": true,
+    "assertionsAndDeadlineUnchanged": true,
+    "initialCoveredLandingRetained": true,
+    "finalCaptureClosesModalWhilePaused": true,
+    "traces": [
+      {
+        "path": "artifacts/leona-supported-engage/browser/leona-e-ai-Leona-follows-a-e6a5c-d-Zenith-and-source-landing/trace.zip",
+        "bytes": 55646367,
+        "sha256": "89042c6963c1255a1929812a149912745f25eff5d2aa5ba402f8582787957c49"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/browser-baseline/leona-e-ai-Leona-follows-a-e6a5c-d-Zenith-and-source-landing/trace.zip",
+        "bytes": 55398550,
+        "sha256": "7b5ba54347a332974b0a5092a397453156a6dac5e536be0e09d4e11391c6a9e1"
+      }
+    ]
+  },
+  "expiryCorrection": {
+    "originalFailure": "W and E admitted at 105 mana while prepared Q would expire before follow-through",
+    "correctedResult": "W alone at 105; W/E and replacement Q funded at 140 with exact saved continuation",
+    "regressionRetained": true
+  },
+  "firstCandidate": {
+    "ruleset": "a4ba82a5b8a09f9d414cf3cfe847f9db4aaf710367eb04441f0bf6882a2bf829",
+    "outcome": "victory",
+    "winner": "blue",
+    "finalTick": 144967,
+    "checkedTicks": 144967,
+    "roundTrips": 41,
+    "futureChecks": 40,
+    "passedInvariants": true,
+    "expiryBudgetIssueFoundSeparately": true,
+    "plan": {
+      "path": "artifacts/leona-supported-engage/frozen/plan.json",
+      "bytes": 93526,
+      "sha256": "9773cf1cd137cd7044ef58cb463eee3f5f76598145d4d5a11542cd8b739ed7e0"
+    },
+    "report": {
+      "path": "artifacts/leona-supported-engage/seed-26018/report.json",
+      "bytes": 210737,
+      "sha256": "5d426eeac40ee2eee190dab9f825ebc14536e16a3ef5502bf89883e66d9e7431"
+    },
+    "verification": {
+      "path": "artifacts/leona-supported-engage/verification.json",
+      "bytes": 912,
+      "sha256": "b63890909cc9f757f6423c05540b34cb8c57d2069319c5759eed434016d067d5"
+    }
+  },
+  "diagnostic": {
+    "seed": 26018,
+    "horizonMinutes": 60,
+    "humanAiProxy": "lux mid",
+    "outcome": "victory",
+    "winner": "blue",
+    "finalTick": 144967,
+    "checkedTicks": 144967,
+    "checkpointRoundTrips": 41,
+    "originalFutureComparisons": 40,
+    "futureCheckedTicks": 2400,
+    "checkedSnapshots": 42,
+    "acceptedCasts": {
+      "lux": {
+        "q": 62,
+        "w": 38,
+        "e": 110,
+        "r": 14
+      },
+      "garen": {
+        "q": 91,
+        "w": 55,
+        "e": 129,
+        "r": 12
+      },
+      "masteryi": {
+        "q": 145,
+        "w": 11,
+        "e": 125,
+        "r": 32
+      },
+      "ashe": {
+        "q": 49,
+        "w": 104,
+        "e": 29,
+        "r": 19
+      },
+      "leona": {
+        "q": 29,
+        "w": 53,
+        "e": 25,
+        "r": 1
+      },
+      "ahri": {
+        "q": 126,
+        "w": 45,
+        "e": 46,
+        "r": 14
+      }
+    },
+    "leonaByTeam": {
+      "blue": {
+        "q": 17,
+        "w": 21,
+        "e": 14,
+        "r": 1
+      },
+      "red": {
+        "q": 12,
+        "w": 32,
+        "e": 11,
+        "r": 0
+      }
+    },
+    "allChampionKitsUsed": true,
+    "forcedWinner": false,
+    "failures": [],
+    "sourceArchivePins": 542,
+    "plan": {
+      "path": "artifacts/leona-supported-engage/final/frozen/plan.json",
+      "bytes": 93574,
+      "sha256": "b7e1362a0a67d55ea0b67e1ed67323ae571130df6332806827e3a44205a9dbbe"
+    },
+    "runner": {
+      "path": "artifacts/leona-supported-engage/final/frozen/runner/match-final-audit.js",
+      "bytes": 1171787,
+      "sha256": "df73f4a48e1ccc32650c1856820b50367bfc755888b3569997c83c45de7fe27b"
+    },
+    "inputs": [
+      {
+        "path": "artifacts/leona-supported-engage/final/frozen/maps/rift-nav.bin",
+        "bytes": 1925772,
+        "sha256": "b46933464275e15fe6790a8169a77c63524a8d34fa7f4977614898e997da0edf"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/frozen/maps/rift-nav.json",
+        "bytes": 1645,
+        "sha256": "d7a0a29c0300056e035b46f3e19f049a8c564da2783ac94f34a6e0cdabfde6ec"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/frozen/maps/rift-layout.json",
+        "bytes": 39399,
+        "sha256": "40258299911730959e5dd05340541fce293e20ae46b5fef2e8bf0a2aa4d7d4f9"
+      }
+    ],
+    "qaSources": [
+      {
+        "path": "artifacts/leona-supported-engage/match-final-audit.ts",
+        "bytes": 8421,
+        "sha256": "a3ad59b0bcef66f07db3bd753efdf06cda702800c514c6b49a2b7703fb8cded3"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/freeze-final-audit.mjs",
+        "bytes": 2071,
+        "sha256": "c34fcc48db2abfcfca4c10d94553d67f2d6aa8185117e1b4655771fbbf6cdaf0"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/verify-final-audit.mjs",
+        "bytes": 4335,
+        "sha256": "e480b40c28f16ef432fe027873417af90c6b31d2724001ae42c2eef68f6d7442"
+      }
+    ],
+    "report": {
+      "path": "artifacts/leona-supported-engage/final/seed-26018/report.json",
+      "bytes": 210994,
+      "sha256": "dc00574d4a5d7db3c86c6a03d13e5e403694b5d6455facf5aa1fde84b59bf693"
+    },
+    "verification": {
+      "path": "artifacts/leona-supported-engage/final-verification.json",
+      "bytes": 912,
+      "sha256": "4a5c5e1822a2a7a68847387db8899f7b852a780ae7d23d11746ec591359647ef"
+    },
+    "final": {
+      "path": "artifacts/leona-supported-engage/final/seed-26018/final.match.json",
+      "bytes": 287914,
+      "sha256": "063157f8c438041121f5cf4a46e6c2c703693726c1a2d0e2dc4d815ff7b7f0bc"
+    },
+    "checkpoints": [
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/003600.match.json",
+        "bytes": 224451,
+        "sha256": "80622a8898dc30e81c464138144ef12c73b458c4a1b3557ad56d88b9b9eb4b9a"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/007200.match.json",
+        "bytes": 223069,
+        "sha256": "c412ed560e37148d08c6bfa66e0ac497ad5096a97c5dee2d44b42f11c285765e"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/010800.match.json",
+        "bytes": 214416,
+        "sha256": "445a18259ac33b076696b0ab614c6fd403439623b7d72b67e0df074651da5c66"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/014400.match.json",
+        "bytes": 174150,
+        "sha256": "402aab64d43816d27a9271d1d7b1c48ae3492c5cff394aa9a4b4607acad89a87"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/018000.match.json",
+        "bytes": 208324,
+        "sha256": "b6ef2c035a585dbcb5a7a00cb03fc40cf1e353b4f3c1ed06ef4d50551f5a30cd"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/021600.match.json",
+        "bytes": 213744,
+        "sha256": "20efe9e60d70d32d1202165e73348eb74636cbddf493ff46490b3a344ca4dc75"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/025200.match.json",
+        "bytes": 205389,
+        "sha256": "b08d62aaae2fced98891f7e7805f4f1a655822c618f05590ef9b3f4c46990604"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/028800.match.json",
+        "bytes": 214574,
+        "sha256": "827b6785e99252bd691966b029303f6a6412ea8c2e4fe011275dbe0ecd510261"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/032400.match.json",
+        "bytes": 290286,
+        "sha256": "56ec3727ceb79700b642878425ae373cfc77c7e1c05e0cf84b38218beafdb3bc"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/036000.match.json",
+        "bytes": 240078,
+        "sha256": "764978be47c7a8143c312b2704cb70cc0ef98f991194fbbad6583c29d3d66ede"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/039600.match.json",
+        "bytes": 286857,
+        "sha256": "82b347ade82657db24c4c900978177c78f822f1d88dc2a0ef78691ad96a8cdfe"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/043200.match.json",
+        "bytes": 178558,
+        "sha256": "0f2b73f989c027ca14c2a01e7cafa254ba307905c2ae99d488fdd80cd4c0b784"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/046800.match.json",
+        "bytes": 234150,
+        "sha256": "e7caf2478dc6f9f3cb7367e008588ef8c35c6f530cd27e0366d09eb593d991cc"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/050400.match.json",
+        "bytes": 436834,
+        "sha256": "8e1f0d2bad3a1b06472574db33e556de617d6b914a905a7511b04bf94b03b29d"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/054000.match.json",
+        "bytes": 526906,
+        "sha256": "1e1cb94a365f7844fe1f1780c38319d1edfd994bbaa6187e818f120090db358d"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/057600.match.json",
+        "bytes": 314702,
+        "sha256": "84c89f6f001f2df784fae878c8065ee99af963aaaacd9a7996160d8e929e9147"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/061200.match.json",
+        "bytes": 267363,
+        "sha256": "5662041216361a5ebef342c686da66d8d55db533704ef26798d2879d362b934f"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/064800.match.json",
+        "bytes": 199660,
+        "sha256": "eb5fda9105923abaf02dc61b408d149ecc1b1a2e8b32a5a637716bfc318d109a"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/068400.match.json",
+        "bytes": 484456,
+        "sha256": "5c255516e821759d274c58671fd588d40a11207eb3ac3c2a2768e9a44c19fd49"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/072000.match.json",
+        "bytes": 296698,
+        "sha256": "15e543b59fdedccc143709405a997ee89f8667ae9968a7fe9ca0d0b9e4f304b9"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/075600.match.json",
+        "bytes": 204050,
+        "sha256": "5d347b9dc19e5b83a118f370bd4fece42f5192f43460e792d222c9b909f15f9a"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/079200.match.json",
+        "bytes": 243768,
+        "sha256": "281f659570469036cd64368fedbdddb45ae8d92b53af459511ed47404f47814b"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/082800.match.json",
+        "bytes": 788777,
+        "sha256": "7a5fccad1295e37ff9de564b7356a8fd176baaa695ee4ec4f15f80d2bd3c17e6"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/086400.match.json",
+        "bytes": 209641,
+        "sha256": "303e3a3c5cfabe0762c08492db357d5b9d613e03113c1692d579f4c1ecb334b1"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/090000.match.json",
+        "bytes": 242002,
+        "sha256": "450aa38ad5ebf25fabce52cc09adea9871f285a2b0c11374453a7205c3dd5519"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/093600.match.json",
+        "bytes": 676637,
+        "sha256": "c038c19f0a3745dae7dcf3fa57fd512d3ec0c30048a02f4f489e91d2e883fdfb"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/097200.match.json",
+        "bytes": 260020,
+        "sha256": "20aed2d74a4e6e703ec6d1c1759a0b8e1a39536918b55f2375b0975e499080b6"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/100800.match.json",
+        "bytes": 279901,
+        "sha256": "103def63dcd81a2c23817d154071c3cf895809325bfdf31e457ea90e8986e632"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/104400.match.json",
+        "bytes": 218166,
+        "sha256": "9d97b1f8d75643a67c9ce48fcf79ba8dbaee30b2a4ce4060c280a9e46d2894df"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/108000.match.json",
+        "bytes": 275264,
+        "sha256": "07f72c2d8f669cb2da3e6838cea6bb624e1d38b426896f98230779308f48a58f"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/111600.match.json",
+        "bytes": 1318926,
+        "sha256": "285cfa3bec6ea5ca099f07de002da778f3ce5e63ab31cf33a1d58f7ac7fa4247"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/115200.match.json",
+        "bytes": 229644,
+        "sha256": "b064f46811ca1d32a636a413795e143adc5154c58d60f602312a3bfe3e853374"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/118800.match.json",
+        "bytes": 256739,
+        "sha256": "a1438482d7160d3ed28f0381341914acdf35b672b4cb3899d60a1487a63a722e"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/122400.match.json",
+        "bytes": 546877,
+        "sha256": "8c6ac232c83d6953361082e697e70e5fcfbaaa81885daea99ff4298ce7b1c08a"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/126000.match.json",
+        "bytes": 279961,
+        "sha256": "eb17a27ae36d2a8041a73bff516b6e65717dfefb3d5c75db5b0056a77ae97c3f"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/129600.match.json",
+        "bytes": 246328,
+        "sha256": "aa56f23e997bcba4d39759c89bfaefb4c3e079e029329eb89dafc30a348af222"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/133200.match.json",
+        "bytes": 248186,
+        "sha256": "e4bb1890af11f8e4904970434d50ee40e496dc09fc4faa82d9adff427e6d0299"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/136800.match.json",
+        "bytes": 232691,
+        "sha256": "dc21011e470ba51d73d8666f0b649a14d369487b7bef9f2796c8d3ec62c4f1b8"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/140400.match.json",
+        "bytes": 313844,
+        "sha256": "d10729f65adcb7e04fcfb8f8246f97db9dd5297dad64bd0f9ba2031066daa368"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/144000.match.json",
+        "bytes": 221328,
+        "sha256": "c5f25dce36807e018aa07f81a46a7f8af71090908efcb5aabecc2f8ee9268df9"
+      },
+      {
+        "path": "artifacts/leona-supported-engage/final/seed-26018/144967.match.json",
+        "bytes": 287914,
+        "sha256": "063157f8c438041121f5cf4a46e6c2c703693726c1a2d0e2dc4d815ff7b7f0bc"
+      }
+    ],
+    "hundredSeedGate": false,
+    "nativeFidelityCertified": false
+  },
+  "production": {
+    "passed": true,
+    "recordings": 32,
+    "prefix": "/nested/rift/",
+    "developmentHook": false,
+    "developmentRosterGatesPassed": true,
+    "unrequestedLeonaPreloads": 0,
+    "screenshot": {
+      "path": "artifacts/leona-supported-engage/production.png",
+      "bytes": 1824065,
+      "sha256": "e4f8f1603e211c340398e0a651dadb7c37efec84ed9d615a9353b4f0bb8b20db"
+    }
+  },
+  "freshOfflineAcceptance": false,
+  "previousOfflineEvidence": "docs/reference/masteryi-bot-rift-verification.json",
+  "logs": [
+    {
+      "path": "artifacts/leona-supported-engage/logs/audit-build.log",
+      "bytes": 292,
+      "sha256": "7353abfa2368f9c79f3252765e7bcc7830aa9d47c4f51d1449b9bb072f01b3b6"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/audit-format.log",
+      "bytes": 52,
+      "sha256": "fa1a8012c2945f3c2fd8ed361eba64692b9a83ab939cdc33bce58de1b54867e3"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/audit.log",
+      "bytes": 805,
+      "sha256": "9598e596103fffbc3c4ab0944fa0f4cfaac0c28671501a9b1ce712e8dd0f83c4"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/baseline-worktree.log",
+      "bytes": 1865,
+      "sha256": "83a86af57651ff6f15f44690dd429b3acf097603d240cf4f0659d9dab50c9011"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/before.log",
+      "bytes": 2191,
+      "sha256": "4e7ccedf4bb9190943ffe0284d6e905ecab8d6b022256cfc300b79b74dad5aa9"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/browser-after.log",
+      "bytes": 1352,
+      "sha256": "8da85608002b9208c3086bd17c2c9bf6df8ec9a03a4002d3c5f5ec7a864e62ae"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/browser-baseline.log",
+      "bytes": 2637,
+      "sha256": "a9e8ab6b811da819812c3c12772b3c5b4ba43278f55d608f667cc58e5e22554f"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/browser-capture.log",
+      "bytes": 828,
+      "sha256": "7807cf295b75fd92d8ac5d3c9ba6669169004878514602a3c1dea04fcd16969f"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/browser-format.log",
+      "bytes": 40,
+      "sha256": "e02b41ef641e236b0bcd7dcf7ce4ed454840256e6e542362b70f79a443163c49"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/browser.log",
+      "bytes": 3371,
+      "sha256": "a1499d0e944a0eab9a1571b5874bbb617a048bd0726ea0b1909166ed3456ccf8"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/build.log",
+      "bytes": 7852,
+      "sha256": "992840659b4048e82306eaf8d7ac1210c4b71cc3d4ec64c8904fe0ef440de726"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/doc-final-format.log",
+      "bytes": 48,
+      "sha256": "4af1260692dec4757c230b7a288ec4a351d7f78c0dd09ea9d66f32d800e54465"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/doc-format.log",
+      "bytes": 48,
+      "sha256": "148e12ec75ec723e928f66c97cd32a55a22158ad4a6de7d9056699c5466102b1"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/expiry-before.log",
+      "bytes": 1083,
+      "sha256": "440797519bef3466b88fc4a66938373ab1b8e358388083c7ac018ee5028f0a26"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/expiry-focused.log",
+      "bytes": 181,
+      "sha256": "c291d986050ade7b19a47453e684061e33e8e3cdfc83570d1a9a030f85829ea3"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/expiry-format.log",
+      "bytes": 43,
+      "sha256": "7f50acb82d73ae03a31bf327ed8ceb438c3239468a0161c28b39f85e49c51aa6"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/expiry-source-format.log",
+      "bytes": 91,
+      "sha256": "0118bf7a9b88a4673370950b47631504a37cbeb261d93be43fad30edb7697632"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/final-audit-build.log",
+      "bytes": 304,
+      "sha256": "4cc3a44a5f86d48ab4da7f96dfd3a9f4b611270e84600a36d0c3ddde9fc1dedd"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/final-audit-format.log",
+      "bytes": 48,
+      "sha256": "148e12ec75ec723e928f66c97cd32a55a22158ad4a6de7d9056699c5466102b1"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/final-audit.log",
+      "bytes": 803,
+      "sha256": "2c6698783ca85fa92fcd30e020b2ea4191c346f9acbc591623e9555100e46e15"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/final-browser.log",
+      "bytes": 828,
+      "sha256": "891ae0c2c9c0d2fc1c92781691897ede8110ec8d099ef564d83a26965385cb50"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/final-build.log",
+      "bytes": 7124,
+      "sha256": "320e3dd5fd2f263993015906738fd0a882f9c8e39c5ab3645bea7f1e65d843c6"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/final-full.log",
+      "bytes": 5894,
+      "sha256": "c60889b46704e0cf649fbb7f20b63b827f404325d916b6f1433b6d25dcbe71f0"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/final-nodeqa.log",
+      "bytes": 2772,
+      "sha256": "9dc497e8d0807297080df8c25eebdc0c0b65eb8bce7629b7c05b74755034c61b"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/final-production.log",
+      "bytes": 3073,
+      "sha256": "d0b2a653e7a07f96c53afa0f746065059b4fa5214f3cfb866efcc386e2484268"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/final-tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/final-verification.log",
+      "bytes": 590,
+      "sha256": "a316b94b17b99556ef6900ba51b9f5b6b3c8a8cb58e6b87b0469dd940b72329c"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/focused.log",
+      "bytes": 379,
+      "sha256": "e94f1b33e1516ec82cba908bdac90b206ee610244a8064229050e1d69f811228"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/format.log",
+      "bytes": 42,
+      "sha256": "30827b2dfbd499e11e416b53c48317025c0f39afe3511ce9743ebba49944b6b3"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/full.log",
+      "bytes": 5893,
+      "sha256": "fb1a4094d45530c43c6e4ae47df31fd2791b3d647f39a7bb22eec8f5fbd719cc"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/guards.log",
+      "bytes": 181,
+      "sha256": "efd533b246c460157f12149a1297a42cd067ff6186182227c1ea5f5183625415"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/initial.log",
+      "bytes": 181,
+      "sha256": "e09c0bf1a25ca36864e1c79607f39c48bbc82ffb5f97f036d92e47fd3e477a3e"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/motion-format.log",
+      "bytes": 124,
+      "sha256": "22175d0f82afb724e96bffab19d5636466eb334b656de87dc246ca359f267e86"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/motion.log",
+      "bytes": 379,
+      "sha256": "93ff30ca7beb5225bcd08d9a60fee817c5b1c7e1e36a8d4d9ac2fdce09a418ec"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/new-cases.log",
+      "bytes": 170,
+      "sha256": "d945c0bb9e76422b5a9e8c759a6de17b24da3f57b73bc2f74449b9371a7f5924"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/nodeqa.log",
+      "bytes": 2773,
+      "sha256": "2f7ed45045bac8881ea5aac90d9d792be300e2c2d9a052806813205bd0d647c7"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/record-format.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/source-format.log",
+      "bytes": 91,
+      "sha256": "fa14c798b5fcfa4de07e76d4dedd9ebdfc92c2f0ea0d64a89a4147b2f8fb1b9f"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/test-final-format.log",
+      "bytes": 55,
+      "sha256": "1c9569e57baf387d5a247fa6cde31993681fb25cafe8c7a0f6e5c0dd2743982f"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/test-format.log",
+      "bytes": 43,
+      "sha256": "9f748aa3a37baac7fef9d3903a133ed91e8623992b087876e1b1ffc5d0cb12e9"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/tsc-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/leona-supported-engage/logs/verification.log",
+      "bytes": 590,
+      "sha256": "3ff07777040d5a55823e13062cc01bbe927cb76f52f1a8221a2342c4bb0a3131"
+    }
+  ]
+}
