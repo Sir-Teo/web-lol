@@ -4,6 +4,7 @@ import { World } from './world';
 import { equipSummoners, type SummonerLoadout } from './smite';
 import { DEFAULT_SUMMONERS } from '../content/summoners';
 import { assignRole } from './bot-jungle';
+import { PLAYER_CHAMPION_ROLES } from '../content/champion-roles';
 
 /** Five-position roster with separately admitted development compositions. */
 export function createLaneMatch(
@@ -62,16 +63,7 @@ export function createLaneMatch(
   );
   world.matchMode = 'lanes';
   equipSummoners(world.player, summoners);
-  const playerRole =
-    playerChampion === 'masteryi'
-      ? 'jungle'
-      : playerChampion === 'garen'
-        ? 'top'
-        : playerChampion === 'leona'
-          ? 'support'
-          : playerChampion === 'lux' || playerChampion === 'ahri'
-            ? 'mid'
-            : 'carry';
+  const playerRole = PLAYER_CHAMPION_ROLES[playerChampion];
   const playerSlot = assignments.findIndex(({ role }) => role === playerRole);
   assignRole(world.player, playerRole);
   for (const team of ['blue', 'red'] as const) {

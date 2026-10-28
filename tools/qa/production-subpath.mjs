@@ -277,6 +277,17 @@ try {
   assert.deepEqual(masterYiPreviewRequests, [], 'The combined trial must not preload Yi');
   assert.deepEqual(ahriPreviewRequests, [], 'The combined trial must not preload Ahri');
   assert.deepEqual(leonaPreviewRequests, [], 'The combined trial must not preload Leona');
+  await page.locator('#pause-button').click();
+  await page.getByRole('button', { name: 'New match', exact: true }).click();
+  assert.deepEqual(
+    await page
+      .locator('[data-action="choose-champion"]')
+      .evaluateAll((buttons) => buttons.map((button) => button.dataset.champion)),
+    ['ashe', 'lux'],
+    'Production keeps the two public human choices on the combined-trial URL'
+  );
+  await page.getByRole('button', { name: 'Back to pause menu', exact: true }).click();
+  await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
   assert.equal(
     recordings.size,
     29,
@@ -674,6 +685,7 @@ try {
       masterYiRiftTrialInProduction: false,
       masterYiBotRiftTrialInProduction: false,
       rosterRiftTrialInProduction: false,
+      publicChampionChoices: ['ashe', 'lux'],
       ahriRiftTrialInProduction: false,
       ahriBotRiftTrialInProduction: false,
       ahriNpcFixtureInProduction: false,

@@ -1793,6 +1793,10 @@ button {
   gap: 12px;
   margin-bottom: 18px;
 }
+.game-dialog .practice-unavailable:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
 .champion-choice .menu-button {
   display: flex;
   align-items: center;
@@ -1968,6 +1972,17 @@ button {
   color: #c8aa6e;
 }
 
-.yi-double-strike { display: inline-flex; align-items: center; gap: 4px; }
-.yi-double-strike img { width: 16px; height: 16px; }
-.yi-double-strike.ready { color: #f5d98a; border-color: #c89b3c; box-shadow: 0 0 8px #c89b3c55; }
+.yi-double-strike {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.yi-double-strike img {
+  width: 16px;
+  height: 16px;
+}
+.yi-double-strike.ready {
+  color: #f5d98a;
+  border-color: #c89b3c;
+  box-shadow: 0 0 8px #c89b3c55;
+}

@@ -4,8 +4,8 @@ Open `/?scene=roster-rift` on the development server. You start as Ashe in
 bottom lane, with Garen top, Master Yi jungle, Ahri mid and Leona support.
 The enemy team has the same five-position composition. **New match → Lux**
 puts you in mid in place of the allied Ahri, bringing all six implemented
-champion identities into one match. Ashe and Lux remain the human choices in
-the menu. Existing separate human champion trials remain available.
+champion identities into one match. The [private chooser now offers all six human champions](ROSTER-PLAYER-SELECTION.md)
+in their assigned roles. Existing separate human champion trials remain available.
 
 All nine bots use the ordinary source navigation, vision, role plans,
 learning, combat, purchases and clocks. NPC Yi junglers buy Mosstomper for

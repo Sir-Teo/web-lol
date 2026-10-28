@@ -14,7 +14,7 @@ import { WARD_SOURCE } from '../content/warding-totem';
 import { TRINKETS, ORACLE_SOURCE, type TrinketKind } from '../content/trinkets';
 import { trinketSwapError } from '../simulation/trinkets';
 import { shrinePoint } from '../simulation/scuttler';
-import { selectableChampion } from '../content/champion-profiles';
+import { PLAYER_CHAMPION_ROLES } from '../content/champion-roles';
 import { championProfile, isMeleeChampion } from '../content/champion-profiles';
 import { MASTER_YI } from '../content/masteryi-progression';
 import {
@@ -93,7 +93,7 @@ import {
   MAX_LEVEL,
   statPrecision,
 } from '../simulation/progression';
-import { isStructureKind, type Ability } from '../simulation/types';
+import { isStructureKind, type Ability, type ChampionIdentity } from '../simulation/types';
 import type { World } from '../simulation/world';
 import type { GameView } from '../render/view';
 
@@ -104,7 +104,7 @@ export interface HudActions {
   reset: () => void;
   startMatch: (
     mode: 'practice' | 'lanes',
-    champion: 'ashe' | 'lux',
+    champion: ChampionIdentity,
     summoners: SummonerLoadout
   ) => Promise<void>;
   save: () => Promise<void>;
@@ -599,15 +599,21 @@ export class Hud {
     this.refreshTooltip();
     const backdrop = this.root.querySelector<HTMLDivElement>('#modal')!;
     backdrop.hidden = false;
-    let chosenChampion =
-      this.world.hero.champion === 'garen' ||
-      this.world.hero.champion === 'leona' ||
-      this.world.hero.champion === 'ahri' ||
-      this.world.hero.champion === 'masteryi'
-        ? ('ashe' as const)
-        : selectableChampion(this.world.hero.champion);
+    const playerChoices: readonly ChampionIdentity[] = this.world.battlefield.developmentRosterBots
+      ? ['ashe', 'lux', 'garen', 'masteryi', 'leona', 'ahri']
+      : ['ashe', 'lux'];
+    const currentChampion = this.world.hero.champion;
+    let chosenChampion: ChampionIdentity =
+      currentChampion && playerChoices.includes(currentChampion) ? currentChampion : 'ashe';
     const laneDescription = () =>
-      `Play ${chosenChampion === 'lux' ? 'Lux in mid' : 'Ashe in bottom lane'} with four allied bots against five opponents. Each team has top, jungle, mid, bottom and support assignments. Jungle bots use Smite and a companion. Ashe and Lux are selectable here; major objectives and complete team strategy are in development.`;
+      this.world.battlefield.developmentRosterBots
+        ? `Play ${championProfile(chosenChampion).name} in ${ROLE_LABELS[PLAYER_CHAMPION_ROLES[chosenChampion]].toLowerCase()} with four allied bots against five opponents. Your champion takes that allied position in the development roster. Jungle bots use Smite and a paid companion.${chosenChampion === 'masteryi' ? ' Smite is required to buy your own jungle companion.' : ''} Major objectives and complete team strategy are in development.`
+        : `Play ${chosenChampion === 'lux' ? 'Lux in mid' : 'Ashe in bottom lane'} with four allied bots against five opponents. Each team has top, jungle, mid, bottom and support assignments. Jungle bots use Smite and a companion. Ashe and Lux are selectable here; major objectives and complete team strategy are in development.`;
+    const canPractice = () => chosenChampion === 'ashe' || chosenChampion === 'lux';
+    const practiceDescription = () =>
+      canPractice()
+        ? 'Train with a sparring partner, target dummy and practice tools. Rift jungle camps and Scuttlers follow their normal spawn calendars.'
+        : 'Choose Ashe or Lux for practice in this trial.';
     const chosenSummoners = { ...this.world.player.summoners };
     const summonerChoices = () =>
       `<div class="summoner-selection" role="group" aria-label="Choose summoner spells">${(['d', 'f'] as const).map((slot) => `<fieldset><legend>${slot.toUpperCase()} spell</legend><div class="summoner-choices">${(Object.keys(SUMMONERS) as SummonerSpell[]).map((spell) => `<button class="menu-button" data-action="choose-summoner" data-summoner-slot="${slot}" data-spell="${spell}" aria-pressed="${chosenSummoners[slot] === spell}"><img src="assets/icons/${SUMMONERS[spell].icon}.png" alt="">${SUMMONERS[spell].name}</button>`).join('')}</div></fieldset>`).join('')}</div>`;
@@ -640,7 +646,7 @@ export class Hud {
     } else if (which === 'new-match') {
       title = 'Choose your match';
       subtitle = 'Play locally. Your browser runs the match.';
-      content = `<div class="champion-choice" role="group" aria-label="Choose your champion">${(['ashe', 'lux'] as const).map((champion) => `<button class="menu-button" data-action="choose-champion" data-champion="${champion}" aria-pressed="${champion === chosenChampion}"><img src="assets/icons/${champion}.png" alt=""><span>${champion === 'lux' ? 'Lux' : 'Ashe'}</span></button>`).join('')}</div>${summonerChoices()}<button class="primary-button" data-action="start-lanes">Start 5v5 match</button><p class="practice-note lane-description">${laneDescription()}</p><button class="menu-button" data-action="start-practice">Start practice</button><p class="practice-note">Train with a sparring partner, target dummy and practice tools. Rift jungle camps and Scuttlers follow their normal spawn calendars.</p><p class="practice-note">Starting replaces your current match and browser save. Download a match file first if you want to keep it.</p><button class="menu-button" data-action="back">Back to pause menu</button>`;
+      content = `<div class="champion-choice" role="group" aria-label="Choose your champion">${playerChoices.map((champion) => `<button class="menu-button" data-action="choose-champion" data-champion="${champion}" aria-pressed="${champion === chosenChampion}"><img src="assets/icons/${champion}.png" alt=""><span>${championProfile(champion).name}</span></button>`).join('')}</div>${summonerChoices()}<button class="primary-button" data-action="start-lanes">Start 5v5 match</button><p class="practice-note lane-description">${laneDescription()}</p><button class="menu-button" data-action="start-practice" ${canPractice() ? '' : 'disabled'}>Start practice</button><p class="practice-note practice-description">${practiceDescription()}</p><p class="practice-note">Starting replaces your current match and browser save. Download a match file first if you want to keep it.</p><button class="menu-button" data-action="back">Back to pause menu</button>`;
     } else if (which === 'offline') {
       title = 'Offline files';
       subtitle = 'Keep a complete game pack on this browser.';
@@ -715,6 +721,9 @@ export class Hud {
     }
     if (which !== 'shop') this.actions.pause(true);
     backdrop.innerHTML = `<section class="game-dialog ${which}${which === 'result' ? (this.world.winner === 'blue' ? ' victory' : ' defeat') : ''}" role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="dialog-title"><button class="close-button" aria-label="Close menu">×</button><span class="dialog-kicker">SUMMONER’S RIFT</span><h2 id="dialog-title">${title}</h2><p class="dialog-subtitle">${subtitle}</p><div class="dialog-rule">◈</div>${content}</section>`;
+    backdrop
+      .querySelector('[data-action="start-practice"]')
+      ?.classList.toggle('practice-unavailable', !canPractice());
     if (this.importError) {
       const error = document.createElement('p');
       error.className = 'practice-note import-error';
@@ -764,7 +773,9 @@ export class Hud {
             );
         }
         if (action === 'choose-champion') {
-          chosenChampion = button.dataset.champion === 'lux' ? 'lux' : 'ashe';
+          const champion = button.dataset.champion as ChampionIdentity;
+          if (!playerChoices.includes(champion)) return;
+          chosenChampion = champion;
           backdrop
             .querySelectorAll<HTMLButtonElement>('[data-champion]')
             .forEach((choice) =>
@@ -774,8 +785,15 @@ export class Hud {
               )
             );
           backdrop.querySelector('.lane-description')!.textContent = laneDescription();
+          backdrop.querySelector<HTMLButtonElement>('[data-action="start-practice"]')!.disabled =
+            !canPractice();
+          backdrop
+            .querySelector('[data-action="start-practice"]')!
+            .classList.toggle('practice-unavailable', !canPractice());
+          backdrop.querySelector('.practice-description')!.textContent = practiceDescription();
         }
         if (action === 'start-lanes' || action === 'start-practice') {
+          if (action === 'start-practice' && !canPractice()) return;
           this.replacingMatch = true;
           backdrop.querySelectorAll<HTMLButtonElement>('button').forEach((control) => {
             control.disabled = true;

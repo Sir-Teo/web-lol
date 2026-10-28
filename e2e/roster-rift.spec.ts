@@ -23,7 +23,7 @@ async function reloadAction(page: Page, name: string) {
 async function choose(page: Page, name: 'Ashe' | 'Lux') {
   await page.locator('#pause-button').click();
   await page.getByRole('button', { name: 'New match', exact: true }).click();
-  await expect(page.locator('[data-action="choose-champion"]')).toHaveCount(2);
+  await expect(page.locator('[data-action="choose-champion"]')).toHaveCount(6);
   await page.getByRole('button', { name, exact: true }).click();
   await reloadAction(page, 'Start 5v5 match');
   await pause(page);

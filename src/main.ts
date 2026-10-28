@@ -133,8 +133,8 @@ async function boot(): Promise<void> {
       ? (companionQuery as CompanionKind)
       : null;
   const freshPractice = (champion: import('./simulation/types').ChampionIdentity = 'ashe') => {
-    if (champion === 'leona' && !fixture)
-      throw new Error('Leona player kit requires the development practice fixture.');
+    if (!fixture && champion !== 'ashe' && champion !== 'lux')
+      throw new Error('Choose Ashe or Lux for practice in this trial.');
     return grompEncounter
       ? (() => {
           const next = createGrompEncounter(battlefield, champion);

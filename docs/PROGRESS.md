@@ -6,7 +6,39 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
-The latest [supported Leona engage](LEONA-SUPPORTED-ENGAGE.md) lets support-role
+The latest [private player chooser](ROSTER-PLAYER-SELECTION.md) offers all six
+human champions in `/?scene=roster-rift`. One exhaustive role map now serves
+both the menu and match creation. Garen takes top, Yi jungle, Ahri/Lux mid,
+Ashe carry and Leona support. Each human remains manual with ordinary starting
+gold, empty inventory, one unspent point and no free companion. The selected
+champion and summoners survive real saves/restarts. Public and separate-trial
+menus retain Ashe/Lux, as does practice in this Rift host; unavailable practice
+has a reason and distinct cursor, and the callback rejects it before a write.
+
+All 41 focused cases, TypeScript, 29 Node QA checks, build and **3,528/3,534
+broad cases across 413 files** pass, with only the six known baseline failures.
+Four browser cases pass six real human starts, six Save/reloads, six exact
+restarts, own HUD/resources, manual ranks, Yi Smite/Flash without a free pet,
+ordinary/separate boundaries, public Lux keyboard/practice and the existing
+natural Alpha plus 180-tick saved future. The final boundary/layout case also
+passes with the cursor and Yi preparation note. Captures at 1440×900 and
+1024×720 are reviewed without horizontal overflow or page errors.
+Schema stays 163; current rules fingerprint is
+`033bd826b7f5899449adbec1cbb02ff826f636cf3b75c758f4effe4f7c5a02be`.
+Matching pack `6ae6d2082737111fc8f19c468b88affa58cf9fa5eab6c4b31a135b64826f1b50`
+contains 1,202 files / 538,106,646 bytes. Source spell values, controllers,
+public assets and saved fields are unchanged. Full-match and offline evidence
+retain their original identities; no fresh certificate is claimed for this UI
+step. Full roster/native/performance gates remain open.
+
+Nested production passes all 32 recordings and development gates, now including
+an actual exactly-Ashe/Lux menu assertion on the private-roster URL. No
+unsolicited development champion assets load. See the
+[verification ledger](reference/roster-player-selection-verification.json).
+Next is a repeatable combined-roster profile in the immutable match-cohort
+launcher/verifier/resume tools, preserving the ordinary profile and gate labels.
+
+The preceding [supported Leona engage](LEONA-SUPPORTED-ENGAGE.md) lets support-role
 bots join an actual allied attack on an observed unheld champion. It requires
 healthy support, available Q follow-through, adequate observed numbers and
 reserved Q/W mana. Prepared Q receives credit only with two seconds remaining;

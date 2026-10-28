@@ -27,7 +27,7 @@ The development-only `/?scene=fixture&champion=ahri` scene adds human Ahri pract
 
 The development-only `/?scene=ahri-rift&bots=ahri` trial puts Ahri mid bots on the source Rift with normal movement, vision, learning, purchases, combat and wave farming. It starts a human Ahri against an Ahri mid; choose Ashe through **New match** to play bottom with Ahri bots in both mids. Its private save preserves the ordinary and original Ahri trial slots. See [Ahri bot Rift trial](docs/AHRI-BOT-RIFT.md).
 
-The development-only `/?scene=roster-rift` trial combines Garen top, Master Yi jungle, Ahri mid and Leona support with an Ashe carry. Choose Lux through **New match** to play mid with all six champion identities across both teams. It uses ordinary bot policies and its own save slot. See [combined roster trial](docs/ROSTER-RIFT.md).
+The development-only `/?scene=roster-rift` trial combines Garen top, Master Yi jungle, Ahri mid and Leona support with an Ashe carry. **New match** offers all six human champions in their assigned positions, with manual learning and purchases. It uses ordinary bot policies and its own save slot. See [combined roster trial](docs/ROSTER-RIFT.md) and [six-player selection](docs/ROSTER-PLAYER-SELECTION.md).
 
 The development-only `/?scene=masteryi-rift&bots=masteryi` trial adds Yi jungle bots with paid companions, normal clears and own-kit decisions. It starts a human Yi against a Yi jungler; choose Ashe or Lux through **New match** to play alongside an allied Yi. Its private save preserves the ordinary and original Yi trial slots. See [Yi bot Rift trial](docs/MASTER-YI-BOT-RIFT.md).
 

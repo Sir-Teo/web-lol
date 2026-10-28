@@ -1,0 +1,334 @@
+{
+  "date": "2026-10-28",
+  "previousCommit": "c14364c",
+  "schema": 163,
+  "ruleset": "033bd826b7f5899449adbec1cbb02ff826f636cf3b75c758f4effe4f7c5a02be",
+  "sources": [
+    {
+      "path": "src/content/champion-roles.ts",
+      "bytes": 387,
+      "sha256": "ad007f05c9bdf1a4214ce73a82f560cc8301f7af77cdb4d1229a4914ebeb0538"
+    },
+    {
+      "path": "src/simulation/lane-match.ts",
+      "bytes": 3922,
+      "sha256": "a4045604217161f6facc6053a0f38c86727c85a9080972fefe8c6f13501c0412"
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 25636,
+      "sha256": "9cfc05bd1ce113094a4322d7f6658acc3a05e987ec01ad668a006e87596f7180"
+    },
+    {
+      "path": "src/ui/hud.ts",
+      "bytes": 86783,
+      "sha256": "08651b06fbf528b0ae3d45ca992ce8965ac0d1f5bc0b5c043c79a94cb4e5f7b4"
+    },
+    {
+      "path": "src/style.css",
+      "bytes": 36054,
+      "sha256": "2c4f312b0ce9615707962ecf65541a5479a5787af1cd430c68ba6dfb0cc20f0b"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 33609,
+      "sha256": "253fbb1a1cdb453673c4ba201d6cd5156efa89bf6cc74dfe0da3b0c6ff2e08ac"
+    },
+    {
+      "path": "e2e/roster-player-selection.spec.ts",
+      "bytes": 8441,
+      "sha256": "640b1dc62f174be56e1e5fc0c031daa7430c4ac29675c4b2ffd5b0266c82022a"
+    },
+    {
+      "path": "e2e/roster-rift.spec.ts",
+      "bytes": 8750,
+      "sha256": "c2bfdcf6907e3fc6f76c84f617dadebd14e48d10e89ab0c3cf5a694cb02117f6"
+    }
+  ],
+  "behavior": {
+    "privateCombinedRosterChoices": ["ashe", "lux", "garen", "masteryi", "leona", "ahri"],
+    "sharedExhaustiveHumanRolePolicy": true,
+    "publicAndSeparateTrialChoices": ["ashe", "lux"],
+    "practiceChoices": ["ashe", "lux"],
+    "unsupportedPracticeRejectedBeforeWrite": true,
+    "selectedChampionRetained": true,
+    "selectedSummonersRetained": true,
+    "humanLearningAndPurchasesManual": true,
+    "noFreeHumanCompanion": true,
+    "worldAndSpellControllersChanged": false,
+    "savedFieldsAdded": false,
+    "publicAssetsChanged": false
+  },
+  "focused": {
+    "passed": 41,
+    "total": 41,
+    "files": 6
+  },
+  "broad": {
+    "passed": 3528,
+    "total": 3534,
+    "files": 413,
+    "unchangedBaselineFailures": 6,
+    "baselineEvidence": "docs/reference/ahri-bot-mobility-verification.json"
+  },
+  "checks": {
+    "typescript": true,
+    "nodeQa": {
+      "passed": 29,
+      "total": 29
+    },
+    "build": true
+  },
+  "pack": {
+    "id": "6ae6d2082737111fc8f19c468b88affa58cf9fa5eab6c4b31a135b64826f1b50",
+    "files": 1202,
+    "bytes": 538106646,
+    "buildRulesetMatches": true
+  },
+  "browser": {
+    "batch": {
+      "passed": 4,
+      "total": 4
+    },
+    "finalBoundaryAndLayout": {
+      "passed": 1,
+      "total": 1
+    },
+    "retries": 0,
+    "launcher": "/usr/bin/chromium",
+    "realPlayerStarts": 6,
+    "realSaveReloads": 6,
+    "exactRestarts": 6,
+    "manualSkillPointsAndEmptyRanks": true,
+    "garenResourcePanel": true,
+    "otherFiveManaPanels": true,
+    "paidNpcJunglersAndNoFreeHumanPet": true,
+    "selectedYiSmiteFlash": true,
+    "publicKeyboardLuxFlow": true,
+    "ordinaryAndSeparateAhriChooserBoundaries": true,
+    "realPublicLuxPractice": true,
+    "unsupportedPracticeKeepsCurrentWorld": true,
+    "existingNaturalAlphaAnd180TickSavedFuture": true,
+    "reviewedViewports": [
+      [1440, 900],
+      [1024, 720]
+    ],
+    "horizontalOverflow": false,
+    "pageErrors": [],
+    "choices": [
+      {
+        "champion": "garen",
+        "role": "top",
+        "manual": true,
+        "skillPoints": 1,
+        "gold": 500,
+        "inventory": [],
+        "freeCompanion": false
+      },
+      {
+        "champion": "masteryi",
+        "role": "jungle",
+        "manual": true,
+        "skillPoints": 1,
+        "gold": 500,
+        "inventory": [],
+        "freeCompanion": false
+      },
+      {
+        "champion": "leona",
+        "role": "support",
+        "manual": true,
+        "skillPoints": 1,
+        "gold": 500,
+        "inventory": [],
+        "freeCompanion": false
+      },
+      {
+        "champion": "ahri",
+        "role": "mid",
+        "manual": true,
+        "skillPoints": 1,
+        "gold": 500,
+        "inventory": [],
+        "freeCompanion": false
+      },
+      {
+        "champion": "lux",
+        "role": "mid",
+        "manual": true,
+        "skillPoints": 1,
+        "gold": 500,
+        "inventory": [],
+        "freeCompanion": false
+      },
+      {
+        "champion": "ashe",
+        "role": "carry",
+        "manual": true,
+        "skillPoints": 1,
+        "gold": 500,
+        "inventory": [],
+        "freeCompanion": false
+      }
+    ],
+    "proofs": [
+      {
+        "path": "artifacts/roster-player-selection/browser/roster-player-selection-al-65a95-al-saves-and-exact-restarts/six-player-chooser.png",
+        "bytes": 535345,
+        "sha256": "1665d4f830c47d56d41d84a993a62af0fe38e9f7d70c3437f443a925398188b5"
+      },
+      {
+        "path": "artifacts/roster-player-selection/browser/roster-player-selection-al-65a95-al-saves-and-exact-restarts/six-player-selection.json",
+        "bytes": 998041,
+        "sha256": "eda8604693f71488a3915a07d26516f1593d1f6c37a2fa052ac80e092adf293c"
+      },
+      {
+        "path": "artifacts/roster-player-selection/browser/roster-player-selection-pu-9f31e-orces-its-practice-boundary/selection-boundaries.json",
+        "bytes": 177,
+        "sha256": "b1cc8be37d3e7bc162a155c624f0afc5313e282aeb4bae7845254116060df50b"
+      },
+      {
+        "path": "artifacts/roster-player-selection/browser/roster-player-selection-pu-9f31e-orces-its-practice-boundary/six-player-chooser-1024.png",
+        "bytes": 316541,
+        "sha256": "dc4b75884e347b5bbcae79c25f057715dd1a8fc8de9f11326e31acff88622b43"
+      },
+      {
+        "path": "artifacts/roster-player-selection/browser/roster-rift-combined-roste-db4bb--and-isolated-saved-futures/roster-rift-natural-alpha.png",
+        "bytes": 1251265,
+        "sha256": "84588a55e1b277e92cf57026154c1d05ab2c9851a06f557092c4021c55be8018"
+      },
+      {
+        "path": "artifacts/roster-player-selection/browser/roster-rift-combined-roste-db4bb--and-isolated-saved-futures/roster-rift-scoreboard.png",
+        "bytes": 1047751,
+        "sha256": "7fee5606f1126e83ce1eb73444a51a7f083b3597062ae769e354b2cdeda63fc1"
+      },
+      {
+        "path": "artifacts/roster-player-selection/browser/roster-rift-combined-roste-db4bb--and-isolated-saved-futures/roster-rift.json",
+        "bytes": 2176107,
+        "sha256": "21801324ff4ba80d763c90f8c2947d83736d319eafe5265bf09142c7b821890e"
+      },
+      {
+        "path": "artifacts/roster-player-selection/browser-final/roster-player-selection-pu-9f31e-orces-its-practice-boundary/selection-boundaries.json",
+        "bytes": 177,
+        "sha256": "b1cc8be37d3e7bc162a155c624f0afc5313e282aeb4bae7845254116060df50b"
+      },
+      {
+        "path": "artifacts/roster-player-selection/browser-final/roster-player-selection-pu-9f31e-orces-its-practice-boundary/six-player-chooser-1024.png",
+        "bytes": 321676,
+        "sha256": "4315b38c71bf3fea9c5dbc4eccfb99414c17ae482ddfe4844b7addbb7025f78e"
+      },
+      {
+        "path": "artifacts/roster-player-selection/browser-final/roster-player-selection-pu-9f31e-orces-its-practice-boundary/yi-role-preparation-1024.png",
+        "bytes": 327307,
+        "sha256": "e4ab59081d8f92ab51e3ed28d9abfa7b2bc7e22f0a00cc67450f8ab04b60a36f"
+      }
+    ]
+  },
+  "production": {
+    "passed": true,
+    "recordings": 32,
+    "prefix": "/nested/rift/",
+    "publicChampionChoices": ["ashe", "lux"],
+    "developmentHook": false,
+    "rosterSelectorIgnored": true,
+    "unrequestedMasterYiPreloads": 0,
+    "unrequestedAhriPreloads": 0,
+    "unrequestedLeonaPreloads": 0,
+    "screenshot": {
+      "path": "artifacts/roster-player-selection/production.png",
+      "bytes": 1822549,
+      "sha256": "a34ef935e2b7f6eb06cc5c8b394eba2a082a94598938cbe81bd4c5ddd7bdb552"
+    }
+  },
+  "freshFullMatchAudit": false,
+  "previousFullMatchEvidence": "docs/reference/leona-supported-engage-verification.json",
+  "freshOfflineAcceptance": false,
+  "previousOfflineEvidence": "docs/reference/masteryi-bot-rift-verification.json",
+  "logs": [
+    {
+      "path": "artifacts/roster-player-selection/logs/browser-final.log",
+      "bytes": 1081,
+      "sha256": "541026e0fa306a8504cc4fea013928f006239369d40a8f29553328f3cdfe1cbd"
+    },
+    {
+      "path": "artifacts/roster-player-selection/logs/browser-format.log",
+      "bytes": 42,
+      "sha256": "07fefb6f0424877634f32ecf364fe38053c6dbee1880ae3a79586966e742ca0a"
+    },
+    {
+      "path": "artifacts/roster-player-selection/logs/browser.log",
+      "bytes": 5659,
+      "sha256": "d6ce5ffbb8a634ef7d1973626eb3e62c54ee2eaa81ee70c4aa329d344e888c0d"
+    },
+    {
+      "path": "artifacts/roster-player-selection/logs/build.log",
+      "bytes": 7852,
+      "sha256": "785ccc598083bdb465973471bab516bf1ba0d58b8d498b6b85d067edc4e23ea1"
+    },
+    {
+      "path": "artifacts/roster-player-selection/logs/doc-format.log",
+      "bytes": 49,
+      "sha256": "1652c5b4d89163e88f23de40c96c14c6e503b86d731378e02f2985576986f1f9"
+    },
+    {
+      "path": "artifacts/roster-player-selection/logs/final-capture-format.log",
+      "bytes": 54,
+      "sha256": "79ba011b0064e47c97e67cc9df5351773c71b759289921120c4572874feb6c36"
+    },
+    {
+      "path": "artifacts/roster-player-selection/logs/focused.log",
+      "bytes": 170,
+      "sha256": "2877bdc0d1fd4d401259c8a14dd8c59914ac1b73629eb798ae1a03d221f4e68f"
+    },
+    {
+      "path": "artifacts/roster-player-selection/logs/format.log",
+      "bytes": 195,
+      "sha256": "5e5e90febca66cbdebe2f9b7b41a4c15d0ce00f911b328ab8a200b76b15c94bd"
+    },
+    {
+      "path": "artifacts/roster-player-selection/logs/full.log",
+      "bytes": 5894,
+      "sha256": "28b3df6de43628bde2ee328dac09416dbf124e7d67ab9f73458ee80852f0671c"
+    },
+    {
+      "path": "artifacts/roster-player-selection/logs/nodeqa-final.log",
+      "bytes": 2769,
+      "sha256": "4109c3ebcadb3a9ced26748c62b27328fe0c8cf01f26427e1bd3717d5b65af85"
+    },
+    {
+      "path": "artifacts/roster-player-selection/logs/nodeqa.log",
+      "bytes": 2778,
+      "sha256": "2b0946383b16974b9b349e2ed1915b571e94decc31f98709eeb302cff90f6b31"
+    },
+    {
+      "path": "artifacts/roster-player-selection/logs/polish-format.log",
+      "bytes": 52,
+      "sha256": "ab2ff7603922b9059ee19f4d3810eaeba554c1a620c3e83b0fc1655b7ac425c9"
+    },
+    {
+      "path": "artifacts/roster-player-selection/logs/production-format.log",
+      "bytes": 38,
+      "sha256": "6e6fb874bd046b3bd23a2f83402d26de2776be43430878cc902f9204ae741286"
+    },
+    {
+      "path": "artifacts/roster-player-selection/logs/production.log",
+      "bytes": 3112,
+      "sha256": "76ae8d93a1844e7c2030c8df65022cbf8f8a0bc72b045fbc0bf547c07faefc4e"
+    },
+    {
+      "path": "artifacts/roster-player-selection/logs/record-format.log",
+      "bytes": 49,
+      "sha256": "c7619bda1400e8f3c3ed33578525de9417881eed9408ea33cc760b8a3cca2f4a"
+    },
+    {
+      "path": "artifacts/roster-player-selection/logs/tsc-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/roster-player-selection/logs/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}
