@@ -1,0 +1,300 @@
+{
+  "date": "2026-10-28",
+  "schema": 163,
+  "simulationChanged": false,
+  "publicAssetsChanged": false,
+  "productionLoadingChanged": false,
+  "source": {
+    "file": "docs/reference/epic-character-source.json",
+    "bytes": 242786,
+    "sha256": "a8f920b71c3c44b5311db3555914db47e8fe207cc489ff7d925b2ff38a250391"
+  },
+  "extractor": {
+    "file": "tools/assets/extract-epic-characters.py",
+    "bytes": 5988,
+    "sha256": "f4e9c9f550cd101c123e43f1531e6aa3ee8ca09bb910b1cbf2735855a456763a"
+  },
+  "documentation": {
+    "file": "docs/EPIC-CHARACTERS.md",
+    "bytes": 3300,
+    "sha256": "e91a60507d9e89bd5fa2a6ceebeba7c7587425a7aa2212dfca9e45e3efe308f7"
+  },
+  "checks": {
+    "originalFiles": 11,
+    "originalBytes": 57967,
+    "characterVariants": 15,
+    "placedObjects": 13,
+    "separateCacheExact": true,
+    "deletedFileRecovery": true,
+    "corruptCachePreservedAndRejected": true,
+    "changedRecordRejected": true,
+    "existingReportUnchanged": true,
+    "originalPinUnchanged": true,
+    "pythonCompile": true
+  },
+  "labelSeeds": [
+    {
+      "path": "docs/reference/jungle-character-source.json",
+      "sha256": "e13f0764d68fe939bc39af879a19c126c30f95f4e5602347f2f058d5069aff7b"
+    },
+    {
+      "path": "docs/reference/garen-character.json",
+      "sha256": "5bb86b02471c0fca26e66e22b94da28849d333ed5608f0a5931dcaa8ef6f4d8b"
+    },
+    {
+      "path": "src/content/jungle-map-inspection.json",
+      "sha256": "1b650a5032c6b0ab46e40556c5c263162fe7653b0745dae5d8674c781cc29f19"
+    }
+  ],
+  "inventory": [
+    {
+      "file": "data/characters/sru_baron/sru_baron.bin",
+      "record": "Characters/SRU_Baron/CharacterRecords/Root",
+      "root": true,
+      "hp": 16300.0,
+      "damage": 175.0,
+      "gold": 100.0,
+      "xp": 0.0
+    },
+    {
+      "file": "data/characters/sru_baron/sru_baron.bin",
+      "record": "{93f1574d}",
+      "root": false,
+      "hp": 17000.0,
+      "damage": 175.0,
+      "gold": 100.0,
+      "xp": 0.0
+    },
+    {
+      "file": "data/characters/sru_riftherald/sru_riftherald.bin",
+      "record": "{36d5d60b}",
+      "root": false,
+      "hp": 6000.0,
+      "damage": 130.0,
+      "gold": "Absent",
+      "xp": 600.0
+    },
+    {
+      "file": "data/characters/sru_riftherald/sru_riftherald.bin",
+      "record": "Characters/SRU_RiftHerald/CharacterRecords/Root",
+      "root": true,
+      "hp": 7000.0,
+      "damage": 60.0,
+      "gold": 100.0,
+      "xp": 240.0
+    },
+    {
+      "file": "data/characters/sru_dragon/sru_dragon.bin",
+      "record": "Characters/SRU_Dragon/CharacterRecords/Root",
+      "root": true,
+      "hp": 3625.0,
+      "damage": 100.0,
+      "gold": 100.0,
+      "xp": 160.0
+    },
+    {
+      "file": "data/characters/sru_dragon_fire/sru_dragon_fire.bin",
+      "record": "Characters/SRU_Dragon_Fire/CharacterRecords/Root",
+      "root": true,
+      "hp": 3625.0,
+      "damage": 70.0,
+      "gold": 75.0,
+      "xp": 160.0
+    },
+    {
+      "file": "data/characters/sru_dragon_earth/sru_dragon_earth.bin",
+      "record": "Characters/SRU_Dragon_Earth/CharacterRecords/Root",
+      "root": true,
+      "hp": 4200.0,
+      "damage": 105.0,
+      "gold": 75.0,
+      "xp": 160.0
+    },
+    {
+      "file": "data/characters/sru_dragon_water/sru_dragon_water.bin",
+      "record": "Characters/SRU_Dragon_Water/CharacterRecords/Root",
+      "root": true,
+      "hp": 3625.0,
+      "damage": 70.0,
+      "gold": 75.0,
+      "xp": 160.0
+    },
+    {
+      "file": "data/characters/sru_dragon_air/sru_dragon_air.bin",
+      "record": "Characters/SRU_Dragon_Air/CharacterRecords/Root",
+      "root": true,
+      "hp": 3625.0,
+      "damage": 35.0,
+      "gold": 75.0,
+      "xp": 160.0
+    },
+    {
+      "file": "data/characters/sru_dragon_hextech/sru_dragon_hextech.bin",
+      "record": "Characters/SRU_Dragon_Hextech/CharacterRecords/Root",
+      "root": true,
+      "hp": 3625.0,
+      "damage": 47.0,
+      "gold": 75.0,
+      "xp": 160.0
+    },
+    {
+      "file": "data/characters/sru_dragon_chemtech/sru_dragon_chemtech.bin",
+      "record": "Characters/SRU_Dragon_Chemtech/CharacterRecords/Root",
+      "root": true,
+      "hp": 3625.0,
+      "damage": 47.0,
+      "gold": 75.0,
+      "xp": 160.0
+    },
+    {
+      "file": "data/characters/sru_dragon_elder/sru_dragon_elder.bin",
+      "record": "{16657f13}",
+      "root": false,
+      "hp": 13000.0,
+      "damage": 75.0,
+      "gold": 100.0,
+      "xp": 0.0
+    },
+    {
+      "file": "data/characters/sru_dragon_elder/sru_dragon_elder.bin",
+      "record": "Characters/SRU_Dragon_Elder/CharacterRecords/Root",
+      "root": true,
+      "hp": 11500.0,
+      "damage": 150.0,
+      "gold": 100.0,
+      "xp": 0.0
+    },
+    {
+      "file": "data/characters/sru_horde/sru_horde.bin",
+      "record": "{1b58de2b}",
+      "root": false,
+      "hp": 375.0,
+      "damage": 12.0,
+      "gold": 30.0,
+      "xp": 65.0
+    },
+    {
+      "file": "data/characters/sru_horde/sru_horde.bin",
+      "record": "Characters/SRU_Horde/CharacterRecords/Root",
+      "root": true,
+      "hp": 1300.0,
+      "damage": 12.0,
+      "gold": 30.0,
+      "xp": 65.0
+    }
+  ],
+  "scope": "Original client records only; no live objectives, server-rule selection, rig conversion or native comparison.",
+  "inherited": {
+    "freshUnitSuite": false,
+    "freshBrowserSuite": false,
+    "freshMatches": false,
+    "freshOffline": false
+  },
+  "evidence": [
+    {
+      "file": "artifacts/epic-objectives/changed-record-pin.json",
+      "bytes": 140183,
+      "sha256": "cec304165658acbfa65436f5375cb444664e920076c272d99ffb76c1d59c0824"
+    },
+    {
+      "file": "artifacts/epic-objectives/changed-record-rejected.json",
+      "bytes": 90,
+      "sha256": "8b0e7b5939e396a26e8b63425fb52b96823bd279614487d4951d3632a3c7bbcf"
+    },
+    {
+      "file": "artifacts/epic-objectives/changed-record-rejected.log",
+      "bytes": 618,
+      "sha256": "6720f71f4803634ccf16f41cac2cd6a0c35546b0a8e99624f207376864008bbc"
+    },
+    {
+      "file": "artifacts/epic-objectives/check-recovery.py",
+      "bytes": 2468,
+      "sha256": "66f3da806cd021b0bfc896dbbbd7c5b0983b800bd168dda31d7296bdb5ae4d2b"
+    },
+    {
+      "file": "artifacts/epic-objectives/corrupt-cache-rejected.json",
+      "bytes": 158,
+      "sha256": "7959ed335a69245d4187ed25f3e8b7c119875941a8c7e5e6ef211d559d30b38e"
+    },
+    {
+      "file": "artifacts/epic-objectives/corrupt-cache-rejected.log",
+      "bytes": 673,
+      "sha256": "08e65a68dc4cdd8f77039ea53dcd8736a135accb609bbe592f0e32df1f5b6c90"
+    },
+    {
+      "file": "artifacts/epic-objectives/deleted-file-recovery.json",
+      "bytes": 337,
+      "sha256": "2e1d5ad3abfa3c8290a8b52653a83c1b06e76009181793c5bf14fda32e4ce19b"
+    },
+    {
+      "file": "artifacts/epic-objectives/deleted-file-recovery.log",
+      "bytes": 305,
+      "sha256": "46ab2ff8ae7e2b0ea2213bb90f7057f9509e6df7147f66eba17ad93a3902ffb3"
+    },
+    {
+      "file": "artifacts/epic-objectives/discover-placed.py",
+      "bytes": 645,
+      "sha256": "c43af5ed2eaee412ec2a36fa06930e24a060e502bdfd7a4537f52c8952f12173"
+    },
+    {
+      "file": "artifacts/epic-objectives/discovery-cli.log",
+      "bytes": 305,
+      "sha256": "5cce606791d3d0e08bea95ce1512f67d1dba3f5a9363457c97d2f395034f8b09"
+    },
+    {
+      "file": "artifacts/epic-objectives/discovery.json",
+      "bytes": 337,
+      "sha256": "d619f67f6d8489c8ecc5e05b22cd95cfcf81be56cd6999b79df8fe1fa4e7b60b"
+    },
+    {
+      "file": "artifacts/epic-objectives/existing-report-rejected.log",
+      "bytes": 477,
+      "sha256": "f5239e73c8c5eeb8042d0404652623287abb8512e4bed3ed9a148cbc9cc32920"
+    },
+    {
+      "file": "artifacts/epic-objectives/placed-source-probe.json",
+      "bytes": 236006,
+      "sha256": "35caa13437a433f99877a72038cbd4db9f375b5f64d1b572750cc08efb6fd440"
+    },
+    {
+      "file": "artifacts/epic-objectives/probe-initial.log",
+      "bytes": 821,
+      "sha256": "b133b13a75fb14370be86740af8a83bb78250f12f596aee4f80f856576dae03b"
+    },
+    {
+      "file": "artifacts/epic-objectives/probe-initial.py",
+      "bytes": 2144,
+      "sha256": "c8c346dfe67c4f6b23d8da5d75e0a713466e6cfe649f4ee6ded21f03f96a5d21"
+    },
+    {
+      "file": "artifacts/epic-objectives/probe.py",
+      "bytes": 2144,
+      "sha256": "c8c346dfe67c4f6b23d8da5d75e0a713466e6cfe649f4ee6ded21f03f96a5d21"
+    },
+    {
+      "file": "artifacts/epic-objectives/recovery-checks.json",
+      "bytes": 652,
+      "sha256": "050f0651070869056b6b0bf847ca9169de7064f4552510c56b560a392b40f4a4"
+    },
+    {
+      "file": "artifacts/epic-objectives/recovery-cli.log",
+      "bytes": 62,
+      "sha256": "2aad0cfd92ad5205f44a93c58401eab3dfc676bedb811b5b07491e4c5cf4a76d"
+    },
+    {
+      "file": "artifacts/epic-objectives/reproduction-cli.log",
+      "bytes": 305,
+      "sha256": "46ab2ff8ae7e2b0ea2213bb90f7057f9509e6df7147f66eba17ad93a3902ffb3"
+    },
+    {
+      "file": "artifacts/epic-objectives/reproduction.json",
+      "bytes": 337,
+      "sha256": "2e1d5ad3abfa3c8290a8b52653a83c1b06e76009181793c5bf14fda32e4ce19b"
+    },
+    {
+      "file": "artifacts/epic-objectives/source-probe.json",
+      "bytes": 159676,
+      "sha256": "03805b76750fa201b06afceb7d8534fc7b8628c5d5083473b1c966ea1404767d"
+    }
+  ]
+}

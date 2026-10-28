@@ -6,6 +6,16 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+The separate [epic-objective source foundation](EPIC-CHARACTERS.md) pins eleven
+original character files (57,967 bytes), fifteen CharacterRecord variants and
+thirteen matching placed objects. It preserves all embedded records, unknown
+names, explicit zeros and absent fields. A fresh separate cache reproduces the
+entire extraction/pin exactly; deletion recovery, corrupt-cache preservation,
+edited-record rejection and existing-report refusal pass. This is client-source
+preparation. Live objective calendars, combat, rewards/buffs, rigs and native
+comparisons remain open. No runtime media/rules, saved fields or production
+loading change in this source increment.
+
 The latest [held right-click movement](HELD-MOVEMENT.md) follows cursor and
 target changes with a 120 ms minimum interval. Matching current/latest queued
 orders are suppressed without restarting attacks. Shift and Backquote retain

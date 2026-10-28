@@ -76,6 +76,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Minimap camera dragging](docs/MINIMAP-CAMERA-DRAG.md)
 - [Held champion targeting](docs/CHAMPION-TARGETING.md)
 - [Held right-click movement](docs/HELD-MOVEMENT.md)
+- [Pinned epic-objective character records](docs/EPIC-CHARACTERS.md)
 - [Frozen source-cache recovery](docs/REFERENCE-CACHE-RECOVERY.md)
 - [Fresh offline delivery and completed-match checks](docs/OFFLINE-CONTROLS-REFRESH.md)
 - [Late natural finishes and current-pack offline round-trips](docs/LATE-MATCH-ROUNDTRIP.md)
