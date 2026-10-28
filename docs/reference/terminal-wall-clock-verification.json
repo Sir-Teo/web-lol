@@ -1,0 +1,234 @@
+{
+  "date": "2026-10-28",
+  "baselineApplication": "5b4dfa5",
+  "ruleset": "5a53795c8d62dac8ec171d6021a4e4f4d29c9946fe186076ec33fea2e0c0f1b9",
+  "schema": 163,
+  "simulationChanged": false,
+  "snapshotFieldsChanged": false,
+  "sources": [
+    {
+      "file": "src/main.ts",
+      "bytes": 27971,
+      "sha256": "f75e344e19eaa3e1747205822c56645a3f7c41543ce3706a3a7722e0ffe0ecec"
+    },
+    {
+      "file": "e2e/terminal-wall-clock.spec.ts",
+      "bytes": 3310,
+      "sha256": "40017d70196355ae051daa6dec63c25c55ec4814b352a4df551e47cc950b867a"
+    }
+  ],
+  "behavior": "Result presentation uses the full visible wall interval; active simulation retains its existing capped delta and catch-up. Hidden/graphics interruptions reset the frame clock. No change to result-loop scheduling.",
+  "checks": {
+    "baselineExpectedFailure": {
+      "expectedSeconds": 0.25,
+      "actualSeconds": 0.09999999999999998
+    },
+    "browserPassed": 10,
+    "browserRetries": 0,
+    "existingCounterPacerCasesPassed": 15,
+    "controlledResult": {
+      "samples": [
+        {
+          "age": 0.25,
+          "clouds": 1,
+          "tick": 60
+        },
+        {
+          "age": 0.4999999999999999,
+          "clouds": 0,
+          "tick": 60
+        },
+        {
+          "age": 0.7499999999999999,
+          "clouds": 0,
+          "tick": 60
+        },
+        {
+          "age": 0.9999999999999999,
+          "clouds": 0,
+          "tick": 60
+        },
+        {
+          "age": 1.25,
+          "clouds": 0,
+          "tick": 60
+        },
+        {
+          "age": 1.5,
+          "clouds": 0,
+          "tick": 60
+        },
+        {
+          "age": 1.75,
+          "clouds": 0,
+          "tick": 60
+        },
+        {
+          "age": 2,
+          "clouds": 0,
+          "tick": 60
+        },
+        {
+          "age": 2.25,
+          "clouds": 0,
+          "tick": 60
+        }
+      ],
+      "hiddenAge": 2,
+      "tick": 60,
+      "unchanged": true
+    },
+    "typecheckIncludingNewBrowser": true,
+    "build": true,
+    "format": true,
+    "production": "passed",
+    "productionRecordings": 32,
+    "publicChampionChoices": [
+      "ashe",
+      "lux"
+    ],
+    "developmentHook": false,
+    "baronPreloads": 0
+  },
+  "pack": {
+    "id": "16429f3c30452493f95c68cff4805c1b86113a273f51350ae2da3b53216795b1",
+    "files": 1204,
+    "bytes": 551658225
+  },
+  "previousFullUnit": {
+    "at": "3c461ce",
+    "passed": 3628,
+    "total": 3630,
+    "knownFailures": [
+      "Leona native archive",
+      "Lux sampler checksum"
+    ],
+    "rerunForThisPresentationOnlyChange": false
+  },
+  "physicalDevicePerformanceClaim": false,
+  "nativeTimingCalibrationClaim": false,
+  "auditPausesResumed": true,
+  "freshOfflineForThisPack": false,
+  "evidence": [
+    {
+      "file": "artifacts/terminal-wall-clock/browser-baseline/.last-run.json",
+      "bytes": 96,
+      "sha256": "06c4c3905b620c1504226aab81c002a79f2871a5dcbba92c0019a0e195a4a226"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/browser-baseline/terminal-wall-clock-result-86f37-and-hidden-time-stay-frozen/error-context.md",
+      "bytes": 8428,
+      "sha256": "84807aeed5335d87d45f6da82c5fb84f5e7a61b8dd9d346cc93e374e7410bcf5"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/browser-baseline/terminal-wall-clock-result-86f37-and-hidden-time-stay-frozen/test-failed-1.png",
+      "bytes": 498935,
+      "sha256": "571d9d1b532b37a438b6e00672dcd99f02e2214bc83ab00a7e654518ad35f88d"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/browser-baseline/terminal-wall-clock-result-86f37-and-hidden-time-stay-frozen/trace.zip",
+      "bytes": 32676042,
+      "sha256": "79dd1ea7187653f8f33921bd626fe6cf4d0afe71d1220867107f69f0872c9108"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/browser-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/browser-final/frame-rate-HUD-measures-sl-a19a8-tending-simulation-catch-up/frame-rate.json",
+      "bytes": 304,
+      "sha256": "f6dddf95467019ea304c514094786345ce6ad92d7bf1566ffc10895941c3a7c8"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/browser-final/terminal-wall-clock-result-86f37-and-hidden-time-stay-frozen/terminal-wall-clock.json",
+      "bytes": 724,
+      "sha256": "a21924ca52bcd9a2482a1fca5a9a8b4ca69261fd0357544849018846c57df77f"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/control.mjs",
+      "bytes": 3246,
+      "sha256": "64f8f2b7e2a5b05ebba38e8950cef7562967e5440692bee78289dc4b49567ac5"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/initial-pause.json",
+      "bytes": 1597,
+      "sha256": "56f9edc4053947bb0b41c2d56b5bbc97a639953990c3a2dafd563490ca5860db"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/lux-e-hit-production-oracle.png",
+      "bytes": 1819449,
+      "sha256": "b7d25116365b9cf5ab4d9e8ae6214f31af47bb0ff635895634caee2a13924b5c"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/lux-e-hit-production-role-match.png",
+      "bytes": 1360494,
+      "sha256": "736d2f515e3eb8d6229e77b548bff565c6ea74247ee2db86609c0e4af98d51ad"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/lux-e-hit-production-subpath.png",
+      "bytes": 1824813,
+      "sha256": "47fe3de83943c86c255aeb4bba9a5c86a681a3bd7565fbc2d82f055dda0461a6"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/offline-pack.json",
+      "bytes": 172742,
+      "sha256": "3eadc581920dfba875529de8ded7214e6e8a17ae79b145620a94a154bad49aa0"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/production-pause.json",
+      "bytes": 1399,
+      "sha256": "5cec342ce99867bf7fc3cdce5bca4e85103ffd6e49cee28926b46ceaf8c0a6df"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/terminal-clock-baseline.log",
+      "bytes": 3123,
+      "sha256": "4d04ec89be64c9ddeda43f91c482c69c6377c63129bd671c9f74c5b29793c806"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/terminal-clock-browser.log",
+      "bytes": 3005,
+      "sha256": "2f2301a2e1316fe1949904dd483febda3d747144324725a9ae0aa8200fe6cba3"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/terminal-clock-build.log",
+      "bytes": 7891,
+      "sha256": "d3691a37c7526bcc54de51b1c144f6c0ecb8151222bf10fddf15ce26c85c3120"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/terminal-clock-format-check.log",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/terminal-clock-format.log",
+      "bytes": 49,
+      "sha256": "22e2feea6aee05568c80fcb456c164a1b13d648963d84fac027b9b06704dc03d"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/terminal-clock-main-format.log",
+      "bytes": 30,
+      "sha256": "607b360582cf9ccdda07510f6eac58b07b7a6a56762d9bc5070df8331454773f"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/terminal-clock-production.log",
+      "bytes": 3176,
+      "sha256": "f9ab7a2e5bc0c969c708de75cefa76364d589be4801b0549e45d886f7d434fba"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/terminal-clock-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/terminal-clock-unit.log",
+      "bytes": 180,
+      "sha256": "e35faa2466568983937e797ed9c0fdd8eae50886908a60a2eccecdac3e2993f8"
+    },
+    {
+      "file": "artifacts/terminal-wall-clock/tsconfig.json",
+      "bytes": 163,
+      "sha256": "fb883cf6fb2913ba3120182e50a36d0e4a4496afddebf33b7b7c2cae8f9397e0"
+    }
+  ]
+}

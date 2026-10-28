@@ -6,6 +6,19 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+The [result presentation clock](TERMINAL-WALL-CLOCK.md) now uses full visible
+wall intervals while the simulation stays frozen. A controlled lethal Nexus
+impact reproduces the old 100 ms/250 ms mismatch, then passes at 2.25 seconds
+with a hidden minute excluded, effects retired and snapshot/tick unchanged.
+Ten browser checks, fifteen frame-counter/pacer cases, typecheck/build and all
+32 production recordings pass. This changes presentation timing; result-loop
+idle scheduling remains separate. Fingerprint/schema stay `5a5379…` / 163.
+Current pack `16429f3c30452493f95c68cff4805c1b86113a273f51350ae2da3b53216795b1`
+has 1,204 files / 551,658,225 bytes. Prior full-match/offline evidence
+retains its earlier build identity pending fresh delivery checks for this pack.
+The earlier full unit result is 3,628/3,630 at `3c461ce`, with the same two
+known failures; it is not relabeled as a rerun. All quiet-check pauses resume.
+
 The historical `abc8dc…` combined-roster audit now passes its development-roster
 hundred-seed invariant gate: 100 natural victories, zero unfinished/failures,
 14,858,652 checked ticks, 4,183 round-trips and 4,083 future comparisons covering

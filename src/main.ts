@@ -602,9 +602,11 @@ async function boot(): Promise<void> {
     }
     if (!pacer.ready(timestamp)) return;
     const now = performance.now(),
-      dt = Math.min((now - previous) / 1000, 0.1);
+      wallSeconds = (now - previous) / 1000,
+      dt = Math.min(wallSeconds, 0.1);
     previous = now;
-    elapsed += paused && !world.winner ? 0 : dt;
+    // Result effects drain on presentation time while simulation catch-up stays bounded.
+    elapsed += world.winner ? wallSeconds : paused ? 0 : dt;
     if (!paused || world.winner) frameRate.record(now);
     input!.update(dt);
     if (!paused) {

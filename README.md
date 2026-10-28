@@ -85,6 +85,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Held champion targeting](docs/CHAMPION-TARGETING.md)
 - [Held right-click movement](docs/HELD-MOVEMENT.md)
 - [Wall-time frame-rate readout](docs/FRAME-RATE.md)
+- [Wall-time result effects and frozen match state](docs/TERMINAL-WALL-CLOCK.md)
 - [Pinned epic-objective character records](docs/EPIC-CHARACTERS.md)
 - [Baron, Herald and Grub source rigs and binding audit](docs/EPIC-MODELS.md)
 - [Private Baron combat, saves and admission](docs/BARON-ENCOUNTER.md)
