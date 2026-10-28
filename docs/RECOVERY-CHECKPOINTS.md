@@ -36,3 +36,9 @@ The [verification ledger](reference/recovery-checkpoints-verification.json)
 records queue, failure, transactional-abort, browser continuation and production
 checks. Earlier full unit results and historical match audits retain their
 original scopes.
+
+The [typed-command follow-up](reference/recovery-command-verification.json) corrects
+an unsupported label in the first browser fixture, which had queued recall.
+It now verifies a valid move order accepted at tick 90, an updated checkpoint at
+the same tick, exact reload and application at tick 91. The original evidence
+remains retained. The application and checked production pack are unchanged.

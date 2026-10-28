@@ -1,0 +1,123 @@
+{
+  "date": "2026-10-28",
+  "previousCommit": "9a6b090",
+  "applicationChanged": false,
+  "packId": "8198c44ba9a38b9893e5e7dbe46eeef74720e4e6ddea7413066eac78833ab39c",
+  "correction": "The original any-typed browser fixture used unsupported type move, which World.enqueue normalized to recall. The follow-up uses a Command-checked order, verifies a same-tick checkpoint change, reloads it exactly and observes the move on the next tick. Original evidence remains retained.",
+  "source": {
+    "file": "e2e/recovery-checkpoints.spec.ts",
+    "bytes": 9537,
+    "sha256": "7923bf65f84f0439656822da64d9ec4db027463eb52f4ded85a879b9e79c6e04"
+  },
+  "checks": {
+    "browserPassed": 1,
+    "retries": 0,
+    "originalDeadlineMs": 30000,
+    "durationSeconds": 21.1,
+    "strictTypecheck": true,
+    "beforeTick": 90,
+    "checkpointTick": 90,
+    "appliedTick": 91,
+    "queuedType": "order",
+    "queuedOrder": "move",
+    "exactReload": true
+  },
+  "workspaceRecovery": {
+    "description": "Earlier owners no longer existed after workspace transition. Pause preparation rolled back without stopping a process. Completed results retained; interrupted attempts archived and restarted from zero under their original runners.",
+    "cohorts": [
+      {
+        "root": "artifacts/certification-abc8dc/combined-100",
+        "completedRetained": 89,
+        "restartsFromZero": [
+          87,
+          88
+        ],
+        "simulationSourceChanged": false,
+        "claimsUninterruptedExecution": false,
+        "record": {
+          "file": "artifacts/certification-abc8dc/combined-100/recovery/2026-10-28T17-06-52-900Z-5f5e4e12-a4d6-4ea9-969c-490b5e6d0ac4/recovery.json",
+          "bytes": 42857,
+          "sha256": "afcac5a4c4b2f99485dbb5909a080eb5cda6c4b8876ff3e34e09f89198dde5ef"
+        }
+      },
+      {
+        "root": "artifacts/certification-abc8dc/ordinary-100",
+        "completedRetained": 88,
+        "restartsFromZero": [
+          86,
+          87
+        ],
+        "simulationSourceChanged": false,
+        "claimsUninterruptedExecution": false,
+        "record": {
+          "file": "artifacts/certification-abc8dc/ordinary-100/recovery/2026-10-28T17-06-54-320Z-fe406bbe-f7be-4c25-916d-831aa6737d7b/recovery.json",
+          "bytes": 55947,
+          "sha256": "bb6eb754e08df094ef7b00564eece3cc6baf59ab10545a9d8951fac76bc968db"
+        }
+      },
+      {
+        "root": "artifacts/certification-25f21e/ordinary-selected",
+        "completedRetained": 0,
+        "restartsFromZero": [
+          26018
+        ],
+        "simulationSourceChanged": false,
+        "claimsUninterruptedExecution": false,
+        "record": {
+          "file": "artifacts/certification-25f21e/ordinary-selected/recovery/2026-10-28T17-06-55-811Z-e3b74419-d166-498d-9840-9f881829de91/recovery.json",
+          "bytes": 18390,
+          "sha256": "d41e7d881725eb2c64701c8dd2eb7ccf5e0171f2dedf9ae5de952cd516ee5a3d"
+        }
+      },
+      {
+        "root": "artifacts/certification-25f21e/combined-selected",
+        "completedRetained": 0,
+        "restartsFromZero": [
+          719
+        ],
+        "simulationSourceChanged": false,
+        "claimsUninterruptedExecution": false,
+        "record": {
+          "file": "artifacts/certification-25f21e/combined-selected/recovery/2026-10-28T17-06-56-977Z-509e1c64-de4d-4ce7-9e20-73fe91fefa9d/recovery.json",
+          "bytes": 18690,
+          "sha256": "e448062e0f8a75dea102bb75020522692894f8b09bef789a5f11f4bd19cc4d64"
+        }
+      }
+    ],
+    "independentlyVerifiedCompletedReports": 177,
+    "independentlyVerifiedCompletedSnapshots": 7829,
+    "independentlyVerifiedPartialFiles": 177
+  },
+  "evidence": [
+    {
+      "file": "artifacts/recovery-checkpoints/browser-command-check/recovery-checkpoints-start-a5779-its-bytes-paused-for-review/recovery-only-startup.json",
+      "bytes": 34134,
+      "sha256": "9392c9b96543cc82748580690b264540e20d61b90acf49293c8efd013154f8a9"
+    },
+    {
+      "file": "artifacts/recovery-checkpoints/recovery-command-browser.log",
+      "bytes": 934,
+      "sha256": "36f801d8cad37088e80d8c5178168ee7fc1b4b09eb10a6655b9e9201c95c40db"
+    },
+    {
+      "file": "artifacts/recovery-checkpoints/recovery-command-typecheck-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "artifacts/recovery-checkpoints/tsconfig.command-check.json",
+      "bytes": 274,
+      "sha256": "9b52df666faf902458cc92a8258989373fe14d316795c019bd7f510cdf6f92ae"
+    },
+    {
+      "file": "artifacts/recovery-checkpoints/command-check-pause.json",
+      "bytes": 412,
+      "sha256": "af0dc6b8fa6542cb82325b02a34c922eac8195df4a159036bb47fb40f538c14f"
+    },
+    {
+      "file": "artifacts/recovery-checkpoints/command-check-process-scope.json",
+      "bytes": 2472,
+      "sha256": "b6dde43b14397fa04930bf1e93654b24596b11f2f26414eab959c7ee69695240"
+    }
+  ]
+}

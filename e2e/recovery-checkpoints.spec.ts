@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import { writeFile } from 'node:fs/promises';
+import type { Command } from '../src/simulation/types';
 
 async function ready(page: Page) {
   await page.waitForFunction(() => (window as any).__GAME__?.ready);
@@ -25,13 +26,30 @@ test('startup exposes a recovery-only checkpoint while keeping its bytes paused 
   await page.keyboard.press('Escape');
   // Let the first interruption write settle before taking the later checkpoint.
   await expect.poll(async () => (await slots(page)).recovery).toBeTruthy();
-  const expected = await page.evaluate(() => {
+  const beforeCommand = await page.evaluate(() => {
     const g = (window as any).__GAME__,
       w = g.world;
     w.step(60);
-    w.enqueue({ type: 'move', unit: w.hero.id, point: { x: w.hero.x + 100, y: w.hero.y } });
     g.setPaused(true);
     return w.snapshot();
+  });
+  await expect.poll(async () => (await slots(page)).recovery).toBe(beforeCommand);
+  const expected = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      command = {
+        type: 'order',
+        unit: w.hero.id,
+        order: { type: 'move', point: { x: w.hero.x + 100, y: w.hero.y } },
+      } satisfies Command;
+    w.enqueue(command);
+    g.setPaused(true);
+    return w.snapshot();
+  });
+  expect(JSON.parse(expected).tick).toBe(JSON.parse(beforeCommand).tick);
+  expect(JSON.parse(expected).commands.at(-1)).toMatchObject({
+    type: 'order',
+    order: { type: 'move' },
   });
   await expect.poll(async () => (await slots(page)).recovery).toBe(expected);
   expect((await slots(page)).manual).toBeUndefined();
@@ -44,9 +62,25 @@ test('startup exposes a recovery-only checkpoint while keeping its bytes paused 
   await page.getByRole('button', { name: 'Preview recovery checkpoint', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Load this match', exact: true })).toBeVisible();
   expect(await slots(page)).toEqual({ manual: undefined, recovery: expected });
+  await Promise.all([
+    page.waitForEvent('load'),
+    page.getByRole('button', { name: 'Load this match', exact: true }).click(),
+  ]);
+  await ready(page);
+  expect(await page.evaluate(() => (window as any).__GAME__.world.snapshot())).toBe(expected);
+  const applied = await page.evaluate(() => {
+    const w = (window as any).__GAME__.world;
+    w.step();
+    return { tick: w.tick, order: w.hero.order, commands: JSON.parse(w.snapshot()).commands };
+  });
+  expect(applied).toEqual({
+    tick: JSON.parse(expected).tick + 1,
+    order: JSON.parse(expected).commands.at(-1).order,
+    commands: [],
+  });
   await writeFile(
     info.outputPath('recovery-only-startup.json'),
-    JSON.stringify({ expected, slots: await slots(page) }, null, 2)
+    JSON.stringify({ beforeCommand, expected, applied, slots: await slots(page) }, null, 2)
   );
 });
 
