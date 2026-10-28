@@ -6,7 +6,37 @@ Last updated: October 27, 2026 (UTC).
 
 ## Current authoritative state
 
-The latest [Ahri wave-farming step](AHRI-WAVE-CLEAR.md) chooses Q through at
+The latest [Ahri bot Rift trial](AHRI-BOT-RIFT.md) adds the optional
+`/?scene=ahri-rift&bots=ahri` development roster. The human begins Ahri mid
+against an Ahri bot; choosing Ashe gives two AI Ahri mids with the human in
+bottom. All ten roles, nine bots, normal navigation, resources and kit policies
+remain in use. The new bot selector requires the existing trusted Ahri Rift
+host and uses a third private save slot. The original trial and public roster
+retain their prior behavior.
+
+All 249 focused cases across 21 files, TypeScript, all 29 Node QA cases and the
+build pass. Both new browser cases pass without retries: a normal mid-lane Q
+encounter and exact in-flight Save/reload/180-tick future, save-slot isolation,
+and actual Ashe selection/restart with two bot mids and ten scoreboard rows.
+Both source-Rift screenshots were reviewed; page errors remain empty.
+The full run passes **3,456/3,462 cases across 408 files**, retaining the same
+six independently reproduced baseline failures.
+Three ten-minute seeded diagnostics check 108,000 normal ticks, thirty exact
+round-trips and nine restored futures against original continuing worlds.
+All six Ahri mids use Q/W/E/R; no resource invariant fails or winner is forced.
+The matching nested production smoke passes all 32 recordings and the exact
+new URL gate with no Ahri preload. Full offline integrity/retry, saved restore,
+new lane match and atomic activation pass with 977 service-worker responses
+and zero production errors. These diagnostics do not close the full-match or
+100-seed gate.
+Schema stays 163; current rules fingerprint is
+`2ec308dd0a16a79620c2e828754c87b07c1d08a25ce8ff64aa3c45f0e59605bf`.
+The matching pack is
+`74c78def07086558f2a21ddd7c1d0436aa05bd3211aa8a71475ee12f7fac84f5`
+(1,202 files / 538,098,723 bytes). No public asset or spell controller changes.
+Native fidelity, offensive R and complete-match certification remain open.
+
+The preceding [Ahri wave-farming step](AHRI-WAVE-CLEAR.md) chooses Q through at
 least three visible lane minions, retaining combat, ready last hits, mana,
 farm-sharing and turret-safety priorities. A bounded angular planner handles
 shared corridors, finite range and wraparound. It values outward magic damage

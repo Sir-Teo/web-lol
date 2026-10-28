@@ -5,6 +5,10 @@ imported Summoner's Rift. Nine existing Ashe/Lux bots fill the other roles;
 the match contains six Ashe, three Lux and one Ahri. Both teams retain all five
 role assignments. Production selection remains Ashe/Lux.
 
+The optional [Ahri bot variant](AHRI-BOT-RIFT.md) at
+`/?scene=ahri-rift&bots=ahri` selects an opposing Ahri mid and has its own save
+slot. The route without that query retains the roster described here.
+
 Ahri begins with her own level-one stats, ordinary summoners, one skill point
 and unlearned spells. She receives no bot orders. Existing source navigation,
 terrain, brush, vision, camp calendars, waves and structures remain in use.

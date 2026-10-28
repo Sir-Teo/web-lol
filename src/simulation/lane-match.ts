@@ -13,10 +13,12 @@ export function createLaneMatch(
   summoners: SummonerLoadout = DEFAULT_SUMMONERS
 ): World {
   if (battlefield.id !== 'rift') throw new Error('Lane matches require Summoner’s Rift.');
+  if (battlefield.developmentAhriBots && !battlefield.developmentAhriRift)
+    throw new Error('Ahri bot selection requires the trusted development Ahri Rift host.');
   const assignments = [
     { role: 'top', lane: 'top', champion: 'ashe' },
     { role: 'jungle', lane: null, champion: 'ashe' },
-    { role: 'mid', lane: 'mid', champion: 'lux' },
+    { role: 'mid', lane: 'mid', champion: battlefield.developmentAhriBots ? 'ahri' : 'lux' },
     { role: 'carry', lane: 'bot', champion: 'ashe' },
     { role: 'support', lane: 'bot', champion: 'lux' },
   ] as const;

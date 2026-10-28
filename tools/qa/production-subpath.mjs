@@ -252,6 +252,15 @@ try {
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
+  await page.goto(`${base}?scene=ahri-rift&bots=ahri`);
+  await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
+  assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
+  assert.equal(await page.evaluate(() => !!window.__GAME__), false);
+  assert.deepEqual(
+    ahriPreviewRequests,
+    [],
+    'The Ahri bot trial must not preload Ahri in production'
+  );
   assert.equal(
     recordings.size,
     29,
@@ -648,6 +657,7 @@ try {
       garenRiftTrialInProduction: false,
       masterYiRiftTrialInProduction: false,
       ahriRiftTrialInProduction: false,
+      ahriBotRiftTrialInProduction: false,
       ahriNpcFixtureInProduction: false,
       ahriPlayerFixtureInProduction: false,
       unrequestedAhriPreloads: ahriPreviewRequests.length,

@@ -1,0 +1,290 @@
+{
+  "date": "2026-10-27",
+  "previousCommit": "7f29ed1",
+  "schema": 163,
+  "ruleset": "2ec308dd0a16a79620c2e828754c87b07c1d08a25ce8ff64aa3c45f0e59605bf",
+  "sources": [
+    {
+      "path": "src/main.ts",
+      "bytes": 24208,
+      "sha256": "394c5259a2aab2e67aa247c3038cce7ae62e1606664bd8ebb17d508e17c69f03"
+    },
+    {
+      "path": "src/simulation/battlefield.ts",
+      "bytes": 3270,
+      "sha256": "5dfef493ce98486d696e7f8f7be436315920f43d5f9a625f8dbeb7c56d55c2f7"
+    },
+    {
+      "path": "src/simulation/lane-match.ts",
+      "bytes": 3396,
+      "sha256": "25650620383fb8bacb8c315e440f1f7b351285cb391bef1a2795a1e81bef2dba"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 31933,
+      "sha256": "b24c6ee4901f89b9d95eb6414a40020ec362e55707e2ab83400937decdb28987"
+    },
+    {
+      "path": "tests/ahri-bot-rift.test.ts",
+      "bytes": 5689,
+      "sha256": "4fd4661e7234724f46942cee564591eff34e6b608b139cc492686786611f62fa"
+    },
+    {
+      "path": "e2e/ahri-bot-rift.spec.ts",
+      "bytes": 8730,
+      "sha256": "a869916a5002f5909f9e8aac3a7b578c184f0a66b954e379446661f77155cc14"
+    }
+  ],
+  "focused": {
+    "passed": 249,
+    "total": 249,
+    "files": 21,
+    "newCases": 7
+  },
+  "broad": {
+    "passed": 3456,
+    "total": 3462,
+    "files": 408,
+    "unchangedBaselineFailures": 6,
+    "baselineEvidence": "docs/reference/ahri-bot-mobility-verification.json"
+  },
+  "checks": {
+    "typescript": true,
+    "nodeQa": {
+      "passed": 29,
+      "total": 29
+    },
+    "build": true,
+    "publicAssetsChanged": false,
+    "spellControllersChanged": false,
+    "savedFieldsChanged": false
+  },
+  "pack": {
+    "id": "74c78def07086558f2a21ddd7c1d0436aa05bd3211aa8a71475ee12f7fac84f5",
+    "files": 1202,
+    "bytes": 538098723,
+    "buildRulesetMatches": true
+  },
+  "browser": {
+    "passed": 2,
+    "total": 2,
+    "retries": 0,
+    "launcher": "/usr/bin/chromium",
+    "naturalMidEncounterAndQ": true,
+    "actualSaveReload": true,
+    "exactFutureTicks": 180,
+    "saveSlotsIsolated": [
+      "rift",
+      "development-ahri-rift",
+      "development-ahri-bots-rift"
+    ],
+    "realAsheChoiceAndRestart": true,
+    "scoreboardRoles": 10,
+    "pageErrors": [],
+    "screenshotsReviewed": true
+  },
+  "diagnostics": {
+    "seeds": [
+      26018,
+      719,
+      927
+    ],
+    "horizonMinutes": 10,
+    "aiProxyHuman": true,
+    "checkedTicks": 108000,
+    "checkpointRoundTrips": 30,
+    "originalWorldFutureComparisons": 9,
+    "futureTicks": 180,
+    "allSixAhriUsedAllFourSpells": true,
+    "forcedWinner": false,
+    "failures": [],
+    "runner": {
+      "path": "artifacts/ahri-bot-rift/match-audit.ts",
+      "bytes": 3355,
+      "sha256": "d40d9687322a211a7c269d67c10f933f0d2ee00993edd333b8127e3224b9354a"
+    },
+    "reports": [
+      {
+        "seed": 26018,
+        "report": {
+          "path": "artifacts/ahri-bot-rift/match-26018.json",
+          "bytes": 6897,
+          "sha256": "bd0d185b44df61a12e7dd93feda3e73ab7302c680564f7d66547b40fe60ac14c"
+        },
+        "checkpoint": {
+          "path": "artifacts/ahri-bot-rift/match-26018.snapshot.json",
+          "bytes": 183425,
+          "sha256": "02a2791e07f422b2c09d30cb738fdc50327c87ee0bd18c0fde725cea5b7c2632"
+        }
+      },
+      {
+        "seed": 719,
+        "report": {
+          "path": "artifacts/ahri-bot-rift/match-719.json",
+          "bytes": 6894,
+          "sha256": "cd69adc9b3dff1a226aef65cfc7398b7ef38768ef025a8778affb2cc7dd470c9"
+        },
+        "checkpoint": {
+          "path": "artifacts/ahri-bot-rift/match-719.snapshot.json",
+          "bytes": 186054,
+          "sha256": "268f5f5abf5739bf8c80f94a2292d964fd9d9b387ad782eb72d56581450dd27c"
+        }
+      },
+      {
+        "seed": 927,
+        "report": {
+          "path": "artifacts/ahri-bot-rift/match-927.json",
+          "bytes": 6896,
+          "sha256": "2170502737ddf9d4ad73d3653bbf339284694db24bbc37e02e46b5d2ad5ccf22"
+        },
+        "checkpoint": {
+          "path": "artifacts/ahri-bot-rift/match-927.snapshot.json",
+          "bytes": 181977,
+          "sha256": "ec8ae6c629bd8f8bcbe3abeddf08b23ae1f1120a557faa3291c4988175b4b7e4"
+        }
+      }
+    ],
+    "preliminaryAttempts": "External SSR dependency resolution initially failed; final runner links installed packages. A preliminary report capture was restarted to copy rank histories. Earlier artifacts are retained separately."
+  },
+  "production": {
+    "passed": true,
+    "prefix": "/nested/rift/",
+    "recordings": 32,
+    "botTrialUrlRejected": true,
+    "ahriPreloads": 0,
+    "pageErrors": []
+  },
+  "offline": {
+    "passed": true,
+    "serviceWorkerResponses": 977,
+    "checks": {
+      "integrityFailureRestoresDownloadFocus": true,
+      "integrityFailure": true,
+      "downloadFocusesCancel": true,
+      "cancelRetainsVerified": true,
+      "cancelRestoresDownloadFocus": true,
+      "retryWithoutRedownload": true,
+      "completionPreservesOtherControlFocus": true,
+      "pausedSavedTickBootsOffline": true,
+      "completePackRepairOffline": true,
+      "newLuxLaneMatchOffline": true,
+      "serviceWorkerResponses": 977,
+      "removalKeepsSavedBytes": true,
+      "updateRefusesOtherTabs": true,
+      "explicitAtomicVersionSwitchOffline": true,
+      "missingEntryRevokesReady": true,
+      "scopeOnlyRemoval": true
+    },
+    "productionErrors": [],
+    "proof": {
+      "path": "artifacts/offline-pack-ahri-bot-rift-20261027-production.json",
+      "bytes": 827,
+      "sha256": "d36f7769f7d617e1f07720e3aa1ecc95723592877fb69c56c66a48ec8569300b"
+    }
+  },
+  "logs": [
+    {
+      "path": "artifacts/ahri-bot-rift/logs/web-lol-bot-rift-audit-2.log",
+      "bytes": 1016,
+      "sha256": "ee9db9fc7ca6acae512ce3f00b25179690b329f1036fa55e909a9d96e99d4b24"
+    },
+    {
+      "path": "artifacts/ahri-bot-rift/logs/web-lol-bot-rift-audit-build-2.log",
+      "bytes": 242,
+      "sha256": "501e1ff894b46f4421c8cdf99fef8a7af61cf2325a2283469023ac3da57388fa"
+    },
+    {
+      "path": "artifacts/ahri-bot-rift/logs/web-lol-bot-rift-audit-build-final.log",
+      "bytes": 248,
+      "sha256": "bb63a53fe721b6a2599ff368d959a5abbdfaa2fa7d59ef3b82571156b62530ef"
+    },
+    {
+      "path": "artifacts/ahri-bot-rift/logs/web-lol-bot-rift-audit-build.log",
+      "bytes": 242,
+      "sha256": "895d49af05f0ef314abaf7f5022ee33abb1a28c014d8562ca12ce5ed345c3b05"
+    },
+    {
+      "path": "artifacts/ahri-bot-rift/logs/web-lol-bot-rift-audit-final.log",
+      "bytes": 8426,
+      "sha256": "fd8b83a28efbe6b38682c368f4514e9f01ec23c89860e0be65a9026e31cd8281"
+    },
+    {
+      "path": "artifacts/ahri-bot-rift/logs/web-lol-bot-rift-audit.log",
+      "bytes": 1016,
+      "sha256": "ee9db9fc7ca6acae512ce3f00b25179690b329f1036fa55e909a9d96e99d4b24"
+    },
+    {
+      "path": "artifacts/ahri-bot-rift/logs/web-lol-bot-rift-browser.log",
+      "bytes": 1582,
+      "sha256": "8959461e550532d5f0a7bb5dad954b6dee1b9b72f41ca8a81aa6ee136544655d"
+    },
+    {
+      "path": "artifacts/ahri-bot-rift/logs/web-lol-bot-rift-build.log",
+      "bytes": 7124,
+      "sha256": "a29deab59c3e78f00216e3777b3c1c960584c7abada7494d37b320275e1a2857"
+    },
+    {
+      "path": "artifacts/ahri-bot-rift/logs/web-lol-bot-rift-focused.log",
+      "bytes": 374,
+      "sha256": "62b100e770946e7278c7f009ba9777d1f0f950a10b1323c9b13d3247ab0d7787"
+    },
+    {
+      "path": "artifacts/ahri-bot-rift/logs/web-lol-bot-rift-full.log",
+      "bytes": 5894,
+      "sha256": "29d889c42fecbb81a814e7976d2cab251a5c610c7ce01a886f4d0fb2c460cbda"
+    },
+    {
+      "path": "artifacts/ahri-bot-rift/logs/web-lol-bot-rift-initial.log",
+      "bytes": 170,
+      "sha256": "f7e02465f882e9057ffe60c89bcb2cbd4fb382397db1e4001e1a231fad7f3140"
+    },
+    {
+      "path": "artifacts/ahri-bot-rift/logs/web-lol-bot-rift-node-qa.log",
+      "bytes": 2778,
+      "sha256": "4ff8d7078fc9b269859691a352c2a0c147ec8bf47d1983a19bd70d22b1ce170f"
+    },
+    {
+      "path": "artifacts/ahri-bot-rift/logs/web-lol-bot-rift-offline.log",
+      "bytes": 842,
+      "sha256": "23a54229d821378a33246ae32be9492dd5c68e9582eae58b24b7640d3aa1bb7a"
+    },
+    {
+      "path": "artifacts/ahri-bot-rift/logs/web-lol-bot-rift-production.log",
+      "bytes": 2996,
+      "sha256": "2f4c69a64ee81752aec9e374907cc64f76e7c00e9dc44b58032f94452ce956e8"
+    }
+  ],
+  "proofs": [
+    {
+      "path": "artifacts/ahri-bot-rift/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "artifacts/ahri-bot-rift/browser/ahri-bot-rift-normal-Ahri--01863-out-overwriting-other-saves/ahri-bot-rift-flight.png",
+      "bytes": 1330150,
+      "sha256": "93ab8ce69707c2422c8b911426406934e2edbae9cfdcdd8f71d9654c514a4495"
+    },
+    {
+      "path": "artifacts/ahri-bot-rift/browser/ahri-bot-rift-normal-Ahri--01863-out-overwriting-other-saves/ahri-bot-rift-save.json",
+      "bytes": 830211,
+      "sha256": "c72728e3f3626785bc8cef0e5524d27b1e92eb8ce02cb3cf3689631227d1eabf"
+    },
+    {
+      "path": "artifacts/ahri-bot-rift/browser/ahri-bot-rift-real-Ashe-se-1b908-nd-all-ten-scoreboard-roles/ahri-bot-rift-chooser.json",
+      "bytes": 162349,
+      "sha256": "086fc73cd4993cb5263fdee4d3bd69170aa8908b1d21fafcef26ac7a86cc0bd7"
+    },
+    {
+      "path": "artifacts/ahri-bot-rift/browser/ahri-bot-rift-real-Ashe-se-1b908-nd-all-ten-scoreboard-roles/ahri-bot-rift-scoreboard.png",
+      "bytes": 1046456,
+      "sha256": "499c349b0f033ffe19031841b96363d4a0b09b85e5d5695037a77d5f4ed89523"
+    }
+  ],
+  "limitations": [
+    "Development trial, production roster unchanged",
+    "No offensive R tactics or native presentation certification",
+    "Ten-minute diagnostics use AI as a proxy for the human carry",
+    "No complete-match, 100-seed or physical-device performance certification"
+  ]
+}
