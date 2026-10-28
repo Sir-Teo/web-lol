@@ -1,0 +1,452 @@
+{
+  "date": "2026-10-28",
+  "previousCommit": "c0d50c1",
+  "schema": 163,
+  "ruleset": "abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f",
+  "simulationFingerprintUnchanged": true,
+  "sources": [
+    {
+      "path": "src/ui/allied-intent.ts",
+      "bytes": 1119,
+      "sha256": "e1c0cccabec82a00b97f8e9898280b5115dc3c7a6c49358ab0afa79f3d7f047c"
+    },
+    {
+      "path": "src/ui/hud.ts",
+      "bytes": 87211,
+      "sha256": "79b334eb07309a8463ebc994e6bf28deb8c263527bbd0a781f7d8a7199df988e"
+    },
+    {
+      "path": "src/style.css",
+      "bytes": 36234,
+      "sha256": "ea08042707afb98b292e0abf9d92b007960ef75f97146c8f48a5a36cbd3469cd"
+    },
+    {
+      "path": "tests/allied-intent.test.ts",
+      "bytes": 3645,
+      "sha256": "a6a01b31ef58437719120f3f9b683aec57adc821ffffd0cf185275fbe6d55616"
+    },
+    {
+      "path": "e2e/allied-intent.spec.ts",
+      "bytes": 6830,
+      "sha256": "0fc1baecc6d362461b745e1a542a5650486a777ae5a4a339b92dfcaf266bf2f8"
+    },
+    {
+      "path": "e2e/scoreboard-ownership.spec.ts",
+      "bytes": 11055,
+      "sha256": "d722bf68db88890bb7663cb0d0b7a7838d23fce699080c456985079fd2983078"
+    }
+  ],
+  "targeted": {
+    "passed": 5,
+    "total": 5,
+    "files": 1
+  },
+  "checks": {
+    "typescript": true,
+    "format": true,
+    "build": true
+  },
+  "freshBroadRun": false,
+  "freshNodeQaRun": false,
+  "precedingBroad": {
+    "passed": 3560,
+    "total": 3566,
+    "files": 414,
+    "unchangedBaselineFailures": 6,
+    "evidence": "docs/reference/bot-team-detour-verification.json"
+  },
+  "precedingNodeQa": {
+    "passed": 39,
+    "total": 39
+  },
+  "behavior": {
+    "alliedLivingBotsOnly": true,
+    "opponentsRejectedBeforeOwnerOrPlanRead": true,
+    "humanAndQaHumanExcluded": true,
+    "expiredOrRemovedJobsClear": true,
+    "recallThenRetreatPriority": true,
+    "deadPracticeTerminalExcluded": true,
+    "targetLivePositionNeverRead": true,
+    "newCommands": false,
+    "newSaveFields": false,
+    "publicAssetsChanged": false
+  },
+  "browser": {
+    "newPassed": 1,
+    "newTotal": 1,
+    "existingBatchPassed": 4,
+    "existingBatchTotal": 5,
+    "correctedPortraitPassed": 1,
+    "correctedPortraitTotal": 1,
+    "retries": 0,
+    "originalDeadlineMs": 30000,
+    "finalPortraitDurationSeconds": 11.6,
+    "finalPortraitAllOriginalAssertionsPreserved": true,
+    "finalPortraitNativeTabInput": true,
+    "staticPortraitPaintingOnlyStopped": true,
+    "proof": {
+      "ids": {
+        "allies": [32, 33, 34, 35],
+        "human": 1,
+        "visibleEnemy": 36,
+        "enemyVisible": true
+      },
+      "labels": ["Defending", "Pushing", "Ganking", "Advancing"],
+      "realRecall": true,
+      "recallRetreatOverride": true,
+      "removedJobClears": true,
+      "exactSaveReload": true,
+      "enemyPlansHidden": true,
+      "layout": {
+        "viewport": {
+          "width": 1024,
+          "height": 720
+        },
+        "panel": {
+          "x": 32,
+          "y": 122.390625,
+          "width": 960,
+          "height": 504
+        },
+        "inside": true,
+        "horizontalOverflow": false
+      },
+      "errors": []
+    },
+    "reviewedViewports": [
+      [1440, 900],
+      [1024, 720]
+    ],
+    "proofs": [
+      {
+        "path": "artifacts/allied-intent/browser/allied-intent-allied-plans-1d77c-privacy-through-Save-reload/allied-intent.json",
+        "bytes": 619,
+        "sha256": "16f6dce42697cb2a7cdbae33a602836de536c94bb32617a02da1cf67c1748a0b"
+      },
+      {
+        "path": "artifacts/allied-intent/browser/allied-intent-allied-plans-1d77c-privacy-through-Save-reload/allied-plans-1024.png",
+        "bytes": 537295,
+        "sha256": "4e2d596c1c9e4f4532283ce5c361eac8ff2650fe3935c1927600df2efa4c7d45"
+      },
+      {
+        "path": "artifacts/allied-intent/browser/allied-intent-allied-plans-1d77c-privacy-through-Save-reload/allied-plans-1440.png",
+        "bytes": 1033423,
+        "sha256": "c7e2b29f7b82d03b109c2133d1494abc27296fb35641a9efb790bee3874ad30d"
+      }
+    ],
+    "baselineTimeoutReproducedOn": "c0d50c1",
+    "baselineFailure": [
+      {
+        "path": "artifacts/allied-intent/baseline-portrait/scoreboard-ownership-ten-c-802fd-pion-portrait-on-both-teams/error-context.md",
+        "bytes": 22916,
+        "sha256": "ff12230d066662455473ccb50a46df2701ad6bdd1b0ec116bffe4f4fd418f6e6"
+      },
+      {
+        "path": "artifacts/allied-intent/baseline-portrait/scoreboard-ownership-ten-c-802fd-pion-portrait-on-both-teams/test-failed-1.png",
+        "bytes": 760117,
+        "sha256": "29c1bdf600aa9a69c33abd668f590e02be62421a9ed50367369158ff622de1be"
+      },
+      {
+        "path": "artifacts/allied-intent/baseline-portrait/scoreboard-ownership-ten-c-802fd-pion-portrait-on-both-teams/trace.zip",
+        "bytes": 226117864,
+        "sha256": "da3338e0a600652eef177c1b97ccbaac53862e0a367d9e86b02231c7bcfb320a"
+      }
+    ],
+    "candidateOriginalAndAttemptEvidence": [
+      {
+        "path": "artifacts/allied-intent/browser-regressions/scoreboard-ownership-ten-c-802fd-pion-portrait-on-both-teams/error-context.md",
+        "bytes": 22914,
+        "sha256": "57dcf1a34d27de2549eb6fdf0c542378fa80ae5c693c3cee0d9d6ad95477eb36"
+      },
+      {
+        "path": "artifacts/allied-intent/browser-regressions/scoreboard-ownership-ten-c-802fd-pion-portrait-on-both-teams/test-failed-1.png",
+        "bytes": 760109,
+        "sha256": "b1f1d1b6c1891b76859028a167dfd52c5b64891f8d743534be3d1c2a327c2d0e"
+      },
+      {
+        "path": "artifacts/allied-intent/browser-regressions/scoreboard-ownership-ten-c-802fd-pion-portrait-on-both-teams/trace.zip",
+        "bytes": 226592346,
+        "sha256": "c44fe9ef709f350b405892e4018177eb1cfe7e2a318cf5c911e72fe02283269c"
+      },
+      {
+        "path": "artifacts/allied-intent/browser-portrait-final/scoreboard-ownership-ten-c-802fd-pion-portrait-on-both-teams/error-context.md",
+        "bytes": 14071,
+        "sha256": "6032d8d87b8d2052bfd29548897f4d8935e6acf38934b690a0e26eda5656725c"
+      },
+      {
+        "path": "artifacts/allied-intent/browser-portrait-final/scoreboard-ownership-ten-c-802fd-pion-portrait-on-both-teams/test-failed-1.png",
+        "bytes": 1141640,
+        "sha256": "34759a7da1989434275de3ae98d843e8d11a6062b2d51b4a1c1bfd2533e10eca"
+      },
+      {
+        "path": "artifacts/allied-intent/browser-portrait-final/scoreboard-ownership-ten-c-802fd-pion-portrait-on-both-teams/trace.zip",
+        "bytes": 220918738,
+        "sha256": "85a52d35f1176512488c4e656e3b01c4314dbb4307e05f69b74d2c54f3e088ad"
+      },
+      {
+        "path": "artifacts/allied-intent/browser-portrait-batched/scoreboard-ownership-ten-c-802fd-pion-portrait-on-both-teams/error-context.md",
+        "bytes": 4141,
+        "sha256": "aee424aaf526319bdf9d99acc51f62986610b847b0562ebd2dea8b7cdbc57132"
+      },
+      {
+        "path": "artifacts/allied-intent/browser-portrait-batched/scoreboard-ownership-ten-c-802fd-pion-portrait-on-both-teams/test-failed-1.png",
+        "bytes": 760355,
+        "sha256": "7e3c07038bde08540f19d087229a718a5888fb89bed2cabb08c49d03af15753b"
+      },
+      {
+        "path": "artifacts/allied-intent/browser-portrait-batched/scoreboard-ownership-ten-c-802fd-pion-portrait-on-both-teams/trace.zip",
+        "bytes": 226112355,
+        "sha256": "6dc385e7022b5514b6a9506e03a29169081ad45a145f302b3d8ca76969b52e43"
+      },
+      {
+        "path": "artifacts/allied-intent/scoreboard-ownership-batched-attempt.ts",
+        "bytes": 11516,
+        "sha256": "9a326670e8400e9534257fb4ecfc7d54daebcb301fd33c25276aee8daf1ab1f5"
+      },
+      {
+        "path": "artifacts/allied-intent/scoreboard-ownership-paused-attempt.ts",
+        "bytes": 11006,
+        "sha256": "afcd8d2d926d185d05eca5030b7e3c2a1ff928631afa76f5f6c2fb7b4c672f6d"
+      },
+      {
+        "path": "artifacts/allied-intent/scoreboard-ownership-before.ts",
+        "bytes": 10926,
+        "sha256": "9ccf1d7cf236c9b5d75428a900fb766fb322779030cfa889c87128c03bd0e6cf"
+      }
+    ],
+    "remainingScoreboardProofs": [
+      {
+        "path": "artifacts/allied-intent/scoreboard-dead.png",
+        "bytes": 861520,
+        "sha256": "f24ac22c6aa194b689ea67bba9a691728dd6f933d6f1b5b6043f21683c3e1b41"
+      },
+      {
+        "path": "artifacts/allied-intent/scoreboard-item-tooltip.png",
+        "bytes": 774384,
+        "sha256": "0d044e526fe7e6cbac7284fe08f55e5a8f358b3f284818edc0d162450af42d50"
+      },
+      {
+        "path": "artifacts/allied-intent/scoreboard-mixed-champions.png",
+        "bytes": 825969,
+        "sha256": "ebb354a19383c79a533e7ae936a985fe43c68b83d5cc104672753d6b17e96680"
+      },
+      {
+        "path": "artifacts/allied-intent/scoreboard-observed-items.png",
+        "bytes": 860396,
+        "sha256": "c1173823d88701526166ea22e02918a98512de421e02b606539bcb31749af9aa"
+      },
+      {
+        "path": "artifacts/allied-intent/scoreboard-ownership.png",
+        "bytes": 727493,
+        "sha256": "4e6bdb64971ae0ca40a7ed752be0197411b997aec683b898d0af84767175da14"
+      },
+      {
+        "path": "artifacts/allied-intent/scoreboard-respawned.png",
+        "bytes": 846755,
+        "sha256": "b12fd984c3c70e72693b730aadf5ac76061f085ce86cecaf534852e8f7ebe2a1"
+      }
+    ]
+  },
+  "production": {
+    "result": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 19,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "garenRiftTrialInProduction": false,
+      "masterYiRiftTrialInProduction": false,
+      "masterYiBotRiftTrialInProduction": false,
+      "rosterRiftTrialInProduction": false,
+      "publicChampionChoices": ["ashe", "lux"],
+      "ahriRiftTrialInProduction": false,
+      "ahriBotRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderAudioPreloads": 0,
+      "unrequestedMasterYiAlphaAudioPreloads": 0,
+      "unrequestedMasterYiMeditateAudioPreloads": 0,
+      "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+      "unrequestedMasterYiSwordPreloads": 0,
+      "unrequestedMasterYiPrimaryTrailPreloads": 0,
+      "unrequestedMasterYiPrimaryHitPreloads": 0,
+      "unrequestedMasterYiPassiveTrailPreloads": 0,
+      "unrequestedMasterYiMeditateDamagePreloads": 0,
+      "unrequestedMasterYiHighlanderKillPreloads": 0,
+      "unrequestedMasterYiHighlanderCastPreloads": 0,
+      "unrequestedMasterYiQEndPreloads": 0,
+      "unrequestedMasterYiQCastPreloads": 0,
+      "unrequestedMasterYiQContactPreloads": 0,
+      "unrequestedMasterYiMeditateCastPreloads": 0,
+      "unrequestedMasterYiMeditateBuffPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 323,
+      "scheduledBlueRequests": 19,
+      "scheduledRedRequests": 19,
+      "scheduledWolfRequests": 38,
+      "scheduledRaptorRequests": 38,
+      "scheduledKrugRequests": 57,
+      "scheduledScuttlerRequests": 19,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    },
+    "screenshot": {
+      "path": "artifacts/allied-intent/production.png",
+      "bytes": 1822575,
+      "sha256": "3415543e96898040efbc823f9c1164e0cab82169c4900624fa03e88a4eeaab28"
+    }
+  },
+  "pack": {
+    "id": "dae2505815d5c0c14a45e155ec36c0746048f1ae6f866092a5e842e17c37ac77",
+    "files": 1202,
+    "bytes": 538108050,
+    "buildRulesetMatches": true
+  },
+  "freshHeadlessMatches": false,
+  "unchangedSimulationMatchEvidence": "docs/reference/bot-team-detour-matches-verification.json",
+  "freshOfflineAcceptance": false,
+  "logs": [
+    {
+      "path": "artifacts/allied-intent/logs/baseline-portrait.log",
+      "bytes": 3529,
+      "sha256": "53c9605cb5d9079621a43952bb574d3027a28cd516af13899fa0ae9101c6898b"
+    },
+    {
+      "path": "artifacts/allied-intent/logs/browser-format-final.log",
+      "bytes": 31,
+      "sha256": "a786ccf493a48b0f379044a095463e5f876416d3fbe276f0c9990e8c5015d7a7"
+    },
+    {
+      "path": "artifacts/allied-intent/logs/browser-format.log",
+      "bytes": 79,
+      "sha256": "f3c2cfdba7507bfe33aa27cf2409ef80905ab4e0d957ce47b813b0b65d9ff248"
+    },
+    {
+      "path": "artifacts/allied-intent/logs/browser-regressions.log",
+      "bytes": 4973,
+      "sha256": "0adcc64524a6630f9334e1aafd251a2d176785ffd34ba8cc6200c05a84f0ea5d"
+    },
+    {
+      "path": "artifacts/allied-intent/logs/browser-run.log",
+      "bytes": 943,
+      "sha256": "ef1fa687e03f9a33ff6eb6d1ac6d06cfa1e674e5a4504d6e90e7b29833644c81"
+    },
+    {
+      "path": "artifacts/allied-intent/logs/browser.log",
+      "bytes": 354,
+      "sha256": "158d44f182c382257032f59933fab6db4e2931357d117d83d44f9125c082192f"
+    },
+    {
+      "path": "artifacts/allied-intent/logs/build.log",
+      "bytes": 7124,
+      "sha256": "8a93a1c77bc77c296c32d2dce9fe4566b29593584d615059eaa4903563a1287a"
+    },
+    {
+      "path": "artifacts/allied-intent/logs/code-format.log",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "path": "artifacts/allied-intent/logs/focused.log",
+      "bytes": 179,
+      "sha256": "0410d208f9f84bd3e17bfa5fb5d0fbb7cdf65ffd427bd64158a47d3e52313cba"
+    },
+    {
+      "path": "artifacts/allied-intent/logs/format-final.log",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "path": "artifacts/allied-intent/logs/format.log",
+      "bytes": 126,
+      "sha256": "80ea5d6b159e22a70c9fee4da99b1d4c72940fa2c83ada3ae5a1e5e51c55de3b"
+    },
+    {
+      "path": "artifacts/allied-intent/logs/portrait-batched-format.log",
+      "bytes": 39,
+      "sha256": "8d077f0627a42f30cb0f1a22252786d4f97b31fc3acf0996a74416facd447405"
+    },
+    {
+      "path": "artifacts/allied-intent/logs/portrait-batched.log",
+      "bytes": 2507,
+      "sha256": "9b95cc3716b6bdd109e4fa0a26cde97530a18b01fe61cca0ac511b02e971d0a4"
+    },
+    {
+      "path": "artifacts/allied-intent/logs/portrait-final.log",
+      "bytes": 3305,
+      "sha256": "9cb0431428abc414f0f892347a346234239d35339e6a758672b99243bf3f8452"
+    },
+    {
+      "path": "artifacts/allied-intent/logs/portrait-format.log",
+      "bytes": 51,
+      "sha256": "73c0ee397c22fda2b997c53a8d8206300f43e434e3eaeae834e635e75ae5c645"
+    },
+    {
+      "path": "artifacts/allied-intent/logs/portrait-static-format.log",
+      "bytes": 51,
+      "sha256": "8a5f702bd73f3e60e1df0c9e28ad6a52c7d3dd2033872018b1e16adabdfe65c8"
+    },
+    {
+      "path": "artifacts/allied-intent/logs/portrait-static.log",
+      "bytes": 657,
+      "sha256": "4a42157a38b066acee45966d0c715749494c447ed7e0b8406c1b5e7b7a4a116a"
+    },
+    {
+      "path": "artifacts/allied-intent/logs/production.log",
+      "bytes": 3112,
+      "sha256": "76ae8d93a1844e7c2030c8df65022cbf8f8a0bc72b045fbc0bf547c07faefc4e"
+    },
+    {
+      "path": "artifacts/allied-intent/logs/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

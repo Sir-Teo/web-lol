@@ -6,7 +6,28 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
-The latest [team-job detours](BOT-TEAM-DETOURS.md) let bots route around
+The latest [allied intent labels](ALLIED-INTENT.md) show current friendly bot
+plans beneath their scoreboard roles, with recall/retreat priority and exact
+expiry/removal. Humans, opponents, dead allies, practice and terminal matches
+have no automated label. The helper rejects opponents before reading owner
+records or plans and never resolves target positions. Five boundary tests,
+TypeScript, formatting and build pass. Six browser scenarios verify live plans,
+real NPC recall, manual/enemy boundaries, exact Save/reload, 1440×900 / 1024×720
+layouts and existing item focus, live records, observed stats and death timers.
+
+The old mixed-portrait case's original 30-second timeout reproduces on unchanged
+`c0d50c1`. Its final two-line fixture change stops painting while retaining real
+Tab input and every original assertion/deadline; it passes in 11.6 seconds.
+Original failures and unsuccessful pause/batched attempts remain retained.
+Nested production passes all 32 recordings/gates. Schema stays 163 and the
+simulation fingerprint remains
+`abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f`.
+Matching pack `dae2505815d5c0c14a45e155ec36c0746048f1ae6f866092a5e842e17c37ac77`
+has 1,202 files / 538,108,050 bytes. No gameplay fields, spell values or public
+assets change. Broad tests/39 Node QA checks and the seven full-match audits
+retain their preceding evidence; this UI step does not claim fresh repeats.
+
+The preceding [team-job detours](BOT-TEAM-DETOURS.md) let bots route around
 remembered enemy turrets when their ordinary/cached crossing is unsafe. They
 use existing friendly cover and knowledge, accept only complete independently
 checked paths, and save the actual route in existing movement fields. Human
@@ -21,7 +42,7 @@ ordinary respawn deadline. The old archived source fails 24/32 new regressions.
 
 Nested production passes all 32 recordings/gates with the public chooser still
 exactly Ashe/Lux. Final route captures are reviewed at 1440×900. Schema stays
-163; current fingerprint is
+163; its fingerprint is
 `abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f`.
 Matching pack `a2a97e1b56943afc1b0b7d0afd7453f70c5cf7ffda8906f966784382a7aee3f7`
 has 1,202 files / 538,107,183 bytes. [Seven fresh long matches](BOT-TEAM-DETOUR-MATCHES.md) pass independent

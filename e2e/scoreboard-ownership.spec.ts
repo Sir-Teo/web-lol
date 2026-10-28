@@ -82,6 +82,8 @@ test('ten-champion scoreboard uses each champion portrait on both teams', async 
     for (const unit of w.units) w.setOrder(unit, { type: 'idle' });
     w.step(900);
     g.setPaused(false);
+    // Keep real Tab input while this static portrait/layout fixture stops painting.
+    g.view.renderer.setAnimationLoop(null);
     return w.units.map((u: any) => ({
       id: u.id,
       champion: u.champion,

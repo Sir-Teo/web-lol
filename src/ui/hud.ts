@@ -6,6 +6,7 @@ import {
 } from './ahri-spells';
 import { activeSpiritRush } from '../simulation/ahri-spirit-rush';
 import { isPlayerFeedback } from './player-feedback';
+import { alliedChampionIntent } from './allied-intent';
 import { AHRI_R } from '../content/ahri-r';
 import { mountOfflinePack } from './offline-pack';
 import { ROLE_LABELS } from '../content/bot-roles';
@@ -1085,6 +1086,7 @@ export class Hud {
           inventory: observed?.inventory ?? null,
           summoners: state.summoners,
           role: state.role,
+          intent: alliedChampionIntent(this.world, u),
         };
       });
     const signature = JSON.stringify({
@@ -1148,6 +1150,14 @@ export class Hud {
         .filter(Boolean)
         .join(' · ');
       name.append(role);
+      if (data.intent) {
+        const intent = document.createElement('span');
+        intent.className = 'scoreboard-intent';
+        intent.textContent = data.intent;
+        intent.title = data.intent;
+        intent.setAttribute('aria-label', `Team intent: ${data.intent}`);
+        name.append(intent);
+      }
       row.dataset.role = data.role ?? '';
       row.querySelector('.scoreboard-kda')!.textContent =
         `${data.kills} / ${data.deaths} / ${data.assists}`;

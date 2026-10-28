@@ -1520,6 +1520,15 @@ button {
   font-size: 11px;
   margin-top: 4px;
 }
+.scoreboard-row .scoreboard-intent {
+  display: block;
+  margin-top: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #cbbb85;
+  font-size: 10px;
+  font-weight: 400;
+}
 @keyframes combat-rise {
   0% {
     transform: translate(-50%, 0) scale(0.8);
