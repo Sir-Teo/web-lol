@@ -1,0 +1,266 @@
+{
+  "date": "2026-10-28",
+  "previousCommit": "aa6e586",
+  "schema": 163,
+  "ruleset": "abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f",
+  "simulationFingerprintUnchanged": true,
+  "sources": [
+    {
+      "file": "src/main.ts",
+      "bytes": 25695,
+      "sha256": "46c58b656fe5fa82695c8ad8df002d29386eea9cc4d4328ca8c0745cf322634c"
+    },
+    {
+      "file": "src/ui/hud.ts",
+      "bytes": 89051,
+      "sha256": "f1f408ec91e5e178b85efb4a411426f0e9415176d80c1756814d1f71545d6a2d"
+    },
+    {
+      "file": "src/style.css",
+      "bytes": 36256,
+      "sha256": "7ccd955e3ee401e7360a49eecd3d0e59a8a4f03cea9e5a43771d0aef9c8bcfa9"
+    },
+    {
+      "file": "e2e/minimap-camera-drag.spec.ts",
+      "bytes": 7785,
+      "sha256": "7c72d47c4d7d973c9fc663101ce534211dad8742158f5c82daf340a883ef94de"
+    },
+    {
+      "file": "e2e/input-hud-tab.spec.ts",
+      "bytes": 4390,
+      "sha256": "d4b2a2e28a9e34d35b627f96a5f08cdea6aa4be77d81b02879a509102007dceb"
+    },
+    {
+      "file": "e2e/camera-team.spec.ts",
+      "bytes": 9982,
+      "sha256": "5a8aea507a82b29fead7407f930f53c425a151ddea05ad640dc939e678ba7dc1"
+    },
+    {
+      "file": "e2e/minimap-cast.spec.ts",
+      "bytes": 7974,
+      "sha256": "314b83a9d80087a02fc8f17a06df5160b50846707763986582d166a781a0cb7a"
+    },
+    {
+      "file": "README.md",
+      "bytes": 21312,
+      "sha256": "c71c0d29b4f237e1c3d7764e3afee83a21400739e6cd1e8fe0d981024904e441"
+    }
+  ],
+  "browser": {
+    "regressionBatchPassed": 9,
+    "regressionStage": "Before the final one-line focus correction; retained source hashes and test source",
+    "finalFocusedPassed": 4,
+    "finalStage": "Normal Rift at two sizes, captured drag lifecycle and native HUD Tab navigation",
+    "uniqueScenariosAcrossStages": 11,
+    "retries": 0,
+    "renderInputAndHudReal": true,
+    "dragCasesSimulationStepFrozen": true,
+    "snapshotExact": true,
+    "cameraCommands": 0,
+    "secondaryPointerRejected": true,
+    "pauseModalBlurCancelAndLostCapture": true,
+    "focusReturnsToBattlefield": true,
+    "spaceRecentersWithoutSoundChange": true,
+    "rightClickMoveAndShiftAttackMove": true,
+    "reviewedViewports": [
+      [1440, 900],
+      [1024, 720]
+    ]
+  },
+  "checks": {
+    "typescript": true,
+    "format": true,
+    "build": true,
+    "nestedProduction": {
+      "result": "passed",
+      "recordings": 32,
+      "developmentHook": false,
+      "publicChampionChoices": ["ashe", "lux"]
+    }
+  },
+  "pack": {
+    "id": "180aadb3005305d4982afdacd9328e58b8b98fc302203f3bffc703a49c8d710e",
+    "files": 1202,
+    "bytes": 538110595
+  },
+  "inheritedEvidence": {
+    "freshBroadTests": false,
+    "freshNodeQA": false,
+    "freshFullMatches": false,
+    "freshOffline": false,
+    "source": "docs/reference/bot-team-detour-verification.json"
+  },
+  "frozenAudits": "Both 100-seed corpora retain a3e47aa and the unchanged ruleset. This step claims no completion. Quiet-browser pause is recorded and resumed.",
+  "evidence": [
+    {
+      "file": "artifacts/minimap-drag/before-focus-sources.json",
+      "bytes": 754,
+      "sha256": "b3fe26a24c12ec87384d6cdcb12935b4a180683340c8f48628a4e238a3147503"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser/minimap-camera-drag-minima-27eb9--click-orders-stay-distinct/cancellation.json",
+      "bytes": 612,
+      "sha256": "ae8c11f2cd83144c3a1d9f82459991c0a22e5400941c040dacccfacf86015f80"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser/minimap-camera-drag-truste-2e0f5--and-changes-no-match-state/drag.json",
+      "bytes": 133,
+      "sha256": "ba0e40517206a38dc89ead430528ad49e814dd03c5374eecd5314ba9dae5aaca"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser/minimap-camera-drag-truste-2e0f5--and-changes-no-match-state/dragged-camera.png",
+      "bytes": 706278,
+      "sha256": "79cf23bdfc1139c3891347da395ae6b20655a75aae34cd337f5ac5155a9f9a10"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser-final/camera-team-a-held-teammat-8c699-typing-and-modifier-targets/camera-team-movement.json",
+      "bytes": 557,
+      "sha256": "519b4f3a7a994b5f9349e899132fae97649be903eb776f0d0e64f1ede9b24616"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser-final/camera-team-a-held-teammat-8c699-typing-and-modifier-targets/following-moving-ally.png",
+      "bytes": 1647094,
+      "sha256": "0f8eb7ff3ffb075257f52fadd45eadb02e39a153f908b940f916096a9a1f1662"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser-final/camera-team-held-teammate--ca388-eys-and-clear-on-pause-blur/camera-team.json",
+      "bytes": 610,
+      "sha256": "b44053e22286ebdba1f1bf0cc92e33fa994be5d9ce608aa0121725a1cd15123a"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser-final/camera-team-held-teammate--ca388-eys-and-clear-on-pause-blur/held-support-camera.png",
+      "bytes": 1665276,
+      "sha256": "fe5aeb5a9f22df5cdc56041e4083d9ffd2fac4e9e8061679b5a87db49a1a9ea2"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser-final/minimap-camera-drag-minima-27eb9--click-orders-stay-distinct/cancellation.json",
+      "bytes": 612,
+      "sha256": "ae8c11f2cd83144c3a1d9f82459991c0a22e5400941c040dacccfacf86015f80"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser-final/minimap-camera-drag-truste-2e0f5--and-changes-no-match-state/drag.json",
+      "bytes": 133,
+      "sha256": "ba0e40517206a38dc89ead430528ad49e814dd03c5374eecd5314ba9dae5aaca"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser-final/minimap-camera-drag-truste-2e0f5--and-changes-no-match-state/dragged-camera-1024.png",
+      "bytes": 639274,
+      "sha256": "385054b80acd2420397db3af6ce0241bb9d491b3c12732eb7b48ca09b50a3e72"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser-final/minimap-camera-drag-truste-2e0f5--and-changes-no-match-state/dragged-camera.png",
+      "bytes": 706273,
+      "sha256": "dc66245f78362f81ed7c2a68f8a4f8e94df7a6c5efe6a6f577678a469f2cde31"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser-final.log",
+      "bytes": 3029,
+      "sha256": "c3cd5096eb947fd2572959fa7c7f8c89fc517cd56a1f04ca82acf206b67c11e6"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser-focus/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser-focus/input-hud-tab-HUD-Tab-and--7ded6-ld-Tab-holds-the-scoreboard/hud-tab.json",
+      "bytes": 772,
+      "sha256": "da0c93a3cb10c8067a4fecd9be4672342668274e42a71e9662aa607aefcf7c5d"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser-focus/input-hud-tab-the-actual-H-00b1e-pport-native-Tab-navigation/actual-hud-tab.json",
+      "bytes": 61,
+      "sha256": "617556198f5165f302b722257cc4f632c938e83f87f89d1571152b79aab42c60"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser-focus/minimap-camera-drag-minima-27eb9--click-orders-stay-distinct/cancellation.json",
+      "bytes": 612,
+      "sha256": "ae8c11f2cd83144c3a1d9f82459991c0a22e5400941c040dacccfacf86015f80"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser-focus/minimap-camera-drag-truste-2e0f5--and-changes-no-match-state/drag.json",
+      "bytes": 133,
+      "sha256": "4d67424762ec25c012b2be52186f49bc2a6d49e4c530785fd65aba73045778ba"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser-focus/minimap-camera-drag-truste-2e0f5--and-changes-no-match-state/dragged-camera-1024.png",
+      "bytes": 870399,
+      "sha256": "71409629f66b0eeed51740cd2af1e2444ef185104a03d3865077be9cb898b664"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser-focus/minimap-camera-drag-truste-2e0f5--and-changes-no-match-state/dragged-camera.png",
+      "bytes": 1342877,
+      "sha256": "0f296531b469e07c5e12c7b79ba682a117764b622516197a3bbf5f6f4e86c1b5"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser-focus.log",
+      "bytes": 1338,
+      "sha256": "ff0dcfa854f0726c0289950d7df87c16636ebd80ac91c1268a51cd331ba9ab59"
+    },
+    {
+      "file": "artifacts/minimap-drag/browser.log",
+      "bytes": 960,
+      "sha256": "891bb5b34098c3365dae9f63e21457013e70233b05dee0347088a2518fa48c5a"
+    },
+    {
+      "file": "artifacts/minimap-drag/build.log",
+      "bytes": 7124,
+      "sha256": "c487aacb6e5ed7e375e63d7dbd10d6968dd560a1e2719a04b1bdb0b6a983007a"
+    },
+    {
+      "file": "artifacts/minimap-drag/drag-before-focus.spec.ts",
+      "bytes": 7235,
+      "sha256": "16b76365d55f3ee4dc4e9c80d17e2cbddd5c02694a8ee20655ac48855bd474b9"
+    },
+    {
+      "file": "artifacts/minimap-drag/format-check.log",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "file": "artifacts/minimap-drag/hud-before-focus.ts",
+      "bytes": 88981,
+      "sha256": "931706b3e92f0036ea47fd45b8c9506fe197c8ecee3678e5c4ac9aeca3bda43b"
+    },
+    {
+      "file": "artifacts/minimap-drag/offline-input.json",
+      "bytes": 719,
+      "sha256": "8ee4af88c734a44ebb83e6e1267c5a190ed8d076fc9f85116c2766c632516d6c"
+    },
+    {
+      "file": "artifacts/minimap-drag/offline-pack.json",
+      "bytes": 172470,
+      "sha256": "8d1203ce1f3245b341ab653c3e6b10d7e5b8f46f63bd4b990e9dce937c9152d3"
+    },
+    {
+      "file": "artifacts/minimap-drag/production.json",
+      "bytes": 3492,
+      "sha256": "fdda169e16f84789208f5643df3d6a5f6845f6e6b662cac3b836866e04d2fcb2"
+    },
+    {
+      "file": "artifacts/minimap-drag/production.log",
+      "bytes": 3112,
+      "sha256": "76ae8d93a1844e7c2030c8df65022cbf8f8a0bc72b045fbc0bf547c07faefc4e"
+    },
+    {
+      "file": "artifacts/minimap-drag/production.png",
+      "bytes": 1822639,
+      "sha256": "57676393255d2f520f67c181bf91cdad8e365cbfa754f380d029452bffea77d6"
+    },
+    {
+      "file": "artifacts/certification-abc8dc/pauses/minimap-browser.json",
+      "bytes": 1609,
+      "sha256": "80671003e456e34ab1aaa1359314ed8af2e1ec421cb41d54af4dbd2533988e4c"
+    }
+  ]
+}

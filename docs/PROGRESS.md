@@ -6,6 +6,25 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+The latest [minimap camera dragging](MINIMAP-CAMERA-DRAG.md) captures the
+primary left pointer, clamps outside coordinates, rejects secondary pointers,
+and clears on release, pause, modal, blur, cancellation or lost capture.
+It returns focus to the battlefield so Space recenters without activating a
+previously focused HUD button. Right-click move and Shift + right-click
+attack-move remain distinct. Camera input queues no orders and preserves the
+complete saved match. Normal Rift captures are reviewed at 1440×900 and
+1024×720. Nine earlier browser regressions and four final focus/drag/native-Tab
+cases pass across their recorded source stages, along with TypeScript,
+formatting, build and all 32 nested production recordings/gates.
+
+Schema stays 163; simulation fingerprint stays
+`abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f`.
+Matching pack `180aadb3005305d4982afdacd9328e58b8b98fc302203f3bffc703a49c8d710e`
+has 1,202 files / 538,110,595 bytes. No public media or saved fields change.
+Both frozen 100-seed audits resume after the recorded quiet-test pause.
+Earlier broad/Node QA/full-match evidence retains its own scope; a fresh
+offline-pack and completed-match restore audit follows this UI step.
+
 A separate [unfinished-match continuation](UNFINISHED-MATCH-CONTINUATION.md)
 imports ordinary seed 2's exact 60-minute save and reaches a natural Red
 victory at tick 217,745 (60:29.083). Independent replay verifies all 1,745

@@ -125,6 +125,7 @@ export class Hud {
   private replacingMatch = false;
   private importError = '';
   private mini: HTMLCanvasElement;
+  private minimapPointer: number | null = null;
   private tip: HTMLDivElement;
   private itemTooltip: ScoreboardItemTooltip;
   private attackStatTooltip: AttackStatTooltip;
@@ -165,7 +166,7 @@ export class Hud {
         </div>
         <div class="inventory-panel"><div class="inventory-tools"><div class="inventory-grid" id="inventory">${Array.from({ length: 6 }, (_, i) => `<div class="item-slot"><span>${[1, 2, 3, 5, 6, 7][i]}</span></div>`).join('')}</div><button id="trinket" class="item-slot trinket-slot" aria-label="Stealth Ward"><img src="assets/icons/3340.png" alt="Stealth Ward"><b class="trinket-charges"></b><time class="trinket-cooldown"></time><span>4</span></button></div><button id="shop-button" class="gold-button" title="Open shop (P)"><span>◆</span><b id="gold">500</b><kbd>P</kbd></button></div>
       </section>
-      <div class="minimap-shell"><div class="map-controls"><button id="camera-button" aria-label="Toggle camera lock" title="Lock camera (Y)">▣</button><button id="sound-button" aria-label="Toggle sound" title="Toggle sound">♫</button><span id="fps">60 FPS</span></div><canvas id="minimap" width="256" height="256" aria-label="Minimap. Left-click to move the camera; right-click to move your champion."></canvas><span class="map-caption">SUMMONER’S RIFT</span></div>
+      <div class="minimap-shell"><div class="map-controls"><button id="camera-button" aria-label="Toggle camera lock" title="Lock camera (Y)">▣</button><button id="sound-button" aria-label="Toggle sound" title="Toggle sound">♫</button><span id="fps">60 FPS</span></div><canvas id="minimap" width="256" height="256" aria-label="Minimap. Left-click or drag to move the camera; right-click to move your champion."></canvas><span class="map-caption">SUMMONER’S RIFT</span></div>
       <div class="recall-progress" hidden><span>RECALLING</span><div><i></i></div><small>Taking damage or moving cancels recall</small></div>
       <div class="death-overlay" hidden><span>You have been slain</span><strong id="respawn-count"></strong></div>
       <div class="modal-backdrop" id="modal" hidden></div>
@@ -494,11 +495,37 @@ export class Hud {
           unit: this.world.player.id,
           order: { type: e.shiftKey ? 'attackMove' : 'move', point },
         });
-      else {
+      else if (e.button === 0 && e.isPrimary && this.minimapPointer === null) {
+        e.preventDefault();
+        this.view.renderer.domElement.focus({ preventScroll: true });
+        this.minimapPointer = e.pointerId;
+        this.mini.setPointerCapture(e.pointerId);
         this.view.locked = false;
         this.view.center = point;
       }
     });
+    this.mini.addEventListener('pointermove', (e) => {
+      if (e.pointerId !== this.minimapPointer) return;
+      if (this.modal || this.paused || !(e.buttons & 1)) {
+        this.releaseMinimapCamera();
+        return;
+      }
+      const bounds = this.mini.getBoundingClientRect();
+      if (bounds.width <= 0 || bounds.height <= 0) return;
+      const fraction = (value: number, start: number, size: number) =>
+        Math.max(0, Math.min(1, (value - start) / size));
+      const half = this.world.battlefield.half;
+      this.view.locked = false;
+      this.view.center = {
+        x: (fraction(e.clientX, bounds.left, bounds.width) - 0.5) * half * 2,
+        y: (fraction(e.clientY, bounds.top, bounds.height) - 0.5) * half * 2,
+      };
+    });
+    for (const type of ['pointerup', 'pointercancel', 'lostpointercapture'] as const)
+      this.mini.addEventListener(type, (e) => {
+        if (e.pointerId === this.minimapPointer) this.releaseMinimapCamera();
+      });
+    window.addEventListener('blur', () => this.releaseMinimapCamera());
     this.root.querySelectorAll<HTMLButtonElement>('[data-learn]').forEach((button) => {
       button.addEventListener('click', () => {
         if (this.paused || this.modal) return;
@@ -587,6 +614,7 @@ export class Hud {
     if (this.replacingMatch && which !== 'graphics') return;
     if (this.graphicsState && which !== 'graphics') return;
     if (this.world.winner && which !== 'result' && which !== 'graphics') return;
+    this.releaseMinimapCamera();
     if (this.modal === which) {
       this.closeModal();
       return;
@@ -705,6 +733,7 @@ export class Hud {
         ['4', 'Hold to aim Stealth Ward; press to activate Oracle Lens'],
         ['P', 'Open item shop'],
         ['Space / Y', 'Recenter / lock camera'],
+        ['Drag minimap', 'Move camera; right-click to move your champion'],
         ['F1', 'Hold to follow your champion'],
         ...(this.world.matchMode === 'lanes' ? [['F2–F5', 'Hold to follow a teammate']] : []),
         ['Shift', 'Show attack range'],
@@ -1015,6 +1044,12 @@ export class Hud {
       backdrop.querySelector<HTMLButtonElement>('.shop-item') ??
       backdrop.querySelector<HTMLButtonElement>('.close-button');
     initialFocus?.focus();
+  }
+  releaseMinimapCamera(): void {
+    const pointer = this.minimapPointer;
+    this.minimapPointer = null;
+    if (pointer !== null && this.mini.hasPointerCapture(pointer))
+      this.mini.releasePointerCapture(pointer);
   }
   minimapPoint(clientX: number, clientY: number): { x: number; y: number } | null {
     const bounds = this.mini.getBoundingClientRect();

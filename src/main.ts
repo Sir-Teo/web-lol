@@ -232,7 +232,10 @@ async function boot(): Promise<void> {
     accumulator = 0;
     previous = performance.now();
     // Release unfinished gestures; accepted commands belong to the frozen match state.
-    if (paused) input?.release();
+    if (paused) {
+      input?.release();
+      hud.releaseMinimapCamera();
+    }
     requestFrame();
   };
   const hud = new Hud(host, world, view, {
