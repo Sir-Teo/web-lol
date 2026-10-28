@@ -1,0 +1,126 @@
+{
+  "scope": "Separate exact continuation of ordinary seed 2; original 60-minute cohort remains unfinished",
+  "verification": {
+    "passed": true,
+    "ruleset": "abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f",
+    "seed": 2,
+    "sourceRevision": "a3e47aa48b3cd0f6089c0077f328a26df0b127f6",
+    "fromTick": 216000,
+    "finalTick": 217745,
+    "addedTicksReplayed": 1745,
+    "roundTrips": 2,
+    "futureChecks": 1,
+    "futureCheckedTicks": 60,
+    "winner": "red",
+    "original60MinuteOutcome": "unfinished",
+    "originalCorpusBytesUnchanged": true,
+    "finalExact": true,
+    "terminalFrozenTicks": 120,
+    "protectedStructureDamageVerified": true,
+    "destruction": [
+      {
+        "tick": 217745,
+        "id": 25,
+        "team": "blue",
+        "role": "nexus",
+        "lane": null,
+        "healthBarHeight": 500,
+        "regenPerSecond": 4
+      }
+    ],
+    "finalStateSha256": "c5a2394fb07921a736ac944deb05519c6c3ce1fab388a50d571d394eecabe1b0",
+    "reportSha256": "697261b22657cd1e5ee5563857b80751f6df0f1f93f8d0ebe2479818f4e7125c",
+    "manifestSha256": "2b60f599ae174b326378f3d9ba839ce396cd8e737fc5932bde560e258a633981",
+    "verifiedAt": "2026-10-28T11:06:31.428Z"
+  },
+  "simulationSchema": 163,
+  "unchangedApplicationBuild": true,
+  "freshBrowserOrBroadTests": false,
+  "pins": [
+    {
+      "file": "/workspace/web-lol/artifacts/certification-abc8dc/ordinary-seed2-80m/prepare.py",
+      "bytes": 2539,
+      "sha256": "82173ddb671a92e1d8dd0988c662b1931ff28e19727a4b3eac49ef7f7a9584a1"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/certification-abc8dc/ordinary-seed2-80m/build.mjs",
+      "bytes": 1952,
+      "sha256": "773d847983a71027c606f5b6ec7b5b2a82d910791001ee0fd43bfcb493bffd23"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/certification-abc8dc/ordinary-seed2-80m/continue.ts",
+      "bytes": 9191,
+      "sha256": "f36ad2d8711f2d6246497169b125f57a3418a613376b32259883a366a2c25cd5"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/certification-abc8dc/ordinary-seed2-80m/manifest.json",
+      "bytes": 95350,
+      "sha256": "2b60f599ae174b326378f3d9ba839ce396cd8e737fc5932bde560e258a633981"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/certification-abc8dc/ordinary-seed2-80m/runner/continue.js",
+      "bytes": 1182133,
+      "sha256": "74d2ab80e16f9fe5f7a5974387014a60c33bd0e6d8248fccd895dda280fdc488"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/certification-abc8dc/ordinary-seed2-80m/origin-plan.json",
+      "bytes": 95141,
+      "sha256": "5e193343cf9d80dd850af9669ed062a292426f74f8c72ff94202f6514b8371e7"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/certification-abc8dc/ordinary-seed2-80m/origin-report.json",
+      "bytes": 304776,
+      "sha256": "657aebcecd09b3d1ac2eee92ddfcb1252adb09557381132107e70ad4dd3a94cf"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/certification-abc8dc/ordinary-seed2-80m/origin.match.json",
+      "bytes": 224510,
+      "sha256": "d845646351f2a99111b5870cf7262cddf8c52a5423755d501001296dd873f8cd"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/certification-abc8dc/ordinary-seed2-80m/result/report.json",
+      "bytes": 10875,
+      "sha256": "697261b22657cd1e5ee5563857b80751f6df0f1f93f8d0ebe2479818f4e7125c"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/certification-abc8dc/ordinary-seed2-80m/result/final.match.json",
+      "bytes": 195664,
+      "sha256": "87024f928216560cdc95afe201bdcb38db50886190b830983e79f07d32209ddb"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/certification-abc8dc/ordinary-seed2-80m/verify.ts",
+      "bytes": 5246,
+      "sha256": "964616faa99e305910d305fbb4a81e5a5b2f6ba0331b11549cc9d9a8f6fea926"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/certification-abc8dc/ordinary-seed2-80m/build-verifier.mjs",
+      "bytes": 922,
+      "sha256": "0e3ce620eb78adefecd5b56f75a91b6899c88d8243b62d6345cc043a9b5d9297"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/certification-abc8dc/ordinary-seed2-80m/verifier-manifest.json",
+      "bytes": 721,
+      "sha256": "35728838545f686eec111b183479f35717fb6fbf071155fcbdac2492fdc9a9c2"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/certification-abc8dc/ordinary-seed2-80m/verifier/verify.js",
+      "bytes": 1177888,
+      "sha256": "1570b47c6de7a2abf4a84faaac8f09cc1f6e86088a6cdaf69bf34e804af84b5f"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/certification-abc8dc/ordinary-seed2-80m/verification.json",
+      "bytes": 1023,
+      "sha256": "0bad67cebb2117156e5b5ddfb435d9fd9d707cc01eff4c954bbfeabe0591d5bf"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/certification-abc8dc/ordinary-seed2-80m/run.log",
+      "bytes": 275,
+      "sha256": "90b867e8e0cd221c4343d6c92bbf1a702a15d36a83aa05c74468a454cbac3373"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/certification-abc8dc/ordinary-seed2-80m/verify.log",
+      "bytes": 869,
+      "sha256": "616bec8636b62f1e8e3765ee07fb8c52a875ab1e423cf11a032894ffe088e2be"
+    }
+  ]
+}

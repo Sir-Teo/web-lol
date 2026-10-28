@@ -6,6 +6,16 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+A separate [unfinished-match continuation](UNFINISHED-MATCH-CONTINUATION.md)
+imports ordinary seed 2's exact 60-minute save and reaches a natural Red
+victory at tick 217,745 (60:29.083). Independent replay verifies all 1,745
+added ticks, two exact round-trips, one 60-tick saved future, exposed-building
+damage, exact final state and a 120-tick terminal freeze. The original cohort
+report/save remain byte-identical and its outcome remains unfinished. This
+is a single-seed diagnostic, not a replacement result or hundred-seed gate.
+Both frozen 100-seed audits continue. Simulation source and the current
+application build/offline pack are unchanged; earlier test scopes remain.
+
 The latest [camera-aligned aim previews](AIM-CAMERA.md) refresh active pointer
 and target selection after current camera/model placement and before drawing.
 The retained pre-fix W zoom case misses its real release point by 165.516979
