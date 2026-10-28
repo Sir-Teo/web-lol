@@ -6,11 +6,22 @@ export interface WaveContext {
   enemyInhibitorsDown: number;
 }
 
+/** Forbidden center-point regions for one path query; includes desired clearance. */
+export interface NavigationCircle extends Vec2 {
+  radius: number;
+}
+
 export interface TerrainQueries {
   /** Center-point brush membership; omitted by synthetic geometry fixtures. */
   inBrush?(point: Vec2): boolean;
   reachable(point: Vec2, radius: number, team?: Team): Vec2;
-  findPath(from: Vec2, to: Vec2, radius: number, team?: Team): Vec2[];
+  findPath(
+    from: Vec2,
+    to: Vec2,
+    radius: number,
+    team?: Team,
+    avoid?: readonly NavigationCircle[]
+  ): Vec2[];
   lineWalkable(from: Vec2, to: Vec2, radius: number, team?: Team): boolean;
   lineOfSight(from: Vec2, to: Vec2): boolean;
   heightAt(point: Vec2): number;

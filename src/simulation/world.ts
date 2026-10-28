@@ -3298,38 +3298,63 @@ export class World {
     if (u.kind !== 'champion') return false;
     const point = this.battlefield.reachable(goal.point, u.radius, u.team);
     // Never use a hidden tower's actual health to remove a remembered hazard.
-    const path =
+    let path =
       u.order.type === 'move' && distance(u.order.point, point) < 50 && u.path.length
         ? u.path
         : this.battlefield.findPath(u, point, u.radius, u.team);
     if (!path.length && distance(u, point) > 200) return false;
-    const route = [u, ...path, point];
-    const unsafe = this.knownTeamTowers(u.team).some((t) => {
-      const cover =
-        goal.kind !== 'gank' &&
-        this.units.some(
-          (m) =>
-            m.team === u.team &&
-            isLaneMinionKind(m.kind) &&
-            this.alive(m) &&
-            distance(m, t) <= t.range + m.radius
-        );
-      return (
-        !cover &&
-        route.some(
-          (b, i) =>
-            i > 0 &&
-            segmentDistance(t, route[i - 1], b) < t.range + u.radius + BOT_TEAM_POLICY.towerMargin
-        )
+    const hazards = this.knownTeamTowers(u.team)
+      .filter((t) => {
+        const cover =
+          goal.kind !== 'gank' &&
+          this.units.some(
+            (m) =>
+              m.team === u.team &&
+              isLaneMinionKind(m.kind) &&
+              this.alive(m) &&
+              distance(m, t) <= t.range + m.radius
+          );
+        return !cover;
+      })
+      .map((t) => ({
+        x: t.x,
+        y: t.y,
+        radius: t.range + u.radius + BOT_TEAM_POLICY.towerMargin,
+      }));
+    const unsafe = (candidate: Vec2[]) => {
+      const route = [u, ...candidate, point];
+      return hazards.some((t) =>
+        route.some((b, i) => i > 0 && segmentDistance(t, route[i - 1], b) < t.radius)
       );
-    });
-    if (unsafe) return false;
+    };
+    const detour = unsafe(path);
+    if (detour) {
+      path = this.battlefield.findPath(u, point, u.radius, u.team, hazards);
+      // A terrain implementation may omit exclusions or stop in a disconnected
+      // component. Only a complete, independently checked route can replace a veto.
+      if (!path.length || distance(path.at(-1)!, point) > 0.01 || unsafe(path)) return false;
+      const route = [u, ...path];
+      if (
+        route.some(
+          (b, i) => i > 0 && !this.battlefield.lineWalkable(route[i - 1], b, u.radius, u.team)
+        )
+      )
+        return false;
+    }
     if (distance(u, point) <= 200) {
       if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
       return true;
     }
     if (u.order.type !== 'move' || distance(u.order.point, point) > 50)
       this.setOrder(u, { type: 'move', point: { x: point.x, y: point.y } });
+    if (detour) {
+      // Keep the validated route in the existing saved movement fields. Letting
+      // move() recompute an ordinary path here would cut through the same hazard.
+      u.path = path.map((p) => ({ x: p.x, y: p.y }));
+      u.pathTarget = { x: point.x, y: point.y };
+      u.pathDestination = { ...u.path.at(-1)! };
+      u.nextPathTick = this.tick + 12;
+    }
     return true;
   }
   private junglePlan(u: Unit) {

@@ -6,7 +6,30 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
-The latest [private player chooser](ROSTER-PLAYER-SELECTION.md) offers all six
+The latest [team-job detours](BOT-TEAM-DETOURS.md) let bots route around
+remembered enemy turrets when their ordinary/cached crossing is unsafe. They
+use existing friendly cover and knowledge, accept only complete independently
+checked paths, and save the actual route in existing movement fields. Human
+orders and source spell values are unchanged. All 77 focused cases, TypeScript,
+39 Node QA checks, formatting, build and **3,560/3,566 broad tests across 414
+files** pass; the six reproduced baseline failures remain unchanged. Four
+browser cases pass the new movement/real Save/reload/exact 180-tick future plus
+existing siege, river and base-defense flows. The initial crossing fixture
+incorrectly leaves a historically destroyed neighboring Nexus turret alive;
+its correct escape and failed trace are retained. Final staging includes its
+ordinary respawn deadline. The old archived source fails 24/32 new regressions.
+
+Nested production passes all 32 recordings/gates with the public chooser still
+exactly Ashe/Lux. Final route captures are reviewed at 1440×900. Schema stays
+163; current fingerprint is
+`abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f`.
+Matching pack `a2a97e1b56943afc1b0b7d0afd7453f70c5cf7ffda8906f966784382a7aee3f7`
+has 1,202 files / 538,107,183 bytes. Fresh frozen match comparisons follow this
+source commit. The preceding five long matches retain their original identity;
+full-browser, offline refresh, hundred-seed, native and performance gates remain
+separate work.
+
+The preceding [private player chooser](ROSTER-PLAYER-SELECTION.md) offers all six
 human champions in `/?scene=roster-rift`. One exhaustive role map now serves
 both the menu and match creation. Garen takes top, Yi jungle, Ahri/Lux mid,
 Ashe carry and Leona support. Each human remains manual with ordinary starting
@@ -23,7 +46,7 @@ ordinary/separate boundaries, public Lux keyboard/practice and the existing
 natural Alpha plus 180-tick saved future. The final boundary/layout case also
 passes with the cursor and Yi preparation note. Captures at 1440×900 and
 1024×720 are reviewed without horizontal overflow or page errors.
-Schema stays 163; current rules fingerprint is
+At that milestone schema stays 163; its rules fingerprint is
 `033bd826b7f5899449adbec1cbb02ff826f636cf3b75c758f4effe4f7c5a02be`.
 Matching pack `6ae6d2082737111fc8f19c468b88affa58cf9fa5eab6c4b31a135b64826f1b50`
 contains 1,202 files / 538,106,646 bytes. Source spell values, controllers,

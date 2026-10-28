@@ -53,8 +53,10 @@ Movement uses the normal imported navigation grid. Each remaining path segment
 is checked against remembered intact enemy towers, including towers under fog.
 Allied minion cover can permit siege/defense travel; gank travel always avoids
 that danger. An unsafe or unreachable route declines the job’s movement and
-resumes the role policy. Finding an alternate route around threat regions remains
-unfinished.
+resumes the role policy. The [detour follower](BOT-TEAM-DETOURS.md) can now seek an alternate path
+around the same remembered turrets when the ordinary or cached path is unsafe.
+It accepts only a complete independently checked route and retains the old
+fallback when no safe alternative exists.
 
 Remembered inhibitor and Nexus-turret destruction expires conservatively for
 planning on the public respawn calendar. After that deadline, a hidden turret

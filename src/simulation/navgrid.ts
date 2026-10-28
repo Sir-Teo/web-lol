@@ -1,6 +1,6 @@
-import { clamp, distance, lerp, type Vec2 } from './math';
+import { clamp, distance, lerp, segmentDistance, type Vec2 } from './math';
 import type { Team } from './types';
-import type { TerrainQueries } from './battlefield';
+import type { TerrainQueries, NavigationCircle } from './battlefield';
 
 export interface NavGridMetadata {
   width: number;
@@ -351,16 +351,28 @@ export class NavGrid implements TerrainQueries {
     if (best < 0) throw new Error('No walkable navigation cells');
     return this.center(best);
   }
-  findPath(from: Vec2, requested: Vec2, radius: number, team: Team = 'blue'): Vec2[] {
+  findPath(
+    from: Vec2,
+    requested: Vec2,
+    radius: number,
+    team: Team = 'blue',
+    avoid: readonly NavigationCircle[] = []
+  ): Vec2[] {
+    if (avoid.some((c) => ![c.x, c.y, c.radius].every(Number.isFinite) || c.radius < 0))
+      throw new Error('Invalid navigation exclusion');
+    const clear = (a: Vec2, b: Vec2) =>
+      this.lineWalkable(a, b, radius, team) &&
+      avoid.every((c) => segmentDistance(c, a, b) >= c.radius);
     const start = this.reachable(from, radius, team),
       end = this.reachable(requested, radius, team);
-    if (this.lineWalkable(start, end, radius, team)) return [end];
+    if (avoid.some((c) => distance(start, c) < c.radius || distance(end, c) < c.radius)) return [];
+    if (clear(start, end)) return [end];
     const passable = this.passable(radius, team),
       ei = this.cell(end),
       width = this.metadata.width;
     let si = this.cell(start);
     // Connect arbitrary endpoints to the grid without jumping through a wall.
-    if (!passable[si] || !this.lineWalkable(start, this.center(si), radius, team)) {
+    if (!passable[si] || !clear(start, this.center(si))) {
       const origin = si,
         ox = origin % width,
         oz = Math.floor(origin / width);
@@ -372,7 +384,7 @@ export class NavGrid implements TerrainQueries {
           if (i < 0 || !passable[i]) continue;
           const p = this.center(i),
             d = distance(start, p);
-          if (d < score && this.lineWalkable(start, p, radius, team)) {
+          if (d < score && clear(start, p)) {
             si = i;
             score = d;
           }
@@ -402,10 +414,7 @@ export class NavGrid implements TerrainQueries {
         best = i;
         nearest = remaining;
       }
-      if (
-        (i === ei || remaining < this.metadata.cellSize * 2) &&
-        this.lineWalkable(point, end, radius, team)
-      ) {
+      if ((i === ei || remaining < this.metadata.cellSize * 2) && clear(point, end)) {
         best = i;
         arrived = true;
         break;
@@ -425,7 +434,7 @@ export class NavGrid implements TerrainQueries {
           const cost = current.cost + this.metadata.cellSize * (dx && dz ? Math.SQRT2 : 1);
           if (this.stamps[next] === stamp && cost >= this.costs[next]) continue;
           const nextPoint = this.center(next);
-          if (!this.lineWalkable(point, nextPoint, radius, team)) continue;
+          if (!clear(point, nextPoint)) continue;
           this.costs[next] = cost;
           this.stamps[next] = stamp;
           this.parents[next] = i;
@@ -442,8 +451,7 @@ export class NavGrid implements TerrainQueries {
       index = 0;
     while (index < raw.length) {
       let last = index;
-      while (last + 1 < raw.length && this.lineWalkable(anchor, raw[last + 1], radius, team))
-        last++;
+      while (last + 1 < raw.length && clear(anchor, raw[last + 1])) last++;
       if (distance(anchor, raw[last]) > 0.01) result.push(raw[last]);
       anchor = raw[last];
       index = last + 1;

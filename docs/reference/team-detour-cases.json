@@ -1,0 +1,143 @@
+{
+  "baselineRuleset": "033bd826b7f5899449adbec1cbb02ff826f636cf3b75c758f4effe4f7c5a02be",
+  "note": "Position-only geometry observations retained from the five-game baseline. These do not migrate old checkpoints or expose hidden state to a runtime planner.",
+  "cases": [
+    {
+      "seed": 26018,
+      "tick": 144000,
+      "actor": 1,
+      "champion": "lux",
+      "team": "blue",
+      "kind": "advance",
+      "sourceCheckpoint": {
+        "path": "artifacts/roster-cohort/long-five/seeds/26018/144000.match.json",
+        "sha256": "28a0a61f726d547a437a503592048368568070940fb591a48072b7f999b2b0b1"
+      },
+      "start": {
+        "x": -240.3621848332868,
+        "y": 211.79263983712474
+      },
+      "goal": {
+        "x": 5498.89510345459,
+        "y": -5082.755798339844
+      },
+      "actorRadius": 35,
+      "hazards": [
+        {
+          "x": 3056,
+          "y": -6225,
+          "radius": 935
+        },
+        {
+          "x": 3709,
+          "y": -3782,
+          "radius": 935
+        }
+      ]
+    },
+    {
+      "seed": 26018,
+      "tick": 144000,
+      "actor": 33,
+      "champion": "masteryi",
+      "team": "blue",
+      "kind": "advance",
+      "sourceCheckpoint": {
+        "path": "artifacts/roster-cohort/long-five/seeds/26018/144000.match.json",
+        "sha256": "28a0a61f726d547a437a503592048368568070940fb591a48072b7f999b2b0b1"
+      },
+      "start": {
+        "x": -2966.7322722867702,
+        "y": 1438.8269781258355
+      },
+      "goal": {
+        "x": 5498.89510345459,
+        "y": -5082.755798339844
+      },
+      "actorRadius": 35,
+      "hazards": [
+        {
+          "x": 3056,
+          "y": -6225,
+          "radius": 935
+        },
+        {
+          "x": 3709,
+          "y": -3782,
+          "radius": 935
+        }
+      ]
+    },
+    {
+      "seed": 927,
+      "tick": 126000,
+      "actor": 37,
+      "champion": "masteryi",
+      "team": "red",
+      "kind": "advance",
+      "sourceCheckpoint": {
+        "path": "artifacts/roster-cohort/long-five/seeds/927/126000.match.json",
+        "sha256": "c62596064ae5fc7e09f51a11d9d414ed87d026e0cbd7107c8345f704e8a3d568"
+      },
+      "start": {
+        "x": 3075.4368466650417,
+        "y": -1421.4238702117045
+      },
+      "goal": {
+        "x": -4500.848599460924,
+        "y": 5754.346462575956
+      },
+      "actorRadius": 35,
+      "hazards": [
+        {
+          "x": -5677,
+          "y": 5155,
+          "radius": 935
+        },
+        {
+          "x": -3774,
+          "y": 3729,
+          "radius": 935
+        },
+        {
+          "x": -6256,
+          "y": 3138,
+          "radius": 935
+        }
+      ]
+    },
+    {
+      "seed": 2147483648,
+      "tick": 144000,
+      "actor": 32,
+      "champion": "garen",
+      "team": "blue",
+      "kind": "push",
+      "sourceCheckpoint": {
+        "path": "artifacts/roster-cohort/long-five/seeds/2147483648/144000.match.json",
+        "sha256": "dd7f1685aa3d074433d4a1c6baa5646aaafa6687b674787b0480849391bb4c81"
+      },
+      "start": {
+        "x": 5192.519585964811,
+        "y": -6035.552127801283
+      },
+      "goal": {
+        "x": 4560.089139411156,
+        "y": -5012.288631152249
+      },
+      "actorRadius": 35,
+      "hazards": [
+        {
+          "x": 5627,
+          "y": -5187,
+          "radius": 935
+        },
+        {
+          "x": 3709,
+          "y": -3782,
+          "radius": 935
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,568 @@
+{
+  "date": "2026-10-28",
+  "previousCommit": "f3253f7",
+  "schema": 163,
+  "ruleset": "abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f",
+  "sources": [
+    {
+      "path": "src/simulation/battlefield.ts",
+      "bytes": 3729,
+      "sha256": "1c8aa24c67deb80a789afff083e1bdf43f760c087e14c1b5bba3571b7b6a836a"
+    },
+    {
+      "path": "src/simulation/navgrid.ts",
+      "bytes": 15754,
+      "sha256": "5e74205eccfdac9b56f1de468b6fc5f110391d6f2f255c98cbbeb1e4c3376308"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "bytes": 316684,
+      "sha256": "84a86b4a4c0be4171eb84db358795790b4686b1ed688fdf983f33ca745003b5a"
+    },
+    {
+      "path": "tests/bot-team-detour.test.ts",
+      "bytes": 13285,
+      "sha256": "dc7038d4f8715ce36f38d2002dc303c6bd83d0dc1423a8ad0de17f54446ae460"
+    },
+    {
+      "path": "e2e/bot-team-detour.spec.ts",
+      "bytes": 6852,
+      "sha256": "bcae9a5617bc866a92d9234c999c46637afc45a9a45d13e53d4d4ed94d0ce979"
+    },
+    {
+      "path": "docs/reference/team-detour-cases.json",
+      "bytes": 3414,
+      "sha256": "04c7be3e153147996d00eaa1c64e5fccbf2be488dd17c5a0ba8e954bc52382a0"
+    }
+  ],
+  "behavior": {
+    "queriesUseRememberedTowersOnly": true,
+    "existingFriendlyCoverPolicy": true,
+    "ganksKeepCoveredTowerHazards": true,
+    "completeRouteRequired": true,
+    "independentContinuousRouteCheck": true,
+    "acceptedPathSerializedUsingExistingFields": true,
+    "newSavedFields": false,
+    "ordinaryHumanMovementUnchanged": true,
+    "sourceSpellValuesUnchanged": true,
+    "publicAssetsChanged": false
+  },
+  "focused": {
+    "passed": 77,
+    "total": 77,
+    "files": 5,
+    "newCases": 32
+  },
+  "broad": {
+    "passed": 3560,
+    "total": 3566,
+    "files": 414,
+    "unchangedBaselineFailures": 6,
+    "baselineEvidence": "docs/reference/ahri-bot-mobility-verification.json"
+  },
+  "checks": {
+    "typescript": true,
+    "nodeQa": {
+      "passed": 39,
+      "total": 39
+    },
+    "format": true,
+    "build": true
+  },
+  "pack": {
+    "id": "a2a97e1b56943afc1b0b7d0afd7453f70c5cf7ffda8906f966784382a7aee3f7",
+    "files": 1202,
+    "bytes": 538107183,
+    "buildRulesetMatches": true
+  },
+  "browser": {
+    "finalPassed": 4,
+    "finalTotal": 4,
+    "retries": 0,
+    "launcher": "/usr/bin/chromium",
+    "proof": {
+      "baselineGeometry": {
+        "seed": 2147483648,
+        "tick": 144000,
+        "actor": 32,
+        "champion": "garen",
+        "team": "blue",
+        "kind": "push",
+        "sourceCheckpoint": {
+          "path": "artifacts/roster-cohort/long-five/seeds/2147483648/144000.match.json",
+          "sha256": "dd7f1685aa3d074433d4a1c6baa5646aaafa6687b674787b0480849391bb4c81"
+        },
+        "start": {
+          "x": 5192.519585964811,
+          "y": -6035.552127801283
+        },
+        "goal": {
+          "x": 4560.089139411156,
+          "y": -5012.288631152249
+        },
+        "actorRadius": 35,
+        "hazards": [
+          {
+            "x": 5627,
+            "y": -5187,
+            "radius": 935
+          },
+          {
+            "x": 3709,
+            "y": -3782,
+            "radius": 935
+          }
+        ]
+      },
+      "initial": {
+        "actor": 33,
+        "start": {
+          "x": 5192.519585964811,
+          "y": -6035.552127801283
+        },
+        "point": {
+          "x": 4560.089139411156,
+          "y": -5012.288631152249
+        },
+        "ordinaryUnsafe": true,
+        "safe": true,
+        "path": [
+          {
+            "x": 4998.89510345459,
+            "y": -5882.755798339844
+          },
+          {
+            "x": 4798.89510345459,
+            "y": -5682.755798339844
+          },
+          {
+            "x": 4698.89510345459,
+            "y": -5382.755798339844
+          },
+          {
+            "x": 4560.089139411156,
+            "y": -5012.288631152249
+          }
+        ],
+        "humanOrder": {
+          "type": "idle"
+        },
+        "afterHumanOrder": {
+          "type": "idle"
+        },
+        "role": "jungle",
+        "lane": null,
+        "tick": 1,
+        "hazards": [
+          {
+            "id": 4,
+            "x": 5627,
+            "y": -5187,
+            "radius": 935
+          },
+          {
+            "id": 10,
+            "x": 518,
+            "y": -5986,
+            "radius": 935
+          },
+          {
+            "id": 13,
+            "x": 3056,
+            "y": -6225,
+            "radius": 935
+          },
+          {
+            "id": 14,
+            "x": -3107,
+            "y": -6450,
+            "radius": 935
+          },
+          {
+            "id": 18,
+            "x": 2342,
+            "y": -2688,
+            "radius": 935
+          },
+          {
+            "id": 19,
+            "x": 3709,
+            "y": -3782,
+            "radius": 935
+          },
+          {
+            "id": 20,
+            "x": 1530,
+            "y": -1085,
+            "radius": 935
+          },
+          {
+            "id": 21,
+            "x": 6441,
+            "y": 2920,
+            "radius": 935
+          },
+          {
+            "id": 22,
+            "x": 6199,
+            "y": -3147,
+            "radius": 935
+          },
+          {
+            "id": 23,
+            "x": 5902,
+            "y": -801,
+            "radius": 935
+          }
+        ],
+        "stagedDestroyedTurret": 5
+      },
+      "result": {
+        "safe": true,
+        "elapsedTicks": 180,
+        "position": {
+          "x": 4651.636369594756,
+          "y": -5256.624263729085
+        },
+        "role": "jungle",
+        "lane": null,
+        "humanAi": false
+      },
+      "exactSaveReload": true,
+      "exact180TickFuture": true,
+      "errors": []
+    },
+    "reviewedViewports": [[1440, 900]],
+    "proofs": [
+      {
+        "path": "artifacts/team-detour/browser-final/bot-team-detour-a-Rift-tea-28f14-UI-save-reload-continuation/accepted-detour.png",
+        "bytes": 1280819,
+        "sha256": "c93ee512222c147427bc99afce7990f140b07f638be8b4f78db62ff37aa92848"
+      },
+      {
+        "path": "artifacts/team-detour/browser-final/bot-team-detour-a-Rift-tea-28f14-UI-save-reload-continuation/continued-detour.png",
+        "bytes": 1447128,
+        "sha256": "81035e1b5d3a1ca8c345d7d5d7a3ab06b62114f166a85de9e22b915b3f69be50"
+      },
+      {
+        "path": "artifacts/team-detour/browser-final/bot-team-detour-a-Rift-tea-28f14-UI-save-reload-continuation/detour.json",
+        "bytes": 2760,
+        "sha256": "0423402468e8a0f9c9349ceab0ea35a14051c19604e3292f3ab051b3de616681"
+      }
+    ],
+    "retainedInitialFailure": [
+      {
+        "path": "artifacts/team-detour/browser/bot-team-detour-a-Rift-tea-28f14-UI-save-reload-continuation/error-context.md",
+        "bytes": 11101,
+        "sha256": "e435e0fb0c905f00c458b56932a402c97173f5c3466d7ad95c96fba624d42d83"
+      },
+      {
+        "path": "artifacts/team-detour/browser/bot-team-detour-a-Rift-tea-28f14-UI-save-reload-continuation/test-failed-1.png",
+        "bytes": 1285654,
+        "sha256": "f33924807315731263a6d5a241f93d6548cbb84c50b385095b8bcb995c167122"
+      },
+      {
+        "path": "artifacts/team-detour/browser/bot-team-detour-a-Rift-tea-28f14-UI-save-reload-continuation/trace.zip",
+        "bytes": 194916301,
+        "sha256": "c31d0855c85e0cbfdf2fe02e8818f8780d70f3d5244fbd007a19b2bde0a084bc"
+      },
+      {
+        "path": "artifacts/team-detour/browser-initial.spec.ts",
+        "bytes": 6283,
+        "sha256": "d57376e7ec58ac83ade5d058ed3ecdbe500a40c3a4683a0abd9d38ce50f2f852"
+      }
+    ],
+    "intermediateCorrectedStage": [
+      {
+        "path": "artifacts/team-detour/browser-after/bot-team-detour-a-Rift-tea-28f14-UI-save-reload-continuation/accepted-detour.png",
+        "bytes": 1280819,
+        "sha256": "c93ee512222c147427bc99afce7990f140b07f638be8b4f78db62ff37aa92848"
+      },
+      {
+        "path": "artifacts/team-detour/browser-after/bot-team-detour-a-Rift-tea-28f14-UI-save-reload-continuation/continued-detour.png",
+        "bytes": 1447128,
+        "sha256": "81035e1b5d3a1ca8c345d7d5d7a3ab06b62114f166a85de9e22b915b3f69be50"
+      },
+      {
+        "path": "artifacts/team-detour/browser-after/bot-team-detour-a-Rift-tea-28f14-UI-save-reload-continuation/detour.json",
+        "bytes": 2760,
+        "sha256": "0423402468e8a0f9c9349ceab0ea35a14051c19604e3292f3ab051b3de616681"
+      },
+      {
+        "path": "artifacts/team-detour/browser-staged.spec.ts",
+        "bytes": 6695,
+        "sha256": "37403df0eb249922a0b4eb192c0a2a72b29898a77ae4c75214050396ec430fe5"
+      }
+    ],
+    "priorStrategyProofs": [
+      {
+        "path": "artifacts/team-detour/bot-team-defense.json",
+        "bytes": 376,
+        "sha256": "8740b4bd6a9f641d8390ac2f66a28ff4491b5168baa6bf130a95344ef68fabbb"
+      },
+      {
+        "path": "artifacts/team-detour/bot-team-defense.png",
+        "bytes": 1667203,
+        "sha256": "d8cd5251f76a262c5a7ec51a00f02f370fd1f783b0bdac4103af1ef945a82391"
+      },
+      {
+        "path": "artifacts/team-detour/bot-team-river.json",
+        "bytes": 407,
+        "sha256": "7b38a48b1368c596a1dfd87f492ca84b4a4feb2ed4280ef21749115f76da2072"
+      },
+      {
+        "path": "artifacts/team-detour/bot-team-river.png",
+        "bytes": 1312764,
+        "sha256": "4163afdc90a31254368b279a7780ca1b86b439e2138c054b993499933e29ac9a"
+      },
+      {
+        "path": "artifacts/team-detour/bot-team-siege.json",
+        "bytes": 473,
+        "sha256": "bd21d081e34cd403c1bc05c0eb412225e986285342e5fd76deb3371a329f27b4"
+      },
+      {
+        "path": "artifacts/team-detour/bot-team-siege.png",
+        "bytes": 1393303,
+        "sha256": "56387fbe526dbe2328925bb63329b9137154588a273a13472e66d3411573f400"
+      }
+    ]
+  },
+  "archivedOldCodeComparison": {
+    "failed": 24,
+    "passed": 8,
+    "total": 32,
+    "baselineRuleset": "033bd826b7f5899449adbec1cbb02ff826f636cf3b75c758f4effe4f7c5a02be",
+    "sourceArchive": "artifacts/roster-cohort/long-five/frozen-source",
+    "config": {
+      "path": "artifacts/team-detour/web-lol-team-detour-before.config.mjs",
+      "bytes": 444,
+      "sha256": "1af6a29c6be29aaad8df7824343997009c174a54d77e5a4c830db2f4e39dbefa"
+    },
+    "startupConfigImportCorrected": true
+  },
+  "routeCostDiagnostic": {
+    "proof": {
+      "path": "artifacts/team-detour/route-cost.json",
+      "bytes": 5135,
+      "sha256": "3d6b774c28e5b16b30aae84c65e3032920458a98a0ff1eeeb5d19e735c1f9b7e"
+    },
+    "runnerSource": {
+      "path": "artifacts/team-detour/route-cost.ts",
+      "bytes": 1481,
+      "sha256": "77ad11a84bab9fac707c7825508957630a1c801faae786abc80e21044ae6c560"
+    },
+    "browserPerformanceClaim": false
+  },
+  "freshFullMatchAudit": false,
+  "freshOfflineAcceptance": false,
+  "precedingFullMatchEvidence": "docs/reference/combined-roster-long-games-verification.json",
+  "precedingOfflineEvidence": "docs/reference/masteryi-bot-rift-verification.json",
+  "production": {
+    "result": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 19,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "garenRiftTrialInProduction": false,
+      "masterYiRiftTrialInProduction": false,
+      "masterYiBotRiftTrialInProduction": false,
+      "rosterRiftTrialInProduction": false,
+      "publicChampionChoices": ["ashe", "lux"],
+      "ahriRiftTrialInProduction": false,
+      "ahriBotRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderAudioPreloads": 0,
+      "unrequestedMasterYiAlphaAudioPreloads": 0,
+      "unrequestedMasterYiMeditateAudioPreloads": 0,
+      "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+      "unrequestedMasterYiSwordPreloads": 0,
+      "unrequestedMasterYiPrimaryTrailPreloads": 0,
+      "unrequestedMasterYiPrimaryHitPreloads": 0,
+      "unrequestedMasterYiPassiveTrailPreloads": 0,
+      "unrequestedMasterYiMeditateDamagePreloads": 0,
+      "unrequestedMasterYiHighlanderKillPreloads": 0,
+      "unrequestedMasterYiHighlanderCastPreloads": 0,
+      "unrequestedMasterYiQEndPreloads": 0,
+      "unrequestedMasterYiQCastPreloads": 0,
+      "unrequestedMasterYiQContactPreloads": 0,
+      "unrequestedMasterYiMeditateCastPreloads": 0,
+      "unrequestedMasterYiMeditateBuffPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 323,
+      "scheduledBlueRequests": 19,
+      "scheduledRedRequests": 19,
+      "scheduledWolfRequests": 38,
+      "scheduledRaptorRequests": 38,
+      "scheduledKrugRequests": 57,
+      "scheduledScuttlerRequests": 19,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    },
+    "screenshot": {
+      "path": "artifacts/team-detour/production.png",
+      "bytes": 1825356,
+      "sha256": "7dffa282f426781d04560f4cdd1c338be70cf528a574d13d6b952a0c20787122"
+    }
+  },
+  "logs": [
+    {
+      "path": "artifacts/team-detour/logs/before-resolved.log",
+      "bytes": 14146,
+      "sha256": "1c9d90a381592e993234d0a1b32824e56e724a97ef1b2627b78b2f9e8384a82e"
+    },
+    {
+      "path": "artifacts/team-detour/logs/before.log",
+      "bytes": 6844,
+      "sha256": "39a3f6a97ac2b19f42c047d261fa24ccc06663a352aef05e2c3916afa444306e"
+    },
+    {
+      "path": "artifacts/team-detour/logs/browser-after.log",
+      "bytes": 950,
+      "sha256": "c4037d569ccbed21f32b97158f2acb473953859d636114e6dda140aab921f072"
+    },
+    {
+      "path": "artifacts/team-detour/logs/browser-final.log",
+      "bytes": 2394,
+      "sha256": "870a03bbad6249bec1d1f0f499573c5d74c69a3dbc2c5db30c94e27d2c8a457f"
+    },
+    {
+      "path": "artifacts/team-detour/logs/browser-format-final.log",
+      "bytes": 33,
+      "sha256": "28cdbce7c78116066ffcb8aba4773e4168282c8048e33ccbb03c74b6cf1886f8"
+    },
+    {
+      "path": "artifacts/team-detour/logs/browser-format-final2.log",
+      "bytes": 45,
+      "sha256": "1cafaf12577754ab1855b84b69a51b93c73acab43d35351f214a320693041274"
+    },
+    {
+      "path": "artifacts/team-detour/logs/browser-format.log",
+      "bytes": 33,
+      "sha256": "76dd2edb74b6481ba86ef292480b248e94579a24702bd355d57908db43fc9796"
+    },
+    {
+      "path": "artifacts/team-detour/logs/browser.log",
+      "bytes": 3153,
+      "sha256": "4d3a53e3bdb423d0c2342fb3a90ab11fec6a208c890a289ac0b72ec8dac0069c"
+    },
+    {
+      "path": "artifacts/team-detour/logs/build.log",
+      "bytes": 7852,
+      "sha256": "70408ac0367d7a033b63b91d4d71563f4a898009cfc1c874ed5414318df8ec12"
+    },
+    {
+      "path": "artifacts/team-detour/logs/cases-format.log",
+      "bytes": 91,
+      "sha256": "a1bcb582a778e09bb89c6d42a22f556067b14ac612c7feb0aca8172d618cb468"
+    },
+    {
+      "path": "artifacts/team-detour/logs/focused-initial.log",
+      "bytes": 368,
+      "sha256": "d4f3ae935299e6c0e633f688b0f409cd203e6446d44a9cf0f8b1a469695ce6c8"
+    },
+    {
+      "path": "artifacts/team-detour/logs/focused.log",
+      "bytes": 368,
+      "sha256": "68140985ae0c32b9463f0b5abf14d9ac92edaa5f2cb9054cc8badc800067d871"
+    },
+    {
+      "path": "artifacts/team-detour/logs/format-check.log",
+      "bytes": 142,
+      "sha256": "92601784bc8166aa96d5a85a9561471088e9468163e0d7a3cb97e55f07055d87"
+    },
+    {
+      "path": "artifacts/team-detour/logs/format-final.log",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "path": "artifacts/team-detour/logs/format.log",
+      "bytes": 108,
+      "sha256": "ae47ead1928e0598491d53fe9a3cd376a9749b465e43f0a3a328e6e6e35e5e98"
+    },
+    {
+      "path": "artifacts/team-detour/logs/full.log",
+      "bytes": 5950,
+      "sha256": "b173034091471f21f7de139985991dc6aa1c1ff1244e9748e7c7451bebc07372"
+    },
+    {
+      "path": "artifacts/team-detour/logs/nodeqa.log",
+      "bytes": 3712,
+      "sha256": "b74d2b7989dbf413f23d168337cf8b46ceb8dd2061e51a21e50f82b960223f52"
+    },
+    {
+      "path": "artifacts/team-detour/logs/route-cost.log",
+      "bytes": 2900,
+      "sha256": "929599aa05b08bf93de3c725eb54de611a530c4e1ea15a3bc66ba36a643b1908"
+    },
+    {
+      "path": "artifacts/team-detour/logs/test-format.log",
+      "bytes": 36,
+      "sha256": "1432cac9abd663cd7dbb22576e46285d21749a456b3f0af05967b54eebdb35e4"
+    },
+    {
+      "path": "artifacts/team-detour/logs/tsc-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/team-detour/logs/tsc.log",
+      "bytes": 98,
+      "sha256": "d054ab8c7029526add5fb93b08c478853417a53bbeef7af490de280fe7cf631c"
+    },
+    {
+      "path": "artifacts/team-detour/logs/production.log",
+      "bytes": 3112,
+      "sha256": "76ae8d93a1844e7c2030c8df65022cbf8f8a0bc72b045fbc0bf547c07faefc4e"
+    }
+  ]
+}
