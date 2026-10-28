@@ -1075,6 +1075,23 @@ button {
   padding: 0 5px;
   font-size: 12px;
 }
+.targeting-mode {
+  display: none;
+  position: absolute;
+  bottom: 220px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 12px;
+  border: 1px solid #8e8259;
+  background: #0b1c1deb;
+  color: #e7d599;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.hud.champions-only .targeting-mode {
+  display: block;
+}
 .recall-progress {
   position: absolute;
   bottom: 178px;

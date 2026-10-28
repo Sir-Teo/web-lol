@@ -19,6 +19,7 @@ export class GameInput {
   private aiming: Ability | null = null;
   private wardAiming = false;
   private attackMove = false;
+  private championsOnly = false;
   constructor(
     private world: World,
     private view: GameView,
@@ -58,7 +59,12 @@ export class GameInput {
       if (hud.paused || hud.modal) return;
       canvas.focus({ preventScroll: true });
       this.pointer = { x: e.clientX, y: e.clientY };
-      const target = view.pick(world, e.clientX, e.clientY),
+      const target = view.pick(
+          world,
+          e.clientX,
+          e.clientY,
+          this.championsOnly && e.button === 2 && !e.shiftKey
+        ),
         point = view.worldPoint(e.clientX, e.clientY);
       if (!point) return;
       if (e.button === 0 && this.wardAiming) {
@@ -97,6 +103,8 @@ export class GameInput {
       const learnShortcut =
         e.ctrlKey && !e.altKey && !e.metaKey && ['q', 'w', 'e', 'r'].includes(key);
       if ((e.ctrlKey || e.altKey || e.metaKey) && !learnShortcut) return;
+      const championTargeting = e.code === 'Backquote';
+      if (championTargeting && !hud.paused && !hud.modal) e.preventDefault();
       const cameraTarget = cameraKeyTarget(world, key);
       // Reserve repeat events too, especially F1 help and F3 browser search.
       if (cameraTarget && !hud.paused && !hud.modal) e.preventDefault();
@@ -136,6 +144,11 @@ export class GameInput {
         return;
       }
       if (hud.paused || hud.modal) return;
+      if (championTargeting) {
+        this.setChampionTargeting(true);
+        this.updateHover();
+        return;
+      }
       if (cameraTarget) {
         this.cameraKeys = [...this.cameraKeys.filter((held) => held !== key), key];
         const focus = this.updateCameraFocus();
@@ -177,9 +190,7 @@ export class GameInput {
         const point =
           world.summonerSpell(spell) === 'heal' &&
           document.elementFromPoint(this.pointer.x, this.pointer.y) === canvas
-            ? (view.pick(world, this.pointer.x, this.pointer.y) ??
-              view.worldPoint(this.pointer.x, this.pointer.y) ??
-              world.hero)
+            ? (this.pick() ?? view.worldPoint(this.pointer.x, this.pointer.y) ?? world.hero)
             : world.hero;
         world.enqueue({
           type: 'cast',
@@ -196,6 +207,10 @@ export class GameInput {
     });
     window.addEventListener('keyup', (e) => {
       const key = e.key.toLowerCase();
+      if (e.code === 'Backquote') {
+        this.setChampionTargeting(false);
+        this.updateHover();
+      }
       if (this.cameraKeys.includes(key)) {
         e.preventDefault();
         this.cameraKeys = this.cameraKeys.filter((held) => held !== key);
@@ -218,7 +233,7 @@ export class GameInput {
           const point = this.castPoint(this.aiming);
           if (point) {
             const target = targetedSpell(world, this.aiming)
-              ? spellTarget(world, this.aiming, view.pick(world, this.pointer.x, this.pointer.y))
+              ? spellTarget(world, this.aiming, this.pick())
               : undefined;
             if (targetedSpell(world, this.aiming) && !target)
               hud.toast(targetInstruction(world, this.aiming));
@@ -260,6 +275,7 @@ export class GameInput {
     else if (this.aiming) this.view.setAim(this.aiming, this.castPoint(this.aiming));
   }
   release(): void {
+    this.setChampionTargeting(false);
     this.recenterHeld = false;
     this.cameraKeys = [];
     this.view.cameraFocusId = null;
@@ -274,6 +290,14 @@ export class GameInput {
     if (minimap) return minimapSpell(this.world, ability) ? minimap : null;
     if (document.elementFromPoint(x, y) !== this.view.renderer.domElement) return null;
     return this.view.worldPoint(x, y);
+  }
+  private setChampionTargeting(value: boolean): void {
+    if (this.championsOnly === value) return;
+    this.championsOnly = value;
+    this.hud.root.classList.toggle('champions-only', value);
+  }
+  private pick() {
+    return this.view.pick(this.world, this.pointer.x, this.pointer.y, this.championsOnly);
   }
   cancelAim(): void {
     this.aiming = null;
@@ -293,6 +317,7 @@ export class GameInput {
   update(dt: number): void {
     if (this.wardAiming && this.world.player.trinket.kind !== 'ward') this.cancelAim();
     if (this.hud.paused || this.hud.modal) {
+      this.setChampionTargeting(false);
       this.recenterHeld = false;
       this.cameraKeys = [];
       this.view.cameraFocusId = null;
@@ -313,7 +338,7 @@ export class GameInput {
       this.inside &&
       !this.hud.modal &&
       document.elementFromPoint(this.pointer.x, this.pointer.y) === canvas
-        ? this.view.pick(this.world, this.pointer.x, this.pointer.y)
+        ? this.pick()
         : undefined;
     this.view.hovered = target?.id ?? null;
     canvas.classList.toggle('enemy-hover', !!target && target.team !== this.world.hero.team);

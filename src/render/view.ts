@@ -620,7 +620,7 @@ export class GameView {
       visible: this.projector.z > -1 && this.projector.z < 1,
     };
   }
-  pick(world: World, x: number, y: number): Unit | undefined {
+  pick(world: World, x: number, y: number, championsOnly = false): Unit | undefined {
     this.ray.setFromCamera(
       new THREE.Vector2((x / this.width) * 2 - 1, 1 - (y / this.height) * 2),
       this.camera
@@ -628,6 +628,7 @@ export class GameView {
     let target: Unit | undefined,
       best = Infinity;
     for (const u of world.units) {
+      if (championsOnly && u.kind !== 'champion') continue;
       if (!world.alive(u) || !unitVisible(world, u)) continue;
       const champion = u.kind === 'champion';
       const selection =

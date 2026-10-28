@@ -1,0 +1,247 @@
+{
+  "date": "2026-10-28",
+  "previousCommit": "3368ccd",
+  "schema": 163,
+  "ruleset": "abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f",
+  "simulationFingerprintUnchanged": true,
+  "sources": [
+    {
+      "file": "src/input/input.ts",
+      "bytes": 12993,
+      "sha256": "8fee67f38fbd582381086c910bd743c5b68a1822592a033b93561ab4a1596d9e"
+    },
+    {
+      "file": "src/render/view.ts",
+      "bytes": 65328,
+      "sha256": "ccd97aa9ba4a6178277b0216992aac7d343b6ebf916d74ac1a16c9be9f9e5202"
+    },
+    {
+      "file": "src/ui/hud.ts",
+      "bytes": 89193,
+      "sha256": "09321ba4956b53bf45738064bce73e16b6b009a177a0d0e18412a1d438251c2a"
+    },
+    {
+      "file": "src/style.css",
+      "bytes": 36598,
+      "sha256": "0a8927acaeb31a1af1217dcbc3ae251030992c608be4363c696493ef69b618c1"
+    },
+    {
+      "file": "e2e/champion-targeting.spec.ts",
+      "bytes": 9098,
+      "sha256": "c164f4a456aa733bda5a2bf4d737794ba5fd979aca41e3d10132e6de48edffa7"
+    },
+    {
+      "file": "README.md",
+      "bytes": 21548,
+      "sha256": "18a60817a85b51dd1fc5bc3299d54ab57ac0356a37bdde73e528dce4bca4c4ec"
+    }
+  ],
+  "validation": {
+    "typescript": true,
+    "format": true,
+    "build": true,
+    "browserPassed": 19,
+    "browserTotal": 19,
+    "retries": 0,
+    "productionRecordings": 32,
+    "productionPublicChoices": ["ashe", "lux"],
+    "productionDevelopmentHook": false,
+    "reviewedViewports": [
+      [1440, 900],
+      [1024, 720]
+    ],
+    "modeOnlySnapshotExact": true,
+    "actualYiQ": {
+      "unfiltered": {
+        "picked": 8,
+        "validWithoutMode": 8,
+        "distance": 430.11626335213134
+      },
+      "accepted": [
+        {
+          "type": "cast",
+          "unit": 1,
+          "ability": "q",
+          "point": {
+            "x": 407.7960122991728,
+            "y": -52.62374341384479
+          },
+          "targetId": 6
+        }
+      ],
+      "primary": 6,
+      "actualChampionDamage": true,
+      "errors": []
+    }
+  },
+  "initialFixture": {
+    "passed": 3,
+    "retainedSource": "artifacts/champion-targeting/initial-fixture.spec.ts",
+    "limitation": "Initial lone minion was outside Q range; its rejection does not isolate champion mode. Final fixture proves ordinary valid targeting at 430.116 units before testing mode rejection."
+  },
+  "pack": {
+    "id": "8511251dbb909130d44970a3e4e453cc58c295a8f9d026637e3a1073bcabb680",
+    "files": 1202,
+    "bytes": 538111476
+  },
+  "inherited": {
+    "freshBroadTests": false,
+    "freshNodeQA": false,
+    "freshFullMatches": false,
+    "freshOffline": false,
+    "nativeAndPerformanceAcceptance": false
+  },
+  "frozenAudits": "Both 100-seed audits retain a3e47aa and the unchanged simulation fingerprint; pause receipt is resumed. No completion claim.",
+  "evidence": [
+    {
+      "file": "artifacts/champion-targeting/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": "artifacts/champion-targeting/browser/champion-targeting-champio-78ae0-s-typing-modifier-shortcuts/mode-boundaries.json",
+      "bytes": 173,
+      "sha256": "63c502004811d0d0b064cf61bbeed3f8a3391198e4d53633039ae029469d09ef"
+    },
+    {
+      "file": "artifacts/champion-targeting/browser/champion-targeting-held-ch-79240-n-and-preserves-attack-move/champion-through-minion.png",
+      "bytes": 886424,
+      "sha256": "05e829996296a9b3b205a698e80a811b056006d4347ff455685a71c31a4bfefa"
+    },
+    {
+      "file": "artifacts/champion-targeting/browser/champion-targeting-held-ch-79240-n-and-preserves-attack-move/champions-only-1024.png",
+      "bytes": 596294,
+      "sha256": "417e6444317d266b2a650ebd7bf3a588500b33f674f206fba4baf54f5fc0bddc"
+    },
+    {
+      "file": "artifacts/champion-targeting/browser/champion-targeting-held-ch-79240-n-and-preserves-attack-move/targeting.json",
+      "bytes": 766,
+      "sha256": "73dc8c807827423f43ec00e26cf173239d63102d1e47c46bd0dd2374b493f860"
+    },
+    {
+      "file": "artifacts/champion-targeting/browser/champion-targeting-real-Yi-079da-ehind-an-overlapping-minion/yi-real-q.json",
+      "bytes": 270,
+      "sha256": "30bf3d868648da24629b890c7accf026b3923a51bb303c574ab01da606cba7eb"
+    },
+    {
+      "file": "artifacts/champion-targeting/browser-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": "artifacts/champion-targeting/browser-final/champion-targeting-champio-78ae0-s-typing-modifier-shortcuts/mode-boundaries.json",
+      "bytes": 173,
+      "sha256": "63c502004811d0d0b064cf61bbeed3f8a3391198e4d53633039ae029469d09ef"
+    },
+    {
+      "file": "artifacts/champion-targeting/browser-final/champion-targeting-held-ch-79240-n-and-preserves-attack-move/champion-through-minion.png",
+      "bytes": 875511,
+      "sha256": "c337a4d85d9615c820d5bac48d9e288eca8424953b809841adb3e4890a727c87"
+    },
+    {
+      "file": "artifacts/champion-targeting/browser-final/champion-targeting-held-ch-79240-n-and-preserves-attack-move/champions-only-1024.png",
+      "bytes": 586883,
+      "sha256": "b81efb30d87f17f285cfc385dcaa572c9fe2dcd7ff7811f332b2a7d94f230709"
+    },
+    {
+      "file": "artifacts/champion-targeting/browser-final/champion-targeting-held-ch-79240-n-and-preserves-attack-move/targeting.json",
+      "bytes": 767,
+      "sha256": "eb0e766e0aac2122efe7002387fdb05a660c3c5049abafdd70947f63c516413e"
+    },
+    {
+      "file": "artifacts/champion-targeting/browser-final/champion-targeting-real-Yi-079da-ehind-an-overlapping-minion/yi-real-q.json",
+      "bytes": 372,
+      "sha256": "b388c658a468c82d7117be9d2aed9ab29f65706f55f6a3a0937b0a5b895490ee"
+    },
+    {
+      "file": "artifacts/champion-targeting/browser-final/input-audio-activation-the-bfbd6--before-any-pointer-gesture/first-keyboard-audio.json",
+      "bytes": 187,
+      "sha256": "8837284d1abb528ac6ea1670a3887fd15eed60af3c504962c52f72febb41e4f7"
+    },
+    {
+      "file": "artifacts/champion-targeting/browser-final/input-audio-activation-tru-66835-repeat-or-typing-activation/input-audio.json",
+      "bytes": 354,
+      "sha256": "d71806393655e40c07497fa6036466731f73793dda105b60f7be75b6aee16180"
+    },
+    {
+      "file": "artifacts/champion-targeting/browser-final/input-modifier-shortcuts-A-1a190-tcut-without-a-Heal-command/modifier-shortcut.json",
+      "bytes": 314,
+      "sha256": "835c22f822b86709dbb34ce70a01acb9d1d624a8a5696624bd75667870ffcdb0"
+    },
+    {
+      "file": "artifacts/champion-targeting/browser-final/input-modifier-shortcuts-C-15803-al-game-keys-still-dispatch/modifier-learning.json",
+      "bytes": 6713,
+      "sha256": "768f3b6fca4a8a1c413c2a78e61d87bc482e49a8fb561b15975ab60af7084f81"
+    },
+    {
+      "file": "artifacts/champion-targeting/browser-final/input-modifier-shortcuts-C-6cbe3-tcut-without-a-Heal-command/modifier-shortcut.json",
+      "bytes": 322,
+      "sha256": "e0b08e56e175bd179e6e937cf3616d5be768841edde21460a408a8faf0dc54a2"
+    },
+    {
+      "file": "artifacts/champion-targeting/browser-final/input-modifier-shortcuts-M-a0e19-tcut-without-a-Heal-command/modifier-shortcut.json",
+      "bytes": 316,
+      "sha256": "d0da629fbdf00a2e168b8d937606bd2b5b4adbc3023166017da80c8f6b40f7d3"
+    },
+    {
+      "file": "artifacts/champion-targeting/browser-final/input-space-key-Space-acti-479c3-hile-canvas-Space-recenters/space-button.json",
+      "bytes": 69,
+      "sha256": "ed8732cf7a80e3b25c24509c0c488802bd62624f73e9947f2b128d4a41001f21"
+    },
+    {
+      "file": "artifacts/champion-targeting/browser-final/input-space-key-Space-togg-497e2-l-recenters-the-battlefield/hud-space.json",
+      "bytes": 380,
+      "sha256": "d4d41cdb1fddf5fdcc9fedf4ae4820c922277162d9ccc3894cb246d3563456ad"
+    },
+    {
+      "file": "artifacts/champion-targeting/browser-final.log",
+      "bytes": 4689,
+      "sha256": "07582a839f0750ff0e5426b56a2defdb8f2ab81282e49e69b7ac86ebcb5c5db4"
+    },
+    {
+      "file": "artifacts/champion-targeting/browser.log",
+      "bytes": 1248,
+      "sha256": "31852bbfba821824532232827c63d31cd88ed6c16840548c07dbcdd331879b49"
+    },
+    {
+      "file": "artifacts/champion-targeting/build.log",
+      "bytes": 7852,
+      "sha256": "f1b2eeaac0650588fcd965b9dd4f9153aabde0a50b1f510a54877b8556a92ac2"
+    },
+    {
+      "file": "artifacts/champion-targeting/format-check.log",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "file": "artifacts/champion-targeting/initial-fixture.spec.ts",
+      "bytes": 8389,
+      "sha256": "03d7936c1c7ad21ca48dac41469d90908e119da33d9e83a101705fe5ee9a6d50"
+    },
+    {
+      "file": "artifacts/champion-targeting/offline-pack.json",
+      "bytes": 172470,
+      "sha256": "d5ba41e0083e2dfb50d465404f3013e3004520f27df07ab1875b236330d94b87"
+    },
+    {
+      "file": "artifacts/champion-targeting/production.log",
+      "bytes": 3112,
+      "sha256": "76ae8d93a1844e7c2030c8df65022cbf8f8a0bc72b045fbc0bf547c07faefc4e"
+    },
+    {
+      "file": "artifacts/champion-targeting/production.png",
+      "bytes": 1823426,
+      "sha256": "c3c69795f033678920fbb8af5632f126f9b2c150a6956bedfd803309b8658240"
+    },
+    {
+      "file": "artifacts/champion-targeting/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "artifacts/certification-abc8dc/pauses/champion-targeting-browser.json",
+      "bytes": 1609,
+      "sha256": "2c8738ca603357974482fc8371bf58b87303e3f473f93b6aadddff81ed4c30dc"
+    }
+  ]
+}

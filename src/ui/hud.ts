@@ -152,6 +152,7 @@ export class Hud {
       <div class="match-top"><span class="team-score"><b class="blue-number" id="kills">0</b><i>⚔</i><b class="red-number" id="deaths">0</b></span><span class="personal-score" id="personal">0 / 0 / 0</span><span title="Creep score"><i class="gold-symbol">♜</i> <b id="cs">0</b></span><time id="clock">00:00</time><button class="icon-button" id="pause-button" title="Pause (Esc)" aria-label="Pause game">Ⅱ</button></div>
       <div class="welcome"><span>THE RIFT AWAITS</span><h1>Welcome to Summoner’s Rift</h1><div class="ornament">━━━━ ◈ ━━━━</div></div>
       <div id="toast" role="status" aria-live="polite"></div>
+      <div class="targeting-mode" role="status">Champions only</div>
       <div class="target-panel" id="target-panel" hidden><span class="target-label">SELECTED TARGET</span><strong id="target-name"></strong><div class="target-health"><i></i></div><span id="target-hp"></span></div>
       <div class="practice-corner"><button class="quiet-button" id="practice-button">◇ <span>Practice tools</span></button><button class="quiet-button" id="help-button">? <span>Controls</span></button><small>REFERENCE BUILD 0.1</small></div>
       <section class="champion-hud" aria-label="Champion controls">
@@ -693,6 +694,7 @@ export class Hud {
         ['Right-click', 'Move / attack target'],
         ['A → click', 'Attack move'],
         ['Shift + right-click', 'Attack move immediately'],
+        ['Hold &#96;', 'Champion-only right-click and targeted spells'],
         ['S', 'Stop'],
         ...(this.world.hero.champion === 'masteryi'
           ? [

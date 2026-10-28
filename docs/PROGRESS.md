@@ -6,6 +6,25 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+The latest [held champion targeting](CHAMPION-TARGETING.md) adds Backquote for
+ordinary right-click and unit-targeted cast picks through overlapping minions.
+A visible badge follows the held state; release, pause/modal and blur clear it.
+Repeats stay reserved, typing/modifiers stay protected, and attack-move and
+skillshots retain ordinary behavior. All 19 final browser cases pass, including
+a normally valid minion at 430.116 units rejected by mode and a real Yi Q that
+selects and damages the overlapping champion. An initial out-of-range rejection
+fixture is retained and corrected. Mode-only snapshot bytes stay exact, and
+captures are reviewed at 1440×900 / 1024×720. TypeScript, formatting, build and
+all 32 nested production recordings/gates pass.
+
+Schema stays 163; ruleset stays
+`abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f`.
+Pack `8511251dbb909130d44970a3e4e453cc58c295a8f9d026637e3a1073bcabb680`
+has 1,202 files / 538,111,476 bytes. No public media or saved fields change.
+Both frozen 100-seed audits resume after the recorded quiet check. Earlier
+broad/Node QA/full-match/offline/native evidence retains its own source/pack
+scope. Recovery of missing source-cache evidence is next.
+
 Two short [renderer/idle observations](CONTROLS-RENDER-OBSERVATION.md) import
 the same exact ten-champion 120-second checkpoint. Both observe zero paused
 or synthetic-hidden render/mixer/HUD/audio/step calls and unchanged idle ticks,
