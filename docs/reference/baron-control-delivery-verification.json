@@ -1,0 +1,208 @@
+{
+  "date": "2026-10-28",
+  "sourceRevision": "3c461cef88db6ae835071570b025a5b6cb13b472",
+  "applicationChanged": false,
+  "schema": 163,
+  "ruleset": "5a53795c8d62dac8ec171d6021a4e4f4d29c9946fe186076ec33fea2e0c0f1b9",
+  "frozenProject": "/workspace/web-lol-baron-control-baseline",
+  "sources": [
+    {
+      "file": "tools/qa/match-cohort.mjs",
+      "bytes": 11888,
+      "sha256": "0634da0d495f977909b756a19747197f4dcd0f1a443a0a574e62af46d02c00f3"
+    },
+    {
+      "file": "tools/qa/match-seed.ts",
+      "bytes": 8088,
+      "sha256": "f95cf3d4a1deb6edbb63d10bbc21c33e11c99d3eb4e6c736afcefe7e8770a82f"
+    },
+    {
+      "file": "tools/qa/verify-match-cohort.mjs",
+      "bytes": 7920,
+      "sha256": "0b7a4fc4f75a3b1558c92b9888291b8209fb5027aa3fed2e7817d687baf242c2"
+    },
+    {
+      "file": "tools/qa/offline-pack.mjs",
+      "bytes": 16558,
+      "sha256": "6fc176c2dd111347e6ebe7dd6c456004cdb6d9e1dfea3db6f4795e047b239b16"
+    },
+    {
+      "file": "tools/qa/offline-completed-match.mjs",
+      "bytes": 10016,
+      "sha256": "c11470731576b4f443c5a18e03d949c458915567b689dd16b311d120fb5f3181"
+    }
+  ],
+  "match": {
+    "seed": 26018,
+    "profile": "Ordinary Ashe/Lux roster; QA automation of human carry",
+    "outcome": "victory",
+    "winner": "blue",
+    "finalTick": 169837,
+    "horizonTicks": 216000,
+    "checkedTicks": 169837,
+    "roundTrips": 48,
+    "futureChecks": 47,
+    "futureCheckedTicks": 2820,
+    "independentlyVerified": true
+  },
+  "comparison": {
+    "seed": 26018,
+    "newRuleset": "5a53795c8d62dac8ec171d6021a4e4f4d29c9946fe186076ec33fea2e0c0f1b9",
+    "previousRuleset": "25f21e02b07b748ab22622ea260d92f32575a1b5be8e31c0136404e1a31f607b",
+    "matchedCheckpoints": 48,
+    "finalMatches": true,
+    "normalizedBytesExact": true,
+    "normalization": "Comparison only; original snapshots and runtime admission unchanged."
+  },
+  "pack": {
+    "id": "e54b212c52e30d2a79c89390f14e3ec3dd414bd595af875840336fd682ddc393",
+    "files": 1204,
+    "bytes": 551658221
+  },
+  "fullPackChecks": {
+    "integrityFailureRestoresDownloadFocus": true,
+    "integrityFailure": true,
+    "downloadFocusesCancel": true,
+    "cancelRetainsVerified": true,
+    "cancelRestoresDownloadFocus": true,
+    "retryWithoutRedownload": true,
+    "completionPreservesOtherControlFocus": true,
+    "pausedSavedTickBootsOffline": true,
+    "completePackRepairOffline": true,
+    "newLuxLaneMatchOffline": true,
+    "serviceWorkerResponses": 978,
+    "removalKeepsSavedBytes": true,
+    "updateRefusesOtherTabs": true,
+    "explicitAtomicVersionSwitchOffline": true,
+    "missingEntryRevokesReady": true,
+    "scopeOnlyRemoval": true
+  },
+  "completedMatchChecks": {
+    "fullPackReady": true,
+    "normalCompletedPreviewOffline": true,
+    "exactCompletedStateImportAndExportOffline": true,
+    "exactCompletedStateReloadAndExportOffline": true,
+    "sourceReportSnapshotAndManifestUnchanged": true,
+    "serviceWorkerResponses": 975
+  },
+  "errors": {
+    "packPageErrors": [],
+    "completedPageErrors": [],
+    "completedFailedRequests": [],
+    "completedOutsidePrefixRequests": []
+  },
+  "browser": {
+    "version": "154.0.8037.57",
+    "systemChromium": true
+  },
+  "capturesReviewed": [
+    "result-offline.png",
+    "preview.png"
+  ],
+  "auditPauseResumed": true,
+  "hundredSeedGate": false,
+  "fullBrowserMatchSimulation": false,
+  "physicalDevicePerformance": false,
+  "nativeBossCertification": false,
+  "previousUnitResult": {
+    "passed": 3628,
+    "total": 3630,
+    "files": 420,
+    "knownFailures": [
+      "Leona native archive",
+      "Lux sampler checksum"
+    ]
+  },
+  "evidence": [
+    {
+      "file": "artifacts/certification-5a5379/ordinary-selected/plan.json",
+      "bytes": 94997,
+      "sha256": "f4fb2518f4b16a8ada9b0931cc6a0bbadb0a12c7e876fdda5787c13e31a8d7a7"
+    },
+    {
+      "file": "artifacts/certification-5a5379/ordinary-selected/summary.json",
+      "bytes": 285518,
+      "sha256": "df9f4f85bf1085ace35632c5593aebf27acf01bf73ccd7e78d09e643558dd0d4"
+    },
+    {
+      "file": "artifacts/certification-5a5379/ordinary-selected/seeds/26018/report.json",
+      "bytes": 244259,
+      "sha256": "a7c4b7ed49d8faf09fccc3362757744e66cc486da824437a9e6a58187a6ed6b3"
+    },
+    {
+      "file": "artifacts/certification-5a5379/ordinary-selected/seeds/26018/final.match.json",
+      "bytes": 228356,
+      "sha256": "3f31fab9d8ac414b0c68cc9f6bac9280918c69730590365c99aebaff62703c9b"
+    },
+    {
+      "file": "artifacts/certification-5a5379/paired-26018.json",
+      "bytes": 368,
+      "sha256": "8f972ffafa3cd1893a31af8edc140d55673130b9aff658a497a6f4cc6e3aa65b"
+    },
+    {
+      "file": "artifacts/certification-5a5379/ordinary-verification.log",
+      "bytes": 431,
+      "sha256": "b0b31d13c537c63a49b1ac62ce45e5db223052f122508dd60f2bc96da18178ea"
+    },
+    {
+      "file": "artifacts/certification-5a5379/offline-pack.log",
+      "bytes": 842,
+      "sha256": "1a9745fa5b6a9078ed6fd38445ce7579e8617083aad2986cb44ba1db03b732af"
+    },
+    {
+      "file": "artifacts/certification-5a5379/offline-completed.log",
+      "bytes": 1208,
+      "sha256": "89ad428c3674a6e2000ac1e786911ad0cde481fd32a7a7dc8006979bac6c4b93"
+    },
+    {
+      "file": "artifacts/certification-5a5379/offline-pack.json",
+      "bytes": 172742,
+      "sha256": "c76ad2a4168e2daa11fd4d4f553c5d2515ffcb4fc2e9e741b9d94ff915def0be"
+    },
+    {
+      "file": "artifacts/certification-5a5379/offline-pack-pause.json",
+      "bytes": 2125,
+      "sha256": "48727fe6956a7a95b022fc396feb24cd5b58ce04cc1b2038bb96a6a6cd9f1ff2"
+    },
+    {
+      "file": "artifacts/offline-pack-5a5379-baron-controls-20261028-production.json",
+      "bytes": 827,
+      "sha256": "fc291c144b664192a52f0214f8a4414172743f26ddae5b667f11688ebcef1caa"
+    },
+    {
+      "file": "artifacts/certification-5a5379/offline-completed-match/first-export.json",
+      "bytes": 228355,
+      "sha256": "7fa01907504d6c4f385ec2f20bd5493edf0a4b5cdb3a04fd1c2f563c8ffafc3a"
+    },
+    {
+      "file": "artifacts/certification-5a5379/offline-completed-match/preview.png",
+      "bytes": 592836,
+      "sha256": "60a4b269bd5a1603086f343154d1370086cf36224787f0b2169cea9c095c5030"
+    },
+    {
+      "file": "artifacts/certification-5a5379/offline-completed-match/reading.json",
+      "bytes": 1405,
+      "sha256": "e53c5f2384eda198b2f9121957019fdf25c4ad44a4e2b2af03ec1b3ef935ef5a"
+    },
+    {
+      "file": "artifacts/certification-5a5379/offline-completed-match/reloaded-export.json",
+      "bytes": 228355,
+      "sha256": "7fa01907504d6c4f385ec2f20bd5493edf0a4b5cdb3a04fd1c2f563c8ffafc3a"
+    },
+    {
+      "file": "artifacts/certification-5a5379/offline-completed-match/result-offline.png",
+      "bytes": 568602,
+      "sha256": "5874ee3270bba6e4c20eabd10a4190915e205e00842fbb74f416f5a79d3136f3"
+    },
+    {
+      "file": "artifacts/offline-pack-5a5379-baron-controls-20261028-lux-lanes.png",
+      "bytes": 529155,
+      "sha256": "09456e33182b4dff24632c66830538c10a691735eac204271807eb104563a028"
+    },
+    {
+      "file": "artifacts/offline-pack-5a5379-baron-controls-20261028-ready.png",
+      "bytes": 573500,
+      "sha256": "093153c0f1e66e2bb77541535e41c89c80101efd3bb9e77bb6a86e1f734a85a4"
+    }
+  ]
+}

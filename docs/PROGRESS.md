@@ -6,6 +6,20 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+The current `5a5379…` control build now has an independently verified natural
+Blue victory at tick 169,837: 169,837 checked ticks, 48 round-trips and 47 future
+comparisons covering 2,820 ticks. Every retained state matches its preceding
+`25f21e…` seed after root-identifier normalization for comparison only. Fresh
+full-pack caching passes all corruption/cancellation/repair, offline Lux play
+and atomic multi-tab/version checks with 978 worker responses. The actual
+completed file imports, restores and exports exactly with network disabled;
+975 worker responses, no page errors, failed or outside-prefix requests.
+[The delivery ledger](BARON-CONTROL-DELIVERY.md) pins this same 1,204-file
+551,658,221-byte pack `e54b212c…`, source, snapshots and reviewed captures.
+Both original hundred-seed audits resume. This is one selected game and
+completed-state delivery, with no hundred-seed, full browser-match, native-boss
+or physical-device performance claim. The application is unchanged.
+
 The preceding `25f21e…` Baron baseline now has three independently verified
 natural full-match victories: two ordinary-roster games and one combined-roster
 game. All 443,479 checked ticks, 125 round-trips and 122 future comparisons
