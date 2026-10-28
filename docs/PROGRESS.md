@@ -24,8 +24,13 @@ exactly Ashe/Lux. Final route captures are reviewed at 1440×900. Schema stays
 163; current fingerprint is
 `abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f`.
 Matching pack `a2a97e1b56943afc1b0b7d0afd7453f70c5cf7ffda8906f966784382a7aee3f7`
-has 1,202 files / 538,107,183 bytes. Fresh frozen match comparisons follow this
-source commit. The preceding five long matches retain their original identity;
+has 1,202 files / 538,107,183 bytes. [Seven fresh long matches](BOT-TEAM-DETOUR-MATCHES.md) pass independent
+verification: 1,013,633 ticks, 285 exact round-trips and 278 saved futures covering
+16,680 ticks, with seven natural valid victories. In the five paired private
+seeds, four finish earlier and one later; every matched minute through 20 is
+identical after normalizing only its root rules fingerprint. Early jungle
+levels/CS/deaths/companion growth therefore remain unchanged in this sample.
+The preceding five long matches retain their original identity;
 full-browser, offline refresh, hundred-seed, native and performance gates remain
 separate work.
 

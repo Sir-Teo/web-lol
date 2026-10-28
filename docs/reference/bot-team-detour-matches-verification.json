@@ -1,0 +1,460 @@
+{
+  "date": "2026-10-28",
+  "sourceRevision": "807b6bf",
+  "schema": 163,
+  "ruleset": "abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f",
+  "corpora": [
+    {
+      "name": "combined-five",
+      "sourceRevision": "807b6bfb62cb245b601aa07a01f3de7cf61a6071",
+      "plan": {
+        "path": "artifacts/team-detour/combined-five/plan.json",
+        "bytes": 94382,
+        "sha256": "76426c866ccdd9187713f292b64c5c36f3a0e5c62b9e655dd205f267568c6d5f"
+      },
+      "summary": {
+        "path": "artifacts/team-detour/combined-five/summary.json",
+        "bytes": 1167266,
+        "sha256": "bde88a108d9091ac7b7c864e9a18254408232e1c10402ceb581a707817733b08"
+      },
+      "horizonTicks": 216000,
+      "developmentRoster": true,
+      "seeds": [26018, 719, 927, 2147483648, 4294967295],
+      "checkedTicks": 699320,
+      "roundTrips": 196,
+      "futureChecks": 191,
+      "futureCheckedTicks": 11460,
+      "reports": [
+        {
+          "path": "artifacts/team-detour/combined-five/seeds/2147483648/report.json",
+          "bytes": 199000,
+          "sha256": "b75631993fdec16ccad5e526ea08746c158b10ac283effe47a313d29d0eaced9"
+        },
+        {
+          "path": "artifacts/team-detour/combined-five/seeds/26018/report.json",
+          "bytes": 254667,
+          "sha256": "0cc02094f30cbc3b0e046e318698891fbaeccfda00c05156cb130132f8dd54b4"
+        },
+        {
+          "path": "artifacts/team-detour/combined-five/seeds/4294967295/report.json",
+          "bytes": 175409,
+          "sha256": "2ecab1f74a0df84e2e0fb79ecf009cec14d9511745bb2945b79b57c4cc3e17af"
+        },
+        {
+          "path": "artifacts/team-detour/combined-five/seeds/719/report.json",
+          "bytes": 183731,
+          "sha256": "b12b50d157776caf9ece3c206d586ac35cd512fb15d29e5e060484d15c15af0d"
+        },
+        {
+          "path": "artifacts/team-detour/combined-five/seeds/927/report.json",
+          "bytes": 187666,
+          "sha256": "aa54ffab08df2983047d514e207873910dfa8446c63d565f5f737fa22453c479"
+        }
+      ],
+      "finals": [
+        {
+          "path": "artifacts/team-detour/combined-five/seeds/2147483648/final.match.json",
+          "bytes": 262133,
+          "sha256": "717201397aa953a2e857c74457d4c9064db10ecea01cd137d296c0c6ba575148"
+        },
+        {
+          "path": "artifacts/team-detour/combined-five/seeds/26018/final.match.json",
+          "bytes": 212885,
+          "sha256": "06baf8f7c48093e047cf78d2a7e47c357aca28322df3f69ccbd4b0a1202b955c"
+        },
+        {
+          "path": "artifacts/team-detour/combined-five/seeds/4294967295/final.match.json",
+          "bytes": 238010,
+          "sha256": "ddde1ef0f34583dc49d6caa3f3403d6762318daa60c516c3618cf16d3a9d7614"
+        },
+        {
+          "path": "artifacts/team-detour/combined-five/seeds/719/final.match.json",
+          "bytes": 268715,
+          "sha256": "48cd25cca32c0e574426380ed3adc216d34aa51d03e5757ba9e537abc79b0494"
+        },
+        {
+          "path": "artifacts/team-detour/combined-five/seeds/927/final.match.json",
+          "bytes": 313583,
+          "sha256": "746b767e13fdd9862900da1f0e88d7575e881a285dbec02e3f4507e9f8884663"
+        }
+      ]
+    },
+    {
+      "name": "ordinary-two",
+      "sourceRevision": "807b6bfb62cb245b601aa07a01f3de7cf61a6071",
+      "plan": {
+        "path": "artifacts/team-detour/ordinary-two/plan.json",
+        "bytes": 94296,
+        "sha256": "05bdf35b313dcdf7b32ac612a909d02e9feb539a54523fce8fee57b13d0d437f"
+      },
+      "summary": {
+        "path": "artifacts/team-detour/ordinary-two/summary.json",
+        "bytes": 528560,
+        "sha256": "19e5cdf6f92b012a323801648143375ad26bbe878d27e74ba999cb21318b88da"
+      },
+      "horizonTicks": 216000,
+      "developmentRoster": false,
+      "seeds": [26018, 719],
+      "checkedTicks": 314313,
+      "roundTrips": 89,
+      "futureChecks": 87,
+      "futureCheckedTicks": 5220,
+      "reports": [
+        {
+          "path": "artifacts/team-detour/ordinary-two/seeds/26018/report.json",
+          "bytes": 243571,
+          "sha256": "d4e59965e48a5838f2b9c2fcec0258c4cc2f41b502b098205a066b3a63e001d8"
+        },
+        {
+          "path": "artifacts/team-detour/ordinary-two/seeds/719/report.json",
+          "bytes": 209049,
+          "sha256": "6a47586737b3912f3b6b8d4b6454c7516797c1c1730cd19613865a55415f8fe7"
+        }
+      ],
+      "finals": [
+        {
+          "path": "artifacts/team-detour/ordinary-two/seeds/26018/final.match.json",
+          "bytes": 228356,
+          "sha256": "5c8ccd31fc377190604b2f93f24511d9f6021648f92b32255d607667a3c36fbd"
+        },
+        {
+          "path": "artifacts/team-detour/ordinary-two/seeds/719/final.match.json",
+          "bytes": 207600,
+          "sha256": "c0b43e1d0f39ab5da8432e61e5f3e521599298516ec264694e9e1877204c6dd6"
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "runs": 7,
+    "victories": 7,
+    "unfinished": 0,
+    "failures": 0,
+    "checkedTicks": 1013633,
+    "roundTrips": 285,
+    "futureChecks": 278,
+    "futureCheckedTicks": 16680
+  },
+  "verification": [
+    {
+      "result": "passed",
+      "ruleset": "abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f",
+      "seeds": 5,
+      "horizonTicks": 216000,
+      "victories": 5,
+      "unfinished": 0,
+      "checkedTicks": 699320,
+      "roundTrips": 196,
+      "futureChecks": 191,
+      "developmentLeona": false,
+      "developmentRoster": true,
+      "hundredSeedInvariantGate": false,
+      "hundredSeedDevelopmentLeonaInvariantGate": false,
+      "hundredSeedDevelopmentRosterInvariantGate": false,
+      "roadmapMilestone4Complete": false
+    },
+    {
+      "result": "passed",
+      "ruleset": "abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f",
+      "seeds": 2,
+      "horizonTicks": 216000,
+      "victories": 2,
+      "unfinished": 0,
+      "checkedTicks": 314313,
+      "roundTrips": 89,
+      "futureChecks": 87,
+      "developmentLeona": false,
+      "developmentRoster": false,
+      "hundredSeedInvariantGate": false,
+      "hundredSeedDevelopmentLeonaInvariantGate": false,
+      "hundredSeedDevelopmentRosterInvariantGate": false,
+      "roadmapMilestone4Complete": false
+    }
+  ],
+  "comparison": {
+    "baselineRuleset": "033bd826b7f5899449adbec1cbb02ff826f636cf3b75c758f4effe4f7c5a02be",
+    "candidateRuleset": "abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f",
+    "scope": "Five fixed paired seeds with identical profile/runtime/maps/horizon. UI human slot is automated. Normalizing only the root ruleset field is for comparison, not save migration. Durations do not establish general balance or human-play quality.",
+    "rows": [
+      {
+        "seed": 719,
+        "baselineWinner": "red",
+        "winner": "red",
+        "baselineTick": 133975,
+        "finalTick": 129166,
+        "deltaSeconds": -80.15,
+        "firstDifferentMinuteCheckpointTick": 75600,
+        "jungleAt20Minutes": {
+          "baseline": [
+            {
+              "team": "blue",
+              "level": 11,
+              "cs": 93,
+              "deaths": 2,
+              "fed": 35,
+              "fullGrownTick": 69172
+            },
+            {
+              "team": "red",
+              "level": 11,
+              "cs": 84,
+              "deaths": 2,
+              "fed": 34,
+              "fullGrownTick": null
+            }
+          ],
+          "candidate": [
+            {
+              "team": "blue",
+              "level": 11,
+              "cs": 93,
+              "deaths": 2,
+              "fed": 35,
+              "fullGrownTick": 69172
+            },
+            {
+              "team": "red",
+              "level": 11,
+              "cs": 84,
+              "deaths": 2,
+              "fed": 34,
+              "fullGrownTick": null
+            }
+          ]
+        }
+      },
+      {
+        "seed": 927,
+        "baselineWinner": "red",
+        "winner": "red",
+        "baselineTick": 152818,
+        "finalTick": 132009,
+        "deltaSeconds": -346.81666666666666,
+        "firstDifferentMinuteCheckpointTick": 126000,
+        "jungleAt20Minutes": {
+          "baseline": [
+            {
+              "team": "blue",
+              "level": 12,
+              "cs": 104,
+              "deaths": 2,
+              "fed": 35,
+              "fullGrownTick": 60621
+            },
+            {
+              "team": "red",
+              "level": 12,
+              "cs": 99,
+              "deaths": 0,
+              "fed": 35,
+              "fullGrownTick": 63976
+            }
+          ],
+          "candidate": [
+            {
+              "team": "blue",
+              "level": 12,
+              "cs": 104,
+              "deaths": 2,
+              "fed": 35,
+              "fullGrownTick": 60621
+            },
+            {
+              "team": "red",
+              "level": 12,
+              "cs": 99,
+              "deaths": 0,
+              "fed": 35,
+              "fullGrownTick": 63976
+            }
+          ]
+        }
+      },
+      {
+        "seed": 26018,
+        "baselineWinner": "blue",
+        "winner": "blue",
+        "baselineTick": 144967,
+        "finalTick": 179372,
+        "deltaSeconds": 573.4166666666666,
+        "firstDifferentMinuteCheckpointTick": 97200,
+        "jungleAt20Minutes": {
+          "baseline": [
+            {
+              "team": "blue",
+              "level": 12,
+              "cs": 92,
+              "deaths": 1,
+              "fed": 35,
+              "fullGrownTick": 65640
+            },
+            {
+              "team": "red",
+              "level": 11,
+              "cs": 95,
+              "deaths": 3,
+              "fed": 35,
+              "fullGrownTick": 62878
+            }
+          ],
+          "candidate": [
+            {
+              "team": "blue",
+              "level": 12,
+              "cs": 92,
+              "deaths": 1,
+              "fed": 35,
+              "fullGrownTick": 65640
+            },
+            {
+              "team": "red",
+              "level": 11,
+              "cs": 95,
+              "deaths": 3,
+              "fed": 35,
+              "fullGrownTick": 62878
+            }
+          ]
+        }
+      },
+      {
+        "seed": 2147483648,
+        "baselineWinner": "red",
+        "winner": "blue",
+        "baselineTick": 148276,
+        "finalTick": 138091,
+        "deltaSeconds": -169.75,
+        "firstDifferentMinuteCheckpointTick": 82800,
+        "jungleAt20Minutes": {
+          "baseline": [
+            {
+              "team": "blue",
+              "level": 10,
+              "cs": 86,
+              "deaths": 5,
+              "fed": 34,
+              "fullGrownTick": null
+            },
+            {
+              "team": "red",
+              "level": 12,
+              "cs": 85,
+              "deaths": 1,
+              "fed": 34,
+              "fullGrownTick": null
+            }
+          ],
+          "candidate": [
+            {
+              "team": "blue",
+              "level": 10,
+              "cs": 86,
+              "deaths": 5,
+              "fed": 34,
+              "fullGrownTick": null
+            },
+            {
+              "team": "red",
+              "level": 12,
+              "cs": 85,
+              "deaths": 1,
+              "fed": 34,
+              "fullGrownTick": null
+            }
+          ]
+        }
+      },
+      {
+        "seed": 4294967295,
+        "baselineWinner": "red",
+        "winner": "blue",
+        "baselineTick": 164995,
+        "finalTick": 120682,
+        "deltaSeconds": -738.55,
+        "firstDifferentMinuteCheckpointTick": 82800,
+        "jungleAt20Minutes": {
+          "baseline": [
+            {
+              "team": "blue",
+              "level": 11,
+              "cs": 93,
+              "deaths": 3,
+              "fed": 35,
+              "fullGrownTick": 70665
+            },
+            {
+              "team": "red",
+              "level": 10,
+              "cs": 90,
+              "deaths": 4,
+              "fed": 35,
+              "fullGrownTick": 70191
+            }
+          ],
+          "candidate": [
+            {
+              "team": "blue",
+              "level": 11,
+              "cs": 93,
+              "deaths": 3,
+              "fed": 35,
+              "fullGrownTick": 70665
+            },
+            {
+              "team": "red",
+              "level": 10,
+              "cs": 90,
+              "deaths": 4,
+              "fed": 35,
+              "fullGrownTick": 70191
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "comparisonEvidence": [
+    {
+      "path": "artifacts/team-detour/comparison.json",
+      "bytes": 5772,
+      "sha256": "437ba469f0b7f664d41cef8435cb3d990c3819caa8b24a3078e9713c6ece3085"
+    },
+    {
+      "path": "artifacts/team-detour/compare-games.py",
+      "bytes": 2177,
+      "sha256": "b6a91d970e84baf19a50d005e090d44658c2ef014d5abb09b14b52ac4daaf41c"
+    }
+  ],
+  "matchedMinuteCheckpointsThrough20IdenticalAfterRootRulesetNormalization": true,
+  "baselineEvidence": "docs/reference/combined-roster-long-games-verification.json",
+  "logs": [
+    {
+      "path": "artifacts/team-detour/logs/combined-five.log",
+      "bytes": 3164,
+      "sha256": "56339992019e8ad2d99df94ea733ec2e1e696874e875a00fdae27dbf4eb6180f"
+    },
+    {
+      "path": "artifacts/team-detour/logs/combined-verify.log",
+      "bytes": 432,
+      "sha256": "8e1227b653012ded909349f87967f7811702d1abe9fe8eab079eff76f02b51c1"
+    },
+    {
+      "path": "artifacts/team-detour/logs/comparison.log",
+      "bytes": 798,
+      "sha256": "25761e7141d9400dd6c8b82cec6bce868c578f7bf6b3b9d17dda2f2f012735b4"
+    },
+    {
+      "path": "artifacts/team-detour/logs/ordinary-two.log",
+      "bytes": 2193,
+      "sha256": "fd74f3302e94eb1aa5433c9b187abba3def299b04d2b26621eaddcb16f235d93"
+    },
+    {
+      "path": "artifacts/team-detour/logs/ordinary-verify.log",
+      "bytes": 431,
+      "sha256": "e1590a44c83c24161fd4f36e059d0946769c57d7e8bd33d363800212dbf9c1e7"
+    }
+  ],
+  "realHundredSeedGate": false,
+  "freshBrowserOrOfflineResult": false,
+  "browserEvidence": "docs/reference/bot-team-detour-verification.json"
+}

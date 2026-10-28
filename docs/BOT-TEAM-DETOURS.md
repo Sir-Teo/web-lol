@@ -60,7 +60,8 @@ Schema remains 163. Rules fingerprint is
 `abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f`.
 Matching pack `a2a97e1b56943afc1b0b7d0afd7453f70c5cf7ffda8906f966784382a7aee3f7`
 contains 1,202 files / 538,107,183 bytes. Source spell values, public assets and
-saved fields are unchanged. Fresh full-match comparisons are the next step;
-prior long-game evidence keeps its original rules identity. No new offline or
+saved fields are unchanged. [Seven fresh long matches](BOT-TEAM-DETOUR-MATCHES.md) subsequently pass
+independent verification with natural victories; prior long-game evidence keeps
+its original rules identity. No new offline or
 hundred-seed acceptance is claimed. See the
 [verification ledger](reference/bot-team-detour-verification.json).
