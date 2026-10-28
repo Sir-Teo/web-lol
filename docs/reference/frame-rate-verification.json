@@ -1,0 +1,147 @@
+{
+  "date": "2026-10-28",
+  "baselineCommit": "87c1209",
+  "ruleset": "25f21e02b07b748ab22622ea260d92f32575a1b5be8e31c0136404e1a31f607b",
+  "schema": 163,
+  "sources": [
+    {
+      "file": "src/render/frame-rate.ts",
+      "bytes": 590,
+      "sha256": "f57fc6dc1b5c5ff1e58e779c0e373cb7a5c55ccc365abc4218985dc0ecb92221"
+    },
+    {
+      "file": "src/main.ts",
+      "bytes": 26320,
+      "sha256": "984439cd50116a3b06f235e7e4e5db364bf73fbad1bbb31282e892b7ad43d0b8"
+    },
+    {
+      "file": "src/ui/hud.ts",
+      "bytes": 92642,
+      "sha256": "d4629d210d7c53e2104abe260a8d9c286e6e7d2d665c0f5e9fb6c9f67b18070f"
+    },
+    {
+      "file": "tests/frame-rate.test.ts",
+      "bytes": 1537,
+      "sha256": "de60efe27b491b6f50769c0b130ea4c8f7f7f961499e6107132f4abec78600c2"
+    },
+    {
+      "file": "e2e/frame-rate.spec.ts",
+      "bytes": 2561,
+      "sha256": "66334d516689e3a610ac352fcc223ddf40bca30e0c13179290a57abf0e9b0547"
+    }
+  ],
+  "checks": {
+    "targetedUnitPassed": 15,
+    "newCounterCases": 8,
+    "browserPassed": 2,
+    "baselineBrowserExpectedFailure": {
+      "expected": "4 FPS",
+      "actual": "12 FPS",
+      "unchangedTest": true
+    },
+    "controlledIntervalMs": 250,
+    "currentLabel": "4 FPS",
+    "maximumSimulationStepsPerFrame": 6,
+    "pausedSteps": 0,
+    "production": "passed",
+    "productionRecordings": 32,
+    "publicChoices": [
+      "ashe",
+      "lux"
+    ],
+    "developmentHook": false,
+    "baronRequests": 0,
+    "typecheck": true,
+    "build": true,
+    "format": true
+  },
+  "pack": {
+    "id": "4be267f8cf7c49382d22770531d5891971c4cbda1a431e9cb0a37f7b8c90100b",
+    "files": 1204,
+    "bytes": 551655272
+  },
+  "scope": "Wall-time presentation callback accounting. No physical FPS, GPU duration, device budget or optimization gain claim. Paused labels retain the last measured value.",
+  "inheritedFullUnit": {
+    "passed": 3590,
+    "total": 3592,
+    "at": "87c1209",
+    "knownFailures": [
+      "Leona native archive",
+      "Lux sampler checksum"
+    ],
+    "rerunForThisChange": false
+  },
+  "audits": "All four frozen cohort supervisors and their six workers resumed after quiet validation. Runner/source bytes unchanged.",
+  "evidence": [
+    {
+      "file": "artifacts/frame-rate/baseline-browser.log",
+      "bytes": 3040,
+      "sha256": "e12641f195f1b7b72db9e57a4ae60ebb587a3e1b3f5b134d12bcca766ded7b49"
+    },
+    {
+      "file": "artifacts/frame-rate/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": "artifacts/frame-rate/browser/frame-rate-HUD-measures-sl-a19a8-tending-simulation-catch-up/frame-rate.json",
+      "bytes": 304,
+      "sha256": "f6dddf95467019ea304c514094786345ce6ad92d7bf1566ffc10895941c3a7c8"
+    },
+    {
+      "file": "artifacts/frame-rate/browser-baseline/.last-run.json",
+      "bytes": 96,
+      "sha256": "12e9229307d9a5821bf4844bfe5cee3541d87377481467c7eba0f6b5622570af"
+    },
+    {
+      "file": "artifacts/frame-rate/browser-baseline/frame-rate-HUD-measures-sl-a19a8-tending-simulation-catch-up/error-context.md",
+      "bytes": 7165,
+      "sha256": "09cc3530ae5e89ab33d857959c8704ff5fd946e07aa43858284893c42fe1b799"
+    },
+    {
+      "file": "artifacts/frame-rate/browser-baseline/frame-rate-HUD-measures-sl-a19a8-tending-simulation-catch-up/test-failed-1.png",
+      "bytes": 918185,
+      "sha256": "80ae14de6a42152b49b9b1bcee153cb81f9a9e45aa8cca26fcfbcd7c552a2f1e"
+    },
+    {
+      "file": "artifacts/frame-rate/browser-baseline/frame-rate-HUD-measures-sl-a19a8-tending-simulation-catch-up/trace.zip",
+      "bytes": 32991201,
+      "sha256": "9463146db0d65c3f43e9c4918bb375a986b4447430e3b6d48ceefdfa40380acd"
+    },
+    {
+      "file": "artifacts/frame-rate/browser.log",
+      "bytes": 922,
+      "sha256": "8bdf370db663991808fc0e38a15245fdc40bb39beb8a94321270ec39493f22e3"
+    },
+    {
+      "file": "artifacts/frame-rate/build.log",
+      "bytes": 7124,
+      "sha256": "b5dfffed2b0a28b1baf10011c5b4f55b51749c60c1653f60180d9ae16d34a3d4"
+    },
+    {
+      "file": "artifacts/frame-rate/control.mjs",
+      "bytes": 2943,
+      "sha256": "04bf66921061db08c572adf858d0d91a6ee2f50735f3bbcc1370f95c8ed38049"
+    },
+    {
+      "file": "artifacts/frame-rate/offline-pack.json",
+      "bytes": 172742,
+      "sha256": "5de25bd01270568690a4eaf8f34c3a0d9a5a281330d8327540c44002113c1d7f"
+    },
+    {
+      "file": "artifacts/frame-rate/production.log",
+      "bytes": 3176,
+      "sha256": "f9ab7a2e5bc0c969c708de75cefa76364d589be4801b0549e45d886f7d434fba"
+    },
+    {
+      "file": "artifacts/frame-rate/unit.log",
+      "bytes": 181,
+      "sha256": "32b075d74908e25faf2a50fb022d62371316af798a9a59604fb6da62a43ecaaa"
+    },
+    {
+      "file": "artifacts/frame-rate/validation-pause.json",
+      "bytes": 2597,
+      "sha256": "f1792fe410041e7fab697e48291f0c6d42f935da30f59edd66d65ca6b3d0f4ee"
+    }
+  ]
+}

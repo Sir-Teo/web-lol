@@ -6,6 +6,18 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+The [FPS readout](FRAME-RATE.md) now measures presentation callbacks against wall time,
+including slow active frames without extending simulation catch-up. Initial
+unknown readings use an em dash; paused paints do not count, and recovery starts
+a new observation window. It refreshes independently of the match clock. Fifteen
+focused unit cases, two browser checks, an unchanged-test baseline reproduction,
+build/typecheck and all 32 production recordings pass. The old baseline receives
+12 FPS where controlled 250 ms callbacks now show 4 FPS. This is clock-accounting
+verification, with no hardware performance or optimization-gain claim. Schema
+163 and fingerprint `25f21e…` stay unchanged. Current pack
+`4be267f8cf7c49382d22770531d5891971c4cbda1a431e9cb0a37f7b8c90100b` has
+1,204 files / 551,655,272 bytes. All frozen audit processes resume.
+
 The latest [private Baron combat fixture](BARON-ENCOUNTER.md) adds a stationary
 source rig with published minimum-level stats, Flash/Smite, real retaliation,
 local leash/reset, exact saves/futures and isolated file admission. It uses its

@@ -26,6 +26,7 @@ import { swapTrinket, trinketSwapError } from './simulation/trinkets';
 import { companionItemKind } from './content/companion-items-policy';
 import { GameView } from './render/view';
 import { FramePacer } from './render/frame-pacer';
+import { FrameRate } from './render/frame-rate';
 import { Hud } from './ui/hud';
 import { isPlayerFeedback } from './ui/player-feedback';
 import { loadInterfaceFonts } from './ui/fonts';
@@ -228,6 +229,7 @@ async function boot(): Promise<void> {
     return;
   }
   const audio = new GameAudio(world.events);
+  const frameRate = new FrameRate();
   let paused = false,
     accumulator = 0,
     previous = performance.now(),
@@ -242,6 +244,7 @@ async function boot(): Promise<void> {
     audio.setPaused((paused && !world.winner) || document.hidden || !!hud.graphicsState);
     accumulator = 0;
     previous = performance.now();
+    frameRate.reset();
     // Release unfinished gestures; accepted commands belong to the frozen match state.
     if (paused) {
       input?.release();
@@ -552,10 +555,7 @@ async function boot(): Promise<void> {
   else if (ahriBotRiftTrial) hud.toast('Development trial: Ahri mid bots on Summoner’s Rift.');
   else if (ahriRiftTrial) hud.toast('Development trial: Ahri mid on Summoner’s Rift.');
   window.setTimeout(() => loading.remove(), 600);
-  let frames = 0,
-    frameTime = 0,
-    fps = 60,
-    uiElapsed = 0;
+  let uiElapsed = 0;
   const pacer = new FramePacer();
   let loopRunning = false;
   const stopLoop = () => {
@@ -573,13 +573,7 @@ async function boot(): Promise<void> {
       dt = Math.min((now - previous) / 1000, 0.1);
     previous = now;
     elapsed += paused && !world.winner ? 0 : dt;
-    frameTime += dt;
-    frames++;
-    if (frameTime >= 0.5) {
-      fps = frames / frameTime;
-      frameTime = 0;
-      frames = 0;
-    }
+    if (!paused || world.winner) frameRate.record(now);
     input!.update(dt);
     if (!paused) {
       accumulator += dt;
@@ -596,7 +590,7 @@ async function boot(): Promise<void> {
       input!.updateHoverAfterRender();
       uiElapsed += dt;
       if (uiElapsed >= 0.05 || paused) {
-        hud.update(fps);
+        hud.update(frameRate.value);
         uiElapsed = 0;
       }
       const audibleProjectiles = world.projectiles.filter((p) => world.projectileVisible(p));
@@ -632,6 +626,7 @@ async function boot(): Promise<void> {
     }
     if (loopRunning) return;
     previous = performance.now();
+    frameRate.reset();
     pacer.reset();
     loopRunning = true;
     view.renderer.setAnimationLoop(frame);

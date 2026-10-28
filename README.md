@@ -83,6 +83,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Minimap camera dragging](docs/MINIMAP-CAMERA-DRAG.md)
 - [Held champion targeting](docs/CHAMPION-TARGETING.md)
 - [Held right-click movement](docs/HELD-MOVEMENT.md)
+- [Wall-time frame-rate readout](docs/FRAME-RATE.md)
 - [Pinned epic-objective character records](docs/EPIC-CHARACTERS.md)
 - [Baron, Herald and Grub source rigs and binding audit](docs/EPIC-MODELS.md)
 - [Private Baron combat, saves and admission](docs/BARON-ENCOUNTER.md)

@@ -170,7 +170,7 @@ export class Hud {
         </div>
         <div class="inventory-panel"><div class="inventory-tools"><div class="inventory-grid" id="inventory">${Array.from({ length: 6 }, (_, i) => `<div class="item-slot"><span>${[1, 2, 3, 5, 6, 7][i]}</span></div>`).join('')}</div><button id="trinket" class="item-slot trinket-slot" aria-label="Stealth Ward"><img src="assets/icons/3340.png" alt="Stealth Ward"><b class="trinket-charges"></b><time class="trinket-cooldown"></time><span>4</span></button></div><button id="shop-button" class="gold-button" title="Open shop (P)"><span>◆</span><b id="gold">500</b><kbd>P</kbd></button></div>
       </section>
-      <div class="minimap-shell"><div class="ally-portraits" role="group" aria-label="Teammate cameras" hidden>${[2, 3, 4, 5].map((slot) => `<button class="ally-portrait" data-ally-camera="f${slot}" type="button"><img alt=""><kbd>F${slot}</kbd><span class="ally-respawn"></span><span class="ally-health"><i></i></span></button>`).join('')}</div><div class="map-controls"><button id="camera-button" aria-label="Toggle camera lock" title="Lock camera (Y)">▣</button><button id="sound-button" aria-label="Toggle sound" title="Toggle sound">♫</button><span id="fps">60 FPS</span></div><canvas id="minimap" width="256" height="256" aria-label="Minimap. Left-click or drag to move the camera; right-click to move your champion."></canvas><span class="map-caption">SUMMONER’S RIFT</span></div>
+      <div class="minimap-shell"><div class="ally-portraits" role="group" aria-label="Teammate cameras" hidden>${[2, 3, 4, 5].map((slot) => `<button class="ally-portrait" data-ally-camera="f${slot}" type="button"><img alt=""><kbd>F${slot}</kbd><span class="ally-respawn"></span><span class="ally-health"><i></i></span></button>`).join('')}</div><div class="map-controls"><button id="camera-button" aria-label="Toggle camera lock" title="Lock camera (Y)">▣</button><button id="sound-button" aria-label="Toggle sound" title="Toggle sound">♫</button><span id="fps">— FPS</span></div><canvas id="minimap" width="256" height="256" aria-label="Minimap. Left-click or drag to move the camera; right-click to move your champion."></canvas><span class="map-caption">SUMMONER’S RIFT</span></div>
       <div class="recall-progress" hidden><span>RECALLING</span><div><i></i></div><small>Taking damage or moving cancels recall</small></div>
       <div class="death-overlay" hidden><span>You have been slain</span><strong id="respawn-count"></strong></div>
       <div class="modal-backdrop" id="modal" hidden></div>
@@ -1298,7 +1298,7 @@ export class Hud {
     this.itemTooltip.refresh(focusedItem);
   }
 
-  update(fps: number): void {
+  update(fps: number | null): void {
     if (this.world.winner && this.modal !== 'result') this.toggleModal('result');
     this.updateAllyCameras();
     this.attackStatTooltip.refresh(this.modal === null);
@@ -1643,8 +1643,8 @@ export class Hud {
         'clock',
         `${String(Math.floor(w.time / 60)).padStart(2, '0')}:${String(Math.floor(w.time) % 60).padStart(2, '0')}`
       );
-      text('fps', `${Math.round(fps)} FPS`);
     }
+    text('fps', fps === null ? '— FPS' : `${Math.round(fps)} FPS`);
     if (performance.now() > this.toastUntil)
       this.root.querySelector('#toast')!.classList.remove('visible');
     for (const event of w.events)
