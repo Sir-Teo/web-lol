@@ -15,9 +15,15 @@ export function createLaneMatch(
   if (battlefield.id !== 'rift') throw new Error('Lane matches require Summoner’s Rift.');
   if (battlefield.developmentAhriBots && !battlefield.developmentAhriRift)
     throw new Error('Ahri bot selection requires the trusted development Ahri Rift host.');
+  if (battlefield.developmentMasterYiBots && !battlefield.developmentMasterYiRift)
+    throw new Error('Master Yi bot selection requires the trusted development Yi Rift host.');
   const assignments = [
     { role: 'top', lane: 'top', champion: 'ashe' },
-    { role: 'jungle', lane: null, champion: 'ashe' },
+    {
+      role: 'jungle',
+      lane: null,
+      champion: battlefield.developmentMasterYiBots ? 'masteryi' : 'ashe',
+    },
     { role: 'mid', lane: 'mid', champion: battlefield.developmentAhriBots ? 'ahri' : 'lux' },
     { role: 'carry', lane: 'bot', champion: 'ashe' },
     { role: 'support', lane: 'bot', champion: 'lux' },

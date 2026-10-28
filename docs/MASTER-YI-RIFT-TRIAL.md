@@ -6,6 +6,10 @@ the remaining positions. Both teams retain top, jungle, mid, bottom and support;
 the roster has five Ashe, four Lux and one Yi. Production selection remains
 Ashe/Lux.
 
+The optional [Yi bot variant](MASTER-YI-BOT-RIFT.md) at
+`/?scene=masteryi-rift&bots=masteryi` selects an opposing Yi jungler and uses
+a separate private save. The route without that query retains the roster here.
+
 Yi begins with his own level-one stats, unlearned spells and Smite/Flash. He
 receives no automatic movement, skill learning or companion purchase. The shop
 uses the existing jungle starter purchase rules. Existing source terrain,

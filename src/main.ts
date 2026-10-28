@@ -57,6 +57,7 @@ async function boot(): Promise<void> {
   const leonaRiftTrial = import.meta.env.DEV && query.get('scene') === 'leona-rift';
   const garenRiftTrial = import.meta.env.DEV && query.get('scene') === 'garen-rift';
   const masterYiRiftTrial = import.meta.env.DEV && query.get('scene') === 'masteryi-rift';
+  const masterYiBotRiftTrial = masterYiRiftTrial && query.get('bots') === 'masteryi';
   const ahriRiftTrial = import.meta.env.DEV && query.get('scene') === 'ahri-rift';
   const ahriBotRiftTrial = ahriRiftTrial && query.get('bots') === 'ahri';
   const masterYiNpc = fixture && query.get('npc') === 'masteryi' && !query.has('champion');
@@ -70,7 +71,11 @@ async function boot(): Promise<void> {
         ...(ahriBotRiftTrial ? { developmentAhriBots: true as const } : {}),
       }
     : masterYiRiftTrial
-      ? { ...loadedBattlefield, developmentMasterYiRift: true as const }
+      ? {
+          ...loadedBattlefield,
+          developmentMasterYiRift: true as const,
+          ...(masterYiBotRiftTrial ? { developmentMasterYiBots: true as const } : {}),
+        }
       : leonaRiftTrial
         ? { ...loadedBattlefield, developmentLeona: true as const }
         : garenRiftTrial
@@ -84,19 +89,21 @@ async function boot(): Promise<void> {
     ? 'development-ahri-bots-rift'
     : ahriRiftTrial
       ? 'development-ahri-rift'
-      : masterYiRiftTrial
-        ? 'development-masteryi-rift'
-        : masterYiPlayerFixture
-          ? 'development-masteryi-player-fixture'
-          : masterYiNpc
-            ? 'development-masteryi-npc-fixture'
-            : leonaRiftTrial
-              ? 'development-leona-rift'
-              : garenRiftTrial
-                ? 'development-garen-rift'
-                : ahriPlayerFixture
-                  ? 'development-ahri-player-fixture'
-                  : battlefield.id;
+      : masterYiBotRiftTrial
+        ? 'development-masteryi-bots-rift'
+        : masterYiRiftTrial
+          ? 'development-masteryi-rift'
+          : masterYiPlayerFixture
+            ? 'development-masteryi-player-fixture'
+            : masterYiNpc
+              ? 'development-masteryi-npc-fixture'
+              : leonaRiftTrial
+                ? 'development-leona-rift'
+                : garenRiftTrial
+                  ? 'development-garen-rift'
+                  : ahriPlayerFixture
+                    ? 'development-ahri-player-fixture'
+                    : battlefield.id;
   const leonaNpc = fixture && new URLSearchParams(location.search).get('npc') === 'leona';
   const ahriNpc = fixture && query.get('npc') === 'ahri';
   const garenFixture = fixture && new URLSearchParams(location.search).get('champion') === 'garen';
@@ -504,6 +511,8 @@ async function boot(): Promise<void> {
   else if (saveNotice) hud.toast(saveNotice);
   else if (leonaRiftTrial) hud.toast('Development trial: Leona support on Summoner’s Rift.');
   else if (garenRiftTrial) hud.toast('Development trial: Garen top on Summoner’s Rift.');
+  else if (masterYiBotRiftTrial)
+    hud.toast('Development trial: Master Yi jungle bots on Summoner’s Rift.');
   else if (masterYiRiftTrial) hud.toast('Development trial: Master Yi jungle on Summoner’s Rift.');
   else if (ahriBotRiftTrial) hud.toast('Development trial: Ahri mid bots on Summoner’s Rift.');
   else if (ahriRiftTrial) hud.toast('Development trial: Ahri mid on Summoner’s Rift.');

@@ -1,0 +1,258 @@
+{
+  "date": "2026-10-27",
+  "previousCommit": "ff01bfb",
+  "schema": 163,
+  "ruleset": "4d598fc4eaff0482d8fc6800f5f645b39df88124009ad4144155c5c322ce75a2",
+  "sources": [
+    {
+      "path": "src/simulation/battlefield.ts",
+      "bytes": 3395,
+      "sha256": "0a1d160892dac22fb058026cb5782d26eabf27a7c37acae4380c9e46072a4c03"
+    },
+    {
+      "path": "src/simulation/lane-match.ts",
+      "bytes": 3648,
+      "sha256": "4ecc8f32f8a9b0e63f2d9729f186d7933d71fcbbbb1cdacfa38a97f4fdd3a05a"
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 24622,
+      "sha256": "68e24957530d9887bfa7016f209312103ca50c3efa7d79914f99463dd5c4d6b0"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 32397,
+      "sha256": "672b4721d4af20ca0a6e06d7a8aa711630000f54112d970238763e707f86610d"
+    },
+    {
+      "path": "tests/masteryi-bot-rift.test.ts",
+      "bytes": 6341,
+      "sha256": "975b3cbb8c4a9c41207cd2f2654c0bb1509ea8417b1949445ad98284eec8823a"
+    },
+    {
+      "path": "e2e/masteryi-bot-rift.spec.ts",
+      "bytes": 8245,
+      "sha256": "e5c3ccb61e9d067f49c256bb958bb5bf7a79e184e24c617fbe7f07c272f50cbb"
+    }
+  ],
+  "focused": {
+    "passed": 913,
+    "total": 913,
+    "files": 53,
+    "newCases": 7
+  },
+  "broad": {
+    "passed": 3489,
+    "total": 3495,
+    "files": 411,
+    "unchangedBaselineFailures": 6,
+    "baselineEvidence": "docs/reference/ahri-bot-mobility-verification.json"
+  },
+  "checks": {
+    "typescript": true,
+    "nodeQa": {
+      "passed": 29,
+      "total": 29
+    },
+    "build": true,
+    "publicAssetsChanged": false,
+    "spellControllersChanged": false,
+    "savedFieldsChanged": false
+  },
+  "pack": {
+    "id": "8fa4f1843412d4c6c3b2c5ef1777a591292fa3963292196280696fb5ce88c7a1",
+    "files": 1202,
+    "bytes": 538103007,
+    "buildRulesetMatches": true
+  },
+  "browser": {
+    "passed": 1,
+    "total": 1,
+    "retries": 0,
+    "launcher": "/usr/bin/chromium",
+    "paidNpcCompanions": true,
+    "tenScoreboardRows": true,
+    "realAsheChooser": true,
+    "naturalMonsterAlpha": true,
+    "realSaveReload": true,
+    "exactFutureTicks": 180,
+    "exactRestart": true,
+    "privateSavesPreserved": true,
+    "screenshotsReviewed": true,
+    "pageErrors": [],
+    "proofs": [
+      {
+        "path": "artifacts/masteryi-bot-rift/browser/masteryi-bot-rift-Yi-jungl-19ce2-saves-and-real-Ashe-restart/masteryi-bot-rift-alpha-clear.png",
+        "bytes": 1219442,
+        "sha256": "7800dd8cbba613bab7c3338852a0baae7d45bad5e633eb75417cc2b8077f8982"
+      },
+      {
+        "path": "artifacts/masteryi-bot-rift/browser/masteryi-bot-rift-Yi-jungl-19ce2-saves-and-real-Ashe-restart/masteryi-bot-rift-scoreboard.png",
+        "bytes": 1052052,
+        "sha256": "fc414d88d34c0b046ef3ea0c92b8b18e62e5cb50d3e027e109d3c91e1071fe7d"
+      },
+      {
+        "path": "artifacts/masteryi-bot-rift/browser/masteryi-bot-rift-Yi-jungl-19ce2-saves-and-real-Ashe-restart/masteryi-bot-rift.json",
+        "bytes": 1420300,
+        "sha256": "998fb0e2e92ff24b071011bc312a8586158541586e8da02f42dbc07ab9ec0b14"
+      }
+    ]
+  },
+  "diagnostic": {
+    "seeds": [26018, 719, 927],
+    "horizonMinutes": 10,
+    "checkedTicks": 108000,
+    "checkpointRoundTrips": 30,
+    "originalWorldFutureComparisons": 9,
+    "acceptedCasts": {
+      "q": 151,
+      "w": 10,
+      "e": 123,
+      "r": 5
+    },
+    "forcedWinner": false,
+    "failures": [],
+    "runner": {
+      "path": "artifacts/masteryi-bot-rift/match-audit.ts",
+      "bytes": 3377,
+      "sha256": "45fc72d83cbe4433150933a185328c06fc617047e2704b080b6969177044ce87"
+    },
+    "reports": [
+      {
+        "report": {
+          "path": "artifacts/masteryi-bot-rift/match-26018.json",
+          "bytes": 6936,
+          "sha256": "3be1a99d8445ffce19f6bc3f029169cc33f154a4607880f9f25098644723a8ac"
+        },
+        "checkpoint": {
+          "path": "artifacts/masteryi-bot-rift/match-26018.snapshot.json",
+          "bytes": 191407,
+          "sha256": "e4be3e108a0ea8949ea3f5cbb40bb1ce1846200c8511318d2568308a01c48e4e"
+        }
+      },
+      {
+        "report": {
+          "path": "artifacts/masteryi-bot-rift/match-719.json",
+          "bytes": 6936,
+          "sha256": "53b7326fa832af777d623b9d826237b9d308db63ea185bb57f1c695fa4dcc4bc"
+        },
+        "checkpoint": {
+          "path": "artifacts/masteryi-bot-rift/match-719.snapshot.json",
+          "bytes": 205985,
+          "sha256": "0be6fee9eb4967a95ef43ec0d178aac733ef5862ddfbb39aecb4e2d10674808f"
+        }
+      },
+      {
+        "report": {
+          "path": "artifacts/masteryi-bot-rift/match-927.json",
+          "bytes": 6936,
+          "sha256": "7625112a45517cde1d13715e2868be5e18d680cd15b8b2a8c89a0675fe8fbe11"
+        },
+        "checkpoint": {
+          "path": "artifacts/masteryi-bot-rift/match-927.snapshot.json",
+          "bytes": 263250,
+          "sha256": "59770018180c6611f3c57e53b71a8ccd16baf534bf3c0b840c9e029d1f2633b2"
+        }
+      }
+    ]
+  },
+  "production": {
+    "passed": true,
+    "recordings": 32,
+    "prefix": "/nested/rift/",
+    "developmentSelectorsIgnored": true,
+    "unsolicitedMasterYiAssets": 0,
+    "screenshot": {
+      "path": "artifacts/masteryi-bot-rift/production.png",
+      "bytes": 1823899,
+      "sha256": "28098bcb94c3741d0ca920c6bcb5c501b5e207a021b584226e30784eb3079f7f"
+    }
+  },
+  "offline": {
+    "passed": true,
+    "serviceWorkerResponses": 978,
+    "report": {
+      "path": "artifacts/offline-pack-masteryi-bot-rift-20261027-production.json",
+      "bytes": 827,
+      "sha256": "a3785fede4186e46075a009479f0a002c73425fa45b2e96d880ff5f365715d98"
+    }
+  },
+  "retainedTimingAttempts": {
+    "concurrentFull": {
+      "passed": 3488,
+      "total": 3495,
+      "additionalFailure": "unchanged lane-rules wave-clock 5s timeout"
+    },
+    "concurrentProduction": {
+      "failure": "unchanged map Mid lane control 30s action timeout"
+    },
+    "resolution": "Isolated wave-clock and quiet full/production reruns pass original checks and deadlines; no assertion or timeout changes."
+  },
+  "logs": [
+    {
+      "path": "artifacts/masteryi-bot-rift/logs/concurrent-full.log",
+      "bytes": 6893,
+      "sha256": "8fe195d51619dd9ac7ece1e3ad39a0ed03f51e23cb7906d9517c50d679bbe57e"
+    },
+    {
+      "path": "artifacts/masteryi-bot-rift/logs/concurrent-production.log",
+      "bytes": 1059,
+      "sha256": "7f4efdc89c836e4d0dab07fc03ede20200db6d0476a83535e749d5042ff1d5b6"
+    },
+    {
+      "path": "artifacts/masteryi-bot-rift/logs/production-quiet.log",
+      "bytes": 3037,
+      "sha256": "15b18ea2a3717a07bf5ab306884b1d2ec8a2c0e8621683722fb3726f163ae192"
+    },
+    {
+      "path": "artifacts/masteryi-bot-rift/logs/web-lol-yi-bot-rift-audit-build.log",
+      "bytes": 245,
+      "sha256": "b3c5ba4fa237b25c47255bbeb9af2cba35513a1069a5ad5a67b84c216b8daf90"
+    },
+    {
+      "path": "artifacts/masteryi-bot-rift/logs/web-lol-yi-bot-rift-audit.log",
+      "bytes": 8547,
+      "sha256": "0b84728de9788a9cf85309791bc4dda8c609b14c82ef29e6eef6d8b9f6385c9f"
+    },
+    {
+      "path": "artifacts/masteryi-bot-rift/logs/web-lol-yi-bot-rift-browser.log",
+      "bytes": 1327,
+      "sha256": "e8a3d616a2954f979a9652f3d67afc6a54cbbadfa71d5abe3791f270a6f8f1e2"
+    },
+    {
+      "path": "artifacts/masteryi-bot-rift/logs/web-lol-yi-bot-rift-build.log",
+      "bytes": 7124,
+      "sha256": "2f6163da23765bcbc8f67f84c75838b5fd179e1273cbf48a60329ec11fc46c4f"
+    },
+    {
+      "path": "artifacts/masteryi-bot-rift/logs/web-lol-yi-bot-rift-focused.log",
+      "bytes": 374,
+      "sha256": "ab62bdfe82d71d5579796ac6f00999881605fee84d597c828b2ba07358ba32a2"
+    },
+    {
+      "path": "artifacts/masteryi-bot-rift/logs/web-lol-yi-bot-rift-full-quiet.log",
+      "bytes": 5893,
+      "sha256": "7103d01bff74af4a4a72833142af1c2789ce9f91dae9ecfda78e4c78443665fe"
+    },
+    {
+      "path": "artifacts/masteryi-bot-rift/logs/web-lol-yi-bot-rift-initial.log",
+      "bytes": 169,
+      "sha256": "fef8e62ff71a77611eaddd519521a2a8cc9b9cb51d01e4fd61546653f5a66742"
+    },
+    {
+      "path": "artifacts/masteryi-bot-rift/logs/web-lol-yi-bot-rift-node-qa.log",
+      "bytes": 2781,
+      "sha256": "564e3384cb0e8f1fac1dbfa5d7eecf721a55c42d8b7914b278dd1b1fe40db6b2"
+    },
+    {
+      "path": "artifacts/masteryi-bot-rift/logs/web-lol-yi-bot-rift-offline.log",
+      "bytes": 842,
+      "sha256": "635e94018d22be6f5de19e2125f0a594ba09a50e1b15b89c7c06c6de59ce8c54"
+    },
+    {
+      "path": "artifacts/masteryi-bot-rift/logs/web-lol-yi-bot-rift-wave-isolated.log",
+      "bytes": 167,
+      "sha256": "cd824e69e5190f53f6289950dd8dfdb977a3dfad44fd414e736f81b3e2080fd8"
+    }
+  ]
+}

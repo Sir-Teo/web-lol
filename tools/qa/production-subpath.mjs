@@ -248,6 +248,15 @@ try {
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
+  await page.goto(`${base}?scene=masteryi-rift&bots=masteryi`);
+  await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
+  assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
+  assert.equal(await page.evaluate(() => !!window.__GAME__), false);
+  assert.deepEqual(
+    masterYiPreviewRequests,
+    [],
+    'The Yi bot trial must not preload Yi in production'
+  );
   await page.goto(`${base}?scene=ahri-rift&champion=ahri`);
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
@@ -656,6 +665,7 @@ try {
       leonaRiftTrialInProduction: false,
       garenRiftTrialInProduction: false,
       masterYiRiftTrialInProduction: false,
+      masterYiBotRiftTrialInProduction: false,
       ahriRiftTrialInProduction: false,
       ahriBotRiftTrialInProduction: false,
       ahriNpcFixtureInProduction: false,

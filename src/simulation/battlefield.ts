@@ -39,6 +39,8 @@ export interface Battlefield extends TerrainQueries {
   developmentMasterYi?: true;
   /** Separate trusted host for the human Master Yi Rift jungle trial. */
   developmentMasterYiRift?: true;
+  /** Selects Yi NPC junglers within the trusted Yi Rift host; not admission by itself. */
+  developmentMasterYiBots?: true;
   id: 'practice-fixture' | 'rift';
   half: number;
   heightRange: readonly [number, number];

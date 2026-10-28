@@ -6,7 +6,35 @@ Last updated: October 27, 2026 (UTC).
 
 ## Current authoritative state
 
-The latest [Master Yi bot tactics](MASTER-YI-BOT-TACTICS.md) add between-fight
+The latest [Yi bot Rift trial](MASTER-YI-BOT-RIFT.md) adds the optional
+`/?scene=masteryi-rift&bots=masteryi` roster. Initial human Yi faces a Yi jungle
+bot; choosing Ashe/Lux gives both teams an AI Yi jungler. NPCs spend their own
+450 gold on companions, while the human's purchase remains manual. Existing
+roles, source navigation/calendars, own learning and Q/E/W/R policies remain in
+use. The selector requires the existing trusted host and uses its own save slot.
+
+All 913 focused cases across 53 files, TypeScript, all 29 Node QA cases and
+the matching build pass. The actual browser flow checks paid companions,
+ten scoreboard roles, real Ashe selection, a natural monster Alpha clear,
+exact in-flight Save/reload and 180-tick future, exact restart and preserved
+ordinary/original-trial saves. Both source-Rift captures were reviewed with no
+page errors. Schema stays 163; current rules fingerprint is
+`4d598fc4eaff0482d8fc6800f5f645b39df88124009ad4144155c5c322ce75a2`.
+Pack `8fa4f1843412d4c6c3b2c5ef1777a591292fa3963292196280696fb5ce88c7a1`
+contains 1,202 files / 538,103,007 bytes. No public asset or spell controller
+changes. Native fidelity and complete-match gates remain open.
+
+The quiet broad run passes **3,489/3,495 cases across 411 files**, leaving
+only the six reproduced baseline failures. Three ten-minute roster diagnostics
+pass 108,000 checked ticks, 30 round-trips and nine original-future comparisons;
+both Yi junglers use Q/E, with aggregate Q151/W10/E123/R5 and no forced winner.
+Quiet nested production passes all 32 recordings and development gates; fresh
+offline acceptance passes 978 service-worker responses and saved recovery.
+The earlier concurrent wave-clock and map-control timeouts remain recorded;
+unchanged deadlines/assertions pass when rerun without competing browser work.
+See the [verification ledger](reference/masteryi-bot-rift-verification.json).
+
+The preceding [Master Yi bot tactics](MASTER-YI-BOT-TACTICS.md) add between-fight
 Meditate with full-channel/Q mana reserves and visible-threat interruption
 through queued orders. Highlander supports visible champion chases and retreat,
 reserves a ready Q's mana and leaves neutral camps alone. Existing controllers
