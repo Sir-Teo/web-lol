@@ -55,6 +55,6 @@ Schema remains 163 and rules fingerprint remains
 Application code/assets and the matching 1,202-file offline pack are unchanged.
 No fresh browser, production, offline or full unit-suite result is claimed for
 this tool-only step; their preceding evidence remains linked from the
-[player chooser](ROSTER-PLAYER-SELECTION.md). Long-game and hundred-seed results
-remain separate acceptance work. See the
+[player chooser](ROSTER-PLAYER-SELECTION.md). [Five long games](COMBINED-ROSTER-LONG-GAMES.md) subsequently pass independent
+verification with natural victories; the hundred-seed result remains open. See the
 [verification ledger](reference/combined-roster-cohort-verification.json).

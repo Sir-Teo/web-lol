@@ -41,8 +41,17 @@ compatible with the exact historical controller. All 39 Node QA checks pass.
 Real short pilots and an intentional crash/recovery independently verify
 97,200 ticks, 27 exact round-trips and 20 saved futures covering 1,200 ticks.
 The completed report and interrupted checkpoint survive byte for byte; only
-pending seeds restart. These are seven short unfinished diagnostics, not a
-hundred-seed result. Next is longer combined-roster seed coverage.
+pending seeds restart. The seven short diagnostics remain distinct from the
+[subsequent five long games](COMBINED-ROSTER-LONG-GAMES.md): all five finish
+naturally with valid victories, including two uint32 boundary seeds. Independent
+verification passes 745,031 ticks, 210 exact round-trips and 205 saved futures
+covering 12,300 ticks. A real minute-27 file import, six-identity scoreboard and
+180-tick animation-loop browser future pass with reviewed captures. The first
+expanded browser fixture closes its modal after pausing and advances 12 extra
+ticks; its trace is retained and corrected pause order passes. Full-browser,
+hundred-seed, native and performance gates remain open. Four observed blocked
+team routes have complete safe alternatives in an isolated probe; threat-aware
+strategic routing is next.
 
 The preceding [supported Leona engage](LEONA-SUPPORTED-ENGAGE.md) lets support-role
 bots join an actual allied attack on an observed unheld champion. It requires

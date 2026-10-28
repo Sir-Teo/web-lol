@@ -1,0 +1,379 @@
+{
+  "date": "2026-10-28",
+  "sourceRevision": "eeb9be5e5d97e67b69fa9909655149b2fac38774",
+  "schema": 163,
+  "ruleset": "033bd826b7f5899449adbec1cbb02ff826f636cf3b75c758f4effe4f7c5a02be",
+  "plan": {
+    "path": "artifacts/roster-cohort/long-five/plan.json",
+    "bytes": 94372,
+    "sha256": "35a48fa999c664d40fefbd1c3cae2e4888449b1db76b050949f0742bc2c317a3"
+  },
+  "summary": {
+    "path": "artifacts/roster-cohort/long-five/summary.json",
+    "bytes": 1253408,
+    "sha256": "a7195bdbec30555674609e525eaefb5da56b7204cf374199522027454539d42b"
+  },
+  "independentVerification": {
+    "result": "passed",
+    "ruleset": "033bd826b7f5899449adbec1cbb02ff826f636cf3b75c758f4effe4f7c5a02be",
+    "seeds": 5,
+    "horizonTicks": 216000,
+    "victories": 5,
+    "unfinished": 0,
+    "checkedTicks": 745031,
+    "roundTrips": 210,
+    "futureChecks": 205,
+    "developmentLeona": false,
+    "developmentRoster": true,
+    "hundredSeedInvariantGate": false,
+    "hundredSeedDevelopmentLeonaInvariantGate": false,
+    "hundredSeedDevelopmentRosterInvariantGate": false,
+    "roadmapMilestone4Complete": false
+  },
+  "acceptedFutureCheckedTicks": 12300,
+  "seeds": [
+    {
+      "seed": 719,
+      "winner": "red",
+      "tick": 133975,
+      "report": {
+        "path": "artifacts/roster-cohort/long-five/seeds/719/report.json",
+        "bytes": 194839,
+        "sha256": "7e425bf12a6efd8783832f48609e91a6e078640e4eeef26aa67e7afc98582a4f"
+      },
+      "final": {
+        "path": "artifacts/roster-cohort/long-five/seeds/719/final.match.json",
+        "bytes": 686633,
+        "sha256": "506ce12301e181414c3d7429945846cef26dfe05775c220863e268cd8fbd8161"
+      }
+    },
+    {
+      "seed": 927,
+      "winner": "red",
+      "tick": 152818,
+      "report": {
+        "path": "artifacts/roster-cohort/long-five/seeds/927/report.json",
+        "bytes": 217504,
+        "sha256": "d26466ecf4d3475c5109e7bae2037c2e883f263c3c2c9c814410f7bf9c0d04d4"
+      },
+      "final": {
+        "path": "artifacts/roster-cohort/long-five/seeds/927/final.match.json",
+        "bytes": 240133,
+        "sha256": "3721a3a92b1059e64ef4546cf94b64ad8b16dcdb860ad746405f3f32c38afc46"
+      }
+    },
+    {
+      "seed": 26018,
+      "winner": "blue",
+      "tick": 144967,
+      "report": {
+        "path": "artifacts/roster-cohort/long-five/seeds/26018/report.json",
+        "bytes": 209564,
+        "sha256": "2c49c48b44efd1e6b2a0367e2889fecad6a5ede1b6e50eba302569ecbf57c1c6"
+      },
+      "final": {
+        "path": "artifacts/roster-cohort/long-five/seeds/26018/final.match.json",
+        "bytes": 287914,
+        "sha256": "21d19dfa6ffe43a4ba7ecb7b4a5acb210e7a2124e2df3a59a6e936c58459f50a"
+      }
+    },
+    {
+      "seed": 2147483648,
+      "winner": "red",
+      "tick": 148276,
+      "report": {
+        "path": "artifacts/roster-cohort/long-five/seeds/2147483648/report.json",
+        "bytes": 215691,
+        "sha256": "b22fd4d20716ff74d491aedc5fb2f30125c43abc0af62570f27c903ee3363490"
+      },
+      "final": {
+        "path": "artifacts/roster-cohort/long-five/seeds/2147483648/final.match.json",
+        "bytes": 225820,
+        "sha256": "49b4cc2c154d5ef858f4ea16b9a3d44f8a985355f4545d4d5a01db3b143299d7"
+      }
+    },
+    {
+      "seed": 4294967295,
+      "winner": "red",
+      "tick": 164995,
+      "report": {
+        "path": "artifacts/roster-cohort/long-five/seeds/4294967295/report.json",
+        "bytes": 236773,
+        "sha256": "38455756d638889a749b5c6ad133a73690b88e6d57598137bed7d6c176c7371c"
+      },
+      "final": {
+        "path": "artifacts/roster-cohort/long-five/seeds/4294967295/final.match.json",
+        "bytes": 332526,
+        "sha256": "e3a3c7d120a36fca32e37c5970ccf21f034c677de56a4c8f344203b49823704b"
+      }
+    }
+  ],
+  "browser": {
+    "final": {
+      "source": "/workspace/web-lol/artifacts/roster-cohort/long-five/seeds/719/097200.match.json",
+      "initial": {
+        "tick": 97200,
+        "hero": "lux",
+        "qaAutomatedHuman": true,
+        "champions": [
+          {
+            "id": 1,
+            "champion": "lux",
+            "team": "blue",
+            "role": "mid",
+            "level": 15
+          },
+          {
+            "id": 32,
+            "champion": "garen",
+            "team": "blue",
+            "role": "top",
+            "level": 14
+          },
+          {
+            "id": 33,
+            "champion": "masteryi",
+            "team": "blue",
+            "role": "jungle",
+            "level": 12
+          },
+          {
+            "id": 34,
+            "champion": "ashe",
+            "team": "blue",
+            "role": "carry",
+            "level": 13
+          },
+          {
+            "id": 35,
+            "champion": "leona",
+            "team": "blue",
+            "role": "support",
+            "level": 12
+          },
+          {
+            "id": 36,
+            "champion": "garen",
+            "team": "red",
+            "role": "top",
+            "level": 16
+          },
+          {
+            "id": 37,
+            "champion": "masteryi",
+            "team": "red",
+            "role": "jungle",
+            "level": 14
+          },
+          {
+            "id": 38,
+            "champion": "ahri",
+            "team": "red",
+            "role": "mid",
+            "level": 13
+          },
+          {
+            "id": 39,
+            "champion": "ashe",
+            "team": "red",
+            "role": "carry",
+            "level": 14
+          },
+          {
+            "id": 40,
+            "champion": "leona",
+            "team": "red",
+            "role": "support",
+            "level": 11
+          }
+        ],
+        "observedCluster": 5,
+        "center": {
+          "id": 1,
+          "x": 2636.69142899794,
+          "y": -5907.6661254295
+        }
+      },
+      "continued": {
+        "tick": 97380,
+        "rendererMemory": {
+          "geometries": 97,
+          "textures": 260
+        }
+      },
+      "exactImport": true,
+      "exact180TickFuture": true,
+      "ordinaryAnimationLoop": true,
+      "errors": [],
+      "performanceClaim": false
+    },
+    "proofs": [
+      {
+        "path": "artifacts/roster-cohort/browser-realtime-final/checkpoint-real-late-game--e6a83-nd-preserves-a-saved-future/minute-27-continued-fight.png",
+        "bytes": 1391180,
+        "sha256": "53314b86d1908ee5faebb43249d9486af0863c96ec6e0804d2af47865036a7f3"
+      },
+      {
+        "path": "artifacts/roster-cohort/browser-realtime-final/checkpoint-real-late-game--e6a83-nd-preserves-a-saved-future/minute-27-observed-fight.png",
+        "bytes": 1390791,
+        "sha256": "de487dca4bad2493d5047ab2b39fcf034f54a1da3ff0d908ba2a14404c606316"
+      },
+      {
+        "path": "artifacts/roster-cohort/browser-realtime-final/checkpoint-real-late-game--e6a83-nd-preserves-a-saved-future/minute-27-scoreboard.png",
+        "bytes": 1050446,
+        "sha256": "240a25d3d79469d9709612d8efaa674ade552812b28a496de9abf019b47ff950"
+      },
+      {
+        "path": "artifacts/roster-cohort/browser-realtime-final/checkpoint-real-late-game--e6a83-nd-preserves-a-saved-future/review.json",
+        "bytes": 1902,
+        "sha256": "919d5d895d2a3bcce4058ba7fb2f474d1a46835bc90f3814a802e17a01e1358d"
+      }
+    ],
+    "earlierSeekingProofs": [
+      {
+        "path": "artifacts/roster-cohort/browser-result/checkpoint-real-late-game--e6a83-nd-preserves-a-saved-future/minute-27-continued-fight.png",
+        "bytes": 1400533,
+        "sha256": "76da8e4e04f78c908cecaac9dcf20a1b2926dd3ad31bc27ea324e9688f6f4565"
+      },
+      {
+        "path": "artifacts/roster-cohort/browser-result/checkpoint-real-late-game--e6a83-nd-preserves-a-saved-future/minute-27-observed-fight.png",
+        "bytes": 1385420,
+        "sha256": "71c7dd3e46cc400f9b794b35129d7c28816c5ea4b8e559c001aa17b0d7b521da"
+      },
+      {
+        "path": "artifacts/roster-cohort/browser-result/checkpoint-real-late-game--e6a83-nd-preserves-a-saved-future/minute-27-scoreboard.png",
+        "bytes": 1048321,
+        "sha256": "966ed09aa312e2bcfa476b1e31d6b198e5e2145e2d57907967c3f6b676c872e3"
+      },
+      {
+        "path": "artifacts/roster-cohort/browser-result/checkpoint-real-late-game--e6a83-nd-preserves-a-saved-future/review.json",
+        "bytes": 1869,
+        "sha256": "6c039709db12a8c8d0eed03b9bbc05563adc7dc19e7c8224ced302745094bd19"
+      }
+    ],
+    "retainedRealtimeFailure": [
+      {
+        "path": "artifacts/roster-cohort/browser-realtime-result/checkpoint-real-late-game--e6a83-nd-preserves-a-saved-future/error-context.md",
+        "bytes": 902640,
+        "sha256": "878c3f16faf5fd89b4dafd8ef903d71789807ff9383d40631b54798333a7bbe4"
+      },
+      {
+        "path": "artifacts/roster-cohort/browser-realtime-result/checkpoint-real-late-game--e6a83-nd-preserves-a-saved-future/minute-27-observed-fight.png",
+        "bytes": 1385420,
+        "sha256": "71c7dd3e46cc400f9b794b35129d7c28816c5ea4b8e559c001aa17b0d7b521da"
+      },
+      {
+        "path": "artifacts/roster-cohort/browser-realtime-result/checkpoint-real-late-game--e6a83-nd-preserves-a-saved-future/minute-27-scoreboard.png",
+        "bytes": 1048321,
+        "sha256": "966ed09aa312e2bcfa476b1e31d6b198e5e2145e2d57907967c3f6b676c872e3"
+      },
+      {
+        "path": "artifacts/roster-cohort/browser-realtime-result/checkpoint-real-late-game--e6a83-nd-preserves-a-saved-future/trace.zip",
+        "bytes": 270616360,
+        "sha256": "1f484a4bde495500649285b469021925102b68d32d171888eb319c6a47a8cf1f"
+      }
+    ],
+    "fixtures": [
+      {
+        "path": "artifacts/roster-cohort/browser-review/checkpoint-realtime.original.ts",
+        "bytes": 3943,
+        "sha256": "a10b7cc11c3d60293f620657625dd28a06bf0bbfae078ff9a6ea087ade2dcee8"
+      },
+      {
+        "path": "artifacts/roster-cohort/browser-review/checkpoint-seek.original.ts",
+        "bytes": 3537,
+        "sha256": "4d06bfa9c3bf74f9de84a538f21e58d8822041121b5f0d71831c4bb1b442db58"
+      },
+      {
+        "path": "artifacts/roster-cohort/browser-review/checkpoint.spec.ts",
+        "bytes": 3961,
+        "sha256": "abedd3e55362fec0bd2bcc8c5e6b697cef86b7a988a54f170375f2b68f37fee0"
+      }
+    ]
+  },
+  "routeObservations": {
+    "snapshots": 40,
+    "eligibleSampledGoals": 107,
+    "blockedRouteSamples": 4,
+    "proofs": [
+      {
+        "path": "artifacts/roster-cohort/long-five/route-observation.json",
+        "bytes": 3115,
+        "sha256": "65dc31153e52a13841e69ec9766c94f6bf7aa668ce818e0f4b25b53b5189d708"
+      },
+      {
+        "path": "artifacts/roster-cohort/route-observation.ts",
+        "bytes": 3053,
+        "sha256": "d1ec62b45452680592f6d6beab40a9b8828326aa6a9208a4b413c3cbbdaad49d"
+      },
+      {
+        "path": "artifacts/roster-cohort/detour-probe.json",
+        "bytes": 4904,
+        "sha256": "f361d16d8347621c345744f89191315dc13e632013f8b22705ca16056d77e4b4"
+      },
+      {
+        "path": "artifacts/roster-cohort/detour-probe.ts",
+        "bytes": 2776,
+        "sha256": "4502267cebed4dffb3919ce3c2579d768d373d0056fb609cc8ce7dd0ca3eb17c"
+      }
+    ],
+    "prototypeOnly": true,
+    "actualDecisionCounts": false
+  },
+  "logs": [
+    {
+      "path": "artifacts/roster-cohort/logs/browser-realtime-final.log",
+      "bytes": 844,
+      "sha256": "53a0e37be83d0871431d867f8085641783d3f16bf358a00ccc62da6168c24968"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/browser-realtime.log",
+      "bytes": 895997,
+      "sha256": "b72b431e58a73af72735e80c7445f4919ae1f08d6f56abef6d51210d280eb686"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/browser-review.log",
+      "bytes": 844,
+      "sha256": "bdad6521fa2bff25affb57ea132d12b5b9d443f069939b5dccfc7ae4ddf686cb"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/detour-probe-final.log",
+      "bytes": 2864,
+      "sha256": "a8df8ba1aaaf323538e838c082e3ccd88fbf7868030de62568093ddac569c0df"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/detour-probe.log",
+      "bytes": 2329,
+      "sha256": "66be2c3eeb43d78d471e52818c4529b15e4f3d0e5d94bde9f656228860889aef"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/long-five-verify.log",
+      "bytes": 432,
+      "sha256": "5e6ff47893881334bce34a5e239d97daaf0830a44a0f8a984ffea149715f13fa"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/long-five.log",
+      "bytes": 3385,
+      "sha256": "c2cc8b79b02578d74f4fdd825b53f864501f9d1249e04953ff28d61f54d680fb"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/route-observation-final.log",
+      "bytes": 1150,
+      "sha256": "44eab59a88f06a2ed37a77c4413b991308df21edee6ffca6eb134e5638f50a08"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/route-observation-late.log",
+      "bytes": 1149,
+      "sha256": "dd35b2fd1304eba21172fb4a2891b8a7f36fe325a56fc7c96d048b4060a02f26"
+    },
+    {
+      "path": "artifacts/roster-cohort/logs/route-observation.log",
+      "bytes": 364,
+      "sha256": "e39006c05d01aa8ada8a52c6bb22c0f6259730314ee47ef4041c314315faf0e6"
+    }
+  ],
+  "applicationChanged": false,
+  "hundredSeedGate": false,
+  "fullMatchBrowserTest": false,
+  "devicePerformanceClaim": false
+}
