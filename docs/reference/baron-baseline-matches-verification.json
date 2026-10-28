@@ -1,0 +1,156 @@
+{
+  "date": "2026-10-28",
+  "sourceRevision": "87c1209726c5c504567b7554e10c1ab649629ddf",
+  "frozenProject": "/workspace/web-lol-recovery-baseline",
+  "frozenProjectRevision": "c3f70e08133851ba85dce47d6f86db1c681273d9",
+  "frozenSourceFilesPerCorpus": 548,
+  "ruleset": "25f21e02b07b748ab22622ea260d92f32575a1b5be8e31c0136404e1a31f607b",
+  "schema": 163,
+  "corpora": [
+    {
+      "mode": "ordinary",
+      "plan": {
+        "file": "artifacts/certification-25f21e/ordinary-selected/plan.json",
+        "bytes": 95006,
+        "sha256": "f8d3e7add34c9ea5aa02607072ad51d09078d82b19e0db39d57e558d6d90a867"
+      },
+      "summary": {
+        "file": "artifacts/certification-25f21e/ordinary-selected/summary.json",
+        "bytes": 529850,
+        "sha256": "a7d225e651343b21e4d8f6b83a96606e1827103b57448cd31f09891101d68109"
+      },
+      "reports": [
+        {
+          "file": "artifacts/certification-25f21e/ordinary-selected/seeds/26018/report.json",
+          "bytes": 244259,
+          "sha256": "0cda1a0eb000a9be8d9ab3068148fe1587effd768809b17405b46db5e1cc63dd"
+        },
+        {
+          "file": "artifacts/certification-25f21e/ordinary-selected/seeds/719/report.json",
+          "bytes": 209637,
+          "sha256": "2c1436c0119da1084e735b48f5226b3f7a422896ff18b8cc391cb447828f6e1a"
+        }
+      ]
+    },
+    {
+      "mode": "combined",
+      "plan": {
+        "file": "artifacts/certification-25f21e/combined-selected/plan.json",
+        "bytes": 95035,
+        "sha256": "380ad2d8d8865888e87271baffb0946fe59e034813821d1bc3105bdc699a773c"
+      },
+      "summary": {
+        "file": "artifacts/certification-25f21e/combined-selected/summary.json",
+        "bytes": 215574,
+        "sha256": "a9aaf9a885e1434d0347b0963a473b52ae66e289c13eb24af5230f57ca9e28d7"
+      },
+      "reports": [
+        {
+          "file": "artifacts/certification-25f21e/combined-selected/seeds/719/report.json",
+          "bytes": 184214,
+          "sha256": "8318ebe920ca3ec7978b3e3e014f3f59a1d20d9c40179043f00ce807519634d5"
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "seeds": 3,
+    "naturalVictories": 3,
+    "unfinished": 0,
+    "failures": 0,
+    "checkedTicks": 443479,
+    "roundTrips": 125,
+    "futureChecks": 122,
+    "futureCheckedTicks": 7320
+  },
+  "comparison": {
+    "baselineRuleset": "abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f",
+    "matchedCheckpoints": 125,
+    "rootRulesetOnlyDifference": true,
+    "finalsIdenticalAfterNormalization": true,
+    "rows": [
+      {
+        "mode": "ordinary",
+        "seed": 26018,
+        "winner": "blue",
+        "finalTick": 169837,
+        "matchedCheckpoints": 48,
+        "finalMatchesAfterRootRulesetNormalization": true,
+        "normalizedBytesExact": true,
+        "normalization": "Analyst comparison only; original files and runtime admission unchanged.",
+        "final": {
+          "file": "artifacts/certification-25f21e/ordinary-selected/seeds/26018/final.match.json",
+          "bytes": 228356,
+          "sha256": "8d5651cb642f7358a6d57802b40057b5fca621c3bf5aed66a72f3ebd530f953a"
+        }
+      },
+      {
+        "mode": "ordinary",
+        "seed": 719,
+        "winner": "red",
+        "finalTick": 144476,
+        "matchedCheckpoints": 41,
+        "finalMatchesAfterRootRulesetNormalization": true,
+        "normalizedBytesExact": true,
+        "normalization": "Analyst comparison only; original files and runtime admission unchanged.",
+        "final": {
+          "file": "artifacts/certification-25f21e/ordinary-selected/seeds/719/final.match.json",
+          "bytes": 207600,
+          "sha256": "1e440e72d237dd9222df5861ad8003cb4259b8948d0a8ea6e3aa43474ec411b6"
+        }
+      },
+      {
+        "mode": "combined",
+        "seed": 719,
+        "winner": "red",
+        "finalTick": 129166,
+        "matchedCheckpoints": 36,
+        "finalMatchesAfterRootRulesetNormalization": true,
+        "normalizedBytesExact": true,
+        "normalization": "Analyst comparison only; original files and runtime admission unchanged.",
+        "final": {
+          "file": "artifacts/certification-25f21e/combined-selected/seeds/719/final.match.json",
+          "bytes": 268715,
+          "sha256": "a8460a181e05b271d3f2ad29b26868217fa983cbca2839d3b90fff04d081f465"
+        }
+      }
+    ]
+  },
+  "verification": "Both canonical independent checks pass from the exact frozen 25f21e source without the historical bypass. Frozen runner/maps/source archives, checkpoint and final hashes, resources, structures, victories and terminal freezing verify.",
+  "interruption": "Completed results retained, partial attempts archived, interrupted seeds restarted from zero after workspace transition. No uninterrupted-execution or wall-time performance claim.",
+  "hundredSeedGate": false,
+  "current5a5379FullMatchClaim": false,
+  "freshBrowserOrOfflineClaim": false,
+  "evidence": [
+    {
+      "file": "artifacts/certification-25f21e/paired-completed-three.json",
+      "bytes": 1604,
+      "sha256": "b5885caebafb3de6a45dae2a879c48cdd10fdbc22635eed09baa6fe1ac4500ab"
+    },
+    {
+      "file": "artifacts/certification-25f21e/ordinary-verification.log",
+      "bytes": 431,
+      "sha256": "efe18c25c7edae8515c0d5a7d04093bd1fa0516284f6e514c43979445dc5dde3"
+    },
+    {
+      "file": "artifacts/certification-25f21e/combined-verification.log",
+      "bytes": 430,
+      "sha256": "38afa8d485506792947311861e541a842bb5b955773d1b9b538da2d28b306505"
+    },
+    {
+      "file": "artifacts/baron-control/frozen-25f-source-check.json",
+      "bytes": 523,
+      "sha256": "30a7863254a9d4719e0afeec7b2a43840eeb6e3ea6f6224d66470a30cfe20d0c"
+    },
+    {
+      "file": "artifacts/certification-25f21e/ordinary-selected/recovery/2026-10-28T17-06-55-811Z-e3b74419-d166-498d-9840-9f881829de91/recovery.json",
+      "bytes": 18390,
+      "sha256": "d41e7d881725eb2c64701c8dd2eb7ccf5e0171f2dedf9ae5de952cd516ee5a3d"
+    },
+    {
+      "file": "artifacts/certification-25f21e/combined-selected/recovery/2026-10-28T17-06-56-977Z-509e1c64-de4d-4ce7-9e20-73fe91fefa9d/recovery.json",
+      "bytes": 18690,
+      "sha256": "e448062e0f8a75dea102bb75020522692894f8b09bef789a5f11f4bd19cc4d64"
+    }
+  ]
+}

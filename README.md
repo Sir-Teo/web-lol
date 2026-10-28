@@ -89,6 +89,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Baron, Herald and Grub source rigs and binding audit](docs/EPIC-MODELS.md)
 - [Private Baron combat, saves and admission](docs/BARON-ENCOUNTER.md)
 - [Baron root, stun, silence and Charm resistance](docs/BARON-CONTROL.md)
+- [Selected full matches on the initial Baron ruleset](docs/BARON-BASELINE-MATCHES.md)
 - [Frozen source-cache recovery](docs/REFERENCE-CACHE-RECOVERY.md)
 - [Fresh offline delivery and completed-match checks](docs/OFFLINE-CONTROLS-REFRESH.md)
 - [Late natural finishes and current-pack offline round-trips](docs/LATE-MATCH-ROUNDTRIP.md)

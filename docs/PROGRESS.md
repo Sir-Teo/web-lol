@@ -6,6 +6,15 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+The preceding `25f21e…` Baron baseline now has three independently verified
+natural full-match victories: two ordinary-roster games and one combined-roster
+game. All 443,479 checked ticks, 125 round-trips and 122 future comparisons
+covering 7,320 ticks pass. Every retained checkpoint and final state matches its
+earlier `abc8dc…` baseline after normalizing only the root ruleset identifier
+for comparison. These [historical results](BARON-BASELINE-MATCHES.md) retain
+their frozen source and do not certify the newer `5a5379…` fingerprint, whose
+selected match is running separately.
+
 The [private Baron control policy](BARON-CONTROL.md) now resists root, stun,
 silence and Charm without suppressing spell/empowered-attack damage. Ordinary
 monsters remain eligible, and Lux Q retains its second hit. Resisted Charm keeps
