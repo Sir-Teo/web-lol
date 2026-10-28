@@ -33,7 +33,8 @@ not update the copied command. Physical collision and bolt/flame acquisition
 remain the spell controllers' responsibility. Human Ahri remains manual, and
 the public champion chooser and ordinary roster remain unchanged.
 
-This is local tactical tuning. Native AI, offensive R, wave spell farming,
+The subsequent [Q farming step](AHRI-WAVE-CLEAR.md) adds observed wave casts.
+This is local tactical tuning. Native AI, offensive R,
 prediction and a full Ahri bot Rift trial remain open. No public asset,
 renderer, saved field or source spell number changes. Schema remains 163;
 the same-build rules fingerprint changes with the simulation sources.

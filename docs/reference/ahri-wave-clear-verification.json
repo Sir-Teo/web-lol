@@ -1,0 +1,184 @@
+{
+  "date": "2026-10-27",
+  "previousCommit": "6076cc1",
+  "originalBaseline": "5d907425f4f52557893ac6dcaf1acf721ea7fa1c",
+  "schema": 163,
+  "ruleset": "d1730911df3294be71b7d3f7d6b664221083f3419c45a195ce44bc370d5478c9",
+  "sources": [
+    {
+      "path": "src/content/ahri-bot-policy.ts",
+      "bytes": 460,
+      "sha256": "2f747c2acae17a7ca8f0262b0bc658ab37d23d245ab0bec58c1f60f75dacde7e"
+    },
+    {
+      "path": "src/simulation/ahri-wave-clear.ts",
+      "bytes": 3785,
+      "sha256": "3dfe472ecddfd7d0c2cc3baf5b30d7bca99a717dbc91db4447a66f78e08a8156"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "bytes": 303993,
+      "sha256": "a4e36736245816aa338664f645e1fbdd237a078d5e151838f45dbc325951d034"
+    },
+    {
+      "path": "tests/ahri-wave-clear.test.ts",
+      "bytes": 10884,
+      "sha256": "25be3e410ee2c00178a63c32bccd751aa831028f29eeae561086161a5e8d735d"
+    },
+    {
+      "path": "e2e/ahri-wave-clear.spec.ts",
+      "bytes": 4852,
+      "sha256": "b73d93fe093aacbfab1a263c4c3acbd6b868d971665c2d3ad745d19de2ceb638"
+    }
+  ],
+  "focused": {
+    "passed": 243,
+    "total": 243,
+    "files": 20,
+    "newCases": 15,
+    "independentGeometry": {
+      "rotatedWaves": 24,
+      "sampledDirectionsEach": 1440
+    }
+  },
+  "broad": {
+    "passed": 3449,
+    "total": 3455,
+    "files": 407,
+    "unchangedBaselineFailures": 6,
+    "baselineEvidence": "docs/reference/ahri-bot-mobility-verification.json"
+  },
+  "checks": {
+    "typescript": true,
+    "nodeQa": {
+      "passed": 29,
+      "total": 29
+    },
+    "build": true,
+    "publicAssetsChanged": false,
+    "savedFieldsChanged": false
+  },
+  "pack": {
+    "id": "4c3c425266fea0f0438fc420eb19375f9bb97c810be454489c56801a5d9f1cca",
+    "files": 1202,
+    "bytes": 538098562,
+    "buildRulesetMatches": true
+  },
+  "browser": {
+    "passed": 2,
+    "total": 2,
+    "retries": 0,
+    "launcher": "/usr/bin/chromium",
+    "saveReloadExact": true,
+    "futureTicks": 180,
+    "creditedMinions": 3,
+    "outwardAndReturnContacts": true,
+    "pageErrors": [],
+    "screenshotReviewed": true
+  },
+  "production": {
+    "passed": true,
+    "prefix": "/nested/rift/",
+    "recordings": 32,
+    "realCastPurchaseVisionSaveFlows": true,
+    "developmentGates": true,
+    "pageErrors": [],
+    "failedRequests": [],
+    "outsideRequests": []
+  },
+  "initialFailure": {
+    "passed": 46,
+    "total": 47,
+    "cause": "Narrow-corridor fixture center still hit all actual collision circles; widened fixture keeps the assertion and application geometry unchanged.",
+    "fixture": {
+      "path": "artifacts/ahri-wave-clear/initial-unit.test.ts",
+      "bytes": 9346,
+      "sha256": "3b076085b8e2d4f386de32ddad99380f2ac6ed76291685c320dcbacb6d856726"
+    },
+    "log": {
+      "path": "artifacts/ahri-wave-clear/initial-unit.log",
+      "bytes": 913,
+      "sha256": "0d53249ead8535d7d07a00daa7f73573a299fdd79fae31046101c50843cf4d3f"
+    }
+  },
+  "logs": [
+    {
+      "path": "artifacts/ahri-wave-clear/logs/production.log",
+      "bytes": 2959,
+      "sha256": "65ef5dadfd7236c4f074e9c34772cb37a9cafa387fa5e4d1bd6821c2d93d0d1b"
+    },
+    {
+      "path": "artifacts/ahri-wave-clear/logs/web-lol-wave-all-focused.log",
+      "bytes": 375,
+      "sha256": "e656c51f6219910ce82424f9b9410fd8cf9562413052a4ba86a4944839ae3465"
+    },
+    {
+      "path": "artifacts/ahri-wave-clear/logs/web-lol-wave-browser.log",
+      "bytes": 1198,
+      "sha256": "575b0812661705c721ebc0ebaa0efeed18cbe00644d915a2a71549d5972e5708"
+    },
+    {
+      "path": "artifacts/ahri-wave-clear/logs/web-lol-wave-build.log",
+      "bytes": 7124,
+      "sha256": "f3feb996f96beefe04cfe49a9f68af5c49ab50b5ba28ba35226af7a7069f9039"
+    },
+    {
+      "path": "artifacts/ahri-wave-clear/logs/web-lol-wave-focused.log",
+      "bytes": 181,
+      "sha256": "8d574645a4e751506c5dd0e7c7f1729111b8d9d03067a0c385225013a2316398"
+    },
+    {
+      "path": "artifacts/ahri-wave-clear/logs/web-lol-wave-full.log",
+      "bytes": 5894,
+      "sha256": "4ace54463e67ca0e152c42d81cee0c91554c93457f0bdf5894198efd5343d12b"
+    },
+    {
+      "path": "artifacts/ahri-wave-clear/logs/web-lol-wave-initial.log",
+      "bytes": 913,
+      "sha256": "0d53249ead8535d7d07a00daa7f73573a299fdd79fae31046101c50843cf4d3f"
+    },
+    {
+      "path": "artifacts/ahri-wave-clear/logs/web-lol-wave-node-qa.log",
+      "bytes": 2774,
+      "sha256": "1692bbe2383d27cbb16c976ef63f0d446ffc39e0bce34b12259eb446f7f831f1"
+    }
+  ],
+  "proofs": [
+    {
+      "path": "artifacts/ahri-wave-clear/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "artifacts/ahri-wave-clear/browser/ahri-bot-mobility-Ahri-bot-1ebae-at-dash-through-Save-reload/ahri-bot-fox-fire.png",
+      "bytes": 760785,
+      "sha256": "da0b4db9f44827016d51965e355ffbd15243eb4f58b9c2a156b6ae16fff86eef"
+    },
+    {
+      "path": "artifacts/ahri-wave-clear/browser/ahri-bot-mobility-Ahri-bot-1ebae-at-dash-through-Save-reload/ahri-bot-mobility.json",
+      "bytes": 52110,
+      "sha256": "b993db3000608f6bafa18d92a72f57c92a4ed5ab3827a3c242bc11c2ad81f50c"
+    },
+    {
+      "path": "artifacts/ahri-wave-clear/browser/ahri-bot-mobility-Ahri-bot-1ebae-at-dash-through-Save-reload/ahri-bot-spirit-escape.png",
+      "bytes": 802347,
+      "sha256": "3e9970ca0114edb80d80e6e7b0b1e843e8ebec748ad4dbb2763eb8d7355cac14"
+    },
+    {
+      "path": "artifacts/ahri-wave-clear/browser/ahri-wave-clear-Ahri-choos-5a96b-ms-after-actual-Save-reload/ahri-wave-clear.json",
+      "bytes": 49479,
+      "sha256": "26658c9011919cd1701fdd8e4c40a2fe70f8d2f5eff571e2ee8e59092199f007"
+    },
+    {
+      "path": "artifacts/ahri-wave-clear/browser/ahri-wave-clear-Ahri-choos-5a96b-ms-after-actual-Save-reload/ahri-wave-orb.png",
+      "bytes": 802193,
+      "sha256": "3fce1f4c03bcce74307416bfa020c0a4a00145bd2e56291a04c5d7de09e43d05"
+    }
+  ],
+  "limitations": [
+    "Local tactical policy, not native AI",
+    "Outward value only, no prediction or return-hit guarantee",
+    "No production roster expansion or complete-match certification",
+    "No fresh offline, full browser or physical-device performance certification"
+  ]
+}

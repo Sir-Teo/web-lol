@@ -6,7 +6,29 @@ Last updated: October 27, 2026 (UTC).
 
 ## Current authoritative state
 
-The latest [Ahri bot mobility step](AHRI-BOT-MOBILITY.md) adds close Fox-Fire
+The latest [Ahri wave-farming step](AHRI-WAVE-CLEAR.md) chooses Q through at
+least three visible lane minions, retaining combat, ready last hits, mana,
+farm-sharing and turret-safety priorities. A bounded angular planner handles
+shared corridors, finite range and wraparound. It values outward magic damage
+only. Fifteen new cases include independent dense-direction comparisons and
+actual paid casts with exact saved futures in both team orientations.
+
+All 243 focused checks, TypeScript, all 29 Node QA cases and the matching build
+pass. Two browser cases pass without retries, repeating W/R and adding a real
+wave-Q Save/reload with exact 180-tick continuation, three farm credits and no
+page errors. Schema stays 163; current rules fingerprint is
+`d1730911df3294be71b7d3f7d6b664221083f3419c45a195ce44bc370d5478c9`.
+The matching pack is
+`4c3c425266fea0f0438fc420eb19375f9bb97c810be454489c56801a5d9f1cca`
+(1,202 files / 538,098,562 bytes). No public asset or source spell value changes.
+The broad run passes **3,449/3,455 cases across 407 files** with the same six
+baseline failures independently reproduced on `5d90742` below.
+The matching nested-path production smoke passes all 32 recordings, development
+gates and real spell/purchase/save flows with no page errors. No fresh offline
+or full-browser certification is claimed.
+Offensive R and a full Ahri bot Rift trial remain open.
+
+The preceding [Ahri bot mobility step](AHRI-BOT-MOBILITY.md) adds close Fox-Fire
 and defensive Spirit Rush through the existing source controllers. Escape
 planning compares all nearby observed threats, rejects unsafe corrected
 landings and holds the accepted origin until ordinary next-tick validation.

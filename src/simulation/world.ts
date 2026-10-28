@@ -246,6 +246,7 @@ import { LUX_BOT_POLICY } from '../content/lux-bot-policy';
 import { AHRI_BOT_POLICY } from '../content/ahri-bot-policy';
 import { LEONA_BOT_POLICY } from '../content/leona-bot-policy';
 import { luxWaveClear } from './lux-wave-clear';
+import { ahriWaveClear } from './ahri-wave-clear';
 import { botDisengagePoint } from './bot-disengage';
 import { LUX_W } from '../content/lux-w';
 import { LUX_R } from '../content/lux-r';
@@ -2634,6 +2635,62 @@ export class World {
     if (!zone && ready('e') && distance(u, target) <= LUX_E.castRange) return cast('e', target);
     return false;
   }
+  private planAhriWaveClear(u: Unit): boolean {
+    if (u.kind !== 'champion' || u.champion !== 'ahri' || u.silenceUntil > this.tick) return false;
+    const state = this.championState(u.id)!;
+    if (
+      state.pendingCast ||
+      state.recallEnd !== null ||
+      u.releaseTick !== null ||
+      !state.spellRanks.q ||
+      this.abilityCooldownTicks('q', u.id) > 0 ||
+      this.threateningTower(u, u, true)
+    )
+      return false;
+    const carry = this.supportCarry(u);
+    const cost = this.abilityResources('q', u.id).mana;
+    const point = ahriWaveClear({
+      actor: { x: u.x, y: u.y },
+      minions: this.units
+        .filter(
+          (m) =>
+            isLaneMinionKind(m.kind) &&
+            m.team !== u.team &&
+            this.visible(m, u.team) &&
+            this.alive(m) &&
+            this.targetable(m)
+        )
+        .map((m) => ({
+          id: m.id,
+          x: m.x,
+          y: m.y,
+          radius: m.radius,
+          hp: m.hp,
+          magicResist: m.magicResist,
+          shield: this.shieldAmount(m),
+          claimed: this.incomingAttacksClaimMinion(u, m),
+        })),
+      damage: ahriOrbDamage(state.spellRanks.q, this.abilityPower(u)),
+      mana: u.mana - this.queuedCastMana(u),
+      manaCost: cost,
+      reserve: Math.max(
+        u.maxMana * AHRI_BOT_POLICY.waveClear.manaReserveFraction,
+        (['w', 'e'] as const).reduce(
+          (sum, a) => sum + (state.spellRanks[a] > 0 ? this.abilityResources(a, u.id).mana : 0),
+          0
+        )
+      ),
+      farmAllowed:
+        state.role !== 'jungle' &&
+        !(carry && distance(u, carry) <= JUNGLE_BOT_POLICY.supportFarmRadius),
+      lastHitReady: !!this.lastHitTarget(u),
+    });
+    if (!point) return false;
+    // Preserve the evaluated origin, using the same paid controller as human Q.
+    if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
+    this.enqueue({ type: 'cast', unit: u.id, ability: 'q', point });
+    return true;
+  }
   private planLuxWaveClear(u: Unit): boolean {
     if (u.champion !== 'lux' || u.silenceUntil > this.tick) return false;
     const state = this.championState(u.id)!;
@@ -3252,7 +3309,7 @@ export class World {
     if (this.planGarenR(u)) return;
     if (this.planGarenE(u)) return;
     if (this.planAhriCombat(u, false) || this.planLuxCombat(u, false)) return;
-    if (this.planLuxWaveClear(u)) return;
+    if (this.planAhriWaveClear(u) || this.planLuxWaveClear(u)) return;
     this.planGarenQ(u, false);
     const carry = this.supportCarry(u);
     const leaveFarm = !!carry && distance(u, carry) <= JUNGLE_BOT_POLICY.supportFarmRadius;
