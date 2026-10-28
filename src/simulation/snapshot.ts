@@ -277,6 +277,7 @@ const unit = z
           'krug-medium',
           'krug-mini',
           'scuttler',
+          'baron',
         ]),
         scuttle: z
           .strictObject({
@@ -1930,7 +1931,7 @@ const snapshot = z.strictObject({
     )
     .max(10),
   version: z.literal(SNAPSHOT_VERSION),
-  encounter: z.literal('gromp').nullable(),
+  encounter: z.enum(['gromp', 'baron']).nullable(),
   pendingWards: z
     .array(
       z.strictObject({
@@ -2934,6 +2935,11 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     (state.battlefield !== 'practice-fixture' || state.matchMode !== 'practice')
   )
     throw new Error('Controlled neutral encounters require the development practice fixture.');
+  if (
+    (state.encounter === 'baron' || state.units.some((u) => u.monster?.species === 'baron')) &&
+    (!battlefield.developmentBaron || state.encounter !== 'baron')
+  )
+    throw new Error('Saved Baron requires its trusted development encounter.');
   if (
     state.units.find((u) => u.id === state.player.id)?.champion === 'garen' &&
     !(

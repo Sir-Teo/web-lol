@@ -7,7 +7,7 @@ import {
 } from '../content/companion-policy';
 import { championProfile } from '../content/champion-profiles';
 import { growthAtLevel, statPrecision } from './progression';
-import { SUMMONER_SMITE } from '../content/summoner-smite';
+import { monsterTags } from '../content/monster-tags';
 import { isDoranStarter } from '../content/companion-items-policy';
 import { advanceCompanionPassive, companionPassiveMonsterKill } from './companion-passives';
 import { distance, type Vec2 } from './math';
@@ -106,17 +106,12 @@ export function companionDamageMultiplier(
   const outgoing =
     target.kind === 'monster' &&
     kind !== 'true' &&
-    !(SUMMONER_SMITE.monsterTags[target.monster.species] as readonly string[]).includes(
-      'Monster_Epic'
-    ) &&
+    !monsterTags(target.monster.species).includes('Monster_Epic') &&
     ownedCompanion(w, source.id) &&
     !['summoner', 'companion', 'cleanup'].includes(category)
       ? S.controllerValues.DamageAmp!
       : 1;
-  const tags =
-    source.kind === 'monster'
-      ? (SUMMONER_SMITE.monsterTags[source.monster.species] as readonly string[])
-      : [];
+  const tags = source.kind === 'monster' ? monsterTags(source.monster.species) : [];
   const incoming =
     source.kind === 'monster' && ownedCompanion(w, target.id) && !tags.includes('Monster_Epic')
       ? S.controllerValues.MonsterDamageTaken!
@@ -126,7 +121,7 @@ export function companionDamageMultiplier(
 export function companionKilledMonster(w: World, source: Unit, target: Unit): void {
   const p = ownedCompanion(w, source.id);
   if (!p || target.kind !== 'monster') return;
-  const tags: readonly string[] = SUMMONER_SMITE.monsterTags[target.monster.species];
+  const tags: readonly string[] = monsterTags(target.monster.species);
   if (!tags.includes('Monster_Large') && !tags.includes('Monster_Epic')) return;
   const owner = w.championState(source.id)!,
     wasStage = companionStage(p.fed),

@@ -406,7 +406,7 @@ export class World {
   firstBloodClaimed = false;
   nextId = 1;
   matchMode: 'practice' | 'lanes' = 'practice';
-  encounter: 'gromp' | null = null;
+  encounter: 'gromp' | 'baron' | null = null;
   jungleCamps: JungleCampState[] = [];
   pendingWards: WardPlacement[] = [];
   scuttlers: RiverScuttlers | null = null;
@@ -814,6 +814,13 @@ export class World {
     spawn: { startTick: number; readyTick: number; clip?: MonsterSpawnClip } | null = null,
     species: MonsterSpecies = 'gromp'
   ): Extract<Unit, { kind: 'monster' }> {
+    if (
+      species === 'baron' &&
+      (this.battlefield.id !== 'practice-fixture' ||
+        !this.battlefield.developmentBaron ||
+        this.encounter !== 'baron')
+    )
+      throw new Error('Baron requires its trusted development fixture.');
     const base = this.createUnitBase('monster', 'neutral', point);
     const profile = MONSTERS[species];
     const { attackSpeed, ...stats } = profile.stats;
@@ -6460,7 +6467,12 @@ export class World {
       const takedownContributors = targetState
         ? this.takedownContributors(targetState, rewardSource?.id)
         : new Set<number>();
-      if (sourceState && rewardSource && rewardSource.team !== target.team) {
+      if (
+        sourceState &&
+        rewardSource &&
+        rewardSource.team !== target.team &&
+        !(target.kind === 'monster' && target.monster.species === 'baron')
+      ) {
         if (transferringBlue || (target.kind === 'monster' && target.monster.species === 'blue'))
           grantBlueBuff(sourceState, this.tick);
         if (transferringRed || (target.kind === 'monster' && target.monster.species === 'red'))

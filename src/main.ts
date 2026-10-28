@@ -15,6 +15,7 @@ import { downloadMatch, prepareMatchImport } from './storage/match-files';
 import { DT } from './content/rules';
 import { World } from './simulation/world';
 import { createGrompEncounter } from './simulation/gromp-encounter';
+import { createBaronEncounter } from './simulation/baron-encounter';
 import { createLaneMatch } from './simulation/lane-match';
 import { equipSummoners } from './simulation/smite';
 import { grantCompanion } from './simulation/owned-companions';
@@ -55,6 +56,7 @@ const loading = document.querySelector<HTMLDivElement>('#loading')!;
 async function boot(): Promise<void> {
   const query = new URLSearchParams(location.search);
   const fixture = import.meta.env.DEV && query.get('scene') === 'fixture';
+  const baronEncounter = fixture && query.get('encounter') === 'baron';
   const rosterRiftTrial = import.meta.env.DEV && query.get('scene') === 'roster-rift';
   const leonaRiftTrial = import.meta.env.DEV && query.get('scene') === 'leona-rift';
   const garenRiftTrial = import.meta.env.DEV && query.get('scene') === 'garen-rift';
@@ -62,10 +64,14 @@ async function boot(): Promise<void> {
   const masterYiBotRiftTrial = masterYiRiftTrial && query.get('bots') === 'masteryi';
   const ahriRiftTrial = import.meta.env.DEV && query.get('scene') === 'ahri-rift';
   const ahriBotRiftTrial = ahriRiftTrial && query.get('bots') === 'ahri';
-  const masterYiNpc = fixture && query.get('npc') === 'masteryi' && !query.has('champion');
+  const masterYiNpc =
+    fixture && !baronEncounter && query.get('npc') === 'masteryi' && !query.has('champion');
   const ahriPlayerFixture = fixture && query.get('champion') === 'ahri';
   const masterYiPlayerFixture = fixture && query.get('champion') === 'masteryi';
-  const loadedBattlefield = fixture ? PRACTICE_FIXTURE : await loadRiftBattlefield();
+  const rawBattlefield = fixture ? PRACTICE_FIXTURE : await loadRiftBattlefield();
+  const loadedBattlefield = baronEncounter
+    ? { ...rawBattlefield, developmentBaron: true as const }
+    : rawBattlefield;
   const battlefield = rosterRiftTrial
     ? {
         ...loadedBattlefield,
@@ -98,29 +104,32 @@ async function boot(): Promise<void> {
               : ahriPlayerFixture
                 ? { ...loadedBattlefield, developmentAhri: true as const }
                 : loadedBattlefield;
-  const saveKey = rosterRiftTrial
-    ? 'development-roster-rift'
-    : ahriBotRiftTrial
-      ? 'development-ahri-bots-rift'
-      : ahriRiftTrial
-        ? 'development-ahri-rift'
-        : masterYiBotRiftTrial
-          ? 'development-masteryi-bots-rift'
-          : masterYiRiftTrial
-            ? 'development-masteryi-rift'
-            : masterYiPlayerFixture
-              ? 'development-masteryi-player-fixture'
-              : masterYiNpc
-                ? 'development-masteryi-npc-fixture'
-                : leonaRiftTrial
-                  ? 'development-leona-rift'
-                  : garenRiftTrial
-                    ? 'development-garen-rift'
-                    : ahriPlayerFixture
-                      ? 'development-ahri-player-fixture'
-                      : battlefield.id;
-  const leonaNpc = fixture && new URLSearchParams(location.search).get('npc') === 'leona';
-  const ahriNpc = fixture && query.get('npc') === 'ahri';
+  const saveKey = baronEncounter
+    ? 'development-baron-encounter'
+    : rosterRiftTrial
+      ? 'development-roster-rift'
+      : ahriBotRiftTrial
+        ? 'development-ahri-bots-rift'
+        : ahriRiftTrial
+          ? 'development-ahri-rift'
+          : masterYiBotRiftTrial
+            ? 'development-masteryi-bots-rift'
+            : masterYiRiftTrial
+              ? 'development-masteryi-rift'
+              : masterYiPlayerFixture
+                ? 'development-masteryi-player-fixture'
+                : masterYiNpc
+                  ? 'development-masteryi-npc-fixture'
+                  : leonaRiftTrial
+                    ? 'development-leona-rift'
+                    : garenRiftTrial
+                      ? 'development-garen-rift'
+                      : ahriPlayerFixture
+                        ? 'development-ahri-player-fixture'
+                        : battlefield.id;
+  const leonaNpc =
+    fixture && !baronEncounter && new URLSearchParams(location.search).get('npc') === 'leona';
+  const ahriNpc = fixture && !baronEncounter && query.get('npc') === 'ahri';
   const garenFixture = fixture && new URLSearchParams(location.search).get('champion') === 'garen';
   const leonaFixture = fixture && new URLSearchParams(location.search).get('champion') === 'leona';
   const grompEncounter =
@@ -135,27 +144,29 @@ async function boot(): Promise<void> {
   const freshPractice = (champion: import('./simulation/types').ChampionIdentity = 'ashe') => {
     if (!fixture && champion !== 'ashe' && champion !== 'lux')
       throw new Error('Choose Ashe or Lux for practice in this trial.');
-    return grompEncounter
-      ? (() => {
-          const next = createGrompEncounter(battlefield, champion);
-          if (companionKind) {
-            equipSummoners(next.player, { d: 'flash', f: 'smite' });
-            grantCompanion(next, companionKind);
-          }
-          return next;
-        })()
-      : (() => {
-          const next = new World(true, battlefield, champion);
-          if (leonaNpc) {
-            const npc = next.spawn('champion', 'blue', { x: -650, y: 350 }, 'leona');
-            next.gainExperience(2400, npc.id);
-            for (const ability of ['q', 'w', 'e', 'r'] as const) next.learnSpell(ability, npc.id);
-          }
-          if (masterYiNpc)
-            next.spawn('champion', 'blue', { x: -650, y: 350 }, 'masteryi').ai = false;
-          if (ahriNpc) next.spawn('champion', 'blue', { x: -650, y: 350 }, 'ahri');
-          return next;
-        })();
+    return baronEncounter
+      ? createBaronEncounter(battlefield, champion)
+      : grompEncounter
+        ? (() => {
+            const next = createGrompEncounter(battlefield, champion);
+            if (companionKind) {
+              equipSummoners(next.player, { d: 'flash', f: 'smite' });
+              grantCompanion(next, companionKind);
+            }
+            return next;
+          })()
+        : (() => {
+            const next = new World(true, battlefield, champion);
+            if (leonaNpc) {
+              const npc = next.spawn('champion', 'blue', { x: -650, y: 350 }, 'leona');
+              next.gainExperience(2400, npc.id);
+              for (const ability of ['q', 'w', 'e', 'r'] as const) next.learnSpell(ability, npc.id);
+            }
+            if (masterYiNpc)
+              next.spawn('champion', 'blue', { x: -650, y: 350 }, 'masteryi').ai = false;
+            if (ahriNpc) next.spawn('champion', 'blue', { x: -650, y: 350 }, 'ahri');
+            return next;
+          })();
   };
   let world = rosterRiftTrial
     ? createLaneMatch(battlefield, 'ashe')
@@ -196,7 +207,7 @@ async function boot(): Promise<void> {
       (!masterYiNpc ||
         (candidate.hero.champion === 'ashe' &&
           candidate.units.some((u) => u.champion === 'masteryi'))) &&
-      candidate.encounter === (grompEncounter ? 'gromp' : null) &&
+      candidate.encounter === (baronEncounter ? 'baron' : grompEncounter ? 'gromp' : null) &&
       (candidate.companions.find(
         (p) => p.ownerId === candidate.player.id && p.acquisition.kind === 'fixture'
       )?.kind ?? null) === companionKind
@@ -329,7 +340,8 @@ async function boot(): Promise<void> {
             : masterYiNpc
               ? 'ashe'
               : undefined,
-        masterYiNpc ? 'masteryi' : undefined
+        masterYiNpc ? 'masteryi' : undefined,
+        baronEncounter ? 'baron' : undefined
       ),
     sound: (enabled) => {
       audio.enabled = enabled;

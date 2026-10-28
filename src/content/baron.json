@@ -1,0 +1,57 @@
+{
+  "characterSourceSha256": "a8f920b71c3c44b5311db3555914db47e8fe207cc489ff7d925b2ff38a250391",
+  "modelSha256": "5d9cd6632d191270a94d976e284458145f9fa9e445165eaadb304e2892fff417",
+  "rulesSourceSha256": "5ed70d338c5f594d7696a9cf9f78a02ebea708285c600a6c3ffab2fc37336781",
+  "name": "Baron Nashor",
+  "rig": "sru-baron-base",
+  "minimumLevel": 11,
+  "baseStats": {
+    "maxHp": 16300.0,
+    "damage": 175.0,
+    "armor": 34.0,
+    "magicResist": 32.0,
+    "range": 900.0,
+    "speed": 300.0,
+    "attackSpeed": 0.625
+  },
+  "growth": {
+    "maxHp": 170.0,
+    "damage": 20.0,
+    "armor": 8.0,
+    "magicResist": 4.0
+  },
+  "radius": 105.0,
+  "selectionRadius": 180.0,
+  "castSeconds": 0.28299999237060547,
+  "clips": {
+    "idle1": {
+      "name": "entry_6c2b2ee6",
+      "durationSeconds": 3.9666669368743896
+    },
+    "run": {
+      "name": "entry_6c2b2ee6",
+      "durationSeconds": 3.9666669368743896
+    },
+    "attack1": {
+      "name": "entry_5ab94841",
+      "durationSeconds": 1.9666668176651
+    },
+    "death": {
+      "name": "entry_bd28bd4d",
+      "durationSeconds": 5.000000476837158
+    },
+    "spawn": {
+      "name": "entry_e4cb0f58",
+      "durationSeconds": 3.200000286102295
+    }
+  },
+  "policy": {
+    "stationary": true,
+    "rewards": "disabled in controlled fixture",
+    "leashRadius": 1100,
+    "resetHealthFractionPerSecond": 0.2,
+    "sightRadius": 1100,
+    "scope": "Local stationary basic-combat fixture. Idle substitutes for an unused run alias. Native spells, CC immunity, audio, team rewards, buffs, calendar and timing calibration remain unfinished."
+  },
+  "monsterTags": ["Monster", "Monster_Epic", "Special_Void", "Monster_Camp", "Monster_Baron"]
+}

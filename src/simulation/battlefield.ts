@@ -54,6 +54,8 @@ export interface Battlefield extends TerrainQueries {
   developmentMasterYiBots?: true;
   /** Selects the combined development roster within all four trusted Rift hosts. */
   developmentRosterBots?: true;
+  /** Admits Baron only in the private controlled combat fixture. */
+  developmentBaron?: true;
   id: 'practice-fixture' | 'rift';
   half: number;
   heightRange: readonly [number, number];

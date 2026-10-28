@@ -1,3 +1,4 @@
+import { monsterTags } from '../content/monster-tags';
 import { SUMMONER_SMITE as S } from '../content/summoner-smite';
 import { DEFAULT_SUMMONERS, type SummonerLoadout } from '../content/summoners';
 import { TICK_RATE } from '../content/rules';
@@ -25,7 +26,7 @@ export function smiteTarget(w: World, caster: Unit, target: Unit | undefined): t
   )
     return false;
   if (target.kind === 'monster') {
-    const tags: readonly string[] = S.monsterTags[target.monster.species];
+    const tags: readonly string[] = monsterTags(target.monster.species);
     if (
       target.monster.phase === 'returning' ||
       !tags.some((tag) => ['Monster_Large', 'Monster_Medium', 'Monster_Epic'].includes(tag))

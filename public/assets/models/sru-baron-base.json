@@ -1,0 +1,1546 @@
+{
+  "referenceVersion": "16.18.8175716",
+  "status": "Pinned base skin and every atomic entry with applicable rig channels. Unbound source entries are retained separately; native dispatch and rendering remain unverified.",
+  "output": {
+    "path": "/assets/models/sru-baron-base.glb",
+    "bytes": 13473732,
+    "sha256": "5d9cd6632d191270a94d976e284458145f9fa9e445165eaadb304e2892fff417"
+  },
+  "definitionsSha256": "193ac8c3693acb846601bca8b623eb906f9587ed2fad0fe984e3fba7c86a4b2b",
+  "bindingAuditSha256": "33ee7e592e5d63f6e681222a1c21b25a608dd053e95dec7e3537bec5a0d3c0fd",
+  "unboundSourceAnimations": [],
+  "sourceManifest": {
+    "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+    "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+  },
+  "sourceArchive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+  "sources": [
+    {
+      "path": "data/characters/sru_baron/skins/skin0.bin",
+      "wadPathHash": "f06ef46cea81ac4d",
+      "sha256": "7fe7cc331edf7debbe5d3a103494bc4c6313fcd9c532ee6dff610729cc4edd28",
+      "bytes": 13491
+    },
+    {
+      "path": "data/characters/sru_baron/animations/skin0.bin",
+      "wadPathHash": "f1fed10650e14ed9",
+      "sha256": "937e65ccdf691bd8a84cd95bb4d14caf7004acce21298f9d191716e4fa5d5cc0",
+      "bytes": 195020
+    },
+    {
+      "path": "data/characters/sru_riftherald/skins/skin0.bin",
+      "wadPathHash": "d91277e0a9e6c5c0",
+      "sha256": "78e584be38f96e3b7b4e1c435d220a7722f2a961a0b8bb012dbe5e923618cf0e",
+      "bytes": 6112
+    },
+    {
+      "path": "data/characters/sru_riftherald/animations/skin0.bin",
+      "wadPathHash": "21f92810791ce9b3",
+      "sha256": "e15438e95926f2c4d39093ffd7708eae0af8771175b4320697b510b05b48835f",
+      "bytes": 5306
+    },
+    {
+      "path": "data/characters/sru_horde/skins/skin0.bin",
+      "wadPathHash": "52fbfc23fc5892a0",
+      "sha256": "de10424f124be0a0390d520a32f56add18cf7e5f7c05253c18bd667ea430830f",
+      "bytes": 2460
+    },
+    {
+      "path": "data/characters/sru_horde/animations/skin0.bin",
+      "wadPathHash": "1001cab16d5a979c",
+      "sha256": "125f91abab405d37d408bd6cce306d4185ea1155bc4741f4feff32d0e40a65fd",
+      "bytes": 8911
+    },
+    {
+      "path": "assets/characters/sg_riftherald/skins/base/animations/sg_riftherald_spawn_placement.anm",
+      "wadPathHash": "c29dc1d6aee81ca9",
+      "sha256": "af6d921a62013187b925c4bae30f83c8574a36683359bd655dbf0eb0ad815050",
+      "bytes": 11536
+    },
+    {
+      "path": "assets/characters/sg_riftherald/skins/base/animations/sru_riftherald_sg_spawn.anm",
+      "wadPathHash": "837dd56c37e2b1c5",
+      "sha256": "c0fb80c92736d10dd6adaf6dfb09baf8575b9e16913f1d6ab29f4d74197c6563",
+      "bytes": 103478
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1.anm",
+      "wadPathHash": "3e33b22ebac1a01d",
+      "sha256": "3fe6730dac90f32a2fd1694b02726ced6da53d01fb70a12e892a1f3b00ce0565",
+      "bytes": 87940
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1_far_left.anm",
+      "wadPathHash": "3a392948f064eeb4",
+      "sha256": "124d67eba930a965ee7e2679384e05f4d4adda6a44255ddbab6914b34a660508",
+      "bytes": 87230
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1_far_right.anm",
+      "wadPathHash": "62ea01408267ef0d",
+      "sha256": "22b23473750466c51e0b3952ccf7ec0226bcabf2d85b673ca17f9062cdcecbb9",
+      "bytes": 87460
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1_left.anm",
+      "wadPathHash": "c5f343711eab8385",
+      "sha256": "5e362fcdcebf5fd569b6b720aba2f3c664f0250fce14e2e344151aead4578a7f",
+      "bytes": 87330
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1_melee.anm",
+      "wadPathHash": "ded858f4fb42401a",
+      "sha256": "0f9d351417dfd66c5baebefae12cdb1dadde5e289c165a658565b0b7a3bcfa0f",
+      "bytes": 84900
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1_melee_far_left.anm",
+      "wadPathHash": "bc2b4cf8dd90239d",
+      "sha256": "0c7423b2f77666a38ca48cce7658089faea155c672530e28de628fe4dc401fad",
+      "bytes": 93252
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1_melee_far_right.anm",
+      "wadPathHash": "1b0ee8a79d730e30",
+      "sha256": "5d717cf5cffbef46412297e1be78cecd8d72095d9e33905271b69e7947ff5b2f",
+      "bytes": 90936
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1_melee_left.anm",
+      "wadPathHash": "a945a9cfa669f7c4",
+      "sha256": "cdeebe60706d05990248a36c8374cf50b41a1461b17ce3e69b632a2de49884af",
+      "bytes": 94440
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1_melee_right.anm",
+      "wadPathHash": "50c04e912be0ae60",
+      "sha256": "47a0402cff6081887532421a636da3cbdd3e7b756f24a6e836f90586f59a4f97",
+      "bytes": 94128
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1_right.anm",
+      "wadPathHash": "e5d44d556b82352c",
+      "sha256": "96e94a95921e26c926a1c89d3e6d6602fcc0ca84c640aa19b9b7b02b07fde3b6",
+      "bytes": 87620
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack2.anm",
+      "wadPathHash": "77dd158d9eab8063",
+      "sha256": "55da790cd1baf55bedf76baad862f10f4a0ba4d6fdfbba2bdc82e93196137e99",
+      "bytes": 93870
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_dance_in.anm",
+      "wadPathHash": "103544cdad42a0d1",
+      "sha256": "1ff00c1f0e2051135ed17f61719e0f2182e1e46bbe3ff107e5318aef0944269e",
+      "bytes": 53518
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_dance_loop.anm",
+      "wadPathHash": "631ff779a3bb4f7b",
+      "sha256": "1f2fed97fed0836b9e07cd6174d116904686a0ab494becf4eb3041c824748c8a",
+      "bytes": 46014
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_death.anm",
+      "wadPathHash": "b27a42f9016611eb",
+      "sha256": "72a6020e1bf76446535cbc6426413f1042ee0d18262e663a15dbd5d5b7b5841b",
+      "bytes": 165634
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_ee_outro.anm",
+      "wadPathHash": "99a0620a94ea3eaa",
+      "sha256": "981cf630fb2d2462b1ac10f5e9750f7246876195e57bb24d3bc17823a6f9a434",
+      "bytes": 78126
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_hidden.anm",
+      "wadPathHash": "23f99ad7b153f97f",
+      "sha256": "c214a7ac98d740bbe38be31b9fb33fb7460d0bdfe25e841080bdb669f8c88e41",
+      "bytes": 11376
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1.anm",
+      "wadPathHash": "0fa123abac403edf",
+      "sha256": "f23a9a6844192fd59be3b7c7383a86d2861f43712155d921df0afb9135ded68c",
+      "bytes": 46018
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_a2n.anm",
+      "wadPathHash": "33f0eb7f94bbd169",
+      "sha256": "0c62b994078c94404bf4860004f323c6a7d6a79ea77bb71cfa4f4282cc3da6a1",
+      "bytes": 71874
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_aggro.anm",
+      "wadPathHash": "f415221a305bc9ee",
+      "sha256": "59c626bf7dddbdeff46eaa0080aeb870cc4a20ed32c40aa4256418a23b6758c4",
+      "bytes": 67352
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_aggro_0.anm",
+      "wadPathHash": "eb472de2c0fd4863",
+      "sha256": "388d5286749f6c6cd0c40681c71b6b642ea4d53abdb700a2c9f13b5364bc58b1",
+      "bytes": 5570
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_aggro_l45.anm",
+      "wadPathHash": "a563f6edab8f344f",
+      "sha256": "ad84b1152e21fa7fb04df577fe2f87fc068a696f1de6d9c0a8c3eed9616cb7ca",
+      "bytes": 6098
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_aggro_r45.anm",
+      "wadPathHash": "75461f1811fbef59",
+      "sha256": "9abee98c979e74035f901a0f104f15e0705916ad8b412dd877610ad08e962a5c",
+      "bytes": 6098
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_aggrob.anm",
+      "wadPathHash": "47eef55bb7a81ce5",
+      "sha256": "cd838d27eca1db7e45fd06112adc1bf82627acf8fc09701e3ed1c1f54f7f9b21",
+      "bytes": 49698
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_aggroc.anm",
+      "wadPathHash": "76c9ae31d1a4e0d8",
+      "sha256": "bb0c4588edf56a45122887662589c7cbbba3df42bcd972bfcc85e7a68ddfd0f1",
+      "bytes": 51908
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_aggrod.anm",
+      "wadPathHash": "d342bc784d0b5782",
+      "sha256": "e825410a1958c6a5565d3721a42b50ff45ebb033a34aecb842052bc780bc7fe3",
+      "bytes": 45438
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_aggroe.anm",
+      "wadPathHash": "a3d006026b7312ce",
+      "sha256": "de01ab49c551acdf3d1857e9f19d97c84e9650d124d3809e6eb20517fba54f49",
+      "bytes": 46208
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_aggrof.anm",
+      "wadPathHash": "362aa858767d584f",
+      "sha256": "8fb986499c8b213a867b5f522a4b5578bf29d9d272ff65c6d15ff5a59fd5e2f3",
+      "bytes": 45368
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_aggrog.anm",
+      "wadPathHash": "284d1e76da66190d",
+      "sha256": "a5c6731c7f6165d22f33a99023cbdbb3dd0e9bfad2457db59c235558e1a8fa03",
+      "bytes": 51238
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_n2a.anm",
+      "wadPathHash": "95f2f5cf2010cb29",
+      "sha256": "e08bc6c82aa507410a0e0188e9b14dee9b145d5dc931875e836ebb22bce9b8b1",
+      "bytes": 108720
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle2.anm",
+      "wadPathHash": "1574057e19c2c5ed",
+      "sha256": "c8c97857a45678263d5eb8a2ce8379e0acf70822ffc30419003e1251c0591bba",
+      "bytes": 65738
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spawn.anm",
+      "wadPathHash": "ffab05069294e705",
+      "sha256": "990ee5502d7ed05ad54e644b072028e12d165feb211e2279f90cfc78682e5594",
+      "bytes": 157430
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spawn_crawlout.anm",
+      "wadPathHash": "4e851e8ffcbed5c0",
+      "sha256": "88e618f995190485849198b27c915781ce54d118575b30f37253f993a06ef090",
+      "bytes": 67192
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spawnout.anm",
+      "wadPathHash": "6ab0767f1b8890d7",
+      "sha256": "8807a2027af63c32c80c3d5ed8262a482622482e5c7970028979ebaf4f5d8a67",
+      "bytes": 31944
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2.anm",
+      "wadPathHash": "32f98a06f112ecdd",
+      "sha256": "03c4d546855c4a3bd1c50197be2ef284deeb27f471898802daa16bff1ccdf672",
+      "bytes": 107474
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_channel.anm",
+      "wadPathHash": "6bc092b1f9228d73",
+      "sha256": "7c1d652cfea5d900974de2136ce2dc7b0450d21c1b30c2417233f95b79721216",
+      "bytes": 73916
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_fl.anm",
+      "wadPathHash": "87e3829565e48209",
+      "sha256": "5eb0877354a54b8dad927f41b5f3d85ef6dcfb4ba1a814cd8fd43a456d8381f8",
+      "bytes": 112938
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_fl_channel.anm",
+      "wadPathHash": "a01bef29643f284c",
+      "sha256": "e457bebc59fdea2c10e1a6db6fdb7e933fc8821144984ee6b3f8fe7b31879835",
+      "bytes": 75146
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_fl_windup.anm",
+      "wadPathHash": "a8227be63bb086f6",
+      "sha256": "cdf2a27f2f1c3be83dc38d77890cae74922c04fe355b787e4b1c46d78d5d472a",
+      "bytes": 13416
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_fr.anm",
+      "wadPathHash": "f2c0e6144566e402",
+      "sha256": "ad87fff0cf23005d9223875964f344e18255b236419f18f13d682179a6bc54c4",
+      "bytes": 107344
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_fr_channel.anm",
+      "wadPathHash": "e6aad9e8e1e654be",
+      "sha256": "a6db56ccc8d3f66478489e5cc9eb68b023fc50e410e6bff351761738c49c082c",
+      "bytes": 73966
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_fr_windup.anm",
+      "wadPathHash": "9dc9c914c0a87607",
+      "sha256": "07bdf2a09fb1fd8e4ca421cd78cb19ba81ae8a66297bf8be6f1fdbf1c45177bc",
+      "bytes": 13326
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_l.anm",
+      "wadPathHash": "af7446c0856fb3d1",
+      "sha256": "beba324562699085889a57c86b7e5de3ddb580a1d3117b41dd40bac917f95cc1",
+      "bytes": 107254
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_l_channel.anm",
+      "wadPathHash": "701c4480a4c3cf4d",
+      "sha256": "b606c2b42a9c9d4797047865aa257fc783a714062a6067efeba64660ebea284b",
+      "bytes": 73576
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_l_windup.anm",
+      "wadPathHash": "8cdc7373efa1249a",
+      "sha256": "69a2f7eea6faf557b407e23da3d53a6822b5a822e080787ed9b83b04fad634d0",
+      "bytes": 13326
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_r.anm",
+      "wadPathHash": "da108afe86df8ecd",
+      "sha256": "a3e05391a25fdcdc165945865a2118dad28f0acfe0f55a5a8b1b7ab7e77db507",
+      "bytes": 107324
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_r_channel.anm",
+      "wadPathHash": "5f7ac04aef60ea38",
+      "sha256": "7f3b6390aa95a659558389632fbd88fc14ab18b1320f704e2d23d2636293964c",
+      "bytes": 75176
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_r_windup.anm",
+      "wadPathHash": "9aef59e2ad270c8b",
+      "sha256": "494373b2cab9e0afe4c5cbf986d515e52da58917867e775fc03a331cd605936f",
+      "bytes": 13326
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_windup.anm",
+      "wadPathHash": "b80a2d18db19eeb0",
+      "sha256": "3b5e230198ba8e6180a436478c711a4626d846571ec2df5112e3c0eb114695bb",
+      "bytes": 13326
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3.anm",
+      "wadPathHash": "cab079a2178a5a07",
+      "sha256": "56099a0e4f9f522c914595e583cdf2665681467c27347b5b8aa150b9188d1523",
+      "bytes": 101874
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_channel.anm",
+      "wadPathHash": "09a420349b880368",
+      "sha256": "497d01e68e56e5630e7fca4249cdacf3aac8e66e75ea5dc3e88cc878e08aeb1c",
+      "bytes": 87690
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_fl.anm",
+      "wadPathHash": "1844beff518fe4da",
+      "sha256": "30498de627df7f0fec5a40cb3995ed003d222072609299b1926f34de41573edc",
+      "bytes": 101794
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_fl_channel.anm",
+      "wadPathHash": "28dcee2c9d7c8e0f",
+      "sha256": "0d4d571fe8c1b153b39cf232cfe8858dfd36a84cd7c1ce1d59a69c2623ab3ed0",
+      "bytes": 87540
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_fl_windup.anm",
+      "wadPathHash": "ee1b92e4fee350cc",
+      "sha256": "cf2f01eeadb7eaece17746b391b995b8a21d2af3f3be7207b7dd00f02b58ebc5",
+      "bytes": 10986
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_fr.anm",
+      "wadPathHash": "2ba5094e91ebc1da",
+      "sha256": "0532067499511292088300fe647da1d3430a98e80add1a6355471dbeb9662530",
+      "bytes": 101394
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_fr_channel.anm",
+      "wadPathHash": "cb51e0fd41bc6778",
+      "sha256": "59ede14d5250a9a5aed3f3ddfbb2225b7288fa50972802db76f4ffef5c599858",
+      "bytes": 87650
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_fr_windup.anm",
+      "wadPathHash": "9a25bb59d622c32f",
+      "sha256": "5f8ad305a641524cddaf8c764c4eb3d6214867d186ef8b4f38267ea77ae1cf46",
+      "bytes": 10986
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_l.anm",
+      "wadPathHash": "34ec7ff00923146a",
+      "sha256": "76722b719bc44cb146254ac280e64e5ba04d38d73acb560f7c0d0aa929b62d4e",
+      "bytes": 101854
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_l_channel.anm",
+      "wadPathHash": "bda737df2e711bb3",
+      "sha256": "05c3891d129966ceb68f3363f23471f9e0687f86e56bbe0db06cf4983bc45128",
+      "bytes": 87650
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_l_windup.anm",
+      "wadPathHash": "5e4c99d1b19eaab5",
+      "sha256": "4f279787653ffe8697d4b08f20f6dde0431333de0fc3c5b6e26570a7537a1576",
+      "bytes": 10986
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_r.anm",
+      "wadPathHash": "964f5c3662d61cae",
+      "sha256": "63a5be31c93507ccaef550422eb15986a62d66920e3a2e057fa25847f3c8602c",
+      "bytes": 101954
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_r_channel.anm",
+      "wadPathHash": "d15618a06e952cf8",
+      "sha256": "79b057e575d7ccb74f7b062b630a6b8e60b305c1f23df307771b78711d093152",
+      "bytes": 87960
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_r_windup.anm",
+      "wadPathHash": "32ccf1f09907c0f6",
+      "sha256": "584e09a9927d8fd86019eccdadf941964ce6b36dd41e7da0bee6a522ab179317",
+      "bytes": 10986
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_windup.anm",
+      "wadPathHash": "0bdfb18a2a8cdfcd",
+      "sha256": "cf0cec7f275ba3ba0f8e4e221430ee0ce09819135f521d473b4ea2f0685655f6",
+      "bytes": 10986
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell5.anm",
+      "wadPathHash": "37419b9c17e8af8b",
+      "sha256": "f58d28e93dbde40e0b1aab7261e37ec09d2507a5159c1a92ee69f25f4eee1785",
+      "bytes": 106034
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell5_channel.anm",
+      "wadPathHash": "9e732fb28e7bc928",
+      "sha256": "c29d881da3bdc5ec321930f7b8da8e8024bb723dc3cb6e24c093b7cd551ef50e",
+      "bytes": 50568
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell5_windup.anm",
+      "wadPathHash": "b294e8156eac50c5",
+      "sha256": "35459a243e19ed3b4e5acb4bc01680286664bb36cb41409640051dd949b7a0d7",
+      "bytes": 25026
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell6.anm",
+      "wadPathHash": "5dc9b38547f57cb1",
+      "sha256": "55b7037ad161dd50ca8e9c675c845cf64fe23b515bb2ce106bf0094466422aee",
+      "bytes": 86630
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell6_windup.anm",
+      "wadPathHash": "6b57e5e052102089",
+      "sha256": "aeb3c61a3926de234c260675bffbc5c98c5791fa0d49444d187ecd62130aca5e",
+      "bytes": 144496
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell7.anm",
+      "wadPathHash": "0aea0b944d1d382b",
+      "sha256": "0115c12846fb39174d2351d08c3018ff937aa4ed9be6840ef72a940cef4ce64b",
+      "bytes": 72146
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell7_windup.anm",
+      "wadPathHash": "e985e979246ce7fe",
+      "sha256": "31460be081c4af1fe44df8a1ea89bcf9275542ec995a4605b34599c751a1c692",
+      "bytes": 116578
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell7_windup_fl.anm",
+      "wadPathHash": "1aa47a824105f79c",
+      "sha256": "72d337e6361081d0d921c06f96c38ffdb79606752f79993afaa43ec37e11d37e",
+      "bytes": 116548
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell7_windup_fr.anm",
+      "wadPathHash": "1db5d1295052844b",
+      "sha256": "729052fdf661f1f587e29b37c44f6944be90e45881f93e3a9c4a84771bec7afe",
+      "bytes": 116558
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell7_windup_l.anm",
+      "wadPathHash": "15b0b7eeb2973530",
+      "sha256": "82a008309bd48af8e38874fc9e76a2f8b183205c8fb93dd4134cc45200832412",
+      "bytes": 116568
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell7_windup_r.anm",
+      "wadPathHash": "bc447705991d456e",
+      "sha256": "72353d3bf82bf52b05fc80f85758adc5d49c9e3998afed5640758cc58aee77ca",
+      "bytes": 116558
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell8.anm",
+      "wadPathHash": "7dab26b0b414d808",
+      "sha256": "ea942fa37f8bc5e1a008a2fd96f2d834316d04ad11b986e3a99b7fc68dcd6fa5",
+      "bytes": 207076
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell9.anm",
+      "wadPathHash": "45eac4fb9074ea85",
+      "sha256": "13651bedd043b26d964a5173abf25f69c86a9d8b7e4851c6b3ff669ab99a1dc6",
+      "bytes": 130802
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/baron_base_tx_cm.tex",
+      "wadPathHash": "ca5ecbd445a6fbfa",
+      "sha256": "c80c6f0512ed9de9b64628ba6d01cdcf26eb432f0b5f6efb4d43da52472d7635",
+      "bytes": 699076
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/sru_baron_base.skl",
+      "wadPathHash": "57940f347809a821",
+      "sha256": "1644937d64c3a60a3446611b90e6cda43434dd22ce6c8e8e18fa14300ffedb0e",
+      "bytes": 16464
+    },
+    {
+      "path": "assets/characters/sru_baron/skins/base/sru_baron_base.skn",
+      "wadPathHash": "7819669514b5990e",
+      "sha256": "b53e8e88b46e5246b4d121e8e8418201a95736f20305c782e70a39305a855b4c",
+      "bytes": 897280
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_attack1.anm",
+      "wadPathHash": "eff72d636cbf414d",
+      "sha256": "09c46514b3941eebb84c8bdc32dae05a9d38892cb14020ac187523c768dfb877",
+      "bytes": 32988
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_attack2.anm",
+      "wadPathHash": "bc2b18b3ca923518",
+      "sha256": "83c85a13b9393b82a9154e5fe2e13892dee2ffc5846abe07efa782da04270ba7",
+      "bytes": 31458
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_attack3.anm",
+      "wadPathHash": "a6bcb8521fd5f4e7",
+      "sha256": "82a6f0b5827b30fa21cd71d22fb3dd9d4d29655932319bc3150cb3ba0a784cf6",
+      "bytes": 31208
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_attack4.anm",
+      "wadPathHash": "2b1d28c140f6d84d",
+      "sha256": "a26aaca15084d93d618090f97176b0fcd75e99a236bfe1ccf8a5a0adce294d31",
+      "bytes": 33328
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_dance.anm",
+      "wadPathHash": "0e4d2c33a07465bb",
+      "sha256": "1ed803c3e612a688988b9cdcf17f8952e86f5eccd599ffd74a583d04dc3c9da6",
+      "bytes": 7982
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_dance_in.anm",
+      "wadPathHash": "25eebd8dde6315bd",
+      "sha256": "e4e2a43d7c56fdd4ee699b8b067a1774a31cfd80a7feb93c0c82f8d53bf3a854",
+      "bytes": 5482
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_death.anm",
+      "wadPathHash": "b42e3754a1e118cc",
+      "sha256": "1a992ed40ba96876031cae4adf538a291353612c73b92968705f184c9af61a9b",
+      "bytes": 41818
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_death2.anm",
+      "wadPathHash": "68c33d1376619435",
+      "sha256": "b90ab62c23d942a22be05bb8194a37e0403ca871c45fb030feb09ae1ed25f7c6",
+      "bytes": 48058
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_dormant.anm",
+      "wadPathHash": "dd34a38cfb1ad9c7",
+      "sha256": "d9dc7fd35ed8c87d46b42ca1d86910503cdd020959b174e80ab95f3ae24879ad",
+      "bytes": 4702
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_dormant_loop.anm",
+      "wadPathHash": "02dd90667144e5fd",
+      "sha256": "5859ffb1ce059bb0b31e7ec2d25f208dd6514116e55929bd7c42e5fdf347d03f",
+      "bytes": 2302
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_hatch.anm",
+      "wadPathHash": "0c1edc2bdfe73e7c",
+      "sha256": "a4b83ba124bd0e40f9081ac0e460c1a03f803c1f72d71699f0bf9516c6fb268f",
+      "bytes": 40228
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_idle1.anm",
+      "wadPathHash": "6fb2455d454edd1b",
+      "sha256": "dc38a22303a75a7900a85dc40296944576537d8cea838d3946fb9fae93724db7",
+      "bytes": 26498
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_idle1_aggro-45.anm",
+      "wadPathHash": "5bba95bfebc9f955",
+      "sha256": "95af163beec693f5c6a9ff6d8ee797d80ec48e3659c0444de7e669731879d69a",
+      "bytes": 5180
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_idle1_aggro-90.anm",
+      "wadPathHash": "e5afb8ad88ca7fea",
+      "sha256": "cb495333cc9b1f3a33fefaf764955324bbf7e922c3ea11eec5ad99e6757c816a",
+      "bytes": 5216
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_idle1_aggro.anm",
+      "wadPathHash": "845e7d9957e99bc4",
+      "sha256": "ba7281f1731e6815b1f245787971f0d1c2a54eee7922f24fb190f83abb651840",
+      "bytes": 15352
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_idle1_aggro0.anm",
+      "wadPathHash": "9f5946d81cd64333",
+      "sha256": "43b830a4bd203afc6bbf212623fc4db74b9368d4c74254b70848d0083a8194bf",
+      "bytes": 5180
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_idle1_aggro45.anm",
+      "wadPathHash": "f6cd58948a97e6d9",
+      "sha256": "105eb7cb9f93731a3e97c5891b137fabcbdf56937f18d2ad129c75abe76937e2",
+      "bytes": 5180
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_idle1_aggro90.anm",
+      "wadPathHash": "a0e86783eb8a759e",
+      "sha256": "a3e95ebafb01931be10dd799d2ba93f69dfe7f83e67476f666eae68ebbce9c59",
+      "bytes": 5216
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_idle1_aggro_in.anm",
+      "wadPathHash": "d5a6fcd8089172d9",
+      "sha256": "2bf4ca3ddc4cbcbaba6a0b018cab77c1eed285109e2eed3e2b46e1bc69acee27",
+      "bytes": 15502
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_idle1_aggro_out.anm",
+      "wadPathHash": "c63e26949bb37d0d",
+      "sha256": "214a1d0af83a20731db043e990cf6a588fef8bc23c6c093601f468fe20aba36d",
+      "bytes": 16622
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_idle2.anm",
+      "wadPathHash": "531ca5ec98dd6826",
+      "sha256": "49d68e1714e68b052957456d1488abb1c0b2f0fd37891575c66e0da74427f1e6",
+      "bytes": 35088
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_idle3.anm",
+      "wadPathHash": "8dacf9b8d5fe2297",
+      "sha256": "213e9683d78d312fa4add7c4c7b326d36f4a0e787b32ea0694a5fddf14bcef30",
+      "bytes": 22778
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_run1.anm",
+      "wadPathHash": "8c16d6c5fe385cf0",
+      "sha256": "2182565e0e5860035e6c4a55825b50fdb40fc5da614b6a3a76ec6f8b63d66f2d",
+      "bytes": 42198
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_spawnin.anm",
+      "wadPathHash": "6a97c74b1730ab33",
+      "sha256": "ea12279a7ef212ece555c230ccf9562e9a2b991202749ab932ff50c7aaf54b29",
+      "bytes": 20422
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/animations/sru_horde_spawnout.anm",
+      "wadPathHash": "8df35382a756e5a9",
+      "sha256": "8f16c76054931e2213136b56b3bffc4d10575d2980b2a426a359b1e5aeaceb65",
+      "bytes": 32890
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/sru_horde.skl",
+      "wadPathHash": "b19dd5dd3818bd5b",
+      "sha256": "68798fc085156e79a8aa4ac40230bab8726c08112c11bd5ef2926c1fc9a61e14",
+      "bytes": 8176
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/sru_horde.skn",
+      "wadPathHash": "da496b14fa8c5c55",
+      "sha256": "02990652aa22211bc2fe71360eb5474e41aff2a5e59894f30acd14fc95bc1404",
+      "bytes": 208388
+    },
+    {
+      "path": "assets/characters/sru_horde/skins/base/sru_horde_base_tx_cm.tex",
+      "wadPathHash": "b68f7e403cd2ed5e",
+      "sha256": "6aa244d4018ea734c0bf2c823bf0c9adf89854af3dfd9729b4e4c7f4e401d175",
+      "bytes": 174788
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/animations/sru_riftherald_angry_idle.anm",
+      "wadPathHash": "295d2cbcaecf76ae",
+      "sha256": "601e85bd5e50018b56d5ae3b745fa0509c718ef1fd778b42f7a385cd6cf4c031",
+      "bytes": 19320
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/animations/sru_riftherald_angry_idle_transition.anm",
+      "wadPathHash": "cda178d30cdefaee",
+      "sha256": "add78824b82924739665ca6df0d8d63fcbc8436f161daae67374cd42a80d84b7",
+      "bytes": 33484
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/animations/sru_riftherald_attack1.anm",
+      "wadPathHash": "0cbc479420adb0b1",
+      "sha256": "baeea077ad4301ee13753310e8ed3f09620cd9055164e5bb9e760c0f0b42056f",
+      "bytes": 27384
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/animations/sru_riftherald_attack2.anm",
+      "wadPathHash": "8b8cf1bca262d0a4",
+      "sha256": "2f1e06746f63a570721bfd497744b12f7245246b4c6a7e34cd67d2cdd5340a5e",
+      "bytes": 27864
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/animations/sru_riftherald_dance.anm",
+      "wadPathHash": "108a759d695ddec1",
+      "sha256": "6fcf2230377a28a4d5facc7c5906f61608149578930b2eed2dae6082b0819d0e",
+      "bytes": 67416
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/animations/sru_riftherald_dash_hit.anm",
+      "wadPathHash": "15982e4e93ccf902",
+      "sha256": "2511ccc5505f309381723b48f8d24d484353cf5f37904e5f4aafcb16c62cb428",
+      "bytes": 40528
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/animations/sru_riftherald_dash_windup.anm",
+      "wadPathHash": "33bb3b95dd4e5367",
+      "sha256": "67e01f8dfd911ba5f193f0df4d51d1bb160fce08183d1fcd2ce2bab2796beaeb",
+      "bytes": 63056
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/animations/sru_riftherald_death.anm",
+      "wadPathHash": "48b26b07f5104f7a",
+      "sha256": "f25a8e3bf2e4cc324b147921c70dfd9e5e9dbdd2bd8bfd9154a2c8b58a4ff350",
+      "bytes": 35424
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/animations/sru_riftherald_eye_additive.anm",
+      "wadPathHash": "baa3c56543fc6f99",
+      "sha256": "b10258c9ebf8ff902f787ae035f3a3408e9fd8898608613bf6b1ad44795b8f74",
+      "bytes": 7034
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/animations/sru_riftherald_eye_additive_loop.anm",
+      "wadPathHash": "88ce1852dcbce9e2",
+      "sha256": "c05702f1fa5f68205b60e46eb490e9c4e38259e89b2850566dd67e320e4eb2b7",
+      "bytes": 11756
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/animations/sru_riftherald_idle.anm",
+      "wadPathHash": "2ef84604978ddcee",
+      "sha256": "f77d34f0cb353cab9d21e68f72d83aa1375eff8ad140bb91a23a6055a7c2d56a",
+      "bytes": 17230
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/animations/sru_riftherald_idle_ang_in.anm",
+      "wadPathHash": "f54d8c234d2e4c58",
+      "sha256": "fbb1397eaba06cf7f91279577a9d74c1b621f64090c828e92356e8d90c1ba904",
+      "bytes": 28394
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/animations/sru_riftherald_idle_in.anm",
+      "wadPathHash": "fad928497a12fa5e",
+      "sha256": "cd161fe0523aaf2d407ddc9dce3750678d80085465f572996b2adc580f3f0c7a",
+      "bytes": 18110
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/animations/sru_riftherald_run.anm",
+      "wadPathHash": "888c98f5bff99371",
+      "sha256": "c7b0222a4be88b2d41932b325840affb69ce36f12d88f14415121bd2ac134bcd",
+      "bytes": 20930
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/animations/sru_riftherald_spawn.anm",
+      "wadPathHash": "3f5307cea3c7384f",
+      "sha256": "3c82f357c6fc412069e6d1c687936f710d86858fd2d7e246175a10fcfb555e0d",
+      "bytes": 54912
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/animations/sru_riftherald_spinningpunch.anm",
+      "wadPathHash": "0c8d4bac668e5b31",
+      "sha256": "59fbffe144b17226bd26a9619e875bba363c8ac9bb92c0218b907f809b860ea4",
+      "bytes": 56932
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/animations/sru_riftherald_stun.anm",
+      "wadPathHash": "8597487d05c7fae4",
+      "sha256": "9337ae1371ed49d311db89b0fd9aef4d40db03074d4781979d74979af75719ad",
+      "bytes": 16180
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/animations/sru_riftherald_taunt.anm",
+      "wadPathHash": "c71eb73c2610027c",
+      "sha256": "c26f47ea31ac9aad63ea69a15f3583cc14bb6e16481ea30f2ab3aac7fb1e4f8e",
+      "bytes": 27974
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/animations/sru_riftherald_towerattack_into_attack.anm",
+      "wadPathHash": "6ff162df8e436cb9",
+      "sha256": "8dad0e98b0b63d8b1c6a0fa7dd73934c3e61370e0c5043f43d56f56527820040",
+      "bytes": 36404
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/animations/sru_riftherald_towerattack_loop_attack.anm",
+      "wadPathHash": "3aa220857da5cb4f",
+      "sha256": "c37c0b7619828f01323a24bb37b43efe425b8346a43af637b560f0803d89068c",
+      "bytes": 35648
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/sru_riftherald_base.skl",
+      "wadPathHash": "b11c7e37d7dde9a1",
+      "sha256": "00f30346f1a7897a69c4d831d87f43e81c513379fee662670bf0c2f2324e333c",
+      "bytes": 9380
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/sru_riftherald_base.skn",
+      "wadPathHash": "717fc30524d9a34d",
+      "sha256": "a0bb7e5c9a0754397054bb9543f396621f98ccc5a69b8fd4f483fc7395ab70dc",
+      "bytes": 585550
+    },
+    {
+      "path": "assets/characters/sru_riftherald/skins/base/sru_riftherald_base_main_tx_cm.tex",
+      "wadPathHash": "cfa8535564bfaf9a",
+      "sha256": "2d64f3293e66111553d3ce0cd8706b67281af593b0563d644b86e088b9ee1290",
+      "bytes": 699076
+    }
+  ],
+  "unitScale": 0.008999999761581421,
+  "canonicalizedJointSlots": 0,
+  "skinScale": 0.8999999761581421,
+  "skinScalePolicy": "Omitted source scale uses identity; native scale calibration remains open.",
+  "initialSubmeshesToHide": [
+    "Horn",
+    "Eye"
+  ],
+  "materialTextures": {
+    "Shield": "assets/characters/sru_baron/skins/base/baron_base_tx_cm.tex",
+    "Horn": "assets/characters/sru_baron/skins/base/baron_base_tx_cm.tex",
+    "Eye": "assets/characters/sru_baron/skins/base/baron_base_tx_cm.tex",
+    "Body": "assets/characters/sru_baron/skins/base/baron_base_tx_cm.tex"
+  },
+  "materialPolicy": "Source diffuse assignment with unlit preview shading and authored blend flags. Reflection/gloss, dynamic ultimate materials, rig pose modifiers and native shading remain unfinished. Hidden submeshes retained with defaultHidden material metadata.",
+  "clips": [
+    {
+      "name": "entry_e4cb0f58",
+      "state": "{e4cb0f58}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spawn.anm",
+      "durationSeconds": 3.200000286102295,
+      "sourceDurationSeconds": 3.2333333492279053,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_6c2b2ee6",
+      "state": "{6c2b2ee6}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1.anm",
+      "durationSeconds": 3.9666669368743896,
+      "sourceDurationSeconds": 4,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "attack2",
+      "state": "Attack2",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack2.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_7edfaad7",
+      "state": "{7edfaad7}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2.anm",
+      "durationSeconds": 2.133333444595337,
+      "sourceDurationSeconds": 2.1666667461395264,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_dfe2e631",
+      "state": "{dfe2e631}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle2.anm",
+      "durationSeconds": 7.966667175292969,
+      "sourceDurationSeconds": 8,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_64ae7bbd",
+      "state": "{64ae7bbd}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_aggro.anm",
+      "durationSeconds": 1.9000000953674316,
+      "sourceDurationSeconds": 1.9333332777023315,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_bd28bd4d",
+      "state": "{bd28bd4d}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_death.anm",
+      "durationSeconds": 5.000000476837158,
+      "sourceDurationSeconds": 5.0333333015441895,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_15db56e5",
+      "state": "{15db56e5}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_aggrob.anm",
+      "durationSeconds": 1.9000000953674316,
+      "sourceDurationSeconds": 1.9333332777023315,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "spell3_base",
+      "state": "spell3_BASE",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3.anm",
+      "durationSeconds": 1.7666667699813843,
+      "sourceDurationSeconds": 1.7999999523162842,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_419d82cf",
+      "state": "{419d82cf}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_a2n.anm",
+      "durationSeconds": 1.100000023841858,
+      "sourceDurationSeconds": 1.133333444595337,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_a8cc186b",
+      "state": "{a8cc186b}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_n2a.anm",
+      "durationSeconds": 1.7666667699813843,
+      "sourceDurationSeconds": 1.8000000715255737,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_d4263e3b",
+      "state": "{d4263e3b}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_channel.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_b90da243",
+      "state": "{b90da243}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_windup.anm",
+      "durationSeconds": 0.1666666716337204,
+      "sourceDurationSeconds": 0.20000001788139343,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_617517ca",
+      "state": "{617517ca}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_channel.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_a7e78d50",
+      "state": "{a7e78d50}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_windup.anm",
+      "durationSeconds": 0.1666666716337204,
+      "sourceDurationSeconds": 0.20000001788139343,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "spell5",
+      "state": "Spell5",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell5.anm",
+      "durationSeconds": 1.933333396911621,
+      "sourceDurationSeconds": 1.9666666984558105,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_8a99a278",
+      "state": "{8a99a278}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell5_channel.anm",
+      "durationSeconds": 1.633333444595337,
+      "sourceDurationSeconds": 1.6666666269302368,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_5c26f5ce",
+      "state": "{5c26f5ce}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell5_windup.anm",
+      "durationSeconds": 0.3333333432674408,
+      "sourceDurationSeconds": 0.36666667461395264,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_036bdc34",
+      "state": "{036bdc34}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1_melee.anm",
+      "durationSeconds": 1.6666667461395264,
+      "sourceDurationSeconds": 1.7000000476837158,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_cf6216b4",
+      "state": "{cf6216b4}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1_melee_far_left.anm",
+      "durationSeconds": 1.6666667461395264,
+      "sourceDurationSeconds": 1.7000000476837158,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_c21b9e4e",
+      "state": "{c21b9e4e}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1_melee_left.anm",
+      "durationSeconds": 1.6666667461395264,
+      "sourceDurationSeconds": 1.7000000476837158,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_ac1b7bac",
+      "state": "{ac1b7bac}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1_melee_right.anm",
+      "durationSeconds": 1.6666667461395264,
+      "sourceDurationSeconds": 1.7000000476837158,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_b561edc6",
+      "state": "{b561edc6}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1_melee_far_right.anm",
+      "durationSeconds": 1.6666667461395264,
+      "sourceDurationSeconds": 1.7000000476837158,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_5ab94841",
+      "state": "{5ab94841}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_ef242363",
+      "state": "{ef242363}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1_far_left.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_ed24203d",
+      "state": "{ed24203d}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1_far_right.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_7f9bcb81",
+      "state": "{7f9bcb81}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1_right.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_699ba8df",
+      "state": "{699ba8df}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1_left.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_7884bf11",
+      "state": "{7884bf11}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell6_windup.anm",
+      "durationSeconds": 3.3000001907348633,
+      "sourceDurationSeconds": 3.3333332538604736,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_b9f6436d",
+      "state": "{b9f6436d}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell6.anm",
+      "durationSeconds": 2.266666889190674,
+      "sourceDurationSeconds": 2.299999952316284,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_ecb30914",
+      "state": "{ecb30914}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_aggroc.anm",
+      "durationSeconds": 1.633333444595337,
+      "sourceDurationSeconds": 1.6666666269302368,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_130f732f",
+      "state": "{130f732f}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_aggrod.anm",
+      "durationSeconds": 0.9333333969116211,
+      "sourceDurationSeconds": 0.9666666388511658,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_a23665e6",
+      "state": "{a23665e6}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_aggroe.anm",
+      "durationSeconds": 0.9333333969116211,
+      "sourceDurationSeconds": 0.9666666388511658,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_15ee1d31",
+      "state": "{15ee1d31}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_aggrof.anm",
+      "durationSeconds": 0.9333333969116211,
+      "sourceDurationSeconds": 0.9666666388511658,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_acc6fda0",
+      "state": "{acc6fda0}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_aggrog.anm",
+      "durationSeconds": 0.9333333969116211,
+      "sourceDurationSeconds": 0.9666666388511658,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_57b94388",
+      "state": "{57b94388}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_cadb534d",
+      "state": "{cadb534d}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_e7210d18",
+      "state": "{e7210d18}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_attack1_melee.anm",
+      "durationSeconds": 1.6666667461395264,
+      "sourceDurationSeconds": 1.7000000476837158,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_094a2fb9",
+      "state": "{094a2fb9}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_hidden.anm",
+      "durationSeconds": 0.9666666984558105,
+      "sourceDurationSeconds": 1,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_05e2461a",
+      "state": "{05e2461a}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_aggro_l45.anm",
+      "durationSeconds": 0.3333333432674408,
+      "sourceDurationSeconds": 0.36666667461395264,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_4c128e20",
+      "state": "{4c128e20}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_aggro_r45.anm",
+      "durationSeconds": 0.3333333432674408,
+      "sourceDurationSeconds": 0.36666667461395264,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_43c08e29",
+      "state": "{43c08e29}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_aggro_0.anm",
+      "durationSeconds": 0.3333333432674408,
+      "sourceDurationSeconds": 0.36666667461395264,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_8dcbd168",
+      "state": "{8dcbd168}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_fl.anm",
+      "durationSeconds": 2.133333444595337,
+      "sourceDurationSeconds": 2.1666667461395264,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_c06c92f4",
+      "state": "{c06c92f4}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_fl_channel.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_9770386a",
+      "state": "{9770386a}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_fl_windup.anm",
+      "durationSeconds": 0.1666666716337204,
+      "sourceDurationSeconds": 0.20000001788139343,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_f10e16ba",
+      "state": "{f10e16ba}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_fr.anm",
+      "durationSeconds": 2.133333444595337,
+      "sourceDurationSeconds": 2.1666667461395264,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_4b2d3ae6",
+      "state": "{4b2d3ae6}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_fr_channel.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_6e4c7ccc",
+      "state": "{6e4c7ccc}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_fr_windup.anm",
+      "durationSeconds": 0.1666666716337204,
+      "sourceDurationSeconds": 0.20000001788139343,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_5bd38d6a",
+      "state": "{5bd38d6a}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_l.anm",
+      "durationSeconds": 2.133333444595337,
+      "sourceDurationSeconds": 2.1666667461395264,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_2d9a4ed6",
+      "state": "{2d9a4ed6}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_l_channel.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_cd921f1c",
+      "state": "{cd921f1c}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_l_windup.anm",
+      "durationSeconds": 0.1666666716337204,
+      "sourceDurationSeconds": 0.20000001788139343,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_9943c3f8",
+      "state": "{9943c3f8}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_r.anm",
+      "durationSeconds": 2.133333444595337,
+      "sourceDurationSeconds": 2.1666667461395264,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_685f1244",
+      "state": "{685f1244}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_r_channel.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_0ee1059a",
+      "state": "{0ee1059a}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_r_windup.anm",
+      "durationSeconds": 0.1666666716337204,
+      "sourceDurationSeconds": 0.20000001788139343,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_7b22ccbd",
+      "state": "{7b22ccbd}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_l.anm",
+      "durationSeconds": 1.7666667699813843,
+      "sourceDurationSeconds": 1.7999999523162842,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_b9d32341",
+      "state": "{b9d32341}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_l_channel.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_7ee7c4f7",
+      "state": "{7ee7c4f7}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_l_windup.anm",
+      "durationSeconds": 0.1666666716337204,
+      "sourceDurationSeconds": 0.20000001788139343,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_7d22cfe3",
+      "state": "{7d22cfe3}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_r.anm",
+      "durationSeconds": 1.7666667699813843,
+      "sourceDurationSeconds": 1.7999999523162842,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_4fcd8627",
+      "state": "{4fcd8627}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_r_channel.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_bdd9d63d",
+      "state": "{bdd9d63d}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_r_windup.anm",
+      "durationSeconds": 0.1666666716337204,
+      "sourceDurationSeconds": 0.20000001788139343,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_3c0861df",
+      "state": "{3c0861df}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spawnout.anm",
+      "durationSeconds": 1.0666667222976685,
+      "sourceDurationSeconds": 1.100000023841858,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_3755ea61",
+      "state": "{3755ea61}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_idle1_aggro.anm",
+      "durationSeconds": 1.9000000953674316,
+      "sourceDurationSeconds": 1.9333332777023315,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_acaedb69",
+      "state": "{acaedb69}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_fl.anm",
+      "durationSeconds": 1.7666667699813843,
+      "sourceDurationSeconds": 1.7999999523162842,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_68def645",
+      "state": "{68def645}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_fl_channel.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_475f3c6b",
+      "state": "{475f3c6b}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_fl_windup.anm",
+      "durationSeconds": 0.1666666716337204,
+      "sourceDurationSeconds": 0.20000001788139343,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_a6aed1f7",
+      "state": "{a6aed1f7}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_fr.anm",
+      "durationSeconds": 1.7666667699813843,
+      "sourceDurationSeconds": 1.7999999523162842,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_0e454e13",
+      "state": "{0e454e13}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_fr_channel.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_7d4a6e29",
+      "state": "{7d4a6e29}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_fr_windup.anm",
+      "durationSeconds": 0.1666666716337204,
+      "sourceDurationSeconds": 0.20000001788139343,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_d749bd4a",
+      "state": "{d749bd4a}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2.anm",
+      "durationSeconds": 2.133333444595337,
+      "sourceDurationSeconds": 2.1666667461395264,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_2917dccc",
+      "state": "{2917dccc}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_windup.anm",
+      "durationSeconds": 0.1666666716337204,
+      "sourceDurationSeconds": 0.20000001788139343,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_0d1edc1d",
+      "state": "{0d1edc1d}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_windup.anm",
+      "durationSeconds": 0.1666666716337204,
+      "sourceDurationSeconds": 0.20000001788139343,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_3dfb84b7",
+      "state": "{3dfb84b7}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3.anm",
+      "durationSeconds": 1.7666667699813843,
+      "sourceDurationSeconds": 1.7999999523162842,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_994b3e45",
+      "state": "{994b3e45}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell3_channel.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_88e534c4",
+      "state": "{88e534c4}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spawn_crawlout.anm",
+      "durationSeconds": 3.9666669368743896,
+      "sourceDurationSeconds": 4,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_38e7d4c0",
+      "state": "{38e7d4c0}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell7.anm",
+      "durationSeconds": 1.933333396911621,
+      "sourceDurationSeconds": 1.9666666984558105,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_e00159cc",
+      "state": "{e00159cc}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell7_windup.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_a6632ddf",
+      "state": "{a6632ddf}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell7_windup_l.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_bc635081",
+      "state": "{bc635081}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell7_windup_r.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_9d3a8263",
+      "state": "{9d3a8263}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell7_windup_fl.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_9b3a7f3d",
+      "state": "{9b3a7f3d}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell7_windup_fr.anm",
+      "durationSeconds": 1.9666668176651,
+      "sourceDurationSeconds": 2,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_7a9f2741",
+      "state": "{7a9f2741}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell8.anm",
+      "durationSeconds": 4.9666666984558105,
+      "sourceDurationSeconds": 5,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_aaf62bd0",
+      "state": "{aaf62bd0}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell9.anm",
+      "durationSeconds": 2.133333444595337,
+      "sourceDurationSeconds": 2.1666667461395264,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_e9e15d7a",
+      "state": "{e9e15d7a}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_dance_in.anm",
+      "durationSeconds": 2.9000000953674316,
+      "sourceDurationSeconds": 2.933333396911621,
+      "sourceFramesPerSecond": 30
+    },
+    {
+      "name": "entry_1fcb6757",
+      "state": "{1fcb6757}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_dance_loop.anm",
+      "durationSeconds": 1.2666667699813843,
+      "sourceDurationSeconds": 1.3000000715255737,
+      "sourceFramesPerSecond": 29.999998092651367
+    },
+    {
+      "name": "entry_b73efd13",
+      "state": "{b73efd13}",
+      "source": "assets/characters/sru_baron/skins/base/animations/sru_baron_ee_outro.anm",
+      "durationSeconds": 1.8000000715255737,
+      "sourceDurationSeconds": 1.8333333730697632,
+      "sourceFramesPerSecond": 30
+    }
+  ],
+  "triangles": 22296,
+  "bones": 131
+}

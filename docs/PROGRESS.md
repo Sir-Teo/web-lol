@@ -6,6 +6,32 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+The latest [private Baron combat fixture](BARON-ENCOUNTER.md) adds a stationary
+source rig with published minimum-level stats, Flash/Smite, real retaliation,
+local leash/reset, exact saves/futures and isolated file admission. It uses its
+own browser slot and ignores unrelated NPC selectors. Cleared reloads prepare
+no Baron rig or ghost unit. Epic tags preserve Smite/companion damage semantics;
+controlled kills grant no gold, XP, CS, companion feeds or kill recovery. Full
+boss abilities, CC immunity, source audio, rewards/buff and live calendars remain
+unfinished. Baron is excluded from ordinary production gameplay/preloads.
+
+Final results: 3,590/3,592 unit tests across 417 files (the same historical Leona
+archive and Lux sampler assertions remain open), 39/39 Node QA, 81 GLBs and the
+full map at zero validation errors/warnings, eight browser scenarios plus the
+focused selector regression, source-profile reproduction and build/typecheck.
+Production passes its 32 expected recordings, public Ashe/Lux choices, no dev
+hook and zero Baron preloads, including the ignored diagnostic flag. The selector
+fix rebuilds byte-identically. Known failed attempts and all resumed audit pauses
+are retained in the ledger.
+
+Schema stays 163 with extended encounter/species values. The new fingerprint is
+`25f21e02b07b748ab22622ea260d92f32575a1b5be8e31c0136404e1a31f607b`.
+Pack `e56b573f359924a159d5eb5de3a5174e4519e6805a1622849ffe2bf2ec4b56a0` has
+1,204 files / 551,654,996 bytes. Older `abc8dc…` checkpoints and both
+ongoing hundred-seed audits stay tied to their frozen source. No migration,
+current full-match/hundred-seed, fresh offline or native-boss completion claim
+is made in this increment.
+
 The latest [epic-objective base-rig preview](EPIC-MODELS.md) retains 138
 original files / 10,479,726 bytes and all 144 atomic graph entries for Baron,
 Herald and Grub. All three source-quality local conversions repeat exactly and

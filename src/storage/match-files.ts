@@ -16,10 +16,13 @@ export async function prepareMatchImport(
   battlefield: Battlefield,
   persist: (snapshot: string) => Promise<void>,
   requiredChampion?: import('../simulation/types').ChampionIdentity,
-  requiredNpc?: import('../simulation/types').ChampionIdentity
+  requiredNpc?: import('../simulation/types').ChampionIdentity,
+  requiredEncounter?: World['encounter']
 ): Promise<PreparedMatchImport> {
   if (file.size > MAX_MATCH_FILE_BYTES) throw new Error('Match file is too large (maximum 16 MB).');
   const world = World.fromSnapshot(await file.text(), battlefield);
+  if (requiredEncounter !== undefined && world.encounter !== requiredEncounter)
+    throw new Error('This development scene requires its own encounter match file.');
   if (requiredChampion && world.hero.champion !== requiredChampion)
     throw new Error(
       `This practice scene accepts ${championProfile(requiredChampion).name} match files only.`

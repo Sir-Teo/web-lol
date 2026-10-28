@@ -6,6 +6,7 @@ import krugs from './krug-camps.json';
 import { SCUTTLER_SOURCE as scuttler, SCUTTLER_CLIPS, SCUTTLER_POLICY } from './scuttler-policy';
 import { GROMP, GROMP_POLICY, GROMP_SPAWN_LEADUP_TICKS, GROMP_SPAWN_CLIP_TICKS } from './gromp';
 import { TICK_RATE } from './rules';
+import { BARON } from './baron';
 
 function packProfile(species: 'wolf' | 'wolf-mini' | 'raptor' | 'raptor-mini') {
   const p =
@@ -63,6 +64,7 @@ function krugProfile(species: 'krug' | 'krug-medium' | 'krug-mini') {
 }
 
 export const MONSTERS = {
+  baron: BARON,
   scuttler: {
     ...scuttler,
     name: 'Rift Scuttler',

@@ -1,0 +1,565 @@
+{
+  "date": "2026-10-28",
+  "previousCommit": "abbcfff",
+  "schema": 163,
+  "ruleset": "25f21e02b07b748ab22622ea260d92f32575a1b5be8e31c0136404e1a31f607b",
+  "previousRuleset": "abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f",
+  "sources": [
+    {
+      "file": "src/content/baron.json",
+      "bytes": 1691,
+      "sha256": "f35a3e611dcf3a6aeced1759eb666ef10b5f4a01609dacd3ddc922ae5f684761"
+    },
+    {
+      "file": "src/content/baron.ts",
+      "bytes": 1525,
+      "sha256": "56ca9a5923745ff729ad2c81c08794b818e5c3fa5ca9ae3a610eae43cd282034"
+    },
+    {
+      "file": "src/content/monster-tags.ts",
+      "bytes": 398,
+      "sha256": "cc74e42466ef6ca72b82918d64636a944941ad0a1dc3dfd524c31dfd696afabd"
+    },
+    {
+      "file": "src/content/mobile-clip-durations.ts",
+      "bytes": 2473,
+      "sha256": "f8b466c3b27d10e8b7548aa21f154b399bb24b11953264b556ff01f426059da8"
+    },
+    {
+      "file": "src/content/monsters.ts",
+      "bytes": 5359,
+      "sha256": "efac8db50de0c67116149ff83b7c1fe8385f3f1c2ee1a2b7fd9a7b1c8ae8e172"
+    },
+    {
+      "file": "src/main.ts",
+      "bytes": 26309,
+      "sha256": "685a028adf30a734f16b27fa7684d0338cc1b544d95bfea1b305abf1feb237a5"
+    },
+    {
+      "file": "src/simulation/baron-encounter.ts",
+      "bytes": 869,
+      "sha256": "2f74ee5a31c34bb771b730edd9e5c5e0d270acb11a999dc24a83b2626ea2ecd0"
+    },
+    {
+      "file": "src/simulation/battlefield.ts",
+      "bytes": 3825,
+      "sha256": "f342fa4bf6b158605cf07544659f299c139692b260e5cc14ef1f0efd6b37eb58"
+    },
+    {
+      "file": "src/simulation/owned-companions.ts",
+      "bytes": 10827,
+      "sha256": "dd5be48567268355d247ffaac8281b9ae782aad1b9c317b27db51da734adbaca"
+    },
+    {
+      "file": "src/simulation/smite.ts",
+      "bytes": 2126,
+      "sha256": "88ece10164326be3bf290ba3514909f3c10aed504769ab4766cee3ff2dd0c02b"
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "bytes": 188202,
+      "sha256": "152e40d2241c5c6828af5ed1decb89e0dd5a58dc642acb7f4497df1ac4c0efc8"
+    },
+    {
+      "file": "src/simulation/world.ts",
+      "bytes": 317057,
+      "sha256": "f417631dcedbaff65dc1aff0b4861d9ec44c83427e20f556e3ed68695d82766d"
+    },
+    {
+      "file": "src/storage/match-files.ts",
+      "bytes": 2578,
+      "sha256": "9a4faa824519359f69d81d3ce96ad3b9afc249c464201cf0f1f67c2097c25251"
+    },
+    {
+      "file": "tests/baron-encounter.test.ts",
+      "bytes": 8742,
+      "sha256": "414b061df39e6d2f4ed55d0eaf1d8dd3dd910cb61223e1062a6b4b49e6b2a7d6"
+    },
+    {
+      "file": "tests/smite.test.ts",
+      "bytes": 9592,
+      "sha256": "a6e7c5c2a26f4adac8146279b78a92c38f5bd2d84bc0479a3d571f76d764b4e3"
+    },
+    {
+      "file": "e2e/baron-encounter.spec.ts",
+      "bytes": 9106,
+      "sha256": "9d101edcad5b84e8a7edb75c98817b179501d3a94a42bd3fd43c75ca6045ce42"
+    },
+    {
+      "file": "tools/assets/prepare-baron-encounter.py",
+      "bytes": 3259,
+      "sha256": "34e87310235a997013112c00e61470c4de932400a53da59469349e71927c680e"
+    },
+    {
+      "file": "tools/assets/validate-glb.mjs",
+      "bytes": 3625,
+      "sha256": "21f8c31eda5b782834ff475e36d1adc63e502dc2514669665d9ce46c9ec4ea80"
+    },
+    {
+      "file": "tools/qa/production-subpath.mjs",
+      "bytes": 34327,
+      "sha256": "0068c7a96443b261d708ccb88d5f88787c2c5c5151d963bce7f4c602e95e61af"
+    }
+  ],
+  "publishedRules": {
+    "file": "docs/reference/baron-rules-source.json",
+    "bytes": 13491,
+    "sha256": "5ed70d338c5f594d7696a9cf9f78a02ebea708285c600a6c3ffab2fc37336781"
+  },
+  "model": [
+    {
+      "file": "public/assets/models/sru-baron-base.glb",
+      "bytes": 13473732,
+      "sha256": "5d9cd6632d191270a94d976e284458145f9fa9e445165eaadb304e2892fff417"
+    },
+    {
+      "file": "public/assets/models/sru-baron-base.json",
+      "bytes": 61815,
+      "sha256": "2d126679fdcac45958ea69c965743092cb0b5299a301c03404b842a2916737c4"
+    }
+  ],
+  "checks": {
+    "fullUnitPassed": 3590,
+    "fullUnitTotal": 3592,
+    "unitFiles": 417,
+    "unitPassingFiles": 415,
+    "knownUnchangedFailures": [
+      "FAIL  tests/leona-eclipse-skin-material.test.ts > Eclipse maps the authored rim control through the checked native CPU input",
+      "FAIL  tests/lux-e-missile.test.ts > the fifteen existing streams preserve 24 full sampler snapshots"
+    ],
+    "newUnitCases": 16,
+    "focusedPassed": 56,
+    "nodeQAPassed": 39,
+    "validatedGLBs": 81,
+    "mapTriangles": 645491,
+    "mapHashedResources": 278,
+    "assetErrors": 0,
+    "assetWarnings": 0,
+    "browserFinalScenarios": 8,
+    "selectorFocusedRerun": 1,
+    "browserRetries": 0,
+    "productionRecordings": 32,
+    "privateBaronFlagIgnored": true,
+    "baronProductionRigRequests": 0,
+    "publicChoices": [
+      "ashe",
+      "lux"
+    ],
+    "developmentHook": false,
+    "profileCheck": true,
+    "buildAndTypecheck": true,
+    "format": true,
+    "reviewedCaptures": [
+      "baron-combat-restored.png",
+      "baron-death.png"
+    ]
+  },
+  "pack": {
+    "id": "e56b573f359924a159d5eb5de3a5174e4519e6805a1622849ffe2bf2ec4b56a0",
+    "files": 1204,
+    "bytes": 551654996,
+    "selectorFixProductionBytesIdentical": true
+  },
+  "localPolicies": {
+    "minimumLevel": 11,
+    "stationary": true,
+    "rewards": false,
+    "scope": "Basic-combat fixture only. Native boss spells, CC immunity, source audio, rewards/buff, live calendar and timing calibration remain open."
+  },
+  "iterationHistory": [
+    "Initial duration registry omitted the new rig; explicit entry added.",
+    "Ordinary Smite loop extended to the trusted Baron fixture and native epic eligibility.",
+    "Stationarity test initially crossed blocked terrain; clear-sight fixture isolates range/leash behavior while browser cases retain real terrain.",
+    "Broad asset validation exposed six existing shared Yi meshes with profile-owned identities; complete lookup plus corrupt/conflicting/unrecorded fixture rejection retained.",
+    "Additional NPC query selectors are ignored in the controlled Baron scene; focused real Smite/cleared-save reload repeats after that fix."
+  ],
+  "frozenAudits": "Both original hundred-seed corpora stay at a3e47aa/abc8dc; all quiet-check pauses resumed. Historical baselines; no current hundred-seed or fresh current full-match claim.",
+  "inherited": {
+    "freshCurrentFullMatch": false,
+    "freshOffline": false,
+    "nativeBossParity": false,
+    "migration": false
+  },
+  "evidence": [
+    {
+      "file": "artifacts/baron-encounter/asset-validator-checks.json",
+      "bytes": 415,
+      "sha256": "adbe675f3270b537d1bf4d7d2ee6289355bab0f2ffe6a12f33994c4cdbc7f502"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-assets-complete.log",
+      "bytes": 7931,
+      "sha256": "72a3f047cd65c9df6787d5a8b6dc4fa88e6ac759a7999636152ab1e5a71d38f6"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-assets-fixed.log",
+      "bytes": 681,
+      "sha256": "e5cb78826d167f8408b412496f0964baa48e61952001682457ae379b02988f83"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-assets-release.log",
+      "bytes": 7914,
+      "sha256": "5dec1f8b7f0e98b8d86fa5e695c8b46aa1221d6536c6d98ea9eb741b5f709f11"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-assets.log",
+      "bytes": 5186,
+      "sha256": "fc4f2b4c09655d7562637db3ab19281302d60cc38216ff3bf8e9a3a40281d5de"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-browser-final.log",
+      "bytes": 4598,
+      "sha256": "b9cca66ed2db1766415079e9b9af8ffeb46dcbb1a448225657f00ffe158b5a9b"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-browser-format-final.log",
+      "bytes": 46,
+      "sha256": "ef33f4fc24333a266353078dddcd6e949526d4a0b7a73a1731736913fbac62d5"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-browser-format.log",
+      "bytes": 34,
+      "sha256": "7b7af5ca40bf9b37d18e56e3d8b60a0fcff7e43a568f07061e87e67a164f4453"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-browser-initial.log",
+      "bytes": 1588,
+      "sha256": "f4cf776f7c907c25361a948bdae62167159021e384f194c04e65ee478fad5ee5"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-build.log",
+      "bytes": 7124,
+      "sha256": "e1322847e3c20ece57561ea5a7bd455a19a93e5c4f507237a7f4ef8a489eb8f6"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-duration-format.log",
+      "bytes": 79,
+      "sha256": "e1d940b9cd3b8645b7ddbe4a93da8bceb520a985b567d4c429867e0a702e0fb7"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-final-assets.log",
+      "bytes": 7931,
+      "sha256": "72a3f047cd65c9df6787d5a8b6dc4fa88e6ac759a7999636152ab1e5a71d38f6"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-final-format.log",
+      "bytes": 112,
+      "sha256": "81e91b28589fe25d6182a8837a7dd44b19810697a0f91106da08bd38bc7e962d"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-final-full-tests.log",
+      "bytes": 4478,
+      "sha256": "f968a051d73d5a57f1abed261ebc897973b027b215742291d80d0d98d23c8b8e"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-final-node-qa.log",
+      "bytes": 3714,
+      "sha256": "ef279950c3b301184e92fe3493357009c09fa674a02254f780ce64e46955bbd0"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-format-check.log",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-format-classification.log",
+      "bytes": 296,
+      "sha256": "f04cdc5c02b345c2b10e4abd9b17e6b46e2ab49fcff16caccca624706f1c1625"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-format-initial.log",
+      "bytes": 309,
+      "sha256": "1a05f883166ee5321633dbc3825d20a02bda2d98778541681d697a5d1652e7e3"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-full-tests.log",
+      "bytes": 4478,
+      "sha256": "36ceafcc065656acdce9028679a875c384157f24b7fbdcbf4005f2aae5358cd8"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-node-qa.log",
+      "bytes": 3713,
+      "sha256": "c11dc3d2bf52f3d8602aa92a540407226f9172a4288e61a88e080afce01c915b"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-production-format-final.log",
+      "bytes": 50,
+      "sha256": "487f3863f9469c5aef9369ebf7a5e41d6f8d74f58b4ea10f3b61e2ed9ac85ad3"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-production-format.log",
+      "bytes": 50,
+      "sha256": "d7639273afd1894bb3a83ba3db7cb994cca6f9d625e53b4cebe838146564f68d"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-production.log",
+      "bytes": 3176,
+      "sha256": "f9ab7a2e5bc0c969c708de75cefa76364d589be4801b0549e45d886f7d434fba"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-profile-check.log",
+      "bytes": 132,
+      "sha256": "528e472178ea7e03ebd32958ed2850dabeea7a54212c58f0395f4f359421a5a3"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-profile-final.log",
+      "bytes": 132,
+      "sha256": "528e472178ea7e03ebd32958ed2850dabeea7a54212c58f0395f4f359421a5a3"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-public-conversion.log",
+      "bytes": 3220,
+      "sha256": "7cd889d0e83452b205845c586c5c77cd21d8bb8e0f8b3c188c5304a9f4311a1b"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-selector-browser.log",
+      "bytes": 813,
+      "sha256": "a6b6a7dd7e5e421cc7f9a90062244ae245908573893f241e15be7311f45f6a79"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-selector-build.log",
+      "bytes": 7124,
+      "sha256": "12423ecda4e92001b23da3d3bcf8e677b67333ef7f3bd8555224dac16e90923f"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-selector-format.log",
+      "bytes": 63,
+      "sha256": "6eb1d6ab8c9d796357172d83103ab3bad26ff6fa78c1f5694f183e72b85ec7f0"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-test-sight-format.log",
+      "bytes": 47,
+      "sha256": "18196ee6baca7966fbb81bb57edb79e04eec13f201df2a0a5cd0eeae60bd7041"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-tests-format.log",
+      "bytes": 36,
+      "sha256": "7c59f5218354ffab2748cce3e29bf4298d03f202345fcb0e3427368d5359a521"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-tsc-classification.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-tsc-initial.log",
+      "bytes": 3974,
+      "sha256": "2bea695aaebf52b6ac225a598eb4119380c8662e5dc2afd7b3e5f8085619f59a"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-tsc-registry.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-unit-focused.log",
+      "bytes": 181,
+      "sha256": "46e2852d33e5dbc640836eae36fc2fea0d08ca481c5b3852e219088629ed4b3d"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-unit-initial.log",
+      "bytes": 6851,
+      "sha256": "24d999f00ac836698ff35170f5c6827a41e7d70b629a0169b3e17f978cb797e3"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-unit-registry.log",
+      "bytes": 1027,
+      "sha256": "6adee3617639481569be1acab885adf1d65d0afdae912b8513c928fbb5afbeb4"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-validator-checks.log",
+      "bytes": 88,
+      "sha256": "5075a89d666aaa6e67a9aee3225e5175ba85138e290604c1dafae0043e1b43fc"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-validator-format-final.log",
+      "bytes": 47,
+      "sha256": "70eab5e3394b8ad624b584ea5f1162314565e9883f22f88d670683d625995d52"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-validator-format.log",
+      "bytes": 35,
+      "sha256": "659b71aa5c488c4938cad0bbad321544adde0276dbbf03ee32bfe489138820ec"
+    },
+    {
+      "file": "artifacts/baron-encounter/baron-validator-log-format.log",
+      "bytes": 47,
+      "sha256": "bf0cbe16f229150724371fea0231fe55cfff862b41aa49dd8cee5abdcd0d468c"
+    },
+    {
+      "file": "artifacts/baron-encounter/check-asset-validator.py",
+      "bytes": 2387,
+      "sha256": "841034f04f5302d6d0cc9f43be5a0329be25a8fcb4e01a312611b6c4eb46c931"
+    },
+    {
+      "file": "artifacts/baron-encounter/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1813495,
+      "sha256": "f1f7ffc81f6e103ed489cbaf99de5fbf3a385173ecddc485a20d0bdec7ed2819"
+    },
+    {
+      "file": "artifacts/baron-encounter/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1844047,
+      "sha256": "738e7e551e1a3514a14d6f8cef7977db2c4ddf0b263ea169426029537104558f"
+    },
+    {
+      "file": "artifacts/baron-encounter/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1839569,
+      "sha256": "c37fb74905839ca529e2d99f6ed4d0d1069e502a25bcd2a5d4924951974aa0c8"
+    },
+    {
+      "file": "artifacts/baron-encounter/lux-e-hit-production-lux.png",
+      "bytes": 1820465,
+      "sha256": "65153cd239d134f0c935f7cd32a9170c8186d06b4af66af5bb447361adec43ee"
+    },
+    {
+      "file": "artifacts/baron-encounter/lux-e-hit-production-oracle.png",
+      "bytes": 1819895,
+      "sha256": "81699cd33ffe8864785cf3492f8328402d93a2623c05dad114159c776e9ff45a"
+    },
+    {
+      "file": "artifacts/baron-encounter/lux-e-hit-production-role-match.png",
+      "bytes": 1360447,
+      "sha256": "87a6d457af8bc4a9e0e2496188a6e01e07b9710f85c4a130de73bf31ec7eb119"
+    },
+    {
+      "file": "artifacts/baron-encounter/lux-e-hit-production-subpath.png",
+      "bytes": 1822533,
+      "sha256": "1be6d85e42ae3a421f6d19be87b72af8ce74679c28e3c0238150369a8eb8752e"
+    },
+    {
+      "file": "artifacts/baron-encounter/lux-e-hit-production-ward.png",
+      "bytes": 1808619,
+      "sha256": "ef64b709878ee6d81332d48658b9cfccf0102cc801ebdb097db038ad732c81e3"
+    },
+    {
+      "file": "artifacts/baron-encounter/offline-pack.json",
+      "bytes": 172742,
+      "sha256": "ed6c01634537807e88f1cd21450978c3a18db0f5deea9f42e8d28db0a787b94d"
+    },
+    {
+      "file": "artifacts/baron-encounter/prepare-profile.py",
+      "bytes": 3040,
+      "sha256": "f32de14a35b89affaa94f06445431c407abd8bfb15112eb6327f7c90911b3717"
+    },
+    {
+      "file": "artifacts/baron-encounter/validator-conflict-rejected.log",
+      "bytes": 491,
+      "sha256": "a1366f63d5375ddbd1424b14496a0e3e7caf16da941513d8b9662ef19ea97a3a"
+    },
+    {
+      "file": "artifacts/baron-encounter/validator-corrupt-mesh-rejected.log",
+      "bytes": 305,
+      "sha256": "8d65ca31427c49b9d558a079871feb56fd166c66e2d26192f69823aa4fe48272"
+    },
+    {
+      "file": "artifacts/baron-encounter/validator-missing-ledger-rejected.log",
+      "bytes": 1111,
+      "sha256": "cd59744aadbf8c035b26fb12dbcb79e0eb909e52fb0d48ec0e65a5a7b3b4ac5e"
+    },
+    {
+      "file": "artifacts/baron-encounter/validator-real-shared-meshes.log",
+      "bytes": 611,
+      "sha256": "157311feda853c4bcc65722c110b8b9b689deeac7b6f46376c306c5974af2244"
+    },
+    {
+      "file": "artifacts/baron-encounter/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": "artifacts/baron-encounter/browser/baron-encounter-Baron-matc-3613e-ly-into-their-private-scene/baron-file-roundtrip.json",
+      "bytes": 100,
+      "sha256": "3b81fe795b60eb1b12f1bd820d957cad2d066066ed998456e347c4c7b00ac232"
+    },
+    {
+      "file": "artifacts/baron-encounter/browser/baron-encounter-Baron-matc-3613e-ly-into-their-private-scene/baron-match.json",
+      "bytes": 5204,
+      "sha256": "6d59c5c34343a72606a837888c1197bdac613a41b1cf4b7a955c47831b80ef62"
+    },
+    {
+      "file": "artifacts/baron-encounter/browser/baron-encounter-real-Baron-62034-replacing-ordinary-practice/baron-combat-restored.png",
+      "bytes": 890526,
+      "sha256": "3b75abcca08bdfdb68605745f96570eeaa506824af383fd8f05aa0d835c7c5a9"
+    },
+    {
+      "file": "artifacts/baron-encounter/browser/baron-encounter-real-Baron-62034-replacing-ordinary-practice/baron-combat-save.json",
+      "bytes": 12523,
+      "sha256": "12a4aaac9a59659fcd6255560f3d1fa77131c67c740a4d47bff4ab301f33651b"
+    },
+    {
+      "file": "artifacts/baron-encounter/browser-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": "artifacts/baron-encounter/browser-final/baron-encounter-Baron-matc-3613e-ly-into-their-private-scene/baron-file-roundtrip.json",
+      "bytes": 100,
+      "sha256": "3b81fe795b60eb1b12f1bd820d957cad2d066066ed998456e347c4c7b00ac232"
+    },
+    {
+      "file": "artifacts/baron-encounter/browser-final/baron-encounter-Baron-matc-3613e-ly-into-their-private-scene/baron-match.json",
+      "bytes": 5234,
+      "sha256": "602b3ce2424d71e670be6188f19c73fd10d8c6986d133a12781f8bf50d368b7c"
+    },
+    {
+      "file": "artifacts/baron-encounter/browser-final/baron-encounter-default-Sm-4d62e-private-rig-or-a-ghost-unit/baron-death.png",
+      "bytes": 469118,
+      "sha256": "cbc9c4cb6ac5f94f51ec4c9439bd51fedf46b8da44e418b54de7b87c5fadbef7"
+    },
+    {
+      "file": "artifacts/baron-encounter/browser-final/baron-encounter-default-Sm-4d62e-private-rig-or-a-ghost-unit/baron-smite-clear.json",
+      "bytes": 4885,
+      "sha256": "d9b1120cc9366798035e2d9424f131772b1a45eb3495a1512ceac985b670eaf6"
+    },
+    {
+      "file": "artifacts/baron-encounter/browser-final/baron-encounter-real-Baron-62034-replacing-ordinary-practice/baron-combat-restored.png",
+      "bytes": 890686,
+      "sha256": "2d046e2682a41e70eaab3817987e2ec73bb49ff1b9f237a7063247dd7a9071c2"
+    },
+    {
+      "file": "artifacts/baron-encounter/browser-final/baron-encounter-real-Baron-62034-replacing-ordinary-practice/baron-combat-save.json",
+      "bytes": 12591,
+      "sha256": "7d391f60c51c3a5811feda9d74bb30cdcced43a39546540b0f6ca073adb80c58"
+    },
+    {
+      "file": "artifacts/baron-encounter/browser-selector/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": "artifacts/baron-encounter/browser-selector/baron-encounter-default-Sm-4d62e-private-rig-or-a-ghost-unit/baron-death.png",
+      "bytes": 469118,
+      "sha256": "cbc9c4cb6ac5f94f51ec4c9439bd51fedf46b8da44e418b54de7b87c5fadbef7"
+    },
+    {
+      "file": "artifacts/baron-encounter/browser-selector/baron-encounter-default-Sm-4d62e-private-rig-or-a-ghost-unit/baron-smite-clear.json",
+      "bytes": 4885,
+      "sha256": "d9b1120cc9366798035e2d9424f131772b1a45eb3495a1512ceac985b670eaf6"
+    },
+    {
+      "file": "artifacts/certification-abc8dc/pauses/baron-unit-initial.json",
+      "bytes": 1609,
+      "sha256": "65770aaef8c312c0093f6eea95ffc6cf4607f89735a942b39fdd5b1edf783c8c"
+    },
+    {
+      "file": "artifacts/certification-abc8dc/pauses/baron-browser-initial.json",
+      "bytes": 1647,
+      "sha256": "0f6909d6826774cf7e8580ccb534e38560020281d14de399067e2e989c68b048"
+    },
+    {
+      "file": "artifacts/certification-abc8dc/pauses/baron-final-validation.json",
+      "bytes": 1647,
+      "sha256": "5f009b8d57c2ed5ad1c38ac8dd6f4878ee2eb7fddb059a06059ef7d7dd353d80"
+    },
+    {
+      "file": "artifacts/certification-abc8dc/pauses/baron-selector-check.json",
+      "bytes": 1647,
+      "sha256": "85f3f9df09d291ba5aea04df2f8412eeb06ea3d5b5ef70998fb11c4fcfe5de83"
+    },
+    {
+      "file": "artifacts/certification-abc8dc/pauses/baron-unit-initial-scope.json",
+      "bytes": 336,
+      "sha256": "86ae9443636529dc461c0da2612facaf2ac73807e00a1182b7573ed0c020ce82"
+    }
+  ]
+}

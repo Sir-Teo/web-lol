@@ -2,6 +2,9 @@ import type { Unit } from '../simulation/types';
 import durations from './mobile-clip-durations.json';
 import { MONSTERS } from './monsters';
 export const MOBILE_CLIP_DURATIONS = {
+  'sru-baron-base': Object.fromEntries(
+    Object.entries(MONSTERS.baron.clips).map(([alias, clip]) => [alias, clip.durationSeconds])
+  ),
   'sru-crab-base': Object.fromEntries(
     Object.entries(MONSTERS.scuttler.clips).map(([a, c]) => [a, c.durationSeconds])
   ),

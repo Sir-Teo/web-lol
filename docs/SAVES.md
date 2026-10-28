@@ -1,5 +1,13 @@
 # Local match checkpoints
 
+The [private Baron combat fixture](BARON-ENCOUNTER.md) extends the existing
+species/encounter values under schema 163 and uses its own browser slot. Its
+trusted host flag is never serialized. Ordinary hosts reject Baron files; the
+private importer requires its own encounter. The new ruleset fingerprint keeps
+older `abc8dc…` checkpoints tied to their frozen build. Original files and the
+running frozen audit corpora remain unchanged; no migration is applied.
+
+
 Current schema **163** adds independent target pose and visibility frames to
 accepted Master Yi primary contacts. The saved target rig, radius, structure
 transform, source facing and detach tick drive the declared chest attachment.

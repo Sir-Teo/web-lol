@@ -1,5 +1,6 @@
 import { expect, test } from 'vitest';
 import { World } from '../src/simulation/world';
+import { createBaronEncounter } from '../src/simulation/baron-encounter';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
 import { SUMMONER_SMITE as S } from '../src/content/summoner-smite';
 import { MONSTERS, type MonsterSpecies } from '../src/content/monsters';
@@ -43,8 +44,12 @@ function cast(w: World, target?: Unit, slot: SummonerSlot = 'f') {
 
 test('base Smite accepts source large/medium tags and rejects small monsters without consuming a charge', () => {
   for (const species of Object.keys(MONSTERS) as MonsterSpecies[]) {
-    const w = setup(),
-      u = monster(w, species),
+    const w =
+      species === 'baron'
+        ? createBaronEncounter({ ...PRACTICE_FIXTURE, developmentBaron: true }, 'lux')
+        : setup();
+    if (species === 'baron') equipSummoners(w.player, { d: 'flash', f: 'smite' });
+    const u = monster(w, species),
       hp = u.hp;
     const allowed = [
       'gromp',
@@ -55,6 +60,7 @@ test('base Smite accepts source large/medium tags and rejects small monsters wit
       'krug',
       'krug-medium',
       'scuttler',
+      'baron',
     ].includes(species);
     expect(smiteTarget(w, w.hero, u), species).toBe(allowed);
     cast(w, u);

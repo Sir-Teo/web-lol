@@ -1,0 +1,413 @@
+{
+  "patch": "26.18",
+  "mode": "Standard Summoner's Rift",
+  "articles": [
+    {
+      "patch": "26.1",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-1-notes/",
+      "sha256": "c3b09770a22260fcd5118fd5ab9f0f1989e99c54fcfd677685847eea2affb859",
+      "rows": 960
+    },
+    {
+      "patch": "26.2",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-2-notes/",
+      "sha256": "04545af7cc958ea37224d3cb465d4ef833db0cdb104f08f5c6f0b9b41119837c",
+      "rows": 198
+    },
+    {
+      "patch": "26.3",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-3-notes/",
+      "sha256": "4c8986870af479c9a3c1218d85e78f99c10aa264f71c99191dcb34a58a5a4566",
+      "rows": 438
+    },
+    {
+      "patch": "26.4",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-4-notes/",
+      "sha256": "e507271552218251437fc7f12d0293228268e9b8f782d000c41dc11df918db9d",
+      "rows": 292
+    },
+    {
+      "patch": "26.5",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-5-notes/",
+      "sha256": "0f0ee6345a8748ee66646097914dfb706483fc5ad3a74aef960ff0a97c22b93f",
+      "rows": 199
+    },
+    {
+      "patch": "26.6",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-6-notes/",
+      "sha256": "41625bda63a4300bffb2283878a6040543c31e31e0e0de2d0eb048c1cf3710c3",
+      "rows": 277
+    },
+    {
+      "patch": "26.7",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-7-notes/",
+      "sha256": "93abe4b8f11f3e466723b0eb713504ad01492fca466a394e0edeea156e13fc4d",
+      "rows": 178
+    },
+    {
+      "patch": "26.8",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-8-notes/",
+      "sha256": "246706b8703ddcb65154a06aca9c5aafcc0b165711a8bcfea45f3a85f6d55452",
+      "rows": 221
+    },
+    {
+      "patch": "26.9",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-9-notes/",
+      "sha256": "332e586d0b891a76e1aefed6039aa55fb039f0e082cdcff7dbb11d383481c528",
+      "rows": 534
+    },
+    {
+      "patch": "26.10",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-10-notes/",
+      "sha256": "f38b19c3f537e3104a5bed7ac67d7421424708017c962fd52da80e132f5aca93",
+      "rows": 355
+    },
+    {
+      "patch": "26.11",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-11-notes/",
+      "sha256": "325fa7beacc47c00d80864eea3264695d660317fc4fe530627c38c26cc137f79",
+      "rows": 382
+    },
+    {
+      "patch": "26.12",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-12-notes/",
+      "sha256": "84e2fe20104b5877ef49666c4e0c55bdbf04275b6d1a371ba848e4bab70bdb2e",
+      "rows": 407
+    },
+    {
+      "patch": "26.13",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-13-notes/",
+      "sha256": "b1a209611d0234752d71736400b033b03856607a79e05c761b08d4fb212b7b56",
+      "rows": 306
+    },
+    {
+      "patch": "26.14",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-14-notes/",
+      "sha256": "7db9ba59bff2c2594f27e7bb10cb6984bd4040b5d4fa7b2f66f41c9d42ff816b",
+      "rows": 232
+    },
+    {
+      "patch": "26.15",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-15-notes/",
+      "sha256": "4cbd6d6723a7179bf272b8751daf67dd33944c74c1a1a2eb7098aca360ce9227",
+      "rows": 379
+    },
+    {
+      "patch": "26.16",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-16-notes/",
+      "sha256": "18a240e26fa269baa43ea2e9bb016f3e57a56fe9aa3576301117628533faf982",
+      "rows": 559
+    },
+    {
+      "patch": "26.17",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-17-notes/",
+      "sha256": "6ec4b93be996a918c24eff7a8356b9cbfc8cf5e9af41f85cb1e7f003bf7428c9",
+      "rows": 434
+    },
+    {
+      "patch": "26.18",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-18-notes/",
+      "sha256": "4a85b1bb673aa8b6cc22c502ac189cf7c02e22377dff9df7bd9bb03021b1e4e6",
+      "rows": 323
+    }
+  ],
+  "baseline": {
+    "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-1-notes/",
+    "sourceSha256": "c3b09770a22260fcd5118fd5ab9f0f1989e99c54fcfd677685847eea2affb859",
+    "rows": [
+      {
+        "tag": "li",
+        "text": "Spawn timer: 25m \u21d2 20m",
+        "headings": [
+          "Patch 26.1 Notes",
+          "Epic Objective Tuning",
+          "Baron Nashor"
+        ]
+      },
+      {
+        "tag": "li",
+        "text": "Minimum level: 11",
+        "headings": [
+          "Patch 26.1 Notes",
+          "Epic Objective Tuning",
+          "Baron Nashor"
+        ]
+      },
+      {
+        "tag": "li",
+        "text": "Health: 15,600-19,020 by time \u21d2 16,300 + 170 Growth (17,792-19,190)",
+        "headings": [
+          "Patch 26.1 Notes",
+          "Epic Objective Tuning",
+          "Baron Nashor"
+        ]
+      },
+      {
+        "tag": "li",
+        "text": "Armor: 120 \u21d2 34 + 8 Growth (104-170)",
+        "headings": [
+          "Patch 26.1 Notes",
+          "Epic Objective Tuning",
+          "Baron Nashor"
+        ]
+      },
+      {
+        "tag": "li",
+        "text": "Magic Resistance: 70 \u21d2 32 + 4 Growth (67-100)",
+        "headings": [
+          "Patch 26.1 Notes",
+          "Epic Objective Tuning",
+          "Baron Nashor"
+        ]
+      },
+      {
+        "tag": "li",
+        "text": "Attack damage: 350-520 from 20-57 minutes \u21d2 175 + 20 Growth (351-515)",
+        "headings": [
+          "Patch 26.1 Notes",
+          "Epic Objective Tuning",
+          "Baron Nashor"
+        ]
+      },
+      {
+        "tag": "li",
+        "text": "Corrosion secondary attack damage: 70 + 20% total AD \u21d2 35% total AD",
+        "headings": [
+          "Patch 26.1 Notes",
+          "Epic Objective Tuning",
+          "Baron Nashor"
+        ]
+      },
+      {
+        "tag": "li",
+        "text": "Acid Pool damage: 200 + 10% total AD \u21d2 100% total AD",
+        "headings": [
+          "Patch 26.1 Notes",
+          "Epic Objective Tuning",
+          "Baron Nashor"
+        ]
+      },
+      {
+        "tag": "li",
+        "text": "Territorial Baron pull damage: 300 \u21d2 100% total AD",
+        "headings": [
+          "Patch 26.1 Notes",
+          "Epic Objective Tuning",
+          "Baron Nashor"
+        ]
+      },
+      {
+        "tag": "li",
+        "text": "All-Seeing Baron rift total damage: 1000 \u21d2 140% total AD",
+        "headings": [
+          "Patch 26.1 Notes",
+          "Epic Objective Tuning",
+          "Baron Nashor"
+        ]
+      },
+      {
+        "tag": "li",
+        "text": "Acid Shot damage: 200 + 50% total AD \u21d2 100% total AD",
+        "headings": [
+          "Patch 26.1 Notes",
+          "Epic Objective Tuning",
+          "Baron Nashor"
+        ]
+      },
+      {
+        "tag": "li",
+        "text": "Tentacle Knockup damage: 200 + 25% total AD \u21d2 100% total AD",
+        "headings": [
+          "Patch 26.1 Notes",
+          "Epic Objective Tuning",
+          "Baron Nashor"
+        ]
+      },
+      {
+        "tag": "li",
+        "text": "Re-added: Shreds 0.5 armor/MR per second to all nearby enemies",
+        "headings": [
+          "Patch 26.1 Notes",
+          "Epic Objective Tuning",
+          "Baron Nashor"
+        ]
+      },
+      {
+        "tag": "li",
+        "text": "Experience: 800 local + 600 global \u21d2 650 global",
+        "headings": [
+          "Patch 26.1 Notes",
+          "Epic Objective Tuning",
+          "Baron Nashor"
+        ]
+      },
+      {
+        "tag": "li",
+        "text": "Total experience: 3800 \u21d2 3250",
+        "headings": [
+          "Patch 26.1 Notes",
+          "Epic Objective Tuning",
+          "Baron Nashor"
+        ]
+      },
+      {
+        "tag": "li",
+        "text": "Gold: 25 kill + 300 global \u21d2 100 kill + 150 global",
+        "headings": [
+          "Patch 26.1 Notes",
+          "Epic Objective Tuning",
+          "Baron Nashor"
+        ]
+      },
+      {
+        "tag": "li",
+        "text": "Total gold: 1525 \u21d2 850",
+        "headings": [
+          "Patch 26.1 Notes",
+          "Epic Objective Tuning",
+          "Baron Nashor"
+        ]
+      },
+      {
+        "tag": "li",
+        "text": "Baron Nashor is now subject to comeback experience like with dragons. Players on the losing team gain 25% increased experience per level behind they are, capped at 2x.",
+        "headings": [
+          "Patch 26.1 Notes",
+          "Epic Objective Tuning",
+          "Baron Nashor"
+        ]
+      },
+      {
+        "tag": "li",
+        "text": "Fixed a broken icon in death recap from one of Baron's abilities",
+        "headings": [
+          "Patch 26.1 Notes",
+          "Epic Objective Tuning",
+          "Baron Nashor"
+        ]
+      }
+    ]
+  },
+  "laterRelevant": [
+    {
+      "patch": "26.2",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-2-notes/",
+      "rows": [
+        {
+          "index": 9,
+          "modeSection": null,
+          "tag": "li",
+          "text": "Barons are being taken earlier, since they're spawning at 20 minutes again. That said, Baron takes are a bit weaker than they were before (gives +150G instead of +300G), so games don't typically end after the first Baron push. Players have often associated the first Baron take with the game being over, but that is proving to be a bit less of the case this Season.",
+          "headings": [
+            "Patch 26.2 Notes",
+            "Thoughts on How 26.1 Landed",
+            "Snowballing and Game Length"
+          ]
+        }
+      ]
+    },
+    {
+      "patch": "26.3",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-3-notes/",
+      "rows": []
+    },
+    {
+      "patch": "26.4",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-4-notes/",
+      "rows": []
+    },
+    {
+      "patch": "26.5",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-5-notes/",
+      "rows": []
+    },
+    {
+      "patch": "26.6",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-6-notes/",
+      "rows": []
+    },
+    {
+      "patch": "26.7",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-7-notes/",
+      "rows": []
+    },
+    {
+      "patch": "26.8",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-8-notes/",
+      "rows": []
+    },
+    {
+      "patch": "26.9",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-9-notes/",
+      "rows": []
+    },
+    {
+      "patch": "26.10",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-10-notes/",
+      "rows": []
+    },
+    {
+      "patch": "26.11",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-11-notes/",
+      "rows": []
+    },
+    {
+      "patch": "26.12",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-12-notes/",
+      "rows": []
+    },
+    {
+      "patch": "26.13",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-13-notes/",
+      "rows": [
+        {
+          "index": 280,
+          "modeSection": null,
+          "tag": "li",
+          "text": "Fixed a bug where Baron Nashor's max stacks of Void Corruption was higher than intended.",
+          "headings": [
+            "League of Legends Patch 26.13 Notes",
+            "Bugfixes & QoL Changes"
+          ]
+        }
+      ]
+    },
+    {
+      "patch": "26.14",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-14-notes/",
+      "rows": []
+    },
+    {
+      "patch": "26.15",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-15-notes/",
+      "rows": []
+    },
+    {
+      "patch": "26.16",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-16-notes/",
+      "rows": []
+    },
+    {
+      "patch": "26.17",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-17-notes/",
+      "rows": []
+    },
+    {
+      "patch": "26.18",
+      "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-18-notes/",
+      "rows": [
+        {
+          "index": 298,
+          "modeSection": null,
+          "tag": "li",
+          "text": "Fixed a bug where Baron Nashor's max stacks of Void Corruption was higher than intended.",
+          "headings": [
+            "League of Legends Patch 26.18 Notes",
+            "Bugfixes & QoL Changes"
+          ]
+        }
+      ]
+    }
+  ],
+  "scope": "Patch-note observations scoped by heading. Classic, Swiftplay and ARAM sections are separate modes. Full boss kit, rewards, buff and live calendar remain unimplemented in the controlled fixture."
+}
