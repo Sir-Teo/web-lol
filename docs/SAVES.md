@@ -1,5 +1,10 @@
 # Local match checkpoints
 
+The later [Baron control policy](BARON-CONTROL.md) rejects root, stun, silence
+and Charm on the private target and rejects edited saves carrying them. Schema
+163 and fields stay unchanged; fingerprint `5a5379…` pins the new behavior.
+Earlier `25f21e…` files retain their frozen checkout and are not migrated.
+
 [Automatic recovery checkpoints](RECOVERY-CHECKPOINTS.md) keep a separate backup
 every thirty simulation seconds and at interruptions. Startup pauses when one
 is available. Use **Match files → Preview recovery checkpoint** to review and

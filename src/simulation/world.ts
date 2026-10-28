@@ -1,4 +1,5 @@
 import { advancePrimaryHitPoses } from './masteryi-primary-hit-poses';
+import { BARON } from '../content/baron';
 import {
   capturePassiveTrail,
   advancePassiveTrails,
@@ -4695,6 +4696,7 @@ export class World {
       (target.kind === 'monster' && target.monster.phase === 'returning') ||
       isStructureKind(target.kind) ||
       target.kind === 'ward' ||
+      this.controlImmune(target, 'charm') ||
       !Number.isInteger(rank) ||
       rank < 1 ||
       rank > 5
@@ -4753,6 +4755,13 @@ export class World {
       remaining: AHRI_E_POLICY.range,
     });
   }
+  private controlImmune(target: Unit, control: 'root' | 'stun' | 'silence' | 'charm'): boolean {
+    return (
+      target.kind === 'monster' &&
+      target.monster.species === 'baron' &&
+      BARON.policy.immuneControls.includes(control)
+    );
+  }
   applyRoot(target: Unit, durationTicks: number): boolean {
     if (
       this.winner ||
@@ -4760,6 +4769,7 @@ export class World {
       !this.targetable(target) ||
       isStructureKind(target.kind) ||
       target.kind === 'ward' ||
+      this.controlImmune(target, 'root') ||
       !Number.isSafeInteger(durationTicks) ||
       durationTicks <= 0 ||
       !Number.isSafeInteger(this.tick + durationTicks)
@@ -4783,6 +4793,7 @@ export class World {
       !this.targetable(target) ||
       isStructureKind(target.kind) ||
       target.kind === 'ward' ||
+      this.controlImmune(target, 'stun') ||
       !Number.isSafeInteger(durationTicks) ||
       durationTicks <= 0 ||
       !Number.isSafeInteger(this.tick + durationTicks)
@@ -4813,6 +4824,7 @@ export class World {
       !this.targetable(target) ||
       isStructureKind(target.kind) ||
       target.kind === 'ward' ||
+      this.controlImmune(target, 'silence') ||
       !Number.isSafeInteger(durationTicks) ||
       durationTicks <= 0 ||
       !Number.isSafeInteger(this.tick + durationTicks)

@@ -6,6 +6,23 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+The [private Baron control policy](BARON-CONTROL.md) now resists root, stun,
+silence and Charm without suppressing spell/empowered-attack damage. Ordinary
+monsters remain eligible, and Lux Q retains its second hit. Resisted Charm keeps
+the pending Baron attack intact; edited control-bearing saves are rejected.
+Eighteen new unit cases, a 100-case focused run plus the Garen impact case, nine
+browser scenarios with a real Lux cast/180-tick future, 39 Node QA checks and
+profile reproduction pass. The full run reports 3,628/3,630 across 420 files;
+only the unchanged Leona archive and Lux sampler assertions remain open. Build,
+typecheck and production pass with all 32 expected recordings and zero Baron
+preloads. Secondary rule pages postdate the frozen target; slow/Frost, stat,
+stasis and native-boss parity remain open. Schema is 163; new fingerprint
+`5a53795c8d62dac8ec171d6021a4e4f4d29c9946fe186076ec33fea2e0c0f1b9`. Pack
+`e54b212c52e30d2a79c89390f14e3ec3dd414bd595af875840336fd682ddc393` has
+1,204 files / 551,658,221 bytes. All live audits resume under their
+frozen sources; selected `25f21e…` runs retain an exact 548-source checkout.
+No migration, current-fingerprint full-match or fresh-offline claim is made.
+
 [Automatic recovery checkpoints](RECOVERY-CHECKPOINTS.md) now keep a separate
 backup every thirty simulation seconds and at interruptions/results. Startup
 pauses with a recovery notice, including without a manual save. Explicit preview

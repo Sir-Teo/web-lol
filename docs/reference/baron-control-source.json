@@ -1,0 +1,40 @@
+{
+  "targetPatch": "26.18",
+  "mode": "Standard Summoner's Rift",
+  "implementedControls": [
+    "root",
+    "stun",
+    "silence",
+    "charm"
+  ],
+  "sources": [
+    {
+      "url": "https://wiki.leagueoflegends.com/en-us/Baron_Nashor",
+      "revision": 4068963,
+      "lastEdited": "2026-09-28 16:52 UTC",
+      "retrieved": "2026-10-28",
+      "file": "artifacts/baron-cc-research/0.html",
+      "sha256": "21a13bc97435e99b148e1c9e33e332c735c47501d0697bb9ab0939ac46199280",
+      "quote": "Debuff Immunity: Baron Nashor is immune to all terrain displacements and immune to all crowd control except stasis. Additionally, Baron Nashor's stats cannot be modified by any external means.",
+      "whitespaceNormalized": true
+    },
+    {
+      "url": "https://wiki.leagueoflegends.com/en-us/Crowd_control",
+      "revision": 4089611,
+      "lastEdited": "2026-10-23 19:41 UTC",
+      "retrieved": "2026-10-28",
+      "file": "artifacts/baron-cc-research/2.html",
+      "sha256": "d35ad18700ad5eb96493bbbd695ca025ff68fdb2f6c56dc1af90b5a6380705bf",
+      "quote": "All epic monsters are CC immune, excluding stasis which is special-cased.",
+      "whitespaceNormalized": true
+    }
+  ],
+  "clientTag": {
+    "file": "docs/reference/epic-character-source.json",
+    "sha256": "a8f920b71c3c44b5311db3555914db47e8fe207cc489ff7d925b2ff38a250391",
+    "entry": "Characters/SRU_Baron/CharacterRecords/Root",
+    "tag": "Monster_Epic",
+    "scope": "Client identity tag; does not establish server immunity initialization."
+  },
+  "scope": "Local subset for the gated Baron basic-combat fixture, consistent with these secondary descriptions. Pages postdate the frozen target, and historical/API requests were denied; no native-client or exact 26.18 certification. Slow/Frost interactions, external stat modifications, stasis and the full boss kit remain open."
+}

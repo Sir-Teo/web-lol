@@ -20,13 +20,16 @@ def main():
     by_name = {row['name']: row for row in model['clips']}
     rules_path = ROOT / 'docs/reference/baron-rules-source.json'
     rules = json.loads(rules_path.read_text())
+    control_path = ROOT / 'docs/reference/baron-control-source.json'
+    controls = json.loads(control_path.read_text())
+    assert controls['implementedControls'] == ['root', 'stun', 'silence', 'charm']
     assert rules['mode'] == "Standard Summoner's Rift"
     assert any(row['text'] == 'Minimum level: 11' for row in rules['baseline']['rows'])
     assert any('16,300 + 170 Growth' in row['text'] for row in rules['baseline']['rows'])
     scalar = lambda key: root[key]['baseValue']
     aliases = dict(idle1='entry_6c2b2ee6', run='entry_6c2b2ee6', attack1='entry_5ab94841', death='entry_bd28bd4d', spawn='entry_e4cb0f58')
     result = dict(characterSourceSha256=sha(character), modelSha256=model['output']['sha256'],
-        rulesSourceSha256=sha(rules_path), name='Baron Nashor', rig='sru-baron-base', minimumLevel=11,
+        rulesSourceSha256=sha(rules_path), controlSourceSha256=sha(control_path), name='Baron Nashor', rig='sru-baron-base', minimumLevel=11,
         baseStats=dict(maxHp=scalar('baseHPModifiable'), damage=scalar('baseDamageModifiable'),
             armor=scalar('baseArmorModifiable'), magicResist=scalar('baseMR'), range=scalar('attackRangeModifiable'),
             speed=scalar('baseMoveSpeedModifiable'), attackSpeed=scalar('attackSpeedModifiable')),
@@ -37,7 +40,8 @@ def main():
         clips={key: dict(name=name, durationSeconds=by_name[name]['durationSeconds']) for key, name in aliases.items()},
         policy=dict(stationary=True, rewards='disabled in controlled fixture', leashRadius=1100,
             resetHealthFractionPerSecond=0.2, sightRadius=1100,
-            scope='Local stationary basic-combat fixture. Idle substitutes for an unused run alias. Native spells, CC immunity, audio, team rewards, buffs, calendar and timing calibration remain unfinished.'),
+            immuneControls=controls['implementedControls'],
+            scope='Local stationary basic-combat fixture. Idle substitutes for an unused run alias. Root, stun, silence and Charm immunity follow secondary rule descriptions. Native spells, slow/Frost interactions, external stat changes, stasis, audio, team rewards, buffs, calendar and timing calibration remain unfinished.'),
         monsterTags=[tag.strip() for tag in root['unitTagsString'].split('|')])
     output = ROOT / 'src/content/baron.json'
     if args.write:

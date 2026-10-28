@@ -1,0 +1,375 @@
+{
+  "date": "2026-10-28",
+  "previousCommit": "c3f70e0",
+  "ruleset": "5a53795c8d62dac8ec171d6021a4e4f4d29c9946fe186076ec33fea2e0c0f1b9",
+  "previousRuleset": "25f21e02b07b748ab22622ea260d92f32575a1b5be8e31c0136404e1a31f607b",
+  "schema": 163,
+  "sources": [
+    {
+      "file": "src/content/baron.json",
+      "bytes": 1962,
+      "sha256": "e11f846866570e56b54b678f5326812ec40d396c62133e49f668db3e263eee94"
+    },
+    {
+      "file": "src/simulation/world.ts",
+      "bytes": 317531,
+      "sha256": "c9aa503b3a6f9e4bc84f1eeb00a2c32d50fab5164767e4e473371e33eff29842"
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "bytes": 188468,
+      "sha256": "d8e76b867932d6e48f0f0bfeee02b1d707ed59f064525e5c36c8df7da98853e3"
+    },
+    {
+      "file": "tools/assets/prepare-baron-encounter.py",
+      "bytes": 3680,
+      "sha256": "5dacdb453b5ccb7d2459c97b274e95465284ede9189d0cb1abc3a03924610cd7"
+    },
+    {
+      "file": "tests/baron-control.test.ts",
+      "bytes": 6486,
+      "sha256": "b2976750b2cce2db287b6868400a55f1c28c1b2a129254e2dba15f6a20f6b82b"
+    },
+    {
+      "file": "e2e/baron-control.spec.ts",
+      "bytes": 3716,
+      "sha256": "4f0d259ae84583cbdefcc104d726c0172e9127318a335a01766f7ebcadb313df"
+    },
+    {
+      "file": "docs/reference/baron-control-source.json",
+      "bytes": 1852,
+      "sha256": "e310e9acd0dd63c50984c42728a966b5e6c6e6e3668b8650ee35e4e36ca20c8e"
+    }
+  ],
+  "implemented": [
+    "root",
+    "stun",
+    "silence",
+    "charm"
+  ],
+  "checks": {
+    "newUnitCases": 18,
+    "focusedPassed": 100,
+    "additionalGarenImpactPassed": true,
+    "fullUnitPassed": 3628,
+    "fullUnitTotal": 3630,
+    "unitPassingFiles": 418,
+    "unitFiles": 420,
+    "knownUnchangedFailures": [
+      " FAIL  tests/leona-eclipse-skin-material.test.ts > Eclipse maps the authored rim control through the checked native CPU input",
+      " FAIL  tests/lux-e-missile.test.ts > the fifteen existing streams preserve 24 full sampler snapshots"
+    ],
+    "browserPassed": 9,
+    "newBrowserCases": 1,
+    "browserRetries": 0,
+    "browserFutureTicks": 180,
+    "realLuxKeyboardCast": true,
+    "ordinaryBindingSecondHitRootPreserved": true,
+    "nodeQAPassed": 39,
+    "typecheckIncludingNewBrowser": true,
+    "build": true,
+    "profileReproduction": true,
+    "format": true,
+    "reviewedCapture": "baron-lux-q-resisted.png",
+    "production": "passed",
+    "productionRecordings": 32,
+    "publicChampionChoices": [
+      "ashe",
+      "lux"
+    ],
+    "developmentHook": false,
+    "baronPreloads": 0
+  },
+  "pack": {
+    "id": "e54b212c52e30d2a79c89390f14e3ec3dd414bd595af875840336fd682ddc393",
+    "files": 1204,
+    "bytes": 551658221
+  },
+  "sourceLimits": "Local subset for the gated Baron basic-combat fixture, consistent with these secondary descriptions. Pages postdate the frozen target, and historical/API requests were denied; no native-client or exact 26.18 certification. Slow/Frost interactions, external stat modifications, stasis and the full boss kit remain open.",
+  "remaining": [
+    "Slow/Frost damage interactions",
+    "External stat changes",
+    "Stasis",
+    "Full boss kit",
+    "Native timing and sound",
+    "Rewards/buffs",
+    "Live calendars",
+    "Exact 26.18/native-client certification"
+  ],
+  "iterationHistory": [
+    "Initial synthetic Ahri fixture lacked its trusted player flag; supplied explicitly.",
+    "Lux starts with Q allocated; test reads that existing rank.",
+    "Leona Q clears its consumed buff; impact test checks armed rank, damage, cleared buff and spent cooldown.",
+    "Distant ordinary Gromp reset cleared the second-hit root before a late observation; test captures its actual impact within the original 60-tick limit.",
+    "Initial pause preparation encountered the already completed combined selected corpus and rolled back. The artifact helper now admits a completed root only with no owned processes.",
+    "An attempted resume of the rolled-back initial receipt was refused; the active focused receipt remained paused until its normal successful resume."
+  ],
+  "audits": {
+    "frozenOlderProject": "/workspace/web-lol-ally-intent",
+    "frozenSelectedProject": "/workspace/web-lol-recovery-baseline",
+    "selectedSourcesVerified": 548,
+    "focusedAndProductionPausesResumed": true,
+    "initialPreparationRolledBack": true,
+    "sourceAndRunnerChanges": false,
+    "claimsUninterruptedExecution": false
+  },
+  "currentFullMatchCertified": false,
+  "freshOffline": false,
+  "evidence": [
+    {
+      "file": "artifacts/baron-control/baron-control-binding-probe.log",
+      "bytes": 1029,
+      "sha256": "4d305b636e5575138b89c3a002c93f4cfa84e6848b8a02d740ae9517eab8a88a"
+    },
+    {
+      "file": "artifacts/baron-control/baron-control-binding-probe2.log",
+      "bytes": 1083,
+      "sha256": "38dc3d41bb00ff4b575d128c7152cb23b0a5abfceabd26cd2475ad44dde1b362"
+    },
+    {
+      "file": "artifacts/baron-control/baron-control-binding-probe3.log",
+      "bytes": 1381,
+      "sha256": "5755ec1b1a1771b0361ac0c30a2ad8407d2c4e94464057061c54166e5074f576"
+    },
+    {
+      "file": "artifacts/baron-control/baron-control-browser-format.log",
+      "bytes": 31,
+      "sha256": "5136e0c00143f9ac2caef67ed0bcab84e3d3d89faabb6ae8589d0676ab3baeed"
+    },
+    {
+      "file": "artifacts/baron-control/baron-control-build.log",
+      "bytes": 7911,
+      "sha256": "2019f6964b4670cfb2e5a515cbb526cb2416d515ebd1412630a39acfde53ee04"
+    },
+    {
+      "file": "artifacts/baron-control/baron-control-focused-final-unit.log",
+      "bytes": 183,
+      "sha256": "7c677567c308563a57b73f15f5bcfb1803bee153e5ac196fad034fb94519ce2e"
+    },
+    {
+      "file": "artifacts/baron-control/baron-control-focused-unit.log",
+      "bytes": 960,
+      "sha256": "ce95d16696683eb836c73a6303208c7c35b0b609d2b831cdb4d61486b91b03bb"
+    },
+    {
+      "file": "artifacts/baron-control/baron-control-format-check.log",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "file": "artifacts/baron-control/baron-control-format.log",
+      "bytes": 116,
+      "sha256": "0659035a1019db41241ef8d096215bc2fdf28efaa97f2f2dafa5ce39d4b97316"
+    },
+    {
+      "file": "artifacts/baron-control/baron-control-full-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "artifacts/baron-control/baron-control-full-unit.log",
+      "bytes": 4618,
+      "sha256": "c06bce2f2ae90f1ae4d068c431e2bdd61a696c03af44cf0320ab3b5e98e00b5e"
+    },
+    {
+      "file": "artifacts/baron-control/baron-control-garen-format.log",
+      "bytes": 45,
+      "sha256": "06567f5965476e00a8e6abfd77d95f4385afbc76e241ea607111f0d4820c860b"
+    },
+    {
+      "file": "artifacts/baron-control/baron-control-garen-unit.log",
+      "bytes": 181,
+      "sha256": "13ce2f79bb1551767e8f1d59ce99cc0023d00fd8b267300a1b4f087ed3c2a45a"
+    },
+    {
+      "file": "artifacts/baron-control/baron-control-initial-browser.log",
+      "bytes": 4106,
+      "sha256": "2c798c361bfb83ef7f33667b6d3a0074c9bc0e70a497cc5cfff7d503866cfaf8"
+    },
+    {
+      "file": "artifacts/baron-control/baron-control-initial-unit.log",
+      "bytes": 6075,
+      "sha256": "b8880aa8b92514400f309295b889e7c97b283a4c195f8f26f1e3fafe300d138b"
+    },
+    {
+      "file": "artifacts/baron-control/baron-control-node-qa.log",
+      "bytes": 3665,
+      "sha256": "aaf4ead9a2d35fe90d12e771cbbb4a9797766a0d333838eeddb8777d496737b3"
+    },
+    {
+      "file": "artifacts/baron-control/baron-control-production.log",
+      "bytes": 3176,
+      "sha256": "f9ab7a2e5bc0c969c708de75cefa76364d589be4801b0549e45d886f7d434fba"
+    },
+    {
+      "file": "artifacts/baron-control/baron-control-profile-check.log",
+      "bytes": 132,
+      "sha256": "528e472178ea7e03ebd32958ed2850dabeea7a54212c58f0395f4f359421a5a3"
+    },
+    {
+      "file": "artifacts/baron-control/baron-control-test-final-format.log",
+      "bytes": 45,
+      "sha256": "e4ed724d6697772bc87fb09aef6f3cffd95b8ee9566a8314ea2195b49c1eb2d5"
+    },
+    {
+      "file": "artifacts/baron-control/baron-control-test-format.log",
+      "bytes": 45,
+      "sha256": "98fc08dca5bb0e1f7abf3d9c1cce0411e05044d22b4a14e009ce97097eaa69fe"
+    },
+    {
+      "file": "artifacts/baron-control/baron-control-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "artifacts/baron-control/browser-initial/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": "artifacts/baron-control/browser-initial/ahri-e-Charm-control-survi-b6d33--Save-match-and-reload-path/ahri-e-control-reload.json",
+      "bytes": 45939,
+      "sha256": "e9aa05b4bfeea0d3e84170124c3bcd191e0832bbb125938fc3e8c12628c0e6ee"
+    },
+    {
+      "file": "artifacts/baron-control/browser-initial/ahri-e-Charm-flight-surviv-e6d4a--Save-match-and-reload-path/ahri-e-flight-reload.json",
+      "bytes": 45954,
+      "sha256": "45a2cd6a17590ddf3cbea0f7b9fa87dcd7f1377c68c9e8b86abd88bb01684806"
+    },
+    {
+      "file": "artifacts/baron-control/browser-initial/ahri-e-Charm-renders-its-s-5cb92-sile-and-forced-walk-status/ahri-e-controlled.png",
+      "bytes": 804388,
+      "sha256": "e406d92c2ef62b686d85945b4d7bb5e1a12fb4b4cc06630b44f643fb1789f125"
+    },
+    {
+      "file": "artifacts/baron-control/browser-initial/ahri-e-Charm-renders-its-s-5cb92-sile-and-forced-walk-status/ahri-e-flight.png",
+      "bytes": 803886,
+      "sha256": "bfad09f25609895bf753746b79865089e7d6ce3038bab60848b47a37ea1432bc"
+    },
+    {
+      "file": "artifacts/baron-control/browser-initial/ahri-e-Charm-renders-its-s-5cb92-sile-and-forced-walk-status/ahri-e.json",
+      "bytes": 24007,
+      "sha256": "d712085c541d604364fd5ac78709fca40c4ff12c6826fc045a116b5176af3810"
+    },
+    {
+      "file": "artifacts/baron-control/browser-initial/ahri-e-Charm-windup-surviv-fa9c5--Save-match-and-reload-path/ahri-e-windup-reload.json",
+      "bytes": 45539,
+      "sha256": "09706d9a460b4631ebbf17401df9476cc34d61fd8f5ed0945dbecd022f0bcc09"
+    },
+    {
+      "file": "artifacts/baron-control/browser-initial/baron-control-real-Lux-inp-20888-ot-and-survives-save-reload/baron-lux-q-resisted.png",
+      "bytes": 877534,
+      "sha256": "80a0f3ea9ff9522979460b5551f19bf95d0378d92e48a7b6e4b48cc9d0cdcf13"
+    },
+    {
+      "file": "artifacts/baron-control/browser-initial/baron-control-real-Lux-inp-20888-ot-and-survives-save-reload/baron-root-resisted.json",
+      "bytes": 19252,
+      "sha256": "06e83c25c383c79867202ac946268e2ad19c09daca6c20717d18448fcd535faf"
+    },
+    {
+      "file": "artifacts/baron-control/browser-initial/baron-encounter-Baron-matc-3613e-ly-into-their-private-scene/baron-file-roundtrip.json",
+      "bytes": 100,
+      "sha256": "3b81fe795b60eb1b12f1bd820d957cad2d066066ed998456e347c4c7b00ac232"
+    },
+    {
+      "file": "artifacts/baron-control/browser-initial/baron-encounter-Baron-matc-3613e-ly-into-their-private-scene/baron-match.json",
+      "bytes": 5237,
+      "sha256": "a3a988accfa3e040ceff872aee61cf38d3301c97791533fa392aca9eb8916b0b"
+    },
+    {
+      "file": "artifacts/baron-control/browser-initial/baron-encounter-default-Sm-4d62e-private-rig-or-a-ghost-unit/baron-death.png",
+      "bytes": 469094,
+      "sha256": "2b621cee70a06414e8b0af67db53d419a55fdf73a75d667bf8000e2cbec54594"
+    },
+    {
+      "file": "artifacts/baron-control/browser-initial/baron-encounter-default-Sm-4d62e-private-rig-or-a-ghost-unit/baron-smite-clear.json",
+      "bytes": 4886,
+      "sha256": "e0b72c32a5d9bd13db0ef1c0f3b393a467adbe51da1edb3e069c42da71196e4c"
+    },
+    {
+      "file": "artifacts/baron-control/browser-initial/baron-encounter-real-Baron-62034-replacing-ordinary-practice/baron-combat-restored.png",
+      "bytes": 890317,
+      "sha256": "191b16eda1b8e7b615a6e15dfa427640484bbbe9539fd6b7acfa78cb125cc8a5"
+    },
+    {
+      "file": "artifacts/baron-control/browser-initial/baron-encounter-real-Baron-62034-replacing-ordinary-practice/baron-combat-save.json",
+      "bytes": 12586,
+      "sha256": "5ea7d5aae18cf02a9c42d64c1139d8e0681bbb515bbc732e7f6f020738a71e8c"
+    },
+    {
+      "file": "artifacts/baron-control/control.mjs",
+      "bytes": 3195,
+      "sha256": "fa9432caed75249b65fcaaa3e187d1f5fddd15962f9df317dea074945e46db06"
+    },
+    {
+      "file": "artifacts/baron-control/focused-validation-pause.json",
+      "bytes": 2300,
+      "sha256": "4ddf1b082b570fdc4f8dcb7b57c4b013c113b2148bc9ec121064d61537ed876e"
+    },
+    {
+      "file": "artifacts/baron-control/frozen-25f-source-check.json",
+      "bytes": 523,
+      "sha256": "30a7863254a9d4719e0afeec7b2a43840eeb6e3ea6f6224d66470a30cfe20d0c"
+    },
+    {
+      "file": "artifacts/baron-control/full-typecheck-config.json",
+      "bytes": 192,
+      "sha256": "c06de547d3244158129b8844715442a608ece7bde0b2349ea712d53136ebf898"
+    },
+    {
+      "file": "artifacts/baron-control/initial-validation-pause.json",
+      "bytes": 2235,
+      "sha256": "e3dce65770912136925bd6849e12645f1b46930b5750416dcac9d2b97a3ddfb8"
+    },
+    {
+      "file": "artifacts/baron-control/lux-e-hit-production-oracle.png",
+      "bytes": 1819362,
+      "sha256": "a68e8b6fa7066e1acc5fbdf816e08e0b5c5d71086626d36cfa2a0e217b0ca751"
+    },
+    {
+      "file": "artifacts/baron-control/lux-e-hit-production-role-match.png",
+      "bytes": 1360512,
+      "sha256": "f4dde30edc8c0760dd0ec547b07c0e81e1667168de989336cb866b8816363ccd"
+    },
+    {
+      "file": "artifacts/baron-control/lux-e-hit-production-subpath.png",
+      "bytes": 1824826,
+      "sha256": "30be70efcda84b0486f31f35507b40216dbf55e035317e7d461c2ff30dee511c"
+    },
+    {
+      "file": "artifacts/baron-control/offline-pack.json",
+      "bytes": 172742,
+      "sha256": "c76ad2a4168e2daa11fd4d4f553c5d2515ffcb4fc2e9e741b9d94ff915def0be"
+    },
+    {
+      "file": "artifacts/baron-control/production-pause.json",
+      "bytes": 2300,
+      "sha256": "51518e6b40d4ff917ab0936829b2d6105c1beea56670843bc323dd8def82c37c"
+    },
+    {
+      "file": "artifacts/baron-cc-research/0.html",
+      "bytes": 412289,
+      "sha256": "21a13bc97435e99b148e1c9e33e332c735c47501d0697bb9ab0939ac46199280"
+    },
+    {
+      "file": "artifacts/baron-cc-research/2.html",
+      "bytes": 1331802,
+      "sha256": "d35ad18700ad5eb96493bbbd695ca025ff68fdb2f6c56dc1af90b5a6380705bf"
+    },
+    {
+      "file": "artifacts/baron-cc-research/fetch.json",
+      "bytes": 798,
+      "sha256": "a87dcc96c4512db317034b4e80e535a0b874a8064a726dde92ce101a053a2eaf"
+    },
+    {
+      "file": "artifacts/baron-cc-research/followup.json",
+      "bytes": 620,
+      "sha256": "a777fd47e298626eb0dbf247a5f97593fc056f255f50e70c7c5ef66ac5ee0b7a"
+    },
+    {
+      "file": "artifacts/baron-cc-research/revisions.json",
+      "bytes": 17,
+      "sha256": "2938e9f1284180959e33ab1718d0793a72ff6e4cdb8108c34dcd14e69446de5c"
+    }
+  ]
+}

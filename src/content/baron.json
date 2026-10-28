@@ -2,6 +2,7 @@
   "characterSourceSha256": "a8f920b71c3c44b5311db3555914db47e8fe207cc489ff7d925b2ff38a250391",
   "modelSha256": "5d9cd6632d191270a94d976e284458145f9fa9e445165eaadb304e2892fff417",
   "rulesSourceSha256": "5ed70d338c5f594d7696a9cf9f78a02ebea708285c600a6c3ffab2fc37336781",
+  "controlSourceSha256": "e310e9acd0dd63c50984c42728a966b5e6c6e6e3668b8650ee35e4e36ca20c8e",
   "name": "Baron Nashor",
   "rig": "sru-baron-base",
   "minimumLevel": 11,
@@ -51,7 +52,8 @@
     "leashRadius": 1100,
     "resetHealthFractionPerSecond": 0.2,
     "sightRadius": 1100,
-    "scope": "Local stationary basic-combat fixture. Idle substitutes for an unused run alias. Native spells, CC immunity, audio, team rewards, buffs, calendar and timing calibration remain unfinished."
+    "immuneControls": ["root", "stun", "silence", "charm"],
+    "scope": "Local stationary basic-combat fixture. Idle substitutes for an unused run alias. Root, stun, silence and Charm immunity follow secondary rule descriptions. Native spells, slow/Frost interactions, external stat changes, stasis, audio, team rewards, buffs, calendar and timing calibration remain unfinished."
   },
   "monsterTags": ["Monster", "Monster_Epic", "Special_Void", "Monster_Camp", "Monster_Baron"]
 }

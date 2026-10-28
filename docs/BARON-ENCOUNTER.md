@@ -7,6 +7,11 @@ point at Baron and press F to use the existing targeted Smite control. Practice
 tools can raise the player's level and resources before attacking. The encounter
 has no lane waves or live objective calendar.
 
+The later [control-resistance increment](BARON-CONTROL.md) rejects root, stun,
+silence and Charm while preserving incoming damage. Its source and remaining
+slow/Frost/stat/stasis limits are recorded separately. Results and build
+identities below describe the original fixture increment.
+
 This is a stationary basic-combat fixture. It does not activate Baron in the
 public match. The full native boss kit, crowd-control immunity, corrosion/shred,
 cleaves, authored sound, team-wide rewards, Hand of Baron, live spawn/respawn

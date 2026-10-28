@@ -2941,6 +2941,14 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   )
     throw new Error('Saved Baron requires its trusted development encounter.');
   if (
+    state.units.some(
+      (u) =>
+        u.monster?.species === 'baron' &&
+        (u.rootUntil !== 0 || u.stunUntil !== 0 || u.silenceUntil !== 0 || u.charm !== null)
+    )
+  )
+    throw new Error('Saved Baron cannot carry root, stun, silence or Charm.');
+  if (
     state.units.find((u) => u.id === state.player.id)?.champion === 'garen' &&
     !(
       state.battlefield === 'practice-fixture' ||
