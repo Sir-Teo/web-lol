@@ -6,6 +6,24 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+The [second late natural finish and current-pack offline round-trip](LATE-MATCH-ROUNDTRIP.md)
+independently verify ordinary seed 25 at tick 229,222 (63:40.367), a natural
+Red victory after 13,222 added ticks. Both teams destroy structures during the
+continuation. Together with seed 2, the two selected diagnostics replay 14,967
+added ticks, seven exact round-trips and five saved futures totaling 300 ticks,
+plus 120 requested frozen terminal ticks each. Both original 60-minute reports
+remain unfinished and their report/save bytes remain unchanged.
+
+Fresh offline gates pass for current pack
+`8511251dbb909130d44970a3e4e453cc58c295a8f9d026637e3a1073bcabb680`
+(1,202 files / 538,111,476 bytes). The full-pack check observes 978 cached
+responses; the verified 63-minute result imports, displays Defeat at 63:40,
+reloads and exports exactly offline with 973 cached responses. There are no
+page errors; the completed-state check also has no failed/outside-prefix
+requests. Both late captures are reviewed, and the quiet-check receipt is
+resumed. No application, simulation, asset or saved-field changes occur.
+Original cohort horizons and all remaining gates retain their own scope.
+
 [Frozen source-cache recovery](REFERENCE-CACHE-RECOVERY.md) resolves four former
 baseline failures without changing assertions, hashes, deadlines or application
 code. Fresh full verification passes **3,574/3,576 tests across 416 files**;

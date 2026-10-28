@@ -1,5 +1,8 @@
 # Unfinished ordinary match: exact continuation
 
+A [second unfinished game and current-pack offline round-trip](LATE-MATCH-ROUNDTRIP.md)
+now also have independent evidence. This page retains the original seed-2 scope.
+
 The ordinary seed-2 game reaches its original 60-minute horizon without a
 winner. A separate diagnostic imports that exact final save and lets ordinary
 rules continue. Red wins at tick **217,745 (60:29.083)**, after **1,745 added
