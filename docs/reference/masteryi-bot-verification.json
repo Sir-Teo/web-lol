@@ -1,0 +1,196 @@
+{
+  "date": "2026-10-27",
+  "previousCommit": "223caf6",
+  "schema": 163,
+  "ruleset": "166548c6c2e172a2b8b088d8f82a38f8cbf1062b88c86166bbcd5dc2a6c6ad95",
+  "sources": [
+    {
+      "path": "src/content/masteryi-bot-policy.ts",
+      "bytes": 207,
+      "sha256": "a17518a94e809dddf6aff6a208acd2713e7bfc3fa9ade90cf7f9f84a3b0f0e1a"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "bytes": 306600,
+      "sha256": "c8f7d72548d52a9e5891b6707f6b23ea2750810c9fea9448e96049397b86d281"
+    },
+    {
+      "path": "tests/masteryi-bot.test.ts",
+      "bytes": 9035,
+      "sha256": "dca24629c460b75ca10dcde37648e3d50fd3ed563f0e8be48ae0200f1fe9de35"
+    },
+    {
+      "path": "e2e/masteryi-bot.spec.ts",
+      "bytes": 4476,
+      "sha256": "40b7a10c54275eafe89a1eb240e0ae38ebca478efccd145766e0cba237f7185b"
+    }
+  ],
+  "focused": {
+    "passed": 893,
+    "total": 893,
+    "files": 50,
+    "newCases": 12
+  },
+  "broad": {
+    "passed": 3468,
+    "total": 3474,
+    "files": 409,
+    "unchangedBaselineFailures": 6,
+    "baselineEvidence": "docs/reference/ahri-bot-mobility-verification.json"
+  },
+  "checks": {
+    "typescript": true,
+    "nodeQa": {
+      "passed": 29,
+      "total": 29
+    },
+    "build": true,
+    "publicAssetsChanged": false,
+    "spellControllersChanged": false,
+    "savedFieldsChanged": false
+  },
+  "pack": {
+    "id": "eaf3a58267e1b7413cfddb766220730f53b00dd27b127fcb8ec9b5d5523d2310",
+    "files": 1202,
+    "bytes": 538099995,
+    "buildRulesetMatches": true
+  },
+  "browser": {
+    "passed": 1,
+    "total": 1,
+    "retries": 0,
+    "launcher": "/usr/bin/chromium",
+    "ownLearnedEQ": true,
+    "sourceCastLayers": true,
+    "hiddenUntargetableBody": true,
+    "actualSaveReload": true,
+    "exactFutureTicks": 180,
+    "revealedFiniteBones": 90,
+    "realDamage": true,
+    "pageErrors": [],
+    "screenshotsReviewed": true
+  },
+  "diagnostic": {
+    "seed": 26018,
+    "horizonMinutes": 10,
+    "role": "jungle",
+    "aiProxyHuman": true,
+    "checkedTicks": 36000,
+    "checkpointRoundTrips": 10,
+    "originalWorldFutureComparisons": 3,
+    "acceptedCasts": {
+      "1": {
+        "q": 23,
+        "w": 0,
+        "e": 19,
+        "r": 0
+      }
+    },
+    "finalLevel": 6,
+    "failures": [],
+    "forcedWinner": false,
+    "runner": {
+      "path": "artifacts/masteryi-bot/jungle-audit.ts",
+      "bytes": 3284,
+      "sha256": "f785f933561a4b89ff60989c197fc42fb8f53664397f5ee23710c83ed7e4a082"
+    },
+    "report": {
+      "path": "artifacts/masteryi-bot/jungle-26018.json",
+      "bytes": 3879,
+      "sha256": "46c37041c5cdb6ca212e3cb90f384f5c4422baafd37edd89654a08b412e34704"
+    },
+    "checkpoint": {
+      "path": "artifacts/masteryi-bot/jungle-26018.snapshot.json",
+      "bytes": 182836,
+      "sha256": "d43f1633eede0a0d1da7479c599352fcd49af7a3410ebdd32cce3338dac66ccd"
+    }
+  },
+  "production": {
+    "passed": true,
+    "prefix": "/nested/rift/",
+    "recordings": 32,
+    "developmentGates": true,
+    "ahriPreloads": 0,
+    "masterYiPreloads": 0,
+    "pageErrors": []
+  },
+  "offline": {
+    "freshRun": false,
+    "inherited": "docs/reference/ahri-bot-rift-verification.json"
+  },
+  "logs": [
+    {
+      "path": "artifacts/masteryi-bot/logs/web-lol-yi-bot-browser.log",
+      "bytes": 799,
+      "sha256": "62e058b91220fd303fc02510626d3ed70128585d834f4113ca76e620ff1a28f9"
+    },
+    {
+      "path": "artifacts/masteryi-bot/logs/web-lol-yi-bot-build.log",
+      "bytes": 7124,
+      "sha256": "086b31510f29ae3eb88cc91fa13d3e88acc277c0c786bc5f671ca364e8cc6a6d"
+    },
+    {
+      "path": "artifacts/masteryi-bot/logs/web-lol-yi-bot-focused.log",
+      "bytes": 373,
+      "sha256": "e921d68659e2b2671ba9d8885d115165940cfedd8f7f34b1fac9b76f1eec4476"
+    },
+    {
+      "path": "artifacts/masteryi-bot/logs/web-lol-yi-bot-full.log",
+      "bytes": 5894,
+      "sha256": "1e41946faff4039783e8aadbb0eb6ead7883f31ca2ae9411a6b5890d4e07d652"
+    },
+    {
+      "path": "artifacts/masteryi-bot/logs/web-lol-yi-bot-initial.log",
+      "bytes": 172,
+      "sha256": "d9034dbfe75ef5ae0f00daa7a8518acf0f74078ff7beade09bab1fdf6459fbbc"
+    },
+    {
+      "path": "artifacts/masteryi-bot/logs/web-lol-yi-bot-jungle-build.log",
+      "bytes": 244,
+      "sha256": "23bce51bb2dff245c9ae6ea659452a3e49a34d43d5dfef6b6cf29dcf56be724a"
+    },
+    {
+      "path": "artifacts/masteryi-bot/logs/web-lol-yi-bot-jungle.log",
+      "bytes": 1645,
+      "sha256": "72aada30be38ff43d9f2699d69530da9fb19c5b1053d25546487cbe7d0b389ab"
+    },
+    {
+      "path": "artifacts/masteryi-bot/logs/web-lol-yi-bot-node-qa.log",
+      "bytes": 2771,
+      "sha256": "15a83196043106c3aad222e03d676bb21a8127666934a631908b0043b38da38f"
+    },
+    {
+      "path": "artifacts/masteryi-bot/logs/web-lol-yi-bot-production.log",
+      "bytes": 2996,
+      "sha256": "2f4c69a64ee81752aec9e374907cc64f76e7c00e9dc44b58032f94452ce956e8"
+    }
+  ],
+  "proofs": [
+    {
+      "path": "artifacts/masteryi-bot/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "artifacts/masteryi-bot/browser/masteryi-bot-AI-learned-E--bdfd2-d-actual-saved-continuation/masteryi-bot-alpha-cast.png",
+      "bytes": 805135,
+      "sha256": "7a6a02a12d1f7e32e2c2ee4e4ece6f2eb0e719a4f425d26c5bd80b747fac1d7b"
+    },
+    {
+      "path": "artifacts/masteryi-bot/browser/masteryi-bot-AI-learned-E--bdfd2-d-actual-saved-continuation/masteryi-bot-return.png",
+      "bytes": 873473,
+      "sha256": "d453728059779f5a66d0930d83b43d4a36dec3be0dbd756a7cf4ee9a16cef940"
+    },
+    {
+      "path": "artifacts/masteryi-bot/browser/masteryi-bot-AI-learned-E--bdfd2-d-actual-saved-continuation/masteryi-bot.json",
+      "bytes": 58836,
+      "sha256": "ee99aa2ba33c9008b0ca682979e61f6b83c08eb4926a180f58bd4d24794257b8"
+    }
+  ],
+  "limitations": [
+    "Local development policy, not native AI",
+    "Manual NPC fixture remains manual by default",
+    "W/R tactics and dedicated Yi bot Rift roster remain open",
+    "No complete-match, broad seed, native pixel or physical-device performance certification"
+  ]
+}

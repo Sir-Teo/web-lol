@@ -6,7 +6,32 @@ Last updated: October 27, 2026 (UTC).
 
 ## Current authoritative state
 
-The latest [Ahri bot Rift trial](AHRI-BOT-RIFT.md) adds the optional
+The latest [Master Yi bot foundation](MASTER-YI-BOT.md) adds legal own-kit
+learning and observed E/Q decisions. E precedes paid Q through independently
+validated commands; real controllers retain marks, on-hits, hiding, buff pauses
+and return behavior. Selected visible jungle monsters can enter the same
+policy. Manual humans/NPCs, ordinary rosters and spell numbers retain their
+prior behavior. W/R tactics and a dedicated Yi bot Rift roster remain open.
+
+All 893 focused checks across fifty files, TypeScript, all 29 Node QA cases
+and the build pass. The new browser case passes actual vanished Save/reload,
+an exact 180-tick future, source cast layers, target damage and 90 finite
+returned bones with no page errors. A ten-minute normal-rules Yi jungle
+diagnostic checks 36,000 ticks, ten round-trips and three original-world future
+comparisons without resource failures or a forced winner; Yi reaches level 6
+with 23 Q and 19 E casts. This is a diagnostic, not complete-match acceptance.
+Schema stays 163; the matching rules fingerprint is
+`166548c6c2e172a2b8b088d8f82a38f8cbf1062b88c86166bbcd5dc2a6c6ad95`.
+Pack `eaf3a58267e1b7413cfddb766220730f53b00dd27b127fcb8ec9b5d5523d2310`
+contains 1,202 files / 538,099,995 bytes. No public assets, saved fields or
+spell controllers change. Native fidelity and full-match gates remain open.
+The full run passes **3,468/3,474 cases across 409 files**, retaining the same
+six independently reproduced baseline failures. Matching nested production
+passes all 32 recordings and development gates with no unrequested Ahri/Yi
+preloads or page errors. The preceding offline acceptance is inherited; no
+fresh offline run is claimed for this simulation-only step.
+
+The preceding [Ahri bot Rift trial](AHRI-BOT-RIFT.md) adds the optional
 `/?scene=ahri-rift&bots=ahri` development roster. The human begins Ahri mid
 against an Ahri bot; choosing Ashe gives two AI Ahri mids with the human in
 bottom. All ten roles, nine bots, normal navigation, resources and kit policies

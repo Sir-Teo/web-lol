@@ -244,6 +244,7 @@ import { LUX_E_POLICY } from '../content/lux-e-policy';
 import { DEATHCAP_AP_AMPLIFICATION, LOST_CHAPTER } from '../content/mage-items';
 import { LUX_BOT_POLICY } from '../content/lux-bot-policy';
 import { AHRI_BOT_POLICY } from '../content/ahri-bot-policy';
+import { MASTER_YI_BOT_POLICY } from '../content/masteryi-bot-policy';
 import { LEONA_BOT_POLICY } from '../content/leona-bot-policy';
 import { luxWaveClear } from './lux-wave-clear';
 import { ahriWaveClear } from './ahri-wave-clear';
@@ -1270,12 +1271,7 @@ export class World {
         state.garenWDeflects = state.garenWDeflects.filter(
           (reaction) => this.tick < reaction.tick + GAREN_W_DEFLECT_TAIL_TICKS
         );
-      if (
-        state.skillPoints === 0 ||
-        !this.unit(state.id)?.ai ||
-        this.unit(state.id)?.champion === 'masteryi'
-      )
-        continue;
+      if (state.skillPoints === 0 || !this.unit(state.id)?.ai) continue;
       while (state.skillPoints > 0) {
         const allocated = Object.values(state.spellRanks).reduce((sum, rank) => sum + rank, 0);
         const recommendation =
@@ -1285,9 +1281,11 @@ export class World {
               ? LUX_BOT_POLICY
               : this.unit(state.id)?.champion === 'ahri'
                 ? AHRI_BOT_POLICY
-                : this.unit(state.id)?.champion === 'leona'
-                  ? LEONA_BOT_POLICY
-                  : ASHE_SKILL_RECOMMENDATION;
+                : this.unit(state.id)?.champion === 'masteryi'
+                  ? MASTER_YI_BOT_POLICY
+                  : this.unit(state.id)?.champion === 'leona'
+                    ? LEONA_BOT_POLICY
+                    : ASHE_SKILL_RECOMMENDATION;
         const early = recommendation.early[allocated];
         const choices = early ? [early, ...recommendation.priority] : recommendation.priority;
         const ability = choices.find((key) => this.spellLearningError(key, state.id) === null);
@@ -2419,6 +2417,67 @@ export class World {
     return ITEMS.find((item) => item.id === id);
   }
 
+  private planMasterYiCombat(u: Unit): boolean {
+    if (u.kind !== 'champion' || u.champion !== 'masteryi' || u.silenceUntil > this.tick)
+      return false;
+    const state = this.championState(u.id)!;
+    if (
+      state.pendingCast ||
+      state.recallEnd !== null ||
+      state.alphaStrike ||
+      state.meditate ||
+      u.releaseTick !== null ||
+      this.threateningTower(u, u, true)
+    )
+      return false;
+    const observed = this.units
+      .filter(
+        (target) =>
+          target.kind === 'champion' &&
+          target.team !== u.team &&
+          this.visible(target, u.team) &&
+          alphaTarget(this, u, target) &&
+          distance(u, target) <= MASTER_YI_Q.castRange &&
+          !this.threateningTower(u, target, true)
+      )
+      .sort((a, b) => distance(u, a) - distance(u, b) || a.id - b.id)[0];
+    // Jungle travel/selection stays with the existing observed camp planner.
+    // Only its current attack order can offer a monster to this spell policy.
+    const ordered = u.order.type === 'attack' ? this.unit(u.order.target) : undefined;
+    const target =
+      observed ??
+      (state.role === 'jungle' &&
+      ordered?.kind === 'monster' &&
+      this.visible(ordered, u.team) &&
+      alphaTarget(this, u, ordered) &&
+      distance(u, ordered) <= MASTER_YI_Q.castRange
+        ? ordered
+        : undefined);
+    if (!target) return false;
+    const ready = (ability: 'q' | 'e') =>
+      state.spellRanks[ability] > 0 &&
+      this.abilityCooldownTicks(ability, u.id) === 0 &&
+      u.mana >= this.abilityResources(ability, u.id).mana + this.queuedCastMana(u);
+    const alpha = u.rootUntil <= this.tick && ready('q');
+    const wuju =
+      !state.wujuStyle && ready('e') && (alpha || distance(u, target) <= u.range + target.radius);
+    if (!alpha && !wuju) return false;
+    if (alpha) this.setOrder(u, { type: 'idle' });
+    else if (u.order.type !== 'attack' || u.order.target !== target.id)
+      this.setOrder(u, { type: 'attack', target: target.id });
+    // E precedes Q through ordinary independent command validation. Q's
+    // existing controller owns marks, repeats, on-hits and visibility changes.
+    if (wuju) this.enqueue({ type: 'cast', unit: u.id, ability: 'e', point: { x: u.x, y: u.y } });
+    if (alpha)
+      this.enqueue({
+        type: 'cast',
+        unit: u.id,
+        ability: 'q',
+        targetId: target.id,
+        point: { x: target.x, y: target.y },
+      });
+    return true;
+  }
   private planAhriCombat(u: Unit, retreating: boolean): boolean {
     if (u.kind !== 'champion' || u.champion !== 'ahri' || u.silenceUntil > this.tick) return false;
     const state = this.championState(u.id)!;
@@ -3308,6 +3367,7 @@ export class World {
     if (this.planCrystalArrow(u, 'finish')) return;
     if (this.planGarenR(u)) return;
     if (this.planGarenE(u)) return;
+    if (this.planMasterYiCombat(u)) return;
     if (this.planAhriCombat(u, false) || this.planLuxCombat(u, false)) return;
     if (this.planAhriWaveClear(u) || this.planLuxWaveClear(u)) return;
     this.planGarenQ(u, false);
