@@ -5,20 +5,31 @@ import { equipSummoners, type SummonerLoadout } from './smite';
 import { DEFAULT_SUMMONERS } from '../content/summoners';
 import { assignRole } from './bot-jungle';
 
-/** Five-position interim roster. Ashe jungle remains a local test composition
- * until the six complete champion roster and objective/team planning ship. */
+/** Five-position roster with separately admitted development compositions. */
 export function createLaneMatch(
   battlefield: Battlefield,
   playerChampion: 'ashe' | 'lux' | 'leona' | 'garen' | 'masteryi' | 'ahri' = 'ashe',
   summoners: SummonerLoadout = DEFAULT_SUMMONERS
 ): World {
   if (battlefield.id !== 'rift') throw new Error('Lane matches require Summoner’s Rift.');
+  if (
+    battlefield.developmentRosterBots &&
+    !(
+      battlefield.developmentGaren &&
+      battlefield.developmentLeona &&
+      battlefield.developmentAhriRift &&
+      battlefield.developmentAhriBots &&
+      battlefield.developmentMasterYiRift &&
+      battlefield.developmentMasterYiBots
+    )
+  )
+    throw new Error('Combined bot selection requires all trusted development Rift hosts.');
   if (battlefield.developmentAhriBots && !battlefield.developmentAhriRift)
     throw new Error('Ahri bot selection requires the trusted development Ahri Rift host.');
   if (battlefield.developmentMasterYiBots && !battlefield.developmentMasterYiRift)
     throw new Error('Master Yi bot selection requires the trusted development Yi Rift host.');
   const assignments = [
-    { role: 'top', lane: 'top', champion: 'ashe' },
+    { role: 'top', lane: 'top', champion: battlefield.developmentRosterBots ? 'garen' : 'ashe' },
     {
       role: 'jungle',
       lane: null,
@@ -26,7 +37,11 @@ export function createLaneMatch(
     },
     { role: 'mid', lane: 'mid', champion: battlefield.developmentAhriBots ? 'ahri' : 'lux' },
     { role: 'carry', lane: 'bot', champion: 'ashe' },
-    { role: 'support', lane: 'bot', champion: 'lux' },
+    {
+      role: 'support',
+      lane: 'bot',
+      champion: battlefield.developmentRosterBots ? 'leona' : 'lux',
+    },
   ] as const;
   const lanes = assignments.map(({ lane }) => {
     if (lane === null) return null;

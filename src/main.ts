@@ -55,6 +55,7 @@ const loading = document.querySelector<HTMLDivElement>('#loading')!;
 async function boot(): Promise<void> {
   const query = new URLSearchParams(location.search);
   const fixture = import.meta.env.DEV && query.get('scene') === 'fixture';
+  const rosterRiftTrial = import.meta.env.DEV && query.get('scene') === 'roster-rift';
   const leonaRiftTrial = import.meta.env.DEV && query.get('scene') === 'leona-rift';
   const garenRiftTrial = import.meta.env.DEV && query.get('scene') === 'garen-rift';
   const masterYiRiftTrial = import.meta.env.DEV && query.get('scene') === 'masteryi-rift';
@@ -65,46 +66,59 @@ async function boot(): Promise<void> {
   const ahriPlayerFixture = fixture && query.get('champion') === 'ahri';
   const masterYiPlayerFixture = fixture && query.get('champion') === 'masteryi';
   const loadedBattlefield = fixture ? PRACTICE_FIXTURE : await loadRiftBattlefield();
-  const battlefield = ahriRiftTrial
+  const battlefield = rosterRiftTrial
     ? {
         ...loadedBattlefield,
+        developmentRosterBots: true as const,
+        developmentGaren: true as const,
+        developmentLeona: true as const,
         developmentAhriRift: true as const,
-        ...(ahriBotRiftTrial ? { developmentAhriBots: true as const } : {}),
+        developmentAhriBots: true as const,
+        developmentMasterYiRift: true as const,
+        developmentMasterYiBots: true as const,
       }
-    : masterYiRiftTrial
+    : ahriRiftTrial
       ? {
           ...loadedBattlefield,
-          developmentMasterYiRift: true as const,
-          ...(masterYiBotRiftTrial ? { developmentMasterYiBots: true as const } : {}),
+          developmentAhriRift: true as const,
+          ...(ahriBotRiftTrial ? { developmentAhriBots: true as const } : {}),
         }
-      : leonaRiftTrial
-        ? { ...loadedBattlefield, developmentLeona: true as const }
-        : garenRiftTrial
-          ? { ...loadedBattlefield, developmentGaren: true as const }
-          : masterYiPlayerFixture
-            ? { ...loadedBattlefield, developmentMasterYi: true as const }
-            : ahriPlayerFixture
-              ? { ...loadedBattlefield, developmentAhri: true as const }
-              : loadedBattlefield;
-  const saveKey = ahriBotRiftTrial
-    ? 'development-ahri-bots-rift'
-    : ahriRiftTrial
-      ? 'development-ahri-rift'
-      : masterYiBotRiftTrial
-        ? 'development-masteryi-bots-rift'
-        : masterYiRiftTrial
-          ? 'development-masteryi-rift'
-          : masterYiPlayerFixture
-            ? 'development-masteryi-player-fixture'
-            : masterYiNpc
-              ? 'development-masteryi-npc-fixture'
-              : leonaRiftTrial
-                ? 'development-leona-rift'
-                : garenRiftTrial
-                  ? 'development-garen-rift'
-                  : ahriPlayerFixture
-                    ? 'development-ahri-player-fixture'
-                    : battlefield.id;
+      : masterYiRiftTrial
+        ? {
+            ...loadedBattlefield,
+            developmentMasterYiRift: true as const,
+            ...(masterYiBotRiftTrial ? { developmentMasterYiBots: true as const } : {}),
+          }
+        : leonaRiftTrial
+          ? { ...loadedBattlefield, developmentLeona: true as const }
+          : garenRiftTrial
+            ? { ...loadedBattlefield, developmentGaren: true as const }
+            : masterYiPlayerFixture
+              ? { ...loadedBattlefield, developmentMasterYi: true as const }
+              : ahriPlayerFixture
+                ? { ...loadedBattlefield, developmentAhri: true as const }
+                : loadedBattlefield;
+  const saveKey = rosterRiftTrial
+    ? 'development-roster-rift'
+    : ahriBotRiftTrial
+      ? 'development-ahri-bots-rift'
+      : ahriRiftTrial
+        ? 'development-ahri-rift'
+        : masterYiBotRiftTrial
+          ? 'development-masteryi-bots-rift'
+          : masterYiRiftTrial
+            ? 'development-masteryi-rift'
+            : masterYiPlayerFixture
+              ? 'development-masteryi-player-fixture'
+              : masterYiNpc
+                ? 'development-masteryi-npc-fixture'
+                : leonaRiftTrial
+                  ? 'development-leona-rift'
+                  : garenRiftTrial
+                    ? 'development-garen-rift'
+                    : ahriPlayerFixture
+                      ? 'development-ahri-player-fixture'
+                      : battlefield.id;
   const leonaNpc = fixture && new URLSearchParams(location.search).get('npc') === 'leona';
   const ahriNpc = fixture && query.get('npc') === 'ahri';
   const garenFixture = fixture && new URLSearchParams(location.search).get('champion') === 'garen';
@@ -143,25 +157,27 @@ async function boot(): Promise<void> {
           return next;
         })();
   };
-  let world = ahriRiftTrial
-    ? createLaneMatch(battlefield, 'ahri')
-    : masterYiRiftTrial
-      ? createLaneMatch(battlefield, 'masteryi', { d: 'smite', f: 'flash' })
-      : leonaRiftTrial
-        ? createLaneMatch(battlefield, 'leona')
-        : garenRiftTrial
-          ? createLaneMatch(battlefield, 'garen')
-          : freshPractice(
-              masterYiPlayerFixture
-                ? 'masteryi'
-                : ahriPlayerFixture
-                  ? 'ahri'
-                  : garenFixture
-                    ? 'garen'
-                    : leonaFixture
-                      ? 'leona'
-                      : 'ashe'
-            );
+  let world = rosterRiftTrial
+    ? createLaneMatch(battlefield, 'ashe')
+    : ahriRiftTrial
+      ? createLaneMatch(battlefield, 'ahri')
+      : masterYiRiftTrial
+        ? createLaneMatch(battlefield, 'masteryi', { d: 'smite', f: 'flash' })
+        : leonaRiftTrial
+          ? createLaneMatch(battlefield, 'leona')
+          : garenRiftTrial
+            ? createLaneMatch(battlefield, 'garen')
+            : freshPractice(
+                masterYiPlayerFixture
+                  ? 'masteryi'
+                  : ahriPlayerFixture
+                    ? 'ahri'
+                    : garenFixture
+                      ? 'garen'
+                      : leonaFixture
+                        ? 'leona'
+                        : 'ashe'
+              );
   let restored = false,
     saveNotice = '';
   try {
@@ -253,15 +269,17 @@ async function boot(): Promise<void> {
         world.matchMode === 'lanes'
           ? createLaneMatch(
               battlefield,
-              ahriRiftTrial && world.hero.champion === 'ahri'
-                ? 'ahri'
-                : masterYiRiftTrial && world.hero.champion === 'masteryi'
-                  ? 'masteryi'
-                  : leonaRiftTrial && world.hero.champion === 'leona'
-                    ? 'leona'
-                    : garenRiftTrial && world.hero.champion === 'garen'
-                      ? 'garen'
-                      : selectableChampion(world.hero.champion),
+              rosterRiftTrial
+                ? world.hero.champion
+                : ahriRiftTrial && world.hero.champion === 'ahri'
+                  ? 'ahri'
+                  : masterYiRiftTrial && world.hero.champion === 'masteryi'
+                    ? 'masteryi'
+                    : leonaRiftTrial && world.hero.champion === 'leona'
+                      ? 'leona'
+                      : garenRiftTrial && world.hero.champion === 'garen'
+                        ? 'garen'
+                        : selectableChampion(world.hero.champion),
               world.player.summoners
             ).snapshot()
           : grompEncounter ||
@@ -510,6 +528,7 @@ async function boot(): Promise<void> {
   loading.classList.add('finished');
   if (restored) hud.toast('Saved match restored. Resume when you’re ready.');
   else if (saveNotice) hud.toast(saveNotice);
+  else if (rosterRiftTrial) hud.toast('Development trial: combined champion roster on the Rift.');
   else if (leonaRiftTrial) hud.toast('Development trial: Leona support on Summoner’s Rift.');
   else if (garenRiftTrial) hud.toast('Development trial: Garen top on Summoner’s Rift.');
   else if (masterYiBotRiftTrial)

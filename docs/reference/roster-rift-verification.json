@@ -1,0 +1,552 @@
+{
+  "date": "2026-10-28",
+  "previousCommit": "557143c",
+  "schema": 163,
+  "ruleset": "1e2014d2447c76d16f1b9fc55253e90e6bd49cfc4aff321c31d9ba7d14a05e5b",
+  "sources": [
+    {
+      "path": "src/simulation/battlefield.ts",
+      "bytes": 3512,
+      "sha256": "48b131c42bb3a394eb594afeffe3b4f0d239615d2821f82a7128fdc758d2c40d"
+    },
+    {
+      "path": "src/simulation/lane-match.ts",
+      "bytes": 4086,
+      "sha256": "fa0175c27a231db7406d8d0c69cf7c7ac825e5ddf3f321f1c610eeccfdd530a6"
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 25628,
+      "sha256": "5e6fb305ca84553f7981061e72ad8887534fea7168a64fc90d6fc61cd4512ecb"
+    },
+    {
+      "path": "src/ui/hud.ts",
+      "bytes": 85232,
+      "sha256": "f757eddc8b8dc0f1cd4e8eb485e75ca4caf716aac0af4ed8342ce72926d18b15"
+    },
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 32992,
+      "sha256": "169ea826f7d9cb7ebdccdf9484588bf604fce55d9aa282cb0323df53a7e46d9a"
+    },
+    {
+      "path": "tests/roster-rift.test.ts",
+      "bytes": 6598,
+      "sha256": "24a710dc39dea6bb48ff79b48b6e040584a690528e0ac7148077ff2e820e2e8b"
+    },
+    {
+      "path": "e2e/roster-rift.spec.ts",
+      "bytes": 8750,
+      "sha256": "05e21ef649594db4dac1a2205e7f1c2e4af67e530b96919ff46d803a50a4fa4f"
+    }
+  ],
+  "focused": {
+    "passed": 41,
+    "total": 41,
+    "files": 6,
+    "newCases": 10
+  },
+  "broad": {
+    "passed": 3499,
+    "total": 3505,
+    "files": 412,
+    "unchangedBaselineFailures": 6,
+    "baselineEvidence": "docs/reference/ahri-bot-mobility-verification.json"
+  },
+  "checks": {
+    "typescript": true,
+    "nodeQa": {
+      "passed": 29,
+      "total": 29
+    },
+    "build": true,
+    "publicAssetsChanged": false,
+    "spellControllersChanged": false,
+    "resourceRulesChanged": false,
+    "savedFieldsAdded": false
+  },
+  "pack": {
+    "id": "2c9509b34aa7c0309cd064571c8da0ce62a5bcf044bed7f85fa69463df36ea86",
+    "files": 1202,
+    "bytes": 538103525,
+    "buildRulesetMatches": true
+  },
+  "browser": {
+    "passed": 1,
+    "total": 1,
+    "retries": 0,
+    "launcher": "/usr/bin/chromium",
+    "realLuxAndAsheChoices": true,
+    "sixChampionIdentities": true,
+    "tenScoreboardRows": true,
+    "paidNpcCompanions": true,
+    "naturalMonsterAlpha": true,
+    "actualSaveReload": true,
+    "exactFutureTicks": 180,
+    "exactLuxRestart": true,
+    "ordinaryAndSeparateTrialSavesPreserved": true,
+    "originalAhriUrlRestored": true,
+    "screenshotsReviewed": true,
+    "pageErrors": [],
+    "proofs": [
+      {
+        "path": "artifacts/roster-rift/browser/roster-rift-combined-roste-db4bb--and-isolated-saved-futures/roster-rift-natural-alpha.png",
+        "bytes": 1250921,
+        "sha256": "6f67feef68ae11363f4ea8663edd9a9a8559bae5ddfad7b009416d0582f09501"
+      },
+      {
+        "path": "artifacts/roster-rift/browser/roster-rift-combined-roste-db4bb--and-isolated-saved-futures/roster-rift-scoreboard.png",
+        "bytes": 1047751,
+        "sha256": "7fee5606f1126e83ce1eb73444a51a7f083b3597062ae769e354b2cdeda63fc1"
+      },
+      {
+        "path": "artifacts/roster-rift/browser/roster-rift-combined-roste-db4bb--and-isolated-saved-futures/roster-rift.json",
+        "bytes": 2176107,
+        "sha256": "88a283d4cef267a39574c2e45ad5cbbd95d27df18944b23aadc7d91b5a08516b"
+      }
+    ]
+  },
+  "diagnostic": {
+    "seed": 26018,
+    "horizonMinutes": 60,
+    "humanAiProxy": "lux mid",
+    "outcome": "victory",
+    "winner": "red",
+    "finalTick": 169409,
+    "checkedTicks": 169409,
+    "checkpointRoundTrips": 48,
+    "originalFutureComparisons": 47,
+    "futureCheckedTicks": 2820,
+    "checkedSnapshots": 49,
+    "acceptedCasts": {
+      "lux": {
+        "q": 84,
+        "w": 53,
+        "e": 152,
+        "r": 21
+      },
+      "garen": {
+        "q": 124,
+        "w": 73,
+        "e": 150,
+        "r": 21
+      },
+      "masteryi": {
+        "q": 189,
+        "w": 11,
+        "e": 163,
+        "r": 38
+      },
+      "ashe": {
+        "q": 56,
+        "w": 118,
+        "e": 40,
+        "r": 30
+      },
+      "leona": {
+        "q": 25,
+        "w": 68,
+        "e": 2,
+        "r": 2
+      },
+      "ahri": {
+        "q": 145,
+        "w": 54,
+        "e": 65,
+        "r": 28
+      }
+    },
+    "allChampionKitsUsed": true,
+    "forcedWinner": false,
+    "failures": [],
+    "sourceArchivePins": 540,
+    "plan": {
+      "path": "artifacts/roster-rift/frozen/plan.json",
+      "bytes": 92884,
+      "sha256": "8e2cb17f1970b60258c1ba8929170b421d639df284930b1a661658c8ff8628db"
+    },
+    "runner": {
+      "path": "artifacts/roster-rift/frozen/runner/match-audit.js",
+      "bytes": 1168132,
+      "sha256": "40b7a8e425970b2685caeeff77e73f6d918a23d4be239b9e68c7a73c7d63901a"
+    },
+    "inputs": [
+      {
+        "path": "artifacts/roster-rift/frozen/maps/rift-nav.bin",
+        "bytes": 1925772,
+        "sha256": "b46933464275e15fe6790a8169a77c63524a8d34fa7f4977614898e997da0edf"
+      },
+      {
+        "path": "artifacts/roster-rift/frozen/maps/rift-nav.json",
+        "bytes": 1645,
+        "sha256": "d7a0a29c0300056e035b46f3e19f049a8c564da2783ac94f34a6e0cdabfde6ec"
+      },
+      {
+        "path": "artifacts/roster-rift/frozen/maps/rift-layout.json",
+        "bytes": 39399,
+        "sha256": "40258299911730959e5dd05340541fce293e20ae46b5fef2e8bf0a2aa4d7d4f9"
+      }
+    ],
+    "qaSources": [
+      {
+        "path": "artifacts/roster-rift/match-audit.ts",
+        "bytes": 8421,
+        "sha256": "a3ad59b0bcef66f07db3bd753efdf06cda702800c514c6b49a2b7703fb8cded3"
+      },
+      {
+        "path": "artifacts/roster-rift/freeze-audit.mjs",
+        "bytes": 1871,
+        "sha256": "b19f5bb815e275ca5923f9b190343ef9dee7142e5f7ede517a9b240c70c59611"
+      },
+      {
+        "path": "artifacts/roster-rift/verify-audit.mjs",
+        "bytes": 4284,
+        "sha256": "3f15784cddb3bf34dcfe3f12c31d1d467623bf0252d6ea4e47bb4c43b3455e1e"
+      }
+    ],
+    "report": {
+      "path": "artifacts/roster-rift/seed-26018/report.json",
+      "bytes": 245791,
+      "sha256": "bcc3a5f779184d21112c0b32215f6f41ba8f8274d75f7c4c6847ba4df3664cfc"
+    },
+    "verification": {
+      "path": "artifacts/roster-rift/verification.json",
+      "bytes": 911,
+      "sha256": "29acf48e8ca43c944e03731ed5cd59087a9495bcd851d52b176c995e25ce7b58"
+    },
+    "final": {
+      "path": "artifacts/roster-rift/seed-26018/final.match.json",
+      "bytes": 475521,
+      "sha256": "73a8e375339fa6eafbfa3b42b1c20d86b9523d64e7f91ece6316490d1275d463"
+    },
+    "checkpoints": [
+      {
+        "path": "artifacts/roster-rift/seed-26018/003600.match.json",
+        "bytes": 224451,
+        "sha256": "4a5338933a4746acbdba71ed18c93461a6b8d8deb3c7ae7cc583a5cc58636747"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/007200.match.json",
+        "bytes": 223069,
+        "sha256": "7f052adfc35038213739a53bdbdc20b0546e1d9e82c1216f5d4e3ffc113e1afd"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/010800.match.json",
+        "bytes": 214397,
+        "sha256": "8a3800677e25c4722d0be099c5024109a9e55847371e47ef4594621813d6b080"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/014400.match.json",
+        "bytes": 174146,
+        "sha256": "555c06387055e778b44eb7a3da161cd680b97bf94f58ed90fca8f7b4cc628d69"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/018000.match.json",
+        "bytes": 205895,
+        "sha256": "6ba0e12debe6550fa5221cda769ed38c358e21d039d511538c88dff9a03a3eca"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/021600.match.json",
+        "bytes": 205423,
+        "sha256": "48e8322bd0f1dca777db0dbe977d9bde4378d8f5c54b4c2a5e6b383631b38f0d"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/025200.match.json",
+        "bytes": 210911,
+        "sha256": "3d27827022b1932810fdff0dd9e24d38b5390c16442e7a7a8a97e4309fa57ef2"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/028800.match.json",
+        "bytes": 194554,
+        "sha256": "1a5648c1c3da0f5c2736397aee385272c1c213036b136bf021098aebd36edac3"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/032400.match.json",
+        "bytes": 410805,
+        "sha256": "56819592d67b3d52c4120b5b177e8b91444cf8c222cb6813db53e48f5591eb14"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/036000.match.json",
+        "bytes": 642717,
+        "sha256": "c32a3d5364b18b932da9e9d566905eb4d2abac706e6164c3033aa6673e7ce4a4"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/039600.match.json",
+        "bytes": 245448,
+        "sha256": "89ba4209da8271046d9f4e65e340e976b450af718d34d36752bcb6ededd995d3"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/043200.match.json",
+        "bytes": 246478,
+        "sha256": "cbe11537fd7e91071fc6f0d39a5d626f9de384eac44800a350e7d38cefe7c386"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/046800.match.json",
+        "bytes": 213310,
+        "sha256": "8343dc418cad0edaad226a4dc3b1401a6fde901f04877f812830e2300b99058f"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/050400.match.json",
+        "bytes": 223781,
+        "sha256": "7a3fb8863bdf7ef409f339fe2bbd5a9a5f9b7da8aa43069a5d0f4a4201f5d019"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/054000.match.json",
+        "bytes": 503765,
+        "sha256": "095f16b0893c2c0cfc7f8a55d50fd1748086209f2820d47f64e5ee40292dca45"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/057600.match.json",
+        "bytes": 389865,
+        "sha256": "b22b489358b6005efd8812cf8891394c6de4d8359d57313f192812fa6296ae42"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/061200.match.json",
+        "bytes": 260996,
+        "sha256": "4da26013280b1aa4f2dca946a6b5002dbe5895fcac4c4514c7530170bde950b9"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/064800.match.json",
+        "bytes": 231728,
+        "sha256": "bbecb174d21e70f7745144e386d4d3e370a60fb0411e694ce02eea60eeeddb02"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/068400.match.json",
+        "bytes": 422352,
+        "sha256": "da2552a623c64d1059c9e7e5c6a9242495e5d7a9f2cd29aad802d71ddd4bb9c8"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/072000.match.json",
+        "bytes": 222962,
+        "sha256": "5c6b65f65370a5e1ae13f517ecccff02570a3a327fad753114175ca8367b499d"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/075600.match.json",
+        "bytes": 224943,
+        "sha256": "bd20772b095e4a06296e8ae1e59fe31fb1dedd659dab91a21a923a28e80b7cd0"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/079200.match.json",
+        "bytes": 235982,
+        "sha256": "9737667aa5e6a34feb9ea8b8733627bfbaa898ecbfa92f035d9a38f10e39e5d7"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/082800.match.json",
+        "bytes": 279117,
+        "sha256": "ffc0fcf82b508b0418e979dea4cc3eab1e8745675ba1308d14007d2b4df153d6"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/086400.match.json",
+        "bytes": 196292,
+        "sha256": "d3d5d78fafbaebba345a8e477f518ca2bcca2d63dde50b55b99589e67f1e586d"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/090000.match.json",
+        "bytes": 217427,
+        "sha256": "556c0af6cceeef942aed3fe4606cf9a5338336200b0bc50532652f6e759bc9a0"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/093600.match.json",
+        "bytes": 401677,
+        "sha256": "ea18ad7add3de19ccc2102c7630a9e95370206a6a6155708831b19c7a5570934"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/097200.match.json",
+        "bytes": 229849,
+        "sha256": "3d02ff57b8fa4a3ff83b4b129987695e6cf86c20de607d520bea727f68fbed49"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/100800.match.json",
+        "bytes": 240547,
+        "sha256": "a9e7e8a5eb54ae585e7ddf341a16745dfad1a40a2c04a31f90a72da7e7fbb7e4"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/104400.match.json",
+        "bytes": 240773,
+        "sha256": "b118dc3035281431584f6b5eb22dd7f707711f788924f7783a8436268bd7fb80"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/108000.match.json",
+        "bytes": 227877,
+        "sha256": "343c9e221a1ef2340f3699bbec0952f8ea8ae30984c6c88cb0e78480b9df2131"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/111600.match.json",
+        "bytes": 236929,
+        "sha256": "b19e9807d58458d8abd6fb62d9f387ead405e40008630d3131d8030681e493c9"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/115200.match.json",
+        "bytes": 239295,
+        "sha256": "bfed3c4b42d159fbe533e3325d1c827e10842122e3cd613c92325dc0a1d7c9d8"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/118800.match.json",
+        "bytes": 237349,
+        "sha256": "02275979949362bbf5ed615a99ae8f3b06054e96bc47c518c555065799609f1c"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/122400.match.json",
+        "bytes": 521525,
+        "sha256": "9839288bbefb839408b5beb719dbbc10a89a3c63c077fc773e7b3b8e9849ba0d"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/126000.match.json",
+        "bytes": 234579,
+        "sha256": "06940e6c9154349bc50ae9575775b12c5fdf416ace8afa264c2db18d5030da71"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/129600.match.json",
+        "bytes": 228312,
+        "sha256": "4b8067dfac05d2793531a0a3ef05b5eb021a67d7155dd0db72fcd62586dd86e8"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/133200.match.json",
+        "bytes": 262583,
+        "sha256": "5e355b3ec5922ba88576808a3a00cd1ae99b375831eb0ff38a049aa1a3a537eb"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/136800.match.json",
+        "bytes": 239627,
+        "sha256": "d8ee07d27e836f8ceef19daddc5dc060136731713ba2ec5947ec9444aa0cee04"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/140400.match.json",
+        "bytes": 259594,
+        "sha256": "41369d9a1e63097c3e7e5ede4ae05dfeaa1afc5270e8a952fd412b3ce08c9940"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/144000.match.json",
+        "bytes": 354159,
+        "sha256": "50bb67e9ce7ef775b81c5ce1b3c574eea600301cedf77b1b3c319a0461ac3291"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/147600.match.json",
+        "bytes": 397828,
+        "sha256": "525145c29fe03602d9df0e41a68c6a4331a342573d1dd3a70e940ed22eafc6e9"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/151200.match.json",
+        "bytes": 279318,
+        "sha256": "5017d0c67bd1a517bc8e21220ded3d554b0f943869904e7f81ef10119f92278b"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/154800.match.json",
+        "bytes": 224719,
+        "sha256": "2b6261b62d437c51659744617047cbdd6bbb432ba262dfb4481f3672350b8e59"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/158400.match.json",
+        "bytes": 258442,
+        "sha256": "c18f3ad25dc192e733b6869d233b64a743af0ff7cc41e42eac590739f6c88a4b"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/162000.match.json",
+        "bytes": 245506,
+        "sha256": "0dc33b18cb736a26f28e34935be6a95453ab10bea0e4dae7dc4fda9855663b4c"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/165600.match.json",
+        "bytes": 235877,
+        "sha256": "63719221a78b4501c04a5d0ea47fa2f519846170e1165bf02770878e9fa96ed0"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/169200.match.json",
+        "bytes": 316486,
+        "sha256": "431648fbbf6097603de379c8d304913a73fcba50e41f4d14c05965875219b126"
+      },
+      {
+        "path": "artifacts/roster-rift/seed-26018/169409.match.json",
+        "bytes": 475521,
+        "sha256": "73a8e375339fa6eafbfa3b42b1c20d86b9523d64e7f91ece6316490d1275d463"
+      }
+    ],
+    "hundredSeedGate": false,
+    "nativeFidelityCertified": false
+  },
+  "production": {
+    "passed": true,
+    "recordings": 32,
+    "prefix": "/nested/rift/",
+    "developmentHook": false,
+    "rosterSelectorIgnored": true,
+    "unrequestedMasterYiPreloads": 0,
+    "unrequestedAhriPreloads": 0,
+    "unrequestedLeonaPreloads": 0,
+    "screenshot": {
+      "path": "artifacts/roster-rift/production.png",
+      "bytes": 1826207,
+      "sha256": "8ef80ea64e1f6dfe76edc8e486633ce0a21a3bb25da219c13e1a86302c333289"
+    }
+  },
+  "freshOfflineAcceptance": false,
+  "previousOfflineEvidence": "docs/reference/masteryi-bot-rift-verification.json",
+  "initialFixtureCorrection": {
+    "runtimeLearningUnchanged": true,
+    "incorrectExpectation": "Ashe learns Q at level one",
+    "correctExpectation": "Ashe uses her ordinary W opening; the other roster bots learn Q",
+    "originalResultRetained": true
+  },
+  "logs": [
+    {
+      "path": "artifacts/roster-rift/logs/audit-build.log",
+      "bytes": 281,
+      "sha256": "8ac4b934f90df9b79ba8f28e2ca0584a626c9eedecf647475af5a33754de8423"
+    },
+    {
+      "path": "artifacts/roster-rift/logs/audit.log",
+      "bytes": 867,
+      "sha256": "7a401d97098593d0672f2a70bd297944f86e77091b2693ec0f589dc1c0a1f579"
+    },
+    {
+      "path": "artifacts/roster-rift/logs/browser.log",
+      "bytes": 1462,
+      "sha256": "a8cc87551dc7aee56cda4233d8935ce95d34115f3249e4f0d75a25aa508b4651"
+    },
+    {
+      "path": "artifacts/roster-rift/logs/build.log",
+      "bytes": 7124,
+      "sha256": "f39407732147cd0094e0d49bafaf8d1d8af3cd011c1000f4a1ac9c70aaa27fdc"
+    },
+    {
+      "path": "artifacts/roster-rift/logs/focused.log",
+      "bytes": 170,
+      "sha256": "7d90583a2eb082f6dad7f5929b2bfc3f12d7e4d606c43f0775880adb178eaf8b"
+    },
+    {
+      "path": "artifacts/roster-rift/logs/format.log",
+      "bytes": 222,
+      "sha256": "03acd3e8f2569f067d6c320fc930f0e785609185d0b7b8a0d3945f34207b64a3"
+    },
+    {
+      "path": "artifacts/roster-rift/logs/full.log",
+      "bytes": 5894,
+      "sha256": "f507bfc6ecc7c4336e53f2596f103db1af711a63bf2d2e3acface0111eab2a76"
+    },
+    {
+      "path": "artifacts/roster-rift/logs/initial.log",
+      "bytes": 1086,
+      "sha256": "da89f36d36fa520f87ef9a50d5d36510de39c121b664a654336626457c76f366"
+    },
+    {
+      "path": "artifacts/roster-rift/logs/nodeqa.log",
+      "bytes": 2779,
+      "sha256": "84f2c23a861433d091839dc7eb6bced49c94dddeeee358660a70b8a2db69ba11"
+    },
+    {
+      "path": "artifacts/roster-rift/logs/production.log",
+      "bytes": 3073,
+      "sha256": "d0b2a653e7a07f96c53afa0f746065059b4fa5214f3cfb866efcc386e2484268"
+    },
+    {
+      "path": "artifacts/roster-rift/logs/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/roster-rift/logs/verification.log",
+      "bytes": 589,
+      "sha256": "11e5dc560a564cdae62441cb8d3d1ba301003ee10b13548f0cb06ca2a294b590"
+    }
+  ]
+}

@@ -41,6 +41,8 @@ export interface Battlefield extends TerrainQueries {
   developmentMasterYiRift?: true;
   /** Selects Yi NPC junglers within the trusted Yi Rift host; not admission by itself. */
   developmentMasterYiBots?: true;
+  /** Selects the combined development roster within all four trusted Rift hosts. */
+  developmentRosterBots?: true;
   id: 'practice-fixture' | 'rift';
   half: number;
   heightRange: readonly [number, number];

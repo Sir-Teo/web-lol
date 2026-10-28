@@ -6,7 +6,42 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
-The latest [personal feedback correction](PLAYER-FEEDBACK.md) prevents allied
+The latest [combined roster trial](ROSTER-RIFT.md), `/?scene=roster-rift`, adds
+Garen top, Yi jungle, Ahri mid and Leona support around an Ashe carry. Real Lux
+selection brings all six identities into one match. All four existing trusted
+Rift permissions and both NPC selectors are required. Normal and separate
+trials retain their assignments; the new mode has its own private save slot.
+
+All 41 focused checks, TypeScript, 29 Node QA cases, the build and **3,499/3,505
+broad unit cases across 412 files** pass, leaving the six known baseline failures.
+The clean browser case checks six portraits/ten roles, real Lux/Ashe choices,
+paid companions, a natural monster Alpha, exact in-flight Save/reload plus
+180-tick future, exact selected restart and preserved separate saves. Both
+source captures were reviewed with no page errors. The first new unit fixture
+expected Ashe Q incorrectly; it now checks her unchanged W opening, retaining
+that initial result.
+
+A frozen seed 26018 automates Lux mid and ends naturally in Red victory at
+47:03.5: 169,409 checked ticks, 48 exact round-trips, 47 original-future
+comparisons (2,820 ticks), 5,216 structure-damage checks and frozen valid victory.
+The independent verifier passes 49 snapshots and all 540 archived source pins,
+runner and maps. All six kits use Q/W/E/R in aggregate; Red Leona uses Q/W only
+under her existing held-target follow-up policy. Full support engages and the
+100-seed/full-browser/native/performance gates remain open.
+Schema remains 163; current rules fingerprint is
+`1e2014d2447c76d16f1b9fc55253e90e6bd49cfc4aff321c31d9ba7d14a05e5b`.
+Matching pack `2c9509b34aa7c0309cd064571c8da0ce62a5bcf044bed7f85fa69463df36ea86`
+contains 1,202 files / 538,103,525 bytes. Resource rules, public assets and
+champion controllers are unchanged.
+
+Nested production passes all 32 recordings and the exact combined-roster URL
+rejection with zero unrequested Ahri/Yi/Leona preloads. Fresh offline acceptance
+is not repeated for this private roster. See the
+[verification ledger](reference/roster-rift-verification.json). Next gameplay
+work is a supported Leona engage alongside an ally already fighting a visible
+target, preserving normal controllers, resources and observation boundaries.
+
+The preceding [personal feedback correction](PLAYER-FEEDBACK.md) prevents allied
 recalls/errors from replacing the player's status, allied queued movement from
 creating player click markers, and allied gold/level rewards from playing
 personal interface tones. Move events retain the issuing unit using the

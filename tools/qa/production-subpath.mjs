@@ -270,6 +270,13 @@ try {
     [],
     'The Ahri bot trial must not preload Ahri in production'
   );
+  await page.goto(`${base}?scene=roster-rift`);
+  await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
+  assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
+  assert.equal(await page.evaluate(() => !!window.__GAME__), false);
+  assert.deepEqual(masterYiPreviewRequests, [], 'The combined trial must not preload Yi');
+  assert.deepEqual(ahriPreviewRequests, [], 'The combined trial must not preload Ahri');
+  assert.deepEqual(leonaPreviewRequests, [], 'The combined trial must not preload Leona');
   assert.equal(
     recordings.size,
     29,
@@ -666,6 +673,7 @@ try {
       garenRiftTrialInProduction: false,
       masterYiRiftTrialInProduction: false,
       masterYiBotRiftTrialInProduction: false,
+      rosterRiftTrialInProduction: false,
       ahriRiftTrialInProduction: false,
       ahriBotRiftTrialInProduction: false,
       ahriNpcFixtureInProduction: false,

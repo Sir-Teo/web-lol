@@ -607,7 +607,7 @@ export class Hud {
         ? ('ashe' as const)
         : selectableChampion(this.world.hero.champion);
     const laneDescription = () =>
-      `Play ${chosenChampion === 'lux' ? 'Lux in mid' : 'Ashe in bottom lane'} with four allied bots against five opponents. Each team has top, jungle, mid, bottom and support assignments. Jungle bots use Smite and a companion. Ashe/Lux remain the interim roster; major objectives and complete team strategy are in development.`;
+      `Play ${chosenChampion === 'lux' ? 'Lux in mid' : 'Ashe in bottom lane'} with four allied bots against five opponents. Each team has top, jungle, mid, bottom and support assignments. Jungle bots use Smite and a companion. Ashe and Lux are selectable here; major objectives and complete team strategy are in development.`;
     const chosenSummoners = { ...this.world.player.summoners };
     const summonerChoices = () =>
       `<div class="summoner-selection" role="group" aria-label="Choose summoner spells">${(['d', 'f'] as const).map((slot) => `<fieldset><legend>${slot.toUpperCase()} spell</legend><div class="summoner-choices">${(Object.keys(SUMMONERS) as SummonerSpell[]).map((spell) => `<button class="menu-button" data-action="choose-summoner" data-summoner-slot="${slot}" data-spell="${spell}" aria-pressed="${chosenSummoners[slot] === spell}"><img src="assets/icons/${SUMMONERS[spell].icon}.png" alt="">${SUMMONERS[spell].name}</button>`).join('')}</div></fieldset>`).join('')}</div>`;
