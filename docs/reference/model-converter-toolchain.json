@@ -1,0 +1,238 @@
+{
+  "commit": "7fe8d5c9b82fd0a86ea682fced28f8021bb3e063",
+  "sdk": {
+    "version": "8.0.425",
+    "url": "https://builds.dotnet.microsoft.com/dotnet/Sdk/8.0.425/dotnet-sdk-8.0.425-linux-x64.tar.gz",
+    "bytes": 216833108,
+    "sha512": "934b8060a7190e5909ad1fd0785db542f487b3bbf6cdd14826b02095fdd0d0394298b1634085eff302928fccc33f7c1a7253e9b87df555fc36fce819bcd2e798",
+    "sha256": "ec2c55738f3aa16c58b2c0c565ce10ad6fea83925574a6f08c920ba62a39712b",
+    "releaseMetadataSha256": "e11dbb88706ea3ba9ac4e3b022f1ab9b49e7fcbe6448f63fa6764199b7cca822"
+  },
+  "packageHashScope": "Raw archive SHA512 matches NuGet cache sidecar; NuGet canonical content hash metadata matches lock. Signed archive hashes can differ from canonical content hashes.",
+  "packageLockSha256": "5423371fe38e83b050f7c50eaac4ac9f31db3e17718b53e67214f5d28159e543",
+  "packages": [
+    {
+      "target": "net8.0",
+      "name": "CommandLineParser",
+      "version": "2.9.1",
+      "bytes": 496069,
+      "rawArchiveSha512Base64": "TzZORclmjH58xqkitIjz+lIwM8INekMmlPCmrwXOUo6gSB2DdeL08QMsaZA0e0gDzpoOSAaMb+FexG+xJU8IXQ==",
+      "nugetContentHash": "OE0sl1/sQ37bjVsPKKtwQlWDgqaxWgtme3xZz7JssWUzg5JpMIyHgCTY9MVMxOg48fJ1AgGT3tgdH5m/kQ5xhA==",
+      "source": "https://api.nuget.org/v3/index.json"
+    },
+    {
+      "target": "net8.0",
+      "name": "LeagueToolkit",
+      "version": "4.0.0-beta.52",
+      "bytes": 316427,
+      "rawArchiveSha512Base64": "UHNXKuvhYT5OE7YwLNONZujYKOtDUFtflcA2tXFJ6R1Wp10ncR24rBG4Pg4I5LgI++Cbyo6YyVZSkd/WhskgqQ==",
+      "nugetContentHash": "tIPNHLr6BtdafXHDPNvmVde7VKyzicaBsADY9IKlDXZsiGYiL7C+1gw3oMc8Bj4Vvbq7zqUXghnVhLd40VuoKQ==",
+      "source": "https://api.nuget.org/v3/index.json"
+    },
+    {
+      "target": "net8.0",
+      "name": "LeagueToolkit.IO.Extensions",
+      "version": "4.0.0-beta.52",
+      "bytes": 66357,
+      "rawArchiveSha512Base64": "WvqIbOh7h2SBYqWrDEQNUurdwFD7bnPkwfeLoEpzX7leiTqp+e1EbDU31bQC/ROJYLdiI/h590vQP9Qn3RZTSA==",
+      "nugetContentHash": "lEw1FqD/T2rG6RTIE/NnigehOJ3S1wGl58O54ubuNeIrwyzvL6HwpP4A8tBATAJvJ20T1HFu2bp41+wvXjT6mA==",
+      "source": "https://api.nuget.org/v3/index.json"
+    },
+    {
+      "target": "net8.0",
+      "name": "SixLabors.ImageSharp",
+      "version": "3.1.12",
+      "bytes": 1059559,
+      "rawArchiveSha512Base64": "swk+TlKf+eAru05II5a+/9oNtxdKZKcaBBRtMbadw0mjq19q6Bl4VqglWnKnEqvw42ol3sg7DacMGxsKybBB7A==",
+      "nugetContentHash": "iAg6zifihXEFS/t7fiHhZBGAdCp3FavsF4i2ZIDp0JfeYeDVzvmlbY1CNhhIKimaIzrzSi5M/NBFcWvZT2rB/A==",
+      "source": "https://api.nuget.org/v3/index.json"
+    },
+    {
+      "target": "net8.0",
+      "name": "CommunityToolkit.Diagnostics",
+      "version": "8.3.2",
+      "bytes": 336441,
+      "rawArchiveSha512Base64": "gCXCUVwuDCNbn4BVO9tALh6XxeWXTncKfbcvfpHrADwD+booUQJDpk+x8bfjsE427/oIGdd4FusUH0JJGgJgOw==",
+      "nugetContentHash": "YyMsBE9lT0pJg2bEDzlfEWdlk6xHExW6jr1dxC7+YUqqVmOGL5nZROpxbXQRTe5TrfIs7BvkVsGULv/hq6tGIA==",
+      "source": "https://api.nuget.org/v3/index.json"
+    },
+    {
+      "target": "net8.0",
+      "name": "CommunityToolkit.HighPerformance",
+      "version": "8.3.2",
+      "bytes": 645247,
+      "rawArchiveSha512Base64": "pXQudnrzKRD1DCaC5W0ga//0P1e1Luf421/P5IOgOJVuYmhzdr0YvQnnEkCrut12NJZ1bZMLSo+EPIjK4O1BSw==",
+      "nugetContentHash": "1Os81ua0FmIOtiSgOk5C1KBraQ3SDfxs/7BG4qDagm48nGplr//lAVqLH9I2TLDVqRFdhqTUaEITFA5Ho/Ovkw==",
+      "source": "https://api.nuget.org/v3/index.json"
+    },
+    {
+      "target": "net8.0",
+      "name": "FlatSharp.Runtime",
+      "version": "7.7.0",
+      "bytes": 859749,
+      "rawArchiveSha512Base64": "TfIEPJF6hgQTQrkGpSN/ElR2zgZjAcNNt5MWXfSwqBc03g0PGLkRFFAElVv3Lb6IIP369/7H/2e9z3heCXGpfA==",
+      "nugetContentHash": "dqaxZ5cAQJB/D1IkZnQ36iuuh50Ld0JEbmKL5EM7Y6fxCaHZ4YFZj8hQH75rqt9zJsxOZ1mMaVpTRbF/U9bZpw==",
+      "source": "https://api.nuget.org/v3/index.json"
+    },
+    {
+      "target": "net8.0",
+      "name": "LeagueToolkit.Meta.Classes",
+      "version": "4.0.0-beta.52",
+      "bytes": 1094642,
+      "rawArchiveSha512Base64": "MeLnIuByDIwMv1M5syWlNiQuhWVGmBvTHQzAWVFfDNWYh/dTDVonz937HKI89TJBTe74vEdmvPm/7YZYJ1yneg==",
+      "nugetContentHash": "j3oaI2RNx7wTRRT3JcMKOPZpdpAqsRB6XFKvBclWO2WeDwXgs/f7sejdkvHesjcm/baa1r/3KaFnoWV0n4iA+Q==",
+      "source": "https://api.nuget.org/v3/index.json"
+    },
+    {
+      "target": "net8.0",
+      "name": "SharpGLTF.Core",
+      "version": "1.0.3",
+      "bytes": 777605,
+      "rawArchiveSha512Base64": "q3Y/ftHBghVUpzKUqKgn+MKAd3FSkABV5XkXU3ZqYvOrV/3KlfERFJgrlnu6MJPejRV48GlQdir4g6IVzsHWug==",
+      "nugetContentHash": "su+Flcg2g6GgOIgulRGBDMHA6zY5NBx6NYH1Ayd6iBbSbwspHsN2VQgZfANgJy92cBf7qtpjC0uMiShbO+TEEg==",
+      "source": "https://api.nuget.org/v3/index.json"
+    },
+    {
+      "target": "net8.0",
+      "name": "SharpGLTF.Runtime",
+      "version": "1.0.3",
+      "bytes": 208731,
+      "rawArchiveSha512Base64": "1NgpInwZJ3H/quonFfgfVKgAjxTA8YmgKl3F19rVUVgPIDLViQD2+DWOo109xVGZw40WKETAXziFrYwqfe2NQw==",
+      "nugetContentHash": "W0bg2WyXlcSAJVu153hNUNm+BU4RP46yLwGD4099hSm8dsXG/H+J95PBoLJbIq8KGVkUWvfM0+XWHoEkCyd50A==",
+      "source": "https://api.nuget.org/v3/index.json"
+    },
+    {
+      "target": "net8.0",
+      "name": "SharpGLTF.Toolkit",
+      "version": "1.0.3",
+      "bytes": 730404,
+      "rawArchiveSha512Base64": "n6p66wbjn1J1/DiqXglstguo2n8Lv4fsbh3TIZOsk9NcD8AZiL55fn4laCdQnxN2zcl8Rjv20MfHE2+O5sG+jQ==",
+      "nugetContentHash": "vkEuf8ch76NNgZXU/3zoXTIXRO0o14H3aRoSFzcuUQb0PTxvV6jEfmWkUVO6JtLDuFCIimqZaf3hdxr32ltpfQ==",
+      "source": "https://api.nuget.org/v3/index.json"
+    },
+    {
+      "target": "net8.0",
+      "name": "System.IO.Hashing",
+      "version": "8.0.0",
+      "bytes": 203635,
+      "rawArchiveSha512Base64": "hCsd/0sdy0hGifJEqTsfZfqU2nCC0Rc2plCA5mk1PN1qlcoYIUuaeclLY1/ozsEwV7Db8Na41npKearKXHU07A==",
+      "nugetContentHash": "ne1843evDugl0md7Fjzy6QjJrzsjh46ZKbhf8GwBXb5f/gw97J4bxMs0NQKifDuThh/f0bZ0e62NPl1jzTuRqA==",
+      "source": "https://api.nuget.org/v3/index.json"
+    },
+    {
+      "target": "net8.0",
+      "name": "System.Memory",
+      "version": "4.5.5",
+      "bytes": 208978,
+      "rawArchiveSha512Base64": "6MjlNsl7lKw0Q8lAsw2tQ89ul9x6jD2Yk3EEj+dOFoYGOE9eAUO9wNhvd4O/n97oQXlkyzqKXXUnE+kLElFy3A==",
+      "nugetContentHash": "XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw==",
+      "source": "https://api.nuget.org/v3/index.json"
+    },
+    {
+      "target": "net8.0",
+      "name": "ZstdSharp.Port",
+      "version": "0.8.1",
+      "bytes": 1211068,
+      "rawArchiveSha512Base64": "se/fJ+LE7xM4dpUxhwHS8DROQZWzZMs3MGF2bcgmnXJ2rcCiKCyA2QDph7soErYohHJYeECavuul95bNgTldhQ==",
+      "nugetContentHash": "19tNz33kn2EkyViFXuxfVn338UJaRmkwBphVqP2dVJIYQUQgFrgG5h061mxkRRg1Ax6r+6WOj1FxaFZ5qaWqqg==",
+      "source": "https://api.nuget.org/v3/index.json"
+    }
+  ],
+  "output": [
+    {
+      "file": ".tools/converter/BCnEncoder.dll",
+      "bytes": 263680,
+      "sha256": "a0fb04fc634d3e6d6f5afbae95f103bdda9a694d3554dd408b66152d87b83f46"
+    },
+    {
+      "file": ".tools/converter/CommandLine.dll",
+      "bytes": 225280,
+      "sha256": "8a55501cd1a1590a4bd93a17c6fdd2c01a0ed5bff1aea9036bdc78d98c9a3fad"
+    },
+    {
+      "file": ".tools/converter/CommunityToolkit.Diagnostics.dll",
+      "bytes": 107304,
+      "sha256": "a9295b93450798607d84a7c29ed3ae0c9988a9e3cf52e08ca2c50288a975c2b0"
+    },
+    {
+      "file": ".tools/converter/CommunityToolkit.HighPerformance.dll",
+      "bytes": 119592,
+      "sha256": "8caf84c9dbe518dcb4fe7204cf163861a534718b1e07d3b9b36dc5af73d45976"
+    },
+    {
+      "file": ".tools/converter/FlatSharp.Runtime.dll",
+      "bytes": 529408,
+      "sha256": "4590ae98cd7234f69cc25f97941780e9f42257612712c32dd16ff91ac0a7b9e7"
+    },
+    {
+      "file": ".tools/converter/LeagueToolkit.IO.Extensions.dll",
+      "bytes": 76288,
+      "sha256": "9c43866b96b392cb354e4e3c01540dd6d3f15d431bdd0db7b4f47a6933218a04"
+    },
+    {
+      "file": ".tools/converter/LeagueToolkit.Meta.Classes.dll",
+      "bytes": 3300864,
+      "sha256": "dfc861c94f43948407c1639836f7b5d6f92214922fa46a63285cdf38112fb682"
+    },
+    {
+      "file": ".tools/converter/LeagueToolkit.dll",
+      "bytes": 417792,
+      "sha256": "fcf44e3094da754854ce6497cef8bcf9536e3cbde00ef2cc597efeb95db3b290"
+    },
+    {
+      "file": ".tools/converter/SharpGLTF.Core.dll",
+      "bytes": 384000,
+      "sha256": "5bb3fe117f1787be46240a6a461bfd26cc97507c673a31b4b9d3ea888a1a46c0"
+    },
+    {
+      "file": ".tools/converter/SharpGLTF.Runtime.dll",
+      "bytes": 78336,
+      "sha256": "12a4be1feed2155b1402f5ffb11af3e019e010e863229b5e58a973094ea21ff2"
+    },
+    {
+      "file": ".tools/converter/SharpGLTF.Toolkit.dll",
+      "bytes": 386048,
+      "sha256": "9b5d7448dd4582cff3ef4abe31d0098de0c66071d4fff9a9a5fbfda853c9159e"
+    },
+    {
+      "file": ".tools/converter/SixLabors.ImageSharp.dll",
+      "bytes": 2100736,
+      "sha256": "609a57965d0a7b5ccfb79d919ea7384e7ec86c03266b0390a19bd5f2104bc353"
+    },
+    {
+      "file": ".tools/converter/System.IO.Hashing.dll",
+      "bytes": 55560,
+      "sha256": "53726755857b538b3676cabc39989874be072028fd5b39360a7580d73a14e562"
+    },
+    {
+      "file": ".tools/converter/ZstdSharp.dll",
+      "bytes": 409600,
+      "sha256": "5d597fb07c93f99bcbbcf1265bfc60de1f1f8fc070a3acc36f0371a86c326b16"
+    },
+    {
+      "file": ".tools/converter/lol2gltf",
+      "bytes": 72568,
+      "sha256": "137a2729d9142c115acbba7283211b18e87b16362e07b2a2c6656b2fe167b40c"
+    },
+    {
+      "file": ".tools/converter/lol2gltf.deps.json",
+      "bytes": 8992,
+      "sha256": "fad7050e6a351bb5324d93b626bd90ff9debb15345819276942b01d4c49eec0e"
+    },
+    {
+      "file": ".tools/converter/lol2gltf.dll",
+      "bytes": 15360,
+      "sha256": "116c6dbefc5199a7817b3e5ecd207d1c4afaedc8c84ecc19ffa806db59c310e9"
+    },
+    {
+      "file": ".tools/converter/lol2gltf.pdb",
+      "bytes": 14452,
+      "sha256": "2edefdd98512369cb4b4b4789b39ed1f73acc555f7659418903747f123cda80a"
+    },
+    {
+      "file": ".tools/converter/lol2gltf.runtimeconfig.json",
+      "bytes": 328,
+      "sha256": "97c9700542b659150b230c3578b29530fd76ab01ec66a92cd16945e0245713df"
+    }
+  ]
+}

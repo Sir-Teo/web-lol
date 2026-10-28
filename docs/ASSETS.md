@@ -74,6 +74,30 @@ The extractor rejects changes to the pinned manifest, compressed chunks, or extr
 
 The browser suite includes a six-model gallery, distinct mixer behavior, complete death playback and removal, and attack-windup cancellation. Screenshot evidence is stored locally in `artifacts/browser-minion-gallery.png`.
 
+## Isolated Linux converter restoration
+
+The [epic-model pipeline](EPIC-MODELS.md) restores .NET SDK 8.0.425 / runtime
+8.0.31 under `.tools/dotnet` from Microsoft's Linux x64 archive, with the full
+SHA-512 in the [toolchain inventory](reference/model-converter-toolchain.json).
+The pinned lol2gltf checkout retains only the documented ImageSharp 3.1.12
+selection and its resulting package lock. NuGet package metadata and raw archive
+sidecars are recorded separately. Build-time advisories remain in the retained
+log. No global SDK or application dependency changes.
+
+```sh
+DOTNET_CLI_HOME="$PWD/.cache/dotnet-cli" \
+NUGET_PACKAGES="$PWD/.cache/nuget" \
+DOTNET_CLI_TELEMETRY_OPTOUT=1 \
+.tools/dotnet/dotnet publish .tools/lol2gltf/src/lol2gltf/lol2gltf.csproj \
+  -c Release -r linux-x64 -o .tools/converter --self-contained false \
+  -p:PublishReadyToRun=false -p:PublishSingleFile=false
+```
+
+The new epic conversions repeat exactly on this host. For existing Blue,
+the unmodified and updated converters agree exactly here, while both differ
+from the retained shipped binary. Existing public models stay unchanged;
+this restoration does not establish binary portability across hosts.
+
 ## Full map extraction
 
 The separate [map pipeline](MAP-ASSETS.md) now extracts pinned terrain, materials, textures, and navigation from this archive. `/map.html` provides a full-map inspection scene with original GPU-compressed textures and a navigation overlay. The playable simulation uses this terrain, source-grid collision and sight, bilinear elevation, authored fountain and turret positions, and three lane routes. The original small terrain is retained only as an explicit development regression fixture.

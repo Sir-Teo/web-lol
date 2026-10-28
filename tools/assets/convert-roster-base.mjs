@@ -23,39 +23,60 @@ if (
     'SRU_KrugMiniMini',
     'Sru_Crab',
     'SRU_Jungle_Companions',
+    'SRU_Baron',
+    'SRU_RiftHerald',
+    'SRU_Horde',
     'SightWard',
     'OracleLens',
   ].includes(champion)
 )
-  throw new Error('Expected a supported champion or ordinary jungle base rig');
+  throw new Error('Expected a supported champion, jungle or epic-objective base rig');
 const ward = champion === 'SightWard';
 const oracle = champion === 'OracleLens';
 const jungle = /^sru_/i.test(champion);
 const companion = champion === 'SRU_Jungle_Companions';
-const skinIndex = Number(process.argv[3] ?? 0);
+const epic = ['SRU_Baron', 'SRU_RiftHerald', 'SRU_Horde'].includes(champion);
+const options = process.argv.slice(3);
+const skinIndex = Number(
+  options[0] !== undefined && !options[0].startsWith('--') ? options.shift() : 0
+);
 if (!Number.isInteger(skinIndex) || skinIndex < 0 || skinIndex > (companion ? 2 : 0))
   throw new Error('Unsupported source skin index');
+let outputDirectory = 'public/assets/models';
+if (options.length) {
+  if (options.length !== 2 || options[0] !== '--output-dir')
+    throw new Error('Use an optional skin index followed by --output-dir <relative directory>');
+  outputDirectory = options[1].replace(/\/+$/, '');
+  if (
+    !/^[a-zA-Z0-9._/-]+$/.test(outputDirectory) ||
+    outputDirectory.split('/').some((part) => !part || part === '.' || part === '..')
+  )
+    throw new Error('Output directory must stay relative to the project');
+}
+const outputUrl = `/${outputDirectory.replace(/^public(?:\/|$)/, '')}`.replace(/\/$/, '');
 const sourceSlug = champion.toLowerCase();
 const slug = oracle
   ? 'oracle-lens'
   : sourceSlug.replaceAll('_', '-') + (companion ? `-skin${skinIndex}` : '');
-const sourceGroup = oracle
-  ? 'oracle-lens'
-  : ward
-    ? 'warding-totem'
-    : champion === 'SRU_Red'
-      ? 'red-brambleback'
-      : champion.startsWith('SRU_Murkwolf')
-        ? 'wolf-camps'
-        : champion.startsWith('SRU_Razorbeak')
-          ? 'raptor-camps'
-          : champion.startsWith('SRU_Krug')
-            ? 'krug-camps'
-            : champion === 'Sru_Crab'
-              ? 'scuttler'
-              : companion
-                ? 'jungle-companions'
-                : null;
+const sourceGroup = epic
+  ? 'epic-models'
+  : oracle
+    ? 'oracle-lens'
+    : ward
+      ? 'warding-totem'
+      : champion === 'SRU_Red'
+        ? 'red-brambleback'
+        : champion.startsWith('SRU_Murkwolf')
+          ? 'wolf-camps'
+          : champion.startsWith('SRU_Razorbeak')
+            ? 'raptor-camps'
+            : champion.startsWith('SRU_Krug')
+              ? 'krug-camps'
+              : champion === 'Sru_Crab'
+                ? 'scuttler'
+                : companion
+                  ? 'jungle-companions'
+                  : null;
 const pinBytes = await readFile(
   sourceGroup
     ? `docs/reference/${sourceGroup}-source.json`
@@ -105,12 +126,58 @@ const skin = oracle
       texture: oracleEmitter.texture,
     }
   : pin.skin.data[`Characters/${champion}/Skins/Skin${skinIndex}`].skinMeshProperties;
+const bindingBytes = epic ? await readFile('docs/reference/epic-models-bindings.json') : null;
+const bindingAudit = bindingBytes ? JSON.parse(bindingBytes) : null;
+const unboundSourceAnimations = [];
+if (epic) {
+  if (
+    bindingAudit.sourcePinSha256 !== hash(pinBytes) ||
+    bindingAudit.helperSha256 !==
+      hash(await readFile('tools/assets/inspect-animation-bindings.cs')) ||
+    bindingAudit.toolkitSha256 !== hash(await readFile('.tools/converter/LeagueToolkit.dll'))
+  )
+    throw new Error('Animation binding audit source/toolchain differs');
+  const model = bindingAudit.models.find((model) => model.name === champion);
+  const skeleton = pin.extraction.files.find((file) => file.path === skin.skeleton.toLowerCase());
+  if (!model || model.skeletonSha256 !== skeleton.sha256)
+    throw new Error('Animation binding skeleton differs');
+  const byState = new Map(model.clips.map((clip) => [clip.state, clip]));
+  if (byState.size !== Object.keys(pin.atomicClips).length)
+    throw new Error('Animation binding graph coverage differs');
+  const joints = new Map(model.joints.map((joint) => [joint.hash, joint.name]));
+  for (const [state, source] of Object.entries(pin.atomicClips)) {
+    const clip = byState.get(state);
+    const file = pin.extraction.files.find((file) => file.path === source);
+    if (!clip || clip.source !== source || clip.sha256 !== file.sha256)
+      throw new Error('Animation binding clip source differs');
+    const matched = clip.sourceJointHashes
+      .filter((hash) => joints.has(hash))
+      .map((hash) => joints.get(hash));
+    if (
+      !clip.sourceJointHashes.length ||
+      JSON.stringify(matched) !== JSON.stringify(clip.matchedRigJoints) ||
+      clip.unbound !== (matched.length === 0)
+    )
+      throw new Error('Animation binding classification differs');
+    if (clip.unbound)
+      unboundSourceAnimations.push({
+        state,
+        source,
+        sourceSha256: clip.sha256,
+        durationSeconds: clip.duration,
+        sourceJointHashes: clip.sourceJointHashes,
+        status:
+          'No matching joint hashes in this source skeleton at the audited source-frame times; no glTF motion synthesized.',
+      });
+  }
+}
 const base = `.cache/${slug}-current-converted`;
 await mkdir(base, { recursive: true });
 await rm(`${base}/animations`, { recursive: true, force: true });
 await mkdir(`${base}/animations`);
 const clips = [];
 for (const [state, source] of Object.entries(pin.atomicClips)) {
+  if (unboundSourceAnimations.some((clip) => clip.state === state)) continue;
   const name = state.startsWith('{') ? `entry_${state.slice(1, -1)}` : state.toLowerCase();
   await copyFile(`${root}/${source}`, `${base}/animations/${name}.anm`);
   clips.push({ name, state, source });
@@ -221,6 +288,13 @@ for (const clip of clips) {
   clip.durationSeconds = Math.max(
     ...animation.listSamplers().map((s) => Math.max(...s.getInput().getArray()))
   );
+  if (epic) {
+    const source = bindingAudit.models
+      .find((model) => model.name === champion)
+      .clips.find((source) => source.state === clip.state);
+    clip.sourceDurationSeconds = source.duration;
+    clip.sourceFramesPerSecond = source.fps;
+  }
 }
 doc
   .getRoot()
@@ -233,19 +307,22 @@ const { validateBytes } = await import('gltf-validator');
 const validation = await validateBytes(bytes);
 if (validation.issues.numErrors || validation.issues.numWarnings)
   throw new Error(JSON.stringify(validation.issues));
-await mkdir('public/assets/models', { recursive: true });
-await writeFile(`public/assets/models/${slug}-base.glb`, bytes);
+await mkdir(outputDirectory, { recursive: true });
+await writeFile(`${outputDirectory}/${slug}-base.glb`, bytes);
 const manifest = {
   ...(companion ? { sourceSkinIndex: skinIndex } : {}),
   referenceVersion: pin.extraction.referenceVersion,
-  status: oracle
-    ? 'Pinned skinned particle mesh and its single authored animation. No character skin or graph is implied; emitter transform, lifetime/material dispatch and native visual calibration remain separate.'
-    : 'Pinned base skin mesh and all atomic clips; animation graph transitions, events, locomotion selection and reference lighting/pose calibration remain unfinished.',
+  status: epic
+    ? 'Pinned base skin and every atomic entry with applicable rig channels. Unbound source entries are retained separately; native dispatch and rendering remain unverified.'
+    : oracle
+      ? 'Pinned skinned particle mesh and its single authored animation. No character skin or graph is implied; emitter transform, lifetime/material dispatch and native visual calibration remain separate.'
+      : 'Pinned base skin mesh and all atomic clips; animation graph transitions, events, locomotion selection and reference lighting/pose calibration remain unfinished.',
   ...(oracle
     ? { sourceEmitter: oracleEmitter, sourceSystem: 'Items/3364/Particles/3364_Buff' }
     : {}),
-  output: { path: `/assets/models/${slug}-base.glb`, bytes: bytes.length, sha256: hash(bytes) },
+  output: { path: `${outputUrl}/${slug}-base.glb`, bytes: bytes.length, sha256: hash(bytes) },
   definitionsSha256: hash(pinBytes),
+  ...(epic ? { bindingAuditSha256: hash(bindingBytes), unboundSourceAnimations } : {}),
   sourceManifest: pin.extraction.manifest,
   sourceArchive: pin.extraction.archive,
   sources: pin.extraction.files,
@@ -270,7 +347,7 @@ const manifest = {
     ),
   bones: doc.getRoot().listSkins()[0].listJoints().length,
 };
-await writeFile(`public/assets/models/${slug}-base.json`, JSON.stringify(manifest, null, 2) + '\n');
+await writeFile(`${outputDirectory}/${slug}-base.json`, JSON.stringify(manifest, null, 2) + '\n');
 console.log(
   JSON.stringify({
     bytes: bytes.length,

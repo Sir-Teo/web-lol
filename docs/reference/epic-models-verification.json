@@ -1,0 +1,655 @@
+{
+  "date": "2026-10-28",
+  "previousCommit": "8aba1e6",
+  "schema": 163,
+  "ruleset": "abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f",
+  "simulationFingerprintUnchanged": true,
+  "publicMediaUnchanged": true,
+  "productionBytesIdentical": true,
+  "source": {
+    "file": "docs/reference/epic-models-source.json",
+    "bytes": 1181245,
+    "sha256": "193ac8c3693acb846601bca8b623eb906f9587ed2fad0fe984e3fba7c86a4b2b"
+  },
+  "bindings": {
+    "file": "docs/reference/epic-models-bindings.json",
+    "bytes": 863308,
+    "sha256": "33ee7e592e5d63f6e681222a1c21b25a608dd053e95dec7e3537bec5a0d3c0fd"
+  },
+  "toolchain": {
+    "file": "docs/reference/model-converter-toolchain.json",
+    "bytes": 10107,
+    "sha256": "fa4d9310908b00703907f69672b9fc61cd6fd2fc545145a65d0895a2c4c3966d"
+  },
+  "sources": [
+    {
+      "file": "tools/assets/extract-epic-models.py",
+      "bytes": 9072,
+      "sha256": "a73c2b76d89ee17325bdba5068a35a33d551f214c12ba6fc619246d07b365156"
+    },
+    {
+      "file": "tools/assets/convert-roster-base.mjs",
+      "bytes": 14821,
+      "sha256": "77542d38ea91bb3f3e795da99f1bab96f239d055ba23d095010024469650c10d"
+    },
+    {
+      "file": "tools/assets/inspect-animation-bindings.cs",
+      "bytes": 3318,
+      "sha256": "b3a7075922ed44cdc482e46f2340e3255ea3bcfadf3f930a29db11192ff55e36"
+    },
+    {
+      "file": "tools/assets/inspect-animation-bindings.mjs",
+      "bytes": 3844,
+      "sha256": "6c11ec83ad46bfdf40b3f623950d4996d350256601b211e1116137c704b083f9"
+    },
+    {
+      "file": "tools/qa/jungle-characters.ts",
+      "bytes": 13844,
+      "sha256": "4b3515bc4b42b525ec9e51c745e58a528cd67291708a9ca9fae39b624c6ebd1c"
+    },
+    {
+      "file": "tools/qa/jungle-characters.html",
+      "bytes": 5150,
+      "sha256": "1b1e2c4cd0f479ceab809d042fe27ea44a6bd42b1ef7eb8c88c05b7d2d39c294"
+    },
+    {
+      "file": "e2e/epic-character-preview.spec.ts",
+      "bytes": 7088,
+      "sha256": "f82639368099f06d11887a218cf91977969c5b662a514a6e52b7ce420a6784e4"
+    },
+    {
+      "file": "e2e/jungle-characters.spec.ts",
+      "bytes": 12362,
+      "sha256": "f25129e9a5f08d779f254e928d9c8783afe359817e2ba54742c8d291a7371e1d"
+    }
+  ],
+  "checks": {
+    "originalFiles": 138,
+    "originalBytes": 10479726,
+    "separateCacheExact": true,
+    "bindingReproductionExact": true,
+    "sourceGraphEntries": 144,
+    "boundGLTFClips": 140,
+    "unboundSourceEntries": 4,
+    "independentGLTFErrors": 0,
+    "independentGLTFWarnings": 0,
+    "independentGLTFInfos": 0,
+    "threeRepeatedGLBsExact": true,
+    "browserPassed": 6,
+    "browserTotal": 6,
+    "retries": 0,
+    "reviewedCaptures": 3,
+    "typescriptPreview": true,
+    "format": true,
+    "build": true,
+    "corruptSourcePreservedAndRejected": true,
+    "deletedAnimationRestored": true,
+    "editedBindingRejected": true,
+    "escapingOutputRejected": true,
+    "unknownOptionRejected": true
+  },
+  "iterationHistory": [
+    "Initial extraction resolves diffuse hashes but fails on hashed ANM paths; full finite label resolution fixes it.",
+    "Strict Grub conversion catches four missing clips; full source-frame binding inspection identifies thirteen unmatched source hashes for each. Metadata retains them separately; every bound clip remains required.",
+    "Existing selector-count assertion expected fourteen identities; updated exact count and appended source identities cover twenty-five. Original deadlines remain unchanged."
+  ],
+  "models": [
+    {
+      "name": "SRU_Baron",
+      "bytes": 13473732,
+      "sha256": "5d9cd6632d191270a94d976e284458145f9fa9e445165eaadb304e2892fff417",
+      "triangles": 22296,
+      "bones": 131,
+      "clips": 85,
+      "unbound": 0,
+      "errors": 0,
+      "warnings": 0,
+      "infos": 0,
+      "hidden": [
+        "Horn",
+        "Eye"
+      ],
+      "maxDurationDelta": 0.033333420753479004
+    },
+    {
+      "name": "SRU_RiftHerald",
+      "bytes": 3539904,
+      "sha256": "0fa0c3ce4eca9914f836fe5fe240f9840480398d7212872ca7f673863b48c1c8",
+      "triangles": 14373,
+      "bones": 76,
+      "clips": 27,
+      "unbound": 0,
+      "errors": 0,
+      "warnings": 0,
+      "infos": 0,
+      "hidden": [],
+      "maxDurationDelta": 0.03333333134651184
+    },
+    {
+      "name": "SRU_Horde",
+      "bytes": 2007068,
+      "sha256": "79d467db9b9d573d92016e6cf5398bd550bc20e0566cea491c2cef0d4e1e9ff6",
+      "triangles": 5662,
+      "bones": 67,
+      "clips": 28,
+      "unbound": 4,
+      "errors": 0,
+      "warnings": 0,
+      "infos": 0,
+      "hidden": [],
+      "maxDurationDelta": 0.03333333134651184
+    }
+  ],
+  "durationScope": "Manifests retain nominal decoder source duration/FPS alongside glTF last-key span. Largest difference is one 30Hz frame; native ending and transition timing remain unverified.",
+  "legacyScope": {
+    "status": "passed",
+    "sourcePinExact": true,
+    "legacyBlueGLBExact": false,
+    "convertedSha256": "7cf34eedfb7fe54634f1cdf234e14c9d593b44640a590301218d59ed29c7aec1",
+    "existingSha256": "965d1d125f3aec5e19178fc4f286b9b132ee17f8ad12a22b94f24003bf69604c",
+    "convertedBytes": 2400224,
+    "existingBytes": 2400224,
+    "existingMediaUnchanged": true,
+    "sameHostOriginalConverterExact": true,
+    "originalConverterSha256": "f3b058350412486746a4e5dc3deb80f2409b35f1780929993dd564592921abf4",
+    "comparisonScope": "Unmodified 8aba1e6 converter versus current converter on the same Linux host/toolchain: exact. Existing shipped GLB differs and remains unchanged."
+  },
+  "pack": {
+    "id": "6e09abbd2512ff34eb8e0c578aac9d45d226ae1fd3c2e0670bf18e454c54fcde",
+    "files": 1202,
+    "bytes": 538116691,
+    "freshProductionBrowser": false,
+    "sameBytesAs": "docs/reference/held-movement-verification.json"
+  },
+  "outputs": [
+    {
+      "file": ".cache/epic-model-previews/sru-baron-base.json",
+      "bytes": 61828,
+      "sha256": "d4c71e703c0cd79aa8ac0cc5ca353ca18de8fe5bef8d059402b255628b44b37a"
+    },
+    {
+      "file": ".cache/epic-model-previews/sru-baron-base.glb",
+      "bytes": 13473732,
+      "sha256": "5d9cd6632d191270a94d976e284458145f9fa9e445165eaadb304e2892fff417"
+    },
+    {
+      "file": ".cache/epic-model-previews/sru-riftherald-base.json",
+      "bytes": 44507,
+      "sha256": "919cdaa416df86bf48da7f9a852eb1944fe91d8a7ab9f229f750abc2741c6e0b"
+    },
+    {
+      "file": ".cache/epic-model-previews/sru-riftherald-base.glb",
+      "bytes": 3539904,
+      "sha256": "0fa0c3ce4eca9914f836fe5fe240f9840480398d7212872ca7f673863b48c1c8"
+    },
+    {
+      "file": ".cache/epic-model-previews/sru-horde-base.json",
+      "bytes": 47365,
+      "sha256": "f516873084398522cbbdcba1719a43e832be06591f754898af9981c6fe4d978d"
+    },
+    {
+      "file": ".cache/epic-model-previews/sru-horde-base.glb",
+      "bytes": 2007068,
+      "sha256": "79d467db9b9d573d92016e6cf5398bd550bc20e0566cea491c2cef0d4e1e9ff6"
+    }
+  ],
+  "inherited": {
+    "freshBroadUnit": false,
+    "freshNodeQA": false,
+    "freshMatches": false,
+    "freshOffline": false,
+    "nativeCalibration": false
+  },
+  "evidence": [
+    {
+      "file": "artifacts/epic-models/bindings-reproduction.json",
+      "bytes": 609,
+      "sha256": "1f3b1fa58bb834c26064144baff8d31c5e8b2c359f1d7e70444ab123c39a01b2"
+    },
+    {
+      "file": "artifacts/epic-models/bindings.json",
+      "bytes": 609,
+      "sha256": "1f3b1fa58bb834c26064144baff8d31c5e8b2c359f1d7e70444ab123c39a01b2"
+    },
+    {
+      "file": "artifacts/epic-models/changed-binding-rejected.log",
+      "bytes": 292,
+      "sha256": "c62cab70d448753beb1114a21c0ada3d530ec21352d9c45fd232173ea64fb868"
+    },
+    {
+      "file": "artifacts/epic-models/check-conversion.py",
+      "bytes": 1983,
+      "sha256": "97fdcea8fbb3e88f41331e6d173039b35c0fb4b350c20961087f8697939b906a"
+    },
+    {
+      "file": "artifacts/epic-models/check-extraction.py",
+      "bytes": 1668,
+      "sha256": "ebc1c24cbbdd2ee12f6ab9f5d9d353bcb953a22279abd6a7d3cb5f7ee91a316d"
+    },
+    {
+      "file": "artifacts/epic-models/conversion-rejection-checks.json",
+      "bytes": 386,
+      "sha256": "5e42abb4139fefdc458ce1b0217226d1ed77af011a6f8425f333ab38f8996fd1"
+    },
+    {
+      "file": "artifacts/epic-models/convert-baron-final.log",
+      "bytes": 3220,
+      "sha256": "7cd889d0e83452b205845c586c5c77cd21d8bb8e0f8b3c188c5304a9f4311a1b"
+    },
+    {
+      "file": "artifacts/epic-models/convert-herald-final.log",
+      "bytes": 1021,
+      "sha256": "abcd3d94dca4367b8d498e0be5361c5dea509e63c536a50f80d05df8a4975ebc"
+    },
+    {
+      "file": "artifacts/epic-models/convert-horde-final.log",
+      "bytes": 1153,
+      "sha256": "ae31a1bcd56cf7dab4be4adaaed44ce3c5931f2ff5bb0ef45d22c6229d032b33"
+    },
+    {
+      "file": "artifacts/epic-models/converter-publish.log",
+      "bytes": 3482,
+      "sha256": "db086462dbdb2d32f605f48d5cab220cd41ed15f723441b8ca10cf181bd46ee1"
+    },
+    {
+      "file": "artifacts/epic-models/corrupt-source-rejected.json",
+      "bytes": 202,
+      "sha256": "cc57d43fbf4d7aad07b2a926256a0c6ad027b03ee291029769c913c39f02fecc"
+    },
+    {
+      "file": "artifacts/epic-models/corrupt-source-rejected.log",
+      "bytes": 701,
+      "sha256": "1b38e54daa96b57569e501cfd13f250d74cb0720d828e0c3d8a4d4b1032c76a2"
+    },
+    {
+      "file": "artifacts/epic-models/definitions.json",
+      "bytes": 1071193,
+      "sha256": "908979a1262f66ea7e53be7521681142ba3a467a087c27cbf54887df5d592e18"
+    },
+    {
+      "file": "artifacts/epic-models/deleted-source-recovered.json",
+      "bytes": 346,
+      "sha256": "718853f4b77358b8369440d688d24bcc891912b8cf96a2c3bec991feaaead43c"
+    },
+    {
+      "file": "artifacts/epic-models/deleted-source-recovered.log",
+      "bytes": 304,
+      "sha256": "ee58827db555237690d6e290d4748ba926e0c509abe3fc4e6a33c876a25dba50"
+    },
+    {
+      "file": "artifacts/epic-models/dictionary-discovery.json",
+      "bytes": 475,
+      "sha256": "75c368d1e378e3fe831fb15c594fd4b636ff3a3cc4a24d1af885c5654bba9428"
+    },
+    {
+      "file": "artifacts/epic-models/discovery-complete.json",
+      "bytes": 347,
+      "sha256": "4824e71c68d49c73c54f93d7883a1fbee5e2de3a65e2074beb8bfb0ab7a6062e"
+    },
+    {
+      "file": "artifacts/epic-models/discovery-initial.log",
+      "bytes": 601,
+      "sha256": "c1785e39c3b3e805b89d7e356d0dbe587c69e33e2c06263990e56e46eb611695"
+    },
+    {
+      "file": "artifacts/epic-models/discovery.json",
+      "bytes": 60,
+      "sha256": "5e26b0c8afe976dc535bad87532ba9c9a7fb0231eae825021df4fac3a6b48c64"
+    },
+    {
+      "file": "artifacts/epic-models/epic-bindings-reproduction.log",
+      "bytes": 229,
+      "sha256": "736fd9f1a03901a936dbf502ce31bc57f0a4f81a2e4b2bb0066ffb3522ebf351"
+    },
+    {
+      "file": "artifacts/epic-models/epic-bindings.log",
+      "bytes": 229,
+      "sha256": "736fd9f1a03901a936dbf502ce31bc57f0a4f81a2e4b2bb0066ffb3522ebf351"
+    },
+    {
+      "file": "artifacts/epic-models/epic-existing-conversion.log",
+      "bytes": 633,
+      "sha256": "0e9b742cd96524d5f05cf470f6d297e564a6187427a1cec23d97db808134cee8"
+    },
+    {
+      "file": "artifacts/epic-models/epic-existing-source.log",
+      "bytes": 74,
+      "sha256": "60eab2faf7d31f8b3214431837f029d3ba12eddb54fbbaabbe235c26a19f1e93"
+    },
+    {
+      "file": "artifacts/epic-models/epic-legacy-converter.log",
+      "bytes": 633,
+      "sha256": "0e9b742cd96524d5f05cf470f6d297e564a6187427a1cec23d97db808134cee8"
+    },
+    {
+      "file": "artifacts/epic-models/epic-model-discovery-complete.log",
+      "bytes": 305,
+      "sha256": "366e5cffcc6764c0dd74e6b4af192f9227351eb64e9d3d656d3086ef4bcbcdde"
+    },
+    {
+      "file": "artifacts/epic-models/epic-model-discovery.log",
+      "bytes": 601,
+      "sha256": "c1785e39c3b3e805b89d7e356d0dbe587c69e33e2c06263990e56e46eb611695"
+    },
+    {
+      "file": "artifacts/epic-models/epic-model-reproduction.log",
+      "bytes": 304,
+      "sha256": "ee58827db555237690d6e290d4748ba926e0c509abe3fc4e6a33c876a25dba50"
+    },
+    {
+      "file": "artifacts/epic-models/epic-models-build.log",
+      "bytes": 7124,
+      "sha256": "a43f322c9b4f831b12c0576b676786472edf9a04d4d446c734a54cba1f0352ef"
+    },
+    {
+      "file": "artifacts/epic-models/epic-models-format-final.log",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "file": "artifacts/epic-models/epic-models-recovery.log",
+      "bytes": 72,
+      "sha256": "7c9769a236a1538b1037773627d57f7f5ba8cc9e1e3a5e94b278d28b2a954b94"
+    },
+    {
+      "file": "artifacts/epic-models/epic-models-validation-final.log",
+      "bytes": 771,
+      "sha256": "8503d480761c6dc2e45fefb416f0735b2213fe2d62a61de552ef009be07c455e"
+    },
+    {
+      "file": "artifacts/epic-models/epic-preview-browser-complete.log",
+      "bytes": 1261,
+      "sha256": "17dea99b07033b26f9615eff9f6d7cbb1c7fe4ddc73fea6046118f2b3fe77ced"
+    },
+    {
+      "file": "artifacts/epic-models/epic-preview-browser-final.log",
+      "bytes": 4252,
+      "sha256": "9d2a46bfec0b7ded0e20521b484355c22eb9c20650f59b5ff2e66b8bf1a7fab7"
+    },
+    {
+      "file": "artifacts/epic-models/epic-preview-browser.log",
+      "bytes": 810,
+      "sha256": "74856af64e05fcfb017ba2a7feb9f5df87abd05cbdc0b6dde98aab3db7431428"
+    },
+    {
+      "file": "artifacts/epic-models/epic-preview-tsc-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "artifacts/epic-models/existing-conversion-check.json",
+      "bytes": 660,
+      "sha256": "403f85ba2a9a04baa40ce1de7c30dd2b86a2f3666cf62f6e8decb73177316bd9"
+    },
+    {
+      "file": "artifacts/epic-models/extraction-recovery-checks.json",
+      "bytes": 171,
+      "sha256": "5f3fbff1986fcdb8498e178ce7a3a24ba562b157bdfcf0794b35d26b2f5c52fa"
+    },
+    {
+      "file": "artifacts/epic-models/extractor-initial.py",
+      "bytes": 8594,
+      "sha256": "188678b8679157c61c121046099152cc21bf36403229eb258d2b9fbe78cbf61b"
+    },
+    {
+      "file": "artifacts/epic-models/horde-native-poses.json",
+      "bytes": 238579,
+      "sha256": "feeb0495e8d410f114f51db4bfdb72d742e77f8df3bd313bc38ef30a660dfbd2"
+    },
+    {
+      "file": "artifacts/epic-models/horde-raw-animations.json",
+      "bytes": 5910,
+      "sha256": "7a7c291af071ec7c2bff51ad2866810c830eee734c42adabbe8bf2a31f49a5a1"
+    },
+    {
+      "file": "artifacts/epic-models/independent-validation.json",
+      "bytes": 25240,
+      "sha256": "42958f7ad5f283524df4717ef9daab126fe8b2fdd0a6dfdf2a2d2ed776e3c817"
+    },
+    {
+      "file": "artifacts/epic-models/legacy-converter.mjs",
+      "bytes": 11137,
+      "sha256": "f3b058350412486746a4e5dc3deb80f2409b35f1780929993dd564592921abf4"
+    },
+    {
+      "file": "artifacts/epic-models/offline-pack.json",
+      "bytes": 172470,
+      "sha256": "c3f71064089f21ec0a632ee0faf9dc6cada45e21a5db228c0067b15641c332a3"
+    },
+    {
+      "file": "artifacts/epic-models/outside-output-rejected.log",
+      "bytes": 510,
+      "sha256": "e6e234ad95f6537682128676ab10513d5b530995ca63fb2d32f7848d198a1c87"
+    },
+    {
+      "file": "artifacts/epic-models/probe-definitions.py",
+      "bytes": 2227,
+      "sha256": "cfd4a410c3f1f5474a425e3048a1204a41bfc7dd771a21aee1264784258b0f56"
+    },
+    {
+      "file": "artifacts/epic-models/reproduction.json",
+      "bytes": 346,
+      "sha256": "718853f4b77358b8369440d688d24bcc891912b8cf96a2c3bec991feaaead43c"
+    },
+    {
+      "file": "artifacts/epic-models/sru-baron-base.json",
+      "bytes": 61828,
+      "sha256": "d4c71e703c0cd79aa8ac0cc5ca353ca18de8fe5bef8d059402b255628b44b37a"
+    },
+    {
+      "file": "artifacts/epic-models/sru-horde-base.json",
+      "bytes": 47365,
+      "sha256": "f516873084398522cbbdcba1719a43e832be06591f754898af9981c6fe4d978d"
+    },
+    {
+      "file": "artifacts/epic-models/sru-riftherald-base.json",
+      "bytes": 44507,
+      "sha256": "919cdaa416df86bf48da7f9a852eb1944fe91d8a7ab9f229f750abc2741c6e0b"
+    },
+    {
+      "file": "artifacts/epic-models/unknown-option-rejected.log",
+      "bytes": 554,
+      "sha256": "b0049fe9628cad1dab14a700a1a0e224ee1cd1d2f9ac362f19374c4d15e33239"
+    },
+    {
+      "file": "artifacts/epic-models/validate-conversions.mjs",
+      "bytes": 2195,
+      "sha256": "11eabb3e5feae1bfd752d8f178da7be14c481367fb28a7261c0a706b36a15a1a"
+    },
+    {
+      "file": "artifacts/epic-models/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": "artifacts/epic-models/browser/epic-character-preview-a-l-daf14-er-selection-becomes-active/epic-late-response.json",
+      "bytes": 233,
+      "sha256": "163eeaa22a8c362d221c68a94a25f92e9280a7584bf9f45d610a2a061f55fb94"
+    },
+    {
+      "file": "artifacts/epic-models/browser/epic-character-preview-a-m-59265--can-retry-its-real-request/epic-retry.json",
+      "bytes": 37,
+      "sha256": "ca8d24d7d337abef8500b4f672f89a02f05c05913482b878abd00a66f7f12a33"
+    },
+    {
+      "file": "artifacts/epic-models/browser/epic-character-preview-epi-6b593-hes-and-real-scrubbed-poses/SRU_Baron.png",
+      "bytes": 294742,
+      "sha256": "feca1298f72297670ea1618be7c6d0666262324e0b0e87c0cec403527de4b537"
+    },
+    {
+      "file": "artifacts/epic-models/browser/epic-character-preview-epi-6b593-hes-and-real-scrubbed-poses/SRU_Horde.png",
+      "bytes": 261498,
+      "sha256": "98b6d2079815e6e60354cabefd2f1272baf7340881277b7661221eadb3ef19b5"
+    },
+    {
+      "file": "artifacts/epic-models/browser/epic-character-preview-epi-6b593-hes-and-real-scrubbed-poses/SRU_RiftHerald.png",
+      "bytes": 290204,
+      "sha256": "ee6f70ffa8ba923e7b85ec4e2fbd2369deaa39ef62ab5226351e42f965cca458"
+    },
+    {
+      "file": "artifacts/epic-models/browser/epic-character-preview-epi-6b593-hes-and-real-scrubbed-poses/epic-preview.json",
+      "bytes": 157805,
+      "sha256": "740562bcda95e604bc2babade7ffea9ec355ac87852e69a13529f00850c7a9b6"
+    },
+    {
+      "file": "artifacts/epic-models/browser-final/.last-run.json",
+      "bytes": 96,
+      "sha256": "ad493afaacc207853f7e5565ce35efe5e0010bce87b2b02f7521bdf7450f841b"
+    },
+    {
+      "file": "artifacts/epic-models/browser-final/epic-character-preview-a-l-daf14-er-selection-becomes-active/epic-late-response.json",
+      "bytes": 233,
+      "sha256": "163eeaa22a8c362d221c68a94a25f92e9280a7584bf9f45d610a2a061f55fb94"
+    },
+    {
+      "file": "artifacts/epic-models/browser-final/epic-character-preview-a-m-59265--can-retry-its-real-request/epic-retry.json",
+      "bytes": 37,
+      "sha256": "ca8d24d7d337abef8500b4f672f89a02f05c05913482b878abd00a66f7f12a33"
+    },
+    {
+      "file": "artifacts/epic-models/browser-final/epic-character-preview-epi-6b593-hes-and-real-scrubbed-poses/SRU_Baron.png",
+      "bytes": 274034,
+      "sha256": "5887718ee1b24ee85ab30082caecefdab63fe728af782fb55d90a28456ce35dc"
+    },
+    {
+      "file": "artifacts/epic-models/browser-final/epic-character-preview-epi-6b593-hes-and-real-scrubbed-poses/SRU_Horde.png",
+      "bytes": 247210,
+      "sha256": "6c9e08789756a9f5d701a5e82b2108e03aea39bc01124c83fe4b45b1b157bba5"
+    },
+    {
+      "file": "artifacts/epic-models/browser-final/epic-character-preview-epi-6b593-hes-and-real-scrubbed-poses/SRU_RiftHerald.png",
+      "bytes": 285403,
+      "sha256": "2f0f64ae87fb0d44e4ff4e79055c0d9b88e986e0fe909e53e47e6aa44fc748bf"
+    },
+    {
+      "file": "artifacts/epic-models/browser-final/epic-character-preview-epi-6b593-hes-and-real-scrubbed-poses/epic-preview.json",
+      "bytes": 157805,
+      "sha256": "740562bcda95e604bc2babade7ffea9ec355ac87852e69a13529f00850c7a9b6"
+    },
+    {
+      "file": "artifacts/epic-models/browser-final/jungle-characters-jungle-r-55771--absent-fields-and-variants/error-context.md",
+      "bytes": 12986,
+      "sha256": "7c64cc0e2c402b06c20e3a21070cd3b78cd34a3095cdfbcc90f03754fc97dbf4"
+    },
+    {
+      "file": "artifacts/epic-models/browser-final/jungle-characters-jungle-r-55771--absent-fields-and-variants/test-failed-1.png",
+      "bytes": 324791,
+      "sha256": "780c34833020ec972ff6e746265e1e91725390f2fa4dc1fda53046e577684354"
+    },
+    {
+      "file": "artifacts/epic-models/browser-final/jungle-characters-jungle-r-55771--absent-fields-and-variants/trace.zip",
+      "bytes": 2133796,
+      "sha256": "2491980173b2208639797998e85a7391caf8798e0478414d71a760e02a0c1ae5"
+    },
+    {
+      "file": "artifacts/epic-models/browser-complete/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": "artifacts/epic-models/browser-complete/epic-character-preview-a-l-daf14-er-selection-becomes-active/epic-late-response.json",
+      "bytes": 233,
+      "sha256": "163eeaa22a8c362d221c68a94a25f92e9280a7584bf9f45d610a2a061f55fb94"
+    },
+    {
+      "file": "artifacts/epic-models/browser-complete/epic-character-preview-a-m-59265--can-retry-its-real-request/epic-retry.json",
+      "bytes": 37,
+      "sha256": "ca8d24d7d337abef8500b4f672f89a02f05c05913482b878abd00a66f7f12a33"
+    },
+    {
+      "file": "artifacts/epic-models/browser-complete/epic-character-preview-epi-6b593-hes-and-real-scrubbed-poses/SRU_Baron.png",
+      "bytes": 274034,
+      "sha256": "5887718ee1b24ee85ab30082caecefdab63fe728af782fb55d90a28456ce35dc"
+    },
+    {
+      "file": "artifacts/epic-models/browser-complete/epic-character-preview-epi-6b593-hes-and-real-scrubbed-poses/SRU_Horde.png",
+      "bytes": 247210,
+      "sha256": "6c9e08789756a9f5d701a5e82b2108e03aea39bc01124c83fe4b45b1b157bba5"
+    },
+    {
+      "file": "artifacts/epic-models/browser-complete/epic-character-preview-epi-6b593-hes-and-real-scrubbed-poses/SRU_RiftHerald.png",
+      "bytes": 285403,
+      "sha256": "2f0f64ae87fb0d44e4ff4e79055c0d9b88e986e0fe909e53e47e6aa44fc748bf"
+    },
+    {
+      "file": "artifacts/epic-models/browser-complete/epic-character-preview-epi-6b593-hes-and-real-scrubbed-poses/epic-preview.json",
+      "bytes": 157805,
+      "sha256": "740562bcda95e604bc2babade7ffea9ec355ac87852e69a13529f00850c7a9b6"
+    },
+    {
+      "file": "artifacts/epic-models/conversion-first/sru-baron-base.json",
+      "bytes": 54468,
+      "sha256": "18ac7e6452e6e2adde2edff76d12cf3962a054a700cb5b0e9baeeedf9f0ae762"
+    },
+    {
+      "file": "artifacts/epic-models/conversion-first/sru-horde-base.json",
+      "bytes": 44906,
+      "sha256": "b5b3cbdb186e59d65d8daa4775b0419e84de25214d2993cfbd0ca97b5d822298"
+    },
+    {
+      "file": "artifacts/epic-models/conversion-first/sru-riftherald-base.json",
+      "bytes": 42081,
+      "sha256": "466672b06bf26695e2a4e5a6462f3539f02dad845ad1157a81a84327943c1bef"
+    },
+    {
+      "file": "artifacts/converter-toolchain/converter-help.txt",
+      "bytes": 404,
+      "sha256": "1ba2ca206bb9505a2b3b84503a55f5526171f25ffd3e05990fc4049736f9bdfa"
+    },
+    {
+      "file": "artifacts/converter-toolchain/dotnet-8.0-releases.json",
+      "bytes": 1664962,
+      "sha256": "e11dbb88706ea3ba9ac4e3b022f1ab9b49e7fcbe6448f63fa6764199b7cca822"
+    },
+    {
+      "file": "artifacts/converter-toolchain/dotnet-info.txt",
+      "bytes": 1017,
+      "sha256": "88013b53768a768773a6b696348742e71caf20f6c0d9ed04b5cfa5c03354f486"
+    },
+    {
+      "file": "artifacts/converter-toolchain/imagesharp.patch",
+      "bytes": 600,
+      "sha256": "72689e23e842aa38539d0f2b6d9b692320f917d1b53f57d1eefab8ab3856721a"
+    },
+    {
+      "file": "artifacts/converter-toolchain/packages.lock.json",
+      "bytes": 4062,
+      "sha256": "5423371fe38e83b050f7c50eaac4ac9f31db3e17718b53e67214f5d28159e543"
+    },
+    {
+      "file": "artifacts/converter-toolchain/restored-toolchain.json",
+      "bytes": 10107,
+      "sha256": "fa4d9310908b00703907f69672b9fc61cd6fd2fc545145a65d0895a2c4c3966d"
+    },
+    {
+      "file": "artifacts/converter-toolchain/sdk-pin.json",
+      "bytes": 382,
+      "sha256": "40c991f3764db6b105cbd36b303c0832b6eb319d250e5ef247c1547e20de2f64"
+    },
+    {
+      "file": "artifacts/converter-toolchain/sdk-restored.json",
+      "bytes": 471,
+      "sha256": "33ce592fad8ec15cbe1fa532f533863d8ba953c429d439799525773e81509a20"
+    },
+    {
+      "file": "artifacts/converter-toolchain/toolchain.patch",
+      "bytes": 1868,
+      "sha256": "57ae1ad84ada9e2c42a4b8d4afc924e384a952ae4eec4b03c774d09646b6cd3f"
+    },
+    {
+      "file": "artifacts/epic-models/pose-diagnostic/Program.cs",
+      "bytes": 1500,
+      "sha256": "7e4466bb8cee5d6df99b7390d9d0da0fdc84dfe35c499f9c0790fa092b032e0d"
+    },
+    {
+      "file": "artifacts/epic-models/pose-diagnostic/pose-diagnostic.csproj",
+      "bytes": 294,
+      "sha256": "d3d5238b35bd717137bc270573448c17bfc1c95808517ed2b3cc9861cb72afb2"
+    },
+    {
+      "file": "artifacts/certification-abc8dc/pauses/epic-model-preview.json",
+      "bytes": 1609,
+      "sha256": "0c31cd808a5face18bcc48e0f6b0d4c52020b0379d8c39dc50d9998bbb0e5b25"
+    }
+  ]
+}

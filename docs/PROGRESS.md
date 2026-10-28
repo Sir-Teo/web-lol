@@ -6,6 +6,27 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+The latest [epic-objective base-rig preview](EPIC-MODELS.md) retains 138
+original files / 10,479,726 bytes and all 144 atomic graph entries for Baron,
+Herald and Grub. All three source-quality local conversions repeat exactly and
+have zero glTF errors, warnings or informational issues. Baron has 85 bound
+clips, Herald 27 and Grub 28. Four further Grub declarations target thirteen
+joint hashes absent from this skeleton; the full binding audit and manifests
+retain them without synthesized motion. Nominal decoder duration and converted
+key span stay distinct, with up to one 30 Hz frame difference; native end and
+transition semantics remain open.
+
+The development review adds source variants, on-demand ignored-cache rigs,
+current-pose framing and explicit unbound-entry inspection. All six browser
+cases, explicit preview TypeScript, formatting, source recovery/rejection checks
+and build pass. Three final captures are reviewed. The production build remains
+byte-identical pack `6e09abbd2512ff34eb8e0c578aac9d45d226ae1fd3c2e0670bf18e454c54fcde`
+(1,202 files / 538,116,691 bytes). No new production browser/offline claim
+is made for this tools-only change. The original and updated Blue converters
+agree exactly on this Linux host while differing from the preserved shipped
+binary; cross-host binary reproduction remains unestablished. No simulation,
+saved fields or public media change. Both frozen hundred-seed audits resume.
+
 The separate [epic-objective source foundation](EPIC-CHARACTERS.md) pins eleven
 original character files (57,967 bytes), fifteen CharacterRecord variants and
 thirteen matching placed objects. It preserves all embedded records, unknown

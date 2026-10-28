@@ -9,6 +9,9 @@ import krugs from '../../docs/reference/krug-camps-source.json';
 import scuttler from '../../docs/reference/scuttler-source.json';
 import scuttlerProfile from '../../src/content/scuttler.json';
 import companions from '../../docs/reference/jungle-companions-source.json';
+import epicCharacters from '../../docs/reference/epic-character-source.json';
+import epicModels from '../../docs/reference/epic-models-source.json';
+import epicBindings from '../../docs/reference/epic-models-bindings.json';
 const modelSources: Record<string, { atomicClips: Record<string, string> }> = {
   ...pin.models,
   ...red.models,
@@ -17,9 +20,11 @@ const modelSources: Record<string, { atomicClips: Record<string, string> }> = {
   ...krugs.models,
   ...scuttler.models,
   ...companions.models,
+  ...epicModels.models,
 };
 const companionNames = Object.keys(companions.models);
-const characters = [...pin.characters, ...companionNames];
+const epicNames: string[] = epicCharacters.characters;
+const characters = [...pin.characters, ...companionNames, ...epicNames];
 
 type RecordValue = Record<string, unknown>;
 type Entry = { root: THREE.Group; mixer: THREE.AnimationMixer; clips: THREE.AnimationClip[] };
@@ -56,11 +61,18 @@ for (const name of characters) select.add(new Option(name, name));
 
 function frame() {
   if (!active) return;
+  scene.updateMatrixWorld(true);
   const bounds = new THREE.Box3();
   active.root.traverseVisible((object) => {
-    if (object instanceof THREE.Mesh) bounds.expandByObject(object);
+    if (object instanceof THREE.Mesh) {
+      if (object instanceof THREE.SkinnedMesh) object.computeBoundingBox();
+      bounds.expandByObject(object);
+    }
   });
   const size = bounds.getSize(new THREE.Vector3()).length();
+  controls.maxDistance = epicNames.includes(selected) ? Math.max(35, size * 3) : 35;
+  camera.far = epicNames.includes(selected) ? Math.max(100, size * 10) : 100;
+  camera.updateProjectionMatrix();
   controls.target.copy(bounds.getCenter(new THREE.Vector3()));
   camera.position.copy(controls.target).add(new THREE.Vector3(size * 0.65, size * 0.5, size * 1.3));
   controls.update();
@@ -97,12 +109,18 @@ function chooseClip(name: string) {
   action.reset().play();
   clips.value = name;
   const buried = selected === 'Sru_Crab' && name === scuttlerProfile.clips.hide.name;
-  poseNote.hidden = !buried && !companionNames.includes(selected);
+  const unbound =
+    epicBindings.models
+      .find((model) => model.name === selected)
+      ?.clips.filter((clip) => clip.unbound) ?? [];
+  poseNote.hidden = !buried && !companionNames.includes(selected) && !unbound.length;
   poseNote.textContent = buried
     ? 'This source hide pose holds the body below the grid. An empty view at this camera position is expected.'
     : companionNames.includes(selected)
       ? 'Manual source Adult/Baby submesh review. Native pet growth, counter callbacks and animation dispatch are not implemented.'
-      : '';
+      : unbound.length
+        ? `${unbound.length} declared animations have no matching joint hashes in this skeleton. Their source files remain retained; no replacement motion is generated. See the binding audit below.`
+        : '';
   scrub.max = String(clip.duration);
   playing = false;
   play.textContent = 'Play';
@@ -147,7 +165,10 @@ async function load(name: string): Promise<Entry> {
   if (entries.has(name)) return entries.get(name)!;
   if (pending.has(name)) return pending.get(name)!;
   const promise = (async () => {
-    const path = `../../assets/models/${name.toLowerCase().replaceAll('_', '-').replace('/skin', '-skin')}-base.glb`;
+    const directory = epicNames.includes(name)
+      ? '../../.cache/epic-model-previews'
+      : '../../assets/models';
+    const path = `${directory}/${name.toLowerCase().replaceAll('_', '-').replace('/skin', '-skin')}-base.glb`;
     const gltf = await new GLTFLoader().loadAsync(new URL(path, location.href).href);
     gltf.scene.traverse((object) => {
       if (object instanceof THREE.Mesh) {
@@ -193,10 +214,11 @@ async function choose(name: string) {
   const character = name.split('/')[0];
   const sourcePath = `data/characters/${character.toLowerCase()}/${character.toLowerCase()}.bin`;
   const source = (
-    (companionNames.includes(name) ? companions.records : pin.records) as unknown as Record<
-      string,
-      Record<string, RecordValue>
-    >
+    (companionNames.includes(name)
+      ? companions.records
+      : epicNames.includes(name)
+        ? epicCharacters.records
+        : pin.records) as unknown as Record<string, Record<string, RecordValue>>
   )[sourcePath];
   selectedRecords = Object.fromEntries(
     Object.entries(source).filter(([, value]) => value.__type === 'CharacterRecord')
@@ -207,6 +229,13 @@ async function choose(name: string) {
   );
   records.value = root;
   describe();
+  const bindingDetails = document.querySelector<HTMLDetailsElement>('#binding-audit')!;
+  const unbound =
+    epicBindings.models
+      .find((model) => model.name === name)
+      ?.clips.filter((clip) => clip.unbound) ?? [];
+  bindingDetails.hidden = !unbound.length;
+  bindingDetails.querySelector('pre')!.textContent = JSON.stringify(unbound, null, 2);
   clips.replaceChildren();
   for (const element of [clips, scrub, play]) element.disabled = true;
   retry.hidden = true;
@@ -234,10 +263,11 @@ async function choose(name: string) {
         (clip) => new Option(`${sources.get(clip.name)} · ${clip.name}`, clip.name)
       )
     );
-    const idleState = Object.entries(model.atomicClips).find(
-      ([state, path]) =>
-        state.toLowerCase() === 'idle1' || /_(idle_normal\d*|idle\d*)\.anm$/i.test(path)
-    )![0];
+    const idleState =
+      Object.entries(model.atomicClips).find(
+        ([state, path]) =>
+          state.toLowerCase() === 'idle1' || /_(idle_normal\d*|idle\d*)\.anm$/i.test(path)
+      )?.[0] ?? Object.keys(model.atomicClips)[0];
     chooseClip(
       idleState.startsWith('{') ? `entry_${idleState.slice(1, -1)}` : idleState.toLowerCase()
     );
@@ -245,7 +275,10 @@ async function choose(name: string) {
     for (const element of [clips, scrub, play]) element.disabled = false;
     form.disabled = false;
     const skinLabel = companionNames.includes(name) ? `source skin ${name.at(-1)}` : 'base skin 0';
-    status.textContent = `${name} · ${skinLabel} · ${active.clips.length} atomic clips · source metres`;
+    const clipLabel = epicNames.includes(name)
+      ? `${active.clips.length} bound clips / ${Object.keys(model.atomicClips).length} source entries`
+      : `${active.clips.length} atomic clips`;
+    status.textContent = `${name} · ${skinLabel} · ${clipLabel} · source metres`;
     ready = true;
     render();
   } catch {
@@ -267,6 +300,10 @@ records.onchange = describe;
 clips.onchange = () => chooseClip(clips.value);
 form.onchange = () => chooseForm(form.value);
 retry.onclick = () => void choose(selected);
+document.querySelector<HTMLButtonElement>('#frame')!.onclick = () => {
+  frame();
+  render();
+};
 scrub.oninput = () => {
   playing = false;
   play.textContent = 'Play';

@@ -142,21 +142,28 @@
             <select id="clip"></select
           ></label>
           <button id="play">Play</button>
+          <button id="frame">Frame model</button>
           <label
             >Time <input id="time" type="range" min="0" max="1" step="0.001" value="0"
           /></label>
         </div>
         <p id="status" role="status">Loading source rig…</p>
         <p id="pose-note" hidden></p>
+        <details id="binding-audit" hidden>
+          <summary>Unbound source animation entries</summary>
+          <pre></pre>
+        </details>
         <p>
           Base skin only, with source diffuse textures and manual atomic clips. Drag to orbit;
           scroll to zoom. Native shading, particles, sound and animation dispatch remain unfinished.
         </p>
         <p>
           All eleven ordinary source rigs and three companion source skins are available for review.
-          This separate base-skin preview does not establish active native skins, camp membership or
-          live gameplay. The lane match uses a provisional Scuttler adapter; native integration
-          remains unfinished.
+          Baron, Herald and Grub previews use locally converted files in the ignored cache; run the
+          epic model pipeline before opening them. Other epic identities retain their character
+          records while rig preparation continues. This separate base-skin preview does not
+          establish active native skins, camp membership or live gameplay. The lane match uses a
+          provisional Scuttler adapter; native integration remains unfinished.
         </p>
         <button id="retry" hidden>Retry model load</button>
       </section>
