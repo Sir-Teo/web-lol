@@ -1,0 +1,334 @@
+{
+  "date": "2026-10-28",
+  "previousCommit": "a3e47aa",
+  "schema": 163,
+  "ruleset": "abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f",
+  "simulationFingerprintUnchanged": true,
+  "sources": [
+    {
+      "path": "src/input/camera-targets.ts",
+      "bytes": 648,
+      "sha256": "968d73b1e77a379221336ee706ce6c04df87171541a74951d9fda0cdcbf2276e"
+    },
+    {
+      "path": "src/input/input.ts",
+      "bytes": 11766,
+      "sha256": "743af7f87bcffa355b329e7392547a21b30f4faaa6fb098d51c522ccdaa12e0e"
+    },
+    {
+      "path": "src/render/view.ts",
+      "bytes": 65105,
+      "sha256": "ed4e797c8dda1c786f5faf470ac4a1c3cbef113ff1389b37c718afdd454adeaf"
+    },
+    {
+      "path": "src/ui/hud.ts",
+      "bytes": 87356,
+      "sha256": "a3005881796822bd2157310ddace9c0f951b4f1021e1069ffa96b202332726ed"
+    },
+    {
+      "path": "tests/camera-targets.test.ts",
+      "bytes": 2528,
+      "sha256": "ac8184e20c7db726b5521335a6d779fe4508be7e33d57616ebff64cc9b55793b"
+    },
+    {
+      "path": "e2e/camera-team.spec.ts",
+      "bytes": 9982,
+      "sha256": "5a8aea507a82b29fead7407f930f53c425a151ddea05ad640dc939e678ba7dc1"
+    }
+  ],
+  "focused": {
+    "passed": 10,
+    "total": 10,
+    "files": 2,
+    "newCases": 5
+  },
+  "checks": {
+    "typescript": true,
+    "format": true,
+    "build": true
+  },
+  "browser": {
+    "passed": 2,
+    "total": 2,
+    "retries": 0,
+    "proofs": [
+      {
+        "before": {
+          "hero": 1,
+          "allies": [32, 33, 34, 35],
+          "heroPosition": {
+            "x": -7031,
+            "y": 6964
+          },
+          "heroOrder": {
+            "type": "idle"
+          }
+        },
+        "after": {
+          "heroPosition": {
+            "x": -7031,
+            "y": 6964
+          },
+          "heroOrder": {
+            "type": "idle"
+          },
+          "commands": 0,
+          "summoners": [0, 0],
+          "locked": false,
+          "focus": null
+        },
+        "allFiveKeys": true,
+        "newestHeldKeyWins": true,
+        "repeatReserved": true,
+        "spacePriority": true,
+        "lockPreserved": true,
+        "pauseAndBlurClear": true,
+        "errors": []
+      },
+      {
+        "before": {
+          "ally": 32,
+          "start": {
+            "x": -6231,
+            "y": 6164
+          },
+          "destination": {
+            "x": -5501.10489654541,
+            "y": 5917.244201660156
+          }
+        },
+        "moving": {
+          "position": {
+            "x": -5940.717960537055,
+            "y": 6199.952573833218
+          },
+          "center": {
+            "x": -5943.631532118091,
+            "y": 6199.591716518106
+          },
+          "focus": 32
+        },
+        "privacy": {
+          "enemyVisible": false,
+          "ignored": true,
+          "ownFallback": true
+        },
+        "actualAllyMovement": true,
+        "typingAndModifierIgnored": true,
+        "errors": []
+      }
+    ],
+    "captures": [
+      {
+        "path": "artifacts/camera-team/browser/camera-team-held-teammate--ca388-eys-and-clear-on-pause-blur/camera-team.json",
+        "bytes": 610,
+        "sha256": "b44053e22286ebdba1f1bf0cc92e33fa994be5d9ce608aa0121725a1cd15123a"
+      },
+      {
+        "path": "artifacts/camera-team/browser/camera-team-held-teammate--ca388-eys-and-clear-on-pause-blur/held-support-camera.png",
+        "bytes": 1665030,
+        "sha256": "405b282acb2883cb08a436c382eb34a989b03bb3b69ae2d359a3ae709e4f4c53"
+      },
+      {
+        "path": "artifacts/camera-team/browser-movement/camera-team-a-held-teammat-8c699-typing-and-modifier-targets/camera-team-movement.json",
+        "bytes": 557,
+        "sha256": "1bf84e550c45c1f36b96ab513042f425f6457b4180765c9c69fa08a671c4db11"
+      },
+      {
+        "path": "artifacts/camera-team/browser-movement/camera-team-a-held-teammat-8c699-typing-and-modifier-targets/following-moving-ally.png",
+        "bytes": 1646150,
+        "sha256": "8e882101371ef6230b2dff4f8aee6138f49ba4da294038be90b850ec776add42"
+      }
+    ],
+    "reviewedViewports": [[1440, 900]],
+    "browserPerformanceClaim": false
+  },
+  "production": {
+    "result": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 19,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "garenRiftTrialInProduction": false,
+      "masterYiRiftTrialInProduction": false,
+      "masterYiBotRiftTrialInProduction": false,
+      "rosterRiftTrialInProduction": false,
+      "publicChampionChoices": ["ashe", "lux"],
+      "ahriRiftTrialInProduction": false,
+      "ahriBotRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderAudioPreloads": 0,
+      "unrequestedMasterYiAlphaAudioPreloads": 0,
+      "unrequestedMasterYiMeditateAudioPreloads": 0,
+      "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+      "unrequestedMasterYiSwordPreloads": 0,
+      "unrequestedMasterYiPrimaryTrailPreloads": 0,
+      "unrequestedMasterYiPrimaryHitPreloads": 0,
+      "unrequestedMasterYiPassiveTrailPreloads": 0,
+      "unrequestedMasterYiMeditateDamagePreloads": 0,
+      "unrequestedMasterYiHighlanderKillPreloads": 0,
+      "unrequestedMasterYiHighlanderCastPreloads": 0,
+      "unrequestedMasterYiQEndPreloads": 0,
+      "unrequestedMasterYiQCastPreloads": 0,
+      "unrequestedMasterYiQContactPreloads": 0,
+      "unrequestedMasterYiMeditateCastPreloads": 0,
+      "unrequestedMasterYiMeditateBuffPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 323,
+      "scheduledBlueRequests": 19,
+      "scheduledRedRequests": 19,
+      "scheduledWolfRequests": 38,
+      "scheduledRaptorRequests": 38,
+      "scheduledKrugRequests": 57,
+      "scheduledScuttlerRequests": 19,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    },
+    "screenshot": {
+      "path": "artifacts/camera-team/production.png",
+      "bytes": 1822799,
+      "sha256": "43906d2c762f91a1fc9120193cbd633434301c20c25cdcc5c008adbf8e086e76"
+    }
+  },
+  "pack": {
+    "id": "89b7ab0f6ca11ab71239cd3159555176d526f3c6b35ef47b121708e2fc430abe",
+    "files": 1202,
+    "bytes": 538109144,
+    "buildRulesetMatches": true
+  },
+  "auditPauses": {
+    "scope": "Only owned frozen audit supervisors/workers; start-time and command hash checked. Pauses affect wall time, not simulation ticks.",
+    "controlSource": {
+      "path": "artifacts/certification-abc8dc/control.mjs",
+      "bytes": 2772,
+      "sha256": "bbd19feb2c2045eb5cb873d8e312f5d176d87e6bb88b13c77205ae587a8a8128"
+    },
+    "receipts": [
+      {
+        "path": "artifacts/certification-abc8dc/pauses/camera-browser.json",
+        "bytes": 1609,
+        "sha256": "df18ba9b9e7d8a7b675814c1a7017fb7dbda3ded77276277a4a023f9cbf62dce"
+      },
+      {
+        "path": "artifacts/certification-abc8dc/pauses/camera-movement.json",
+        "bytes": 1609,
+        "sha256": "7e6064edf71df9713e497222c18826dd1199e950f0e76616331628e257a1222c"
+      },
+      {
+        "path": "artifacts/certification-abc8dc/pauses/camera-production.json",
+        "bytes": 1609,
+        "sha256": "96898295ac82f03d8e70344d69842c94ea89a4bf82a6b19e401c70edae1d957b"
+      }
+    ]
+  },
+  "freshBroadRun": false,
+  "freshNodeQaRun": false,
+  "precedingBroadAndNodeQaEvidence": "docs/reference/bot-team-detour-verification.json",
+  "freshCompletedHeadlessAudit": false,
+  "unchangedSimulationMatchEvidence": "docs/reference/bot-team-detour-matches-verification.json",
+  "ordinaryAndCombinedHundredSeedAudits": "in-progress, not claimed complete",
+  "freshOfflineAcceptance": false,
+  "publicAssetsChanged": false,
+  "newSavedFields": false,
+  "logs": [
+    {
+      "path": "artifacts/camera-team/logs/browser-format.log",
+      "bytes": 29,
+      "sha256": "ffe66609af8315e9666e3c8e991001b34d3121c7149e9ca3b865e770b993e963"
+    },
+    {
+      "path": "artifacts/camera-team/logs/browser-movement.log",
+      "bytes": 808,
+      "sha256": "90f17d83d3278c10416f65e4c3faa46d9d0dc8856236d4f102c7dc40669ac7f1"
+    },
+    {
+      "path": "artifacts/camera-team/logs/browser.log",
+      "bytes": 804,
+      "sha256": "2d3cfb58a4d81c8f8f52873d6f0ae736cbeb6b88c2e1f26eda38c54c11be868b"
+    },
+    {
+      "path": "artifacts/camera-team/logs/build.log",
+      "bytes": 7852,
+      "sha256": "478875c228b4d7578f9411bdc0f06228e3b4326c4f6174d0fd14c3711ca9abde"
+    },
+    {
+      "path": "artifacts/camera-team/logs/focused.log",
+      "bytes": 169,
+      "sha256": "ecb2c9b06f23ed12fbe2ca02dba1d6c3de0208c574bdf5e7e0335a7cf83947b6"
+    },
+    {
+      "path": "artifacts/camera-team/logs/format-check.log",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "path": "artifacts/camera-team/logs/format.log",
+      "bytes": 161,
+      "sha256": "cd10ade42d4d793aa2a0fa53e240f617326f28bd89ea78b131fe5c945c09d13e"
+    },
+    {
+      "path": "artifacts/camera-team/logs/movement-format.log",
+      "bytes": 30,
+      "sha256": "165a3286906f517eb05b9f97aa4517499a3a07bd4d0eab8777bfd4e5372eb644"
+    },
+    {
+      "path": "artifacts/camera-team/logs/production.log",
+      "bytes": 3112,
+      "sha256": "76ae8d93a1844e7c2030c8df65022cbf8f8a0bc72b045fbc0bf547c07faefc4e"
+    },
+    {
+      "path": "artifacts/camera-team/logs/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

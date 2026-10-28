@@ -6,7 +6,29 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
-The latest [allied intent labels](ALLIED-INTENT.md) show current friendly bot
+The latest [held camera shortcuts](TEAM-CAMERA.md) add F1 for the human and
+F2–F5 for teammates in scoreboard order. Newer held keys take priority, Space
+wins while held, and release preserves the user's camera lock. Pause/blur clear
+temporary focus; typing and modifier controls remain protected. The renderer
+independently rejects enemy focus IDs. Camera input issues no game commands.
+Ten focused cases, TypeScript, formatting, build, two browser scenarios and
+all 32 nested production recordings/gates pass. Captures of a held support view
+and actual moving ally are reviewed at 1440×900. The browser cases also verify
+repeats, overlapping keys, Space, lock, pause/blur, hidden-enemy rejection,
+typing/modifiers and unchanged human movement/order and summoner cooldowns.
+
+Schema stays 163 and simulation fingerprint remains
+`abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f`.
+Matching pack `89b7ab0f6ca11ab71239cd3159555176d526f3c6b35ef47b121708e2fc430abe`
+has 1,202 files / 538,109,144 bytes. No public media or saved fields change.
+The ordinary and combined 100-seed audits run independently from frozen source
+`a3e47aa`; they remain in progress. Owned processes receive recorded quiet-test
+pauses with identity checks and resume under the same inputs/clocks. No
+hundred-seed completion, fresh broad/offline or native/performance acceptance
+is claimed. Earlier unit/Node QA and seven full-match evidence remain valid at
+this unchanged simulation identity.
+
+The preceding [allied intent labels](ALLIED-INTENT.md) show current friendly bot
 plans beneath their scoreboard roles, with recall/retreat priority and exact
 expiry/removal. Humans, opponents, dead allies, practice and terminal matches
 have no automated label. The helper rejects opponents before reading owner

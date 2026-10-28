@@ -2,6 +2,7 @@ import type { Ability } from '../simulation/types';
 import type { World } from '../simulation/world';
 import type { GameView } from '../render/view';
 import type { Hud } from '../ui/hud';
+import { cameraKeyTarget } from './camera-targets';
 import {
   instantSpell,
   minimapSpell,
@@ -14,6 +15,7 @@ export class GameInput {
   pointer = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
   inside = false;
   recenterHeld = false;
+  private cameraKeys: string[] = [];
   private aiming: Ability | null = null;
   private wardAiming = false;
   private attackMove = false;
@@ -90,6 +92,9 @@ export class GameInput {
       const learnShortcut =
         e.ctrlKey && !e.altKey && !e.metaKey && ['q', 'w', 'e', 'r'].includes(key);
       if ((e.ctrlKey || e.altKey || e.metaKey) && !learnShortcut) return;
+      const cameraTarget = cameraKeyTarget(world, key);
+      // Reserve repeat events too, especially F1 help and F3 browser search.
+      if (cameraTarget && !hud.paused && !hud.modal) e.preventDefault();
       // Reserve learning chords even on repeat; enqueue only on first keydown.
       if (learnShortcut && !hud.paused && !hud.modal) e.preventDefault();
       // Autoplay activation belongs to the first real gameplay/HUD gesture.
@@ -126,6 +131,12 @@ export class GameInput {
         return;
       }
       if (hud.paused || hud.modal) return;
+      if (cameraTarget) {
+        this.cameraKeys = [...this.cameraKeys.filter((held) => held !== key), key];
+        const focus = this.updateCameraFocus();
+        if (focus) view.recenter(focus);
+        return;
+      }
       if (learnShortcut) {
         e.preventDefault();
         this.cancelAim();
@@ -139,6 +150,7 @@ export class GameInput {
       if (key === 'tab') hud.scoreboard(true);
       if (key === ' ') {
         this.recenterHeld = true;
+        this.updateCameraFocus();
         view.recenter(world.hero);
       }
       if (key === '4') this.beginWardAim();
@@ -179,6 +191,11 @@ export class GameInput {
     });
     window.addEventListener('keyup', (e) => {
       const key = e.key.toLowerCase();
+      if (this.cameraKeys.includes(key)) {
+        e.preventDefault();
+        this.cameraKeys = this.cameraKeys.filter((held) => held !== key);
+        this.updateCameraFocus();
+      }
       if (key === '4' && this.wardAiming) {
         const point = this.wardPoint();
         if (!hud.paused && !hud.modal && point)
@@ -186,7 +203,10 @@ export class GameInput {
         this.cancelAim();
       }
       if (key === 'tab') hud.scoreboard(false);
-      if (key === ' ') this.recenterHeld = false;
+      if (key === ' ') {
+        this.recenterHeld = false;
+        this.updateCameraFocus();
+      }
       if (key === 'shift' && !this.attackMove) view.rangeVisible = false;
       if (key === this.aiming) {
         if (!hud.paused && !hud.modal) {
@@ -232,6 +252,8 @@ export class GameInput {
   }
   release(): void {
     this.recenterHeld = false;
+    this.cameraKeys = [];
+    this.view.cameraFocusId = null;
     this.inside = false;
     this.updateHover();
     this.cancelAim();
@@ -252,14 +274,25 @@ export class GameInput {
     this.view.rangeVisible = false;
     this.view.renderer.domElement.classList.remove('aiming');
   }
+  private updateCameraFocus() {
+    const target = this.recenterHeld
+      ? this.world.hero
+      : cameraKeyTarget(this.world, this.cameraKeys.at(-1) ?? '');
+    this.view.cameraFocusId = target?.id ?? null;
+    return target;
+  }
   update(dt: number): void {
     if (this.wardAiming && this.world.player.trinket.kind !== 'ward') this.cancelAim();
     if (this.hud.paused || this.hud.modal) {
+      this.recenterHeld = false;
+      this.cameraKeys = [];
+      this.view.cameraFocusId = null;
       this.cancelAim();
       return;
     }
-    if (this.recenterHeld) this.view.recenter(this.world.hero);
-    if (this.inside && !this.recenterHeld) {
+    const cameraTarget = this.updateCameraFocus();
+    if (cameraTarget) this.view.recenter(cameraTarget);
+    if (this.inside && !cameraTarget) {
       const x = this.pointer.x < 16 ? -1 : this.pointer.x > window.innerWidth - 16 ? 1 : 0;
       const y = this.pointer.y < 16 ? -1 : this.pointer.y > window.innerHeight - 16 ? 1 : 0;
       this.view.pan(x, y, dt);

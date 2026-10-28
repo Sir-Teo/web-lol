@@ -213,6 +213,8 @@ export class GameView {
   camera = new THREE.PerspectiveCamera(40, 1, 0.1, 180);
   center: Vec2 = { x: -500, y: 375 };
   locked = false;
+  /** Temporary friendly camera focus from held input; never saved into the match. */
+  cameraFocusId: number | null = null;
   zoom = 1;
   width = 1;
   height = 1;
@@ -696,10 +698,17 @@ export class GameView {
     }
     const terminalAge = world.winner ? Math.max(0, elapsed - this.terminalAnimationStart) : 0;
     this.previousElapsed = elapsed;
-    if (this.locked)
+    const held = this.cameraFocusId === null ? null : world.unit(this.cameraFocusId);
+    const focus =
+      held?.kind === 'champion' && held.team === world.hero.team
+        ? held
+        : this.locked
+          ? world.hero
+          : null;
+    if (focus)
       this.center = {
-        x: lerp(world.hero.previous.x, world.hero.x, alpha),
-        y: lerp(world.hero.previous.y, world.hero.y, alpha),
+        x: lerp(focus.previous.x, focus.x, alpha),
+        y: lerp(focus.previous.y, focus.y, alpha),
       };
     this.positionCamera();
     this.rigPoseCulling.beginFrame(

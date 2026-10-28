@@ -705,6 +705,8 @@ export class Hud {
         ['4', 'Hold to aim Stealth Ward; press to activate Oracle Lens'],
         ['P', 'Open item shop'],
         ['Space / Y', 'Recenter / lock camera'],
+        ['F1', 'Hold to follow your champion'],
+        ...(this.world.matchMode === 'lanes' ? [['F2–F5', 'Hold to follow a teammate']] : []),
         ['Shift', 'Show attack range'],
         ['Tab', 'Hold scoreboard'],
         ['Esc', 'Cancel aiming / pause'],
