@@ -77,6 +77,13 @@ test('held targeting follows transitions between battlefield, minimap and non-ta
   await page.goto('/?scene=fixture');
   await page.waitForFunction(() => (window as any).__GAME__?.ready);
   await page.locator('#loading').waitFor({ state: 'detached' });
+  await page.evaluate(() => {
+    const g = (window as any).__GAME__;
+    // This static input fixture keeps real simulation/keyboard handling. Rendered
+    // camera/aim behavior has separate cases; avoid painting between every query.
+    g.view.render(g.world, 1, g.view.previousElapsed);
+    g.view.render = () => {};
+  });
   const box = (await page.locator('#minimap').boundingBox())!;
   await page.mouse.move(600, 400);
   await page.keyboard.down('e');

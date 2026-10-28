@@ -71,6 +71,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Shared siege, defense, gank and river strategy](docs/BOT-TEAM-STRATEGY.md)
 - [Allied bot intent in the scoreboard](docs/ALLIED-INTENT.md)
 - [Held F1–F5 champion cameras](docs/TEAM-CAMERA.md)
+- [Camera-aligned held spell and ward previews](docs/AIM-CAMERA.md)
 - [Bot group-combat decisions](docs/BOT-GROUP-COMBAT.md)
 - [Master Yi character source foundation](docs/MASTER-YI.md) — complete retained records, ranked declarations and explicit source/client omissions; [development rig review](docs/MASTER-YI-MODEL.md) is available at `/tools/qa/masteryi-model.html`, and the [manual NPC fixture](docs/MASTER-YI-NPC.md) at `/?scene=fixture&npc=masteryi` adds own melee attacks and private saves; the playable kit remains unfinished.
 - [Garen and Ahri roster expansion](docs/ROSTER-EXPANSION.md)

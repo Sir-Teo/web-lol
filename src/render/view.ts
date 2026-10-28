@@ -114,6 +114,8 @@ import { unitBarHeight } from './unit-bar-height';
 export class GameView {
   /** Assets completed after the last frame; the application schedules painting. */
   onAssetsReady?: () => void;
+  /** Refresh active pointer targets after the camera and actor poses are current. */
+  onBeforeAim?: () => void;
   renderer: THREE.WebGLRenderer;
   scene = new THREE.Scene();
   readonly particleDistortion = new ParticleDistortionPass();
@@ -991,6 +993,7 @@ export class GameView {
     }
     this.moveMarker.visible = world.tick - this.markerTick < 30;
     this.moveMarker.scale.setScalar(0.7 + ((world.tick - this.markerTick) / 30) * 0.6);
+    this.onBeforeAim?.();
     this.updateAim(world);
     if (world.tick - this.lastFogTick >= 8) {
       this.updateFog(world);

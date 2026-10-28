@@ -26,13 +26,18 @@ export class GameInput {
     unlockAudio: () => void
   ) {
     const canvas = view.renderer.domElement;
+    view.onBeforeAim = () => {
+      if (this.aiming || this.wardAiming) {
+        this.updateHover();
+        this.refreshAim();
+      }
+    };
     hud.onInstantCast = () => {
       if (this.wardAiming) this.cancelAim();
     };
     window.addEventListener('pointermove', (e) => {
       this.pointer = { x: e.clientX, y: e.clientY };
-      if (this.wardAiming) view.setAim('ward', this.wardPoint() ?? world.hero);
-      else if (this.aiming) view.setAim(this.aiming, this.castPoint(this.aiming));
+      this.refreshAim();
     });
     window.addEventListener('pointerdown', (e) => {
       unlockAudio();
@@ -250,6 +255,10 @@ export class GameInput {
       return null;
     return this.view.worldPoint(this.pointer.x, this.pointer.y);
   }
+  private refreshAim(): void {
+    if (this.wardAiming) this.view.setAim('ward', this.wardPoint() ?? this.world.hero);
+    else if (this.aiming) this.view.setAim(this.aiming, this.castPoint(this.aiming));
+  }
   release(): void {
     this.recenterHeld = false;
     this.cameraKeys = [];
@@ -308,5 +317,10 @@ export class GameInput {
         : undefined;
     this.view.hovered = target?.id ?? null;
     canvas.classList.toggle('enemy-hover', !!target && target.team !== this.world.hero.team);
+  }
+  updateHoverAfterRender(): void {
+    // Active gestures already refresh against this frame's poses before drawing.
+    // Keep ordinary/manual-preview hover behavior without a second ray query.
+    if (!this.aiming && !this.wardAiming) this.updateHover();
   }
 }

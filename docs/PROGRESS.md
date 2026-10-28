@@ -6,7 +6,33 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
-The latest [held camera shortcuts](TEAM-CAMERA.md) add F1 for the human and
+The latest [camera-aligned aim previews](AIM-CAMERA.md) refresh active pointer
+and target selection after current camera/model placement and before drawing.
+The retained pre-fix W zoom case misses its real release point by 165.516979
+world units; the repaired case records zero gap and exact release/preview
+agreement. A ward case also passes pan, zoom and 1024×720 resize, with safe
+cancellation retaining its charge and no placement. Ordinary and direct manual
+preview hover retain their existing post-render behavior with one query per
+frame. Spell/ward rules and cast validation remain unchanged.
+
+All 13 relevant browser scenarios pass across the 12-case passing batch and
+one corrected legacy fixture recheck. They include minimap E/R, HUD clipping,
+cancellation/instant casting, real ward placement, midflight saves, combat,
+expiry and cooldown reset. The old transition fixture's original 30-second
+timeout also reproduces on unchanged `ef233d0`. Its static input case freezes
+painting after one complete scene while keeping real simulation/input, all
+assertions and the deadline; it passes in 8.4 seconds. Original traces remain.
+TypeScript, formatting, build and all 32 nested production recordings/gates pass.
+Reviewed captures cover 1440×900 and 1024×720. Schema stays 163; simulation
+fingerprint stays
+`abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f`.
+Matching pack `8ae8b3ce5e4cbde0a48a69287af97f387ffcfc9b1b9795361a514b7ad81682af`
+has 1,202 files / 538,109,411 bytes. No public media or saved fields change.
+The frozen ordinary/combined 100-seed runs continue with recorded quiet-test
+pauses; completion is not claimed. Prior broad/Node QA/full-match results keep
+their earlier evidence at this same simulation identity.
+
+The preceding [held camera shortcuts](TEAM-CAMERA.md) add F1 for the human and
 F2–F5 for teammates in scoreboard order. Newer held keys take priority, Space
 wins while held, and release preserves the user's camera lock. Pause/blur clear
 temporary focus; typing and modifier controls remain protected. The renderer

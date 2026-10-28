@@ -578,7 +578,7 @@ async function boot(): Promise<void> {
     }
     world.withVisionSnapshot(() => {
       view.render(world, paused ? 1 : accumulator / DT, elapsed);
-      input!.updateHover();
+      input!.updateHoverAfterRender();
       uiElapsed += dt;
       if (uiElapsed >= 0.05 || paused) {
         hud.update(fps);

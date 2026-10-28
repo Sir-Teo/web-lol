@@ -1,0 +1,490 @@
+{
+  "date": "2026-10-28",
+  "previousCommit": "ef233d0",
+  "schema": 163,
+  "ruleset": "abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f",
+  "simulationFingerprintUnchanged": true,
+  "sources": [
+    {
+      "path": "src/input/input.ts",
+      "bytes": 12244,
+      "sha256": "3f492fd265b18fd302f69d730fc0530cc8301679f6df1a082db5329b312bcf2e"
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 25647,
+      "sha256": "73599b05ee44b33a912f914fd762144a384aa263f25263c52c81a9140831fe60"
+    },
+    {
+      "path": "src/render/view.ts",
+      "bytes": 65245,
+      "sha256": "f84f77be23e6e9d8db1b23c311844d4e27ce4b7130f62dd61e966958381481cf"
+    },
+    {
+      "path": "e2e/aim-camera.spec.ts",
+      "bytes": 5966,
+      "sha256": "37e826b5ab085a22cedfba5c0c20f0c922036dfac61bf9529010248932581cf5"
+    },
+    {
+      "path": "e2e/minimap-cast.spec.ts",
+      "bytes": 7974,
+      "sha256": "314b83a9d80087a02fc8f17a06df5160b50846707763986582d166a781a0cb7a"
+    }
+  ],
+  "originalBug": {
+    "sourceRevision": "ef233d0",
+    "ruleset": "abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f",
+    "gap": 165.51697905025554,
+    "cursorShift": 165.51697905025554,
+    "releasedMatchesActualCursor": true
+  },
+  "checks": {
+    "typescript": true,
+    "format": true,
+    "build": true
+  },
+  "browser": {
+    "initialBugReproduced": true,
+    "finalBatchPassed": 12,
+    "finalBatchTotal": 13,
+    "correctedLegacyPassed": 1,
+    "correctedLegacyTotal": 1,
+    "retries": 0,
+    "originalDeadlineMs": 30000,
+    "finalLegacySeconds": 8.4,
+    "allOriginalAssertionsPreserved": true,
+    "staticLegacyPaintingStoppedOnly": true,
+    "realSimulationAndInputRetained": true,
+    "spell": {
+      "pointer": {
+        "x": 850,
+        "y": 400
+      },
+      "before": {
+        "point": {
+          "x": -6558.295888803676,
+          "y": 6725.857568135174
+        },
+        "cursor": {
+          "x": -6558.295888803676,
+          "y": 6725.857568135174
+        },
+        "elapsed": 2.9010000000000016,
+        "zoom": 1
+      },
+      "after": {
+        "point": {
+          "x": -6414.727443001387,
+          "y": 6643.492698658934
+        },
+        "cursor": {
+          "x": -6414.727443001387,
+          "y": 6643.492698658934
+        },
+        "elapsed": 4.201000000000001,
+        "zoom": 1.3
+      },
+      "released": {
+        "type": "cast",
+        "unit": 1,
+        "ability": "w",
+        "point": {
+          "x": -6414.727443001387,
+          "y": 6643.492698658934
+        }
+      },
+      "gap": 0,
+      "shift": 165.51697905025554,
+      "errors": []
+    },
+    "ward": {
+      "pointer": {
+        "x": 850,
+        "y": 400
+      },
+      "stages": [
+        {
+          "label": "initial",
+          "mode": "ward",
+          "point": {
+            "x": -6558.295888803676,
+            "y": 6725.857568135174
+          },
+          "cursor": {
+            "x": -6558.295888803676,
+            "y": 6725.857568135174
+          },
+          "inside": true,
+          "zoom": 1
+        },
+        {
+          "label": "zoom",
+          "mode": "ward",
+          "point": {
+            "x": -6701.038395867934,
+            "y": 6803.088727971812
+          },
+          "cursor": {
+            "x": -6701.038395867934,
+            "y": 6803.088727971812
+          },
+          "inside": true,
+          "zoom": 0.7
+        },
+        {
+          "label": "pan",
+          "mode": "ward",
+          "point": {
+            "x": -6435.2680442101655,
+            "y": 6651.511511124704
+          },
+          "cursor": {
+            "x": -6435.2680442101655,
+            "y": 6651.511511124704
+          },
+          "inside": true,
+          "zoom": 0.7
+        },
+        {
+          "label": "resize",
+          "mode": "ward",
+          "point": {
+            "x": -5725.117869563634,
+            "y": 6920.6804588616105
+          },
+          "cursor": {
+            "x": -5725.117869563634,
+            "y": 6920.6804588616105
+          },
+          "inside": true,
+          "zoom": 0.7
+        }
+      ],
+      "after": {
+        "mode": null,
+        "charges": 1,
+        "pending": 0,
+        "wards": 0
+      },
+      "errors": []
+    },
+    "reviewedViewports": [
+      [1440, 900],
+      [1024, 720]
+    ],
+    "proofs": [
+      {
+        "path": "artifacts/aim-camera/browser-before/aim-camera-a-stationary-he-70e10-ches-its-real-release-point/aim-camera.json",
+        "bytes": 748,
+        "sha256": "c35c576e3c068a7c9fd92e69a6dc86e312d979f567070a3562af9a393d7d6f17"
+      },
+      {
+        "path": "artifacts/aim-camera/browser-before/aim-camera-a-stationary-he-70e10-ches-its-real-release-point/error-context.md",
+        "bytes": 7800,
+        "sha256": "ebe92218501563a52d947e93be4065f6bfa72a6e7d49426d0ea42706321f05d9"
+      },
+      {
+        "path": "artifacts/aim-camera/browser-before/aim-camera-a-stationary-he-70e10-ches-its-real-release-point/held-preview-after-zoom.png",
+        "bytes": 1447860,
+        "sha256": "881b542f46eaf3df98ac1c69ac2ef6a872ea402d6979508c1d029984e6901291"
+      },
+      {
+        "path": "artifacts/aim-camera/browser-before/aim-camera-a-stationary-he-70e10-ches-its-real-release-point/trace.zip",
+        "bytes": 195988191,
+        "sha256": "a580b05ef280784a4ab77ad7024f5be5e3bd0e83fe081e36f0b2838da0f541ec"
+      },
+      {
+        "path": "artifacts/aim-camera/browser-after/aim-camera-a-stationary-he-70e10-ches-its-real-release-point/aim-camera.json",
+        "bytes": 732,
+        "sha256": "61936be6d54055fc034914e80c30074cbe3364a1e8a313701d17532f16a7b1bf"
+      },
+      {
+        "path": "artifacts/aim-camera/browser-after/aim-camera-a-stationary-he-70e10-ches-its-real-release-point/held-preview-after-zoom.png",
+        "bytes": 1447704,
+        "sha256": "e224e323dcab206f12198e4dde1704c709a6e677246f8b30b0b14722bea29346"
+      },
+      {
+        "path": "artifacts/aim-camera/browser-regressions/aim-camera-a-stationary-he-70e10-ches-its-real-release-point/aim-camera.json",
+        "bytes": 732,
+        "sha256": "8074969f731469af8f7bc36a575e303a3c66a1b68914c8c45d5f6f7f6ee032f5"
+      },
+      {
+        "path": "artifacts/aim-camera/browser-regressions/aim-camera-a-stationary-he-70e10-ches-its-real-release-point/held-preview-after-zoom.png",
+        "bytes": 1448223,
+        "sha256": "cf235fae097f7fb4f8bbd0f9de13d5197dee2b1cd8ec8523d3b2d595c713fa5e"
+      },
+      {
+        "path": "artifacts/aim-camera/browser-regressions/aim-camera-a-stationary-wa-8fcc1-t-spending-a-cancelled-ward/ward-camera.json",
+        "bytes": 1293,
+        "sha256": "4c521bb500d628cc917311df175dde1f81abc5fb688a33c7187ca5b8dc0a24c1"
+      },
+      {
+        "path": "artifacts/aim-camera/browser-regressions/aim-camera-a-stationary-wa-8fcc1-t-spending-a-cancelled-ward/ward-preview-after-resize.png",
+        "bytes": 991426,
+        "sha256": "57de43596b0ed79818db97c1e2ac3fe423ef27d474e759d9fbf9b30849d32ad8"
+      },
+      {
+        "path": "artifacts/aim-camera/browser-regressions/minimap-cast-held-targetin-39746-imap-and-non-targetable-HUD/error-context.md",
+        "bytes": 3849,
+        "sha256": "a462c888ab7e64df6cf2b3dcdee01bc817d7a29ecd337539741d0fe1ed4ebdfd"
+      },
+      {
+        "path": "artifacts/aim-camera/browser-regressions/minimap-cast-held-targetin-39746-imap-and-non-targetable-HUD/test-failed-1.png",
+        "bytes": 903681,
+        "sha256": "57320ff4d8b451451b213e3a712470205c35b0b1f2bfff4a9528323db82af640"
+      },
+      {
+        "path": "artifacts/aim-camera/browser-regressions/minimap-cast-held-targetin-39746-imap-and-non-targetable-HUD/trace.zip",
+        "bytes": 40338393,
+        "sha256": "e2194b44a8374ee863e75b94e3b12a329b225107df1492cf26ae62569013f1f4"
+      },
+      {
+        "path": "artifacts/aim-camera/browser-regressions/ward-hud-cast-HUD-instant--45cf3-ugh-pointer-Space-and-Enter/ward-hud-cast.json",
+        "bytes": 2663,
+        "sha256": "39c31e20fa7bcefc6451269a7b9aa09c75bc0a0a264ffe453647860f0b6d8e7d"
+      },
+      {
+        "path": "artifacts/aim-camera/browser-regressions/ward-spell-transition-an-i-7573b-iews-without-placing-a-ward/ward-spell-transition.json",
+        "bytes": 1374,
+        "sha256": "3f745d15d74f9284a7264125614c8ef01fc017751add33d75c87bde6ca35981e"
+      },
+      {
+        "path": "artifacts/aim-camera/browser-regressions/ward-spell-transition-an-i-7573b-iews-without-placing-a-ward/ward-spell-transition.png",
+        "bytes": 901811,
+        "sha256": "82bc72fa862352feb7fc3e5496103eb0751dc98318472bc99ad30e6fe17c60b1"
+      },
+      {
+        "path": "artifacts/aim-camera/baseline-transition/minimap-cast-held-targetin-39746-imap-and-non-targetable-HUD/error-context.md",
+        "bytes": 3849,
+        "sha256": "a462c888ab7e64df6cf2b3dcdee01bc817d7a29ecd337539741d0fe1ed4ebdfd"
+      },
+      {
+        "path": "artifacts/aim-camera/baseline-transition/minimap-cast-held-targetin-39746-imap-and-non-targetable-HUD/test-failed-1.png",
+        "bytes": 903682,
+        "sha256": "ce8271ad1c5e9f7a65109d5fb3bc92cb7508e84a89f85323889105f36962727d"
+      },
+      {
+        "path": "artifacts/aim-camera/baseline-transition/minimap-cast-held-targetin-39746-imap-and-non-targetable-HUD/trace.zip",
+        "bytes": 40887319,
+        "sha256": "13bc23d43563bda329f3556a069aa1d095c577a475ecd791165790646d86ba21"
+      }
+    ],
+    "initialSources": [
+      {
+        "path": "artifacts/aim-camera/aim-camera-before.spec.ts",
+        "bytes": 3112,
+        "sha256": "98ac30e252cac72ca32472b4bc7cf052f8ad7c7cb9272cf043d7bdba6c957726"
+      },
+      {
+        "path": "artifacts/aim-camera/minimap-cast-before.spec.ts",
+        "bytes": 7647,
+        "sha256": "3677a4cf1479b2f7650345c6bf208dd0172b9daf739ff8cfb4716e445fa422a3"
+      }
+    ],
+    "legacyTimeoutReproducedOn": "ef233d0"
+  },
+  "behavior": {
+    "activeAimRefreshAfterCameraAndPoses": true,
+    "activeHoverBeforeIndicator": true,
+    "ordinaryAndManualPreviewHoverPhasePreserved": true,
+    "oneHoverQueryPerRenderedFrame": true,
+    "pointerEventsRemainImmediate": true,
+    "castValidationUnchanged": true,
+    "spellAndWardValuesUnchanged": true,
+    "newSaveFields": false,
+    "publicAssetsChanged": false
+  },
+  "production": {
+    "result": {
+      "result": "passed",
+      "prefix": "/nested/rift/",
+      "recordings": 32,
+      "mapNavigation": true,
+      "practiceScheduledRigs": 11,
+      "realHawkshotCast": true,
+      "realLuxBindingCast": true,
+      "realLuxSingularityCastAndRecast": true,
+      "lucentSourceAssets": [
+        "assets/effects/lux-e-color-hit-mana.png",
+        "assets/effects/lux-e-color-hold.png",
+        "assets/effects/lux-e-color_lux_e_shield.png",
+        "assets/effects/lux-e-lux_base_e_distort.png",
+        "assets/effects/lux-e-lux_base_e_flame_ring.png",
+        "assets/effects/lux-e-lux_base_e_flare.png",
+        "assets/effects/lux-e-lux_base_e_flash.png",
+        "assets/effects/lux-e-lux_base_e_glow.png",
+        "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+        "assets/effects/lux-e-lux_base_e_indicator_red.png",
+        "assets/effects/lux-e-lux_base_e_mote.png",
+        "assets/effects/lux-e-lux_base_e_small_mote.png",
+        "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+        "assets/effects/lux-e-lux_base_w_glow.png",
+        "assets/effects/lux-e-rainbowflash.png",
+        "assets/effects/lux-e-rainbowhalo.png",
+        "assets/effects/lux-e-sphere_e_01.png",
+        "assets/models/lux-e-indicator.glb",
+        "assets/models/lux-e-slash.glb"
+      ],
+      "luxLaneRestart": true,
+      "selectedSmiteLoadoutAndRestart": true,
+      "companionPurchaseAndRestore": true,
+      "companionPurchaseInPractice": true,
+      "realWardPlacementAndRestore": true,
+      "oraclePurchaseActivationAndRestore": true,
+      "oracleRigRequests": 8,
+      "oracleAudioRequests": 6,
+      "unrequestedOraclePreloads": 0,
+      "wardRigRequests": 19,
+      "unrequestedCompanionPreloads": 0,
+      "developmentHook": false,
+      "garenFixtureInProduction": false,
+      "leonaPlayerFixtureInProduction": false,
+      "leonaRiftTrialInProduction": false,
+      "garenRiftTrialInProduction": false,
+      "masterYiRiftTrialInProduction": false,
+      "masterYiBotRiftTrialInProduction": false,
+      "rosterRiftTrialInProduction": false,
+      "publicChampionChoices": ["ashe", "lux"],
+      "ahriRiftTrialInProduction": false,
+      "ahriBotRiftTrialInProduction": false,
+      "ahriNpcFixtureInProduction": false,
+      "ahriPlayerFixtureInProduction": false,
+      "unrequestedAhriPreloads": 0,
+      "unrequestedMasterYiPreloads": 0,
+      "unrequestedMasterYiAttackAudioPreloads": 0,
+      "unrequestedMasterYiHighlanderAudioPreloads": 0,
+      "unrequestedMasterYiAlphaAudioPreloads": 0,
+      "unrequestedMasterYiMeditateAudioPreloads": 0,
+      "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+      "unrequestedMasterYiSwordPreloads": 0,
+      "unrequestedMasterYiPrimaryTrailPreloads": 0,
+      "unrequestedMasterYiPrimaryHitPreloads": 0,
+      "unrequestedMasterYiPassiveTrailPreloads": 0,
+      "unrequestedMasterYiMeditateDamagePreloads": 0,
+      "unrequestedMasterYiHighlanderKillPreloads": 0,
+      "unrequestedMasterYiHighlanderCastPreloads": 0,
+      "unrequestedMasterYiQEndPreloads": 0,
+      "unrequestedMasterYiQCastPreloads": 0,
+      "unrequestedMasterYiQContactPreloads": 0,
+      "unrequestedMasterYiMeditateCastPreloads": 0,
+      "unrequestedMasterYiMeditateBuffPreloads": 0,
+      "masterYiNpcFixtureInProduction": false,
+      "masterYiPlayerFixtureInProduction": false,
+      "junglePreviewRequests": 0,
+      "unrequestedLeonaPreloads": 0,
+      "preparedCompanionRequests": 5,
+      "roleCompanionRequests": 2,
+      "roleScoreboardIcons": 34,
+      "scheduledGrompRequests": 323,
+      "scheduledBlueRequests": 19,
+      "scheduledRedRequests": 19,
+      "scheduledWolfRequests": 38,
+      "scheduledRaptorRequests": 38,
+      "scheduledKrugRequests": 57,
+      "scheduledScuttlerRequests": 19,
+      "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+    },
+    "screenshot": {
+      "path": "artifacts/aim-camera/production.png",
+      "bytes": 1825040,
+      "sha256": "39e704c06dcbccf368e7e85d645d52b22d8bb13785be824e298c154199ff5e6b"
+    }
+  },
+  "pack": {
+    "id": "8ae8b3ce5e4cbde0a48a69287af97f387ffcfc9b1b9795361a514b7ad81682af",
+    "files": 1202,
+    "bytes": 538109411,
+    "buildRulesetMatches": true
+  },
+  "auditPauseReceipts": [
+    {
+      "path": "artifacts/certification-abc8dc/pauses/aim-baseline.json",
+      "bytes": 1609,
+      "sha256": "7dfe200591632a7efecf713f06f78aaf2de02438edfe3c46a34176f6a18eeebe"
+    },
+    {
+      "path": "artifacts/certification-abc8dc/pauses/aim-production.json",
+      "bytes": 1609,
+      "sha256": "b648454620f2a3c3fff0a5e9261c36e8d140691d5b94082615ca243bee610c0d"
+    },
+    {
+      "path": "artifacts/certification-abc8dc/pauses/aim-regressions.json",
+      "bytes": 1609,
+      "sha256": "ae16f2b5611d8a88195b6ba415ea455ca3dc39437175dc0d66a809c3a44e1ff0"
+    }
+  ],
+  "freshBroadRun": false,
+  "freshNodeQaRun": false,
+  "precedingBroadAndNodeQaEvidence": "docs/reference/bot-team-detour-verification.json",
+  "freshCompletedHeadlessAudit": false,
+  "unchangedSimulationMatchEvidence": "docs/reference/bot-team-detour-matches-verification.json",
+  "hundredSeedAudits": "in progress; not claimed complete",
+  "freshOfflineAcceptance": false,
+  "logs": [
+    {
+      "path": "artifacts/aim-camera/logs/baseline-transition.log",
+      "bytes": 2559,
+      "sha256": "2d6f6cc813f7d8b64af9ad7d3b21edffd196c812e766539436619a3e7a850273"
+    },
+    {
+      "path": "artifacts/aim-camera/logs/browser-after.log",
+      "bytes": 666,
+      "sha256": "3a1ba4befd936a9e6ba079a937eacff8a9331e009f79bd51cd9b88fcaf0369f1"
+    },
+    {
+      "path": "artifacts/aim-camera/logs/browser-before.log",
+      "bytes": 2264,
+      "sha256": "93dd14c54c87d863a6030da0f50f2f3e7f283f24399c2d519ded4b6219d5a9ef"
+    },
+    {
+      "path": "artifacts/aim-camera/logs/browser-format.log",
+      "bytes": 29,
+      "sha256": "47cb605f4a132e4d2772b4f0093990e8dc0b9cb9f1192e28abda2b0845261c50"
+    },
+    {
+      "path": "artifacts/aim-camera/logs/browser-regressions.log",
+      "bytes": 6632,
+      "sha256": "94fb1f19bb05bbd5931a29d07bd0345f496985e22d66755927f90748508be7ff"
+    },
+    {
+      "path": "artifacts/aim-camera/logs/build.log",
+      "bytes": 7124,
+      "sha256": "02c6e97d7fd2b15fadbe229a71ad6807931b94ce6d223400c3af4e0aa92850a4"
+    },
+    {
+      "path": "artifacts/aim-camera/logs/format-final.log",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "path": "artifacts/aim-camera/logs/format.log",
+      "bytes": 91,
+      "sha256": "5bee28e8a2bfa30a2ddf5b0de8712e286a6b99c0e42d7a2877e04767b33adacc"
+    },
+    {
+      "path": "artifacts/aim-camera/logs/production.log",
+      "bytes": 3112,
+      "sha256": "76ae8d93a1844e7c2030c8df65022cbf8f8a0bc72b045fbc0bf547c07faefc4e"
+    },
+    {
+      "path": "artifacts/aim-camera/logs/transition-final.log",
+      "bytes": 670,
+      "sha256": "b53f2780a7c0748764ca9f672ff64662f39e7a44f15477d0f42ee41be4db26ce"
+    },
+    {
+      "path": "artifacts/aim-camera/logs/transition-format.log",
+      "bytes": 43,
+      "sha256": "c558541f17fb563eeec6b37ff5a23d5740beae5cb6dbc2af8820e18357789968"
+    },
+    {
+      "path": "artifacts/aim-camera/logs/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/aim-camera/logs/ward-format.log",
+      "bytes": 29,
+      "sha256": "11f5ba6504d874af19b1206d238e970e22ac656dc4ab6a577a195f48c54f83ca"
+    }
+  ]
+}
