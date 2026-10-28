@@ -4,11 +4,23 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { dirname } from 'node:path';
 import { cpus, platform } from 'node:os';
+import { parseArgs } from 'node:util';
 
-const url = process.argv[2] ?? 'http://127.0.0.1:5198';
-const output = process.argv[3];
-if (!output) throw new Error('Usage: node tools/qa/benchmark-energy.mjs URL fresh-output.json');
-const browser = await chromium.launch({ channel: 'chrome' });
+const { values, positionals } = parseArgs({
+  allowPositionals: true,
+  options: { 'system-chromium': { type: 'boolean', default: false } },
+});
+const url = positionals[0] ?? 'http://127.0.0.1:5198';
+const output = positionals[1];
+if (!output || positionals.length !== 2)
+  throw new Error(
+    'Usage: node tools/qa/benchmark-energy.mjs URL fresh-output.json [--system-chromium]'
+  );
+const browser = await chromium.launch(
+  values['system-chromium']
+    ? { executablePath: '/usr/bin/chromium', args: ['--no-sandbox'] }
+    : { channel: 'chrome' }
+);
 try {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   const errors = [];
@@ -46,6 +58,19 @@ try {
   await ready();
   if (!(await page.evaluate((s) => window.__GAME__.world.snapshot() === s, snapshot)))
     throw new Error('Checkpoint was not restored exactly');
+  const graphics = await page.evaluate(() => {
+    const gl = window.__GAME__.view.renderer.getContext();
+    const debug = gl.getExtension('WEBGL_debug_renderer_info');
+    return {
+      vendor: gl.getParameter(gl.VENDOR),
+      renderer: gl.getParameter(gl.RENDERER),
+      unmaskedVendor: debug ? gl.getParameter(debug.UNMASKED_VENDOR_WEBGL) : null,
+      unmaskedRenderer: debug ? gl.getParameter(debug.UNMASKED_RENDERER_WEBGL) : null,
+      version: gl.getParameter(gl.VERSION),
+      shadingLanguageVersion: gl.getParameter(gl.SHADING_LANGUAGE_VERSION),
+      gpuTimerQueryAvailable: !!gl.getExtension('EXT_disjoint_timer_query_webgl2'),
+    };
+  });
   const cdp = await page.context().newCDPSession(page);
   await cdp.send('Performance.enable');
   await page.evaluate(() => {
@@ -147,6 +172,8 @@ try {
       {
         recordedAt: new Date().toISOString(),
         browser: browser.version(),
+        systemChromium: values['system-chromium'],
+        graphics,
         platform: platform(),
         cpu: cpus()[0].model,
         scope:

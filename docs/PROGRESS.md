@@ -6,6 +6,18 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+Two short [renderer/idle observations](CONTROLS-RENDER-OBSERVATION.md) import
+the same exact ten-champion 120-second checkpoint. Both observe zero paused
+or synthetic-hidden render/mixer/HUD/audio/step calls and unchanged idle ticks,
+with no page errors. The updated benchmark records graphics backend metadata
+and accepts explicit system Chromium. The repeat identifies SwiftShader
+software rendering with no GPU timer-query extension. Its active sample has
+17 renders / 102 steps across 7.701 seconds; most sampled time lies outside
+named JavaScript functions. This does not identify a code optimization or
+establish a physical frame-rate/device budget. Raw profiles, exact inputs and
+both resumed audit-pause receipts are pinned. Application build, simulation,
+offline pack and preceding production/offline evidence are unchanged.
+
 Fresh [offline checks after the camera controls](OFFLINE-CONTROLS-REFRESH.md)
 pass for pack `180aadb3005305d4982afdacd9328e58b8b98fc302203f3bffc703a49c8d710e`
 (1,202 files / 538,110,595 bytes). Actual production controls verify integrity
