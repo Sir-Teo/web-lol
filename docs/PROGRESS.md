@@ -6,7 +6,34 @@ Last updated: October 27, 2026 (UTC).
 
 ## Current authoritative state
 
-The latest [Master Yi bot foundation](MASTER-YI-BOT.md) adds legal own-kit
+The latest [Master Yi bot tactics](MASTER-YI-BOT-TACTICS.md) add between-fight
+Meditate with full-channel/Q mana reserves and visible-threat interruption
+through queued orders. Highlander supports visible champion chases and retreat,
+reserves a ready Q's mana and leaves neutral camps alone. Existing controllers
+retain damage, bonuses, pauses and presentation; no saved field is added.
+
+All 907 focused cases across 51 files, TypeScript, all 29 Node QA cases and
+the matching build pass. The clean four-case browser batch checks the old E/Q
+case plus W loop/arrival interruption, simultaneous R/E/Q hidden births and a
+visible R chase. Actual saves retain exact 180-tick futures and 90 finite bones
+with no page errors. The initial resource and R-visibility fixture failures
+are retained; source rules and existing assertions are unchanged.
+Schema stays 163; current rules fingerprint is
+`25db6bcff003c347e37cbd0977a1e5252cd15ffe39e1c68e666f4ddd7e33dd1a`.
+Pack `1070d0af40207e5fe7fe4a4153336b7bae095a407e94b3a2285b3423e98f5db3`
+contains 1,202 files / 538,102,827 bytes. A dedicated Yi bot Rift roster,
+native fidelity and complete-match gates remain open.
+The broad run passes **3,482/3,488 cases across 410 files**, retaining the same
+six independently reproduced baseline failures. A normal-rules Yi jungle seed
+continues its exact ten-minute save to twenty minutes: 72,000 checked ticks,
+twenty round-trips and six original-world future comparisons pass. Yi uses all
+four spells (Q42/W5/E35/R4) and reaches level 11; no resource invariant fails or
+winner is forced. This diagnostic does not close the complete-match seed gate.
+Matching nested production passes all 32 recordings and development gates with
+no Ahri/Yi preload or page errors. Offline acceptance is inherited; no fresh
+offline or full-browser certification is claimed for this simulation-only step.
+
+The preceding [Master Yi bot foundation](MASTER-YI-BOT.md) adds legal own-kit
 learning and observed E/Q decisions. E precedes paid Q through independently
 validated commands; real controllers retain marks, on-hits, hiding, buff pauses
 and return behavior. Selected visible jungle monsters can enter the same

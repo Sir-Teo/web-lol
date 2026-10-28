@@ -11,6 +11,9 @@ at level 18 without Ashe Focus or Hawkshot charges. A dead AI can allocate
 accumulated points without reviving. W/R tactical decisions remain separate
 work, and the existing physical/jungle purchases are unchanged.
 
+The subsequent [tactics step](MASTER-YI-BOT-TACTICS.md) adds safe Meditate and
+resource-aware Highlander decisions without changing these E/Q controllers.
+
 The combat policy considers the nearest visible eligible champion within the
 ordinary 600-unit Q range, with deterministic ID ties. It rejects observed
 turret danger at both the caster and champion target. For jungle use it can
@@ -43,8 +46,8 @@ The broad run passes **3,468/3,474 cases across 409 files**, retaining the same
 six source-cache/toolchain and Lux digest failures independently reproduced on
 untouched `5d90742`. No existing assertion is relaxed. Matching nested-path
 production smoke passes all 32 recordings, real cast/purchase/save/vision flows,
-and development URL rejection with no Ahri/Yi preloads or page errors. Fresh
-offline acceptance is inherited from the preceding Ahri bot Rift revision;
+and development URL rejection with no Ahri/Yi preloads or page errors. Offline
+acceptance is inherited from the preceding Ahri bot Rift revision;
 this step changes neither UI, storage nor worker code and does not claim a new
 offline run.
 

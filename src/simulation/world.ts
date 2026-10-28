@@ -1427,6 +1427,7 @@ export class World {
         return;
       }
       if (u.champion === 'masteryi' && advanceAlphaStrike(this, u)) continue;
+      if (u.champion === 'masteryi') this.planMasterYiMeditateSafety(u);
       if (u.champion === 'masteryi' && advanceMeditate(this, u)) continue;
       if (u.structure?.regenPerSecond)
         u.hp = Math.min(u.maxHp, u.hp + u.structure.regenPerSecond * DT);
@@ -2417,6 +2418,113 @@ export class World {
     return ITEMS.find((item) => item.id === id);
   }
 
+  private masterYiSustainThreatened(u: Unit): boolean {
+    if (u.kind !== 'champion') return true;
+    return (
+      !!this.threateningTower(u, u, true) ||
+      this.units.some(
+        (enemy) =>
+          enemy.team !== u.team &&
+          enemy.kind !== 'dummy' &&
+          enemy.kind !== 'ward' &&
+          !isStructureKind(enemy.kind) &&
+          this.visible(enemy, u.team) &&
+          this.alive(enemy) &&
+          !(enemy.kind === 'monster' && enemy.monster.phase === 'returning') &&
+          distance(u, enemy) <= MASTER_YI_BOT_POLICY.sustainThreatRange
+      ) ||
+      this.projectiles.some(
+        (p) =>
+          p.team !== u.team &&
+          this.projectileVisible(p, u.team) &&
+          (p.target === u.id || distance(u, p) <= MASTER_YI_BOT_POLICY.sustainThreatRange)
+      )
+    );
+  }
+  private planMasterYiMeditateSafety(u: Unit): void {
+    if (u.kind !== 'champion' || !u.ai) return;
+    const channel = this.championState(u.id)?.meditate;
+    if (!channel || channel.stopTick !== null || this.tick < u.nextThink) return;
+    u.nextThink = this.tick + 18;
+    const unsafe = u.rootUntil <= this.tick && this.masterYiSustainThreatened(u);
+    const healed = u.hp >= u.maxHp * MASTER_YI_BOT_POLICY.sustainStopHealthFraction;
+    if (!unsafe && !healed) return;
+    // Normal queued orders own interruption and its saved presentation tails.
+    this.enqueue({
+      type: 'order',
+      unit: u.id,
+      order: unsafe
+        ? { type: 'move', point: { ...this.battlefield.spawns[u.team] } }
+        : { type: 'idle' },
+    });
+  }
+  private planMasterYiSustain(u: Unit): boolean {
+    if (
+      u.kind !== 'champion' ||
+      u.champion !== 'masteryi' ||
+      u.silenceUntil > this.tick ||
+      u.releaseTick !== null ||
+      u.hp >= u.maxHp * MASTER_YI_BOT_POLICY.sustainHealthFraction ||
+      distance(u, this.battlefield.spawns[u.team]) <= 400
+    )
+      return false;
+    const state = this.championState(u.id)!;
+    if (
+      state.pendingCast ||
+      state.recallEnd !== null ||
+      state.alphaStrike ||
+      state.meditate ||
+      !state.spellRanks.w ||
+      this.abilityCooldownTicks('w', u.id) > 0 ||
+      this.masterYiSustainThreatened(u) ||
+      state.damageContributors.some((entry) => this.tick - entry.lastDamageTick < 2 * TICK_RATE)
+    )
+      return false;
+    const reserve = state.spellRanks.q ? this.abilityResources('q', u.id).mana : 0;
+    const cost = Math.ceil(
+      this.abilityResources('w', u.id).mana +
+        u.maxMana * MASTER_YI_W.maximumManaPerSecond * MASTER_YI_W.durationSeconds +
+        reserve
+    );
+    if (u.mana < cost + this.queuedCastMana(u)) return false;
+    this.enqueue({ type: 'cast', unit: u.id, ability: 'w', point: { x: u.x, y: u.y } });
+    return true;
+  }
+  private planMasterYiEscape(u: Unit): void {
+    if (
+      u.kind !== 'champion' ||
+      u.champion !== 'masteryi' ||
+      u.silenceUntil > this.tick ||
+      u.rootUntil > this.tick
+    )
+      return;
+    const state = this.championState(u.id)!;
+    if (
+      state.pendingCast ||
+      state.recallEnd !== null ||
+      state.alphaStrike ||
+      state.meditate ||
+      !state.spellRanks.r ||
+      activeHighlander(state, this.tick) ||
+      this.abilityCooldownTicks('r', u.id) > 0 ||
+      u.mana < this.abilityResources('r', u.id).mana + this.queuedCastMana(u) ||
+      distance(u, this.battlefield.spawns[u.team]) <= 400
+    )
+      return;
+    if (
+      !this.units.some(
+        (enemy) =>
+          enemy.kind === 'champion' &&
+          enemy.team !== u.team &&
+          this.visible(enemy, u.team) &&
+          this.alive(enemy) &&
+          this.targetable(enemy) &&
+          distance(u, enemy) <= MASTER_YI_BOT_POLICY.highlanderRange
+      )
+    )
+      return;
+    this.enqueue({ type: 'cast', unit: u.id, ability: 'r', point: { x: u.x, y: u.y } });
+  }
   private planMasterYiCombat(u: Unit): boolean {
     if (u.kind !== 'champion' || u.champion !== 'masteryi' || u.silenceUntil > this.tick)
       return false;
@@ -2437,7 +2545,7 @@ export class World {
           target.team !== u.team &&
           this.visible(target, u.team) &&
           alphaTarget(this, u, target) &&
-          distance(u, target) <= MASTER_YI_Q.castRange &&
+          distance(u, target) <= MASTER_YI_BOT_POLICY.highlanderRange &&
           !this.threateningTower(u, target, true)
       )
       .sort((a, b) => distance(u, a) - distance(u, b) || a.id - b.id)[0];
@@ -2454,17 +2562,31 @@ export class World {
         ? ordered
         : undefined);
     if (!target) return false;
-    const ready = (ability: 'q' | 'e') =>
+    const ready = (ability: 'q' | 'e' | 'r') =>
       state.spellRanks[ability] > 0 &&
       this.abilityCooldownTicks(ability, u.id) === 0 &&
       u.mana >= this.abilityResources(ability, u.id).mana + this.queuedCastMana(u);
-    const alpha = u.rootUntil <= this.tick && ready('q');
+    const alpha =
+      u.rootUntil <= this.tick && distance(u, target) <= MASTER_YI_Q.castRange && ready('q');
+    const highlander =
+      target.kind === 'champion' &&
+      !activeHighlander(state, this.tick) &&
+      ready('r') &&
+      (u.rootUntil <= this.tick || distance(u, target) <= u.range + target.radius) &&
+      u.mana >=
+        this.abilityResources('r', u.id).mana +
+          this.queuedCastMana(u) +
+          (state.spellRanks.q && this.abilityCooldownTicks('q', u.id) === 0
+            ? this.abilityResources('q', u.id).mana
+            : 0);
     const wuju =
       !state.wujuStyle && ready('e') && (alpha || distance(u, target) <= u.range + target.radius);
-    if (!alpha && !wuju) return false;
+    if (!alpha && !wuju && !highlander) return false;
     if (alpha) this.setOrder(u, { type: 'idle' });
     else if (u.order.type !== 'attack' || u.order.target !== target.id)
       this.setOrder(u, { type: 'attack', target: target.id });
+    if (highlander)
+      this.enqueue({ type: 'cast', unit: u.id, ability: 'r', point: { x: u.x, y: u.y } });
     // E precedes Q through ordinary independent command validation. Q's
     // existing controller owns marks, repeats, on-hits and visibility changes.
     if (wuju) this.enqueue({ type: 'cast', unit: u.id, ability: 'e', point: { x: u.x, y: u.y } });
@@ -3268,6 +3390,7 @@ export class World {
       this.planGarenQ(u, true);
       if (this.planAhriCombat(u, true) || this.planLuxCombat(u, true)) return;
       if (this.planEmergencyFlash(u)) return;
+      this.planMasterYiEscape(u);
       if (distance(u, home) > 400 && this.planCrystalArrow(u, 'peel')) return;
       if (this.safeToRecall(u)) {
         if (state.recallEnd !== null) return;
@@ -3303,6 +3426,7 @@ export class World {
     }
     // Keep a valid committed windup; retargeting through setOrder would cancel it.
     if (u.releaseTick !== null && this.validTarget(u, this.unit(u.attackTarget ?? -1))) return;
+    if (this.planMasterYiSustain(u)) return;
     const observedChampions = this.units.filter(
       (other) =>
         other.id !== u.id &&
@@ -3321,6 +3445,7 @@ export class World {
     );
     if (disengage) {
       this.planGarenQ(u, true);
+      this.planMasterYiEscape(u);
       if (
         this.planAhriCombat(u, true) ||
         this.planLuxCombat(u, true) ||

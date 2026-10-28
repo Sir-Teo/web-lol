@@ -1,0 +1,310 @@
+{
+  "date": "2026-10-27",
+  "previousCommit": "f0e9dcc",
+  "schema": 163,
+  "ruleset": "25db6bcff003c347e37cbd0977a1e5252cd15ffe39e1c68e666f4ddd7e33dd1a",
+  "sources": [
+    {
+      "path": "src/content/masteryi-bot-policy.ts",
+      "bytes": 325,
+      "sha256": "85bbd5b2bc126adc1d1d8bd1725acfd2437495929654f1b1a6e5bb6fbcd2fdc4"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "bytes": 311280,
+      "sha256": "84825dabbf6091628246a4ce71dafcdd2d9d10f6470e5ce19caf92f3f01eb7fe"
+    },
+    {
+      "path": "tests/masteryi-bot-tactics.test.ts",
+      "bytes": 9556,
+      "sha256": "882cd6da9ee4df44017aae6d1f574e6f6e4f84a3a90e12bb86e63d57b1ada174"
+    },
+    {
+      "path": "e2e/masteryi-bot-tactics.spec.ts",
+      "bytes": 7096,
+      "sha256": "460916447816e5e51fa231f02fc71e0fc8c02250800b03a38d3c5df707dacec0"
+    }
+  ],
+  "focused": {
+    "passed": 907,
+    "total": 907,
+    "files": 51,
+    "newCases": 14
+  },
+  "broad": {
+    "passed": 3482,
+    "total": 3488,
+    "files": 410,
+    "unchangedBaselineFailures": 6,
+    "baselineEvidence": "docs/reference/ahri-bot-mobility-verification.json"
+  },
+  "checks": {
+    "typescript": true,
+    "nodeQa": {
+      "passed": 29,
+      "total": 29
+    },
+    "build": true,
+    "publicAssetsChanged": false,
+    "spellControllersChanged": false,
+    "savedFieldsChanged": false
+  },
+  "pack": {
+    "id": "1070d0af40207e5fe7fe4a4153336b7bae095a407e94b3a2285b3423e98f5db3",
+    "files": 1202,
+    "bytes": 538102827,
+    "buildRulesetMatches": true
+  },
+  "browser": {
+    "passed": 4,
+    "total": 4,
+    "retries": 0,
+    "newCases": 3,
+    "launcher": "/usr/bin/chromium",
+    "meditateLoopAndVisibleThreatInterruption": true,
+    "combinedREQHiddenRoots": true,
+    "visibleRChaseAndLaterQPause": true,
+    "actualSaveReload": true,
+    "exactFutureTicks": 180,
+    "revealedFiniteBones": 90,
+    "pageErrors": [],
+    "screenshotsReviewed": true
+  },
+  "diagnostic": {
+    "seed": 26018,
+    "horizonMinutes": 20,
+    "role": "jungle",
+    "aiProxyHuman": true,
+    "checkedTicks": 72000,
+    "checkpointRoundTrips": 20,
+    "originalWorldFutureComparisons": 6,
+    "acceptedCasts": {
+      "q": 42,
+      "w": 5,
+      "e": 35,
+      "r": 4
+    },
+    "finalLevel": 11,
+    "failures": [],
+    "forcedWinner": false,
+    "runners": [
+      {
+        "path": "artifacts/masteryi-bot-tactics/jungle-audit.ts",
+        "bytes": 3300,
+        "sha256": "d40468682ab25a7cc35989d6f64335d939d823937465e80ad66090e200c867a5"
+      },
+      {
+        "path": "artifacts/masteryi-bot-tactics/jungle-continuation.ts",
+        "bytes": 3422,
+        "sha256": "037d5108e6d14fcf3abc24c0d58cb42af2dca66ba66f4068e21b39d453334b21"
+      }
+    ],
+    "segments": [
+      {
+        "report": {
+          "path": "artifacts/masteryi-bot-tactics/jungle-26018.json",
+          "bytes": 3877,
+          "sha256": "701a5f665c9277e7449cf9693fdd63a18d465b4a691054aca017ae63f313c42d"
+        },
+        "checkpoint": {
+          "path": "artifacts/masteryi-bot-tactics/jungle-26018.snapshot.json",
+          "bytes": 180523,
+          "sha256": "51607e3c765eb4bfa166a9985ac54ad6ccc0f67285fac8a26ecbf3b3a4617cf0"
+        }
+      },
+      {
+        "report": {
+          "path": "artifacts/masteryi-bot-tactics/jungle-continuation-26018.json",
+          "bytes": 3970,
+          "sha256": "ecb527371e236d97de744c151ecbd628f3b71e1d917c2e58d17279a1f257e009"
+        },
+        "checkpoint": {
+          "path": "artifacts/masteryi-bot-tactics/jungle-continuation-26018.snapshot.json",
+          "bytes": 223548,
+          "sha256": "72e953d22a9eeb00951f7f7814fc9d54b9d1e565104022798c5a803dc3852c3e"
+        }
+      }
+    ]
+  },
+  "attempts": {
+    "initialUnit": {
+      "passed": 104,
+      "total": 106,
+      "cause": "Ranked mana sampled before AI allocation; fixture now learns through the actual allocator before reading costs.",
+      "fixture": {
+        "path": "artifacts/masteryi-bot-tactics/initial-tests.ts",
+        "bytes": 9436,
+        "sha256": "b1091f7578ee42ca098ee0463379e465defcaa5f020179e229f5458dc7a821f5"
+      }
+    },
+    "initialBrowser": {
+      "passed": 2,
+      "total": 3,
+      "cause": "Expected visible R particles during simultaneous Q vanish. Final combo verifies hidden births and a new visible chase case retains the positive layer assertion.",
+      "fixture": {
+        "path": "artifacts/masteryi-bot-tactics/initial-browser.spec.ts",
+        "bytes": 6285,
+        "sha256": "d0275e2d7e7ea4400dbc5e5b2d7d8110fd71e617f0587ae7fa31c0dc5f72bc79"
+      }
+    }
+  },
+  "production": {
+    "passed": true,
+    "prefix": "/nested/rift/",
+    "recordings": 32,
+    "developmentGates": true,
+    "ahriPreloads": 0,
+    "masterYiPreloads": 0,
+    "pageErrors": []
+  },
+  "offline": {
+    "freshRun": false,
+    "inherited": "docs/reference/ahri-bot-rift-verification.json"
+  },
+  "logs": [
+    {
+      "path": "artifacts/masteryi-bot-tactics/logs/web-lol-yi-tactics-all-focused.log",
+      "bytes": 384,
+      "sha256": "e1cc61696bfc1b862a532141dcaf111e17812d907f0dd69b4a343e17f9c7313a"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/logs/web-lol-yi-tactics-browser-2.log",
+      "bytes": 2011,
+      "sha256": "8360288a3c942a8821f4927fcabcf894b5ef01dd0bacbe99435466a566a45eaa"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/logs/web-lol-yi-tactics-browser.log",
+      "bytes": 4064,
+      "sha256": "fbac11b7cd875ccfbd609025cbfc80dc77bb66886a9fe0a6fb1fffcfaa1ee310"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/logs/web-lol-yi-tactics-build.log",
+      "bytes": 7124,
+      "sha256": "5e31677c933fd5ec447df8d16c14752a4e8662c2218aecc73b19b7915a9a1322"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/logs/web-lol-yi-tactics-continuation-build.log",
+      "bytes": 259,
+      "sha256": "3aed923a34c523d2d21e15eb84c523960c95c82347f6816ebaba917110cbc383"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/logs/web-lol-yi-tactics-continuation.log",
+      "bytes": 1724,
+      "sha256": "b13695d219fee6a3f34b24ff76dbf1bf24105ca0e8f19c518ab9a56960634a4d"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/logs/web-lol-yi-tactics-focused-2.log",
+      "bytes": 172,
+      "sha256": "efb88de0f8c787a2107444c8981d60bdf7a1b46a4c7ec4293f12b3312329986d"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/logs/web-lol-yi-tactics-focused.log",
+      "bytes": 2020,
+      "sha256": "18742c1a34d9ae17fe8173861835560278197138f3b26ee51d40b25ebb565758"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/logs/web-lol-yi-tactics-full.log",
+      "bytes": 5894,
+      "sha256": "40672f6351b369de1c07a25009e965f202f57466b9a1fa15eb0a169c76bbd756"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/logs/web-lol-yi-tactics-initial.log",
+      "bytes": 170,
+      "sha256": "7dfad0cde0b2aceffbf347563c03f068e4d47c5dbfbe41fd54a668b4c637e042"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/logs/web-lol-yi-tactics-jungle-build.log",
+      "bytes": 245,
+      "sha256": "3cbc9d664f44b2b27e03dea15ff9fce557d6c47edbe23630488e4eb1b3b6c4a4"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/logs/web-lol-yi-tactics-jungle.log",
+      "bytes": 1643,
+      "sha256": "47a43fb245c938050a7ba54d81a68a4112ac46af6d3254f6a0f0656a10e7fa82"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/logs/web-lol-yi-tactics-node-qa.log",
+      "bytes": 2769,
+      "sha256": "08411dac495fbb787f6c83ddbea890ccb857c81c9cbcb78592fb41c037dc7d02"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/logs/web-lol-yi-tactics-production.log",
+      "bytes": 2996,
+      "sha256": "2f4c69a64ee81752aec9e374907cc64f76e7c00e9dc44b58032f94452ce956e8"
+    }
+  ],
+  "proofs": [
+    {
+      "path": "artifacts/masteryi-bot-tactics/browser-2/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/browser-2/masteryi-bot-AI-learned-E--bdfd2-d-actual-saved-continuation/masteryi-bot-alpha-cast.png",
+      "bytes": 805280,
+      "sha256": "ecd015f2a1773ca4fbbc90398bca79728720806194dd5ce075dfd2372a8ac2eb"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/browser-2/masteryi-bot-AI-learned-E--bdfd2-d-actual-saved-continuation/masteryi-bot-return.png",
+      "bytes": 873357,
+      "sha256": "d25d5f0d23aba341984a6c4ae7d5090138095f264547de53a7bb67ebf6d89c17"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/browser-2/masteryi-bot-AI-learned-E--bdfd2-d-actual-saved-continuation/masteryi-bot.json",
+      "bytes": 58836,
+      "sha256": "10ca72a8ecc998779d880853d19081a29bd1d95919953012464b3d8d495ebeb1"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/browser-2/masteryi-bot-tactics-bot-H-1f182-s-its-following-Alpha-pause/masteryi-bot-highlander.png",
+      "bytes": 841839,
+      "sha256": "0cf4612b7aa557af3c19aac2782dab18e8cff75eb9adf15f13a5a2a29e340c14"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/browser-2/masteryi-bot-tactics-bot-H-1f182-s-its-following-Alpha-pause/masteryi-bot-restored.png",
+      "bytes": 758179,
+      "sha256": "b4ddf72c552a9eae2535be8c4367ce4cfe9f2c5f95e6468712595189505b1b4a"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/browser-2/masteryi-bot-tactics-bot-H-1f182-s-its-following-Alpha-pause/masteryi-bot-tactics.json",
+      "bytes": 107791,
+      "sha256": "4695f8b9844c491c7187116ea6e0b03416ad4d41981b1d690b888d19d0abf81d"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/browser-2/masteryi-bot-tactics-bot-H-7f982-ths-and-saved-source-clocks/masteryi-bot-highlander.png",
+      "bytes": 805667,
+      "sha256": "55f2f020c193778e45e80e8a1824d40bf66983c841db7740e9430b7ca68944cf"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/browser-2/masteryi-bot-tactics-bot-H-7f982-ths-and-saved-source-clocks/masteryi-bot-restored.png",
+      "bytes": 784979,
+      "sha256": "cdf897ddbc20ee91fa5cb21e519bf83786621b9180fae292fb60c838da9e0af0"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/browser-2/masteryi-bot-tactics-bot-H-7f982-ths-and-saved-source-clocks/masteryi-bot-tactics.json",
+      "bytes": 80672,
+      "sha256": "4d0f8569ef42f60d73d30cdfd29ba6ad92ce9916b6ca50e2d347551420ca48de"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/browser-2/masteryi-bot-tactics-bot-M-0a833-through-normal-interruption/masteryi-bot-meditate-loop.png",
+      "bytes": 800258,
+      "sha256": "8c79bb6eddfd7e30cb988c6bcd160f3c29dbd82b90ea94a064f3eb41d3a60511"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/browser-2/masteryi-bot-tactics-bot-M-0a833-through-normal-interruption/masteryi-bot-restored.png",
+      "bytes": 783009,
+      "sha256": "bb3b928231b816d6dfecc29a2d4facef41a7c0496bf035537fd250bc4f3206a1"
+    },
+    {
+      "path": "artifacts/masteryi-bot-tactics/browser-2/masteryi-bot-tactics-bot-M-0a833-through-normal-interruption/masteryi-bot-tactics.json",
+      "bytes": 74764,
+      "sha256": "8b210fe88bc30de25416dd2da025b558977075c14293a696fb882921c33d93fb"
+    }
+  ],
+  "limitations": [
+    "Local tactics, not recovered native AI",
+    "Manual NPC fixture remains manual by default",
+    "No dedicated Yi bot roster or complete-match certification",
+    "Single diagnostic with an AI proxy for the human jungler",
+    "No fresh offline, full browser or physical-device performance certification"
+  ]
+}
