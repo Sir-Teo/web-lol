@@ -6,6 +6,25 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+[Frozen source-cache recovery](REFERENCE-CACHE-RECOVERY.md) resolves four former
+baseline failures without changing assertions, hashes, deadlines or application
+code. Fresh full verification passes **3,574/3,576 tests across 416 files**;
+only the retained Leona native-input gap and Lux legacy sampler digest remain.
+The final four recovered files pass all 23 cases after CLI fault injection.
+The tracked recovery command validates 97 files: original Garen banks/36 WEMs/
+passive inputs and distortion resources/15 Metal libraries/15 AIR modules/15
+exact disassemblies. Isolated cross-target Clang 21 reproduces every original
+IR hash; LLVM 19 mismatch probes remain retained. No native program is executed.
+
+Real CLI checks recreate two removed inputs exactly, refuse corrupt cache
+bytes and an existing report, restore the original audio, and revalidate all
+97 files. The initial missing-subchunk-table failure remains retained and its
+mapping is corrected. Node 22 and 24 give distinct nonmatching Lux digests;
+expected values and runtime code stay unchanged. Schema, ruleset and pack
+`8511251dbb909130d44970a3e4e453cc58c295a8f9d026637e3a1073bcabb680`
+stay unchanged. All quiet-check receipts are resumed and both frozen 100-seed
+audits continue. Preceding production/offline evidence retains its exact scope.
+
 The latest [held champion targeting](CHAMPION-TARGETING.md) adds Backquote for
 ordinary right-click and unit-targeted cast picks through overlapping minions.
 A visible badge follows the held state; release, pause/modal and blur clear it.
