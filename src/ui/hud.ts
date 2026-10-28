@@ -5,6 +5,7 @@ import {
   ahriPassiveDescription,
 } from './ahri-spells';
 import { activeSpiritRush } from '../simulation/ahri-spirit-rush';
+import { isPlayerFeedback } from './player-feedback';
 import { AHRI_R } from '../content/ahri-r';
 import { mountOfflinePack } from './offline-pack';
 import { ROLE_LABELS } from '../content/bot-roles';
@@ -1516,7 +1517,7 @@ export class Hud {
       if (event.id > this.lastEventId) {
         this.lastEventId = event.id;
         if (!w.eventVisible(event)) continue;
-        if (event.type === 'message') this.toast(event.text ?? '');
+        if (event.type === 'message' && isPlayerFeedback(event, p.id)) this.toast(event.text ?? '');
         if (['damage', 'gold', 'heal', 'level'].includes(event.type)) {
           const screen = this.view.screenPoint(event, 1.6);
           const element = document.createElement('span');

@@ -1,0 +1,256 @@
+{
+  "date": "2026-10-28",
+  "previousCommit": "3f5c2ef",
+  "schema": 163,
+  "ruleset": "e409c1786334df9419d0e995ab612b976e9c33d97a20ffb509f12cec91f971c1",
+  "sources": [
+    {
+      "path": "src/simulation/world.ts",
+      "bytes": 311292,
+      "sha256": "d5d6101735a77477cfe7fe4623f8f01beb5d35d20eeed2683b484983db4d848c"
+    },
+    {
+      "path": "src/ui/player-feedback.ts",
+      "bytes": 422,
+      "sha256": "0e6469cd3896776f25d9eccabb47e33d8d646e6fca29b473ccdcd5e7852f8d2f"
+    },
+    {
+      "path": "src/ui/hud.ts",
+      "bytes": 85234,
+      "sha256": "16aad7627b7614080617dac98c26d02a5c4bbbe55e643592124836b44c8dbbfc"
+    },
+    {
+      "path": "src/render/view.ts",
+      "bytes": 64759,
+      "sha256": "3e47145df4ed2ed83fc7334db17b2f5ef11afdd27de75bfb406c21ea9fed994c"
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 24743,
+      "sha256": "6ab5b69fc4bdc9e0994cd363da06fc2f89e31548cf72cc9b6e8113ed705fe4fe"
+    },
+    {
+      "path": "e2e/personal-feedback.spec.ts",
+      "bytes": 5214,
+      "sha256": "20f94bfb26ab9de63c94790766fca3be1cb5fa25b8932a817d7a5058aae2fbf9"
+    },
+    {
+      "path": "e2e/audio.spec.ts",
+      "bytes": 18666,
+      "sha256": "4467956589225f47d85dda89543b95946165253f824dc2d22aa109c084d6343f"
+    },
+    {
+      "path": "src/audio/audio.ts",
+      "bytes": 44151,
+      "sha256": "8acb444466f0446bdef933ac2a85cc94f258e233366fb0d004bf6eaea88f1348"
+    }
+  ],
+  "behavior": {
+    "ownedMoveEvents": true,
+    "playerMessageToasts": true,
+    "playerMoveMarkers": true,
+    "playerInterfaceAudio": true,
+    "ownerlessSystemNotices": true,
+    "alliedCombatAudioPreserved": true,
+    "sharedFloatingRewardsPreserved": true,
+    "teamVisibilityChanged": false,
+    "resourceRulesChanged": false,
+    "publicAssetsChanged": false,
+    "spellControllersChanged": false,
+    "savedFieldsAdded": false
+  },
+  "focused": {
+    "passed": 83,
+    "total": 83,
+    "files": 9
+  },
+  "broad": {
+    "passed": 3489,
+    "total": 3495,
+    "files": 411,
+    "unchangedBaselineFailures": 6,
+    "baselineEvidence": "docs/reference/ahri-bot-mobility-verification.json"
+  },
+  "checks": {
+    "typescript": true,
+    "nodeQa": {
+      "passed": 29,
+      "total": 29
+    },
+    "build": true
+  },
+  "pack": {
+    "id": "0ab44bdfbddb7b018ad9973c162784f29bf53824317fedddcf4dda86aa3c85ed",
+    "files": 1202,
+    "bytes": 538103210,
+    "buildRulesetMatches": true
+  },
+  "browser": {
+    "selectedCases": 22,
+    "initialBatch": {
+      "passed": 21,
+      "total": 22
+    },
+    "correctedAudioCase": {
+      "passed": 1,
+      "total": 1,
+      "gameRemainsPaused": true,
+      "webAudioResumed": true,
+      "originalAssertionsAndDeadline": true
+    },
+    "retries": 0,
+    "launcher": "/usr/bin/chromium",
+    "newOwnershipRegressionPassed": true,
+    "attackMoveCasesPassed": 8,
+    "recallCasesPassed": 4,
+    "audioCasesPassed": 8,
+    "pageErrorsInOwnershipCase": [],
+    "initialOwnershipFailureRetained": true,
+    "audioFailure": {
+      "test": "source arrival outlasts its visual descriptor and releases its audio nodes",
+      "unchangedDeadlineMs": 9209,
+      "parentCommit": "3f5c2ef",
+      "reproducedOnParent": true,
+      "audioSourceUnchanged": true,
+      "assertionsUnchanged": true,
+      "clocksShowSourceNodeEnded": true,
+      "finalVoiceSetEmptyOnBoth": true,
+      "delayedPollingResponse": true
+    },
+    "proofs": [
+      {
+        "path": "artifacts/personal-feedback/audio-baseline/audio-baseline-source-arri-3c047-nd-releases-its-audio-nodes/audio-clock.json",
+        "bytes": 6241,
+        "sha256": "dd22450abd3fab39879a6c6c8e5f93c1ba45d3c4b9a7ff39dfdb5bd6cb1f50d6"
+      },
+      {
+        "path": "artifacts/personal-feedback/audio-baseline/audio-baseline-source-arri-3c047-nd-releases-its-audio-nodes/trace.zip",
+        "bytes": 36612287,
+        "sha256": "a0366480773d328def20454d97c97b97b8050797aa3771b57dacc406a5bd00d6"
+      },
+      {
+        "path": "artifacts/personal-feedback/audio-corrected/audio-current-source-arriv-c801f-nd-releases-its-audio-nodes/audio-clock.json",
+        "bytes": 10400,
+        "sha256": "962c8a4fb47615d891b25f1cb6f603ca87f8bf412a0c683264893dfc85522a7f"
+      },
+      {
+        "path": "artifacts/personal-feedback/audio-isolated/audio-current-source-arriv-c801f-nd-releases-its-audio-nodes/audio-clock.json",
+        "bytes": 6522,
+        "sha256": "223ec94a34f600f870c08dc623a920003fa607e251d320d3ec28f7c15af09004"
+      },
+      {
+        "path": "artifacts/personal-feedback/audio-isolated/audio-current-source-arriv-c801f-nd-releases-its-audio-nodes/trace.zip",
+        "bytes": 36842762,
+        "sha256": "0de536455ba287afa1bd50129a023bbb7d5880ee875698062f71e98f4b015c7f"
+      },
+      {
+        "path": "artifacts/personal-feedback/browser-after/audio-source-arrival-outla-a3d6a-nd-releases-its-audio-nodes/trace.zip",
+        "bytes": 35725630,
+        "sha256": "38b5472f3639e464df485efdb476b948e5e058d3a18639503e4283c0bccd9c0a"
+      },
+      {
+        "path": "artifacts/personal-feedback/browser-after/personal-feedback-allied-c-d82ee--audio-stay-with-the-player/personal-feedback.json",
+        "bytes": 2656,
+        "sha256": "b6702c725e8412a00699969fda450da74c57038510e01b7759bb4e8acd5edb7a"
+      },
+      {
+        "path": "artifacts/personal-feedback/browser-before/personal-feedback-allied-c-d82ee--audio-stay-with-the-player/personal-feedback.json",
+        "bytes": 2814,
+        "sha256": "93a80b99a6f3cd29476aea53deb0d6e0ef849b7595f53ecc0d21d932705c1250"
+      },
+      {
+        "path": "artifacts/personal-feedback/browser-before/personal-feedback-allied-c-d82ee--audio-stay-with-the-player/trace.zip",
+        "bytes": 34189690,
+        "sha256": "ab8cce167055c206eed391f6c56b42cfc431836628d6ed6417c68d8ec9a6b0cc"
+      }
+    ],
+    "diagnosticRunners": [
+      {
+        "path": "artifacts/personal-feedback/diagnostic/audio-current.spec.ts",
+        "bytes": 1455,
+        "sha256": "06d207fb8d418afa260d12c7db6f278cb3921e31b11ddb1658a7eea298308dda"
+      },
+      {
+        "path": "artifacts/personal-feedback/diagnostic/audio-baseline.spec.ts",
+        "bytes": 1467,
+        "sha256": "66648aaf28b1264ff1ed6ffb1ce228124310ee2994007be6d40fd601ba9f8af6"
+      }
+    ]
+  },
+  "production": {
+    "passed": true,
+    "recordings": 32,
+    "prefix": "/nested/rift/",
+    "developmentHook": false,
+    "developmentRosterGatesPassed": true,
+    "screenshot": {
+      "path": "artifacts/personal-feedback/production.png",
+      "bytes": 1824244,
+      "sha256": "e8c9f3468da45d353e55a9091acfb503f82cdca84979a62498c2f7b8cffc26c3"
+    }
+  },
+  "freshOfflineAcceptance": false,
+  "previousOfflineEvidence": "docs/reference/masteryi-bot-rift-verification.json",
+  "logs": [
+    {
+      "path": "artifacts/personal-feedback/logs/audio-baseline.log",
+      "bytes": 3048,
+      "sha256": "0ab806eb214f14e07d18f26f27d8d068bebab4480d1ba3dbdad4eefe54dcf2c3"
+    },
+    {
+      "path": "artifacts/personal-feedback/logs/audio-corrected.log",
+      "bytes": 652,
+      "sha256": "62e0e83d2b19f6e0572a4bc3ba0157ff712cfee7331c0f1554eae8696a6f91dd"
+    },
+    {
+      "path": "artifacts/personal-feedback/logs/audio-isolated.log",
+      "bytes": 2928,
+      "sha256": "67fea0e33b2eb7a02017801ac153429333998207aaf75c724d74c6032f60bdcb"
+    },
+    {
+      "path": "artifacts/personal-feedback/logs/browser-after.log",
+      "bytes": 9015,
+      "sha256": "12ab10f69d6adaa9d0f547dda4a266476eb3226d0bde14c4a3033cf7bc234674"
+    },
+    {
+      "path": "artifacts/personal-feedback/logs/browser-before.log",
+      "bytes": 3150,
+      "sha256": "07f60ab5b0a4232ab8bd075cd0312d6fb7eb39ce11651ec67f0e12a54057b0c0"
+    },
+    {
+      "path": "artifacts/personal-feedback/logs/build.log",
+      "bytes": 7852,
+      "sha256": "c4d72ab84b54c49e62d3f9b8d83f9190b28f6947ccd60ed0c8e6b849bc91a6f8"
+    },
+    {
+      "path": "artifacts/personal-feedback/logs/focused.log",
+      "bytes": 381,
+      "sha256": "c9dd98a0c302606fec4aa622aac20dbd1affb8affc6915be503e2a039808885e"
+    },
+    {
+      "path": "artifacts/personal-feedback/logs/format-check.log",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "path": "artifacts/personal-feedback/logs/full.log",
+      "bytes": 5893,
+      "sha256": "71deadb4f61db25c183ca8275131ad36a455486a820c067bd1ac91b9fe5915db"
+    },
+    {
+      "path": "artifacts/personal-feedback/logs/nodeqa.log",
+      "bytes": 2778,
+      "sha256": "c56d5d5715022321acd03c9f0c4cf83ccf6d282fb0bced2709d04c62133c5945"
+    },
+    {
+      "path": "artifacts/personal-feedback/logs/production.log",
+      "bytes": 3037,
+      "sha256": "15b18ea2a3717a07bf5ab306884b1d2ec8a2c0e8621683722fb3726f163ae192"
+    },
+    {
+      "path": "artifacts/personal-feedback/logs/typescript.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

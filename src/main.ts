@@ -26,6 +26,7 @@ import { companionItemKind } from './content/companion-items-policy';
 import { GameView } from './render/view';
 import { FramePacer } from './render/frame-pacer';
 import { Hud } from './ui/hud';
+import { isPlayerFeedback } from './ui/player-feedback';
 import { loadInterfaceFonts } from './ui/fonts';
 import { GameInput } from './input/input';
 import { GameAudio } from './audio/audio';
@@ -581,7 +582,9 @@ async function boot(): Promise<void> {
       audio.updateGaren(world, view.center);
       audio.updateLeona(world, view.center);
       audio.update(
-        world.events.filter((event) => world.eventVisible(event)),
+        world.events.filter(
+          (event) => world.eventVisible(event) && isPlayerFeedback(event, world.player.id)
+        ),
         world.tick,
         view.center
       );

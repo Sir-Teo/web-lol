@@ -173,7 +173,9 @@ test('source arrival outlasts its visual descriptor and releases its audio nodes
     w.step(45);
     const event = w.events.find((e: any) => e.type === 'scout-arrival');
     a.lastId = event.id - 1;
-    g.setPaused(false);
+    // Advance Web Audio while the manually stepped match stays paused. Running
+    // the map here can delay polling on software GPUs beyond this audio clock.
+    a.setPaused(false);
     await a.transition;
     a.update(
       w.events.filter((e: any) => w.eventVisible(e)),

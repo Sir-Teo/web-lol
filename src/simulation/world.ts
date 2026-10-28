@@ -1369,7 +1369,7 @@ export class World {
       } else if (command.type === 'order') {
         this.setOrder(u, command.order);
         if (command.order.type === 'move' || command.order.type === 'attackMove')
-          this.emit('move', command.order.point, { team: u.team });
+          this.emit('move', command.order.point, { unit: u.id, team: u.team });
       } else if (command.type === 'cast')
         this.cast(u, command.ability, command.point, command.targetId);
       else {

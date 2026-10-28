@@ -1,12 +1,38 @@
 # Development status
 
-Last updated: October 27, 2026 (UTC).
+Last updated: October 28, 2026 (UTC).
 
 **Goal remains active:** continuously develop the highest-quality, visually authentic League-like browser game, without an application backend, through small commits. The required final state is a verified production-level full match experience. This file describes progress toward that goal; it does not reduce its scope.
 
 ## Current authoritative state
 
-The latest [Yi bot Rift trial](MASTER-YI-BOT-RIFT.md) adds the optional
+The latest [personal feedback correction](PLAYER-FEEDBACK.md) prevents allied
+recalls/errors from replacing the player's status, allied queued movement from
+creating player click markers, and allied gold/level rewards from playing
+personal interface tones. Move events retain the issuing unit using the
+existing optional owner field. Shared combat cues, floating rewards, team
+visibility and actual bot actions remain intact.
+
+All 83 focused checks, TypeScript, 29 Node QA cases, the build and **3,489/3,495
+broad unit checks across 411 files** pass; the six reproduced baseline failures
+remain. The 22-case browser batch passes 21 cases, including the new ownership
+regression, eight attack-move, four recall and eight audio cases. The remaining
+Hawkshot natural-audio cleanup deadline failure also reproduces on parent
+`3f5c2ef`; separate clock probes show normal node closure and delayed polling.
+The original assertions/deadline and all three failing audio traces are retained.
+The audio fixture now resumes only Web Audio while the manually stepped match
+stays paused. Its isolated case passes the original assertions and 9,209 ms
+deadline. Together with the earlier 21 passes, all 22 selected scenarios have
+passed across retained runs. Nested production passes all 32 recordings and
+development gates; fresh offline acceptance is not repeated for this step.
+See the [verification ledger](reference/player-feedback-verification.json).
+Schema stays 163; current rules fingerprint is
+`e409c1786334df9419d0e995ab612b976e9c33d97a20ffb509f12cec91f971c1`.
+Matching pack `0ab44bdfbddb7b018ad9973c162784f29bf53824317fedddcf4dda86aa3c85ed`
+contains 1,202 files / 538,103,210 bytes. Public assets and spell controllers
+are unchanged. Complete-match and native-fidelity gates remain open.
+
+The preceding [Yi bot Rift trial](MASTER-YI-BOT-RIFT.md) adds the optional
 `/?scene=masteryi-rift&bots=masteryi` roster. Initial human Yi faces a Yi jungle
 bot; choosing Ashe/Lux gives both teams an AI Yi jungler. NPCs spend their own
 450 gold on companions, while the human's purchase remains manual. Existing

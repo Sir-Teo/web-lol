@@ -6,6 +6,7 @@ import { LazyMeditateDamage } from './lazy-masteryi-w-damage';
 import { LazyMeditateBuffs } from './lazy-masteryi-w-buffs';
 import { LazyMeditateCasts } from './lazy-masteryi-w-casts';
 import { unitVisible } from './unit-visibility';
+import { isPlayerFeedback } from '../ui/player-feedback';
 import { MASTER_YI } from '../content/masteryi-progression';
 import { MASTER_YI_PASSIVE } from '../content/masteryi-passive';
 import { ahriAimGeometry } from './ahri-aim';
@@ -966,7 +967,11 @@ export class GameView {
     }
     let move;
     for (let i = world.events.length - 1; i >= 0; i--)
-      if (world.events[i].type === 'move' && world.eventVisible(world.events[i])) {
+      if (
+        world.events[i].type === 'move' &&
+        world.eventVisible(world.events[i]) &&
+        isPlayerFeedback(world.events[i], world.player.id)
+      ) {
         move = world.events[i];
         break;
       }
