@@ -6,6 +6,25 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+The latest [teammate portraits](ALLY-PORTRAITS.md) add friendly health and
+respawn counters above the minimap in F2–F5 order. Clicks move the free camera;
+pointer activation returns focus to the battlefield, keyboard activation keeps
+native Tab traversal, and held F-key focus receives a visible border. Practice,
+modal and target lookup guards apply before actions. Enemy owner/health access
+is excluded and DOM IDs cannot retarget the camera. The saved match stays exact
+under camera-only input; spell/ward releases over the row queue no commands.
+
+All 14 final browser cases, TypeScript, formatting, build and all 32 nested
+production recordings/gates pass. Cases cover real damage/death/respawn,
+public/private identities and existing camera/minimap/native-focus flows.
+Captures are reviewed at 1440×900 / 1024×720 and at a dead teammate view.
+Schema stays 163; simulation fingerprint stays
+`abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f`.
+Pack `3167ca1b0c6fab78013e69c15ccb05a5806532d7fe3ef88830dda9dd66e639ff`
+has 1,202 files / 538,114,369 bytes. Public media and saved fields remain
+unchanged. Both frozen hundred-seed audits resume after recorded quiet checks.
+Earlier broad/Node QA/full-match/offline/native evidence retains its own scope.
+
 The [second late natural finish and current-pack offline round-trip](LATE-MATCH-ROUNDTRIP.md)
 independently verify ordinary seed 25 at tick 229,222 (63:40.367), a natural
 Red victory after 13,222 added ticks. Both teams destroy structures during the

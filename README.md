@@ -71,6 +71,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Shared siege, defense, gank and river strategy](docs/BOT-TEAM-STRATEGY.md)
 - [Allied bot intent in the scoreboard](docs/ALLIED-INTENT.md)
 - [Held F1–F5 champion cameras](docs/TEAM-CAMERA.md)
+- [Teammate portraits, health and camera controls](docs/ALLY-PORTRAITS.md)
 - [Camera-aligned held spell and ward previews](docs/AIM-CAMERA.md)
 - [Minimap camera dragging](docs/MINIMAP-CAMERA-DRAG.md)
 - [Held champion targeting](docs/CHAMPION-TARGETING.md)

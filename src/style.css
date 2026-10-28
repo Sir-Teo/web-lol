@@ -795,6 +795,71 @@ button {
   cursor: crosshair;
   filter: saturate(0.8) contrast(1.06);
 }
+.ally-portraits {
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  bottom: calc(100% + 6px);
+  display: flex;
+  gap: 4px;
+}
+.ally-portrait {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #756b4b;
+  background: #0b191b;
+}
+.ally-portrait:hover,
+.ally-portrait.focused {
+  border-color: #e1cf86;
+  box-shadow: 0 0 5px #c4b16b88;
+}
+.ally-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ally-portrait.dead img {
+  filter: grayscale(1) brightness(0.45);
+}
+.ally-portrait kbd {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1px 2px;
+  border: 0;
+  background: #03100de6;
+  color: #e0d39a;
+  font-size: 9px;
+  line-height: 12px;
+}
+.ally-respawn {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #f2e5bc;
+  font-size: 16px;
+  text-shadow: 0 1px 4px #000;
+}
+.ally-health {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #09150d;
+}
+.ally-health i {
+  display: block;
+  height: 100%;
+  background: #62bd69;
+}
 .map-controls {
   height: 26px;
   display: flex;

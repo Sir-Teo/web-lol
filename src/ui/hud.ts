@@ -7,6 +7,7 @@ import {
 import { activeSpiritRush } from '../simulation/ahri-spirit-rush';
 import { isPlayerFeedback } from './player-feedback';
 import { alliedChampionIntent } from './allied-intent';
+import { cameraKeyTarget } from '../input/camera-targets';
 import { AHRI_R } from '../content/ahri-r';
 import { mountOfflinePack } from './offline-pack';
 import { ROLE_LABELS } from '../content/bot-roles';
@@ -126,6 +127,8 @@ export class Hud {
   private importError = '';
   private mini: HTMLCanvasElement;
   private minimapPointer: number | null = null;
+  private allyCameraGroup: HTMLDivElement;
+  private allyCameraButtons: HTMLButtonElement[];
   private tip: HTMLDivElement;
   private itemTooltip: ScoreboardItemTooltip;
   private attackStatTooltip: AttackStatTooltip;
@@ -167,12 +170,27 @@ export class Hud {
         </div>
         <div class="inventory-panel"><div class="inventory-tools"><div class="inventory-grid" id="inventory">${Array.from({ length: 6 }, (_, i) => `<div class="item-slot"><span>${[1, 2, 3, 5, 6, 7][i]}</span></div>`).join('')}</div><button id="trinket" class="item-slot trinket-slot" aria-label="Stealth Ward"><img src="assets/icons/3340.png" alt="Stealth Ward"><b class="trinket-charges"></b><time class="trinket-cooldown"></time><span>4</span></button></div><button id="shop-button" class="gold-button" title="Open shop (P)"><span>◆</span><b id="gold">500</b><kbd>P</kbd></button></div>
       </section>
-      <div class="minimap-shell"><div class="map-controls"><button id="camera-button" aria-label="Toggle camera lock" title="Lock camera (Y)">▣</button><button id="sound-button" aria-label="Toggle sound" title="Toggle sound">♫</button><span id="fps">60 FPS</span></div><canvas id="minimap" width="256" height="256" aria-label="Minimap. Left-click or drag to move the camera; right-click to move your champion."></canvas><span class="map-caption">SUMMONER’S RIFT</span></div>
+      <div class="minimap-shell"><div class="ally-portraits" role="group" aria-label="Teammate cameras" hidden>${[2, 3, 4, 5].map((slot) => `<button class="ally-portrait" data-ally-camera="f${slot}" type="button"><img alt=""><kbd>F${slot}</kbd><span class="ally-respawn"></span><span class="ally-health"><i></i></span></button>`).join('')}</div><div class="map-controls"><button id="camera-button" aria-label="Toggle camera lock" title="Lock camera (Y)">▣</button><button id="sound-button" aria-label="Toggle sound" title="Toggle sound">♫</button><span id="fps">60 FPS</span></div><canvas id="minimap" width="256" height="256" aria-label="Minimap. Left-click or drag to move the camera; right-click to move your champion."></canvas><span class="map-caption">SUMMONER’S RIFT</span></div>
       <div class="recall-progress" hidden><span>RECALLING</span><div><i></i></div><small>Taking damage or moving cancels recall</small></div>
       <div class="death-overlay" hidden><span>You have been slain</span><strong id="respawn-count"></strong></div>
       <div class="modal-backdrop" id="modal" hidden></div>
     `;
     host.append(this.root);
+    this.allyCameraGroup = this.root.querySelector<HTMLDivElement>('.ally-portraits')!;
+    this.allyCameraButtons = [
+      ...this.allyCameraGroup.querySelectorAll<HTMLButtonElement>('button'),
+    ];
+    for (const button of this.allyCameraButtons) {
+      const key = button.dataset.allyCamera!;
+      button.addEventListener('click', (event) => {
+        if (this.paused || this.modal) return;
+        const ally = cameraKeyTarget(this.world, key);
+        if (!ally) return;
+        this.view.locked = false;
+        this.view.recenter(ally);
+        if (event.detail > 0) this.view.renderer.domElement.focus({ preventScroll: true });
+      });
+    }
     this.tip = document.createElement('div');
     this.tip.className = 'tooltip';
     this.tip.id = 'ability-tooltip';
@@ -737,7 +755,12 @@ export class Hud {
         ['Space / Y', 'Recenter / lock camera'],
         ['Drag minimap', 'Move camera; right-click to move your champion'],
         ['F1', 'Hold to follow your champion'],
-        ...(this.world.matchMode === 'lanes' ? [['F2–F5', 'Hold to follow a teammate']] : []),
+        ...(this.world.matchMode === 'lanes'
+          ? [
+              ['F2–F5', 'Hold to follow a teammate'],
+              ['Ally portraits', 'Click above the minimap to view a teammate'],
+            ]
+          : []),
         ['Shift', 'Show attack range'],
         ['Tab', 'Hold scoreboard'],
         ['Esc', 'Cancel aiming / pause'],
@@ -1053,6 +1076,48 @@ export class Hud {
     if (pointer !== null && this.mini.hasPointerCapture(pointer))
       this.mini.releasePointerCapture(pointer);
   }
+  private updateAllyCameras(): void {
+    this.allyCameraGroup.hidden = this.world.matchMode !== 'lanes';
+    if (this.allyCameraGroup.hidden) return;
+    let count = 0;
+    for (const button of this.allyCameraButtons) {
+      const key = button.dataset.allyCamera!;
+      const ally = cameraKeyTarget(this.world, key);
+      button.hidden = !ally;
+      if (!ally) continue;
+      count++;
+      const state = this.world.championState(ally.id);
+      const role = state?.role ? ROLE_LABELS[state.role] : 'Teammate';
+      const alive = this.world.alive(ally);
+      const seconds =
+        !alive && ally.respawnTick !== null
+          ? Math.max(0, Math.ceil((ally.respawnTick - this.world.tick) / TICK_RATE))
+          : null;
+      const name = championProfile(ally.champion!).name;
+      const life = alive
+        ? `${Math.ceil(ally.hp)} / ${Math.ceil(ally.maxHp)} health`
+        : `Dead${seconds === null ? '' : `, respawns in ${seconds} seconds`}`;
+      const label = `View ${name}, ${role}. ${life}. ${key.toUpperCase()}`;
+      if (button.getAttribute('aria-label') !== label) {
+        button.setAttribute('aria-label', label);
+        button.title = label;
+      }
+      if (button.dataset.champion !== ally.champion) {
+        button.dataset.champion = ally.champion!;
+        button.querySelector('img')!.src = `assets/icons/${ally.champion}.png`;
+      }
+      button.dataset.unitId = String(ally.id);
+      button.classList.toggle('dead', !alive);
+      button.classList.toggle('focused', this.view.cameraFocusId === ally.id);
+      const health = button.querySelector<HTMLElement>('.ally-health i')!;
+      const width = `${Math.round(Math.max(0, Math.min(1, ally.hp / ally.maxHp)) * 1000) / 10}%`;
+      if (health.style.width !== width) health.style.width = width;
+      const counter = button.querySelector<HTMLElement>('.ally-respawn')!;
+      const text = alive ? '' : seconds === null ? '†' : String(seconds);
+      if (counter.textContent !== text) counter.textContent = text;
+    }
+    this.allyCameraGroup.hidden = count === 0;
+  }
   minimapPoint(clientX: number, clientY: number): { x: number; y: number } | null {
     const bounds = this.mini.getBoundingClientRect();
     if (
@@ -1234,6 +1299,7 @@ export class Hud {
 
   update(fps: number): void {
     if (this.world.winner && this.modal !== 'result') this.toggleModal('result');
+    this.updateAllyCameras();
     this.attackStatTooltip.refresh(this.modal === null);
     this.floating.hidden = !!this.world.winner;
     const w = this.world,

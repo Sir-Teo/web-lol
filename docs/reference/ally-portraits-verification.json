@@ -1,0 +1,244 @@
+{
+  "date": "2026-10-28",
+  "previousCommit": "6ef5281",
+  "schema": 163,
+  "ruleset": "abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f",
+  "simulationFingerprintUnchanged": true,
+  "sources": [
+    {
+      "file": "src/ui/hud.ts",
+      "bytes": 92536,
+      "sha256": "2da836f1d40d05bb934f3939389664b578868a38503f61e901e8f076b0cb61dd"
+    },
+    {
+      "file": "src/style.css",
+      "bytes": 37695,
+      "sha256": "a60adda523911a92967aeb30497209b148c7b5787089ae0d9fae6d16a15c01b8"
+    },
+    {
+      "file": "src/input/camera-targets.ts",
+      "bytes": 648,
+      "sha256": "968d73b1e77a379221336ee706ce6c04df87171541a74951d9fda0cdcbf2276e"
+    },
+    {
+      "file": "e2e/ally-portraits.spec.ts",
+      "bytes": 11431,
+      "sha256": "a33ab27a44fa52d328a522d8fdcd398048b334bb9da679da9e35d5b10d4d1b63"
+    },
+    {
+      "file": "README.md",
+      "bytes": 21783,
+      "sha256": "29993f7975637eefe8d2b27777878ca07de9d1a6ddb52b13fa7fa32252e54d93"
+    }
+  ],
+  "checks": {
+    "typescript": true,
+    "format": true,
+    "build": true,
+    "browserPassed": 14,
+    "browserTotal": 14,
+    "retries": 0,
+    "productionRecordings": 32,
+    "developmentHook": false,
+    "publicChoices": ["ashe", "lux"],
+    "reviewedViewports": [
+      [1440, 900],
+      [1024, 720]
+    ],
+    "modeOnlySnapshotExact": true,
+    "pointerAndKeyboardFocus": true,
+    "realDamageDeathRespawn": true,
+    "enemyOwnerAndHealthGuarded": true,
+    "domTargetRevalidated": true,
+    "spellAndWardUIBlocked": true
+  },
+  "fixtures": {
+    "public": "Real render/input/HUD loop; stepping frozen except source lifecycle probes",
+    "private": "Complete render then painting stopped for controlled owner/health and target-boundary checks"
+  },
+  "pack": {
+    "id": "3167ca1b0c6fab78013e69c15ccb05a5806532d7fe3ef88830dda9dd66e639ff",
+    "files": 1202,
+    "bytes": 538114369
+  },
+  "inherited": {
+    "freshBroadTests": false,
+    "freshNodeQA": false,
+    "freshFullMatches": false,
+    "freshOffline": false,
+    "fullUnitSource": "docs/reference/reference-cache-recovery-verification.json"
+  },
+  "frozenAudits": "Both original hundred-seed corpora retain frozen source; quiet-test receipt resumed. No completion claim.",
+  "evidence": [
+    {
+      "file": "artifacts/ally-portraits/browser/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser/ally-portraits-friendly-po-c64d1-serve-native-keyboard-focus/camera-portraits.json",
+      "bytes": 441,
+      "sha256": "4f9f72394bb193397830e2a6d8b62dd54fc89fce3011b12f513f340c8cbf91c2"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser/ally-portraits-friendly-po-c64d1-serve-native-keyboard-focus/portraits-1024.png",
+      "bytes": 931050,
+      "sha256": "064dbe939ec8e92d262191fc1406deea16d70deff3db5896ae8f999f899d78db"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser/ally-portraits-friendly-po-c64d1-serve-native-keyboard-focus/portraits-1440.png",
+      "bytes": 1510836,
+      "sha256": "1f9ac5e15651fed01f9fd6d4b2ca519afa0f0975c74ddd2de0f916b769b546f8"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser/ally-portraits-portraits-f-95b49--and-show-held-camera-focus/ally-lifecycle.json",
+      "bytes": 293,
+      "sha256": "6f41381376af1e650c82ad6ba91da9d4820263e897ebfdc8fd235e2f64d501a0"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser/ally-portraits-portraits-f-95b49--and-show-held-camera-focus/dead-ally-camera.png",
+      "bytes": 1356141,
+      "sha256": "e5bee902177d6a11e85e74ba245c141e10c31914cfa98af838f4395855ef879f"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser/ally-portraits-private-ros-4ef3d-instead-of-trusting-DOM-IDs/private-portrait-boundaries.json",
+      "bytes": 483,
+      "sha256": "6b3f891e76fbe90226cc6553baac5d6cf8f1b3a33ee4d0a38e42d6d82d420dc6"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser-final/ally-portraits-friendly-po-c64d1-serve-native-keyboard-focus/camera-portraits.json",
+      "bytes": 441,
+      "sha256": "4f9f72394bb193397830e2a6d8b62dd54fc89fce3011b12f513f340c8cbf91c2"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser-final/ally-portraits-friendly-po-c64d1-serve-native-keyboard-focus/portraits-1024.png",
+      "bytes": 931050,
+      "sha256": "064dbe939ec8e92d262191fc1406deea16d70deff3db5896ae8f999f899d78db"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser-final/ally-portraits-friendly-po-c64d1-serve-native-keyboard-focus/portraits-1440.png",
+      "bytes": 1510709,
+      "sha256": "58858e0dda019bfe4fee6c9f7aad5224423c2e4ea16aefd3748dd8c408fc9453"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser-final/ally-portraits-portraits-f-95b49--and-show-held-camera-focus/ally-lifecycle.json",
+      "bytes": 293,
+      "sha256": "6f41381376af1e650c82ad6ba91da9d4820263e897ebfdc8fd235e2f64d501a0"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser-final/ally-portraits-portraits-f-95b49--and-show-held-camera-focus/dead-ally-camera.png",
+      "bytes": 1356139,
+      "sha256": "f335638f63a2cc26115d0aa2ba57862b954570b3a6d51cdeb29676d1282ce199"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser-final/ally-portraits-private-ros-4ef3d-instead-of-trusting-DOM-IDs/private-portrait-boundaries.json",
+      "bytes": 483,
+      "sha256": "6b3f891e76fbe90226cc6553baac5d6cf8f1b3a33ee4d0a38e42d6d82d420dc6"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser-final/camera-team-a-held-teammat-8c699-typing-and-modifier-targets/camera-team-movement.json",
+      "bytes": 557,
+      "sha256": "4f665c1ffb0a7e4a15f93ecae42d69798fb31a9186dbd24376f5cc029de34378"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser-final/camera-team-a-held-teammat-8c699-typing-and-modifier-targets/following-moving-ally.png",
+      "bytes": 1649438,
+      "sha256": "552d02904bd1a8f3ce2f123df7690182f1bad841d15414e0888cfa2379e0ef74"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser-final/camera-team-held-teammate--ca388-eys-and-clear-on-pause-blur/camera-team.json",
+      "bytes": 610,
+      "sha256": "b44053e22286ebdba1f1bf0cc92e33fa994be5d9ce608aa0121725a1cd15123a"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser-final/camera-team-held-teammate--ca388-eys-and-clear-on-pause-blur/held-support-camera.png",
+      "bytes": 1668725,
+      "sha256": "36a1f3160e48c9666da537ca4f474047854dbc6d820019f34e08786446c4ab9e"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser-final/input-hud-tab-HUD-Tab-and--7ded6-ld-Tab-holds-the-scoreboard/hud-tab.json",
+      "bytes": 772,
+      "sha256": "da0c93a3cb10c8067a4fecd9be4672342668274e42a71e9662aa607aefcf7c5d"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser-final/input-hud-tab-the-actual-H-00b1e-pport-native-Tab-navigation/actual-hud-tab.json",
+      "bytes": 61,
+      "sha256": "617556198f5165f302b722257cc4f632c938e83f87f89d1571152b79aab42c60"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser-final/minimap-camera-drag-minima-27eb9--click-orders-stay-distinct/cancellation.json",
+      "bytes": 612,
+      "sha256": "ae8c11f2cd83144c3a1d9f82459991c0a22e5400941c040dacccfacf86015f80"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser-final/minimap-camera-drag-truste-2e0f5--and-changes-no-match-state/drag.json",
+      "bytes": 133,
+      "sha256": "4d67424762ec25c012b2be52186f49bc2a6d49e4c530785fd65aba73045778ba"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser-final/minimap-camera-drag-truste-2e0f5--and-changes-no-match-state/dragged-camera-1024.png",
+      "bytes": 870399,
+      "sha256": "71409629f66b0eeed51740cd2af1e2444ef185104a03d3865077be9cb898b664"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser-final/minimap-camera-drag-truste-2e0f5--and-changes-no-match-state/dragged-camera.png",
+      "bytes": 1342768,
+      "sha256": "70bc94fa34fcf55a768da9ecc337e4b894d8b254ec249e8099f90d7df4786cc9"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser-final.log",
+      "bytes": 4484,
+      "sha256": "7d587f4ce13283268735d0e4685203e46f1f1307ec3609386fe7476f62b5ce2f"
+    },
+    {
+      "file": "artifacts/ally-portraits/browser.log",
+      "bytes": 1478,
+      "sha256": "54b0f24a787ec86020cc6e60f4f3b0a5a11cd72bfbcbd4979135c0398785e85c"
+    },
+    {
+      "file": "artifacts/ally-portraits/build.log",
+      "bytes": 7852,
+      "sha256": "1e1b20e2654a95e6cdbfcd4801196fc230db27b6b8c900e2c5a93c773f00b32a"
+    },
+    {
+      "file": "artifacts/ally-portraits/format-check.log",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "file": "artifacts/ally-portraits/initial.spec.ts",
+      "bytes": 11121,
+      "sha256": "08069b226dd2fc16637fa7e16cc3e26de5251e221385ddd2a4af57b027344c56"
+    },
+    {
+      "file": "artifacts/ally-portraits/offline-pack.json",
+      "bytes": 172470,
+      "sha256": "9749d0a9dda00ffee8f0d68273dd87f2d43ba7ae27dff016fadd23e9924c8015"
+    },
+    {
+      "file": "artifacts/ally-portraits/production.log",
+      "bytes": 3112,
+      "sha256": "76ae8d93a1844e7c2030c8df65022cbf8f8a0bc72b045fbc0bf547c07faefc4e"
+    },
+    {
+      "file": "artifacts/ally-portraits/production.png",
+      "bytes": 1825409,
+      "sha256": "5aa621acac73a9f59ea1997d7299eba62d2d1fad40ab633946234bc1b98410f5"
+    },
+    {
+      "file": "artifacts/ally-portraits/tsc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "artifacts/certification-abc8dc/pauses/ally-portraits-browser.json",
+      "bytes": 1609,
+      "sha256": "8d31a38aa18e9417128ea6fc7fced46fd57cb3103f2ed442d891b9199db45d34"
+    }
+  ]
+}
