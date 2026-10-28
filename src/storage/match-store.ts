@@ -42,16 +42,38 @@ export async function readMatch(key: string): Promise<string | undefined> {
 }
 
 export async function writeMatch(key: string, snapshot: string | null): Promise<void> {
+  return updateMatch(key, snapshot, false);
+}
+
+export function recoveryMatchKey(key: string): string {
+  return `${key}:recovery`;
+}
+
+/** Replacing a manual checkpoint also retires its older automatic backup atomically. */
+export async function replaceMatch(key: string, snapshot: string | null): Promise<void> {
+  return updateMatch(key, snapshot, true);
+}
+
+async function updateMatch(
+  key: string,
+  snapshot: string | null,
+  clearRecovery: boolean
+): Promise<void> {
   const db = await database();
   try {
     await new Promise<void>((resolve, reject) => {
       const transaction = db.transaction(STORE, 'readwrite');
       const store = transaction.objectStore(STORE);
-      if (snapshot === null) store.delete(key);
-      else store.put(snapshot, key);
       transaction.oncomplete = () => resolve();
       transaction.onabort = () =>
         reject(new Error('Saved match could not be updated. Check available browser storage.'));
+      try {
+        if (snapshot === null) store.delete(key);
+        else store.put(snapshot, key);
+        if (clearRecovery) store.delete(recoveryMatchKey(key));
+      } catch {
+        transaction.abort();
+      }
     });
   } finally {
     db.close();

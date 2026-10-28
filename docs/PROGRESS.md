@@ -6,6 +6,22 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+[Automatic recovery checkpoints](RECOVERY-CHECKPOINTS.md) now keep a separate
+backup every thirty simulation seconds and at interruptions/results. Startup
+pauses with a recovery notice, including without a manual save. Explicit preview
+and load use existing file admission. A serial write queue preserves manual
+saves, atomically retires old backups, handles failures, retains same-tick
+commands and prevents outgoing writes after match replacement. Twelve new
+controller cases and 27 focused tests pass, as do all 24 selected final browser
+scenarios after correcting one pause helper for the new startup behavior. The
+raw 23-pass/one-helper-failure attempt and three-case passing rerun remain
+retained, with assertions/deadlines unchanged. Node QA passes 39/39, and build,
+typecheck and production pass with all 32 expected recordings and zero Baron
+preloads. The snapshot schema/fingerprint stay 163 / `25f21e…`. Current pack
+`8198c44ba9a38b9893e5e7dbe46eeef74720e4e6ddea7413066eac78833ab39c` has
+1,204 files / 551,657,540 bytes. All frozen audits resume. The previous
+full unit result remains 3,590/3,592 at `87c1209`; it is not relabeled as a rerun.
+
 The [FPS readout](FRAME-RATE.md) now measures presentation callbacks against wall time,
 including slow active frames without extending simulation catch-up. Initial
 unknown readings use an em dash; paused paints do not count, and recovery starts

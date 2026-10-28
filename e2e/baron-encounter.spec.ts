@@ -14,7 +14,8 @@ async function stored(page: Page, key: string) {
   }, key);
 }
 async function pause(page: Page) {
-  await page.keyboard.press('Escape');
+  if (!(await page.getByRole('button', { name: 'Save match', exact: true }).isVisible()))
+    await page.keyboard.press('Escape');
   await expect(page.getByRole('button', { name: 'Save match', exact: true })).toBeVisible();
 }
 async function save(page: Page) {

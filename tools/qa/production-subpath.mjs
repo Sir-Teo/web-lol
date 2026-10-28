@@ -284,7 +284,9 @@ try {
   assert.deepEqual(masterYiPreviewRequests, [], 'The combined trial must not preload Yi');
   assert.deepEqual(ahriPreviewRequests, [], 'The combined trial must not preload Ahri');
   assert.deepEqual(leonaPreviewRequests, [], 'The combined trial must not preload Leona');
-  await page.locator('#pause-button').click();
+  if (!(await page.getByRole('button', { name: 'Save match', exact: true }).isVisible()))
+    await page.locator('#pause-button').click();
+  await page.getByRole('button', { name: 'Save match', exact: true }).waitFor({ state: 'visible' });
   await page.getByRole('button', { name: 'New match', exact: true }).click();
   assert.deepEqual(
     await page

@@ -112,6 +112,7 @@ export interface HudActions {
   save: () => Promise<void>;
   exportMatch: () => void;
   prepareImport: (file: File) => Promise<PreparedMatchImport>;
+  prepareRecovery: () => Promise<PreparedMatchImport | null>;
   sound: (enabled: boolean) => void;
 }
 export class Hud {
@@ -704,7 +705,7 @@ export class Hud {
       title = 'Match files';
       subtitle = 'Keep a copy. Continue on another browser.';
       content =
-        '<button class="menu-button" data-action="export">Download current match</button><button class="menu-button" data-action="choose-file">Choose match file</button><input type="file" accept=".json,application/json" aria-label="Match file" hidden><p class="practice-note file-status" role="status">Choose a file from this game version to preview it before loading.</p><button class="primary-button" data-action="load-file" hidden>Load this match</button><button class="menu-button" data-action="back">Back to pause menu</button>';
+        '<button class="menu-button" data-action="export">Download current match</button><button class="menu-button" data-action="choose-file">Choose match file</button><button class="menu-button" data-action="recovery">Preview recovery checkpoint</button><p class="practice-note">An automatic backup is kept separately from your manual save.</p><input type="file" accept=".json,application/json" aria-label="Match file" hidden><p class="practice-note file-status" role="status">Choose a file from this game version to preview it before loading.</p><button class="primary-button" data-action="load-file" hidden>Load this match</button><button class="menu-button" data-action="back">Back to pause menu</button>';
     } else if (which === 'help') {
       title = 'Master the Rift';
       subtitle = 'Every movement begins with a decision.';
@@ -949,23 +950,24 @@ export class Hud {
       const dialog = backdrop.querySelector<HTMLElement>('.game-dialog')!;
       const fileInput = dialog.querySelector<HTMLInputElement>('input[type="file"]')!;
       const choose = dialog.querySelector<HTMLButtonElement>('[data-action="choose-file"]')!;
+      const recovery = dialog.querySelector<HTMLButtonElement>('[data-action="recovery"]')!;
       const load = dialog.querySelector<HTMLButtonElement>('[data-action="load-file"]')!;
       const status = dialog.querySelector<HTMLElement>('.file-status')!;
       let prepared: PreparedMatchImport | null = null;
       let selection = 0;
       choose.onclick = () => fileInput.click();
-      fileInput.onchange = () => {
-        const file = fileInput.files?.[0];
-        fileInput.value = '';
-        if (!file) return;
+      const preview = (prepare: () => Promise<PreparedMatchImport | null>, checking: string) => {
         const generation = ++selection;
         prepared = null;
         load.hidden = true;
-        status.textContent = 'Checking match file…';
-        void this.actions
-          .prepareImport(file)
+        status.textContent = checking;
+        void prepare()
           .then((result) => {
             if (!dialog.isConnected || generation !== selection) return;
+            if (!result) {
+              status.textContent = 'No recovery checkpoint is available on this browser yet.';
+              return;
+            }
             prepared = result;
             status.textContent = result.description;
             load.hidden = false;
@@ -977,6 +979,13 @@ export class Hud {
               error instanceof Error ? error.message : 'Match file could not be read.';
           });
       };
+      fileInput.onchange = () => {
+        const file = fileInput.files?.[0];
+        fileInput.value = '';
+        if (file) preview(() => this.actions.prepareImport(file), 'Checking match file…');
+      };
+      recovery.onclick = () =>
+        preview(() => this.actions.prepareRecovery(), 'Checking recovery checkpoint…');
       load.onclick = () => {
         if (!prepared || this.replacingMatch) return;
         this.replacingMatch = true;

@@ -74,6 +74,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Oracle Lens controls, counterplay and source boundaries](docs/ORACLE-LENS.md)
 - [Rift practice camps and companion growth](docs/RIFT-PRACTICE.md)
 - [Local match checkpoints and compatibility](docs/SAVES.md)
+- [Automatic recovery checkpoints and preview](docs/RECOVERY-CHECKPOINTS.md)
 - [Five-position assignments and jungle/support decisions](docs/BOT-ROLES.md)
 - [Shared siege, defense, gank and river strategy](docs/BOT-TEAM-STRATEGY.md)
 - [Allied bot intent in the scoreboard](docs/ALLIED-INTENT.md)

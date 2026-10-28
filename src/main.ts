@@ -10,9 +10,10 @@ import { loadLuxCrescentAssets } from './render/lux-attack-crescents';
 import { loadLuxTrailTextures } from './render/lux-attack-trails';
 import { loadLuxAttackTextures } from './render/lux-attack-hoops';
 import './style.css';
-import { readMatch, writeMatch } from './storage/match-store';
+import { readMatch, writeMatch, replaceMatch, recoveryMatchKey } from './storage/match-store';
+import { RecoveryCheckpoints } from './storage/recovery-checkpoints';
 import { downloadMatch, prepareMatchImport } from './storage/match-files';
-import { DT } from './content/rules';
+import { DT, TICK_RATE } from './content/rules';
 import { World } from './simulation/world';
 import { createGrompEncounter } from './simulation/gromp-encounter';
 import { createBaronEncounter } from './simulation/baron-encounter';
@@ -191,7 +192,8 @@ async function boot(): Promise<void> {
                         : 'ashe'
               );
   let restored = false,
-    saveNotice = '';
+    saveNotice = '',
+    recoveryAvailable = false;
   try {
     const saved = await readMatch(saveKey);
     const candidate = saved ? World.fromSnapshot(saved, battlefield) : null;
@@ -219,6 +221,11 @@ async function boot(): Promise<void> {
   } catch (error) {
     saveNotice = error instanceof Error ? error.message : 'Saved match could not be loaded.';
   }
+  try {
+    recoveryAvailable = (await readMatch(recoveryMatchKey(saveKey))) !== undefined;
+  } catch {
+    // Optional discovery must not prevent a valid manual checkpoint from opening.
+  }
   let view: GameView;
   try {
     view = new GameView(host, battlefield);
@@ -235,6 +242,7 @@ async function boot(): Promise<void> {
     previous = performance.now(),
     elapsed = 0;
   let input: GameInput | undefined;
+  let checkpoints: RecoveryCheckpoints | undefined;
   let requestFrame = () => {};
   view.onAssetsReady = () => requestFrame();
   const setPaused = (value: boolean) => {
@@ -249,9 +257,28 @@ async function boot(): Promise<void> {
     if (paused) {
       input?.release();
       hud.releaseMinimapCamera();
+      checkpoints?.checkpoint(world.tick, true);
     }
     requestFrame();
   };
+  const prepareImport = (file: File) =>
+    prepareMatchImport(
+      file,
+      battlefield,
+      async (snapshot) => {
+        await checkpoints!.replace(snapshot, world.tick);
+        window.location.reload();
+      },
+      masterYiPlayerFixture
+        ? 'masteryi'
+        : ahriPlayerFixture
+          ? 'ahri'
+          : masterYiNpc
+            ? 'ashe'
+            : undefined,
+      masterYiNpc ? 'masteryi' : undefined,
+      baronEncounter ? 'baron' : undefined
+    );
   const hud = new Hud(host, world, view, {
     pause: setPaused,
     swapTrinket: async (kind) => {
@@ -281,39 +308,40 @@ async function boot(): Promise<void> {
       return world.buy(itemId);
     },
     reset: () => {
-      void writeMatch(
-        saveKey,
-        world.matchMode === 'lanes'
-          ? createLaneMatch(
-              battlefield,
-              rosterRiftTrial
-                ? world.hero.champion
-                : ahriRiftTrial && world.hero.champion === 'ahri'
-                  ? 'ahri'
-                  : masterYiRiftTrial && world.hero.champion === 'masteryi'
-                    ? 'masteryi'
-                    : leonaRiftTrial && world.hero.champion === 'leona'
-                      ? 'leona'
-                      : garenRiftTrial && world.hero.champion === 'garen'
-                        ? 'garen'
-                        : selectableChampion(world.hero.champion),
-              world.player.summoners
-            ).snapshot()
-          : grompEncounter ||
-              world.hero.champion === 'lux' ||
-              world.hero.champion === 'garen' ||
-              world.hero.champion === 'leona' ||
-              world.hero.champion === 'ahri' ||
-              world.hero.champion === 'masteryi' ||
-              world.player.summoners.d !== 'flash' ||
-              world.player.summoners.f !== 'heal'
-            ? (() => {
-                const next = freshPractice(world.hero.champion);
-                equipSummoners(next.player, world.player.summoners);
-                return next.snapshot();
-              })()
-            : null
-      )
+      void checkpoints!
+        .replace(
+          world.matchMode === 'lanes'
+            ? createLaneMatch(
+                battlefield,
+                rosterRiftTrial
+                  ? world.hero.champion
+                  : ahriRiftTrial && world.hero.champion === 'ahri'
+                    ? 'ahri'
+                    : masterYiRiftTrial && world.hero.champion === 'masteryi'
+                      ? 'masteryi'
+                      : leonaRiftTrial && world.hero.champion === 'leona'
+                        ? 'leona'
+                        : garenRiftTrial && world.hero.champion === 'garen'
+                          ? 'garen'
+                          : selectableChampion(world.hero.champion),
+                world.player.summoners
+              ).snapshot()
+            : grompEncounter ||
+                world.hero.champion === 'lux' ||
+                world.hero.champion === 'garen' ||
+                world.hero.champion === 'leona' ||
+                world.hero.champion === 'ahri' ||
+                world.hero.champion === 'masteryi' ||
+                world.player.summoners.d !== 'flash' ||
+                world.player.summoners.f !== 'heal'
+              ? (() => {
+                  const next = freshPractice(world.hero.champion);
+                  equipSummoners(next.player, world.player.summoners);
+                  return next.snapshot();
+                })()
+              : null,
+          world.tick
+        )
         .then(() => window.location.reload())
         .catch((error) => hud.toast(error.message));
     },
@@ -323,33 +351,36 @@ async function boot(): Promise<void> {
           ? createLaneMatch(battlefield, champion, summoners)
           : freshPractice(champion);
       if (mode === 'practice') equipSummoners(next.player, summoners);
-      await writeMatch(saveKey, next.snapshot());
+      await checkpoints!.replace(next.snapshot(), world.tick);
       window.location.reload();
     },
-    save: async () => writeMatch(saveKey, world.snapshot()),
+    save: async () => checkpoints!.save(world.snapshot(), world.tick),
     exportMatch: () => downloadMatch(world),
-    prepareImport: (file) =>
-      prepareMatchImport(
-        file,
-        battlefield,
-        async (snapshot) => {
-          await writeMatch(saveKey, snapshot);
-          window.location.reload();
-        },
-        masterYiPlayerFixture
-          ? 'masteryi'
-          : ahriPlayerFixture
-            ? 'ahri'
-            : masterYiNpc
-              ? 'ashe'
-              : undefined,
-        masterYiNpc ? 'masteryi' : undefined,
-        baronEncounter ? 'baron' : undefined
-      ),
+    prepareImport,
+    prepareRecovery: async () => {
+      const snapshot = await readMatch(recoveryMatchKey(saveKey));
+      if (snapshot === undefined) return null;
+      const prepared = await prepareImport(
+        new File([snapshot], 'recovery.json', { type: 'application/json' })
+      );
+      return { ...prepared, description: `Recovery checkpoint · ${prepared.description}` };
+    },
     sound: (enabled) => {
       audio.enabled = enabled;
     },
   });
+  checkpoints = new RecoveryCheckpoints(
+    world.tick,
+    30 * TICK_RATE,
+    {
+      snapshot: () => world.snapshot(),
+      recovery: (snapshot) => writeMatch(recoveryMatchKey(saveKey), snapshot),
+      manual: (snapshot) => replaceMatch(saveKey, snapshot),
+      failed: () =>
+        hud.toast('Recovery checkpoint could not be saved. Your manual save is unchanged.'),
+    },
+    world.snapshot()
+  );
   input = new GameInput(world, view, hud, () => audio.unlock());
   if (restored) {
     view.recenter(world.hero);
@@ -485,7 +516,7 @@ async function boot(): Promise<void> {
     else requestFrame();
   });
   if (document.hidden) pauseForInterruption();
-  if (restored || saveNotice) {
+  if (restored || saveNotice || recoveryAvailable) {
     hud.toggleModal(world.winner ? 'result' : 'pause');
     hud.focusModal();
     setPaused(true);
@@ -544,8 +575,9 @@ async function boot(): Promise<void> {
   // A loss during loading hands warmup to the restoration handler.
   if (!hud.graphicsState) await warmGraphics();
   loading.classList.add('finished');
-  if (restored) hud.toast('Saved match restored. Resume when you’re ready.');
-  else if (saveNotice) hud.toast(saveNotice);
+  if (saveNotice) hud.toast(saveNotice);
+  else if (recoveryAvailable) hud.toast('A recovery checkpoint is available in Match files.');
+  else if (restored) hud.toast('Saved match restored. Resume when you’re ready.');
   else if (rosterRiftTrial) hud.toast('Development trial: combined champion roster on the Rift.');
   else if (leonaRiftTrial) hud.toast('Development trial: Leona support on Summoner’s Rift.');
   else if (garenRiftTrial) hud.toast('Development trial: Garen top on Summoner’s Rift.');
@@ -584,6 +616,7 @@ async function boot(): Promise<void> {
         steps++;
       }
       if (accumulator >= DT) accumulator = 0;
+      checkpoints!.checkpoint(world.tick, !!world.winner);
     }
     world.withVisionSnapshot(() => {
       view.render(world, paused ? 1 : accumulator / DT, elapsed);

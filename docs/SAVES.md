@@ -1,5 +1,12 @@
 # Local match checkpoints
 
+[Automatic recovery checkpoints](RECOVERY-CHECKPOINTS.md) keep a separate backup
+every thirty simulation seconds and at interruptions. Startup pauses when one
+is available. Use **Match files → Preview recovery checkpoint** to review and
+load it explicitly; the manual save is kept separately until a successful
+replacement atomically retires the older backup. The snapshot format and rules
+fingerprint remain unchanged.
+
 The [private Baron combat fixture](BARON-ENCOUNTER.md) extends the existing
 species/encounter values under schema 163 and uses its own browser slot. Its
 trusted host flag is never serialized. Ordinary hosts reject Baron files; the
