@@ -91,6 +91,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Baron root, stun, silence and Charm resistance](docs/BARON-CONTROL.md)
 - [Selected full matches on the initial Baron ruleset](docs/BARON-BASELINE-MATCHES.md)
 - [Current control build: full match and fresh offline delivery](docs/BARON-CONTROL-DELIVERY.md)
+- [Historical hundred-game combined-roster invariant gate](docs/COMBINED-HUNDRED-ABC8DC.md)
 - [Frozen source-cache recovery](docs/REFERENCE-CACHE-RECOVERY.md)
 - [Fresh offline delivery and completed-match checks](docs/OFFLINE-CONTROLS-REFRESH.md)
 - [Late natural finishes and current-pack offline round-trips](docs/LATE-MATCH-ROUNDTRIP.md)

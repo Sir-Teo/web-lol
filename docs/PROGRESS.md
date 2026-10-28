@@ -6,6 +6,14 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+The historical `abc8dc…` combined-roster audit now passes its development-roster
+hundred-seed invariant gate: 100 natural victories, zero unfinished/failures,
+14,858,652 checked ticks, 4,183 round-trips and 4,083 future comparisons covering
+244,834 ticks. Independent verification passes all source/report/snapshot and
+structural checks. [The frozen result](COMBINED-HUNDRED-ABC8DC.md) records nearest-
+rank P50 41:09.833 and P95 48:16.150 simulation time. It leaves public/current-
+fingerprint, full-roadmap, native-fidelity and physical-device claims unchanged.
+
 The current `5a5379…` control build now has an independently verified natural
 Blue victory at tick 169,837: 169,837 checked ticks, 48 round-trips and 47 future
 comparisons covering 2,820 ticks. Every retained state matches its preceding
