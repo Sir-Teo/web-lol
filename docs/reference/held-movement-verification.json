@@ -1,0 +1,339 @@
+{
+  "date": "2026-10-28",
+  "previousCommit": "81a7dd4",
+  "schema": 163,
+  "ruleset": "abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f",
+  "simulationFingerprintUnchanged": true,
+  "sources": [
+    {
+      "file": "src/input/input.ts",
+      "bytes": 16616,
+      "sha256": "ed860567b4e6bb61c7f60041e7b7eb1c181582dadff363c45c24c50eb9f6eb67"
+    },
+    {
+      "file": "src/render/view.ts",
+      "bytes": 65456,
+      "sha256": "9bfd71684f1c3cc442345ba9c986c708590a2a674c4fadcf3cf15cd70c5606b1"
+    },
+    {
+      "file": "src/ui/hud.ts",
+      "bytes": 92609,
+      "sha256": "9ca2c882d3aefc1a9b360bcb1cb26b3a9c95bb1108b8c079d4bb24daf225878d"
+    },
+    {
+      "file": "e2e/held-orders.spec.ts",
+      "bytes": 9823,
+      "sha256": "50b4ea33b1f83275c724146c192abb260948c1b5c752ee9a0c009954df8c05fe"
+    },
+    {
+      "file": "README.md",
+      "bytes": 22030,
+      "sha256": "5d6599014bcfd6d567168825a33bbac964613f1d5cf72aae84237b3c5d3b83e5"
+    }
+  ],
+  "checks": {
+    "typescript": true,
+    "format": true,
+    "build": true,
+    "browserPassed": 29,
+    "browserTotal": 29,
+    "retries": 0,
+    "productionPassed": true,
+    "productionRecordings": 32,
+    "productionChoices": [
+      "ashe",
+      "lux"
+    ],
+    "productionDevelopmentHook": false,
+    "reviewedFixtureCapture": true,
+    "cursorAndModifierChanges": true,
+    "stationaryDeduplication": true,
+    "newestPendingOrderWins": true,
+    "zoomProjectionExact": true,
+    "realUninterruptedChampionAttack": true,
+    "pointerOwnership": true,
+    "hudBoundaryAndStartGuard": true,
+    "cancellationActions": 8
+  },
+  "fixtures": "Real rendering/input. World stepping held at the command boundary except the attack probe, which restores real stepping and observes champion damage.",
+  "iterationHistory": [
+    {
+      "batch": "initial",
+      "passed": 2,
+      "failed": 1,
+      "reason": "New movement case exposes any-pending-order deduplication suppressing the latest modifier transition; source fixed."
+    },
+    {
+      "batch": "fixed",
+      "passed": 2,
+      "failed": 1,
+      "reason": "Own TypeScript edit triggers Vite reload during the movement case; execution context destroyed. Final batch runs after edits settle."
+    }
+  ],
+  "pack": {
+    "id": "6e09abbd2512ff34eb8e0c578aac9d45d226ae1fd3c2e0670bf18e454c54fcde",
+    "files": 1202,
+    "bytes": 538116691
+  },
+  "inherited": {
+    "freshBroadTests": false,
+    "freshNodeQA": false,
+    "freshFullMatches": false,
+    "freshOffline": false,
+    "nativeAndPerformanceAcceptance": false,
+    "fullUnitSource": "docs/reference/reference-cache-recovery-verification.json"
+  },
+  "frozenAudits": "Original source and both hundred-seed corpora remain unchanged; owned-process pause receipt resumed. No completion claim.",
+  "evidence": [
+    {
+      "file": "artifacts/held-orders/browser/.last-run.json",
+      "bytes": 96,
+      "sha256": "0e0be834858a34f6088d43d19429e759e57041201db0a3de0807b7823b272ff8"
+    },
+    {
+      "file": "artifacts/held-orders/browser/held-orders-Stop-recall-ta-944f7-t-discarding-accepted-input/held-cancellation.json",
+      "bytes": 718,
+      "sha256": "28e4666d9443e75a1fceebca898df42c24816aeaa24905916b47efb45c273530"
+    },
+    {
+      "file": "artifacts/held-orders/browser/held-orders-held-right-cli-0c822-d-refreshes-zoom-projection/error-context.md",
+      "bytes": 11418,
+      "sha256": "93e51ee85e20bcf445b79665dff96c80b4a2edf3ade810bfd79ff0cb3c7a725e"
+    },
+    {
+      "file": "artifacts/held-orders/browser/held-orders-held-right-cli-0c822-d-refreshes-zoom-projection/test-failed-1.png",
+      "bytes": 878721,
+      "sha256": "8caf003596090c9bd886c585a69ebe88e637835b2e66b0afbfc6162bafc0fd6b"
+    },
+    {
+      "file": "artifacts/held-orders/browser/held-orders-held-right-cli-0c822-d-refreshes-zoom-projection/trace.zip",
+      "bytes": 47186779,
+      "sha256": "106a52a5c4843f9f3443dee8c2734964559e0858b224664e0ceb2da4f1435d63"
+    },
+    {
+      "file": "artifacts/held-orders/browser/held-orders-held-targeting-f14f0-a-real-uninterrupted-attack/held-real-attack.json",
+      "bytes": 491,
+      "sha256": "8af103c7c7c6ea99b8b3cc87d953946c778b6336ee1ca6079f3e5a678242d2cc"
+    },
+    {
+      "file": "artifacts/held-orders/browser-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "file": "artifacts/held-orders/browser-final/champion-targeting-champio-78ae0-s-typing-modifier-shortcuts/mode-boundaries.json",
+      "bytes": 173,
+      "sha256": "63c502004811d0d0b064cf61bbeed3f8a3391198e4d53633039ae029469d09ef"
+    },
+    {
+      "file": "artifacts/held-orders/browser-final/champion-targeting-held-ch-79240-n-and-preserves-attack-move/champion-through-minion.png",
+      "bytes": 885831,
+      "sha256": "15cd23405858d35322bb65235152fe956b98f91b634a9e1c963d6fef69db830c"
+    },
+    {
+      "file": "artifacts/held-orders/browser-final/champion-targeting-held-ch-79240-n-and-preserves-attack-move/champions-only-1024.png",
+      "bytes": 595848,
+      "sha256": "ae65ce5e61996f5cbafb3eb705a00013b8da96e54de3e70ee99efbfdf744ab3f"
+    },
+    {
+      "file": "artifacts/held-orders/browser-final/champion-targeting-held-ch-79240-n-and-preserves-attack-move/targeting.json",
+      "bytes": 767,
+      "sha256": "eb0e766e0aac2122efe7002387fdb05a660c3c5049abafdd70947f63c516413e"
+    },
+    {
+      "file": "artifacts/held-orders/browser-final/champion-targeting-real-Yi-079da-ehind-an-overlapping-minion/yi-real-q.json",
+      "bytes": 372,
+      "sha256": "b388c658a468c82d7117be9d2aed9ab29f65706f55f6a3a0937b0a5b895490ee"
+    },
+    {
+      "file": "artifacts/held-orders/browser-final/held-orders-Stop-recall-ta-944f7-t-discarding-accepted-input/held-cancellation.json",
+      "bytes": 718,
+      "sha256": "28e4666d9443e75a1fceebca898df42c24816aeaa24905916b47efb45c273530"
+    },
+    {
+      "file": "artifacts/held-orders/browser-final/held-orders-held-movement--6c7c2-or-linger-over-HUD-controls/held-pointer-boundaries.json",
+      "bytes": 435,
+      "sha256": "f593a363d03c9dbabc62858342792a54295fcad5b074c61ce63113c8ca4dba61"
+    },
+    {
+      "file": "artifacts/held-orders/browser-final/held-orders-held-right-cli-0c822-d-refreshes-zoom-projection/held-movement.json",
+      "bytes": 1517,
+      "sha256": "79db904b3a71ec5715d9c41dc595d1b4532276c0b6889d4b37bcfc7e431e8d80"
+    },
+    {
+      "file": "artifacts/held-orders/browser-final/held-orders-held-right-cli-0c822-d-refreshes-zoom-projection/held-right-movement.png",
+      "bytes": 1000274,
+      "sha256": "50ad255a5306be9a5b8d158e05d56b49bcf91d28e56fb9eff7501f5e47df2b67"
+    },
+    {
+      "file": "artifacts/held-orders/browser-final/held-orders-held-targeting-f14f0-a-real-uninterrupted-attack/held-real-attack.json",
+      "bytes": 491,
+      "sha256": "8af103c7c7c6ea99b8b3cc87d953946c778b6336ee1ca6079f3e5a678242d2cc"
+    },
+    {
+      "file": "artifacts/held-orders/browser-final/input-audio-activation-the-bfbd6--before-any-pointer-gesture/first-keyboard-audio.json",
+      "bytes": 186,
+      "sha256": "8f73a894cf16d77ec34b4f8c7defcc2ca868ba1057ae0e5ec873208bf095b29c"
+    },
+    {
+      "file": "artifacts/held-orders/browser-final/input-audio-activation-tru-66835-repeat-or-typing-activation/input-audio.json",
+      "bytes": 354,
+      "sha256": "d71806393655e40c07497fa6036466731f73793dda105b60f7be75b6aee16180"
+    },
+    {
+      "file": "artifacts/held-orders/browser-final/input-modifier-shortcuts-A-1a190-tcut-without-a-Heal-command/modifier-shortcut.json",
+      "bytes": 314,
+      "sha256": "835c22f822b86709dbb34ce70a01acb9d1d624a8a5696624bd75667870ffcdb0"
+    },
+    {
+      "file": "artifacts/held-orders/browser-final/input-modifier-shortcuts-C-15803-al-game-keys-still-dispatch/modifier-learning.json",
+      "bytes": 6713,
+      "sha256": "768f3b6fca4a8a1c413c2a78e61d87bc482e49a8fb561b15975ab60af7084f81"
+    },
+    {
+      "file": "artifacts/held-orders/browser-final/input-modifier-shortcuts-C-6cbe3-tcut-without-a-Heal-command/modifier-shortcut.json",
+      "bytes": 322,
+      "sha256": "e0b08e56e175bd179e6e937cf3616d5be768841edde21460a408a8faf0dc54a2"
+    },
+    {
+      "file": "artifacts/held-orders/browser-final/input-modifier-shortcuts-M-a0e19-tcut-without-a-Heal-command/modifier-shortcut.json",
+      "bytes": 316,
+      "sha256": "d0da629fbdf00a2e168b8d937606bd2b5b4adbc3023166017da80c8f6b40f7d3"
+    },
+    {
+      "file": "artifacts/held-orders/browser-final/input-space-key-Space-acti-479c3-hile-canvas-Space-recenters/space-button.json",
+      "bytes": 69,
+      "sha256": "ed8732cf7a80e3b25c24509c0c488802bd62624f73e9947f2b128d4a41001f21"
+    },
+    {
+      "file": "artifacts/held-orders/browser-final/input-space-key-Space-togg-497e2-l-recenters-the-battlefield/hud-space.json",
+      "bytes": 380,
+      "sha256": "d4d41cdb1fddf5fdcc9fedf4ae4820c922277162d9ccc3894cb246d3563456ad"
+    },
+    {
+      "file": "artifacts/held-orders/browser-final/ward-spell-transition-an-i-7573b-iews-without-placing-a-ward/ward-spell-transition.json",
+      "bytes": 1374,
+      "sha256": "82b459b94b6f93739a5d863a6bbaee86fb3d6c5c0bb4bb8e3c8b77fe71d32f3d"
+    },
+    {
+      "file": "artifacts/held-orders/browser-final/ward-spell-transition-an-i-7573b-iews-without-placing-a-ward/ward-spell-transition.png",
+      "bytes": 902530,
+      "sha256": "64c1a28c8a7741ac91ed9fee27824809cf237e8b9caec0d3c70456e3574c571a"
+    },
+    {
+      "file": "artifacts/held-orders/browser-final.log",
+      "bytes": 7312,
+      "sha256": "420c677623c2b07b40dc2e52b9362b11bbee9cbb502b429df5e2db7f12c5edec"
+    },
+    {
+      "file": "artifacts/held-orders/browser-fixed/.last-run.json",
+      "bytes": 96,
+      "sha256": "0e0be834858a34f6088d43d19429e759e57041201db0a3de0807b7823b272ff8"
+    },
+    {
+      "file": "artifacts/held-orders/browser-fixed/held-orders-Stop-recall-ta-944f7-t-discarding-accepted-input/held-cancellation.json",
+      "bytes": 718,
+      "sha256": "28e4666d9443e75a1fceebca898df42c24816aeaa24905916b47efb45c273530"
+    },
+    {
+      "file": "artifacts/held-orders/browser-fixed/held-orders-held-right-cli-0c822-d-refreshes-zoom-projection/error-context.md",
+      "bytes": 10716,
+      "sha256": "6661c58cd0c1b2de4eb65da011b45995b04552c5c0eb709502d946f99ad33143"
+    },
+    {
+      "file": "artifacts/held-orders/browser-fixed/held-orders-held-right-cli-0c822-d-refreshes-zoom-projection/test-failed-1.png",
+      "bytes": 14065,
+      "sha256": "81fee5f0cb50b817019e02660f37f86b53ad68925e1a9daf5513a01866bf5567"
+    },
+    {
+      "file": "artifacts/held-orders/browser-fixed/held-orders-held-right-cli-0c822-d-refreshes-zoom-projection/trace.zip",
+      "bytes": 36030638,
+      "sha256": "784aed0fdb655921f88ce8e34c5e703f418a183ce2932090727da95a36e85276"
+    },
+    {
+      "file": "artifacts/held-orders/browser-fixed/held-orders-held-targeting-f14f0-a-real-uninterrupted-attack/held-real-attack.json",
+      "bytes": 491,
+      "sha256": "8af103c7c7c6ea99b8b3cc87d953946c778b6336ee1ca6079f3e5a678242d2cc"
+    },
+    {
+      "file": "artifacts/held-orders/browser-fixed.log",
+      "bytes": 3962,
+      "sha256": "c0cc90bb8edcdbf97bbd227b5cba5845b2f9317788d18e2b99f2b4be74b1aaae"
+    },
+    {
+      "file": "artifacts/held-orders/browser.log",
+      "bytes": 3929,
+      "sha256": "ce821c820c7b5d1b9f3afe8ef4a288a751930f7dd7fcaf37e73709afef6e2fa5"
+    },
+    {
+      "file": "artifacts/held-orders/build.log",
+      "bytes": 7852,
+      "sha256": "37febeffc65357065480d259d2e521d19cf2378dcad571621ba01961c896bc26"
+    },
+    {
+      "file": "artifacts/held-orders/format-check.log",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "file": "artifacts/held-orders/lux-e-hit-production-companion-purchase.png",
+      "bytes": 1814020,
+      "sha256": "f2796da757d56fd0adddd03fcfc1d107080e726fa3627d09836d9ba524e08744"
+    },
+    {
+      "file": "artifacts/held-orders/lux-e-hit-production-lux-e-moving-burst.png",
+      "bytes": 1844050,
+      "sha256": "a91c6504f486c89584df375a0045d75d4b89bc7b7613e2eace7f728734bd30c5"
+    },
+    {
+      "file": "artifacts/held-orders/lux-e-hit-production-lux-e-source.png",
+      "bytes": 1838870,
+      "sha256": "d9f26aa47628f9300767f110e9e915f3a8f8a75cf5ab4035aba25295f89dd0d6"
+    },
+    {
+      "file": "artifacts/held-orders/lux-e-hit-production-lux.png",
+      "bytes": 1820608,
+      "sha256": "5274c349120aa054b81c7f1df382513ae2db3f732c8abc3ee80abef664247e5d"
+    },
+    {
+      "file": "artifacts/held-orders/lux-e-hit-production-oracle.png",
+      "bytes": 1819907,
+      "sha256": "9973796f7ede262e87acd2b6b750bdea0ad212b5cc778a9f87b83ebd6087bce7"
+    },
+    {
+      "file": "artifacts/held-orders/lux-e-hit-production-role-match.png",
+      "bytes": 1360540,
+      "sha256": "6489facd57b42e781756c75ced1b2cad7fb1eddc7cc9f5bcd4b3a48ee733316c"
+    },
+    {
+      "file": "artifacts/held-orders/lux-e-hit-production-subpath.png",
+      "bytes": 1825346,
+      "sha256": "703000268e0f3ce29ad92a621ca9bbdb701e3125daeae60622aad0c0386de5da"
+    },
+    {
+      "file": "artifacts/held-orders/lux-e-hit-production-ward.png",
+      "bytes": 1808773,
+      "sha256": "6008b5bf1a56a2842fa782e6ea468e591cfe87c2d5018f6117ce64934afaa175"
+    },
+    {
+      "file": "artifacts/held-orders/offline-pack.json",
+      "bytes": 172470,
+      "sha256": "c3f71064089f21ec0a632ee0faf9dc6cada45e21a5db228c0067b15641c332a3"
+    },
+    {
+      "file": "artifacts/held-orders/production.log",
+      "bytes": 3112,
+      "sha256": "76ae8d93a1844e7c2030c8df65022cbf8f8a0bc72b045fbc0bf547c07faefc4e"
+    },
+    {
+      "file": "artifacts/held-orders/tsc-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "artifacts/certification-abc8dc/pauses/held-orders-browser.json",
+      "bytes": 1609,
+      "sha256": "536dc600cac7eb1cb819d82353e920457aad48f352d27e95b1fc1b511d21d438"
+    }
+  ]
+}

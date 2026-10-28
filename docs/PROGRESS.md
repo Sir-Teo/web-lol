@@ -6,6 +6,24 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+The latest [held right-click movement](HELD-MOVEMENT.md) follows cursor and
+target changes with a 120 ms minimum interval. Matching current/latest queued
+orders are suppressed without restarting attacks. Shift and Backquote retain
+their respective attack-move and champion-target policies. The initiating
+pointer owns the gesture; HUD boundaries, Stop, recall, casting, ward/A targeting,
+pause, modals, blur and cancellation have explicit behavior. Camera pan/zoom is
+applied before held-pointer projection. No simulation or saved fields change.
+
+All 29 final browser cases, formatting and build/typecheck pass. The nested-path
+production check passes with 32 expected recordings, public Ashe/Lux choices
+and no development hook/private preloads. A real champion attack continues
+without order-reset churn. Both original hundred-seed audits resume afterward.
+Schema stays 163 and simulation fingerprint stays
+`abc8dc664ed97c0f0cfac64e4eb52b43dbbc593884a6896a47b1e8e0d34bd04f`.
+Pack `6e09abbd2512ff34eb8e0c578aac9d45d226ae1fd3c2e0670bf18e454c54fcde` has
+1,202 files / 538,116,691 bytes. Prior broader/full-match/offline/native
+results keep their own source and pack scope.
+
 The latest [teammate portraits](ALLY-PORTRAITS.md) add friendly health and
 respawn counters above the minimap in F2–F5 order. Clicks move the free camera;
 pointer activation returns focus to the battlefield, keyboard activation keeps

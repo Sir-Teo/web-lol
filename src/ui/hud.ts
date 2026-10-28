@@ -710,6 +710,7 @@ export class Hud {
       subtitle = 'Every movement begins with a decision.';
       const controls = [
         ['Right-click', 'Move / attack target'],
+        ['Hold right-click', 'Follow cursor movement / target changes'],
         ['A → click', 'Attack move'],
         ['Shift + right-click', 'Attack move immediately'],
         ['Hold &#96;', 'Champion-only right-click and targeted spells'],

@@ -682,6 +682,10 @@ export class GameView {
     this.center = { x: hero.x, y: hero.y };
     this.positionCamera();
   }
+  /** Apply pending pan/zoom before reading a held pointer command. */
+  refreshCamera(): void {
+    this.positionCamera();
+  }
   pan(dx: number, dy: number, dt: number): void {
     if (this.locked) return;
     this.center.x += dx * dt * 1500 * this.zoom;

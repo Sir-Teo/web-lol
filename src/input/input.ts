@@ -1,4 +1,4 @@
-import type { Ability } from '../simulation/types';
+import type { Ability, Order } from '../simulation/types';
 import type { World } from '../simulation/world';
 import type { GameView } from '../render/view';
 import type { Hud } from '../ui/hud';
@@ -20,6 +20,13 @@ export class GameInput {
   private wardAiming = false;
   private attackMove = false;
   private championsOnly = false;
+  private heldOrder: {
+    pointerId: number;
+    point: { x: number; y: number };
+    inside: boolean;
+    attackMove: boolean;
+    elapsed: number;
+  } | null = null;
   constructor(
     private world: World,
     private view: GameView,
@@ -34,11 +41,26 @@ export class GameInput {
       }
     };
     hud.onInstantCast = () => {
+      this.heldOrder = null;
       if (this.wardAiming) this.cancelAim();
     };
     window.addEventListener('pointermove', (e) => {
       this.pointer = { x: e.clientX, y: e.clientY };
+      if (this.heldOrder?.pointerId === e.pointerId) {
+        if (!(e.buttons & 2)) this.heldOrder = null;
+        else {
+          this.heldOrder.point = { ...this.pointer };
+          this.heldOrder.attackMove = e.shiftKey;
+        }
+      }
       this.refreshAim();
+    });
+    window.addEventListener('pointerup', (e) => {
+      if (this.heldOrder?.pointerId === e.pointerId && (e.button === 2 || !(e.buttons & 2)))
+        this.heldOrder = null;
+    });
+    window.addEventListener('pointercancel', (e) => {
+      if (this.heldOrder?.pointerId === e.pointerId) this.heldOrder = null;
     });
     window.addEventListener('pointerdown', (e) => {
       unlockAudio();
@@ -49,10 +71,12 @@ export class GameInput {
     canvas.addEventListener('pointermove', (e) => {
       this.pointer = { x: e.clientX, y: e.clientY };
       this.inside = true;
+      if (this.heldOrder?.pointerId === e.pointerId) this.heldOrder.inside = true;
       this.updateHover();
     });
-    canvas.addEventListener('pointerleave', () => {
+    canvas.addEventListener('pointerleave', (e) => {
       this.inside = false;
+      if (this.heldOrder?.pointerId === e.pointerId) this.heldOrder.inside = false;
       this.updateHover();
     });
     canvas.addEventListener('pointerdown', (e) => {
@@ -83,6 +107,14 @@ export class GameInput {
               ? { type: 'attack', target: target.id }
               : { type: attackMove ? 'attackMove' : 'move', point },
         });
+        if (e.button === 2 && e.isPrimary)
+          this.heldOrder = {
+            pointerId: e.pointerId,
+            point: { ...this.pointer },
+            inside: true,
+            attackMove: e.shiftKey,
+            elapsed: 0,
+          };
       } else if (e.button === 0) view.selected = target?.id ?? world.player.id;
     });
     canvas.addEventListener(
@@ -173,18 +205,27 @@ export class GameInput {
       }
       if (key === '4') this.beginWardAim();
       if (key === 'y') hud.toggleCamera();
-      if (key === 'shift') view.rangeVisible = true;
+      if (key === 'shift') {
+        view.rangeVisible = true;
+        if (this.heldOrder) this.heldOrder.attackMove = true;
+      }
       if (key === 's') {
+        this.heldOrder = null;
         this.cancelAim();
         world.enqueue({ type: 'order', unit: world.player.id, order: { type: 'idle' } });
       }
       if (key === 'a') {
+        this.heldOrder = null;
         this.attackMove = true;
         view.rangeVisible = true;
         canvas.classList.add('aiming');
       }
-      if (key === 'b') world.enqueue({ type: 'recall', unit: world.player.id });
+      if (key === 'b') {
+        this.heldOrder = null;
+        world.enqueue({ type: 'recall', unit: world.player.id });
+      }
       const spell = ['q', 'w', 'e', 'r', 'd', 'f'].includes(key) ? (key as Ability) : null;
+      if (spell) this.heldOrder = null;
       if (spell && this.wardAiming) this.cancelAim();
       if (spell && instantSpell(world, spell)) {
         const point =
@@ -228,6 +269,7 @@ export class GameInput {
         this.updateCameraFocus();
       }
       if (key === 'shift' && !this.attackMove) view.rangeVisible = false;
+      if (key === 'shift' && this.heldOrder) this.heldOrder.attackMove = false;
       if (key === this.aiming) {
         if (!hud.paused && !hud.modal) {
           const point = this.castPoint(this.aiming);
@@ -256,6 +298,7 @@ export class GameInput {
     window.addEventListener('blur', () => this.release());
   }
   private beginWardAim(): void {
+    this.heldOrder = null;
     this.cancelAim();
     if (this.world.player.trinket.kind === 'oracle') {
       this.world.enqueue({ type: 'oracle', unit: this.world.player.id });
@@ -275,6 +318,7 @@ export class GameInput {
     else if (this.aiming) this.view.setAim(this.aiming, this.castPoint(this.aiming));
   }
   release(): void {
+    this.heldOrder = null;
     this.setChampionTargeting(false);
     this.recenterHeld = false;
     this.cameraKeys = [];
@@ -299,6 +343,56 @@ export class GameInput {
   private pick() {
     return this.view.pick(this.world, this.pointer.x, this.pointer.y, this.championsOnly);
   }
+  private samePointerOrder(a: Order, b: Order): boolean {
+    if (a.type === 'attack' && b.type === 'attack') return a.target === b.target;
+    return (
+      (a.type === 'move' || a.type === 'attackMove') &&
+      b.type === a.type &&
+      Math.hypot(a.point.x - b.point.x, a.point.y - b.point.y) < 4
+    );
+  }
+  private refreshHeldOrder(): void {
+    const held = this.heldOrder;
+    if (!held) return;
+    if (this.hud.paused || this.hud.modal || this.world.winner) {
+      this.heldOrder = null;
+      return;
+    }
+    if (held.elapsed < 0.12 || !held.inside) return;
+    held.elapsed = 0;
+    const canvas = this.view.renderer.domElement;
+    if (document.elementFromPoint(held.point.x, held.point.y) !== canvas) return;
+    this.view.refreshCamera();
+    const point = this.view.worldPoint(held.point.x, held.point.y);
+    if (!point) return;
+    const target = this.view.pick(
+      this.world,
+      held.point.x,
+      held.point.y,
+      this.championsOnly && !held.attackMove
+    );
+    const order: Order =
+      target && target.team !== this.world.hero.team
+        ? { type: 'attack', target: target.id }
+        : { type: held.attackMove ? 'attackMove' : 'move', point };
+    // Only the newest queued order describes the destination we will execute.
+    let current = this.world.hero.order;
+    for (let i = this.world.commands.length - 1; i >= 0; i--) {
+      const command = this.world.commands[i];
+      if (command.type === 'order' && command.unit === this.world.player.id) {
+        current = command.order;
+        break;
+      }
+    }
+    if (
+      this.samePointerOrder(order, current) ||
+      ((order.type === 'move' || order.type === 'attackMove') &&
+        current.type === 'idle' &&
+        Math.hypot(point.x - this.world.hero.x, point.y - this.world.hero.y) < 4)
+    )
+      return;
+    this.world.enqueue({ type: 'order', unit: this.world.player.id, order });
+  }
   cancelAim(): void {
     this.aiming = null;
     this.wardAiming = false;
@@ -317,6 +411,7 @@ export class GameInput {
   update(dt: number): void {
     if (this.wardAiming && this.world.player.trinket.kind !== 'ward') this.cancelAim();
     if (this.hud.paused || this.hud.modal) {
+      this.heldOrder = null;
       this.setChampionTargeting(false);
       this.recenterHeld = false;
       this.cameraKeys = [];
@@ -324,6 +419,8 @@ export class GameInput {
       this.cancelAim();
       return;
     }
+    if (this.heldOrder)
+      this.heldOrder.elapsed = Math.min(0.12, this.heldOrder.elapsed + Math.max(0, dt));
     const cameraTarget = this.updateCameraFocus();
     if (cameraTarget) this.view.recenter(cameraTarget);
     if (this.inside && !cameraTarget) {
@@ -331,6 +428,7 @@ export class GameInput {
       const y = this.pointer.y < 16 ? -1 : this.pointer.y > window.innerHeight - 16 ? 1 : 0;
       this.view.pan(x, y, dt);
     }
+    this.refreshHeldOrder();
   }
   updateHover(): void {
     const canvas = this.view.renderer.domElement;
