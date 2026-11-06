@@ -41,6 +41,14 @@ below retain earlier intermediate limitations and next steps.
 
 ## Recent verified checkpoints
 
+Primary `work` fast-forwards from `40a267d` to `5396b46` without merge
+edits. Its fresh build and all-file/worker audit reproduce `4b183389` exactly,
+with all 640 compatibility-source files and the entire manifest matching the
+accepted renderer branch. Existing acceptance applies to identical source; no
+full-suite repetition is needed. Work stays local. See
+[primary integration](reference/ahri/q-projectile-main-integration.json).
+
+
 The [projectile renderer](AHRI-Q-PROJECTILES.md) uses all 151 authored texture
 mips and three source mesh geometries, borrowing two textures and the caster
 swirls. It preserves back-to-front trail smoothing, source erosion/secondary UVs,

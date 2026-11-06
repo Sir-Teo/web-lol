@@ -1,0 +1,47 @@
+{
+  "format": 1,
+  "branch": "work",
+  "previousRevision": "40a267d3f64a6de54c0d27246fe1dd338d14583b",
+  "acceptedRevision": "5396b46a4e164fd677f39661c3c2a2cf916c44c9",
+  "merge": "fast-forward only; no edits",
+  "schema": 177,
+  "ruleset": "5e4347edd208087bb82b7ad33f2d5ba3f77d6a9767da24a6c32c305cbbe7e694",
+  "runtimeSourceFiles": 640,
+  "allAcceptedSourceBytesMatch": true,
+  "entireManifestMatches": true,
+  "pack": {
+    "id": "4b1833898a58764415bd5955256c8501cbd3d12cadcb68b59eefe9173e03e349",
+    "files": 1357,
+    "bytes": 576879237,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a",
+    "allFileAndWorkerAudit": true
+  },
+  "build": true,
+  "allFileAndWorkerAudit": true,
+  "acceptance": "q-projectile-rendering-acceptance.json",
+  "scope": "The accepted full-suite, browser, production and offline evidence applies to identical source; no redundant full-suite rerun.",
+  "push": false,
+  "deployment": false,
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-main-fast-forward-v1.log",
+      "bytes": 12694,
+      "sha256": "a75d7469c846446aea5f37370920ca5199fd92d051b78a017bd1939ea0d78213"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-main-build-v1.log",
+      "bytes": 9467,
+      "sha256": "03dc15b9c5099c79d88224379af2ace251c7c1f504cbd0794fdc0479fb4c9d0a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-main-pack-v1.log",
+      "bytes": 213,
+      "sha256": "d13649cb1c487c434fff4c137c6e3964b2b8e3f05e502b6752debf020336b590"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-main-source-match-v1.log",
+      "bytes": 165,
+      "sha256": "4f2bd6bc55553caacbef188c41b174fe4830ea1d845d6ddf98556a45000dbd2e"
+    }
+  ]
+}
