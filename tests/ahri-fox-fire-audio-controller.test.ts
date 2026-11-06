@@ -300,6 +300,7 @@ it('terminal clock drains activation, stop-tail and cast without advancing the w
   (game as any).ahriPassive = { status: 'ready', update() {}, stop() {} };
   (game as any).ahriAA = { status: 'ready', update() {}, stop() {} };
   (game as any).ahriLifecycle = { status: 'ready', update() {}, stop() {} };
+  (game as any).ahriRecall = { status: 'ready', update() {}, stop() {} };
   game.updateAhri(w);
   expect(controller.activeVoices).toBe(3);
   context.currentTime += 10;

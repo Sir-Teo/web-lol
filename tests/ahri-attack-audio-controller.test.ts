@@ -344,6 +344,7 @@ it('terminal time drains cast missile-stop and hit tails without changing the wi
     'ahriSpiritRush',
     'ahriPassive',
     'ahriLifecycle',
+    'ahriRecall',
   ])
     (game as any)[family] = { status: 'ready', update() {}, stop() {} };
   game.context = context as any;

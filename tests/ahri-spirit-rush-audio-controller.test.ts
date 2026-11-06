@@ -341,6 +341,7 @@ it('terminal time drains local activation release, deactivation and cast without
     'ahriPassive',
     'ahriAA',
     'ahriLifecycle',
+    'ahriRecall',
   ])
     (game as any)[family] = { status: 'ready', update() {}, stop() {} };
   game.context = context as any;

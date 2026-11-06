@@ -133,6 +133,7 @@ try {
     ahriPassiveAudioRequests = [],
     ahriAttackAudioRequests = [],
     ahriLifecycleAudioRequests = [],
+    ahriRecallAudioRequests = [],
     scheduledGrompRequests = [],
     scheduledBlueRequests = [],
     scheduledRedRequests = [],
@@ -148,6 +149,8 @@ try {
   });
   page.on('request', (request) => {
     if (request.url().includes('/assets/audio/ahri-orb/')) ahriOrbAudioRequests.push(request.url());
+    if (request.url().includes('/assets/audio/ahri-recall/'))
+      ahriRecallAudioRequests.push(request.url());
     if (request.url().includes('/assets/audio/ahri-lifecycle/'))
       ahriLifecycleAudioRequests.push(request.url());
     if (request.url().includes('/assets/audio/ahri-attack/'))
@@ -774,6 +777,7 @@ try {
     ['Passive', ahriPassiveAudioRequests],
     ['Attack', ahriAttackAudioRequests],
     ['Lifecycle', ahriLifecycleAudioRequests],
+    ['Recall', ahriRecallAudioRequests],
   ])
     assert.deepEqual(requests, [], `Production without Ahri must not preload ${family} masters`);
   assert.deepEqual(
@@ -814,6 +818,7 @@ try {
     unrequestedAhriSpiritRushAudioPreloads: ahriSpiritRushAudioRequests.length,
     unrequestedAhriPassiveAudioPreloads: ahriPassiveAudioRequests.length,
     unrequestedAhriAttackAudioPreloads: ahriAttackAudioRequests.length,
+    unrequestedAhriRecallAudioPreloads: ahriRecallAudioRequests.length,
     unrequestedAhriLifecycleAudioPreloads: ahriLifecycleAudioRequests.length,
     garenFixtureInProduction: false,
     leonaPlayerFixtureInProduction: false,

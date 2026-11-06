@@ -313,6 +313,7 @@ it('terminal audio time drains finite Charm tails without changing the saved win
   (game as any).ahriPassive = { status: 'ready', update() {}, stop() {} };
   (game as any).ahriAA = { status: 'ready', update() {}, stop() {} };
   (game as any).ahriLifecycle = { status: 'ready', update() {}, stop() {} };
+  (game as any).ahriRecall = { status: 'ready', update() {}, stop() {} };
   game.updateAhri(w);
   expect(controller.activeVoices).toBe(2);
   context.currentTime += 10;

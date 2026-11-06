@@ -253,6 +253,7 @@ it('terminal time drains passive source tails without mutating the winning World
     'ahriSpiritRush',
     'ahriAA',
     'ahriLifecycle',
+    'ahriRecall',
   ])
     (game as any)[family] = { status: 'ready', update() {}, stop() {} };
   game.context = context as any;

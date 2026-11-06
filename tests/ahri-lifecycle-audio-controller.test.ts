@@ -262,6 +262,7 @@ it('terminal time drains finite death or respawn tails without changing the winn
     w.damage(w.hero, nexus, 1e9, 'true');
     (game.ahriLifecycle as any).controller = controller;
     for (const family of [
+      'ahriRecall',
       'ahriCharm',
       'ahriOrb',
       'ahriFoxFire',

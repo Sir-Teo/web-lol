@@ -1,4 +1,5 @@
 import { LazyAhriLifecycleAudio } from './ahri-lifecycle-lazy';
+import { LazyAhriRecallAudio } from './ahri-recall-lazy';
 import { LazyAhriAttackAudio } from './ahri-attack-lazy';
 import { LazyAhriPassiveAudio } from './ahri-passive-lazy';
 import { LazyAhriSpiritRushAudio } from './ahri-spirit-rush-lazy';
@@ -63,6 +64,7 @@ export class GameAudio {
   ahriPassive = new LazyAhriPassiveAudio();
   ahriAA = new LazyAhriAttackAudio();
   ahriLifecycle = new LazyAhriLifecycleAudio();
+  ahriRecall = new LazyAhriRecallAudio();
   private charmWorld?: World;
   private charmTerminalStart: number | null = null;
   masterYiAA = new LazyMasterYiAttackAudio();
@@ -147,6 +149,7 @@ export class GameAudio {
             this.ahriPassive.load(),
             this.ahriAA.load(),
             this.ahriLifecycle.load(),
+            this.ahriRecall.load(),
           ]
         : []),
       this.loadCast(),
@@ -366,6 +369,7 @@ export class GameAudio {
     this.ahriPassive.stop();
     this.ahriAA.stop();
     this.ahriLifecycle.stop();
+    this.ahriRecall.stop();
     this.bindingFlight.stop();
     this.luxE.stop();
     this.garenAA.stop();
@@ -593,6 +597,7 @@ export class GameAudio {
   updateAhri(world: World, listener = { x: 0, y: 0 }) {
     const present = world.units.some((u) => u.champion === 'ahri');
     if (present && this.ahriLifecycle.status === 'idle') void this.ahriLifecycle.load();
+    if (present && this.ahriRecall.status === 'idle') void this.ahriRecall.load();
     if (present && this.ahriAA.status === 'idle') void this.ahriAA.load();
     if (present && this.ahriPassive.status === 'idle') void this.ahriPassive.load();
     if (present && this.ahriSpiritRush.status === 'idle') void this.ahriSpiritRush.load();
@@ -652,6 +657,15 @@ export class GameAudio {
       this.context,
       this.enabled && !this.paused,
       world.ahriLifecycleAudio,
+      tick,
+      listener,
+      world,
+      scene
+    );
+    this.ahriRecall.update(
+      this.context,
+      this.enabled && !this.paused,
+      world.ahriRecallAudio,
       tick,
       listener,
       world,
