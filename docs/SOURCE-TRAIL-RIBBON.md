@@ -51,3 +51,37 @@ explicit tuple construction fixes their static types without changing fixtures.
 No active renderer requests the camera mode yet: Baron attachment, saved roots,
 emission and materials remain next integration work. This is not a native CPU,
 shader, scheduling, browser-frame or visual-parity certificate.
+
+## Smoothing-off trail mode
+
+The sixth argument now explicitly selects smoothing 0 (off) or 1 (front-to-back).
+Its default remains 1 for existing Zenith consumers. Mode 0 preserves raw
+centres and raw arbitrary sides, with no box filter, side normalization or joint
+bisector. Camera sides still use each segment's view/tangent frame and degenerate
+fallbacks. Visibility separators restart that frame; unsupported traversal modes
+reject rather than silently choosing mode 1.
+
+This distinction matters for Baron: its two trail definitions omit
+`mSmoothingMode`. The pinned external `readTrail` reader selects
+`TRAIL_SMOOTHING.off`, and the pinned enum explicitly maps off/front-to-back/
+back-to-front to 0/1/2. Source shape flag `fillVolume` is likewise explicitly 1
+in that enum; no native target-patch/default certificate follows from these
+external declarations. Neither Baron trail is wired to an active renderer yet.
+
+Eleven [independent unsmoothed fixtures](reference/source-trail-unsmoothed-samples.json)
+execute the original external writer, including curved/end-on/duplicate camera
+points, cutoff and nonunit arbitrary sides. The original ten camera fixtures
+remain byte-identical. Reproduce both via:
+
+```sh
+node tools/assets/export-camera-trail-samples.mjs --check
+node tools/assets/export-camera-trail-samples.mjs --unsmoothed --check
+```
+
+Fourteen new cases plus the existing 58 focused cases pass (72 total), covering
+raw-side width, reach independence, hidden-run reset and explicit unsupported
+mode rejection. TypeScript passes. The
+[verification record](reference/source-trail-modes-verification.json) pins the
+parser, enum, writer and replay identities. The application retains its prior
+active mode-1 rendering behavior; mode-0 source playback is prepared for the
+Baron integration.

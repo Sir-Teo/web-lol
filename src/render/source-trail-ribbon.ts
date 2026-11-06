@@ -20,7 +20,7 @@ export interface SourceRibbonVertex {
   lookup: [number, number];
   erosion: number;
 }
-/** Mode-1 external reconstruction: newest first, a quality-selected box filter,
+/** Mode-0/1 external reconstruction: newest first, an optional box filter,
  * and the bisector of current/previous raw local-X sides, with unchanged width.
  * Default reach 3 follows the pinned high-quality table; the project still uses
  * a local 60 Hz scheduler. This is not native target-patch/cadence certification.
@@ -30,8 +30,11 @@ export function sourceTrailRibbon<T extends SourceTrailPoint>(
   cutoff: number,
   visible: (point: T) => boolean = (p) => p.visible,
   reach = 3,
-  view: readonly [number, number, number] | null = null
+  view: readonly [number, number, number] | null = null,
+  smoothing: 0 | 1 = 1
 ): SourceRibbonVertex[] {
+  if (smoothing !== 0 && smoothing !== 1)
+    throw RangeError('Unsupported source trail smoothing mode');
   if (
     view &&
     (view.length !== 3 ||
@@ -67,16 +70,17 @@ export function sourceTrailRibbon<T extends SourceTrailPoint>(
     run.push(i);
   }
   flush();
-  for (const run of runs)
-    for (let i = 1; i < run.length - 1; i++) {
-      const from = Math.max(0, i - reach),
-        to = Math.min(run.length - 1, i + reach);
-      placed[run[i]] = [0, 1, 2].map((axis) => {
-        let sum = 0;
-        for (let k = from; k <= to; k++) sum += points[run[k]].position[axis];
-        return sum / (to - from + 1);
-      });
-    }
+  if (smoothing === 1)
+    for (const run of runs)
+      for (let i = 1; i < run.length - 1; i++) {
+        const from = Math.max(0, i - reach),
+          to = Math.min(run.length - 1, i + reach);
+        placed[run[i]] = [0, 1, 2].map((axis) => {
+          let sum = 0;
+          for (let k = from; k <= to; k++) sum += points[run[k]].position[axis];
+          return sum / (to - from + 1);
+        });
+      }
   let distance = 0,
     end = points.length;
   for (let i = 1; i < points.length; i++) {
@@ -129,7 +133,12 @@ export function sourceTrailRibbon<T extends SourceTrailPoint>(
       const p = points[i],
         sum = rawSide.map((v, a) => v + (previousSide?.[a] ?? 0)),
         length = Math.hypot(...sum),
-        across = length > (view ? 0 : 1e-8) ? sum.map((v) => v / length) : rawSide;
+        across =
+          smoothing === 0
+            ? rawSide
+            : length > (view ? 0 : 1e-8)
+              ? sum.map((v) => v / length)
+              : rawSide;
       previousSide = [...rawSide];
       return [1, -1].map((sign): SourceRibbonVertex => ({
         position: placed[i].map((v, a) => v + sign * across[a] * p.halfWidth) as [

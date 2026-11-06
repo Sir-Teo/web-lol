@@ -62,6 +62,14 @@ cases.push(
   ['all-duplicate', [point(0), point(0), point(0)], 1000, [0, 1, 0]],
   ['oblique-camera', [point(0), point(10, 20), point(20), point(30, -10)], 1000, [1, 2, -3]]
 );
+const unsmoothed = process.argv.includes('--unsmoothed');
+if (unsmoothed)
+  cases.push([
+    'arbitrary-raw-sides',
+    [point(0, 0, [2, 0, 0]), point(10, 0, [0, 0, 2]), point(20, 0, [-2, 0, 0])],
+    1000,
+    null,
+  ]);
 const samples = cases.map(([name, points, cutoff, view = [0, 1, 0]]) => {
   const held = exported.strand(points.length),
     oldest = [...points].reverse();
@@ -96,7 +104,7 @@ const samples = cases.map(([name, points, cutoff, view = [0, 1, 0]]) => {
     {
       view,
       wake: true,
-      smoothing: 1,
+      smoothing: unsmoothed ? 0 : 1,
       reach: 3,
       cutoff,
       layers: { base: { center: [0.5, 0.5], flipU: false, flipV: false }, mult: null },
@@ -123,7 +131,9 @@ const result = {
   samples,
 };
 const raw = JSON.stringify(result, null, 2) + '\n',
-  output = 'docs/reference/source-camera-trail-samples.json';
+  output = unsmoothed
+    ? 'docs/reference/source-trail-unsmoothed-samples.json'
+    : 'docs/reference/source-camera-trail-samples.json';
 if (process.argv.includes('--check')) assert.equal(fs.readFileSync(output, 'utf8'), raw);
 else fs.writeFileSync(output, raw, { flag: 'wx' });
 console.log(

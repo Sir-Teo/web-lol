@@ -6,6 +6,11 @@ Last updated: November 6, 2026 (UTC).
 
 ## Current authoritative state
 
+The [shared trail writer now supports explicit smoothing off](SOURCE-TRAIL-RIBBON.md#smoothing-off-trail-mode),
+matching the pinned external default for both Baron trails. Eleven independent
+mode-0 fixtures plus visibility/width guards pass alongside all mode-1 tests
+(72 cases). Existing Zenith behavior and the original camera fixtures stay intact.
+
 [Point/sphere/cylinder birth kernels](SOURCE-SPAWN-SHAPES.md) now reproduce
 66 independent external float32 fixtures exactly. All 77 cases pass, including
 source draw counts, naive radius distributions, input guards and independent

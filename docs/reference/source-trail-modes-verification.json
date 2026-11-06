@@ -1,0 +1,44 @@
+{
+  "testsPassed": 72,
+  "newCases": 14,
+  "independentUnsmoothedFixtures": 11,
+  "originalCameraFixturesUnchanged": true,
+  "typeScript": "passed",
+  "readers": [
+    {
+      "path": ".cache/baron-emission-readers/engine/parsing/readMotion.ts",
+      "bytes": 13352,
+      "sha256": "14f47fe79957dcd5d440d8ab69752cf90702a628c070033641d06eb9ace879e8",
+      "gitBlob": "9decc3977885a73f1064e23ea5fbbd4609aaab14",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/parsing/readMotion.ts"
+    },
+    {
+      "path": ".cache/baron-emission-readers/engine/model/enums.ts",
+      "sha256": "fdad53c133ef6c59162131d8b7e1763d8aa29594ba330a65e8372f493d8160fc",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/model/enums.ts"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "src/render/source-trail-ribbon.ts",
+      "sha256": "9563d82545dbaec78c4a0ce4cb296e9afa9442cc8d4ddfca5c1aa9357b16d6f8",
+      "bytes": 5722
+    },
+    {
+      "path": "tools/assets/export-camera-trail-samples.mjs",
+      "sha256": "d2d41ff68ffb42527712472b77ab51a1b80cb3ca66d7b6ab943195a8d35a642f",
+      "bytes": 5014
+    },
+    {
+      "path": "docs/reference/source-trail-unsmoothed-samples.json",
+      "sha256": "08ec63dd547550a8a9ce00bba354f11ee5985809612c500f484a928a3aedd63d",
+      "bytes": 87674
+    },
+    {
+      "path": "artifacts/source-trail-modes-tests-final.log",
+      "sha256": "24193550e4d98f00a82c4ff1b6b384dfc44f106ab1400182f9d80fff872ec602",
+      "bytes": 425
+    }
+  ],
+  "nativeExecuted": false
+}
