@@ -57,3 +57,15 @@ source values. Retained ended identities must remain reserved during restore.
 The profile reading still lists unresolved palette, field, attached-submesh,
 falloff, bound-object scaling and shared-random bindings. Resolve each with an
 explicit adapter and evidence before claiming complete W rendering acceptance.
+
+## Frozen focused reference
+
+The [focused reference](reference/ahri/w-visual-gameplay-reference.json) contains
+14 scenarios and 149 complete old-state projections from the independently
+verified pre-observer archive: 645 archived files, including its QA harness.
+Its ruleset remains `5e4347edd208087bb82b7ad33f2d5ba3f77d6a9767da24a6c32c305cbbe7e694`.
+The helper excludes only snapshot version, ruleset and the future `ahriWVisuals`
+field. Existing W audio, Q projectile history and all other saved state remain
+in every digest. The current-World comparison passes before observation hooks.
+The natural seed-one roster run remains pending; focused scenarios do not stand
+in for its result.
