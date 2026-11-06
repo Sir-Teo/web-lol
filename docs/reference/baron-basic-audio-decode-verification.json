@@ -1,0 +1,70 @@
+{
+  "format": 1,
+  "media": 8,
+  "wavBytes": 2096892,
+  "runtimePlayback": false,
+  "checks": [
+    "normal check",
+    "optimized check",
+    "fresh restore and exact regeneration"
+  ],
+  "rejectionProbes": [
+    {
+      "kind": "corrupt",
+      "optimized": false,
+      "rejected": true
+    },
+    {
+      "kind": "missing",
+      "optimized": false,
+      "rejected": true
+    },
+    {
+      "kind": "symlink",
+      "optimized": false,
+      "rejected": true
+    },
+    {
+      "kind": "corrupt",
+      "optimized": true,
+      "rejected": true
+    },
+    {
+      "kind": "missing",
+      "optimized": true,
+      "rejected": true
+    },
+    {
+      "kind": "symlink",
+      "optimized": true,
+      "rejected": true
+    }
+  ],
+  "evidence": [
+    {
+      "path": "tools/assets/decode-baron-basic-audio.py",
+      "bytes": 8086,
+      "sha256": "5cbd26831b27bf5be77ac210470145f67ca8dc73f839fa3eabdb79884341933d"
+    },
+    {
+      "path": "docs/reference/baron-basic-audio-decoded.json",
+      "bytes": 11255,
+      "sha256": "ce3dbe0278046a10a2899e41416f260e62fe96a98e1356e809f20879b137d908"
+    },
+    {
+      "path": "artifacts/baron-basic-audio-decode.log",
+      "bytes": 140,
+      "sha256": "a2c0ce26802870d4838ac6fdb37e248eb394e06622ba5da84894f6ebaf516658"
+    },
+    {
+      "path": "artifacts/baron-basic-audio-decode-check.log",
+      "bytes": 140,
+      "sha256": "a2c0ce26802870d4838ac6fdb37e248eb394e06622ba5da84894f6ebaf516658"
+    },
+    {
+      "path": "artifacts/baron-basic-audio-decode-optimized-check.log",
+      "bytes": 140,
+      "sha256": "a2c0ce26802870d4838ac6fdb37e248eb394e06622ba5da84894f6ebaf516658"
+    }
+  ]
+}

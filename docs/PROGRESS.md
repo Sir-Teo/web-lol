@@ -9362,3 +9362,7 @@ Pinned wwiser parses 341 hierarchy nodes /87 numeric events without errors. All8
 ### Correlate Baron cast/hit event hash candidates
 
 The source actor/script naming convention produces candidate cast/hit strings matching bank events2790228445 and4168404463. These are explicitly hash-derived labels, separate from attested source strings and the immutable numeric graph. Cast has two play layers (two/four media); hit has one two-media layer. Normal/optimized checks pass. No runtime cue/timing or native shuffle/mix binding is inferred. See docs/BARON-AUDIO-CANDIDATES.md.
+
+### Decode private Baron candidate basic-attack masters
+
+Pinned vgmstream/Ogg/Vorbis decode the eight candidate cast/hit clips to mono44.1kHz float32 WAV masters (2,096,892 bytes). Exact source/tool/PCM provenance, frames, RMS and peak are frozen. Samples above unity remain intact (maximum1.36309719); no gain or conversion is baked in. Normal/optimized checks, fresh restore and six corrupt/missing/symlink rejection probes pass. No public assets or runtime audio binding yet. See docs/BARON-BASIC-AUDIO-MASTERS.md.
