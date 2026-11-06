@@ -1,3 +1,4 @@
+import { LazyAhriOrbAudio } from './ahri-orb-lazy';
 import { LazyAhriCharmAudio } from './ahri-charm-lazy';
 import { charmAudioStates } from './ahri-charm-state';
 import { LazyBaronBasicAttackAudio } from './baron-basic-lazy';
@@ -51,6 +52,7 @@ export class GameAudio {
   garenAA = new LazyGarenBasicAttackAudio();
   baronBasic = new LazyBaronBasicAttackAudio();
   ahriCharm = new LazyAhriCharmAudio();
+  ahriOrb = new LazyAhriOrbAudio();
   private charmWorld?: World;
   private charmTerminalStart: number | null = null;
   masterYiAA = new LazyMasterYiAttackAudio();
@@ -126,7 +128,7 @@ export class GameAudio {
   ): Promise<void> {
     await Promise.all([
       ...(baronPreview ? [this.baronBasic.load()] : []),
-      ...(ahriPresent ? [this.ahriCharm.load()] : []),
+      ...(ahriPresent ? [this.ahriCharm.load(), this.ahriOrb.load()] : []),
       this.loadCast(),
       this.loadArrival(),
       this.loadLinger(),
@@ -338,6 +340,7 @@ export class GameAudio {
   private stopVoices(): void {
     this.baronBasic.stop();
     this.ahriCharm.stop();
+    this.ahriOrb.stop();
     this.bindingFlight.stop();
     this.luxE.stop();
     this.garenAA.stop();
@@ -563,8 +566,9 @@ export class GameAudio {
     );
   }
   updateAhri(world: World, listener = { x: 0, y: 0 }) {
-    if (world.units.some((u) => u.champion === 'ahri') && this.ahriCharm.status === 'idle')
-      void this.ahriCharm.load();
+    const present = world.units.some((u) => u.champion === 'ahri');
+    if (present && this.ahriCharm.status === 'idle') void this.ahriCharm.load();
+    if (present && this.ahriOrb.status === 'idle') void this.ahriOrb.load();
     if (this.charmWorld !== world) {
       this.charmWorld = world;
       this.charmTerminalStart = null;
@@ -590,6 +594,19 @@ export class GameAudio {
       tick,
       listener,
       world
+    );
+    this.ahriOrb.update(
+      this.context,
+      this.enabled && !this.paused,
+      world.ahriOrbAudio,
+      tick,
+      listener,
+      world,
+      {
+        team: world.hero.team,
+        visible: (point) => world.pointVisible(point, world.hero.team),
+        casterPoint: (id) => world.unit(id),
+      }
     );
   }
   updateLuxE(world: World, listener = { x: 0, y: 0 }) {
@@ -1018,7 +1035,9 @@ export class GameAudio {
           }
         }
         if (event.type === 'cast') {
-          if (
+          if (event.text === 'q' && event.champion === 'ahri' && this.ahriOrb.status === 'ready') {
+            // Saved Q history owns the ordered source cast/flight/contact cues.
+          } else if (
             event.text === 'e' &&
             event.champion === 'ahri' &&
             this.ahriCharm.status === 'ready'

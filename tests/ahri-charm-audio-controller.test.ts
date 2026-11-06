@@ -304,6 +304,7 @@ it('terminal audio time drains finite Charm tails without changing the saved win
   const nexus = w.spawn('nexus', 'red', { x: 5000, y: 5000 });
   w.damage(w.hero, nexus, 1e9, 'true');
   expect(w.winner).toBe('blue');
+  (game as any).ahriOrb = { status: 'ready', update() {}, stop() {} };
   (game.ahriCharm as any).controller = controller;
   game.context = context as any;
   const saved = w.snapshot();

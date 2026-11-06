@@ -111,6 +111,8 @@ const pinnedData = [
 // effect clocks. Traverse their runtime dependencies just like simulation roots;
 // hashing only the entry file would miss a changed curve/motion helper.
 export const rulesetModuleRoots = [
+  'src/audio/ahri-orb-state.ts',
+  'src/audio/ahri-orb.ts',
   'src/audio/ahri-charm-state.ts',
   'src/audio/ahri-charm.ts',
   'src/audio/baron-basic-state.ts',
