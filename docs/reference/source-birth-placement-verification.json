@@ -1,0 +1,36 @@
+{
+  "format": 1,
+  "placementTestsPassed": 208,
+  "combinedTestsPassed": 410,
+  "independentSamples": 204,
+  "typecheck": "passed",
+  "nativeExecuted": false,
+  "runtimeBinding": false,
+  "evidence": [
+    {
+      "path": "artifacts/source-birth-placement-tests.log",
+      "bytes": 1003,
+      "sha256": "228c512a82ccc7b5ff602fab3fae0db105b1fc57bf18f0975c7982d60869b5a6"
+    },
+    {
+      "path": "artifacts/source-birth-placement-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tools/assets/export-source-birth-placement-samples.mjs",
+      "bytes": 5448,
+      "sha256": "f16b6ba89a74ee91dd3f92543bcfbe25817eb2e61aebedde7168ba7ee90a8f16"
+    },
+    {
+      "path": "docs/reference/source-birth-placement-samples.json",
+      "bytes": 123048,
+      "sha256": "f78cab749a6614453302722b4c8fce9caeddfdbfc420841c9b5edb14ec896e94"
+    },
+    {
+      "path": "src/render/source-birth-placement.ts",
+      "bytes": 2540,
+      "sha256": "f45e01d6e5aa6b5f6974560fea4aa192700bcd5742708487739fafe0c80f8858"
+    }
+  ]
+}

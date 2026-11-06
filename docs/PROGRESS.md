@@ -56,6 +56,11 @@ The [legacy-shape adapter](SOURCE-LEGACY-SHAPES.md) now preserves Baron's three
 zero-offset draws and ordered float32 turns. All 136 combined shape cases pass,
 including 54 independent legacy samples. Surface/flex placement remains next.
 
+The [birth-placement stage](SOURCE-BIRTH-PLACEMENT.md) now matches 204 independent
+exact-byte fixtures using native-sphere samples, surface normals and shape turns.
+All 410 combined birth/placement tests pass. Bound-object-size mapping and final
+actor/scene placement remain explicit open adapters.
+
 ## Recent verified checkpoints
 
 All 21 Baron emitters now have a [strict private parameter stage](BARON-ATTACK-PROGRAM.md),
