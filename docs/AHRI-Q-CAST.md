@@ -1,0 +1,19 @@
+# Ahri Q cast preparation
+
+This isolated branch prepares the three-emitter `Ahri_Q_Cas` effect. The eight-emitter `Ahri_Q_Orb_Cast` event remains separate. Complete native definitions, frames and attachment limitations stay in [Q source preparation](AHRI-Q-PARTICLES.md). No new runtime files, visual history or renderer are bound at this checkpoint.
+
+## Complete private texture transport
+
+Four textures retain all28 authored mips /95,189 packed PNG bytes: BigGlow02_2, BlastRing, Color-Hold and the recursively referenced Q Smoke Erode2 texture. The erosion dependency is required alongside the three base textures. Every unpacked rectangle matches its original software-decoded RGBA dimensions/hash; the packed image is a transport, not a directly sampled atlas. All four private guard tests pass in normal/optimized Python modes, including missing erosion, changed source/mip metadata and leaf/parent symlinks.
+
+## Source swirls GLB
+
+The23,176-byte GLB retains603 vertices and792 triangles from the native flag-2 swirls mesh, after glTF Transform dedup/prune with attributes retained. Every rendered source triangle, UV and RGBA vertex byte replays exactly through glTF Transform. The application Three.js GLTFLoader also verifies the vertex/index/UV/color attributes, normalized colors and identity transform. The standard GLB validator reports zero errors/warnings. No normal, pivot/scale, reflection or winding conversion is applied. The unlit white material is a transport placeholder; native particle shader arithmetic remains unbound.
+
+The pinned manifests are `reference/ahri/q-cast-texture-transport.json` and `reference/ahri/q-cast-mesh-transport.json`; all transports remain private. Regeneration reproduces the GLB and packed textures. The attached-mesh cast emitter retains one matched Tails selector and one unmatched selector without a substitute.
+
+## Independent gameplay baseline
+
+The producer verifies all611 archived source files from actual Recall-history World `aff9186` / `41da4dfc` and executes that World directly. Ten guarded scenarios yield262 complete projections: stationary cast, windup/flight movement, genuinely accepted post-release Flash, death before/after launch, two actual casters, hidden birth and victory before/after launch. Older Recall/lifecycle/attack/P/R/W/Q/E histories remain in every projection; only schema/ruleset and proposed `ahriQCastVisuals` are excluded. No identity bridge or current-World import produces the baseline.
+
+The current World matches all262 projections, and TypeScript passes. The producer's initial copied ruleset expectation was corrected to the actual Recall-history archive before this reference was frozen. Future observer work must preserve the frozen helper, producer and expected hashes. Audio cast history is130 ticks, shorter than the attached cast particle's four-second life, so it cannot own the new visual lifetime. An independent saved clock remains the next step.

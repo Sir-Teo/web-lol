@@ -1,0 +1,36 @@
+{
+  "validation": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "format": 1,
+  "source": {
+    "path": "assets/characters/ahri/skins/base/particles/ahri_base_q_swirls_01.scb",
+    "wadPathHash": "fa6d1c6f8467f6ca",
+    "sha256": "5d464a871c2b22003583f657bbf58f032b7fdc892784f463bcf95151f211fde6",
+    "bytes": 89040
+  },
+  "decodedRecordSha256": "7b040643c0361810c60e3d467af5c27e47f4d1ca3024b023582f132539628bc9",
+  "sourceVertices": 603,
+  "sourceTriangles": 792,
+  "transportVertices": 603,
+  "triangleReplayExact": true,
+  "uvReplayExact": true,
+  "vertexColorReplayExact": true,
+  "normalAttributeGenerated": false,
+  "sourceCoordinateTransformApplied": false,
+  "optimization": [
+    "dedup",
+    "prune with keepAttributes"
+  ],
+  "glb": {
+    "path": ".cache/ahri-q-cast-mesh-v1/ahri-q-cast-swirls.glb",
+    "bytes": 23176,
+    "sha256": "82795c0854d72a5f680c3a2a02d7cd6c72f949ac0be3a46050abf4577b84ef1a"
+  },
+  "limits": [
+    "GLB transport preserves rendered source triangles; complete original points/indices/UV/material bytes remain in the private native mesh record.",
+    "Source UVs and coordinates remain unchanged. Native orientation, pivots, material arithmetic and runtime attachment are unbound.",
+    "The unlit white material is a transport placeholder, not a source particle shader."
+  ]
+}

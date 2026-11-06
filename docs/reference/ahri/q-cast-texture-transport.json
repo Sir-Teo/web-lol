@@ -1,0 +1,308 @@
+{
+  "format": 1,
+  "decodedRecordSha256": "7b040643c0361810c60e3d467af5c27e47f4d1ca3024b023582f132539628bc9",
+  "systems": [
+    "Ahri_Q_Cas"
+  ],
+  "producer": {
+    "scriptSha256": "b9c2192d86114b8550afe369f23b73d067bb503ba8d619c6bcbf2bb09a713f64",
+    "atlasModuleSha256": "4ba50521c7a4c0d061bbf2f8363b7a84b4db9a4bf480e3d52ae101aec6538fd6",
+    "zlibVersion": "1.3.2",
+    "zlibRuntimeVersion": "1.3.2"
+  },
+  "textures": [
+    {
+      "source": {
+        "path": "assets/characters/ahri/skins/base/particles/ahri_base_blastring.tex",
+        "wadPathHash": "c68cda0f7d1484a0",
+        "sha256": "b2f66a5a83544ab46f1f46ac37453033fb4861c4707cf4a7a2763a9b2882fbff",
+        "bytes": 21884
+      },
+      "path": ".cache/ahri-q-cast-packed-v1/c68cda0f7d1484a0.png",
+      "bytes": 12345,
+      "sha256": "fdcb066b4ca40485a30892d3213f538cffe4bbba7b8ed4fae30ba1c6921c7b58",
+      "width": 128,
+      "height": 255,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "86796bb9f16c872fe69517ba43b81d47f5afb12d394624ed891248cd3b70b468"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 128,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "c1cd16ed1b64f37ac4e584883865a2b6197234aec8b2c2c3c8e50a85368a4a3f"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 192,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "df34fa6f02579e041c9aa0871307eda3a29bba484834eed27387dab16e30617d"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 224,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "b96dd9256d08cc2d46e29777fe28a0ab99e392a4e5f83135a773f01e68bb6043"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 240,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "d51803eca00e9d2f74110e8ef3e55469d28273adc8ef130f2497136cae5bf230"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 248,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "024e44da69ce3a1372c4c1abf0b26239b8a59e8964d80510e76c0747f06406a0"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 252,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "68c0a2a582200378b84f9786915fee4874ba3dc0a35d1f546854ce1e25a2817d"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 254,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "e69dcf14ef429108d01d0f1e3dbba4a735c0eec72a0124dc278d2797b0dd60db"
+        }
+      ],
+      "rgbaSha256": "f49120c994a0852e5b12b306a8ab016a1c06f8b28965bfe4eb19ddb580587449"
+    },
+    {
+      "source": {
+        "path": "assets/characters/ahri/skins/base/particles/ahri_base_color-hold.tex",
+        "wadPathHash": "272b4271cb1a71fd",
+        "sha256": "bc06557b44402fee1498430bd4008df9598085f44b29fea2f02218473674b2f8",
+        "bytes": 68
+      },
+      "path": ".cache/ahri-q-cast-packed-v1/272b4271cb1a71fd.png",
+      "bytes": 85,
+      "sha256": "89626d044546c465df98f35ee2a64ec4409526b15d7b1ad9a05bd3949d627bb8",
+      "width": 8,
+      "height": 15,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "3d6876a0146de8576eb2395a858de1213d1b92c65b779df3a331cfd5a4584546"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 8,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 12,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "5ac6a5945f16500911219129984ba8b387a06f24fe383ce4e81a73294065461b"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 14,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "ad95131bc0b799c0b1af477fb14fcf26a6a9f76079e48bf090acb7e8367bfd0e"
+        }
+      ],
+      "rgbaSha256": "77b66855d9b77699db0361404b314ab1ae8e722d8e5fe9dc9ebe4b90af2137fb"
+    },
+    {
+      "source": {
+        "path": "assets/characters/ahri/skins/base/particles/ahri_base_q_smoke_erode_2.tex",
+        "wadPathHash": "70401936f85310ef",
+        "sha256": "11ce0e56e3588bf4e58436f36afd189c3435a319026b80f47e37a3c2c2b899ef",
+        "bytes": 87420
+      },
+      "path": ".cache/ahri-q-cast-packed-v1/70401936f85310ef.png",
+      "bytes": 78749,
+      "sha256": "ed58a92a236ad2061624f0fc043130d2676ebb17dfb1ccb93e28c07f05228886",
+      "width": 256,
+      "height": 511,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 256,
+          "height": 256,
+          "rgbaSha256": "5713bc1d203fe0de339326ce3d0f624c17a1e84686aaaabb0617c2f685f82de4"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 256,
+          "width": 128,
+          "height": 128,
+          "rgbaSha256": "a9b36834a168f48fdbd445f954a0e58dd8ac85e7bf8a7c06f1a820d69a2ec595"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "8190013c478b13ee9f791c2deba44c5d1b7bf34e723f8c410f3f8763ffa4b38c"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 448,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "452a10130ac14feb8a2d14f67b501dcce8af68a04f024f0b6c873900a0c2c189"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 480,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "54025231a6f15b4fb125bc5596b0e61bf5d5961567329884dd786d47883725bb"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 496,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "b493c498aa877e3f00356050d06d62ad5ccf686c4dd23c71e234fb488c99a7f6"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 504,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "857e3968ca3c5468502a5c918f84de2a57fd16814ec0e749405d4b799eb9132d"
+        },
+        {
+          "level": 7,
+          "x": 0,
+          "y": 508,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "7c199d4b515596af3145116f5e46ecd8b873c6c518540722fb913f85fdccb10e"
+        },
+        {
+          "level": 8,
+          "x": 0,
+          "y": 510,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "b0291a1bf41fa1b8acb316af33c717af4f239d221446f0dc85d5f85177902b67"
+        }
+      ],
+      "rgbaSha256": "d375562227d603cb475c84e6b7e345f3451c533ce9d616648a8b8df2b523eea6"
+    },
+    {
+      "source": {
+        "path": "assets/shared/particles/bigglow02_2.tex",
+        "wadPathHash": "b4f44f95abaa3e8a",
+        "sha256": "6a347f4c46ff7541c05bf2d175df0e6874ff4477fb0fd7f411bf9c20c0ab819a",
+        "bytes": 2756
+      },
+      "path": ".cache/ahri-q-cast-packed-v1/b4f44f95abaa3e8a.png",
+      "bytes": 4010,
+      "sha256": "9f4b5432f75262bebb04afe46e2fc1005af04b40caf97dabb15a20a6e0c44a11",
+      "width": 64,
+      "height": 127,
+      "rectangles": [
+        {
+          "level": 0,
+          "x": 0,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "rgbaSha256": "bf11b340dbe5b39ee7489ea05e0911864f0621fb5c63ddc3922c62843fb5abc2"
+        },
+        {
+          "level": 1,
+          "x": 0,
+          "y": 64,
+          "width": 32,
+          "height": 32,
+          "rgbaSha256": "3866a52b38b617510ebe5b0b7479dc18dcb747ad72825829f5237c262b6a7730"
+        },
+        {
+          "level": 2,
+          "x": 0,
+          "y": 96,
+          "width": 16,
+          "height": 16,
+          "rgbaSha256": "b9c0dc085bcaa0349d8e8959f9264f784c258ba6a69d68ba430e933bf071ac3d"
+        },
+        {
+          "level": 3,
+          "x": 0,
+          "y": 112,
+          "width": 8,
+          "height": 8,
+          "rgbaSha256": "9758fce5f71b5d9ad0758a89d46650fc3a0700897724ba9a2634afd1104669d0"
+        },
+        {
+          "level": 4,
+          "x": 0,
+          "y": 120,
+          "width": 4,
+          "height": 4,
+          "rgbaSha256": "3808115666b89b6b13906cf83db2fb104c32440d38435c8b8eaf19aa73745106"
+        },
+        {
+          "level": 5,
+          "x": 0,
+          "y": 124,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "13e05b355547dd7c2051c4d9e802f17dc5a82b81d3336dbbcc725f00f305682b"
+        },
+        {
+          "level": 6,
+          "x": 0,
+          "y": 126,
+          "width": 1,
+          "height": 1,
+          "rgbaSha256": "1f0de06eec8be629b1f5ad7dd74e4d5c7048c2bf80c4682855e560fc04296623"
+        }
+      ],
+      "rgbaSha256": "d9b85cb54fdc3b44860ae4dc0a76bb5e7164cc45f6f11c1bd9e677dbaba4ccf6"
+    }
+  ],
+  "limits": [
+    "Lossless transport of canonical software-decoded authored mip pixels; native GPU parity is not established.",
+    "Extract every rectangle as a distinct texture mip including level zero. Sampling the atlas directly is invalid.",
+    "Private staging only; no runtime effect, simulation dispatch or public asset preload."
+  ]
+}
