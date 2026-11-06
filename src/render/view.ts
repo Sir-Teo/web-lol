@@ -54,6 +54,7 @@ import { LazyHighlanderKills } from './lazy-masteryi-r-kills';
 import { LazyHighlanderCasts } from './lazy-masteryi-r-casts';
 import { LazyAlphaEnds } from './lazy-masteryi-q-ends';
 import { LazyAlphaCasts } from './lazy-masteryi-q-casts';
+import { LazyAhriQCasts } from './lazy-ahri-q-casts';
 import { LazyAlphaContacts } from './lazy-masteryi-q-contacts';
 import { LuxAttackCrescents } from './lux-attack-crescents';
 import { LuxAttackTrails } from './lux-attack-trails';
@@ -195,6 +196,7 @@ export class GameView {
   alphaEnds = new LazyAlphaEnds(this.scene, this.particleEarlyDistortion.scene, (p) =>
     this.ground(p)
   );
+  ahriQCasts = new LazyAhriQCasts(this.scene, (p) => this.ground(p));
   alphaCasts = new LazyAlphaCasts(this.scene, (p) => this.ground(p));
   alphaContacts = new LazyAlphaContacts(this.scene, (p) => this.ground(p));
   garenCourage = new LazyGarenCourage(this.scene, (p) => this.ground(p));
@@ -312,6 +314,7 @@ export class GameView {
       this.primaryHits,
       this.primaryTrails,
       this.alphaCasts,
+      this.ahriQCasts,
       this.alphaContacts,
       this.alphaEnds,
       this.highlanderCasts,
@@ -945,6 +948,7 @@ export class GameView {
     this.highlanderCasts.update(world, alpha, this.camera, terminalAge);
     this.alphaEnds.update(world, alpha, this.camera, terminalAge);
     this.alphaCasts.update(world, alpha, this.camera, terminalAge);
+    this.ahriQCasts.update(world, alpha, this.camera, terminalAge);
     this.alphaContacts.update(world, alpha, this.camera, terminalAge);
     this.meditateCasts.update(world, alpha, this.camera, terminalAge);
     this.meditateBuffs.update(world, alpha, this.camera, terminalAge);

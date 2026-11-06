@@ -128,6 +128,7 @@ try {
     baronAudioRequests = [],
     ahriCharmAudioRequests = [],
     ahriOrbAudioRequests = [],
+    ahriQCastRequests = [],
     ahriFoxFireAudioRequests = [],
     ahriSpiritRushAudioRequests = [],
     ahriPassiveAudioRequests = [],
@@ -148,6 +149,8 @@ try {
     if (message.type() === 'error') errors.push(message.text());
   });
   page.on('request', (request) => {
+    if (request.url().includes('/assets/effects/ahri-q-cast-'))
+      ahriQCastRequests.push(request.url());
     if (request.url().includes('/assets/audio/ahri-orb/')) ahriOrbAudioRequests.push(request.url());
     if (request.url().includes('/assets/audio/ahri-recall/'))
       ahriRecallAudioRequests.push(request.url());
@@ -307,6 +310,7 @@ try {
     [],
     'Production without Ahri must not load passive masters'
   );
+  assert.deepEqual(ahriQCastRequests, [], 'Production without Ahri must not load Q cast particles');
   assert.deepEqual(ahriOrbAudioRequests, [], 'Production without Ahri must not load Orb masters');
   assert.deepEqual(
     ahriSpiritRushAudioRequests,
@@ -771,6 +775,7 @@ try {
   );
   assert.deepEqual(baronAudioRequests, [], 'Production must not preload private Baron audio');
   for (const [family, requests] of [
+    ['Q cast particles', ahriQCastRequests],
     ['Orb', ahriOrbAudioRequests],
     ['Fox-Fire', ahriFoxFireAudioRequests],
     ['Spirit Rush', ahriSpiritRushAudioRequests],
@@ -813,6 +818,7 @@ try {
     unrequestedBaronEffectPreloads: baronEffectRequests.length,
     unrequestedBaronAudioPreloads: baronAudioRequests.length,
     unrequestedAhriCharmAudioPreloads: ahriCharmAudioRequests.length,
+    unrequestedAhriQCastPreloads: ahriQCastRequests.length,
     unrequestedAhriOrbAudioPreloads: ahriOrbAudioRequests.length,
     unrequestedAhriFoxFireAudioPreloads: ahriFoxFireAudioRequests.length,
     unrequestedAhriSpiritRushAudioPreloads: ahriSpiritRushAudioRequests.length,

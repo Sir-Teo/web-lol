@@ -34,7 +34,7 @@ export function ahriQCastParticles(time: number) {
         travel: [0, 0, 0],
         stretch: 1,
         bind: sample(p.bind)[0],
-        lookup: [0, 0],
+        lookup: [0, 0] as [number, number],
         uv: eclipseUv(p.uv, time, life, 0, phase, 0, 0),
         uvRotationDegrees: sample(p.uv.rotationDegrees)[0],
         multUv: null,

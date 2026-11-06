@@ -9,6 +9,7 @@ on:
       - 'public/assets/audio/baron-basic/**'
       - 'public/assets/audio/ahri-charm/**'
       - 'public/assets/audio/ahri-orb/**'
+      - 'public/assets/effects/ahri-q-cast-*'
       - 'public/assets/audio/ahri-fox-fire/**'
       - 'public/assets/audio/ahri-spirit-rush/**'
       - 'public/assets/audio/ahri-recall/**'
@@ -93,6 +94,7 @@ on:
       - 'public/assets/audio/baron-basic/**'
       - 'public/assets/audio/ahri-charm/**'
       - 'public/assets/audio/ahri-orb/**'
+      - 'public/assets/effects/ahri-q-cast-*'
       - 'public/assets/audio/ahri-fox-fire/**'
       - 'public/assets/audio/ahri-spirit-rush/**'
       - 'public/assets/audio/ahri-recall/**'
@@ -218,6 +220,11 @@ jobs:
           tests/ahri-recall-audio-controller.test.ts
           tests/ahri-recall-audio-history.test.ts
           tests/ahri-recall-audio-policy.test.ts
+          tests/ahri-q-cast-assets-loader.test.ts
+          tests/ahri-q-casts.test.ts
+          tests/lazy-ahri-q-casts.test.ts
+          tests/ahri-q-cast-particle-assets.test.ts
+          tests/ahri-q-cast-particles.test.ts
           tests/ahri-q-cast-visual-history.test.ts
           tests/ahri-q-cast-timing.test.ts
           tests/ahri-q-cast-gameplay-reference.test.ts

@@ -12,6 +12,11 @@ on:
       - 'docs/reference/ahri/q-cast-animation-header.bin'
       - 'docs/reference/ahri/q-cast-timing.json'
       - 'src/content/ahri-q-cast-timing.ts'
+      - 'src/content/ahri-q-cast-particles.json'
+      - 'public/assets/effects/ahri-q-cast-*'
+      - 'docs/reference/ahri/q-cast-*-transport.json'
+      - 'docs/reference/ahri/q-cast-particle-reading.json'
+      - 'src/content/leona-w-skin-fresnel.json'
       - 'docs/reference/ahri/mesh-submeshes.bin'
       - 'public/assets/models/ahri-base.glb'
   pull_request:
@@ -26,6 +31,11 @@ on:
       - 'docs/reference/ahri/q-cast-animation-header.bin'
       - 'docs/reference/ahri/q-cast-timing.json'
       - 'src/content/ahri-q-cast-timing.ts'
+      - 'src/content/ahri-q-cast-particles.json'
+      - 'public/assets/effects/ahri-q-cast-*'
+      - 'docs/reference/ahri/q-cast-*-transport.json'
+      - 'docs/reference/ahri/q-cast-particle-reading.json'
+      - 'src/content/leona-w-skin-fresnel.json'
       - 'docs/reference/ahri/mesh-submeshes.bin'
       - 'public/assets/models/ahri-base.glb'
 permissions:
@@ -49,3 +59,7 @@ jobs:
           python3 tools/assets/export-ahri-q-cast-timing.py --check
           python3 tools/assets/test-ahri-q-cast-timing.py
           python3 -O tools/assets/test-ahri-q-cast-timing.py
+      - name: Reproduce all cast profiles and test publication guards from committed transports
+        run: |
+          python3 tools/assets/test-ahri-q-cast-publication.py
+          python3 -O tools/assets/test-ahri-q-cast-publication.py
