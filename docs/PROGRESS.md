@@ -6,6 +6,11 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+Both Baron effect meshes now have [private GLB staging](BARON-ATTACK-DECODE.md#private-glb-staging),
+with exact corner UV/BGRA round trips through NodeIO and the actual Three.js
+loader. Both validate without errors/warnings; fresh/repeat/recovery and
+conflict-before-write probes pass. No public assets or runtime binding change.
+
 The [original Baron attack-effect closure](BARON-ATTACK-SOURCES.md) now retains
 nine missile and twelve hit emitters, 25 TEX files and two SCBs: 29 original files
 / 1,921,359 bytes, including linked binding context. A fresh cache reproduces the

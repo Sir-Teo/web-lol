@@ -1,0 +1,69 @@
+{
+  "decodedRecordSha256": "ab8f06fee053cd0b2f89759f99f53c5abb1986c9c32e977812ae9129e306da20",
+  "unitScale": 0.01,
+  "meshes": [
+    {
+      "source": {
+        "bytes": 24128,
+        "path": "assets/characters/sru_baron/skins/base/particles/sru_baron_acidball_poolsphereemit.scb",
+        "sha256": "a74b231bd584ce6cb39fd45fa5881358e9c35933997f48429c47e415c2bc72b9",
+        "wadPathHash": "80975d7a4f06e4d6"
+      },
+      "decodedSha256": "d61b968b5a5c726b7a5486bddb7388735de7e1957ebb57a98fb2f62629999b87",
+      "name": "80975d7a4f06e4d6.glb",
+      "bytes": 17940,
+      "sha256": "7347c102f3bf16112127768686e658fbf644dd85e4dfc660053f55bfc6dfd685",
+      "sourceVertices": 121,
+      "triangles": 220,
+      "corners": 660,
+      "positionFloat32Sha256": "e686d69a9d830bb38ab70286d9e48371dffa27ed9753b618e16ce6ca8cc0d585",
+      "uvFloat32Sha256": "1b889180e411b6456cf0f7198c38eb2c398c569a857aa33dfd9b958d341447e9",
+      "vertexBgraSha256": "0559b5e8f2ed546d673f32c35774dd28b4932042f4a9bc5653b3ca7e857d8c68",
+      "validation": {
+        "errors": 0,
+        "warnings": 0,
+        "exactAttributeRoundTrip": true,
+        "threeLoaderExact": true
+      }
+    },
+    {
+      "source": {
+        "bytes": 49744,
+        "path": "assets/characters/sru_baron/skins/base/particles/sru_baron_base_missilecapsule.scb",
+        "sha256": "0e056c574a6bc77d5b496c34a1b20bc32bda2e6af42208b9b33cc96dcc521b97",
+        "wadPathHash": "2a79d5c0e7f2dc6f"
+      },
+      "decodedSha256": "b4718f912ffd61fb940b19d1e459373eb3d78c167b04e53a6c7f004f784814e2",
+      "name": "2a79d5c0e7f2dc6f.glb",
+      "bytes": 35304,
+      "sha256": "80fda1ef9ead4efd641df696f6976ff6ffc63cca26a386b7889a57b52fa10279",
+      "sourceVertices": 247,
+      "triangles": 456,
+      "corners": 1368,
+      "positionFloat32Sha256": "e012dedb57431bfaf1f0d83a4d77093bb0147226597c63d4181443e74230abf6",
+      "uvFloat32Sha256": "c164b52df8b063b1a5ba4f5cd8cef387ff29fbc2597089954992705f620c9e80",
+      "vertexBgraSha256": "503e71886cf565a7b2418124c95198fee419d5bd6ab48ea8331504cd43ca183f",
+      "validation": {
+        "errors": 0,
+        "warnings": 0,
+        "exactAttributeRoundTrip": true,
+        "threeLoaderExact": true
+      }
+    }
+  ],
+  "runtimeChanged": false,
+  "limits": "Private mesh staging only; no material dispatch, attachment, native renderer or visual parity claim.",
+  "converter": {
+    "path": "tools/assets/convert-baron-attack-meshes.mjs",
+    "sha256": "0f2938206ba145915ea62d009aa796b07066656a1db0b38b29bb9b911765233d"
+  },
+  "checks": [
+    "Fresh output identical",
+    "Repeated output identical",
+    "Late conflicting mesh refuses before early missing mesh recreation",
+    "Missing mesh recovered exactly",
+    "glTF validator zero errors/warnings",
+    "NodeIO exact attributes/normalization/extras",
+    "Three.js exact raw deinterleaved attributes and identity transform"
+  ]
+}

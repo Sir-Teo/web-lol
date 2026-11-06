@@ -48,3 +48,27 @@ material/color interpretation, attachment bones, saved emission/contact roots,
 particle playback and native visual comparison remain open. Schema 163,
 `e20bdc…` simulation fingerprint and the two selected full-match results retain
 their existing scope.
+
+## Private GLB staging
+
+`node tools/assets/convert-baron-attack-meshes.mjs` stages both decoded meshes
+under `.cache/baron-attack-packed` (or `--output-dir` for a fresh copy). Triangle
+corners expand in original order, with unflipped UVs and the established 0.01
+scene scale. Packed native BGRA bytes are a normalized custom
+`_SOURCE_VERTEX_BGRA` attribute; they are not converted into a standard glTF
+material color. No normals, material, pivot offset, reflection or winding change
+is introduced. The original decoded meshes retain every native source point.
+
+The 220- and 456-triangle GLBs occupy 17,940 and 35,304 bytes. Both pass the glTF
+validator with zero errors and warnings. NodeIO retains exact attributes,
+normalization and source extras. The actual Three.js GLTFLoader returns one
+identity-transformed mesh with exact position, UV and raw BGRA components. The
+first loader assertion incorrectly compared the entire interleaved backing
+buffer; reading each accessor's own raw components verifies the actual data.
+
+Fresh-directory output and repeated output match exactly. A late conflicting
+mesh refuses before an earlier missing mesh is recreated; missing-file recovery
+reproduces the exact bytes. The [staging ledger](reference/baron-attack-mesh-staging.json)
+pins converter/output/attribute identities and checks. This remains private
+geometry preparation. Native material dispatch, attachment and visual acceptance
+are still open; no runtime or public media changes.
