@@ -6,6 +6,16 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+The [attack-range geometry cache](RANGE-GEOMETRY.md) now avoids repeated terrain
+sampling, position-buffer uploads and bounding-sphere recomputation while the
+champion stands still with the same range. Both fixture and full-Rift browser
+checks pass, including exact nonempty cached/rebuilt pixel comparisons and
+movement/range/hidden-state invalidation. Existing energy-idle and terminal
+wall-clock browser checks pass, as do build/TypeScript and 39 Node QA cases.
+This is a scoped operation-count reduction, without a full-match FPS, native
+fidelity or new offline-delivery claim. Rules and saved state are unchanged.
+
+
 Fresh offline delivery now passes for the result-clock build `7a347e7`, pack
 `16429f3c30452493f95c68cff4805c1b86113a273f51350ae2da3b53216795b1`
 (1,204 files / 551,658,225 bytes). Full-pack corruption/retry,

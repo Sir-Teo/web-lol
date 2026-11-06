@@ -258,6 +258,7 @@ export class GameView {
   private selection: THREE.Mesh;
   private hover: THREE.Mesh;
   private range: THREE.LineLoop;
+  private rangeGeometryAt?: { x: number; y: number; radius: number };
   private aim: THREE.Group;
   private aimLine: THREE.Line;
   private wardSightLine: THREE.Line;
@@ -965,7 +966,13 @@ export class GameView {
     }
     this.range.visible = this.rangeVisible && world.alive(world.hero);
     this.range.position.set(world.hero.x * SCALE, 0, world.hero.y * SCALE);
-    if (this.range.visible) {
+    if (
+      this.range.visible &&
+      (!this.rangeGeometryAt ||
+        this.rangeGeometryAt.x !== world.hero.x ||
+        this.rangeGeometryAt.y !== world.hero.y ||
+        this.rangeGeometryAt.radius !== world.hero.range)
+    ) {
       const positions = this.range.geometry.attributes.position;
       for (let i = 0; i < positions.count; i++) {
         const angle = (i / positions.count) * Math.PI * 2;
@@ -980,6 +987,9 @@ export class GameView {
       }
       positions.needsUpdate = true;
       this.range.geometry.computeBoundingSphere();
+      // Terrain elevation is immutable for this view. Camera/visibility changes
+      // do not change these local vertices, but movement and range bonuses do.
+      this.rangeGeometryAt = { x: world.hero.x, y: world.hero.y, radius: world.hero.range };
     }
     let move;
     for (let i = world.events.length - 1; i >= 0; i--)
