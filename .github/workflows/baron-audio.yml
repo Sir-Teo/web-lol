@@ -19,6 +19,9 @@ on:
       - 'tools/assets/test-ahri-attack-audio-export.py'
       - 'public/assets/audio/ahri-passive/**'
       - 'docs/reference/ahri-p-audio-properties.json'
+      - 'tools/assets/read-ahri-recall-audio.py'
+      - 'tools/assets/test-ahri-recall-audio-reading.py'
+      - 'docs/reference/ahri-recall-audio-properties.json'
       - 'tools/assets/read-ahri-lifecycle-audio.py'
       - 'tools/assets/test-ahri-lifecycle-audio-reading.py'
       - 'docs/reference/ahri-lifecycle-audio-properties.json'
@@ -91,6 +94,9 @@ on:
       - 'tools/assets/test-ahri-attack-audio-export.py'
       - 'public/assets/audio/ahri-passive/**'
       - 'docs/reference/ahri-p-audio-properties.json'
+      - 'tools/assets/read-ahri-recall-audio.py'
+      - 'tools/assets/test-ahri-recall-audio-reading.py'
+      - 'docs/reference/ahri-recall-audio-properties.json'
       - 'tools/assets/read-ahri-lifecycle-audio.py'
       - 'tools/assets/test-ahri-lifecycle-audio-reading.py'
       - 'docs/reference/ahri-lifecycle-audio-properties.json'
@@ -281,3 +287,7 @@ jobs:
         run: |
           python3 tools/assets/test-ahri-lifecycle-audio-export.py
           python3 -O tools/assets/test-ahri-lifecycle-audio-export.py
+      - name: Verify frozen Ahri Recall reading without private caches
+        run: |
+          python3 tools/assets/test-ahri-recall-audio-reading.py
+          python3 -O tools/assets/test-ahri-recall-audio-reading.py
