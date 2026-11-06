@@ -1,3 +1,9 @@
+import {
+  advanceOrbAudio,
+  cancelOrbWindup,
+  finishOrbAudio,
+  type AhriOrbAudioRecord,
+} from './ahri-orb-audio';
 import { advancePrimaryHitPoses } from './masteryi-primary-hit-poses';
 import { BARON } from '../content/baron';
 import {
@@ -438,6 +444,7 @@ export class World {
   luxIlluminationVisuals: LuxIlluminationVisual[] = [];
   sunlightVisuals: SunlightVisual[] = [];
   ahriOrbs: AhriOrb[] = [];
+  ahriOrbAudio: AhriOrbAudioRecord[] = [];
   ahriFoxFires: FoxFireCast[] = [];
   ahriRushes: SpiritRush[] = [];
   ahriCounters: EssenceCounter[] = [];
@@ -1152,6 +1159,7 @@ export class World {
       this.update();
       advanceLuxEAudio(this);
       advanceCharmAudio(this);
+      advanceOrbAudio(this);
     }
   }
   private update(): void {
@@ -6420,6 +6428,7 @@ export class World {
           finishGarenQPresentation(state, this.tick, 'match-end');
           this.cancelGarenRVisual(state);
           cancelCharmWindup(this, state.id);
+          cancelOrbWindup(this, state.id);
           state.pendingCast = null;
           state.castAnimation = null;
           state.leonaQ = null;
@@ -6433,6 +6442,7 @@ export class World {
         }
         for (const p of this.projectiles) if (p.type === 'charm') stopCharmAudio(this, p, p);
         this.projectiles.length = 0;
+        for (const orb of this.ahriOrbs) finishOrbAudio(this, orb, 'match-end');
         this.ahriOrbs.length = 0;
         this.ahriFoxFires.length = 0;
         this.ahriRushes.length = 0;
@@ -6453,6 +6463,7 @@ export class World {
         );
         advanceLuxEAudio(this);
         advanceCharmAudio(this);
+        advanceOrbAudio(this);
         this.commands.length = 0;
         this.pendingSpawns.length = 0;
         for (const unit of this.units) this.setOrder(unit, { type: 'idle' });
@@ -6480,6 +6491,7 @@ export class World {
         targetState.enlighten = null;
         targetState.deaths++;
         cancelCharmWindup(this, targetState.id);
+        cancelOrbWindup(this, targetState.id);
         targetState.pendingCast = null;
         for (const r of this.luxEAudio.records)
           if (r.sourceId === target.id && r.launch === null && r.stopTick === null)
@@ -7230,6 +7242,19 @@ export class World {
       u.attackTarget = null;
       u.attackCycle = null;
       u.facing = Math.atan2(dir.x, dir.y);
+      this.ahriOrbAudio.push({
+        sourceId: u.id,
+        team: u.team as Team,
+        castTick: this.tick,
+        origin: { x: u.x, y: u.y },
+        aim: { x: point.x, y: point.y },
+        castAudience: (['blue', 'red'] as Team[]).filter((t) => this.visible(u, t)),
+        cancelTick: null,
+        launch: null,
+        turn: null,
+        end: null,
+        hits: [],
+      });
       this.emit('cast', u, { unit: u.id, champion: 'ahri', text: 'q', team: u.team });
       return;
     }
@@ -8027,6 +8052,7 @@ export class World {
       luxIlluminationVisuals: this.luxIlluminationVisuals,
       sunlightVisuals: this.sunlightVisuals,
       ahriOrbs: this.ahriOrbs,
+      ...(this.ahriOrbAudio.length ? { ahriOrbAudio: this.ahriOrbAudio } : {}),
       ahriFoxFires: this.ahriFoxFires,
       ahriRushes: this.ahriRushes,
       ahriCounters: this.ahriCounters,

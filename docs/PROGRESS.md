@@ -9482,3 +9482,7 @@ On dev/ahri-orb-audio, staged 22 unchanged float masters plus an unflattened sou
 ## Locked Orb gameplay baseline and source-stage CI
 
 Source stage cb5e1d7 passes cache-free TypeScript, 80 tests and ten Python modes. The active independent Orb baseline uses the frozen ae079c84 World to produce 81 full-state samples across nine cases. Explicit assertions distinguish blocked windup Flash from accepted post-launch Flash; V1's ambiguous label remains documented as historical. Existing Q mechanics and earlier Charm projections pass before history binding. Runtime World behavior is unchanged.
+
+## Saved Orb audio dispatch history
+
+Schema 169 records accepted Q, launch, exact turn, swept per-leg contacts and completion without gameplay IDs/RNG draws. Empty history is omitted; active returns retain history through the eight-second deadline, followed by finite source/local-pitch tails. Strict save validation checks live orbs, geometry, clocks, audiences and contact sets. Forty scoped checks pass, including 81 archived Orb and 48 Charm projections; 84 Node QA cases pass. Straight/diagonal per-tick restore, nine targets per leg, post-launch Flash, death/victory, timeout and pruned contact coverage are included. The corpse fixture now uses a return lasting beyond the existing four-second corpse lifetime. Playback remains a later stage; full frozen checks are next.

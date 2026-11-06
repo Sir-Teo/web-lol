@@ -1,3 +1,4 @@
+import { validateOrbAudio } from './ahri-orb-audio-validation';
 import { BARON_BASIC_CAST_TICKS } from '../content/baron-basic-audio-timing';
 import { PRIMARY_HIT_HISTORY_TICKS } from '../content/masteryi-primary-hit-timing';
 import { validatePassiveTrails } from './masteryi-passive-trails';
@@ -178,7 +179,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 168;
+export const SNAPSHOT_VERSION = 169;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -2270,6 +2271,53 @@ const snapshot = z.strictObject({
       })
     )
     .max(10000),
+  ahriOrbAudio: z
+    .array(
+      z.strictObject({
+        sourceId: id,
+        team,
+        castTick: tick,
+        origin: point,
+        aim: point,
+        castAudience: z.array(team).max(2),
+        cancelTick: tick.nullable(),
+        launch: z
+          .strictObject({
+            id,
+            tick,
+            origin: point,
+            direction: point,
+            currentPoint: point,
+            audience: z.array(team).max(2),
+          })
+          .nullable(),
+        turn: z
+          .strictObject({ tick, point, currentPoint: point, audience: z.array(team).max(2) })
+          .nullable(),
+        end: z
+          .strictObject({
+            tick,
+            point,
+            reason: z.enum(['caught', 'expired', 'lost-source', 'match-end']),
+            audience: z.array(team).max(2),
+          })
+          .nullable(),
+        hits: z
+          .array(
+            z.strictObject({
+              tick,
+              point,
+              targetId: id,
+              leg: z.enum(['outward', 'return']),
+              audience: z.array(team).max(2),
+            })
+          )
+          .max(20000),
+      })
+    )
+    .min(1)
+    .max(1000)
+    .optional(),
   ahriOrbs: z
     .array(
       z.strictObject({
@@ -3953,6 +4001,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   validateLuxEHits(state);
   validateLuxEAudio(state);
   validateCharmAudio(state);
+  validateOrbAudio(state);
   if (!hero || hero.kind !== 'champion' || hero.team !== 'blue')
     throw new Error('Saved match is missing its player.');
   for (const target of state.units) {

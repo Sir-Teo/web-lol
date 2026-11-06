@@ -1,3 +1,10 @@
+import {
+  launchOrbAudio,
+  moveOrbAudio,
+  hitOrbAudio,
+  finishOrbAudio,
+  type AhriOrbAudioRecord,
+} from './ahri-orb-audio';
 import { AHRI_Q } from '../content/ahri-q';
 import { AHRI_Q_POLICY } from '../content/ahri-q-policy';
 import { advanceAhriOrbMotion, createAhriOrbMotion, type AhriOrbMotion } from './ahri-orb-motion';
@@ -18,6 +25,8 @@ interface OrbWorld {
   tick: number;
   nextId: number;
   ahriOrbs: AhriOrb[];
+  ahriOrbAudio?: AhriOrbAudioRecord[];
+  pointVisible?(point: Vec2, team: Team): boolean;
   units: Unit[];
   unit(id: number): Unit | undefined;
   alive(unit: Unit): boolean;
@@ -49,7 +58,7 @@ export function beginAhriOrb(
   if (source.champion !== 'ahri' || source.team === 'neutral')
     throw new Error('Invalid Ahri orb source');
   const motion = createAhriOrbMotion(source, aim, world.tick);
-  world.ahriOrbs.push({
+  const orb: AhriOrb = {
     ...motion,
     id: world.nextId++,
     sourceId: source.id,
@@ -58,7 +67,9 @@ export function beginAhriOrb(
     damage,
     outwardHits: [],
     returnHits: [],
-  });
+  };
+  world.ahriOrbs.push(orb);
+  launchOrbAudio(world, orb);
 }
 
 /** Local Q policy: all living hostile champions, lane units, dummies and neutral
@@ -68,9 +79,13 @@ export function advanceAhriOrbs(world: OrbWorld): void {
   const survivors: AhriOrb[] = [];
   for (const orb of world.ahriOrbs) {
     const source = world.unit(orb.sourceId);
-    if (!source || world.tick - orb.launchTick >= AHRI_Q_POLICY.maximumFlightTicks) continue;
+    if (!source || world.tick - orb.launchTick >= AHRI_Q_POLICY.maximumFlightTicks) {
+      finishOrbAudio(world, orb, source ? 'expired' : 'lost-source');
+      continue;
+    }
     const movement = advanceAhriOrbMotion(orb, world.tick, source);
     Object.assign(orb, movement.motion);
+    moveOrbAudio(world, orb, movement.segments);
     for (const segment of movement.segments) {
       const hitIds = segment.leg === 'outward' ? orb.outwardHits : orb.returnHits;
       const contacts = world.units
@@ -93,9 +108,13 @@ export function advanceAhriOrbs(world: OrbWorld): void {
           return at === null ? [] : [{ unit, at }];
         })
         .sort((a, b) => a.at - b.at || a.unit.id - b.unit.id);
-      for (const { unit } of contacts) {
+      for (const { unit, at } of contacts) {
         if (!world.alive(unit)) continue;
         hitIds.push(unit.id);
+        hitOrbAudio(world, orb, segment.leg, unit.id, {
+          x: segment.from.x + (segment.to.x - segment.from.x) * at,
+          y: segment.from.y + (segment.to.y - segment.from.y) * at,
+        });
         world.damage(
           source,
           unit,
@@ -108,6 +127,7 @@ export function advanceAhriOrbs(world: OrbWorld): void {
       }
     }
     if (!movement.finished) survivors.push(orb);
+    else finishOrbAudio(world, orb, 'caught');
   }
   world.ahriOrbs = survivors;
 }

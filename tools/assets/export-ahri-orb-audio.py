@@ -122,7 +122,27 @@ def build():
     text = ('// Generated unflattened source graph. Native sequence/reset/dispatch scope remains unverified.\n'
             'export const AHRI_ORB_AUDIO = ' + json.dumps(source, indent=2) + ' as const;\n')
     outputs[target] = subprocess.check_output(['node_modules/.bin/prettier', '--stdin-filepath', target], input=text.encode())
-    require(len(outputs) == 23, 'Changed Q publication closure')
+    local_nodes = {n['id']: n for n in containers + sounds + mixers}
+    def span(container_id):
+        seconds = []
+        for entry in local_nodes[container_id]['playlist']:
+            sound = local_nodes[entry['id']]
+            current, pitch, minimum = sound, 0, 0
+            while current:
+                pitch += current['properties'].get('Pitch', 0)
+                minimum += current['ranges'].get('Pitch', [0, 0])[0]
+                current = local_nodes[current['parentId']] if current['parentId'] else None
+            seconds.append(sound['clip']['durationSeconds'] / 2 ** ((pitch + minimum) / 1200))
+        return math.ceil(max(seconds) * 60)
+    ticks = dict(cast=span(838875043), outward=span(1069572417), **{'return': span(190978732)},
+                 hitOutward=max(span(914991319), span(439670778)),
+                 hitReturn=max(span(395437231), span(178405558)), deactivate=span(755654114),
+                 stopOutward=30, stopReturn=45)
+    target_timing = 'src/content/ahri-orb-audio-timing.ts'
+    timing = ('// Finite local additive-pitch bounds; native bus inheritance remains unverified.\n'
+              'export const AHRI_ORB_AUDIO_TICKS = ' + json.dumps(ticks, indent=2) + ' as const;\n')
+    outputs[target_timing] = subprocess.check_output(['node_modules/.bin/prettier', '--stdin-filepath', target_timing], input=timing.encode())
+    require(len(outputs) == 24, 'Changed Q publication closure')
     return outputs
 
 
