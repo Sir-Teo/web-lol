@@ -1,0 +1,31 @@
+{
+  "format": 1,
+  "integratedRevision": "15b7d08635339b869b5bbf91f2c3eab740c02b52",
+  "method": "Fast-forward from caaf80b to verified Ahri attack branch; no merge edits",
+  "schema": 173,
+  "ruleset": "66cd7e3174e42179cc3256f669e2c04e2f9c91120ea50495d0264a914bf6b991",
+  "sourceFilesCompared": 809,
+  "allSourceBytesMatchAcceptedBranch": true,
+  "pack": {
+    "id": "991cef8d91780928a4ff38a7af651da9e929c99a127d26e429c69260effc1bd1",
+    "files": 1326,
+    "bytes": 572560604,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a",
+    "allFileAndWorkerAudit": true
+  },
+  "acceptance": "ahri-attack-playback-acceptance.json",
+  "repeatFullSuite": false,
+  "reason": "Identical verified source; local rebuild and pack audit reproduce the accepted pack byte for byte.",
+  "logs": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-aa-main-build-v1.log",
+      "sha256": "113457da91812271765d533090b09c671d3f636e480057a08ae0b1936a8dee01"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-aa-main-pack-v1.log",
+      "sha256": "0b0c311f7742404da4c34cd73b1f7a89c421f5e64c699885867ac2e069c95b7c"
+    }
+  ],
+  "pushed": false,
+  "deployed": false
+}

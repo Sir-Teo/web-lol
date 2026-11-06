@@ -9555,3 +9555,7 @@ Primary `work` fast-forwards from `02e841a` to `9d15c58` without merge edits. Ev
 ## Verified Ahri attack playback delivery
 
 Application `99c1cb7`, schema173 / `66cd7e31`, passes8,716/8,718 full-suite cases in506 files with only the two historical failures. All155 Node QA cases, clean369-case CI in48 files, TypeScript and26 Python guard modes pass. Nineteen combined browser cases verify73 exact Ahri PCM masters, including twelve attack masters and actual right-click ordinary/critical windup, release, swept contact, mute/seek and restore. Production subdirectory and offline lifecycle pass with978 service-worker responses and zero production errors. Pack `991cef8d` contains1,326 files /572,560,604 bytes. All archived simulation/content bytes match frozen `2ba54634`; its45 roster projections retain their scope. Native callback/global playlist/mix calibration remains unverified. Lifecycle preparation is isolated. See [acceptance](reference/ahri-attack-playback-acceptance.json).
+
+## Integrate accepted Ahri attack playback into primary
+
+Primary `work` fast-forwards from `caaf80b` to `15b7d08` without merge edits. Every source byte matches the accepted branch. A fresh primary build and complete pack audit reproduce `991cef8d` exactly. Acceptance retains its original full-suite/browser/offline scope. No push or deployment occurs. See `reference/ahri-attack-main-integration.json`.
