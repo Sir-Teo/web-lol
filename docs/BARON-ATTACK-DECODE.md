@@ -112,3 +112,41 @@ pixels. The [verification ledger](reference/baron-attack-texture-verification.js
 retains reports, exact identities and guard outcomes. This establishes local
 pixel transport; native GPU sampling, source material dispatch and full effect
 visual acceptance remain open. Public assets and runtime effects are unchanged.
+
+## Emitter field reading
+
+The [field reading](reference/baron-attack-field-reading.json) adds 24 candidate
+field names and eight candidate type names from CommunityDragon/Data revision
+`e53e58f7760fd1be3f3e34383e4efedfffd3fd57`. Both complete dictionary files are
+pinned by SHA-256/size; every selected name independently reproduces its BIN FNV
+hash. No mutable name database changes the original source pin. A reversible
+view preserves all 21 original definitions exactly, and the inventory retains
+explicit fields, source indices, shapes and periods without inventing defaults.
+One shape type, `{ee39916f}`, remains unresolved in this dictionary.
+
+The missile's SmokeTrail is `VfxPrimitiveArbitraryTrail`; Trail3 is
+`VfxPrimitiveCameraTrail`. Both retain `mTrail` birth tiling, cutoff and mode
+fields. They cannot be replaced by a billboard fallback. The hit's Embers_Blend
+uses the sphere SCB as `emissionMeshName` with source emission scale 0.3; it is
+not a drawn mesh primitive. The capsule SCB belongs to the two explicit missile
+mesh primitives. Source palette/erosion/channel mixers, shared random values,
+UV rotation/scale, active periods and empty audio declarations also remain
+explicit. Hash-matching community names guide implementation; they do not prove
+native default values, update order, material behavior or timing.
+
+Reproduce with the pinned dictionary files at their recorded URLs saved under
+`.cache/baron-attack-field-labels/hashes.{binfields,bintypes}.txt`, then run:
+
+```sh
+PYTHONPATH=tools/assets python tools/assets/read-baron-attack-fields.py --check
+PYTHONPATH=tools/assets python -O tools/assets/read-baron-attack-fields.py --check
+node --test tools/qa/baron-attack-fields.test.mjs
+```
+
+Normal/optimized readings match exactly. Six offline label cases per Python
+mode check known hashes, case folding, nested reversible mapping, unknown and
+asset-string retention, field collisions and invalid candidates. An edited
+cached dictionary refuses before changing the reading. Source definitions and
+runtime remain unchanged. Trail extrusion, emission-mesh sampling, attachment,
+period ownership, random sharing and native materials are the next playback
+work, rather than silently dropping these declarations.

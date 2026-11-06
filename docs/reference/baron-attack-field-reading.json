@@ -1,0 +1,959 @@
+{
+  "sourcePinSha256": "4b300f952b2a768e1eaa5c5f9eda3dd397e457ba1ead19c10fbd9aaa02c3543a",
+  "candidateRepositoryRevision": "e53e58f7760fd1be3f3e34383e4efedfffd3fd57",
+  "tables": {
+    "binfields": {
+      "url": "https://raw.githubusercontent.com/CommunityDragon/Data/e53e58f7760fd1be3f3e34383e4efedfffd3fd57/hashes/lol/hashes.binfields.txt",
+      "bytes": 262924,
+      "sha256": "64dec2657a42964b91153fc3aa6c4280038c664d37ca118a8eb789bb99183e3f",
+      "labels": {
+        "17d9c5ce": "timeActiveDuringPeriod",
+        "2135c4d4": "emissionMeshName",
+        "5da05f9b": "erosionMapName",
+        "5e661fd4": "mTrail",
+        "676949a1": "ParticlesShareRandomValue",
+        "67b5d729": "depthBiasFactors",
+        "740ca9c0": "birthUVOffsetMult",
+        "8aa1ffc1": "paletteDefinition",
+        "8c784fc7": "mBirthTilingSize",
+        "8d2e2474": "isRotationEnabled",
+        "95111b29": "scaleBirthScaleByBoundObjectSize",
+        "968279e0": "uvRotation",
+        "99c94704": "period",
+        "9e52382f": "paletteCount",
+        "ac59cf4b": "mMode",
+        "b0794a80": "erosionMapChannelMixer",
+        "bda98597": "emissionMeshScale",
+        "c4663005": "alphaErosionDefinition",
+        "c6fbacd5": "erosionDriveCurve",
+        "d5bdbb42": "height",
+        "e0613999": "Audio",
+        "eddebb48": "uvScale",
+        "ee88201d": "mCutoff",
+        "ffa711fb": "paletteTexture"
+      },
+      "unresolved": []
+    },
+    "bintypes": {
+      "url": "https://raw.githubusercontent.com/CommunityDragon/Data/e53e58f7760fd1be3f3e34383e4efedfffd3fd57/hashes/lol/hashes.bintypes.txt",
+      "bytes": 127271,
+      "sha256": "c6aea31bb2ebeeaf668f449babf7a1616b7a0e7fec247e75ebce5bc093547477",
+      "labels": {
+        "00c2a390": "VfxTrailDefinitionData",
+        "12ab94a6": "VfxShapeCylinder",
+        "287851b9": "VfxPrimitiveCameraTrail",
+        "3dbe415d": "VfxShapeSphere",
+        "5705625a": "VfxPrimitiveArbitraryTrail",
+        "5e842b9b": "VfxAlphaErosionDefinitionData",
+        "8324a97b": "VfxEmitterAudio",
+        "a8ad8317": "VfxPaletteDefinitionData"
+      },
+      "unresolved": [
+        "ee39916f"
+      ]
+    }
+  },
+  "helpers": [
+    {
+      "path": "/workspace/web-lol/tools/assets/read-baron-attack-fields.py",
+      "sha256": "20bb71f9ecf45b0939045e84474cd342861031c9d40e4578e7cf2fc358953022"
+    },
+    {
+      "path": "tools/assets/baron_attack_fields.py",
+      "sha256": "69504b5fe086b4456666a298b8c670ab5e859c44bf75a595cdebfd91478eda9c"
+    }
+  ],
+  "exactReverseLabels": true,
+  "emitters": [
+    {
+      "role": "hit",
+      "index": 0,
+      "name": "PoolGlow1",
+      "primitive": null,
+      "emissionMesh": null,
+      "shape": null,
+      "explicitFields": [
+        "Audio",
+        "Color",
+        "__type",
+        "bindWeight",
+        "birthRotation0",
+        "birthScale0",
+        "blendMode",
+        "emitterName",
+        "isSingleParticle",
+        "isUniformScale",
+        "lifetime",
+        "miscRenderFlags",
+        "particleLifetime",
+        "particleLinger",
+        "rate",
+        "scale0",
+        "texture"
+      ],
+      "audio": {
+        "__type": "VfxEmitterAudio"
+      },
+      "period": null,
+      "timeActiveDuringPeriod": null
+    },
+    {
+      "role": "hit",
+      "index": 1,
+      "name": "blackhole1",
+      "primitive": null,
+      "emissionMesh": null,
+      "shape": null,
+      "explicitFields": [
+        "Audio",
+        "Color",
+        "__type",
+        "bindWeight",
+        "birthColor",
+        "birthRotation0",
+        "birthScale0",
+        "blendMode",
+        "emitterName",
+        "isSingleParticle",
+        "isUniformScale",
+        "lifetime",
+        "miscRenderFlags",
+        "particleLifetime",
+        "particleLinger",
+        "pass",
+        "rate",
+        "scale0",
+        "texture"
+      ],
+      "audio": {
+        "__type": "VfxEmitterAudio"
+      },
+      "period": null,
+      "timeActiveDuringPeriod": null
+    },
+    {
+      "role": "hit",
+      "index": 2,
+      "name": "Embers_Blend",
+      "primitive": null,
+      "emissionMesh": "ASSETS/Characters/SRU_Baron/Skins/Base/Particles/sru_baron_acidball_poolsphereemit.scb",
+      "shape": null,
+      "explicitFields": [
+        "Color",
+        "__type",
+        "bindWeight",
+        "birthColor",
+        "birthDrag",
+        "birthRotation0",
+        "birthRotationalVelocity0",
+        "birthScale0",
+        "birthVelocity",
+        "blendMode",
+        "depthBiasFactors",
+        "emissionMeshName",
+        "emissionMeshScale",
+        "emitterName",
+        "isDirectionOriented",
+        "isSingleParticle",
+        "lifetime",
+        "particleLifetime",
+        "pass",
+        "rate",
+        "scale0",
+        "texture"
+      ],
+      "audio": null,
+      "period": null,
+      "timeActiveDuringPeriod": null
+    },
+    {
+      "role": "hit",
+      "index": 3,
+      "name": "LIghtningJayce",
+      "primitive": null,
+      "emissionMesh": null,
+      "shape": {
+        "__type": "VfxShapeCylinder",
+        "flags": 1,
+        "height": 100.0
+      },
+      "explicitFields": [
+        "Color",
+        "EmitterPosition",
+        "SpawnShape",
+        "__type",
+        "alphaErosionDefinition",
+        "bindWeight",
+        "birthDrag",
+        "birthRotation0",
+        "birthScale0",
+        "birthVelocity",
+        "blendMode",
+        "emitterName",
+        "isDirectionOriented",
+        "isLocalOrientation",
+        "isRandomStartFrame",
+        "isUniformScale",
+        "lifetime",
+        "miscRenderFlags",
+        "numFrames",
+        "particleLifetime",
+        "particleLinger",
+        "pass",
+        "rate",
+        "texDiv",
+        "texture",
+        "timeActiveDuringPeriod",
+        "timeBeforeFirstEmission"
+      ],
+      "audio": null,
+      "period": null,
+      "timeActiveDuringPeriod": 1.0
+    },
+    {
+      "role": "hit",
+      "index": 4,
+      "name": "Embers_Add",
+      "primitive": null,
+      "emissionMesh": null,
+      "shape": {
+        "__type": "VfxShapeSphere",
+        "flags": 1,
+        "radius": 30.0
+      },
+      "explicitFields": [
+        "Color",
+        "SpawnShape",
+        "__type",
+        "bindWeight",
+        "birthRotation0",
+        "birthRotationalVelocity0",
+        "birthScale0",
+        "birthVelocity",
+        "blendMode",
+        "depthBiasFactors",
+        "directionVelocityScale",
+        "emitterLinger",
+        "emitterName",
+        "isDirectionOriented",
+        "isGroundLayer",
+        "lifetime",
+        "particleLifetime",
+        "particleLinger",
+        "pass",
+        "rate",
+        "scale0",
+        "texture",
+        "worldAcceleration"
+      ],
+      "audio": null,
+      "period": null,
+      "timeActiveDuringPeriod": null
+    },
+    {
+      "role": "hit",
+      "index": 5,
+      "name": "poolbright2",
+      "primitive": null,
+      "emissionMesh": null,
+      "shape": null,
+      "explicitFields": [
+        "Audio",
+        "Color",
+        "__type",
+        "bindWeight",
+        "birthRotation0",
+        "birthScale0",
+        "blendMode",
+        "emitterName",
+        "isSingleParticle",
+        "isUniformScale",
+        "lifetime",
+        "miscRenderFlags",
+        "particleLifetime",
+        "pass",
+        "rate",
+        "scale0",
+        "texture"
+      ],
+      "audio": {
+        "__type": "VfxEmitterAudio"
+      },
+      "period": null,
+      "timeActiveDuringPeriod": null
+    },
+    {
+      "role": "hit",
+      "index": 6,
+      "name": "Glow",
+      "primitive": null,
+      "emissionMesh": null,
+      "shape": null,
+      "explicitFields": [
+        "Color",
+        "__type",
+        "bindWeight",
+        "birthRotation0",
+        "birthScale0",
+        "blendMode",
+        "emitterName",
+        "isSingleParticle",
+        "isUniformScale",
+        "lifetime",
+        "miscRenderFlags",
+        "paletteDefinition",
+        "particleLifetime",
+        "particleLinger",
+        "rate",
+        "scale0",
+        "texture"
+      ],
+      "audio": null,
+      "period": null,
+      "timeActiveDuringPeriod": null
+    },
+    {
+      "role": "hit",
+      "index": 7,
+      "name": "vecalign",
+      "primitive": null,
+      "emissionMesh": null,
+      "shape": null,
+      "explicitFields": [
+        "Color",
+        "FlexShapeDefinition",
+        "__type",
+        "alphaErosionDefinition",
+        "bindWeight",
+        "birthDrag",
+        "birthScale0",
+        "birthVelocity",
+        "blendMode",
+        "directionVelocityMinScale",
+        "directionVelocityScale",
+        "emitterName",
+        "importance",
+        "isDirectionOriented",
+        "isRandomStartFrame",
+        "isSingleParticle",
+        "lifetime",
+        "miscRenderFlags",
+        "numFrames",
+        "particleLifetime",
+        "particleLinger",
+        "pass",
+        "rate",
+        "scale0",
+        "texDiv",
+        "texture"
+      ],
+      "audio": null,
+      "period": null,
+      "timeActiveDuringPeriod": null
+    },
+    {
+      "role": "hit",
+      "index": 8,
+      "name": "vecalign1",
+      "primitive": null,
+      "emissionMesh": null,
+      "shape": null,
+      "explicitFields": [
+        "Color",
+        "FlexShapeDefinition",
+        "__type",
+        "alphaErosionDefinition",
+        "bindWeight",
+        "birthDrag",
+        "birthScale0",
+        "birthVelocity",
+        "blendMode",
+        "directionVelocityMinScale",
+        "directionVelocityScale",
+        "emitterName",
+        "importance",
+        "isDirectionOriented",
+        "isRandomStartFrame",
+        "isSingleParticle",
+        "lifetime",
+        "miscRenderFlags",
+        "numFrames",
+        "particleLifetime",
+        "particleLinger",
+        "pass",
+        "rate",
+        "scale0",
+        "texDiv",
+        "texture"
+      ],
+      "audio": null,
+      "period": null,
+      "timeActiveDuringPeriod": null
+    },
+    {
+      "role": "hit",
+      "index": 9,
+      "name": "Electricity_Burst",
+      "primitive": null,
+      "emissionMesh": null,
+      "shape": {
+        "__type": "VfxShapeSphere",
+        "radius": 40.0
+      },
+      "explicitFields": [
+        "Color",
+        "FlexShapeDefinition",
+        "SpawnShape",
+        "__type",
+        "alphaRef",
+        "bindWeight",
+        "birthRotation0",
+        "birthScale0",
+        "blendMode",
+        "emitterName",
+        "frameRate",
+        "isUniformScale",
+        "lifetime",
+        "miscRenderFlags",
+        "numFrames",
+        "particleLifetime",
+        "pass",
+        "rate",
+        "startFrame",
+        "texDiv",
+        "texture"
+      ],
+      "audio": null,
+      "period": null,
+      "timeActiveDuringPeriod": null
+    },
+    {
+      "role": "hit",
+      "index": 10,
+      "name": "poolbright3",
+      "primitive": null,
+      "emissionMesh": null,
+      "shape": null,
+      "explicitFields": [
+        "Audio",
+        "Color",
+        "__type",
+        "bindWeight",
+        "birthRotation0",
+        "birthScale0",
+        "blendMode",
+        "emitterName",
+        "isSingleParticle",
+        "isUniformScale",
+        "lifetime",
+        "miscRenderFlags",
+        "particleLifetime",
+        "pass",
+        "rate",
+        "scale0",
+        "texture"
+      ],
+      "audio": {
+        "__type": "VfxEmitterAudio"
+      },
+      "period": null,
+      "timeActiveDuringPeriod": null
+    },
+    {
+      "role": "hit",
+      "index": 11,
+      "name": "orb",
+      "primitive": null,
+      "emissionMesh": null,
+      "shape": {
+        "__type": "VfxShapeSphere",
+        "flags": 1,
+        "radius": 50.0
+      },
+      "explicitFields": [
+        "Audio",
+        "Color",
+        "SpawnShape",
+        "__type",
+        "alphaErosionDefinition",
+        "bindWeight",
+        "birthDrag",
+        "birthRotation0",
+        "birthScale0",
+        "birthVelocity",
+        "blendMode",
+        "directionVelocityMinScale",
+        "directionVelocityScale",
+        "emitterName",
+        "isRandomStartFrame",
+        "isSingleParticle",
+        "isUniformScale",
+        "lifetime",
+        "numFrames",
+        "particleLifetime",
+        "particleLinger",
+        "rate",
+        "scale0",
+        "texDiv",
+        "texture",
+        "uvRotation"
+      ],
+      "audio": {
+        "__type": "VfxEmitterAudio"
+      },
+      "period": null,
+      "timeActiveDuringPeriod": null
+    },
+    {
+      "role": "missile",
+      "index": 0,
+      "name": "orb7",
+      "primitive": {
+        "__type": "VfxPrimitiveArbitraryQuad"
+      },
+      "emissionMesh": null,
+      "shape": {
+        "__type": "{ee39916f}",
+        "emitOffset": [
+          0.0,
+          -50.0,
+          0.0
+        ]
+      },
+      "explicitFields": [
+        "Audio",
+        "Color",
+        "SpawnShape",
+        "__type",
+        "alphaErosionDefinition",
+        "birthDrag",
+        "birthRotation0",
+        "birthScale0",
+        "birthVelocity",
+        "blendMode",
+        "emitterName",
+        "isRandomStartFrame",
+        "lifetime",
+        "numFrames",
+        "particleLifetime",
+        "particleLinger",
+        "pass",
+        "primitive",
+        "rate",
+        "scale0",
+        "texDiv",
+        "texture",
+        "uvRotation"
+      ],
+      "audio": {
+        "__type": "VfxEmitterAudio"
+      },
+      "period": null,
+      "timeActiveDuringPeriod": null
+    },
+    {
+      "role": "missile",
+      "index": 1,
+      "name": "orb8",
+      "primitive": {
+        "__type": "VfxPrimitiveArbitraryQuad"
+      },
+      "emissionMesh": null,
+      "shape": {
+        "__type": "{ee39916f}",
+        "emitOffset": [
+          0.0,
+          -50.0,
+          0.0
+        ]
+      },
+      "explicitFields": [
+        "Audio",
+        "Color",
+        "SpawnShape",
+        "__type",
+        "alphaErosionDefinition",
+        "birthDrag",
+        "birthRotation0",
+        "birthScale0",
+        "birthVelocity",
+        "blendMode",
+        "emitterName",
+        "isRandomStartFrame",
+        "lifetime",
+        "numFrames",
+        "particleLifetime",
+        "particleLinger",
+        "pass",
+        "primitive",
+        "rate",
+        "scale0",
+        "texDiv",
+        "texture",
+        "uvRotation"
+      ],
+      "audio": {
+        "__type": "VfxEmitterAudio"
+      },
+      "period": null,
+      "timeActiveDuringPeriod": null
+    },
+    {
+      "role": "missile",
+      "index": 2,
+      "name": "SmokeTrail",
+      "primitive": {
+        "__type": "VfxPrimitiveArbitraryTrail",
+        "mTrail": {
+          "__type": "VfxTrailDefinitionData",
+          "mBirthTilingSize": {
+            "__type": "ValueVector3",
+            "constantValue": [
+              300.0,
+              0.0,
+              0.0
+            ]
+          },
+          "mMode": 1,
+          "mCutoff": 3000.0
+        }
+      },
+      "emissionMesh": null,
+      "shape": {
+        "__type": "VfxShapeLegacy",
+        "emitOffset": {
+          "__type": "ValueVector3",
+          "dynamics": {
+            "__type": "VfxAnimatedVector3fVariableData",
+            "probabilityTables": [
+              {
+                "__type": "VfxProbabilityTableData"
+              },
+              {
+                "__type": "VfxProbabilityTableData"
+              },
+              {
+                "__type": "VfxProbabilityTableData"
+              }
+            ],
+            "times": [
+              0.0
+            ],
+            "values": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          }
+        },
+        "emitRotationAngles": [
+          {
+            "__type": "ValueFloat"
+          },
+          {
+            "__type": "ValueFloat"
+          }
+        ],
+        "emitRotationAxes": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "explicitFields": [
+        "Color",
+        "EmitterPosition",
+        "ParticlesShareRandomValue",
+        "SpawnShape",
+        "__type",
+        "alphaErosionDefinition",
+        "alphaRef",
+        "birthColor",
+        "birthDrag",
+        "birthScale0",
+        "birthUVOffset",
+        "birthUvScrollRate",
+        "birthVelocity",
+        "blendMode",
+        "emitterName",
+        "isUniformScale",
+        "lifetime",
+        "particleLifetime",
+        "particleLinger",
+        "pass",
+        "primitive",
+        "rate",
+        "scale0",
+        "texture"
+      ],
+      "audio": null,
+      "period": null,
+      "timeActiveDuringPeriod": null
+    },
+    {
+      "role": "missile",
+      "index": 3,
+      "name": "Mesh_DarkSmoke",
+      "primitive": {
+        "__type": "VfxPrimitiveMesh",
+        "mMesh": {
+          "__type": "VfxMeshDefinitionData",
+          "mSimpleMeshName": "ASSETS/Characters/SRU_Baron/Skins/Base/Particles/SRU_Baron_Base_MissileCapsule.scb"
+        }
+      },
+      "emissionMesh": null,
+      "shape": null,
+      "explicitFields": [
+        "Color",
+        "EmitterPosition",
+        "__type",
+        "bindWeight",
+        "birthColor",
+        "birthRotation0",
+        "birthScale0",
+        "birthUVOffset",
+        "birthUvScrollRate",
+        "blendMode",
+        "disableBackfaceCull",
+        "emitterName",
+        "isSingleParticle",
+        "lifetime",
+        "particleIsLocalOrientation",
+        "particleLifetime",
+        "particleLinger",
+        "pass",
+        "primitive",
+        "rate",
+        "scale0",
+        "texture",
+        "textureMult",
+        "uvScale"
+      ],
+      "audio": null,
+      "period": null,
+      "timeActiveDuringPeriod": null
+    },
+    {
+      "role": "missile",
+      "index": 4,
+      "name": "Mesh_Front",
+      "primitive": {
+        "__type": "VfxPrimitiveMesh",
+        "mMesh": {
+          "__type": "VfxMeshDefinitionData",
+          "mSimpleMeshName": "ASSETS/Characters/SRU_Baron/Skins/Base/Particles/SRU_Baron_Base_MissileCapsule.scb"
+        }
+      },
+      "emissionMesh": null,
+      "shape": null,
+      "explicitFields": [
+        "Color",
+        "EmitterPosition",
+        "__type",
+        "bindWeight",
+        "birthColor",
+        "birthRotation0",
+        "birthScale0",
+        "birthUVOffset",
+        "birthUvScrollRate",
+        "blendMode",
+        "disableBackfaceCull",
+        "emitterName",
+        "isSingleParticle",
+        "lifetime",
+        "particleIsLocalOrientation",
+        "particleLifetime",
+        "particleLinger",
+        "pass",
+        "primitive",
+        "rate",
+        "scale0",
+        "texture",
+        "textureMult",
+        "uvScale"
+      ],
+      "audio": null,
+      "period": null,
+      "timeActiveDuringPeriod": null
+    },
+    {
+      "role": "missile",
+      "index": 5,
+      "name": "MissileGlow",
+      "primitive": null,
+      "emissionMesh": null,
+      "shape": null,
+      "explicitFields": [
+        "Color",
+        "EmitterPosition",
+        "__type",
+        "bindWeight",
+        "birthScale0",
+        "blendMode",
+        "emitterName",
+        "isSingleParticle",
+        "isUniformScale",
+        "lifetime",
+        "miscRenderFlags",
+        "particleLifetime",
+        "particleLinger",
+        "pass",
+        "rate",
+        "texture"
+      ],
+      "audio": null,
+      "period": null,
+      "timeActiveDuringPeriod": null
+    },
+    {
+      "role": "missile",
+      "index": 6,
+      "name": "missileHead_outer",
+      "primitive": {
+        "__type": "VfxPrimitiveArbitraryQuad"
+      },
+      "emissionMesh": null,
+      "shape": {
+        "__type": "{ee39916f}",
+        "emitOffset": [
+          0.0,
+          -150.0,
+          0.0
+        ]
+      },
+      "explicitFields": [
+        "Color",
+        "SpawnShape",
+        "__type",
+        "alphaRef",
+        "bindWeight",
+        "birthColor",
+        "birthRotation0",
+        "birthScale0",
+        "blendMode",
+        "emitterName",
+        "isRotationEnabled",
+        "isSingleParticle",
+        "lifetime",
+        "particleLifetime",
+        "particleLinger",
+        "pass",
+        "primitive",
+        "rate",
+        "scale0",
+        "texture",
+        "textureMult"
+      ],
+      "audio": null,
+      "period": null,
+      "timeActiveDuringPeriod": null
+    },
+    {
+      "role": "missile",
+      "index": 7,
+      "name": "missileHead_outer1",
+      "primitive": {
+        "__type": "VfxPrimitiveArbitraryQuad"
+      },
+      "emissionMesh": null,
+      "shape": {
+        "__type": "{ee39916f}",
+        "emitOffset": [
+          0.0,
+          -150.0,
+          0.0
+        ]
+      },
+      "explicitFields": [
+        "Color",
+        "SpawnShape",
+        "__type",
+        "alphaRef",
+        "bindWeight",
+        "birthRotation0",
+        "birthScale0",
+        "blendMode",
+        "emitterName",
+        "isRotationEnabled",
+        "isSingleParticle",
+        "lifetime",
+        "particleLifetime",
+        "particleLinger",
+        "pass",
+        "primitive",
+        "rate",
+        "scale0",
+        "texture"
+      ],
+      "audio": null,
+      "period": null,
+      "timeActiveDuringPeriod": null
+    },
+    {
+      "role": "missile",
+      "index": 8,
+      "name": "Trail3",
+      "primitive": {
+        "__type": "VfxPrimitiveCameraTrail",
+        "mTrail": {
+          "__type": "VfxTrailDefinitionData",
+          "mBirthTilingSize": {
+            "__type": "ValueVector3",
+            "constantValue": [
+              100.0,
+              0.0,
+              0.0
+            ]
+          },
+          "mMode": 1,
+          "mCutoff": 1500.0
+        }
+      },
+      "emissionMesh": null,
+      "shape": null,
+      "explicitFields": [
+        "Audio",
+        "Color",
+        "__type",
+        "alphaErosionDefinition",
+        "birthColor",
+        "birthRotation0",
+        "birthScale0",
+        "blendMode",
+        "emitterLinger",
+        "emitterName",
+        "lifetime",
+        "particleLifetime",
+        "particleLinger",
+        "pass",
+        "period",
+        "primitive",
+        "rate",
+        "scale0",
+        "texDiv",
+        "texture",
+        "timeActiveDuringPeriod"
+      ],
+      "audio": {
+        "__type": "VfxEmitterAudio"
+      },
+      "period": 1.5,
+      "timeActiveDuringPeriod": 1.5
+    }
+  ],
+  "limits": [
+    "Candidate names are hash-checked against a pinned community dictionary, not native behavior/default evidence.",
+    "Original hashed source definitions remain unchanged; no omitted fields or primitive defaults are invented.",
+    "Trail extrusion, emission-mesh sampling, attachment, periods, random sharing and native materials remain open.",
+    "No runtime/public media/simulation changes."
+  ]
+}

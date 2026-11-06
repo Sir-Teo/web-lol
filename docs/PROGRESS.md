@@ -6,6 +6,13 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+The [Baron emitter field reading](BARON-ATTACK-DECODE.md#emitter-field-reading)
+now retains 24 hash-checked candidate field names/eight types from pinned
+dictionaries. Reversible mapping preserves all 21 source definitions. It
+distinguishes arbitrary/camera trails from quads and emission meshes from drawn
+meshes. Six label guards per Python mode and edited-dictionary refusal pass;
+native semantics/defaults and runtime playback remain open.
+
 All 214 Baron authored mips now have [lossless private transport](BARON-ATTACK-DECODE.md#authored-mip-transport)
 and pixel-exact WebGL2 upload/readback in system Chromium/SwiftShader. All 25
 containers total 840,761 bytes; fresh/optimized/recovery/conflict checks and

@@ -1,0 +1,30 @@
+{
+  "checks": {
+    "candidateLabelsReversible": true,
+    "editedDictionaryRejected": true,
+    "qaPassed": 46,
+    "offlineLabelCasesPerPythonMode": 6
+  },
+  "evidence": [
+    {
+      "path": "artifacts/baron-attack-field-reading.json",
+      "sha256": "0308cff270cd6e2ef47e167445f6a778e1ac62ae1e07dd7db17e7972b7c88603",
+      "bytes": 116
+    },
+    {
+      "path": "artifacts/baron-attack-field-reading-optimized.json",
+      "sha256": "0308cff270cd6e2ef47e167445f6a778e1ac62ae1e07dd7db17e7972b7c88603",
+      "bytes": 116
+    },
+    {
+      "path": "artifacts/baron-attack-field-edited-table.log",
+      "sha256": "e674d4818ae54c2c70b424d22fa5839230883370c9a3d99433dc0f42f4392c1f",
+      "bytes": 605
+    },
+    {
+      "path": "artifacts/baron-fields-qa.log",
+      "sha256": "db2e3ac4ca9db70e9eac1b7c449844ef8f22bc21f1cf5ffa9da201e2a5d2c23c",
+      "bytes": 4304
+    }
+  ]
+}
