@@ -31,3 +31,17 @@ publication on a final-ledger conflict. Three asset tests verify exact public
 bytes, ownership and preserved missing/signed source fields. All 30 authored
 profiles remain available; the scene will consume only the 23 joined orbit,
 flight and hit profiles. No W source rendering is connected yet.
+
+## Joined asset loader
+
+The lazy page-owned loader selects the 23 joined profiles: 30 texture references
+and the sharp flight mesh. It loads 24 W textures, borrows three textures from
+each Q owner, and excludes the five cast-only textures and swirls geometry.
+Failed mesh loads can retry without discarding verified textures. Concurrent
+calls share one promise; owned mesh coordinates convert once to metres while
+native normalized RGBA and absent normals remain preserved. The BGRA shader
+attribute derives directly from the retained source colors.
+
+The loader test uses the actual GLB and verifies every position/color component,
+retry behavior, address-mode sampler caching, borrowed ownership and excluded
+cast-only requests. It does not attach the renderer to the scene.
