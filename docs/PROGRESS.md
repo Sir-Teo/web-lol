@@ -40,6 +40,11 @@ below retain earlier intermediate limitations and next steps.
 
 ## Recent verified checkpoints
 
+Primary `work` fast-forwards from `b1d5b8f` to `059734d` with no merge edits.
+Its fresh build and full pack/worker audit reproduce `44d4243d` exactly; the
+accepted full-suite/browser evidence applies to identical source. No push or
+deployment occurs. See [primary integration](reference/ahri/q-cast-main-integration.json).
+
 These incremental records retain their original scope; listed next steps may be
 superseded by later work. Use the authoritative section above for current status.
 

@@ -1,0 +1,38 @@
+{
+  "format": 1,
+  "previousPrimaryRevision": "b1d5b8f2c2efda3573c9bde2860e7135bf45c705",
+  "acceptedRevision": "059734deae3cde89e0ce7e06b516226822f0ee5f",
+  "applicationRevision": "f003386017fa2c0d6f44776e4212e6e380ee649d",
+  "integration": "Fast-forward only; no merge edits",
+  "schema": 176,
+  "ruleset": "732a3ce3c6c382d4a61443620c4cb906b17f45454122456e7c18b9b7cd882dd8",
+  "allAcceptedSourceBytesMatch": true,
+  "pack": {
+    "result": "passed",
+    "pack": "44d4243db1435534b9616623dafb9dd29493dc0f764c963d43a37b0c106c28f8",
+    "files": 1337,
+    "bytes": 575974327,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "fullAcceptance": "q-cast-rendering-acceptance.json",
+  "fullSuiteRepeated": false,
+  "reason": "Primary and accepted trees are identical; the fresh primary build and complete pack/worker audit reproduce the accepted bytes.",
+  "push": false,
+  "deployment": false,
+  "isolatedPreparationBranches": [
+    "dev/ahri-emote-audio",
+    "dev/ahri-q-projectile-source"
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-cast-main-build-v1.log",
+      "bytes": 9212,
+      "sha256": "02e61ec48af617001b88af41bbe1791e4c95c2696d22f0389f0947fcbb3b0cd8"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-cast-main-pack-audit-v1.log",
+      "bytes": 286,
+      "sha256": "865fd937a1f522bc45677097ff414e7bc7eb79079ba44910e454e43ce1d072ec"
+    }
+  ]
+}
