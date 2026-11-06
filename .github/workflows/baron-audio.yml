@@ -186,6 +186,7 @@ jobs:
           tests/ahri-attack-audio-state.test.ts
           tests/ahri-attack-audio-controller.test.ts
           tests/ahri-attack-audio-policy.test.ts
+          tests/ahri-lifecycle-audio-policy.test.ts
           tests/ahri-lifecycle-audio-assets.test.ts
           tests/ahri-lifecycle-gameplay-reference.test.ts
           tests/champion-respawn.test.ts

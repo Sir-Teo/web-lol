@@ -19,3 +19,11 @@ All five source/property/master checks and TypeScript pass. Normal/optimized six
 The producer verifies all597 frozen source/QA files from the actual schema173 / `2ba54634` World and executes it directly. Ten guarded scenarios yield228 complete projections, retaining attack/P/R/W/Q/E history and excluding only schema/ruleset and proposed lifecycle history. Cases cover levels1/18, death during attack windup/released flight, Q/W/R/Essence activity, two genuine lives and hidden death followed by visible respawn. Actual death timestamps, scheduled timers, return at the exact spawn, full health/mana and completed life counts are asserted. Sampling includes both finite master boundaries and real respawn deadlines.
 
 All15 baseline/assets/respawn/death-scaling checks and TypeScript pass. Source stage `5885298` separately passes cache-free CI:374 tests in49 files,30 Python modes and32 commands with reused dependencies. Lifecycle history and playback remain unbound.
+
+## Local finite profiles
+
+Four publication outputs /1,550,830 bytes now include independent finite bounds:233 ticks for death,294 for respawn and300 for the declared source death Stop. Python and TypeScript ancestry derivations agree. Both gains and zero pitch omissions remain explicit.
+
+The source instance declarations stay zero. A separate local ceiling of16 voices per cue bounds private fixtures while exceeding a standard ten-player roster; it makes no claim about native zero/inheritance semantics. The source5000 ms Linear death Stop keeps its event/action/target identity without a local callback clock. Finite masters finish naturally under this local policy.
+
+All18 scoped checks, TypeScript and both normal/optimized six-probe publication modes pass. Final-table preflight prevents partial master writes. Lifecycle history/playback remain unbound.

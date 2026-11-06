@@ -34,7 +34,7 @@ with tempfile.TemporaryDirectory(prefix='ahri-lifecycle-publish-') as temporary:
     require(run(True).returncode != 0, 'Missing published closure accepted')
     # Put a conflict in the last output: none of the two earlier masters may
     # be written before the complete output set has been checked.
-    content = base / 'src/content/ahri-lifecycle-audio.ts'
+    content = base / 'src/content/ahri-lifecycle-audio-timing.ts'
     content.parent.mkdir(parents=True)
     content.write_bytes(b'conflict')
     result = run()
