@@ -233,6 +233,7 @@ jobs:
           tests/source-motion-timeline.test.ts
           tests/ahri-q-projectile-particles.test.ts
           tests/ahri-q-projectile-gameplay-reference.test.ts
+          tests/ahri-q-projectile-assets-loader.test.ts
           tests/ahri-q-projectile-assets.test.ts
           tests/ahri-q-cast-assets-loader.test.ts
           tests/ahri-q-casts.test.ts
