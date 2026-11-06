@@ -122,7 +122,25 @@ def build():
     text = ('// Generated unflattened source graph. Native continuous-container scheduling and dispatch remain unverified.\n'
             'export const AHRI_SPIRIT_RUSH_AUDIO = ' + json.dumps(source, indent=2) + ' as const;\n')
     outputs[target] = subprocess.check_output(['node_modules/.bin/prettier', '--stdin-filepath', target], input=text.encode())
-    require(len(outputs) == 15, 'Changed R publication closure')
+    local_nodes = {n['id']: n for n in containers + sounds + mixers}
+    def span(container_id):
+        durations = []
+        for entry in local_nodes[container_id]['playlist']:
+            sound = local_nodes[entry['id']]
+            current, pitch, minimum = sound, 0, 0
+            while current:
+                pitch += current['properties'].get('Pitch', 0)
+                minimum += current['ranges'].get('Pitch', [0, 0])[0]
+                current = local_nodes[current['parentId']] if current['parentId'] else None
+            durations.append(sound['clip']['durationSeconds'] / 2 ** ((pitch + minimum) / 1200))
+        return math.ceil(max(durations) * 60)
+    ticks = dict(cast=span(220652520), launch=span(525682343), hit=span(806649894),
+                 deactivate=span(598713583), launchStop=15, activationLocalStop=math.ceil(.02 * 60))
+    target_timing = 'src/content/ahri-spirit-rush-audio-timing.ts'
+    timing = ('// Finite local tail bounds. The 20 ms activation release is a local de-click, not a source Stop action.\n'
+              'export const AHRI_SPIRIT_RUSH_AUDIO_TICKS = ' + json.dumps(ticks, indent=2) + ' as const;\n')
+    outputs[target_timing] = subprocess.check_output(['node_modules/.bin/prettier', '--stdin-filepath', target_timing], input=timing.encode())
+    require(len(outputs) == 16, 'Changed R publication closure')
     return outputs
 
 
