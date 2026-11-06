@@ -1,0 +1,35 @@
+{
+  "format": 1,
+  "testsPassed": 388,
+  "independentSamples": 384,
+  "typecheck": "passed",
+  "nativeExecuted": false,
+  "runtimeBinding": false,
+  "evidence": [
+    {
+      "path": "artifacts/source-appearance-verified-tests.log",
+      "bytes": 959,
+      "sha256": "f74ce97df1985d618c435e99867650f43531ae38774a347fff14ac449c846871"
+    },
+    {
+      "path": "artifacts/source-appearance-verified-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tools/assets/export-source-appearance-samples.mjs",
+      "bytes": 6239,
+      "sha256": "1f17e8258b91ce11c6c3c6f26ca3004615c4f9e80c7a3c172d2056ebb18c06de"
+    },
+    {
+      "path": "docs/reference/source-appearance-samples.json",
+      "bytes": 76280,
+      "sha256": "718923f0d4cc6552c44d375697fcbfea78b891d52a8d61dd36131e9fa55e3c39"
+    },
+    {
+      "path": "src/render/source-particle-appearance.ts",
+      "bytes": 3115,
+      "sha256": "c4f3b9ef785a9552c7a0acdd3229074fd9a749e9fef2c2d7561f688a5c145b8b"
+    }
+  ]
+}

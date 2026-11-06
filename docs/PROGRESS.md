@@ -80,6 +80,10 @@ The [spin/basis stage](SOURCE-PARTICLE-SPIN.md) now matches 384 independent
 exact-byte samples; all 388 cases pass. Birth/integrated/linger rotation and the
 Ry * Rx * Rz basis remain distinct. Appearance and final transforms are next.
 
+The [appearance stage](SOURCE-PARTICLE-APPEARANCE.md) now matches 384 independent
+exact-byte samples; all 388 cases pass. HDR values and source-order multiplication
+are retained; uniform scaling excludes trails. Final placement and binding remain next.
+
 ## Recent verified checkpoints
 
 All 21 Baron emitters now have a [strict private parameter stage](BARON-ATTACK-PROGRAM.md),
