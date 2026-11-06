@@ -9290,3 +9290,7 @@ All six missile/hit natural, stopped and capacity-one traces match the pinned ex
 ### Baron transport delivery
 
 Published the exact format-2 program, 25 authored-mip PNG transports and two GLBs (28 files / 1,117,599 bytes). Idempotent publisher validates every source and existing destination before writes; checksum/extent checks preserve all bytes. Added lazy, integrity-pinned program loading with request sharing, immutable metadata and retry eviction. Two focused delivery tests, TypeScript and production build pass. No active effect renderer yet. Evidence: docs/reference/baron-attack-delivery-verification.json. Moved the preceding full-loop checkpoint entry into this established progress log.
+
+### Baron shared GPU surface
+
+Added batched UV-cell wrapping, multiplier/palette/erosion and mesh BGRA tint material. All 84 local GPU cases agree byte-for-byte with the pinned external fragment shader, with visible output for every emitter, an independent minimal vertex harness and shader-error rejection. TypeScript passes. No active scene binding or native-fidelity claim. See docs/BARON-PARTICLE-MATERIAL.md and docs/reference/baron-material-verification.json.

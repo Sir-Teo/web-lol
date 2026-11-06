@@ -1,0 +1,124 @@
+{
+  "format": 1,
+  "pixelCases": 84,
+  "exactPixels": true,
+  "allEmittersProducedVisiblePixels": true,
+  "nativeExecuted": false,
+  "activeRenderer": false,
+  "typecheck": "passed",
+  "scope": "Pinned external fragment shader, synthetic nearest-filtered RGBA maps; separate minimal vertex harness. No native or scene attachment certification.",
+  "evidence": [
+    {
+      "path": "src/render/baron-particle-material.ts",
+      "bytes": 5743,
+      "sha256": "d40f8aa7fa8893cd0942fc2b076e66aa406e3265d150013bcd93a1587342ec6e"
+    },
+    {
+      "path": "tools/qa/baron-material-pixels.mjs",
+      "bytes": 10241,
+      "sha256": "ddcd979b3392a0cf840cf8c35bbfc2c129bee345a90dc58456a91fbfcf62da9e"
+    },
+    {
+      "path": "artifacts/baron-material-pixels.json",
+      "bytes": 12519,
+      "sha256": "c2caacb4c24579afd6ac468fc2e6f83c4327ad50b1d7b8c76d80ea58382b44f6"
+    },
+    {
+      "path": "artifacts/baron-material-pixels-final.log",
+      "bytes": 144,
+      "sha256": "4749d134cd359b9bfbff3bd08357690e97d8d77ea1196ea55d68f25fb4c61c48"
+    },
+    {
+      "path": "artifacts/baron-material-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "externalReaders": [
+    {
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "files": [
+        {
+          "path": ".cache/baron-emission-readers/rendering/shaders/quad.ts",
+          "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/shaders/quad.ts",
+          "bytes": 18418,
+          "sha256": "4ed5856ce44e9d482bea18a924544149a820587fdec409616be3446832c3093f",
+          "gitBlob": "f4bd05c56008ab2c9c3e16558757955070cad4a3"
+        },
+        {
+          "path": ".cache/baron-emission-readers/rendering/shaders/mesh.ts",
+          "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/shaders/mesh.ts",
+          "bytes": 5119,
+          "sha256": "ed9b75c1972da6b0aaeb31b35da86b7c5a4e56cc1bca19e9de7d2d60c2bb1830",
+          "gitBlob": "af81ccd296aba35aa6348b4db19e224a00b83853"
+        },
+        {
+          "path": ".cache/baron-emission-readers/rendering/utils/materials.ts",
+          "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/materials.ts",
+          "bytes": 16071,
+          "sha256": "f2da84cb9cb98edfc25c42055765d4e7069365a6508395045b73745e0b9e1e6b",
+          "gitBlob": "6a9e53630c8e057126805179dd7018d44c7fdfe3"
+        },
+        {
+          "path": ".cache/baron-emission-readers/rendering/components/Quads.tsx",
+          "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/components/Quads.tsx",
+          "bytes": 11271,
+          "sha256": "0313f60079268e93ecf3be9f7165d98c6614f673a21282ecde1820883fce6069",
+          "gitBlob": "41e3781d78d55d593197be0fb2e7658321148023"
+        },
+        {
+          "path": ".cache/baron-emission-readers/rendering/components/Meshes.tsx",
+          "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/components/Meshes.tsx",
+          "bytes": 15491,
+          "sha256": "4610aa4afc67b1e8e0ddfb713141a1db96c89a4d00c0794452625ab3d4ec1d11",
+          "gitBlob": "038bf47dbc484c033ed4933f0175b75a54d9e21a"
+        },
+        {
+          "path": ".cache/baron-emission-readers/rendering/utils/meshPose.ts",
+          "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/meshPose.ts",
+          "bytes": 3952,
+          "sha256": "1769c39362c9ddb0a1c638b3e564233a53722aa285af9fcce7be5be20882ab0f",
+          "gitBlob": "5ef304bc3d90c53fafc16051b6e408232e8e5fd1"
+        }
+      ]
+    },
+    {
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "files": [
+        {
+          "path": ".cache/baron-emission-readers/rendering/utils/colorLookup.ts",
+          "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/colorLookup.ts",
+          "bytes": 2205,
+          "sha256": "13658d02415c8ee3d30ecdb5247dc6ee2f9905f05912ee04070c52970eb5bcf8",
+          "gitBlob": "04a6ff5b338fe37be0072879c8971ef3d5f938b1"
+        },
+        {
+          "path": ".cache/baron-emission-readers/rendering/utils/blend.ts",
+          "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/blend.ts",
+          "bytes": 5320,
+          "sha256": "2a9faf081ee3c27fdbbf0764ec42673eceb77b3b928992b9acaf407b572b52b8",
+          "gitBlob": "42a5a9a42d33fc6fe6e111ce74e48f089d603d0f"
+        },
+        {
+          "path": ".cache/baron-emission-readers/rendering/utils/uniforms.ts",
+          "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/uniforms.ts",
+          "bytes": 14743,
+          "sha256": "64f5bf9e6ffb479f9898f9b184265df03f68689b994a1ddd7ac9bff263ab2236",
+          "gitBlob": "08ba4b9b74f68f85f6487ad88f4a5720e7fdf72e"
+        }
+      ]
+    },
+    {
+      "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+      "files": [
+        {
+          "path": ".cache/baron-emission-readers/rendering/utils/palette.ts",
+          "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/palette.ts",
+          "bytes": 2008,
+          "sha256": "d13b347b607a85cc079b909dc8bb25e9ce67cd4e5c8120097f99b713b852f3f9",
+          "gitBlob": "6a3f825da016d39b68f1c59222d934d5d7b5f3c2"
+        }
+      ]
+    }
+  ]
+}
