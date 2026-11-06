@@ -133,7 +133,9 @@ two previously recorded Leona reader and Lux sampler failures remain. All 243
 Node QA tests, the production build and offline-pack audit pass. The post-observer
 roster reaches the same Blue victory at tick 157,116, with 44 save round-trips
 and 43 future checks. All 45 complete old-state projections match; only version,
-ruleset and the new W history are excluded. Clean CI verification is pending.
+ruleset and the new W history are excluded. Clean CI verification passes all 61 commands across the four workflows,
+including 555 tests in 87 files, with no private cache or decoder tools. Existing
+Node dependencies were reused.
 No W renderer or public particle asset has been added.
 
 The [complete-state comparison](reference/ahri/w-visual-history-gameplay-comparison.json)
@@ -143,3 +145,7 @@ only the W lifecycle, World and snapshot modules. All 644 current compatibility
 files match the observer archive. Four sampled checkpoint projections retain W
 history, with at most one cast / 236 frames / 48,565 compact JSON bytes in those
 samples; these sampled maxima are not a universal memory bound.
+
+The [verification receipt](reference/ahri/w-visual-history-verification.json)
+binds the exact application, source delta, test results, roster comparison and
+build pack. Primary integration and W rendering remain separate stages.

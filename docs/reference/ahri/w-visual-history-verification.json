@@ -1,0 +1,125 @@
+{
+  "format": 1,
+  "scope": "W visual history verification; rendering pending",
+  "applicationRevision": "8e5b7e7",
+  "verificationRevision": "098ea7b",
+  "schema": 178,
+  "ruleset": "cc3078bc03e40bcc10e62d7244cb5a2432ca7428141331f30cfe5ecfff6c7799",
+  "compatibilityFiles": 644,
+  "archiveFiles": 649,
+  "runtime": {
+    "node": "v24.22.1",
+    "v8": "13.6.233.17-node.58",
+    "platform": "linux",
+    "arch": "x64",
+    "cpu": "AMD EPYC 9V74 80-Core Processor"
+  },
+  "sourceDelta": {
+    "path": "docs/reference/ahri/w-visual-history-source-delta.json",
+    "bytes": 2837,
+    "sha256": "55ada78a69e7a643634825561b461e6b528687f32435831a38da9ad6bfaaaebf"
+  },
+  "gameplayComparison": {
+    "path": "docs/reference/ahri/w-visual-history-gameplay-comparison.json",
+    "bytes": 22189,
+    "sha256": "e9e75efbc52f82f199129b6121173666669bc6bb5aaca96d20cbc26d106d9472"
+  },
+  "focusedReference": {
+    "path": "docs/reference/ahri/w-visual-gameplay-reference.json",
+    "bytes": 21085,
+    "sha256": "f5ca3d02a298ff2d192d87ace610115cd808889d0f0167f349a907f65349a3ba"
+  },
+  "naturalRoster": {
+    "seed": 1,
+    "winner": "blue",
+    "outcome": "victory",
+    "finalTick": 157116,
+    "checkedTicks": 157116,
+    "roundTrips": 44,
+    "futureChecks": 43,
+    "futureCheckedTicks": 2580,
+    "failure": null,
+    "completeOldStateProjections": 45
+  },
+  "tests": {
+    "fullPassed": 8893,
+    "fullTotal": 8895,
+    "files": 543,
+    "knownFailures": [
+      "Missing archived Leona attached-skin reflection reader",
+      "Existing Lux 24-snapshot sampler golden mismatch on Node 24"
+    ],
+    "nodeQaPassed": 243,
+    "nodeQaFailed": 0,
+    "cleanCiTests": 555,
+    "cleanCiFiles": 87,
+    "cleanCiCommands": 61,
+    "cleanCiPrivateCachePresent": false,
+    "cleanCiPrivateToolsPresent": false,
+    "cleanCiReusedNodeModules": true
+  },
+  "pack": {
+    "id": "e8b44eef3e02871bacef71ad27abca725f6cf2ab1107c659344bba45c9fd7e79",
+    "files": 1357,
+    "bytes": 576886380,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "evidence": [
+    {
+      "path": "artifacts/ahri-w-schema178-full-tests-v2.log",
+      "bytes": 4731,
+      "sha256": "61676f23a3749793121c8bd6f0d1422b57c5e61d78c60d6d7b75501a5309d91c"
+    },
+    {
+      "path": "artifacts/ahri-w-schema178-node-qa-v1.log",
+      "bytes": 19223,
+      "sha256": "6bd42689a4769db987279c373f8154d0bc310ce506c4499fba80c169c8728d5e"
+    },
+    {
+      "path": "artifacts/ahri-w-schema178-types-v2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/ahri-w-history-build-v1.log",
+      "bytes": 8739,
+      "sha256": "dac2578c871919cdcb0fb87d222f5d1d09cba79e4b0d99d935e97ca940c4a99a"
+    },
+    {
+      "path": "artifacts/ahri-w-history-pack-v1.log",
+      "bytes": 213,
+      "sha256": "bcb791325082ca69c05d273a4b7ef746e983365912d533c0ec194de92a5235ee"
+    },
+    {
+      "path": "artifacts/ahri-w-visual-observer-baseline-v1.log",
+      "bytes": 1397,
+      "sha256": "f6292c7d9f13779959a83005544b4c6261e8e5de5f8d686f89c63ccd11bebf89"
+    },
+    {
+      "path": "artifacts/ahri-w-visual-observer-verification-v1.log",
+      "bytes": 430,
+      "sha256": "b6f96c222f1ef9c5b8dd4a14fb19b513d83e0c57fb2ffa797957c7562c0b6bb2"
+    },
+    {
+      "path": "artifacts/ahri-w-visual-cohort-comparison-v1.log",
+      "bytes": 51,
+      "sha256": "f30ca3af7da38c02442afaa8630f5c66b9e2df7db7683ea64aa817fe72250930"
+    },
+    {
+      "path": "artifacts/ahri-w-history-clean-ci-results.json",
+      "bytes": 11183,
+      "sha256": "f9fdd9c5e3496f16187fa6025ff50ec32946d40ac60e93ce19c80939426359ef"
+    },
+    {
+      "path": "artifacts/ahri-w-history-clean-ci-extra-results.json",
+      "bytes": 2943,
+      "sha256": "023244b3ce9c952e184a342ec8f0f34e9e28f334c8236d3cc1c695ddb3ffc811"
+    }
+  ],
+  "limits": [
+    "Local observer verification only; primary work branch remains on accepted Q rendering.",
+    "No W particle renderer or public W particle transport is included.",
+    "One natural roster seed; hundred-seed and project-completion gates remain false.",
+    "Historical fog and target eligibility cannot be independently reconstructed from the saved observer inputs."
+  ]
+}
