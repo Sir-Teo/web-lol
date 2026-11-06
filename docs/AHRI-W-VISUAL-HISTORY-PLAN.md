@@ -128,5 +128,18 @@ All 149 focused old-state projections round-trip through the new schema. Fifteen
 checkpoints compare restored futures with original live Worlds; eleven malformed
 saves reject, including missing live history and forged identity/motion. Terminal
 settlement and the exact pruning boundary pass. TypeScript checking passes.
-The full regression run and post-observer natural roster comparison are pending.
+The full regression run passes 8,893 of 8,895 tests across 543 files; only the
+two previously recorded Leona reader and Lux sampler failures remain. All 243
+Node QA tests, the production build and offline-pack audit pass. The post-observer
+roster reaches the same Blue victory at tick 157,116, with 44 save round-trips
+and 43 future checks. All 45 complete old-state projections match; only version,
+ruleset and the new W history are excluded. Clean CI verification is pending.
 No W renderer or public particle asset has been added.
+
+The [complete-state comparison](reference/ahri/w-visual-history-gameplay-comparison.json)
+and [source delta](reference/ahri/w-visual-history-source-delta.json) bind both
+independent archives. The observer adds four compatibility modules and changes
+only the W lifecycle, World and snapshot modules. All 644 current compatibility
+files match the observer archive. Four sampled checkpoint projections retain W
+history, with at most one cast / 236 frames / 48,565 compact JSON bytes in those
+samples; these sampled maxima are not a universal memory bound.

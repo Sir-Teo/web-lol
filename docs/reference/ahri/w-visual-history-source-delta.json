@@ -1,0 +1,86 @@
+{
+  "format": 1,
+  "beforeRuleset": "5e4347edd208087bb82b7ad33f2d5ba3f77d6a9767da24a6c32c305cbbe7e694",
+  "afterRuleset": "cc3078bc03e40bcc10e62d7244cb5a2432ca7428141331f30cfe5ecfff6c7799",
+  "currentRuleset": "cc3078bc03e40bcc10e62d7244cb5a2432ca7428141331f30cfe5ecfff6c7799",
+  "beforeArchivedFiles": 645,
+  "afterArchivedFiles": 649,
+  "afterCompatibilityFiles": 644,
+  "archivedQaFilesOutsideRuleset": [
+    "tools/qa/lib/cohort-profile.ts",
+    "tools/qa/match-cohort.mjs",
+    "tools/qa/match-contract.ts",
+    "tools/qa/match-seed.ts",
+    "tools/qa/verify-match-cohort.mjs"
+  ],
+  "unchangedArchivedFiles": 642,
+  "changed": [
+    {
+      "file": "src/simulation/ahri-fox-fires.ts",
+      "before": {
+        "file": "src/simulation/ahri-fox-fires.ts",
+        "bytes": 9392,
+        "sha256": "c0dd8c7cf4cb17adc7786933c3dee9dc56736c6e0dfd23b8eaabec2a41f25db6"
+      },
+      "after": {
+        "file": "src/simulation/ahri-fox-fires.ts",
+        "bytes": 9994,
+        "sha256": "523d872e24ea7bba1a5c8d7ccaecb5f6b5793085a927b8bf87b4034ff7bf3790"
+      }
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "before": {
+        "file": "src/simulation/snapshot.ts",
+        "bytes": 206828,
+        "sha256": "4f117378c42f4551b8cc1dc22f38a448ce79cd297693b7b4565b905d525ffa7d"
+      },
+      "after": {
+        "file": "src/simulation/snapshot.ts",
+        "bytes": 208498,
+        "sha256": "337447d805e1d42dcb3c5295f8a557cad193c704860a2571798928f8ea1c8fae"
+      }
+    },
+    {
+      "file": "src/simulation/world.ts",
+      "before": {
+        "file": "src/simulation/world.ts",
+        "bytes": 326305,
+        "sha256": "56db0eb8bf4dc2e76d1362f57a45757fa5420b27d515c21a5986c5d674606f8a"
+      },
+      "after": {
+        "file": "src/simulation/world.ts",
+        "bytes": 326892,
+        "sha256": "2277c90ab71436e7aa0f9a7a781117e66a0d05ac5c2e83349be1e2a72f971ec1"
+      }
+    }
+  ],
+  "added": [
+    {
+      "file": "src/content/ahri-w-visual-timing.ts",
+      "bytes": 288,
+      "sha256": "4c4d716f5652d6738065d5671dad75bbeb0a899c331277c4eb982e1ac499d4e4"
+    },
+    {
+      "file": "src/simulation/ahri-w-visual-history-validation.ts",
+      "bytes": 4347,
+      "sha256": "2c3e5fb44d77c7c7ecd57e9f621cf4af636aae1743cbba8c5569b21409d3493f"
+    },
+    {
+      "file": "src/simulation/ahri-w-visual-history.ts",
+      "bytes": 5384,
+      "sha256": "e47d4139d7a196c5fe40419d6d73019b655d65eaa0172455560ba3f826b12f61"
+    },
+    {
+      "file": "src/simulation/ahri-w-visual-validation.ts",
+      "bytes": 4493,
+      "sha256": "2b55207e324bc1213d7962c7ae66243a21d05a2cd36685d462eea98bcae07cc7"
+    }
+  ],
+  "removed": [],
+  "allArchivedPinsVerified": true,
+  "currentCompatibilityBytesMatch": true,
+  "limits": [
+    "This source delta is separate from gameplay comparison and native rendering acceptance."
+  ]
+}
