@@ -71,6 +71,11 @@ external step cases and 21 replays / 1,260 steps. All 89 tests pass, preserving
 fresh-birth zero delta and stored/moving drag changes. Lifetime, spin and final
 placement remain separate playback stages.
 
+The [lifetime-settlement stage](SOURCE-LIFETIME-SETTLEMENT.md) now matches 336
+independent samples across all four modes; all 340 cases pass. Total-life caps,
+remaining-life modes and strict end boundaries remain distinct. Particle
+retirement and full system playback remain caller-owned.
+
 ## Recent verified checkpoints
 
 All 21 Baron emitters now have a [strict private parameter stage](BARON-ATTACK-PROGRAM.md),

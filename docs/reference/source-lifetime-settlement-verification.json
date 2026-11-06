@@ -1,0 +1,36 @@
+{
+  "format": 1,
+  "testsPassed": 340,
+  "independentSamples": 336,
+  "policies": 28,
+  "typecheck": "passed",
+  "nativeExecuted": false,
+  "runtimeBinding": false,
+  "evidence": [
+    {
+      "path": "artifacts/source-lifetime-settlement-tests.log",
+      "bytes": 852,
+      "sha256": "1aa0cd2f4515e1ea26ca6be4f14d1d4762df8073fe72c5e58df9618e6ebeb1a6"
+    },
+    {
+      "path": "artifacts/source-lifetime-settlement-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tools/assets/export-source-lifetime-samples.mjs",
+      "bytes": 5201,
+      "sha256": "3f7914f996fac83f46ba101fc73a46a931b83caeda165a07757069197fe2f08b"
+    },
+    {
+      "path": "docs/reference/source-lifetime-samples.json",
+      "bytes": 121857,
+      "sha256": "090e7b99e7d9df1e07fd676ce4cac2894e3dc6f1660889d4932ab0d93feea53d"
+    },
+    {
+      "path": "src/render/source-lifetime-settlement.ts",
+      "bytes": 3134,
+      "sha256": "1fb2ac0aa3c27e48a81394d1addc40c21221aaf3acb16e155f2fbba6d23b7c43"
+    }
+  ]
+}
