@@ -12,6 +12,7 @@ on:
       - 'public/assets/audio/ahri-fox-fire/**'
       - 'public/assets/audio/ahri-spirit-rush/**'
       - 'docs/reference/ahri-r-audio-properties.json'
+      - 'docs/reference/ahri-spirit-rush-gameplay-reference.json'
       - 'tools/assets/read-ahri-r-audio.py'
       - 'tools/assets/test-ahri-r-audio-reading.py'
       - 'tools/assets/export-ahri-spirit-rush-audio.py'
@@ -56,6 +57,7 @@ on:
       - 'public/assets/audio/ahri-fox-fire/**'
       - 'public/assets/audio/ahri-spirit-rush/**'
       - 'docs/reference/ahri-r-audio-properties.json'
+      - 'docs/reference/ahri-spirit-rush-gameplay-reference.json'
       - 'tools/assets/read-ahri-r-audio.py'
       - 'tools/assets/test-ahri-r-audio-reading.py'
       - 'tools/assets/export-ahri-spirit-rush-audio.py'
@@ -127,6 +129,8 @@ jobs:
           tests/wwise145-fade.test.ts
           tests/wwise145-log1.test.ts
           tests/ahri-spirit-rush-audio-assets.test.ts
+          tests/ahri-spirit-rush-gameplay-reference.test.ts
+          tests/ahri-r.test.ts
           tests/ahri-fox-fire-audio-assets.test.ts
           tests/ahri-fox-fire-audio-policy.test.ts
           tests/ahri-fox-fire-audio-history.test.ts
