@@ -1,4 +1,10 @@
 import {
+  beginAhriQCastVisual,
+  cancelUnbornAhriQCastVisual,
+  advanceAhriQCastVisuals,
+  type AhriQCastVisual,
+} from './ahri-q-cast-visuals';
+import {
   beginAhriRecallAudio,
   finishAhriRecallAudio,
   advanceAhriRecallAudio,
@@ -490,6 +496,7 @@ export class World {
   ahriEssences: AhriEssence[] = [];
   ahriPassiveAudio: AhriPassiveAudioRecord[] = [];
   ahriAttackAudio: AhriAttackAudioRecord[] = [];
+  ahriQCastVisuals: AhriQCastVisual[] = [];
   ahriRecallAudio: AhriRecallAudioRecord[] = [];
   ahriLifecycleAudio: AhriLifecycleAudioRecord[] = [];
   nextSunlightVisual = 1;
@@ -1213,6 +1220,7 @@ export class World {
       advanceAhriAttackAudio(this);
       advanceAhriLifecycleAudio(this);
       advanceAhriRecallAudio(this);
+      advanceAhriQCastVisuals(this);
     }
   }
   private update(): void {
@@ -6513,6 +6521,7 @@ export class World {
         for (const p of this.projectiles) if (p.type === 'charm') stopCharmAudio(this, p, p);
         finishAllAhriAttackAudio(this);
         finishAllAhriLifecycleAudio(this);
+        cancelUnbornAhriQCastVisual(this);
         for (const r of this.ahriRecallAudio) finishAhriRecallAudio(this, r.sourceId, 'match-end');
         this.projectiles.length = 0;
         for (const orb of this.ahriOrbs) finishOrbAudio(this, orb, 'match-end');
@@ -6547,6 +6556,7 @@ export class World {
         advanceAhriAttackAudio(this);
         advanceAhriLifecycleAudio(this);
         advanceAhriRecallAudio(this);
+        advanceAhriQCastVisuals(this);
         this.commands.length = 0;
         this.pendingSpawns.length = 0;
         for (const unit of this.units) this.setOrder(unit, { type: 'idle' });
@@ -6575,6 +6585,7 @@ export class World {
         targetState.deaths++;
         cancelCharmWindup(this, targetState.id);
         cancelOrbWindup(this, targetState.id);
+        cancelUnbornAhriQCastVisual(this, targetState.id);
         targetState.pendingCast = null;
         for (const r of this.luxEAudio.records)
           if (r.sourceId === target.id && r.launch === null && r.stopTick === null)
@@ -7340,6 +7351,7 @@ export class World {
         end: null,
         hits: [],
       });
+      beginAhriQCastVisual(this, u, point);
       this.emit('cast', u, { unit: u.id, champion: 'ahri', text: 'q', team: u.team });
       return;
     }
@@ -8154,6 +8166,7 @@ export class World {
       ahriRushes: this.ahriRushes,
       ahriCounters: this.ahriCounters,
       ...(this.ahriAttackAudio.length ? { ahriAttackAudio: this.ahriAttackAudio } : {}),
+      ...(this.ahriQCastVisuals.length ? { ahriQCastVisuals: this.ahriQCastVisuals } : {}),
       ...(this.ahriRecallAudio.length ? { ahriRecallAudio: this.ahriRecallAudio } : {}),
       ...(this.ahriLifecycleAudio.length ? { ahriLifecycleAudio: this.ahriLifecycleAudio } : {}),
       ahriEssences: this.ahriEssences,

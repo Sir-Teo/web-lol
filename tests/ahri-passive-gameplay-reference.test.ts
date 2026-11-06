@@ -13,6 +13,7 @@ class LifecyclePresentationProjection extends World {
     const state = JSON.parse(super.snapshot());
     delete state.ahriLifecycleAudio;
     delete state.ahriRecallAudio;
+    delete state.ahriQCastVisuals;
     return JSON.stringify(state);
   }
 }

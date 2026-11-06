@@ -218,6 +218,8 @@ jobs:
           tests/ahri-recall-audio-controller.test.ts
           tests/ahri-recall-audio-history.test.ts
           tests/ahri-recall-audio-policy.test.ts
+          tests/ahri-q-cast-visual-history.test.ts
+          tests/ahri-q-cast-timing.test.ts
           tests/ahri-q-cast-gameplay-reference.test.ts
           tests/ahri-recall-gameplay-reference.test.ts
           tests/ahri-recall-audio-assets.test.ts

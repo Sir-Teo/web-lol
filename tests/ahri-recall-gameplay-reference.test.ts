@@ -4,16 +4,20 @@ import { expect, test } from 'vitest';
 import { World } from '../src/simulation/world';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
 import reference from '../docs/reference/ahri-recall-gameplay-reference.json';
-import {
-  RECALL_GAMEPLAY_CASES,
-  recallGameplaySamples,
-} from './helpers/ahri-recall-gameplay';
+import { RECALL_GAMEPLAY_CASES, recallGameplaySamples } from './helpers/ahri-recall-gameplay';
+
+// Remove only the newly added Q cast visual field from the current side.
+class QCastPresentationProjection extends World {
+  override snapshot(): string {
+    const state = JSON.parse(super.snapshot());
+    delete state.ahriQCastVisuals;
+    return JSON.stringify(state);
+  }
+}
 
 test('Recall audio work preserves 104 complete archived gameplay projections', () => {
   expect(
-    createHash('sha256')
-      .update(readFileSync('tests/helpers/ahri-recall-gameplay.ts'))
-      .digest('hex')
+    createHash('sha256').update(readFileSync('tests/helpers/ahri-recall-gameplay.ts')).digest('hex')
   ).toBe(reference.scenarioHelperSha256);
   expect(
     createHash('sha256')
@@ -23,12 +27,14 @@ test('Recall audio work preserves 104 complete archived gameplay projections', (
   expect(reference.cases.map((c) => c.scenario)).toEqual([...RECALL_GAMEPLAY_CASES]);
   for (const scenario of RECALL_GAMEPLAY_CASES) {
     const expected = reference.cases.find((c) => c.scenario === scenario)!;
-    const actual = recallGameplaySamples(World, PRACTICE_FIXTURE, scenario).map(
-      ({ tick, state }) => ({
-        tick,
-        sha256: createHash('sha256').update(state).digest('hex'),
-      })
-    );
+    const actual = recallGameplaySamples(
+      QCastPresentationProjection,
+      PRACTICE_FIXTURE,
+      scenario
+    ).map(({ tick, state }) => ({
+      tick,
+      sha256: createHash('sha256').update(state).digest('hex'),
+    }));
     expect(actual, scenario).toEqual(expected.samples);
   }
 });

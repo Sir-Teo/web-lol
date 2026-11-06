@@ -1,3 +1,4 @@
+import { validateAhriQCastVisuals } from './ahri-q-cast-visual-validation';
 import { validateAhriRecallAudio } from './ahri-recall-audio-validation';
 import { validateAhriLifecycleAudio } from './ahri-lifecycle-audio-validation';
 import { validateAhriAttackAudio } from './ahri-attack-audio-validation';
@@ -185,7 +186,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 175;
+export const SNAPSHOT_VERSION = 176;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -2277,6 +2278,20 @@ const snapshot = z.strictObject({
       })
     )
     .max(10000),
+  ahriQCastVisuals: z
+    .array(
+      z.strictObject({
+        sourceId: id,
+        team,
+        castTick: tick,
+        origin: point,
+        aim: point,
+        birth: z.strictObject({ tick, audience: z.array(team).max(2) }).nullable(),
+      })
+    )
+    .min(1)
+    .max(10000)
+    .optional(),
   ahriRecallAudio: z
     .array(
       z.strictObject({
@@ -4213,6 +4228,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   validateAhriAttackAudio(state);
   validateAhriLifecycleAudio(state);
   validateAhriRecallAudio(state);
+  validateAhriQCastVisuals(state);
   if (!hero || hero.kind !== 'champion' || hero.team !== 'blue')
     throw new Error('Saved match is missing its player.');
   for (const target of state.units) {
