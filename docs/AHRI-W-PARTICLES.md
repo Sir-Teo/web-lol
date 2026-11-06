@@ -130,3 +130,7 @@ cover exact reproduction, final-ledger conflicts, symlinked leaves/parents,
 changed source/decode pins and corrupt mesh input. Each producer preflights its
 whole output closure before writing an earlier asset. These remain 37 private
 files / 1,923,662 bytes, with no public preload or runtime effect.
+
+The [transport verification](reference/ahri/w-particle-transports-verification.json)
+binds every ledger and successful guard/engine run to its original source-only
+revision. Runtime/public source bytes remain unchanged.

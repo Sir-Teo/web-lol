@@ -1,0 +1,105 @@
+{
+  "format": 1,
+  "transportRevision": "36227915cc0adf2a272a2ce9819787f3a7a26785",
+  "scope": "Complete five-resource private Fox-Fire transport closure only; no runtime dispatch or public assets.",
+  "sourceRecord": {
+    "path": "/workspace/web-lol-ahri-w-particles/docs/reference/ahri/w-particles.json",
+    "bytes": 235407,
+    "sha256": "c1226324a728137c05062dafc7d4a102a0799a371d233d58e3f81558c26dbb47"
+  },
+  "decodedRecord": {
+    "path": "/workspace/web-lol-ahri-w-particles/docs/reference/ahri/w-particles-decoded.json",
+    "bytes": 216180,
+    "sha256": "11838eed2092e7301577471d3b28670ebc781194f865eb3a1f642fda483abbca"
+  },
+  "textures": {
+    "ledger": {
+      "path": "/workspace/web-lol-ahri-w-particles/docs/reference/ahri/w-texture-transports.json",
+      "bytes": 85622,
+      "sha256": "ce2c00385aabbb50e1ad29a7382a34c18c5357fc654270e7a1c04e09c1ed7be4"
+    },
+    "files": 35,
+    "mips": 292,
+    "bytes": 1891082,
+    "allAuthoredMipPixelsReplay": true,
+    "guardCasesPerMode": 7,
+    "modes": [
+      "normal",
+      "optimized"
+    ]
+  },
+  "meshes": {
+    "ledger": {
+      "path": "/workspace/web-lol-ahri-w-particles/docs/reference/ahri/w-mesh-transports.json",
+      "bytes": 2667,
+      "sha256": "35d3a2ca7f4272ee7911dbf11c0a66b8febdd0c1423ccabcdbbd3e4a4052f3ef"
+    },
+    "files": 2,
+    "bytes": 32580,
+    "sourceVertices": 786,
+    "transportVertices": 812,
+    "triangles": 1143,
+    "sourceColors": true,
+    "exactTriangleUvColorReplay": true,
+    "sourceCoordinatesPreserved": true,
+    "normalsGenerated": false,
+    "validatorErrors": 0,
+    "validatorWarnings": 0,
+    "engine": "Three.js 186",
+    "engineMeshesLoaded": 2,
+    "guardCases": 5
+  },
+  "privateAssetFiles": 37,
+  "privateAssetBytes": 1923662,
+  "publication": {
+    "wholeClosurePreflight": true,
+    "finalLedgerConflictPreventsEarlierWrites": true,
+    "symlinkLeafAndParentRejected": true,
+    "corruptInputsRejected": true
+  },
+  "runtimeChanged": false,
+  "publicAssetsChanged": false,
+  "sourcePreparationSchema": 177,
+  "sourcePreparationRuleset": "5e4347edd208087bb82b7ad33f2d5ba3f77d6a9767da24a6c32c305cbbe7e694",
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-texture-pack-v1.log",
+      "bytes": 103,
+      "sha256": "38a1c97a38b31dfbbff0561bcb333826c4a382fdfa912a16f8b899754e0800f2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-texture-pack-check-v1.log",
+      "bytes": 104,
+      "sha256": "b5a9e382d2eae35076d8fc6a5a4c78036c5dd1399a4fe72e2279278736d512a7"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-texture-guards-normal-v1.log",
+      "bytes": 106,
+      "sha256": "5edd50111c4149832f71c475877663e840c47c02baf507abc48b4afb5657dcf6"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-texture-guards-optimized-v1.log",
+      "bytes": 106,
+      "sha256": "e9525103f6eb47cc294e1f4b3333f4c44f6e5bb7a283fde5f94b9dbbe07b5949"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-mesh-conversion-v1.log",
+      "bytes": 134,
+      "sha256": "d7f2a216751230b01c2727c4fb186028cdb809f4d67bf2a800287add900a754a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-mesh-engine-load-v1.log",
+      "bytes": 413,
+      "sha256": "3a5d34d11b7ddc02a3143deb7925a1356e517f4d98ea2f69169836648d46cd89"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-mesh-guards-v1.log",
+      "bytes": 536,
+      "sha256": "fbdec8ea6dfee89011a2f3d1c7c2b591e5eaf02c5695afb6b9fd55787235ee87"
+    }
+  ],
+  "limits": [
+    "No native callback, shader/pixel or device-performance certificate follows from private transport validation.",
+    "Cast/weapon resources remain unjoined in the separate native spell reading."
+  ]
+}
