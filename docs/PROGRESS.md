@@ -9302,3 +9302,7 @@ Historical e20 ruleset / schema 163 run completed all 100 requested seeds: 98 vi
 ### All-emitter Baron batched preview
 
 The isolated browser renderer draws all 21 source emitters using actual authored textures and capsule geometry, with one draw per emitter and no emission-sphere fetch. Reviewed eight retained previews, including missile/hit at tick 20. WAKE/OFF ribbon position/UV bytes match 48 full external-writer cases; 53 geometry/ownership/fog/capacity tests and TypeScript pass. The 84 external-fragment pixel cases still pass after adding instancing. Explicit neutral preview birth factors remain uncertified; active gameplay binding and attachment/height/size routing remain open. See docs/BARON-BATCHED-PREVIEW.md.
+
+### Baron asset delivery production/offline acceptance
+
+Pack 0ccf9308076f1631d2e78fa4ba632cb81bb22bebb79a975fdf8370f075473067 passes full byte/hash verification of all 1,232 files / 552,784,786 bytes, strict nested-prefix production browser checks, and full offline acceptance. All 28 Baron transport files are included. Offline checks cover corrupt download rejection, cancellation/retry, saved tick boot, repair, new match, atomic two-version switching, missing-entry revocation and scoped removal; 978 service-worker responses and zero production errors. Ordinary production requests no Baron preload. Ruleset ebf613 / schema 165. This records asset delivery without active Baron effect gameplay binding. See docs/reference/baron-delivery-acceptance.json.

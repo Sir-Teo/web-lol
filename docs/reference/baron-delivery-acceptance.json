@@ -1,0 +1,57 @@
+{
+  "format": 1,
+  "ruleset": "ebf613f67aab4746e22843fc3c06bffc188104d3783c7e889c71461b6e46b53a",
+  "snapshotVersion": 165,
+  "pack": {
+    "id": "0ccf9308076f1631d2e78fa4ba632cb81bb22bebb79a975fdf8370f075473067",
+    "files": 1232,
+    "bytes": 552784786,
+    "baronFiles": 28,
+    "baronBytes": 1117599
+  },
+  "fullPackByteVerification": "passed",
+  "nestedPrefixProduction": "passed",
+  "offlineProduction": "passed",
+  "checks": {
+    "integrityFailureRestoresDownloadFocus": true,
+    "integrityFailure": true,
+    "downloadFocusesCancel": true,
+    "cancelRetainsVerified": true,
+    "cancelRestoresDownloadFocus": true,
+    "retryWithoutRedownload": true,
+    "completionPreservesOtherControlFocus": true,
+    "pausedSavedTickBootsOffline": true,
+    "completePackRepairOffline": true,
+    "newLuxLaneMatchOffline": true,
+    "serviceWorkerResponses": 978,
+    "removalKeepsSavedBytes": true,
+    "updateRefusesOtherTabs": true,
+    "explicitAtomicVersionSwitchOffline": true,
+    "missingEntryRevokesReady": true,
+    "scopeOnlyRemoval": true
+  },
+  "activeBaronGameplayRenderer": false,
+  "nativeExecuted": false,
+  "evidence": [
+    {
+      "path": "artifacts/baron-delivery-offline-pack-manifest.json",
+      "bytes": 176930,
+      "sha256": "e8211406ec4f7109aecc505fcce58ef014ab08d659428eed7fc505e9c6289374"
+    },
+    {
+      "path": "artifacts/baron-delivery-production-subpath.log",
+      "bytes": 3176,
+      "sha256": "f9ab7a2e5bc0c969c708de75cefa76364d589be4801b0549e45d886f7d434fba"
+    },
+    {
+      "path": "artifacts/baron-delivery-offline-pack.log",
+      "bytes": 870,
+      "sha256": "9f83a7ee56c14b80e72418de7b44cfff7db82451a29ae42f8e127421729533ff"
+    },
+    {
+      "path": "artifacts/offline-pack-baron-delivery-0ccf9308-production.json",
+      "bytes": 859,
+      "sha256": "3182736772f9003b239a3804f5cd8de1bed319b05cfc2b8f4ad09e95aa955c80"
+    }
+  ]
+}

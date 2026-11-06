@@ -26,8 +26,9 @@ remains pending. See BARON-ATTACK-SYSTEM.md and BARON-PARTICLE-MATERIAL.md.
 
 Production build passes. Its generated pack is `f242683be8272476196aa3f180114431c028c254fb04d9388cbe737fcd10af4f`:
 1204 files / 551,667,187 bytes. This records the build identity;
-full nested-prefix and offline-pack acceptance remain tied to the earlier e20
-pack until repeated for a new delivery checkpoint. Existing evidence is not
+The subsequent delivery checkpoint has passed strict nested-prefix production,
+full offline acceptance and all-file byte verification; see
+`reference/baron-delivery-acceptance.json`. Existing checkpoint evidence is not
 relabeled. The subsequent transport delivery publishes 28 unchanged Baron files; its build
 pack is `0ccf9308076f1631d2e78fa4ba632cb81bb22bebb79a975fdf8370f075473067`.
 The earlier pack above remains the full-unit/browser checkpoint identity.
