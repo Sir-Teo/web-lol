@@ -6,16 +6,28 @@ Last updated: November 6, 2026 (UTC).
 
 ## Current authoritative state
 
-The runtime now uses save schema **165**, ruleset
-`fa62e04941bf41b136da3d6f35e96314670adcbd4f11dd590e2bdb39e3b78cea`.
-[Baron flight and contact histories](BARON-ATTACK-HISTORY.md) preserve released
-paths, visibility and target poses across save/reload. Four paired scenarios
-match the frozen prior gameplay trajectory for 1,680 ticks. Five browser cases
-pass, including actual in-flight and contact saves. The saved launch pose now remains independent of later body animation. Native emitter playback and
-launch-mouth transforms remain pending; the visible marker is provisional.
-The production/offline pack below belongs to the earlier e20 ruleset.
-The quiet full suite passes 3,891/3,893 cases; only the two previously recorded
-Leona archive and Lux digest gaps remain. See [release-pose evidence](BARON-RELEASE-POSE.md).
+Runtime: save schema **165**, ruleset
+`ebf613f67aab4746e22843fc3c06bffc188104d3783c7e889c71461b6e46b53a`. The [current checkpoint](CURRENT-BARON-SOURCE-KERNELS.md)
+passes 8,041/8,043 unit cases; only the historical Leona archive and Lux digest
+gaps remain. All five Baron browser cases pass, and 1,680 paired ticks preserve
+the frozen prior gameplay trajectory. Flight/contact histories and launch poses
+survive real save/reload.
+
+Source-parameter and arithmetic preparation covers all 21 Baron emitters. The
+private format-2 program preserves authored keys, all 25 textures/214 mips and
+two meshes. Full effect-system composition and active GPU playback remain next;
+the current attack marker stays provisional. Native bound-size and missile-height
+routing remain open, and external-kernel fixtures are not native-client certification.
+
+The current production build passes and generates pack `f242683be8272476196aa3f180114431c028c254fb04d9388cbe737fcd10af4f`.
+The earlier e20 production/offline acceptance keeps its original scope. The
+frozen e20 cohort is still running; at this checkpoint 74 seeds have zero invariant
+failures, with two unfinished at the time limit. It does not certify this ruleset.
+
+## Recent verified checkpoints
+
+These incremental records retain their original scope; listed next steps may be
+superseded by later work. Use the authoritative section above for current status.
 
 The [historical launch attachment](BARON-LAUNCH-ATTACHMENT.md) now samples the
 authored JawBot from an independent skeleton, including the pinned native model.
@@ -88,8 +100,6 @@ The [frame/binding stage](SOURCE-PARTICLE-FRAME.md) now matches 848 independent
 exact-byte samples; all 852 tests pass. Fresh-frame binding, birth/current frames,
 world transforms and unturned acceleration remain explicit. Full particle-system
 composition and renderer dispatch remain next work.
-
-## Recent verified checkpoints
 
 All 21 Baron emitters now have a [strict private parameter stage](BARON-ATTACK-PROGRAM.md),
 with complete 25-texture/214-mip/two-mesh bindings and native-unit emission data.

@@ -1,0 +1,72 @@
+{
+  "format": 1,
+  "schema": 165,
+  "ruleset": "ebf613f67aab4746e22843fc3c06bffc188104d3783c7e889c71461b6e46b53a",
+  "unit": {
+    "passed": 8041,
+    "failed": 2,
+    "files": 447,
+    "open": [
+      "historical Leona checker/input archive missing",
+      "Lux 24-snapshot digest mismatch"
+    ]
+  },
+  "browser": {
+    "passed": 5,
+    "nativeParticleRendering": false
+  },
+  "parity": {
+    "scenarios": 4,
+    "ticks": 1680
+  },
+  "build": {
+    "status": "passed",
+    "pack": "f242683be8272476196aa3f180114431c028c254fb04d9388cbe737fcd10af4f",
+    "files": 1204,
+    "bytes": 551667187,
+    "fullOfflineAcceptance": "historical e20 only"
+  },
+  "nativeExecuted": false,
+  "evidence": [
+    {
+      "path": "artifacts/baron-source-kernel-full-unit.log",
+      "bytes": 20689,
+      "sha256": "164e33e58c9f74881b90a5f043f285051993e36f5f5f6c71e075117e9d774406"
+    },
+    {
+      "path": "artifacts/baron-source-kernel-full-unit-pause.json",
+      "bytes": 1397,
+      "sha256": "a652305b868dd99a39933905e4217003fa04fb5a7047eb2d0be6b6fd007b1105"
+    },
+    {
+      "path": "artifacts/baron-source-kernel-browser.log",
+      "bytes": 3089,
+      "sha256": "b89a198d97c14a7c9210d889e88547c8d47ff111cd654d182306ddcf5b7f1d7b"
+    },
+    {
+      "path": "artifacts/baron-source-kernel-browser-pause.json",
+      "bytes": 1405,
+      "sha256": "b60d752dabbfc5ff5bd89d6651fc478048c9057104de10ea43de168abccc7735"
+    },
+    {
+      "path": "artifacts/baron-source-kernel-gameplay-parity.json",
+      "bytes": 278,
+      "sha256": "80ee310f9f336aa33486357fe5d16dfdcc425b365c660b1d076fd7c86d4df577"
+    },
+    {
+      "path": "artifacts/baron-source-kernel-build.log",
+      "bytes": 7124,
+      "sha256": "837d4e7e05ea66649292a3d6011955e1463ada4137e54e8ccb34f6b2e39d8b0d"
+    },
+    {
+      "path": "artifacts/baron-source-kernel-identity-audit.json",
+      "bytes": 283,
+      "sha256": "f6672a43a53aea2c171628af05a9363b0eccc9769da97dca3b6d016541784df0"
+    },
+    {
+      "path": "artifacts/baron-source-kernel-browser/baron-projectile-real-comb-22637-age-and-restores-its-flight/baron-provisional-flight.png",
+      "bytes": 894958,
+      "sha256": "12dcbb998acf2e7291cea6084a3a1fb8153523b91221ec59a45e35da930767f7"
+    }
+  ]
+}

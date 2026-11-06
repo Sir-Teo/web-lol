@@ -1,5 +1,9 @@
 # Baron release-pose capture
 
+The evidence below retains its original fa62e049 identity. The subsequent
+sampler-factory type change produces a [new current fingerprint](CURRENT-BARON-SOURCE-KERNELS.md)
+with the same save schema.
+
 Commit follow-up to the schema-164 flight/contact history: schema **165** adds
 an independently owned launch body pose. Current ruleset:
 `fa62e04941bf41b136da3d6f35e96314670adcbd4f11dd590e2bdb39e3b78cea`.

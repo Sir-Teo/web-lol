@@ -1,5 +1,9 @@
 # Saved Baron attack histories
 
+This records the initial schema-164 checkpoint. Schema 165 adds the
+[release pose](BARON-RELEASE-POSE.md); see the [current checkpoint](CURRENT-BARON-SOURCE-KERNELS.md)
+for current ruleset and verification scope.
+
 Save schema 164 retains each released Baron attack using its existing projectile
 ID, without allocating gameplay IDs or consuming random numbers. Ruleset:
 `9c4d0ece38e7bfd3000ecc5617ccbef954831b064f7c1259bd6d920c89951d4c`.
