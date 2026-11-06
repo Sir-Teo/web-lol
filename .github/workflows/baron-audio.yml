@@ -115,6 +115,7 @@ jobs:
           tests/wwise145-fade.test.ts
           tests/wwise145-log1.test.ts
           tests/ahri-fox-fire-audio-assets.test.ts
+          tests/ahri-fox-fire-audio-policy.test.ts
           tests/ahri-fox-fire-gameplay-reference.test.ts
           tests/ahri-w.test.ts
           tests/ahri-orb-audio-assets.test.ts

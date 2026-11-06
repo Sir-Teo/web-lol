@@ -29,3 +29,9 @@ The retained hit-stop action uses curve 2 (Log1), distinct from Exp1. A new prod
 All 164 scoped CI cases in 22 files, 97 Node QA checks and TypeScript pass. A separate native Web Audio fixture renders twelve full, late-seek, early-stop and naturally truncated cases across all three curves; maximum error is below 1e-5 and output is zero after each finite end. The empty browser fixture imports only the envelope module and does not boot the game. External-reader arithmetic and local scheduling do not certify native dispatch or mix. In particular, the source hit-stop action remains distinct from natural clip completion; its gameplay dispatch clock is not assigned by this preparation.
 
 The updated baseline selector also passes 162 tests in 21 files from a clean detached checkout. `reference/ahri-fox-fire-source-stage-verification.json` pins the distinct source, baseline and Log1 checks; their revisions remain separate.
+
+## Local profile and finite-tail bounds
+
+The publisher now additionally generates a separate timing table: thirteen outputs / 2,990,062 bytes. The finite cast/launch/hit/tail maxima are 123/70/65/82 ticks under the explicit local additive ancestry and slowest pitch policy. Activation remains continuous with no natural maximum; its explicit stop fade is twelve ticks. The separate launch/hit Stop metadata retains thirty/sixty ticks, with hit-stop dispatch still unassigned.
+
+Five local profiles preserve gains, caps, pitch bases and modifiers independently of the raw graph. The activation profile has a null finite bound and retains its single full source master. The stop-tail profile selects the second Play action in the ordered activation Stop event. Three profile checks independently compare Python retention bounds with TypeScript derivation; all 36 scoped source/policy/gameplay checks, TypeScript and both six-probe publication modes pass. No saved history or playback is bound yet.

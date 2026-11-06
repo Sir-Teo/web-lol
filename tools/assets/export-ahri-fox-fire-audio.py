@@ -122,7 +122,25 @@ def build():
     text = ('// Generated unflattened source graph. Native continuous-container scheduling and dispatch remain unverified.\n'
             'export const AHRI_FOX_FIRE_AUDIO = ' + json.dumps(source, indent=2) + ' as const;\n')
     outputs[target] = subprocess.check_output(['node_modules/.bin/prettier', '--stdin-filepath', target], input=text.encode())
-    require(len(outputs) == 12, 'Changed W publication closure')
+    local_nodes = {n['id']: n for n in containers + sounds + mixers}
+    def span(container_id):
+        durations = []
+        for entry in local_nodes[container_id]['playlist']:
+            sound = local_nodes[entry['id']]
+            current, pitch, minimum = sound, 0, 0
+            while current:
+                pitch += current['properties'].get('Pitch', 0)
+                minimum += current['ranges'].get('Pitch', [0, 0])[0]
+                current = local_nodes[current['parentId']] if current['parentId'] else None
+            durations.append(sound['clip']['durationSeconds'] / 2 ** ((pitch + minimum) / 1200))
+        return math.ceil(max(durations) * 60)
+    ticks = dict(cast=span(1030341802), launch=span(347259201), hit=span(405923955),
+                 tail=span(607705804), activationStop=12, launchStop=30, hitStop=60)
+    target_timing = 'src/content/ahri-fox-fire-audio-timing.ts'
+    timing = ('// Local finite tail bounds; activation stays continuous until an explicit stop.\n'
+              'export const AHRI_FOX_FIRE_AUDIO_TICKS = ' + json.dumps(ticks, indent=2) + ' as const;\n')
+    outputs[target_timing] = subprocess.check_output(['node_modules/.bin/prettier', '--stdin-filepath', target_timing], input=timing.encode())
+    require(len(outputs) == 13, 'Changed W publication closure')
     return outputs
 
 
