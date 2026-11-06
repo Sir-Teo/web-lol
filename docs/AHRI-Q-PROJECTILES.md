@@ -53,7 +53,12 @@ retains its own schema 177 / `3421b665` frozen cohort. Later renderer changes
 receive a separate fingerprint and source comparison; the older cohort is not
 relabeled. Renderer tests cover all 36 profiles, exact restored packets, real
 return Flash, hidden entry, terminal cleanup, and borrowed-resource ownership.
-Browser and production acceptance are recorded separately when complete.
+The [renderer acceptance](reference/ahri/q-projectile-rendering-acceptance.json)
+records 8,879 full-suite passes (two historical failures), 237 Node QA passes,
+541 clean-CI tests / 52 commands, and 34 browser cases. Nested-host production,
+all-file pack audit and offline lifecycle pass for pack `4b183389`:
+1,357 files / 576,879,237 bytes. All 76 PCM masters and the worker policy remain
+unchanged.
 
 External writer agreement, source asset verification and browser rendering do
 not establish native callback chronology, target-patch pixel equivalence or

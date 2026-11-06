@@ -6,23 +6,24 @@ Last updated: November 6, 2026 (UTC).
 
 ## Current authoritative state
 
-Accepted local runtime: save schema **176**, ruleset
-`732a3ce3c6c382d4a61443620c4cb906b17f45454122456e7c18b9b7cd882dd8`,
-application `f003386`. [Ahri Q cast particles](AHRI-Q-CAST.md) add saved delayed
-birth, the source swirls/glow and an independently animated Tails skin to the
-existing eight audio families and 76 exact PCM masters. Other Q particle systems
-remain unbound.
+Accepted local runtime: save schema **177**, ruleset
+`5e4347edd208087bb82b7ad33f2d5ba3f77d6a9767da24a6c32c305cbbe7e694`,
+application `9449e0f`. [Ahri Q projectile rendering](AHRI-Q-PROJECTILES.md)
+adds both declared missile systems: 26 surface and ten trail profiles with saved
+paths, visibility, phase stops and exact restored packets. The existing
+[cast particles](AHRI-Q-CAST.md), eight audio families and 76 exact PCM masters
+remain intact. Hit, speed and Orb_Cast particle systems remain unbound.
 
-The full suite passes 8,792/8,794 in 526 files, with two historical failures.
-All 214 Node QA cases, 454 scoped CI tests in 70 files, TypeScript and 44
-cache-free CI commands pass (42 Python invocations: 40 guard modes and two
-portable reading checks). Thirty browser cases and production/offline gates
-pass; see [cast acceptance](reference/ahri/q-cast-rendering-acceptance.json).
+The full suite passes 8,879/8,881 in 538 files, with two historical failures.
+All 237 Node QA cases, 541 scoped CI tests in 82 files, TypeScript and 52
+cache-free CI commands pass (50 Python invocations: 46 guard modes and four
+portable reading checks). Thirty-four browser cases and production/offline
+gates pass; see [projectile acceptance](reference/ahri/q-projectile-rendering-acceptance.json).
 
-The accepted pack is `44d4243d`, with 1,337 files / 575,974,327 bytes.
-The worker policy is unchanged. Earlier family receipts retain their original
-scope. All work remains local. Emote/idle source and the two projectile-resource
-asset preparations remain isolated on their own branches.
+The accepted pack is `4b183389`, with 1,357 files / 576,879,237 bytes.
+The worker policy is unchanged. Earlier family receipts and frozen cohorts
+retain their original identities. All work remains local. Fox-Fire particle
+source/decoding and emote/idle source preparation remain isolated.
 
 The [frozen hundred-seed development-roster baseline](CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md)
 is complete: 100 natural victories, zero unfinished matches or invariant failures,
@@ -39,6 +40,18 @@ Roadmap milestone 4 and project completion remain false. The historical records
 below retain earlier intermediate limitations and next steps.
 
 ## Recent verified checkpoints
+
+The [projectile renderer](AHRI-Q-PROJECTILES.md) uses all 151 authored texture
+mips and three source mesh geometries, borrowing two textures and the caster
+swirls. It preserves back-to-front trail smoothing, source erosion/secondary UVs,
+hidden-entry visibility, actual return Flash/death, exact restore packets and
+finite terminal drain. Two browser screenshots were reviewed; native pixels and
+device performance remain unverified. The frozen `3421b665` observer run keeps
+its original 157,116-tick victory, 44 restores / 43 future checks and 45 matching
+projections. Its [source delta](reference/ahri/q-projectile-rendering-source-delta.json)
+retains 637/639 files unchanged and records the two compatibility/presentation
+changes plus six added runtime modules. No hundred-seed result is relabeled.
+
 
 Primary `work` fast-forwards from `b1d5b8f` to `059734d` with no merge edits.
 Its fresh build and full pack/worker audit reproduce `44d4243d` exactly; the

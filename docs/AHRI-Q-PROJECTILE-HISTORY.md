@@ -44,3 +44,6 @@ caches/tools. A fresh frozen 639-file cohort reaches blue victory at tick
 157,116, with 44 round trips, 43 continuation checks and all 45 saved projections
 matching the previous Q cast cohort. These results retain their own schema 177
 and ruleset identity; the older cohort and accepted pack are unchanged.
+
+Later [projectile rendering](AHRI-Q-PROJECTILES.md) has its own acceptance and
+source comparison. This observer verification retains its original identity.
