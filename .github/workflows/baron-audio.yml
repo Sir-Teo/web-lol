@@ -147,6 +147,7 @@ jobs:
           tests/wwise145-fade.test.ts
           tests/wwise145-log1.test.ts
           tests/ahri-passive-audio-assets.test.ts
+          tests/ahri-passive-audio-policy.test.ts
           tests/ahri-spirit-rush-audio-assets.test.ts
           tests/ahri-spirit-rush-audio-policy.test.ts
           tests/ahri-spirit-rush-audio-history.test.ts

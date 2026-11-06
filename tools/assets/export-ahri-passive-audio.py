@@ -121,7 +121,25 @@ def build():
     text = ('// Generated unflattened source graph. Shared media retain distinct sound rows; native dispatch/inheritance remain unverified.\n'
             'export const AHRI_PASSIVE_AUDIO = ' + json.dumps(source, indent=2) + ' as const;\n')
     outputs[target] = subprocess.check_output(['node_modules/.bin/prettier', '--stdin-filepath', target], input=text.encode())
-    require(len(outputs) == 6, 'Changed passive publication closure')
+    local_nodes = {n['id']: n for n in containers + sounds + mixers}
+    def span(container_id):
+        durations = []
+        for entry in local_nodes[container_id]['playlist']:
+            sound = local_nodes[entry['id']]
+            current, pitch, minimum = sound, 0, 0
+            while current:
+                pitch += current['properties'].get('Pitch', 0)
+                minimum += current['ranges'].get('Pitch', [0, 0])[0]
+                current = local_nodes[current['parentId']] if current['parentId'] else None
+            durations.append(sound['clip']['durationSeconds'] / 2 ** ((pitch + minimum) / 1200))
+        return math.ceil(max(durations) * 60)
+    ticks = dict(launch=span(447547134), hit=span(761154906),
+                 orbBuffActivate=span(549126052), minionHeal=span(650258815))
+    target_timing = 'src/content/ahri-passive-audio-timing.ts'
+    timing = ('// Finite local tails; source declares no passive Stop actions.\n'
+              'export const AHRI_PASSIVE_AUDIO_TICKS = ' + json.dumps(ticks, indent=2) + ' as const;\n')
+    outputs[target_timing] = subprocess.check_output(['node_modules/.bin/prettier', '--stdin-filepath', target_timing], input=timing.encode())
+    require(len(outputs) == 7, 'Changed passive publication closure')
     return outputs
 
 

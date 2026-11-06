@@ -19,3 +19,9 @@ All nine asset/property tests, TypeScript and both normal/optimized whole-closur
 The reference producer verifies all583 frozen source/QA files from the actual schema171 / `c5d6be5a` World. Ten guarded scenarios yield120 complete projections, retaining R/W/Q/E histories and excluding only schema/ruleset and proposed passive audio history. Cases cover ninth minion/monster kills, champion consumption, partial/full overheal, death in flight, moving owner, captured AP, eight kills without a birth and the actual R extension. Terminal assertions retain observed consumption before the existing30-tick gameplay history expires.
 
 All20 baseline/mechanics checks and TypeScript pass. Source-stage `bd9ea69` separately passes cache-free CI:284 tests in35 files and22 Python guard modes. No passive audio history or playback is bound.
+
+## Local finite profiles
+
+Four source profiles retain launch/hit/orb-buff/minion-heal gains−15/−12/−8/−12 and four voices per container, with zero pitch omissions preserved. The two healing profiles share three unchanged WAVs while keeping separate source sound identities. Independent Python and TypeScript ancestry derivations agree on109/56/102/102 finite ticks. No passive source Stop action exists or is invented.
+
+The publication closure now has seven outputs /1,290,479 bytes. Both six-probe normal/optimized guards preflight the final timing table before writing any master. All31 source/policy/baseline/mechanics checks and TypeScript pass. Native global playlist state and event dispatch remain unverified; no passive history or playback is bound.
