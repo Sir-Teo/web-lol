@@ -9378,3 +9378,7 @@ Exported eight unchanged float masters and three candidate profiles through whol
 ### Bind private Baron candidate audio playback
 
 The private encounter explicitly loads the lazy eight-master controller. Source delay/probability/gains/pitch range and attenuation feed saved-identity local selection and release/contact clocks; native dispatch/shuffle/bus remain open. Owned finite tails survive visual pruning,2/4/4 container caps suppress stolen/ended replays, mute seeks on resume, and replacement/rewind clears ownership. Twenty scoped tests and real Chromium combat decode/mute/restore checks pass; decoded peaks above1.36 survive. Build passes. Audio kernels now enter the ruleset fingerprint (607225d0125d751ef96fb67dad31c26430bc212471b4dbe35554595ee90b3e20), schema167. Production/offline/full regression checkpoint is running. See docs/BARON-BASIC-AUDIO-PREVIEW.md.
+
+### Guard Baron audio publication as a complete closure
+
+Added isolated temporary-directory export probes in normal and optimized Python. Fresh export/check succeeds; missing outputs, a conflicting final profile, corrupt/symlink public masters and a changed private master all reject. A final-profile conflict creates none of the earlier eight output assets, proving preflight precedes publication. Existing repository assets stay unchanged. Both Node QA cases pass.
