@@ -9505,3 +9505,7 @@ Committed `6e67c09` adds finite, pitch-aware Q source playback with independent 
 ## Verified Orb playback delivery
 
 The accepted Q checkpoint passes 8,554/8,556 full-suite tests, 93 Node QA cases, cache-free 129-test CI and all ten Python guard modes. Six combined Charm/Q browser cases and a stronger two-leg contact/catch rerun pass. Native envelope errors stay below 1e-5. Nested-prefix production, full pack audit and complete offline lifecycle pass with 978 worker responses / zero production errors. Pack21178992 has1,279 files /562,049,206 bytes. The acceptance receipt pins45 artifacts; historical cohorts are not relabeled.
+
+## Integrate accepted Q playback into the primary branch
+
+Primary `work` fast-forwards from `c90e665` to `32f5863` without merge edits. Every source file matches the accepted Q branch. A fresh primary build and all-file audit reproduce pack21178992 exactly. The existing acceptance remains applicable; no full-suite repetition is needed for identical source. No push or deployment occurs. Fox-Fire source staging remains on its separate branch. See `reference/ahri-orb-main-integration.json`.
