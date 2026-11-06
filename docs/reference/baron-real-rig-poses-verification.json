@@ -1,0 +1,42 @@
+{
+  "format": 1,
+  "poses": 6,
+  "jointsPerPose": 8,
+  "focusedTestsPassed": 7,
+  "typecheck": "passed",
+  "referenceUnchanged": true,
+  "nativeExecuted": false,
+  "scope": "Private sampler against direct Three playback of pinned original clips; no native graph/dispatch calibration.",
+  "evidence": [
+    {
+      "path": "tests/helpers/pose-only-glb.ts",
+      "bytes": 1443,
+      "sha256": "00ed7bf90867e4a61365583ae9d2ae14a2581729a7cc193482c4080e56a9e881"
+    },
+    {
+      "path": "tools/assets/export-baron-pose-samples.mjs",
+      "bytes": 2726,
+      "sha256": "5f4530c8f32220288da28314fbe87719c0c384c54a2bdd5866b9def394c33730"
+    },
+    {
+      "path": "docs/reference/baron-real-rig-pose-samples.json",
+      "bytes": 7740,
+      "sha256": "d4a3f7fd30b9d45a9d596ce99bd26b0f8ef88a507060b28eb455f3116335a7fe"
+    },
+    {
+      "path": "tests/baron-real-rig-poses.test.ts",
+      "bytes": 2271,
+      "sha256": "fed9afa244a96c5229401ba6aa67906d382bc41432c57751bc8a697da830b9d1"
+    },
+    {
+      "path": "artifacts/baron-real-rig-tests-initial.log",
+      "bytes": 921,
+      "sha256": "155d2ace9957233ef9fc3745f780427498819e84c3529829371801ac7540c244"
+    },
+    {
+      "path": "artifacts/baron-real-rig-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}
