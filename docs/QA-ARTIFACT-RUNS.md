@@ -25,7 +25,7 @@ were overwritten before the namespace fix and remain historical hashes.
 
 ## Current build integrity
 
-`node tools/qa/verify-current-pack.mjs [dist-directory]` audits the current
+`npm run offline:verify` (or `node tools/qa/verify-current-pack.mjs [dist-directory]`) audits the current
 manifest, every file extent/hash, complete directory closure, policy hash,
 pack identity and exact generated worker. It rejects symlinks, duplicate or
 traversing paths and unlisted files. It writes only its JSON result to stdout;
