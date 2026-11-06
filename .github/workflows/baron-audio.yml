@@ -9,6 +9,12 @@ on:
       - 'public/assets/audio/baron-basic/**'
       - 'public/assets/audio/ahri-charm/**'
       - 'public/assets/audio/ahri-orb/**'
+      - 'public/assets/audio/ahri-fox-fire/**'
+      - 'docs/reference/ahri-w-audio-properties.json'
+      - 'tools/assets/read-ahri-w-audio.py'
+      - 'tools/assets/test-ahri-w-audio-reading.py'
+      - 'tools/assets/export-ahri-fox-fire-audio.py'
+      - 'tools/assets/test-ahri-fox-fire-audio-export.py'
       - 'docs/reference/ahri-q-audio-properties.json'
       - 'docs/reference/ahri-orb-gameplay-reference-v2.json'
       - 'tools/assets/read-ahri-q-audio.py'
@@ -38,6 +44,12 @@ on:
       - 'public/assets/audio/baron-basic/**'
       - 'public/assets/audio/ahri-charm/**'
       - 'public/assets/audio/ahri-orb/**'
+      - 'public/assets/audio/ahri-fox-fire/**'
+      - 'docs/reference/ahri-w-audio-properties.json'
+      - 'tools/assets/read-ahri-w-audio.py'
+      - 'tools/assets/test-ahri-w-audio-reading.py'
+      - 'tools/assets/export-ahri-fox-fire-audio.py'
+      - 'tools/assets/test-ahri-fox-fire-audio-export.py'
       - 'docs/reference/ahri-q-audio-properties.json'
       - 'docs/reference/ahri-orb-gameplay-reference-v2.json'
       - 'tools/assets/read-ahri-q-audio.py'
@@ -95,6 +107,7 @@ jobs:
           tests/ahri-charm-audio-controller.test.ts
           tests/ahri-charm-gameplay-reference.test.ts
           tests/wwise145-fade.test.ts
+          tests/ahri-fox-fire-audio-assets.test.ts
           tests/ahri-orb-audio-assets.test.ts
           tests/ahri-orb-audio-policy.test.ts
           tests/ahri-orb-audio-state.test.ts
@@ -123,3 +136,9 @@ jobs:
         run: |
           python3 tools/assets/test-ahri-orb-audio-export.py
           python3 -O tools/assets/test-ahri-orb-audio-export.py
+      - name: Check Fox-Fire source reading and whole publication closure
+        run: |
+          python3 tools/assets/test-ahri-w-audio-reading.py
+          python3 -O tools/assets/test-ahri-w-audio-reading.py
+          python3 tools/assets/test-ahri-fox-fire-audio-export.py
+          python3 -O tools/assets/test-ahri-fox-fire-audio-export.py

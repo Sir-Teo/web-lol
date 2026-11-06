@@ -7,3 +7,9 @@ The activation container `594831512` retains `bIsContinuous=1`, `sLoopCount=0`, 
 Missile launch and hit use separate three-master containers. Their Stop actions retain 500 ms Exp1 and 1,000 ms Log1 respectively. Cast uses another three-master container. Actor ancestry runs through W mixer `577453666`, then shared spell mixer `353175404`; it differs from the Q/E local mixer. Source gains, pitch/range omissions, playlists, voice limits, positioning and attenuation remain in unflattened scalar rows. A Stop descendant closure describes affected media, not clips played by Stop.
 
 The producer verifies both immutable source hashes and records its own SHA. Cache-free normal and optimized guard runs reproduce the record and reject missing/changed output, leaf/parent symlinks, altered graph bytes and missing decoded metadata. Native continuous-container scheduling, dispatch conditions, inheritance, global bus/listener behavior and virtualization remain unverified. Any later controller needs its own explicit policy and gameplay baseline.
+
+## Isolated master and graph stage
+
+The separate Fox-Fire branch stages eleven unchanged mono 44.1 kHz float masters and a generated graph: twelve outputs / 2,989,821 bytes. Five containers retain loop/continuous flags and explicit transition times/modifiers; eleven sound rows, two mixers, seven events and ordered actions stay separate. No finite retention timing is generated for the continuous activation container. No playback or saved history is bound.
+
+All fourteen asset/property tests and TypeScript pass. Normal/optimized whole-closure publication guards each pass six rejection probes, including a conflict in the final graph output before any earlier master is written, corrupt masters and leaf/parent symlinks. Fixtures use identical committed masters without private caches. CI includes source reading and publication guards in both Python modes.
