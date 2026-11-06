@@ -1,0 +1,124 @@
+{
+  "format": 1,
+  "readingRevision": "4359bb6a86f4c84a0383d512195b539d7d0801d4",
+  "schema": 175,
+  "ruleset": "08e106da69e9a0827b0274d7c97fd3589bd3cdf610a80b9d3b1a73452c679c46",
+  "scope": "Native Q missile/return spell-to-particle aliases only; no runtime binding",
+  "reading": {
+    "path": "/workspace/web-lol-ahri-q-projectile-source/docs/reference/ahri/q-projectile-bindings.json",
+    "bytes": 20498,
+    "sha256": "47343562976f495270ca6b7ff2610b2d6f3ff2047d09a0fa9ca88114ddac4b5c"
+  },
+  "nativeCharacter": {
+    "bytes": 30475,
+    "sha256": "121997c9c4ef2ff0f671b659d64d2e22cb71208216ddcc3c4f552a17f196d2cb",
+    "freshRestorationEqualsRetained": true,
+    "all64RecordsAndLinksReparsed": true,
+    "verificationLocation": "/workspace/web-lol",
+    "allFiveReadingInputsMatchPrimary": true
+  },
+  "bindings": [
+    {
+      "spell": "AhriQMissile",
+      "resource": "Ahri_Q_mis",
+      "emitters": 16
+    },
+    {
+      "spell": "AhriQReturnMissile",
+      "resource": "Ahri_Q_mis_02",
+      "emitters": 20
+    }
+  ],
+  "dependencies": {
+    "textures": 17,
+    "meshes": 3
+  },
+  "guards": {
+    "modes": [
+      "normal",
+      "optimized"
+    ],
+    "rejectionProbesPerMode": 9,
+    "sourcePinMutationsPerMode": 5,
+    "nodeWrapperCases": 2
+  },
+  "portableCI": {
+    "method": "Ten-file git archive export of the reading revision",
+    "commands": 3,
+    "privateCaches": false,
+    "privateTools": false,
+    "dependencies": false,
+    "remoteDispatched": false
+  },
+  "sourceBranchNodeQA": 196,
+  "runtimeChanged": false,
+  "publicAssetsChanged": false,
+  "limits": [
+    "The resource aliases are established, while script bodies, native callback chronology, particle stop dispatch, height/trail frames, material bindings and pixels remain unverified.",
+    "Native mVisualsTrackHiddenTargets and EnterFOWVisibility declarations are retained without deriving a renderer fog policy.",
+    "Initial character-reader invocation on the source worktree rejected its symlinked tool location. The unchanged pinned verifier succeeds from primary, whose five input files match this branch exactly.",
+    "The source preparation and reading retain this isolated schema175 context; the accepted primary Q cast schema176 application is not relabeled."
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-root-discovery-v1.log",
+      "bytes": 109,
+      "sha256": "51d837eb6f0d92fc35aee696a4738d4df2d1811fb501d667593690a8f1360d12"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-native-character-verification-v2.log",
+      "bytes": 147,
+      "sha256": "631453082f9a1f67a8cd99e511473455dfa647e5e6e6280267e5001767c8bf3e"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-bindings-reading-v2.log",
+      "bytes": 214,
+      "sha256": "c04e08e884a4d27646c74ac153a754f8fbcbbf14948182842704b21c7753c27b"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-bindings-check-optimized-v1.log",
+      "bytes": 214,
+      "sha256": "c04e08e884a4d27646c74ac153a754f8fbcbbf14948182842704b21c7753c27b"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-bindings-guards-normal-v1.log",
+      "bytes": 182,
+      "sha256": "69a04c85425a2cad461b39356efdd3a239f1b20c6721b5ae4ff6ca6e06f055f5"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-bindings-guards-optimized-v1.log",
+      "bytes": 181,
+      "sha256": "bcc0e1af30b3f4973b9a294a0eef64676f4ff8a412a1033df5ae886a5b605837"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-bindings-node-v1.log",
+      "bytes": 248,
+      "sha256": "723240c591cea89c661121103d24035a454f7594d702c271d6c23a822f8ba4c9"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-source-node-qa-v1.log",
+      "bytes": 15661,
+      "sha256": "ac8c229e4afb0325ca6382da4f51385d24e3c55668dd816e28531aa3d55cd0e6"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-bindings-portable-ci-1.log",
+      "bytes": 214,
+      "sha256": "c04e08e884a4d27646c74ac153a754f8fbcbbf14948182842704b21c7753c27b"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-bindings-portable-ci-2.log",
+      "bytes": 182,
+      "sha256": "69a04c85425a2cad461b39356efdd3a239f1b20c6721b5ae4ff6ca6e06f055f5"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-bindings-portable-ci-3.log",
+      "bytes": 181,
+      "sha256": "bcc0e1af30b3f4973b9a294a0eef64676f4ff8a412a1033df5ae886a5b605837"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-q-projectile-source/.cache/ahri-q-projectile-discovery/root-provenance.json",
+      "bytes": 1553,
+      "sha256": "efad662433fab4df7b45c6f162723a6e842f630a4b7581f88815064c9c464f27"
+    }
+  ]
+}
