@@ -163,6 +163,10 @@ for (const mode of ['complete', 'cancel'] as const)
     await page.screenshot({ path: info.outputPath(`ahri-recall-${mode}.png`) });
     expect(requests).toHaveLength(1);
     expect(errors).toEqual([]);
+    await writeFile(
+      info.outputPath('recall-audio-evidence.json'),
+      JSON.stringify({ mode, birth, ending, requests, errors }, null, 2) + '\n'
+    );
   });
 test('a fixture without Ahri fetches no Recall master', async ({ page }) => {
   const requests: string[] = [];
@@ -241,6 +245,75 @@ test('native Recall master applies the local 20 ms Linear release without invent
   expect(result.stopAge).toBe(0.25);
   await writeFile(
     info.outputPath('recall-finite-release-evidence.json'),
+    JSON.stringify(result, null, 2) + '\n'
+  );
+});
+test('hidden enemy Recall never replays after reveal while a fresh visible channel is audible', async ({
+  page,
+}, info) => {
+  test.setTimeout(180000);
+  await page.goto('/?scene=fixture&champion=ahri');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  await expect
+    .poll(() => page.evaluate(() => (window as any).__GAME__.audio.ahriRecall.status))
+    .toBe('ready');
+  const result = await page.evaluate(async () => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      a = g.audio,
+      c = a.ahriRecall.controller;
+    g.setPaused(true);
+    w.units = [w.hero];
+    w.projectiles = [];
+    w.pendingSpawns = [];
+    w.nextWaveTick = 1e9;
+    w.setOrder(w.hero, { type: 'idle' });
+    Object.assign(w.hero, { x: 0, y: 0, previous: { x: 0, y: 0 }, ai: false });
+    w.battlefield.lineOfSight = () => true;
+    w.battlefield.inBrush = () => false;
+    const enemy = w.spawn('champion', 'red', { x: 4000, y: 0 }, 'ahri');
+    enemy.ai = false;
+    w.enqueue({ type: 'recall', unit: enemy.id });
+    w.step();
+    const hiddenRecord = w.ahriRecallAudio[0];
+    Object.assign(w.hero, { x: 4000, y: 0, previous: { x: 4000, y: 0 } });
+    w.step();
+    a.setPaused(false);
+    a.unlock();
+    await a.transition;
+    await a.context.resume();
+    c.reset();
+    a.updateAhri(w, w.hero);
+    const hidden = {
+      audience: [...hiddenRecord.audience],
+      currentlyVisible: w.pointVisible(enemy, w.hero.team),
+      voices: c.activeVoices,
+    };
+    w.enqueue({ type: 'recall', unit: enemy.id });
+    w.step();
+    const saved = w.snapshot(),
+      r = w.ahriRecallAudio.at(-1);
+    a.updateAhri(w, w.hero);
+    const visible = { audience: [...r.audience], voices: c.activeVoices };
+    const copy = w.constructor.fromSnapshot(saved, w.battlefield);
+    a.updateAhri(copy, copy.hero);
+    const restored = c.activeVoices,
+      unchanged = w.snapshot() === saved && copy.snapshot() === saved;
+    c.reset();
+    a.setPaused(true);
+    g.view.recenter(enemy);
+    g.view.render(w, 1, g.view.previousElapsed);
+    g.hud.update(60);
+    return { hidden, visible, restored, unchanged };
+  });
+  expect(result.hidden).toEqual({ audience: ['red'], currentlyVisible: true, voices: 0 });
+  expect(result.visible).toEqual({ audience: ['blue', 'red'], voices: 1 });
+  expect(result.restored).toBe(1);
+  expect(result.unchanged).toBe(true);
+  await page.screenshot({ path: info.outputPath('ahri-visible-enemy-recall.png') });
+  await writeFile(
+    info.outputPath('enemy-recall-evidence.json'),
     JSON.stringify(result, null, 2) + '\n'
   );
 });
