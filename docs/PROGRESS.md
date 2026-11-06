@@ -22,6 +22,10 @@ authored JawBot from an independent skeleton, including the pinned native model.
 All eight focused cases pass. It remains separate from the provisional marker
 and unverified missile height routing.
 
+The [source count kernel](SOURCE-EMISSION-COUNT.md) now preserves external
+spawn truncation, count wrapping and caps. All 86 cases pass, including three
+independent 60-step replays. Timing and resolved-rate sampling remain next work.
+
 ## Recent verified checkpoints
 
 All 21 Baron emitters now have a [strict private parameter stage](BARON-ATTACK-PROGRAM.md),

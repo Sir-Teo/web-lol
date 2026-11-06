@@ -1,0 +1,1359 @@
+{
+  "sequences": [
+    {
+      "rate": 15,
+      "counts": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "rate": 50,
+      "counts": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "rate": 200,
+      "counts": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    }
+  ],
+  "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+  "reader": {
+    "path": ".cache/baron-emission-readers/engine/simulation/emit.ts",
+    "sha256": "2dc3483c8359820eae4f3c329e30935dbe03a3d87fbeb2aa53a33abe775e1f58"
+  },
+  "scope": "Selected external count functions, supplied resolved rate; no native engine or scheduling certificate.",
+  "samples": [
+    {
+      "name": "0-first",
+      "input": {
+        "rate": 0,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "0-later",
+      "input": {
+        "rate": 0,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": true,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 0
+    },
+    {
+      "name": "0-variable",
+      "input": {
+        "rate": 0,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": true,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 0
+    },
+    {
+      "name": "0-single",
+      "input": {
+        "rate": 0,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": true,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "0-trail",
+      "input": {
+        "rate": 0,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 3,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "0-segment",
+      "input": {
+        "rate": 0,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": 4,
+        "spawned": 3
+      },
+      "expected": 1
+    },
+    {
+      "name": "0-cycle",
+      "input": {
+        "rate": 0,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": 0.01,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "0-long-gap",
+      "input": {
+        "rate": 0,
+        "age": 10,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "0.1-first",
+      "input": {
+        "rate": 0.1,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "0.1-later",
+      "input": {
+        "rate": 0.1,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": true,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 0
+    },
+    {
+      "name": "0.1-variable",
+      "input": {
+        "rate": 0.1,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": true,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 0
+    },
+    {
+      "name": "0.1-single",
+      "input": {
+        "rate": 0.1,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": true,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "0.1-trail",
+      "input": {
+        "rate": 0.1,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 3,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "0.1-segment",
+      "input": {
+        "rate": 0.1,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": 4,
+        "spawned": 3
+      },
+      "expected": 1
+    },
+    {
+      "name": "0.1-cycle",
+      "input": {
+        "rate": 0.1,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": 0.01,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "0.1-long-gap",
+      "input": {
+        "rate": 0.1,
+        "age": 10,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "1-first",
+      "input": {
+        "rate": 1,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "1-later",
+      "input": {
+        "rate": 1,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": true,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 0
+    },
+    {
+      "name": "1-variable",
+      "input": {
+        "rate": 1,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": true,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 0
+    },
+    {
+      "name": "1-single",
+      "input": {
+        "rate": 1,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": true,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "1-trail",
+      "input": {
+        "rate": 1,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 3,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "1-segment",
+      "input": {
+        "rate": 1,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": 4,
+        "spawned": 3
+      },
+      "expected": 1
+    },
+    {
+      "name": "1-cycle",
+      "input": {
+        "rate": 1,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": 0.01,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "1-long-gap",
+      "input": {
+        "rate": 1,
+        "age": 10,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "30-first",
+      "input": {
+        "rate": 30,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "30-later",
+      "input": {
+        "rate": 30,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": true,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 0
+    },
+    {
+      "name": "30-variable",
+      "input": {
+        "rate": 30,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": true,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 0
+    },
+    {
+      "name": "30-single",
+      "input": {
+        "rate": 30,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": true,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 30
+    },
+    {
+      "name": "30-trail",
+      "input": {
+        "rate": 30,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 3,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "30-segment",
+      "input": {
+        "rate": 30,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": 4,
+        "spawned": 3
+      },
+      "expected": 1
+    },
+    {
+      "name": "30-cycle",
+      "input": {
+        "rate": 30,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": 0.01,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "30-long-gap",
+      "input": {
+        "rate": 30,
+        "age": 10,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 10
+    },
+    {
+      "name": "50-first",
+      "input": {
+        "rate": 50,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "50-later",
+      "input": {
+        "rate": 50,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": true,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 0
+    },
+    {
+      "name": "50-variable",
+      "input": {
+        "rate": 50,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": true,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 0
+    },
+    {
+      "name": "50-single",
+      "input": {
+        "rate": 50,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": true,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 50
+    },
+    {
+      "name": "50-trail",
+      "input": {
+        "rate": 50,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 3,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "50-segment",
+      "input": {
+        "rate": 50,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": 4,
+        "spawned": 3
+      },
+      "expected": 1
+    },
+    {
+      "name": "50-cycle",
+      "input": {
+        "rate": 50,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": 0.01,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "50-long-gap",
+      "input": {
+        "rate": 50,
+        "age": 10,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 17
+    },
+    {
+      "name": "200-first",
+      "input": {
+        "rate": 200,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 3
+    },
+    {
+      "name": "200-later",
+      "input": {
+        "rate": 200,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": true,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 3
+    },
+    {
+      "name": "200-variable",
+      "input": {
+        "rate": 200,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": true,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 3
+    },
+    {
+      "name": "200-single",
+      "input": {
+        "rate": 200,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": true,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 200
+    },
+    {
+      "name": "200-trail",
+      "input": {
+        "rate": 200,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 3,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 3
+    },
+    {
+      "name": "200-segment",
+      "input": {
+        "rate": 200,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": 4,
+        "spawned": 3
+      },
+      "expected": 1
+    },
+    {
+      "name": "200-cycle",
+      "input": {
+        "rate": 200,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": 0.01,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "200-long-gap",
+      "input": {
+        "rate": 200,
+        "age": 10,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 67
+    },
+    {
+      "name": "70000-first",
+      "input": {
+        "rate": 70000,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1000
+    },
+    {
+      "name": "70000-later",
+      "input": {
+        "rate": 70000,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": true,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1000
+    },
+    {
+      "name": "70000-variable",
+      "input": {
+        "rate": 70000,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": true,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1000
+    },
+    {
+      "name": "70000-single",
+      "input": {
+        "rate": 70000,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": true,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1000
+    },
+    {
+      "name": "70000-trail",
+      "input": {
+        "rate": 70000,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 3,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 3
+    },
+    {
+      "name": "70000-segment",
+      "input": {
+        "rate": 70000,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": 4,
+        "spawned": 3
+      },
+      "expected": 1
+    },
+    {
+      "name": "70000-cycle",
+      "input": {
+        "rate": 70000,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": 0.01,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 466
+    },
+    {
+      "name": "70000-long-gap",
+      "input": {
+        "rate": 70000,
+        "age": 10,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1000
+    },
+    {
+      "name": "65536-first",
+      "input": {
+        "rate": 65536,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1000
+    },
+    {
+      "name": "65536-later",
+      "input": {
+        "rate": 65536,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": true,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1000
+    },
+    {
+      "name": "65536-variable",
+      "input": {
+        "rate": 65536,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": true,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1000
+    },
+    {
+      "name": "65536-single",
+      "input": {
+        "rate": 65536,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": true,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "65536-trail",
+      "input": {
+        "rate": 65536,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 3,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 3
+    },
+    {
+      "name": "65536-segment",
+      "input": {
+        "rate": 65536,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": 4,
+        "spawned": 3
+      },
+      "expected": 1
+    },
+    {
+      "name": "65536-cycle",
+      "input": {
+        "rate": 65536,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": 0.01,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 436
+    },
+    {
+      "name": "65536-long-gap",
+      "input": {
+        "rate": 65536,
+        "age": 10,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "198593-first",
+      "input": {
+        "rate": 198593,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "198593-later",
+      "input": {
+        "rate": 198593,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": true,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 0
+    },
+    {
+      "name": "198593-variable",
+      "input": {
+        "rate": 198593,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": true,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 0
+    },
+    {
+      "name": "198593-single",
+      "input": {
+        "rate": 198593,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": true,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1000
+    },
+    {
+      "name": "198593-trail",
+      "input": {
+        "rate": 198593,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 3,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "198593-segment",
+      "input": {
+        "rate": 198593,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": 4,
+        "spawned": 3
+      },
+      "expected": 1
+    },
+    {
+      "name": "198593-cycle",
+      "input": {
+        "rate": 198593,
+        "age": 0.016666666666666666,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": 0.01,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    },
+    {
+      "name": "198593-long-gap",
+      "input": {
+        "rate": 198593,
+        "age": 10,
+        "lastSpawn": 0,
+        "emitted": false,
+        "singleParticle": false,
+        "variableStart": false,
+        "periodLength": null,
+        "maxPerFrame": 0,
+        "segmentLimit": null,
+        "spawned": 0
+      },
+      "expected": 1
+    }
+  ]
+}

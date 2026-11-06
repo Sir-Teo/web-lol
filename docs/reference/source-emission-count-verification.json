@@ -1,0 +1,34 @@
+{
+  "format": 1,
+  "testsPassed": 86,
+  "typecheck": "passed",
+  "nativeExecuted": false,
+  "runtimeBinding": false,
+  "evidence": [
+    {
+      "path": "artifacts/source-emission-count-tests.log",
+      "bytes": 7556,
+      "sha256": "4e8a6f915417b5e4e8ddcbb98fa05f01b4bf872c4c2abc3cca7e07aa7daa4a9f"
+    },
+    {
+      "path": "artifacts/source-emission-count-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tools/assets/export-source-emission-count-samples.mjs",
+      "bytes": 4241,
+      "sha256": "0fbe8a053bd840520fe78e69452788d0b911d77768a27562af75de9c701df6a0"
+    },
+    {
+      "path": "docs/reference/source-emission-count-samples.json",
+      "bytes": 28809,
+      "sha256": "61ec01b15fbe1e1b59bae00668d686268446efd9f60b172a72c8ff490d14bc23"
+    },
+    {
+      "path": "src/render/source-emission-count.ts",
+      "bytes": 1800,
+      "sha256": "5c41c7ce6ce976c9a0988371cbf48b5ee23836b3b78b53a070287901ac00430e"
+    }
+  ]
+}
