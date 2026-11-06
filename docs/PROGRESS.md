@@ -9446,3 +9446,7 @@ Private mono 44.1 kHz float masters total 28,374,812 bytes, with peak 1.32265019
 ### Extend scoped CI to cache-independent float-format guards
 
 The read-only audio CI workflow now watches the shared float parser/tests and runs both Python modes alongside TypeScript and 22 persistence tests. Each mode rejects eight malformed float inputs and preserves stereo/rate/headroom from an empty working directory; no private audio cache/toolchain is required. Local commands and YAML validation pass. No push, workflow dispatch, deploy change or full-suite claim. See docs/reference/audio-ci-format-verification.json.
+
+## Isolated Charm audio source stage
+
+Staged nine unchanged source masters, three play profiles and the source stop fade on `dev/ahri-charm-audio`. Direct external-reader interpolation checks cover 90 Linear/Exp1 cases; six archived-source gameplay scenarios provide 48 independent projection hashes. Twelve asset/fade tests, the baseline comparison and TypeScript pass. No runtime binding yet; the primary 7ae8e0 roster cohort remains frozen.

@@ -1,0 +1,643 @@
+{
+  "format": 1,
+  "referenceRevision": "71654ed1a2c4642894bd7e7ed79eba66986fb770",
+  "referenceSourceSha256": "c945508045a59838881ead4326dabadcc191ed935d965ee61a132363ab0ac484",
+  "producerSha256": "909d514767618e2e1de1bb00d6cb3749245992668c055e9dd83c7606ecfcc513",
+  "symbol": "_AkGraph._AkInterpolation__InterpolateNoCheck",
+  "cases": [
+    {
+      "curve": 4,
+      "t": 0,
+      "initial": 0,
+      "target": 1,
+      "value": 0
+    },
+    {
+      "curve": 4,
+      "t": 0.001,
+      "initial": 0,
+      "target": 1,
+      "value": 0.001
+    },
+    {
+      "curve": 4,
+      "t": 0.05,
+      "initial": 0,
+      "target": 1,
+      "value": 0.05
+    },
+    {
+      "curve": 4,
+      "t": 0.25,
+      "initial": 0,
+      "target": 1,
+      "value": 0.25
+    },
+    {
+      "curve": 4,
+      "t": 0.5,
+      "initial": 0,
+      "target": 1,
+      "value": 0.5
+    },
+    {
+      "curve": 4,
+      "t": 0.75,
+      "initial": 0,
+      "target": 1,
+      "value": 0.75
+    },
+    {
+      "curve": 4,
+      "t": 0.95,
+      "initial": 0,
+      "target": 1,
+      "value": 0.95
+    },
+    {
+      "curve": 4,
+      "t": 0.999,
+      "initial": 0,
+      "target": 1,
+      "value": 0.999
+    },
+    {
+      "curve": 4,
+      "t": 1,
+      "initial": 0,
+      "target": 1,
+      "value": 1
+    },
+    {
+      "curve": 4,
+      "t": 0,
+      "initial": 1,
+      "target": 0,
+      "value": 1
+    },
+    {
+      "curve": 4,
+      "t": 0.001,
+      "initial": 1,
+      "target": 0,
+      "value": 0.999
+    },
+    {
+      "curve": 4,
+      "t": 0.05,
+      "initial": 1,
+      "target": 0,
+      "value": 0.95
+    },
+    {
+      "curve": 4,
+      "t": 0.25,
+      "initial": 1,
+      "target": 0,
+      "value": 0.75
+    },
+    {
+      "curve": 4,
+      "t": 0.5,
+      "initial": 1,
+      "target": 0,
+      "value": 0.5
+    },
+    {
+      "curve": 4,
+      "t": 0.75,
+      "initial": 1,
+      "target": 0,
+      "value": 0.25
+    },
+    {
+      "curve": 4,
+      "t": 0.95,
+      "initial": 1,
+      "target": 0,
+      "value": 0.050000000000000044
+    },
+    {
+      "curve": 4,
+      "t": 0.999,
+      "initial": 1,
+      "target": 0,
+      "value": 0.0010000000000000009
+    },
+    {
+      "curve": 4,
+      "t": 1,
+      "initial": 1,
+      "target": 0,
+      "value": 0
+    },
+    {
+      "curve": 4,
+      "t": 0,
+      "initial": 0.2,
+      "target": 0,
+      "value": 0.2
+    },
+    {
+      "curve": 4,
+      "t": 0.001,
+      "initial": 0.2,
+      "target": 0,
+      "value": 0.1998
+    },
+    {
+      "curve": 4,
+      "t": 0.05,
+      "initial": 0.2,
+      "target": 0,
+      "value": 0.19
+    },
+    {
+      "curve": 4,
+      "t": 0.25,
+      "initial": 0.2,
+      "target": 0,
+      "value": 0.15000000000000002
+    },
+    {
+      "curve": 4,
+      "t": 0.5,
+      "initial": 0.2,
+      "target": 0,
+      "value": 0.1
+    },
+    {
+      "curve": 4,
+      "t": 0.75,
+      "initial": 0.2,
+      "target": 0,
+      "value": 0.04999999999999999
+    },
+    {
+      "curve": 4,
+      "t": 0.95,
+      "initial": 0.2,
+      "target": 0,
+      "value": 0.010000000000000009
+    },
+    {
+      "curve": 4,
+      "t": 0.999,
+      "initial": 0.2,
+      "target": 0,
+      "value": 0.00020000000000000573
+    },
+    {
+      "curve": 4,
+      "t": 1,
+      "initial": 0.2,
+      "target": 0,
+      "value": 0.0
+    },
+    {
+      "curve": 4,
+      "t": 0,
+      "initial": 0.7,
+      "target": 0,
+      "value": 0.7
+    },
+    {
+      "curve": 4,
+      "t": 0.001,
+      "initial": 0.7,
+      "target": 0,
+      "value": 0.6992999999999999
+    },
+    {
+      "curve": 4,
+      "t": 0.05,
+      "initial": 0.7,
+      "target": 0,
+      "value": 0.6649999999999999
+    },
+    {
+      "curve": 4,
+      "t": 0.25,
+      "initial": 0.7,
+      "target": 0,
+      "value": 0.5249999999999999
+    },
+    {
+      "curve": 4,
+      "t": 0.5,
+      "initial": 0.7,
+      "target": 0,
+      "value": 0.35
+    },
+    {
+      "curve": 4,
+      "t": 0.75,
+      "initial": 0.7,
+      "target": 0,
+      "value": 0.17500000000000004
+    },
+    {
+      "curve": 4,
+      "t": 0.95,
+      "initial": 0.7,
+      "target": 0,
+      "value": 0.03500000000000003
+    },
+    {
+      "curve": 4,
+      "t": 0.999,
+      "initial": 0.7,
+      "target": 0,
+      "value": 0.0007000000000000339
+    },
+    {
+      "curve": 4,
+      "t": 1,
+      "initial": 0.7,
+      "target": 0,
+      "value": 0.0
+    },
+    {
+      "curve": 4,
+      "t": 0,
+      "initial": 0.2,
+      "target": 0.9,
+      "value": 0.2
+    },
+    {
+      "curve": 4,
+      "t": 0.001,
+      "initial": 0.2,
+      "target": 0.9,
+      "value": 0.20070000000000002
+    },
+    {
+      "curve": 4,
+      "t": 0.05,
+      "initial": 0.2,
+      "target": 0.9,
+      "value": 0.23500000000000001
+    },
+    {
+      "curve": 4,
+      "t": 0.25,
+      "initial": 0.2,
+      "target": 0.9,
+      "value": 0.375
+    },
+    {
+      "curve": 4,
+      "t": 0.5,
+      "initial": 0.2,
+      "target": 0.9,
+      "value": 0.55
+    },
+    {
+      "curve": 4,
+      "t": 0.75,
+      "initial": 0.2,
+      "target": 0.9,
+      "value": 0.7249999999999999
+    },
+    {
+      "curve": 4,
+      "t": 0.95,
+      "initial": 0.2,
+      "target": 0.9,
+      "value": 0.865
+    },
+    {
+      "curve": 4,
+      "t": 0.999,
+      "initial": 0.2,
+      "target": 0.9,
+      "value": 0.8993
+    },
+    {
+      "curve": 4,
+      "t": 1,
+      "initial": 0.2,
+      "target": 0.9,
+      "value": 0.8999999999999999
+    },
+    {
+      "curve": 6,
+      "t": 0,
+      "initial": 0,
+      "target": 1,
+      "value": 0.0
+    },
+    {
+      "curve": 6,
+      "t": 0.001,
+      "initial": 0,
+      "target": 1,
+      "value": 0.0005005
+    },
+    {
+      "curve": 6,
+      "t": 0.05,
+      "initial": 0,
+      "target": 1,
+      "value": 0.026250000000000002
+    },
+    {
+      "curve": 6,
+      "t": 0.25,
+      "initial": 0,
+      "target": 1,
+      "value": 0.15625
+    },
+    {
+      "curve": 6,
+      "t": 0.5,
+      "initial": 0,
+      "target": 1,
+      "value": 0.375
+    },
+    {
+      "curve": 6,
+      "t": 0.75,
+      "initial": 0,
+      "target": 1,
+      "value": 0.65625
+    },
+    {
+      "curve": 6,
+      "t": 0.95,
+      "initial": 0,
+      "target": 1,
+      "value": 0.9262499999999999
+    },
+    {
+      "curve": 6,
+      "t": 0.999,
+      "initial": 0,
+      "target": 1,
+      "value": 0.9985005
+    },
+    {
+      "curve": 6,
+      "t": 1,
+      "initial": 0,
+      "target": 1,
+      "value": 1.0
+    },
+    {
+      "curve": 6,
+      "t": 0,
+      "initial": 1,
+      "target": 0,
+      "value": 1.0
+    },
+    {
+      "curve": 6,
+      "t": 0.001,
+      "initial": 1,
+      "target": 0,
+      "value": 0.9994995
+    },
+    {
+      "curve": 6,
+      "t": 0.05,
+      "initial": 1,
+      "target": 0,
+      "value": 0.97375
+    },
+    {
+      "curve": 6,
+      "t": 0.25,
+      "initial": 1,
+      "target": 0,
+      "value": 0.84375
+    },
+    {
+      "curve": 6,
+      "t": 0.5,
+      "initial": 1,
+      "target": 0,
+      "value": 0.625
+    },
+    {
+      "curve": 6,
+      "t": 0.75,
+      "initial": 1,
+      "target": 0,
+      "value": 0.34375
+    },
+    {
+      "curve": 6,
+      "t": 0.95,
+      "initial": 1,
+      "target": 0,
+      "value": 0.0737500000000001
+    },
+    {
+      "curve": 6,
+      "t": 0.999,
+      "initial": 1,
+      "target": 0,
+      "value": 0.001499499999999987
+    },
+    {
+      "curve": 6,
+      "t": 1,
+      "initial": 1,
+      "target": 0,
+      "value": 0.0
+    },
+    {
+      "curve": 6,
+      "t": 0,
+      "initial": 0.2,
+      "target": 0,
+      "value": 0.2
+    },
+    {
+      "curve": 6,
+      "t": 0.001,
+      "initial": 0.2,
+      "target": 0,
+      "value": 0.19989990000000002
+    },
+    {
+      "curve": 6,
+      "t": 0.05,
+      "initial": 0.2,
+      "target": 0,
+      "value": 0.19475
+    },
+    {
+      "curve": 6,
+      "t": 0.25,
+      "initial": 0.2,
+      "target": 0,
+      "value": 0.16875
+    },
+    {
+      "curve": 6,
+      "t": 0.5,
+      "initial": 0.2,
+      "target": 0,
+      "value": 0.125
+    },
+    {
+      "curve": 6,
+      "t": 0.75,
+      "initial": 0.2,
+      "target": 0,
+      "value": 0.06875
+    },
+    {
+      "curve": 6,
+      "t": 0.95,
+      "initial": 0.2,
+      "target": 0,
+      "value": 0.014750000000000013
+    },
+    {
+      "curve": 6,
+      "t": 0.999,
+      "initial": 0.2,
+      "target": 0,
+      "value": 0.00029989999999999184
+    },
+    {
+      "curve": 6,
+      "t": 1,
+      "initial": 0.2,
+      "target": 0,
+      "value": 0.0
+    },
+    {
+      "curve": 6,
+      "t": 0,
+      "initial": 0.7,
+      "target": 0,
+      "value": 0.7
+    },
+    {
+      "curve": 6,
+      "t": 0.001,
+      "initial": 0.7,
+      "target": 0,
+      "value": 0.6996496499999999
+    },
+    {
+      "curve": 6,
+      "t": 0.05,
+      "initial": 0.7,
+      "target": 0,
+      "value": 0.6816249999999999
+    },
+    {
+      "curve": 6,
+      "t": 0.25,
+      "initial": 0.7,
+      "target": 0,
+      "value": 0.590625
+    },
+    {
+      "curve": 6,
+      "t": 0.5,
+      "initial": 0.7,
+      "target": 0,
+      "value": 0.4375
+    },
+    {
+      "curve": 6,
+      "t": 0.75,
+      "initial": 0.7,
+      "target": 0,
+      "value": 0.24062499999999998
+    },
+    {
+      "curve": 6,
+      "t": 0.95,
+      "initial": 0.7,
+      "target": 0,
+      "value": 0.05162500000000003
+    },
+    {
+      "curve": 6,
+      "t": 0.999,
+      "initial": 0.7,
+      "target": 0,
+      "value": 0.001049650000000013
+    },
+    {
+      "curve": 6,
+      "t": 1,
+      "initial": 0.7,
+      "target": 0,
+      "value": 0.0
+    },
+    {
+      "curve": 6,
+      "t": 0,
+      "initial": 0.2,
+      "target": 0.9,
+      "value": 0.2
+    },
+    {
+      "curve": 6,
+      "t": 0.001,
+      "initial": 0.2,
+      "target": 0.9,
+      "value": 0.20035035
+    },
+    {
+      "curve": 6,
+      "t": 0.05,
+      "initial": 0.2,
+      "target": 0.9,
+      "value": 0.218375
+    },
+    {
+      "curve": 6,
+      "t": 0.25,
+      "initial": 0.2,
+      "target": 0.9,
+      "value": 0.309375
+    },
+    {
+      "curve": 6,
+      "t": 0.5,
+      "initial": 0.2,
+      "target": 0.9,
+      "value": 0.46249999999999997
+    },
+    {
+      "curve": 6,
+      "t": 0.75,
+      "initial": 0.2,
+      "target": 0.9,
+      "value": 0.659375
+    },
+    {
+      "curve": 6,
+      "t": 0.95,
+      "initial": 0.2,
+      "target": 0.9,
+      "value": 0.8483749999999999
+    },
+    {
+      "curve": 6,
+      "t": 0.999,
+      "initial": 0.2,
+      "target": 0.9,
+      "value": 0.89895035
+    },
+    {
+      "curve": 6,
+      "t": 1,
+      "initial": 0.2,
+      "target": 0.9,
+      "value": 0.8999999999999999
+    }
+  ],
+  "limits": [
+    "External reader interpolation fixture, not a native-client fade capture.",
+    "Application scheduling/voice ownership and global mix are separate policies."
+  ]
+}
