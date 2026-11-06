@@ -5,25 +5,39 @@ on:
       - '.github/workflows/ahri-q-projectile-source.yml'
       - 'tools/assets/*ahri*q*projectile*'
       - 'tools/assets/ahri_q_particles.py'
-      - 'tools/qa/ahri-q-projectile-bindings.test.mjs'
+      - 'tools/assets/masteryi_w_cast.py'
+      - 'tools/assets/masteryi_w_buff.py'
+      - 'tools/assets/masteryi_w_particles.py'
+      - 'tools/assets/masteryi_q_particles.py'
+      - 'tools/qa/ahri-q-projectile-*.test.mjs'
       - 'docs/reference/ahri/character.json'
       - 'docs/reference/ahri/character.bin'
       - 'docs/reference/ahri/names.json'
       - 'docs/reference/ahri-model.json'
       - 'docs/reference/ahri/q-particles.json'
       - 'docs/reference/ahri/q-projectile-bindings.json'
+      - 'docs/reference/ahri/q-projectile-texture-transport.json'
+      - 'docs/reference/ahri/q-projectile-mesh-transports.json'
+      - 'docs/reference/ahri/q-projectile-profile-reading.json'
   pull_request:
     paths:
       - '.github/workflows/ahri-q-projectile-source.yml'
       - 'tools/assets/*ahri*q*projectile*'
       - 'tools/assets/ahri_q_particles.py'
-      - 'tools/qa/ahri-q-projectile-bindings.test.mjs'
+      - 'tools/assets/masteryi_w_cast.py'
+      - 'tools/assets/masteryi_w_buff.py'
+      - 'tools/assets/masteryi_w_particles.py'
+      - 'tools/assets/masteryi_q_particles.py'
+      - 'tools/qa/ahri-q-projectile-*.test.mjs'
       - 'docs/reference/ahri/character.json'
       - 'docs/reference/ahri/character.bin'
       - 'docs/reference/ahri/names.json'
       - 'docs/reference/ahri-model.json'
       - 'docs/reference/ahri/q-particles.json'
       - 'docs/reference/ahri/q-projectile-bindings.json'
+      - 'docs/reference/ahri/q-projectile-texture-transport.json'
+      - 'docs/reference/ahri/q-projectile-mesh-transports.json'
+      - 'docs/reference/ahri/q-projectile-profile-reading.json'
 permissions:
   contents: read
 jobs:
@@ -39,3 +53,8 @@ jobs:
           python3 tools/assets/read-ahri-q-projectile-bindings.py --check
           python3 tools/assets/test-ahri-q-projectile-bindings.py
           python3 -O tools/assets/test-ahri-q-projectile-bindings.py
+      - name: Verify all projectile profiles from committed source without private asset inputs
+        run: |
+          python3 tools/assets/prepare-ahri-q-projectile-profiles.py --verify-reading
+          python3 tools/assets/test-ahri-q-projectile-profiles.py
+          python3 -O tools/assets/test-ahri-q-projectile-profiles.py

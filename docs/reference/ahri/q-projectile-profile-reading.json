@@ -1,0 +1,155 @@
+{
+  "format": 1,
+  "producerSha256": "39fb67c0136cfead404541131410bdaa42bf79bff6d9d1a1d7f8a1424c41e8e2",
+  "helpers": [
+    {
+      "path": "tools/assets/ahri_q_projectile.py",
+      "sha256": "60c9247dad7e8b0990483a95e76202d93cef83f6a61e72a852daf6de90946d74"
+    },
+    {
+      "path": "tools/assets/ahri_q_particles.py",
+      "sha256": "303c0bc097b120237b7b63ff1236e808756a540d28ab79824f739663f49cc6e9"
+    },
+    {
+      "path": "tools/assets/masteryi_w_cast.py",
+      "sha256": "67db765dbf4c62c0cd0e5d39d99589c657d6ae826e79a9453a599e203d6d4b5e"
+    },
+    {
+      "path": "tools/assets/masteryi_w_buff.py",
+      "sha256": "30d3b7f47b7d0a3258dbf7c9394f48a35f204cf5be76fd4dc40483131b630c81"
+    },
+    {
+      "path": "tools/assets/masteryi_w_particles.py",
+      "sha256": "13bcae3e6d67d9b7004745c94372f90fda6601df02a6cbb999096f29a73fdf37"
+    },
+    {
+      "path": "tools/assets/masteryi_q_particles.py",
+      "sha256": "8373108c738d00d23c47e485b609db18464a81cf6146b608ee9d608e4e604b44"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "docs/reference/ahri/q-projectile-texture-transport.json",
+      "sha256": "60023e2fb2068987f6005b29f012f1fd5b7f16c0adfbbe1341c3b18d1e5286bf",
+      "bytes": 44226
+    },
+    {
+      "path": "docs/reference/ahri/q-projectile-mesh-transports.json",
+      "sha256": "401fe40d8accb519ea3ee6ea1806f3440c65e35f3a9bccb6e1f2c0fd1e25d9ca",
+      "bytes": 3521
+    },
+    {
+      "path": "docs/reference/ahri/q-projectile-bindings.json",
+      "sha256": "47343562976f495270ca6b7ff2610b2d6f3ff2047d09a0fa9ca88114ddac4b5c",
+      "bytes": 20498
+    }
+  ],
+  "systems": [
+    {
+      "resourceKey": "Ahri_Q_mis",
+      "emitters": 16,
+      "nativeSpell": "AhriQMissile"
+    },
+    {
+      "resourceKey": "Ahri_Q_mis_02",
+      "emitters": 20,
+      "nativeSpell": "AhriQReturnMissile"
+    }
+  ],
+  "profile": {
+    "path": ".cache/ahri-q-projectile-profiles-v1/profiles.json",
+    "bytes": 499830,
+    "sha256": "72ed64245c93063d7f092828f9a45405e20bcb77dca4c19d65aafae54b8ab686"
+  },
+  "counts": {
+    "billboard": 16,
+    "mesh": 6,
+    "quad": 2,
+    "ray": 2,
+    "trail": 10
+  },
+  "authoredFields": [
+    "Color",
+    "EmitterPosition",
+    "SpawnShape",
+    "__type",
+    "alphaErosionDefinition",
+    "alphaRef",
+    "bindWeight",
+    "birthColor",
+    "birthDrag",
+    "birthRotation0",
+    "birthRotationalVelocity0",
+    "birthScale0",
+    "birthUVOffset",
+    "birthUvScrollRate",
+    "birthVelocity",
+    "blendMode",
+    "depthBiasFactors",
+    "disableBackfaceCull",
+    "emitterName",
+    "emitterUvScrollRate",
+    "isDirectionOriented",
+    "isGroundLayer",
+    "isLocalOrientation",
+    "isSingleParticle",
+    "isUniformScale",
+    "lifetime",
+    "meshRenderFlags",
+    "miscRenderFlags",
+    "particleColorTexture",
+    "particleIsLocalOrientation",
+    "particleLifetime",
+    "particleLinger",
+    "particleUVScrollRate",
+    "pass",
+    "primitive",
+    "rate",
+    "scale0",
+    "texAddressModeBase",
+    "texture",
+    "textureMult",
+    "timeBeforeFirstEmission",
+    "useNavmeshMask",
+    "uvScale",
+    "uvScrollClamp",
+    "worldAcceleration"
+  ],
+  "adapterDefaults": {
+    "local": true,
+    "particleLocal": false,
+    "blend": 0,
+    "scale": [
+      1,
+      1,
+      1
+    ],
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "alphaRef": 0.0196078431372549,
+    "erosionMixer": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "erosionFeather": 0.1,
+    "erosionSliceWidth": 1.5,
+    "erosionAddress": 1,
+    "lookupTypes": [
+      1,
+      0
+    ]
+  },
+  "limits": [
+    "Private profile projection only; no public asset, renderer, simulation, save schema or ruleset changes.",
+    "All 45 authored emitter fields and all 36 emitters are projected. Nested source types, authored key counts, explicit fields and probability metadata remain separate from local fallback values.",
+    "The two native spell/resource aliases are retained. Script callbacks, root frames, cylinder sampling, stop/linger policy, visibility dispatch, material bindings and pixels remain unbound.",
+    "Emitter UV scroll remains separate from integrated particle-age UV scroll. Camera-facing/arbitrary trails retain mode, tiling and omitted smoothing/cutoff.",
+    "Missing constructor values are explicit local adapter defaults, not native-default certification."
+  ]
+}
