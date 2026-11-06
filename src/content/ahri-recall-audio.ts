@@ -1,4 +1,4 @@
-// Generated unflattened source graph. Finite death/respawn source graph. Zero instance declarations stay raw; native dispatch/inheritance remain unverified.
+// Generated unflattened source graph. Finite Recall source graph. Zero instance declarations stay raw; native dispatch/inheritance remain unverified.
 export const AHRI_RECALL_AUDIO = {
   readingSha256: 'c3152a7031db137fc1c6a787d646771b15cc0e7beccdea79aeb431471522965b',
   events: [

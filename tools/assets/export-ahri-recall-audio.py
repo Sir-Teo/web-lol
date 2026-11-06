@@ -118,10 +118,14 @@ def build():
     source = dict(readingSha256=READING, events=events, containers=containers, sounds=sounds,
                   mixers=mixers, attenuation=attenuation, unresolvedGlobalBus=2232828494)
     target = 'src/content/ahri-recall-audio.ts'
-    text = ('// Generated unflattened source graph. Finite death/respawn source graph. Zero instance declarations stay raw; native dispatch/inheritance remain unverified.\n'
+    text = ('// Generated unflattened source graph. Finite Recall source graph. Zero instance declarations stay raw; native dispatch/inheritance remain unverified.\n'
             'export const AHRI_RECALL_AUDIO = ' + json.dumps(source, indent=2) + ' as const;\n')
     outputs[target] = subprocess.check_output(['node_modules/.bin/prettier', '--stdin-filepath', target], input=text.encode())
-    require(len(outputs) == 2, 'Changed Recall publication closure')
+    target_timing = 'src/content/ahri-recall-audio-timing.ts'
+    ticks = math.ceil(max(m['durationSeconds'] for m in masters.values()) * 60)
+    timing = '// Finite local master bound; no source Stop callback is declared.\nexport const AHRI_RECALL_AUDIO_TICKS = ' + str(ticks) + ' as const;\n'
+    outputs[target_timing] = subprocess.check_output(['node_modules/.bin/prettier', '--stdin-filepath', target_timing], input=timing.encode())
+    require(len(outputs) == 3, 'Changed Recall publication closure')
     return outputs
 
 

@@ -19,3 +19,9 @@ All three source/property/master checks and TypeScript pass. Normal/optimized si
 The producer verifies all604 frozen source files from actual lifecycle history World `9307043` / `d1e66691` and executes that World directly. Eight guarded cases yield104 complete projections: real channel completion, movement, attack, Q cast, positive damage, zero damage, death and hidden start. Exact accepted tick/deadline, uninterrupted waiting, interruption and actual return/full health/mana are asserted. Only schema/ruleset and proposed Recall history are excluded; lifecycle/attack/P/R/W/Q/E remain in every projection.
 
 All four baseline/asset checks and TypeScript pass. Source stage `9239284` separately passes cache-free CI:409 cases in57 files, TypeScript and34 Python guard modes across36 commands, with reused dependencies and no private caches/tools. No Recall timing, history or playback is bound.
+
+## Finite profile and explicit local interruption release
+
+Three publication outputs /1,706,395 bytes retain the unchanged master, unflattened graph and finite580-tick master bound. TypeScript independently derives the same bound, −5 dB additive gain, zero pitch and exact sound/container/misc-actor ancestry. Source cap0 remains raw; a distinct local16-voice ceiling bounds private fixtures.
+
+Successful recall will retain the finite authored tail. Cancellation uses an explicit local20 ms Linear release, without a source Stop event/action identity. No native recall callback or inheritance behavior is claimed. All six scoped baseline/asset/policy checks, TypeScript and normal/optimized six-probe publication guards pass. The final timing output is preflighted before any master write. A copied generated comment was corrected to name Recall. History and playback remain unbound.
