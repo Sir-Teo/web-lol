@@ -11,7 +11,8 @@ container723497964. Both containers specify MakeUpGain−14 and shuffle with
 avoid-repeat count1. The actions are not unconditional simultaneous layers;
 the earlier candidate summary has been corrected.
 
-Candidate hit container128610958 specifies MakeUpGain−12 and Pitch−500, with
+Candidate hit container128610958 specifies MakeUpGain−12 and a Pitch modifier range−500 to+500
+cents around the default zero base, with
 two entries, shuffle and avoid-repeat count1. Playlist weights are50000 per
 entry in all three containers; the using-weight flags remain in the record.
 

@@ -9369,4 +9369,8 @@ Pinned vgmstream/Ogg/Vorbis decode the eight candidate cast/hit clips to mono44.
 
 ### Preserve Baron attack audio action and container properties
 
-A derived16-node reading retains actions, sounds, local ancestry and attenuation. Cast has DelayTime200 on one action and Probability35 on the other; corrected the earlier unconditional simultaneous-layer description. Cast containers specify−14 makeup gain; hit specifies−12 and−500 pitch, with shuffle/avoid-repeat fields retained. External bus2770764924 remains unresolved. Normal/optimized checks pass; no playback or native dispatch claim. See docs/BARON-BASIC-AUDIO-PROPERTIES.md.
+A derived16-node reading retains actions, sounds, local ancestry and attenuation. Cast has DelayTime200 on one action and Probability35 on the other; corrected the earlier unconditional simultaneous-layer description. Cast containers specify−14 makeup gain; hit specifies−12 and a−500 to+500-cent random pitch modifier around default zero, with shuffle/avoid-repeat fields retained. External bus2770764924 remains unresolved. Normal/optimized checks pass; no playback or native dispatch claim. See docs/BARON-BASIC-AUDIO-PROPERTIES.md.
+
+### Stage Baron candidate audio and deterministic preview states
+
+Exported eight unchanged float masters and three candidate profiles through whole-closure preflight. Pure states preserve the200ms action delay,35percent action probability and−500 to+500-cent hit modifier around zero (correcting the earlier base-pitch misread). Independent saved-identity cosmetic draws preserve JSON/reorder reconstruction without gameplay RNG. Fifteen source asset/PCM and state tests plus TypeScript pass. Gameplay controller and delivery-pack refresh are still pending. See docs/BARON-BASIC-AUDIO-PREVIEW.md.
