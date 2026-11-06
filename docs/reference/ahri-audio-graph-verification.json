@@ -1,0 +1,60 @@
+{
+  "format": 1,
+  "parserErrors": 0,
+  "nodes": 256,
+  "events": 56,
+  "matchedStoredNames": 56,
+  "soundNodes": 86,
+  "media": 83,
+  "encodedMediaBytes": 1319535,
+  "resetPlaylistActions": 2,
+  "unresolvedParentOrBusIds": [
+    211064428,
+    1259461568,
+    2232828494
+  ],
+  "checks": [
+    "normal check",
+    "optimized check",
+    "fresh exact graph/media restore",
+    "twelve isolated graph/media/helper rejection probes"
+  ],
+  "runtimeChanged": false,
+  "evidence": [
+    {
+      "path": "tools/assets/map-ahri-audio.py",
+      "bytes": 10483,
+      "sha256": "ef6fb355ca3a490f33a42f971ca6b95046202e29657cecb8672d9c2dfa5fdf9a"
+    },
+    {
+      "path": "docs/reference/ahri-audio-graph.json",
+      "bytes": 1540433,
+      "sha256": "489b0ab33120dc347a8d8a6cbf5f70dc6818a81c7dbab85f540b1e70efa1ecf0"
+    },
+    {
+      "path": "artifacts/ahri-audio-graph-discovery.log",
+      "bytes": 106,
+      "sha256": "b337d0a8d25b4092c68432002e03d235256233cdd701485d2aa14073735242ee"
+    },
+    {
+      "path": "artifacts/ahri-audio-graph-check.log",
+      "bytes": 106,
+      "sha256": "b337d0a8d25b4092c68432002e03d235256233cdd701485d2aa14073735242ee"
+    },
+    {
+      "path": "artifacts/ahri-audio-graph-optimized-check.log",
+      "bytes": 106,
+      "sha256": "b337d0a8d25b4092c68432002e03d235256233cdd701485d2aa14073735242ee"
+    },
+    {
+      "path": "artifacts/ahri-audio-graph-restored.log",
+      "bytes": 106,
+      "sha256": "b337d0a8d25b4092c68432002e03d235256233cdd701485d2aa14073735242ee"
+    },
+    {
+      "path": "artifacts/ahri-audio-graph-guards.json",
+      "bytes": 1138,
+      "sha256": "455e353781a11e6c41e46649b924d936e2691be62824f8ecf89e68adb34e7c5d"
+    }
+  ]
+}

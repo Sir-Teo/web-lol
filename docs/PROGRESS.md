@@ -9434,3 +9434,7 @@ The first browser run passed three cases and exposed a chooser locator also matc
 ### Freeze Ahri’s declared base SFX banks without runtime changes
 
 Pinned two Ahri_Base_SFX banks (1,334,190bytes, both145) and the source skin’s56stored event declarations from the existing16.18archive/manifest. Voice banks/WPK remain outside scope. Normal/optimized checks, fresh exact-provenance restore and12corrupt/missing/symlink/helper/metadata rejection probes pass. No event graph, decoded media, timing/mix or playback is inferred yet; ruleset7ae8e0/current roster run stay unchanged. See docs/AHRI-AUDIO-SOURCE.md.
+
+### Preserve Ahri’s full named SFX hierarchy and83embedded media
+
+Pinned wwiser reads256nodes/56events with zero errors; all56stored source names match numeric events. All86sounds resolve to83bounded/nonoverlapping original WEMs (1,319,535bytes). Q’s two ResetPlaylist_E actions are retained separately from its Play action; affected media do not imply playback. Full scalar fields and three unresolved external parent/bus IDs remain explicit. Normal/optimized checks, fresh restore and12rejection probes pass. No runtime/timing/mix inference or roster-ruleset change. See docs/AHRI-AUDIO-GRAPH.md.
