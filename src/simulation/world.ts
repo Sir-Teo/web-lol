@@ -140,6 +140,7 @@ import {
   advanceGarenAttackPoses,
 } from './garen-aa-presentation';
 import { capturePoseFrame } from './pose-history';
+import { captureBaronReleasePose } from './baron-release-pose';
 import { advancePerseveranceVisual, stopPerseveranceVisual } from './garen-passive-visuals';
 import { advanceLuxEHits, recordLuxEHit } from './lux-e-hits';
 import { advanceLuxEAudio, newLuxEAudioHistory } from './lux-e-audio';
@@ -4042,6 +4043,8 @@ export class World {
       } else {
         u.facing = Math.atan2(target.x - u.x, target.y - u.y);
         if (this.tick >= u.releaseTick) {
+          const baronReleasePose =
+            u.monster?.species === 'baron' ? captureBaronReleasePose(u, this.tick) : null;
           u.releaseTick = null;
           if (!seenFrom(u, this.visionSources(target.team, false), this.battlefield.lineOfSight))
             this.visionAreas.push({
@@ -4187,7 +4190,7 @@ export class World {
               };
               (index === 0 ? this.projectiles : this.pendingAttackProjectiles).push(projectile);
               if (u.kind === 'monster' && u.monster.species === 'baron')
-                startBaronAttackVisual(this, u, target, projectile);
+                startBaronAttackVisual(this, u, target, projectile, baronReleasePose!);
               if (u.kind === 'monster' && u.monster.species === 'gromp')
                 this.grompAttackVisuals.push({
                   origin: { ...projectile.origin! },

@@ -1,0 +1,59 @@
+{
+  "format": 1,
+  "schema": 165,
+  "ruleset": "fa62e04941bf41b136da3d6f35e96314670adcbd4f11dd590e2bdb39e3b78cea",
+  "focused": {
+    "passed": 57
+  },
+  "browser": {
+    "passed": 1,
+    "nativeParticleRendering": false
+  },
+  "fullSuite": {
+    "passed": 3891,
+    "failed": 2,
+    "files": 431,
+    "open": [
+      "missing historical Leona archive",
+      "Lux historical sampler digest mismatch"
+    ]
+  },
+  "evidence": [
+    {
+      "path": "artifacts/baron-release-pose-history-tests.log",
+      "bytes": 540,
+      "sha256": "68d5c019017c20ef63d10315a056f39e38e3c0c53dd73583d9eaf51e51f28503"
+    },
+    {
+      "path": "artifacts/baron-release-browser.log",
+      "bytes": 1028,
+      "sha256": "54bae088f557959cc147ad75b1ebba3f399dd654b9e6c247c5fb575bef32916c"
+    },
+    {
+      "path": "artifacts/baron-release-browser-pause.json",
+      "bytes": 1403,
+      "sha256": "91790510034b68de6a066edb533f623e63f8351f14c5618c435a13e2d6c79c10"
+    },
+    {
+      "path": "artifacts/baron-release-gameplay-parity.json",
+      "bytes": 278,
+      "sha256": "44fd052d3b44f27da0ce73640a4ae83e08bfd25ce360a1f09c25e1b026809a14"
+    },
+    {
+      "path": "artifacts/baron-release-full-unit.log",
+      "bytes": 12402,
+      "sha256": "ad359a3fe319540f1ed4d3b33fbaf446a60ffa263e0dfbc3046664047ab12147"
+    },
+    {
+      "path": "artifacts/baron-release-full-unit-pause.json",
+      "bytes": 1404,
+      "sha256": "4afc94bd2ef675ba100b60a9966b2259e8c02f06e27d872462eda3feaef395ae"
+    },
+    {
+      "path": "artifacts/baron-release-final-build.log",
+      "bytes": 7124,
+      "sha256": "4df3d36928b199ee43e2d177c9895cb39d5c165c7fb326fa0df7a0815b0f28aa"
+    }
+  ],
+  "build": "passed"
+}

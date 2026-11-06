@@ -176,7 +176,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 164;
+export const SNAPSHOT_VERSION = 165;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -2349,6 +2349,7 @@ const snapshot = z.strictObject({
         team: z.literal('neutral'),
         origin: point,
         launchTick: tick,
+        launchPose: savedPoseFrame,
         stopTick: tick.nullable(),
         stopReason: z.enum(['hit', 'target-lost', 'range', 'match-end']).nullable(),
         frames: z
@@ -3483,6 +3484,11 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       state.grompAttackVisuals.some((v) => v.id === visual.id) ||
       state.luxImpactVisuals.some((v) => v.id === visual.id) ||
       state.scoutVisuals.some((v) => v.flight.id === visual.id) ||
+      visual.launchPose.tick !== visual.launchTick ||
+      visual.launchPose.x !== visual.origin.x ||
+      visual.launchPose.y !== visual.origin.y ||
+      visual.launchPose.animationTimeline?.primary.kind !== 'attack' ||
+      !validPoseFrame(visual.launchPose, 'sru-baron-base', true) ||
       visual.launchTick > state.tick ||
       (stop !== null && (stop < visual.launchTick || stop > state.tick)) ||
       (stop ?? state.tick) - visual.launchTick >

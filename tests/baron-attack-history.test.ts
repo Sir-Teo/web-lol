@@ -377,3 +377,23 @@ for (const [name, edit] of [
     edit(saved, raw);
     expect(() => World.fromSnapshot(JSON.stringify(raw), w.battlefield)).toThrow();
   });
+
+test('saved release pose stays independent through source death and rejects edited clocks', () => {
+  const { w, b, visual } = launched();
+  const pose = JSON.stringify(visual.launchPose);
+  expect(visual.launchPose.animationTimeline?.primary.kind).toBe('attack');
+  expect(visual.launchPose.tick).toBe(visual.launchTick);
+  w.damage(w.hero, b, 1e6, 'true');
+  w.step(10);
+  expect(JSON.stringify(visual.launchPose)).toBe(pose);
+  expect(restore(w).snapshot()).toBe(w.snapshot());
+  for (const edit of ['clock', 'position', 'kind', 'missing']) {
+    const snapshot = JSON.parse(w.snapshot());
+    const saved = snapshot.baronAttackVisuals[0];
+    if (edit === 'clock') saved.launchPose.animationTimeline.tick--;
+    if (edit === 'position') saved.launchPose.x++;
+    if (edit === 'kind') saved.launchPose.animationTimeline.primary.kind = 'death';
+    if (edit === 'missing') delete saved.launchPose;
+    expect(() => World.fromSnapshot(JSON.stringify(snapshot), w.battlefield)).toThrow();
+  }
+});

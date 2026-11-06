@@ -6,14 +6,16 @@ Last updated: November 6, 2026 (UTC).
 
 ## Current authoritative state
 
-The runtime now uses save schema **164**, ruleset
-`9c4d0ece38e7bfd3000ecc5617ccbef954831b064f7c1259bd6d920c89951d4c`.
+The runtime now uses save schema **165**, ruleset
+`fa62e04941bf41b136da3d6f35e96314670adcbd4f11dd590e2bdb39e3b78cea`.
 [Baron flight and contact histories](BARON-ATTACK-HISTORY.md) preserve released
 paths, visibility and target poses across save/reload. Four paired scenarios
 match the frozen prior gameplay trajectory for 1,680 ticks. Five browser cases
-pass, including actual in-flight and contact saves. Native emitter playback and
-launch-mouth attachment remain pending; the visible marker is provisional.
+pass, including actual in-flight and contact saves. The saved launch pose now remains independent of later body animation. Native emitter playback and
+launch-mouth transforms remain pending; the visible marker is provisional.
 The production/offline pack below belongs to the earlier e20 ruleset.
+The quiet full suite passes 3,891/3,893 cases; only the two previously recorded
+Leona archive and Lux digest gaps remain. See [release-pose evidence](BARON-RELEASE-POSE.md).
 
 ## Recent verified checkpoints
 

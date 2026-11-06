@@ -35,6 +35,7 @@ export interface BaronAttackVisual {
   team: 'neutral';
   origin: Vec2;
   launchTick: number;
+  launchPose: LuxImpactFrame;
   stopTick: number | null;
   stopReason: 'hit' | 'target-lost' | 'range' | 'match-end' | null;
   frames: BaronFlightFrame[];
@@ -52,7 +53,8 @@ export function startBaronAttackVisual(
   world: World,
   source: Unit,
   target: Unit,
-  projectile: Projectile
+  projectile: Projectile,
+  launchPose: LuxImpactFrame
 ) {
   if (
     source.monster?.species !== 'baron' ||
@@ -71,6 +73,7 @@ export function startBaronAttackVisual(
     team: 'neutral',
     origin: { ...projectile.origin },
     launchTick: world.tick,
+    launchPose,
     stopTick: null,
     stopReason: null,
     frames: [
