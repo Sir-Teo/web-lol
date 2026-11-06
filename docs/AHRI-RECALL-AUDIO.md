@@ -13,3 +13,9 @@ Normal/optimized six-probe guards reproduce the record without private banks, to
 The branch stages one unchanged mono44.1 kHz float master and the generated unflattened graph: two outputs /1,706,282 bytes. The finite playlist keeps its one sound, source gain−5, zero maximum-instance declaration and shared actor/attenuation/bus identity. No Recall Stop event or callback is generated.
 
 All three source/property/master checks and TypeScript pass. Normal/optimized six-probe publication guards preflight the final graph before writing the master and reject corrupt output, leaf/parent symlinks and changed input, using a committed identical master without private decoder caches. Recall history/timing/playback remain unbound. Lifecycle delivery retains its separate scope.
+
+## Independent Recall gameplay baseline
+
+The producer verifies all604 frozen source files from actual lifecycle history World `9307043` / `d1e66691` and executes that World directly. Eight guarded cases yield104 complete projections: real channel completion, movement, attack, Q cast, positive damage, zero damage, death and hidden start. Exact accepted tick/deadline, uninterrupted waiting, interruption and actual return/full health/mana are asserted. Only schema/ruleset and proposed Recall history are excluded; lifecycle/attack/P/R/W/Q/E remain in every projection.
+
+All four baseline/asset checks and TypeScript pass. Source stage `9239284` separately passes cache-free CI:409 cases in57 files, TypeScript and34 Python guard modes across36 commands, with reused dependencies and no private caches/tools. No Recall timing, history or playback is bound.
