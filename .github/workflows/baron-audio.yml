@@ -18,6 +18,9 @@ on:
       - 'tools/assets/export-ahri-passive-audio.py'
       - 'tools/assets/test-ahri-passive-audio-export.py'
       - 'docs/reference/ahri-r-audio-properties.json'
+      - 'docs/reference/ahri-passive-gameplay-reference.json'
+      - 'tests/helpers/ahri-passive-gameplay.ts'
+      - 'tools/qa/*ahri-passive-gameplay-reference*'
       - 'docs/reference/ahri-spirit-rush-gameplay-reference.json'
       - 'tools/assets/read-ahri-r-audio.py'
       - 'tools/assets/test-ahri-r-audio-reading.py'
@@ -69,6 +72,9 @@ on:
       - 'tools/assets/export-ahri-passive-audio.py'
       - 'tools/assets/test-ahri-passive-audio-export.py'
       - 'docs/reference/ahri-r-audio-properties.json'
+      - 'docs/reference/ahri-passive-gameplay-reference.json'
+      - 'tests/helpers/ahri-passive-gameplay.ts'
+      - 'tools/qa/*ahri-passive-gameplay-reference*'
       - 'docs/reference/ahri-spirit-rush-gameplay-reference.json'
       - 'tools/assets/read-ahri-r-audio.py'
       - 'tools/assets/test-ahri-r-audio-reading.py'
@@ -148,6 +154,7 @@ jobs:
           tests/ahri-spirit-rush-audio-controller.test.ts
           tests/ahri-spirit-rush-gameplay-reference.test.ts
           tests/ahri-r.test.ts
+          tests/ahri-passive-gameplay-reference.test.ts
           tests/ahri-passive.test.ts
           tests/ahri-fox-fire-audio-assets.test.ts
           tests/ahri-fox-fire-audio-policy.test.ts

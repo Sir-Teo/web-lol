@@ -13,3 +13,9 @@ The producer pins both frozen input hashes and records its own SHA. Cache-free n
 The passive branch stages five unchanged mono44.1 kHz float masters and a generated source table: six outputs /1,290,292 bytes. Eight distinct sound rows retain four container identities and two local mixers while sharing the three heal WAVs. Publication deduplicates only identical media bytes; it keeps each sound's parent and properties separate. No timing, history or playback is bound yet.
 
 All nine asset/property tests, TypeScript and both normal/optimized whole-closure guard modes pass. Six rejection probes per mode cover final-output conflict before any earlier WAV is written, corrupt output, leaf/parent symlinks and changed source bytes. Cache-free fixtures use the committed identical masters. CI includes source reading and publication guards in both Python modes.
+
+## Independent gameplay baseline
+
+The reference producer verifies all583 frozen source/QA files from the actual schema171 / `c5d6be5a` World. Ten guarded scenarios yield120 complete projections, retaining R/W/Q/E histories and excluding only schema/ruleset and proposed passive audio history. Cases cover ninth minion/monster kills, champion consumption, partial/full overheal, death in flight, moving owner, captured AP, eight kills without a birth and the actual R extension. Terminal assertions retain observed consumption before the existing30-tick gameplay history expires.
+
+All20 baseline/mechanics checks and TypeScript pass. Source-stage `bd9ea69` separately passes cache-free CI:284 tests in35 files and22 Python guard modes. No passive audio history or playback is bound.
