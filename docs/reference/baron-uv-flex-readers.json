@@ -1,0 +1,33 @@
+{
+  "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+  "files": [
+    {
+      "path": ".cache/baron-emission-readers/engine/parsing/readFlex.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/parsing/readFlex.ts",
+      "bytes": 2827,
+      "sha256": "812d24e7ff2cbe3d86b2c7cb02a5252cb3c2ebe9df80f84b19269abde1a6e241",
+      "gitBlob": "29fd3ad99386c730d77ba82b48b9005f08732e67"
+    },
+    {
+      "path": ".cache/baron-emission-readers/engine/simulation/flex.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/simulation/flex.ts",
+      "bytes": 2905,
+      "sha256": "a1fef2f2fc54e63348107932d2ce1a5f75fd3e26eb6f95fdd2e7d087e0f400d6",
+      "gitBlob": "ae2df5066869beb1889a6298e280425c4485412a"
+    },
+    {
+      "path": ".cache/baron-emission-readers/engine/parsing/readSurface.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/parsing/readSurface.ts",
+      "bytes": 14569,
+      "sha256": "af6068c0a8247c97d3ebb52d5a6ad6b9cca110920a38bfcac9553fe13a138219",
+      "gitBlob": "b1b2321cf58c2cb4808956647ab5de205023dd71"
+    },
+    {
+      "path": ".cache/baron-emission-readers/rendering/utils/uvTransform.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/uvTransform.ts",
+      "bytes": 7924,
+      "sha256": "7d213bad1f7a4d443c0f136fedd21c433be8bc4b6822d2a2f410209efb370d0d",
+      "gitBlob": "5bcb96837912d319f25366fd9024f903069596dd"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "format": 1,
+  "testsPassed": 900,
+  "independentSamples": 896,
+  "layers": 28,
+  "baronBaseLayers": 21,
+  "baronMultiplierLayers": 3,
+  "typecheck": "passed",
+  "nativeExecuted": false,
+  "runtimeBinding": false,
+  "evidence": [
+    {
+      "path": "artifacts/source-uv-layer-verified-tests.log",
+      "bytes": 1972,
+      "sha256": "d5b8c18f8ee9b9d031111e75210d7e395fbb924c1151d0db0fea134c0e38c66b"
+    },
+    {
+      "path": "artifacts/source-uv-layer-verified-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reference/baron-uv-flex-readers.json",
+      "bytes": 1791,
+      "sha256": "638662eb6dcf36b808b60b2f134f68ddaa50c6bbd6994567db40f18082a2ffbf"
+    },
+    {
+      "path": "tools/assets/export-source-uv-samples.mjs",
+      "bytes": 7783,
+      "sha256": "9f4c7b7138024a8bfa8e1c09f47e6c6bdd97988b70ae150af77164504d00470e"
+    },
+    {
+      "path": "docs/reference/source-uv-samples.json",
+      "bytes": 397494,
+      "sha256": "1e4d8fab54ccdf23c68e4ffec52b4eacb8e49faa63c8bf998f0054c38c09e1e9"
+    },
+    {
+      "path": "src/render/source-uv-layer.ts",
+      "bytes": 7054,
+      "sha256": "461232931cc56fe2fd342833a99a799a505561b775ea3676b1ae9a7cc868c947"
+    }
+  ]
+}

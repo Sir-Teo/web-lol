@@ -61,6 +61,11 @@ exact-byte fixtures using native-sphere samples, surface normals and shape turns
 All 410 combined birth/placement tests pass. Bound-object-size mapping and final
 actor/scene placement remain explicit open adapters.
 
+The [UV/flipbook layer adapter](SOURCE-UV-LAYERS.md) now matches 896 independent
+exact-byte samples across all 21 base layers and their three multiplier layers.
+All 900 cases pass, including shared fractional counters, signed scroll and
+start-frame routing. Bound-size calibration and active shader dispatch stay open.
+
 ## Recent verified checkpoints
 
 All 21 Baron emitters now have a [strict private parameter stage](BARON-ATTACK-PROGRAM.md),
