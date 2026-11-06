@@ -1,0 +1,31 @@
+{
+  "format": 1,
+  "integratedSourceRevision": "06e6d7f5435f1acdb3f849e2cabb2f1a8d90dba8",
+  "method": "Fast-forward from 20a27c0; source evidence/tools/tests/docs only",
+  "acceptedApplicationRevision": "f63705d",
+  "schema": 175,
+  "ruleset": "08e106da69e9a0827b0274d7c97fd3589bd3cdf610a80b9d3b1a73452c679c46",
+  "runtimePublicAndBuildFilesCompared": 2069,
+  "allRuntimePublicAndBuildBytesUnchanged": true,
+  "pack": "f10d35181f3a12998886dbf3b35659e2f7593dee324c5720526da7520d6f1906",
+  "allCurrentPackFilesAndWorkerAudit": true,
+  "rebuild": false,
+  "reason": "Runtime, public assets and build configuration unchanged; existing accepted pack re-audited.",
+  "sourceReceipts": [
+    "q-particles-source-verification.json",
+    "q-particles-decode-verification.json",
+    "q-particle-bindings-verification.json"
+  ],
+  "logs": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-source-main-pack-v1.log",
+      "sha256": "5be67a79b6520e58c67554e428011eb95ce0a0b702dd5d092f7ec1c26e4e37d7"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-source-main-ruleset-v1.log",
+      "sha256": "294c08447a8d6cfce35d62b8e92bc677459d1d79fff506101a14f97822ffd103"
+    }
+  ],
+  "pushed": false,
+  "deployed": false
+}
