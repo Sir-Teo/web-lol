@@ -28,6 +28,9 @@ on:
       - 'tools/assets/read-ahri-lifecycle-audio.py'
       - 'tools/assets/test-ahri-lifecycle-audio-reading.py'
       - 'docs/reference/ahri-lifecycle-audio-properties.json'
+      - 'docs/reference/ahri/q-cast-gameplay-reference.json'
+      - 'tests/helpers/ahri-q-cast-gameplay.ts'
+      - 'tools/qa/*ahri-q-cast-gameplay*'
       - 'docs/reference/ahri-recall-gameplay-reference.json'
       - 'tests/helpers/ahri-recall-gameplay.ts'
       - 'tools/qa/*ahri-recall-gameplay-reference*'
@@ -109,6 +112,9 @@ on:
       - 'tools/assets/read-ahri-lifecycle-audio.py'
       - 'tools/assets/test-ahri-lifecycle-audio-reading.py'
       - 'docs/reference/ahri-lifecycle-audio-properties.json'
+      - 'docs/reference/ahri/q-cast-gameplay-reference.json'
+      - 'tests/helpers/ahri-q-cast-gameplay.ts'
+      - 'tools/qa/*ahri-q-cast-gameplay*'
       - 'docs/reference/ahri-recall-gameplay-reference.json'
       - 'tests/helpers/ahri-recall-gameplay.ts'
       - 'tools/qa/*ahri-recall-gameplay-reference*'
@@ -212,6 +218,7 @@ jobs:
           tests/ahri-recall-audio-controller.test.ts
           tests/ahri-recall-audio-history.test.ts
           tests/ahri-recall-audio-policy.test.ts
+          tests/ahri-q-cast-gameplay-reference.test.ts
           tests/ahri-recall-gameplay-reference.test.ts
           tests/ahri-recall-audio-assets.test.ts
           tests/ahri-lifecycle-audio-assets.test.ts
