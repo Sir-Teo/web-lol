@@ -1,0 +1,170 @@
+{
+  "result": "measured",
+  "developmentLeona": false,
+  "followPlayer": false,
+  "saveKey": "rift",
+  "benchmarkURL": "http://127.0.0.1:5198/",
+  "exactCheckpointRestored": true,
+  "canonicalSnapshotSHA256": "df913351b86f1ce496ee7d7b0d7c0f751c31613dee854866c8645e471baa7185",
+  "cpuProfileEnabled": true,
+  "rawBoneTracks": false,
+  "gpuTiming": false,
+  "systemChromium": true,
+  "revision": "4646862911e785d89b8eb88dd4620e5a5540c36a",
+  "snapshotPath": "artifacts/current-control-profile.snapshot.json",
+  "snapshotSHA256": "df913351b86f1ce496ee7d7b0d7c0f751c31613dee854866c8645e471baa7185",
+  "benchmarkSHA256": "be666a7f77b4a0d29af4a357b2d2f097e08bc41b960b5188581dbfecf9f17bfe",
+  "browser": "155.0.8059.79",
+  "hardware": {
+    "platform": "linux",
+    "arch": "x64",
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "memoryGiB": 17.58584976196289
+  },
+  "viewport": [
+    1920,
+    1080
+  ],
+  "fixture": "Canonical ten-champion checkpoint restored through browser storage; camera follows the living blue champion with most nearby visible enemies at start, retaining that subject through death/respawn",
+  "startingTick": 72000,
+  "graphicsContext": {
+    "vendor": "WebKit",
+    "renderer": "WebKit WebGL",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "unmaskedVendor": "Google Inc. (Google)",
+    "unmaskedRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+  },
+  "audioContextState": "not-unlocked",
+  "cameraPolicy": "visible-opponent-density",
+  "warmupCount": 15,
+  "sampleCount": 120,
+  "cameraSubject": {
+    "id": 1,
+    "champion": "ashe"
+  },
+  "championRoster": [
+    {
+      "id": 1,
+      "team": "blue",
+      "champion": "ashe",
+      "ai": false
+    },
+    {
+      "id": 32,
+      "team": "blue",
+      "champion": "ashe",
+      "ai": true
+    },
+    {
+      "id": 33,
+      "team": "blue",
+      "champion": "ashe",
+      "ai": true
+    },
+    {
+      "id": 34,
+      "team": "blue",
+      "champion": "lux",
+      "ai": true
+    },
+    {
+      "id": 35,
+      "team": "blue",
+      "champion": "lux",
+      "ai": true
+    },
+    {
+      "id": 36,
+      "team": "red",
+      "champion": "ashe",
+      "ai": true
+    },
+    {
+      "id": 37,
+      "team": "red",
+      "champion": "ashe",
+      "ai": true
+    },
+    {
+      "id": 38,
+      "team": "red",
+      "champion": "lux",
+      "ai": true
+    },
+    {
+      "id": 39,
+      "team": "red",
+      "champion": "ashe",
+      "ai": true
+    },
+    {
+      "id": 40,
+      "team": "red",
+      "champion": "lux",
+      "ai": true
+    }
+  ],
+  "activity": {
+    "maxProjectiles": 11,
+    "maxSingularities": 2,
+    "maxLuxBeams": 0,
+    "maxVisibleChampions": 8
+  },
+  "advanceMS": 0,
+  "time": 1213.4,
+  "units": 100,
+  "frames": {
+    "n": 120,
+    "median": 400,
+    "p95": 500,
+    "p99": 600
+  },
+  "frameClock": "requestAnimationFrame timestamp; not physical display presentation time",
+  "callbackDeliveryIntervals": {
+    "n": 120,
+    "median": 398.5,
+    "p95": 471.89999999990687,
+    "p99": 549.5999999998603
+  },
+  "intervalsAbove25MS": 120,
+  "fog": {
+    "n": 60,
+    "median": 5.199999999953434,
+    "p95": 8.300000000046566,
+    "p99": 12.699999999953434
+  },
+  "simulationSteps": {
+    "n": 720,
+    "median": 1.099999999976717,
+    "p95": 3.699999999953434,
+    "p99": 8.5
+  },
+  "hudUpdates": {
+    "n": 120,
+    "median": 0.5999999998603016,
+    "p95": 0.9000000001396984,
+    "p99": 1.5
+  },
+  "renderCalls": {
+    "n": 120,
+    "median": 12.5,
+    "p95": 27.300000000046566,
+    "p99": 51.5
+  },
+  "gpu": null,
+  "drawCalls": {
+    "n": 120,
+    "median": 101,
+    "p95": 120,
+    "p99": 121
+  },
+  "renderedTriangles": {
+    "n": 120,
+    "median": 252574,
+    "p95": 269869,
+    "p99": 270326
+  },
+  "calls": 106,
+  "triangles": 253152,
+  "fogResolution": 256
+}

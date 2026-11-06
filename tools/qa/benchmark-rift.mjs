@@ -14,6 +14,18 @@ const rawBoneTracks = process.argv.slice(5).includes('--raw-bone-tracks');
 const gpuTiming = process.argv.slice(5).includes('--gpu');
 const developmentLeona = process.argv.slice(5).includes('--development-leona');
 const followPlayer = process.argv.slice(5).includes('--follow-player');
+const systemChromium = process.argv.slice(5).includes('--system-chromium');
+const requestedCount = (name) => {
+  const args = process.argv.slice(5).filter((arg) => arg.startsWith(`--${name}=`));
+  if (args.length > 1) throw new Error(`Duplicate --${name} option`);
+  if (!args.length) return null;
+  const value = Number(args[0].slice(name.length + 3));
+  if (!Number.isSafeInteger(value) || value < 1 || value > 100000)
+    throw new Error(`--${name} must be an integer from 1 to 100000`);
+  return value;
+};
+const requestedSamples = requestedCount('samples');
+const requestedWarmup = requestedCount('warmup');
 const saveKey = developmentLeona ? 'development-leona-rift' : 'rift';
 const targetUrl = new URL(process.argv[2] ?? 'http://127.0.0.1:5173');
 if (developmentLeona) targetUrl.searchParams.set('scene', 'leona-rift');
@@ -38,7 +50,11 @@ for (const extension of ['.json', '.png', '.cpuprofile'])
 await mkdir(dirname(output), { recursive: true });
 let canonicalSnapshot = null;
 
-const browser = await chromium.launch({ channel: 'chrome' });
+const browser = await chromium.launch(
+  systemChromium
+    ? { executablePath: '/usr/bin/chromium', args: ['--no-sandbox'] }
+    : { channel: 'chrome' }
+);
 try {
   const page = await browser.newPage({
     viewport: { width: 1920, height: 1080 },
@@ -92,7 +108,7 @@ try {
     await profiler.send('Profiler.start');
   }
   const data = await page.evaluate(
-    async ({ matchMode, gpuTiming, followPlayer }) => {
+    async ({ matchMode, gpuTiming, followPlayer, requestedSamples, requestedWarmup }) => {
       const g = window.__GAME__,
         w = g.world,
         v = g.view;
@@ -139,8 +155,8 @@ try {
       };
       const audioContextState = g.audio.context?.state ?? 'not-unlocked';
       const startingTick = w.tick;
-      const sampleCount = matchMode ? 1800 : 180;
-      const warmupCount = matchMode ? 120 : 45;
+      const sampleCount = requestedSamples ?? (matchMode ? 1800 : 180);
+      const warmupCount = requestedWarmup ?? (matchMode ? 120 : 45);
       const { GpuTimer } = gpuTiming ? await import('/tools/qa/gpu-timer.mjs') : {};
       const gpu = gpuTiming ? new GpuTimer(v.renderer.getContext()) : null;
       g.setPaused(false);
@@ -240,7 +256,7 @@ try {
       return {
         fixture: matchMode
           ? `Canonical ten-champion checkpoint restored through browser storage; camera follows ${followPlayer ? 'the owned player' : 'the living blue champion with most nearby visible enemies at start'}, retaining that subject through death/respawn`
-          : 'Full Rift, live simulation beginning at 90 seconds after opening/closing shop, 45 warmup frames, 180 samples',
+          : `Full Rift, live simulation beginning at 90 seconds after opening/closing shop, ${warmupCount} warmup frames, ${sampleCount} samples`,
         startingTick,
         graphicsContext,
         audioContextState,
@@ -288,7 +304,7 @@ try {
         fogResolution: v.fogPixels.width,
       };
     },
-    { matchMode: !!snapshot, gpuTiming, followPlayer }
+    { matchMode: !!snapshot, gpuTiming, followPlayer, requestedSamples, requestedWarmup }
   );
   if (profiler) {
     const { profile } = await profiler.send('Profiler.stop');
@@ -312,6 +328,7 @@ try {
     cpuProfileEnabled: profileCPU,
     rawBoneTracks,
     gpuTiming,
+    systemChromium,
     revision: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(),
     snapshotPath: snapshotPath ?? null,
     snapshotSHA256: snapshot ? createHash('sha256').update(snapshot).digest('hex') : null,

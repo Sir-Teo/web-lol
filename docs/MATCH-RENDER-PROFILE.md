@@ -71,3 +71,36 @@ The scoped M1 observation retains 16.8 ms timestamp p95, with separate GPU elaps
 p95 5.68 ms. Its report records hardware/driver, exact restored state, input whitespace
 normalization, render/query counts and audio remaining not unlocked. It does
 not replace the historical fixture above or complete the performance matrix.
+
+
+## Bounded Linux diagnostic — November 6, 2026
+
+The benchmark accepts `--system-chromium` to use `/usr/bin/chromium` with
+`--no-sandbox`, matching the other cloud QA tools. Optional `--samples=N` and
+`--warmup=N` accept integers from 1 through 100000. Duplicate and invalid counts
+reject before browser/output creation. Defaults remain 1800/120 for a match and
+180/45 for practice. Reports retain the actual counts and browser choice; a
+shortened diagnostic is not the historical full-length benchmark.
+
+A current standard-roster simulation reached tick 72000 (20 minutes), with no
+resource/position violations, no winner and exact snapshot restoration. The
+120-sample/15-warmup CPU diagnostic restored that checkpoint exactly. The
+[raw report](reference/current-linux-render-profile.json) records Chromium 155,
+1920×1080, AMD EPYC and SwiftShader; audio was not unlocked. All samples completed
+without page errors. The capture was reviewed. JavaScript render p95 was 27.3 ms,
+simulation-step p95 3.7 ms and fog-update p95 8.3 ms, with frame timestamp p95
+500 ms. This software-rendered, profiled cloud run is not a physical-device
+performance gate or an improvement comparison.
+
+Of 55.49 seconds in the CPU profile, 52.03 seconds were classified `(program)`;
+this category alone does not attribute GPU execution. Sampled visibility work
+includes 202.9 ms self in navigation trace, 196.4 ms self in shared distance and
+218.7 ms inclusive in visionSources. These overlapping samples motivate further
+visibility investigation, without identifying all distance calls as visibility.
+The profile and summary remain in ignored artifacts.
+
+```sh
+node tools/qa/simulate-rift.mjs 1200 artifacts/current-control-profile.json lanes
+node tools/qa/benchmark-rift.mjs http://127.0.0.1:5198 artifacts/current-control-profile.snapshot.json artifacts/current-match-cpu-profile --system-chromium --samples=120 --warmup=15 --profile
+node tools/qa/summarize-cpu-profile.mjs artifacts/current-match-cpu-profile.cpuprofile artifacts/current-match-cpu-summary.json
+```
