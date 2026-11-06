@@ -6,18 +6,18 @@ Last updated: November 6, 2026 (UTC).
 
 ## Current authoritative state
 
-Accepted local runtime: save schema **171**, ruleset
-`4c78386d598237518652f766fca22eeee9305c0a06e199c9f08b7b6d68768c5c`,
-application `e4b37f5`. [Spirit Rush source playback](AHRI-R-AUDIO.md) completes
-four Ahri ability audio families with saved independent clocks and56 masters.
-The full suite passes8,642/8,644 in494 files, with two historical failures.
-All122 Node QA cases,275 scoped CI tests in34 files, TypeScript and eighteen
-cache-free Python modes pass. Thirteen combined browser cases and production/offline
-gates pass; see [R acceptance](reference/ahri-spirit-rush-playback-acceptance.json).
+Accepted local runtime: save schema **172**, ruleset
+`780b914f5a3c3b9959058510881e19b13debdbe582cae785b8ff7bdee459f953`,
+application `0ee4ffc`. [Essence Theft source playback](AHRI-P-AUDIO.md) joins
+Q/W/E/R with saved independent dispatch and61 exact PCM masters.
+The full suite passes8,672/8,674 in500 files, with two historical failures.
+All138 Node QA cases,305 scoped CI tests in40 files, TypeScript and22
+cache-free Python modes pass. Sixteen combined browser cases and production/offline
+gates pass; see [passive acceptance](reference/ahri-passive-playback-acceptance.json).
 
-The accepted pack is `71c41bd8`, with1,307 files /569,190,575 bytes.
-Earlier Q/W/Charm receipts retain their original scope. All work remains local.
-Passive source preparation is isolated on its own branch.
+The accepted pack is `f31b3721`, with1,313 files /570,486,751 bytes.
+Earlier Q/W/E/R receipts retain their original scope. All work remains local.
+Basic-attack source preparation is isolated on its own branch.
 
 The [frozen hundred-seed development-roster baseline](CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md)
 is complete: 100 natural victories, zero unfinished matches or invariant failures,
@@ -9543,3 +9543,11 @@ Application `e4b37f5`, schema171 / `4c78386d`, passes8,642/8,644 full-suite case
 ## Integrate accepted Spirit Rush playback into primary
 
 Primary `work` fast-forwards from `e005d6e` to `cc1c79b` without merge edits. Every source byte matches the accepted branch. A fresh primary build and complete pack audit reproduce `71c41bd8` exactly. Acceptance retains its original full-suite/browser/offline scope. No push or deployment occurs. See `reference/ahri-spirit-rush-main-integration.json`.
+
+## Verified Essence Theft playback delivery
+
+Application `0ee4ffc`, schema172 / `780b914f`, passes8,672/8,674 full-suite cases in500 files with only the two historical failures. All138 Node QA cases, clean305-case CI in40 files, TypeScript and22 Python guard modes pass. Sixteen combined browser cases verify61 exact Ahri PCM masters, including five unique passive masters, real keyboard champion/ninth-minion kills, healing, mute/seek and restoration after gameplay pruning. Production subdirectory and offline lifecycle pass with978 service-worker responses and zero production errors. Pack `f31b3721` contains1,313 files /570,486,751 bytes. All archived simulation/content bytes match frozen `29c2a12a`; its45 roster projections retain their scope. Native dispatch/global playlists/mix remain unverified. Basic-attack preparation is isolated. See [acceptance](reference/ahri-passive-playback-acceptance.json).
+
+## Integrate accepted Essence Theft playback into primary
+
+Primary `work` fast-forwards from `02e841a` to `9d15c58` without merge edits. Every source byte matches the accepted branch. A fresh primary build and complete pack audit reproduce `f31b3721` exactly. Acceptance retains its original full-suite/browser/offline scope. No push or deployment occurs. See `reference/ahri-passive-main-integration.json`.

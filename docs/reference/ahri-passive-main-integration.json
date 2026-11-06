@@ -1,0 +1,31 @@
+{
+  "format": 1,
+  "integratedRevision": "9d15c5899732a7da70cf32b6d0aad753ea84d0ad",
+  "method": "Fast-forward from 02e841a to verified Essence Theft branch; no merge edits",
+  "schema": 172,
+  "ruleset": "780b914f5a3c3b9959058510881e19b13debdbe582cae785b8ff7bdee459f953",
+  "sourceFilesCompared": 801,
+  "allSourceBytesMatchAcceptedBranch": true,
+  "pack": {
+    "id": "f31b37211e44976d7da46e66a12de27c6be2270e741b9a2db01567784db8c573",
+    "files": 1313,
+    "bytes": 570486751,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a",
+    "allFileAndWorkerAudit": true
+  },
+  "acceptance": "ahri-passive-playback-acceptance.json",
+  "repeatFullSuite": false,
+  "reason": "Identical verified source; local rebuild and pack audit reproduce the accepted pack byte for byte.",
+  "logs": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-p-main-build-v1.log",
+      "sha256": "3739a25f9dbd68c12bc56bb32f7ed996df75841ca45dbec2a9193fbdb0157681"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-p-main-pack-v1.log",
+      "sha256": "d161cc1670d0b2a31b05920e7139238fe63b5c586f86f2cdca1be81691f92254"
+    }
+  ],
+  "pushed": false,
+  "deployed": false
+}

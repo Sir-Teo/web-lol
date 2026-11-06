@@ -1,0 +1,39 @@
+{
+  "format": 1,
+  "applicationRevision": "0ee4ffc56a2f95fa8b2c923c1987547958ea86cc",
+  "schema": 172,
+  "ruleset": "780b914f5a3c3b9959058510881e19b13debdbe582cae785b8ff7bdee459f953",
+  "baselineRevision": "4b9aac27b238bb0f435d10f3cdc1fbe555be0cd8",
+  "baselineRuleset": "29c2a12a505226c8ff21841d99e1d07ac50cb32239f4f191978b46d5a901712d",
+  "archivedFiles": 590,
+  "unchangedFiles": 589,
+  "changedFiles": [
+    {
+      "file": "tools/ruleset-fingerprint.ts",
+      "archivedSha256": "f405325ad3f8c9ca5b04f8650858fb5bb446c07802445c92fcd2ebb5c3ff0fe1",
+      "currentSha256": "cf5154ac1cad8bf91bd71a439a054ecb70cff3c5662f2f9854b2110f704a48cf"
+    }
+  ],
+  "addedFiles": [
+    {
+      "file": "src/audio/ahri-passive-state.ts",
+      "sha256": "99605ecf8b7fa0afcda3d8ffa2dfd46c5f6e9652b349e46c548613dfce3c36c8"
+    },
+    {
+      "file": "src/audio/ahri-passive.ts",
+      "sha256": "53b9830d1f4b2c63513253cbe51d2473f2fd51419ffe0198a78e2330e4895353"
+    }
+  ],
+  "integrationOutsideArchivedClosure": [
+    {
+      "file": "src/audio/audio.ts",
+      "sha256": "16ebaa558528cec6c4f00e3a5bb3f420898732197a5b7d3f0d274a7474ca8ccb"
+    },
+    {
+      "file": "src/audio/ahri-passive-lazy.ts",
+      "sha256": "807c36c4a2057e4ecdcdd3c2f3694763ca8ec8922552fada546d6c179e733c08"
+    }
+  ],
+  "allArchivedSimulationAndContentUnchanged": true,
+  "cohortRelabeled": false
+}
