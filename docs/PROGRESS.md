@@ -9282,3 +9282,11 @@ Independent checking needs no decoder binary. Public assets, gameplay audio,
 schema 145, ruleset and the prior runtime pack remain unchanged. Runtime binding,
 source bank policies, pause/seeking and listening/mix acceptance continue next.
 See [decoded source masters](MASTER-YI-AUDIO.md#decoded-source-masters).
+
+### Independent composed Baron loop comparison
+
+All six missile/hit natural, stopped and capacity-one traces match the pinned external full loop over 480 steps, including exact scalar/typed bytes, draw packets and RNG lookahead. 87 focused tests and TypeScript pass. Corrected emitter override matrix arithmetic; reference normalization fixes and initial failures preserved in artifacts. Native fidelity and renderer binding remain open. See docs/BARON-ATTACK-SYSTEM.md and docs/reference/baron-system-external-verification.json.
+
+### Baron transport delivery
+
+Published the exact format-2 program, 25 authored-mip PNG transports and two GLBs (28 files / 1,117,599 bytes). Idempotent publisher validates every source and existing destination before writes; checksum/extent checks preserve all bytes. Added lazy, integrity-pinned program loading with request sharing, immutable metadata and retry eviction. Two focused delivery tests, TypeScript and production build pass. No active effect renderer yet. Evidence: docs/reference/baron-attack-delivery-verification.json. Moved the preceding full-loop checkpoint entry into this established progress log.

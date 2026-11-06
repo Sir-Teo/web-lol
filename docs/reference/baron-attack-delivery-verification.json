@@ -1,0 +1,51 @@
+{
+  "format": 1,
+  "files": 28,
+  "bytes": 1117599,
+  "textures": 25,
+  "authoredMips": 214,
+  "meshes": 2,
+  "programSha256": "4cbf74ec11628b0a840d03687c9d77995d57a2251b016950ac39357cc0e1cd3d",
+  "build": "passed",
+  "typecheck": "passed",
+  "focusedTestsPassed": 2,
+  "activeRenderer": false,
+  "nativeExecuted": false,
+  "evidence": [
+    {
+      "path": "tools/assets/publish-baron-attack.mjs",
+      "bytes": 2714,
+      "sha256": "87924e66bb242a2a27b25b09de6b7303571bbbb34f2b6a57fcbffb1754ff9a2d"
+    },
+    {
+      "path": "src/render/baron-attack-assets.ts",
+      "bytes": 1572,
+      "sha256": "8a52a6245e2f9ac36a909388e5fada24e0bdf323665cf0c14f51c00dce7e90c4"
+    },
+    {
+      "path": "tests/baron-attack-assets.test.ts",
+      "bytes": 2324,
+      "sha256": "6f95ea6bd50cc95753189aa7eae2287669af17c07e24494e7c13f4b8280488de"
+    },
+    {
+      "path": "artifacts/baron-delivery-check.log",
+      "bytes": 196,
+      "sha256": "3e3f361b56668bbe7c84f9ab1b4d319a7cccb253ffa1fda0f1984260eb94402a"
+    },
+    {
+      "path": "artifacts/baron-delivery-tests.log",
+      "bytes": 421,
+      "sha256": "36112600aabfcd5555cd898aca6664b4605e57882e3cd2e17094a6779d260b27"
+    },
+    {
+      "path": "artifacts/baron-delivery-loader-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/baron-delivery-build.log",
+      "bytes": 7124,
+      "sha256": "a9a94b73a56204b9dbfd95277a286533199bff024e95b5df106eb2331a4f96f7"
+    }
+  ]
+}
