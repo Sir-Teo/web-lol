@@ -1,0 +1,199 @@
+{
+  "format": 1,
+  "sourcePinSha256": "74d0b55f5aad08646fbd24f660ed533bc8fd5798e8a60dc0983d97960b47a377",
+  "bankUnit": {
+    "name": "Ahri_Base_SFX",
+    "bankPath": [
+      "ASSETS/Sounds/Wwise2016/SFX/Characters/Ahri/Skins/Base/Ahri_Base_SFX_audio.bnk",
+      "ASSETS/Sounds/Wwise2016/SFX/Characters/Ahri/Skins/Base/Ahri_Base_SFX_events.bnk"
+    ],
+    "events": [
+      "Play_sfx_Ahri_AhriBasicAttack2_OnCast",
+      "Play_sfx_Ahri_AhriBasicAttack2_OnHit",
+      "Play_sfx_Ahri_AhriBasicAttack2_OnMissileLaunch",
+      "Play_sfx_Ahri_AhriBasicAttack_OnCast",
+      "Play_sfx_Ahri_AhriBasicAttack_OnHit",
+      "Play_sfx_Ahri_AhriBasicAttack_OnMissileLaunch",
+      "Play_sfx_Ahri_AhriCritAttack_OnCast",
+      "Play_sfx_Ahri_AhriCritAttack_OnHit",
+      "Play_sfx_Ahri_AhriCritAttack_OnMissileLaunch",
+      "Play_sfx_Ahri_AhriE_OnCast",
+      "Play_sfx_Ahri_AhriEMissile_hit",
+      "Play_sfx_Ahri_AhriEMissile_OnMissileLaunch",
+      "Play_sfx_Ahri_AhriPassive_hit",
+      "Play_sfx_Ahri_AhriPassive_minionheal_buffactivate",
+      "Play_sfx_Ahri_AhriPassiveMissile_buffactivate",
+      "Play_sfx_Ahri_AhriPassiveMissile_missilelaunch",
+      "Play_sfx_Ahri_AhriQ_OnCast",
+      "Play_sfx_Ahri_AhriQDamage_hit",
+      "Play_sfx_Ahri_AhriQMissile_OnMissileLaunch",
+      "Play_sfx_Ahri_AhriQReturnDamage_hit",
+      "Play_sfx_Ahri_AhriQReturnMissile_buffdeactivate",
+      "Play_sfx_Ahri_AhriQReturnMissile_OnMissileLaunch",
+      "Play_sfx_Ahri_AhriR_OnBuffActivate",
+      "Play_sfx_Ahri_AhriR_OnBuffDeactivate",
+      "Play_sfx_Ahri_AhriR_OnCast",
+      "Play_sfx_Ahri_AhriRMissile_OnHit",
+      "Play_sfx_Ahri_AhriRMissile_OnMissileLaunch",
+      "Play_sfx_Ahri_AhriW_OnBuffActivate",
+      "Play_sfx_Ahri_AhriW_OnCast",
+      "Play_sfx_Ahri_AhriWDamageMissile_hit",
+      "Play_sfx_Ahri_AhriWDamageMissile_missilelaunch",
+      "Play_sfx_Ahri_Dance3D_buffactivate",
+      "Play_sfx_Ahri_Dance3D_loop",
+      "Play_sfx_Ahri_Death3D_cast",
+      "Play_sfx_Ahri_Idle3D_buffactivate",
+      "Play_sfx_Ahri_Joke3D_buffactivate",
+      "Play_sfx_Ahri_Joke3D_loop",
+      "Play_sfx_Ahri_Laugh3D_buffactivate",
+      "Play_sfx_Ahri_Recall3D_buffactivate",
+      "Play_sfx_Ahri_Respawn3D_buffactivate",
+      "Play_sfx_Ahri_Taunt3D_buffactivate",
+      "Stop_sfx_Ahri_AhriBasicAttack2_OnMissileLaunch",
+      "Stop_sfx_Ahri_AhriBasicAttack_OnMissileLaunch",
+      "Stop_sfx_Ahri_AhriCritAttack_OnMissileLaunch",
+      "Stop_sfx_Ahri_AhriEMissile_OnMissileLaunch",
+      "Stop_sfx_Ahri_AhriQMissile_OnMissileLaunch",
+      "Stop_sfx_Ahri_AhriQReturnMissile_OnMissileLaunch",
+      "Stop_sfx_Ahri_AhriRMissile_OnMissileLaunch",
+      "Stop_sfx_Ahri_AhriW_OnBuffActivate",
+      "Stop_sfx_Ahri_AhriWMissile_hit",
+      "Stop_sfx_Ahri_AhriWMissile_missilelaunch",
+      "Stop_sfx_Ahri_Dance3D_buffactivate",
+      "Stop_sfx_Ahri_Death3D_cast",
+      "Stop_sfx_Ahri_Joke3D_buffactivate",
+      "Stop_sfx_Ahri_Laugh3D_buffactivate",
+      "Stop_sfx_Ahri_Taunt3D_buffactivate"
+    ],
+    "__type": "BankUnit"
+  },
+  "helper": {
+    "path": "tools/assets/extract-ahri-audio.py",
+    "sha256": "666153ac14dd600436182abce628684f1bfbe179dd5ced7abd710273de74a840"
+  },
+  "extraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Champions/Ahri.wad.client",
+    "chunks": {
+      "BDCE6B4F6DACF58F": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6F92DD088667E276.bundle",
+        "offset": 42823999,
+        "bytes": 84274,
+        "sha256": "51c372086dca51683b889fb466533417d43f031c01aa07338f7e2be9303ff822"
+      },
+      "8ADA1EDD4B74A041": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/6F92DD088667E276.bundle",
+        "offset": 42908273,
+        "bytes": 44462,
+        "sha256": "312d3083e5a9a2e59fac2fad7467a725f08b1c7393d2cea7a10d8778ceae06be"
+      },
+      "16775C7398703B7A": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/3F42796435D3F967.bundle",
+        "offset": 4702353,
+        "bytes": 49646,
+        "sha256": "5199326a382a393b764e4f5b173711111eefd70d8d5481a9c77c7031ca068942"
+      },
+      "05C48A4B7EABADF6": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/B50BE51AE30D7D8C.bundle",
+        "offset": 11327993,
+        "bytes": 473477,
+        "sha256": "93675a05057a958a13f91df41c1d8d219ba5ca9e0f1bd615d448dffc0f2f4c0e"
+      },
+      "54DCB243CEA7DFA4": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/B50BE51AE30D7D8C.bundle",
+        "offset": 11801470,
+        "bytes": 71462,
+        "sha256": "5653d3a4cb0e2f02458d81dda687e4b95b2b60f6418f672b7b6cd82ec561f958"
+      },
+      "C57232610EE98C37": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/B50BE51AE30D7D8C.bundle",
+        "offset": 11872932,
+        "bytes": 85508,
+        "sha256": "05728e3c28bfea9a3bddd63b12d3a6adda63ff62409ab17b66438d6a543b8ee3"
+      },
+      "D9D957505C2D6D6C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/B50BE51AE30D7D8C.bundle",
+        "offset": 11958440,
+        "bytes": 190487,
+        "sha256": "24cf0ca827a2fe7e25a22fed62c51fffeb6b58dd1825ecec7b7d7d3b337e8410"
+      },
+      "1CC5958D0C310E13": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/B50BE51AE30D7D8C.bundle",
+        "offset": 12148927,
+        "bytes": 389130,
+        "sha256": "4caecff6b0dac5aead677badbd7be58141c5c568685abbd3dcd8505e928d35c3"
+      },
+      "493354575FA4B79C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/B50BE51AE30D7D8C.bundle",
+        "offset": 12538057,
+        "bytes": 86940,
+        "sha256": "b0c2cc406e9a0ff591546b0640969ccdc25c3a478c84c535e786ae7306b7f356"
+      },
+      "F8FA8DA716EBB72A": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/37F7524F2C46DFF6.bundle",
+        "offset": 216125,
+        "bytes": 3766,
+        "sha256": "9690ef9bd74df05dc854bcf70351d2261aa77e8814c96b11ea84c79f8f383985"
+      }
+    },
+    "files": [
+      {
+        "path": "assets/sounds/wwise2016/sfx/characters/ahri/skins/base/ahri_base_sfx_audio.bnk",
+        "wadPathHash": "d1e09cb184cce0a9",
+        "sha256": "70b17056c5a4e435e383b876ffe41c58cfff4a4d29936f1033032c594959a621",
+        "bytes": 1321240
+      },
+      {
+        "path": "assets/sounds/wwise2016/sfx/characters/ahri/skins/base/ahri_base_sfx_events.bnk",
+        "wadPathHash": "35b00913b956b2ad",
+        "sha256": "fb6a27914ee050a85afdd7243ff328d0b237f7443c813a21a731d78f7961caf8",
+        "bytes": 12950
+      }
+    ]
+  },
+  "bankHeaders": {
+    "assets/sounds/wwise2016/sfx/characters/ahri/skins/base/ahri_base_sfx_audio.bnk": {
+      "version": 145,
+      "bankId": 2302166444,
+      "languageId": 393239870,
+      "chunks": [
+        {
+          "tag": "BKHD",
+          "bytes": 52
+        },
+        {
+          "tag": "DIDX",
+          "bytes": 996
+        },
+        {
+          "tag": "DATA",
+          "bytes": 1320168
+        }
+      ]
+    },
+    "assets/sounds/wwise2016/sfx/characters/ahri/skins/base/ahri_base_sfx_events.bnk": {
+      "version": 145,
+      "bankId": 770798549,
+      "languageId": 393239870,
+      "chunks": [
+        {
+          "tag": "BKHD",
+          "bytes": 40
+        },
+        {
+          "tag": "HIRC",
+          "bytes": 12894
+        }
+      ]
+    }
+  },
+  "limits": [
+    "Original base SFX banks and their 56 stored event declarations only.",
+    "Separate voice banks/WPK are outside this extraction.",
+    "Hierarchy/media closure, decoding, native timing/mix and playback remain unverified."
+  ]
+}

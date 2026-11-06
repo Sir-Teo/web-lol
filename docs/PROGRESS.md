@@ -9430,3 +9430,7 @@ Added a read-only GitHub workflow for TypeScript and22committed-asset/audio-stat
 ### Revalidate all six private player choices and roster boundaries
 
 The first browser run passed three cases and exposed a chooser locator also matching an ally portrait. Scoped both selection assertions to data-action=choose-champion; no expectation/deadline or app change. Both rerun cases pass, covering all six manual kits/roles, exact saves/restarts and public/private restrictions. Combined with the unchanged source-model/combined-roster passes, four unique current browser cases pass. Reviewed the1024pixel chooser capture; native/device performance remains separate. See docs/reference/7ae8e0-roster-browser-verification.json.
+
+### Freeze Ahri’s declared base SFX banks without runtime changes
+
+Pinned two Ahri_Base_SFX banks (1,334,190bytes, both145) and the source skin’s56stored event declarations from the existing16.18archive/manifest. Voice banks/WPK remain outside scope. Normal/optimized checks, fresh exact-provenance restore and12corrupt/missing/symlink/helper/metadata rejection probes pass. No event graph, decoded media, timing/mix or playback is inferred yet; ruleset7ae8e0/current roster run stay unchanged. See docs/AHRI-AUDIO-SOURCE.md.

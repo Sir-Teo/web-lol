@@ -1,0 +1,55 @@
+{
+  "format": 1,
+  "banks": 2,
+  "bytes": 1334190,
+  "declaredSfxEvents": 56,
+  "bankVersions": [
+    145,
+    145
+  ],
+  "checks": [
+    "normal check",
+    "optimized check",
+    "fresh cache restore with exact provenance",
+    "twelve rejection probes across normal/optimized modes"
+  ],
+  "voiceBanksIncluded": false,
+  "runtimeChanged": false,
+  "evidence": [
+    {
+      "path": "tools/assets/extract-ahri-audio.py",
+      "bytes": 5539,
+      "sha256": "666153ac14dd600436182abce628684f1bfbe179dd5ced7abd710273de74a840"
+    },
+    {
+      "path": "docs/reference/ahri-audio-source.json",
+      "bytes": 7760,
+      "sha256": "0c025cb33d2f0b2f0fd3aed6e9fb7140f3270f10a7aee30f6e4095470b864c0a"
+    },
+    {
+      "path": "artifacts/ahri-audio-source-discovery.log",
+      "bytes": 117,
+      "sha256": "fef0f0f2fa645c1be9accfbc845ceb9bb0d2b6d2b0b393f8544ba1544c12fdd8"
+    },
+    {
+      "path": "artifacts/ahri-audio-source-check.log",
+      "bytes": 115,
+      "sha256": "0ff819f781f58afc15d0951196bbe8de48ee067c4eb0b22173312c514ea1b409"
+    },
+    {
+      "path": "artifacts/ahri-audio-source-optimized-check.log",
+      "bytes": 115,
+      "sha256": "0ff819f781f58afc15d0951196bbe8de48ee067c4eb0b22173312c514ea1b409"
+    },
+    {
+      "path": "artifacts/ahri-audio-source-restored.log",
+      "bytes": 117,
+      "sha256": "fef0f0f2fa645c1be9accfbc845ceb9bb0d2b6d2b0b393f8544ba1544c12fdd8"
+    },
+    {
+      "path": "artifacts/ahri-audio-source-guards.json",
+      "bytes": 1120,
+      "sha256": "0f168fcfb3ad0bb13aa8a20442f4cc898e09e7ebc84b154382f51146c5d786c5"
+    }
+  ]
+}
