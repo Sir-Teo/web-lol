@@ -82,20 +82,32 @@ for (const name of (await readdir('public/assets/models'))
   }
 }
 
-// Q cast geometry intentionally preserves source centimetres in its GLB.
-for (const asset of JSON.parse(await readFile('src/content/ahri-q-cast-particles.json', 'utf8'))
-  .meshes) {
-  const path = `public/${asset.url}`,
-    bytes = await readFile(path);
-  if (
-    bytes.length !== asset.bytes ||
-    createHash('sha256').update(bytes).digest('hex') !== asset.sha256
-  )
-    throw Error(`${path}: Q cast asset identity differs`);
-  const report = await validator.validateBytes(bytes, { maxIssues: 1000 });
-  console.log(`${path}: ${report.issues.numErrors} errors, ${report.issues.numWarnings} warnings`);
-  if (report.issues.numErrors || report.issues.numWarnings) {
-    console.error(JSON.stringify(report.issues, null, 2));
-    process.exitCode = 1;
+// Source effect transports preserve their own native coordinate ledgers.
+const effectMeshes = new Map();
+for (const content of ['ahri-q-cast-particles', 'ahri-q-projectile-particles']) {
+  for (const asset of JSON.parse(await readFile('src/content/' + content + '.json', 'utf8'))
+    .meshes) {
+    const path = 'public/' + asset.url;
+    const previous = effectMeshes.get(path);
+    if (previous) {
+      if (previous.bytes !== asset.bytes || previous.sha256 !== asset.sha256)
+        throw Error(path + ': conflicting shared effect mesh identity');
+      continue;
+    }
+    effectMeshes.set(path, asset);
+    const bytes = await readFile(path);
+    if (
+      bytes.length !== asset.bytes ||
+      createHash('sha256').update(bytes).digest('hex') !== asset.sha256
+    )
+      throw Error(path + ': source effect mesh identity differs');
+    const report = await validator.validateBytes(bytes, { maxIssues: 1000 });
+    console.log(
+      path + ': ' + report.issues.numErrors + ' errors, ' + report.issues.numWarnings + ' warnings'
+    );
+    if (report.issues.numErrors || report.issues.numWarnings) {
+      console.error(JSON.stringify(report.issues, null, 2));
+      process.exitCode = 1;
+    }
   }
 }

@@ -19,6 +19,12 @@ on:
       - 'docs/reference/ahri/q-projectile-texture-transport.json'
       - 'docs/reference/ahri/q-projectile-mesh-transports.json'
       - 'docs/reference/ahri/q-projectile-profile-reading.json'
+      - 'docs/reference/ahri/q-projectile-publication.json'
+      - 'docs/reference/ahri/q-cast-mesh-transport.json'
+      - 'src/content/ahri-q-cast-particles.json'
+      - 'src/content/ahri-q-projectile-particles.json'
+      - 'public/assets/effects/ahri-q-cast-*'
+      - 'public/assets/effects/ahri-q-projectile-*'
   pull_request:
     paths:
       - '.github/workflows/ahri-q-projectile-source.yml'
@@ -38,6 +44,12 @@ on:
       - 'docs/reference/ahri/q-projectile-texture-transport.json'
       - 'docs/reference/ahri/q-projectile-mesh-transports.json'
       - 'docs/reference/ahri/q-projectile-profile-reading.json'
+      - 'docs/reference/ahri/q-projectile-publication.json'
+      - 'docs/reference/ahri/q-cast-mesh-transport.json'
+      - 'src/content/ahri-q-cast-particles.json'
+      - 'src/content/ahri-q-projectile-particles.json'
+      - 'public/assets/effects/ahri-q-cast-*'
+      - 'public/assets/effects/ahri-q-projectile-*'
 permissions:
   contents: read
 jobs:
@@ -58,3 +70,7 @@ jobs:
           python3 tools/assets/prepare-ahri-q-projectile-profiles.py --verify-reading
           python3 tools/assets/test-ahri-q-projectile-profiles.py
           python3 -O tools/assets/test-ahri-q-projectile-profiles.py
+      - name: Reproduce public profiles and assets from committed transports
+        run: |
+          python3 tools/assets/test-ahri-q-projectile-publication.py
+          python3 -O tools/assets/test-ahri-q-projectile-publication.py

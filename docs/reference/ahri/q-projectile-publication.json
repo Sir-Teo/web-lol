@@ -1,0 +1,27 @@
+{
+  "format": 1,
+  "producerSha256": "6d679b838946b3dfae291b5f31cc88fd61624c7d9e113f6d6230b756f80f7571",
+  "privateProfileReadingSha256": "3ad747d07fd2c2420be2d84562846824e2677740dba96d6b02396220c51de525",
+  "privateProfileSha256": "72ed64245c93063d7f092828f9a45405e20bcb77dca4c19d65aafae54b8ab686",
+  "publicProfileSha256": "1d37eeacf199ff19cdf1563eec4dab0e8bfcf394140ebc72c7a014b226069e6b",
+  "sharedCastContentSha256": "80220cb7c8ff6a140e93cdc66b051221320f664845c20f03d6600f5697088d6e",
+  "sharedCastMeshTransportSha256": "c07c5a1cb7bbe1100894a686b6beb349b10307ed2ccada4e4ddd5f285c6390cf",
+  "profiles": 36,
+  "textures": 17,
+  "authoredMips": 151,
+  "meshes": 3,
+  "newPublicAssetFiles": 17,
+  "newPublicAssetBytes": 639983,
+  "sharedAssets": [
+    "assets/effects/ahri-q-cast-c68cda0f7d1484a0.png",
+    "assets/effects/ahri-q-cast-70401936f85310ef.png",
+    "assets/effects/ahri-q-cast-swirls.glb"
+  ],
+  "limits": [
+    "Complete public asset/profile staging only. No simulation observer, renderer or runtime dispatch is added.",
+    "All profile fields match the checked private projection apart from explicit asset-path substitutions.",
+    "Two textures reuse byte-identical cast transports. The existing swirls transport and new private transport both replay the same complete native triangle/UV/color data without coordinate changes.",
+    "Shared cast geometry is already adapted to scene units by its page owner. Newly loaded source geometry requires its own explicit source-to-scene conversion.",
+    "Native callbacks, height/trail frames, cylinder/linger/visibility policies, material bindings and pixels remain unbound."
+  ]
+}

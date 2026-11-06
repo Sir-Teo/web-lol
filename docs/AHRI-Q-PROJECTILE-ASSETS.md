@@ -31,3 +31,11 @@ Nested value types, authored key counts, explicit source fields and probability 
 Normal and optimized guards reproduce the complete table from committed source metadata alone. They reject five input-pin mutations, dropped emitters, unknown fields, unsupported trail modes, corrupt outputs, conflicts and symlinks before partial publication. Missing constructors, cylinder sampling, root frames, stop/linger policy, visibility, material arithmetic and native pixels remain unbound. The listed defaults are local adapters rather than native-default certification.
 
 The [profile verification receipt](reference/ahri/q-projectile-profile-verification.json) records all six workflow commands passing from a twenty-file git export with no private caches, tools or dependencies, and all 218 Node QA cases passing on the implementation branch. All runtime/public source bytes still match the accepted primary cast application; its pack and gameplay scope remain unchanged.
+
+## Public asset staging on the implementation branch
+
+The complete 36-emitter public table is an exact path substitution of the private projection. All 17 textures / 151 authored mips and three source meshes are accounted for. Two PNGs reuse byte-identical cast assets; swirls reuse the already checked cast GLB because both transports replay the same native triangles, UVs and colors. The shared geometry remains owned by the cast resource loader. Fifteen additional PNGs and two GLBs add 639,983 public bytes.
+
+The [publication ledger](reference/ahri/q-projectile-publication.json) pins the private/public tables and shared cast inputs. Both portable guard modes reproduce publication from committed assets without private inputs, reject eight source mutations and changed shared assets, and refuse conflicts or symlinks before partial writes. Four asset tests verify every profile field, all texture identities and engine loading of all three meshes. TypeScript and the complete GLB validator pass.
+
+This stages assets and data without binding a projectile renderer or adding simulation history. The unused content table conservatively changes the implementation branch's ruleset fingerprint; the accepted primary pack and schema remain unchanged. Source frames, stop/linger policy and actual projectile presentation are the next implementation work.
