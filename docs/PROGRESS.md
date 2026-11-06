@@ -6,6 +6,12 @@ Last updated: November 6, 2026 (UTC).
 
 ## Current authoritative state
 
+The [fresh full unit run](CURRENT-UNIT-RECOVERY.md) now passes 3,761/3,763 cases
+across 427 files after restoring exact Garen/Wwise/distortion inputs. Five
+missing-cache failures close without assertion changes. The historical Leona
+archive and Lux 24-snapshot digest remain the two open failures; this is not
+a full unit-gate pass. Current schema and simulation fingerprint stay intact.
+
 The [static emission-mesh sampler](STATIC-EMISSION-SURFACE.md) now preserves
 the pinned external area/CDF and nonuniform corner-blend law. All 83 cases pass,
 including 64 births from Baron's actual decoded sphere, input guards and

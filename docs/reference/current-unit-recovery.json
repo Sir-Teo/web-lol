@@ -1,0 +1,145 @@
+{
+  "date": "2026-11-06",
+  "sourceCommit": "669c073",
+  "ruleset": "e20bdcb81f74cf79399347c31c7b163879eb1541316841afc382ac03a365d853",
+  "schema": 163,
+  "initialFullRun": {
+    "passed": 3756,
+    "failed": 7,
+    "total": 3763,
+    "files": 427
+  },
+  "restoredFullRun": {
+    "passed": 3761,
+    "failed": 2,
+    "total": 3763,
+    "files": 427
+  },
+  "remainingFailures": [
+    {
+      "test": "leona-eclipse-skin-material",
+      "reason": "Historical .cache/leona-attached-skin-reflection-reading-v1-20261024/check.py and original retained native inputs unavailable."
+    },
+    {
+      "test": "lux-e-missile",
+      "reason": "Exact 24-snapshot digest differs: expected 09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df, received 4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a."
+    }
+  ],
+  "wwiser": {
+    "revision": "71654ed1a2c4642894bd7e7ed79eba66986fb770",
+    "propertyReaderSha256": "e9bfe9a8f3e2ea223ea8f7dba29c8921fbd7d220e62acaab61ba59bc5d751305"
+  },
+  "llvm": {
+    "compiler": {
+      "path": ".tools/llvm21/usr/lib/llvm-21/bin/clang",
+      "bytes": 133784,
+      "sha256": "6349abc605e082ae7900b3bb6bf70f3b5946af795e4cba647125834c6fd17d3f"
+    },
+    "compilerVersion": "Debian clang version 21.1.8 (++20251221033036+2078da43e25a-1~exp1~20251221153213.50)\nTarget: x86_64-pc-linux-gnu\nThread model: posix\nInstalledDir: /workspace/web-lol/.tools/llvm21/usr/lib/llvm-21/bin\n",
+    "llvmLibrary": {
+      "path": ".tools/llvm21/usr/lib/x86_64-linux-gnu/libLLVM.so.21.1",
+      "bytes": 139532456,
+      "sha256": "67c3534263c4ede26683fa362a91c1af4debad94db5a1e74905d4c5a7064a406"
+    },
+    "clangCppLibrary": {
+      "path": ".tools/llvm21/usr/lib/x86_64-linux-gnu/libclang-cpp.so.21.1",
+      "bytes": 61294664,
+      "sha256": "954699b54241ec42485f186b6853adb46475dea31c95535ae44210cd88219cea"
+    },
+    "packageSignature": {
+      "command": [
+        "gpg",
+        "--batch",
+        "--homedir",
+        ".cache/particle-distortion-restoration/gpg-home",
+        "--no-default-keyring",
+        "--keyring",
+        "/workspace/web-lol/.cache/particle-distortion-restoration/llvm-archive-keyring.gpg",
+        "--no-auto-key-retrieve",
+        "--status-fd",
+        "2",
+        "--decrypt",
+        ".cache/particle-distortion-restoration/llvm21-InRelease"
+      ],
+      "exitCode": 0,
+      "signingFingerprint": "6084F3CF814B57C1CF12EFD515CF4D18AF4F7421",
+      "packageIndexMatchesSignedRelease": true,
+      "indexSha256": "f9042fa0b250d5c6178e6e17762ad58eac3fecab2fa0f80cb509911e1fc601e7"
+    },
+    "packages": [
+      {
+        "package": "clang-21",
+        "version": "1:21.1.8~++20251221033036+2078da43e25a-1~exp1~20251221153213.50",
+        "path": ".cache/particle-distortion-restoration/llvm21-debs/clang-21_21.1.8~++20251221033036+2078da43e25a-1~exp1~20251221153213.50_amd64.deb",
+        "bytes": 169472,
+        "sha256": "b29399ec1bcbda6ad6760ddb10291a21fc442d3e426193c7e83d58e2ed5021a2",
+        "url": "https://apt.llvm.org/trixie/pool/main/l/llvm-toolchain-21/clang-21_21.1.8~++20251221033036+2078da43e25a-1~exp1~20251221153213.50_amd64.deb"
+      },
+      {
+        "package": "libclang-cpp21",
+        "version": "1:21.1.8~++20251221033036+2078da43e25a-1~exp1~20251221153213.50",
+        "path": ".cache/particle-distortion-restoration/llvm21-debs/libclang-cpp21_21.1.8~++20251221033036+2078da43e25a-1~exp1~20251221153213.50_amd64.deb",
+        "bytes": 12859204,
+        "sha256": "f17f302cd393d15f513a16555a6a209f8e5db80a56a1924063190f684ba8d0a4",
+        "url": "https://apt.llvm.org/trixie/pool/main/l/llvm-toolchain-21/libclang-cpp21_21.1.8~++20251221033036+2078da43e25a-1~exp1~20251221153213.50_amd64.deb"
+      },
+      {
+        "package": "libllvm21",
+        "version": "1:21.1.8~++20251221033036+2078da43e25a-1~exp1~20251221153213.50",
+        "path": ".cache/particle-distortion-restoration/llvm21-debs/libllvm21_21.1.8~++20251221033036+2078da43e25a-1~exp1~20251221153213.50_amd64.deb",
+        "bytes": 28343788,
+        "sha256": "991d8f67b8414d7bcab70832538ef3def6a3a6eecdc4261d173009b516a0ab18",
+        "url": "https://apt.llvm.org/trixie/pool/main/l/llvm-toolchain-21/libllvm21_21.1.8~++20251221033036+2078da43e25a-1~exp1~20251221153213.50_amd64.deb"
+      }
+    ],
+    "systemPackagesInstalled": false,
+    "maintainerScriptsExecuted": false
+  },
+  "evidence": [
+    {
+      "path": "artifacts/current-full-unit.log",
+      "sha256": "23558f5db7efd54e26f0b4b522b38ddeb0ef2d69df5067ac33ec877c5b5bea29",
+      "bytes": 15434
+    },
+    {
+      "path": "artifacts/current-full-unit-restored.log",
+      "sha256": "e9d547b014334d11104d1d2fa525ab5b37ae4cc9609a1fc773b6174a3bc66285",
+      "bytes": 11807
+    },
+    {
+      "path": "artifacts/current-reference-focused.log",
+      "sha256": "a14225567cd727ce20d9bd2f7d08504f2e516927d89605ecc1921389fa15a9fc",
+      "bytes": 425
+    },
+    {
+      "path": "artifacts/current-distortion-focused.log",
+      "sha256": "084e32c8c284b1bc0a46b01a19027f9c8de67c12940e8dd657d145a7f89bbacc",
+      "bytes": 179
+    },
+    {
+      "path": "artifacts/current-garen-reference-replay.json",
+      "sha256": "4024e2556efb113d5d8919dd7965fd0bb86b3a2d902c07769cc04d6e938b2c09",
+      "bytes": 10349
+    },
+    {
+      "path": "artifacts/current-garen-reference-recovery.json",
+      "sha256": "90f471683a033af6e07c7498d71af821a27527a7a3c4b72073681c537583e709",
+      "bytes": 10305
+    },
+    {
+      "path": "artifacts/current-distortion-replay.json",
+      "sha256": "99a2aca297609f9f1339a1831bd900612f279ccb6290ba7b17b62ea674902616",
+      "bytes": 284
+    },
+    {
+      "path": "artifacts/current-distortion-recovery.json",
+      "sha256": "3f3e66cc197fa0403f7a3ad4ca82966a053c0ad03a776a5af0907624887badf3",
+      "bytes": 15409
+    }
+  ],
+  "limits": [
+    "Full unit gate remains open; no assertions, expected hashes or deadlines changed.",
+    "Exact ignored-cache/tool restoration only; no native game or Metal program execution.",
+    "Existing production and offline ledgers retain their precise build identities."
+  ]
+}
