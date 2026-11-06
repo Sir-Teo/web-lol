@@ -9470,3 +9470,7 @@ Replaced whole-span envelope sampling with an exact 50 ms Linear ramp and 127 se
 ## Q source audio preflight
 
 Recorded eight source-attested Orb of Deception events, ten ordered actions, 53 nodes and 22 decoded masters without runtime publication. Cast resets both seven-entry hit sequences before its Play action; repeated child references and per-sound gains/ranged pitch remain raw. Outward/return stop fades differ (500 ms Exp1 / 750 ms Linear). Normal/optimized reproduction and five cache-free guards per mode pass. Native sequence/reset scope and deactivation conditions remain open; no Q binding yet.
+
+## Precision build delivery acceptance
+
+08ba5aa / schema 168 / e73e3c25 passes production and full offline acceptance with pack 979d59e3 (1,256 files / 557,784,904 bytes). No unwanted Charm preloads; 978 worker responses and no offline errors. Clean-checkout CI passes 54 tests, TypeScript and six Python modes; three browser cases include actual envelope rendering. A frozen source-delta receipt confirms only the two audio envelope kernels differ from the historical 563-file seed archive. Current 48-projection gameplay checks pass; prior full-unit/cohort results remain labeled to their actual revisions. Primary 7ae8e0 hundred-seed baseline remains in progress.

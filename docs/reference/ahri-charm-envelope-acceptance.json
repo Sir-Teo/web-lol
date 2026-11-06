@@ -1,0 +1,160 @@
+{
+  "format": 1,
+  "applicationRevision": "08ba5aa74e91c19f1eef165cb93e49e7c5fa2167",
+  "schema": 168,
+  "ruleset": "e73e3c253a1bcaaa25003c9e959f9fbf076bde9cae6a4ebd0546de097d27b5c3",
+  "pack": {
+    "id": "979d59e3082144745bdb246b85960159424e4783787786515398811c4043f700",
+    "files": 1256,
+    "bytes": 557784904,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a",
+    "allFileAndWorkerAudit": true
+  },
+  "scopedTests": 55,
+  "cleanCI": {
+    "tests": 54,
+    "files": 10,
+    "typeCheck": true,
+    "pythonModes": 6,
+    "privateCaches": false,
+    "privateTools": false,
+    "dependencies": "Reused parent node_modules; npm ci not repeated locally",
+    "remoteDispatched": false
+  },
+  "browser": {
+    "cases": 3,
+    "exactSourcePcmMasters": 9,
+    "unrequestedMastersWithoutAhri": 0,
+    "envelopeCases": [
+      {
+        "offset": 0,
+        "stopAge": 0.25,
+        "maximumError": 8.644933398693766e-06,
+        "at50ms": 1,
+        "afterEnd": 0
+      },
+      {
+        "offset": 0.7,
+        "stopAge": 0.25,
+        "maximumError": 4.7684365374056625e-06,
+        "at50ms": null,
+        "afterEnd": 0
+      },
+      {
+        "offset": 0,
+        "stopAge": 0.025,
+        "maximumError": 4.301492117386729e-06,
+        "at50ms": 0.49590203166007996,
+        "afterEnd": 0
+      }
+    ]
+  },
+  "production": {
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "unrequestedAhriCharmAudioPreloads": 0,
+    "developmentHook": false
+  },
+  "offline": {
+    "browser": "system-chromium",
+    "manifest": {
+      "id": "979d59e3082144745bdb246b85960159424e4783787786515398811c4043f700",
+      "files": 1256,
+      "bytes": 557784904
+    },
+    "checks": {
+      "integrityFailureRestoresDownloadFocus": true,
+      "integrityFailure": true,
+      "downloadFocusesCancel": true,
+      "cancelRetainsVerified": true,
+      "cancelRestoresDownloadFocus": true,
+      "retryWithoutRedownload": true,
+      "completionPreservesOtherControlFocus": true,
+      "pausedSavedTickBootsOffline": true,
+      "completePackRepairOffline": true,
+      "newLuxLaneMatchOffline": true,
+      "serviceWorkerResponses": 978,
+      "removalKeepsSavedBytes": true,
+      "updateRefusesOtherTabs": true,
+      "explicitAtomicVersionSwitchOffline": true,
+      "missingEntryRevokesReady": true,
+      "scopeOnlyRemoval": true
+    },
+    "result": "passed",
+    "productionErrors": []
+  },
+  "evidence": [
+    {
+      "path": "/workspace/web-lol-ahri-audio/artifacts/production-subpath-ahri-charm-envelope-v1.json",
+      "sha256": "f8eb4f344cbf6e76013f65e5ca53cdd34dab3792b9263926785caf474b5d49d8",
+      "bytes": 3747
+    },
+    {
+      "path": "/workspace/web-lol-ahri-audio/artifacts/offline-pack-ahri-charm-envelope-v1-production.json",
+      "sha256": "1db6e90667f56f5cbe8549523506daec72f1276cc20aab4b850af177f6492bfb",
+      "bytes": 859
+    },
+    {
+      "path": "/workspace/web-lol-ahri-audio/docs/reference/ahri-charm-envelope-source-delta.json",
+      "sha256": "f27b304aa659e1f5c4f1ca3b76c9e2e943d0687d73a3ecfb1b372b56bc7090e5",
+      "bytes": 1103
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-envelope-browser-v1/ahri-charm-audio-native-We-bfaf2-d-original-Exp1-seek-domain/envelope-evidence.json",
+      "sha256": "4bca156ceb029eadc1d424e9144dc69f3f3affb76cecba1e3204414217c07ef2",
+      "bytes": 409
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-envelope-browser-v1.log",
+      "sha256": "5a7d8ce84af6f87601e40dc47b8cec6223c33030d9944af5e095ea5406cbac44",
+      "bytes": 1218
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-envelope-scoped.log",
+      "sha256": "5dbadeb611e88004f96a86ce78af211ee36760a1a4430d7aa625557fca34d7b8",
+      "bytes": 391
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-envelope-pack-audit.log",
+      "sha256": "09c45b41e91e8c7a92a8067109710bcf2391ca06e2e7d6ea61639a1b06515cf2",
+      "bytes": 286
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-linear-boundary-before.log",
+      "sha256": "4b2229a65310879cf506dcfcef151c848d83ed176abe79672209bfcf7448d03f",
+      "bytes": 1162
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-envelope-clean-ci-0.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-envelope-clean-ci-1.log",
+      "sha256": "ddd3824fadd33a5e5fc48e22855bdd51e292f9448ec416d4f39fdb9ef372d2b7",
+      "bytes": 401
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-envelope-clean-ci-2.log",
+      "sha256": "2dd796026b608a40ce6239368a6574ac3a6349ea4cd5fa02cfa17b64a3d7c07f",
+      "bytes": 251
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-envelope-clean-ci-3.log",
+      "sha256": "e135f2b1d5f97118151c7849a85a8230f4891f766d2c753f8cbceb4c093f1830",
+      "bytes": 235
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-envelope-clean-ci-4.log",
+      "sha256": "e135f2b1d5f97118151c7849a85a8230f4891f766d2c753f8cbceb4c093f1830",
+      "bytes": 235
+    }
+  ],
+  "limits": [
+    "The 66ad4dc/ae079c84 one-seed comparison and 8490-pass full suite remain historical; neither is relabeled to this ruleset",
+    "All 563 archived current source/QA identities match that archive except the two audio envelope kernels; current independent 48-projection gameplay comparison passes in scoped tests",
+    "The primary 100-seed 7ae8e0 roster run remains in progress; no milestone completion claimed",
+    "Native Wwise bus/listener/shuffle/dispatch and device performance remain unverified",
+    "Local branch only; no merge, push or publication"
+  ]
+}
