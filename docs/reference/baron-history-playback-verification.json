@@ -1,0 +1,31 @@
+{
+  "format": 1,
+  "snapshotVersion": 166,
+  "ruleset": "ae3da0abcdce8fdd4bf7183723ab95016de9c2df64c77424852b0e11b88b7b07",
+  "focusedTestsPassed": 6,
+  "typecheck": "passed",
+  "activeGameplayBinding": false,
+  "nativeExecuted": false,
+  "evidence": [
+    {
+      "path": "src/render/baron-history-playback.ts",
+      "bytes": 4097,
+      "sha256": "2f0ae18f6dcab7dc75352baa7ca38a747ff455d3e8e00b94493fa31831cb5458"
+    },
+    {
+      "path": "tests/baron-history-playback.test.ts",
+      "bytes": 2865,
+      "sha256": "831988673c4f06c16ff9970d07060df01e4b794b6965279687506a380cdec168"
+    },
+    {
+      "path": "artifacts/baron-playback-tests-verified.log",
+      "bytes": 872,
+      "sha256": "c789ad33571b9d33ab2b59d6ed9c83d3cc5517a3fc6f166e9d028669acd02573"
+    },
+    {
+      "path": "artifacts/baron-playback-types-verified.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

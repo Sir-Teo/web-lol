@@ -9310,3 +9310,7 @@ Pack 0ccf9308076f1631d2e78fa4ba632cb81bb22bebb79a975fdf8370f075473067 passes ful
 ### Preserve complete Baron launch prefixes for exact reload
 
 Found and fixed the 90-frame sliding-history gap before active source-effect binding. Schema 166 now requires complete launch-to-current paths, bounded at 312 frames by the existing 4,000-unit range / 1,300-unit-speed flight plus longest retained tail. The historical source envelope/generator remain unchanged; a new generator pins those inputs and the new bound. 46 focused tests and TypeScript pass, including long-range source-system reconstruction beyond 90 frames, exact checkpoints/packets/20 future steps, World nonmutation and missing-prefix rejection. Current ruleset ae3da0abcdce8fdd4bf7183723ab95016de9c2df64c77424852b0e11b88b7b07. Earlier schema165 delivery/batch acceptance stays historical. See docs/BARON-FULL-LAUNCH-HISTORY.md.
+
+### Deterministic Baron presentation cache
+
+Added committed whole-tick replay plus isolated fractional drafts from supplied historical roots. Both roles match across sequential, skipped, reconstructed and rewound samples. Hidden births consume source RNG while retaining their original visibility; serial-based recording avoids float32 clock-boundary reveal mistakes. Six focused tests and TypeScript pass. Root/bone/height/size policies remain caller-owned and active scene binding is still pending. Fingerprint unchanged at ae3da0 / schema166. See docs/BARON-HISTORY-PLAYBACK.md.
