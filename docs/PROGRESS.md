@@ -84,6 +84,11 @@ The [appearance stage](SOURCE-PARTICLE-APPEARANCE.md) now matches 384 independen
 exact-byte samples; all 388 cases pass. HDR values and source-order multiplication
 are retained; uniform scaling excludes trails. Final placement and binding remain next.
 
+The [frame/binding stage](SOURCE-PARTICLE-FRAME.md) now matches 848 independent
+exact-byte samples; all 852 tests pass. Fresh-frame binding, birth/current frames,
+world transforms and unturned acceleration remain explicit. Full particle-system
+composition and renderer dispatch remain next work.
+
 ## Recent verified checkpoints
 
 All 21 Baron emitters now have a [strict private parameter stage](BARON-ATTACK-PROGRAM.md),

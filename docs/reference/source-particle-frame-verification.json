@@ -1,0 +1,35 @@
+{
+  "format": 1,
+  "testsPassed": 852,
+  "independentSamples": 848,
+  "typecheck": "passed",
+  "nativeExecuted": false,
+  "runtimeBinding": false,
+  "evidence": [
+    {
+      "path": "artifacts/source-particle-frame-tests.log",
+      "bytes": 1876,
+      "sha256": "5d2d63b13ef63808cbbed7db2545b01187e01e71e35a1fe540f6c1ac142354c8"
+    },
+    {
+      "path": "artifacts/source-particle-frame-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tools/assets/export-source-particle-frame-samples.mjs",
+      "bytes": 8494,
+      "sha256": "dde27e736098413be46f22ae3bebb941aa6bb49efa0b403a045e6fc89841c712"
+    },
+    {
+      "path": "docs/reference/source-particle-frame-samples.json",
+      "bytes": 846127,
+      "sha256": "df6517d8cc17077151daaa4d80a99a90c6fa7e926b79a8019aef0611d7c3645b"
+    },
+    {
+      "path": "src/render/source-particle-frame.ts",
+      "bytes": 4987,
+      "sha256": "c038a2752ced000ebfe5f84bf1762148550dc8067f574632c2903b813c4356ec"
+    }
+  ]
+}
