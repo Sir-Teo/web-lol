@@ -4,7 +4,7 @@
   "helpers": [
     {
       "path": "tools/assets/ahri_w_profiles.py",
-      "sha256": "45484fb9dac74b3e196a9c469486780d2277ef4d1b270019f40bd8b57ef4ebbc"
+      "sha256": "2e80304f39386b0ec68bb13b9061ef23742912541139f8a75daed788062917fd"
     },
     {
       "path": "tools/assets/ahri_q_projectile.py",

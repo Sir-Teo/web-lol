@@ -53,9 +53,9 @@ textures=json.loads((root/'docs/reference/ahri/w-texture-transports.json').read_
 meshes=json.loads((root/'docs/reference/ahri/w-mesh-transports.json').read_bytes())
 t={r['source']['path']:r['path']for r in textures['textures']}
 g={r['source']['path']:r['glb']['path']for r in meshes['meshes']}
-for change in [lambda p:p['resources']['Ahri_W_mis']['definition']['complexEmitterDefinitionData'].pop(),lambda p:p['resources']['Ahri_W_mis']['definition']['complexEmitterDefinitionData'][0].update(unhandledField=1)]:
+for change in [lambda p:p['resources']['Ahri_W_mis']['definition']['complexEmitterDefinitionData'].pop(),lambda p:p['resources']['Ahri_W_mis']['definition']['complexEmitterDefinitionData'][0].update(unhandledField=1),lambda p:next(e for r in p['resources'].values() for e in r['definition'].get('complexEmitterDefinitionData',[]) if 'textureMult' in e)['textureMult'].update(unhandledField=1)]:
     changed=copy.deepcopy(pin);change(changed)
     try:m['profiles'](changed,t,g)
     except(ValueError,KeyError):pass
     else:raise ValueError('Unhandled emitter removal/field/trail mode accepted')
-print(json.dumps(dict(result='passed',optimized=bool(sys.flags.optimize),sourcePinMutations=5,structuralMutationCases=2,privateInputsRequired=False,nativeParserRequired=False,profiles=30,authoredFields=66)))
+print(json.dumps(dict(result='passed',optimized=bool(sys.flags.optimize),sourcePinMutations=5,structuralMutationCases=3,privateInputsRequired=False,nativeParserRequired=False,profiles=30,authoredFields=66)))

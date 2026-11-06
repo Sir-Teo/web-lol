@@ -15,5 +15,5 @@ for (const optimized of [false, true])
     assert.equal(result.nativeParserRequired, false);
     assert.equal(result.profiles, 30);
     assert.equal(result.authoredFields, 66);
-    assert.equal(result.structuralMutationCases, 2);
+    assert.equal(result.structuralMutationCases, 3);
   });

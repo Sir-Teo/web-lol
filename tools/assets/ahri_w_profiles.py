@@ -84,6 +84,9 @@ def profiles(pin, textures, meshes):
                     tiling=value(raw.get('mBirthTilingSize',{}),[0,0,0]),explicitFields=sorted(raw))
             else:require(not set(primitive)-{'__type'}, 'Unhandled W primitive field')
             mult=e.get('textureMult')
+            if mult:
+                require(not set(mult)-{'textureMult','birthUvScrollRateMult','birthUVOffsetMult','__type'},
+                        'Unhandled W multiplier field')
             multiplier=dict(texture=textures[mult['textureMult'].lower()],uv=uv(mult,True),
                 explicitFields=sorted(mult)) if mult else None
             erosion=e.get('alphaErosionDefinition');eroded=None
