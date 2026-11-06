@@ -17,6 +17,11 @@ The production/offline pack below belongs to the earlier e20 ruleset.
 The quiet full suite passes 3,891/3,893 cases; only the two previously recorded
 Leona archive and Lux digest gaps remain. See [release-pose evidence](BARON-RELEASE-POSE.md).
 
+The [historical launch attachment](BARON-LAUNCH-ATTACHMENT.md) now samples the
+authored JawBot from an independent skeleton, including the pinned native model.
+All eight focused cases pass. It remains separate from the provisional marker
+and unverified missile height routing.
+
 ## Recent verified checkpoints
 
 All 21 Baron emitters now have a [strict private parameter stage](BARON-ATTACK-PROGRAM.md),
