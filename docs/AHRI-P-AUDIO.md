@@ -34,6 +34,12 @@ Local dispatch assigns launch to both traveling kinds, champion consumption to h
 
 Strict restore checks owner/victim identity, global IDs, canonical audiences, chronology, pursuit geometry, live Essence links, terminal reasons and finite-tail expiry. Seven history cases cover both kinds every frame, independent birth/contact vision, overheal, immediate death, pruning, four victory phases, malformed active/completed saves and pursuit expiry. All38 focused checks and TypeScript pass, including120 passive projections and210 existing R projections. The frozen R reference/producer/helper stay unchanged; its current-side comparison excludes only the new passive presentation field in addition to its original exclusions. Full/cohort verification follows; playback is unbound.
 
+## Frozen history verification
+
+Runtime `4b9aac2`, schema172 / `29c2a12a`, passes8,661/8,663 full-suite cases in498 files with only the two historical failures. Test-only `a5fcb1e` updates the strict schema assertion to172. The first broad run also hit a lane-clock timeout under concurrent load; its unchanged follow-up and authoritative full v2 pass. All138 Node QA cases pass. Clean CI at `a5fcb1e` passes TypeScript,294 cases in38 files and22 Python guard modes without private caches/tools; its first concurrent run timed out in unchanged R restoration, and v2 passes.
+
+The frozen590-file roster archive finishes naturally Blue at157,116, with44 exact restores,43 future checks and2,580 future ticks. All45 archived projections match `c5d6be5a`, retaining R/W/Q/E histories. Source extents/hashes, runner, inputs, reports and snapshots verify. See `reference/ahri-passive-history-verification.json`; this evidence is not relabeled to later playback or the older hundred-seed baseline. Playback remains a separate branch.
+
 ## Local finite playback
 
 The isolated playback branch lazy-loads five unique PCM masters, deduplicating the three shared healing clips before fetching/decoding while preserving eight source sound identities and four event profiles. Launch follows the saved moving Essence point; arrival stays at captured consumption. Champion arrival dispatches hit plus orb-buff, minion arrival its separate healing profile. Death/deadline/terminal cancellation does not create a healing cue. Source finite launch masters finish naturally; no source Stop or fade is invented.
