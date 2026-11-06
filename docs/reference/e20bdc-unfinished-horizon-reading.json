@@ -1,0 +1,513 @@
+{
+  "format": 1,
+  "reading": {
+    "format": 1,
+    "ruleset": "e20bdcb81f74cf79399347c31c7b163879eb1541316841afc382ac03a365d853",
+    "ledgerSha256": "47929c8e3892855391b4b68cc3bed99fa12923c4a5f36815102447c082e54a52",
+    "lastTicks": 36000,
+    "cases": [
+      {
+        "seed": 2,
+        "outcome": "unfinished",
+        "finalTick": 216000,
+        "samples": [
+          {
+            "tick": 180000,
+            "kills": 126,
+            "deaths": 127,
+            "cs": 2236,
+            "aliveChampions": 9,
+            "liveMinions": 85,
+            "liveTurrets": 8,
+            "liveInhibitors": 4,
+            "nexusHp": {
+              "red": 5500,
+              "blue": 5500
+            }
+          },
+          {
+            "tick": 183600,
+            "kills": 129,
+            "deaths": 130,
+            "cs": 2303,
+            "aliveChampions": 6,
+            "liveMinions": 74,
+            "liveTurrets": 7,
+            "liveInhibitors": 5,
+            "nexusHp": {
+              "red": 5500,
+              "blue": 5500
+            }
+          },
+          {
+            "tick": 187200,
+            "kills": 130,
+            "deaths": 131,
+            "cs": 2359,
+            "aliveChampions": 9,
+            "liveMinions": 65,
+            "liveTurrets": 7,
+            "liveInhibitors": 4,
+            "nexusHp": {
+              "red": 5500,
+              "blue": 5500
+            }
+          },
+          {
+            "tick": 190800,
+            "kills": 132,
+            "deaths": 133,
+            "cs": 2419,
+            "aliveChampions": 8,
+            "liveMinions": 62,
+            "liveTurrets": 7,
+            "liveInhibitors": 5,
+            "nexusHp": {
+              "red": 5500,
+              "blue": 5500
+            }
+          },
+          {
+            "tick": 194400,
+            "kills": 135,
+            "deaths": 136,
+            "cs": 2441,
+            "aliveChampions": 6,
+            "liveMinions": 74,
+            "liveTurrets": 7,
+            "liveInhibitors": 5,
+            "nexusHp": {
+              "red": 5500,
+              "blue": 5500
+            }
+          },
+          {
+            "tick": 198000,
+            "kills": 139,
+            "deaths": 140,
+            "cs": 2487,
+            "aliveChampions": 6,
+            "liveMinions": 71,
+            "liveTurrets": 7,
+            "liveInhibitors": 4,
+            "nexusHp": {
+              "red": 5500,
+              "blue": 5500
+            }
+          },
+          {
+            "tick": 201600,
+            "kills": 141,
+            "deaths": 142,
+            "cs": 2544,
+            "aliveChampions": 8,
+            "liveMinions": 64,
+            "liveTurrets": 7,
+            "liveInhibitors": 3,
+            "nexusHp": {
+              "red": 5500,
+              "blue": 5500
+            }
+          },
+          {
+            "tick": 205200,
+            "kills": 142,
+            "deaths": 143,
+            "cs": 2589,
+            "aliveChampions": 7,
+            "liveMinions": 79,
+            "liveTurrets": 7,
+            "liveInhibitors": 4,
+            "nexusHp": {
+              "red": 5500,
+              "blue": 5500
+            }
+          },
+          {
+            "tick": 208800,
+            "kills": 144,
+            "deaths": 145,
+            "cs": 2663,
+            "aliveChampions": 8,
+            "liveMinions": 85,
+            "liveTurrets": 7,
+            "liveInhibitors": 4,
+            "nexusHp": {
+              "red": 5500,
+              "blue": 5500
+            }
+          },
+          {
+            "tick": 212400,
+            "kills": 148,
+            "deaths": 149,
+            "cs": 2707,
+            "aliveChampions": 5,
+            "liveMinions": 76,
+            "liveTurrets": 6,
+            "liveInhibitors": 3,
+            "nexusHp": {
+              "red": 5500,
+              "blue": 5500
+            }
+          },
+          {
+            "tick": 216000,
+            "kills": 148,
+            "deaths": 149,
+            "cs": 2763,
+            "aliveChampions": 9,
+            "liveMinions": 67,
+            "liveTurrets": 4,
+            "liveInhibitors": 3,
+            "nexusHp": {
+              "red": 5500,
+              "blue": 2057.333333333285
+            }
+          }
+        ],
+        "counterDeltas": {
+          "kills": 22,
+          "deaths": 22,
+          "cs": 527
+        },
+        "nexusChanges": [
+          {
+            "tick": 216000,
+            "hp": {
+              "red": 5500,
+              "blue": 2057.333333333285
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "path": "seeds/2/report.json",
+            "sha256": "192991f1e4119ca35e853fe4f2014af7778d16d6651a8c4062cbaadc8ca0cafc",
+            "bytes": 303982
+          },
+          {
+            "path": "seeds/2/180000.match.json",
+            "bytes": 243251,
+            "sha256": "b48c8df169adc5bf505047e8190b0312844f6c8e36618c23a7da24f31bb58969"
+          },
+          {
+            "path": "seeds/2/183600.match.json",
+            "bytes": 209618,
+            "sha256": "88d9cb21015c34852fc25be6abab27454aef05048035b0fe5a51f46c9791a3c3"
+          },
+          {
+            "path": "seeds/2/187200.match.json",
+            "bytes": 209629,
+            "sha256": "2cf6f54dc519a29aacbd2a8ad65427698dd68012d6e52c753cd9b947202cea69"
+          },
+          {
+            "path": "seeds/2/190800.match.json",
+            "bytes": 233890,
+            "sha256": "a1e59412176de27be2e586ae5bb7d370b619f7f3a133cf88eba769a48812524b"
+          },
+          {
+            "path": "seeds/2/194400.match.json",
+            "bytes": 222895,
+            "sha256": "78cd63dbcc2e30fe3aee41b8b7ce360d949d4bb4368cdc358a7dedcd1f3f0488"
+          },
+          {
+            "path": "seeds/2/198000.match.json",
+            "bytes": 290077,
+            "sha256": "a81453381ddc15d066ce07b59b4f77f1ae86458053bedac2860b9435efb3ca83"
+          },
+          {
+            "path": "seeds/2/201600.match.json",
+            "bytes": 351885,
+            "sha256": "34e16ae93fc2a61771e662080c8440d4a24f44220b7f72fbcd411cbed1b47f79"
+          },
+          {
+            "path": "seeds/2/205200.match.json",
+            "bytes": 246205,
+            "sha256": "c79b1d72c47e2fff5907dae6cf84e30d13337632ae060df5389d9fe264ba4a34"
+          },
+          {
+            "path": "seeds/2/208800.match.json",
+            "bytes": 246543,
+            "sha256": "149be254e66f0965ec983774a6942b35f513127a165c2562f53c0be67446e5bc"
+          },
+          {
+            "path": "seeds/2/212400.match.json",
+            "bytes": 211690,
+            "sha256": "1ffa359aef8719c45825c1deac1682186a4934228fd9fbccdd0c6df66b275475"
+          },
+          {
+            "path": "seeds/2/216000.match.json",
+            "bytes": 224505,
+            "sha256": "128fc6281b224be9fd2faa3d1019fd822e16c6d84d3939eb843c99b6d3e968f5"
+          },
+          {
+            "path": "seeds/2/final.match.json",
+            "bytes": 224505,
+            "sha256": "128fc6281b224be9fd2faa3d1019fd822e16c6d84d3939eb843c99b6d3e968f5"
+          }
+        ]
+      },
+      {
+        "seed": 25,
+        "outcome": "unfinished",
+        "finalTick": 216000,
+        "samples": [
+          {
+            "tick": 180000,
+            "kills": 140,
+            "deaths": 141,
+            "cs": 2124.5,
+            "aliveChampions": 6,
+            "liveMinions": 68,
+            "liveTurrets": 7,
+            "liveInhibitors": 5,
+            "nexusHp": {
+              "red": 5500,
+              "blue": 5500
+            }
+          },
+          {
+            "tick": 183600,
+            "kills": 142,
+            "deaths": 143,
+            "cs": 2172.5,
+            "aliveChampions": 6,
+            "liveMinions": 65,
+            "liveTurrets": 4,
+            "liveInhibitors": 5,
+            "nexusHp": {
+              "red": 5500,
+              "blue": 5500
+            }
+          },
+          {
+            "tick": 187200,
+            "kills": 143,
+            "deaths": 144,
+            "cs": 2219.5,
+            "aliveChampions": 9,
+            "liveMinions": 62,
+            "liveTurrets": 3,
+            "liveInhibitors": 4,
+            "nexusHp": {
+              "red": 5500,
+              "blue": 5500
+            }
+          },
+          {
+            "tick": 190800,
+            "kills": 147,
+            "deaths": 148,
+            "cs": 2268.5,
+            "aliveChampions": 6,
+            "liveMinions": 69,
+            "liveTurrets": 3,
+            "liveInhibitors": 5,
+            "nexusHp": {
+              "red": 5500,
+              "blue": 5500
+            }
+          },
+          {
+            "tick": 194400,
+            "kills": 150,
+            "deaths": 151,
+            "cs": 2291.5,
+            "aliveChampions": 5,
+            "liveMinions": 84,
+            "liveTurrets": 4,
+            "liveInhibitors": 5,
+            "nexusHp": {
+              "red": 5500,
+              "blue": 5500
+            }
+          },
+          {
+            "tick": 198000,
+            "kills": 151,
+            "deaths": 152,
+            "cs": 2368.5,
+            "aliveChampions": 9,
+            "liveMinions": 67,
+            "liveTurrets": 4,
+            "liveInhibitors": 5,
+            "nexusHp": {
+              "red": 5500,
+              "blue": 5500
+            }
+          },
+          {
+            "tick": 201600,
+            "kills": 155,
+            "deaths": 156,
+            "cs": 2410.5,
+            "aliveChampions": 6,
+            "liveMinions": 76,
+            "liveTurrets": 4,
+            "liveInhibitors": 4,
+            "nexusHp": {
+              "red": 5500,
+              "blue": 5500
+            }
+          },
+          {
+            "tick": 205200,
+            "kills": 157,
+            "deaths": 158,
+            "cs": 2457.5,
+            "aliveChampions": 6,
+            "liveMinions": 67,
+            "liveTurrets": 4,
+            "liveInhibitors": 5,
+            "nexusHp": {
+              "red": 5500,
+              "blue": 5500
+            }
+          },
+          {
+            "tick": 208800,
+            "kills": 159,
+            "deaths": 160,
+            "cs": 2505.5,
+            "aliveChampions": 6,
+            "liveMinions": 65,
+            "liveTurrets": 4,
+            "liveInhibitors": 4,
+            "nexusHp": {
+              "red": 5500,
+              "blue": 5500
+            }
+          },
+          {
+            "tick": 212400,
+            "kills": 160,
+            "deaths": 161,
+            "cs": 2555.5,
+            "aliveChampions": 9,
+            "liveMinions": 77,
+            "liveTurrets": 4,
+            "liveInhibitors": 4,
+            "nexusHp": {
+              "red": 5500,
+              "blue": 5500
+            }
+          },
+          {
+            "tick": 216000,
+            "kills": 162,
+            "deaths": 163,
+            "cs": 2592.5,
+            "aliveChampions": 8,
+            "liveMinions": 99,
+            "liveTurrets": 4,
+            "liveInhibitors": 4,
+            "nexusHp": {
+              "red": 5500,
+              "blue": 5500
+            }
+          }
+        ],
+        "counterDeltas": {
+          "kills": 22,
+          "deaths": 22,
+          "cs": 468
+        },
+        "nexusChanges": [],
+        "evidence": [
+          {
+            "path": "seeds/25/report.json",
+            "sha256": "a63a3a1d56bd421880734cec89905874cd43830ca345c5fe594a1ef1f2adf388",
+            "bytes": 302753
+          },
+          {
+            "path": "seeds/25/180000.match.json",
+            "bytes": 317713,
+            "sha256": "8f037f66f4b9ae3dc71af9cc39fbcd1af65f0cb17c3eb9ea495d6117d93ef438"
+          },
+          {
+            "path": "seeds/25/183600.match.json",
+            "bytes": 220927,
+            "sha256": "6f5f16bc1a78a0f664ad2cbb596e86dd434295407030e18fcb85d008cff6272c"
+          },
+          {
+            "path": "seeds/25/187200.match.json",
+            "bytes": 234492,
+            "sha256": "399f33fe359929225369794b578ab2f5d0efe87858a17f9efd9bed1d8ed19ecb"
+          },
+          {
+            "path": "seeds/25/190800.match.json",
+            "bytes": 247017,
+            "sha256": "a5915836b4aa7e93bc6bf7d4a37177cfbf4c1db3cfe950469ba267de3137ba53"
+          },
+          {
+            "path": "seeds/25/194400.match.json",
+            "bytes": 257478,
+            "sha256": "4a80bc2480fd9529d5bce91da6568c1a68bf9fb1f1dc5ecaabc74dc7c0c79d31"
+          },
+          {
+            "path": "seeds/25/198000.match.json",
+            "bytes": 233185,
+            "sha256": "89dc44acae8ffa949d03f12ee677086716db621c20726aa09c06a19e7f4f76cb"
+          },
+          {
+            "path": "seeds/25/201600.match.json",
+            "bytes": 233351,
+            "sha256": "31f00fe3f8950ec4d41559bd050abdcfa0511bbd9b8e3ed3be6b67b7086c980d"
+          },
+          {
+            "path": "seeds/25/205200.match.json",
+            "bytes": 243734,
+            "sha256": "796633d5ca21ded8e51668aaa5c19c8dd5e195b3e17cb7814c45aa55c2f336d2"
+          },
+          {
+            "path": "seeds/25/208800.match.json",
+            "bytes": 232873,
+            "sha256": "d2064e19da8871a1f876e6c9316d16e37a9eb95bd0feaf1711433b6e6048ccec"
+          },
+          {
+            "path": "seeds/25/212400.match.json",
+            "bytes": 222762,
+            "sha256": "af86b666e98a949317cb67ee9213b76b3abbb78f831623606331882d19774e1e"
+          },
+          {
+            "path": "seeds/25/216000.match.json",
+            "bytes": 254698,
+            "sha256": "12b4e68a6d8add40bb118c54639dca5794a00c1e867c6a92ee807802d7a0fedc"
+          },
+          {
+            "path": "seeds/25/final.match.json",
+            "bytes": 254698,
+            "sha256": "12b4e68a6d8add40bb118c54639dca5794a00c1e867c6a92ee807802d7a0fedc"
+          }
+        ]
+      }
+    ],
+    "limits": [
+      "Read-only archived snapshots; no simulation, ruleset bridge or current-build certification.",
+      "Counter and sampled HP changes establish observed activity, not causal AI diagnosis.",
+      "Minute-spaced snapshots cannot establish recall loops, exact paths or fight timing."
+    ]
+  },
+  "validation": {
+    "passed": 6,
+    "readOnly": true
+  },
+  "evidence": [
+    {
+      "path": "tools/qa/inspect-cohort-horizon.mjs",
+      "bytes": 5923,
+      "sha256": "5266140e5da795038288ac2c6757693014244928eecff8f91e0c05526e9ee464"
+    },
+    {
+      "path": "artifacts/e20bdc-unfinished-horizon-v1.json",
+      "bytes": 13047,
+      "sha256": "5e96d232d00e9b5a518ae6bd648abf374655c4858c77c71fd17c9cc8ac9a345f"
+    },
+    {
+      "path": "artifacts/e20bdc-horizon-diagnostic-tests.log",
+      "bytes": 526,
+      "sha256": "f51500fd9c7b690988c0cab166bdd10458565265382fce14bc54fb6982f2e777"
+    }
+  ]
+}

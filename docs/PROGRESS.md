@@ -9394,3 +9394,7 @@ Application5c2d323/ruleset607225d passes8,460/8,462 tests (only the two historic
 ### Save missed Baron cast audio through its complete finite tail
 
 A new regression first reproduced the lost tail after early target death and visual pruning. Exported duration/delay/slowest-pitch bounds are140cast/59hit ticks. Simulation retention and strict snapshot expiry now retain every release through the cast bound; existing125tick hit history and312frame cap suffice. Restoring after particle expiry reproduces the exact remaining audio state, then prunes on the exact bound and preserves future snapshots. All59 scoped cases, both publication guards and build pass. Schema167; ruleset7ae8e0f8513df40ceca31f52ad146bbe08b388b09163e996538133fbe600229f. Refreshed browser/full/delivery checks are running.
+
+### Read the frozen cohort’s two unfinished horizons without migration
+
+Added a read-only ledger-pinned snapshot diagnostic and six corruption/order/ruleset guard tests. In the final ten minutes, seeds2/25 each add22 kills and22 deaths, plus527/468CS. Seed2’s blue nexus falls5500→2057.3333 in the final minute; seed25’s nexuses stay5500. Both show activity, but minute samples do not diagnose recall loops, routing or bot causality. No historical snapshot/outcome or current gameplay changed. See docs/E20BDC-UNFINISHED-HORIZON.md.
