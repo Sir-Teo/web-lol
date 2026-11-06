@@ -9354,3 +9354,7 @@ At application commit bd1e691, the full suite passes 8,433/8,435 cases across 46
 ### Freeze the declared Baron base sound banks
 
 Privately pinned the source skin's two declared shared SFX banks from the same Riot manifest/Map11 archive: 2,142,507 bytes, audio container134 and event bank145. Normal/optimized checks and a fresh exact-provenance restore pass. Eight rejection probes cover changed/missing/symlink banks and edited helper metadata in both Python modes. Portable helper provenance is frozen; initial experimental metadata remains in artifacts. No event meaning, decoded media, runtime playback or public assets are inferred yet. See docs/BARON-AUDIO-SOURCE.md.
+
+### Preserve the complete Baron numeric audio graph
+
+Pinned wwiser parses 341 hierarchy nodes /87 numeric events without errors. All86 sound nodes resolve to 82 unique embedded WEMs, extracted with checked bounds, nonoverlap, RIFF extents and exact hashes. All scalar parser fields and event action/descendant/media closures are retained. Three unresolved global parent/bus IDs remain explicit. Normal/optimized checks, a fresh restore and six rejection probes pass. Event names, gameplay cue binding, decoding and runtime playback are not inferred. See docs/BARON-AUDIO-GRAPH.md.

@@ -1,0 +1,66 @@
+{
+  "format": 1,
+  "nodes": 341,
+  "nodeCounts": {
+    "CAkActionPlay": 62,
+    "CAkActionStop": 34,
+    "CAkActorMixer": 13,
+    "CAkAttenuation": 3,
+    "CAkEvent": 87,
+    "CAkRanSeqCntr": 56,
+    "CAkSound": 86
+  },
+  "events": 87,
+  "media": 82,
+  "mediaBytes": 2125475,
+  "parserErrors": 0,
+  "unresolvedParentOrBusIds": [
+    1823673009,
+    2192106426,
+    2770764924
+  ],
+  "declaredEventNames": [],
+  "runtimePlayback": false,
+  "checks": [
+    "normal/optimized exact graph regeneration",
+    "fresh exact media restore",
+    "six normal/optimized corruption/missing/graph rejection probes"
+  ],
+  "evidence": [
+    {
+      "path": "tools/assets/map-baron-audio.py",
+      "bytes": 9265,
+      "sha256": "54efd607ce50cbaad869b816191a5cce55f805f67e830eae90334d904229f8b0"
+    },
+    {
+      "path": "docs/reference/baron-audio-graph.json",
+      "bytes": 1814890,
+      "sha256": "eec1c9d1ca816d6c2aeae41ac3190abce2af09034f770de822ec40ab907870b1"
+    },
+    {
+      "path": "artifacts/baron-audio-graph-discovery.log",
+      "bytes": 106,
+      "sha256": "6dc894956bea60fda87aec75c09ac8a6b25644c48fd0be13948a54805176595a"
+    },
+    {
+      "path": "artifacts/baron-audio-graph-check.log",
+      "bytes": 106,
+      "sha256": "6dc894956bea60fda87aec75c09ac8a6b25644c48fd0be13948a54805176595a"
+    },
+    {
+      "path": "artifacts/baron-audio-graph-optimized-check.log",
+      "bytes": 106,
+      "sha256": "6dc894956bea60fda87aec75c09ac8a6b25644c48fd0be13948a54805176595a"
+    },
+    {
+      "path": "artifacts/baron-audio-graph-fresh-restore.log",
+      "bytes": 106,
+      "sha256": "6dc894956bea60fda87aec75c09ac8a6b25644c48fd0be13948a54805176595a"
+    },
+    {
+      "path": "artifacts/baron-audio-graph-rejections.json",
+      "bytes": 859,
+      "sha256": "c9d4420515f374a679593192c6930a0c314745bfd3cea3bb006c95a28fd40dae"
+    }
+  ]
+}
