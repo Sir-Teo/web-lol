@@ -1,0 +1,52 @@
+{
+  "format": 1,
+  "snapshotVersion": 166,
+  "ruleset": "ae3da0abcdce8fdd4bf7183723ab95016de9c2df64c77424852b0e11b88b7b07",
+  "maxFlightTicks": 185,
+  "maxPathFrames": 312,
+  "fullLaunchPrefixRequired": true,
+  "focusedTestsPassed": 46,
+  "typecheck": "passed",
+  "evidence": [
+    {
+      "path": "src/content/baron-attack-presentation.ts",
+      "bytes": 777,
+      "sha256": "ac17abca363a70a28ebd731b965df452a855d2972013235bb65573acf1c3afb2"
+    },
+    {
+      "path": "src/simulation/baron-attack-visuals.ts",
+      "bytes": 6287,
+      "sha256": "6fe57bf3658ec098c63f7b46a2c38a9b1e80f955e951b76c45dad885414ae992"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "bytes": 197128,
+      "sha256": "7288fe7af9a2aa72c790785988246c7603ae3ac414e2cc4d1da30a420447b033"
+    },
+    {
+      "path": "tests/baron-attack-history.test.ts",
+      "bytes": 12717,
+      "sha256": "838da080ba45f7a257a8b3f751f537677eb74663812de08b23fbffe15b598348"
+    },
+    {
+      "path": "tests/baron-history-particle-replay.test.ts",
+      "bytes": 3359,
+      "sha256": "de437859c8b4f072d0aea6cb0eeb440599a68a302611e5b8ff3f7d4149f1f0cf"
+    },
+    {
+      "path": "tools/assets/export-baron-full-history-bounds.py",
+      "bytes": 3478,
+      "sha256": "570e5060a9c1830898038d14671d0ab038bd13a1ded56fffa38069bfe584134f"
+    },
+    {
+      "path": "artifacts/baron-full-prefix-replay-tests.log",
+      "bytes": 5239,
+      "sha256": "0724ef390acf90d794730944d763fd8f36334122a0b35a25c6784a95638d15a6"
+    },
+    {
+      "path": "artifacts/baron-full-prefix-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

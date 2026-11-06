@@ -133,7 +133,7 @@ export function pruneBaronAttackVisuals(world: World) {
     );
 }
 
-/** Post-step endpoints and an absolute odometer survive prefix retirement.
+/** Complete post-step launch paths preserve the composed emitter random stream.
  * Stopped roots keep their fixed pose while capturing subsequent visibility. */
 export function advanceBaronAttackVisuals(
   world: World,

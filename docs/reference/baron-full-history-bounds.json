@@ -1,0 +1,14 @@
+{
+  "format": 2,
+  "sourceEnvelopeSha256": "cc8589a2ac29b5a1e2388de8432b0671e8faf706229a6e5a22e08c32148ead10",
+  "sourceFactsSha256": "e927b8a2c3a879553b797dbb9d4d4b764055656c86aebfbfaa812ed16aefff32",
+  "originalGeneratorSha256": "27fc6e173afe5fb63f2899231afc814dff08bc8f3c305d74955b9300dc269832",
+  "helperSha256": "570e5060a9c1830898038d14671d0ab038bd13a1ded56fffa38069bfe584134f",
+  "tickRate": 60,
+  "localMaxTravel": 4000,
+  "maxFlightTicks": 185,
+  "flightTailTicks": 87,
+  "hitHistoryTicks": 125,
+  "pathFrames": 312,
+  "policy": "Complete contiguous launch prefix; bounds existing local range plus longest retained tail. No native ownership or random-stream certification."
+}

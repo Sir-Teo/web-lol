@@ -1,6 +1,10 @@
 # Current Baron source-kernel checkpoint
 
-Current runtime: save schema **165**, ruleset `ebf613f67aab4746e22843fc3c06bffc188104d3783c7e889c71461b6e46b53a`.
+Current runtime: save schema **166**, ruleset `ae3da0abcdce8fdd4bf7183723ab95016de9c2df64c77424852b0e11b88b7b07`.
+The complete 312-frame launch-prefix fix supersedes the 90-frame sliding window;
+46 focused replay/history cases and TypeScript pass. See
+`BARON-FULL-LAUNCH-HISTORY.md`. The full unit/browser/production checkpoints below
+retain their historical schema165 identities.
 The sampler-factory type change is inside the fingerprinted import graph;
 `artifacts/baron-source-kernel-identity-audit.json` identifies models.ts as the
 only changed fingerprinted file since release-pose commit 8b430a3. Earlier

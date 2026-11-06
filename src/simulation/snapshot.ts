@@ -176,7 +176,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 165;
+export const SNAPSHOT_VERSION = 166;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -3459,7 +3459,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       target = state.units.find((unit) => unit.id === visual.targetId),
       projectile = state.projectiles.find((p) => p.id === visual.id),
       last = visual.frames.at(-1)!,
-      firstTick = Math.max(visual.launchTick, state.tick - BARON_ATTACK_PATH_FRAMES + 1),
+      firstTick = visual.launchTick,
       stop = visual.stopTick,
       impact = visual.impact,
       expiry =

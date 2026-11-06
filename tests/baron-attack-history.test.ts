@@ -30,7 +30,7 @@ function impact() {
 const restore = (w: World) => World.fromSnapshot(w.snapshot(), w.battlefield);
 
 test('source envelopes reproduce offline and bind the local simulation clock', () => {
-  execFileSync('python3', ['tools/assets/export-baron-attack-history-bounds.py', '--check'], {
+  execFileSync('python3', ['tools/assets/export-baron-full-history-bounds.py', '--check'], {
     env: { ...process.env, PYTHONPATH: 'tools/assets' },
     stdio: 'pipe',
   });
@@ -39,7 +39,7 @@ test('source envelopes reproduce offline and bind the local simulation clock', (
     BARON_ATTACK_FLIGHT_TAIL_TICKS,
     BARON_ATTACK_HIT_HISTORY_TICKS,
     BARON_ATTACK_PATH_FRAMES,
-  ]).toEqual([87, 125, 90]);
+  ]).toEqual([87, 125, 312]);
 });
 
 test('release reuses the projectile identity and records exact post-step distance', () => {
@@ -179,7 +179,7 @@ test('a stopped presentation ID cannot alias a live gameplay unit', () => {
   expect(() => World.fromSnapshot(JSON.stringify(raw), w.battlefield)).toThrow();
 });
 
-test('a long range expiry retains a bounded prefix and absolute odometer', () => {
+test('a long range expiry retains its full launch prefix and absolute odometer', () => {
   const wide = {
     ...field,
     half: 10000,
@@ -194,14 +194,17 @@ test('a long range expiry retains a bounded prefix and absolute odometer', () =>
     w.hero.y = p.y;
     w.step();
     if (i === 100) {
-      expect(visual.frames).toHaveLength(BARON_ATTACK_PATH_FRAMES);
+      expect(visual.frames).toHaveLength(w.tick - visual.launchTick + 1);
+      expect(visual.frames[0].tick).toBe(visual.launchTick);
       expect(restore(w).snapshot()).toBe(w.snapshot());
     }
   }
   expect(visual.stopReason).toBe('range');
-  expect(visual.frames).toHaveLength(BARON_ATTACK_PATH_FRAMES);
+  expect(visual.frames).toHaveLength(w.tick - visual.launchTick + 1);
+  expect(visual.frames[0].tick).toBe(visual.launchTick);
   expect(visual.frames.at(-1)!.distance).toBeCloseTo(4000, 7);
-  expect(visual.frames[0].distance).toBeGreaterThan(1000);
+  expect(visual.frames.length).toBeLessThan(BARON_ATTACK_PATH_FRAMES);
+  expect(visual.frames[0].distance).toBeCloseTo(1300 / 60, 7);
   expect(restore(w).snapshot()).toBe(w.snapshot());
 });
 
