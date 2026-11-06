@@ -1,65 +1,40 @@
-# Current Baron source-kernel checkpoint
+# Current Baron source-effects checkpoint
 
-Current runtime: save schema **167**, ruleset `d3eb639e160dbc64640f825e42f70d59485f996cb348104eeaaed4946a8e3bc0`.
-The owned initial target point now supports reload-stable local flight projection;
-49 scoped tests and TypeScript pass. Earlier schema166 checkpoints below retain
-their original identities.
-The complete 312-frame launch-prefix fix supersedes the 90-frame sliding window;
-46 focused replay/history cases and TypeScript pass. See
-`BARON-FULL-LAUNCH-HISTORY.md`. The full unit/browser/production checkpoints below
-retain their historical schema165 identities.
-The sampler-factory type change is inside the fingerprinted import graph;
-`artifacts/baron-source-kernel-identity-audit.json` identifies models.ts as the
-only changed fingerprinted file since release-pose commit 8b430a3. Earlier
-fa62e049 records retain their original identities.
+Current save schema **167**, ruleset
+`d3eb639e160dbc64640f825e42f70d59485f996cb348104eeaaed4946a8e3bc0`.
+The private encounter draws all **21 source profiles**: nine missile and twelve
+hit. Saved native jaw/chest poses, complete bounded launch histories and the
+original target point reconstruct presentation independently of live targets.
+The old missile marker remains only while loading. See BARON-SOURCE-FLIGHTS.md.
 
-The quiet full suite passes **8,041/8,043** cases across 447 files. The only
-failures remain the missing historical Leona checker/input archive and the Lux
-24-snapshot digest mismatch. No expectations or deadlines were weakened.
-All five current Baron browser cases pass (1.7 minutes), including real inputs,
-in-flight/contact saves, control resistance, Smite and private-rig retirement.
-The reviewed screenshot still shows the explicitly provisional attack marker.
-Chromium/SwiftShader testing is not a device-performance or native-fidelity check.
+Sixty scoped tests, all six real-input Baron browser cases and the production
+build pass. Source centres/tints/UVs restore exactly; stops, target loss, fog,
+death, World replacement and ownership have focused coverage. The current pack is
+`390424679321370f293817990d744c3fc753e46ac5cf4bdd98060a120b673142`
+(1,237 files / 552,847,138 bytes). Current full-suite and new-pack delivery checks
+are pending; scoped evidence is in reference/baron-all-source-binding-verification.json.
 
-Four paired scenarios preserve the frozen e20 gameplay trajectory for **1,680
-ticks**, normalizing only version, ruleset and the added presentation history.
-Source arithmetic preparation now covers the 21 emitter profiles: values,
-integrals, clocks/counts/schedules, births, shapes/surfaces, local motion,
-lifetimes, spin/basis, appearance, UVs and frames/binding. Independent fixtures
-check selected external JS functions; they do not execute the native client or
-a complete native emitter system. Full composed external-loop comparison subsequently passed 480 steps; the shared
-GPU material also passed 84 external-fragment pixel cases. Twelve hit profiles are now bound to saved chest poses in the private encounter;
-source missile scene dispatch remains pending. See BARON-SOURCE-HITS.md. See BARON-ATTACK-SYSTEM.md and BARON-PARTICLE-MATERIAL.md.
+Height routing remains an explicit local single-elevation projection; the native
+interaction of targetHeightAugment and offsetInitialTargetHeight is unresolved.
+Hit bound-size factors explicitly match the external reader's neutral omission.
+Native client RNG/cadence, handedness, complete visual fidelity and device
+performance are not certified by local Chromium/SwiftShader tests.
 
-Production build passes. Its generated pack is `f242683be8272476196aa3f180114431c028c254fb04d9388cbe737fcd10af4f`:
-1204 files / 551,667,187 bytes. This records the build identity;
-The subsequent delivery checkpoint has passed strict nested-prefix production,
-full offline acceptance and all-file byte verification; see
-`reference/baron-delivery-acceptance.json`. Existing checkpoint evidence is not
-relabeled. The subsequent transport delivery publishes 28 unchanged Baron files; its build
-pack is `0ccf9308076f1631d2e78fa4ba632cb81bb22bebb79a975fdf8370f075473067`.
-The earlier pack above remains the full-unit/browser checkpoint identity.
+The previous schema166 hit-only checkpoint passes **8,150/8,152** full unit cases
+and all **48** Node QA cases. Its only failures are the missing historical Leona
+checker/input archive and Lux 24-sampler digest mismatch. No expected values or
+deadlines were weakened. Pack c23eba8e passed nested-prefix production, all-file
+byte checks and complete offline acceptance. See reference/baron-hit-bound-acceptance.json.
+Those receipts remain historical; they are not relabeled as schema167 acceptance.
 
-The frozen e20 100-seed cohort has subsequently completed and passed historical
-verification: 98 victories, two unfinished at 216,000 ticks and zero invariant
-failures across 16,653,420 checked ticks. See
-`reference/e20bdc-ordinary-hundred-completed.json`. This is an ordinary automated
-carry invariant gate for the frozen e20 source, not current ruleset, full roster,
-Leona support or complete roadmap milestone 4 acceptance.
+The frozen e20/schema163 ordinary hundred-seed run completed and verified:
+**98 victories, two unfinished, zero invariant failures**, 16,653,420 checked ticks,
+4,676 round trips and 4,576 future comparisons. It is an ordinary automated-carry
+invariant gate, not current-ruleset/full-roster/Leona-support or completed roadmap
+milestone 4 acceptance. See reference/e20bdc-ordinary-hundred-completed.json.
 
-Evidence: `artifacts/baron-source-kernel-full-unit.log`,
-`artifacts/baron-source-kernel-browser.log`,
-`artifacts/baron-source-kernel-gameplay-parity.json`,
-`artifacts/baron-source-kernel-build.log` and the corresponding pause receipts.
-Native bound-object size, projectile-height routing and shader/primitive dispatch
-remain open adapters. Native random-stream and animation-graph parity are not
-claimed.
-
-Subsequent hit-binding build: `c23eba8eb85a21e45fb50b63697afab55e486d70277e08f2d180f56bc132b936`
-(1,235 files / 552,840,480 bytes). Nineteen focused tests, six Baron browser
-cases, one final depth-bias recheck, 84 external pixel cases and the 21-emitter
-preview pass. The full schema166 suite before binding passed 8,141/8,143 cases;
-the two historical Leona/Lux gaps remain. The full post-binding suite passes 8,150/8,152 cases across 459 files; all 48
-Node QA tests pass. Both nested-prefix production and full offline delivery pass
-for c23eba8e, including all-file byte verification. See
-`reference/baron-hit-bound-acceptance.json`.
+External function/loop/shader fixtures establish the scoped JS/GPU comparisons
+documented in BARON-ATTACK-SYSTEM.md, BARON-PARTICLE-MATERIAL.md and
+SOURCE-FLIGHT-BASIS.md. Earlier fixed-name preview artifacts were overwritten;
+new preview runs are namespaced and collision-protected, preserving their own
+evidence. Historical hashes are unchanged.

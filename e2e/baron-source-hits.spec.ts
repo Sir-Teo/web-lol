@@ -90,6 +90,9 @@ test('real Baron contact lazily draws source hits and restores their centres, ti
         attached: cloud.batch.root.parent === g.view.scene,
       };
     }, contact);
+  await expect
+    .poll(() => page.evaluate(() => (window as any).__GAME__.view.baronFlights.loaded))
+    .toBe(true);
   const original = await read();
   expect(original.attached).toBe(true);
   expect(original.rows).toHaveLength(12);
@@ -126,8 +129,9 @@ test('real Baron contact lazily draws source hits and restores their centres, ti
     };
   }, contact);
   expect(retirement).toEqual({ present: false, parent: false, children: 0, disposed: true });
-  expect(new Set(requests.filter((r) => r.endsWith('.png'))).size).toBe(16);
-  expect(requests.some((r) => r.endsWith('.glb'))).toBe(false);
+  expect(new Set(requests.filter((r) => r.endsWith('.png'))).size).toBe(25);
+  expect(new Set(requests.filter((r) => r.endsWith('.glb'))).size).toBe(1);
+  expect(requests.some((r) => r.endsWith('80975d7a4f06e4d6.glb'))).toBe(false);
   expect(errors).toEqual([]);
   await writeFile(
     info.outputPath('baron-source-contact.json'),

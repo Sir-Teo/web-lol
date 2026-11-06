@@ -80,6 +80,7 @@ import { LazyGarenCourage } from './lazy-garen-courage';
 import { LazyGrompDeath } from './lazy-gromp-death';
 import { LazyGrompAttack } from './lazy-gromp-attack';
 import { LazyBaronHits } from './lazy-baron-hits';
+import { LazyBaronFlights } from './lazy-baron-flights';
 import { GarenSpin } from './garen-spin';
 import { ASHE_SELECTION } from '../content/ashe-selection';
 import { intersectsSelectionCylinder } from './selection-cylinder';
@@ -201,6 +202,7 @@ export class GameView {
   riverShrines = new RiverShrines(this.scene);
   ownedCompanions = new OwnedCompanions(this.scene);
   oracleLens = new OracleLens(this.scene);
+  baronFlights = new LazyBaronFlights(this.scene, (p) => this.ground(p));
   baronHits = new LazyBaronHits(this.scene, (p) => this.ground(p));
   grompAttack = new LazyGrompAttack(this.scene, (p) => this.ground(p));
   garenSpin = new GarenSpin(this.scene, (p) => this.ground(p));
@@ -295,6 +297,7 @@ export class GameView {
       this.garenPerseverance,
       this.grompAttack,
       this.baronHits,
+      this.baronFlights,
       this.grompDeath,
       this.leonaDaybreak,
       this.leonaEclipseSkins,
@@ -930,6 +933,7 @@ export class GameView {
     this.grompDeath.update(world, alpha, this.camera, this.models, terminalAge);
     this.grompAttack.update(world, alpha, this.camera, terminalAge);
     this.baronHits.update(world, alpha, this.camera, terminalAge);
+    this.baronFlights.update(world, alpha, this.camera, terminalAge);
     this.garenDecisiveStrike.update(world, alpha, this.camera, this.models, terminalAge);
     this.garenBasicAttacks.update(world, alpha, this.camera, terminalAge);
     this.primaryTrails.update(world, alpha, this.camera, this.models, terminalAge);
@@ -1270,6 +1274,12 @@ export class GameView {
       if (p.type === 'zenith') continue;
       if (p.type === 'attack' && world.unit(p.source)?.champion === 'lux') continue;
       if (p.type === 'attack' && world.grompAttackVisuals.some((v) => v.id === p.id)) continue;
+      if (
+        p.type === 'attack' &&
+        this.baronFlights.loaded &&
+        world.baronAttackVisuals.some((v) => v.id === p.id)
+      )
+        continue;
       active.add(p.id);
       let model = this.projectileModels.get(p.id);
       if (!model) {
@@ -1296,7 +1306,7 @@ export class GameView {
             )
           );
         } else if (p.type === 'attack' && world.unit(p.source)?.monster?.species === 'baron') {
-          // Private encounter marker until the declared source missile is imported.
+          // Private encounter loading fallback until the source missile renderer is ready.
           model = new THREE.Group();
           model.name = 'Baron provisional attack marker';
           model.add(

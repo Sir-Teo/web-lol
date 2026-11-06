@@ -1,0 +1,95 @@
+{
+  "format": 1,
+  "snapshotVersion": 167,
+  "ruleset": "d3eb639e160dbc64640f825e42f70d59485f996cb348104eeaaed4946a8e3bc0",
+  "activeMissileProfiles": 9,
+  "activeHitProfiles": 12,
+  "focusedTestsPassed": 60,
+  "browserCasesPassed": 6,
+  "build": "passed",
+  "pack": {
+    "id": "390424679321370f293817990d744c3fc753e46ac5cf4bdd98060a120b673142",
+    "files": 1237,
+    "bytes": 552847138
+  },
+  "nativeExecuted": false,
+  "flightPolicy": "Saved native jaw plus complete planar history, initial-target falloff and one explicit targetHeightAugment elevation; native offsetInitialTargetHeight interaction unresolved.",
+  "hitBoundSizePolicy": "Explicit neutral preview factors; native calibration unresolved.",
+  "evidence": [
+    {
+      "path": "src/render/baron-source-flights.ts",
+      "bytes": 4514,
+      "sha256": "e55009cdb13a5a2f61193f1b48be848dd4989c2410fb6b55f82caf3b389494df"
+    },
+    {
+      "path": "src/render/lazy-baron-flights.ts",
+      "bytes": 2052,
+      "sha256": "f086d1029d527a3bfb68562fbb1df7c33faafcaa19b6df2770b42c6a9d986887"
+    },
+    {
+      "path": "src/render/view.ts",
+      "bytes": 67145,
+      "sha256": "3a50181422d5ae1b855a06597a647aaf1a6bb57fe0bde7eee361033949fa879d"
+    },
+    {
+      "path": "tests/baron-source-flights.test.ts",
+      "bytes": 5772,
+      "sha256": "780d33ea33854bcc7f9edb32d502a0de694799a6a55a6e25bbe175b77e50c26b"
+    },
+    {
+      "path": "tests/lazy-baron-flights.test.ts",
+      "bytes": 2865,
+      "sha256": "725392cceb8727f2f0db05dfb0db031ebc28dce23171f68831f6c2f99edc6975"
+    },
+    {
+      "path": "e2e/baron-projectile.spec.ts",
+      "bytes": 7216,
+      "sha256": "48dea8b5cabe6495756aaf14cb5f5b05be2d11960eebb5cbca77718d2ef70b79"
+    },
+    {
+      "path": "e2e/baron-source-hits.spec.ts",
+      "bytes": 5421,
+      "sha256": "4c42f62ed7b43b8e8e795abb6f52fddcb40b052d45857950f0ae3ff511b42455"
+    },
+    {
+      "path": "artifacts/baron-all-source-focused-tests.log",
+      "bytes": 6834,
+      "sha256": "03f784c8996fe9fc4f97e98d826c5d5e715798d3f020ea3d7a0dde60de026207"
+    },
+    {
+      "path": "artifacts/baron-all-source-browser-initial.log",
+      "bytes": 1329,
+      "sha256": "761b953bc31a38da928c3d9e8fa6941154782db4fd6da60d41f32a2b1d041601"
+    },
+    {
+      "path": "artifacts/baron-all-source-browser-controls.log",
+      "bytes": 2497,
+      "sha256": "687c9135a814f55a68bc196ff2061f1086fb280e974c5a902478aa109ecbb112"
+    },
+    {
+      "path": "artifacts/baron-all-source-build.log",
+      "bytes": 7549,
+      "sha256": "bedcca0400c46e2c13a1541443a9f0e1f29264ecb80bcb93fc2437205276c769"
+    },
+    {
+      "path": "artifacts/baron-all-source-browser-initial/baron-projectile-real-comb-a035e-age-and-restores-its-flight/baron-projectile.json",
+      "bytes": 208246,
+      "sha256": "3b0d40643ab648fcdef3f6053b0deab7cb1fd30e8160e8db725503304a72964a"
+    },
+    {
+      "path": "artifacts/baron-all-source-browser-initial/baron-projectile-real-comb-a035e-age-and-restores-its-flight/baron-source-flight.png",
+      "bytes": 895898,
+      "sha256": "be24ea397eb80a1dd5102869023e61c9a58c971b19da91827d22ceb13539d6c9"
+    },
+    {
+      "path": "artifacts/baron-all-source-browser-initial/baron-source-hits-real-Bar-0a813--their-centres-tint-and-UVs/baron-source-contact.json",
+      "bytes": 116006,
+      "sha256": "cf0f26e6ef3093fde29bbba595c7b7b0e7a53e00ff14671d3cca38bfe531e721"
+    },
+    {
+      "path": "artifacts/baron-all-source-browser-initial/baron-source-hits-real-Bar-0a813--their-centres-tint-and-UVs/baron-source-contact.png",
+      "bytes": 902495,
+      "sha256": "e1c62b7e49a79acbd3d9b32a92fa02648584ad71dbfbe0362afd0f42d48c31ea"
+    }
+  ]
+}

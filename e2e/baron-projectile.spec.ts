@@ -1,12 +1,15 @@
 import { expect, test } from '@playwright/test';
 import { writeFile } from 'node:fs/promises';
 
-test('real combat releases a visible provisional Baron missile before damage and restores its flight', async ({
+test('real combat releases a visible source Baron missile before damage and restores its flight', async ({
   page,
 }, info) => {
   test.setTimeout(90000);
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
+  page.on('console', (message) => {
+    if (message.type() === 'error') errors.push(message.text());
+  });
   const ready = async () => {
     await page.waitForFunction(() => (window as any).__GAME__?.ready);
     await page.locator('#loading').waitFor({ state: 'detached' });
@@ -39,15 +42,45 @@ test('real combat releases a visible provisional Baron missile before damage and
       { timeout: 20000 }
     )
     .toBe(true);
+  await page.evaluate(() => {
+    const g = (window as any).__GAME__;
+    g.setPaused(true);
+    g.world.step(8);
+    g.view.render(g.world, 1, g.view.previousElapsed);
+  });
+  await expect
+    .poll(() => page.evaluate(() => (window as any).__GAME__.view.baronFlights.loaded))
+    .toBe(true);
   const flight = await page.evaluate((id) => {
     const g = (window as any).__GAME__,
       w = g.world;
     g.setPaused(true);
-    w.step(8);
     const p = w.projectiles.find((p: any) => p.source === id);
     if (!p) throw Error('Expected an in-flight Baron missile');
     g.view.render(w, 1, g.view.previousElapsed);
-    const marker = g.view.projectileModels.get(p.id);
+    const marker = g.view.projectileModels.get(p.id),
+      cloud = g.view.baronFlights.clouds.get(p.id);
+    if (!cloud) throw Error('Expected the source missile cloud');
+    const source = cloud.batch.root.children.map((mesh: any) => {
+      const count = mesh.instanceMatrix ? mesh.count : mesh.geometry.drawRange.count;
+      const vertices = Array.from({ length: count }, (_, i) => {
+        const position = mesh.instanceMatrix
+          ? Array.from(mesh.instanceMatrix.array.slice(i * 16 + 12, i * 16 + 15))
+          : Array.from(mesh.geometry.getAttribute('position').array.slice(i * 3, i * 3 + 3));
+        const fields = ['sourceTint', 'sourceUvTurn', 'sourceUvShift'].map((name) => {
+          const a = mesh.geometry.getAttribute(name);
+          return Array.from(a.array.slice(i * a.itemSize, (i + 1) * a.itemSize));
+        });
+        return { position, fields };
+      });
+      return {
+        name: mesh.name,
+        visible: mesh.visible,
+        vertices: mesh.instanceMatrix
+          ? vertices.sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b)))
+          : vertices,
+      };
+    });
     const saved = w.snapshot(),
       copy = w.constructor.fromSnapshot(saved, w.battlefield);
     copy.step(180);
@@ -56,6 +89,7 @@ test('real combat releases a visible provisional Baron missile before damage and
       hp: w.hero.hp,
       projectile: structuredClone(p),
       history: structuredClone(w.baronAttackVisuals.find((v: any) => v.id === p.id)),
+      source,
       marker: marker?.name,
       markerVisible: marker?.visible,
       saved,
@@ -75,15 +109,46 @@ test('real combat releases a visible provisional Baron missile before damage and
     x: flight.projectile.x,
     y: flight.projectile.y,
   });
-  expect(flight.marker).toBe('Baron provisional attack marker');
-  expect(flight.markerVisible).toBe(true);
-  await page.screenshot({ path: info.outputPath('baron-provisional-flight.png') });
+  expect(flight.marker).toBeUndefined();
+  expect(flight.source).toHaveLength(9);
+  expect(flight.source.some((row: any) => row.visible && row.vertices.length)).toBe(true);
+  await page.screenshot({ path: info.outputPath('baron-source-flight.png') });
   await page.keyboard.press('Escape');
   await page.getByRole('button', { name: 'Save match', exact: true }).click();
   await expect(page.locator('#toast')).toHaveText('Match saved on this browser.');
   await page.reload();
   await ready();
   expect(await page.evaluate(() => (window as any).__GAME__.world.snapshot())).toBe(flight.saved);
+  await expect
+    .poll(() => page.evaluate(() => (window as any).__GAME__.view.baronFlights.loaded))
+    .toBe(true);
+  const restoredSource = await page.evaluate((id) => {
+    const g = (window as any).__GAME__;
+    g.view.render(g.world, 1, g.view.previousElapsed);
+    const cloud = g.view.baronFlights.clouds.get(id);
+    return cloud.batch.root.children.map((mesh: any) => {
+      const count = mesh.instanceMatrix ? mesh.count : mesh.geometry.drawRange.count;
+      const vertices = Array.from({ length: count }, (_, i) => {
+        const position = mesh.instanceMatrix
+          ? Array.from(mesh.instanceMatrix.array.slice(i * 16 + 12, i * 16 + 15))
+          : Array.from(mesh.geometry.getAttribute('position').array.slice(i * 3, i * 3 + 3));
+        const fields = ['sourceTint', 'sourceUvTurn', 'sourceUvShift'].map((name) => {
+          const a = mesh.geometry.getAttribute(name);
+          return Array.from(a.array.slice(i * a.itemSize, (i + 1) * a.itemSize));
+        });
+        return { position, fields };
+      });
+      return {
+        name: mesh.name,
+        visible: mesh.visible,
+        vertices: mesh.instanceMatrix
+          ? vertices.sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b)))
+          : vertices,
+      };
+    });
+  }, flight.projectile.id);
+  expect(restoredSource).toEqual(flight.source);
+
   const future = await page.evaluate(() => {
     const w = (window as any).__GAME__.world;
     w.step(180);
@@ -114,6 +179,6 @@ test('real combat releases a visible provisional Baron missile before damage and
   expect(errors).toEqual([]);
   await writeFile(
     info.outputPath('baron-projectile.json'),
-    JSON.stringify({ before, flight, future, errors }, null, 2)
+    JSON.stringify({ before, flight, restoredSource, future, errors }, null, 2)
   );
 });
