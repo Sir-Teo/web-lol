@@ -1,0 +1,106 @@
+{
+  "format": 1,
+  "projectionRevision": "5b595f0f395db9c053a38bdde2adb9053781ff00",
+  "schema": 176,
+  "ruleset": "732a3ce3c6c382d4a61443620c4cb906b17f45454122456e7c18b9b7cd882dd8",
+  "runtimeSourceBytesMatchPrimary": true,
+  "runtimeChanged": false,
+  "publicAssetsChanged": false,
+  "profile": {
+    "path": ".cache/ahri-q-projectile-profiles-v1/profiles.json",
+    "bytes": 499830,
+    "sha256": "72ed64245c93063d7f092828f9a45405e20bcb77dca4c19d65aafae54b8ab686"
+  },
+  "profiles": 36,
+  "authoredFields": 45,
+  "counts": {
+    "billboard": 16,
+    "mesh": 6,
+    "quad": 2,
+    "ray": 2,
+    "trail": 10
+  },
+  "nodeQA": 218,
+  "portableCI": {
+    "commands": 6,
+    "method": "Twenty-file git archive export of the projection revision",
+    "privateCaches": false,
+    "privateTools": false,
+    "dependencies": false,
+    "remoteDispatched": false
+  },
+  "guards": {
+    "modes": [
+      "normal",
+      "optimized"
+    ],
+    "sourcePinMutationsPerMode": 5,
+    "structuralMutationCasesPerMode": 3,
+    "nodeWrapperCases": 2
+  },
+  "limits": [
+    "Private profile projection only; no public asset, renderer, simulation, save schema or ruleset changes.",
+    "All 45 authored emitter fields and all 36 emitters are projected. Nested source types, authored key counts, explicit fields and probability metadata remain separate from local fallback values.",
+    "The two native spell/resource aliases are retained. Script callbacks, root frames, cylinder sampling, stop/linger policy, visibility dispatch, material bindings and pixels remain unbound.",
+    "Emitter UV scroll remains separate from integrated particle-age UV scroll. Camera-facing/arbitrary trails retain mode, tiling and omitted smoothing/cutoff.",
+    "Missing constructor values are explicit local adapter defaults, not native-default certification."
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-profiles-preparation-v2.log",
+      "bytes": 253,
+      "sha256": "cc0146a9d1b6fff9734f2b99bcfe8a1bf17469fe61321455e6813e10c72e0ac4"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-profiles-guards-normal-v2.log",
+      "bytes": 197,
+      "sha256": "1afd2534ca5f0883593b0fdc59948caef96a9082b0c7810867a64404087beea0"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-profiles-guards-optimized-v2.log",
+      "bytes": 196,
+      "sha256": "f3d20fefd665c21cd35a45a80fcb61acc9b95525dbcd4595aac4b3809e5fea00"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-profiles-node-v1.log",
+      "bytes": 243,
+      "sha256": "eb272ba8507d7f019847a17c3fddf9e5c82fd5d72c9fd108f3fb4ec7e3744370"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-profiles-node-qa-v1.log",
+      "bytes": 17336,
+      "sha256": "ae314ab83bc97ede51c8c9bfe8313b5cd42d95692cfa40820b141d2dad0a952f"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-profiles-portable-ci-1.log",
+      "bytes": 214,
+      "sha256": "c04e08e884a4d27646c74ac153a754f8fbcbbf14948182842704b21c7753c27b"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-profiles-portable-ci-2.log",
+      "bytes": 182,
+      "sha256": "69a04c85425a2cad461b39356efdd3a239f1b20c6721b5ae4ff6ca6e06f055f5"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-profiles-portable-ci-3.log",
+      "bytes": 181,
+      "sha256": "bcc0e1af30b3f4973b9a294a0eef64676f4ff8a412a1033df5ae886a5b605837"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-profiles-portable-ci-4.log",
+      "bytes": 253,
+      "sha256": "cc0146a9d1b6fff9734f2b99bcfe8a1bf17469fe61321455e6813e10c72e0ac4"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-profiles-portable-ci-5.log",
+      "bytes": 197,
+      "sha256": "1afd2534ca5f0883593b0fdc59948caef96a9082b0c7810867a64404087beea0"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-profiles-portable-ci-6.log",
+      "bytes": 196,
+      "sha256": "f3d20fefd665c21cd35a45a80fcb61acc9b95525dbcd4595aac4b3809e5fea00"
+    }
+  ],
+  "initialAttempt": "An initial guard expected two omitted trail smoothing fields. Native data contains three; the expectation was corrected without changing the projected profile bytes."
+}
