@@ -8,6 +8,12 @@ on:
       - 'tests/**'
       - 'public/assets/audio/baron-basic/**'
       - 'public/assets/audio/ahri-charm/**'
+      - 'public/assets/audio/ahri-orb/**'
+      - 'docs/reference/ahri-q-audio-properties.json'
+      - 'tools/assets/read-ahri-q-audio.py'
+      - 'tools/assets/test-ahri-q-audio-reading.py'
+      - 'tools/assets/export-ahri-orb-audio.py'
+      - 'tools/assets/test-ahri-orb-audio-export.py'
       - 'docs/reference/ahri-charm-gameplay-reference.json'
       - 'docs/reference/wwise145-linear-exp1-reference.json'
       - 'docs/reference/baron-basic-audio-decoded.json'
@@ -30,6 +36,12 @@ on:
       - 'tests/**'
       - 'public/assets/audio/baron-basic/**'
       - 'public/assets/audio/ahri-charm/**'
+      - 'public/assets/audio/ahri-orb/**'
+      - 'docs/reference/ahri-q-audio-properties.json'
+      - 'tools/assets/read-ahri-q-audio.py'
+      - 'tools/assets/test-ahri-q-audio-reading.py'
+      - 'tools/assets/export-ahri-orb-audio.py'
+      - 'tools/assets/test-ahri-orb-audio-export.py'
       - 'docs/reference/ahri-charm-gameplay-reference.json'
       - 'docs/reference/wwise145-linear-exp1-reference.json'
       - 'docs/reference/baron-basic-audio-decoded.json'
@@ -81,6 +93,7 @@ jobs:
           tests/ahri-charm-audio-controller.test.ts
           tests/ahri-charm-gameplay-reference.test.ts
           tests/wwise145-fade.test.ts
+          tests/ahri-orb-audio-assets.test.ts
       - name: Check float-master format and headroom without private caches
         run: |
           python3 tools/assets/test-audio-float-corpus.py
@@ -93,3 +106,11 @@ jobs:
         run: |
           python3 tools/assets/test-baron-basic-audio-export.py
           python3 -O tools/assets/test-baron-basic-audio-export.py
+      - name: Check Q source action reading without private caches
+        run: |
+          python3 tools/assets/test-ahri-q-audio-reading.py
+          python3 -O tools/assets/test-ahri-q-audio-reading.py
+      - name: Check Orb publication guards without private caches
+        run: |
+          python3 tools/assets/test-ahri-orb-audio-export.py
+          python3 -O tools/assets/test-ahri-orb-audio-export.py
