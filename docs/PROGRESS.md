@@ -9326,3 +9326,7 @@ Added the external local-Y missile frame, with exact float32 agreement across 26
 ### Post-hit-binding full and delivery checkpoint
 
 At hit-binding commit 7f306cf, the full suite passes 8,150/8,152 across 459 files; the only failures remain the historical Leona archive and Lux sampler digest gaps, with no weakened expectations. All 48 Node QA tests pass. The c23eba8e pack passes all-file hash/extent verification (1,235 files / 552,840,480 bytes), strict nested-prefix production and complete offline acceptance, including repair, saved boot, atomic version switching and removal isolation. Production makes no Baron preview preload. Six current Baron browser cases plus the final depth check pass. Schema166 / ruleset ae3da0. See docs/reference/baron-hit-bound-acceptance.json; the later unused flight-basis helper has its separate 271-case evidence.
+
+### Explicit local Baron flight projection
+
+Added a private-preview projector from the saved jaw matrix and retained planar path to one caller-supplied target elevation. It fixes its falloff distance from the original target point, so later target movement cannot rewrite earlier roots; stop freezes the travel frame. Raw hidden-root sampling supports deterministic emission while the existing gated sampler preserves audience semantics. Eight focused tests and TypeScript pass. Native targetHeightAugment/offsetInitialTargetHeight interaction remains unresolved; this is an explicit local policy, not a recovered native trajectory. See docs/BARON-LOCAL-FLIGHT-PROJECTION.md.

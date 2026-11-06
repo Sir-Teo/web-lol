@@ -1,0 +1,35 @@
+{
+  "format": 1,
+  "focusedTestsPassed": 8,
+  "typecheck": "passed",
+  "nativeExecuted": false,
+  "activeMissileSceneBinding": false,
+  "policy": "Local private projection: saved muzzle offset decays over initial planar target distance, reaching one explicit target elevation above recorded-path terrain. Native height-field routing is unresolved.",
+  "evidence": [
+    {
+      "path": "src/render/baron-flight-projection.ts",
+      "bytes": 2816,
+      "sha256": "6565929ce387a332ea334aa8b742cd2e1bd75aa4621a2830eaa481ccb27bb205"
+    },
+    {
+      "path": "src/render/baron-flight-history.ts",
+      "bytes": 1853,
+      "sha256": "22310dad06cfac64c927a36f333cb56b0a79167a657f91be39eed05d611ce15f"
+    },
+    {
+      "path": "tests/baron-flight-projection.test.ts",
+      "bytes": 3082,
+      "sha256": "d0944f232c08f45b9cebb39b474a68ba126eed2b4d07938a2c5300b10233224d"
+    },
+    {
+      "path": "artifacts/baron-local-projection-tests.log",
+      "bytes": 1152,
+      "sha256": "2dd96a8227edc92e59e761264514a0540a27c7e87c70454edd5de16d2e636ce3"
+    },
+    {
+      "path": "artifacts/baron-local-projection-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

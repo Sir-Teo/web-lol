@@ -2,13 +2,12 @@ import type { BaronAttackVisual, BaronFlightFrame } from '../simulation/baron-at
 import type { Team } from '../simulation/types';
 
 export type BaronFlightSample = Omit<BaronFlightFrame, 'tick' | 'audience'>;
-/** Samples only retained evidence. Fractional ticks use the earlier endpoint's
- * visibility, so a later reveal never grants visibility to an earlier birth.
- * Stopped roots are represented by actual retained frames, not extrapolation. */
-export function sampleBaronFlight(
+/** Raw root for private reconstruction, including hidden emission steps.
+ * Stopped roots are actual retained frames, never extrapolation. Drawing must
+ * use the visibility-gated wrapper below or separately preserve birth visibility. */
+export function sampleBaronFlightRoot(
   effect: Pick<BaronAttackVisual, 'frames'>,
-  tick: number,
-  team: Exclude<Team, 'neutral'>
+  tick: number
 ): BaronFlightSample | null {
   const first = effect.frames[0],
     last = effect.frames.at(-1);
@@ -17,7 +16,7 @@ export function sampleBaronFlight(
   const index = Math.floor(tick) - first.tick;
   const a = effect.frames[index],
     b = effect.frames[index + 1];
-  if (!a || !a.audience.includes(team)) return null;
+  if (!a) return null;
   if (!b || tick === a.tick) return { x: a.x, y: a.y, facing: a.facing, distance: a.distance };
   const fraction = tick - a.tick;
   const turn = Math.atan2(Math.sin(b.facing - a.facing), Math.cos(b.facing - a.facing));
@@ -27,4 +26,17 @@ export function sampleBaronFlight(
     facing: a.facing + turn * fraction,
     distance: a.distance + (b.distance - a.distance) * fraction,
   };
+}
+
+/** Visibility-gated sampling for drawing. Private reconstruction uses the raw
+ * root sampler above so hidden births still consume the source emitter stream. */
+export function sampleBaronFlight(
+  effect: Pick<BaronAttackVisual, 'frames'>,
+  tick: number,
+  team: Exclude<Team, 'neutral'>
+): BaronFlightSample | null {
+  const sample = sampleBaronFlightRoot(effect, tick);
+  if (!sample) return null;
+  const frame = effect.frames[Math.floor(tick) - effect.frames[0].tick];
+  return frame.audience.includes(team) ? sample : null;
 }
