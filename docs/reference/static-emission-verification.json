@@ -1,0 +1,35 @@
+{
+  "testsPassed": 83,
+  "externalSamples": 71,
+  "actualBaronMeshSamples": 64,
+  "positionAbsoluteTolerance": 2e-05,
+  "normalAbsoluteTolerance": 1e-06,
+  "nativeExecuted": false,
+  "evidence": [
+    {
+      "path": "artifacts/static-emission-tests.log",
+      "sha256": "89c850382465d1273a460486755856b81b6d137b0ba29a919bfca0fa22b11a86",
+      "bytes": 181
+    },
+    {
+      "path": "artifacts/static-emission-samples.json",
+      "sha256": "51d3dd118e0eaf777d70291f7ddabe3d791e0c6cf62d82d0628bd49b56678fab",
+      "bytes": 56
+    },
+    {
+      "path": "src/render/static-emission-surface.ts",
+      "sha256": "41ac5e04168cbc8f36d736c341f89e489e8bf6449acebd9b572e28dad461bedc",
+      "bytes": 3210
+    },
+    {
+      "path": "tools/assets/export-static-emission-samples.mjs",
+      "sha256": "c75d7c8bb014475cd743699da377b18c9cc845a52a4e20486492b1caf0fde31f",
+      "bytes": 3647
+    },
+    {
+      "path": "docs/reference/static-emission-samples.json",
+      "sha256": "b8f27a9dafa780430270525a1dcc48b5cbdf7a52119678cabbbc18268907b503",
+      "bytes": 46140
+    }
+  ]
+}

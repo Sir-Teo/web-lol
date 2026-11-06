@@ -1,0 +1,47 @@
+{
+  "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+  "files": [
+    {
+      "path": ".cache/baron-emission-readers/engine/simulation/emissionSurface.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/simulation/emissionSurface.ts",
+      "bytes": 1700,
+      "sha256": "f3e6d24882f3fcb71271f5596065106c2bb23b95aa17aa921db90bd93f81941e",
+      "gitBlob": "77978db4a0fb4fe7a7bfcb1e09e2b03888448e04"
+    },
+    {
+      "path": ".cache/baron-emission-readers/rendering/utils/emissionSurface.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/emissionSurface.ts",
+      "bytes": 10029,
+      "sha256": "880e6df1f4d06ae6a74198059d45ef2de15b87d4a1c44e898fbf9b7bc602effe",
+      "gitBlob": "3ce18e3157ee85ed22507bc323d66638be56495b"
+    },
+    {
+      "path": ".cache/baron-emission-readers/engine/simulation/spawnShape.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/simulation/spawnShape.ts",
+      "bytes": 5194,
+      "sha256": "28a9f0b0a3bd61887564f6b77241317ed2242433691ff45fe2c29ddea392472d",
+      "gitBlob": "29a0f5094d1a4fff5a04666bfcd0247a6f490678"
+    },
+    {
+      "path": ".cache/baron-emission-readers/rendering/utils/__tests__/emissionSurface.test.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/__tests__/emissionSurface.test.ts",
+      "bytes": 11064,
+      "sha256": "045713e87b917a3c982eb90ade757eca2038f8726cd9d05a351113e29d6027ee",
+      "gitBlob": "6005d0a3c19e5015628a911333392ced567f9c32"
+    },
+    {
+      "path": ".cache/baron-emission-readers/engine/parsing/readEmissionSurface.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/parsing/readEmissionSurface.ts",
+      "bytes": 1627,
+      "sha256": "55c265e173c1e7b49e713b04eb93d8446e3e657ae1dc256008e2b802059a52b0",
+      "gitBlob": "5bc5f98a519fa937d6083f402b1e6b2e7ec07442"
+    },
+    {
+      "path": ".cache/baron-emission-readers/rendering/hooks/useEmissionSurfaces.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/hooks/useEmissionSurfaces.ts",
+      "bytes": 7659,
+      "sha256": "ef762e5cdf80eaa7d061397369aafd4ac648741cc9e4b4d4003c82c96cf3d9fd",
+      "gitBlob": "be2736cfe63a3c810c93d21c2b6744a7e6437eed"
+    }
+  ]
+}

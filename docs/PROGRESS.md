@@ -1,10 +1,15 @@
 # Development status
 
-Last updated: October 28, 2026 (UTC).
+Last updated: November 6, 2026 (UTC).
 
 **Goal remains active:** continuously develop the highest-quality, visually authentic League-like browser game, without an application backend, through small commits. The required final state is a verified production-level full match experience. This file describes progress toward that goal; it does not reduce its scope.
 
 ## Current authoritative state
+
+The [static emission-mesh sampler](STATIC-EMISSION-SURFACE.md) now preserves
+the pinned external area/CDF and nonuniform corner-blend law. All 83 cases pass,
+including 64 births from Baron's actual decoded sphere, input guards and
+independent returned storage. Scale/attachment and effect playback remain open.
 
 Camera-trail framing now follows the [pinned external writer](SOURCE-TRAIL-RIBBON.md#camera-trail-framing)
 with ten independently generated fixtures, explicit degenerate-view fallbacks
