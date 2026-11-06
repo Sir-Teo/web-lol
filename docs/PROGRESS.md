@@ -9414,3 +9414,7 @@ A separate overlay retains17animation-source event occurrences/nine stored label
 ### Preserve all82Baron embedded audio masters privately
 
 Pinned decoder/toolchain and numeric graph produce44,409,644bytes of mono44.1kHz float32 WAVs. All eight public basic masters match exactly;74additional masters stay private. Over-unity samples remain intact (31,258samples, peak1.55948186), with no gain/conversion/loop expansion baked in. Normal/optimized full checks, fresh second-cache discovery, eight isolated rejection probes and post-probe original-cache verification pass. No new runtime asset/binding, event semantics or native mix claim. See docs/BARON-AUDIO-CORPUS.md.
+
+### Start the current six-character development-roster hundred-seed gate
+
+Fresh ruleset7ae8e0f8 requests seeds1–100, two workers and60minute horizons with all six development characters/five roles per team; QA automates Lux mid. Independently verified the plan, runner, maps and all556archived source files. Initial receipt records only started status; no completion/invariant/milestone4 claim. The original e20ordinary cohort remains separate. Also all68 current Node QA checks pass after the two animation-audio guards. See docs/CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md.

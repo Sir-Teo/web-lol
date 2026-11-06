@@ -16,8 +16,8 @@ retain every release through the cast bound. Existing125tick hit history and
 
 At application commit0fa0072, the full suite passes **8,462/8,464** tests across
 468files. Only the historical missing Leona checker/archive and Lux sampler hash
-gaps remain; expectations and deadlines are unchanged. All **66 Node QA** and
-**seven real-input Baron browser cases** pass, including exact effect centre/tint/
+gaps remain; expectations and deadlines are unchanged. All **68 Node QA** (66 at the delivery checkpoint plus two later animation-source
+guards) and **seven real-input Baron browser cases** pass, including exact effect centre/tint/
 UV restores, real float decoding, mute/resume, world replacement and unchanged
 gameplay snapshots. Fifty-nine focused audio/history cases cover the saved tail.
 
@@ -40,8 +40,10 @@ device performance remain uncertified. Chromium/SwiftShader is a local QA tool.
 
 The frozen e20/schema163 ordinary hundred-seed cohort remains98victories,
 two unfinished and zero invariant failures. It is not current-ruleset/full-roster
-or completed milestone4 acceptance. Its read-only horizon diagnostic preserves
-original outcomes. See E20BDC-UNFINISHED-HORIZON.md.
+or completed milestone4 acceptance. Both archived unfinished games later reach natural Red victory in separate
+frozen-source continuations; the original horizon outcomes stay unchanged.
+See E20BDC-UNFINISHED-HORIZON.md. A fresh current-ruleset development-roster
+hundred-seed run is in progress; see CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md.
 
 Earlier fixed-name QA artifacts were overwritten; newer preview and production
 runs use exclusive namespaced claims. Historical hashes are preserved. See
