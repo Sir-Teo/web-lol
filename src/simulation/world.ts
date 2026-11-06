@@ -5559,9 +5559,7 @@ export class World {
           }
           if (p.type === 'ultimate') {
             const distanceTravelled = ASHE_R.range - p.remaining + travel * first;
-            contact.stunUntil =
-              this.tick +
-              this.controlDurationTicks(contact, crystalArrowStunTicks(distanceTravelled));
+            this.applyStun(contact, crystalArrowStunTicks(distanceTravelled));
             for (const victim of this.units) {
               if (
                 victim.id === contact.id ||

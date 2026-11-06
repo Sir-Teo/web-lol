@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-06",
+  "ruleset": "8695fd9936132ed2b6ee0f3549a20ee7ab865b7e4cf4c747b8fdcc4edff75fc7",
+  "schema": 163,
+  "baseline": {
+    "longerStun": {
+      "expected": 240,
+      "actual": 87
+    },
+    "meditateStopTick": {
+      "expected": 28,
+      "actual": null
+    },
+    "spiritRushStopTick": {
+      "expected": 27,
+      "actual": null
+    }
+  },
+  "checks": {
+    "focusedFiles": 13,
+    "focusedTestsPassed": 140,
+    "build": "passed",
+    "browser": "passed",
+    "browserImpactTick": 49,
+    "browserChannelStopTick": 49,
+    "browserChannelStopReason": "control",
+    "browserSavedFutureTicks": 180,
+    "pageErrors": []
+  },
+  "scope": "No fresh full-suite, full-match, production-host, offline, native-client or physical-device certification."
+}

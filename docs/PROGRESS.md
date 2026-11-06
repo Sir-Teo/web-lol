@@ -6,6 +6,14 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+[Crystal Arrow shared stun dispatch](ASHE-R.md#shared-stun-dispatch) now retains
+longer existing stuns and ends Meditate, Spirit Rush and Zenith Blade at the
+actual impact tick. Three original failures reproduce; five new cases and the
+140-case focused run pass, including Courage tenacity and exact saved futures.
+A real keyboard R cast passes browser save/reload and 180 future ticks with no
+page errors. TypeScript/build pass. Fingerprint is `8695fd…`, schema 163;
+historical match/offline evidence retains its earlier build identity.
+
 The [attack-range geometry cache](RANGE-GEOMETRY.md) now avoids repeated terrain
 sampling, position-buffer uploads and bounding-sphere recomputation while the
 champion stands still with the same range. Both fixture and full-Rift browser

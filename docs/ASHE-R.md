@@ -61,3 +61,32 @@ The exporter now verifies the `RMainDamage` formula parts and emits the three no
 ## Flat item ability power
 
 Crystal Arrow now computes rank-one base damage plus 1.2 times the caster's flat item AP. AP is derived from each champion's current inventory rather than duplicating it in saved state. The current item set supports Amplifying Tome (20 AP). Cast windup snapshots this calculated damage; selling before release changes future casts but does not alter the pending one. Existing splash uses the same captured damage and source multiplier. Other AP modifiers and higher ranks remain unfinished.
+
+
+## Shared stun dispatch
+
+Crystal Arrow now applies its primary stun through the shared control handler.
+The prior direct assignment could replace a longer existing stun with the
+arrow's shorter deadline. It also deferred Meditate, Spirit Rush and Zenith
+Blade interruption until another update, leaving active controllers at the
+impact checkpoint. The handler retains the longest deadline, samples Courage
+tenacity and records channel/dash endings immediately at contact. Dead targets
+are not assigned new control; lethal-hit splash remains intact.
+
+Five new simulation cases cover existing-stun preservation, immediate Meditate,
+Spirit Rush and Zenith Blade interruption, Courage duration and exact saved
+futures. The initial three cases fail against the preceding implementation:
+240 becomes 87, and both Meditate and Spirit Rush still have null stop ticks.
+All five pass after the shared-handler change. The focused thirteen-file run
+passes 140 cases, including all existing Ashe R, the three affected champions,
+Courage, bot ultimates and Baron control tests. TypeScript and production build
+pass. A real-input browser cast stops Meditate at contact and restores exactly
+through browser Save match/reload plus 180 future ticks, with no page errors.
+Its first setup hit an intervening dummy; the isolated-target rerun passes.
+The reviewed capture shows Yi stunned with the existing finite Meditate tail.
+
+The simulation fingerprint is now
+`8695fd9936132ed2b6ee0f3549a20ee7ab865b7e4cf4c747b8fdcc4edff75fc7`;
+schema remains 163. Earlier saves and match audits retain their original build
+identities. Full-suite, production-host, offline and native-client certification
+are not newly claimed. See the [verification summary](reference/ashe-r-control-dispatch.json).
