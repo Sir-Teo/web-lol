@@ -21,3 +21,11 @@ All15 asset/property checks and TypeScript pass. Normal/optimized publication gu
 The producer verifies all590 frozen source/QA files from the actual schema172 / `29c2a12a` World and executes it directly under the pinned Node/V8 runtime. Ten guarded scenarios yield120 complete projections: ordinary/critical contact, movement cancellation, owner death in windup/flight, target death in windup/flight, actual Flash during flight, moving target and a lethal champion hit followed by passive consumption. Only schema/ruleset and proposed attack audio history are excluded; existing P/R/W/Q/E histories remain included.
 
 All36 scoped baseline/assets/development/critical checks and TypeScript pass. Source-stage `26ed1b6` separately passes cache-free CI:320 tests in41 files,26 Python modes and28 commands, reusing dependencies without private caches/tools. Attack history/playback remain unbound.
+
+## Local profiles and finite retention
+
+The publisher now emits a separate finite timing table: fourteen outputs /2,066,099 bytes. Independent Python and TypeScript derivations agree on88/70/43 ticks for cast/missile/hit and six ticks for the source100 ms Linear missile Stop. Each profile retains three distinct event/action aliases and shared source caps2/4/2.
+
+The local additive ancestry policy preserves cast pitch200 plus its independent−300..+300 range. Cast master1071743868 has its own+1 gain declaration, producing local−11 against container−12; the other three cast variants retain−12. Missile and hit have no pitch declaration. This remains separate from the unflattened source graph and does not certify native inheritance or global shuffle.
+
+All39 scoped source/policy/baseline/development/critical checks and TypeScript pass. Normal/optimized six-probe publication modes preflight the final timing table before writing any master. Attack dispatch history and playback remain unbound.
