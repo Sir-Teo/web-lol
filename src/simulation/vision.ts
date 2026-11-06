@@ -35,8 +35,13 @@ export function seenFrom(
   sources: readonly VisionSource[],
   sight = lineOfSight
 ): boolean {
-  return sources.some(
-    (source) =>
-      distance(source, point) <= source.radius && (source.unobstructed || sight(source, point))
-  );
+  return sources.some((source) => {
+    const dx = source.x - point.x;
+    if (Math.abs(dx) > source.radius) return false;
+    const dy = source.y - point.y;
+    if (Math.abs(dy) > source.radius) return false;
+    // The box only rejects impossible candidates. Keep the exact inclusive
+    // hypot test for the circle boundary rather than approximating with squares.
+    return Math.hypot(dx, dy) <= source.radius && (source.unobstructed || sight(source, point));
+  });
 }

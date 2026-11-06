@@ -6,6 +6,15 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+[Exact visibility range rejection](VISION-RANGE-CULLING.md) now avoids expensive
+distance calls for sources outside the enclosing radius box, retaining the
+original circle test. All 65,536 real-Rift browser samples and terrain-ray counts
+match the original query. Sixty-seven focused tests, build/TypeScript and the
+standalone structure-vision browser scenario pass. The selected 20-minute match
+repeats to identical final state after root-identifier normalization for
+comparison only. An isolated 43-source query benchmark is about 3.7× faster;
+this is not a full-game FPS claim. Fingerprint is `d1ba03…`, schema 163.
+
 [Crystal Arrow shared stun dispatch](ASHE-R.md#shared-stun-dispatch) now retains
 longer existing stuns and ends Meditate, Spirit Rush and Zenith Blade at the
 actual impact tick. Three original failures reproduce; five new cases and the

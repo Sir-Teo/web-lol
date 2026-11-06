@@ -1,0 +1,9 @@
+{
+  "tick": 72000,
+  "beforeRuleset": "8695fd9936132ed2b6ee0f3549a20ee7ab865b7e4cf4c747b8fdcc4edff75fc7",
+  "afterRuleset": "d1ba0329259738eb4091bba944d813ff6413071c8a4e1f43026dc135a5143d3c",
+  "beforeSHA256": "df913351b86f1ce496ee7d7b0d7c0f751c31613dee854866c8645e471baa7185",
+  "afterSHA256": "21990a79d14a4816d9f1540e5eab18e2a58083292f9d7b7c1538bb0d80dbdf9f",
+  "normalization": "Root ruleset identifier only, in memory for comparison; original snapshots preserved.",
+  "equal": true
+}
