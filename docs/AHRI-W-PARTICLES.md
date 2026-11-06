@@ -67,3 +67,7 @@ PYTHONPATH=tools/assets:.tools/cdtb .tools/cdtb-venv/bin/python -O tools/assets/
 
 This is private decode preparation, not GLB transport, native GPU appearance,
 playback or callback acceptance. The empty weapon resource remains empty.
+
+The [source/decode verification](reference/ahri/w-particles-source-verification.json)
+pins both commits, all successful checks, unchanged shared helpers and their
+original source-preparation context. Runtime/public source bytes remain unchanged.
