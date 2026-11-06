@@ -1,0 +1,391 @@
+{
+  "format": 1,
+  "result": "passed",
+  "seed": 1,
+  "winner": "blue",
+  "finalTick": 157116,
+  "reference": {
+    "root": "/workspace/web-lol-ahri-lifecycle-audio/.cache/ahri-lifecycle-history-roster-seed1",
+    "ruleset": "d1e66691343170e2984614fcf99ebd978aa3be61d629dff4274eb2179a26b03a",
+    "sourceRevision": "93070436e173d367bf93037301c9a0dfcaf89e16",
+    "sourceFiles": 604,
+    "planSha256": "e588004fcb8787d6d8b76ab575449db0b88d3b6baaaa53da36d553639cc14505",
+    "reportSha256": "cc216d4161a249e1d1685f32eeaf680bf6e816e0da8a1eba1d1b22493f1c1d79"
+  },
+  "candidate": {
+    "root": "/workspace/web-lol-ahri-recall-audio/.cache/ahri-recall-history-roster-seed1",
+    "ruleset": "41da4dfca8f8344219f15b26245f8250114d8cafbeb20768b0586bd43f262cf2",
+    "sourceRevision": "aff91862d4f8d8f1b8f70596d64839ef0638bdc5",
+    "sourceFiles": 611,
+    "planSha256": "a034fb8609b83fbee6d61926e43eb7fa857f80e939347e4c4e6142e1510f9c59",
+    "reportSha256": "ed5b78c2e7e03e24463b0435309f316148ae2d02217d778da4cfd10e07d1a210"
+  },
+  "samples": [
+    {
+      "tick": 3600,
+      "file": "003600.match.json",
+      "gameplaySha256": "067b7a5550595addf23a43d74e96ecd67a6a540849ad53783a4ab8d9a66d934a",
+      "referenceFileSha256": "d69da11d46afbc3f6af92292def09e588edfadf3fcac2131248a1cb59556c272",
+      "candidateFileSha256": "a605d62f5248991ff9dd87246c2300ebb8ffacd5112f64a8805bcb92f7535bab",
+      "recallRecords": 0
+    },
+    {
+      "tick": 7200,
+      "file": "007200.match.json",
+      "gameplaySha256": "4946b7aa9d2cf48254abb25edf26e30aac5ea1d0fe035d5a11bdb8abb0ad3b1f",
+      "referenceFileSha256": "09e806cfc90a336941c83b31d257faca20e8119dc0cd35c638c8fd5d62d6f2bc",
+      "candidateFileSha256": "40a2a4f1f073326ab62d0891aec01ca0d301396d95615e58ff3f2e690a5decd7",
+      "recallRecords": 0
+    },
+    {
+      "tick": 10800,
+      "file": "010800.match.json",
+      "gameplaySha256": "f89c6adfa03929d8ca90c061a7fe91ab56517358b3737fffca5164ba763b7340",
+      "referenceFileSha256": "b5ddfbdddd50012b462552bfec059e690c121ef5c59d766a9f33673eb89f9450",
+      "candidateFileSha256": "d103b22e5aa8eca5a7d6f4fb9524e15e1047c70251709d20f4a6d10156db6cbe",
+      "recallRecords": 1
+    },
+    {
+      "tick": 14400,
+      "file": "014400.match.json",
+      "gameplaySha256": "b3deabad0d5920f38deed76afa3f5d26a58dbd6127b17e1f17fe0d85ac45ab55",
+      "referenceFileSha256": "e556f224e0770227e6ac8c02f26c69b9e271ab2aed20b95c592a7f52850ebb76",
+      "candidateFileSha256": "cf8b87b01a084a7a728a579adbe3e5fa757e8db6072cc37c743dcea7ab617277",
+      "recallRecords": 0
+    },
+    {
+      "tick": 18000,
+      "file": "018000.match.json",
+      "gameplaySha256": "9bf420dc2e32a58f328339ce5d485568af02733aa863d844b4e91ca6e045faff",
+      "referenceFileSha256": "44dc9e20d4bd760de56aad5f59c18d57ca7bbd895c931fd538503218701baddd",
+      "candidateFileSha256": "52fadb9c2d73c6df07ef8b36a37b5d585984a6aec597a0edfe6c2bb6521a6e0f",
+      "recallRecords": 0
+    },
+    {
+      "tick": 21600,
+      "file": "021600.match.json",
+      "gameplaySha256": "600359cc8ef2bb3144a4ea128fa92c91483a61fe627c8e4478911253c69081de",
+      "referenceFileSha256": "fc2c29d3e713d03c15ebad80a8a8cc77195d89e9c36b3c264fe774cf8804f683",
+      "candidateFileSha256": "4b52d02bf36b027f3d637f50daaafebbf9910124638ee12c187d626bb923e42f",
+      "recallRecords": 1
+    },
+    {
+      "tick": 25200,
+      "file": "025200.match.json",
+      "gameplaySha256": "ae534fba022e99fa8c1a76f9e8408342c45f1365af1047ef98ce0cd4dda06df0",
+      "referenceFileSha256": "aa414e31c1d9f6ccfef590ae50998a2d29b94a09451ae8791247c505b85ab11b",
+      "candidateFileSha256": "2e94af708d55cb94809d37f0c891a6b269ff99d7047dfe70c7076b139bb3f54b",
+      "recallRecords": 0
+    },
+    {
+      "tick": 28800,
+      "file": "028800.match.json",
+      "gameplaySha256": "278700359cf35a667176ea03670b4de958c2cd60494f9989ffa8a1157f8f9198",
+      "referenceFileSha256": "7a994a0aef64fc5f70e9339c73a4b689e095a0d165912fb5fb9368f2807dfab6",
+      "candidateFileSha256": "59396a17baa936d98d15ab6379a5dc4df91fcf6467c08fb0d03b7727e50e12ac",
+      "recallRecords": 0
+    },
+    {
+      "tick": 32400,
+      "file": "032400.match.json",
+      "gameplaySha256": "259e3d9117ba0dd554fa82a2ee1367c04b6a39151f776ac3d1d364a10e9fb3d4",
+      "referenceFileSha256": "94ff36faae1dbd4adf949261caee92cc664b2de9058f9fb87b56578a3e07cb35",
+      "candidateFileSha256": "d23e2f92718fe35522da8cde17883fd142e880197e0972fd4ca6d10ff81a7b6a",
+      "recallRecords": 0
+    },
+    {
+      "tick": 36000,
+      "file": "036000.match.json",
+      "gameplaySha256": "fab4726e080a54994cc30eb06e68f1a142856490e0fbbfa0ca193061e64a4a50",
+      "referenceFileSha256": "25874447816f9bf8f653c437581e81b0c3888c26616f8e7eb5bf9cd409673330",
+      "candidateFileSha256": "f96060fbe71a56822eab2dfa616088f2f1c369311ea5c12b929cc612c9d85d54",
+      "recallRecords": 0
+    },
+    {
+      "tick": 39600,
+      "file": "039600.match.json",
+      "gameplaySha256": "7e62632f7de26a5a0c5263f26ae02ed937b3de4292d8d189c8ac727d1281cc36",
+      "referenceFileSha256": "0f2ecfbf9ef387a1eef1709aa525ec718b24d6fcc40b2469badd93b7ceaa13e8",
+      "candidateFileSha256": "c77bf59f2c8f020658f82aed08f488f588c9393415140ecb0cb60eaa818e1dad",
+      "recallRecords": 0
+    },
+    {
+      "tick": 43200,
+      "file": "043200.match.json",
+      "gameplaySha256": "80af7b8c1ad9fc3998551138ccc32eb4cda7d15473e0654c19a90b1c2c17a229",
+      "referenceFileSha256": "ca9743173316514ca022f53b736744ea4209a461d5d1ae17ec44608fed9d35f2",
+      "candidateFileSha256": "ad12d8f9bd2b33f8240057e4679cd1106a28c9dc0dc3ea4de4d448a51c4c493d",
+      "recallRecords": 0
+    },
+    {
+      "tick": 46800,
+      "file": "046800.match.json",
+      "gameplaySha256": "a1ec3f59e01c188c309ebb89da98451b63016e31f3b34e1439db2e311a0abc07",
+      "referenceFileSha256": "8ce3996c76c30c168a54152e1eafee26338553f5ef956ef44948fa36d9cf0620",
+      "candidateFileSha256": "be8de7477f9c207c2e427cffd12708ea00975acbf4c8c3bd3189a5dee3e020a1",
+      "recallRecords": 0
+    },
+    {
+      "tick": 50400,
+      "file": "050400.match.json",
+      "gameplaySha256": "20d26294e8938c0104d213896bf261b94d240e64e352a0a39d73d686da1684d7",
+      "referenceFileSha256": "f5bc2d5a76298dc46c371db2a965ef2ea78b9ecbbfa49f307cc71cdbcb3143e5",
+      "candidateFileSha256": "c3841b1a8e615ae0b3e9d6035788102209fb1c77ff1d0890d3351d819f1bbc5a",
+      "recallRecords": 1
+    },
+    {
+      "tick": 54000,
+      "file": "054000.match.json",
+      "gameplaySha256": "2ba556b109fc5d80c94a23315c406bfdd7f78b72dfc2f593f0ed2c5618e0cd48",
+      "referenceFileSha256": "e15df556dcaf322606dc8f539953a55498f61024822a560af6a354fc21de86a8",
+      "candidateFileSha256": "f581578ab95109088db5e0b66f2161e2d68b5065404633a484bab29958f1d639",
+      "recallRecords": 0
+    },
+    {
+      "tick": 57600,
+      "file": "057600.match.json",
+      "gameplaySha256": "9f1ebe767c7b1cf5d32fff0dd3c6a8d041eb513243e0c8830446e70dd24b9238",
+      "referenceFileSha256": "52a7bb4d739e9709caddacdd3020a7adcf152dcb4c9245d36ba97ddf406e1a3b",
+      "candidateFileSha256": "1cbd830cd1ae6135beb96e1b59ef24423c79746f0cbac427afd08545ae09fcd4",
+      "recallRecords": 0
+    },
+    {
+      "tick": 61200,
+      "file": "061200.match.json",
+      "gameplaySha256": "e62988d7d0eab8b12e01995f211844d5ff6869c259c07a243203cd76f32a356f",
+      "referenceFileSha256": "24e8caa535ae899f66ec8f499fd4905548b122776cf3dd4c1f1ea80f65a1e6ab",
+      "candidateFileSha256": "ca14206a4141c1622d3e14574107611e88a3799699855f8fb33192be1020548f",
+      "recallRecords": 0
+    },
+    {
+      "tick": 64800,
+      "file": "064800.match.json",
+      "gameplaySha256": "0a446117e0fad3fcbcec95aa293e2ec87ed344732acb773330c02003df84a44f",
+      "referenceFileSha256": "b05fb04def8d1e8be6be0496ac0c029a3544ae289c834adf961a77707e000f71",
+      "candidateFileSha256": "61c644b00881d82db4dbb4047144be5ef3fa248d39389303b17d7f2f7b7b2ced",
+      "recallRecords": 0
+    },
+    {
+      "tick": 68400,
+      "file": "068400.match.json",
+      "gameplaySha256": "1b6fbc3f105dd4bcec8db0b52d18036120fa6a5b3399152c638fdacdf7ba6301",
+      "referenceFileSha256": "b13ee23b97491cd76de8a597d76db606b1f328113bd06d0f845b07fd5f8a3c19",
+      "candidateFileSha256": "1faede99c2508c546050c7bfcd4202e8caca87a2d29d52bd125bad43a377bdc2",
+      "recallRecords": 0
+    },
+    {
+      "tick": 72000,
+      "file": "072000.match.json",
+      "gameplaySha256": "53c6c1c9aaf580ce42822e9af2986f0fea52cff2058b960d9f7f39ee7bef939c",
+      "referenceFileSha256": "33700b77ae61d18a25958deb697ac719b950d4173a2b13c699c4cc73709b929b",
+      "candidateFileSha256": "8bd8322003a056b81574b46f49ef2c46a646708aaa26ac53ed240f91cbf474b0",
+      "recallRecords": 1
+    },
+    {
+      "tick": 75600,
+      "file": "075600.match.json",
+      "gameplaySha256": "dbed1f0d55a5fbe5b1f40e506f628b7fb0fbd7dcd5755dd794a365216eb4c196",
+      "referenceFileSha256": "72e3ced09c2d12c18a73593ff14f31661e074439de649541481039b527a1894b",
+      "candidateFileSha256": "771fd77da07ce1cfcad7f42210a640eab9ce36f0c823dcd72a2122a6884cf1f8",
+      "recallRecords": 0
+    },
+    {
+      "tick": 79200,
+      "file": "079200.match.json",
+      "gameplaySha256": "5f09fb8c56026a34c47a2a52f16f6712ecf033b3708bf5abe77c8da6bb55aa76",
+      "referenceFileSha256": "9f9685bae33422a536064842a15aa53afcb27efca70966457825ac80ef139495",
+      "candidateFileSha256": "5a85487fe3bf336052558300e859d44e23e8547a1d094d46a9afa953ec8e6a09",
+      "recallRecords": 0
+    },
+    {
+      "tick": 82800,
+      "file": "082800.match.json",
+      "gameplaySha256": "c289f9ff37354d99b848372993ce3771acd064ab2fc499e19fa6436a42975c68",
+      "referenceFileSha256": "e6399943e5b1951790e2ed9d2bbc3e2c0dd64eabf372c1642bb81559d7295f06",
+      "candidateFileSha256": "b4c34301fc79177f268c250dafe9451db0a77b3072fec69a59f4a6a0e9863820",
+      "recallRecords": 0
+    },
+    {
+      "tick": 86400,
+      "file": "086400.match.json",
+      "gameplaySha256": "a2bc3c8f1382bf00f2641e1475a8c662968bd542f0935e8a3a0a88ae47caa3d5",
+      "referenceFileSha256": "f7221b77eb712acf16d200650d178e9a576d785ae1c1a5f4d23e372f238a1ac5",
+      "candidateFileSha256": "dc375af5b427c4608affb608aa0b09e0ff9320ea87bd61419c92069201141a79",
+      "recallRecords": 0
+    },
+    {
+      "tick": 90000,
+      "file": "090000.match.json",
+      "gameplaySha256": "40b4229997823baef133a9a925ec2eb9594bc142b80ec6fd2675bc86335baf5b",
+      "referenceFileSha256": "9a77c71e6f55c1ae45b7fe689b13a5d27c7f7bea0e2d009c2a228c55d831fbb8",
+      "candidateFileSha256": "041c4aaf1b0f7be40d4971358245937efe89843c02f0820e4f86301ebc0899b4",
+      "recallRecords": 0
+    },
+    {
+      "tick": 93600,
+      "file": "093600.match.json",
+      "gameplaySha256": "02ecb77ca59eb229de0283aadeab4461f437a0cc169f3c9aa63b60ab93426259",
+      "referenceFileSha256": "82de55514e49e3be9daa06929f1c53789afc533f708dc543b2de1f372095f9a2",
+      "candidateFileSha256": "c5fd249ada666beaf98db6441a22f856d752cbdd8721dbab098ec73b0d7e4ff5",
+      "recallRecords": 0
+    },
+    {
+      "tick": 97200,
+      "file": "097200.match.json",
+      "gameplaySha256": "e05d65faa4775409d59841dbb11bc5a6aa6d2fec46e514c06a3bde24242210a7",
+      "referenceFileSha256": "6d8b60c7373a82c76b8908944dda3132b3917cc95ea4009486bdb754451a0796",
+      "candidateFileSha256": "07ba50bbf1e2ddc7082bd1922280ac785c61b2f85517958e7e36362f7de1183e",
+      "recallRecords": 0
+    },
+    {
+      "tick": 100800,
+      "file": "100800.match.json",
+      "gameplaySha256": "22ca735c72a868f3bc6b722eab82d33292a037d5ce91e36e73e9312c091f0f59",
+      "referenceFileSha256": "ea751a458feb223acbc80dfc03a183a6e3a7e53fd6df1a2bd292baee3f5a75dc",
+      "candidateFileSha256": "a1cdb70679c44d9ccf1d350c2a5714801a773946d3933b32be12e9d2914e7fcf",
+      "recallRecords": 1
+    },
+    {
+      "tick": 104400,
+      "file": "104400.match.json",
+      "gameplaySha256": "1231b3532d50bd3c5bc80656c57f0fe9a16051908eedf227c77ecf55c5846909",
+      "referenceFileSha256": "82890c7b256c0f6a70817eb09db405c32937d0791e457c0e40341cd70fdea763",
+      "candidateFileSha256": "ad840cdfb40607a3f6eddbd9ba6eaa7abae447f773d86a96c8784008b7e915ba",
+      "recallRecords": 0
+    },
+    {
+      "tick": 108000,
+      "file": "108000.match.json",
+      "gameplaySha256": "7053b5a2b97730561e8ce789539b5cf451272166bf34135610704ad41c0d08b1",
+      "referenceFileSha256": "b6ffd02edd0caf9d00ff9b082a63bcdd304b2eb458b46090cb0879daead4c4ec",
+      "candidateFileSha256": "6f2269a68870f6c58bfada2e3efba06c9199f6ba0944e18cb7eee2ef5d63bca3",
+      "recallRecords": 0
+    },
+    {
+      "tick": 111600,
+      "file": "111600.match.json",
+      "gameplaySha256": "31149115c1ba90385bb46f82d86f1259e94c2621809ebc3a9618730fa6b53592",
+      "referenceFileSha256": "cc70f59e3cebde8e1401c8572de1dbcc467a3bd4d17154e46bcf381c29cfc3d3",
+      "candidateFileSha256": "ee18b0d75aed664e851214845f8a2ab7c486c5f65581e93c5dd8cc88b754a907",
+      "recallRecords": 0
+    },
+    {
+      "tick": 115200,
+      "file": "115200.match.json",
+      "gameplaySha256": "95dbc0821fb28772199d9539b579f7898a3cbcbec3aa6406eb35cc9f581e59a1",
+      "referenceFileSha256": "dea8c88dd14ffe2db6fc99fb47d737efbf142d0fc991fcc16357fed969218470",
+      "candidateFileSha256": "fe79d755d8f87acdaf2acc28e1963f1b11a04f8f1cf9338f36a2cd25c4dbb176",
+      "recallRecords": 0
+    },
+    {
+      "tick": 118800,
+      "file": "118800.match.json",
+      "gameplaySha256": "1bc47b629fa7488c7ce0cf8d533b802d5dccef74e9603ab8a7349812746c6018",
+      "referenceFileSha256": "6eb82ed43858aa2bf4f797fc8d9c19364f4769fdd47f75ef2f47fdbde5bcb52c",
+      "candidateFileSha256": "5d54a28bf1352e8f8f4f6dfca56c51c6a391a35992c98240a8bb53a7f061c5b4",
+      "recallRecords": 0
+    },
+    {
+      "tick": 122400,
+      "file": "122400.match.json",
+      "gameplaySha256": "0c87c212f18d67d206484e7b7bcb2536566020a1dbf609507dbdd015b4f95dd6",
+      "referenceFileSha256": "5e8bf9a03fa6e94c72ea71a4e001245e8d45542715e3cb7d75ce9956d2441273",
+      "candidateFileSha256": "1e72b4aa85341f73c0817946fa0574223d90cd85a2bf1b587ede5c967f7024c3",
+      "recallRecords": 0
+    },
+    {
+      "tick": 126000,
+      "file": "126000.match.json",
+      "gameplaySha256": "95fa8071e3c94185a017c0085bc4c8f0dbf51f327ee8655d01abf7bc13951cd1",
+      "referenceFileSha256": "13701f6ee1644b51b69bbfb6a2c2aa45266d3440167856c86a8c9d14017dba27",
+      "candidateFileSha256": "0655131130cd95dc982fdc4fae55efca504706a1352cd5bbf2628233754755cb",
+      "recallRecords": 0
+    },
+    {
+      "tick": 129600,
+      "file": "129600.match.json",
+      "gameplaySha256": "f55db7db1904258479a13b4679020cf7505e532b1ff72834faa89a2ea6f13b36",
+      "referenceFileSha256": "3c23372258be1980885948013814bc4b568bb1f9954f45ffaa1b936423ffd8db",
+      "candidateFileSha256": "a1857da026be2772cc13773711806b63a40a0274739e633c9a8eef0131e44beb",
+      "recallRecords": 0
+    },
+    {
+      "tick": 133200,
+      "file": "133200.match.json",
+      "gameplaySha256": "a0375fcc405b3ccbfc65e7da44cc0e7a97b2eb360a18a2d2bc2102ff078bc357",
+      "referenceFileSha256": "a013be4aa842badfb0481951db40e6dcd6fc0e039bd4b07d4b5da7498c961f01",
+      "candidateFileSha256": "6947a576788ae8e0c4f57aeb3e4ab2a4deb8cef437994e8ebf99f09e7a279fae",
+      "recallRecords": 0
+    },
+    {
+      "tick": 136800,
+      "file": "136800.match.json",
+      "gameplaySha256": "765b02fc8f7c67db4012d7d812dbfcf6de573756cb3d9a1f4c3e0d7b788538fb",
+      "referenceFileSha256": "69e664346ec5cff017e826471869e7e73253e31e04e6e093e5773d1a6d0d4431",
+      "candidateFileSha256": "cf7717a1be0ce075b13f25492f880dcc1d8571e2d1c368df4b116733e60b89db",
+      "recallRecords": 0
+    },
+    {
+      "tick": 140400,
+      "file": "140400.match.json",
+      "gameplaySha256": "0bb0834084647d2f5768e6fdd4cce07e5906e0c7dc98b7aa33848606e6a16e02",
+      "referenceFileSha256": "170c388728e7afbd008cd385df035a7f0072050f40cd4d817dacf088bf330a16",
+      "candidateFileSha256": "a296685e2bb9966bd844956c5e1d3217b6b4fa964182ba92dae1c5a0cf7a3500",
+      "recallRecords": 0
+    },
+    {
+      "tick": 144000,
+      "file": "144000.match.json",
+      "gameplaySha256": "47a77f7ed92a4bc0067f049a599f575cda4228c41aa364e139a7902dcf9e5e66",
+      "referenceFileSha256": "7dca235bc0f71f9670db84f840eb7d7aede40107c24a4cc100c926a51db9d6fc",
+      "candidateFileSha256": "7f9633e40b52918c28a9fed3b14aeab975ba8e0576d9c5144892ecfa089a1312",
+      "recallRecords": 0
+    },
+    {
+      "tick": 147600,
+      "file": "147600.match.json",
+      "gameplaySha256": "d8c5cad497fc8083a1cfb7da07a54f4507d8a9562ed1f273dbad7801b594126b",
+      "referenceFileSha256": "608d05721a810eeba64240d27ba2539fd21b6d19db64947a2c71ecebb50a67c7",
+      "candidateFileSha256": "ea47c9ec1682916dc8a0ff7eadc8ac3abc79cf20054e5b660056ed951873c979",
+      "recallRecords": 0
+    },
+    {
+      "tick": 151200,
+      "file": "151200.match.json",
+      "gameplaySha256": "e7a656a97153cea8572c5cc6ffe5533a7a51914f4dff00ef16206c00c2715bb3",
+      "referenceFileSha256": "98bc5a9c065e7b74509d290099f815bb6a90cb57d8bb173cb42ba10f104df678",
+      "candidateFileSha256": "7f70db796da2ad45dd61ac7c3a9041466741657aa5cfd6424fd9fa8cc9d83a05",
+      "recallRecords": 0
+    },
+    {
+      "tick": 154800,
+      "file": "154800.match.json",
+      "gameplaySha256": "19621f9d70175f9b83d9590ad9f644520965d50959545f56bf85d1b83cd3c792",
+      "referenceFileSha256": "a769a6e1b0bed8bba169f055d0bd7fe8cd2505fead0b6c7882e1dfa3ccd49528",
+      "candidateFileSha256": "92c0ea8dd87505c00943e490c1fde528ce146577bd3c2b3fdc78d8917b93103a",
+      "recallRecords": 0
+    },
+    {
+      "tick": 157116,
+      "file": "157116.match.json",
+      "gameplaySha256": "d62867f3ceadc58599781d5c991dcdbe8e534dd441452507b6cb11d8247d90f8",
+      "referenceFileSha256": "18560f9b4c8ee361b210c3616cedc3c945ee43b1db775200fe569e7fe5439a6d",
+      "candidateFileSha256": "2322bcf0b1732a369cb55b26bcb78ce95ec610521a24a43d1e45ad88a9bb651e",
+      "recallRecords": 0
+    },
+    {
+      "tick": 157116,
+      "file": "final.match.json",
+      "gameplaySha256": "d62867f3ceadc58599781d5c991dcdbe8e534dd441452507b6cb11d8247d90f8",
+      "referenceFileSha256": "18560f9b4c8ee361b210c3616cedc3c945ee43b1db775200fe569e7fe5439a6d",
+      "candidateFileSha256": "2322bcf0b1732a369cb55b26bcb78ce95ec610521a24a43d1e45ad88a9bb651e",
+      "recallRecords": 0
+    }
+  ],
+  "excludedRootFields": [
+    "version",
+    "ruleset",
+    "ahriRecallAudio"
+  ],
+  "limitation": "One seed and archived checkpoints only; no native behavior certification or 100-seed milestone claim."
+}
