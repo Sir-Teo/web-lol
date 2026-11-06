@@ -56,5 +56,7 @@ Subsequent hit-binding build: `c23eba8eb85a21e45fb50b63697afab55e486d70277e08f2d
 (1,235 files / 552,840,480 bytes). Nineteen focused tests, six Baron browser
 cases, one final depth-bias recheck, 84 external pixel cases and the 21-emitter
 preview pass. The full schema166 suite before binding passed 8,141/8,143 cases;
-the two historical Leona/Lux gaps remain. Full post-binding and new-pack delivery
-checks are subsequent work.
+the two historical Leona/Lux gaps remain. The full post-binding suite passes 8,150/8,152 cases across 459 files; all 48
+Node QA tests pass. Both nested-prefix production and full offline delivery pass
+for c23eba8e, including all-file byte verification. See
+`reference/baron-hit-bound-acceptance.json`.

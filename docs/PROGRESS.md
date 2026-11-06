@@ -9322,3 +9322,7 @@ The private encounter now lazily draws source hit effects at the saved authored 
 ### Source missile travel basis and preserved preview runs
 
 Added the external local-Y missile frame, with exact float32 agreement across 269 directions (271 focused cases including regeneration/guards). TypeScript passes. The isolated authored-asset preview uses the supplied travel basis and still draws all 21 emitters; reviewed the aligned missile. Height/root policy and active missile binding remain separate. Corrected the QA tool's fixed artifact names: runs now require fresh namespaced output paths. Earlier overwritten fixed-name preview hashes remain historical rather than being relabeled; current evidence uses flight-axis-v1 paths. See docs/SOURCE-FLIGHT-BASIS.md.
+
+### Post-hit-binding full and delivery checkpoint
+
+At hit-binding commit 7f306cf, the full suite passes 8,150/8,152 across 459 files; the only failures remain the historical Leona archive and Lux sampler digest gaps, with no weakened expectations. All 48 Node QA tests pass. The c23eba8e pack passes all-file hash/extent verification (1,235 files / 552,840,480 bytes), strict nested-prefix production and complete offline acceptance, including repair, saved boot, atomic version switching and removal isolation. Production makes no Baron preview preload. Six current Baron browser cases plus the final depth check pass. Schema166 / ruleset ae3da0. See docs/reference/baron-hit-bound-acceptance.json; the later unused flight-basis helper has its separate 271-case evidence.

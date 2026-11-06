@@ -1,0 +1,94 @@
+{
+  "format": 1,
+  "sourceCommit": "7f306cf",
+  "ruleset": "ae3da0abcdce8fdd4bf7183723ab95016de9c2df64c77424852b0e11b88b7b07",
+  "snapshotVersion": 166,
+  "fullUnit": {
+    "passed": 8150,
+    "failed": 2,
+    "files": 459,
+    "knownFailures": [
+      "missing historical Leona checker/input archive",
+      "Lux 24-sampler digest mismatch"
+    ],
+    "expectationsWeakened": false
+  },
+  "nodeQa": {
+    "passed": 48,
+    "failed": 0
+  },
+  "baronBrowserCasesPassed": 6,
+  "finalDepthBrowserCasePassed": 1,
+  "externalPixelCasesPassed": 84,
+  "pack": {
+    "id": "c23eba8eb85a21e45fb50b63697afab55e486d70277e08f2d180f56bc132b936",
+    "files": 1235,
+    "bytes": 552840480
+  },
+  "fullPackByteVerification": "passed",
+  "nestedPrefixProduction": "passed",
+  "offlineProduction": "passed",
+  "offlineChecks": {
+    "integrityFailureRestoresDownloadFocus": true,
+    "integrityFailure": true,
+    "downloadFocusesCancel": true,
+    "cancelRetainsVerified": true,
+    "cancelRestoresDownloadFocus": true,
+    "retryWithoutRedownload": true,
+    "completionPreservesOtherControlFocus": true,
+    "pausedSavedTickBootsOffline": true,
+    "completePackRepairOffline": true,
+    "newLuxLaneMatchOffline": true,
+    "serviceWorkerResponses": 978,
+    "removalKeepsSavedBytes": true,
+    "updateRefusesOtherTabs": true,
+    "explicitAtomicVersionSwitchOffline": true,
+    "missingEntryRevokesReady": true,
+    "scopeOnlyRemoval": true
+  },
+  "activeHitProfiles": 12,
+  "activeSourceMissile": false,
+  "nativeExecuted": false,
+  "evidence": [
+    {
+      "path": "artifacts/baron-hit-bound-full-unit.log",
+      "bytes": 20642,
+      "sha256": "070e2618c6662f6d5ed04679b0fba1d13bad0f06ca3e6ccffbc776a59ae8e34d"
+    },
+    {
+      "path": "artifacts/baron-hit-bound-node-qa.log",
+      "bytes": 4465,
+      "sha256": "cac2b92fc38b77be63ceecafdc2756f733f97e31ecb4951fe65eb63a7e43c88b"
+    },
+    {
+      "path": "artifacts/baron-hit-bound-production-subpath.log",
+      "bytes": 3176,
+      "sha256": "f9ab7a2e5bc0c969c708de75cefa76364d589be4801b0549e45d886f7d434fba"
+    },
+    {
+      "path": "artifacts/baron-hit-bound-offline.log",
+      "bytes": 870,
+      "sha256": "c7f07530a43a5907c43c21783e51cc33848b8435417acd70e698efdc4781e898"
+    },
+    {
+      "path": "artifacts/offline-pack-baron-hit-bound-c23eba8e-production.json",
+      "bytes": 859,
+      "sha256": "6fb56ba256452f9ad0f0a3fa85f2aa9cf2da6b69c9a85654c9ce3f1acd975fb3"
+    },
+    {
+      "path": "artifacts/baron-hit-bound-pack-manifest.json",
+      "bytes": 177356,
+      "sha256": "2791fbadf3d50ebafc138a8feebf3617f16d21e7185382023253227bee62357e"
+    },
+    {
+      "path": "artifacts/baron-source-hit-browser-verified.log",
+      "bytes": 3426,
+      "sha256": "ca77d385df9758668805956bba712c813b8933101517a27d0405458c6ff785ed"
+    },
+    {
+      "path": "artifacts/baron-source-hit-depth-browser.log",
+      "bytes": 800,
+      "sha256": "1042e3e8064f09261d003d4ea704f11022afeb3aa85061f600077acb4c644b49"
+    }
+  ]
+}
