@@ -1,0 +1,59 @@
+# Fox-Fire visual history implementation plan
+
+The next runtime change will observe the existing Fox-Fire simulation. Native
+particle aliases identify orbit, flight and hit resources; they do not replace
+local acquisition, movement, damage or cancellation policy.
+
+## Existing lifecycle
+
+A cast allocates one existing cast identity and three indexed fires. Orbit roots
+follow the caster through `foxFireOrbitPoint`. Release permits acquisition;
+dispatch records the orbit endpoint and then advances flight in the same fixed
+step. Flight uses the existing linear homing policy, including after caster
+death or lost vision. A hit records its endpoint before the damage callback.
+That callback can cancel other casts' orbiting fires during iteration.
+
+Caster death cancels orbits while committed flights survive. A target becoming
+ineligible stops its flight. Expiry and match settlement are distinct terminal
+paths. Cast retention also covers the movement-speed window after fires stop;
+visual retention must not prolong gameplay casts.
+
+## Observer contract
+
+Reuse cast identity plus fire index. Allocate no simulation identities or random
+values. Save cast source/team, start/release clocks, original facing and origin.
+For each fire preserve the initial orbit anchor, consecutive fixed-step samples,
+phase, actual position, source position and sight audience. Preserve dispatch
+and terminal anchors separately: dispatch and movement can share a tick, so a
+single end-of-step position cannot reconstruct the flight birth root.
+
+Record termination before damage callbacks, and settle match-end records before
+gameplay arrays are cleared. Refresh visibility after the normal sight update.
+Own-team roots stay known; enemy unbound births require saved birth visibility,
+and bound roots can enter sight later. Hidden samples break ribbon continuity.
+
+Presentation retention belongs to a separate bounded history. Derive its window
+from the complete particle projection and explicit stop/linger policy. Missing
+native lifetimes require documented local phase stop rules, not invented finite
+source values. Retained ended identities must remain reserved during restore.
+
+## Verification and implementation order
+
+1. Preserve a real pre-observer development-roster seed-one source archive and
+   replayable result. Keep its original schema, ruleset and runtime identity.
+2. Freeze focused lifecycle scenarios using that archived World: orbit expiry,
+   priority/ordinary acquisition, same-tick dispatch and movement, repeated hits,
+   owner movement/Flash/death, target death, overlapping casts, hidden birth,
+   later sight entry and match settlement during each phase.
+3. Add pure observation hooks, history pruning and strict snapshot validation.
+   Compare complete old-state projections, excluding only version identity and
+   the new presentation history. Keep every earlier presentation history.
+4. Require save/restore and future replay checks plus corruption probes for
+   clocks, phase transitions, endpoints, identities, visibility shape and links.
+5. Implement lazy asset ownership and orbit/flight/hit rendering only after the
+   observer comparison passes. Keep cast and weapon resources explicitly
+   unjoined until their dispatch is supported by separate evidence.
+
+The profile reading still lists unresolved palette, field, attached-submesh,
+falloff, bound-object scaling and shared-random bindings. Resolve each with an
+explicit adapter and evidence before claiming complete W rendering acceptance.
