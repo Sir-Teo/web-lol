@@ -30,9 +30,14 @@ The development-only `/?scene=ahri-rift&bots=ahri` trial puts Ahri mid bots on t
 The development-only `/?scene=fixture&encounter=baron` scene adds a stationary
 Baron sparring target with published minimum-level stats, the original source
 rig, Flash/Smite and an isolated browser save. It supports real damage,
-retaliation, local reset and checked file round-trips. Full boss abilities,
-epic rewards/buffs, CC immunity and live objective calendars remain unfinished.
-See [Baron combat fixture](docs/BARON-ENCOUNTER.md).
+retaliation, local reset and checked file round-trips. Retaliation draws nine
+source missile emitters and twelve hit emitters, with candidate cast/hit audio
+from eight source clips. Saved paths, poses and finite audio tails reconstruct
+through reload. Root, stun, silence and Charm resistance have focused checks.
+Full boss abilities, epic rewards/buffs, other control interactions and live
+objective calendars remain unfinished; native visual/audio calibration is open.
+See the [current Baron checkpoint](docs/CURRENT-BARON-SOURCE-KERNELS.md) and
+[combat fixture](docs/BARON-ENCOUNTER.md).
 
 The development-only `/?scene=roster-rift` trial combines Garen top, Master Yi jungle, Ahri mid and Leona support with an Ashe carry. **New match** offers all six human champions in their assigned positions, with manual learning and purchases. It uses ordinary bot policies and its own save slot. See [combined roster trial](docs/ROSTER-RIFT.md) and [six-player selection](docs/ROSTER-PLAYER-SELECTION.md).
 
@@ -47,10 +52,14 @@ npm run check
 npm run assets:validate
 npm run test:browser
 npm run build
+npm run offline:verify
 npm run test:production
 ```
 
-The retained Lux E sampler golden has a [runtime portability audit](docs/LUX-E-SAMPLER-PORTABILITY.md); its original exact assertion remains unresolved.
+The latest full suite passes 8,462/8,464 tests. The missing historical Leona
+checker/archive and the retained Lux E sampler digest remain unresolved; their
+assertions are unchanged. See the [current validation receipt](docs/reference/baron-basic-audio-retained-acceptance.json)
+and [Lux runtime portability audit](docs/LUX-E-SAMPLER-PORTABILITY.md).
 
 The browser suite currently uses installed Google Chrome. All runtime assets are served locally. Manual checkpoints are available from the pause menu: Save match, then reload to restore in a paused state. Match files can be downloaded and imported through **Pause → Match files**. Use **Pause → Offline files → Download game pack** to cache the complete build for offline reloads. See [offline delivery](docs/OFFLINE-PACKS.md) for verified scope. Autosaves and other-browser certification remain unfinished.
 
@@ -62,11 +71,18 @@ The browser suite currently uses installed Google Chrome. All runtime assets are
 
 The practice build is hosted at https://sir-teo.github.io/web-lol/. Pushes to `main` install dependencies with npm caching, build, and deploy to GitHub Pages. Documentation-only and test-only pushes skip deployment; the workflow can also be run manually. CI does not run test suites.
 
-On Linux with system Chromium, build first and run `node tools/qa/production-subpath.mjs --system-chromium`. The default command continues to use installed Google Chrome.
+On Linux with system Chromium, build first and run `node tools/qa/production-subpath.mjs --system-chromium unique-run-name`. The default command continues to use installed Google Chrome.
 
 The complete offline-pack audit also accepts system Chromium: after building, run `node tools/qa/offline-pack.mjs unique-run-name --system-chromium`. It checks actual Cache Storage, network-off restoration, repair, cancellation and version activation. Use a fresh run name to retain earlier evidence. Omit the flag to use installed Google Chrome; run browser audits serially.
 
-`npm run test:production` builds locally and checks both entrypoints beneath a strict nested static-host path using installed Google Chrome. It verifies the map-to-practice link, map controls, 17 startup recordings and three selected Oracle recordings, real-input Hawkshot and Lux Binding casts, Lux selection and 5v5 restart, five-position scoreboard assignments and selected jungle companion rigs, all eleven practice monster rigs, Smite selection, a practice companion purchase, real Stealth Ward placement and saved restoration, Oracle Lens preparation/activation/restoration, rejection of development player-fixture flags, and absence of failed/out-of-prefix requests or development hooks. Its screenshot is saved to `artifacts/production-subpath.png`.
+`npm run test:production` builds locally and checks both entrypoints beneath a strict nested static-host path using installed Google Chrome. It verifies the map-to-practice link, map controls, source audio and selected Oracle recordings, real-input Hawkshot and Lux Binding casts, Lux selection and 5v5 restart, five-position scoreboard assignments and selected jungle companion rigs, all eleven practice monster rigs, Smite selection, a practice companion purchase, real Stealth Ward placement and saved restoration, Oracle Lens preparation/activation/restoration, rejection of development player-fixture flags, and absence of failed/out-of-prefix requests or development hooks. Each run reserves an exclusive claim and writes eight screenshots to
+`artifacts/production-subpath-<run>-<view>.png` plus a namespaced JSON report.
+Existing run names reject before browser work. It also requires zero unsolicited
+Baron model/effect/audio requests. See [QA artifact retention](docs/QA-ARTIFACT-RUNS.md).
+
+`npm run offline:verify` checks every current distribution file, its complete
+manifest, pack identity and generated worker without rewriting historical receipts.
+It verifies bytes, not browser behavior.
 
 ## Current build
 
@@ -92,10 +108,14 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Wall-time result effects and frozen match state](docs/TERMINAL-WALL-CLOCK.md)
 - [Pinned epic-objective character records](docs/EPIC-CHARACTERS.md)
 - [Baron, Herald and Grub source rigs and binding audit](docs/EPIC-MODELS.md)
+- [Current Baron source effects, candidate audio and delivery](docs/CURRENT-BARON-SOURCE-KERNELS.md)
+- [Complete private Baron audio corpus](docs/BARON-AUDIO-CORPUS.md)
+- [Current development-roster hundred-seed run — in progress](docs/CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md)
+- [Frozen unfinished-match horizon diagnostics and continuations](docs/E20BDC-UNFINISHED-HORIZON.md)
 - [Private Baron combat, saves and admission](docs/BARON-ENCOUNTER.md)
 - [Baron root, stun, silence and Charm resistance](docs/BARON-CONTROL.md)
 - [Selected full matches on the initial Baron ruleset](docs/BARON-BASELINE-MATCHES.md)
-- [Current control build: full match and fresh offline delivery](docs/BARON-CONTROL-DELIVERY.md)
+- [Historical control build: full match and offline delivery](docs/BARON-CONTROL-DELIVERY.md)
 - [Historical hundred-game combined-roster invariant gate](docs/COMBINED-HUNDRED-ABC8DC.md)
 - [Historical hundred-game ordinary-roster invariant gate](docs/ORDINARY-HUNDRED-ABC8DC.md)
 - [Frozen source-cache recovery](docs/REFERENCE-CACHE-RECOVERY.md)

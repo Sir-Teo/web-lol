@@ -9418,3 +9418,7 @@ Pinned decoder/toolchain and numeric graph produce44,409,644bytes of mono44.1kHz
 ### Start the current six-character development-roster hundred-seed gate
 
 Fresh ruleset7ae8e0f8 requests seeds1–100, two workers and60minute horizons with all six development characters/five roles per team; QA automates Lux mid. Independently verified the plan, runner, maps and all556archived source files. Initial receipt records only started status; no completion/invariant/milestone4 claim. The original e20ordinary cohort remains separate. Also all68 current Node QA checks pass after the two animation-audio guards. See docs/CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md.
+
+### Refresh the entry-point documentation for current development
+
+README now describes all21Baron emitters, candidate audio/saved tails and the remaining native/kit limits. It links the current validation and in-progress roster gate, labels the older control delivery historical, exposes offline:verify and replaces the obsolete fixed screenshot path with collision-protected namespaced artifacts. No runtime or source identity changed.
