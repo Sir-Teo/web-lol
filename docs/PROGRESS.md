@@ -9386,3 +9386,7 @@ Added isolated temporary-directory export probes in normal and optimized Python.
 ### Verify current packs without replacing historical receipts
 
 Added a reusable current-distribution audit for exact file hashes/extents, directory closure, policy/pack identity and generated-worker bytes. It rejects missing/extra files, duplicates, traversal and symlinks. Ten isolated tests pass. Current audio packce32b45a (1,246 files /554,951,527 bytes) passes the full audit; older acceptance verifiers remain historical.
+
+### Checkpoint private Baron audio delivery before retention follow-up
+
+Application5c2d323/ruleset607225d passes8,460/8,462 tests (only the two historical gaps), all60 Node QA, real Chromium audio combat, named nested-prefix production with zero unwanted Baron model/effect/audio fetches, all-file pack audit and full offline lifecycle (978 worker responses, zero production errors). Packce32b45a has1,246 files /554,951,527 bytes. Found a remaining missed-cast save edge: live audio cache can outlast saved visual history, so reload after visual pruning loses that tail. This checkpoint explicitly leaves that edge open for the next commit. See docs/reference/baron-basic-audio-initial-acceptance.json.

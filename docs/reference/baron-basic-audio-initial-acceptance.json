@@ -1,0 +1,92 @@
+{
+  "format": 1,
+  "applicationCommit": "5c2d323",
+  "schema": 167,
+  "ruleset": "607225d0125d751ef96fb67dad31c26430bc212471b4dbe35554595ee90b3e20",
+  "pack": {
+    "id": "ce32b45a20650150890766fa38411036581e24bd0987c2275090b35635fae3ca",
+    "files": 1246,
+    "bytes": 554951527
+  },
+  "unit": {
+    "passed": 8460,
+    "total": 8462,
+    "files": 467,
+    "knownFailures": [
+      "Missing historical Leona checker/archive",
+      "Lux 24-sampler digest differs on Node24.22.1"
+    ]
+  },
+  "nodeQA": 60,
+  "newAudioBrowserCases": 1,
+  "productionSubpath": true,
+  "offlineLifecycle": true,
+  "unrequestedBaronModelEffectAudioFetches": 0,
+  "limitations": [
+    "Native event labels are hash-derived candidates; dispatch, shuffle, global mix and listening parity remain unresolved.",
+    "A missed-cast tail can outlast saved visual history: live cache preserves playback, but reload after pruning loses that remaining cue. Follow-up retention fix is required.",
+    "SwiftShader is not native/device performance evidence."
+  ],
+  "evidence": [
+    {
+      "path": "artifacts/baron-audio-full-suite.log",
+      "bytes": 4622,
+      "sha256": "51a430760639623b6c33527995941298dbeb23a4e8bcbe9219a1ecb45ced3143"
+    },
+    {
+      "path": "artifacts/baron-audio-node-qa-complete.log",
+      "bytes": 5247,
+      "sha256": "69f8c83cba78010cc23ac344cd59722e31d20ba0633d410dc8e2f2fd9e713450"
+    },
+    {
+      "path": "artifacts/baron-audio-browser-v1.log",
+      "bytes": 683,
+      "sha256": "05a56bc87ff2d6cf22121e0b40e317460895099b1d7f4aa9239a58eb6c5d0274"
+    },
+    {
+      "path": "artifacts/baron-audio-build-final.log",
+      "bytes": 7634,
+      "sha256": "23014a39482e7fd200377a484777560370a7f9f60fa5db683ad0dd74e07baa07"
+    },
+    {
+      "path": "artifacts/production-subpath-baron-basic-audio-v1.json",
+      "bytes": 3701,
+      "sha256": "a0c2598b52a32e43d79c514e570ebc5e69b14852b9860792a7048f41f91bdf70"
+    },
+    {
+      "path": "artifacts/offline-pack-baron-basic-audio-v1-production.json",
+      "bytes": 859,
+      "sha256": "90ef051426fd1b76ef54cd6e875c5798d0d4e149712a06f84caee308704e3bcd"
+    },
+    {
+      "path": "artifacts/baron-audio-pack-integrity.json",
+      "bytes": 213,
+      "sha256": "f6964c2e9f161dc6118abc7642975dbf16017b796bd2d83f5e9329f4bbcb5a63"
+    },
+    {
+      "path": "src/audio/baron-basic.ts",
+      "bytes": 5806,
+      "sha256": "a11923b4d61d6711a8c1f4c9e2f9e532dde78e28b3e7f8cd2a49b33c0ce0b7d7"
+    },
+    {
+      "path": "src/audio/baron-basic-state.ts",
+      "bytes": 2548,
+      "sha256": "f401edf1d12d3b03132d6a527e7a775c6ab7984dab5e516cf3a5ec86f2573bae"
+    },
+    {
+      "path": "src/content/baron-basic-audio.ts",
+      "bytes": 3913,
+      "sha256": "6f5e7599bad8a9b2e1e9cb2007c7143edb2cf6cba82677c8f9f4e46267f65721"
+    },
+    {
+      "path": "tools/assets/export-baron-basic-audio.py",
+      "bytes": 7403,
+      "sha256": "06fcd36ca9040d493edafea5f5af0e7ebbfc0cd5dbeef253e49bf66401e6847f"
+    },
+    {
+      "path": "tools/ruleset-fingerprint.ts",
+      "bytes": 12936,
+      "sha256": "fb0ff7946559c9403d17d284edfed09444638a17db715e8667069770438f65fa"
+    }
+  ]
+}
