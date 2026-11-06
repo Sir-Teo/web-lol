@@ -7,8 +7,14 @@ import { stat } from 'node:fs/promises';
 import { extname, resolve, sep } from 'node:path';
 import ts from 'typescript';
 import { chromium } from '@playwright/test';
+import { parseArgs } from 'node:util';
+const { values, positionals } = parseArgs({
+  options: { 'system-chromium': { type: 'boolean', default: false } },
+  allowPositionals: true,
+});
+assert(positionals.length <= 1, 'Pass at most one artifact run name');
 const run =
-  process.argv[2] ??
+  positionals[0] ??
   new Date()
     .toISOString()
     .replace(/[^a-z0-9]/gi, '-')
@@ -173,11 +179,16 @@ async function storedMatch(page) {
 }
 let browser;
 const report = {
+  browser: values['system-chromium'] ? 'system-chromium' : 'google-chrome',
   manifest: { id: manifest.id, files: manifest.files.length, bytes: manifest.bytes },
   checks: {},
 };
 try {
-  browser = await chromium.launch({ channel: 'chrome', headless: true });
+  browser = await chromium.launch(
+    values['system-chromium']
+      ? { executablePath: '/usr/bin/chromium', args: ['--no-sandbox'], headless: true }
+      : { channel: 'chrome', headless: true }
+  );
   const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } }),
     page = await context.newPage();
   const errors = [],
