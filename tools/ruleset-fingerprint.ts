@@ -115,6 +115,8 @@ export const rulesetModuleRoots = [
   'src/audio/ahri-orb.ts',
   'src/audio/ahri-fox-fire-state.ts',
   'src/audio/ahri-fox-fire.ts',
+  'src/audio/ahri-lifecycle-state.ts',
+  'src/audio/ahri-lifecycle.ts',
   'src/audio/ahri-attack-state.ts',
   'src/audio/ahri-attack.ts',
   'src/audio/ahri-passive-state.ts',

@@ -334,7 +334,14 @@ it('terminal time drains local activation release, deactivation and cast without
   w.damage(w.hero, nexus, 1e9, 'true');
   expect(w.winner).toBe('blue');
   (game.ahriSpiritRush as any).controller = controller;
-  for (const family of ['ahriCharm', 'ahriOrb', 'ahriFoxFire', 'ahriPassive', 'ahriAA'])
+  for (const family of [
+    'ahriCharm',
+    'ahriOrb',
+    'ahriFoxFire',
+    'ahriPassive',
+    'ahriAA',
+    'ahriLifecycle',
+  ])
     (game as any)[family] = { status: 'ready', update() {}, stop() {} };
   game.context = context as any;
   const saved = w.snapshot();

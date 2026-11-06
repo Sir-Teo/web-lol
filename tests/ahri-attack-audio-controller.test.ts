@@ -337,7 +337,14 @@ it('terminal time drains cast missile-stop and hit tails without changing the wi
   const nexus = w.spawn('nexus', 'red', { x: 5000, y: 5000 });
   w.damage(w.hero, nexus, 1e9, 'true');
   (game.ahriAA as any).controller = controller;
-  for (const family of ['ahriCharm', 'ahriOrb', 'ahriFoxFire', 'ahriSpiritRush', 'ahriPassive'])
+  for (const family of [
+    'ahriCharm',
+    'ahriOrb',
+    'ahriFoxFire',
+    'ahriSpiritRush',
+    'ahriPassive',
+    'ahriLifecycle',
+  ])
     (game as any)[family] = { status: 'ready', update() {}, stop() {} };
   game.context = context as any;
   const saved = w.snapshot();

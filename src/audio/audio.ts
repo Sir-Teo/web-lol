@@ -1,3 +1,4 @@
+import { LazyAhriLifecycleAudio } from './ahri-lifecycle-lazy';
 import { LazyAhriAttackAudio } from './ahri-attack-lazy';
 import { LazyAhriPassiveAudio } from './ahri-passive-lazy';
 import { LazyAhriSpiritRushAudio } from './ahri-spirit-rush-lazy';
@@ -61,6 +62,7 @@ export class GameAudio {
   ahriSpiritRush = new LazyAhriSpiritRushAudio();
   ahriPassive = new LazyAhriPassiveAudio();
   ahriAA = new LazyAhriAttackAudio();
+  ahriLifecycle = new LazyAhriLifecycleAudio();
   private charmWorld?: World;
   private charmTerminalStart: number | null = null;
   masterYiAA = new LazyMasterYiAttackAudio();
@@ -144,6 +146,7 @@ export class GameAudio {
             this.ahriSpiritRush.load(),
             this.ahriPassive.load(),
             this.ahriAA.load(),
+            this.ahriLifecycle.load(),
           ]
         : []),
       this.loadCast(),
@@ -362,6 +365,7 @@ export class GameAudio {
     this.ahriSpiritRush.stop();
     this.ahriPassive.stop();
     this.ahriAA.stop();
+    this.ahriLifecycle.stop();
     this.bindingFlight.stop();
     this.luxE.stop();
     this.garenAA.stop();
@@ -588,6 +592,7 @@ export class GameAudio {
   }
   updateAhri(world: World, listener = { x: 0, y: 0 }) {
     const present = world.units.some((u) => u.champion === 'ahri');
+    if (present && this.ahriLifecycle.status === 'idle') void this.ahriLifecycle.load();
     if (present && this.ahriAA.status === 'idle') void this.ahriAA.load();
     if (present && this.ahriPassive.status === 'idle') void this.ahriPassive.load();
     if (present && this.ahriSpiritRush.status === 'idle') void this.ahriSpiritRush.load();
@@ -638,6 +643,15 @@ export class GameAudio {
       this.context,
       this.enabled && !this.paused,
       world.ahriFoxFireAudio,
+      tick,
+      listener,
+      world,
+      scene
+    );
+    this.ahriLifecycle.update(
+      this.context,
+      this.enabled && !this.paused,
+      world.ahriLifecycleAudio,
       tick,
       listener,
       world,

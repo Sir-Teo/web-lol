@@ -246,7 +246,14 @@ it('terminal time drains passive source tails without mutating the winning World
   const nexus = w.spawn('nexus', 'red', { x: 5000, y: 5000 });
   w.damage(w.hero, nexus, 1e9, 'true');
   (game.ahriPassive as any).controller = controller;
-  for (const family of ['ahriCharm', 'ahriOrb', 'ahriFoxFire', 'ahriSpiritRush', 'ahriAA'])
+  for (const family of [
+    'ahriCharm',
+    'ahriOrb',
+    'ahriFoxFire',
+    'ahriSpiritRush',
+    'ahriAA',
+    'ahriLifecycle',
+  ])
     (game as any)[family] = { status: 'ready', update() {}, stop() {} };
   game.context = context as any;
   const saved = w.snapshot();
