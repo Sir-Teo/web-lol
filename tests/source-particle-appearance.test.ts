@@ -82,7 +82,7 @@ test('live tables require flicker support and malformed appearance inputs reject
     instanceScale: 1,
   };
   for (const edit of [
-    { age: -1 },
+    { age: -Infinity },
     { life: -1 },
     { instanceScale: NaN },
     { birthScale: [1, 2] },

@@ -32,6 +32,7 @@ export class SourceParticleSpin {
       ? new SourceValue({ ...definition.lingerRotation, sourceType: undefined })
       : null;
   }
+  // Float32 birth times can put a fresh particle slightly ahead of the double clock.
   sample(input: SourceParticleSpinInput): Float32Array {
     const vector = (v: ArrayLike<number>) => {
       if (
@@ -46,7 +47,6 @@ export class SourceParticleSpin {
       acceleration = vector(input.angularAcceleration);
     if (
       !Number.isFinite(input.age) ||
-      input.age < 0 ||
       !(Number.isFinite(input.life) || input.life === Infinity) ||
       input.life < 0 ||
       typeof input.lingering !== 'boolean'

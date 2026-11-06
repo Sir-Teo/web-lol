@@ -8,7 +8,7 @@ Last updated: November 6, 2026 (UTC).
 
 Runtime: save schema **165**, ruleset
 `ebf613f67aab4746e22843fc3c06bffc188104d3783c7e889c71461b6e46b53a`. The [current checkpoint](CURRENT-BARON-SOURCE-KERNELS.md)
-passes 8,041/8,043 unit cases; only the historical Leona archive and Lux digest
+records a full run of 8,041/8,043 unit cases; only the historical Leona archive and Lux digest
 gaps remain. All five Baron browser cases pass, and 1,680 paired ticks preserve
 the frozen prior gameplay trajectory. Flight/contact histories and launch poses
 survive real save/reload.
@@ -27,6 +27,10 @@ failures, with two unfinished at the time limit. It does not certify this rulese
 The [independent preview RNG](PARTICLE-PREVIEW-RNG.md) now matches 640 external
 draws across eight seeds; all 11 tests pass. State restoration and cloning remain
 separate from gameplay randomness. Full system composition continues.
+
+[Float32 timestamp boundaries](PARTICLE-CLOCK-BOUNDARIES.md) now preserve finite
+signed particle ages and compare pool stamps at their stored precision. Eight
+independent boundary cases and all prior affected cases pass (2,878 total).
 
 ## Recent verified checkpoints
 

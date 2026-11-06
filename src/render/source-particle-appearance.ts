@@ -42,6 +42,7 @@ export class SourceParticleAppearance {
     this.uniform =
       definition.uniform && ['billboard', 'quad', 'mesh'].includes(definition.geometry);
   }
+  // Float32 birth times can put a fresh particle slightly ahead of the double clock.
   sample(input: SourceAppearanceInput) {
     const vector = (v: ArrayLike<number>, width: number) => {
       if (
@@ -55,7 +56,6 @@ export class SourceParticleAppearance {
       birthColor = vector(input.birthColor, 4);
     if (
       !Number.isFinite(input.age) ||
-      input.age < 0 ||
       !(Number.isFinite(input.life) || input.life === Infinity) ||
       input.life < 0 ||
       !Number.isFinite(input.instanceScale)

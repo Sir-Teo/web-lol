@@ -1,0 +1,31 @@
+{
+  "format": 1,
+  "affectedTestsPassed": 2878,
+  "independentClockCases": 8,
+  "negativeAges": 7,
+  "typecheck": "passed",
+  "nativeExecuted": false,
+  "runtimeBinding": false,
+  "evidence": [
+    {
+      "path": "artifacts/particle-clock-boundary-tests.log",
+      "bytes": 6140,
+      "sha256": "a01ecdf4ff6994f905fd2613afe0e1583278e114729e26a804028960d66c2b7b"
+    },
+    {
+      "path": "artifacts/particle-clock-boundary-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tools/assets/export-particle-clock-boundary-samples.mjs",
+      "bytes": 10442,
+      "sha256": "5632c6ed7848f88145182bd2fc73f300a00879c1fad88ac1e5b772abc67466f2"
+    },
+    {
+      "path": "docs/reference/particle-clock-boundary-samples.json",
+      "bytes": 11094,
+      "sha256": "f48c86bcd922ed2f86aff4ae4267158c9e4350936135e9645ca5640b0a18ecfa"
+    }
+  ]
+}

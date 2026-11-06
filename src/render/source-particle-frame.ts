@@ -45,6 +45,7 @@ export class SourceParticleFrame {
     this.emitterSpace = definition.emitterSpace;
     this.local = definition.particleLocalOrientation;
   }
+  // Float32 birth times can put a fresh particle slightly ahead of the double clock.
   sample(input: SourceParticleFrameInput) {
     const vector = (v: ArrayLike<number>, width = 3, round = true) => {
       if (
@@ -71,7 +72,6 @@ export class SourceParticleFrame {
       !Number.isFinite(input.dt) ||
       input.dt < 0 ||
       !Number.isFinite(input.age) ||
-      input.age < 0 ||
       !(Number.isFinite(input.life) || input.life === Infinity) ||
       input.life < 0 ||
       ![input.fresh, input.worldHud].every((v) => typeof v === 'boolean')

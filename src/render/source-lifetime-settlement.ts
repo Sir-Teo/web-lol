@@ -23,6 +23,7 @@ export function sourceLifetimeSettlement(
   particles: readonly SourceLifetimeParticle[],
   step: { now: number; stopped: boolean }
 ) {
+  // Pool timestamps share float32 precision; the system clock stays double.
   const clock = sourceEmissionWindow(policy.window, state.age);
   if (
     !Number.isFinite(policy.particleLinger) ||
@@ -42,11 +43,13 @@ export function sourceLifetimeSettlement(
       (p) =>
         !Number.isFinite(p.birthTime) ||
         p.birthTime < 0 ||
-        p.birthTime > step.now ||
+        Math.fround(p.birthTime) > Math.fround(step.now) ||
         !(Number.isFinite(p.lifetime) || p.lifetime === Infinity) ||
         p.lifetime < 0 ||
         (p.lingerFrom !== null &&
-          (!Number.isFinite(p.lingerFrom) || p.lingerFrom < 0 || p.lingerFrom > step.now))
+          (!Number.isFinite(p.lingerFrom) ||
+            p.lingerFrom < 0 ||
+            Math.fround(p.lingerFrom) > Math.fround(step.now)))
     )
   )
     throw RangeError('Invalid source lifetime settlement');

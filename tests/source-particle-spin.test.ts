@@ -50,7 +50,7 @@ test('invalid spin definitions, vectors and clocks reject', () => {
   ).toThrow();
   const input = { ...samples.samples[0].input, life: 0.75 };
   for (const edit of [
-    { age: -1 },
+    { age: -Infinity },
     { age: NaN },
     { life: -1 },
     { angularVelocity: [1, 2] },

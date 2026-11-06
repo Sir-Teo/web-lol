@@ -101,6 +101,7 @@ export class SourceUvLayer {
       rate: Math.fround(this.d.book.rate * held.birthFrameRate.drawShared(phase, chance)[0]),
     };
   }
+  // Signed age preserves float32 timestamp rounding at a fresh birth.
   sample(
     birth: SourceUvBirth,
     age: number,
@@ -110,7 +111,6 @@ export class SourceUvLayer {
   ): SourceUvDraw {
     if (
       !Number.isFinite(age) ||
-      age < 0 ||
       !(Number.isFinite(life) || life === Infinity) ||
       life < 0 ||
       !Number.isFinite(now) ||

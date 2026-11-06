@@ -87,7 +87,8 @@ test('invalid layers, births and clocks reject', () => {
   const layer = layers[0],
     birth = layer.birth(0, 0.5);
   for (const chance of [-1, NaN, Infinity, 1.01]) expect(() => layer.birth(0, chance)).toThrow();
-  for (const age of [-1, NaN, Infinity]) expect(() => layer.sample(birth, age, 1, 0)).toThrow();
+  for (const age of [-Infinity, NaN, Infinity])
+    expect(() => layer.sample(birth, age, 1, 0)).toThrow();
   expect(() => layer.sample(birth, 0, -1, 0)).toThrow();
   expect(() => layer.sample(birth, 0, 1, NaN)).toThrow();
   expect(() => layer.rows({ ...layer.sample(birth, 0, 1, 0), turn: NaN })).toThrow();
