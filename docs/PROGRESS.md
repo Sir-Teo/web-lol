@@ -9466,3 +9466,7 @@ Schema 168 / ruleset ae079c84 / app 66ad4dc passes production subdirectory and f
 ## Exact Charm Linear fade boundary
 
 Replaced whole-span envelope sampling with an exact 50 ms Linear ramp and 127 segments only for the Exp1 interval. The previous flight variants reached 0.9288–0.9633 at that source endpoint; the new regression captures the loss. Ideal dense interpolation error stays below 0.000008. Actual browser Web Audio rendering reaches exactly 1.0 at 50 ms, with worst measured error 0.000008645 across full, early-stop and late-seek cases and zero output after the finite end. Three browser cases, 55 scoped tests, TypeScript, build and all-file/worker audit pass. Prior 66ad4dc delivery/roster receipts remain historical; this fix gets separate delivery acceptance.
+
+## Q source audio preflight
+
+Recorded eight source-attested Orb of Deception events, ten ordered actions, 53 nodes and 22 decoded masters without runtime publication. Cast resets both seven-entry hit sequences before its Play action; repeated child references and per-sound gains/ranged pitch remain raw. Outward/return stop fades differ (500 ms Exp1 / 750 ms Linear). Normal/optimized reproduction and five cache-free guards per mode pass. Native sequence/reset scope and deactivation conditions remain open; no Q binding yet.
