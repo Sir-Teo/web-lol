@@ -81,3 +81,25 @@ preview default of 100 is local policy, not a native bounding-box certificate.
 Six tests cover all profiles, cached/fresh seek equality, stop changes, returned
 buffer ownership, UV/rotation/shared chance, flex, shapes and malformed inputs.
 Native random-stream and pixel equivalence remain unverified.
+
+## Scene effects preparation
+
+The renderer draws all 23 joined families: 21 surface profiles and two packed
+flight ribbons. It uses the shared ground projection and source fragment paths,
+normalized soft-depth inputs, packed ray colors and per-vertex ribbon lookup /
+erosion data. Source-sampled velocity stretch remains separate from placement.
+Unbound palette declarations stay marked on material metadata; no unnamed
+palette texture is invented.
+
+The local root height is 0.9 metres, matching the existing missile preview.
+Hit flex uses the retained target's gameplay collision diameter as an explicit
+local bound-size input, with a 100-source-unit fallback; this is not certification
+of a native mesh bounding-box convention. Historical root binding is accumulated
+before placement. Fully bound enemy effects can enter sight later; unbound births
+and ribbons retain their saved sight boundaries.
+
+Six scene tests and four ribbon tests cover all families, restored / rewound
+drawings, caster Flash, genuine brush-style sight calculations, terminal drain,
+owned disposal, terrain projection and authored vertical offsets. Existing Q,
+Leona and shared surface tests pass. View wiring and browser visual checks remain
+pending for W source effects.
