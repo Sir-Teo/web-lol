@@ -87,3 +87,7 @@ this history yet.
 The pure pruning operation retains partially active casts and expires complete
 casts from the last fire endpoint. Its positive integer retention window remains
 an explicit caller policy, pending renderer integration.
+
+The [baseline receipt](reference/ahri/w-visual-history-baseline.json) records
+independent archive verification: Blue victory, 157,116 checked ticks, 44 save
+round-trips and 43 future replays covering 2,580 ticks. This is one seed.

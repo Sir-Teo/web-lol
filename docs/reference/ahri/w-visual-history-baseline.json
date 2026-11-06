@@ -1,0 +1,65 @@
+{
+  "format": 1,
+  "scope": "Frozen pre-observer W visual gameplay baseline",
+  "sourceRevision": "058fd7424800802313aa8723daa811fe08b5ac82",
+  "ruleset": "5e4347edd208087bb82b7ad33f2d5ba3f77d6a9767da24a6c32c305cbbe7e694",
+  "schema": 177,
+  "sourceArchiveFiles": 645,
+  "runtime": {
+    "node": "v24.22.1",
+    "v8": "13.6.233.17-node.58",
+    "platform": "linux",
+    "arch": "x64",
+    "cpu": "AMD EPYC 9V74 80-Core Processor"
+  },
+  "runner": {
+    "file": "/workspace/web-lol-ahri-w-particles/.cache/ahri-w-visual-history-roster-seed1/runner/match-seed.js",
+    "bytes": 1265642,
+    "sha256": "0ba108fe0fb0851b42839fc21a467c93e59a9f10871e358f41d9702d5d346116"
+  },
+  "plan": {
+    "path": ".cache/ahri-w-visual-history-roster-seed1/plan.json",
+    "bytes": 111658,
+    "sha256": "6734203fea45fa1cd0b636f939244102a8cde5129b6d49977e3c8078085546d4"
+  },
+  "summary": {
+    "path": ".cache/ahri-w-visual-history-roster-seed1/summary.json",
+    "bytes": 264000,
+    "sha256": "053a9d6e00f79e2b3d842648acaa3a2631de6c0b0152ea5ebac1306f62717d7f"
+  },
+  "report": {
+    "path": ".cache/ahri-w-visual-history-roster-seed1/seeds/1/report.json",
+    "bytes": 225916,
+    "sha256": "6a79e4db36226b27cbf52485a239b1595aeac9ad18918b4645cab096d7ae78c9"
+  },
+  "result": {
+    "seed": 1,
+    "winner": "blue",
+    "outcome": "victory",
+    "finalTick": 157116,
+    "checkedTicks": 157116,
+    "failure": null,
+    "roundTrips": 44,
+    "futureChecks": 43,
+    "futureCheckedTicks": 2580,
+    "finalStateSha256": "fc5b82bb09f4d5304fea6ec8ee0b0e3d9a97efd086ee8d6efa8eb86311c6779f"
+  },
+  "historicalArchiveVerificationPassed": true,
+  "focusedReference": {
+    "path": "docs/reference/ahri/w-visual-gameplay-reference.json",
+    "bytes": 21085,
+    "sha256": "f5ca3d02a298ff2d192d87ace610115cd808889d0f0167f349a907f65349a3ba"
+  },
+  "focusedCases": 14,
+  "focusedSamples": 149,
+  "evidence": [
+    "artifacts/ahri-w-visual-history-baseline-v1.log",
+    "artifacts/ahri-w-visual-history-baseline-verification-v1.log",
+    "artifacts/ahri-w-visual-gameplay-reference-v1.log"
+  ],
+  "limits": [
+    "One natural development-roster seed; no hundred-seed gate or project-completion claim.",
+    "Baseline retains its original pre-observer schema/ruleset identity.",
+    "Pure observer preparation is not integrated into World or saves."
+  ]
+}
