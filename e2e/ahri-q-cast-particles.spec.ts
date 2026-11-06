@@ -205,11 +205,12 @@ test('real hidden enemy births stay suppressed after reveal and visible births f
     const revealed = v.ahriQCasts.models.size;
     w.hero.x = 0;
     w.hero.previous.x = 0;
-    w.enqueue({ type: 'cast', ability: 'q', point: { x: 700, y: 0 } });
+    w.learnSpell('q');
+    w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'q', point: { x: 700, y: 0 } });
     w.step(18);
     v.render(w, 1, v.previousElapsed);
     const visible = v.ahriQCasts.models.size;
-    w.enqueue({ type: 'cast', ability: 'd', point: { x: 300, y: 0 } });
+    w.enqueue({ type: 'cast', unit: w.hero.id, ability: 'd', point: { x: 300, y: 0 } });
     w.step();
     v.render(w, 1, v.previousElapsed);
     const flashed = {
@@ -242,6 +243,7 @@ test('real hidden enemy births stay suppressed after reveal and visible births f
       deathRecorded: JSON.parse(before).units.find((u: any) => u.id === w.hero.id).hp === 0,
     };
   });
+  await writeFile(info.outputPath('visibility-flash-death.json'), JSON.stringify(result, null, 2));
   expect(result.hidden).toEqual({ audience: ['red'], roots: 0 });
   expect(result.revealed).toBe(0);
   expect(result.visible).toBe(1);
