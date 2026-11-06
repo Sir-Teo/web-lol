@@ -246,6 +246,7 @@ jobs:
           tests/ahri-q-projectile-history.test.ts
           tests/source-packed-trail-ribbon.test.ts
           tests/source-particle-draw-values.test.ts
+          tests/source-binding-timeline.test.ts
           tests/source-motion-timeline.test.ts
           tests/ahri-q-projectile-particles.test.ts
           tests/ahri-q-projectile-gameplay-reference.test.ts

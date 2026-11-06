@@ -21,3 +21,14 @@ W's Y orbital speed and `.004` / `1.3` stretch controls are covered. These kerne
 do not certify native update clocks, actor attachments, random streams or pixels.
 Portable CI runs the committed fixtures; the separate reproduction test requires
 the retained external reader archive.
+
+## Root binding timeline
+
+`SourceBindingTimeline` accumulates each step's root movement with that step's
+float32 bind weight. This preserves changing weights instead of applying the
+current weight to the total displacement since birth. Its replay tests compare
+bound positions and travel velocity with `SourceParticleFrame`, whose placement
+arithmetic is covered by the existing external frame fixtures. They cover normal
+and stopped lifetimes, reverse/fractional seeks, changed stop clocks, zero weights,
+constant-vs-keyed values and independent returned buffers. Root positions remain
+caller-supplied saved inputs; scene-axis conversion is outside this helper.
