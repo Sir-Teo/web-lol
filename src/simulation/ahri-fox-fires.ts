@@ -1,3 +1,9 @@
+import {
+  beginFoxFireAudio,
+  launchFoxFireAudio,
+  finishFoxFireAudio,
+  type FoxFireAudioWorld,
+} from './ahri-fox-fire-audio';
 import { AHRI_W } from '../content/ahri-w';
 import { AHRI_W_POLICY } from '../content/ahri-w-policy';
 import { DT } from '../content/rules';
@@ -29,7 +35,7 @@ export interface FoxFireCast {
   stopTick: number | null;
   fires: FoxFire[];
 }
-interface FoxFireWorld {
+interface FoxFireWorld extends FoxFireAudioWorld {
   tick: number;
   nextId: number;
   units: Unit[];
@@ -111,6 +117,7 @@ export function beginFoxFireCast(
     };
   });
   world.ahriFoxFires.push(cast);
+  beginFoxFireAudio(world, cast, source);
 }
 
 export function releaseFoxFireCast(world: FoxFireWorld, source: Unit, startTick: number): void {
@@ -140,20 +147,28 @@ export function foxFireMovementBonus(
     );
 }
 
-function finish(fire: FoxFire, tick: number, reason: NonNullable<FoxFire['stopReason']>): void {
+function finish(
+  world: FoxFireAudioWorld,
+  cast: FoxFireCast,
+  fire: FoxFire,
+  tick: number,
+  reason: NonNullable<FoxFire['stopReason']>
+): void {
   fire.phase = 'spent';
   fire.stopTick = tick;
   fire.stopReason = reason;
+  finishFoxFireAudio(world, cast, fire);
 }
 
 export function stopFoxFireOrbits(
-  world: Pick<FoxFireWorld, 'tick' | 'ahriFoxFires'>,
+  world: Pick<FoxFireWorld, 'tick' | 'ahriFoxFires' | 'ahriFoxFireAudio' | 'unit' | 'pointVisible'>,
   sourceId: number
 ): void {
   for (const cast of world.ahriFoxFires) {
     if (cast.sourceId !== sourceId) continue;
     cast.stopTick ??= world.tick;
-    for (const fire of cast.fires) if (fire.phase === 'orbit') finish(fire, world.tick, 'death');
+    for (const fire of cast.fires)
+      if (fire.phase === 'orbit') finish(world, cast, fire, world.tick, 'death');
   }
   world.ahriFoxFires = world.ahriFoxFires.filter(
     (cast) => cast.sourceId !== sourceId || cast.fires.some((fire) => fire.phase === 'flight')
@@ -216,11 +231,11 @@ export function advanceFoxFires(world: FoxFireWorld): void {
       fire.previous = { ...fire.position };
       if (fire.phase === 'orbit') {
         if (!world.alive(source) || cast.stopTick !== null) {
-          finish(fire, world.tick, 'death');
+          finish(world, cast, fire, world.tick, 'death');
           continue;
         }
         if (world.tick >= cast.startTick + AHRI_W_POLICY.orbitTicks) {
-          finish(fire, world.tick, 'expired');
+          finish(world, cast, fire, world.tick, 'expired');
           continue;
         }
         fire.position = foxFireOrbitPoint(cast, fire.index, world.tick, source);
@@ -229,15 +244,16 @@ export function advanceFoxFires(world: FoxFireWorld): void {
         fire.targetId = target.id;
         fire.dispatchTick = world.tick;
         fire.phase = 'flight';
+        launchFoxFireAudio(world, cast, fire);
         fire.previous = { ...fire.position };
       }
       const target = world.unit(fire.targetId!);
       if (!target || !eligible(world, cast, target)) {
-        finish(fire, world.tick, 'lost-target');
+        finish(world, cast, fire, world.tick, 'lost-target');
         continue;
       }
       if (world.tick - fire.dispatchTick! >= AHRI_W_POLICY.maximumFlightTicks) {
-        finish(fire, world.tick, 'expired');
+        finish(world, cast, fire, world.tick, 'expired');
         continue;
       }
       const travel = AHRI_W.damageSplineSpeed * DT,
@@ -250,7 +266,7 @@ export function advanceFoxFires(world: FoxFireWorld): void {
         const minionBonus =
           isLaneMinionKind(target.kind) && target.hp / target.maxHp <= AHRI_W.minionHealthThreshold;
         fire.hit = { repeat, minionBonus };
-        finish(fire, world.tick, 'hit');
+        finish(world, cast, fire, world.tick, 'hit');
         world.damage(
           source,
           target,

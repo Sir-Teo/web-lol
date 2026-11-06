@@ -9509,3 +9509,9 @@ The accepted Q checkpoint passes 8,554/8,556 full-suite tests, 93 Node QA cases,
 ## Integrate accepted Q playback into the primary branch
 
 Primary `work` fast-forwards from `c90e665` to `32f5863` without merge edits. Every source file matches the accepted Q branch. A fresh primary build and all-file audit reproduce pack21178992 exactly. The existing acceptance remains applicable; no full-suite repetition is needed for identical source. No push or deployment occurs. Fox-Fire source staging remains on its separate branch. See `reference/ahri-orb-main-integration.json`.
+
+## Isolated Fox-Fire source, baseline and saved clocks
+
+The Fox-Fire branch retains eleven unchanged masters and the continuous activation/ordered stop-tail graph. Independent schema-169 archived World execution locks132 projections across11 W scenarios, retaining existing Q/E histories. Source and baseline clean checkouts pass143/162 scoped cases and14 Python guard modes. Log1 support has45 external-reader evaluations and12 native Web Audio envelope cases;175 current scoped checks and97 Node QA cases pass.
+
+Schema170 now observes W cast, activation stop, launch, contact, death/expiry and terminal clocks with existing IDs and no World RNG changes. Eight history tests cover every-frame restore, finite tails after gameplay pruning, visibility births, death/victory, malformed saves and a pruned early target during two long later flights. Full frozen checks are next. Primary remains accepted Q/schema169; W audio playback and hit-stop dispatch are not bound.
