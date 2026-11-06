@@ -11,6 +11,7 @@ class QCastPresentationProjection extends World {
   override snapshot(): string {
     const state = JSON.parse(super.snapshot());
     delete state.ahriQCastVisuals;
+    delete state.ahriQProjectileVisuals;
     return JSON.stringify(state);
   }
 }

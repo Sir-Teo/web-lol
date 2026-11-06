@@ -228,6 +228,8 @@ jobs:
           tests/ahri-recall-audio-controller.test.ts
           tests/ahri-recall-audio-history.test.ts
           tests/ahri-recall-audio-policy.test.ts
+          tests/ahri-q-projectile-visuals.test.ts
+          tests/ahri-q-projectile-history.test.ts
           tests/source-motion-timeline.test.ts
           tests/ahri-q-projectile-particles.test.ts
           tests/ahri-q-projectile-gameplay-reference.test.ts

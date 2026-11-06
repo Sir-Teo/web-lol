@@ -1,3 +1,4 @@
+import { validateQProjectileVisuals } from './ahri-q-projectile-visual-validation';
 import { validateAhriQCastVisuals } from './ahri-q-cast-visual-validation';
 import { validateAhriRecallAudio } from './ahri-recall-audio-validation';
 import { validateAhriLifecycleAudio } from './ahri-lifecycle-audio-validation';
@@ -186,7 +187,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 176;
+export const SNAPSHOT_VERSION = 177;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -2278,6 +2279,41 @@ const snapshot = z.strictObject({
       })
     )
     .max(10000),
+  ahriQProjectileVisuals: z
+    .array(
+      z.strictObject({
+        id,
+        sourceId: id,
+        team,
+        launchTick: tick,
+        origin: point,
+        direction: point,
+        birthAudience: z.array(team).max(2),
+        frames: z
+          .array(
+            z.strictObject({
+              tick,
+              x: z.number(),
+              y: z.number(),
+              facing: z.number(),
+              sourcePoint: point,
+              audience: z.array(team).max(2),
+            })
+          )
+          .max(480),
+        turn: z.strictObject({ tick, point, audience: z.array(team).max(2) }).nullable(),
+        end: z
+          .strictObject({
+            tick,
+            point,
+            reason: z.enum(['caught', 'expired', 'lost-source', 'match-end']),
+          })
+          .nullable(),
+      })
+    )
+    .min(1)
+    .max(10000)
+    .optional(),
   ahriQCastVisuals: z
     .array(
       z.strictObject({
@@ -3954,6 +3990,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   const ids = [
     ...state.baronAttackVisuals.filter((v) => v.stopTick !== null),
     ...state.ahriOrbs,
+    ...(state.ahriQProjectileVisuals ?? []).filter((r) => r.end !== null),
     ...state.ahriFoxFires,
     ...state.ahriRushes,
     ...state.ahriEssences,
@@ -4229,6 +4266,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   validateAhriLifecycleAudio(state);
   validateAhriRecallAudio(state);
   validateAhriQCastVisuals(state);
+  validateQProjectileVisuals(state);
   if (!hero || hero.kind !== 'champion' || hero.team !== 'blue')
     throw new Error('Saved match is missing its player.');
   for (const target of state.units) {

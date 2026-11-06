@@ -16,7 +16,11 @@ test('Q cast visual preparation preserves complete independently archived gamepl
   expect(reference.cases.map((c) => c.scenario)).toEqual([...Q_CAST_GAMEPLAY_CASES]);
   for (const scenario of Q_CAST_GAMEPLAY_CASES) {
     const actual = qCastGameplaySamples(World, PRACTICE_FIXTURE, scenario).map(
-      ({ tick, state }) => ({ tick, sha256: hash(state) })
+      ({ tick, state }) => {
+        const previous = JSON.parse(state);
+        delete previous.ahriQProjectileVisuals;
+        return { tick, sha256: hash(JSON.stringify(previous)) };
+      }
     );
     expect(actual, scenario).toEqual(reference.cases.find((c) => c.scenario === scenario)!.samples);
   }

@@ -1,4 +1,10 @@
 import {
+  launchQProjectileVisual,
+  moveQProjectileVisual,
+  finishQProjectileVisual,
+  type AhriQProjectileVisual,
+} from './ahri-q-projectile-visuals';
+import {
   launchOrbAudio,
   moveOrbAudio,
   hitOrbAudio,
@@ -26,6 +32,7 @@ interface OrbWorld {
   nextId: number;
   ahriOrbs: AhriOrb[];
   ahriOrbAudio?: AhriOrbAudioRecord[];
+  ahriQProjectileVisuals?: AhriQProjectileVisual[];
   pointVisible?(point: Vec2, team: Team): boolean;
   units: Unit[];
   unit(id: number): Unit | undefined;
@@ -70,6 +77,7 @@ export function beginAhriOrb(
   };
   world.ahriOrbs.push(orb);
   launchOrbAudio(world, orb);
+  launchQProjectileVisual(world, orb);
 }
 
 /** Local Q policy: all living hostile champions, lane units, dummies and neutral
@@ -81,11 +89,13 @@ export function advanceAhriOrbs(world: OrbWorld): void {
     const source = world.unit(orb.sourceId);
     if (!source || world.tick - orb.launchTick >= AHRI_Q_POLICY.maximumFlightTicks) {
       finishOrbAudio(world, orb, source ? 'expired' : 'lost-source');
+      finishQProjectileVisual(world, orb, source ? 'expired' : 'lost-source');
       continue;
     }
     const movement = advanceAhriOrbMotion(orb, world.tick, source);
     Object.assign(orb, movement.motion);
     moveOrbAudio(world, orb, movement.segments);
+    moveQProjectileVisual(world, orb, source, movement.segments);
     for (const segment of movement.segments) {
       const hitIds = segment.leg === 'outward' ? orb.outwardHits : orb.returnHits;
       const contacts = world.units
@@ -127,7 +137,10 @@ export function advanceAhriOrbs(world: OrbWorld): void {
       }
     }
     if (!movement.finished) survivors.push(orb);
-    else finishOrbAudio(world, orb, 'caught');
+    else {
+      finishOrbAudio(world, orb, 'caught');
+      finishQProjectileVisual(world, orb, 'caught');
+    }
   }
   world.ahriOrbs = survivors;
 }

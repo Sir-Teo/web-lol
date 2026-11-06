@@ -1,4 +1,9 @@
 import {
+  advanceQProjectileVisuals,
+  finishQProjectileVisual,
+  type AhriQProjectileVisual,
+} from './ahri-q-projectile-visuals';
+import {
   beginAhriQCastVisual,
   cancelUnbornAhriQCastVisual,
   advanceAhriQCastVisuals,
@@ -497,6 +502,7 @@ export class World {
   ahriPassiveAudio: AhriPassiveAudioRecord[] = [];
   ahriAttackAudio: AhriAttackAudioRecord[] = [];
   ahriQCastVisuals: AhriQCastVisual[] = [];
+  ahriQProjectileVisuals: AhriQProjectileVisual[] = [];
   ahriRecallAudio: AhriRecallAudioRecord[] = [];
   ahriLifecycleAudio: AhriLifecycleAudioRecord[] = [];
   nextSunlightVisual = 1;
@@ -1221,6 +1227,7 @@ export class World {
       advanceAhriLifecycleAudio(this);
       advanceAhriRecallAudio(this);
       advanceAhriQCastVisuals(this);
+      advanceQProjectileVisuals(this);
     }
   }
   private update(): void {
@@ -6524,7 +6531,10 @@ export class World {
         cancelUnbornAhriQCastVisual(this);
         for (const r of this.ahriRecallAudio) finishAhriRecallAudio(this, r.sourceId, 'match-end');
         this.projectiles.length = 0;
-        for (const orb of this.ahriOrbs) finishOrbAudio(this, orb, 'match-end');
+        for (const orb of this.ahriOrbs) {
+          finishOrbAudio(this, orb, 'match-end');
+          finishQProjectileVisual(this, orb, 'match-end');
+        }
         this.ahriOrbs.length = 0;
         finishAllFoxFireAudio(this);
         this.ahriFoxFires.length = 0;
@@ -6557,6 +6567,7 @@ export class World {
         advanceAhriLifecycleAudio(this);
         advanceAhriRecallAudio(this);
         advanceAhriQCastVisuals(this);
+        advanceQProjectileVisuals(this);
         this.commands.length = 0;
         this.pendingSpawns.length = 0;
         for (const unit of this.units) this.setOrder(unit, { type: 'idle' });
@@ -8166,6 +8177,9 @@ export class World {
       ahriRushes: this.ahriRushes,
       ahriCounters: this.ahriCounters,
       ...(this.ahriAttackAudio.length ? { ahriAttackAudio: this.ahriAttackAudio } : {}),
+      ...(this.ahriQProjectileVisuals.length
+        ? { ahriQProjectileVisuals: this.ahriQProjectileVisuals }
+        : {}),
       ...(this.ahriQCastVisuals.length ? { ahriQCastVisuals: this.ahriQCastVisuals } : {}),
       ...(this.ahriRecallAudio.length ? { ahriRecallAudio: this.ahriRecallAudio } : {}),
       ...(this.ahriLifecycleAudio.length ? { ahriLifecycleAudio: this.ahriLifecycleAudio } : {}),

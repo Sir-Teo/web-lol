@@ -15,6 +15,7 @@ class LaterPresentationProjection extends World {
     delete state.ahriLifecycleAudio;
     delete state.ahriRecallAudio;
     delete state.ahriQCastVisuals;
+    delete state.ahriQProjectileVisuals;
     delete state.ahriAttackAudio;
     return JSON.stringify(state);
   }

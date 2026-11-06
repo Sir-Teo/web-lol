@@ -15,6 +15,7 @@ class RecallPresentationProjection extends World {
     const state = JSON.parse(super.snapshot());
     delete state.ahriRecallAudio;
     delete state.ahriQCastVisuals;
+    delete state.ahriQProjectileVisuals;
     return JSON.stringify(state);
   }
 }
