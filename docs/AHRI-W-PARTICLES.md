@@ -108,3 +108,25 @@ records all three commands passing from a ten-file Git export without caches,
 tools or dependencies, all 239 Node QA cases, and a fresh complete native
 character reparse. All 640 compatibility-source files still match the accepted
 primary renderer byte for byte. This does not relabel its runtime acceptance.
+
+## Private transports
+
+All five resource declarations, including the empty weapon resource, are covered
+by the private transport ledgers. The [texture ledger](reference/ahri/w-texture-transports.json)
+retains 35 PNGs / 1,891,082 bytes and all 292 authored mip rectangles. Every
+rectangle replays the decoded straight RGBA pixels exactly, including erosion
+and multiplier dependencies. Atlases must be unpacked into individual GPU mips;
+sampling their stacked image directly is invalid.
+
+The [mesh ledger](reference/ahri/w-mesh-transports.json) retains two GLBs /
+32,580 bytes. The sharp mesh transports 183 source vertices as 209 vertices to
+preserve UV seams; the swirls retain 603. All 1,143 triangles, per-corner UVs
+and optional RGBA colors replay exactly. Both meshes have color streams; no
+normals, transforms, pivot correction or winding changes are introduced. Actual
+Three.js 186 loading and GLTF validation pass with zero errors or warnings.
+
+Seven texture guards pass in normal and optimized Python. Five mesh guards
+cover exact reproduction, final-ledger conflicts, symlinked leaves/parents,
+changed source/decode pins and corrupt mesh input. Each producer preflights its
+whole output closure before writing an earlier asset. These remain 37 private
+files / 1,923,662 bytes, with no public preload or runtime effect.

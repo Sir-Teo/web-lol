@@ -1,0 +1,76 @@
+{
+  "format": 1,
+  "systems": [
+    "Ahri_W_cas",
+    "Ahri_W_mis",
+    "Ahri_W_mis_02",
+    "Ahri_W_tar",
+    "Ahri_W_weap_cas"
+  ],
+  "sourcePinSha256": "c1226324a728137c05062dafc7d4a102a0799a371d233d58e3f81558c26dbb47",
+  "decodedRecordSha256": "11838eed2092e7301577471d3b28670ebc781194f865eb3a1f642fda483abbca",
+  "producerSha256": "28646db0b25d3ddd7774af3f93ad7b2776b0a21d7c5c195e34d46396b0c7ba61",
+  "optimization": [
+    "dedup",
+    "prune with keepAttributes"
+  ],
+  "meshes": [
+    {
+      "source": {
+        "path": "assets/characters/ahri/skins/base/particles/ahri_base_sharp_mesh.scb",
+        "wadPathHash": "4a28baa8836a570a",
+        "sha256": "0ed57b949b8f3b3c94f53ee1f8fb1721145ee39e404812115c2789ec4d7a0f88",
+        "bytes": 38220
+      },
+      "sourceVertices": 183,
+      "sourceTriangles": 351,
+      "transportVertices": 209,
+      "hasVertexColors": true,
+      "triangleReplayExact": true,
+      "uvReplayExact": true,
+      "vertexColorReplayExact": true,
+      "normalAttributeGenerated": false,
+      "sourceCoordinateTransformApplied": false,
+      "validation": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "glb": {
+        "path": ".cache/ahri-w-meshes-v1/ahri_base_sharp_mesh.glb",
+        "bytes": 9440,
+        "sha256": "906e60876a8015b8fe7d702bb140799df96b40c4f9bd134f4225331ad5d70b8f"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/ahri/skins/base/particles/ahri_base_w_swirls_01.scb",
+        "wadPathHash": "9118fdc7cec18e5d",
+        "sha256": "5d464a871c2b22003583f657bbf58f032b7fdc892784f463bcf95151f211fde6",
+        "bytes": 89040
+      },
+      "sourceVertices": 603,
+      "sourceTriangles": 792,
+      "transportVertices": 603,
+      "hasVertexColors": true,
+      "triangleReplayExact": true,
+      "uvReplayExact": true,
+      "vertexColorReplayExact": true,
+      "normalAttributeGenerated": false,
+      "sourceCoordinateTransformApplied": false,
+      "validation": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "glb": {
+        "path": ".cache/ahri-w-meshes-v1/ahri_base_w_swirls_01.glb",
+        "bytes": 23140,
+        "sha256": "891c20ec38a6deb93603d326fcf22d2464d5783f4ee69dc1e8bebfa0320f0fa7"
+      }
+    }
+  ],
+  "limits": [
+    "Private staging only; native CPU dispatch, pivots, source-to-scene transforms, shader arithmetic and event timing remain unbound.",
+    "All rendered source triangles, UVs and optional vertex colors replay exactly. An absent color stream remains absent; no normals or face colors are fabricated.",
+    "Source units, coordinates and winding remain unchanged. The white unlit material is a transport placeholder."
+  ]
+}
