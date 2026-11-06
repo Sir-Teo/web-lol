@@ -9486,3 +9486,7 @@ Source stage cb5e1d7 passes cache-free TypeScript, 80 tests and ten Python modes
 ## Saved Orb audio dispatch history
 
 Schema 169 records accepted Q, launch, exact turn, swept per-leg contacts and completion without gameplay IDs/RNG draws. Empty history is omitted; active returns retain history through the eight-second deadline, followed by finite source/local-pitch tails. Strict save validation checks live orbs, geometry, clocks, audiences and contact sets. Forty scoped checks pass, including 81 archived Orb and 48 Charm projections; 84 Node QA cases pass. Straight/diagonal per-tick restore, nine targets per leg, post-launch Flash, death/victory, timeout and pruned contact coverage are included. The corpse fixture now uses a return lasting beyond the existing four-second corpse lifetime. Playback remains a later stage; full frozen checks are next.
+
+## Frozen Orb history verification
+
+f77814b / schema 169 / 1b65f941 passes the frozen full suite with 8,538 pass and only the same two historical failures. Its isolated roster seed finishes naturally at the baseline tick 157,116; 44 restores and 43 future checks pass. All 45 archived state projections match ae079c84 after excluding only schema/ruleset/new Orb history, with existing Charm history retained. Nine read-only comparison guards pass. Q playback remains unbound; primary hundred-seed run is separate.

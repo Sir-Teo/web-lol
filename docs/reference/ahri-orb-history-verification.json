@@ -1,0 +1,75 @@
+{
+  "format": 1,
+  "historyRevision": "f77814bc4121a8b5d6980ab4a48ac817f93c892c",
+  "schema": 169,
+  "ruleset": "1b65f9415673372431926c69f73499e2b1af1e434fd9184f6eaa7b493413d62a",
+  "fullUnit": {
+    "passed": 8538,
+    "failed": 2,
+    "files": 478,
+    "workers": 1,
+    "knownFailures": [
+      "missing historical Leona reader archive",
+      "Lux sampler FMA golden mismatch"
+    ]
+  },
+  "nodeQA": 84,
+  "scopedTests": 40,
+  "roster": {
+    "seed": 1,
+    "winner": "blue",
+    "finalTick": 157116,
+    "checkedTicks": 157116,
+    "roundTrips": 44,
+    "futureChecks": 43,
+    "futureCheckedTicks": 2580,
+    "equalArchivedSamples": 45,
+    "excludedRootFields": [
+      "version",
+      "ruleset",
+      "ahriOrbAudio"
+    ],
+    "existingCharmHistoryRetainedInProjection": true
+  },
+  "comparisonGuardTests": 9,
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-history-full-suite-frozen.log",
+      "sha256": "be9e469529f61afad7aea424764177e729a2f3b4359d4234e377a13f7eb5021a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-history-node-qa.log",
+      "sha256": "d43d89982fd46d7ed4e0c942f08c53d372803c1e2bf585826f2f2b4dd3ea3c18"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-history-scoped-v4.log",
+      "sha256": "0caf06d1dde7fc1d9db3e75314a2db154cf6d3706be3f2d8ae7eec2b057bb8d9"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-history-types-v4.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-history-roster-comparison.log",
+      "sha256": "e1aa446b2a99cfc97cdb1c336e58a56082b09bce36db1959076309b4aa2c141c"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-history-roster-verification.log",
+      "sha256": "f3fe245792504942b8ac9ed4553c0f3b5061ad0212e149d9a37e86d6881da537"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-history-comparison-tests-v2.log",
+      "sha256": "c2d3805ec51aaad6537193b70740c8b372a1c088cf36ed81e482d5e3c2756ca3"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/docs/reference/ahri-orb-history-roster-gameplay.json",
+      "sha256": "1c027d7b2af5ca66c7fd12f37d423a5f0b48af690b16e6572eb7962c4e1fec97"
+    }
+  ],
+  "limits": [
+    "One roster seed; primary 100-seed 7ae8e0 baseline remains separate",
+    "Q audio playback is not yet bound",
+    "Local per-cast sequence and additive pitch/gain policy are not native execution certification",
+    "No merge, push or publication"
+  ]
+}
