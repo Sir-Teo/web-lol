@@ -1,0 +1,31 @@
+{
+  "format": 1,
+  "integratedRevision": "f5a42fa4dff97144cc753b023d7124e6766d8837",
+  "method": "Fast-forward from 380ce08 to verified Fox-Fire branch; no merge edits",
+  "schema": 170,
+  "ruleset": "0a89aab3c66220aa21ddee31acf6c91b44eba7a256f01bf490622ec407268b16",
+  "sourceFilesCompared": 785,
+  "allSourceBytesMatchAcceptedBranch": true,
+  "pack": {
+    "id": "bad57b7cbc90418fac37dc5fc2eb3db778862d6ecff16b35cd578bdf349249a8",
+    "files": 1292,
+    "bytes": 565047444,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a",
+    "allFileAndWorkerAudit": true
+  },
+  "acceptance": "ahri-fox-fire-playback-acceptance.json",
+  "repeatFullSuite": false,
+  "reason": "Identical verified source; local rebuild and pack audit reproduce the accepted pack byte for byte.",
+  "logs": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-main-build-v1.log",
+      "sha256": "b37095dfff80077471cc2b071f859f00bf9d10a93cd61465180573ba016467a0"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-main-pack-v1.log",
+      "sha256": "01bd7d86ac47c49898f44a8a6efe4b33bd0f1f9c1c23c034a71bafbcd28623e3"
+    }
+  ],
+  "pushed": false,
+  "deployed": false
+}

@@ -11,11 +11,11 @@ Accepted local runtime: save schema **170**, ruleset
 application `43899a6`. [Fox-Fire source playback](AHRI-W-AUDIO.md) adds eleven
 masters alongside Q and Charm, with saved activation, missile and contact clocks.
 The full suite passes 8,596/8,598 in 488 files, with only the two historical
-failures. All107 Node QA cases,189 scoped CI tests in26 files, TypeScript and
+failures. All 107 Node QA cases, 189 scoped CI tests in 26 files, TypeScript and
 fourteen cache-free Python guard modes pass. Ten combined browser cases and
 production/offline gates pass; see [W acceptance](reference/ahri-fox-fire-playback-acceptance.json).
 
-The accepted W pack is `bad57b7c`, with1,292 files /565,047,444 bytes. The earlier
+The accepted W pack is `bad57b7c`, with 1,292 files / 565,047,444 bytes. The earlier
 [Q integration](reference/ahri-orb-main-integration.json) and Charm receipts retain
 their original scope. All work is local; no push or deployment has occurred.
 Spirit Rush source preparation is isolated on its own branch.
@@ -25,7 +25,7 @@ is complete: 100 natural victories, zero unfinished matches or invariant failure
 14,987,533 checked ticks and 4,219 exact save round trips under schema 167 /
 `7ae8e0f8`. The older e20 baseline remains 98 victories / two unfinished at its
 original horizon; later diagnostic continuations retain their separate scope.
-Neither baseline is relabeled to later audio rulesets. The isolated Q-history (`1b65f941`) and W-history (`f30224c9`) seeds each retain45
+Neither baseline is relabeled to later audio rulesets. The isolated Q-history (`1b65f941`) and W-history (`f30224c9`) seeds each retain 45
 matching archived gameplay projections against their own immediate baselines.
 All W-history simulation/content bytes are unchanged in the accepted W playback checkpoint.
 
@@ -9522,3 +9522,7 @@ Frozen8166731/f30224c9 passes8,582/8,584 full-suite cases with only the same two
 ## Verified Fox-Fire playback delivery
 
 Application43899a6/schema170/0a89aab3 passes8,596/8,598 full-suite cases,107 Node QA, cache-free189-case CI/14 Python modes and ten combined browser cases. Eleven W PCM masters match exactly; the native loop stop renders with8.0023e-6 maximum error and no output after its end. Nested-prefix production, full pack audit and offline lifecycle pass with978 worker responses /zero production errors. Packbad57b7c contains1,292 files /565,047,444 bytes. All simulation/content bytes match frozenf30224c9. Native continuous transitions/mix and the separate hit-stop dispatch remain unverified; production selection remains Ashe/Lux. Spirit Rush preparation is isolated.
+
+## Integrate accepted Fox-Fire playback into primary
+
+Primary `work` fast-forwards from `380ce08` to `f5a42fa` without merge edits. Every source file matches the accepted W playback branch. A fresh primary build and complete pack audit reproduce `bad57b7c` exactly. The existing full-suite/browser/offline acceptance applies to identical source; no redundant full-suite run is needed. No push or deployment occurs. Spirit Rush preparation remains isolated. See `reference/ahri-fox-fire-main-integration.json`.

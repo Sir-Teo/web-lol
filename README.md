@@ -71,7 +71,7 @@ The browser suite currently uses installed Google Chrome. All runtime assets are
 
 The practice build is hosted at https://sir-teo.github.io/web-lol/. Pushes to `main` install dependencies with npm caching, build, and deploy to GitHub Pages. Documentation-only and test-only pushes skip deployment; the workflow can also be run manually. A separate CI workflow runs TypeScript, 189 Baron/Charm/Orb/Fox-Fire audio and persistence checks on
 Node 24.22.1, and cache-independent float-format/publication guards; the full suite and browser/offline gates remain
-separate. See [Charm acceptance](docs/reference/ahri-charm-envelope-acceptance.json).
+separate. See [Fox-Fire acceptance](docs/reference/ahri-fox-fire-playback-acceptance.json).
 
 On Linux with system Chromium, build first and run `node tools/qa/production-subpath.mjs --system-chromium unique-run-name`. The default command continues to use installed Google Chrome.
 
