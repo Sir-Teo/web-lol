@@ -129,6 +129,7 @@ try {
     ahriCharmAudioRequests = [],
     ahriOrbAudioRequests = [],
     ahriFoxFireAudioRequests = [],
+    ahriSpiritRushAudioRequests = [],
     scheduledGrompRequests = [],
     scheduledBlueRequests = [],
     scheduledRedRequests = [],
@@ -144,6 +145,8 @@ try {
   });
   page.on('request', (request) => {
     if (request.url().includes('/assets/audio/ahri-orb/')) ahriOrbAudioRequests.push(request.url());
+    if (request.url().includes('/assets/audio/ahri-spirit-rush/'))
+      ahriSpiritRushAudioRequests.push(request.url());
     if (request.url().includes('/assets/audio/ahri-fox-fire/'))
       ahriFoxFireAudioRequests.push(request.url());
     if (request.url().includes('/assets/audio/ahri-charm/'))
@@ -279,7 +282,13 @@ try {
   assert.deepEqual(baronAudioRequests, [], 'Production must not load private Baron audio');
   assert.deepEqual(ahriOrbAudioRequests, [], 'Production without Ahri must not load Orb masters');
   assert.deepEqual(
+    ahriSpiritRushAudioRequests,
+    [],
+    'Production without Ahri must not load Spirit Rush masters'
+  );
+  assert.deepEqual(
     ahriFoxFireAudioRequests,
+    ahriSpiritRushAudioRequests,
     [],
     'Production without Ahri must not load Fox-Fire masters'
   );
@@ -738,6 +747,7 @@ try {
   assert.deepEqual(
     ahriOrbAudioRequests,
     ahriFoxFireAudioRequests,
+    ahriSpiritRushAudioRequests,
     [],
     'Production without Ahri must not preload Orb masters'
   );
@@ -776,6 +786,7 @@ try {
     unrequestedAhriCharmAudioPreloads: ahriCharmAudioRequests.length,
     unrequestedAhriOrbAudioPreloads: ahriOrbAudioRequests.length,
     unrequestedAhriFoxFireAudioPreloads: ahriFoxFireAudioRequests.length,
+    unrequestedAhriSpiritRushAudioPreloads: ahriSpiritRushAudioRequests.length,
     garenFixtureInProduction: false,
     leonaPlayerFixtureInProduction: false,
     leonaRiftTrialInProduction: false,

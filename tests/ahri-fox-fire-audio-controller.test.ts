@@ -296,6 +296,7 @@ it('terminal clock drains activation, stop-tail and cast without advancing the w
   (game as any).ahriOrb = { status: 'ready', update() {}, stop() {} };
   game.context = context as any;
   const saved = w.snapshot();
+  (game as any).ahriSpiritRush = { status: 'ready', update() {}, stop() {} };
   game.updateAhri(w);
   expect(controller.activeVoices).toBe(3);
   context.currentTime += 10;

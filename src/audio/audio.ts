@@ -1,3 +1,4 @@
+import { LazyAhriSpiritRushAudio } from './ahri-spirit-rush-lazy';
 import { LazyAhriFoxFireAudio } from './ahri-fox-fire-lazy';
 import { LazyAhriOrbAudio } from './ahri-orb-lazy';
 import { LazyAhriCharmAudio } from './ahri-charm-lazy';
@@ -55,6 +56,7 @@ export class GameAudio {
   ahriCharm = new LazyAhriCharmAudio();
   ahriOrb = new LazyAhriOrbAudio();
   ahriFoxFire = new LazyAhriFoxFireAudio();
+  ahriSpiritRush = new LazyAhriSpiritRushAudio();
   private charmWorld?: World;
   private charmTerminalStart: number | null = null;
   masterYiAA = new LazyMasterYiAttackAudio();
@@ -130,7 +132,14 @@ export class GameAudio {
   ): Promise<void> {
     await Promise.all([
       ...(baronPreview ? [this.baronBasic.load()] : []),
-      ...(ahriPresent ? [this.ahriCharm.load(), this.ahriOrb.load(), this.ahriFoxFire.load()] : []),
+      ...(ahriPresent
+        ? [
+            this.ahriCharm.load(),
+            this.ahriOrb.load(),
+            this.ahriFoxFire.load(),
+            this.ahriSpiritRush.load(),
+          ]
+        : []),
       this.loadCast(),
       this.loadArrival(),
       this.loadLinger(),
@@ -344,6 +353,7 @@ export class GameAudio {
     this.ahriCharm.stop();
     this.ahriOrb.stop();
     this.ahriFoxFire.stop();
+    this.ahriSpiritRush.stop();
     this.bindingFlight.stop();
     this.luxE.stop();
     this.garenAA.stop();
@@ -570,6 +580,7 @@ export class GameAudio {
   }
   updateAhri(world: World, listener = { x: 0, y: 0 }) {
     const present = world.units.some((u) => u.champion === 'ahri');
+    if (present && this.ahriSpiritRush.status === 'idle') void this.ahriSpiritRush.load();
     if (present && this.ahriCharm.status === 'idle') void this.ahriCharm.load();
     if (present && this.ahriOrb.status === 'idle') void this.ahriOrb.load();
     if (present && this.ahriFoxFire.status === 'idle') void this.ahriFoxFire.load();
@@ -617,6 +628,15 @@ export class GameAudio {
       this.context,
       this.enabled && !this.paused,
       world.ahriFoxFireAudio,
+      tick,
+      listener,
+      world,
+      scene
+    );
+    this.ahriSpiritRush.update(
+      this.context,
+      this.enabled && !this.paused,
+      world.ahriSpiritRushAudio,
       tick,
       listener,
       world,
@@ -1050,6 +1070,12 @@ export class GameAudio {
         }
         if (event.type === 'cast') {
           if (
+            event.text === 'r' &&
+            event.champion === 'ahri' &&
+            this.ahriSpiritRush.status === 'ready'
+          ) {
+            // Saved R history owns source window, burst and projectile cues.
+          } else if (
             event.text === 'w' &&
             event.champion === 'ahri' &&
             this.ahriFoxFire.status === 'ready'
