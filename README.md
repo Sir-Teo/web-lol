@@ -112,7 +112,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Baron, Herald and Grub source rigs and binding audit](docs/EPIC-MODELS.md)
 - [Current Baron source effects, candidate audio and delivery](docs/CURRENT-BARON-SOURCE-KERNELS.md)
 - [Complete private Baron audio corpus](docs/BARON-AUDIO-CORPUS.md)
-- [Current development-roster hundred-seed run — in progress](docs/CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md)
+- [Completed development-roster 100-seed baseline (7ae8e0)](docs/CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md)
 - [Frozen unfinished-match horizon diagnostics and continuations](docs/E20BDC-UNFINISHED-HORIZON.md)
 - [Private Baron combat, saves and admission](docs/BARON-ENCOUNTER.md)
 - [Baron root, stun, silence and Charm resistance](docs/BARON-CONTROL.md)

@@ -9446,3 +9446,7 @@ Private mono 44.1 kHz float masters total 28,374,812 bytes, with peak 1.32265019
 ### Extend scoped CI to cache-independent float-format guards
 
 The read-only audio CI workflow now watches the shared float parser/tests and runs both Python modes alongside TypeScript and 22 persistence tests. Each mode rejects eight malformed float inputs and preserves stereo/rate/headroom from an empty working directory; no private audio cache/toolchain is required. Local commands and YAML validation pass. No push, workflow dispatch, deploy change or full-suite claim. See docs/reference/audio-ci-format-verification.json.
+
+### Complete and audit the frozen 7ae8e0 development-roster hundred-seed baseline
+
+All 100 seeds finish naturally with no unfinished matches or invariant failures. Independent verification passes 556 frozen source/QA files, the runner/maps, reports and checkpoint/final hashes. The run checks 14,987,533 simulation ticks, 4,219 exact save round trips and 4,119 futures (246,994 ticks); winners are Blue 48 / Red 52. QA automates human Lux mid with the ordinary two-worker/60-minute setup. The development-roster invariant gate passes; full milestone 4, human play, device/native fidelity and later rulesets remain separate. Source 799ecde / runtime 0fa0072 / schema 167 / ruleset 7ae8e0 stay frozen. Completion receipt retains all 100 report hashes; earlier start/browser and e20 receipts are unchanged.
