@@ -6,6 +6,11 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+The [source trail ribbon writer](SOURCE-TRAIL-RIBBON.md) is now shared while
+Zenith retains its attachment/history/visibility policies. All 42 existing
+particle/ribbon cases pass, including independent pinned arrays and exact
+save-tail replay. Baron camera/arbitrary trail framing remains next work.
+
 The [Baron emitter field reading](BARON-ATTACK-DECODE.md#emitter-field-reading)
 now retains 24 hash-checked candidate field names/eight types from pinned
 dictionaries. Reversible mapping preserves all 21 source definitions. It
