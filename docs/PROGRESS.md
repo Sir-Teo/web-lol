@@ -6,6 +6,15 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+[Private Baron slow immunity](BARON-CONTROL.md#slow-immunity--november-6-2026)
+now rejects independent and legacy slow state while preserving attack, flurry,
+spell and burn damage. Four failures reproduce; twelve new cases and 157 focused
+tests pass. Source-profile reproduction, build/TypeScript and all four Baron
+browser scenarios pass, including real damage/no slow, exact saves/futures,
+file isolation and Smite cleanup. This extends the existing secondary-source
+local policy without native certification. Fingerprint `629ed5…`, schema 163;
+production-host verification is tracked separately.
+
 [Exact visibility range rejection](VISION-RANGE-CULLING.md) now avoids expensive
 distance calls for sources outside the enclosing radius box, retaining the
 original circle test. All 65,536 real-Rift browser samples and terrain-ray counts

@@ -4561,6 +4561,7 @@ export class World {
       this.tick + Math.round(GAREN_PASSIVE.interruptionSeconds * TICK_RATE);
   }
   slowFactor(u: Unit): number {
+    if (this.controlImmune(u, 'slow')) return 1;
     if (u.champion === 'masteryi' && activeHighlander(this.championState(u.id), this.tick))
       return 1;
     // Retain the old diagnostic fields, but all new combat applications also
@@ -4606,6 +4607,7 @@ export class World {
       source.team === target.team ||
       !this.alive(target) ||
       !this.targetable(target) ||
+      this.controlImmune(target, 'slow') ||
       (target.champion === 'masteryi' &&
         !!activeHighlander(this.championState(target.id), this.tick)) ||
       isStructureKind(target.kind) ||
@@ -4755,7 +4757,10 @@ export class World {
       remaining: AHRI_E_POLICY.range,
     });
   }
-  private controlImmune(target: Unit, control: 'root' | 'stun' | 'silence' | 'charm'): boolean {
+  private controlImmune(
+    target: Unit,
+    control: 'root' | 'stun' | 'silence' | 'charm' | 'slow'
+  ): boolean {
     return (
       target.kind === 'monster' &&
       target.monster.species === 'baron' &&
@@ -5520,6 +5525,7 @@ export class World {
             );
           if (
             source.champion === 'ashe' &&
+            !this.controlImmune(contact, 'slow') &&
             !(
               contact.champion === 'masteryi' &&
               activeHighlander(this.championState(contact.id), this.tick)
@@ -5579,6 +5585,7 @@ export class World {
               );
               if (
                 this.alive(victim) &&
+                !this.controlImmune(victim, 'slow') &&
                 !(
                   victim.champion === 'masteryi' &&
                   activeHighlander(this.championState(victim.id), this.tick)

@@ -95,12 +95,27 @@ test('real Baron combat saves, reloads and continues exactly without replacing o
     return {
       saved,
       future: copy.snapshot(),
-      boss: { x: b.x, y: b.y, hp: b.hp },
+      boss: {
+        x: b.x,
+        y: b.y,
+        hp: b.hp,
+        slowFactor: w.slowFactor(b),
+        slowUntil: b.slowUntil,
+        slows: b.slows,
+        criticalSlow: b.criticalSlow,
+      },
       heroHp: w.hero.hp,
     };
   }, initial.id);
   expect(checkpoint.heroHp).toBeGreaterThan(0);
-  expect(checkpoint.boss).toMatchObject({ x: 450, y: 0 });
+  expect(checkpoint.boss).toMatchObject({
+    x: 450,
+    y: 0,
+    slowFactor: 1,
+    slowUntil: 0,
+    slows: [],
+    criticalSlow: null,
+  });
   await save(page);
   expect(await stored(page, 'development-baron-encounter')).toBe(checkpoint.saved);
   expect(await stored(page, 'practice-fixture')).toBe(ordinary);

@@ -5,7 +5,8 @@
     "root",
     "stun",
     "silence",
-    "charm"
+    "charm",
+    "slow"
   ],
   "sources": [
     {
@@ -36,5 +37,5 @@
     "tag": "Monster_Epic",
     "scope": "Client identity tag; does not establish server immunity initialization."
   },
-  "scope": "Local subset for the gated Baron basic-combat fixture, consistent with these secondary descriptions. Pages postdate the frozen target, and historical/API requests were denied; no native-client or exact 26.18 certification. Slow/Frost interactions, external stat modifications, stasis and the full boss kit remain open."
+  "scope": "Local subset for the gated Baron basic-combat fixture, consistent with these secondary descriptions. Pages postdate the frozen target, and historical/API requests were denied; no native-client or exact 26.18 certification. Slow immunity includes Frost applications without changing the independent current Ashe attack damage formula. External stat modifications, stasis and the full boss kit remain open."
 }

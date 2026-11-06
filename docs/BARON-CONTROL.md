@@ -1,7 +1,7 @@
-# Baron resists root, stun, silence and Charm
+# Baron control resistance
 
 The private `/?scene=fixture&encounter=baron` target now rejects these four
-controls. Their incoming spells and empowered attacks still deal damage and
+controls, plus slow as described below. Their incoming spells and empowered attacks still deal damage and
 consume their ordinary casts. A resisted Charm does not replace Baron's attack
 order or cancel its pending release. Light Binding still consumes one body hit
 on Baron and can root an eligible second target. Ordinary monsters retain their
@@ -22,10 +22,10 @@ historical/API requests were denied. This is a local implementation consistent
 with those descriptions. It does not establish native-client or exact-patch
 certification.
 
-Slow/Frost damage interactions, external stat changes, stasis, boss abilities,
-native timing, sound, rewards/buffs and live calendars remain unfinished. This
-increment does not activate Baron in public gameplay. It does not change the
-existing slow handling or claim complete control immunity.
+The original four-control increment left slow/Frost interactions open; the
+slow increment below closes that local subset. External stat changes, stasis,
+boss abilities, native timing, sound, rewards/buffs and live calendars remain
+unfinished. Baron remains excluded from public gameplay.
 
 Eighteen new unit cases cover direct control admission, unchanged ordinary
 targets, real Lux/Ahri/Leona/Garen impacts, preserved mid-windup futures and edited
@@ -52,3 +52,38 @@ Current fingerprint is `5a53795c8d62dac8ec171d6021a4e4f4d29c9946fe186076ec33fea2
 `e54b212c52e30d2a79c89390f14e3ec3dd414bd595af875840336fd682ddc393` contains
 1,204 files / 551,658,221 bytes. No current-fingerprint full-match
 or fresh-offline certification is claimed in this increment.
+
+
+## Slow immunity — November 6, 2026
+
+The explicit private policy now also rejects slow. Shared slow application and
+both Ashe legacy-field paths (primary Frost and Crystal Arrow splash) check the
+policy. `slowFactor` returns one for Baron, and saved admission rejects nonzero
+legacy slow clocks, critical-slow records and independent slow contributions.
+Ordinary monsters retain their previous behavior. Stationary fixture speed is
+still zero; this does not add boss movement or a live camp.
+
+Ashe attack damage remains governed by the existing pinned, crit-scaled formula,
+which does not require a Frosted victim. Rejecting a slow therefore neither
+removes attack damage nor invents a separate damage mark. Ordinary/critical
+attacks, all five Q packets, Volley, Crystal Arrow splash, Lux E detonation and
+Cinders burn retain damage. The same secondary quotes support this extended
+local policy; their post-target dates and native-validation limits are unchanged.
+
+Four original failures reproduce accepted slow state: direct Frost admission,
+0.8 ordinary-Frost factor, 0.6 critical-Frost factor and 0.75 Lux E factor.
+Twelve new cases now pass, including forged-save rejection and ordinary-monster
+eligibility. The complete focused twelve-file run passes 157 cases. Source-profile
+reproduction and build/TypeScript pass. All four Baron browser scenarios pass:
+real attacks retain no slow state, exact save/reload/future checks preserve the
+ordinary save, private files stay isolated, Lux Q still damages without root,
+and Smite/cleared-save rig cleanup still works. The restored combat screenshot
+was reviewed and has no SLOWED label. Page errors are empty.
+
+Schema remains 163, with fingerprint
+`629ed50ba7af4abe1fa48ae9b39811ca12fcf879d336a951bb088422dad1008e`.
+Earlier saved matches and audit/delivery reports retain their original build
+identities. Fresh production-host verification is running separately; no new
+full-suite, full-match, native or offline certification is claimed here.
+The [verification summary](reference/baron-slow-verification.json) retains the
+observed combat state and validation scope.

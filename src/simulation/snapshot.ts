@@ -2944,10 +2944,16 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     state.units.some(
       (u) =>
         u.monster?.species === 'baron' &&
-        (u.rootUntil !== 0 || u.stunUntil !== 0 || u.silenceUntil !== 0 || u.charm !== null)
+        (u.rootUntil !== 0 ||
+          u.stunUntil !== 0 ||
+          u.silenceUntil !== 0 ||
+          u.charm !== null ||
+          u.slowUntil !== 0 ||
+          u.criticalSlow !== null ||
+          u.slows.length !== 0)
     )
   )
-    throw new Error('Saved Baron cannot carry root, stun, silence or Charm.');
+    throw new Error('Saved Baron cannot carry root, stun, silence, Charm or slows.');
   if (
     state.units.find((u) => u.id === state.player.id)?.champion === 'garen' &&
     !(

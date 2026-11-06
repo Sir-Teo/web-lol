@@ -27,7 +27,7 @@ test('the local immunity subset stays tied to its explicit secondary rule readin
   const raw = readFileSync('docs/reference/baron-control-source.json'),
     source = JSON.parse(raw.toString());
   expect(BARON.controlSourceSha256).toBe(createHash('sha256').update(raw).digest('hex'));
-  expect(BARON.policy.immuneControls).toEqual(['root', 'stun', 'silence', 'charm']);
+  expect(BARON.policy.immuneControls).toEqual(['root', 'stun', 'silence', 'charm', 'slow']);
   expect(source.implementedControls).toEqual(BARON.policy.immuneControls);
   expect(source.scope).toContain('Pages postdate the frozen target');
   expect(source.sources[0].quote).toContain('except stasis');

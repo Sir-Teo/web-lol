@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-06",
+  "ruleset": "629ed50ba7af4abe1fa48ae9b39811ca12fcf879d336a951bb088422dad1008e",
+  "schema": 163,
+  "baseline": {
+    "directSlowAccepted": true,
+    "ordinaryFrostFactor": 0.8,
+    "criticalFrostFactor": 0.6,
+    "luxZoneFactor": 0.75
+  },
+  "checks": {
+    "focusedFiles": 12,
+    "focusedTestsPassed": 157,
+    "newUnitCases": 12,
+    "browserScenariosPassed": 4,
+    "profileReproduction": "passed",
+    "build": "passed",
+    "browserBoss": {
+      "x": 450,
+      "y": 0,
+      "hp": 17762.856758080314,
+      "slowFactor": 1,
+      "slowUntil": 0,
+      "slows": [],
+      "criticalSlow": null
+    },
+    "futureExact": true,
+    "ordinarySavePreserved": true,
+    "errors": []
+  },
+  "scope": "Private stationary target only; post-target secondary descriptions. No full-suite, full-match, native or new offline certification."
+}

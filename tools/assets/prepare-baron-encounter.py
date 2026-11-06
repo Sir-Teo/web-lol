@@ -22,7 +22,7 @@ def main():
     rules = json.loads(rules_path.read_text())
     control_path = ROOT / 'docs/reference/baron-control-source.json'
     controls = json.loads(control_path.read_text())
-    assert controls['implementedControls'] == ['root', 'stun', 'silence', 'charm']
+    assert controls['implementedControls'] == ['root', 'stun', 'silence', 'charm', 'slow']
     assert rules['mode'] == "Standard Summoner's Rift"
     assert any(row['text'] == 'Minimum level: 11' for row in rules['baseline']['rows'])
     assert any('16,300 + 170 Growth' in row['text'] for row in rules['baseline']['rows'])
@@ -41,7 +41,7 @@ def main():
         policy=dict(stationary=True, rewards='disabled in controlled fixture', leashRadius=1100,
             resetHealthFractionPerSecond=0.2, sightRadius=1100,
             immuneControls=controls['implementedControls'],
-            scope='Local stationary basic-combat fixture. Idle substitutes for an unused run alias. Root, stun, silence and Charm immunity follow secondary rule descriptions. Native spells, slow/Frost interactions, external stat changes, stasis, audio, team rewards, buffs, calendar and timing calibration remain unfinished.'),
+            scope='Local stationary basic-combat fixture. Idle substitutes for an unused run alias. Root, stun, silence, Charm and slow immunity follow secondary rule descriptions. Incoming slow-bearing damage remains independent. Native spells, external stat changes, stasis, audio, team rewards, buffs, calendar and timing calibration remain unfinished.'),
         monsterTags=[tag.strip() for tag in root['unitTagsString'].split('|')])
     output = ROOT / 'src/content/baron.json'
     if args.write:
