@@ -1,0 +1,94 @@
+{
+  "date": "2026-11-06",
+  "applicationCommit": "b30c007",
+  "ruleset": "e20bdcb81f74cf79399347c31c7b163879eb1541316841afc382ac03a365d853",
+  "runs": [
+    {
+      "profile": "ordinary",
+      "seed": 26018,
+      "ruleset": "e20bdcb81f74cf79399347c31c7b163879eb1541316841afc382ac03a365d853",
+      "outcome": "victory",
+      "winner": "blue",
+      "finalTick": 169837,
+      "checkedTicks": 169837,
+      "roundTrips": 48,
+      "futureChecks": 47,
+      "futureCheckedTicks": 2820,
+      "developmentRoster": false,
+      "automatedHumanRole": "carry",
+      "finalStateSha256": "cacd68fbfd43b8f61ddc9af12cb871baac501671a4e099072828ec2aef29330b",
+      "root": ".cache/current-e20bdc-ordinary",
+      "verification": {
+        "result": "passed",
+        "ruleset": "e20bdcb81f74cf79399347c31c7b163879eb1541316841afc382ac03a365d853",
+        "seeds": 1,
+        "horizonTicks": 216000,
+        "victories": 1,
+        "unfinished": 0,
+        "checkedTicks": 169837,
+        "roundTrips": 48,
+        "futureChecks": 47,
+        "developmentLeona": false,
+        "developmentRoster": false,
+        "hundredSeedInvariantGate": false,
+        "hundredSeedDevelopmentLeonaInvariantGate": false,
+        "hundredSeedDevelopmentRosterInvariantGate": false,
+        "roadmapMilestone4Complete": false
+      },
+      "pins": {
+        ".cache/current-e20bdc-ordinary/plan.json": "deef4a4d9e42e51d9d6572c4a909e72659697a4ec3f1d67ab308f23c9357c79d",
+        ".cache/current-e20bdc-ordinary/summary.json": "26ef4f662b1c6e2a3a1a2177c5d9614e2545faa259635f149f871863b9155e77",
+        ".cache/current-e20bdc-ordinary/seeds/26018/report.json": "0cb1c0f53523441f76e0b273e9d13d04aa101bd70285d0db8eababcba106c00a",
+        "/workspace/web-lol/.cache/current-e20bdc-ordinary/seeds/26018/final.match.json": "0cc5eafe0cb85a49859b385307587bb97ea4ea31e1ca080a042f77122b88c2dd",
+        "artifacts/current-e20bdc-ordinary-verification.json": "4d5287487124b02c964972cd909fb175d009ae9403871ca5bfab7a5cbbe25840"
+      }
+    },
+    {
+      "profile": "combined",
+      "seed": 26018,
+      "ruleset": "e20bdcb81f74cf79399347c31c7b163879eb1541316841afc382ac03a365d853",
+      "outcome": "victory",
+      "winner": "blue",
+      "finalTick": 179372,
+      "checkedTicks": 179372,
+      "roundTrips": 50,
+      "futureChecks": 49,
+      "futureCheckedTicks": 2940,
+      "developmentRoster": true,
+      "automatedHumanRole": "mid",
+      "finalStateSha256": "cb2da64e38864f25c21a341e8213a71b17642326d4c5a287d37857aab7a3f24e",
+      "root": ".cache/current-e20bdc-combined",
+      "verification": {
+        "result": "passed",
+        "ruleset": "e20bdcb81f74cf79399347c31c7b163879eb1541316841afc382ac03a365d853",
+        "seeds": 1,
+        "horizonTicks": 216000,
+        "victories": 1,
+        "unfinished": 0,
+        "checkedTicks": 179372,
+        "roundTrips": 50,
+        "futureChecks": 49,
+        "developmentLeona": false,
+        "developmentRoster": true,
+        "hundredSeedInvariantGate": false,
+        "hundredSeedDevelopmentLeonaInvariantGate": false,
+        "hundredSeedDevelopmentRosterInvariantGate": false,
+        "roadmapMilestone4Complete": false
+      },
+      "pins": {
+        ".cache/current-e20bdc-combined/plan.json": "d7015b6bbd35d7282c7547521dcccf69c7fd96865705b807c60ce7a1dba7b4a4",
+        ".cache/current-e20bdc-combined/summary.json": "671fbff3a19279c6575d707016e0d5ad211e444776027a225e65b063e3905da7",
+        ".cache/current-e20bdc-combined/seeds/26018/report.json": "8374c1f59b5e63ee92f82cfa6e81179d6a853b8627ddd9f3e577e8bf60298984",
+        "/workspace/web-lol/.cache/current-e20bdc-combined/seeds/26018/final.match.json": "2911d6b39bb16bfedd3f5b339eb4f49eb3c35792a3ceb6dfa106ddf7dd4b5fec",
+        "artifacts/current-e20bdc-combined-verification.json": "7a889d8ca102a5ed16e69482a171fd733026ae0e049c77845503420d4ae87848"
+      }
+    }
+  ],
+  "totals": {
+    "checkedTicks": 349209,
+    "roundTrips": 98,
+    "futureChecks": 96,
+    "futureCheckedTicks": 5760
+  },
+  "scope": "Two selected automated-player headless matches. No hundred-seed, full browser-match, native-client, performance or offline certificate."
+}

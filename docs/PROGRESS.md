@@ -6,6 +6,13 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+[Two selected full matches](CURRENT-E20BDC-MATCHES.md) now pass independently
+on `b30c007` / `e20bdc…`: ordinary seed 26018 wins at tick 169,837; combined
+roster seed 26018 wins at tick 179,372. All 349,209 checked ticks, 98 round-trips
+and 96 future comparisons covering 5,760 ticks pass. Frozen source, runner, map,
+checkpoint and final identities verify. These are two automated-player games,
+without a hundred-seed, native, full browser-match, device or offline claim.
+
 [Private Baron ranged attacks](BARON-PROJECTILES.md) now release the selected
 source attack's 1,300-unit/second missile through the existing adapter instead
 of damaging instantly. Three baseline failures reproduce. Twelve new unit cases,
