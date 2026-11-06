@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "externalDirectionCases": 269,
+  "focusedTestsPassed": 271,
+  "typecheck": "passed",
+  "isolatedPreviewEmitters": 21,
+  "nativeExecuted": false,
+  "activeMissileSceneBinding": false,
+  "evidence": [
+    {
+      "path": "src/render/source-flight-basis.ts",
+      "bytes": 1053,
+      "sha256": "c5d95665b9777416ced2d493fe42b819bf01331d459cd34abc179593d53567c0"
+    },
+    {
+      "path": "tools/assets/export-flight-basis-samples.mjs",
+      "bytes": 2257,
+      "sha256": "685db7fba64ad757032753f11e752749392fbb9bcdd1747bab50465b0a69a5e2"
+    },
+    {
+      "path": "docs/reference/source-flight-basis-samples.json",
+      "bytes": 47669,
+      "sha256": "eb9968c7a68b58c0ee0b2fd548d72e1d8b43631969bfde986040c0b4b07bb5b3"
+    },
+    {
+      "path": "tests/source-flight-basis.test.ts",
+      "bytes": 1425,
+      "sha256": "3bba2d7dbb4ebb079b0915e1e348d1167282768ae0af49e4b636020d651c8bd6"
+    },
+    {
+      "path": "tools/qa/baron-particle-preview.mjs",
+      "bytes": 6824,
+      "sha256": "b0671ca80b91b90721e27e8e0bcd7d9b41cee3df8e61cbe26927c258916bee74"
+    },
+    {
+      "path": "artifacts/baron-flight-basis-tests-initial.log",
+      "bytes": 27204,
+      "sha256": "c268b10d628d810481c165b739c6bcdf24d776f8ba7356d34dcab0b4d5585ce1"
+    },
+    {
+      "path": "artifacts/baron-flight-basis-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/baron-flight-axis-namespaced-preview.log",
+      "bytes": 73,
+      "sha256": "398ed5b4f7ea0fa6ae790460aae13e62456df791eca6d0b8a6434abb297364df"
+    },
+    {
+      "path": "artifacts/baron-preview-flight-axis-v1.json",
+      "bytes": 6013,
+      "sha256": "7428f95ab7df9c81ceb20ed146be5aee849d5358524249dab5d849d64af3fe63"
+    },
+    {
+      "path": "artifacts/baron-preview-flight-axis-v1-missile-20.png",
+      "bytes": 49585,
+      "sha256": "414693c93c86ea978edaabc67bf457b8e15f557685100fb5670ab4b8c37961f4"
+    }
+  ]
+}

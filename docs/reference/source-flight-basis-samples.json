@@ -1,0 +1,2162 @@
+{
+  "format": 1,
+  "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+  "reader": ".cache/baron-emission-readers/engine/utils/basis.ts",
+  "readerSha256": "948deb523c5e16fbf6ef529f9967f9b5de8ff3db1c169fa6ceffc58a08fbcf5e",
+  "nativeExecuted": false,
+  "scope": "External JS orientation only; no native height, root path, handedness, PRNG or cadence certification.",
+  "samples": [
+    {
+      "direction": [
+        0,
+        0,
+        0
+      ],
+      "hex": "000080bf000000000000000000000000000000000000803f000000000000803f00000000"
+    },
+    {
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "hex": "000000800000803f0000008000000000000000000000803f0000803f0000000000000080"
+    },
+    {
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "hex": "00000080000080bf0000000000000000000000000000803f000080bf0000000000000080"
+    },
+    {
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "hex": "0000803f0000000000000000000000000000803f0000000000000000000000000000803f"
+    },
+    {
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "hex": "000080bf000000000000000000000000000080bf0000000000000000000000000000803f"
+    },
+    {
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "hex": "000080bf000000000000008000000000000000000000803f000000000000803f00000080"
+    },
+    {
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "hex": "0000803f000000000000008000000000000000000000803f00000000000080bf00000000"
+    },
+    {
+      "direction": [
+        1,
+        1,
+        1
+      ],
+      "hex": "f30435bf3acd133fec05d1be000000003acd133fec05513ff304353f3acd133fec05d1be"
+    },
+    {
+      "direction": [
+        -1,
+        -1,
+        -1
+      ],
+      "hex": "f304353f3acd13bfec05d1be000000003acd13bfec05513ff30435bf3acd13bfec05d1be"
+    },
+    {
+      "direction": [
+        1e-100,
+        1,
+        0
+      ],
+      "hex": "0000008000000000000080bf000000000000803f000000000000803f0000000000000080"
+    },
+    {
+      "direction": [
+        0,
+        -1,
+        1e-100
+      ],
+      "hex": "000080bf000000000000000000000000000080bf0000000000000000000000000000803f"
+    },
+    {
+      "direction": [
+        1e+100,
+        1e+100,
+        1e+100
+      ],
+      "hex": "f30435bf3acd133fec05d1be000000003acd133fec05513ff304353f3acd133fec05d1be"
+    },
+    {
+      "direction": [
+        5e-324,
+        0,
+        0
+      ],
+      "hex": "000000800000803f0000008000000000000000000000803f0000803f0000000000000080"
+    },
+    {
+      "direction": [
+        -13355,
+        68797,
+        30093
+      ],
+      "hex": "13fe69bf654e33be2157bb3e0000000071eb663f4504dd3efeafcfbe3d04ca3e791153bf"
+    },
+    {
+      "direction": [
+        -2338,
+        64191,
+        18122
+      ],
+      "hex": "4de57dbf9e7c0fbda009fc3d000000001138763f9a2c8c3e5e0603bea2058b3ef33174bf"
+    },
+    {
+      "direction": [
+        3383,
+        -24187,
+        -60817
+      ],
+      "hex": "d89a7f3fc46e533d1eeaa73c00000000e6f4bcbea1ed6d3ff27d633d9d8f6dbf3baabcbe"
+    },
+    {
+      "direction": [
+        52564,
+        77898,
+        23360
+      ],
+      "hex": "00eecfbec1f60a3f3c313cbf0000000088f04d3f9611183f4ef0693f3107773ef444a7be"
+    },
+    {
+      "direction": [
+        -84856,
+        19833,
+        38992
+      ],
+      "hex": "58c7d5bec58a63bf7b4c413e00000000bbba543e396a7a3ff49d68bf601dd13e04a5b1bd"
+    },
+    {
+      "direction": [
+        -87605,
+        56721,
+        90009
+      ],
+      "hex": "df7337bfbaba22bf1ff9923e00000000f9b8d23e2750693f8a8d32bfe631273f9b0197be"
+    },
+    {
+      "direction": [
+        56330,
+        -19647,
+        -98056
+      ],
+      "hex": "a4fa5d3f8246fb3ec39fae3d000000001c482fbebf387c3f220aff3eeeb35abfdcfc17be"
+    },
+    {
+      "direction": [
+        59255,
+        -46895,
+        66278
+      ],
+      "hex": "1ed93ebfc4ea163f0b369f3e00000000e1dfeebe316e623f15a02a3fd2cd283fc014b23e"
+    },
+    {
+      "direction": [
+        99490,
+        -79167,
+        -66876
+      ],
+      "hex": "7ad00e3f4d4a313f0f2aea3e0000000029130dbff39e553f3f76543f4558eebe08679dbe"
+    },
+    {
+      "direction": [
+        -57476,
+        98867,
+        -85751
+      ],
+      "hex": "a3a6543f74e0cdbe372cc53e00000000a011313fabe2383f62880ebf0f9419bfdb15133f"
+    },
+    {
+      "direction": [
+        -21364,
+        -6721,
+        99746
+      ],
+      "hex": "98527abf18ff55bebe9761bc00000000efa486bd37727f3fdf7556bef4c7793f82a8833d"
+    },
+    {
+      "direction": [
+        11919,
+        84970,
+        95190
+      ],
+      "hex": "38047ebf137abe3d86b5a8bd00000000d2bc293f59a33f3fe372fe3d3b273e3f256c28bf"
+    },
+    {
+      "direction": [
+        -88596,
+        -52144,
+        -23724
+      ],
+      "hex": "a06f843e4af956bf0c70f4be00000000b50cfdbe358c5e3fa24977bfab4266bee5e802be"
+    },
+    {
+      "direction": [
+        -92305,
+        38866,
+        -74995
+      ],
+      "hex": "966d213ff8db3cbfacdf763e00000000d90a9f3e0056733f2ab046bf407119bfcf93483e"
+    },
+    {
+      "direction": [
+        -21191,
+        55437,
+        61419
+      ],
+      "hex": "390072bf74117ebe52c8583e00000000242a263f87be423ff3fda6be4618383ffb131dbf"
+    },
+    {
+      "direction": [
+        74298,
+        81343,
+        45776
+      ],
+      "hex": "be4806bff26e1f3f049c14bf000000000e8d2e3faf433b3f1ff4593f4775c43edd1eb7be"
+    },
+    {
+      "direction": [
+        -82219,
+        20794,
+        73859
+      ],
+      "hex": "03142bbf98283bbfc6d90c3e0000000047563d3efe957b3f39713ebfdb20283fdd0efdbd"
+    },
+    {
+      "direction": [
+        43293,
+        -96628,
+        7227
+      ],
+      "hex": "099b28beabdbd03e4ee6653f00000000b21469bf86bfd33e87817c3fec758b3dbc82193e"
+    },
+    {
+      "direction": [
+        29552,
+        -61761,
+        -95681
+      ],
+      "hex": "5a99743f239a803eeba01e3e00000000246206bf76e4593ff217973e473050bf0b6600bf"
+    },
+    {
+      "direction": [
+        3213,
+        98226,
+        36860
+      ],
+      "hex": "6f087fbf2fc3fa3cea6da6bd0000000054916f3f107bb43e52d8b13d87ccb33ea7a96ebf"
+    },
+    {
+      "direction": [
+        21512,
+        2320,
+        53362
+      ],
+      "hex": "c16e6dbf5047bf3ecbd076bc00000000bd07253dc9ca7f3f1b6fbf3e663d6d3f8f0f19bd"
+    },
+    {
+      "direction": [
+        25265,
+        -75975,
+        -16610
+      ],
+      "hex": "f3a10c3fe9319e3e51c0463f0000000022db6dbff751bd3e8ce9553f2f0150be4faa02bf"
+    },
+    {
+      "direction": [
+        92064,
+        -25754,
+        33062
+      ],
+      "hex": "7f0cadbeb4fe683f9c5e753e00000000295b82be5490773f48ef703f9e58a73eef3bb03d"
+    },
+    {
+      "direction": [
+        48678,
+        19777,
+        -77692
+      ],
+      "hex": "abef583f91dd043f5549e5bd0000000069ec573e783e7a3feeeb073ffd0e54bf9ff9363e"
+    },
+    {
+      "direction": [
+        -51357,
+        -91140,
+        -12133
+      ],
+      "hex": "e86f6b3e6eadf9beb09b57bf00000000198b5dbf7746003f462479bf85f1ebbd88bf4bbe"
+    },
+    {
+      "direction": [
+        -97998,
+        -73456,
+        -49461
+      ],
+      "hex": "14b2e63e23f03dbf3a33febe00000000045f0ebf57c2543f708a64bf9bbabfbe674c80be"
+    },
+    {
+      "direction": [
+        -3064,
+        49141,
+        -88639
+      ],
+      "hex": "e2d87f3f388cf7bc4228893c000000007623f83e09ed5f3fad800dbdd1ca5fbf8bfdf73e"
+    },
+    {
+      "direction": [
+        24873,
+        15513,
+        66030
+      ],
+      "hex": "14916fbf9e46b03ead059bbd00000000e4e15b3e4a077a3f657cb43e7ffa693f80c44dbe"
+    },
+    {
+      "direction": [
+        60292,
+        24376,
+        24698
+      ],
+      "hex": "2f15c2bef8df5d3faa04a6be000000005968b33ee5c46f3ff9e46c3f0dc7b53eec0308be"
+    },
+    {
+      "direction": [
+        1357,
+        -46854,
+        80184
+      ],
+      "hex": "9ef67fbf1f606f3cc0da0b3c00000000462401bf170a5d3f3b9e8a3cfd015d3f8b1f013f"
+    },
+    {
+      "direction": [
+        19659,
+        -17579,
+        41903
+      ],
+      "hex": "ecc267bfab4bcb3ef06b1a3e000000003ec9b5be21526f3fca76d93e54a9583f0193a43e"
+    },
+    {
+      "direction": [
+        11368,
+        -35846,
+        -44001
+      ],
+      "hex": "85dc773f831d493eeba11e3e00000000828a1ebfd5ff483fe712803efb9b42bf358019bf"
+    },
+    {
+      "direction": [
+        79126,
+        -35053,
+        -64970
+      ],
+      "hex": "3574223feb2e3b3f862c803e0000000062d8a5beac32723fa9d9453f02b219bf6d7c52be"
+    },
+    {
+      "direction": [
+        -40866,
+        84610,
+        -11452
+      ],
+      "hex": "32288a3e160bddbeb2565c3f00000000aad3643f008fe53efe8076bf43c6f7bd10fc763e"
+    },
+    {
+      "direction": [
+        -24076,
+        -34528,
+        240
+      ],
+      "hex": "905023bcf46b12bf03fa51bf00000000affc51bfd16d123fbefc7fbf01d4ba3bf8f5053c"
+    },
+    {
+      "direction": [
+        38917,
+        -63401,
+        -73297
+      ],
+      "hex": "141b623f19cbbe3e1ec3913e00000000f8691bbf4a6d4b3ff919f03effab33bffe4309bf"
+    },
+    {
+      "direction": [
+        -43022,
+        95327,
+        35878
+      ],
+      "hex": "4ef523bff137c7be1881293f0000000028b65c3f85b3013fff9a44bf2b23a63e795b0dbf"
+    },
+    {
+      "direction": [
+        31394,
+        39122,
+        4133
+      ],
+      "hex": "dba705be3eae1f3f1d4945bf00000000e6fc463ff60e213f5bcf7d3fc12ca83dbac7cfbd"
+    },
+    {
+      "direction": [
+        -73097,
+        82318,
+        97129
+      ],
+      "hex": "f88b4cbf94ecfebe97a0ac3e00000000848a0f3fbbf8533fe4ef19bf1a5e293fb961e5be"
+    },
+    {
+      "direction": [
+        -87138,
+        46212,
+        50024
+      ],
+      "hex": "d2e8febe83b449bf6c8ab93e00000000e8f0d53e6694683f34045ebfc296e73e970755be"
+    },
+    {
+      "direction": [
+        96170,
+        97318,
+        -10101
+      ],
+      "hex": "28eed53d2974333f3c9a34bf000000008f98353fdf70343f79997e3fc6c996bddfc0973d"
+    },
+    {
+      "direction": [
+        -48703,
+        66110,
+        21353
+      ],
+      "hex": "1c96cdbebbf312bff3af363f000000007379473f9b74203fb5746abf76db803e3831a0be"
+    },
+    {
+      "direction": [
+        -53511,
+        79414,
+        -86720
+      ],
+      "hex": "a9dc593f0612d4bea245a53e00000000105d1d3f2dec493fcb6e06bf3ed72bbf86eb053f"
+    },
+    {
+      "direction": [
+        -94283,
+        40168,
+        11791
+      ],
+      "hex": "7c24febd27f969bf44d2c53e00000000c05cc73ebbcb6b3f72057ebfbe15ea3d6fea45bd"
+    },
+    {
+      "direction": [
+        -67636,
+        -60726,
+        74212
+      ],
+      "hex": "45353dbf3c8e13bf807ab2be000000000c7b04bff40d5b3f32712cbfe2e6213fd2d4c33e"
+    },
+    {
+      "direction": [
+        98885,
+        35242,
+        27727
+      ],
+      "hex": "533b8abed825693f7a03a0be00000000542fa63ec523723f507e763f65bf823e0c78b3bd"
+    },
+    {
+      "direction": [
+        88802,
+        20446,
+        82958
+      ],
+      "hex": "59c22ebf317a383fb94df8bd00000000ebe5293eaa737c3ff4113b3f45562c3f82f6e7bd"
+    },
+    {
+      "direction": [
+        40542,
+        282,
+        -72310
+      ],
+      "hex": "3c4c5f3f1964fa3e850cdaba000000009fee5e3b9fff7f3f7864fa3ee84b5fbf4074423b"
+    },
+    {
+      "direction": [
+        -77041,
+        27852,
+        -3717
+      ],
+      "hex": "e863453db58070bf23b1ad3e00000000dce4ad3e53c8703fdbb37fbf20a839bdfa14863c"
+    },
+    {
+      "direction": [
+        34439,
+        3358,
+        32872
+      ],
+      "hex": "dfc130bf70b9383f697750bd00000000ef17903d975d7f3fec2e393fbc51303f28fb46bd"
+    },
+    {
+      "direction": [
+        -81677,
+        -76384,
+        -69086
+      ],
+      "hex": "6f53253fbf111fbfae28e3be00000000d0c214bf6b57503fee7443bf3f8c06bf1824c0be"
+    },
+    {
+      "direction": [
+        77952,
+        8616,
+        -11341
+      ],
+      "hex": "346d133ebfd47b3fb95bdcbd000000009eadde3d767b7e3f3d557d3f738d12beaf3c803c"
+    },
+    {
+      "direction": [
+        -24374,
+        88991,
+        96209
+      ],
+      "hex": "f42878bf2d3c3bbe4fe2273e00000000d8e62a3fc2993e3fca7a7bbe72c3383ff9aa25bf"
+    },
+    {
+      "direction": [
+        -46845,
+        -5040,
+        13861
+      ],
+      "hex": "294591bef22e74bfb988c9bd00000000d92bd2bdfea57e3fbb7a75bfd080903e3b87ee3c"
+    },
+    {
+      "direction": [
+        -23584,
+        -72246,
+        -92309
+      ],
+      "hex": "6508783feff949be6a2819be0000000051ae1abf1efc4b3fb47a7dbeeda245bff1dd15bf"
+    },
+    {
+      "direction": [
+        68152,
+        60695,
+        66691
+      ],
+      "hex": "2a0c33bf815a1a3fc67fc4be00000000f076093f36f6573f4cf8363f6b0b173f6449c0be"
+    },
+    {
+      "direction": [
+        -11619,
+        99038,
+        69644
+      ],
+      "hex": "8e827cbff4a3c3bdbb35093e000000002f73503fe59b143f5a8228be3f95123fb09b4dbf"
+    },
+    {
+      "direction": [
+        72291,
+        -27321,
+        40645
+      ],
+      "hex": "16edfabe8bf1533f4fa48b3e000000003433a0be6225733fe2255f3fb053ee3e5d061d3e"
+    },
+    {
+      "direction": [
+        -47372,
+        -46384,
+        -49172
+      ],
+      "hex": "bf5c383f3beb12bf129dc7be00000000ceda0fbf46c2533f0d9d31bf5a8018bfc432cfbe"
+    },
+    {
+      "direction": [
+        24340,
+        46190,
+        -80975
+      ],
+      "hex": "f629753f3e58813ef8500dbe000000001575f53ed9a9603fcf62933e602757bf4811eb3e"
+    },
+    {
+      "direction": [
+        -74854,
+        48435,
+        52718
+      ],
+      "hex": "1a6813bf080239bf8cbfc33e000000001e6cef3e2649623f494d51bf064c023f71dc89be"
+    },
+    {
+      "direction": [
+        52317,
+        -89412,
+        -5919
+      ],
+      "hex": "783ce63d4b13013f6a325b3f0000000067985cbf19e6013f8d607e3fd1a669bd0865c6bd"
+    },
+    {
+      "direction": [
+        53569,
+        -62169,
+        98263
+      ],
+      "hex": "e7c460bf373cd63e6f036e3e00000000f0a0f8be3bca5f3fee11f53e147d443f0d4cda3e"
+    },
+    {
+      "direction": [
+        -6426,
+        -30481,
+        52766
+      ],
+      "hex": "5b1f7ebfc9c6d6bd3b5176bd0000000026b1febe2d145e3f1395f7bd38735c3ff5d2fc3e"
+    },
+    {
+      "direction": [
+        -32951,
+        64928,
+        -90464
+      ],
+      "hex": "458a703f194891be1cf3433e000000006a220f3f143f543f123bafbec66d47bf937d063f"
+    },
+    {
+      "direction": [
+        -59803,
+        -47174,
+        46321
+      ],
+      "hex": "3fc31cbf41bb2bbfab31d6be000000003d7707bf9d38593faf634abf2b04053ff5e7a53e"
+    },
+    {
+      "direction": [
+        85599,
+        -33623,
+        -58285
+      ],
+      "hex": "2815103ff742493fa2b0823e00000000181c9ebee37c733f969a533f5f0a09bfbef931be"
+    },
+    {
+      "direction": [
+        46003,
+        82385,
+        -9799
+      ],
+      "hex": "8055553e2448f83ee37059bf00000000b4515e3f15dafd3efe617a3f3c8bd3bd3b44393e"
+    },
+    {
+      "direction": [
+        -21880,
+        35209,
+        -38417
+      ],
+      "hex": "77735e3f6b36c6bea7da9d3e00000000027b1f3f3841483faa63fdbee1022ebf9a940a3f"
+    },
+    {
+      "direction": [
+        25937,
+        1812,
+        35119
+      ],
+      "hex": "35ed4dbf99f4173fced0c9bc0000000085da293da1c77f3f1716183fddbf4d3f5fa108bd"
+    },
+    {
+      "direction": [
+        4340,
+        41238,
+        19530
+      ],
+      "hex": "65e779bfb7ebc13dc9db47be000000005a53663f8e7bdf3e05235e3e2e29da3e43d760bf"
+    },
+    {
+      "direction": [
+        -89288,
+        31820,
+        73827
+      ],
+      "hex": "4d2123bf853f3ebf9e01513e000000006c99873ed2db763f0a4b45bf144e1d3fa7d02cbe"
+    },
+    {
+      "direction": [
+        -72633,
+        3823,
+        -27752
+      ],
+      "hex": "21beb63e9fd96ebf40e63b3d00000000e325493deeb07f3f7c236fbfaf85b6be53968f3c"
+    },
+    {
+      "direction": [
+        -84780,
+        83074,
+        -54669
+      ],
+      "hex": "16bc0a3fb11426bff1c4083f0000000024bd223fb09d453fe62557bf6330d6be0c63b03e"
+    },
+    {
+      "direction": [
+        20458,
+        -65783,
+        55205
+      ],
+      "hex": "0f0c70bf954c6d3ee992843e000000007dc23ebf61b92a3f19eab13ed515203f52df323f"
+    },
+    {
+      "direction": [
+        1858,
+        -52068,
+        -46643
+      ],
+      "hex": "11cc7f3fbca8d93c44c8f23c00000000e19c3ebf5ee32a3f6308233db3c02abf35763ebf"
+    },
+    {
+      "direction": [
+        -33305,
+        -42875,
+        -92648
+      ],
+      "hex": "3ce8703f1fcc9ebe284f0abe00000000476dccbe8fb56a3fbb33adbe21df5cbfe55fc0be"
+    },
+    {
+      "direction": [
+        32057,
+        87164,
+        64614
+      ],
+      "hex": "c25365bf8812913eca4fafbe000000006c3a453f6435233f768de33e2934123fcaad30bf"
+    },
+    {
+      "direction": [
+        -16700,
+        -65527,
+        -64962
+      ],
+      "hex": "37f0773fd25e36bee12932be000000001de532bf7a1e373f11f47ebe3c5a31bfed422dbf"
+    },
+    {
+      "direction": [
+        -21973,
+        47822,
+        -95616
+      ],
+      "hex": "2c7f793fab274ebe0efac83d000000007056e03e221e663f915765bea04560bf84a3da3e"
+    },
+    {
+      "direction": [
+        12694,
+        -22542,
+        32735
+      ],
+      "hex": "b4ae6ebf60c59b3e9005483e000000001d4f0abf046c573fe51cb93e6fd9483ff0f3003f"
+    },
+    {
+      "direction": [
+        -22699,
+        -91407,
+        -54395
+      ],
+      "hex": "2d416c3f0db655bea9b6a5be00000000372657bf98bb0a3f832dc5be420800bf018e46bf"
+    },
+    {
+      "direction": [
+        -66133,
+        -91705,
+        -70891
+      ],
+      "hex": "34313b3f87bafdbe1f01f0be000000006ceb2fbfb2fa393fdfa02ebfdffd07bfc8a200bf"
+    },
+    {
+      "direction": [
+        -94405,
+        -80660,
+        72851
+      ],
+      "hex": "fb651cbf89df27bfd31ae3be00000000776e0fbfb70b543fc9ab4abf9c8b013fe840af3e"
+    },
+    {
+      "direction": [
+        -66212,
+        -68754,
+        -90752
+      ],
+      "hex": "d7ce4e3f12b200bfa1879dbe00000000eea205bff0595a3fb6e216bfcb6430bf2aead7be"
+    },
+    {
+      "direction": [
+        71377,
+        -3038,
+        80804
+      ],
+      "hex": "70dd3fbfef69293f8bc2983c000000002cbee6bcffe57f3f267b293ff3c93f3f7aefac3c"
+    },
+    {
+      "direction": [
+        34292,
+        71643,
+        -32548
+      ],
+      "hex": "763c303f4b8bcc3e97f91abf00000000d0aa553f30010d3fe8ad393f3c24c2bee617133f"
+    },
+    {
+      "direction": [
+        79397,
+        -73981,
+        -40459
+      ],
+      "hex": "5b76e83ebb7e2f3f99b2113f00000000188623bf88f7443fc017643f64dbb2be207d94be"
+    },
+    {
+      "direction": [
+        -52745,
+        82805,
+        60934
+      ],
+      "hex": "c78e41bfa4b6e9bef121f03e000000006b74373ffb8c323f958b27bfdeff063f15b50abf"
+    },
+    {
+      "direction": [
+        -24051,
+        -74492,
+        -91994
+      ],
+      "hex": "e8ac773f43e44bbe72bb1fbe000000003de01dbfae85493f488181be17f842bffdbd18bf"
+    },
+    {
+      "direction": [
+        -15973,
+        -95951,
+        -96971
+      ],
+      "hex": "9e987c3f7d2beebdfc87e8bd0000000088d632bfb82c373f0e6e26be38bd34bfcc7530bf"
+    },
+    {
+      "direction": [
+        27660,
+        -55625,
+        -58925
+      ],
+      "hex": "18bd673fd165a53e7d568d3e00000000434f26bfd49e423f9e8fd93e132d30bf5e8c16bf"
+    },
+    {
+      "direction": [
+        25292,
+        -33856,
+        -46341
+      ],
+      "hex": "e3b5603fc879ce3e1a69843e00000000d9310abfcc7e573ffb48f53e0e283dbf9b9bf2be"
+    },
+    {
+      "direction": [
+        29214,
+        65177,
+        -61883
+      ],
+      "hex": "fe7f673f43469e3ee3be96be00000000838e303fe55f393f3793da3e36a227bfdea81f3f"
+    },
+    {
+      "direction": [
+        27621,
+        -1636,
+        83738
+      ],
+      "hex": "a31d73bf225ba03e016abe3b0000000088f797bcb9f47f3f3362a03eed12733f8e51903c"
+    },
+    {
+      "direction": [
+        -30762,
+        -43520,
+        1826
+      ],
+      "hex": "01b572bdcaad13bf198f50bf0000000014ed50bf56f0133fd98c7fbfcb410c3dd513463d"
+    },
+    {
+      "direction": [
+        -87372,
+        16949,
+        70661
+      ],
+      "hex": "ecfa20bf2bd344bf6c80ed3d00000000bfb9183efe227d3f1d0d47bffc2d1f3f9313c0bd"
+    },
+    {
+      "direction": [
+        16348,
+        75764,
+        33276
+      ],
+      "hex": "cbc465bf3377463e39c9cabe00000000ddf1653fb60be13e8dc3e13e7afcc93e1f624ebf"
+    },
+    {
+      "direction": [
+        20760,
+        -72911,
+        -83083
+      ],
+      "hex": "325d783faf023d3e0aec203e000000009af425bf29ec423f4a3c783ebd1b3dbf600121bf"
+    },
+    {
+      "direction": [
+        -77011,
+        -88976,
+        37803
+      ],
+      "hex": "f69ce1bee8811fbfd56e25bf000000002a4a38bf55b0313f45ce65bfed989c3e2d6aa23e"
+    },
+    {
+      "direction": [
+        61207,
+        94989,
+        -88395
+      ],
+      "hex": "3478523fcf6eda3ef2fac0be000000000c7f293ffed93f3f0ebc113fe7ba1dbfce590b3f"
+    },
+    {
+      "direction": [
+        -33726,
+        -79033,
+        -33120
+      ],
+      "hex": "f45e333f4282bbbe53c11cbf00000000e2b35bbf2867033f23a736bfbd23b8be45f019bf"
+    },
+    {
+      "direction": [
+        -13453,
+        -74158,
+        67629
+      ],
+      "hex": "9b147bbf950a08beec4e12be000000004e7a3bbf61522e3f85c847becef82a3f02e0373f"
+    },
+    {
+      "direction": [
+        89206,
+        73450,
+        9235
+      ],
+      "hex": "15e4d2bd3f00453fea5721bf00000000a834223fc70d463f9da37e3fc227a33db69f85bd"
+    },
+    {
+      "direction": [
+        -76101,
+        34587,
+        -62940
+      ],
+      "hex": "d427233f0b2f3abfa769823e00000000923ca93e599c713fa54545bf23fc19bfcbb7573e"
+    },
+    {
+      "direction": [
+        -84980,
+        -4146,
+        -197
+      ],
+      "hex": "b6ec173bf8b17fbfd39847bd00000000f69847bd25b27f3fd3ff7fbf82be17bb90e7ecb8"
+    },
+    {
+      "direction": [
+        34751,
+        -56422,
+        -57253
+      ],
+      "hex": "96d75a3f952ccb3eb529ab3e0000000006f024bfd9c8433fc8d4043fe95d27bf4bff0cbf"
+    },
+    {
+      "direction": [
+        -52953,
+        85012,
+        -91062
+      ],
+      "hex": "a54d5d3f1b4ac8bedda3a13e0000000055c6203f9937473f60b000bf6c372cbffafb0a3f"
+    },
+    {
+      "direction": [
+        -14298,
+        13643,
+        95654
+      ],
+      "hex": "e82f7dbfd8e515be9128a93c00000000ea070f3e8b7d7d3fc06117be82b47a3f96750dbe"
+    },
+    {
+      "direction": [
+        66302,
+        -78313,
+        -6296
+      ],
+      "hex": "219bc13dcf1a253f1d24423f00000000b10343bff2d8253f81da7e3f1dda7abdf57b93bd"
+    },
+    {
+      "direction": [
+        53222,
+        -83710,
+        45948
+      ],
+      "hex": "d94a27bf1143f93e1261143f000000007c0644bfbfa6243fbdc6413fd531d73e8b19003f"
+    },
+    {
+      "direction": [
+        -68608,
+        -92744,
+        4474
+      ],
+      "hex": "e94485bd122218bf8c374dbf0000000022a74dbfcb74183f19757fbf6ebb1e3d601e563d"
+    },
+    {
+      "direction": [
+        -27644,
+        -39620,
+        3357
+      ],
+      "hex": "8ee3f6bd3c2212bf2aea4fbf00000000307151bf1235133f0e227ebfd9f78d3df0fcc93d"
+    },
+    {
+      "direction": [
+        70877,
+        36120,
+        -10310
+      ],
+      "hex": "2f67133e9332623f7725e4be00000000258ce63e0194643f75557d3f1e9d03be66bf843d"
+    },
+    {
+      "direction": [
+        8769,
+        -42362,
+        57648
+      ],
+      "hex": "b6167dbff32bf93dd104b53d00000000017716bf421d4f3ffefd193e4ac24c3ff6c0143f"
+    },
+    {
+      "direction": [
+        -48212,
+        -80103,
+        -26660
+      ],
+      "hex": "d3c3f73eb6e7fdbe269638bf00000000aded52bfd511113f810760bf2c678cbeaa24ccbe"
+    },
+    {
+      "direction": [
+        33566,
+        -59807,
+        -31334
+      ],
+      "hex": "c8b02e3f8bece33e6e6e143f00000000f00d4bbf78e61b3f5b223b3f9cc4d4beb18f0abf"
+    },
+    {
+      "direction": [
+        32541,
+        -43545,
+        -24758
+      ],
+      "hex": "00021b3f45760b3fc285143f00000000479f3abfc93c2f3f8ebc4b3f5836d4becbffe1be"
+    },
+    {
+      "direction": [
+        -43683,
+        87766,
+        -51969
+      ],
+      "hex": "6df7433f4e91c9be824a023f000000008f7d4a3fd1a11c3facb824bf49cdefbe59011b3f"
+    },
+    {
+      "direction": [
+        48330,
+        -49408,
+        99584
+      ],
+      "hex": "534f66bfa122cc3ec93b363e0000000041b0d0be0cc5693f278cdf3e784f523f05bfbb3e"
+    },
+    {
+      "direction": [
+        -3036,
+        -2036,
+        22728
+      ],
+      "hex": "03bf7dbfcf0c07bedfdc3fbc000000006122b5bd2cff7e3fd49407be72c07c3f218ab33d"
+    },
+    {
+      "direction": [
+        97465,
+        -41031,
+        -13607
+      ],
+      "hex": "29960d3eee036a3fd123c33e000000004e08c5beef486c3f848a7d3fc4ae02be4af259bd"
+    },
+    {
+      "direction": [
+        -21061,
+        -95863,
+        -91648
+      ],
+      "hex": "327f793ff59920be64b823be000000006ec036bf3045333f355765be5db72ebff81b32bf"
+    },
+    {
+      "direction": [
+        69918,
+        35733,
+        78160
+      ],
+      "hex": "aecc3ebff38e213f7b325cbe00000000a522a53eb551723ffdad2a3f629a343f7d2776be"
+    },
+    {
+      "direction": [
+        50509,
+        -62014,
+        45888
+      ],
+      "hex": "e4242cbf343a0c3fbedcfe3e00000000242b2cbf06753d3fb47a3d3fdacbfe3e978be73e"
+    },
+    {
+      "direction": [
+        -62956,
+        57760,
+        11879
+      ],
+      "hex": "92dd3dbecdd63abf3772283f00000000246b2b3fd0223e3f9f8f7bbf44040d3eee44febd"
+    },
+    {
+      "direction": [
+        -44434,
+        13640,
+        81546
+      ],
+      "hex": "4ccb60bfbd60f2be60668e3d0000000078ce143e54487d3f75faf4be6d685e3fd5aa02be"
+    },
+    {
+      "direction": [
+        -7225,
+        97377,
+        -23306
+      ],
+      "hex": "1685743f976593bd0d0f933e00000000a752783fc9e4783ef29a97be73bb6dbedf2f6d3f"
+    },
+    {
+      "direction": [
+        43125,
+        10531,
+        -39629
+      ],
+      "hex": "b1372d3ff685393f216f05be000000008d37353e99f57b3f9d7f3c3fc97b2abfed3bf53d"
+    },
+    {
+      "direction": [
+        -54470,
+        -83973,
+        31550
+      ],
+      "hex": "674f00bfcade04bf504031bf000000007ad64cbfb28c193fec855dbff3eb993e8b55cd3e"
+    },
+    {
+      "direction": [
+        -6328,
+        48503,
+        17114
+      ],
+      "hex": "991c70bf8415fabdc631a63e00000000339b6f3fa146b43ebc90b1be5b16a93e44bc60bf"
+    },
+    {
+      "direction": [
+        24907,
+        24477,
+        48817
+      ],
+      "hex": "cb0864bfac76d43ef5c83dbe00000000a9cbd03eeebe693f09b1e83e1336503f8efcb9be"
+    },
+    {
+      "direction": [
+        -19996,
+        5922,
+        -38452
+      ],
+      "hex": "0c20633ffa0beabee4d67f3d0000000057a10a3ea6a47d3fb638ecbec00861bfd5fcf53d"
+    },
+    {
+      "direction": [
+        68648,
+        37813,
+        87177
+      ],
+      "hex": "942049bfc4e9153f07594cbe00000000d426a53eff50723ff5601e3f6e603e3f80c081be"
+    },
+    {
+      "direction": [
+        13066,
+        -95978,
+        95588
+      ],
+      "hex": "33a47dbf25a2c43ddb9dc33d00000000ac8c34bfea7c353f89ae0a3edcd0333fd4e2323f"
+    },
+    {
+      "direction": [
+        16686,
+        -87290,
+        -90764
+      ],
+      "hex": "d9c77b3f7682063e5075fe3d0000000085ea2fbf8cfb393f1926393ed2ea36bf45042dbf"
+    },
+    {
+      "direction": [
+        62899,
+        52245,
+        93233
+      ],
+      "hex": "6b3854bfbdd8013f7b4671be00000000acb4d73efd2b683f4b2c0f3f9877403f27d1b2be"
+    },
+    {
+      "direction": [
+        57676,
+        -20860,
+        -25866
+      ],
+      "hex": "2f83d13e9fd15d3f7467923e00000000f173a0beb61a733fdc95693f62f5c6bee15003be"
+    },
+    {
+      "direction": [
+        3683,
+        -52266,
+        -33457
+      ],
+      "hex": "7e767e3f00aa723da767bc3d00000000e83a57bf7c9b0a3feb17e03d6dc609bf11f055bf"
+    },
+    {
+      "direction": [
+        37659,
+        -46927,
+        -70717
+      ],
+      "hex": "24f5613f18a9cf3e7042733e000000001b6201bfece55c3faba8f03e9bf942bf3d66e4be"
+    },
+    {
+      "direction": [
+        16373,
+        -55353,
+        -17020
+      ],
+      "hex": "f57d383f004c8b3ed43d233f00000000c0766bbfeeecc83e8d7a313f27cd90be34b129bf"
+    },
+    {
+      "direction": [
+        33790,
+        20544,
+        58150
+      ],
+      "hex": "06585dbf3e04f63ea24c16be000000006493953e07d5743f869e003f15b0533fab5381be"
+    },
+    {
+      "direction": [
+        78956,
+        -34901,
+        -81613
+      ],
+      "hex": "53fd373f09252a3fd52c513e000000001e6b96befab3743fe4ff313fcdde2fbfd73658be"
+    },
+    {
+      "direction": [
+        21024,
+        21238,
+        19282
+      ],
+      "hex": "c5082dbf5655173f6354e1be00000000aedf183fba574d3fb0aa3c3f52cb0a3fcba8cebe"
+    },
+    {
+      "direction": [
+        52366,
+        8695,
+        7390
+      ],
+      "hex": "59170fbe4d217a3fd17f24be000000001621263ec89b7c3f007d7d3f0e320d3e44b7b9bc"
+    },
+    {
+      "direction": [
+        -78318,
+        4482,
+        -96132
+      ],
+      "hex": "d978463f909621bfe1e7ba3c000000005cf5133d3bd57f3f94b121bfb05746bf3b6be53c"
+    },
+    {
+      "direction": [
+        -92119,
+        -81555,
+        -78411
+      ],
+      "hex": "d3ee253fc6a321bf96f1d9be000000006f1a0fbf7644543f14f142bf279609bf1583b9be"
+    },
+    {
+      "direction": [
+        -86892,
+        51794,
+        54464
+      ],
+      "hex": "e7f507bf4c9e41bfe693c33e000000004bd2e63e4e82643f6ce958bf6bb8f23e3a2d75be"
+    },
+    {
+      "direction": [
+        32762,
+        -14030,
+        39110
+      ],
+      "hex": "613e44bfc7811e3fd25a2e3e000000000fc287be3dd6763f1d64243f2c383d3f4f23503e"
+    },
+    {
+      "direction": [
+        51967,
+        -35088,
+        -99597
+      ],
+      "hex": "6cf6623f2d13e23e63390d3e0000000030a598bea95b743f86d8ec3e23a458bfc35487be"
+    },
+    {
+      "direction": [
+        3859,
+        -97039,
+        -13380
+      ],
+      "hex": "4ef9753f6d3c213d56728c3e0000000074677dbffa74113ea7e28d3e9bc20bbec97a73bf"
+    },
+    {
+      "direction": [
+        89527,
+        -6835,
+        -33020
+      ],
+      "hex": "462cb13e04926f3f1048893d00000000415292bd85587f3f262f703f5eb8b0be5b88cabc"
+    },
+    {
+      "direction": [
+        30450,
+        13253,
+        76383
+      ],
+      "hex": "f8cc6dbfaf2ebb3e585971bd0000000013f0223e09bd7c3f1399bd3e5dc56a3fb75a17be"
+    },
+    {
+      "direction": [
+        39218,
+        67235,
+        76964
+      ],
+      "hex": "1e1864bf2d70b73e0ec88ebe00000000103e1d3f52044a3feb74e83ee2fe333f161a0cbf"
+    },
+    {
+      "direction": [
+        59456,
+        11927,
+        63876
+      ],
+      "hex": "ee623bbf36d02c3f8af4bcbd00000000b8aa0a3e54a47d3f826b2e3f0fa9393f9600cbbd"
+    },
+    {
+      "direction": [
+        -1599,
+        87560,
+        -95473
+      ],
+      "hex": "cff67f3f49374abc0d6e393c00000000c2042d3f5fae3c3f942e89bc99a73cbf8cfe2c3f"
+    },
+    {
+      "direction": [
+        -16276,
+        73102,
+        -82500
+      ],
+      "hex": "b0287b3f749415beba08023e00000000aaf4273f9f33413f0d3346be528c3dbf95c7243f"
+    },
+    {
+      "direction": [
+        70601,
+        67146,
+        20815
+      ],
+      "hex": "0bca90be6768353fe27c25bf00000000c0872c3fb4203d3fea8c753f53ef553e0d2943be"
+    },
+    {
+      "direction": [
+        19879,
+        -48826,
+        -96503
+      ],
+      "hex": "49bc7a3fe41d393efb77b73d000000009256e3be5e61653f81994e3ecba960bfc0a9debe"
+    },
+    {
+      "direction": [
+        15096,
+        53011,
+        5234
+      ],
+      "hex": "04b9a7be8b998b3e8f9567bf00000000d81b753f9fc0933edfdf713fe19ac13d4f96a0be"
+    },
+    {
+      "direction": [
+        -49152,
+        -44246,
+        -266
+      ],
+      "hex": "ab54b13b99433ebf50452bbf00000000f4452bbf50443e3f0aff7fbf29cc83bb07486dbb"
+    },
+    {
+      "direction": [
+        -15149,
+        -24809,
+        55223
+      ],
+      "hex": "13e176bfd09278bef562d7bd00000000488acbbedce66a3f287387be5d88623fd549c43e"
+    },
+    {
+      "direction": [
+        -59491,
+        4593,
+        -20111
+      ],
+      "hex": "75f7a33e17df71bf8a858d3d00000000af63953d6a517f3f7b8472bfa387a3bec05dbf3c"
+    },
+    {
+      "direction": [
+        -45565,
+        -23292,
+        82982
+      ],
+      "hex": "a06560bf504befbe2980ebbd000000004ca574be2996783f366ef6be13e6593fc071563e"
+    },
+    {
+      "direction": [
+        -34022,
+        -41702,
+        -53628
+      ],
+      "hex": "2e2b583f1f45e5be6e8b96be0000000025830cbfc9fd553f962309bf3ab234bfb54cedbe"
+    },
+    {
+      "direction": [
+        57828,
+        58622,
+        -66566
+      ],
+      "hex": "3d42413fc9cf0b3f8de6b9be0000000038bb0d3f982f553fd8e3273f0af020bfa3fdd53e"
+    },
+    {
+      "direction": [
+        -43286,
+        -11347,
+        50716
+      ],
+      "hex": "4fb842bf6ad623bfd30ddfbd000000002ccb2bbe225f7c3f6d3126bfcaf53f3fa6ab023e"
+    },
+    {
+      "direction": [
+        64335,
+        52586,
+        8258
+      ],
+      "hex": "d15e02be4d3d453f3fe81fbf000000001b38213f92db463fb1ea7d3f4f8aca3d6834a4bd"
+    },
+    {
+      "direction": [
+        96922,
+        96189,
+        -52509
+      ],
+      "hex": "32e4f33e1e99293f09fe13bf00000000c350283f68e3403fe416613fccc3b7beb25aa03e"
+    },
+    {
+      "direction": [
+        59702,
+        -26322,
+        8366
+      ],
+      "hex": "a01a0ebe7657683f4be4ca3e00000000c5dfccbe999c6a3fe2857d3f433b023edb72633d"
+    },
+    {
+      "direction": [
+        46748,
+        -50370,
+        -88618
+      ],
+      "hex": "256d623f9a6fd53e369a563e000000000af9e5be0bb9643fd9e3ee3edf4c4abfe667cbbe"
+    },
+    {
+      "direction": [
+        -17731,
+        95419,
+        1767
+      ],
+      "hex": "e616cbbd7b0c3bbecb687a3f0000000054a67b3facf93b3efabc7ebfcb1f953c67a3c7bd"
+    },
+    {
+      "direction": [
+        -21158,
+        -11205,
+        -87965
+      ],
+      "hex": "bde6783f9ea76dbef376ebbc00000000bbb7fbbd1a0f7e3f6e786fbe9f0377bfdebcf4bd"
+    },
+    {
+      "direction": [
+        56489,
+        40887,
+        77859
+      ],
+      "hex": "48354fbf195b0a3f003c6bbe000000000449c83ea7996b3fea55163f47b23e3fba1ca2be"
+    },
+    {
+      "direction": [
+        -44565,
+        -2004,
+        -16348
+      ],
+      "hex": "6654b03e182070bfcb3222bd0000000075c42cbdadc57f3fda5670bf3a2cb0be0c006ebc"
+    },
+    {
+      "direction": [
+        -82017,
+        -95834,
+        48660
+      ],
+      "hex": "919f02bfbc4c1bbf09101cbf000000005b7635bf4593343fc72a5cbfad46b83e6a2eb93e"
+    },
+    {
+      "direction": [
+        -48524,
+        -87497,
+        23172
+      ],
+      "hex": "09a2dcbe6be9f1be83d044bf000000009f1a5abf2c0a063fec0267bf2a0b673eedf8bb3e"
+    },
+    {
+      "direction": [
+        18683,
+        -20450,
+        13005
+      ],
+      "hex": "0e4112bfcb4c1c3ff3690c3f000000001f152bbf3a703e3fde1b523fcc98d93e0a7bc33e"
+    },
+    {
+      "direction": [
+        -42568,
+        18957,
+        47239
+      ],
+      "hex": "682d3ebfe23a24bfead6433e000000004c46923e8c54753f635f2bbf4340363f3c5459be"
+    },
+    {
+      "direction": [
+        46176,
+        -37277,
+        -1548
+      ],
+      "hex": "a13c093d1120473fe6a8203f0000000001c020bfb43c473f34db7f3f589dd5bca559acbc"
+    },
+    {
+      "direction": [
+        -73870,
+        51927,
+        -63773
+      ],
+      "hex": "784a273f72112bbf800cb63e000000004e81f03e9eff613f10c741bf7eaf13bf502a9d3e"
+    },
+    {
+      "direction": [
+        -54856,
+        -92040,
+        -36640
+      ],
+      "hex": "81300e3fe106f8be44072dbf000000005c1350bff221153f70e154bf2caaa5be5424e7be"
+    },
+    {
+      "direction": [
+        -28440,
+        -56769,
+        -69729
+      ],
+      "hex": "b00a6d3f6f679abe34cb68be000000004c1a1abf086c4c3fa85cc1be8c483dbfc7b00ebf"
+    },
+    {
+      "direction": [
+        -4673,
+        36400,
+        77512
+      ],
+      "hex": "3a897fbfa42f5fbd143dd13c00000000c04fd93e13cc673f657d76bd8860673fedead8be"
+    },
+    {
+      "direction": [
+        41151,
+        19986,
+        3620
+      ],
+      "hex": "8377b3bd628f653f1120debe00000000aafbde3e5572663fe3037f3f868da13d11521cbd"
+    },
+    {
+      "direction": [
+        67306,
+        -26929,
+        94089
+      ],
+      "hex": "253650bf7d10113f9112073e00000000f32868be7655793f5ef1143f2cca4a3f60d23c3e"
+    },
+    {
+      "direction": [
+        -92975,
+        -6007,
+        77548
+      ],
+      "hex": "1cf923bffd5944bfc3df1bbd00000000faf94abd7caf7f3fd29744bf8ac5233fad02023d"
+    },
+    {
+      "direction": [
+        93350,
+        -70465,
+        -52231
+      ],
+      "hex": "3e00fa3eca903a3f49ccf53e000000001bd40cbf8ac8553f4e685f3f0ac6d0be448789be"
+    },
+    {
+      "direction": [
+        9369,
+        -41605,
+        9611
+      ],
+      "hex": "ff4f37bfe2745b3ee8102a3f00000000bca273bf36329d3e5fb2323f0720613e76752e3f"
+    },
+    {
+      "direction": [
+        -2243,
+        10102,
+        18024
+      ],
+      "hex": "5b0a7ebfcd06ddbdfcdc753d0000000042ddf83e77b95f3fb3e9fcbd11035e3f98f5f6be"
+    },
+    {
+      "direction": [
+        -99138,
+        42198,
+        19104
+      ],
+      "hex": "dcc241bea0ee67bf64e0c13e000000008371c53efa326c3f13607bbf38c6323edd7095bd"
+    },
+    {
+      "direction": [
+        8681,
+        -10636,
+        -67805
+      ],
+      "hex": "67ed7d3f7f7e003edbf09f3c000000007c6e1dbed9f47c3f480a023e8ee87abf2e281cbe"
+    },
+    {
+      "direction": [
+        -69379,
+        -95992,
+        -94373
+      ],
+      "hex": "98424e3fb58feabea43ac0be00000000aa4422bfaa00463f36a217bf0a881fbf77bd02bf"
+    },
+    {
+      "direction": [
+        -55242,
+        -43668,
+        -78789
+      ],
+      "hex": "779c513f9cd405bff7ee72be000000000895d3be581e693f6bf712bf41e03ebffd3dadbe"
+    },
+    {
+      "direction": [
+        -41180,
+        -95047,
+        64072
+      ],
+      "hex": "0d5b57bf421badbedd05d8be00000000b9c547bf9915203f86690abf13ab063f1c0e283f"
+    },
+    {
+      "direction": [
+        20117,
+        -17950,
+        -82070
+      ],
+      "hex": "aca3783f04776e3e29a04a3d000000000ac754be92697a3f33c9733e5f3673bfdca84ebe"
+    },
+    {
+      "direction": [
+        33367,
+        -52740,
+        -64677
+      ],
+      "hex": "0782633f6814be3e45bf893e00000000683816bfad4a4f3f5fbeea3e813838bf518005bf"
+    },
+    {
+      "direction": [
+        75471,
+        -99463,
+        -53075
+      ],
+      "hex": "4743133f3b690e3f6d85193f00000000e0ae3bbfc8192e3f3367513f1d4dc8be7aedd7be"
+    },
+    {
+      "direction": [
+        -84772,
+        37593,
+        -9816
+      ],
+      "hex": "e991eb3d96b868bff608cd3e00000000ad67ce3ea8466a3f044d7ebf6394d7bdd1ee3d3d"
+    },
+    {
+      "direction": [
+        -64724,
+        11612,
+        -23656
+      ],
+      "hex": "79c2af3edd196dbfc8cf1f3e00000000b8262a3eef707c3f917170bff950adbe73a3693d"
+    },
+    {
+      "direction": [
+        -29338,
+        -54898,
+        -78893
+      ],
+      "hex": "3bf26f3fb07995be0efb42be00000000dcd90bbf926c563f3d75b2be41fa48bfb81403bf"
+    },
+    {
+      "direction": [
+        26402,
+        -42835,
+        64109
+      ],
+      "hex": "50b66cbf1fdea53eb4f34c3e00000000978d06bfa4c9593f64f8c23efd60493fb4d4f83e"
+    },
+    {
+      "direction": [
+        -28098,
+        6561,
+        -64539
+      ],
+      "hex": "4fb86a3fd87ecbbeaabd173d000000007311be3d28e57e3fa760ccbefab469bfca44ae3d"
+    },
+    {
+      "direction": [
+        -23415,
+        26089,
+        -78716
+      ],
+      "hex": "d15f753f9f208bbe17cab03d000000000d049b3e14fc733f9bfa91be91db69bfe694943e"
+    },
+    {
+      "direction": [
+        -5252,
+        -29135,
+        -88031
+      ],
+      "hex": "ad8b7f3fa29f67bda60b99bc00000000279da0bee813733fd8ef73bd74a572bf2c54a0be"
+    },
+    {
+      "direction": [
+        -53838,
+        -22171,
+        -58863
+      ],
+      "hex": "1ce73c3f757726bf171139be00000000e61a89be92a6763fcdc62cbffe0036bf0f574abe"
+    },
+    {
+      "direction": [
+        75424,
+        -58386,
+        93273
+      ],
+      "hex": "9d0f47bfccbb103f58e58c3e00000000df13e0be582e663fd4f7203f10fc323f1d3dae3e"
+    },
+    {
+      "direction": [
+        -30920,
+        29800,
+        -7370
+      ],
+      "hex": "1c6d6d3ebcab35bfa0512a3f000000001b172f3fa1c23a3f110679bfc9352dbe0463223e"
+    },
+    {
+      "direction": [
+        -3974,
+        -34248,
+        -91862
+      ],
+      "hex": "c3c27f3f3ee525bd5e2a77bc0000000015b6b2be2be66f3f940731bdc7ac6fbf558bb2be"
+    },
+    {
+      "direction": [
+        4184,
+        -17123,
+        44801
+      ],
+      "hex": "0fe47ebfdefbb13d3c76073d000000007a19b6bee1426f3f866fbe3d81396e3f804fb53e"
+    },
+    {
+      "direction": [
+        99202,
+        31388,
+        -30247
+      ],
+      "hex": "d952953e355f6a3f75dd8dbe000000001750943e2d06753fe0de743fe4eb8ebe3905ad3d"
+    },
+    {
+      "direction": [
+        55260,
+        -1791,
+        -48749
+      ],
+      "hex": "205b293f33eb3f3fd243953c000000009d0bc7bca7ec7f3fb5f93f3f534e29bf84ad83bc"
+    },
+    {
+      "direction": [
+        20304,
+        88804,
+        -35870
+      ],
+      "hex": "00c95e3f975d543e75c5e4be00000000f634683f068ed73e6136fc3e6796bbbe3f144a3f"
+    },
+    {
+      "direction": [
+        -55551,
+        -47009,
+        12494
+      ],
+      "hex": "01b260bef79940bf5f031fbf0000000042fc22bfa569453fc9c279bfb5452d3e0d0e0f3e"
+    },
+    {
+      "direction": [
+        41519,
+        25381,
+        10827
+      ],
+      "hex": "e13181be1335553f8a3cfcbe00000000fc55023f5e565c3f46b7773fe7645e3e718d03be"
+    },
+    {
+      "direction": [
+        52551,
+        -84025,
+        -71603
+      ],
+      "hex": "ba614e3f3b10dc3e3830d03e00000000a5ee2fbfa5f7393fd377173f45ec15bf32d50dbf"
+    },
+    {
+      "direction": [
+        -93715,
+        -5409,
+        29813
+      ],
+      "hex": "f7369bbebc9573bf435c56bd000000002bf260bd199d7f3ffcf373bffffa9a3eec62883c"
+    },
+    {
+      "direction": [
+        -17566,
+        73660,
+        -26293
+      ],
+      "hex": "83dd543f206560be1fae023f00000000913d6b3f2df8c93e62360ebf47f0a7be889a433f"
+    },
+    {
+      "direction": [
+        -16797,
+        -74561,
+        30723
+      ],
+      "hex": "0d9f60bf84ce50be4351debe0000000073b867bf6aa3d93e979cf5be34f6be3e5c514b3f"
+    },
+    {
+      "direction": [
+        -98616,
+        32974,
+        -19541
+      ],
+      "hex": "c409473e549c6ebf28869c3e000000003f919f3e0040733f131e7bbf08203dbefd1f783d"
+    },
+    {
+      "direction": [
+        -86622,
+        75252,
+        -58578
+      ],
+      "hex": "2a680f3f23202cbf61bcf73e000000004888153fdec94f3ffa0f54bf9ecce8bef087a73e"
+    },
+    {
+      "direction": [
+        -61280,
+        -58645,
+        70825
+      ],
+      "hex": "089841bfb5f70dbf13cbb1be00000000f3dc07bf0df9583fe38027bf9e14243f867ccd3e"
+    },
+    {
+      "direction": [
+        30829,
+        -93271,
+        -10995
+      ],
+      "hex": "bdfdab3e63af9f3e7285633f00000000e08e71bf6d89a93ebb1f713fabcde3bddc49a2be"
+    },
+    {
+      "direction": [
+        -32421,
+        52524,
+        -51680
+      ],
+      "hex": "ebdb583fbf32cebe3986b13e00000000e006273f5601423f6e0b08bfca5724bf4a7d0d3f"
+    },
+    {
+      "direction": [
+        50673,
+        10529,
+        -88509
+      ],
+      "hex": "792a5e3f080bfd3ef6fc50bd00000000fd4fd23d87a57e3f5363fe3ecafd5cbf4284b63d"
+    },
+    {
+      "direction": [
+        26505,
+        -35968,
+        -75803
+      ],
+      "hex": "54a7713f4f3a9a3e6e280a3e000000008f4ad1be8da2693fcffda83ebc8a5cbffd8fc5be"
+    },
+    {
+      "direction": [
+        -38294,
+        -51026,
+        -25193
+      ],
+      "hex": "3fb30c3f3cec0ebf61191fbf000000001a713ebf26142b3f2cde55bf9c0dbcbe6456d1be"
+    },
+    {
+      "direction": [
+        -76035,
+        61022,
+        -42452
+      ],
+      "hex": "f797f93e850d37bf5a45003f00000000c8e8123fbaa6513f72855fbf9e67ccbe9f3b8f3e"
+    },
+    {
+      "direction": [
+        70823,
+        -47944,
+        -59711
+      ],
+      "hex": "4a03253f14d22d3f88ecb33e000000006956ebbebf5a633f9cb8433f698c12bfb8b197be"
+    },
+    {
+      "direction": [
+        63404,
+        -16784,
+        72767
+      ],
+      "hex": "a60241bf58b0253fe581e63d00000000ff702fbef9367c3fef2c283f0d283e3f0146043e"
+    },
+    {
+      "direction": [
+        11264,
+        -46316,
+        10131
+      ],
+      "hex": "7f312bbff8b16c3e29e8343f000000007e5073bf8d2c9f3eb8563e3f11e3543ecfb5223f"
+    },
+    {
+      "direction": [
+        27115,
+        86415,
+        -80843
+      ],
+      "hex": "38b6723fbab5643e93c867be000000003939363f9dce333f08d0a23e4d792abfccc32c3f"
+    },
+    {
+      "direction": [
+        -33226,
+        -62289,
+        -66819
+      ],
+      "hex": "8039653f8d02afbee21492be00000000d20b24bf3688443f32f7e3befdf92fbf6be312bf"
+    },
+    {
+      "direction": [
+        18438,
+        19177,
+        -75459
+      ],
+      "hex": "12af783f40f96b3e280669bd00000000786e753ec489783fea0e733e6e6f71bfdc6a6e3e"
+    },
+    {
+      "direction": [
+        21388,
+        84350,
+        99489
+      ],
+      "hex": "26487abfcbb2253eb75809be00000000d05e233f1e18453f8d38573e1ab1403fa2b81fbf"
+    },
+    {
+      "direction": [
+        82696,
+        -61777,
+        -89001
+      ],
+      "hex": "4f8a3b3f9f531b3f30f79d3e00000000d211e8be5731643f2a412e3f532b27bf6602aabe"
+    },
+    {
+      "direction": [
+        -66946,
+        -98242,
+        -26694
+      ],
+      "hex": "92a2bd3e47a80cbf63bb3fbf0000000079694ebf446d173f14cb6dbfa95760bef3e698be"
+    },
+    {
+      "direction": [
+        79299,
+        -89736,
+        -70237
+      ],
+      "hex": "efbc293f7f39123f99bcf73e00000000567825bfb155433f3fa33f3fbc8301bf206ddbbe"
+    },
+    {
+      "direction": [
+        407,
+        -34446,
+        81552
+      ],
+      "hex": "2fff7fbf64a5963b4f84fe3a000000000e37c7beb2d36b3f5888a33bf1d26b3f6b36c73e"
+    },
+    {
+      "direction": [
+        -19844,
+        -39641,
+        76459
+      ],
+      "hex": "5aca77bfc0ea65beb6c2e6bd000000000ca5e5be22ce643f399f80bebe775d3fc447de3e"
+    },
+    {
+      "direction": [
+        14866,
+        -87946,
+        53002
+      ],
+      "hex": "f17c76bfa2b8123e7b686a3e0000000062ff58bfd6d2073f1a458a3ee4c6023f50ef503f"
+    },
+    {
+      "direction": [
+        -34525,
+        -70838,
+        96365
+      ],
+      "hex": "e1ff70bf36008ebe718944be0000000087ad11bf4382523ff6afacbe872c463f4a24093f"
+    },
+    {
+      "direction": [
+        53059,
+        -53144,
+        91356
+      ],
+      "hex": "265f5dbf36b7e53e511c673e000000006c15e6bee8b1643f4192003f95c2453f02f6c63e"
+    },
+    {
+      "direction": [
+        -86972,
+        -73324,
+        -60762
+      ],
+      "hex": "549d123fafa32cbfbaa0eebe00000000518c11bf3a99523f85db51bfa039f1bef2b6a6be"
+    },
+    {
+      "direction": [
+        4687,
+        -93627,
+        -84607
+      ],
+      "hex": "ac9b7f3f4107183d87fa273d000000006dce3dbf90c82b3f5c8f623d3d852bbf0a843dbf"
+    },
+    {
+      "direction": [
+        -63393,
+        -84271,
+        -91611
+      ],
+      "hex": "7283523fbb5ae8beb2c2afbe0000000075701abff82a4c3fd0ab11bf14e427bf18fffdbe"
+    },
+    {
+      "direction": [
+        -33427,
+        11200,
+        -84189
+      ],
+      "hex": "79ee6d3f1d83bbbe8e7a393d00000000664ffb3db7107e3fa8f0bcbe25226cbf9c92e93d"
+    },
+    {
+      "direction": [
+        42497,
+        -45983,
+        -93347
+      ],
+      "hex": "c0fd683ffd93c13ebe922d3e000000000975d1be0899693f7324d43e3b9a54bfada1bebe"
+    },
+    {
+      "direction": [
+        -67326,
+        -72284,
+        -50943
+      ],
+      "hex": "0f781a3fcb121bbfd5c404bf00000000477e26bf9d76423f38254cbf1badeabe17ecc8be"
+    },
+    {
+      "direction": [
+        -5154,
+        -67762,
+        56613
+      ],
+      "hex": "17f27ebf35ad6ebd71408ebd00000000d91f44bf8988243f29aeb9bd10db233f1151433f"
+    },
+    {
+      "direction": [
+        -53636,
+        44077,
+        -1089
+      ],
+      "hex": "cf4aa63c6dc245bf387b223f00000000cb83223fdccc453f7ff27fbfa47c80bce721533c"
+    },
+    {
+      "direction": [
+        18794,
+        2465,
+        74334
+      ],
+      "hex": "b33078bf36df7a3ee60b01bc00000000c79d033d28de7f3f65007b3ee30f783fc533ffbc"
+    },
+    {
+      "direction": [
+        -25166,
+        -54644,
+        56048
+      ],
+      "hex": "dd8969bf11b59cbe6e608bbe00000000f1212abf99493f3fa9b8d1beff802e3f83341b3f"
+    },
+    {
+      "direction": [
+        78422,
+        91056,
+        77471
+      ],
+      "hex": "66e933bf9e690c3f5ef7e7be000000008e08233f7e5f453fc71e363fb7b50a3f3e27e5be"
+    },
+    {
+      "direction": [
+        64992,
+        65968,
+        85720
+      ],
+      "hex": "cdfe4bbf79d9033f0bb6a1be000000005bd4053fa93b5a3fc7aa1a3f85e62d3f3049d5be"
+    },
+    {
+      "direction": [
+        36515,
+        39577,
+        -30406
+      ],
+      "hex": "44d0233f4729173f02cefbbe0000000047d6233fdbb4443fdcb9443f5dbefbbe71add13e"
+    }
+  ]
+}

@@ -3,6 +3,19 @@ import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import { createServer } from 'vite';
 import { chromium } from '@playwright/test';
+const run =
+  process.argv[2] ??
+  new Date()
+    .toISOString()
+    .replace(/[^a-z0-9]/gi, '-')
+    .toLowerCase();
+assert(process.argv.length <= 3 && /^[a-z0-9-]+$/.test(run), 'Invalid preview run name');
+const prefix = `artifacts/baron-preview-${run}`;
+for (const role of ['missile', 'hit'])
+  for (const tick of [6, 20, 40, 80])
+    assert(!fs.existsSync(`${prefix}-${role}-${tick}.png`), 'Preview screenshot already exists');
+assert(!fs.existsSync(prefix + '.json'), 'Preview report already exists');
+
 const server = await createServer({
   configFile: false,
   logLevel: 'error',
@@ -43,6 +56,7 @@ try {
     const { loadBaronParticleResources } = await import('/src/render/baron-particle-resources.ts');
     const { BaronParticleBatch } = await import('/src/render/baron-particle-batch.ts');
     const { BaronAttackSystem } = await import('/src/render/baron-attack-system.ts');
+    const { sourceFlightBasis } = await import('/src/render/source-flight-basis.ts');
     const resources = await loadBaronParticleResources(),
       renderer = new THREE.WebGLRenderer({ antialias: false });
     renderer.setSize(900, 650);
@@ -64,7 +78,14 @@ try {
       });
       const batch = new BaronParticleBatch(resources, role);
       scene.add(batch.root);
-      previews[role] = { system, batch };
+      previews[role] = {
+        system,
+        batch,
+        orientation:
+          role === 'missile'
+            ? Array.from(sourceFlightBasis([6, 0, 0]))
+            : [1, 0, 0, 0, 1, 0, 0, 0, 1],
+      };
     }
     window.baronPreview = { resources, renderer, scene, camera, previews };
     return { textures: resources.textures.size, drawingMeshes: resources.meshes.size };
@@ -76,14 +97,14 @@ try {
         ({ role, tick }) => {
           const { renderer, scene, camera, previews } = window.baronPreview;
           for (const [name, p] of Object.entries(previews)) p.batch.root.visible = name === role;
-          const { system, batch } = previews[role];
+          const { system, batch, orientation } = previews[role];
           while (system.checkpoint().steps < tick) {
             const step = system.checkpoint().steps + 1;
             system.step({
               dt: 1 / 60,
               origin: role === 'missile' ? [-300 + step * 6, 150, 0] : [0, 100, 0],
               moved: role === 'missile' ? [6, 0, 0] : [0, 0, 0],
-              orientation: [1, 0, 0, 0, 1, 0, 0, 0, 1],
+              orientation,
               stopped: step >= 60,
             });
           }
@@ -102,7 +123,7 @@ try {
         { role, tick }
       );
       observations.push(reading);
-      await page.screenshot({ path: `artifacts/baron-preview-${role}-${tick}.png` });
+      await page.screenshot({ path: `${prefix}-${role}-${tick}.png` });
     }
   const cleanup = await page.evaluate(() => {
     const { resources, renderer, previews } = window.baronPreview;
@@ -125,10 +146,11 @@ try {
   const observed = new Set(observations.flatMap((r) => r.visible));
   assert.equal(observed.size, 21, 'Not all authored emitters were drawn');
   fs.writeFileSync(
-    'artifacts/baron-particle-preview.json',
+    prefix + '.json',
     JSON.stringify(
       {
         status: 'passed',
+        run,
         browserVersion: browser.version(),
         nativeExecuted: false,
         activeGameplayBinding: false,

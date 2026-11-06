@@ -29,3 +29,8 @@ The preview is isolated from gameplay. Historical effect reconstruction, native
 attachment/height/size decisions, owner retirement, depth-bias handling and
 full-scene browser save/reload verification remain integration work. Local
 Chromium/SwiftShader results are not device-performance or native-fidelity proof.
+
+The initial fixed-name preview report/screenshots were subsequently overwritten
+by later QA runs. Their recorded hashes remain historical. The preview tool now
+refuses conflicting paths and namespaces every run; current travel-axis evidence
+is in SOURCE-FLIGHT-BASIS.md and reference/source-flight-basis-verification.json.
