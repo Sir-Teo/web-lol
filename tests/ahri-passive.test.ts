@@ -362,6 +362,8 @@ test('a later Essence record cannot retroactively legalize an expired R window',
   r.resets[0].consumeTick = 902;
   r.resets[0].endTick = 1502;
   r.endTick = 1502;
+  // Keep the audio mirror consistent so the probe reaches Essence chronology.
+  raw.ahriSpiritRushAudio[0].windowEndTick = 1502;
   expect(() => World.fromSnapshot(JSON.stringify(raw), f.w.battlefield)).toThrow(/Essence history/);
 });
 
