@@ -37,6 +37,11 @@ samples; all 235 helper cases pass. Per-channel float32 rounding, duplicate keys
 and pinned draw consumption remain explicit. Integrated values require their
 own adapter; no native PRNG parity is claimed.
 
+The [integrated-value adapter](SOURCE-INTEGRATED-VALUES.md) now matches 144
+independent exact-byte samples; 383 combined ordinary/integrated cases pass.
+Constants, authored single keys, both integral orders and per-order cache
+ownership remain distinct. Lifetime scaling and renderer playback remain open.
+
 ## Recent verified checkpoints
 
 All 21 Baron emitters now have a [strict private parameter stage](BARON-ATTACK-PROGRAM.md),

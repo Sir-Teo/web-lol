@@ -1,0 +1,36 @@
+{
+  "format": 1,
+  "testsPassed": 148,
+  "combinedTestsPassed": 383,
+  "independentSamples": 144,
+  "typecheck": "passed",
+  "nativeExecuted": false,
+  "runtimeBinding": false,
+  "evidence": [
+    {
+      "path": "artifacts/source-integrated-value-tests.log",
+      "bytes": 949,
+      "sha256": "c156e2d92a364072e86fbea553e2df336df317271e1f85825c7838786fedbd60"
+    },
+    {
+      "path": "artifacts/source-integrated-value-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tools/assets/export-source-integrated-value-samples.mjs",
+      "bytes": 3522,
+      "sha256": "d481019bae063e294969281960ed2369c96d6d65628ee2a7888552ffb35cd182"
+    },
+    {
+      "path": "docs/reference/source-integrated-value-samples.json",
+      "bytes": 24012,
+      "sha256": "84186ff233b6ece0322b4c40297709ef994e39884c0043bf1274650422ebb901"
+    },
+    {
+      "path": "src/render/source-integrated-value.ts",
+      "bytes": 3525,
+      "sha256": "d4ef7d51f4dd26eabec2967cecc0e123c4d01164d7c503aea9946582007caa6a"
+    }
+  ]
+}
