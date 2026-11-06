@@ -11,8 +11,21 @@ import { sourceEmissionWindow } from './source-emission-window';
 import { sourceBirthPlacement } from './source-birth-placement';
 import { sourceSteppedMotion } from './source-stepped-motion';
 import { sourceLifetimeSettlement } from './source-lifetime-settlement';
+import { sourceParticleBasis } from './source-particle-spin';
 import type { SourceUvBirth } from './source-uv-layer';
 
+function emitterFrame(orientation: Float32Array, local: boolean) {
+  const override = sourceParticleBasis([0, 0, 0], 0);
+  if (!local) return override;
+  const frame = new Float32Array(9);
+  for (let row = 0; row < 3; row++)
+    for (let column = 0; column < 3; column++)
+      frame[row * 3 + column] =
+        orientation[row * 3] * override[column] +
+        orientation[row * 3 + 1] * override[3 + column] +
+        orientation[row * 3 + 2] * override[6 + column];
+  return frame;
+}
 const I = new Float32Array([1, 0, 0, 0, 1, 0, 0, 0, 1]),
   ZERO = new Float32Array(3);
 function turn(matrix: ArrayLike<number>, value: ArrayLike<number>) {
@@ -182,9 +195,10 @@ export class BaronAttackSystem {
       const p = emitter.prepared,
         phase = sourceEmissionWindow(p.schedule.window, now).phase;
       emitter.position = new Float32Array(p.position.sample(phase));
-      emitter.frame = baronFlag(p.profile.settings.isLocalOrientation, true)
-        ? new Float32Array(orientation)
-        : new Float32Array(I);
+      emitter.frame = emitterFrame(
+        orientation,
+        baronFlag(p.profile.settings.isLocalOrientation, true)
+      );
     }
     for (const [index, emitter] of this.emitters.entries()) {
       const p = emitter.prepared,

@@ -28,8 +28,16 @@ natural/stopped runs; checkpoints match exact futures, pool pressure stays bound
 and ownership/corruption guards pass. TypeScript passes. See
 `artifacts/baron-system-composition-tests.log`.
 
-The lower-level kernels have independent external fixtures. Full composed-loop
-comparison against external emit/stepEmitters is subsequent work; these ten
-composition cases do not claim it. GPU/material dispatch, asset delivery and native
+The independent full external loop now agrees on all 480 steps across six traces:
+missile/hit natural completion, explicit stopping, and capacity-one pressure. The
+reference executes pinned external emit/integrate/read functions and never imports
+application kernels. Every scalar and typed-array byte, packet and eight-draw RNG
+lookahead participates in each digest. All 87 focused tests and TypeScript pass.
+See `baron-system-external-verification.json` for evidence.
+
+The comparison exposed the emitter override matrix's signed-zero arithmetic.
+The harness also corrected a vector default and normalizes transported input
+zeros before both loops, since JSON cannot preserve negative zero. Initial failing
+artifacts are retained. GPU/material dispatch, asset delivery and native
 CPU/PRNG/cadence/visual fidelity remain unverified. No active renderer, gameplay
 or public assets change in this step.

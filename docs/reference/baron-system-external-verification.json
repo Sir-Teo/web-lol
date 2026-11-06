@@ -1,0 +1,41 @@
+{
+  "format": 1,
+  "traces": 6,
+  "steps": 480,
+  "focusedTestsPassed": 87,
+  "typecheck": "passed",
+  "nativeExecuted": false,
+  "runtimeBinding": false,
+  "evidence": [
+    {
+      "path": "docs/reference/baron-system-samples.json",
+      "bytes": 161145,
+      "sha256": "7d528e6218ec112490b9465ae483ae86f313c4580c231e84e7a2ad77aefba9a7"
+    },
+    {
+      "path": "tools/assets/export-baron-system-samples.mjs",
+      "bytes": 17074,
+      "sha256": "85280a968f8e53a3a22922c3cdabc820e305723a4659d1bb3d1a36aeaf8b901d"
+    },
+    {
+      "path": "src/render/baron-attack-system.ts",
+      "bytes": 18837,
+      "sha256": "3a3dca0036af119da9d269e8457fc73c7452f7c7757f69fa484894842bbd50bf"
+    },
+    {
+      "path": "tests/baron-system-external.test.ts",
+      "bytes": 2890,
+      "sha256": "a22278cabc8e922bcb16372d44abc89bc688b2542059ebe9885541d857980833"
+    },
+    {
+      "path": "artifacts/baron-system-external-verified-tests.log",
+      "bytes": 8331,
+      "sha256": "4491985e30eb591a0120bb78c1478d02e000ed009a6305e919ec44731cd9a4ea"
+    },
+    {
+      "path": "artifacts/baron-system-external-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}
