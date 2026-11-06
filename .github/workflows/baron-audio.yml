@@ -17,6 +17,8 @@ on:
       - 'vitest.config.ts'
       - 'tools/assets/audio_float_corpus.py'
       - 'tools/assets/export-ahri-charm-audio.py'
+      - 'tools/assets/export-baron-basic-audio.py'
+      - 'tools/assets/test-baron-basic-audio-export.py'
       - 'tools/assets/test-ahri-charm-audio-export.py'
       - 'docs/reference/ahri-audio-graph.json'
       - 'docs/reference/ahri-audio-decoded.json'
@@ -37,6 +39,8 @@ on:
       - 'vitest.config.ts'
       - 'tools/assets/audio_float_corpus.py'
       - 'tools/assets/export-ahri-charm-audio.py'
+      - 'tools/assets/export-baron-basic-audio.py'
+      - 'tools/assets/test-baron-basic-audio-export.py'
       - 'tools/assets/test-ahri-charm-audio-export.py'
       - 'docs/reference/ahri-audio-graph.json'
       - 'docs/reference/ahri-audio-decoded.json'
@@ -85,3 +89,7 @@ jobs:
         run: |
           python3 tools/assets/test-ahri-charm-audio-export.py
           python3 -O tools/assets/test-ahri-charm-audio-export.py
+      - name: Check Baron whole-closure publication guards without private caches
+        run: |
+          python3 tools/assets/test-baron-basic-audio-export.py
+          python3 -O tools/assets/test-baron-basic-audio-export.py

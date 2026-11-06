@@ -49,3 +49,5 @@ hundred-seed run is in progress; see CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md.
 Earlier fixed-name QA artifacts were overwritten; newer preview and production
 runs use exclusive namespaced claims. Historical hashes are preserved. See
 QA-ARTIFACT-RUNS.md.
+
+On the isolated Charm development branch, the Baron whole-closure publication guard now stages its temporary source WAV fixtures from the identical committed masters. It no longer requires the private decoder cache. Normal and optimized runs pass from an otherwise empty temporary checkout with no `.cache` or `.tools`, preserving the same five conflict/corruption/symlink rejection probes. Both modes are included in the audio CI workflow. This tooling change does not alter Baron runtime assets or the primary acceptance receipt.
