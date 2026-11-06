@@ -26,3 +26,5 @@ PYTHONPATH=.tools/cdtb .tools/cdtb-venv/bin/python -O tools/assets/test-ahri-q-p
 ```
 
 Native texture decoding, mesh transport, materials/distortion, bone attachments, actual callback clocks and browser comparison remain separate work. The current Q development marker is unchanged; source retention is not a visual-fidelity claim. Audio and older cohort evidence retain their original scope.
+
+The source-stage receipt is [q-particles-source-verification.json](reference/ahri/q-particles-source-verification.json). It records all46 source hashes/extents in original and freshly restored directories, complete native reparse, both seven-test guard modes and the unchanged runtime fingerprint. Texture/mesh decoding follows in a separate commit.

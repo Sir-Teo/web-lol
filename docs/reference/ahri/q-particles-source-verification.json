@@ -1,0 +1,71 @@
+{
+  "format": 1,
+  "sourceRevision": "298f1bd24a0e23b854ffd893797bf37ea3726625",
+  "scope": "Native source retention and exact dependency closure only",
+  "sourcePinSha256": "613f21651105761810963a32275a52b073189ccdea7286af78980d558b3db2c3",
+  "schema": 175,
+  "ruleset": "08e106da69e9a0827b0274d7c97fd3589bd3cdf610a80b9d3b1a73452c679c46",
+  "runtimeChanged": false,
+  "systems": 7,
+  "emitters": 61,
+  "sourceFiles": 46,
+  "sourceBytes": 2319684,
+  "bins": 5,
+  "textures": 37,
+  "meshes": 4,
+  "fullNativeReparse": true,
+  "pythonGuards": {
+    "testsPerMode": 7,
+    "modes": [
+      "normal",
+      "optimized"
+    ],
+    "structuralMutationSubcases": 12
+  },
+  "restoration": {
+    "roots": [
+      "/workspace/web-lol-ahri-q-particles/.cache/ahri-q-particles/sources",
+      "/workspace/web-lol-ahri-q-particles/.cache/ahri-q-particles-restored-v1"
+    ],
+    "allSourceHashesAndExtentsMatch": true,
+    "optimizedRestoredCheck": true
+  },
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-particles-native-check-v2.log",
+      "bytes": 131,
+      "sha256": "4ff5aaa113c7328f95590a50be5af25533fd80bfb00df9aa9a1289658a237680"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-particles-native-guards-v1.log",
+      "bytes": 105,
+      "sha256": "7a11e2c0eb0838dc876521f36d21c8b3aaf14d4069f792801856e88be7bc918e"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-particles-native-guards-optimized-v1.log",
+      "bytes": 105,
+      "sha256": "745bbba0cf3d94ac2e1fc7c3dd0a4132332a884f53d054a71852201f028dfe03"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-particles-restoration-v1.log",
+      "bytes": 133,
+      "sha256": "e9376c5291e1f068d6049952785078be550e212610d25b95a3be87ce99a2df89"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-particles-restored-check-optimized-v1.log",
+      "bytes": 131,
+      "sha256": "4ff5aaa113c7328f95590a50be5af25533fd80bfb00df9aa9a1289658a237680"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-particles-source-ruleset-v1.log",
+      "bytes": 65,
+      "sha256": "294c08447a8d6cfce35d62b8e92bc677459d1d79fff506101a14f97822ffd103"
+    }
+  ],
+  "limits": [
+    "No texture decode, public runtime assets, particle rendering, material/attachment or callback policy is bound in this source checkpoint.",
+    "Source retention does not certify native appearance. Both missile/contact variants remain distinct.",
+    "Accepted Recall pack and cohort evidence retain their original scope."
+  ],
+  "roadmapMilestone4Complete": false
+}
