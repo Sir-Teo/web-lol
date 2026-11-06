@@ -31,6 +31,7 @@ on:
       - 'tools/assets/test-ahri-lifecycle-audio-reading.py'
       - 'docs/reference/ahri-lifecycle-audio-properties.json'
       - 'docs/reference/ahri/q-cast-gameplay-reference.json'
+      - 'docs/reference/source-packed-trail-samples.json'
       - 'docs/reference/ahri/q-projectile-gameplay-reference.json'
       - 'tests/helpers/ahri-q-projectile-gameplay.ts'
       - 'tools/qa/*ahri-q-projectile-gameplay*'
@@ -120,6 +121,7 @@ on:
       - 'tools/assets/test-ahri-lifecycle-audio-reading.py'
       - 'docs/reference/ahri-lifecycle-audio-properties.json'
       - 'docs/reference/ahri/q-cast-gameplay-reference.json'
+      - 'docs/reference/source-packed-trail-samples.json'
       - 'docs/reference/ahri/q-projectile-gameplay-reference.json'
       - 'tests/helpers/ahri-q-projectile-gameplay.ts'
       - 'tools/qa/*ahri-q-projectile-gameplay*'
@@ -230,6 +232,7 @@ jobs:
           tests/ahri-recall-audio-policy.test.ts
           tests/ahri-q-projectile-visuals.test.ts
           tests/ahri-q-projectile-history.test.ts
+          tests/source-packed-trail-ribbon.test.ts
           tests/source-motion-timeline.test.ts
           tests/ahri-q-projectile-particles.test.ts
           tests/ahri-q-projectile-gameplay-reference.test.ts
