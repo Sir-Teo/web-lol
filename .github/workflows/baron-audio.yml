@@ -11,6 +11,9 @@ on:
       - 'public/assets/audio/ahri-orb/**'
       - 'public/assets/audio/ahri-fox-fire/**'
       - 'public/assets/audio/ahri-spirit-rush/**'
+      - 'public/assets/audio/ahri-recall/**'
+      - 'tools/assets/export-ahri-recall-audio.py'
+      - 'tools/assets/test-ahri-recall-audio-export.py'
       - 'public/assets/audio/ahri-lifecycle/**'
       - 'tools/assets/export-ahri-lifecycle-audio.py'
       - 'tools/assets/test-ahri-lifecycle-audio-export.py'
@@ -86,6 +89,9 @@ on:
       - 'public/assets/audio/ahri-orb/**'
       - 'public/assets/audio/ahri-fox-fire/**'
       - 'public/assets/audio/ahri-spirit-rush/**'
+      - 'public/assets/audio/ahri-recall/**'
+      - 'tools/assets/export-ahri-recall-audio.py'
+      - 'tools/assets/test-ahri-recall-audio-export.py'
       - 'public/assets/audio/ahri-lifecycle/**'
       - 'tools/assets/export-ahri-lifecycle-audio.py'
       - 'tools/assets/test-ahri-lifecycle-audio-export.py'
@@ -196,6 +202,7 @@ jobs:
           tests/ahri-lifecycle-audio-state.test.ts
           tests/ahri-lifecycle-audio-controller.test.ts
           tests/ahri-lifecycle-audio-policy.test.ts
+          tests/ahri-recall-audio-assets.test.ts
           tests/ahri-lifecycle-audio-assets.test.ts
           tests/ahri-lifecycle-gameplay-reference.test.ts
           tests/champion-respawn.test.ts
@@ -291,3 +298,7 @@ jobs:
         run: |
           python3 tools/assets/test-ahri-recall-audio-reading.py
           python3 -O tools/assets/test-ahri-recall-audio-reading.py
+      - name: Check Ahri Recall publication closure without private caches
+        run: |
+          python3 tools/assets/test-ahri-recall-audio-export.py
+          python3 -O tools/assets/test-ahri-recall-audio-export.py

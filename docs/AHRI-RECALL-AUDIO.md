@@ -7,3 +7,9 @@
 Recall inherits actor693628260, priority55, attenuation687014649 and unresolved global bus2232828494, shared with death/respawn. The three-point stored dB table remains(0,0,Constant),(1350,0,Linear),(2412,−1,Linear). Raw zero instance declarations, actor identity, omissions and action/playlist rows remain unflattened. Native emitter/cancellation timing, global bus/listener behavior and inheritance remain unverified.
 
 Normal/optimized six-probe guards reproduce the record without private banks, tools or caches, rejecting missing/changed output, output/parent symlinks, changed graph bytes and missing decoded metadata. No Recall runtime master, timing, saved history or playback is bound. Lifecycle delivery remains isolated and excluded from this source preparation.
+
+## Isolated master and graph stage
+
+The branch stages one unchanged mono44.1 kHz float master and the generated unflattened graph: two outputs /1,706,282 bytes. The finite playlist keeps its one sound, source gain−5, zero maximum-instance declaration and shared actor/attenuation/bus identity. No Recall Stop event or callback is generated.
+
+All three source/property/master checks and TypeScript pass. Normal/optimized six-probe publication guards preflight the final graph before writing the master and reject corrupt output, leaf/parent symlinks and changed input, using a committed identical master without private decoder caches. Recall history/timing/playback remain unbound. Lifecycle delivery retains its separate scope.
