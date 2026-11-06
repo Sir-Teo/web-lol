@@ -400,3 +400,23 @@ test('saved release pose stays independent through source death and rejects edit
     expect(() => World.fromSnapshot(JSON.stringify(snapshot), w.battlefield)).toThrow();
   }
 });
+
+test('release owns its initial target point independently of later target movement', () => {
+  const { w, visual } = launched();
+  const initial = { x: w.hero.x, y: w.hero.y };
+  expect(visual.initialTargetPoint).toEqual(initial);
+  w.hero.x += 100;
+  w.step();
+  expect(visual.initialTargetPoint).toEqual(initial);
+  expect(restore(w).baronAttackVisuals.find((v) => v.id === visual.id)!.initialTargetPoint).toEqual(
+    initial
+  );
+  for (const change of ['missing', 'nonfinite', 'outside flight cap']) {
+    const raw = JSON.parse(w.snapshot()),
+      saved = raw.baronAttackVisuals.find((v: any) => v.id === visual.id);
+    if (change === 'missing') delete saved.initialTargetPoint;
+    else if (change === 'nonfinite') saved.initialTargetPoint.x = null;
+    else saved.initialTargetPoint.x = saved.origin.x + 5000;
+    expect(() => World.fromSnapshot(JSON.stringify(raw), w.battlefield)).toThrow();
+  }
+});

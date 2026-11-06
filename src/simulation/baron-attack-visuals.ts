@@ -34,6 +34,7 @@ export interface BaronAttackVisual {
   targetId: number;
   team: 'neutral';
   origin: Vec2;
+  initialTargetPoint: Vec2;
   launchTick: number;
   launchPose: LuxImpactFrame;
   stopTick: number | null;
@@ -72,6 +73,7 @@ export function startBaronAttackVisual(
     targetId: target.id,
     team: 'neutral',
     origin: { ...projectile.origin },
+    initialTargetPoint: { x: target.x, y: target.y },
     launchTick: world.tick,
     launchPose,
     stopTick: null,

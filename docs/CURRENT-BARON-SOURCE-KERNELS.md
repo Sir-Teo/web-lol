@@ -1,6 +1,9 @@
 # Current Baron source-kernel checkpoint
 
-Current runtime: save schema **166**, ruleset `ae3da0abcdce8fdd4bf7183723ab95016de9c2df64c77424852b0e11b88b7b07`.
+Current runtime: save schema **167**, ruleset `d3eb639e160dbc64640f825e42f70d59485f996cb348104eeaaed4946a8e3bc0`.
+The owned initial target point now supports reload-stable local flight projection;
+49 scoped tests and TypeScript pass. Earlier schema166 checkpoints below retain
+their original identities.
 The complete 312-frame launch-prefix fix supersedes the 90-frame sliding window;
 46 focused replay/history cases and TypeScript pass. See
 `BARON-FULL-LAUNCH-HISTORY.md`. The full unit/browser/production checkpoints below

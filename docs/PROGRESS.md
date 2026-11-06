@@ -9330,3 +9330,7 @@ At hit-binding commit 7f306cf, the full suite passes 8,150/8,152 across 459 file
 ### Explicit local Baron flight projection
 
 Added a private-preview projector from the saved jaw matrix and retained planar path to one caller-supplied target elevation. It fixes its falloff distance from the original target point, so later target movement cannot rewrite earlier roots; stop freezes the travel frame. Raw hidden-root sampling supports deterministic emission while the existing gated sampler preserves audience semantics. Eight focused tests and TypeScript pass. Native targetHeightAugment/offsetInitialTargetHeight interaction remains unresolved; this is an explicit local policy, not a recovered native trajectory. See docs/BARON-LOCAL-FLIGHT-PROJECTION.md.
+
+### Persist the original Baron target point
+
+Schema 167 saves an owned initialTargetPoint at projectile release so the local missile projection can rebuild its original falloff distance. Later target movement does not rewrite it. Missing/nonfinite/out-of-flight-cap points reject. Forty-nine scoped history/replay/projection/Lux-hit tests and TypeScript pass. Gameplay damage, IDs and RNG are unchanged. Current ruleset d3eb639e160dbc64640f825e42f70d59485f996cb348104eeaaed4946a8e3bc0. Earlier ae3da0/schema166 delivery and full-suite receipts remain historical. Evidence: docs/reference/baron-initial-target-verification.json.

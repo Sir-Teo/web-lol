@@ -176,7 +176,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 166;
+export const SNAPSHOT_VERSION = 167;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -2348,6 +2348,7 @@ const snapshot = z.strictObject({
         targetId: id,
         team: z.literal('neutral'),
         origin: point,
+        initialTargetPoint: point,
         launchTick: tick,
         launchPose: savedPoseFrame,
         stopTick: tick.nullable(),
@@ -3484,6 +3485,10 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       state.grompAttackVisuals.some((v) => v.id === visual.id) ||
       state.luxImpactVisuals.some((v) => v.id === visual.id) ||
       state.scoutVisuals.some((v) => v.flight.id === visual.id) ||
+      Math.hypot(
+        visual.initialTargetPoint.x - visual.origin.x,
+        visual.initialTargetPoint.y - visual.origin.y
+      ) > 4000 ||
       visual.launchPose.tick !== visual.launchTick ||
       visual.launchPose.x !== visual.origin.x ||
       visual.launchPose.y !== visual.origin.y ||

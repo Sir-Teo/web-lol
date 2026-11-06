@@ -1,0 +1,41 @@
+{
+  "format": 1,
+  "snapshotVersion": 167,
+  "ruleset": "d3eb639e160dbc64640f825e42f70d59485f996cb348104eeaaed4946a8e3bc0",
+  "focusedTestsPassed": 49,
+  "typecheck": "passed",
+  "fact": "initialTargetPoint is copied at release and survives target movement/reload",
+  "nativeExecuted": false,
+  "evidence": [
+    {
+      "path": "src/simulation/baron-attack-visuals.ts",
+      "bytes": 6369,
+      "sha256": "6464a7a38deea690c838cfe302a278638cafb42448bf273be538b9d97dd78431"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "bytes": 197308,
+      "sha256": "226fd736572c27c4ed56a78cdc7085fadf17ac08f44629876862ac54c73a4d14"
+    },
+    {
+      "path": "tests/baron-attack-history.test.ts",
+      "bytes": 13630,
+      "sha256": "ac75087ebb3a2c4488bc7dbeee9dfbfed5fcaf802d0510b373ca50cddd55fff6"
+    },
+    {
+      "path": "tests/lux-e-hit.test.ts",
+      "bytes": 7346,
+      "sha256": "9db58fe04faa4e86eb2cdeab0f09ddde5ed24b849bb47c511f4a8c040fb228ec"
+    },
+    {
+      "path": "artifacts/baron-initial-target-tests.log",
+      "bytes": 5619,
+      "sha256": "09f996168862f54cd9bd7641cbdfe42d819868a8bf2fda36e3a6e54801c59d1e"
+    },
+    {
+      "path": "artifacts/baron-initial-target-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}
