@@ -1,6 +1,6 @@
 # Ahri Q projectile asset preparation
 
-This isolated source checkpoint stages the two Q projectile resource closures, `Ahri_Q_mis` and `Ahri_Q_mis_02`: 16 and 20 native emitters. Their outgoing/return phase assignment needs separate native spell/projectile binding evidence. It leaves simulation, rendering, public assets, startup requests and the accepted pack unchanged.
+This isolated source checkpoint stages the two Q projectile resource closures, `Ahri_Q_mis` and `Ahri_Q_mis_02`: 16 and 20 native emitters. The native spell/resource aliases are checked in the later reading below; runtime phase dispatch remains unbound. It leaves simulation, rendering, public assets, startup requests and the accepted pack unchanged.
 
 Seventeen TEX dependencies include base images, erosion maps, multiplier masks and ray textures. All 151 authored mip levels pack losslessly into 17 private PNG transports totaling 713,081 bytes. The decoder record and native sources remain pinned. Every packed level unpacks to its recorded software-decoded RGBA hash; direct sampling of the transport atlas is invalid. Native GPU decoding and pixel equivalence remain unverified.
 
@@ -9,3 +9,13 @@ Three flag-2 SCB meshes become private GLBs after glTF Transform dedup/prune wit
 The pinned ledgers are [texture transports](reference/ahri/q-projectile-texture-transport.json) and [mesh transports](reference/ahri/q-projectile-mesh-transports.json). Both preserve native coordinates; future rendering must explicitly bind scene units, attachment frames, lifetimes, trails, materials and visibility. The white unlit transport material does not establish source shading. Native projectile event mapping and outgoing/return dispatch remain unbound.
 
 Run the texture packer and its `--check` mode after restoring the retained Q source/decode caches. Seven Python guard cases pass normally and under `-O`, including recursive dependencies, source/producer pins, mip corruption, symlinks and a final conflict that prevents earlier writes. Five Node mesh guard cases reproduce all outputs and reject conflicts, symlinks, changed input records and corrupt selected geometry before partial publication. The engine loader verifies all three transports. These fixture-dependent preparation checks are separate from portable runtime CI.
+
+## Native spell/resource alias reading
+
+The later [portable binding reading](reference/ahri/q-projectile-bindings.json) verifies the native Q ability's root/three-child declaration and joins `AhriQMissile.mMissileEffectKey` to `Ahri_Q_mis` and `AhriQReturnMissile.mMissileEffectKey` to `Ahri_Q_mis_02`. These aliases are now established from retained native declarations rather than inferred from asset names. The native script bodies and callback chronology remain outside these records.
+
+The reading pins the named character source, native 30,475-byte character BIN, named-record label source, model and complete Q particle source. A fresh Riot archive restoration matches the retained BIN exactly, and the unchanged pinned parser verifies all 64 character records plus links. Both missile declarations remain verbatim, including movement, client, targeting and damage fields; no gameplay rules are generated.
+
+The ordinary missile omits `visibilityComponent` and declares an empty `mStartBoneName`; the return declares `EnterFOWVisibility` and `root`. The return's `mVisualsTrackHiddenTargets` flag is retained without inventing a renderer visibility policy. The two native aliases do not establish local particle stop dispatch, height/attachment transforms, trails, material arithmetic or pixels. The effect/resource joins cover all 36 emitters and 20 texture/mesh dependencies.
+
+The standard-library reader reproduces exactly without private caches or decoder tools. Normal and optimized guard modes each reject nine malformed/missing/conflicting/symlink cases, including five source-pin mutations. Both Node wrappers pass. A separate source-only workflow runs the portable check and both modes; fixture-dependent PNG/GLB staging remains separate.

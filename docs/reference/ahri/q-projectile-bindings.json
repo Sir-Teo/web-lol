@@ -1,0 +1,661 @@
+{
+  "format": 1,
+  "producerSha256": "c51ddf0cfdfd6c11fa67c8be434e3bb62156efad2c5883c840f1ffaac4630d36",
+  "sourceHelperSha256": "303c0bc097b120237b7b63ff1236e808756a540d28ab79824f739663f49cc6e9",
+  "inputs": [
+    {
+      "path": "docs/reference/ahri/character.json",
+      "bytes": 121048,
+      "sha256": "aa7ec5f710aa818c2ecc98a516bb1542bb52261c7ce89649ef0b2b8e8cc5ec5e"
+    },
+    {
+      "path": "docs/reference/ahri/names.json",
+      "bytes": 64146,
+      "sha256": "770a7e5b7bdaf1d1de42b7d33a09912a8e56a3244bb0ab2b5d00d94e8b0013a2"
+    },
+    {
+      "path": "docs/reference/ahri/character.bin",
+      "bytes": 30475,
+      "sha256": "121997c9c4ef2ff0f671b659d64d2e22cb71208216ddcc3c4f552a17f196d2cb"
+    },
+    {
+      "path": "docs/reference/ahri-model.json",
+      "bytes": 234866,
+      "sha256": "74d0b55f5aad08646fbd24f660ed533bc8fd5798e8a60dc0983d97960b47a377"
+    },
+    {
+      "path": "docs/reference/ahri/q-particles.json",
+      "bytes": 390388,
+      "sha256": "613f21651105761810963a32275a52b073189ccdea7286af78980d558b3db2c3"
+    }
+  ],
+  "abilityPath": "Characters/Ahri/Spells/AhriQAbility",
+  "abilityDeclaration": {
+    "mRootSpell": "Characters/Ahri/Spells/AhriQAbility/AhriQ",
+    "mChildSpells": [
+      "Characters/Ahri/Spells/AhriQAbility/AhriQ",
+      "Characters/Ahri/Spells/AhriQAbility/AhriQMissile",
+      "Characters/Ahri/Spells/AhriQAbility/AhriQReturnMissile"
+    ],
+    "mName": "AhriQAbility",
+    "__type": "AbilityObject"
+  },
+  "missiles": [
+    {
+      "spellPath": "Characters/Ahri/Spells/AhriQAbility/AhriQMissile",
+      "scriptName": "AhriQMissile",
+      "declaration": {
+        "ObjectName": "AhriQMissile",
+        "objectPath": "Characters/Ahri/Spells/AhriQAbility/AhriQMissile",
+        "mScriptName": "AhriQMissile",
+        "mSpell": {
+          "mAffectsTypeFlags": 6154,
+          "mAlternateName": "AhriOrbofDeception",
+          "mEffectAmount": [
+            {
+              "value": [
+                20.0,
+                50.0,
+                80.0,
+                110.0,
+                140.0,
+                170.0,
+                200.0
+              ],
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            }
+          ],
+          "mCoefficient": 0.4000000059604645,
+          "mAnimationName": "Spell1",
+          "mImgIconName": [
+            "LuxLightStrikeKugel.dds"
+          ],
+          "spellCastTime": 0.25,
+          "spellTotalTime": 1.0,
+          "cooldownTime": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Cooldown": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "{0a3e0478}": 0.0,
+            "__type": "{0a0eddc9}"
+          },
+          "canCastWhileDisabled": true,
+          "mCantCancelWhileWindingUp": true,
+          "mProjectTargetToCastRange": true,
+          "castRange": [
+            1000.0,
+            1000.0,
+            1000.0,
+            1000.0,
+            1000.0,
+            1000.0,
+            1000.0
+          ],
+          "castRangeValues": {
+            "values": [
+              1000.0,
+              1000.0,
+              1000.0,
+              1000.0,
+              1000.0,
+              1000.0,
+              1000.0
+            ],
+            "{0a3e0478}": 1000.0,
+            "__type": "{0a0eddc9}"
+          },
+          "castRadius": [
+            275.0,
+            275.0,
+            275.0,
+            275.0,
+            275.0,
+            275.0,
+            275.0
+          ],
+          "castConeDistance": 100.0,
+          "mMissileSpec": {
+            "mMissileWidth": 100.0,
+            "movementComponent": {
+              "mUseHeightOffsetAtEnd": true,
+              "mTracksTarget": false,
+              "mStartBoneName": "",
+              "mAcceleration": -3200.0,
+              "mMinSpeed": 400.0,
+              "mMaxSpeed": 2500.0,
+              "mInitialSpeed": 2500.0,
+              "__type": "AcceleratingMovement"
+            },
+            "heightSolver": {
+              "__type": "BlendedLinearHeightSolver"
+            },
+            "verticalFacing": {
+              "__type": "VerticalFacingFaceTarget"
+            },
+            "behaviors": [
+              {
+                "__type": "CastOnHit"
+              },
+              {
+                "__type": "DestroyOnMovementComplete"
+              }
+            ],
+            "__type": "MissileSpecification"
+          },
+          "mCastType": 3,
+          "castFrame": 7.5,
+          "missileSpeed": 2500.0,
+          "mMissileEffectKey": "Ahri_Q_mis",
+          "mLineWidth": 100.0,
+          "selectionPriority": 1,
+          "mTargetingTypeData": {
+            "__type": "Location"
+          },
+          "mClientData": {
+            "mTargeterDefinitions": [
+              {
+                "hideWithLineIndicator": true,
+                "useCasterBoundingBox": false,
+                "__type": "TargeterDefinitionRange"
+              },
+              {
+                "endLocator": {
+                  "basePosition": 3,
+                  "__type": "DrawablePositionLocator"
+                },
+                "lineStopsAtEndPosition": true,
+                "lineWidth": {
+                  "mPerLevelValues": [
+                    100.0,
+                    100.0,
+                    100.0,
+                    100.0,
+                    100.0,
+                    100.0
+                  ],
+                  "mValueType": 2,
+                  "__type": "FloatPerSpellLevel"
+                },
+                "__type": "TargeterDefinitionLine"
+              }
+            ],
+            "__type": "SpellDataResourceClient"
+          },
+          "__type": "SpellDataResource"
+        },
+        "__type": "SpellObject"
+      },
+      "resourceKey": "Ahri_Q_mis",
+      "resourceRecord": "Characters/Ahri/Skins/Skin0/Particles/Ahri_Base_Q_mis",
+      "nativeParticleBin": {
+        "path": "data/characters/ahri/ahri_multi_skins_skin0_skins_skin2_skins_skin53_skins_skin57_skins_skin6.bin",
+        "sha256": "6d3753631c2a6dca7d54813d98a10bc3b48cf73706000672cd1feb4f42e442de"
+      },
+      "emitterCount": 16,
+      "explicitSpellFields": [
+        "Cooldown",
+        "__type",
+        "canCastWhileDisabled",
+        "castConeDistance",
+        "castFrame",
+        "castRadius",
+        "castRange",
+        "castRangeValues",
+        "cooldownTime",
+        "mAffectsTypeFlags",
+        "mAlternateName",
+        "mAnimationName",
+        "mCantCancelWhileWindingUp",
+        "mCastType",
+        "mClientData",
+        "mCoefficient",
+        "mEffectAmount",
+        "mImgIconName",
+        "mLineWidth",
+        "mMissileEffectKey",
+        "mMissileSpec",
+        "mProjectTargetToCastRange",
+        "mTargetingTypeData",
+        "missileSpeed",
+        "selectionPriority",
+        "spellCastTime",
+        "spellTotalTime"
+      ],
+      "explicitSpecificationFields": [
+        "__type",
+        "behaviors",
+        "heightSolver",
+        "mMissileWidth",
+        "movementComponent",
+        "verticalFacing"
+      ],
+      "explicitMovementFields": [
+        "__type",
+        "mAcceleration",
+        "mInitialSpeed",
+        "mMaxSpeed",
+        "mMinSpeed",
+        "mStartBoneName",
+        "mTracksTarget",
+        "mUseHeightOffsetAtEnd"
+      ]
+    },
+    {
+      "spellPath": "Characters/Ahri/Spells/AhriQAbility/AhriQReturnMissile",
+      "scriptName": "AhriQReturnMissile",
+      "declaration": {
+        "ObjectName": "AhriQReturnMissile",
+        "objectPath": "Characters/Ahri/Spells/AhriQAbility/AhriQReturnMissile",
+        "mScriptName": "AhriQReturnMissile",
+        "mSpell": {
+          "flags": 4,
+          "mAffectsTypeFlags": 14346,
+          "mAffectsStatusFlags": 32,
+          "mAlternateName": "AhriOrbofDeception",
+          "mEffectAmount": [
+            {
+              "value": [
+                35.0,
+                55.0,
+                75.0,
+                95.0,
+                115.0,
+                135.0,
+                155.0
+              ],
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "value": [
+                1.5,
+                1.5,
+                1.5,
+                1.5,
+                1.5,
+                1.5,
+                1.5
+              ],
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            },
+            {
+              "__type": "SpellEffectAmount"
+            }
+          ],
+          "mCoefficient": 0.6000000238418579,
+          "mAnimationName": "Spell3",
+          "mImgIconName": [
+            "LuxLightStrikeKugel.dds"
+          ],
+          "spellCastTime": 0.25,
+          "spellTotalTime": 1.0,
+          "cooldownTime": [
+            11.0,
+            11.0,
+            11.0,
+            11.0,
+            11.0,
+            11.0,
+            11.0
+          ],
+          "Cooldown": {
+            "values": [
+              11.0,
+              11.0,
+              11.0,
+              11.0,
+              11.0,
+              11.0,
+              11.0
+            ],
+            "{0a3e0478}": 11.0,
+            "__type": "{0a0eddc9}"
+          },
+          "canCastWhileDisabled": true,
+          "mCantCancelWhileWindingUp": true,
+          "mIsDisabledWhileDead": false,
+          "castRange": [
+            25000.0,
+            25000.0,
+            25000.0,
+            25000.0,
+            25000.0,
+            25000.0,
+            25000.0
+          ],
+          "castRangeValues": {
+            "values": [
+              25000.0,
+              25000.0,
+              25000.0,
+              25000.0,
+              25000.0,
+              25000.0,
+              25000.0
+            ],
+            "{0a3e0478}": 25000.0,
+            "__type": "{0a0eddc9}"
+          },
+          "castRadius": [
+            275.0,
+            275.0,
+            275.0,
+            275.0,
+            275.0,
+            275.0,
+            275.0
+          ],
+          "castConeDistance": 100.0,
+          "mMissileSpec": {
+            "mMissileWidth": 100.0,
+            "movementComponent": {
+              "mUseHeightOffsetAtEnd": true,
+              "mVisualsTrackHiddenTargets": true,
+              "mStartBoneName": "root",
+              "mProjectTargetToCastRange": true,
+              "mAcceleration": 1900.0,
+              "mMinSpeed": 60.0,
+              "mMaxSpeed": 2600.0,
+              "mInitialSpeed": 60.0,
+              "__type": "AcceleratingMovement"
+            },
+            "visibilityComponent": {
+              "__type": "EnterFOWVisibility"
+            },
+            "heightSolver": {
+              "__type": "BlendedLinearHeightSolver"
+            },
+            "verticalFacing": {
+              "__type": "VerticalFacingFaceTarget"
+            },
+            "behaviors": [
+              {
+                "__type": "CastOnHit"
+              },
+              {
+                "__type": "DestroyOnMovementComplete"
+              }
+            ],
+            "__type": "MissileSpecification"
+          },
+          "mCastType": 3,
+          "castFrame": 7.5,
+          "missileSpeed": 60.0,
+          "mMissileEffectKey": "Ahri_Q_mis_02",
+          "mLineWidth": 100.0,
+          "selectionPriority": 1,
+          "mTargetingTypeData": {
+            "__type": "TargetOrLocation"
+          },
+          "mClientData": {
+            "mTargeterDefinitions": [
+              {
+                "useCasterBoundingBox": false,
+                "__type": "TargeterDefinitionRange"
+              }
+            ],
+            "__type": "SpellDataResourceClient"
+          },
+          "__type": "SpellDataResource"
+        },
+        "__type": "SpellObject"
+      },
+      "resourceKey": "Ahri_Q_mis_02",
+      "resourceRecord": "Characters/Ahri/Skins/Skin0/Particles/Ahri_Base_Q_mis_02",
+      "nativeParticleBin": {
+        "path": "data/characters/ahri/ahri_multi_skins_skin0_skins_skin2_skins_skin53_skins_skin57_skins_skin6.bin",
+        "sha256": "6d3753631c2a6dca7d54813d98a10bc3b48cf73706000672cd1feb4f42e442de"
+      },
+      "emitterCount": 20,
+      "explicitSpellFields": [
+        "Cooldown",
+        "__type",
+        "canCastWhileDisabled",
+        "castConeDistance",
+        "castFrame",
+        "castRadius",
+        "castRange",
+        "castRangeValues",
+        "cooldownTime",
+        "flags",
+        "mAffectsStatusFlags",
+        "mAffectsTypeFlags",
+        "mAlternateName",
+        "mAnimationName",
+        "mCantCancelWhileWindingUp",
+        "mCastType",
+        "mClientData",
+        "mCoefficient",
+        "mEffectAmount",
+        "mImgIconName",
+        "mIsDisabledWhileDead",
+        "mLineWidth",
+        "mMissileEffectKey",
+        "mMissileSpec",
+        "mTargetingTypeData",
+        "missileSpeed",
+        "selectionPriority",
+        "spellCastTime",
+        "spellTotalTime"
+      ],
+      "explicitSpecificationFields": [
+        "__type",
+        "behaviors",
+        "heightSolver",
+        "mMissileWidth",
+        "movementComponent",
+        "verticalFacing",
+        "visibilityComponent"
+      ],
+      "explicitMovementFields": [
+        "__type",
+        "mAcceleration",
+        "mInitialSpeed",
+        "mMaxSpeed",
+        "mMinSpeed",
+        "mProjectTargetToCastRange",
+        "mStartBoneName",
+        "mUseHeightOffsetAtEnd",
+        "mVisualsTrackHiddenTargets"
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_blastring.tex",
+      "wadPathHash": "c68cda0f7d1484a0",
+      "sha256": "b2f66a5a83544ab46f1f46ac37453033fb4861c4707cf4a7a2763a9b2882fbff",
+      "bytes": 21884
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_blastring_2.tex",
+      "wadPathHash": "08b092f0e6d1f929",
+      "sha256": "b2ac0e38d09c818420050cd5a04bc4dca6767696e7a8721ce1bd68d6b029dead",
+      "bytes": 21884
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_e_distort.tex",
+      "wadPathHash": "ad287961305637b6",
+      "sha256": "41241eafa700d7aa8a280bc7d943c090005324d146d33777a5b8b4bda3ab977b",
+      "bytes": 21884
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_mote_01.tex",
+      "wadPathHash": "104eb5bb1d37e53f",
+      "sha256": "c2f6f82fe27da93501274e66be2eaec99f3922fe17a8e0ea3387424af1c57f19",
+      "bytes": 87420
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_q_indicator_01.tex",
+      "wadPathHash": "75f01b8edb182dbf",
+      "sha256": "801a300d81a4ec81d99ae9e0416d56c5de854dc00530db55dc168f775b592e3d",
+      "bytes": 174812
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_q_indicator_02.scb",
+      "wadPathHash": "c3f5856523ecbbc4",
+      "sha256": "1506782f54bf790fbbb888281fb38398241f1b1870443123114ea58d97beec4e",
+      "bytes": 21792
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_q_mask02.tex",
+      "wadPathHash": "d19a799656b255b2",
+      "sha256": "dc4c06c65b3514284116b22972ddd88e4feaabd34a1d7e85f6019b3508c6f685",
+      "bytes": 2068
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_q_orbbackground.tex",
+      "wadPathHash": "eaeed06782039d3f",
+      "sha256": "909eda13bd78d02b4919210a926330a2b01906199a3af4aabc5d8fde17514057",
+      "bytes": 87420
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_q_orbedge_3.tex",
+      "wadPathHash": "217e8649f04b5e37",
+      "sha256": "e655c0210e58832337b7933a19b8304bd02d0e64d2f41e2195cd75e2a6be4f14",
+      "bytes": 87420
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_q_smoke_erode.tex",
+      "wadPathHash": "b57f7d0b44948eda",
+      "sha256": "ab45b30c41fd1d1f6a92161cf54fd856cf7b286661dc4003732633f09839caf9",
+      "bytes": 21884
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_q_smoke_erode_2.tex",
+      "wadPathHash": "70401936f85310ef",
+      "sha256": "11ce0e56e3588bf4e58436f36afd189c3435a319026b80f47e37a3c2c2b899ef",
+      "bytes": 87420
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_q_sphere_01.scb",
+      "wadPathHash": "4ce75ad58b607c0c",
+      "sha256": "b343ba7ed8fb8d6d31a38064ff380f1b809ba74ab12e4d5cce8fb0ccbf250684",
+      "bytes": 51096
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_q_swirls_01.scb",
+      "wadPathHash": "fa6d1c6f8467f6ca",
+      "sha256": "5d464a871c2b22003583f657bbf58f032b7fdc892784f463bcf95151f211fde6",
+      "bytes": 89040
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_q_trail_01.tex",
+      "wadPathHash": "43a2520d6e62b7b7",
+      "sha256": "86cf370e01af237d8fc16ed0830e7ab88c860c6e5bdc7b270f79784b798f8969",
+      "bytes": 174812
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_q_trail_02.tex",
+      "wadPathHash": "2b6668bd55054c2a",
+      "sha256": "1a967d9aa194bb97896f0e22a4756ce125454ed3dba54dc05f7ce986e524c99e",
+      "bytes": 174812
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_rainbowray.tex",
+      "wadPathHash": "611d1a002469e5d6",
+      "sha256": "ccbc1e77473ca18c5aa8760ccfc9ee6d29aa1125637d30f100d1b3c7d2d6f1eb",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_rainbowray01.tex",
+      "wadPathHash": "42dcdd1ab598e03d",
+      "sha256": "8b4086145d16d145a6643c7fffc25dca0d2b83e3f4b2adc17e2ddea9918c5454",
+      "bytes": 276
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/common_orbglow.tex",
+      "wadPathHash": "d586f3e9b5b3e14d",
+      "sha256": "ec364fb8dc32c098351c7be7c5e1b327c6c8caca25548b4b4bb532047fa2f6e7",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/dissolve_cloudy_02.tex",
+      "wadPathHash": "02d28cb9a8fb2e81",
+      "sha256": "91e86421fb8d0074cb8177b4637774e9a9fcc4c77c84c59461b46d92a339cdd6",
+      "bytes": 21884
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/tft_ahri_base_q_trail_01.tex",
+      "wadPathHash": "fdea03134d285510",
+      "sha256": "70d3c5dafe265e589802eeffe6ce7436903cd7c36e428ed062043bfc2715113a",
+      "bytes": 87452
+    }
+  ],
+  "summary": {
+    "nativeSpellBindings": 2,
+    "joinedSystems": 2,
+    "authoredEmitters": 36,
+    "textures": 17,
+    "meshes": 3
+  },
+  "limits": [
+    "Exact native Missile/ReturnMissile effect aliases are joined to base-skin resource declarations. The native script body and callback chronology are not supplied by these records.",
+    "All selected spell fields remain verbatim, including movement, targeting, damage and client metadata. This reader generates no gameplay rules.",
+    "The ordinary missile omits visibilityComponent and has an empty start-bone string. The return declares EnterFOWVisibility and root. Missing and empty fields receive no invented defaults.",
+    "Native movement/visibility flags do not establish renderer fog policy, height transforms, trail frames, material arithmetic, particle stop dispatch or pixels.",
+    "Private transports and future local outgoing/return phase adapters keep separate verification scope."
+  ]
+}
