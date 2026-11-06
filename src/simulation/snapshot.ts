@@ -1,3 +1,4 @@
+import { BARON_BASIC_CAST_TICKS } from '../content/baron-basic-audio-timing';
 import { PRIMARY_HIT_HISTORY_TICKS } from '../content/masteryi-primary-hit-timing';
 import { validatePassiveTrails } from './masteryi-passive-trails';
 import { PASSIVE_TRAIL_HISTORY_TICKS } from '../content/masteryi-passive-trail-timing';
@@ -3467,6 +3468,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
         stop === null
           ? Infinity
           : Math.max(
+              visual.launchTick + BARON_BASIC_CAST_TICKS,
               stop + BARON_ATTACK_FLIGHT_TAIL_TICKS,
               impact ? impact.startTick + BARON_ATTACK_HIT_HISTORY_TICKS : 0
             );

@@ -9390,3 +9390,7 @@ Added a reusable current-distribution audit for exact file hashes/extents, direc
 ### Checkpoint private Baron audio delivery before retention follow-up
 
 Application5c2d323/ruleset607225d passes8,460/8,462 tests (only the two historical gaps), all60 Node QA, real Chromium audio combat, named nested-prefix production with zero unwanted Baron model/effect/audio fetches, all-file pack audit and full offline lifecycle (978 worker responses, zero production errors). Packce32b45a has1,246 files /554,951,527 bytes. Found a remaining missed-cast save edge: live audio cache can outlast saved visual history, so reload after visual pruning loses that tail. This checkpoint explicitly leaves that edge open for the next commit. See docs/reference/baron-basic-audio-initial-acceptance.json.
+
+### Save missed Baron cast audio through its complete finite tail
+
+A new regression first reproduced the lost tail after early target death and visual pruning. Exported duration/delay/slowest-pitch bounds are140cast/59hit ticks. Simulation retention and strict snapshot expiry now retain every release through the cast bound; existing125tick hit history and312frame cap suffice. Restoring after particle expiry reproduces the exact remaining audio state, then prunes on the exact bound and preserves future snapshots. All59 scoped cases, both publication guards and build pass. Schema167; ruleset7ae8e0f8513df40ceca31f52ad146bbe08b388b09163e996538133fbe600229f. Refreshed browser/full/delivery checks are running.

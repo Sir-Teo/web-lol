@@ -1,3 +1,4 @@
+import { BARON_BASIC_CAST_TICKS } from '../src/content/baron-basic-audio-timing';
 import { expect, test } from 'vitest';
 import { execFileSync } from 'node:child_process';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
@@ -112,7 +113,10 @@ test('target death before contact retires without inventing a hit and expires ex
   expect(visual.stopReason).toBe('target-lost');
   expect(visual.impact).toBeNull();
   expect(restore(w).snapshot()).toBe(w.snapshot());
-  const end = visual.stopTick! + BARON_ATTACK_FLIGHT_TAIL_TICKS;
+  const end = Math.max(
+    visual.launchTick + BARON_BASIC_CAST_TICKS,
+    visual.stopTick! + BARON_ATTACK_FLIGHT_TAIL_TICKS
+  );
   w.step(end - w.tick - 1);
   expect(w.baronAttackVisuals.some((v) => v.id === visual.id)).toBe(true);
   w.step();
@@ -134,7 +138,10 @@ test('death after contact detaches the finalized body pose without following lat
 
 test('contact retention outlives the flight tail and retires on its exact bound', () => {
   const { w, visual } = impact(),
-    end = visual.impact!.startTick + BARON_ATTACK_HIT_HISTORY_TICKS;
+    end = Math.max(
+      visual.launchTick + BARON_BASIC_CAST_TICKS,
+      visual.impact!.startTick + BARON_ATTACK_HIT_HISTORY_TICKS
+    );
   w.step(BARON_ATTACK_FLIGHT_TAIL_TICKS);
   expect(w.baronAttackVisuals.some((v) => v.id === visual.id)).toBe(true);
   expect(restore(w).snapshot()).toBe(w.snapshot());

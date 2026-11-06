@@ -1,3 +1,4 @@
+import { BARON_BASIC_CAST_TICKS } from '../content/baron-basic-audio-timing';
 import type { ImpactRig } from '../content/impact-target';
 import { impactTargetRig } from '../content/impact-target';
 import {
@@ -124,6 +125,7 @@ export function baronAttackExpiry(visual: BaronAttackVisual): number {
   return visual.stopTick === null
     ? Infinity
     : Math.max(
+        visual.launchTick + BARON_BASIC_CAST_TICKS,
         visual.stopTick + BARON_ATTACK_FLIGHT_TAIL_TICKS,
         visual.impact ? visual.impact.startTick + BARON_ATTACK_HIT_HISTORY_TICKS : 0
       );

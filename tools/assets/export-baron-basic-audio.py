@@ -2,6 +2,7 @@
 import argparse
 import hashlib
 import json
+import math
 from pathlib import Path
 import subprocess
 
@@ -107,6 +108,14 @@ def build():
               'export const BARON_BASIC_AUDIO = ' + json.dumps(profiles, indent=2) + ' as const;\n'
               'export const BARON_BASIC_ATTENUATION = ' + json.dumps(attenuation, indent=2) + ' as const;\n')
     outputs[target] = subprocess.check_output(['node_modules/.bin/prettier', '--stdin-filepath', target], input=source.encode())
+    tails = {phase: math.ceil(max(
+        p['delaySeconds'] + v['durationSeconds'] / 2 ** ((p['pitchCents'] + p['pitchRangeCents'][0]) / 1200)
+        for p in profiles if p['phase'] == phase for v in p['variants']) * 60)
+        for phase in ['cast', 'hit']}
+    outputs['src/content/baron-basic-audio-timing.ts'] = (
+        '// Generated finite source durations with action delay and slowest pitch modifier.\n'
+        f"export const BARON_BASIC_CAST_TICKS = {tails['cast']};\n"
+        f"export const BARON_BASIC_HIT_TICKS = {tails['hit']};\n").encode()
     return outputs
 
 

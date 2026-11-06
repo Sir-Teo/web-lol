@@ -1,3 +1,11 @@
+import {
+  BARON_BASIC_CAST_TICKS,
+  BARON_BASIC_HIT_TICKS,
+} from '../src/content/baron-basic-audio-timing';
+import {
+  BARON_ATTACK_HIT_HISTORY_TICKS,
+  BARON_ATTACK_PATH_FRAMES,
+} from '../src/content/baron-attack-presentation';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
@@ -10,6 +18,21 @@ const hash = (data: Buffer) => createHash('sha256').update(data).digest('hex');
 const masters = JSON.parse(readFileSync('docs/reference/baron-basic-audio-decoded.json', 'utf8'));
 
 describe('Baron candidate source audio export', () => {
+  it('bounds every source duration with the slowest pitch and action delay', () => {
+    expect([BARON_BASIC_CAST_TICKS, BARON_BASIC_HIT_TICKS]).toEqual([140, 59]);
+    for (const p of P)
+      for (const clip of p.variants) {
+        const ticks =
+          (p.delaySeconds +
+            clip.durationSeconds / 2 ** ((p.pitchCents + p.pitchRangeCents[0]) / 1200)) *
+          60;
+        expect(ticks).toBeLessThanOrEqual(
+          p.phase === 'cast' ? BARON_BASIC_CAST_TICKS : BARON_BASIC_HIT_TICKS
+        );
+      }
+    expect(BARON_BASIC_HIT_TICKS).toBeLessThanOrEqual(BARON_ATTACK_HIT_HISTORY_TICKS);
+    expect(BARON_BASIC_CAST_TICKS + 1).toBeLessThanOrEqual(BARON_ATTACK_PATH_FRAMES);
+  });
   it('retains action probability, delay and the independent pitch range', () => {
     expect(
       P.map((p) => [
