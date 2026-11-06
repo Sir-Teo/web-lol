@@ -6,18 +6,18 @@ Last updated: November 6, 2026 (UTC).
 
 ## Current authoritative state
 
-Accepted local runtime: save schema **172**, ruleset
-`780b914f5a3c3b9959058510881e19b13debdbe582cae785b8ff7bdee459f953`,
-application `0ee4ffc`. [Essence Theft source playback](AHRI-P-AUDIO.md) joins
-Q/W/E/R with saved independent dispatch and61 exact PCM masters.
-The full suite passes8,672/8,674 in500 files, with two historical failures.
-All138 Node QA cases,305 scoped CI tests in40 files, TypeScript and22
-cache-free Python modes pass. Sixteen combined browser cases and production/offline
-gates pass; see [passive acceptance](reference/ahri-passive-playback-acceptance.json).
+Accepted local runtime: save schema **173**, ruleset
+`66cd7e3174e42179cc3256f669e2c04e2f9c91120ea50495d0264a914bf6b991`,
+application `99c1cb7`. [Ahri attack source playback](AHRI-AA-AUDIO.md) joins
+P/Q/W/E/R with saved independent dispatch and73 exact PCM masters.
+The full suite passes8,716/8,718 in506 files, with two historical failures.
+All155 Node QA cases,369 scoped CI tests in48 files, TypeScript and26
+cache-free Python modes pass. Nineteen combined browser cases and production/offline
+gates pass; see [attack acceptance](reference/ahri-attack-playback-acceptance.json).
 
-The accepted pack is `f31b3721`, with1,313 files /570,486,751 bytes.
-Earlier Q/W/E/R receipts retain their original scope. All work remains local.
-Basic-attack source preparation is isolated on its own branch.
+The accepted pack is `991cef8d`, with1,326 files /572,560,604 bytes.
+Earlier family receipts retain their original scope. All work remains local.
+Lifecycle source preparation is isolated on its own branch.
 
 The [frozen hundred-seed development-roster baseline](CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md)
 is complete: 100 natural victories, zero unfinished matches or invariant failures,
@@ -9551,3 +9551,11 @@ Application `0ee4ffc`, schema172 / `780b914f`, passes8,672/8,674 full-suite case
 ## Integrate accepted Essence Theft playback into primary
 
 Primary `work` fast-forwards from `02e841a` to `9d15c58` without merge edits. Every source byte matches the accepted branch. A fresh primary build and complete pack audit reproduce `f31b3721` exactly. Acceptance retains its original full-suite/browser/offline scope. No push or deployment occurs. See `reference/ahri-passive-main-integration.json`.
+
+## Verified Ahri attack playback delivery
+
+Application `99c1cb7`, schema173 / `66cd7e31`, passes8,716/8,718 full-suite cases in506 files with only the two historical failures. All155 Node QA cases, clean369-case CI in48 files, TypeScript and26 Python guard modes pass. Nineteen combined browser cases verify73 exact Ahri PCM masters, including twelve attack masters and actual right-click ordinary/critical windup, release, swept contact, mute/seek and restore. Production subdirectory and offline lifecycle pass with978 service-worker responses and zero production errors. Pack `991cef8d` contains1,326 files /572,560,604 bytes. All archived simulation/content bytes match frozen `2ba54634`; its45 roster projections retain their scope. Native callback/global playlist/mix calibration remains unverified. Lifecycle preparation is isolated. See [acceptance](reference/ahri-attack-playback-acceptance.json).
+
+## Integrate accepted Ahri attack playback into primary
+
+Primary `work` fast-forwards from `caaf80b` to `15b7d08` without merge edits. Every source byte matches the accepted branch. A fresh primary build and complete pack audit reproduce `991cef8d` exactly. Acceptance retains its original full-suite/browser/offline scope. No push or deployment occurs. See `reference/ahri-attack-main-integration.json`.
