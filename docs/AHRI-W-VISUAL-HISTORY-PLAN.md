@@ -102,3 +102,13 @@ validator tests include 17 corruption mutations plus orbit cancellation and
 false expiry clocks. Together with five observer tests and the archived
 comparison, nine focused tests pass. Historical sight itself remains unprovable
 from these saved inputs; World restore will still need identity/live-state links.
+
+## Optional simulation hooks
+
+The existing Fox-Fire lifecycle now calls optional observation operations at
+cast creation, orbit sampling, dispatch, flight movement and individual finish.
+A recording World subclass validates the real histories at every nonterminal
+step and settles terminal records before checking them. All 14 archived cases
+still match all 149 old-state digests with recording enabled; ten focused tests
+pass. These hooks allocate no identity or random value. The production World
+still lacks history ownership/serialization until the next integration step.

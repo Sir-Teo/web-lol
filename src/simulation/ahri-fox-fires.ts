@@ -9,6 +9,13 @@ import { AHRI_W_POLICY } from '../content/ahri-w-policy';
 import { DT } from '../content/rules';
 import { direction, distance, type Vec2 } from './math';
 import { isLaneMinionKind, type Unit, type Team } from './types';
+import {
+  beginWVisualHistory,
+  dispatchWVisualHistory,
+  sampleWVisualHistory,
+  endWVisualHistory,
+  type WVisualObserverWorld,
+} from './ahri-w-visual-history';
 
 export interface FoxFire {
   index: number;
@@ -35,7 +42,7 @@ export interface FoxFireCast {
   stopTick: number | null;
   fires: FoxFire[];
 }
-interface FoxFireWorld extends FoxFireAudioWorld {
+interface FoxFireWorld extends FoxFireAudioWorld, WVisualObserverWorld {
   tick: number;
   nextId: number;
   units: Unit[];
@@ -118,6 +125,7 @@ export function beginFoxFireCast(
   });
   world.ahriFoxFires.push(cast);
   beginFoxFireAudio(world, cast, source);
+  beginWVisualHistory(world, cast, source);
 }
 
 export function releaseFoxFireCast(world: FoxFireWorld, source: Unit, startTick: number): void {
@@ -148,12 +156,13 @@ export function foxFireMovementBonus(
 }
 
 function finish(
-  world: FoxFireAudioWorld,
+  world: FoxFireAudioWorld & WVisualObserverWorld,
   cast: FoxFireCast,
   fire: FoxFire,
   tick: number,
   reason: NonNullable<FoxFire['stopReason']>
 ): void {
+  endWVisualHistory(world, cast, fire, reason);
   fire.phase = 'spent';
   fire.stopTick = tick;
   fire.stopReason = reason;
@@ -161,7 +170,10 @@ function finish(
 }
 
 export function stopFoxFireOrbits(
-  world: Pick<FoxFireWorld, 'tick' | 'ahriFoxFires' | 'ahriFoxFireAudio' | 'unit' | 'pointVisible'>,
+  world: Pick<
+    FoxFireWorld,
+    'tick' | 'ahriFoxFires' | 'ahriFoxFireAudio' | 'ahriWVisuals' | 'unit' | 'pointVisible'
+  >,
   sourceId: number
 ): void {
   for (const cast of world.ahriFoxFires) {
@@ -240,11 +252,15 @@ export function advanceFoxFires(world: FoxFireWorld): void {
         }
         fire.position = foxFireOrbitPoint(cast, fire.index, world.tick, source);
         const target = cast.released ? acquire(world, cast, fire, source) : undefined;
-        if (!target) continue;
+        if (!target) {
+          sampleWVisualHistory(world, cast, fire, source);
+          continue;
+        }
         fire.targetId = target.id;
         fire.dispatchTick = world.tick;
         fire.phase = 'flight';
         launchFoxFireAudio(world, cast, fire);
+        dispatchWVisualHistory(world, cast, fire, source);
         fire.previous = { ...fire.position };
       }
       const target = world.unit(fire.targetId!);
@@ -260,6 +276,7 @@ export function advanceFoxFires(world: FoxFireWorld): void {
         remaining = distance(fire.position, target);
       if (remaining <= travel) {
         fire.position = { x: target.x, y: target.y };
+        sampleWVisualHistory(world, cast, fire, source, target);
         const repeat = cast.fires.some(
           (other) => other !== fire && other.targetId === target.id && other.stopReason === 'hit'
         );
@@ -282,6 +299,7 @@ export function advanceFoxFires(world: FoxFireWorld): void {
           x: fire.position.x + delta.x * travel,
           y: fire.position.y + delta.y * travel,
         };
+        sampleWVisualHistory(world, cast, fire, source, target);
       }
     }
     survivors.push(cast);

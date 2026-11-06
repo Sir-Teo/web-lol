@@ -123,6 +123,22 @@ export function refreshWVisualAudience(w: WVisualObserverWorld) {
         if (a?.tick === w.tick) a.audience = anchor(w, a.point, r.team).audience;
 }
 
+/** Settle terminal presentation before gameplay clears its live cast array.
+ * The retained sample is also sufficient after an individual cast has drained. */
+export function finishAllWVisualHistory(
+  w: WVisualObserverWorld & { ahriFoxFires?: readonly FoxFireCast[] }
+) {
+  for (const r of w.ahriWVisuals ?? []) {
+    const cast = w.ahriFoxFires?.find((cast) => cast.id === r.id);
+    for (const f of r.fires) {
+      if (f.end) continue;
+      const fire = cast?.fires.find((fire) => fire.index === f.index);
+      const point = fire?.position ?? f.frames.at(-1)?.point ?? f.birth.point;
+      f.end = { ...anchor(w, point, r.team), reason: 'match-end' };
+    }
+  }
+}
+
 /** Retention is supplied by the eventual renderer policy. Never remove an
  * active cast merely because one of its fires has already ended. */
 export function pruneWVisualHistory(w: WVisualObserverWorld, retentionTicks: number) {
