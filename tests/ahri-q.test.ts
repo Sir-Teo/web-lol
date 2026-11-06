@@ -290,3 +290,17 @@ test('Q can still apply its return-only hit after that emergence protection ends
   expect(monster.maxHp - monster.hp).toBe(35);
   expect(World.fromSnapshot(w.snapshot(), w.battlefield).snapshot()).toBe(w.snapshot());
 });
+
+test('Flash during Q windup is rejected without moving the caster or consuming its cooldown', () => {
+  const { w, ahri, state, cast } = setup();
+  cast();
+  const slot = w.summonerSlot('flash', ahri.id)!;
+  w.enqueue({ type: 'cast', unit: ahri.id, ability: slot, point: { x: 10, y: 0 } });
+  w.step();
+  expect([ahri.x, ahri.y]).toEqual([0, 0]);
+  expect(state.cooldowns[slot]).toBe(0);
+  expect(state.pendingCast?.ability).toBe('q');
+  w.step(14);
+  expect(w.ahriOrbs).toHaveLength(1);
+  expect(w.ahriOrbs[0].origin).toEqual({ x: 0, y: 0 });
+});

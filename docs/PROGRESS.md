@@ -9478,3 +9478,7 @@ Recorded eight source-attested Orb of Deception events, ten ordered actions, 53 
 ## Isolated Orb source master/graph stage
 
 On dev/ahri-orb-audio, staged 22 unchanged float masters plus an unflattened source graph (23 outputs / 4,258,619 bytes). Ten containers, two mixers, per-sound gains, base/ranged pitch and repeated sequence positions remain distinct. Twenty-six asset tests, TypeScript and normal/optimized exporter guards pass; six rejection probes per mode include parent-directory symlinks. No Q playback/history binding yet. Charm's accepted e73e3c25 branch remains unchanged; primary 7ae8e0 baseline is still running.
+
+## Locked Orb gameplay baseline and source-stage CI
+
+Source stage cb5e1d7 passes cache-free TypeScript, 80 tests and ten Python modes. The active independent Orb baseline uses the frozen ae079c84 World to produce 81 full-state samples across nine cases. Explicit assertions distinguish blocked windup Flash from accepted post-launch Flash; V1's ambiguous label remains documented as historical. Existing Q mechanics and earlier Charm projections pass before history binding. Runtime World behavior is unchanged.

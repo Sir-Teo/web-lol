@@ -10,6 +10,7 @@ on:
       - 'public/assets/audio/ahri-charm/**'
       - 'public/assets/audio/ahri-orb/**'
       - 'docs/reference/ahri-q-audio-properties.json'
+      - 'docs/reference/ahri-orb-gameplay-reference-v2.json'
       - 'tools/assets/read-ahri-q-audio.py'
       - 'tools/assets/test-ahri-q-audio-reading.py'
       - 'tools/assets/export-ahri-orb-audio.py'
@@ -38,6 +39,7 @@ on:
       - 'public/assets/audio/ahri-charm/**'
       - 'public/assets/audio/ahri-orb/**'
       - 'docs/reference/ahri-q-audio-properties.json'
+      - 'docs/reference/ahri-orb-gameplay-reference-v2.json'
       - 'tools/assets/read-ahri-q-audio.py'
       - 'tools/assets/test-ahri-q-audio-reading.py'
       - 'tools/assets/export-ahri-orb-audio.py'
@@ -94,6 +96,8 @@ jobs:
           tests/ahri-charm-gameplay-reference.test.ts
           tests/wwise145-fade.test.ts
           tests/ahri-orb-audio-assets.test.ts
+          tests/ahri-orb-gameplay-reference.test.ts
+          tests/ahri-q.test.ts
       - name: Check float-master format and headroom without private caches
         run: |
           python3 tools/assets/test-audio-float-corpus.py

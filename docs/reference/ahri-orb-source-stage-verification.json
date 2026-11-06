@@ -1,0 +1,69 @@
+{
+  "format": 1,
+  "stageRevision": "cb5e1d74b9ca027b24dedaf955d10810102d8e8b",
+  "publishedOutputs": 23,
+  "bytes": 4258619,
+  "masters": 22,
+  "runtimeBinding": false,
+  "cleanCheckout": {
+    "privateCaches": false,
+    "privateTools": false,
+    "typeCheck": true,
+    "tests": 80,
+    "files": 11,
+    "pythonGuardModes": 10,
+    "dependencies": "Reused parent node_modules; npm ci not repeated locally",
+    "remoteDispatched": false
+  },
+  "gameplayBaseline": {
+    "reference": "ahri-orb-gameplay-reference-v2.json",
+    "archivedRuleset": "ae079c84268e4fd83c1d0c85568a6ea457f3b92f99d9f4adee58d15286085033",
+    "archivedSourceFiles": 563,
+    "scenarios": 9,
+    "samples": 81,
+    "currentBeforeHistoryComparison": true
+  },
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-clean-ci-0.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-clean-ci-1.log",
+      "sha256": "8df70b9c504833b9dc6d2123962fba1772a347283334dfaab01db7bfe8a3309f"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-clean-ci-2.log",
+      "sha256": "2dd796026b608a40ce6239368a6574ac3a6349ea4cd5fa02cfa17b64a3d7c07f"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-clean-ci-3.log",
+      "sha256": "e135f2b1d5f97118151c7849a85a8230f4891f766d2c753f8cbceb4c093f1830"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-clean-ci-4.log",
+      "sha256": "e135f2b1d5f97118151c7849a85a8230f4891f766d2c753f8cbceb4c093f1830"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-clean-ci-5.log",
+      "sha256": "5271940abcded5a64ab6fa2af5d7c193c00ffcabf8f605669b8926e04960923b"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-clean-ci-6.log",
+      "sha256": "8b26901794a45cdd864f36a0b8e6166c9c6dcb1e85bd1f64bd68d231464c4c70"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-gameplay-reference-v2.log",
+      "sha256": "57cfce9e350bec593f968eb5342038b2e0caaf671a916ce263e6d8c51f75dc50"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-baseline-before-history.log",
+      "sha256": "1d237ccc6ea784fcbf54221b02d582d79434c499b9c2d54bc8a8bf8591a331d9"
+    }
+  ],
+  "limits": [
+    "No Q playback/history yet",
+    "V1 Flash is a rejected windup attempt; V2 separately asserts an accepted post-launch Flash",
+    "No source identity bridge, native engine certification or milestone completion claimed"
+  ]
+}
