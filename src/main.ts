@@ -410,7 +410,8 @@ async function boot(): Promise<void> {
     loadInterfaceFonts(),
     audio.load(
       world.units.some((u) => u.champion === 'garen'),
-      world.units.some((u) => u.champion === 'masteryi')
+      world.units.some((u) => u.champion === 'masteryi'),
+      baronEncounter
     ),
     loadReferenceModels(
       monsterSpecies,
@@ -640,6 +641,7 @@ async function boot(): Promise<void> {
       );
       audio.updateFlight(audibleProjectiles, audibleScouts, world.tick);
       audio.updateLinger(audibleScouts, world.tick);
+      if (baronEncounter) audio.updateBaronPreview(world, view.center);
       audio.updateLuxE(world, view.center);
       audio.updateOracle(world, view.center);
       audio.updateGaren(world, view.center);

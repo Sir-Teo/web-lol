@@ -70,6 +70,7 @@ def build():
             require(set(ap).issubset({'DelayTime', 'Probability'}) and set(cp).issubset({'MakeUpGain', 'Pitch'}),
                     'Unexpected attack action/container property')
             require(int(parameter(container, 'DirectParentID')) == 312946903, 'Changed mixer')
+            require(int(parameter(container, 'bKillNewest')) == 0, 'Unsupported newest-voice policy')
             variants = []
             for index in range(int(parameter(container, 'ulPlayListItem'))):
                 sound = int(parameter(container, f'AkPlaylistItem:{index}/ulPlayID'))
@@ -87,6 +88,7 @@ def build():
                                      frames=master['frames'], sampleRate=master['sampleRate'],
                                      durationSeconds=master['durationSeconds'], peak=master['peak']))
             profiles.append(dict(phase=phase, eventId=role['id'], actionId=action['id'], containerId=container,
+                                 maxVoices=int(parameter(container, 'u16MaxNumInstance')),
                                  delaySeconds=ap.get('DelayTime', 0) / 1000,
                                  probability=ap.get('Probability', 100) / 100,
                                  gainDb=cp.get('MakeUpGain', 0), pitchCents=cp.get('Pitch', 0),

@@ -9374,3 +9374,7 @@ A derived16-node reading retains actions, sounds, local ancestry and attenuation
 ### Stage Baron candidate audio and deterministic preview states
 
 Exported eight unchanged float masters and three candidate profiles through whole-closure preflight. Pure states preserve the200ms action delay,35percent action probability and−500 to+500-cent hit modifier around zero (correcting the earlier base-pitch misread). Independent saved-identity cosmetic draws preserve JSON/reorder reconstruction without gameplay RNG. Fifteen source asset/PCM and state tests plus TypeScript pass. Gameplay controller and delivery-pack refresh are still pending. See docs/BARON-BASIC-AUDIO-PREVIEW.md.
+
+### Bind private Baron candidate audio playback
+
+The private encounter explicitly loads the lazy eight-master controller. Source delay/probability/gains/pitch range and attenuation feed saved-identity local selection and release/contact clocks; native dispatch/shuffle/bus remain open. Owned finite tails survive visual pruning,2/4/4 container caps suppress stolen/ended replays, mute seeks on resume, and replacement/rewind clears ownership. Twenty scoped tests and real Chromium combat decode/mute/restore checks pass; decoded peaks above1.36 survive. Build passes. Audio kernels now enter the ruleset fingerprint (607225d0125d751ef96fb67dad31c26430bc212471b4dbe35554595ee90b3e20), schema167. Production/offline/full regression checkpoint is running. See docs/BARON-BASIC-AUDIO-PREVIEW.md.

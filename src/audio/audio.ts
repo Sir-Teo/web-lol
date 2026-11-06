@@ -1,3 +1,4 @@
+import { LazyBaronBasicAttackAudio } from './baron-basic-lazy';
 import { LazyMasterYiWujuStyleAudio } from './masteryi-e-lazy';
 import { LazyMasterYiMeditateAudio } from './masteryi-w-lazy';
 import { LazyMasterYiAttackAudio } from './masteryi-aa-lazy';
@@ -46,6 +47,7 @@ export class GameAudio {
   private luxETerminal = false;
   bindingFlight = new LuxBindingFlightAudio();
   garenAA = new LazyGarenBasicAttackAudio();
+  baronBasic = new LazyBaronBasicAttackAudio();
   masterYiAA = new LazyMasterYiAttackAudio();
   masterYiE = new LazyMasterYiWujuStyleAudio();
   masterYiW = new LazyMasterYiMeditateAudio();
@@ -111,8 +113,9 @@ export class GameAudio {
     this.audible = value;
     if (!value) this.stopVoices();
   }
-  async load(garenPresent = false, masterYiPresent = false): Promise<void> {
+  async load(garenPresent = false, masterYiPresent = false, baronPreview = false): Promise<void> {
     await Promise.all([
+      ...(baronPreview ? [this.baronBasic.load()] : []),
       this.loadCast(),
       this.loadArrival(),
       this.loadLinger(),
@@ -322,6 +325,7 @@ export class GameAudio {
       });
   }
   private stopVoices(): void {
+    this.baronBasic.stop();
     this.bindingFlight.stop();
     this.luxE.stop();
     this.garenAA.stop();
@@ -523,6 +527,28 @@ export class GameAudio {
   unlock(): void {
     this.context ??= new AudioContext();
     this.syncContext();
+  }
+  updateBaronPreview(world: World, listener = { x: 0, y: 0 }) {
+    this.baronBasic.update(
+      this.context,
+      this.enabled && !this.paused,
+      world.baronAttackVisuals.map((r) => ({
+        id: r.id,
+        launchTick: r.launchTick,
+        origin: r.origin,
+        castVisible: r.frames[0]?.audience.includes(world.hero.team) ?? false,
+        impact: r.impact
+          ? {
+              startTick: r.impact.startTick,
+              point: r.impact.point,
+              visible: r.impact.frames[0]?.audience.includes(world.hero.team) ?? false,
+            }
+          : null,
+      })),
+      world.tick,
+      listener,
+      world
+    );
   }
   updateLuxE(world: World, listener = { x: 0, y: 0 }) {
     if (this.luxEWorld !== world) {

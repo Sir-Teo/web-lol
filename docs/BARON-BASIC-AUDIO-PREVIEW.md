@@ -1,25 +1,36 @@
-# Local Baron candidate audio preview foundation
+# Local Baron candidate audio preview
 
-Eight unchanged source float masters are staged under assets/audio/baron-basic.
+The private development Baron encounter now loads eight unchanged float masters
+and plays three candidate action profiles. Default Rift/production callers do
+not request this lazy controller. The production transport gate also measures
+Baron audio requests. No native event dispatch or listening parity is claimed.
+
 The exporter checks frozen property/decoder/candidate inputs and preflights all
 nine outputs before writing missing files. Existing differences and symlinks
-reject. Normal and optimized export checks pass. The delivery pack has not yet
-been rebuilt for these assets, and no gameplay audio controller is bound yet.
+reject. Normal and optimized export checks pass. Float samples above unity remain
+unchanged; source gains feed an explicit local0.2 mix through the source distance
+curve. External bus2770764924 and listener/mix calibration remain unresolved.
 
-The pure preview state uses saved projectile identity and launch tick for
-independent cosmetic probability, variant and pitch draws. It does not consume
-World RNG or IDs. Cast dispatch uses an explicit local release anchor, followed
-by the source200ms delay for the two-media action. The four-media action keeps
-its35percent probability. Hit uses saved contact time,−12dB makeup gain and a
-−500 to+500-cent pitch modifier around zero. Cast makeup gain is−14dB.
-Native event dispatch and shuffle semantics are not reconstructed.
+The pure state uses saved projectile identity and launch tick for independent
+cosmetic probability, variant and pitch draws. It consumes no World RNG or IDs.
+Cast dispatch uses an explicit local release anchor, followed by the source200ms
+delay for the two-media action. The four-media action retains35percent
+probability. Hit uses saved contact time and a−500 to+500-cent pitch modifier
+around zero. Native shuffle/avoid-repeat state is not reconstructed.
 
-Cue audiences are supplied separately for release and contact. States derive
-sample offset from age and pitch, expire at actual sample duration and reproduce
-exactly after JSON restore or record reordering. They retain no mutable runtime
-state. Fifteen tests cover these policies and original float32 WAV/PCM hashes,
-frame extents and over-unity samples. TypeScript passes.
+Cue audiences come from saved first flight/contact frames. Sample offset follows
+age and pitch; natural duration governs expiry. The controller retains observed
+finite cast tails if visual history expires early, caps voices per source
+container(2/4/4), releases stolen voices and suppresses replay after natural end.
+Mute stops/disconnects voices; resuming seeks to simulation time. World replacement
+or clock rewind clears owned history and voices. Load failures require explicit
+retry and preserve successful buffers. Both source state/controller dependencies
+are included in the ruleset fingerprint; snapshot schema remains167.
 
-The source attenuation curve is exported separately. External bus2770764924,
-listener calibration and the final playback mix remain unresolved. No native
-listening parity is claimed.
+Twenty tests cover WAV/PCM hashes, finite float extents, headroom, timing,
+probability, pitch, JSON/reorder reconstruction, load retry, mute/suspend,
+ownership, finite tails and independent caps. Real Chromium combat playback
+passes: eight assets decode with over-unity floats intact, mute/resume and
+snapshot replacement retain choices, and snapshots remain unchanged by audio.
+This does not establish native mix or device performance. Delivery/full regression
+results are recorded separately when complete.
