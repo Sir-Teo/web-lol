@@ -62,6 +62,8 @@ The browser suite currently uses installed Google Chrome. All runtime assets are
 
 The practice build is hosted at https://sir-teo.github.io/web-lol/. Pushes to `main` install dependencies with npm caching, build, and deploy to GitHub Pages. Documentation-only and test-only pushes skip deployment; the workflow can also be run manually. CI does not run test suites.
 
+On Linux with system Chromium, build first and run `node tools/qa/production-subpath.mjs --system-chromium`. The default command continues to use installed Google Chrome.
+
 `npm run test:production` builds locally and checks both entrypoints beneath a strict nested static-host path using installed Google Chrome. It verifies the map-to-practice link, map controls, 17 startup recordings and three selected Oracle recordings, real-input Hawkshot and Lux Binding casts, Lux selection and 5v5 restart, five-position scoreboard assignments and selected jungle companion rigs, all eleven practice monster rigs, Smite selection, a practice companion purchase, real Stealth Ward placement and saved restoration, Oracle Lens preparation/activation/restoration, rejection of development player-fixture flags, and absence of failed/out-of-prefix requests or development hooks. Its screenshot is saved to `artifacts/production-subpath.png`.
 
 ## Current build

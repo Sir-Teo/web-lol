@@ -56,7 +56,11 @@ await new Promise((resolve, reject) => {
 const base = `http://127.0.0.1:${server.address().port}${prefix}`;
 let browser;
 try {
-  browser = await chromium.launch({ channel: 'chrome', headless: true });
+  browser = await chromium.launch(
+    process.argv.includes('--system-chromium')
+      ? { executablePath: '/usr/bin/chromium', args: ['--no-sandbox'], headless: true }
+      : { channel: 'chrome', headless: true }
+  );
   const page = await browser.newPage({ viewport: { width: 1600, height: 1000 } });
   const errors = [],
     failed = [],

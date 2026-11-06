@@ -13,7 +13,9 @@ tests pass. Source-profile reproduction, build/TypeScript and all four Baron
 browser scenarios pass, including real damage/no slow, exact saves/futures,
 file isolation and Smite cleanup. This extends the existing secondary-source
 local policy without native certification. Fingerprint `629ed5…`, schema 163;
-production-host verification is tracked separately.
+production-host verification now passes all 32 expected recordings, real
+input/save checks, public Ashe/Lux choices and zero Baron preloads. The
+[delivery record](reference/current-production-subpath.json) pins this pack.
 
 [Exact visibility range rejection](VISION-RANGE-CULLING.md) now avoids expensive
 distance calls for sources outside the enclosing radius box, retaining the

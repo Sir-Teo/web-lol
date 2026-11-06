@@ -83,7 +83,9 @@ was reviewed and has no SLOWED label. Page errors are empty.
 Schema remains 163, with fingerprint
 `629ed50ba7af4abe1fa48ae9b39811ca12fcf879d336a951bb088422dad1008e`.
 Earlier saved matches and audit/delivery reports retain their original build
-identities. Fresh production-host verification is running separately; no new
+identities. Fresh [production-host verification](reference/current-production-subpath.json)
+now passes all 32 expected recordings, public Ashe/Lux choices, real input/save
+checks and development-feature exclusion, including zero Baron preloads. No new
 full-suite, full-match, native or offline certification is claimed here.
 The [verification summary](reference/baron-slow-verification.json) retains the
 observed combat state and validation scope.
