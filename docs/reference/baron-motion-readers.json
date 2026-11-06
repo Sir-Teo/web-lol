@@ -1,0 +1,19 @@
+{
+  "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+  "files": [
+    {
+      "path": ".cache/baron-emission-readers/engine/simulation/integrate.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/simulation/integrate.ts",
+      "bytes": 22084,
+      "sha256": "35e332547a4697558f93f4d5a91f295bcd6d8e9b299ccb8d7331ad873de96587",
+      "gitBlob": "eaf11da07e0fcdac3c4fce742333e6871bf37fe9"
+    },
+    {
+      "path": ".cache/baron-emission-readers/engine/simulation/pool.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/simulation/pool.ts",
+      "bytes": 15114,
+      "sha256": "ed2744cdc1114f4897c5af526b16181159515fbb401cd042e75567daccef5f49",
+      "gitBlob": "88e0c6f9163db963a29c63aabf4f482a5cfb9787"
+    }
+  ]
+}

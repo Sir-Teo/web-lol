@@ -66,6 +66,11 @@ exact-byte samples across all 21 base layers and their three multiplier layers.
 All 900 cases pass, including shared fractional counters, signed scroll and
 start-frame routing. Bound-size calibration and active shader dispatch stay open.
 
+The [stepped local-motion kernel](SOURCE-STEPPED-MOTION.md) now matches 64
+external step cases and 21 replays / 1,260 steps. All 89 tests pass, preserving
+fresh-birth zero delta and stored/moving drag changes. Lifetime, spin and final
+placement remain separate playback stages.
+
 ## Recent verified checkpoints
 
 All 21 Baron emitters now have a [strict private parameter stage](BARON-ATTACK-PROGRAM.md),

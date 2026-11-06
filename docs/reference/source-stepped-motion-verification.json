@@ -1,0 +1,47 @@
+{
+  "format": 1,
+  "testsPassed": 89,
+  "independentStepCases": 64,
+  "independentReplays": 21,
+  "replaySteps": 1260,
+  "typecheck": "passed",
+  "nativeExecuted": false,
+  "runtimeBinding": false,
+  "evidence": [
+    {
+      "path": "artifacts/source-stepped-motion-tests.log",
+      "bytes": 359,
+      "sha256": "e2e14b7b2bc853e84f619916a8b664275231900fe2deae43e6ad387962781648"
+    },
+    {
+      "path": "artifacts/source-stepped-motion-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/source-stepped-motion-fixture-check.log",
+      "bytes": 92,
+      "sha256": "44c52ab03e51db27c9bd48ebd1b9f4b1d07e688b69e07f93a03376b2be398ccc"
+    },
+    {
+      "path": "docs/reference/baron-motion-readers.json",
+      "bytes": 936,
+      "sha256": "7a52a15421c81e3311fcdb91b08d7cd90c22cc6e4dea92cd0b3f26c27c355ff4"
+    },
+    {
+      "path": "tools/assets/export-source-stepped-motion-samples.mjs",
+      "bytes": 5705,
+      "sha256": "5544975a552d0ed2d9c55c67fb649c76cf6c606d2f6f237552c1f0b5861474b1"
+    },
+    {
+      "path": "docs/reference/source-stepped-motion-samples.json",
+      "bytes": 198377,
+      "sha256": "8412a6dbb63bb0688c59d5671e9ae281e2ea0a82a377e0362a9492eca19eac7d"
+    },
+    {
+      "path": "src/render/source-stepped-motion.ts",
+      "bytes": 2083,
+      "sha256": "5fdb1ca5cdb6def52fa8cffca65290de1d354c3bd2c603517672692427cbf5d2"
+    }
+  ]
+}
