@@ -149,3 +149,8 @@ samples; these sampled maxima are not a universal memory bound.
 The [verification receipt](reference/ahri/w-visual-history-verification.json)
 binds the exact application, source delta, test results, roster comparison and
 build pack. Primary integration and W rendering remain separate stages.
+
+The verified history production build also passes 32 browser recordings under
+`/nested/rift/`, with no development hook or unsolicited Ahri preloads. The main
+map/HUD screenshot was reviewed. Chromium used software rendering; these checks
+establish functionality, not device performance.

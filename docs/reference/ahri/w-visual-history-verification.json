@@ -114,6 +114,21 @@
       "path": "artifacts/ahri-w-history-clean-ci-extra-results.json",
       "bytes": 2943,
       "sha256": "023244b3ce9c952e184a342ec8f0f34e9e28f334c8236d3cc1c695ddb3ffc811"
+    },
+    {
+      "path": "artifacts/ahri-w-history-production-v1.log",
+      "bytes": 3684,
+      "sha256": "9fb7fa6181b3a205561bbd77c9bf1e46403d04b002e5c79f373ce3b553b5f104"
+    },
+    {
+      "path": "artifacts/production-subpath-ahri-w-history-v1.json",
+      "bytes": 4124,
+      "sha256": "a7271978361bfd7359f33cf87be781d624d91cfed52687c1c71635b119dfbd20"
+    },
+    {
+      "path": "artifacts/production-subpath-ahri-w-history-v1-subpath.png",
+      "bytes": 1825237,
+      "sha256": "8ff577812baa97bcf9c680c0f676c11a89ca14d80502a00d2ffc644dfe0aa801"
     }
   ],
   "limits": [
@@ -121,5 +136,16 @@
     "No W particle renderer or public W particle transport is included.",
     "One natural roster seed; hundred-seed and project-completion gates remain false.",
     "Historical fog and target eligibility cannot be independently reconstructed from the saved observer inputs."
-  ]
+  ],
+  "productionBrowser": {
+    "result": "passed",
+    "recordings": 32,
+    "prefix": "/nested/rift/",
+    "developmentHook": false,
+    "unsolicitedAhriPreloads": 0,
+    "reviewedScreenshot": "artifacts/production-subpath-ahri-w-history-v1-subpath.png",
+    "systemChromium": true,
+    "softwareRendering": true,
+    "devicePerformanceClaim": false
+  }
 }
