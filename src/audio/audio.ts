@@ -1,3 +1,4 @@
+import { LazyAhriAttackAudio } from './ahri-attack-lazy';
 import { LazyAhriPassiveAudio } from './ahri-passive-lazy';
 import { LazyAhriSpiritRushAudio } from './ahri-spirit-rush-lazy';
 import { LazyAhriFoxFireAudio } from './ahri-fox-fire-lazy';
@@ -59,6 +60,7 @@ export class GameAudio {
   ahriFoxFire = new LazyAhriFoxFireAudio();
   ahriSpiritRush = new LazyAhriSpiritRushAudio();
   ahriPassive = new LazyAhriPassiveAudio();
+  ahriAA = new LazyAhriAttackAudio();
   private charmWorld?: World;
   private charmTerminalStart: number | null = null;
   masterYiAA = new LazyMasterYiAttackAudio();
@@ -141,6 +143,7 @@ export class GameAudio {
             this.ahriFoxFire.load(),
             this.ahriSpiritRush.load(),
             this.ahriPassive.load(),
+            this.ahriAA.load(),
           ]
         : []),
       this.loadCast(),
@@ -358,6 +361,7 @@ export class GameAudio {
     this.ahriFoxFire.stop();
     this.ahriSpiritRush.stop();
     this.ahriPassive.stop();
+    this.ahriAA.stop();
     this.bindingFlight.stop();
     this.luxE.stop();
     this.garenAA.stop();
@@ -584,6 +588,7 @@ export class GameAudio {
   }
   updateAhri(world: World, listener = { x: 0, y: 0 }) {
     const present = world.units.some((u) => u.champion === 'ahri');
+    if (present && this.ahriAA.status === 'idle') void this.ahriAA.load();
     if (present && this.ahriPassive.status === 'idle') void this.ahriPassive.load();
     if (present && this.ahriSpiritRush.status === 'idle') void this.ahriSpiritRush.load();
     if (present && this.ahriCharm.status === 'idle') void this.ahriCharm.load();
@@ -633,6 +638,15 @@ export class GameAudio {
       this.context,
       this.enabled && !this.paused,
       world.ahriFoxFireAudio,
+      tick,
+      listener,
+      world,
+      scene
+    );
+    this.ahriAA.update(
+      this.context,
+      this.enabled && !this.paused,
+      world.ahriAttackAudio,
       tick,
       listener,
       world,
@@ -1065,6 +1079,11 @@ export class GameAudio {
           } else if (event.masterYiAAStartTick !== undefined && event.unit !== undefined) {
             if (this.masterYiAA.status !== 'ready') {
               this.masterYiAA.suppressSwing(event.unit, event.masterYiAAStartTick);
+              this.tone(650, 260, 0.065, 0.012, 'triangle');
+            }
+          } else if (event.ahriAAStartTick !== undefined && event.unit !== undefined) {
+            if (this.ahriAA.status !== 'ready') {
+              this.ahriAA.suppressSwing(event.unit, event.ahriAAStartTick);
               this.tone(650, 260, 0.065, 0.012, 'triangle');
             }
           } else if (event.garenAAStartTick !== undefined && event.unit !== undefined) {

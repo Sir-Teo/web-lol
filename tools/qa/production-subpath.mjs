@@ -131,6 +131,7 @@ try {
     ahriFoxFireAudioRequests = [],
     ahriSpiritRushAudioRequests = [],
     ahriPassiveAudioRequests = [],
+    ahriAttackAudioRequests = [],
     scheduledGrompRequests = [],
     scheduledBlueRequests = [],
     scheduledRedRequests = [],
@@ -146,6 +147,8 @@ try {
   });
   page.on('request', (request) => {
     if (request.url().includes('/assets/audio/ahri-orb/')) ahriOrbAudioRequests.push(request.url());
+    if (request.url().includes('/assets/audio/ahri-attack/'))
+      ahriAttackAudioRequests.push(request.url());
     if (request.url().includes('/assets/audio/ahri-passive/'))
       ahriPassiveAudioRequests.push(request.url());
     if (request.url().includes('/assets/audio/ahri-spirit-rush/'))
@@ -283,6 +286,11 @@ try {
   assert.deepEqual(baronPreviewRequests, [], 'Production must ignore the Baron fixture flag');
   assert.deepEqual(baronEffectRequests, [], 'Production must not load private Baron effects');
   assert.deepEqual(baronAudioRequests, [], 'Production must not load private Baron audio');
+  assert.deepEqual(
+    ahriAttackAudioRequests,
+    [],
+    'Production without Ahri must not load attack masters'
+  );
   assert.deepEqual(
     ahriPassiveAudioRequests,
     [],
@@ -756,6 +764,7 @@ try {
     ['Fox-Fire', ahriFoxFireAudioRequests],
     ['Spirit Rush', ahriSpiritRushAudioRequests],
     ['Passive', ahriPassiveAudioRequests],
+    ['Attack', ahriAttackAudioRequests],
   ])
     assert.deepEqual(requests, [], `Production without Ahri must not preload ${family} masters`);
   assert.deepEqual(
@@ -795,6 +804,7 @@ try {
     unrequestedAhriFoxFireAudioPreloads: ahriFoxFireAudioRequests.length,
     unrequestedAhriSpiritRushAudioPreloads: ahriSpiritRushAudioRequests.length,
     unrequestedAhriPassiveAudioPreloads: ahriPassiveAudioRequests.length,
+    unrequestedAhriAttackAudioPreloads: ahriAttackAudioRequests.length,
     garenFixtureInProduction: false,
     leonaPlayerFixtureInProduction: false,
     leonaRiftTrialInProduction: false,

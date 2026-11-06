@@ -277,6 +277,7 @@ it('terminal clock drains Q tails without mutating the frozen winning snapshot',
   (game as any).ahriFoxFire = { status: 'ready', update() {}, stop() {} };
   (game as any).ahriSpiritRush = { status: 'ready', update() {}, stop() {} };
   (game as any).ahriPassive = { status: 'ready', update() {}, stop() {} };
+  (game as any).ahriAA = { status: 'ready', update() {}, stop() {} };
   game.updateAhri(w);
   expect(controller.activeVoices).toBe(2);
   context.currentTime += 10;
