@@ -1,0 +1,143 @@
+{
+  "format": 1,
+  "sourcePinSha256": "193ac8c3693acb846601bca8b623eb906f9587ed2fad0fe984e3fba7c86a4b2b",
+  "bankUnit": {
+    "name": "NPC_Map11_Baron_SFX_audio",
+    "bankPath": [
+      "ASSETS/Sounds/Wwise2016/SFX/Shared/NPC_Map11_Baron_SFX_audio.bnk",
+      "ASSETS/Sounds/Wwise2016/SFX/Shared/NPC_Map11_Baron_SFX_events.bnk"
+    ],
+    "__type": "BankUnit"
+  },
+  "helper": {
+    "path": "tools/assets/extract-baron-audio.py",
+    "sha256": "ee33c11277fa9e9b05d8456c6bf080f1a0a1e47118eeba852b43d2141726c642"
+  },
+  "extraction": {
+    "referenceVersion": "16.18.8175716",
+    "manifest": {
+      "url": "https://lol.dyn.riotcdn.net/channels/public/releases/29CE6E781C3B6368.manifest",
+      "sha256": "564984ff169e7554607cae96d3cdca7812dfc5978736e889f347def39142a0cb"
+    },
+    "archive": "DATA/FINAL/Maps/Shipping/Map11.wad.client",
+    "chunks": {
+      "A02D372F5DF76CAD": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+        "offset": 39736250,
+        "bytes": 223610,
+        "sha256": "497b48b952a25d9d549a9072d1b2968fced9ac4b0adb323b55d374bdb883ec4b"
+      },
+      "6C7FBEFDF21793B9": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+        "offset": 39959860,
+        "bytes": 258644,
+        "sha256": "f23ef45618318e6d6c3a909b86fc1846003544eeb901caeb4d180d5990932397"
+      },
+      "28395A168DBE5BA0": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+        "offset": 40218504,
+        "bytes": 183351,
+        "sha256": "70bced407e6680cc97032f924a5f3e16f886d1ac327f1146713dbfe168cc87c4"
+      },
+      "902BE54057D2F816": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/94895582B52D2BB2.bundle",
+        "offset": 40401855,
+        "bytes": 5831,
+        "sha256": "02c40cc44fd863d50514ee0ffd10a54d3ff9e9af1d6fac6ef4cb1d461f16d4d5"
+      },
+      "FEB9FC9832147ADC": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/1BAF42EBB73385BD.bundle",
+        "offset": 12867106,
+        "bytes": 266544,
+        "sha256": "5682b05473d220685c2b21546fb68b91041f0ebefc44b3c78b84ca10d62f61a0"
+      },
+      "DA2CAB3EFBAE2FD4": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/ACCB890C20D07A7E.bundle",
+        "offset": 42488636,
+        "bytes": 86901,
+        "sha256": "1bca7195afebaa534bb98c45c2fe0352c0aee3b5247b73fe42c9ad3490ca3111"
+      },
+      "DF91B5F6DD0A450D": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/ACCB890C20D07A7E.bundle",
+        "offset": 42575537,
+        "bytes": 114110,
+        "sha256": "b0206c24d26445de75535c01598d5630f3fa40ae46f8970bf0501b1dd9b76a99"
+      },
+      "50E89F3769862901": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/ACCB890C20D07A7E.bundle",
+        "offset": 42689647,
+        "bytes": 130267,
+        "sha256": "3554fe31d73d2fa8ad80137d080805e38bbb2c6def6db25cf993def16fc2eea0"
+      },
+      "1CCB7672AE0030F8": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/ACCB890C20D07A7E.bundle",
+        "offset": 42819914,
+        "bytes": 261937,
+        "sha256": "dab1a35eecee75b5b26f9f271485f07981904819dc27c50edeb00764b5c51112"
+      },
+      "3C2BEBBA9F1865B7": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/ACCB890C20D07A7E.bundle",
+        "offset": 43081851,
+        "bytes": 292978,
+        "sha256": "eb0af72b62d38e0d4de2561dd1e7fb4a926fdf99c14dbbff7b6dec424e03f6f1"
+      },
+      "BF9A6FD9DB5886FD": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/ACCB890C20D07A7E.bundle",
+        "offset": 43374829,
+        "bytes": 152150,
+        "sha256": "e3a1f35705560b54040904fc07c20fd48a2a7f4317c58722d63c057716609fb8"
+      },
+      "48BFE45D8865435B": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/ACCB890C20D07A7E.bundle",
+        "offset": 43526979,
+        "bytes": 201317,
+        "sha256": "d103e8a9c8955a4dda5553c6cd8593c58d1ebd8841e49aae91f82f307d3f226b"
+      },
+      "B70AA94A8A794E89": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/ACCB890C20D07A7E.bundle",
+        "offset": 43728296,
+        "bytes": 135453,
+        "sha256": "c8dfd151e36dd9fdf4977ae5e4e667e714e06b7d3becf212fa166bfa9747960d"
+      },
+      "BEB853455D905B0C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/ACCB890C20D07A7E.bundle",
+        "offset": 43863749,
+        "bytes": 249043,
+        "sha256": "24fa10ba3b520f6cde83c31688c79abc4e168af593440136b55c46b67d2a9e1f"
+      },
+      "33AE7F20D12E3D1A": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/ACCB890C20D07A7E.bundle",
+        "offset": 44112792,
+        "bytes": 186070,
+        "sha256": "f263ae6608854faa85da9b6db10a70175af659021d55cc6edc605801f71d1f5a"
+      },
+      "6100696DF78F0BC9": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/ACCB890C20D07A7E.bundle",
+        "offset": 44298862,
+        "bytes": 293991,
+        "sha256": "1d144889c9c5623d1ba5acabc488a5a20b4692a7af278259c3c2313fe8f0cc89"
+      },
+      "25E9AD70FF0F1F6C": {
+        "url": "https://lol.dyn.riotcdn.net/channels/public/bundles/355BAC866F84D9E9.bundle",
+        "offset": 2900721,
+        "bytes": 4585,
+        "sha256": "11d86151bc6e52b25c3ff02d8aea5e25785f1dd5b2e28b41adfd08915b54eb62"
+      }
+    },
+    "files": [
+      {
+        "path": "assets/sounds/wwise2016/sfx/shared/npc_map11_baron_sfx_audio.bnk",
+        "wadPathHash": "ab0b5d792a5bf2f9",
+        "sha256": "28f37899a0e84a18884c5503aca3ce819aa71baa3b562af2dc879ccd60c29fc0",
+        "bytes": 2127102
+      },
+      {
+        "path": "assets/sounds/wwise2016/sfx/shared/npc_map11_baron_sfx_events.bnk",
+        "wadPathHash": "b861f66123020abf",
+        "sha256": "cf47d1ec6fcb9bb38748094b644b3bce7f16ff6de2e7a7b8b974111ff4cbb1ba",
+        "bytes": 15405
+      }
+    ]
+  },
+  "scope": "Original declared base SFX banks only. Event/media graph, cue selection, decoding and playback remain unverified."
+}

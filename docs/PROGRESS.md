@@ -9350,3 +9350,7 @@ Production browser QA now namespaces all eight screenshots and its structured re
 ### All-emitter full-suite and delivery checkpoint
 
 At application commit bd1e691, the full suite passes 8,433/8,435 cases across 463 files; only the two historical Leona/Lux gaps remain and no expectations/deadlines were weakened. All48 Node QA and all6 current real-input Baron browser cases pass. Seven later real-rig checks also pass separately. Pack39042467 passes all-file hash/extent verification (1,237 files /552,847,138 bytes), the named nested-prefix production gate with zero unwanted Baron model/effect preloads, and complete offline acceptance (978 worker responses, zero production errors, integrity/retry/saved boot/repair/version-switch/removal checks). Schema167/ruleset d3eb639. Native height/size/PRNG/cadence/visual fidelity remains outside these scoped local checks. See docs/reference/baron-all-bound-acceptance.json.
+
+### Freeze the declared Baron base sound banks
+
+Privately pinned the source skin's two declared shared SFX banks from the same Riot manifest/Map11 archive: 2,142,507 bytes, audio container134 and event bank145. Normal/optimized checks and a fresh exact-provenance restore pass. Eight rejection probes cover changed/missing/symlink banks and edited helper metadata in both Python modes. Portable helper provenance is frozen; initial experimental metadata remains in artifacts. No event meaning, decoded media, runtime playback or public assets are inferred yet. See docs/BARON-AUDIO-SOURCE.md.

@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "banks": 2,
+  "bytes": 2142507,
+  "checks": [
+    "normal Python source check",
+    "optimized Python source check",
+    "fresh restore with exact provenance",
+    "eight normal/optimized rejection probes"
+  ],
+  "runtimePlayback": false,
+  "evidence": [
+    {
+      "path": "tools/assets/extract-baron-audio.py",
+      "bytes": 4648,
+      "sha256": "ee33c11277fa9e9b05d8456c6bf080f1a0a1e47118eeba852b43d2141726c642"
+    },
+    {
+      "path": "docs/reference/baron-audio-source.json",
+      "bytes": 6091,
+      "sha256": "d5b32f17a158ba4063bd7f7fe3a870547e1d806226404a1352957194481b8e65"
+    },
+    {
+      "path": "artifacts/baron-audio-portable-discovery.log",
+      "bytes": 70,
+      "sha256": "c0a34fc9bcd969560f3bbe0ccf362f174584311f7154fcc1a62780a268310757"
+    },
+    {
+      "path": "artifacts/baron-audio-source-check.log",
+      "bytes": 68,
+      "sha256": "501a423836c6c8127817feafd4294faa12cadbbabaaebe63005c4d45ab919af1"
+    },
+    {
+      "path": "artifacts/baron-audio-source-optimized-check.log",
+      "bytes": 68,
+      "sha256": "501a423836c6c8127817feafd4294faa12cadbbabaaebe63005c4d45ab919af1"
+    },
+    {
+      "path": "artifacts/baron-audio-fresh-restore.log",
+      "bytes": 70,
+      "sha256": "c0a34fc9bcd969560f3bbe0ccf362f174584311f7154fcc1a62780a268310757"
+    },
+    {
+      "path": "artifacts/baron-audio-source-rejections.json",
+      "bytes": 1162,
+      "sha256": "c6bcd366aa0dcd7d529548ddda1e3416abe3532aff44afe0512dde8b8e783dad"
+    }
+  ],
+  "bankHeaders": [
+    {
+      "path": "assets/sounds/wwise2016/sfx/shared/npc_map11_baron_sfx_audio.bnk",
+      "version": 134,
+      "bankId": 1237871473
+    },
+    {
+      "path": "assets/sounds/wwise2016/sfx/shared/npc_map11_baron_sfx_events.bnk",
+      "version": 145,
+      "bankId": 4081957254
+    }
+  ]
+}
