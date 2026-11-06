@@ -35,3 +35,9 @@ Isolated schema174 adds optional nonempty `ahriLifecycleAudio` groups keyed by t
 Strict restore checks identities, owner/level, source death-timer calculation, pending corpse/timer links, canonical audiences, actual respawn chronology, map spawn position and finite tails. Existing death-event IDs join the reserved identity check. Empty history is omitted. Historical scenario helpers, producers and expected hashes stay unchanged; their current-side comparisons remove only the newly introduced lifecycle presentation field.
 
 Seven history cases cover every-frame dead-wait/respawn/tail futures, maximum-level waiting, hidden death versus visible spawn, immediate second death with an older respawn tail, posthumous progression, three victory phases and malformed pending/completed records. All394 scoped cases in54 files,228 independent lifecycle projections and prior family baselines pass; fourteen archived-state comparator tests and TypeScript pass. Full/cohort verification follows. Lifecycle playback remains unbound, including the source five-second death Stop callback.
+
+## Frozen lifecycle history verification
+
+Runtime `9307043`, schema174 / `d1e66691`, passes8,732/8,734 full-suite cases in510 files with only the two historical failures. All173 Node QA cases pass. Clean CI passes TypeScript,394 cases in54 files and30 Python guard modes without private caches/tools, across32 commands.
+
+The frozen604-file roster archive finishes naturally Blue at157,116, with44 exact restores,43 future checks and2,580 future ticks. All45 projections match `2ba54634`, retaining attack/P/R/W/Q/E history. Source hashes/extents, runner, inputs, reports and snapshots verify. See `reference/ahri-lifecycle-history-verification.json`; this evidence is not relabeled to playback or the older hundred-seed baseline. Lifecycle playback proceeds separately.

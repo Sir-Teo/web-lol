@@ -1,0 +1,314 @@
+{
+  "format": 1,
+  "historyRevision": "93070436e173d367bf93037301c9a0dfcaf89e16",
+  "testFixtureRevision": "93070436e173d367bf93037301c9a0dfcaf89e16",
+  "schema": 174,
+  "ruleset": "d1e66691343170e2984614fcf99ebd978aa3be61d629dff4274eb2179a26b03a",
+  "fullUnit": {
+    "passed": 8732,
+    "failed": 2,
+    "files": 510,
+    "workers": 1,
+    "knownFailures": [
+      "missing historical Leona reader archive",
+      "Lux sampler FMA golden mismatch"
+    ]
+  },
+  "nodeQA": 173,
+  "cleanCI": {
+    "revision": "9307043",
+    "tests": 394,
+    "files": 54,
+    "typeCheck": true,
+    "pythonModes": 30,
+    "privateCaches": false,
+    "privateTools": false,
+    "dependencies": "Reused parent node_modules; npm ci not repeated locally",
+    "remoteDispatched": false,
+    "commands": 32
+  },
+  "roster": {
+    "winner": "blue",
+    "finalTick": 157116,
+    "checkedTicks": 157116,
+    "roundTrips": 44,
+    "futureChecks": 43,
+    "futureCheckedTicks": 2580
+  },
+  "archive": {
+    "root": "/workspace/web-lol-ahri-lifecycle-audio/.cache/ahri-lifecycle-history-roster-seed1",
+    "sourceFiles": 604,
+    "runner": {
+      "file": "/workspace/web-lol-ahri-lifecycle-audio/.cache/ahri-lifecycle-history-roster-seed1/runner/match-seed.js",
+      "bytes": 1249981,
+      "sha256": "84fdf9d61de775f7eada64afc3c7c5e7d9733a055d182322e107d9a8d117743a"
+    },
+    "allCurrentArchivedSourceBytesMatch": true,
+    "planSha256": "e588004fcb8787d6d8b76ab575449db0b88d3b6baaaa53da36d553639cc14505"
+  },
+  "gameplay": {
+    "equalSamples": 45,
+    "baselineRuleset": "2ba54634799e9f6ddc6a5ab81f4a494cf9a46fdfd3a4aab5a5d4a3cbb5cdfdc1",
+    "excludedRootFields": [
+      "version",
+      "ruleset",
+      "ahriLifecycleAudio"
+    ],
+    "existingAttackPassiveSpiritRushFoxFireOrbCharmHistoryRetained": true,
+    "comparison": "ahri-lifecycle-history-gameplay-comparison.json"
+  },
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-comparator-tests-v1.log",
+      "bytes": 1276,
+      "sha256": "e0386c9036de900273fd99e4bcf1e7c8a09aba2272cede53da1fed3911c96376"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-baseline-tests-v1.log",
+      "bytes": 457,
+      "sha256": "5fee37bc17f34cab1f12dad619a435032920b37a405006a91f033a8ba013bcac"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-ci-checkout.log",
+      "bytes": 1848,
+      "sha256": "369da0274b183767dec0952432012cf016b3c1e4a4a86a9418823888a3bcafef"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-0.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-1.log",
+      "bytes": 417,
+      "sha256": "d92b59bd3133689e573d847de4e9d4f506153da62fbfbf68d64208782590fb5f"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-10.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-11.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-12.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-13.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-14.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-15.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-16.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-17.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-18.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-19.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-2.log",
+      "bytes": 126,
+      "sha256": "40aead902f47ee86083ca799462d13f1f5def3ae5feb071af6b5032aae880871"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-20.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-21.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-22.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-23.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-24.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-25.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-26.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-27.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-28.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-29.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-3.log",
+      "bytes": 125,
+      "sha256": "f5d56745cbec320ad650e983e5f2738ba279b3545edfdf1ea9dfd5a5312e45c2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-30.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-31.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-4.log",
+      "bytes": 118,
+      "sha256": "b08e65827c7a08cae7a8c83373415a646d20c999bf8b7f7c48684023fc4faf73"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-5.log",
+      "bytes": 117,
+      "sha256": "277830a9736393132c0af95cee95446a745c5f7f75b6d6f54b9a6eac6babda4c"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-6.log",
+      "bytes": 118,
+      "sha256": "b08e65827c7a08cae7a8c83373415a646d20c999bf8b7f7c48684023fc4faf73"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-7.log",
+      "bytes": 117,
+      "sha256": "277830a9736393132c0af95cee95446a745c5f7f75b6d6f54b9a6eac6babda4c"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-8.log",
+      "bytes": 121,
+      "sha256": "23a5151975aebfa4f688c9a38a0a1a5e16ecdbf829553970e98f303acce1e579"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-clean-ci-9.log",
+      "bytes": 120,
+      "sha256": "2d4bd23507d91cb112aba7b702d646dd3c1da3de1ad8406725db3fa16cb165f3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-cohort-v1.log",
+      "bytes": 1404,
+      "sha256": "9819a7148b80d207d7b97c9f81c382c33f10e39f5f1acc4ae86bff249b86d92c"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-cohort-verify-v1.log",
+      "bytes": 430,
+      "sha256": "7e4206cce48d969998cb00768bc2d5894b23a3b99136c229e307d2b7a590a538"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-comparison-v1.log",
+      "bytes": 61,
+      "sha256": "e1aa446b2a99cfc97cdb1c336e58a56082b09bce36db1959076309b4aa2c141c"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-format-v1.log",
+      "bytes": 429,
+      "sha256": "ad46e6bbf9a9c169a0cb49668d7f670bd9846a5ed353fdfcc376ff07dd39467b"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-format-v2.log",
+      "bytes": 93,
+      "sha256": "596999bc2b99f5930c268447323e5e37117358d4a10360944bda386e69c4b557"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-full-suite-v1.log",
+      "bytes": 4823,
+      "sha256": "37547096b05869a00bae991376badeced09ae2d070651744db4b302587780af1"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-node-qa-v1.log",
+      "bytes": 13888,
+      "sha256": "d22f80ae4e3d4bdf1d6b33a70b588f574cd26caf85de8045879e00132aa2855d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-selector-v1.log",
+      "bytes": 405,
+      "sha256": "91ef17dcded2226eae53910b3cce2551b5d8b65b7539df16c872249b3cb12992"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-tests-v1.log",
+      "bytes": 191,
+      "sha256": "fe92f54bb92f0b32cda23da04c38cde19a4706a744aa65c9442113589bcab653"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-types-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-types-v2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-history-types-v3.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-lifecycle-audio/.cache/ahri-lifecycle-history-roster-seed1/plan.json",
+      "bytes": 104655,
+      "sha256": "e588004fcb8787d6d8b76ab575449db0b88d3b6baaaa53da36d553639cc14505"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-lifecycle-audio/.cache/ahri-lifecycle-history-roster-seed1/seeds/1/report.json",
+      "bytes": 226141,
+      "sha256": "cc216d4161a249e1d1685f32eeaf680bf6e816e0da8a1eba1d1b22493f1c1d79"
+    }
+  ],
+  "limits": [
+    "Saved lifecycle dispatch only; playback remains unbound in this checkpoint.",
+    "Silent history waits for the existing respawn timer; finite death audio is not a loop. The source five-second death Stop remains callback-unbound.",
+    "One seed and archived checkpoints; older hundred-seed evidence retains its original scope.",
+    "Native callback timing, inheritance, global bus/listener calibration and zero-instance semantics remain unverified."
+  ],
+  "roadmapMilestone4Complete": false
+}
