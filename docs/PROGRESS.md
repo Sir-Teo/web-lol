@@ -47,6 +47,11 @@ independent reference schedules / 3,960 explicit steps for all 21 Baron emitters
 and a variable-rate case. All 70 tests pass, including restores and pool pressure.
 Particle birth parameters and active playback remain next work.
 
+The [complex birth-value stage](SOURCE-BIRTH-VALUES.md) now matches 198
+independent exact-byte samples for all 21 Baron profiles; all 202 cases pass.
+Lifetime, vector rounding and draw order are explicit. Shape/surface/flex/UV
+composition and active playback remain next work.
+
 ## Recent verified checkpoints
 
 All 21 Baron emitters now have a [strict private parameter stage](BARON-ATTACK-PROGRAM.md),

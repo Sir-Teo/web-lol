@@ -1,0 +1,36 @@
+{
+  "format": 1,
+  "testsPassed": 202,
+  "independentSamples": 198,
+  "profiles": 21,
+  "typecheck": "passed",
+  "nativeExecuted": false,
+  "runtimeBinding": false,
+  "evidence": [
+    {
+      "path": "artifacts/source-birth-values-tests.log",
+      "bytes": 576,
+      "sha256": "cf8e4dc0bd2955206562891cfcbc76c8217fdb78ee3437159aac73f9c8099a1f"
+    },
+    {
+      "path": "artifacts/source-birth-values-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tools/assets/export-source-birth-value-samples.mjs",
+      "bytes": 4906,
+      "sha256": "ebe48f2a10dfaff1316937c3918ae0e619a664eebfaab7a56bb9e265736a4e9e"
+    },
+    {
+      "path": "docs/reference/source-birth-value-samples.json",
+      "bytes": 97827,
+      "sha256": "6b707674bbcd39e350a038ee4a125c36c4bef894bf420df9b0e0d05aaba51c63"
+    },
+    {
+      "path": "src/render/source-birth-values.ts",
+      "bytes": 2525,
+      "sha256": "538e3a80cbc1182cc35e2b98dbcefebfe0aaaa5ce42f485a710d81dbad54ed44"
+    }
+  ]
+}
