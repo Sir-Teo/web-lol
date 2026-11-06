@@ -1,0 +1,110 @@
+{
+  "format": 1,
+  "emittersDrawn": 21,
+  "screenshots": 8,
+  "geometryTestsPassed": 53,
+  "previousCompositionDeliveryTestsPassed": 19,
+  "pixelCasesPassed": 84,
+  "typecheck": "passed",
+  "nativeExecuted": false,
+  "activeGameplayBinding": false,
+  "previewBirthFactors": "explicit neutral factors, not native size calibration",
+  "evidence": [
+    {
+      "path": "src/render/baron-particle-batch.ts",
+      "bytes": 11589,
+      "sha256": "710ece05e73090e84b857b894bf552369d3e528fa9a7f1b070bd9f94e062982e"
+    },
+    {
+      "path": "src/render/baron-particle-resources.ts",
+      "bytes": 2853,
+      "sha256": "fa2dbfa23a645e9677d0144e244a42fc45ea920b4d77780bcce16b9d2d86fc5b"
+    },
+    {
+      "path": "src/render/baron-ribbon.ts",
+      "bytes": 3937,
+      "sha256": "53836c179d6a58ac7dde989d915dd12e8e228d2e2eb2482d942467b444c74dd9"
+    },
+    {
+      "path": "src/render/baron-particle-material.ts",
+      "bytes": 5860,
+      "sha256": "fe2745913ef2e14a67d1f4fd0ba7b07a52db1572dadfd796a7c3b55b3b36cebb"
+    },
+    {
+      "path": "tests/baron-particle-batch.test.ts",
+      "bytes": 5102,
+      "sha256": "e462ae25e87ba482ac49e7c9a4c431f435217645eff2aacef888d0cc09b90b91"
+    },
+    {
+      "path": "tests/baron-ribbon.test.ts",
+      "bytes": 5329,
+      "sha256": "b8cd8a326ba843849b37aed7751615652c2d92a3ea54f76533b9c5a0789ce24c"
+    },
+    {
+      "path": "tools/qa/baron-particle-preview.mjs",
+      "bytes": 6099,
+      "sha256": "5b424c55e04442f5041a74c0e45748e8d03bb47ca3c150570211b0613417901f"
+    },
+    {
+      "path": "artifacts/baron-batch-geometry-tests.log",
+      "bytes": 4627,
+      "sha256": "0367bb763d706d988924b0bbcaeb7d478086f3f79f399f300d0df21b083822e2"
+    },
+    {
+      "path": "artifacts/baron-batch-types-final-v2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/baron-particle-preview.json",
+      "bytes": 5986,
+      "sha256": "016ccc8b676c5018334ac999db95979e418fdd3198581cccf7f8b8a0a6cc838e"
+    },
+    {
+      "path": "artifacts/baron-particle-preview-verified.log",
+      "bytes": 73,
+      "sha256": "398ed5b4f7ea0fa6ae790460aae13e62456df791eca6d0b8a6434abb297364df"
+    },
+    {
+      "path": "artifacts/baron-material-instancing-pixels.log",
+      "bytes": 144,
+      "sha256": "4749d134cd359b9bfbff3bd08357690e97d8d77ea1196ea55d68f25fb4c61c48"
+    },
+    {
+      "path": "artifacts/baron-preview-missile-20.png",
+      "bytes": 72855,
+      "sha256": "e11ec8417fb9727e0cf76aa1aa2f509c29e489fd57a014a1992d109009f818e2"
+    },
+    {
+      "path": "artifacts/baron-preview-hit-20.png",
+      "bytes": 41242,
+      "sha256": "c6dbc7aa7338b8a4517e969714e1f50e14b166bb234eb2822ada512c5878999e"
+    }
+  ],
+  "ribbonReaders": {
+    "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+    "files": [
+      {
+        "path": ".cache/baron-emission-readers/rendering/components/Trails.tsx",
+        "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/components/Trails.tsx",
+        "bytes": 7854,
+        "sha256": "e94eeaed23fddc95b9cb6d20b82fcc2abb4714bd304545b83303127ad405003c",
+        "gitBlob": "3e7cdf2dc716813c8b9e7b5419e8fa883c3db606"
+      },
+      {
+        "path": ".cache/baron-emission-readers/rendering/shaders/ribbon.ts",
+        "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/shaders/ribbon.ts",
+        "bytes": 2200,
+        "sha256": "8008f64c69c3d490c5d5efbcc94606e7281e920837772e09e9b26be254d985f2",
+        "gitBlob": "170a383533d35d46af119537415765ed1ab70420"
+      },
+      {
+        "path": ".cache/baron-emission-readers/rendering/utils/ribbon.ts",
+        "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/rendering/utils/ribbon.ts",
+        "bytes": 33103,
+        "sha256": "ada3d66b955dee7916f10e5b76417a9d7985bbbca337afcd551a7f30fa5cbe68",
+        "gitBlob": "88dd9b4216a176e4e8bad544606aee98159da5f7"
+      }
+    ]
+  }
+}

@@ -67,7 +67,11 @@ export function createBaronParticleMaterial(
         vMultShift = sourceMultShift;
         vErosionMix = sourceErosionMix;
         vErosionDrive = sourceErosionDrive;
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        vec4 placed = vec4(position, 1.0);
+        #ifdef USE_INSTANCING
+        placed = instanceMatrix * placed;
+        #endif
+        gl_Position = projectionMatrix * modelViewMatrix * placed;
       }
     `,
     fragmentShader: `
