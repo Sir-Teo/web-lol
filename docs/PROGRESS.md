@@ -52,6 +52,10 @@ independent exact-byte samples for all 21 Baron profiles; all 202 cases pass.
 Lifetime, vector rounding and draw order are explicit. Shape/surface/flex/UV
 composition and active playback remain next work.
 
+The [legacy-shape adapter](SOURCE-LEGACY-SHAPES.md) now preserves Baron's three
+zero-offset draws and ordered float32 turns. All 136 combined shape cases pass,
+including 54 independent legacy samples. Surface/flex placement remains next.
+
 ## Recent verified checkpoints
 
 All 21 Baron emitters now have a [strict private parameter stage](BARON-ATTACK-PROGRAM.md),

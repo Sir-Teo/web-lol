@@ -1,0 +1,36 @@
+{
+  "format": 1,
+  "legacyTestsPassed": 59,
+  "combinedShapeTestsPassed": 136,
+  "independentSamples": 54,
+  "typecheck": "passed",
+  "nativeExecuted": false,
+  "runtimeBinding": false,
+  "evidence": [
+    {
+      "path": "artifacts/source-legacy-shape-tests.log",
+      "bytes": 455,
+      "sha256": "96d5a33159d023027504973109c4edeb4beb39edc548823b7ecdb8aa96047f97"
+    },
+    {
+      "path": "artifacts/source-legacy-shape-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tools/assets/export-source-legacy-shape-samples.mjs",
+      "bytes": 4735,
+      "sha256": "2fe43c8090d79fef7aa813d73b7d6169445d098c8d4f86a3d2d1f3001c39806b"
+    },
+    {
+      "path": "docs/reference/source-legacy-shape-samples.json",
+      "bytes": 17359,
+      "sha256": "5c5a2f53e5555c6657d38a85ed9e3a1b49abb62b4ec65c273c36d990ffcf8578"
+    },
+    {
+      "path": "src/render/source-legacy-spawn-shape.ts",
+      "bytes": 2862,
+      "sha256": "580082906d67e99e07f43e0af576fa408572942d39fbbfda29072b48cdf799bf"
+    }
+  ]
+}
