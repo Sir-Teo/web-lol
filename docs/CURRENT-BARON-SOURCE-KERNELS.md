@@ -11,8 +11,13 @@ Sixty scoped tests, all six real-input Baron browser cases and the production
 build pass. Source centres/tints/UVs restore exactly; stops, target loss, fog,
 death, World replacement and ownership have focused coverage. The current pack is
 `390424679321370f293817990d744c3fc753e46ac5cf4bdd98060a120b673142`
-(1,237 files / 552,847,138 bytes). Current full-suite and new-pack delivery checks
-are pending; scoped evidence is in reference/baron-all-source-binding-verification.json.
+(1,237 files / 552,847,138 bytes). The full all-emitter suite passes **8,433/8,435** cases across 463 files; the
+only failures remain the historical Leona checker/archive and Lux sampler digest
+gaps. All48 Node QA and all6 Baron browser cases pass, with seven additional
+real-rig checks separately verified. Named nested-prefix production, all-file byte
+verification and full offline acceptance pass, including zero unwanted Baron
+model/effect preloads. See reference/baron-all-bound-acceptance.json and the scoped
+reference/baron-all-source-binding-verification.json.
 
 Height routing remains an explicit local single-elevation projection; the native
 interaction of targetHeightAugment and offsetInitialTargetHeight is unresolved.

@@ -1,0 +1,108 @@
+{
+  "format": 1,
+  "applicationSourceCommit": "bd1e691",
+  "snapshotVersion": 167,
+  "ruleset": "d3eb639e160dbc64640f825e42f70d59485f996cb348104eeaaed4946a8e3bc0",
+  "activeProfiles": {
+    "missile": 9,
+    "hit": 12
+  },
+  "fullUnit": {
+    "passed": 8433,
+    "failed": 2,
+    "files": 463,
+    "knownFailures": [
+      "missing historical Leona checker/input archive",
+      "Lux 24-sampler digest mismatch"
+    ],
+    "expectationsWeakened": false
+  },
+  "additionalRealRigCases": 7,
+  "nodeQaPassed": 48,
+  "browserCasesPassed": 6,
+  "pack": {
+    "id": "390424679321370f293817990d744c3fc753e46ac5cf4bdd98060a120b673142",
+    "files": 1237,
+    "bytes": 552847138
+  },
+  "fullPackByteVerification": "passed",
+  "nestedPrefixProduction": "passed",
+  "unrequestedBaronModelPreloads": 0,
+  "unrequestedBaronEffectPreloads": 0,
+  "offlineProduction": "passed",
+  "offlineChecks": {
+    "integrityFailureRestoresDownloadFocus": true,
+    "integrityFailure": true,
+    "downloadFocusesCancel": true,
+    "cancelRetainsVerified": true,
+    "cancelRestoresDownloadFocus": true,
+    "retryWithoutRedownload": true,
+    "completionPreservesOtherControlFocus": true,
+    "pausedSavedTickBootsOffline": true,
+    "completePackRepairOffline": true,
+    "newLuxLaneMatchOffline": true,
+    "serviceWorkerResponses": 978,
+    "removalKeepsSavedBytes": true,
+    "updateRefusesOtherTabs": true,
+    "explicitAtomicVersionSwitchOffline": true,
+    "missingEntryRevokesReady": true,
+    "scopeOnlyRemoval": true
+  },
+  "nativeExecuted": false,
+  "remainingPolicies": [
+    "Explicit local single-elevation flight projection; native height-field routing unresolved.",
+    "Neutral hit bound-size factors; native calibration unresolved."
+  ],
+  "evidence": [
+    {
+      "path": "artifacts/baron-all-bound-full-unit.log",
+      "bytes": 21207,
+      "sha256": "84233ee4616063b51926492f95fc0f74d96c38c6cf6e74a7111bd0c71468e312"
+    },
+    {
+      "path": "artifacts/baron-all-bound-node-qa.log",
+      "bytes": 4467,
+      "sha256": "723487848651adcd72295aced052cb366926ed42a88dea953dceb0dae235a67b"
+    },
+    {
+      "path": "artifacts/baron-all-source-browser-initial.log",
+      "bytes": 1329,
+      "sha256": "761b953bc31a38da928c3d9e8fa6941154782db4fd6da60d41f32a2b1d041601"
+    },
+    {
+      "path": "artifacts/baron-all-source-browser-controls.log",
+      "bytes": 2497,
+      "sha256": "687c9135a814f55a68bc196ff2061f1086fb280e974c5a902478aa109ecbb112"
+    },
+    {
+      "path": "artifacts/baron-all-bound-production-effect-assets.log",
+      "bytes": 3287,
+      "sha256": "b88841641cc3505935f1c9df3f19be2ba319aa4811e8fb25f729750d82aa3791"
+    },
+    {
+      "path": "artifacts/production-subpath-baron-all-bound-lazy-assets-v1.json",
+      "bytes": 3683,
+      "sha256": "02c61ee4a7007761fa329435520488fa6c5d00131a307ca92432da9cb8ee10f1"
+    },
+    {
+      "path": "artifacts/baron-all-bound-offline.log",
+      "bytes": 870,
+      "sha256": "0ba5935cafaae9c661541150f8374a20c5f0fa70202065ce6d84af4ea80aff02"
+    },
+    {
+      "path": "artifacts/offline-pack-baron-all-bound-39042467-production.json",
+      "bytes": 859,
+      "sha256": "c21923bce620864d5f9471872cf21132e2641d732809a49a64213a8c455f02f6"
+    },
+    {
+      "path": "artifacts/baron-all-bound-pack-manifest.json",
+      "bytes": 177636,
+      "sha256": "bbe8baadb8aa0554a342f054f0a408b2f8d019f2fcb62e81e58111ee7e7f5ed9"
+    },
+    {
+      "path": "artifacts/baron-real-rig-tests-initial.log",
+      "bytes": 921,
+      "sha256": "155d2ace9957233ef9fc3745f780427498819e84c3529829371801ac7540c244"
+    }
+  ]
+}

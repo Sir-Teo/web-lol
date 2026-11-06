@@ -9346,3 +9346,7 @@ Added direct source-clip fixtures for eight real GLB joints at six idle/attack t
 ### Preserve browser QA run evidence and measure effect preloads
 
 Production browser QA now namespaces all eight screenshots and its structured report; production and Baron preview both reserve an exclusive claim before browser work and refuse existing paths. Manual collision/path guards preserve earlier bytes. The claimed preview passes all21 emitters. Extended the production gate to track Baron effect transports as well as the private rig: the full named run passes with zero unwanted model/effect preloads. Earlier fixed-name receipts remain historical. See docs/QA-ARTIFACT-RUNS.md.
+
+### All-emitter full-suite and delivery checkpoint
+
+At application commit bd1e691, the full suite passes 8,433/8,435 cases across 463 files; only the two historical Leona/Lux gaps remain and no expectations/deadlines were weakened. All48 Node QA and all6 current real-input Baron browser cases pass. Seven later real-rig checks also pass separately. Pack39042467 passes all-file hash/extent verification (1,237 files /552,847,138 bytes), the named nested-prefix production gate with zero unwanted Baron model/effect preloads, and complete offline acceptance (978 worker responses, zero production errors, integrity/retry/saved boot/repair/version-switch/removal checks). Schema167/ruleset d3eb639. Native height/size/PRNG/cadence/visual fidelity remains outside these scoped local checks. See docs/reference/baron-all-bound-acceptance.json.
