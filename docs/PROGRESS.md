@@ -6,6 +6,17 @@ Last updated: November 6, 2026 (UTC).
 
 ## Current authoritative state
 
+The runtime now uses save schema **164**, ruleset
+`9c4d0ece38e7bfd3000ecc5617ccbef954831b064f7c1259bd6d920c89951d4c`.
+[Baron flight and contact histories](BARON-ATTACK-HISTORY.md) preserve released
+paths, visibility and target poses across save/reload. Four paired scenarios
+match the frozen prior gameplay trajectory for 1,680 ticks. Five browser cases
+pass, including actual in-flight and contact saves. Native emitter playback and
+launch-mouth attachment remain pending; the visible marker is provisional.
+The production/offline pack below belongs to the earlier e20 ruleset.
+
+## Recent verified checkpoints
+
 All 21 Baron emitters now have a [strict private parameter stage](BARON-ATTACK-PROGRAM.md),
 with complete 25-texture/214-mip/two-mesh bindings and native-unit emission data.
 Integrated acceleration, point identity, empty audio and source settings remain

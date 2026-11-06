@@ -1,0 +1,224 @@
+{
+  "sourcePinSha256": "4b300f952b2a768e1eaa5c5f9eda3dd397e457ba1ead19c10fbd9aaa02c3543a",
+  "tickRate": 60,
+  "interpolationMarginTicks": 2,
+  "flightTailTicks": 87,
+  "hitHistoryTicks": 125,
+  "pathFrames": 90,
+  "rows": [
+    {
+      "role": "missile",
+      "index": 0,
+      "name": "orb7",
+      "lifePeak": 0.5,
+      "emitterLife": 3.0,
+      "delay": 0,
+      "emitterLinger": 0,
+      "boundSeconds": 0.5
+    },
+    {
+      "role": "missile",
+      "index": 1,
+      "name": "orb8",
+      "lifePeak": 0.5,
+      "emitterLife": 3.0,
+      "delay": 0,
+      "emitterLinger": 0,
+      "boundSeconds": 0.5
+    },
+    {
+      "role": "missile",
+      "index": 2,
+      "name": "SmokeTrail",
+      "lifePeak": 0.4000000059604645,
+      "emitterLife": 0.6499999761581421,
+      "delay": 0,
+      "emitterLinger": 0,
+      "boundSeconds": 0.4000000059604645
+    },
+    {
+      "role": "missile",
+      "index": 3,
+      "name": "Mesh_DarkSmoke",
+      "lifePeak": 0.75,
+      "emitterLife": 1.0,
+      "delay": 0,
+      "emitterLinger": 0,
+      "boundSeconds": 0.75
+    },
+    {
+      "role": "missile",
+      "index": 4,
+      "name": "Mesh_Front",
+      "lifePeak": 0.75,
+      "emitterLife": 1.0,
+      "delay": 0,
+      "emitterLinger": 0,
+      "boundSeconds": 0.75
+    },
+    {
+      "role": "missile",
+      "index": 5,
+      "name": "MissileGlow",
+      "lifePeak": 0.75,
+      "emitterLife": 1.0,
+      "delay": 0,
+      "emitterLinger": 0,
+      "boundSeconds": 0.75
+    },
+    {
+      "role": "missile",
+      "index": 6,
+      "name": "missileHead_outer",
+      "lifePeak": 1.2000000476837158,
+      "emitterLife": 4.0,
+      "delay": 0,
+      "emitterLinger": 0,
+      "boundSeconds": 1.2000000476837158
+    },
+    {
+      "role": "missile",
+      "index": 7,
+      "name": "missileHead_outer1",
+      "lifePeak": 1.2000000476837158,
+      "emitterLife": 4.0,
+      "delay": 0,
+      "emitterLinger": 0,
+      "boundSeconds": 1.2000000476837158
+    },
+    {
+      "role": "missile",
+      "index": 8,
+      "name": "Trail3",
+      "lifePeak": 0.4000000059604645,
+      "emitterLife": 1.0,
+      "delay": 0,
+      "emitterLinger": 1.0,
+      "boundSeconds": 1.4000000059604645
+    },
+    {
+      "role": "hit",
+      "index": 0,
+      "name": "PoolGlow1",
+      "lifePeak": 0.5,
+      "emitterLife": 1.0,
+      "delay": 0,
+      "emitterLinger": 0,
+      "boundSeconds": 1.5
+    },
+    {
+      "role": "hit",
+      "index": 1,
+      "name": "blackhole1",
+      "lifePeak": 0.75,
+      "emitterLife": 1.2999999523162842,
+      "delay": 0,
+      "emitterLinger": 0,
+      "boundSeconds": 2.049999952316284
+    },
+    {
+      "role": "hit",
+      "index": 2,
+      "name": "Embers_Blend",
+      "lifePeak": 0.5,
+      "emitterLife": 1.0,
+      "delay": 0,
+      "emitterLinger": 0,
+      "boundSeconds": 1.5
+    },
+    {
+      "role": "hit",
+      "index": 3,
+      "name": "LIghtningJayce",
+      "lifePeak": 0.30000001192092896,
+      "emitterLife": 0.5,
+      "delay": 0.15000000596046448,
+      "emitterLinger": 0,
+      "boundSeconds": 0.9500000178813934
+    },
+    {
+      "role": "hit",
+      "index": 4,
+      "name": "Embers_Add",
+      "lifePeak": 0.25,
+      "emitterLife": 0.10000000149011612,
+      "delay": 0,
+      "emitterLinger": 1.0,
+      "boundSeconds": 1.3500000014901161
+    },
+    {
+      "role": "hit",
+      "index": 5,
+      "name": "poolbright2",
+      "lifePeak": 0.20000000298023224,
+      "emitterLife": 0.5,
+      "delay": 0,
+      "emitterLinger": 0,
+      "boundSeconds": 0.7000000029802322
+    },
+    {
+      "role": "hit",
+      "index": 6,
+      "name": "Glow",
+      "lifePeak": 0.25,
+      "emitterLife": 0.20000000298023224,
+      "delay": 0,
+      "emitterLinger": 0,
+      "boundSeconds": 0.45000000298023224
+    },
+    {
+      "role": "hit",
+      "index": 7,
+      "name": "vecalign",
+      "lifePeak": 0.5,
+      "emitterLife": 1.0800000429153442,
+      "delay": 0,
+      "emitterLinger": 0,
+      "boundSeconds": 1.5800000429153442
+    },
+    {
+      "role": "hit",
+      "index": 8,
+      "name": "vecalign1",
+      "lifePeak": 0.3400000035762787,
+      "emitterLife": 1.0800000429153442,
+      "delay": 0,
+      "emitterLinger": 0,
+      "boundSeconds": 1.420000046491623
+    },
+    {
+      "role": "hit",
+      "index": 9,
+      "name": "Electricity_Burst",
+      "lifePeak": 0.30000001192092896,
+      "emitterLife": 0.5,
+      "delay": 0,
+      "emitterLinger": 0,
+      "boundSeconds": 0.800000011920929
+    },
+    {
+      "role": "hit",
+      "index": 10,
+      "name": "poolbright3",
+      "lifePeak": 0.20000000298023224,
+      "emitterLife": 0.5,
+      "delay": 0,
+      "emitterLinger": 0,
+      "boundSeconds": 0.7000000029802322
+    },
+    {
+      "role": "hit",
+      "index": 11,
+      "name": "orb",
+      "lifePeak": 0.75,
+      "emitterLife": 1.0800000429153442,
+      "delay": 0,
+      "emitterLinger": 0,
+      "boundSeconds": 1.8300000429153442
+    }
+  ],
+  "limits": [
+    "Conservative local visible-life/absolute emitter-wait envelope, not native ownership/stop certification.",
+    "Source particleLinger is retained in the program; this bound does not reinterpret it as an extension of finite natural visible life."
+  ]
+}

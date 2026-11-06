@@ -55,6 +55,7 @@ test('real combat releases a visible provisional Baron missile before damage and
       tick: w.tick,
       hp: w.hero.hp,
       projectile: structuredClone(p),
+      history: structuredClone(w.baronAttackVisuals.find((v: any) => v.id === p.id)),
       marker: marker?.name,
       markerVisible: marker?.visible,
       saved,
@@ -63,6 +64,17 @@ test('real combat releases a visible provisional Baron missile before damage and
   }, before.bossId);
   expect(flight.hp).toBe(before.hp);
   expect(flight.projectile.speed).toBe(1300);
+  expect(flight.history).toMatchObject({
+    id: flight.projectile.id,
+    sourceId: before.bossId,
+    stopTick: null,
+    impact: null,
+  });
+  expect(flight.history.frames.at(-1)).toMatchObject({
+    tick: flight.tick,
+    x: flight.projectile.x,
+    y: flight.projectile.y,
+  });
   expect(flight.marker).toBe('Baron provisional attack marker');
   expect(flight.markerVisible).toBe(true);
   await page.screenshot({ path: info.outputPath('baron-provisional-flight.png') });
@@ -75,12 +87,33 @@ test('real combat releases a visible provisional Baron missile before damage and
   const future = await page.evaluate(() => {
     const w = (window as any).__GAME__.world;
     w.step(180);
-    return w.snapshot();
+    return {
+      saved: w.snapshot(),
+      contacts: w.baronAttackVisuals
+        .filter((v: any) => v.impact !== null)
+        .map((v: any) => ({
+          id: v.id,
+          stopReason: v.stopReason,
+          startTick: v.impact.startTick,
+          poseTick: v.impact.frames.at(-1).tick,
+          targetId: v.targetId,
+        })),
+      tick: w.tick,
+    };
   });
-  expect(future).toBe(flight.future);
+  expect(future.saved).toBe(flight.future);
+  expect(future.contacts.length).toBeGreaterThan(0);
+  expect(
+    future.contacts.every((v: any) => v.stopReason === 'hit' && v.poseTick === future.tick)
+  ).toBe(true);
+  await page.getByRole('button', { name: 'Save match', exact: true }).click();
+  await expect(page.locator('#toast')).toHaveText('Match saved on this browser.');
+  await page.reload();
+  await ready();
+  expect(await page.evaluate(() => (window as any).__GAME__.world.snapshot())).toBe(future.saved);
   expect(errors).toEqual([]);
   await writeFile(
     info.outputPath('baron-projectile.json'),
-    JSON.stringify({ before, flight, errors }, null, 2)
+    JSON.stringify({ before, flight, future, errors }, null, 2)
   );
 });

@@ -236,6 +236,14 @@ import {
   GROMP_ATTACK_PATH_FRAMES,
   GROMP_ATTACK_VISUAL_TAIL_TICKS,
 } from '../content/gromp-attack-presentation';
+import {
+  startBaronAttackVisual,
+  contactBaronAttackVisual,
+  advanceBaronAttackVisuals,
+  advanceBaronAttackContacts,
+  pruneBaronAttackVisuals,
+  type BaronAttackVisual,
+} from './baron-attack-visuals';
 import { LUX_ILLUMINATION_HISTORY_TICKS } from '../content/lux-illumination-presentation';
 import { ASHE_FLURRY_INTERVAL_TICKS } from '../content/ashe-flurry-timing';
 import { LUX_BINDING } from '../content/lux-binding';
@@ -417,6 +425,7 @@ export class World {
   luxBeams: LuxBeam[] = [];
   luxAttackVisuals: LuxAttackVisual[] = [];
   grompAttackVisuals: GrompAttackVisual[] = [];
+  baronAttackVisuals: BaronAttackVisual[] = [];
   luxImpactVisuals: LuxImpactVisual[] = [];
   luxIlluminationVisuals: LuxIlluminationVisual[] = [];
   sunlightVisuals: SunlightVisual[] = [];
@@ -1157,6 +1166,7 @@ export class World {
       this.grompAttackVisuals = this.grompAttackVisuals.filter(
         (v) => v.stopTick === null || this.tick < v.stopTick + GROMP_ATTACK_VISUAL_TAIL_TICKS
       );
+    pruneBaronAttackVisuals(this);
     for (const unit of this.units)
       if (unit.slows.length) unit.slows = unit.slows.filter((slow) => slow.endTick > this.tick);
     for (const unit of this.units)
@@ -4176,6 +4186,8 @@ export class World {
                 volleyId: null,
               };
               (index === 0 ? this.projectiles : this.pendingAttackProjectiles).push(projectile);
+              if (u.kind === 'monster' && u.monster.species === 'baron')
+                startBaronAttackVisual(this, u, target, projectile);
               if (u.kind === 'monster' && u.monster.species === 'gromp')
                 this.grompAttackVisuals.push({
                   origin: { ...projectile.origin! },
@@ -5229,6 +5241,7 @@ export class World {
     advanceAlphaContacts(this);
   }
   private advanceImpactVisuals(): void {
+    advanceBaronAttackContacts(this);
     this.advanceMasterYiImpactVisuals();
     advanceSolarVisuals(this);
     advanceZenithVisuals(this);
@@ -5266,7 +5279,7 @@ export class World {
     const survivors: Projectile[] = [];
     const visualFrames = new Map<number, { tick: number; x: number; y: number; facing: number }>();
     const visualIds = new Set(
-      [...this.luxAttackVisuals, ...this.grompAttackVisuals]
+      [...this.luxAttackVisuals, ...this.grompAttackVisuals, ...this.baronAttackVisuals]
         .filter((v) => v.stopTick === null)
         .map((v) => v.id)
     );
@@ -5493,6 +5506,10 @@ export class World {
             facing: Math.atan2(p.direction.x, p.direction.y),
           });
         if (source && (p.volleyId === null || !this.volleyHits[p.volleyId]?.includes(contact.id))) {
+          if (p.type === 'attack' && source.monster?.species === 'baron') {
+            const frame = visualFrames.get(p.id)!;
+            contactBaronAttackVisual(this, p, contact, { x: frame.x, y: frame.y });
+          }
           if (p.type === 'attack' && source.champion === 'lux') {
             this.luxImpactVisuals.push({
               id: p.id,
@@ -5619,6 +5636,7 @@ export class World {
   private advanceAttackVisuals(
     visualFrames = new Map<number, { tick: number; x: number; y: number; facing: number }>()
   ): void {
+    advanceBaronAttackVisuals(this, visualFrames);
     const survivingIds = new Set(this.projectiles.map((p) => p.id));
     for (const visual of this.grompAttackVisuals) {
       if (visual.stopTick !== null) continue;
@@ -7958,6 +7976,7 @@ export class World {
       luxBeams: this.luxBeams,
       luxAttackVisuals: this.luxAttackVisuals,
       grompAttackVisuals: this.grompAttackVisuals,
+      baronAttackVisuals: this.baronAttackVisuals,
       luxImpactVisuals: this.luxImpactVisuals,
       luxIlluminationVisuals: this.luxIlluminationVisuals,
       sunlightVisuals: this.sunlightVisuals,

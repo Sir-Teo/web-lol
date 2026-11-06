@@ -105,6 +105,12 @@ import {
   GROMP_ATTACK_PATH_FRAMES,
   GROMP_ATTACK_VISUAL_TAIL_TICKS,
 } from '../content/gromp-attack-presentation';
+import {
+  BARON_ATTACK_FLIGHT_TAIL_TICKS,
+  BARON_ATTACK_HIT_HISTORY_TICKS,
+  BARON_ATTACK_PATH_FRAMES,
+} from '../content/baron-attack-presentation';
+import { samePose, validPoseFrame } from './pose-history';
 import { isStructureKind } from './types';
 import { LUX_ILLUMINATION_HISTORY_TICKS } from '../content/lux-illumination-presentation';
 import { impactTargetRig, type ImpactRig } from '../content/impact-target';
@@ -170,7 +176,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 163;
+export const SNAPSHOT_VERSION = 164;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -1863,6 +1869,26 @@ const luxTargetVisual = (historyTicks: number) =>
     targetTransform: z.array(z.number()).length(16).nullable(),
     frames: z.array(savedPoseFrame).min(1).max(historyTicks),
   });
+const baronAudience = z
+  .array(team)
+  .max(2)
+  .refine(
+    (audience) =>
+      audience.join(',') ===
+      (['blue', 'red'] as const).filter((t) => audience.includes(t)).join(',')
+  );
+const baronContact = z.strictObject({
+  startTick: tick,
+  point,
+  targetTeam: team,
+  targetRadius: z.number().positive(),
+  targetRig: z.enum(Object.keys(MOBILE_CLIP_DURATIONS) as [ImpactRig, ...ImpactRig[]]).nullable(),
+  detachedTick: tick.nullable(),
+  frames: z
+    .array(savedPoseFrame.extend({ audience: baronAudience }))
+    .min(1)
+    .max(BARON_ATTACK_HIT_HISTORY_TICKS),
+});
 const teamPlan = z.strictObject({
   nextThinkTick: tick,
   assignments: z
@@ -2311,6 +2337,34 @@ const snapshot = z.strictObject({
           .array(z.strictObject({ tick, x: z.number(), y: z.number(), facing: z.number() }))
           .min(1)
           .max(GROMP_ATTACK_PATH_FRAMES),
+      })
+    )
+    .max(10000),
+  baronAttackVisuals: z
+    .array(
+      z.strictObject({
+        id,
+        sourceId: id,
+        targetId: id,
+        team: z.literal('neutral'),
+        origin: point,
+        launchTick: tick,
+        stopTick: tick.nullable(),
+        stopReason: z.enum(['hit', 'target-lost', 'range', 'match-end']).nullable(),
+        frames: z
+          .array(
+            z.strictObject({
+              tick,
+              x: z.number(),
+              y: z.number(),
+              facing: z.number(),
+              distance: nonnegative.max(4000 + 1e-5),
+              audience: baronAudience,
+            })
+          )
+          .min(1)
+          .max(BARON_ATTACK_PATH_FRAMES),
+        impact: baronContact.nullable(),
       })
     )
     .max(10000),
@@ -3398,12 +3452,148 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       throw new Error('Saved match contains an invalid Gromp attack visual.');
     grompAttackIds.add(visual.id);
   }
+  const baronAttackIds = new Set<number>();
+  for (const visual of state.baronAttackVisuals) {
+    const source = state.units.find((unit) => unit.id === visual.sourceId),
+      target = state.units.find((unit) => unit.id === visual.targetId),
+      projectile = state.projectiles.find((p) => p.id === visual.id),
+      last = visual.frames.at(-1)!,
+      firstTick = Math.max(visual.launchTick, state.tick - BARON_ATTACK_PATH_FRAMES + 1),
+      stop = visual.stopTick,
+      impact = visual.impact,
+      expiry =
+        stop === null
+          ? Infinity
+          : Math.max(
+              stop + BARON_ATTACK_FLIGHT_TAIL_TICKS,
+              impact ? impact.startTick + BARON_ATTACK_HIT_HISTORY_TICKS : 0
+            );
+    const eligible =
+      !target ||
+      (target.team !== 'neutral' &&
+        !['turret', 'inhibitor', 'nexus', 'ward', 'monster'].includes(target.kind));
+    if (
+      baronAttackIds.has(visual.id) ||
+      visual.id >= state.nextId ||
+      visual.targetId >= state.nextId ||
+      source?.kind !== 'monster' ||
+      source.monster.species !== 'baron' ||
+      !eligible ||
+      state.luxAttackVisuals.some((v) => v.id === visual.id) ||
+      state.grompAttackVisuals.some((v) => v.id === visual.id) ||
+      state.luxImpactVisuals.some((v) => v.id === visual.id) ||
+      state.scoutVisuals.some((v) => v.flight.id === visual.id) ||
+      visual.launchTick > state.tick ||
+      (stop !== null && (stop < visual.launchTick || stop > state.tick)) ||
+      (stop ?? state.tick) - visual.launchTick >
+        Math.ceil((4000 / MONSTERS.baron.missileSpeed) * TICK_RATE) ||
+      state.tick >= expiry ||
+      (stop === null
+        ? visual.stopReason !== null || impact !== null
+        : visual.stopReason === null) ||
+      (visual.stopReason === 'hit') !== (impact !== null) ||
+      (visual.stopReason === 'match-end' && state.winner === null) ||
+      (visual.stopReason === 'range' && Math.abs(last.distance - 4000) > 1e-6) ||
+      visual.frames.length !== state.tick - firstTick + 1 ||
+      visual.frames.some((frame, index) => {
+        if (frame.tick !== firstTick + index) return true;
+        const previous = visual.frames[index - 1];
+        const base =
+          previous ?? (frame.tick === visual.launchTick ? { ...visual.origin, distance: 0 } : null);
+        if (
+          frame.distance + 1e-7 <
+          Math.hypot(frame.x - visual.origin.x, frame.y - visual.origin.y)
+        )
+          return true;
+        if (!base) return false;
+        const travel = Math.hypot(frame.x - base.x, frame.y - base.y);
+        return (
+          Math.abs(frame.distance - base.distance - travel) > 1e-7 ||
+          travel > MONSTERS.baron.missileSpeed / TICK_RATE + 1e-7 ||
+          (travel > 1e-7 &&
+            Math.abs(
+              Math.atan2(
+                Math.sin(frame.facing - Math.atan2(frame.x - base.x, frame.y - base.y)),
+                Math.cos(frame.facing - Math.atan2(frame.x - base.x, frame.y - base.y))
+              )
+            ) > 1e-7) ||
+          (previous &&
+            stop !== null &&
+            frame.tick > stop &&
+            (frame.x !== previous.x ||
+              frame.y !== previous.y ||
+              frame.facing !== previous.facing ||
+              frame.distance !== previous.distance))
+        );
+      }) ||
+      (stop === null
+        ? !projectile ||
+          projectile.type !== 'attack' ||
+          projectile.team !== 'neutral' ||
+          projectile.source !== visual.sourceId ||
+          projectile.target !== visual.targetId ||
+          projectile.launchTick !== visual.launchTick ||
+          projectile.origin?.x !== visual.origin.x ||
+          projectile.origin?.y !== visual.origin.y ||
+          projectile.x !== last.x ||
+          projectile.y !== last.y ||
+          Math.abs(last.facing - Math.atan2(projectile.direction.x, projectile.direction.y)) >
+            1e-8 ||
+          Math.abs(last.distance - (4000 - projectile.remaining)) > 1e-7
+        : !!projectile)
+    )
+      throw Error('Saved match contains an invalid Baron attack history.');
+    if (impact) {
+      const lastPose = impact.frames.at(-1)!;
+      if (
+        impact.startTick !== stop ||
+        (target &&
+          (target.team !== impact.targetTeam ||
+            target.radius !== impact.targetRadius ||
+            impactTargetRig(target) !== impact.targetRig)) ||
+        impact.point.x !== last.x ||
+        impact.point.y !== last.y ||
+        Math.hypot(impact.point.x - impact.frames[0].x, impact.point.y - impact.frames[0].y) >
+          impact.targetRadius + 8 + 1e-6 ||
+        impact.frames.length !== state.tick - impact.startTick + 1 ||
+        (impact.detachedTick !== null &&
+          (impact.detachedTick < impact.startTick || impact.detachedTick > state.tick)) ||
+        (impact.detachedTick === null &&
+          (!target ||
+            target.hp <= 0 ||
+            lastPose.x !== target.x ||
+            lastPose.y !== target.y ||
+            lastPose.facing !== target.facing ||
+            JSON.stringify(lastPose.animationTimeline) !==
+              JSON.stringify(target.animationTimeline))) ||
+        impact.frames.some(
+          (frame, index) =>
+            frame.tick !== impact.startTick + index ||
+            frame.structurePose !== null ||
+            !frame.audience.includes(impact.targetTeam) ||
+            !validPoseFrame(
+              frame,
+              impact.targetRig,
+              impact.detachedTick === null || frame.tick < impact.detachedTick
+            ) ||
+            (index > 0 &&
+              impact.detachedTick !== null &&
+              frame.tick > impact.detachedTick &&
+              (!samePose(frame, impact.frames[index - 1]) ||
+                frame.audience.join(',') !== impact.frames[index - 1].audience.join(',')))
+        )
+      )
+        throw Error('Saved match contains an invalid Baron attack contact.');
+    }
+    baronAttackIds.add(visual.id);
+  }
   for (const p of state.projectiles) {
     if (p.type !== 'attack') continue;
     const source = state.units.find((u) => u.id === p.source);
     if (source?.monster?.species === 'baron') {
       const target = state.units.find((u) => u.id === p.target);
       if (
+        !baronAttackIds.has(p.id) ||
         p.team !== 'neutral' ||
         p.speed !== MONSTERS.baron.missileSpeed ||
         p.radius !== 8 ||
@@ -3438,6 +3628,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       (flight.reason === 'range' && Math.abs(length - LUX_BINDING.range) > 1e-6) ||
       state.luxAttackVisuals.some((v) => v.id === flight.id) ||
       state.grompAttackVisuals.some((v) => v.id === flight.id) ||
+      state.baronAttackVisuals.some((v) => v.id === flight.id) ||
       state.luxImpactVisuals.some((v) => v.id === flight.id) ||
       state.scoutVisuals.some((v) => v.flight.id === flight.id)
     )
@@ -3460,6 +3651,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     visualIds.add(f.id);
   }
   const ids = [
+    ...state.baronAttackVisuals.filter((v) => v.stopTick !== null),
     ...state.ahriOrbs,
     ...state.ahriFoxFires,
     ...state.ahriRushes,
