@@ -1,0 +1,180 @@
+{
+  "format": 1,
+  "historyRevision": "5725ce00423d6cf27d65ac55d5cd6722fd0d60a4",
+  "testFixtureRevision": "333a223662d9b5d24277d86fa7ce5ecec9dea6dd",
+  "schema": 171,
+  "ruleset": "c5d6be5acfcd486975c878fa47603c952ca94d4e2a10ef933e4f4f2e2c1c39f2",
+  "fullUnit": {
+    "passed": 8628,
+    "failed": 2,
+    "files": 492,
+    "workers": 1,
+    "knownFailures": [
+      "missing historical Leona reader archive",
+      "Lux sampler FMA golden mismatch"
+    ],
+    "initialRun": "Interrupted after a legacy forged-save probe hit the new audio consistency guard first; the corrected mirror preserves its targeted Essence chronology rejection."
+  },
+  "nodeQA": 122,
+  "cleanCI": {
+    "revision": "333a223",
+    "tests": 261,
+    "files": 32,
+    "typeCheck": true,
+    "pythonModes": 18,
+    "privateCaches": false,
+    "privateTools": false,
+    "dependencies": "Reused parent node_modules; npm ci not repeated locally",
+    "remoteDispatched": false
+  },
+  "roster": {
+    "winner": "blue",
+    "finalTick": 157116,
+    "checkedTicks": 157116,
+    "roundTrips": 44,
+    "futureChecks": 43,
+    "futureCheckedTicks": 2580
+  },
+  "archive": {
+    "root": "/workspace/web-lol-ahri-spirit-rush-audio/.cache/ahri-spirit-rush-history-roster-seed1",
+    "sourceFiles": 583,
+    "runner": {
+      "file": "/workspace/web-lol-ahri-spirit-rush-audio/.cache/ahri-spirit-rush-history-roster-seed1/runner/match-seed.js",
+      "bytes": 1230715,
+      "sha256": "e9dca26128488952655c2dc74db3df912599782d1a82274a685bbf31e281a7a8"
+    },
+    "allCurrentArchivedSourceBytesMatch": true,
+    "planSha256": "748e23e25bef02f1922fd3e75e3154e1f4205339d46383e2708afdcae6ed899a"
+  },
+  "gameplay": {
+    "equalSamples": 45,
+    "baselineRuleset": "f30224c964d2bd02e18e3e5abe38f69e67aebec7b1a8cd5bfa7e41ddf7bcaf19",
+    "excludedRootFields": [
+      "version",
+      "ruleset",
+      "ahriSpiritRushAudio"
+    ],
+    "existingFoxFireOrbCharmHistoryRetained": true,
+    "comparison": "ahri-spirit-rush-history-roster-gameplay.json"
+  },
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-clean-ci-0.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-clean-ci-1.log",
+      "sha256": "f7beda352b5a5535ab1b3124bae155f25194c6c0942ebfecd6af1f7c9324cab8"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-clean-ci-10.log",
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-clean-ci-11.log",
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-clean-ci-12.log",
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-clean-ci-13.log",
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-clean-ci-14.log",
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-clean-ci-15.log",
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-clean-ci-16.log",
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-clean-ci-17.log",
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-clean-ci-18.log",
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-clean-ci-19.log",
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-clean-ci-2.log",
+      "sha256": "40aead902f47ee86083ca799462d13f1f5def3ae5feb071af6b5032aae880871"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-clean-ci-3.log",
+      "sha256": "f5d56745cbec320ad650e983e5f2738ba279b3545edfdf1ea9dfd5a5312e45c2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-clean-ci-4.log",
+      "sha256": "b08e65827c7a08cae7a8c83373415a646d20c999bf8b7f7c48684023fc4faf73"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-clean-ci-5.log",
+      "sha256": "277830a9736393132c0af95cee95446a745c5f7f75b6d6f54b9a6eac6babda4c"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-clean-ci-6.log",
+      "sha256": "b08e65827c7a08cae7a8c83373415a646d20c999bf8b7f7c48684023fc4faf73"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-clean-ci-7.log",
+      "sha256": "277830a9736393132c0af95cee95446a745c5f7f75b6d6f54b9a6eac6babda4c"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-clean-ci-8.log",
+      "sha256": "23a5151975aebfa4f688c9a38a0a1a5e16ecdbf829553970e98f303acce1e579"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-clean-ci-9.log",
+      "sha256": "2d4bd23507d91cb112aba7b702d646dd3c1da3de1ad8406725db3fa16cb165f3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-full-suite-v2.log",
+      "sha256": "58078d20f2f299097c1b8470e07f26d5a8c530900f84bb0814696979204a657e"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-selector-v1.log",
+      "sha256": "07990c04cc3ed531a82a03d9247650e3af8716c0d2d865e877aa182595a783f5"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-passive-fixture-v1.log",
+      "sha256": "149732d245109b0b3df4423892fa55591ccfce5bd5e7042e4072c7aa38c4d797"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-node-qa-v1.log",
+      "sha256": "85eee83f5d5fc4f1a13a3aeb5676040c2226924d17f5f0b47e1abaad35a4987d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-comparison-tests-v1.log",
+      "sha256": "d72a92400ab1d4aa620e4deed994212750b805fce02d969c41e9595cf9119152"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-roster-v1.log",
+      "sha256": "5923b1b7c507092ec9b4d7d9f5415228c4d23b2d8857ba64631b194f289b65d8"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-roster-comparison-v1.log",
+      "sha256": "e1aa446b2a99cfc97cdb1c336e58a56082b09bce36db1959076309b4aa2c141c"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-history-roster-verification-v1.log",
+      "sha256": "518e6b2152b4e3a08abd4d9b08c595bb197999d656a237da9a780bf8a92611d0"
+    }
+  ],
+  "limits": [
+    "Saved clocks only; Spirit Rush playback remains unbound in this frozen checkpoint.",
+    "One seed and archived checkpoints; the 7ae8e0 hundred-seed result retains its original scope.",
+    "The local activation release has no claimed source Stop action."
+  ],
+  "roadmapMilestone4Complete": false
+}

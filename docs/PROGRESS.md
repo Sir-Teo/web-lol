@@ -9532,3 +9532,7 @@ Primary `work` fast-forwards from `380ce08` to `f5a42fa` without merge edits. Ev
 R preparation retains14 unchanged masters, a continuous activation container and a play-only deactivation event with no invented source Stop. Fourteen scenarios lock210 full gameplay projections from the actual frozen W-history World, retaining prior W/Q/E history. Source CI passes207 cases and18 Python modes cache-free; the profile selector passes232. Local20 ms activation release is distinct from the source250 ms missile stop.
 
 Schema171 observes window/cast, dash and bolt clocks with existing IDs and no RNG changes.242 scoped checks include ten new history cases covering per-frame restore, zero charges with an active window, late dash, Essence extension, death/control/Flash, reveal, pruned target, victory and malformed saves. Full frozen verification follows. Primary remains accepted W at e005d6e; R playback is unbound.
+
+## Verified frozen Spirit Rush history
+
+5725ce0/c5d6be5a passes8,628/8,630 full-suite cases with only the same two historical failures. A test-only mirrored forgery preserves the existing Essence chronology probe; no runtime source changed.122 Node QA cases and cache-free261-case CI/18 Python modes pass. The roster seed finishes naturally Blue at157,116;44 restores/43 future checks pass and all45 projections matchf30224c9 with prior W/Q/E history retained. Archive/runner/maps/reports/snapshots verify. Playback remains separate; no hundred-seed result is relabeled.
