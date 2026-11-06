@@ -1,0 +1,462 @@
+{
+  "format": 1,
+  "applicationRevision": "6e67c0973c56ead9ad3e12a30b1fe367f64981eb",
+  "browserContactVerificationRevision": "a21e9d1b361b46308f4209c0895cab7d1080b157",
+  "schema": 169,
+  "ruleset": "a37e6c8fb79562e749c5d16850ab774086bb7029c82f2f5aa052a6bf128f244f",
+  "pack": {
+    "id": "21178992bd753d65496866ff9ce5fe5561a3303901c1c2039c1c25e092bd5a3a",
+    "files": 1279,
+    "bytes": 562049206,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a",
+    "allFileAndWorkerAudit": true
+  },
+  "fullUnit": {
+    "passed": 8554,
+    "failed": 2,
+    "files": 481,
+    "workers": 1,
+    "knownFailures": [
+      "missing historical Leona reader archive",
+      "Lux sampler FMA golden mismatch"
+    ]
+  },
+  "nodeQA": 93,
+  "cleanCI": {
+    "tests": 129,
+    "files": 18,
+    "typeCheck": true,
+    "pythonModes": 10,
+    "privateCaches": false,
+    "privateTools": false,
+    "dependencies": "Reused parent node_modules; npm ci not repeated locally",
+    "remoteDispatched": false
+  },
+  "browser": {
+    "uniqueCases": 6,
+    "orbCases": 3,
+    "charmCases": 3,
+    "strongerKeyboardContactRerun": true,
+    "exactOrbPcmMasters": 22,
+    "unrequestedOrbMastersWithoutAhri": 0,
+    "keyboardDispatch": [
+      "launch",
+      "outward hit",
+      "turn",
+      "return hit",
+      "catch"
+    ],
+    "muteResumeRestore": true,
+    "snapshotUnchanged": true,
+    "envelopeCases": [
+      {
+        "stopCurve": 6,
+        "stopFadeSeconds": 0.5,
+        "age": 0,
+        "stopAge": 0.25,
+        "endAge": 0.75,
+        "fadeInSeconds": 0,
+        "maximumError": 8.428432699880695e-06,
+        "afterEndPeak": 0
+      },
+      {
+        "stopCurve": 6,
+        "stopFadeSeconds": 0.5,
+        "age": 0.4,
+        "stopAge": 0.25,
+        "endAge": 0.75,
+        "fadeInSeconds": 0,
+        "maximumError": 4.250955251916544e-06,
+        "afterEndPeak": 0
+      },
+      {
+        "stopCurve": 4,
+        "stopFadeSeconds": 0.75,
+        "age": 0,
+        "stopAge": 0.25,
+        "endAge": 1,
+        "fadeInSeconds": 0,
+        "maximumError": 1.0541417072573722e-07,
+        "afterEndPeak": 0
+      },
+      {
+        "stopCurve": 4,
+        "stopFadeSeconds": 0.75,
+        "age": 0.6,
+        "stopAge": 0.25,
+        "endAge": 1,
+        "fadeInSeconds": 0,
+        "maximumError": 5.733759578241404e-08,
+        "afterEndPeak": 0
+      }
+    ],
+    "screenshotsReviewed": true,
+    "performanceScope": "Software Chromium is functional evidence only, not representative device performance"
+  },
+  "production": {
+    "artifactRun": "ahri-orb-v1",
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "recordings": 32,
+    "mapNavigation": true,
+    "practiceScheduledRigs": 11,
+    "realHawkshotCast": true,
+    "realLuxBindingCast": true,
+    "realLuxSingularityCastAndRecast": true,
+    "lucentSourceAssets": [
+      "assets/effects/lux-e-color-hit-mana.png",
+      "assets/effects/lux-e-color-hold.png",
+      "assets/effects/lux-e-color_lux_e_shield.png",
+      "assets/effects/lux-e-lux_base_e_distort.png",
+      "assets/effects/lux-e-lux_base_e_flame_ring.png",
+      "assets/effects/lux-e-lux_base_e_flare.png",
+      "assets/effects/lux-e-lux_base_e_flash.png",
+      "assets/effects/lux-e-lux_base_e_glow.png",
+      "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+      "assets/effects/lux-e-lux_base_e_indicator_red.png",
+      "assets/effects/lux-e-lux_base_e_mote.png",
+      "assets/effects/lux-e-lux_base_e_small_mote.png",
+      "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+      "assets/effects/lux-e-lux_base_w_glow.png",
+      "assets/effects/lux-e-rainbowflash.png",
+      "assets/effects/lux-e-rainbowhalo.png",
+      "assets/effects/lux-e-sphere_e_01.png",
+      "assets/models/lux-e-indicator.glb",
+      "assets/models/lux-e-slash.glb"
+    ],
+    "luxLaneRestart": true,
+    "selectedSmiteLoadoutAndRestart": true,
+    "companionPurchaseAndRestore": true,
+    "companionPurchaseInPractice": true,
+    "realWardPlacementAndRestore": true,
+    "oraclePurchaseActivationAndRestore": true,
+    "oracleRigRequests": 8,
+    "oracleAudioRequests": 6,
+    "unrequestedOraclePreloads": 0,
+    "wardRigRequests": 20,
+    "unrequestedCompanionPreloads": 0,
+    "developmentHook": false,
+    "baronEncounterInProduction": false,
+    "unrequestedBaronPreloads": 0,
+    "unrequestedBaronEffectPreloads": 0,
+    "unrequestedBaronAudioPreloads": 0,
+    "unrequestedAhriCharmAudioPreloads": 0,
+    "unrequestedAhriOrbAudioPreloads": 0,
+    "garenFixtureInProduction": false,
+    "leonaPlayerFixtureInProduction": false,
+    "leonaRiftTrialInProduction": false,
+    "garenRiftTrialInProduction": false,
+    "masterYiRiftTrialInProduction": false,
+    "masterYiBotRiftTrialInProduction": false,
+    "rosterRiftTrialInProduction": false,
+    "publicChampionChoices": [
+      "ashe",
+      "lux"
+    ],
+    "ahriRiftTrialInProduction": false,
+    "ahriBotRiftTrialInProduction": false,
+    "ahriNpcFixtureInProduction": false,
+    "ahriPlayerFixtureInProduction": false,
+    "unrequestedAhriPreloads": 0,
+    "unrequestedMasterYiPreloads": 0,
+    "unrequestedMasterYiAttackAudioPreloads": 0,
+    "unrequestedMasterYiHighlanderAudioPreloads": 0,
+    "unrequestedMasterYiAlphaAudioPreloads": 0,
+    "unrequestedMasterYiMeditateAudioPreloads": 0,
+    "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+    "unrequestedMasterYiSwordPreloads": 0,
+    "unrequestedMasterYiPrimaryTrailPreloads": 0,
+    "unrequestedMasterYiPrimaryHitPreloads": 0,
+    "unrequestedMasterYiPassiveTrailPreloads": 0,
+    "unrequestedMasterYiMeditateDamagePreloads": 0,
+    "unrequestedMasterYiHighlanderKillPreloads": 0,
+    "unrequestedMasterYiHighlanderCastPreloads": 0,
+    "unrequestedMasterYiQEndPreloads": 0,
+    "unrequestedMasterYiQCastPreloads": 0,
+    "unrequestedMasterYiQContactPreloads": 0,
+    "unrequestedMasterYiMeditateCastPreloads": 0,
+    "unrequestedMasterYiMeditateBuffPreloads": 0,
+    "masterYiNpcFixtureInProduction": false,
+    "masterYiPlayerFixtureInProduction": false,
+    "junglePreviewRequests": 0,
+    "unrequestedLeonaPreloads": 0,
+    "preparedCompanionRequests": 5,
+    "roleCompanionRequests": 2,
+    "roleScoreboardIcons": 34,
+    "scheduledGrompRequests": 340,
+    "scheduledBlueRequests": 20,
+    "scheduledRedRequests": 20,
+    "scheduledWolfRequests": 40,
+    "scheduledRaptorRequests": 40,
+    "scheduledKrugRequests": 60,
+    "scheduledScuttlerRequests": 20,
+    "screenshot": "artifacts/production-subpath-ahri-orb-v1-subpath.png"
+  },
+  "offline": {
+    "browser": "system-chromium",
+    "manifest": {
+      "id": "21178992bd753d65496866ff9ce5fe5561a3303901c1c2039c1c25e092bd5a3a",
+      "files": 1279,
+      "bytes": 562049206
+    },
+    "checks": {
+      "integrityFailureRestoresDownloadFocus": true,
+      "integrityFailure": true,
+      "downloadFocusesCancel": true,
+      "cancelRetainsVerified": true,
+      "cancelRestoresDownloadFocus": true,
+      "retryWithoutRedownload": true,
+      "completionPreservesOtherControlFocus": true,
+      "pausedSavedTickBootsOffline": true,
+      "completePackRepairOffline": true,
+      "newLuxLaneMatchOffline": true,
+      "serviceWorkerResponses": 978,
+      "removalKeepsSavedBytes": true,
+      "updateRefusesOtherTabs": true,
+      "explicitAtomicVersionSwitchOffline": true,
+      "missingEntryRevokesReady": true,
+      "scopeOnlyRemoval": true
+    },
+    "result": "passed",
+    "productionErrors": []
+  },
+  "gameplayScope": {
+    "sourceDelta": "ahri-orb-playback-source-delta.json",
+    "historySeedRuleset": "1b65f941",
+    "historySeedUnchangedSource": true,
+    "hundredSeedRuleset": "7ae8e0f8",
+    "hundredSeedRelabeled": false,
+    "roadmapMilestone4Complete": false
+  },
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-playback-scoped-v2.log",
+      "bytes": 399,
+      "sha256": "67b0a6b914551bd43b64a2f0378058db4a934db7d09c9d13496304b34026e577"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-playback-build-v1.log",
+      "bytes": 7804,
+      "sha256": "2673f6daa3d669b3c237d0704f412c2bb85d00f6667cb477324fd94ee8d17074"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-playback-types-v3.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-playback-ci-v1.log",
+      "bytes": 399,
+      "sha256": "be927ffb5f9c8bbe29d91e6dcf21c8b5f13fb796b00e2eb636dc69d31fe8056a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-playback-full-suite-v1.log",
+      "bytes": 4712,
+      "sha256": "a042e3464fb4899357b0fa3ea9174fa1fb41c0ff3395074eb951f91e8eba0bd7"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-playback-node-qa-v1.log",
+      "bytes": 7660,
+      "sha256": "11f2f7d9b940c45d27ec4dafe73a888679c5ca1d9b2e5e74f88c4a6cc47beadd"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-playback-pack-v1.log",
+      "bytes": 286,
+      "sha256": "6958c6cb2a0f12d64d446cefb621cbb505bd0e1724f878cf205e1dd62cdd1ab1"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-browser-v2.log",
+      "bytes": 1871,
+      "sha256": "9dbf191be57a5f09b6127a702691989f61fc954cfd54815365a597b6ad12b53f"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-browser-v3.log",
+      "bytes": 688,
+      "sha256": "c86e419fbc72410c77c6595d5e1c1d9d97967b5a5c59c95cf0ff7656d30a1f21"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-production-v1.log",
+      "bytes": 3357,
+      "sha256": "fc1a271e84892b0ec8c80e4d265e048c5f14dc17812d3654a3f4328ca3e13ae3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-offline-v1.log",
+      "bytes": 870,
+      "sha256": "da274559b3f02cfad4d738e55f000f97b08cee6ff9d52a8befbc97ccaeb7e63a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-playback-clean-ci-0.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-playback-clean-ci-1.log",
+      "bytes": 412,
+      "sha256": "87d46e4be8c0f1e80037dd344af084831236e6c7052cd6ab1a4fc34168dc4ab8"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-playback-clean-ci-10.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-playback-clean-ci-11.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-playback-clean-ci-2.log",
+      "bytes": 126,
+      "sha256": "40aead902f47ee86083ca799462d13f1f5def3ae5feb071af6b5032aae880871"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-playback-clean-ci-3.log",
+      "bytes": 125,
+      "sha256": "f5d56745cbec320ad650e983e5f2738ba279b3545edfdf1ea9dfd5a5312e45c2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-playback-clean-ci-4.log",
+      "bytes": 118,
+      "sha256": "b08e65827c7a08cae7a8c83373415a646d20c999bf8b7f7c48684023fc4faf73"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-playback-clean-ci-5.log",
+      "bytes": 117,
+      "sha256": "277830a9736393132c0af95cee95446a745c5f7f75b6d6f54b9a6eac6babda4c"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-playback-clean-ci-6.log",
+      "bytes": 118,
+      "sha256": "b08e65827c7a08cae7a8c83373415a646d20c999bf8b7f7c48684023fc4faf73"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-playback-clean-ci-7.log",
+      "bytes": 117,
+      "sha256": "277830a9736393132c0af95cee95446a745c5f7f75b6d6f54b9a6eac6babda4c"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-playback-clean-ci-8.log",
+      "bytes": 121,
+      "sha256": "23a5151975aebfa4f688c9a38a0a1a5e16ecdbf829553970e98f303acce1e579"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-playback-clean-ci-9.log",
+      "bytes": 120,
+      "sha256": "2d4bd23507d91cb112aba7b702d646dd3c1da3de1ad8406725db3fa16cb165f3"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/artifacts/ahri-orb-browser-v2/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/artifacts/ahri-orb-browser-v2/ahri-orb-audio-Orb-source--bc86e-gh-contact-mute-and-restore/audio-evidence.json",
+      "bytes": 7101,
+      "sha256": "0f0804e1ea196f90b740c59e164247e29e9abaa502c16f59ef7c6003d1c478e2"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/artifacts/ahri-orb-browser-v2/ahri-charm-audio-native-We-bfaf2-d-original-Exp1-seek-domain/envelope-evidence.json",
+      "bytes": 409,
+      "sha256": "4bca156ceb029eadc1d424e9144dc69f3f3affb76cecba1e3204414217c07ef2"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/artifacts/ahri-orb-browser-v2/ahri-charm-audio-Charm-sou-6df4d-gh-contact-mute-and-restore/audio-evidence.json",
+      "bytes": 3560,
+      "sha256": "6b280ed6225340f924286122bd8bf79d997d81dde6f3d91ddbeea6863fbf6a63"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/artifacts/ahri-orb-browser-v2/ahri-orb-audio-native-Web--4d82f--return-Linear-stop-domains/orb-envelope-evidence.json",
+      "bytes": 810,
+      "sha256": "cd31551ae0213a3dc99b8758d11bfc0e12bb3c155e14297699a5f6076bc189bc"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/artifacts/ahri-orb-browser-v2/ahri-orb-audio-Orb-source--bc86e-gh-contact-mute-and-restore/orb-contact.png",
+      "bytes": 785411,
+      "sha256": "87c453f77c358be95251f38e09f8d6d4c0d716ea500603d341902e4bac12f6bd"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/artifacts/ahri-orb-browser-v2/ahri-charm-audio-Charm-sou-6df4d-gh-contact-mute-and-restore/charm-contact.png",
+      "bytes": 792839,
+      "sha256": "804c5d2fe1d14d5adae4c99c8c80843e2f0b6fc80d49113d51443e2c8f8b8a7e"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/artifacts/ahri-orb-browser-v3/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/artifacts/ahri-orb-browser-v3/ahri-orb-audio-Orb-source--bc86e-gh-contact-mute-and-restore/audio-evidence.json",
+      "bytes": 6795,
+      "sha256": "456499fd84e943fe32fccc727b560a04aaec12499a84c02a2aa957c192a3db3a"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/artifacts/ahri-orb-browser-v3/ahri-orb-audio-Orb-source--bc86e-gh-contact-mute-and-restore/orb-contact.png",
+      "bytes": 785503,
+      "sha256": "b21214e8c6ec3775b8102c02612c9c9858fe638aa51d87d1f101209a2a0d0fe3"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/artifacts/production-subpath-ahri-orb-v1.json",
+      "bytes": 3765,
+      "sha256": "14a17519f80f810cca4209fd86ef6334614bc7de24208d01d682a5b1c9e0b1c9"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/artifacts/production-subpath-ahri-orb-v1-ward.png",
+      "bytes": 1808492,
+      "sha256": "95c03ce69348419f9053960433f3a6210b533e7045aa9e0524799580ffccfed3"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/artifacts/production-subpath-ahri-orb-v1-companion-purchase.png",
+      "bytes": 1813592,
+      "sha256": "fd5c1f436d93687424cf71be3affc05b1c9ea6007acba06c8dfbdd5684ada32c"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/artifacts/production-subpath-ahri-orb-v1-lux.png",
+      "bytes": 1820127,
+      "sha256": "c7b5fd52054f20d1df8072e5224aea225e59ddd89496dfdee7e47f23d77c1641"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/artifacts/production-subpath-ahri-orb-v1-lux-e-source.png",
+      "bytes": 1840561,
+      "sha256": "fbac661794f44693b6bea05173609c19d5cb1d8c1c79dd5b30c84d2923802b4a"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/artifacts/production-subpath-ahri-orb-v1-lux-e-moving-burst.png",
+      "bytes": 1843864,
+      "sha256": "3bf3851fd8862af365f0f4f574dde84db2a5640c32123af9e116de75b33ba8dc"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/artifacts/production-subpath-ahri-orb-v1-oracle.png",
+      "bytes": 1819688,
+      "sha256": "6156f7599cbd65faae7e7232f834d01a6d003648615c0dab1beae14516036a92"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/artifacts/production-subpath-ahri-orb-v1-subpath.png",
+      "bytes": 1825263,
+      "sha256": "af24a22da71dbe8b08c2cefbaac7ea52e686473176ec6078c77c22bfad678ec6"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/artifacts/production-subpath-ahri-orb-v1-role-match.png",
+      "bytes": 1360383,
+      "sha256": "1df9b2e3743f5ff506afaeac4985377e922054208658c3dbc56156f836bed725"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/artifacts/offline-pack-ahri-orb-v1-ready.png",
+      "bytes": 573623,
+      "sha256": "399c3bcd1ff7d61b388f5e20965114608954a6a64cfb3ebfddceece2a38b4e60"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/artifacts/offline-pack-ahri-orb-v1-lux-lanes.png",
+      "bytes": 529155,
+      "sha256": "09456e33182b4dff24632c66830538c10a691735eac204271807eb104563a028"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-orb-audio/artifacts/offline-pack-ahri-orb-v1-production.json",
+      "bytes": 859,
+      "sha256": "f827fe341e25d84c491044ccd67b2af79a1d4e16a838967e476d5ce395d48efc"
+    }
+  ],
+  "limits": [
+    "Local additive gain/pitch, cosmetic draws, per-cast hit sequence and mix; native dispatch/inheritance/global playlist/listener/bus calibration remain unverified.",
+    "Fox-Fire source work is isolated on a separate branch and not included in this acceptance."
+  ]
+}

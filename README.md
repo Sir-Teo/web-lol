@@ -56,7 +56,7 @@ npm run offline:verify
 npm run test:production
 ```
 
-The latest full suite passes 8,495/8,497 tests. The missing historical Leona
+The latest full suite passes 8,554/8,556 tests. The missing historical Leona
 checker/archive and the retained Lux E sampler digest remain unresolved; their
 assertions are unchanged. See the [current validation receipt](docs/reference/ahri-charm-main-merge-verification.json)
 and [Lux runtime portability audit](docs/LUX-E-SAMPLER-PORTABILITY.md).
