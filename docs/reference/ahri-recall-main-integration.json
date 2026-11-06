@@ -1,0 +1,31 @@
+{
+  "format": 1,
+  "integratedRevision": "2b193a18c5594e0858afc0cc28bdf9116f035af1",
+  "method": "Fast-forward from db7f921 to verified Recall playback branch; no merge edits",
+  "schema": 175,
+  "ruleset": "08e106da69e9a0827b0274d7c97fd3589bd3cdf610a80b9d3b1a73452c679c46",
+  "sourceFilesCompared": 829,
+  "allSourceBytesMatchAcceptedBranch": true,
+  "pack": {
+    "id": "f10d35181f3a12998886dbf3b35659e2f7593dee324c5720526da7520d6f1906",
+    "files": 1331,
+    "bytes": 575832382,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a",
+    "allFileAndWorkerAudit": true
+  },
+  "acceptance": "ahri-recall-playback-acceptance.json",
+  "repeatFullSuite": false,
+  "reason": "Identical verified source; local rebuild and pack audit reproduce the accepted pack byte for byte.",
+  "logs": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-main-build-v1.log",
+      "sha256": "520d75f517341543ca143d3f5b50dcc10a5d4e7b631c164f4871436bf33fab28"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-main-pack-v1.log",
+      "sha256": "5be67a79b6520e58c67554e428011eb95ce0a0b702dd5d092f7ec1c26e4e37d7"
+    }
+  ],
+  "pushed": false,
+  "deployed": false
+}
