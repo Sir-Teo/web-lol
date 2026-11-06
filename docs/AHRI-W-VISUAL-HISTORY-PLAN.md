@@ -1,6 +1,6 @@
-# Fox-Fire visual history implementation plan
+# Fox-Fire visual history implementation
 
-The next runtime change will observe the existing Fox-Fire simulation. Native
+The runtime observer records the existing Fox-Fire simulation. Native
 particle aliases identify orbit, flight and hit resources; they do not replace
 local acquisition, movement, damage or cancellation policy.
 
@@ -112,3 +112,21 @@ step and settles terminal records before checking them. All 14 archived cases
 still match all 149 old-state digests with recording enabled; ten focused tests
 pass. These hooks allocate no identity or random value. The production World
 still lacks history ownership/serialization until the next integration step.
+
+## World and save integration
+
+World now owns the optional nonempty history field in schema 178. Fixed steps
+refresh audiences and prune completed casts; match settlement ends unfinished
+fires before clearing gameplay casts. A five-second local retention window
+covers the four-second maximum authored particle lifetime plus the one-second
+maximum emitter linger. Missing emitter lifetimes still require phase-owned
+stops; no native constructor is inferred.
+
+Restore replays recorded motion, checks live cast/fire links and retained W
+audio, reserves ended cast identities and rejects stale or missing histories.
+All 149 focused old-state projections round-trip through the new schema. Fifteen
+checkpoints compare restored futures with original live Worlds; eleven malformed
+saves reject, including missing live history and forged identity/motion. Terminal
+settlement and the exact pruning boundary pass. TypeScript checking passes.
+The full regression run and post-observer natural roster comparison are pending.
+No W renderer or public particle asset has been added.

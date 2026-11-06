@@ -1,3 +1,10 @@
+import { AHRI_W_VISUAL_HISTORY_TICKS } from '../content/ahri-w-visual-timing';
+import {
+  refreshWVisualAudience,
+  pruneWVisualHistory,
+  finishAllWVisualHistory,
+  type AhriWVisualHistory,
+} from './ahri-w-visual-history';
 import {
   advanceQProjectileVisuals,
   finishQProjectileVisual,
@@ -494,6 +501,7 @@ export class World {
   ahriOrbs: AhriOrb[] = [];
   ahriOrbAudio: AhriOrbAudioRecord[] = [];
   ahriFoxFireAudio: AhriFoxFireAudioRecord[] = [];
+  ahriWVisuals: AhriWVisualHistory[] = [];
   ahriSpiritRushAudio: AhriSpiritRushAudioRecord[] = [];
   ahriFoxFires: FoxFireCast[] = [];
   ahriRushes: SpiritRush[] = [];
@@ -1221,6 +1229,8 @@ export class World {
       advanceCharmAudio(this);
       advanceOrbAudio(this);
       advanceFoxFireAudio(this);
+      refreshWVisualAudience(this);
+      pruneWVisualHistory(this, AHRI_W_VISUAL_HISTORY_TICKS);
       advanceSpiritRushAudio(this);
       advancePassiveAudio(this);
       advanceAhriAttackAudio(this);
@@ -6537,6 +6547,7 @@ export class World {
         }
         this.ahriOrbs.length = 0;
         finishAllFoxFireAudio(this);
+        finishAllWVisualHistory(this);
         this.ahriFoxFires.length = 0;
         finishAllSpiritRushAudio(this);
         this.ahriRushes.length = 0;
@@ -6561,6 +6572,8 @@ export class World {
         advanceCharmAudio(this);
         advanceOrbAudio(this);
         advanceFoxFireAudio(this);
+        refreshWVisualAudience(this);
+        pruneWVisualHistory(this, AHRI_W_VISUAL_HISTORY_TICKS);
         advanceSpiritRushAudio(this);
         advancePassiveAudio(this);
         advanceAhriAttackAudio(this);
@@ -8171,6 +8184,7 @@ export class World {
       sunlightVisuals: this.sunlightVisuals,
       ahriOrbs: this.ahriOrbs,
       ...(this.ahriOrbAudio.length ? { ahriOrbAudio: this.ahriOrbAudio } : {}),
+      ...(this.ahriWVisuals.length ? { ahriWVisuals: this.ahriWVisuals } : {}),
       ...(this.ahriFoxFireAudio.length ? { ahriFoxFireAudio: this.ahriFoxFireAudio } : {}),
       ...(this.ahriSpiritRushAudio.length ? { ahriSpiritRushAudio: this.ahriSpiritRushAudio } : {}),
       ahriFoxFires: this.ahriFoxFires,

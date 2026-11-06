@@ -2,10 +2,6 @@ import { createHash } from 'node:crypto';
 import { expect, test } from 'vitest';
 import { World } from '../src/simulation/world';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
-import {
-  finishAllWVisualHistory,
-  type AhriWVisualHistory,
-} from '../src/simulation/ahri-w-visual-history';
 import { validateWVisualMotion } from '../src/simulation/ahri-w-visual-history-validation';
 import reference from '../docs/reference/ahri/w-visual-gameplay-reference.json';
 import { W_VISUAL_GAMEPLAY_CASES, wVisualGameplaySamples } from './helpers/ahri-w-visual-gameplay';
@@ -13,10 +9,13 @@ import { W_VISUAL_GAMEPLAY_CASES, wVisualGameplaySamples } from './helpers/ahri-
 test('recording genuine W lifecycles preserves every independently archived old-state projection', () => {
   let samples = 0;
   class ObservedWorld extends World {
-    ahriWVisuals: AhriWVisualHistory[] = [];
+    override snapshot() {
+      const saved = super.snapshot();
+      expect(World.fromSnapshot(saved, this.battlefield).snapshot()).toBe(saved);
+      return saved;
+    }
     override step() {
       super.step();
-      if (this.winner) finishAllWVisualHistory(this);
       for (const r of this.ahriWVisuals) {
         validateWVisualMotion(r, this.tick);
         samples++;
