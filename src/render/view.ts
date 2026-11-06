@@ -55,6 +55,7 @@ import { LazyHighlanderCasts } from './lazy-masteryi-r-casts';
 import { LazyAlphaEnds } from './lazy-masteryi-q-ends';
 import { LazyAlphaCasts } from './lazy-masteryi-q-casts';
 import { LazyAhriQCasts } from './lazy-ahri-q-casts';
+import { LazyAhriQProjectiles } from './lazy-ahri-q-projectiles';
 import { LazyAlphaContacts } from './lazy-masteryi-q-contacts';
 import { LuxAttackCrescents } from './lux-attack-crescents';
 import { LuxAttackTrails } from './lux-attack-trails';
@@ -196,6 +197,9 @@ export class GameView {
   alphaEnds = new LazyAlphaEnds(this.scene, this.particleEarlyDistortion.scene, (p) =>
     this.ground(p)
   );
+  ahriQProjectiles = new LazyAhriQProjectiles(this.scene, this.particleEarlyDistortion.scene, (p) =>
+    this.ground(p)
+  );
   ahriQCasts = new LazyAhriQCasts(this.scene, (p) => this.ground(p));
   alphaCasts = new LazyAlphaCasts(this.scene, (p) => this.ground(p));
   alphaContacts = new LazyAlphaContacts(this.scene, (p) => this.ground(p));
@@ -315,6 +319,7 @@ export class GameView {
       this.primaryTrails,
       this.alphaCasts,
       this.ahriQCasts,
+      this.ahriQProjectiles,
       this.alphaContacts,
       this.alphaEnds,
       this.highlanderCasts,
@@ -949,6 +954,7 @@ export class GameView {
     this.alphaEnds.update(world, alpha, this.camera, terminalAge);
     this.alphaCasts.update(world, alpha, this.camera, terminalAge);
     this.ahriQCasts.update(world, alpha, this.camera, terminalAge);
+    this.ahriQProjectiles.update(world, alpha, this.camera, terminalAge);
     this.alphaContacts.update(world, alpha, this.camera, terminalAge);
     this.meditateCasts.update(world, alpha, this.camera, terminalAge);
     this.meditateBuffs.update(world, alpha, this.camera, terminalAge);
@@ -1034,6 +1040,7 @@ export class GameView {
     this.leonaEclipseSurfaces.prepareDepth(this.renderer, this.camera);
     this.leonaZenithSurfaces.prepareDepth(this.renderer, this.camera);
     this.leonaSolarSurfaces.prepareDepth(this.renderer, this.camera);
+    this.ahriQProjectiles.prepareDepth(this.renderer, this.camera);
     renderParticleColorPhase(this.renderer, this.scene, this.camera, this.particleEarlyDistortion);
     this.particleDistortion.render(this.renderer, this.camera);
     this.mapTextureResidency?.endFrame();
@@ -1365,6 +1372,7 @@ export class GameView {
       model.rotation.y = flight.facing;
     }
     for (const orb of world.ahriOrbs) {
+      if (this.ahriQProjectiles.ready) continue;
       active.add(orb.id);
       let model = this.projectileModels.get(orb.id);
       if (!model) {

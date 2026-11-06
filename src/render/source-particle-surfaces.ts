@@ -96,7 +96,12 @@ export interface SurfaceProgram<G extends SurfaceGroup> {
   particles(group: G, tick: number): readonly SurfaceParticle[];
   birthVisible(group: G, bornTick: number, terminal: boolean): boolean;
   /** Explicit creation-history visibility policy; omission retains point visibility. */
-  visible?(group: G, particle: SurfaceParticle, tick: number): boolean;
+  visible?(
+    group: G,
+    particle: SurfaceParticle,
+    tick: number,
+    position: Readonly<THREE.Vector3>
+  ): boolean;
   pose(group: G, tick: number): { x: number; y: number; facing: number } | null;
   /** Independent historical attachment point; offsets retain the program source frame. */
   attachmentPoint?(group: G, tick: number): THREE.Vector3 | null;
@@ -355,7 +360,7 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
               .add(acceleration);
           }
           if (!(
-            this.program.visible?.(group, p, tick) ??
+            this.program.visible?.(group, p, tick, position) ??
             world.pointVisible({ x: position.x * 100, y: position.z * 100 })
           ))
             continue;

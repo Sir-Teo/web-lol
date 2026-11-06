@@ -112,6 +112,7 @@ const pinnedData = [
 // hashing only the entry file would miss a changed curve/motion helper.
 export const rulesetModuleRoots = [
   'src/render/ahri-q-projectile-particles.ts',
+  'src/render/ahri-q-projectiles.ts',
   'src/render/ahri-q-cast-particles.ts',
   'src/render/ahri-q-casts.ts',
   'src/audio/ahri-recall-state.ts',
