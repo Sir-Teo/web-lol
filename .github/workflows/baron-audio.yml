@@ -1,4 +1,4 @@
-name: Baron audio persistence checks
+name: Audio persistence and float-format checks
 
 on:
   push:
@@ -12,6 +12,8 @@ on:
       - 'package-lock.json'
       - 'tsconfig.json'
       - 'vitest.config.ts'
+      - 'tools/assets/audio_float_corpus.py'
+      - 'tools/assets/test-audio-float-corpus.py'
       - '.github/workflows/baron-audio.yml'
   pull_request:
     paths:
@@ -23,6 +25,8 @@ on:
       - 'package-lock.json'
       - 'tsconfig.json'
       - 'vitest.config.ts'
+      - 'tools/assets/audio_float_corpus.py'
+      - 'tools/assets/test-audio-float-corpus.py'
       - '.github/workflows/baron-audio.yml'
   workflow_dispatch:
 
@@ -53,3 +57,7 @@ jobs:
           tests/baron-basic-audio-state.test.ts
           tests/baron-basic-audio-controller.test.ts
           tests/baron-basic-audio-history.test.ts
+      - name: Check float-master format and headroom without private caches
+        run: |
+          python3 tools/assets/test-audio-float-corpus.py
+          python3 -O tools/assets/test-audio-float-corpus.py

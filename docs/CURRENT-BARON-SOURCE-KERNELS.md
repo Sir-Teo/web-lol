@@ -16,8 +16,8 @@ retain every release through the cast bound. Existing125tick hit history and
 
 At application commit0fa0072, the full suite passes **8,462/8,464** tests across
 468files. Only the historical missing Leona checker/archive and Lux sampler hash
-gaps remain; expectations and deadlines are unchanged. All **68 Node QA** (66 at the delivery checkpoint plus two later animation-source
-guards) and **seven real-input Baron browser cases** pass, including exact effect centre/tint/
+gaps remain; expectations and deadlines are unchanged. The delivery checkpoint passes **66 Node QA** and **seven real-input Baron
+browser cases**, including exact effect centre/tint/
 UV restores, real float decoding, mute/resume, world replacement and unchanged
 gameplay snapshots. Fifty-nine focused audio/history cases cover the saved tail.
 
@@ -28,7 +28,8 @@ named nested-prefix production and full offline lifecycle pass, with977worker
 responses, zero production errors and zero unsolicited Baron model/effect/audio
 fetches. The authoritative receipt is
 [retained audio acceptance](reference/baron-basic-audio-retained-acceptance.json).
-The earlier607225d/ce32b45a audio receipt explicitly leaves the since-fixed saved
+Later source/float-format guards pass separately (70 Node QA at the Ahri corpus
+checkpoint; see AHRI-AUDIO-MASTERS.md). The earlier607225d/ce32b45a audio receipt explicitly leaves the since-fixed saved
 cast-tail gap open. Earlier d3eb639/all-effects and hit-only receipts remain
 historical, not relabeled current acceptance.
 

@@ -1,0 +1,47 @@
+{
+  "format": 1,
+  "workflow": ".github/workflows/baron-audio.yml",
+  "node": "24.22.1",
+  "typeCheck": true,
+  "baronPersistenceTests": 22,
+  "floatFormatModes": [
+    "normal",
+    "optimized"
+  ],
+  "invalidFloatInputsRejectedPerMode": 8,
+  "pythonGuardsRunFromEmptyDirectory": true,
+  "priorCleanTrackedCheckoutReceipt": "docs/reference/baron-audio-ci-verification.json",
+  "workflowYamlParsed": true,
+  "githubExecution": false,
+  "limits": [
+    "Local verification only; no push, dispatch or deployment.",
+    "Scoped persistence/format checks, not a full unit/browser/offline/cohort gate."
+  ],
+  "evidence": [
+    {
+      "path": ".github/workflows/baron-audio.yml",
+      "bytes": 1862,
+      "sha256": "6da8045e79751651180c29797b2a5302c4430992b679ae6b1cd89604e5173c0b"
+    },
+    {
+      "path": "artifacts/audio-ci-format-smoke.log",
+      "bytes": 169,
+      "sha256": "1a33e307e3c486c88cd9cf160736dd9937d722ba12b570d386121d525604909b"
+    },
+    {
+      "path": "artifacts/audio-ci-format-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/audio-float-ci-empty-cwd.json",
+      "bytes": 413,
+      "sha256": "ec1f89abfa9c0a8df7d25b58d1a7174756650efa7a3394ef9cd1228017f1d452"
+    },
+    {
+      "path": "artifacts/audio-float-corpus-basic-crosscheck.json",
+      "bytes": 81,
+      "sha256": "20ec65ed95ff1e95ed1ba5d89f9e4e0dfca21cdc9641aa8ce5c5ec3e195c2170"
+    }
+  ]
+}

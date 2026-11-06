@@ -9442,3 +9442,7 @@ Pinned wwiser reads256nodes/56events with zero errors; all56stored source names 
 ### Decode Ahri’s 83 SFX masters through a pinned shared float parser
 
 Private mono 44.1 kHz float masters total 28,374,812 bytes, with peak 1.32265019 and source headroom intact. Exact frozen decoder/toolchain identity is required; no gain, conversion or loop expansion is baked in. Normal/optimized checks, fresh restore, twelve isolated destination/record rejection probes and post-probe cache verification pass. The shared parser’s eight format failures reject in both modes, stereo/rate/headroom stay intact, and all eight Baron runtime master measurements reproduce exactly. All 70 Node QA pass. No Ahri runtime asset, cue binding or ruleset change. See docs/AHRI-AUDIO-MASTERS.md.
+
+### Extend scoped CI to cache-independent float-format guards
+
+The read-only audio CI workflow now watches the shared float parser/tests and runs both Python modes alongside TypeScript and 22 persistence tests. Each mode rejects eight malformed float inputs and preserves stereo/rate/headroom from an empty working directory; no private audio cache/toolchain is required. Local commands and YAML validation pass. No push, workflow dispatch, deploy change or full-suite claim. See docs/reference/audio-ci-format-verification.json.
