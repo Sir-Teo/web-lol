@@ -149,6 +149,8 @@ jobs:
           tests/ahri-passive-audio-assets.test.ts
           tests/ahri-passive-audio-policy.test.ts
           tests/ahri-passive-audio-history.test.ts
+          tests/ahri-passive-audio-state.test.ts
+          tests/ahri-passive-audio-controller.test.ts
           tests/ahri-spirit-rush-audio-assets.test.ts
           tests/ahri-spirit-rush-audio-policy.test.ts
           tests/ahri-spirit-rush-audio-history.test.ts
