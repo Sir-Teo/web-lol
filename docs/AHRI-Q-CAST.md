@@ -17,3 +17,11 @@ The pinned manifests are `reference/ahri/q-cast-texture-transport.json` and `ref
 The producer verifies all611 archived source files from actual Recall-history World `aff9186` / `41da4dfc` and executes that World directly. Ten guarded scenarios yield262 complete projections: stationary cast, windup/flight movement, genuinely accepted post-release Flash, death before/after launch, two actual casters, hidden birth and victory before/after launch. Older Recall/lifecycle/attack/P/R/W/Q/E histories remain in every projection; only schema/ruleset and proposed `ahriQCastVisuals` are excluded. No identity bridge or current-World import produces the baseline.
 
 The current World matches all262 projections, and TypeScript passes. The producer's initial copied ruleset expectation was corrected to the actual Recall-history archive before this reference was frozen. Future observer work must preserve the frozen helper, producer and expected hashes. Audio cast history is130 ticks, shorter than the attached cast particle's four-second life, so it cannot own the new visual lifetime. An independent saved clock remains the next step.
+
+## Explicit local animation-event clock
+
+The exact46,826-byte native Spell1 ANM restores from its original model ledger and matches SHA `55b13152`. Its retained40-byte version-5 header declares211 tracks,14 frames and frame duration0.03333333507180214. Pinned LeagueToolkit reader `61a08ed7` computes float32 FPS29.999998092651367; the last sampled frame0.4333333671092987 matches the shipped clip metadata exactly.
+
+The raw frame5 sample is0.1666666716337204 seconds. The explicit local adapter rounds this to the nearest simulation tick (ten ticks), rather than applying a floating-point ceiling to eleven. Native callback equivalence remains unverified. Three single particles retain source lives0.5 /0.4000000059604645 /4 seconds; the maximum finite bound is240 ticks after birth,250 after accepted cast. Raw linger is retained without extending visible lifetime. Separate Orb_Cast end-frame7 remains unbound.
+
+Timing publication checks all inputs and both final outputs before writes. Normal/optimized five-probe guards pass without private tools/caches. Independent TypeScript tests derive the native frame grid and finite-life bound from the retained header and particle source. Full native restoration and optimized recheck pass.

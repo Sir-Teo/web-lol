@@ -1,0 +1,73 @@
+{
+  "format": 1,
+  "sourceInputs": [
+    {
+      "path": "public/assets/models/ahri-base.json",
+      "sha256": "c6a42818e2b02c8e4f4e2db7a313beb439521934d083e4262b79210bef27eca4"
+    },
+    {
+      "path": "docs/reference/ahri-model.json",
+      "sha256": "74d0b55f5aad08646fbd24f660ed533bc8fd5798e8a60dc0983d97960b47a377"
+    },
+    {
+      "path": "docs/reference/ahri/q-particles.json",
+      "sha256": "613f21651105761810963a32275a52b073189ccdea7286af78980d558b3db2c3"
+    },
+    {
+      "path": "docs/reference/ahri/q-particle-bindings.json",
+      "sha256": "6fb85f6b743e0a662d45a923c93900ce3b45777f34692cc8dbdb07922e6ccf78"
+    },
+    {
+      "path": "docs/reference/ahri/q-cast-animation-header.bin",
+      "sha256": "65975b5a38b56d99dc7d746b07810cf48fb94c11cda383e3728ea2710546311b"
+    }
+  ],
+  "nativeAnimation": {
+    "path": "assets/characters/ahri/skins/base/animations/spell1.anm",
+    "wadPathHash": "59666d3e64c696ce",
+    "sha256": "55b13152990aad5c3cfb94f8fe201349026b9acb7f6770ecacbc96e665dc2f74",
+    "bytes": 46826
+  },
+  "header": {
+    "tracks": 211,
+    "frames": 14,
+    "frameDuration": 0.03333333507180214,
+    "fpsFloat32": 29.999998092651367,
+    "lastSampleSeconds": 0.4333333671092987
+  },
+  "animationEvent": {
+    "mStartFrame": 5.0,
+    "mEffectKey": "Ahri_Q_Cas",
+    "mParticleEventDataPairList": [
+      {
+        "mBoneName": "C_Buffbone_Glb_Center_Loc",
+        "__type": "ParticleEventDataPair"
+      }
+    ],
+    "mIsKillEvent": false,
+    "__type": "ParticleEventData"
+  },
+  "nativeFrameSampleSeconds": 0.1666666716337204,
+  "localAdapter": {
+    "tickRate": 60,
+    "rounding": "nearest integer simulation tick",
+    "delayTicks": 10,
+    "maximumParticleTicks": 240,
+    "historyTicks": 250
+  },
+  "particleLifetimes": [
+    0.5,
+    0.4000000059604645,
+    4.0
+  ],
+  "reader": {
+    "revision": "76bf57bf4fd195343dec610bf0f912a06b910914",
+    "path": "src/LeagueToolkit/Core/Animation/UncompressedAnimationAsset.cs",
+    "sha256": "61a08ed77e11b4d4fb7ce70d02c1fd75f62a02cc3bec83e1756ac8856a9ec9af"
+  },
+  "limits": [
+    "Native header/sample calculation is retained; event dispatch on the simulation grid is an explicit local adapter, not native callback certification.",
+    "Only the three-emitter Ahri_Q_Cas is timed; the separate Orb_Cast end-frame declaration remains unbound.",
+    "Finite visible lifetime excludes raw particle linger. Born particles finish naturally; unborn dispatch may cancel before the local trigger."
+  ]
+}

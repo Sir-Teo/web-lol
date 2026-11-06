@@ -9,6 +9,9 @@ on:
       - 'docs/reference/ahri-model.json'
       - 'docs/reference/ahri/q-particles.json'
       - 'docs/reference/ahri/q-particle-bindings.json'
+      - 'docs/reference/ahri/q-cast-animation-header.bin'
+      - 'docs/reference/ahri/q-cast-timing.json'
+      - 'src/content/ahri-q-cast-timing.ts'
       - 'docs/reference/ahri/mesh-submeshes.bin'
       - 'public/assets/models/ahri-base.glb'
   pull_request:
@@ -20,6 +23,9 @@ on:
       - 'docs/reference/ahri-model.json'
       - 'docs/reference/ahri/q-particles.json'
       - 'docs/reference/ahri/q-particle-bindings.json'
+      - 'docs/reference/ahri/q-cast-animation-header.bin'
+      - 'docs/reference/ahri/q-cast-timing.json'
+      - 'src/content/ahri-q-cast-timing.ts'
       - 'docs/reference/ahri/mesh-submeshes.bin'
       - 'public/assets/models/ahri-base.glb'
 permissions:
@@ -38,3 +44,8 @@ jobs:
         run: |
           python3 tools/assets/test-ahri-q-bindings.py
           python3 -O tools/assets/test-ahri-q-bindings.py
+      - name: Verify explicit local frame-grid timing without private caches
+        run: |
+          python3 tools/assets/export-ahri-q-cast-timing.py --check
+          python3 tools/assets/test-ahri-q-cast-timing.py
+          python3 -O tools/assets/test-ahri-q-cast-timing.py
