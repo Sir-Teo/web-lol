@@ -28,3 +28,20 @@ PYTHONPATH=.tools/cdtb .tools/cdtb-venv/bin/python -O tools/assets/test-ahri-q-p
 Native texture decoding, mesh transport, materials/distortion, bone attachments, actual callback clocks and browser comparison remain separate work. The current Q development marker is unchanged; source retention is not a visual-fidelity claim. Audio and older cohort evidence retain their original scope.
 
 The source-stage receipt is [q-particles-source-verification.json](reference/ahri/q-particles-source-verification.json). It records all46 source hashes/extents in original and freshly restored directories, complete native reparse, both seven-test guard modes and the unchanged runtime fingerprint. Texture/mesh decoding follows in a separate commit.
+
+## Complete private texture and mesh decode
+
+The separate decode retains312 authored mip levels from37 TEX files (12 BC1-with-alpha and25 BC3), plus four SCB3.2 flag-2 meshes. The316 transport files contain1,102,195 PNG bytes and365,404 mesh JSON bytes. Each mip retains its exact native compressed offset/extent/hash, dimensions, straight RGBA hash and alpha statistics. There is no resizing, generated mip, gamma conversion or premultiplication. An independent stdlib PNG replay verifies every CRC/filter/pixel extent.
+
+The pinned LeagueToolkit reader distinguishes flag2 (local origin/pivot) from face-color flag1. Three meshes retain optional per-vertex BGRA and separately derived RGBA; the sphere has no vertex colors. All1,127 source vertices and1,636 triangles preserve original coordinates, indices, per-face UV/material bytes, bounds and central points. No face colors or unparsed tails are invented, and all four JSON records re-encode to the exact original181,432 SCB bytes. Normals, winding, reflection, pivot offset and unit scale remain unapplied. The frozen Master Yi decoder/helpers and reference hashes are unchanged.
+
+Record `q-particles-decoded.json` SHA `7b040643c0361810c60e3d467af5c27e47f4d1ca3024b023582f132539628bc9` pins the native source, reader revision/layout hashes, decoder artifacts and build environment. The first regeneration caught relative versus absolute helper artifact paths; normalization fixes that metadata difference. The final CLI regeneration reproduces the complete record and all files. Optimized checking and ten rejection tests in each mode pass, covering malformed meshes, out-of-range indices, nonfinite coordinates, optional color typing/channels, complete mips, PNG CRC, record identity, whole-publication preflight and symlinks. Representative orb/trail textures were reviewed.
+
+```sh
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/decode-ahri-q-particles.py
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python -O tools/assets/decode-ahri-q-particles.py --check
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python tools/assets/test-ahri-q-decode.py
+PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python -O tools/assets/test-ahri-q-decode.py
+```
+
+This is canonical software decode and byte-preserving private transport, not native GPU appearance certification. Public assets, Q renderer/history, particle attachment and material/shader calibration remain unbound.
