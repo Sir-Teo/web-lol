@@ -7,3 +7,9 @@ Missile launch and hit each keep one master. The two buff-activation branches ea
 Raw playlists, pitch/property omissions, limits, positioning and attenuation remain unflattened. Event names alone do not establish native Essence spawn, contact, healing or minion-counter callback timing. A future local binding must distinguish those choices. Native dispatch, listener/bus behavior, inheritance and virtualization remain unverified.
 
 The producer pins both frozen input hashes and records its own SHA. Cache-free normal/optimized checks reproduce the record and reject missing/changed output, leaf/parent symlinks, changed graph bytes and missing decoded metadata. Shared-media IDs are explicitly checked while every sound node remains separate. This preparation is isolated from accepted W and the ongoing R delivery checks.
+
+## Isolated shared-master stage
+
+The passive branch stages five unchanged mono44.1 kHz float masters and a generated source table: six outputs /1,290,292 bytes. Eight distinct sound rows retain four container identities and two local mixers while sharing the three heal WAVs. Publication deduplicates only identical media bytes; it keeps each sound's parent and properties separate. No timing, history or playback is bound yet.
+
+All nine asset/property tests, TypeScript and both normal/optimized whole-closure guard modes pass. Six rejection probes per mode cover final-output conflict before any earlier WAV is written, corrupt output, leaf/parent symlinks and changed source bytes. Cache-free fixtures use the committed identical masters. CI includes source reading and publication guards in both Python modes.

@@ -11,6 +11,12 @@ on:
       - 'public/assets/audio/ahri-orb/**'
       - 'public/assets/audio/ahri-fox-fire/**'
       - 'public/assets/audio/ahri-spirit-rush/**'
+      - 'public/assets/audio/ahri-passive/**'
+      - 'docs/reference/ahri-p-audio-properties.json'
+      - 'tools/assets/read-ahri-p-audio.py'
+      - 'tools/assets/test-ahri-p-audio-reading.py'
+      - 'tools/assets/export-ahri-passive-audio.py'
+      - 'tools/assets/test-ahri-passive-audio-export.py'
       - 'docs/reference/ahri-r-audio-properties.json'
       - 'docs/reference/ahri-spirit-rush-gameplay-reference.json'
       - 'tools/assets/read-ahri-r-audio.py'
@@ -56,6 +62,12 @@ on:
       - 'public/assets/audio/ahri-orb/**'
       - 'public/assets/audio/ahri-fox-fire/**'
       - 'public/assets/audio/ahri-spirit-rush/**'
+      - 'public/assets/audio/ahri-passive/**'
+      - 'docs/reference/ahri-p-audio-properties.json'
+      - 'tools/assets/read-ahri-p-audio.py'
+      - 'tools/assets/test-ahri-p-audio-reading.py'
+      - 'tools/assets/export-ahri-passive-audio.py'
+      - 'tools/assets/test-ahri-passive-audio-export.py'
       - 'docs/reference/ahri-r-audio-properties.json'
       - 'docs/reference/ahri-spirit-rush-gameplay-reference.json'
       - 'tools/assets/read-ahri-r-audio.py'
@@ -128,6 +140,7 @@ jobs:
           tests/ahri-charm-gameplay-reference.test.ts
           tests/wwise145-fade.test.ts
           tests/wwise145-log1.test.ts
+          tests/ahri-passive-audio-assets.test.ts
           tests/ahri-spirit-rush-audio-assets.test.ts
           tests/ahri-spirit-rush-audio-policy.test.ts
           tests/ahri-spirit-rush-audio-history.test.ts
@@ -183,3 +196,9 @@ jobs:
           python3 -O tools/assets/test-ahri-r-audio-reading.py
           python3 tools/assets/test-ahri-spirit-rush-audio-export.py
           python3 -O tools/assets/test-ahri-spirit-rush-audio-export.py
+      - name: Check Essence Theft source reading and shared publication closure
+        run: |
+          python3 tools/assets/test-ahri-p-audio-reading.py
+          python3 -O tools/assets/test-ahri-p-audio-reading.py
+          python3 tools/assets/test-ahri-passive-audio-export.py
+          python3 -O tools/assets/test-ahri-passive-audio-export.py
