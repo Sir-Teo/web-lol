@@ -40,3 +40,30 @@ This branch starts from projectile renderer candidate `cf128aa`, schema 177 /
 Particle decoding, transport, attachment and callback reading remain separate
 steps. Resource names alone do not establish event chronology or variant
 selection. Empty authored arrays are not a claim about global native absence.
+
+## Private mip and mesh decoding
+
+The pinned software decoder retains all 35 textures / 292 authored mip levels
+as private PNGs (1,539,397 bytes). Two independent generations match exactly.
+The two SCB 3.2 flag-2 meshes retain 786 source vertices / 1,143 triangles,
+including original indices, per-face UVs/material bytes, BGRA and RGBA vertex
+colors, bounds and pivot. Re-encoding the JSON reproduces every native byte.
+No normals, winding changes, unit conversion, reflection or pivot correction
+are applied.
+
+The [decoded record](reference/ahri/w-particles-decoded.json), SHA-256
+`11838eed2092e7301577471d3b28670ebc781194f865eb3a1f642fda483abbca`,
+pins compressed mip ranges, decoded pixels/alpha, private outputs and the actual
+Pillow/CDTB/layout artifacts. The Q SCB and general TEX helpers remain unchanged.
+Normal and optimized checks, exact regeneration and ten decoder/publication
+guard cases pass. Guards cover both colored meshes, corrupt headers/indices,
+nonfinite geometry, changed metadata/PNG CRC, conflicts and symlinks.
+
+```sh
+PYTHONPATH=tools/assets:.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/decode-ahri-w-particles.py --check
+PYTHONPATH=tools/assets:.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/test-ahri-w-decode.py
+PYTHONPATH=tools/assets:.tools/cdtb .tools/cdtb-venv/bin/python -O tools/assets/test-ahri-w-decode.py
+```
+
+This is private decode preparation, not GLB transport, native GPU appearance,
+playback or callback acceptance. The empty weapon resource remains empty.
