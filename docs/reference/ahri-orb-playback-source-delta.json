@@ -1,0 +1,45 @@
+{
+  "format": 1,
+  "applicationRevision": "6e67c0973c56ead9ad3e12a30b1fe367f64981eb",
+  "schema": 169,
+  "ruleset": "a37e6c8fb79562e749c5d16850ab774086bb7029c82f2f5aa052a6bf128f244f",
+  "baselineRevision": "f77814bc4121a8b5d6980ab4a48ac817f93c892c",
+  "baselineRuleset": "1b65f9415673372431926c69f73499e2b1af1e434fd9184f6eaa7b493413d62a",
+  "archivedFiles": 568,
+  "unchangedFiles": 567,
+  "changedFiles": [
+    {
+      "file": "tools/ruleset-fingerprint.ts",
+      "archivedSha256": "82dcf45b62d7d4927d0503f3c2c8a8ac675af12f410b8f9fe5ae3dfcbe567e4c",
+      "currentSha256": "204255d60260e8b0080c56ee818d577e3879b64a761b931ccfae0793acc2c709"
+    }
+  ],
+  "addedFiles": [
+    {
+      "file": "src/audio/ahri-orb-state.ts",
+      "sha256": "7fe71179fd67869400e72af3cf4951e35eb1c2ca082a3aefcd3e5754bd40aafc"
+    },
+    {
+      "file": "src/audio/ahri-orb.ts",
+      "sha256": "52ca260a65fb4b7159b0f4b89073671a8d0ad294bd75a8ce28d6090a2ae3be6e"
+    },
+    {
+      "file": "src/audio/source-envelope.ts",
+      "sha256": "3b0d3fa57761b1db8b6ce8038a2ad90e07f6e1c9e187b53ac236a036903634c4"
+    }
+  ],
+  "allArchivedSimulationAndContentUnchanged": true,
+  "scope": "Source identity comparison only; frozen history cohort remains on its original ruleset.",
+  "integrationOutsideArchivedClosure": [
+    {
+      "file": "src/audio/audio.ts",
+      "baselineSha256": "67aed4a918259319b3f87bfc60527cb67f13ed99cf4ae8e482cbde1f16feb27f",
+      "currentSha256": "3bab5d5904d852ad2259696f1fa3a925c017e0119964839b26169898126b8b29"
+    },
+    {
+      "file": "src/audio/ahri-orb-lazy.ts",
+      "baselineSha256": null,
+      "currentSha256": "aaeaa20808a89bc057cfafdcf49bfa8fdb2c2526c525fbf634bda27064c85586"
+    }
+  ]
+}

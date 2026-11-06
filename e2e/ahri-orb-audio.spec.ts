@@ -115,6 +115,12 @@ test('Orb source audio decodes exact masters and follows a keyboard cast through
     controller.reset();
     audio.setPaused(true);
     return {
+      dispatch: w.ahriOrbAudio.map((r: any) => ({
+        launched: !!r.launch,
+        turned: !!r.turn,
+        end: r.end?.reason,
+        hitLegs: r.hits.map((h: any) => h.leg),
+      })),
       initial,
       muted,
       resumed,
@@ -125,6 +131,9 @@ test('Orb source audio decodes exact masters and follows a keyboard cast through
     };
   });
   expect(media.size).toBe(22);
+  expect(result.dispatch).toEqual([
+    { launched: true, turned: true, end: 'caught', hitLegs: ['outward', 'return'] },
+  ]);
   expect(result.initial.length).toBeGreaterThan(0);
   expect(result.initial.some((v: any) => v.key.endsWith(':deactivate'))).toBe(true);
   expect(result.muted).toBe(0);

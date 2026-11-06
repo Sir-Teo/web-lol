@@ -6,35 +6,34 @@ Last updated: November 6, 2026 (UTC).
 
 ## Current authoritative state
 
-Runtime: save schema **165**, ruleset
-`ebf613f67aab4746e22843fc3c06bffc188104d3783c7e889c71461b6e46b53a`. The [current checkpoint](CURRENT-BARON-SOURCE-KERNELS.md)
-records a full run of 8,041/8,043 unit cases; only the historical Leona archive and Lux digest
-gaps remain. All five Baron browser cases pass, and 1,680 paired ticks preserve
-the frozen prior gameplay trajectory. Flight/contact histories and launch poses
-survive real save/reload.
+Runtime development checkpoint: save schema **169**, ruleset
+`a37e6c8fb79562e749c5d16850ab774086bb7029c82f2f5aa052a6bf128f244f`,
+application `6e67c09` on the isolated Orb audio branch. [Orb source audio](AHRI-Q-AUDIO.md)
+now follows saved cast, flight, per-leg contact and catch clocks with 22 finite
+source masters. The 129-test audio CI selection, TypeScript, 93 Node QA cases,
+six combined Charm/Orb browser cases and all ten cache-free Python guard modes
+pass. Production subdirectory, offline lifecycle and full-suite acceptance are
+still being refreshed for this checkpoint. The existing two historical full-suite
+gaps remain documented rather than bypassed.
 
-Source-parameter and arithmetic preparation covers all 21 Baron emitters. The
-private format-2 program preserves authored keys, all 25 textures/214 mips and
-two meshes. Full effect-system composition and active GPU playback remain next;
-the current attack marker stays provisional. Native bound-size and missile-height
-routing remain open, and external-kernel fixtures are not native-client certification.
+The primary branch is `c90e665`, schema 168 / ruleset `e73e3c25`, with accepted
+[Charm delivery](reference/ahri-charm-main-merge-verification.json). Its source pack
+is `979d59e3`, with 1,256 files / 557,784,904 bytes. Orb integration is local and
+has not been pushed or deployed.
 
-The current production build passes and generates pack `f242683be8272476196aa3f180114431c028c254fb04d9388cbe737fcd10af4f`.
-The earlier e20 production/offline acceptance keeps its original scope. The
-frozen e20 cohort is still running; at this checkpoint 74 seeds have zero invariant
-failures, with two unfinished at the time limit. It does not certify this ruleset.
+The [frozen hundred-seed development-roster baseline](CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md)
+is complete: 100 natural victories, zero unfinished matches or invariant failures,
+14,987,533 checked ticks and 4,219 exact save round trips under schema 167 /
+`7ae8e0f8`. The older e20 baseline remains 98 victories / two unfinished at its
+original horizon; later diagnostic continuations retain their separate scope.
+Neither baseline is relabeled to later audio rulesets. The isolated Q-history
+seed under `1b65f941` retains 45 matching archived gameplay projections; all its
+simulation/content source bytes are unchanged in the playback checkpoint.
 
-The [independent preview RNG](PARTICLE-PREVIEW-RNG.md) now matches 640 external
-draws across eight seeds; all 11 tests pass. State restoration and cloning remain
-separate from gameplay randomness. Full system composition continues.
-
-[Float32 timestamp boundaries](PARTICLE-CLOCK-BOUNDARIES.md) now preserve finite
-signed particle ages and compare pool stamps at their stored precision. Eight
-independent boundary cases and all prior affected cases pass (2,878 total).
-
-The [composed Baron preview system](BARON-ATTACK-SYSTEM.md) now runs both roles
-through particle lifecycles and owns typed checkpoints. Ten composition cases and
-70 schedule cases pass. Independent full-loop comparison and GPU integration are next.
+Full production roster selection, complete champion/objective behavior, native
+visual/audio calibration and representative device performance remain open.
+Roadmap milestone 4 and project completion remain false. The historical records
+below retain earlier intermediate limitations and next steps.
 
 ## Recent verified checkpoints
 
@@ -9498,3 +9497,7 @@ f77814b / schema 169 / 1b65f941 passes the frozen full suite with 8,538 pass and
 ### Verify the merged Charm application after the frozen baseline
 
 The local aa76c9b merge preserves both development logs and all prior receipts. Its 558 runtime source files match the accepted Charm worktree byte for byte. Build and complete pack audit reproduce 979d59e3 exactly (1,256 files / 557,784,904 bytes), retaining the existing production/offline acceptance. A fresh primary full suite passes 8,495/8,497 with only the same two historical failures. An actual post-launch Flash test confirms caster-following cast audio and a fixed missile origin; V1's windup attempt is explicitly identified as rejected. The 100-seed 7ae8e0 result remains historical and is not relabeled to e73e3c25. No push/deploy; Q work remains isolated.
+
+## Orb source playback and browser integration
+
+Committed `6e67c09` adds finite, pitch-aware Q source playback with independent outward/return stop curves, child/root voice caps, saved audience gates and mute/restore/terminal handling. Ready source playback owns the generic Q tone. The 129-test CI selection, 93 Node QA cases and ten cache-free Python modes pass. Six combined Charm/Orb browser cases pass, and a strengthened keyboard test explicitly verifies outward contact, return contact and catch. All 22 decoded PCM hashes match. The archived Q-history simulation/content bytes remain unchanged; see `reference/ahri-orb-playback-source-delta.json`. Full-suite and delivery refresh are in progress.
