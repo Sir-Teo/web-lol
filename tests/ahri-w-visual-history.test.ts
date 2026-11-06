@@ -6,6 +6,7 @@ import {
   sampleWVisualHistory,
   endWVisualHistory,
   refreshWVisualAudience,
+  pruneWVisualHistory,
   type WVisualObserverWorld,
 } from '../src/simulation/ahri-w-visual-history';
 
@@ -93,4 +94,24 @@ test('W observation is optional for gameplay-only callers', () => {
   refreshWVisualAudience(world);
   expect(cast).toEqual(before);
   expect(world).toEqual({ tick: 1 });
+});
+
+test('W retention follows the last terminal fire and preserves partially active casts', () => {
+  const { world, cast } = fixture();
+  beginWVisualHistory(world, cast, { x: 0, y: 0 });
+  endWVisualHistory(world, cast, cast.fires[0], 'hit');
+  world.tick = 100;
+  pruneWVisualHistory(world, 10);
+  expect(world.ahriWVisuals).toHaveLength(1);
+  endWVisualHistory(world, cast, cast.fires[1], 'lost-target');
+  world.tick = 102;
+  endWVisualHistory(world, cast, cast.fires[2], 'expired');
+  world.tick = 111;
+  pruneWVisualHistory(world, 10);
+  expect(world.ahriWVisuals).toHaveLength(1);
+  world.tick = 112;
+  pruneWVisualHistory(world, 10);
+  expect(world.ahriWVisuals).toEqual([]);
+  for (const invalid of [0, -1, 1.5, Infinity, NaN])
+    expect(() => pruneWVisualHistory(world, invalid)).toThrow('retention');
 });

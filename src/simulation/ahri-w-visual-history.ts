@@ -98,3 +98,16 @@ export function refreshWVisualAudience(w: WVisualObserverWorld) {
       for (const a of [f.birth, f.dispatch, f.end, f.frames.at(-1)])
         if (a?.tick === w.tick) a.audience = anchor(w, a.point, r.team).audience;
 }
+
+/** Retention is supplied by the eventual renderer policy. Never remove an
+ * active cast merely because one of its fires has already ended. */
+export function pruneWVisualHistory(w: WVisualObserverWorld, retentionTicks: number) {
+  if (!Number.isSafeInteger(retentionTicks) || retentionTicks < 1)
+    throw new RangeError('Invalid W visual retention');
+  if (!w.ahriWVisuals) return;
+  w.ahriWVisuals = w.ahriWVisuals.filter((r) => {
+    if (!r.fires.length || r.fires.some((f) => !f.end)) return true;
+    const lastEnd = Math.max(...r.fires.map((f) => f.end!.tick));
+    return w.tick < lastEnd + retentionTicks;
+  });
+}

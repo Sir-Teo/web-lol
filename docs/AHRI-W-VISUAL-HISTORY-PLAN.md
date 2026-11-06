@@ -67,8 +67,8 @@ Its ruleset remains `5e4347edd208087bb82b7ad33f2d5ba3f77d6a9767da24a6c32c305cbbe
 The helper excludes only snapshot version, ruleset and the future `ahriWVisuals`
 field. Existing W audio, Q projectile history and all other saved state remain
 in every digest. The current-World comparison passes before observation hooks.
-The natural seed-one roster run remains pending; focused scenarios do not stand
-in for its result.
+The natural seed-one roster run reached victory at tick 157,116 with no
+reported failure. Independent archive verification is recorded separately.
 
 ## Pure observer preparation
 
@@ -76,10 +76,14 @@ in for its result.
 operations without World hooks or snapshot serialization. Dispatch anchors are
 separate from end-of-step samples. Copied positions prevent later gameplay
 mutation from rewriting history; terminal anchors are idempotent. Visibility
-refresh touches only anchors and samples from the current tick. Four focused
+refresh touches only anchors and samples from the current tick. Five focused
 tests cover these contracts, optional observers and duplicate/gapped samples;
 the archived gameplay comparator also passes.
 
-This is a preparation module. World integration, history retention, strict
+This is a preparation module. World integration, retention-policy selection, strict
 restore validation and a schema change remain pending; no W renderer consumes
 this history yet.
+
+The pure pruning operation retains partially active casts and expires complete
+casts from the last fire endpoint. Its positive integer retention window remains
+an explicit caller policy, pending renderer integration.
