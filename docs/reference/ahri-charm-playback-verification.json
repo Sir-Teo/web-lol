@@ -1,0 +1,81 @@
+{
+  "format": 1,
+  "applicationRevision": "66ad4dcd8f11872fb3c5b18c52ef79b99701b824",
+  "ruleset": "ae079c84268e4fd83c1d0c85568a6ea457f3b92f99d9f4adee58d15286085033",
+  "schema": 168,
+  "cleanCheckout": {
+    "privateCaches": false,
+    "privateTools": false,
+    "dependencies": "Reused unchanged parent node_modules; npm ci not repeated locally",
+    "typeCheck": true,
+    "vitestFiles": 10,
+    "vitestTests": 52,
+    "floatGuards": [
+      "normal",
+      "optimized"
+    ],
+    "publicationGuards": [
+      "normal",
+      "optimized"
+    ],
+    "remoteWorkflowDispatched": false
+  },
+  "browser": {
+    "cases": 2,
+    "pcmMasters": 9,
+    "unchangedGameplaySnapshot": true,
+    "unrequestedCharmMasters": 0,
+    "rendering": "system Chromium software WebGL; not device performance evidence"
+  },
+  "fullUnit": {
+    "passed": 8490,
+    "failed": 2,
+    "knownFailures": [
+      "missing historical Leona reader archive",
+      "Lux sampler FMA golden mismatch"
+    ],
+    "additionalIntegrationTestsPassed": 2
+  },
+  "pack": {
+    "id": "e0137f495db76c3ddc836f026322fc9cb83917252778594b2b0cf8b7ec0ffbe6",
+    "files": 1256,
+    "bytes": 557784340,
+    "allFileAndWorkerAudit": true,
+    "deliveryAcceptancePending": true
+  },
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-clean-ci-0.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-clean-ci-1.log",
+      "sha256": "2e4a8ce9b67196e24dc2bae40f216b5e7e93410706a0c29a2355d3299c33ecec"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-clean-ci-2.log",
+      "sha256": "2dd796026b608a40ce6239368a6574ac3a6349ea4cd5fa02cfa17b64a3d7c07f"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-clean-ci-3.log",
+      "sha256": "e135f2b1d5f97118151c7849a85a8230f4891f766d2c753f8cbceb4c093f1830"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-browser-v4.log",
+      "sha256": "4faff5ae44a07c47fe940210f0a80bc925069c1760694097781d5091d64a2785"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-runtime-full-suite.log",
+      "sha256": "24ea102cc9e026a608fd16d8edef1a3ea099daa9a0b7aa770b90024d07b697bc"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-pack-audit-final.log",
+      "sha256": "bfa05fd8d80a0072cdb3237ffb1789c15971e216c811480935082eb0be3ba9f9"
+    }
+  ],
+  "limitations": [
+    "Primary 100-seed roster baseline remains in progress on frozen 7ae8e0; no milestone completion claimed",
+    "Feature remains isolated; no push, merge or publication",
+    "Native dispatch, shuffle, global bus and listener calibration remain unverified"
+  ]
+}
