@@ -56,7 +56,7 @@ npm run offline:verify
 npm run test:production
 ```
 
-The latest full suite passes 8,672/8,674 tests. The missing historical Leona
+The latest full suite passes 8,716/8,718 tests. The missing historical Leona
 checker/archive and the retained Lux E sampler digest remain unresolved; their
 assertions are unchanged. See the [current validation receipt](docs/reference/ahri-charm-main-merge-verification.json)
 and [Lux runtime portability audit](docs/LUX-E-SAMPLER-PORTABILITY.md).
@@ -69,7 +69,7 @@ The browser suite currently uses installed Google Chrome. All runtime assets are
 
 ## Deployment
 
-The practice build is hosted at https://sir-teo.github.io/web-lol/. Pushes to `main` install dependencies with npm caching, build, and deploy to GitHub Pages. Documentation-only and test-only pushes skip deployment; the workflow can also be run manually. A separate CI workflow runs TypeScript, 305 Baron/Charm/Orb/Fox-Fire/Spirit Rush/Essence Theft audio and persistence checks on
+The practice build is hosted at https://sir-teo.github.io/web-lol/. Pushes to `main` install dependencies with npm caching, build, and deploy to GitHub Pages. Documentation-only and test-only pushes skip deployment; the workflow can also be run manually. A separate CI workflow runs TypeScript, 369 Baron/Charm/Orb/Fox-Fire/Spirit Rush/Essence Theft/Ahri attack audio and persistence checks on
 Node 24.22.1, and cache-independent float-format/publication guards; the full suite and browser/offline gates remain
 separate. See [Fox-Fire acceptance](docs/reference/ahri-fox-fire-playback-acceptance.json).
 
@@ -130,6 +130,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Orb source audio and saved dispatch clocks](docs/AHRI-Q-AUDIO.md) — 22 unchanged masters, per-leg hit sequences and distinct flight stop curves.
 - [Fox-Fire source audio and saved clocks](docs/AHRI-W-AUDIO.md) — eleven unchanged masters, continuous activation and a separate stop-tail cue.
 - [Essence Theft source audio](docs/AHRI-P-AUDIO.md) — five shared masters, independent saved consumption cues and exact restore.
+- [Ahri attack source audio](docs/AHRI-AA-AUDIO.md) — ordinary/critical aliases, twelve masters and saved windup/contact clocks.
 - [Ahri development NPC and source declarations](docs/AHRI.md) — `/?scene=fixture&npc=ahri` adds her own stats, ordinary attacks, rig and manually cast [Q](docs/AHRI-Q.md)/[W](docs/AHRI-W.md)/[E](docs/AHRI-E.md) and [R base](docs/AHRI-R.md) controllers plus [Essence Theft](docs/AHRI-PASSIVE.md) healing/R resets; [human practice controls and HUD](docs/AHRI-PLAYER.md) are available in a separate development scene; role AI and native presentation remain unfinished.
 - [Browser interruption and graphics recovery](docs/RECOVERY.md)
 - [Minion sources and wave coverage](docs/MINIONS.md)
