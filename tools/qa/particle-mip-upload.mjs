@@ -12,13 +12,20 @@ const checksum = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const output = resolve(process.env.PARTICLE_MIP_OUTPUT ?? '.cache/masteryi-q-contact-packed-v2');
 const manifestBytes = await readFile(resolve(output, 'textures.json'));
 const manifest = JSON.parse(manifestBytes);
-if (manifest.format !== 1 || manifest.textures.length !== 7) throw Error('Unexpected texture closure');
+const expectedCount = Number(process.env.PARTICLE_MIP_TEXTURES ?? 7);
+const expectedDigest = process.env.PARTICLE_MIP_MANIFEST_SHA256;
+if (!Number.isSafeInteger(expectedCount) || expectedCount < 1 || expectedCount > 256 ||
+    (expectedCount !== 7 && !expectedDigest)) throw Error('Custom texture closure requires a pinned manifest');
+if (expectedDigest && (!/^[0-9a-f]{64}$/.test(expectedDigest) || checksum(manifestBytes) !== expectedDigest))
+  throw Error('Texture manifest identity differs');
+if (manifest.format !== 1 || manifest.textures.length !== expectedCount) throw Error('Unexpected texture closure');
 const routes = new Map([
   ['/', { type: 'text/html', bytes: Buffer.from('<!doctype html><title>Authored mip pixel replay</title>') }],
   ['/textures.json', { type: 'application/json', bytes: manifestBytes }],
 ]);
 for (const row of manifest.textures) {
-  const path = resolve(row.path);
+  const path = row.path === `${row.source.wadPathHash}.png`
+    ? resolve(output, row.path) : resolve(row.path);
   if (path !== resolve(output, `${row.source.wadPathHash}.png`)) throw Error('Unexpected packed texture path');
   const bytes = await readFile(path);
   if (bytes.length !== row.bytes || checksum(bytes) !== row.sha256) throw Error('Packed PNG identity differs');

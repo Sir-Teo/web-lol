@@ -72,3 +72,43 @@ reproduces the exact bytes. The [staging ledger](reference/baron-attack-mesh-sta
 pins converter/output/attribute identities and checks. This remains private
 geometry preparation. Native material dispatch, attachment and visual acceptance
 are still open; no runtime or public media changes.
+
+## Authored mip transport
+
+`PYTHONPATH=tools/assets python tools/assets/pack-baron-attack-textures.py`
+creates 25 private PNG transport containers (840,761 bytes) under
+`.cache/baron-attack-textures-packed`. Every original authored mip occupies a
+separate rectangle, including level zero. These containers must never be sampled
+as atlases: the runtime loader extracts every rectangle as its own texture level.
+No mip generation, resize, premultiplication or color conversion is applied.
+The [transport record](reference/baron-attack-texture-transport.json) has SHA-256
+`0b9f4797ebe162f83843d6001eace3562eaf2faa48819a6b607c25f9d67e0c98`.
+
+Fresh staging, repeat staging and optimized checking reproduce exact bytes.
+A late corrupt container blocks creation of an earlier missing container; exact
+missing-file recovery succeeds. Fourteen atlas guard cases pass normally and
+with optimization; 26 authored-mip loader/cache tests also pass. The first pack attempt rejected the runpy decoder's relative
+script identity; resolving its path preserves the existing absolute identity
+without changing the frozen decoded record.
+
+The existing local mip upload verifier now accepts a custom count only with an
+explicit manifest digest; both missing-pin and wrong-pin cases reject before
+browser startup. Default seven-texture invocation remains available, although
+its historical private input cache was unavailable for a repeat here. The Baron
+run is:
+
+```sh
+PARTICLE_MIP_OUTPUT=.cache/baron-attack-textures-packed \
+PARTICLE_MIP_TEXTURES=25 \
+PARTICLE_MIP_MANIFEST_SHA256=0b9f4797ebe162f83843d6001eace3562eaf2faa48819a6b607c25f9d67e0c98 \
+PARTICLE_MIP_CHROMIUM=/usr/bin/chromium \
+node tools/qa/particle-mip-upload.mjs
+```
+
+Chromium 155.0.8059.79 / ANGLE SwiftShader uploads all 214 rectangles to explicit
+WebGL2 mip levels and reads back exactly the canonical decoded RGBA hashes,
+including transparent pixel channels. It generates no mips and resizes no
+pixels. The [verification ledger](reference/baron-attack-texture-verification.json)
+retains reports, exact identities and guard outcomes. This establishes local
+pixel transport; native GPU sampling, source material dispatch and full effect
+visual acceptance remain open. Public assets and runtime effects are unchanged.

@@ -1,0 +1,80 @@
+{
+  "transportSha256": "0b9f4797ebe162f83843d6001eace3562eaf2faa48819a6b607c25f9d67e0c98",
+  "browser": "155.0.8059.79",
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "textures": 25,
+  "authoredMips": 214,
+  "packedBytes": 840761,
+  "exactReadback": true,
+  "scripts": [
+    {
+      "path": "tools/assets/pack-baron-attack-textures.py",
+      "sha256": "3c5597ef6344fb4a4b86d922b8b73359b69ec34e525b61880d0382ab78e7d8d9"
+    },
+    {
+      "path": "tools/qa/particle-mip-upload.mjs",
+      "sha256": "1a7e8fbc795f9606f389fcbb31e66affc63d327c5aa57961eda8511f81c7817a"
+    }
+  ],
+  "checks": [
+    "Fresh and repeated transports identical",
+    "Optimized check passed",
+    "Late conflict rejected before earlier missing output recreation",
+    "Missing transport recovered exactly",
+    "Custom browser closure without manifest pin rejected",
+    "Wrong manifest pin rejected",
+    "14 atlas tests normal and optimized",
+    "26 authored mip loader/cache tests passed"
+  ],
+  "evidence": [
+    {
+      "path": "artifacts/baron-attack-textures-packed-fresh.json",
+      "sha256": "2f758f6739e65e816cec93e51e95a4f81f88c8c6f254e71b62c5d1d9f7f4056b",
+      "bytes": 190
+    },
+    {
+      "path": "artifacts/baron-attack-textures-packed.json",
+      "sha256": "2f758f6739e65e816cec93e51e95a4f81f88c8c6f254e71b62c5d1d9f7f4056b",
+      "bytes": 190
+    },
+    {
+      "path": "artifacts/baron-attack-textures-packed-optimized.json",
+      "sha256": "2f758f6739e65e816cec93e51e95a4f81f88c8c6f254e71b62c5d1d9f7f4056b",
+      "bytes": 190
+    },
+    {
+      "path": "artifacts/baron-attack-mip-upload.json",
+      "sha256": "51c59c8ff777bfc8b937dbe5c4283ae9f1960f16dc39839ed7a073c560b8f342",
+      "bytes": 44603
+    },
+    {
+      "path": "artifacts/baron-attack-mip-probes/conflict.log",
+      "sha256": "b511de980751838cd9ad81a1230a1e99a386206873f49aa7d1c6deca60a518b2",
+      "bytes": 750
+    },
+    {
+      "path": "artifacts/baron-attack-mip-probes/repeat.log",
+      "sha256": "2f758f6739e65e816cec93e51e95a4f81f88c8c6f254e71b62c5d1d9f7f4056b",
+      "bytes": 190
+    },
+    {
+      "path": "artifacts/baron-attack-mip-probes/recovery.log",
+      "sha256": "2f758f6739e65e816cec93e51e95a4f81f88c8c6f254e71b62c5d1d9f7f4056b",
+      "bytes": 190
+    },
+    {
+      "path": "artifacts/baron-attack-mip-no-pin.log",
+      "sha256": "371b2a88cd226b0e5374d4aa33fbc9b7ca3717f18cd2699d45505103e466b42c",
+      "bytes": 376
+    },
+    {
+      "path": "artifacts/baron-attack-mip-wrong-pin.log",
+      "sha256": "f02efc582fe2526a0e34b69e64afd9d7ca54b1256419422981b2a3ba1ae6268d",
+      "bytes": 255
+    }
+  ],
+  "limits": [
+    "Local SwiftShader upload/readback of canonical decoded pixels; no native renderer, device FPS or effect-fidelity certification.",
+    "Private staging only; live Baron marker is still provisional."
+  ]
+}

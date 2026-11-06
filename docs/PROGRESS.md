@@ -6,6 +6,11 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+All 214 Baron authored mips now have [lossless private transport](BARON-ATTACK-DECODE.md#authored-mip-transport)
+and pixel-exact WebGL2 upload/readback in system Chromium/SwiftShader. All 25
+containers total 840,761 bytes; fresh/optimized/recovery/conflict checks and
+14 atlas cases per Python mode pass. No runtime/public asset changes.
+
 The current pack also passes [fresh offline and completed-match checks](CURRENT-E20BDC-OFFLINE.md):
 978 cache responses in the full controls audit, 975 in completed-match restore,
 exact import/reload/export at tick 169,837, no browser errors or failed requests.
