@@ -1,0 +1,505 @@
+{
+  "format": 1,
+  "sourceModelsSha256": "193ac8c3693acb846601bca8b623eb906f9587ed2fad0fe984e3fba7c86a4b2b",
+  "numericGraphSha256": "eec1c9d1ca816d6c2aeae41ac3190abce2af09034f770de822ec40ab907870b1",
+  "helperSha256": "6306ef74575bc80ef5a701b9878b557d0c2dafba1d87417fba842008a930d646",
+  "fnvReaderSha256": "43f63b32620913dc429ebe1dee20d0b09b25e556fd6d36b54b5847b5250542be",
+  "sourceActorPath": "Characters/SRU_Baron/Animations/Skin0",
+  "labels": [
+    {
+      "label": "Play_sfx_SRU_Baron_BaronDeathBreath_cast_vosfx",
+      "id": 664523563,
+      "attestedSourceString": true,
+      "foundInPinnedBank": true,
+      "actions": [
+        {
+          "id": 377975391,
+          "type": "CAkActionPlay",
+          "target": 923656185,
+          "nodes": [
+            716320147,
+            923656185,
+            976396348
+          ],
+          "media": [
+            420248196,
+            1020092929
+          ]
+        }
+      ],
+      "media": [
+        420248196,
+        1020092929
+      ]
+    },
+    {
+      "label": "Play_sfx_SRU_Baron_BaronPullSpellMissile_cast",
+      "id": 1073307821,
+      "attestedSourceString": true,
+      "foundInPinnedBank": true,
+      "actions": [
+        {
+          "id": 769174162,
+          "type": "CAkActionPlay",
+          "target": 377276885,
+          "nodes": [
+            377276885,
+            742054773
+          ],
+          "media": [
+            788749699
+          ]
+        }
+      ],
+      "media": [
+        788749699
+      ]
+    },
+    {
+      "label": "Play_sfx_SRU_Baron_BaronSpellCast6NS_cast",
+      "id": 2922317206,
+      "attestedSourceString": true,
+      "foundInPinnedBank": false,
+      "actions": null,
+      "media": null
+    },
+    {
+      "label": "Play_sfx_SRU_Baron_NewSpellLivingArtillery_cast_foley",
+      "id": 1484972021,
+      "attestedSourceString": true,
+      "foundInPinnedBank": true,
+      "actions": [
+        {
+          "id": 1002811830,
+          "type": "CAkActionPlay",
+          "target": 75134544,
+          "nodes": [
+            75134544,
+            467624987
+          ],
+          "media": [
+            542118371
+          ]
+        }
+      ],
+      "media": [
+        542118371
+      ]
+    },
+    {
+      "label": "Play_sfx_SRU_Baron_NewSpellLivingArtillery_foley",
+      "id": 1429942533,
+      "attestedSourceString": true,
+      "foundInPinnedBank": true,
+      "actions": [
+        {
+          "id": 850433280,
+          "type": "CAkActionPlay",
+          "target": 413410071,
+          "nodes": [
+            111498535,
+            413410071
+          ],
+          "media": [
+            1055547043
+          ]
+        }
+      ],
+      "media": [
+        1055547043
+      ]
+    },
+    {
+      "label": "Play_sfx_SRU_Baron_spawn_hands",
+      "id": 536467164,
+      "attestedSourceString": true,
+      "foundInPinnedBank": true,
+      "actions": [
+        {
+          "id": 606947877,
+          "type": "CAkActionPlay",
+          "target": 365866871,
+          "nodes": [
+            365866871,
+            509325903
+          ],
+          "media": [
+            774716182
+          ]
+        }
+      ],
+      "media": [
+        774716182
+      ]
+    },
+    {
+      "label": "Play_sfx_SRU_Baron_spawn_out_cast_vox_reverb",
+      "id": 1735369909,
+      "attestedSourceString": true,
+      "foundInPinnedBank": true,
+      "actions": [
+        {
+          "id": 88378434,
+          "type": "CAkActionPlay",
+          "target": 471403575,
+          "nodes": [
+            471403575,
+            911120931
+          ],
+          "media": [
+            107666107
+          ]
+        }
+      ],
+      "media": [
+        107666107
+      ]
+    },
+    {
+      "label": "Play_sfx_SRU_Baron_spawn_void",
+      "id": 3448841052,
+      "attestedSourceString": true,
+      "foundInPinnedBank": true,
+      "actions": [
+        {
+          "id": 619422434,
+          "type": "CAkActionPlay",
+          "target": 259387894,
+          "nodes": [
+            137161883,
+            259387894
+          ],
+          "media": [
+            480966148
+          ]
+        }
+      ],
+      "media": [
+        480966148
+      ]
+    },
+    {
+      "label": "Play_vo_SRU_Baron_BaronPullSpellMissile_end_Attack3D",
+      "id": 1915380787,
+      "attestedSourceString": true,
+      "foundInPinnedBank": true,
+      "actions": [
+        {
+          "id": 784656806,
+          "type": "CAkActionPlay",
+          "target": 47802383,
+          "nodes": [
+            47802383,
+            795132345,
+            907889416
+          ],
+          "media": [
+            359133136,
+            468853679
+          ]
+        }
+      ],
+      "media": [
+        359133136,
+        468853679
+      ]
+    }
+  ],
+  "occurrences": [
+    {
+      "clipKey": "{e4cb0f58}",
+      "clipAnimationResource": {
+        "mAnimationFilePath": "assets/characters/sru_baron/skins/base/animations/sru_baron_spawn.anm",
+        "__type": "AnimationResourceData"
+      },
+      "eventKey": "{6bb3e250}",
+      "event": {
+        "{9d477e74}": "Play_sfx_SRU_Baron_spawn_void",
+        "mIsLoop": false,
+        "mIsKillEvent": false,
+        "__type": "{9c566034}"
+      },
+      "id": 3448841052,
+      "startFramePresent": false,
+      "startFrame": null
+    },
+    {
+      "clipKey": "{e4cb0f58}",
+      "clipAnimationResource": {
+        "mAnimationFilePath": "assets/characters/sru_baron/skins/base/animations/sru_baron_spawn.anm",
+        "__type": "AnimationResourceData"
+      },
+      "eventKey": "{8aca44d5}",
+      "event": {
+        "mStartFrame": 36.0,
+        "{9d477e74}": "Play_sfx_SRU_Baron_spawn_out_cast_vox_reverb",
+        "mIsLoop": false,
+        "mIsKillEvent": false,
+        "__type": "{9c566034}"
+      },
+      "id": 1735369909,
+      "startFramePresent": true,
+      "startFrame": 36.0
+    },
+    {
+      "clipKey": "{7edfaad7}",
+      "clipAnimationResource": {
+        "mAnimationFilePath": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2.anm",
+        "__type": "AnimationResourceData"
+      },
+      "eventKey": "{f0f1b5d2}",
+      "event": {
+        "{9d477e74}": "Play_sfx_SRU_Baron_BaronDeathBreath_cast_vosfx",
+        "mIsLoop": false,
+        "__type": "{9c566034}"
+      },
+      "id": 664523563,
+      "startFramePresent": false,
+      "startFrame": null
+    },
+    {
+      "clipKey": "{8dcbd168}",
+      "clipAnimationResource": {
+        "mAnimationFilePath": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_fl.anm",
+        "__type": "AnimationResourceData"
+      },
+      "eventKey": "{f0f1b5d2}",
+      "event": {
+        "{9d477e74}": "Play_sfx_SRU_Baron_BaronDeathBreath_cast_vosfx",
+        "mIsLoop": false,
+        "__type": "{9c566034}"
+      },
+      "id": 664523563,
+      "startFramePresent": false,
+      "startFrame": null
+    },
+    {
+      "clipKey": "{f10e16ba}",
+      "clipAnimationResource": {
+        "mAnimationFilePath": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_fr.anm",
+        "__type": "AnimationResourceData"
+      },
+      "eventKey": "{f0f1b5d2}",
+      "event": {
+        "{9d477e74}": "Play_sfx_SRU_Baron_BaronDeathBreath_cast_vosfx",
+        "mIsLoop": false,
+        "__type": "{9c566034}"
+      },
+      "id": 664523563,
+      "startFramePresent": false,
+      "startFrame": null
+    },
+    {
+      "clipKey": "{5bd38d6a}",
+      "clipAnimationResource": {
+        "mAnimationFilePath": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_l.anm",
+        "__type": "AnimationResourceData"
+      },
+      "eventKey": "{f0f1b5d2}",
+      "event": {
+        "{9d477e74}": "Play_sfx_SRU_Baron_BaronDeathBreath_cast_vosfx",
+        "mIsLoop": false,
+        "__type": "{9c566034}"
+      },
+      "id": 664523563,
+      "startFramePresent": false,
+      "startFrame": null
+    },
+    {
+      "clipKey": "{9943c3f8}",
+      "clipAnimationResource": {
+        "mAnimationFilePath": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell2_r.anm",
+        "__type": "AnimationResourceData"
+      },
+      "eventKey": "{f0f1b5d2}",
+      "event": {
+        "{9d477e74}": "Play_sfx_SRU_Baron_BaronDeathBreath_cast_vosfx",
+        "mIsLoop": false,
+        "__type": "{9c566034}"
+      },
+      "id": 664523563,
+      "startFramePresent": false,
+      "startFrame": null
+    },
+    {
+      "clipKey": "{88e534c4}",
+      "clipAnimationResource": {
+        "mAnimationFilePath": "assets/characters/sru_baron/skins/base/animations/sru_baron_spawn_crawlout.anm",
+        "__type": "AnimationResourceData"
+      },
+      "eventKey": "{237c5340}",
+      "event": {
+        "mStartFrame": 44.0,
+        "{9d477e74}": "Play_sfx_SRU_Baron_spawn_hands",
+        "mIsLoop": false,
+        "mIsKillEvent": false,
+        "__type": "{9c566034}"
+      },
+      "id": 536467164,
+      "startFramePresent": true,
+      "startFrame": 44.0
+    },
+    {
+      "clipKey": "{38e7d4c0}",
+      "clipAnimationResource": {
+        "mAnimationFilePath": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell7.anm",
+        "__type": "AnimationResourceData"
+      },
+      "eventKey": "{f7bf865d}",
+      "event": {
+        "{9d477e74}": "Play_vo_SRU_Baron_BaronPullSpellMissile_end_Attack3D",
+        "mIsLoop": false,
+        "mIsKillEvent": false,
+        "__type": "{9c566034}"
+      },
+      "id": 1915380787,
+      "startFramePresent": false,
+      "startFrame": null
+    },
+    {
+      "clipKey": "{e00159cc}",
+      "clipAnimationResource": {
+        "mAnimationFilePath": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell7_windup.anm",
+        "__type": "AnimationResourceData"
+      },
+      "eventKey": "{f7bf865d}",
+      "event": {
+        "{9d477e74}": "Play_sfx_SRU_Baron_BaronPullSpellMissile_cast",
+        "mIsLoop": false,
+        "mIsKillEvent": false,
+        "__type": "{9c566034}"
+      },
+      "id": 1073307821,
+      "startFramePresent": false,
+      "startFrame": null
+    },
+    {
+      "clipKey": "{a6632ddf}",
+      "clipAnimationResource": {
+        "mAnimationFilePath": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell7_windup_l.anm",
+        "__type": "AnimationResourceData"
+      },
+      "eventKey": "{f7bf865d}",
+      "event": {
+        "{9d477e74}": "Play_sfx_SRU_Baron_BaronPullSpellMissile_cast",
+        "mIsLoop": false,
+        "mIsKillEvent": false,
+        "__type": "{9c566034}"
+      },
+      "id": 1073307821,
+      "startFramePresent": false,
+      "startFrame": null
+    },
+    {
+      "clipKey": "{bc635081}",
+      "clipAnimationResource": {
+        "mAnimationFilePath": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell7_windup_r.anm",
+        "__type": "AnimationResourceData"
+      },
+      "eventKey": "{f7bf865d}",
+      "event": {
+        "{9d477e74}": "Play_sfx_SRU_Baron_BaronPullSpellMissile_cast",
+        "mIsLoop": false,
+        "mIsKillEvent": false,
+        "__type": "{9c566034}"
+      },
+      "id": 1073307821,
+      "startFramePresent": false,
+      "startFrame": null
+    },
+    {
+      "clipKey": "{9d3a8263}",
+      "clipAnimationResource": {
+        "mAnimationFilePath": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell7_windup_fl.anm",
+        "__type": "AnimationResourceData"
+      },
+      "eventKey": "{f7bf865d}",
+      "event": {
+        "{9d477e74}": "Play_sfx_SRU_Baron_BaronPullSpellMissile_cast",
+        "mIsLoop": false,
+        "mIsKillEvent": false,
+        "__type": "{9c566034}"
+      },
+      "id": 1073307821,
+      "startFramePresent": false,
+      "startFrame": null
+    },
+    {
+      "clipKey": "{9b3a7f3d}",
+      "clipAnimationResource": {
+        "mAnimationFilePath": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell7_windup_fr.anm",
+        "__type": "AnimationResourceData"
+      },
+      "eventKey": "{f7bf865d}",
+      "event": {
+        "{9d477e74}": "Play_sfx_SRU_Baron_BaronPullSpellMissile_cast",
+        "mIsLoop": false,
+        "mIsKillEvent": false,
+        "__type": "{9c566034}"
+      },
+      "id": 1073307821,
+      "startFramePresent": false,
+      "startFrame": null
+    },
+    {
+      "clipKey": "{7a9f2741}",
+      "clipAnimationResource": {
+        "mAnimationFilePath": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell8.anm",
+        "__type": "AnimationResourceData"
+      },
+      "eventKey": "{00d0a8b2}",
+      "event": {
+        "{9d477e74}": "Play_sfx_SRU_Baron_BaronSpellCast6NS_cast",
+        "mIsLoop": false,
+        "mIsKillEvent": false,
+        "__type": "{9c566034}"
+      },
+      "id": 2922317206,
+      "startFramePresent": false,
+      "startFrame": null
+    },
+    {
+      "clipKey": "{aaf62bd0}",
+      "clipAnimationResource": {
+        "mAnimationFilePath": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell9.anm",
+        "__type": "AnimationResourceData"
+      },
+      "eventKey": "{dfd84018}",
+      "event": {
+        "mStartFrame": 29.0,
+        "{9d477e74}": "Play_sfx_SRU_Baron_NewSpellLivingArtillery_foley",
+        "mIsLoop": false,
+        "mIsKillEvent": false,
+        "__type": "{9c566034}"
+      },
+      "id": 1429942533,
+      "startFramePresent": true,
+      "startFrame": 29.0
+    },
+    {
+      "clipKey": "{aaf62bd0}",
+      "clipAnimationResource": {
+        "mAnimationFilePath": "assets/characters/sru_baron/skins/base/animations/sru_baron_spell9.anm",
+        "__type": "AnimationResourceData"
+      },
+      "eventKey": "{7f2b3a3a}",
+      "event": {
+        "{9d477e74}": "Play_sfx_SRU_Baron_NewSpellLivingArtillery_cast_foley",
+        "mIsLoop": false,
+        "mIsKillEvent": false,
+        "__type": "{9c566034}"
+      },
+      "id": 1484972021,
+      "startFramePresent": false,
+      "startFrame": null
+    }
+  ],
+  "gameplayBinding": null,
+  "limits": [
+    "Stored strings are attested animation-source values; numeric graph remains unchanged.",
+    "Omitted start frames stay absent; no default time, frame rate or native dispatch is inferred.",
+    "One stored label has no event in the pinned skin bank; no fallback event/media is invented.",
+    "Basic-attack cast/hit labels remain separate hash-derived candidates, not attested by this overlay.",
+    "No boss ability kit, native timing, shuffle, global mix or runtime playback is added."
+  ]
+}

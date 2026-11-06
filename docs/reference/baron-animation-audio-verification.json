@@ -1,0 +1,48 @@
+{
+  "format": 1,
+  "attestedLabels": 9,
+  "occurrences": 17,
+  "bankMatches": 8,
+  "missing": [
+    "Play_sfx_SRU_Baron_BaronSpellCast6NS_cast"
+  ],
+  "runtimeBinding": false,
+  "checks": [
+    "normal discovery",
+    "normal check",
+    "optimized check",
+    "six rejection probes in each Python mode"
+  ],
+  "evidence": [
+    {
+      "path": "tools/assets/read-baron-animation-audio.py",
+      "bytes": 5225,
+      "sha256": "6306ef74575bc80ef5a701b9878b557d0c2dafba1d87417fba842008a930d646"
+    },
+    {
+      "path": "docs/reference/baron-animation-audio-reading.json",
+      "bytes": 14262,
+      "sha256": "e0f2aac6132facc0f03f61e905abdd8633513307e56b54ed5ead0ad7ba21e8a3"
+    },
+    {
+      "path": "artifacts/baron-animation-audio-discovery.log",
+      "bytes": 96,
+      "sha256": "cd8fa53115e55d2b8b8421634e3c0218fc4f3970ff96d2782e84eb1182eaf9e4"
+    },
+    {
+      "path": "artifacts/baron-animation-audio-check.log",
+      "bytes": 96,
+      "sha256": "cd8fa53115e55d2b8b8421634e3c0218fc4f3970ff96d2782e84eb1182eaf9e4"
+    },
+    {
+      "path": "artifacts/baron-animation-audio-optimized-check.log",
+      "bytes": 96,
+      "sha256": "cd8fa53115e55d2b8b8421634e3c0218fc4f3970ff96d2782e84eb1182eaf9e4"
+    },
+    {
+      "path": "artifacts/baron-animation-audio-guards.log",
+      "bytes": 263,
+      "sha256": "ecf071a84c71fa8524d8002807d7f882e51f7ac77de445dcbca63d0e2f97ab5c"
+    }
+  ]
+}

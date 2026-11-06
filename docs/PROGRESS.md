@@ -9406,3 +9406,7 @@ Application0fa0072/ruleset7ae8e0f8 passes8,462/8,464 tests across468files; only 
 ### Continue both unfinished games with their frozen source and original identity
 
 The new archive-only controller verifies the ledger/plan,548source files, maps, original report/final state and exact Node/V8 runtime before compiling an archived-source runner. Initial snapshots restore byte-for-byte; no identity bridge, AI override or victory rule changes. Seeds2/25 naturally reach Red victory at217,745 (60:29.083) and229,222 (63:40.367) within separate ten-minute diagnostic windows. All14,967continued ticks,7round trips and5future comparisons/300ticks pass. Source bytes reverify after execution; duplicate output rejects preserve evidence. The original98-victory/two-unfinished60minute cohort stays unchanged. See docs/reference/e20bdc-horizon-continuations.json.
+
+### Annotate Baron audio with attested animation-event strings
+
+A separate overlay retains17animation-source event occurrences/nine stored labels. Eight unique labels resolve to original bank events and their action/media closures; Play_sfx_SRU_Baron_BaronSpellCast6NS_cast is explicitly absent. Raw clip/event fields and omitted start-frame status remain intact. Exact pinned FNV reader bytes, normal/optimized checks and12rejection probes pass. The immutable numeric graph and basic-attack candidate-label status are unchanged; no playback/kit/timing is inferred. See docs/BARON-ANIMATION-AUDIO.md.
