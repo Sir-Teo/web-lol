@@ -9438,3 +9438,7 @@ Pinned two Ahri_Base_SFX banks (1,334,190bytes, both145) and the source skin’s
 ### Preserve Ahri’s full named SFX hierarchy and83embedded media
 
 Pinned wwiser reads256nodes/56events with zero errors; all56stored source names match numeric events. All86sounds resolve to83bounded/nonoverlapping original WEMs (1,319,535bytes). Q’s two ResetPlaylist_E actions are retained separately from its Play action; affected media do not imply playback. Full scalar fields and three unresolved external parent/bus IDs remain explicit. Normal/optimized checks, fresh restore and12rejection probes pass. No runtime/timing/mix inference or roster-ruleset change. See docs/AHRI-AUDIO-GRAPH.md.
+
+### Decode Ahri’s 83 SFX masters through a pinned shared float parser
+
+Private mono 44.1 kHz float masters total 28,374,812 bytes, with peak 1.32265019 and source headroom intact. Exact frozen decoder/toolchain identity is required; no gain, conversion or loop expansion is baked in. Normal/optimized checks, fresh restore, twelve isolated destination/record rejection probes and post-probe cache verification pass. The shared parser’s eight format failures reject in both modes, stereo/rate/headroom stay intact, and all eight Baron runtime master measurements reproduce exactly. All 70 Node QA pass. No Ahri runtime asset, cue binding or ruleset change. See docs/AHRI-AUDIO-MASTERS.md.

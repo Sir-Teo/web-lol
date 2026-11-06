@@ -1,0 +1,87 @@
+{
+  "format": 1,
+  "media": 83,
+  "wavBytes": 28374812,
+  "rates": [
+    44100
+  ],
+  "channels": [
+    1
+  ],
+  "maximumPeak": 1.3226501941680908,
+  "samplesOutsideUnitRange": 323,
+  "embeddedLoopMetadataClips": 0,
+  "checks": [
+    "normal check",
+    "optimized check",
+    "fresh restore",
+    "twelve isolated destination/record rejection probes",
+    "post-probe original-cache check",
+    "eight invalid float inputs rejected in both Python modes",
+    "eight existing Baron runtime masters cross-checked exactly"
+  ],
+  "nodeQA": 70,
+  "runtimeChanged": false,
+  "evidence": [
+    {
+      "path": "tools/assets/audio_float_corpus.py",
+      "bytes": 7677,
+      "sha256": "f43f4476cfad0ecbc2f0cd10be2a0e99d616f072f8ec8a80dedcc310c5bb42a5"
+    },
+    {
+      "path": "tools/assets/decode-ahri-audio.py",
+      "bytes": 1120,
+      "sha256": "a48451a7d02be43255eb530552be8ff5e5d85b3fb2c126063e19ddf68828ef5d"
+    },
+    {
+      "path": "docs/reference/ahri-audio-decoded.json",
+      "bytes": 99891,
+      "sha256": "b265f964b941c3800dbfb1b7826a90743e4b9cdbcd35368df1876465b88e158e"
+    },
+    {
+      "path": "artifacts/ahri-audio-decode-discovery.log",
+      "bytes": 155,
+      "sha256": "2a9b132b5e1d059fdeba64885cef25b1c457b0236359cfd14dcfb987d721e3c5"
+    },
+    {
+      "path": "artifacts/ahri-audio-decode-check.log",
+      "bytes": 155,
+      "sha256": "2a9b132b5e1d059fdeba64885cef25b1c457b0236359cfd14dcfb987d721e3c5"
+    },
+    {
+      "path": "artifacts/ahri-audio-decode-optimized-check.log",
+      "bytes": 155,
+      "sha256": "2a9b132b5e1d059fdeba64885cef25b1c457b0236359cfd14dcfb987d721e3c5"
+    },
+    {
+      "path": "artifacts/ahri-audio-decode-restored.log",
+      "bytes": 155,
+      "sha256": "2a9b132b5e1d059fdeba64885cef25b1c457b0236359cfd14dcfb987d721e3c5"
+    },
+    {
+      "path": "artifacts/ahri-audio-decode-guards.json",
+      "bytes": 1206,
+      "sha256": "ebd661bd76421f0fe1724459dd2523c04b0efcb90ae8acb55b118c37324ff443"
+    },
+    {
+      "path": "artifacts/ahri-audio-decode-post-guards.log",
+      "bytes": 155,
+      "sha256": "2a9b132b5e1d059fdeba64885cef25b1c457b0236359cfd14dcfb987d721e3c5"
+    },
+    {
+      "path": "artifacts/audio-float-corpus-guards.log",
+      "bytes": 249,
+      "sha256": "78c0a0db318bff6d5d30b5f7893d737f91d4d262036576480b306d2aaffb7111"
+    },
+    {
+      "path": "artifacts/audio-float-corpus-basic-crosscheck.json",
+      "bytes": 81,
+      "sha256": "20ec65ed95ff1e95ed1ba5d89f9e4e0dfca21cdc9641aa8ce5c5ec3e195c2170"
+    },
+    {
+      "path": "artifacts/ahri-audio-float-node-qa.log",
+      "bytes": 5937,
+      "sha256": "392f5ea146d29fa0f76676a8834dd13c8d4cddd609cd8d42ae60702d3d9937b9"
+    }
+  ]
+}
