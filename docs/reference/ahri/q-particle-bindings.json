@@ -1,0 +1,142 @@
+{
+  "format": 1,
+  "helperSha256": "ab8d44d1adfaa8c9237a34a6288dee5a4288f875d41ec08192557d8b1f589b74",
+  "inputs": [
+    {
+      "path": "docs/reference/ahri-model.json",
+      "sha256": "74d0b55f5aad08646fbd24f660ed533bc8fd5798e8a60dc0983d97960b47a377",
+      "bytes": 234866
+    },
+    {
+      "path": "docs/reference/ahri/q-particles.json",
+      "sha256": "613f21651105761810963a32275a52b073189ccdea7286af78980d558b3db2c3",
+      "bytes": 390388
+    },
+    {
+      "path": "docs/reference/ahri/mesh-submeshes.bin",
+      "sha256": "787b1b497a7a70af39e8f4bf3ce191c3d17d3bf8a44deee12c018692e036756f",
+      "bytes": 332
+    },
+    {
+      "path": "public/assets/models/ahri-base.glb",
+      "sha256": "587c1741a908e23874a87d069505e0e233d4f88c22a828c9d7edda195328e202",
+      "bytes": 19854544
+    }
+  ],
+  "materialReaderSha256": "c52025dac7625b1c212a4deba2875bdbe71b7e53cf6f73e2194c509deec5c420",
+  "animationEvents": [
+    {
+      "clipName": "Spell1",
+      "animationPath": "assets/characters/ahri/skins/base/animations/spell1.anm",
+      "eventKey": "{58966a3a}",
+      "declaration": {
+        "mStartFrame": 5.0,
+        "mEffectKey": "Ahri_Q_Cas",
+        "mParticleEventDataPairList": [
+          {
+            "mBoneName": "C_Buffbone_Glb_Center_Loc",
+            "__type": "ParticleEventDataPair"
+          }
+        ],
+        "mIsKillEvent": false,
+        "__type": "ParticleEventData"
+      },
+      "resourceKey": "Ahri_Q_Cas",
+      "sourceRecord": "Characters/Ahri/Skins/Skin0/Particles/Ahri_Base_Q_cas",
+      "sourceBinSha256": "2c7b5e95aafba111b0dac82d6c77917ab8f8c1ea3e096a1eeb492c15ac50779c",
+      "sourceEmitterCount": 3,
+      "transportBoneCandidates": [
+        {
+          "declaredName": "C_Buffbone_Glb_Center_Loc",
+          "transportName": "C_Buffbone_Glb_Center_Loc",
+          "transportNodeIndex": 6,
+          "exactCaseMatch": true
+        }
+      ]
+    },
+    {
+      "clipName": "Spell1",
+      "animationPath": "assets/characters/ahri/skins/base/animations/spell1.anm",
+      "eventKey": "{96ea6e96}",
+      "declaration": {
+        "mEndFrame": 7.0,
+        "mEffectKey": "Ahri_Q_Orb_Cast",
+        "mParticleEventDataPairList": [
+          {
+            "mBoneName": "BUFFBONE_GLB_WEAPON_1",
+            "__type": "ParticleEventDataPair"
+          }
+        ],
+        "mIsKillEvent": false,
+        "__type": "ParticleEventData"
+      },
+      "resourceKey": "Ahri_Q_Orb_Cast",
+      "sourceRecord": "Characters/Ahri/Skins/Skin0/Particles/Ahri_Base_Q_Orb_Cast",
+      "sourceBinSha256": "0fa4d1292c2d4375ddb1b22744a3318d4a45950595bb3698fd1b2273011e9e0e",
+      "sourceEmitterCount": 8,
+      "transportBoneCandidates": [
+        {
+          "declaredName": "BUFFBONE_GLB_WEAPON_1",
+          "transportName": "Buffbone_Glb_Weapon_1",
+          "transportNodeIndex": 90,
+          "exactCaseMatch": false
+        }
+      ]
+    }
+  ],
+  "attachedMeshes": [
+    {
+      "resourceKey": "Ahri_Q_Cas",
+      "emitterIndex": 2,
+      "emitterName": "Avatar2",
+      "primitive": {
+        "mMesh": {
+          "mSubmeshesToDraw": [
+            "{07c39130}",
+            "{62579b4c}"
+          ],
+          "mLockMeshToAttachment": true,
+          "__type": "VfxMeshDefinitionData"
+        },
+        "__type": "VfxPrimitiveAttachedMesh"
+      },
+      "retainedDrawCandidates": [
+        {
+          "selector": "{07c39130}",
+          "matchingRetainedDraws": [
+            {
+              "name": "Tails",
+              "firstVertex": 9947,
+              "vertices": 3450,
+              "firstIndex": 46410,
+              "indices": 16776
+            }
+          ]
+        },
+        {
+          "selector": "{62579b4c}",
+          "matchingRetainedDraws": []
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "animationParticleEvents": 2,
+    "joinedSystems": 2,
+    "authoredEmitters": 11,
+    "transportBoneCandidates": 2,
+    "attachedMeshEmitters": 1,
+    "namedSelectorMatches": 1,
+    "unmatchedRetainedSelectors": [
+      "{62579b4c}"
+    ]
+  },
+  "limits": [
+    "Raw animation frame fields remain separate from any local clock; missing start/end frames remain omitted.",
+    "Transport joint candidates use case-insensitive name matching; this reading does not establish native joint sampling/attachment transforms.",
+    "Selector candidates use verified lowercase FNV-1a names from the retained native SKN table. One selector matches Tails; {62579b4c} has no retained draw match.",
+    "An unmatched selector is not evidence of global absence or a native fallback policy. No substitute draw is invented.",
+    "Native material arithmetic, lock-to-attachment behavior, callback timing and frame conversion remain unverified.",
+    "No runtime assets, controls, saved history, particle renderer or gameplay rules change."
+  ]
+}

@@ -1,0 +1,40 @@
+name: Ahri Q source attachment reading
+on:
+  push:
+    paths:
+      - '.github/workflows/ahri-q-source.yml'
+      - 'tools/assets/*ahri*q*'
+      - 'tools/assets/export-ahri-materials.py'
+      - 'tools/qa/ahri-q-particle-bindings.test.mjs'
+      - 'docs/reference/ahri-model.json'
+      - 'docs/reference/ahri/q-particles.json'
+      - 'docs/reference/ahri/q-particle-bindings.json'
+      - 'docs/reference/ahri/mesh-submeshes.bin'
+      - 'public/assets/models/ahri-base.glb'
+  pull_request:
+    paths:
+      - '.github/workflows/ahri-q-source.yml'
+      - 'tools/assets/*ahri*q*'
+      - 'tools/assets/export-ahri-materials.py'
+      - 'tools/qa/ahri-q-particle-bindings.test.mjs'
+      - 'docs/reference/ahri-model.json'
+      - 'docs/reference/ahri/q-particles.json'
+      - 'docs/reference/ahri/q-particle-bindings.json'
+      - 'docs/reference/ahri/mesh-submeshes.bin'
+      - 'public/assets/models/ahri-base.glb'
+permissions:
+  contents: read
+jobs:
+  portable-reading:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check retained reading without native decoder or private caches
+        run: python3 tools/assets/read-ahri-q-bindings.py --check
+      - name: Exercise source, output and symlink rejection guards
+        run: |
+          python3 tools/assets/test-ahri-q-bindings.py
+          python3 -O tools/assets/test-ahri-q-bindings.py

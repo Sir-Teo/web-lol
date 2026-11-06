@@ -47,3 +47,11 @@ PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python -O tools/assets/
 This is canonical software decode and byte-preserving private transport, not native GPU appearance certification. Public assets, Q renderer/history, particle attachment and material/shader calibration remain unbound.
 
 The private decode receipt is [q-particles-decode-verification.json](reference/ahri/q-particles-decode-verification.json), including316 verified transports, exact four-mesh round trips, successful regeneration/check logs and both ten-test guard modes. The runtime fingerprint remains `08e106da`.
+
+## Animation and attached-mesh source reading
+
+The portable [binding reading](reference/ahri/q-particle-bindings.json) joins two Spell1 particle events to their native systems and11 emitters. `Ahri_Q_Cas` explicitly starts at frame5 on `C_Buffbone_Glb_Center_Loc`; `Ahri_Q_Orb_Cast` declares end frame7 on `BUFFBONE_GLB_WEAPON_1`, with its start frame omitted. Raw missing frame fields remain absent. The transport has unique case-insensitive matches for both bone names, including `Buffbone_Glb_Weapon_1`; this does not establish native attachment sampling or frame conversion.
+
+Cast emitter2, Avatar2, declares a locked attached mesh with two raw selectors. Lowercase FNV-1a matching against the retained native four-draw SKN table joins `{07c39130}` to `Tails`. `{62579b4c}` has no match in that retained table. The reading preserves both selectors and the no-match result without inventing another draw or a fallback. Native materials, attachment locking and broader resource presence remain open.
+
+The reader checks complete model/source/SKN-table/GLB hashes, and its exact output reproduces without private caches or native tools. Six rejection probes pass in both Python modes, plus both Node wrappers. A focused CI workflow checks the portable reading separately from private native-source decoding. No runtime timing, attachment policy, renderer or saved state is added.
