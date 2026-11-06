@@ -1,0 +1,33 @@
+{
+  "format": 1,
+  "producerSha256": "5f2f0d6fee317e0bc04330efc0a65460516fb4fe79148f3f2b37e93eba655b68",
+  "privateProfileReadingSha256": "db6204032ff94d03b3fc1de6e94b19262791fd548c60d6b168aa977acf6cc08b",
+  "privateProfileSha256": "63fb38b5d3333ed849045373af4c79e3342bd0a777389b04534fca77290f5da2",
+  "publicProfileSha256": "f8a4c153046a70237c4c2d563e45f1b523c29e464ed3789eb0170eeedebef832",
+  "sharedContentPins": {
+    "src/content/ahri-q-cast-particles.json": "80220cb7c8ff6a140e93cdc66b051221320f664845c20f03d6600f5697088d6e",
+    "src/content/ahri-q-projectile-particles.json": "1d37eeacf199ff19cdf1563eec4dab0e8bfcf394140ebc72c7a014b226069e6b"
+  },
+  "profiles": 30,
+  "textures": 35,
+  "authoredMips": 292,
+  "meshes": 2,
+  "newPublicAssetFiles": 31,
+  "newPublicAssetBytes": 1776675,
+  "sharedAssets": [
+    "assets/effects/ahri-q-cast-c68cda0f7d1484a0.png",
+    "assets/effects/ahri-q-cast-272b4271cb1a71fd.png",
+    "assets/effects/ahri-q-projectile-ad287961305637b6.png",
+    "assets/effects/ahri-q-projectile-104eb5bb1d37e53f.png",
+    "assets/effects/ahri-q-cast-70401936f85310ef.png",
+    "assets/effects/ahri-q-projectile-611d1a002469e5d6.png"
+  ],
+  "limits": [
+    "Public asset/profile staging only; no renderer or new simulation behavior is connected.",
+    "All 66 authored emitter fields remain projected. Only explicit private asset paths are substituted.",
+    "Six byte-identical texture atlases borrow their existing Q owner; no duplicate texture is published.",
+    "Both W GLBs remain in native source coordinates and require an explicit scene-unit conversion at load.",
+    "All five resources remain represented; cast and empty weapon resources remain unjoined.",
+    "Missing lifetimes, palette textures and unresolved binding requirements remain explicit. No native pixel equivalence is claimed."
+  ]
+}

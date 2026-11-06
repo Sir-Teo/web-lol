@@ -17,6 +17,10 @@ on:
       - 'docs/reference/ahri/mesh-submeshes.bin'
       - 'docs/reference/ahri-materials.json'
       - 'public/assets/models/ahri-base.glb'
+      - 'public/assets/effects/ahri-w-*'
+      - 'src/content/ahri-w-particles.json'
+      - 'docs/reference/ahri/w-publication.json'
+      - 'tools/qa/ahri-w-publication.test.mjs'
       - 'tools/assets/export-ahri-materials.py'
       - 'tools/qa/ahri-w-attached-bindings.test.mjs'
       - 'docs/reference/ahri/w-texture-transports.json'
@@ -40,6 +44,10 @@ on:
       - 'docs/reference/ahri/mesh-submeshes.bin'
       - 'docs/reference/ahri-materials.json'
       - 'public/assets/models/ahri-base.glb'
+      - 'public/assets/effects/ahri-w-*'
+      - 'src/content/ahri-w-particles.json'
+      - 'docs/reference/ahri/w-publication.json'
+      - 'tools/qa/ahri-w-publication.test.mjs'
       - 'tools/assets/export-ahri-materials.py'
       - 'tools/qa/ahri-w-attached-bindings.test.mjs'
       - 'docs/reference/ahri/w-texture-transports.json'
@@ -71,3 +79,7 @@ jobs:
           python3 tools/assets/read-ahri-w-attached-bindings.py --check
           python3 tools/assets/test-ahri-w-attached-bindings.py
           python3 -O tools/assets/test-ahri-w-attached-bindings.py
+      - name: Reproduce staged W assets and profiles from committed transports
+        run: |
+          python3 tools/assets/test-ahri-w-publication.py
+          python3 -O tools/assets/test-ahri-w-publication.py
