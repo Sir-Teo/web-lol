@@ -117,6 +117,8 @@ jobs:
           tests/ahri-fox-fire-audio-assets.test.ts
           tests/ahri-fox-fire-audio-policy.test.ts
           tests/ahri-fox-fire-audio-history.test.ts
+          tests/ahri-fox-fire-audio-state.test.ts
+          tests/ahri-fox-fire-audio-controller.test.ts
           tests/ahri-fox-fire-gameplay-reference.test.ts
           tests/ahri-w.test.ts
           tests/ahri-orb-audio-assets.test.ts

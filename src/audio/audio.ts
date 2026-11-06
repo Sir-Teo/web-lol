@@ -1,3 +1,4 @@
+import { LazyAhriFoxFireAudio } from './ahri-fox-fire-lazy';
 import { LazyAhriOrbAudio } from './ahri-orb-lazy';
 import { LazyAhriCharmAudio } from './ahri-charm-lazy';
 import { charmAudioStates } from './ahri-charm-state';
@@ -53,6 +54,7 @@ export class GameAudio {
   baronBasic = new LazyBaronBasicAttackAudio();
   ahriCharm = new LazyAhriCharmAudio();
   ahriOrb = new LazyAhriOrbAudio();
+  ahriFoxFire = new LazyAhriFoxFireAudio();
   private charmWorld?: World;
   private charmTerminalStart: number | null = null;
   masterYiAA = new LazyMasterYiAttackAudio();
@@ -128,7 +130,7 @@ export class GameAudio {
   ): Promise<void> {
     await Promise.all([
       ...(baronPreview ? [this.baronBasic.load()] : []),
-      ...(ahriPresent ? [this.ahriCharm.load(), this.ahriOrb.load()] : []),
+      ...(ahriPresent ? [this.ahriCharm.load(), this.ahriOrb.load(), this.ahriFoxFire.load()] : []),
       this.loadCast(),
       this.loadArrival(),
       this.loadLinger(),
@@ -341,6 +343,7 @@ export class GameAudio {
     this.baronBasic.stop();
     this.ahriCharm.stop();
     this.ahriOrb.stop();
+    this.ahriFoxFire.stop();
     this.bindingFlight.stop();
     this.luxE.stop();
     this.garenAA.stop();
@@ -569,6 +572,7 @@ export class GameAudio {
     const present = world.units.some((u) => u.champion === 'ahri');
     if (present && this.ahriCharm.status === 'idle') void this.ahriCharm.load();
     if (present && this.ahriOrb.status === 'idle') void this.ahriOrb.load();
+    if (present && this.ahriFoxFire.status === 'idle') void this.ahriFoxFire.load();
     if (this.charmWorld !== world) {
       this.charmWorld = world;
       this.charmTerminalStart = null;
@@ -595,6 +599,11 @@ export class GameAudio {
       listener,
       world
     );
+    const scene = {
+      team: world.hero.team,
+      visible: (point: { x: number; y: number }) => world.pointVisible(point, world.hero.team),
+      casterPoint: (id: number) => world.unit(id),
+    };
     this.ahriOrb.update(
       this.context,
       this.enabled && !this.paused,
@@ -602,11 +611,16 @@ export class GameAudio {
       tick,
       listener,
       world,
-      {
-        team: world.hero.team,
-        visible: (point) => world.pointVisible(point, world.hero.team),
-        casterPoint: (id) => world.unit(id),
-      }
+      scene
+    );
+    this.ahriFoxFire.update(
+      this.context,
+      this.enabled && !this.paused,
+      world.ahriFoxFireAudio,
+      tick,
+      listener,
+      world,
+      scene
     );
   }
   updateLuxE(world: World, listener = { x: 0, y: 0 }) {
@@ -1035,7 +1049,17 @@ export class GameAudio {
           }
         }
         if (event.type === 'cast') {
-          if (event.text === 'q' && event.champion === 'ahri' && this.ahriOrb.status === 'ready') {
+          if (
+            event.text === 'w' &&
+            event.champion === 'ahri' &&
+            this.ahriFoxFire.status === 'ready'
+          ) {
+            // Saved W history owns source cast, continuous activation and finite cues.
+          } else if (
+            event.text === 'q' &&
+            event.champion === 'ahri' &&
+            this.ahriOrb.status === 'ready'
+          ) {
             // Saved Q history owns the ordered source cast/flight/contact cues.
           } else if (
             event.text === 'e' &&
