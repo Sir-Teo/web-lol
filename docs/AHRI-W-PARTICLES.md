@@ -150,3 +150,6 @@ records remain available with explicit unresolved binding requirements. The
 signed atlas declaration `[1, -1]` is retained beside the pinned external writer's
 `[1, 1]` normalization; this does not certify a native constructor or imply a flip.
 This projection adds no runtime behavior, public assets or save-schema change.
+
+The [verification receipt](reference/ahri/w-profile-verification.json) records a
+clean committed-file export, all three portable checks and both Node QA wrappers.
