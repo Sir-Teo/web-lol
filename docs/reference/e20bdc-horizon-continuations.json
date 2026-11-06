@@ -1,0 +1,179 @@
+{
+  "format": 1,
+  "ruleset": "e20bdcb81f74cf79399347c31c7b163879eb1541316841afc382ac03a365d853",
+  "originalCohortOutcomesUnchanged": true,
+  "sourceFilesVerified": 548,
+  "runs": [
+    {
+      "report": {
+        "format": 1,
+        "ruleset": "e20bdcb81f74cf79399347c31c7b163879eb1541316841afc382ac03a365d853",
+        "seed": 2,
+        "startTick": 216000,
+        "stopTick": 252000,
+        "finalTick": 217745,
+        "winner": "red",
+        "outcome": "continued-victory",
+        "checkedTicks": 1745,
+        "roundTrips": 2,
+        "futureChecks": 1,
+        "futureCheckedTicks": 60,
+        "checkpoints": [
+          {
+            "tick": 216000,
+            "path": "/workspace/web-lol/.cache/e20bdc-seed2-continuation-v1/216000.match.json",
+            "sha256": "128fc6281b224be9fd2faa3d1019fd822e16c6d84d3939eb843c99b6d3e968f5",
+            "stateSha256": "06c5fe45c8be4c4e48269aef3e384e40244bbb12645507157d9f24c8d6197e11"
+          }
+        ],
+        "finalPath": "/workspace/web-lol/.cache/e20bdc-seed2-continuation-v1/final.match.json",
+        "finalStateSha256": "1c69f68492257cda18d87723ce5f104d7b8ff19d04cb9cb86159511bfe3ba1c5",
+        "originalCohortOutcomeUnchanged": true
+      },
+      "provenance": {
+        "format": 1,
+        "ruleset": "e20bdcb81f74cf79399347c31c7b163879eb1541316841afc382ac03a365d853",
+        "seed": 2,
+        "additionalMinutes": 10,
+        "ledgerSha256": "47929c8e3892855391b4b68cc3bed99fa12923c4a5f36815102447c082e54a52",
+        "planSha256": "f75ac0f96a293fb6f1dcb570b7a097a767663e5138026dcccec23e9b25803493",
+        "sourceFiles": 548,
+        "originalReportSha256": "192991f1e4119ca35e853fe4f2014af7778d16d6651a8c4062cbaadc8ca0cafc",
+        "initialSnapshotSha256": "128fc6281b224be9fd2faa3d1019fd822e16c6d84d3939eb843c99b6d3e968f5",
+        "runnerSha256": "56d667cf53b33945812ff2caf1748016863c92c86d89043f0cf42d7e57b60d70",
+        "workerSourceSha256": "3200effbfe1ca19e42cd752f3467a625291f160b3bbeee2100bae4d69b4e5ec5",
+        "controllerSha256": "41e4e6471d72e1dfa13cbe7d8cab69d355bb615ac998eeaf4b7bbc28edef6d95",
+        "runtime": {
+          "node": "v24.22.1",
+          "v8": "13.6.233.17-node.58"
+        },
+        "limits": [
+          "Archived source continuation, not current-ruleset acceptance.",
+          "Original sixty-minute cohort results and snapshots remain unchanged."
+        ]
+      },
+      "existingOutputRejected": true,
+      "evidence": [
+        {
+          "path": ".cache/e20bdc-seed2-continuation-v1/report.json",
+          "bytes": 867,
+          "sha256": "3d1be58af9c461a19edde3e89e611b9b20a55fe1a16e616dee45b751f13d7c4d"
+        },
+        {
+          "path": ".cache/e20bdc-seed2-continuation-v1/provenance.json",
+          "bytes": 1027,
+          "sha256": "b5673f05594dcf35898641a200393c3775fe7d6442a73fc711afe712fcde0579"
+        },
+        {
+          "path": ".cache/e20bdc-seed2-continuation-v1/final.match.json",
+          "bytes": 195664,
+          "sha256": "dfd56d79ed5942eb677b47a9af6acdf6a430adef03a5dbad681781a4ec88d8c2"
+        },
+        {
+          "path": "artifacts/e20bdc-seed2-continuation-v1.log",
+          "bytes": 757,
+          "sha256": "3bff052bb3a61b397e48993997776c5b3a4f82688a573c2d22ef9863b28a3c8d"
+        }
+      ]
+    },
+    {
+      "report": {
+        "format": 1,
+        "ruleset": "e20bdcb81f74cf79399347c31c7b163879eb1541316841afc382ac03a365d853",
+        "seed": 25,
+        "startTick": 216000,
+        "stopTick": 252000,
+        "finalTick": 229222,
+        "winner": "red",
+        "outcome": "continued-victory",
+        "checkedTicks": 13222,
+        "roundTrips": 5,
+        "futureChecks": 4,
+        "futureCheckedTicks": 240,
+        "checkpoints": [
+          {
+            "tick": 216000,
+            "path": "/workspace/web-lol/.cache/e20bdc-seed25-continuation-v1/216000.match.json",
+            "sha256": "12b4e68a6d8add40bb118c54639dca5794a00c1e867c6a92ee807802d7a0fedc",
+            "stateSha256": "dbcf42445a877d0b5f4b55fdbbe77e6bbaed5cc0e7d5b6bc56820967117c4288"
+          },
+          {
+            "tick": 219600,
+            "path": "/workspace/web-lol/.cache/e20bdc-seed25-continuation-v1/219600.match.json",
+            "sha256": "aabd55e37fac6b1a53e9b94bb81106956e081c63940cad515591dc4214c68fd5",
+            "stateSha256": "67419b068c8a7b3b1799fa4c07e35a2b39a7ae4fc5f7fccaea7a9cdca7657bab"
+          },
+          {
+            "tick": 223200,
+            "path": "/workspace/web-lol/.cache/e20bdc-seed25-continuation-v1/223200.match.json",
+            "sha256": "fd03de0415c5ecb2de6fce66a74f379f926b4c4c7a81536efca34e4b89762985",
+            "stateSha256": "eeb3efbdf7d7e8095ab0f1ff94474379b471bedce7d18148ef758d2a9d04075b"
+          },
+          {
+            "tick": 226800,
+            "path": "/workspace/web-lol/.cache/e20bdc-seed25-continuation-v1/226800.match.json",
+            "sha256": "db7038d8e1acd5a4f0144108622a5f292c85b7c3a84b3378a5bcf7fe63b157e1",
+            "stateSha256": "f4884729f8795545c77a310a67eabad74aef210303194cbd260391d6c0032fb4"
+          }
+        ],
+        "finalPath": "/workspace/web-lol/.cache/e20bdc-seed25-continuation-v1/final.match.json",
+        "finalStateSha256": "1000e2e173a4faa764f7958d0be725c696b1e8546d192a461a0638af13b0cdee",
+        "originalCohortOutcomeUnchanged": true
+      },
+      "provenance": {
+        "format": 1,
+        "ruleset": "e20bdcb81f74cf79399347c31c7b163879eb1541316841afc382ac03a365d853",
+        "seed": 25,
+        "additionalMinutes": 10,
+        "ledgerSha256": "47929c8e3892855391b4b68cc3bed99fa12923c4a5f36815102447c082e54a52",
+        "planSha256": "f75ac0f96a293fb6f1dcb570b7a097a767663e5138026dcccec23e9b25803493",
+        "sourceFiles": 548,
+        "originalReportSha256": "a63a3a1d56bd421880734cec89905874cd43830ca345c5fe594a1ef1f2adf388",
+        "initialSnapshotSha256": "12b4e68a6d8add40bb118c54639dca5794a00c1e867c6a92ee807802d7a0fedc",
+        "runnerSha256": "56d667cf53b33945812ff2caf1748016863c92c86d89043f0cf42d7e57b60d70",
+        "workerSourceSha256": "3200effbfe1ca19e42cd752f3467a625291f160b3bbeee2100bae4d69b4e5ec5",
+        "controllerSha256": "41e4e6471d72e1dfa13cbe7d8cab69d355bb615ac998eeaf4b7bbc28edef6d95",
+        "runtime": {
+          "node": "v24.22.1",
+          "v8": "13.6.233.17-node.58"
+        },
+        "limits": [
+          "Archived source continuation, not current-ruleset acceptance.",
+          "Original sixty-minute cohort results and snapshots remain unchanged."
+        ]
+      },
+      "existingOutputRejected": true,
+      "evidence": [
+        {
+          "path": ".cache/e20bdc-seed25-continuation-v1/report.json",
+          "bytes": 1766,
+          "sha256": "01f9e06d35d694cd2025b300905ec8418a576791084409733efbc2117dbaefde"
+        },
+        {
+          "path": ".cache/e20bdc-seed25-continuation-v1/provenance.json",
+          "bytes": 1028,
+          "sha256": "567d0c3630e78ad908a7ff28c039b7e0400c557e3372449843a91868862dfb97"
+        },
+        {
+          "path": ".cache/e20bdc-seed25-continuation-v1/final.match.json",
+          "bytes": 248000,
+          "sha256": "e1af884397ed9ecbcbd11ad9ac59fb34ee64853b226d2ab63c237dbfd15e7d7c"
+        },
+        {
+          "path": "artifacts/e20bdc-seed25-continuation-v1.log",
+          "bytes": 1704,
+          "sha256": "776bdff861fcbc6b195d15b53509f84f8307073dc448134a3ce6c47bd5804227"
+        }
+      ]
+    }
+  ],
+  "checkedTicks": 14967,
+  "roundTrips": 7,
+  "futureChecks": 5,
+  "futureCheckedTicks": 300,
+  "limits": [
+    "Only a diagnostic continuation beyond the original horizon; not a replacement hundred-seed cohort.",
+    "No current-ruleset/full-roster/human-play/device-performance or native fidelity certification.",
+    "Natural later victory does not by itself diagnose the preceding bot decisions."
+  ]
+}
