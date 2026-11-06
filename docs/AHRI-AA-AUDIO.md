@@ -15,3 +15,9 @@ Normal/optimized cache-free guards reproduce the exact reading and reject missin
 The branch stages twelve unchanged mono44.1 kHz float masters and the unflattened generated graph: thirteen outputs /2,065,931 bytes. Twelve event/action identities retain their shared three-container targets, including each100 ms Linear Stop. The graph keeps the distinct attack actor root, priority56, unresolved bus and three-point attenuation. No attack history, local finite timing or playback is bound.
 
 All15 asset/property checks and TypeScript pass. Normal/optimized publication guards each pass six rejection probes, including a conflict in the final graph before any master is written, corrupted output, leaf/parent symlinks and changed input. Fixtures use committed identical masters without private decoder caches. CI includes source reading and whole-closure publication guards. Passive acceptance remains isolated.
+
+## Independent attack gameplay baseline
+
+The producer verifies all590 frozen source/QA files from the actual schema172 / `29c2a12a` World and executes it directly under the pinned Node/V8 runtime. Ten guarded scenarios yield120 complete projections: ordinary/critical contact, movement cancellation, owner death in windup/flight, target death in windup/flight, actual Flash during flight, moving target and a lethal champion hit followed by passive consumption. Only schema/ruleset and proposed attack audio history are excluded; existing P/R/W/Q/E histories remain included.
+
+All36 scoped baseline/assets/development/critical checks and TypeScript pass. Source-stage `26ed1b6` separately passes cache-free CI:320 tests in41 files,26 Python modes and28 commands, reusing dependencies without private caches/tools. Attack history/playback remain unbound.

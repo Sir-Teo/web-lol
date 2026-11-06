@@ -19,6 +19,9 @@ on:
       - 'tools/assets/read-ahri-aa-audio.py'
       - 'tools/assets/test-ahri-aa-audio-reading.py'
       - 'docs/reference/ahri-aa-audio-properties.json'
+      - 'docs/reference/ahri-attack-gameplay-reference.json'
+      - 'tests/helpers/ahri-attack-gameplay.ts'
+      - 'tools/qa/*ahri-attack-gameplay-reference*'
       - 'tools/assets/read-ahri-p-audio.py'
       - 'tools/assets/test-ahri-p-audio-reading.py'
       - 'tools/assets/export-ahri-passive-audio.py'
@@ -79,6 +82,9 @@ on:
       - 'tools/assets/read-ahri-aa-audio.py'
       - 'tools/assets/test-ahri-aa-audio-reading.py'
       - 'docs/reference/ahri-aa-audio-properties.json'
+      - 'docs/reference/ahri-attack-gameplay-reference.json'
+      - 'tests/helpers/ahri-attack-gameplay.ts'
+      - 'tools/qa/*ahri-attack-gameplay-reference*'
       - 'tools/assets/read-ahri-p-audio.py'
       - 'tools/assets/test-ahri-p-audio-reading.py'
       - 'tools/assets/export-ahri-passive-audio.py'
@@ -159,6 +165,9 @@ jobs:
           tests/wwise145-fade.test.ts
           tests/wwise145-log1.test.ts
           tests/ahri-attack-audio-assets.test.ts
+          tests/ahri-attack-gameplay-reference.test.ts
+          tests/ahri-development.test.ts
+          tests/critical-attacks.test.ts
           tests/ahri-passive-audio-assets.test.ts
           tests/ahri-passive-audio-policy.test.ts
           tests/ahri-passive-audio-history.test.ts
