@@ -27,7 +27,10 @@ with tempfile.TemporaryDirectory(prefix='baron-audio-publish-') as temporary:
     for name in sources:
         path = base / name
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_bytes((root / name).read_bytes())
+        # Frozen committed masters provide identical fixture bytes without
+        # requiring a developer's private decoder cache.
+        original = root / ('public/assets/audio/baron-basic/' + Path(name).name) if name.endswith('.wav') else root / name
+        path.write_bytes(original.read_bytes())
     def run(check=False):
         return subprocess.run([sys.executable, *optimized, str(producer), *(['--check'] if check else [])],
                               cwd=base, capture_output=True, text=True)

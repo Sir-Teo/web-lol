@@ -7,12 +7,21 @@ on:
       - 'src/**'
       - 'tests/**'
       - 'public/assets/audio/baron-basic/**'
+      - 'public/assets/audio/ahri-charm/**'
+      - 'docs/reference/ahri-charm-gameplay-reference.json'
+      - 'docs/reference/wwise145-linear-exp1-reference.json'
       - 'docs/reference/baron-basic-audio-decoded.json'
       - 'package.json'
       - 'package-lock.json'
       - 'tsconfig.json'
       - 'vitest.config.ts'
       - 'tools/assets/audio_float_corpus.py'
+      - 'tools/assets/export-ahri-charm-audio.py'
+      - 'tools/assets/export-baron-basic-audio.py'
+      - 'tools/assets/test-baron-basic-audio-export.py'
+      - 'tools/assets/test-ahri-charm-audio-export.py'
+      - 'docs/reference/ahri-audio-graph.json'
+      - 'docs/reference/ahri-audio-decoded.json'
       - 'tools/assets/test-audio-float-corpus.py'
       - '.github/workflows/baron-audio.yml'
   pull_request:
@@ -20,12 +29,21 @@ on:
       - 'src/**'
       - 'tests/**'
       - 'public/assets/audio/baron-basic/**'
+      - 'public/assets/audio/ahri-charm/**'
+      - 'docs/reference/ahri-charm-gameplay-reference.json'
+      - 'docs/reference/wwise145-linear-exp1-reference.json'
       - 'docs/reference/baron-basic-audio-decoded.json'
       - 'package.json'
       - 'package-lock.json'
       - 'tsconfig.json'
       - 'vitest.config.ts'
       - 'tools/assets/audio_float_corpus.py'
+      - 'tools/assets/export-ahri-charm-audio.py'
+      - 'tools/assets/export-baron-basic-audio.py'
+      - 'tools/assets/test-baron-basic-audio-export.py'
+      - 'tools/assets/test-ahri-charm-audio-export.py'
+      - 'docs/reference/ahri-audio-graph.json'
+      - 'docs/reference/ahri-audio-decoded.json'
       - 'tools/assets/test-audio-float-corpus.py'
       - '.github/workflows/baron-audio.yml'
   workflow_dispatch:
@@ -57,7 +75,21 @@ jobs:
           tests/baron-basic-audio-state.test.ts
           tests/baron-basic-audio-controller.test.ts
           tests/baron-basic-audio-history.test.ts
+          tests/ahri-charm-audio-assets.test.ts
+          tests/ahri-charm-audio-history.test.ts
+          tests/ahri-charm-audio-state.test.ts
+          tests/ahri-charm-audio-controller.test.ts
+          tests/ahri-charm-gameplay-reference.test.ts
+          tests/wwise145-fade.test.ts
       - name: Check float-master format and headroom without private caches
         run: |
           python3 tools/assets/test-audio-float-corpus.py
           python3 -O tools/assets/test-audio-float-corpus.py
+      - name: Check Charm whole-closure publication guards without private caches
+        run: |
+          python3 tools/assets/test-ahri-charm-audio-export.py
+          python3 -O tools/assets/test-ahri-charm-audio-export.py
+      - name: Check Baron whole-closure publication guards without private caches
+        run: |
+          python3 tools/assets/test-baron-basic-audio-export.py
+          python3 -O tools/assets/test-baron-basic-audio-export.py

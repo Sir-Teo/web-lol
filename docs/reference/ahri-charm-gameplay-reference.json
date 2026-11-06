@@ -1,0 +1,241 @@
+{
+  "format": 1,
+  "ruleset": "7ae8e0f8513df40ceca31f52ad146bbe08b388b09163e996538133fbe600229f",
+  "planSha256": "b490a2187661cea1fd5982c63c9d60e15ace91832b90b76091759ba95615e356",
+  "sourceFiles": 556,
+  "runnerSha256": "c68a7ebb2ba3602f19f93a7bf306330adc5af9d56e3d7200bb46188bd08f7cad",
+  "scenarioHelperSha256": "79b1e4b3d2a87604bb02fa2ff68e697e5c763bc74fa059afd2c8c8dabcf35b94",
+  "producerSha256": "f8f210a894a61a0c80cd32c25c3d8b3d6d0c98c250c9eb07d6cf3c1c78eed050",
+  "runtime": {
+    "node": "v24.22.1",
+    "v8": "13.6.233.17-node.58"
+  },
+  "cases": [
+    {
+      "scenario": "hit",
+      "samples": [
+        {
+          "tick": 0,
+          "sha256": "d40c104ecee999dbed0a381e5097608a90b044ed91cd8c2fc288904a38ee6b31"
+        },
+        {
+          "tick": 1,
+          "sha256": "99168ea6c28ce74e1ff175f7b7d4b771da7fd206cd652aa56a72c996cce76555"
+        },
+        {
+          "tick": 15,
+          "sha256": "b17f35a49eab647b53bc65ff369629e9fc509762ff44d53a413a323903858fd2"
+        },
+        {
+          "tick": 16,
+          "sha256": "66c6b7f5efbd08a0bb457516c025f0bf924d9985b949595f64c44b557edfb1eb"
+        },
+        {
+          "tick": 20,
+          "sha256": "72c1a427d6724dd7fc1caf8389dd6f638435cc5fadb1b86c96fcc020beeb0e33"
+        },
+        {
+          "tick": 40,
+          "sha256": "85b980abfca72bb0c7cb8e79204c3ea372d2d565b692d6aaf5ce34ad7261d958"
+        },
+        {
+          "tick": 80,
+          "sha256": "0193b5ad44f7d926fdb5df041cc1d5bbb15957a5c9cd100287b22f0365bb6e33"
+        },
+        {
+          "tick": 200,
+          "sha256": "f3ee1fe93f85b055d55c2b40cd1139334b483dcf1f9c74aa83241db7cc2df5c4"
+        }
+      ]
+    },
+    {
+      "scenario": "miss",
+      "samples": [
+        {
+          "tick": 0,
+          "sha256": "674d11404903ea186bf90dff57b6b82f795a2a82a3113134b7c888820f46bc9b"
+        },
+        {
+          "tick": 1,
+          "sha256": "2a1744d8fd28e9916c9c646e759506c0df1b837a91d82dd408dafb586cefed9a"
+        },
+        {
+          "tick": 15,
+          "sha256": "b51cf60e21b8afb55c292c3581cd15c25b034f66c1eb54c7ac0a53ff825d0d6d"
+        },
+        {
+          "tick": 16,
+          "sha256": "c1931f25694a86aa6abc75aca0098848f75b7a9a2263927305a68b224705a5b8"
+        },
+        {
+          "tick": 20,
+          "sha256": "5226f987f0e4e0e52433b26626eb7ebc8650da056e601c9f249508c31770991d"
+        },
+        {
+          "tick": 40,
+          "sha256": "ca22b0e9d761a05dc12885c27bce99d4749fc877272187d48a4c70ac640148a5"
+        },
+        {
+          "tick": 80,
+          "sha256": "684f4c4245baee6d6c246c3d21b3bec7febec17c0131637534bf10f17d5e49db"
+        },
+        {
+          "tick": 200,
+          "sha256": "a91896855d61bfbe095dab2e298bca271873d2b258f247243e8a5385c687d102"
+        }
+      ]
+    },
+    {
+      "scenario": "windup-death",
+      "samples": [
+        {
+          "tick": 0,
+          "sha256": "d40c104ecee999dbed0a381e5097608a90b044ed91cd8c2fc288904a38ee6b31"
+        },
+        {
+          "tick": 1,
+          "sha256": "05f7ba9f7dc0aac5d33ded27ef19122fd7a96831cb50221e35599d2649e5f537"
+        },
+        {
+          "tick": 15,
+          "sha256": "eee2afeaaf6e60f381a5727a07f3e850bda921a45155128e014e75d392cf9956"
+        },
+        {
+          "tick": 16,
+          "sha256": "a0e8112e85201f205ef2104bca6940944aecad85ed4564ea0efc61e0620b5bba"
+        },
+        {
+          "tick": 20,
+          "sha256": "c59449d00f06ddc008ad44966428bd4f64def97585f6c775a144e38cc74c5bbc"
+        },
+        {
+          "tick": 40,
+          "sha256": "ac9b6c8114effb6b14c91788b94b9a39756d0ba52e729c15197f6d48572b31dd"
+        },
+        {
+          "tick": 80,
+          "sha256": "0963653b041ed59ca94d84015e6926088cc2818f6b24f20e72ff2069b86a2d23"
+        },
+        {
+          "tick": 200,
+          "sha256": "e8da7476a3b5db3fef8f0f4d8d1b2c908917ffca5ddc3461d419854890058d09"
+        }
+      ]
+    },
+    {
+      "scenario": "flight-death",
+      "samples": [
+        {
+          "tick": 0,
+          "sha256": "d40c104ecee999dbed0a381e5097608a90b044ed91cd8c2fc288904a38ee6b31"
+        },
+        {
+          "tick": 1,
+          "sha256": "99168ea6c28ce74e1ff175f7b7d4b771da7fd206cd652aa56a72c996cce76555"
+        },
+        {
+          "tick": 15,
+          "sha256": "b17f35a49eab647b53bc65ff369629e9fc509762ff44d53a413a323903858fd2"
+        },
+        {
+          "tick": 16,
+          "sha256": "12c62d767e0b65b4b3b54d6029fe21b1ccea20afa497e16164dd65f9dc4fdb1b"
+        },
+        {
+          "tick": 20,
+          "sha256": "d0f65e289300289b5cfb30d166a752cbae38446805ea21614b96de8c270fe647"
+        },
+        {
+          "tick": 40,
+          "sha256": "125a14bd231c997986a2f7575dfceea835ac2da8396488bfa04b08234e733723"
+        },
+        {
+          "tick": 80,
+          "sha256": "cd3dba331a0702af59bf173ec44db90ba8fa69c85f92bae0de2cae86dff8b003"
+        },
+        {
+          "tick": 200,
+          "sha256": "e9bb62c7841d27faf671cca1bace3e2b69b589d10b991c5ecd37a2a33d28c4c0"
+        }
+      ]
+    },
+    {
+      "scenario": "flash",
+      "samples": [
+        {
+          "tick": 0,
+          "sha256": "d40c104ecee999dbed0a381e5097608a90b044ed91cd8c2fc288904a38ee6b31"
+        },
+        {
+          "tick": 1,
+          "sha256": "7643b7c8d17eab62d9b2ebebbd3131bf473811e0141b79abe9e2aded0dd398b8"
+        },
+        {
+          "tick": 15,
+          "sha256": "b17f35a49eab647b53bc65ff369629e9fc509762ff44d53a413a323903858fd2"
+        },
+        {
+          "tick": 16,
+          "sha256": "66c6b7f5efbd08a0bb457516c025f0bf924d9985b949595f64c44b557edfb1eb"
+        },
+        {
+          "tick": 20,
+          "sha256": "72c1a427d6724dd7fc1caf8389dd6f638435cc5fadb1b86c96fcc020beeb0e33"
+        },
+        {
+          "tick": 40,
+          "sha256": "85b980abfca72bb0c7cb8e79204c3ea372d2d565b692d6aaf5ce34ad7261d958"
+        },
+        {
+          "tick": 80,
+          "sha256": "0193b5ad44f7d926fdb5df041cc1d5bbb15957a5c9cd100287b22f0365bb6e33"
+        },
+        {
+          "tick": 200,
+          "sha256": "f3ee1fe93f85b055d55c2b40cd1139334b483dcf1f9c74aa83241db7cc2df5c4"
+        }
+      ]
+    },
+    {
+      "scenario": "overlap",
+      "samples": [
+        {
+          "tick": 0,
+          "sha256": "5d9ac361789e622b5286424241456ac7ff66a34e845d52db3bc65f3a725883cf"
+        },
+        {
+          "tick": 1,
+          "sha256": "adc6074511081ee928340e0e48e9eab201b48e5280d5f18384af4ee7e830fa7c"
+        },
+        {
+          "tick": 15,
+          "sha256": "f71cc078830a8e091062cbccd292a9bc6019980d411aca7d2ff552071bd8f91a"
+        },
+        {
+          "tick": 16,
+          "sha256": "da04083aa018d30d87dad45fa8d59a3979a5ea48053b4d44ee4f1b683a2116dd"
+        },
+        {
+          "tick": 20,
+          "sha256": "cb0c7c85f4c34a00e8a7bcc2aab49bcfdcacc9716d54f436517ac49203dd4845"
+        },
+        {
+          "tick": 40,
+          "sha256": "75db50c072eac5826f46a17a40e69e01002930c8e25c0c574a656d11cba64299"
+        },
+        {
+          "tick": 80,
+          "sha256": "ce51846856bfbb3102ec156452eab6adce8db66b12549b02bf3be855ec74ff0d"
+        },
+        {
+          "tick": 200,
+          "sha256": "13ca6d58e7598a92efd4d94b49da40c31ccec9ec6d4c8905401ef1d1a04e8ef0"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Archived gameplay baseline; no native client comparison.",
+    "Only schema/ruleset and new Charm presentation history are excluded."
+  ]
+}

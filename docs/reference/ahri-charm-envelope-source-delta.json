@@ -1,0 +1,27 @@
+{
+  "format": 1,
+  "priorRuleset": "ae079c84268e4fd83c1d0c85568a6ea457f3b92f99d9f4adee58d15286085033",
+  "currentRuleset": "e73e3c253a1bcaaa25003c9e959f9fbf076bde9cae6a4ebd0546de097d27b5c3",
+  "sourceFiles": 563,
+  "runtimeFiles": 558,
+  "archivedQaFiles": [
+    "tools/qa/lib/cohort-profile.ts",
+    "tools/qa/match-cohort.mjs",
+    "tools/qa/match-contract.ts",
+    "tools/qa/match-seed.ts",
+    "tools/qa/verify-match-cohort.mjs"
+  ],
+  "changed": [
+    {
+      "file": "src/audio/ahri-charm-state.ts",
+      "previousSha256": "255cb401118cb7b16fb0da3303f6f2c2769163dfcfd6052b28e16173c1ea9a96",
+      "currentSha256": "d5a20a7c6fb749b221426a5c154b0b4cb331dd6c4d0e519144770b7c86ad01b6"
+    },
+    {
+      "file": "src/audio/ahri-charm.ts",
+      "previousSha256": "1a82c661dfce29f9c3c38eaf4ecfe76e2fb5a0bb8be6352d9f67f2462d1ba0bc",
+      "currentSha256": "ce7022a45e80c77b3aef33c302f849628928a78e01e821b671d953741636d5c7"
+    }
+  ],
+  "meaning": "The archived 66ad4dc gameplay run remains historical. Current simulation/content sources are unchanged; current kernel checks are recorded separately."
+}

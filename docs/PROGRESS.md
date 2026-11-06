@@ -9450,3 +9450,31 @@ The read-only audio CI workflow now watches the shared float parser/tests and ru
 ### Complete and audit the frozen 7ae8e0 development-roster hundred-seed baseline
 
 All 100 seeds finish naturally with no unfinished matches or invariant failures. Independent verification passes 556 frozen source/QA files, the runner/maps, reports and checkpoint/final hashes. The run checks 14,987,533 simulation ticks, 4,219 exact save round trips and 4,119 futures (246,994 ticks); winners are Blue 48 / Red 52. QA automates human Lux mid with the ordinary two-worker/60-minute setup. The development-roster invariant gate passes; full milestone 4, human play, device/native fidelity and later rulesets remain separate. Source 799ecde / runtime 0fa0072 / schema 167 / ruleset 7ae8e0 stay frozen. Completion receipt retains all 100 report hashes; earlier start/browser and e20 receipts are unchanged.
+
+## Isolated Charm audio source stage
+
+Staged nine unchanged source masters, three play profiles and the source stop fade on `dev/ahri-charm-audio`. Direct external-reader interpolation checks cover 90 Linear/Exp1 cases; six archived-source gameplay scenarios provide 48 independent projection hashes. Twelve asset/fade tests, the baseline comparison and TypeScript pass. No runtime binding yet; the primary 7ae8e0 roster cohort remains frozen.
+
+## Saved Charm audio history (isolated branch)
+
+Schema 168 records accepted Charm windup, launch, swept contact and stop without new gameplay IDs or RNG. Birth audiences and exact finite tail bounds survive restoration; death and victory boundaries settle immediately. Scoped history/Charm tests and all 48 archived gameplay projections pass. Playback is the next stage; the primary 7ae8e0 cohort is unchanged.
+
+## Charm source playback (isolated branch)
+
+Bound lazy finite cast/flight/contact audio to saved history, with source gains/attenuation, Linear play fade and Exp1 stop fade. Seeking slices the original fade domain; mute, ownership changes, per-profile caps and terminal draining have explicit controller checks. Ready source E replaces the generic tone. Two browser cases pass together, including nine exact PCM hashes and zero loads without Ahri. Full suite: 8,490 pass plus the same two historical failures; two added integration checks pass separately. Whole-closure publication rejection guards run without private caches. Delivery checks remain separate; primary 7ae8e0 cohort unchanged.
+
+## Charm delivery and independent gameplay comparison
+
+Schema 168 / ruleset ae079c84 / app 66ad4dc passes production subdirectory and full offline acceptance. Pack e0137f49 contains 1,256 files / 557,784,340 bytes; all-file/worker identity audit passes. Zero unwanted Charm preloads in production; 978 worker responses and no offline production errors. Feature roster seed 1 reaches the same natural Blue victory at tick 157,116 as frozen 7ae8e0. All 45 archived checkpoint/final projections match after excluding only schema, ruleset and new audio history; no gameplay fields omitted. Read-only comparison verifies both archives and has eight rejection/retention tests. The primary 100-seed baseline remains in progress and the feature branch remains isolated.
+
+## Exact Charm Linear fade boundary
+
+Replaced whole-span envelope sampling with an exact 50 ms Linear ramp and 127 segments only for the Exp1 interval. The previous flight variants reached 0.9288–0.9633 at that source endpoint; the new regression captures the loss. Ideal dense interpolation error stays below 0.000008. Actual browser Web Audio rendering reaches exactly 1.0 at 50 ms, with worst measured error 0.000008645 across full, early-stop and late-seek cases and zero output after the finite end. Three browser cases, 55 scoped tests, TypeScript, build and all-file/worker audit pass. Prior 66ad4dc delivery/roster receipts remain historical; this fix gets separate delivery acceptance.
+
+## Q source audio preflight
+
+Recorded eight source-attested Orb of Deception events, ten ordered actions, 53 nodes and 22 decoded masters without runtime publication. Cast resets both seven-entry hit sequences before its Play action; repeated child references and per-sound gains/ranged pitch remain raw. Outward/return stop fades differ (500 ms Exp1 / 750 ms Linear). Normal/optimized reproduction and five cache-free guards per mode pass. Native sequence/reset scope and deactivation conditions remain open; no Q binding yet.
+
+## Precision build delivery acceptance
+
+08ba5aa / schema 168 / e73e3c25 passes production and full offline acceptance with pack 979d59e3 (1,256 files / 557,784,904 bytes). No unwanted Charm preloads; 978 worker responses and no offline errors. Clean-checkout CI passes 54 tests, TypeScript and six Python modes; three browser cases include actual envelope rendering. A frozen source-delta receipt confirms only the two audio envelope kernels differ from the historical 563-file seed archive. Current 48-projection gameplay checks pass; prior full-unit/cohort results remain labeled to their actual revisions. Primary 7ae8e0 hundred-seed baseline remains in progress.
