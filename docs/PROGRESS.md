@@ -9447,6 +9447,10 @@ Private mono 44.1 kHz float masters total 28,374,812 bytes, with peak 1.32265019
 
 The read-only audio CI workflow now watches the shared float parser/tests and runs both Python modes alongside TypeScript and 22 persistence tests. Each mode rejects eight malformed float inputs and preserves stereo/rate/headroom from an empty working directory; no private audio cache/toolchain is required. Local commands and YAML validation pass. No push, workflow dispatch, deploy change or full-suite claim. See docs/reference/audio-ci-format-verification.json.
 
+### Complete and audit the frozen 7ae8e0 development-roster hundred-seed baseline
+
+All 100 seeds finish naturally with no unfinished matches or invariant failures. Independent verification passes 556 frozen source/QA files, the runner/maps, reports and checkpoint/final hashes. The run checks 14,987,533 simulation ticks, 4,219 exact save round trips and 4,119 futures (246,994 ticks); winners are Blue 48 / Red 52. QA automates human Lux mid with the ordinary two-worker/60-minute setup. The development-roster invariant gate passes; full milestone 4, human play, device/native fidelity and later rulesets remain separate. Source 799ecde / runtime 0fa0072 / schema 167 / ruleset 7ae8e0 stay frozen. Completion receipt retains all 100 report hashes; earlier start/browser and e20 receipts are unchanged.
+
 ## Isolated Charm audio source stage
 
 Staged nine unchanged source masters, three play profiles and the source stop fade on `dev/ahri-charm-audio`. Direct external-reader interpolation checks cover 90 Linear/Exp1 cases; six archived-source gameplay scenarios provide 48 independent projection hashes. Twelve asset/fade tests, the baseline comparison and TypeScript pass. No runtime binding yet; the primary 7ae8e0 roster cohort remains frozen.
@@ -9490,3 +9494,7 @@ Schema 169 records accepted Q, launch, exact turn, swept per-leg contacts and co
 ## Frozen Orb history verification
 
 f77814b / schema 169 / 1b65f941 passes the frozen full suite with 8,538 pass and only the same two historical failures. Its isolated roster seed finishes naturally at the baseline tick 157,116; 44 restores and 43 future checks pass. All 45 archived state projections match ae079c84 after excluding only schema/ruleset/new Orb history, with existing Charm history retained. Nine read-only comparison guards pass. Q playback remains unbound; primary hundred-seed run is separate.
+
+### Verify the merged Charm application after the frozen baseline
+
+The local aa76c9b merge preserves both development logs and all prior receipts. Its 558 runtime source files match the accepted Charm worktree byte for byte. Build and complete pack audit reproduce 979d59e3 exactly (1,256 files / 557,784,904 bytes), retaining the existing production/offline acceptance. A fresh primary full suite passes 8,495/8,497 with only the same two historical failures. An actual post-launch Flash test confirms caster-following cast audio and a fixed missile origin; V1's windup attempt is explicitly identified as rejected. The 100-seed 7ae8e0 result remains historical and is not relabeled to e73e3c25. No push/deploy; Q work remains isolated.

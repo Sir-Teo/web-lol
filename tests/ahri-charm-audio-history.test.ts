@@ -1,3 +1,4 @@
+import { charmAudioStates } from '../src/audio/ahri-charm-state';
 import { expect, test } from 'vitest';
 import { World } from '../src/simulation/world';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
@@ -154,5 +155,31 @@ test('a reveal after birth does not rewrite the saved cast audience', () => {
   w.step(15);
   expect(r.castAudience).toEqual(['blue']);
   expect(r.launch?.audience).toEqual(['blue', 'red']);
+  restore(w);
+});
+
+test('actual post-launch Flash moves the cast sound while the saved missile keeps its origin', () => {
+  const { w, ahri } = setup(false);
+  w.step(15);
+  w.enqueue({
+    type: 'cast',
+    unit: ahri.id,
+    ability: w.summonerSlot('flash', ahri.id)!,
+    point: { x: -100, y: 0 },
+  });
+  w.step();
+  expect(ahri.x).toBe(-100);
+  const r = w.ahriCharmAudio[0];
+  expect(r.launch!.point).toEqual({ x: 0, y: 0 });
+  const states = charmAudioStates(
+    w.ahriCharmAudio,
+    w.tick,
+    'blue',
+    () => true,
+    (id) => w.unit(id)
+  );
+  expect(states.find((s) => s.profileIndex === 0)!.x).toBe(-100);
+  expect(states.find((s) => s.profileIndex === 1)!.x).toBe(r.launch!.currentPoint.x);
+  expect(r.launch!.currentPoint.x).toBeGreaterThan(0);
   restore(w);
 });

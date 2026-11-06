@@ -1,32 +1,47 @@
-# Current development-roster hundred-seed run
+# Frozen development-roster hundred-seed baseline
 
-A fresh100-seed run is in progress on ruleset
+Seeds 1–100 all finish with natural victories under schema 167 / ruleset
 `7ae8e0f8513df40ceca31f52ad146bbe08b388b09163e996538133fbe600229f`.
-It requests seeds1–100 with two isolated workers and a60minute diagnostic horizon.
-The roster is two Garen/two Master Yi/two Ashe/two Leona/one Ahri/one Lux, with
-five roles per team. QA automates the human Lux mid slot; production control is
-unchanged.
+There are no unfinished matches or invariant failures. Two isolated workers
+used the ordinary 60-minute diagnostic horizon without forced victory or AI overrides.
+The roster has two Garen, two Master Yi, two Ashe, two Leona, one Ahri and one Lux,
+with five roles per team. QA automates the human Lux mid slot; production control
+is unchanged.
 
-The plan, three map inputs, compiled runner and all556archived source files pass
-independent byte/hash verification. Results live under ignored
-.cache/7ae8e0-development-roster-hundred. The controller stops dispatch on a
-failure and drains active workers so failures can be diagnosed from retained
-checkpoints. Unfinished games remain unfinished; the horizon is not a forced
-victory rule.
+| Check | Result |
+| --- | ---: |
+| Natural victories | 100 / 100 |
+| Checked simulation ticks | 14,987,533 |
+| Exact save round trips | 4,219 |
+| Future checks | 4,119 |
+| Checked future ticks | 246,994 |
+| Winners | Blue 48 / Red 52 |
 
-[Started-run receipt](reference/7ae8e0-development-roster-hundred-start.json).
-This records the start only. It does not certify100executed seeds, completion,
-full-roster invariants, human play, browser/device performance or milestone4.
-The ordinary e20hundred-seed cohort and its archived continuations remain separate.
+The independent verifier passes the frozen source archive, three map inputs,
+compiled runner, reports and checkpoint/final hashes. The archive contains 556
+source/QA files from source revision `799ecde`; the application behavior is the
+accepted `0fa0072` checkpoint. Node 24.22.1 / V8 13.6.233.17-node.58 was retained.
+The median natural victory takes 2,477.4167 simulated seconds. Winner counts are
+observations from this roster, not a balance certification.
 
-## Current browser checks
+[Completed receipt and per-seed ledger](reference/7ae8e0-development-roster-hundred-completed.json)
+retain plan, summary and verifier hashes plus all 100 report hashes. The original
+[start receipt](reference/7ae8e0-development-roster-hundred-start.json) stays unchanged.
+Ignored archive: `.cache/7ae8e0-development-roster-hundred`.
 
-Four unique roster browser cases now pass: Garen/Ahri source clips, all six
-manual player choices with exact saves/restarts, public/private selection
-restrictions, and the combined-roster saved future. The initial run exposed an
-ambiguous test selector matching both the ally portrait and champion choice;
-scoping it to the chooser fixes the test without changing assertions or the app.
-Reviewed the1024pixel chooser capture. These are functional checks, not device
-performance or completion of the running cohort.
+The development-roster hundred-seed invariant gate passes. The complete roadmap
+milestone remains open: this is not human-play, device-performance, native-client
+fidelity or acceptance of a later ruleset. Later audio work has separate source
+identities and evidence. The ordinary e20 cohort and its archived continuations
+remain historical and separate.
+
+## Browser checks at this checkpoint
+
+Four unique roster browser cases pass: Garen/Ahri source clips, all six manual
+player choices with exact saves/restarts, public/private selection restrictions,
+and the combined-roster saved future. The initial run exposed a test selector
+matching both ally portrait and champion choice; scoping it to the chooser kept
+the assertions and app unchanged. The 1,024-pixel chooser capture was reviewed.
+These are functional checks, not device performance.
 
 [Browser receipt](reference/7ae8e0-roster-browser-verification.json).

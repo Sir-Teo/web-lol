@@ -1,0 +1,75 @@
+{
+  "format": 1,
+  "mergeRevision": "aa76c9b335bb0aa08410f6f3546163c4bcf5c86a",
+  "acceptedApplicationRevision": "08ba5aa74e91c19f1eef165cb93e49e7c5fa2167",
+  "ruleset": "e73e3c253a1bcaaa25003c9e959f9fbf076bde9cae6a4ebd0546de097d27b5c3",
+  "schema": 168,
+  "runtimeSourceFiles": 558,
+  "runtimeSourcesByteIdenticalToAcceptedWorktree": true,
+  "pack": {
+    "id": "979d59e3082144745bdb246b85960159424e4783787786515398811c4043f700",
+    "files": 1256,
+    "bytes": 557784904,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a",
+    "allFileAndWorkerAudit": true
+  },
+  "fullUnit": {
+    "passed": 8495,
+    "failed": 2,
+    "files": 474,
+    "knownFailures": [
+      "missing historical Leona reader archive",
+      "Lux sampler FMA golden mismatch"
+    ]
+  },
+  "additionalFlashChecks": {
+    "historyTests": 8,
+    "actualPostLaunchFlash": true,
+    "clarification": "Historical V1 flash fixture is a rejected windup attempt"
+  },
+  "retainedDeliveryAcceptance": "ahri-charm-envelope-acceptance.json",
+  "historicalHundredSeedBaseline": {
+    "receipt": "7ae8e0-development-roster-hundred-completed.json",
+    "ruleset": "7ae8e0f8513df40ceca31f52ad146bbe08b388b09163e996538133fbe600229f",
+    "victories": 100,
+    "failures": 0,
+    "relabeledToCurrentRuleset": false
+  },
+  "evidence": [
+    {
+      "path": "artifacts/ahri-charm-main-build-v1.log",
+      "bytes": 7719,
+      "sha256": "6c1ec7d3a2bfd41e91f97aecc59f774a533764c6a2b6df3df9b26b832adaf265"
+    },
+    {
+      "path": "artifacts/ahri-charm-main-pack-v1.log",
+      "bytes": 286,
+      "sha256": "09c45b41e91e8c7a92a8067109710bcf2391ca06e2e7d6ea61639a1b06515cf2"
+    },
+    {
+      "path": "artifacts/ahri-charm-main-full-suite-v1.log",
+      "bytes": 4576,
+      "sha256": "0a8e7e7a83d023fcf36158ad54fb5400d9068fa5c5da2187e149da8f1094f187"
+    },
+    {
+      "path": "artifacts/ahri-charm-main-post-launch-flash.log",
+      "bytes": 167,
+      "sha256": "795b9d5d8aec6bd6b566d4f00df5097838450554c46b966f44551934ee55a9b4"
+    },
+    {
+      "path": "tests/ahri-charm-audio-history.test.ts",
+      "bytes": 6397,
+      "sha256": "0d9ebe18a30a5ff684990e684af1534a7e39312103e30d3896d4b3e6c9055ad4"
+    },
+    {
+      "path": "docs/reference/7ae8e0-development-roster-hundred-completed.json",
+      "bytes": 43009,
+      "sha256": "39ecccfc693718797ca288056f6ef4baa66dcb0116c4e61816415fa254f05877"
+    }
+  ],
+  "limits": [
+    "No push or deployment",
+    "Native-client fidelity and device performance remain open",
+    "Q source playback/history remain on a separate development branch"
+  ]
+}
