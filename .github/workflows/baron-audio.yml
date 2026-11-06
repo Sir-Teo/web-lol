@@ -24,6 +24,8 @@ on:
       - 'tools/assets/test-ahri-orb-audio-export.py'
       - 'docs/reference/ahri-charm-gameplay-reference.json'
       - 'docs/reference/wwise145-linear-exp1-reference.json'
+      - 'docs/reference/wwise145-log1-reference.json'
+      - 'tools/assets/read-wwise145-log1-reference.py'
       - 'docs/reference/baron-basic-audio-decoded.json'
       - 'package.json'
       - 'package-lock.json'
@@ -60,6 +62,8 @@ on:
       - 'tools/assets/test-ahri-orb-audio-export.py'
       - 'docs/reference/ahri-charm-gameplay-reference.json'
       - 'docs/reference/wwise145-linear-exp1-reference.json'
+      - 'docs/reference/wwise145-log1-reference.json'
+      - 'tools/assets/read-wwise145-log1-reference.py'
       - 'docs/reference/baron-basic-audio-decoded.json'
       - 'package.json'
       - 'package-lock.json'
@@ -109,6 +113,7 @@ jobs:
           tests/ahri-charm-audio-controller.test.ts
           tests/ahri-charm-gameplay-reference.test.ts
           tests/wwise145-fade.test.ts
+          tests/wwise145-log1.test.ts
           tests/ahri-fox-fire-audio-assets.test.ts
           tests/ahri-fox-fire-gameplay-reference.test.ts
           tests/ahri-w.test.ts

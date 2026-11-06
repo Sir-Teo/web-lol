@@ -16,8 +16,8 @@ function evaluate(events: ReturnType<typeof sourceEnvelopeEvents>, age: number) 
   }
   return prior.value;
 }
-test('Linear stop uses one exact ramp while Exp1 preserves a bounded original-domain approximation', () => {
-  for (const stopCurve of [4, 6] as const)
+test('Linear stop uses one exact ramp while Log1/Exp1 preserve a bounded original-domain approximation', () => {
+  for (const stopCurve of [2, 4, 6] as const)
     for (const stopAge of [0.025, 0.25])
       for (const age of [0, 0.1, 0.4]) {
         const state: SourceEnvelope = {

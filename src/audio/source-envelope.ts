@@ -6,7 +6,7 @@ export interface SourceEnvelope {
   fadeInSeconds: number;
   stopAge: number | null;
   stopFadeSeconds: number;
-  stopCurve: 4 | 6;
+  stopCurve: 2 | 4 | 6;
 }
 export function sourceEnvelopeValue(state: SourceEnvelope, age = state.age): number {
   const incoming = (time: number) =>
@@ -19,7 +19,7 @@ export function sourceEnvelopeValue(state: SourceEnvelope, age = state.age): num
     0
   );
 }
-/** Exact Linear endpoints; only curved Exp1 requires piecewise interpolation.
+/** Exact Linear endpoints; only curved Log1/Exp1 requires piecewise interpolation.
  * Every event evaluates the original domain, including late seeks. */
 export function sourceEnvelopeEvents(state: SourceEnvelope) {
   const { age: start, endAge: end, stopAge, fadeInSeconds, stopFadeSeconds } = state;
@@ -29,7 +29,7 @@ export function sourceEnvelopeEvents(state: SourceEnvelope) {
     end <= start ||
     fadeInSeconds < 0 ||
     stopFadeSeconds < 0 ||
-    ![4, 6].includes(state.stopCurve) ||
+    ![2, 4, 6].includes(state.stopCurve) ||
     (stopAge !== null && (!Number.isFinite(stopAge) || stopAge < 0 || stopFadeSeconds <= 0))
   )
     throw new RangeError('Invalid finite source envelope');
