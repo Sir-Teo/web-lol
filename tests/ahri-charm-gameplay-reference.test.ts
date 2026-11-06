@@ -11,6 +11,7 @@ class LifecyclePresentationProjection extends World {
   override snapshot(): string {
     const state = JSON.parse(super.snapshot());
     delete state.ahriLifecycleAudio;
+    delete state.ahriRecallAudio;
     return JSON.stringify(state);
   }
 }

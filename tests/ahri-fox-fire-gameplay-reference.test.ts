@@ -13,6 +13,7 @@ class LaterPresentationProjection extends World {
     const state = JSON.parse(super.snapshot());
     delete state.ahriPassiveAudio;
     delete state.ahriLifecycleAudio;
+    delete state.ahriRecallAudio;
     delete state.ahriAttackAudio;
     return JSON.stringify(state);
   }

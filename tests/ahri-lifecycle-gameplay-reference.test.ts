@@ -9,6 +9,15 @@ import {
   lifecycleGameplaySamples,
 } from './helpers/ahri-lifecycle-gameplay';
 
+// Remove only newly added Recall presentation from this older frozen baseline.
+class RecallPresentationProjection extends World {
+  override snapshot(): string {
+    const state = JSON.parse(super.snapshot());
+    delete state.ahriRecallAudio;
+    return JSON.stringify(state);
+  }
+}
+
 test('Lifecycle audio work preserves 228 complete archived gameplay projections', () => {
   expect(
     createHash('sha256')
@@ -23,12 +32,14 @@ test('Lifecycle audio work preserves 228 complete archived gameplay projections'
   expect(reference.cases.map((c) => c.scenario)).toEqual([...LIFECYCLE_GAMEPLAY_CASES]);
   for (const scenario of LIFECYCLE_GAMEPLAY_CASES) {
     const expected = reference.cases.find((c) => c.scenario === scenario)!;
-    const actual = lifecycleGameplaySamples(World, PRACTICE_FIXTURE, scenario).map(
-      ({ tick, state }) => ({
-        tick,
-        sha256: createHash('sha256').update(state).digest('hex'),
-      })
-    );
+    const actual = lifecycleGameplaySamples(
+      RecallPresentationProjection,
+      PRACTICE_FIXTURE,
+      scenario
+    ).map(({ tick, state }) => ({
+      tick,
+      sha256: createHash('sha256').update(state).digest('hex'),
+    }));
     expect(actual, scenario).toEqual(expected.samples);
   }
 });

@@ -208,6 +208,7 @@ jobs:
           tests/ahri-lifecycle-audio-state.test.ts
           tests/ahri-lifecycle-audio-controller.test.ts
           tests/ahri-lifecycle-audio-policy.test.ts
+          tests/ahri-recall-audio-history.test.ts
           tests/ahri-recall-audio-policy.test.ts
           tests/ahri-recall-gameplay-reference.test.ts
           tests/ahri-recall-audio-assets.test.ts

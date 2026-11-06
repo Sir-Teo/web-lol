@@ -17,6 +17,7 @@ class PassivePresentationProjection extends World {
     const state = JSON.parse(super.snapshot());
     delete state.ahriPassiveAudio;
     delete state.ahriLifecycleAudio;
+    delete state.ahriRecallAudio;
     return JSON.stringify(state);
   }
 }

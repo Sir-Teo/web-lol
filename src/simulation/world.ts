@@ -1,4 +1,10 @@
 import {
+  beginAhriRecallAudio,
+  finishAhriRecallAudio,
+  advanceAhriRecallAudio,
+  type AhriRecallAudioRecord,
+} from './ahri-recall-audio';
+import {
   beginAhriLifecycleAudio,
   respawnAhriLifecycleAudio,
   finishAllAhriLifecycleAudio,
@@ -484,6 +490,7 @@ export class World {
   ahriEssences: AhriEssence[] = [];
   ahriPassiveAudio: AhriPassiveAudioRecord[] = [];
   ahriAttackAudio: AhriAttackAudioRecord[] = [];
+  ahriRecallAudio: AhriRecallAudioRecord[] = [];
   ahriLifecycleAudio: AhriLifecycleAudioRecord[] = [];
   nextSunlightVisual = 1;
   singularities: Singularity[] = [];
@@ -1185,10 +1192,14 @@ export class World {
     u.nextPathTick = this.tick;
     if (state) {
       state.trinket.order = null;
-      state.recallEnd = null;
+      this.clearRecall(state);
       if (!state.pendingCast && !state.leonaEWindup && !(state.leonaR && !state.leonaR.released))
         state.castAnimation = null;
     }
+  }
+  private clearRecall(state: ChampionState, reason: 'complete' | 'cancelled' = 'cancelled') {
+    finishAhriRecallAudio(this, state.id, reason);
+    state.recallEnd = null;
   }
   step(count = 1): void {
     for (let i = 0; i < count && !this.winner; i++) {
@@ -1201,6 +1212,7 @@ export class World {
       advancePassiveAudio(this);
       advanceAhriAttackAudio(this);
       advanceAhriLifecycleAudio(this);
+      advanceAhriRecallAudio(this);
     }
   }
   private update(): void {
@@ -1465,6 +1477,7 @@ export class World {
           this.setOrder(u, { type: 'idle' });
           state.recallEnd = this.tick + RECALL_DURATION_TICKS;
           this.emit('message', u, { text: 'Recalling…', unit: u.id, team: u.team });
+          beginAhriRecallAudio(this, u, this.events[this.events.length - 1]!);
         }
       }
     }
@@ -1668,7 +1681,7 @@ export class World {
       h.previous = { ...home };
       h.hp = h.maxHp;
       h.mana = h.maxMana;
-      state.recallEnd = null;
+      this.clearRecall(state, 'complete');
       this.emit('heal', h, { value: h.maxHp, unit: h.id, team: h.team });
     }
     for (const state of this.activeChampionStates())
@@ -4904,7 +4917,7 @@ export class World {
     stopSpiritDash(this, target, 'control');
     const owner = this.championState(target.id);
     if (owner) {
-      owner.recallEnd = null;
+      this.clearRecall(owner);
       finishMeditate(owner, this, target, 'control');
     }
     return true;
@@ -4931,7 +4944,7 @@ export class World {
     );
     const state = this.championState(target.id);
     if (state) {
-      state.recallEnd = null;
+      this.clearRecall(state);
       finishMeditate(state, this, target, 'control');
     }
     return true;
@@ -6359,7 +6372,7 @@ export class World {
         (source.kind === 'champion' || source.kind === 'turret')
       )
         targetState.redBuffHealReadyTick = this.tick + RED_HEAL_LOCKOUT_TICKS;
-      if (healthLost > 0) targetState.recallEnd = null;
+      if (healthLost > 0) this.clearRecall(targetState);
       if (amount > 0 && source.team !== target.team && this.championState(source.id)) {
         const index = targetState.damageContributors.findIndex(
           (entry) => entry.sourceId === source.id
@@ -6500,6 +6513,7 @@ export class World {
         for (const p of this.projectiles) if (p.type === 'charm') stopCharmAudio(this, p, p);
         finishAllAhriAttackAudio(this);
         finishAllAhriLifecycleAudio(this);
+        for (const r of this.ahriRecallAudio) finishAhriRecallAudio(this, r.sourceId, 'match-end');
         this.projectiles.length = 0;
         for (const orb of this.ahriOrbs) finishOrbAudio(this, orb, 'match-end');
         this.ahriOrbs.length = 0;
@@ -6532,6 +6546,7 @@ export class World {
         advancePassiveAudio(this);
         advanceAhriAttackAudio(this);
         advanceAhriLifecycleAudio(this);
+        advanceAhriRecallAudio(this);
         this.commands.length = 0;
         this.pendingSpawns.length = 0;
         for (const unit of this.units) this.setOrder(unit, { type: 'idle' });
@@ -6565,7 +6580,7 @@ export class World {
           if (r.sourceId === target.id && r.launch === null && r.stopTick === null)
             r.stopTick = this.tick;
         targetState.castAnimation = null;
-        targetState.recallEnd = null;
+        this.clearRecall(targetState);
         targetState.qStacks = 0;
         targetState.qStackExpiry = 0;
         targetState.qUntil = 0;
@@ -7236,7 +7251,7 @@ export class World {
       captureHighlanderCast(this, u);
       u.mana -= resources.mana;
       state.cooldowns.r = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
-      state.recallEnd = null;
+      this.clearRecall(state);
       this.emit('cast', u, { unit: u.id, champion: 'masteryi', text: 'r', team: u.team });
       return;
     }
@@ -7263,7 +7278,7 @@ export class World {
       beginWujuStyleAudio(state, u, this);
       captureSwordGlow(this, u, 0);
       state.cooldowns.e = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
-      state.recallEnd = null;
+      this.clearRecall(state);
       this.emit('cast', u, { unit: u.id, champion: 'masteryi', text: 'e', team: u.team });
       return;
     }
@@ -7278,7 +7293,7 @@ export class World {
       u.mana -= resources.mana;
       if (!existing)
         state.cooldowns.r = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
-      state.recallEnd = null;
+      this.clearRecall(state);
       state.castAnimation = { ability: 'r', startTick: this.tick };
       this.finishAttackPresentation(u, 'action');
       u.releaseTick = null;
@@ -7297,7 +7312,7 @@ export class World {
       ahriOrbDamage(rank, power);
       u.mana -= resources.mana;
       state.cooldowns.q = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
-      state.recallEnd = null;
+      this.clearRecall(state);
       state.pendingCast = {
         ability: 'q',
         rank,
@@ -7335,7 +7350,7 @@ export class World {
         damage = AHRI_E.damageByRank[rank - 1] + AHRI_E.abilityPowerRatio * this.abilityPower(u);
       u.mana -= resources.mana;
       state.cooldowns.e = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
-      state.recallEnd = null;
+      this.clearRecall(state);
       state.pendingCast = {
         ability: 'e',
         rank,
@@ -7370,7 +7385,7 @@ export class World {
       beginFoxFireCast(this, u, rank, damage);
       u.mana -= resources.mana;
       state.cooldowns.w = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
-      state.recallEnd = null;
+      this.clearRecall(state);
       state.pendingCast = {
         ability: 'w',
         rank,
@@ -7403,7 +7418,7 @@ export class World {
       };
       u.mana -= resources.mana;
       state.cooldowns.r = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
-      state.recallEnd = null;
+      this.clearRecall(state);
       state.castAnimation = { ability: 'r', startTick: this.tick };
       if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
       u.releaseTick = null;
@@ -7436,7 +7451,7 @@ export class World {
       };
       u.mana -= resources.mana;
       state.cooldowns.e = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
-      state.recallEnd = null;
+      this.clearRecall(state);
       state.castAnimation = { ability: 'e', startTick: this.tick };
       if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
       u.releaseTick = null;
@@ -7460,7 +7475,7 @@ export class World {
       };
       u.mana -= resources.mana;
       state.cooldowns.w = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
-      state.recallEnd = null;
+      this.clearRecall(state);
       if (
         !state.leonaEWindup &&
         !(state.leonaR && !state.leonaR.released) &&
@@ -7481,7 +7496,7 @@ export class World {
       };
       u.mana -= resources.mana;
       state.cooldowns.q = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
-      state.recallEnd = null;
+      this.clearRecall(state);
       if (!state.leonaEWindup && !(state.leonaR && !state.leonaR.released))
         state.castAnimation = null;
       u.releaseTick = null;
@@ -7500,7 +7515,7 @@ export class World {
       this.finishAttackPresentation(u, 'action');
       u.attackCycle = null;
       state.castAnimation = null;
-      state.recallEnd = null;
+      this.clearRecall(state);
       state.garenE = {
         startTick: this.tick,
         endTick: this.tick + GAREN_E_DURATION_TICKS,
@@ -7528,7 +7543,7 @@ export class World {
       )
         return;
       this.finishGarenE(state);
-      state.recallEnd = null;
+      this.clearRecall(state);
       state.cooldowns.r = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
       if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
       u.releaseTick = null;
@@ -7582,7 +7597,7 @@ export class World {
         upfrontTicks
       );
       state.cooldowns.w = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
-      state.recallEnd = null;
+      this.clearRecall(state);
       this.emit('cast', u, { unit: u.id, champion: 'garen', text: 'w', team: u.team });
       return;
     }
@@ -7604,7 +7619,7 @@ export class World {
         consumed: false,
       };
       state.cooldowns.q = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
-      state.recallEnd = null;
+      this.clearRecall(state);
       state.castAnimation = null;
       u.slowUntil = 0;
       u.slowMultiplier = 1;
@@ -7626,7 +7641,7 @@ export class World {
       if (!dir.x && !dir.y && ability !== 'e') return;
       u.mana -= resources.mana;
       state.cooldowns[ability] = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
-      state.recallEnd = null;
+      this.clearRecall(state);
       if (u.releaseTick !== null) u.nextAttackTick = Math.min(u.nextAttackTick, this.tick);
       u.releaseTick = null;
       u.attackTarget = null;
@@ -7683,7 +7698,7 @@ export class World {
       return;
     u.mana -= resources.mana;
     state.cooldowns[ability] = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
-    if (!spec.preservesRecall) state.recallEnd = null;
+    if (!spec.preservesRecall) this.clearRecall(state);
     if (
       summoner !== 'heal' &&
       !flashDuringFinalSpark &&
@@ -8078,6 +8093,11 @@ export class World {
       state.pendingSpawns.some((u) => u.lane >= battlefield.lanes.length)
     )
       throw new Error('Saved match contains an invalid lane.');
+    for (const r of state.ahriRecallAudio ?? []) {
+      const spawn = battlefield.spawns[r.team];
+      if (r.end?.reason === 'complete' && (r.end.point.x !== spawn.x || r.end.point.y !== spawn.y))
+        throw new Error('Saved match contains invalid Ahri Recall completion position.');
+    }
     for (const r of state.ahriLifecycleAudio ?? []) {
       const spawn = battlefield.spawns[r.team];
       if (r.respawn && (r.respawn.point.x !== spawn.x || r.respawn.point.y !== spawn.y))
@@ -8134,6 +8154,7 @@ export class World {
       ahriRushes: this.ahriRushes,
       ahriCounters: this.ahriCounters,
       ...(this.ahriAttackAudio.length ? { ahriAttackAudio: this.ahriAttackAudio } : {}),
+      ...(this.ahriRecallAudio.length ? { ahriRecallAudio: this.ahriRecallAudio } : {}),
       ...(this.ahriLifecycleAudio.length ? { ahriLifecycleAudio: this.ahriLifecycleAudio } : {}),
       ahriEssences: this.ahriEssences,
       ...(this.ahriPassiveAudio.length ? { ahriPassiveAudio: this.ahriPassiveAudio } : {}),

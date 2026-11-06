@@ -1,3 +1,4 @@
+import { validateAhriRecallAudio } from './ahri-recall-audio-validation';
 import { validateAhriLifecycleAudio } from './ahri-lifecycle-audio-validation';
 import { validateAhriAttackAudio } from './ahri-attack-audio-validation';
 import { validatePassiveAudio } from './ahri-passive-audio-validation';
@@ -184,7 +185,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 174;
+export const SNAPSHOT_VERSION = 175;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -2276,6 +2277,24 @@ const snapshot = z.strictObject({
       })
     )
     .max(10000),
+  ahriRecallAudio: z
+    .array(
+      z.strictObject({
+        id,
+        sourceId: id,
+        team,
+        startTick: tick,
+        completeTick: tick,
+        origin: point,
+        audience: z.array(team).max(2),
+        end: z
+          .strictObject({ tick, point, reason: z.enum(['complete', 'cancelled', 'match-end']) })
+          .nullable(),
+      })
+    )
+    .min(1)
+    .max(10000)
+    .optional(),
   ahriLifecycleAudio: z
     .array(
       z.strictObject({
@@ -3923,6 +3942,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     ...state.ahriFoxFires,
     ...state.ahriRushes,
     ...state.ahriEssences,
+    ...(state.ahriRecallAudio ?? []),
     ...(state.ahriLifecycleAudio ?? []),
     ...state.units,
     ...state.projectiles,
@@ -4192,6 +4212,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   validatePassiveAudio(state);
   validateAhriAttackAudio(state);
   validateAhriLifecycleAudio(state);
+  validateAhriRecallAudio(state);
   if (!hero || hero.kind !== 'champion' || hero.team !== 'blue')
     throw new Error('Saved match is missing its player.');
   for (const target of state.units) {
