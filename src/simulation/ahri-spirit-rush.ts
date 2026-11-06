@@ -1,3 +1,11 @@
+import {
+  beginSpiritRushAudio,
+  updateSpiritRushAudioWindow,
+  endSpiritDashAudio,
+  stopSpiritRushAudio,
+  finishSpiritBoltAudio,
+  type SpiritRushAudioWorld,
+} from './ahri-spirit-rush-audio';
 import { AHRI_R } from '../content/ahri-r';
 import { AHRI_R_POLICY as POLICY } from '../content/ahri-r-policy';
 import { DT } from '../content/rules';
@@ -49,7 +57,7 @@ export interface SpiritRush {
   bursts: SpiritBurst[];
   resets: SpiritReset[];
 }
-interface RushWorld {
+interface RushWorld extends SpiritRushAudioWorld {
   tick: number;
   nextId: number;
   ahriRushes: SpiritRush[];
@@ -80,7 +88,7 @@ export function activeSpiritRush(
  * ensures at least ten seconds remain, adding at most ten seconds. The source
  * client intent does not establish this precise native update/ordering rule. */
 export function consumeSpiritEssence(
-  world: Pick<RushWorld, 'tick' | 'nextId' | 'ahriRushes'>,
+  world: Pick<RushWorld, 'tick' | 'nextId' | 'ahriRushes' | 'ahriSpiritRushAudio'>,
   sourceId: number,
   essenceId: number,
   victimId: number,
@@ -120,6 +128,7 @@ export function consumeSpiritEssence(
   });
   rush.endTick = endTick;
   rush.remainingCasts = remaining;
+  updateSpiritRushAudioWindow(world, rush);
   return true;
 }
 export function activeSpiritDash(world: RushWorld, sourceId: number): SpiritBurst | undefined {
@@ -228,6 +237,7 @@ export function beginSpiritRush(
   rush.remainingCasts--;
   rush.nextCastTick = world.tick + POLICY.recastLockoutTicks;
   rush.bursts.push(burst);
+  beginSpiritRushAudio(world, rush, burst);
   return burst;
 }
 export function stopSpiritDash(
@@ -245,6 +255,7 @@ export function stopSpiritDash(
   source.nextPathTick = world.tick;
   dash.stopTick = world.tick;
   dash.stopReason = reason;
+  endSpiritDashAudio(world, source.id, dash);
   dash.stopPoint = xy(source);
   dash.lastTick = world.tick;
   dash.control =
@@ -288,6 +299,7 @@ export function stopSpiritRush(world: RushWorld, source: Unit): void {
     if (rush.sourceId === source.id && rush.stopTick === null) {
       rush.stopTick = world.tick;
       rush.stopReason = 'death';
+      stopSpiritRushAudio(world, rush);
       rush.remainingCasts = 0;
     }
   world.ahriRushes = world.ahriRushes.filter(
@@ -306,6 +318,7 @@ export function expireSpiritRushes(world: RushWorld): void {
     if (rush.stopTick === null && world.tick >= rush.endTick) {
       rush.stopTick = rush.endTick;
       rush.stopReason = 'expired';
+      stopSpiritRushAudio(world, rush);
       rush.remainingCasts = 0;
     }
   }
@@ -329,11 +342,13 @@ export function advanceSpiritBolts(world: RushWorld): void {
         ) {
           bolt.stopTick = world.tick;
           bolt.stopReason = 'lost-target';
+          finishSpiritBoltAudio(world, rush, burst, bolt);
           continue;
         }
         if (world.tick - burst.startTick >= POLICY.maximumBoltTicks) {
           bolt.stopTick = world.tick;
           bolt.stopReason = 'expired';
+          finishSpiritBoltAudio(world, rush, burst, bolt);
           continue;
         }
         const remaining = distance(bolt.position, target),
@@ -342,6 +357,7 @@ export function advanceSpiritBolts(world: RushWorld): void {
           bolt.position = xy(target);
           bolt.stopTick = world.tick;
           bolt.stopReason = 'hit';
+          finishSpiritBoltAudio(world, rush, burst, bolt);
           world.damage(source, target, burst.damage, 'magic', 'area');
         } else {
           const dir = direction(bolt.position, target);

@@ -1,4 +1,9 @@
 import {
+  advanceSpiritRushAudio,
+  finishAllSpiritRushAudio,
+  type AhriSpiritRushAudioRecord,
+} from './ahri-spirit-rush-audio';
+import {
   advanceFoxFireAudio,
   finishAllFoxFireAudio,
   type AhriFoxFireAudioRecord,
@@ -451,6 +456,7 @@ export class World {
   ahriOrbs: AhriOrb[] = [];
   ahriOrbAudio: AhriOrbAudioRecord[] = [];
   ahriFoxFireAudio: AhriFoxFireAudioRecord[] = [];
+  ahriSpiritRushAudio: AhriSpiritRushAudioRecord[] = [];
   ahriFoxFires: FoxFireCast[] = [];
   ahriRushes: SpiritRush[] = [];
   ahriCounters: EssenceCounter[] = [];
@@ -1167,6 +1173,7 @@ export class World {
       advanceCharmAudio(this);
       advanceOrbAudio(this);
       advanceFoxFireAudio(this);
+      advanceSpiritRushAudio(this);
     }
   }
   private update(): void {
@@ -6453,6 +6460,7 @@ export class World {
         this.ahriOrbs.length = 0;
         finishAllFoxFireAudio(this);
         this.ahriFoxFires.length = 0;
+        finishAllSpiritRushAudio(this);
         this.ahriRushes.length = 0;
         this.ahriEssences.length = 0;
         this.pendingAttackProjectiles.length = 0;
@@ -6473,6 +6481,7 @@ export class World {
         advanceCharmAudio(this);
         advanceOrbAudio(this);
         advanceFoxFireAudio(this);
+        advanceSpiritRushAudio(this);
         this.commands.length = 0;
         this.pendingSpawns.length = 0;
         for (const unit of this.units) this.setOrder(unit, { type: 'idle' });
@@ -8063,6 +8072,7 @@ export class World {
       ahriOrbs: this.ahriOrbs,
       ...(this.ahriOrbAudio.length ? { ahriOrbAudio: this.ahriOrbAudio } : {}),
       ...(this.ahriFoxFireAudio.length ? { ahriFoxFireAudio: this.ahriFoxFireAudio } : {}),
+      ...(this.ahriSpiritRushAudio.length ? { ahriSpiritRushAudio: this.ahriSpiritRushAudio } : {}),
       ahriFoxFires: this.ahriFoxFires,
       ahriRushes: this.ahriRushes,
       ahriCounters: this.ahriCounters,

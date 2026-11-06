@@ -130,6 +130,7 @@ jobs:
           tests/wwise145-log1.test.ts
           tests/ahri-spirit-rush-audio-assets.test.ts
           tests/ahri-spirit-rush-audio-policy.test.ts
+          tests/ahri-spirit-rush-audio-history.test.ts
           tests/ahri-spirit-rush-gameplay-reference.test.ts
           tests/ahri-r.test.ts
           tests/ahri-fox-fire-audio-assets.test.ts

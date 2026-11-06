@@ -9526,3 +9526,9 @@ Application43899a6/schema170/0a89aab3 passes8,596/8,598 full-suite cases,107 Nod
 ## Integrate accepted Fox-Fire playback into primary
 
 Primary `work` fast-forwards from `380ce08` to `f5a42fa` without merge edits. Every source file matches the accepted W playback branch. A fresh primary build and complete pack audit reproduce `bad57b7c` exactly. The existing full-suite/browser/offline acceptance applies to identical source; no redundant full-suite run is needed. No push or deployment occurs. Spirit Rush preparation remains isolated. See `reference/ahri-fox-fire-main-integration.json`.
+
+## Isolated Spirit Rush source, baseline and saved clocks
+
+R preparation retains14 unchanged masters, a continuous activation container and a play-only deactivation event with no invented source Stop. Fourteen scenarios lock210 full gameplay projections from the actual frozen W-history World, retaining prior W/Q/E history. Source CI passes207 cases and18 Python modes cache-free; the profile selector passes232. Local20 ms activation release is distinct from the source250 ms missile stop.
+
+Schema171 observes window/cast, dash and bolt clocks with existing IDs and no RNG changes.242 scoped checks include ten new history cases covering per-frame restore, zero charges with an active window, late dash, Essence extension, death/control/Flash, reveal, pruned target, victory and malformed saves. Full frozen verification follows. Primary remains accepted W at e005d6e; R playback is unbound.
