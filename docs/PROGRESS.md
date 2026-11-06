@@ -9382,3 +9382,7 @@ The private encounter explicitly loads the lazy eight-master controller. Source 
 ### Guard Baron audio publication as a complete closure
 
 Added isolated temporary-directory export probes in normal and optimized Python. Fresh export/check succeeds; missing outputs, a conflicting final profile, corrupt/symlink public masters and a changed private master all reject. A final-profile conflict creates none of the earlier eight output assets, proving preflight precedes publication. Existing repository assets stay unchanged. Both Node QA cases pass.
+
+### Verify current packs without replacing historical receipts
+
+Added a reusable current-distribution audit for exact file hashes/extents, directory closure, policy/pack identity and generated-worker bytes. It rejects missing/extra files, duplicates, traversal and symlinks. Ten isolated tests pass. Current audio packce32b45a (1,246 files /554,951,527 bytes) passes the full audit; older acceptance verifiers remain historical.
