@@ -13,3 +13,9 @@ Normal/optimized six-probe guards reproduce the reading without private banks, t
 The branch stages two unchanged mono44.1 kHz float masters plus the generated graph: three outputs /1,550,648 bytes. The publisher retains both finite playlists, zero instance declarations, gains−12/−9, actor priority55, distinct attenuation/bus identity and the separate5000 ms Linear death Stop. No positive native instance cap or Stop callback clock is invented.
 
 All five source/property/master checks and TypeScript pass. Normal/optimized six-probe publication modes reject a conflict in the final graph before writing either master, corrupt output, leaf/parent symlinks and changed input, using committed identical masters without private decoder caches. No lifecycle history, timing policy or playback is bound. Attack delivery remains isolated.
+
+## Independent lifecycle gameplay baseline
+
+The producer verifies all597 frozen source/QA files from the actual schema173 / `2ba54634` World and executes it directly. Ten guarded scenarios yield228 complete projections, retaining attack/P/R/W/Q/E history and excluding only schema/ruleset and proposed lifecycle history. Cases cover levels1/18, death during attack windup/released flight, Q/W/R/Essence activity, two genuine lives and hidden death followed by visible respawn. Actual death timestamps, scheduled timers, return at the exact spawn, full health/mana and completed life counts are asserted. Sampling includes both finite master boundaries and real respawn deadlines.
+
+All15 baseline/assets/respawn/death-scaling checks and TypeScript pass. Source stage `5885298` separately passes cache-free CI:374 tests in49 files,30 Python modes and32 commands with reused dependencies. Lifecycle history and playback remain unbound.

@@ -22,6 +22,9 @@ on:
       - 'tools/assets/read-ahri-lifecycle-audio.py'
       - 'tools/assets/test-ahri-lifecycle-audio-reading.py'
       - 'docs/reference/ahri-lifecycle-audio-properties.json'
+      - 'docs/reference/ahri-lifecycle-gameplay-reference.json'
+      - 'tests/helpers/ahri-lifecycle-gameplay.ts'
+      - 'tools/qa/*ahri-lifecycle-gameplay-reference*'
       - 'tools/assets/read-ahri-aa-audio.py'
       - 'tools/assets/test-ahri-aa-audio-reading.py'
       - 'docs/reference/ahri-aa-audio-properties.json'
@@ -91,6 +94,9 @@ on:
       - 'tools/assets/read-ahri-lifecycle-audio.py'
       - 'tools/assets/test-ahri-lifecycle-audio-reading.py'
       - 'docs/reference/ahri-lifecycle-audio-properties.json'
+      - 'docs/reference/ahri-lifecycle-gameplay-reference.json'
+      - 'tests/helpers/ahri-lifecycle-gameplay.ts'
+      - 'tools/qa/*ahri-lifecycle-gameplay-reference*'
       - 'tools/assets/read-ahri-aa-audio.py'
       - 'tools/assets/test-ahri-aa-audio-reading.py'
       - 'docs/reference/ahri-aa-audio-properties.json'
@@ -181,6 +187,9 @@ jobs:
           tests/ahri-attack-audio-controller.test.ts
           tests/ahri-attack-audio-policy.test.ts
           tests/ahri-lifecycle-audio-assets.test.ts
+          tests/ahri-lifecycle-gameplay-reference.test.ts
+          tests/champion-respawn.test.ts
+          tests/champion-death-scaling.test.ts
           tests/ahri-attack-audio-assets.test.ts
           tests/ahri-attack-gameplay-reference.test.ts
           tests/ahri-development.test.ts
