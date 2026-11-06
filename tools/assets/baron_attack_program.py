@@ -34,6 +34,9 @@ def value(raw, fallback, integrated=False):
                     for table in dynamics.get('probabilityTables', [])), 'Unexpected Baron probability type')
     result = base_value(raw, fallback)
     result['sourceType'] = raw.get('__type') if isinstance(raw, dict) else 'literal-vector'
+    dynamics = raw.get('dynamics', {}) if isinstance(raw, dict) else {}
+    require(('times' in dynamics) == ('values' in dynamics), 'Baron authored curve times/values presence differs')
+    result['authoredKeyCount'] = len(dynamics.get('times', []))
     return result
 
 

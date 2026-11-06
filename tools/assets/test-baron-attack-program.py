@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 from collections import Counter
 from baron_attack_fields import label_maps
-from baron_attack_program import profiles
+from baron_attack_program import profiles, value
 
 
 class Program(unittest.TestCase):
@@ -46,6 +46,29 @@ class Program(unittest.TestCase):
         p = next(p for p in self.compile() if p['name'] == 'Embers_Add')
         self.assertEqual(p['curves']['worldAcceleration']['sourceType'], 'IntegratedValueVector3')
         self.assertEqual(p['curves']['worldAcceleration']['values'], [[0, 0, 0]])
+
+    def test_constant_and_authored_single_key_remain_distinct(self):
+        constant = value({'__type': 'ValueVector3', 'constantValue': [1, 2, 3]}, [0, 0, 0])
+        keyed = value({'__type': 'ValueVector3', 'dynamics': {'times': [0], 'values': [[1, 2, 3]]}}, [0, 0, 0])
+        self.assertEqual(constant['times'], keyed['times'])
+        self.assertEqual(constant['values'], keyed['values'])
+        self.assertEqual((constant['authoredKeyCount'], keyed['authoredKeyCount']), (0, 1))
+
+    def test_probability_only_dynamics_does_not_invent_authored_keys(self):
+        curve = value({'dynamics': {'probabilityTables': [{'singleValue': 2}]}}, 3)
+        self.assertEqual(curve['authoredKeyCount'], 0)
+        self.assertEqual(curve['probabilities'][0]['single'], 2)
+
+    def test_integrated_acceleration_retains_its_authored_key(self):
+        p = next(p for p in self.compile() if p['name'] == 'Embers_Add')
+        self.assertEqual(p['curves']['worldAcceleration']['authoredKeyCount'], 1)
+        self.assertEqual(self.compile()[0]['curves']['rate']['authoredKeyCount'], 0)
+
+    def test_partial_authored_curve_rejects(self):
+        with self.assertRaisesRegex(ValueError, 'presence differs'):
+            value({'dynamics': {'times': [0]}}, 1)
+        with self.assertRaisesRegex(ValueError, 'presence differs'):
+            value({'dynamics': {'values': [1]}}, 1)
 
     def test_source_probability_tables_remain_ordered(self):
         p = next(p for p in self.compile() if p['name'] == 'vecalign')

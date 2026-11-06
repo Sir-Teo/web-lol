@@ -1,0 +1,51 @@
+{
+  "format": 2,
+  "programSha256": "4cbf74ec11628b0a840d03687c9d77995d57a2251b016950ac39357cc0e1cd3d",
+  "programBytes": 223594,
+  "projectionTestsPerPythonMode": 25,
+  "nodeQaTestsPassed": 48,
+  "runtimeChanged": false,
+  "v1PayloadPreserved": true,
+  "evidence": [
+    {
+      "path": "docs/reference/baron-attack-program-v2-reading.json",
+      "bytes": 3299,
+      "sha256": "83dfd7300759224df61416c1a1788fccdfc95952196e1c8e3e4ac3acbe6cab32"
+    },
+    {
+      "path": "artifacts/baron-program-v2-tests.log",
+      "bytes": 124,
+      "sha256": "9bf4d2a9cd775425956f2a7090c4d554350adf50cfd2d28195c081267f7464f9"
+    },
+    {
+      "path": "artifacts/baron-program-v2-optimized-tests.log",
+      "bytes": 124,
+      "sha256": "e5dde2dc5b4baef2942d8acd2f75bc427c60fe0c3839f9720506c0ad51820917"
+    },
+    {
+      "path": "artifacts/baron-program-v2-discovery.log",
+      "bytes": 244,
+      "sha256": "5a603b39ad9dc5bd01abffee4cd45b9f212a849d92828464b8cc1d25e773f027"
+    },
+    {
+      "path": "artifacts/baron-program-v2-fresh.log",
+      "bytes": 244,
+      "sha256": "5a603b39ad9dc5bd01abffee4cd45b9f212a849d92828464b8cc1d25e773f027"
+    },
+    {
+      "path": "artifacts/baron-program-v2-optimized-check.log",
+      "bytes": 244,
+      "sha256": "5a603b39ad9dc5bd01abffee4cd45b9f212a849d92828464b8cc1d25e773f027"
+    },
+    {
+      "path": "artifacts/baron-program-v2-node-qa.log",
+      "bytes": 4479,
+      "sha256": "3b9ccd5f464f879c75579129ab1fbe3864ffb541f048c67794effebc48ebb2e8"
+    },
+    {
+      "path": "artifacts/baron-program-v2-probes.json",
+      "bytes": 512,
+      "sha256": "7c3bfcaab34e73911c126ba744166b8d804ebe6855cb9b6b8e3374951cbbb358"
+    }
+  ]
+}

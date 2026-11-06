@@ -54,7 +54,7 @@ def build():
             emission_data[key] = dict(positions=[v for point in mesh['sourcePoints'] for v in point],
                                       indices=mesh['sourceIndices'], sourceSha256=row['source']['sha256'])
     require(set(emission_data) == emission_keys, 'Missing native-unit emission mesh data')
-    program = dict(format=1, sourcePinSha256=INPUTS['source'][1], profiles=compiled,
+    program = dict(format=2, sourcePinSha256=INPUTS['source'][1], profiles=compiled,
                    textures=inputs['textures']['textures'], meshes=inputs['meshes']['meshes'], emissionSurfaces=emission_data)
     helpers = ['tools/assets/stage-baron-attack-program.py', 'tools/assets/baron_attack_program.py',
                'tools/assets/baron_attack_fields.py', 'tools/assets/masteryi_w_cast.py',
@@ -68,7 +68,7 @@ def build():
                    geometryCounts={kind: sum(p['geometry']['kind'] == kind for p in compiled)
                                    for kind in sorted({p['geometry']['kind'] for p in compiled})},
                    policies=['Omitted primitive -> billboard, absent smoothing -> off, fillVolume bit 1, emission normal default true follow the pinned external reader, not native target-patch default certification.',
-                             'Only declared curves/settings project; curve empty-value fallbacks retain the established reader schema and sourceType. Integrated acceleration remains distinct.',
+                             'Only declared curves/settings project; authoredKeyCount distinguishes source keys from synthetic fallback keys. Constants remain constants for integrated playback. Integrated acceleration retains sourceType.',
                              'Hashed point class remains its original ID. VfxShapePointDoNotUse is an external hash-crack label, not an attested native name.',
                              'No scheduler, attachment, material dispatch, active renderer or public assets are introduced.'])
     return encoded(program), encoded(reading), reading
@@ -76,8 +76,8 @@ def build():
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--output-dir', type=Path, default=Path('.cache/baron-attack-program'))
-    parser.add_argument('--record', type=Path, default=Path('docs/reference/baron-attack-program-reading.json'))
+    parser.add_argument('--output-dir', type=Path, default=Path('.cache/baron-attack-program-v2'))
+    parser.add_argument('--record', type=Path, default=Path('docs/reference/baron-attack-program-v2-reading.json'))
     parser.add_argument('--discover', action='store_true')
     parser.add_argument('--check', action='store_true')
     args = parser.parse_args()

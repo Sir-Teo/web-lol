@@ -1,0 +1,87 @@
+{
+  "inputs": [
+    {
+      "role": "source",
+      "path": "docs/reference/baron-attack-source.json",
+      "sha256": "4b300f952b2a768e1eaa5c5f9eda3dd397e457ba1ead19c10fbd9aaa02c3543a"
+    },
+    {
+      "role": "labels",
+      "path": "docs/reference/baron-attack-field-reading.json",
+      "sha256": "9861875a3e9539b42ea61f95f7539c98f88eef7d077296e4ab293b3e8e3e3040"
+    },
+    {
+      "role": "decoded",
+      "path": "docs/reference/baron-attack-decoded.json",
+      "sha256": "ab8f06fee053cd0b2f89759f99f53c5abb1986c9c32e977812ae9129e306da20"
+    },
+    {
+      "role": "textures",
+      "path": "docs/reference/baron-attack-texture-transport.json",
+      "sha256": "0b9f4797ebe162f83843d6001eace3562eaf2faa48819a6b607c25f9d67e0c98"
+    },
+    {
+      "role": "meshes",
+      "path": "docs/reference/baron-attack-mesh-staging.json",
+      "sha256": "8a6022333bbbbda1fcc3ae687550f45daf77345dcec2b99c2393aacd496c12e8"
+    }
+  ],
+  "helpers": [
+    {
+      "path": "tools/assets/stage-baron-attack-program.py",
+      "sha256": "cd567d2d05a8ad72f93a779c34a8b4a74a0a2b8329fdbf14b099e0a2863537fb"
+    },
+    {
+      "path": "tools/assets/baron_attack_program.py",
+      "sha256": "02f7ed99a050b3aa23ec7b08fa551e70eb0c26e4e8f5fb528f3439fdbc582101"
+    },
+    {
+      "path": "tools/assets/baron_attack_fields.py",
+      "sha256": "69504b5fe086b4456666a298b8c670ab5e859c44bf75a595cdebfd91478eda9c"
+    },
+    {
+      "path": "tools/assets/masteryi_w_cast.py",
+      "sha256": "67db765dbf4c62c0cd0e5d39d99589c657d6ae826e79a9453a599e203d6d4b5e"
+    },
+    {
+      "path": "tools/assets/baron_attack_decode.py",
+      "sha256": "f14b289d63e51349480a0731542ba26b09840e9891b25a5fa5acaeacce046025"
+    },
+    {
+      "path": "tools/assets/masteryi_q_particles.py",
+      "sha256": "8373108c738d00d23c47e485b609db18464a81cf6146b608ee9d608e4e604b44"
+    },
+    {
+      "path": "tools/assets/masteryi_w_particles.py",
+      "sha256": "13bcae3e6d67d9b7004745c94372f90fda6601df02a6cbb999096f29a73fdf37"
+    },
+    {
+      "path": "tools/assets/particle_mip_atlas.py",
+      "sha256": "4ba50521c7a4c0d061bbf2f8363b7a84b4db9a4bf480e3d52ae101aec6538fd6"
+    },
+    {
+      "path": "tools/assets/masteryi_q_decode.py",
+      "sha256": "552f2cf9a0cb552a97332a142bbea6f25a3b0e2c2974359a58659a2c17517ecd"
+    }
+  ],
+  "programSha256": "4cbf74ec11628b0a840d03687c9d77995d57a2251b016950ac39357cc0e1cd3d",
+  "programBytes": 223594,
+  "profiles": 21,
+  "textures": 25,
+  "authoredMips": 214,
+  "meshes": 2,
+  "emissionSurfaces": 1,
+  "geometryCounts": {
+    "arbitrary-trail": 1,
+    "billboard": 13,
+    "camera-trail": 1,
+    "mesh": 2,
+    "quad": 4
+  },
+  "policies": [
+    "Omitted primitive -> billboard, absent smoothing -> off, fillVolume bit 1, emission normal default true follow the pinned external reader, not native target-patch default certification.",
+    "Only declared curves/settings project; authoredKeyCount distinguishes source keys from synthetic fallback keys. Constants remain constants for integrated playback. Integrated acceleration retains sourceType.",
+    "Hashed point class remains its original ID. VfxShapePointDoNotUse is an external hash-crack label, not an attested native name.",
+    "No scheduler, attachment, material dispatch, active renderer or public assets are introduced."
+  ]
+}

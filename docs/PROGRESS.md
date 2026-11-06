@@ -28,6 +28,10 @@ independent 60-step replays. [Emitter timing windows](SOURCE-EMISSION-WINDOW.md)
 fixtures, including signed-zero phases; all 265 combined cases pass. Resolved-rate
 sampling and active renderer binding remain next work.
 
+[Baron program format 2](BARON-ATTACK-PROGRAM.md) now distinguishes authored
+keys from synthetic fallback keys. All 25 guards pass per Python mode and all
+48 Node QA cases pass. The format-1 payload and compiler identities are preserved.
+
 ## Recent verified checkpoints
 
 All 21 Baron emitters now have a [strict private parameter stage](BARON-ATTACK-PROGRAM.md),

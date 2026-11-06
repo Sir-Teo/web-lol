@@ -1,5 +1,30 @@
 # Baron attack parameter stage
 
+## Current format 2
+
+The current default stage is `.cache/baron-attack-program-v2/program.json`,
+223,594 bytes, SHA-256
+`4cbf74ec11628b0a840d03687c9d77995d57a2251b016950ac39357cc0e1cd3d`.
+Its [separate reading record](reference/baron-attack-program-v2-reading.json)
+pins the current helper closure. Each normalized value now retains
+`authoredKeyCount`: zero for a constant/probability-only definition and the
+actual key count for authored curves. Synthetic fallback keys stay available
+but can no longer be mistaken for authored dynamics. Partial times/values
+presence rejects. This matters when integrated constants and integrated curves
+are evaluated differently.
+
+All 25 projection guards pass in normal and optimized Python; all 48 Node QA
+cases pass. A fresh stage and optimized check reproduce the same bytes. Four
+CLI rejection probes preserve existing outputs and reject incompatible/edited
+records. Removing only authoredKeyCount and resetting the format number gives
+the exact old payload. Original format-1 outputs/records remain unchanged; exact
+prior compiler bytes are retained in `.cache/baron-attack-program-v1-helpers`
+and commit `1c99b91`. Replaying format 1 requires its original compiler version.
+Current stage defaults target format 2; passing the old reading to the current
+compiler rejects deliberately.
+
+## Historical format 1 checkpoint
+
 All nine missile and twelve hit emitter declarations now project into one private
 parameter table. Its 216,748 bytes have SHA-256
 `f630cfe929cf27895378f91049f84bc4229eef39e52da26d5e2a6f63ac90284d`.
@@ -31,6 +56,8 @@ and omitted emission-normal flag -> true are explicit external reader policies,
 not native target-patch default certification. The
 [verification record](reference/baron-attack-program-verification.json) pins the
 parser, enum and timing-reader evidence.
+
+Current format-2 reproduction:
 
 ```sh
 PYTHONPATH=tools/assets python tools/assets/stage-baron-attack-program.py --check
