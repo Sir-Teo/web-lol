@@ -3398,13 +3398,27 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       throw new Error('Saved match contains an invalid Gromp attack visual.');
     grompAttackIds.add(visual.id);
   }
-  for (const p of state.projectiles)
-    if (
-      p.type === 'attack' &&
-      state.units.find((u) => u.id === p.source)?.kind === 'monster' &&
-      !grompAttackIds.has(p.id)
-    )
+  for (const p of state.projectiles) {
+    if (p.type !== 'attack') continue;
+    const source = state.units.find((u) => u.id === p.source);
+    if (source?.monster?.species === 'baron') {
+      const target = state.units.find((u) => u.id === p.target);
+      if (
+        p.team !== 'neutral' ||
+        p.speed !== MONSTERS.baron.missileSpeed ||
+        p.radius !== 8 ||
+        p.remaining > 4000 ||
+        p.launchTick === undefined ||
+        p.launchTick > state.tick ||
+        !p.origin ||
+        !target ||
+        target.team === 'neutral' ||
+        ['turret', 'inhibitor', 'nexus', 'ward'].includes(target.kind)
+      )
+        throw new Error('Saved match contains an invalid Baron attack projectile.');
+    } else if (source?.kind === 'monster' && !grompAttackIds.has(p.id))
       throw new Error('Saved Gromp attack lacks presentation history.');
+  }
   const bindingStopIds = new Set<number>();
   for (const flight of state.bindingStops) {
     const source = state.units.find((u) => u.id === flight.sourceId);

@@ -1291,6 +1291,16 @@ export class GameView {
               new THREE.MeshBasicMaterial({ color: 0x8edaff })
             )
           );
+        } else if (p.type === 'attack' && world.unit(p.source)?.monster?.species === 'baron') {
+          // Private encounter marker until the declared source missile is imported.
+          model = new THREE.Group();
+          model.name = 'Baron provisional attack marker';
+          model.add(
+            new THREE.Mesh(
+              new THREE.SphereGeometry(0.12, 10, 8),
+              new THREE.MeshBasicMaterial({ color: 0xd7c0ff })
+            )
+          );
         } else {
           model = new THREE.Group();
           const color = p.type === 'prismatic' ? 0xffedb3 : p.team === 'blue' ? 0x9aefff : 0xff818d;

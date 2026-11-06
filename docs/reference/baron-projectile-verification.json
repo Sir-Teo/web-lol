@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-06",
+  "ruleset": "e20bdcb81f74cf79399347c31c7b163879eb1541316841afc382ac03a365d853",
+  "schema": 163,
+  "baseline": {
+    "missileSpeed": 0,
+    "expectedSpeed": 1300,
+    "hpAtRelease": 331.8370634920635,
+    "expectedHpAtRelease": 610
+  },
+  "checks": {
+    "newUnitCases": 12,
+    "focusedFiles": 13,
+    "focusedTestsPassed": 169,
+    "browserScenariosPassed": 5,
+    "build": "passed",
+    "profileReproduction": "passed",
+    "browserFlight": {
+      "tick": 79,
+      "hp": 610,
+      "projectile": {
+        "id": 7,
+        "x": 254.99999999999986,
+        "y": 0,
+        "previous": {
+          "x": 276.6666666666665,
+          "y": 0
+        },
+        "origin": {
+          "x": 450,
+          "y": 0
+        },
+        "source": 2,
+        "team": "neutral",
+        "type": "attack",
+        "launchTick": 71,
+        "empowered": false,
+        "target": 1,
+        "direction": {
+          "x": -1,
+          "y": 0
+        },
+        "damage": 350.5,
+        "speed": 1300,
+        "radius": 8,
+        "remaining": 3805.0000000000014,
+        "volleyId": null
+      },
+      "marker": "Baron provisional attack marker",
+      "markerVisible": true
+    },
+    "initialHp": 610,
+    "savedFutureTicks": 180,
+    "exactFuture": true,
+    "errors": []
+  },
+  "scope": "Private ranged-attack adapter and provisional marker only. Native effects, bones, collision, timing, full kit, rewards and live calendar remain unfinished."
+}

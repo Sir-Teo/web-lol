@@ -23,7 +23,7 @@ export const BARON = {
   gold: 0,
   experience: 0,
   minionScore: 0,
-  missileSpeed: 0,
+  missileSpeed: source.basicAttack.missileSpeed,
   castFrame: source.castSeconds * 30,
   pathfindingRadius: 0,
   policy: {

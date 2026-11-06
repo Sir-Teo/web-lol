@@ -6,6 +6,15 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+[Private Baron ranged attacks](BARON-PROJECTILES.md) now release the selected
+source attack's 1,300-unit/second missile through the existing adapter instead
+of damaging instantly. Three baseline failures reproduce. Twelve new unit cases,
+169 focused cases, source-profile reproduction, build/TypeScript and all five
+Baron browser scenarios pass, including real combat, in-flight save/reload and
+180 future ticks. The marker is explicitly provisional; native effects/bones,
+full boss kit and live objectives remain unfinished. Fingerprint `e20bdc…`,
+schema 163. Earlier match and delivery evidence retains its original identity.
+
 [Display-density resizing](DISPLAY-DENSITY.md) now updates the renderer ratio
 when display density changes, retaining the existing cap. The original 1.75
 instead of 1 failure reproduces. The browser now verifies correct framebuffer

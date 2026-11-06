@@ -14,7 +14,19 @@ def main():
     parser.add_argument('--write', action='store_true')
     args = parser.parse_args()
     character = ROOT / 'docs/reference/epic-character-source.json'
-    root = json.loads(character.read_text())['records']['data/characters/sru_baron/sru_baron.bin']['Characters/SRU_Baron/CharacterRecords/Root']
+    records = json.loads(character.read_text())['records']['data/characters/sru_baron/sru_baron.bin']
+    root = records['Characters/SRU_Baron/CharacterRecords/Root']
+    assert root['basicAttack']['mAttackProbability'] == 0
+    assert len(root['extraAttacks']) == 1 and root['extraAttacks'][0]['mAttackProbability'] == 1
+    attack_name = root['extraAttacks'][0]['mAttackName']
+    attacks = [(key, value) for key, value in records.items() if isinstance(value, dict) and value.get('ObjectName') == attack_name]
+    assert len(attacks) == 1
+    attack_key, attack_record = attacks[0]
+    attack = attack_record['mSpell']
+    missile = attack['mMissileSpec']['movementComponent']
+    assert attack_name == 'BaronBasicAttack' and missile['__type'] == 'FixedSpeedMovement'
+    assert missile['mSpeed'] == attack['missileSpeed'] == 1300
+    assert attack['spellCastTime'] == root['basicAttack']['mAttackCastTime']
     model = json.loads((ROOT / 'public/assets/models/sru-baron-base.json').read_text())
     assert sha(ROOT / 'public/assets/models/sru-baron-base.glb') == model['output']['sha256']
     by_name = {row['name']: row for row in model['clips']}
@@ -37,11 +49,17 @@ def main():
             armor=scalar('armorPerLevelModifiable'), magicResist=scalar('mrPerLevel')),
         radius=root['overrideGameplayCollisionRadius'], selectionRadius=root['selectionRadius'],
         castSeconds=root['basicAttack']['mAttackCastTime'],
+        basicAttack=dict(declaration=attack_key, name=attack_name, movementType=missile['__type'],
+            missileSpeed=missile['mSpeed'], startBone=missile['mStartBoneName'],
+            targetHeightAugment=missile['mTargetHeightAugment'], offsetInitialTargetHeight=missile['mOffsetInitialTargetHeight'],
+            hitBone=attack['mHitBoneName'], castType=attack['mCastType'],
+            castSeconds=attack['spellCastTime'], totalSeconds=attack['spellTotalTime'],
+            missileEffectKey=attack['mMissileEffectKey'], hitEffectKey=attack['mHitEffectKey']),
         clips={key: dict(name=name, durationSeconds=by_name[name]['durationSeconds']) for key, name in aliases.items()},
         policy=dict(stationary=True, rewards='disabled in controlled fixture', leashRadius=1100,
             resetHealthFractionPerSecond=0.2, sightRadius=1100,
             immuneControls=controls['implementedControls'],
-            scope='Local stationary basic-combat fixture. Idle substitutes for an unused run alias. Root, stun, silence, Charm and slow immunity follow secondary rule descriptions. Incoming slow-bearing damage remains independent. Native spells, external stat changes, stasis, audio, team rewards, buffs, calendar and timing calibration remain unfinished.'),
+            scope='Local stationary ranged basic-combat fixture. Idle substitutes for an unused run alias. Root, stun, silence, Charm and slow immunity follow secondary rule descriptions. Incoming slow-bearing damage remains independent. Ranged attacks use the existing homing/collision adapter and a provisional marker; native source effects and bone attachment remain unfinished. Native spells, external stat changes, stasis, audio, team rewards, buffs, calendar and timing calibration remain unfinished.'),
         monsterTags=[tag.strip() for tag in root['unitTagsString'].split('|')])
     output = ROOT / 'src/content/baron.json'
     if args.write:

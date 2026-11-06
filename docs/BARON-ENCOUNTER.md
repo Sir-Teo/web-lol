@@ -20,6 +20,11 @@ current debuffs still follow the interim generic-monster rules. Gold, XP, CS,
 companion feeds and kill recovery are disabled on this controlled target so its
 partial presentation does not masquerade as a completed epic reward system.
 
+The later [ranged-attack increment](BARON-PROJECTILES.md) adds the declared
+1,300-unit/second missile through the existing attack adapter and a provisional
+marker, with checked in-flight saves. Native source effects and bone attachment
+remain unfinished.
+
 ## Supported source and local policies
 
 The eleven-character [source pin](EPIC-CHARACTERS.md) and the original
