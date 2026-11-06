@@ -67,6 +67,7 @@ import { validatePerseveranceVisual } from './garen-passive-visuals';
 import { validateLuxEHits } from './lux-e-hits-validation';
 import { LUX_E_HIT_HISTORY_TICKS } from '../content/lux-e-hit';
 import { validateLuxEAudio } from './lux-e-audio-validation';
+import { validateCharmAudio } from './ahri-charm-audio-validation';
 import { BOT_TEAM_POLICY } from '../content/bot-team-policy';
 import { MATCH_ROLES, JUNGLE_BOT_POLICY } from '../content/bot-roles';
 import { jungleRoute } from './bot-jungle';
@@ -177,7 +178,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 167;
+export const SNAPSHOT_VERSION = 168;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -2087,6 +2088,27 @@ const snapshot = z.strictObject({
       })
     )
     .max(10000),
+  ahriCharmAudio: z
+    .array(
+      z.strictObject({
+        sourceId: id,
+        team,
+        castTick: tick,
+        origin: point,
+        castAudience: z.array(team).max(2),
+        cancelTick: tick.nullable(),
+        launch: z
+          .strictObject({ tick, id, point, currentPoint: point, audience: z.array(team).max(2) })
+          .nullable(),
+        stop: z
+          .strictObject({ tick, point, reason: z.enum(['hit', 'range', 'match-end']) })
+          .nullable(),
+        hit: z
+          .strictObject({ tick, point, targetId: id, audience: z.array(team).max(2) })
+          .nullable(),
+      })
+    )
+    .max(1000),
   luxEAudio: z.strictObject({
     counts: z.strictObject({ cast: tick, flight: tick, zone: tick, hit: tick }),
     records: z
@@ -3930,6 +3952,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   }
   validateLuxEHits(state);
   validateLuxEAudio(state);
+  validateCharmAudio(state);
   if (!hero || hero.kind !== 'champion' || hero.team !== 'blue')
     throw new Error('Saved match is missing its player.');
   for (const target of state.units) {

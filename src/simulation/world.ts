@@ -144,6 +144,13 @@ import { captureBaronReleasePose } from './baron-release-pose';
 import { advancePerseveranceVisual, stopPerseveranceVisual } from './garen-passive-visuals';
 import { advanceLuxEHits, recordLuxEHit } from './lux-e-hits';
 import { advanceLuxEAudio, newLuxEAudioHistory } from './lux-e-audio';
+import {
+  advanceCharmAudio,
+  cancelCharmWindup,
+  charmAudience,
+  stopCharmAudio,
+  type AhriCharmAudioRecord,
+} from './ahri-charm-audio';
 import { BOT_TEAM_POLICY } from '../content/bot-team-policy';
 import {
   planTeam,
@@ -438,6 +445,7 @@ export class World {
   nextSunlightVisual = 1;
   singularities: Singularity[] = [];
   luxEAudio = newLuxEAudioHistory();
+  ahriCharmAudio: AhriCharmAudioRecord[] = [];
   pendingAttackProjectiles: Projectile[] = [];
   events: SimEvent[] = [];
   commands: Command[] = [];
@@ -1143,6 +1151,7 @@ export class World {
     for (let i = 0; i < count && !this.winner; i++) {
       this.update();
       advanceLuxEAudio(this);
+      advanceCharmAudio(this);
     }
   }
   private update(): void {
@@ -4752,7 +4761,7 @@ export class World {
     const dir = direction(source, cast.point);
     // Aim is selected at acceptance; no Flash-during-windup exception is introduced here.
     if (!dir.x && !dir.y) return;
-    this.projectiles.push({
+    const projectile: Projectile = {
       id: this.nextId++,
       source: source.id,
       team: source.team,
@@ -4770,7 +4779,19 @@ export class World {
       speed: AHRI_E.missile.speed,
       radius: AHRI_E_POLICY.radius,
       remaining: AHRI_E_POLICY.range,
-    });
+    };
+    this.projectiles.push(projectile);
+    const record = this.ahriCharmAudio.find(
+      (r) => r.sourceId === source.id && r.castTick === cast.startTick
+    );
+    if (record)
+      record.launch = {
+        tick: this.tick,
+        id: projectile.id,
+        point: { ...projectile.origin! },
+        currentPoint: { ...projectile.origin! },
+        audience: charmAudience(this, projectile, record.team),
+      };
   }
   private controlImmune(
     target: Unit,
@@ -5426,6 +5447,12 @@ export class World {
           })
           .sort((a, b) => a.t - b.t || a.unit.id - b.unit.id)[0];
         if (hit) {
+          stopCharmAudio(
+            this,
+            p,
+            { x: p.x + (end.x - p.x) * hit.t, y: p.y + (end.y - p.y) * hit.t },
+            hit.unit.id
+          );
           if (source) {
             this.damage(source, hit.unit, p.damage, 'magic');
             this.applyCharm(source, hit.unit, p.charmRank!);
@@ -5435,6 +5462,7 @@ export class World {
           p.y = end.y;
           p.remaining = Math.max(0, p.remaining - travel);
           if (p.remaining > 1e-8) survivors.push(p);
+          else stopCharmAudio(this, p, p);
         }
         continue;
       }
@@ -6391,6 +6419,7 @@ export class World {
           finishDaybreakVisual(state, this.tick, 'match-end');
           finishGarenQPresentation(state, this.tick, 'match-end');
           this.cancelGarenRVisual(state);
+          cancelCharmWindup(this, state.id);
           state.pendingCast = null;
           state.castAnimation = null;
           state.leonaQ = null;
@@ -6402,6 +6431,7 @@ export class World {
           finishSolarVisual(state, this.tick, 'match-end');
           state.leonaR = null;
         }
+        for (const p of this.projectiles) if (p.type === 'charm') stopCharmAudio(this, p, p);
         this.projectiles.length = 0;
         this.ahriOrbs.length = 0;
         this.ahriFoxFires.length = 0;
@@ -6422,6 +6452,7 @@ export class World {
             this.tick < zone.detonatedTick + LUX_E_POLICY.presentationSeconds * TICK_RATE
         );
         advanceLuxEAudio(this);
+        advanceCharmAudio(this);
         this.commands.length = 0;
         this.pendingSpawns.length = 0;
         for (const unit of this.units) this.setOrder(unit, { type: 'idle' });
@@ -6448,6 +6479,7 @@ export class World {
         this.cancelGarenRVisual(targetState);
         targetState.enlighten = null;
         targetState.deaths++;
+        cancelCharmWindup(this, targetState.id);
         targetState.pendingCast = null;
         for (const r of this.luxEAudio.records)
           if (r.sourceId === target.id && r.launch === null && r.stopTick === null)
@@ -7223,6 +7255,17 @@ export class World {
       u.attackTarget = null;
       u.attackCycle = null;
       u.facing = Math.atan2(dir.x, dir.y);
+      this.ahriCharmAudio.push({
+        sourceId: u.id,
+        team: u.team as Team,
+        castTick: this.tick,
+        origin: { x: u.x, y: u.y },
+        castAudience: (['blue', 'red'] as Team[]).filter((t) => this.visible(u, t)),
+        cancelTick: null,
+        launch: null,
+        stop: null,
+        hit: null,
+      });
       this.emit('cast', u, { unit: u.id, champion: 'ahri', text: 'e', team: u.team });
       return;
     }
@@ -7991,6 +8034,7 @@ export class World {
       nextSunlightVisual: this.nextSunlightVisual,
       singularities: this.singularities,
       luxEAudio: this.luxEAudio,
+      ahriCharmAudio: this.ahriCharmAudio,
       pendingAttackProjectiles: this.pendingAttackProjectiles,
       randomState: this.random.state,
       wave: this.wave,

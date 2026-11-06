@@ -9450,3 +9450,7 @@ The read-only audio CI workflow now watches the shared float parser/tests and ru
 ## Isolated Charm audio source stage
 
 Staged nine unchanged source masters, three play profiles and the source stop fade on `dev/ahri-charm-audio`. Direct external-reader interpolation checks cover 90 Linear/Exp1 cases; six archived-source gameplay scenarios provide 48 independent projection hashes. Twelve asset/fade tests, the baseline comparison and TypeScript pass. No runtime binding yet; the primary 7ae8e0 roster cohort remains frozen.
+
+## Saved Charm audio history (isolated branch)
+
+Schema 168 records accepted Charm windup, launch, swept contact and stop without new gameplay IDs or RNG. Birth audiences and exact finite tail bounds survive restoration; death and victory boundaries settle immediately. Scoped history/Charm tests and all 48 archived gameplay projections pass. Playback is the next stage; the primary 7ae8e0 cohort is unchanged.
