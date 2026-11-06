@@ -1,0 +1,36 @@
+{
+  "focusedTestsPassed": 58,
+  "newCases": 16,
+  "independentFixtures": 10,
+  "positionUvTintLookupTolerance": 1e-05,
+  "erosionTolerance": 1e-06,
+  "typeScript": "passed",
+  "nativeExecuted": false,
+  "evidence": [
+    {
+      "path": "artifacts/source-camera-trail-tests-final.log",
+      "sha256": "daae223664493e9c2f6b85bb6a4cd80c68e56bb0a16fdd395e2babe53737f196",
+      "bytes": 425
+    },
+    {
+      "path": "artifacts/source-camera-trail-samples.json",
+      "sha256": "a5941acb83f3890a8c25d565bfeb189bdb00995532bf9ada5d31f317947cb9ea",
+      "bytes": 138
+    },
+    {
+      "path": "tools/assets/export-camera-trail-samples.mjs",
+      "sha256": "c80e784cc07a3e1cb3f3b69a366826e8bfff62b3bce6347b98929f048f86b4e2",
+      "bytes": 4697
+    },
+    {
+      "path": "src/render/source-trail-ribbon.ts",
+      "sha256": "53816ed7ecc49bd960ac7d43872d418e5c854ff43150105038443478ead3a135",
+      "bytes": 5463
+    },
+    {
+      "path": "docs/reference/source-camera-trail-samples.json",
+      "sha256": "378816b3af032d0343e7a2f170fcd66dd8a5eecac2a3899d08cb8cf71995cfdd",
+      "bytes": 80514
+    }
+  ]
+}

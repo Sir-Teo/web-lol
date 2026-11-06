@@ -6,6 +6,11 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+Camera-trail framing now follows the [pinned external writer](SOURCE-TRAIL-RIBBON.md#camera-trail-framing)
+with ten independently generated fixtures, explicit degenerate-view fallbacks
+and visibility-run separation. Sixteen new cases and all 42 Zenith cases pass.
+It is prepared for Baron integration, not yet an active source effect.
+
 The [source trail ribbon writer](SOURCE-TRAIL-RIBBON.md) is now shared while
 Zenith retains its attachment/history/visibility policies. All 42 existing
 particle/ribbon cases pass, including independent pinned arrays and exact
