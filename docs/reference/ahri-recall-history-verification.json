@@ -1,0 +1,342 @@
+{
+  "format": 1,
+  "historyRevision": "aff91862d4f8d8f1b8f70596d64839ef0638bdc5",
+  "testFixtureRevision": "aff91862d4f8d8f1b8f70596d64839ef0638bdc5",
+  "schema": 175,
+  "ruleset": "41da4dfca8f8344219f15b26245f8250114d8cafbeb20768b0586bd43f262cf2",
+  "fullUnit": {
+    "passed": 8757,
+    "failed": 2,
+    "files": 516,
+    "workers": 1,
+    "knownFailures": [
+      "missing historical Leona reader archive",
+      "Lux sampler FMA golden mismatch"
+    ]
+  },
+  "nodeQA": 192,
+  "cleanCI": {
+    "revision": "5e7bffbafbd74ff78a4838f00a5cde3171a54814",
+    "tests": 419,
+    "files": 60,
+    "typeCheck": true,
+    "pythonModes": 34,
+    "commands": 36,
+    "privateCaches": false,
+    "privateTools": false,
+    "dependencies": "Reused parent node_modules; npm ci not repeated locally",
+    "remoteDispatched": false
+  },
+  "cohort": {
+    "root": "/workspace/web-lol-ahri-recall-audio/.cache/ahri-recall-history-roster-seed1",
+    "sourceFiles": 611,
+    "allCurrentSourceBytesMatch": true,
+    "runner": {
+      "file": "/workspace/web-lol-ahri-recall-audio/.cache/ahri-recall-history-roster-seed1/runner/match-seed.js",
+      "bytes": 1253804,
+      "sha256": "ba6e33e63cc566700152dc5b48d7cee36efb25465d1198bef2d1c28c34c1a482"
+    },
+    "seed": 1,
+    "winner": "blue",
+    "finalTick": 157116,
+    "roundTrips": 44,
+    "futureChecks": 43,
+    "futureCheckedTicks": 2580,
+    "matchingArchivedProjections": 45,
+    "comparison": "ahri-recall-history-gameplay-comparison.json"
+  },
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-baselines-v2.log",
+      "bytes": 400,
+      "sha256": "88fbd49b8683e39d64c00363eb180ad603d035d73cc81b3419c36f5013adc4e9"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-ci-checkout.log",
+      "bytes": 1936,
+      "sha256": "b663ae4a2f6a61c28e5a85bf64855cae872cf20b5302414cfe7af584b171f3b6"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-0.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-1.log",
+      "bytes": 414,
+      "sha256": "542032ae6dcbf8b98a76e26370f5f0574fcc75b399468f600ae41cd9285844e4"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-10.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-11.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-12.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-13.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-14.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-15.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-16.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-17.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-18.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-19.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-2.log",
+      "bytes": 126,
+      "sha256": "40aead902f47ee86083ca799462d13f1f5def3ae5feb071af6b5032aae880871"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-20.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-21.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-22.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-23.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-24.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-25.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-26.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-27.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-28.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-29.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-3.log",
+      "bytes": 125,
+      "sha256": "f5d56745cbec320ad650e983e5f2738ba279b3545edfdf1ea9dfd5a5312e45c2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-30.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-31.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-32.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-33.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-34.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-35.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-4.log",
+      "bytes": 118,
+      "sha256": "b08e65827c7a08cae7a8c83373415a646d20c999bf8b7f7c48684023fc4faf73"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-5.log",
+      "bytes": 117,
+      "sha256": "277830a9736393132c0af95cee95446a745c5f7f75b6d6f54b9a6eac6babda4c"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-6.log",
+      "bytes": 118,
+      "sha256": "b08e65827c7a08cae7a8c83373415a646d20c999bf8b7f7c48684023fc4faf73"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-7.log",
+      "bytes": 117,
+      "sha256": "277830a9736393132c0af95cee95446a745c5f7f75b6d6f54b9a6eac6babda4c"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-8.log",
+      "bytes": 121,
+      "sha256": "23a5151975aebfa4f688c9a38a0a1a5e16ecdbf829553970e98f303acce1e579"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-clean-ci-9.log",
+      "bytes": 120,
+      "sha256": "2d4bd23507d91cb112aba7b702d646dd3c1da3de1ad8406725db3fa16cb165f3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-cohort-v1.log",
+      "bytes": 1391,
+      "sha256": "09f4db6318d52ecc6119e7c518edad51af85b4ce02099d859c2d19195241656f"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-comparator-format-v1.log",
+      "bytes": 101,
+      "sha256": "d7cad3d1d9d2a2590df5e46750d21bbb66fa1f407ae6b4d3b9984b084948d338"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-comparator-tests-v1.log",
+      "bytes": 1355,
+      "sha256": "11f6c2fe0c92de0fb964fa70bf984a94eb1dbf63286bdeaa7d74b39fff181f54"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-format-v1.log",
+      "bytes": 156,
+      "sha256": "9ca659ffb3e961904360dfc54dd4f0b2717ef5101e31189a487ea08987808569"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-format-v2.log",
+      "bytes": 86,
+      "sha256": "5a8a5845bf8b7a31f0d3de0a154b13458587f3a25314dadfdd1da806fbb19dac"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-format-v3.log",
+      "bytes": 110,
+      "sha256": "bf37f100862da75bbc99cc7abaa60560807eed5eb6912410b0814c60246a4652"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-format-v4.log",
+      "bytes": 46,
+      "sha256": "d541e768060b4e12861881adb749f694028353c2d3f2b18608a204cc548d97e9"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-full-suite-v1.log",
+      "bytes": 4739,
+      "sha256": "da0e703d5b5e597dfcaea2b308885f83e3a210898f316faa93537de4b97b18e6"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-gameplay-comparison-v1.log",
+      "bytes": 61,
+      "sha256": "e1aa446b2a99cfc97cdb1c336e58a56082b09bce36db1959076309b4aa2c141c"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-node-qa-v1.log",
+      "bytes": 15384,
+      "sha256": "d6158b807381480b1a3f5f7614b250a4a5f179a43dfbdf35a97e2badee6b817c"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-tests-v1.log",
+      "bytes": 186,
+      "sha256": "f692409e3e2f9a3cbc4054bdbc21ad65a27d341a638456aabbe795f491d672df"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-tests-v3.log",
+      "bytes": 188,
+      "sha256": "909758e1e40d46d791c2c643ede15899888af8019db31e8c8b1ccbf43c192731"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-types-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-types-v2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-types-v3.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-recall-history-types-v4.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-recall-audio/.cache/ahri-recall-history-roster-seed1/plan.json",
+      "bytes": 105820,
+      "sha256": "a034fb8609b83fbee6d61926e43eb7fa857f80e939347e4c4e6142e1510f9c59"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-recall-audio/.cache/ahri-recall-history-roster-seed1/seeds/1/report.json",
+      "bytes": 225866,
+      "sha256": "ed5b78c2e7e03e24463b0435309f316148ae2d02217d778da4cfd10e07d1a210"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-recall-audio/docs/reference/ahri-recall-history-gameplay-comparison.json",
+      "bytes": 18360,
+      "sha256": "8c58104947ee4d7a1309a9a3fb396d48335b2de653123d569fd8dde8103d48d3"
+    }
+  ],
+  "limits": [
+    "Recall dispatch history only; playback remains unbound in this frozen checkpoint.",
+    "Local interruption retains two simulation ticks to cover an explicit 20 ms Linear release; no source Stop identity is invented.",
+    "One seed and archived checkpoints; older hundred-seed evidence retains its original scope.",
+    "Native callback timing, zero-instance behavior, inheritance and listener/bus calibration remain unverified."
+  ],
+  "roadmapMilestone4Complete": false
+}

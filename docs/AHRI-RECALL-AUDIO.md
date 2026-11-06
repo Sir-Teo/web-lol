@@ -32,6 +32,12 @@ Schema175 adds optional nonempty `ahriRecallAudio` history keyed by the existing
 
 Strict restore checks owner, reserved ID ordering, canonical audience, accepted deadline, active channel/live position links, completion clock/map spawn, terminal closure and finite expiry. Cancellation retains a conservative two-tick history bound for the local20 ms release. Seven history tests cover every-frame exact restores/futures, immediate interruption, hidden births/zero loss, same-tick restarts, malformed data, two victory phases and lethal interruption with actual lifecycle death. All19 scoped history/shared Recall tests and TypeScript pass;19 older family/reference cases also pass with only new Recall presentation normalized on the current side. Frozen helpers/producers/expected hashes remain unchanged. Full/cohort verification follows; playback remains unbound.
 
+## Frozen Recall history verification
+
+Runtime `aff9186`, schema175 / `41da4dfc`, passes8,757/8,759 full-suite cases in516 files with only the two historical failures. All192 Node QA cases pass. Cache-free CI at `5e7bffb` passes TypeScript,419 cases in60 files and34 Python modes /36 commands. Its later commits add comparator guards/result labels without changing the frozen runtime.
+
+The611-file frozen roster archive finishes naturally Blue at157,116, with44 exact restores,43 future checks and2,580 future ticks. All45 complete projections match the actual lifecycle-history `d1e66691` baseline, retaining lifecycle/attack/P/R/W/Q/E. All current archived source bytes, runner, input, report and snapshot hashes/extents verify. See `reference/ahri-recall-history-verification.json`; no one-seed result is relabeled as the older hundred-seed baseline. Playback continues separately.
+
 ## Isolated finite Recall playback
 
 The playback branch lazy-loads the unchanged master, using source−5 dB gain, misc attenuation and a local0.2 mix. It follows the caster through actual return, preserves the natural tail on completion and uses the explicitly local20 ms Linear release at a captured interruption point. Birth and current visibility independently gate enemy audio. Raw cap0 stays separate from the local16-voice ceiling. Ended/stolen voices cannot revive, mute/resume seeks original phase and world replacement/rewind resets ownership while retaining decoded buffers. Shared terminal time drains release tails without changing victory state.
