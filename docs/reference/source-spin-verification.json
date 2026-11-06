@@ -1,0 +1,35 @@
+{
+  "format": 1,
+  "testsPassed": 388,
+  "independentSamples": 384,
+  "typecheck": "passed",
+  "nativeExecuted": false,
+  "runtimeBinding": false,
+  "evidence": [
+    {
+      "path": "artifacts/source-spin-tests.log",
+      "bytes": 948,
+      "sha256": "2a200c62b1698efb2c71e6bbd94653809fd9bde31fe735e1d145b6c3f4f4dfbc"
+    },
+    {
+      "path": "artifacts/source-spin-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tools/assets/export-source-spin-samples.mjs",
+      "bytes": 5792,
+      "sha256": "67ef6b9902a6840ff54cae0183bb741101949906465356fc47496531dbbcef2b"
+    },
+    {
+      "path": "docs/reference/source-spin-samples.json",
+      "bytes": 150424,
+      "sha256": "101a062abd40b7161ba38ba74b9ed228738bc5521ffcde3b659179e576d42ae2"
+    },
+    {
+      "path": "src/render/source-particle-spin.ts",
+      "bytes": 3751,
+      "sha256": "68a90506c5a36e5704aa880ce64cdca1f03cddb4f5a7cb1251a585adb62a7971"
+    }
+  ]
+}

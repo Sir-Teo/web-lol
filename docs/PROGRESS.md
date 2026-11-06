@@ -76,6 +76,10 @@ independent samples across all four modes; all 340 cases pass. Total-life caps,
 remaining-life modes and strict end boundaries remain distinct. Particle
 retirement and full system playback remain caller-owned.
 
+The [spin/basis stage](SOURCE-PARTICLE-SPIN.md) now matches 384 independent
+exact-byte samples; all 388 cases pass. Birth/integrated/linger rotation and the
+Ry * Rx * Rz basis remain distinct. Appearance and final transforms are next.
+
 ## Recent verified checkpoints
 
 All 21 Baron emitters now have a [strict private parameter stage](BARON-ATTACK-PROGRAM.md),
