@@ -1,3 +1,4 @@
+import { validatePassiveAudio } from './ahri-passive-audio-validation';
 import { validateSpiritRushAudio } from './ahri-spirit-rush-audio-validation';
 import { validateFoxFireAudio } from './ahri-fox-fire-audio-validation';
 import { validateOrbAudio } from './ahri-orb-audio-validation';
@@ -181,7 +182,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 171;
+export const SNAPSHOT_VERSION = 172;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -2273,6 +2274,31 @@ const snapshot = z.strictObject({
       })
     )
     .max(10000),
+  ahriPassiveAudio: z
+    .array(
+      z.strictObject({
+        id,
+        sourceId: id,
+        team,
+        victimId: id,
+        kind: z.enum(['minion', 'champion']),
+        startTick: tick,
+        origin: point,
+        currentPoint: point,
+        audience: z.array(team).max(2),
+        end: z
+          .strictObject({
+            tick,
+            point,
+            reason: z.enum(['consumed', 'death', 'expired', 'match-end']),
+            audience: z.array(team).max(2),
+          })
+          .nullable(),
+      })
+    )
+    .min(1)
+    .max(10000)
+    .optional(),
   ahriSpiritRushAudio: z
     .array(
       z.strictObject({
@@ -4106,6 +4132,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   validateOrbAudio(state);
   validateFoxFireAudio(state);
   validateSpiritRushAudio(state);
+  validatePassiveAudio(state);
   if (!hero || hero.kind !== 'champion' || hero.team !== 'blue')
     throw new Error('Saved match is missing its player.');
   for (const target of state.units) {

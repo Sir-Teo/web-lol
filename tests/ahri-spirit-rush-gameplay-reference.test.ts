@@ -9,6 +9,17 @@ import {
   spiritRushGameplaySamples,
 } from './helpers/ahri-spirit-rush-gameplay';
 
+// Keep the frozen producer/helper and expected hashes unchanged. Only the new
+// passive presentation field is removed from current snapshots; all gameplay
+// and the already-existing Q/W/E histories remain covered by this R baseline.
+class PassivePresentationProjection extends World {
+  override snapshot(): string {
+    const state = JSON.parse(super.snapshot());
+    delete state.ahriPassiveAudio;
+    return JSON.stringify(state);
+  }
+}
+
 test('Spirit Rush audio work preserves 210 complete archived gameplay projections', () => {
   expect(
     createHash('sha256')
@@ -23,12 +34,14 @@ test('Spirit Rush audio work preserves 210 complete archived gameplay projection
   expect(reference.cases.map((c) => c.scenario)).toEqual([...SPIRIT_RUSH_GAMEPLAY_CASES]);
   for (const scenario of SPIRIT_RUSH_GAMEPLAY_CASES) {
     const expected = reference.cases.find((c) => c.scenario === scenario)!;
-    const actual = spiritRushGameplaySamples(World, PRACTICE_FIXTURE, scenario).map(
-      ({ tick, state }) => ({
-        tick,
-        sha256: createHash('sha256').update(state).digest('hex'),
-      })
-    );
+    const actual = spiritRushGameplaySamples(
+      PassivePresentationProjection,
+      PRACTICE_FIXTURE,
+      scenario
+    ).map(({ tick, state }) => ({
+      tick,
+      sha256: createHash('sha256').update(state).digest('hex'),
+    }));
     expect(actual, scenario).toEqual(expected.samples);
   }
 });

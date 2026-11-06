@@ -1,3 +1,8 @@
+import {
+  beginPassiveAudio,
+  finishPassiveAudio,
+  type PassiveAudioWorld,
+} from './ahri-passive-audio';
 import { AHRI_PASSIVE } from '../content/ahri-passive';
 import { AHRI_PASSIVE_POLICY as POLICY } from '../content/ahri-passive-policy';
 import { acceleratingMotion } from './ahri-orb-motion';
@@ -29,7 +34,7 @@ export interface AhriEssence {
   stopReason: 'consumed' | 'death' | 'expired' | null;
   healed: number | null;
 }
-interface EssenceWorld {
+interface EssenceWorld extends PassiveAudioWorld {
   tick: number;
   nextId: number;
   winner: Team | null;
@@ -40,9 +45,7 @@ interface EssenceWorld {
   unit(id: number): Unit | undefined;
   alive(u: Unit): boolean;
   abilityPower(u: Unit): number;
-  championState(
-    id: number
-  ):
+  championState(id: number):
     | {
         level: number;
         damageContributors: { sourceId: number; lastDamageTick: number; creditSourceId?: number }[];
@@ -76,7 +79,7 @@ function spawnEssence(
 ): void {
   const level = world.championState(source.id)!.level,
     power = world.abilityPower(source);
-  world.ahriEssences.push({
+  const essence: AhriEssence = {
     id: world.nextId++,
     sourceId: source.id,
     team: source.team as Team,
@@ -93,7 +96,9 @@ function spawnEssence(
     stopTick: null,
     stopReason: null,
     healed: null,
-  });
+  };
+  world.ahriEssences.push(essence);
+  beginPassiveAudio(world, essence);
 }
 /** Called once per actual death after kill credit/XP. Only living enemy Ahri
  * owners participate; champion credit uses the retained recent damage owners,
@@ -139,6 +144,7 @@ export function stopEssences(world: EssenceWorld, sourceId: number): void {
       essence.lastTick = world.tick;
       essence.stopReason = 'death';
       essence.healed = 0;
+      finishPassiveAudio(world, essence, 'death');
     }
 }
 export function essenceTravelStep(startTick: number, tick: number): number {
@@ -161,12 +167,14 @@ export function advanceEssences(world: EssenceWorld): void {
       essence.stopTick = world.tick;
       essence.stopReason = 'death';
       essence.healed = 0;
+      finishPassiveAudio(world, essence, 'death');
       continue;
     }
     if (world.tick - essence.startTick >= POLICY.maximumPursuitTicks) {
       essence.stopTick = world.tick;
       essence.stopReason = 'expired';
       essence.healed = 0;
+      finishPassiveAudio(world, essence, 'expired');
       continue;
     }
     const step = essenceTravelStep(essence.startTick, world.tick),
@@ -179,6 +187,7 @@ export function advanceEssences(world: EssenceWorld): void {
       source.hp += essence.healed;
       if (essence.healed > 0)
         world.emit('heal', source, { value: essence.healed, unit: source.id, team: essence.team });
+      finishPassiveAudio(world, essence, 'consumed');
       if (essence.kind === 'champion')
         consumeSpiritEssence(world, source.id, essence.id, essence.victimId, essence.startTick);
     } else {

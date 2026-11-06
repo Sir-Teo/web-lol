@@ -1,4 +1,9 @@
 import {
+  advancePassiveAudio,
+  finishPassiveAudio,
+  type AhriPassiveAudioRecord,
+} from './ahri-passive-audio';
+import {
   advanceSpiritRushAudio,
   finishAllSpiritRushAudio,
   type AhriSpiritRushAudioRecord,
@@ -461,6 +466,7 @@ export class World {
   ahriRushes: SpiritRush[] = [];
   ahriCounters: EssenceCounter[] = [];
   ahriEssences: AhriEssence[] = [];
+  ahriPassiveAudio: AhriPassiveAudioRecord[] = [];
   nextSunlightVisual = 1;
   singularities: Singularity[] = [];
   luxEAudio = newLuxEAudioHistory();
@@ -1174,6 +1180,7 @@ export class World {
       advanceOrbAudio(this);
       advanceFoxFireAudio(this);
       advanceSpiritRushAudio(this);
+      advancePassiveAudio(this);
     }
   }
   private update(): void {
@@ -6462,6 +6469,8 @@ export class World {
         this.ahriFoxFires.length = 0;
         finishAllSpiritRushAudio(this);
         this.ahriRushes.length = 0;
+        for (const essence of this.ahriEssences)
+          finishPassiveAudio(this, essence, essence.stopReason ?? 'match-end');
         this.ahriEssences.length = 0;
         this.pendingAttackProjectiles.length = 0;
         // E owns gameplay state outside the projectile list. Cancel its flight
@@ -6482,6 +6491,7 @@ export class World {
         advanceOrbAudio(this);
         advanceFoxFireAudio(this);
         advanceSpiritRushAudio(this);
+        advancePassiveAudio(this);
         this.commands.length = 0;
         this.pendingSpawns.length = 0;
         for (const unit of this.units) this.setOrder(unit, { type: 'idle' });
@@ -8077,6 +8087,7 @@ export class World {
       ahriRushes: this.ahriRushes,
       ahriCounters: this.ahriCounters,
       ahriEssences: this.ahriEssences,
+      ...(this.ahriPassiveAudio.length ? { ahriPassiveAudio: this.ahriPassiveAudio } : {}),
       nextSunlightVisual: this.nextSunlightVisual,
       singularities: this.singularities,
       luxEAudio: this.luxEAudio,
