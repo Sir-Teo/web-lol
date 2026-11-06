@@ -157,3 +157,16 @@ This projection adds no runtime behavior, public assets or save-schema change.
 
 The [verification receipt](reference/ahri/w-profile-verification.json) records a
 clean committed-file export, all three portable checks and both Node QA wrappers.
+
+## Attached selector reading
+
+The [attached reading](reference/ahri/w-attached-bindings.json) joins both W cast
+selectors through verified lowercase FNV-1a names in the retained native SKN
+header: `{07c39130}` is `Tails`, and `{8c0f48e3}` is `Tail_Large`. Both join one
+current GLB primitive with matching native index counts. `Tail_Large` is hidden
+in the base preview; its VFX visibility policy remains unverified.
+
+The cast resource still lacks a retained producer join. Native lock behavior,
+skin sampling, transforms and fresnel remain separate from this name mapping.
+Normal and optimized portable guards verify exact reproduction, five changed
+input pins, output conflicts and leaf/parent symlinks. No decoder cache is used.

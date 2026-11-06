@@ -13,6 +13,12 @@ on:
       - 'docs/reference/ahri/w-particles.json'
       - 'docs/reference/ahri/w-particle-bindings.json'
       - 'docs/reference/ahri/w-profile-reading.json'
+      - 'docs/reference/ahri/w-attached-bindings.json'
+      - 'docs/reference/ahri/mesh-submeshes.bin'
+      - 'docs/reference/ahri-materials.json'
+      - 'public/assets/models/ahri-base.glb'
+      - 'tools/assets/export-ahri-materials.py'
+      - 'tools/qa/ahri-w-attached-bindings.test.mjs'
       - 'docs/reference/ahri/w-texture-transports.json'
       - 'docs/reference/ahri/w-mesh-transports.json'
       - 'tools/assets/ahri_q_projectile.py'
@@ -30,6 +36,12 @@ on:
       - 'docs/reference/ahri/w-particles.json'
       - 'docs/reference/ahri/w-particle-bindings.json'
       - 'docs/reference/ahri/w-profile-reading.json'
+      - 'docs/reference/ahri/w-attached-bindings.json'
+      - 'docs/reference/ahri/mesh-submeshes.bin'
+      - 'docs/reference/ahri-materials.json'
+      - 'public/assets/models/ahri-base.glb'
+      - 'tools/assets/export-ahri-materials.py'
+      - 'tools/qa/ahri-w-attached-bindings.test.mjs'
       - 'docs/reference/ahri/w-texture-transports.json'
       - 'docs/reference/ahri/w-mesh-transports.json'
       - 'tools/assets/ahri_q_projectile.py'
@@ -54,3 +66,8 @@ jobs:
           python3 tools/assets/prepare-ahri-w-profiles.py --verify-reading
           python3 tools/assets/test-ahri-w-profiles.py
           python3 -O tools/assets/test-ahri-w-profiles.py
+      - name: Verify W attached selectors against retained native and transport draws
+        run: |
+          python3 tools/assets/read-ahri-w-attached-bindings.py --check
+          python3 tools/assets/test-ahri-w-attached-bindings.py
+          python3 -O tools/assets/test-ahri-w-attached-bindings.py

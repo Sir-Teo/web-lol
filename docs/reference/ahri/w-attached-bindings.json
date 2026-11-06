@@ -1,0 +1,120 @@
+{
+  "format": 1,
+  "producerSha256": "02b6510c8a9dde53362bb16a2c51ce66dcbd52873da99fda1696c6362ae0a450",
+  "inputs": [
+    {
+      "path": "docs/reference/ahri/w-particles.json",
+      "sha256": "c1226324a728137c05062dafc7d4a102a0799a371d233d58e3f81558c26dbb47",
+      "bytes": 235407
+    },
+    {
+      "path": "docs/reference/ahri/mesh-submeshes.bin",
+      "sha256": "787b1b497a7a70af39e8f4bf3ce191c3d17d3bf8a44deee12c018692e036756f",
+      "bytes": 332
+    },
+    {
+      "path": "docs/reference/ahri-materials.json",
+      "sha256": "a825153c16fec391e2b6f45e72f838fba84e3931dfd199618110e1fe9cb3eb08",
+      "bytes": 43362
+    },
+    {
+      "path": "public/assets/models/ahri-base.glb",
+      "sha256": "587c1741a908e23874a87d069505e0e233d4f88c22a828c9d7edda195328e202",
+      "bytes": 19854544
+    },
+    {
+      "path": "tools/assets/export-ahri-materials.py",
+      "sha256": "c52025dac7625b1c212a4deba2875bdbe71b7e53cf6f73e2194c509deec5c420",
+      "bytes": 11622
+    }
+  ],
+  "sourceMeshTable": {
+    "source": {
+      "path": "assets/characters/ahri/skins/base/ahri_base.skn",
+      "wadPathHash": "fca50cac17fc3470",
+      "sha256": "22179a3e0e95b94845fe5a3d3c35ba5f21dec6e2fee34de371ad0e4a3e2a3ae3",
+      "bytes": 847032
+    },
+    "retainedOffset": 0,
+    "retainedBytes": 332,
+    "retainedSha256": "787b1b497a7a70af39e8f4bf3ce191c3d17d3bf8a44deee12c018692e036756f"
+  },
+  "attachedMeshes": [
+    {
+      "resourceKey": "Ahri_W_cas",
+      "emitterIndex": 5,
+      "emitterName": "Avatar2",
+      "primitive": {
+        "mMesh": {
+          "mSubmeshesToDraw": [
+            "{07c39130}",
+            "{8c0f48e3}"
+          ],
+          "mLockMeshToAttachment": true,
+          "__type": "VfxMeshDefinitionData"
+        },
+        "__type": "VfxPrimitiveAttachedMesh"
+      },
+      "reflection": {
+        "fresnel": 0.15000000596046448,
+        "fresnelColor": [
+          0.9843137264251709,
+          0.43921568989753723,
+          1.0,
+          0.0
+        ],
+        "__type": "VfxReflectionDefinitionData"
+      },
+      "candidates": [
+        {
+          "selector": "{07c39130}",
+          "nativeDraw": {
+            "name": "Tails",
+            "firstVertex": 9947,
+            "vertices": 3450,
+            "firstIndex": 46410,
+            "indices": 16776
+          },
+          "transportDraw": {
+            "meshIndex": 0,
+            "primitiveIndex": 2,
+            "materialIndex": 2,
+            "indexCount": 16776,
+            "defaultHidden": false
+          }
+        },
+        {
+          "selector": "{8c0f48e3}",
+          "nativeDraw": {
+            "name": "Tail_Large",
+            "firstVertex": 13397,
+            "vertices": 383,
+            "firstIndex": 63186,
+            "indices": 1848
+          },
+          "transportDraw": {
+            "meshIndex": 0,
+            "primitiveIndex": 3,
+            "materialIndex": 3,
+            "indexCount": 1848,
+            "defaultHidden": true
+          }
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "attachedEmitters": 1,
+    "selectors": 2,
+    "nativeMatches": 2,
+    "transportMatches": 2,
+    "defaultHiddenMatches": 1
+  },
+  "limits": [
+    "Verified lowercase FNV-1a selector joins to retained native SKN names and current GLB material extras.",
+    "Tail_Large is hidden in the base preview; this does not establish VFX visibility or fallback policy.",
+    "The W cast resource still has no retained animation or spell producer join.",
+    "Lock-to-attachment, native skin sampling, root transforms, fresnel and pixels remain unverified.",
+    "This reading changes no runtime behavior, assets or particle profile defaults."
+  ]
+}
