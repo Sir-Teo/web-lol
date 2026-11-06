@@ -6,29 +6,28 @@ Last updated: November 6, 2026 (UTC).
 
 ## Current authoritative state
 
-Accepted local runtime: save schema **169**, ruleset
-`a37e6c8fb79562e749c5d16850ab774086bb7029c82f2f5aa052a6bf128f244f`,
-application `6e67c09`. [Orb source audio](AHRI-Q-AUDIO.md)
-now follows saved cast, flight, per-leg contact and catch clocks with 22 finite
-source masters. The 129-test audio CI selection, TypeScript, 93 Node QA cases,
-six combined Charm/Orb browser cases and all ten cache-free Python guard modes
-pass. The full suite passes 8,554/8,556 in 481 files, with only the two historical
-failures. Production subdirectory, all-file pack audit and offline lifecycle
-checks pass; see [Q acceptance](reference/ahri-orb-playback-acceptance.json).
+Accepted local runtime: save schema **170**, ruleset
+`0a89aab3c66220aa21ddee31acf6c91b44eba7a256f01bf490622ec407268b16`,
+application `43899a6`. [Fox-Fire source playback](AHRI-W-AUDIO.md) adds eleven
+masters alongside Q and Charm, with saved activation, missile and contact clocks.
+The full suite passes 8,596/8,598 in 488 files, with only the two historical
+failures. All107 Node QA cases,189 scoped CI tests in26 files, TypeScript and
+fourteen cache-free Python guard modes pass. Ten combined browser cases and
+production/offline gates pass; see [W acceptance](reference/ahri-fox-fire-playback-acceptance.json).
 
-The accepted Q pack is `21178992`, with 1,279 files / 562,049,206 bytes.
-The predecessor [Charm merge](reference/ahri-charm-main-merge-verification.json)
-retains its separate schema 168 / `e73e3c25` receipt. All work is local; no push
-or deployment has occurred. Fox-Fire source reading is isolated separately.
+The accepted W pack is `bad57b7c`, with1,292 files /565,047,444 bytes. The earlier
+[Q integration](reference/ahri-orb-main-integration.json) and Charm receipts retain
+their original scope. All work is local; no push or deployment has occurred.
+Spirit Rush source preparation is isolated on its own branch.
 
 The [frozen hundred-seed development-roster baseline](CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md)
 is complete: 100 natural victories, zero unfinished matches or invariant failures,
 14,987,533 checked ticks and 4,219 exact save round trips under schema 167 /
 `7ae8e0f8`. The older e20 baseline remains 98 victories / two unfinished at its
 original horizon; later diagnostic continuations retain their separate scope.
-Neither baseline is relabeled to later audio rulesets. The isolated Q-history
-seed under `1b65f941` retains 45 matching archived gameplay projections; all its
-simulation/content source bytes are unchanged in the playback checkpoint.
+Neither baseline is relabeled to later audio rulesets. The isolated Q-history (`1b65f941`) and W-history (`f30224c9`) seeds each retain45
+matching archived gameplay projections against their own immediate baselines.
+All W-history simulation/content bytes are unchanged in the accepted W playback checkpoint.
 
 Full production roster selection, complete champion/objective behavior, native
 visual/audio calibration and representative device performance remain open.
@@ -9519,3 +9518,7 @@ Schema170 now observes W cast, activation stop, launch, contact, death/expiry an
 ## Verified frozen Fox-Fire history
 
 Frozen8166731/f30224c9 passes8,582/8,584 full-suite cases with only the same two historical failures after restoring six unchanged fixture directories omitted from the new worktree.107 Node QA cases and cache-free175-case CI/14 Python modes pass. The isolated seed finishes naturally Blue at157,116, with44 restores/43 future checks. All45 archived gameplay projections match1b65f941 with existing Q/Charm history retained. The576-file source archive and runner/maps/reports/snapshots verify. Playback stays separate; no100-seed result is relabeled.
+
+## Verified Fox-Fire playback delivery
+
+Application43899a6/schema170/0a89aab3 passes8,596/8,598 full-suite cases,107 Node QA, cache-free189-case CI/14 Python modes and ten combined browser cases. Eleven W PCM masters match exactly; the native loop stop renders with8.0023e-6 maximum error and no output after its end. Nested-prefix production, full pack audit and offline lifecycle pass with978 worker responses /zero production errors. Packbad57b7c contains1,292 files /565,047,444 bytes. All simulation/content bytes match frozenf30224c9. Native continuous transitions/mix and the separate hit-stop dispatch remain unverified; production selection remains Ashe/Lux. Spirit Rush preparation is isolated.

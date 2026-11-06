@@ -1,0 +1,41 @@
+{
+  "format": 1,
+  "applicationRevision": "43899a60107621181c123774fddd081572f01df8",
+  "schema": 170,
+  "ruleset": "0a89aab3c66220aa21ddee31acf6c91b44eba7a256f01bf490622ec407268b16",
+  "baselineRevision": "8166731aab4daf259df0e4331cbeafecd4719593",
+  "baselineRuleset": "f30224c964d2bd02e18e3e5abe38f69e67aebec7b1a8cd5bfa7e41ddf7bcaf19",
+  "archivedFiles": 576,
+  "unchangedFiles": 575,
+  "changedFiles": [
+    {
+      "file": "tools/ruleset-fingerprint.ts",
+      "archivedSha256": "204255d60260e8b0080c56ee818d577e3879b64a761b931ccfae0793acc2c709",
+      "currentSha256": "4f8b3837f732baed757171051ac8d463ffd3c83204e40d8a3c55b811f575289b"
+    }
+  ],
+  "addedFiles": [
+    {
+      "file": "src/audio/ahri-fox-fire-state.ts",
+      "sha256": "993b69757e347361c233818fb5117fe74ff12b1b6560a0cbab30b1ad3f8c5056"
+    },
+    {
+      "file": "src/audio/ahri-fox-fire.ts",
+      "sha256": "0a667e75388e1474b76177ba98fdb9b40770db7f44346f74b609b06dd370c2b4"
+    }
+  ],
+  "integrationOutsideArchivedClosure": [
+    {
+      "file": "src/audio/audio.ts",
+      "baselineSha256": "3bab5d5904d852ad2259696f1fa3a925c017e0119964839b26169898126b8b29",
+      "currentSha256": "85e83bbb08f47d11425c7508e44a7b6cb822338a254b7fe144fae97ead816133"
+    },
+    {
+      "file": "src/audio/ahri-fox-fire-lazy.ts",
+      "baselineSha256": null,
+      "currentSha256": "a6e4c5d286a75c9c2c6c8fd1042046e7e95050422326fe56f9d31007fd8a8f46"
+    }
+  ],
+  "allArchivedSimulationAndContentUnchanged": true,
+  "scope": "Source identity comparison only; the frozen history seed and hundred-seed baseline retain their own rulesets."
+}

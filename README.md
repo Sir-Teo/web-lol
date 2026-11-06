@@ -56,7 +56,7 @@ npm run offline:verify
 npm run test:production
 ```
 
-The latest full suite passes 8,554/8,556 tests. The missing historical Leona
+The latest full suite passes 8,596/8,598 tests. The missing historical Leona
 checker/archive and the retained Lux E sampler digest remain unresolved; their
 assertions are unchanged. See the [current validation receipt](docs/reference/ahri-charm-main-merge-verification.json)
 and [Lux runtime portability audit](docs/LUX-E-SAMPLER-PORTABILITY.md).
@@ -69,7 +69,7 @@ The browser suite currently uses installed Google Chrome. All runtime assets are
 
 ## Deployment
 
-The practice build is hosted at https://sir-teo.github.io/web-lol/. Pushes to `main` install dependencies with npm caching, build, and deploy to GitHub Pages. Documentation-only and test-only pushes skip deployment; the workflow can also be run manually. A separate CI workflow runs TypeScript, 129 Baron/Charm/Orb audio and persistence checks on
+The practice build is hosted at https://sir-teo.github.io/web-lol/. Pushes to `main` install dependencies with npm caching, build, and deploy to GitHub Pages. Documentation-only and test-only pushes skip deployment; the workflow can also be run manually. A separate CI workflow runs TypeScript, 189 Baron/Charm/Orb/Fox-Fire audio and persistence checks on
 Node 24.22.1, and cache-independent float-format/publication guards; the full suite and browser/offline gates remain
 separate. See [Charm acceptance](docs/reference/ahri-charm-envelope-acceptance.json).
 
@@ -80,7 +80,7 @@ The complete offline-pack audit also accepts system Chromium: after building, ru
 `npm run test:production` builds locally and checks both entrypoints beneath a strict nested static-host path using installed Google Chrome. It verifies the map-to-practice link, map controls, source audio and selected Oracle recordings, real-input Hawkshot and Lux Binding casts, Lux selection and 5v5 restart, five-position scoreboard assignments and selected jungle companion rigs, all eleven practice monster rigs, Smite selection, a practice companion purchase, real Stealth Ward placement and saved restoration, Oracle Lens preparation/activation/restoration, rejection of development player-fixture flags, and absence of failed/out-of-prefix requests or development hooks. Each run reserves an exclusive claim and writes eight screenshots to
 `artifacts/production-subpath-<run>-<view>.png` plus a namespaced JSON report.
 Existing run names reject before browser work. It also requires zero unsolicited
-Baron model/effect/audio requests and Charm/Orb masters when Ahri is absent. See [QA artifact retention](docs/QA-ARTIFACT-RUNS.md).
+Baron model/effect/audio requests and Charm/Orb/Fox-Fire masters when Ahri is absent. See [QA artifact retention](docs/QA-ARTIFACT-RUNS.md).
 
 `npm run offline:verify` checks every current distribution file, its complete
 manifest, pack identity and generated worker without rewriting historical receipts.
@@ -128,6 +128,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Garen and Ahri roster expansion](docs/ROSTER-EXPANSION.md)
 - [Charm source audio and saved phase clocks](docs/AHRI-CHARM-AUDIO.md) — nine unchanged masters, exact Linear play fade and retained Exp1 stop domain.
 - [Orb source audio and saved dispatch clocks](docs/AHRI-Q-AUDIO.md) — 22 unchanged masters, per-leg hit sequences and distinct flight stop curves.
+- [Fox-Fire source audio and saved clocks](docs/AHRI-W-AUDIO.md) — eleven unchanged masters, continuous activation and a separate stop-tail cue.
 - [Ahri development NPC and source declarations](docs/AHRI.md) — `/?scene=fixture&npc=ahri` adds her own stats, ordinary attacks, rig and manually cast [Q](docs/AHRI-Q.md)/[W](docs/AHRI-W.md)/[E](docs/AHRI-E.md) and [R base](docs/AHRI-R.md) controllers plus [Essence Theft](docs/AHRI-PASSIVE.md) healing/R resets; [human practice controls and HUD](docs/AHRI-PLAYER.md) are available in a separate development scene; role AI and native presentation remain unfinished.
 - [Browser interruption and graphics recovery](docs/RECOVERY.md)
 - [Minion sources and wave coverage](docs/MINIONS.md)

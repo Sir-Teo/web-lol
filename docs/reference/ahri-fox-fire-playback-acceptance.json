@@ -1,0 +1,573 @@
+{
+  "format": 1,
+  "applicationRevision": "43899a60107621181c123774fddd081572f01df8",
+  "schema": 170,
+  "ruleset": "0a89aab3c66220aa21ddee31acf6c91b44eba7a256f01bf490622ec407268b16",
+  "pack": {
+    "id": "bad57b7cbc90418fac37dc5fc2eb3db778862d6ecff16b35cd578bdf349249a8",
+    "files": 1292,
+    "bytes": 565047444,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a",
+    "allFileAndWorkerAudit": true
+  },
+  "fullUnit": {
+    "passed": 8596,
+    "failed": 2,
+    "files": 488,
+    "workers": 1,
+    "knownFailures": [
+      "missing historical Leona reader archive",
+      "Lux sampler FMA golden mismatch"
+    ]
+  },
+  "nodeQA": 107,
+  "cleanCI": {
+    "tests": 189,
+    "files": 26,
+    "typeCheck": true,
+    "pythonModes": 14,
+    "privateCaches": false,
+    "privateTools": false,
+    "dependencies": "Reused parent node_modules; npm ci not repeated locally",
+    "remoteDispatched": false
+  },
+  "browser": {
+    "uniqueCases": 10,
+    "charmCases": 3,
+    "orbCases": 3,
+    "foxFireCases": 3,
+    "genericEnvelopeCases": 1,
+    "exactFoxFirePcmMasters": 11,
+    "exactAhriPcmMasters": 42,
+    "unrequestedFoxFireMastersWithoutAhri": 0,
+    "keyboardDispatch": [
+      "cast",
+      "continuous activation",
+      "three launches",
+      "activation stop/tail",
+      "three hits"
+    ],
+    "muteResumeRestore": true,
+    "snapshotUnchanged": true,
+    "nativeLoop": {
+      "maximumError": 8.002259178629956e-06,
+      "afterEndPeak": 0,
+      "beforeStop": 1,
+      "stopAge": 0.25
+    },
+    "nativeEnvelopeCases": [
+      {
+        "age": 0,
+        "stopAge": 0.25,
+        "endAge": 1,
+        "stopCurve": 2,
+        "stopFadeSeconds": 0.75,
+        "fadeInSeconds": 0.05,
+        "maximumError": 8.328839372073737e-06,
+        "afterEndPeak": 0
+      },
+      {
+        "age": 0.6,
+        "stopAge": 0.25,
+        "endAge": 1,
+        "stopCurve": 2,
+        "stopFadeSeconds": 0.75,
+        "fadeInSeconds": 0.05,
+        "maximumError": 2.3608740589153854e-06,
+        "afterEndPeak": 0
+      },
+      {
+        "age": 0,
+        "stopAge": 0.025,
+        "endAge": 0.775,
+        "stopCurve": 2,
+        "stopFadeSeconds": 0.75,
+        "fadeInSeconds": 0.05,
+        "maximumError": 4.3047561375519905e-06,
+        "afterEndPeak": 0
+      },
+      {
+        "age": 0,
+        "stopAge": 0.25,
+        "endAge": 0.4,
+        "stopCurve": 2,
+        "stopFadeSeconds": 0.75,
+        "fadeInSeconds": 0.05,
+        "maximumError": 5.473055643134828e-07,
+        "afterEndPeak": 0
+      },
+      {
+        "age": 0,
+        "stopAge": 0.25,
+        "endAge": 1,
+        "stopCurve": 4,
+        "stopFadeSeconds": 0.75,
+        "fadeInSeconds": 0.05,
+        "maximumError": 3.041864252706361e-07,
+        "afterEndPeak": 0
+      },
+      {
+        "age": 0.6,
+        "stopAge": 0.25,
+        "endAge": 1,
+        "stopCurve": 4,
+        "stopFadeSeconds": 0.75,
+        "fadeInSeconds": 0.05,
+        "maximumError": 5.733759578241404e-08,
+        "afterEndPeak": 0
+      },
+      {
+        "age": 0,
+        "stopAge": 0.025,
+        "endAge": 0.775,
+        "stopCurve": 4,
+        "stopFadeSeconds": 0.75,
+        "fadeInSeconds": 0.05,
+        "maximumError": 2.866023792180705e-07,
+        "afterEndPeak": 0
+      },
+      {
+        "age": 0,
+        "stopAge": 0.25,
+        "endAge": 0.4,
+        "stopCurve": 4,
+        "stopFadeSeconds": 0.75,
+        "fadeInSeconds": 0.05,
+        "maximumError": 3.041864252706361e-07,
+        "afterEndPeak": 0
+      },
+      {
+        "age": 0,
+        "stopAge": 0.25,
+        "endAge": 1,
+        "stopCurve": 6,
+        "stopFadeSeconds": 0.75,
+        "fadeInSeconds": 0.05,
+        "maximumError": 8.363226094099119e-06,
+        "afterEndPeak": 0
+      },
+      {
+        "age": 0.6,
+        "stopAge": 0.25,
+        "endAge": 1,
+        "stopCurve": 6,
+        "stopFadeSeconds": 0.75,
+        "fadeInSeconds": 0.05,
+        "maximumError": 2.614083280949586e-06,
+        "afterEndPeak": 0
+      },
+      {
+        "age": 0,
+        "stopAge": 0.025,
+        "endAge": 0.775,
+        "stopCurve": 6,
+        "stopFadeSeconds": 0.75,
+        "fadeInSeconds": 0.05,
+        "maximumError": 4.3144208301537645e-06,
+        "afterEndPeak": 0
+      },
+      {
+        "age": 0,
+        "stopAge": 0.25,
+        "endAge": 0.4,
+        "stopCurve": 6,
+        "stopFadeSeconds": 0.75,
+        "fadeInSeconds": 0.05,
+        "maximumError": 5.529396118753027e-07,
+        "afterEndPeak": 0
+      }
+    ],
+    "screenshotsReviewed": true,
+    "performanceScope": "Software Chromium functional evidence only; not representative device performance"
+  },
+  "production": {
+    "artifactRun": "ahri-fox-fire-v1",
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "recordings": 32,
+    "mapNavigation": true,
+    "practiceScheduledRigs": 11,
+    "realHawkshotCast": true,
+    "realLuxBindingCast": true,
+    "realLuxSingularityCastAndRecast": true,
+    "lucentSourceAssets": [
+      "assets/effects/lux-e-color-hit-mana.png",
+      "assets/effects/lux-e-color-hold.png",
+      "assets/effects/lux-e-color_lux_e_shield.png",
+      "assets/effects/lux-e-lux_base_e_distort.png",
+      "assets/effects/lux-e-lux_base_e_flame_ring.png",
+      "assets/effects/lux-e-lux_base_e_flare.png",
+      "assets/effects/lux-e-lux_base_e_flash.png",
+      "assets/effects/lux-e-lux_base_e_glow.png",
+      "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+      "assets/effects/lux-e-lux_base_e_indicator_red.png",
+      "assets/effects/lux-e-lux_base_e_mote.png",
+      "assets/effects/lux-e-lux_base_e_small_mote.png",
+      "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+      "assets/effects/lux-e-lux_base_w_glow.png",
+      "assets/effects/lux-e-rainbowflash.png",
+      "assets/effects/lux-e-rainbowhalo.png",
+      "assets/effects/lux-e-sphere_e_01.png",
+      "assets/models/lux-e-indicator.glb",
+      "assets/models/lux-e-slash.glb"
+    ],
+    "luxLaneRestart": true,
+    "selectedSmiteLoadoutAndRestart": true,
+    "companionPurchaseAndRestore": true,
+    "companionPurchaseInPractice": true,
+    "realWardPlacementAndRestore": true,
+    "oraclePurchaseActivationAndRestore": true,
+    "oracleRigRequests": 8,
+    "oracleAudioRequests": 6,
+    "unrequestedOraclePreloads": 0,
+    "wardRigRequests": 20,
+    "unrequestedCompanionPreloads": 0,
+    "developmentHook": false,
+    "baronEncounterInProduction": false,
+    "unrequestedBaronPreloads": 0,
+    "unrequestedBaronEffectPreloads": 0,
+    "unrequestedBaronAudioPreloads": 0,
+    "unrequestedAhriCharmAudioPreloads": 0,
+    "unrequestedAhriOrbAudioPreloads": 0,
+    "unrequestedAhriFoxFireAudioPreloads": 0,
+    "garenFixtureInProduction": false,
+    "leonaPlayerFixtureInProduction": false,
+    "leonaRiftTrialInProduction": false,
+    "garenRiftTrialInProduction": false,
+    "masterYiRiftTrialInProduction": false,
+    "masterYiBotRiftTrialInProduction": false,
+    "rosterRiftTrialInProduction": false,
+    "publicChampionChoices": [
+      "ashe",
+      "lux"
+    ],
+    "ahriRiftTrialInProduction": false,
+    "ahriBotRiftTrialInProduction": false,
+    "ahriNpcFixtureInProduction": false,
+    "ahriPlayerFixtureInProduction": false,
+    "unrequestedAhriPreloads": 0,
+    "unrequestedMasterYiPreloads": 0,
+    "unrequestedMasterYiAttackAudioPreloads": 0,
+    "unrequestedMasterYiHighlanderAudioPreloads": 0,
+    "unrequestedMasterYiAlphaAudioPreloads": 0,
+    "unrequestedMasterYiMeditateAudioPreloads": 0,
+    "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+    "unrequestedMasterYiSwordPreloads": 0,
+    "unrequestedMasterYiPrimaryTrailPreloads": 0,
+    "unrequestedMasterYiPrimaryHitPreloads": 0,
+    "unrequestedMasterYiPassiveTrailPreloads": 0,
+    "unrequestedMasterYiMeditateDamagePreloads": 0,
+    "unrequestedMasterYiHighlanderKillPreloads": 0,
+    "unrequestedMasterYiHighlanderCastPreloads": 0,
+    "unrequestedMasterYiQEndPreloads": 0,
+    "unrequestedMasterYiQCastPreloads": 0,
+    "unrequestedMasterYiQContactPreloads": 0,
+    "unrequestedMasterYiMeditateCastPreloads": 0,
+    "unrequestedMasterYiMeditateBuffPreloads": 0,
+    "masterYiNpcFixtureInProduction": false,
+    "masterYiPlayerFixtureInProduction": false,
+    "junglePreviewRequests": 0,
+    "unrequestedLeonaPreloads": 0,
+    "preparedCompanionRequests": 5,
+    "roleCompanionRequests": 2,
+    "roleScoreboardIcons": 34,
+    "scheduledGrompRequests": 340,
+    "scheduledBlueRequests": 20,
+    "scheduledRedRequests": 20,
+    "scheduledWolfRequests": 40,
+    "scheduledRaptorRequests": 40,
+    "scheduledKrugRequests": 60,
+    "scheduledScuttlerRequests": 20,
+    "screenshot": "artifacts/production-subpath-ahri-fox-fire-v1-subpath.png"
+  },
+  "offline": {
+    "browser": "system-chromium",
+    "manifest": {
+      "id": "bad57b7cbc90418fac37dc5fc2eb3db778862d6ecff16b35cd578bdf349249a8",
+      "files": 1292,
+      "bytes": 565047444
+    },
+    "checks": {
+      "integrityFailureRestoresDownloadFocus": true,
+      "integrityFailure": true,
+      "downloadFocusesCancel": true,
+      "cancelRetainsVerified": true,
+      "cancelRestoresDownloadFocus": true,
+      "retryWithoutRedownload": true,
+      "completionPreservesOtherControlFocus": true,
+      "pausedSavedTickBootsOffline": true,
+      "completePackRepairOffline": true,
+      "newLuxLaneMatchOffline": true,
+      "serviceWorkerResponses": 978,
+      "removalKeepsSavedBytes": true,
+      "updateRefusesOtherTabs": true,
+      "explicitAtomicVersionSwitchOffline": true,
+      "missingEntryRevokesReady": true,
+      "scopeOnlyRemoval": true
+    },
+    "result": "passed",
+    "productionErrors": []
+  },
+  "gameplayScope": {
+    "sourceDelta": "ahri-fox-fire-playback-source-delta.json",
+    "historyRuleset": "f30224c9",
+    "allArchivedSimulationAndContentUnchanged": true,
+    "equalHistorySeedProjections": 45,
+    "hundredSeedRuleset": "7ae8e0f8",
+    "hundredSeedRelabeled": false,
+    "roadmapMilestone4Complete": false
+  },
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-clean-ci-0.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-clean-ci-1.log",
+      "bytes": 418,
+      "sha256": "fc929a8aeb3a2ef159413bc7ad8b05e037bdbed60319cbff62a64bf2c1b9e141"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-clean-ci-10.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-clean-ci-11.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-clean-ci-12.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-clean-ci-13.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-clean-ci-14.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-clean-ci-15.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-clean-ci-2.log",
+      "bytes": 126,
+      "sha256": "40aead902f47ee86083ca799462d13f1f5def3ae5feb071af6b5032aae880871"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-clean-ci-3.log",
+      "bytes": 125,
+      "sha256": "f5d56745cbec320ad650e983e5f2738ba279b3545edfdf1ea9dfd5a5312e45c2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-clean-ci-4.log",
+      "bytes": 118,
+      "sha256": "b08e65827c7a08cae7a8c83373415a646d20c999bf8b7f7c48684023fc4faf73"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-clean-ci-5.log",
+      "bytes": 117,
+      "sha256": "277830a9736393132c0af95cee95446a745c5f7f75b6d6f54b9a6eac6babda4c"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-clean-ci-6.log",
+      "bytes": 118,
+      "sha256": "b08e65827c7a08cae7a8c83373415a646d20c999bf8b7f7c48684023fc4faf73"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-clean-ci-7.log",
+      "bytes": 117,
+      "sha256": "277830a9736393132c0af95cee95446a745c5f7f75b6d6f54b9a6eac6babda4c"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-clean-ci-8.log",
+      "bytes": 121,
+      "sha256": "23a5151975aebfa4f688c9a38a0a1a5e16ecdbf829553970e98f303acce1e579"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-clean-ci-9.log",
+      "bytes": 120,
+      "sha256": "2d4bd23507d91cb112aba7b702d646dd3c1da3de1ad8406725db3fa16cb165f3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-build-v1.log",
+      "bytes": 7974,
+      "sha256": "615b0028311bead381d583a0e12d7042f1bbd2361f971920c856a8e108eaedf1"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-selector-v1.log",
+      "bytes": 406,
+      "sha256": "be00fbf34f0b238f046b5a0c03473d97a615ddca28452a7366bee2347887911b"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-types-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-full-suite-v1.log",
+      "bytes": 4785,
+      "sha256": "58c72c5edb2f8876946e07c77c84e0e9f490d7b2a6a681e030318d34af569103"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-node-qa-v1.log",
+      "bytes": 8721,
+      "sha256": "de90de0f251ff0c203840c675b076cacf130c9c19393fbfc46ad21d775f1c2f9"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-pack-v1.log",
+      "bytes": 286,
+      "sha256": "01bd7d86ac47c49898f44a8a6efe4b33bd0f1f9c1c23c034a71bafbcd28623e3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-browser-v1.log",
+      "bytes": 1099,
+      "sha256": "ed1681f4a43bc73f79099078954cc520089a4ccd9d30f2f5def5c9865dd25b66"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-combined-browser-v1.log",
+      "bytes": 2706,
+      "sha256": "69b76eac12c62b6b558507f6e2f6dffbe986db6a437d6a61c17b6a01b074930b"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-production-v1.log",
+      "bytes": 3407,
+      "sha256": "5eef8d0690e038d58efda8ba833ff767c31b03bbfa98109f10cb36ba8fd08404"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-playback-offline-v1.log",
+      "bytes": 870,
+      "sha256": "927d721dddc1c7c763084a84a527babc3fac16dbefdc715a1b6a6ab1ac656ca6"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/ahri-fox-fire-combined-v1/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/ahri-fox-fire-combined-v1/ahri-orb-audio-Orb-source--bc86e-gh-contact-mute-and-restore/audio-evidence.json",
+      "bytes": 6795,
+      "sha256": "fc1fcba7197c38c7ed134bb13fb3c17523b97ded03bf9b053aa859937733d80a"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/ahri-fox-fire-combined-v1/ahri-charm-audio-native-We-bfaf2-d-original-Exp1-seek-domain/envelope-evidence.json",
+      "bytes": 409,
+      "sha256": "4bca156ceb029eadc1d424e9144dc69f3f3affb76cecba1e3204414217c07ef2"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/ahri-fox-fire-combined-v1/ahri-fox-fire-audio-native-e4eaa-ns-the-original-Exp1-domain/fox-fire-loop-evidence.json",
+      "bytes": 105,
+      "sha256": "b74c6d055ad7af6d0be35b70b0823119dc4d1d34eab10794c3b5d01b3cecbb72"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/ahri-fox-fire-combined-v1/ahri-charm-audio-Charm-sou-6df4d-gh-contact-mute-and-restore/audio-evidence.json",
+      "bytes": 3560,
+      "sha256": "81b1cce9aca86c13df8c0e94f07bafcbdf157cf1a6fe1e08d2ab1b3000a035bd"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/ahri-fox-fire-combined-v1/source-envelope-native-Web-589be--truncated-source-envelopes/source-envelope-evidence.json",
+      "bytes": 2463,
+      "sha256": "e079a7ac2434b190fef7106b510350c8a3bd4fab26b2ba68e7b70c30c9830624"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/ahri-fox-fire-combined-v1/ahri-fox-fire-audio-Fox-Fi-ba855-gh-contact-mute-and-restore/audio-evidence.json",
+      "bytes": 5451,
+      "sha256": "7bad9faa8201dcebc1a99f602e11746a981b126c181a6603c91174a740be2f70"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/ahri-fox-fire-combined-v1/ahri-orb-audio-native-Web--4d82f--return-Linear-stop-domains/orb-envelope-evidence.json",
+      "bytes": 810,
+      "sha256": "cd31551ae0213a3dc99b8758d11bfc0e12bb3c155e14297699a5f6076bc189bc"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/ahri-fox-fire-combined-v1/ahri-orb-audio-Orb-source--bc86e-gh-contact-mute-and-restore/orb-contact.png",
+      "bytes": 785924,
+      "sha256": "aa9cd299a023e9fb945c94f73f1aaf8dcdf787cea421c3f97b531802d7f03c9e"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/ahri-fox-fire-combined-v1/ahri-charm-audio-Charm-sou-6df4d-gh-contact-mute-and-restore/charm-contact.png",
+      "bytes": 792593,
+      "sha256": "096ccb40b8edff4006edd866042a15c3228b5c4ea68d8f0e1d0a0857c8e31c77"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/ahri-fox-fire-combined-v1/ahri-fox-fire-audio-Fox-Fi-ba855-gh-contact-mute-and-restore/fox-fire-contact.png",
+      "bytes": 788568,
+      "sha256": "d8f0a3292803d64f868a5fe39190d400cb9fb8339e07bc11b3ee4da6fbdd2085"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/production-subpath-ahri-fox-fire-v1.json",
+      "bytes": 3819,
+      "sha256": "524374b3786ff513443c357f21f08fac3cfe9b99d748498dbb517f3fce1b2ee3"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/production-subpath-ahri-fox-fire-v1-lux-e-moving-burst.png",
+      "bytes": 1843955,
+      "sha256": "31b6b864dc8c7cffbd33c2b3e9ba9a8ff98684b81344d4e4e0c21107c91c5b06"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/production-subpath-ahri-fox-fire-v1-companion-purchase.png",
+      "bytes": 1812965,
+      "sha256": "8128c39c0767fe379dc2814b526ac655687fa43c9fc0cb7c15a2ab90838fbe59"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/production-subpath-ahri-fox-fire-v1-subpath.png",
+      "bytes": 1822944,
+      "sha256": "7f03782dc5ef2989a2b04cae580b0054a1aa6529a92c06b0ab952506ae88fc97"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/production-subpath-ahri-fox-fire-v1-lux-e-source.png",
+      "bytes": 1840397,
+      "sha256": "0a62ef54ec5d52898a22659bd2788d52f279c1c79e5cb751a09818b6b6c3ae8f"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/production-subpath-ahri-fox-fire-v1-lux.png",
+      "bytes": 1820703,
+      "sha256": "dd4e5971f7c022b194d9de16176c668cd57c5ade0d1fded6d178e9ef297f0a5d"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/production-subpath-ahri-fox-fire-v1-ward.png",
+      "bytes": 1808398,
+      "sha256": "39f764bb88244a3382470251fe7750f5e9443c80f6f03fbb72a0a9316180cdbc"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/production-subpath-ahri-fox-fire-v1-oracle.png",
+      "bytes": 1819329,
+      "sha256": "4a663ea937ba2eb973908f1b2aa217c834c85f656cf74b27a0ebfeb2210d92dd"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/production-subpath-ahri-fox-fire-v1-role-match.png",
+      "bytes": 1360428,
+      "sha256": "7e409bfc9bd22258ff62335ff10195bc77df84e7007f190e37b13f968a4f469e"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/offline-pack-ahri-fox-fire-v1-ready.png",
+      "bytes": 573709,
+      "sha256": "b844bbe40e05b30e8296a496fe70a84441bc647d868396bf95c82b735abfe88b"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/offline-pack-ahri-fox-fire-v1-production.json",
+      "bytes": 859,
+      "sha256": "0a3496185cad457e8805ea1862e2ae2df2c8dfe759d9541d9f57d8725dad2f37"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-fox-fire-playback/artifacts/offline-pack-ahri-fox-fire-v1-lux-lanes.png",
+      "bytes": 529155,
+      "sha256": "09456e33182b4dff24632c66830538c10a691735eac204271807eb104563a028"
+    }
+  ],
+  "limits": [
+    "Local additive gain/pitch, cosmetic draws, oldest-observed voice caps, full-master continuous cycle and activation-stop policy; native dispatch/continuous transitions/global shuffle/listener/bus calibration are unverified.",
+    "The separate source hit-stop event has no assigned local clock; finite hit masters finish naturally.",
+    "Production public champion selection remains Ashe/Lux; private Ahri browser tests are development fixtures.",
+    "Spirit Rush source staging is isolated and excluded from this acceptance."
+  ]
+}
