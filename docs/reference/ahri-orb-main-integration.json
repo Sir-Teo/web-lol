@@ -1,0 +1,31 @@
+{
+  "format": 1,
+  "integratedRevision": "32f586308d35191b4a998d13fa73bed61bc7c824",
+  "method": "Fast-forward from c90e665 to verified Orb branch; no merge edits",
+  "schema": 169,
+  "ruleset": "a37e6c8fb79562e749c5d16850ab774086bb7029c82f2f5aa052a6bf128f244f",
+  "sourceFilesCompared": 777,
+  "allSourceBytesMatchAcceptedBranch": true,
+  "pack": {
+    "id": "21178992bd753d65496866ff9ce5fe5561a3303901c1c2039c1c25e092bd5a3a",
+    "files": 1279,
+    "bytes": 562049206,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a",
+    "allFileAndWorkerAudit": true
+  },
+  "acceptance": "ahri-orb-playback-acceptance.json",
+  "repeatFullSuite": false,
+  "reason": "Fast-forward retains the exact verified source; local rebuild and pack audit reproduce the accepted pack byte for byte.",
+  "logs": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-main-build-v1.log",
+      "sha256": "a657cc72cd9177dffe025d9717cae5dfc38749b3703f9a780259815320ab4336"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-orb-main-pack-v1.log",
+      "sha256": "6958c6cb2a0f12d64d446cefb621cbb505bd0e1724f878cf205e1dd62cdd1ab1"
+    }
+  ],
+  "pushed": false,
+  "deployed": false
+}

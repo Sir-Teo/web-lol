@@ -6,20 +6,20 @@ Last updated: November 6, 2026 (UTC).
 
 ## Current authoritative state
 
-Runtime development checkpoint: save schema **169**, ruleset
+Accepted local runtime: save schema **169**, ruleset
 `a37e6c8fb79562e749c5d16850ab774086bb7029c82f2f5aa052a6bf128f244f`,
-application `6e67c09` on the isolated Orb audio branch. [Orb source audio](AHRI-Q-AUDIO.md)
+application `6e67c09`. [Orb source audio](AHRI-Q-AUDIO.md)
 now follows saved cast, flight, per-leg contact and catch clocks with 22 finite
 source masters. The 129-test audio CI selection, TypeScript, 93 Node QA cases,
 six combined Charm/Orb browser cases and all ten cache-free Python guard modes
-pass. Production subdirectory, offline lifecycle and full-suite acceptance are
-still being refreshed for this checkpoint. The existing two historical full-suite
-gaps remain documented rather than bypassed.
+pass. The full suite passes 8,554/8,556 in 481 files, with only the two historical
+failures. Production subdirectory, all-file pack audit and offline lifecycle
+checks pass; see [Q acceptance](reference/ahri-orb-playback-acceptance.json).
 
-The primary branch is `c90e665`, schema 168 / ruleset `e73e3c25`, with accepted
-[Charm delivery](reference/ahri-charm-main-merge-verification.json). Its source pack
-is `979d59e3`, with 1,256 files / 557,784,904 bytes. Orb integration is local and
-has not been pushed or deployed.
+The accepted Q pack is `21178992`, with 1,279 files / 562,049,206 bytes.
+The predecessor [Charm merge](reference/ahri-charm-main-merge-verification.json)
+retains its separate schema 168 / `e73e3c25` receipt. All work is local; no push
+or deployment has occurred. Fox-Fire source reading is isolated separately.
 
 The [frozen hundred-seed development-roster baseline](CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md)
 is complete: 100 natural victories, zero unfinished matches or invariant failures,
@@ -9501,3 +9501,11 @@ The local aa76c9b merge preserves both development logs and all prior receipts. 
 ## Orb source playback and browser integration
 
 Committed `6e67c09` adds finite, pitch-aware Q source playback with independent outward/return stop curves, child/root voice caps, saved audience gates and mute/restore/terminal handling. Ready source playback owns the generic Q tone. The 129-test CI selection, 93 Node QA cases and ten cache-free Python modes pass. Six combined Charm/Orb browser cases pass, and a strengthened keyboard test explicitly verifies outward contact, return contact and catch. All 22 decoded PCM hashes match. The archived Q-history simulation/content bytes remain unchanged; see `reference/ahri-orb-playback-source-delta.json`. Full-suite and delivery refresh are in progress.
+
+## Verified Orb playback delivery
+
+The accepted Q checkpoint passes 8,554/8,556 full-suite tests, 93 Node QA cases, cache-free 129-test CI and all ten Python guard modes. Six combined Charm/Q browser cases and a stronger two-leg contact/catch rerun pass. Native envelope errors stay below 1e-5. Nested-prefix production, full pack audit and complete offline lifecycle pass with 978 worker responses / zero production errors. Pack21178992 has1,279 files /562,049,206 bytes. The acceptance receipt pins45 artifacts; historical cohorts are not relabeled.
+
+## Integrate accepted Q playback into the primary branch
+
+Primary `work` fast-forwards from `c90e665` to `32f5863` without merge edits. Every source file matches the accepted Q branch. A fresh primary build and all-file audit reproduce pack21178992 exactly. The existing acceptance remains applicable; no full-suite repetition is needed for identical source. No push or deployment occurs. Fox-Fire source staging remains on its separate branch. See `reference/ahri-orb-main-integration.json`.
