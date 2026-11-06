@@ -71,3 +71,34 @@ playback or callback acceptance. The empty weapon resource remains empty.
 The [source/decode verification](reference/ahri/w-particles-source-verification.json)
 pins both commits, all successful checks, unchanged shared helpers and their
 original source-preparation context. Runtime/public source bytes remain unchanged.
+
+## Native spell/resource reading
+
+The [portable binding reading](reference/ahri/w-particle-bindings.json) retains
+the W ability, all three child spells and the additional speed-buff record.
+Three explicit native fields join the orbit missile to `Ahri_W_mis`, the damage
+missile to `Ahri_W_mis_02`, and its hit effect to `Ahri_W_tar`: 23 authored
+emitters, 30 textures and one mesh. The existing character BIN is independently
+reparsed against all 64 retained records plus its link list.
+
+Orbit declares `CircleMovement`, start bone `chest`, target-controlled
+`Defaultvisibility`, and CastOnHit/DestroyOnMovementComplete behaviors. Damage
+declares angle-from-target `ParametricMovement`, start bone `spine`, and five
+ordered fixed-speed spline entries. The first entry omits its selector; the
+remaining values are 90/-90/180/-180. Damage omits the visibility component and
+uses CastOnMovementComplete/DestroyOnMovementComplete. Its explicit hit bone is
+`C_BUFFBONE_GLB_CHEST_LOC`. Raw spell, movement, buff and client fields remain
+verbatim; this reading generates no gameplay rules.
+
+The retained animation table has no W particle event. Cast and empty weapon
+resources therefore remain unjoined. No callback, constructor default,
+variant selection, transform or fog policy is inferred from those names.
+
+```sh
+python3 tools/assets/read-ahri-w-bindings.py --check
+python3 tools/assets/test-ahri-w-bindings.py
+python3 -O tools/assets/test-ahri-w-bindings.py
+```
+
+These commands use committed inputs only. Five source-pin mutations, missing
+and conflicting outputs, and symlinked leaves/parents reject without repair.

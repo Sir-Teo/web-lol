@@ -1,0 +1,39 @@
+name: Ahri W portable native reading
+on:
+  push:
+    paths:
+      - '.github/workflows/ahri-w-source.yml'
+      - 'tools/assets/*ahri*w*'
+      - 'tools/qa/ahri-w-particle-bindings.test.mjs'
+      - 'docs/reference/ahri/character.json'
+      - 'docs/reference/ahri/character.bin'
+      - 'docs/reference/ahri/names.json'
+      - 'docs/reference/ahri-model.json'
+      - 'docs/reference/ahri/w-particles.json'
+      - 'docs/reference/ahri/w-particle-bindings.json'
+  pull_request:
+    paths:
+      - '.github/workflows/ahri-w-source.yml'
+      - 'tools/assets/*ahri*w*'
+      - 'tools/qa/ahri-w-particle-bindings.test.mjs'
+      - 'docs/reference/ahri/character.json'
+      - 'docs/reference/ahri/character.bin'
+      - 'docs/reference/ahri/names.json'
+      - 'docs/reference/ahri-model.json'
+      - 'docs/reference/ahri/w-particles.json'
+      - 'docs/reference/ahri/w-particle-bindings.json'
+permissions:
+  contents: read
+jobs:
+  portable-reading:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify native spell/resource joins without decoder tools or private caches
+        run: |
+          python3 tools/assets/read-ahri-w-bindings.py --check
+          python3 tools/assets/test-ahri-w-bindings.py
+          python3 -O tools/assets/test-ahri-w-bindings.py
