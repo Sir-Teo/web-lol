@@ -1,0 +1,65 @@
+{
+  "scope": "Private software decode; no runtime or native visual certification",
+  "recordSha256": "ab8f06fee053cd0b2f89759f99f53c5abb1986c9c32e977812ae9129e306da20",
+  "qa": {
+    "command": "npm run test:qa",
+    "passed": 44
+  },
+  "evidence": [
+    {
+      "path": "artifacts/baron-attack-decode-check.json",
+      "bytes": 192,
+      "sha256": "30879748b7757b1a4e4e747ca0675e61d7a08a875a2c62fd20b07c077d4d2ecd"
+    },
+    {
+      "path": "artifacts/baron-attack-decode-discovery.json",
+      "bytes": 192,
+      "sha256": "30879748b7757b1a4e4e747ca0675e61d7a08a875a2c62fd20b07c077d4d2ecd"
+    },
+    {
+      "path": "artifacts/baron-attack-decode-fresh.json",
+      "bytes": 192,
+      "sha256": "30879748b7757b1a4e4e747ca0675e61d7a08a875a2c62fd20b07c077d4d2ecd"
+    },
+    {
+      "path": "artifacts/baron-attack-decode-probes/complete-output-preflight.log",
+      "bytes": 544,
+      "sha256": "2b893499620f7c1c3c291839312405d91f0d65ad76f0eea77808c1556c335d87"
+    },
+    {
+      "path": "artifacts/baron-attack-decode-probes/corrupt-source.log",
+      "bytes": 1144,
+      "sha256": "b96eb0850e3f3434b3b94ef1c8e42c74b63520c0c40be07fc1c7e8878be68045"
+    },
+    {
+      "path": "artifacts/baron-attack-decode-probes/edited-record.json",
+      "bytes": 149730,
+      "sha256": "a4cd5c61bfc3328ae64f44dc2bd33231bed070bc91b5cfd63aa2dd0802286ba8"
+    },
+    {
+      "path": "artifacts/baron-attack-decode-probes/edited-record.log",
+      "bytes": 474,
+      "sha256": "16954b3d2ad20ace5b9d1738c61dbc6714f647d09b92c57fd363b4fb0cd19e09"
+    },
+    {
+      "path": "artifacts/baron-attack-decode-probes/missing-output-recovery.log",
+      "bytes": 192,
+      "sha256": "30879748b7757b1a4e4e747ca0675e61d7a08a875a2c62fd20b07c077d4d2ecd"
+    },
+    {
+      "path": "artifacts/baron-attack-decode-probes/optimized-independent-check.log",
+      "bytes": 192,
+      "sha256": "30879748b7757b1a4e4e747ca0675e61d7a08a875a2c62fd20b07c077d4d2ecd"
+    },
+    {
+      "path": "artifacts/baron-attack-decode-probes/repeated-discovery.log",
+      "bytes": 486,
+      "sha256": "9bfec7e7a232a0573098fe7eb4b41cc89fc636b66ebafdbdf1a0b0c40cfdb3dd"
+    },
+    {
+      "path": "artifacts/baron-attack-decode-probes/result.json",
+      "bytes": 684,
+      "sha256": "c3492303dc517e83859630b92f8abfd509db0fc9e3404c5e9d69a3525aba2554"
+    }
+  ]
+}

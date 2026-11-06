@@ -11,8 +11,10 @@ nine missile and twelve hit emitters, 25 TEX files and two SCBs: 29 original fil
 / 1,921,359 bytes, including linked binding context. A fresh cache reproduces the
 entire source pin byte for byte; normal/optimized checks, missing-file recovery,
 four intended rejection guards, two offline unit cases and TypeScript pass.
-The 214 authored mip levels and vertex-colored meshes remain to be decoded and
-integrated. No runtime/public media or saved-state changes; the marker remains
+The [private decode](BARON-ATTACK-DECODE.md) now preserves all 214 authored
+mips and both colored meshes with exact native mesh reconstruction. Fresh
+reproduction, optimized independent checking, six recovery/rejection probes and
+all 44 QA checks pass. Material interpretation and runtime integration remain. No runtime/public media or saved-state changes; the marker remains
 provisional and `e20bdc…` full-match results retain their scope.
 
 [Two selected full matches](CURRENT-E20BDC-MATCHES.md) now pass independently

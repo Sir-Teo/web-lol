@@ -56,8 +56,8 @@ retains these outcomes and raw-artifact identities.
 
 The textures contain 214 authored mip levels (22 BC3 and three BC1 textures).
 The two SCBs use flag 2 with per-vertex colors, unlike the Yi face-color layout;
-that distinction must survive decoding. Decode/re-encode verification, native
-geometry/color interpretation, saved missile/contact roots, emission playback,
+that distinction survives the [private decode](BARON-ATTACK-DECODE.md), including
+exact SCB reconstruction. Native geometry/color interpretation, saved missile/contact roots, emission playback,
 source material dispatch and native visual comparison remain next steps.
 
 The live encounter still uses its explicitly provisional missile marker.
