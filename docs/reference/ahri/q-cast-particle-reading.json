@@ -1,0 +1,40 @@
+{
+  "format": 1,
+  "sourcePinSha256": "613f21651105761810963a32275a52b073189ccdea7286af78980d558b3db2c3",
+  "textureTransportSha256": "084c0e7c985d1cbb906113ffb7833b01842b6efc9361295d0f72a0483dd37057",
+  "meshTransportSha256": "c07c5a1cb7bbe1100894a686b6beb349b10307ed2ccada4e4ddd5f285c6390cf",
+  "profileSha256": "80220cb7c8ff6a140e93cdc66b051221320f664845c20f03d6600f5697088d6e",
+  "sharedSkinFresnel": {
+    "path": "src/content/leona-w-skin-fresnel.json",
+    "sha256": "65898adbd59d63a8ced08aceffe98dfb2b0701e65606f47c576dbcb702680cbc",
+    "source": 0.15000000596046448,
+    "mappedPower": 0.8350000381469727
+  },
+  "localDefaults": {
+    "erosionMixer": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "erosionSliceWidth": 1.5,
+    "erosionAddress": 1,
+    "defaultAddress": 0,
+    "defaultScale": [
+      1,
+      1,
+      1
+    ],
+    "defaultLookupTypes": [
+      1,
+      0
+    ]
+  },
+  "limits": [
+    "All three source emitters are projected. Publication does not bind rendering or simulation events.",
+    "Common checked skin-property mapping is reused at the same authored Fresnel input; native Q pixel equivalence remains unverified.",
+    "Missing constructor/sampler fields use explicit local adapter defaults. Native linger does not extend finite visible life.",
+    "Tails matches the retained native draw table; the second selector remains unmatched and no replacement is invented.",
+    "UV rotation and clamp remain explicit profile fields, not baked coordinate changes."
+  ]
+}
