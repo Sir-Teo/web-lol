@@ -6,18 +6,18 @@ Last updated: November 6, 2026 (UTC).
 
 ## Current authoritative state
 
-Accepted local runtime: save schema **173**, ruleset
-`66cd7e3174e42179cc3256f669e2c04e2f9c91120ea50495d0264a914bf6b991`,
-application `99c1cb7`. [Ahri attack source playback](AHRI-AA-AUDIO.md) joins
-P/Q/W/E/R with saved independent dispatch and73 exact PCM masters.
-The full suite passes8,716/8,718 in506 files, with two historical failures.
-All155 Node QA cases,369 scoped CI tests in48 files, TypeScript and26
-cache-free Python modes pass. Nineteen combined browser cases and production/offline
-gates pass; see [attack acceptance](reference/ahri-attack-playback-acceptance.json).
+Accepted local runtime: save schema **174**, ruleset
+`617100a79da45e4a173acde213a5ee0c11e76bc52413575ea24170aacd38fb31`,
+application `8671be1`. [Ahri lifecycle source playback](AHRI-LIFECYCLE-AUDIO.md)
+joins attack/P/Q/W/E/R with saved independent dispatch and75 exact PCM masters.
+The full suite passes8,744/8,746 in512 files, with two historical failures.
+All173 Node QA cases,406 scoped CI tests in56 files, TypeScript and30
+cache-free Python modes pass. Twenty-two combined browser cases and production/offline
+gates pass; see [lifecycle acceptance](reference/ahri-lifecycle-playback-acceptance.json).
 
-The accepted pack is `991cef8d`, with1,326 files /572,560,604 bytes.
+The accepted pack is `94853da0`, with1,329 files /574,118,545 bytes.
 Earlier family receipts retain their original scope. All work remains local.
-Lifecycle source preparation is isolated on its own branch.
+Recall source preparation is isolated on its own branch.
 
 The [frozen hundred-seed development-roster baseline](CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md)
 is complete: 100 natural victories, zero unfinished matches or invariant failures,
