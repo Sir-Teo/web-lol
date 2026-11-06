@@ -1,0 +1,127 @@
+{
+  "format": 1,
+  "applicationRevision": "66ad4dcd8f11872fb3c5b18c52ef79b99701b824",
+  "schema": 168,
+  "ruleset": "ae079c84268e4fd83c1d0c85568a6ea457f3b92f99d9f4adee58d15286085033",
+  "pack": {
+    "id": "e0137f495db76c3ddc836f026322fc9cb83917252778594b2b0cf8b7ec0ffbe6",
+    "files": 1256,
+    "bytes": 557784340,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a",
+    "allFileAndWorkerAudit": true
+  },
+  "production": {
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "unrequestedAhriCharmAudioPreloads": 0,
+    "developmentHook": false
+  },
+  "offline": {
+    "browser": "system-chromium",
+    "manifest": {
+      "id": "e0137f495db76c3ddc836f026322fc9cb83917252778594b2b0cf8b7ec0ffbe6",
+      "files": 1256,
+      "bytes": 557784340
+    },
+    "checks": {
+      "integrityFailureRestoresDownloadFocus": true,
+      "integrityFailure": true,
+      "downloadFocusesCancel": true,
+      "cancelRetainsVerified": true,
+      "cancelRestoresDownloadFocus": true,
+      "retryWithoutRedownload": true,
+      "completionPreservesOtherControlFocus": true,
+      "pausedSavedTickBootsOffline": true,
+      "completePackRepairOffline": true,
+      "newLuxLaneMatchOffline": true,
+      "serviceWorkerResponses": 978,
+      "removalKeepsSavedBytes": true,
+      "updateRefusesOtherTabs": true,
+      "explicitAtomicVersionSwitchOffline": true,
+      "missingEntryRevokesReady": true,
+      "scopeOnlyRemoval": true
+    },
+    "result": "passed",
+    "productionErrors": []
+  },
+  "cohort": {
+    "seed": 1,
+    "winner": "blue",
+    "finalTick": 157116,
+    "checkedTicks": 157116,
+    "roundTrips": 44,
+    "futureChecks": 43,
+    "futureCheckedTicks": 2580,
+    "gameplayProjectionsEqual": 45,
+    "samplesContainingCharmHistory": 2,
+    "excludedRootFields": [
+      "version",
+      "ruleset",
+      "ahriCharmAudio"
+    ]
+  },
+  "evidence": [
+    {
+      "path": "/workspace/web-lol-ahri-audio/artifacts/production-subpath-ahri-charm-v1.json",
+      "bytes": 3729,
+      "sha256": "ad569789168bc0611cf13eb7308f6f5bcc5eba8b64ab5298bd1e0786e4ee4d29"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-audio/artifacts/offline-pack-ahri-charm-v1-production.json",
+      "bytes": 859,
+      "sha256": "515c4b2edfef0a52221546d30c69b698b87934429656ef033b5d845f8198ef61"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-audio/docs/reference/ahri-charm-roster-seed1-gameplay.json",
+      "bytes": 18275,
+      "sha256": "4f9cd3e24f28f2a1d2751524e8ef7723527bfcf1b59ac6d74580e7a3fb79e00f"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-roster-verification.log",
+      "bytes": 430,
+      "sha256": "5ba0df1137cf2daf33df8ab1ea3c8de7651ff6c39ec23f19973ab35d92bc5a1e"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-roster-gameplay-comparison-v2.log",
+      "bytes": 61,
+      "sha256": "e1aa446b2a99cfc97cdb1c336e58a56082b09bce36db1959076309b4aa2c141c"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-gameplay-comparison-tests-v2.log",
+      "bytes": 718,
+      "sha256": "f4fbda159ded6042eeec18bfab1d37c2246e2cdf0c78f7b7f5ddbe2bfed4a227"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-pack-audit-final.log",
+      "bytes": 286,
+      "sha256": "bfa05fd8d80a0072cdb3237ffb1789c15971e216c811480935082eb0be3ba9f9"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-browser-v4.log",
+      "bytes": 947,
+      "sha256": "4faff5ae44a07c47fe940210f0a80bc925069c1760694097781d5091d64a2785"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-browser-v4/ahri-charm-audio-Charm-sou-6df4d-gh-contact-mute-and-restore/audio-evidence.json",
+      "bytes": 3560,
+      "sha256": "d75e0c46be6653c8212521cefb9a5db4f77c941f6aae088ee288401b5d1a1bfc"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-charm-browser-v4/ahri-charm-audio-Charm-sou-6df4d-gh-contact-mute-and-restore/charm-contact.png",
+      "bytes": 792841,
+      "sha256": "8733fbe77b34b920314bf9cc76d702a5c3921031e9c327b95afd6b35374feabb"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-audio/artifacts/offline-pack-ahri-charm-v1-ready.png",
+      "bytes": 573109,
+      "sha256": "f22ed1bf2348477e07117a97cf51c1ff7c0ace277e675194ae62a5ec425de98c"
+    }
+  ],
+  "limitations": [
+    "One feature seed; the primary 100-seed 7ae8e0 cohort remains in progress",
+    "Minute/terminal projections do not enumerate every transient audio event; dedicated phase/history tests cover those boundaries",
+    "Two known historical full-unit failures remain documented",
+    "Software Chromium does not establish native device performance or native Wwise dispatch/shuffle/bus/listener fidelity",
+    "Branch remains local and isolated; no merge, push or publication"
+  ]
+}

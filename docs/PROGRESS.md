@@ -9458,3 +9458,7 @@ Schema 168 records accepted Charm windup, launch, swept contact and stop without
 ## Charm source playback (isolated branch)
 
 Bound lazy finite cast/flight/contact audio to saved history, with source gains/attenuation, Linear play fade and Exp1 stop fade. Seeking slices the original fade domain; mute, ownership changes, per-profile caps and terminal draining have explicit controller checks. Ready source E replaces the generic tone. Two browser cases pass together, including nine exact PCM hashes and zero loads without Ahri. Full suite: 8,490 pass plus the same two historical failures; two added integration checks pass separately. Whole-closure publication rejection guards run without private caches. Delivery checks remain separate; primary 7ae8e0 cohort unchanged.
+
+## Charm delivery and independent gameplay comparison
+
+Schema 168 / ruleset ae079c84 / app 66ad4dc passes production subdirectory and full offline acceptance. Pack e0137f49 contains 1,256 files / 557,784,340 bytes; all-file/worker identity audit passes. Zero unwanted Charm preloads in production; 978 worker responses and no offline production errors. Feature roster seed 1 reaches the same natural Blue victory at tick 157,116 as frozen 7ae8e0. All 45 archived checkpoint/final projections match after excluding only schema, ruleset and new audio history; no gameplay fields omitted. Read-only comparison verifies both archives and has eight rejection/retention tests. The primary 100-seed baseline remains in progress and the feature branch remains isolated.
