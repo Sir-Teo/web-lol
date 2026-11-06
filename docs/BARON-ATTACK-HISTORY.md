@@ -36,3 +36,13 @@ Native particles are not yet rendered. Launch-mouth pose capture, attachment
 transforms, materials and native visual comparison remain work. The current
 marker remains provisional. The running 100-seed cohort is frozen to the prior
 e20 ruleset; it does not certify schema 164.
+
+## Retained flight sampling
+
+`sampleBaronFlight` interpolates saved endpoints, absolute distance and the
+shortest facing turn. Fractional ticks use the earlier endpoint's audience;
+a later reveal cannot expose earlier births. Requests before the retained
+prefix or after its last frame return no sample, including stopped flights.
+Returned values own their storage. All 39 focused cases pass in
+`artifacts/baron-flight-history-tests.log`. This is a local presentation policy,
+not a native visibility certificate.
