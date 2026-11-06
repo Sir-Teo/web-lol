@@ -1,0 +1,72 @@
+{
+  "format": 1,
+  "sourceRevision": "f90d79c10237aae61a980f1112ecb549ac71d5ec",
+  "scope": "Portable native animation/attachment source reading; no runtime bindings",
+  "readingSha256": "6fb85f6b743e0a662d45a923c93900ce3b45777f34692cc8dbdb07922e6ccf78",
+  "animationEvents": 2,
+  "joinedSystems": 2,
+  "emitters": 11,
+  "boneCandidates": 2,
+  "attachedMeshEmitters": 1,
+  "namedSelectorMatches": 1,
+  "unmatchedRetainedSelectors": [
+    "{62579b4c}"
+  ],
+  "cleanCI": {
+    "commands": 3,
+    "pythonGuardModes": 2,
+    "rejectionProbesPerMode": 6,
+    "privateCaches": false,
+    "privateTools": false,
+    "dependenciesRequired": false,
+    "remoteDispatched": false
+  },
+  "nodeQA": 194,
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-particle-bindings-reading-v1.log",
+      "bytes": 318,
+      "sha256": "7178b4121304a059263af2bf85f741412e0d59ef7da84f4dd577312d6b159bf0"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-particle-bindings-guards-v1.log",
+      "bytes": 144,
+      "sha256": "e4179b487e37d19a1cf4e8cbc2758f21b3ba8a6b3f7911243e8a407d05a62988"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-particle-bindings-guards-optimized-v1.log",
+      "bytes": 143,
+      "sha256": "096fa861aaea2028f0b1dac92c240b5f0ba1e150460f7adb36b231f55972af5b"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-particle-bindings-node-tests-v1.log",
+      "bytes": 257,
+      "sha256": "3fc9f7c530b5121380054584dc654633b9d337486daa40f19cd214416cc6a17a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-source-clean-ci-0.log",
+      "bytes": 318,
+      "sha256": "7178b4121304a059263af2bf85f741412e0d59ef7da84f4dd577312d6b159bf0"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-source-clean-ci-1.log",
+      "bytes": 144,
+      "sha256": "e4179b487e37d19a1cf4e8cbc2758f21b3ba8a6b3f7911243e8a407d05a62988"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-source-clean-ci-2.log",
+      "bytes": 143,
+      "sha256": "096fa861aaea2028f0b1dac92c240b5f0ba1e150460f7adb36b231f55972af5b"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-particles-node-qa-v1.log",
+      "bytes": 15519,
+      "sha256": "81edb67ccf08766c4d265d65bcc9149859ad384eb00c328d8c397e2708be0e09"
+    }
+  ],
+  "limits": [
+    "Raw frames and bone-name candidates do not establish native clocks or attachment transforms.",
+    "One selector has no draw match in the retained base SKN table; no substitute or fallback is invented.",
+    "Native/source decode evidence remains in separate receipts. Accepted runtime, Recall pack and cohort evidence retain their original scope."
+  ]
+}

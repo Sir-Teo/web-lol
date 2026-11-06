@@ -130,6 +130,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Orb source audio and saved dispatch clocks](docs/AHRI-Q-AUDIO.md) — 22 unchanged masters, per-leg hit sequences and distinct flight stop curves.
 - [Fox-Fire source audio and saved clocks](docs/AHRI-W-AUDIO.md) — eleven unchanged masters, continuous activation and a separate stop-tail cue.
 - [Essence Theft source audio](docs/AHRI-P-AUDIO.md) — five shared masters, independent saved consumption cues and exact restore.
+- [Ahri Q particle source](docs/AHRI-Q-PARTICLES.md) — seven native systems, complete private mip/mesh decode and raw attachment declarations; runtime rendering remains unbound.
 - [Ahri Recall source audio](docs/AHRI-RECALL-AUDIO.md) — finite channel audio, saved return/interruption clocks and birth visibility.
 - [Ahri lifecycle source audio](docs/AHRI-LIFECYCLE-AUDIO.md) — finite death and actual respawn cues with independent saved audiences.
 - [Ahri attack source audio](docs/AHRI-AA-AUDIO.md) — ordinary/critical aliases, twelve masters and saved windup/contact clocks.

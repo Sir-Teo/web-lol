@@ -38,6 +38,14 @@ below retain earlier intermediate limitations and next steps.
 These incremental records retain their original scope; listed next steps may be
 superseded by later work. Use the authoritative section above for current status.
 
+[Ahri Q particle source preparation](AHRI-Q-PARTICLES.md) now retains all seven
+base Q systems /61 emitters,46 native files /2,319,684 bytes,312 authored mips
+and four byte-exact colored-mesh transports. Native/source and decode guards pass
+in both Python modes. Portable attachment reading passes three cache-free CI
+commands and194 Node QA checks. Raw frame5/end-frame7 and one unmatched retained
+submesh selector remain explicit. This source-only checkpoint changes no accepted
+runtime, pack, gameplay, renderer or cohort scope.
+
 The [historical launch attachment](BARON-LAUNCH-ATTACHMENT.md) now samples the
 authored JawBot from an independent skeleton, including the pinned native model.
 All eight focused cases pass. It remains separate from the provisional marker
