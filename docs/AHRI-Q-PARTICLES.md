@@ -1,5 +1,10 @@
 # Ahri Q particle source preparation
 
+The later [cast renderer](AHRI-Q-CAST.md) binds the three `Ahri_Q_Cas` emitters
+with saved delayed dispatch, source surfaces and the retained Tails draw. The
+source/decode records below retain their original scope; the other six systems
+remain unbound. See [rendering acceptance](reference/ahri/q-cast-rendering-acceptance.json).
+
 The frozen [source pin](reference/ahri/q-particles.json) retains all seven Q-prefixed resources from the base skin, reparsed directly from patch16.18.8175716 Riot BINs. This source checkpoint changes no gameplay, rendering, saved schema175, ruleset `08e106da` or accepted Recall pack.
 
 | Resource | Authored complex emitters |

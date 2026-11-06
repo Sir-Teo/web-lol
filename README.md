@@ -69,9 +69,9 @@ The browser suite currently uses installed Google Chrome. All runtime assets are
 
 ## Deployment
 
-The practice build is hosted at https://sir-teo.github.io/web-lol/. Pushes to `main` install dependencies with npm caching, build, and deploy to GitHub Pages. Documentation-only and test-only pushes skip deployment; the workflow can also be run manually. A separate CI workflow runs TypeScript, 429 Baron/Charm/Orb/Fox-Fire/Spirit Rush/Essence Theft/Ahri attack/lifecycle/Recall audio and persistence checks on
+The practice build is hosted at https://sir-teo.github.io/web-lol/. Pushes to `main` install dependencies with npm caching, build, and deploy to GitHub Pages. Documentation-only and test-only pushes skip deployment; the workflow can also be run manually. A separate CI workflow runs TypeScript, 454 Baron/Ahri audio, cast-particle and persistence checks on
 Node 24.22.1, and cache-independent float-format/publication guards; the full suite and browser/offline gates remain
-separate. See [Fox-Fire acceptance](docs/reference/ahri-fox-fire-playback-acceptance.json).
+separate. See [Q cast acceptance](docs/reference/ahri/q-cast-rendering-acceptance.json).
 
 On Linux with system Chromium, build first and run `node tools/qa/production-subpath.mjs --system-chromium unique-run-name`. The default command continues to use installed Google Chrome.
 
@@ -80,7 +80,7 @@ The complete offline-pack audit also accepts system Chromium: after building, ru
 `npm run test:production` builds locally and checks both entrypoints beneath a strict nested static-host path using installed Google Chrome. It verifies the map-to-practice link, map controls, source audio and selected Oracle recordings, real-input Hawkshot and Lux Binding casts, Lux selection and 5v5 restart, five-position scoreboard assignments and selected jungle companion rigs, all eleven practice monster rigs, Smite selection, a practice companion purchase, real Stealth Ward placement and saved restoration, Oracle Lens preparation/activation/restoration, rejection of development player-fixture flags, and absence of failed/out-of-prefix requests or development hooks. Each run reserves an exclusive claim and writes eight screenshots to
 `artifacts/production-subpath-<run>-<view>.png` plus a namespaced JSON report.
 Existing run names reject before browser work. It also requires zero unsolicited
-Baron model/effect/audio requests and Charm/Orb/Fox-Fire masters when Ahri is absent. See [QA artifact retention](docs/QA-ARTIFACT-RUNS.md).
+Baron model/effect/audio requests, Ahri audio masters and Q cast particle assets when Ahri is absent. See [QA artifact retention](docs/QA-ARTIFACT-RUNS.md).
 
 `npm run offline:verify` checks every current distribution file, its complete
 manifest, pack identity and generated worker without rewriting historical receipts.
@@ -130,7 +130,8 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Orb source audio and saved dispatch clocks](docs/AHRI-Q-AUDIO.md) — 22 unchanged masters, per-leg hit sequences and distinct flight stop curves.
 - [Fox-Fire source audio and saved clocks](docs/AHRI-W-AUDIO.md) — eleven unchanged masters, continuous activation and a separate stop-tail cue.
 - [Essence Theft source audio](docs/AHRI-P-AUDIO.md) — five shared masters, independent saved consumption cues and exact restore.
-- [Ahri Q particle source](docs/AHRI-Q-PARTICLES.md) — seven native systems, complete private mip/mesh decode and raw attachment declarations; runtime rendering remains unbound.
+- [Ahri Q particle source](docs/AHRI-Q-PARTICLES.md) — seven native systems, complete private mip/mesh decode and raw attachment declarations.
+- [Ahri Q cast particles](docs/AHRI-Q-CAST.md) — saved delayed dispatch, source swirls/glow and animated Tails; the other Q systems remain unbound.
 - [Ahri Recall source audio](docs/AHRI-RECALL-AUDIO.md) — finite channel audio, saved return/interruption clocks and birth visibility.
 - [Ahri lifecycle source audio](docs/AHRI-LIFECYCLE-AUDIO.md) — finite death and actual respawn cues with independent saved audiences.
 - [Ahri attack source audio](docs/AHRI-AA-AUDIO.md) — ordinary/critical aliases, twelve masters and saved windup/contact clocks.

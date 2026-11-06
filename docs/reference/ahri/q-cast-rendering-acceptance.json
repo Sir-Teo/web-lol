@@ -1,0 +1,170 @@
+{
+  "format": 1,
+  "applicationRevision": "f003386017fa2c0d6f44776e4212e6e380ee649d",
+  "schema": 176,
+  "ruleset": "732a3ce3c6c382d4a61443620c4cb906b17f45454122456e7c18b9b7cd882dd8",
+  "scope": "Delayed Ahri Q cast billboard, source swirls mesh and attached Tails skin; other Q particle systems remain unbound",
+  "pack": {
+    "id": "44d4243db1435534b9616623dafb9dd29493dc0f764c963d43a37b0c106c28f8",
+    "files": 1337,
+    "bytes": 575974327,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a",
+    "allFileAndWorkerAudit": true
+  },
+  "fullUnit": {
+    "passed": 8792,
+    "failed": 2,
+    "files": 526,
+    "workers": 2,
+    "knownFailures": [
+      "missing historical Leona reader archive",
+      "Lux sampler FMA golden mismatch"
+    ]
+  },
+  "nodeQA": 214,
+  "cleanCI": {
+    "revision": "d0050a6dee616e72179593d5071547244a927735",
+    "tests": 454,
+    "files": 70,
+    "typeCheck": true,
+    "commands": 44,
+    "pythonInvocations": 42,
+    "pythonGuardModes": 40,
+    "portableReadingChecks": 2,
+    "privateCaches": false,
+    "privateTools": false,
+    "dependencies": "Reused parent node_modules; npm ci not repeated locally",
+    "remoteDispatched": false,
+    "allRuntimeSourceBytesMatch": true
+  },
+  "browser": {
+    "castCases": 3,
+    "existingAudioAndEnvelopeCases": 27,
+    "uniqueCases": 30,
+    "exactAhriPcmMasters": 76,
+    "screenshotsReviewed": 2,
+    "delayedBirth": true,
+    "snapshotDrawingsIdentical": true,
+    "hiddenBirthNeverReplays": true,
+    "actualFlashAttachment": true,
+    "deathAndTerminalDrain": true,
+    "noAhriRequests": true,
+    "shaderAndJavaScriptErrors": 0,
+    "representativeDevicePerformance": false,
+    "nativePixelEquivalence": false
+  },
+  "assets": {
+    "textures": 4,
+    "authoredMips": 28,
+    "packedPngBytes": 95189,
+    "glbBytes": 23176,
+    "vertices": 603,
+    "triangles": 792,
+    "skinDraws": [
+      "Tails"
+    ],
+    "unmatchedSelector": "{62579b4c}",
+    "validatorErrors": 0,
+    "validatorWarnings": 0
+  },
+  "sourceDelta": "q-cast-rendering-source-delta.json",
+  "frozenCohortInterpretation": "The 616-file b94ae619 history archive retains its original scope. Existing closure bytes are unchanged except the collector; added render/content files are separate. No older cohort is relabeled.",
+  "production": {
+    "passed": true,
+    "unrequestedQCastDownloads": 0,
+    "developmentHook": false,
+    "recordings": 32
+  },
+  "offline": {
+    "passed": true,
+    "report": "/workspace/web-lol-ahri-q-cast-rendering/artifacts/offline-pack-ahri-q-cast-v1-production.json"
+  },
+  "limits": [
+    "Native animation callback equivalence, UV dispatch order, CPU/global material bindings, framebuffer parity and representative-device performance remain unverified.",
+    "The ten-tick native-frame adapter, UV rotation order, missing constructor/sampler defaults and current point-visibility policy are explicit local bindings.",
+    "Only the retained Tails selector is drawn; the unmatched selector receives no replacement. Raw linger does not extend finite visible life.",
+    "Separate Orb_Cast, missile, hit and speed particle resources remain unbound; their preparation retains separate scope."
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-cast-rendering-full-tests-v1.log",
+      "bytes": 4775,
+      "sha256": "2eaefa5702fc422b5d6a55fa2457647fff0fc9abfc39649c446c341cd67eec58"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-cast-rendering-node-qa-v1.log",
+      "bytes": 17097,
+      "sha256": "77d0a56394bb2b6f56abd9af30ddffe758e777b0518beabfb18931fb662f05fe"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-cast-rendering-clean-ci.json",
+      "bytes": 15620,
+      "sha256": "2759289574de54308f54a95a4d618d0dcd0ee6eebae16aeb7199dedefaac1af4"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-cast-rendering-focused-v2.log",
+      "bytes": 401,
+      "sha256": "6c8ab9b0654bdeaa661ce680bc12be989e1b04e1921cf6ff454c71af95ceea74"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-cast-rendering-browser-v6.log",
+      "bytes": 1226,
+      "sha256": "b0f7bc2ae8d3e04d9f425b134a7b142432f455fd47d8ac1e8768d7ef4671fa78"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-cast-rendering-combined-browser-v1.log",
+      "bytes": 7018,
+      "sha256": "cd365600678ca3edce9515ce84184443aeb4f6c43cf01def04b236742ccaadec"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-cast-rendering-build-v1.log",
+      "bytes": 8484,
+      "sha256": "7cd79694b084d807d3c04994bafbade12cef56242663755cba9b5f794132be74"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-cast-rendering-pack-audit-v1.log",
+      "bytes": 286,
+      "sha256": "865fd937a1f522bc45677097ff414e7bc7eb79079ba44910e454e43ce1d072ec"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-cast-rendering-glb-validation-v1.log",
+      "bytes": 7780,
+      "sha256": "d97270cca2126c8514a8db6299eb20628479ecd0f70ed24eba911ad305b2ef90"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-cast-rendering-format-v1.log",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-cast-rendering-production-v1.log",
+      "bytes": 3639,
+      "sha256": "e8c9efbdd36f2310247562e8f28a7aabc9ca99c3b97e3ff93af63896576f66cc"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-cast-rendering-offline-v1.log",
+      "bytes": 870,
+      "sha256": "d3367bfbf99635348f51ec72815794b8643299ad15462a3c17ee07bf668485ed"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-cast-rendering-browser-v6/ahri-q-cast-particles-keyb-1cf75-nd-restorable-finite-clocks/ahri-q-cast-all-three.png",
+      "bytes": 797497,
+      "sha256": "1b150abb7a1cfb4996d9894ee72c68c1ed1cf594ab6e51974e1762be6f9d47d3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-cast-rendering-browser-v6/ahri-q-cast-particles-keyb-1cf75-nd-restorable-finite-clocks/ahri-q-cast-tails.png",
+      "bytes": 791721,
+      "sha256": "fb5b9aed84522c699aec903f108617d276729e5e061b44eb342dfded87d4e7bd"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-q-cast-rendering/artifacts/production-subpath-ahri-q-cast-v1.json",
+      "bytes": 4075,
+      "sha256": "a89e0ef577c88292784996e3a9ec79369b23f6a698802cbf5346f3a16d940b46"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-q-cast-rendering/artifacts/offline-pack-ahri-q-cast-v1-production.json",
+      "bytes": 859,
+      "sha256": "3c7282f93e73677d1b79e957986a16ce06f24299c6e5f7f71c7a6ec34c35b413"
+    }
+  ]
+}

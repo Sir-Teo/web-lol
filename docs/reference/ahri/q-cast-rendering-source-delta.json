@@ -1,0 +1,53 @@
+{
+  "format": 1,
+  "applicationRevision": "f003386017fa2c0d6f44776e4212e6e380ee649d",
+  "schema": 176,
+  "ruleset": "732a3ce3c6c382d4a61443620c4cb906b17f45454122456e7c18b9b7cd882dd8",
+  "baselineRevision": "ab45bfae3f66632cadeb79a18925f0de0be518ea",
+  "baselineRuleset": "b94ae61920e9c4dd0091e121b30deaff5f73f77c19ee6a1b7312009e7b363d4d",
+  "archive": "/workspace/web-lol-ahri-q-cast/.cache/ahri-q-cast-history-roster-seed1",
+  "archivedFiles": 616,
+  "unchangedFiles": 615,
+  "changedFiles": [
+    {
+      "file": "tools/ruleset-fingerprint.ts",
+      "archivedSha256": "6a11980df5daf9546db50a43e6e98f253abbec89d5e7a959b9a4501ec6d100f1",
+      "currentSha256": "7a5f8c590e948aac7f5d9e65c814607aa00da91106bf2262936ff02cdac03067"
+    }
+  ],
+  "addedFiles": [
+    {
+      "file": "src/content/ahri-q-cast-particles.json",
+      "bytes": 32629,
+      "sha256": "80220cb7c8ff6a140e93cdc66b051221320f664845c20f03d6600f5697088d6e"
+    },
+    {
+      "file": "src/render/ahri-q-cast-particles.ts",
+      "bytes": 1701,
+      "sha256": "7707f653bcefead00ee5d6939f85c979312a78610e28813d0314b3fd3ca908ce"
+    },
+    {
+      "file": "src/render/ahri-q-casts.ts",
+      "bytes": 8277,
+      "sha256": "26664fdc281347a05f6ee2afad6a652b0f3b8dd1e7d733f4290b4b16f98fcb31"
+    },
+    {
+      "file": "src/render/ahri-q-cast-assets.ts",
+      "bytes": 4099,
+      "sha256": "404ca9d9095db69bc4e9ca20d8453cf95073f5a3c2714fe14ecc0b8851f8ef07"
+    }
+  ],
+  "integrationOutsideArchivedClosure": [
+    {
+      "file": "src/render/view.ts",
+      "bytes": 67360,
+      "sha256": "b2afb75a32baf3a81c3dfe531f7b9b69d8a84867e94a6a55f3ceba73ca1a6c3d"
+    },
+    {
+      "file": "src/render/lazy-ahri-q-casts.ts",
+      "bytes": 1659,
+      "sha256": "3ab432295da10e7b0bf03f2456307d947e42e2a4856bda1d3cb579aac53b5ac8"
+    }
+  ],
+  "interpretation": "The frozen gameplay/history closure is byte-identical except for the compatibility collector. New presentation modules and content are recorded separately; the older cohort is not relabeled as this rendering application."
+}
