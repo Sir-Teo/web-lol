@@ -24,6 +24,10 @@ The earlier e20 production/offline acceptance keeps its original scope. The
 frozen e20 cohort is still running; at this checkpoint 74 seeds have zero invariant
 failures, with two unfinished at the time limit. It does not certify this ruleset.
 
+The [independent preview RNG](PARTICLE-PREVIEW-RNG.md) now matches 640 external
+draws across eight seeds; all 11 tests pass. State restoration and cloning remain
+separate from gameplay randomness. Full system composition continues.
+
 ## Recent verified checkpoints
 
 These incremental records retain their original scope; listed next steps may be

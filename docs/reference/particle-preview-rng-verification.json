@@ -1,0 +1,35 @@
+{
+  "format": 1,
+  "testsPassed": 11,
+  "independentDraws": 640,
+  "typecheck": "passed",
+  "nativeExecuted": false,
+  "runtimeBinding": false,
+  "evidence": [
+    {
+      "path": "artifacts/particle-preview-rng-tests.log",
+      "bytes": 1146,
+      "sha256": "28b47577fb757d5e0e494dbfd4732ec00f2ff294f80f2c585efe5afe82a33ef4"
+    },
+    {
+      "path": "artifacts/particle-preview-rng-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tools/assets/export-particle-preview-rng-samples.mjs",
+      "bytes": 1738,
+      "sha256": "568730956ce1fca40f6810fae50806d19e12af0564c11857e1ae569e9982956e"
+    },
+    {
+      "path": "docs/reference/particle-preview-rng-samples.json",
+      "bytes": 19109,
+      "sha256": "29398cbe050715291a6edcd6870b5ff7bb670d67226677f628fcca3366e807e4"
+    },
+    {
+      "path": "src/render/particle-preview-rng.ts",
+      "bytes": 1550,
+      "sha256": "2d503e944042f6869efc9fc7980f32022b9daaaea003f89856c2548c7f364965"
+    }
+  ]
+}
