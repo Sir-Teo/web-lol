@@ -158,6 +158,7 @@ try {
       const sampleCount = requestedSamples ?? (matchMode ? 1800 : 180);
       const warmupCount = requestedWarmup ?? (matchMode ? 120 : 45);
       const { GpuTimer } = gpuTiming ? await import('/tools/qa/gpu-timer.mjs') : {};
+      const { anchorInsideViewport } = await import('/tools/qa/viewport-visibility.mjs');
       const gpu = gpuTiming ? new GpuTimer(v.renderer.getContext()) : null;
       g.setPaused(false);
       const nextFrame = () =>
@@ -215,8 +216,12 @@ try {
           activity.maxLuxBeams = Math.max(activity.maxLuxBeams, w.luxBeams.length);
           activity.maxVisibleChampions = Math.max(
             activity.maxVisibleChampions,
-            champions.filter((u) => w.alive(u) && w.visible(u) && this.screenPoint(u, 1.55).visible)
-              .length
+            champions.filter(
+              (u) =>
+                w.alive(u) &&
+                w.visible(u) &&
+                anchorInsideViewport(this.screenPoint(u, 1.55), this.width, this.height)
+            ).length
           );
         }
       };
@@ -275,6 +280,8 @@ try {
           ai: u.ai,
         })),
         activity,
+        visibleChampionMetric:
+          'Living team-visible champion anchors at elevation 1.55 inside the CSS viewport; not model bounds, occlusion or HUD coverage',
         advanceMS,
         time: w.time,
         units: w.units.length,

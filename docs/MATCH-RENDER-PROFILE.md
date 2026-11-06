@@ -2,13 +2,19 @@
 
 **Measurement correction:** the original p95 19.6 ms / p99 21.2 ms values were intervals between callback delivery times (`performance.now()` inside the benchmark callback), not intervals between browser animation-frame timestamps. Variation in work before that callback affects this metric. The previous statement that those values establish missed 16.67 ms frames is withdrawn. Historical data below is preserved with corrected labels; see the current GPU/cadence measurement below.
 
+**Viewport-counter correction (November 6, 2026):** the former
+`maxVisibleChampions` counter checked only projected depth, so offscreen anchors
+could count. Earlier values do not establish how many champions were inside the
+viewport. Frame, draw, triangle and CPU/GPU timings use separate measurements
+and are not reinterpreted by this correction.
+
 ## Fixture and reproducibility
 
 `tools/qa/benchmark-rift.mjs` now optionally accepts a ten-champion checkpoint and output stem. It writes that checkpoint through the application's browser storage module, reloads the page, and requires exact serialized restoration before measuring. It rejects non-Rift, finished, or non-ten-champion checkpoint inputs. The old no-checkpoint 90-second practice benchmark remains available and was smoke-tested.
 
 The recorded checkpoint is the 1200-second eight-Ashe/two-Lux lane diagnostic from [Lost Chapter verification](reference/lost-chapter-verification.json), SHA-256 `778e7b5b580f7be808bd85f46bacab527e586a1d4df3e1cc6896af696b0bd599`. All ten champions run their local AI. The benchmark chooses the living blue champion with the most nearby visible enemies at the start, ties by ID, and follows that same subject during measurement, including death or respawn. This run selected blue Lux, ID 35. It retains the normal player's Ashe HUD and team vision; it does not implement a spectator mode or change human ownership.
 
-There are 120 warmup frames followed by 1800 measured frames. The camera is initially centered on the subject during warmup and follows it during measurement. This report reached tick time 1231.97 seconds with 99 unit records. Activity counters saw at most 42 world projectiles, two world singularities, one world Lux beam and nine living, team-visible champions inside the viewport. The first three counters describe global simulation activity, not proof that each effect was on screen at the same instant. The final capture showed a bottom-lane structure fight with both Lux models; it was visually inspected.
+There are 120 warmup frames followed by 1800 measured frames. The camera is initially centered on the subject during warmup and follows it during measurement. This report reached tick time 1231.97 seconds with 99 unit records. Activity counters saw at most 42 world projectiles, two world singularities, one world Lux beam and a depth-only champion counter of nine (not a verified viewport count). The first three counters describe global simulation activity, not proof that each effect was on screen at the same instant. The final capture showed a bottom-lane structure fight with both Lux models; it was visually inspected.
 
 With the development server running:
 
@@ -104,3 +110,22 @@ node tools/qa/simulate-rift.mjs 1200 artifacts/current-control-profile.json lane
 node tools/qa/benchmark-rift.mjs http://127.0.0.1:5198 artifacts/current-control-profile.snapshot.json artifacts/current-match-cpu-profile --system-chromium --samples=120 --warmup=15 --profile
 node tools/qa/summarize-cpu-profile.mjs artifacts/current-match-cpu-profile.cpuprofile artifacts/current-match-cpu-summary.json
 ```
+
+
+## Projected-anchor viewport counting
+
+The benchmark now requires a living, team-visible champion's projected anchor
+(at elevation 1.55) to lie within all four inclusive CSS viewport boundaries as
+well as the camera depth interval. Reports explicitly name this metric. It is
+not a test of the whole model's bounds, terrain occlusion or HUD coverage.
+GameView projection and gameplay visibility remain unchanged.
+
+Three Node cases cover all four outside edges, inclusive corners, depth clipping
+and nonfinite projection values. A real browser ground-projection scenario has
+five depth-visible anchors (center and four outside edges): the original counter
+admits five, while the corrected viewport helper admits only the center. The
+[retained result](reference/viewport-profile-counting.json) includes the actual
+projected coordinates. The helper is loaded through the same browser import
+path as the benchmark. No new complete benchmark or performance improvement is
+claimed by this counter correction. In particular, the preceding Linux report's
+value of eight remains its original depth-only observation.
