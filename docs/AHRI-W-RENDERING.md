@@ -45,3 +45,18 @@ attribute derives directly from the retained source colors.
 The loader test uses the actual GLB and verifies every position/color component,
 retry behavior, address-mode sampler caching, borrowed ownership and excluded
 cast-only requests. It does not attach the renderer to the scene.
+
+## Native flag types
+
+The [native type reading](reference/ahri/w-native-types.json) retains all 65
+ordinary emitter field names (the 66th projected field is the struct type),
+including 82 authored FLAG fields across all 30 emitters. It reparses the pinned
+original BINs after the existing complete-native verification. Normal and
+optimized checks reproduce the same reading.
+
+`ParticlesShareRandomValue` is native FLAG `0x87`, payload `1`. CDTB serializes
+that payload as an integer; the type reading keeps its native flag identity
+separate from the raw JSON. Rotation, direction and single-particle controls
+also use FLAG tags. This evidence does not certify a native random stream.
+Rechecking the type reading requires the retained native source and decoder;
+the portable CI source checks do not claim to reparse those private inputs.
