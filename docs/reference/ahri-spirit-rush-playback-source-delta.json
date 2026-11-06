@@ -1,0 +1,41 @@
+{
+  "format": 1,
+  "applicationRevision": "e4b37f57aefcd7bc1ca988f44758509e8094698d",
+  "schema": 171,
+  "ruleset": "4c78386d598237518652f766fca22eeee9305c0a06e199c9f08b7b6d68768c5c",
+  "baselineRevision": "5725ce00423d6cf27d65ac55d5cd6722fd0d60a4",
+  "baselineRuleset": "c5d6be5acfcd486975c878fa47603c952ca94d4e2a10ef933e4f4f2e2c1c39f2",
+  "archivedFiles": 583,
+  "unchangedFiles": 582,
+  "changedFiles": [
+    {
+      "file": "tools/ruleset-fingerprint.ts",
+      "archivedSha256": "4f8b3837f732baed757171051ac8d463ffd3c83204e40d8a3c55b811f575289b",
+      "currentSha256": "f405325ad3f8c9ca5b04f8650858fb5bb446c07802445c92fcd2ebb5c3ff0fe1"
+    }
+  ],
+  "addedFiles": [
+    {
+      "file": "src/audio/ahri-spirit-rush-state.ts",
+      "sha256": "ffb9437440f4a8ff916e1917d1545db40b84510f4531f2b40363b6273e18015c"
+    },
+    {
+      "file": "src/audio/ahri-spirit-rush.ts",
+      "sha256": "4f6ee356c88155588ca1fa3b23566ee3231b3c96a60ba7903616017ac0635fa0"
+    }
+  ],
+  "integrationOutsideArchivedClosure": [
+    {
+      "file": "src/audio/audio.ts",
+      "baselineSha256": "85e83bbb08f47d11425c7508e44a7b6cb822338a254b7fe144fae97ead816133",
+      "currentSha256": "e095d740f24030b92008c76c74de5ea135b973e53efa082062fc54fc55df0d10"
+    },
+    {
+      "file": "src/audio/ahri-spirit-rush-lazy.ts",
+      "baselineSha256": null,
+      "currentSha256": "a8a812a8b00799e523cec42e16cd4f3fe0c2c6a1b17fef47d031375926120f68"
+    }
+  ],
+  "allArchivedSimulationAndContentUnchanged": true,
+  "scope": "Source identity comparison only; frozen history seed and hundred-seed baseline retain original rulesets."
+}

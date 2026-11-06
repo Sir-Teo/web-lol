@@ -56,7 +56,7 @@ npm run offline:verify
 npm run test:production
 ```
 
-The latest full suite passes 8,596/8,598 tests. The missing historical Leona
+The latest full suite passes 8,642/8,644 tests. The missing historical Leona
 checker/archive and the retained Lux E sampler digest remain unresolved; their
 assertions are unchanged. See the [current validation receipt](docs/reference/ahri-charm-main-merge-verification.json)
 and [Lux runtime portability audit](docs/LUX-E-SAMPLER-PORTABILITY.md).
@@ -69,7 +69,7 @@ The browser suite currently uses installed Google Chrome. All runtime assets are
 
 ## Deployment
 
-The practice build is hosted at https://sir-teo.github.io/web-lol/. Pushes to `main` install dependencies with npm caching, build, and deploy to GitHub Pages. Documentation-only and test-only pushes skip deployment; the workflow can also be run manually. A separate CI workflow runs TypeScript, 189 Baron/Charm/Orb/Fox-Fire audio and persistence checks on
+The practice build is hosted at https://sir-teo.github.io/web-lol/. Pushes to `main` install dependencies with npm caching, build, and deploy to GitHub Pages. Documentation-only and test-only pushes skip deployment; the workflow can also be run manually. A separate CI workflow runs TypeScript, 275 Baron/Charm/Orb/Fox-Fire/Spirit Rush audio and persistence checks on
 Node 24.22.1, and cache-independent float-format/publication guards; the full suite and browser/offline gates remain
 separate. See [Fox-Fire acceptance](docs/reference/ahri-fox-fire-playback-acceptance.json).
 

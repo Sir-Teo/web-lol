@@ -1,0 +1,31 @@
+{
+  "format": 1,
+  "integratedRevision": "cc1c79b6e47d593867ed1770a079e4eeea2bb239",
+  "method": "Fast-forward from e005d6e to verified Spirit Rush branch; no merge edits",
+  "schema": 171,
+  "ruleset": "4c78386d598237518652f766fca22eeee9305c0a06e199c9f08b7b6d68768c5c",
+  "sourceFilesCompared": 793,
+  "allSourceBytesMatchAcceptedBranch": true,
+  "pack": {
+    "id": "71c41bd815cd7814841935fc58e2f3eed9e4965478585e27acc4b8dfabadd3d2",
+    "files": 1307,
+    "bytes": 569190575,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a",
+    "allFileAndWorkerAudit": true
+  },
+  "acceptance": "ahri-spirit-rush-playback-acceptance.json",
+  "repeatFullSuite": false,
+  "reason": "Identical verified source; local rebuild and pack audit reproduce the accepted pack byte for byte.",
+  "logs": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-main-build-v1.log",
+      "sha256": "2a7368e3e1b8275b19f43d9121ac982360d8c382abba21e7d7de7f1d9260d111"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-r-main-pack-v1.log",
+      "sha256": "ea9df7a5a9467bf08d2e30becf3f78cbd4cf0ce3afcd347386585d932d41ff1d"
+    }
+  ],
+  "pushed": false,
+  "deployed": false
+}
