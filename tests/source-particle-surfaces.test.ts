@@ -98,6 +98,15 @@ test('direction-oriented billboards update when the same renderer changes camera
   expect(f.update().quaternion.toArray()).toEqual(first.toArray());
 });
 
+test('programs can retain source-sampled stretch while legacy world-travel binding stays unchanged', () => {
+  const f = fixture(true);
+  f.program.profiles = [{ ...f.program.profiles[0], directionVelocityScale: 0 }];
+  f.program.particles = () => [{ ...f.particle, stretch: 1.3, worldTravel: [0, 0, 0] }];
+  expect(f.update().scale.y).toBe(f.particle.size[1] * 0.01);
+  f.program.sampledStretch = true;
+  expect(f.update().scale.y).toBe(f.particle.size[1] * 1.3 * 0.01);
+});
+
 test('attached billboards retain their complete reflected source rotation', () => {
   const f = fixture(false, true);
   f.particle.rotation = [13, -27, 51];

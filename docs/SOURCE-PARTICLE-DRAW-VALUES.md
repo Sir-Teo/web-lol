@@ -32,3 +32,11 @@ arithmetic is covered by the existing external frame fixtures. They cover normal
 and stopped lifetimes, reverse/fractional seeks, changed stop clocks, zero weights,
 constant-vs-keyed values and independent returned buffers. Root positions remain
 caller-supplied saved inputs; scene-axis conversion is outside this helper.
+
+## Shared surface contract
+
+The surface renderer now declares the structural fields its drawing code reads,
+without inheriting probability-table types from one champion's generated JSON.
+A program can explicitly preserve its source-sampled stretch when supplying world
+travel; other programs retain the prior stretch calculation. A regression test
+checks both paths. Existing Q projectile and Leona surface suites pass.

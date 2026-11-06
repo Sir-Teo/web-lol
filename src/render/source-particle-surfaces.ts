@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import type { World } from '../simulation/world';
 import type { Vec2 } from '../simulation/math';
-import type { ECLIPSE_PROFILES, eclipseParticles } from './leona-eclipse-particles';
+import type { eclipseParticles } from './leona-eclipse-particles';
 import type { EclipseSurfaceAssets } from './leona-eclipse-surface-assets';
 import { createLeonaEclipseSurfaceMaterial } from './leona-eclipse-surface-material';
 import { createParticleDistortionMaterial } from './particle-distortion';
@@ -33,36 +33,43 @@ export type SurfaceParticle = ReturnType<typeof eclipseParticles>[number] & {
   orbitTurn?: readonly number[];
 };
 type Particle = SurfaceParticle;
-export type SurfaceProfile = Pick<
-  (typeof ECLIPSE_PROFILES)[number],
-  | 'kind'
-  | 'role'
-  | 'name'
-  | 'mesh'
-  | 'lookup'
-  | 'erosion'
-  | 'distortion'
-  | 'soft'
-  | 'uvMode'
-  | 'renderOrder'
-  | 'miscRenderFlags'
-  | 'meshRenderFlags'
-  | 'noCull'
-  | 'ground'
-  | 'navmesh'
-  | 'local'
-  | 'particleLocal'
-  | 'directionOriented'
-  | 'directionVelocityScale'
-  | 'blend'
-  | 'depthBias'
-  | 'alphaRef'
-> & {
+/** Structural draw contract. Source value metadata can retain fields beyond
+ * those consumed here, without inheriting one champion JSON's narrow unions. */
+export interface SurfaceProfile {
+  kind: string;
+  role: string;
+  name: string;
+  mesh: string | null;
+  lookup?: string | null;
   texture: string | null;
   uv: { address: number };
-  multiplier: { texture: string; uv: { address: number } } | null;
-  palette: { texture: string | null } | null;
-};
+  erosion?: {
+    texture: string;
+    mixer: { constant: readonly number[] };
+    featherIn: number;
+    featherOut: number;
+    sliceWidth: number;
+    address: number;
+  } | null;
+  distortion?: { texture: string; strength: number } | null;
+  soft?: { beginIn: number; deltaIn: number; beginOut: number; deltaOut: number } | null;
+  uvMode?: number;
+  renderOrder: number;
+  miscRenderFlags: number;
+  meshRenderFlags: number;
+  noCull: boolean;
+  ground: boolean;
+  navmesh: boolean;
+  local: boolean;
+  particleLocal: boolean;
+  directionOriented: boolean;
+  directionVelocityScale: number;
+  blend: number;
+  depthBias: readonly number[];
+  alphaRef: number;
+  multiplier?: { texture: string; uv: { address: number } } | null;
+  palette?: { texture: string | null } | null;
+}
 export interface SurfaceGroup {
   key: string;
   startTick: number;
@@ -90,6 +97,8 @@ export interface SurfaceProgram<G extends SurfaceGroup> {
   /** Requests a packed color stream on owned ray geometry. The default source
    * material consumes this normalized BGRA attribute with a white tint uniform. */
   vertexColor?(index: number): 'bgra-unorm8' | undefined;
+  /** The caller already sampled the source stretch control with world travel. */
+  sampledStretch?: boolean;
   /** Explicit caller routing, separate from native mode/phase recovery. */
   distortionTarget?(index: number): THREE.Scene;
   records(world: World): Iterable<{ sourceId: number; castTick: number; group: G }>;
@@ -439,7 +448,8 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
                 this.vector.x -= p.worldTravel[0];
                 this.vector.y += p.worldTravel[1];
                 this.vector.z += p.worldTravel[2];
-                stretch = Math.max(1, this.vector.length() * profile.directionVelocityScale);
+                if (!this.program.sampledStretch)
+                  stretch = Math.max(1, this.vector.length() * profile.directionVelocityScale);
               }
               if (orbit) this.vector.applyQuaternion(this.orbitRotation);
               if (!inverseCameraReady) {
