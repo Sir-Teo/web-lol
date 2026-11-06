@@ -1,0 +1,99 @@
+{
+  "format": 1,
+  "systems": [
+    "Ahri_Q_mis",
+    "Ahri_Q_mis_02"
+  ],
+  "sourcePinSha256": "613f21651105761810963a32275a52b073189ccdea7286af78980d558b3db2c3",
+  "decodedRecordSha256": "7b040643c0361810c60e3d467af5c27e47f4d1ca3024b023582f132539628bc9",
+  "producerSha256": "f68e74dafd56b7b8c239d29846e10066cf81d3b9b73c3f65ea19659dfd61dcd4",
+  "optimization": [
+    "dedup",
+    "prune with keepAttributes"
+  ],
+  "meshes": [
+    {
+      "source": {
+        "path": "assets/characters/ahri/skins/base/particles/ahri_base_q_indicator_02.scb",
+        "wadPathHash": "c3f5856523ecbbc4",
+        "sha256": "1506782f54bf790fbbb888281fb38398241f1b1870443123114ea58d97beec4e",
+        "bytes": 21792
+      },
+      "sourceVertices": 150,
+      "sourceTriangles": 192,
+      "transportVertices": 150,
+      "hasVertexColors": true,
+      "triangleReplayExact": true,
+      "uvReplayExact": true,
+      "vertexColorReplayExact": true,
+      "normalAttributeGenerated": false,
+      "sourceCoordinateTransformApplied": false,
+      "validation": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "glb": {
+        "path": ".cache/ahri-q-projectile-meshes-v1/ahri_base_q_indicator_02.glb",
+        "bytes": 6868,
+        "sha256": "72fae21995952bd936cecc6cabc16ab53b147adb628821ddc606ea1b9be5a88e"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/ahri/skins/base/particles/ahri_base_q_sphere_01.scb",
+        "wadPathHash": "4ce75ad58b607c0c",
+        "sha256": "b343ba7ed8fb8d6d31a38064ff380f1b809ba74ab12e4d5cce8fb0ccbf250684",
+        "bytes": 51096
+      },
+      "sourceVertices": 242,
+      "sourceTriangles": 480,
+      "transportVertices": 287,
+      "hasVertexColors": false,
+      "triangleReplayExact": true,
+      "uvReplayExact": true,
+      "vertexColorReplayExact": false,
+      "normalAttributeGenerated": false,
+      "sourceCoordinateTransformApplied": false,
+      "validation": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "glb": {
+        "path": ".cache/ahri-q-projectile-meshes-v1/ahri_base_q_sphere_01.glb",
+        "bytes": 11128,
+        "sha256": "92aa5a49035e5bf3f60068cda44b31a34f365a60999e05d51cf0b9b9fd9b5dec"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/ahri/skins/base/particles/ahri_base_q_swirls_01.scb",
+        "wadPathHash": "fa6d1c6f8467f6ca",
+        "sha256": "5d464a871c2b22003583f657bbf58f032b7fdc892784f463bcf95151f211fde6",
+        "bytes": 89040
+      },
+      "sourceVertices": 603,
+      "sourceTriangles": 792,
+      "transportVertices": 603,
+      "hasVertexColors": true,
+      "triangleReplayExact": true,
+      "uvReplayExact": true,
+      "vertexColorReplayExact": true,
+      "normalAttributeGenerated": false,
+      "sourceCoordinateTransformApplied": false,
+      "validation": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "glb": {
+        "path": ".cache/ahri-q-projectile-meshes-v1/ahri_base_q_swirls_01.glb",
+        "bytes": 23140,
+        "sha256": "77bdadfa63c4c4337b5047fa2cdf769f0e8ce2b93e9be090280bfe918786b8a5"
+      }
+    }
+  ],
+  "limits": [
+    "Private staging only; native CPU dispatch, pivots, source-to-scene transforms, shader arithmetic and event timing remain unbound.",
+    "All rendered source triangles, UVs and optional vertex colors replay exactly. An absent color stream remains absent; no normals or face colors are fabricated.",
+    "Source units, coordinates and winding remain unchanged. The white unlit material is a transport placeholder."
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "format": 1,
+  "parentRevision": "b1d5b8f2c2efda3573c9bde2860e7135bf45c705",
+  "scope": "Isolated outgoing/return Q asset transports only",
+  "schema": 175,
+  "ruleset": "08e106da69e9a0827b0274d7c97fd3589bd3cdf610a80b9d3b1a73452c679c46",
+  "runtimeChanged": false,
+  "publicAssetsChanged": false,
+  "systems": 2,
+  "emitters": 36,
+  "textures": 17,
+  "authoredMips": 151,
+  "packedPngBytes": 713081,
+  "meshes": 3,
+  "sourceVertices": 995,
+  "transportVertices": 1040,
+  "triangles": 1464,
+  "glbBytes": 41136,
+  "validatorErrors": 0,
+  "validatorWarnings": 0,
+  "engineRevision": 186,
+  "pythonTestsPerMode": 7,
+  "pythonModes": [
+    "normal",
+    "optimized"
+  ],
+  "nodeMeshGuardCases": 5,
+  "privateFixturesRequired": true,
+  "transports": [
+    {
+      "path": "/workspace/web-lol-ahri-q-projectile-source/docs/reference/ahri/q-projectile-texture-transport.json",
+      "bytes": 44226,
+      "sha256": "60023e2fb2068987f6005b29f012f1fd5b7f16c0adfbbe1341c3b18d1e5286bf"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-q-projectile-source/docs/reference/ahri/q-projectile-mesh-transports.json",
+      "bytes": 3521,
+      "sha256": "401fe40d8accb519ea3ee6ea1806f3440c65e35f3a9bccb6e1f2c0fd1e25d9ca"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-source-pack-v2.log",
+      "bytes": 102,
+      "sha256": "43945e2fb613a28f232267c25dbb8c8074d04f040ae8730c36cba8e0211af707"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-source-check-normal-v1.log",
+      "bytes": 103,
+      "sha256": "c42ab6032cdbd13084c1aeaa1c86c33c435bdea994315ffdae8efdb6f425d9aa"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-source-check-optimized-v1.log",
+      "bytes": 103,
+      "sha256": "c42ab6032cdbd13084c1aeaa1c86c33c435bdea994315ffdae8efdb6f425d9aa"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-source-guards-normal-v1.log",
+      "bytes": 106,
+      "sha256": "07a3be5ebdb234f4fe51d06b0c90c3146534f1647692db543be64634779e12fb"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-source-guards-optimized-v1.log",
+      "bytes": 106,
+      "sha256": "993be3ebc9a591d249e6d55eb004ea949b2c8570152ab2b2f1f65c4fe04cdc88"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-source-meshes-v1.log",
+      "bytes": 134,
+      "sha256": "ca1f23fa6a61e8a0444e07862caa99cc27717769258177260c93d755e9f83538"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-source-meshes-reproduction-v1.log",
+      "bytes": 134,
+      "sha256": "ca1f23fa6a61e8a0444e07862caa99cc27717769258177260c93d755e9f83538"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-source-three-loader-v1.log",
+      "bytes": 658,
+      "sha256": "390405f31b7f599fb4cebfa6e9ad5cb2b5f63dd8813b82ea42df89d94aeed775"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-source-mesh-guards-v2.log",
+      "bytes": 542,
+      "sha256": "2aa8cd0887194e4a70eb45947a68f1993280a1b23227023b872e493470e714c1"
+    }
+  ],
+  "limits": [
+    "Source units, optional colors and UV seams are preserved; native CPU callbacks, attachment frames, shader arithmetic and GPU pixels remain unverified.",
+    "No projectile renderer, public output, simulation observer, save schema, pack or gameplay cohort is changed.",
+    "Initial mesh-guard attempt lacked copied decoded mesh fixtures; corrected isolated fixtures pass all five cases without application changes."
+  ]
+}
