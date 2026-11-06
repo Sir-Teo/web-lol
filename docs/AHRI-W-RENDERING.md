@@ -60,3 +60,24 @@ separate from the raw JSON. Rotation, direction and single-particle controls
 also use FLAG tags. This evidence does not certify a native random stream.
 Rechecking the type reading requires the retained native source and decoder;
 the portable CI source checks do not claim to reparse those private inputs.
+
+## Seekable joined sampler
+
+The sampler covers all 23 joined emitters using source-referenced schedules,
+birth/shape values, motion, appearance, spin, UVs and erosion. Missing emitter
+lifetimes remain null in the source window; existing gameplay phase limits bound
+the precomputed schedules. Indexed cosmetic draws consume no World RNG or IDs.
+The native shared-random flag keeps one emitter chance across births.
+
+Only empty live probability tables with multiplier one are removed from the
+prepared arithmetic; complete authored metadata stays in the public profile.
+Nonneutral live tables reject until a flicker adapter exists. Animated atlases,
+live FireCards rotation, surface/volume spheres and the authored Y orbital speed
+participate. Root binding accumulates saved movement separately from local
+particle motion, with the source X reflection left to the surface adapter.
+
+Bound-object size is an explicit sampler input in source units; the standalone
+preview default of 100 is local policy, not a native bounding-box certificate.
+Six tests cover all profiles, cached/fresh seek equality, stop changes, returned
+buffer ownership, UV/rotation/shared chance, flex, shapes and malformed inputs.
+Native random-stream and pixel equivalence remain unverified.

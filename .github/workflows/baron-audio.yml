@@ -234,6 +234,7 @@ jobs:
           tests/lazy-ahri-q-projectiles.test.ts
           tests/ahri-q-projectile-history-view.test.ts
           tests/ahri-q-projectile-trails.test.ts
+          tests/ahri-w-particles.test.ts
           tests/ahri-w-assets-loader.test.ts
           tests/ahri-w-particle-assets.test.ts
           tests/ahri-w-history-view.test.ts
