@@ -1,0 +1,64 @@
+{
+  "format": 1,
+  "ruleset": "7ae8e0f8513df40ceca31f52ad146bbe08b388b09163e996538133fbe600229f",
+  "schema": 167,
+  "uniqueBrowserCases": 4,
+  "playerChoices": 6,
+  "sourceClipChecks": {
+    "garen": 36,
+    "ahri": 55
+  },
+  "initialRun": {
+    "passed": 3,
+    "failed": 1,
+    "reason": "Unscoped data-champion selector also matched an ally portrait."
+  },
+  "rerun": {
+    "passed": 2,
+    "failed": 0,
+    "selector": "data-action=choose-champion plus champion identity"
+  },
+  "assertionsWeakened": false,
+  "applicationChanged": false,
+  "limits": [
+    "Local Chromium/SwiftShader functional and screenshot QA, not native/device performance.",
+    "Does not complete the in-progress hundred-seed or roadmap milestone4 gate."
+  ],
+  "evidence": [
+    {
+      "path": "e2e/roster-player-selection.spec.ts",
+      "bytes": 8491,
+      "sha256": "f5827d16283765cf5d3a29d78e53605f388c1ad4ce3d315ee3237a3f47b82747"
+    },
+    {
+      "path": "artifacts/7ae8e0-roster-browser-v1.log",
+      "bytes": 5082,
+      "sha256": "0911c7539bab482c271d8809fed785b17143d9b5607e41c3e3d9e075aa9f6b31"
+    },
+    {
+      "path": "artifacts/7ae8e0-roster-choices-browser-v2.log",
+      "bytes": 3835,
+      "sha256": "e02861d815c687d2b1ff8b3b5cd9d37a3a54417fa59e48af58d6253ecd5e74c5"
+    },
+    {
+      "path": "artifacts/7ae8e0-roster-choices-browser-v2/roster-player-selection-al-65a95-al-saves-and-exact-restarts/six-player-selection.json",
+      "bytes": 998353,
+      "sha256": "0adcd02b21cf595a1d7f4f7999281cb3a320937df88a248e99afb638da6b1434"
+    },
+    {
+      "path": "artifacts/7ae8e0-roster-choices-browser-v2/roster-player-selection-pu-9f31e-orces-its-practice-boundary/selection-boundaries.json",
+      "bytes": 177,
+      "sha256": "b1cc8be37d3e7bc162a155c624f0afc5313e282aeb4bae7845254116060df50b"
+    },
+    {
+      "path": "artifacts/7ae8e0-roster-choices-browser-v2/roster-player-selection-pu-9f31e-orces-its-practice-boundary/six-player-chooser-1024.png",
+      "bytes": 325740,
+      "sha256": "685429f78e45e6fea9d704f0df11ce95364ae9a0b711f08f4eefc02c60517fc4"
+    },
+    {
+      "path": "artifacts/7ae8e0-roster-choices-browser-v2/roster-player-selection-pu-9f31e-orces-its-practice-boundary/yi-role-preparation-1024.png",
+      "bytes": 331349,
+      "sha256": "10ad81074e399f976dd1fa9e414e038a2a7fb0a97439baef222eae0b3e720cc6"
+    }
+  ]
+}

@@ -9426,3 +9426,7 @@ README now describes all21Baron emitters, candidate audio/saved tails and the re
 ### Prepare cache-independent Baron audio persistence CI
 
 Added a read-only GitHub workflow for TypeScript and22committed-asset/audio-state/controller/saved-tail tests on Node24.22.1. Both local commands and a separate tracked checkout without private .cache/.tools pass; installed Node dependencies were reused. YAML parses and source/test/audio path triggers are explicit. The workflow has not been pushed/dispatched; it does not claim full-suite/browser/offline/cohort coverage or gate the existing deploy job. See docs/reference/baron-audio-ci-verification.json.
+
+### Revalidate all six private player choices and roster boundaries
+
+The first browser run passed three cases and exposed a chooser locator also matching an ally portrait. Scoped both selection assertions to data-action=choose-champion; no expectation/deadline or app change. Both rerun cases pass, covering all six manual kits/roles, exact saves/restarts and public/private restrictions. Combined with the unchanged source-model/combined-roster passes, four unique current browser cases pass. Reviewed the1024pixel chooser capture; native/device performance remains separate. See docs/reference/7ae8e0-roster-browser-verification.json.

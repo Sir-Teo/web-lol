@@ -18,3 +18,15 @@ victory rule.
 This records the start only. It does not certify100executed seeds, completion,
 full-roster invariants, human play, browser/device performance or milestone4.
 The ordinary e20hundred-seed cohort and its archived continuations remain separate.
+
+## Current browser checks
+
+Four unique roster browser cases now pass: Garen/Ahri source clips, all six
+manual player choices with exact saves/restarts, public/private selection
+restrictions, and the combined-roster saved future. The initial run exposed an
+ambiguous test selector matching both the ally portrait and champion choice;
+scoping it to the chooser fixes the test without changing assertions or the app.
+Reviewed the1024pixel chooser capture. These are functional checks, not device
+performance or completion of the running cohort.
+
+[Browser receipt](reference/7ae8e0-roster-browser-verification.json).

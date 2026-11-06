@@ -47,15 +47,13 @@ test('all six private player choices keep their own manual kit, roles, actual sa
   for (const choice of choices) {
     await newMatch(page);
     await expect(page.locator('[data-action="choose-champion"]')).toHaveCount(6);
-    await expect(page.locator(`[data-champion="${previous}"]`)).toHaveAttribute(
-      'aria-pressed',
-      'true'
-    );
+    await expect(
+      page.locator(`[data-action="choose-champion"][data-champion="${previous}"]`)
+    ).toHaveAttribute('aria-pressed', 'true');
     await page.getByRole('button', { name: choice.name, exact: true }).click();
-    await expect(page.locator(`[data-champion="${choice.id}"]`)).toHaveAttribute(
-      'aria-pressed',
-      'true'
-    );
+    await expect(
+      page.locator(`[data-action="choose-champion"][data-champion="${choice.id}"]`)
+    ).toHaveAttribute('aria-pressed', 'true');
     await expect(page.locator('.lane-description')).toContainText(choice.name);
     if (choice.id === 'ashe' || choice.id === 'lux')
       await expect(page.getByRole('button', { name: 'Start practice', exact: true })).toBeEnabled();
