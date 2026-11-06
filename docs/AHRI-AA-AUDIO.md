@@ -9,3 +9,9 @@ Cast declares gain−12, pitch200 and its separate modifier; missile declares ga
 Attack mixer362837995 inherits actor91257365, whose priority56, attenuation134343538 and unresolved global bus211064428 differ from spell audio. The stored three-point dB table is(0,0,Constant),(1350,0,Linear),(2412,−1,Linear); it must not inherit the spell attenuation table. Native listener/bus calibration, global playlist state, attack event dispatch and stop timing remain unverified.
 
 Normal/optimized cache-free guards reproduce the exact reading and reject missing/changed output, output/parent symlinks, changed graph bytes and missing decoded metadata. No attack runtime masters, saved history, gameplay or playback binding is added. Passive playback delivery remains isolated and retains its own evidence.
+
+## Isolated master and graph stage
+
+The branch stages twelve unchanged mono44.1 kHz float masters and the unflattened generated graph: thirteen outputs /2,065,931 bytes. Twelve event/action identities retain their shared three-container targets, including each100 ms Linear Stop. The graph keeps the distinct attack actor root, priority56, unresolved bus and three-point attenuation. No attack history, local finite timing or playback is bound.
+
+All15 asset/property checks and TypeScript pass. Normal/optimized publication guards each pass six rejection probes, including a conflict in the final graph before any master is written, corrupted output, leaf/parent symlinks and changed input. Fixtures use committed identical masters without private decoder caches. CI includes source reading and whole-closure publication guards. Passive acceptance remains isolated.
