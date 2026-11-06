@@ -1,0 +1,131 @@
+{
+  "date": "2026-11-06",
+  "ruleset": "e20bdcb81f74cf79399347c31c7b163879eb1541316841afc382ac03a365d853",
+  "schema": 163,
+  "offlinePack": {
+    "browser": "system-chromium",
+    "manifest": {
+      "id": "32a7a17b97102aeca703c6fb2e5f674d18633a1e56231c463b8c4dd5bc606843",
+      "files": 1204,
+      "bytes": 551659880
+    },
+    "checks": {
+      "integrityFailureRestoresDownloadFocus": true,
+      "integrityFailure": true,
+      "downloadFocusesCancel": true,
+      "cancelRetainsVerified": true,
+      "cancelRestoresDownloadFocus": true,
+      "retryWithoutRedownload": true,
+      "completionPreservesOtherControlFocus": true,
+      "pausedSavedTickBootsOffline": true,
+      "completePackRepairOffline": true,
+      "newLuxLaneMatchOffline": true,
+      "serviceWorkerResponses": 978,
+      "removalKeepsSavedBytes": true,
+      "updateRefusesOtherTabs": true,
+      "explicitAtomicVersionSwitchOffline": true,
+      "missingEntryRevokesReady": true,
+      "scopeOnlyRemoval": true
+    },
+    "result": "passed",
+    "productionErrors": []
+  },
+  "completedMatch": {
+    "runtime": {
+      "node": "v24.22.1",
+      "v8": "13.6.233.17-node.58",
+      "arch": "x64"
+    },
+    "sourceReport": {
+      "path": "/workspace/web-lol/.cache/current-e20bdc-ordinary/seeds/26018/report.json",
+      "sha256": "0cb1c0f53523441f76e0b273e9d13d04aa101bd70285d0db8eababcba106c00a"
+    },
+    "sourceSnapshot": {
+      "path": "/workspace/web-lol/.cache/current-e20bdc-ordinary/seeds/26018/final.match.json",
+      "sha256": "0cc5eafe0cb85a49859b385307587bb97ea4ea31e1ca080a042f77122b88c2dd",
+      "tick": 169837,
+      "winner": "blue",
+      "ruleset": "e20bdcb81f74cf79399347c31c7b163879eb1541316841afc382ac03a365d853"
+    },
+    "manifest": {
+      "id": "32a7a17b97102aeca703c6fb2e5f674d18633a1e56231c463b8c4dd5bc606843",
+      "files": 1204,
+      "bytes": 551659880
+    },
+    "checks": {
+      "fullPackReady": true,
+      "normalCompletedPreviewOffline": true,
+      "exactCompletedStateImportAndExportOffline": true,
+      "exactCompletedStateReloadAndExportOffline": true,
+      "sourceReportSnapshotAndManifestUnchanged": true,
+      "serviceWorkerResponses": 975
+    },
+    "limits": [
+      "Completed-match import, offline restore and exact export; not full browser-match simulation or the 100-seed gate."
+    ],
+    "browser": {
+      "version": "155.0.8059.79",
+      "systemChromium": true
+    },
+    "productionErrors": [],
+    "failedRequests": [],
+    "outsidePrefixRequests": [],
+    "result": "passed"
+  },
+  "scripts": [
+    {
+      "path": "tools/qa/offline-pack.mjs",
+      "sha256": "5e8b393f2a9955ff5a995da2c5f5a50029b48322d7ab6a7937ade0b52a04dcc7"
+    },
+    {
+      "path": "tools/qa/offline-completed-match.mjs",
+      "sha256": "c11470731576b4f443c5a18e03d949c458915567b689dd16b311d120fb5f3181"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "artifacts/offline-pack-e20bdc-current-production.json",
+      "sha256": "f0d560d28f35398d56728ad45b66f1daca251112c28608f815fbfc6e8eee1cf9",
+      "bytes": 859
+    },
+    {
+      "path": "artifacts/e20bdc-completed-offline/reading.json",
+      "sha256": "5dc73ab4b91f6f68aaa083350f1c14e772fb542e12daa8ddd8e909412e9795b6",
+      "bytes": 1369
+    },
+    {
+      "path": "artifacts/e20bdc-offline-pack.log",
+      "sha256": "467f76821add4342cb83d082f84e1b77d88a64f37acc156b0fa48d6fa20f2f5e",
+      "bytes": 870
+    },
+    {
+      "path": "artifacts/e20bdc-completed-offline.log",
+      "sha256": "34d7606a8e7c68f2979b51a33b4e1f7b30688151265d462b515ac03343e73a8f",
+      "bytes": 1172
+    },
+    {
+      "path": "artifacts/e20bdc-completed-offline/result-offline.png",
+      "sha256": "2c8d289c7a4eff6619a73aa1f5466338d7eb9f2eb94cbbc4ca8893a6cbea8b68",
+      "bytes": 568050
+    },
+    {
+      "path": "artifacts/e20bdc-completed-offline/preview.png",
+      "sha256": "60a4b269bd5a1603086f343154d1370086cf36224787f0b2169cea9c095c5030",
+      "bytes": 592836
+    },
+    {
+      "path": "artifacts/e20bdc-completed-offline/first-export.json",
+      "sha256": "cacd68fbfd43b8f61ddc9af12cb871baac501671a4e099072828ec2aef29330b",
+      "bytes": 228355
+    },
+    {
+      "path": "artifacts/e20bdc-completed-offline/reloaded-export.json",
+      "sha256": "cacd68fbfd43b8f61ddc9af12cb871baac501671a4e099072828ec2aef29330b",
+      "bytes": 228355
+    }
+  ],
+  "limits": [
+    "Network-off production and exact completed snapshot handling, not a whole browser-simulated match or native/hardware certification.",
+    "100-seed current ordinary regression is running separately; no completion claim."
+  ]
+}

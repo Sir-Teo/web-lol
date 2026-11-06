@@ -6,6 +6,12 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+The current pack also passes [fresh offline and completed-match checks](CURRENT-E20BDC-OFFLINE.md):
+978 cache responses in the full controls audit, 975 in completed-match restore,
+exact import/reload/export at tick 169,837, no browser errors or failed requests.
+The 100-seed current ordinary regression is now running separately with two
+workers; no completion claim is made.
+
 The rebuilt `e20bdc…` pack now passes the [nested-host production smoke](reference/e20bdc-production-subpath.json):
 32 recordings, real spell casts, save restoration, ward/Oracle/companion flows,
 public champion choices and private-feature isolation. Pack `32a7a17b…` has
