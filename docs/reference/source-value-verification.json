@@ -1,0 +1,40 @@
+{
+  "format": 1,
+  "testsPassed": 235,
+  "independentSamples": 231,
+  "typecheck": "passed",
+  "nativeExecuted": false,
+  "runtimeBinding": false,
+  "evidence": [
+    {
+      "path": "artifacts/source-value-tests.log",
+      "bytes": 652,
+      "sha256": "7ca4aad3a95f7516c1e2d80830903eb8d6aa41f30ff15a5ae2e37cf619774271"
+    },
+    {
+      "path": "artifacts/source-value-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reference/baron-value-readers.json",
+      "bytes": 2213,
+      "sha256": "27b0861cb0e5ab05f108f7adf90bf7b1b804661d1f39056dd27b68a2ddc171fe"
+    },
+    {
+      "path": "tools/assets/export-source-value-samples.mjs",
+      "bytes": 4328,
+      "sha256": "5ae02b0e997fbc248bf9f9ed39c8dd28056fa99ed6401fc31b82382f0d0a9405"
+    },
+    {
+      "path": "docs/reference/source-value-samples.json",
+      "bytes": 84441,
+      "sha256": "3950c03404fec870a14c388fcee14292d53a1cccfccb24eedf7b38458c4470e8"
+    },
+    {
+      "path": "src/render/source-value.ts",
+      "bytes": 4107,
+      "sha256": "d1a1a4e9e0ff1aaf0672097a94bd00be76cb43d3cbf73640096bd7bf94f2043e"
+    }
+  ]
+}

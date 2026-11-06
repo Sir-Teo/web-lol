@@ -1,0 +1,40 @@
+{
+  "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+  "files": [
+    {
+      "path": ".cache/baron-emission-readers/engine/simulation/particleRead.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/simulation/particleRead.ts",
+      "bytes": 16101,
+      "sha256": "1c2ac421e97d350cc1758785bab1f841fb95064c31ac9b81ebe214447bb811ab",
+      "gitBlob": "2777f02a607ef91a3cae253b688d21029975ed31"
+    },
+    {
+      "path": ".cache/baron-emission-readers/engine/utils/Rng.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/utils/Rng.ts",
+      "bytes": 1899,
+      "sha256": "6cad16e5c8bfcb6e751bce6644c707b5064782bb51b4f1315ce396144221c108",
+      "gitBlob": "278a8efb67718ded0cbfeca131d1e36e8e5b7fbb"
+    },
+    {
+      "path": ".cache/baron-emission-readers/engine/utils/analyticDrag.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/utils/analyticDrag.ts",
+      "bytes": 582,
+      "sha256": "e0a5e7d8cc4fe7c965a00a06953b1c5dfcb6bd55c1ebd35cdda3e1345df4086c",
+      "gitBlob": "f382830ad9ddb6afc583a91a7be7183220116490"
+    },
+    {
+      "path": ".cache/baron-emission-readers/engine/utils/sampleCurve.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/utils/sampleCurve.ts",
+      "bytes": 12299,
+      "sha256": "2acbaef37379bb8c4d6684c3716bad0311167a175c0132506148d349c5ba5230",
+      "gitBlob": "8d41159189b0042dd2fd506ba12e5963e11bb094"
+    },
+    {
+      "path": ".cache/baron-emission-readers/engine/parsing/readValue.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/parsing/readValue.ts",
+      "bytes": 13407,
+      "sha256": "d9ae8a14ddc236b57138056e623fe922b7c1c15ffbe142cdebf6adefb2f6fed3",
+      "gitBlob": "aabd4161be3ad8650afa7426dd822604a139d0b6"
+    }
+  ]
+}

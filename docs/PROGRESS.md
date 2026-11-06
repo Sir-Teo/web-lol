@@ -32,6 +32,11 @@ sampling and active renderer binding remain next work.
 keys from synthetic fallback keys. All 25 guards pass per Python mode and all
 48 Node QA cases pass. The format-1 payload and compiler identities are preserved.
 
+[Ordinary source values](SOURCE-VALUES.md) now match 231 independent exact-byte
+samples; all 235 helper cases pass. Per-channel float32 rounding, duplicate keys
+and pinned draw consumption remain explicit. Integrated values require their
+own adapter; no native PRNG parity is claimed.
+
 ## Recent verified checkpoints
 
 All 21 Baron emitters now have a [strict private parameter stage](BARON-ATTACK-PROGRAM.md),
