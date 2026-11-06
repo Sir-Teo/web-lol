@@ -1,0 +1,563 @@
+{
+  "format": 1,
+  "historyRevision": "234d6706ed5c26f80ba72e7a3fbd34415689d5b8",
+  "schema": 177,
+  "ruleset": "3421b6652597e672ce59a95b0c53bd08cb1e018159e3507994a6db3c74657162",
+  "scope": "Saved projectile observer, deterministic samplers, asset loader and unbound render kernels; no active projectile renderer.",
+  "fullUnit": {
+    "revision": "389d6366764bb87c90d42409420c900ced6799c6",
+    "passed": 8818,
+    "failed": 2,
+    "files": 533,
+    "workers": 1,
+    "knownFailures": [
+      "missing historical Leona reader archive",
+      "Lux sampler FMA golden mismatch"
+    ]
+  },
+  "focusedRenderKernels": {
+    "packedTrailFixtures": 42,
+    "packedTrailTests": 45,
+    "pathTests": 4,
+    "trailTests": 4,
+    "typeCheck": true
+  },
+  "frozenGameplayBaseline": {
+    "cases": 14,
+    "projections": 634,
+    "excludesOnly": [
+      "version",
+      "ruleset",
+      "ahriQProjectileVisuals"
+    ],
+    "olderHistoriesRetained": true
+  },
+  "nodeQA": 237,
+  "cleanCI": {
+    "revision": "ccdfaa0da4262efd8058b4ed96a866a79c6a0840",
+    "tests": 525,
+    "files": 78,
+    "typeCheck": true,
+    "commands": 52,
+    "pythonInvocations": 50,
+    "pythonGuardModes": 46,
+    "portableReadingChecks": 4,
+    "privateCaches": false,
+    "privateTools": false,
+    "dependencies": "Reused parent node_modules; npm ci not repeated locally",
+    "remoteDispatched": false,
+    "results": [
+      {
+        "command": "npm exec tsc -- --noEmit",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-0.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": "npm exec vitest -- run tests/baron-basic-audio-assets.test.ts tests/baron-basic-audio-state.test.ts tests/baron-basic-audio-controller.test.ts tests/baron-basic-audio-history.test.ts tests/ahri-charm-audio-assets.test.ts tests/ahri-charm-audio-history.test.ts tests/ahri-charm-audio-state.test.ts tests/ahri-charm-audio-controller.test.ts tests/ahri-charm-gameplay-reference.test.ts tests/wwise145-fade.test.ts tests/wwise145-log1.test.ts tests/ahri-attack-audio-history.test.ts tests/ahri-attack-audio-state.test.ts tests/ahri-attack-audio-controller.test.ts tests/ahri-attack-audio-policy.test.ts tests/ahri-lifecycle-audio-history.test.ts tests/ahri-lifecycle-audio-state.test.ts tests/ahri-lifecycle-audio-controller.test.ts tests/ahri-lifecycle-audio-policy.test.ts tests/ahri-recall-audio-state.test.ts tests/ahri-recall-audio-controller.test.ts tests/ahri-recall-audio-history.test.ts tests/ahri-recall-audio-policy.test.ts tests/ahri-q-projectile-visuals.test.ts tests/ahri-q-projectile-history.test.ts tests/source-packed-trail-ribbon.test.ts tests/source-motion-timeline.test.ts tests/ahri-q-projectile-particles.test.ts tests/ahri-q-projectile-gameplay-reference.test.ts tests/ahri-q-projectile-assets-loader.test.ts tests/ahri-q-projectile-assets.test.ts tests/ahri-q-cast-assets-loader.test.ts tests/ahri-q-casts.test.ts tests/lazy-ahri-q-casts.test.ts tests/ahri-q-cast-particle-assets.test.ts tests/ahri-q-cast-particles.test.ts tests/ahri-q-cast-visual-history.test.ts tests/ahri-q-cast-timing.test.ts tests/ahri-q-cast-gameplay-reference.test.ts tests/ahri-recall-gameplay-reference.test.ts tests/ahri-recall-audio-assets.test.ts tests/ahri-lifecycle-audio-assets.test.ts tests/ahri-lifecycle-gameplay-reference.test.ts tests/champion-respawn.test.ts tests/champion-death-scaling.test.ts tests/ahri-attack-audio-assets.test.ts tests/ahri-attack-gameplay-reference.test.ts tests/ahri-development.test.ts tests/critical-attacks.test.ts tests/ahri-passive-audio-assets.test.ts tests/ahri-passive-audio-policy.test.ts tests/ahri-passive-audio-history.test.ts tests/ahri-passive-audio-state.test.ts tests/ahri-passive-audio-controller.test.ts tests/ahri-spirit-rush-audio-assets.test.ts tests/ahri-spirit-rush-audio-policy.test.ts tests/ahri-spirit-rush-audio-history.test.ts tests/ahri-spirit-rush-audio-state.test.ts tests/ahri-spirit-rush-audio-controller.test.ts tests/ahri-spirit-rush-gameplay-reference.test.ts tests/ahri-r.test.ts tests/ahri-passive-gameplay-reference.test.ts tests/ahri-passive.test.ts tests/ahri-fox-fire-audio-assets.test.ts tests/ahri-fox-fire-audio-policy.test.ts tests/ahri-fox-fire-audio-history.test.ts tests/ahri-fox-fire-audio-state.test.ts tests/ahri-fox-fire-audio-controller.test.ts tests/ahri-fox-fire-gameplay-reference.test.ts tests/ahri-w.test.ts tests/ahri-orb-audio-assets.test.ts tests/ahri-orb-audio-policy.test.ts tests/ahri-orb-audio-state.test.ts tests/ahri-orb-audio-controller.test.ts tests/source-envelope.test.ts tests/ahri-orb-audio-history.test.ts tests/ahri-orb-gameplay-reference.test.ts tests/ahri-q.test.ts --maxWorkers=1",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-1.log",
+        "bytes": 405,
+        "sha256": "ee3719e8a91aeb88bf9b8130a2910025061070968bbf8f20595ab7b1ed34885c"
+      },
+      {
+        "command": "python3 tools/assets/test-audio-float-corpus.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-2.log",
+        "bytes": 126,
+        "sha256": "40aead902f47ee86083ca799462d13f1f5def3ae5feb071af6b5032aae880871"
+      },
+      {
+        "command": "python3 -O tools/assets/test-audio-float-corpus.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-3.log",
+        "bytes": 125,
+        "sha256": "f5d56745cbec320ad650e983e5f2738ba279b3545edfdf1ea9dfd5a5312e45c2"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-charm-audio-export.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-4.log",
+        "bytes": 118,
+        "sha256": "b08e65827c7a08cae7a8c83373415a646d20c999bf8b7f7c48684023fc4faf73"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-charm-audio-export.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-5.log",
+        "bytes": 117,
+        "sha256": "277830a9736393132c0af95cee95446a745c5f7f75b6d6f54b9a6eac6babda4c"
+      },
+      {
+        "command": "python3 tools/assets/test-baron-basic-audio-export.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-6.log",
+        "bytes": 118,
+        "sha256": "b08e65827c7a08cae7a8c83373415a646d20c999bf8b7f7c48684023fc4faf73"
+      },
+      {
+        "command": "python3 -O tools/assets/test-baron-basic-audio-export.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-7.log",
+        "bytes": 117,
+        "sha256": "277830a9736393132c0af95cee95446a745c5f7f75b6d6f54b9a6eac6babda4c"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-q-audio-reading.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-8.log",
+        "bytes": 121,
+        "sha256": "23a5151975aebfa4f688c9a38a0a1a5e16ecdbf829553970e98f303acce1e579"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-q-audio-reading.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-9.log",
+        "bytes": 120,
+        "sha256": "2d4bd23507d91cb112aba7b702d646dd3c1da3de1ad8406725db3fa16cb165f3"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-orb-audio-export.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-10.log",
+        "bytes": 118,
+        "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-orb-audio-export.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-11.log",
+        "bytes": 117,
+        "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-w-audio-reading.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-12.log",
+        "bytes": 121,
+        "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-w-audio-reading.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-13.log",
+        "bytes": 120,
+        "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-fox-fire-audio-export.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-14.log",
+        "bytes": 118,
+        "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-fox-fire-audio-export.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-15.log",
+        "bytes": 117,
+        "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-r-audio-reading.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-16.log",
+        "bytes": 121,
+        "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-r-audio-reading.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-17.log",
+        "bytes": 120,
+        "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-spirit-rush-audio-export.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-18.log",
+        "bytes": 118,
+        "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-spirit-rush-audio-export.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-19.log",
+        "bytes": 117,
+        "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-p-audio-reading.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-20.log",
+        "bytes": 121,
+        "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-p-audio-reading.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-21.log",
+        "bytes": 120,
+        "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-passive-audio-export.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-22.log",
+        "bytes": 118,
+        "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-passive-audio-export.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-23.log",
+        "bytes": 117,
+        "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-aa-audio-reading.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-24.log",
+        "bytes": 121,
+        "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-aa-audio-reading.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-25.log",
+        "bytes": 120,
+        "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-attack-audio-export.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-26.log",
+        "bytes": 118,
+        "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-attack-audio-export.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-27.log",
+        "bytes": 117,
+        "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-lifecycle-audio-reading.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-28.log",
+        "bytes": 121,
+        "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-lifecycle-audio-reading.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-29.log",
+        "bytes": 120,
+        "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-lifecycle-audio-export.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-30.log",
+        "bytes": 118,
+        "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-lifecycle-audio-export.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-31.log",
+        "bytes": 117,
+        "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-recall-audio-reading.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-32.log",
+        "bytes": 121,
+        "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-recall-audio-reading.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-33.log",
+        "bytes": 120,
+        "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-recall-audio-export.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-34.log",
+        "bytes": 118,
+        "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-recall-audio-export.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-35.log",
+        "bytes": 117,
+        "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+      },
+      {
+        "command": "python3 tools/assets/read-ahri-q-projectile-bindings.py --check",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-36.log",
+        "bytes": 214,
+        "sha256": "c04e08e884a4d27646c74ac153a754f8fbcbbf14948182842704b21c7753c27b"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-q-projectile-bindings.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-37.log",
+        "bytes": 182,
+        "sha256": "69a04c85425a2cad461b39356efdd3a239f1b20c6721b5ae4ff6ca6e06f055f5"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-q-projectile-bindings.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-38.log",
+        "bytes": 181,
+        "sha256": "bcc0e1af30b3f4973b9a294a0eef64676f4ff8a412a1033df5ae886a5b605837"
+      },
+      {
+        "command": "python3 tools/assets/prepare-ahri-q-projectile-profiles.py --verify-reading",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-39.log",
+        "bytes": 253,
+        "sha256": "cc0146a9d1b6fff9734f2b99bcfe8a1bf17469fe61321455e6813e10c72e0ac4"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-q-projectile-profiles.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-40.log",
+        "bytes": 197,
+        "sha256": "1afd2534ca5f0883593b0fdc59948caef96a9082b0c7810867a64404087beea0"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-q-projectile-profiles.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-41.log",
+        "bytes": 196,
+        "sha256": "f3d20fefd665c21cd35a45a80fcb61acc9b95525dbcd4595aac4b3809e5fea00"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-q-projectile-publication.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-42.log",
+        "bytes": 228,
+        "sha256": "7084978b6316750770a688a9a6f8e8749fd58007a3c468a05719a6c406bb36d1"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-q-projectile-publication.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-43.log",
+        "bytes": 227,
+        "sha256": "c5cc1abf027188111affdbcfbef2fe54483fc637f8d4069b38d62b02ee0a3d16"
+      },
+      {
+        "command": "python3 tools/assets/read-ahri-q-bindings.py --check",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-44.log",
+        "bytes": 318,
+        "sha256": "7178b4121304a059263af2bf85f741412e0d59ef7da84f4dd577312d6b159bf0"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-q-bindings.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-45.log",
+        "bytes": 144,
+        "sha256": "e4179b487e37d19a1cf4e8cbc2758f21b3ba8a6b3f7911243e8a407d05a62988"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-q-bindings.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-46.log",
+        "bytes": 143,
+        "sha256": "096fa861aaea2028f0b1dac92c240b5f0ba1e150460f7adb36b231f55972af5b"
+      },
+      {
+        "command": "python3 tools/assets/export-ahri-q-cast-timing.py --check",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-47.log",
+        "bytes": 80,
+        "sha256": "d2949c6aa104cfdf7e3a4e1e45b019d3e0ef2c62e243bf66496fbd059803aaf5"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-q-cast-timing.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-48.log",
+        "bytes": 134,
+        "sha256": "e925324760d129660ba03c790e3a74ff5ff822a2182f224ea7af42fc490aa0d9"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-q-cast-timing.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-49.log",
+        "bytes": 133,
+        "sha256": "2fadac9a752ff503a6b510e879c2fa0ea5d37a969aef504b7387c9bdd869df60"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-q-cast-publication.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-50.log",
+        "bytes": 119,
+        "sha256": "aa7e0728e9ac2d8bfc30b0ee491768ebe2817856a570b49b7a2e97529af5c39c"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-q-cast-publication.py",
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-clean-ci-51.log",
+        "bytes": 118,
+        "sha256": "9fd78ec78e080a4a78c955c98479fadb21a599b53690d45e24e95613408a96bb"
+      }
+    ]
+  },
+  "cohort": {
+    "root": "/workspace/web-lol-ahri-q-projectile/.cache/ahri-q-projectile-history-roster-seed1",
+    "sourceRevision": "ccdfaa0da4262efd8058b4ed96a866a79c6a0840",
+    "sourceFiles": 639,
+    "allCurrentSourceBytesMatch": true,
+    "plan": {
+      "path": ".cache/ahri-q-projectile-history-roster-seed1/plan.json",
+      "bytes": 110639,
+      "sha256": "beb2a87f4b1aeac86bfc3f6bc9adbec4d71966fb3d049857d46c6d845d33e2d6"
+    },
+    "report": {
+      "path": ".cache/ahri-q-projectile-history-roster-seed1/seeds/1/report.json",
+      "bytes": 226135,
+      "sha256": "83342879d6270e7956e8d83c2925e9cde704efb44ac1b75e17e975a4c12e338c"
+    },
+    "runner": {
+      "file": "/workspace/web-lol-ahri-q-projectile/.cache/ahri-q-projectile-history-roster-seed1/runner/match-seed.js",
+      "bytes": 1265642,
+      "sha256": "260ed5f3c3a92639e386cccdda390e5b713762d10101e59d981f153aae337dbf"
+    },
+    "seed": 1,
+    "winner": "blue",
+    "finalTick": 157116,
+    "roundTrips": 44,
+    "futureChecks": 43,
+    "futureCheckedTicks": 2580,
+    "matchingArchivedProjections": 45,
+    "comparison": "q-projectile-history-gameplay-comparison.json"
+  },
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-sampler-cached-focused-v2.log",
+      "bytes": 386,
+      "sha256": "6acb1c4997df56085ed9be843f20f6c55e74fa546a7b73bce896ee8629c5b729"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-sampler-cached-types-v2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-focused-v1.log",
+      "bytes": 386,
+      "sha256": "1a1e5170ac2f02dd82cd2dd0cd98e8910c5318958f7812ced7c8ad41a66250c6"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-focused-v2.log",
+      "bytes": 186,
+      "sha256": "0456ff3b4ea48d83dbf919f2340d78787c8a1e08f062a11ddc2acd6d42666552"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-gameplay-v1.log",
+      "bytes": 400,
+      "sha256": "b71440fd0fe64ee856bd870ef28ff1a7598715068c0ad3b944ae480c971e90b8"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-types-v2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-full-tests-v2.log",
+      "bytes": 4796,
+      "sha256": "f444913c2b03b1d0b8a5356e16df461b4be0fedd731cce63fe1dd6dff657eadb"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-node-qa-v1.log",
+      "bytes": 18890,
+      "sha256": "6c4be4c459c43ed42213df7dbf061718a79a09119c77b93c0fbe879e2bfb65cd"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-loader-history-focused-v2.log",
+      "bytes": 188,
+      "sha256": "cb640441411416b68bb0d1b73204e25b3de97fad3759143aed4efa0658497583"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-loader-types-v2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/source-packed-trail-tests-v1.log",
+      "bytes": 199,
+      "sha256": "4763ad12fe3d7e6d567a3a1d6d5f0906958ef9d676d353c3a2b1af18aa4ab67f"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/source-packed-trail-fixture-check-v1.log",
+      "bytes": 105,
+      "sha256": "8c53c1774aedc0b1baaf0aeaaf8f32cfbd4b80b6e238483f8b313bbcf1399f99"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/source-packed-trail-types-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-view-focused-v1.log",
+      "bytes": 197,
+      "sha256": "bf116dd8baba2a3a6ec45616fd5337a97470c53fb8fb3eccb8ab53690a0ae0bc"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-view-types-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-trails-focused-v2.log",
+      "bytes": 185,
+      "sha256": "b136696e066c478f6fc44f00e617f4f8c457c133c6088023c4dcdaf8fe6cdeb0"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-trails-types-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-cohort-comparator-v1.log",
+      "bytes": 1540,
+      "sha256": "261e2d9259a9eec2beb0eedfdbdef8cb5ab35c8da6337ac18200dedb2471352d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-cohort-v1.log",
+      "bytes": 1406,
+      "sha256": "fad5620e16cf01d584eb11df3e863eabade3a81a914746752f7e2bec5a2dbc1a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-cohort-verify-v1.log",
+      "bytes": 430,
+      "sha256": "b002516617de54333974c0640f72f4f4cbb844e8f2d9c776262a10e02d131981"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-cohort-comparison-v1.log",
+      "bytes": 61,
+      "sha256": "e1aa446b2a99cfc97cdb1c336e58a56082b09bce36db1959076309b4aa2c141c"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-history-ci-results.json",
+      "bytes": 17883,
+      "sha256": "3cea975de495c9a6c386654f8f3eb9f0cf80162155a8820296c2ad9fd656ba92"
+    }
+  ],
+  "limitations": [
+    "One fresh natural-match seed does not establish a new hundred-seed milestone.",
+    "Historical visibility and caster target points are saved inputs, not independently reconstructed source states.",
+    "External particle/trail writer agreement does not certify native callback timing, pixels or device performance.",
+    "Previously accepted production pack remains schema 176 until later renderer acceptance and main integration."
+  ]
+}

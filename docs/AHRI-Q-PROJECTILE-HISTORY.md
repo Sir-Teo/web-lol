@@ -37,5 +37,10 @@ stateless results through backward seeks and disposal.
 
 This stage has no projectile renderer. Published assets and native declaration
 joins do not establish callback timing, native pixel equivalence, or device
-performance. Full-suite, clean-CI and natural-match evidence will be recorded
-separately when completed.
+performance. The [verification record](reference/ahri/q-projectile-history-verification.json)
+records 8,818 full-suite passes (two known historical failures), 237 Node QA
+passes, and 525 tests plus 52 commands from a clean checkout without private
+caches/tools. A fresh frozen 639-file cohort reaches blue victory at tick
+157,116, with 44 round trips, 43 continuation checks and all 45 saved projections
+matching the previous Q cast cohort. These results retain their own schema 177
+and ruleset identity; the older cohort and accepted pack are unchanged.
