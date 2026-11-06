@@ -4,10 +4,7 @@ import { expect, test } from 'vitest';
 import { World } from '../src/simulation/world';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
 import reference from '../docs/reference/ahri/w-visual-gameplay-reference.json';
-import {
-  W_VISUAL_GAMEPLAY_CASES,
-  wVisualGameplaySamples,
-} from './helpers/ahri-w-visual-gameplay';
+import { W_VISUAL_GAMEPLAY_CASES, wVisualGameplaySamples } from './helpers/ahri-w-visual-gameplay';
 test('W visual preparation preserves complete independently archived gameplay projections', () => {
   const hash = (raw: string | Buffer) => createHash('sha256').update(raw).digest('hex');
   expect(hash(readFileSync('tests/helpers/ahri-w-visual-gameplay.ts'))).toBe(

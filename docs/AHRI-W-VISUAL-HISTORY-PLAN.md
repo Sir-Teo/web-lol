@@ -91,3 +91,14 @@ an explicit caller policy, pending renderer integration.
 The [baseline receipt](reference/ahri/w-visual-history-baseline.json) records
 independent archive verification: Blue victory, 157,116 checked ticks, 44 save
 round-trips and 43 future replays covering 2,580 ticks. This is one seed.
+
+## Motion validation preparation
+
+Dispatch anchors also retain the source point, and flight samples retain the
+actual target point. The pure motion validator replays orbit roots and the
+existing linear homing step from these saved inputs. It checks phase clocks,
+consecutive samples, ordered sight audiences and terminal consistency. Three
+validator tests include 17 corruption mutations plus orbit cancellation and
+false expiry clocks. Together with five observer tests and the archived
+comparison, nine focused tests pass. Historical sight itself remains unprovable
+from these saved inputs; World restore will still need identity/live-state links.

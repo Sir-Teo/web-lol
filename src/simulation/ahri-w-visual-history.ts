@@ -18,9 +18,13 @@ export interface AhriWVisualHistory {
   fires: {
     index: number;
     birth: WVisualAnchor;
-    dispatch: (WVisualAnchor & { targetId: number }) | null;
+    dispatch: (WVisualAnchor & { targetId: number; sourcePoint: Vec2 }) | null;
     end: (WVisualAnchor & { reason: NonNullable<FoxFire['stopReason']> | 'match-end' }) | null;
-    frames: (WVisualAnchor & { phase: 'orbit' | 'flight'; sourcePoint: Vec2 })[];
+    frames: (WVisualAnchor & {
+      phase: 'orbit' | 'flight';
+      sourcePoint: Vec2;
+      targetPoint: Vec2 | null;
+    })[];
   }[];
 }
 export interface WVisualObserverWorld {
@@ -33,7 +37,9 @@ function anchor(w: WVisualObserverWorld, p: Vec2, owner: Team): WVisualAnchor {
   return {
     tick: w.tick,
     point: copy(p),
-    audience: (['blue', 'red'] as Team[]).filter((team) => team === owner || w.pointVisible?.(p, team)),
+    audience: (['blue', 'red'] as Team[]).filter(
+      (team) => team === owner || w.pointVisible?.(p, team)
+    ),
   };
 }
 const record = (w: WVisualObserverWorld, cast: FoxFireCast) =>
@@ -61,24 +67,42 @@ export function beginWVisualHistory(w: WVisualObserverWorld, cast: FoxFireCast, 
   });
 }
 /** Call before same-tick flight movement, preserving the actual birth root. */
-export function dispatchWVisualHistory(w: WVisualObserverWorld, cast: FoxFireCast, fire: FoxFire) {
-  const f = record(w, cast)?.fires.find((f) => f.index === fire.index);
-  if (!f || f.end || f.dispatch) return;
-  if (fire.targetId === null) throw new Error('W visual dispatch requires a committed target');
-  f.dispatch = { ...anchor(w, fire.position, cast.team), targetId: fire.targetId };
-}
-/** Call after motion and before damage callbacks can cancel other orbits. */
-export function sampleWVisualHistory(
+export function dispatchWVisualHistory(
   w: WVisualObserverWorld,
   cast: FoxFireCast,
   fire: FoxFire,
   source: Vec2
 ) {
   const f = record(w, cast)?.fires.find((f) => f.index === fire.index);
+  if (!f || f.end || f.dispatch) return;
+  if (fire.targetId === null) throw new Error('W visual dispatch requires a committed target');
+  f.dispatch = {
+    ...anchor(w, fire.position, cast.team),
+    targetId: fire.targetId,
+    sourcePoint: copy(source),
+  };
+}
+/** Call after motion and before damage callbacks can cancel other orbits. */
+export function sampleWVisualHistory(
+  w: WVisualObserverWorld,
+  cast: FoxFireCast,
+  fire: FoxFire,
+  source: Vec2,
+  target?: Vec2
+) {
+  const f = record(w, cast)?.fires.find((f) => f.index === fire.index);
   if (!f || f.end || fire.phase === 'spent') return;
+  if (fire.phase === 'flight' && !target)
+    throw new Error('W visual flight requires a target point');
   const previous = f.frames.at(-1);
-  if (previous && previous.tick !== w.tick - 1) throw new Error('W visual frames require consecutive ticks');
-  f.frames.push({ ...anchor(w, fire.position, cast.team), phase: fire.phase, sourcePoint: copy(source) });
+  if (previous && previous.tick !== w.tick - 1)
+    throw new Error('W visual frames require consecutive ticks');
+  f.frames.push({
+    ...anchor(w, fire.position, cast.team),
+    phase: fire.phase,
+    sourcePoint: copy(source),
+    targetPoint: fire.phase === 'flight' ? copy(target!) : null,
+  });
 }
 /** Terminal anchors are immutable, including repeated cancellation callbacks. */
 export function endWVisualHistory(
