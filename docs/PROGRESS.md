@@ -9539,3 +9539,7 @@ Schema171 observes window/cast, dash and bolt clocks with existing IDs and no RN
 ## Verified Spirit Rush playback delivery
 
 Application `e4b37f5`, schema171 / `4c78386d`, passes8,642/8,644 full-suite cases in494 files, with only the two historical failures. All122 Node QA cases, cache-free275-case CI in34 files, TypeScript and eighteen Python modes pass. Thirteen combined browser cases cover all56 exact Ahri PCM masters. The native R loop release has maximum error3.016e-7 and zero output after its end. Nested-prefix production and offline lifecycle pass, including978 service-worker responses and zero production errors. Pack `71c41bd8` contains1,307 files /569,190,575 bytes. All archived simulation/content bytes match frozen `c5d6be5a`; its45 roster projections retain their original scope. See [acceptance](reference/ahri-spirit-rush-playback-acceptance.json). Native activation cessation/transition behavior remains unverified; the20 ms release is explicitly local. Passive preparation stays isolated.
+
+## Integrate accepted Spirit Rush playback into primary
+
+Primary `work` fast-forwards from `e005d6e` to `cc1c79b` without merge edits. Every source byte matches the accepted branch. A fresh primary build and complete pack audit reproduce `71c41bd8` exactly. Acceptance retains its original full-suite/browser/offline scope. No push or deployment occurs. See `reference/ahri-spirit-rush-main-integration.json`.
