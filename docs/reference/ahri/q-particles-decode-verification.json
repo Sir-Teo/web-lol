@@ -1,0 +1,73 @@
+{
+  "format": 1,
+  "sourceRevision": "8735fe2bdd016ea24d45f9a98d6dc45a03e803e1",
+  "scope": "Private complete authored mip and byte-exact SCB transport",
+  "sourcePinSha256": "613f21651105761810963a32275a52b073189ccdea7286af78980d558b3db2c3",
+  "decodeRecordSha256": "7b040643c0361810c60e3d467af5c27e47f4d1ca3024b023582f132539628bc9",
+  "schema": 175,
+  "ruleset": "08e106da69e9a0827b0274d7c97fd3589bd3cdf610a80b9d3b1a73452c679c46",
+  "runtimeChanged": false,
+  "textures": 37,
+  "authoredMips": 312,
+  "meshes": 4,
+  "transportFiles": 316,
+  "pngBytes": 1102195,
+  "meshJsonBytes": 365404,
+  "allTransportHashesAndExtentsMatch": true,
+  "exactNativeMeshRoundTrips": 4,
+  "sourceVertices": 1127,
+  "sourceTriangles": 1636,
+  "meshesWithVertexColors": 3,
+  "nativeVertexBgraBytes": 3540,
+  "normalRegeneration": true,
+  "optimizedRecordCheck": true,
+  "pythonGuards": {
+    "testsPerMode": 10,
+    "modes": [
+      "normal",
+      "optimized"
+    ]
+  },
+  "representativeTexturesReviewed": [
+    "ahri_base_q_orbbackground.tex",
+    "ahri_base_q_trail_01.tex"
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-particles-decode-build-v3.log",
+      "bytes": 133,
+      "sha256": "49d99ae3d402d657437fde0458ed97b9959e47009dc5d6dcaa6f71082c784fce"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-particles-decode-regeneration-v2.log",
+      "bytes": 107,
+      "sha256": "3bb5e3cb8e4a2a54f461066a898d34fb3084fc265b1a76f3ba7ec5b5c33ce99e"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-particles-decode-check-optimized-v2.log",
+      "bytes": 106,
+      "sha256": "0bd7938295939695aa8d08089c56823398d4315243e2cd499550fe4d4cfd3170"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-particles-decode-guards-v2.log",
+      "bytes": 109,
+      "sha256": "ea30c453e337b6ff9f87999c6a846e149edbe6a5c58a6dc50fd9edf2650081e2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-particles-decode-guards-optimized-v2.log",
+      "bytes": 109,
+      "sha256": "94c6b42d404dace4061b2982e83f2f0ddbd06dff89993aa2131ee53bc2375849"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-particles-decode-ruleset-v1.log",
+      "bytes": 65,
+      "sha256": "294c08447a8d6cfce35d62b8e92bc677459d1d79fff506101a14f97822ffd103"
+    }
+  ],
+  "limits": [
+    "Canonical software texture decode and private transport, not native GPU appearance certification.",
+    "Source points/indices/UVs/material/pivot/bounds/colors remain unchanged; no normals or coordinate transforms are applied.",
+    "No public files, particle renderer/history, attachment or callback policy is bound.",
+    "Accepted Recall pack and cohort evidence retain their original scope."
+  ]
+}

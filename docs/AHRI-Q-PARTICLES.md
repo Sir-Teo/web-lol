@@ -45,3 +45,5 @@ PYTHONPATH=.tools/cdtb:tools/assets .tools/cdtb-venv/bin/python -O tools/assets/
 ```
 
 This is canonical software decode and byte-preserving private transport, not native GPU appearance certification. Public assets, Q renderer/history, particle attachment and material/shader calibration remain unbound.
+
+The private decode receipt is [q-particles-decode-verification.json](reference/ahri/q-particles-decode-verification.json), including316 verified transports, exact four-mesh round trips, successful regeneration/check logs and both ten-test guard modes. The runtime fingerprint remains `08e106da`.
