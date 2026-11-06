@@ -9478,3 +9478,7 @@ Recorded eight source-attested Orb of Deception events, ten ordered actions, 53 
 ## Precision build delivery acceptance
 
 08ba5aa / schema 168 / e73e3c25 passes production and full offline acceptance with pack 979d59e3 (1,256 files / 557,784,904 bytes). No unwanted Charm preloads; 978 worker responses and no offline errors. Clean-checkout CI passes 54 tests, TypeScript and six Python modes; three browser cases include actual envelope rendering. A frozen source-delta receipt confirms only the two audio envelope kernels differ from the historical 563-file seed archive. Current 48-projection gameplay checks pass; prior full-unit/cohort results remain labeled to their actual revisions. Primary 7ae8e0 hundred-seed baseline remains in progress.
+
+### Verify the merged Charm application after the frozen baseline
+
+The local aa76c9b merge preserves both development logs and all prior receipts. Its 558 runtime source files match the accepted Charm worktree byte for byte. Build and complete pack audit reproduce 979d59e3 exactly (1,256 files / 557,784,904 bytes), retaining the existing production/offline acceptance. A fresh primary full suite passes 8,495/8,497 with only the same two historical failures. An actual post-launch Flash test confirms caster-following cast audio and a fixed missile origin; V1's windup attempt is explicitly identified as rejected. The 100-seed 7ae8e0 result remains historical and is not relabeled to e73e3c25. No push/deploy; Q work remains isolated.
