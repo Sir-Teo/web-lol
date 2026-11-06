@@ -1,0 +1,148 @@
+{
+  "format": 1,
+  "publicationRevision": "90091ba8cdd74c5608a53756d6c86e6f0647fc00",
+  "baselineRevision": "c1784934f7bc3b48b5ae9a918fcf06f7b4be2746",
+  "schema": 176,
+  "ruleset": "732a3ce3c6c382d4a61443620c4cb906b17f45454122456e7c18b9b7cd882dd8",
+  "runtimeDispatchBound": false,
+  "profiles": 36,
+  "textures": 17,
+  "authoredMips": 151,
+  "meshes": 3,
+  "sharedCastAssets": [
+    "assets/effects/ahri-q-cast-c68cda0f7d1484a0.png",
+    "assets/effects/ahri-q-cast-70401936f85310ef.png",
+    "assets/effects/ahri-q-cast-swirls.glb"
+  ],
+  "newPublicAssetFiles": 17,
+  "newPublicAssetBytes": 639983,
+  "assetTests": 4,
+  "typeCheck": true,
+  "validatorErrors": 0,
+  "validatorWarnings": 0,
+  "nodeQA": 220,
+  "portableCI": {
+    "commands": 8,
+    "files": 46,
+    "method": "Git archive export of c178493",
+    "privateCaches": false,
+    "privateTools": false,
+    "dependencies": false,
+    "remoteDispatched": false
+  },
+  "gameplayBaseline": {
+    "ruleset": "b94ae61920e9c4dd0091e121b30deaff5f73f77c19ee6a1b7312009e7b363d4d",
+    "sourceFiles": 616,
+    "scenarios": 14,
+    "samples": 634,
+    "olderQCastAndAudioHistoriesRetained": true,
+    "currentWorldMatches": true
+  },
+  "limits": [
+    "Assets/data staged only; projectile renderer and simulation observer remain unbound.",
+    "The unused new content is outside the active runtime import closure, leaving the ruleset unchanged at this checkpoint. New public files exist only on the implementation branch; the accepted primary pack is unchanged.",
+    "Native script callbacks, scene/root frames, sampling/linger/fog policy, material bindings, pixel parity and representative device performance remain unverified."
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-publication-v3.log",
+      "bytes": 160,
+      "sha256": "5217bdb8ea7f8aa7417de8e66508023812d64ab725cebcb2bd89b2ba60de4192"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-publication-check-optimized-v2.log",
+      "bytes": 160,
+      "sha256": "5217bdb8ea7f8aa7417de8e66508023812d64ab725cebcb2bd89b2ba60de4192"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-publication-guards-normal-v1.log",
+      "bytes": 195,
+      "sha256": "e129f58f45a27dc1d906e44eacf4eb9655524fd5a7c061e7462f99f310eb83f2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-publication-guards-optimized-v1.log",
+      "bytes": 194,
+      "sha256": "0754716777be7c224a2321a0d841fce45bb6e9db43fd2570ead714d45ba09104"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-publication-node-v1.log",
+      "bytes": 246,
+      "sha256": "bc8cf93a4834ae8e17818e646299c7114f3e3d85fde7d8ad6d8ed8c067e0d888"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-publication-node-qa-v1.log",
+      "bytes": 17467,
+      "sha256": "8300541ba4d54692f44c61c587492cf7da87b9995073efe44d5062a5a83157ac"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-public-assets-tests-v1.log",
+      "bytes": 197,
+      "sha256": "c6798de296019a5befedcd34d0aa104171d2fb87804794f494e15bcd03cecfd0"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-public-assets-types-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-public-glb-validation-v1.log",
+      "bytes": 7946,
+      "sha256": "cdf93c9111ef3ab4b5a80d52d661e70eaf1cd809d41ecc65557c12f553640400"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-publication-ruleset-v1.log",
+      "bytes": 65,
+      "sha256": "24b1013b4e8a0934d09ddda851d0a2b5ae5054b73371b141c319ebac6c38b693"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-gameplay-baseline-v3.log",
+      "bytes": 63,
+      "sha256": "998f6f55517a2c0baa0292d56178f6588507231d07434fa59949ea8feb1e9958"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-gameplay-baseline-tests-v3.log",
+      "bytes": 186,
+      "sha256": "95bd7c3f5d850134ee851bda6dc15aff14349dd84b8950f23a85af2b915bea07"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-publication-portable-ci-1.log",
+      "bytes": 214,
+      "sha256": "c04e08e884a4d27646c74ac153a754f8fbcbbf14948182842704b21c7753c27b"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-publication-portable-ci-2.log",
+      "bytes": 182,
+      "sha256": "69a04c85425a2cad461b39356efdd3a239f1b20c6721b5ae4ff6ca6e06f055f5"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-publication-portable-ci-3.log",
+      "bytes": 181,
+      "sha256": "bcc0e1af30b3f4973b9a294a0eef64676f4ff8a412a1033df5ae886a5b605837"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-publication-portable-ci-4.log",
+      "bytes": 253,
+      "sha256": "cc0146a9d1b6fff9734f2b99bcfe8a1bf17469fe61321455e6813e10c72e0ac4"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-publication-portable-ci-5.log",
+      "bytes": 197,
+      "sha256": "1afd2534ca5f0883593b0fdc59948caef96a9082b0c7810867a64404087beea0"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-publication-portable-ci-6.log",
+      "bytes": 196,
+      "sha256": "f3d20fefd665c21cd35a45a80fcb61acc9b95525dbcd4595aac4b3809e5fea00"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-publication-portable-ci-7.log",
+      "bytes": 195,
+      "sha256": "e129f58f45a27dc1d906e44eacf4eb9655524fd5a7c061e7462f99f310eb83f2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-q-projectile-publication-portable-ci-8.log",
+      "bytes": 194,
+      "sha256": "0754716777be7c224a2321a0d841fce45bb6e9db43fd2570ead714d45ba09104"
+    }
+  ]
+}
