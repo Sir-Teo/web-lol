@@ -1,0 +1,35 @@
+{
+  "format": 1,
+  "windowTests": 179,
+  "combinedTestsPassed": 265,
+  "typecheck": "passed",
+  "nativeExecuted": false,
+  "runtimeBinding": false,
+  "evidence": [
+    {
+      "path": "artifacts/source-emission-window-verified-tests.log",
+      "bytes": 713,
+      "sha256": "f4da2dccadee83f8db6ef4497d4296f76fdd7ba7e42c417d6077b504bff554b7"
+    },
+    {
+      "path": "artifacts/source-emission-window-final-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tools/assets/export-source-emission-window-samples.mjs",
+      "bytes": 4065,
+      "sha256": "c22f0d3c0bd9ae7f8b3bf51bb79634e0dedc9e0ca6d9f565fd81ba9de843e17c"
+    },
+    {
+      "path": "docs/reference/source-emission-window-samples.json",
+      "bytes": 89618,
+      "sha256": "5da8c5284863f82759caf660f46e5779cccdf18697a1bd12f106575bea6c18f6"
+    },
+    {
+      "path": "src/render/source-emission-window.ts",
+      "bytes": 1957,
+      "sha256": "1bfa33407b03eae0cb5398cbee492ea55c4b23f36c62ff29b24ca29e99c196f1"
+    }
+  ]
+}

@@ -1,0 +1,4018 @@
+{
+  "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+  "reader": {
+    "path": ".cache/baron-emission-readers/engine/model/systemModel.ts",
+    "sha256": "20d28acc69370fb15ac5a644620297e04fd8bd95a215eae6e42593e7b18808ad"
+  },
+  "scope": "External emitter clock functions with resolved constant lifetime maximum; no native scheduling or ownership certificate.",
+  "samples": [
+    {
+      "name": "0-0",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "0-0.1",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.1,
+      "phaseHex": "9a9999999999b93f",
+      "expected": {
+        "end": 1,
+        "phase": 0.1,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "0-0.15",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.15,
+      "phaseHex": "333333333333c33f",
+      "expected": {
+        "end": 1,
+        "phase": 0.15,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "0-0.25",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.25,
+      "phaseHex": "000000000000d03f",
+      "expected": {
+        "end": 1,
+        "phase": 0.25,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "0-0.5",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.5,
+      "phaseHex": "000000000000e03f",
+      "expected": {
+        "end": 1,
+        "phase": 0.5,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "0-1",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1,
+      "phaseHex": "000000000000f03f",
+      "expected": {
+        "end": 1,
+        "phase": 1,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "0-1.5",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1.5,
+      "phaseHex": "000000000000f83f",
+      "expected": {
+        "end": 1,
+        "phase": 1.5,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "0-2",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 2,
+      "phaseHex": "0000000000000040",
+      "expected": {
+        "end": 1,
+        "phase": 2,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "1-0",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": null,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "1-0.1",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.1,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": null,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "1-0.15",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.15,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": null,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "1-0.25",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.25,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": null,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "1-0.5",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.5,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": null,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "1-1",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": null,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "1-1.5",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1.5,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": null,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "1-2",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 2,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": null,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "2-0",
+      "profile": {
+        "lifetime": -1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0,
+      "phaseHex": "0000000000000080",
+      "expected": {
+        "end": -1,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "2-0.1",
+      "profile": {
+        "lifetime": -1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.1,
+      "phaseHex": "9a9999999999b9bf",
+      "expected": {
+        "end": -1,
+        "phase": -0.1,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "2-0.15",
+      "profile": {
+        "lifetime": -1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.15,
+      "phaseHex": "333333333333c3bf",
+      "expected": {
+        "end": -1,
+        "phase": -0.15,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "2-0.25",
+      "profile": {
+        "lifetime": -1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.25,
+      "phaseHex": "000000000000d0bf",
+      "expected": {
+        "end": -1,
+        "phase": -0.25,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "2-0.5",
+      "profile": {
+        "lifetime": -1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.5,
+      "phaseHex": "000000000000e0bf",
+      "expected": {
+        "end": -1,
+        "phase": -0.5,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "2-1",
+      "profile": {
+        "lifetime": -1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1,
+      "phaseHex": "000000000000f0bf",
+      "expected": {
+        "end": -1,
+        "phase": -1,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "2-1.5",
+      "profile": {
+        "lifetime": -1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1.5,
+      "phaseHex": "000000000000f8bf",
+      "expected": {
+        "end": -1,
+        "phase": -1.5,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "2-2",
+      "profile": {
+        "lifetime": -1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 2,
+      "phaseHex": "00000000000000c0",
+      "expected": {
+        "end": -1,
+        "phase": -2,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "3-0",
+      "profile": {
+        "lifetime": 0,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 0,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "3-0.1",
+      "profile": {
+        "lifetime": 0,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.1,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 0,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "3-0.15",
+      "profile": {
+        "lifetime": 0,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.15,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 0,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "3-0.25",
+      "profile": {
+        "lifetime": 0,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.25,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 0,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "3-0.5",
+      "profile": {
+        "lifetime": 0,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.5,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 0,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "3-1",
+      "profile": {
+        "lifetime": 0,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 0,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "3-1.5",
+      "profile": {
+        "lifetime": 0,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1.5,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 0,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "3-2",
+      "profile": {
+        "lifetime": 0,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 2,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 0,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "4-0",
+      "profile": {
+        "lifetime": 0.000001,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 0.000001,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "4-0.1",
+      "profile": {
+        "lifetime": 0.000001,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.1,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 0.000001,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "4-0.15",
+      "profile": {
+        "lifetime": 0.000001,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.15,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 0.000001,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "4-0.25",
+      "profile": {
+        "lifetime": 0.000001,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.25,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 0.000001,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "4-0.5",
+      "profile": {
+        "lifetime": 0.000001,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.5,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 0.000001,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "4-1",
+      "profile": {
+        "lifetime": 0.000001,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 0.000001,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "4-1.5",
+      "profile": {
+        "lifetime": 0.000001,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1.5,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 0.000001,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "4-2",
+      "profile": {
+        "lifetime": 0.000001,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 2,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 0.000001,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "5-0",
+      "profile": {
+        "lifetime": 1e-7,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1e-7,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "5-0.1",
+      "profile": {
+        "lifetime": 1e-7,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.1,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1e-7,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "5-0.15",
+      "profile": {
+        "lifetime": 1e-7,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.15,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1e-7,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "5-0.25",
+      "profile": {
+        "lifetime": 1e-7,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.25,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1e-7,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "5-0.5",
+      "profile": {
+        "lifetime": 1e-7,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.5,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1e-7,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "5-1",
+      "profile": {
+        "lifetime": 1e-7,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1e-7,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "5-1.5",
+      "profile": {
+        "lifetime": 1e-7,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1.5,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1e-7,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "5-2",
+      "profile": {
+        "lifetime": 1e-7,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 2,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1e-7,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "6-0",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 0.5,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "6-0.1",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.1,
+      "phaseHex": "9a9999999999c93f",
+      "expected": {
+        "end": 0.5,
+        "phase": 0.2,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "6-0.15",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.15,
+      "phaseHex": "333333333333d33f",
+      "expected": {
+        "end": 0.5,
+        "phase": 0.3,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "6-0.25",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.25,
+      "phaseHex": "000000000000e03f",
+      "expected": {
+        "end": 0.5,
+        "phase": 0.5,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "6-0.5",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.5,
+      "phaseHex": "000000000000f03f",
+      "expected": {
+        "end": 0.5,
+        "phase": 1,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "6-1",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1,
+      "phaseHex": "0000000000000040",
+      "expected": {
+        "end": 0.5,
+        "phase": 2,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "6-1.5",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1.5,
+      "phaseHex": "0000000000000840",
+      "expected": {
+        "end": 0.5,
+        "phase": 3,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "6-2",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 2,
+      "phaseHex": "0000000000001040",
+      "expected": {
+        "end": 0.5,
+        "phase": 4,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "7-0",
+      "profile": {
+        "lifetime": 10.5,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 10.5,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "7-0.1",
+      "profile": {
+        "lifetime": 10.5,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.1,
+      "phaseHex": "143881133881833f",
+      "expected": {
+        "end": 10.5,
+        "phase": 0.009523809523809525,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "7-0.15",
+      "profile": {
+        "lifetime": 10.5,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.15,
+      "phaseHex": "1dd4411dd4418d3f",
+      "expected": {
+        "end": 10.5,
+        "phase": 0.014285714285714285,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "7-0.25",
+      "profile": {
+        "lifetime": 10.5,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.25,
+      "phaseHex": "188661188661983f",
+      "expected": {
+        "end": 10.5,
+        "phase": 0.023809523809523808,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "7-0.5",
+      "profile": {
+        "lifetime": 10.5,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.5,
+      "phaseHex": "188661188661a83f",
+      "expected": {
+        "end": 10.5,
+        "phase": 0.047619047619047616,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "7-1",
+      "profile": {
+        "lifetime": 10.5,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1,
+      "phaseHex": "188661188661b83f",
+      "expected": {
+        "end": 10.5,
+        "phase": 0.09523809523809523,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "7-1.5",
+      "profile": {
+        "lifetime": 10.5,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1.5,
+      "phaseHex": "922449922449c23f",
+      "expected": {
+        "end": 10.5,
+        "phase": 0.14285714285714285,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "7-2",
+      "profile": {
+        "lifetime": 10.5,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 2,
+      "phaseHex": "188661188661c83f",
+      "expected": {
+        "end": 10.5,
+        "phase": 0.19047619047619047,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "8-0",
+      "profile": {
+        "lifetime": 10.5001,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 0.5,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "8-0.1",
+      "profile": {
+        "lifetime": 10.5001,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.1,
+      "phaseHex": "9a9999999999c93f",
+      "expected": {
+        "end": 0.5,
+        "phase": 0.2,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "8-0.15",
+      "profile": {
+        "lifetime": 10.5001,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.15,
+      "phaseHex": "333333333333d33f",
+      "expected": {
+        "end": 0.5,
+        "phase": 0.3,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "8-0.25",
+      "profile": {
+        "lifetime": 10.5001,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.25,
+      "phaseHex": "000000000000e03f",
+      "expected": {
+        "end": 0.5,
+        "phase": 0.5,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "8-0.5",
+      "profile": {
+        "lifetime": 10.5001,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.5,
+      "phaseHex": "000000000000f03f",
+      "expected": {
+        "end": 0.5,
+        "phase": 1,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "8-1",
+      "profile": {
+        "lifetime": 10.5001,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1,
+      "phaseHex": "0000000000000040",
+      "expected": {
+        "end": 0.5,
+        "phase": 2,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "8-1.5",
+      "profile": {
+        "lifetime": 10.5001,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1.5,
+      "phaseHex": "0000000000000840",
+      "expected": {
+        "end": 0.5,
+        "phase": 3,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "8-2",
+      "profile": {
+        "lifetime": 10.5001,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 2,
+      "phaseHex": "0000000000001040",
+      "expected": {
+        "end": 0.5,
+        "phase": 4,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "9-0",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": -1,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": null,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "9-0.1",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": -1,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.1,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": null,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "9-0.15",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": -1,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.15,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": null,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "9-0.25",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": -1,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.25,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": null,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "9-0.5",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": -1,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.5,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": null,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "9-1",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": -1,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": null,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "9-1.5",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": -1,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1.5,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": null,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "9-2",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": -1,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 2,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": null,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "10-0",
+      "profile": {
+        "lifetime": 20,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": true,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 20,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "10-0.1",
+      "profile": {
+        "lifetime": 20,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": true,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.1,
+      "phaseHex": "7b14ae47e17a743f",
+      "expected": {
+        "end": 20,
+        "phase": 0.005,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "10-0.15",
+      "profile": {
+        "lifetime": 20,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": true,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.15,
+      "phaseHex": "b81e85eb51b87e3f",
+      "expected": {
+        "end": 20,
+        "phase": 0.0075,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "10-0.25",
+      "profile": {
+        "lifetime": 20,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": true,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.25,
+      "phaseHex": "9a9999999999893f",
+      "expected": {
+        "end": 20,
+        "phase": 0.0125,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "10-0.5",
+      "profile": {
+        "lifetime": 20,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": true,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.5,
+      "phaseHex": "9a9999999999993f",
+      "expected": {
+        "end": 20,
+        "phase": 0.025,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "10-1",
+      "profile": {
+        "lifetime": 20,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": true,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1,
+      "phaseHex": "9a9999999999a93f",
+      "expected": {
+        "end": 20,
+        "phase": 0.05,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "10-1.5",
+      "profile": {
+        "lifetime": 20,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": true,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1.5,
+      "phaseHex": "333333333333b33f",
+      "expected": {
+        "end": 20,
+        "phase": 0.075,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "10-2",
+      "profile": {
+        "lifetime": 20,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": true,
+        "overridesMaterials": true,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 2,
+      "phaseHex": "9a9999999999b93f",
+      "expected": {
+        "end": 20,
+        "phase": 0.1,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "11-0",
+      "profile": {
+        "lifetime": 20,
+        "particleLifetimeMaximum": 0.5,
+        "simple": true,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 20,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "11-0.1",
+      "profile": {
+        "lifetime": 20,
+        "particleLifetimeMaximum": 0.5,
+        "simple": true,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.1,
+      "phaseHex": "7b14ae47e17a743f",
+      "expected": {
+        "end": 20,
+        "phase": 0.005,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "11-0.15",
+      "profile": {
+        "lifetime": 20,
+        "particleLifetimeMaximum": 0.5,
+        "simple": true,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.15,
+      "phaseHex": "b81e85eb51b87e3f",
+      "expected": {
+        "end": 20,
+        "phase": 0.0075,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "11-0.25",
+      "profile": {
+        "lifetime": 20,
+        "particleLifetimeMaximum": 0.5,
+        "simple": true,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.25,
+      "phaseHex": "9a9999999999893f",
+      "expected": {
+        "end": 20,
+        "phase": 0.0125,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "11-0.5",
+      "profile": {
+        "lifetime": 20,
+        "particleLifetimeMaximum": 0.5,
+        "simple": true,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.5,
+      "phaseHex": "9a9999999999993f",
+      "expected": {
+        "end": 20,
+        "phase": 0.025,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "11-1",
+      "profile": {
+        "lifetime": 20,
+        "particleLifetimeMaximum": 0.5,
+        "simple": true,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1,
+      "phaseHex": "9a9999999999a93f",
+      "expected": {
+        "end": 20,
+        "phase": 0.05,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "11-1.5",
+      "profile": {
+        "lifetime": 20,
+        "particleLifetimeMaximum": 0.5,
+        "simple": true,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1.5,
+      "phaseHex": "333333333333b33f",
+      "expected": {
+        "end": 20,
+        "phase": 0.075,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "11-2",
+      "profile": {
+        "lifetime": 20,
+        "particleLifetimeMaximum": 0.5,
+        "simple": true,
+        "singleParticle": true,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 2,
+      "phaseHex": "9a9999999999b93f",
+      "expected": {
+        "end": 20,
+        "phase": 0.1,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "12-0",
+      "profile": {
+        "lifetime": 0.5,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0.15,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0,
+      "phaseHex": "333333333333d3bf",
+      "expected": {
+        "end": 0.5,
+        "phase": -0.3,
+        "waiting": true,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "12-0.1",
+      "profile": {
+        "lifetime": 0.5,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0.15,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.1,
+      "phaseHex": "989999999999b9bf",
+      "expected": {
+        "end": 0.5,
+        "phase": -0.09999999999999998,
+        "waiting": true,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "12-0.15",
+      "profile": {
+        "lifetime": 0.5,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0.15,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.15,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 0.5,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "12-0.25",
+      "profile": {
+        "lifetime": 0.5,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0.15,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.25,
+      "phaseHex": "9a9999999999c93f",
+      "expected": {
+        "end": 0.5,
+        "phase": 0.2,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "12-0.5",
+      "profile": {
+        "lifetime": 0.5,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0.15,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 0.5,
+      "phaseHex": "666666666666e63f",
+      "expected": {
+        "end": 0.5,
+        "phase": 0.7,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "12-1",
+      "profile": {
+        "lifetime": 0.5,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0.15,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1,
+      "phaseHex": "333333333333fb3f",
+      "expected": {
+        "end": 0.5,
+        "phase": 1.7,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "12-1.5",
+      "profile": {
+        "lifetime": 0.5,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0.15,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 1.5,
+      "phaseHex": "9a99999999990540",
+      "expected": {
+        "end": 0.5,
+        "phase": 2.7,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "12-2",
+      "profile": {
+        "lifetime": 0.5,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0.15,
+        "emitterLinger": 0,
+        "period": null
+      },
+      "age": 2,
+      "phaseHex": "9a99999999990d40",
+      "expected": {
+        "end": 0.5,
+        "phase": 3.7,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "13-0",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 100,
+        "period": null
+      },
+      "age": 0,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 11
+      }
+    },
+    {
+      "name": "13-0.1",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 100,
+        "period": null
+      },
+      "age": 0.1,
+      "phaseHex": "9a9999999999b93f",
+      "expected": {
+        "end": 1,
+        "phase": 0.1,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 11
+      }
+    },
+    {
+      "name": "13-0.15",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 100,
+        "period": null
+      },
+      "age": 0.15,
+      "phaseHex": "333333333333c33f",
+      "expected": {
+        "end": 1,
+        "phase": 0.15,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 11
+      }
+    },
+    {
+      "name": "13-0.25",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 100,
+        "period": null
+      },
+      "age": 0.25,
+      "phaseHex": "000000000000d03f",
+      "expected": {
+        "end": 1,
+        "phase": 0.25,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 11
+      }
+    },
+    {
+      "name": "13-0.5",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 100,
+        "period": null
+      },
+      "age": 0.5,
+      "phaseHex": "000000000000e03f",
+      "expected": {
+        "end": 1,
+        "phase": 0.5,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 11
+      }
+    },
+    {
+      "name": "13-1",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 100,
+        "period": null
+      },
+      "age": 1,
+      "phaseHex": "000000000000f03f",
+      "expected": {
+        "end": 1,
+        "phase": 1,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 11
+      }
+    },
+    {
+      "name": "13-1.5",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 100,
+        "period": null
+      },
+      "age": 1.5,
+      "phaseHex": "000000000000f83f",
+      "expected": {
+        "end": 1,
+        "phase": 1.5,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 11
+      }
+    },
+    {
+      "name": "13-2",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 100,
+        "period": null
+      },
+      "age": 2,
+      "phaseHex": "0000000000000040",
+      "expected": {
+        "end": 1,
+        "phase": 2,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 11
+      }
+    },
+    {
+      "name": "14-0",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": -1,
+        "period": null
+      },
+      "age": 0,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "14-0.1",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": -1,
+        "period": null
+      },
+      "age": 0.1,
+      "phaseHex": "9a9999999999b93f",
+      "expected": {
+        "end": 1,
+        "phase": 0.1,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "14-0.15",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": -1,
+        "period": null
+      },
+      "age": 0.15,
+      "phaseHex": "333333333333c33f",
+      "expected": {
+        "end": 1,
+        "phase": 0.15,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "14-0.25",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": -1,
+        "period": null
+      },
+      "age": 0.25,
+      "phaseHex": "000000000000d03f",
+      "expected": {
+        "end": 1,
+        "phase": 0.25,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "14-0.5",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": -1,
+        "period": null
+      },
+      "age": 0.5,
+      "phaseHex": "000000000000e03f",
+      "expected": {
+        "end": 1,
+        "phase": 0.5,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "14-1",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": -1,
+        "period": null
+      },
+      "age": 1,
+      "phaseHex": "000000000000f03f",
+      "expected": {
+        "end": 1,
+        "phase": 1,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "14-1.5",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": -1,
+        "period": null
+      },
+      "age": 1.5,
+      "phaseHex": "000000000000f83f",
+      "expected": {
+        "end": 1,
+        "phase": 1.5,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "14-2",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": -1,
+        "period": null
+      },
+      "age": 2,
+      "phaseHex": "0000000000000040",
+      "expected": {
+        "end": 1,
+        "phase": 2,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "15-0",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1.5,
+          "active": 1.5
+        }
+      },
+      "age": 0,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "15-0.1",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1.5,
+          "active": 1.5
+        }
+      },
+      "age": 0.1,
+      "phaseHex": "9a9999999999b93f",
+      "expected": {
+        "end": 1,
+        "phase": 0.1,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "15-0.15",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1.5,
+          "active": 1.5
+        }
+      },
+      "age": 0.15,
+      "phaseHex": "333333333333c33f",
+      "expected": {
+        "end": 1,
+        "phase": 0.15,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "15-0.25",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1.5,
+          "active": 1.5
+        }
+      },
+      "age": 0.25,
+      "phaseHex": "000000000000d03f",
+      "expected": {
+        "end": 1,
+        "phase": 0.25,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "15-0.5",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1.5,
+          "active": 1.5
+        }
+      },
+      "age": 0.5,
+      "phaseHex": "000000000000e03f",
+      "expected": {
+        "end": 1,
+        "phase": 0.5,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "15-1",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1.5,
+          "active": 1.5
+        }
+      },
+      "age": 1,
+      "phaseHex": "000000000000f03f",
+      "expected": {
+        "end": 1,
+        "phase": 1,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "15-1.5",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1.5,
+          "active": 1.5
+        }
+      },
+      "age": 1.5,
+      "phaseHex": "000000000000f83f",
+      "expected": {
+        "end": 1,
+        "phase": 1.5,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "15-2",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1.5,
+          "active": 1.5
+        }
+      },
+      "age": 2,
+      "phaseHex": "0000000000000040",
+      "expected": {
+        "end": 1,
+        "phase": 2,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "16-0",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 0,
+          "active": 1
+        }
+      },
+      "age": 0,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": false,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "16-0.1",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 0,
+          "active": 1
+        }
+      },
+      "age": 0.1,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": false,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "16-0.15",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 0,
+          "active": 1
+        }
+      },
+      "age": 0.15,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": false,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "16-0.25",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 0,
+          "active": 1
+        }
+      },
+      "age": 0.25,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": false,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "16-0.5",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 0,
+          "active": 1
+        }
+      },
+      "age": 0.5,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": false,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "16-1",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 0,
+          "active": 1
+        }
+      },
+      "age": 1,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": false,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "16-1.5",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 0,
+          "active": 1
+        }
+      },
+      "age": 1.5,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": false,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "16-2",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 0,
+          "active": 1
+        }
+      },
+      "age": 2,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1,
+        "phase": 0,
+        "waiting": false,
+        "ended": true,
+        "active": false,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "17-0",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": null,
+          "active": 1
+        }
+      },
+      "age": 0,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "17-0.1",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": null,
+          "active": 1
+        }
+      },
+      "age": 0.1,
+      "phaseHex": "9a9999999999b93f",
+      "expected": {
+        "end": 1,
+        "phase": 0.1,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "17-0.15",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": null,
+          "active": 1
+        }
+      },
+      "age": 0.15,
+      "phaseHex": "333333333333c33f",
+      "expected": {
+        "end": 1,
+        "phase": 0.15,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "17-0.25",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": null,
+          "active": 1
+        }
+      },
+      "age": 0.25,
+      "phaseHex": "000000000000d03f",
+      "expected": {
+        "end": 1,
+        "phase": 0.25,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "17-0.5",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": null,
+          "active": 1
+        }
+      },
+      "age": 0.5,
+      "phaseHex": "000000000000e03f",
+      "expected": {
+        "end": 1,
+        "phase": 0.5,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "17-1",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": null,
+          "active": 1
+        }
+      },
+      "age": 1,
+      "phaseHex": "000000000000f03f",
+      "expected": {
+        "end": 1,
+        "phase": 1,
+        "waiting": false,
+        "ended": true,
+        "active": false,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "17-1.5",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": null,
+          "active": 1
+        }
+      },
+      "age": 1.5,
+      "phaseHex": "000000000000f83f",
+      "expected": {
+        "end": 1,
+        "phase": 1.5,
+        "waiting": false,
+        "ended": true,
+        "active": false,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "17-2",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": null,
+          "active": 1
+        }
+      },
+      "age": 2,
+      "phaseHex": "0000000000000040",
+      "expected": {
+        "end": 1,
+        "phase": 2,
+        "waiting": false,
+        "ended": true,
+        "active": false,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "18-0",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0.1,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": 0.25
+        }
+      },
+      "age": 0,
+      "phaseHex": "9a9999999999d9bf",
+      "expected": {
+        "end": 1,
+        "phase": -0.4,
+        "waiting": true,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "18-0.1",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0.1,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": 0.25
+        }
+      },
+      "age": 0.1,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "18-0.15",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0.1,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": 0.25
+        }
+      },
+      "age": 0.15,
+      "phaseHex": "989999999999c93f",
+      "expected": {
+        "end": 1,
+        "phase": 0.19999999999999996,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "18-0.25",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0.1,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": 0.25
+        }
+      },
+      "age": 0.25,
+      "phaseHex": "333333333333e33f",
+      "expected": {
+        "end": 1,
+        "phase": 0.6,
+        "waiting": false,
+        "ended": false,
+        "active": false,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "18-0.5",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0.1,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": 0.25
+        }
+      },
+      "age": 0.5,
+      "phaseHex": "9a9999999999f93f",
+      "expected": {
+        "end": 1,
+        "phase": 1.6,
+        "waiting": false,
+        "ended": false,
+        "active": false,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "18-1",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0.1,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": 0.25
+        }
+      },
+      "age": 1,
+      "phaseHex": "cdcccccccccc0c40",
+      "expected": {
+        "end": 1,
+        "phase": 3.6,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "18-1.5",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0.1,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": 0.25
+        }
+      },
+      "age": 1.5,
+      "phaseHex": "6666666666661640",
+      "expected": {
+        "end": 1,
+        "phase": 5.6,
+        "waiting": false,
+        "ended": true,
+        "active": false,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "18-2",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0.1,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": 0.25
+        }
+      },
+      "age": 2,
+      "phaseHex": "6666666666661e40",
+      "expected": {
+        "end": 1,
+        "phase": 7.6,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "19-0",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": null
+        }
+      },
+      "age": 0,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": 1,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "19-0.1",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": null
+        }
+      },
+      "age": 0.1,
+      "phaseHex": "9a9999999999b93f",
+      "expected": {
+        "end": 1,
+        "phase": 0.1,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "19-0.15",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": null
+        }
+      },
+      "age": 0.15,
+      "phaseHex": "333333333333c33f",
+      "expected": {
+        "end": 1,
+        "phase": 0.15,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "19-0.25",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": null
+        }
+      },
+      "age": 0.25,
+      "phaseHex": "000000000000d03f",
+      "expected": {
+        "end": 1,
+        "phase": 0.25,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "19-0.5",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": null
+        }
+      },
+      "age": 0.5,
+      "phaseHex": "000000000000e03f",
+      "expected": {
+        "end": 1,
+        "phase": 0.5,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "19-1",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": null
+        }
+      },
+      "age": 1,
+      "phaseHex": "000000000000f03f",
+      "expected": {
+        "end": 1,
+        "phase": 1,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "19-1.5",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": null
+        }
+      },
+      "age": 1.5,
+      "phaseHex": "000000000000f83f",
+      "expected": {
+        "end": 1,
+        "phase": 1.5,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "19-2",
+      "profile": {
+        "lifetime": 1,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": null
+        }
+      },
+      "age": 2,
+      "phaseHex": "0000000000000040",
+      "expected": {
+        "end": 1,
+        "phase": 2,
+        "waiting": false,
+        "ended": true,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "20-0",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": 0.25
+        }
+      },
+      "age": 0,
+      "phaseHex": "0000000000000000",
+      "expected": {
+        "end": null,
+        "phase": 0,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "20-0.1",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": 0.25
+        }
+      },
+      "age": 0.1,
+      "phaseHex": "9a9999999999d93f",
+      "expected": {
+        "end": null,
+        "phase": 0.4,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "20-0.15",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": 0.25
+        }
+      },
+      "age": 0.15,
+      "phaseHex": "333333333333e33f",
+      "expected": {
+        "end": null,
+        "phase": 0.6,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "20-0.25",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": 0.25
+        }
+      },
+      "age": 0.25,
+      "phaseHex": "000000000000f03f",
+      "expected": {
+        "end": null,
+        "phase": 1,
+        "waiting": false,
+        "ended": false,
+        "active": false,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "20-0.5",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": 0.25
+        }
+      },
+      "age": 0.5,
+      "phaseHex": "0000000000000040",
+      "expected": {
+        "end": null,
+        "phase": 2,
+        "waiting": false,
+        "ended": false,
+        "active": false,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "20-1",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": 0.25
+        }
+      },
+      "age": 1,
+      "phaseHex": "0000000000001040",
+      "expected": {
+        "end": null,
+        "phase": 4,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "20-1.5",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": 0.25
+        }
+      },
+      "age": 1.5,
+      "phaseHex": "0000000000001840",
+      "expected": {
+        "end": null,
+        "phase": 6,
+        "waiting": false,
+        "ended": false,
+        "active": false,
+        "stopWait": 0
+      }
+    },
+    {
+      "name": "20-2",
+      "profile": {
+        "lifetime": null,
+        "particleLifetimeMaximum": 0.5,
+        "simple": false,
+        "singleParticle": false,
+        "overridesMaterials": false,
+        "delay": 0,
+        "emitterLinger": 0,
+        "period": {
+          "length": 1,
+          "active": 0.25
+        }
+      },
+      "age": 2,
+      "phaseHex": "0000000000002040",
+      "expected": {
+        "end": null,
+        "phase": 8,
+        "waiting": false,
+        "ended": false,
+        "active": true,
+        "stopWait": 0
+      }
+    }
+  ]
+}

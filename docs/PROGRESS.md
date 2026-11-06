@@ -24,7 +24,9 @@ and unverified missile height routing.
 
 The [source count kernel](SOURCE-EMISSION-COUNT.md) now preserves external
 spawn truncation, count wrapping and caps. All 86 cases pass, including three
-independent 60-step replays. Timing and resolved-rate sampling remain next work.
+independent 60-step replays. [Emitter timing windows](SOURCE-EMISSION-WINDOW.md) also match 168 external
+fixtures, including signed-zero phases; all 265 combined cases pass. Resolved-rate
+sampling and active renderer binding remain next work.
 
 ## Recent verified checkpoints
 
