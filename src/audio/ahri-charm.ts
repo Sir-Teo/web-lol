@@ -1,5 +1,5 @@
 import { AHRI_CHARM_AUDIO as P, AHRI_CHARM_ATTENUATION as A } from '../content/ahri-charm-audio';
-import { charmEnvelope, type CharmAudioState } from './ahri-charm-state';
+import { charmEnvelopeEvents, type CharmAudioState } from './ahri-charm-state';
 import type { AhriCharmAudioRecord } from '../simulation/ahri-charm-audio';
 import { wwise145Attenuation } from './wwise145-attenuation';
 
@@ -11,7 +11,7 @@ interface Voice {
   envelope: GainNode;
   stopAge: number | null;
 }
-/** Source gains feed a local 0.2 mix. Source fade curves are sampled into
+/** Source gains feed a local 0.2 mix. Linear fade endpoints and piecewise Exp1 curves feed
  * Web Audio automation; native dispatch/shuffle/listener behavior is unverified. */
 export class AhriCharmAudio {
   status: 'idle' | 'loading' | 'ready' | 'failed' = 'idle';
@@ -82,11 +82,12 @@ export class AhriCharmAudio {
   }
   private scheduleEnvelope(voice: Voice, state: CharmAudioState, now: number) {
     const remaining = state.endAge - state.offset;
-    const curve = Float32Array.from({ length: 128 }, (_, i) =>
-      charmEnvelope(state, state.offset + (remaining * i) / 127)
-    );
     voice.envelope.gain.cancelScheduledValues(0);
-    voice.envelope.gain.setValueCurveAtTime(curve, now, remaining);
+    for (const event of charmEnvelopeEvents(state)) {
+      const time = now + event.age - state.offset;
+      if (event.kind === 'set') voice.envelope.gain.setValueAtTime(event.value, time);
+      else voice.envelope.gain.linearRampToValueAtTime(event.value, time);
+    }
     voice.stopAge = state.stopAge;
     voice.source.stop(now + remaining);
   }

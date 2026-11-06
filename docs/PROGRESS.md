@@ -9462,3 +9462,7 @@ Bound lazy finite cast/flight/contact audio to saved history, with source gains/
 ## Charm delivery and independent gameplay comparison
 
 Schema 168 / ruleset ae079c84 / app 66ad4dc passes production subdirectory and full offline acceptance. Pack e0137f49 contains 1,256 files / 557,784,340 bytes; all-file/worker identity audit passes. Zero unwanted Charm preloads in production; 978 worker responses and no offline production errors. Feature roster seed 1 reaches the same natural Blue victory at tick 157,116 as frozen 7ae8e0. All 45 archived checkpoint/final projections match after excluding only schema, ruleset and new audio history; no gameplay fields omitted. Read-only comparison verifies both archives and has eight rejection/retention tests. The primary 100-seed baseline remains in progress and the feature branch remains isolated.
+
+## Exact Charm Linear fade boundary
+
+Replaced whole-span envelope sampling with an exact 50 ms Linear ramp and 127 segments only for the Exp1 interval. The previous flight variants reached 0.9288–0.9633 at that source endpoint; the new regression captures the loss. Ideal dense interpolation error stays below 0.000008. Actual browser Web Audio rendering reaches exactly 1.0 at 50 ms, with worst measured error 0.000008645 across full, early-stop and late-seek cases and zero output after the finite end. Three browser cases, 55 scoped tests, TypeScript, build and all-file/worker audit pass. Prior 66ad4dc delivery/roster receipts remain historical; this fix gets separate delivery acceptance.

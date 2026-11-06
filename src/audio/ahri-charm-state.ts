@@ -75,3 +75,30 @@ export function charmAudioStates(
     }
   return states;
 }
+
+export interface CharmEnvelopeEvent {
+  kind: 'set' | 'linear';
+  age: number;
+  value: number;
+}
+/** Preserve Linear's exact endpoint. Only Exp1 needs piecewise interpolation;
+ * 127 equal segments bound its normalized amplitude error below 0.000008. */
+export function charmEnvelopeEvents(state: CharmAudioState): CharmEnvelopeEvent[] {
+  const start = state.offset,
+    end = state.endAge;
+  if (![start, end].every(Number.isFinite) || start < 0 || end <= start)
+    throw new RangeError('Invalid finite Charm envelope span');
+  const events: CharmEnvelopeEvent[] = [{ kind: 'set', age: start, value: charmEnvelope(state) }];
+  const rampEnd = Math.min(P[state.profileIndex].transitionSeconds, state.stopAge ?? Infinity, end);
+  if (start < rampEnd)
+    events.push({ kind: 'linear', age: rampEnd, value: charmEnvelope(state, rampEnd) });
+  if (state.stopAge === null || state.stopAge >= end) return events;
+  const begin = Math.max(start, state.stopAge);
+  if (begin > Math.max(start, rampEnd))
+    events.push({ kind: 'set', age: begin, value: charmEnvelope(state, begin) });
+  for (let i = 1; i <= 127; i++) {
+    const age = begin + ((end - begin) * i) / 127;
+    events.push({ kind: 'linear', age, value: charmEnvelope(state, age) });
+  }
+  return events;
+}

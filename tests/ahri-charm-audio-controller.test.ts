@@ -6,11 +6,15 @@ import { charmEnvelope } from '../src/audio/ahri-charm-state';
 
 class Param {
   value = 1;
-  curves: { values: Float32Array; time: number; duration: number }[] = [];
-  cancelScheduledValues() {}
-  setValueCurveAtTime(values: Float32Array, time: number, duration: number) {
-    this.curves.push({ values, time, duration });
+  sets: number[][] = [];
+  ramps: number[][] = [];
+  setValueAtTime(...args: number[]) {
+    this.sets.push(args);
   }
+  linearRampToValueAtTime(...args: number[]) {
+    this.ramps.push(args);
+  }
+  cancelScheduledValues() {}
   setTargetAtTime(value: number) {
     this.value = value;
   }
@@ -239,25 +243,26 @@ it('slices the original stop curve on mute-resume and updates a live flight enve
   update(116);
   const flightIndex = states([r], 116).findIndex((s) => s.profileIndex === 1);
   const envelope = context.gains[flightIndex * 2 + 1].gain;
-  expect(envelope.curves).toHaveLength(1);
-  expect(envelope.curves[0].values[0]).toBeCloseTo(1 / 3, 6);
+  expect(envelope.sets[0][0]).toBeCloseTo(1 / 3, 6);
+  expect(envelope.ramps[0][0]).toBe(1);
+  expect(envelope.ramps[0][1]).toBeCloseTo(10 + 0.05 - 1 / 60);
   r.stop = { tick: 117, point: { x: 400, y: 0 }, reason: 'range' };
   update(117);
   const state = states([r], 117).find((s) => s.profileIndex === 1)!;
-  expect(envelope.curves).toHaveLength(2);
-  const curve = envelope.curves[1];
-  expect(curve.values[0]).toBeCloseTo(2 / 3, 6);
-  for (const i of [1, 31, 63, 96, 127])
-    expect(curve.values[i]).toBeCloseTo(
-      charmEnvelope(state, state.offset + (curve.duration * i) / 127),
-      6
-    );
+  expect(envelope.sets.at(-1)![0]).toBeCloseTo(2 / 3, 6);
+  const ramps = envelope.ramps.slice(-127);
+  expect(ramps).toHaveLength(127);
+  for (const i of [0, 30, 62, 95, 126]) {
+    const age = state.offset + ((state.endAge - state.offset) * (i + 1)) / 127;
+    expect(ramps[i][0]).toBeCloseTo(charmEnvelope(state, age), 12);
+    expect(ramps[i][1]).toBeCloseTo(10 + age - state.offset, 12);
+  }
   update(130, false);
   update(150);
   const late = states([r], 150).find((s) => s.profileIndex === 1)!;
-  const lateCurve = context.gains.at(-1)!.gain.curves[0];
-  expect(lateCurve.values[0]).toBeCloseTo(charmEnvelope(late), 6);
-  expect(lateCurve.values[0]).toBeLessThan(2 / 3);
+  const resumed = context.gains.at(-1)!.gain;
+  expect(resumed.sets[0][0]).toBeCloseTo(charmEnvelope(late), 12);
+  expect(resumed.sets[0][0]).toBeLessThan(2 / 3);
 });
 
 it('ready source Charm replaces the generic cast tone while unavailable audio keeps its fallback', async () => {
@@ -308,4 +313,18 @@ it('terminal audio time drains finite Charm tails without changing the saved win
   game.updateAhri(w);
   expect(controller.activeVoices).toBe(0);
   expect(w.snapshot()).toBe(saved);
+});
+
+it('schedules the source Linear fade at exactly 50 ms instead of quantizing it across the whole clip', async () => {
+  const { controller } = await loaded(),
+    context = new Context(),
+    r = record();
+  r.stop = null;
+  r.hit = null;
+  const initial = states([r], 115);
+  controller.update(context as any, true, [r], initial, 115, { x: 0, y: 0 }, {});
+  const index = initial.findIndex((s) => s.profileIndex === 1);
+  const envelope = context.gains[index * 2 + 1].gain;
+  expect(envelope.sets).toEqual([[0, 10]]);
+  expect(envelope.ramps).toEqual([[1, 10.05]]);
 });

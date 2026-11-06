@@ -157,3 +157,62 @@ test('a fixture without Ahri keeps Charm audio idle and fetches no masters', asy
   expect(await page.evaluate(() => (window as any).__GAME__.audio.ahriCharm.status)).toBe('idle');
   expect(media).toEqual([]);
 });
+
+test('native Web Audio automation preserves the 50 ms endpoint and original Exp1 seek domain', async ({
+  page,
+}, info) => {
+  test.setTimeout(180000);
+  await page.goto('/?scene=fixture&champion=ahri');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  const results = await page.evaluate(async () => {
+    const controller = (window as any).__GAME__.audio.ahriCharm.controller;
+    const cases = [
+      { offset: 0, stopAge: 0.25 },
+      { offset: 0.7, stopAge: 0.25 },
+      { offset: 0, stopAge: 0.025 },
+    ];
+    const results = [];
+    for (const c of cases) {
+      const endAge = c.stopAge + 1.55,
+        span = endAge - c.offset;
+      const context = new OfflineAudioContext(1, Math.ceil(span * 44100) + 128, 44100);
+      const source = context.createConstantSource(),
+        envelope = context.createGain();
+      source.offset.value = 1;
+      source.connect(envelope).connect(context.destination);
+      source.start(0);
+      controller.scheduleEnvelope(
+        { source, envelope, stopAge: c.stopAge },
+        { ...c, endAge, profileIndex: 1 },
+        0
+      );
+      const pcm = (await context.startRendering()).getChannelData(0);
+      let maximumError = 0;
+      for (let i = 0; i < Math.floor(span * 44100); i++) {
+        const age = c.offset + i / 44100;
+        const incoming = Math.min(1, age / 0.05);
+        const t = Math.max(0, Math.min(1, (age - c.stopAge) / 1.55));
+        const expected =
+          age < c.stopAge ? incoming : Math.min(1, c.stopAge / 0.05) * (1 - ((t + 1) * t) / 2);
+        maximumError = Math.max(maximumError, Math.abs(pcm[i] - expected));
+      }
+      results.push({
+        ...c,
+        maximumError,
+        at50ms: c.offset === 0 ? pcm[2205] : null,
+        afterEnd: Math.max(...pcm.subarray(Math.ceil(span * 44100))),
+      });
+    }
+    return results;
+  });
+  for (const result of results) {
+    expect(result.maximumError).toBeLessThan(0.00001);
+    expect(result.afterEnd).toBe(0);
+  }
+  expect(results[0].at50ms).toBe(1);
+  await writeFile(
+    info.outputPath('envelope-evidence.json'),
+    JSON.stringify(results, null, 2) + '\n'
+  );
+});
