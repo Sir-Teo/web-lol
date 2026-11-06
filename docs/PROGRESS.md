@@ -9358,3 +9358,7 @@ Privately pinned the source skin's two declared shared SFX banks from the same R
 ### Preserve the complete Baron numeric audio graph
 
 Pinned wwiser parses 341 hierarchy nodes /87 numeric events without errors. All86 sound nodes resolve to 82 unique embedded WEMs, extracted with checked bounds, nonoverlap, RIFF extents and exact hashes. All scalar parser fields and event action/descendant/media closures are retained. Three unresolved global parent/bus IDs remain explicit. Normal/optimized checks, a fresh restore and six rejection probes pass. Event names, gameplay cue binding, decoding and runtime playback are not inferred. See docs/BARON-AUDIO-GRAPH.md.
+
+### Correlate Baron cast/hit event hash candidates
+
+The source actor/script naming convention produces candidate cast/hit strings matching bank events2790228445 and4168404463. These are explicitly hash-derived labels, separate from attested source strings and the immutable numeric graph. Cast has two play layers (two/four media); hit has one two-media layer. Normal/optimized checks pass. No runtime cue/timing or native shuffle/mix binding is inferred. See docs/BARON-AUDIO-CANDIDATES.md.

@@ -1,0 +1,44 @@
+{
+  "format": 1,
+  "roles": 2,
+  "castEvent": 2790228445,
+  "hitEvent": 4168404463,
+  "castActions": 2,
+  "castMedia": 6,
+  "hitActions": 1,
+  "hitMedia": 2,
+  "labelEvidence": "FNV label cracks corroborated by source actor/script and naming convention; not attested stored names.",
+  "runtimeBinding": false,
+  "checks": [
+    "normal regeneration",
+    "normal check",
+    "optimized check"
+  ],
+  "evidence": [
+    {
+      "path": "tools/assets/read-baron-audio-candidates.py",
+      "bytes": 4020,
+      "sha256": "59e9e146f304fd5b83820c73b749c79831155a7c21b1b1c3545fadf2237862e3"
+    },
+    {
+      "path": "docs/reference/baron-audio-candidate-reading.json",
+      "bytes": 2468,
+      "sha256": "a6e058c208a15a0c0b11f22781dc077d2b4ed5bf4204a5130f1b07ed85838afe"
+    },
+    {
+      "path": "artifacts/baron-audio-candidates.log",
+      "bytes": 170,
+      "sha256": "5da4cf5e8c4decdd0e3ddecfed80b39e1b285a81bf234decf1a49714d5a07781"
+    },
+    {
+      "path": "artifacts/baron-audio-candidates-check.log",
+      "bytes": 170,
+      "sha256": "5da4cf5e8c4decdd0e3ddecfed80b39e1b285a81bf234decf1a49714d5a07781"
+    },
+    {
+      "path": "artifacts/baron-audio-candidates-optimized-check.log",
+      "bytes": 170,
+      "sha256": "5da4cf5e8c4decdd0e3ddecfed80b39e1b285a81bf234decf1a49714d5a07781"
+    }
+  ]
+}

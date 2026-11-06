@@ -1,0 +1,89 @@
+{
+  "format": 1,
+  "graphSha256": "eec1c9d1ca816d6c2aeae41ac3190abce2af09034f770de822ec40ab907870b1",
+  "characterSha256": "a8f920b71c3c44b5311db3555914db47e8fe207cc489ff7d925b2ff38a250391",
+  "helperSha256": "59e9e146f304fd5b83820c73b749c79831155a7c21b1b1c3545fadf2237862e3",
+  "actor": "SRU_Baron",
+  "script": "BaronBasicAttack",
+  "roles": {
+    "cast": {
+      "candidateLabel": "Play_sfx_SRU_Baron_BaronBasicAttack_OnCast",
+      "id": 2790228445,
+      "declaredSourceString": false,
+      "evidence": "FNV-1 label crack corroborated by the skin actor path, source script name and existing event naming convention; not an attested stored event string.",
+      "actions": [
+        {
+          "id": 368143698,
+          "type": "CAkActionPlay",
+          "target": 1016434090,
+          "nodes": [
+            182655888,
+            774928051,
+            1016434090
+          ],
+          "media": [
+            791151746,
+            984045841
+          ]
+        },
+        {
+          "id": 309000490,
+          "type": "CAkActionPlay",
+          "target": 723497964,
+          "nodes": [
+            81459882,
+            339440358,
+            723497964,
+            801953078,
+            987353316
+          ],
+          "media": [
+            183279266,
+            910178537,
+            936778074,
+            940302427
+          ]
+        }
+      ],
+      "media": [
+        183279266,
+        791151746,
+        910178537,
+        936778074,
+        940302427,
+        984045841
+      ]
+    },
+    "hit": {
+      "candidateLabel": "Play_sfx_SRU_Baron_BaronBasicAttack_OnHit",
+      "id": 4168404463,
+      "declaredSourceString": false,
+      "evidence": "FNV-1 label crack corroborated by the skin actor path, source script name and existing event naming convention; not an attested stored event string.",
+      "actions": [
+        {
+          "id": 700850838,
+          "type": "CAkActionPlay",
+          "target": 128610958,
+          "nodes": [
+            128610958,
+            945289699,
+            1009222871
+          ],
+          "media": [
+            159616409,
+            354923442
+          ]
+        }
+      ],
+      "media": [
+        159616409,
+        354923442
+      ]
+    }
+  },
+  "gameplayBinding": null,
+  "limits": [
+    "Candidate semantic labels are separate from the immutable unlabelled source graph.",
+    "Native event timing, dispatch, random sequence, global bus/mix and listening parity remain unverified."
+  ]
+}
