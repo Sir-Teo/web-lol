@@ -6,19 +6,18 @@ Last updated: November 6, 2026 (UTC).
 
 ## Current authoritative state
 
-Accepted local runtime: save schema **170**, ruleset
-`0a89aab3c66220aa21ddee31acf6c91b44eba7a256f01bf490622ec407268b16`,
-application `43899a6`. [Fox-Fire source playback](AHRI-W-AUDIO.md) adds eleven
-masters alongside Q and Charm, with saved activation, missile and contact clocks.
-The full suite passes 8,596/8,598 in 488 files, with only the two historical
-failures. All 107 Node QA cases, 189 scoped CI tests in 26 files, TypeScript and
-fourteen cache-free Python guard modes pass. Ten combined browser cases and
-production/offline gates pass; see [W acceptance](reference/ahri-fox-fire-playback-acceptance.json).
+Accepted local runtime: save schema **171**, ruleset
+`4c78386d598237518652f766fca22eeee9305c0a06e199c9f08b7b6d68768c5c`,
+application `e4b37f5`. [Spirit Rush source playback](AHRI-R-AUDIO.md) completes
+four Ahri ability audio families with saved independent clocks and56 masters.
+The full suite passes8,642/8,644 in494 files, with two historical failures.
+All122 Node QA cases,275 scoped CI tests in34 files, TypeScript and eighteen
+cache-free Python modes pass. Thirteen combined browser cases and production/offline
+gates pass; see [R acceptance](reference/ahri-spirit-rush-playback-acceptance.json).
 
-The accepted W pack is `bad57b7c`, with 1,292 files / 565,047,444 bytes. The earlier
-[Q integration](reference/ahri-orb-main-integration.json) and Charm receipts retain
-their original scope. All work is local; no push or deployment has occurred.
-Spirit Rush source preparation is isolated on its own branch.
+The accepted pack is `71c41bd8`, with1,307 files /569,190,575 bytes.
+Earlier Q/W/Charm receipts retain their original scope. All work remains local.
+Passive source preparation is isolated on its own branch.
 
 The [frozen hundred-seed development-roster baseline](CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md)
 is complete: 100 natural victories, zero unfinished matches or invariant failures,
@@ -9536,3 +9535,7 @@ Schema171 observes window/cast, dash and bolt clocks with existing IDs and no RN
 ## Verified frozen Spirit Rush history
 
 5725ce0/c5d6be5a passes8,628/8,630 full-suite cases with only the same two historical failures. A test-only mirrored forgery preserves the existing Essence chronology probe; no runtime source changed.122 Node QA cases and cache-free261-case CI/18 Python modes pass. The roster seed finishes naturally Blue at157,116;44 restores/43 future checks pass and all45 projections matchf30224c9 with prior W/Q/E history retained. Archive/runner/maps/reports/snapshots verify. Playback remains separate; no hundred-seed result is relabeled.
+
+## Verified Spirit Rush playback delivery
+
+Application `e4b37f5`, schema171 / `4c78386d`, passes8,642/8,644 full-suite cases in494 files, with only the two historical failures. All122 Node QA cases, cache-free275-case CI in34 files, TypeScript and eighteen Python modes pass. Thirteen combined browser cases cover all56 exact Ahri PCM masters. The native R loop release has maximum error3.016e-7 and zero output after its end. Nested-prefix production and offline lifecycle pass, including978 service-worker responses and zero production errors. Pack `71c41bd8` contains1,307 files /569,190,575 bytes. All archived simulation/content bytes match frozen `c5d6be5a`; its45 roster projections retain their original scope. See [acceptance](reference/ahri-spirit-rush-playback-acceptance.json). Native activation cessation/transition behavior remains unverified; the20 ms release is explicitly local. Passive preparation stays isolated.
