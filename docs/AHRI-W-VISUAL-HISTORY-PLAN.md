@@ -69,3 +69,17 @@ field. Existing W audio, Q projectile history and all other saved state remain
 in every digest. The current-World comparison passes before observation hooks.
 The natural seed-one roster run remains pending; focused scenarios do not stand
 in for its result.
+
+## Pure observer preparation
+
+`src/simulation/ahri-w-visual-history.ts` defines optional cast/fire history
+operations without World hooks or snapshot serialization. Dispatch anchors are
+separate from end-of-step samples. Copied positions prevent later gameplay
+mutation from rewriting history; terminal anchors are idempotent. Visibility
+refresh touches only anchors and samples from the current tick. Four focused
+tests cover these contracts, optional observers and duplicate/gapped samples;
+the archived gameplay comparator also passes.
+
+This is a preparation module. World integration, history retention, strict
+restore validation and a schema change remain pending; no W renderer consumes
+this history yet.
