@@ -6,6 +6,12 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+The rebuilt `e20bdc…` pack now passes the [nested-host production smoke](reference/e20bdc-production-subpath.json):
+32 recordings, real spell casts, save restoration, ward/Oracle/companion flows,
+public champion choices and private-feature isolation. Pack `32a7a17b…` has
+1,204 files / 551,659,880 bytes. Build and TypeScript pass. Earlier production
+records keep their original identities; offline checks are separate.
+
 Both Baron effect meshes now have [private GLB staging](BARON-ATTACK-DECODE.md#private-glb-staging),
 with exact corner UV/BGRA round trips through NodeIO and the actual Three.js
 loader. Both validate without errors/warnings; fresh/repeat/recovery and

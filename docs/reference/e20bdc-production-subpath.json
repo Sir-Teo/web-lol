@@ -1,0 +1,146 @@
+{
+  "date": "2026-11-06",
+  "applicationCommit": "53dee26",
+  "ruleset": "e20bdcb81f74cf79399347c31c7b163879eb1541316841afc382ac03a365d853",
+  "schema": 163,
+  "systemChromium": true,
+  "pack": {
+    "id": "32a7a17b97102aeca703c6fb2e5f674d18633a1e56231c463b8c4dd5bc606843",
+    "files": 1204,
+    "bytes": 551659880
+  },
+  "scriptSHA256": "3a4528109a50320070c7e5ffedb68a73fe0413933fc13e1240512af55465094e",
+  "result": {
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "recordings": 32,
+    "mapNavigation": true,
+    "practiceScheduledRigs": 11,
+    "realHawkshotCast": true,
+    "realLuxBindingCast": true,
+    "realLuxSingularityCastAndRecast": true,
+    "lucentSourceAssets": [
+      "assets/effects/lux-e-color-hit-mana.png",
+      "assets/effects/lux-e-color-hold.png",
+      "assets/effects/lux-e-color_lux_e_shield.png",
+      "assets/effects/lux-e-lux_base_e_distort.png",
+      "assets/effects/lux-e-lux_base_e_flame_ring.png",
+      "assets/effects/lux-e-lux_base_e_flare.png",
+      "assets/effects/lux-e-lux_base_e_flash.png",
+      "assets/effects/lux-e-lux_base_e_glow.png",
+      "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+      "assets/effects/lux-e-lux_base_e_indicator_red.png",
+      "assets/effects/lux-e-lux_base_e_mote.png",
+      "assets/effects/lux-e-lux_base_e_small_mote.png",
+      "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+      "assets/effects/lux-e-lux_base_w_glow.png",
+      "assets/effects/lux-e-rainbowflash.png",
+      "assets/effects/lux-e-rainbowhalo.png",
+      "assets/effects/lux-e-sphere_e_01.png",
+      "assets/models/lux-e-indicator.glb",
+      "assets/models/lux-e-slash.glb"
+    ],
+    "luxLaneRestart": true,
+    "selectedSmiteLoadoutAndRestart": true,
+    "companionPurchaseAndRestore": true,
+    "companionPurchaseInPractice": true,
+    "realWardPlacementAndRestore": true,
+    "oraclePurchaseActivationAndRestore": true,
+    "oracleRigRequests": 8,
+    "oracleAudioRequests": 6,
+    "unrequestedOraclePreloads": 0,
+    "wardRigRequests": 20,
+    "unrequestedCompanionPreloads": 0,
+    "developmentHook": false,
+    "baronEncounterInProduction": false,
+    "unrequestedBaronPreloads": 0,
+    "garenFixtureInProduction": false,
+    "leonaPlayerFixtureInProduction": false,
+    "leonaRiftTrialInProduction": false,
+    "garenRiftTrialInProduction": false,
+    "masterYiRiftTrialInProduction": false,
+    "masterYiBotRiftTrialInProduction": false,
+    "rosterRiftTrialInProduction": false,
+    "publicChampionChoices": [
+      "ashe",
+      "lux"
+    ],
+    "ahriRiftTrialInProduction": false,
+    "ahriBotRiftTrialInProduction": false,
+    "ahriNpcFixtureInProduction": false,
+    "ahriPlayerFixtureInProduction": false,
+    "unrequestedAhriPreloads": 0,
+    "unrequestedMasterYiPreloads": 0,
+    "unrequestedMasterYiAttackAudioPreloads": 0,
+    "unrequestedMasterYiHighlanderAudioPreloads": 0,
+    "unrequestedMasterYiAlphaAudioPreloads": 0,
+    "unrequestedMasterYiMeditateAudioPreloads": 0,
+    "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+    "unrequestedMasterYiSwordPreloads": 0,
+    "unrequestedMasterYiPrimaryTrailPreloads": 0,
+    "unrequestedMasterYiPrimaryHitPreloads": 0,
+    "unrequestedMasterYiPassiveTrailPreloads": 0,
+    "unrequestedMasterYiMeditateDamagePreloads": 0,
+    "unrequestedMasterYiHighlanderKillPreloads": 0,
+    "unrequestedMasterYiHighlanderCastPreloads": 0,
+    "unrequestedMasterYiQEndPreloads": 0,
+    "unrequestedMasterYiQCastPreloads": 0,
+    "unrequestedMasterYiQContactPreloads": 0,
+    "unrequestedMasterYiMeditateCastPreloads": 0,
+    "unrequestedMasterYiMeditateBuffPreloads": 0,
+    "masterYiNpcFixtureInProduction": false,
+    "masterYiPlayerFixtureInProduction": false,
+    "junglePreviewRequests": 0,
+    "unrequestedLeonaPreloads": 0,
+    "preparedCompanionRequests": 5,
+    "roleCompanionRequests": 2,
+    "roleScoreboardIcons": 34,
+    "scheduledGrompRequests": 340,
+    "scheduledBlueRequests": 20,
+    "scheduledRedRequests": 20,
+    "scheduledWolfRequests": 40,
+    "scheduledRaptorRequests": 40,
+    "scheduledKrugRequests": 60,
+    "scheduledScuttlerRequests": 20,
+    "screenshot": "artifacts/lux-e-hit-production-subpath.png"
+  },
+  "log": {
+    "path": "artifacts/e20bdc-production-subpath.log",
+    "sha256": "f9ab7a2e5bc0c969c708de75cefa76364d589be4801b0549e45d886f7d434fba"
+  },
+  "captures": [
+    {
+      "path": "artifacts/lux-e-hit-production-companion-purchase.png",
+      "sha256": "76877b888264e61c5b8aada7696f79b1d05c08bb642ca4b9ad10f53d68d0c6a1"
+    },
+    {
+      "path": "artifacts/lux-e-hit-production-lux-e-moving-burst.png",
+      "sha256": "523d18a022d0c9664f072918e6f0cc0e332014d06f1f5e32e690364d355234d4"
+    },
+    {
+      "path": "artifacts/lux-e-hit-production-lux-e-source.png",
+      "sha256": "c58241e4a56fdf24df2dd79c8bece0449957effc9ef9dc662aaf3c0cc98aacab"
+    },
+    {
+      "path": "artifacts/lux-e-hit-production-lux.png",
+      "sha256": "6e07401602630c21857940e56f5ff3612d013e4167a5c3c6cb412b8d37b7ebc7"
+    },
+    {
+      "path": "artifacts/lux-e-hit-production-oracle.png",
+      "sha256": "b4e9c754791e56eb14dd7a0f67e1f01de11e8792f0f7506ea81a19e9d1736ec2"
+    },
+    {
+      "path": "artifacts/lux-e-hit-production-role-match.png",
+      "sha256": "6f5f5b9f194e2fb268402019bf6bb26d299d531860e535d350be1238818ecb91"
+    },
+    {
+      "path": "artifacts/lux-e-hit-production-subpath.png",
+      "sha256": "1844ccaa0d7ffa1471148dfa13f36e255e73340c345fe7140ba0f4d6b79dd7d9"
+    },
+    {
+      "path": "artifacts/lux-e-hit-production-ward.png",
+      "sha256": "71f85c375e8619528e8343f078e1a3883e1e7600724cb4ddaf4667a05fc01eab"
+    }
+  ],
+  "scope": "Current production nested-host smoke. Software-rendered screenshots reviewed for HUD/scene layout only, not native effect/frame-time certification. Earlier production ledger retains its original identity."
+}
