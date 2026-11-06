@@ -1,0 +1,31 @@
+{
+  "format": 1,
+  "integratedRevision": "ce0b567edad5061a77b61c624090cc75e975b5ca",
+  "method": "Fast-forward from 65e5c8a to verified lifecycle playback branch; no merge edits",
+  "schema": 174,
+  "ruleset": "617100a79da45e4a173acde213a5ee0c11e76bc52413575ea24170aacd38fb31",
+  "sourceFilesCompared": 821,
+  "allSourceBytesMatchAcceptedBranch": true,
+  "pack": {
+    "id": "94853da0294b89f78e0c42f936f98e11cb6b7b2ce242e816cc1a77a43c3e9917",
+    "files": 1329,
+    "bytes": 574118545,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a",
+    "allFileAndWorkerAudit": true
+  },
+  "acceptance": "ahri-lifecycle-playback-acceptance.json",
+  "repeatFullSuite": false,
+  "reason": "Identical verified source; local rebuild and pack audit reproduce the accepted pack byte for byte.",
+  "logs": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-main-build-v1.log",
+      "sha256": "c98230ed48bc367bf95133eb29141ba637c6a8cecf6b6cc82af2eb291e2cc439"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-lifecycle-main-pack-v1.log",
+      "sha256": "31671aee6847c1446311616e435db5306644d0b35e72be6547217aec2f3887a9"
+    }
+  ],
+  "pushed": false,
+  "deployed": false
+}
