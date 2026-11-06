@@ -25,8 +25,8 @@ integrals, clocks/counts/schedules, births, shapes/surfaces, local motion,
 lifetimes, spin/basis, appearance, UVs and frames/binding. Independent fixtures
 check selected external JS functions; they do not execute the native client or
 a complete native emitter system. Full composed external-loop comparison subsequently passed 480 steps; the shared
-GPU material also passed 84 external-fragment pixel cases. Active scene dispatch
-remains pending. See BARON-ATTACK-SYSTEM.md and BARON-PARTICLE-MATERIAL.md.
+GPU material also passed 84 external-fragment pixel cases. Twelve hit profiles are now bound to saved chest poses in the private encounter;
+source missile scene dispatch remains pending. See BARON-SOURCE-HITS.md. See BARON-ATTACK-SYSTEM.md and BARON-PARTICLE-MATERIAL.md.
 
 Production build passes. Its generated pack is `f242683be8272476196aa3f180114431c028c254fb04d9388cbe737fcd10af4f`:
 1204 files / 551,667,187 bytes. This records the build identity;
@@ -51,3 +51,10 @@ Evidence: `artifacts/baron-source-kernel-full-unit.log`,
 Native bound-object size, projectile-height routing and shader/primitive dispatch
 remain open adapters. Native random-stream and animation-graph parity are not
 claimed.
+
+Subsequent hit-binding build: `c23eba8eb85a21e45fb50b63697afab55e486d70277e08f2d180f56bc132b936`
+(1,235 files / 552,840,480 bytes). Nineteen focused tests, six Baron browser
+cases, one final depth-bias recheck, 84 external pixel cases and the 21-emitter
+preview pass. The full schema166 suite before binding passed 8,141/8,143 cases;
+the two historical Leona/Lux gaps remain. Full post-binding and new-pack delivery
+checks are subsequent work.

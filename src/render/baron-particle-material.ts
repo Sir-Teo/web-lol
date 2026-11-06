@@ -132,6 +132,9 @@ export function createBaronParticleMaterial(
     `,
     transparent: true,
     depthWrite: false,
+    polygonOffset: (profile.settings.depthBiasFactors ?? [0, 0]).some((value) => value !== 0),
+    polygonOffsetFactor: profile.settings.depthBiasFactors?.[0] ?? 0,
+    polygonOffsetUnits: profile.settings.depthBiasFactors?.[1] ?? 0,
     depthTest: ((profile.settings.miscRenderFlags ?? 0) & 1) === 0,
     side:
       mesh && !baronFlag(profile.settings.disableBackfaceCull) ? THREE.FrontSide : THREE.DoubleSide,

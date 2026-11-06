@@ -1,0 +1,114 @@
+{
+  "format": 1,
+  "snapshotVersion": 166,
+  "ruleset": "ae3da0abcdce8fdd4bf7183723ab95016de9c2df64c77424852b0e11b88b7b07",
+  "activeHitEmitters": 12,
+  "activeMissileEmitterBinding": false,
+  "focusedTestsPassed": 19,
+  "browserCasesPassed": 6,
+  "depthBiasBrowserRecheckPassed": 1,
+  "externalPixelCasesPassed": 84,
+  "isolatedPreviewEmitters": 21,
+  "hitTextureFetches": 16,
+  "hitMeshFetches": 0,
+  "build": "passed",
+  "pack": {
+    "id": "c23eba8eb85a21e45fb50b63697afab55e486d70277e08f2d180f56bc132b936",
+    "bytes": 552840480
+  },
+  "packFiles": 1235,
+  "nativeExecuted": false,
+  "boundSizePolicy": "explicit neutral factors following external reader omission; native size calibration remains uncertified",
+  "evidence": [
+    {
+      "path": "src/render/baron-contact-attachment.ts",
+      "bytes": 3561,
+      "sha256": "429c51bdc6491a6b6a2da26d92aed9cd18638401058c91b1b2329422bb0cee54"
+    },
+    {
+      "path": "src/render/baron-source-hits.ts",
+      "bytes": 4671,
+      "sha256": "8309176ed9a0f839efa1d44f64248200d8a10b93da061dc68bc5d603b4591a93"
+    },
+    {
+      "path": "src/render/lazy-baron-hits.ts",
+      "bytes": 1971,
+      "sha256": "48cffdfdb35a295a9dbfce751ee9e1c621cd286fd46cd159dc1f65be41a39fbf"
+    },
+    {
+      "path": "src/render/baron-particle-resources.ts",
+      "bytes": 3577,
+      "sha256": "208c9c3460b9b71e983ce038ec22424fdeba690ca4dfaddb088e63312c5dd09e"
+    },
+    {
+      "path": "src/render/baron-particle-material.ts",
+      "bytes": 6094,
+      "sha256": "aba6a4015bbcef3d2b91185396bf99e854ae40e40c3ca1a0a4799c56b07d90c2"
+    },
+    {
+      "path": "src/render/view.ts",
+      "bytes": 66748,
+      "sha256": "38d0f72e7a7e592c69d8f5ff0f37021a70a3339e2914e747b4349c4b0c9f24f2"
+    },
+    {
+      "path": "tests/baron-contact-attachment.test.ts",
+      "bytes": 4247,
+      "sha256": "4b49c34269ce479f2e7922357f93cfc95430fd6b6a875eade95bd85836831b69"
+    },
+    {
+      "path": "tests/baron-source-hits.test.ts",
+      "bytes": 5259,
+      "sha256": "6dec9a09f7b554efae637ac9b0b7730e56d971460d2e2577bb08e95bd1f2c905"
+    },
+    {
+      "path": "tests/lazy-baron-hits.test.ts",
+      "bytes": 3018,
+      "sha256": "4e93f8bb95dbe501a2f75528e2c26ec54172d9fbdd387664b3cc5c74d210d670"
+    },
+    {
+      "path": "e2e/baron-source-hits.spec.ts",
+      "bytes": 5209,
+      "sha256": "2604e2475ecfad14dae0096442a07c3685ad637adc9e846c035089f04242121d"
+    },
+    {
+      "path": "artifacts/baron-source-hit-focused-final.log",
+      "bytes": 2511,
+      "sha256": "ace44f8c21f906795beccecc369fa13ab8f19eed9e612de0389f8bbeea080e2a"
+    },
+    {
+      "path": "artifacts/baron-source-hit-browser-verified.log",
+      "bytes": 3426,
+      "sha256": "ca77d385df9758668805956bba712c813b8933101517a27d0405458c6ff785ed"
+    },
+    {
+      "path": "artifacts/baron-source-hit-depth-browser.log",
+      "bytes": 800,
+      "sha256": "1042e3e8064f09261d003d4ea704f11022afeb3aa85061f600077acb4c644b49"
+    },
+    {
+      "path": "artifacts/baron-source-hit-depth-pixels.log",
+      "bytes": 144,
+      "sha256": "4749d134cd359b9bfbff3bd08357690e97d8d77ea1196ea55d68f25fb4c61c48"
+    },
+    {
+      "path": "artifacts/baron-source-hit-final-build.log",
+      "bytes": 7379,
+      "sha256": "f757d9078e6168ea4ad0e9905ca474a1b1a883d50fc73ae879fce9f6e4fac8c2"
+    },
+    {
+      "path": "artifacts/baron-source-hit-default-preview.log",
+      "bytes": 73,
+      "sha256": "398ed5b4f7ea0fa6ae790460aae13e62456df791eca6d0b8a6434abb297364df"
+    },
+    {
+      "path": "artifacts/baron-source-hit-depth-browser/baron-source-hits-real-Bar-0a813--their-centres-tint-and-UVs/baron-source-contact.json",
+      "bytes": 114670,
+      "sha256": "2a49edfdc0c7a84f9887ae7d97560e3b1cb27a89e92032c767d8ff4ca96bd7c5"
+    },
+    {
+      "path": "artifacts/baron-source-hit-depth-browser/baron-source-hits-real-Bar-0a813--their-centres-tint-and-UVs/baron-source-contact.png",
+      "bytes": 900709,
+      "sha256": "bd9b957081a75bd30bedc12dcf8b6c171f5abeb31a230bbf24a5432138c3bc02"
+    }
+  ]
+}

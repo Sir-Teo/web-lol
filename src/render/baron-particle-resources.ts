@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { AuthoredMipTextureCache } from './authored-mip-texture-cache';
 import { checkedAssetBytes } from './authored-mip-texture';
+import type { BaronAttackRole } from './baron-attack-program';
 import {
   BARON_ATTACK_ASSET_ROOT,
   baronTextureAsset,
@@ -10,24 +11,39 @@ import {
 
 /** One renderer owns these resources; particle batches borrow them. Emission
  * surfaces are already source-unit arrays in the program and never draw. */
-export async function loadBaronParticleResources() {
+export async function loadBaronParticleResources(
+  roles: readonly BaronAttackRole[] = ['missile', 'hit']
+) {
+  if (!roles.length || roles.some((role) => !['missile', 'hit'].includes(role)))
+    throw RangeError('Invalid Baron resource roles');
   const program = await loadBaronAttackAssets(),
     cache = new AuthoredMipTextureCache();
   const textures = new Map<string, THREE.Texture>(),
     meshes = new Map<string, THREE.BufferGeometry>();
+  const profiles = program.profiles.filter((profile) => roles.includes(profile.role));
+  const requiredTextures = new Set(
+    profiles.flatMap((p) => [
+      p.material.texture,
+      ...(p.material.multiplier ? [p.material.multiplier.texture] : []),
+      ...(p.material.erosion ? [p.material.erosion.texture] : []),
+      ...(p.material.palette ? [p.material.palette.texture] : []),
+    ])
+  );
   const requiredMeshes = new Set(
-    program.profiles.flatMap((p) => (p.geometry.kind === 'mesh' ? [p.geometry.asset] : []))
+    profiles.flatMap((p) => (p.geometry.kind === 'mesh' ? [p.geometry.asset] : []))
   );
   const lookup = new Set(
-    program.profiles.flatMap((p) => (p.material.palette ? [p.material.palette.texture] : []))
+    profiles.flatMap((p) => (p.material.palette ? [p.material.palette.texture] : []))
   );
   const outcomes = await Promise.allSettled([
-    ...program.textures.map(async (row) =>
-      textures.set(
-        row.source.wadPathHash,
-        await cache.load(baronTextureAsset(row), lookup.has(row.source.wadPathHash))
-      )
-    ),
+    ...program.textures
+      .filter((row) => requiredTextures.has(row.source.wadPathHash))
+      .map(async (row) =>
+        textures.set(
+          row.source.wadPathHash,
+          await cache.load(baronTextureAsset(row), lookup.has(row.source.wadPathHash))
+        )
+      ),
     ...Array.from(requiredMeshes, async (key) => {
       const row = program.meshes.find((m) => m.source.wadPathHash === key);
       if (!row) throw Error('Baron drawing mesh transport is missing');

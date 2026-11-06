@@ -79,6 +79,7 @@ import { LazyGarenJustice } from './lazy-garen-justice';
 import { LazyGarenCourage } from './lazy-garen-courage';
 import { LazyGrompDeath } from './lazy-gromp-death';
 import { LazyGrompAttack } from './lazy-gromp-attack';
+import { LazyBaronHits } from './lazy-baron-hits';
 import { GarenSpin } from './garen-spin';
 import { ASHE_SELECTION } from '../content/ashe-selection';
 import { intersectsSelectionCylinder } from './selection-cylinder';
@@ -200,6 +201,7 @@ export class GameView {
   riverShrines = new RiverShrines(this.scene);
   ownedCompanions = new OwnedCompanions(this.scene);
   oracleLens = new OracleLens(this.scene);
+  baronHits = new LazyBaronHits(this.scene, (p) => this.ground(p));
   grompAttack = new LazyGrompAttack(this.scene, (p) => this.ground(p));
   garenSpin = new GarenSpin(this.scene, (p) => this.ground(p));
   dust = new HawkshotDust(this.scene, (p) => this.ground(p));
@@ -292,6 +294,7 @@ export class GameView {
       this.garenJustice,
       this.garenPerseverance,
       this.grompAttack,
+      this.baronHits,
       this.grompDeath,
       this.leonaDaybreak,
       this.leonaEclipseSkins,
@@ -926,6 +929,7 @@ export class GameView {
     this.oracleLens.update(world, alpha, (p) => this.ground(p), this.camera, terminalAge);
     this.grompDeath.update(world, alpha, this.camera, this.models, terminalAge);
     this.grompAttack.update(world, alpha, this.camera, terminalAge);
+    this.baronHits.update(world, alpha, this.camera, terminalAge);
     this.garenDecisiveStrike.update(world, alpha, this.camera, this.models, terminalAge);
     this.garenBasicAttacks.update(world, alpha, this.camera, terminalAge);
     this.primaryTrails.update(world, alpha, this.camera, this.models, terminalAge);
