@@ -1,6 +1,6 @@
 # Ahri Q projectile asset preparation
 
-This isolated source checkpoint stages the outgoing `Ahri_Q_mis` and returning `Ahri_Q_mis_02` resource closures: 16 and 20 native emitters. It leaves simulation, rendering, public assets, startup requests and the accepted pack unchanged.
+This isolated source checkpoint stages the two Q projectile resource closures, `Ahri_Q_mis` and `Ahri_Q_mis_02`: 16 and 20 native emitters. Their outgoing/return phase assignment needs separate native spell/projectile binding evidence. It leaves simulation, rendering, public assets, startup requests and the accepted pack unchanged.
 
 Seventeen TEX dependencies include base images, erosion maps, multiplier masks and ray textures. All 151 authored mip levels pack losslessly into 17 private PNG transports totaling 713,081 bytes. The decoder record and native sources remain pinned. Every packed level unpacks to its recorded software-decoded RGBA hash; direct sampling of the transport atlas is invalid. Native GPU decoding and pixel equivalence remain unverified.
 

@@ -1,7 +1,7 @@
 {
   "format": 1,
   "parentRevision": "b1d5b8f2c2efda3573c9bde2860e7135bf45c705",
-  "scope": "Isolated outgoing/return Q asset transports only",
+  "scope": "Isolated transport preparation for both Q projectile resources; phase assignment remains unbound",
   "schema": 175,
   "ruleset": "08e106da69e9a0827b0274d7c97fd3589bd3cdf610a80b9d3b1a73452c679c46",
   "runtimeChanged": false,
@@ -88,6 +88,7 @@
   "limits": [
     "Source units, optional colors and UV seams are preserved; native CPU callbacks, attachment frames, shader arithmetic and GPU pixels remain unverified.",
     "No projectile renderer, public output, simulation observer, save schema, pack or gameplay cohort is changed.",
-    "Initial mesh-guard attempt lacked copied decoded mesh fixtures; corrected isolated fixtures pass all five cases without application changes."
+    "Initial mesh-guard attempt lacked copied decoded mesh fixtures; corrected isolated fixtures pass all five cases without application changes.",
+    "Resource names and visual differences do not establish native outgoing/return phase assignment. Separate spell/projectile binding evidence is required."
   ]
 }
