@@ -9422,3 +9422,7 @@ Fresh ruleset7ae8e0f8 requests seeds1–100, two workers and60minute horizons wi
 ### Refresh the entry-point documentation for current development
 
 README now describes all21Baron emitters, candidate audio/saved tails and the remaining native/kit limits. It links the current validation and in-progress roster gate, labels the older control delivery historical, exposes offline:verify and replaces the obsolete fixed screenshot path with collision-protected namespaced artifacts. No runtime or source identity changed.
+
+### Prepare cache-independent Baron audio persistence CI
+
+Added a read-only GitHub workflow for TypeScript and22committed-asset/audio-state/controller/saved-tail tests on Node24.22.1. Both local commands and a separate tracked checkout without private .cache/.tools pass; installed Node dependencies were reused. YAML parses and source/test/audio path triggers are explicit. The workflow has not been pushed/dispatched; it does not claim full-suite/browser/offline/cohort coverage or gate the existing deploy job. See docs/reference/baron-audio-ci-verification.json.

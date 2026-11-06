@@ -1,0 +1,55 @@
+name: Baron audio persistence checks
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - 'public/assets/audio/baron-basic/**'
+      - 'docs/reference/baron-basic-audio-decoded.json'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'tsconfig.json'
+      - 'vitest.config.ts'
+      - '.github/workflows/baron-audio.yml'
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - 'public/assets/audio/baron-basic/**'
+      - 'docs/reference/baron-basic-audio-decoded.json'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'tsconfig.json'
+      - 'vitest.config.ts'
+      - '.github/workflows/baron-audio.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: baron-audio-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  persistence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.22.1'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - name: Type check
+        run: npm exec tsc -- --noEmit
+      - name: Check committed audio assets, playback and saved tails
+        run: >-
+          npm exec vitest -- run
+          tests/baron-basic-audio-assets.test.ts
+          tests/baron-basic-audio-state.test.ts
+          tests/baron-basic-audio-controller.test.ts
+          tests/baron-basic-audio-history.test.ts

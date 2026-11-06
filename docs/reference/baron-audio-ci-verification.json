@@ -1,0 +1,48 @@
+{
+  "format": 1,
+  "workflow": ".github/workflows/baron-audio.yml",
+  "node": "24.22.1",
+  "typeCheck": true,
+  "tests": 22,
+  "cleanTrackedCheckout": "d9b0da8",
+  "privateCacheAndToolsAbsentInCheckout": true,
+  "existingNodeDependenciesReused": true,
+  "workflowYamlParsed": true,
+  "githubExecution": false,
+  "limits": [
+    "Prepared and verified locally; no workflow dispatch, push or deployment performed.",
+    "Scoped Baron audio/persistence checks, not the full unit, browser, offline or hundred-seed suite."
+  ],
+  "evidence": [
+    {
+      "path": ".github/workflows/baron-audio.yml",
+      "bytes": 1451,
+      "sha256": "25e21c4a2d9d37f872223a0ec5017801d6f91924ccd40d6af0cdbbca3c09a521"
+    },
+    {
+      "path": "artifacts/baron-audio-ci-smoke.log",
+      "bytes": 424,
+      "sha256": "1a9e0cf33cd1128a9aa58356d1546f51b50ddaec4bee157bb2a65d4ac34d493f"
+    },
+    {
+      "path": "artifacts/baron-audio-ci-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/baron-audio-ci-clean-smoke.log",
+      "bytes": 453,
+      "sha256": "73fa3014578b0822979eb3534d53fb8635b85b6687926911b7a82a99a554608b"
+    },
+    {
+      "path": "artifacts/baron-audio-ci-clean-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/baron-audio-ci-worktree.log",
+      "bytes": 1952,
+      "sha256": "5a97b1f64da92845f94ddacd4d1292e42ee8898dc96fed5b7a854356f612e5a7"
+    }
+  ]
+}

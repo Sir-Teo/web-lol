@@ -69,7 +69,9 @@ The browser suite currently uses installed Google Chrome. All runtime assets are
 
 ## Deployment
 
-The practice build is hosted at https://sir-teo.github.io/web-lol/. Pushes to `main` install dependencies with npm caching, build, and deploy to GitHub Pages. Documentation-only and test-only pushes skip deployment; the workflow can also be run manually. CI does not run test suites.
+The practice build is hosted at https://sir-teo.github.io/web-lol/. Pushes to `main` install dependencies with npm caching, build, and deploy to GitHub Pages. Documentation-only and test-only pushes skip deployment; the workflow can also be run manually. A separate CI workflow runs TypeScript and 22 Baron audio/persistence checks on
+Node 24.22.1 using committed data; the full suite and browser/offline gates remain
+separate. See [the scoped CI receipt](docs/reference/baron-audio-ci-verification.json).
 
 On Linux with system Chromium, build first and run `node tools/qa/production-subpath.mjs --system-chromium unique-run-name`. The default command continues to use installed Google Chrome.
 
