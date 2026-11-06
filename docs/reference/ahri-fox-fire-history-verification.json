@@ -1,0 +1,161 @@
+{
+  "format": 1,
+  "historyRevision": "8166731aab4daf259df0e4331cbeafecd4719593",
+  "schema": 170,
+  "ruleset": "f30224c964d2bd02e18e3e5abe38f69e67aebec7b1a8cd5bfa7e41ddf7bcaf19",
+  "fullUnit": {
+    "passed": 8582,
+    "failed": 2,
+    "files": 486,
+    "workers": 1,
+    "knownFailures": [
+      "missing historical Leona reader archive",
+      "Lux sampler FMA golden mismatch"
+    ],
+    "fixtureSetup": "Restored six unchanged fixture directories from the verified Q worktree before authoritative v2 run; initial v1 run was interrupted."
+  },
+  "nodeQA": {
+    "tests": 107,
+    "revision": "b29ffa804351c66ebb2aa710e4cb8cb2a2e2034b"
+  },
+  "cleanCI": {
+    "tests": 175,
+    "files": 24,
+    "typeCheck": true,
+    "pythonModes": 14,
+    "privateCaches": false,
+    "privateTools": false,
+    "dependencies": "Reused parent node_modules; npm ci not repeated locally",
+    "remoteDispatched": false
+  },
+  "roster": {
+    "winner": "blue",
+    "finalTick": 157116,
+    "checkedTicks": 157116,
+    "roundTrips": 44,
+    "futureChecks": 43,
+    "futureCheckedTicks": 2580
+  },
+  "archive": {
+    "root": "/workspace/web-lol-ahri-fox-fire-audio/.cache/ahri-fox-fire-history-roster-seed1",
+    "sourceFiles": 576,
+    "runner": {
+      "file": "/workspace/web-lol-ahri-fox-fire-audio/.cache/ahri-fox-fire-history-roster-seed1/runner/match-seed.js",
+      "bytes": 1219723,
+      "sha256": "c198830a4fdd9174ad6a27d257eb13b36f87e08996e2dca3c4bc01f47926319e"
+    },
+    "allCurrentArchivedSourceBytesMatch": true,
+    "planSha256": "6b9f47572fa8591c2f154812d288445bd9f6d894feb8bbcfb1362165e0c9024a"
+  },
+  "gameplay": {
+    "equalSamples": 45,
+    "baselineRuleset": "1b65f9415673372431926c69f73499e2b1af1e434fd9184f6eaa7b493413d62a",
+    "excludedRootFields": [
+      "version",
+      "ruleset",
+      "ahriFoxFireAudio"
+    ],
+    "existingOrbAndCharmHistoryRetained": true,
+    "comparison": "ahri-fox-fire-history-roster-gameplay.json"
+  },
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-clean-ci-0.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-clean-ci-1.log",
+      "sha256": "f8993b7a6754a30d92904dc06a4120bdc6924bcb80092c107487d066347ea727"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-clean-ci-10.log",
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-clean-ci-11.log",
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-clean-ci-12.log",
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-clean-ci-13.log",
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-clean-ci-14.log",
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-clean-ci-15.log",
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-clean-ci-2.log",
+      "sha256": "40aead902f47ee86083ca799462d13f1f5def3ae5feb071af6b5032aae880871"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-clean-ci-3.log",
+      "sha256": "f5d56745cbec320ad650e983e5f2738ba279b3545edfdf1ea9dfd5a5312e45c2"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-clean-ci-4.log",
+      "sha256": "b08e65827c7a08cae7a8c83373415a646d20c999bf8b7f7c48684023fc4faf73"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-clean-ci-5.log",
+      "sha256": "277830a9736393132c0af95cee95446a745c5f7f75b6d6f54b9a6eac6babda4c"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-clean-ci-6.log",
+      "sha256": "b08e65827c7a08cae7a8c83373415a646d20c999bf8b7f7c48684023fc4faf73"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-clean-ci-7.log",
+      "sha256": "277830a9736393132c0af95cee95446a745c5f7f75b6d6f54b9a6eac6babda4c"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-clean-ci-8.log",
+      "sha256": "23a5151975aebfa4f688c9a38a0a1a5e16ecdbf829553970e98f303acce1e579"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-clean-ci-9.log",
+      "sha256": "2d4bd23507d91cb112aba7b702d646dd3c1da3de1ad8406725db3fa16cb165f3"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-full-suite-v2.log",
+      "sha256": "dd7d7d9a74d893d070abe19c13ad6c0044d2b7b74de0412f82545d8e9fd4e334"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-selector-v1.log",
+      "sha256": "ab22b5133481f89cdf82c1092792220bc7f0e2bb16e24a414d0819a3395460d6"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-node-qa-v1.log",
+      "sha256": "876859ab6b880a905ee18073f1f1750d45f027cb5009fd473e549d34afa803f4"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-comparison-tests-v1.log",
+      "sha256": "97659821f7af1fddc0a58f17ee10d334242cee10b86b46214d8d04531f19496e"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-roster-v1.log",
+      "sha256": "8d9d6924a2ff6c9af2d99eeb943135a9cd57ec173903c70567f8b220cf8e9118"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-roster-comparison-v1.log",
+      "sha256": "e1aa446b2a99cfc97cdb1c336e58a56082b09bce36db1959076309b4aa2c141c"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-history-roster-verification-v1.log",
+      "sha256": "5387775dba0d73b7ff6bacb829832ff87f0abe24a7fc1576469017ef7057e458"
+    }
+  ],
+  "limits": [
+    "Saved dispatch history only; Fox-Fire playback remains unbound in this frozen checkpoint.",
+    "One seed and archived checkpoints; the separate 7ae8e0 hundred-seed baseline is not relabeled.",
+    "Local activation-stop interpretation does not certify native event dispatch or continuous-container transitions."
+  ],
+  "roadmapMilestone4Complete": false
+}
