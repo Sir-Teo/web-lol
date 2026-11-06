@@ -9294,3 +9294,7 @@ Published the exact format-2 program, 25 authored-mip PNG transports and two GLB
 ### Baron shared GPU surface
 
 Added batched UV-cell wrapping, multiplier/palette/erosion and mesh BGRA tint material. All 84 local GPU cases agree byte-for-byte with the pinned external fragment shader, with visible output for every emitter, an independent minimal vertex harness and shader-error rejection. TypeScript passes. No active scene binding or native-fidelity claim. See docs/BARON-PARTICLE-MATERIAL.md and docs/reference/baron-material-verification.json.
+
+### Frozen ordinary hundred-seed cohort completed
+
+Historical e20 ruleset / schema 163 run completed all 100 requested seeds: 98 victories, two unfinished at 216,000 ticks (seeds 2 and 25), zero invariant failures. Read-only historical verification passes source archive/input/report/final-state checks. Totals: 16,653,420 checked ticks, 4,676 round trips, 4,576 future comparisons (274,560 future ticks). Ordinary hundredSeedInvariantGate passes; roadmap milestone 4 remains incomplete. The ordinary automated-carry roster does not cover the later development roster or Leona support policy. No current-ruleset/device/native certification is implied. Concise signed-by-hash ledger: docs/reference/e20bdc-ordinary-hundred-completed.json. Original plan/source archive/summary/finals remain frozen in .cache/e20bdc-ordinary-hundred.
