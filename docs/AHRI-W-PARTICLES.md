@@ -102,3 +102,9 @@ python3 -O tools/assets/test-ahri-w-bindings.py
 
 These commands use committed inputs only. Five source-pin mutations, missing
 and conflicting outputs, and symlinked leaves/parents reject without repair.
+
+The [binding verification](reference/ahri/w-particle-bindings-verification.json)
+records all three commands passing from a ten-file Git export without caches,
+tools or dependencies, all 239 Node QA cases, and a fresh complete native
+character reparse. All 640 compatibility-source files still match the accepted
+primary renderer byte for byte. This does not relabel its runtime acceptance.
