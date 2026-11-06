@@ -9547,3 +9547,7 @@ Primary `work` fast-forwards from `e005d6e` to `cc1c79b` without merge edits. Ev
 ## Verified Essence Theft playback delivery
 
 Application `0ee4ffc`, schema172 / `780b914f`, passes8,672/8,674 full-suite cases in500 files with only the two historical failures. All138 Node QA cases, clean305-case CI in40 files, TypeScript and22 Python guard modes pass. Sixteen combined browser cases verify61 exact Ahri PCM masters, including five unique passive masters, real keyboard champion/ninth-minion kills, healing, mute/seek and restoration after gameplay pruning. Production subdirectory and offline lifecycle pass with978 service-worker responses and zero production errors. Pack `f31b3721` contains1,313 files /570,486,751 bytes. All archived simulation/content bytes match frozen `29c2a12a`; its45 roster projections retain their scope. Native dispatch/global playlists/mix remain unverified. Basic-attack preparation is isolated. See [acceptance](reference/ahri-passive-playback-acceptance.json).
+
+## Integrate accepted Essence Theft playback into primary
+
+Primary `work` fast-forwards from `02e841a` to `9d15c58` without merge edits. Every source byte matches the accepted branch. A fresh primary build and complete pack audit reproduce `f31b3721` exactly. Acceptance retains its original full-suite/browser/offline scope. No push or deployment occurs. See `reference/ahri-passive-main-integration.json`.
