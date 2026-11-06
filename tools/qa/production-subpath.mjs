@@ -126,6 +126,7 @@ try {
     baronPreviewRequests = [],
     baronEffectRequests = [],
     baronAudioRequests = [],
+    ahriCharmAudioRequests = [],
     scheduledGrompRequests = [],
     scheduledBlueRequests = [],
     scheduledRedRequests = [],
@@ -140,6 +141,8 @@ try {
     if (message.type() === 'error') errors.push(message.text());
   });
   page.on('request', (request) => {
+    if (request.url().includes('/assets/audio/ahri-charm/'))
+      ahriCharmAudioRequests.push(request.url());
     if (request.url().includes('/assets/audio/baron-basic/'))
       baronAudioRequests.push(request.url());
     if (request.url().endsWith('/sru-baron-base.glb')) baronPreviewRequests.push(request.url());
@@ -269,6 +272,11 @@ try {
   assert.deepEqual(baronPreviewRequests, [], 'Production must ignore the Baron fixture flag');
   assert.deepEqual(baronEffectRequests, [], 'Production must not load private Baron effects');
   assert.deepEqual(baronAudioRequests, [], 'Production must not load private Baron audio');
+  assert.deepEqual(
+    ahriCharmAudioRequests,
+    [],
+    'Production without Ahri must not load Charm masters'
+  );
   await page.goto(`${base}?scene=fixture&champion=ahri`);
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
@@ -716,6 +724,11 @@ try {
     'Production must not preload private Baron effect assets'
   );
   assert.deepEqual(baronAudioRequests, [], 'Production must not preload private Baron audio');
+  assert.deepEqual(
+    ahriCharmAudioRequests,
+    [],
+    'Production without Ahri must not preload Charm masters'
+  );
   const report = {
     artifactRun,
     result: 'passed',
@@ -743,6 +756,7 @@ try {
     unrequestedBaronPreloads: baronPreviewRequests.length,
     unrequestedBaronEffectPreloads: baronEffectRequests.length,
     unrequestedBaronAudioPreloads: baronAudioRequests.length,
+    unrequestedAhriCharmAudioPreloads: ahriCharmAudioRequests.length,
     garenFixtureInProduction: false,
     leonaPlayerFixtureInProduction: false,
     leonaRiftTrialInProduction: false,

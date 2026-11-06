@@ -1,3 +1,5 @@
+import { LazyAhriCharmAudio } from './ahri-charm-lazy';
+import { charmAudioStates } from './ahri-charm-state';
 import { LazyBaronBasicAttackAudio } from './baron-basic-lazy';
 import { LazyMasterYiWujuStyleAudio } from './masteryi-e-lazy';
 import { LazyMasterYiMeditateAudio } from './masteryi-w-lazy';
@@ -48,6 +50,9 @@ export class GameAudio {
   bindingFlight = new LuxBindingFlightAudio();
   garenAA = new LazyGarenBasicAttackAudio();
   baronBasic = new LazyBaronBasicAttackAudio();
+  ahriCharm = new LazyAhriCharmAudio();
+  private charmWorld?: World;
+  private charmTerminalStart: number | null = null;
   masterYiAA = new LazyMasterYiAttackAudio();
   masterYiE = new LazyMasterYiWujuStyleAudio();
   masterYiW = new LazyMasterYiMeditateAudio();
@@ -113,9 +118,15 @@ export class GameAudio {
     this.audible = value;
     if (!value) this.stopVoices();
   }
-  async load(garenPresent = false, masterYiPresent = false, baronPreview = false): Promise<void> {
+  async load(
+    garenPresent = false,
+    masterYiPresent = false,
+    baronPreview = false,
+    ahriPresent = false
+  ): Promise<void> {
     await Promise.all([
       ...(baronPreview ? [this.baronBasic.load()] : []),
+      ...(ahriPresent ? [this.ahriCharm.load()] : []),
       this.loadCast(),
       this.loadArrival(),
       this.loadLinger(),
@@ -326,6 +337,7 @@ export class GameAudio {
   }
   private stopVoices(): void {
     this.baronBasic.stop();
+    this.ahriCharm.stop();
     this.bindingFlight.stop();
     this.luxE.stop();
     this.garenAA.stop();
@@ -546,6 +558,36 @@ export class GameAudio {
           : null,
       })),
       world.tick,
+      listener,
+      world
+    );
+  }
+  updateAhri(world: World, listener = { x: 0, y: 0 }) {
+    if (world.units.some((u) => u.champion === 'ahri') && this.ahriCharm.status === 'idle')
+      void this.ahriCharm.load();
+    if (this.charmWorld !== world) {
+      this.charmWorld = world;
+      this.charmTerminalStart = null;
+    }
+    let tick = world.tick;
+    if (world.winner && this.context) {
+      this.charmTerminalStart ??= this.context.currentTime;
+      tick += Math.max(0, this.context.currentTime - this.charmTerminalStart) * 60;
+    } else this.charmTerminalStart = null;
+    const records = world.ahriCharmAudio;
+    const states = charmAudioStates(
+      records,
+      tick,
+      world.hero.team,
+      (point) => world.pointVisible(point, world.hero.team),
+      (id) => world.unit(id)
+    );
+    this.ahriCharm.update(
+      this.context,
+      this.enabled && !this.paused,
+      records,
+      states,
+      tick,
       listener,
       world
     );
@@ -977,6 +1019,12 @@ export class GameAudio {
         }
         if (event.type === 'cast') {
           if (
+            event.text === 'e' &&
+            event.champion === 'ahri' &&
+            this.ahriCharm.status === 'ready'
+          ) {
+            // Saved Charm phase history owns the source cast/flight/contact cues.
+          } else if (
             event.text === 'q' &&
             event.champion === 'masteryi' &&
             this.masterYiQ.status === 'ready'

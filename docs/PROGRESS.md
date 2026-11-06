@@ -9454,3 +9454,7 @@ Staged nine unchanged source masters, three play profiles and the source stop fa
 ## Saved Charm audio history (isolated branch)
 
 Schema 168 records accepted Charm windup, launch, swept contact and stop without new gameplay IDs or RNG. Birth audiences and exact finite tail bounds survive restoration; death and victory boundaries settle immediately. Scoped history/Charm tests and all 48 archived gameplay projections pass. Playback is the next stage; the primary 7ae8e0 cohort is unchanged.
+
+## Charm source playback (isolated branch)
+
+Bound lazy finite cast/flight/contact audio to saved history, with source gains/attenuation, Linear play fade and Exp1 stop fade. Seeking slices the original fade domain; mute, ownership changes, per-profile caps and terminal draining have explicit controller checks. Ready source E replaces the generic tone. Two browser cases pass together, including nine exact PCM hashes and zero loads without Ahri. Full suite: 8,490 pass plus the same two historical failures; two added integration checks pass separately. Whole-closure publication rejection guards run without private caches. Delivery checks remain separate; primary 7ae8e0 cohort unchanged.

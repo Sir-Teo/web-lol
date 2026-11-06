@@ -411,7 +411,8 @@ async function boot(): Promise<void> {
     audio.load(
       world.units.some((u) => u.champion === 'garen'),
       world.units.some((u) => u.champion === 'masteryi'),
-      baronEncounter
+      baronEncounter,
+      world.units.some((u) => u.champion === 'ahri')
     ),
     loadReferenceModels(
       monsterSpecies,
@@ -643,6 +644,7 @@ async function boot(): Promise<void> {
       audio.updateLinger(audibleScouts, world.tick);
       if (baronEncounter) audio.updateBaronPreview(world, view.center);
       audio.updateLuxE(world, view.center);
+      audio.updateAhri(world, view.center);
       audio.updateOracle(world, view.center);
       audio.updateGaren(world, view.center);
       audio.updateLeona(world, view.center);
