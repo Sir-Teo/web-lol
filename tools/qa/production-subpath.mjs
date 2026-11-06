@@ -1,10 +1,43 @@
 /** Exercise the real production build under a strict static-host subdirectory. */
 import { createServer } from 'node:http';
-import { createReadStream } from 'node:fs';
-import { stat, mkdir } from 'node:fs/promises';
+import { createReadStream, existsSync } from 'node:fs';
+import { stat, mkdir, writeFile } from 'node:fs/promises';
 import { resolve, sep, extname } from 'node:path';
 import assert from 'node:assert/strict';
 import { chromium } from '@playwright/test';
+import { parseArgs } from 'node:util';
+
+const { values, positionals } = parseArgs({
+  options: { 'system-chromium': { type: 'boolean', default: false } },
+  allowPositionals: true,
+});
+assert(positionals.length <= 1, 'Pass at most one production artifact run name');
+const artifactRun =
+  positionals[0] ??
+  new Date()
+    .toISOString()
+    .replace(/[^a-z0-9]/gi, '-')
+    .toLowerCase();
+assert(/^[a-z0-9-]+$/.test(artifactRun), 'Invalid production artifact run name');
+const artifactPrefix = `artifacts/production-subpath-${artifactRun}`;
+for (const name of [
+  'subpath',
+  'role-match',
+  'lux',
+  'lux-e-source',
+  'lux-e-moving-burst',
+  'ward',
+  'companion-purchase',
+  'oracle',
+])
+  assert(!existsSync(`${artifactPrefix}-${name}.png`), 'Production screenshot already exists');
+assert(!existsSync(artifactPrefix + '.json'), 'Production report already exists');
+await mkdir('artifacts', { recursive: true });
+await writeFile(
+  artifactPrefix + '.claim',
+  JSON.stringify({ artifactRun, pid: process.pid }) + '\n',
+  { flag: 'wx' }
+);
 
 const root = resolve('dist'),
   prefix = '/nested/rift/';
@@ -57,7 +90,7 @@ const base = `http://127.0.0.1:${server.address().port}${prefix}`;
 let browser;
 try {
   browser = await chromium.launch(
-    process.argv.includes('--system-chromium')
+    values['system-chromium']
       ? { executablePath: '/usr/bin/chromium', args: ['--no-sandbox'], headless: true }
       : { channel: 'chrome', headless: true }
   );
@@ -91,6 +124,7 @@ try {
     oracleRigRequests = [],
     oracleAudioRequests = [],
     baronPreviewRequests = [],
+    baronEffectRequests = [],
     scheduledGrompRequests = [],
     scheduledBlueRequests = [],
     scheduledRedRequests = [],
@@ -106,6 +140,8 @@ try {
   });
   page.on('request', (request) => {
     if (request.url().endsWith('/sru-baron-base.glb')) baronPreviewRequests.push(request.url());
+    if (request.url().includes('/assets/effects/baron-attack/'))
+      baronEffectRequests.push(request.url());
     if (request.url().endsWith('/ahri-base.glb')) ahriPreviewRequests.push(request.url());
     if (request.url().endsWith('/masteryi-base.glb')) masterYiPreviewRequests.push(request.url());
     if (/\/masteryi-aa-\d+\.wav$/.test(request.url()))
@@ -228,6 +264,7 @@ try {
   assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
   assert.deepEqual(baronPreviewRequests, [], 'Production must ignore the Baron fixture flag');
+  assert.deepEqual(baronEffectRequests, [], 'Production must not load private Baron effects');
   await page.goto(`${base}?scene=fixture&champion=ahri`);
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
@@ -321,7 +358,7 @@ try {
   await page.waitForTimeout(700);
   assert.equal(await page.locator('[data-ability="e"] .ability-charges').textContent(), '1');
   await mkdir('artifacts', { recursive: true });
-  await page.screenshot({ path: 'artifacts/lux-e-hit-production-subpath.png' });
+  await page.screenshot({ path: `${artifactPrefix}-subpath.png` });
   assert.equal(
     preparedCompanionRequests.length,
     0,
@@ -376,9 +413,9 @@ try {
     return icons.length >= 30 && icons.every((img) => img.complete && img.naturalWidth > 0);
   });
   const roleScoreboardIcons = await page.locator('.scoreboard-row img').count();
-  await page.screenshot({ path: 'artifacts/lux-e-hit-production-role-match.png' });
+  await page.screenshot({ path: `${artifactPrefix}-role-match.png` });
   await page.keyboard.up('Tab');
-  await page.screenshot({ path: 'artifacts/lux-e-hit-production-lux.png' });
+  await page.screenshot({ path: `${artifactPrefix}-lux.png` });
   await page.keyboard.press('Escape');
   await Promise.all([
     page.waitForEvent('load'),
@@ -418,13 +455,13 @@ try {
     () => document.querySelector('[data-ability="e"] .cooldown-text')?.textContent === 'RECAST'
   );
   await page.waitForTimeout(1800);
-  await page.screenshot({ path: 'artifacts/lux-e-hit-production-lux-e-source.png' });
+  await page.screenshot({ path: `${artifactPrefix}-lux-e-source.png` });
   await page.locator('[data-ability="e"]').click();
   await page.waitForFunction(
     () => Number(document.querySelector('[data-ability="e"] .cooldown-text')?.textContent) > 0
   );
   await page.waitForTimeout(150);
-  await page.screenshot({ path: 'artifacts/lux-e-hit-production-lux-e-moving-burst.png' });
+  await page.screenshot({ path: `${artifactPrefix}-lux-e-moving-burst.png` });
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
   assert(lucentSourceAssets.has('assets/models/lux-e-indicator.glb'));
   assert(lucentSourceAssets.has('assets/models/lux-e-slash.glb'));
@@ -472,7 +509,7 @@ try {
   await page.keyboard.up('4');
   await page.locator('.unit-bar.blue.ward:not([hidden])').waitFor({ state: 'visible' });
   assert.equal(await page.locator('#trinket .trinket-charges').textContent(), '0');
-  await page.screenshot({ path: 'artifacts/lux-e-hit-production-ward.png' });
+  await page.screenshot({ path: `${artifactPrefix}-ward.png` });
   await page.keyboard.press('Escape');
   await page.getByRole('button', { name: 'Save match', exact: true }).click();
   await page.waitForFunction(
@@ -496,7 +533,7 @@ try {
     )
   );
   await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
-  await page.screenshot({ path: 'artifacts/lux-e-hit-production-companion-purchase.png' });
+  await page.screenshot({ path: `${artifactPrefix}-companion-purchase.png` });
   assert.equal(oracleRigRequests.length, 0, 'Unequipped Oracle assets must not preload');
   assert.equal(oracleAudioRequests.length, 0, 'Unequipped Oracle audio must not preload');
   await page.keyboard.press('p');
@@ -527,7 +564,7 @@ try {
   assert.equal(await page.locator('.unit-bar.blue.ward:not([hidden])').count(), 1);
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
   await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
-  await page.screenshot({ path: 'artifacts/lux-e-hit-production-oracle.png' });
+  await page.screenshot({ path: `${artifactPrefix}-oracle.png` });
   assert(oracleRigRequests.length >= 8);
   assert.equal(new Set(oracleAudioRequests).size, 3);
   assert(
@@ -669,79 +706,86 @@ try {
     'Production must not preload development Alpha Strike audio'
   );
   assert.deepEqual(baronPreviewRequests, [], 'Production must not preload the private Baron rig');
-  console.log(
-    JSON.stringify({
-      result: 'passed',
-      prefix,
-      recordings: recordings.size,
-      mapNavigation: true,
-      practiceScheduledRigs: new Set(practiceRigs).size,
-      realHawkshotCast: true,
-      realLuxBindingCast: true,
-      realLuxSingularityCastAndRecast: true,
-      lucentSourceAssets: [...lucentSourceAssets].sort(),
-      luxLaneRestart: true,
-      selectedSmiteLoadoutAndRestart: true,
-      companionPurchaseAndRestore: true,
-      companionPurchaseInPractice: true,
-      realWardPlacementAndRestore: true,
-      oraclePurchaseActivationAndRestore: true,
-      oracleRigRequests: oracleRigRequests.length,
-      oracleAudioRequests: oracleAudioRequests.length,
-      unrequestedOraclePreloads: 0,
-      wardRigRequests: wardRigRequests.length,
-      unrequestedCompanionPreloads: 0,
-      developmentHook: false,
-      baronEncounterInProduction: false,
-      unrequestedBaronPreloads: baronPreviewRequests.length,
-      garenFixtureInProduction: false,
-      leonaPlayerFixtureInProduction: false,
-      leonaRiftTrialInProduction: false,
-      garenRiftTrialInProduction: false,
-      masterYiRiftTrialInProduction: false,
-      masterYiBotRiftTrialInProduction: false,
-      rosterRiftTrialInProduction: false,
-      publicChampionChoices: ['ashe', 'lux'],
-      ahriRiftTrialInProduction: false,
-      ahriBotRiftTrialInProduction: false,
-      ahriNpcFixtureInProduction: false,
-      ahriPlayerFixtureInProduction: false,
-      unrequestedAhriPreloads: ahriPreviewRequests.length,
-      unrequestedMasterYiPreloads: masterYiPreviewRequests.length,
-      unrequestedMasterYiAttackAudioPreloads: masterYiAttackAudioRequests.length,
-      unrequestedMasterYiHighlanderAudioPreloads: masterYiHighlanderAudioRequests.length,
-      unrequestedMasterYiAlphaAudioPreloads: masterYiAlphaAudioRequests.length,
-      unrequestedMasterYiMeditateAudioPreloads: masterYiMeditateAudioRequests.length,
-      unrequestedMasterYiWujuStyleAudioPreloads: masterYiWujuStyleAudioRequests.length,
-      unrequestedMasterYiSwordPreloads: masterYiSwordRequests.length,
-      unrequestedMasterYiPrimaryTrailPreloads: masterYiPrimaryTrailRequests.length,
-      unrequestedMasterYiPrimaryHitPreloads: masterYiPrimaryHitRequests.length,
-      unrequestedMasterYiPassiveTrailPreloads: masterYiPassiveTrailRequests.length,
-      unrequestedMasterYiMeditateDamagePreloads: masterYiMeditateDamageRequests.length,
-      unrequestedMasterYiHighlanderKillPreloads: masterYiRKillRequests.length,
-      unrequestedMasterYiHighlanderCastPreloads: masterYiRCastRequests.length,
-      unrequestedMasterYiQEndPreloads: masterYiQEndRequests.length,
-      unrequestedMasterYiQCastPreloads: masterYiQCastRequests.length,
-      unrequestedMasterYiQContactPreloads: masterYiQContactRequests.length,
-      unrequestedMasterYiMeditateCastPreloads: masterYiMeditateCastRequests.length,
-      unrequestedMasterYiMeditateBuffPreloads: masterYiMeditateBuffRequests.length,
-      masterYiNpcFixtureInProduction: false,
-      masterYiPlayerFixtureInProduction: false,
-      junglePreviewRequests: junglePreviewRequests.length,
-      unrequestedLeonaPreloads: leonaPreviewRequests.length,
-      preparedCompanionRequests: preparedCompanionRequests.length,
-      roleCompanionRequests,
-      roleScoreboardIcons,
-      scheduledGrompRequests: scheduledGrompRequests.length,
-      scheduledBlueRequests: scheduledBlueRequests.length,
-      scheduledRedRequests: scheduledRedRequests.length,
-      scheduledWolfRequests: scheduledWolfRequests.length,
-      scheduledRaptorRequests: scheduledRaptorRequests.length,
-      scheduledKrugRequests: scheduledKrugRequests.length,
-      scheduledScuttlerRequests: scheduledScuttlerRequests.length,
-      screenshot: 'artifacts/lux-e-hit-production-subpath.png',
-    })
+  assert.deepEqual(
+    baronEffectRequests,
+    [],
+    'Production must not preload private Baron effect assets'
   );
+  const report = {
+    artifactRun,
+    result: 'passed',
+    prefix,
+    recordings: recordings.size,
+    mapNavigation: true,
+    practiceScheduledRigs: new Set(practiceRigs).size,
+    realHawkshotCast: true,
+    realLuxBindingCast: true,
+    realLuxSingularityCastAndRecast: true,
+    lucentSourceAssets: [...lucentSourceAssets].sort(),
+    luxLaneRestart: true,
+    selectedSmiteLoadoutAndRestart: true,
+    companionPurchaseAndRestore: true,
+    companionPurchaseInPractice: true,
+    realWardPlacementAndRestore: true,
+    oraclePurchaseActivationAndRestore: true,
+    oracleRigRequests: oracleRigRequests.length,
+    oracleAudioRequests: oracleAudioRequests.length,
+    unrequestedOraclePreloads: 0,
+    wardRigRequests: wardRigRequests.length,
+    unrequestedCompanionPreloads: 0,
+    developmentHook: false,
+    baronEncounterInProduction: false,
+    unrequestedBaronPreloads: baronPreviewRequests.length,
+    unrequestedBaronEffectPreloads: baronEffectRequests.length,
+    garenFixtureInProduction: false,
+    leonaPlayerFixtureInProduction: false,
+    leonaRiftTrialInProduction: false,
+    garenRiftTrialInProduction: false,
+    masterYiRiftTrialInProduction: false,
+    masterYiBotRiftTrialInProduction: false,
+    rosterRiftTrialInProduction: false,
+    publicChampionChoices: ['ashe', 'lux'],
+    ahriRiftTrialInProduction: false,
+    ahriBotRiftTrialInProduction: false,
+    ahriNpcFixtureInProduction: false,
+    ahriPlayerFixtureInProduction: false,
+    unrequestedAhriPreloads: ahriPreviewRequests.length,
+    unrequestedMasterYiPreloads: masterYiPreviewRequests.length,
+    unrequestedMasterYiAttackAudioPreloads: masterYiAttackAudioRequests.length,
+    unrequestedMasterYiHighlanderAudioPreloads: masterYiHighlanderAudioRequests.length,
+    unrequestedMasterYiAlphaAudioPreloads: masterYiAlphaAudioRequests.length,
+    unrequestedMasterYiMeditateAudioPreloads: masterYiMeditateAudioRequests.length,
+    unrequestedMasterYiWujuStyleAudioPreloads: masterYiWujuStyleAudioRequests.length,
+    unrequestedMasterYiSwordPreloads: masterYiSwordRequests.length,
+    unrequestedMasterYiPrimaryTrailPreloads: masterYiPrimaryTrailRequests.length,
+    unrequestedMasterYiPrimaryHitPreloads: masterYiPrimaryHitRequests.length,
+    unrequestedMasterYiPassiveTrailPreloads: masterYiPassiveTrailRequests.length,
+    unrequestedMasterYiMeditateDamagePreloads: masterYiMeditateDamageRequests.length,
+    unrequestedMasterYiHighlanderKillPreloads: masterYiRKillRequests.length,
+    unrequestedMasterYiHighlanderCastPreloads: masterYiRCastRequests.length,
+    unrequestedMasterYiQEndPreloads: masterYiQEndRequests.length,
+    unrequestedMasterYiQCastPreloads: masterYiQCastRequests.length,
+    unrequestedMasterYiQContactPreloads: masterYiQContactRequests.length,
+    unrequestedMasterYiMeditateCastPreloads: masterYiMeditateCastRequests.length,
+    unrequestedMasterYiMeditateBuffPreloads: masterYiMeditateBuffRequests.length,
+    masterYiNpcFixtureInProduction: false,
+    masterYiPlayerFixtureInProduction: false,
+    junglePreviewRequests: junglePreviewRequests.length,
+    unrequestedLeonaPreloads: leonaPreviewRequests.length,
+    preparedCompanionRequests: preparedCompanionRequests.length,
+    roleCompanionRequests,
+    roleScoreboardIcons,
+    scheduledGrompRequests: scheduledGrompRequests.length,
+    scheduledBlueRequests: scheduledBlueRequests.length,
+    scheduledRedRequests: scheduledRedRequests.length,
+    scheduledWolfRequests: scheduledWolfRequests.length,
+    scheduledRaptorRequests: scheduledRaptorRequests.length,
+    scheduledKrugRequests: scheduledKrugRequests.length,
+    scheduledScuttlerRequests: scheduledScuttlerRequests.length,
+    screenshot: `${artifactPrefix}-subpath.png`,
+  };
+  await writeFile(artifactPrefix + '.json', JSON.stringify(report, null, 2) + '\n', { flag: 'wx' });
+  console.log(JSON.stringify(report));
 } finally {
   await browser?.close();
   await new Promise((resolve) => server.close(resolve));

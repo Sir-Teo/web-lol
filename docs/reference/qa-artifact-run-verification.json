@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "productionRun": "baron-all-bound-lazy-assets-v1",
+  "productionResult": "passed",
+  "unrequestedBaronModelPreloads": 0,
+  "unrequestedBaronEffectPreloads": 0,
+  "previewResult": "passed",
+  "previewEmitters": 21,
+  "guards": [
+    "atomic claim collision rejected",
+    "existing preview report preserved",
+    "path traversal rejected"
+  ],
+  "evidence": [
+    {
+      "path": "tools/qa/production-subpath.mjs",
+      "bytes": 36018,
+      "sha256": "46ee547cb96c0956150ffda0fd01b1e2c83fabd5aed50cceffa793a53f47e296"
+    },
+    {
+      "path": "tools/qa/baron-particle-preview.mjs",
+      "bytes": 6978,
+      "sha256": "dfae9838587993621a216799e66176ca1597624c9b0c5dd1c67e3f8914e57eb8"
+    },
+    {
+      "path": "artifacts/qa-run-claim-guards.json",
+      "bytes": 157,
+      "sha256": "19e1357aa0adcec0f2b942a3e880801bce3750c7a3b51e10d6d90f1076bb8a55"
+    },
+    {
+      "path": "artifacts/qa-claim-preview-success.log",
+      "bytes": 73,
+      "sha256": "398ed5b4f7ea0fa6ae790460aae13e62456df791eca6d0b8a6434abb297364df"
+    },
+    {
+      "path": "artifacts/baron-preview-claim-reservation-v1.claim",
+      "bytes": 43,
+      "sha256": "284d9ccdf4cc85f893137cc6a486b00472a3285dc2af7d883cf20cd4a9a7a677"
+    },
+    {
+      "path": "artifacts/baron-preview-claim-reservation-v1.json",
+      "bytes": 6019,
+      "sha256": "a10ceb0667f36965f9fc5ef3efd95ec56d16cdab5056fbab7f541e4e183cb15c"
+    },
+    {
+      "path": "artifacts/baron-all-bound-production-effect-assets.log",
+      "bytes": 3287,
+      "sha256": "b88841641cc3505935f1c9df3f19be2ba319aa4811e8fb25f729750d82aa3791"
+    },
+    {
+      "path": "artifacts/production-subpath-baron-all-bound-lazy-assets-v1.claim",
+      "bytes": 61,
+      "sha256": "51d6f669edc648e2fe3587e5a56828771c2d9b23e297f606c67e09ccdaf41a72"
+    },
+    {
+      "path": "artifacts/production-subpath-baron-all-bound-lazy-assets-v1.json",
+      "bytes": 3683,
+      "sha256": "02c61ee4a7007761fa329435520488fa6c5d00131a307ca92432da9cb8ee10f1"
+    }
+  ]
+}

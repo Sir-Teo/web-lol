@@ -9342,3 +9342,7 @@ The private encounter now draws all 21 source profiles: nine missile and twelve 
 ### Verify actual Baron private-rig pose bindings
 
 Added direct source-clip fixtures for eight real GLB joints at six idle/attack times, including release. The private sampler matches to 12 decimal places and preserves the reference scene; regeneration imports no app sampler. Seven cases and TypeScript pass. Head-to-jaw measurements agree with the existing local +Z forward interface, so no facing correction is introduced from absolute mouth offsets. Source geometry/skin/animation binary stays unchanged in the image-free Node transport. Native graph/angle dispatch remains outside this check. See docs/BARON-REAL-RIG-POSES.md.
+
+### Preserve browser QA run evidence and measure effect preloads
+
+Production browser QA now namespaces all eight screenshots and its structured report; production and Baron preview both reserve an exclusive claim before browser work and refuse existing paths. Manual collision/path guards preserve earlier bytes. The claimed preview passes all21 emitters. Extended the production gate to track Baron effect transports as well as the private rig: the full named run passes with zero unwanted model/effect preloads. Earlier fixed-name receipts remain historical. See docs/QA-ARTIFACT-RUNS.md.

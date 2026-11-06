@@ -15,6 +15,10 @@ for (const role of ['missile', 'hit'])
   for (const tick of [6, 20, 40, 80])
     assert(!fs.existsSync(`${prefix}-${role}-${tick}.png`), 'Preview screenshot already exists');
 assert(!fs.existsSync(prefix + '.json'), 'Preview report already exists');
+fs.mkdirSync('artifacts', { recursive: true });
+fs.writeFileSync(prefix + '.claim', JSON.stringify({ run, pid: process.pid }) + '\n', {
+  flag: 'wx',
+});
 
 const server = await createServer({
   configFile: false,
