@@ -1,0 +1,103 @@
+{
+  "programSha256": "f630cfe929cf27895378f91049f84bc4229eef39e52da26d5e2a6f63ac90284d",
+  "programBytes": 216748,
+  "profiles": 21,
+  "pythonProjectionGuardsPerMode": 21,
+  "nodeQaPassed": 48,
+  "cliGuardRecoveryRepeatCases": 6,
+  "freshRepeatAndOriginalProgramBytesIdentical": true,
+  "readerPolicyEvidence": [
+    {
+      "path": ".cache/baron-emission-readers/engine/parsing/readMotion.ts",
+      "bytes": 13352,
+      "sha256": "14f47fe79957dcd5d440d8ab69752cf90702a628c070033641d06eb9ace879e8",
+      "gitBlob": "9decc3977885a73f1064e23ea5fbbd4609aaab14",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/parsing/readMotion.ts"
+    },
+    {
+      "path": ".cache/baron-emission-readers/engine/parsing/readVfxSystem.ts",
+      "bytes": 24051,
+      "sha256": "0d9ea0c6611b286354108b89d8bfc354cb66c972fef7bff56386b14fcbef8a50",
+      "gitBlob": "0dad6182adf5c6ad1afd2bf272a1d7019b062f74",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/parsing/readVfxSystem.ts"
+    },
+    {
+      "path": ".cache/baron-emission-readers/engine/model/systemModel.ts",
+      "bytes": 13916,
+      "sha256": "20d28acc69370fb15ac5a644620297e04fd8bd95a215eae6e42593e7b18808ad",
+      "gitBlob": "563542c4d943f17c4ad039e76b88e92ff2874475",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/model/systemModel.ts"
+    },
+    {
+      "path": ".cache/baron-emission-readers/engine/model/enums.ts",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/model/enums.ts",
+      "sha256": "fdad53c133ef6c59162131d8b7e1763d8aa29594ba330a65e8372f493d8160fc"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "artifacts/baron-attack-program-optimized.json",
+      "sha256": "7e26abc3936609fd2956d702f622654b0ab1ecd5245d7110638ec41e564bdffe",
+      "bytes": 244
+    },
+    {
+      "path": "artifacts/baron-attack-program-discovery.json",
+      "sha256": "7e26abc3936609fd2956d702f622654b0ab1ecd5245d7110638ec41e564bdffe",
+      "bytes": 244
+    },
+    {
+      "path": "artifacts/baron-attack-program-verified.json",
+      "sha256": "7e26abc3936609fd2956d702f622654b0ab1ecd5245d7110638ec41e564bdffe",
+      "bytes": 244
+    },
+    {
+      "path": "artifacts/baron-attack-program-fresh.json",
+      "sha256": "7e26abc3936609fd2956d702f622654b0ab1ecd5245d7110638ec41e564bdffe",
+      "bytes": 244
+    },
+    {
+      "path": "artifacts/baron-attack-program-qa.log",
+      "sha256": "636cb355e6fc6c51f44b450eb147226dba64ecd5a2ca89a1894773299c3a5779",
+      "bytes": 4468
+    },
+    {
+      "path": "artifacts/baron-attack-program-probes/repeated-discovery.log",
+      "sha256": "0a97d26c4796da32c6602ee9d4ec22fd38444f3748d0c757a401b4aa515f65db",
+      "bytes": 530
+    },
+    {
+      "path": "artifacts/baron-attack-program-probes/repeat.log",
+      "sha256": "7e26abc3936609fd2956d702f622654b0ab1ecd5245d7110638ec41e564bdffe",
+      "bytes": 244
+    },
+    {
+      "path": "artifacts/baron-attack-program-probes/conflicting-program.log",
+      "sha256": "313c6d274312d911c8aa99ac57da597c24e561f629151a266b1fa272de490929",
+      "bytes": 479
+    },
+    {
+      "path": "artifacts/baron-attack-program-probes/exact-recovery.log",
+      "sha256": "7e26abc3936609fd2956d702f622654b0ab1ecd5245d7110638ec41e564bdffe",
+      "bytes": 244
+    },
+    {
+      "path": "artifacts/baron-attack-program-probes/source-before-output.log",
+      "sha256": "783ed93768c0b0803c748a8e687e2ea6386440677bb70e7b85f413b34f5b2d2c",
+      "bytes": 1043
+    },
+    {
+      "path": "artifacts/baron-attack-program-probes/edited-reading.log",
+      "sha256": "7989d568b461b1df52bc6323777234cd1e6c77976a3458a47937a25b69034219",
+      "bytes": 519
+    },
+    {
+      "path": "artifacts/baron-attack-mesh-stage-canonical.json",
+      "sha256": "0e65a6dea690bcdc61d39c569f2c2dcee43c44b6affe257e861af36473175630",
+      "bytes": 1935
+    }
+  ],
+  "limits": [
+    "Strict source parameter projection and asset binding only. No active emitter renderer, public assets, simulation or save changes.",
+    "Reader-derived omitted-field policies are external reconstruction, not native target-patch default or dispatch certification."
+  ]
+}

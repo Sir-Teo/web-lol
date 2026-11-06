@@ -6,6 +6,12 @@ Last updated: November 6, 2026 (UTC).
 
 ## Current authoritative state
 
+All 21 Baron emitters now have a [strict private parameter stage](BARON-ATTACK-PROGRAM.md),
+with complete 25-texture/214-mip/two-mesh bindings and native-unit emission data.
+Integrated acceleration, point identity, empty audio and source settings remain
+explicit. All 21 projection guards per Python mode, six CLI recovery/rejection
+cases and 48 Node QA checks pass. Runtime binding remains next work.
+
 The [shared trail writer now supports explicit smoothing off](SOURCE-TRAIL-RIBBON.md#smoothing-off-trail-mode),
 matching the pinned external default for both Baron trails. Eleven independent
 mode-0 fixtures plus visibility/width guards pass alongside all mode-1 tests
