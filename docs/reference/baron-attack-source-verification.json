@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-06",
+  "pinSha256": "4b300f952b2a768e1eaa5c5f9eda3dd397e457ba1ead19c10fbd9aaa02c3543a",
+  "files": 29,
+  "bytes": 1921359,
+  "missileEmitters": 9,
+  "hitEmitters": 12,
+  "textures": 25,
+  "meshes": 2,
+  "reproduction": "exact original pin bytes, normal and optimized Python",
+  "offlineTestsPassed": 2,
+  "typecheck": "passed",
+  "guards": {
+    "checks": [
+      {
+        "case": "corrupt-cache",
+        "exit": 1,
+        "passed": true
+      },
+      {
+        "case": "existing-report",
+        "exit": 1,
+        "passed": true
+      },
+      {
+        "case": "repeat-discovery",
+        "exit": 1,
+        "passed": true
+      },
+      {
+        "case": "edited-input-pin",
+        "exit": 1,
+        "passed": true
+      },
+      {
+        "case": "missing-file-recovery",
+        "exit": 0,
+        "passed": true
+      }
+    ],
+    "finalFilesVerified": 29,
+    "pinUnchanged": true,
+    "pinSha256": "4b300f952b2a768e1eaa5c5f9eda3dd397e457ba1ead19c10fbd9aaa02c3543a"
+  },
+  "artifacts": [
+    {
+      "path": "artifacts/baron-attack-source-discovery.json",
+      "sha256": "d142e30dae3e531394924361e350392b26dbd14c50d61a9ce0b4759133b51f1b"
+    },
+    {
+      "path": "artifacts/baron-attack-source-fresh.json",
+      "sha256": "d142e30dae3e531394924361e350392b26dbd14c50d61a9ce0b4759133b51f1b"
+    },
+    {
+      "path": "artifacts/baron-attack-source-optimized.json",
+      "sha256": "d142e30dae3e531394924361e350392b26dbd14c50d61a9ce0b4759133b51f1b"
+    },
+    {
+      "path": "artifacts/baron-attack-source-final.json",
+      "sha256": "d142e30dae3e531394924361e350392b26dbd14c50d61a9ce0b4759133b51f1b"
+    },
+    {
+      "path": "artifacts/baron-attack-source-probes/result.json",
+      "sha256": "3572e0297497aaefc0a87dc2e3777dd352de836b2ca8351912a0fd1f4c81d6c4"
+    }
+  ],
+  "initialRepeatFailures": {
+    "count": 2,
+    "reason": "CDTB tuple containers compared to parsed JSON lists. Canonical JSON bytes matched the original pin. The corrected extractor normalizes containers and still checks exact pin bytes."
+  },
+  "scope": "Source preparation only. No public media, rendering, saved-field or simulation change."
+}

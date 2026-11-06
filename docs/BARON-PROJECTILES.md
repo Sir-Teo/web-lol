@@ -50,3 +50,9 @@ resistance, Smite and cleared-save cleanup also pass. The flight screenshot was
 reviewed. The [verification summary](reference/baron-projectile-verification.json)
 records the observed packet and scope. Earlier production/offline reports are
 not relabeled as checks of this new build; full-match checks follow separately.
+
+
+The [native missile/hit source closure](BARON-ATTACK-SOURCES.md) now supplies all
+21 declared emitters, 25 original textures and two meshes for subsequent
+presentation work. The runtime marker remains provisional until those sources
+are decoded and integrated with saved roots and finite tails.
