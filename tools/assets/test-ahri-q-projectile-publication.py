@@ -37,6 +37,7 @@ with tempfile.TemporaryDirectory(prefix='ahri-q-projectile-publication-')as tmp:
     last=base/'public'/next(m['url']for m in content['meshes']if m['geometryOwner']=='ahri-q-projectile');raw=last.read_bytes();last.unlink();last.symlink_to(root/last.relative_to(base));require(run().returncode!=0,'Public leaf symlink accepted');last.unlink();last.write_bytes(raw)
     folder=base/'public/assets/effects';held=base/'held';folder.rename(held);folder.symlink_to(root/'public/assets/effects',target_is_directory=True);require(run().returncode!=0,'Public parent symlink accepted');folder.unlink();held.rename(folder)
     shared=base/'public'/next(t['url']for t in content['textures']if t['textureOwner']=='ahri-q-cast');saved=shared.read_bytes();shared.write_bytes(saved[:-1]);require(run().returncode!=0 and target.read_bytes()==original,'Changed borrowed asset accepted');shared.write_bytes(saved)
+    shared.unlink();shared.symlink_to(root/shared.relative_to(base));require(run().returncode!=0,'Borrowed asset symlink accepted');shared.unlink();shared.write_bytes(saved)
     for name in inputs:
         path=base/name;raw=path.read_bytes();path.write_bytes(b'changed');require(run().returncode!=0 and target.read_bytes()==original,'Changed source input accepted: '+name);path.write_bytes(raw)
-print(json.dumps(dict(result='passed',optimized=bool(sys.flags.optimize),sourcePinMutations=8,sharedAssets=3,newPublicAssets=17,privateInputsRequired=False,nativeParserRequired=False,partialWrites=False)))
+print(json.dumps(dict(result='passed',optimized=bool(sys.flags.optimize),sourcePinMutations=8,sharedAssets=3,newPublicAssets=17,privateInputsRequired=False,nativeParserRequired=False,partialWrites=False,borrowedSymlinkRejected=True)))

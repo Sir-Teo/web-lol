@@ -30,7 +30,7 @@ def build():
             for key in ['source','bytes','sha256','width','height','rectangles']:
                 require(previous[key]==row[key],'Shared projectile/cast texture differs')
             url=previous['url']
-            checked(Path('public')/url,row['sha256'],row['bytes'])
+            checked(module.safe(Path('public')/url),row['sha256'],row['bytes'])
             shared.append(url)
         else:
             url='assets/effects/ahri-q-projectile-'+row['source']['wadPathHash']+'.png'
@@ -47,7 +47,7 @@ def build():
             previous=old['meshes'][0]
             require(previous['sha256']==old_mesh['glb']['sha256'] and previous['bytes']==old_mesh['glb']['bytes'],'Shared swirls transport identity differs')
             url=previous['url'];extent=previous['bytes'];digest=previous['sha256']
-            checked(Path('public')/url,digest,extent);shared.append(url)
+            checked(module.safe(Path('public')/url),digest,extent);shared.append(url)
         else:
             url='assets/effects/ahri-q-projectile-'+row['source']['wadPathHash']+'.glb'
             extent=row['glb']['bytes'];digest=row['glb']['sha256']
