@@ -1,0 +1,42 @@
+{
+  "format": 1,
+  "compositionTestsPassed": 10,
+  "combinedScheduleTestsPassed": 80,
+  "typecheck": "passed",
+  "independentFullLoopComparison": "pending",
+  "nativeExecuted": false,
+  "runtimeBinding": false,
+  "programSha256": "4cbf74ec11628b0a840d03687c9d77995d57a2251b016950ac39357cc0e1cd3d",
+  "evidence": [
+    {
+      "path": "artifacts/baron-system-composition-tests.log",
+      "bytes": 330,
+      "sha256": "4a50478c1e23db5dc18b4c9d094b833c6374ec8607d56d0d076d754a448c703d"
+    },
+    {
+      "path": "artifacts/baron-system-composition-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/render/baron-attack-program.ts",
+      "bytes": 3516,
+      "sha256": "42921f3a09e907ffb38083624480d64cf544973665f49cfce8eeea2b03c07e89"
+    },
+    {
+      "path": "src/render/baron-prepared-emitter.ts",
+      "bytes": 6236,
+      "sha256": "ae65360350feedaa8d10282b56d7c51cd2aff8addaa69bae68cd53214359b4b5"
+    },
+    {
+      "path": "src/render/baron-attack-system.ts",
+      "bytes": 18307,
+      "sha256": "a1db33398a287c09e7870569339a0a8e7b5ace339c75b27a135aab5dc8695c17"
+    },
+    {
+      "path": "src/render/source-emitter-schedule.ts",
+      "bytes": 5058,
+      "sha256": "62ea28ac3bc6c63438c6ae71b72c8d878f40f37dcf466f881671694085b77fc1"
+    }
+  ]
+}

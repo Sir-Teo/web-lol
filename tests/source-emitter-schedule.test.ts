@@ -33,6 +33,12 @@ test('partial or exhausted pools preserve planned birth shares and advance posit
     () => 0.25
   );
   expect(births).toHaveLength(1);
+  const planned = new SourceEmitterSchedule(definition).plan(
+    { now: 1 / 30, dt: 1 / 30, stopped: false, maxAccepted: 1 },
+    () => 0.25
+  );
+  expect(planned.planned).toBe(3);
+  expect(planned.births).toEqual(births);
   expect(births[0]).toMatchObject({ ordinal: 0, share: 1 / 3 });
   expect(births[0].time).toBeCloseTo(1 / 90, 15);
   expect(partial.snapshot()).toMatchObject({ spawned: 1, emitted: true, lastSpawn: 1 / 30 });

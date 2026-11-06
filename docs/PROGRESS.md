@@ -32,6 +32,10 @@ separate from gameplay randomness. Full system composition continues.
 signed particle ages and compare pool stamps at their stored precision. Eight
 independent boundary cases and all prior affected cases pass (2,878 total).
 
+The [composed Baron preview system](BARON-ATTACK-SYSTEM.md) now runs both roles
+through particle lifecycles and owns typed checkpoints. Ten composition cases and
+70 schedule cases pass. Independent full-loop comparison and GPU integration are next.
+
 ## Recent verified checkpoints
 
 These incremental records retain their original scope; listed next steps may be

@@ -72,7 +72,10 @@ export class SourceEmitterSchedule {
   snapshot(): SourceEmitterScheduleState {
     return { ...this.state };
   }
-  step(
+  step(input: Parameters<SourceEmitterSchedule['plan']>[0], draw: () => number) {
+    return this.plan(input, draw).births;
+  }
+  plan(
     input: { now: number; dt: number; stopped: boolean; maxAccepted?: number },
     draw: () => number
   ) {
@@ -98,7 +101,7 @@ export class SourceEmitterSchedule {
       (stopped && now > window.stopWait)
     ) {
       this.state.now = now;
-      return births;
+      return { planned: 0, births };
     }
     const chance = this.rateHasProbability ? draw() : 0;
     if (!Number.isFinite(chance) || chance < 0 || chance >= 1)
@@ -131,6 +134,6 @@ export class SourceEmitterSchedule {
       this.state.emitted = true;
       this.state.lastSpawn = now;
     }
-    return births;
+    return { planned: count, births };
   }
 }
