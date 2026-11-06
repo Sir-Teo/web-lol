@@ -9366,3 +9366,7 @@ The source actor/script naming convention produces candidate cast/hit strings ma
 ### Decode private Baron candidate basic-attack masters
 
 Pinned vgmstream/Ogg/Vorbis decode the eight candidate cast/hit clips to mono44.1kHz float32 WAV masters (2,096,892 bytes). Exact source/tool/PCM provenance, frames, RMS and peak are frozen. Samples above unity remain intact (maximum1.36309719); no gain or conversion is baked in. Normal/optimized checks, fresh restore and six corrupt/missing/symlink rejection probes pass. No public assets or runtime audio binding yet. See docs/BARON-BASIC-AUDIO-MASTERS.md.
+
+### Preserve Baron attack audio action and container properties
+
+A derived16-node reading retains actions, sounds, local ancestry and attenuation. Cast has DelayTime200 on one action and Probability35 on the other; corrected the earlier unconditional simultaneous-layer description. Cast containers specify−14 makeup gain; hit specifies−12 and−500 pitch, with shuffle/avoid-repeat fields retained. External bus2770764924 remains unresolved. Normal/optimized checks pass; no playback or native dispatch claim. See docs/BARON-BASIC-AUDIO-PROPERTIES.md.

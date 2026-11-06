@@ -7,8 +7,9 @@ BaronBasicAttack script/attack declaration and existing event naming convention
 corroborate them. They are hash-derived labels, not attested stored event strings.
 The immutable numeric graph keeps its null declared names.
 
-The cast event has two simultaneous play actions: one two-media random container
-and one four-media container. The hit event has one two-media play container.
+The cast event has two play actions targeting two-media and four-media random
+containers. The first has DelayTime200; the second has Probability35, so they
+are not unconditional simultaneous layers. See BARON-BASIC-AUDIO-PROPERTIES.md. The hit event has one two-media play container.
 All eight media IDs are embedded in the pinned bank. Normal/optimized candidate
 checks pass; the reading pins graph, character and helper bytes.
 
