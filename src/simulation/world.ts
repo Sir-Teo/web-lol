@@ -1,4 +1,11 @@
 import {
+  beginAhriLifecycleAudio,
+  respawnAhriLifecycleAudio,
+  finishAllAhriLifecycleAudio,
+  advanceAhriLifecycleAudio,
+  type AhriLifecycleAudioRecord,
+} from './ahri-lifecycle-audio';
+import {
   beginAhriAttackAudio,
   cancelAhriAttackAudio,
   launchAhriAttackAudio,
@@ -477,6 +484,7 @@ export class World {
   ahriEssences: AhriEssence[] = [];
   ahriPassiveAudio: AhriPassiveAudioRecord[] = [];
   ahriAttackAudio: AhriAttackAudioRecord[] = [];
+  ahriLifecycleAudio: AhriLifecycleAudioRecord[] = [];
   nextSunlightVisual = 1;
   singularities: Singularity[] = [];
   luxEAudio = newLuxEAudioHistory();
@@ -1192,6 +1200,7 @@ export class World {
       advanceSpiritRushAudio(this);
       advancePassiveAudio(this);
       advanceAhriAttackAudio(this);
+      advanceAhriLifecycleAudio(this);
     }
   }
   private update(): void {
@@ -6442,6 +6451,7 @@ export class World {
           );
         const level = targetState?.level ?? 1;
         target.respawnTick = this.tick + championDeathTicks(level, this.tick);
+        beginAhriLifecycleAudio(this, target, level, this.events.at(-1)!);
       }
       if (target.kind === 'dummy') target.respawnTick = this.tick + 3 * TICK_RATE;
       if (target.kind === 'inhibitor')
@@ -6489,6 +6499,7 @@ export class World {
         }
         for (const p of this.projectiles) if (p.type === 'charm') stopCharmAudio(this, p, p);
         finishAllAhriAttackAudio(this);
+        finishAllAhriLifecycleAudio(this);
         this.projectiles.length = 0;
         for (const orb of this.ahriOrbs) finishOrbAudio(this, orb, 'match-end');
         this.ahriOrbs.length = 0;
@@ -6520,6 +6531,7 @@ export class World {
         advanceSpiritRushAudio(this);
         advancePassiveAudio(this);
         advanceAhriAttackAudio(this);
+        advanceAhriLifecycleAudio(this);
         this.commands.length = 0;
         this.pendingSpawns.length = 0;
         for (const unit of this.units) this.setOrder(unit, { type: 'idle' });
@@ -6775,6 +6787,7 @@ export class World {
     if (state.level === MAX_LEVEL) state.xp = 0;
   }
   private respawn(u: Unit): void {
+    const deathTick = u.deadAt;
     const state = this.championState(u.id);
     if (state) {
       state.garenPassiveReadyTick = 0;
@@ -6818,6 +6831,7 @@ export class World {
     u.slowMultiplier = 0.7;
     u.criticalSlow = null;
     this.setOrder(u, { type: 'idle' });
+    respawnAhriLifecycleAudio(this, u, deathTick);
   }
   summonerSpell(ability: Ability, championId = this.player.id): SummonerSpell | null {
     return isSummonerSlot(ability)
@@ -8064,6 +8078,11 @@ export class World {
       state.pendingSpawns.some((u) => u.lane >= battlefield.lanes.length)
     )
       throw new Error('Saved match contains an invalid lane.');
+    for (const r of state.ahriLifecycleAudio ?? []) {
+      const spawn = battlefield.spawns[r.team];
+      if (r.respawn && (r.respawn.point.x !== spawn.x || r.respawn.point.y !== spawn.y))
+        throw new Error('Saved match contains invalid Ahri lifecycle respawn position.');
+    }
     const world = new World(false, battlefield);
     const {
       version: _version,
@@ -8115,6 +8134,7 @@ export class World {
       ahriRushes: this.ahriRushes,
       ahriCounters: this.ahriCounters,
       ...(this.ahriAttackAudio.length ? { ahriAttackAudio: this.ahriAttackAudio } : {}),
+      ...(this.ahriLifecycleAudio.length ? { ahriLifecycleAudio: this.ahriLifecycleAudio } : {}),
       ahriEssences: this.ahriEssences,
       ...(this.ahriPassiveAudio.length ? { ahriPassiveAudio: this.ahriPassiveAudio } : {}),
       nextSunlightVisual: this.nextSunlightVisual,

@@ -7,11 +7,12 @@ import reference from '../docs/reference/ahri-fox-fire-gameplay-reference.json';
 import { FOX_FIRE_GAMEPLAY_CASES, foxFireGameplaySamples } from './helpers/ahri-fox-fire-gameplay';
 
 // Frozen reference and helper remain unchanged. Normalize only the newly added
-// passive/attack presentation fields from the current World for this older baseline.
+// passive/attack/lifecycle presentation fields from the current World for this older baseline.
 class LaterPresentationProjection extends World {
   override snapshot(): string {
     const state = JSON.parse(super.snapshot());
     delete state.ahriPassiveAudio;
+    delete state.ahriLifecycleAudio;
     delete state.ahriAttackAudio;
     return JSON.stringify(state);
   }

@@ -27,3 +27,11 @@ Four publication outputs /1,550,830 bytes now include independent finite bounds:
 The source instance declarations stay zero. A separate local ceiling of16 voices per cue bounds private fixtures while exceeding a standard ten-player roster; it makes no claim about native zero/inheritance semantics. The source5000 ms Linear death Stop keeps its event/action/target identity without a local callback clock. Finite masters finish naturally under this local policy.
 
 All18 scoped checks, TypeScript and both normal/optimized six-probe publication modes pass. Final-table preflight prevents partial master writes. Lifecycle history/playback remain unbound.
+
+## Saved death and actual respawn dispatch
+
+Isolated schema174 adds optional nonempty `ahriLifecycleAudio` groups keyed by the existing transient death-feedback ID. Death captures source/level, position, exact feedback audience and the already-scheduled respawn deadline. The group remains silently pending after the finite death master ends, then captures the actual respawn position/audience. Level gain while dead does not rewrite the frozen timer. Match settlement closes waits without inventing a respawn or source Stop callback. No World ID or RNG draw is added.
+
+Strict restore checks identities, owner/level, source death-timer calculation, pending corpse/timer links, canonical audiences, actual respawn chronology, map spawn position and finite tails. Existing death-event IDs join the reserved identity check. Empty history is omitted. Historical scenario helpers, producers and expected hashes stay unchanged; their current-side comparisons remove only the newly introduced lifecycle presentation field.
+
+Seven history cases cover every-frame dead-wait/respawn/tail futures, maximum-level waiting, hidden death versus visible spawn, immediate second death with an older respawn tail, posthumous progression, three victory phases and malformed pending/completed records. All394 scoped cases in54 files,228 independent lifecycle projections and prior family baselines pass; fourteen archived-state comparator tests and TypeScript pass. Full/cohort verification follows. Lifecycle playback remains unbound, including the source five-second death Stop callback.
