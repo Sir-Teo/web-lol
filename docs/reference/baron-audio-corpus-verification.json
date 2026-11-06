@@ -1,0 +1,60 @@
+{
+  "format": 1,
+  "media": 82,
+  "wavBytes": 44409644,
+  "sampleRates": [
+    44100
+  ],
+  "channels": [
+    1
+  ],
+  "maximumPeak": 1.5594818592071533,
+  "samplesOutsideUnitRange": 31258,
+  "embeddedLoopMetadataClips": 0,
+  "basicMasterMatches": 8,
+  "checks": [
+    "fresh second-cache discovery",
+    "normal complete regeneration/check",
+    "optimized complete regeneration/check",
+    "eight isolated rejection probes",
+    "post-probe complete original-cache regeneration/check"
+  ],
+  "runtimeChanged": false,
+  "evidence": [
+    {
+      "path": "tools/assets/decode-baron-audio-corpus.py",
+      "bytes": 7101,
+      "sha256": "1cd697dd44547355d6fe498eccad59ce40b34ac27f1e4fa4bae31aba5daf7bc8"
+    },
+    {
+      "path": "docs/reference/baron-audio-corpus-decoded.json",
+      "bytes": 94648,
+      "sha256": "a7d03bddcf12fb3c33b978b16061b35aae3198c5c0f8f51f4f325adbba1adedb"
+    },
+    {
+      "path": "artifacts/baron-audio-corpus-discovery-pinned.log",
+      "bytes": 155,
+      "sha256": "fa95db3bdd49f9311586ca91b6af22e2bfc51386b07537ca0f4632b006fca50c"
+    },
+    {
+      "path": "artifacts/baron-audio-corpus-check.log",
+      "bytes": 155,
+      "sha256": "fa95db3bdd49f9311586ca91b6af22e2bfc51386b07537ca0f4632b006fca50c"
+    },
+    {
+      "path": "artifacts/baron-audio-corpus-optimized-check.log",
+      "bytes": 155,
+      "sha256": "fa95db3bdd49f9311586ca91b6af22e2bfc51386b07537ca0f4632b006fca50c"
+    },
+    {
+      "path": "artifacts/baron-audio-corpus-guards.json",
+      "bytes": 783,
+      "sha256": "450ca994c2eee1a579198378d510d358a02ea278a4fa04dcec0a2215dd341859"
+    },
+    {
+      "path": "artifacts/baron-audio-corpus-post-guards.log",
+      "bytes": 155,
+      "sha256": "fa95db3bdd49f9311586ca91b6af22e2bfc51386b07537ca0f4632b006fca50c"
+    }
+  ]
+}

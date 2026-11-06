@@ -9410,3 +9410,7 @@ The new archive-only controller verifies the ledger/plan,548source files, maps, 
 ### Annotate Baron audio with attested animation-event strings
 
 A separate overlay retains17animation-source event occurrences/nine stored labels. Eight unique labels resolve to original bank events and their action/media closures; Play_sfx_SRU_Baron_BaronSpellCast6NS_cast is explicitly absent. Raw clip/event fields and omitted start-frame status remain intact. Exact pinned FNV reader bytes, normal/optimized checks and12rejection probes pass. The immutable numeric graph and basic-attack candidate-label status are unchanged; no playback/kit/timing is inferred. See docs/BARON-ANIMATION-AUDIO.md.
+
+### Preserve all82Baron embedded audio masters privately
+
+Pinned decoder/toolchain and numeric graph produce44,409,644bytes of mono44.1kHz float32 WAVs. All eight public basic masters match exactly;74additional masters stay private. Over-unity samples remain intact (31,258samples, peak1.55948186), with no gain/conversion/loop expansion baked in. Normal/optimized full checks, fresh second-cache discovery, eight isolated rejection probes and post-probe original-cache verification pass. No new runtime asset/binding, event semantics or native mix claim. See docs/BARON-AUDIO-CORPUS.md.
