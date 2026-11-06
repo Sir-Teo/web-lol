@@ -164,6 +164,7 @@ jobs:
           tests/ahri-charm-gameplay-reference.test.ts
           tests/wwise145-fade.test.ts
           tests/wwise145-log1.test.ts
+          tests/ahri-attack-audio-history.test.ts
           tests/ahri-attack-audio-policy.test.ts
           tests/ahri-attack-audio-assets.test.ts
           tests/ahri-attack-gameplay-reference.test.ts

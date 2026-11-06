@@ -1,4 +1,13 @@
 import {
+  beginAhriAttackAudio,
+  cancelAhriAttackAudio,
+  launchAhriAttackAudio,
+  finishAhriAttackAudio,
+  finishAllAhriAttackAudio,
+  advanceAhriAttackAudio,
+  type AhriAttackAudioRecord,
+} from './ahri-attack-audio';
+import {
   advancePassiveAudio,
   finishPassiveAudio,
   type AhriPassiveAudioRecord,
@@ -467,6 +476,7 @@ export class World {
   ahriCounters: EssenceCounter[] = [];
   ahriEssences: AhriEssence[] = [];
   ahriPassiveAudio: AhriPassiveAudioRecord[] = [];
+  ahriAttackAudio: AhriAttackAudioRecord[] = [];
   nextSunlightVisual = 1;
   singularities: Singularity[] = [];
   luxEAudio = newLuxEAudioHistory();
@@ -1181,6 +1191,7 @@ export class World {
       advanceFoxFireAudio(this);
       advanceSpiritRushAudio(this);
       advancePassiveAudio(this);
+      advanceAhriAttackAudio(this);
     }
   }
   private update(): void {
@@ -4058,6 +4069,7 @@ export class World {
     u: Unit,
     reason: NonNullable<ChampionState['garenQVisuals'][number]['attacks'][number]['endReason']>
   ) {
+    cancelAhriAttackAudio(this, u);
     const state = this.championState(u.id);
     if (state) cancelGarenAttack(state, u, this.tick, reason);
     if (state) cancelMasterYiAttack(state, u, this.tick);
@@ -4108,12 +4120,14 @@ export class World {
                     }
                   : u.champion === 'leona'
                     ? { champion: 'leona' as const, leonaAAStartTick: u.attackCycle!.startTick }
-                    : u.champion === 'masteryi'
-                      ? {
-                          champion: 'masteryi' as const,
-                          masterYiAAStartTick: u.attackCycle!.startTick,
-                        }
-                      : {}),
+                    : u.champion === 'ahri'
+                      ? { champion: 'ahri' as const, ahriAAStartTick: u.attackCycle!.startTick }
+                      : u.champion === 'masteryi'
+                        ? {
+                            champion: 'masteryi' as const,
+                            masterYiAAStartTick: u.attackCycle!.startTick,
+                          }
+                        : {}),
           });
           if (
             u.champion === 'ashe' &&
@@ -4227,6 +4241,7 @@ export class World {
                 volleyId: null,
               };
               (index === 0 ? this.projectiles : this.pendingAttackProjectiles).push(projectile);
+              launchAhriAttackAudio(this, u, projectile);
               if (u.kind === 'monster' && u.monster.species === 'baron')
                 startBaronAttackVisual(this, u, target, projectile, baronReleasePose!);
               if (u.kind === 'monster' && u.monster.species === 'gromp')
@@ -4339,6 +4354,7 @@ export class World {
               ? { critical: true as const }
               : {}),
           };
+          beginAhriAttackAudio(this, u, target);
           if (u.champion === 'leona' && !leonaQ && !u.attackCycle.critical && state?.leonaW)
             u.attackCycle.leonaEclipse = true;
           if (leonaQ) {
@@ -5352,7 +5368,10 @@ export class World {
       }
       const target = p.target === null ? undefined : this.unit(p.target);
       if (p.target !== null) {
-        if (!target || !this.targetable(target)) continue;
+        if (!target || !this.targetable(target)) {
+          finishAhriAttackAudio(this, p, p, 'lost-target');
+          continue;
+        }
         p.direction = direction(p, target);
       }
       let stepDistance = p.speed * DT;
@@ -5558,6 +5577,13 @@ export class World {
         }
       }
       if (contact) {
+        if (source)
+          finishAhriAttackAudio(
+            this,
+            p,
+            { x: p.x + (end.x - p.x) * first, y: p.y + (end.y - p.y) * first },
+            'hit'
+          );
         if (visualIds.has(p.id))
           visualFrames.set(p.id, {
             tick: this.tick,
@@ -5688,7 +5714,7 @@ export class World {
         p.y = end.y;
         p.remaining -= travel;
         survivors.push(p);
-      }
+      } else finishAhriAttackAudio(this, p, end, 'range');
     }
     this.projectiles = this.winner ? [] : survivors;
     this.advanceAttackVisuals(visualFrames);
@@ -6462,6 +6488,7 @@ export class World {
           state.leonaR = null;
         }
         for (const p of this.projectiles) if (p.type === 'charm') stopCharmAudio(this, p, p);
+        finishAllAhriAttackAudio(this);
         this.projectiles.length = 0;
         for (const orb of this.ahriOrbs) finishOrbAudio(this, orb, 'match-end');
         this.ahriOrbs.length = 0;
@@ -6492,6 +6519,7 @@ export class World {
         advanceFoxFireAudio(this);
         advanceSpiritRushAudio(this);
         advancePassiveAudio(this);
+        advanceAhriAttackAudio(this);
         this.commands.length = 0;
         this.pendingSpawns.length = 0;
         for (const unit of this.units) this.setOrder(unit, { type: 'idle' });
@@ -8086,6 +8114,7 @@ export class World {
       ahriFoxFires: this.ahriFoxFires,
       ahriRushes: this.ahriRushes,
       ahriCounters: this.ahriCounters,
+      ...(this.ahriAttackAudio.length ? { ahriAttackAudio: this.ahriAttackAudio } : {}),
       ahriEssences: this.ahriEssences,
       ...(this.ahriPassiveAudio.length ? { ahriPassiveAudio: this.ahriPassiveAudio } : {}),
       nextSunlightVisual: this.nextSunlightVisual,

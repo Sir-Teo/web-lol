@@ -7,11 +7,12 @@ import reference from '../docs/reference/ahri-fox-fire-gameplay-reference.json';
 import { FOX_FIRE_GAMEPLAY_CASES, foxFireGameplaySamples } from './helpers/ahri-fox-fire-gameplay';
 
 // Frozen reference and helper remain unchanged. Normalize only the newly added
-// passive presentation field from the current World for this older baseline.
-class PassivePresentationProjection extends World {
+// passive/attack presentation fields from the current World for this older baseline.
+class LaterPresentationProjection extends World {
   override snapshot(): string {
     const state = JSON.parse(super.snapshot());
     delete state.ahriPassiveAudio;
+    delete state.ahriAttackAudio;
     return JSON.stringify(state);
   }
 }
@@ -31,7 +32,7 @@ test('Fox-Fire audio work preserves 132 complete archived gameplay projections',
   for (const scenario of FOX_FIRE_GAMEPLAY_CASES) {
     const expected = reference.cases.find((c) => c.scenario === scenario)!;
     const actual = foxFireGameplaySamples(
-      PassivePresentationProjection,
+      LaterPresentationProjection,
       PRACTICE_FIXTURE,
       scenario
     ).map(({ tick, state }) => ({
