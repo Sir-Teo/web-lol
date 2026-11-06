@@ -11,6 +11,7 @@ on:
       - 'public/assets/audio/ahri-orb/**'
       - 'public/assets/audio/ahri-fox-fire/**'
       - 'docs/reference/ahri-w-audio-properties.json'
+      - 'docs/reference/ahri-fox-fire-gameplay-reference.json'
       - 'tools/assets/read-ahri-w-audio.py'
       - 'tools/assets/test-ahri-w-audio-reading.py'
       - 'tools/assets/export-ahri-fox-fire-audio.py'
@@ -46,6 +47,7 @@ on:
       - 'public/assets/audio/ahri-orb/**'
       - 'public/assets/audio/ahri-fox-fire/**'
       - 'docs/reference/ahri-w-audio-properties.json'
+      - 'docs/reference/ahri-fox-fire-gameplay-reference.json'
       - 'tools/assets/read-ahri-w-audio.py'
       - 'tools/assets/test-ahri-w-audio-reading.py'
       - 'tools/assets/export-ahri-fox-fire-audio.py'
@@ -108,6 +110,8 @@ jobs:
           tests/ahri-charm-gameplay-reference.test.ts
           tests/wwise145-fade.test.ts
           tests/ahri-fox-fire-audio-assets.test.ts
+          tests/ahri-fox-fire-gameplay-reference.test.ts
+          tests/ahri-w.test.ts
           tests/ahri-orb-audio-assets.test.ts
           tests/ahri-orb-audio-policy.test.ts
           tests/ahri-orb-audio-state.test.ts
