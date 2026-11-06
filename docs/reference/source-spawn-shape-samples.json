@@ -1,0 +1,1268 @@
+{
+  "revision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+  "readers": [
+    {
+      "path": ".cache/baron-emission-readers/engine/utils/basis.ts",
+      "sha256": "948deb523c5e16fbf6ef529f9967f9b5de8ff3db1c169fa6ceffc58a08fbcf5e"
+    },
+    {
+      "path": ".cache/baron-emission-readers/engine/simulation/spawnShape.ts",
+      "sha256": "28a9f0b0a3bd61887564f6b77241317ed2242433691ff45fe2c29ddea392472d"
+    }
+  ],
+  "samples": [
+    {
+      "name": "point-point-0",
+      "shape": {
+        "kind": "point",
+        "offset": [
+          0,
+          0,
+          0
+        ]
+      },
+      "draws": [],
+      "expected": {
+        "raw": "000000000000000000000000",
+        "offset": "000000000000000000000000",
+        "turn": "0000803f0000000000000000000000000000803f0000000000000000000000000000803f",
+        "turned": false
+      }
+    },
+    {
+      "name": "point-point-1",
+      "shape": {
+        "kind": "point",
+        "offset": [
+          0,
+          -150,
+          0
+        ]
+      },
+      "draws": [],
+      "expected": {
+        "raw": "00000000000016c300000000",
+        "offset": "00000000000016c300000000",
+        "turn": "0000803f0000000000000000000000000000803f0000000000000000000000000000803f",
+        "turned": false
+      }
+    },
+    {
+      "name": "sphere-true-0",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": true
+      },
+      "draws": [
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "raw": "000000000000000000000000",
+        "offset": "000000000000000000000000",
+        "turn": "0000803f0000000000000000000000000000803f0000000000000000000000000000803f",
+        "turned": false
+      }
+    },
+    {
+      "name": "sphere-true-1",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": true
+      },
+      "draws": [
+        0.4375,
+        0.1875,
+        0.6875
+      ],
+      "expected": {
+        "raw": "000052410000000000000000",
+        "offset": "c107f6bf0f7e94c0c30342c1",
+        "turn": "19f615be5e836c3ff304b5bef304b5be15efc3be79825abf5e836cbf0000000015efc33e",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-true-2",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": true
+      },
+      "draws": [
+        0.875,
+        0.375,
+        0.375
+      ],
+      "expected": {
+        "raw": "0000d2410000000000000000",
+        "offset": "ffff5141ffff51c10f7e94c1",
+        "turn": "ffffff3ef30435bfffffffbeffffffbef30435bfffffff3ef30435bf00000000f30435bf",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-true-3",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": true
+      },
+      "draws": [
+        0.3125,
+        0.5625,
+        0.0625
+      ],
+      "expected": {
+        "raw": "000016410000000000000000",
+        "offset": "730800c1cd2154c02d9c6540",
+        "turn": "79825abf15efc3bef304b5bef304b5be5e836c3f19f615be15efc33e000000005e836cbf",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-true-4",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": true
+      },
+      "draws": [
+        0.75,
+        0.75,
+        0.75
+      ],
+      "expected": {
+        "raw": "0000b4410000000000000000",
+        "offset": "4d64760de2e994270000b441",
+        "turn": "42362f0b0000803fcac95325cac95325cac953a50000803f0000803f00000000cac953a5",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-true-5",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": true
+      },
+      "draws": [
+        0.1875,
+        0.9375,
+        0.4375
+      ],
+      "expected": {
+        "raw": "0000b4400000000000000000",
+        "offset": "bda399c0f68efe3f1bc40940",
+        "turn": "79825abf15efc3bef304b53ef304b53e5e836cbf19f615be15efc33e000000005e836c3f",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-true-6",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": true
+      },
+      "draws": [
+        0.625,
+        0.125,
+        0.125
+      ],
+      "expected": {
+        "raw": "000096410000000000000000",
+        "offset": "ffff1541ffff1541cd2154c1",
+        "turn": "ffffff3ef30435bfffffff3effffff3ef304353fffffff3ef30435bf00000000f304353f",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-true-7",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": true
+      },
+      "draws": [
+        0.0625,
+        0.3125,
+        0.8125
+      ],
+      "expected": {
+        "raw": "0000f03f0000000000000000",
+        "offset": "b7968cbea4b4293f28bbddbf",
+        "turn": "19f615be5e836c3ff304b53ef304b53e15efc33e79825abf5e836cbf0000000015efc3be",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-true-8",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": true
+      },
+      "draws": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "expected": {
+        "raw": "000070410000000000000000",
+        "offset": "000070411f5e04a71f5e04a7",
+        "turn": "0000803f32310da532310da532310da5000080bf75be9b0a32310da500000000000080bf",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-true-9",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": true
+      },
+      "draws": [
+        0.9375,
+        0.6875,
+        0.1875
+      ],
+      "expected": {
+        "raw": "0000e1410000000000000000",
+        "offset": "4ccd83c05a191fc176dfcf41",
+        "turn": "19f615be5e836cbff304b5bef304b5be15efc33e79825abf5e836c3f0000000015efc3be",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-true-10",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": true
+      },
+      "draws": [
+        0.375,
+        0.875,
+        0.875
+      ],
+      "expected": {
+        "raw": "000034410000000000000000",
+        "offset": "ffffb340ffffb3c0f68efe40",
+        "turn": "ffffff3ef304353fffffffbeffffffbef304353fffffff3ef304353f00000000f304353f",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-true-11",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": true
+      },
+      "draws": [
+        0.8125,
+        0.0625,
+        0.5625
+      ],
+      "expected": {
+        "raw": "0000c3410000000000000000",
+        "offset": "6271a6c1c5e209c11d3f15c1",
+        "turn": "79825abf15efc33ef304b5bef304b5be5e836cbf19f615be15efc3be000000005e836c3f",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-true-12",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": true
+      },
+      "draws": [
+        0.25,
+        0.25,
+        0.25
+      ],
+      "expected": {
+        "raw": "0000f0400000000000000000",
+        "offset": "8e02120b1f5e04260000f0c0",
+        "turn": "75be9b09000080bf32318d2432318d2432318d240000803f000080bf0000000032318d24",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-true-13",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": true
+      },
+      "draws": [
+        0.6875,
+        0.4375,
+        0.9375
+      ],
+      "expected": {
+        "raw": "0000a5410000000000000000",
+        "offset": "18d68cc16158e9403192fcc0",
+        "turn": "79825abf15efc33ef304b53ef304b53e5e836c3f19f615be15efc3be000000005e836cbf",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-true-14",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": true
+      },
+      "draws": [
+        0.125,
+        0.625,
+        0.625
+      ],
+      "expected": {
+        "raw": "000070400000000000000000",
+        "offset": "ffffef3fffffef3fa4b42940",
+        "turn": "ffffff3ef304353fffffff3effffff3ef30435bfffffff3ef304353f00000000f30435bf",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-true-15",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": true
+      },
+      "draws": [
+        0.5625,
+        0.8125,
+        0.3125
+      ],
+      "expected": {
+        "raw": "000087410000000000000000",
+        "offset": "8e291ec038ebbe408d727941",
+        "turn": "19f615be5e836cbff304b53ef304b53e15efc3be79825abf5e836c3f0000000015efc33e",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-false-0",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": false
+      },
+      "draws": [
+        0,
+        0
+      ],
+      "expected": {
+        "raw": "0000f0410000000000000000",
+        "offset": "0000f0410000000000000000",
+        "turn": "0000803f0000000000000000000000000000803f0000000000000000000000000000803f",
+        "turned": false
+      }
+    },
+    {
+      "name": "sphere-false-1",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": false
+      },
+      "draws": [
+        0.1875,
+        0.6875
+      ],
+      "expected": {
+        "raw": "0000f0410000000000000000",
+        "offset": "b7968cc0a4b429c128bbddc1",
+        "turn": "19f615be5e836c3ff304b5bef304b5be15efc3be79825abf5e836cbf0000000015efc33e",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-false-2",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": false
+      },
+      "draws": [
+        0.375,
+        0.375
+      ],
+      "expected": {
+        "raw": "0000f0410000000000000000",
+        "offset": "ffff6f41ffff6fc1a4b4a9c1",
+        "turn": "ffffff3ef30435bfffffffbeffffffbef30435bfffffff3ef30435bf00000000f30435bf",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-false-3",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": false
+      },
+      "draws": [
+        0.5625,
+        0.0625
+      ],
+      "expected": {
+        "raw": "0000f0410000000000000000",
+        "offset": "51daccc1a4b429c124b03741",
+        "turn": "79825abf15efc3bef304b5bef304b5be5e836c3f19f615be15efc33e000000005e836cbf",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-false-4",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": false
+      },
+      "draws": [
+        0.75,
+        0.75
+      ],
+      "expected": {
+        "raw": "0000f0410000000000000000",
+        "offset": "de42a40d2d8dc6270000f041",
+        "turn": "42362f0b0000803fcac95325cac95325cac953a50000803f0000803f00000000cac953a5",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-false-5",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": false
+      },
+      "draws": [
+        0.9375,
+        0.4375
+      ],
+      "expected": {
+        "raw": "0000f0410000000000000000",
+        "offset": "51daccc1a4b4294124b03741",
+        "turn": "79825abf15efc3bef304b53ef304b53e5e836cbf19f615be15efc33e000000005e836c3f",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-false-6",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": false
+      },
+      "draws": [
+        0.125,
+        0.125
+      ],
+      "expected": {
+        "raw": "0000f0410000000000000000",
+        "offset": "ffff6f41ffff6f41a4b4a9c1",
+        "turn": "ffffff3ef30435bfffffff3effffff3ef304353fffffff3ef30435bf00000000f304353f",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-false-7",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": false
+      },
+      "draws": [
+        0.3125,
+        0.8125
+      ],
+      "expected": {
+        "raw": "0000f0410000000000000000",
+        "offset": "b7968cc0a4b4294128bbddc1",
+        "turn": "19f615be5e836c3ff304b53ef304b53e15efc33e79825abf5e836cbf0000000015efc3be",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-false-8",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": false
+      },
+      "draws": [
+        0.5,
+        0.5
+      ],
+      "expected": {
+        "raw": "0000f0410000000000000000",
+        "offset": "0000f0411f5e84a71f5e84a7",
+        "turn": "0000803f32310da532310da532310da5000080bf75be9b0a32310da500000000000080bf",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-false-9",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": false
+      },
+      "draws": [
+        0.6875,
+        0.1875
+      ],
+      "expected": {
+        "raw": "0000f0410000000000000000",
+        "offset": "b7968cc0a4b429c128bbdd41",
+        "turn": "19f615be5e836cbff304b5bef304b5be15efc33e79825abf5e836c3f0000000015efc3be",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-false-10",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": false
+      },
+      "draws": [
+        0.875,
+        0.875
+      ],
+      "expected": {
+        "raw": "0000f0410000000000000000",
+        "offset": "ffff6f41ffff6fc1a4b4a941",
+        "turn": "ffffff3ef304353fffffffbeffffffbef304353fffffff3ef304353f00000000f304353f",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-false-11",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": false
+      },
+      "draws": [
+        0.0625,
+        0.5625
+      ],
+      "expected": {
+        "raw": "0000f0410000000000000000",
+        "offset": "51daccc1a4b429c124b037c1",
+        "turn": "79825abf15efc33ef304b5bef304b5be5e836cbf19f615be15efc3be000000005e836c3f",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-false-12",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": false
+      },
+      "draws": [
+        0.25,
+        0.25
+      ],
+      "expected": {
+        "raw": "0000f0410000000000000000",
+        "offset": "8e02120c1f5e04270000f0c1",
+        "turn": "75be9b09000080bf32318d2432318d2432318d240000803f000080bf0000000032318d24",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-false-13",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": false
+      },
+      "draws": [
+        0.4375,
+        0.9375
+      ],
+      "expected": {
+        "raw": "0000f0410000000000000000",
+        "offset": "51daccc1a4b4294124b037c1",
+        "turn": "79825abf15efc33ef304b53ef304b53e5e836c3f19f615be15efc3be000000005e836cbf",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-false-14",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": false
+      },
+      "draws": [
+        0.625,
+        0.625
+      ],
+      "expected": {
+        "raw": "0000f0410000000000000000",
+        "offset": "ffff6f41ffff6f41a4b4a941",
+        "turn": "ffffff3ef304353fffffff3effffff3ef30435bfffffff3ef304353f00000000f30435bf",
+        "turned": true
+      }
+    },
+    {
+      "name": "sphere-false-15",
+      "shape": {
+        "kind": "sphere",
+        "radius": 30,
+        "volume": false
+      },
+      "draws": [
+        0.8125,
+        0.3125
+      ],
+      "expected": {
+        "raw": "0000f0410000000000000000",
+        "offset": "b7968cc0a4b4294128bbdd41",
+        "turn": "19f615be5e836cbff304b53ef304b53e15efc3be79825abf5e836c3f0000000015efc33e",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-true-0",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": true,
+        "height": 100
+      },
+      "draws": [
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "raw": "0000f0c10000000000000000",
+        "offset": "0000f0c10000000000000000",
+        "turn": "0000803f0000000000000000000000000000803f0000000000000000000000000000803f",
+        "turned": false
+      }
+    },
+    {
+      "name": "cylinder-true-1",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": true,
+        "height": 100
+      },
+      "draws": [
+        0.4375,
+        0.1875,
+        0.6875
+      ],
+      "expected": {
+        "raw": "000070c00000964100000000",
+        "offset": "24b0b73f0000964128bb5dc0",
+        "turn": "15efc3be000000005e836cbf000000000000803f000000005e836c3f0000000015efc3be",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-true-2",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": true,
+        "height": 100
+      },
+      "draws": [
+        0.875,
+        0.375,
+        0.375
+      ],
+      "expected": {
+        "raw": "0000b4410000164200000000",
+        "offset": "f68e7ec100001642f68e7ec1",
+        "turn": "f30435bf00000000f304353f000000000000803f00000000f30435bf00000000f30435bf",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-true-3",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": true,
+        "height": 100
+      },
+      "draws": [
+        0.3125,
+        0.5625,
+        0.0625
+      ],
+      "expected": {
+        "raw": "000034c10000614200000000",
+        "offset": "5e4c26c1000061421bc48940",
+        "turn": "5e836c3f0000000015efc33e000000000000803f0000000015efc3be000000005e836c3f",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-true-4",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": true,
+        "height": 100
+      },
+      "draws": [
+        0.75,
+        0.75,
+        0.75
+      ],
+      "expected": {
+        "raw": "000070410000964200000000",
+        "offset": "2d8d46a70000964200007041",
+        "turn": "cac953a500000000000080bf000000000000803f000000000000803f00000000cac953a5",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-true-5",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": true,
+        "height": 100
+      },
+      "draws": [
+        0.1875,
+        0.9375,
+        0.4375
+      ],
+      "expected": {
+        "raw": "000096c10080bb4200000000",
+        "offset": "f9948a410080bb422d9ce540",
+        "turn": "5e836cbf0000000015efc33e000000000000803f0000000015efc3be000000005e836cbf",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-true-6",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": true,
+        "height": 100
+      },
+      "draws": [
+        0.625,
+        0.125,
+        0.125
+      ],
+      "expected": {
+        "raw": "0000f0400000484100000000",
+        "offset": "a4b4a94000004841a4b4a9c0",
+        "turn": "f304353f00000000f304353f000000000000803f00000000f30435bf00000000f304353f",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-true-7",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": true,
+        "height": 100
+      },
+      "draws": [
+        0.0625,
+        0.3125,
+        0.8125
+      ],
+      "expected": {
+        "raw": "0000d2c10000fa4100000000",
+        "offset": "1fba20c10000fa41c303c2c1",
+        "turn": "15efc33e000000005e836cbf000000000000803f000000005e836c3f0000000015efc33e",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-true-8",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": true,
+        "height": 100
+      },
+      "draws": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "expected": {
+        "raw": "000000000000484200000000",
+        "offset": "000000000000484200000000",
+        "turn": "000080bf0000000032310d25000000000000803f0000000032310da500000000000080bf",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-true-9",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": true,
+        "height": 100
+      },
+      "draws": [
+        0.9375,
+        0.6875,
+        0.1875
+      ],
+      "expected": {
+        "raw": "0000d2410080894200000000",
+        "offset": "1fba204100808942c303c2c1",
+        "turn": "15efc33e000000005e836c3f000000000000803f000000005e836cbf0000000015efc33e",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-true-10",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": true,
+        "height": 100
+      },
+      "draws": [
+        0.375,
+        0.875,
+        0.875
+      ],
+      "expected": {
+        "raw": "0000f0c00000af4200000000",
+        "offset": "a4b4a9c00000af42a4b4a9c0",
+        "turn": "f304353f00000000f30435bf000000000000803f00000000f304353f00000000f304353f",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-true-11",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": true,
+        "height": 100
+      },
+      "draws": [
+        0.8125,
+        0.0625,
+        0.5625
+      ],
+      "expected": {
+        "raw": "000096410000c84000000000",
+        "offset": "f9948ac10000c8402d9ce540",
+        "turn": "5e836cbf0000000015efc3be000000000000803f0000000015efc33e000000005e836cbf",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-true-12",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": true,
+        "height": 100
+      },
+      "draws": [
+        0.25,
+        0.25,
+        0.25
+      ],
+      "expected": {
+        "raw": "000070c10000c84100000000",
+        "offset": "1f5e84a60000c84100007041",
+        "turn": "32318d24000000000000803f000000000000803f00000000000080bf0000000032318d24",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-true-13",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": true,
+        "height": 100
+      },
+      "draws": [
+        0.6875,
+        0.4375,
+        0.9375
+      ],
+      "expected": {
+        "raw": "0000344100002f4200000000",
+        "offset": "5e4c264100002f421bc48940",
+        "turn": "5e836c3f0000000015efc3be000000000000803f0000000015efc33e000000005e836c3f",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-true-14",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": true,
+        "height": 100
+      },
+      "draws": [
+        0.125,
+        0.625,
+        0.625
+      ],
+      "expected": {
+        "raw": "0000b4c100007a4200000000",
+        "offset": "f68e7e4100007a42f68e7ec1",
+        "turn": "f30435bf00000000f30435bf000000000000803f00000000f304353f00000000f30435bf",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-true-15",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": true,
+        "height": 100
+      },
+      "draws": [
+        0.5625,
+        0.8125,
+        0.3125
+      ],
+      "expected": {
+        "raw": "000070400080a24200000000",
+        "offset": "24b0b7bf0080a24228bb5dc0",
+        "turn": "15efc3be000000005e836c3f000000000000803f000000005e836cbf0000000015efc3be",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-false-0",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": false,
+        "height": 100
+      },
+      "draws": [
+        0,
+        0
+      ],
+      "expected": {
+        "raw": "0000f0410000000000000000",
+        "offset": "0000f0410000000000000000",
+        "turn": "0000803f0000000000000000000000000000803f0000000000000000000000000000803f",
+        "turned": false
+      }
+    },
+    {
+      "name": "cylinder-false-1",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": false,
+        "height": 100
+      },
+      "draws": [
+        0.1875,
+        0.6875
+      ],
+      "expected": {
+        "raw": "0000f0410000964100000000",
+        "offset": "24b037c10000964128bbdd41",
+        "turn": "15efc3be000000005e836cbf000000000000803f000000005e836c3f0000000015efc3be",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-false-2",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": false,
+        "height": 100
+      },
+      "draws": [
+        0.375,
+        0.375
+      ],
+      "expected": {
+        "raw": "0000f0410000164200000000",
+        "offset": "a4b4a9c100001642a4b4a9c1",
+        "turn": "f30435bf00000000f304353f000000000000803f00000000f30435bf00000000f30435bf",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-false-3",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": false,
+        "height": 100
+      },
+      "draws": [
+        0.5625,
+        0.0625
+      ],
+      "expected": {
+        "raw": "0000f0410000614200000000",
+        "offset": "28bbdd410000614224b037c1",
+        "turn": "5e836c3f0000000015efc33e000000000000803f0000000015efc3be000000005e836c3f",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-false-4",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": false,
+        "height": 100
+      },
+      "draws": [
+        0.75,
+        0.75
+      ],
+      "expected": {
+        "raw": "0000f0410000964200000000",
+        "offset": "2d8dc6a7000096420000f041",
+        "turn": "cac953a500000000000080bf000000000000803f000000000000803f00000000cac953a5",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-false-5",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": false,
+        "height": 100
+      },
+      "draws": [
+        0.9375,
+        0.4375
+      ],
+      "expected": {
+        "raw": "0000f0410080bb4200000000",
+        "offset": "28bbddc10080bb4224b037c1",
+        "turn": "5e836cbf0000000015efc33e000000000000803f0000000015efc3be000000005e836cbf",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-false-6",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": false,
+        "height": 100
+      },
+      "draws": [
+        0.125,
+        0.125
+      ],
+      "expected": {
+        "raw": "0000f0410000484100000000",
+        "offset": "a4b4a94100004841a4b4a9c1",
+        "turn": "f304353f00000000f304353f000000000000803f00000000f30435bf00000000f304353f",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-false-7",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": false,
+        "height": 100
+      },
+      "draws": [
+        0.3125,
+        0.8125
+      ],
+      "expected": {
+        "raw": "0000f0410000fa4100000000",
+        "offset": "24b037410000fa4128bbdd41",
+        "turn": "15efc33e000000005e836cbf000000000000803f000000005e836c3f0000000015efc33e",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-false-8",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": false,
+        "height": 100
+      },
+      "draws": [
+        0.5,
+        0.5
+      ],
+      "expected": {
+        "raw": "0000f0410000484200000000",
+        "offset": "0000f0c1000048421f5e84a7",
+        "turn": "000080bf0000000032310d25000000000000803f0000000032310da500000000000080bf",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-false-9",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": false,
+        "height": 100
+      },
+      "draws": [
+        0.6875,
+        0.1875
+      ],
+      "expected": {
+        "raw": "0000f0410080894200000000",
+        "offset": "24b037410080894228bbddc1",
+        "turn": "15efc33e000000005e836c3f000000000000803f000000005e836cbf0000000015efc33e",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-false-10",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": false,
+        "height": 100
+      },
+      "draws": [
+        0.875,
+        0.875
+      ],
+      "expected": {
+        "raw": "0000f0410000af4200000000",
+        "offset": "a4b4a9410000af42a4b4a941",
+        "turn": "f304353f00000000f30435bf000000000000803f00000000f304353f00000000f304353f",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-false-11",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": false,
+        "height": 100
+      },
+      "draws": [
+        0.0625,
+        0.5625
+      ],
+      "expected": {
+        "raw": "0000f0410000c84000000000",
+        "offset": "28bbddc10000c84024b03741",
+        "turn": "5e836cbf0000000015efc3be000000000000803f0000000015efc33e000000005e836cbf",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-false-12",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": false,
+        "height": 100
+      },
+      "draws": [
+        0.25,
+        0.25
+      ],
+      "expected": {
+        "raw": "0000f0410000c84100000000",
+        "offset": "1f5e04270000c8410000f0c1",
+        "turn": "32318d24000000000000803f000000000000803f00000000000080bf0000000032318d24",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-false-13",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": false,
+        "height": 100
+      },
+      "draws": [
+        0.4375,
+        0.9375
+      ],
+      "expected": {
+        "raw": "0000f04100002f4200000000",
+        "offset": "28bbdd4100002f4224b03741",
+        "turn": "5e836c3f0000000015efc3be000000000000803f0000000015efc33e000000005e836c3f",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-false-14",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": false,
+        "height": 100
+      },
+      "draws": [
+        0.625,
+        0.625
+      ],
+      "expected": {
+        "raw": "0000f04100007a4200000000",
+        "offset": "a4b4a9c100007a42a4b4a941",
+        "turn": "f30435bf00000000f30435bf000000000000803f00000000f304353f00000000f30435bf",
+        "turned": true
+      }
+    },
+    {
+      "name": "cylinder-false-15",
+      "shape": {
+        "kind": "cylinder",
+        "radius": 30,
+        "volume": false,
+        "height": 100
+      },
+      "draws": [
+        0.8125,
+        0.3125
+      ],
+      "expected": {
+        "raw": "0000f0410080a24200000000",
+        "offset": "24b037c10080a24228bbddc1",
+        "turn": "15efc3be000000005e836c3f000000000000803f000000005e836cbf0000000015efc3be",
+        "turned": true
+      }
+    }
+  ],
+  "scope": "External JS kernel fixtures in native source units. Exact float32 bytes on this runtime; no native CPU/PRNG/scheduling or source flag-mapping certificate."
+}

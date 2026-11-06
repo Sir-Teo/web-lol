@@ -6,6 +6,11 @@ Last updated: November 6, 2026 (UTC).
 
 ## Current authoritative state
 
+[Point/sphere/cylinder birth kernels](SOURCE-SPAWN-SHAPES.md) now reproduce
+66 independent external float32 fixtures exactly. All 77 cases pass, including
+source draw counts, naive radius distributions, input guards and independent
+returned storage. Shape flag parsing and emitter playback remain separate.
+
 The [fresh full unit run](CURRENT-UNIT-RECOVERY.md) now passes 3,761/3,763 cases
 across 427 files after restoring exact Garen/Wwise/distortion inputs. Five
 missing-cache failures close without assertion changes. The historical Leona

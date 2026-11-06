@@ -1,0 +1,45 @@
+{
+  "testsPassed": 77,
+  "independentFloat32Fixtures": 66,
+  "readers": [
+    {
+      "path": ".cache/baron-emission-readers/engine/utils/basis.ts",
+      "sha256": "948deb523c5e16fbf6ef529f9967f9b5de8ff3db1c169fa6ceffc58a08fbcf5e",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/utils/basis.ts"
+    },
+    {
+      "path": ".cache/baron-emission-readers/engine/simulation/spawnShape.ts",
+      "sha256": "28a9f0b0a3bd61887564f6b77241317ed2242433691ff45fe2c29ddea392472d",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/simulation/spawnShape.ts"
+    }
+  ],
+  "nativeExecuted": false,
+  "sourceFlagMappingVerified": false,
+  "evidence": [
+    {
+      "path": "artifacts/source-spawn-shape-tests.log",
+      "sha256": "d9bced4168eba802eaf269169ae32fc1d1945badaba127059500552da46773ec",
+      "bytes": 181
+    },
+    {
+      "path": "artifacts/source-spawn-shape-samples.json",
+      "sha256": "fb12e3a50216c27c6e89ef6775ac78c8f3a0a02d1bb401079e71ba10d0519cae",
+      "bytes": 56
+    },
+    {
+      "path": "src/render/source-spawn-shape.ts",
+      "sha256": "c196f965eb3127b9c6a9a9b0e0655d31b99726c880cf3b8866c69db4c9b82976",
+      "bytes": 2634
+    },
+    {
+      "path": "tools/assets/export-source-shape-samples.mjs",
+      "sha256": "ab5e5d9cce26c0bbebe9f43d3c3c93886e9e987badd3ce073c6e456e2f208192",
+      "bytes": 3556
+    },
+    {
+      "path": "docs/reference/source-spawn-shape-samples.json",
+      "sha256": "fc7743c9d60f634cfbb48dbbfff4e66c473ed2816f367bd26de59344ab5679d9",
+      "bytes": 30269
+    }
+  ]
+}
