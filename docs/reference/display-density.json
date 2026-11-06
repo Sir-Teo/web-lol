@@ -1,0 +1,42 @@
+{
+  "before": {
+    "ratio": 1.75,
+    "width": 2520,
+    "height": 1575,
+    "point": {
+      "x": 535.0497029805076,
+      "y": 546.1672317728884,
+      "visible": true
+    },
+    "picked": 1,
+    "cssWidth": 1440,
+    "cssHeight": 900
+  },
+  "lowerDensity": {
+    "ratio": 1,
+    "width": 1440,
+    "height": 900,
+    "point": {
+      "x": 535.0497029805076,
+      "y": 546.1672317728884,
+      "visible": true
+    },
+    "picked": 1,
+    "cssWidth": 1440,
+    "cssHeight": 900
+  },
+  "restored": {
+    "ratio": 1.75,
+    "width": 2520,
+    "height": 1575,
+    "point": {
+      "x": 535.0497029805076,
+      "y": 546.1672317728884,
+      "visible": true
+    },
+    "picked": 1,
+    "cssWidth": 1440,
+    "cssHeight": 900
+  },
+  "heroId": 1
+}

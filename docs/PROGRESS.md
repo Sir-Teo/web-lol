@@ -6,6 +6,15 @@ Last updated: October 28, 2026 (UTC).
 
 ## Current authoritative state
 
+[Display-density resizing](DISPLAY-DENSITY.md) now updates the renderer ratio
+when display density changes, retaining the existing cap. The original 1.75
+instead of 1 failure reproduces. The browser now verifies correct framebuffer
+dimensions in both directions with identical projection/picking; energy-idle,
+build/TypeScript and 42 Node QA cases pass. This removes excess pixel work in a
+controlled transition, without a measured FPS or physical-monitor claim. Ruleset
+`629ed5…` and schema 163 remain unchanged; production/offline evidence retains
+its preceding pack identity.
+
 [Private Baron slow immunity](BARON-CONTROL.md#slow-immunity--november-6-2026)
 now rejects independent and legacy slow state while preserving attack, flurry,
 spell and burn damage. Four failures reproduce; twelve new cases and 157 focused

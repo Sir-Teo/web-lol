@@ -335,7 +335,6 @@ export class GameView {
       powerPreference: 'high-performance',
     });
     this.renderer.setOpaqueSort(groundDisplayListSort);
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFShadowMap;
@@ -543,6 +542,8 @@ export class GameView {
   resize(): void {
     this.width = window.innerWidth;
     this.height = window.innerHeight;
+    const pixelRatio = Math.min(window.devicePixelRatio, 1.75);
+    if (this.renderer.getPixelRatio() !== pixelRatio) this.renderer.setPixelRatio(pixelRatio);
     this.renderer.setSize(this.width, this.height);
     this.camera.aspect = this.width / this.height;
     this.camera.updateProjectionMatrix();
