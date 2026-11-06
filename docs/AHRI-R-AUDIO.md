@@ -7,3 +7,9 @@ The activation container `294973194` retains `bIsContinuous=1`, `sLoopCount=0`, 
 The missile Stop targets container `525682343`. Crucially, deactivation event `4029049614` contains only Play targeting `598713583`; it does not contain an explicit Stop for the continuous activation container. A future local cessation policy must remain distinct from this source fact. Native emitter lifetime, continuous scheduling, dispatch, bus/listener behavior and virtualization remain unverified.
 
 The producer verifies both frozen input hashes and records its own SHA. Cache-free normal/optimized guard modes reproduce the record and reject missing/changed output, leaf/parent symlinks, changed graph bytes and missing decoded metadata. Stop-descendant media describe the affected closure rather than clips played by Stop. Source preparation remains isolated from the accepted Q primary and W delivery gates.
+
+## Isolated master and graph stage
+
+The Spirit Rush branch stages fourteen unchanged mono 44.1 kHz float masters and a generated unflattened graph: fifteen outputs / 4,134,533 bytes. Cast/missile/hit retain separate four-variant playlists; activation and deactivation each keep one master. Continuous/loop flags, transition times/modifiers, actor ancestry, gain/pitch/range omissions, priority 75 and source caps stay explicit. The missile stop retains 250 ms Exp1. No finite activation bound or invented activation Stop action is generated.
+
+All eighteen asset/property checks, TypeScript and both normal/optimized whole-closure publication guard modes pass. Six rejection probes per mode include a conflict in the final graph before any earlier WAV can be written, corrupt masters and leaf/parent symlinks. Cache-free fixtures use the identical committed masters. The CI workflow includes these source reading and publication guards. R history and playback are not bound.
