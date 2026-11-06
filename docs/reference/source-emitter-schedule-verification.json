@@ -1,0 +1,36 @@
+{
+  "format": 1,
+  "testsPassed": 70,
+  "independentSchedules": 66,
+  "checkedSteps": 3960,
+  "typecheck": "passed",
+  "nativeExecuted": false,
+  "runtimeBinding": false,
+  "evidence": [
+    {
+      "path": "artifacts/source-emitter-schedule-verified-tests.log",
+      "bytes": 310,
+      "sha256": "36b7e5859c02f49c7cb51ae3280eef80c567cd21a2b2b89fb0723d97e9a72056"
+    },
+    {
+      "path": "artifacts/source-emitter-schedule-verified-types.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tools/assets/export-source-emitter-schedule-samples.mjs",
+      "bytes": 7192,
+      "sha256": "2feb7e9d24edff12d219a1ca25cac9be4cef718771a3b4183f73d9439d0fdf05"
+    },
+    {
+      "path": "docs/reference/source-emitter-schedule-samples.json",
+      "bytes": 798124,
+      "sha256": "e0ddc44cacc4d7f28b6946be3b8d4cbc1ac753bf19a111ae07349d691c87ec41"
+    },
+    {
+      "path": "src/render/source-emitter-schedule.ts",
+      "bytes": 4894,
+      "sha256": "1efa02bbca45f1fb5510b62f412f6e3462f78df719153488c9ce951d5b6da02a"
+    }
+  ]
+}

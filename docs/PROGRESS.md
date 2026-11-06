@@ -42,6 +42,11 @@ independent exact-byte samples; 383 combined ordinary/integrated cases pass.
 Constants, authored single keys, both integral orders and per-order cache
 ownership remain distinct. Lifetime scaling and renderer playback remain open.
 
+The [replayable emitter scheduler](SOURCE-EMITTER-SCHEDULE.md) now matches 66
+independent reference schedules / 3,960 explicit steps for all 21 Baron emitters
+and a variable-rate case. All 70 tests pass, including restores and pool pressure.
+Particle birth parameters and active playback remain next work.
+
 ## Recent verified checkpoints
 
 All 21 Baron emitters now have a [strict private parameter stage](BARON-ATTACK-PROGRAM.md),
