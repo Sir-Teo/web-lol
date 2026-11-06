@@ -134,3 +134,19 @@ files / 1,923,662 bytes, with no public preload or runtime effect.
 The [transport verification](reference/ahri/w-particle-transports-verification.json)
 binds every ledger and successful guard/engine run to its original source-only
 revision. Runtime/public source bytes remain unchanged.
+
+## Private profile projection
+
+The [profile reading](reference/ahri/w-profile-reading.json) binds all 30 emitters
+and all 66 authored fields to a deterministic 507,688-byte private projection.
+It covers 18 billboards, five quads, three meshes, two trails, one attached skin
+and one ray. Normal and optimized Python guards verify clean reproduction,
+changed pins, structural omissions, output conflicts and symlink rejection.
+The portable workflow needs no decoder installation or private asset cache.
+
+Eight missing emitter lifetimes and two unnamed palette textures remain missing.
+Attached mesh selectors, shared-random integers, bound-object scaling and field
+records remain available with explicit unresolved binding requirements. The
+signed atlas declaration `[1, -1]` is retained beside the pinned external writer's
+`[1, 1]` normalization; this does not certify a native constructor or imply a flip.
+This projection adds no runtime behavior, public assets or save-schema change.
