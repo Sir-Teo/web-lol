@@ -1,0 +1,138 @@
+{
+  "format": 1,
+  "rendererRevision": "c7260d377a0c20fd0999a9d35c84d5a1b601bbea",
+  "schema": 177,
+  "ruleset": "5e4347edd208087bb82b7ad33f2d5ba3f77d6a9767da24a6c32c305cbbe7e694",
+  "history": {
+    "sourceRevision": "ccdfaa0da4262efd8058b4ed96a866a79c6a0840",
+    "ruleset": "3421b6652597e672ce59a95b0c53bd08cb1e018159e3507994a6db3c74657162",
+    "sourceFiles": 639,
+    "runner": {
+      "file": "/workspace/web-lol-ahri-q-projectile/.cache/ahri-q-projectile-history-roster-seed1/runner/match-seed.js",
+      "bytes": 1265642,
+      "sha256": "260ed5f3c3a92639e386cccdda390e5b713762d10101e59d981f153aae337dbf"
+    },
+    "root": ".cache/ahri-q-projectile-history-roster-seed1"
+  },
+  "unchangedArchivedFiles": 637,
+  "changedArchivedFiles": [
+    {
+      "before": {
+        "file": "src/render/source-particle-surfaces.ts",
+        "bytes": 22865,
+        "sha256": "0d0b86dc2d22b71488129ab084213cb6b04b1575511204fad02bacfda0c01c76"
+      },
+      "after": {
+        "path": "src/render/source-particle-surfaces.ts",
+        "bytes": 22930,
+        "sha256": "0f13bcebc292902566ab40cfaaaa364a84d9e84546cbe274c9f6a987d0121156"
+      }
+    },
+    {
+      "before": {
+        "file": "tools/ruleset-fingerprint.ts",
+        "bytes": 13598,
+        "sha256": "de793a23d06f87f1fe4052f395f40b0de38a71320998a69bc83bd44505d062f7"
+      },
+      "after": {
+        "path": "tools/ruleset-fingerprint.ts",
+        "bytes": 13636,
+        "sha256": "3c9d1bb5774026edea67acf5651720666127c2a075ebb6ccf0ecfc5b8da95c42"
+      }
+    }
+  ],
+  "addedRuntimeFiles": [
+    {
+      "path": "src/render/ahri-q-projectile-assets.ts",
+      "bytes": 4775,
+      "sha256": "0c7f0d0f2c8329ad51f51963742475c11f2f11d8e7b758dd78fff2e1ae754bdc"
+    },
+    {
+      "path": "src/render/ahri-q-projectile-history.ts",
+      "bytes": 3742,
+      "sha256": "3b4a97ac3a6ebbb8d69d0acbd8fc9a8371b3cdcf5942479b245f61db5e116a76"
+    },
+    {
+      "path": "src/render/ahri-q-projectile-ribbon-material.ts",
+      "bytes": 3742,
+      "sha256": "079ba4c1650e3bc6521f1d4a831a74424c757c0819f14d13ac32d63643fb05da"
+    },
+    {
+      "path": "src/render/ahri-q-projectile-trails.ts",
+      "bytes": 3191,
+      "sha256": "50e0a12d17950b65ba1ea056da1318358df3f871d4664971962f24781b931ed6"
+    },
+    {
+      "path": "src/render/ahri-q-projectiles.ts",
+      "bytes": 9497,
+      "sha256": "9eedcedfcb9e668fe4346bab1664e7269700118b56d144d39548ea1cc0e129d8"
+    },
+    {
+      "path": "src/render/source-packed-trail-ribbon.ts",
+      "bytes": 6262,
+      "sha256": "dda67f6141b9b6907ebb5388247171c31caa1ed2f10a4377b08b255ff837486a"
+    }
+  ],
+  "applicationFilesOutsideFrozenClosure": [
+    {
+      "path": "src/render/view.ts",
+      "bytes": 67771,
+      "sha256": "445d925ec72b46bc23253fd8b9daaf9934a4d20481e73c1e08cbb8eaab6ce054"
+    },
+    {
+      "path": "src/render/lazy-ahri-q-projectiles.ts",
+      "bytes": 1939,
+      "sha256": "5647dfc3b00dbe7d69ebbfe4113cfe9fdee268b2c4fb68868b38c64e850d4c27"
+    },
+    {
+      "path": "e2e/ahri-q-projectiles.spec.ts",
+      "bytes": 13269,
+      "sha256": "038593fc7fed3adff5014bcef6ddc78ed050d4b4886e824302344b386f4312a6"
+    },
+    {
+      "path": "tests/ahri-q-projectiles.test.ts",
+      "bytes": 7265,
+      "sha256": "76f27266b7921b8f676555d0443ef532afb81e99682084097a735d72d533f789"
+    },
+    {
+      "path": "tests/lazy-ahri-q-projectiles.test.ts",
+      "bytes": 2612,
+      "sha256": "87e50cf36d4fda4fc2e8194831271f4d4b55ade0f65fa7123fdd9a69c52fc5dc"
+    },
+    {
+      "path": "tests/ahri-q-projectile-trails.test.ts",
+      "bytes": 5883,
+      "sha256": "dcb70281ba76dc40a72fb13b4b9adaca11b02f56cfc595d41c9cfe379e51aece"
+    },
+    {
+      "path": "tests/ahri-q-projectile-history-view.test.ts",
+      "bytes": 3761,
+      "sha256": "91ce2371e725526fe35ec50daaf5d131c0c5ac132991cbf73c1faedb06507f84"
+    },
+    {
+      "path": "tests/source-packed-trail-ribbon.test.ts",
+      "bytes": 3192,
+      "sha256": "a2d0fd65ea42481aa92c10418eb0912e2c846671ca5a6ac5b698f1aeac7899a2"
+    },
+    {
+      "path": "tools/assets/export-packed-trail-samples.mjs",
+      "bytes": 5465,
+      "sha256": "711c47e595007b3c91b766b3d7fc8e0527aa96f30cff6a04db7242e224002742"
+    },
+    {
+      "path": "docs/reference/source-packed-trail-samples.json",
+      "bytes": 1115887,
+      "sha256": "55afb528d41e150a0985c14516092b5b4e5bb31acafa6d657a705b3fc9e1cbe4"
+    }
+  ],
+  "scope": "The actual history cohort retains its original identity. Renderer integration does not relabel its natural-match result.",
+  "limitation": "Source comparison is not a new natural-match, native callback, pixel or device-performance certificate.",
+  "archivedQaFilesOutsideRuleset": [
+    "tools/qa/lib/cohort-profile.ts",
+    "tools/qa/match-cohort.mjs",
+    "tools/qa/match-contract.ts",
+    "tools/qa/match-seed.ts",
+    "tools/qa/verify-match-cohort.mjs"
+  ],
+  "runtimeSourceFiles": 640
+}
