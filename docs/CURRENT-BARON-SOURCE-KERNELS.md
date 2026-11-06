@@ -1,45 +1,48 @@
-# Current Baron source-effects checkpoint
+# Current Baron source-effects and candidate-audio checkpoint
 
 Current save schema **167**, ruleset
-`d3eb639e160dbc64640f825e42f70d59485f996cb348104eeaaed4946a8e3bc0`.
-The private encounter draws all **21 source profiles**: nine missile and twelve
-hit. Saved native jaw/chest poses, complete bounded launch histories and the
-original target point reconstruct presentation independently of live targets.
-The old missile marker remains only while loading. See BARON-SOURCE-FLIGHTS.md.
+`7ae8e0f8513df40ceca31f52ad146bbe08b388b09163e996538133fbe600229f`.
+The private encounter draws all **21 source effect profiles** (nine missile,
+twelve hit) and plays **three candidate audio profiles from eight source float
+masters**. Saved jaw/chest poses, complete bounded launch paths and the original
+target point reconstruct effects. Audio uses explicit local release/contact
+anchors and saved audiences; source delay/probability/gain/pitch fields remain
+separate from local selection and mix policies.
 
-Sixty scoped tests, all six real-input Baron browser cases and the production
-build pass. Source centres/tints/UVs restore exactly; stops, target loss, fog,
-death, World replacement and ownership have focused coverage. The current pack is
-`390424679321370f293817990d744c3fc753e46ac5cf4bdd98060a120b673142`
-(1,237 files / 552,847,138 bytes). The full all-emitter suite passes **8,433/8,435** cases across 463 files; the
-only failures remain the historical Leona checker/archive and Lux sampler digest
-gaps. All48 Node QA and all6 Baron browser cases pass, with seven additional
-real-rig checks separately verified. Named nested-prefix production, all-file byte
-verification and full offline acceptance pass, including zero unwanted Baron
-model/effect preloads. See reference/baron-all-bound-acceptance.json and the scoped
-reference/baron-all-source-binding-verification.json.
+Missed cast audio survives checkpoint reload after particle expiry. Exported
+source bounds are140cast/59hit ticks; presentation and strict snapshot validation
+retain every release through the cast bound. Existing125tick hit history and
+312frame cap suffice. See BARON-BASIC-AUDIO-PREVIEW.md.
 
-Height routing remains an explicit local single-elevation projection; the native
-interaction of targetHeightAugment and offsetInitialTargetHeight is unresolved.
-Hit bound-size factors explicitly match the external reader's neutral omission.
-Native client RNG/cadence, handedness, complete visual fidelity and device
-performance are not certified by local Chromium/SwiftShader tests.
+At application commit0fa0072, the full suite passes **8,462/8,464** tests across
+468files. Only the historical missing Leona checker/archive and Lux sampler hash
+gaps remain; expectations and deadlines are unchanged. All **66 Node QA** and
+**seven real-input Baron browser cases** pass, including exact effect centre/tint/
+UV restores, real float decoding, mute/resume, world replacement and unchanged
+gameplay snapshots. Fifty-nine focused audio/history cases cover the saved tail.
 
-The previous schema166 hit-only checkpoint passes **8,150/8,152** full unit cases
-and all **48** Node QA cases. Its only failures are the missing historical Leona
-checker/input archive and Lux 24-sampler digest mismatch. No expected values or
-deadlines were weakened. Pack c23eba8e passed nested-prefix production, all-file
-byte checks and complete offline acceptance. See reference/baron-hit-bound-acceptance.json.
-Those receipts remain historical; they are not relabeled as schema167 acceptance.
+Current pack
+`37f029770e7940fb8bd1ac9f3270de23603d46678f27dd3df835ec1614aeae43`
+contains **1,246files /554,951,561bytes**. Complete file/worker/identity audit,
+named nested-prefix production and full offline lifecycle pass, with977worker
+responses, zero production errors and zero unsolicited Baron model/effect/audio
+fetches. The authoritative receipt is
+[retained audio acceptance](reference/baron-basic-audio-retained-acceptance.json).
+The earlier607225d/ce32b45a audio receipt explicitly leaves the since-fixed saved
+cast-tail gap open. Earlier d3eb639/all-effects and hit-only receipts remain
+historical, not relabeled current acceptance.
 
-The frozen e20/schema163 ordinary hundred-seed run completed and verified:
-**98 victories, two unfinished, zero invariant failures**, 16,653,420 checked ticks,
-4,676 round trips and 4,576 future comparisons. It is an ordinary automated-carry
-invariant gate, not current-ruleset/full-roster/Leona-support or completed roadmap
-milestone 4 acceptance. See reference/e20bdc-ordinary-hundred-completed.json.
+Native target-height routing remains an explicit local single-elevation policy;
+hit bound factors match the external reader's neutral omission. Audio event labels
+are corroborated hash cracks, not attested stored strings. Native dispatch,
+shuffle/global mix/listening parity, particle RNG/cadence/complete fidelity and
+device performance remain uncertified. Chromium/SwiftShader is a local QA tool.
 
-External function/loop/shader fixtures establish the scoped JS/GPU comparisons
-documented in BARON-ATTACK-SYSTEM.md, BARON-PARTICLE-MATERIAL.md and
-SOURCE-FLIGHT-BASIS.md. Earlier fixed-name preview artifacts were overwritten;
-new preview runs are namespaced and collision-protected, preserving their own
-evidence. Historical hashes are unchanged.
+The frozen e20/schema163 ordinary hundred-seed cohort remains98victories,
+two unfinished and zero invariant failures. It is not current-ruleset/full-roster
+or completed milestone4 acceptance. Its read-only horizon diagnostic preserves
+original outcomes. See E20BDC-UNFINISHED-HORIZON.md.
+
+Earlier fixed-name QA artifacts were overwritten; newer preview and production
+runs use exclusive namespaced claims. Historical hashes are preserved. See
+QA-ARTIFACT-RUNS.md.

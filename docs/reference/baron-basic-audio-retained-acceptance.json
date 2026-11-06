@@ -1,0 +1,125 @@
+{
+  "format": 1,
+  "applicationCommit": "0fa0072",
+  "schema": 167,
+  "ruleset": "7ae8e0f8513df40ceca31f52ad146bbe08b388b09163e996538133fbe600229f",
+  "pack": {
+    "id": "37f029770e7940fb8bd1ac9f3270de23603d46678f27dd3df835ec1614aeae43",
+    "files": 1246,
+    "bytes": 554951561
+  },
+  "unit": {
+    "passed": 8462,
+    "total": 8464,
+    "files": 468,
+    "knownFailures": [
+      "Missing historical Leona checker/archive",
+      "Lux 24-sampler digest differs on Node24.22.1"
+    ]
+  },
+  "nodeQA": 66,
+  "baronBrowserCases": 7,
+  "scopedAudioAndHistoryCases": 59,
+  "sourceMasters": 8,
+  "sourceProfiles": 3,
+  "savedCastTicks": 140,
+  "slowestHitTicks": 59,
+  "sourceEffects": 21,
+  "productionSubpath": true,
+  "offlineLifecycle": true,
+  "serviceWorkerResponses": 977,
+  "unrequestedBaronModelEffectAudioFetches": 0,
+  "savedMissedCastTailFixed": true,
+  "limitations": [
+    "Cast/hit labels are hash-derived candidates; native dispatch, shuffle, global mix and listening parity remain unresolved.",
+    "Native particle height/bound-size/PRNG/cadence/fidelity remain outside these scoped checks.",
+    "Chromium SwiftShader is not device/native performance evidence."
+  ],
+  "evidence": [
+    {
+      "path": "artifacts/baron-audio-retained-full-suite.log",
+      "bytes": 4620,
+      "sha256": "d82e57c959f90266e478086d7ee6d9073d46d2ca8a44b1a3880054cf25b805a1"
+    },
+    {
+      "path": "artifacts/baron-audio-retained-node-qa-complete.log",
+      "bytes": 5657,
+      "sha256": "4df8b5f2730d3c2a6442578ca635aec3306482c97a0bfa627c82b5e38db0b038"
+    },
+    {
+      "path": "artifacts/baron-audio-retained-browser-v1.log",
+      "bytes": 3700,
+      "sha256": "01e1be6834298bb95109fb414b3cea522cd54dcce17d93d6e04f688367e3a6cf"
+    },
+    {
+      "path": "artifacts/baron-audio-saved-tail-before.log",
+      "bytes": 1258,
+      "sha256": "15268f1fc42e004506701778531c1b5c79df8548cae2c0b6053ebfa00304e145"
+    },
+    {
+      "path": "artifacts/baron-audio-saved-tail-final.log",
+      "bytes": 170,
+      "sha256": "efdca510c9ef0515be871bcb7c553e5b2e474ad5fea341e9eb7e0a101e4a8411"
+    },
+    {
+      "path": "artifacts/baron-audio-saved-tail-build-final.log",
+      "bytes": 7634,
+      "sha256": "4b498b36bb78582ea0b688b3e7107f985adf443606be2e4e5d3ca01b8054edf2"
+    },
+    {
+      "path": "artifacts/production-subpath-baron-audio-retained-v1.json",
+      "bytes": 3707,
+      "sha256": "042df0ccb2cf54a8b5a7fb7db617cbde3e3a4ace43e0656ec8c0b4639c88bdc6"
+    },
+    {
+      "path": "artifacts/offline-pack-baron-audio-retained-v1-production.json",
+      "bytes": 859,
+      "sha256": "a80fbce3603d264210e87b2f4ec55621cc820bdcaa74e7607cbe7ea709b478ba"
+    },
+    {
+      "path": "artifacts/baron-audio-retained-pack-integrity.json",
+      "bytes": 213,
+      "sha256": "76f973e70967f018e4d2dd92b226d941c240755adb7acf1ec36529063e45d8e5"
+    },
+    {
+      "path": "src/audio/baron-basic.ts",
+      "bytes": 5806,
+      "sha256": "a11923b4d61d6711a8c1f4c9e2f9e532dde78e28b3e7f8cd2a49b33c0ce0b7d7"
+    },
+    {
+      "path": "src/audio/baron-basic-state.ts",
+      "bytes": 2548,
+      "sha256": "f401edf1d12d3b03132d6a527e7a775c6ab7984dab5e516cf3a5ec86f2573bae"
+    },
+    {
+      "path": "src/content/baron-basic-audio.ts",
+      "bytes": 3913,
+      "sha256": "6f5e7599bad8a9b2e1e9cb2007c7143edb2cf6cba82677c8f9f4e46267f65721"
+    },
+    {
+      "path": "src/content/baron-basic-audio-timing.ts",
+      "bytes": 167,
+      "sha256": "fd58fea130d823d2b0831adee62b3d62925a8c6007151382a2c4854717cac796"
+    },
+    {
+      "path": "src/simulation/baron-attack-visuals.ts",
+      "bytes": 6499,
+      "sha256": "4ff906beeecc339a04b3f07767195c505e9bde5c6fa030c679f09dc4051a7bd6"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "bytes": 197444,
+      "sha256": "c3626b47f5be866418734ab651f0a090a132e1eb18dcf00cb22a70339fccb0b3"
+    },
+    {
+      "path": "tools/assets/export-baron-basic-audio.py",
+      "bytes": 7974,
+      "sha256": "ae61c97173260cfc5b349c39170fe0835f5c8148e45ff527765a19a8a7a03488"
+    },
+    {
+      "path": "tools/ruleset-fingerprint.ts",
+      "bytes": 12936,
+      "sha256": "fb0ff7946559c9403d17d284edfed09444638a17db715e8667069770438f65fa"
+    }
+  ]
+}

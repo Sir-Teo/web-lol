@@ -9398,3 +9398,7 @@ A new regression first reproduced the lost tail after early target death and vis
 ### Read the frozen cohort’s two unfinished horizons without migration
 
 Added a read-only ledger-pinned snapshot diagnostic and six corruption/order/ruleset guard tests. In the final ten minutes, seeds2/25 each add22 kills and22 deaths, plus527/468CS. Seed2’s blue nexus falls5500→2057.3333 in the final minute; seed25’s nexuses stay5500. Both show activity, but minute samples do not diagnose recall loops, routing or bot causality. No historical snapshot/outcome or current gameplay changed. See docs/E20BDC-UNFINISHED-HORIZON.md.
+
+### Accept retained Baron audio with all effects and offline delivery
+
+Application0fa0072/ruleset7ae8e0f8 passes8,462/8,464 tests across468files; only the unchanged historical Leona/Lux gaps remain. All66 Node QA, all7 real-input Baron browser cases and59 scoped audio/history cases pass. Pack37f02977 (1,246files /554,951,561bytes) passes exact full-file/worker audit, named nested-prefix production with zero unwanted Baron model/effect/audio transports and full offline lifecycle (977worker responses, zero production errors). The missed-cast saved tail is fixed. Native dispatch/shuffle/global mix, particle fidelity and device performance remain open. See docs/reference/baron-basic-audio-retained-acceptance.json and CURRENT-BARON-SOURCE-KERNELS.md.
