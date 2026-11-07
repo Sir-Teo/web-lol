@@ -344,3 +344,20 @@ invented. Target lifetime endings clamp the pose query clock. Seventeen private
 pose/history checks pass across three files, and TypeScript passes. These use
 functional reference fixtures; actual asset attachments and fallback diagnostics
 still require the upcoming scene/browser check.
+
+## Unconnected scene renderer
+
+The E scene layer now draws 24 regular surface profiles, three packed ribbons
+and the verified cast Tails overlay. All 28 bound profiles contribute in the
+real-World unit fixture; the buff Avatar remains an explicit unresolved skin
+profile. Cast skin uses E's sampled color, erosion, UV and finite lifetime over
+a private animated source pose. Hidden cast births cannot replay that overlay
+after reveal. Missing palette inputs and named attachment fallbacks remain
+reported local limitations rather than fabricated source data.
+
+The combined E and shared-consumer checks pass 104 tests. They include exact
+fresh/reused save reconstruction through backward seeks and real Flash, genuine
+visibility changes, three trail families, finite matrices, terminal drainage
+without World steps, and disposal that preserves borrowed textures/geometry.
+TypeScript passes. The renderer is not yet connected to View; the next commit
+adds lazy roster routing and the full compatibility closure before browser QA.
