@@ -1,0 +1,620 @@
+{
+  "format": 1,
+  "sourceRevision": "14d68cc",
+  "ruleset": "ff8abc1be3d5e4191d0544c600ed32c1e3d89b5bf969d9f2a57c591cde81dbe9",
+  "unitAttempt": {
+    "log": "artifacts/ahri-w-rendering-full-tests-v1.log",
+    "files": 553,
+    "tests": 9077,
+    "passed": 9070,
+    "failed": 7,
+    "knownFailures": [
+      "tests/leona-eclipse-skin-material.test.ts: missing private reference reader",
+      "tests/lux-e-missile.test.ts: existing Node24 sampler golden mismatch"
+    ],
+    "timeouts": {
+      "tests/rift-practice-jungle.test.ts": 2,
+      "tests/ruleset-fingerprint.test.ts": 1,
+      "tests/lane-rules.test.ts": 1,
+      "tests/ahri-fox-fire-audio-history.test.ts": 1
+    },
+    "timeoutRerunsPending": false
+  },
+  "nodeQa": {
+    "log": "artifacts/ahri-w-rendering-node-qa-v1.log",
+    "passed": 245,
+    "failed": 0
+  },
+  "build": {
+    "log": "artifacts/ahri-w-rendering-build-v1.log",
+    "passed": true
+  },
+  "pack": {
+    "result": "passed",
+    "pack": "43914dfefe3cd790e08fcfce9aee0f88bc2941e41e58bdff127ac2f94b31bdf2",
+    "files": 1390,
+    "bytes": 578953394,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "acceptance": "passed with two documented baseline unit failures",
+  "unitTimeoutRerun": {
+    "log": "artifacts/ahri-w-rendering-timeout-rerun-v2.log",
+    "files": 4,
+    "passed": 45,
+    "failed": 0
+  },
+  "unitCombinedResult": {
+    "tests": 9077,
+    "passed": 9075,
+    "knownFailures": 2,
+    "note": "Initial full run plus unchanged single-worker rerun of all four timed-out files."
+  },
+  "browserRegression": {
+    "initialLog": "artifacts/ahri-w-rendering-browser-regression-v1.log",
+    "initialPassed": 9,
+    "initialFailed": 1,
+    "retryLog": "artifacts/ahri-w-rendering-audio-browser-v2.log",
+    "retryPassed": 1,
+    "retryFailed": 0
+  },
+  "schemaVersion": 178,
+  "compatibilityFiles": 654,
+  "archiveFiles": 659,
+  "wBrowser": {
+    "cases": 4,
+    "log": "artifacts/ahri-w-browser-v2.log",
+    "screenshotsReviewed": [
+      "artifacts/ahri-w-browser-v2/ahri-w-particles-keyboard--7cfac-bit-flight-and-hit-drawings/ahri-w-orbit.png",
+      "artifacts/ahri-w-browser-v2/ahri-w-particles-keyboard--7cfac-bit-flight-and-hit-drawings/ahri-w-flight.png"
+    ]
+  },
+  "cleanCi": {
+    "revision": "1af2cd53723bfb51bbd73d30503c1da17a5456f0",
+    "reusedNodeModules": true,
+    "privateCachePresent": false,
+    "privateToolsPresent": false,
+    "commands": [
+      {
+        "command": "npm exec tsc -- --noEmit",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-0.log"
+      },
+      {
+        "command": "npm exec vitest -- run tests/baron-basic-audio-assets.test.ts tests/baron-basic-audio-state.test.ts tests/baron-basic-audio-controller.test.ts tests/baron-basic-audio-history.test.ts tests/ahri-charm-audio-assets.test.ts tests/ahri-charm-audio-history.test.ts tests/ahri-charm-audio-state.test.ts tests/ahri-charm-audio-controller.test.ts tests/ahri-charm-gameplay-reference.test.ts tests/wwise145-fade.test.ts tests/wwise145-log1.test.ts tests/ahri-attack-audio-history.test.ts tests/ahri-attack-audio-state.test.ts tests/ahri-attack-audio-controller.test.ts tests/ahri-attack-audio-policy.test.ts tests/ahri-lifecycle-audio-history.test.ts tests/ahri-lifecycle-audio-state.test.ts tests/ahri-lifecycle-audio-controller.test.ts tests/ahri-lifecycle-audio-policy.test.ts tests/ahri-recall-audio-state.test.ts tests/ahri-recall-audio-controller.test.ts tests/ahri-recall-audio-history.test.ts tests/ahri-recall-audio-policy.test.ts tests/ahri-q-projectiles.test.ts tests/lazy-ahri-q-projectiles.test.ts tests/ahri-q-projectile-history-view.test.ts tests/ahri-q-projectile-trails.test.ts tests/lazy-ahri-w-effects.test.ts tests/ahri-w-effects.test.ts tests/ahri-w-trails.test.ts tests/ahri-w-particles.test.ts tests/ahri-w-assets-loader.test.ts tests/ahri-w-particle-assets.test.ts tests/ahri-w-history-view.test.ts tests/ahri-w-visual-history.test.ts tests/ahri-w-visual-history-validation.test.ts tests/ahri-w-visual-gameplay-reference.test.ts tests/ahri-w-visual-observation-gameplay.test.ts tests/ahri-w-visual-snapshot.test.ts tests/ahri-q-projectile-visuals.test.ts tests/ahri-q-projectile-history.test.ts tests/source-packed-trail-ribbon.test.ts tests/source-particle-draw-values.test.ts tests/source-binding-timeline.test.ts tests/source-motion-timeline.test.ts tests/ahri-q-projectile-particles.test.ts tests/ahri-q-projectile-gameplay-reference.test.ts tests/ahri-q-projectile-assets-loader.test.ts tests/ahri-q-projectile-assets.test.ts tests/ahri-q-cast-assets-loader.test.ts tests/ahri-q-casts.test.ts tests/lazy-ahri-q-casts.test.ts tests/ahri-q-cast-particle-assets.test.ts tests/ahri-q-cast-particles.test.ts tests/ahri-q-cast-visual-history.test.ts tests/ahri-q-cast-timing.test.ts tests/ahri-q-cast-gameplay-reference.test.ts tests/ahri-recall-gameplay-reference.test.ts tests/ahri-recall-audio-assets.test.ts tests/ahri-lifecycle-audio-assets.test.ts tests/ahri-lifecycle-gameplay-reference.test.ts tests/champion-respawn.test.ts tests/champion-death-scaling.test.ts tests/ahri-attack-audio-assets.test.ts tests/ahri-attack-gameplay-reference.test.ts tests/ahri-development.test.ts tests/critical-attacks.test.ts tests/ahri-passive-audio-assets.test.ts tests/ahri-passive-audio-policy.test.ts tests/ahri-passive-audio-history.test.ts tests/ahri-passive-audio-state.test.ts tests/ahri-passive-audio-controller.test.ts tests/ahri-spirit-rush-audio-assets.test.ts tests/ahri-spirit-rush-audio-policy.test.ts tests/ahri-spirit-rush-audio-history.test.ts tests/ahri-spirit-rush-audio-state.test.ts tests/ahri-spirit-rush-audio-controller.test.ts tests/ahri-spirit-rush-gameplay-reference.test.ts tests/ahri-r.test.ts tests/ahri-passive-gameplay-reference.test.ts tests/ahri-passive.test.ts tests/ahri-fox-fire-audio-assets.test.ts tests/ahri-fox-fire-audio-policy.test.ts tests/ahri-fox-fire-audio-history.test.ts tests/ahri-fox-fire-audio-state.test.ts tests/ahri-fox-fire-audio-controller.test.ts tests/ahri-fox-fire-gameplay-reference.test.ts tests/ahri-w.test.ts tests/ahri-orb-audio-assets.test.ts tests/ahri-orb-audio-policy.test.ts tests/ahri-orb-audio-state.test.ts tests/ahri-orb-audio-controller.test.ts tests/source-envelope.test.ts tests/ahri-orb-audio-history.test.ts tests/ahri-orb-gameplay-reference.test.ts tests/ahri-q.test.ts",
+        "exitCode": 1,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-1.log"
+      },
+      {
+        "command": "python3 tools/assets/test-audio-float-corpus.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-2.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-audio-float-corpus.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-3.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-charm-audio-export.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-4.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-charm-audio-export.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-5.log"
+      },
+      {
+        "command": "python3 tools/assets/test-baron-basic-audio-export.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-6.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-baron-basic-audio-export.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-7.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-q-audio-reading.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-8.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-q-audio-reading.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-9.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-orb-audio-export.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-10.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-orb-audio-export.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-11.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-w-audio-reading.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-12.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-w-audio-reading.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-13.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-fox-fire-audio-export.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-14.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-fox-fire-audio-export.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-15.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-r-audio-reading.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-16.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-r-audio-reading.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-17.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-spirit-rush-audio-export.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-18.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-spirit-rush-audio-export.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-19.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-p-audio-reading.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-20.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-p-audio-reading.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-21.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-passive-audio-export.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-22.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-passive-audio-export.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-23.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-aa-audio-reading.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-24.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-aa-audio-reading.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-25.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-attack-audio-export.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-26.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-attack-audio-export.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-27.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-lifecycle-audio-reading.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-28.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-lifecycle-audio-reading.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-29.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-lifecycle-audio-export.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-30.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-lifecycle-audio-export.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-31.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-recall-audio-reading.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-32.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-recall-audio-reading.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-33.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-recall-audio-export.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-34.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-recall-audio-export.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-35.log"
+      },
+      {
+        "command": "python3 tools/assets/read-ahri-q-bindings.py --check",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-36.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-q-bindings.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-37.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-q-bindings.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-38.log"
+      },
+      {
+        "command": "python3 tools/assets/export-ahri-q-cast-timing.py --check",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-39.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-q-cast-timing.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-40.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-q-cast-timing.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-41.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-q-cast-publication.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-42.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-q-cast-publication.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-43.log"
+      },
+      {
+        "command": "python3 tools/assets/read-ahri-q-projectile-bindings.py --check",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-44.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-q-projectile-bindings.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-45.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-q-projectile-bindings.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-46.log"
+      },
+      {
+        "command": "python3 tools/assets/prepare-ahri-q-projectile-profiles.py --verify-reading",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-47.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-q-projectile-profiles.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-48.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-q-projectile-profiles.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-49.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-q-projectile-publication.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-50.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-q-projectile-publication.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-51.log"
+      },
+      {
+        "command": "python3 tools/assets/read-ahri-w-bindings.py --check",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-52.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-w-bindings.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-53.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-w-bindings.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-54.log"
+      },
+      {
+        "command": "python3 tools/assets/prepare-ahri-w-profiles.py --verify-reading",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-55.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-w-profiles.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-56.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-w-profiles.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-57.log"
+      },
+      {
+        "command": "python3 tools/assets/read-ahri-w-attached-bindings.py --check",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-58.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-w-attached-bindings.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-59.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-w-attached-bindings.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-60.log"
+      },
+      {
+        "command": "python3 tools/assets/test-ahri-w-publication.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-61.log"
+      },
+      {
+        "command": "python3 -O tools/assets/test-ahri-w-publication.py",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-62.log"
+      }
+    ],
+    "reruns": [
+      {
+        "commandIndex": 1,
+        "command": "npm exec vitest -- run tests/baron-basic-audio-assets.test.ts tests/baron-basic-audio-state.test.ts tests/baron-basic-audio-controller.test.ts tests/baron-basic-audio-history.test.ts tests/ahri-charm-audio-assets.test.ts tests/ahri-charm-audio-history.test.ts tests/ahri-charm-audio-state.test.ts tests/ahri-charm-audio-controller.test.ts tests/ahri-charm-gameplay-reference.test.ts tests/wwise145-fade.test.ts tests/wwise145-log1.test.ts tests/ahri-attack-audio-history.test.ts tests/ahri-attack-audio-state.test.ts tests/ahri-attack-audio-controller.test.ts tests/ahri-attack-audio-policy.test.ts tests/ahri-lifecycle-audio-history.test.ts tests/ahri-lifecycle-audio-state.test.ts tests/ahri-lifecycle-audio-controller.test.ts tests/ahri-lifecycle-audio-policy.test.ts tests/ahri-recall-audio-state.test.ts tests/ahri-recall-audio-controller.test.ts tests/ahri-recall-audio-history.test.ts tests/ahri-recall-audio-policy.test.ts tests/ahri-q-projectiles.test.ts tests/lazy-ahri-q-projectiles.test.ts tests/ahri-q-projectile-history-view.test.ts tests/ahri-q-projectile-trails.test.ts tests/lazy-ahri-w-effects.test.ts tests/ahri-w-effects.test.ts tests/ahri-w-trails.test.ts tests/ahri-w-particles.test.ts tests/ahri-w-assets-loader.test.ts tests/ahri-w-particle-assets.test.ts tests/ahri-w-history-view.test.ts tests/ahri-w-visual-history.test.ts tests/ahri-w-visual-history-validation.test.ts tests/ahri-w-visual-gameplay-reference.test.ts tests/ahri-w-visual-observation-gameplay.test.ts tests/ahri-w-visual-snapshot.test.ts tests/ahri-q-projectile-visuals.test.ts tests/ahri-q-projectile-history.test.ts tests/source-packed-trail-ribbon.test.ts tests/source-particle-draw-values.test.ts tests/source-binding-timeline.test.ts tests/source-motion-timeline.test.ts tests/ahri-q-projectile-particles.test.ts tests/ahri-q-projectile-gameplay-reference.test.ts tests/ahri-q-projectile-assets-loader.test.ts tests/ahri-q-projectile-assets.test.ts tests/ahri-q-cast-assets-loader.test.ts tests/ahri-q-casts.test.ts tests/lazy-ahri-q-casts.test.ts tests/ahri-q-cast-particle-assets.test.ts tests/ahri-q-cast-particles.test.ts tests/ahri-q-cast-visual-history.test.ts tests/ahri-q-cast-timing.test.ts tests/ahri-q-cast-gameplay-reference.test.ts tests/ahri-recall-gameplay-reference.test.ts tests/ahri-recall-audio-assets.test.ts tests/ahri-lifecycle-audio-assets.test.ts tests/ahri-lifecycle-gameplay-reference.test.ts tests/champion-respawn.test.ts tests/champion-death-scaling.test.ts tests/ahri-attack-audio-assets.test.ts tests/ahri-attack-gameplay-reference.test.ts tests/ahri-development.test.ts tests/critical-attacks.test.ts tests/ahri-passive-audio-assets.test.ts tests/ahri-passive-audio-policy.test.ts tests/ahri-passive-audio-history.test.ts tests/ahri-passive-audio-state.test.ts tests/ahri-passive-audio-controller.test.ts tests/ahri-spirit-rush-audio-assets.test.ts tests/ahri-spirit-rush-audio-policy.test.ts tests/ahri-spirit-rush-audio-history.test.ts tests/ahri-spirit-rush-audio-state.test.ts tests/ahri-spirit-rush-audio-controller.test.ts tests/ahri-spirit-rush-gameplay-reference.test.ts tests/ahri-r.test.ts tests/ahri-passive-gameplay-reference.test.ts tests/ahri-passive.test.ts tests/ahri-fox-fire-audio-assets.test.ts tests/ahri-fox-fire-audio-policy.test.ts tests/ahri-fox-fire-audio-history.test.ts tests/ahri-fox-fire-audio-state.test.ts tests/ahri-fox-fire-audio-controller.test.ts tests/ahri-fox-fire-gameplay-reference.test.ts tests/ahri-w.test.ts tests/ahri-orb-audio-assets.test.ts tests/ahri-orb-audio-policy.test.ts tests/ahri-orb-audio-state.test.ts tests/ahri-orb-audio-controller.test.ts tests/source-envelope.test.ts tests/ahri-orb-audio-history.test.ts tests/ahri-orb-gameplay-reference.test.ts tests/ahri-q.test.ts",
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-w-rendering-clean-ci-1-rerun-v2.log"
+      }
+    ],
+    "combinedResult": "passed",
+    "verifiedDisposableExportRemoved": true
+  },
+  "offline": {
+    "browser": "system-chromium",
+    "manifest": {
+      "id": "43914dfefe3cd790e08fcfce9aee0f88bc2941e41e58bdff127ac2f94b31bdf2",
+      "files": 1390,
+      "bytes": 578953394
+    },
+    "checks": {
+      "integrityFailureRestoresDownloadFocus": true,
+      "integrityFailure": true,
+      "downloadFocusesCancel": true,
+      "cancelRetainsVerified": true,
+      "cancelRestoresDownloadFocus": true,
+      "retryWithoutRedownload": true,
+      "completionPreservesOtherControlFocus": true,
+      "pausedSavedTickBootsOffline": true,
+      "completePackRepairOffline": true,
+      "newLuxLaneMatchOffline": true,
+      "serviceWorkerResponses": 978,
+      "removalKeepsSavedBytes": true,
+      "updateRefusesOtherTabs": true,
+      "explicitAtomicVersionSwitchOffline": true,
+      "missingEntryRevokesReady": true,
+      "scopeOnlyRemoval": true
+    },
+    "result": "passed",
+    "productionErrors": []
+  },
+  "audioRetention": {
+    "format": 1,
+    "baselineRevision": "5f22240",
+    "retainedWavFiles": 334,
+    "allBytesMatch": true,
+    "retainedAhriWavFiles": 76
+  },
+  "gameplayComparison": {
+    "receipt": "docs/reference/ahri/w-rendering-gameplay-comparison.json",
+    "completeProjectionMatches": 45,
+    "retainsWHistory": true
+  },
+  "limits": [
+    "Functional software Chromium verification; no device performance claim.",
+    "One archived development-roster seed; no hundred-seed gate claim.",
+    "Cast and weapon resources remain unjoined; native random-stream and pixel equivalence remain unverified.",
+    "Two documented baseline test failures remain."
+  ],
+  "production": {
+    "artifactRun": "ahri-w-rendering-v1",
+    "result": "passed",
+    "prefix": "/nested/rift/",
+    "recordings": 32,
+    "mapNavigation": true,
+    "practiceScheduledRigs": 11,
+    "realHawkshotCast": true,
+    "realLuxBindingCast": true,
+    "realLuxSingularityCastAndRecast": true,
+    "lucentSourceAssets": [
+      "assets/effects/lux-e-color-hit-mana.png",
+      "assets/effects/lux-e-color-hold.png",
+      "assets/effects/lux-e-color_lux_e_shield.png",
+      "assets/effects/lux-e-lux_base_e_distort.png",
+      "assets/effects/lux-e-lux_base_e_flame_ring.png",
+      "assets/effects/lux-e-lux_base_e_flare.png",
+      "assets/effects/lux-e-lux_base_e_flash.png",
+      "assets/effects/lux-e-lux_base_e_glow.png",
+      "assets/effects/lux-e-lux_base_e_indicator_blue.png",
+      "assets/effects/lux-e-lux_base_e_indicator_red.png",
+      "assets/effects/lux-e-lux_base_e_mote.png",
+      "assets/effects/lux-e-lux_base_e_small_mote.png",
+      "assets/effects/lux-e-lux_base_ring_00_erosion.png",
+      "assets/effects/lux-e-lux_base_w_glow.png",
+      "assets/effects/lux-e-rainbowflash.png",
+      "assets/effects/lux-e-rainbowhalo.png",
+      "assets/effects/lux-e-sphere_e_01.png",
+      "assets/models/lux-e-indicator.glb",
+      "assets/models/lux-e-slash.glb"
+    ],
+    "luxLaneRestart": true,
+    "selectedSmiteLoadoutAndRestart": true,
+    "companionPurchaseAndRestore": true,
+    "companionPurchaseInPractice": true,
+    "realWardPlacementAndRestore": true,
+    "oraclePurchaseActivationAndRestore": true,
+    "oracleRigRequests": 8,
+    "oracleAudioRequests": 6,
+    "unrequestedOraclePreloads": 0,
+    "wardRigRequests": 20,
+    "unrequestedCompanionPreloads": 0,
+    "developmentHook": false,
+    "baronEncounterInProduction": false,
+    "unrequestedBaronPreloads": 0,
+    "unrequestedBaronEffectPreloads": 0,
+    "unrequestedBaronAudioPreloads": 0,
+    "unrequestedAhriCharmAudioPreloads": 0,
+    "unrequestedAhriQProjectilePreloads": 0,
+    "unrequestedAhriQCastPreloads": 0,
+    "unrequestedAhriOrbAudioPreloads": 0,
+    "unrequestedAhriFoxFireAudioPreloads": 0,
+    "unrequestedAhriSpiritRushAudioPreloads": 0,
+    "unrequestedAhriPassiveAudioPreloads": 0,
+    "unrequestedAhriAttackAudioPreloads": 0,
+    "unrequestedAhriRecallAudioPreloads": 0,
+    "unrequestedAhriLifecycleAudioPreloads": 0,
+    "garenFixtureInProduction": false,
+    "leonaPlayerFixtureInProduction": false,
+    "leonaRiftTrialInProduction": false,
+    "garenRiftTrialInProduction": false,
+    "masterYiRiftTrialInProduction": false,
+    "masterYiBotRiftTrialInProduction": false,
+    "rosterRiftTrialInProduction": false,
+    "publicChampionChoices": [
+      "ashe",
+      "lux"
+    ],
+    "ahriRiftTrialInProduction": false,
+    "ahriBotRiftTrialInProduction": false,
+    "ahriNpcFixtureInProduction": false,
+    "ahriPlayerFixtureInProduction": false,
+    "unrequestedAhriPreloads": 0,
+    "unrequestedMasterYiPreloads": 0,
+    "unrequestedMasterYiAttackAudioPreloads": 0,
+    "unrequestedMasterYiHighlanderAudioPreloads": 0,
+    "unrequestedMasterYiAlphaAudioPreloads": 0,
+    "unrequestedMasterYiMeditateAudioPreloads": 0,
+    "unrequestedMasterYiWujuStyleAudioPreloads": 0,
+    "unrequestedMasterYiSwordPreloads": 0,
+    "unrequestedMasterYiPrimaryTrailPreloads": 0,
+    "unrequestedMasterYiPrimaryHitPreloads": 0,
+    "unrequestedMasterYiPassiveTrailPreloads": 0,
+    "unrequestedMasterYiMeditateDamagePreloads": 0,
+    "unrequestedMasterYiHighlanderKillPreloads": 0,
+    "unrequestedMasterYiHighlanderCastPreloads": 0,
+    "unrequestedMasterYiQEndPreloads": 0,
+    "unrequestedMasterYiQCastPreloads": 0,
+    "unrequestedMasterYiQContactPreloads": 0,
+    "unrequestedMasterYiMeditateCastPreloads": 0,
+    "unrequestedMasterYiMeditateBuffPreloads": 0,
+    "masterYiNpcFixtureInProduction": false,
+    "masterYiPlayerFixtureInProduction": false,
+    "junglePreviewRequests": 0,
+    "unrequestedLeonaPreloads": 0,
+    "preparedCompanionRequests": 5,
+    "roleCompanionRequests": 2,
+    "roleScoreboardIcons": 34,
+    "scheduledGrompRequests": 340,
+    "scheduledBlueRequests": 20,
+    "scheduledRedRequests": 20,
+    "scheduledWolfRequests": 40,
+    "scheduledRaptorRequests": 40,
+    "scheduledKrugRequests": 60,
+    "scheduledScuttlerRequests": 20,
+    "screenshot": "artifacts/production-subpath-ahri-w-rendering-v1-subpath.png"
+  },
+  "reviewedProductionScreenshots": [
+    "artifacts/production-subpath-ahri-w-rendering-v1-subpath.png",
+    "artifacts/offline-pack-ahri-w-rendering-v1-lux-lanes.png"
+  ],
+  "verifiedAt": "2026-11-07",
+  "runtime": {
+    "node": "v24.22.1",
+    "v8": "13.6.233.17-node.58"
+  },
+  "evidence": [
+    {
+      "path": "artifacts/ahri-w-browser-v2.log",
+      "sha256": "9bfbcd0d9ea86cbb8dfccdda7b1bedc09ec90ddab0d8c3ba3aefaea6e6571e02"
+    },
+    {
+      "path": "artifacts/ahri-w-rendering-full-tests-v1.log",
+      "sha256": "8e91f0e0ddf691d84bfdb8a7d384f85ba2b1998017368c7f07b5ae10218da0cd"
+    },
+    {
+      "path": "artifacts/ahri-w-rendering-timeout-rerun-v2.log",
+      "sha256": "4b376e30aec35abc122c835acd7a6468c92bfac4786bbf840a98feb6185ff218"
+    },
+    {
+      "path": "artifacts/ahri-w-rendering-node-qa-v1.log",
+      "sha256": "4afa9c26808b8b4a0ef38293702749c1836f3b78afa7c20e73542a7cd45c0c32"
+    },
+    {
+      "path": "artifacts/ahri-w-rendering-build-v1.log",
+      "sha256": "28d0314bca93e9c6ac210a46fbcb59ba7efe2a512d82fd83d89ede29d9c846ee"
+    },
+    {
+      "path": "artifacts/ahri-w-rendering-browser-regression-v1.log",
+      "sha256": "b72c2243d9ed4b09713a01aad53ef9279395d428deea1e6872228095c09b09e8"
+    },
+    {
+      "path": "artifacts/ahri-w-rendering-audio-browser-v2.log",
+      "sha256": "f3a4db46822f5a32ef5d7410ff17aba25dffff332e64778303815c85e4481dea"
+    },
+    {
+      "path": "artifacts/ahri-w-rendering-production-v1.log",
+      "sha256": "4ecf4c2ef5242c22d6c7bace42ae0f26a13b6d46bf46be312f156121c23242b4"
+    },
+    {
+      "path": "artifacts/ahri-w-rendering-offline-v1.log",
+      "sha256": "87ed3cbfbe60a820fe4adc42f2fb517e70cb64302b7f5a61022b904d2bf4313c"
+    },
+    {
+      "path": "artifacts/ahri-w-rendering-clean-ci-results.json",
+      "sha256": "d32fd336a1d64b89f84f12135d7849f125eb5e30fb1e98cdbdb5d72942d0f4a2"
+    },
+    {
+      "path": "artifacts/ahri-w-rendering-clean-ci-1-rerun-v2.log",
+      "sha256": "94404e4ef65c75827d7aaafdc6477925e44009ccaafecd54bb45217cec8b2ffb"
+    },
+    {
+      "path": "artifacts/ahri-w-rendering-cohort-verify-v1.log",
+      "sha256": "879e31b180f2033d4bbaf40e316db9cdb016ee8074179b7d3063e396e53c3016"
+    },
+    {
+      "path": "artifacts/ahri-w-rendering-audio-retention-v1.json",
+      "sha256": "dcb778bd4daaed8be530a470e93e118c5c5b34ab81d40c25dff8d5d408dad40d"
+    }
+  ]
+}

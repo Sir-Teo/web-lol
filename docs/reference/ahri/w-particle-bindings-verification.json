@@ -1,0 +1,136 @@
+{
+  "format": 1,
+  "readingRevision": "86fb0656b1ca5a11dbb35e7e8be6e3d67bdc64b7",
+  "scope": "Portable native W spell/resource joins only; source preparation and private decode keep separate verification.",
+  "reading": {
+    "path": "/workspace/web-lol-ahri-w-particles/docs/reference/ahri/w-particle-bindings.json",
+    "bytes": 34698,
+    "sha256": "8646e89b6964923abb023060397091d95ab1d04a78c57ae1944fad7e79f4aac1"
+  },
+  "nativeCharacter": {
+    "records": 64,
+    "linkLists": 1,
+    "binBytes": 30475,
+    "completeNativeReparse": true
+  },
+  "bindings": 3,
+  "joinedSystems": 3,
+  "emitters": 23,
+  "unjoinedSystems": [
+    "Ahri_W_cas",
+    "Ahri_W_weap_cas"
+  ],
+  "callbackChronologyEstablished": false,
+  "animationParticleEvents": 0,
+  "portableCI": {
+    "sourceRevision": "86fb0656b1ca5a11dbb35e7e8be6e3d67bdc64b7",
+    "files": [
+      "docs/reference/ahri/character.json",
+      "docs/reference/ahri/names.json",
+      "docs/reference/ahri/character.bin",
+      "docs/reference/ahri-model.json",
+      "docs/reference/ahri/w-particles.json",
+      "tools/assets/ahri_w_particles.py",
+      "tools/assets/read-ahri-w-bindings.py",
+      "tools/assets/test-ahri-w-bindings.py",
+      "docs/reference/ahri/w-particle-bindings.json",
+      ".github/workflows/ahri-w-source.yml"
+    ],
+    "root": "/workspace/web-lol-ahri-w-particles/.cache/ahri-w-bindings-portable-ci-v1",
+    "privateCaches": false,
+    "privateTools": false,
+    "dependencies": false,
+    "results": [
+      {
+        "command": [
+          "python3",
+          "tools/assets/read-ahri-w-bindings.py",
+          "--check"
+        ],
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-w-bindings-portable-ci-0.log",
+        "bytes": 286,
+        "sha256": "9e0ae06e923c615299206b20c0edaaee77ed442815cd3ba451dd4edf1ad59396"
+      },
+      {
+        "command": [
+          "python3",
+          "tools/assets/test-ahri-w-bindings.py"
+        ],
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-w-bindings-portable-ci-1.log",
+        "bytes": 204,
+        "sha256": "59ca9874f0319ceb6ba0b26fe50cce21cf596bb55d19bad9293e632ada3a25f5"
+      },
+      {
+        "command": [
+          "python3",
+          "-O",
+          "tools/assets/test-ahri-w-bindings.py"
+        ],
+        "exitCode": 0,
+        "path": "/workspace/web-lol/artifacts/ahri-w-bindings-portable-ci-2.log",
+        "bytes": 203,
+        "sha256": "a1a6e282ae717a10f795ae572355f795810920281ad680b62e1b46fa8fb50d26"
+      }
+    ]
+  },
+  "nodeQA": 239,
+  "rejectionProbesPerMode": 9,
+  "sourcePinMutationsPerMode": 5,
+  "runtimeSourceFiles": 640,
+  "allPrimarySourceBytesMatch": true,
+  "runtimeChanged": false,
+  "publicAssetsChanged": false,
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-bindings-reading-v1.log",
+      "bytes": 286,
+      "sha256": "9e0ae06e923c615299206b20c0edaaee77ed442815cd3ba451dd4edf1ad59396"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-bindings-check-v1.log",
+      "bytes": 286,
+      "sha256": "9e0ae06e923c615299206b20c0edaaee77ed442815cd3ba451dd4edf1ad59396"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-bindings-native-character-v1.log",
+      "bytes": 147,
+      "sha256": "631453082f9a1f67a8cd99e511473455dfa647e5e6e6280267e5001767c8bf3e"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-bindings-guards-normal-v1.log",
+      "bytes": 204,
+      "sha256": "59ca9874f0319ceb6ba0b26fe50cce21cf596bb55d19bad9293e632ada3a25f5"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-bindings-guards-optimized-v1.log",
+      "bytes": 203,
+      "sha256": "a1a6e282ae717a10f795ae572355f795810920281ad680b62e1b46fa8fb50d26"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-bindings-node-wrapper-v1.log",
+      "bytes": 246,
+      "sha256": "edba3a3fb5981cac1b615e156cf246ea08363ef333207cc2216d19e8f2668e81"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-bindings-all-node-qa-v1.log",
+      "bytes": 19022,
+      "sha256": "a92abed8e99fa2fd8019203859a3329b85801a0ec36806d6d6b22d7e1e9c120c"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-bindings-portable-ci-results.json",
+      "bytes": 1658,
+      "sha256": "2fc816a0409fb2d10e8a41a1b394f9806c3123485f1e5e4a5c2459116ed0ca7a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-source-runtime-match-v1.log",
+      "bytes": 112,
+      "sha256": "7a3ab479d3ce7a775653eaa427524206e2f66a9cf48f729a71c5ca82e861da83"
+    }
+  ],
+  "limits": [
+    "Native declarations retain omitted/default fields without inventing script or renderer behavior.",
+    "No W gameplay, saved visual observer, public assets or runtime renderer are generated."
+  ]
+}

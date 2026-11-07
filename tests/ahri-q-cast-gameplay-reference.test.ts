@@ -19,6 +19,7 @@ test('Q cast visual preparation preserves complete independently archived gamepl
       ({ tick, state }) => {
         const previous = JSON.parse(state);
         delete previous.ahriQProjectileVisuals;
+        delete previous.ahriWVisuals;
         return { tick, sha256: hash(JSON.stringify(previous)) };
       }
     );

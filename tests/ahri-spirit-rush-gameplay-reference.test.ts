@@ -20,6 +20,7 @@ class PassivePresentationProjection extends World {
     delete state.ahriRecallAudio;
     delete state.ahriQCastVisuals;
     delete state.ahriQProjectileVisuals;
+    delete state.ahriWVisuals;
     return JSON.stringify(state);
   }
 }

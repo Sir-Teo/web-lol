@@ -113,6 +113,8 @@ const pinnedData = [
 export const rulesetModuleRoots = [
   'src/render/ahri-q-projectile-particles.ts',
   'src/render/ahri-q-projectiles.ts',
+  'src/render/ahri-w-effects.ts',
+  'src/render/lazy-ahri-w-effects.ts',
   'src/render/ahri-q-cast-particles.ts',
   'src/render/ahri-q-casts.ts',
   'src/audio/ahri-recall-state.ts',

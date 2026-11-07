@@ -1,0 +1,48 @@
+{
+  "format": 1,
+  "scope": "Private source profile verification; no runtime acceptance",
+  "revision": "e86536a",
+  "reading": {
+    "path": "docs/reference/ahri/w-profile-reading.json",
+    "sha256": "db6204032ff94d03b3fc1de6e94b19262791fd548c60d6b168aa977acf6cc08b"
+  },
+  "profiles": 30,
+  "authoredFields": 66,
+  "privateProfileSha256": "63fb38b5d3333ed849045373af4c79e3342bd0a777389b04534fca77290f5da2",
+  "cleanExport": {
+    "files": 16,
+    "privateCachePresent": false,
+    "decoderToolsPresent": false,
+    "nodeModulesPresent": false,
+    "commandsPassed": 3
+  },
+  "guards": {
+    "normal": true,
+    "optimized": true,
+    "sourcePinMutations": 5,
+    "structuralMutationCases": 3
+  },
+  "nodeQa": {
+    "passed": 2,
+    "failed": 0,
+    "fullSuiteAtInitialProjection": {
+      "passed": 241,
+      "failed": 0,
+      "evidence": "artifacts/ahri-w-profiles-node-qa-v1.log"
+    }
+  },
+  "evidence": [
+    "artifacts/ahri-w-profiles-clean-ci-v2-0.log",
+    "artifacts/ahri-w-profiles-clean-ci-v2-1.log",
+    "artifacts/ahri-w-profiles-clean-ci-v2-2.log"
+  ],
+  "limits": [
+    "Missing runtime bindings remain explicit in the profile reading.",
+    "No simulation, public assets, schema, ruleset or renderer changed."
+  ],
+  "priorVerification": {
+    "revision": "39225b3",
+    "structuralMutationCases": 2,
+    "cleanExportCommandsPassed": 3
+  }
+}

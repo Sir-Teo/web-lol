@@ -19,7 +19,11 @@ test('Q projectile visual preparation preserves complete independently archived 
   expect(reference.cases.map((c) => c.scenario)).toEqual([...Q_PROJECTILE_GAMEPLAY_CASES]);
   for (const scenario of Q_PROJECTILE_GAMEPLAY_CASES) {
     const actual = qProjectileGameplaySamples(World, PRACTICE_FIXTURE, scenario).map(
-      ({ tick, state }) => ({ tick, sha256: hash(state) })
+      ({ tick, state }) => {
+        const previous = JSON.parse(state);
+        delete previous.ahriWVisuals;
+        return { tick, sha256: hash(JSON.stringify(previous)) };
+      }
     );
     expect(actual, scenario).toEqual(reference.cases.find((c) => c.scenario === scenario)!.samples);
   }

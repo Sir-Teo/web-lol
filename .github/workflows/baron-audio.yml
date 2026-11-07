@@ -234,9 +234,23 @@ jobs:
           tests/lazy-ahri-q-projectiles.test.ts
           tests/ahri-q-projectile-history-view.test.ts
           tests/ahri-q-projectile-trails.test.ts
+          tests/lazy-ahri-w-effects.test.ts
+          tests/ahri-w-effects.test.ts
+          tests/ahri-w-trails.test.ts
+          tests/ahri-w-particles.test.ts
+          tests/ahri-w-assets-loader.test.ts
+          tests/ahri-w-particle-assets.test.ts
+          tests/ahri-w-history-view.test.ts
+          tests/ahri-w-visual-history.test.ts
+          tests/ahri-w-visual-history-validation.test.ts
+          tests/ahri-w-visual-gameplay-reference.test.ts
+          tests/ahri-w-visual-observation-gameplay.test.ts
+          tests/ahri-w-visual-snapshot.test.ts
           tests/ahri-q-projectile-visuals.test.ts
           tests/ahri-q-projectile-history.test.ts
           tests/source-packed-trail-ribbon.test.ts
+          tests/source-particle-draw-values.test.ts
+          tests/source-binding-timeline.test.ts
           tests/source-motion-timeline.test.ts
           tests/ahri-q-projectile-particles.test.ts
           tests/ahri-q-projectile-gameplay-reference.test.ts

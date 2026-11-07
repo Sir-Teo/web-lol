@@ -1,0 +1,155 @@
+{
+  "format": 1,
+  "sourceRevision": "6ff43e809ad83d78997a6b78894541251bb61a82",
+  "decodeRevision": "dd285a01f93947281ff6ca12a86aa1ebc84903a4",
+  "scope": "Isolated native Fox-Fire particle source and private decode only; no new public assets, runtime observer or renderer.",
+  "context": {
+    "baseRevision": "cf128aa506e4ceeddd464626247f1d322e013156",
+    "schema": 177,
+    "ruleset": "5e4347edd208087bb82b7ad33f2d5ba3f77d6a9767da24a6c32c305cbbe7e694",
+    "acceptedRuntimeRelabeled": false,
+    "runtimePublicSourceBytesUnchanged": true
+  },
+  "native": {
+    "systems": 5,
+    "complexEmitters": 30,
+    "emptyAuthoredResources": [
+      "Ahri_W_weap_cas"
+    ],
+    "files": 41,
+    "bytes": 2579651,
+    "bins": 4,
+    "textures": 35,
+    "meshes": 2,
+    "record": {
+      "path": "/workspace/web-lol-ahri-w-particles/docs/reference/ahri/w-particles.json",
+      "bytes": 235407,
+      "sha256": "c1226324a728137c05062dafc7d4a102a0799a371d233d58e3f81558c26dbb47"
+    },
+    "nativeChecks": [
+      "normal",
+      "optimized"
+    ],
+    "guardCasesPerMode": 9,
+    "omittedEmitterArraysPreserved": true,
+    "conflictingRestoreMakesNoPartialWrites": true
+  },
+  "decoded": {
+    "textures": 35,
+    "mips": 292,
+    "pngBytes": 1539397,
+    "meshes": 2,
+    "sourceVertices": 786,
+    "triangles": 1143,
+    "meshesWithVertexColors": 2,
+    "allNativeMeshBytesRoundTrip": true,
+    "transformsApplied": false,
+    "normalsGenerated": false,
+    "independentGenerationsMatch": true,
+    "exactRegeneration": true,
+    "checkModes": [
+      "normal",
+      "optimized"
+    ],
+    "guardCasesPerMode": 10,
+    "record": {
+      "path": "/workspace/web-lol-ahri-w-particles/docs/reference/ahri/w-particles-decoded.json",
+      "bytes": 216180,
+      "sha256": "11838eed2092e7301577471d3b28670ebc781194f865eb3a1f642fda483abbca"
+    }
+  },
+  "unchangedSharedHelpers": [
+    {
+      "path": "/workspace/web-lol-ahri-w-particles/tools/assets/ahri_q_decode.py",
+      "bytes": 4541,
+      "sha256": "f4f6fac1569574497a79f48444dfd87e9d6bad18727ba42454c7679a7980c523"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-w-particles/tools/assets/masteryi_q_decode.py",
+      "bytes": 7372,
+      "sha256": "552f2cf9a0cb552a97332a142bbea6f25a3b0e2c2974359a58659a2c17517ecd"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-w-particles/tools/assets/decode-masteryi-q-particles.py",
+      "bytes": 10590,
+      "sha256": "9f114c141799f6dc84a6f3884b17b50f6a2a0dc21a2e626a20cbfaf9c9de6964"
+    },
+    {
+      "path": "/workspace/web-lol-ahri-w-particles/tools/assets/verify-ahri-character.py",
+      "bytes": 3660,
+      "sha256": "98faa961f2e23e61749cd220d2161c830cf532244e08e3b05e9782a73e094022"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-native-discovery-v1.log",
+      "bytes": 417,
+      "sha256": "1ec9e38318e091df39ad3a8404a303b9dcb3644fd12d6c22c2b4758dec16a114"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-native-definitions-v1.log",
+      "bytes": 229,
+      "sha256": "f042da335ab126cce9b605447ceaf464e9c2d51aeb1ddabba112021e4a80014d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-native-closure-v1.log",
+      "bytes": 146,
+      "sha256": "367135527e8c172a8ff614b44487e1bcd8f314426de635159680f78d7159aef9"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-source-native-check-v1.log",
+      "bytes": 131,
+      "sha256": "1da99930f792dfde92c396479ea67616c748f2bc1d6b07178f23c4493b5eb86a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-source-native-check-optimized-v1.log",
+      "bytes": 131,
+      "sha256": "1da99930f792dfde92c396479ea67616c748f2bc1d6b07178f23c4493b5eb86a"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-source-guards-normal-v2.log",
+      "bytes": 107,
+      "sha256": "c592965ad6e21659df7a55540ee991703aed885d2845c8335c7e80870e698d13"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-source-guards-optimized-v2.log",
+      "bytes": 107,
+      "sha256": "8ea19d1d53ac2e93b58db0082c9674243f70c9a424fbbb74f7a5b42a4201fccb"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-decode-candidates-v1.log",
+      "bytes": 224,
+      "sha256": "b5c1789fb95b9b0b1bc79b9821b36aeb1570bc68ca2d45876fbc7a064f485b9d"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-decode-check-normal-v1.log",
+      "bytes": 106,
+      "sha256": "cc5b0db415e9dd74d73bb20eadf20bdd2b97571454fe99082e894eff3cfd6e5e"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-decode-check-optimized-v1.log",
+      "bytes": 106,
+      "sha256": "cc5b0db415e9dd74d73bb20eadf20bdd2b97571454fe99082e894eff3cfd6e5e"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-decode-regenerate-v1.log",
+      "bytes": 107,
+      "sha256": "fabbe09bff741436a46b0842c1decd119fe51bedc937cff708aea1b4b7ae32f9"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-decode-guards-normal-v1.log",
+      "bytes": 109,
+      "sha256": "411ae9e0b621d3c291d57412593976cfc7b6a23f82619b3ac0e5204ad1979128"
+    },
+    {
+      "path": "/workspace/web-lol/artifacts/ahri-w-decode-guards-optimized-v1.log",
+      "bytes": 109,
+      "sha256": "1b4a69b15c66f4e1f87efa721d682a45ae2845ee53007e105e4eefded448db48"
+    }
+  ],
+  "limits": [
+    "The empty native declaration is not proof of global absence or native constructor behavior.",
+    "Native spell aliases and particle records do not alone establish callback chronology or variant selection.",
+    "Private software texture decoding is not native GPU appearance or runtime playback acceptance."
+  ]
+}

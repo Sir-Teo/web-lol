@@ -1,0 +1,85 @@
+name: Ahri W portable native reading
+on:
+  push:
+    paths:
+      - '.github/workflows/ahri-w-source.yml'
+      - 'tools/assets/*ahri*w*'
+      - 'tools/qa/ahri-w-particle-bindings.test.mjs'
+      - 'tools/qa/ahri-w-particle-profiles.test.mjs'
+      - 'docs/reference/ahri/character.json'
+      - 'docs/reference/ahri/character.bin'
+      - 'docs/reference/ahri/names.json'
+      - 'docs/reference/ahri-model.json'
+      - 'docs/reference/ahri/w-particles.json'
+      - 'docs/reference/ahri/w-particle-bindings.json'
+      - 'docs/reference/ahri/w-profile-reading.json'
+      - 'docs/reference/ahri/w-attached-bindings.json'
+      - 'docs/reference/ahri/mesh-submeshes.bin'
+      - 'docs/reference/ahri-materials.json'
+      - 'public/assets/models/ahri-base.glb'
+      - 'public/assets/effects/ahri-w-*'
+      - 'src/content/ahri-w-particles.json'
+      - 'docs/reference/ahri/w-publication.json'
+      - 'tools/qa/ahri-w-publication.test.mjs'
+      - 'tools/assets/export-ahri-materials.py'
+      - 'tools/qa/ahri-w-attached-bindings.test.mjs'
+      - 'docs/reference/ahri/w-texture-transports.json'
+      - 'docs/reference/ahri/w-mesh-transports.json'
+      - 'tools/assets/ahri_q_projectile.py'
+      - 'tools/assets/masteryi*.py'
+  pull_request:
+    paths:
+      - '.github/workflows/ahri-w-source.yml'
+      - 'tools/assets/*ahri*w*'
+      - 'tools/qa/ahri-w-particle-bindings.test.mjs'
+      - 'tools/qa/ahri-w-particle-profiles.test.mjs'
+      - 'docs/reference/ahri/character.json'
+      - 'docs/reference/ahri/character.bin'
+      - 'docs/reference/ahri/names.json'
+      - 'docs/reference/ahri-model.json'
+      - 'docs/reference/ahri/w-particles.json'
+      - 'docs/reference/ahri/w-particle-bindings.json'
+      - 'docs/reference/ahri/w-profile-reading.json'
+      - 'docs/reference/ahri/w-attached-bindings.json'
+      - 'docs/reference/ahri/mesh-submeshes.bin'
+      - 'docs/reference/ahri-materials.json'
+      - 'public/assets/models/ahri-base.glb'
+      - 'public/assets/effects/ahri-w-*'
+      - 'src/content/ahri-w-particles.json'
+      - 'docs/reference/ahri/w-publication.json'
+      - 'tools/qa/ahri-w-publication.test.mjs'
+      - 'tools/assets/export-ahri-materials.py'
+      - 'tools/qa/ahri-w-attached-bindings.test.mjs'
+      - 'docs/reference/ahri/w-texture-transports.json'
+      - 'docs/reference/ahri/w-mesh-transports.json'
+      - 'tools/assets/ahri_q_projectile.py'
+      - 'tools/assets/masteryi*.py'
+permissions:
+  contents: read
+jobs:
+  portable-reading:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify native spell/resource joins without decoder tools or private caches
+        run: |
+          python3 tools/assets/read-ahri-w-bindings.py --check
+          python3 tools/assets/test-ahri-w-bindings.py
+          python3 -O tools/assets/test-ahri-w-bindings.py
+      - name: Verify complete W profile reading without private assets
+        run: |
+          python3 tools/assets/prepare-ahri-w-profiles.py --verify-reading
+          python3 tools/assets/test-ahri-w-profiles.py
+          python3 -O tools/assets/test-ahri-w-profiles.py
+      - name: Verify W attached selectors against retained native and transport draws
+        run: |
+          python3 tools/assets/read-ahri-w-attached-bindings.py --check
+          python3 tools/assets/test-ahri-w-attached-bindings.py
+          python3 -O tools/assets/test-ahri-w-attached-bindings.py
+      - name: Reproduce staged W assets and profiles from committed transports
+        run: |
+          python3 tools/assets/test-ahri-w-publication.py
+          python3 -O tools/assets/test-ahri-w-publication.py
