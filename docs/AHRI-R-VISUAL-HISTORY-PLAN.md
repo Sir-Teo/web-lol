@@ -16,11 +16,17 @@ in the comparison. All 357 hashes match the unchanged current World.
 
 Restore verification exposed an existing admission defect: Lux E can kill an
 active R bolt target after R advances in the same completed tick. The validator
-rejects the genuine saved state before the next R update records target loss.
-The completed-tick interaction is reproduced independently. This must be fixed
-without changing damage, movement, target selection or target-loss timing before
-observer implementation. Exact restores and restored futures are still pending
-that correction; no completed baseline acceptance is claimed yet.
+now permits that pending target-loss state only when the target died at the
+saved tick. Stale/future deaths and missing targets still reject. Damage,
+movement, target selection and target-loss update timing are unchanged. The
+completed-tick Lux E interaction restores and advances identically.
+
+All 357 complete projections now round-trip exactly. There are 148 restored
+future comparisons over 17,089 ticks and three terminal immutability checks.
+All 56 focused checks in five files and TypeScript pass. The frozen helper,
+producer and golden retain their 5de09022 identities. This is an archived
+local-gameplay baseline, not native-client or hundred-seed validation. See
+[baseline verification](reference/ahri/r-visual-baseline-verification.json).
 
 The observer will use existing rush IDs, burst indices and bolt indices. It must
 allocate no gameplay IDs or random draws. Record actual window/charge changes,

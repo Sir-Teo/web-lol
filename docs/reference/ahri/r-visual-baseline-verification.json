@@ -1,0 +1,79 @@
+{
+  "format": 1,
+  "scope": "Frozen pre-observer R complete-gameplay projections and bounded same-tick target-death save admission correction",
+  "frozenBaselineRevision": "5de09022cfc2a146163d7b05ac80facd90ce7991",
+  "archiveRuleset": "d625c0ee280a60649bf4516454b529fc1da780ed163f7bf4989c2dd21515a1f4",
+  "archiveSourceFiles": 676,
+  "scenarios": 21,
+  "completeStateProjections": 357,
+  "exactRoundTrips": 357,
+  "restoredFutures": 148,
+  "futureTicks": 17089,
+  "terminalImmutabilityChecks": 3,
+  "focusedTests": 56,
+  "focusedFiles": 5,
+  "typeCheckPassed": true,
+  "sameCompletedTickLuxEReproduction": true,
+  "staleFutureAndMissingTargetsRejected": true,
+  "gameplayUpdateOrderingChanged": false,
+  "damageMovementOrTargetSelectionChanged": false,
+  "observerImplemented": false,
+  "nativeCalibrationVerified": false,
+  "evidence": [
+    {
+      "path": "docs/reference/ahri/r-visual-gameplay-reference.json",
+      "bytes": 48760,
+      "sha256": "ec80b99b60d860970ede42b69a82820193d21e91b27357421a2f4f11ebd1fc16"
+    },
+    {
+      "path": "tests/helpers/ahri-r-visual-gameplay.ts",
+      "bytes": 9133,
+      "sha256": "e4d779796a297f201d407619882a1fc2f1b0239fd5e6a34cbbdf67d7b2202cb0"
+    },
+    {
+      "path": "tools/qa/build-ahri-r-visual-gameplay-reference.mjs",
+      "bytes": 3258,
+      "sha256": "67c4d5fbe548d399545b31a9611109b95aa469edfe26001a8b6dec2c7c0c95c7"
+    },
+    {
+      "path": "tools/qa/ahri-r-visual-gameplay-reference.ts",
+      "bytes": 802,
+      "sha256": "8ad6828fa77e3b9a7d3f71250eb543f57056714913dda82835b2612a7f00cd87"
+    },
+    {
+      "path": "tests/ahri-r-visual-gameplay-reference.test.ts",
+      "bytes": 3201,
+      "sha256": "21d8f8eda0d00fd2995b842820eb388afc526e121b828796a5bdc05bd89bb644"
+    },
+    {
+      "path": "tests/ahri-r-same-tick-target-loss.test.ts",
+      "bytes": 2928,
+      "sha256": "016c22a655d7848ec19448000720643981e529c0e2310be4dbaa7e1cb7eb4fcf"
+    },
+    {
+      "path": "src/simulation/ahri-spirit-rush-validation.ts",
+      "bytes": 8599,
+      "sha256": "f8a52cd11c5d904a593dd1839b9ea59f57263bb4de838d6ed1e09b71877e0400"
+    },
+    {
+      "path": "artifacts/ahri-r-visual-baseline-build-v2.log",
+      "bytes": 63,
+      "sha256": "e8d52165629eb4f4e13ad12e15623580dfc2aa24ea82ccf95d4b31edc9fa03db"
+    },
+    {
+      "path": "artifacts/ahri-r-same-tick-loss-probe-v1.log",
+      "bytes": 184,
+      "sha256": "50c6c054f2b44040585c071db602e95bcd338dad78e3100c209d290aaebdc4f7"
+    },
+    {
+      "path": "artifacts/ahri-r-same-tick-loss-tests-v1.log",
+      "bytes": 442,
+      "sha256": "9d269a8891bfbbbb2970e12f5fdc5f0653e5e0360e8c7bbd7048e90e191a17a4"
+    },
+    {
+      "path": "artifacts/ahri-r-same-tick-loss-types-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}
