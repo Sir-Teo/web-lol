@@ -1,0 +1,69 @@
+{
+  "format": 1,
+  "sourceRevision": "ea97a218c4d4a0f19391d3e76448c997f8e7e6f5",
+  "applicationRevision": "cabb9791",
+  "schema": 181,
+  "ruleset": "e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f",
+  "fullUnitGatePassed": false,
+  "initialRun": {
+    "passed": 10151,
+    "failed": 3,
+    "total": 10154,
+    "files": 611,
+    "workers": 1,
+    "durationSeconds": 497.56
+  },
+  "focusedRetry": {
+    "file": "tests/lane-rules.test.ts",
+    "passed": 9,
+    "failed": 0,
+    "assertionsAndFiveSecondDeadlineUnchanged": true,
+    "pauseSeconds": 9.740146,
+    "ownedWorkersResumed": 3
+  },
+  "resolvedUniqueResults": {
+    "passed": 10152,
+    "failed": 2,
+    "total": 10154,
+    "passingFiles": 609,
+    "failingFiles": 2,
+    "totalFiles": 611
+  },
+  "remainingFailures": [
+    {
+      "file": "tests/leona-eclipse-skin-material.test.ts",
+      "reason": "Original retained native inputs remain absent, starting at .cache/leona-attached-skin-reflection-reading-v1-20261024/check.py"
+    },
+    {
+      "file": "tests/lux-e-missile.test.ts",
+      "expected": "09b53b57121711b36aef97f538295b21e5f04e53bcbfb34cde19450118d628df",
+      "actual": "4258cc67eef3b42afb26960a816f30a9237f2c203a3040e0acf3afb364580f9a",
+      "reason": "Historical 24-sample digest difference remains; expected value unchanged"
+    }
+  ],
+  "productionPack": "171bacaffe287f0fc491e1c5227ed89d740df3717c246b87e801e1e901e55948",
+  "roadmapMilestone4Complete": false,
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/current-production-full-unit-v1.log",
+      "bytes": 5580,
+      "sha256": "a00fa30298373e2a44d71e87931a7ec0376a77cb0fd027a0739cb6b24a08bc4f"
+    },
+    {
+      "file": "artifacts/current-unit-lane-rules-retry-v1.log",
+      "bytes": 167,
+      "sha256": "24370831e9249c6cd4c7216d2c7ae28f0cbf4be2825b5f4c44676df808e1fbea"
+    },
+    {
+      "file": "artifacts/current-unit-wave-pause-and-retry-v1.json",
+      "bytes": 777,
+      "sha256": "2b8ce6cf872853c8e047b2671fd618d6bc511ff3914087787e351b7f11d4d6c6"
+    },
+    {
+      "file": "artifacts/current-unit-wave-pause-and-retry-v2.json",
+      "bytes": 1003,
+      "sha256": "c4c1ea8d594ce4324f33acb6a1c35587c18a3f72f9d1e755fbfdce5bed9349ea"
+    }
+  ]
+}

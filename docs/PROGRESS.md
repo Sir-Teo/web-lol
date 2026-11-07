@@ -8,6 +8,13 @@ Last updated: November 7, 2026 (UTC).
 
 Accepted local runtime: save schema **181**, ruleset
 `e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f`.
+Latest application `cabb9791` / pack `171bacaf` has a fresh resolved unit result
+of 10,152/10,154 across 611 files. One wave-clock deadline failure passed its
+unchanged nine-test focused retry after a recorded ten-second audit-worker pause.
+The same two historical Leona-input/Lux-digest failures remain, so the full unit
+gate stays open. Original results and both pause records are retained. See
+[current unit verification](reference/current-production-unit-verification.json).
+
 [Spirit Rush rendering](AHRI-R-PARTICLES.md), application `a345d9eb`, draws
 33 selected profiles: 23 missile/contact and ten buff profiles. The two noise
 profiles use independently checked finite impulse motion under explicit external
