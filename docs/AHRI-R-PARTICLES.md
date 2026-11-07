@@ -1030,3 +1030,22 @@ binding, natural expiry and long-age draining with two seeds and three stop
 policies. All 73 reference checks and TypeScript pass before field research.
 The seven packet families and their archive-only producers remain independently
 pinned; no runtime source changes in this checkpoint.
+
+## Deferred noise-field research
+
+The [noise-field reading](reference/ahri/r-noise-field-reading.json) pins eight
+external source/plan inputs at LeagueToolkit revision `2adda384`. Its executed
+force-field code provides emitter-wide impulse clocks, inclusive radius gates,
+birth-step impulses at zero motion delta, authored axis fractions and velocity
+changes retained after particle drag. The deterministic direction hash, tiny-vector
+normalization threshold and per-step impulse cap are explicit preview stand-ins.
+They do not certify native randomness, constructor defaults or pixels. The plan's
+emitter-space explanation differs from its executable zero-origin field path;
+the reading records that discrepancy rather than silently merging the two.
+
+The [independent fixture set](reference/source-noise-field-samples.json) contains
+four clock sequences, 24 field-preparation samples and 162 impulses from the
+pinned external evaluator and its actual curve/basis dependencies. It retains
+float32 result bits. The producer verifies every external blob and the unchanged
+published R data before execution. Its entry passes a direct strict TypeScript
+check, and fixture provenance passes. No runtime noise profile is connected.

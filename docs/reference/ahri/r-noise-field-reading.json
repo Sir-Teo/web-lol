@@ -1,0 +1,211 @@
+{
+  "format": 1,
+  "scope": "Read-only evidence for deferred R noise fields; no runtime profile binding or native constructor/RNG certification",
+  "source": {
+    "path": "src/content/ahri-r-particles.json",
+    "sha256": "c9a65a9808d3206cfbaee6dc1f9e1a5a37d6351947d997e2a5c4b8d3b290f29f"
+  },
+  "externalRevision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+  "readers": [
+    {
+      "path": ".cache/ahri-r-noise-readers/engine/simulation/forceFields.ts",
+      "bytes": 12447,
+      "sha256": "b449af74385fb95e509a60dbd7cab2b2e813538ae65d80a8ed6bc6ed5ce8bbc7",
+      "gitBlob": "27a25411124de8a16a7dc76bd77407dffbc3a98d",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/simulation/forceFields.ts"
+    },
+    {
+      "path": ".cache/ahri-r-noise-readers/integrate.ts",
+      "bytes": 22084,
+      "sha256": "35e332547a4697558f93f4d5a91f295bcd6d8e9b299ccb8d7331ad873de96587",
+      "gitBlob": "eaf11da07e0fcdac3c4fce742333e6871bf37fe9",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/simulation/integrate.ts"
+    },
+    {
+      "path": ".cache/ahri-r-noise-readers/forceFields.test.ts",
+      "bytes": 10870,
+      "sha256": "04095332b64d4aba43b63963e4b8e89737392edd73b5e48af830aad3a387b1b4",
+      "gitBlob": "230b1ce950667afe62b4c6594e0dd11290e2a816",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/simulation/__tests__/forceFields.test.ts"
+    },
+    {
+      "path": ".cache/ahri-r-noise-readers/engine/utils/basis.ts",
+      "bytes": 10219,
+      "sha256": "948deb523c5e16fbf6ef529f9967f9b5de8ff3db1c169fa6ceffc58a08fbcf5e",
+      "gitBlob": "fdb0c944a0f9f3ad452c04e5982231c121baa8f3",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/utils/basis.ts"
+    },
+    {
+      "path": ".cache/ahri-r-noise-readers/engine/utils/sampleCurve.ts",
+      "bytes": 12299,
+      "sha256": "2acbaef37379bb8c4d6684c3716bad0311167a175c0132506148d349c5ba5230",
+      "gitBlob": "8d41159189b0042dd2fd506ba12e5963e11bb094",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/utils/sampleCurve.ts"
+    },
+    {
+      "path": ".cache/ahri-r-noise-readers/space.ts",
+      "bytes": 2120,
+      "sha256": "76c35b474dfcd46e00146b67752597abdd72a38f9c466a28bd0c016572539ddf",
+      "gitBlob": "075613a6146a66f86670d77c083d7a35c1cf25e0",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/viewport/shared/utils/space.ts"
+    },
+    {
+      "path": ".cache/ahri-r-noise-readers/vfx-particle-renderer.md",
+      "bytes": 232427,
+      "sha256": "31d7294422ea1d6285fd9586814ba244f6ca5f68b26edc95edcd01b17786c733",
+      "gitBlob": "8c0b062298dfd4f36e611f828eefcb1e66a21c30",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/docs/plans/vfx-particle-renderer.md"
+    },
+    {
+      "path": ".cache/baron-emission-readers/engine/parsing/readMotion.ts",
+      "bytes": 13352,
+      "sha256": "14f47fe79957dcd5d440d8ab69752cf90702a628c070033641d06eb9ace879e8",
+      "gitBlob": "9decc3977885a73f1064e23ea5fbbd4609aaab14",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/parsing/readMotion.ts"
+    }
+  ],
+  "profiles": [
+    {
+      "profile": 10,
+      "system": "Ahri_R_Tar",
+      "name": "sparkles_burst",
+      "emitterLifetime": 2.5,
+      "position": {
+        "constant": [
+          0,
+          0,
+          0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "probabilities": [],
+        "sourceType": null,
+        "authoredKeyCount": 0,
+        "dynamicType": null,
+        "explicitFields": [],
+        "probabilityMetadata": []
+      },
+      "fields": {
+        "fieldNoiseDefinitions": [
+          {
+            "radius": {
+              "constantValue": 750.0,
+              "__type": "ValueFloat"
+            },
+            "frequency": {
+              "constantValue": 6.0,
+              "__type": "ValueFloat"
+            },
+            "velocityDelta": {
+              "constantValue": 40.0,
+              "__type": "ValueFloat"
+            },
+            "axisFraction": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "__type": "VfxFieldNoiseDefinitionData"
+          }
+        ],
+        "__type": "VfxFieldCollectionDefinitionData"
+      }
+    },
+    {
+      "profile": 27,
+      "system": "Ahri_R_mis_02",
+      "name": "sparks",
+      "emitterLifetime": 5.0,
+      "position": {
+        "constant": [
+          0.0,
+          -20.0,
+          0.0
+        ],
+        "times": [
+          0
+        ],
+        "values": [
+          [
+            0.0,
+            -20.0,
+            0.0
+          ]
+        ],
+        "probabilities": [],
+        "sourceType": "ValueVector3",
+        "authoredKeyCount": 0,
+        "dynamicType": null,
+        "explicitFields": [
+          "__type",
+          "constantValue"
+        ],
+        "probabilityMetadata": []
+      },
+      "fields": {
+        "fieldNoiseDefinitions": [
+          {
+            "radius": {
+              "constantValue": 800.0,
+              "__type": "ValueFloat"
+            },
+            "frequency": {
+              "constantValue": 5.0,
+              "__type": "ValueFloat"
+            },
+            "velocityDelta": {
+              "constantValue": 12.0,
+              "dynamics": {
+                "times": [
+                  0.0,
+                  1.0
+                ],
+                "values": [
+                  0.0,
+                  12.0
+                ],
+                "__type": "VfxAnimatedFloatVariableData"
+              },
+              "__type": "ValueFloat"
+            },
+            "axisFraction": [
+              24.0,
+              24.0,
+              24.0
+            ],
+            "__type": "VfxFieldNoiseDefinitionData"
+          }
+        ],
+        "__type": "VfxFieldCollectionDefinitionData"
+      }
+    }
+  ],
+  "executedExternalPolicy": {
+    "clock": "One first-update impulse, then nonnegative truncated-frequency crossings against last fire on absolute system time; zero rate fires once",
+    "clockOwnership": "One clock per emitter field, shared by all particles, not restarted at each birth",
+    "birth": "A fresh particle takes the birth-step impulse even at zero integration delta",
+    "gating": "Inclusive unscaled radius in local integration coordinates; missing field Position reads external zero vector",
+    "direction": "Float32-normalized cube sample hashed by particle serial, field slot and impulse ordinal; stream correspondence unresolved",
+    "impulse": "No dt multiplier; authored axis fractions preserved, including [24,24,24]",
+    "ordering": "Particle drag, then fields; field change retained in particle velocity; position moves after fields",
+    "sampling": "Field values read at emitter phase once per update; centres from zero field-frame origin in pinned executable code"
+  },
+  "explicitStandIns": {
+    "minimumSquaredNormalization": 1e-12,
+    "maximumImpulsesPerUpdate": 256,
+    "directionHash": "External deterministic preview policy, not native stream or pool identity"
+  },
+  "planCodeDiscrepancy": "The plan discusses emitter-space offsets and a separate kickNewborns path; the pinned executable fieldsOf uses a zero origin and stepEmitters integrates fresh particles with zero delta. Follow executable code for this scoped comparison.",
+  "runtimeBindingChanged": false,
+  "nativeConstructorCertification": false,
+  "nativeRandomStreamCertification": false,
+  "nativePixelEquivalence": false
+}
