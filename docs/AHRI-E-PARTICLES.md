@@ -83,3 +83,26 @@ integer-to-boolean substitution guard follows an actual integer in this record;
 it does not invent a boolean field. Complete buff chronology and rendering are
 still separate work. The selected ability now has five resource definitions /
 29 complex emitters available for the producer reading.
+
+## Portable native producer reading
+
+The reading retains the complete E ability and both child spell records. Two
+spell fields join missile and target effects; two persistent-buff declarations
+join the head effect and raw hashed layout effect. Four directional Spell3
+animation clips declare the cast resource at source frame 1, without end frames.
+The exact E_ prefix excludes unrelated Emote events. All five selected systems /
+29 emitters are joined by these declarations, referencing 22 textures and two
+meshes; native script bodies and callback chronology remain unverified.
+
+The missile declares FixedSpeedMovement at 1550, start bone
+BUFFBONE_CSTM_WEAPON_1 and initial target-height offset 100; its visibility
+component remains omitted. Its ordered behaviors are CastOnHit,
+DestroyOnMovementComplete and DestroyOnHit. Root-spell head and missile spine
+hit-bone declarations remain distinct. These fields do not supply renderer
+transforms, frame conversion, direction selection or persistent-effect stopping.
+
+Portable guards reproduce the reading without caches or a native decoder,
+reject six changed input pins, preserve omissions and reject conflicting outputs
+and symlinked leaves/parents. Both Node QA wrappers pass. A dedicated workflow
+runs the portable reading and normal/optimized guards. This stage adds no runtime
+rules, histories or public assets.
