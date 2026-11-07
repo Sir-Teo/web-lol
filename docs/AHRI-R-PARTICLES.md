@@ -1059,3 +1059,12 @@ warm-up and rejection checks: 169 checks total. All seven accepted R packet
 families remain exact; the combined selection passes 722 checks in nine files,
 and TypeScript passes. Native noise profiles remain deferred while field-value
 preparation and motion integration are developed.
+
+`SourceNoiseFieldValues` now prepares the two authored scalar-curve collections
+into independently checked impulse packets. It supports only the explicit noise
+field shape with the recorded omitted-Position zero-centre policy; other fields
+and unverified defaults fail closed. Prepared curves and axes own their input,
+returned packets expose no internal axes, and a rejected later field cannot
+partially advance an earlier clock. All 24 external preparation samples match;
+the combined field checks pass 174 tests and TypeScript. The native R noise
+profiles remain disconnected pending motion integration.
