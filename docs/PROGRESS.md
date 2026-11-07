@@ -1,29 +1,33 @@
 # Development status
 
-Last updated: November 6, 2026 (UTC).
+Last updated: November 7, 2026 (UTC).
 
 **Goal remains active:** continuously develop the highest-quality, visually authentic League-like browser game, without an application backend, through small commits. The required final state is a verified production-level full match experience. This file describes progress toward that goal; it does not reduce its scope.
 
 ## Current authoritative state
 
-Accepted local runtime: save schema **177**, ruleset
-`5e4347edd208087bb82b7ad33f2d5ba3f77d6a9767da24a6c32c305cbbe7e694`,
-application `9449e0f`. [Ahri Q projectile rendering](AHRI-Q-PROJECTILES.md)
-adds both declared missile systems: 26 surface and ten trail profiles with saved
-paths, visibility, phase stops and exact restored packets. The existing
-[cast particles](AHRI-Q-CAST.md), eight audio families and 76 exact PCM masters
-remain intact. Hit, speed and Orb_Cast particle systems remain unbound.
+Accepted local runtime: save schema **178**, ruleset
+`ff8abc1be3d5e4191d0544c600ed32c1e3d89b5bf969d9f2a57c591cde81dbe9`,
+rendering application `124cc67`, accepted `26f7366`, integrated `9e3bd16`.
+[Ahri W rendering](AHRI-W-RENDERING.md) adds 23 joined orbit, flight and hit
+profiles over saved paths, visibility and finite phase stops. Cast/weapon
+resources remain unjoined. Accepted Q cast/projectile rendering, eight audio
+families and all 76 Ahri PCM masters remain intact.
 
-The full suite passes 8,879/8,881 in 538 files, with two historical failures.
-All 237 Node QA cases, 541 scoped CI tests in 82 files, TypeScript and 52
-cache-free CI commands pass (50 Python invocations: 46 guard modes and four
-portable reading checks). Thirty-four browser cases and production/offline
-gates pass; see [projectile acceptance](reference/ahri/q-projectile-rendering-acceptance.json).
+The unit suite covers 9,077 tests in 553 files: 9,075 pass after an unchanged
+single-worker rerun of four files that timed out during concurrent work; the two
+historical failures remain. All 245 Node QA cases, 735 scoped CI tests in 96
+files, TypeScript and 63 cache-free CI commands pass, with the initial CI history
+timeout and successful rerun retained. Four W browser cases and ten Q/audio
+regression cases pass; the audio-readiness timeout passes on a separate rerun.
+Production nested-path checks cover 32 recordings; the full offline gate passes.
+See [W acceptance](reference/ahri/w-rendering-verification.json).
 
-The accepted pack is `4b183389`, with 1,357 files / 576,879,237 bytes.
-The worker policy is unchanged. Earlier family receipts and frozen cohorts
-retain their original identities. All work remains local. Fox-Fire particle
-source/decoding and emote/idle source preparation remain isolated.
+The accepted pack is `43914dfe`, with 1,390 files / 578,953,394 bytes.
+Worker policy is unchanged. All 45 archived state projections, including W
+history, match the accepted observer baseline. Earlier receipts and frozen
+cohorts retain their original identities. All work remains local. Emote/idle
+source preparation remains isolated.
 
 The [frozen hundred-seed development-roster baseline](CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md)
 is complete: 100 natural victories, zero unfinished matches or invariant failures,
@@ -32,7 +36,7 @@ is complete: 100 natural victories, zero unfinished matches or invariant failure
 original horizon; later diagnostic continuations retain their separate scope.
 Neither baseline is relabeled to later audio rulesets. The isolated Q-history (`1b65f941`) and W-history (`f30224c9`) seeds each retain 45
 matching archived gameplay projections against their own immediate baselines.
-All W-history simulation/content bytes are unchanged in the accepted W playback checkpoint.
+Those earlier checkpoints retain their original schema and source scope.
 
 Full production roster selection, complete champion/objective behavior, native
 visual/audio calibration and representative device performance remain open.
@@ -40,6 +44,13 @@ Roadmap milestone 4 and project completion remain false. The historical records
 below retain earlier intermediate limitations and next steps.
 
 ## Recent verified checkpoints
+
+Primary merge `9e3bd16` preserves both Q acceptance/documentation commits and
+integrates the verified W branch without runtime merge edits. The current
+archived seed-one cohort verifies directly against the merged primary sources.
+A fresh primary build reproduces the accepted pack exactly; all 33 focused
+integration tests pass. See [integration receipt](reference/ahri/w-rendering-main-integration.json).
+The earlier Q-only fast-forward below retains its original scope.
 
 Primary `work` fast-forwards from `40a267d` to `5396b46` without merge
 edits. Its fresh build and all-file/worker audit reproduce `4b183389` exactly,

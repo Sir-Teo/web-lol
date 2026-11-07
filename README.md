@@ -128,6 +128,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Garen and Ahri roster expansion](docs/ROSTER-EXPANSION.md)
 - [Charm source audio and saved phase clocks](docs/AHRI-CHARM-AUDIO.md) — nine unchanged masters, exact Linear play fade and retained Exp1 stop domain.
 - [Orb source audio and saved dispatch clocks](docs/AHRI-Q-AUDIO.md) — 22 unchanged masters, per-leg hit sequences and distinct flight stop curves.
+- [Fox-Fire joined source rendering](docs/AHRI-W-RENDERING.md) — 23 orbit, flight and hit profiles, saved visibility and finite drains; cast/weapon resources remain unjoined.
 - [Fox-Fire source audio and saved clocks](docs/AHRI-W-AUDIO.md) — eleven unchanged masters, continuous activation and a separate stop-tail cue.
 - [Essence Theft source audio](docs/AHRI-P-AUDIO.md) — five shared masters, independent saved consumption cues and exact restore.
 - [Ahri Q particle source](docs/AHRI-Q-PARTICLES.md) — seven native systems, complete private mip/mesh decode and raw attachment declarations.

@@ -1,0 +1,35 @@
+{
+  "format": 1,
+  "mergeRevision": "9e3bd16",
+  "acceptedBranchRevision": "26f7366",
+  "previousPrimaryRevision": "fa07720",
+  "runtimeMergeEdits": false,
+  "schemaVersion": 178,
+  "ruleset": "ff8abc1be3d5e4191d0544c600ed32c1e3d89b5bf969d9f2a57c591cde81dbe9",
+  "pack": {
+    "result": "passed",
+    "pack": "43914dfefe3cd790e08fcfce9aee0f88bc2941e41e58bdff127ac2f94b31bdf2",
+    "files": 1390,
+    "bytes": 578953394,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "sameAsAcceptedPack": true,
+  "cohortCurrentSourceVerification": "artifacts/ahri-w-rendering-primary-cohort-verify-v1.log",
+  "build": "artifacts/ahri-w-rendering-primary-build-v1.log",
+  "focusedTests": "artifacts/ahri-w-rendering-primary-tests-v1.log",
+  "limits": "Local integration; the two accepted baseline unit failures remain. No push or deployment.",
+  "evidence": [
+    {
+      "path": "artifacts/ahri-w-rendering-primary-cohort-verify-v1.log",
+      "sha256": "879e31b180f2033d4bbaf40e316db9cdb016ee8074179b7d3063e396e53c3016"
+    },
+    {
+      "path": "artifacts/ahri-w-rendering-primary-build-v1.log",
+      "sha256": "1d367c4cdbb8e4598e58cbeb71430f0995af0355af91c4243add4ad27fff4563"
+    },
+    {
+      "path": "artifacts/ahri-w-rendering-primary-tests-v1.log",
+      "sha256": "ffc19dc47dbc2a51add0a634548aa8ad4d97ceae7c20c2ab187db3b5bc46cd12"
+    }
+  ]
+}

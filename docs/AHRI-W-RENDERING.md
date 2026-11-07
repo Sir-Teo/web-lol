@@ -166,3 +166,7 @@ repair, cancellation/retry and atomic version switching pass without production
 errors. Production and offline screenshots were reviewed. Worker policy remains
 unchanged. These results accept the joined W renderer within the stated local
 binding and source-fidelity limits; cast/weapon resources remain unjoined.
+
+The [primary integration receipt](reference/ahri/w-rendering-main-integration.json)
+records merge 9e3bd16, unchanged runtime merge bytes, the identical rebuilt pack,
+current-source cohort verification and 33 passing focused tests.
