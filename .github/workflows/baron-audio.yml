@@ -250,6 +250,7 @@ jobs:
           tests/ahri-q-projectile-history.test.ts
           tests/source-packed-trail-ribbon.test.ts
           tests/source-default-trail-ribbon.test.ts
+          tests/source-packed-ribbon-meshes.test.ts
           tests/source-particle-draw-values.test.ts
           tests/source-binding-timeline.test.ts
           tests/source-motion-timeline.test.ts

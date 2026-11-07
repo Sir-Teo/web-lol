@@ -550,3 +550,8 @@ phase stays absolute, and saved pose queries retain their actual caster times.
 All 122 sampler checks pass, including million-second ages, backward/fractional
 seeks, stop/drain behavior and all 108 earlier spell/glow packet hashes. Ribbon
 geometry and renderer ownership are the next separate integration stage.
+
+The procedural ribbon upload layer now preserves the packed shader attributes,
+converts source centimetres once, grows owned buffers and retires their materials
+without disposing page-owned textures. Three ownership/upload cases pass within
+62 packed-ribbon checks. The upload helper remains unconnected to live effects.
