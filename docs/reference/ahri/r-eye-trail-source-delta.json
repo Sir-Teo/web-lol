@@ -1,0 +1,117 @@
+{
+  "format": 1,
+  "result": "passed",
+  "beforeRevision": "0d6b714fb2fca5301988260166386656b2419deb",
+  "afterRevision": "2cfece301e465bbb2ae6ba9f4eeb63b5ee736887",
+  "applicationRevision": "69a05a865069face8bcbc7826d02a87d1b80363e",
+  "beforeRuleset": "186133424c3e28265877ba008d887874ddfc6da10edf515e83bc2a0cf4f5f7d2",
+  "afterRuleset": "0cbdb13a8ae7a5bdbd1ff2dba9d8798fa486c7a4f003a3fe14cba6eab32fe8c9",
+  "beforeArchiveFiles": 693,
+  "afterArchiveFiles": 696,
+  "changed": [
+    {
+      "before": {
+        "file": "src/render/ahri-r-assets.ts",
+        "bytes": 4671,
+        "sha256": "e152a192b528dff1c7a41c3fd9ab751cac7bc90a3cc803df43fbb588df841e41"
+      },
+      "after": {
+        "file": "src/render/ahri-r-assets.ts",
+        "bytes": 4673,
+        "sha256": "5097da42a253ceb87232332474ec5688451a2948a2e0bf5f0152be6914911c35"
+      }
+    },
+    {
+      "before": {
+        "file": "src/render/ahri-r-buff-attachments.ts",
+        "bytes": 3931,
+        "sha256": "92dc65f12e372eb3c17b67db9086edf2cb0890e94d36a7bad0f691350c5b10b7"
+      },
+      "after": {
+        "file": "src/render/ahri-r-buff-attachments.ts",
+        "bytes": 4129,
+        "sha256": "fa65ede13f07d6a116fd8577e1275be2508f20a95b63f7b6b4f68c5d1cd9725d"
+      }
+    },
+    {
+      "before": {
+        "file": "src/render/ahri-r-buff-effects.ts",
+        "bytes": 5945,
+        "sha256": "b076077240b4eb3518ea53b9724da1e582ac04b87fd25b0e66d004bab1076756"
+      },
+      "after": {
+        "file": "src/render/ahri-r-buff-effects.ts",
+        "bytes": 8441,
+        "sha256": "f7ab2686965ebb390a6736dd9e4ecc95221a217a0ce2708a15c0d289c48f7eaa"
+      }
+    },
+    {
+      "before": {
+        "file": "src/render/ahri-r-particles.ts",
+        "bytes": 18902,
+        "sha256": "92960afa7df999a5ad9495c4e81d0312829793bddcce2c60f846437a279755aa"
+      },
+      "after": {
+        "file": "src/render/ahri-r-particles.ts",
+        "bytes": 20130,
+        "sha256": "89d240bd960ee04a2532dfb3be38929dabea97a8f589d9f307d3b1eb74470f93"
+      }
+    },
+    {
+      "before": {
+        "file": "src/render/ahri-r-ribbon-material.ts",
+        "bytes": 5740,
+        "sha256": "dff3f25f00f0bbeae02126a06b3a84a2b8cde1290b806ab6a667b250a5977b08"
+      },
+      "after": {
+        "file": "src/render/ahri-r-ribbon-material.ts",
+        "bytes": 5867,
+        "sha256": "699859feae92fa603b743c5b45b970eb99f0abf8448fabb5b87607f7ec7ad300"
+      }
+    },
+    {
+      "before": {
+        "file": "src/render/lazy-ahri-r-effects.ts",
+        "bytes": 2158,
+        "sha256": "06d1bf9f472ef1e99092626fafd4a3af4d15a0ae306673edcb78d4ec12ad8b84"
+      },
+      "after": {
+        "file": "src/render/lazy-ahri-r-effects.ts",
+        "bytes": 2223,
+        "sha256": "66b5730bcca7ec21002cf54d52be5a4f1f80cd553566f67aa44f91c0dd177cb4"
+      }
+    },
+    {
+      "before": {
+        "file": "src/render/source-packed-trail-ribbon.ts",
+        "bytes": 6262,
+        "sha256": "dda67f6141b9b6907ebb5388247171c31caa1ed2f10a4377b08b255ff837486a"
+      },
+      "after": {
+        "file": "src/render/source-packed-trail-ribbon.ts",
+        "bytes": 6398,
+        "sha256": "d5ea4243a40f0576d90ca2b53157f8d7c91ed2e7503290ab45ec904ac5b19cdc"
+      }
+    }
+  ],
+  "added": [
+    {
+      "file": "src/render/ahri-r-eye-schedule.ts",
+      "bytes": 3753,
+      "sha256": "a818877f1a4145617de0bdcfef607f27ee8fe27e7c77405da93482b39435b010"
+    },
+    {
+      "file": "src/render/ahri-r-eye-trails.ts",
+      "bytes": 3207,
+      "sha256": "bc85b09c8909e7364c8a3326e3ca51557a34067db3d8b221c95523264f7a2b92"
+    },
+    {
+      "file": "src/render/source-packed-ribbon-meshes.ts",
+      "bytes": 3764,
+      "sha256": "095628fc0ecffe0afa95a36d93d4c4ed0cb39ecee71d703e14ea6ab4e43fdbd2"
+    }
+  ],
+  "removed": [],
+  "unchangedFiles": 686,
+  "scope": "Three added renderer modules and seven renderer/kernel integration changes; all simulation, content and archived public asset bytes remain exact."
+}
