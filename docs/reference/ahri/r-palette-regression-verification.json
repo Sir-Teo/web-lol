@@ -1,6 +1,6 @@
 {
   "format": 1,
-  "scope": "Checked R palette ribbon candidate; cross-kit browser and production/offline acceptance pending",
+  "scope": "Checked R palette ribbon candidate; production/offline acceptance pending",
   "applicationRevision": "a7092caa82f751cc1eb6064bd795cd7309b480c5",
   "schema": 181,
   "ruleset": "a68ca14b74c144ccb6b0d183f2d41395403a8defa0ae514756463c369f46b90d",
@@ -88,6 +88,9 @@
     "artifacts/ahri-r-palette-audio-preservation-v1.json",
     "artifacts/ahri-r-palette-image-review-v1.json",
     "docs/reference/ahri/r-palette-gameplay-comparison.json",
-    "docs/reference/ahri/r-palette-source-delta.json"
-  ]
+    "docs/reference/ahri/r-palette-source-delta.json",
+    "artifacts/ahri-r-palette-browser-regression-v1.log"
+  ],
+  "crossKitBrowserCasesPassed": 25,
+  "distinctBrowserCasesPassed": 33
 }
