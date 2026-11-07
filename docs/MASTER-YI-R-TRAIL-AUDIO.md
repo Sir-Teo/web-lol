@@ -72,3 +72,9 @@ question of an omitted STMG table in the selected pair; other banks and native
 client inputs remain outside this check. See
 [native bank verification](reference/masteryi/r-trail-native-bank-chunks-verification.json).
 Parameter semantics and default remain unresolved, and no playback is added.
+
+The pinned English localized Global WAD header was also checked. It has two
+entries and neither candidate init-bank hash. This adds one bounded negative
+reading, without claiming absence from other WADs, localizations or the complete
+client. See [localized candidate reading](reference/masteryi/r-trail-localized-init-candidate-reading.json).
+The parameter remains unresolved and runtime/public bytes stay unchanged.

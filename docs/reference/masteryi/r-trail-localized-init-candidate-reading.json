@@ -1,0 +1,39 @@
+{
+  "format": 1,
+  "result": "candidate-paths-absent",
+  "parameterResolution": "unresolved",
+  "parameterId": 745018932,
+  "archive": "DATA/FINAL/Localized/Global.en_US.wad.client",
+  "entries": 2,
+  "header": {
+    "file": ".cache/riot-reference/3c108e6793921af1-header.wad.client",
+    "bytes": 336,
+    "sha256": "ae3d2e9c152d4d60a8c5e1257cbe0254726871a0c6d586204eb26a768e5fad54"
+  },
+  "candidatePaths": [
+    {
+      "file": "assets/sounds/wwise2016/sfx/shared/init.bnk",
+      "present": false
+    },
+    {
+      "file": "assets/sounds/wwise/sfx/shared/init.bnk",
+      "present": false
+    }
+  ],
+  "nativeReferenceVersion": "16.18.8175716",
+  "scope": "Only the pinned English localized Global header was checked; no complete-client or all-localization absence claim.",
+  "runtimePublicAssetsAndOriginalReadingsUnchanged": true,
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/global-audio-init-localized-en-us-reading-v1.json",
+      "bytes": 1255,
+      "sha256": "93f580f320d8385191ae878dc7307d7a3dccb94a4cbce0726e55054e9aaaba85"
+    },
+    {
+      "file": "artifacts/global-audio-init-localized-en-us-reading-v1.log",
+      "bytes": 240,
+      "sha256": "73d0fbe0932a5f8360702207d851b006f02425e2acf9bcb3e5689c61edc98e42"
+    }
+  ]
+}
