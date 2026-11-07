@@ -1,3 +1,12 @@
+import {
+  beginRVisualHistory,
+  advanceRVisualHistory,
+  refreshRVisualAudience,
+  pruneRVisualHistory,
+  endRVisualTarget,
+  finishAllRVisualHistory,
+  type AhriRVisualHistory,
+} from './ahri-r-visual-history';
 import { AHRI_E_VISUAL_HISTORY_TICKS } from '../content/ahri-e-visual-timing';
 import {
   beginEVisualHistory,
@@ -519,6 +528,7 @@ export class World {
   ahriFoxFireAudio: AhriFoxFireAudioRecord[] = [];
   ahriWVisuals: AhriWVisualHistory[] = [];
   ahriEVisuals: AhriEVisualHistory[] = [];
+  ahriRVisuals: AhriRVisualHistory[] = [];
   ahriSpiritRushAudio: AhriSpiritRushAudioRecord[] = [];
   ahriFoxFires: FoxFireCast[] = [];
   ahriRushes: SpiritRush[] = [];
@@ -1252,6 +1262,9 @@ export class World {
       refreshWVisualAudience(this);
       pruneWVisualHistory(this, AHRI_W_VISUAL_HISTORY_TICKS);
       advanceSpiritRushAudio(this);
+      advanceRVisualHistory(this);
+      refreshRVisualAudience(this);
+      pruneRVisualHistory(this);
       advancePassiveAudio(this);
       advanceAhriAttackAudio(this);
       advanceAhriLifecycleAudio(this);
@@ -6576,6 +6589,7 @@ export class World {
         finishAllWVisualHistory(this);
         this.ahriFoxFires.length = 0;
         finishAllSpiritRushAudio(this);
+        finishAllRVisualHistory(this);
         this.ahriRushes.length = 0;
         for (const essence of this.ahriEssences)
           finishPassiveAudio(this, essence, essence.stopReason ?? 'match-end');
@@ -6604,6 +6618,9 @@ export class World {
         refreshWVisualAudience(this);
         pruneWVisualHistory(this, AHRI_W_VISUAL_HISTORY_TICKS);
         advanceSpiritRushAudio(this);
+        advanceRVisualHistory(this);
+        refreshRVisualAudience(this);
+        pruneRVisualHistory(this);
         advancePassiveAudio(this);
         advanceAhriAttackAudio(this);
         advanceAhriLifecycleAudio(this);
@@ -6675,6 +6692,7 @@ export class World {
         if (owner.leonaDash?.targetId === target.id)
           this.finishLeonaDash(this.unit(owner.id)!, 'target-lost');
       endEVisualTarget(this, target, 'death');
+      endRVisualTarget(this, target, 'death');
       target.charm = null;
       target.garenEShreds = [];
       const lastDamage = targetState?.damageContributors
@@ -7355,7 +7373,7 @@ export class World {
       if (existing && existing.remainingCasts === 0) return;
       const rank = state.spellRanks.r,
         damage = spiritRushDamage(rank, this.abilityPower(u));
-      beginSpiritRush(this, u, rank, damage, destination);
+      const burst = beginSpiritRush(this, u, rank, damage, destination);
       u.mana -= resources.mana;
       if (!existing)
         state.cooldowns.r = this.tick + Math.ceil(resources.cooldownSeconds * TICK_RATE);
@@ -7367,6 +7385,7 @@ export class World {
       u.attackCycle = null;
       const dir = direction(u, destination);
       u.facing = Math.atan2(dir.x, dir.y);
+      beginRVisualHistory(this, activeSpiritRush(this, u.id)!, burst, u);
       this.emit('cast', u, { unit: u.id, champion: 'ahri', text: 'r', team: u.team });
       return;
     }
@@ -8218,6 +8237,7 @@ export class World {
       ...(this.ahriOrbAudio.length ? { ahriOrbAudio: this.ahriOrbAudio } : {}),
       ...(this.ahriWVisuals.length ? { ahriWVisuals: this.ahriWVisuals } : {}),
       ...(this.ahriEVisuals.length ? { ahriEVisuals: this.ahriEVisuals } : {}),
+      ...(this.ahriRVisuals.length ? { ahriRVisuals: this.ahriRVisuals } : {}),
       ...(this.ahriFoxFireAudio.length ? { ahriFoxFireAudio: this.ahriFoxFireAudio } : {}),
       ...(this.ahriSpiritRushAudio.length ? { ahriSpiritRushAudio: this.ahriSpiritRushAudio } : {}),
       ahriFoxFires: this.ahriFoxFires,

@@ -1,0 +1,48 @@
+{
+  "format": 1,
+  "applicationRevision": "d93ef6c8594f3c6a8d82fa277b3542d8ff082c87",
+  "scope": "Same-tick R target-death save-admission correction; no observer fields yet",
+  "schema": 180,
+  "ruleset": "14c7ccb4d2cb2f526034383008eb968075b1c023aeb99669f0800b3a4a52c1f6",
+  "files": 671,
+  "fullUnit": {
+    "passed": 9239,
+    "total": 9241,
+    "passedFiles": 568,
+    "failedFiles": 2,
+    "knownFailures": [
+      "missing historical Leona reader archive",
+      "Lux sampler FMA golden mismatch"
+    ],
+    "workers": 2
+  },
+  "nodeQA": 257,
+  "isolatedCommittedCheckout": true,
+  "allTrackedAssetsIncluded": true,
+  "reusedNodeModules": true,
+  "reusedNativeFixturesAndTools": true,
+  "trackedFilesUnchangedAfterTests": true,
+  "evidence": [
+    {
+      "path": "artifacts/ahri-r-admission-full-tests-v1.log",
+      "bytes": 4712,
+      "sha256": "e5a7cadb0a9a4edbbfd9bb13567463b939714e91b2981b5f894a1273f40884c4"
+    },
+    {
+      "path": "artifacts/ahri-r-admission-node-qa-v1.log",
+      "bytes": 20037,
+      "sha256": "478dfe398b42e7efece16bac6f1c80b84c73cd376646062b1683a4d3627c62f4"
+    },
+    {
+      "path": "artifacts/ahri-r-admission-ruleset-v1.json",
+      "bytes": 91,
+      "sha256": "b00e0cd83af5ac0aba52e2fa1a4b33381c179d376d28f269ac0aa094d71f0e93"
+    }
+  ],
+  "productionRefreshed": false,
+  "offlineRefreshed": false,
+  "primaryIntegrated": false,
+  "roadmapMilestone4Complete": false,
+  "projectComplete": false,
+  "verifiedDisposableCheckoutRemoved": true
+}

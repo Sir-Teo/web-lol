@@ -1,0 +1,86 @@
+{
+  "format": 1,
+  "beforeRevision": "58e11196ed39e17eec7c958c4c7e1e1702dc8491",
+  "afterRevision": "eac4f9fa375789091a8425e869d9da02f5f779e4",
+  "beforeRuleset": "d625c0ee280a60649bf4516454b529fc1da780ed163f7bf4989c2dd21515a1f4",
+  "afterRuleset": "64f63c0976c13ca41aad687f2135c6b178706ffd62fe96720627ec87626dd537",
+  "beforeArchiveFiles": 676,
+  "afterArchiveFiles": 680,
+  "changed": [
+    {
+      "before": {
+        "file": "src/simulation/ahri-spirit-rush-validation.ts",
+        "bytes": 8419,
+        "sha256": "ff5362459ac22922f6d6dcce86a9c8aa3d7077859256218828bc7bee61a630ec"
+      },
+      "after": {
+        "file": "src/simulation/ahri-spirit-rush-validation.ts",
+        "bytes": 8599,
+        "sha256": "f8a52cd11c5d904a593dd1839b9ea59f57263bb4de838d6ed1e09b71877e0400"
+      }
+    },
+    {
+      "before": {
+        "file": "src/simulation/ahri-spirit-rush.ts",
+        "bytes": 12806,
+        "sha256": "a5de00aaf60f8c3e2f738b4be650b05b6c094a286453405889b8c252e720cb80"
+      },
+      "after": {
+        "file": "src/simulation/ahri-spirit-rush.ts",
+        "bytes": 13639,
+        "sha256": "e292c514012d1527b8aff0c66459a5b7ed390fb1ce01da8a56686e4f5cd57f6c"
+      }
+    },
+    {
+      "before": {
+        "file": "src/simulation/snapshot.ts",
+        "bytes": 212123,
+        "sha256": "9175fb6645d983e3fd6b8cebf69dd430e979d91348067a393f768295a642ee6a"
+      },
+      "after": {
+        "file": "src/simulation/snapshot.ts",
+        "bytes": 216753,
+        "sha256": "fb5d44eec34f631d25532ce4c639e1eb9df62cd8f1a7547089aed12b9cc802a5"
+      }
+    },
+    {
+      "before": {
+        "file": "src/simulation/world.ts",
+        "bytes": 328343,
+        "sha256": "f0f67cbde610e0d6fbd8a69667dc5646c834811817490602fc64b15ed253ea17"
+      },
+      "after": {
+        "file": "src/simulation/world.ts",
+        "bytes": 329068,
+        "sha256": "43c8db981bc832bc001266f344e920303752bc6882c60be5c17abc189ba246b3"
+      }
+    }
+  ],
+  "added": [
+    {
+      "file": "src/content/ahri-r-visual-timing.ts",
+      "bytes": 327,
+      "sha256": "5d3cb1accdf68c83792a27166419d3b85b620cf0a6b3293410ed710e054e2592"
+    },
+    {
+      "file": "src/simulation/ahri-r-visual-history-validation.ts",
+      "bytes": 11317,
+      "sha256": "910ccecac83cc3f1e4f69272bbe944e4c096db8bb518d59f48581f092d1221b2"
+    },
+    {
+      "file": "src/simulation/ahri-r-visual-history.ts",
+      "bytes": 15085,
+      "sha256": "d3e1acd4f2e708141a16c251ad83a5d0cb3679c9026d6dd3b02810279d84cfed"
+    },
+    {
+      "file": "src/simulation/ahri-r-visual-validation.ts",
+      "bytes": 8560,
+      "sha256": "3a96526a7a752c6eb4d731d264071a7c1154f23240580d3d2beaa14a96f4ba29"
+    }
+  ],
+  "removed": [],
+  "unchangedFiles": 672,
+  "currentArchiveBytesMatch": true,
+  "gameplayUpdateMathChanged": false,
+  "saveAdmissionSameTickCorrectionIncluded": true
+}

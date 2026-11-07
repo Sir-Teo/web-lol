@@ -12,7 +12,7 @@ async function prepare(page: Page) {
     const ahri = w.units.find((u: any) => u.champion === 'ahri');
     w.units = [w.hero, ahri];
     w.pendingSpawns = [];
-    w.nextWaveTick = Infinity;
+    w.nextWaveTick = 1e9;
     for (const u of w.units) u.ai = false;
     w.setOrder(ahri, { type: 'idle' });
     w.gainExperience(1e6, ahri.id);
@@ -60,6 +60,7 @@ test('Spirit Rush renders its source dash clip and three provisional essence bol
   expect(start.clip).toBe('spell4');
   expect(start.spell).toBe('Spirit Rush');
   expect(start.rush.remainingCasts).toBe(2);
+  expect(JSON.parse(start.saved).ahriRVisuals[0].bursts).toHaveLength(1);
   expect(start.markers).toEqual(Array(3).fill('Ahri R development essence bolt'));
   await page.screenshot({ path: info.outputPath('ahri-r-dash.png') });
   const arrived = await page.evaluate(({ sourceId, origin }) => {
@@ -153,6 +154,9 @@ for (const [phase, age] of [
       { ...ids, age, phase }
     );
     expect(expected.rush.bursts.length).toBe(phase === 'recast' ? 2 : 1);
+    expect(JSON.parse(expected.saved).ahriRVisuals[0].bursts).toHaveLength(
+      phase === 'recast' ? 2 : 1
+    );
     expect(expected.rush.bursts.at(-1)!.stopTick === null).toBe(phase !== 'recovery');
     await page.locator('#pause-button').click();
     await page.getByRole('button', { name: 'Save match', exact: true }).click();

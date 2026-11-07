@@ -9,9 +9,9 @@ import {
   spiritRushGameplaySamples,
 } from './helpers/ahri-spirit-rush-gameplay';
 
-// Keep the frozen producer/helper and expected hashes unchanged. Only the new
-// passive and lifecycle presentation fields are removed from current snapshots; all gameplay
-// and the already-existing Q/W/E histories remain covered by this R baseline.
+// Exclude only presentation fields introduced after this frozen checkpoint.
+// Its helper, producer and expected hashes remain unchanged; every field that
+// existed at that checkpoint retains its original comparison scope.
 class PassivePresentationProjection extends World {
   override snapshot(): string {
     const state = JSON.parse(super.snapshot());
@@ -22,6 +22,7 @@ class PassivePresentationProjection extends World {
     delete state.ahriQProjectileVisuals;
     delete state.ahriWVisuals;
     delete state.ahriEVisuals;
+    delete state.ahriRVisuals;
     return JSON.stringify(state);
   }
 }

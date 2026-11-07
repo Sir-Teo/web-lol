@@ -1,0 +1,372 @@
+{
+  "format": 1,
+  "scope": "45 retained natural seed-one saves; sample measurements, not worst-case bounds",
+  "ruleset": "64f63c0976c13ca41aad687f2135c6b178706ffd62fe96720627ec87626dd537",
+  "samplesWithRHistory": 5,
+  "maximumRecords": 1,
+  "maximumSerializedHistoryBytes": 771383,
+  "maximumOwnedPoseSnapshots": 2097,
+  "samples": [
+    {
+      "tick": 3600,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 7200,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 10800,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 14400,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 18000,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 21600,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 25200,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 28800,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 32400,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 36000,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 39600,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 43200,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 46800,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 50400,
+      "records": 1,
+      "serializedHistoryBytes": 771383,
+      "sourceFrames": 721,
+      "targetFrames": 1369,
+      "ownedPoseSnapshots": 2097
+    },
+    {
+      "tick": 54000,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 57600,
+      "records": 1,
+      "serializedHistoryBytes": 80057,
+      "sourceFrames": 46,
+      "targetFrames": 143,
+      "ownedPoseSnapshots": 195
+    },
+    {
+      "tick": 61200,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 64800,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 68400,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 72000,
+      "records": 1,
+      "serializedHistoryBytes": 246580,
+      "sourceFrames": 350,
+      "targetFrames": 341,
+      "ownedPoseSnapshots": 695
+    },
+    {
+      "tick": 75600,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 79200,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 82800,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 86400,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 90000,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 93600,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 97200,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 100800,
+      "records": 1,
+      "serializedHistoryBytes": 253792,
+      "sourceFrames": 721,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 724
+    },
+    {
+      "tick": 104400,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 108000,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 111600,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 115200,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 118800,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 122400,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 126000,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 129600,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 133200,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 136800,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 140400,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 144000,
+      "records": 1,
+      "serializedHistoryBytes": 323236,
+      "sourceFrames": 70,
+      "targetFrames": 773,
+      "ownedPoseSnapshots": 851
+    },
+    {
+      "tick": 147600,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 151200,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 154800,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 157116,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    },
+    {
+      "tick": 157116,
+      "records": 0,
+      "serializedHistoryBytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedPoseSnapshots": 0
+    }
+  ],
+  "byteMeasurement": "UTF-8 JSON.stringify of the saved R history array"
+}

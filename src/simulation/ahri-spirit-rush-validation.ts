@@ -126,7 +126,9 @@ export function validateSpiritRushes(
           (p.stopTick === null) !== (p.stopReason === null) ||
           (p.stopTick === null &&
             (!target ||
-              target.hp <= 0 ||
+              // A later phase, such as Lux E, can kill the target after this
+              // tick's bolt update. The next update records target loss.
+              (target.hp <= 0 && target.deadAt !== tick) ||
               (target.kind === 'monster' && target.monster.phase === 'returning') ||
               tick - b.startTick >= POLICY.maximumBoltTicks)) ||
           (p.stopTick !== null &&

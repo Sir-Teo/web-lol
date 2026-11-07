@@ -53,7 +53,7 @@ test('every dash, bolt, active-window and post-window audio frame retains an exa
     expect(w.ahriSpiritRushAudio).toEqual([]);
     expect(JSON.parse(w.snapshot())).not.toHaveProperty('ahriSpiritRushAudio');
   }
-});
+}, 60000); // 2,000 complete restores now include the bounded owned visual poses.
 test('all three casts can be spent while activation remains alive until the original window closes', () => {
   const { w, cast } = setup();
   w.step(59);

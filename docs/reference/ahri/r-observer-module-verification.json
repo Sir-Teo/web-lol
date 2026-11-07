@@ -1,0 +1,49 @@
+{
+  "format": 1,
+  "scope": "Unconnected R observation data layer; real-command harness intercepts cast notifications and pre-damage callbacks",
+  "moduleCases": 8,
+  "focusedTests": 32,
+  "focusedFiles": 3,
+  "typeCheckPassed": true,
+  "retentionTicks": 720,
+  "rollingPoseTicks": 720,
+  "longWindowCheckedTicks": 2400,
+  "longWindowSourcePoses": 721,
+  "birthAndChargeAnchorsIndependent": true,
+  "oldCompletedBurstPruned": true,
+  "preTeleportDashEndpoint": true,
+  "preDamageContactCapture": true,
+  "oldBodyEndingFrozen": true,
+  "terminalMovementNotInvented": true,
+  "gameplayIdentityOrRandomDrawsAdded": false,
+  "worldWiringComplete": false,
+  "saveWiringComplete": false,
+  "nativeCalibrationVerified": false,
+  "evidence": [
+    {
+      "path": "src/content/ahri-r-visual-timing.ts",
+      "bytes": 327,
+      "sha256": "5d3cb1accdf68c83792a27166419d3b85b620cf0a6b3293410ed710e054e2592"
+    },
+    {
+      "path": "src/simulation/ahri-r-visual-history.ts",
+      "bytes": 15069,
+      "sha256": "bcd0fcd06ba44b4172265b783f6541291c6ee289fa2c998f2f476e7b0c966fab"
+    },
+    {
+      "path": "tests/ahri-r-visual-history-module.test.ts",
+      "bytes": 10601,
+      "sha256": "4cebb695158df10225f6e5d303c6afd644341b80bc0fec84aa714b7c184007f3"
+    },
+    {
+      "path": "artifacts/ahri-r-observer-module-tests-v3.log",
+      "bytes": 442,
+      "sha256": "2847e7608fd34053f8047415d76b506eb4dfcdcc333a39a2ddb7ccc5586a1392"
+    },
+    {
+      "path": "artifacts/ahri-r-observer-module-types-v2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

@@ -207,3 +207,60 @@ and [source-preparation acceptance](reference/ahri/r-source-preparation-acceptan
 Application, public-asset and compatibility-fingerprint sources match accepted
 primary 2ee8682e byte for byte. Saved visual clocks and runtime rendering follow
 as separate development work.
+
+## Saved observation before particle rendering
+
+The schema 181 candidate records bounded Spirit Rush presentation history. It
+owns source and target poses, dash and bolt paths, charge changes, hit anchors,
+and body-ending anchors so a restored match can reconstruct the same clocks.
+Source poses retain at most 721 frames; completed bursts and ended windows age
+out after the 720-tick history interval. Long-lived indicators use owned birth
+and charge anchors rather than an unbounded path.
+
+Strict save admission checks these records against the live Spirit Rush state,
+audio, unit identities, rig clocks, movement limits, and historical deaths. A
+separate admission correction permits a target killed by Lux E later in the
+same completed tick, before Spirit Rush observes that death on its next update.
+It preserves the existing update order and gameplay.
+
+The [regression verification](reference/ahri/r-visual-observer-regression-verification.json)
+records 9,256 passing tests, two previously recorded failures, 257 passing Node
+QA cases, and 82 passing clean-export commands. A natural seed-one match ends
+at tick 157116 with 44 round trips and 43 restored futures. All 45 archived
+complete states match accepted E gameplay after excluding only schema, ruleset,
+and the new R observation field. Existing E, W, Q, and audio facts remain in the
+comparison. The [payload measurements](reference/ahri/r-visual-history-payload.json)
+are samples, not worst-case memory bounds.
+
+This candidate does not bind native R particle rendering. The existing
+provisional essence-bolt models remain in use. Browser and delivery acceptance
+are recorded separately from the earlier candidate proof.
+
+The preparatory [asset reuse audit](reference/ahri/r-asset-reuse.json) verifies all
+51 private texture transports and four private mesh transports. Native identity,
+transport bytes, and complete mip metadata prove reuse for 29 textures and one
+mesh already published by Q/W/E. The remaining transports total 647809 bytes
+(22 textures and three meshes). Entries lacking native source identity are
+excluded from the proof; matching appearance or filenames alone do not qualify.
+
+```sh
+python3 tools/assets/read-ahri-r-asset-reuse.py --check
+python3 tools/assets/test-ahri-r-asset-reuse.py
+python3 -O tools/assets/test-ahri-r-asset-reuse.py
+```
+
+This audit requires the retained private R transports. Its isolated guard run
+passes eight rejection probes in normal and optimized Python modes. It does not
+publish files, select renderer bindings, or add private-cache requirements to
+the portable source workflow.
+
+
+The [observer acceptance](reference/ahri/r-visual-observer-acceptance.json) passes
+all 29 Q/W/E/R/audio browser cases, production nested-path checks covering 32
+recordings, and offline lifecycle checks with 978 worker responses and zero
+production errors. The fresh schema 181 pack `15b88ebe` contains 1,405 files /
+579,768,106 bytes and retains the worker policy. Both R dash and arrival captures
+were inspected in software Chromium. All 334 public WAV files / 96,632,632 bytes
+match the accepted E primary; all 76 Ahri masters remain intact. The earlier E
+pack is retained separately. This accepts saved R observation, not native R
+particle rendering, full-project completion, or a current hundred-seed gate.
