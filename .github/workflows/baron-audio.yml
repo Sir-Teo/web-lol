@@ -6,6 +6,11 @@ on:
     paths:
       - 'src/**'
       - 'tests/**'
+      - 'tools/qa/lib/cohort-snapshot.ts'
+      - 'tools/qa/cohort-snapshot.test.mjs'
+      - 'tools/qa/match-cohort.mjs'
+      - 'tools/qa/match-seed.ts'
+      - 'tools/qa/verify-match-cohort.mjs'
       - 'public/assets/audio/baron-basic/**'
       - 'public/assets/audio/ahri-charm/**'
       - 'public/assets/audio/ahri-orb/**'
@@ -96,6 +101,11 @@ on:
     paths:
       - 'src/**'
       - 'tests/**'
+      - 'tools/qa/lib/cohort-snapshot.ts'
+      - 'tools/qa/cohort-snapshot.test.mjs'
+      - 'tools/qa/match-cohort.mjs'
+      - 'tools/qa/match-seed.ts'
+      - 'tools/qa/verify-match-cohort.mjs'
       - 'public/assets/audio/baron-basic/**'
       - 'public/assets/audio/ahri-charm/**'
       - 'public/assets/audio/ahri-orb/**'
@@ -204,6 +214,8 @@ jobs:
       - run: npm ci --no-audit --no-fund
       - name: Type check
         run: npm exec tsc -- --noEmit
+      - name: Verify lossless cohort snapshot storage
+        run: node --test tools/qa/cohort-snapshot.test.mjs
       - name: Check committed audio assets, playback and saved tails
         run: >-
           npm exec vitest -- run

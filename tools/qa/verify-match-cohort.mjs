@@ -5,6 +5,7 @@ import { resolve, relative, isAbsolute } from 'node:path';
 import { createHash } from 'node:crypto';
 import { assertMatchResources, assertMatchVictory } from './match-contract.ts';
 import { rulesetFingerprint } from '../ruleset-fingerprint.ts';
+import { readCohortSnapshot, snapshotEncoding } from './lib/cohort-snapshot.ts';
 const root = resolve(process.argv[2] ?? '');
 if (!process.argv[2])
   throw Error(
@@ -12,6 +13,7 @@ if (!process.argv[2])
   );
 const historical = process.argv.includes('--historical');
 const plan = JSON.parse(readFileSync(`${root}/plan.json`, 'utf8'));
+const encoding = snapshotEncoding(plan.snapshotEncoding ?? 'none');
 const summary = JSON.parse(readFileSync(`${root}/summary.json`, 'utf8'));
 const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
 for (const pin of plan.inputs.concat(plan.runner, historical ? [] : plan.sources)) {
@@ -108,12 +110,13 @@ for (const seed of plan.seeds) {
   assert.equal(report.checkpoints.length, report.roundTrips);
   assert.equal(report.runtime.node, plan.runtime.node);
   assert.equal(report.runtime.v8, plan.runtime.v8);
+  assert.equal(report.snapshotEncoding ?? 'none', encoding);
+  if (encoding === 'gzip') assert.equal(report.runtime.zlib, plan.runtime.zlib);
   assert(report.futureChecks >= Math.max(0, report.roundTrips - 1));
   for (const checkpoint of report.checkpoints) {
-    const bytes = readFileSync(checkpoint.path);
-    assert.equal(hash(bytes), checkpoint.fileSha256);
-    assert.equal(hash(bytes.subarray(0, -1)), checkpoint.stateSha256);
-    const state = JSON.parse(bytes);
+    assert.match(checkpoint.fileSha256, /^[0-9a-f]{64}$/, 'Checkpoint stored hash missing');
+    const { raw } = readCohortSnapshot(checkpoint, encoding);
+    const state = JSON.parse(raw);
     verifyComposition(state);
     assert.equal(state.tick, checkpoint.tick);
     assert.equal(state.ruleset, plan.ruleset);
@@ -128,9 +131,15 @@ for (const seed of plan.seeds) {
     assertMatchResources({ ...state, championState: (id) => states.get(id) });
     assertMatchVictory(state);
   }
-  const final = readFileSync(report.finalPath);
-  assert.equal(hash(final.subarray(0, -1)), report.finalStateSha256);
-  const state = JSON.parse(final);
+  if (encoding === 'gzip')
+    assert(report.finalSnapshot, 'Compressed final snapshot descriptor missing');
+  const final = report.finalSnapshot ?? {
+    path: report.finalPath,
+    stateSha256: report.finalStateSha256,
+  };
+  assert.equal(final.path, report.finalPath);
+  assert.equal(final.stateSha256, report.finalStateSha256);
+  const state = JSON.parse(readCohortSnapshot(final, encoding).raw);
   verifyComposition(state);
   assert.equal(state.tick, report.finalTick);
   assert.equal(state.winner, report.winner);
@@ -166,6 +175,7 @@ console.log(
   JSON.stringify({
     result: 'passed',
     ruleset: plan.ruleset,
+    ...(encoding === 'gzip' ? { snapshotEncoding: encoding } : {}),
     seeds: plan.seeds.length,
     horizonTicks: plan.horizonTicks,
     victories: summary.victories,
