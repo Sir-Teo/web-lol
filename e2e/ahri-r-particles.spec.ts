@@ -341,6 +341,31 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
   ).toBe(true);
   expect(eyeTrails.attachments).toEqual([]);
   await page.screenshot({ path: info.outputPath('ahri-r-eye-trails.png') });
+  const front = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      v = g.view,
+      record = w.ahriRVisuals[0];
+    const dummy = w.spawn('dummy', 'red', { x: w.hero.x, y: w.hero.y + 20 });
+    Object.assign(dummy, { ai: false, hp: 10000, maxHp: 10000 });
+    w.setOrder(w.hero, { type: 'attack', target: dummy.id });
+    w.step(record.startTick + 315 - w.tick);
+    v.zoom = 0.16;
+    v.recenter(w.hero);
+    v.render(w, 1, v.previousElapsed);
+    g.hud.update(60);
+    return {
+      profiles: [
+        ...new Set(
+          [...v.ahriRParticles.buffModels.values()].map((model: any) => model.userData.profileIndex)
+        ),
+      ].sort(),
+      attachments: v.ahriRParticles.attachmentFallbacks,
+    };
+  });
+  expect(front.profiles).toEqual([47, 48]);
+  expect(front.attachments).toEqual([]);
+  await page.screenshot({ path: info.outputPath('ahri-r-eye-trails-front.png') });
   expect(requests.filter((path) => path.endsWith('/ahri-r-e44c1023b3871ca4.png'))).toHaveLength(1);
   expect(requests).toHaveLength(7);
   expect(new Set(requests).size).toBe(7);
@@ -348,7 +373,7 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
   expect(errors).toEqual([]);
   await writeFile(
     info.outputPath('ahri-r-packets.json'),
-    JSON.stringify({ requests, glowRequests, flight, hit, eyes, eyeTrails, errors }, null, 2)
+    JSON.stringify({ requests, glowRequests, flight, hit, eyes, eyeTrails, front, errors }, null, 2)
   );
 });
 
