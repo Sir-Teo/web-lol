@@ -9,7 +9,8 @@ import {
   lifecycleGameplaySamples,
 } from './helpers/ahri-lifecycle-gameplay';
 
-// Remove only newly added Recall presentation from this older frozen baseline.
+// Exclude presentation fields introduced after this frozen checkpoint on the
+// current side. Keep its helper, producer, goldens and pre-existing fields intact.
 class RecallPresentationProjection extends World {
   override snapshot(): string {
     const state = JSON.parse(super.snapshot());
@@ -18,6 +19,7 @@ class RecallPresentationProjection extends World {
     delete state.ahriQProjectileVisuals;
     delete state.ahriWVisuals;
     delete state.ahriEVisuals;
+    delete state.ahriRVisuals;
     return JSON.stringify(state);
   }
 }
