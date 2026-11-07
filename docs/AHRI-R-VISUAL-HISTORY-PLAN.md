@@ -50,3 +50,30 @@ and indicator comparison operators are omitted. Recording local remaining casts
 does not certify native buff-counter semantics or fill missing dispatch rules.
 Source preservation, observation correctness and native pixel calibration remain
 separate claims.
+
+## Unconnected observation data layer
+
+The data API records actual rush/burst/bolt identities, window changes, dash and
+flight paths, pre-damage contact rigs/poses, body endings and terminal anchors.
+Every pose owns its animation timeline, primary pose and outgoing layers.
+Window-ending poses stay separate from later body motion: an accepted dash can
+continue after expiry. Flash ends its dash before teleport; committed bolts keep
+their actual independent paths. Terminal settlement adds no unexecuted movement.
+
+The local retention window is twelve seconds, covering the largest authored
+finite linger of 10.35 seconds. Recent source/target pose paths retain at most
+721 entries. Independent birth poses and charge-change anchors support long-lived
+fully bound single particles; old completed bursts expire independently of a
+continuously extended window. These are explicit local storage/presentation
+policies, not native constructor or callback claims.
+
+Eight module cases use actual R commands and intercept the cast notification
+before movement and damage before contact callbacks. Checks cover owned nested
+poses, lethal contact, Flash, source/target body endings, hidden births, a real
+2,400-tick repeated-Essence window, optional observation and terminal settlement.
+The long window retains exactly 721 source poses and discards its old burst.
+The combined selection passes 32 tests in three files plus TypeScript.
+See [module verification](reference/ahri/r-observer-module-verification.json).
+
+The module is not connected to World or save serialization yet. Strict schema,
+motion/clock validation, current-state coverage and actual hook wiring are next.
