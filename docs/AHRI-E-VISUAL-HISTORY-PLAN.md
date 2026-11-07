@@ -121,3 +121,28 @@ The real-World adapter covers target death and an actual dummy respawn. Four
 ending-anchor mutations reject rewritten poses, clocks, late samples and missing
 endings. The contract test also checks that a relocated new body cannot rewrite
 the old ending. All 37 tests and TypeScript checks pass before World integration.
+
+## World integration candidate
+
+World now owns the optional serialized ahriEVisuals history under schema 179.
+Hooks observe accepted casts, release, actual moved missile samples, pre-damage
+contacts, successful control application, replacement, expiry, death and match
+settlement. Surviving flight samples are captured next to the existing movement
+assignment, so a later projectile's victory callback cannot erase this tick's
+movement. Settlement before that movement produces only a terminal anchor.
+
+Strict admission checks phase clocks, linear sweeps, live pending/projectile/
+control links, retained audio, source and target poses, target lifetime endings,
+audience shape and global identity domains. Both retired projectile IDs and
+removed target IDs remain reserved. Target endings stop old-body pose sampling
+and do not extend the 300-tick local retention window. Empty histories omit the
+new field. The renderer remains unchanged and consumes none of this history.
+
+Ninety-seven focused tests across 19 files and TypeScript checking pass. They
+include the frozen 273 complete projections, exact restores and 105 future
+comparisons, eight save-admission cases, 32 changed-field probes, genuine dummy
+respawn, removed-minion identity protection and both mid-projectile victory
+orders. Older reference helpers/producers/goldens remain unchanged; only current
+comparison wrappers remove the new E field. Two current-schema assertions move
+to 179. Full regression, clean CI, natural-cohort comparison and delivery gates
+remain pending before observer acceptance.

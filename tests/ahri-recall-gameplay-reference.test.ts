@@ -13,6 +13,7 @@ class QCastPresentationProjection extends World {
     delete state.ahriQCastVisuals;
     delete state.ahriQProjectileVisuals;
     delete state.ahriWVisuals;
+    delete state.ahriEVisuals;
     return JSON.stringify(state);
   }
 }

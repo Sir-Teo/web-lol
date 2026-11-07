@@ -39,7 +39,7 @@ test('W visual schema restores complete histories and identical futures through 
   }
   const { w } = fixture();
   w.step(400);
-  expect(JSON.parse(w.snapshot()).version).toBe(178);
+  expect(JSON.parse(w.snapshot()).version).toBe(179);
   expect(w.ahriWVisuals).toEqual([]);
   expect(JSON.parse(w.snapshot())).not.toHaveProperty('ahriWVisuals');
 });
