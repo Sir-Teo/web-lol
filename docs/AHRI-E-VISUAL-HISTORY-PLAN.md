@@ -1,0 +1,71 @@
+# Charm visual history implementation
+
+The observer will record existing Charm gameplay without changing casting,
+linear collision, damage, forced walking, tenacity or replacement policy.
+The native producer reading joins cast, missile, hit and two persistent-buff
+systems; it does not provide native callback code or attachment transforms.
+
+## Frozen baseline
+
+The independently verified schema-178 / ff8abc1b development-roster archive at
+.cache/ahri-w-rendering-roster-seed1 retains 659 source/harness files, Blue victory
+at tick 157,116, 44 round trips and 43 future comparisons over 2,580 ticks. Its
+original identity remains unchanged. The new reference producer verifies this
+archive before compiling its World through explicit archive-only aliases.
+
+The focused reference contains 17 scenarios / 273 complete state projections:
+hit/miss, canceled windup, posthumous flight and buff ownership, target death,
+lethal hit, movement, post-release Flash, independent overlapping casts, latest
+Charm replacement, hidden/revealed flight, Courage tenacity and terminal
+settlement during windup, flight and buff. Every saved checkpoint round-trips;
+105 restored future comparisons cover 5,600 additional ticks. All 18 tests pass
+before observer integration. The frozen helper, producer and expected hashes
+must remain unchanged after this baseline commit.
+
+Only version, ruleset and the proposed ahriEVisuals field are excluded from each
+projection. Existing Charm audio, W visuals and every other saved field remain
+in the comparison. This is an archived gameplay baseline, not native-client or
+hundred-seed validation.
+
+## Required observations
+
+Use source ID / accepted cast tick as the pre-launch identity, then retain the
+existing projectile ID. Allocate no World IDs or random values. Save the accepted
+aim, facing, source pose, rank and release deadline. Keep launch origin separate
+from end-of-step moved samples: release and first movement can share one tick.
+Record actual linear flight samples and the swept contact before damage hooks.
+Impact contact and target-center roots must remain separate.
+
+Capture whether control actually attached after damage. A lethal or immune hit
+must not invent a buff. Retain the exact sampled Charm source/rank/start/end and
+tenacity flag, plus consecutive target poses while control and visible tails
+need them. Preserve source and target facing/radius without inventing bone
+transforms. Death, natural expiry, replacement and match settlement are distinct
+endings. Replacing a Charm in the same tick must close the older ownership.
+Direct damage or replacement APIs must leave immediately serializable histories.
+
+Record source, missile-point and target visibility separately. Target-bound
+buff visibility must not inherit unconditional caster-team knowledge. Refresh
+current-tick audiences after the normal sight update. Hidden samples must remain
+available as separators for later ribbon rendering.
+
+## Integration order
+
+1. Add optional pure observer operations and focused tests. Keep gameplay hooks,
+   schema changes and rendering out of that preparation commit.
+2. Add hooks at acceptance, release, projectile contact/movement, actual control
+   attachment/replacement/death and terminal cleanup. Refresh/prune separately.
+3. Add strict schema-179 admission and cross-check live pending casts, projectiles,
+   Charm ownership, audio links, clocks, endpoints, IDs and audience shape. Replay
+   the existing linear flight math from saved samples without changing it.
+4. Keep bounded source/target pose histories with an explicit local retention
+   policy. Particle linger caps total lifetime; it is not added to it. Native
+   missing lifetimes and attached selection remain unresolved source data.
+5. Pass every frozen old-state projection and restored future, then compare a
+   new natural seed-one archive with the baseline, retaining all older histories.
+6. Integrate observer acceptance before connecting the E particle renderer.
+
+Post-rotation arithmetic, omitted attached selectors, native skin sampling,
+fresnel, frame conversion and actual buff-effect stopping remain separate
+renderer/source tasks. The existing north body-clip binding and all current
+combat policies stay within their documented local scope.

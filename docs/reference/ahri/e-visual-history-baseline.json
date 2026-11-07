@@ -1,0 +1,29 @@
+{
+  "format": 1,
+  "result": "passed",
+  "schemaVersion": 178,
+  "ruleset": "ff8abc1be3d5e4191d0544c600ed32c1e3d89b5bf969d9f2a57c591cde81dbe9",
+  "sourceRevision": "14d68cc291da08cc12fbb55248de3a422ec017fa",
+  "archivePath": "/workspace/web-lol-ahri-w-particles/.cache/ahri-w-rendering-roster-seed1",
+  "sourceFiles": 659,
+  "planSha256": "3b07716bc9d8658e4f29fa31c5196f87088f3017cb5772ab43781c87ff51be90",
+  "focusedCases": 17,
+  "completeProjections": 273,
+  "roundTrips": 273,
+  "restoredFutureComparisons": 105,
+  "futureTicks": 5600,
+  "evidence": [
+    {
+      "path": "artifacts/ahri-e-visual-baseline-v3.log",
+      "sha256": "d1ac4b4f8d158f55f441ffd2ebc5a7dfe5269f6b5ebdbbf0c457051f29686742"
+    },
+    {
+      "path": "artifacts/ahri-e-visual-baseline-tests-v3.log",
+      "sha256": "24efb8e46fa062082d3a3a7ea945d3ef2d17812515f309a0828ae979f7b5833b"
+    }
+  ],
+  "limits": [
+    "Pre-observer baseline only; no E visual history hooks or runtime rendering yet.",
+    "One archived development-roster seed; no native-client or hundred-seed claim."
+  ]
+}
