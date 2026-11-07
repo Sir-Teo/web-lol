@@ -104,7 +104,8 @@ export const AHRI_R_SPELL_PROFILE_BINDINGS = data.profiles.map((p, profileIndex)
         ? 'bound-buff-profile'
         : !['Ahri_R_mis_02', 'Ahri_R_Tar'].includes(p.system)
           ? 'persistent-producer-not-connected'
-          : (p.bindingRequirements as readonly string[]).includes('noise-field-arithmetic')
+          : (p.bindingRequirements as readonly string[]).includes('noise-field-arithmetic') &&
+              !noiseProfiles.has(profileIndex)
             ? 'noise-field-arithmetic-unresolved'
             : (p.bindingRequirements as readonly string[]).includes('native-palette-field') &&
                 !rPaletteBinding(p)

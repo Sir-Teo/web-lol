@@ -1098,3 +1098,24 @@ identity. Emitter-wide clocks are shared across every birth. Field phase follows
 the accumulated emitter age beyond one, with authored curves holding their last
 key. Cold/backward/fractional seeks, stops, bounded caches and expired-root access
 pass alongside all seven frozen families: 586 checks in ten files and TypeScript.
+
+## Noise-field renderer candidate
+
+Profiles 10/27 now join their saved contact/missile producers. R selects 33
+profiles: 23 spell and ten buff profiles. Six counters and sixteen unjoined
+profiles remain deferred. The selected closure has 37 textures and two meshes;
+both new entries borrow already loaded Q/W resources. Local loads remain thirteen
+R textures, one separate W texture and one checked R GLB. Public bytes are unchanged.
+
+The immutable earlier spell reference and its producer remain unchanged. Its
+current test selects exactly its original 21 profiles before sampling; every
+packet field remains in the frozen hash comparison. All seven packet families
+remain exact. The targeted renderer/reference selection passes 570 checks in
+eleven files and TypeScript. The keyboard browser test restores all 23 spell
+profiles exactly and reports no attachment fallbacks. Full-render hide/show probes
+change 68,863 / 19,276 pixels for profiles 10/27 with no World step and one shared
+R depth capture per render. Image inspection shows cyan contact sparkles and
+scattered directional sparks. External hash/threshold/cap policy, omitted-centre
+default and local clock/serial bindings remain explicit; this does not certify
+native randomness, constructor defaults, pixels or representative-device speed.
+Broader regressions and delivery checks follow before acceptance.

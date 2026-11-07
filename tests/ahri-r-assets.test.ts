@@ -118,12 +118,14 @@ test('R borrows existing Q/W samplers and the already scaled shared mesh without
     ['assets/effects/ahri-q-cast-c68cda0f7d1484a0.png', 'q-cast'],
     ['assets/effects/ahri-q-projectile-43a2520d6e62b7b7.png', 'q-projectile'],
     ['assets/effects/ahri-q-projectile-ad287961305637b6.png', 'q-projectile'],
+    ['assets/effects/ahri-q-projectile-104eb5bb1d37e53f.png', 'q-projectile'],
+    ['assets/effects/ahri-w-919d031649117c44.png', 'w'],
     ['assets/effects/ahri-w-ac5e1ebe8b387340.png', 'w'],
   ])
     expect(assets.texture(path, 1).name).toBe(owner);
   // A published but deferred profile cannot expand this loader's closure.
-  expect(() => assets.texture('assets/effects/ahri-q-projectile-104eb5bb1d37e53f.png')).toThrow();
-  expect(state.borrowed.map((row) => row.address)).toEqual([1, 1, 1, 1]);
+  expect(() => assets.texture('assets/effects/ahri-r-eeb304af88d160ff.png')).toThrow();
+  expect(state.borrowed.map((row) => row.address)).toEqual([1, 1, 1, 1, 1, 1]);
   const mesh = data.meshes.find((row) => row.geometryOwner === 'ahri-w')!;
   const original = state.w!.mesh(mesh.url);
   expect(assets.mesh(mesh.url)).toBe(original);
