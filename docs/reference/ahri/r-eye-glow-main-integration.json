@@ -1,0 +1,66 @@
+{
+  "format": 1,
+  "mergeRevision": "d80bd9a40b19fe35fb785a145be6997eb151941a",
+  "acceptedRevision": "88b6359b5e1eb3c6a2ed1a79b1e5145d12bde21d",
+  "applicationRevision": "c5ab62306895bb20fb3940b2f546239829f8c8fa",
+  "acceptanceEvidenceWorkspace": "/workspace/web-lol-ahri-w-particles",
+  "schema": 181,
+  "ruleset": "186133424c3e28265877ba008d887874ddfc6da10edf515e83bc2a0cf4f5f7d2",
+  "compatibilityFiles": 688,
+  "applicationAndPublicByteIdentical": true,
+  "pack": {
+    "result": "passed",
+    "pack": "60079db3bb22f27b3d4243b2958174b55c558117123f1f0b43c3b45599f19df5",
+    "files": 1432,
+    "bytes": 581122307,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "focusedTests": {
+    "passed": 167,
+    "files": 15
+  },
+  "acceptanceScopePreserved": true,
+  "retainedPriorPacks": [
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-r-palette-accepted-pack-01c9",
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-r-spell-rendering-accepted-pack-3dbf",
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-r-observer-accepted-pack-15b8",
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-e-accepted-pack-4995"
+  ],
+  "selectedSpellProfiles": 21,
+  "selectedBuffProfiles": 2,
+  "eyeInstances": 2,
+  "pushed": false,
+  "deployed": false,
+  "evidence": [
+    {
+      "path": "artifacts/ahri-r-eye-primary-build-v1.log",
+      "bytes": 9453,
+      "sha256": "a1138850211aee1e52861a5ee11a855fb6bc6599c67bef9b079bbfca410d4e02"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-primary-pack-v1.json",
+      "bytes": 213,
+      "sha256": "5bbce1642d02bf288acbac01de59aa4b2d15b6d733c4bb0a33da129fd16d5bc5"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-primary-pack-after-dedup-v1.json",
+      "bytes": 222,
+      "sha256": "63ab22568d5580eae6dfa71a28981b38515cd27e6eec3688521526b8725c7925"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-primary-build-dedup-v1.json",
+      "bytes": 208,
+      "sha256": "57d49f8766ac39d77399b6ff143d6f70a09521205df62567d4c604cb869af7cb"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-primary-tests-v1.log",
+      "bytes": 375,
+      "sha256": "686056470485a5a5d67566010b53ee1cada1085a9852d33529667d84fc2de85b"
+    },
+    {
+      "path": "docs/reference/ahri/r-eye-glow-acceptance.json",
+      "bytes": 48452,
+      "sha256": "4f55902b1fd97699224160233df136dd50935d976ed183b84ff60a4925b36e6b"
+    }
+  ]
+}

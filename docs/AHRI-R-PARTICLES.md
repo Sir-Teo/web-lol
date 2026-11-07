@@ -496,4 +496,10 @@ and zero production errors. The
 [eye-glow acceptance](reference/ahri/r-eye-glow-acceptance.json) records all 23
 selected profiles: 21 spell profiles and two eye-glow profiles on both native
 eye bones. Pack `60079db3` remains exact after delivery checks; the prior palette
-pack is retained separately. Primary integration follows separately.
+pack is retained separately.
+
+
+Primary merge `d80bd9a4` reproduces pack `60079db3` exactly and passes all 167
+focused tests in fifteen files. Application/public bytes match the accepted
+candidate. See [eye-glow integration](reference/ahri/r-eye-glow-main-integration.json).
+The prior palette, 20-profile R, R observer and E packs remain retained.
