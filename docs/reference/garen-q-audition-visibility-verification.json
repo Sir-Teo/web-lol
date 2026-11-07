@@ -40,6 +40,19 @@
       "file": "artifacts/garen-q-visibility-format-v1.log",
       "bytes": 103,
       "sha256": "6f68fa97c5549678fa180f8e2e03410b72e53f5f9df2412696f7285d778ce14b"
+    },
+    {
+      "file": "artifacts/garen-q-visibility-active-v3.log",
+      "bytes": 532,
+      "sha256": "cf4d68c52fb8eaa75eba79dd4efe044333d53136b4f7d5172761033ebde2023f"
+    },
+    {
+      "file": "artifacts/garen-q-visibility-browser-v3.json",
+      "bytes": 3156,
+      "sha256": "e4cc770e6e849135c3cdd33662f6c62f375129134f20664dde4860e46dd86cbd"
     }
-  ]
+  ],
+  "additionalActivePlaybackCasePassed": true,
+  "visibleEventPreservesPlayingVoice": true,
+  "returnDoesNotRestartVoice": true
 }

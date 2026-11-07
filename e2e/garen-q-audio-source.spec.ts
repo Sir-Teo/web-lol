@@ -228,3 +228,47 @@ for (const control of ['stop-all', 'stop-active', 'unrelated stop-active', 'hidd
       JSON.stringify({ control, starts }, null, 2) + '\n'
     );
   });
+
+test('hiding the audition stops playing voices without restarting them on return', async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    const calls = { starts: 0, stops: 0 };
+    (window as any).__Q_VISIBILITY__ = calls;
+    const start = AudioBufferSourceNode.prototype.start,
+      stop = AudioBufferSourceNode.prototype.stop;
+    AudioBufferSourceNode.prototype.start = function (...args) {
+      calls.starts++;
+      return start.apply(this, args);
+    };
+    AudioBufferSourceNode.prototype.stop = function (...args) {
+      calls.stops++;
+      return stop.apply(this, args);
+    };
+  });
+  await page.goto('/tools/qa/garen-q-audio-preview.html');
+  await page.waitForFunction(() => (window as any).__GAREN_Q_AUDIO_PREVIEW__?.ready);
+  await page.getByRole('button', { name: 'Play active', exact: true }).click();
+  await expect.poll(() => page.evaluate(() => (window as any).__Q_VISIBILITY__.starts)).toBe(1);
+  const visibility = (hidden: boolean) =>
+    page.evaluate((value) => {
+      Object.defineProperty(document, 'hidden', { configurable: true, get: () => value });
+      document.dispatchEvent(new Event('visibilitychange'));
+    }, hidden);
+  await visibility(false);
+  expect(await page.evaluate(() => (window as any).__Q_VISIBILITY__)).toEqual({
+    starts: 1,
+    stops: 0,
+  });
+  await visibility(true);
+  await expect(page.locator('#status')).toHaveText('Audition stopped.');
+  expect(await page.evaluate(() => (window as any).__Q_VISIBILITY__)).toEqual({
+    starts: 1,
+    stops: 1,
+  });
+  await visibility(false);
+  expect(await page.evaluate(() => (window as any).__Q_VISIBILITY__)).toEqual({
+    starts: 1,
+    stops: 1,
+  });
+});
