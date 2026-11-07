@@ -666,3 +666,22 @@ execution after CPU regression work. See the
 [layout policy reading](reference/ahri/r-layout-policy-reading.json), which pins
 three external reader files and separates their reconstruction from native
 constructor/callback certification.
+
+
+The corrected full suite passes 9,528/9,530 tests in 595 files, with only the
+two historical failures. The initial run also found a stale deferred-profile
+count assertion; its corrected expectation is verified without changing runtime
+bytes. All 263 Node QA cases pass. Portable CI completes all 87 commands:
+86 pass first attempt; one fingerprint test exceeds its existing five-second
+limit during concurrent Node QA and its identical 206-test command passes in
+isolation. Both logs remain, with no test or timeout adjustment.
+
+Final portable selections execute 1,300 tests across 148 file executions,
+including overlap. All 5,578 committed export files verify before removing only
+the disposable export. The eight R cases and additional full-pipeline pixel
+probe pass: profile 50 changes 119,864 pixels while World stays unchanged.
+All 45 natural-match states match the accepted R observer, excluding only version
+and ruleset, with victory at tick 157116. Pack `b8582765` audits exactly at
+1,432 files / 581,128,947 bytes. See the
+[layout regression record](reference/ahri/r-layout-regression-verification.json).
+Cross-kit and production/offline checks follow before acceptance.
