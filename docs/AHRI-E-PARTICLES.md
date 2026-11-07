@@ -311,3 +311,21 @@ finds only source-particle-surfaces.ts changed among the 658 compatibility files
 The isolated candidate therefore has ruleset 7d183645 under schema 179; it is
 not an accepted delivery identity and E playback is still unconnected. See
 e-surface-basis-verification.json. The primary accepted runtime remains 062e397a.
+
+## Ribbon and attached-skin bindings
+
+All three camera-facing missile trails now produce source-centimetre packed
+points with actual path distances, birth visibility and source smoothing mode 2.
+Their quad materials retain erosion and packed UV/tint channels while borrowing
+textures. The local missile root is ground plus one metre, using the declared
+100-centimetre target-height offset as an adapter value rather than claiming a
+reconstructed native start-bone transform. Ten E/W ribbon and skin-binding tests
+pass, and TypeScript passes.
+
+Attached skin binding draws only the verified cast Tails match. The second
+selector remains unmatched, and the buff Avatar's omitted selector list remains
+an unresolved omission with no invented whole-body geometry. Both exact native
+Fresnel inputs (0.05f and 0.15f) reuse the already checked common skin-property
+mapping, yielding 0.3449999988079071 and 0.8350000381469727. This does not recreate
+the unavailable historical Leona reader or claim a new native dispatch proof.
+The unresolved buff skin must remain a named rendering limitation.
