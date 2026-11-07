@@ -1,0 +1,18 @@
+{
+  "format": 1,
+  "result": "passed",
+  "qaSourceRevision": "ff03f62d",
+  "testsPassed": 322,
+  "testsFailed": 0,
+  "testConcurrency": 1,
+  "durationMs": 313581.867049,
+  "qaSourcesUnchangedDuringRun": true,
+  "scope": "Full primary tools/qa/*.test.mjs suite before paused-process telemetry integration. Developer audition changes during the run are outside these QA sources.",
+  "evidence": [
+    {
+      "file": "artifacts/current-node-qa-v1.log",
+      "bytes": 25620,
+      "sha256": "1c3bdd773958d9aef7ce292465f9e9ed6c5a2c1679c44b084e103fe97100c187"
+    }
+  ]
+}

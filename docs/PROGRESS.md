@@ -130,7 +130,9 @@ contains 1,432 files / 581,142,305 bytes with unchanged worker policy. Schema 18
 all 696 compatibility inputs and ruleset `e02f3e73` remain unchanged; earlier HUD
 and noise packs are retained. See [sound preference verification](reference/sound-preference-verification.json).
 
-Current cohort tooling passes all 311 Node QA cases. Independent verification
+The refreshed primary QA suite passes all 322 Node cases in a serial full run.
+See [current Node QA verification](reference/current-node-qa-verification.json).
+Independent cohort verification
 now derives and checks completion rate and nearest-rank victory duration
 percentiles, retaining unfinished horizons outside those duration samples. The
 historical hundred-seed archive reproduces its duration summary exactly. A
