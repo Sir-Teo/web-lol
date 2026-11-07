@@ -9765,3 +9765,8 @@ real Linux child stopped, continued and exited without archive mutation. The
 live audit workers were observed only. This adds six cases after the full
 322-case run; it does not claim a fresh full 328-case run. See
 [scheduling verification](reference/cohort-process-state-verification.json).
+
+Horizon diagnostics now publish only to a fresh external path, resolving parent
+symlinks before inspection. All 19 focused tests pass, and the retained real gzip
+smoke produces exactly the same diagnostic JSON as before. Frozen inputs remain
+unchanged. See [output verification](reference/cohort-horizon-output-verification.json).

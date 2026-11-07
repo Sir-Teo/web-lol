@@ -1,0 +1,30 @@
+{
+  "format": 1,
+  "result": "passed",
+  "revision": "18f53dfda4a5455c61500c27a0f220a51251571e",
+  "testsPassed": 19,
+  "freshExternalOutputRequired": true,
+  "parentSymlinkResolved": true,
+  "existingEvidenceNeverOverwritten": true,
+  "failedVerificationLeavesNoOutput": true,
+  "realGzipSmokeDiagnosticsExactlyMatchPriorReceipt": true,
+  "runtimeAndAssetsUnchanged": true,
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/cohort-horizon-output-tests-v1.log",
+      "bytes": 1750,
+      "sha256": "a9a10df4b13cb989101064dd78194a6ead230b15a3b7edca0e8d6bb60aed882a"
+    },
+    {
+      "file": "artifacts/cohort-horizon-output-smoke-v1.log",
+      "bytes": 109,
+      "sha256": "29942695ebfecccbbe806eecfc18877b9b6dc56f73709dc16f54ce88cd2928fd"
+    },
+    {
+      "file": "artifacts/cohort-horizon-output-smoke-v1.json",
+      "bytes": 2139,
+      "sha256": "d88470c77e252b30a2a158e2bcabb5400fa838b569549fc40ccbffc17939e4f7"
+    }
+  ]
+}
