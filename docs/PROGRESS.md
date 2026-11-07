@@ -43,6 +43,15 @@ tests in four files. See [integration](reference/ahri/e-rendering-main-integrati
 Emote/idle source preparation
 remains isolated.
 
+[Spirit Rush source preparation](AHRI-R-PARTICLES.md) is integrated at `b936b9d3`:
+eleven non-null systems / 55 emitters, 63 native files, 51 textures / 428 mips
+and four meshes. Complete private transports and profile projection preserve raw
+source declarations and native field tags. Nine producer references join eight
+systems; three remain unjoined. All seven clean-export commands and four focused
+Node QA cases pass. Application bytes and the audited delivery pack are unchanged;
+see [source integration](reference/ahri/r-source-main-integration.json).
+R saved visual histories and runtime particle rendering remain pending.
+
 The [frozen hundred-seed development-roster baseline](CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md)
 is complete: 100 natural victories, zero unfinished matches or invariant failures,
 14,987,533 checked ticks and 4,219 exact save round trips under schema 167 /

@@ -1,0 +1,39 @@
+{
+  "format": 1,
+  "scope": "Primary integration of verified Spirit Rush source preparation only",
+  "mergeRevision": "b936b9d36a4e2fc1267937cd072e5fbf9ee846ff",
+  "acceptedRevision": "48d79bd1a7786a4dc3c08f3337dd6535554b2547",
+  "applicationBaseline": "2ee8682e",
+  "applicationBytesUnchanged": true,
+  "schema": 180,
+  "ruleset": "d625c0ee280a60649bf4516454b529fc1da780ed163f7bf4989c2dd21515a1f4",
+  "retainedBuildAudit": {
+    "result": "passed",
+    "pack": "4995dc742f50f3b4e970b85f51658dcce23829e7627d5659c24dcd14f95db751",
+    "files": 1405,
+    "bytes": 579749600,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "freshBuildRepeated": false,
+  "focusedNodeQACases": 4,
+  "runtimeRenderingBound": false,
+  "pushed": false,
+  "deployed": false,
+  "evidence": [
+    {
+      "path": "artifacts/ahri-r-source-primary-merge-v1.log",
+      "bytes": 4468,
+      "sha256": "c1cde69a9dcc32f9aa31b0b25a32966e394b5832d47fbd191127ccd73dc90e6f"
+    },
+    {
+      "path": "artifacts/ahri-r-source-primary-pack-v1.json",
+      "bytes": 213,
+      "sha256": "c565197df4eba4f68ddaf9e82d8f342090c81228f26eeb1a078c029e006482a2"
+    },
+    {
+      "path": "artifacts/ahri-r-source-primary-qa-v1.log",
+      "bytes": 360,
+      "sha256": "8ffa443581d8c66e81770eade9cd3394b915a85f89451e8d2637a0baaaf49f81"
+    }
+  ]
+}
