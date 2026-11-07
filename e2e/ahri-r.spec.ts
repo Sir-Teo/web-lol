@@ -4,6 +4,7 @@ import { writeFileSync } from 'node:fs';
 async function prepare(page: Page) {
   await page.goto('/?scene=fixture&npc=ahri');
   await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.waitForFunction(() => (window as any).__GAME__?.view.ahriRParticles.ready);
   await page.locator('#loading').waitFor({ state: 'detached' });
   return page.evaluate(() => {
     const g = (window as any).__GAME__,
@@ -32,7 +33,7 @@ async function prepare(page: Page) {
   });
 }
 
-test('Spirit Rush renders its source dash clip and three provisional essence bolts with paid activation and free recasts', async ({
+test('Spirit Rush renders its source dash clip and spell effects with paid activation and free recasts', async ({
   page,
 }, info) => {
   test.setTimeout(120000);
@@ -53,6 +54,8 @@ test('Spirit Rush renders its source dash clip and three provisional essence bol
       clip: v.models.get(sourceId).actionName,
       spell: w.abilitySpec('r', sourceId).name,
       markers: [...v.spiritBoltModels.values()].map((m: any) => m.name),
+      sourceSurfaces: v.ahriRParticles.surfaces.models.size,
+      sourceRibbons: v.ahriRParticles.models.size,
       saved,
       future: copy.snapshot(),
     };
@@ -61,7 +64,9 @@ test('Spirit Rush renders its source dash clip and three provisional essence bol
   expect(start.spell).toBe('Spirit Rush');
   expect(start.rush.remainingCasts).toBe(2);
   expect(JSON.parse(start.saved).ahriRVisuals[0].bursts).toHaveLength(1);
-  expect(start.markers).toEqual(Array(3).fill('Ahri R development essence bolt'));
+  expect(start.markers).toEqual([]);
+  expect(start.sourceSurfaces).toBeGreaterThan(0);
+  expect(start.sourceRibbons).toBeGreaterThan(0);
   await page.screenshot({ path: info.outputPath('ahri-r-dash.png') });
   const arrived = await page.evaluate(({ sourceId, origin }) => {
     const g = (window as any).__GAME__,
@@ -163,6 +168,7 @@ for (const [phase, age] of [
     await expect(page.locator('#toast')).toHaveText('Match saved on this browser.');
     await page.reload();
     await page.waitForFunction(() => (window as any).__GAME__?.ready);
+    await page.waitForFunction(() => (window as any).__GAME__?.view.ahriRParticles.ready);
     await page.locator('#loading').waitFor({ state: 'detached' });
     const result = await page.evaluate(() => {
       const g = (window as any).__GAME__,
