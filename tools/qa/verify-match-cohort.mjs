@@ -35,6 +35,7 @@ const encoding = snapshotEncoding(plan.snapshotEncoding ?? 'none');
 const summaryRaw = readFileSync(`${root}/summary.json`);
 const summary = JSON.parse(summaryRaw);
 const seedLedger = [];
+const victoryDurations = [];
 const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const verifierFile = fileURLToPath(import.meta.url);
 const verifierRaw = readFileSync(verifierFile);
@@ -211,6 +212,7 @@ for (const seed of plan.seeds) {
   } else {
     assert.equal(report.outcome, 'victory');
     victories++;
+    victoryDurations.push(report.finalTick / 60);
     assert(report.winner);
   }
   ticks += report.checkedTicks;
@@ -240,6 +242,16 @@ assert.equal(summary.unfinished, unfinished, 'Unfinished total differs');
 assert.equal(summary.failures ?? 0, 0, 'Summary contains failures');
 if (summary.completionRate !== undefined)
   assert.equal(summary.completionRate, victories / plan.seeds.length);
+victoryDurations.sort((a, b) => a - b);
+const percentile = (p) =>
+  victoryDurations.length ? victoryDurations[Math.ceil(p * victoryDurations.length) - 1] : null;
+const victoryDurationSeconds = { p10: percentile(0.1), p50: percentile(0.5), p90: percentile(0.9) };
+if (summary.victoryDurationSeconds !== undefined)
+  assert.deepEqual(
+    summary.victoryDurationSeconds,
+    victoryDurationSeconds,
+    'Victory duration distribution differs'
+  );
 const fullInvariantGate = plan.horizonTicks === 60 * 3600 && plan.seeds.length >= 100;
 assert.equal(
   summary.hundredSeedInvariantGate,
@@ -261,6 +273,8 @@ const verification = {
   horizonTicks: plan.horizonTicks,
   victories: summary.victories,
   unfinished: summary.unfinished,
+  completionRate: victories / plan.seeds.length,
+  victoryDurationSeconds,
   checkedTicks: ticks,
   roundTrips,
   futureChecks: futures,

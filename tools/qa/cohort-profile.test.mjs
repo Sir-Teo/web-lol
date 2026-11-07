@@ -328,3 +328,89 @@ test('verification output cannot follow a parent symlink into the frozen cohort'
   assert.throws(() => f.run(['--output', alias + '/ledger.json']));
   assert.throws(() => readFileSync(f.root + '/ledger.json'), { code: 'ENOENT' });
 });
+
+function addDurationVictories(f) {
+  const original = JSON.parse(readFileSync(f.report.finalPath));
+  for (const [index, tick] of [600, 1800, 3600].entries()) {
+    const seed = index + 2,
+      folder = f.root + '/seeds/' + seed;
+    mkdirSync(folder);
+    const state = {
+      ...original,
+      tick,
+      winner: 'blue',
+      units: [
+        ...original.units,
+        ...[
+          ['nexus', 'nexus', 0],
+          ['turret', 'nexus-turret', 0],
+          ['turret', 'nexus-turret', 0],
+          ['inhibitor', 'inhibitor', 0],
+        ].map(([kind, role, hp], i) => ({
+          id: 11 + i,
+          kind,
+          team: 'red',
+          x: 0,
+          y: 0,
+          hp,
+          maxHp: 100,
+          mana: 0,
+          maxMana: 0,
+          structure: { role, lane: 'mid' },
+        })),
+      ],
+    };
+    const checkpoint = folder + '/' + String(tick).padStart(6, '0') + '.match.json',
+      final = folder + '/final.match.json';
+    write(checkpoint, state);
+    write(final, state);
+    const stateSha256 = hash(readFileSync(checkpoint).subarray(0, -1));
+    const report = {
+      ...f.report,
+      seed,
+      outcome: 'victory',
+      winner: 'blue',
+      finalTick: tick,
+      checkedTicks: tick,
+      roundTrips: 1,
+      futureChecks: 0,
+      futureCheckedTicks: 0,
+      checkpoints: [
+        { tick, path: checkpoint, stateSha256, fileSha256: hash(readFileSync(checkpoint)) },
+      ],
+      finalPath: final,
+      finalStateSha256: stateSha256,
+    };
+    write(folder + '/report.json', report);
+    f.plan.seeds.push(seed);
+    f.summary.results.push(report);
+  }
+  f.summary.completed = 4;
+  f.summary.victories = 3;
+  f.summary.unfinished = 1;
+  f.summary.checkedTicks = 13200;
+  f.summary.roundTrips = 5;
+  f.summary.completionRate = 0.75;
+  f.summary.victoryDurationSeconds = { p10: 10, p50: 30, p90: 60 };
+  f.persist();
+}
+test('censored unfinished horizons stay outside verified victory duration percentiles', (t) => {
+  const f = fixture(t, 7200);
+  addDurationVictories(f);
+  const result = JSON.parse(f.run());
+  assert.equal(result.completionRate, 0.75);
+  assert.deepEqual(result.victoryDurationSeconds, { p10: 10, p50: 30, p90: 60 });
+});
+test('a forged victory duration distribution cannot hide a censored horizon', (t) => {
+  const f = fixture(t, 7200);
+  addDurationVictories(f);
+  f.summary.victoryDurationSeconds.p90 = 120;
+  f.persist();
+  assert.throws(f.run);
+});
+test('a cohort without victories reports null duration percentiles', (t) => {
+  const f = fixture(t);
+  const result = JSON.parse(f.run());
+  assert.equal(result.completionRate, 0);
+  assert.deepEqual(result.victoryDurationSeconds, { p10: null, p50: null, p90: null });
+});

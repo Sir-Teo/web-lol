@@ -168,3 +168,10 @@ Minute progress is sampled separately, with its age; truncated or inconsistent
 samples are labeled invalid rather than treated as a verified tick. Recorded
 status, observed process state and summary presence remain separate. This tool
 never restores worlds, changes evidence or performs final invariant verification.
+
+Final verification derives completion rate and victory-duration p10/p50/p90
+from the verified reports, and checks any stored duration summary against those
+values. Percentiles use nearest rank (`ceil(p × victories)`), in seconds.
+Unfinished horizons remain in the completion denominator and outside victory
+duration samples; a cohort with no victories reports null percentiles. The
+optional verification ledger carries these independently derived metrics.

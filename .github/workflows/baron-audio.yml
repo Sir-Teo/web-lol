@@ -236,6 +236,7 @@ jobs:
         run: >-
           npm exec vitest -- run
           tests/baron-basic-audio-assets.test.ts
+          tests/sound-preference.test.ts
           tests/baron-basic-audio-state.test.ts
           tests/baron-basic-audio-controller.test.ts
           tests/baron-basic-audio-history.test.ts
