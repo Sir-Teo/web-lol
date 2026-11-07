@@ -270,3 +270,32 @@ A fresh primary build reproduces `15b88ebe` exactly and passes 41 focused tests
 in five files. See [integration](reference/ahri/r-visual-observer-main-integration.json).
 The complete earlier E pack remains retained separately. No push or deployment
 is performed. R native particle publication and rendering follow this stage.
+
+## Public profile and transport staging
+
+Publication `65d75d28` stages all 55 profiles, 51 textures / 428 authored mips
+and four meshes. Thirty byte-identical transports reuse existing Q/W/E URLs;
+25 new public files total 647,809 bytes. Full raw declarations, native field
+tags, constructor omissions and unresolved binding requirements remain intact.
+The null resource, empty TextureSwaps system and three unjoined systems acquire
+no invented dispatch. Source geometry coordinates and normals remain unchanged.
+
+The [publication verification](reference/ahri/r-publication-verification.json)
+passes four targeted Node QA cases and all eight Python workflow commands from
+a 964-file committed export with no private cache, decoder tools or node_modules.
+The isolated publication guard rebuilds required transport paths from committed
+public assets and rejects changed source pins, corrupt bytes, conflicts and
+symlinks in normal and optimized Python.
+
+```sh
+python3 tools/assets/export-ahri-r-particles.py --check
+python3 tools/assets/test-ahri-r-publication.py
+python3 -O tools/assets/test-ahri-r-publication.py
+node --test tools/qa/ahri-r-particle-publication.test.mjs
+```
+
+The direct exporter requires the prepared private transport paths; the isolated
+guards require only committed inputs. No runtime imports the new profiles yet,
+so the schema 181 ruleset and its 675-file compatibility closure remain unchanged.
+This isolated staging branch has no fresh delivery build or primary integration.
+Renderer bindings, browser packets and delivery gates follow separately.
