@@ -1,4 +1,10 @@
-# Ahri Charm particle source
+# Ahri Charm particle source and rendering
+
+Current isolated rendering candidate: View lazily routes 28 bound emitter
+profiles over schema-179 saved history. Buff Avatar selection remains unresolved.
+Initial browser and 201 scoped CI checks pass; broader regression, archived
+comparison, clean CI and production/offline acceptance remain pending. The
+accepted primary runtime stays separately retained during this work.
 
 This isolated source checkpoint retains all four E-prefixed resources declared
 by the pinned base skin: Ahri_E_buf, Ahri_E_cas, Ahri_E_mis and Ahri_E_tar.
@@ -361,3 +367,20 @@ visibility changes, three trail families, finite matrices, terminal drainage
 without World steps, and disposal that preserves borrowed textures/geometry.
 TypeScript passes. The renderer is not yet connected to View; the next commit
 adds lazy roster routing and the full compatibility closure before browser QA.
+
+## Connected rendering candidate
+
+View now loads E effects only for an Ahri roster and retires the provisional pink
+missile only after source assets are ready. The ready callback redraws paused
+Worlds. All E render modules, the lazy import edge, public profile data, checked
+skin selection and post-rotation kernel join the compatibility fingerprint.
+A dedicated CI workflow checks E phases, assets, poses, visibility and existing
+Q/W/shared-surface consumers: 201 tests in 20 files pass, with TypeScript clean.
+
+The first software-Chromium browser case passes the actual source body clip,
+both heart meshes, three ribbons, marker replacement, contact and forced walking.
+Flight/contact screenshots have been inspected; they show the source heart and
+cast-tail overlay followed by the target impact and CHARMED status. This is a
+functional smoke check, not native pixel parity or completed renderer acceptance.
+The buff skin omission, palette input omission and named attachment fallbacks
+remain explicit; full browser restore/visibility/drain and delivery gates follow.
