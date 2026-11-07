@@ -1,0 +1,84 @@
+{
+  "format": 1,
+  "result": "passed",
+  "applicationRevision": "615d26d2",
+  "schema": 181,
+  "ruleset": "e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f",
+  "compatibilityFiles": 696,
+  "browserCasesPassed": 2,
+  "originalDuplicateRetryCasesRetained": 2,
+  "initialHarnessStartupFailureRetained": true,
+  "retryDisabledWhileChecking": true,
+  "retryReenabledAfterFailureWithManifestLoaded": true,
+  "checkingStatusVisible": true,
+  "fixtureScope": "Production panel gate enabled by dedicated Vite config; controlled OfflinePack.check/download methods isolate UI ownership. No service-worker cache or pack download correctness claim.",
+  "standaloneHarnessConfigTypescriptPassed": true,
+  "applicationTypescriptAndProductionBuildPassed": true,
+  "allFilePackAudit": {
+    "result": "passed",
+    "pack": "f97e5208fd2cd99f2141a3e6e329622f50768d8767b9f042153a42deed36d0b3",
+    "files": 1432,
+    "bytes": 581143361,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "retainedPack": "/workspace/web-lol/.cache/offline-retry-accepted-pack-f97e",
+  "previousPacksPreserved": true,
+  "workerPolicyUnchanged": true,
+  "gameplayCompatibilityUnchanged": true,
+  "priorUnitCiAndHundredSeedReceiptsKeepTheirScopes": true,
+  "roadmapMilestone4Complete": false,
+  "reproductionCommand": "CHROMIUM_PATH=/usr/bin/chromium npx playwright test --config tools/qa/offline-ui.playwright.config.ts",
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/offline-retry-baseline-v1.log",
+      "bytes": 1931,
+      "sha256": "4e949fce4f34835d0582ec00f7d1f3262ad6faa8ed17310dbc55a856b0b6bae3"
+    },
+    {
+      "file": "artifacts/offline-retry-baseline-v2.log",
+      "bytes": 4737,
+      "sha256": "4ff0c9ff0ce4f727c2b4534a13a13aaa85b1aaff4c116699e80cfdead9f72b70"
+    },
+    {
+      "file": "artifacts/offline-retry-fixed-v3.log",
+      "bytes": 847,
+      "sha256": "9cfd16b39f52bf66de561be4fc35a748d20aa168c95b29659f57d2c20f3cd7ef"
+    },
+    {
+      "file": "artifacts/offline-retry-browser-v2.json",
+      "bytes": 12216,
+      "sha256": "26618b838ba145bccdfaf034c837ef76b091f3c979d5e1dac0f224b822f93f0e"
+    },
+    {
+      "file": "artifacts/offline-retry-browser-v3.json",
+      "bytes": 4293,
+      "sha256": "1f3025522b46c641b504f2b84d82838e7f8baca84155aa72fbe5dbb82a93f384"
+    },
+    {
+      "file": "artifacts/offline-retry-config-types-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "artifacts/offline-retry-build-v1.log",
+      "bytes": 9453,
+      "sha256": "40ce108f54f7eb4ceeb42e8e53a6366846b0ce09e2b52fc4b32b10a573d86222"
+    },
+    {
+      "file": "artifacts/offline-retry-build-dedup-v1.json",
+      "bytes": 1329,
+      "sha256": "7c61f2d0b0bca4b900d6e74f1cb8174a6d22327cdaa44970b4969d19cb2c47bf"
+    },
+    {
+      "file": "artifacts/offline-retry-retained-pack-v1.json",
+      "bytes": 213,
+      "sha256": "6b2c97ddf2f1c144771d73c35c5d3229b44df9d886a0bac9ddba0c3d3a42067b"
+    },
+    {
+      "file": "artifacts/offline-retry-ruleset-v1.json",
+      "bytes": 104,
+      "sha256": "5a9159e9011a6086ba92e9320f35b01aa31a984d99d095f1538d585e16f6b4d6"
+    }
+  ]
+}

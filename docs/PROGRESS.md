@@ -8,11 +8,12 @@ Last updated: November 7, 2026 (UTC).
 
 Accepted local runtime: save schema **181**, ruleset
 `e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f`.
-Latest application `4d6a0dca` / pack `22e4ae0a` exposes named health/mana meters
-and a named item-shop control with its live gold balance and P shortcut. Two
-browser cases, TypeScript, production build and all-file pack verification pass;
-gameplay compatibility remains unchanged. See
-[current HUD verification](reference/hud-shop-label-verification.json).
+Latest application `615d26d2` / pack `f97e5208` owns pending offline-manifest
+retries and retains named resource meters and the item-shop control. Two scoped
+offline UI browser cases, config/application TypeScript, production build and
+all-file pack verification pass; gameplay compatibility and worker policy stay
+unchanged. See [retry verification](reference/offline-retry-ownership-verification.json)
+and [HUD verification](reference/hud-shop-label-verification.json).
 The latest full unit result at application `cabb9791` / pack `171bacaf` resolves
 to 10,152/10,154 across 611 files. One wave-clock deadline failure passed its
 unchanged nine-test focused retry after a recorded ten-second audit-worker pause.
@@ -9817,3 +9818,15 @@ TypeScript/build and the complete retained pack audit pass: `22e4ae0a`, 1,432 fi
 / 581,143,254 bytes, with unchanged worker policy, all 696 compatibility inputs
 and ruleset `e02f3e73`. Prior packs and broader test receipts retain their original
 identities. See [shop control verification](reference/hud-shop-label-verification.json).
+
+Offline retry checkpoint `615d26d2` disables the Retry action while its manifest
+check is pending, displays checking status and restores the control after
+success or failure, including a cache error after the manifest loads. Two
+controlled-storage browser cases reproduce duplicate pending checks before the
+fix and pass afterward. The standalone production-gate fixture has its own
+committed Playwright/Vite configs; ordinary browser tests keep their server.
+Config/application TypeScript, production build and the full retained pack audit
+pass: `f97e5208`, 1,432 files / 581,143,361 bytes. Worker policy, schema 181, all
+696 compatibility inputs and ruleset `e02f3e73` stay unchanged. Broader unit, CI,
+real offline-cache and cohort receipts keep their previous revisions. See
+[retry verification](reference/offline-retry-ownership-verification.json).

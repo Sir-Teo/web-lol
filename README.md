@@ -79,6 +79,16 @@ On Linux with system Chromium, build first and run `node tools/qa/production-sub
 
 The complete offline-pack audit also accepts system Chromium: after building, run `node tools/qa/offline-pack.mjs unique-run-name --system-chromium`. It checks actual Cache Storage, network-off restoration, repair, cancellation and version activation. Use a fresh run name to retain earlier evidence. Omit the flag to use installed Google Chrome; run browser audits serially.
 
+The offline-panel retry probe has a separate configuration:
+
+```sh
+npx playwright test --config tools/qa/offline-ui.playwright.config.ts
+```
+
+It uses installed Playwright Chromium, or `CHROMIUM_PATH` for an existing browser.
+The fixture enables the production panel gate and controls storage operations;
+it checks pending-action behavior, not service-worker cache correctness.
+
 `npm run test:production` builds locally and checks both entrypoints beneath a strict nested static-host path using installed Google Chrome. It verifies the map-to-practice link, map controls, source audio and selected Oracle recordings, real-input Hawkshot and Lux Binding casts, Lux selection and 5v5 restart, five-position scoreboard assignments and selected jungle companion rigs, all eleven practice monster rigs, Smite selection, a practice companion purchase, real Stealth Ward placement and saved restoration, Oracle Lens preparation/activation/restoration, rejection of development player-fixture flags, and absence of failed/out-of-prefix requests or development hooks. Each run reserves an exclusive claim and writes eight screenshots to
 `artifacts/production-subpath-<run>-<view>.png` plus a namespaced JSON report.
 Existing run names reject before browser work. It also requires zero unsolicited
