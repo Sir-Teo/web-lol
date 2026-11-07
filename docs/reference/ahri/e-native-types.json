@@ -1,0 +1,3434 @@
+{
+  "format": 1,
+  "producerSha256": "4d69b4ed4d0531d867972f6e01870c839a61f23bf9406faedf2c0c9f8f8f4ea5",
+  "sourceHelperSha256": "09548e9c3474bf18791911c20cfa7198b56cbeaa37861317516b86004ac5a7f6",
+  "additionalSourceHelperSha256": "e17d66d568f59280d8ed506fa0acb24d48276903802199b4f52665ab6a176105",
+  "parserSha256": "0c1825135763c98f705535eecf2b4b1a8e667c53181e9e1d43ad7a83d1d844fd",
+  "sourcePins": [
+    {
+      "path": "docs/reference/ahri/e-particles.json",
+      "sha256": "cdf8ed963d051e9517443949c5a4b30b924d5c7ba9fed36aecccf6bdb5a1a756"
+    },
+    {
+      "path": "docs/reference/ahri/e-additional-particles.json",
+      "sha256": "d16b06cc12bfd2016dc07f048d1b031ff6da346f3dbb2ab7dfdb7aa407086c90"
+    }
+  ],
+  "modelPinSha256": "74d0b55f5aad08646fbd24f660ed533bc8fd5798e8a60dc0983d97960b47a377",
+  "resources": [
+    {
+      "resourceKey": "Ahri_E_buf",
+      "sourceBin": "data/characters/ahri/ahri_multi_skins_skin0_skins_skin1_skins_skin18_skins_skin2_skins_skin3_skins_skin5_skins_skin52_skins_skin53_skins_skin54_skins_skin56_skins_skin57_skins_skin6_skins_skin75.bin",
+      "sourceBinSha256": "f06125e606dae3bffa521f492900aff37f5953f7c3cd1ec129ac852ac85396b0",
+      "record": "Characters/Ahri/Skins/Skin0/Particles/Ahri_Base_E_buf",
+      "emitterListPresent": true,
+      "emitterListType": "LIST",
+      "emitterElementType": "STRUCT",
+      "emitters": [
+        {
+          "index": 0,
+          "name": "Hearts1",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "birthVelocity",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "bindWeight",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "SpawnShape",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "FlexShapeDefinition",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "pass",
+              "type": "S16",
+              "typeCode": 4
+            },
+            {
+              "name": "meshRenderFlags",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "depthBiasFactors",
+              "type": "VEC2_FLOAT",
+              "typeCode": 11
+            },
+            {
+              "name": "isUniformScale",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "name": "Hearts2",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "birthVelocity",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "bindWeight",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "SpawnShape",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "FlexShapeDefinition",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "meshRenderFlags",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "depthBiasFactors",
+              "type": "VEC2_FLOAT",
+              "typeCode": 11
+            },
+            {
+              "name": "isUniformScale",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "name": "Hearts3",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "birthVelocity",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "bindWeight",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "SpawnShape",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "FlexShapeDefinition",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "pass",
+              "type": "S16",
+              "typeCode": 4
+            },
+            {
+              "name": "meshRenderFlags",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "depthBiasFactors",
+              "type": "VEC2_FLOAT",
+              "typeCode": 11
+            },
+            {
+              "name": "isUniformScale",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "name": "Avatar",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "isSingleParticle",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "bindWeight",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "primitive",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "alphaRef",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "reflectionDefinition",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "depthBiasFactors",
+              "type": "VEC2_FLOAT",
+              "typeCode": 11
+            },
+            {
+              "name": "disableBackfaceCull",
+              "type": "BOOL",
+              "typeCode": 1
+            },
+            {
+              "name": "particleIsLocalOrientation",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "isUniformScale",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "birthUvScrollRate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resourceKey": "Ahri_E_cas",
+      "sourceBin": "data/characters/ahri/ahri_multi_skins_skin0_skins_skin1_skins_skin18_skins_skin2_skins_skin3_skins_skin5_skins_skin52_skins_skin53_skins_skin54_skins_skin56_skins_skin57_skins_skin6_skins_skin75.bin",
+      "sourceBinSha256": "f06125e606dae3bffa521f492900aff37f5953f7c3cd1ec129ac852ac85396b0",
+      "record": "Characters/Ahri/Skins/Skin0/Particles/Ahri_Base_E_cas",
+      "emitterListPresent": true,
+      "emitterListType": "LIST",
+      "emitterElementType": "STRUCT",
+      "emitters": [
+        {
+          "index": 0,
+          "name": "Avatar1",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "timeBeforeFirstEmission",
+              "type": "FLOAT",
+              "typeCode": 10
+            },
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "isSingleParticle",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "bindWeight",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "SpawnShape",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "EmitterPosition",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "primitive",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "alphaErosionDefinition",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "reflectionDefinition",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "depthBiasFactors",
+              "type": "VEC2_FLOAT",
+              "typeCode": 11
+            },
+            {
+              "name": "particleIsLocalOrientation",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "isUniformScale",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "name": "Temp_Mesh",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "timeBeforeFirstEmission",
+              "type": "FLOAT",
+              "typeCode": 10
+            },
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "isSingleParticle",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "bindWeight",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "EmitterPosition",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "primitive",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "alphaRef",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "disableBackfaceCull",
+              "type": "BOOL",
+              "typeCode": 1
+            },
+            {
+              "name": "uvScrollClamp",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "birthUvScrollRate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthUVOffset",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texAddressModeBase",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "uvScale",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "name": "Temp_GroundGlow",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "timeBeforeFirstEmission",
+              "type": "FLOAT",
+              "typeCode": 10
+            },
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "isSingleParticle",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "bindWeight",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "EmitterPosition",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "alphaRef",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "alphaErosionDefinition",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "depthBiasFactors",
+              "type": "VEC2_FLOAT",
+              "typeCode": 11
+            },
+            {
+              "name": "isUniformScale",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "isLocalOrientation",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "name": "HeartMesh_WORLD1",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "timeBeforeFirstEmission",
+              "type": "FLOAT",
+              "typeCode": 10
+            },
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "birthVelocity",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthDrag",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "worldAcceleration",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "bindWeight",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "SpawnShape",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "EmitterPosition",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "pass",
+              "type": "S16",
+              "typeCode": 4
+            },
+            {
+              "name": "colorLookUpTypeY",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "alphaErosionDefinition",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "disableBackfaceCull",
+              "type": "BOOL",
+              "typeCode": 1
+            },
+            {
+              "name": "isUniformScale",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resourceKey": "Ahri_E_tar",
+      "sourceBin": "data/characters/ahri/ahri_multi_skins_skin0_skins_skin1_skins_skin18_skins_skin2_skins_skin3_skins_skin5_skins_skin52_skins_skin53_skins_skin54_skins_skin56_skins_skin57_skins_skin6_skins_skin75.bin",
+      "sourceBinSha256": "f06125e606dae3bffa521f492900aff37f5953f7c3cd1ec129ac852ac85396b0",
+      "record": "Characters/Ahri/Skins/Skin0/Particles/Ahri_Base_E_tar",
+      "emitterListPresent": true,
+      "emitterListType": "LIST",
+      "emitterElementType": "STRUCT",
+      "emitters": [
+        {
+          "index": 0,
+          "name": "Flash",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "isSingleParticle",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "bindWeight",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "SpawnShape",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "meshRenderFlags",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "miscRenderFlags",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "isUniformScale",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthRotation0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "isLocalOrientation",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "name": "FireCards_CAST",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "isSingleParticle",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "birthVelocity",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "SpawnShape",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "EmitterPosition",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "pass",
+              "type": "S16",
+              "typeCode": 4
+            },
+            {
+              "name": "alphaRef",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "alphaErosionDefinition",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "depthBiasFactors",
+              "type": "VEC2_FLOAT",
+              "typeCode": 11
+            },
+            {
+              "name": "miscRenderFlags",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "isUniformScale",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "isRandomStartFrame",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "isRotationEnabled",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthRotation0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "rotation0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "numFrames",
+              "type": "U16",
+              "typeCode": 5
+            },
+            {
+              "name": "paletteDefinition",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "texDiv",
+              "type": "VEC2_FLOAT",
+              "typeCode": 11
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "name": "Flash1",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "isSingleParticle",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "bindWeight",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "SpawnShape",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "meshRenderFlags",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "depthBiasFactors",
+              "type": "VEC2_FLOAT",
+              "typeCode": 11
+            },
+            {
+              "name": "miscRenderFlags",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "isUniformScale",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthRotation0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "isLocalOrientation",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "name": "Dustring",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "isSingleParticle",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "importance",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthVelocity",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthDrag",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "worldAcceleration",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "SpawnShape",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "EmitterPosition",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "pass",
+              "type": "S16",
+              "typeCode": 4
+            },
+            {
+              "name": "alphaErosionDefinition",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "depthBiasFactors",
+              "type": "VEC2_FLOAT",
+              "typeCode": 11
+            },
+            {
+              "name": "miscRenderFlags",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "isUniformScale",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "isRandomStartFrame",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthRotation0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthRotationalVelocity0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "numFrames",
+              "type": "U16",
+              "typeCode": 5
+            },
+            {
+              "name": "texDiv",
+              "type": "VEC2_FLOAT",
+              "typeCode": 11
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "name": "Temp_GroundGlow",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "isSingleParticle",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "bindWeight",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "EmitterPosition",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "FlexShapeDefinition",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "alphaRef",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "alphaErosionDefinition",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "depthBiasFactors",
+              "type": "VEC2_FLOAT",
+              "typeCode": 11
+            },
+            {
+              "name": "isUniformScale",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "isLocalOrientation",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "name": "sparkles_burst",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "isSingleParticle",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "birthOrbitalVelocity",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthVelocity",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthDrag",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "SpawnShape",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "EmitterPosition",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "isUniformScale",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resourceKey": "Ahri_E_mis",
+      "sourceBin": "data/characters/ahri/ahri_multi_skins_skin0_skins_skin1_skins_skin2_skins_skin52_skins_skin53_skins_skin57_skins_skin6.bin",
+      "sourceBinSha256": "2c7b5e95aafba111b0dac82d6c77917ab8f8c1ea3e096a1eeb492c15ac50779c",
+      "record": "Characters/Ahri/Skins/Skin0/Particles/Ahri_Base_E_mis",
+      "emitterListPresent": true,
+      "emitterListType": "LIST",
+      "emitterElementType": "STRUCT",
+      "emitters": [
+        {
+          "index": 0,
+          "name": "GroundLight",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "isSingleParticle",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "bindWeight",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "SpawnShape",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "primitive",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "pass",
+              "type": "S16",
+              "typeCode": 4
+            },
+            {
+              "name": "alphaRef",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "miscRenderFlags",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "isGroundLayer",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "useNavmeshMask",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthRotation0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "name": "HeartMesh_WORLD1",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "birthVelocity",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthDrag",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "SpawnShape",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "EmitterPosition",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "pass",
+              "type": "S16",
+              "typeCode": 4
+            },
+            {
+              "name": "colorLookUpTypeY",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "alphaErosionDefinition",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "disableBackfaceCull",
+              "type": "BOOL",
+              "typeCode": 1
+            },
+            {
+              "name": "isUniformScale",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "name": "HeartMesh_WORLD3",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "birthVelocity",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthDrag",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "worldAcceleration",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "SpawnShape",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "EmitterPosition",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "pass",
+              "type": "S16",
+              "typeCode": 4
+            },
+            {
+              "name": "colorLookUpTypeY",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "alphaErosionDefinition",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "depthBiasFactors",
+              "type": "VEC2_FLOAT",
+              "typeCode": 11
+            },
+            {
+              "name": "disableBackfaceCull",
+              "type": "BOOL",
+              "typeCode": 1
+            },
+            {
+              "name": "isUniformScale",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "name": "Temp_Mesh2",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "isSingleParticle",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "EmitterPosition",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "primitive",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "alphaRef",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "disableBackfaceCull",
+              "type": "BOOL",
+              "typeCode": 1
+            },
+            {
+              "name": "uvScrollClamp",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthRotation0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "birthUvScrollRate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthUVOffset",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texAddressModeBase",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "uvScale",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "name": "AdditiveGlow",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "isSingleParticle",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "bindWeight",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "EmitterPosition",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "pass",
+              "type": "S16",
+              "typeCode": 4
+            },
+            {
+              "name": "alphaRef",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "isUniformScale",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthRotation0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "name": "DarknessBB3",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "isSingleParticle",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "bindWeight",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "EmitterPosition",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "pass",
+              "type": "S16",
+              "typeCode": 4
+            },
+            {
+              "name": "alphaRef",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "miscRenderFlags",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "isUniformScale",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "isGroundLayer",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "useNavmeshMask",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthRotation0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "name": "Trail6",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "birthVelocity",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "worldAcceleration",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "SpawnShape",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "EmitterPosition",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "primitive",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "pass",
+              "type": "S16",
+              "typeCode": 4
+            },
+            {
+              "name": "alphaErosionDefinition",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "birthRotation0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "emitterUvScrollRate",
+              "type": "VEC2_FLOAT",
+              "typeCode": 11
+            }
+          ]
+        },
+        {
+          "index": 7,
+          "name": "Trail7",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "birthVelocity",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "worldAcceleration",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "SpawnShape",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "EmitterPosition",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "primitive",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "pass",
+              "type": "S16",
+              "typeCode": 4
+            },
+            {
+              "name": "alphaErosionDefinition",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "birthRotation0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "birthUVOffset",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "emitterUvScrollRate",
+              "type": "VEC2_FLOAT",
+              "typeCode": 11
+            }
+          ]
+        },
+        {
+          "index": 8,
+          "name": "Trail8",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "birthVelocity",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "worldAcceleration",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "SpawnShape",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "EmitterPosition",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "primitive",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "pass",
+              "type": "S16",
+              "typeCode": 4
+            },
+            {
+              "name": "alphaErosionDefinition",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "birthRotation0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "emitterUvScrollRate",
+              "type": "VEC2_FLOAT",
+              "typeCode": 11
+            }
+          ]
+        },
+        {
+          "index": 9,
+          "name": "HeartMesh_ADD1",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "isSingleParticle",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "importance",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "bindWeight",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "primitive",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "pass",
+              "type": "S16",
+              "typeCode": 4
+            },
+            {
+              "name": "particleIsLocalOrientation",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "isUniformScale",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "hasPostRotateOrientation",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "isRotationEnabled",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "postRotateOrientationAxis",
+              "type": "VEC3_FLOAT",
+              "typeCode": 12
+            },
+            {
+              "name": "rotation0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            }
+          ]
+        },
+        {
+          "index": 10,
+          "name": "HeartMesh_ALPHA2",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "isSingleParticle",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "importance",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "bindWeight",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "primitive",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleIsLocalOrientation",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "isUniformScale",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "hasPostRotateOrientation",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "isRotationEnabled",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "postRotateOrientationAxis",
+              "type": "VEC3_FLOAT",
+              "typeCode": 12
+            },
+            {
+              "name": "rotation0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            }
+          ]
+        },
+        {
+          "index": 11,
+          "name": "Dustring4",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "timeBeforeFirstEmission",
+              "type": "FLOAT",
+              "typeCode": 10
+            },
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "lifetime",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "importance",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthVelocity",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthDrag",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "worldAcceleration",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "SpawnShape",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "EmitterPosition",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "pass",
+              "type": "S16",
+              "typeCode": 4
+            },
+            {
+              "name": "alphaRef",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "alphaErosionDefinition",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "depthBiasFactors",
+              "type": "VEC2_FLOAT",
+              "typeCode": 11
+            },
+            {
+              "name": "isUniformScale",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "isRandomStartFrame",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthRotation0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthRotationalVelocity0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "numFrames",
+              "type": "U16",
+              "typeCode": 5
+            },
+            {
+              "name": "texDiv",
+              "type": "VEC2_FLOAT",
+              "typeCode": 11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resourceKey": "{44fc6ec4}",
+      "sourceBin": "data/characters/ahri/ahri_multi_skins_skin0_skins_skin18_skins_skin2_skins_skin3_skins_skin5_skins_skin53_skins_skin54_skins_skin56_skins_skin57_skins_skin6_skins_skin75.bin",
+      "sourceBinSha256": "0d6f9fd12ea38e4881ae62c5e16e40ec48e055ba761e6fa68b2c5f068c185c57",
+      "record": "Characters/Ahri/Skins/Skin0/Particles/Ahri_Base_Doom_buf",
+      "emitterListPresent": true,
+      "emitterListType": "LIST",
+      "emitterElementType": "STRUCT",
+      "emitters": [
+        {
+          "index": 0,
+          "name": "Temp_GroundGlow",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "bindWeight",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "FlexShapeDefinition",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "primitive",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "pass",
+              "type": "S16",
+              "typeCode": 4
+            },
+            {
+              "name": "alphaRef",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "miscRenderFlags",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "isGroundLayer",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "useNavmeshMask",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthRotation0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "isLocalOrientation",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "name": "Temp_GroundGlow1",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "bindWeight",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "FlexShapeDefinition",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "primitive",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "pass",
+              "type": "S16",
+              "typeCode": 4
+            },
+            {
+              "name": "alphaRef",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "miscRenderFlags",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "isUniformScale",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "isGroundLayer",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "useNavmeshMask",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthRotation0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "isLocalOrientation",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "name": "mundo_speed_buf",
+          "nativeType": "VfxEmitterDefinitionData",
+          "fields": [
+            {
+              "name": "rate",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLifetime",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "particleLinger",
+              "type": "OPTION",
+              "typeCode": 133
+            },
+            {
+              "name": "emitterName",
+              "type": "STRING",
+              "typeCode": 16
+            },
+            {
+              "name": "bindWeight",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "FlexShapeDefinition",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "primitive",
+              "type": "STRUCT",
+              "typeCode": 130
+            },
+            {
+              "name": "blendMode",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "birthColor",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "Color",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "colorLookUpScales",
+              "type": "VEC2_FLOAT",
+              "typeCode": 11
+            },
+            {
+              "name": "miscRenderFlags",
+              "type": "U8",
+              "typeCode": 3
+            },
+            {
+              "name": "isUniformScale",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "isGroundLayer",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "useNavmeshMask",
+              "type": "FLAG",
+              "typeCode": 135
+            },
+            {
+              "name": "birthRotation0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthRotationalVelocity0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "birthScale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "scale0",
+              "type": "EMBEDDED",
+              "typeCode": 131
+            },
+            {
+              "name": "texture",
+              "type": "STRING",
+              "typeCode": 16
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "fieldTypes": {
+    "Color": [
+      "EMBEDDED"
+    ],
+    "EmitterPosition": [
+      "EMBEDDED"
+    ],
+    "FlexShapeDefinition": [
+      "STRUCT"
+    ],
+    "SpawnShape": [
+      "STRUCT"
+    ],
+    "alphaErosionDefinition": [
+      "STRUCT"
+    ],
+    "alphaRef": [
+      "U8"
+    ],
+    "bindWeight": [
+      "EMBEDDED"
+    ],
+    "birthColor": [
+      "EMBEDDED"
+    ],
+    "birthDrag": [
+      "EMBEDDED"
+    ],
+    "birthOrbitalVelocity": [
+      "EMBEDDED"
+    ],
+    "birthRotation0": [
+      "EMBEDDED"
+    ],
+    "birthRotationalVelocity0": [
+      "EMBEDDED"
+    ],
+    "birthScale0": [
+      "EMBEDDED"
+    ],
+    "birthUVOffset": [
+      "EMBEDDED"
+    ],
+    "birthUvScrollRate": [
+      "EMBEDDED"
+    ],
+    "birthVelocity": [
+      "EMBEDDED"
+    ],
+    "blendMode": [
+      "U8"
+    ],
+    "colorLookUpScales": [
+      "VEC2_FLOAT"
+    ],
+    "colorLookUpTypeY": [
+      "U8"
+    ],
+    "depthBiasFactors": [
+      "VEC2_FLOAT"
+    ],
+    "disableBackfaceCull": [
+      "BOOL"
+    ],
+    "emitterName": [
+      "STRING"
+    ],
+    "emitterUvScrollRate": [
+      "VEC2_FLOAT"
+    ],
+    "hasPostRotateOrientation": [
+      "FLAG"
+    ],
+    "importance": [
+      "U8"
+    ],
+    "isGroundLayer": [
+      "FLAG"
+    ],
+    "isLocalOrientation": [
+      "FLAG"
+    ],
+    "isRandomStartFrame": [
+      "FLAG"
+    ],
+    "isRotationEnabled": [
+      "FLAG"
+    ],
+    "isSingleParticle": [
+      "FLAG"
+    ],
+    "isUniformScale": [
+      "FLAG"
+    ],
+    "lifetime": [
+      "OPTION"
+    ],
+    "meshRenderFlags": [
+      "U8"
+    ],
+    "miscRenderFlags": [
+      "U8"
+    ],
+    "numFrames": [
+      "U16"
+    ],
+    "paletteDefinition": [
+      "STRUCT"
+    ],
+    "particleIsLocalOrientation": [
+      "FLAG"
+    ],
+    "particleLifetime": [
+      "EMBEDDED"
+    ],
+    "particleLinger": [
+      "OPTION"
+    ],
+    "pass": [
+      "S16"
+    ],
+    "postRotateOrientationAxis": [
+      "VEC3_FLOAT"
+    ],
+    "primitive": [
+      "STRUCT"
+    ],
+    "rate": [
+      "EMBEDDED"
+    ],
+    "reflectionDefinition": [
+      "STRUCT"
+    ],
+    "rotation0": [
+      "EMBEDDED"
+    ],
+    "scale0": [
+      "EMBEDDED"
+    ],
+    "texAddressModeBase": [
+      "U8"
+    ],
+    "texDiv": [
+      "VEC2_FLOAT"
+    ],
+    "texture": [
+      "STRING"
+    ],
+    "timeBeforeFirstEmission": [
+      "FLOAT"
+    ],
+    "useNavmeshMask": [
+      "FLAG"
+    ],
+    "uvScale": [
+      "EMBEDDED"
+    ],
+    "uvScrollClamp": [
+      "FLAG"
+    ],
+    "worldAcceleration": [
+      "EMBEDDED"
+    ]
+  },
+  "summary": {
+    "resources": 5,
+    "emitters": 29,
+    "uniqueFields": 54,
+    "flagFields": 68
+  },
+  "limits": [
+    "Field types come from the verified original BIN field tags, not JSON value inference.",
+    "CDTB retains FLAG payloads as integers; native tags are retained separately from JSON values, without inferring numeric controls or booleans.",
+    "Nested values, complete declarations and omissions remain in the original source pin.",
+    "This reading does not certify native random streams, callback dispatch or rendered pixels."
+  ]
+}

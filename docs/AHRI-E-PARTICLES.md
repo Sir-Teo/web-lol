@@ -134,3 +134,19 @@ reflection or winding changes are introduced. GLTF validation reports zero
 errors/warnings, both load through actual Three.js 186, and five isolated mesh
 publication guards pass. The combined transport is 24 private files / 1,243,752
 bytes, without public preload or runtime dispatch.
+
+## Native emitter field types
+
+The native type reading retains 54 ordinary field names (55 including the
+projected struct type), with 68 authored FLAG fields across all 29 emitters.
+It reparses the verified original BINs with a combined symbolic table after
+checking both frozen source closures. Normal and optimized checks reproduce
+one reading. FLAG payloads remain native flags even when CDTB serializes them
+as integers; this is separate from boolean or numeric-control interpretation.
+
+Compared with the W field set, E adds colorLookUpScales on the hashed buff and
+hasPostRotateOrientation / postRotateOrientationAxis on two missile heart
+emitters. Their raw values and native tags remain retained. Post-rotation math,
+attachment transforms and native pixels are not inferred from those fields.
+This check requires the private decoder/source installation and is separate
+from the portable producer workflow.
