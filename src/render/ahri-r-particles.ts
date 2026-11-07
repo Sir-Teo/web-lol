@@ -24,7 +24,7 @@ import { particleColorLookup } from './particle-color-lookup';
 import type { SurfaceParticle } from './source-particle-surfaces';
 
 export const AHRI_R_PROFILES = data.profiles;
-export type AhriRSystem = 'Ahri_R_mis_02' | 'Ahri_R_Tar';
+export type AhriRSystem = 'Ahri_R_mis_02' | 'Ahri_R_Tar' | 'Ahri_R_Eyes';
 export interface AhriRRoot {
   x: number;
   y: number;
@@ -73,8 +73,24 @@ export const AHRI_R_BOUND_SPELL_PROFILES = AHRI_R_SPELL_PROFILE_BINDINGS.filter(
   (p) => p.reason === 'bound-spell-profile'
 ).map((p) => p.profileIndex);
 const boundProfiles = new Set(AHRI_R_BOUND_SPELL_PROFILES);
+/** Source-kernel preparation only. Live buff dispatch and bone roots are wired
+ * separately; periodic eye trails and the layout producer stay unsupported. */
+export const AHRI_R_PREPARED_BUFF_PROFILES = [45, 46] as const;
+for (const [offset, index] of AHRI_R_PREPARED_BUFF_PROFILES.entries()) {
+  const profile = data.profiles[index];
+  if (
+    profile.system !== 'Ahri_R_Eyes' ||
+    profile.name !== ['Temp_GroundGlow', 'Temp_GroundGlow1'][offset] ||
+    profile.bindingRequirements.length !== 0 ||
+    profile.emitterLife !== 50 ||
+    eclipsePeak(profile.life) !== 2
+  )
+    throw Error('R finite eye-glow profile closure differs');
+}
+const preparedProfiles = new Set<number>([...boundProfiles, ...AHRI_R_PREPARED_BUFF_PROFILES]);
 const limits: Record<AhriRSystem, number> = {
   Ahri_R_mis_02: AHRI_R_POLICY.maximumBoltTicks / 60,
+  Ahri_R_Eyes: 50,
   Ahri_R_Tar: Math.max(
     ...data.profiles.filter((p) => p.system === 'Ahri_R_Tar').map((p) => p.emitterLife ?? 0)
   ),
@@ -142,7 +158,7 @@ function surfaceUv(p: RParticleUv, d: SourceUvDraw) {
   };
 }
 const prepared = data.profiles.map((p, profileIndex) => {
-  if (!boundProfiles.has(profileIndex)) return null;
+  if (!preparedProfiles.has(profileIndex)) return null;
   if (p.period !== null || p.timeActiveDuringPeriod !== null)
     throw Error('R spell profile needs an explicit periodic adapter');
   const geometry: SourceAppearanceGeometry =

@@ -445,3 +445,9 @@ requires the retained palette cohort and a fresh output path:
 ```sh
 node tools/qa/build-ahri-r-spell-packet-reference.mjs .cache/ahri-r-palette-roster-seed1 FRESH_OUTPUT.json
 ```
+
+The sampler now prepares only eye-glow profiles 45/46 for the next integration
+stage. Their authored emission window is 50 seconds and particle lifetime is two
+seconds; periodic trails stay excluded. All 109 scoped checks pass, including
+the unchanged 72 accepted spell packets, backward/fractional seeks and finite
+local stop/linger behavior. This preparation does not dispatch eye effects yet.
