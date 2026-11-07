@@ -1,11 +1,12 @@
 # Ahri Charm particle source and rendering
 
-Current isolated rendering candidate: View lazily routes 28 bound emitter
+Accepted local rendering: View lazily routes 28 bound emitter
 profiles over schema-180 saved history. Buff Avatar selection remains unresolved.
 Native packet checks, full regression and archived comparison now pass with the
 two historical unit failures retained. Clean CI and the complete candidate build
-audit pass; combined browser and production/offline acceptance remain pending.
-The accepted primary runtime stays separately retained during this work.
+audit, all 22 browser cases and production/offline delivery pass. See
+[acceptance](reference/ahri/e-rendering-acceptance.json). Primary integration
+is being verified separately.
 
 This isolated source checkpoint retains all four E-prefixed resources declared
 by the pinned base skin: Ahri_E_buf, Ahri_E_cas, Ahri_E_mis and Ahri_E_tar.
@@ -466,3 +467,16 @@ requests no E transports. The Ahri/Lux fixture has no attachment fallback or
 page errors. Cast, flight, hit and control screenshots were visually reviewed.
 These software-rendered checks establish functional behavior, not native pixel
 parity or representative device performance. Production/offline gates follow.
+
+## Verified delivery
+
+Production under /nested/rift/ passes all existing checks with 32 recordings and
+zero E particle preloads in its non-Ahri roster. The production audit now explicitly
+records and rejects those requests. Full offline delivery verifies all 1,405
+files / 579,749,600 bytes, integrity recovery, cancellation/retry, saved offline
+boot and two-version atomic activation. There are 978 service-worker responses
+and zero production errors. Pack 4995dc74 and the unchanged worker policy pass
+complete byte audits. The acceptance receipt pins 140 evidence files. The native
+buff skin omission, global palette input, other-rig attachment fallbacks, native
+callback/material calibration and representative device performance remain open.
+Earlier frozen cohorts and hundred-seed results retain their original scope.

@@ -6,38 +6,39 @@ Last updated: November 7, 2026 (UTC).
 
 ## Current authoritative state
 
-Accepted local runtime: save schema **179**, ruleset
-`062e397af49c795cfef0170ee9aced41f8625065a8176d403a47ff30e93c889f`.
-[Charm saved observation](AHRI-E-VISUAL-HISTORY-PLAN.md), application `7d3e00c`,
-accepted `6401bde`, is integrated at `ec083bd`. It retains actual cast, flight,
-contact, control, visibility and body-lifetime facts with strict save admission.
-All 273 focused complete projections and 45 natural-match saved projections
-match their frozen gameplay baselines. The natural seed finishes with Blue
-victory at tick 157,116, 44 exact restores and 43 checked futures.
+Accepted local runtime: save schema **180**, ruleset
+`d625c0ee280a60649bf4516454b529fc1da780ed163f7bf4989c2dd21515a1f4`.
+[Charm rendering](AHRI-E-PARTICLES.md), application `58e1119`, lazily draws
+28 bound profiles from saved cast, flight, hit and control histories. Owned
+animation timelines reconstruct historical native bone poses across transitions.
+The native buff Avatar selector remains omitted and its profile stays unbound.
 
-The unit suite passes 9,120 of 9,122 tests in 557 files; the two historical
-failures remain. All 251 Node QA checks pass. A clean committed export without
-private cache/tools passes 72 scoped workflow commands, including 780 tests
-across 100 files. All 18 Charm/audio/Q/W browser cases pass. Production
-nested-path checks cover 32 recordings; full offline delivery passes with 978
-worker responses. See [observer acceptance](reference/ahri/e-visual-history-verification.json).
-Software-browser screenshots do not establish native pixel parity; the W orbit
-image retains its baseline terrain occlusion.
+The full suite passes 9,215/9,217 tests in 568 files with only the two historical
+failures. All 253 Node QA cases and 76 clean-export workflow commands pass.
+Workflow selections execute 987 tests across 121 files, including overlap;
+unused map textures were omitted from this source/workflow export. All 22
+Charm/audio/W/Q browser cases pass. Production nested-path checks cover 32
+recordings and reject E preloads without Ahri. Full offline delivery passes
+with 978 worker responses and zero production errors. See
+[rendering acceptance](reference/ahri/e-rendering-acceptance.json).
 
-[Ahri W rendering](AHRI-W-RENDERING.md) retains 23 joined orbit, flight and hit
-profiles; cast/weapon resources remain unjoined. Accepted Q rendering, eight
-audio families and all 76 Ahri masters remain intact. All 334 public WAV files
-remain byte-identical to the preceding accepted runtime.
+All 45 natural-match saved projections match the accepted observer archive,
+including every pre-existing E observation fact. Only new owned animation/rig
+facts and version/ruleset are excluded. The natural seed reaches Blue victory
+at tick 157,116, with 44 restores and 43 checked futures. World.ts and all 334
+public WAV files remain unchanged. Earlier frozen focused baselines remain intact.
 
-[Charm source preparation](AHRI-E-PARTICLES.md), integrated at `73cd844`, retains
-five joined definitions, 29 emitters, 22 textures / 187 mips and two byte-exact
-private mesh transports. E rendering remains pending. The independent
-post-rotation reader baseline now freezes 42 matrix samples before local support.
-Native callback timing, attached-mesh policy and rendered calibration remain open.
+Accepted W retains 23 joined orbit, flight and hit profiles; W cast/weapon
+resources remain unjoined. Q rendering, eight audio families and all 76 Ahri
+masters remain intact. E retains five source definitions, 29 emitters, 22
+textures / 187 mips and two native meshes. Native buff skin selection, global
+palette input, other-rig attachment fallbacks, callback/material calibration
+and representative device performance remain unfinished. Software-browser
+screenshots do not establish native pixel parity.
 
-The accepted pack is `1eda9fdf`, with 1,390 files / 578,969,421 bytes.
-Worker policy is unchanged. Earlier receipts and frozen cohorts retain their
-original identities. All work remains local. Emote/idle source preparation
+Pack `4995dc74` contains 1,405 files / 579,749,600 bytes with the unchanged
+worker policy. Its complete file/worker audit passes. All work remains local;
+primary integration is being verified separately. Emote/idle source preparation
 remains isolated.
 
 The [frozen hundred-seed development-roster baseline](CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md)
