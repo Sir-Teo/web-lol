@@ -131,6 +131,12 @@ read-only progress command distinguishes observed processes from stale status
 and never claims a final invariant check. See [duration verification](reference/cohort-duration-verification.json)
 and [progress inspection](reference/cohort-progress-verification.json). The
 current schema-181 hundred-seed audit remains in progress.
+The refreshed clean export passes all 88 portable commands: 1,924 runtime test
+executions across 164 file executions, including overlap, plus 77 cohort-tool
+cases. All 5,665 exported blobs verify. One compiler-graph deadline failure and
+its exact successful retry are retained; the three audit workers paused for
+about 19 seconds and resumed. No deadline, assertion or cohort input changed.
+See [current CI verification](reference/cohort-current-ci-verification.json).
 
 ## Recent verified checkpoints
 
