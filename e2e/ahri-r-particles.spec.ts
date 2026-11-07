@@ -594,6 +594,48 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
     );
   });
   expect(layoutDrained).toBe(true);
+  const buffOnlyDepth = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      v = g.view;
+    const saved = w.snapshot(),
+      depth = v.ahriRParticles.surfaces.depth,
+      original = depth.capture;
+    let captures = 0;
+    depth.capture = (...args: any[]) => {
+      captures++;
+      return original.apply(depth, args);
+    };
+    try {
+      v.render(w, 1, v.previousElapsed);
+      const models = [...v.ahriRParticles.buffSurfaces.models.values()].filter(
+        (model: any) => model.userData.profileIndex === 53
+      ) as any[];
+      return {
+        captures,
+        glows: models.length,
+        spellSurfaces: v.ahriRParticles.surfaces.models.size,
+        spellRibbons: v.ahriRParticles.models.size,
+        sharedTarget:
+          !!depth.target &&
+          models.every(
+            (model) => model.material.uniforms.softDepth.value === depth.target.depthTexture
+          ),
+        unchanged: w.snapshot() === saved,
+      };
+    } finally {
+      depth.capture = original;
+    }
+  });
+  expect(buffOnlyDepth.glows).toBeGreaterThan(0);
+  expect(buffOnlyDepth).toMatchObject({
+    captures: 1,
+    spellSurfaces: 0,
+    spellRibbons: 0,
+    sharedTarget: true,
+    unchanged: true,
+  });
+
   expect(requests.filter((path) => path.endsWith('/ahri-r-b28f3ac6819dd4e1.png'))).toHaveLength(1);
   for (const name of ['2f5d10bd024f378a', '448c3877b6693762', 'cde0d94435baa941'])
     expect(requests.filter((path) => path.endsWith(`/ahri-r-${name}.png`))).toHaveLength(1);
@@ -617,6 +659,7 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
         layoutDrained,
         layoutPixelProof,
         continuousGlowPixelProof,
+        buffOnlyDepth,
         errors,
       },
       null,
