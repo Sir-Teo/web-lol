@@ -32,7 +32,10 @@ function fixture(options: { team?: Team; hidden?: boolean; lethal?: boolean } = 
     reachable: (p: { x: number; y: number }) => ({ ...p }),
     findPath: (_a: unknown, b: { x: number; y: number }) => [{ ...b }],
   };
-  const w = Object.assign(new World(false, field), { ahriRVisuals: [] as AhriRVisualHistory[] });
+  const w = new World(false, field);
+  const visual = Object.assign(Object.create(w) as typeof w, {
+    ahriRVisuals: [] as AhriRVisualHistory[],
+  });
   w.nextWaveTick = 1e9;
   w.random.state = 927;
   Object.assign(w.hero, { x: -3000, y: -3000, previous: { x: -3000, y: -3000 }, ai: false });
@@ -58,7 +61,7 @@ function fixture(options: { team?: Team; hidden?: boolean; lethal?: boolean } = 
       const rush = w.ahriRushes.find((r) => r.sourceId === data.unit)!;
       contexts.set(rush.id, rush);
       const stable = w.snapshot();
-      beginRVisualHistory(w, rush, rush.bursts.at(-1)!, w.unit(rush.sourceId)!);
+      beginRVisualHistory(visual, rush, rush.bursts.at(-1)!, w.unit(rush.sourceId)!);
       expect(w.snapshot()).toBe(stable);
     }
   };
@@ -68,54 +71,59 @@ function fixture(options: { team?: Team; hidden?: boolean; lethal?: boolean } = 
       for (const burst of rush.bursts)
         for (const bolt of burst.bolts)
           if (bolt.targetId === victim.id && bolt.stopTick === w.tick && bolt.stopReason === 'hit')
-            endRVisualBolt(w, rush, burst, bolt, victim);
+            endRVisualBolt(visual, rush, burst, bolt, victim);
     damage(actor, victim, raw, kind, category);
-    if (victim.hp <= 0) endRVisualTarget(w, victim, 'death');
-    if (w.winner) finishAllRVisualHistory(w);
+    if (victim.hp <= 0) endRVisualTarget(visual, victim, 'death');
+    if (w.winner) finishAllRVisualHistory(visual);
   };
-  function observe() {
-    const stable = w.snapshot();
+  function observe(checkPure = true) {
+    const stable = checkPure ? w.snapshot() : null;
+    const identity = w.nextId,
+      random = w.random.state;
     for (const rush of contexts.values()) {
       const actor = w.unit(rush.sourceId)!;
-      if (rush.stopTick !== null) endRVisualWindow(w, rush);
+      if (rush.stopTick !== null) endRVisualWindow(visual, rush);
       for (const reset of rush.resets)
         if (
           reset.consumeTick === w.tick &&
-          !w.ahriRVisuals
+          !visual.ahriRVisuals
             .find((r) => r.id === rush.id)
             ?.changes.some((c) => c.reset?.essenceId === reset.essenceId)
         )
-          observeRVisualReset(w, rush, reset);
+          observeRVisualReset(visual, rush, reset);
       for (const burst of rush.bursts) {
-        if (burst.stopTick === null) sampleRVisualDash(w, rush, burst, actor);
+        if (burst.stopTick === null) sampleRVisualDash(visual, rush, burst, actor);
         else if (burst.stopTick === w.tick)
-          endRVisualDash(w, rush, burst, {
+          endRVisualDash(visual, rush, burst, {
             ...actor,
             x: burst.stopPoint!.x,
             y: burst.stopPoint!.y,
           });
         for (const bolt of burst.bolts) {
-          if (bolt.stopTick === null) sampleRVisualBolt(w, rush, burst, bolt);
+          if (bolt.stopTick === null) sampleRVisualBolt(visual, rush, burst, bolt);
           else if (bolt.stopTick === w.tick && bolt.stopReason !== 'hit')
-            endRVisualBolt(w, rush, burst, bolt);
+            endRVisualBolt(visual, rush, burst, bolt);
         }
       }
     }
-    advanceRVisualHistory(w);
-    refreshRVisualAudience(w);
-    pruneRVisualHistory(w);
-    expect(w.snapshot()).toBe(stable);
+    advanceRVisualHistory(visual);
+    refreshRVisualAudience(visual);
+    pruneRVisualHistory(visual);
+    if (stable !== null) expect(w.snapshot()).toBe(stable);
+    expect(w.nextId).toBe(identity);
+    expect(w.random.state).toBe(random);
   }
   const step = (n = 1) => {
     for (let i = 0; i < n; i++) {
       w.step();
-      observe();
+      observe(w.tick <= 32 || w.tick % 120 === 0);
     }
   };
   const cast = () =>
     w.enqueue({ type: 'cast', unit: source.id, ability: 'r', point: { x: 900, y: 0 } });
   return {
     w,
+    visual,
     source,
     target,
     contexts,
@@ -151,7 +159,7 @@ test('accepted births retain the pre-move root and own every nested pose indepen
   f.step();
   f.cast();
   f.step();
-  const r = f.w.ahriRVisuals[0],
+  const r = f.visual.ahriRVisuals[0],
     b = r.bursts[0];
   expect(r.birthPose.point).toEqual({ x: 0, y: 0 });
   expect(r.sourceFrames.at(-1)!.point.x).toBeGreaterThan(0);
@@ -163,7 +171,7 @@ test('accepted births retain the pre-move root and own every nested pose indepen
   const current = f.source.animationTimeline!;
   // Exercise nested outgoing-layer ownership explicitly; the R body itself cuts.
   current.transition = { startTick: f.w.tick, outgoing: [{ ...current.primary, weight: 1 }] };
-  advanceRVisualHistory(f.w);
+  advanceRVisualHistory(f.visual);
   const last = r.sourceFrames.at(-1)!;
   const saved = JSON.stringify(last.animationTimeline);
   const time = current.primary.time;
@@ -183,7 +191,7 @@ test('source death freezes its old body while already committed bolts finish', (
   const f = fixture();
   f.cast();
   f.step(5);
-  const r = f.w.ahriRVisuals[0];
+  const r = f.visual.ahriRVisuals[0];
   f.w.damage(f.target, f.source, 1e6, 'true');
   f.observe();
   expect(r.end!.reason).toBe('death');
@@ -202,7 +210,7 @@ test('real contact is captured before lethal damage and its old body never follo
   const f = fixture({ lethal: true });
   f.cast();
   f.step();
-  const r = f.w.ahriRVisuals[0],
+  const r = f.visual.ahriRVisuals[0],
     b = r.bursts[0].bolts[0];
   expect(f.target.hp).toBe(0);
   expect(b.end!.reason).toBe('hit');
@@ -221,7 +229,7 @@ test('actual Flash ends the dash before teleport while its committed bolt contin
   const f = fixture();
   f.cast();
   f.step(5);
-  const r = f.w.ahriRVisuals[0],
+  const r = f.visual.ahriRVisuals[0],
     b = r.bursts[0];
   const before = f.source.x;
   f.w.enqueue({
@@ -244,7 +252,7 @@ test('hidden birth ownership stays immutable when the source becomes visible lat
   const f = fixture({ team: 'red', hidden: true });
   f.cast();
   f.step();
-  const r = f.w.ahriRVisuals[0];
+  const r = f.visual.ahriRVisuals[0];
   expect(r.birthPose.audience).toEqual(['red']);
   f.reveal();
   f.step();
@@ -255,7 +263,7 @@ test('repeated real Essence extensions keep only bounded poses and recent burst 
   const f = fixture();
   f.cast();
   f.step();
-  const r = f.w.ahriRVisuals[0],
+  const r = f.visual.ahriRVisuals[0],
     birth = JSON.stringify(r.birthPose);
   for (let tick = 2; tick <= 2400; tick++) {
     if (tick % 500 === 0) {
@@ -266,6 +274,9 @@ test('repeated real Essence extensions keep only bounded poses and recent burst 
     f.step();
   }
   expect(f.w.ahriRushes[0].endTick).toBeGreaterThan(f.w.tick);
+  expect(r.windowEndTick).toBe(f.w.ahriRushes[0].endTick);
+  expect(r.remainingCasts).toBe(f.w.ahriRushes[0].remainingCasts);
+  expect(r.changes.at(-1)!.kind).toBe('essence');
   expect(r.sourceFrames.length).toBe(721);
   expect(r.sourceFrames[0].tick).toBe(f.w.tick - 720);
   expect(r.bursts).toEqual([]);
@@ -277,7 +288,7 @@ test('terminal settlement freezes actual endpoints without an extra movement fra
   const f = fixture();
   f.cast();
   f.step(2);
-  const r = f.w.ahriRVisuals[0],
+  const r = f.visual.ahriRVisuals[0],
     bolt = r.bursts[0].bolts[0];
   const count = bolt.frames.length,
     last = { ...bolt.frames.at(-1)!.point };
@@ -289,6 +300,6 @@ test('terminal settlement freezes actual endpoints without an extra movement fra
   expect(bolt.end!.point).toEqual(last);
   expect(bolt.frames.length).toBe(count);
   const frozen = JSON.stringify(r);
-  finishAllRVisualHistory(f.w);
+  finishAllRVisualHistory(f.visual);
   expect(JSON.stringify(r)).toBe(frozen);
 });

@@ -1,0 +1,57 @@
+{
+  "format": 1,
+  "scope": "Connected R saved observation and strict admission; no R particle renderer",
+  "schema": 181,
+  "ruleset": "64f63c0976c13ca41aad687f2135c6b178706ffd62fe96720627ec87626dd537",
+  "files": 675,
+  "regression": {
+    "tests": 113,
+    "files": 13
+  },
+  "edgeSelection": {
+    "tests": 31,
+    "files": 3,
+    "overlapsRegression": true
+  },
+  "typeCheckPassed": true,
+  "saveMutationProbes": 36,
+  "frozenScenarios": 21,
+  "frozenProjections": 357,
+  "exactRoundTrips": 357,
+  "restoredFutures": 148,
+  "futureTicks": 17089,
+  "legacyHelperProducerGoldensUnchanged": true,
+  "legacyCurrentSideProjectionExcludesOnlyNewPresentation": true,
+  "heavyAudioRestoreCase": {
+    "fullRestores": 2000,
+    "timeoutMs": 60000,
+    "assertionsPreserved": true
+  },
+  "historicalUnitReferencesClassifiedAsUnits": true,
+  "particleRenderingBound": false,
+  "fullSuiteRefreshed": false,
+  "naturalCohortRefreshed": false,
+  "deliveryRefreshed": false,
+  "evidence": [
+    {
+      "path": "artifacts/ahri-r-observer-regression-v1.log",
+      "bytes": 191,
+      "sha256": "b31393b1acb18142084398f2aa63055d0ccdcdfb8eab32422b4948f5b9205d4a"
+    },
+    {
+      "path": "artifacts/ahri-r-clock-edge-tests-v1.log",
+      "bytes": 442,
+      "sha256": "09ac2172fbd315e85b22fbb60fb2e011ee2e0668a5673bbc9f9566593bd1b325"
+    },
+    {
+      "path": "artifacts/ahri-r-observer-types-v2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/ahri-r-observer-candidate-ruleset-v1.json",
+      "bytes": 91,
+      "sha256": "de25093b64563cf09a8698b137f2ca3cfe3de58e487d7c8e0ad9fa88c6b2d15b"
+    }
+  ]
+}

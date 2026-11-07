@@ -1,4 +1,7 @@
+import { AHRI_R_VISUAL_POSE_TICKS } from '../content/ahri-r-visual-timing';
+import { validateRVisuals } from './ahri-r-visual-validation';
 import { validateEVisuals } from './ahri-e-visual-validation';
+import { AHRI_R } from '../content/ahri-r';
 import { validateWVisuals } from './ahri-w-visual-validation';
 import { validateQProjectileVisuals } from './ahri-q-projectile-visual-validation';
 import { validateAhriQCastVisuals } from './ahri-q-cast-visual-validation';
@@ -193,7 +196,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 180;
+export const SNAPSHOT_VERSION = 181;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -265,6 +268,23 @@ const eVisualPose = z.strictObject({
   radius: z.number().positive(),
   audience: z.array(team).max(2),
   animationTimeline: animationTimeline.nullable(),
+});
+const rVisualAnchor = z.strictObject({ tick, point, audience: z.array(team).max(2) });
+const rVisualFrame = z.strictObject({ ...rVisualAnchor.shape, previous: point });
+const rVisualActorEnd = z.strictObject({
+  tick,
+  reason: z.enum(['death', 'removed']),
+  pose: eVisualPose,
+});
+const rVisualReset = z.strictObject({
+  essenceId: id,
+  victimId: id,
+  spawnTick: tick,
+  consumeTick: tick,
+  previousEndTick: tick,
+  endTick: tick,
+  previousRemaining: z.number().int().min(0).max(3),
+  remaining: z.number().int().min(0).max(3),
 });
 const kind = z.enum([
   'champion',
@@ -2293,6 +2313,105 @@ const snapshot = z.strictObject({
       })
     )
     .max(10000),
+  ahriRVisuals: z
+    .array(
+      z.strictObject({
+        id,
+        sourceId: id,
+        team,
+        startTick: tick,
+        initialWindowEndTick: tick,
+        initialRemainingCasts: z.number().int().min(0).max(3),
+        windowEndTick: tick,
+        remainingCasts: z.number().int().min(0).max(3),
+        birthPose: eVisualPose,
+        end: z
+          .strictObject({
+            ...rVisualAnchor.shape,
+            reason: z.enum(['expired', 'death', 'match-end']),
+            pose: eVisualPose,
+          })
+          .nullable(),
+        sourceFrames: z
+          .array(eVisualPose)
+          .min(1)
+          .max(AHRI_R_VISUAL_POSE_TICKS + 1),
+        sourceEnd: rVisualActorEnd.nullable(),
+        changes: z
+          .array(
+            z.strictObject({
+              tick,
+              kind: z.enum(['cast', 'essence']),
+              remainingCasts: z.number().int().min(0).max(3),
+              windowEndTick: tick,
+              burstIndex: z.number().int().min(0).max(9999).nullable(),
+              reset: rVisualReset.nullable(),
+              pose: eVisualPose,
+            })
+          )
+          .min(1)
+          .max(20000),
+        bursts: z
+          .array(
+            z.strictObject({
+              index: z.number().int().min(0).max(9999),
+              rank: z.number().int().min(1).max(3),
+              startTick: tick,
+              origin: point,
+              destination: point,
+              sourcePose: eVisualPose,
+              dashFrames: z
+                .array(rVisualFrame)
+                .min(1)
+                .max(Math.ceil((AHRI_R.dashDistance / AHRI_R.baseDashSpeed) * TICK_RATE)),
+              dashEnd: z
+                .strictObject({
+                  ...rVisualAnchor.shape,
+                  reason: z.enum(['arrived', 'control', 'death', 'flash', 'match-end']),
+                  control: z
+                    .strictObject({
+                      rootUntil: deadline,
+                      stunUntil: deadline,
+                      charmUntil: deadline,
+                    })
+                    .nullable(),
+                })
+                .nullable(),
+              bolts: z
+                .array(
+                  z.strictObject({
+                    index: z.number().int().min(0).max(2),
+                    targetId: id,
+                    birth: rVisualAnchor,
+                    frames: z.array(rVisualFrame).max(241),
+                    end: z
+                      .strictObject({
+                        ...rVisualAnchor.shape,
+                        reason: z.enum(['hit', 'lost-target', 'expired', 'match-end']),
+                      })
+                      .nullable(),
+                    hit: z
+                      .strictObject({
+                        targetTeam: faction,
+                        targetRig: z
+                          .enum(Object.keys(MOBILE_CLIP_DURATIONS) as [MobileRig, ...MobileRig[]])
+                          .nullable(),
+                        pose: eVisualPose,
+                      })
+                      .nullable(),
+                    targetFrames: z.array(eVisualPose).max(AHRI_R_VISUAL_POSE_TICKS + 1),
+                    targetEnd: rVisualActorEnd.nullable(),
+                  })
+                )
+                .max(3),
+            })
+          )
+          .max(10000),
+      })
+    )
+    .min(1)
+    .max(10000)
+    .optional(),
   ahriEVisuals: z
     .array(
       z.strictObject({
@@ -4148,6 +4267,18 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       throw new Error('Saved match contains an invalid scout visual lifetime.');
     visualIds.add(f.id);
   }
+  const historicalUnitIds = new Set([
+    ...(state.ahriEVisuals ?? []).flatMap((r) =>
+      r.hit && !state.units.some((u) => u.id === r.hit!.targetId) ? [r.hit.targetId] : []
+    ),
+    ...(state.ahriRVisuals ?? []).flatMap((r) =>
+      r.bursts.flatMap((b) =>
+        b.bolts.flatMap((p) =>
+          p.hit && !state.units.some((u) => u.id === p.targetId) ? [p.targetId] : []
+        )
+      )
+    ),
+  ]);
   const ids = [
     ...state.baronAttackVisuals.filter((v) => v.stopTick !== null),
     ...state.ahriOrbs,
@@ -4155,17 +4286,11 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     ...(state.ahriEVisuals ?? [])
       .filter((r) => r.launch && !state.projectiles.some((p) => p.id === r.launch!.projectileId))
       .map((r) => ({ id: r.launch!.projectileId })),
-    ...Array.from(
-      new Set(
-        (state.ahriEVisuals ?? []).flatMap((r) =>
-          r.hit && !state.units.some((u) => u.id === r.hit!.targetId) ? [r.hit.targetId] : []
-        )
-      ),
-      (id) => ({ id })
-    ),
+    ...Array.from(historicalUnitIds, (id) => ({ id })),
     ...state.ahriFoxFires,
     ...(state.ahriWVisuals ?? []).filter((r) => !state.ahriFoxFires.some((c) => c.id === r.id)),
     ...state.ahriRushes,
+    ...(state.ahriRVisuals ?? []).filter((r) => !state.ahriRushes.some((g) => g.id === r.id)),
     ...state.ahriEssences,
     ...(state.ahriRecallAudio ?? []),
     ...(state.ahriLifecycleAudio ?? []),
@@ -4652,7 +4777,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     state.tick,
     state.nextId,
     state.winner,
-    ids.filter((id) => !state.units.some((u) => u.id === id))
+    ids.filter((id) => !state.units.some((u) => u.id === id) && !historicalUnitIds.has(id))
   );
   validateSpiritRushes(
     state.ahriRushes,
@@ -4661,8 +4786,12 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     state.tick,
     state.nextId,
     state.winner,
-    ids.filter((id) => !state.units.some((u) => u.id === id)),
+    ids.filter((id) => !state.units.some((u) => u.id === id) && !historicalUnitIds.has(id)),
     state.ahriEssences
+  );
+  validateRVisuals(
+    state,
+    ids.filter((id) => !state.units.some((u) => u.id === id) && !historicalUnitIds.has(id))
   );
   validateFoxFireCasts(
     state.ahriFoxFires,

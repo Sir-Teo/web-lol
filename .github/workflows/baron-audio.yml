@@ -286,6 +286,11 @@ jobs:
           tests/ahri-spirit-rush-audio-controller.test.ts
           tests/ahri-spirit-rush-gameplay-reference.test.ts
           tests/ahri-r.test.ts
+          tests/ahri-r-visual-gameplay-reference.test.ts
+          tests/ahri-r-same-tick-target-loss.test.ts
+          tests/ahri-r-visual-history-module.test.ts
+          tests/ahri-r-visual-history.test.ts
+          tests/ahri-r-visual-snapshot.test.ts
           tests/ahri-passive-gameplay-reference.test.ts
           tests/ahri-passive.test.ts
           tests/ahri-fox-fire-audio-assets.test.ts

@@ -1,5 +1,9 @@
 # Spirit Rush saved visual observations
 
+The current isolated candidate connects observation to World and strict schema
+181 saves. R particle rendering remains unbound; full regression, natural-match
+comparison and delivery acceptance are being refreshed.
+
 The frozen pre-observer baseline executes the verified schema-180 / d625c0ee
 archive from the accepted Charm renderer. All 676 archived source/harness files
 are checked before compiling World through archive-only aliases. Node and V8
@@ -77,3 +81,38 @@ See [module verification](reference/ahri/r-observer-module-verification.json).
 
 The module is not connected to World or save serialization yet. Strict schema,
 motion/clock validation, current-state coverage and actual hook wiring are next.
+
+## Connected schema-181 candidate
+
+Accepted casts are observed after existing facing/resource changes and before
+dash motion. Actual reset, dash-stop, movement and pre-damage bolt-contact hooks
+copy gameplay facts without allocating identities or random draws. Death and
+terminal callbacks capture finite endings. Current pose/visibility refresh and
+independent burst/window retirement follow normal simulation/animation updates.
+
+Strict save admission validates paths, arrival epsilon, bolt speeds/deadlines,
+owned animation clocks, charge/reset chronology, live context coverage, audio
+links, body identity and finite retention. Historical unit references are
+reserved once and remain classified as units after corpse removal; the mixed
+E/R minion case exercises that classification through normal cleanup. Real dummy
+respawn and a second death preserve the first contact's old body independently.
+
+Thirty-six malformed-save probes reject changed clocks, paths, IDs, rigs, body
+facts, missing coverage and unknown fields. Connected tests cover every frame
+through contact, zero-charge active windows, dash continuation beyond expiry,
+short accepted/rejected aims and a natural attack victory before the first bolt
+update. The terminal save has no invented flight frame. Window-ending poses
+remain distinct from later dash motion.
+
+The 113-case regression selection in thirteen files and the overlapping 31-case
+edge selection in three files pass, alongside TypeScript. All 357 frozen complete
+projections, exact restores and 148 future checks remain unchanged. Legacy R and
+passive baselines exclude the new presentation field on the current side only;
+their frozen helpers, producers and goldens are untouched. The existing audio
+case retains all 2,000 full restores and assertions with a targeted 60-second
+budget for the larger bounded pose payload. See
+[candidate verification](reference/ahri/r-visual-observer-candidate.json).
+
+The earlier unconnected module and admission-fix receipts keep their original
+scope. No native callback, counter-comparison operator or pixel parity claim is
+added. Full-suite, cohort, browser and production/offline gates follow.

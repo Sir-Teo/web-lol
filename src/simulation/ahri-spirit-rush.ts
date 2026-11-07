@@ -1,4 +1,12 @@
 import {
+  observeRVisualReset,
+  sampleRVisualDash,
+  endRVisualDash,
+  sampleRVisualBolt,
+  endRVisualBolt,
+  endRVisualWindow,
+} from './ahri-r-visual-history';
+import {
   beginSpiritRushAudio,
   updateSpiritRushAudioWindow,
   endSpiritDashAudio,
@@ -129,6 +137,7 @@ export function consumeSpiritEssence(
   rush.endTick = endTick;
   rush.remainingCasts = remaining;
   updateSpiritRushAudioWindow(world, rush);
+  observeRVisualReset(world, rush, rush.resets.at(-1)!);
   return true;
 }
 export function activeSpiritDash(world: RushWorld, sourceId: number): SpiritBurst | undefined {
@@ -266,6 +275,10 @@ export function stopSpiritDash(
           charmUntil: source.charm?.endTick ?? 0,
         }
       : null;
+  const rush = world.ahriRushes.find(
+    (r) => r.sourceId === source.id && r.bursts[dash.index] === dash
+  )!;
+  endRVisualDash(world, rush, dash, source);
 }
 export function advanceSpiritDash(world: RushWorld, source: Unit): void {
   const dash = activeSpiritDash(world, source.id);
@@ -291,6 +304,10 @@ export function advanceSpiritDash(world: RushWorld, source: Unit): void {
   source.y = point.y;
   source.facing = Math.atan2(dir.x, dir.y);
   dash.lastTick = world.tick;
+  const rush = world.ahriRushes.find(
+    (r) => r.sourceId === source.id && r.bursts[dash.index] === dash
+  )!;
+  sampleRVisualDash(world, rush, dash, source);
   if (arrived) stopSpiritDash(world, source, 'arrived');
 }
 export function stopSpiritRush(world: RushWorld, source: Unit): void {
@@ -301,6 +318,7 @@ export function stopSpiritRush(world: RushWorld, source: Unit): void {
       rush.stopReason = 'death';
       stopSpiritRushAudio(world, rush);
       rush.remainingCasts = 0;
+      endRVisualWindow(world, rush);
     }
   world.ahriRushes = world.ahriRushes.filter(
     (r) =>
@@ -320,6 +338,7 @@ export function expireSpiritRushes(world: RushWorld): void {
       rush.stopReason = 'expired';
       stopSpiritRushAudio(world, rush);
       rush.remainingCasts = 0;
+      endRVisualWindow(world, rush);
     }
   }
 }
@@ -343,12 +362,14 @@ export function advanceSpiritBolts(world: RushWorld): void {
           bolt.stopTick = world.tick;
           bolt.stopReason = 'lost-target';
           finishSpiritBoltAudio(world, rush, burst, bolt);
+          endRVisualBolt(world, rush, burst, bolt);
           continue;
         }
         if (world.tick - burst.startTick >= POLICY.maximumBoltTicks) {
           bolt.stopTick = world.tick;
           bolt.stopReason = 'expired';
           finishSpiritBoltAudio(world, rush, burst, bolt);
+          endRVisualBolt(world, rush, burst, bolt);
           continue;
         }
         const remaining = distance(bolt.position, target),
@@ -358,11 +379,13 @@ export function advanceSpiritBolts(world: RushWorld): void {
           bolt.stopTick = world.tick;
           bolt.stopReason = 'hit';
           finishSpiritBoltAudio(world, rush, burst, bolt);
+          endRVisualBolt(world, rush, burst, bolt, target);
           world.damage(source, target, burst.damage, 'magic', 'area');
         } else {
           const dir = direction(bolt.position, target);
           bolt.position.x += dir.x * step;
           bolt.position.y += dir.y * step;
+          sampleRVisualBolt(world, rush, burst, bolt);
         }
       }
   // Damage callbacks can stop earlier records; retain only after all callbacks finish.

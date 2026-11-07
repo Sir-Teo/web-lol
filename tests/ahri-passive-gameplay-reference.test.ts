@@ -6,8 +6,9 @@ import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
 import reference from '../docs/reference/ahri-passive-gameplay-reference.json';
 import { PASSIVE_GAMEPLAY_CASES, passiveGameplaySamples } from './helpers/ahri-passive-gameplay';
 
-// Normalize only the new lifecycle presentation field on the current side.
-// Frozen gameplay helper, producer and expected hashes remain unchanged.
+// Exclude only presentation fields introduced after this frozen checkpoint.
+// Its helper, producer and expected hashes remain unchanged; every field that
+// existed at that checkpoint retains its original comparison scope.
 class LifecyclePresentationProjection extends World {
   override snapshot(): string {
     const state = JSON.parse(super.snapshot());
@@ -17,6 +18,7 @@ class LifecyclePresentationProjection extends World {
     delete state.ahriQProjectileVisuals;
     delete state.ahriWVisuals;
     delete state.ahriEVisuals;
+    delete state.ahriRVisuals;
     return JSON.stringify(state);
   }
 }

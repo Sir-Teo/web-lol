@@ -94,7 +94,7 @@ const pointAudience = (w: RVisualObserverWorld, p: Vec2, owner: Team) =>
   teams.filter((t) => t === owner || w.pointVisible?.(p, t));
 const actorAudience = (w: RVisualObserverWorld, u: Unit) => {
   if (!w.visible) throw Error('R visual observer requires actor visibility');
-  return teams.filter((t) => w.visible!(u, t));
+  return teams.filter((t) => u.team === t || w.visible!(u, t));
 };
 function pose(w: RVisualObserverWorld, u: Unit): RVisualPose {
   return {
