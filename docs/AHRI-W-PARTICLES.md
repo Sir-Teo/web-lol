@@ -2,7 +2,8 @@
 
 The source checkpoints below retain their original source-only scope. Subsequent
 [visual history integration](AHRI-W-VISUAL-HISTORY-PLAN.md) advances the isolated
-branch to schema 178; W rendering remains pending.
+branch to schema 178. The [joined renderer](AHRI-W-RENDERING.md) is now
+verified and integrated; the source checkpoints below keep their original scope.
 
 This isolated source checkpoint retains all five W-prefixed resources declared
 by the pinned base skin: `Ahri_W_cas`, `Ahri_W_mis`, `Ahri_W_mis_02`,
