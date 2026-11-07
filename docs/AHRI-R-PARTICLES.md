@@ -197,3 +197,13 @@ node --test tools/qa/ahri-r-particle-bindings.test.mjs tools/qa/ahri-r-particle-
 
 This projection adds no runtime bindings or public assets. Native semantics and
 rendered appearance remain separate from preserving source declarations.
+
+The ff64783d committed export passes all seven producer/profile commands,
+including both normal/optimized guard scripts and four focused Node QA cases.
+All required committed inputs/helpers are present; no native cache, decoder tools
+or node_modules are available. The workflow itself remains undispatched.
+See [complete portable verification](reference/ahri/r-complete-portable-verification.json)
+and [source-preparation acceptance](reference/ahri/r-source-preparation-acceptance.json).
+Application, public-asset and compatibility-fingerprint sources match accepted
+primary 2ee8682e byte for byte. Saved visual clocks and runtime rendering follow
+as separate development work.
