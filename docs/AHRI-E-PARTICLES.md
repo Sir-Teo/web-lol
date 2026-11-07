@@ -112,3 +112,8 @@ PNGs (50,264 bytes). Complete-record, changed-pin/PNG-CRC, publication-conflict 
 symlink guards pass in normal and optimized Python. The combined selected effect
 closure therefore has 22 textures / 187 authored mips and the original two
 meshes. No public transport has been published.
+
+The [producer verification](reference/ahri/e-particle-bindings-verification.json)
+records the eleven-file clean export, all three portable commands, both Node QA
+wrappers, the independent 64-record character reparse and additional native /
+decode guard evidence. Shared Q/W helpers remain unchanged.

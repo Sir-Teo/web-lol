@@ -1,0 +1,133 @@
+{
+  "format": 1,
+  "result": "passed",
+  "additionalSourceRevision": "e320f41",
+  "additionalDecodeRevision": "7ea8ba1",
+  "bindingRevision": "d0baa51",
+  "bindingPinSha256": "9c22449fe2b42efb615469b1e1aeb56e8ca9489578754d4a6814528d4ada29e2",
+  "additionalSourcePinSha256": "d16b06cc12bfd2016dc07f048d1b031ff6da346f3dbb2ab7dfdb7aa407086c90",
+  "additionalDecodedPinSha256": "aa3c539b1c99e9c775bde71b413542ee4a2fd0067c195dc88e7361593f399b51",
+  "combinedSelection": {
+    "systems": 5,
+    "complexEmitters": 29,
+    "textures": 22,
+    "authoredMips": 187,
+    "meshes": 2,
+    "uniqueNativeFiles": 28,
+    "uniqueNativeBytes": 1833119
+  },
+  "producerJoins": {
+    "spellFields": 2,
+    "persistentBuffFields": 2,
+    "directionalAnimationEvents": 4,
+    "unjoinedSelectedSystems": 0
+  },
+  "cleanExport": {
+    "revision": "d0baa51",
+    "committedFiles": 11,
+    "privateCaches": false,
+    "nativeTools": false,
+    "commands": [
+      {
+        "command": [
+          "python3",
+          "tools/assets/read-ahri-e-bindings.py",
+          "--check"
+        ],
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-e-bindings-clean-ci-0.log"
+      },
+      {
+        "command": [
+          "python3",
+          "tools/assets/test-ahri-e-bindings.py"
+        ],
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-e-bindings-clean-ci-1.log"
+      },
+      {
+        "command": [
+          "python3",
+          "-O",
+          "tools/assets/test-ahri-e-bindings.py"
+        ],
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-e-bindings-clean-ci-2.log"
+      }
+    ],
+    "result": "passed"
+  },
+  "nativeCharacterRecordsReparsed": 64,
+  "additionalSourceGuardsPerMode": 9,
+  "additionalDecodeGuardsPerMode": 4,
+  "nodeQaWrappers": 2,
+  "additionalPrivatePngBytes": 50264,
+  "additionalExactDecodeRegeneration": true,
+  "evidence": [
+    {
+      "path": "artifacts/ahri-e-additional-source-check-v1.log",
+      "sha256": "53e0feddf67c5a61e4be3578b66f0ccdccf8912207625fbdb54c491781cb24ec"
+    },
+    {
+      "path": "artifacts/ahri-e-additional-source-check-optimized-v1.log",
+      "sha256": "53e0feddf67c5a61e4be3578b66f0ccdccf8912207625fbdb54c491781cb24ec"
+    },
+    {
+      "path": "artifacts/ahri-e-additional-source-guards-v2.log",
+      "sha256": "f732530a90462f5eac75ad6377c57a45b8a53b7fd8b75c4f15838cfefa62993f"
+    },
+    {
+      "path": "artifacts/ahri-e-additional-source-guards-optimized-v1.log",
+      "sha256": "6b508b65d785052f99dcc6fe6a7aadbef6f1625964c83dfc53ea632126ef9ad9"
+    },
+    {
+      "path": "artifacts/ahri-e-additional-decode-check-v1.log",
+      "sha256": "12c89121f0bf8fd776d11d9ee5a0f5c6af89c7d66eacd11e8575b6e22fad8f68"
+    },
+    {
+      "path": "artifacts/ahri-e-additional-decode-check-optimized-v1.log",
+      "sha256": "12c89121f0bf8fd776d11d9ee5a0f5c6af89c7d66eacd11e8575b6e22fad8f68"
+    },
+    {
+      "path": "artifacts/ahri-e-additional-decode-guards-v1.log",
+      "sha256": "22bd4a0268ec632dbbe91d10d5ec17280e49adf599dfa428370a63b48294160f"
+    },
+    {
+      "path": "artifacts/ahri-e-additional-decode-guards-optimized-v1.log",
+      "sha256": "c1765c37aa46c7770a684fc7a04ca8de204fd7fa4a12a0f6fbf28b9e1aa29cff"
+    },
+    {
+      "path": "artifacts/ahri-e-additional-decode-regeneration-v1.log",
+      "sha256": "178e72d6fa586b0b24bebe74d730bf8e22b3c7e8d36ac9ed5195dd845aebdd8a"
+    },
+    {
+      "path": "artifacts/ahri-e-bindings-reading-v2.log",
+      "sha256": "f3db10bb5e2dd221c860042ddf5ce1c96e0bd3b19d15d356705d68c594ccd1d1"
+    },
+    {
+      "path": "artifacts/ahri-e-bindings-guards-v1.log",
+      "sha256": "88bb453b622607b94edada60ec1bcf367aa37d414328e76551dcc77cd5d8b3a2"
+    },
+    {
+      "path": "artifacts/ahri-e-bindings-guards-optimized-v1.log",
+      "sha256": "2276cb3e68a79102187d90119208f1ba20f8f5f540a86e94759bdb1c125587de"
+    },
+    {
+      "path": "artifacts/ahri-e-bindings-node-qa-v1.log",
+      "sha256": "5e1f95eec9a9036848a72aa1030c2a2a3b94738884374c346e5a837a5bb0b004"
+    },
+    {
+      "path": "artifacts/ahri-e-bindings-clean-ci-results.json",
+      "sha256": "703639419fdbd01f8fdbe3b9cfa015c4ce9e7b6eec8d8689045a351bf8ed052f"
+    },
+    {
+      "path": "artifacts/ahri-e-character-native-reparse-v1.log",
+      "sha256": "760958993e5e565421610c023c7bd95e0cd7e0ed0ceb7a6682e531de30202dc6"
+    }
+  ],
+  "limits": [
+    "Native parser/source checks require retained private tools and inputs; only the producer reading claims cache-free reproduction.",
+    "Native scripts, frame conversion, direction selection, callback/buff chronology and GPU pixels remain unverified.",
+    "No public transport, runtime dispatch, saved history or gameplay rules change."
+  ]
+}
