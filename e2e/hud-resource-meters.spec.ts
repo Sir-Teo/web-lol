@@ -16,6 +16,7 @@ for (const champion of ['ashe', 'garen'] as const)
         import('/src/content/practice-fixture.ts'),
       ]);
       const world = new World(false, PRACTICE_FIXTURE, champion);
+      world.player.gold = 5000.75;
       world.hero.hp = 123.25;
       world.hero.maxHp = 700.5;
       world.hero.mana = champion === 'garen' ? 0 : 87.75;
@@ -29,6 +30,10 @@ for (const champion of ['ashe', 'garen'] as const)
       hud.drawMinimap = () => {};
       (window as any).__RESOURCE_METERS__ = { world, hud, before };
     }, champion);
+    const shop = page.getByRole('button', { name: 'Open item shop, 5000 gold', exact: true });
+    await expect(shop).toBeVisible();
+    await expect(shop).toHaveAttribute('aria-keyshortcuts', 'P');
+    await expect(page.locator('#gold')).toHaveText('5000');
     const health = page.getByRole('meter', { name: 'Health', exact: true });
     await expect(health).toHaveAttribute('aria-valuemin', '0');
     await expect(health).toHaveAttribute('aria-valuemax', '701');
@@ -47,6 +52,7 @@ for (const champion of ['ashe', 'garen'] as const)
     ).toBe(true);
     await page.evaluate(() => {
       const p = (window as any).__RESOURCE_METERS__;
+      p.world.player.gold = 1234.9;
       p.world.hero.hp = 0;
       p.world.hero.maxHp = 800.25;
       p.world.hero.mana = 22.5;
@@ -54,6 +60,10 @@ for (const champion of ['ashe', 'garen'] as const)
       p.before = p.world.snapshot();
       p.hud.update(null);
     });
+    await expect(
+      page.getByRole('button', { name: 'Open item shop, 1234 gold', exact: true })
+    ).toBeVisible();
+    await expect(page.locator('#gold')).toHaveText('1234');
     await expect(health).toHaveAttribute('aria-valuemax', '801');
     await expect(health).toHaveAttribute('aria-valuenow', '0');
     await expect(page.locator('#health-text')).toHaveText('0 / 801');

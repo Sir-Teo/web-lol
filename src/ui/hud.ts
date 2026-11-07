@@ -171,7 +171,7 @@ export class Hud {
           <div class="resource garen-resource" ${world.hero.champion === 'garen' ? '' : 'hidden'}><span id="garen-passive"></span></div>
           <div class="experience"><i id="xp-fill"></i></div>
         </div>
-        <div class="inventory-panel"><div class="inventory-tools"><div class="inventory-grid" id="inventory">${Array.from({ length: 6 }, (_, i) => `<div class="item-slot"><span>${[1, 2, 3, 5, 6, 7][i]}</span></div>`).join('')}</div><button id="trinket" class="item-slot trinket-slot" aria-label="Stealth Ward"><img src="assets/icons/3340.png" alt="Stealth Ward"><b class="trinket-charges"></b><time class="trinket-cooldown"></time><span>4</span></button></div><button id="shop-button" class="gold-button" title="Open shop (P)"><span>◆</span><b id="gold">500</b><kbd>P</kbd></button></div>
+        <div class="inventory-panel"><div class="inventory-tools"><div class="inventory-grid" id="inventory">${Array.from({ length: 6 }, (_, i) => `<div class="item-slot"><span>${[1, 2, 3, 5, 6, 7][i]}</span></div>`).join('')}</div><button id="trinket" class="item-slot trinket-slot" aria-label="Stealth Ward"><img src="assets/icons/3340.png" alt="Stealth Ward"><b class="trinket-charges"></b><time class="trinket-cooldown"></time><span>4</span></button></div><button id="shop-button" class="gold-button" title="Open shop (P)" aria-keyshortcuts="P"><span>◆</span><b id="gold">500</b><kbd>P</kbd></button></div>
       </section>
       <div class="minimap-shell"><div class="ally-portraits" role="group" aria-label="Teammate cameras" hidden>${[2, 3, 4, 5].map((slot) => `<button class="ally-portrait" data-ally-camera="f${slot}" type="button"><img alt=""><kbd>F${slot}</kbd><span class="ally-respawn"></span><span class="ally-health"><i></i></span></button>`).join('')}</div><div class="map-controls"><button id="camera-button" aria-label="Toggle camera lock" aria-pressed="${view.locked}" title="${view.locked ? 'Unlock' : 'Lock'} camera (Y)">▣</button><button id="sound-button" aria-label="Toggle sound" aria-pressed="${this.sound}" title="${this.sound ? 'Mute' : 'Unmute'} sound">♫</button><span id="fps">— FPS</span></div><canvas id="minimap" width="256" height="256" aria-label="Minimap. Left-click or drag to move the camera; right-click to move your champion."></canvas><span class="map-caption">SUMMONER’S RIFT</span></div>
       <div class="recall-progress" hidden><span>RECALLING</span><div><i></i></div><small>Taking damage or moving cancels recall</small></div>
@@ -215,6 +215,7 @@ export class Hud {
       world.matchMode === 'lanes';
     this.updateCameraButton();
     this.updateSoundButton();
+    this.updateGold();
     this.updateResourceMeter('health-text', Math.ceil(world.hero.hp), Math.ceil(world.hero.maxHp));
     this.updateResourceMeter(
       'mana-text',
@@ -638,6 +639,14 @@ export class Hud {
     button.classList.toggle('off', !this.sound);
     button.setAttribute('aria-pressed', String(this.sound));
     button.title = this.sound ? 'Mute sound' : 'Unmute sound';
+  }
+  private updateGold(): void {
+    const gold = String(Math.floor(this.world.player.gold));
+    const text = this.root.querySelector<HTMLElement>('#gold')!;
+    if (text.textContent !== gold) text.textContent = gold;
+    const button = this.root.querySelector<HTMLButtonElement>('#shop-button')!;
+    const label = `Open item shop, ${gold} gold`;
+    if (button.getAttribute('aria-label') !== label) button.setAttribute('aria-label', label);
   }
   private updateResourceMeter(id: string, value: number, maximum: number): void {
     const text = this.root.querySelector<HTMLElement>(`#${id}`)!;
@@ -1473,7 +1482,7 @@ export class Hud {
     }
     width('xp-fill', p.level === MAX_LEVEL ? 1 : p.xp / experienceToNextLevel(p.level));
     text('level', p.level);
-    text('gold', Math.floor(p.gold));
+    this.updateGold();
     const shopBalance = this.modal === 'shop' ? this.root.querySelector('.shop-balance b') : null;
     if (shopBalance) {
       this.updateShopPurchases();
