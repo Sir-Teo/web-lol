@@ -503,3 +503,21 @@ Primary merge `d80bd9a4` reproduces pack `60079db3` exactly and passes all 167
 focused tests in fifteen files. Application/public bytes match the accepted
 candidate. See [eye-glow integration](reference/ahri/r-eye-glow-main-integration.json).
 The prior palette, 20-profile R, R observer and E packs remain retained.
+
+## Periodic eye-trail schedule preparation
+
+The unconnected `ahri-r-eye-schedule` helper preserves profile 47's three-second
+continuous period and profile 48's 2.5-second period with authored active duration
+`0.6000000238418579`. Both omit emitter lifetime. The proposed local adapter
+leaves cessation to the observed buff producer instead of borrowing the glows'
+authored fifty-second limit. Native constructors remain unverified.
+
+Constant positive rates and integral period lengths make each period boundary
+a count-history barrier in the selected source kernel. Replaying recent cycles
+matches complete 5,000-second schedules for both profiles, including their
+16-bit pool-counter wraps. Birth timing, shares and absolute emitter phase stay
+exact. Cosmetic identities use local update tick and in-step slot; they do not
+claim native pool/RNG identity. Distant seeks require at most 200 kernel updates
+and retain at most 32 births in the checked cases. All 253 scoped checks and
+TypeScript pass. The helper is not connected to rendering, so the accepted
+ruleset remains `18613342` with 688 compatibility files.
