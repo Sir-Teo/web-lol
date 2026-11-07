@@ -380,6 +380,7 @@ export class Hud {
       : 'Hold the key to aim. Release to cast.';
   }
   private updateShopPurchases(): void {
+    if (this.modal !== 'shop') return;
     this.root.querySelectorAll<HTMLButtonElement>('[data-buy]').forEach((button) => {
       const id = button.dataset.buy!;
       const reason = this.buyingItem ? 'Preparing purchase…' : this.world.purchaseError(id);
@@ -1052,7 +1053,8 @@ export class Hud {
         backdrop.querySelector<HTMLElement>('.shop-message')!.textContent = 'Preparing trinket…';
         try {
           const result = await this.actions.swapTrinket(button.dataset.trinket as TrinketKind);
-          if (backdrop.isConnected) showShopResult(result, 'Trinket equipped');
+          if (this.modal === 'shop' && button.isConnected)
+            showShopResult(result, 'Trinket equipped');
         } finally {
           this.buyingItem = false;
           this.updateShopPurchases();
@@ -1076,7 +1078,7 @@ export class Hud {
         backdrop.querySelector<HTMLElement>('.shop-message')!.textContent = 'Preparing purchase…';
         try {
           const result = await this.actions.buyItem(button.dataset.buy!);
-          if (backdrop.isConnected) showShopResult(result, 'Item purchased');
+          if (this.modal === 'shop' && button.isConnected) showShopResult(result, 'Item purchased');
         } finally {
           this.buyingItem = false;
           this.updateShopPurchases();
