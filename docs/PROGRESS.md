@@ -8,12 +8,12 @@ Last updated: November 7, 2026 (UTC).
 
 Accepted local runtime: save schema **181**, ruleset
 `e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f`.
-Latest application `498fe215` / pack `fbe5fdbf` keeps offline recovery in check
-mode until inspection succeeds, owns pending retries, and retains named HUD
-resources/shop controls. Four scoped browser cases, application TypeScript,
-production build and all-file pack verification pass; gameplay compatibility and
-worker policy stay unchanged. See
-[offline recovery verification](reference/offline-check-mode-verification.json)
+Latest application `711ad0d6` / pack `f9a5ad6c` blocks overlapping panel actions
+during offline removal, keeps recovery in check mode until inspection succeeds,
+and retains the named HUD controls. Six scoped browser cases, fixture/application
+TypeScript, production build and all-file pack verification pass; gameplay
+compatibility and worker policy stay unchanged. See
+[offline panel verification](reference/offline-remove-ownership-verification.json)
 and [HUD verification](reference/hud-shop-label-verification.json).
 The latest full unit result at application `cabb9791` / pack `171bacaf` resolves
 to 10,152/10,154 across 611 files. One wave-clock deadline failure passed its
@@ -9852,3 +9852,13 @@ pass on the first attempt in a committed export: 1,924 runtime test executions /
 blob verifies before cleanup. Installed dependencies are reused; browser
 execution and the later removal fix retain their separate receipts. See
 [offline CI verification](reference/offline-current-ci-verification.json).
+
+Offline removal checkpoint `711ad0d6` disables the current panel's Remove,
+Download and Reload controls while removal is pending, displays removal status
+and restores controls after either outcome. Success hides Reload. Two retained
+regressions show both overlapping actions starting before the fix; all six
+fixture cases and their typecheck now pass. Application TypeScript, build and
+complete retained-pack verification pass: `f9a5ad6c`, 1,432 files / 581,143,495
+bytes. Schema, all 696 compatibility files, ruleset and worker policy stay
+unchanged. The 90-command CI receipt keeps source `771a861a`; this fix has its
+own [removal verification](reference/offline-remove-ownership-verification.json).

@@ -1,0 +1,78 @@
+{
+  "format": 1,
+  "result": "passed",
+  "applicationRevision": "711ad0d6",
+  "schema": 181,
+  "ruleset": "e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f",
+  "compatibilityFiles": 696,
+  "browserCasesPassed": 6,
+  "originalOverlappingRemovalCasesRetained": 2,
+  "currentPanelDownloadAndReloadBlockedWhileRemoving": true,
+  "controlsRestoredAfterSuccessOrFailure": true,
+  "reloadHiddenAfterSuccessfulRemoval": true,
+  "removalStatusVisible": true,
+  "fixtureAndApplicationTypescriptPassed": true,
+  "productionBuildPassed": true,
+  "allFilePackAudit": {
+    "result": "passed",
+    "pack": "f9a5ad6c9480ba04aa3040c2f3f61d1b2d846e3ba4f72d880b252367e3436902",
+    "files": 1432,
+    "bytes": 581143495,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "retainedPack": "/workspace/web-lol/.cache/offline-remove-accepted-pack-f9a5",
+  "previousPacksPreserved": true,
+  "scope": "Current-panel control ownership, including three controlled recovery cases, one real check/cache-open boundary case, and two controlled removal cases. No cross-tab operation lock or complete-pack download certification.",
+  "prior90CommandCiSourceRevision": "771a861a",
+  "priorBroaderReceiptsKeepTheirRevisions": true,
+  "workerPolicyAndGameplayCompatibilityUnchanged": true,
+  "roadmapMilestone4Complete": false,
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/offline-remove-baseline-v1.log",
+      "bytes": 4892,
+      "sha256": "60ea6ee975c7237ebcdd88a5bbdd1f1b0f2a1fbc93a362fc575de3ad307b7248"
+    },
+    {
+      "file": "artifacts/offline-remove-fixed-v2.log",
+      "bytes": 1372,
+      "sha256": "0c3ea80fb32072f6280a132253a996e4eaa498b3f438035e2c95ad26a6c21dd4"
+    },
+    {
+      "file": "artifacts/offline-remove-browser-v1.json",
+      "bytes": 12606,
+      "sha256": "9da09f15575cecaf3fe91208fab72da8954c4e8066b2520ce147064dcc6f731c"
+    },
+    {
+      "file": "artifacts/offline-remove-browser-v2.json",
+      "bytes": 8580,
+      "sha256": "2590bd0616c810194606b838865815cb86174e18418db34e12e5451aa09431a7"
+    },
+    {
+      "file": "artifacts/offline-remove-fixture-types-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "artifacts/offline-remove-build-v1.log",
+      "bytes": 9453,
+      "sha256": "03130e68d6b6b77f391ab204d4cf2aa538c25e4f88f082562dbd6d024731e0ad"
+    },
+    {
+      "file": "artifacts/offline-remove-build-dedup-v1.json",
+      "bytes": 1329,
+      "sha256": "9d64f03eae7a1bd626515c6464ef0cca8166cc4ff8ea8cb13a3ca40644f561ad"
+    },
+    {
+      "file": "artifacts/offline-remove-retained-pack-v1.json",
+      "bytes": 213,
+      "sha256": "6368207db17c19d9e77586971d38b819b164b7863a49a7cb70856ab0e3b90459"
+    },
+    {
+      "file": "artifacts/offline-remove-ruleset-v1.json",
+      "bytes": 104,
+      "sha256": "5a9159e9011a6086ba92e9320f35b01aa31a984d99d095f1538d585e16f6b4d6"
+    }
+  ]
+}
