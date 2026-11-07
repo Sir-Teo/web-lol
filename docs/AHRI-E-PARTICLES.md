@@ -2,8 +2,9 @@
 
 Current isolated rendering candidate: View lazily routes 28 bound emitter
 profiles over schema-180 saved history. Buff Avatar selection remains unresolved.
-Initial browser and 201 scoped CI checks pass; broader regression, archived
-comparison, clean CI and production/offline acceptance remain pending. The
+Native packet checks, full regression and archived comparison now pass with the
+two historical unit failures retained. Clean CI and production/offline acceptance
+remain pending. The
 accepted primary runtime stays separately retained during this work.
 
 This isolated source checkpoint retains all four E-prefixed resources declared
@@ -410,3 +411,25 @@ attachment fallback in this Ahri/Lux fixture and no page errors. Earlier wrong-U
 undersampled-flash and native-pose mismatch traces remain retained; they are not
 counted as passes. Full regression, fresh cohort, clean CI and delivery gates
 remain pending for this schema-180 candidate.
+
+## Full regression and archived comparison
+
+Application revision 58e1119 completes natural roster seed one with Blue victory
+at tick 157,116, zero invariant failures, 44 exact round trips and 43 restored
+futures / 2,580 ticks. All 45 complete projections match the accepted schema-179
+observer archive. Only version/ruleset and the newly added animation timelines
+and target rig are excluded; every pre-existing E observation fact remains in
+the comparison, alongside all gameplay and other presentation histories.
+
+The consumed source delta changes six files, adds thirteen, removes none and
+preserves 657 archive files byte for byte. World.ts is unchanged; View routing is
+recorded separately from compatibility roots. The 45 saves include seven with
+E history, at most one record per save and a largest sampled history of 271,633
+bytes. This is a sample measurement rather than a worst-case bound.
+
+The full suite passes 9,215 of 9,217 tests in 568 files with only the existing
+missing Leona reader and Node-24 Lux golden mismatch; no new timeout occurs.
+All 253 Node QA checks pass. All 334 public WAV files / 96,632,632 bytes match
+accepted primary 1c95b19 byte for byte. See the e-rendering-gameplay-comparison,
+e-rendering-source-delta and e-rendering-payload reference records. Clean-export
+CI and full browser/delivery acceptance are still being completed.
