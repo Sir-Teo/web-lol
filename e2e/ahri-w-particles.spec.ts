@@ -27,12 +27,12 @@ test('keyboard W loads only joined assets and restores orbit, flight and hit dra
     w.pendingSpawns = [];
     w.nextWaveTick = 1e9;
     w.setOrder(w.hero, { type: 'idle' });
-    Object.assign(w.hero, { x: 0, y: 0, previous: { x: 0, y: 0 }, ai: false });
-    const target = w.spawn('champion', 'red', { x: 300, y: -225 }, 'lux');
+    Object.assign(w.hero, { x: 300, y: -225, previous: { x: 300, y: -225 }, ai: false });
+    const target = w.spawn('champion', 'red', { x: 600, y: -450 }, 'lux');
     Object.assign(target, { ai: false, hp: 10000, maxHp: 10000 });
     w.learnSpell('w');
     v.zoom = 0.6;
-    v.recenter({ x: 120, y: -90 });
+    v.recenter({ x: 420, y: -315 });
     v.render(w, 1, v.previousElapsed);
     g.hud.update(60);
     const step = w.step;
@@ -45,7 +45,7 @@ test('keyboard W loads only joined assets and restores orbit, flight and hit dra
       return result;
     };
     g.setPaused(false);
-    return v.screenPoint({ x: 300, y: -225 });
+    return v.screenPoint({ x: 600, y: -450 });
   });
   await page.mouse.move(aim.x, aim.y);
   await page.keyboard.press('w');

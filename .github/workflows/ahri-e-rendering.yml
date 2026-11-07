@@ -1,0 +1,49 @@
+name: Ahri E saved-phase rendering
+on:
+  push:
+    paths:
+      - '.github/workflows/ahri-e-rendering.yml'
+      - 'src/render/**'
+      - 'src/simulation/**'
+      - 'src/content/**'
+      - 'public/assets/effects/ahri-e-*'
+      - 'docs/reference/ahri/e-*.json'
+      - 'docs/reference/source-particle-post-rotation-samples.json'
+      - 'tests/ahri-e*'
+      - 'tests/lazy-ahri-e-effects.test.ts'
+      - 'tests/helpers/ahri-e-visual-gameplay.ts'
+      - 'tests/source-particle*'
+      - 'tests/ruleset-fingerprint.test.ts'
+      - 'tools/ruleset-fingerprint.ts'
+      - 'package*.json'
+      - 'tsconfig.json'
+  pull_request:
+    paths:
+      - '.github/workflows/ahri-e-rendering.yml'
+      - 'src/render/**'
+      - 'src/simulation/**'
+      - 'src/content/**'
+      - 'public/assets/effects/ahri-e-*'
+      - 'docs/reference/ahri/e-*.json'
+      - 'docs/reference/source-particle-post-rotation-samples.json'
+      - 'tests/ahri-e*'
+      - 'tests/lazy-ahri-e-effects.test.ts'
+      - 'tests/helpers/ahri-e-visual-gameplay.ts'
+      - 'tests/source-particle*'
+      - 'tests/ruleset-fingerprint.test.ts'
+      - 'tools/ruleset-fingerprint.ts'
+      - 'package*.json'
+      - 'tsconfig.json'
+jobs:
+  saved-phase-rendering:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.22.1'
+          cache: npm
+      - run: npm ci
+      - run: npm exec tsc -- --noEmit
+      - name: Check saved phases, source packets, visibility, ownership and existing surface consumers
+        run: npm exec vitest -- run tests/ahri-e-*.test.ts tests/ahri-e.test.ts tests/lazy-ahri-e-effects.test.ts tests/source-particle-surfaces.test.ts tests/source-particle-post-rotation.test.ts tests/source-particle-joint-frame.test.ts tests/ahri-w-effects.test.ts tests/ahri-q-casts.test.ts tests/ruleset-fingerprint.test.ts --maxWorkers=2

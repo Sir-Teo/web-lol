@@ -1,4 +1,12 @@
-# Ahri Charm particle source
+# Ahri Charm particle source and rendering
+
+Accepted local rendering: View lazily routes 28 bound emitter
+profiles over schema-180 saved history. Buff Avatar selection remains unresolved.
+Native packet checks, full regression and archived comparison now pass with the
+two historical unit failures retained. Clean CI and the complete candidate build
+audit, all 22 browser cases and production/offline delivery pass. See
+[acceptance](reference/ahri/e-rendering-acceptance.json). Primary integration
+is being verified separately.
 
 This isolated source checkpoint retains all four E-prefixed resources declared
 by the pinned base skin: Ahri_E_buf, Ahri_E_cas, Ahri_E_mis and Ahri_E_tar.
@@ -215,3 +223,260 @@ checks all three existing reader SHA-256 pins, imports no application arithmetic
 refuses fixture replacement and reproduces the committed JSON with --check.
 These samples establish external composition order; they do not establish native
 callback timing or rendered-pixel parity. Local renderer support remains pending.
+
+The isolated sourceParticlePostRotation kernel now matches all 42 frozen
+matrices byte for byte, preserving float32 writes between post rotation and the
+supplied world basis. It validates finite native angles and matrices and returns
+independent storage. Other own-basis factors remain explicit caller work. The
+combined spin/draw/post-rotation checks pass 581 tests in four files, and TypeScript
+passes. Direct current dependency enumeration confirms the new module is not yet
+consumed: the accepted schema-179 ruleset and its 658 files remain unchanged.
+The historical schema-113 closure-receipt verifier is inapplicable to this runtime;
+its old pinned-receipt mismatch is retained separately from the current check.
+
+## Isolated public transport staging
+
+The E renderer branch now stages all 29 profiles, 22 texture atlases / 187
+source mips and both native-coordinate meshes. Eleven atlases borrow verified
+Q/W owners, leaving 13 new public files / 519,022 bytes. The colorless heart mesh
+retains no vertex-color attribute; the colored swirl retains its exact stream.
+Only explicit private transport paths change in the public profile projection.
+Raw post-rotation flags, missing selectors, lifetime omissions and unresolved
+binding requirements remain intact. No E playback is connected.
+
+Publication preflights all source inputs and outputs, rejects symlinked source
+transports, and never repairs conflicts. Eleven input-pin mutations, corrupt
+private and borrowed data, symlinked leaves/parents and final-output conflicts
+are exercised in normal and optimized Python. Both Node QA wrappers pass.
+The eleven E-source workflow commands also pass in a curated portable copy
+without decoder tools or private source/transport caches. A committed-export
+check follows the publication commit. The accepted primary runtime and pack
+remain separately retained while this renderer branch is under development.
+
+The committed publication revision 8ea0a69 reproduces all eleven workflow
+commands from a 62-file curated Git archive without private cache or tools.
+See e-publication-portable-verification.json for the exact revision and commands.
+
+The unconnected E asset loader now loads eleven E-owned atlases and two meshes,
+borrowing eleven sampler textures from the existing Q/W owners. It waits for
+owner readiness, validates address modes before delegation, and retains
+successful resources across failed loads without exposing partial readiness.
+Both source meshes convert centimetres to metres once; the heart remains
+colorless and the swirl receives its exact BGRA companion stream. Forty-nine
+focused asset/post-rotation tests and TypeScript checks pass, including real
+GLB parsing, all vertex positions, color presence and retry counts. Connecting
+this loader to a renderer and verifying its browser request closure remain next.
+
+## Saved phase-root adapter
+
+The isolated E history adapter joins cast, flight, hit and both persistent-buff
+systems with stable per-cast keys/seeds. Cast acceptance is an explicit local
+birth clock, not a recovered conversion of native animation frame 1. Cast and
+hit systems retain authored finite emitter windows; flight ends at the observed
+stop, and both buffs use the observed control stop or its fixed expiry deadline.
+
+Flight paths include the separate pre-move launch root and actual contact; body
+roots use source/target poses rather than the missile contact point. Old target
+paths clamp at their retained lifetime ending. Target-bound visibility never
+inherits the caster team, and interpolation requires both visible neighbours.
+Weak-key path caches invalidate same-tick audience/pose replacement; distances
+remain seek-order independent and facing follows the short arc with exact saved
+endpoints. Flight flex uses the observed missile radius, separate from body radii.
+
+Twenty-two phase/snapshot/W-path tests pass. A real posthumous cast is retained
+until its exact retirement boundary, round-trips there, and cannot reappear on
+the caster's actual respawn. The minimum champion death timer is 600 ticks,
+longer than this E retention; no source-ending field or schema change is needed
+for that case. Bone transforms, attached-skin selection and renderer integration
+remain separate steps.
+
+## Isolated E sampler
+
+The E sampler now projects all 29 authored emitters through the existing
+source-referenced birth, motion, binding, appearance, spin, UV and lookup kernels.
+Two non-neutral rate probability curves retain per-phase deterministic schedules;
+they are not replaced with neutral tables. Indexed cosmetic draws, a 60 Hz grid,
+nearest-tick delays and phase scheduling bounds are explicit local policies.
+The two heart meshes carry their independently checked post-rotation matrices.
+Missing attached selectors remain metadata; producing a skin packet does not
+claim that a mesh-selection policy or attached renderer has been resolved.
+
+Five system samplers match pure reconstruction on forward/backward seeks and
+after cache disposal. All 29 emitters produce finite packets without changing
+authored profiles. Tests cover moving-root transport, source-size flex, no cache
+reference exposure, probability-driven rate counts, post-rotation, late-birth
+suppression and finite stop drains. Total particle life is capped by authored
+linger after a stop rather than extended by it. The combined E/W/schedule/basis
+checks pass 133 tests across four files, and TypeScript passes. Scene integration,
+attachments, GPU material choices and browser request/draw verification remain
+pending. No native callback or rendered-pixel parity is claimed.
+
+The shared surface path now accepts an explicit source rotation matrix before
+attachment reflection. Existing packets retain their unchanged Euler branch.
+Seventy-one basis/E/W checks and 37 existing surface-consumer checks pass across
+ten files, with TypeScript clean. A consumed-file audit against primary 1c95b19
+finds only source-particle-surfaces.ts changed among the 658 compatibility files.
+The isolated candidate therefore has ruleset 7d183645 under schema 179; it is
+not an accepted delivery identity and E playback is still unconnected. See
+e-surface-basis-verification.json. The primary accepted runtime remains 062e397a.
+
+## Ribbon and attached-skin bindings
+
+All three camera-facing missile trails now produce source-centimetre packed
+points with actual path distances, birth visibility and source smoothing mode 2.
+Their quad materials retain erosion and packed UV/tint channels while borrowing
+textures. The local missile root is ground plus one metre, using the declared
+100-centimetre target-height offset as an adapter value rather than claiming a
+reconstructed native start-bone transform. Ten E/W ribbon and skin-binding tests
+pass, and TypeScript passes.
+
+Attached skin binding draws only the verified cast Tails match. The second
+selector remains unmatched, and the buff Avatar's omitted selector list remains
+an unresolved omission with no invented whole-body geometry. Both exact native
+Fresnel inputs (0.05f and 0.15f) reuse the already checked common skin-property
+mapping, yielding 0.3449999988079071 and 0.8350000381469727. This does not recreate
+the unavailable historical Leona reader or claim a new native dispatch proof.
+The unresolved buff skin must remain a named rendering limitation.
+
+## Private attachment-root sampling
+
+Historical cast/target roots can now sample private reference skeletons using
+exact declared bone names and saved body positions/facing. Live models and World
+remain untouched. Recent poses refresh at each frame; older queried points stay
+cached, returned vectors are independent, and replaced Worlds/retired groups
+release owned samplers. Flight keeps the explicit ground-plus-one-metre root.
+
+A missing rig or exact bone name uses a recorded collision-height fallback;
+no alias from the missile's raw spine field to a differently named bone is
+invented. Target lifetime endings clamp the pose query clock. Seventeen private
+pose/history checks pass across three files, and TypeScript passes. These use
+functional reference fixtures; actual asset attachments and fallback diagnostics
+still require the upcoming scene/browser check.
+
+## Unconnected scene renderer
+
+The E scene layer now draws 24 regular surface profiles, three packed ribbons
+and the verified cast Tails overlay. All 28 bound profiles contribute in the
+real-World unit fixture; the buff Avatar remains an explicit unresolved skin
+profile. Cast skin uses E's sampled color, erosion, UV and finite lifetime over
+a private animated source pose. Hidden cast births cannot replay that overlay
+after reveal. Missing palette inputs and named attachment fallbacks remain
+reported local limitations rather than fabricated source data.
+
+The combined E and shared-consumer checks pass 104 tests. They include exact
+fresh/reused save reconstruction through backward seeks and real Flash, genuine
+visibility changes, three trail families, finite matrices, terminal drainage
+without World steps, and disposal that preserves borrowed textures/geometry.
+TypeScript passes. The renderer is not yet connected to View; the next commit
+adds lazy roster routing and the full compatibility closure before browser QA.
+
+## Connected rendering candidate
+
+View now loads E effects only for an Ahri roster and retires the provisional pink
+missile only after source assets are ready. The ready callback redraws paused
+Worlds. All E render modules, the lazy import edge, public profile data, checked
+skin selection and post-rotation kernel join the compatibility fingerprint.
+A dedicated CI workflow checks E phases, assets, poses, visibility and existing
+Q/W/shared-surface consumers: 201 tests in 20 files pass, with TypeScript clean.
+
+The first software-Chromium browser case passes the actual source body clip,
+both heart meshes, three ribbons, marker replacement, contact and forced walking.
+Flight/contact screenshots have been inspected; they show the source heart and
+cast-tail overlay followed by the target impact and CHARMED status. This is a
+functional smoke check, not native pixel parity or completed renderer acceptance.
+The buff skin omission, palette input omission and named attachment fallbacks
+remain explicit; full browser restore/visibility/drain and delivery gates follow.
+
+## Owned animation history and native packet restore
+
+The immediate-contact browser checkpoint exposed two distinct issues: a private
+bone-root rounding boundary and attempts to reconstruct old bone poses from a
+Unit timeline that retains only its current transition. Schema 180 now stores
+an owned animation timeline in every E source/target pose and target-ending
+anchor, plus the observed target rig at contact. Current poses link to Unit
+state; known rigs, legal clips, bounded clocks and endpoint ownership are checked.
+Historical attachment queries use the saved neighbouring pose timeline. Native
+bone roots commit float32 source centimetres before accumulated root binding.
+
+An animated-bone regression spans a real cast-to-run transition and reconstructs
+the old root from early, late and fresh Worlds. Guards reject missing, future,
+stale, unknown and mismatched animation facts. Target-ending and source samples
+own their nested data independently. All 206 scoped checks in 21 files and
+TypeScript pass. The frozen gameplay helper, producer and golden remain intact.
+
+The deep software-Chromium keyboard-E case now passes all five checkpoints:
+cast, flight, immediate hit, control and late tail. Native bone matrices, geometry
+buffers, UVs, color, erosion and transforms match fresh restored Worlds. All
+28 bound profiles and the exact 13 new transport requests are observed, with no
+attachment fallback in this Ahri/Lux fixture and no page errors. Earlier wrong-URL,
+undersampled-flash and native-pose mismatch traces remain retained; they are not
+counted as passes. Full regression, fresh cohort, clean CI and delivery gates
+remain pending for this schema-180 candidate.
+
+## Full regression and archived comparison
+
+Application revision 58e1119 completes natural roster seed one with Blue victory
+at tick 157,116, zero invariant failures, 44 exact round trips and 43 restored
+futures / 2,580 ticks. All 45 complete projections match the accepted schema-179
+observer archive. Only version/ruleset and the newly added animation timelines
+and target rig are excluded; every pre-existing E observation fact remains in
+the comparison, alongside all gameplay and other presentation histories.
+
+The consumed source delta changes six files, adds thirteen, removes none and
+preserves 657 archive files byte for byte. World.ts is unchanged; View routing is
+recorded separately from compatibility roots. The 45 saves include seven with
+E history, at most one record per save and a largest sampled history of 271,633
+bytes. This is a sample measurement rather than a worst-case bound.
+
+The full suite passes 9,215 of 9,217 tests in 568 files with only the existing
+missing Leona reader and Node-24 Lux golden mismatch; no new timeout occurs.
+All 253 Node QA checks pass. All 334 public WAV files / 96,632,632 bytes match
+accepted primary 1c95b19 byte for byte. See the e-rendering-gameplay-comparison,
+e-rendering-source-delta and e-rendering-payload reference records. Clean-export
+CI and full browser/delivery acceptance are still being completed.
+
+## Clean export and candidate build
+
+The committed 58e1119 export passes all 76 workflow commands, including 987
+scoped test executions across 121 file executions. These counts include overlap
+between workflow selections. The export has no private caches or tools and reuses
+the installed node_modules. Only unused map texture assets were omitted to fit
+local storage; this is a source/workflow check, not a complete asset export.
+The verified disposable export was then removed, retaining its command logs and
+result receipt.
+
+The fresh candidate build and complete file/worker audit pass with pack
+4995dc742f50f3b4e970b85f51658dcce23829e7627d5659c24dcd14f95db751:
+1,405 files / 579,749,600 bytes. The worker policy remains unchanged. Retained
+primary and Q-projectile builds were audited before and after hard-linking their
+identical generated assets; both original pack identities and every path remain
+intact. This storage deduplication does not count as a candidate delivery test.
+Final combined browser, production-prefix and offline lifecycle gates remain open.
+
+## Combined browser regression
+
+All 22 current-schema browser cases pass: fifteen Charm particle/audio,
+save/reload and Fox-Fire cases, then seven Q cast/projectile cases. The initial
+command selected fifteen because two Q spec names were incorrect; the separately
+run correct specs supply the remaining seven rather than an inferred pass.
+E observes all 28 bound profiles and exactly thirteen new transport requests at
+five exact restored-packet checkpoints. Actual windup, flight and control saves
+reload through the UI. Genuine brush visibility, post-launch Flash, caster death
+and terminal draining pass without changing World steps. An ordinary roster
+requests no E transports. The Ahri/Lux fixture has no attachment fallback or
+page errors. Cast, flight, hit and control screenshots were visually reviewed.
+These software-rendered checks establish functional behavior, not native pixel
+parity or representative device performance. Production/offline gates follow.
+
+## Verified delivery
+
+Production under /nested/rift/ passes all existing checks with 32 recordings and
+zero E particle preloads in its non-Ahri roster. The production audit now explicitly
+records and rejects those requests. Full offline delivery verifies all 1,405
+files / 579,749,600 bytes, integrity recovery, cancellation/retry, saved offline
+boot and two-version atomic activation. There are 978 service-worker responses
+and zero production errors. Pack 4995dc74 and the unchanged worker policy pass
+complete byte audits. The acceptance receipt pins 140 evidence files. The native
+buff skin omission, global palette input, other-rig attachment fallbacks, native
+callback/material calibration and representative device performance remain open.
+Earlier frozen cohorts and hundred-seed results retain their original scope.

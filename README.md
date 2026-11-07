@@ -56,9 +56,9 @@ npm run offline:verify
 npm run test:production
 ```
 
-The latest full suite passes 8,879/8,881 tests. The missing historical Leona
+The latest full suite passes 9,215/9,217 tests. The missing historical Leona
 checker/archive and the retained Lux E sampler digest remain unresolved; their
-assertions are unchanged. See the [current validation receipt](docs/reference/ahri/q-projectile-rendering-acceptance.json)
+assertions are unchanged. See the [current validation receipt](docs/reference/ahri/e-rendering-acceptance.json)
 and [Lux runtime portability audit](docs/LUX-E-SAMPLER-PORTABILITY.md).
 
 The browser suite currently uses installed Google Chrome. All runtime assets are served locally. Manual checkpoints are available from the pause menu: Save match, then reload to restore in a paused state. Match files can be downloaded and imported through **Pause → Match files**. Use **Pause → Offline files → Download game pack** to cache the complete build for offline reloads. See [offline delivery](docs/OFFLINE-PACKS.md) for verified scope. Autosaves and other-browser certification remain unfinished.
@@ -128,8 +128,8 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Garen and Ahri roster expansion](docs/ROSTER-EXPANSION.md)
 - [Charm source audio and saved phase clocks](docs/AHRI-CHARM-AUDIO.md) — nine unchanged masters, exact Linear play fade and retained Exp1 stop domain.
 - [Orb source audio and saved dispatch clocks](docs/AHRI-Q-AUDIO.md) — 22 unchanged masters, per-leg hit sequences and distinct flight stop curves.
-- [Charm saved observation](docs/AHRI-E-VISUAL-HISTORY-PLAN.md) — strict schema-179 cast, flight, contact and target-lifetime history with frozen gameplay comparisons; particle rendering remains pending.
-- [Charm particle source preparation](docs/AHRI-E-PARTICLES.md) — complete declared producer joins, private mips/meshes and portable profile reading; rendered playback remains pending.
+- [Charm saved observation](docs/AHRI-E-VISUAL-HISTORY-PLAN.md) — strict schema-180 cast, flight, contact and target-lifetime history, owned animation poses and frozen gameplay comparisons.
+- [Charm particle source preparation](docs/AHRI-E-PARTICLES.md) — 28 bound profiles with exact restored packets, finite tails and lazy loading; native buff skin selection and calibration remain open.
 - [Fox-Fire joined source rendering](docs/AHRI-W-RENDERING.md) — 23 orbit, flight and hit profiles, saved visibility and finite drains; cast/weapon resources remain unjoined.
 - [Fox-Fire source audio and saved clocks](docs/AHRI-W-AUDIO.md) — eleven unchanged masters, continuous activation and a separate stop-tail cue.
 - [Essence Theft source audio](docs/AHRI-P-AUDIO.md) — five shared masters, independent saved consumption cues and exact restore.

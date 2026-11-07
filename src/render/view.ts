@@ -57,6 +57,7 @@ import { LazyAlphaCasts } from './lazy-masteryi-q-casts';
 import { LazyAhriQCasts } from './lazy-ahri-q-casts';
 import { LazyAhriQProjectiles } from './lazy-ahri-q-projectiles';
 import { LazyAhriWParticles } from './lazy-ahri-w-effects';
+import { LazyAhriEParticles } from './lazy-ahri-e-effects';
 import { LazyAlphaContacts } from './lazy-masteryi-q-contacts';
 import { LuxAttackCrescents } from './lux-attack-crescents';
 import { LuxAttackTrails } from './lux-attack-trails';
@@ -204,6 +205,9 @@ export class GameView {
   ahriWParticles = new LazyAhriWParticles(this.scene, this.particleEarlyDistortion.scene, (p) =>
     this.ground(p)
   );
+  ahriEParticles = new LazyAhriEParticles(this.scene, this.particleEarlyDistortion.scene, (p) =>
+    this.ground(p)
+  );
   ahriQCasts = new LazyAhriQCasts(this.scene, (p) => this.ground(p));
   alphaCasts = new LazyAlphaCasts(this.scene, (p) => this.ground(p));
   alphaContacts = new LazyAlphaContacts(this.scene, (p) => this.ground(p));
@@ -325,6 +329,7 @@ export class GameView {
       this.ahriQCasts,
       this.ahriQProjectiles,
       this.ahriWParticles,
+      this.ahriEParticles,
       this.alphaContacts,
       this.alphaEnds,
       this.highlanderCasts,
@@ -961,6 +966,7 @@ export class GameView {
     this.ahriQCasts.update(world, alpha, this.camera, terminalAge);
     this.ahriQProjectiles.update(world, alpha, this.camera, terminalAge);
     this.ahriWParticles.update(world, alpha, this.camera, terminalAge);
+    this.ahriEParticles.update(world, alpha, this.camera, terminalAge);
     this.alphaContacts.update(world, alpha, this.camera, terminalAge);
     this.meditateCasts.update(world, alpha, this.camera, terminalAge);
     this.meditateBuffs.update(world, alpha, this.camera, terminalAge);
@@ -1048,6 +1054,7 @@ export class GameView {
     this.leonaSolarSurfaces.prepareDepth(this.renderer, this.camera);
     this.ahriQProjectiles.prepareDepth(this.renderer, this.camera);
     this.ahriWParticles.prepareDepth(this.renderer, this.camera);
+    this.ahriEParticles.prepareDepth(this.renderer, this.camera);
     renderParticleColorPhase(this.renderer, this.scene, this.camera, this.particleEarlyDistortion);
     this.particleDistortion.render(this.renderer, this.camera);
     this.mapTextureResidency?.endFrame();
@@ -1290,6 +1297,7 @@ export class GameView {
     for (const p of world.projectiles) {
       // The rig increment does not borrow a generic arrow for Leona's unimported E effect.
       if (p.type === 'zenith') continue;
+      if (p.type === 'charm' && this.ahriEParticles.ready) continue;
       if (p.type === 'attack' && world.unit(p.source)?.champion === 'lux') continue;
       if (p.type === 'attack' && world.grompAttackVisuals.some((v) => v.id === p.id)) continue;
       if (

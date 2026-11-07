@@ -5,6 +5,8 @@ import { DT, TICK_RATE } from '../content/rules';
 import { direction, distance, sweepCircle, type Vec2 } from './math';
 import type { Team, Unit } from './types';
 import type { AhriEVisualHistory, EVisualPose } from './ahri-e-visual-history';
+import { validAnimationTimeline } from './animation-timeline';
+import { MOBILE_CLIP_DURATIONS } from '../content/mobile-clip-durations';
 
 /** Replay retained linear flight and control clocks. Live entities, audio and
  * global identities are checked separately at World restore. */
@@ -23,7 +25,10 @@ export function validateEVisualMotion(record: AhriEVisualHistory, tick: number) 
       value.join() === canonical.join() && (!owner || owner === 'neutral' || value.includes(owner))
     );
   };
-  const poses = (frames: EVisualPose[], start: number, owner: Unit['team']) => {
+  const poses = (frames: EVisualPose[], start: number, owner: Unit['team'], rig: string | null) => {
+    check(rig === null || Object.hasOwn(MOBILE_CLIP_DURATIONS, rig));
+    const durations =
+      rig === null ? undefined : MOBILE_CLIP_DURATIONS[rig as keyof typeof MOBILE_CLIP_DURATIONS];
     check(frames.length > 0 && frames.length <= 512);
     for (const [index, frame] of frames.entries()) {
       check(
@@ -32,7 +37,9 @@ export function validateEVisualMotion(record: AhriEVisualHistory, tick: number) 
           finite(frame.point) &&
           Number.isFinite(frame.facing) &&
           Number.isFinite(frame.radius) &&
-          frame.radius > 0
+          frame.radius > 0 &&
+          validAnimationTimeline(frame.animationTimeline, durations, frame.tick) &&
+          (frame.animationTimeline === null || frame.animationTimeline.tick >= frame.tick - 1)
       );
       audience(frame.audience, owner);
     }
@@ -53,7 +60,7 @@ export function validateEVisualMotion(record: AhriEVisualHistory, tick: number) 
       Math.abs(record.facing - Math.atan2(acceptedDirection.x, acceptedDirection.y)) <= 1e-12
   );
   audience(record.castAudience, record.team);
-  poses(record.sourceFrames, record.castTick, record.team);
+  poses(record.sourceFrames, record.castTick, record.team, 'ahri-base');
   if (!record.launch) {
     check(
       !record.stop &&
@@ -171,7 +178,7 @@ export function validateEVisualMotion(record: AhriEVisualHistory, tick: number) 
   );
   audience(hit.audience, record.team);
   audience(hit.targetAudience, hit.targetTeam);
-  poses(record.targetFrames, hit.tick, hit.targetTeam);
+  poses(record.targetFrames, hit.tick, hit.targetTeam, hit.targetRig);
   if (record.targetEnd) {
     const end = record.targetEnd,
       last = record.targetFrames.at(-1)!;
@@ -182,7 +189,8 @@ export function validateEVisualMotion(record: AhriEVisualHistory, tick: number) 
         same(end.pose.point, last.point) &&
         end.pose.facing === last.facing &&
         end.pose.radius === last.radius &&
-        end.pose.audience.join() === last.audience.join()
+        end.pose.audience.join() === last.audience.join() &&
+        JSON.stringify(end.pose.animationTimeline) === JSON.stringify(last.animationTimeline)
     );
     check(
       end.reason === 'death'

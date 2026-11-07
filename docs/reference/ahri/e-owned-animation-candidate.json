@@ -1,0 +1,33 @@
+{
+  "format": 1,
+  "schema": 180,
+  "status": "focused and native-packet checks passed; broader acceptance pending",
+  "scopedTests": 206,
+  "scopedFiles": 21,
+  "browserCheckpoints": [
+    "cast",
+    "flight",
+    "hit",
+    "control",
+    "late"
+  ],
+  "boundProfiles": 28,
+  "unresolvedSkinProfiles": [
+    3
+  ],
+  "newTransportRequests": 13,
+  "evidence": [
+    {
+      "path": "artifacts/ahri-e-owned-pose-ci-tests-v1.log",
+      "sha256": "1e2118ca46d83edd0f9a6a40bbd85a3a5df5f0ed96c0e5a33b93f75869bf8434"
+    },
+    {
+      "path": "artifacts/ahri-e-owned-pose-ci-types-v1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/ahri-e-rendering-packets-v5.log",
+      "sha256": "f2ff878080732e777c8431429b6dcb2a30330e6e61b5f6480f7a816dfab5980a"
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "format": 1,
+  "beforeRevision": "7d3e00c4d643cfcb9356022e53ab2e444e483ca5",
+  "afterRevision": "58e11196ed39e17eec7c958c4c7e1e1702dc8491",
+  "beforeRuleset": "062e397af49c795cfef0170ee9aced41f8625065a8176d403a47ff30e93c889f",
+  "afterRuleset": "d625c0ee280a60649bf4516454b529fc1da780ed163f7bf4989c2dd21515a1f4",
+  "beforeArchiveFiles": 663,
+  "afterArchiveFiles": 676,
+  "changed": [
+    {
+      "before": {
+        "file": "src/render/source-particle-surfaces.ts",
+        "bytes": 23609,
+        "sha256": "61a94c22a385354aa8c0d8ab7d203a0c2d478c444c3c8137d8b047781dd2197b"
+      },
+      "after": {
+        "file": "src/render/source-particle-surfaces.ts",
+        "bytes": 24595,
+        "sha256": "9d4448e580d264d048ba1b7e20d4c9527f0c16f44c508bb8c08d9895cb11d1a3"
+      }
+    },
+    {
+      "before": {
+        "file": "src/simulation/ahri-e-visual-history-validation.ts",
+        "bytes": 8893,
+        "sha256": "63076a6fc00d4e6d9c0c5c315b88596f2d5d0d421f657e5b1390b148818e9d06"
+      },
+      "after": {
+        "file": "src/simulation/ahri-e-visual-history-validation.ts",
+        "bytes": 9548,
+        "sha256": "3306b345a833e1e0ff33bb580c9edcd25cf494ce2797167923a3bf2b34f44957"
+      }
+    },
+    {
+      "before": {
+        "file": "src/simulation/ahri-e-visual-history.ts",
+        "bytes": 15584,
+        "sha256": "b9a819c6c3185cbf50d2ab2f93eee97d53ecc24e30e080ab56578756769a9e96"
+      },
+      "after": {
+        "file": "src/simulation/ahri-e-visual-history.ts",
+        "bytes": 16032,
+        "sha256": "2fd9a8ba2e21faa767dbb4d92cc21ecd303ebf7de2929411906ab5a4dbbc5bf0"
+      }
+    },
+    {
+      "before": {
+        "file": "src/simulation/ahri-e-visual-validation.ts",
+        "bytes": 7716,
+        "sha256": "00aa951b5b4d3adbd7a71a708eeb7eed513d70d0f03bc213ebbcffe238aec1d4"
+      },
+      "after": {
+        "file": "src/simulation/ahri-e-visual-validation.ts",
+        "bytes": 8036,
+        "sha256": "1e4f7a75237b716c57e9c0fa7bee51a0c7de25996f2997173cc89e5014e23779"
+      }
+    },
+    {
+      "before": {
+        "file": "src/simulation/snapshot.ts",
+        "bytes": 211910,
+        "sha256": "70dfc1df552b26d7a23ef4c71ae2aae34afc317575f2e3a46cbb6e4237664a9b"
+      },
+      "after": {
+        "file": "src/simulation/snapshot.ts",
+        "bytes": 212123,
+        "sha256": "9175fb6645d983e3fd6b8cebf69dd430e979d91348067a393f768295a642ee6a"
+      }
+    },
+    {
+      "before": {
+        "file": "tools/ruleset-fingerprint.ts",
+        "bytes": 13709,
+        "sha256": "70143185e13878455abc9aa5af4a8b7349d68dfb90be4cb853d12079ffbd7395"
+      },
+      "after": {
+        "file": "tools/ruleset-fingerprint.ts",
+        "bytes": 13782,
+        "sha256": "6e81d004aac639f47d4013f93079aa0e704d433cb875df9ef757f5b5e3599cad"
+      }
+    }
+  ],
+  "added": [
+    {
+      "file": "docs/reference/ahri/e-attached-bindings.json",
+      "bytes": 4069,
+      "sha256": "c7e7029de9c834079f66c54d66f030516988dcac0b294fbaf5b8a2b12484febd"
+    },
+    {
+      "file": "src/content/ahri-e-particles.json",
+      "bytes": 511717,
+      "sha256": "3e354d6e8b9eea49a3522949754eab573625856b4804b5474ea3ed25765d003f"
+    },
+    {
+      "file": "src/render/ahri-e-assets.ts",
+      "bytes": 5576,
+      "sha256": "29389ad7888c0a34e6a02a2d32e510b9eecbcc62bc6f84db830434a3a6b721fa"
+    },
+    {
+      "file": "src/render/ahri-e-attachments.ts",
+      "bytes": 5313,
+      "sha256": "91c4a6830755fec7194bbbb55b618d849e16cab18ba91ad2ec3e5a6c33f4f154"
+    },
+    {
+      "file": "src/render/ahri-e-cast-skins.ts",
+      "bytes": 6555,
+      "sha256": "5b30126133c365d84d0a27a5d05a7c8003af9b07e4480b587536008d59440c94"
+    },
+    {
+      "file": "src/render/ahri-e-effects.ts",
+      "bytes": 12213,
+      "sha256": "3d689c141d0a37516081b7932c7baa27d8a1aa2c0ce9d8538ac2c131a019c13a"
+    },
+    {
+      "file": "src/render/ahri-e-history.ts",
+      "bytes": 7104,
+      "sha256": "c634c6e4e5669ed420317642a9225bc039b7f4c2cef49465a2b53c4c978cb9e0"
+    },
+    {
+      "file": "src/render/ahri-e-particles.ts",
+      "bytes": 16960,
+      "sha256": "b568d2d87aebf10ffcbea1678842210a0fa4ade02ef4f8609e4232374912cb16"
+    },
+    {
+      "file": "src/render/ahri-e-ribbon-material.ts",
+      "bytes": 3443,
+      "sha256": "0d37a8404c2a8938be1f264fa9acc5c5f03390ef4007fbb71f2538a7f69614c6"
+    },
+    {
+      "file": "src/render/ahri-e-skin-bindings.ts",
+      "bytes": 2073,
+      "sha256": "f4ee9637929c12bf8215b040b259544e20057550c7071150acf9d3487177bfeb"
+    },
+    {
+      "file": "src/render/ahri-e-trails.ts",
+      "bytes": 3053,
+      "sha256": "d5ceb83697a892c14f1695dca8af813a90c5f47ed1aa4f0eb558b997f3e8fb59"
+    },
+    {
+      "file": "src/render/lazy-ahri-e-effects.ts",
+      "bytes": 2156,
+      "sha256": "ba1697f5a59998e6398329d3acafdba412bbe1065f3e4769aa37620abfee705f"
+    },
+    {
+      "file": "src/render/source-particle-post-rotation.ts",
+      "bytes": 1270,
+      "sha256": "0d58a61205592c2b640362688c752a3fbf9b5023ca8a183099b5bcb63997728a"
+    }
+  ],
+  "removed": [],
+  "unchangedFiles": 657,
+  "allCurrentCandidateArchiveBytesMatch": true,
+  "additionalViewWiring": {
+    "file": "src/render/view.ts",
+    "beforePrimaryRevision": "1c95b199ce808f442da45a7a8f3dc314a644ba2d",
+    "beforeSha256": "e3d5c375563827999257793870b181b00596844fb11340435cf4872bde5aff46",
+    "afterSha256": "d0ca0733bf499531546614785800b232edcde548e9585d45ac00b81215b5a72e",
+    "compatibilityRoot": false
+  }
+}

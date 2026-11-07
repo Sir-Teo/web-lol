@@ -1,0 +1,69 @@
+{
+  "format": 1,
+  "revision": "8ea0a69479a606792e1505a16625231915b28751",
+  "sourceFiles": 62,
+  "scope": "Curated committed Git archive of portable E-source/publication inputs",
+  "privateCachePresent": false,
+  "privateToolsPresent": false,
+  "commands": [
+    {
+      "command": "python3 tools/assets/read-ahri-e-bindings.py --check",
+      "exitCode": 0,
+      "evidence": "artifacts/ahri-e-publication-git-ci-0.log"
+    },
+    {
+      "command": "python3 tools/assets/test-ahri-e-bindings.py",
+      "exitCode": 0,
+      "evidence": "artifacts/ahri-e-publication-git-ci-1.log"
+    },
+    {
+      "command": "python3 -O tools/assets/test-ahri-e-bindings.py",
+      "exitCode": 0,
+      "evidence": "artifacts/ahri-e-publication-git-ci-2.log"
+    },
+    {
+      "command": "python3 tools/assets/prepare-ahri-e-profiles.py --verify-reading",
+      "exitCode": 0,
+      "evidence": "artifacts/ahri-e-publication-git-ci-3.log"
+    },
+    {
+      "command": "python3 tools/assets/test-ahri-e-profiles.py",
+      "exitCode": 0,
+      "evidence": "artifacts/ahri-e-publication-git-ci-4.log"
+    },
+    {
+      "command": "python3 -O tools/assets/test-ahri-e-profiles.py",
+      "exitCode": 0,
+      "evidence": "artifacts/ahri-e-publication-git-ci-5.log"
+    },
+    {
+      "command": "python3 tools/assets/read-ahri-e-attached-bindings.py --check",
+      "exitCode": 0,
+      "evidence": "artifacts/ahri-e-publication-git-ci-6.log"
+    },
+    {
+      "command": "python3 tools/assets/test-ahri-e-attached-bindings.py",
+      "exitCode": 0,
+      "evidence": "artifacts/ahri-e-publication-git-ci-7.log"
+    },
+    {
+      "command": "python3 -O tools/assets/test-ahri-e-attached-bindings.py",
+      "exitCode": 0,
+      "evidence": "artifacts/ahri-e-publication-git-ci-8.log"
+    },
+    {
+      "command": "python3 tools/assets/test-ahri-e-publication.py",
+      "exitCode": 0,
+      "evidence": "artifacts/ahri-e-publication-git-ci-9.log"
+    },
+    {
+      "command": "python3 -O tools/assets/test-ahri-e-publication.py",
+      "exitCode": 0,
+      "evidence": "artifacts/ahri-e-publication-git-ci-10.log"
+    }
+  ],
+  "result": "passed",
+  "evidenceSha256": "cc91f3e0844fed37b2944148e6c5382841b94563a4c9e61d16e1ab70286a35b3",
+  "rendererConnected": false,
+  "acceptedPrimaryPackChanged": false
+}

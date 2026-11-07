@@ -1,5 +1,7 @@
 import type { Vec2 } from './math';
 import type { Projectile, Team, Unit } from './types';
+import { cloneAnimationTimeline, type AnimationTimeline } from './animation-timeline';
+import { mobileRig, type MobileRig } from '../content/mobile-clip-durations';
 
 export interface EVisualPose {
   tick: number;
@@ -7,6 +9,7 @@ export interface EVisualPose {
   facing: number;
   radius: number;
   audience: Team[];
+  animationTimeline: AnimationTimeline | null;
 }
 export interface EVisualFlightFrame {
   tick: number;
@@ -49,6 +52,7 @@ export interface AhriEVisualHistory {
     targetPoint: Vec2;
     targetFacing: number;
     targetRadius: number;
+    targetRig: MobileRig | null;
     audience: Team[];
     targetAudience: Team[];
   } | null;
@@ -90,6 +94,7 @@ function pose(world: EVisualObserverWorld, unit: Unit): EVisualPose {
     facing: unit.facing,
     radius: unit.radius,
     audience: actorAudience(world, unit),
+    animationTimeline: cloneAnimationTimeline(unit.animationTimeline),
   };
 }
 /** Replacing a current-tick observation never rewrites an earlier frame object. */
@@ -236,6 +241,7 @@ export function endEVisualFlight(
       targetPoint: point(target),
       targetFacing: target.facing,
       targetRadius: target.radius,
+      targetRig: mobileRig(target),
       audience: pointAudience(world, value, record.team),
       targetAudience: actorAudience(world, target),
     };
@@ -307,7 +313,12 @@ function endTarget(
   record.targetEnd = {
     tick: world.tick,
     reason,
-    pose: { ...last, point: point(last.point), audience: [...last.audience] },
+    pose: {
+      ...last,
+      point: point(last.point),
+      audience: [...last.audience],
+      animationTimeline: cloneAnimationTimeline(last.animationTimeline),
+    },
   };
   stopBuff(world, record, reason);
 }

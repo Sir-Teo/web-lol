@@ -424,3 +424,24 @@ test('Daybreak and ordinary Leona audio state rules are saved-clock dependencies
   }
   expect(rulesetFingerprint(root)).toBe(baseline);
 });
+
+test('Charm saved-phase rendering includes lazy loading, source bindings and orientation dependencies', () => {
+  for (const file of [
+    'src/render/ahri-e-effects.ts',
+    'src/render/lazy-ahri-e-effects.ts',
+    'src/render/ahri-e-assets.ts',
+    'src/render/ahri-e-history.ts',
+    'src/render/ahri-e-attachments.ts',
+    'src/render/ahri-e-cast-skins.ts',
+    'src/render/ahri-e-particles.ts',
+    'src/render/ahri-e-skin-bindings.ts',
+    'src/render/ahri-e-trails.ts',
+    'src/render/ahri-e-ribbon-material.ts',
+    'src/render/source-particle-post-rotation.ts',
+    'src/content/ahri-e-particles.json',
+    'docs/reference/ahri/e-attached-bindings.json',
+  ]) {
+    expect(rulesetFiles, file).toContain(file);
+    expect(affectsRuleset(resolve(file)), file).toBe(true);
+  }
+});

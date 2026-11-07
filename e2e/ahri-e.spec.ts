@@ -5,6 +5,11 @@ async function prepare(page: Page) {
   await page.goto('/?scene=fixture&npc=ahri');
   await page.waitForFunction(() => (window as any).__GAME__?.ready);
   await page.locator('#loading').waitFor({ state: 'detached' });
+  await expect
+    .poll(() => page.evaluate(() => (window as any).__GAME__.view.ahriEParticles.ready), {
+      timeout: 60000,
+    })
+    .toBe(true);
   return page.evaluate(() => {
     const g = (window as any).__GAME__,
       w = g.world;
@@ -28,7 +33,7 @@ async function prepare(page: Page) {
   });
 }
 
-test('Charm renders its source body clip, provisional pink missile and forced-walk status', async ({
+test('Charm renders its source body clip, source heart missile and forced-walk status', async ({
   page,
 }, info) => {
   test.setTimeout(120000);
@@ -58,9 +63,17 @@ test('Charm renders its source body clip, provisional pink missile and forced-wa
     return {
       missile: w.projectiles.find((p: any) => p.type === 'charm'),
       markers: [...v.projectileModels.values()].map((m: any) => m.name),
+      surfaces: [...v.ahriEParticles.surfaces.models.values()].map((m: any) => m.name),
+      ribbons: v.ahriEParticles.models.size,
+      unboundSkinProfiles: v.ahriEParticles.unboundSkinProfiles,
+      attachmentFallbacks: v.ahriEParticles.attachmentFallbacks,
     };
   });
-  expect(flight.markers).toContain('Ahri provisional Charm');
+  expect(flight.markers).not.toContain('Ahri provisional Charm');
+  expect(flight.surfaces.some((name: string) => name.includes('HeartMesh_ADD1'))).toBe(true);
+  expect(flight.surfaces.some((name: string) => name.includes('HeartMesh_ALPHA2'))).toBe(true);
+  expect(flight.ribbons).toBe(3);
+  expect(flight.unboundSkinProfiles).toHaveLength(1);
   expect(flight.missile.speed).toBe(1550);
   await page.screenshot({ path: info.outputPath('ahri-e-flight.png') });
   const controlled = await page.evaluate(({ sourceId, targetId }) => {

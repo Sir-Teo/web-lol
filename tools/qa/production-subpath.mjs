@@ -130,6 +130,7 @@ try {
     ahriOrbAudioRequests = [],
     ahriQCastRequests = [],
     ahriQProjectileRequests = [],
+    ahriEParticleRequests = [],
     ahriFoxFireAudioRequests = [],
     ahriSpiritRushAudioRequests = [],
     ahriPassiveAudioRequests = [],
@@ -150,6 +151,8 @@ try {
     if (message.type() === 'error') errors.push(message.text());
   });
   page.on('request', (request) => {
+    if (request.url().includes('/assets/effects/ahri-e-'))
+      ahriEParticleRequests.push(request.url());
     if (request.url().includes('/assets/effects/ahri-q-projectile-'))
       ahriQProjectileRequests.push(request.url());
     if (request.url().includes('/assets/effects/ahri-q-cast-'))
@@ -319,6 +322,7 @@ try {
     'Production without Ahri must not load Q projectile particles'
   );
   assert.deepEqual(ahriQCastRequests, [], 'Production without Ahri must not load Q cast particles');
+  assert.deepEqual(ahriEParticleRequests, [], 'Production without Ahri must not load E particles');
   assert.deepEqual(ahriOrbAudioRequests, [], 'Production without Ahri must not load Orb masters');
   assert.deepEqual(
     ahriSpiritRushAudioRequests,
@@ -785,6 +789,7 @@ try {
   for (const [family, requests] of [
     ['Q cast particles', ahriQCastRequests],
     ['Q projectile particles', ahriQProjectileRequests],
+    ['E particles', ahriEParticleRequests],
     ['Orb', ahriOrbAudioRequests],
     ['Fox-Fire', ahriFoxFireAudioRequests],
     ['Spirit Rush', ahriSpiritRushAudioRequests],
@@ -829,6 +834,7 @@ try {
     unrequestedAhriCharmAudioPreloads: ahriCharmAudioRequests.length,
     unrequestedAhriQProjectilePreloads: ahriQProjectileRequests.length,
     unrequestedAhriQCastPreloads: ahriQCastRequests.length,
+    unrequestedAhriEParticlePreloads: ahriEParticleRequests.length,
     unrequestedAhriOrbAudioPreloads: ahriOrbAudioRequests.length,
     unrequestedAhriFoxFireAudioPreloads: ahriFoxFireAudioRequests.length,
     unrequestedAhriSpiritRushAudioPreloads: ahriSpiritRushAudioRequests.length,

@@ -1,0 +1,415 @@
+{
+  "format": 1,
+  "scope": "45 natural seed-one saved states; sampled maxima, not a worst-case bound",
+  "samples": 45,
+  "statesWithHistory": 7,
+  "maxRecords": 1,
+  "maxSerializedHistoryBytes": 271633,
+  "rows": [
+    {
+      "file": "003600.match.json",
+      "tick": 3600,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "007200.match.json",
+      "tick": 7200,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "010800.match.json",
+      "tick": 10800,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "014400.match.json",
+      "tick": 14400,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "018000.match.json",
+      "tick": 18000,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "021600.match.json",
+      "tick": 21600,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "025200.match.json",
+      "tick": 25200,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "028800.match.json",
+      "tick": 28800,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "032400.match.json",
+      "tick": 32400,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "036000.match.json",
+      "tick": 36000,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "039600.match.json",
+      "tick": 39600,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "043200.match.json",
+      "tick": 43200,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "046800.match.json",
+      "tick": 46800,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "050400.match.json",
+      "tick": 50400,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "054000.match.json",
+      "tick": 54000,
+      "records": 1,
+      "bytes": 71142,
+      "sourceFrames": 148,
+      "targetFrames": 28,
+      "ownedAnimationFrames": 176
+    },
+    {
+      "file": "057600.match.json",
+      "tick": 57600,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "061200.match.json",
+      "tick": 61200,
+      "records": 1,
+      "bytes": 271633,
+      "sourceFrames": 377,
+      "targetFrames": 339,
+      "ownedAnimationFrames": 716
+    },
+    {
+      "file": "064800.match.json",
+      "tick": 64800,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "068400.match.json",
+      "tick": 68400,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "072000.match.json",
+      "tick": 72000,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "075600.match.json",
+      "tick": 75600,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "079200.match.json",
+      "tick": 79200,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "082800.match.json",
+      "tick": 82800,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "086400.match.json",
+      "tick": 86400,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "090000.match.json",
+      "tick": 90000,
+      "records": 1,
+      "bytes": 93262,
+      "sourceFrames": 228,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 228
+    },
+    {
+      "file": "093600.match.json",
+      "tick": 93600,
+      "records": 1,
+      "bytes": 39473,
+      "sourceFrames": 66,
+      "targetFrames": 26,
+      "ownedAnimationFrames": 92
+    },
+    {
+      "file": "097200.match.json",
+      "tick": 97200,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "100800.match.json",
+      "tick": 100800,
+      "records": 1,
+      "bytes": 134708,
+      "sourceFrames": 336,
+      "targetFrames": 40,
+      "ownedAnimationFrames": 376
+    },
+    {
+      "file": "104400.match.json",
+      "tick": 104400,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "108000.match.json",
+      "tick": 108000,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "111600.match.json",
+      "tick": 111600,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "115200.match.json",
+      "tick": 115200,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "118800.match.json",
+      "tick": 118800,
+      "records": 1,
+      "bytes": 254999,
+      "sourceFrames": 417,
+      "targetFrames": 236,
+      "ownedAnimationFrames": 653
+    },
+    {
+      "file": "122400.match.json",
+      "tick": 122400,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "126000.match.json",
+      "tick": 126000,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "129600.match.json",
+      "tick": 129600,
+      "records": 1,
+      "bytes": 133047,
+      "sourceFrames": 341,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 341
+    },
+    {
+      "file": "133200.match.json",
+      "tick": 133200,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "136800.match.json",
+      "tick": 136800,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "140400.match.json",
+      "tick": 140400,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "144000.match.json",
+      "tick": 144000,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "147600.match.json",
+      "tick": 147600,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "151200.match.json",
+      "tick": 151200,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "154800.match.json",
+      "tick": 154800,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "157116.match.json",
+      "tick": 157116,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    },
+    {
+      "file": "final.match.json",
+      "tick": 157116,
+      "records": 0,
+      "bytes": 2,
+      "sourceFrames": 0,
+      "targetFrames": 0,
+      "ownedAnimationFrames": 0
+    }
+  ]
+}

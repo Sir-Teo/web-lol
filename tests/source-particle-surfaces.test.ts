@@ -9,6 +9,7 @@ import {
   type SurfaceGroup,
 } from '../src/render/source-particle-surfaces';
 import type { World } from '../src/simulation/world';
+import { sourceParticlePostRotation } from '../src/render/source-particle-post-rotation';
 
 const owned: { surface: SourceParticleSurfaces<SurfaceGroup>; texture: THREE.Texture }[] = [];
 afterEach(() => {
@@ -148,4 +149,37 @@ test('unrequested surfaces retain uniform color and shared billboard geometry', 
   expect(a.geometry).toBe(b.geometry);
   expect(a.geometry.getAttribute('_source_vertex_bgra')).toBeUndefined();
   expect(a.material.defines.SOURCE_VERTEX_BGRA).toBeUndefined();
+});
+
+test('explicit post-rotation bases compose before attachment reflection and preserve the legacy fallback', () => {
+  const f = fixture(false, true);
+  f.particle.rotation = [17, -31, 43];
+  const legacy = f.update().quaternion.clone();
+  const basis = sourceParticlePostRotation(f.particle.rotation, [90, 0, 0]);
+  f.program.particles = () => [{ ...f.particle, sourceBasis: basis }];
+  const actual = f.update().quaternion.clone();
+  const spin = new THREE.Quaternion().setFromEuler(
+    new THREE.Euler(
+      ...(f.particle.rotation.map(THREE.MathUtils.degToRad) as [number, number, number]),
+      'YXZ'
+    )
+  );
+  const post = new THREE.Quaternion().setFromEuler(new THREE.Euler(Math.PI / 2, 0, 0, 'YXZ'));
+  const composed = post.multiply(spin);
+  const reflected = new THREE.Quaternion(composed.x, -composed.y, -composed.z, composed.w);
+  const frame = f.program.attachmentFrame!({} as SurfaceGroup);
+  const expected = frame!.rotation.clone().multiply(reflected);
+  expect(actual.angleTo(expected)).toBeLessThan(1e-6);
+  expect(actual.angleTo(legacy)).toBeGreaterThan(1);
+  expect(basis).toEqual(sourceParticlePostRotation(f.particle.rotation, [90, 0, 0]));
+  f.program.particles = () => [f.particle];
+  expect(f.update().quaternion.toArray()).toEqual(legacy.toArray());
+});
+
+test('invalid explicit rotation matrices reject before drawing', () => {
+  const f = fixture(false, true);
+  for (const basis of [[1, 2], Array(9).fill(NaN), Array(9).fill(Infinity)]) {
+    f.program.particles = () => [{ ...f.particle, sourceBasis: basis }];
+    expect(() => f.update()).toThrow('rotation basis');
+  }
 });
