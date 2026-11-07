@@ -1,7 +1,7 @@
 {
   "format": 1,
   "scope": "Periodic R eye-trail candidate regressions; production/offline acceptance pending",
-  "applicationRevision": "69a05a86",
+  "applicationRevision": "69a05a865069face8bcbc7826d02a87d1b80363e",
   "schema": 181,
   "ruleset": "0cbdb13a8ae7a5bdbd1ff2dba9d8798fa486c7a4f003a3fe14cba6eab32fe8c9",
   "compatibilityFiles": 691,
@@ -26,7 +26,10 @@
     "passed": 9468,
     "total": 9470,
     "files": 593,
-    "knownFailures": ["missing historical Leona reader archive", "Lux sampler FMA golden mismatch"]
+    "knownFailures": [
+      "missing historical Leona reader archive",
+      "Lux sampler FMA golden mismatch"
+    ]
   },
   "nodeQaPassed": 263,
   "focused": {
@@ -58,7 +61,10 @@
   },
   "naturalMatch": {
     "completeProjectionMatches": 45,
-    "excludedFields": ["version", "ruleset"],
+    "excludedFields": [
+      "version",
+      "ruleset"
+    ],
     "roundTrips": 44,
     "futureChecks": 43,
     "finalTick": 157116,
@@ -210,5 +216,10 @@
   ],
   "crossKitBrowserCasesPassed": 25,
   "distinctBrowserCasesPassed": 33,
-  "acceptedEyeGlowPacketsRetained": 36
+  "acceptedEyeGlowPacketsRetained": 36,
+  "applicationIdentity": {
+    "verifiedFiles": 2227,
+    "scope": "src, public and tools/ruleset-fingerprint.ts",
+    "evidence": "artifacts/ahri-r-eye-trail-application-identity-v1.json"
+  }
 }
