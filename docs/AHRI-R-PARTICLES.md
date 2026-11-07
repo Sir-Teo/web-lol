@@ -434,3 +434,14 @@ cases and the 23-case complete gameplay baseline pass, alongside TypeScript.
 The helper remains unconnected to rendering, so the accepted ruleset stays
 `a68ca14b` with 685 compatibility files. Particle lifetime/period integration,
 long-lived birth roots and native stop behavior still require separate work.
+
+The [spell-packet reference](reference/ahri/r-spell-packet-reference.json) freezes
+72 complete missile/contact packet hashes from accepted application `a7092caa`.
+Its producer verifies all 690 archived source files and executes only the frozen
+sampler, covering two cosmetic seeds, fractional ages and stopped clocks. All
+73 reference checks pass before the persistent sampler changes. Reproduction
+requires the retained palette cohort and a fresh output path:
+
+```sh
+node tools/qa/build-ahri-r-spell-packet-reference.mjs .cache/ahri-r-palette-roster-seed1 FRESH_OUTPUT.json
+```

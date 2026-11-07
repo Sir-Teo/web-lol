@@ -295,6 +295,7 @@ jobs:
           tests/ahri-r-particles.test.ts
           tests/ahri-r-palette.test.ts
           tests/ahri-r-persistent-history.test.ts
+          tests/ahri-r-spell-packet-reference.test.ts
           tests/ahri-r-assets.test.ts
           tests/ahri-r-attachments.test.ts
           tests/ahri-r-trails.test.ts
