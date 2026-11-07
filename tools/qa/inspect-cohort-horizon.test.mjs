@@ -1,10 +1,18 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import {
+  mkdtempSync,
+  mkdirSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+  existsSync,
+  symlinkSync,
+} from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { inspectCohortHorizon } from './inspect-cohort-horizon.mjs';
+import { inspectCohortHorizon, writeCohortHorizon } from './inspect-cohort-horizon.mjs';
 import { writeCohortSnapshot } from './lib/cohort-snapshot.ts';
 const sha = (raw) => createHash('sha256').update(raw).digest('hex');
 function fixture(run) {
@@ -149,3 +157,56 @@ for (const [name, mutate] of [
       assert.throws(() => inspectCohortHorizon(data.root, data.ledgerFile));
       assert.deepEqual(readFileSync(join(data.folder, 'report.json')), before);
     }));
+
+for (const nested of [false, true])
+  test(`diagnostic publication refuses ${nested ? 'nested' : 'root'} archive output`, () =>
+    fixture(({ root, folder, ledgerFile }) => {
+      const output = join(nested ? folder : root, 'new-diagnostic.json');
+      assert.throws(
+        () => writeCohortHorizon(root, ledgerFile, output),
+        /outside the immutable cohort/
+      );
+      assert.equal(existsSync(output), false);
+    }));
+test('diagnostic publication resolves a symlinked parent before protecting archive inputs', () =>
+  fixture(({ root, folder, ledgerFile }) => {
+    const outside = mkdtempSync(join(tmpdir(), 'rift-diagnostic-output-'));
+    try {
+      symlinkSync(folder, join(outside, 'alias'));
+      const output = join(outside, 'alias/result.json');
+      assert.throws(
+        () => writeCohortHorizon(root, ledgerFile, output),
+        /outside the immutable cohort/
+      );
+      assert.equal(existsSync(output), false);
+    } finally {
+      rmSync(outside, { recursive: true, force: true });
+    }
+  }));
+test('fresh external diagnostics publish exact observations and cannot overwrite prior evidence', () =>
+  fixture(({ root, ledgerFile }) => {
+    const outside = mkdtempSync(join(tmpdir(), 'rift-diagnostic-output-'));
+    try {
+      const output = join(outside, 'result.json');
+      const result = writeCohortHorizon(root, ledgerFile, output);
+      assert.deepEqual(JSON.parse(readFileSync(output)), inspectCohortHorizon(root, ledgerFile));
+      assert.deepEqual(result.cases[0].counterDeltas, { kills: 2, deaths: 2, cs: 20 });
+      const before = readFileSync(output);
+      assert.throws(() => writeCohortHorizon(root, ledgerFile, output), /already exists/);
+      assert.deepEqual(readFileSync(output), before);
+    } finally {
+      rmSync(outside, { recursive: true, force: true });
+    }
+  }));
+test('failed source verification leaves no external diagnostic output', () =>
+  fixture(({ root, ledgerFile, folder }) => {
+    const outside = mkdtempSync(join(tmpdir(), 'rift-diagnostic-output-'));
+    try {
+      const output = join(outside, 'result.json');
+      writeFileSync(join(folder, 'report.json'), '{}');
+      assert.throws(() => writeCohortHorizon(root, ledgerFile, output), /Frozen report differs/);
+      assert.equal(existsSync(output), false);
+    } finally {
+      rmSync(outside, { recursive: true, force: true });
+    }
+  }));

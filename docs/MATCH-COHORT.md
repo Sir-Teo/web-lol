@@ -150,7 +150,9 @@ before writing. Without `--output`, verification keeps its concise JSON stdout.
 The output must be fresh and outside the immutable cohort, including through
 parent-directory symlinks; its parent directory must already exist. Unknown
 flags and additional cohort arguments are rejected. A failed verification
-creates no ledger, and an existing output is never overwritten.
+creates no ledger, and an existing output is never overwritten. The horizon
+diagnostic output follows the same fresh external-path rule and is written only
+after its archived inputs verify.
 
 ## Live process observations
 

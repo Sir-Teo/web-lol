@@ -1,8 +1,8 @@
 /** Read-only horizon diagnostics; never loads snapshots into a different ruleset. */
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { readFileSync, writeFileSync } from 'node:fs';
-import { basename, resolve } from 'node:path';
+import { readFileSync, writeFileSync, realpathSync, existsSync } from 'node:fs';
+import { basename, resolve, dirname, relative, isAbsolute } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { readCohortSnapshot, snapshotEncoding } from './lib/cohort-snapshot.ts';
 const sha = (raw) => createHash('sha256').update(raw).digest('hex');
@@ -146,14 +146,26 @@ export function inspectCohortHorizon(directory, ledgerFile, lastTicks = 36000) {
     ],
   };
 }
+/** Publish a fresh diagnostic beside, never inside, its immutable input archive. */
+export function writeCohortHorizon(directory, ledgerFile, output, lastTicks = 36000) {
+  assert(!existsSync(output), 'Diagnostic output already exists');
+  const actual = resolve(realpathSync(dirname(resolve(output))), basename(output));
+  const delta = relative(realpathSync(directory), actual);
+  assert(
+    delta === '..' || delta.startsWith('../') || isAbsolute(delta),
+    'Diagnostic output must be outside the immutable cohort'
+  );
+  const result = inspectCohortHorizon(directory, ledgerFile, lastTicks);
+  writeFileSync(output, JSON.stringify(result, null, 2) + '\n', { flag: 'wx' });
+  return result;
+}
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   const [directory, ledgerFile, output] = process.argv.slice(2);
   assert(
     directory && ledgerFile && output && process.argv.length === 5,
     'Pass cohort directory, frozen ledger and fresh output file'
   );
-  const result = inspectCohortHorizon(directory, ledgerFile);
-  writeFileSync(output, JSON.stringify(result, null, 2) + '\n', { flag: 'wx' });
+  const result = writeCohortHorizon(directory, ledgerFile, output);
   console.log(
     JSON.stringify({
       result: 'passed',
