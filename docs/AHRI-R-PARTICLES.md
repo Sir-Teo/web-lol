@@ -475,3 +475,19 @@ cleanup without World steps. TypeScript passes. Schema 181 stays unchanged;
 the candidate ruleset is `18613342` with 688 compatibility files. Browser and
 broader delivery verification are in progress; primary remains the accepted
 palette renderer until those checks finish.
+
+Candidate verification now passes 9,401/9,403 full-suite tests in 587 files with
+only the two historical failures, all 263 Node QA cases and 87 first-attempt
+clean-export commands. Scoped selections execute 1,173 tests across 140 file
+executions, including overlap; all 5,546 committed export files verify before
+cleanup. All 33 distinct browser cases pass across the retained runs. The initial
+eye request-count probe used a truncated Resource Timing buffer; the page
+request listener confirms one shared glow request. The original trace remains.
+
+All 45 natural-match complete states match the accepted R observer, excluding
+only schema and ruleset identifiers, with victory at tick 157116, 44 restores
+and 43 checked futures. All simulation, content, public assets and 334 WAV files
+remain exact. Pack `60079db3` contains 1,432 files / 581,122,307 bytes and passes
+the complete byte/worker audit. See the
+[regression record](reference/ahri/r-eye-glow-regression-verification.json).
+Production nested-path and offline checks remain in progress.
