@@ -1,0 +1,542 @@
+{
+  "format": 1,
+  "scope": "Pinned external spin followed by left-multiplied post rotation; all other own-basis factors disabled or identity. No native callback or rendered-pixel claim.",
+  "readers": [
+    {
+      "path": ".cache/baron-emission-readers/engine/simulation/particleRead.ts",
+      "sha256": "1c2ac421e97d350cc1758785bab1f841fb95064c31ac9b81ebe214447bb811ab"
+    },
+    {
+      "path": ".cache/baron-emission-readers/engine/utils/basis.ts",
+      "sha256": "948deb523c5e16fbf6ef529f9967f9b5de8ff3db1c169fa6ceffc58a08fbcf5e"
+    },
+    {
+      "path": ".cache/baron-emission-readers/engine/model/enums.ts",
+      "sha256": "fdad53c133ef6c59162131d8b7e1763d8aa29594ba330a65e8372f493d8160fc"
+    }
+  ],
+  "samples": [
+    {
+      "spin": [
+        0,
+        0,
+        0
+      ],
+      "postRotate": null,
+      "expected": "0000803f0000000000000000000000000000803f0000000000000000000000000000803f"
+    },
+    {
+      "spin": [
+        0,
+        0,
+        0
+      ],
+      "postRotate": [
+        90,
+        0,
+        0
+      ],
+      "expected": "0000803f00000000000000000000000032318d24000080bf000000000000803f32318d24"
+    },
+    {
+      "spin": [
+        0,
+        0,
+        0
+      ],
+      "postRotate": [
+        0,
+        90,
+        0
+      ],
+      "expected": "32318d24000000000000803f000000000000803f00000000000080bf0000000032318d24"
+    },
+    {
+      "spin": [
+        0,
+        0,
+        0
+      ],
+      "postRotate": [
+        0,
+        0,
+        90
+      ],
+      "expected": "32318d24000080bf000000000000803f32318d240000000000000000000000000000803f"
+    },
+    {
+      "spin": [
+        0,
+        0,
+        0
+      ],
+      "postRotate": [
+        17,
+        -31,
+        43
+      ],
+      "expected": "ac31063fe5d831bf552dfcbe77f6263faf0b333fbeb195bef72e0c3f32002cbeb9d8513f"
+    },
+    {
+      "spin": [
+        0,
+        0,
+        0
+      ],
+      "postRotate": [
+        -90,
+        12,
+        0
+      ],
+      "expected": "e2677a3fcde654be11d86a230000000032318d240000803fcde654bee2677abf561b8a24"
+    },
+    {
+      "spin": [
+        0,
+        0,
+        0
+      ],
+      "postRotate": [
+        123.456,
+        -9.87,
+        0.12
+      ],
+      "expected": "3f227c3f7c8e14bef888c13d035797bab0210dbf4d9555bf254a313e6454523f040b0bbf"
+    },
+    {
+      "spin": [
+        17,
+        -31,
+        43
+      ],
+      "postRotate": null,
+      "expected": "ac31063fe5d831bf552dfcbe77f6263faf0b333fbeb195bef72e0c3f32002cbeb9d8513f"
+    },
+    {
+      "spin": [
+        17,
+        -31,
+        43
+      ],
+      "postRotate": [
+        90,
+        0,
+        0
+      ],
+      "expected": "ac31063fe5d831bf552dfcbef72e0cbf32002c3eb9d851bf77f6263faf0b333fbeb195be"
+    },
+    {
+      "spin": [
+        17,
+        -31,
+        43
+      ],
+      "postRotate": [
+        0,
+        90,
+        0
+      ],
+      "expected": "f72e0c3f32002cbeb9d8513f77f6263faf0b333fbeb195beac3106bfe5d8313f552dfc3e"
+    },
+    {
+      "spin": [
+        17,
+        -31,
+        43
+      ],
+      "postRotate": [
+        0,
+        0,
+        90
+      ],
+      "expected": "77f626bfaf0b33bfbeb1953eac31063fe5d831bf552dfcbef72e0c3f32002cbeb9d8513f"
+    },
+    {
+      "spin": [
+        17,
+        -31,
+        43
+      ],
+      "postRotate": [
+        17,
+        -31,
+        43
+      ],
+      "expected": "b662e5befb6e44bf6fe8eabe064f233f566fae3d90ef43bf5f59203faeb522bfff14e73e"
+    },
+    {
+      "spin": [
+        17,
+        -31,
+        43
+      ],
+      "postRotate": [
+        -90,
+        12,
+        0
+      ],
+      "expected": "9c18c13ec12f53bf108bd7bef72e0c3f32002cbeb9d8513ff8363fbf13280abf8bdac63e"
+    },
+    {
+      "spin": [
+        17,
+        -31,
+        43
+      ],
+      "postRotate": [
+        123.456,
+        -9.87,
+        0.12
+      ],
+      "expected": "9762f23e27334dbfadfdbabe382851bf3c817abe23ab05bffa8aa83edeaa0b3fd44c45bf"
+    },
+    {
+      "spin": [
+        -90,
+        12,
+        0
+      ],
+      "postRotate": null,
+      "expected": "e2677a3fcde654be11d86a230000000032318d240000803fcde654bee2677abf561b8a24"
+    },
+    {
+      "spin": [
+        -90,
+        12,
+        0
+      ],
+      "postRotate": [
+        90,
+        0,
+        0
+      ],
+      "expected": "e2677a3fcde654be11d86a23cde6543ee2677a3f0077c52111d86aa3ef76c5210000803f"
+    },
+    {
+      "spin": [
+        -90,
+        12,
+        0
+      ],
+      "postRotate": [
+        0,
+        90,
+        0
+      ],
+      "expected": "cde654bee2677abf561b8a240000000032318d240000803fe2677abfcde6543e11d86aa3"
+    },
+    {
+      "spin": [
+        -90,
+        12,
+        0
+      ],
+      "postRotate": [
+        0,
+        0,
+        90
+      ],
+      "expected": "561b8a24348caaa4000080bfe2677a3fcde654be348caa24cde654bee2677abf561b8a24"
+    },
+    {
+      "spin": [
+        -90,
+        12,
+        0
+      ],
+      "postRotate": [
+        17,
+        -31,
+        43
+      ],
+      "expected": "137a1d3f8bddbe3ee5d831bf36e0323f03fe193eaf0b333f2bfbba3e1e686abf32002cbe"
+    },
+    {
+      "spin": [
+        -90,
+        12,
+        0
+      ],
+      "postRotate": [
+        -90,
+        12,
+        0
+      ],
+      "expected": "10ef743fc93f50becde654becde654bee2677abf44a60b25c93f50be140f313de2677abf"
+    },
+    {
+      "spin": [
+        -90,
+        12,
+        0
+      ],
+      "postRotate": [
+        123.456,
+        -9.87,
+        0.12
+      ],
+      "expected": "2398713f692b98be7c8e14be2278303e34fa503fb0210dbf6a86903e3594fd3e6454523f"
+    },
+    {
+      "spin": [
+        0,
+        0,
+        90
+      ],
+      "postRotate": null,
+      "expected": "32318d24000080bf000000000000803f32318d240000000000000000000000000000803f"
+    },
+    {
+      "spin": [
+        0,
+        0,
+        90
+      ],
+      "postRotate": [
+        90,
+        0,
+        0
+      ],
+      "expected": "32318d24000080bf0000000032318d2475be9b09000080bf0000803f32318d2432318d24"
+    },
+    {
+      "spin": [
+        0,
+        0,
+        90
+      ],
+      "postRotate": [
+        0,
+        90,
+        0
+      ],
+      "expected": "75be9b0932318da40000803f0000803f32318d240000000032318da40000803f32318d24"
+    },
+    {
+      "spin": [
+        0,
+        0,
+        90
+      ],
+      "postRotate": [
+        0,
+        0,
+        90
+      ],
+      "expected": "000080bf32310da50000000032310d25000080bf0000000000000000000000000000803f"
+    },
+    {
+      "spin": [
+        0,
+        0,
+        90
+      ],
+      "postRotate": [
+        17,
+        -31,
+        43
+      ],
+      "expected": "e5d831bfac3106bf552dfcbeaf0b333f77f626bfbeb195be32002cbef72e0cbfb9d8513f"
+    },
+    {
+      "spin": [
+        0,
+        0,
+        90
+      ],
+      "postRotate": [
+        -90,
+        12,
+        0
+      ],
+      "expected": "cde654bee2677abf11d86a2332318d2475be9b090000803fe2677abfcde6543e561b8a24"
+    },
+    {
+      "spin": [
+        0,
+        0,
+        90
+      ],
+      "postRotate": [
+        123.456,
+        -9.87,
+        0.12
+      ],
+      "expected": "7c8e14be3f227cbff888c13db0210dbf0357973a4d9555bf6454523f254a31be040b0bbf"
+    },
+    {
+      "spin": [
+        123.456,
+        -9.87,
+        0.12
+      ],
+      "postRotate": null,
+      "expected": "3f227c3f7c8e14bef888c13d035797bab0210dbf4d9555bf254a313e6454523f040b0bbf"
+    },
+    {
+      "spin": [
+        123.456,
+        -9.87,
+        0.12
+      ],
+      "postRotate": [
+        90,
+        0,
+        0
+      ],
+      "expected": "3f227c3f7c8e14bef888c13d254a31be645452bf040b0b3f035797bab0210dbf4d9555bf"
+    },
+    {
+      "spin": [
+        123.456,
+        -9.87,
+        0.12
+      ],
+      "postRotate": [
+        0,
+        90,
+        0
+      ],
+      "expected": "254a313e6454523f040b0bbf035797bab0210dbf4d9555bf3f227cbf7c8e143ef888c1bd"
+    },
+    {
+      "spin": [
+        123.456,
+        -9.87,
+        0.12
+      ],
+      "postRotate": [
+        0,
+        0,
+        90
+      ],
+      "expected": "0357973ab0210d3f4d95553f3f227c3f7c8e14bef888c13d254a313e6454523f040b0bbf"
+    },
+    {
+      "spin": [
+        123.456,
+        -9.87,
+        0.12
+      ],
+      "postRotate": [
+        17,
+        -31,
+        43
+      ],
+      "expected": "bd15dd3e2a21c8bd538b653f9f46173f6d6c38bf0ce6b9be99722e3f59c72f3f91b481be"
+    },
+    {
+      "spin": [
+        123.456,
+        -9.87,
+        0.12
+      ],
+      "postRotate": [
+        -90,
+        12,
+        0
+      ],
+      "expected": "7daf763f5482dfbcac23883e254a313e6454523f040b0bbf9c8750beeac4113fdae24b3f"
+    },
+    {
+      "spin": [
+        123.456,
+        -9.87,
+        0.12
+      ],
+      "postRotate": [
+        123.456,
+        -9.87,
+        0.12
+      ],
+      "expected": "a98e7c3f946f713cb3b0263e546d14be8e43c3be71b9693f45b29a3d209f6cbf598bbfbe"
+    },
+    {
+      "spin": [
+        1e-8,
+        180,
+        -45
+      ],
+      "postRotate": null,
+      "expected": "f30435bff30435bf32310d25f30435bff304353fa7e63fafc3b1072fd0b107af000080bf"
+    },
+    {
+      "spin": [
+        1e-8,
+        180,
+        -45
+      ],
+      "postRotate": [
+        90,
+        0,
+        0
+      ],
+      "expected": "f30435bff30435bf32310d25c6b107afd3b1072f0000803ff30435bff304353fabe63faf"
+    },
+    {
+      "spin": [
+        1e-8,
+        180,
+        -45
+      ],
+      "postRotate": [
+        0,
+        90,
+        0
+      ],
+      "expected": "c0b1072fd3b107af000080bff30435bff304353fa7e63faff304353ff304353fcbc953a5"
+    },
+    {
+      "spin": [
+        1e-8,
+        180,
+        -45
+      ],
+      "postRotate": [
+        0,
+        0,
+        90
+      ],
+      "expected": "f304353ff30435bfa7e63f2ff30435bff30435bf32310d25c3b1072fd0b107af000080bf"
+    },
+    {
+      "spin": [
+        1e-8,
+        180,
+        -45
+      ],
+      "postRotate": [
+        17,
+        -31,
+        43
+      ],
+      "expected": "9bf0f63d81a55cbf552dfc3e35aa74bfc6b3083dbeb1953e1a7089bec88701bfb9d851bf"
+    },
+    {
+      "spin": [
+        1e-8,
+        180,
+        -45
+      ],
+      "postRotate": [
+        -90,
+        12,
+        0
+      ],
+      "expected": "776d0bbf1db356bf24981f2ec0b1072fcdb107af000080bf1db3563f776d0bbf18b53b2f"
+    },
+    {
+      "spin": [
+        1e-8,
+        180,
+        -45
+      ],
+      "postRotate": [
+        123.456,
+        -9.87,
+        0.12
+      ],
+      "expected": "2f0618bffe8b4cbff888c1bd1b02c83e142cc7be4d95553ff21034bf0bc5ea3e040b0b3f"
+    }
+  ]
+}
