@@ -152,12 +152,21 @@ and never claims a final invariant check. See [duration verification](reference/
 and [progress inspection](reference/cohort-progress-verification.json). The
 current schema-181 hundred-seed audit now passes its independent private
 roster invariant gate, with the scope and pauses recorded above.
-The clean export at `6bbde951` passes its 88 portable commands: 1,924 runtime test
+The earlier clean export at `6bbde951` passed its 88 portable commands: 1,924 runtime test
 executions across 164 file executions, including overlap, plus 77 cohort-tool
 cases. All 5,665 exported blobs verify. One compiler-graph deadline failure and
 its exact successful retry are retained; the three audit workers paused for
 about 19 seconds and resumed. No deadline, assertion or cohort input changed.
 See [current CI verification](reference/cohort-current-ci-verification.json).
+
+The fresh clean export at `0e89c711` passes all 89 portable commands on the first
+attempt, with no retries or audit pauses. It checks 1,924 runtime test executions
+across 164 file executions (including overlap), plus 99 cohort-tool Node cases.
+All 5,681 exported Git blobs verify before the disposable export is removed.
+The export reuses installed node_modules and contains no private cache or tools;
+this is not a fresh dependency-install claim. It includes current HUD checkpoint
+`3fcb8cef`; browser, full unit and staged emote evidence retain their own scopes.
+See [latest CI verification](reference/cohort-latest-ci-verification.json).
 
 The Garen Q developer audition verifies original WAV hashes before creating
 exact float buffers. Three browser cases preserve all thirteen complete sample

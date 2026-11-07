@@ -1,0 +1,491 @@
+{
+  "format": 1,
+  "result": "passed",
+  "revision": "0e89c71140293a53c07a8432a006516547bf727c",
+  "verifiedCommittedFiles": 5681,
+  "commandsPassed": 89,
+  "commandsPassedFirstAttempt": 89,
+  "commandsRetried": 0,
+  "commandExecutions": 89,
+  "testExecutions": 1924,
+  "fileExecutions": 164,
+  "nodeCohortCases": 99,
+  "uniqueRuntimeCounts": false,
+  "disposableExportRemoved": true,
+  "scope": "All exported Git blobs verified before removing only the disposable export. Unused Rift map texture images excluded; reused node_modules was the only dependency symlink. Native inputs, frozen cohorts, traces and retained packs preserved.",
+  "applicationRevision": "3fcb8cef",
+  "productionPack": "1cbecc511cbba8ed7990b3e1ed565f2c6ccf4a0a215abb267ce9e558beccc91b",
+  "fullNodeQaCases": 333,
+  "fullNodeQaReceipt": "current-node-qa-verification-v2.json",
+  "freshBrowserCasesIncludedInCi": false,
+  "noAuditWorkerPauseForThisRun": true,
+  "roadmapMilestone4Complete": false,
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/cohort-latest-clean-ci-results.json",
+      "bytes": 21362,
+      "sha256": "507e3391c9a76de93e7d1a127478a0ded69411613899e71419f0c233111ff763"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-cleanup-v1.json",
+      "bytes": 638,
+      "sha256": "c46bdb50b5d92ed32fb39df587e83604c3e7012c2cdc43bdb269ba8a5cb3f1c8"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-0.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-2.log",
+      "bytes": 8828,
+      "sha256": "53dd6c54ce1d7fcc68c66c854e5ce66f65c06fb7250cd71f8e2f274325266f43"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-3.log",
+      "bytes": 411,
+      "sha256": "610e80b7bf03c43f9468c67600d846f53383f510dacfb679e070b5e0d8e222e8"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-4.log",
+      "bytes": 126,
+      "sha256": "40aead902f47ee86083ca799462d13f1f5def3ae5feb071af6b5032aae880871"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-5.log",
+      "bytes": 125,
+      "sha256": "f5d56745cbec320ad650e983e5f2738ba279b3545edfdf1ea9dfd5a5312e45c2"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-6.log",
+      "bytes": 118,
+      "sha256": "b08e65827c7a08cae7a8c83373415a646d20c999bf8b7f7c48684023fc4faf73"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-7.log",
+      "bytes": 117,
+      "sha256": "277830a9736393132c0af95cee95446a745c5f7f75b6d6f54b9a6eac6babda4c"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-8.log",
+      "bytes": 118,
+      "sha256": "b08e65827c7a08cae7a8c83373415a646d20c999bf8b7f7c48684023fc4faf73"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-9.log",
+      "bytes": 117,
+      "sha256": "277830a9736393132c0af95cee95446a745c5f7f75b6d6f54b9a6eac6babda4c"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-10.log",
+      "bytes": 121,
+      "sha256": "23a5151975aebfa4f688c9a38a0a1a5e16ecdbf829553970e98f303acce1e579"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-11.log",
+      "bytes": 120,
+      "sha256": "2d4bd23507d91cb112aba7b702d646dd3c1da3de1ad8406725db3fa16cb165f3"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-12.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-13.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-14.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-15.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-16.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-17.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-18.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-19.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-20.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-21.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-22.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-23.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-24.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-25.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-26.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-27.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-28.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-29.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-30.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-31.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-32.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-33.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-34.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-35.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-36.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-37.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-38.log",
+      "bytes": 318,
+      "sha256": "7178b4121304a059263af2bf85f741412e0d59ef7da84f4dd577312d6b159bf0"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-39.log",
+      "bytes": 144,
+      "sha256": "e4179b487e37d19a1cf4e8cbc2758f21b3ba8a6b3f7911243e8a407d05a62988"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-40.log",
+      "bytes": 143,
+      "sha256": "096fa861aaea2028f0b1dac92c240b5f0ba1e150460f7adb36b231f55972af5b"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-41.log",
+      "bytes": 80,
+      "sha256": "d2949c6aa104cfdf7e3a4e1e45b019d3e0ef2c62e243bf66496fbd059803aaf5"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-42.log",
+      "bytes": 134,
+      "sha256": "e925324760d129660ba03c790e3a74ff5ff822a2182f224ea7af42fc490aa0d9"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-43.log",
+      "bytes": 133,
+      "sha256": "2fadac9a752ff503a6b510e879c2fa0ea5d37a969aef504b7387c9bdd869df60"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-44.log",
+      "bytes": 119,
+      "sha256": "aa7e0728e9ac2d8bfc30b0ee491768ebe2817856a570b49b7a2e97529af5c39c"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-45.log",
+      "bytes": 118,
+      "sha256": "9fd78ec78e080a4a78c955c98479fadb21a599b53690d45e24e95613408a96bb"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-46.log",
+      "bytes": 214,
+      "sha256": "c04e08e884a4d27646c74ac153a754f8fbcbbf14948182842704b21c7753c27b"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-47.log",
+      "bytes": 182,
+      "sha256": "69a04c85425a2cad461b39356efdd3a239f1b20c6721b5ae4ff6ca6e06f055f5"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-48.log",
+      "bytes": 181,
+      "sha256": "bcc0e1af30b3f4973b9a294a0eef64676f4ff8a412a1033df5ae886a5b605837"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-49.log",
+      "bytes": 253,
+      "sha256": "cc0146a9d1b6fff9734f2b99bcfe8a1bf17469fe61321455e6813e10c72e0ac4"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-50.log",
+      "bytes": 197,
+      "sha256": "1afd2534ca5f0883593b0fdc59948caef96a9082b0c7810867a64404087beea0"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-51.log",
+      "bytes": 196,
+      "sha256": "f3d20fefd665c21cd35a45a80fcb61acc9b95525dbcd4595aac4b3809e5fea00"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-52.log",
+      "bytes": 228,
+      "sha256": "7084978b6316750770a688a9a6f8e8749fd58007a3c468a05719a6c406bb36d1"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-53.log",
+      "bytes": 227,
+      "sha256": "c5cc1abf027188111affdbcfbef2fe54483fc637f8d4069b38d62b02ee0a3d16"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-54.log",
+      "bytes": 286,
+      "sha256": "9e0ae06e923c615299206b20c0edaaee77ed442815cd3ba451dd4edf1ad59396"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-55.log",
+      "bytes": 204,
+      "sha256": "59ca9874f0319ceb6ba0b26fe50cce21cf596bb55d19bad9293e632ada3a25f5"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-56.log",
+      "bytes": 203,
+      "sha256": "a1a6e282ae717a10f795ae572355f795810920281ad680b62e1b46fa8fb50d26"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-57.log",
+      "bytes": 263,
+      "sha256": "161a8463f20ad62612d8f6100ba1ab2d2f08cf585a2f1c6e9bd8fef3e8b51cfc"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-58.log",
+      "bytes": 197,
+      "sha256": "8ae136a45405d811afb9d4a6e86b5329fb7d9d0200641b04b5b0b0cbfb09298d"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-59.log",
+      "bytes": 196,
+      "sha256": "922d637d1278285e2b721de01e047960e7384812d13cd31bec24f70770c1e110"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-60.log",
+      "bytes": 223,
+      "sha256": "21ba7b164678c9cbf4579dcb90f753767d4e1cffe18064ded72c9d5b78b04de8"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-61.log",
+      "bytes": 139,
+      "sha256": "30cb5a4782a50e99b914208c74e6d30fb9cc73b802d442193a4471a867f98724"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-62.log",
+      "bytes": 138,
+      "sha256": "9bea88d6b9ffe7826be1d0e2b3b184b4c95f63127369cbeacec12ab3c5d0b1ec"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-63.log",
+      "bytes": 228,
+      "sha256": "7b59fc26a6ec822cbb3187bd866d70ca84e8bc21841c78f87348f298d4703caa"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-64.log",
+      "bytes": 227,
+      "sha256": "4b619cbb2dabd48403963454575b54a3431b7c7e2f6340a78d28383b0733064a"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-65.log",
+      "bytes": 295,
+      "sha256": "f3db10bb5e2dd221c860042ddf5ce1c96e0bd3b19d15d356705d68c594ccd1d1"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-66.log",
+      "bytes": 205,
+      "sha256": "88bb453b622607b94edada60ec1bcf367aa37d414328e76551dcc77cd5d8b3a2"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-67.log",
+      "bytes": 204,
+      "sha256": "2276cb3e68a79102187d90119208f1ba20f8f5f540a86e94759bdb1c125587de"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-68.log",
+      "bytes": 253,
+      "sha256": "567215c51bf36c541bee838bb625b95f2cb0031a3921faae2eef1f048c542eb6"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-69.log",
+      "bytes": 197,
+      "sha256": "9547cee7117949ccbe42033062e125eca28ffa78eddbcce0bef92a7c564c89c8"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-70.log",
+      "bytes": 196,
+      "sha256": "14ea5630fc803a00eec81ed1f5d5c76dada72e14734ea01d77f95f31fe714839"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-71.log",
+      "bytes": 248,
+      "sha256": "af2cf05944dce609c0eb0cd374ff7a6a13d582294a5265182da71c2659629284"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-72.log",
+      "bytes": 139,
+      "sha256": "30cb5a4782a50e99b914208c74e6d30fb9cc73b802d442193a4471a867f98724"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-73.log",
+      "bytes": 138,
+      "sha256": "9bea88d6b9ffe7826be1d0e2b3b184b4c95f63127369cbeacec12ab3c5d0b1ec"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-74.log",
+      "bytes": 230,
+      "sha256": "b88ca7a33de374fdf945cc825a748b1cf62a93ba92f0aa7b4004b7b3e93f1787"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-75.log",
+      "bytes": 229,
+      "sha256": "fbc9606059dd89e50ed36e3c76fe819fb2e4b988b46e79c510885950324a21d4"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-76.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-77.log",
+      "bytes": 408,
+      "sha256": "3280e61d21710185fa98ebe7923f6e6d370924f202d8f395c1e7af35770b6e50"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-78.log",
+      "bytes": 325,
+      "sha256": "743cc6b5eb65e1dbe9e2de598502bd9976d32befe244396d31499b8719a9fe37"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-79.log",
+      "bytes": 204,
+      "sha256": "9c5fb75ae1c2b9c06a4387d3594d63ce8819dd4fb3adc9fa9d6600c953da5d50"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-80.log",
+      "bytes": 203,
+      "sha256": "0a994daf77b66e467b0a818192affb2aee43e7314168a8a626eda16889401322"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-81.log",
+      "bytes": 245,
+      "sha256": "450f00f00e082e1e34047ea032c262f6978fd07a7f985e10c6f73b747385fe54"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-82.log",
+      "bytes": 197,
+      "sha256": "20d65e3bc1984cd74ed78dc38d89b2d305e33498f509327e4062698d60bca85a"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-83.log",
+      "bytes": 196,
+      "sha256": "5d84909721044f565f6b76a13c8621a445d5942aeea3c25f60fe64d24bcf3d63"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-84.log",
+      "bytes": 230,
+      "sha256": "2990f213a0b6ad3989166041fa087f0433a36902e7a8b97db23ff65afefaa714"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-85.log",
+      "bytes": 229,
+      "sha256": "f90bcaffb235aa0a030fc36d2458c3e458b1411ea2c915dd722f03f00f6357ca"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-86.log",
+      "bytes": 141,
+      "sha256": "d627688da4246d9bf71b74555607f6ccb82b80446ff8c23d4ea1da5d61aa5ed3"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-87.log",
+      "bytes": 150,
+      "sha256": "49118939f2c76ae188d6561a6e4e1539960bb86527e2727d4f1b96c67e593ada"
+    },
+    {
+      "file": "artifacts/cohort-latest-clean-ci-88.log",
+      "bytes": 149,
+      "sha256": "b64a20e65e6faa5e0e0dfefa705534a6808a8406a028a0d817079d129948f5de"
+    }
+  ],
+  "committedExportScope": {
+    "revision": "0e89c71140293a53c07a8432a006516547bf727c",
+    "reusedNodeModules": true,
+    "privateCachePresent": false,
+    "privateToolsPresent": false,
+    "excludedCommittedPaths": [
+      "public/assets/maps/textures/**"
+    ],
+    "scope": "Committed export of all source and all assets except unused Rift map texture images"
+  }
+}
