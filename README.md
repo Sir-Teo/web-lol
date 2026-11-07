@@ -130,7 +130,7 @@ See [development status](docs/PROGRESS.md) for verified behavior, known limitati
 - [Orb source audio and saved dispatch clocks](docs/AHRI-Q-AUDIO.md) — 22 unchanged masters, per-leg hit sequences and distinct flight stop curves.
 - [Charm saved observation](docs/AHRI-E-VISUAL-HISTORY-PLAN.md) — strict cast, flight, contact and target-lifetime history, owned animation poses and frozen gameplay comparisons.
 - [Charm particle source preparation](docs/AHRI-E-PARTICLES.md) — 28 bound profiles with exact restored packets, finite tails and lazy loading; native buff skin selection and calibration remain open.
-- [Spirit Rush particle source](docs/AHRI-R-PARTICLES.md) — complete native definitions and private transports, with verified schema-181 saved observation; native particle rendering remains pending.
+- [Spirit Rush joined spell rendering](docs/AHRI-R-PARTICLES.md) — 20 saved missile/contact profiles with exact restored packets and lazy assets; persistent and unresolved profiles remain deferred.
 - [Fox-Fire joined source rendering](docs/AHRI-W-RENDERING.md) — 23 orbit, flight and hit profiles, saved visibility and finite drains; cast/weapon resources remain unjoined.
 - [Fox-Fire source audio and saved clocks](docs/AHRI-W-AUDIO.md) — eleven unchanged masters, continuous activation and a separate stop-tail cue.
 - [Essence Theft source audio](docs/AHRI-P-AUDIO.md) — five shared masters, independent saved consumption cues and exact restore.

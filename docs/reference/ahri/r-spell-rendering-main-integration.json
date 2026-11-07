@@ -1,0 +1,62 @@
+{
+  "format": 1,
+  "mergeRevision": "0f69796641e8b85b21102d136471bda4a86ea960",
+  "acceptedRevision": "8493973ce8aedcb98b288be9ff705270b3c0875b",
+  "applicationRevision": "1bef0ac025962434f73c793002df28a0c96af61d",
+  "acceptanceEvidenceWorkspace": "/workspace/web-lol-ahri-w-particles",
+  "schema": 181,
+  "ruleset": "e2c1447e3ff495f6ca32f85f711721adb4a457218e8aede36133c16cf004ac5b",
+  "compatibilityFiles": 684,
+  "applicationAndPublicByteIdentical": true,
+  "pack": {
+    "result": "passed",
+    "pack": "3dbfa301112973701904b7a0a2e783cd05b0174cd8199ff09cf549d70a7faa66",
+    "files": 1432,
+    "bytes": 581114779,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "focusedTests": {
+    "passed": 74,
+    "files": 9
+  },
+  "acceptanceScopePreserved": true,
+  "retainedPriorPacks": [
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-r-observer-accepted-pack-15b8",
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-e-accepted-pack-4995"
+  ],
+  "selectedSpellProfiles": 20,
+  "pushed": false,
+  "deployed": false,
+  "evidence": [
+    {
+      "path": "artifacts/ahri-r-spell-primary-build-v1.log",
+      "bytes": 9453,
+      "sha256": "127fc98bad8a0587313182c8b1e56bc97c833c5e019293427d21a1e3d41e310c"
+    },
+    {
+      "path": "artifacts/ahri-r-spell-primary-pack-v1.json",
+      "bytes": 213,
+      "sha256": "0ccb62cb2363b77e975ce932c8cf14914780b396e559d4a00c110a03493f3326"
+    },
+    {
+      "path": "artifacts/ahri-r-spell-primary-pack-after-dedup-v1.json",
+      "bytes": 213,
+      "sha256": "0ccb62cb2363b77e975ce932c8cf14914780b396e559d4a00c110a03493f3326"
+    },
+    {
+      "path": "artifacts/ahri-r-spell-primary-build-dedup-v1.json",
+      "bytes": 215,
+      "sha256": "168b82a58b9098cf5b28d8c4d5cec466ebb2f9bee047c2e6a5b92cb78918d7b7"
+    },
+    {
+      "path": "artifacts/ahri-r-spell-primary-tests-v1.log",
+      "bytes": 170,
+      "sha256": "5622d220e7fa6367216711d5e1080335ee881f9097f6ba8096bdba30dd0dbe40"
+    },
+    {
+      "path": "docs/reference/ahri/r-spell-rendering-acceptance.json",
+      "bytes": 38279,
+      "sha256": "f03bee3788a1ea4ee34febec526de7ba171edb6366fbb68bf85d4adffd43a28c"
+    }
+  ]
+}

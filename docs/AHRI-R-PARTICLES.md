@@ -344,3 +344,8 @@ passes production nested-path verification with 32 recordings and no unwanted R
 renderer/texture preloads. Offline lifecycle checks pass with 978 worker responses
 and zero production errors. Primary integration follows separately; native pixel
 calibration and representative-device performance remain unfinished.
+
+Primary merge `0f697966` reproduces accepted pack `3dbfa301` exactly and passes
+74 focused tests in nine files. Application/public bytes match the accepted
+branch. See [integration](reference/ahri/r-spell-rendering-main-integration.json).
+The earlier R observer and E packs remain retained. No push or deployment occurs.
