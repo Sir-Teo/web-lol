@@ -1,21 +1,43 @@
-/** Read-only verification of a completed, frozen cohort. */
+/** Verifies a frozen cohort; optional ledgers are written outside its evidence tree. */
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
-import { resolve, relative, isAbsolute } from 'node:path';
+import { readFileSync, writeFileSync, existsSync, realpathSync } from 'node:fs';
+import { resolve, relative, isAbsolute, dirname, basename } from 'node:path';
+import { parseArgs } from 'node:util';
+import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { assertMatchResources, assertMatchVictory } from './match-contract.ts';
 import { rulesetFingerprint } from '../ruleset-fingerprint.ts';
 import { readCohortSnapshot, snapshotEncoding } from './lib/cohort-snapshot.ts';
-const root = resolve(process.argv[2] ?? '');
-if (!process.argv[2])
-  throw Error(
-    'Pass the completed cohort directory; use --historical only for older source revisions.'
+const { values, positionals } = parseArgs({
+  allowPositionals: true,
+  options: { historical: { type: 'boolean', default: false }, output: { type: 'string' } },
+});
+assert.equal(
+  positionals.length,
+  1,
+  'Pass one completed cohort directory, optional --historical and optional --output fresh.json'
+);
+const root = resolve(positionals[0]);
+const historical = values.historical;
+const output = values.output === undefined ? null : resolve(values.output);
+if (output) {
+  assert(!existsSync(output), 'Verification output already exists');
+  const actual = resolve(realpathSync(dirname(output)), basename(output));
+  const delta = relative(realpathSync(root), actual);
+  assert(
+    delta === '..' || delta.startsWith('../') || isAbsolute(delta),
+    'Verification output must be outside the immutable cohort'
   );
-const historical = process.argv.includes('--historical');
-const plan = JSON.parse(readFileSync(`${root}/plan.json`, 'utf8'));
+}
+const planRaw = readFileSync(`${root}/plan.json`);
+const plan = JSON.parse(planRaw);
 const encoding = snapshotEncoding(plan.snapshotEncoding ?? 'none');
-const summary = JSON.parse(readFileSync(`${root}/summary.json`, 'utf8'));
+const summaryRaw = readFileSync(`${root}/summary.json`);
+const summary = JSON.parse(summaryRaw);
+const seedLedger = [];
 const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
+const verifierFile = fileURLToPath(import.meta.url);
+const verifierRaw = readFileSync(verifierFile);
 for (const pin of plan.inputs.concat(plan.runner, historical ? [] : plan.sources)) {
   const bytes = readFileSync(pin.file);
   assert.equal(bytes.length, pin.bytes, pin.file);
@@ -100,7 +122,8 @@ let ticks = 0,
   victories = 0,
   unfinished = 0;
 for (const seed of plan.seeds) {
-  const report = JSON.parse(readFileSync(`${root}/seeds/${seed}/report.json`, 'utf8'));
+  const reportRaw = readFileSync(`${root}/seeds/${seed}/report.json`);
+  const report = JSON.parse(reportRaw);
   assert.deepEqual(
     summary.results.find((row) => row.seed === seed),
     report,
@@ -194,6 +217,19 @@ for (const seed of plan.seeds) {
   roundTrips += report.roundTrips;
   futures += report.futureChecks;
   futureTicks += report.futureCheckedTicks;
+  seedLedger.push({
+    seed,
+    outcome: report.outcome,
+    winner: report.winner,
+    finalTick: report.finalTick,
+    checkedTicks: report.checkedTicks,
+    roundTrips: report.roundTrips,
+    futureChecks: report.futureChecks,
+    futureCheckedTicks: report.futureCheckedTicks,
+    reportSha256: hash(reportRaw),
+    reportBytes: reportRaw.length,
+    finalStateSha256: report.finalStateSha256,
+  });
 }
 assert.equal(ticks, summary.checkedTicks);
 assert.equal(roundTrips, summary.roundTrips);
@@ -217,26 +253,69 @@ assert.equal(
   summary.hundredSeedDevelopmentRosterInvariantGate ?? false,
   developmentRoster && fullInvariantGate
 );
-console.log(
-  JSON.stringify({
-    result: 'passed',
-    ruleset: plan.ruleset,
-    ...(encoding === 'gzip' ? { snapshotEncoding: encoding } : {}),
-    seeds: plan.seeds.length,
-    horizonTicks: plan.horizonTicks,
-    victories: summary.victories,
-    unfinished: summary.unfinished,
-    checkedTicks: ticks,
-    roundTrips,
-    futureChecks: futures,
-    futureCheckedTicks: futureTicks,
-    developmentLeona,
-    developmentRoster,
-    hundredSeedInvariantGate: summary.hundredSeedInvariantGate,
-    hundredSeedDevelopmentLeonaInvariantGate:
-      summary.hundredSeedDevelopmentLeonaInvariantGate ?? false,
-    hundredSeedDevelopmentRosterInvariantGate:
-      summary.hundredSeedDevelopmentRosterInvariantGate ?? false,
-    roadmapMilestone4Complete: false,
-  })
-);
+const verification = {
+  result: 'passed',
+  ruleset: plan.ruleset,
+  ...(encoding === 'gzip' ? { snapshotEncoding: encoding } : {}),
+  seeds: plan.seeds.length,
+  horizonTicks: plan.horizonTicks,
+  victories: summary.victories,
+  unfinished: summary.unfinished,
+  checkedTicks: ticks,
+  roundTrips,
+  futureChecks: futures,
+  futureCheckedTicks: futureTicks,
+  developmentLeona,
+  developmentRoster,
+  hundredSeedInvariantGate: summary.hundredSeedInvariantGate,
+  hundredSeedDevelopmentLeonaInvariantGate:
+    summary.hundredSeedDevelopmentLeonaInvariantGate ?? false,
+  hundredSeedDevelopmentRosterInvariantGate:
+    summary.hundredSeedDevelopmentRosterInvariantGate ?? false,
+  roadmapMilestone4Complete: false,
+};
+if (output) {
+  assert.equal(
+    hash(readFileSync(`${root}/plan.json`)),
+    hash(planRaw),
+    'Plan changed during verification'
+  );
+  assert.equal(
+    hash(readFileSync(`${root}/summary.json`)),
+    hash(summaryRaw),
+    'Summary changed during verification'
+  );
+  for (const row of seedLedger)
+    assert.equal(
+      hash(readFileSync(`${root}/seeds/${row.seed}/report.json`)),
+      row.reportSha256,
+      'Report changed during verification'
+    );
+  assert.equal(
+    hash(readFileSync(verifierFile)),
+    hash(verifierRaw),
+    'Verifier changed during verification'
+  );
+  const ledger = {
+    format: 1,
+    ...verification,
+    root,
+    historical,
+    sourceRevision: plan.sourceRevision ?? null,
+    verificationTool: { file: verifierFile, bytes: verifierRaw.length, sha256: hash(verifierRaw) },
+    verificationRuntime: {
+      node: process.version,
+      v8: process.versions.v8,
+      zlib: process.versions.zlib,
+    },
+    snapshotEncoding: encoding,
+    planSha256: hash(planRaw),
+    summarySha256: hash(summaryRaw),
+    unfinishedSeeds: seedLedger
+      .filter((row) => row.outcome === 'unfinished')
+      .map((row) => row.seed),
+    seedLedger,
+  };
+  writeFileSync(output, JSON.stringify(ledger, null, 2) + '\n', { flag: 'wx' });
+}
+console.log(JSON.stringify(verification));

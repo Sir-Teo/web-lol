@@ -58,7 +58,7 @@ checks also protect older supervisors that do not use the new lock.
 
 A cohort whose results all completed but whose final summary is missing can
 recover the canonical summary without rerunning any seed. The final invariant
-gate still uses the unchanged `verify-match-cohort.mjs`; recovery is explicitly
+gate still uses independent `verify-match-cohort.mjs` verification; recovery is explicitly
 recorded and does not imply uninterrupted execution or a completed 100-seed gate.
 
 Thirteen new control-plane tests pass. They cover refusal and preservation,

@@ -1,11 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync, symlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
+import { writeCohortSnapshot } from './lib/cohort-snapshot.ts';
+import { inspectCohortHorizon } from './inspect-cohort-horizon.mjs';
 const verifier = fileURLToPath(new URL('./verify-match-cohort.mjs', import.meta.url));
 const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const pin = (file) => ({
@@ -42,7 +44,7 @@ function fixture(t, horizonTicks = 3600) {
         mana: 100,
         maxMana: 100,
       });
-      owners.push({ id, role: roles[i], gold: 500, level: 1 });
+      owners.push({ id, role: roles[i], gold: 500, level: 1, kills: 0, deaths: 0, cs: 0 });
     }
   const ruleset = '1'.repeat(64),
     state = {
@@ -140,8 +142,8 @@ function fixture(t, horizonTicks = 3600) {
     report.checkpoints[0].stateSha256 = hash(readFileSync(checkpoint).subarray(0, -1));
     persist();
   };
-  const run = () =>
-    execFileSync(process.execPath, [verifier, root, '--historical'], {
+  const run = (args = []) =>
+    execFileSync(process.execPath, [verifier, root, '--historical', ...args], {
       encoding: 'utf8',
       stdio: 'pipe',
     });
@@ -254,4 +256,75 @@ for (const [name, mutate] of [
 test('complete two-minute coverage verifies its exact future tick total', (t) => {
   const f = fixture(t, 7200);
   assert.equal(JSON.parse(f.run()).futureCheckedTicks, 60);
+});
+
+test('optional verification ledger pins reports and feeds read-only horizon diagnostics', (t) => {
+  const f = fixture(t, 7200),
+    output = f.root + '.ledger.json';
+  t.after(() => rmSync(output, { force: true }));
+  const before = readFileSync(f.root + '/seeds/1/report.json');
+  f.run(['--output', output]);
+  const ledger = JSON.parse(readFileSync(output));
+  assert.equal(ledger.result, 'passed');
+  assert.equal(ledger.historical, true);
+  assert.deepEqual(ledger.unfinishedSeeds, [1]);
+  assert.equal(ledger.seedLedger[0].reportSha256, hash(before));
+  assert.equal(ledger.planSha256, hash(readFileSync(f.root + '/plan.json')));
+  assert.equal(ledger.summarySha256, hash(readFileSync(f.root + '/summary.json')));
+  assert.equal(inspectCohortHorizon(f.root, output).cases[0].samples.length, 2);
+  assert.deepEqual(readFileSync(f.root + '/seeds/1/report.json'), before);
+});
+test('gzip verification ledger feeds the same unfinished-state reader', (t) => {
+  const f = fixture(t),
+    output = f.root + '.ledger.json';
+  t.after(() => rmSync(output, { force: true }));
+  const pack = (path) => writeCohortSnapshot(path, readFileSync(path, 'utf8').slice(0, -1), 'gzip');
+  f.report.checkpoints = f.report.checkpoints.map((row) => ({ tick: row.tick, ...pack(row.path) }));
+  f.report.finalSnapshot = pack(f.report.finalPath);
+  f.report.finalPath = f.report.finalSnapshot.path;
+  f.report.snapshotEncoding = f.plan.snapshotEncoding = 'gzip';
+  f.plan.runtime.zlib = process.versions.zlib;
+  f.persist();
+  f.run(['--output', output]);
+  const ledger = JSON.parse(readFileSync(output));
+  assert.equal(ledger.snapshotEncoding, 'gzip');
+  assert.equal(inspectCohortHorizon(f.root, output).cases[0].samples[0].tick, 3600);
+});
+test('existing verification output is preserved', (t) => {
+  const f = fixture(t),
+    output = f.root + '.ledger.json';
+  t.after(() => rmSync(output, { force: true }));
+  writeFileSync(output, 'retain existing evidence');
+  assert.throws(() => f.run(['--output', output]));
+  assert.equal(readFileSync(output, 'utf8'), 'retain existing evidence');
+});
+test('a rejected report cannot create a verification ledger', (t) => {
+  const f = fixture(t),
+    output = f.root + '.ledger.json';
+  t.after(() => rmSync(output, { force: true }));
+  f.report.developmentRoster = false;
+  f.persist();
+  assert.throws(() => f.run(['--output', output]));
+  assert.throws(() => readFileSync(output), { code: 'ENOENT' });
+});
+test('verification output cannot mutate the frozen cohort', (t) => {
+  const f = fixture(t),
+    output = f.root + '/ledger.json';
+  assert.throws(() => f.run(['--output', output]));
+  assert.throws(() => readFileSync(output), { code: 'ENOENT' });
+});
+test('unknown verification flags and extra cohort roots are rejected', (t) => {
+  const f = fixture(t);
+  assert.throws(() => f.run(['--historial']));
+  assert.throws(() => f.run(['--output', '']));
+  assert.throws(() => f.run([f.root]));
+});
+
+test('verification output cannot follow a parent symlink into the frozen cohort', (t) => {
+  const f = fixture(t),
+    alias = f.root + '-alias';
+  symlinkSync(f.root, alias, 'dir');
+  t.after(() => rmSync(alias, { force: true }));
+  assert.throws(() => f.run(['--output', alias + '/ledger.json']));
+  assert.throws(() => readFileSync(f.root + '/ledger.json'), { code: 'ENOENT' });
 });

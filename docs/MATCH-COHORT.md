@@ -132,3 +132,22 @@ reported completion rate are checked against the individual outcomes. Fifteen
 verification tests include resealed omissions, reordering, duplicates, invented
 futures and summary disagreements. The unchanged historical 100-seed schema-167
 archive passes these stronger checks, including four partial final probes.
+
+## Verification ledgers
+
+Add `--output` to final verification to produce a ledger after all checks pass:
+
+```sh
+node tools/qa/verify-match-cohort.mjs /path/to/completed-cohort --output artifacts/cohort-ledger.json
+node tools/qa/inspect-cohort-horizon.mjs /path/to/completed-cohort artifacts/cohort-ledger.json artifacts/horizon-diagnostics.json
+```
+
+Use `--historical` explicitly for an older source revision. The ledger records
+plan, summary and per-seed report hashes, exact outcomes and coverage, the
+verification tool/runtime identities, and the unfinished seed list consumed by
+the diagnostic reader. Plan, summary, reports and verifier bytes are rechecked
+before writing. Without `--output`, verification keeps its concise JSON stdout.
+The output must be fresh and outside the immutable cohort, including through
+parent-directory symlinks; its parent directory must already exist. Unknown
+flags and additional cohort arguments are rejected. A failed verification
+creates no ledger, and an existing output is never overwritten.
