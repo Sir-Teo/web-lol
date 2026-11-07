@@ -7,56 +7,58 @@ Last updated: November 7, 2026 (UTC).
 ## Current authoritative state
 
 Accepted local runtime: save schema **181**, ruleset
-`943a706f9191ebc8f30b1ab10dc37668489f4f29631332a99a9ce7c60e3230ba`.
-[Spirit Rush rendering](AHRI-R-PARTICLES.md), application `aabe0526`, draws
-21 joined missile/contact profiles and nine buff profiles: four eye glow/trail
-profiles on both native eye bones plus five quad/glow/mesh profiles on
-`C_Buffbone_Glb_Layout_Loc`. Three meshes share one checked, page-owned native
-geometry with packed BGRA colors and one centimetres conversion. Their nullable
-period preserves the authored thirty-second active window. Spell and buff
-materials share one R depth capture, including buff-only frames. Continuous glow
-cessation follows the observed buff end. Native calibration remains open.
+`b71e747721c1c4a56c5d5773ca9b3b3c6b9c39ddcb46fadbb8214c381d0708a0`.
+[Spirit Rush rendering](AHRI-R-PARTICLES.md), application `d343a9f9`, draws
+31 selected profiles: 21 missile/contact profiles and ten buff profiles. All six
+layout profiles use `C_Buffbone_Glb_Layout_Loc`; four eye profiles use both native
+eye bones. The sixty-second base preserves every float32 binding update over
+complete saved source poses. Source history retains at most 3,603 poses while
+the buff is active and its age is at most 3,602 updates, then returns to the
+721-pose window on age boundary or stop. Target-history bounds remain unchanged.
+Three mesh profiles share one checked native geometry with packed BGRA colors
+and one centimetres conversion. Their authored thirty-second active window is
+preserved. Spell and buff materials share one R depth capture, including
+buff-only frames. Native calibration remains open.
 
-The full suite passes 9,648/9,650 tests in 601 files with only the two historical
-failures. All 263 Node QA cases and all 87 portable CI commands pass on their
-first attempt, with CI and Node QA run separately. Scoped CI selections execute
-1,420 tests across 154 file executions, including overlap; all 5,605 committed
-export files verify before cleanup. All 33 distinct browser cases pass, plus
-the retained earlier keyboard stage. Mesh hide/show probes change 2,762 /
-40,353 / 89,466 pixels without World mutation and with one shared R depth capture
+The full suite passes 9,873/9,875 tests in 603 files with only the two historical
+failures. All 263 Node QA cases and all 87 portable CI commands pass; every CI
+command passes on its first attempt, with Node QA and CI run separately. Scoped
+CI selections execute 1,645 tests across 156 file executions, including overlap;
+all 5,617 committed export blobs verify before cleanup. All 33 distinct browser
+cases pass, plus the retained initial keyboard probe. The base hide/show probe
+changes 192,952 pixels without World mutation and with one shared R depth capture
 per render. Production nested-path checks cover 32 recordings with no eager R
 particle preloads. Offline lifecycle checks pass with 978 worker responses and
-zero production errors. See [mesh acceptance](reference/ahri/r-layout-mesh-acceptance.json),
-which pins 262 evidence files.
+zero production errors. See [base acceptance](reference/ahri/r-layout-base-acceptance.json),
+which pins 288 evidence files.
 
-All 45 complete natural-match saved projections match the accepted R observer,
-including every R/E/W/Q observation and audio history, excluding only version and
-ruleset. The seed reaches Blue victory at tick 157,116 with 44 round trips and
-43 checked futures. The frozen renderer baseline retains 357 complete states
-across 21 scenarios. All 72 spell, 36 eye-glow, 54 eye-trail, 42 finite-quad and
-54 continuous-glow packet hashes remain exact. Simulation, content and public
-assets remain unchanged. All 334 public WAV files / 96,632,632 bytes, including
-76 Ahri masters, remain exact.
+The natural seed reaches the same Blue victory at tick 157,116 with 44 round
+trips and 43 checked futures / 2,580 ticks. Of 45 saved projections, 44 match the
+accepted mesh checkpoint completely. One adds 93 older source poses; all 45 match
+after explicitly trimming only source poses older than the original 720-update
+window, excluding version/ruleset metadata. All other saved fields remain in the
+comparison. Complete-state identity is not claimed for this history change.
+The frozen 357-state renderer reference remains unchanged; its comparison now
+uses the explicitly documented original source-pose window. All 72 spell,
+36 eye-glow, 54 eye-trail, 42 finite-quad, 54 continuous-glow and 216 mesh packet
+hashes remain exact. Public assets and combat rules remain unchanged. All 334
+public WAV files / 96,632,632 bytes, including 76 Ahri masters, remain exact.
 
-Pack `750c891d` contains 1,432 files / 581,133,759 bytes with the unchanged worker
-policy. Primary merge `d1666700` reproduces the exact accepted pack and passes all
-458 checks in its independent 33-file selection. See
-[primary integration](reference/ahri/r-layout-mesh-main-integration.json). The prior
-continuous-glow, finite-layout, eye-trail, eye-glow, palette, 20-profile R,
-observer and E packs remain retained. All work remains local. Emote/idle source
-preparation remains isolated.
+Pack `c432ac3c` contains 1,432 files / 581,134,629 bytes with the unchanged worker
+policy. Primary merge `3bc335b5` reproduces the exact accepted pack and passes all
+700 checks in its independent 38-file selection. See
+[primary integration](reference/ahri/r-layout-base-main-integration.json). The
+accepted base pack and prior mesh, continuous-glow, finite-layout, eye-trail,
+eye-glow, palette, 20-profile R, observer and E packs remain retained. All work
+remains local. Emote/idle source preparation remains isolated.
 
 R retains all 55 published profiles, 51 textures / 428 authored mips and four
-meshes. Its selected subset uses 34 textures and two meshes, including the
-borrowed W mesh. Thirteen R textures, one separate W transport and one R GLB
-load beside borrowed Q/W resources. Two noise, one sixty-second layout base,
-six counter and sixteen unjoined profiles remain deferred. The mesh active-window
-reading clarifies the older unbounded cadence diagnostic: selected external code
-preserves authored thirty-second active duration despite omitted period length;
-native constructor behavior remains unverified. Continuous billboard 53 omits
-both period fields and is unaffected. Omitted palette count/selector values use
-explicit local defaults matching the pinned external reader; native constructors
-and global inputs remain unverified.
+meshes. Its selected subset uses 35 textures and two meshes, including the
+borrowed W mesh. Thirteen R textures, one separate W transport and one checked
+R GLB load beside borrowed Q/W resources. The base adds one selected borrowed
+Q-projectile texture entry without adding a local texture request. Six counter,
+two noise and sixteen unjoined profiles remain deferred. Omitted constructor,
+palette and native callback inputs remain explicitly unverified.
 
 E retains 28 of 29 bound profiles; the native buff Avatar selector remains
 omitted and unbound. W retains 23 joined orbit, flight and hit profiles; its
