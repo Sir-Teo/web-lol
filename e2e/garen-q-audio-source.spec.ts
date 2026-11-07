@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { GAREN_Q_AUDIO as P } from '../src/content/garen-q-audio';
 
 test('Decisive Strike audition schedules both attack actions with source delay and stops the nonlooping active with its source fade', async ({
@@ -176,3 +176,50 @@ test('a valid WAV with altered source samples is refused before audition readine
   await expect(page.getByRole('button', { name: 'Play activation', exact: true })).toBeDisabled();
   await page.screenshot({ path: info.outputPath('altered-source-refused.png'), fullPage: true });
 });
+
+for (const control of ['stop-all', 'stop-active', 'unrelated stop-active'] as const)
+  test(`pending context activation respects ${control} ownership`, async ({ page }, info) => {
+    await page.addInitScript(() => {
+      const state = { starts: [] as number[], release: null as null | (() => Promise<void>) };
+      (window as any).__Q_PENDING_RESUME__ = state;
+      const resume = AudioContext.prototype.resume,
+        start = AudioBufferSourceNode.prototype.start;
+      AudioContext.prototype.resume = function () {
+        const context = this;
+        return new Promise<void>((resolve, reject) => {
+          state.release = async () => {
+            try {
+              await resume.call(context);
+              resolve();
+            } catch (error) {
+              reject(error);
+            }
+          };
+        });
+      };
+      AudioBufferSourceNode.prototype.start = function (...args) {
+        state.starts.push(this.buffer?.length ?? 0);
+        return start.apply(this, args);
+      };
+    });
+    await page.goto('/tools/qa/garen-q-audio-preview.html');
+    await page.waitForFunction(() => (window as any).__GAREN_Q_AUDIO_PREVIEW__?.ready);
+    if (control === 'stop-active')
+      await page.getByRole('button', { name: 'Play active', exact: true }).click();
+    else await page.locator('#attack').click();
+    await page.waitForFunction(
+      () => typeof (window as any).__Q_PENDING_RESUME__.release === 'function'
+    );
+    await page.locator(control === 'stop-all' ? '#stop-all' : '#stop-active').click();
+    await page.evaluate(async () => {
+      await (window as any).__Q_PENDING_RESUME__.release();
+      await new Promise((resolve) => setTimeout(resolve, 0));
+    });
+    const starts = await page.evaluate(() => (window as any).__Q_PENDING_RESUME__.starts);
+    expect(starts).toHaveLength(control === 'unrelated stop-active' ? 2 : 0);
+    await page.locator('#stop-all').click();
+    writeFileSync(
+      info.outputPath('pending-resume-ownership.json'),
+      JSON.stringify({ control, starts }, null, 2) + '\n'
+    );
+  });
