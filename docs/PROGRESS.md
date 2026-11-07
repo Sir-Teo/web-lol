@@ -130,8 +130,9 @@ contains 1,432 files / 581,142,305 bytes with unchanged worker policy. Schema 18
 all 696 compatibility inputs and ruleset `e02f3e73` remain unchanged; earlier HUD
 and noise packs are retained. See [sound preference verification](reference/sound-preference-verification.json).
 
-The refreshed primary QA suite passes all 322 Node cases in a serial full run.
-See [current Node QA verification](reference/current-node-qa-verification.json).
+The refreshed primary QA suite passes all 333 Node cases in a serial full run,
+including the new scheduling and protected-output cases. The earlier 322-case
+receipt is retained. See [current Node QA verification](reference/current-node-qa-verification-v2.json).
 Independent cohort verification
 now derives and checks completion rate and nearest-rank victory duration
 percentiles, retaining unfinished horizons outside those duration samples. The
@@ -9762,8 +9763,8 @@ unchanged. See [visibility verification](reference/garen-q-audition-visibility-v
 Cohort progress telemetry now reports paused worker PIDs and raw OS scheduling
 state separately from output ownership. All 19 focused tests pass, including a
 real Linux child stopped, continued and exited without archive mutation. The
-live audit workers were observed only. This adds six cases after the full
-322-case run; it does not claim a fresh full 328-case run. See
+live audit workers were observed only. This checkpoint added six cases after the full
+322-case run; the later full 333-case run above also covers them. See
 [scheduling verification](reference/cohort-process-state-verification.json).
 
 Horizon diagnostics now publish only to a fresh external path, resolving parent

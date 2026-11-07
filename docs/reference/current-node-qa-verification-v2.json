@@ -1,0 +1,20 @@
+{
+  "format": 1,
+  "result": "passed",
+  "qaSourceRevision": "b98b4de8",
+  "testsPassed": 333,
+  "testsFailed": 0,
+  "testConcurrency": 1,
+  "durationMs": 294405.745103,
+  "qaSourcesUnchangedDuringRun": true,
+  "runtimeAndPublicAssetsUnchanged": true,
+  "priorFullRunReceipt": "current-node-qa-verification.json",
+  "scope": "Full primary tools/qa/*.test.mjs suite including paused-worker telemetry, real Linux child lifecycle, protected horizon outputs and exact snapshot-byte comparisons. Documentation-only commits during this run do not change its sources.",
+  "evidence": [
+    {
+      "file": "artifacts/current-node-qa-v2.log",
+      "bytes": 26601,
+      "sha256": "8c3b3ae002b4c1de484477b5e1e00b6c1d76f4668458cc15d0af816c097e4aed"
+    }
+  ]
+}
