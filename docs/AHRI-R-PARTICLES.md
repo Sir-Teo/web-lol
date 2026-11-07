@@ -797,3 +797,22 @@ ruleset, with victory at tick 157116. All 2,228 application/public blobs match
 runtime `e27cc4c4`. Pack `860c02af` audits at 1,432 files / 581,130,644 bytes.
 See the [continuous glow regression record](reference/ahri/r-layout-glow-regression-verification.json).
 Cross-kit and production/offline checks follow before acceptance.
+
+
+### Clarify the still-deferred mesh window
+
+The [mesh-window reading](reference/ahri/r-layout-mesh-window-reading.json)
+clarifies the earlier non-gating cadence probe. That probe deliberately selected
+an unbounded/null-period window; it did not preserve mesh profiles 51/52/54's
+authored active duration of thirty seconds. Its long-window totals therefore do
+not establish the selected authored-window schedule. The original evidence stays
+unchanged. Replaying the preserved nullable-period fields instead gives 120,
+200 and 200 births, all before thirty seconds; the rate-four profile still has
+two 16-tick gaps within that window.
+
+The pinned external parser preserves an active-only period object. Executed
+periodActive code uses absolute age when period length is null, despite a stale
+comment saying such an emitter never spawns. Following that code remains an
+explicit local choice, not native-constructor certification. These meshes stay
+unconnected. Current billboard profile 53 omits both period fields and is
+unaffected by this clarification.
