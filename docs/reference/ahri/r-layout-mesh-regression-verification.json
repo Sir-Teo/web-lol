@@ -1,6 +1,6 @@
 {
   "format": 1,
-  "scope": "Three finite layout mesh profiles; cross-kit and delivery checks pending",
+  "scope": "Three finite layout mesh profiles; regressions passed, production/offline acceptance pending",
   "applicationRevision": "aabe05260691f94d800f6b6016148e9fea4d6717",
   "schema": 181,
   "ruleset": "943a706f9191ebc8f30b1ab10dc37668489f4f29631332a99a9ce7c60e3230ba",
@@ -261,8 +261,8 @@
     "artifacts/ahri-r-layout-mesh-sampler-tests-v2.log",
     "artifacts/ahri-r-layout-mesh-sampler-types-v1.log"
   ],
-  "crossKitBrowserCasesPassed": 0,
-  "distinctBrowserCasesPassed": 8,
+  "crossKitBrowserCasesPassed": 25,
+  "distinctBrowserCasesPassed": 33,
   "acceptedEyeGlowPacketsRetained": 36,
   "applicationIdentity": {
     "verifiedFiles": 2229,
