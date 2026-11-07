@@ -192,6 +192,10 @@ commands without private caches or native tools. The existing W archived cohort
 still verifies against the current runtime sources.
 
 The [source-preparation acceptance](reference/ahri/e-source-preparation-verification.json)
-records all 251 passing Node QA cases. Source, public-asset and gameplay-test
+records all 251 passing Node QA cases. Application source, public-asset and gameplay-test
 bytes remain unchanged from the accepted W runtime. This accepts preparation
 only; E saved histories and rendered playback remain future work.
+
+The [primary integration receipt](reference/ahri/e-source-main-integration.json)
+records merge 73cd844, current-source cohort verification and an identical
+rebuilt production pack.

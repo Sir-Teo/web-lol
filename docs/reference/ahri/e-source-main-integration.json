@@ -1,0 +1,40 @@
+{
+  "format": 1,
+  "mergeRevision": "73cd844",
+  "previousPrimaryRevision": "3e377a6",
+  "sourcePreparationRevision": "182b3db",
+  "result": "passed",
+  "applicationSourceChanged": false,
+  "publicAssetsChanged": false,
+  "gameplayTestsChanged": false,
+  "schemaVersion": 178,
+  "ruleset": "ff8abc1be3d5e4191d0544c600ed32c1e3d89b5bf969d9f2a57c591cde81dbe9",
+  "rebuiltPack": {
+    "result": "passed",
+    "pack": "43914dfefe3cd790e08fcfce9aee0f88bc2941e41e58bdff127ac2f94b31bdf2",
+    "files": 1390,
+    "bytes": 578953394,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "identicalAcceptedWPack": true,
+  "currentWArchivedCohortStillVerifies": true,
+  "nodeQaCasesOnSourceBranch": 251,
+  "evidence": [
+    {
+      "path": "artifacts/ahri-e-source-primary-runtime-verify-v1.log",
+      "sha256": "879e31b180f2033d4bbaf40e316db9cdb016ee8074179b7d3063e396e53c3016"
+    },
+    {
+      "path": "artifacts/ahri-e-source-primary-build-v1.log",
+      "sha256": "9cfa951c0b82365035f2e33376f9ffd2f0c4efed0e57fd3d65684b2b2d29d72c"
+    },
+    {
+      "path": "artifacts/ahri-e-source-primary-pack-v1.json",
+      "sha256": "a053e04831badfc90017e4b91131aae9f1838ed036914539af6282a2e4e68765"
+    }
+  ],
+  "limits": [
+    "Source preparation integrated locally; E rendered playback and saved histories remain future work.",
+    "Historical runtime receipts keep their original scope; no new production roster or native pixel claim."
+  ]
+}

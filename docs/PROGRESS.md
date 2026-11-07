@@ -16,12 +16,20 @@ families and all 76 Ahri PCM masters remain intact.
 
 The unit suite covers 9,077 tests in 553 files: 9,075 pass after an unchanged
 single-worker rerun of four files that timed out during concurrent work; the two
-historical failures remain. All 245 Node QA cases, 735 scoped CI tests in 96
+historical failures remain. All 251 Node QA cases, 735 scoped CI tests in 96
 files, TypeScript and 63 cache-free CI commands pass, with the initial CI history
 timeout and successful rerun retained. Four W browser cases and ten Q/audio
 regression cases pass; the audio-readiness timeout passes on a separate rerun.
 Production nested-path checks cover 32 recordings; the full offline gate passes.
 See [W acceptance](reference/ahri/w-rendering-verification.json).
+
+[Charm source preparation](AHRI-E-PARTICLES.md) is integrated at `73cd844`:
+five explicitly joined resource definitions, 29 emitters, 22 textures / 187 mips
+and two byte-exact private mesh transports. All nine portable source commands
+reproduce from a 31-file clean export without decoder tools or private caches.
+This changes no application source, public assets or gameplay tests; the fresh
+primary build reproduces the accepted W pack. E saved histories, callback clocks,
+post-rotation math and rendered playback remain future work.
 
 The accepted pack is `43914dfe`, with 1,390 files / 578,953,394 bytes.
 Worker policy is unchanged. All 45 archived state projections, including W
