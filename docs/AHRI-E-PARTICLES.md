@@ -215,3 +215,13 @@ checks all three existing reader SHA-256 pins, imports no application arithmetic
 refuses fixture replacement and reproduces the committed JSON with --check.
 These samples establish external composition order; they do not establish native
 callback timing or rendered-pixel parity. Local renderer support remains pending.
+
+The isolated sourceParticlePostRotation kernel now matches all 42 frozen
+matrices byte for byte, preserving float32 writes between post rotation and the
+supplied world basis. It validates finite native angles and matrices and returns
+independent storage. Other own-basis factors remain explicit caller work. The
+combined spin/draw/post-rotation checks pass 581 tests in four files, and TypeScript
+passes. Direct current dependency enumeration confirms the new module is not yet
+consumed: the accepted schema-179 ruleset and its 658 files remain unchanged.
+The historical schema-113 closure-receipt verifier is inapplicable to this runtime;
+its old pinned-receipt mismatch is retained separately from the current check.
