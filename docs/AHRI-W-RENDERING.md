@@ -1,9 +1,8 @@
 # Ahri W rendering
 
-This branch starts from the verified schema 178 W visual history. The primary
-work branch still runs the accepted Q projectile renderer. W particle assets
+This branch starts from the verified schema 178 W visual history. W particle assets
 are staged publicly and the joined source effects are connected to this branch’s
-scene. Full rendering acceptance and primary integration remain pending.
+scene. The acceptance record below covers the completed verification.
 
 The history adapter dispatches only orbit, flight and genuine hit groups. Cast
 and weapon resources remain unjoined. Orbit placement ends at the saved dispatch
@@ -117,8 +116,7 @@ retry. Disposal during a pending load prevents late scene construction.
 The compatibility collector now roots the W renderer and lazy wrapper, including
 their consumed profiles, assets and source kernels. Three loader lifecycle tests
 and the W scene/ribbon suites pass (13 tests), and TypeScript checking passes.
-The four W browser cases below pass; the staged source does not yet have
-full rendering acceptance or primary integration.
+The four W browser cases below pass; the acceptance record below covers the broader regression.
 
 ## Browser verification
 
@@ -131,7 +129,7 @@ requests 24 owned textures and the sharp mesh, borrowing the other textures.
 No JavaScript or shader errors were reported. Open-lane orbit and flight captures
 were inspected in artifacts/ahri-w-browser-v2. Software Chromium establishes
 functional behavior, not device performance or native pixel equivalence.
-Full regression and archived gameplay comparison remain pending.
+The archived regression and acceptance below cover the completed follow-up.
 
 ## Archived regression comparison
 
@@ -155,4 +153,16 @@ All seven Q rendering browser cases pass. The three Fox-Fire audio cases pass
 with the initially timed-out readiness case rerun separately. All 334 WAV files,
 including the 76 Ahri masters, match the accepted observer bytes. The production
 build and complete pack byte audit pass; production and offline browser gates
-remain pending.
+also pass, as recorded below.
+
+## Rendering acceptance
+
+The [verification receipt](reference/ahri/w-rendering-verification.json) records
+production nested-path checks with 32 recordings and no development hooks or
+unsolicited Ahri preloads. The complete offline gate passes for pack
+43914dfefe3cd790e08fcfce9aee0f88bc2941e41e58bdff127ac2f94b31bdf2:
+1,390 files / 578,953,394 bytes, with 978 service-worker responses. Saved boot,
+repair, cancellation/retry and atomic version switching pass without production
+errors. Production and offline screenshots were reviewed. Worker policy remains
+unchanged. These results accept the joined W renderer within the stated local
+binding and source-fidelity limits; cast/weapon resources remain unjoined.

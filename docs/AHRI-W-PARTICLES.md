@@ -170,3 +170,10 @@ The cast resource still lacks a retained producer join. Native lock behavior,
 skin sampling, transforms and fresnel remain separate from this name mapping.
 Normal and optimized portable guards verify exact reproduction, five changed
 input pins, output conflicts and leaf/parent symlinks. No decoder cache is used.
+
+## Joined rendering follow-up
+
+The source-only stages above are retained as their original provenance. The
+[joined renderer](AHRI-W-RENDERING.md) now stages the complete transport package
+and consumes 23 orbit, flight and hit profiles. Its acceptance records gameplay,
+browser, production and offline checks; cast/weapon producers remain unjoined.
