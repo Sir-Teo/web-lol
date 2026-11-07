@@ -6,51 +6,49 @@ Last updated: November 7, 2026 (UTC).
 
 ## Current authoritative state
 
-Accepted local runtime: save schema **180**, ruleset
-`d625c0ee280a60649bf4516454b529fc1da780ed163f7bf4989c2dd21515a1f4`.
-[Charm rendering](AHRI-E-PARTICLES.md), application `58e1119`, lazily draws
-28 bound profiles from saved cast, flight, hit and control histories. Owned
-animation timelines reconstruct historical native bone poses across transitions.
-The native buff Avatar selector remains omitted and its profile stays unbound.
+Accepted local runtime: save schema **181**, ruleset
+`64f63c0976c13ca41aad687f2135c6b178706ffd62fe96720627ec87626dd537`.
+[Spirit Rush saved observation](AHRI-R-PARTICLES.md), application `eac4f9fa`,
+retains bounded owned poses, dash/bolt paths, charge changes and hit/body-ending
+anchors. Strict admission covers clocks, movement, identities and historical
+bodies. The same-tick target-death correction preserves existing update order.
+Native R particle rendering remains pending; provisional bolt models remain.
 
-The full suite passes 9,215/9,217 tests in 568 files with only the two historical
-failures. All 253 Node QA cases and 76 clean-export workflow commands pass.
-Workflow selections execute 987 tests across 121 files, including overlap;
-unused map textures were omitted from this source/workflow export. All 22
-Charm/audio/W/Q browser cases pass. Production nested-path checks cover 32
-recordings and reject E preloads without Ahri. Full offline delivery passes
-with 978 worker responses and zero production errors. See
-[rendering acceptance](reference/ahri/e-rendering-acceptance.json).
+The full suite passes 9,256/9,258 tests in 573 files with only the two historical
+failures. All 257 Node QA cases and 82 clean-export workflow commands pass.
+Workflow selections execute 1,028 tests across 126 files, including overlap;
+unused map textures were omitted from this source/workflow export. All 29
+Q/W/E/R/audio browser cases pass. Production nested-path checks cover 32
+recordings. Offline lifecycle checks pass with 978 worker responses and zero
+production errors. See [observer acceptance](reference/ahri/r-visual-observer-acceptance.json).
 
-All 45 natural-match saved projections match the accepted observer archive,
-including every pre-existing E observation fact. Only new owned animation/rig
-facts and version/ruleset are excluded. The natural seed reaches Blue victory
-at tick 157,116, with 44 restores and 43 checked futures. World.ts and all 334
-public WAV files remain unchanged. Earlier frozen focused baselines remain intact.
+All 45 natural-match complete saved projections match accepted E gameplay,
+excluding only version, ruleset and the new R observation field. Earlier E/W/Q
+visual and audio facts remain in the comparison. The natural seed reaches Blue
+victory at tick 157,116, with 44 round trips and 43 checked futures. All 334
+public WAV files / 96,632,632 bytes, including all 76 Ahri masters, remain exact.
+Earlier frozen focused baselines retain their original producers and goldens.
 
-Accepted W retains 23 joined orbit, flight and hit profiles; W cast/weapon
-resources remain unjoined. Q rendering, eight audio families and all 76 Ahri
-masters remain intact. E retains five source definitions, 29 emitters, 22
-textures / 187 mips and two native meshes. Native buff skin selection, global
-palette input, other-rig attachment fallbacks, callback/material calibration
-and representative device performance remain unfinished. Software-browser
-screenshots do not establish native pixel parity.
+Accepted E still draws 28 of 29 profiles; the native buff Avatar selector remains
+omitted and unbound. W retains 23 joined orbit, flight and hit profiles; its
+cast/weapon resources remain unjoined. Q rendering and eight audio families
+remain intact. Native palette and callback calibration, attachment fallbacks,
+shader fidelity and representative-device performance remain unfinished.
+Software-browser screenshots do not establish native pixel parity.
 
-Pack `4995dc74` contains 1,405 files / 579,749,600 bytes with the unchanged
-worker policy. Its complete file/worker audit passes. All work remains local;
-primary integration at `92d36f0d` reproduces the exact pack and passes 47 focused
-tests in four files. See [integration](reference/ahri/e-rendering-main-integration.json).
-Emote/idle source preparation
-remains isolated.
+Pack `15b88ebe` contains 1,405 files / 579,768,106 bytes with the unchanged
+worker policy. Primary merge `9dc23589` reproduces the exact accepted pack and
+passes 41 focused tests in five files. Application/public bytes match the
+accepted branch. The earlier E pack is retained separately. See
+[primary integration](reference/ahri/r-visual-observer-main-integration.json).
+All work remains local. Emote/idle source preparation remains isolated.
 
-[Spirit Rush source preparation](AHRI-R-PARTICLES.md) is integrated at `b936b9d3`:
-eleven non-null systems / 55 emitters, 63 native files, 51 textures / 428 mips
-and four meshes. Complete private transports and profile projection preserve raw
-source declarations and native field tags. Nine producer references join eight
-systems; three remain unjoined. All seven clean-export commands and four focused
-Node QA cases pass. Application bytes and the audited delivery pack are unchanged;
-see [source integration](reference/ahri/r-source-main-integration.json).
-R saved visual histories and runtime particle rendering remain pending.
+R source preparation retains eleven non-null systems / 55 emitters, 63 native
+files, 51 textures / 428 mips and four meshes. Complete private transports and
+profile projection preserve raw source declarations and native field tags.
+Nine producer references join eight systems; three remain unjoined. A byte-exact
+reuse audit proves 29 textures and one mesh already have published transports;
+25 new transports / 647,809 bytes remain to stage before renderer work.
 
 The [frozen hundred-seed development-roster baseline](CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md)
 is complete: 100 natural victories, zero unfinished matches or invariant failures,

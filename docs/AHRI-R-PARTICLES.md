@@ -264,3 +264,9 @@ were inspected in software Chromium. All 334 public WAV files / 96,632,632 bytes
 match the accepted E primary; all 76 Ahri masters remain intact. The earlier E
 pack is retained separately. This accepts saved R observation, not native R
 particle rendering, full-project completion, or a current hundred-seed gate.
+
+Primary integration at `9dc23589` preserves accepted application/public bytes.
+A fresh primary build reproduces `15b88ebe` exactly and passes 41 focused tests
+in five files. See [integration](reference/ahri/r-visual-observer-main-integration.json).
+The complete earlier E pack remains retained separately. No push or deployment
+is performed. R native particle publication and rendering follow this stage.

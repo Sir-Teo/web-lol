@@ -1,0 +1,58 @@
+{
+  "format": 1,
+  "mergeRevision": "9dc23589430e336b3a84317a6d97e4ddff5de324",
+  "acceptedRevision": "9b271325",
+  "applicationRevision": "eac4f9fa375789091a8425e869d9da02f5f779e4",
+  "acceptanceEvidenceWorkspace": "/workspace/web-lol-ahri-w-particles",
+  "schema": 181,
+  "ruleset": "64f63c0976c13ca41aad687f2135c6b178706ffd62fe96720627ec87626dd537",
+  "srcAndPublicByteIdentical": true,
+  "pack": {
+    "result": "passed",
+    "pack": "15b88ebe64312c08ee7b88edca15930231cf52794ecf91747b492db695590cb8",
+    "files": 1405,
+    "bytes": 579768106,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "focusedTests": {
+    "passed": 41,
+    "files": 5
+  },
+  "acceptanceScopePreserved": true,
+  "previousEPackRetained": "/workspace/web-lol-ahri-w-particles/.cache/ahri-e-accepted-pack-4995",
+  "pushed": false,
+  "deployed": false,
+  "nativeRParticleRendererBound": false,
+  "evidence": [
+    {
+      "path": "artifacts/ahri-r-observer-primary-build-v1.log",
+      "bytes": 9079,
+      "sha256": "a192b2b027ffed5da67784824fde49ab0b5f961c65c1ad613f801051ce22760e"
+    },
+    {
+      "path": "artifacts/ahri-r-observer-primary-pack-v1.json",
+      "bytes": 213,
+      "sha256": "b5c07a2bd4cd5e03b6321ac07d9c3535f61653d3c5d51fa2448a93f5db74b8c3"
+    },
+    {
+      "path": "artifacts/ahri-r-observer-primary-pack-after-dedup-v1.json",
+      "bytes": 213,
+      "sha256": "b5c07a2bd4cd5e03b6321ac07d9c3535f61653d3c5d51fa2448a93f5db74b8c3"
+    },
+    {
+      "path": "artifacts/ahri-r-observer-primary-build-dedup-v1.json",
+      "bytes": 232,
+      "sha256": "2cd89233dcf7e85340f93cf1cfaa72cc5c9f1163eea52395196bf351270c7089"
+    },
+    {
+      "path": "artifacts/ahri-r-observer-primary-tests-v1.log",
+      "bytes": 425,
+      "sha256": "11631161098cc2719bf66ead4515c87141e16e776c3bba932aa12d0359971c03"
+    },
+    {
+      "path": "docs/reference/ahri/r-visual-observer-acceptance.json",
+      "bytes": 36903,
+      "sha256": "32172430653f86dc4c4edc474252b43006dfd39f073b79d04e31f0b8b0bf0059"
+    }
+  ]
+}
