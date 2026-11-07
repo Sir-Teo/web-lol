@@ -14,9 +14,9 @@ const root = (time: number) => ({
 });
 const context = { boundObjectSize: 100, root };
 
-test('only the ten-second layout quad is prepared, without connecting layout drawing', () => {
+test('only the ten-second layout quad is selected alongside the four eye profiles', () => {
   expect(AHRI_R_PREPARED_LAYOUT_PROFILES).toEqual([50]);
-  expect(AHRI_R_BOUND_BUFF_PROFILES).toEqual([45, 46, 47, 48]);
+  expect(AHRI_R_BOUND_BUFF_PROFILES).toEqual([45, 46, 47, 48, 50]);
   const particles = ahriRParticles('Ahri_R_Ready_tar', 927, 1, Infinity, context);
   expect(particles).toHaveLength(1);
   expect(particles[0]).toMatchObject({

@@ -53,10 +53,10 @@ export const AHRI_R_PARTICLE_ADAPTER = {
   sharedRandomFlagOne: 'fixed cosmetic emitter chance; native random stream unverified',
   neutralLiveTables: 'empty tables with single 1',
 } as const;
-/** Both finite glows and periodic trails use the explicit skin-buff producer. */
-export const AHRI_R_BOUND_BUFF_PROFILES = [45, 46, 47, 48] as const;
+/** Eye profiles and the finite layout quad use the explicit skin-buff producer. */
+export const AHRI_R_BOUND_BUFF_PROFILES = [45, 46, 47, 48, 50] as const;
 export const AHRI_R_PREPARED_EYE_TRAIL_PROFILES = [47, 48] as const;
-/** Prepared separately; no layout producer is connected to drawing yet. */
+/** The ten-second quad fits the owned pose window; other layout profiles do not enter. */
 export const AHRI_R_PREPARED_LAYOUT_PROFILES = [50] as const;
 const periodicProfiles = new Set<number>(AHRI_R_PREPARED_EYE_TRAIL_PROFILES);
 /** Deferred profiles stay in published data without entering the sampler. */

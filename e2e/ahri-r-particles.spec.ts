@@ -150,7 +150,7 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
   expect(flight.unchanged).toBe(true);
   expect(flight.restored).toEqual(flight.before);
   expect(flight.placeholder).toBe(0);
-  expect(flight.deferred).toHaveLength(30);
+  expect(flight.deferred).toHaveLength(29);
   expect(flight.before.ribbons.length).toBeGreaterThan(0);
   expect(flight.before.surfaces.some((m: any) => m.colors === 209 && !m.normals)).toBe(true);
   expect(flight.before.ribbons.some((m: any) => m.cellSize[0] === 0.5)).toBe(true);
@@ -245,10 +245,14 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
   expect(eyes.unchanged).toBe(true);
   expect(eyes.restored).toEqual(eyes.before);
   expect(eyes.before.length).toBeGreaterThanOrEqual(4);
-  expect([...new Set(eyes.before.map((model: any) => model.profile))].sort()).toEqual([45, 46]);
+  expect([...new Set(eyes.before.map((model: any) => model.profile))].sort()).toEqual([45, 46, 50]);
   expect(eyes.before.every((model: any) => model.mips > 1)).toBe(true);
   expect(eyes.before.some((model: any) => model.key.includes(':buff:L_Eye:'))).toBe(true);
   expect(eyes.before.some((model: any) => model.key.includes(':buff:R_Eye:'))).toBe(true);
+  expect(eyes.before.find((model: any) => model.profile === 50)).toMatchObject({
+    key: expect.stringContaining(':buff:C_Buffbone_Glb_Layout_Loc:'),
+    mips: 9,
+  });
   expect(eyes.attachments).toEqual([]);
   expect(glowRequests).toHaveLength(1);
   await page.screenshot({ path: info.outputPath('ahri-r-eye-glows.png') });
@@ -438,15 +442,74 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
     scope:
       'Diagnostic eye-facing camera; each ribbon profile compared against the same scene with both ribbon profiles hidden.',
   };
+  const layout = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      v = g.view;
+    w.step(w.ahriRVisuals[0].startTick + 595 - w.tick);
+    v.recenter(w.hero);
+    v.render(w, 1, v.previousElapsed);
+    const capture = () =>
+      [...v.ahriRParticles.buffSurfaces.models]
+        .filter(([, model]: any) => model.userData.profileIndex === 50)
+        .map(([key, model]: any) => ({
+          key,
+          position: model.position.toArray(),
+          quaternion: model.quaternion.toArray(),
+          scale: model.scale.toArray(),
+          color: model.material.uniforms.particleColor.value.toArray(),
+          vertices: model.geometry.getAttribute('position').count,
+          terrainProjected: model.geometry.userData.groundQuadTopology !== undefined,
+        }));
+    const saved = w.snapshot(),
+      before = capture(),
+      copy = w.constructor.fromSnapshot(saved, w.battlefield);
+    v.render(copy, 1, v.previousElapsed);
+    const restored = capture();
+    v.render(w, 1, v.previousElapsed);
+    return {
+      before,
+      restored,
+      unchanged: w.snapshot() === saved && copy.snapshot() === saved,
+      attachments: v.ahriRParticles.attachmentFallbacks,
+    };
+  });
+  expect(layout.before).toHaveLength(1);
+  expect(layout.before[0]).toMatchObject({ vertices: 4, terrainProjected: false });
+  expect(layout.restored).toEqual(layout.before);
+  expect(layout.unchanged).toBe(true);
+  expect(layout.attachments).toEqual([]);
+  await page.screenshot({ path: info.outputPath('ahri-r-layout-near-expiry.png') });
+  const layoutDrained = await page.evaluate(() => {
+    const g = (window as any).__GAME__;
+    g.world.step(20);
+    g.view.render(g.world, 1, g.view.previousElapsed);
+    return ![...g.view.ahriRParticles.buffSurfaces.models.values()].some(
+      (model: any) => model.userData.profileIndex === 50
+    );
+  });
+  expect(layoutDrained).toBe(true);
+  expect(requests.filter((path) => path.endsWith('/ahri-r-b28f3ac6819dd4e1.png'))).toHaveLength(1);
   expect(requests.filter((path) => path.endsWith('/ahri-r-e44c1023b3871ca4.png'))).toHaveLength(1);
-  expect(requests).toHaveLength(7);
-  expect(new Set(requests).size).toBe(7);
+  expect(requests).toHaveLength(8);
+  expect(new Set(requests).size).toBe(8);
   expect(requests.some((path) => path.endsWith('.glb'))).toBe(false);
   expect(errors).toEqual([]);
   await writeFile(
     info.outputPath('ahri-r-packets.json'),
     JSON.stringify(
-      { requests, glowRequests, flight, hit, eyes, eyeTrails, front: frontProof, errors },
+      {
+        requests,
+        glowRequests,
+        flight,
+        hit,
+        eyes,
+        eyeTrails,
+        front: frontProof,
+        layout,
+        layoutDrained,
+        errors,
+      },
       null,
       2
     )

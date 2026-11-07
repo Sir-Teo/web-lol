@@ -12,7 +12,10 @@ const context: AhriRParticleContext = {
 };
 test('the eye sampler prepares only the two finite source glow profiles with authored appearance', () => {
   expect(
-    AHRI_R_BOUND_BUFF_PROFILES.filter((index) => AHRI_R_PROFILES[index].kind !== 'trail')
+    AHRI_R_BOUND_BUFF_PROFILES.filter(
+      (index) =>
+        AHRI_R_PROFILES[index].system === 'Ahri_R_Eyes' && AHRI_R_PROFILES[index].kind !== 'trail'
+    )
   ).toEqual([45, 46]);
   const particles = ahriRParticles('Ahri_R_Eyes', 927, 1.5, Infinity, context).filter(
     (p) => p.profileIndex === 45 || p.profileIndex === 46

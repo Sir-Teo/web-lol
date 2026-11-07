@@ -62,6 +62,9 @@ export interface SurfaceProfile {
   meshRenderFlags: number;
   noCull: boolean;
   ground: boolean;
+  /** Local projection adapter; false preserves the source attachment height
+   * while retaining ground-layer rendering metadata. Omission keeps projection. */
+  projectToGround?: boolean;
   navmesh: boolean;
   local: boolean;
   particleLocal: boolean;
@@ -221,7 +224,8 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
                 }
               : {}),
           }));
-    const owned = p.kind === 'ray' || (p.kind === 'quad' && p.ground);
+    const owned =
+      p.kind === 'ray' || (p.kind === 'quad' && p.ground && p.projectToGround !== false);
     const geometry =
       p.kind === 'ray'
         ? new THREE.BufferGeometry()
@@ -442,7 +446,11 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
             // frustum culling is disabled. A sphere cached under the startup
             // camera would otherwise survive a saved-camera restore.
             mesh.geometry.computeBoundingSphere();
-          } else if (profile.kind === 'quad' && profile.ground) {
+          } else if (
+            profile.kind === 'quad' &&
+            profile.ground &&
+            profile.projectToGround !== false
+          ) {
             projectGroundQuad(
               mesh.geometry,
               {
