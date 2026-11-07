@@ -521,3 +521,8 @@ claim native pool/RNG identity. Distant seeks require at most 200 kernel updates
 and retain at most 32 births in the checked cases. All 253 scoped checks and
 TypeScript pass. The helper is not connected to rendering, so the accepted
 ruleset remains `18613342` with 688 compatibility files.
+
+An additional exhaustive glow check samples every 60 Hz update through 52
+seconds (3,120 updates), covering the complete authored fifty-second emission
+window and drain. All birth/binding clocks stay valid; the four glow-sampler
+cases pass without a runtime change.

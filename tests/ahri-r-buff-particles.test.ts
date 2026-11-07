@@ -44,3 +44,9 @@ test('authored fifty-second emission and local stop/linger policy drain to an em
   for (const time of [-1, NaN, Infinity])
     expect(ahriRParticles('Ahri_R_Eyes', 927, time, Infinity, context)).toEqual([]);
 });
+test('every authored eye-glow update keeps its float32 birth and binding clocks valid', () => {
+  const sampler = new AhriRParticleSampler('Ahri_R_Eyes', 927, context);
+  for (let tick = 1; tick <= 52 * 60; tick++)
+    expect(() => sampler.sample(tick / 60), `eye update ${tick}`).not.toThrow();
+  sampler.dispose();
+});
