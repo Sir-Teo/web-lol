@@ -5,8 +5,8 @@ profiles over schema-180 saved history. Buff Avatar selection remains unresolved
 Native packet checks, full regression and archived comparison now pass with the
 two historical unit failures retained. Clean CI and the complete candidate build
 audit, all 22 browser cases and production/offline delivery pass. See
-[acceptance](reference/ahri/e-rendering-acceptance.json). Primary integration
-is being verified separately.
+[acceptance](reference/ahri/e-rendering-acceptance.json). Primary integration at 92d36f0d reproduces the exact pack and passes 47 focused
+tests in four files; see [integration](reference/ahri/e-rendering-main-integration.json).
 
 This isolated source checkpoint retains all four E-prefixed resources declared
 by the pinned base skin: Ahri_E_buf, Ahri_E_cas, Ahri_E_mis and Ahri_E_tar.

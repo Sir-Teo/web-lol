@@ -1,0 +1,41 @@
+{
+  "format": 1,
+  "scope": "Primary integration of accepted saved Charm rendering; no merge-time application edits",
+  "mergeRevision": "92d36f0dc7911c8af831c9a1ebf8d6e723528444",
+  "acceptedRevision": "9974b81cb03f5bfd5848e8f9796b8e4f8a78b82f",
+  "applicationRevision": "58e11196ed39e17eec7c958c4c7e1e1702dc8491",
+  "schema": 180,
+  "ruleset": "d625c0ee280a60649bf4516454b529fc1da780ed163f7bf4989c2dd21515a1f4",
+  "pack": {
+    "result": "passed",
+    "pack": "4995dc742f50f3b4e970b85f51658dcce23829e7627d5659c24dcd14f95db751",
+    "files": 1405,
+    "bytes": 579749600,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "applicationBytesMatch": true,
+  "focusedTests": 47,
+  "focusedFiles": 4,
+  "evidence": [
+    {
+      "path": "artifacts/ahri-e-rendering-primary-build-v1.log",
+      "sha256": "a3f8eee75ed841438fa1c4735a3cec40839980a4d77b04fdc591cdac7383e61b",
+      "bytes": 9079
+    },
+    {
+      "path": "artifacts/ahri-e-rendering-primary-pack-v1.json",
+      "sha256": "c565197df4eba4f68ddaf9e82d8f342090c81228f26eeb1a078c029e006482a2",
+      "bytes": 213
+    },
+    {
+      "path": "artifacts/ahri-e-rendering-primary-tests-v1.log",
+      "sha256": "ad8af8c0720c9ad986c70d4eeffe902dde39a668eea00a574456a64fe00ab6dd",
+      "bytes": 170
+    }
+  ],
+  "roadmapMilestone4Complete": false,
+  "projectComplete": false,
+  "currentRulesetHundredSeedGatePassed": false,
+  "pushed": false,
+  "deployed": false
+}

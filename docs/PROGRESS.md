@@ -38,7 +38,9 @@ screenshots do not establish native pixel parity.
 
 Pack `4995dc74` contains 1,405 files / 579,749,600 bytes with the unchanged
 worker policy. Its complete file/worker audit passes. All work remains local;
-primary integration is being verified separately. Emote/idle source preparation
+primary integration at `92d36f0d` reproduces the exact pack and passes 47 focused
+tests in four files. See [integration](reference/ahri/e-rendering-main-integration.json).
+Emote/idle source preparation
 remains isolated.
 
 The [frozen hundred-seed development-roster baseline](CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md)
