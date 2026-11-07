@@ -1,0 +1,134 @@
+{
+  "format": 1,
+  "systems": [
+    "Ahri_R_Tar",
+    "Ahri_R_mis",
+    "Ahri_R_mis_02",
+    "Ahri_R_Indicator_1",
+    "Ahri_R_Indicator_2",
+    "Ahri_R_Indicator_3",
+    "Ahri_R_Ready_Aura",
+    "Ahri_R_TextureSwaps",
+    "Ahri_R_cas",
+    "Ahri_R_Eyes",
+    "Ahri_R_Ready_tar"
+  ],
+  "sourcePinSha256": "3f283be14704aa77c680d2c11eb67441d8376586835e43283ae7be440c956991",
+  "decodedRecordSha256": "d9c25753b0e04e08194709fbafa272ad52003859179f41af7f92b01dcb35dde4",
+  "producerSha256": "4d5a9c3832e45452b0ab98f5b4847397b5014851c845978cecb0ae2de469f4fb",
+  "optimization": [
+    "dedup",
+    "prune with keepAttributes"
+  ],
+  "meshes": [
+    {
+      "source": {
+        "path": "assets/characters/ahri/skins/base/particles/ahri_base_r_blastwave.scb",
+        "wadPathHash": "0216531e0d20ebea",
+        "sha256": "97787e6049eafb1fab1aa4ef26f38ceb26b5240dda1a066d6f73d991a942fd50",
+        "bytes": 41408
+      },
+      "sourceVertices": 201,
+      "sourceTriangles": 380,
+      "transportVertices": 230,
+      "hasVertexColors": true,
+      "triangleReplayExact": true,
+      "uvReplayExact": true,
+      "vertexColorReplayExact": true,
+      "normalAttributeGenerated": false,
+      "sourceCoordinateTransformApplied": false,
+      "validation": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "glb": {
+        "path": ".cache/ahri-r-meshes-v1/ahri_base_r_blastwave.glb",
+        "bytes": 10216,
+        "sha256": "da088e3a404239f050784c956149bd205dafa5dcf00bdbb1d2e07e8e11a8916f"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/ahri/skins/base/particles/ahri_base_r_frontcapsule.scb",
+        "wadPathHash": "47385c25e51db4dd",
+        "sha256": "ba5584d707cbbac12efa269162816f02c670b1eb1edbc31513c2035dff3d407d",
+        "bytes": 52352
+      },
+      "sourceVertices": 260,
+      "sourceTriangles": 480,
+      "transportVertices": 273,
+      "hasVertexColors": true,
+      "triangleReplayExact": true,
+      "uvReplayExact": true,
+      "vertexColorReplayExact": true,
+      "normalAttributeGenerated": false,
+      "sourceCoordinateTransformApplied": false,
+      "validation": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "glb": {
+        "path": ".cache/ahri-r-meshes-v1/ahri_base_r_frontcapsule.glb",
+        "bytes": 12032,
+        "sha256": "5d81ea3cd50ed5b2893c9f22d3f0a79b45f0a66b46ea25b48ec2650cabd1f9b7"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/ahri/skins/base/particles/ahri_base_sharp_mesh.scb",
+        "wadPathHash": "4a28baa8836a570a",
+        "sha256": "0ed57b949b8f3b3c94f53ee1f8fb1721145ee39e404812115c2789ec4d7a0f88",
+        "bytes": 38220
+      },
+      "sourceVertices": 183,
+      "sourceTriangles": 351,
+      "transportVertices": 209,
+      "hasVertexColors": true,
+      "triangleReplayExact": true,
+      "uvReplayExact": true,
+      "vertexColorReplayExact": true,
+      "normalAttributeGenerated": false,
+      "sourceCoordinateTransformApplied": false,
+      "validation": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "glb": {
+        "path": ".cache/ahri-r-meshes-v1/ahri_base_sharp_mesh.glb",
+        "bytes": 9440,
+        "sha256": "906e60876a8015b8fe7d702bb140799df96b40c4f9bd134f4225331ad5d70b8f"
+      }
+    },
+    {
+      "source": {
+        "path": "assets/characters/ahri/skins/base/particles/shockwave.scb",
+        "wadPathHash": "1854428092676a1a",
+        "sha256": "9ee102b02c9f51f2ff5c43e5756e52179c7ddf4d325b82ec65c3efe1ef29c438",
+        "bytes": 34592
+      },
+      "sourceVertices": 200,
+      "sourceTriangles": 320,
+      "transportVertices": 205,
+      "hasVertexColors": false,
+      "triangleReplayExact": true,
+      "uvReplayExact": true,
+      "vertexColorReplayExact": false,
+      "normalAttributeGenerated": false,
+      "sourceCoordinateTransformApplied": false,
+      "validation": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "glb": {
+        "path": ".cache/ahri-r-meshes-v1/shockwave.glb",
+        "bytes": 8140,
+        "sha256": "98cfb5db98a1565c2780947b7eb0bf1bf8c3ab15d8978a3d214cc1c1fe7824fd"
+      }
+    }
+  ],
+  "limits": [
+    "Private staging only; native CPU dispatch, pivots, source-to-scene transforms, shader arithmetic and event timing remain unbound.",
+    "All rendered source triangles, UVs and optional vertex colors replay exactly. An absent color stream remains absent; no normals or face colors are fabricated.",
+    "Source units, coordinates and winding remain unchanged. The white unlit material is a transport placeholder."
+  ]
+}

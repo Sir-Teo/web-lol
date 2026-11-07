@@ -111,3 +111,31 @@ optimized guard scripts, and both Node QA cases. It contains all required
 committed inputs and no private caches, decoder tools or node_modules. This
 validates portable producer reading, not native extraction or decoding in CI.
 See [portable verification](reference/ahri/r-portable-reading-verification.json).
+
+## Complete private transports
+
+All 51 texture packs retain all 428 authored mip rectangles and exact decoded
+pixels in 2,513,512 PNG bytes. Each rectangle must be extracted as its own texture
+mip; directly sampling the packed atlas is invalid. Seven guards pass in normal
+and optimized Python, including missing recursive dependencies, incomplete mips,
+corruption, producer/source changes and all-output conflict/symlink preflight.
+
+Four private GLBs total 39,828 bytes. Per-corner source replay preserves all
+1,531 triangles, UVs and optional colors. UV seams produce 917 transport vertices
+from 844 source vertices. No normals, coordinate transform, scaling or native
+shader are added. All four GLBs have zero validator errors/warnings and load in
+Three.js 186 with identity transforms. Five mesh guards pass, including isolated
+byte-identical regeneration and rejection before partial publication.
+See [transport verification](reference/ahri/r-transports-verification.json).
+
+```sh
+PYTHONPATH=tools/assets:.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/pack-ahri-r-textures.py --check
+PYTHONPATH=tools/assets:.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/test-ahri-r-textures.py
+PYTHONPATH=tools/assets:.tools/cdtb .tools/cdtb-venv/bin/python -O tools/assets/test-ahri-r-textures.py
+node tools/assets/convert-ahri-r-meshes.mjs
+node tools/assets/verify-ahri-r-meshes.mjs
+node --test tools/assets/test-ahri-r-meshes.mjs
+```
+
+No runtime or public assets change. Native GPU appearance and unresolved producer
+semantics remain separate from transport correctness.
