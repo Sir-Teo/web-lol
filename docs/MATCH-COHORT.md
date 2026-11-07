@@ -96,3 +96,20 @@ passed before later source edits, and its exact source inputs are archived.
 See [the complete results and bot approach correction](NORMAL-COHORT-RESULTS.md)
 for duration/censoring details, retained evidence and the distinction between
 that completed baseline and the subsequent runtime fingerprint.
+
+## Optional lossless snapshot compression
+
+Pass `--snapshot-compression gzip` to store checkpoints and final snapshots as
+`.match.json.gz`. Plain JSON remains the default, with its existing descriptor
+shape. The frozen plan records the codec and zlib version. Each compressed
+artifact records both its stored-byte hash and decoded-state hash, plus both
+byte lengths. Verification checks those pins and the exact decoded JSON before
+restoring the world; restore and future checks use bytes read from disk.
+Unknown codecs, mislabeled filenames and corrupt artifacts are rejected.
+
+The full seed-1 development-roster validation at source `52d959b9` finished with
+a blue victory at tick 157,116: 44 restores and 43 future checks (2,580 ticks).
+All 45 decoded artifacts, including the final state, are byte-identical to the
+accepted uncompressed noise run. Storage fell from 16,680,648 to 1,592,845 bytes.
+This is a single-seed storage validation; the current hundred-seed gate remains
+false until a separate complete audit passes.

@@ -28,7 +28,15 @@ The combined-roster controller is also supported at SHA-256
 `0634da0d495f977909b756a19747197f4dcd0f1a443a0a574e62af46d02c00f3`.
 Its profile flags survive recovery, and its private invariant gate remains
 separate from the ordinary gate. The historical controller above is retained
-byte for byte as a test fixture.
+byte for byte as a test fixture. The prior combined-roster controller also has
+an exact versioned fixture.
+
+The compression-aware controller is supported at SHA-256
+`5aa33d5f609e176b686268cc9f4954cd38769e710875ec941bc5aac0d0821acc`.
+Recovery preserves its frozen `snapshotEncoding`, forwards gzip to pending
+workers, and requires matching zlib identities for compressed plans and accepted
+reports. Older controllers cannot recover a compressed plan. Invalid codecs or
+codec/runtime mismatches fail preflight before evidence is moved.
 The tool rejects an unknown controller rather than wrapping unverified code.
 Its generated supervisor keeps the canonical dispatch/invariant tail byte-for-byte.
 The recovery preamble supports completions arriving out of order: accepted

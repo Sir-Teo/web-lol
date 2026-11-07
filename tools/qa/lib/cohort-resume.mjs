@@ -18,10 +18,13 @@ import { isDeepStrictEqual } from 'node:util';
 import { cpus } from 'node:os';
 import { spawnSync } from 'node:child_process';
 import { cohortProfile } from './cohort-profile.ts';
-export const SUPPORTED_CONTROLLER_SHA256 =
+export const ROSTER_CONTROLLER_SHA256 =
   '0634da0d495f977909b756a19747197f4dcd0f1a443a0a574e62af46d02c00f3';
+export const SUPPORTED_CONTROLLER_SHA256 =
+  '5aa33d5f609e176b686268cc9f4954cd38769e710875ec941bc5aac0d0821acc';
 const SUPPORTED_CONTROLLERS = new Set([
   SUPPORTED_CONTROLLER_SHA256,
+  ROSTER_CONTROLLER_SHA256,
   '23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45',
 ]);
 const sha = (bytes) => createHash('sha256').update(bytes).digest('hex');
@@ -104,6 +107,14 @@ export function inspectResume({ output, project, procRoot = '/proc' }) {
     plan.format === 1 && Array.isArray(plan.seeds) && plan.seeds.length > 0,
     'Unsupported or empty cohort plan.'
   );
+  const encoding = plan.snapshotEncoding ?? 'none';
+  check(['none', 'gzip'].includes(encoding), 'Invalid frozen snapshot encoding.');
+  if (encoding === 'gzip')
+    check(
+      plan.runtime?.zlib === process.versions.zlib,
+      'Frozen zlib differs.',
+      'COHORT_RUNTIME_MISMATCH'
+    );
   const profile = cohortProfile(plan.developmentLeona, plan.developmentRoster);
   if (plan.developmentRoster) {
     check(
@@ -175,6 +186,11 @@ export function inspectResume({ output, project, procRoot = '/proc' }) {
     'Unsupported frozen controller format.',
     'COHORT_UNSUPPORTED_CONTROLLER'
   );
+  check(
+    encoding === 'none' || controllerRow.sha256 === SUPPORTED_CONTROLLER_SHA256,
+    'Frozen controller does not support compressed snapshots.',
+    'COHORT_UNSUPPORTED_CONTROLLER'
+  );
   const statusBytes = readFileSync(root + '/status.json'),
     status = JSON.parse(statusBytes);
   check(
@@ -214,6 +230,12 @@ export function inspectResume({ output, project, procRoot = '/proc' }) {
           (key) => report.runtime?.[key] === plan.runtime[key]
         ),
       `Accepted report identity differs: ${row.seed}`
+    );
+    check(
+      (report.snapshotEncoding ?? 'none') === encoding &&
+        (encoding !== 'gzip' || report.runtime?.zlib === plan.runtime.zlib),
+      `Accepted report snapshot encoding differs: ${row.seed}`,
+      'COHORT_REPORT_MISMATCH'
     );
     cohortProfile(report.developmentLeona, report.developmentRoster);
     check(
@@ -380,6 +402,8 @@ for(const row of [plan.runner,...plan.inputs])assert.equal(hash(row.file),row.sh
 const results=baseline.results.map(row=>{const actual=JSON.parse(readFileSync(root+'/seeds/'+row.seed+'/report.json','utf8'));assert.deepEqual(actual,row);return actual;});
 const accepted=new Set(results.map(row=>row.seed));
 const seeds=[...plan.seeds.filter(seed=>accepted.has(seed)),...plan.seeds.filter(seed=>!accepted.has(seed))];
+const encoding=plan.snapshotEncoding??'none';assert(['none','gzip'].includes(encoding));
+if(encoding==='gzip')assert.equal(process.versions.zlib,plan.runtime.zlib);
 const ruleset=plan.ruleset,runner=plan.runner.file,jobs=plan.jobs,minutes=plan.horizonTicks/3600;
 const values={'development-leona':plan.developmentLeona??false,'development-roster':plan.developmentRoster??false,'keep-going':false},active=new Map();
 let next=results.length,halted=false,interrupted=false;
@@ -488,7 +512,9 @@ export function prepareRecovery({
       interruptedRetained: attempts,
       pendingSeeds: inspected.pending,
       controller: filePin(controller),
-      canonicalControllerSha256: SUPPORTED_CONTROLLER_SHA256,
+      canonicalControllerSha256: inspected.plan.sources.find(
+        (row) => row.file === 'tools/qa/match-cohort.mjs'
+      ).sha256,
       canonicalDispatchInvariantTail: { sha256: generated.tailSha256, byteIdentical: true },
       restartsFromZero: attempts.map((row) => row.seed),
       claimsUninterruptedExecution: false,

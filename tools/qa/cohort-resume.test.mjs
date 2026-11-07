@@ -22,11 +22,13 @@ import {
   ownedProcesses,
   prepareRecovery,
   SUPPORTED_CONTROLLER_SHA256,
+  ROSTER_CONTROLLER_SHA256,
 } from './lib/cohort-resume.mjs';
 
 const cli = fileURLToPath(new URL('./resume-match-cohort.mjs', import.meta.url)),
   driver = fileURLToPath(new URL('./lib/cohort-resume-driver.mjs', import.meta.url)),
   canonical = fileURLToPath(new URL('./match-cohort.mjs', import.meta.url));
+const roster = fileURLToPath(new URL('./fixtures/match-cohort-roster.mjs', import.meta.url));
 const legacy = fileURLToPath(new URL('./fixtures/match-cohort-legacy.mjs', import.meta.url));
 const digest = (bytes) => createHash('sha256').update(bytes).digest('hex');
 function pin(file, label = file) {
@@ -71,12 +73,17 @@ function fixture(t, legacyController = false) {
   ])
     mkdirSync(path, { recursive: true });
   const controller = project + '/tools/qa/match-cohort.mjs';
-  copyFileSync(legacyController ? legacy : canonical, controller);
+  copyFileSync(
+    legacyController === 'roster' ? roster : legacyController ? legacy : canonical,
+    controller
+  );
   assert.equal(
     pin(controller).sha256,
-    legacyController
-      ? '23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45'
-      : SUPPORTED_CONTROLLER_SHA256
+    legacyController === 'roster'
+      ? ROSTER_CONTROLLER_SHA256
+      : legacyController
+        ? '23d32770882f4c6958326b7bf9e44931a45cfd3ed867276ba06ab25185ea7c45'
+        : SUPPORTED_CONTROLLER_SHA256
   );
   writeFileSync(project + '/source.txt', 'frozen fixture input\n');
   for (const name of ['rift-nav.bin', 'rift-nav.json', 'rift-layout.json'])
@@ -88,7 +95,8 @@ function fixture(t, legacyController = false) {
 const args=process.argv.slice(2),output=args[args.indexOf('--output')+1],seed=Number(args.at(-1));
 mkdirSync(output);await new Promise(r=>setTimeout(r,20));
 const developmentRoster=args.includes('--development-roster'),developmentLeona=args.includes('--development-leona');
-writeFileSync(output+'/report.json',JSON.stringify({...${JSON.stringify(report(0))},seed,finalTick:1,checkedTicks:1,developmentRoster,developmentLeona,automatedHumanCarry:!developmentRoster&&!developmentLeona,automatedHumanRole:developmentRoster?'mid':developmentLeona?'support':'carry'})+'\\n');
+const codec=args.includes('--snapshot-compression')?{snapshotEncoding:args[args.indexOf('--snapshot-compression')+1],runtime:{...${JSON.stringify(report(0).runtime)},zlib:process.versions.zlib}}:{};
+writeFileSync(output+'/report.json',JSON.stringify({...${JSON.stringify(report(0))},...codec,seed,finalTick:1,checkedTicks:1,developmentRoster,developmentLeona,automatedHumanCarry:!developmentRoster&&!developmentLeona,automatedHumanRole:developmentRoster?'mid':developmentLeona?'support':'carry'})+'\\n');
 console.log(JSON.stringify({fixtureWorker:seed}));\n`
   );
   const plan = {
@@ -549,6 +557,30 @@ test('the previous pinned controller still resumes with its exact legacy invaria
   );
 });
 
+test('the prior roster controller resumes with its exact invariant tail', async (t) => {
+  const f = fixture(t, 'roster');
+  interrupted(f);
+  const accepted = readFileSync(f.root + '/seeds/3/report.json');
+  f.launch = JSON.parse(
+    execFileSync(process.execPath, [cli, '--output', f.root, '--project', f.project], {
+      encoding: 'utf8',
+      stdio: 'pipe',
+    }).trim()
+  );
+  await waitFor(f.launch.recovery + '/supervisor-exit.json');
+  const summary = JSON.parse(readFileSync(f.root + '/summary.json'));
+  assert.equal(summary.completed, 4);
+  assert.equal(summary.failures, 0);
+  assert.deepEqual(readFileSync(f.root + '/seeds/3/report.json'), accepted);
+  const record = JSON.parse(readFileSync(f.launch.recovery + '/recovery.json'));
+  const generated = readFileSync(record.controller.file, 'utf8'),
+    original = readFileSync(roster, 'utf8');
+  assert.equal(
+    generated.slice(generated.indexOf('function state()')),
+    original.slice(original.indexOf('function state()'))
+  );
+});
+
 test('mixed, malformed and mismatched frozen profiles refuse before mutating retained evidence', (t) => {
   for (const flags of [
     { developmentLeona: true, developmentRoster: true },
@@ -591,4 +623,46 @@ test('mutually exclusive launcher profiles reject before creating the corpus', (
     )
   );
   assert(!existsSync(output));
+});
+
+test('gzip recovery forwards the frozen codec and preserves accepted report bytes', async (t) => {
+  const f = fixture(t);
+  f.plan.snapshotEncoding = 'gzip';
+  f.plan.runtime.zlib = process.versions.zlib;
+  const accepted = f.status.results[0];
+  accepted.snapshotEncoding = 'gzip';
+  accepted.runtime.zlib = process.versions.zlib;
+  writeJson(f.root + '/plan.json', f.plan);
+  writeJson(f.root + '/status.json', f.status);
+  writeJson(f.root + '/seeds/3/report.json', accepted);
+  const bytes = readFileSync(f.root + '/seeds/3/report.json');
+  interrupted(f);
+  f.launch = JSON.parse(
+    execFileSync(process.execPath, [cli, '--output', f.root, '--project', f.project], {
+      encoding: 'utf8',
+      stdio: 'pipe',
+    }).trim()
+  );
+  await waitFor(f.launch.recovery + '/supervisor-exit.json');
+  const summary = JSON.parse(readFileSync(f.root + '/summary.json'));
+  assert.equal(summary.completed, 4);
+  assert.equal(summary.failures, 0);
+  for (const row of summary.results) {
+    assert.equal(row.snapshotEncoding, 'gzip');
+    assert.equal(row.runtime.zlib, process.versions.zlib);
+  }
+  assert.deepEqual(readFileSync(f.root + '/seeds/3/report.json'), bytes);
+});
+
+test('invalid codecs, mismatched zlib and unsupported old compressed controllers refuse before writes', (t) => {
+  for (const kind of ['unknown', 'runtime', 'report', 'old-controller']) {
+    const f = fixture(t, kind === 'old-controller' ? 'roster' : false);
+    const before = readFileSync(f.root + '/status.json');
+    f.plan.snapshotEncoding = kind === 'unknown' ? 'brotli' : 'gzip';
+    f.plan.runtime.zlib = kind === 'runtime' ? 'different' : process.versions.zlib;
+    writeJson(f.root + '/plan.json', f.plan);
+    assert.throws(() => inspect(f));
+    assert.deepEqual(readFileSync(f.root + '/status.json'), before);
+    assert(!existsSync(f.root + '/recovery'));
+  }
 });
