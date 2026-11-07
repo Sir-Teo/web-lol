@@ -1,4 +1,5 @@
 import data from '../content/ahri-r-particles.json';
+import { rPaletteBinding } from './ahri-r-palette';
 import { SourceValue, type SourceValueDefinition } from './source-value';
 import { SourceBirthValues } from './source-birth-values';
 import { SourceLegacySpawnShape } from './source-legacy-spawn-shape';
@@ -63,7 +64,8 @@ export const AHRI_R_SPELL_PROFILE_BINDINGS = data.profiles.map((p, profileIndex)
         ? 'persistent-producer-not-connected'
         : (p.bindingRequirements as readonly string[]).includes('noise-field-arithmetic')
           ? 'noise-field-arithmetic-unresolved'
-          : (p.bindingRequirements as readonly string[]).includes('native-palette-field')
+          : (p.bindingRequirements as readonly string[]).includes('native-palette-field') &&
+              !rPaletteBinding(p)
             ? 'native-palette-field-unresolved'
             : 'bound-spell-profile',
 }));

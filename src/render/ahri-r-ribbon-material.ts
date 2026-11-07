@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import data from '../content/ahri-r-particles.json';
+import { rPaletteBinding, AHRI_R_PALETTE_POLICY } from './ahri-r-palette';
 import { AHRI_R_BOUND_SPELL_PROFILES } from './ahri-r-particles';
 import type { EclipseSurfaceAssets } from './leona-eclipse-surface-assets';
 import { createLeonaEclipseSurfaceMaterial } from './leona-eclipse-surface-material';
@@ -22,11 +23,12 @@ export function rSoftParameters(
  * Textures remain page-owned. */
 export function createRRibbonMaterial(index: number, assets: EclipseSurfaceAssets) {
   const p = data.profiles[index];
+  const palette = p ? rPaletteBinding(p) : null;
   if (
     !p ||
     !AHRI_R_BOUND_SPELL_PROFILES.includes(index) ||
     p.kind !== 'trail' ||
-    (p.palette && p.palette.texture !== null) ||
+    (p.palette && p.palette.texture !== null && !palette) ||
     p.distortion ||
     p.uv.divisions.some((v) => !Number.isSafeInteger(v) || v <= 0) ||
     ![1, 4].includes(p.blend)
@@ -38,6 +40,15 @@ export function createRRibbonMaterial(index: number, assets: EclipseSurfaceAsset
     kind: 'quad',
     texture: assets.texture(p.texture, p.uv.address),
     lookup: assets.texture(p.lookup ?? '', 2),
+    ...(palette
+      ? {
+          palette: {
+            texture: assets.texture(palette.texture, 2),
+            sourceMix: palette.sourceMix,
+            row: palette.row,
+          },
+        }
+      : {}),
     ...(soft
       ? {
           soft: {
@@ -126,6 +137,14 @@ export function createRRibbonMaterial(index: number, assets: EclipseSurfaceAsset
       ),
     };
     material.userData.unboundPalette = !!p.palette && !p.palette.texture;
+    if (palette)
+      material.userData.paletteBinding = {
+        field: AHRI_R_PALETTE_POLICY.field,
+        spelling: AHRI_R_PALETTE_POLICY.spelling,
+        countOmitted: palette.countOmitted,
+        selectorOmitted: palette.selectorOmitted,
+        nativeConstructorVerified: false,
+      };
     material.uniforms.alphaRef.value = p.alphaRef;
     Object.assign(material, {
       blending: THREE.CustomBlending,

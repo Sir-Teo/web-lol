@@ -54,12 +54,12 @@ function setup(hidden = false) {
 const trailIndices = AHRI_R_BOUND_SPELL_PROFILES.filter(
   (index) => profiles[index].kind === 'trail'
 );
-test('five selected R trails retain finite packets, binding flags, flipbook cells and independent secondary UVs', () => {
+test('six selected R trails retain finite packets, binding flags, flipbook cells and independent secondary UVs', () => {
   const { w, group, sample } = setup(),
     saved = w.snapshot();
   const points = rTrailPoints(group, sample(), () => 2, w.tick, 'red');
   expect(new Set(points.map((p) => p.profileIndex))).toEqual(new Set(trailIndices));
-  expect(trailIndices).toHaveLength(5);
+  expect(trailIndices).toHaveLength(6);
   let drawn = 0;
   for (const index of trailIndices) {
     const profile = profiles[index],
@@ -161,7 +161,7 @@ test('revealed R bound trails use current sight while old unbound births stay hi
   expect(oldUnbound.length).toBeGreaterThan(0);
   expect(oldUnbound.every((p) => !p.visible)).toBe(true);
 });
-test('R ribbon materials retain flipbook, secondary UV and soft inputs while refusing deferred palette fields', () => {
+test('R ribbon materials retain flipbook, secondary UV and soft inputs and checked palette input while refusing deferred profiles', () => {
   const texture = new THREE.Texture(),
     assets = { texture: () => texture, mesh: () => new THREE.BufferGeometry() };
   for (const index of trailIndices) {
@@ -173,12 +173,20 @@ test('R ribbon materials retain flipbook, secondary UV and soft inputs while ref
     expect(!!material.defines.SOURCE_MULT).toBe(!!p.multiplier);
     expect(!!material.defines.SOURCE_SOFT).toBe(!!p.soft);
     expect(material.userData.unboundPalette).toBe(!!p.palette && !p.palette.texture);
+    if (p.name === 'Ribbon_1') {
+      expect(material.defines.SOURCE_PALETTE).toBe(1);
+      expect(material.uniforms.paletteSourceMix.value.toArray()).toEqual([
+        0.9499961733818054, 0, 0, 0,
+      ]);
+      expect(material.uniforms.paletteRow.value).toBe(0.5);
+      expect(material.userData.paletteBinding.nativeConstructorVerified).toBe(false);
+    }
     expect(material.depthWrite).toBe(false);
     material.dispose();
   }
   expect(() =>
     createRRibbonMaterial(
-      profiles.findIndex((p) => p.system === 'Ahri_R_mis_02' && p.name === 'Ribbon_1'),
+      profiles.findIndex((p) => p.role === 'unjoined' && p.kind === 'trail'),
       assets
     )
   ).toThrow();

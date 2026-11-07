@@ -31,8 +31,8 @@ interface Held {
   sampler: AhriRParticleSampler;
   particles: ReturnType<AhriRParticleSampler['sample']>;
 }
-/** Twenty spell profiles seek saved bolt/contact roots. Persistent producers,
- * unjoined systems, unknown palette fields and noise arithmetic stay deferred.
+/** Twenty-one spell profiles seek saved bolt/contact roots. Persistent producers,
+ * unjoined systems and unsupported noise arithmetic stay deferred.
  * Missing global palette and native pixel calibration remain unverified. */
 export class AhriRParticles {
   readonly models = new Map<string, Ribbon>();

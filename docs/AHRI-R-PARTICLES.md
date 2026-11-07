@@ -349,3 +349,66 @@ Primary merge `0f697966` reproduces accepted pack `3dbfa301` exactly and passes
 74 focused tests in nine files. Application/public bytes match the accepted
 branch. See [integration](reference/ahri/r-spell-rendering-main-integration.json).
 The earlier R observer and E packs remain retained. No push or deployment occurs.
+
+## Palette mixer identity reading
+
+The hashed palette field `{143f06d1}` is the FNV-1a lowercase spelling
+`palleteSrcMixColor`, including the native misspelling. The pinned external
+parser independently uses the same name. The [identity reading](reference/ahri/r-palette-field-reading.json)
+finds exactly one occurrence: `Ahri_R_mis_02` / `Ribbon_1`, emitter index 8
+(public profile 30). Its `ValueColor` is exactly
+`[0.9499961733818054, 0, 0, 0]`. The referenced gradient retains its authored
+128×4 base level. Raw source declarations and the published profile stay intact.
+
+```sh
+python3 tools/assets/read-ahri-r-palette.py --check
+python3 tools/assets/read-ahri-r-palette.py --check --verify-readers
+python3 tools/assets/test-ahri-r-palette.py
+python3 -O tools/assets/test-ahri-r-palette.py
+node --test tools/qa/ahri-r-palette-field.test.mjs
+```
+
+Normal/optimized guards pass eight structural rejections and two source-pin
+mutations; both targeted Node QA cases pass. The ordinary check needs only
+committed inputs; `--verify-readers` additionally checks the retained private
+reader files against their recorded hashes. External reader defaults do not
+certify native constructors. Authored palette count/selector omissions remain
+explicit. This identity stage changes no runtime binding, ruleset or pack.
+
+## Palette ribbon binding
+
+The follow-on renderer binds this checked field for profile 30, bringing the
+selected spell subset to 21 profiles. The original 55-profile publication and
+all native assets remain unchanged. The adapter rejects unknown palette fields,
+dynamic mixer values, unsupported selectors and invalid counts. It preserves an
+authored positive count; when count and selector are omitted, the local adapter
+uses count 1 and selector 0, matching the pinned external reader. These defaults
+remain explicitly unverified as native constructor behavior.
+
+The ribbon applies the authored mixer before sampling the gradient at row 0.5,
+alongside its source erosion texture. The gradient uses linear lookup filtering.
+The texture closure contains 26 textures, with seven local loads: six R-owned
+textures and one additional shared W texture. The remaining 34 deferred profiles
+comprise two noise emitters, sixteen persistent producers and sixteen unjoined
+producers. Missing global palette inputs remain neutral and unverified.
+
+The focused selection passes 43 tests in six files, including exact ribbon
+packets after snapshot restoration and the unchanged complete gameplay baseline.
+The full suite passes 9,312/9,314 tests with the same two historical failures;
+all 263 Node QA cases pass. All 33 distinct browser cases pass. The clean export
+passes 87 commands and 1,084 scoped test executions across 135 file executions,
+including overlap. One fingerprint test exceeded its five-second timeout under
+concurrent load; the identical command passes after the match job finishes, with
+both logs retained. All 5,529 committed export files were verified before cleanup.
+
+All 45 complete natural-match states match the accepted R observer, including
+every R observation, excluding only schema and ruleset identifiers. The match
+retains its Blue victory at tick 157116, 44 restores and 43 checked futures.
+All 334 public WAV files / 96,632,632 bytes remain exact.
+
+Pack `01c9c16a` contains 1,432 files / 581,116,424 bytes and passes its complete
+byte and worker audit. Production nested-path checks pass with 32 recordings and
+zero eager R texture/renderer loads. Offline lifecycle checks pass with 978
+worker responses and zero production errors. See the
+[palette acceptance](reference/ahri/r-palette-acceptance.json). The previous
+20-profile pack is retained separately; primary integration follows separately.

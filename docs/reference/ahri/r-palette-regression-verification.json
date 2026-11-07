@@ -1,0 +1,96 @@
+{
+  "format": 1,
+  "scope": "Checked R palette ribbon candidate; production/offline acceptance pending",
+  "applicationRevision": "a7092caa82f751cc1eb6064bd795cd7309b480c5",
+  "schema": 181,
+  "ruleset": "a68ca14b74c144ccb6b0d183f2d41395403a8defa0ae514756463c369f46b90d",
+  "compatibilityFiles": 685,
+  "profiles": {
+    "published": 55,
+    "selectedSpellProfiles": 21,
+    "deferredNoise": 2,
+    "deferredPalette": 0,
+    "persistentNotConnected": 16,
+    "unjoined": 16
+  },
+  "selectedAssets": {
+    "textures": 26,
+    "meshes": 1,
+    "newRTextureRequests": 6,
+    "additionalSharedWTextureRequests": 1
+  },
+  "fullUnit": {
+    "passed": 9312,
+    "total": 9314,
+    "files": 582,
+    "knownFailures": [
+      "missing historical Leona reader archive",
+      "Lux sampler FMA golden mismatch"
+    ]
+  },
+  "nodeQaPassed": 263,
+  "cleanExport": {
+    "format": 1,
+    "result": "passed",
+    "revision": "2beb342a196c4745a0c0f35438344cc0a2948f2e",
+    "verifiedCommittedFiles": 5529,
+    "commandsPassed": 87,
+    "retry": {
+      "format": 1,
+      "commandIndex": 75,
+      "command": "npm exec vitest -- run tests/ahri-e-*.test.ts tests/ahri-e.test.ts tests/lazy-ahri-e-effects.test.ts tests/source-particle-surfaces.test.ts tests/source-particle-post-rotation.test.ts tests/source-particle-joint-frame.test.ts tests/ahri-w-effects.test.ts tests/ahri-q-casts.test.ts tests/ruleset-fingerprint.test.ts --maxWorkers=2",
+      "originalExitCode": 1,
+      "originalEvidence": "artifacts/ahri-r-palette-clean-ci-75.log",
+      "retryExitCode": 0,
+      "retryEvidence": "artifacts/ahri-r-palette-clean-ci-75-retry-v1.log",
+      "reason": "Original run exceeded the 5-second fingerprint test timeout while browser rendering and the natural cohort were active; identical command rerun after the cohort finished."
+    },
+    "testExecutions": 1084,
+    "fileExecutions": 135,
+    "scope": "All committed export blobs verified before removing only the disposable export; caches and retained native inputs preserved.",
+    "disposableExportRemoved": true
+  },
+  "rBrowserCasesPassed": 8,
+  "naturalMatch": {
+    "completeProjectionMatches": 45,
+    "excludedFields": [
+      "version",
+      "ruleset"
+    ],
+    "roundTrips": 44,
+    "futureChecks": 43,
+    "finalTick": 157116,
+    "victory": "blue"
+  },
+  "pack": {
+    "result": "passed",
+    "pack": "01c9c16a9b188c6f0f5a501c941320131e5bc535447a3bd2b8957200219cdb39",
+    "files": 1432,
+    "bytes": 581116424,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "publicAudioPreserved": {
+    "files": 334,
+    "bytes": 96632632,
+    "ahriMasters": 76
+  },
+  "currentHundredSeedGatePassed": false,
+  "roadmapMilestoneFourComplete": false,
+  "projectComplete": false,
+  "evidence": [
+    "artifacts/ahri-r-palette-full-tests-v1.log",
+    "artifacts/ahri-r-palette-node-qa-full-v1.log",
+    "artifacts/ahri-r-palette-clean-ci-results.json",
+    "artifacts/ahri-r-palette-clean-ci-retry-v1.json",
+    "artifacts/ahri-r-palette-browser-v1.log",
+    "artifacts/ahri-r-palette-pack-v1.json",
+    "artifacts/ahri-r-palette-build-dedup-v1.json",
+    "artifacts/ahri-r-palette-audio-preservation-v1.json",
+    "artifacts/ahri-r-palette-image-review-v1.json",
+    "docs/reference/ahri/r-palette-gameplay-comparison.json",
+    "docs/reference/ahri/r-palette-source-delta.json",
+    "artifacts/ahri-r-palette-browser-regression-v1.log"
+  ],
+  "crossKitBrowserCasesPassed": 25,
+  "distinctBrowserCasesPassed": 33
+}

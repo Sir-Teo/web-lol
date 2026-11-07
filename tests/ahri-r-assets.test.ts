@@ -4,6 +4,7 @@ import data from '../src/content/ahri-r-particles.json';
 import type { EclipseSurfaceAssets } from '../src/render/leona-eclipse-surface-assets';
 const state = vi.hoisted(() => ({
   requests: [] as string[],
+  lookups: [] as { url: string; lookup: boolean }[],
   fail: '',
   failed: false,
   ownerLoads: 0,
@@ -14,8 +15,9 @@ const state = vi.hoisted(() => ({
 }));
 vi.mock('../src/render/authored-mip-texture-cache', () => ({
   AuthoredMipTextureCache: class {
-    async load(asset: { url: string }) {
+    async load(asset: { url: string }, lookup: boolean) {
       state.requests.push(asset.url);
+      state.lookups.push({ url: asset.url, lookup });
       if (asset.url === state.fail && !state.failed) {
         state.failed = true;
         throw Error('controlled texture failure');
@@ -39,6 +41,7 @@ vi.mock('../src/render/ahri-q-projectile-assets', () => ({
 beforeEach(() => {
   vi.resetModules();
   state.requests = [];
+  state.lookups = [];
   state.borrowed = [];
   state.fail = '';
   state.failed = false;
@@ -58,20 +61,23 @@ beforeEach(() => {
   state.qCast = provider('q-cast');
   state.qProjectile = provider('q-projectile');
 });
-test('R loads exactly four new textures plus the W transport outside its joined subset', async () => {
+test('R loads exactly six new textures plus the W transport outside its joined subset', async () => {
   const module = await import('../src/render/ahri-r-assets');
   expect(module.ahriRAssets()).toBeUndefined();
   const first = module.loadAhriRAssets();
   expect(module.loadAhriRAssets()).toBe(first);
   await first;
   const assets = module.ahriRAssets()!;
-  expect(state.requests).toHaveLength(5);
-  expect(new Set(state.requests).size).toBe(5);
+  expect(state.requests).toHaveLength(7);
+  expect(new Set(state.requests).size).toBe(7);
   expect(state.requests.filter((path) => path.startsWith('assets/effects/ahri-r-'))).toHaveLength(
-    4
+    6
   );
   const extra = 'assets/effects/ahri-w-b7cf3aaa74075f2a.png';
   expect(state.requests).toContain(extra);
+  expect(state.lookups.filter((row) => row.lookup)).toEqual([
+    { url: 'assets/effects/ahri-r-c9eea0dcd2a24e6e.png', lookup: true },
+  ]);
   const repeat = assets.texture(extra, 0),
     clamp = assets.texture(extra, 2);
   expect(assets.texture(extra, 0)).toBe(repeat);
@@ -79,7 +85,7 @@ test('R loads exactly four new textures plus the W transport outside its joined 
   expect(clamp.wrapS).toBe(THREE.ClampToEdgeWrapping);
   expect(state.borrowed).toEqual([]);
   await module.loadAhriRAssets();
-  expect(state.requests).toHaveLength(5);
+  expect(state.requests).toHaveLength(7);
   expect(state.ownerLoads).toBe(1);
 });
 test('R borrows existing Q/W samplers and the already scaled shared mesh without mutating them', async () => {
@@ -108,10 +114,10 @@ test('R exposes no partial readiness and retries only the failed local texture',
   const module = await import('../src/render/ahri-r-assets');
   await expect(module.loadAhriRAssets()).rejects.toThrow('controlled texture failure');
   expect(module.ahriRAssets()).toBeUndefined();
-  expect(state.requests).toHaveLength(5);
+  expect(state.requests).toHaveLength(7);
   await module.loadAhriRAssets();
   expect(module.ahriRAssets()).toBeDefined();
-  expect(state.requests).toHaveLength(6);
+  expect(state.requests).toHaveLength(8);
   expect(state.requests.filter((path) => path === state.fail)).toHaveLength(2);
   for (const path of new Set(state.requests.filter((path) => path !== state.fail)))
     expect(state.requests.filter((value) => value === path)).toHaveLength(1);
