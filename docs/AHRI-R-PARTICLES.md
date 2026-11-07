@@ -685,3 +685,13 @@ and ruleset, with victory at tick 157116. Pack `b8582765` audits exactly at
 1,432 files / 581,128,947 bytes. See the
 [layout regression record](reference/ahri/r-layout-regression-verification.json).
 Cross-kit and production/offline checks follow before acceptance.
+
+
+A [non-gating cadence diagnostic](reference/ahri/r-layout-continuous-cadence-diagnostic.json)
+replays each remaining continuous layout emitter for 5,000 seconds in the selected
+60 Hz kernel, with all five input files matching the frozen layout archive.
+The four-per-second profile produces six 16-tick gaps among otherwise 15-tick
+gaps. The seven/eight-per-second profiles use nine/eight-tick spacing in this
+window. These observations rule out a naive fixed-stride or `time * rate` seek
+replacement. They do not establish a bounded optimization or native clock policy;
+the continuous profiles remain unconnected.
