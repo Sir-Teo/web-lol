@@ -1,0 +1,304 @@
+{
+  "format": 1,
+  "producerSha256": "f9dc4089a585423fe5391537ba59f5ad26a30f3c6f7075c3b6a77579f46e9749",
+  "entrySha256": "c596b4f89376ec1c382d629ba5187d2eae516a0a7b5ba9634d8546b12d99eb21",
+  "sourceRevision": "0d6b714fb2fca5301988260166386656b2419deb",
+  "applicationRevision": "c5ab62306895bb20fb3940b2f546239829f8c8fa",
+  "archivePlanSha256": "ecb0cef1e90ac6526f0d0776cc567028c98f7b7c7cbe71132e9f1ce7b1d608dc",
+  "ruleset": "186133424c3e28265877ba008d887874ddfc6da10edf515e83bc2a0cf4f5f7d2",
+  "node": "v24.22.1",
+  "v8": "13.6.233.17-node.58",
+  "verifiedArchiveFiles": 693,
+  "sourceModuleSha256": "92960afa7df999a5ad9495c4e81d0312829793bddcce2c60f846437a279755aa",
+  "context": "boundObjectSize=100; root(t)={x:t*120,y:t*t*8,height:100,facing:t/4}",
+  "samples": [
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 927,
+      "time": 0.43,
+      "stopSeconds": null,
+      "count": 2,
+      "sha256": "49b5e6f528e55fd3cf3a8738374e37e74b8be27fca6450a02785ff61be3f1096"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 927,
+      "time": 0.43,
+      "stopSeconds": 0.4,
+      "count": 2,
+      "sha256": "87f32179adcff9933a3d9399824ef885c72aa75276367db96abc9c0cc57dfcfa"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 927,
+      "time": 0.43,
+      "stopSeconds": 15,
+      "count": 2,
+      "sha256": "49b5e6f528e55fd3cf3a8738374e37e74b8be27fca6450a02785ff61be3f1096"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 927,
+      "time": 1.5,
+      "stopSeconds": null,
+      "count": 4,
+      "sha256": "b19432f0c6baf7b4f31f419de734accb082b86e214f1d8d5341096ef361559f1"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 927,
+      "time": 1.5,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 927,
+      "time": 1.5,
+      "stopSeconds": 15,
+      "count": 4,
+      "sha256": "b19432f0c6baf7b4f31f419de734accb082b86e214f1d8d5341096ef361559f1"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 927,
+      "time": 3.25,
+      "stopSeconds": null,
+      "count": 4,
+      "sha256": "e782ad96ec3576ea3c549fa8466a906bade06cc4d0e551d910ba3de6e1b28b44"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 927,
+      "time": 3.25,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 927,
+      "time": 3.25,
+      "stopSeconds": 15,
+      "count": 4,
+      "sha256": "e782ad96ec3576ea3c549fa8466a906bade06cc4d0e551d910ba3de6e1b28b44"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 927,
+      "time": 49.5,
+      "stopSeconds": null,
+      "count": 4,
+      "sha256": "219dab2247f5671c139525192bafe0d5d292e02db0a53c49731de8b6c49493c3"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 927,
+      "time": 49.5,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 927,
+      "time": 49.5,
+      "stopSeconds": 15,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 927,
+      "time": 50.5,
+      "stopSeconds": null,
+      "count": 2,
+      "sha256": "61fada3fc547383a1eab29663ba17b47fc75ed4350f26bbf2e86dfe2ed337120"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 927,
+      "time": 50.5,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 927,
+      "time": 50.5,
+      "stopSeconds": 15,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 927,
+      "time": 52,
+      "stopSeconds": null,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 927,
+      "time": 52,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 927,
+      "time": 52,
+      "stopSeconds": 15,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 13,
+      "time": 0.43,
+      "stopSeconds": null,
+      "count": 2,
+      "sha256": "d1170091113b0b6ec0ea45d4c705aa4042959173e8f205e6b625b3a32e99cb5d"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 13,
+      "time": 0.43,
+      "stopSeconds": 0.4,
+      "count": 2,
+      "sha256": "2702d743d5d0902b0935d4caed18eb057c5688968ade69bd4463bfde3959ec4c"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 13,
+      "time": 0.43,
+      "stopSeconds": 15,
+      "count": 2,
+      "sha256": "d1170091113b0b6ec0ea45d4c705aa4042959173e8f205e6b625b3a32e99cb5d"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 13,
+      "time": 1.5,
+      "stopSeconds": null,
+      "count": 4,
+      "sha256": "e8f513f9f232b04d495c136558e89171f5e49d1d599c3477dd921237ab44ccbc"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 13,
+      "time": 1.5,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 13,
+      "time": 1.5,
+      "stopSeconds": 15,
+      "count": 4,
+      "sha256": "e8f513f9f232b04d495c136558e89171f5e49d1d599c3477dd921237ab44ccbc"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 13,
+      "time": 3.25,
+      "stopSeconds": null,
+      "count": 4,
+      "sha256": "51e3ac8204e86f9ed88c67c6203985153db4defda94ca977290652576883a266"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 13,
+      "time": 3.25,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 13,
+      "time": 3.25,
+      "stopSeconds": 15,
+      "count": 4,
+      "sha256": "51e3ac8204e86f9ed88c67c6203985153db4defda94ca977290652576883a266"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 13,
+      "time": 49.5,
+      "stopSeconds": null,
+      "count": 4,
+      "sha256": "581d1e744bfb14afb2bb07fac200fe96eeba3fb66ab346720b61c3e0d075f8a4"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 13,
+      "time": 49.5,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 13,
+      "time": 49.5,
+      "stopSeconds": 15,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 13,
+      "time": 50.5,
+      "stopSeconds": null,
+      "count": 2,
+      "sha256": "00da54093a24aad3be84e691e904c1358610e98cfef2fce903c95e5056f2dd6a"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 13,
+      "time": 50.5,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 13,
+      "time": 50.5,
+      "stopSeconds": 15,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 13,
+      "time": 52,
+      "stopSeconds": null,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 13,
+      "time": 52,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Eyes",
+      "seed": 13,
+      "time": 52,
+      "stopSeconds": 15,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  ]
+}

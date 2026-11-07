@@ -526,3 +526,9 @@ An additional exhaustive glow check samples every 60 Hz update through 52
 seconds (3,120 updates), covering the complete authored fifty-second emission
 window and drain. All birth/binding clocks stay valid; the four glow-sampler
 cases pass without a runtime change.
+
+The [accepted glow-packet reference](reference/ahri/r-eye-glow-packet-reference.json)
+adds 36 complete packet hashes from application `c5ab6230`. Its producer pins the
+retained cohort plan and verifies all 693 archived source files before executing
+the frozen sampler. All 37 reference checks pass before trail integration.
+The 72 earlier spell-packet references and their producers remain unchanged.
