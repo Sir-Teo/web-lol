@@ -58,8 +58,8 @@
     "disposableExportRemoved": true
   },
   "rBrowser": {
-    "distinctCasesPassed": 1,
-    "originalBatchPassed": 0,
+    "distinctCasesPassed": 8,
+    "originalBatchPassed": 8,
     "additionalKeyboardStagePassed": 1,
     "continuousGlowChangedPixels": 303376,
     "layoutQuadChangedPixels": 117643,
@@ -105,7 +105,7 @@
     "nativeMeshGeometries": 1,
     "layoutBaseChangedPixels": 192952,
     "baseMapMips": 8,
-    "edgeCasesPassed": 0,
+    "edgeCasesPassed": 2,
     "noiseFramebufferVisibility": [
       {
         "profile": 10,
@@ -121,7 +121,8 @@
         "unchanged": true,
         "scope": "Complete gameplay renderer, profile hidden/enabled, one shared R depth capture per render, no world step"
       }
-    ]
+    ],
+    "edgeCasesIncluded": 2
   },
   "naturalMatch": {
     "completeProjectionMatches": 45,
@@ -321,7 +322,7 @@
     "artifacts/ahri-r-noise-values-types-v3.log"
   ],
   "crossKitBrowserCasesPassed": 0,
-  "distinctBrowserCasesPassed": 1,
+  "distinctBrowserCasesPassed": 8,
   "acceptedEyeGlowPacketsRetained": 36,
   "applicationIdentity": {
     "verifiedFiles": 2232,
