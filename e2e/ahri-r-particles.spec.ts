@@ -256,6 +256,54 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
   expect(eyes.attachments).toEqual([]);
   expect(glowRequests).toHaveLength(1);
   await page.screenshot({ path: info.outputPath('ahri-r-eye-glows.png') });
+  const layoutPixels = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      v = g.view;
+    const saved = w.snapshot();
+    const mesh = [...v.ahriRParticles.buffSurfaces.models.values()].find(
+      (model: any) => model.userData.profileIndex === 50
+    ) as any;
+    const canvas = document.createElement('canvas');
+    canvas.width = v.renderer.domElement.width;
+    canvas.height = v.renderer.domElement.height;
+    const context = canvas.getContext('2d')!;
+    const capture = () => {
+      v.renderer.render(v.scene, v.camera);
+      context.drawImage(v.renderer.domElement, 0, 0);
+      return {
+        png: canvas.toDataURL('image/png'),
+        pixels: context.getImageData(0, 0, canvas.width, canvas.height).data,
+      };
+    };
+    mesh.visible = false;
+    const off = capture();
+    mesh.visible = true;
+    const on = capture();
+    let changedPixels = 0;
+    for (let i = 0; i < on.pixels.length; i += 4)
+      if (
+        Math.abs(on.pixels[i] - off.pixels[i]) +
+          Math.abs(on.pixels[i + 1] - off.pixels[i + 1]) +
+          Math.abs(on.pixels[i + 2] - off.pixels[i + 2]) >
+        3
+      )
+        changedPixels++;
+    return { off: off.png, on: on.png, changedPixels, unchanged: w.snapshot() === saved };
+  });
+  for (const state of ['off', 'on'] as const)
+    await writeFile(
+      info.outputPath(`ahri-r-layout-${state}.png`),
+      Buffer.from(layoutPixels[state].split(',')[1], 'base64')
+    );
+  expect(layoutPixels.changedPixels).toBeGreaterThan(0);
+  expect(layoutPixels.unchanged).toBe(true);
+  const layoutPixelProof = {
+    changedPixels: layoutPixels.changedPixels,
+    unchanged: layoutPixels.unchanged,
+    scope:
+      'Same gameplay camera and scene with only layout profile 50 hidden/enabled; no world step between captures',
+  };
   const eyeTrails = await page.evaluate(() => {
     const g = (window as any).__GAME__,
       w = g.world,
@@ -508,6 +556,7 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
         front: frontProof,
         layout,
         layoutDrained,
+        layoutPixelProof,
         errors,
       },
       null,
