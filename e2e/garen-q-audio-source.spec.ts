@@ -1,9 +1,10 @@
 import { expect, test } from '@playwright/test';
+import { readFileSync } from 'node:fs';
 import { GAREN_Q_AUDIO as P } from '../src/content/garen-q-audio';
 
 test('Decisive Strike audition schedules both attack actions with source delay and stops the nonlooping active with its source fade', async ({
   page,
-}) => {
+}, info) => {
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
   page.on('console', (m) => {
@@ -68,7 +69,7 @@ test('Decisive Strike audition schedules both attack actions with source delay a
   expect(ended.stop.at(-1).when - ended.gainTime.at(-1)).toBeCloseTo(0.25, 9);
   await expect(page.locator('#status')).toContainText('250 ms linear fade');
   await page.getByRole('button', { name: 'Stop all', exact: true }).click();
-  await page.screenshot({ path: 'artifacts/garen-q-audio-preview.png', fullPage: true });
+  await page.screenshot({ path: info.outputPath('garen-q-audio-preview.png'), fullPage: true });
   expect(errors).toEqual([]);
 });
 
@@ -148,4 +149,30 @@ test('Q audio loads all thirteen masters only on Garen presence', async ({ page 
       )
     )
   );
+});
+
+test('a valid WAV with altered source samples is refused before audition readiness', async ({
+  page,
+}, info) => {
+  const clip = P.cast.variants[0],
+    changed = Buffer.from(readFileSync('public/' + clip.url));
+  let offset = 12;
+  while (changed.toString('ascii', offset, offset + 4) !== 'data') {
+    const length = changed.readUInt32LE(offset + 4);
+    offset += 8 + length + (length % 2);
+  }
+  changed.writeFloatLE(0.125, offset + 8);
+  await page.route('**/' + clip.url, (r) =>
+    r.fulfill({ status: 200, contentType: 'audio/wav', body: changed })
+  );
+  await page.goto('/tools/qa/garen-q-audio-preview.html');
+  await page.waitForFunction(
+    () =>
+      (window as any).__GAREN_Q_AUDIO_PREVIEW__?.ready ||
+      document.querySelector('#status')?.textContent?.includes('Unable to load')
+  );
+  expect(await page.evaluate(() => (window as any).__GAREN_Q_AUDIO_PREVIEW__.ready)).toBe(false);
+  await expect(page.locator('#status')).toContainText('Source WAV SHA-256 differs');
+  await expect(page.getByRole('button', { name: 'Play activation', exact: true })).toBeDisabled();
+  await page.screenshot({ path: info.outputPath('altered-source-refused.png'), fullPage: true });
 });

@@ -149,3 +149,15 @@ confirmed impact and independent pose-stop data for the first weapon-trail
 renderer. The audio controller deliberately reads only its original commitment
 and armed-buff clocks; visual stops do not cancel accepted sound one-shots or
 change the bank's delayed action. See [Q particles](GAREN-Q-PARTICLES.md).
+
+## Verified audition buffers
+
+The developer audition now verifies each WAV's original SHA-256 before copying
+its authored float PCM into a buffer with the exact frame count, channels and
+sample rate. It uses the shared float source parser. A valid WAV with altered
+samples is refused even when its format and extent remain valid; controls stay
+disabled after a failed source check. No source recording or gameplay code changes.
+The three scoped browser cases preserve all thirteen full sample comparisons,
+original headroom, action delays and the active cue's 250 ms stop fade, and reject
+altered source data. Standalone TypeScript and both asset tests pass. Screenshots
+use namespaced test output paths so earlier evidence is retained.

@@ -15,6 +15,8 @@ on:
       - 'tools/qa/inspect-cohort-horizon.test.mjs'
       - 'tools/qa/inspect-cohort-progress.mjs'
       - 'tools/qa/inspect-cohort-progress.test.mjs'
+      - 'tools/qa/garen-q-audio-preview.ts'
+      - 'tools/qa/garen-q-audio-preview.html'
       - 'tools/qa/fixtures/match-cohort-roster.mjs'
       - 'tools/qa/match-cohort.mjs'
       - 'tools/qa/match-seed.ts'
@@ -118,6 +120,8 @@ on:
       - 'tools/qa/inspect-cohort-horizon.test.mjs'
       - 'tools/qa/inspect-cohort-progress.mjs'
       - 'tools/qa/inspect-cohort-progress.test.mjs'
+      - 'tools/qa/garen-q-audio-preview.ts'
+      - 'tools/qa/garen-q-audio-preview.html'
       - 'tools/qa/fixtures/match-cohort-roster.mjs'
       - 'tools/qa/match-cohort.mjs'
       - 'tools/qa/match-seed.ts'
@@ -230,6 +234,8 @@ jobs:
       - run: npm ci --no-audit --no-fund
       - name: Type check
         run: npm exec tsc -- --noEmit
+      - name: Type check verified Decisive Strike audition
+        run: npm exec tsc -- --noEmit --target ES2022 --module ESNext --moduleResolution Bundler --skipLibCheck --strict --lib ES2022,DOM,DOM.Iterable tools/qa/garen-q-audio-preview.ts
       - name: Verify cohort snapshot storage and pinned recovery
         run: node --test tools/qa/cohort-snapshot.test.mjs tools/qa/cohort-resume.test.mjs tools/qa/inspect-cohort-horizon.test.mjs tools/qa/cohort-profile.test.mjs tools/qa/inspect-cohort-progress.test.mjs
       - name: Check committed audio assets, playback and saved tails

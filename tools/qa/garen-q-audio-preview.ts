@@ -1,7 +1,9 @@
 import { GAREN_Q_AUDIO as P } from '../../src/content/garen-q-audio';
+import { floatSourceBuffer, verifySourceWave } from '../../src/audio/float-source-wav';
 
 const kinds = ['cast', 'active', 'end', 'attack', 'attackDelayed'] as const;
 type Kind = (typeof kinds)[number];
+type Variant = (typeof P)[Kind]['variants'][number];
 const titles: Record<Kind, string> = {
   cast: 'Activation',
   active: 'Active',
@@ -106,18 +108,20 @@ for (const kind of kinds) {
 }
 
 try {
-  const decoder = new OfflineAudioContext(1, 1, 44100);
   await Promise.all(
     kinds
-      .flatMap((kind) => P[kind].variants)
+      .flatMap<Variant>((kind) => P[kind].variants)
       .map(async (v) => {
         const response = await fetch(new URL('../../' + v.url, import.meta.url));
         if (!response.ok) throw new Error(`Q recording ${v.id}: ${response.status}`);
-        buffers.set(v.id, await decoder.decodeAudioData(await response.arrayBuffer()));
+        const raw = await response.arrayBuffer();
+        await verifySourceWave(raw, v.sha256);
+        buffers.set(v.id, floatSourceBuffer(raw, v));
       })
   );
   document.querySelectorAll('button').forEach((b) => (b.disabled = false));
-  status.textContent = 'Ready · 13 source recordings · 44.1 kHz mono · original float headroom';
+  status.textContent =
+    'Ready · 13 source recordings · verified SHA-256 · 44.1 kHz mono · original float headroom';
   state.ready = true;
 } catch (error) {
   status.textContent = `Unable to load source recordings: ${String(error)}`;
