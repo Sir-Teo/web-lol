@@ -68,3 +68,40 @@ PYTHONPATH=tools/assets:.tools/cdtb .tools/cdtb-venv/bin/python -O tools/assets/
 
 These artifacts remain private. Public transport, producer joins, saved visual
 clocks, rendering and native calibration are separate work.
+
+## Explicit producer joins
+
+The pinned character records explicitly select Ahri_R_mis_02 for the missile and
+Ahri_R_Tar for contact. Launch bone `chest` remains distinct from contact bone
+`C_BUFFBONE_GLB_CHEST_LOC`. FixedSpeedMovement retains speed 1,400 and both
+100-unit height declarations. Tracking and visibility fields remain omitted;
+CastOnMovementComplete precedes DestroyOnMovementComplete.
+
+Three buff conditions connect the indicator variants to BuffCounter material
+drivers with literal operands 1, 2 and 3. Comparison operators are omitted.
+The reading preserves the complete driver records without declaring an equality
+rule or mapping counters to local remaining charges. A skin HasBuff condition
+adds two eye instances on L_Eye/R_Eye and separate TextureSwaps/Ready_tar instances
+on the layout bone. TextureSwaps still has no authored emitter arrays.
+
+These nine producer references join eight systems / 39 emitters with 38 textures
+and two meshes. Ahri_R_cas, Ahri_R_mis and Ahri_R_Ready_Aura remain unjoined.
+There are no R-prefixed ParticleEventData declarations in the pinned animation
+clip map. Resource names do not supply the missing dispatch or chronology.
+The explicit null Transform_Out resource is retained separately.
+
+The [producer record](reference/ahri/r-particle-bindings.json) regenerates from
+committed inputs without private caches, CDTB or Pillow. Nine rejection probes
+and five source-pin mutations pass in normal and optimized Python, along with
+two Node QA cases. A dedicated R source workflow runs the three portable Python
+commands; no remote workflow is dispatched locally.
+
+```sh
+python3 tools/assets/read-ahri-r-bindings.py --check
+python3 tools/assets/test-ahri-r-bindings.py
+python3 -O tools/assets/test-ahri-r-bindings.py
+node --test tools/qa/ahri-r-particle-bindings.test.mjs
+```
+
+Native counter semantics, missing dispatch, saved visual histories and rendering
+remain open. The accepted schema-180 runtime is unchanged.

@@ -1,0 +1,1162 @@
+{
+  "format": 1,
+  "producerSha256": "3fdd24b8acb52d0381997918d9a8e02bc5d69bad1b824cdce4d803e735718a1b",
+  "sourceHelpers": [
+    {
+      "path": "tools/assets/ahri_r_particles.py",
+      "sha256": "49042d1a51bca5b92508c4e578dc7b1e05265876371a8ba5d7e62a0c4208ddb3"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "docs/reference/ahri/character.json",
+      "bytes": 121048,
+      "sha256": "aa7ec5f710aa818c2ecc98a516bb1542bb52261c7ce89649ef0b2b8e8cc5ec5e"
+    },
+    {
+      "path": "docs/reference/ahri/names.json",
+      "bytes": 64146,
+      "sha256": "770a7e5b7bdaf1d1de42b7d33a09912a8e56a3244bb0ab2b5d00d94e8b0013a2"
+    },
+    {
+      "path": "docs/reference/ahri/character.bin",
+      "bytes": 30475,
+      "sha256": "121997c9c4ef2ff0f671b659d64d2e22cb71208216ddcc3c4f552a17f196d2cb"
+    },
+    {
+      "path": "docs/reference/ahri-model.json",
+      "bytes": 234866,
+      "sha256": "74d0b55f5aad08646fbd24f660ed533bc8fd5798e8a60dc0983d97960b47a377"
+    },
+    {
+      "path": "docs/reference/ahri/r-particles.json",
+      "bytes": 414218,
+      "sha256": "3f283be14704aa77c680d2c11eb67441d8376586835e43283ae7be440c956991"
+    }
+  ],
+  "abilityPath": "Characters/Ahri/Spells/AhriRAbility",
+  "abilityDeclaration": {
+    "mRootSpell": "Characters/Ahri/Spells/AhriRAbility/AhriR",
+    "mChildSpells": [
+      "Characters/Ahri/Spells/AhriRAbility/AhriR",
+      "Characters/Ahri/Spells/AhriRAbility/AhriRMissile"
+    ],
+    "mLifetimeManuallyManaged": true,
+    "mName": "AhriRAbility",
+    "mType": 2,
+    "__type": "AbilityObject"
+  },
+  "spellDeclarations": {
+    "Characters/Ahri/Spells/AhriRAbility": {
+      "mRootSpell": "Characters/Ahri/Spells/AhriRAbility/AhriR",
+      "mChildSpells": [
+        "Characters/Ahri/Spells/AhriRAbility/AhriR",
+        "Characters/Ahri/Spells/AhriRAbility/AhriRMissile"
+      ],
+      "mLifetimeManuallyManaged": true,
+      "mName": "AhriRAbility",
+      "mType": 2,
+      "__type": "AbilityObject"
+    },
+    "Characters/Ahri/Spells/AhriRAbility/AhriRMissile": {
+      "ObjectName": "AhriRMissile",
+      "objectPath": "Characters/Ahri/Spells/AhriRAbility/AhriRMissile",
+      "mScriptName": "AhriRMissile",
+      "mSpell": {
+        "flags": 4,
+        "mAffectsTypeFlags": 6154,
+        "mAlternateName": "AhriTumble",
+        "mEffectAmount": [
+          {
+            "value": [
+              40.0,
+              90.0,
+              140.0,
+              190.0,
+              240.0,
+              290.0,
+              340.0
+            ],
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          },
+          {
+            "__type": "SpellEffectAmount"
+          }
+        ],
+        "mCoefficient": 0.699999988079071,
+        "mAnimationName": "Spell3",
+        "mImgIconName": [
+          "Annie_Disintegrate.dds"
+        ],
+        "spellCastTime": 0.25,
+        "spellTotalTime": 1.0,
+        "cooldownTime": [
+          11.0,
+          10.0,
+          9.0,
+          8.0,
+          7.0,
+          6.0,
+          6.0
+        ],
+        "Cooldown": {
+          "values": [
+            11.0,
+            10.0,
+            9.0,
+            8.0,
+            7.0,
+            6.0,
+            6.0
+          ],
+          "__type": "{0a0eddc9}"
+        },
+        "mCantCancelWhileWindingUp": true,
+        "useAnimatorFramerate": true,
+        "bHaveHitEffect": true,
+        "castRange": [
+          800.0,
+          800.0,
+          800.0,
+          800.0,
+          800.0,
+          800.0,
+          800.0
+        ],
+        "castRangeValues": {
+          "values": [
+            800.0,
+            800.0,
+            800.0,
+            800.0,
+            800.0,
+            800.0,
+            800.0
+          ],
+          "{0a3e0478}": 800.0,
+          "__type": "{0a0eddc9}"
+        },
+        "castRadius": [
+          710.0,
+          710.0,
+          710.0,
+          710.0,
+          710.0,
+          710.0,
+          710.0
+        ],
+        "castConeDistance": 100.0,
+        "mMissileSpec": {
+          "movementComponent": {
+            "mTargetHeightAugment": 100.0,
+            "mOffsetInitialTargetHeight": 100.0,
+            "mStartBoneName": "chest",
+            "mSpeed": 1400.0,
+            "__type": "FixedSpeedMovement"
+          },
+          "verticalFacing": {
+            "__type": "VeritcalFacingMatchVelocity"
+          },
+          "behaviors": [
+            {
+              "__type": "CastOnMovementComplete"
+            },
+            {
+              "__type": "DestroyOnMovementComplete"
+            }
+          ],
+          "__type": "MissileSpecification"
+        },
+        "mCastType": 1,
+        "castFrame": 7.5,
+        "missileSpeed": 1400.0,
+        "mMissileEffectKey": "Ahri_R_mis_02",
+        "mHitEffectKey": "Ahri_R_Tar",
+        "bHaveHitBone": true,
+        "mHitBoneName": "C_BUFFBONE_GLB_CHEST_LOC",
+        "selectionPriority": 1,
+        "mClientData": {
+          "mTargeterDefinitions": [
+            {
+              "useCasterBoundingBox": false,
+              "__type": "TargeterDefinitionRange"
+            }
+          ],
+          "__type": "SpellDataResourceClient"
+        },
+        "__type": "SpellDataResource"
+      },
+      "__type": "SpellObject"
+    },
+    "Characters/Ahri/Spells/AhriRAbility/AhriR": {
+      "ObjectName": "AhriR",
+      "objectPath": "Characters/Ahri/Spells/AhriRAbility/AhriR",
+      "mScriptName": "AhriR",
+      "mSpell": {
+        "flags": 36,
+        "mAffectsTypeFlags": 6154,
+        "mAlternateName": "AhriTumble",
+        "mSpellTags": [
+          "Trait_Ultimate",
+          "PositiveEffect_MoveBlock",
+          "Trait_PlayerSelectedDashDirection",
+          "Trait_RecastOrReplaceSpell",
+          "Trait_Ammo",
+          "Trait_AoE"
+        ],
+        "DataValues": [
+          {
+            "name": "RBaseDamage",
+            "values": [
+              25.0,
+              75.0,
+              125.0,
+              175.0,
+              225.0,
+              275.0,
+              325.0
+            ],
+            "__type": "SpellDataValue"
+          },
+          {
+            "name": "RMaxTargetsPerCast",
+            "values": [
+              3.0,
+              3.0,
+              3.0,
+              3.0,
+              3.0,
+              3.0,
+              3.0
+            ],
+            "__type": "SpellDataValue"
+          },
+          {
+            "name": "RMaxCasts",
+            "values": [
+              3.0,
+              3.0,
+              3.0,
+              3.0,
+              3.0,
+              3.0,
+              3.0
+            ],
+            "__type": "SpellDataValue"
+          },
+          {
+            "name": "RDashDistance",
+            "values": [
+              500.0,
+              500.0,
+              500.0,
+              500.0,
+              500.0,
+              500.0,
+              500.0
+            ],
+            "__type": "SpellDataValue"
+          },
+          {
+            "name": "RBaseDashSpeed",
+            "values": [
+              1200.0,
+              1200.0,
+              1200.0,
+              1200.0,
+              1200.0,
+              1200.0,
+              1200.0
+            ],
+            "__type": "SpellDataValue"
+          },
+          {
+            "name": "RRecastWindow",
+            "values": [
+              15.0,
+              15.0,
+              15.0,
+              15.0,
+              15.0,
+              15.0,
+              15.0
+            ],
+            "__type": "SpellDataValue"
+          },
+          {
+            "name": "RAcquisitionRange",
+            "values": [
+              600.0,
+              600.0,
+              600.0,
+              600.0,
+              600.0,
+              600.0,
+              600.0
+            ],
+            "__type": "SpellDataValue"
+          },
+          {
+            "name": "RDashCooldown",
+            "values": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "__type": "SpellDataValue"
+          },
+          {
+            "name": "RAPCoefficient",
+            "values": [
+              0.3499999940395355,
+              0.3499999940395355,
+              0.3499999940395355,
+              0.3499999940395355,
+              0.3499999940395355,
+              0.3499999940395355,
+              0.3499999940395355
+            ],
+            "__type": "SpellDataValue"
+          },
+          {
+            "name": "RResetCasts",
+            "values": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "__type": "SpellDataValue"
+          },
+          {
+            "name": "PDurationExtension",
+            "values": [
+              10.0,
+              10.0,
+              10.0,
+              10.0,
+              10.0,
+              10.0,
+              10.0
+            ],
+            "__type": "SpellDataValue"
+          }
+        ],
+        "DataValuesModeOverride": {
+          "cherry": {
+            "SpellDataValues": [
+              {
+                "name": "RResetCasts",
+                "values": [
+                  2.0,
+                  2.0,
+                  2.0,
+                  2.0,
+                  2.0,
+                  2.0,
+                  2.0
+                ],
+                "__type": "SpellDataValue"
+              }
+            ],
+            "__type": "SpellDataValueVector"
+          }
+        },
+        "mSpellCalculations": {
+          "RCalculatedDamage": {
+            "mFormulaParts": [
+              {
+                "mDataValue": "RBaseDamage",
+                "__type": "NamedDataValueCalculationPart"
+              },
+              {
+                "mDataValue": "rAPCoefficient",
+                "__type": "StatByNamedDataValueCalculationPart"
+              }
+            ],
+            "__type": "GameCalculation"
+          }
+        },
+        "mAnimationName": "Spell4",
+        "mImgIconName": [
+          "ASSETS/Characters/Ahri/HUD/Icons2D/Icons_Ahri_R.dds"
+        ],
+        "cooldownTime": [
+          140.0,
+          140.0,
+          120.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "Cooldown": {
+          "values": [
+            140.0,
+            140.0,
+            120.0,
+            100.0,
+            100.0,
+            100.0,
+            100.0
+          ],
+          "__type": "{0a0eddc9}"
+        },
+        "mCantCancelWhileWindingUp": true,
+        "cantCastWhileRooted": true,
+        "castRange": [
+          25000.0,
+          25000.0,
+          25000.0,
+          25000.0,
+          25000.0,
+          25000.0,
+          25000.0
+        ],
+        "castRangeValues": {
+          "values": [
+            25000.0,
+            25000.0,
+            25000.0,
+            25000.0,
+            25000.0,
+            25000.0,
+            25000.0
+          ],
+          "{0a3e0478}": 25000.0,
+          "__type": "{0a0eddc9}"
+        },
+        "castRangeDisplayOverride": [
+          450.0,
+          450.0,
+          450.0,
+          450.0,
+          450.0,
+          450.0,
+          450.0
+        ],
+        "castRadius": [
+          300.0,
+          300.0,
+          300.0,
+          300.0,
+          300.0,
+          300.0,
+          300.0
+        ],
+        "castConeDistance": 100.0,
+        "castFrame": 15.0,
+        "missileSpeed": 2200.0,
+        "mFloatVarsDecimals": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "mana": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "manaValues": {
+          "values": [
+            100.0,
+            100.0,
+            100.0,
+            100.0,
+            100.0,
+            100.0
+          ],
+          "{0a3e0478}": 100.0,
+          "__type": "{630af303}"
+        },
+        "selectionPriority": 1,
+        "mTargetingTypeData": {
+          "__type": "Location"
+        },
+        "mCastingBreaksStealth": true,
+        "mClientData": {
+          "mTooltipData": {
+            "mObjectName": "AhriR",
+            "mFormat": "{d7c27163}",
+            "mLocKeys": {
+              "keyName": "Spell_AhriTumble_Name",
+              "keySummary": "Spell_AhriTumble_Summary",
+              "keyTooltip": "Spell_AhriTumble_Tooltip",
+              "keyTooltipSimple": "Spell_AhriR_TooltipSimple"
+            },
+            "mLists": {
+              "LevelUp": {
+                "levelCount": 3,
+                "Elements": [
+                  {
+                    "type": "RBaseDamage",
+                    "typeIndex": 1,
+                    "nameOverride": "Spell_ListType_Damage",
+                    "__type": "TooltipInstanceListElement"
+                  },
+                  {
+                    "type": "Cooldown",
+                    "__type": "TooltipInstanceListElement"
+                  }
+                ],
+                "__type": "TooltipInstanceList"
+              }
+            },
+            "__type": "TooltipInstanceSpell"
+          },
+          "mTargeterDefinitions": [
+            {
+              "useCasterBoundingBox": false,
+              "__type": "TargeterDefinitionRange"
+            },
+            {
+              "useCasterBoundingBox": false,
+              "__type": "TargeterDefinitionMinimap"
+            }
+          ],
+          "__type": "SpellDataResourceClient"
+        },
+        "__type": "SpellDataResource"
+      },
+      "mBuff": {
+        "mDescription": "game_buff_tooltip_AhriTumble",
+        "PersistentEffectConditions": [
+          {
+            "OwnerCondition": {
+              "mValueA": {
+                "Spell": "Characters/Ahri/Spells/AhriRAbility/AhriR",
+                "__type": "BuffCounterDynamicMaterialFloatDriver"
+              },
+              "mValueB": {
+                "mValue": 1.0,
+                "__type": "FloatLiteralMaterialDriver"
+              },
+              "__type": "FloatComparisonMaterialDriver"
+            },
+            "PersistentVfxs": [
+              {
+                "boneName": "C_Buffbone_Glb_Layout_Loc",
+                "effectKey": "Ahri_R_Indicator_1",
+                "__type": "PersistentVfxData"
+              }
+            ],
+            "__type": "PersistentEffectConditionData"
+          },
+          {
+            "OwnerCondition": {
+              "mValueA": {
+                "Spell": "Characters/Ahri/Spells/AhriRAbility/AhriR",
+                "__type": "BuffCounterDynamicMaterialFloatDriver"
+              },
+              "mValueB": {
+                "mValue": 2.0,
+                "__type": "FloatLiteralMaterialDriver"
+              },
+              "__type": "FloatComparisonMaterialDriver"
+            },
+            "PersistentVfxs": [
+              {
+                "boneName": "C_Buffbone_Glb_Layout_Loc",
+                "effectKey": "Ahri_R_Indicator_2",
+                "__type": "PersistentVfxData"
+              }
+            ],
+            "__type": "PersistentEffectConditionData"
+          },
+          {
+            "OwnerCondition": {
+              "mValueA": {
+                "Spell": "Characters/Ahri/Spells/AhriRAbility/AhriR",
+                "__type": "BuffCounterDynamicMaterialFloatDriver"
+              },
+              "mValueB": {
+                "mValue": 3.0,
+                "__type": "FloatLiteralMaterialDriver"
+              },
+              "__type": "FloatComparisonMaterialDriver"
+            },
+            "PersistentVfxs": [
+              {
+                "boneName": "C_Buffbone_Glb_Layout_Loc",
+                "effectKey": "Ahri_R_Indicator_3",
+                "__type": "PersistentVfxData"
+              }
+            ],
+            "__type": "PersistentEffectConditionData"
+          }
+        ],
+        "__type": "BuffData"
+      },
+      "BotData": {
+        "DamageTag": 1,
+        "{6d548702}": {
+          "mFormulaParts": [
+            {
+              "mSpellCalculationKey": "RCalculatedDamage",
+              "__type": "{f3cbe7b2}"
+            }
+          ],
+          "__type": "GameCalculation"
+        },
+        "{ec17e271}": [
+          {
+            "EffectTag": 128,
+            "EffectCalculation": {
+              "mFormulaParts": [
+                {
+                  "mDataValue": "RDashDistance",
+                  "__type": "NamedDataValueCalculationPart"
+                }
+              ],
+              "__type": "GameCalculation"
+            },
+            "__type": "{b09016f6}"
+          }
+        ],
+        "__type": "BotsSpellData"
+      },
+      "__type": "SpellObject"
+    }
+  },
+  "skinPersistentCondition": {
+    "OwnerCondition": {
+      "Spell": "Characters/Ahri/Spells/AhriRAbility/AhriR",
+      "__type": "HasBuffDynamicMaterialBoolDriver"
+    },
+    "PersistentVfxs": [
+      {
+        "boneName": "L_Eye",
+        "effectKey": "Ahri_R_Eyes",
+        "__type": "PersistentVfxData"
+      },
+      {
+        "boneName": "R_Eye",
+        "effectKey": "Ahri_R_Eyes",
+        "__type": "PersistentVfxData"
+      },
+      {
+        "boneName": "C_Buffbone_Glb_Layout_Loc",
+        "effectKey": "Ahri_R_TextureSwaps",
+        "__type": "PersistentVfxData"
+      },
+      {
+        "boneName": "C_Buffbone_Glb_Layout_Loc",
+        "effectKey": "Ahri_R_Ready_tar",
+        "__type": "PersistentVfxData"
+      }
+    ],
+    "__type": "PersistentEffectConditionData"
+  },
+  "bindings": [
+    {
+      "kind": "spell",
+      "producerPath": "Characters/Ahri/Spells/AhriRAbility/AhriRMissile",
+      "field": "mMissileEffectKey",
+      "resourceKey": "Ahri_R_mis_02",
+      "resourceRecord": "Characters/Ahri/Skins/Skin0/Particles/Ahri_Base_R_mis_02",
+      "emitterCount": 12,
+      "nativeParticleBin": {
+        "path": "data/characters/ahri/ahri_multi_skins_skin0_skins_skin2_skins_skin53_skins_skin57_skins_skin6.bin",
+        "sha256": "6d3753631c2a6dca7d54813d98a10bc3b48cf73706000672cd1feb4f42e442de"
+      },
+      "declaration": "Ahri_R_mis_02"
+    },
+    {
+      "kind": "spell",
+      "producerPath": "Characters/Ahri/Spells/AhriRAbility/AhriRMissile",
+      "field": "mHitEffectKey",
+      "resourceKey": "Ahri_R_Tar",
+      "resourceRecord": "Characters/Ahri/Skins/Skin0/Particles/Ahri_Base_R_tar",
+      "emitterCount": 11,
+      "nativeParticleBin": {
+        "path": "data/characters/ahri/ahri_multi_skins_skin0_skins_skin1_skins_skin2_skins_skin52_skins_skin53_skins_skin57_skins_skin6.bin",
+        "sha256": "2c7b5e95aafba111b0dac82d6c77917ab8f8c1ea3e096a1eeb492c15ac50779c"
+      },
+      "declaration": "Ahri_R_Tar"
+    },
+    {
+      "kind": "persistent-counter-driver",
+      "producerPath": "Characters/Ahri/Spells/AhriRAbility/AhriR",
+      "field": "mBuff.PersistentEffectConditions[0].PersistentVfxs[0]",
+      "resourceKey": "Ahri_R_Indicator_1",
+      "resourceRecord": "Characters/Ahri/Skins/Skin0/Particles/Ahri_Base_R_Indicator_1",
+      "emitterCount": 1,
+      "nativeParticleBin": {
+        "path": "data/characters/ahri/ahri_multi_skins_skin0_skins_skin2_skins_skin53_skins_skin57_skins_skin6.bin",
+        "sha256": "6d3753631c2a6dca7d54813d98a10bc3b48cf73706000672cd1feb4f42e442de"
+      },
+      "declaration": {
+        "OwnerCondition": {
+          "mValueA": {
+            "Spell": "Characters/Ahri/Spells/AhriRAbility/AhriR",
+            "__type": "BuffCounterDynamicMaterialFloatDriver"
+          },
+          "mValueB": {
+            "mValue": 1.0,
+            "__type": "FloatLiteralMaterialDriver"
+          },
+          "__type": "FloatComparisonMaterialDriver"
+        },
+        "PersistentVfxs": [
+          {
+            "boneName": "C_Buffbone_Glb_Layout_Loc",
+            "effectKey": "Ahri_R_Indicator_1",
+            "__type": "PersistentVfxData"
+          }
+        ],
+        "__type": "PersistentEffectConditionData"
+      }
+    },
+    {
+      "kind": "persistent-counter-driver",
+      "producerPath": "Characters/Ahri/Spells/AhriRAbility/AhriR",
+      "field": "mBuff.PersistentEffectConditions[1].PersistentVfxs[0]",
+      "resourceKey": "Ahri_R_Indicator_2",
+      "resourceRecord": "Characters/Ahri/Skins/Skin0/Particles/Ahri_Base_R_Indicator_2",
+      "emitterCount": 2,
+      "nativeParticleBin": {
+        "path": "data/characters/ahri/ahri_multi_skins_skin0_skins_skin2_skins_skin53_skins_skin57_skins_skin6.bin",
+        "sha256": "6d3753631c2a6dca7d54813d98a10bc3b48cf73706000672cd1feb4f42e442de"
+      },
+      "declaration": {
+        "OwnerCondition": {
+          "mValueA": {
+            "Spell": "Characters/Ahri/Spells/AhriRAbility/AhriR",
+            "__type": "BuffCounterDynamicMaterialFloatDriver"
+          },
+          "mValueB": {
+            "mValue": 2.0,
+            "__type": "FloatLiteralMaterialDriver"
+          },
+          "__type": "FloatComparisonMaterialDriver"
+        },
+        "PersistentVfxs": [
+          {
+            "boneName": "C_Buffbone_Glb_Layout_Loc",
+            "effectKey": "Ahri_R_Indicator_2",
+            "__type": "PersistentVfxData"
+          }
+        ],
+        "__type": "PersistentEffectConditionData"
+      }
+    },
+    {
+      "kind": "persistent-counter-driver",
+      "producerPath": "Characters/Ahri/Spells/AhriRAbility/AhriR",
+      "field": "mBuff.PersistentEffectConditions[2].PersistentVfxs[0]",
+      "resourceKey": "Ahri_R_Indicator_3",
+      "resourceRecord": "Characters/Ahri/Skins/Skin0/Particles/Ahri_Base_R_Indicator_3",
+      "emitterCount": 3,
+      "nativeParticleBin": {
+        "path": "data/characters/ahri/ahri_multi_skins_skin0_skins_skin2_skins_skin53_skins_skin57_skins_skin6.bin",
+        "sha256": "6d3753631c2a6dca7d54813d98a10bc3b48cf73706000672cd1feb4f42e442de"
+      },
+      "declaration": {
+        "OwnerCondition": {
+          "mValueA": {
+            "Spell": "Characters/Ahri/Spells/AhriRAbility/AhriR",
+            "__type": "BuffCounterDynamicMaterialFloatDriver"
+          },
+          "mValueB": {
+            "mValue": 3.0,
+            "__type": "FloatLiteralMaterialDriver"
+          },
+          "__type": "FloatComparisonMaterialDriver"
+        },
+        "PersistentVfxs": [
+          {
+            "boneName": "C_Buffbone_Glb_Layout_Loc",
+            "effectKey": "Ahri_R_Indicator_3",
+            "__type": "PersistentVfxData"
+          }
+        ],
+        "__type": "PersistentEffectConditionData"
+      }
+    },
+    {
+      "kind": "persistent-skin-buff",
+      "producerPath": "Characters/Ahri/Skins/Skin0",
+      "field": "PersistentEffectConditions[1].PersistentVfxs[0]",
+      "resourceKey": "Ahri_R_Eyes",
+      "resourceRecord": "Characters/Ahri/Skins/Skin0/Particles/Ahri_Base_R_Eyes",
+      "emitterCount": 4,
+      "nativeParticleBin": {
+        "path": "data/characters/ahri/ahri_multi_skins_skin0_skins_skin1_skins_skin14_skins_skin15_skins_skin16_skins_skin17_skins_skin19_skins_skin20_skins_skin21_skins_skin22_skins_skin23_skins_skin24_skins_skin25_skins_skin26_skins_skin42_skins_skin43_skins_skin44_skins_skin45_skins_skin46_skins_skin47_skins_skin48_skins_skin49_skins_skin50_skins_skin51_skins_skin52_skins_skin57_skins_skin59_skins_skin6_skins_skin60_skins_skin61_skins_skin64_skins_skin65.bin",
+        "sha256": "8c28913de3ae7e7d7df0dd62eb585d1697de5002f640f960f29431a2603a3b68"
+      },
+      "declaration": {
+        "boneName": "L_Eye",
+        "effectKey": "Ahri_R_Eyes",
+        "__type": "PersistentVfxData"
+      }
+    },
+    {
+      "kind": "persistent-skin-buff",
+      "producerPath": "Characters/Ahri/Skins/Skin0",
+      "field": "PersistentEffectConditions[1].PersistentVfxs[1]",
+      "resourceKey": "Ahri_R_Eyes",
+      "resourceRecord": "Characters/Ahri/Skins/Skin0/Particles/Ahri_Base_R_Eyes",
+      "emitterCount": 4,
+      "nativeParticleBin": {
+        "path": "data/characters/ahri/ahri_multi_skins_skin0_skins_skin1_skins_skin14_skins_skin15_skins_skin16_skins_skin17_skins_skin19_skins_skin20_skins_skin21_skins_skin22_skins_skin23_skins_skin24_skins_skin25_skins_skin26_skins_skin42_skins_skin43_skins_skin44_skins_skin45_skins_skin46_skins_skin47_skins_skin48_skins_skin49_skins_skin50_skins_skin51_skins_skin52_skins_skin57_skins_skin59_skins_skin6_skins_skin60_skins_skin61_skins_skin64_skins_skin65.bin",
+        "sha256": "8c28913de3ae7e7d7df0dd62eb585d1697de5002f640f960f29431a2603a3b68"
+      },
+      "declaration": {
+        "boneName": "R_Eye",
+        "effectKey": "Ahri_R_Eyes",
+        "__type": "PersistentVfxData"
+      }
+    },
+    {
+      "kind": "persistent-skin-buff",
+      "producerPath": "Characters/Ahri/Skins/Skin0",
+      "field": "PersistentEffectConditions[1].PersistentVfxs[2]",
+      "resourceKey": "Ahri_R_TextureSwaps",
+      "resourceRecord": "Characters/Ahri/Skins/Skin0/Particles/Ahri_Base_R_TextureSwaps",
+      "emitterCount": 0,
+      "nativeParticleBin": {
+        "path": "data/characters/ahri/ahri_multi_skins_skin0_skins_skin1_skins_skin10_skins_skin11_skins_skin12_skins_skin13_skins_skin14_skins_skin15_skins_skin16_skins_skin17_skins_skin18_skins_skin19_skins_skin2_skins_skin20_skins_skin21_skins_skin22_skins_skin23_skins_skin24_skins_skin25_skins_skin26_skins_skin27_skins_skin28_skins_skin29_skins_skin3_skins_skin30_skins_skin31_skins_skin32_skins_skin33_skins_skin34_skins_skin35_skins_skin36_skins_skin37_skins_skin38_skins_skin39_skins_skin4_skins_skin40_skins_skin41_skins_skin42_skins_skin43_skins_skin44_skins_skin45_skins_skin46_skins_skin47_skins_skin48_skins_skin49_skins_skin5_skins_skin50_skins_skin51_skins_skin52_skins_skin53_skins_skin54_skins_skin55_skins_skin56_skins_skin57_skins_skin58_skins_skin59_skins_skin6_skins_skin60_skins_skin61_skins_skin62_skins_skin63_skins_skin64_skins_skin65_skins_skin66_skins_skin67_skins_skin68_skins_skin69_skins_skin7_skins_skin70_skins_skin71_skins_skin72_skins_skin73_skins_skin74_skins_skin75_skins_skin76_skins_skin77_skins_skin78_skins_skin79_skins_skin8_skins_skin80_skins_skin81_skins_skin82_skins_skin83_skins_skin84_skins_skin9.bin",
+        "sha256": "2b34ce46c3fb596321312958ea500eee54eded8bd823921324a1234ea063395a"
+      },
+      "declaration": {
+        "boneName": "C_Buffbone_Glb_Layout_Loc",
+        "effectKey": "Ahri_R_TextureSwaps",
+        "__type": "PersistentVfxData"
+      }
+    },
+    {
+      "kind": "persistent-skin-buff",
+      "producerPath": "Characters/Ahri/Skins/Skin0",
+      "field": "PersistentEffectConditions[1].PersistentVfxs[3]",
+      "resourceKey": "Ahri_R_Ready_tar",
+      "resourceRecord": "Characters/Ahri/Skins/Skin0/Particles/Ahri_Base_R_Ready_tar",
+      "emitterCount": 6,
+      "nativeParticleBin": {
+        "path": "data/characters/ahri/ahri_multi_skins_skin0_skins_skin1_skins_skin52_skins_skin57_skins_skin6.bin",
+        "sha256": "318ef7d350d9ed2a43e9ca8070f47bf7b1c70afad508c53eb127a0c242ad5d08"
+      },
+      "declaration": {
+        "boneName": "C_Buffbone_Glb_Layout_Loc",
+        "effectKey": "Ahri_R_Ready_tar",
+        "__type": "PersistentVfxData"
+      }
+    }
+  ],
+  "animationParticleEvents": [],
+  "unjoinedResourceKeys": [
+    "Ahri_R_Ready_Aura",
+    "Ahri_R_cas",
+    "Ahri_R_mis"
+  ],
+  "nullResources": {
+    "Ahri_R_Transform_Out": "{00000000}"
+  },
+  "dependencies": [
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_ba_glow_corona.tex",
+      "wadPathHash": "ac5e1ebe8b387340",
+      "sha256": "586e157ff9b5010e7393967a4b715edca53752b4e1f91ada59b6e63d677a89ea",
+      "bytes": 349564
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_ba_ringflare.tex",
+      "wadPathHash": "202f03a2c5472208",
+      "sha256": "1c30190aee6969e509529e8eb83a73753dd6d416fb666a1d540f7c89520beba8",
+      "bytes": 87420
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_blastring.tex",
+      "wadPathHash": "c68cda0f7d1484a0",
+      "sha256": "b2f66a5a83544ab46f1f46ac37453033fb4861c4707cf4a7a2763a9b2882fbff",
+      "bytes": 21884
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_color-hold.tex",
+      "wadPathHash": "272b4271cb1a71fd",
+      "sha256": "bc06557b44402fee1498430bd4008df9598085f44b29fea2f02218473674b2f8",
+      "bytes": 68
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_e_distort.tex",
+      "wadPathHash": "ad287961305637b6",
+      "sha256": "41241eafa700d7aa8a280bc7d943c090005324d146d33777a5b8b4bda3ab977b",
+      "bytes": 21884
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_fireshapes_00.tex",
+      "wadPathHash": "9116ffdc649c370a",
+      "sha256": "5dced20b73cf8c005886d328428cc6a04ca9f36bc8316fc8c8b04b73e74ba3dd",
+      "bytes": 87420
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_firetrail.tex",
+      "wadPathHash": "aea8d11f35674924",
+      "sha256": "cb5c3e00eff9ebe2ec3586298f95f2b1fe77b70513994d6717c2d59d6404ceb7",
+      "bytes": 174812
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_firetrail_dissolve.tex",
+      "wadPathHash": "64faf896439bb71b",
+      "sha256": "62e1003c946ef1dbcce4d901c3d119d5298cefbb5ac5e97d33083653b78bfb49",
+      "bytes": 21876
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_mote_01.tex",
+      "wadPathHash": "104eb5bb1d37e53f",
+      "sha256": "c2f6f82fe27da93501274e66be2eaec99f3922fe17a8e0ea3387424af1c57f19",
+      "bytes": 87420
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_mult_windblast.tex",
+      "wadPathHash": "6402359896837509",
+      "sha256": "44be19398b59b8136b10d8f7cbc1f17008da2f89875d498b756809464b4e3f6a",
+      "bytes": 5500
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_p_ringmult.tex",
+      "wadPathHash": "cde0d94435baa941",
+      "sha256": "d75952a2d5dc1444322161a8328bddff121552e17a08877d36b4937575fda4f1",
+      "bytes": 5500
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_p_soultrail_01.tex",
+      "wadPathHash": "e44c1023b3871ca4",
+      "sha256": "e8a372c2f8a20c3cf72fbbf7d2f8093130b9065de96095fdf8cc0b3b0bedf360",
+      "bytes": 174812
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_q_trail_01.tex",
+      "wadPathHash": "43a2520d6e62b7b7",
+      "sha256": "86cf370e01af237d8fc16ed0830e7ab88c860c6e5bdc7b270f79784b798f8969",
+      "bytes": 174812
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_r_aura_glow.tex",
+      "wadPathHash": "2f5d10bd024f378a",
+      "sha256": "3ff1570a70df5535c5bc56ba3f42b56865ed6116815accf66b1c1a8fc7f048f3",
+      "bytes": 87420
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_r_blastwave.scb",
+      "wadPathHash": "0216531e0d20ebea",
+      "sha256": "97787e6049eafb1fab1aa4ef26f38ceb26b5240dda1a066d6f73d991a942fd50",
+      "bytes": 41408
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_r_buf_ground_bg.tex",
+      "wadPathHash": "b28f3ac6819dd4e1",
+      "sha256": "759155600668ace9d926278b0f489bd9ef1f866c5f8a5f6b7e580ca48837ac9f",
+      "bytes": 87420
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_r_buf_ground_separated.tex",
+      "wadPathHash": "c59edff8ff48f7c3",
+      "sha256": "9b3b3a4677d0509834e81c3048c44fd21d3411e6f8f4b16d7ebbb5dc08dd36fa",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_r_gradient.tex",
+      "wadPathHash": "c9eea0dcd2a24e6e",
+      "sha256": "714a3edb8e31b961f1d10c1a24db931f51f5737d7f72e4cf851e30fb927109b0",
+      "bytes": 1052
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_r_shockblasts.tex",
+      "wadPathHash": "812974fe434afa99",
+      "sha256": "fa059dd480afebdc6328e3785d2ae427a78e88489e45e5473b99060303b9c3e5",
+      "bytes": 10972
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_r_smoketrail_03.tex",
+      "wadPathHash": "f2a62973bfe9fc53",
+      "sha256": "aba73b62abf31a6472ed58d5803ccdf76d11616e6a6808887d9c259e35c3a585",
+      "bytes": 21916
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_r_solid.tex",
+      "wadPathHash": "dd852bde9dedd7f1",
+      "sha256": "bc06557b44402fee1498430bd4008df9598085f44b29fea2f02218473674b2f8",
+      "bytes": 68
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_r_tar_wispmult.tex",
+      "wadPathHash": "448c3877b6693762",
+      "sha256": "8b2711825660ac0e64a7a6979edea0a446e1d82a3cc738e6f1b6d2ac0eb8454d",
+      "bytes": 87420
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_r_trail2.tex",
+      "wadPathHash": "a0aab5a3748dc0fa",
+      "sha256": "a7e2a2ebc867c1f912b92ae15381ae62dd529728b153b264883a5311167b7f6b",
+      "bytes": 21916
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_sharp_mesh.scb",
+      "wadPathHash": "4a28baa8836a570a",
+      "sha256": "0ed57b949b8f3b3c94f53ee1f8fb1721145ee39e404812115c2789ec4d7a0f88",
+      "bytes": 38220
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_w_trail_erode.tex",
+      "wadPathHash": "5345e95f41a66333",
+      "sha256": "abeb239531ec71651ef17d7b1e88ef4f13b26211d03197617b60584e94fc5f2d",
+      "bytes": 43732
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_wall_erosion.tex",
+      "wadPathHash": "9c70a07c643c610a",
+      "sha256": "14b7476d25cf3bea32f643271f0a57e4871d7fb4c0faf7c4c7af3ae7f31eb15b",
+      "bytes": 87420
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_castlight.tex",
+      "wadPathHash": "0a7c6fb99b3e762d",
+      "sha256": "d3456ff12bfdde3e5012f0182232daf0f240bc7f9d6acb9f2ff45ed86b2b8652",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_skin18_w_add_gold.tex",
+      "wadPathHash": "919d031649117c44",
+      "sha256": "ec2d39b96cd8b36f99cfce2f2945766e38b7e83f6ae0707658effe936da82fd6",
+      "bytes": 10948
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/ahrifirelight.tex",
+      "wadPathHash": "9f3ed29e7905440a",
+      "sha256": "4f20355a7a2a4215c44b5757e063bf0035bf2735b7f9948293216d139b35e1eb",
+      "bytes": 10948
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/alphaslice_mesh.tex",
+      "wadPathHash": "d8b87a01e2e65f76",
+      "sha256": "bfdd590986a1c37ff9158f46e5078ce3eafa091e2aa0972e2ad43735916b553e",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/common_alpha_19.tex",
+      "wadPathHash": "f393159974460f00",
+      "sha256": "dae45c21af165544d257a94d48b4765d594342806b76f92e621c1c0913eb5ebd",
+      "bytes": 532
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/common_bigradialhalo.tex",
+      "wadPathHash": "b7cf3aaa74075f2a",
+      "sha256": "bbb3060da9f190466c1696a2495f292a079e93e7ec075260a0202155b9972817",
+      "bytes": 10948
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/common_color-bellcurve.tex",
+      "wadPathHash": "5b87479fe2673dd3",
+      "sha256": "8339052f848244d1c3b8647733f3dc4df908aa88a5313b8897d359187b36ea5a",
+      "bytes": 540
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/common_color-rampdown.tex",
+      "wadPathHash": "e194d428cdd61a4a",
+      "sha256": "2a24a8e9083fcda696fd1877b88bbd09fae2e3e916f00ada2bfa8b6296cd70a0",
+      "bytes": 276
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/common_flareblue.tex",
+      "wadPathHash": "9227060489edfd8e",
+      "sha256": "ec8cfac3e0f261f1c5481444725002f3e0203149fa94ea955834b313bec9f1b7",
+      "bytes": 43716
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/defaultfalloff.tex",
+      "wadPathHash": "d5261d2d003060fc",
+      "sha256": "670fd6f2bb17fde156579652b504342a5cb6e62387c3d79e0371f8543a486373",
+      "bytes": 532
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/dissolve_cloudy_02.tex",
+      "wadPathHash": "02d28cb9a8fb2e81",
+      "sha256": "91e86421fb8d0074cb8177b4637774e9a9fcc4c77c84c59461b46d92a339cdd6",
+      "bytes": 21884
+    },
+    {
+      "path": "assets/characters/ahri/skins/base/particles/sion_base_sl_dust_01.tex",
+      "wadPathHash": "8812d59b7f713161",
+      "sha256": "3265b6f79e61e988d523b9c6a3fdd756bf9c8b43c1eb25f1e71d626a3fed65e7",
+      "bytes": 349564
+    },
+    {
+      "path": "assets/shared/particles/aatrox_base_smokeerode.tex",
+      "wadPathHash": "56617d3c747415c8",
+      "sha256": "d502c1c112180e1886c304bfb0bb4330bbe4159a688799e756f82e830696f548",
+      "bytes": 5500
+    },
+    {
+      "path": "assets/shared/particles/bigglow02_2.tex",
+      "wadPathHash": "b4f44f95abaa3e8a",
+      "sha256": "6a347f4c46ff7541c05bf2d175df0e6874ff4477fb0fd7f411bf9c20c0ab819a",
+      "bytes": 2756
+    }
+  ],
+  "summary": {
+    "nativeSpellBindings": 2,
+    "persistentCounterBindings": 3,
+    "persistentSkinBindings": 4,
+    "animationParticleEvents": 0,
+    "joinedSystems": 8,
+    "joinedEmitters": 39,
+    "textures": 38,
+    "meshes": 2,
+    "unjoinedSystems": 3
+  },
+  "limits": [
+    "Explicit fields join the second missile variant, contact, three counter-driver indicators and four skin-buff instances.",
+    "Counter comparison operators are omitted; operands and driver types remain raw without invented equality/default policy.",
+    "Eyes have two explicit bones. TextureSwaps remains an identity-only record with no invented emitter or material swap.",
+    "No R-prefixed animation particle event exists in the pinned clip map. Cast, first missile and ready aura remain unjoined.",
+    "Native scripts, callback chronology, attachment transforms, frame conversion and GPU pixels remain unverified.",
+    "No gameplay rules, saved histories, public assets or runtime dispatch change."
+  ]
+}
