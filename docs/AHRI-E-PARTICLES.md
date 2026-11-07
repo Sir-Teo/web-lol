@@ -3,9 +3,9 @@
 Current isolated rendering candidate: View lazily routes 28 bound emitter
 profiles over schema-180 saved history. Buff Avatar selection remains unresolved.
 Native packet checks, full regression and archived comparison now pass with the
-two historical unit failures retained. Clean CI and production/offline acceptance
-remain pending. The
-accepted primary runtime stays separately retained during this work.
+two historical unit failures retained. Clean CI and the complete candidate build
+audit pass; combined browser and production/offline acceptance remain pending.
+The accepted primary runtime stays separately retained during this work.
 
 This isolated source checkpoint retains all four E-prefixed resources declared
 by the pinned base skin: Ahri_E_buf, Ahri_E_cas, Ahri_E_mis and Ahri_E_tar.
@@ -451,3 +451,18 @@ primary and Q-projectile builds were audited before and after hard-linking their
 identical generated assets; both original pack identities and every path remain
 intact. This storage deduplication does not count as a candidate delivery test.
 Final combined browser, production-prefix and offline lifecycle gates remain open.
+
+## Combined browser regression
+
+All 22 current-schema browser cases pass: fifteen Charm particle/audio,
+save/reload and Fox-Fire cases, then seven Q cast/projectile cases. The initial
+command selected fifteen because two Q spec names were incorrect; the separately
+run correct specs supply the remaining seven rather than an inferred pass.
+E observes all 28 bound profiles and exactly thirteen new transport requests at
+five exact restored-packet checkpoints. Actual windup, flight and control saves
+reload through the UI. Genuine brush visibility, post-launch Flash, caster death
+and terminal draining pass without changing World steps. An ordinary roster
+requests no E transports. The Ahri/Lux fixture has no attachment fallback or
+page errors. Cast, flight, hit and control screenshots were visually reviewed.
+These software-rendered checks establish functional behavior, not native pixel
+parity or representative device performance. Production/offline gates follow.
