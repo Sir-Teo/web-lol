@@ -1,0 +1,40 @@
+{
+  "format": 1,
+  "baselineRevision": "9fa45c7",
+  "baselineRuleset": "ff8abc1be3d5e4191d0544c600ed32c1e3d89b5bf969d9f2a57c591cde81dbe9",
+  "unchangedArchivedSourceAndHarnessFiles": 659,
+  "newApplicationFiles": [
+    "src/simulation/ahri-e-visual-history.ts"
+  ],
+  "preparationIdentity": {
+    "ruleset": "80dc737065efd4ff441aa47298febf5fd7558d18678146b27b55b22a3743b128",
+    "files": 655
+  },
+  "worldHooksAdded": false,
+  "snapshotSchemaChanged": false,
+  "baselineReferenceReproducedExactly": true,
+  "frozenHelperProducerAndGoldenChanged": false,
+  "result": "passed",
+  "tests": {
+    "files": 2,
+    "passed": 25,
+    "failed": 0,
+    "roundTrips": 273,
+    "futureComparisons": 105,
+    "futureTicks": 5600
+  },
+  "evidence": [
+    {
+      "path": "artifacts/ahri-e-observer-preparation-tests-v4.log",
+      "sha256": "80f0f94e1c5595e8c28706c20374f564e6922af99368b93ea19044560e4f8fc8"
+    },
+    {
+      "path": "artifacts/ahri-e-observer-types-v4.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/ahri-e-visual-reference-reproduction-v1.log",
+      "sha256": "d1ac4b4f8d158f55f441ffd2ebc5a7dfe5269f6b5ebdbbf0c457051f29686742"
+    }
+  ]
+}

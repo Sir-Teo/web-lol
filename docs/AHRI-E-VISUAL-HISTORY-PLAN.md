@@ -69,3 +69,24 @@ Post-rotation arithmetic, omitted attached selectors, native skin sampling,
 fresnel, frame conversion and actual buff-effect stopping remain separate
 renderer/source tasks. The existing north body-clip binding and all current
 combat policies stay within their documented local scope.
+
+## Pure observer preparation
+
+The optional observer module now separates accepted casts, immutable launch
+origins, moved flight frames, pre-damage contact/target-center anchors and actual
+sampled Charm control. Source and target poses retain facing, radius and distinct
+sight audiences. Same-tick replacement can close a zero-length older ownership;
+posthumous control remains owned by the living target. Terminal removal does not
+invent a moved flight sample. Missing actors receive no fabricated pose samples.
+
+Seven contract tests check copied ownership/positions, same-tick sampling,
+visibility without hidden-birth rewrites, expiry/death/replacement, cancellation,
+terminal anchors, optional observers, duplicate/gapped observations and no
+changes to gameplay objects, RNG or IDs. All 25 contract/baseline tests and
+TypeScript checking pass. The frozen 17-case reference reproduces byte for byte.
+All 659 prior archived source/harness files remain identical; only the new
+simulation module enters compatibility collection (655 files / 80dc7370).
+
+World hooks, serialization, retention-policy selection and strict schema-179
+admission remain pending. This preparation defines no runtime observer field on
+World and no renderer consumes it.
