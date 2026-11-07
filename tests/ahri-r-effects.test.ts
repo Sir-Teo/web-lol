@@ -226,3 +226,31 @@ test('terminal R effects retire without World steps and preserve borrowed resour
   expect(borrowedTexture).not.toHaveBeenCalled();
   release();
 });
+
+test('R surfaces and ribbons share one depth capture with consistent soft uniforms', () => {
+  const { world, view, draw, release, camera } = setup();
+  world.step(13);
+  draw();
+  const surface = [...view.surfaces.models.values()].filter((m) => m.material.uniforms.softDepth);
+  const ribbons = [...view.models.values()].filter((m) => m.material.uniforms.softDepth);
+  expect(surface.length).toBeGreaterThan(0);
+  expect(ribbons.length).toBeGreaterThan(0);
+  const target = new THREE.WebGLRenderTarget(320, 180);
+  target.depthTexture = new THREE.DepthTexture(320, 180);
+  const capture = vi.spyOn(view.surfaces.depth, 'capture').mockReturnValue(target);
+  const saved = world.snapshot();
+  view.prepareDepth({} as THREE.WebGLRenderer, camera);
+  expect(capture).toHaveBeenCalledTimes(1);
+  for (const model of [...surface, ...ribbons]) {
+    expect(model.material.uniforms.softDepth.value).toBe(target.depthTexture);
+    expect(model.material.uniforms.softSize.value.toArray()).toEqual([320, 180]);
+    expect(model.material.uniforms.depthConversion.value.toArray()).toEqual([
+      1 / camera.near,
+      1 / camera.far - 1 / camera.near,
+    ]);
+  }
+  expect(world.snapshot()).toBe(saved);
+  release();
+  target.depthTexture.dispose();
+  target.dispose();
+});
