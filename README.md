@@ -71,8 +71,8 @@ The browser suite currently uses installed Google Chrome. All runtime assets are
 
 ## Deployment
 
-The practice build is hosted at https://sir-teo.github.io/web-lol/. Pushes to `main` install dependencies with npm caching, build, and deploy to GitHub Pages. Documentation-only and test-only pushes skip deployment; the workflow can also be run manually. A separate CI workflow runs TypeScript, 541 Baron/Ahri audio, cast/projectile-particle and persistence checks on
-Node 24.22.1, and cache-independent float-format/publication guards; the full suite and browser/offline gates remain
+The practice build is hosted at https://sir-teo.github.io/web-lol/. Pushes to `main` install dependencies with npm caching, build, and deploy to GitHub Pages. Documentation-only and test-only pushes skip deployment; the workflow can also be run manually. A separate CI workflow runs TypeScript, scoped Baron/Ahri audio, particle, sound-preference and cohort checks on
+Node 24.22.1, plus cache-independent float-format/publication guards; the full suite and browser/offline gates remain
 separate. See [Q projectile acceptance](docs/reference/ahri/q-projectile-rendering-acceptance.json).
 
 On Linux with system Chromium, build first and run `node tools/qa/production-subpath.mjs --system-chromium unique-run-name`. The default command continues to use installed Google Chrome.

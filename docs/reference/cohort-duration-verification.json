@@ -1,0 +1,42 @@
+{
+  "format": 1,
+  "result": "passed",
+  "revision": "9b691fade0a987531815330bea8a3ca9a62dede5",
+  "nodeQaPassed": 311,
+  "newDurationCasesPassed": 3,
+  "historicalHundredMetrics": {
+    "completionRate": 1,
+    "victoryDurationSeconds": {
+      "p10": 2167.633333333333,
+      "p50": 2477.4166666666665,
+      "p90": 2837.1
+    }
+  },
+  "censoredHorizonsExcludedFromVictoryDurations": true,
+  "runtimeAndPublicAssetsUnchanged": true,
+  "currentHundredStillIncomplete": true,
+  "roadmapMilestone4Complete": false,
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/cohort-duration-tests-v1.log",
+      "bytes": 387,
+      "sha256": "875f33ca613527ddb198c8e0acea96c7752a3a31878459579aeefa4518454dab"
+    },
+    {
+      "file": "artifacts/cohort-duration-node-qa-full-v1.log",
+      "bytes": 24835,
+      "sha256": "4e2201f44f6f3ba9c34cccf9ef7ea9bc2e53b8c335a624a76509c4e4f1e34763"
+    },
+    {
+      "file": "artifacts/cohort-duration-historical-hundred-v1.log",
+      "bytes": 575,
+      "sha256": "0843357828f716cb8e2eb95c482294280ec045845d0432976f02e8ba72e1576c"
+    },
+    {
+      "file": "artifacts/cohort-duration-historical-hundred-v1.json",
+      "bytes": 44952,
+      "sha256": "9a42670c824350f050333f68bb87b07f24b74f51bca06f76e184f0d3f8223706"
+    }
+  ]
+}

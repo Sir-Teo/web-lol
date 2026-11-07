@@ -18,9 +18,10 @@ four eye profiles use both native eye bones. Source history remains bounded to
 returns to 721 on stop or age boundary. Spell and buff effects share one R depth
 capture, including buff-only frames. Native calibration remains open.
 
-The full suite passes 10,149/10,151 tests in 610 files with only the two historical
-failures. All 263 Node QA cases and all 87 portable CI commands pass; every CI
-command passes on its first attempt, with Node QA and CI run separately. Scoped
+At the accepted noise checkpoint, the full suite passed 10,149/10,151 tests in
+610 files with only the two historical failures. Its 263 Node QA cases and 87
+portable CI commands passed, each CI command on its first attempt, with Node
+QA and CI run separately. Later targeted QA and UI receipts are scoped below. Scoped
 CI selections execute 1,921 tests across 163 file executions, including overlap;
 all 5,643 committed export blobs verify before cleanup. All 33 distinct browser
 cases pass plus the retained initial keyboard probe. The two noise hide/show
@@ -121,6 +122,15 @@ TypeScript, production build and all-file audit pass. Current pack `9d0bad35`
 contains 1,432 files / 581,142,305 bytes with unchanged worker policy. Schema 181,
 all 696 compatibility inputs and ruleset `e02f3e73` remain unchanged; earlier HUD
 and noise packs are retained. See [sound preference verification](reference/sound-preference-verification.json).
+
+Current cohort tooling passes all 311 Node QA cases. Independent verification
+now derives and checks completion rate and nearest-rank victory duration
+percentiles, retaining unfinished horizons outside those duration samples. The
+historical hundred-seed archive reproduces its duration summary exactly. A
+read-only progress command distinguishes observed processes from stale status
+and never claims a final invariant check. See [duration verification](reference/cohort-duration-verification.json)
+and [progress inspection](reference/cohort-progress-verification.json). The
+current schema-181 hundred-seed audit remains in progress.
 
 ## Recent verified checkpoints
 
