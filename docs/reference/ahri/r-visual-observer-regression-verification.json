@@ -1,0 +1,75 @@
+{
+  "format": 1,
+  "scope": "R observer regression and archived gameplay equivalence; delivery gates pending",
+  "applicationRevision": "eac4f9fa",
+  "verificationRevision": "7b12594c6d852bb5572a4d6470d3bccdfdb1719d",
+  "schema": 181,
+  "ruleset": "64f63c0976c13ca41aad687f2135c6b178706ffd62fe96720627ec87626dd537",
+  "fullSuite": {
+    "passed": 9256,
+    "total": 9258,
+    "files": 573,
+    "knownFailures": [
+      "missing historical Leona reflection helper",
+      "Lux 24-sampler Node 24 golden mismatch"
+    ]
+  },
+  "nodeQaPassed": 257,
+  "cleanExportCommandsPassed": 82,
+  "scopedTestExecutions": 1028,
+  "scopedSelectionsOverlap": true,
+  "archivedCompleteProjectionsMatched": 45,
+  "naturalSeed": {
+    "seed": 1,
+    "winner": "blue",
+    "finalTick": 157116,
+    "roundTrips": 44,
+    "restoredFutures": 43,
+    "futureTicks": 2580,
+    "invariantFailures": 0
+  },
+  "deliveryVerified": false,
+  "nativeRParticleRendererBound": false,
+  "evidence": [
+    {
+      "path": "artifacts/ahri-r-observer-full-tests-v2.log",
+      "bytes": 4730,
+      "sha256": "ae51fbfdbaa1db119895ecde7379db2cbbe2d5d69b7ac53db6e9f72013eee811"
+    },
+    {
+      "path": "artifacts/ahri-r-observer-node-qa-v1.log",
+      "bytes": 20042,
+      "sha256": "b7bf7a25dfc6b8d68a17edc79d918cbab42f48d5086f8ab1344d4d79e22df70f"
+    },
+    {
+      "path": "artifacts/ahri-r-observer-clean-ci-results.json",
+      "bytes": 18576,
+      "sha256": "f154c93f310715d11c4c1b7f8917c9465e3c138e355c0279c46d3792376bb9c4"
+    },
+    {
+      "path": "artifacts/ahri-r-observer-clean-ci-cleanup-v1.json",
+      "bytes": 313,
+      "sha256": "20b76bec3ecdca72d00542103a826aa11b8f9b0f3ca7d6cc7bd02fb8cf5899fb"
+    },
+    {
+      "path": "artifacts/ahri-r-observer-audio-preservation-v1.json",
+      "bytes": 60252,
+      "sha256": "74a989179eed2c4ab370731353f07f6c0877d795c3c04d214387955b11bb00c1"
+    },
+    {
+      "path": "docs/reference/ahri/r-visual-history-gameplay-comparison.json",
+      "bytes": 22198,
+      "sha256": "6c0b52188891d5d40867d2a5d030dca8ef6ca7e805542511dda86456e6b344d6"
+    },
+    {
+      "path": "docs/reference/ahri/r-visual-history-payload.json",
+      "bytes": 8089,
+      "sha256": "20457f3b20701c66da5056a733215d9397c5980f22691f5ee4b9800a6e13649c"
+    },
+    {
+      "path": "docs/reference/ahri/r-visual-history-source-delta.json",
+      "bytes": 2835,
+      "sha256": "abb3066b6f2d242cd40e759899237fda3f0ba83b99f56d93afe0c58d9460f849"
+    }
+  ]
+}
