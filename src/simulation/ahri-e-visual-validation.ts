@@ -4,6 +4,7 @@ import { eVisualEndTick, type AhriEVisualHistory } from './ahri-e-visual-history
 import { validateEVisualMotion } from './ahri-e-visual-history-validation';
 import type { ChampionState, Projectile, Team, Unit } from './types';
 import type { Vec2 } from './math';
+import { mobileRig } from '../content/mobile-clip-durations';
 
 const same = (a: Vec2, b: Vec2) => a.x === b.x && a.y === b.y;
 const sameControl = (a: NonNullable<Unit['charm']>, b: NonNullable<Unit['charm']>) =>
@@ -59,7 +60,8 @@ export function validateEVisuals(state: {
       sourceFrame.tick === state.tick &&
         same(sourceFrame.point, source!) &&
         sourceFrame.facing === source!.facing &&
-        sourceFrame.radius === source!.radius
+        sourceFrame.radius === source!.radius &&
+        JSON.stringify(sourceFrame.animationTimeline) === JSON.stringify(source!.animationTimeline)
     );
     check(r.castAudience.join() === r.sourceFrames[0].audience.join());
     if (r.cancel?.reason === 'match-end') check(!!state.winner && r.cancel.tick === state.tick);
@@ -116,6 +118,7 @@ export function validateEVisuals(state: {
       if (target) {
         check(
           target.team === r.hit.targetTeam &&
+            mobileRig(target) === r.hit.targetRig &&
             !['ward', 'turret', 'nexus', 'inhibitor'].includes(target.kind)
         );
         const frame = r.targetFrames.at(-1)!;
@@ -124,7 +127,8 @@ export function validateEVisuals(state: {
             frame.tick === state.tick &&
               same(frame.point, target) &&
               frame.facing === target.facing &&
-              frame.radius === target.radius
+              frame.radius === target.radius &&
+              JSON.stringify(frame.animationTimeline) === JSON.stringify(target.animationTimeline)
           );
       }
       if (r.buff) {

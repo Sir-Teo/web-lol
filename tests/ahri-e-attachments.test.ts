@@ -53,7 +53,12 @@ test('E attachment roots use private exact-name poses in saved body frames witho
     const expected = new THREE.Vector3(0.2, 1, 0.3)
       .applyAxisAngle(new THREE.Vector3(0, 1, 0), pose.facing)
       .add(new THREE.Vector3(pose.x * 0.01, 2, pose.y * 0.01));
-    expect(roots.position(group, 45)!.distanceTo(expected)).toBeLessThan(1e-12);
+    expected.set(
+      Math.fround(expected.x * 100) * 0.01,
+      Math.fround(expected.y * 100) * 0.01,
+      Math.fround(expected.z * 100) * 0.01
+    );
+    expect(roots.position(group, 45)!.toArray()).toEqual(expected.toArray());
   }
   expect(roots.samplerCount).toBe(2);
   expect(roots.localFallbacks).toEqual([]);
@@ -105,5 +110,22 @@ test('current-tick pose queries refresh while old poses stay cached and World re
   expect(made[0].dispose).toHaveBeenCalledTimes(1);
   roots.position(eVisualGroups(copy.ahriEVisuals[0])[0], 45);
   expect(made).toHaveLength(2);
+  roots.dispose();
+});
+
+test('native bone handoff commits source-centimetre float32 before tiny private-matrix rounding noise', () => {
+  const { world, roots, made, groups } = setup(),
+    cast = groups[0];
+  const expected = roots.position(cast, 45)!.toArray();
+  const sampler = made[0],
+    native = sampler.bonePosition.bind(sampler);
+  const read = vi.spyOn(sampler, 'bonePosition').mockImplementation((name, out) => {
+    const found = native(name, out);
+    out.y += Number.EPSILON * 4;
+    return found;
+  });
+  roots.begin(world);
+  expect(roots.position(cast, 45)!.toArray()).toEqual(expected);
+  expect(read).toHaveBeenCalled();
   roots.dispose();
 });

@@ -133,7 +133,11 @@ import {
   type StructureRig,
 } from '../content/structure-animation';
 import { structurePose } from '../render/structure-pose';
-import { mobileClipDurations, MOBILE_CLIP_DURATIONS } from '../content/mobile-clip-durations';
+import {
+  mobileClipDurations,
+  MOBILE_CLIP_DURATIONS,
+  type MobileRig,
+} from '../content/mobile-clip-durations';
 import { LUX_IMPACT_HISTORY_TICKS } from '../content/lux-impact-presentation';
 import { luxEmissionCount, luxEmissionBirthTick } from '../content/lux-emission';
 import { LUX_BASIC_TRAIL } from '../content/lux-basic-trail';
@@ -189,7 +193,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 179;
+export const SNAPSHOT_VERSION = 180;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -260,6 +264,7 @@ const eVisualPose = z.strictObject({
   facing: z.number(),
   radius: z.number().positive(),
   audience: z.array(team).max(2),
+  animationTimeline: animationTimeline.nullable(),
 });
 const kind = z.enum([
   'champion',
@@ -2336,6 +2341,9 @@ const snapshot = z.strictObject({
             targetPoint: point,
             targetFacing: z.number(),
             targetRadius: z.number().positive(),
+            targetRig: z
+              .enum(Object.keys(MOBILE_CLIP_DURATIONS) as [MobileRig, ...MobileRig[]])
+              .nullable(),
             audience: z.array(team).max(2),
             targetAudience: z.array(team).max(2),
           })

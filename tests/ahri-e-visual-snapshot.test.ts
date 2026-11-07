@@ -78,7 +78,7 @@ test('posthumous E history retires before the actual caster respawn and cannot r
 
 test('strict Charm save admission rejects broken phase, control, pose, audio and identity links', () => {
   const state = checkpoint('hit', 45);
-  expect(state.version).toBe(179);
+  expect(state.version).toBe(180);
   expect(restore(state).snapshot()).toBe(JSON.stringify(state));
   const mutations: ((s: any) => void)[] = [
     (s) => {

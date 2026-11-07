@@ -95,11 +95,17 @@ function path(group: EVisualGroup): Path {
         facing,
         radius: launch.radius,
         audience: launch.audience,
+        animationTimeline: null,
       },
-      ...r.flightFrames.map((frame) => ({ ...frame, facing, radius: launch.radius })),
+      ...r.flightFrames.map((frame) => ({
+        ...frame,
+        facing,
+        radius: launch.radius,
+        animationTimeline: null,
+      })),
     ];
     if (r.stop && points.at(-1)!.tick < r.stop.tick)
-      points.push({ ...r.stop, facing, radius: launch.radius });
+      points.push({ ...r.stop, facing, radius: launch.radius, animationTimeline: null });
   }
   const distances = new Float64Array(points.length);
   for (let i = 1; i < points.length; i++)
@@ -171,4 +177,19 @@ export function eVisualDistance(group: EVisualGroup, tick: number) {
     s.p.distances[s.index] +
     Math.hypot(s.b.point.x - s.a.point.x, s.b.point.y - s.a.point.y) * s.fraction
   );
+}
+
+/** Use the next observed pose's owned transition for fractional interpolation,
+ * matching the live timeline's one-step lookback without consulting a later Unit. */
+export function eVisualAnimation(group: EVisualGroup, tick: number) {
+  if (group.role === 'flight') return null;
+  const s = sample(group, tick);
+  if (!s) return null;
+  const at = s.a.tick + (s.b.tick - s.a.tick) * s.fraction;
+  const frame = s.fraction === 0 ? s.a : s.b;
+  return {
+    at,
+    timeline: frame.animationTimeline,
+    rig: group.role === 'cast' ? ('ahri-base' as const) : group.record.hit!.targetRig,
+  };
 }

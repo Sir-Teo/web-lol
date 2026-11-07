@@ -28,6 +28,7 @@ function fixture(two = false) {
     radius: 35,
     hp: 100,
     charm: null,
+    animationTimeline: null,
   } as Unit;
   const target = {
     id: 2,
@@ -39,6 +40,7 @@ function fixture(two = false) {
     radius: 35,
     hp: 100,
     charm: null,
+    animationTimeline: null,
   } as Unit;
   const other = { ...source, id: 4, x: -20 } as Unit;
   const units = [source, target, ...(two ? [other] : [])];

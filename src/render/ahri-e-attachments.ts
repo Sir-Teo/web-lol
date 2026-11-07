@@ -1,11 +1,11 @@
 import * as THREE from 'three';
 import type { World } from '../simulation/world';
 import type { Vec2 } from '../simulation/math';
-import { mobileRig, MOBILE_CLIP_DURATIONS, type MobileRig } from '../content/mobile-clip-durations';
+import { MOBILE_CLIP_DURATIONS, type MobileRig } from '../content/mobile-clip-durations';
 import { animationLayers } from '../simulation/animation-timeline';
 import { createTargetPoseSampler } from './models';
 import type { TargetPoseSampler } from './target-pose-sampler';
-import { eVisualPose, type EVisualGroup } from './ahri-e-history';
+import { eVisualPose, eVisualAnimation, type EVisualGroup } from './ahri-e-history';
 
 export function eVisualAttachment(group: EVisualGroup): string {
   if (group.role === 'cast') return 'C_Buffbone_Glb_Center_Loc';
@@ -70,29 +70,36 @@ export class EAttachmentRoots {
         : group.role === 'cast'
           ? group.record.sourceId
           : group.record.hit?.targetId;
-    const unit = unitId === undefined ? undefined : world.unit(unitId);
-    const rig = unit && mobileRig(unit);
+    const animation = eVisualAnimation(group, at),
+      rig = animation?.rig;
     const point = new THREE.Vector3();
     let native = false;
-    if (group.role !== 'flight' && unit && rig) {
-      let held = this.actors.get(unit.id);
+    if (group.role !== 'flight' && unitId !== undefined && rig && animation?.timeline) {
+      let held = this.actors.get(unitId);
       if (!held) {
         const sampler = this.create(rig),
           root = new THREE.Group();
         root.add(sampler.renderRoot);
         held = { root, sampler };
-        this.actors.set(unit.id, held);
+        this.actors.set(unitId, held);
       }
       held.root.position.set(pose.x * 0.01, this.ground(pose), pose.y * 0.01);
       held.root.rotation.y = pose.facing;
       held.sampler.sample(
-        unit.animationTimeline
-          ? animationLayers(unit.animationTimeline, at, MOBILE_CLIP_DURATIONS[rig])
-          : []
+        animationLayers(animation.timeline, animation.at, MOBILE_CLIP_DURATIONS[rig])
       );
       held.root.updateMatrixWorld(true);
       native = held.sampler.bonePosition(bone, point);
     }
+    // Three samples private skeletons in doubles. Commit the native-bone
+    // handoff once in source-centimetre float32 storage before root binding.
+    // This keeps fresh/restored and cached seeks independent of matrix ULPs.
+    if (native)
+      point.set(
+        Math.fround(point.x * 100) * 0.01,
+        Math.fround(point.y * 100) * 0.01,
+        Math.fround(point.z * 100) * 0.01
+      );
     if (!native) {
       const height =
         group.role === 'flight'

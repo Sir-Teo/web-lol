@@ -1,7 +1,7 @@
 # Ahri Charm particle source and rendering
 
 Current isolated rendering candidate: View lazily routes 28 bound emitter
-profiles over schema-179 saved history. Buff Avatar selection remains unresolved.
+profiles over schema-180 saved history. Buff Avatar selection remains unresolved.
 Initial browser and 201 scoped CI checks pass; broader regression, archived
 comparison, clean CI and production/offline acceptance remain pending. The
 accepted primary runtime stays separately retained during this work.
@@ -384,3 +384,29 @@ cast-tail overlay followed by the target impact and CHARMED status. This is a
 functional smoke check, not native pixel parity or completed renderer acceptance.
 The buff skin omission, palette input omission and named attachment fallbacks
 remain explicit; full browser restore/visibility/drain and delivery gates follow.
+
+## Owned animation history and native packet restore
+
+The immediate-contact browser checkpoint exposed two distinct issues: a private
+bone-root rounding boundary and attempts to reconstruct old bone poses from a
+Unit timeline that retains only its current transition. Schema 180 now stores
+an owned animation timeline in every E source/target pose and target-ending
+anchor, plus the observed target rig at contact. Current poses link to Unit
+state; known rigs, legal clips, bounded clocks and endpoint ownership are checked.
+Historical attachment queries use the saved neighbouring pose timeline. Native
+bone roots commit float32 source centimetres before accumulated root binding.
+
+An animated-bone regression spans a real cast-to-run transition and reconstructs
+the old root from early, late and fresh Worlds. Guards reject missing, future,
+stale, unknown and mismatched animation facts. Target-ending and source samples
+own their nested data independently. All 206 scoped checks in 21 files and
+TypeScript pass. The frozen gameplay helper, producer and golden remain intact.
+
+The deep software-Chromium keyboard-E case now passes all five checkpoints:
+cast, flight, immediate hit, control and late tail. Native bone matrices, geometry
+buffers, UVs, color, erosion and transforms match fresh restored Worlds. All
+28 bound profiles and the exact 13 new transport requests are observed, with no
+attachment fallback in this Ahri/Lux fixture and no page errors. Earlier wrong-URL,
+undersampled-flash and native-pose mismatch traces remain retained; they are not
+counted as passes. Full regression, fresh cohort, clean CI and delivery gates
+remain pending for this schema-180 candidate.

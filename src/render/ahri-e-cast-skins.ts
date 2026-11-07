@@ -9,7 +9,7 @@ import type { EclipseSurfaceAssets } from './leona-eclipse-surface-assets';
 import { createLeonaEclipseSkinMaterial } from './leona-eclipse-skin-material';
 import { AHRI_E_PROFILES, type AhriEParticle } from './ahri-e-particles';
 import { AHRI_E_SKIN_BINDINGS } from './ahri-e-skin-bindings';
-import { eVisualPose, eVisualKnown, type EVisualGroup } from './ahri-e-history';
+import { eVisualPose, eVisualAnimation, eVisualKnown, type EVisualGroup } from './ahri-e-history';
 
 interface Instance {
   root: THREE.Group;
@@ -113,13 +113,10 @@ export class AhriECastSkins {
       active.add(group.key);
       instance.root.position.set(pose.x * 0.01, this.ground(pose), pose.y * 0.01);
       instance.root.rotation.y = pose.facing;
+      const animation = eVisualAnimation(group, Math.min(tick, world.tick));
       instance.sampler.sample(
-        unit.animationTimeline
-          ? animationLayers(
-              unit.animationTimeline,
-              Math.min(tick, world.tick),
-              MOBILE_CLIP_DURATIONS['ahri-base']
-            )
+        animation?.timeline
+          ? animationLayers(animation.timeline, animation.at, MOBILE_CLIP_DURATIONS['ahri-base'])
           : []
       );
       instance.root.updateMatrixWorld(true);
