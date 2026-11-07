@@ -1,0 +1,71 @@
+{
+  "format": 1,
+  "result": "passed",
+  "applicationRevision": "4d6a0dca",
+  "schema": 181,
+  "ruleset": "e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f",
+  "compatibilityFiles": 696,
+  "browserCasesPassed": 2,
+  "originalUnidentifiedShopCasesRetained": 2,
+  "initialGoldUsesActualBalance": true,
+  "accessibleNameFollowsDisplayedGold": true,
+  "shortcutExposed": true,
+  "resourceMetersAndHiddenManaChecksPreserved": true,
+  "hudUpdatesDoNotMutateMatchSnapshot": true,
+  "typescriptAndProductionBuildPassed": true,
+  "allFilePackAudit": {
+    "result": "passed",
+    "pack": "22e4ae0ab1b87c7e84617ad2590d6207549a13b8d5bb36ee5496954b154df170",
+    "files": 1432,
+    "bytes": 581143254,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "retainedPack": "/workspace/web-lol/.cache/hud-shop-label-accepted-pack-22e4",
+  "previousPacksPreserved": true,
+  "fullUnitAndCleanCiResultsRetainEarlierRevisions": true,
+  "hundredSeedAuditRulesetUnchanged": true,
+  "roadmapMilestone4Complete": false,
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/hud-shop-label-baseline-v1.log",
+      "bytes": 4963,
+      "sha256": "219baa04d63cf9a758880b7146a6a72eae27002108dd5e65c665229dd01afd0f"
+    },
+    {
+      "file": "artifacts/hud-shop-label-fixed-v2.log",
+      "bytes": 625,
+      "sha256": "560050dc7dcfc598cd77e14d87d63cb9c2fe35886167a3de503ac3e116faa10d"
+    },
+    {
+      "file": "artifacts/hud-shop-label-browser-v1.json",
+      "bytes": 12465,
+      "sha256": "b7c3618844df2f3600ff39ac4ae4e67f20d7d38c826eb0429c4c7bba4f0a609c"
+    },
+    {
+      "file": "artifacts/hud-shop-label-browser-v2.json",
+      "bytes": 4131,
+      "sha256": "d2cce7f45e35f5dae14098d730406a4a7f65cd7d7e05dc6f7535b585cf4779c7"
+    },
+    {
+      "file": "artifacts/hud-shop-label-build-v1.log",
+      "bytes": 9453,
+      "sha256": "12a626a371b855c35f0b258258255111207eff84fc8d54d1d215228c6e506fe9"
+    },
+    {
+      "file": "artifacts/hud-shop-label-build-dedup-v1.json",
+      "bytes": 1329,
+      "sha256": "f7f6390f47fc1ff86fbc0ecdab6872225932ee985d699bb4dd9ce0fa56ee9568"
+    },
+    {
+      "file": "artifacts/hud-shop-label-retained-pack-v1.json",
+      "bytes": 213,
+      "sha256": "58695d6d380b03a0223e053e5b02d5349700db2c10e09b6b0737a8923ebfe505"
+    },
+    {
+      "file": "artifacts/hud-shop-label-ruleset-v1.json",
+      "bytes": 104,
+      "sha256": "5a9159e9011a6086ba92e9320f35b01aa31a984d99d095f1538d585e16f6b4d6"
+    }
+  ]
+}

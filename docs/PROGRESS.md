@@ -8,10 +8,11 @@ Last updated: November 7, 2026 (UTC).
 
 Accepted local runtime: save schema **181**, ruleset
 `e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f`.
-Latest application `3fcb8cef` / pack `1cbecc51` exposes named health/mana meters
-with live resource values. Two browser cases, TypeScript, production build and
-all-file pack verification pass; gameplay compatibility remains unchanged. See
-[resource meter verification](reference/hud-resource-meter-verification.json).
+Latest application `4d6a0dca` / pack `22e4ae0a` exposes named health/mana meters
+and a named item-shop control with its live gold balance and P shortcut. Two
+browser cases, TypeScript, production build and all-file pack verification pass;
+gameplay compatibility remains unchanged. See
+[current HUD verification](reference/hud-shop-label-verification.json).
 The latest full unit result at application `cabb9791` / pack `171bacaf` resolves
 to 10,152/10,154 across 611 files. One wave-clock deadline failure passed its
 unchanged nine-test focused retry after a recorded ten-second audit-worker pause.
@@ -9807,3 +9808,12 @@ All ten scoped browser cases and tool TypeScript pass; both earlier failures
 are retained. The game runtime/public assets and pack `1cbecc51` stay unchanged.
 The full 89-command CI receipt keeps its earlier tool revision; this step has
 its own [monitor verification](reference/garen-q-audition-monitor-verification.json).
+
+HUD shop-label checkpoint `4d6a0dca` names the item-shop action, announces its
+current displayed balance and exposes shortcut P. The first render uses the
+actual balance, and later updates preserve the same floored visible amount. Two
+Ashe/Garen browser cases retain resource-meter and snapshot-nonmutation checks.
+TypeScript/build and the complete retained pack audit pass: `22e4ae0a`, 1,432 files
+/ 581,143,254 bytes, with unchanged worker policy, all 696 compatibility inputs
+and ruleset `e02f3e73`. Prior packs and broader test receipts retain their original
+identities. See [shop control verification](reference/hud-shop-label-verification.json).
