@@ -532,3 +532,13 @@ adds 36 complete packet hashes from application `c5ab6230`. Its producer pins th
 retained cohort plan and verifies all 693 archived source files before executing
 the frozen sampler. All 37 reference checks pass before trail integration.
 The 72 earlier spell-packet references and their producers remain unchanged.
+
+The [trail-policy reading](reference/ahri/r-eye-trail-policy-reading.json) pins
+four external reader files. Their parser maps omitted `mMode` / `mSmoothingMode`
+to ordinary ribbon mode / smoothing off. Those remain explicit local defaults;
+the raw source omissions stay intact and native constructors remain unverified.
+Ordinary mode measures UV distance along the current visible run, so discarded
+caster history needs no fabricated lifetime odometer. The shared packed writer
+now supports that mode through an opt-in flag, preserving WAKE as its default.
+All twelve independent ordinary-mode fixtures, all earlier WAKE fixtures and
+both frozen packet baselines pass within 173 scoped checks. TypeScript passes.

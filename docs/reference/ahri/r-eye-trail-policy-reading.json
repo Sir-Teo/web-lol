@@ -1,0 +1,70 @@
+{
+  "format": 1,
+  "scope": "Two explicit source omissions with selected external-reader fallbacks; not native constructor certification",
+  "input": {
+    "path": "src/content/ahri-r-particles.json",
+    "bytes": 1550126,
+    "sha256": "c9a65a9808d3206cfbaee6dc1f9e1a5a37d6351947d997e2a5c4b8d3b290f29f"
+  },
+  "profiles": [
+    {
+      "profileIndex": 47,
+      "system": "Ahri_R_Eyes",
+      "name": "trail",
+      "mode": null,
+      "smoothing": null,
+      "authoredTrailFields": [
+        "__type",
+        "mBirthTilingSize",
+        "mCutoff"
+      ],
+      "period": 3.0,
+      "active": 3.0,
+      "emitterLifetime": null
+    },
+    {
+      "profileIndex": 48,
+      "system": "Ahri_R_Eyes",
+      "name": "trail1",
+      "mode": null,
+      "smoothing": null,
+      "authoredTrailFields": [
+        "__type",
+        "mBirthTilingSize",
+        "mCutoff"
+      ],
+      "period": 2.5,
+      "active": 0.6000000238418579,
+      "emitterLifetime": null
+    }
+  ],
+  "localDefaults": {
+    "trailMode": 0,
+    "wake": false,
+    "smoothing": 0,
+    "nativeConstructorVerified": false,
+    "uvDistance": "walked distance measured within each current visible run; no lifetime odometer fabricated"
+  },
+  "readers": [
+    {
+      "path": ".cache/baron-emission-readers/engine/parsing/readMotion.ts",
+      "bytes": 13352,
+      "sha256": "14f47fe79957dcd5d440d8ab69752cf90702a628c070033641d06eb9ace879e8"
+    },
+    {
+      "path": ".cache/baron-emission-readers/engine/model/enums.ts",
+      "bytes": 7910,
+      "sha256": "fdad53c133ef6c59162131d8b7e1763d8aa29594ba330a65e8372f493d8160fc"
+    },
+    {
+      "path": ".cache/baron-emission-readers/rendering/components/Trails.tsx",
+      "bytes": 7854,
+      "sha256": "e94eeaed23fddc95b9cb6d20b82fcc2abb4714bd304545b83303127ad405003c"
+    },
+    {
+      "path": ".cache/baron-emission-readers/rendering/utils/ribbon.ts",
+      "bytes": 33103,
+      "sha256": "ada3d66b955dee7916f10e5b76417a9d7985bbbca337afcd551a7f30fa5cbe68"
+    }
+  ]
+}
