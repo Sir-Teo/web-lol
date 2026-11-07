@@ -395,6 +395,20 @@ producers. Missing global palette inputs remain neutral and unverified.
 The focused selection passes 43 tests in six files, including exact ribbon
 packets after snapshot restoration and the unchanged complete gameplay baseline.
 The full suite passes 9,312/9,314 tests with the same two historical failures;
-all 263 Node QA cases pass. Browser, clean-export, pack and natural-match checks
-for this binding are in progress; the accepted 20-profile pack remains recorded
-above until that verification is complete.
+all 263 Node QA cases pass. All 33 distinct browser cases pass. The clean export
+passes 87 commands and 1,084 scoped test executions across 135 file executions,
+including overlap. One fingerprint test exceeded its five-second timeout under
+concurrent load; the identical command passes after the match job finishes, with
+both logs retained. All 5,529 committed export files were verified before cleanup.
+
+All 45 complete natural-match states match the accepted R observer, including
+every R observation, excluding only schema and ruleset identifiers. The match
+retains its Blue victory at tick 157116, 44 restores and 43 checked futures.
+All 334 public WAV files / 96,632,632 bytes remain exact.
+
+Pack `01c9c16a` contains 1,432 files / 581,116,424 bytes and passes its complete
+byte and worker audit. Production nested-path checks pass with 32 recordings and
+zero eager R texture/renderer loads. Offline lifecycle checks pass with 978
+worker responses and zero production errors. See the
+[palette acceptance](reference/ahri/r-palette-acceptance.json). The previous
+20-profile pack is retained separately; primary integration follows separately.
