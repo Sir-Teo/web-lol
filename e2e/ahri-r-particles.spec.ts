@@ -6,9 +6,12 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
 }, info) => {
   test.setTimeout(180000);
   const requests: string[] = [],
+    glowRequests: string[] = [],
     errors: string[] = [];
   page.on('request', (r) => {
     if (r.url().includes('/assets/effects/ahri-r-')) requests.push(new URL(r.url()).pathname);
+    if (r.url().includes('/assets/effects/ahri-q-cast-b4f44f95abaa3e8a.png'))
+      glowRequests.push(new URL(r.url()).pathname);
   });
   page.on('pageerror', (e) => errors.push(e.message));
   page.on('console', (m) => {
@@ -235,10 +238,6 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
       restored,
       unchanged: copy.snapshot() === saved,
       attachments: v.ahriRParticles.attachmentFallbacks,
-      textureRequests: performance
-        .getEntriesByType('resource')
-        .filter((entry) => entry.name.includes('/assets/effects/ahri-q-cast-b4f44f95abaa3e8a.png'))
-        .length,
     };
   });
   expect(eyes.unchanged).toBe(true);
@@ -249,14 +248,14 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
   expect(eyes.before.some((model: any) => model.key.includes(':buff:L_Eye:'))).toBe(true);
   expect(eyes.before.some((model: any) => model.key.includes(':buff:R_Eye:'))).toBe(true);
   expect(eyes.attachments).toEqual([]);
-  expect(eyes.textureRequests).toBe(1);
+  expect(glowRequests).toHaveLength(1);
   await page.screenshot({ path: info.outputPath('ahri-r-eye-glows.png') });
   expect(new Set(requests).size).toBe(6);
   expect(requests.some((path) => path.endsWith('.glb'))).toBe(false);
   expect(errors).toEqual([]);
   await writeFile(
     info.outputPath('ahri-r-packets.json'),
-    JSON.stringify({ requests, flight, hit, eyes, errors }, null, 2)
+    JSON.stringify({ requests, glowRequests, flight, hit, eyes, errors }, null, 2)
   );
 });
 
