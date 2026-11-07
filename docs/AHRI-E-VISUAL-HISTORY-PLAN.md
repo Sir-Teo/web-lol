@@ -90,3 +90,20 @@ simulation module enters compatibility collection (655 files / 80dc7370).
 World hooks, serialization, retention-policy selection and strict schema-179
 admission remain pending. This preparation defines no runtime observer field on
 World and no renderer consumes it.
+
+## Independent motion and control admission
+
+The motion validator replays the existing 60 Hz linear sweep from the retained
+launch and previous points, including first-step travel, exact range exhaustion
+and fractional contact against the saved target center/radius. It keeps launch
+and terminal anchors distinct when settlement occurs before a moved sample.
+Sampled Charm duration uses the existing rank and Courage/floor policy; expiry,
+replacement, source/target poses and canonical audience ownership are checked
+without introducing gameplay calculations into the observer.
+
+A separate adapter observes real World objects for hit, range, canceled windup,
+posthumous flight, terminal settlement and tenacity. Every observer operation
+leaves the complete core snapshot unchanged. Twenty mutations reject altered
+clocks, geometry, control ownership, deadlines, poses and audience shape. All 33
+preparation/baseline/admission tests and TypeScript checking pass. World hooks,
+live cross-links and schema integration remain pending.
