@@ -695,3 +695,12 @@ gaps. The seven/eight-per-second profiles use nine/eight-tick spacing in this
 window. These observations rule out a naive fixed-stride or `time * rate` seek
 replacement. They do not establish a bounded optimization or native clock policy;
 the continuous profiles remain unconnected.
+
+
+Production nested-path checks pass with 32 recordings and zero eager R particle
+preloads. Offline reload/activation passes with 978 worker responses and zero
+production errors. Pack `b8582765` remains exact after delivery, at 1,432 files /
+581,128,947 bytes with the unchanged worker policy. The
+[layout acceptance](reference/ahri/r-layout-acceptance.json) pins 251 evidence
+files and preserves the single portable CI retry. Primary integration follows
+separately; prior accepted packs remain retained.
