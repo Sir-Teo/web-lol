@@ -44,3 +44,21 @@ Python. [Source verification](reference/masteryi/r-trail-audio-source-verificati
 indexes exact particle/bank/master identities, guards, output replay and unchanged
 application identity. Canonical decoding and source declarations do not certify
 native decoder, bus, resampling, device output or listening equivalence.
+
+## Initialization-bank candidate investigation
+
+A pinned public filename dictionary identifies two historical init-bank paths,
+including `assets/sounds/wwise2016/sfx/shared/init.bnk`. Its 27,677,227-byte
+partition verifies against Git blob `dab92f157570bc74b811884fcd549b1813be1c19`.
+That dictionary supplies filename hints, not native parameter semantics.
+
+Neither candidate hash appears in the pinned Global WAD header or the four
+previously cached map/champion headers. The manifest's direct filenames also
+contain no `.bnk` or Wwise-named files. This is a limited search; other WADs and
+the complete native client were not exhaustively examined. Global header/chunk
+provenance and the refused extraction attempt remain retained in the
+[parameter investigation](reference/masteryi/r-trail-parameter-investigation.json).
+
+Parameter 745018932's meaning, native default and live input remain unresolved.
+The original source reading and all runtime/public bytes stay unchanged; this
+negative result supplies no flat-volume loop or native callback policy.

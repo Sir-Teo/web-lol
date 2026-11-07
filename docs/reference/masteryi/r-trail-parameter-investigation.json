@@ -1,0 +1,90 @@
+{
+  "format": 1,
+  "result": "unresolved",
+  "sourceRevision": "539c16cc5c8306af982b45483894e1c1cf43be1b",
+  "parameterId": 745018932,
+  "originalTrailReadingSha256": "7927f63a728ffd36c06bfddc2a01ce4350f7e9326302cec54b3b25a5a79aee2f",
+  "parameterMeaning": null,
+  "nativeDefault": null,
+  "liveInput": null,
+  "candidateDictionary": {
+    "sourceUrl": "https://raw.githubusercontent.com/CommunityDragon/Data/e53e58f7760fd1be3f3e34383e4efedfffd3fd57/hashes/lol/hashes.game.txt.8",
+    "bytes": 27677227,
+    "sha256": "a3bb098e67fe8477de35c0619d98eeaf41d67fbd9d374d3094f8eb15a7409134",
+    "gitBlob": "dab92f157570bc74b811884fcd549b1813be1c19",
+    "retained": ".cache/masteryi-global-parameter-research/hashes.game.txt.8"
+  },
+  "dictionaryIsPatchSpecificNativeEvidence": false,
+  "checkedGlobalArchive": "DATA/FINAL/Global.wad.client",
+  "nativeReferenceVersion": "16.18.8175716",
+  "candidatePaths": [
+    {
+      "file": "assets/sounds/wwise2016/sfx/shared/init.bnk",
+      "hash": "99aaa9bdf19c6c72",
+      "present": false
+    },
+    {
+      "file": "assets/sounds/wwise/sfx/shared/init.bnk",
+      "hash": "fd8e3c56df510b48",
+      "present": false
+    }
+  ],
+  "cachedHeadersChecked": 5,
+  "globalHeader": {
+    "file": ".cache/riot-reference/2911d8385a04dbef-header.wad.client",
+    "bytes": 2121520,
+    "sha256": "97e95a086767e758c39db74799e1cc44c64c5729ed87793b1fce23ddc722a37c"
+  },
+  "nativeChunkPins": 13,
+  "manifestDirectBankOrWwiseFilenameMatches": 0,
+  "runtimePublicAssetsAndOriginalReadingsUnchanged": true,
+  "limits": [
+    "No candidate init-bank hash appears in the checked Global/map/champion headers; other archives were not exhaustively searched.",
+    "A public filename dictionary cannot establish parameter semantics or a default; absence in these headers is not absence from the complete client.",
+    "The direct dictionary endpoint returned HTTP 403; a pinned GitHub partition was downloaded and verified against its exact blob hash instead.",
+    "The candidate extraction refused before writing a bank because its hash was absent. No synthetic game-parameter definition, constant live value, source loop or lifecycle callback is introduced."
+  ],
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/global-audio-bank-path-research-v1.log",
+      "bytes": 1294,
+      "sha256": "e998cc3d3264604b94e43bbd1d7012b1d2a7a8431a607a0ad5c25d407b0014f9"
+    },
+    {
+      "file": "artifacts/global-audio-hash-range-probe-v1.log",
+      "bytes": 410,
+      "sha256": "431ecf71859a065770f8e4fe160584070f3aa9700c8d708d18b5d9f41791af52"
+    },
+    {
+      "file": "artifacts/global-audio-hash-partition-probe-v1.json",
+      "bytes": 3013,
+      "sha256": "69b4ce97edf810c7b9f1ea58af15e6cc28cf019aa220c77b6f1b80c10e272cc2"
+    },
+    {
+      "file": "artifacts/global-audio-bank-path-research-v2.json",
+      "bytes": 62322,
+      "sha256": "176df3656a7468e6d334441bc757188f56a876bfa82771e04939353fee1012fd"
+    },
+    {
+      "file": "artifacts/global-audio-init-extraction-v1.log",
+      "bytes": 327,
+      "sha256": "0fae5823557f9704ee8e3fe48f4ab026480eebc3be88fb39fce1c2bc5864f24f"
+    },
+    {
+      "file": "artifacts/global-audio-init-provenance-reading-v1.json",
+      "bytes": 4602,
+      "sha256": "1db6911411bb48f151948d75d7eba532c396fa33de63fde9dcc0294d3ebcab00"
+    },
+    {
+      "file": "artifacts/global-audio-init-cached-header-scan-v1.json",
+      "bytes": 1119,
+      "sha256": "b33b73f599ceecde4ddb51569c3b5716d9beb3d38f2295fc47029880bfbe2b2e"
+    },
+    {
+      "file": "artifacts/global-audio-init-manifest-path-scan-v1.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+  ]
+}
