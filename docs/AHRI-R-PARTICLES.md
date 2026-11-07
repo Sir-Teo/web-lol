@@ -713,3 +713,20 @@ coverage. All application/public bytes match the accepted runtime. See
 The prior eye-trail, glow, palette, 20-profile R, observer and E packs remain
 retained. Current hundred-seed, native calibration and full-project gates remain
 unfinished.
+
+
+## Continuous layout glow preparation
+
+The [accepted quad-packet reference](reference/ahri/r-layout-quad-packet-reference.json)
+adds 42 complete packets from application `f85b2455`, with all 696 archived files
+verified before executing its frozen sampler. It covers finite stops, the final
+live updates, expiry and a distant empty seek. All 208 spell/glow/trail/quad
+reference checks and TypeScript pass before further sampler work.
+
+The next candidate is billboard profile 53, `Glow_Add1`. Its constant rate eight,
+omitted lifetime and negative half-second delay need a bounded continuous birth
+adapter. Unlike the preceding quad, it explicitly needs soft depth. The existing
+shared R depth capture must include buff materials before this profile can draw;
+its source requirement will not be disabled. Its texture is already shared with
+a selected contact profile. Other continuous mesh emitters and the sixty-second
+layout quad remain separate work.

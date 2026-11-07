@@ -1,0 +1,352 @@
+{
+  "format": 1,
+  "producerSha256": "bb651502bd21ccde8401372cefb2b6929f6e090169fd99861f72d55907161257",
+  "entrySha256": "c4c6958efc79e1889b1adb530db7bcc193fbfb710ae95bd801ec15a8678abcbd",
+  "sourceRevision": "f85b2455feebbe6860c13a466bbb924c731e62fd",
+  "applicationRevision": "f85b2455feebbe6860c13a466bbb924c731e62fd",
+  "archivePlanSha256": "ebd0d01971723860311934770b9ed5e88a0a08807d86cef537b041e510f79ec1",
+  "ruleset": "f71c3f787f38e62d3b7dba290bb64de32da3fd7cae14e97f64e16e6853d03c6e",
+  "node": "v24.22.1",
+  "v8": "13.6.233.17-node.58",
+  "verifiedArchiveFiles": 696,
+  "sourceModuleSha256": "2cd1cc88e1151b42cfe098ba2f3db8e32cbc3410495321e7276305e10fbdc826",
+  "context": "boundObjectSize=100; root(t)={x:t*120,y:t*t*8,height:100,facing:t/4}",
+  "samples": [
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 927,
+      "time": 0.43,
+      "stopSeconds": null,
+      "count": 1,
+      "sha256": "234a5250e65613c44a861e582003f00eda853900bb923f1fb983cb872f6ac2ed"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 927,
+      "time": 0.43,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 927,
+      "time": 0.43,
+      "stopSeconds": 15,
+      "count": 1,
+      "sha256": "234a5250e65613c44a861e582003f00eda853900bb923f1fb983cb872f6ac2ed"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 927,
+      "time": 1.5,
+      "stopSeconds": null,
+      "count": 1,
+      "sha256": "70ee552aa6aec268e3f74b2f75abc66062d84d405802536fb0f28ad1b0d8e3ea"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 927,
+      "time": 1.5,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 927,
+      "time": 1.5,
+      "stopSeconds": 15,
+      "count": 1,
+      "sha256": "70ee552aa6aec268e3f74b2f75abc66062d84d405802536fb0f28ad1b0d8e3ea"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 927,
+      "time": 5.25,
+      "stopSeconds": null,
+      "count": 1,
+      "sha256": "e0d1ad919e94fc3f7dc19942586351f871354bf75462997868fefca18456c0c7"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 927,
+      "time": 5.25,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 927,
+      "time": 5.25,
+      "stopSeconds": 15,
+      "count": 1,
+      "sha256": "e0d1ad919e94fc3f7dc19942586351f871354bf75462997868fefca18456c0c7"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 927,
+      "time": 9.99,
+      "stopSeconds": null,
+      "count": 1,
+      "sha256": "0cd8c5ebf2501af13ab299785197f527cdb16cb839cdc9101cfc60eb53bef2c3"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 927,
+      "time": 9.99,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 927,
+      "time": 9.99,
+      "stopSeconds": 15,
+      "count": 1,
+      "sha256": "0cd8c5ebf2501af13ab299785197f527cdb16cb839cdc9101cfc60eb53bef2c3"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 927,
+      "time": 10.01,
+      "stopSeconds": null,
+      "count": 1,
+      "sha256": "411fa51d4ca4ba5a5e6d1c56ad49bb9ac9f7765a76a675c17a02f6dc60ae69f3"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 927,
+      "time": 10.01,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 927,
+      "time": 10.01,
+      "stopSeconds": 15,
+      "count": 1,
+      "sha256": "411fa51d4ca4ba5a5e6d1c56ad49bb9ac9f7765a76a675c17a02f6dc60ae69f3"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 927,
+      "time": 10.02,
+      "stopSeconds": null,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 927,
+      "time": 10.02,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 927,
+      "time": 10.02,
+      "stopSeconds": 15,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 927,
+      "time": 1000000,
+      "stopSeconds": null,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 927,
+      "time": 1000000,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 927,
+      "time": 1000000,
+      "stopSeconds": 15,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 13,
+      "time": 0.43,
+      "stopSeconds": null,
+      "count": 1,
+      "sha256": "7b48f2beda1596815b7f583e63c376be116bdfb7fc9092d92d378a22c90e3ea2"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 13,
+      "time": 0.43,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 13,
+      "time": 0.43,
+      "stopSeconds": 15,
+      "count": 1,
+      "sha256": "7b48f2beda1596815b7f583e63c376be116bdfb7fc9092d92d378a22c90e3ea2"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 13,
+      "time": 1.5,
+      "stopSeconds": null,
+      "count": 1,
+      "sha256": "fe472273e601d9d5d64a1ea7c7973319b6e69dba4829c9ccc856495078bffaeb"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 13,
+      "time": 1.5,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 13,
+      "time": 1.5,
+      "stopSeconds": 15,
+      "count": 1,
+      "sha256": "fe472273e601d9d5d64a1ea7c7973319b6e69dba4829c9ccc856495078bffaeb"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 13,
+      "time": 5.25,
+      "stopSeconds": null,
+      "count": 1,
+      "sha256": "84351bee32e2d263b2bfb54fa8b211b466d611c580eeb1c7a50d3e3ffd5fa757"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 13,
+      "time": 5.25,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 13,
+      "time": 5.25,
+      "stopSeconds": 15,
+      "count": 1,
+      "sha256": "84351bee32e2d263b2bfb54fa8b211b466d611c580eeb1c7a50d3e3ffd5fa757"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 13,
+      "time": 9.99,
+      "stopSeconds": null,
+      "count": 1,
+      "sha256": "49e6a3f86dcd1378788d08555715bcc74de15b20be06ded0f63b77c837afcca2"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 13,
+      "time": 9.99,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 13,
+      "time": 9.99,
+      "stopSeconds": 15,
+      "count": 1,
+      "sha256": "49e6a3f86dcd1378788d08555715bcc74de15b20be06ded0f63b77c837afcca2"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 13,
+      "time": 10.01,
+      "stopSeconds": null,
+      "count": 1,
+      "sha256": "5118164bde7e45450069f5112b5eb6c480965e1e64c1e929df58548036317b5e"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 13,
+      "time": 10.01,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 13,
+      "time": 10.01,
+      "stopSeconds": 15,
+      "count": 1,
+      "sha256": "5118164bde7e45450069f5112b5eb6c480965e1e64c1e929df58548036317b5e"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 13,
+      "time": 10.02,
+      "stopSeconds": null,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 13,
+      "time": 10.02,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 13,
+      "time": 10.02,
+      "stopSeconds": 15,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 13,
+      "time": 1000000,
+      "stopSeconds": null,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 13,
+      "time": 1000000,
+      "stopSeconds": 0.4,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "system": "Ahri_R_Ready_tar",
+      "seed": 13,
+      "time": 1000000,
+      "stopSeconds": 15,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  ]
+}
