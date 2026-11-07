@@ -117,3 +117,16 @@ their consumed profiles, assets and source kernels. Three loader lifecycle tests
 and the W scene/ribbon suites pass (13 tests), and TypeScript checking passes.
 Browser visual verification is in progress; the staged source does not yet have
 full rendering acceptance or primary integration.
+
+## Browser verification
+
+Four Chromium cases pass against rendering revision 124cc67 (ruleset
+ff8abc1be3d5e4191d0544c600ed32c1e3d89b5bf969d9f2a57c591cde81dbe9):
+keyboard cast with orbit / flight / hit drawings and restored packets; actual
+practice-brush sight boundaries; committed flights after caster death and terminal
+drain; and a roster without Ahri making zero W asset requests. The joined loader
+requests 24 owned textures and the sharp mesh, borrowing the other textures.
+No JavaScript or shader errors were reported. Open-lane orbit and flight captures
+were inspected in artifacts/ahri-w-browser-v2. Software Chromium establishes
+functional behavior, not device performance or native pixel equivalence.
+Full regression and archived gameplay comparison remain pending.
