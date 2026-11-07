@@ -102,6 +102,17 @@ visual/audio calibration and representative device performance remain open.
 Roadmap milestone 4 and project completion remain false. The historical records
 below retain earlier intermediate limitations and next steps.
 
+The HUD-only accessibility checkpoint `c7ee1a88` exposes sound and camera-lock
+pressed states, updates their action text, and keeps camera state synchronized
+with keyboard and external camera changes. Two real-HUD/input browser probes
+pass without World mutation. TypeScript, production build and complete pack
+audit pass. Current pack `30aedd68` has 1,432 files / 581,141,906 bytes with the
+same worker policy; the earlier `64ef73c1` noise pack remains retained. All 696
+compatibility inputs and ruleset `e02f3e73` remain unchanged, so the frozen current
+hundred-seed audit retains its simulation scope. This targeted UI verification
+does not replace the earlier full-suite, graphics or offline receipts. See
+[HUD verification](reference/hud-toggle-accessibility-verification.json).
+
 ## Recent verified checkpoints
 
 Primary merge `9e3bd16` preserves both Q acceptance/documentation commits and

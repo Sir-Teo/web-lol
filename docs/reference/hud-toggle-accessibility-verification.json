@@ -1,0 +1,64 @@
+{
+  "format": 1,
+  "result": "passed",
+  "applicationRevision": "c7ee1a88",
+  "sourceDelta": [
+    "src/ui/hud.ts"
+  ],
+  "schema": 181,
+  "ruleset": "e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f",
+  "compatibilityFiles": 696,
+  "functionalBrowserCasesPassed": 2,
+  "browserScope": "Real Hud/GameInput/practice World in a DOM harness; WebGL initialization and minimap drawing excluded; no visual or performance certification",
+  "typescriptAndProductionBuildPassed": true,
+  "allFilePackAudit": {
+    "result": "passed",
+    "pack": "30aedd68e5b4aeb21e0beb34d1e856afbd507a372aec1592f6d3066dc8bfd8d6",
+    "files": 1432,
+    "bytes": 581141906,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "retainedPack": "/workspace/web-lol/.cache/hud-toggle-accepted-pack-30ae",
+  "priorAcceptedNoisePackPreserved": true,
+  "fullSuiteEvidenceRetainsNoiseRevisionScope": true,
+  "currentHundredAuditStillRunning": true,
+  "roadmapMilestone4Complete": false,
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/hud-toggle-browser-driver-v3.log",
+      "bytes": 672,
+      "sha256": "0ef494b612b9ea8a0d5a338a281b5f21bbe7a4fc63ae2a8604407e67b8ec4f88"
+    },
+    {
+      "file": "artifacts/hud-toggle-browser-v3.json",
+      "bytes": 4209,
+      "sha256": "7d9d7641fe8083a64715ad54f00bb11a97294679004cf5dcfdeffe9d7fcfa42f"
+    },
+    {
+      "file": "artifacts/hud-toggle-build-v1.log",
+      "bytes": 9453,
+      "sha256": "43185c0969dcd25523bed87b2e916974d0c2a6d56550afd61b7a6110432bcbad"
+    },
+    {
+      "file": "artifacts/hud-toggle-build-dedup-v1.json",
+      "bytes": 1329,
+      "sha256": "a613807120b430816fa3c91257586fbc168bbc42cb49e6d39275f753d8aa655b"
+    },
+    {
+      "file": "artifacts/hud-toggle-ruleset-v1.json",
+      "bytes": 104,
+      "sha256": "5a9159e9011a6086ba92e9320f35b01aa31a984d99d095f1538d585e16f6b4d6"
+    },
+    {
+      "file": "artifacts/hud-toggle-browser-v3/hud-toggle-accessibility-H-a2de6--updates-initial-lock-true-/hud-toggle-states.json",
+      "bytes": 146,
+      "sha256": "ca5dd330441b9aebfe16781cb5abc2ad3f54b30711eca0f47f378e0dd91ed498"
+    },
+    {
+      "file": "artifacts/hud-toggle-browser-v3/hud-toggle-accessibility-H-cf9ea-updates-initial-lock-false-/hud-toggle-states.json",
+      "bytes": 147,
+      "sha256": "8a4fbee04580fc06da956dff4488a8057c70a8ab5d5ad87fd5e344f552f79b91"
+    }
+  ]
+}
