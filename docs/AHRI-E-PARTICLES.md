@@ -65,3 +65,21 @@ runtime acceptance. Public transport and playback remain separate work.
 The [source/decode receipt](reference/ahri/e-particles-source-verification.json)
 pins both commits, the successful checks, unchanged shared helpers and the
 unchanged runtime identity.
+
+## Additional persistent-buff resource
+
+The native Charm buff also declares effect key {44fc6ec4} on
+C_BUFFBONE_GLB_LAYOUT_LOC. The unchanged base-skin resource map resolves this raw
+key to Characters/Ahri/Skins/Skin0/Particles/Ahri_Base_Doom_buf. Its spelling is
+not inferred. The separate e-additional-particles.json retains all three complex
+emitters and their complete native fields. Its four-file closure contains two
+BINs and two additional textures / 88,843 bytes; those textures are absent from
+the E-prefixed closure above. The original four-resource pin remains frozen.
+
+The additional source pin SHA-256 is
+d16b06cc12bfd2016dc07f048d1b031ff6da346f3dbb2ab7dfdb7aa407086c90.
+Native reparse and nine guards pass in normal and optimized Python. The native
+integer-to-boolean substitution guard follows an actual integer in this record;
+it does not invent a boolean field. Complete buff chronology and rendering are
+still separate work. The selected ability now has five resource definitions /
+29 complex emitters available for the producer reading.
