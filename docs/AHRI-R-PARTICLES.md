@@ -863,3 +863,19 @@ geometry. Invalid input disposes each shared staging resource once.
 Eight ownership/conversion checks pass alongside all 263 frozen-reference checks,
 as does TypeScript. The real blastwave GLB supplies the successful interleaved
 case. No live asset loader or mesh producer is connected yet.
+
+
+The private sampler now prepares mesh profiles 51/52/54 with the preserved
+active-only period object and a bounded thirty-second kernel replay. Original
+birth clocks, emitter phase and finite ordinals remain intact. Expensive
+motion/binding caches keep only recent candidates; the observed cache bound is
+forty-two births including the existing quad/glow profiles. Live bindings remain
+unchanged.
+
+Three mesh checks pass alongside the earlier 279 adapter/sampler/reference
+checks, and TypeScript passes. Complete schedules yield 120/200/200 births,
+preserve both 16-tick gaps, cease births before thirty seconds and drain naturally.
+Fractional/backward/stop seeks and recent-only roots match fresh sampling. The
+five accepted packet families remain exact. The future live closure adds only
+two texture transports (eight/four authored mips) and the colored blastwave GLB;
+no public asset bytes change.
