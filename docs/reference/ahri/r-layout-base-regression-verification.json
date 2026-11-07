@@ -56,11 +56,11 @@
     "disposableExportRemoved": true
   },
   "rBrowser": {
-    "distinctCasesPassed": 1,
-    "originalBatchPassed": 0,
+    "distinctCasesPassed": 8,
+    "originalBatchPassed": 6,
     "additionalKeyboardStagePassed": 1,
-    "continuousGlowChangedPixels": 329796,
-    "layoutQuadChangedPixels": 117553,
+    "continuousGlowChangedPixels": 303376,
+    "layoutQuadChangedPixels": 117643,
     "worldUnchangedDuringPixelProbes": true,
     "sharedDepthCapturesPerRender": 1,
     "buffOnlyDepth": {
@@ -80,29 +80,30 @@
     "meshPixelProofs": [
       {
         "profile": 51,
-        "changedPixels": 807,
+        "changedPixels": 2262,
         "depthCaptures": 2,
         "unchanged": true,
         "scope": "Complete gameplay renderer, profile hidden/enabled, one shared R depth capture per render, no world step"
       },
       {
         "profile": 52,
-        "changedPixels": 42347,
+        "changedPixels": 36677,
         "depthCaptures": 2,
         "unchanged": true,
         "scope": "Complete gameplay renderer, profile hidden/enabled, one shared R depth capture per render, no world step"
       },
       {
         "profile": 54,
-        "changedPixels": 90836,
+        "changedPixels": 88828,
         "depthCaptures": 2,
         "unchanged": true,
         "scope": "Complete gameplay renderer, profile hidden/enabled, one shared R depth capture per render, no world step"
       }
     ],
     "nativeMeshGeometries": 1,
-    "layoutBaseChangedPixels": 192876,
-    "baseMapMips": 8
+    "layoutBaseChangedPixels": 192952,
+    "baseMapMips": 8,
+    "edgeCasesPassed": 2
   },
   "naturalMatch": {
     "completeProjectionMatches": 44,
@@ -277,7 +278,7 @@
     "artifacts/ahri-r-layout-base-sampler-types-v2.log"
   ],
   "crossKitBrowserCasesPassed": 0,
-  "distinctBrowserCasesPassed": 1,
+  "distinctBrowserCasesPassed": 8,
   "acceptedEyeGlowPacketsRetained": 36,
   "applicationIdentity": {
     "verifiedFiles": 2229,
