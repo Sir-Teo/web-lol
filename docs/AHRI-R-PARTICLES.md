@@ -162,3 +162,38 @@ R adds fields beyond the earlier E projection, including distortion, field
 collections, emitter linger, directional velocity, auxiliary texture inputs and
 four unresolved hash labels. These require explicit profile handling. The type
 reading supplies no missing native callbacks or shader semantics.
+
+## Complete private profile projection
+
+All 55 emitters project as 23 billboards, 13 quads, 13 trails and six mesh
+instances. The profile retains every original source declaration, including raw
+hashed labels and native field tags, beside projected curves, flags, texture
+references and explicit local constructor fallbacks. All 68 authored field names
+including __type are accounted for. Eleven FNV-checked aliases name period,
+lookup, multiplier-division, palette-texture and noise declarations without
+rewriting the frozen source pin.
+
+Fourteen omitted emitter lifetimes and three missing palette textures stay
+missing. Palette field {143f06d1} stays raw and unresolved. Noise arithmetic,
+missing box dimensions, periodic-emission policy, UV rotation, scene-depth and
+distortion inputs remain named requirements. The sixteen emitters in the three
+unjoined systems retain their missing-dispatch requirement. Null Transform_Out
+and identity-only TextureSwaps remain explicit in the reading.
+
+The [portable reading](reference/ahri/r-profile-reading.json) pins the private
+1,418,590-byte profile and all helper/input identities. Normal and optimized
+guards reject six source-pin mutations and nine structural mutations, including
+alias collisions, dropped emitters, boolean substitutions for native integer
+FLAG payloads, unhandled fields and nonfinite curves. Every raw declaration and
+field-tag set is checked. Four focused Node QA cases pass. See
+[projection verification](reference/ahri/r-profiles-verification.json).
+
+```sh
+python3 tools/assets/prepare-ahri-r-profiles.py --verify-reading
+python3 tools/assets/test-ahri-r-profiles.py
+python3 -O tools/assets/test-ahri-r-profiles.py
+node --test tools/qa/ahri-r-particle-bindings.test.mjs tools/qa/ahri-r-particle-profiles.test.mjs
+```
+
+This projection adds no runtime bindings or public assets. Native semantics and
+rendered appearance remain separate from preserving source declarations.

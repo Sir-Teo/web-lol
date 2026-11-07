@@ -1,0 +1,78 @@
+{
+  "format": 1,
+  "scope": "Complete private Spirit Rush profile projection; unresolved semantics remain explicit",
+  "profiles": 55,
+  "authoredFieldsIncludingType": 68,
+  "rawNativeFieldNames": 67,
+  "counts": {
+    "billboard": 23,
+    "mesh": 6,
+    "quad": 13,
+    "trail": 13
+  },
+  "profile": {
+    "path": ".cache/ahri-r-profiles-v1/profiles.json",
+    "bytes": 1418590,
+    "sha256": "28ed5952a1820c71d445e6cbb06ca8490c898536278864f532330fba980670f7"
+  },
+  "missingEmitterLifetimes": 14,
+  "missingPaletteTextures": 3,
+  "unresolvedPaletteField": "{143f06d1}",
+  "unjoinedSystems": 3,
+  "rawSourceDeclarationsPreserved": true,
+  "nativeFieldTagsPreserved": true,
+  "sourcePinMutationCases": 6,
+  "structuralMutationCases": 9,
+  "normalGuards": true,
+  "optimizedGuards": true,
+  "focusedNodeQACases": 4,
+  "runtimeChanged": false,
+  "publicAssetsAdded": false,
+  "evidence": [
+    {
+      "path": "docs/reference/ahri/r-profile-reading.json",
+      "bytes": 9596,
+      "sha256": "0f4bd493394c03cd4d372ef83898d5bfc0793ff6b1924c7828fe010ba8c6d3c3"
+    },
+    {
+      "path": "tools/assets/ahri_r_profiles.py",
+      "bytes": 18131,
+      "sha256": "d2d04b55f9e9ca9163a594886c3d68d276be6b5e36f77970f2b3f9ffd2ad49dc"
+    },
+    {
+      "path": "tools/assets/prepare-ahri-r-profiles.py",
+      "bytes": 6100,
+      "sha256": "af1aacf4cc621c447d3cba2834ca7cc9d47add222118ac179452c4b00313ac48"
+    },
+    {
+      "path": "tools/assets/test-ahri-r-profiles.py",
+      "bytes": 6582,
+      "sha256": "39c6e1703f6f6e6389775fec62be7e2d6765549a8a9c688e64700ee7bbba4d0f"
+    },
+    {
+      "path": "tools/qa/ahri-r-particle-profiles.test.mjs",
+      "bytes": 840,
+      "sha256": "1f3c63d1232ce125eba313a221ff5199544470a6d7f09e2903d0d8365ac9f8a5"
+    },
+    {
+      "path": "artifacts/ahri-r-profile-reading-v1.log",
+      "bytes": 245,
+      "sha256": "450f00f00e082e1e34047ea032c262f6978fd07a7f985e10c6f73b747385fe54"
+    },
+    {
+      "path": "artifacts/ahri-r-profiles-guards-v1.log",
+      "bytes": 197,
+      "sha256": "20d65e3bc1984cd74ed78dc38d89b2d305e33498f509327e4062698d60bca85a"
+    },
+    {
+      "path": "artifacts/ahri-r-profiles-guards-optimized-v1.log",
+      "bytes": 196,
+      "sha256": "5d84909721044f565f6b76a13c8621a445d5942aeea3c25f60fe64d24bcf3d63"
+    },
+    {
+      "path": "artifacts/ahri-r-profile-node-qa-v1.log",
+      "bytes": 361,
+      "sha256": "de5f876b6666916a52731f627856b68e4ee10f70d06fbe0e17b387be1972ab7b"
+    }
+  ]
+}
