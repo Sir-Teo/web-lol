@@ -7,23 +7,25 @@ Last updated: November 7, 2026 (UTC).
 ## Current authoritative state
 
 Accepted local runtime: save schema **181**, ruleset
-`e2c1447e3ff495f6ca32f85f711721adb4a457218e8aede36133c16cf004ac5b`.
-[Spirit Rush spell rendering](AHRI-R-PARTICLES.md), application `1bef0ac0`, draws
-20 joined missile/contact profiles from saved bolt paths and owned target poses.
+`a68ca14b74c144ccb6b0d183f2d41395403a8defa0ae514756463c369f46b90d`.
+[Spirit Rush spell rendering](AHRI-R-PARTICLES.md), application `a7092caa`, draws
+21 joined missile/contact profiles from saved bolt paths and owned target poses.
+The checked `palleteSrcMixColor` field now drives its source gradient ribbon.
 Exact chest-bone attachments, packed trails, flipbook cells, secondary UVs and
 one shared soft-depth capture replace provisional bolt spheres after lazy loading.
-Two noise profiles, one palette profile, 16 persistent and 16 unjoined profiles
-remain deferred. Native callback/default calibration and pixel parity remain open.
+Two noise profiles, 16 persistent and 16 unjoined profiles remain deferred.
+Omitted palette count/selector values use explicit local defaults matching the
+pinned external reader; native constructor and pixel calibration remain open.
 
-The full suite passes 9,308/9,310 tests in 581 files with only the two historical
-failures. All 261 Node QA cases and 84 clean-export commands pass. Scoped workflow
-selections execute 1,080 tests across 134 files, including overlap; unused map
-textures were omitted from this source/workflow export. All 33 distinct
-Q/W/E/R/audio browser cases pass. W preserves its original 25 assets and names
-one additional shared R texture explicitly. Production nested-path checks cover
-32 recordings and reject eager R renderer/texture loads. Offline lifecycle
+The full suite passes 9,312/9,314 tests in 582 files with only the two historical
+failures. All 263 Node QA cases and 87 clean-export commands pass. Scoped workflow
+selections execute 1,084 tests across 135 files, including overlap. One fingerprint
+test timed out under concurrent load; the identical command passed on retry and
+both logs remain. All 5,529 committed export files were verified before cleanup.
+All 33 distinct Q/W/E/R/audio browser cases pass. Production nested-path checks
+cover 32 recordings and reject eager R renderer/texture loads. Offline lifecycle
 checks pass with 978 worker responses and zero production errors. See
-[spell acceptance](reference/ahri/r-spell-rendering-acceptance.json).
+[palette acceptance](reference/ahri/r-palette-acceptance.json).
 
 All 45 natural-match complete saved projections match the accepted R observer,
 including every R/E/W/Q observation and audio history, excluding only schema and
@@ -32,15 +34,15 @@ ruleset. The seed reaches Blue victory at tick 157,116 with 44 round trips and
 states across 21 scenarios. Existing simulation/content bytes remain unchanged.
 All 334 public WAV files / 96,632,632 bytes, including 76 Ahri masters, remain exact.
 
-Pack `3dbfa301` contains 1,432 files / 581,114,779 bytes with the unchanged worker
-policy. Primary merge `0f697966` reproduces the exact accepted pack and passes
-74 focused tests in nine files. Application/public bytes match the accepted
-branch. The earlier R observer and E packs are retained separately. See
-[primary integration](reference/ahri/r-spell-rendering-main-integration.json).
+Pack `01c9c16a` contains 1,432 files / 581,116,424 bytes with the unchanged worker
+policy. Primary merge `ec9af34c` reproduces the exact accepted pack and passes
+78 focused tests in ten files. Application/public bytes match the accepted
+branch. The earlier 20-profile R, R observer and E packs remain retained. See
+[primary integration](reference/ahri/r-palette-main-integration.json).
 All work remains local. Emote/idle source preparation remains isolated.
 
 R retains all 55 published profiles, 51 textures / 428 authored mips and four
-meshes. Its spell subset uses 23 textures and one shared W mesh. Four new R
+meshes. Its spell subset uses 26 textures and one shared W mesh. Six new R
 textures and one shared W transport outside W's own joined subset load beside
 borrowed Q/W resources. Remaining persistent producers and source gaps stay
 explicit. Historical rig poses use owned timelines and named local fallbacks.

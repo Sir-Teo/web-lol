@@ -1,0 +1,63 @@
+{
+  "format": 1,
+  "mergeRevision": "ec9af34ceeb5ecc27337e84790426ff5628af3cf",
+  "acceptedRevision": "786e4ea6f62645f61442a892941a8d44bbcc1de1",
+  "applicationRevision": "a7092caa82f751cc1eb6064bd795cd7309b480c5",
+  "acceptanceEvidenceWorkspace": "/workspace/web-lol-ahri-w-particles",
+  "schema": 181,
+  "ruleset": "a68ca14b74c144ccb6b0d183f2d41395403a8defa0ae514756463c369f46b90d",
+  "compatibilityFiles": 685,
+  "applicationAndPublicByteIdentical": true,
+  "pack": {
+    "result": "passed",
+    "pack": "01c9c16a9b188c6f0f5a501c941320131e5bc535447a3bd2b8957200219cdb39",
+    "files": 1432,
+    "bytes": 581116424,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "focusedTests": {
+    "passed": 78,
+    "files": 10
+  },
+  "acceptanceScopePreserved": true,
+  "retainedPriorPacks": [
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-r-spell-rendering-accepted-pack-3dbf",
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-r-observer-accepted-pack-15b8",
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-e-accepted-pack-4995"
+  ],
+  "selectedSpellProfiles": 21,
+  "pushed": false,
+  "deployed": false,
+  "evidence": [
+    {
+      "path": "artifacts/ahri-r-palette-primary-build-v1.log",
+      "bytes": 9453,
+      "sha256": "618bfaf570edf94e7f1b6698345e1b76b7e993a87f31f648b7d18493bbbf878f"
+    },
+    {
+      "path": "artifacts/ahri-r-palette-primary-pack-v1.json",
+      "bytes": 213,
+      "sha256": "41296473165279325c5e897615147a867a7535c034d9c381da5d332b2d656cdf"
+    },
+    {
+      "path": "artifacts/ahri-r-palette-primary-pack-after-dedup-v1.json",
+      "bytes": 222,
+      "sha256": "b7db8a4f720fa2ed467732660163696861556b51fca0bffd04e65114d87d21b5"
+    },
+    {
+      "path": "artifacts/ahri-r-palette-primary-build-dedup-v1.json",
+      "bytes": 208,
+      "sha256": "681678ed8e762306fb5635562c944f3ac05355dfbbd32ebe9bd868b9c1b59776"
+    },
+    {
+      "path": "artifacts/ahri-r-palette-primary-tests-v1.log",
+      "bytes": 427,
+      "sha256": "1d33f4752fd00914aa2dc4c90038fc9b2ce2a3a06de61d47db88135cb7b12223"
+    },
+    {
+      "path": "docs/reference/ahri/r-palette-acceptance.json",
+      "bytes": 42457,
+      "sha256": "139ae0aab3e4060eead11e46f1790c1f9929364b8443a36b3d58049ce7ad134b"
+    }
+  ]
+}

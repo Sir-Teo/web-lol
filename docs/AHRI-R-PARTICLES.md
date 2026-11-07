@@ -411,4 +411,9 @@ byte and worker audit. Production nested-path checks pass with 32 recordings and
 zero eager R texture/renderer loads. Offline lifecycle checks pass with 978
 worker responses and zero production errors. See the
 [palette acceptance](reference/ahri/r-palette-acceptance.json). The previous
-20-profile pack is retained separately; primary integration follows separately.
+20-profile pack is retained separately.
+
+Primary merge `ec9af34c` reproduces pack `01c9c16a` exactly and passes 78 focused
+tests in ten files. Application/public bytes match the accepted candidate. See
+[palette integration](reference/ahri/r-palette-main-integration.json). The previous
+20-profile R pack remains retained alongside the R observer and E packs.
