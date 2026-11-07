@@ -7,45 +7,50 @@ Last updated: November 7, 2026 (UTC).
 ## Current authoritative state
 
 Accepted local runtime: save schema **181**, ruleset
-`0cbdb13a8ae7a5bdbd1ff2dba9d8798fa486c7a4f003a3fe14cba6eab32fe8c9`.
-[Spirit Rush rendering](AHRI-R-PARTICLES.md), application `69a05a86`, draws
-21 joined missile/contact profiles and four eye glow/trail profiles on both
-native eye bones. Saved R windows and owned caster poses drive the eye effects;
-zero charges do not end an active window, and actual Essence extensions persist.
-Periodic trails retain recent births and use per-birth clock origins for long
-ages. Ordinary ribbon mode and smoothing-off remain explicit external-reader
-defaults; native constructors remain unverified. Two noise, 12 persistent and
-16 unjoined profiles stay deferred.
+`f71c3f787f38e62d3b7dba290bb64de32da3fd7cae14e97f64e16e6853d03c6e`.
+[Spirit Rush rendering](AHRI-R-PARTICLES.md), application `f85b2455`, draws
+21 joined missile/contact profiles, four eye glow/trail profiles on both native
+eye bones and the ten-second layout quad on `C_Buffbone_Glb_Layout_Loc`.
+Saved R windows and owned caster poses drive the buff effects. The layout quad
+preserves per-step float32 binding and bone height while explicitly opting out
+of local terrain projection. Two noise, 11 persistent and 16 unjoined profiles
+stay deferred. Native constructor/callback and pixel calibration remain open.
 
-The full suite passes 9,468/9,470 tests in 593 files with only the two historical
-failures. All 263 Node QA cases and 87 clean-export commands pass on the first
-attempt. Scoped selections execute 1,240 tests across 146 file executions,
-including overlap; all 5,565 committed export files verify before cleanup.
-All 33 distinct browser cases pass, plus a diagnostic per-profile framebuffer
-probe that changes 16,362 / 11,695 pixels while leaving World unchanged.
+The full suite passes 9,528/9,530 tests in 595 files with only the two historical
+failures. All 263 Node QA cases pass. Portable CI completes all 87 commands:
+86 pass first attempt; one existing five-second fingerprint test times out during
+concurrent Node QA, then its identical 206-test command passes in isolation.
+Both logs remain; no test or timeout changed. Final scoped selections execute
+1,300 tests across 148 file executions, including overlap; all 5,578 committed
+export files verify before cleanup. All 33 distinct browser cases pass, plus a
+full-pipeline layout pixel probe changing 119,864 pixels without World mutation.
 Production nested-path checks cover 32 recordings with no eager R particle
 preloads. Offline lifecycle checks pass with 978 worker responses and zero
-production errors. See [eye-trail acceptance](reference/ahri/r-eye-trail-acceptance.json).
+production errors. See [layout acceptance](reference/ahri/r-layout-acceptance.json).
 
 All 45 complete natural-match saved projections match the accepted R observer,
-including every R/E/W/Q observation and audio history, excluding only schema and
+including every R/E/W/Q observation and audio history, excluding only version and
 ruleset. The seed reaches Blue victory at tick 157,116 with 44 round trips and
 43 checked futures. The frozen focused renderer baseline retains 357 complete
-states across 21 scenarios. All 72 accepted spell-particle and 36 eye-glow packet
-hashes remain exact. Simulation, content and public assets remain unchanged.
-All 334 public WAV files / 96,632,632 bytes, including 76 Ahri masters, remain exact.
+states across 21 scenarios. All 72 accepted spell-particle, 36 eye-glow and
+54 eye-trail packet hashes remain exact. Simulation, content and public assets
+remain unchanged. All 334 public WAV files / 96,632,632 bytes, including 76 Ahri
+masters, remain exact.
 
-Pack `c917c445` contains 1,432 files / 581,128,356 bytes with the unchanged worker
-policy. Primary merge `1a4727ee` reproduces the exact accepted pack and passes its
-independent 259-test selection in 22 files. See
-[primary integration](reference/ahri/r-eye-trail-main-integration.json). The prior glow, palette, 20-profile R, R observer and E packs
-remain retained. All work remains local. Emote/idle source preparation remains isolated.
+Pack `b8582765` contains 1,432 files / 581,128,947 bytes with the unchanged worker
+policy. Primary merge `68d64c7c` reproduces the exact accepted pack and passes all
+338 checks in its independent 27-file selection. See
+[primary integration](reference/ahri/r-layout-main-integration.json). The prior eye-trail, glow, palette, 20-profile R, observer and E
+packs remain retained. All work remains local. Emote/idle source preparation
+remains isolated.
 
 R retains all 55 published profiles, 51 textures / 428 authored mips and four
-meshes. Its selected subset uses 28 textures and one shared W mesh. Seven R-owned
+meshes. Its selected subset uses 29 textures and one shared W mesh. Eight R-owned
 textures and one shared W transport load beside borrowed Q/W resources. The eye
-glow texture reuses the existing Q cast load. Six layout profiles and six
-counter-driven indicators remain deferred. Omitted palette count/selector values
+glow texture reuses the existing Q cast load. Five layout profiles and six
+counter-driven indicators remain deferred. A 5,000-second diagnostic preserves
+nonuniform timing in the four-per-second continuous layout emitter; no bounded
+optimization or native-clock claim follows. Omitted palette count/selector values
 use explicit local defaults matching the pinned external reader; native
 constructors and global inputs remain unverified.
 

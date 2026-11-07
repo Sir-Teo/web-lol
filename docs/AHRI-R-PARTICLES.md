@@ -704,3 +704,12 @@ production errors. Pack `b8582765` remains exact after delivery, at 1,432 files 
 [layout acceptance](reference/ahri/r-layout-acceptance.json) pins 251 evidence
 files and preserves the single portable CI retry. Primary integration follows
 separately; prior accepted packs remain retained.
+
+
+Primary merge `68d64c7c` reproduces pack `b8582765` exactly and passes all 338
+checks in 27 files, including shared particle-surface, joint-frame and ground
+coverage. All application/public bytes match the accepted runtime. See
+[layout integration](reference/ahri/r-layout-main-integration.json).
+The prior eye-trail, glow, palette, 20-profile R, observer and E packs remain
+retained. Current hundred-seed, native calibration and full-project gates remain
+unfinished.
