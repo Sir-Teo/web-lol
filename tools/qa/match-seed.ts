@@ -1,6 +1,5 @@
 /** One immutable-process normal-rules match. Never changes victory or clock rules. */
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
-import { createHash } from 'node:crypto';
 import { parseArgs } from 'node:util';
 import { resolve } from 'node:path';
 import { createRift } from '../../src/content/rift';
@@ -9,6 +8,12 @@ import { createLaneMatch } from '../../src/simulation/lane-match';
 import { World } from '../../src/simulation/world';
 import { assertMatchResources, assertMatchVictory, observeStructureDamage } from './match-contract';
 import { cohortProfile } from './lib/cohort-profile';
+import {
+  readCohortSnapshot,
+  writeCohortSnapshot,
+  snapshotEncoding,
+  type SnapshotRecord,
+} from './lib/cohort-snapshot';
 
 declare const __SIMULATION_HASH__: string;
 
@@ -19,10 +24,12 @@ const { values, positionals } = parseArgs({
     data: { type: 'string', default: 'public/assets/maps' },
     'development-leona': { type: 'boolean', default: false },
     'development-roster': { type: 'boolean', default: false },
+    'snapshot-compression': { type: 'string', default: 'none' },
   },
   allowPositionals: true,
 });
 const profile = cohortProfile(values['development-leona'], values['development-roster']);
+const encoding = snapshotEncoding(values['snapshot-compression']);
 const seed = Number(positionals[0]),
   minutes = Number(values.minutes);
 if (
@@ -39,7 +46,6 @@ if (
 const output = resolve(values.output);
 if (existsSync(output)) throw new Error('Seed output already exists; retain frozen evidence.');
 mkdirSync(output, { recursive: true });
-const hash = (raw: string) => createHash('sha256').update(raw).digest('hex');
 const nav = readFileSync(resolve(values.data!, 'rift-nav.bin'));
 const metadata = readFileSync(resolve(values.data!, 'rift-nav.json'), 'utf8');
 const layout = readFileSync(resolve(values.data!, 'rift-layout.json'), 'utf8');
@@ -76,17 +82,29 @@ let checkedTicks = 0,
   futureChecks = 0,
   futureCheckedTicks = 0;
 const probe: { world: World | null; until: number } = { world: null, until: 0 };
-const checkpoints: { tick: number; path: string; stateSha256: string; fileSha256: string }[] = [];
+const checkpoints: (SnapshotRecord & { tick: number })[] = [];
 function checkpoint() {
   assertMatchVictory(world);
   const raw = world.snapshot();
-  const restored = World.fromSnapshot(raw, freshBattlefield());
+  const artifact = writeCohortSnapshot(
+    `${output}/${String(world.tick).padStart(6, '0')}.match.json`,
+    raw,
+    encoding
+  );
+  const persisted = readCohortSnapshot(artifact, encoding).raw;
+  if (persisted !== raw) throw new Error(`Stored snapshot mismatch at tick ${world.tick}`);
+  const restored = World.fromSnapshot(persisted, freshBattlefield());
   if (restored.snapshot() !== raw) throw new Error(`Round-trip mismatch at tick ${world.tick}`);
   roundTrips++;
-  const path = `${output}/${String(world.tick).padStart(6, '0')}.match.json`;
-  const bytes = raw + '\n';
-  writeFileSync(path, bytes);
-  checkpoints.push({ tick: world.tick, path, stateSha256: hash(raw), fileSha256: hash(bytes) });
+  const descriptor =
+    encoding === 'gzip'
+      ? artifact
+      : {
+          path: artifact.path,
+          stateSha256: artifact.stateSha256,
+          fileSha256: artifact.fileSha256,
+        };
+  checkpoints.push({ tick: world.tick, ...descriptor });
   probe.world = restored;
   probe.until = world.tick + 60;
   const sample = {
@@ -168,11 +186,16 @@ try {
   };
 }
 let finalPath = `${output}/final.match.json`,
-  finalStateSha256: string | null = null;
+  finalStateSha256: string | null = null,
+  finalSnapshot: SnapshotRecord | null = null;
 try {
   const raw = world.snapshot();
-  finalStateSha256 = hash(raw);
-  writeFileSync(finalPath, raw + '\n');
+  const artifact = writeCohortSnapshot(finalPath, raw, encoding);
+  if (readCohortSnapshot(artifact, encoding).raw !== raw)
+    throw Error('Stored final snapshot mismatch');
+  finalPath = artifact.path;
+  finalStateSha256 = artifact.stateSha256;
+  finalSnapshot = artifact;
 } catch {
   failure ??= { message: 'Final checkpoint could not be encoded', stack: null, cause: null };
   finalPath = `${output}/invalid-state.json`;
@@ -211,9 +234,23 @@ const report = {
     v8: process.versions.v8,
     platform: process.platform,
     arch: process.arch,
+    ...(encoding === 'gzip' ? { zlib: process.versions.zlib } : {}),
   },
   finalPath,
   finalStateSha256,
+  ...(encoding === 'gzip'
+    ? {
+        snapshotEncoding: encoding,
+        finalSnapshot,
+        snapshotStorage: [...checkpoints, ...(finalSnapshot ? [finalSnapshot] : [])].reduce(
+          (total, record) => ({
+            uncompressedBytes: total.uncompressedBytes + (record.uncompressedBytes ?? 0),
+            storedBytes: total.storedBytes + (record.storedBytes ?? 0),
+          }),
+          { uncompressedBytes: 0, storedBytes: 0 }
+        ),
+      }
+    : {}),
   checkpoints,
   destruction,
   structureDamage: [...structureDamage].map(([id, counts]) => ({ id, ...counts })),

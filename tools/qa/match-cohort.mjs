@@ -17,6 +17,7 @@ import { cpus } from 'node:os';
 import { parseArgs } from 'node:util';
 import { rulesetFiles, rulesetFingerprint } from '../ruleset-fingerprint.ts';
 import { cohortProfile } from './lib/cohort-profile.ts';
+import { snapshotEncoding } from './lib/cohort-snapshot.ts';
 
 const { values, positionals } = parseArgs({
   allowPositionals: true,
@@ -27,9 +28,11 @@ const { values, positionals } = parseArgs({
     'keep-going': { type: 'boolean', default: false },
     'development-leona': { type: 'boolean', default: false },
     'development-roster': { type: 'boolean', default: false },
+    'snapshot-compression': { type: 'string', default: 'none' },
   },
 });
 const profile = cohortProfile(values['development-leona'], values['development-roster']);
+const encoding = snapshotEncoding(values['snapshot-compression']);
 const jobs = Number(values.jobs),
   minutes = Number(values.minutes);
 const seeds = positionals.length
@@ -74,6 +77,7 @@ const sources = [
     'tools/qa/match-contract.ts',
     'tools/qa/verify-match-cohort.mjs',
     'tools/qa/lib/cohort-profile.ts',
+    'tools/qa/lib/cohort-snapshot.ts',
   ]),
 ]
   .sort()
@@ -121,6 +125,7 @@ const plan = {
   seeds,
   jobs,
   horizonTicks: minutes * 3600,
+  ...(encoding === 'gzip' ? { snapshotEncoding: encoding } : {}),
   developmentLeona: values['development-leona'],
   developmentRoster: values['development-roster'],
   qaAutomatedHumanCarry: profile.humanRole === 'carry',
@@ -133,6 +138,7 @@ const plan = {
     platform: process.platform,
     arch: process.arch,
     cpu: cpus()[0].model,
+    ...(encoding === 'gzip' ? { zlib: process.versions.zlib } : {}),
   },
   sources,
   inputs,
@@ -228,6 +234,7 @@ function launch(seed) {
       `${root}/maps`,
       '--output',
       `${root}/seeds/${seed}`,
+      ...(encoding === 'gzip' ? ['--snapshot-compression', 'gzip'] : []),
       ...(values['development-leona'] ? ['--development-leona'] : []),
       ...(values['development-roster'] ? ['--development-roster'] : []),
       String(seed),
@@ -254,6 +261,11 @@ function launch(seed) {
           throw new Error('Worker composition differs from the frozen plan');
         if (report.runtime.node !== plan.runtime.node || report.runtime.v8 !== plan.runtime.v8)
           throw new Error('Worker runtime differs from the frozen plan');
+        if (
+          (report.snapshotEncoding ?? 'none') !== encoding ||
+          (encoding === 'gzip' && report.runtime.zlib !== plan.runtime.zlib)
+        )
+          throw new Error('Worker snapshot encoding differs from the frozen plan');
         if (!['victory', 'unfinished', 'failed'].includes(report.outcome))
           throw new Error('Unknown worker outcome');
         if (
