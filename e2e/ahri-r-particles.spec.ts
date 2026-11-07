@@ -269,7 +269,7 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
     canvas.height = v.renderer.domElement.height;
     const context = canvas.getContext('2d')!;
     const capture = () => {
-      v.renderer.render(v.scene, v.camera);
+      v.render(w, 1, v.previousElapsed);
       context.drawImage(v.renderer.domElement, 0, 0);
       return {
         png: canvas.toDataURL('image/png'),
@@ -302,7 +302,7 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
     changedPixels: layoutPixels.changedPixels,
     unchanged: layoutPixels.unchanged,
     scope:
-      'Same gameplay camera and scene with only layout profile 50 hidden/enabled; no world step between captures',
+      'Complete gameplay render pipeline and camera with only layout profile 50 hidden/enabled; no world step between captures',
   };
   const eyeTrails = await page.evaluate(() => {
     const g = (window as any).__GAME__,
@@ -494,7 +494,10 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
     const g = (window as any).__GAME__,
       w = g.world,
       v = g.view;
+    // Stop through the ordinary order path before the fixture's decorative rocks.
+    w.setOrder(w.hero, { type: 'move', point: { x: w.hero.x, y: w.hero.y } });
     w.step(w.ahriRVisuals[0].startTick + 595 - w.tick);
+    v.zoom = 0.08;
     v.recenter(w.hero);
     v.render(w, 1, v.previousElapsed);
     const capture = () =>
