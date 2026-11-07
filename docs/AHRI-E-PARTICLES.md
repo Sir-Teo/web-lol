@@ -302,3 +302,12 @@ linger after a stop rather than extended by it. The combined E/W/schedule/basis
 checks pass 133 tests across four files, and TypeScript passes. Scene integration,
 attachments, GPU material choices and browser request/draw verification remain
 pending. No native callback or rendered-pixel parity is claimed.
+
+The shared surface path now accepts an explicit source rotation matrix before
+attachment reflection. Existing packets retain their unchanged Euler branch.
+Seventy-one basis/E/W checks and 37 existing surface-consumer checks pass across
+ten files, with TypeScript clean. A consumed-file audit against primary 1c95b19
+finds only source-particle-surfaces.ts changed among the 658 compatibility files.
+The isolated candidate therefore has ruleset 7d183645 under schema 179; it is
+not an accepted delivery identity and E playback is still unconnected. See
+e-surface-basis-verification.json. The primary accepted runtime remains 062e397a.

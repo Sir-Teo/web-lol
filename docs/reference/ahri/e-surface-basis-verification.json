@@ -1,0 +1,26 @@
+{
+  "format": 1,
+  "scope": "Consumed compatibility files versus accepted primary work; isolated optional source-basis path",
+  "beforeRevision": "1c95b199ce808f442da45a7a8f3dc314a644ba2d",
+  "candidate": {
+    "ruleset": "7d1836455e070a4436da7bb9b664278cd1531b1c3c47e291397e537b21db7ac0",
+    "compatibilityFiles": 658,
+    "schema": 179,
+    "ePlaybackConnected": false
+  },
+  "changed": [
+    {
+      "file": "src/render/source-particle-surfaces.ts",
+      "beforeSha256": "61a94c22a385354aa8c0d8ab7d203a0c2d478c444c3c8137d8b047781dd2197b",
+      "afterSha256": "9d4448e580d264d048ba1b7e20d4c9527f0c16f44c508bb8c08d9895cb11d1a3"
+    }
+  ],
+  "unchangedFiles": 657,
+  "ePlaybackConnected": false,
+  "tests": {
+    "basisAndParticleChecks": 71,
+    "existingSurfaceConsumerChecks": 37,
+    "files": 10
+  },
+  "typeScript": "passed"
+}

@@ -31,6 +31,9 @@ export type SurfaceParticle = ReturnType<typeof eclipseParticles>[number] & {
   /** Optional world-axis orbit about the current root, following the pinned
    * 65a7 reader. This is separate from newer emitter-frame reconstruction. */
   orbitTurn?: readonly number[];
+  /** Optional source spin/post-rotation matrix before the attachment frame.
+   * Omission preserves the existing Euler placement path. Row-major 3 by 3. */
+  sourceBasis?: ArrayLike<number> | null;
 };
 type Particle = SurfaceParticle;
 /** Structural draw contract. Source value metadata can retain fields beyond
@@ -140,6 +143,7 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
   readonly models = new Map<string, THREE.Mesh<THREE.BufferGeometry, THREE.ShaderMaterial>>();
   readonly depth = new SceneDepth();
   private sourceRotation = new THREE.Quaternion();
+  private sourceBasisMatrix = new THREE.Matrix4();
   private reflectedRotation = new THREE.Quaternion();
   private orbitRotation = new THREE.Quaternion();
   private frameRotation = new THREE.Quaternion();
@@ -383,12 +387,36 @@ export class SourceParticleSurfaces<G extends SurfaceGroup> {
           // Camera-facing billboards use roll or travel direction below. Their
           // full source Euler frame is only consumed by other surface paths.
           if (profile.kind !== 'billboard' || attachmentFrame) {
-            this.sourceRotation.setFromEuler(
-              this.euler.set(
-                ...(p.rotation.map(THREE.MathUtils.degToRad) as [number, number, number]),
-                'YXZ'
-              )
-            );
+            if (p.sourceBasis) {
+              const b = p.sourceBasis;
+              if (b.length !== 9 || !Array.from(b).every(Number.isFinite))
+                throw RangeError('Invalid source particle rotation basis');
+              this.sourceBasisMatrix.set(
+                b[0],
+                b[1],
+                b[2],
+                0,
+                b[3],
+                b[4],
+                b[5],
+                0,
+                b[6],
+                b[7],
+                b[8],
+                0,
+                0,
+                0,
+                0,
+                1
+              );
+              this.sourceRotation.setFromRotationMatrix(this.sourceBasisMatrix).normalize();
+            } else
+              this.sourceRotation.setFromEuler(
+                this.euler.set(
+                  ...(p.rotation.map(THREE.MathUtils.degToRad) as [number, number, number]),
+                  'YXZ'
+                )
+              );
             this.reflectedRotation.set(
               this.sourceRotation.x,
               -this.sourceRotation.y,
