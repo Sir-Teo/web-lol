@@ -155,6 +155,12 @@ bytes. All 696 compatibility inputs and ruleset `e02f3e73` remain unchanged; the
 sound-preference and earlier packs are retained. See
 [shop lifetime verification](reference/shop-async-lifetime-verification.json).
 
+Garen audition controls also own pending audio-context activation. Stop all
+cancels the pending group, and Stop active cancels only its own active cue. Six
+browser cases and standalone TypeScript pass; source sample, timing and fade
+checks remain intact. Production/runtime bytes are unchanged. See
+[ownership verification](reference/garen-q-audition-ownership-verification.json).
+
 ## Recent verified checkpoints
 
 Primary merge `9e3bd16` preserves both Q acceptance/documentation commits and

@@ -1,0 +1,58 @@
+{
+  "format": 1,
+  "result": "passed",
+  "revision": "2fa6d001ccdff303f03997ca2cf33920d187f586",
+  "browserCasesPassed": 6,
+  "originalOwnershipFailuresRetained": 2,
+  "stopAllCancelsPendingGroup": true,
+  "stopActiveCancelsOnlyPendingActive": true,
+  "unrelatedPendingAttackGroupPreserved": true,
+  "sourceFloatsDelaysAndStopFadePreserved": true,
+  "standaloneTypescriptPassed": true,
+  "runtimeAndPublicAssetsUnchanged": true,
+  "productionPackUnchanged": "171bacaffe287f0fc491e1c5227ed89d740df3717c246b87e801e1e901e55948",
+  "roadmapMilestone4Complete": false,
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/garen-q-ownership-typecheck-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "artifacts/garen-q-ownership-browser-driver-v1.log",
+      "bytes": 4551,
+      "sha256": "3d2e71369f6f52c2a8dea5a29c027d2d2aaa347b811857928892ef06e1135912"
+    },
+    {
+      "file": "artifacts/garen-q-ownership-browser-driver-v2.log",
+      "bytes": 1594,
+      "sha256": "9da1f281be310b50de093989c1846b2ccb8819e32c38faaba162e9bf20a0fc8b"
+    },
+    {
+      "file": "artifacts/garen-q-ownership-browser-v1.json",
+      "bytes": 11896,
+      "sha256": "88be0e0af44c85b4079ca501b09b9c80cc4c354a94b087bbd95080c9e857c057"
+    },
+    {
+      "file": "artifacts/garen-q-ownership-browser-v2.json",
+      "bytes": 8599,
+      "sha256": "695b9ff9ebea18a9dd0d369e1bb1ee8d056c40a10231f08ef52d4e2781e16582"
+    },
+    {
+      "file": "artifacts/garen-q-ownership-browser-v2/garen-q-audio-source-pendi-cca85-respects-stop-all-ownership/pending-resume-ownership.json",
+      "bytes": 44,
+      "sha256": "1c88c73e35418f24ae3d79aaec38f34de0805132b22967435d11f0203297fc57"
+    },
+    {
+      "file": "artifacts/garen-q-ownership-browser-v2/garen-q-audio-source-pendi-d9c00-lated-stop-active-ownership/pending-resume-ownership.json",
+      "bytes": 82,
+      "sha256": "5396f6aaf71b2b7c76a17f92b4bf93b5d17eb7deeb1adf8454a2c3f0ab004b11"
+    },
+    {
+      "file": "artifacts/garen-q-ownership-browser-v2/garen-q-audio-source-pendi-fbe50-pects-stop-active-ownership/pending-resume-ownership.json",
+      "bytes": 47,
+      "sha256": "4e565e38ca9c624bb699ed10ffec93904c62449846a201e3a2d624c7e2838465"
+    }
+  ]
+}

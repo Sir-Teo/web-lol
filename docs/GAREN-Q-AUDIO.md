@@ -161,3 +161,12 @@ The three scoped browser cases preserve all thirteen full sample comparisons,
 original headroom, action delays and the active cue's 250 ms stop fade, and reject
 altered source data. Standalone TypeScript and both asset tests pass. Screenshots
 use namespaced test output paths so earlier evidence is retained.
+
+The audition also owns pending context activation. Stop all cancels its pending
+group; Stop active cancels only a pending active cue and leaves attack actions
+alone. A generation token prevents a delayed resume or stale failure from
+replacing a newer control choice. Closed contexts can be recreated on a fresh
+gesture, and activation failures appear in the player status. All six scoped
+browser cases and standalone TypeScript pass, retaining source buffer, delay
+and fade assertions. The original two race failures are retained. See
+[ownership verification](reference/garen-q-audition-ownership-verification.json).
