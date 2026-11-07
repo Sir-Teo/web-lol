@@ -22,16 +22,19 @@ def require(condition, message):
 def digest(raw):
     return hashlib.sha256(raw).hexdigest()
 
-def verify(path, row):
-    require(not path.is_symlink() and path.is_file(), f'Missing or linked asset: {path}')
+def safe(path):
+    require(not path.is_symlink() and path.is_file(), f'Missing or linked input: {path}')
     for parent in path.parents:
         if parent == ROOT:
             break
         require(not parent.is_symlink(), f'Linked asset parent: {parent}')
-    raw = path.read_bytes()
+    return path
+
+def verify(path, row):
+    raw = safe(path).read_bytes()
     require(len(raw) == row['bytes'] and digest(raw) == row['sha256'], f'Asset bytes differ: {path}')
 
-inputs = [json.loads((ROOT / name).read_bytes()) for name in INPUTS]
+inputs = [json.loads(safe(ROOT / name).read_bytes()) for name in INPUTS]
 rows = []
 for kind, transports in [('textures', inputs[0]['textures']), ('meshes', inputs[1]['meshes'])]:
     for transport in transports:
@@ -54,7 +57,7 @@ for kind, transports in [('textures', inputs[0]['textures']), ('meshes', inputs[
 record = {'format': 1, 'scope': 'Byte-exact transport reuse candidates; no publication or renderer binding',
           'producerSha256': digest(Path(__file__).read_bytes()),
           'unidentifiedCandidatePolicy': 'Entries without native source identity are excluded from reuse proof',
-          'inputs': [{'path': name, 'sha256': digest((ROOT / name).read_bytes())} for name in INPUTS],
+          'inputs': [{'path': name, 'sha256': digest(safe(ROOT / name).read_bytes())} for name in INPUTS],
           'summary': {kind: {'total': sum(r['kind'] == kind for r in rows),
                              'reusable': sum(r['kind'] == kind and bool(r['existingBindings']) for r in rows),
                              'newTransportBytes': sum(r['bytes'] for r in rows if r['kind'] == kind and not r['existingBindings'])}

@@ -250,6 +250,6 @@ python3 -O tools/assets/test-ahri-r-asset-reuse.py
 ```
 
 This audit requires the retained private R transports. Its isolated guard run
-passes seven rejection probes in normal and optimized Python modes. It does not
+passes eight rejection probes in normal and optimized Python modes. It does not
 publish files, select renderer bindings, or add private-cache requirements to
 the portable source workflow.

@@ -1,7 +1,7 @@
 {
   "format": 1,
   "scope": "Byte-exact transport reuse candidates; no publication or renderer binding",
-  "producerSha256": "576c13c5b76dbd91294b4bd0760a91b44962efd2a8f2ca791cd5ab1673dc9a00",
+  "producerSha256": "9b6c8031a0f97067a4f86cf99a52c78a6cf55a3858ba24a6e2f4b66eac19f196",
   "unidentifiedCandidatePolicy": "Entries without native source identity are excluded from reuse proof",
   "inputs": [
     {

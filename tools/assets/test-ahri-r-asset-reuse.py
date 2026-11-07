@@ -63,7 +63,14 @@ with tempfile.TemporaryDirectory(prefix='ahri-r-reuse-') as tmp:
     require(run().returncode != 0, 'Borrowed parent symlink accepted')
     folder.unlink()
     held.rename(folder)
+    target = base / candidate['content']
+    raw = target.read_bytes()
+    target.unlink()
+    target.symlink_to(root / candidate['content'])
+    require(run().returncode != 0, 'Shared content symlink accepted')
+    target.unlink()
+    target.write_bytes(raw)
     target = base / 'docs/reference/ahri/r-asset-reuse.json'
     target.write_bytes(target.read_bytes()[:-1])
     require(run().returncode != 0, 'Corrupt output accepted')
-print(json.dumps({'result': 'passed', 'optimized': bool(sys.flags.optimize), 'rejectionProbes': 7}))
+print(json.dumps({'result': 'passed', 'optimized': bool(sys.flags.optimize), 'rejectionProbes': 8}))
