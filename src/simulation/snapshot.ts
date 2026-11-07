@@ -1,3 +1,4 @@
+import { validateEVisuals } from './ahri-e-visual-validation';
 import { validateWVisuals } from './ahri-w-visual-validation';
 import { validateQProjectileVisuals } from './ahri-q-projectile-visual-validation';
 import { validateAhriQCastVisuals } from './ahri-q-cast-visual-validation';
@@ -188,7 +189,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 178;
+export const SNAPSHOT_VERSION = 179;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -253,6 +254,13 @@ const rechargeDurations = new Set(
 const team = z.enum(['blue', 'red']);
 const faction = z.enum(['blue', 'red', 'neutral']);
 const point = z.strictObject({ x: z.number(), y: z.number() });
+const eVisualPose = z.strictObject({
+  tick,
+  point,
+  facing: z.number(),
+  radius: z.number().positive(),
+  audience: z.array(team).max(2),
+});
 const kind = z.enum([
   'champion',
   'melee',
@@ -2280,6 +2288,98 @@ const snapshot = z.strictObject({
       })
     )
     .max(10000),
+  ahriEVisuals: z
+    .array(
+      z.strictObject({
+        sourceId: id,
+        team,
+        rank: z.number().int().min(1).max(5),
+        castTick: tick,
+        releaseTick: tick,
+        origin: point,
+        aim: point,
+        facing: z.number(),
+        sourceRadius: z.number().positive(),
+        castAudience: z.array(team).max(2),
+        cancel: z
+          .strictObject({
+            tick,
+            reason: z.enum(['death', 'match-end', 'no-launch', 'source-removed']),
+          })
+          .nullable(),
+        launch: z
+          .strictObject({
+            tick,
+            projectileId: id,
+            point,
+            direction: point,
+            speed: z.number().positive(),
+            radius: z.number().positive(),
+            range: z.number().positive(),
+            audience: z.array(team).max(2),
+          })
+          .nullable(),
+        stop: z
+          .strictObject({
+            tick,
+            point,
+            reason: z.enum(['hit', 'range', 'match-end', 'removed']),
+            audience: z.array(team).max(2),
+          })
+          .nullable(),
+        hit: z
+          .strictObject({
+            tick,
+            targetId: id,
+            targetTeam: z.enum(['blue', 'red', 'neutral']),
+            point,
+            targetPoint: point,
+            targetFacing: z.number(),
+            targetRadius: z.number().positive(),
+            audience: z.array(team).max(2),
+            targetAudience: z.array(team).max(2),
+          })
+          .nullable(),
+        buff: z
+          .strictObject({
+            targetId: id,
+            targetTeam: z.enum(['blue', 'red', 'neutral']),
+            control: z.strictObject({
+              sourceId: id,
+              rank: z.number().int().min(1).max(5),
+              startTick: tick,
+              endTick: tick,
+              tenacityApplied: z.boolean(),
+            }),
+            audience: z.array(team).max(2),
+            stop: z
+              .strictObject({
+                tick,
+                reason: z.enum([
+                  'expired',
+                  'death',
+                  'replaced',
+                  'match-end',
+                  'control-ended',
+                  'removed',
+                ]),
+              })
+              .nullable(),
+          })
+          .nullable(),
+        sourceFrames: z.array(eVisualPose).min(1).max(512),
+        flightFrames: z
+          .array(z.strictObject({ tick, previous: point, point, audience: z.array(team).max(2) }))
+          .max(40),
+        targetFrames: z.array(eVisualPose).max(512),
+        targetEnd: z
+          .strictObject({ tick, reason: z.enum(['death', 'removed']), pose: eVisualPose })
+          .nullable(),
+      })
+    )
+    .min(1)
+    .max(1000)
+    .optional(),
   ahriWVisuals: z
     .array(
       z.strictObject({
@@ -4044,6 +4144,17 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     ...state.baronAttackVisuals.filter((v) => v.stopTick !== null),
     ...state.ahriOrbs,
     ...(state.ahriQProjectileVisuals ?? []).filter((r) => r.end !== null),
+    ...(state.ahriEVisuals ?? [])
+      .filter((r) => r.launch && !state.projectiles.some((p) => p.id === r.launch!.projectileId))
+      .map((r) => ({ id: r.launch!.projectileId })),
+    ...Array.from(
+      new Set(
+        (state.ahriEVisuals ?? []).flatMap((r) =>
+          r.hit && !state.units.some((u) => u.id === r.hit!.targetId) ? [r.hit.targetId] : []
+        )
+      ),
+      (id) => ({ id })
+    ),
     ...state.ahriFoxFires,
     ...(state.ahriWVisuals ?? []).filter((r) => !state.ahriFoxFires.some((c) => c.id === r.id)),
     ...state.ahriRushes,
@@ -4322,6 +4433,7 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
   validateAhriQCastVisuals(state);
   validateQProjectileVisuals(state);
   validateWVisuals(state);
+  validateEVisuals(state);
   if (!hero || hero.kind !== 'champion' || hero.team !== 'blue')
     throw new Error('Saved match is missing its player.');
   for (const target of state.units) {

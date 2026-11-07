@@ -1,0 +1,60 @@
+{
+  "format": 1,
+  "beforeRevision": "14d68cc291da08cc12fbb55248de3a422ec017fa",
+  "afterRevision": "7d3e00c4d643cfcb9356022e53ab2e444e483ca5",
+  "beforeRuleset": "ff8abc1be3d5e4191d0544c600ed32c1e3d89b5bf969d9f2a57c591cde81dbe9",
+  "afterRuleset": "062e397af49c795cfef0170ee9aced41f8625065a8176d403a47ff30e93c889f",
+  "beforeArchiveFiles": 659,
+  "afterArchiveFiles": 663,
+  "changed": [
+    {
+      "before": {
+        "file": "src/simulation/snapshot.ts",
+        "bytes": 208498,
+        "sha256": "337447d805e1d42dcb3c5295f8a557cad193c704860a2571798928f8ea1c8fae"
+      },
+      "after": {
+        "file": "src/simulation/snapshot.ts",
+        "bytes": 211910,
+        "sha256": "70dfc1df552b26d7a23ef4c71ae2aae34afc317575f2e3a46cbb6e4237664a9b"
+      }
+    },
+    {
+      "before": {
+        "file": "src/simulation/world.ts",
+        "bytes": 326892,
+        "sha256": "2277c90ab71436e7aa0f9a7a781117e66a0d05ac5c2e83349be1e2a72f971ec1"
+      },
+      "after": {
+        "file": "src/simulation/world.ts",
+        "bytes": 328343,
+        "sha256": "f0f67cbde610e0d6fbd8a69667dc5646c834811817490602fc64b15ed253ea17"
+      }
+    }
+  ],
+  "added": [
+    {
+      "file": "src/content/ahri-e-visual-timing.ts",
+      "bytes": 287,
+      "sha256": "158aac532a9373478c7bb15fdec2263563f00eb65baaa6b27d72ee4b92c4d4bf"
+    },
+    {
+      "file": "src/simulation/ahri-e-visual-history-validation.ts",
+      "bytes": 8893,
+      "sha256": "63076a6fc00d4e6d9c0c5c315b88596f2d5d0d421f657e5b1390b148818e9d06"
+    },
+    {
+      "file": "src/simulation/ahri-e-visual-history.ts",
+      "bytes": 15584,
+      "sha256": "b9a819c6c3185cbf50d2ab2f93eee97d53ecc24e30e080ab56578756769a9e96"
+    },
+    {
+      "file": "src/simulation/ahri-e-visual-validation.ts",
+      "bytes": 7716,
+      "sha256": "00aa951b5b4d3adbd7a71a708eeb7eed513d70d0f03bc213ebbcffe238aec1d4"
+    }
+  ],
+  "removed": [],
+  "unchangedFiles": 657,
+  "allCurrentCandidateArchiveBytesMatch": true
+}

@@ -1,3 +1,19 @@
+import { AHRI_E_VISUAL_HISTORY_TICKS } from '../content/ahri-e-visual-timing';
+import {
+  beginEVisualHistory,
+  cancelEVisualCast,
+  launchEVisualHistory,
+  sampleEVisualFlight,
+  endEVisualFlight,
+  attachEVisualBuff,
+  endEVisualBuffForTarget,
+  endEVisualTarget,
+  advanceEVisualHistory,
+  refreshEVisualAudience,
+  pruneEVisualHistory,
+  finishAllEVisualHistory,
+  type AhriEVisualHistory,
+} from './ahri-e-visual-history';
 import { AHRI_W_VISUAL_HISTORY_TICKS } from '../content/ahri-w-visual-timing';
 import {
   refreshWVisualAudience,
@@ -502,6 +518,7 @@ export class World {
   ahriOrbAudio: AhriOrbAudioRecord[] = [];
   ahriFoxFireAudio: AhriFoxFireAudioRecord[] = [];
   ahriWVisuals: AhriWVisualHistory[] = [];
+  ahriEVisuals: AhriEVisualHistory[] = [];
   ahriSpiritRushAudio: AhriSpiritRushAudioRecord[] = [];
   ahriFoxFires: FoxFireCast[] = [];
   ahriRushes: SpiritRush[] = [];
@@ -1227,6 +1244,9 @@ export class World {
       this.update();
       advanceLuxEAudio(this);
       advanceCharmAudio(this);
+      advanceEVisualHistory(this);
+      refreshEVisualAudience(this);
+      pruneEVisualHistory(this, AHRI_E_VISUAL_HISTORY_TICKS);
       advanceOrbAudio(this);
       advanceFoxFireAudio(this);
       refreshWVisualAudience(this);
@@ -1443,6 +1463,7 @@ export class World {
     // Expiry precedes input acceptance; a finished Charm never leaves a move order behind.
     for (const u of this.units)
       if (u.charm && this.tick >= u.charm.endTick) {
+        endEVisualBuffForTarget(this, u, 'expired');
         u.charm = null;
         this.setOrder(u, { type: 'idle' });
       }
@@ -4822,6 +4843,7 @@ export class World {
       return false;
     const duration = Math.round(AHRI_E.charmSecondsByRank[rank - 1] * TICK_RATE),
       sampled = this.controlDurationTicks(target, duration);
+    endEVisualBuffForTarget(this, target, 'replaced');
     target.charm = {
       sourceId: source.id,
       rank,
@@ -4884,6 +4906,7 @@ export class World {
         currentPoint: { ...projectile.origin! },
         audience: charmAudience(this, projectile, record.team),
       };
+    launchEVisualHistory(this, cast.startTick, projectile);
   }
   private controlImmune(
     target: Unit,
@@ -5542,22 +5565,24 @@ export class World {
           })
           .sort((a, b) => a.t - b.t || a.unit.id - b.unit.id)[0];
         if (hit) {
-          stopCharmAudio(
-            this,
-            p,
-            { x: p.x + (end.x - p.x) * hit.t, y: p.y + (end.y - p.y) * hit.t },
-            hit.unit.id
-          );
+          const contact = { x: p.x + (end.x - p.x) * hit.t, y: p.y + (end.y - p.y) * hit.t };
+          endEVisualFlight(this, p, contact, 'hit', hit.unit);
+          stopCharmAudio(this, p, contact, hit.unit.id);
           if (source) {
             this.damage(source, hit.unit, p.damage, 'magic');
-            this.applyCharm(source, hit.unit, p.charmRank!);
+            const applied = this.applyCharm(source, hit.unit, p.charmRank!);
+            if (applied) attachEVisualBuff(this, p, hit.unit);
           }
         } else {
           p.x = end.x;
           p.y = end.y;
           p.remaining = Math.max(0, p.remaining - travel);
+          sampleEVisualFlight(this, p);
           if (p.remaining > 1e-8) survivors.push(p);
-          else stopCharmAudio(this, p, p);
+          else {
+            endEVisualFlight(this, p, p, 'range');
+            stopCharmAudio(this, p, p);
+          }
         }
         continue;
       }
@@ -6540,6 +6565,7 @@ export class World {
         finishAllAhriLifecycleAudio(this);
         cancelUnbornAhriQCastVisual(this);
         for (const r of this.ahriRecallAudio) finishAhriRecallAudio(this, r.sourceId, 'match-end');
+        finishAllEVisualHistory(this);
         this.projectiles.length = 0;
         for (const orb of this.ahriOrbs) {
           finishOrbAudio(this, orb, 'match-end');
@@ -6570,6 +6596,9 @@ export class World {
         );
         advanceLuxEAudio(this);
         advanceCharmAudio(this);
+        advanceEVisualHistory(this);
+        refreshEVisualAudience(this);
+        pruneEVisualHistory(this, AHRI_E_VISUAL_HISTORY_TICKS);
         advanceOrbAudio(this);
         advanceFoxFireAudio(this);
         refreshWVisualAudience(this);
@@ -6608,6 +6637,7 @@ export class World {
         targetState.enlighten = null;
         targetState.deaths++;
         cancelCharmWindup(this, targetState.id);
+        cancelEVisualCast(this, targetState.id, 'death');
         cancelOrbWindup(this, targetState.id);
         cancelUnbornAhriQCastVisual(this, targetState.id);
         targetState.pendingCast = null;
@@ -6644,6 +6674,7 @@ export class World {
       for (const owner of this.activeChampionStates())
         if (owner.leonaDash?.targetId === target.id)
           this.finishLeonaDash(this.unit(owner.id)!, 'target-lost');
+      endEVisualTarget(this, target, 'death');
       target.charm = null;
       target.garenEShreds = [];
       const lastDamage = targetState?.damageContributors
@@ -7412,6 +7443,7 @@ export class World {
         stop: null,
         hit: null,
       });
+      beginEVisualHistory(this, u, point, rank, state.pendingCast!.releaseTick);
       this.emit('cast', u, { unit: u.id, champion: 'ahri', text: 'e', team: u.team });
       return;
     }
@@ -8185,6 +8217,7 @@ export class World {
       ahriOrbs: this.ahriOrbs,
       ...(this.ahriOrbAudio.length ? { ahriOrbAudio: this.ahriOrbAudio } : {}),
       ...(this.ahriWVisuals.length ? { ahriWVisuals: this.ahriWVisuals } : {}),
+      ...(this.ahriEVisuals.length ? { ahriEVisuals: this.ahriEVisuals } : {}),
       ...(this.ahriFoxFireAudio.length ? { ahriFoxFireAudio: this.ahriFoxFireAudio } : {}),
       ...(this.ahriSpiritRushAudio.length ? { ahriSpiritRushAudio: this.ahriSpiritRushAudio } : {}),
       ahriFoxFires: this.ahriFoxFires,

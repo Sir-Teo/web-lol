@@ -1,0 +1,58 @@
+{
+  "format": 1,
+  "status": "accepted; see e-visual-history-verification.json",
+  "schemaVersion": 179,
+  "identity": {
+    "ruleset": "062e397af49c795cfef0170ee9aced41f8625065a8176d403a47ff30e93c889f",
+    "files": 658
+  },
+  "frozenBaselineRevision": "9fa45c7",
+  "focusedTests": {
+    "files": 19,
+    "passed": 97,
+    "failed": 0,
+    "completeOldStateProjections": 273,
+    "roundTrips": 273,
+    "futureComparisons": 105,
+    "futureTicks": 5600
+  },
+  "sourceFiles": [
+    {
+      "path": "src/content/ahri-e-visual-timing.ts",
+      "sha256": "158aac532a9373478c7bb15fdec2263563f00eb65baaa6b27d72ee4b92c4d4bf"
+    },
+    {
+      "path": "src/simulation/ahri-e-visual-history.ts",
+      "sha256": "b9a819c6c3185cbf50d2ab2f93eee97d53ecc24e30e080ab56578756769a9e96"
+    },
+    {
+      "path": "src/simulation/ahri-e-visual-history-validation.ts",
+      "sha256": "63076a6fc00d4e6d9c0c5c315b88596f2d5d0d421f657e5b1390b148818e9d06"
+    },
+    {
+      "path": "src/simulation/ahri-e-visual-validation.ts",
+      "sha256": "00aa951b5b4d3adbd7a71a708eeb7eed513d70d0f03bc213ebbcffe238aec1d4"
+    },
+    {
+      "path": "src/simulation/world.ts",
+      "sha256": "f0f67cbde610e0d6fbd8a69667dc5646c834811817490602fc64b15ed253ea17"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "sha256": "70dfc1df552b26d7a23ef4c71ae2aae34afc317575f2e3a46cbb6e4237664a9b"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "artifacts/ahri-e-history-focused-tests-v3.log",
+      "sha256": "850d9e4fe541d01d097161274343b66727b49da5fe9d8297139d91154b0dff75"
+    },
+    {
+      "path": "artifacts/ahri-e-history-types-v3.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "limits": [
+    "Saved observer only; E particle rendering remains pending."
+  ]
+}

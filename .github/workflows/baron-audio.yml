@@ -245,7 +245,7 @@ jobs:
           tests/ahri-w-visual-history-validation.test.ts
           tests/ahri-w-visual-gameplay-reference.test.ts
           tests/ahri-w-visual-observation-gameplay.test.ts
-          tests/ahri-w-visual-snapshot.test.ts
+          tests/ahri-w-visual-snapshot.test.ts tests/ahri-e-visual-history.test.ts tests/ahri-e-visual-history-validation.test.ts tests/ahri-e-visual-gameplay-reference.test.ts tests/ahri-e-visual-snapshot.test.ts
           tests/ahri-q-projectile-visuals.test.ts
           tests/ahri-q-projectile-history.test.ts
           tests/source-packed-trail-ribbon.test.ts
