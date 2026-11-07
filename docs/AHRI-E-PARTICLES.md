@@ -281,3 +281,24 @@ the caster's actual respawn. The minimum champion death timer is 600 ticks,
 longer than this E retention; no source-ending field or schema change is needed
 for that case. Bone transforms, attached-skin selection and renderer integration
 remain separate steps.
+
+## Isolated E sampler
+
+The E sampler now projects all 29 authored emitters through the existing
+source-referenced birth, motion, binding, appearance, spin, UV and lookup kernels.
+Two non-neutral rate probability curves retain per-phase deterministic schedules;
+they are not replaced with neutral tables. Indexed cosmetic draws, a 60 Hz grid,
+nearest-tick delays and phase scheduling bounds are explicit local policies.
+The two heart meshes carry their independently checked post-rotation matrices.
+Missing attached selectors remain metadata; producing a skin packet does not
+claim that a mesh-selection policy or attached renderer has been resolved.
+
+Five system samplers match pure reconstruction on forward/backward seeks and
+after cache disposal. All 29 emitters produce finite packets without changing
+authored profiles. Tests cover moving-root transport, source-size flex, no cache
+reference exposure, probability-driven rate counts, post-rotation, late-birth
+suppression and finite stop drains. Total particle life is capped by authored
+linger after a stop rather than extended by it. The combined E/W/schedule/basis
+checks pass 133 tests across four files, and TypeScript passes. Scene integration,
+attachments, GPU material choices and browser request/draw verification remain
+pending. No native callback or rendered-pixel parity is claimed.
