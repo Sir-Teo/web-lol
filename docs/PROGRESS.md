@@ -8,11 +8,12 @@ Last updated: November 7, 2026 (UTC).
 
 Accepted local runtime: save schema **181**, ruleset
 `e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f`.
-Latest application `615d26d2` / pack `f97e5208` owns pending offline-manifest
-retries and retains named resource meters and the item-shop control. Two scoped
-offline UI browser cases, config/application TypeScript, production build and
-all-file pack verification pass; gameplay compatibility and worker policy stay
-unchanged. See [retry verification](reference/offline-retry-ownership-verification.json)
+Latest application `498fe215` / pack `fbe5fdbf` keeps offline recovery in check
+mode until inspection succeeds, owns pending retries, and retains named HUD
+resources/shop controls. Four scoped browser cases, application TypeScript,
+production build and all-file pack verification pass; gameplay compatibility and
+worker policy stay unchanged. See
+[offline recovery verification](reference/offline-check-mode-verification.json)
 and [HUD verification](reference/hud-shop-label-verification.json).
 The latest full unit result at application `cabb9791` / pack `171bacaf` resolves
 to 10,152/10,154 across 611 files. One wave-clock deadline failure passed its
@@ -9830,3 +9831,15 @@ pass: `f97e5208`, 1,432 files / 581,143,361 bytes. Worker policy, schema 181, al
 696 compatibility inputs and ruleset `e02f3e73` stay unchanged. Broader unit, CI,
 real offline-cache and cohort receipts keep their previous revisions. See
 [retry verification](reference/offline-retry-ownership-verification.json).
+
+Offline readiness checkpoint `498fe215` bases the action on a completed cache
+inspection, rather than manifest presence. Startup cache failures now offer a
+working Retry; retrying a failed inspection does not start a pack download.
+The explicit download action remains available after a successful check. Four
+scoped browser cases pass, including the real pack check around one injected
+cache-open error: two manifest requests and no pack-file requests. Two earlier
+recovery failures and the original positive download case are retained. TypeScript,
+production build and full pack verification pass: `fbe5fdbf`, 1,432 files /
+581,143,353 bytes. Schema, all 696 compatibility files, ruleset and worker policy
+remain unchanged; broader receipts keep their own revisions. See
+[check-mode verification](reference/offline-check-mode-verification.json).

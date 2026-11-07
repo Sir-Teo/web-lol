@@ -1,0 +1,88 @@
+{
+  "format": 1,
+  "result": "passed",
+  "applicationRevision": "498fe215",
+  "testRevision": "a0a6a15f3265c8d65c325d8b3d0ca96d48d60dd5",
+  "schema": 181,
+  "ruleset": "e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f",
+  "compatibilityFiles": 696,
+  "browserCasesPassed": 4,
+  "originalRecoveryFailuresRetained": 2,
+  "originalExplicitDownloadPositiveCaseRetained": true,
+  "startupCacheFailureWithLoadedManifestCanRetry": true,
+  "retryRemainsCheckUntilInspectionSucceeds": true,
+  "explicitDownloadAfterSuccessfulCheckPreserved": true,
+  "realPackCheckBoundaryCase": {
+    "manifestRequests": 2,
+    "cacheOpenCalls": 2,
+    "firstCacheOpenFailureInjected": true,
+    "packFilesRequested": 0
+  },
+  "fixtureScope": "Three controlled-pack UI cases and one real OfflinePack.check/CacheStorage boundary case with a controlled manifest and one injected cache-open failure; no service-worker or complete-pack download certification.",
+  "applicationTypescriptAndProductionBuildPassed": true,
+  "allFilePackAudit": {
+    "result": "passed",
+    "pack": "fbe5fdbfeefcd17760f16933f6f6cb86faa3fcdc6437a4afc5ad6de03ffb9cc6",
+    "files": 1432,
+    "bytes": 581143353,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "retainedPack": "/workspace/web-lol/.cache/offline-check-mode-accepted-pack-fbe5",
+  "previousPacksPreserved": true,
+  "workerPolicyAndGameplayCompatibilityUnchanged": true,
+  "priorBroadReceiptsKeepTheirRevisions": true,
+  "roadmapMilestone4Complete": false,
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/offline-check-mode-baseline-v1.log",
+      "bytes": 5160,
+      "sha256": "44cc0a4f4d5ac3899477a78e5e4013ecd93191e54986fdb31ec14777e6510cb8"
+    },
+    {
+      "file": "artifacts/offline-check-mode-fixed-v2.log",
+      "bytes": 987,
+      "sha256": "24a5306774ac9cf2dc48fda59f06f776acd732807e380ce9565c8f2d0b299676"
+    },
+    {
+      "file": "artifacts/offline-check-mode-integration-v3.log",
+      "bytes": 1126,
+      "sha256": "41f6a2861f517d1a881494e19308ad448f20605bac184eeb5da5df4594998710"
+    },
+    {
+      "file": "artifacts/offline-check-mode-browser-v1.json",
+      "bytes": 12886,
+      "sha256": "f4ec3fd66264250afa4901a8ebf84a8af5111a8cda182806f56b07880cb0883d"
+    },
+    {
+      "file": "artifacts/offline-check-mode-browser-v2.json",
+      "bytes": 5376,
+      "sha256": "731c20311f239f9c0359ff278d47b1203b510d73e71d33de744afa91111235ac"
+    },
+    {
+      "file": "artifacts/offline-check-mode-browser-v3.json",
+      "bytes": 6456,
+      "sha256": "cc13771cce33a189720f08d829c8a3e3e1437b5f45b634c6984b86f7095cfaf3"
+    },
+    {
+      "file": "artifacts/offline-check-mode-build-v1.log",
+      "bytes": 9453,
+      "sha256": "007ddd7fae34dfa16498fa0b3e1842334541b9b2a6daee8cd9710c01eed85c20"
+    },
+    {
+      "file": "artifacts/offline-check-mode-build-dedup-v1.json",
+      "bytes": 1329,
+      "sha256": "d5b98171e35d01cbed7250fcb7c9f73a0524ae2c5d466d4e722990002029a81c"
+    },
+    {
+      "file": "artifacts/offline-check-mode-retained-pack-v1.json",
+      "bytes": 213,
+      "sha256": "b580b608a503c62cd3b4f30da8835ddbbec9c2b3bf9e23ef4fce148285b18400"
+    },
+    {
+      "file": "artifacts/offline-check-mode-ruleset-v1.json",
+      "bytes": 104,
+      "sha256": "5a9159e9011a6086ba92e9320f35b01aa31a984d99d095f1538d585e16f6b4d6"
+    }
+  ]
+}
