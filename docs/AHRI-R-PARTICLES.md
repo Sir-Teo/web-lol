@@ -640,3 +640,29 @@ all 165 frozen packet checks. They cover every binding update through ten
 seconds, fractional/backward and stopped seeks, finite cache bounds and expired
 sampling without requesting discarded roots. The accumulated float32 result
 also demonstrably differs from replacing its path with one endpoint delta.
+
+
+## Finite layout renderer candidate
+
+Profile 50 now follows the explicit `Ahri_R_Ready_tar` instance on
+`C_Buffbone_Glb_Layout_Loc`, using owned saved caster roots and the existing
+float32 binding replay. The selected subset is 26 profiles: 21 spell, four eye
+and one layout quad. Five other layout profiles, six counter profiles, two noise
+profiles and sixteen unjoined profiles remain deferred.
+
+The new quad retains its ground-layer metadata while opting out of the shared
+local terrain-projection adapter. Its saved native bone height and rotation
+therefore remain meaningful. This explicit per-profile opt-out leaves existing
+projection paths unchanged. The loader selects 29 textures and one borrowed W
+mesh: eight R-owned textures and one separate W transport load locally, including
+the newly selected ground-background texture with all nine authored mips.
+
+All 192 targeted checks and TypeScript pass. The keyboard browser case verifies
+the exact new texture request, native layout attachment, nine mips, exact restore
+near expiry and finite drain after ten seconds. The early gameplay image shows
+the quad; terrain occludes the near-expiry screenshot, which is retained without
+a direct-visibility claim. An additional same-scene off/on pixel probe awaits
+execution after CPU regression work. See the
+[layout policy reading](reference/ahri/r-layout-policy-reading.json), which pins
+three external reader files and separates their reconstruction from native
+constructor/callback certification.
