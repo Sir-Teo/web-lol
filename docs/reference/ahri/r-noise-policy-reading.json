@@ -1,0 +1,87 @@
+{
+  "format": 1,
+  "applicationRevision": "a345d9ebfd5e5902176a8c642d30a0d50aa0cb07",
+  "ruleset": "e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f",
+  "profiles": [
+    10,
+    27
+  ],
+  "selectedSpellProfiles": 23,
+  "selectedBuffProfiles": 10,
+  "selectedTextures": 37,
+  "selectedMeshes": 2,
+  "sourcePolicy": {
+    "fieldCentre": "Omitted Position uses external zero centre in local integration coordinates; other field kinds/Positions fail closed",
+    "time": "60 Hz tick/60 system clock, accumulated emitter age for unclamped field phase; authored curves hold final key",
+    "ownership": "One immutable bounded schedule per emitter, shared by all births",
+    "ordering": "Particle drag, fields, retain velocity change, movement; fresh birth gets impulse at zero movement delta",
+    "serial": "(seed ^ imul(profile+1,0x85ebca6b) ^ imul(localOrdinal,0x27d4eb2d)) >>> 0; local cosmetic identity",
+    "contact": "Authored single burst, 75 particles before optional limits; explicit emitter lifetime 2.5 seconds",
+    "missile": "Authored rate20/lifetime5; existing local four-second bolt-ownership cap retained, actual observed stop suppresses births",
+    "randomDirection": "Pinned external float32-normalized cube hash; native stream correspondence unresolved",
+    "normalizationSquaredThreshold": 1e-12,
+    "maximumImpulsesPerStep": 256,
+    "textureRequests": "Two selected entries borrowed from loaded Q/W owners; no additional local texture load"
+  },
+  "independentEvidence": {
+    "clockSequences": 4,
+    "fieldPreparations": 24,
+    "impulses": 162,
+    "trajectories": 24,
+    "trajectoryRows": 2880,
+    "unmodifiedExternalIntegrator": true,
+    "externalRevision": "2adda384347dd43e76d6295d77fe1f13623b2808"
+  },
+  "preservation": {
+    "oldSpellReference": "Original 21 profiles explicitly selected before full-packet hash comparison; producer and fixture bytes unchanged",
+    "sevenPacketFamiliesUnchanged": true,
+    "worldRngConsumedByRenderer": false,
+    "simulationContentPublicUnchanged": true
+  },
+  "nativeConstructorCertification": false,
+  "nativeRandomStreamCertification": false,
+  "nativePixelEquivalence": false,
+  "representativeDevicePerformanceVerified": false,
+  "evidence": [
+    {
+      "path": "docs/reference/ahri/r-noise-field-reading.json",
+      "bytes": 8145,
+      "sha256": "02fb18a0bed45528cc57e0256f516eaec77fc186352908f9bd4babc48fd4c029"
+    },
+    {
+      "path": "docs/reference/source-noise-field-samples.json",
+      "bytes": 121550,
+      "sha256": "92d964afd3f79012e771246ee7d366a868ca534bc42163d95d82f4e749e36109"
+    },
+    {
+      "path": "docs/reference/source-noise-motion-samples.json",
+      "bytes": 1440254,
+      "sha256": "94ba38d53e0bd66695c0286837838b2158b09fc03c5d849fd68bc362d96aede2"
+    },
+    {
+      "path": "src/render/source-noise-field.ts",
+      "bytes": 4185,
+      "sha256": "a8d2f99a795305d4e9ed8015726031735ce4177b4cfd6931cf3fb5c5205bb72d"
+    },
+    {
+      "path": "src/render/source-noise-field-values.ts",
+      "bytes": 4445,
+      "sha256": "0d7bf71928b441de75b7b60c4c0e61995167b7e90471b6bcc4299df7ac083b6c"
+    },
+    {
+      "path": "src/render/source-noise-motion-timeline.ts",
+      "bytes": 4898,
+      "sha256": "4def1a1b56a42b5a7c7a2fa38753f45bdcde1f35ece203717bd5e808a9793962"
+    },
+    {
+      "path": "src/render/ahri-r-particles.ts",
+      "bytes": 25659,
+      "sha256": "3b72963f39489e1113f641d770ce3d28cbb829b44b285b8877e74eb289d18619"
+    },
+    {
+      "path": "src/render/ahri-r-assets.ts",
+      "bytes": 5848,
+      "sha256": "33d191772409f67702eff8b6dc6dc2e27b89ad3a956616770d5137428e080458"
+    }
+  ]
+}

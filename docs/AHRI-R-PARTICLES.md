@@ -1022,3 +1022,128 @@ production errors. Pack `c432ac3c` contains 1,432 files / 581,134,629 bytes. Nat
 calibration, six counter profiles, two noise profiles, sixteen unjoined profiles,
 current hundred-seed acceptance and full project completion remain open. Primary
 integration follows independently.
+
+The [accepted sixty-second base packet reference](reference/ahri/r-layout-base-packet-reference.json)
+adds 72 full-packet hashes from the accepted `d343a9f9` application and its verified
+698-file frozen cohort. Twelve clocks cover first-update birth, intermediate
+binding, natural expiry and long-age draining with two seeds and three stop
+policies. All 73 reference checks and TypeScript pass before field research.
+The seven packet families and their archive-only producers remain independently
+pinned; no runtime source changes in this checkpoint.
+
+## Deferred noise-field research
+
+The [noise-field reading](reference/ahri/r-noise-field-reading.json) pins eight
+external source/plan inputs at LeagueToolkit revision `2adda384`. Its executed
+force-field code provides emitter-wide impulse clocks, inclusive radius gates,
+birth-step impulses at zero motion delta, authored axis fractions and velocity
+changes retained after particle drag. The deterministic direction hash, tiny-vector
+normalization threshold and per-step impulse cap are explicit preview stand-ins.
+They do not certify native randomness, constructor defaults or pixels. The plan's
+emitter-space explanation differs from its executable zero-origin field path;
+the reading records that discrepancy rather than silently merging the two.
+
+The [independent fixture set](reference/source-noise-field-samples.json) contains
+four clock sequences, 24 field-preparation samples and 162 impulses from the
+pinned external evaluator and its actual curve/basis dependencies. It retains
+float32 result bits. The producer verifies every external blob and the unchanged
+published R data before execution. Its entry passes a direct strict TypeScript
+check, and fixture provenance passes. No runtime noise profile is connected.
+
+The unconnected `source-noise-field` adapter now matches the independent clock
+and impulse fixtures, including all float32 result bits after warm-up. It owns
+no World state and exposes an emitter-field clock separately from a particle
+impulse. Missing/invalid numerical inputs are rejected before mutating valid
+owned state. Four clock sequences and 162 impulse cases pass alongside provenance,
+warm-up and rejection checks: 169 checks total. All seven accepted R packet
+families remain exact; the combined selection passes 722 checks in nine files,
+and TypeScript passes. Native noise profiles remain deferred while field-value
+preparation and motion integration are developed.
+
+`SourceNoiseFieldValues` now prepares the two authored scalar-curve collections
+into independently checked impulse packets. It supports only the explicit noise
+field shape with the recorded omitted-Position zero-centre policy; other fields
+and unverified defaults fail closed. Prepared curves and axes own their input,
+returned packets expose no internal axes, and a rejected later field cannot
+partially advance an earlier clock. All 24 external preparation samples match;
+the combined field checks pass 174 tests and TypeScript. The native R noise
+profiles remain disconnected pending motion integration.
+
+The [independent noise-motion trajectories](reference/source-noise-motion-samples.json)
+add 24 controlled runs / 2,880 exact position and velocity rows from the unmodified
+external `stepEmitters` pipeline and sixteen verified dependency blobs. The
+reference injects a known particle directly, disables automatic emission and
+checks particle counters; it supplies the actual seeded external RNG. The system
+clock is `tick / 60`, while emitter age accumulates the fixed delta. Cases cover
+first and later births, moving/stationary particles, radius exclusion, drag and
+field sampling beyond emitter expiry. This protocol isolates motion arithmetic;
+it does not certify native birth randomness or clock handoff. Producer identity
+and direct strict entry TypeScript checks pass before local timeline work.
+
+The unconnected `SourceNoiseMotionTimeline` matches all 2,880 independent
+float32 position/velocity rows. Its emitter-wide schedule is immutable and bounded,
+using the reference's fixed system clock and accumulated emitter phase. Newborns
+take their field's birth-step impulse without moving; later steps retain field
+changes after drag and move afterward. Cold, backward and fractional seeks own
+their row buffers. All 26 trajectory/provenance/ownership checks and TypeScript
+pass before the R sampler is changed.
+
+The R sampler now prepares profiles 10/27 only through an explicit producer
+subset. Default selection still uses the accepted bound set, so both noise
+profiles remain disconnected. The contact profile is its authored single burst;
+the missile profile retains the existing four-second local bolt-ownership cap
+inside its authored five-second emitter definition. Per-particle field directions
+use the sampler's mixed cosmetic seed as a local serial, not a native pool/RNG
+identity. Emitter-wide clocks are shared across every birth. Field phase follows
+the accumulated emitter age beyond one, with authored curves holding their last
+key. Cold/backward/fractional seeks, stops, bounded caches and expired-root access
+pass alongside all seven frozen families: 586 checks in ten files and TypeScript.
+
+## Noise-field renderer candidate
+
+Profiles 10/27 now join their saved contact/missile producers. R selects 33
+profiles: 23 spell and ten buff profiles. Six counters and sixteen unjoined
+profiles remain deferred. The selected closure has 37 textures and two meshes;
+both new entries borrow already loaded Q/W resources. Local loads remain thirteen
+R textures, one separate W texture and one checked R GLB. Public bytes are unchanged.
+
+The immutable earlier spell reference and its producer remain unchanged. Its
+current test selects exactly its original 21 profiles before sampling; every
+packet field remains in the frozen hash comparison. All seven packet families
+remain exact. The targeted renderer/reference selection passes 570 checks in
+eleven files and TypeScript. The keyboard browser test restores all 23 spell
+profiles exactly and reports no attachment fallbacks. Full-render hide/show probes
+change 68,863 / 19,276 pixels for profiles 10/27 with no World step and one shared
+R depth capture per render. Image inspection shows cyan contact sparkles and
+scattered directional sparks. External hash/threshold/cap policy, omitted-centre
+default and local clock/serial bindings remain explicit; this does not certify
+native randomness, constructor defaults, pixels or representative-device speed.
+Broader regressions and delivery checks follow before acceptance.
+
+## Accepted noise-field subset
+
+The [noise acceptance receipt](reference/ahri/r-noise-acceptance.json) pins 337
+evidence files to application `a345d9eb`, schema 181 and ruleset `e02f3e73`.
+R selects 33 profiles (23 spell / ten buff); six counter and sixteen unjoined
+profiles remain deferred. The two fields use the explicit external preview policy
+and local clock/serial/default bindings recorded above; native constructor and
+random-stream correspondence remain unverified.
+
+The full suite passes 10,149/10,151 in 610 files with only the two historical
+failures. All 263 Node QA cases and 87 portable CI commands pass; every CI command
+passes on its first attempt. The committed export verifies 5,643 blobs and runs
+1,921 test executions across 163 file executions, including overlap. All 33
+distinct browser cases pass plus the retained initial keyboard probe. The two
+full-render noise probes change 68,863 / 19,276 pixels without World mutation,
+with one shared R depth capture per render and no attachment fallback. All seven
+earlier packet families and independent field/motion fixtures remain exact.
+
+All 45 complete natural-match saved projections match the accepted layout-base
+checkpoint, excluding only version/ruleset metadata and normalizing no fields.
+The seed retains Blue victory at tick 157,116, 44 exact round trips and 43 futures
+covering 2,580 ticks. Public assets and all 334 WAV files / 96,632,632 bytes remain
+exact. Production nested-path playback passes with 32 recordings and no eager
+R preloads. Offline lifecycle passes with 978 worker responses and zero errors.
+Pack `64ef73c1` contains 1,432 files / 581,141,513 bytes. Native calibration,
+representative-device performance, current hundred-seed acceptance and project
+completion remain open. Primary integration follows independently.

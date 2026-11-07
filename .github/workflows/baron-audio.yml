@@ -255,6 +255,11 @@ jobs:
           tests/source-particle-draw-values.test.ts
           tests/source-binding-timeline.test.ts
           tests/source-motion-timeline.test.ts
+          tests/source-noise-field-reference.test.ts
+          tests/source-noise-field.test.ts
+          tests/source-noise-field-values.test.ts
+          tests/source-noise-motion-reference.test.ts
+          tests/source-noise-motion-timeline.test.ts
           tests/ahri-q-projectile-particles.test.ts
           tests/ahri-q-projectile-gameplay-reference.test.ts
           tests/ahri-q-projectile-assets-loader.test.ts
@@ -296,6 +301,7 @@ jobs:
           tests/ahri-r-render-history.test.ts
           tests/ahri-r-render-gameplay-reference.test.ts
           tests/ahri-r-particles.test.ts
+          tests/ahri-r-noise-particles.test.ts
           tests/ahri-r-palette.test.ts
           tests/ahri-r-persistent-history.test.ts
           tests/ahri-r-buff-particles.test.ts
@@ -308,6 +314,7 @@ jobs:
           tests/ahri-r-eye-trail-packet-reference.test.ts
           tests/ahri-r-layout-particles.test.ts
           tests/ahri-r-layout-base-particles.test.ts
+          tests/ahri-r-layout-base-packet-reference.test.ts
           tests/ahri-r-layout-quad-packet-reference.test.ts
           tests/ahri-r-layout-glow-schedule.test.ts
           tests/ahri-r-layout-glow-particles.test.ts

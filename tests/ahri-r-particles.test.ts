@@ -22,11 +22,11 @@ function finite(value: unknown): boolean {
         ? Object.values(value).every(finite)
         : true;
 }
-test('R spell sampler covers its 21 selected profiles and never samples deferred producers or arithmetic', () => {
-  expect(AHRI_R_BOUND_SPELL_PROFILES).toHaveLength(21);
+test('R spell sampler covers its 23 selected profiles and never samples deferred producers', () => {
+  expect(AHRI_R_BOUND_SPELL_PROFILES).toHaveLength(23);
   expect(
     AHRI_R_SPELL_PROFILE_BINDINGS.filter((p) => p.reason === 'noise-field-arithmetic-unresolved')
-  ).toHaveLength(2);
+  ).toHaveLength(0);
   expect(
     AHRI_R_SPELL_PROFILE_BINDINGS.filter((p) => p.reason === 'native-palette-field-unresolved')
   ).toHaveLength(0);

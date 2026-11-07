@@ -153,7 +153,7 @@ test('R draws its twenty-one selected spell profiles without changing World', ()
       expect(m.scale.toArray().every(Number.isFinite)).toBe(true);
     }
   }
-  expect(view.deferredProfiles).toHaveLength(24);
+  expect(view.deferredProfiles).toHaveLength(22);
   expect([...seen].sort((a, b) => a - b)).toEqual(
     [...AHRI_R_BOUND_SPELL_PROFILES].sort((a, b) => a - b)
   );

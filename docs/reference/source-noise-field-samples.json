@@ -1,0 +1,7784 @@
+{
+  "format": 1,
+  "scope": "Pinned external preview noise policy; no native constructor, random-stream or pixel-equivalence certification",
+  "externalRevision": "2adda384347dd43e76d6295d77fe1f13623b2808",
+  "node": "v24.22.1",
+  "v8": "13.6.233.17-node.58",
+  "producerSha256": "d7aaefd614720c49f4736cb642e570e71ba78ebea61ae4af78941a2d185144cf",
+  "entrySha256": "26cf9cdf76fd4b77da59221d1b3ac46228d75475ba940283ed4d723cb49b1bc1",
+  "inputManifestSha256": "0c365fcc4ee51ae495a28f2fa0ef4c3089126673d3b9bd07cdfd2c8f7b95a813",
+  "inputs": [
+    {
+      "path": ".cache/ahri-r-noise-readers/engine/simulation/forceFields.ts",
+      "bytes": 12447,
+      "sha256": "b449af74385fb95e509a60dbd7cab2b2e813538ae65d80a8ed6bc6ed5ce8bbc7",
+      "gitBlob": "27a25411124de8a16a7dc76bd77407dffbc3a98d",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/simulation/forceFields.ts"
+    },
+    {
+      "path": ".cache/ahri-r-noise-readers/integrate.ts",
+      "bytes": 22084,
+      "sha256": "35e332547a4697558f93f4d5a91f295bcd6d8e9b299ccb8d7331ad873de96587",
+      "gitBlob": "eaf11da07e0fcdac3c4fce742333e6871bf37fe9",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/simulation/integrate.ts"
+    },
+    {
+      "path": ".cache/ahri-r-noise-readers/forceFields.test.ts",
+      "bytes": 10870,
+      "sha256": "04095332b64d4aba43b63963e4b8e89737392edd73b5e48af830aad3a387b1b4",
+      "gitBlob": "230b1ce950667afe62b4c6594e0dd11290e2a816",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/simulation/__tests__/forceFields.test.ts"
+    },
+    {
+      "path": ".cache/ahri-r-noise-readers/engine/utils/basis.ts",
+      "bytes": 10219,
+      "sha256": "948deb523c5e16fbf6ef529f9967f9b5de8ff3db1c169fa6ceffc58a08fbcf5e",
+      "gitBlob": "fdb0c944a0f9f3ad452c04e5982231c121baa8f3",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/utils/basis.ts"
+    },
+    {
+      "path": ".cache/ahri-r-noise-readers/engine/utils/sampleCurve.ts",
+      "bytes": 12299,
+      "sha256": "2acbaef37379bb8c4d6684c3716bad0311167a175c0132506148d349c5ba5230",
+      "gitBlob": "8d41159189b0042dd2fd506ba12e5963e11bb094",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/utils/sampleCurve.ts"
+    },
+    {
+      "path": ".cache/ahri-r-noise-readers/space.ts",
+      "bytes": 2120,
+      "sha256": "76c35b474dfcd46e00146b67752597abdd72a38f9c466a28bd0c016572539ddf",
+      "gitBlob": "075613a6146a66f86670d77c083d7a35c1cf25e0",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/viewport/shared/utils/space.ts"
+    },
+    {
+      "path": ".cache/ahri-r-noise-readers/vfx-particle-renderer.md",
+      "bytes": 232427,
+      "sha256": "31d7294422ea1d6285fd9586814ba244f6ca5f68b26edc95edcd01b17786c733",
+      "gitBlob": "8c0b062298dfd4f36e611f828eefcb1e66a21c30",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/docs/plans/vfx-particle-renderer.md"
+    },
+    {
+      "path": ".cache/baron-emission-readers/engine/parsing/readMotion.ts",
+      "bytes": 13352,
+      "sha256": "14f47fe79957dcd5d440d8ab69752cf90702a628c070033641d06eb9ace879e8",
+      "gitBlob": "9decc3977885a73f1064e23ea5fbbd4609aaab14",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/parsing/readMotion.ts"
+    }
+  ],
+  "source": {
+    "path": "src/content/ahri-r-particles.json",
+    "sha256": "c9a65a9808d3206cfbaee6dc1f9e1a5a37d6351947d997e2a5c4b8d3b290f29f"
+  },
+  "clocks": [
+    {
+      "rate": 0,
+      "samples": [
+        {
+          "now": 0.016666666666666666,
+          "kicks": 1,
+          "last": 0.016666666666666666,
+          "fired": 1
+        },
+        {
+          "now": 0.03333333333333333,
+          "kicks": 0,
+          "last": 0.016666666666666666,
+          "fired": 1
+        },
+        {
+          "now": 0.1,
+          "kicks": 0,
+          "last": 0.016666666666666666,
+          "fired": 1
+        },
+        {
+          "now": 0.16666666666666666,
+          "kicks": 0,
+          "last": 0.016666666666666666,
+          "fired": 1
+        },
+        {
+          "now": 0.2,
+          "kicks": 0,
+          "last": 0.016666666666666666,
+          "fired": 1
+        },
+        {
+          "now": 0.5,
+          "kicks": 0,
+          "last": 0.016666666666666666,
+          "fired": 1
+        },
+        {
+          "now": 1.05,
+          "kicks": 0,
+          "last": 0.016666666666666666,
+          "fired": 1
+        },
+        {
+          "now": 100,
+          "kicks": 0,
+          "last": 0.016666666666666666,
+          "fired": 1
+        }
+      ]
+    },
+    {
+      "rate": 5,
+      "samples": [
+        {
+          "now": 0.016666666666666666,
+          "kicks": 1,
+          "last": 0.016666666666666666,
+          "fired": 1
+        },
+        {
+          "now": 0.03333333333333333,
+          "kicks": 0,
+          "last": 0.016666666666666666,
+          "fired": 1
+        },
+        {
+          "now": 0.1,
+          "kicks": 0,
+          "last": 0.016666666666666666,
+          "fired": 1
+        },
+        {
+          "now": 0.16666666666666666,
+          "kicks": 0,
+          "last": 0.016666666666666666,
+          "fired": 1
+        },
+        {
+          "now": 0.2,
+          "kicks": 1,
+          "last": 0.2,
+          "fired": 2
+        },
+        {
+          "now": 0.5,
+          "kicks": 1,
+          "last": 0.5,
+          "fired": 3
+        },
+        {
+          "now": 1.05,
+          "kicks": 3,
+          "last": 1.05,
+          "fired": 6
+        },
+        {
+          "now": 100,
+          "kicks": 256,
+          "last": 100,
+          "fired": 262
+        }
+      ]
+    },
+    {
+      "rate": 6,
+      "samples": [
+        {
+          "now": 0.016666666666666666,
+          "kicks": 1,
+          "last": 0.016666666666666666,
+          "fired": 1
+        },
+        {
+          "now": 0.03333333333333333,
+          "kicks": 0,
+          "last": 0.016666666666666666,
+          "fired": 1
+        },
+        {
+          "now": 0.1,
+          "kicks": 0,
+          "last": 0.016666666666666666,
+          "fired": 1
+        },
+        {
+          "now": 0.16666666666666666,
+          "kicks": 1,
+          "last": 0.16666666666666666,
+          "fired": 2
+        },
+        {
+          "now": 0.2,
+          "kicks": 0,
+          "last": 0.16666666666666666,
+          "fired": 2
+        },
+        {
+          "now": 0.5,
+          "kicks": 2,
+          "last": 0.5,
+          "fired": 4
+        },
+        {
+          "now": 1.05,
+          "kicks": 3,
+          "last": 1.05,
+          "fired": 7
+        },
+        {
+          "now": 100,
+          "kicks": 256,
+          "last": 100,
+          "fired": 263
+        }
+      ]
+    },
+    {
+      "rate": 1000000000,
+      "samples": [
+        {
+          "now": 0.016666666666666666,
+          "kicks": 1,
+          "last": 0.016666666666666666,
+          "fired": 1
+        },
+        {
+          "now": 0.03333333333333333,
+          "kicks": 256,
+          "last": 0.03333333333333333,
+          "fired": 257
+        },
+        {
+          "now": 0.1,
+          "kicks": 256,
+          "last": 0.1,
+          "fired": 513
+        },
+        {
+          "now": 0.16666666666666666,
+          "kicks": 256,
+          "last": 0.16666666666666666,
+          "fired": 769
+        },
+        {
+          "now": 0.2,
+          "kicks": 256,
+          "last": 0.2,
+          "fired": 1025
+        },
+        {
+          "now": 0.5,
+          "kicks": 256,
+          "last": 0.5,
+          "fired": 1281
+        },
+        {
+          "now": 1.05,
+          "kicks": 256,
+          "last": 1.05,
+          "fired": 1537
+        },
+        {
+          "now": 100,
+          "kicks": 256,
+          "last": 100,
+          "fired": 1793
+        }
+      ]
+    }
+  ],
+  "preparations": [
+    {
+      "profile": 10,
+      "tick": 1,
+      "phase": 0.006666666666666666,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 10,
+      "tick": 2,
+      "phase": 0.013333333333333332,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 1,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 10,
+      "tick": 9,
+      "phase": 0.06,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 1,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 10,
+      "tick": 10,
+      "phase": 0.06666666666666667,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 1,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 10,
+      "tick": 11,
+      "phase": 0.07333333333333333,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 2,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 10,
+      "tick": 12,
+      "phase": 0.08,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 2,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 10,
+      "tick": 30,
+      "phase": 0.2,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 2,
+        "first": 2,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 10,
+      "tick": 60,
+      "phase": 0.4,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 4,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 10,
+      "tick": 90,
+      "phase": 0.6,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 7,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 10,
+      "tick": 150,
+      "phase": 1,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 6,
+        "first": 10,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 10,
+      "tick": 301,
+      "phase": 1,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 15,
+        "first": 16,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 10,
+      "tick": 420,
+      "phase": 1,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 12,
+        "first": 31,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 27,
+      "tick": 1,
+      "phase": 0.003333333333333333,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0.039999999999999994,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 27,
+      "tick": 2,
+      "phase": 0.006666666666666666,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0.07999999999999999,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 1,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 27,
+      "tick": 9,
+      "phase": 0.03,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0.36,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 1,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 27,
+      "tick": 10,
+      "phase": 0.03333333333333333,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0.4,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 1,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 27,
+      "tick": 11,
+      "phase": 0.03666666666666667,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0.44,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 1,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 27,
+      "tick": 12,
+      "phase": 0.04,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0.48,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 1,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 27,
+      "tick": 30,
+      "phase": 0.1,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 1.2000000000000002,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 2,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 27,
+      "tick": 60,
+      "phase": 0.2,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 2.4000000000000004,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 3,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 27,
+      "tick": 90,
+      "phase": 0.3,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 3.5999999999999996,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 2,
+        "first": 6,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 27,
+      "tick": 150,
+      "phase": 0.5,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 5,
+        "first": 8,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 27,
+      "tick": 301,
+      "phase": 1,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 13,
+        "first": 13,
+        "slot": 0
+      }
+    },
+    {
+      "profile": 27,
+      "tick": 420,
+      "phase": 1,
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 10,
+        "first": 26,
+        "slot": 0
+      }
+    }
+  ],
+  "impulses": [
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 0,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 0,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        26.013687133789062,
+        -3.83282208442688,
+        37.716087341308594
+      ],
+      "afterBits": [
+        1104157704,
+        3228912885,
+        1108794694
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 0,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        33.28643035888672,
+        56.81877899169922,
+        -6.162714958190918
+      ],
+      "afterBits": [
+        1107633486,
+        1113802350,
+        3234149622
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 0,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 0,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        26.013687133789062,
+        -3.83282208442688,
+        37.716087341308594
+      ],
+      "afterBits": [
+        1104157704,
+        3228912885,
+        1108794694
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 0,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        33.28643035888672,
+        56.81877899169922,
+        -6.162714958190918
+      ],
+      "afterBits": [
+        1107633486,
+        1113802350,
+        3234149622
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 0,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 0,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 0,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 927,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 927,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        -4.900727272033691,
+        15.00526237487793,
+        -29.29837417602539
+      ],
+      "afterBits": [
+        3231503042,
+        1097864590,
+        3253363474
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 927,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        11.86245059967041,
+        7.4588093757629395,
+        22.48561668395996
+      ],
+      "afterBits": [
+        1094569113,
+        1089384081,
+        1102307979
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 927,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 927,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        -4.900727272033691,
+        15.00526237487793,
+        -29.29837417602539
+      ],
+      "afterBits": [
+        3231503042,
+        1097864590,
+        3253363474
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 927,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        11.86245059967041,
+        7.4588093757629395,
+        22.48561668395996
+      ],
+      "afterBits": [
+        1094569113,
+        1089384081,
+        1102307979
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 927,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 927,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 927,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 65535,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 65535,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        -7.758475303649902,
+        -22.72910499572754,
+        38.66713333129883
+      ],
+      "afterBits": [
+        3237496174,
+        3249919285,
+        1109044005
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 65535,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        46.56538009643555,
+        -33.40440368652344,
+        61.8874397277832
+      ],
+      "afterBits": [
+        1111114483,
+        3255148060,
+        1115131069
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 65535,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 65535,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        -7.758475303649902,
+        -22.72910499572754,
+        38.66713333129883
+      ],
+      "afterBits": [
+        3237496174,
+        3249919285,
+        1109044005
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 65535,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        46.56538009643555,
+        -33.40440368652344,
+        61.8874397277832
+      ],
+      "afterBits": [
+        1111114483,
+        3255148060,
+        1115131069
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 65535,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 65535,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0,
+      "serial": 65535,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 0,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 0,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        26.013687133789062,
+        -3.83282208442688,
+        37.716087341308594
+      ],
+      "afterBits": [
+        1104157704,
+        3228912885,
+        1108794694
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 0,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        33.28643035888672,
+        56.81877899169922,
+        -6.162714958190918
+      ],
+      "afterBits": [
+        1107633486,
+        1113802350,
+        3234149622
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 0,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 0,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        26.013687133789062,
+        -3.83282208442688,
+        37.716087341308594
+      ],
+      "afterBits": [
+        1104157704,
+        3228912885,
+        1108794694
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 0,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        33.28643035888672,
+        56.81877899169922,
+        -6.162714958190918
+      ],
+      "afterBits": [
+        1107633486,
+        1113802350,
+        3234149622
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 0,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 0,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 0,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 927,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 927,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        -4.900727272033691,
+        15.00526237487793,
+        -29.29837417602539
+      ],
+      "afterBits": [
+        3231503042,
+        1097864590,
+        3253363474
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 927,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        11.86245059967041,
+        7.4588093757629395,
+        22.48561668395996
+      ],
+      "afterBits": [
+        1094569113,
+        1089384081,
+        1102307979
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 927,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 927,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        -4.900727272033691,
+        15.00526237487793,
+        -29.29837417602539
+      ],
+      "afterBits": [
+        3231503042,
+        1097864590,
+        3253363474
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 927,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        11.86245059967041,
+        7.4588093757629395,
+        22.48561668395996
+      ],
+      "afterBits": [
+        1094569113,
+        1089384081,
+        1102307979
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 927,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 927,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 927,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 65535,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 65535,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        -7.758475303649902,
+        -22.72910499572754,
+        38.66713333129883
+      ],
+      "afterBits": [
+        3237496174,
+        3249919285,
+        1109044005
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 65535,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        46.56538009643555,
+        -33.40440368652344,
+        61.8874397277832
+      ],
+      "afterBits": [
+        1111114483,
+        3255148060,
+        1115131069
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 65535,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 65535,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        -7.758475303649902,
+        -22.72910499572754,
+        38.66713333129883
+      ],
+      "afterBits": [
+        3237496174,
+        3249919285,
+        1109044005
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 65535,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        46.56538009643555,
+        -33.40440368652344,
+        61.8874397277832
+      ],
+      "afterBits": [
+        1111114483,
+        3255148060,
+        1115131069
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 65535,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 65535,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 0.5,
+      "serial": 65535,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 0,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 0,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        26.013687133789062,
+        -3.83282208442688,
+        37.716087341308594
+      ],
+      "afterBits": [
+        1104157704,
+        3228912885,
+        1108794694
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 0,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        33.28643035888672,
+        56.81877899169922,
+        -6.162714958190918
+      ],
+      "afterBits": [
+        1107633486,
+        1113802350,
+        3234149622
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 0,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 0,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        26.013687133789062,
+        -3.83282208442688,
+        37.716087341308594
+      ],
+      "afterBits": [
+        1104157704,
+        3228912885,
+        1108794694
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 0,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        33.28643035888672,
+        56.81877899169922,
+        -6.162714958190918
+      ],
+      "afterBits": [
+        1107633486,
+        1113802350,
+        3234149622
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 0,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 0,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 0,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 927,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 927,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        -4.900727272033691,
+        15.00526237487793,
+        -29.29837417602539
+      ],
+      "afterBits": [
+        3231503042,
+        1097864590,
+        3253363474
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 927,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        11.86245059967041,
+        7.4588093757629395,
+        22.48561668395996
+      ],
+      "afterBits": [
+        1094569113,
+        1089384081,
+        1102307979
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 927,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 927,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        -4.900727272033691,
+        15.00526237487793,
+        -29.29837417602539
+      ],
+      "afterBits": [
+        3231503042,
+        1097864590,
+        3253363474
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 927,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        11.86245059967041,
+        7.4588093757629395,
+        22.48561668395996
+      ],
+      "afterBits": [
+        1094569113,
+        1089384081,
+        1102307979
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 927,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 927,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 927,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 65535,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 65535,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        -7.758475303649902,
+        -22.72910499572754,
+        38.66713333129883
+      ],
+      "afterBits": [
+        3237496174,
+        3249919285,
+        1109044005
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 65535,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        46.56538009643555,
+        -33.40440368652344,
+        61.8874397277832
+      ],
+      "afterBits": [
+        1111114483,
+        3255148060,
+        1115131069
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 65535,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 65535,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        -7.758475303649902,
+        -22.72910499572754,
+        38.66713333129883
+      ],
+      "afterBits": [
+        3237496174,
+        3249919285,
+        1109044005
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 65535,
+      "place": "boundary",
+      "at": [
+        750,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        46.56538009643555,
+        -33.40440368652344,
+        61.8874397277832
+      ],
+      "afterBits": [
+        1111114483,
+        3255148060,
+        1115131069
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 65535,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 0,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 65535,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 1,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 10,
+      "phase": 1,
+      "serial": 65535,
+      "place": "outside",
+      "at": [
+        750.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 750,
+        "delta": 40,
+        "axes": [
+          1,
+          1,
+          1
+        ],
+        "kicks": 3,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 0,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 0,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 0,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 0,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 0,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 0,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 0,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 0,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 0,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 927,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 927,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 927,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 927,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 927,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 927,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 927,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 927,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 927,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 65535,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 65535,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 65535,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 65535,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 65535,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 65535,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 65535,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 65535,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0,
+      "serial": 65535,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 0,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 0,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 0,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        85.84927368164062,
+        -3.3981597423553467,
+        122.77790832519531
+      ],
+      "afterBits": [
+        1118548692,
+        3227089779,
+        1123389002
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 0,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        112.0311508178711,
+        214.94760131835938,
+        -35.18578338623047
+      ],
+      "afterBits": [
+        1121980403,
+        1129771670,
+        3255615038
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 0,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 0,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        85.84927368164062,
+        -3.3981597423553467,
+        122.77790832519531
+      ],
+      "afterBits": [
+        1118548692,
+        3227089779,
+        1123389002
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 0,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        112.0311508178711,
+        214.94760131835938,
+        -35.18578338623047
+      ],
+      "afterBits": [
+        1121980403,
+        1129771670,
+        3255615038
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 0,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 0,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 0,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 927,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 927,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        -25.44261932373047,
+        64.4189453125,
+        -118.47415161132812
+      ],
+      "afterBits": [
+        3251341948,
+        1115739776,
+        3270308548
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 927,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        34.90481948852539,
+        37.251712799072266,
+        67.94821166992188
+      ],
+      "afterBits": [
+        1108057737,
+        1108672961,
+        1116202364
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 927,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 927,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        -25.44261932373047,
+        64.4189453125,
+        -118.47415161132812
+      ],
+      "afterBits": [
+        3251341948,
+        1115739776,
+        3270308548
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 927,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        34.90481948852539,
+        37.251712799072266,
+        67.94821166992188
+      ],
+      "afterBits": [
+        1108057737,
+        1108672961,
+        1116202364
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 927,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 927,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 927,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 65535,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 65535,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        -35.73051071166992,
+        -71.42477416992188,
+        126.20167541503906
+      ],
+      "afterBits": [
+        3255757835,
+        3264141692,
+        1123837762
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 65535,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        159.8353729248047,
+        -109.85585021972656,
+        209.79476928710938
+      ],
+      "afterBits": [
+        1126159835,
+        3269178930,
+        1129433974
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 65535,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 65535,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        -35.73051071166992,
+        -71.42477416992188,
+        126.20167541503906
+      ],
+      "afterBits": [
+        3255757835,
+        3264141692,
+        1123837762
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 65535,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        159.8353729248047,
+        -109.85585021972656,
+        209.79476928710938
+      ],
+      "afterBits": [
+        1126159835,
+        3269178930,
+        1129433974
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 65535,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 65535,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 0.5,
+      "serial": 65535,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 6,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 0,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 0,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        168.69854736328125,
+        -2.7963194847106934,
+        240.55581665039062
+      ],
+      "afterBits": [
+        1126740692,
+        3224565478,
+        1131449930
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 0,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        221.0623016357422,
+        433.89520263671875,
+        -75.37156677246094
+      ],
+      "afterBits": [
+        1130172403,
+        1138291350,
+        3264659006
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 0,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 0,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        168.69854736328125,
+        -2.7963194847106934,
+        240.55581665039062
+      ],
+      "afterBits": [
+        1126740692,
+        3224565478,
+        1131449930
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 0,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        221.0623016357422,
+        433.89520263671875,
+        -75.37156677246094
+      ],
+      "afterBits": [
+        1130172403,
+        1138291350,
+        3264659006
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 0,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 0,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 0,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 927,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 927,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        -53.88523864746094,
+        132.837890625,
+        -241.94830322265625
+      ],
+      "afterBits": [
+        3260516988,
+        1124390528,
+        3279024836
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 927,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        66.80963897705078,
+        78.50342559814453,
+        130.89642333984375
+      ],
+      "afterBits": [
+        1116053129,
+        1117585857,
+        1124263292
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 927,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 927,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        -53.88523864746094,
+        132.837890625,
+        -241.94830322265625
+      ],
+      "afterBits": [
+        3260516988,
+        1124390528,
+        3279024836
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 927,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        66.80963897705078,
+        78.50342559814453,
+        130.89642333984375
+      ],
+      "afterBits": [
+        1116053129,
+        1117585857,
+        1124263292
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 927,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 927,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 927,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 0,
+        "slot": 1
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 65535,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 65535,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        -74.46102142333984,
+        -138.84954833984375,
+        247.40335083007812
+      ],
+      "afterBits": [
+        3264539659,
+        3272268156,
+        1131898690
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 65535,
+      "place": "inside",
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        316.6707458496094,
+        -215.71170043945312,
+        414.58953857421875
+      ],
+      "afterBits": [
+        1134450139,
+        3277305394,
+        1137658742
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 65535,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 65535,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        -74.46102142333984,
+        -138.84954833984375,
+        247.40335083007812
+      ],
+      "afterBits": [
+        3264539659,
+        3272268156,
+        1131898690
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 65535,
+      "place": "boundary",
+      "at": [
+        800,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        316.6707458496094,
+        -215.71170043945312,
+        414.58953857421875
+      ],
+      "afterBits": [
+        1134450139,
+        3277305394,
+        1137658742
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 65535,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 0,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 65535,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 1,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    },
+    {
+      "profile": 27,
+      "phase": 1,
+      "serial": 65535,
+      "place": "outside",
+      "at": [
+        800.01,
+        0,
+        0
+      ],
+      "noise": {
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "radius": 800,
+        "delta": 12,
+        "axes": [
+          24,
+          24,
+          24
+        ],
+        "kicks": 3,
+        "first": 9,
+        "slot": 0
+      },
+      "before": [
+        3,
+        -4,
+        5
+      ],
+      "after": [
+        3,
+        -4,
+        5
+      ],
+      "afterBits": [
+        1077936128,
+        3229614080,
+        1084227584
+      ]
+    }
+  ]
+}
