@@ -211,7 +211,9 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
       v = g.view;
     const record = w.ahriRVisuals[0];
     w.step(record.startTick + 95 - w.tick);
-    v.zoom = 2.2;
+    w.setOrder(w.hero, { type: 'move', point: { x: w.hero.x, y: w.hero.y + 150 } });
+    w.step(30);
+    v.zoom = 0.12;
     v.recenter(w.hero);
     v.render(w, 1, v.previousElapsed);
     const capture = () =>
