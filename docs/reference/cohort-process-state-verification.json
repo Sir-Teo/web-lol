@@ -1,0 +1,23 @@
+{
+  "format": 1,
+  "result": "passed",
+  "sourceRevision": "8be33c4a09b381ccfa114e6ce524c8ce770b03c4",
+  "testsPassed": 18,
+  "ownershipFenceUnchanged": true,
+  "readOnly": true,
+  "liveWorkersPaused": [],
+  "scope": "Instantaneous OS scheduling observations only; no process signals, simulation changes or final invariant verification.",
+  "evidenceWorkspace": "/workspace/web-lol-ahri-emote-audio",
+  "evidence": [
+    {
+      "file": "artifacts/cohort-process-state-tests-v1.log",
+      "bytes": 1603,
+      "sha256": "c594d880f66470a84e31f0bb493862a2770b748b766aa9cd1daeb4d9d4b065e1"
+    },
+    {
+      "file": "artifacts/cohort-process-state-live-v1.json",
+      "bytes": 1998,
+      "sha256": "95cf4c1b53db2df42cf193d9200a42435d686e4841e8843b25305aabe79a50a4"
+    }
+  ]
+}
