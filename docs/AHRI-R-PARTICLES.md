@@ -349,3 +349,28 @@ Primary merge `0f697966` reproduces accepted pack `3dbfa301` exactly and passes
 74 focused tests in nine files. Application/public bytes match the accepted
 branch. See [integration](reference/ahri/r-spell-rendering-main-integration.json).
 The earlier R observer and E packs remain retained. No push or deployment occurs.
+
+## Palette mixer identity reading
+
+The hashed palette field `{143f06d1}` is the FNV-1a lowercase spelling
+`palleteSrcMixColor`, including the native misspelling. The pinned external
+parser independently uses the same name. The [identity reading](reference/ahri/r-palette-field-reading.json)
+finds exactly one occurrence: `Ahri_R_mis_02` / `Ribbon_1`, emitter index 8
+(public profile 30). Its `ValueColor` is exactly
+`[0.9499961733818054, 0, 0, 0]`. The referenced gradient retains its authored
+128×4 base level. Raw source declarations and the published profile stay intact.
+
+```sh
+python3 tools/assets/read-ahri-r-palette.py --check
+python3 tools/assets/read-ahri-r-palette.py --check --verify-readers
+python3 tools/assets/test-ahri-r-palette.py
+python3 -O tools/assets/test-ahri-r-palette.py
+node --test tools/qa/ahri-r-palette-field.test.mjs
+```
+
+Normal/optimized guards pass eight structural rejections and two source-pin
+mutations; both targeted Node QA cases pass. The ordinary check needs only
+committed inputs; `--verify-readers` additionally checks the retained private
+reader files against their recorded hashes. External reader defaults do not
+certify native constructors. Authored palette count/selector omissions remain
+explicit. This identity stage changes no runtime binding, ruleset or pack.

@@ -1,0 +1,78 @@
+{
+  "format": 1,
+  "scope": "Field identity and constant ValueColor reading only; no runtime/default certification",
+  "producerSha256": "ad4be799b04de12e622c09e9d958d6c2b141a7457012329d1f55190e693f193d",
+  "inputs": [
+    {
+      "path": "docs/reference/ahri/r-particles.json",
+      "sha256": "3f283be14704aa77c680d2c11eb67441d8376586835e43283ae7be440c956991"
+    },
+    {
+      "path": "src/content/ahri-r-particles.json",
+      "sha256": "c9a65a9808d3206cfbaee6dc1f9e1a5a37d6351947d997e2a5c4b8d3b290f29f"
+    }
+  ],
+  "fieldHash": "{143f06d1}",
+  "fnv1aLowercaseSpelling": "palleteSrcMixColor",
+  "system": "Ahri_R_mis_02",
+  "emitterIndex": 8,
+  "emitterName": "Ribbon_1",
+  "publicProfileIndex": 30,
+  "nativePaletteDeclaration": {
+    "{ffa711fb}": "ASSETS/Characters/Ahri/Skins/Base/Particles/Ahri_Base_R_Gradient.tex",
+    "{143f06d1}": {
+      "constantValue": [
+        0.9499961733818054,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "__type": "ValueColor"
+    },
+    "__type": "VfxPaletteDefinitionData"
+  },
+  "valueClass": "ValueColor",
+  "constant": [
+    0.9499961733818054,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "textureSource": {
+    "path": "assets/characters/ahri/skins/base/particles/ahri_base_r_gradient.tex",
+    "wadPathHash": "c9eea0dcd2a24e6e",
+    "sha256": "714a3edb8e31b961f1d10c1a24db931f51f5737d7f72e4cf851e30fb927109b0",
+    "bytes": 1052
+  },
+  "textureBaseLevel": {
+    "level": 0,
+    "x": 0,
+    "y": 0,
+    "width": 128,
+    "height": 4,
+    "rgbaSha256": "7d99b3849db98dc100adb624095b3334a2c4776cf2732429ed2fa7986d624d25"
+  },
+  "externalReaderReferences": [
+    {
+      "path": ".cache/baron-emission-readers/engine/parsing/readSurface.ts",
+      "bytes": 14569,
+      "sha256": "af6068c0a8247c97d3ebb52d5a6ad6b9cca110920a38bfcac9553fe13a138219"
+    },
+    {
+      "path": ".cache/baron-emission-readers/engine/parsing/readValue.ts",
+      "bytes": 13407,
+      "sha256": "d9ae8a14ddc236b57138056e623fe922b7c1c15ffbe142cdebf6adefb2f6fed3"
+    },
+    {
+      "path": ".cache/baron-emission-readers/rendering/utils/palette.ts",
+      "bytes": 2008,
+      "sha256": "d13b347b607a85cc079b909dc8bb25e9ce67cd4e5c8120097f99b713b852f3f9"
+    }
+  ],
+  "limits": [
+    "Spelling matches the native field hash and the independently pinned external parser.",
+    "External parser defaults are references, not native constructor certification.",
+    "Palette count and selector remain omitted in the authored source.",
+    "No public profile, renderer binding, ruleset or accepted pack is changed."
+  ]
+}
