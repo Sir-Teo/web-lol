@@ -101,7 +101,7 @@ export class SourceNoiseFieldValues {
     });
   }
   sample(phase: number, now: number, clocks: SourceNoiseClock[]): SourceNoiseImpulse[] {
-    if (!Number.isFinite(phase) || phase < 0 || phase > 1 || !Number.isFinite(now) || now < 0)
+    if (!Number.isFinite(phase) || phase < 0 || !Number.isFinite(now) || now < 0)
       throw RangeError('Invalid source noise field sample');
     const next: SourceNoiseClock[] = [];
     const sampled = this.fields.map((field, slot) => {

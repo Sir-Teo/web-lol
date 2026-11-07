@@ -20,6 +20,8 @@ import { sourceParticleOrbit, sourceParticleStretch } from './source-particle-dr
 import { AHRI_R_POLICY } from '../content/ahri-r-policy';
 import { sourceParticlePostRotation } from './source-particle-post-rotation';
 import { SourceMotionTimeline } from './source-motion-timeline';
+import { SourceNoiseFieldValues } from './source-noise-field-values';
+import { SourceNoiseMotionTimeline, SourceNoiseSchedule } from './source-noise-motion-timeline';
 import { luxHoopChance } from './lux-hoop-particles';
 import { eclipsePeak } from './leona-eclipse-values';
 import { particleColorLookup } from './particle-color-lookup';
@@ -37,7 +39,8 @@ export interface AhriRParticleContext {
   root(time: number): AhriRRoot;
   boundObjectSize: number;
   /** Restrict work to an explicitly selected producer subset, before any roots
-   * or kernels are evaluated. Omission prepares all supported profiles. */
+   * or kernels are evaluated. Omission uses the currently bound profiles;
+   * an explicit subset can opt into prepared, still-unbound profiles. */
   profiles?: readonly number[];
 }
 const fixedContext: AhriRParticleContext = {
@@ -62,6 +65,8 @@ export const AHRI_R_BOUND_BUFF_PROFILES = [45, 46, 47, 48, 49, 50, 51, 52, 53, 5
 export const AHRI_R_PREPARED_EYE_TRAIL_PROFILES = [47, 48] as const;
 /** Prepared layouts use the complete source path retained for finite binding. */
 export const AHRI_R_PREPARED_LAYOUT_PROFILES = [49, 50, 51, 52, 53, 54] as const;
+export const AHRI_R_PREPARED_NOISE_PROFILES = [10, 27] as const;
+const noiseProfiles = new Set<number>(AHRI_R_PREPARED_NOISE_PROFILES);
 const periodicProfiles = new Set<number>(AHRI_R_PREPARED_EYE_TRAIL_PROFILES);
 const activeOnlyLayoutProfiles = new Set([51, 52, 54]);
 for (const [slot, index] of [51, 52, 54].entries()) {
@@ -110,6 +115,10 @@ export const AHRI_R_BOUND_SPELL_PROFILES = AHRI_R_SPELL_PROFILE_BINDINGS.filter(
   (p) => p.reason === 'bound-spell-profile'
 ).map((p) => p.profileIndex);
 const boundProfiles = new Set(AHRI_R_BOUND_SPELL_PROFILES);
+const defaultProfiles = new Set<number>([
+  ...AHRI_R_BOUND_SPELL_PROFILES,
+  ...AHRI_R_BOUND_BUFF_PROFILES,
+]);
 for (const [offset, index] of [45, 46].entries()) {
   const profile = data.profiles[index];
   if (
@@ -126,6 +135,7 @@ const preparedProfiles = new Set<number>([
   ...AHRI_R_BOUND_BUFF_PROFILES,
   ...AHRI_R_PREPARED_EYE_TRAIL_PROFILES,
   ...AHRI_R_PREPARED_LAYOUT_PROFILES,
+  ...AHRI_R_PREPARED_NOISE_PROFILES,
 ]);
 const layout = data.profiles[50];
 const base = data.profiles[49];
@@ -240,6 +250,19 @@ function surfaceUv(p: RParticleUv, d: SourceUvDraw) {
 const prepared = data.profiles.map((p, profileIndex) => {
   if (!preparedProfiles.has(profileIndex)) return null;
   if (
+    noiseProfiles.has(profileIndex) &&
+    (p.name !== (profileIndex === 10 ? 'sparkles_burst' : 'sparks') ||
+      p.system !== (profileIndex === 10 ? 'Ahri_R_Tar' : 'Ahri_R_mis_02') ||
+      p.emitterLife !== (profileIndex === 10 ? 2.5 : 5) ||
+      p.delay !== 0 ||
+      p.single !== (profileIndex === 10) ||
+      p.period !== null ||
+      p.timeActiveDuringPeriod !== null ||
+      !p.fieldCollection ||
+      [...p.bindingRequirements].sort().join(',') !== 'field-defaults,noise-field-arithmetic')
+  )
+    throw Error('R prepared noise profile closure differs');
+  if (
     (p.period !== null || p.timeActiveDuringPeriod !== null) &&
     !periodicProfiles.has(profileIndex) &&
     !activeOnlyLayoutProfiles.has(profileIndex)
@@ -271,9 +294,17 @@ const prepared = data.profiles.map((p, profileIndex) => {
     segmentLimit: null,
     rateScale: 1,
   };
+  const maximumLife = Math.fround(eclipsePeak(p.life));
   return {
     scheduleDefinition,
-    maximumLife: Math.fround(eclipsePeak(p.life)),
+    maximumLife,
+    noise: noiseProfiles.has(profileIndex)
+      ? new SourceNoiseSchedule(
+          new SourceNoiseFieldValues(p.fieldCollection),
+          p.emitterLife!,
+          Math.ceil((p.emitterLife! + maximumLife) * 60) + 2
+        )
+      : null,
     birth: new SourceBirthValues({
       lifetime: p.life,
       velocity: p.velocity,
@@ -341,7 +372,12 @@ function sampleParticles(
     stopped = time >= stopSeconds;
   return data.profiles.flatMap((p, profileIndex) => {
     if (p.system !== system) return [];
-    if (context.profiles && !context.profiles.includes(profileIndex)) return [];
+    if (
+      context.profiles
+        ? !context.profiles.includes(profileIndex)
+        : !defaultProfiles.has(profileIndex)
+    )
+      return [];
     const d = prepared[profileIndex];
     if (!d) return [];
     const particles: AhriRParticle[] = [];
@@ -456,12 +492,22 @@ function sampleParticles(
           roll,
           uv: d.uv.birth(event.phase, chance, roll),
           mult: d.mult?.birth(event.phase, chance, roll) ?? null,
-          motion: new SourceMotionTimeline(
-            placement.position,
-            placement.velocity,
-            born.drag,
-            Math.ceil(born.lifetime * 60) + 2
-          ),
+          motion: d.noise
+            ? new SourceNoiseMotionTimeline(
+                placement.position,
+                placement.velocity,
+                born.drag,
+                Math.ceil(born.lifetime * 60) + 2,
+                event.updateTick,
+                mixed >>> 0,
+                d.noise
+              )
+            : new SourceMotionTimeline(
+                placement.position,
+                placement.velocity,
+                born.drag,
+                Math.ceil(born.lifetime * 60) + 2
+              ),
         };
         cache?.set(key, held);
       }
@@ -594,7 +640,7 @@ interface HeldBirth {
   roll: number;
   uv: ReturnType<SourceUvLayer['birth']>;
   mult: ReturnType<SourceUvLayer['birth']> | null;
-  motion: SourceMotionTimeline;
+  motion: SourceMotionTimeline | SourceNoiseMotionTimeline;
   binding: SourceBindingTimeline;
   orbital: Float32Array;
 }

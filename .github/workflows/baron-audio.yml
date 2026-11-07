@@ -301,6 +301,7 @@ jobs:
           tests/ahri-r-render-history.test.ts
           tests/ahri-r-render-gameplay-reference.test.ts
           tests/ahri-r-particles.test.ts
+          tests/ahri-r-noise-particles.test.ts
           tests/ahri-r-palette.test.ts
           tests/ahri-r-persistent-history.test.ts
           tests/ahri-r-buff-particles.test.ts

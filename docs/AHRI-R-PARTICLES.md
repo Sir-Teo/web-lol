@@ -1087,3 +1087,14 @@ take their field's birth-step impulse without moving; later steps retain field
 changes after drag and move afterward. Cold, backward and fractional seeks own
 their row buffers. All 26 trajectory/provenance/ownership checks and TypeScript
 pass before the R sampler is changed.
+
+The R sampler now prepares profiles 10/27 only through an explicit producer
+subset. Default selection still uses the accepted bound set, so both noise
+profiles remain disconnected. The contact profile is its authored single burst;
+the missile profile retains the existing four-second local bolt-ownership cap
+inside its authored five-second emitter definition. Per-particle field directions
+use the sampler's mixed cosmetic seed as a local serial, not a native pool/RNG
+identity. Emitter-wide clocks are shared across every birth. Field phase follows
+the accumulated emitter age beyond one, with authored curves holding their last
+key. Cold/backward/fractional seeks, stops, bounded caches and expired-root access
+pass alongside all seven frozen families: 586 checks in ten files and TypeScript.

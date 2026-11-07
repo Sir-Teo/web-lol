@@ -27,7 +27,7 @@ export class SourceNoiseSchedule {
     let age = 0;
     for (let tick = 1; tick <= maximumUpdateTick; tick++) {
       age += 1 / 60;
-      const sampled = values.sample(Math.min(age / emitterLife, 1), tick / 60, clocks);
+      const sampled = values.sample(age / emitterLife, tick / 60, clocks);
       rows.push(
         Object.freeze(
           sampled.map((field) =>
