@@ -346,14 +346,59 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
       w = g.world,
       v = g.view,
       record = w.ahriRVisuals[0];
-    const dummy = w.spawn('dummy', 'red', { x: w.hero.x, y: w.hero.y + 20 });
-    Object.assign(dummy, { ai: false, hp: 10000, maxHp: 10000 });
-    w.setOrder(w.hero, { type: 'attack', target: dummy.id });
     w.step(record.startTick + 315 - w.tick);
     v.zoom = 0.16;
     v.recenter(w.hero);
     v.render(w, 1, v.previousElapsed);
     g.hud.update(60);
+    const saved = w.snapshot(),
+      model = v.models.get(w.hero.id).root;
+    const left = model.getObjectByName('L_Eye').getWorldPosition(v.camera.position.clone());
+    const right = model.getObjectByName('R_Eye').getWorldPosition(v.camera.position.clone());
+    const center = left.clone().add(right).multiplyScalar(0.5);
+    const forward = right.clone().sub(left);
+    forward.y = 0;
+    forward.cross({ x: 0, y: 1, z: 0 }).normalize();
+    const camera = v.camera.clone();
+    camera.position.copy(center).addScaledVector(forward, 1.8);
+    camera.position.y += 1.3;
+    camera.lookAt(center.clone().add({ x: 0, y: -0.25, z: 0 }));
+    camera.updateMatrixWorld(true);
+    v.ahriRParticles.update(w, 1, camera);
+    const meshes = [...v.ahriRParticles.buffModels.values()] as any[];
+    const canvas = document.createElement('canvas');
+    canvas.width = v.renderer.domElement.width;
+    canvas.height = v.renderer.domElement.height;
+    const context = canvas.getContext('2d')!;
+    const capture = () => {
+      v.renderer.render(v.scene, camera);
+      context.drawImage(v.renderer.domElement, 0, 0);
+      return {
+        png: canvas.toDataURL('image/png'),
+        pixels: context.getImageData(0, 0, canvas.width, canvas.height).data,
+      };
+    };
+    meshes.forEach((mesh) => (mesh.visible = false));
+    const baseline = capture();
+    const streams = [];
+    for (const profile of [47, 48]) {
+      meshes.forEach((mesh) => (mesh.visible = mesh.userData.profileIndex === profile));
+      const enabled = capture();
+      let changed = 0;
+      for (let i = 0; i < enabled.pixels.length; i += 4)
+        if (
+          Math.abs(enabled.pixels[i] - baseline.pixels[i]) +
+            Math.abs(enabled.pixels[i + 1] - baseline.pixels[i + 1]) +
+            Math.abs(enabled.pixels[i + 2] - baseline.pixels[i + 2]) >
+          3
+        )
+          changed++;
+      streams.push({ profile, changedPixels: changed, png: enabled.png });
+    }
+    meshes.forEach((mesh) => (mesh.visible = true));
+    const combined = capture();
+    v.ahriRParticles.update(w, 1, v.camera);
+    v.renderer.render(v.scene, v.camera);
     return {
       profiles: [
         ...new Set(
@@ -361,11 +406,38 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
         ),
       ].sort(),
       attachments: v.ahriRParticles.attachmentFallbacks,
+      unchanged: w.snapshot() === saved,
+      baseline: baseline.png,
+      combined: combined.png,
+      streams,
     };
   });
   expect(front.profiles).toEqual([47, 48]);
   expect(front.attachments).toEqual([]);
-  await page.screenshot({ path: info.outputPath('ahri-r-eye-trails-front.png') });
+  expect(front.unchanged).toBe(true);
+  await writeFile(
+    info.outputPath('ahri-r-eye-trails-off.png'),
+    Buffer.from(front.baseline.split(',')[1], 'base64')
+  );
+  await writeFile(
+    info.outputPath('ahri-r-eye-trails-on.png'),
+    Buffer.from(front.combined.split(',')[1], 'base64')
+  );
+  for (const stream of front.streams) {
+    await writeFile(
+      info.outputPath(`ahri-r-eye-trail-${stream.profile}.png`),
+      Buffer.from(stream.png.split(',')[1], 'base64')
+    );
+    expect(stream.changedPixels).toBeGreaterThan(0);
+  }
+  const frontProof = {
+    profiles: front.profiles,
+    attachments: front.attachments,
+    unchanged: front.unchanged,
+    streams: front.streams.map(({ profile, changedPixels }) => ({ profile, changedPixels })),
+    scope:
+      'Diagnostic eye-facing camera; each ribbon profile compared against the same scene with both ribbon profiles hidden.',
+  };
   expect(requests.filter((path) => path.endsWith('/ahri-r-e44c1023b3871ca4.png'))).toHaveLength(1);
   expect(requests).toHaveLength(7);
   expect(new Set(requests).size).toBe(7);
@@ -373,7 +445,11 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
   expect(errors).toEqual([]);
   await writeFile(
     info.outputPath('ahri-r-packets.json'),
-    JSON.stringify({ requests, glowRequests, flight, hit, eyes, eyeTrails, front, errors }, null, 2)
+    JSON.stringify(
+      { requests, glowRequests, flight, hit, eyes, eyeTrails, front: frontProof, errors },
+      null,
+      2
+    )
   );
 });
 
