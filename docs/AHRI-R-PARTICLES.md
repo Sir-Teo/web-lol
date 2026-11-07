@@ -234,7 +234,7 @@ are samples, not worst-case memory bounds.
 
 This candidate does not bind native R particle rendering. The existing
 provisional essence-bolt models remain in use. Browser and delivery acceptance
-must be recorded separately before integrating this observation stage.
+are recorded separately from the earlier candidate proof.
 
 The preparatory [asset reuse audit](reference/ahri/r-asset-reuse.json) verifies all
 51 private texture transports and four private mesh transports. Native identity,
@@ -253,3 +253,14 @@ This audit requires the retained private R transports. Its isolated guard run
 passes eight rejection probes in normal and optimized Python modes. It does not
 publish files, select renderer bindings, or add private-cache requirements to
 the portable source workflow.
+
+
+The [observer acceptance](reference/ahri/r-visual-observer-acceptance.json) passes
+all 29 Q/W/E/R/audio browser cases, production nested-path checks covering 32
+recordings, and offline lifecycle checks with 978 worker responses and zero
+production errors. The fresh schema 181 pack `15b88ebe` contains 1,405 files /
+579,768,106 bytes and retains the worker policy. Both R dash and arrival captures
+were inspected in software Chromium. All 334 public WAV files / 96,632,632 bytes
+match the accepted E primary; all 76 Ahri masters remain intact. The earlier E
+pack is retained separately. This accepts saved R observation, not native R
+particle rendering, full-project completion, or a current hundred-seed gate.
