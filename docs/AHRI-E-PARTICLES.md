@@ -329,3 +329,18 @@ Fresnel inputs (0.05f and 0.15f) reuse the already checked common skin-property
 mapping, yielding 0.3449999988079071 and 0.8350000381469727. This does not recreate
 the unavailable historical Leona reader or claim a new native dispatch proof.
 The unresolved buff skin must remain a named rendering limitation.
+
+## Private attachment-root sampling
+
+Historical cast/target roots can now sample private reference skeletons using
+exact declared bone names and saved body positions/facing. Live models and World
+remain untouched. Recent poses refresh at each frame; older queried points stay
+cached, returned vectors are independent, and replaced Worlds/retired groups
+release owned samplers. Flight keeps the explicit ground-plus-one-metre root.
+
+A missing rig or exact bone name uses a recorded collision-height fallback;
+no alias from the missile's raw spine field to a differently named bone is
+invented. Target lifetime endings clamp the pose query clock. Seventeen private
+pose/history checks pass across three files, and TypeScript passes. These use
+functional reference fixtures; actual asset attachments and fallback diagnostics
+still require the upcoming scene/browser check.
