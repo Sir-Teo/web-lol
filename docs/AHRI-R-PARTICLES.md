@@ -139,3 +139,26 @@ node --test tools/assets/test-ahri-r-meshes.mjs
 
 No runtime or public assets change. Native GPU appearance and unresolved producer
 semantics remain separate from transport correctness.
+
+## Original emitter field types
+
+The [native type record](reference/ahri/r-native-types.json) reads the verified
+BIN field tags directly for all 55 emitters and all eleven resource records.
+It retains 67 distinct field names and 123 FLAG-tagged fields. CDTB's integer
+FLAG payloads remain separate from their native tags; JSON numbers do not imply
+numeric controls or boolean constructor defaults. TextureSwaps explicitly lacks
+an emitter-list field. Unknown field labels remain raw hashes.
+
+Normal and optimized Python checks reproduce the same complete record, SHA-256
+916507ddeb2cd0055577a915be79878442033582848e42c9bb7a3dc6d1e1b149.
+See [type verification](reference/ahri/r-native-types-verification.json).
+
+```sh
+PYTHONPATH=tools/assets:.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/read-ahri-r-native-types.py --check
+PYTHONPATH=tools/assets:.tools/cdtb .tools/cdtb-venv/bin/python -O tools/assets/read-ahri-r-native-types.py --check
+```
+
+R adds fields beyond the earlier E projection, including distortion, field
+collections, emitter linger, directional velocity, auxiliary texture inputs and
+four unresolved hash labels. These require explicit profile handling. The type
+reading supplies no missing native callbacks or shader semantics.

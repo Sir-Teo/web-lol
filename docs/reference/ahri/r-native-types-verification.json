@@ -1,0 +1,39 @@
+{
+  "format": 1,
+  "scope": "Original verified BIN field tags for all Spirit Rush emitters; no JSON-type inference",
+  "resources": 11,
+  "emitters": 55,
+  "uniqueFieldNames": 67,
+  "flagTaggedFields": 123,
+  "normalCheck": true,
+  "optimizedCheck": true,
+  "runtimeChanged": false,
+  "nativeDispatchVerified": false,
+  "evidence": [
+    {
+      "path": "docs/reference/ahri/r-native-types.json",
+      "bytes": 165947,
+      "sha256": "916507ddeb2cd0055577a915be79878442033582848e42c9bb7a3dc6d1e1b149"
+    },
+    {
+      "path": "tools/assets/read-ahri-r-native-types.py",
+      "bytes": 4481,
+      "sha256": "8d95ba01f43f84d283c6e67173657aecb2e6270c0ccd4b2229ea8fdfafe2d115"
+    },
+    {
+      "path": "artifacts/ahri-r-native-types-build-v1.log",
+      "bytes": 188,
+      "sha256": "6aef443edf8bd0fec38923c55e4df4e11ff717f95373f3651957eb38bbb326e4"
+    },
+    {
+      "path": "artifacts/ahri-r-native-types-check-v1.log",
+      "bytes": 188,
+      "sha256": "6aef443edf8bd0fec38923c55e4df4e11ff717f95373f3651957eb38bbb326e4"
+    },
+    {
+      "path": "artifacts/ahri-r-native-types-optimized-v1.log",
+      "bytes": 188,
+      "sha256": "6aef443edf8bd0fec38923c55e4df4e11ff717f95373f3651957eb38bbb326e4"
+    }
+  ]
+}
