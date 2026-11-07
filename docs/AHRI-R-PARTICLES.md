@@ -558,7 +558,7 @@ without disposing page-owned textures. Three ownership/upload cases pass within
 
 ## Periodic eye-trail renderer candidate
 
-Both arbitrary eye trails now draw from saved eye-bone roots beside the earlier
+Both authored eye trails now draw from saved eye-bone roots beside the earlier
 glows. Local ordinary-ribbon mode re-measures each visible live run; its unused
 lifetime odometer stays neutral. Ground-layer metadata does not project these
 head-height ribbons onto terrain. Birth/binding motion uses the saved actor
@@ -577,3 +577,23 @@ pass, including the periodic active/gap windows, exact restoration of all eight
 ribbon attribute buffers, native eye bones and one new texture request. The
 earlier 72 spell and 36 glow packet hashes remain exact. Broader regression,
 production/offline and natural-match verification follow before acceptance.
+
+The regression checkpoint passes 9,468/9,470 tests in 593 files, with only the
+two historical failures, plus all 263 Node QA cases. All 87 clean-export commands
+pass on their first attempt; scoped selections execute 1,240 tests across 146
+file executions, including overlap. All 5,565 committed export files verify
+before removing only the disposable export.
+
+All 25 cross-kit browser cases pass beside the eight R cases. An additional
+same-scene framebuffer probe places a diagnostic camera from the actual eye
+bones and renders each ribbon profile against both ribbons hidden. Profiles 47
+and 48 change 16,362 and 11,695 pixels respectively, with no attachment fallback
+or World mutation. The combined image shows the golden ribbons at the moving
+head. This establishes visible contribution in software Chromium, with no claim
+of native-client pixel equivalence or representative-device performance.
+
+All 45 complete natural-match projections match the accepted R observer,
+excluding only schema/ruleset identifiers; victory remains at tick 157116.
+Simulation, content, public assets and all 334 WAV files remain exact. See the
+[trail regression record](reference/ahri/r-eye-trail-regression-verification.json).
+Production/offline delivery remains pending at this checkpoint.
