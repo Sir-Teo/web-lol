@@ -1,0 +1,509 @@
+{
+  "format": 1,
+  "beforeRevision": "8e5b7e73178f52b99aea0c5f1d1cef08a8fe1a6b",
+  "afterRevision": "14d68cc291da08cc12fbb55248de3a422ec017fa",
+  "beforeRuleset": "cc3078bc03e40bcc10e62d7244cb5a2432ca7428141331f30cfe5ecfff6c7799",
+  "afterRuleset": "ff8abc1be3d5e4191d0544c600ed32c1e3d89b5bf969d9f2a57c591cde81dbe9",
+  "beforeArchiveFiles": 649,
+  "afterArchiveFiles": 659,
+  "changed": [
+    {
+      "before": {
+        "file": "src/render/source-particle-surfaces.ts",
+        "bytes": 22930,
+        "sha256": "0f13bcebc292902566ab40cfaaaa364a84d9e84546cbe274c9f6a987d0121156"
+      },
+      "after": {
+        "file": "src/render/source-particle-surfaces.ts",
+        "bytes": 23609,
+        "sha256": "61a94c22a385354aa8c0d8ab7d203a0c2d478c444c3c8137d8b047781dd2197b"
+      }
+    },
+    {
+      "before": {
+        "file": "tools/ruleset-fingerprint.ts",
+        "bytes": 13636,
+        "sha256": "3c9d1bb5774026edea67acf5651720666127c2a075ebb6ccf0ecfc5b8da95c42"
+      },
+      "after": {
+        "file": "tools/ruleset-fingerprint.ts",
+        "bytes": 13709,
+        "sha256": "70143185e13878455abc9aa5af4a8b7349d68dfb90be4cb853d12079ffbd7395"
+      }
+    }
+  ],
+  "added": [
+    {
+      "file": "src/content/ahri-w-particles.json",
+      "bytes": 597039,
+      "sha256": "f8a4c153046a70237c4c2d563e45f1b523c29e464ed3789eb0170eeedebef832"
+    },
+    {
+      "file": "src/render/ahri-w-assets.ts",
+      "bytes": 5486,
+      "sha256": "edffe02e17f50742c3a1d7fb596313aa924211b7e1a7e889e8c6a07259a1d755"
+    },
+    {
+      "file": "src/render/ahri-w-effects.ts",
+      "bytes": 10361,
+      "sha256": "6be3a214b7acad13a63dbf8a26d256e3460b63bd56dd0aae8be22ca2fd8e78c3"
+    },
+    {
+      "file": "src/render/ahri-w-history.ts",
+      "bytes": 6494,
+      "sha256": "f31957e9f1a8bf5c3c4a6c3a4a7f42ec538e25574bc7ff4d12cc810ceb20d093"
+    },
+    {
+      "file": "src/render/ahri-w-particles.ts",
+      "bytes": 16170,
+      "sha256": "93e1135068aac4be5ea7f5694837be94ff21757d987f1cf19c09cb3ed05ad93b"
+    },
+    {
+      "file": "src/render/ahri-w-ribbon-material.ts",
+      "bytes": 3699,
+      "sha256": "278e7eac6c3b18fa2a9c1eb8802565605a281d4a135d747c1f25303fc4a16923"
+    },
+    {
+      "file": "src/render/ahri-w-trails.ts",
+      "bytes": 3013,
+      "sha256": "df6925e53460fcc838c337520618d3e9ec97a41abe880c2f5bd51fa7bb884a19"
+    },
+    {
+      "file": "src/render/lazy-ahri-w-effects.ts",
+      "bytes": 1921,
+      "sha256": "0e94bbb5390a0713ed5a2888a8a17acbe6cbf5cfdffc60e88877b8ce7c81fd7a"
+    },
+    {
+      "file": "src/render/source-binding-timeline.ts",
+      "bytes": 3851,
+      "sha256": "6ff501f28a65b7f63a26d0cb4dc0bb51278d43c1521a0b56d7ad3cc29dfa73d7"
+    },
+    {
+      "file": "src/render/source-particle-draw-values.ts",
+      "bytes": 1946,
+      "sha256": "7853d4622887320c56830845786ca8d66f3536f2879d055e9df7f9b72e16ab81"
+    }
+  ],
+  "removed": [],
+  "unchangedFiles": 647,
+  "allCandidateArchiveBytesMatch": true,
+  "integrationBaselineRevision": "5f22240",
+  "allTrackedChanges": [
+    {
+      "path": ".github/workflows/ahri-w-source.yml",
+      "beforeSha256": "d6c204a9d4ace6ac1b6d69738d4a4fa4ba6664ca00221dd7c5bd40d5ec1b986b",
+      "afterSha256": "c18c1d8d8d6a1fbc51ecfb5c466f6d436abaa6dffc247f91b6a277e8b8f2fd3e",
+      "bytes": 3721
+    },
+    {
+      "path": ".github/workflows/baron-audio.yml",
+      "beforeSha256": "06b0dc3178f143d72471b9797cfc0aad1d326cfd0e0889ea2a2320552e6b2ca0",
+      "afterSha256": "5823b097b7ac0f07175e09bfa30fe4d96eb4fb146c07e27474ca97411e87657a",
+      "bytes": 17797
+    },
+    {
+      "path": "docs/AHRI-W-RENDERING.md",
+      "beforeSha256": null,
+      "afterSha256": "65e26708fb9882a3696f838458c4f566ded93befd24de291810e3045b670364d",
+      "bytes": 7675
+    },
+    {
+      "path": "docs/SOURCE-PARTICLE-DRAW-VALUES.md",
+      "beforeSha256": null,
+      "afterSha256": "e61b1d5e7997e0fa89666a9918d3db953893b3b067988827e051242df9a2b026",
+      "bytes": 2516
+    },
+    {
+      "path": "docs/reference/ahri/w-native-types.json",
+      "beforeSha256": null,
+      "afterSha256": "1c09b17c0875436c6ba66331ad8bef523415de647618313a5b5d7135a9543623",
+      "bytes": 92224
+    },
+    {
+      "path": "docs/reference/ahri/w-publication.json",
+      "beforeSha256": null,
+      "afterSha256": "7cc2a07c33f78787009745285d9af119f7449a4aad9b46bf3061fa992db96ff7",
+      "bytes": 1835
+    },
+    {
+      "path": "docs/reference/source-particle-draw-samples.json",
+      "beforeSha256": null,
+      "afterSha256": "6d7a855f392d8fe818e5d3bc8c768055c56487ce25bb03380f0e65fef45ba4da",
+      "bytes": 30005
+    },
+    {
+      "path": "e2e/ahri-w-particles.spec.ts",
+      "beforeSha256": null,
+      "afterSha256": "1c4666a8a1c177601e495d5caa3abd7e0282191d212cd3df55c8ac583ba5cf5a",
+      "bytes": 13846
+    },
+    {
+      "path": "public/assets/effects/ahri-w-05c285275a8330ac.png",
+      "beforeSha256": null,
+      "afterSha256": "783dde021cbaf47440b32229227b281ad55239c9f3629cd02efd8edb03ca368a",
+      "bytes": 413
+    },
+    {
+      "path": "public/assets/effects/ahri-w-09aa1ecc71a6eb76.png",
+      "beforeSha256": null,
+      "afterSha256": "0fd8c94de32b75c4579bd0cb841616cf850a4a1be72a9d41a05deef307935a7e",
+      "bytes": 13452
+    },
+    {
+      "path": "public/assets/effects/ahri-w-0db2888ae5f4da44.png",
+      "beforeSha256": null,
+      "afterSha256": "8f1026fef3414c2392b992b195c4a2a1e3fa3000be39125b1077a2a4a00a7bcb",
+      "bytes": 535
+    },
+    {
+      "path": "public/assets/effects/ahri-w-202f03a2c5472208.png",
+      "beforeSha256": null,
+      "afterSha256": "addb8a245831d186ed38a8dd2a98a564f8588a389ea7c47f8e5d0b2a12004d42",
+      "bytes": 97259
+    },
+    {
+      "path": "public/assets/effects/ahri-w-296381a1d1b93e95.png",
+      "beforeSha256": null,
+      "afterSha256": "bc537d58d6cc827a5d9f365f8c3a2eb16265cc63211391b34a83fb367a3d0106",
+      "bytes": 37730
+    },
+    {
+      "path": "public/assets/effects/ahri-w-46e97ef6e8f0dabd.png",
+      "beforeSha256": null,
+      "afterSha256": "0dc2f2d6b3ecbf6501c4cba2f0d4702c65f68d07bb8ab6149738ec24a0714106",
+      "bytes": 6914
+    },
+    {
+      "path": "public/assets/effects/ahri-w-4a28baa8836a570a.glb",
+      "beforeSha256": null,
+      "afterSha256": "906e60876a8015b8fe7d702bb140799df96b40c4f9bd134f4225331ad5d70b8f",
+      "bytes": 9440
+    },
+    {
+      "path": "public/assets/effects/ahri-w-5345e95f41a66333.png",
+      "beforeSha256": null,
+      "afterSha256": "c0ad2eee15253d43bc86d53f095f6beedfd171fb0afa385b1d4bbd3af14d2e7f",
+      "bytes": 62640
+    },
+    {
+      "path": "public/assets/effects/ahri-w-56617d3c747415c8.png",
+      "beforeSha256": null,
+      "afterSha256": "00eedd2d7de96c65d5418255aba3b9815d7f74f6039aaf0b974e27c72987869b",
+      "bytes": 6497
+    },
+    {
+      "path": "public/assets/effects/ahri-w-6402359896837509.png",
+      "beforeSha256": null,
+      "afterSha256": "96baf3164acfd920172fdd3f20de431af9dfeda7c79bff23a1b643cc6ba3ac72",
+      "bytes": 2988
+    },
+    {
+      "path": "public/assets/effects/ahri-w-6fb199a67ce0fa7f.png",
+      "beforeSha256": null,
+      "afterSha256": "33edb9cb6aa097aefc528d3acd880391fd1f9bd75371ea041c91df8647a4c3bc",
+      "bytes": 21042
+    },
+    {
+      "path": "public/assets/effects/ahri-w-8812d59b7f713161.png",
+      "beforeSha256": null,
+      "afterSha256": "93e1caae029f0d89be0787873a83a10fca1f79b9862954599bec25dcf9c8db7a",
+      "bytes": 343363
+    },
+    {
+      "path": "public/assets/effects/ahri-w-884f3d6b309f8472.png",
+      "beforeSha256": null,
+      "afterSha256": "7f5d1e71b8d6fe318a8bb3ee8cc19079ba8b2d9d4e151fe7f8c06ac516a8493a",
+      "bytes": 407
+    },
+    {
+      "path": "public/assets/effects/ahri-w-8fe8dd26cce6ff6a.png",
+      "beforeSha256": null,
+      "afterSha256": "bab48f4f91762b41254eb7e59126de0ce7d83794709ddb259e9fd7a66ef68593",
+      "bytes": 82162
+    },
+    {
+      "path": "public/assets/effects/ahri-w-9116ffdc649c370a.png",
+      "beforeSha256": null,
+      "afterSha256": "25f4d962b3be96cffc8e0573ba1bf4eb941f0cd74006f7db233fc9bfbd655275",
+      "bytes": 71948
+    },
+    {
+      "path": "public/assets/effects/ahri-w-9118fdc7cec18e5d.glb",
+      "beforeSha256": null,
+      "afterSha256": "891c20ec38a6deb93603d326fcf22d2464d5783f4ee69dc1e8bebfa0320f0fa7",
+      "bytes": 23140
+    },
+    {
+      "path": "public/assets/effects/ahri-w-919d031649117c44.png",
+      "beforeSha256": null,
+      "afterSha256": "235111861d154c007200eade63c84230280dfa26197d1781d60dcd0851a8af04",
+      "bytes": 3717
+    },
+    {
+      "path": "public/assets/effects/ahri-w-9227060489edfd8e.png",
+      "beforeSha256": null,
+      "afterSha256": "7298c86e7b66771ca86b3b3e0cac46b5ba02e32b147ecadad42c6d6d6d03f469",
+      "bytes": 41488
+    },
+    {
+      "path": "public/assets/effects/ahri-w-9c70a07c643c610a.png",
+      "beforeSha256": null,
+      "afterSha256": "c990375dbf66d02211467f2a6914d8337ca4a140942d1de5323941a3e4fcfc5a",
+      "bytes": 44054
+    },
+    {
+      "path": "public/assets/effects/ahri-w-9f3ed29e7905440a.png",
+      "beforeSha256": null,
+      "afterSha256": "6113a8baef86361e381d239f9ee2084c3cd37e7d1d58fdc8d2f6cb9872194698",
+      "bytes": 5239
+    },
+    {
+      "path": "public/assets/effects/ahri-w-a6dcff8321de06b7.png",
+      "beforeSha256": null,
+      "afterSha256": "04049f9fa14aac63a39772d12a3b69251487cab5174cc6ef2b893521ba84eac1",
+      "bytes": 280
+    },
+    {
+      "path": "public/assets/effects/ahri-w-ac5e1ebe8b387340.png",
+      "beforeSha256": null,
+      "afterSha256": "2bd4cad47de4574ada7a5ea7951004973eb9baddeec000165504620b82e5ef87",
+      "bytes": 222996
+    },
+    {
+      "path": "public/assets/effects/ahri-w-aea8d11f35674924.png",
+      "beforeSha256": null,
+      "afterSha256": "91db884c9211de4d688c68f158321cf67ad2e1381c2c29ec51a5489e89161808",
+      "bytes": 108011
+    },
+    {
+      "path": "public/assets/effects/ahri-w-b7cf3aaa74075f2a.png",
+      "beforeSha256": null,
+      "afterSha256": "5176f1f3dbfc63f74b40008a463abe72924f695a1b72839bbb4da516db908555",
+      "bytes": 13236
+    },
+    {
+      "path": "public/assets/effects/ahri-w-bde89af2bb8277aa.png",
+      "beforeSha256": null,
+      "afterSha256": "f2e2817785a1f128e6c489e1677f57758c362862945a8733882a94cd0561e10a",
+      "bytes": 9176
+    },
+    {
+      "path": "public/assets/effects/ahri-w-cdcd534c385c615e.png",
+      "beforeSha256": null,
+      "afterSha256": "fee6ba22e7399d1e4c5f00555cc52f4bdce482bab8d270dfb9a2b89e078e03ea",
+      "bytes": 23341
+    },
+    {
+      "path": "public/assets/effects/ahri-w-d5261d2d003060fc.png",
+      "beforeSha256": null,
+      "afterSha256": "8aa1035c46caf308365528fd18ca961aa6c605602c661b28fca8d74892a763bd",
+      "bytes": 228
+    },
+    {
+      "path": "public/assets/effects/ahri-w-d8b87a01e2e65f76.png",
+      "beforeSha256": null,
+      "afterSha256": "f68aec13281046459c345c75ec409dfb617878c5001c37fc6880a8b2f45ed2f2",
+      "bytes": 72537
+    },
+    {
+      "path": "public/assets/effects/ahri-w-e194d428cdd61a4a.png",
+      "beforeSha256": null,
+      "afterSha256": "12fa923c13e3bc0e18aad0f4c3b560cb48e4af7a76283277d3197137088b0a9a",
+      "bytes": 528
+    },
+    {
+      "path": "public/assets/effects/ahri-w-e2858c860cfe9e26.png",
+      "beforeSha256": null,
+      "afterSha256": "ae96debfdf8b6186fc812e40a5a5828857141884cfea4b0e56219972752b43c9",
+      "bytes": 428248
+    },
+    {
+      "path": "public/assets/effects/ahri-w-f2a62973bfe9fc53.png",
+      "beforeSha256": null,
+      "afterSha256": "5da43d47200ed33a080a23d9df84f4084902e17307c790edf67cda2081464fd7",
+      "bytes": 23666
+    },
+    {
+      "path": "src/content/ahri-w-particles.json",
+      "beforeSha256": null,
+      "afterSha256": "f8a4c153046a70237c4c2d563e45f1b523c29e464ed3789eb0170eeedebef832",
+      "bytes": 597039
+    },
+    {
+      "path": "src/render/ahri-w-assets.ts",
+      "beforeSha256": null,
+      "afterSha256": "edffe02e17f50742c3a1d7fb596313aa924211b7e1a7e889e8c6a07259a1d755",
+      "bytes": 5486
+    },
+    {
+      "path": "src/render/ahri-w-effects.ts",
+      "beforeSha256": null,
+      "afterSha256": "6be3a214b7acad13a63dbf8a26d256e3460b63bd56dd0aae8be22ca2fd8e78c3",
+      "bytes": 10361
+    },
+    {
+      "path": "src/render/ahri-w-history.ts",
+      "beforeSha256": null,
+      "afterSha256": "f31957e9f1a8bf5c3c4a6c3a4a7f42ec538e25574bc7ff4d12cc810ceb20d093",
+      "bytes": 6494
+    },
+    {
+      "path": "src/render/ahri-w-particles.ts",
+      "beforeSha256": null,
+      "afterSha256": "93e1135068aac4be5ea7f5694837be94ff21757d987f1cf19c09cb3ed05ad93b",
+      "bytes": 16170
+    },
+    {
+      "path": "src/render/ahri-w-ribbon-material.ts",
+      "beforeSha256": null,
+      "afterSha256": "278e7eac6c3b18fa2a9c1eb8802565605a281d4a135d747c1f25303fc4a16923",
+      "bytes": 3699
+    },
+    {
+      "path": "src/render/ahri-w-trails.ts",
+      "beforeSha256": null,
+      "afterSha256": "df6925e53460fcc838c337520618d3e9ec97a41abe880c2f5bd51fa7bb884a19",
+      "bytes": 3013
+    },
+    {
+      "path": "src/render/lazy-ahri-w-effects.ts",
+      "beforeSha256": null,
+      "afterSha256": "0e94bbb5390a0713ed5a2888a8a17acbe6cbf5cfdffc60e88877b8ce7c81fd7a",
+      "bytes": 1921
+    },
+    {
+      "path": "src/render/source-binding-timeline.ts",
+      "beforeSha256": null,
+      "afterSha256": "6ff501f28a65b7f63a26d0cb4dc0bb51278d43c1521a0b56d7ad3cc29dfa73d7",
+      "bytes": 3851
+    },
+    {
+      "path": "src/render/source-particle-draw-values.ts",
+      "beforeSha256": null,
+      "afterSha256": "7853d4622887320c56830845786ca8d66f3536f2879d055e9df7f9b72e16ab81",
+      "bytes": 1946
+    },
+    {
+      "path": "src/render/source-particle-surfaces.ts",
+      "beforeSha256": "0f13bcebc292902566ab40cfaaaa364a84d9e84546cbe274c9f6a987d0121156",
+      "afterSha256": "61a94c22a385354aa8c0d8ab7d203a0c2d478c444c3c8137d8b047781dd2197b",
+      "bytes": 23609
+    },
+    {
+      "path": "src/render/view.ts",
+      "beforeSha256": "445d925ec72b46bc23253fd8b9daaf9934a4d20481e73c1e08cbb8eaab6ce054",
+      "afterSha256": "e3d5c375563827999257793870b181b00596844fb11340435cf4872bde5aff46",
+      "bytes": 68150
+    },
+    {
+      "path": "tests/ahri-w-assets-loader.test.ts",
+      "beforeSha256": null,
+      "afterSha256": "6cc2ceec7cea88bcec10bc1afb3c8d3f39c9acaab766ff6f6fd30e6f14abb814",
+      "bytes": 5614
+    },
+    {
+      "path": "tests/ahri-w-effects.test.ts",
+      "beforeSha256": null,
+      "afterSha256": "07306fcc97ef5e6b95ecddeacfc655df88721ed54d8d5335a46ea888d397a4fc",
+      "bytes": 10433
+    },
+    {
+      "path": "tests/ahri-w-history-view.test.ts",
+      "beforeSha256": null,
+      "afterSha256": "1bc19fa267e5d4d7beadb46749cd06dda4967a8856b3f04901f4649ba8c19dcd",
+      "bytes": 5396
+    },
+    {
+      "path": "tests/ahri-w-particle-assets.test.ts",
+      "beforeSha256": null,
+      "afterSha256": "27b351344718f3712a922038b9df0f7856f63b387499824678a2f8c4d817d79f",
+      "bytes": 2696
+    },
+    {
+      "path": "tests/ahri-w-particles.test.ts",
+      "beforeSha256": null,
+      "afterSha256": "78830339a180b5888a4d21730c06c0350b54c9c82a9f8dbf918221cedbde9e6c",
+      "bytes": 5749
+    },
+    {
+      "path": "tests/ahri-w-trails.test.ts",
+      "beforeSha256": null,
+      "afterSha256": "df22e47e6e63e2f2b8d14c5c177c613ea33c1a5db001f64e4c74b04c9a5d4f98",
+      "bytes": 5931
+    },
+    {
+      "path": "tests/lazy-ahri-w-effects.test.ts",
+      "beforeSha256": null,
+      "afterSha256": "0fc7fbf22114cd5e98688b7c46b5736dd4ba493817ac2ee774b0b235d9b32143",
+      "bytes": 2596
+    },
+    {
+      "path": "tests/source-binding-timeline.test.ts",
+      "beforeSha256": null,
+      "afterSha256": "105a5aceb30021591ab56bad52487ed466664774925b4057ee4343a1fd23a10c",
+      "bytes": 4084
+    },
+    {
+      "path": "tests/source-particle-draw-external.test.ts",
+      "beforeSha256": null,
+      "afterSha256": "5742c0c644ec602634b6b4dd52529429698d5e3d56c80e97716a41474aa52777",
+      "bytes": 300
+    },
+    {
+      "path": "tests/source-particle-draw-values.test.ts",
+      "beforeSha256": null,
+      "afterSha256": "3ac9c8c15b0f90c2425d731b93c92f3ddfc241dbc58e8f3382b9764bf9e0b603",
+      "bytes": 2157
+    },
+    {
+      "path": "tests/source-particle-surfaces.test.ts",
+      "beforeSha256": "d8d11706922faafb4c068d686aeeadd1c138985633946d54bfb49582f25cdad7",
+      "afterSha256": "db49cdd11d8787a5adbb4ca3c7a8dac798841a414a3490cad490cc1ab995b985",
+      "bytes": 6187
+    },
+    {
+      "path": "tools/assets/export-ahri-w-particles.py",
+      "beforeSha256": null,
+      "afterSha256": "5f2f0d6fee317e0bc04330efc0a65460516fb4fe79148f3f2b37e93eba655b68",
+      "bytes": 6346
+    },
+    {
+      "path": "tools/assets/export-source-particle-draw-samples.mjs",
+      "beforeSha256": null,
+      "afterSha256": "06465855572b3540ab36a90c6df423728577080a54f39bd97295a5b477f52b60",
+      "bytes": 4554
+    },
+    {
+      "path": "tools/assets/read-ahri-w-native-types.py",
+      "beforeSha256": null,
+      "afterSha256": "e41929ef8ebfd67e2f48dcec3eb66a7b76243bfd876520f32a5c73c0cd5cc55f",
+      "bytes": 4625
+    },
+    {
+      "path": "tools/assets/test-ahri-w-publication.py",
+      "beforeSha256": null,
+      "afterSha256": "b17e4562cef1d6da2fe66416cc245f59fe92374f8c2c6c1b38452fc478b19002",
+      "bytes": 3871
+    },
+    {
+      "path": "tools/qa/ahri-w-publication.test.mjs",
+      "beforeSha256": null,
+      "afterSha256": "10cdad26096118e4f630e49c0c99c77ec057f24d7d1ff2391a538038bf52f3c8",
+      "bytes": 361
+    },
+    {
+      "path": "tools/qa/compare-ahri-w-render-cohorts.mjs",
+      "beforeSha256": null,
+      "afterSha256": "fb6520bf21eb4fceac507ffc4dd20fcd303c303aae23c03a1c441aa82d1ae3e4",
+      "bytes": 3882
+    },
+    {
+      "path": "tools/ruleset-fingerprint.ts",
+      "beforeSha256": "3c9d1bb5774026edea67acf5651720666127c2a075ebb6ccf0ecfc5b8da95c42",
+      "afterSha256": "70143185e13878455abc9aa5af4a8b7349d68dfb90be4cb853d12079ffbd7395",
+      "bytes": 13709
+    }
+  ],
+  "archiveScopeNote": "Compatibility archive excludes view.ts; all tracked integration changes are listed separately.",
+  "integrationRevision": "14d68cc"
+}

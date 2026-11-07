@@ -132,3 +132,27 @@ No JavaScript or shader errors were reported. Open-lane orbit and flight capture
 were inspected in artifacts/ahri-w-browser-v2. Software Chromium establishes
 functional behavior, not device performance or native pixel equivalence.
 Full regression and archived gameplay comparison remain pending.
+
+## Archived regression comparison
+
+Rendering revision 14d68cc preserves all 45 complete state projections from the
+accepted W observer's seed-one development-roster archive, including W history.
+Only version and ruleset metadata are excluded. Both archives independently pass
+cohort verification. The match ends with Blue victory at tick 157,116; 44 snapshot
+round trips and 43 future comparisons cover 2,580 additional ticks. This is one
+seed, not the hundred-seed gate. The committed comparison and source-delta
+receipts retain both archive identities and all source hashes.
+
+The full unit run covers 9,077 tests across 553 files. Five tests initially time
+out under concurrent work; rerunning their four files with one worker passes all
+45 tests without changes. The combined result is 9,075 passes and the two known
+baseline failures (missing Leona private reference reader and the Node 24 Lux
+sampler golden). All 245 Node QA checks pass. A clean committed export without
+private caches or tools passes 735 tests across 96 files and all 63 workflow
+commands, including a recorded rerun after the same history-test timeout.
+
+All seven Q rendering browser cases pass. The three Fox-Fire audio cases pass
+with the initially timed-out readiness case rerun separately. All 334 WAV files,
+including the 76 Ahri masters, match the accepted observer bytes. The production
+build and complete pack byte audit pass; production and offline browser gates
+remain pending.
