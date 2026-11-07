@@ -105,6 +105,15 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
             color: digest(m.geometry.getAttribute('sourceTint'), count),
             soft: !!m.material.uniforms.softDepth,
             cellSize: m.material.uniforms.sourceCellSize.value.toArray(),
+            palette: m.material.userData.paletteBinding
+              ? {
+                  mix: m.material.uniforms.paletteSourceMix.value.toArray(),
+                  row: m.material.uniforms.paletteRow.value,
+                  filter: m.material.uniforms.paletteTexture.value.minFilter,
+                  nativeConstructorVerified:
+                    m.material.userData.paletteBinding.nativeConstructorVerified,
+                }
+              : null,
           };
         }),
     });
@@ -138,11 +147,24 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
   expect(flight.unchanged).toBe(true);
   expect(flight.restored).toEqual(flight.before);
   expect(flight.placeholder).toBe(0);
-  expect(flight.deferred).toHaveLength(35);
+  expect(flight.deferred).toHaveLength(34);
   expect(flight.before.ribbons.length).toBeGreaterThan(0);
   expect(flight.before.surfaces.some((m: any) => m.colors === 209 && !m.normals)).toBe(true);
   expect(flight.before.ribbons.some((m: any) => m.cellSize[0] === 0.5)).toBe(true);
   expect(flight.before.ribbons.some((m: any) => m.soft)).toBe(true);
+  expect(flight.draws.flatMap((draw: any) => draw.ribbons).filter((m: any) => m.palette)).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        profile: 30,
+        palette: {
+          mix: [0.9499961733818054, 0, 0, 0],
+          row: 0.5,
+          filter: 1006,
+          nativeConstructorVerified: false,
+        },
+      }),
+    ])
+  );
   await page.screenshot({ path: info.outputPath('ahri-r-flight.png') });
   const hit = await page.evaluate(() => {
     const g = (window as any).__GAME__,
@@ -173,14 +195,14 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
   });
   expect(hit.unchanged).toBe(true);
   expect(hit.restored).toEqual(hit.before);
-  expect(hit.seen).toHaveLength(20);
+  expect(hit.seen).toHaveLength(21);
   expect(hit.hit.targetRig).toBe('lux-base');
   expect(hit.attachments).toEqual([]);
   expect(hit.draws.some((draw: any) => draw.surfaces.some((m: any) => m.unboundPalette))).toBe(
     true
   );
   await page.screenshot({ path: info.outputPath('ahri-r-contact.png') });
-  expect(new Set(requests).size).toBe(4);
+  expect(new Set(requests).size).toBe(6);
   expect(requests.some((path) => path.endsWith('.glb'))).toBe(false);
   expect(errors).toEqual([]);
   await writeFile(
