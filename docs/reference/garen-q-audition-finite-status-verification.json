@@ -1,0 +1,41 @@
+{
+  "format": 1,
+  "result": "passed",
+  "revision": "40094e5df3829cb2f680213d2b8e912d5a615f08",
+  "browserCasesPassed": 11,
+  "originalStalePlayingStatusFailureRetained": true,
+  "completionUsesRealAudioNodeEndEvents": true,
+  "firstLayerEndKeepsPlayingStatus": true,
+  "completionOwnedByCurrentGeneration": true,
+  "standaloneTypescriptPassed": true,
+  "runtimeAndPublicAssetsUnchanged": true,
+  "productionPackUnchanged": "1cbecc511cbba8ed7990b3e1ed565f2c6ccf4a0a215abb267ce9e558beccc91b",
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/garen-q-finite-status-baseline-v1.log",
+      "bytes": 2838,
+      "sha256": "3102c28ccf98d9b425c91be2382d1cc91dffb6639defdc21a892f36ab16177fd"
+    },
+    {
+      "file": "artifacts/garen-q-finite-status-fixed-v2.log",
+      "bytes": 2237,
+      "sha256": "94f2132d28944d5231d9610ef1fd744a77102abbd2513311d90a4d260f6dab13"
+    },
+    {
+      "file": "artifacts/garen-q-finite-status-browser-v1.json",
+      "bytes": 8326,
+      "sha256": "cb8947b37c57b63e260b189ee3ccf546adaef31f4547f39933e1dcf88933f344"
+    },
+    {
+      "file": "artifacts/garen-q-finite-status-browser-v2.json",
+      "bytes": 13966,
+      "sha256": "8d9cbab29b08d2d33099598f322551c8def6c35921e7b72a49b65f8efc962d51"
+    },
+    {
+      "file": "artifacts/garen-q-finite-status-typecheck-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

@@ -188,3 +188,9 @@ regressions fail before the change; all ten audition browser cases and standalon
 TypeScript pass afterward. The remaining-fade probe uses a controlled context
 clock to verify scheduling, not physical listening equivalence. See
 [monitor verification](reference/garen-q-audition-monitor-verification.json).
+
+The finite audition status stays Playing while either attack action remains,
+then reports completion after the final audio node ends. The callback belongs
+to its current audition generation. A real-node regression reproduces the stale
+Playing status before the fix; all eleven cases and the tool typecheck pass
+afterward. See [finite status verification](reference/garen-q-audition-finite-status-verification.json).
