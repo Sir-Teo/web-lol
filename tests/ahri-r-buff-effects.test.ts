@@ -118,7 +118,7 @@ test('both native eye instances draw finite glow packets and restore exactly wit
     ribbons = f.captureRibbons(),
     saved = f.world.snapshot();
   expect(before.length).toBeGreaterThanOrEqual(4);
-  expect(new Set(before.map((m) => m.profile))).toEqual(new Set([45, 46, 51, 52, 53, 54]));
+  expect(new Set(before.map((m) => m.profile))).toEqual(new Set([45, 46, 49, 51, 52, 53, 54]));
   expect(new Set(before.map((m) => m.key.split(':buff:')[1]?.split(':')[0]))).toEqual(
     new Set(['L_Eye', 'R_Eye', 'C_Buffbone_Glb_Layout_Loc'])
   );
@@ -254,4 +254,43 @@ test('victory drains eye effects on the presentation clock without World steps o
   }
   f.texture.dispose();
   f.geometry.dispose();
+});
+
+test('the sixty-second layout base cold-restores from complete native-bone poses through genuine extensions', () => {
+  const f = setup();
+  while (f.world.tick < 3600) {
+    if (f.world.tick % 500 === 499) {
+      const victim = f.world.spawn('champion', 'red', { x: f.source.x, y: f.source.y }, 'lux');
+      victim.ai = false;
+      f.world.damage(f.source, victim, 1e6, 'true');
+      f.world.setOrder(f.source, {
+        type: 'move',
+        point: { x: f.source.x + 300, y: f.source.y + 200 },
+      });
+    }
+    f.world.step();
+  }
+  expect(f.world.ahriRVisuals[0].end).toBeNull();
+  expect(f.world.ahriRVisuals[0].sourceFrames[0].tick).toBe(1);
+  f.draw();
+  const models = [...f.view.surfaces.models.values()].filter((m) => m.userData.profileIndex === 49);
+  expect(models).toHaveLength(1);
+  expect(models[0].position.y).toBeCloseTo(2.4, 6);
+  expect(models[0].geometry.getAttribute('position').count).toBe(4);
+  expect(models[0].geometry.userData.groundQuadTopology).toBeUndefined();
+  expect(f.view.attachmentFallbacks).toEqual([]);
+  const saved = f.world.snapshot(),
+    before = f.capture();
+  f.draw(World.fromSnapshot(saved, field));
+  expect(f.capture()).toEqual(before);
+  f.draw(f.world);
+  expect(f.capture()).toEqual(before);
+  expect(f.world.snapshot()).toBe(saved);
+  f.world.step(6);
+  f.draw();
+  expect([...f.view.surfaces.models.values()].some((m) => m.userData.profileIndex === 49)).toBe(
+    false
+  );
+  expect(f.world.ahriRVisuals[0].sourceFrames).toHaveLength(721);
+  f.dispose();
 });

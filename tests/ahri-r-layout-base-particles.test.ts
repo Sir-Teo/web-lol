@@ -15,8 +15,8 @@ const context = { boundObjectSize: 100, root };
 const base = (particles: ReturnType<typeof ahriRParticles>) =>
   particles.filter((p) => p.profileIndex === 49);
 
-test('the prepared sixty-second base remains unconnected and preserves every float32 binding update', () => {
-  expect([...AHRI_R_BOUND_BUFF_PROFILES]).not.toContain(49);
+test('the selected sixty-second base preserves every float32 binding update', () => {
+  expect([...AHRI_R_BOUND_BUFF_PROFILES]).toContain(49);
   const sampler = new AhriRParticleSampler('Ahri_R_Ready_tar', 927, context);
   const sum = new Float32Array(3);
   for (let tick = 1; tick <= 3600; tick++) {

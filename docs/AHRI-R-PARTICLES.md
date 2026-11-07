@@ -974,3 +974,23 @@ seeks, immediate stop, natural expiry and every binding update are covered.
 All 629 R checks in 31 files and TypeScript pass; earlier frozen packets remain
 exact. The bounded sampler cache allows one additional finite birth. Rendering
 and full acceptance of the base remain pending.
+
+## Sixty-second layout base renderer candidate
+
+Profile 49 now joins the explicit saved layout-bone producer. The selected set
+is 31 profiles: 21 spell and ten buff profiles. All six layout profiles are
+connected; six counters, two noise profiles and sixteen unjoined profiles remain
+deferred. The asset closure adds the base's borrowed Q-projectile texture,
+previously present only on an unselected R profile. Its selected closure now has
+35 textures and two meshes; local requests remain thirteen R textures, one W
+texture and one checked R GLB. No public asset bytes change.
+
+All 28 targeted renderer checks and TypeScript pass. A genuine extended buff
+near sixty seconds cold-restores the exact layout surface packets, without
+attachment fallback or terrain projection, and releases the base and long pose
+path after expiry. The keyboard browser case passes with eight distinct buff
+surface profiles. The base's full-render hide/show probe changes 192,876 pixels
+without stepping World, with one shared R depth capture per render. Image
+inspection shows its blue ground aura around the caster. This is software-browser
+functional evidence; native pixel equivalence and device performance remain open.
+Broader regressions, source-history comparison and delivery acceptance follow.

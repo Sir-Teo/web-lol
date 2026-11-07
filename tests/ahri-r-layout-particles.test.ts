@@ -16,7 +16,7 @@ const context = { boundObjectSize: 100, root };
 
 test('the finite layout quad keeps its identity beside the selected continuous glow', () => {
   expect(AHRI_R_PREPARED_LAYOUT_PROFILES).toEqual([49, 50, 51, 52, 53, 54]);
-  expect(AHRI_R_BOUND_BUFF_PROFILES).toEqual([45, 46, 47, 48, 50, 51, 52, 53, 54]);
+  expect(AHRI_R_BOUND_BUFF_PROFILES).toEqual([45, 46, 47, 48, 49, 50, 51, 52, 53, 54]);
   const particles = ahriRParticles('Ahri_R_Ready_tar', 927, 1, Infinity, context).filter(
     (p) => p.profileIndex === 50
   );

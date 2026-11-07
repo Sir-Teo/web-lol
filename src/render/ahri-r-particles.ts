@@ -58,7 +58,7 @@ export const AHRI_R_PARTICLE_ADAPTER = {
   neutralLiveTables: 'empty tables with single 1',
 } as const;
 /** Eye and selected layout profiles use the explicit skin-buff producer. */
-export const AHRI_R_BOUND_BUFF_PROFILES = [45, 46, 47, 48, 50, 51, 52, 53, 54] as const;
+export const AHRI_R_BOUND_BUFF_PROFILES = [45, 46, 47, 48, 49, 50, 51, 52, 53, 54] as const;
 export const AHRI_R_PREPARED_EYE_TRAIL_PROFILES = [47, 48] as const;
 /** Prepared layouts use the complete source path retained for finite binding. */
 export const AHRI_R_PREPARED_LAYOUT_PROFILES = [49, 50, 51, 52, 53, 54] as const;
