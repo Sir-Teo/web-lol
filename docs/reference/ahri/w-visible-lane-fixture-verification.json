@@ -1,0 +1,24 @@
+{
+  "format": 1,
+  "scope": "W screenshot fixture improvement only; no runtime edit",
+  "result": "passed",
+  "browserCases": 1,
+  "hero": {
+    "x": 300,
+    "y": -225
+  },
+  "target": {
+    "x": 600,
+    "y": -450
+  },
+  "camera": {
+    "x": 420,
+    "y": -315
+  },
+  "inspection": "Ahri body and tails are visible on lane geometry with three orbiting Fox-Fires; original packet, resource and restore assertions pass.",
+  "image": {
+    "path": "artifacts/ahri-w-visible-lane-v1/ahri-w-particles-keyboard--7cfac-bit-flight-and-hit-drawings/ahri-w-orbit.png",
+    "sha256": "542c3c61bc5aee27e99fe58694ad42b1ebc5bfc54f6864d75a64f419a5f630bf"
+  },
+  "logSha256": "0374796184e97f787f4d12f92327d07e934adf624b3e7938f3fe0c4f7bd58adb"
+}
