@@ -62,3 +62,13 @@ provenance and the refused extraction attempt remain retained in the
 Parameter 745018932's meaning, native default and live input remain unresolved.
 The original source reading and all runtime/public bytes stay unchanged; this
 negative result supplies no flat-volume loop or native callback policy.
+
+The original two character banks were subsequently restored through the unchanged
+pinned extraction tool: 751,976 bytes total, with their original SHA-256 and
+chunk provenance verified. The audio bank contains BKHD/DIDX/DATA; the event
+bank contains BKHD/HIRC. Exact little-endian top-level chunk walks reach EOF
+with no STMG global-settings chunk in either bank. This closes the narrow
+question of an omitted STMG table in the selected pair; other banks and native
+client inputs remain outside this check. See
+[native bank verification](reference/masteryi/r-trail-native-bank-chunks-verification.json).
+Parameter semantics and default remain unresolved, and no playback is added.

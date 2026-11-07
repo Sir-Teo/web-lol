@@ -1,0 +1,102 @@
+{
+  "format": 1,
+  "result": "passed",
+  "parameterResolution": "unresolved",
+  "parameterId": 745018932,
+  "restoredNativeBanks": 2,
+  "nativeBankBytes": 751976,
+  "bankChunks": [
+    {
+      "file": ".cache/masteryi-audio-sources/assets/sounds/wwise2016/sfx/characters/masteryi/skins/base/masteryi_base_sfx_audio.bnk",
+      "bytes": 738923,
+      "sha256": "88f1e27c0d42dac80be948f82909ded4e208a28c34db35bb361caa3fc980c2c5",
+      "chunks": [
+        {
+          "tag": "BKHD",
+          "offset": 0,
+          "bytes": 44
+        },
+        {
+          "tag": "DIDX",
+          "offset": 52,
+          "bytes": 828
+        },
+        {
+          "tag": "DATA",
+          "offset": 888,
+          "bytes": 738027
+        }
+      ],
+      "hasSTMG": false
+    },
+    {
+      "file": ".cache/masteryi-audio-sources/assets/sounds/wwise2016/sfx/characters/masteryi/skins/base/masteryi_base_sfx_events.bnk",
+      "bytes": 13053,
+      "sha256": "af6aebc07d4759770ae01e047a14bfc7a55c602291acacd8fbb13c6be87389e5",
+      "chunks": [
+        {
+          "tag": "BKHD",
+          "offset": 0,
+          "bytes": 40
+        },
+        {
+          "tag": "HIRC",
+          "offset": 48,
+          "bytes": 12997
+        }
+      ],
+      "hasSTMG": false
+    }
+  ],
+  "stmgPresentInSelectedBanks": false,
+  "chunkHeadersCheckedToExactEndOfFile": true,
+  "restoreMatchesOriginalExtractionProvenance": true,
+  "noRuntimePublicAssetOrOriginalReadingChange": true,
+  "limits": [
+    "This checks only the two exact selected character banks; it is not a complete-client or all-bank investigation.",
+    "Absence of an STMG chunk in these banks supplies no native default, input meaning, live value or persistence callback policy."
+  ],
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/masteryi-bank-chunk-reading-v1.log",
+      "bytes": 328,
+      "sha256": "da6d87ffbc4381d18979efeec8f516933fec496b0e55a17e56323fcd2b10713b"
+    },
+    {
+      "file": "artifacts/masteryi-bank-chunk-reading-v1.json",
+      "bytes": 489,
+      "sha256": "8af52178d356031396b5ac8ff6eb18e5b8bf03137f22c8febafdcaa4ecb45552"
+    },
+    {
+      "file": "artifacts/masteryi-local-bank-location-reading-v1.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "file": "artifacts/masteryi-source-bank-restore-v1.log",
+      "bytes": 71,
+      "sha256": "5e2d8a5c8ba73ba1881778b3a4b47d2d02ca63764d5a34558bd470eda5dc059e"
+    },
+    {
+      "file": "artifacts/masteryi-bank-chunk-reading-v2.log",
+      "bytes": 1241,
+      "sha256": "ee87b2774ff76cfd0f7b16c698dd02f7823fcd9d00c1cd2dd0e963b1fc343a96"
+    },
+    {
+      "file": "artifacts/masteryi-bank-chunk-reading-v2.json",
+      "bytes": 1241,
+      "sha256": "ee87b2774ff76cfd0f7b16c698dd02f7823fcd9d00c1cd2dd0e963b1fc343a96"
+    },
+    {
+      "file": "tools/assets/extract-masteryi-audio.py",
+      "bytes": 1457,
+      "sha256": "effe8e63f6341d746a34ea1b3e892e6644fa4b9ac51dbf4456e69db0297458c8"
+    },
+    {
+      "file": "tools/assets/masteryi_audio_source.py",
+      "bytes": 2297,
+      "sha256": "fdeb76c6bf623a420a16851ab659368f349cc9e61748b890f0fec76b8e407c3c"
+    }
+  ]
+}
