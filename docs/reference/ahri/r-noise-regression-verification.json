@@ -1,6 +1,6 @@
 {
   "format": 1,
-  "scope": "Thirty-three selected R profiles including two explicit preview noise fields; regressions passed, final browser/delivery acceptance pending",
+  "scope": "Thirty-three selected R profiles including two explicit preview noise fields; regressions passed, production/offline acceptance pending",
   "applicationRevision": "a345d9ebfd5e5902176a8c642d30a0d50aa0cb07",
   "schema": 181,
   "ruleset": "e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f",
@@ -321,8 +321,8 @@
     "artifacts/ahri-r-noise-values-types-v2.log",
     "artifacts/ahri-r-noise-values-types-v3.log"
   ],
-  "crossKitBrowserCasesPassed": 0,
-  "distinctBrowserCasesPassed": 8,
+  "crossKitBrowserCasesPassed": 25,
+  "distinctBrowserCasesPassed": 33,
   "acceptedEyeGlowPacketsRetained": 36,
   "applicationIdentity": {
     "verifiedFiles": 2232,
