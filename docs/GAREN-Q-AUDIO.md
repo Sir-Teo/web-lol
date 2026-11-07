@@ -170,3 +170,12 @@ gesture, and activation failures appear in the player status. All six scoped
 browser cases and standalone TypeScript pass, retaining source buffer, delay
 and fade assertions. The original two race failures are retained. See
 [ownership verification](reference/garen-q-audition-ownership-verification.json).
+
+Hiding the audition tab cancels pending activation and stops current voices.
+Returning leaves playback stopped until another Play gesture. A visible-tab
+notification preserves an active voice. Seven source-audition cases pass together,
+with one additional focused active-playback case; the retained regression shows
+that the earlier page started both attack layers after being hidden. The tool
+also passes its standalone typecheck. See
+[visibility verification](reference/garen-q-audition-visibility-verification.json).
+These developer-page controls do not change gameplay dispatch or native claims.
