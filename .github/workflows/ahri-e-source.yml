@@ -4,19 +4,27 @@ on:
     paths:
       - '.github/workflows/ahri-e-source.yml'
       - 'tools/assets/*ahri*e*'
-      - 'tools/qa/ahri-e-particle-bindings.test.mjs'
+      - 'tools/assets/masteryi*.py'
+      - 'tools/qa/ahri-e-*.test.mjs'
       - 'docs/reference/ahri/character.*'
       - 'docs/reference/ahri/names.json'
       - 'docs/reference/ahri-model.json'
+      - 'docs/reference/ahri/mesh-submeshes.bin'
+      - 'docs/reference/ahri-materials.json'
+      - 'public/assets/models/ahri-base.glb'
       - 'docs/reference/ahri/e-*.json'
   pull_request:
     paths:
       - '.github/workflows/ahri-e-source.yml'
       - 'tools/assets/*ahri*e*'
-      - 'tools/qa/ahri-e-particle-bindings.test.mjs'
+      - 'tools/assets/masteryi*.py'
+      - 'tools/qa/ahri-e-*.test.mjs'
       - 'docs/reference/ahri/character.*'
       - 'docs/reference/ahri/names.json'
       - 'docs/reference/ahri-model.json'
+      - 'docs/reference/ahri/mesh-submeshes.bin'
+      - 'docs/reference/ahri-materials.json'
+      - 'public/assets/models/ahri-base.glb'
       - 'docs/reference/ahri/e-*.json'
 jobs:
   portable-reading:
