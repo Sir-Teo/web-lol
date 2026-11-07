@@ -1,0 +1,103 @@
+{
+  "format": 1,
+  "mergeRevision": "95121e40fcd1bf1dce5c538189a65930dd481354",
+  "acceptedRevision": "fb7235d0e3f43a621cc3f9b377deb745168ef3fc",
+  "applicationRevision": "e27cc4c46998d016c890dbeaef43fc2b970e8aaa",
+  "acceptanceEvidenceWorkspace": "/workspace/web-lol-ahri-w-particles",
+  "schema": 181,
+  "ruleset": "bf6953c524b116f399a8a38b6b29cdbab23c3ccb2228774001f09aae0b681076",
+  "compatibilityFiles": 692,
+  "applicationAndPublicByteIdentical": true,
+  "pack": {
+    "result": "passed",
+    "pack": "860c02afa58545009b54e54f772b59a97e6d81d20d10f73766b35a94f559624b",
+    "files": 1432,
+    "bytes": 581130644,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "focusedTests": {
+    "passed": 391,
+    "files": 30,
+    "selection": [
+      "tests/ahri-r-assets.test.ts",
+      "tests/ahri-r-attachments.test.ts",
+      "tests/ahri-r-buff-attachments.test.ts",
+      "tests/ahri-r-buff-effects.test.ts",
+      "tests/ahri-r-buff-particles.test.ts",
+      "tests/ahri-r-effects.test.ts",
+      "tests/ahri-r-eye-glow-packet-reference.test.ts",
+      "tests/ahri-r-eye-schedule.test.ts",
+      "tests/ahri-r-eye-trail-particles.test.ts",
+      "tests/ahri-r-eye-trails.test.ts",
+      "tests/ahri-r-palette.test.ts",
+      "tests/ahri-r-particles.test.ts",
+      "tests/ahri-r-persistent-history.test.ts",
+      "tests/ahri-r-render-gameplay-reference.test.ts",
+      "tests/ahri-r-render-history.test.ts",
+      "tests/ahri-r-same-tick-target-loss.test.ts",
+      "tests/ahri-r-spell-packet-reference.test.ts",
+      "tests/ahri-r-trails.test.ts",
+      "tests/lazy-ahri-r-effects.test.ts",
+      "tests/source-default-trail-ribbon.test.ts",
+      "tests/source-packed-ribbon-meshes.test.ts",
+      "tests/source-packed-trail-ribbon.test.ts",
+      "tests/ahri-r-eye-trail-packet-reference.test.ts",
+      "tests/ahri-r-layout-particles.test.ts",
+      "tests/source-particle-surfaces.test.ts",
+      "tests/source-particle-joint-frame.test.ts",
+      "tests/ground-quad.test.ts",
+      "tests/ahri-r-layout-quad-packet-reference.test.ts",
+      "tests/ahri-r-layout-glow-schedule.test.ts",
+      "tests/ahri-r-layout-glow-particles.test.ts"
+    ],
+    "scope": "Independent primary R/shared surface/joint/ground selection"
+  },
+  "acceptanceScopePreserved": true,
+  "retainedPriorPacks": [
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-e-accepted-pack-4995",
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-r-eye-glow-accepted-pack-6007",
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-r-eye-trail-accepted-pack-c917",
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-r-layout-accepted-pack-b858",
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-r-observer-accepted-pack-15b8",
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-r-palette-accepted-pack-01c9",
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-r-spell-rendering-accepted-pack-3dbf"
+  ],
+  "selectedSpellProfiles": 21,
+  "selectedBuffProfiles": 6,
+  "eyeInstances": 2,
+  "layoutInstances": 1,
+  "pushed": false,
+  "deployed": false,
+  "evidence": [
+    {
+      "path": "artifacts/ahri-r-layout-glow-primary-build-v1.log",
+      "bytes": 9453,
+      "sha256": "8e25238b0255450d732712d891f99dc0472d4cdff63d5c6532882a48b6b6e157"
+    },
+    {
+      "path": "artifacts/ahri-r-layout-glow-primary-pack-v1.json",
+      "bytes": 213,
+      "sha256": "2f96bc4a7909b0542b36feef896fd17c948295ec25a24d2eff2e5557edadb564"
+    },
+    {
+      "path": "artifacts/ahri-r-layout-glow-primary-pack-after-dedup-v1.json",
+      "bytes": 213,
+      "sha256": "2f96bc4a7909b0542b36feef896fd17c948295ec25a24d2eff2e5557edadb564"
+    },
+    {
+      "path": "artifacts/ahri-r-layout-glow-primary-build-dedup-v1.json",
+      "bytes": 1329,
+      "sha256": "72ed09fa62a9f0b0f442e05e35291f8e2db25996d6f91f919fb807ebfddacf95"
+    },
+    {
+      "path": "artifacts/ahri-r-layout-glow-primary-tests-v1.log",
+      "bytes": 386,
+      "sha256": "721774dc66e8394368fd817657bce9d79c565425d35f67d5721fabd64dfabc01"
+    },
+    {
+      "path": "docs/reference/ahri/r-layout-glow-acceptance.json",
+      "bytes": 58355,
+      "sha256": "8531111fa011b2ad64eda3d8a067065847a762fd070c42d20313493553b0b716"
+    }
+  ]
+}

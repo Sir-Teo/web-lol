@@ -825,3 +825,13 @@ production errors. Pack `860c02af` remains exact after delivery, at 1,432 files 
 [continuous glow acceptance](reference/ahri/r-layout-glow-acceptance.json) pins
 251 evidence files. Prior accepted packs remain retained. Primary integration
 follows separately.
+
+
+Primary merge `95121e40` reproduces pack `860c02af` exactly and passes all 391
+checks in thirty files, including the saved-root schedule, four frozen packet
+families and shared surface/joint/ground coverage. Application/public bytes match
+the accepted runtime. See
+[continuous glow integration](reference/ahri/r-layout-glow-main-integration.json).
+Prior accepted packs remain retained. Native calibration, representative-device
+performance, the current hundred-seed gate and full-project milestones remain
+unfinished.
