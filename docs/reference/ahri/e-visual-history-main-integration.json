@@ -1,0 +1,34 @@
+{
+  "format": 1,
+  "scope": "Primary integration of accepted E observation; no merge-time runtime edits",
+  "mergeRevision": "ec083bd6c44cac4f13810f5782ae72391a04339e",
+  "acceptedRevision": "6401bde",
+  "schema": 179,
+  "ruleset": "062e397af49c795cfef0170ee9aced41f8625065a8176d403a47ff30e93c889f",
+  "pack": {
+    "result": "passed",
+    "pack": "1eda9fdf8afb717c66f231dee97d44755d75d9252d605956c5ebd85f8c6e9c6e",
+    "files": 1390,
+    "bytes": 578969421,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "focusedTests": 45,
+  "focusedFiles": 4,
+  "evidence": [
+    {
+      "path": "artifacts/ahri-e-history-primary-build-v1.log",
+      "sha256": "0c852451e18aae28170785bd8671e2dbb980a858316910e76f65fad830ece4b3"
+    },
+    {
+      "path": "artifacts/ahri-e-history-primary-pack-v1.json",
+      "sha256": "86aca490b64d81fd533822e2d6f72830d06669935552c6da8b8ca0cbb760575e"
+    },
+    {
+      "path": "artifacts/ahri-e-history-primary-tests-v1.log",
+      "sha256": "0e3e531c819b61ccf51bc121cd77b0b8d74b241ca9cf84889b7e32e01920af30"
+    }
+  ],
+  "particleRenderingPending": true,
+  "roadmapMilestone4Complete": false,
+  "projectComplete": false
+}

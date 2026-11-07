@@ -6,36 +6,39 @@ Last updated: November 7, 2026 (UTC).
 
 ## Current authoritative state
 
-Accepted local runtime: save schema **178**, ruleset
-`ff8abc1be3d5e4191d0544c600ed32c1e3d89b5bf969d9f2a57c591cde81dbe9`,
-rendering application `124cc67`, accepted `26f7366`, integrated `9e3bd16`.
-[Ahri W rendering](AHRI-W-RENDERING.md) adds 23 joined orbit, flight and hit
-profiles over saved paths, visibility and finite phase stops. Cast/weapon
-resources remain unjoined. Accepted Q cast/projectile rendering, eight audio
-families and all 76 Ahri PCM masters remain intact.
+Accepted local runtime: save schema **179**, ruleset
+`062e397af49c795cfef0170ee9aced41f8625065a8176d403a47ff30e93c889f`.
+[Charm saved observation](AHRI-E-VISUAL-HISTORY-PLAN.md), application `7d3e00c`,
+accepted `6401bde`, is integrated at `ec083bd`. It retains actual cast, flight,
+contact, control, visibility and body-lifetime facts with strict save admission.
+All 273 focused complete projections and 45 natural-match saved projections
+match their frozen gameplay baselines. The natural seed finishes with Blue
+victory at tick 157,116, 44 exact restores and 43 checked futures.
 
-The unit suite covers 9,077 tests in 553 files: 9,075 pass after an unchanged
-single-worker rerun of four files that timed out during concurrent work; the two
-historical failures remain. All 251 Node QA cases, 735 scoped CI tests in 96
-files, TypeScript and 63 cache-free CI commands pass, with the initial CI history
-timeout and successful rerun retained. Four W browser cases and ten Q/audio
-regression cases pass; the audio-readiness timeout passes on a separate rerun.
-Production nested-path checks cover 32 recordings; the full offline gate passes.
-See [W acceptance](reference/ahri/w-rendering-verification.json).
+The unit suite passes 9,120 of 9,122 tests in 557 files; the two historical
+failures remain. All 251 Node QA checks pass. A clean committed export without
+private cache/tools passes 72 scoped workflow commands, including 780 tests
+across 100 files. All 18 Charm/audio/Q/W browser cases pass. Production
+nested-path checks cover 32 recordings; full offline delivery passes with 978
+worker responses. See [observer acceptance](reference/ahri/e-visual-history-verification.json).
+Software-browser screenshots do not establish native pixel parity; the W orbit
+image retains its baseline terrain occlusion.
 
-[Charm source preparation](AHRI-E-PARTICLES.md) is integrated at `73cd844`:
-five explicitly joined resource definitions, 29 emitters, 22 textures / 187 mips
-and two byte-exact private mesh transports. All nine portable source commands
-reproduce from a 31-file clean export without decoder tools or private caches.
-This changes no application source, public assets or gameplay tests; the fresh
-primary build reproduces the accepted W pack. E saved histories, callback clocks,
-post-rotation math and rendered playback remain future work.
+[Ahri W rendering](AHRI-W-RENDERING.md) retains 23 joined orbit, flight and hit
+profiles; cast/weapon resources remain unjoined. Accepted Q rendering, eight
+audio families and all 76 Ahri masters remain intact. All 334 public WAV files
+remain byte-identical to the preceding accepted runtime.
 
-The accepted pack is `43914dfe`, with 1,390 files / 578,953,394 bytes.
-Worker policy is unchanged. All 45 archived state projections, including W
-history, match the accepted observer baseline. Earlier receipts and frozen
-cohorts retain their original identities. All work remains local. Emote/idle
-source preparation remains isolated.
+[Charm source preparation](AHRI-E-PARTICLES.md), integrated at `73cd844`, retains
+five joined definitions, 29 emitters, 22 textures / 187 mips and two byte-exact
+private mesh transports. E rendering remains pending. The independent
+post-rotation reader baseline now freezes 42 matrix samples before local support.
+Native callback timing, attached-mesh policy and rendered calibration remain open.
+
+The accepted pack is `1eda9fdf`, with 1,390 files / 578,969,421 bytes.
+Worker policy is unchanged. Earlier receipts and frozen cohorts retain their
+original identities. All work remains local. Emote/idle source preparation
+remains isolated.
 
 The [frozen hundred-seed development-roster baseline](CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md)
 is complete: 100 natural victories, zero unfinished matches or invariant failures,
