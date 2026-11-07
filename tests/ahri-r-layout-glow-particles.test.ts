@@ -17,8 +17,8 @@ const context = { boundObjectSize: 100, root };
 const glows = (particles: ReturnType<typeof ahriRParticles>) =>
   particles.filter((p) => p.profileIndex === 53);
 
-test('the prepared continuous glow preserves authored lifetime draws and its unresolved soft-depth connection', () => {
-  expect([...AHRI_R_BOUND_BUFF_PROFILES]).not.toContain(53);
+test('the prepared continuous glow preserves authored lifetime draws and its required soft-depth input', () => {
+  expect([...AHRI_R_BOUND_BUFF_PROFILES]).toContain(53);
   expect(AHRI_R_PROFILES[53].bindingRequirements).toContain('soft-depth-input');
   expect(AHRI_R_PROFILES[53].soft).toMatchObject({ deltaIn: 30 });
   const particles = glows(ahriRParticles('Ahri_R_Ready_tar', 927, 70.25, Infinity, context));

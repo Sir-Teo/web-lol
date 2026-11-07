@@ -61,17 +61,17 @@ beforeEach(() => {
   state.qCast = provider('q-cast');
   state.qProjectile = provider('q-projectile');
 });
-test('R loads exactly eight R textures plus the W transport outside its joined subset', async () => {
+test('R loads exactly eleven R textures plus the W transport outside its joined subset', async () => {
   const module = await import('../src/render/ahri-r-assets');
   expect(module.ahriRAssets()).toBeUndefined();
   const first = module.loadAhriRAssets();
   expect(module.loadAhriRAssets()).toBe(first);
   await first;
   const assets = module.ahriRAssets()!;
-  expect(state.requests).toHaveLength(9);
-  expect(new Set(state.requests).size).toBe(9);
+  expect(state.requests).toHaveLength(12);
+  expect(new Set(state.requests).size).toBe(12);
   expect(state.requests.filter((path) => path.startsWith('assets/effects/ahri-r-'))).toHaveLength(
-    8
+    11
   );
   const extra = 'assets/effects/ahri-w-b7cf3aaa74075f2a.png';
   expect(state.requests).toContain(extra);
@@ -85,7 +85,7 @@ test('R loads exactly eight R textures plus the W transport outside its joined s
   expect(clamp.wrapS).toBe(THREE.ClampToEdgeWrapping);
   expect(state.borrowed).toEqual([]);
   await module.loadAhriRAssets();
-  expect(state.requests).toHaveLength(9);
+  expect(state.requests).toHaveLength(12);
   expect(state.ownerLoads).toBe(1);
 });
 test('R borrows existing Q/W samplers and the already scaled shared mesh without mutating them', async () => {
@@ -114,10 +114,10 @@ test('R exposes no partial readiness and retries only the failed local texture',
   const module = await import('../src/render/ahri-r-assets');
   await expect(module.loadAhriRAssets()).rejects.toThrow('controlled texture failure');
   expect(module.ahriRAssets()).toBeUndefined();
-  expect(state.requests).toHaveLength(9);
+  expect(state.requests).toHaveLength(12);
   await module.loadAhriRAssets();
   expect(module.ahriRAssets()).toBeDefined();
-  expect(state.requests).toHaveLength(10);
+  expect(state.requests).toHaveLength(13);
   expect(state.requests.filter((path) => path === state.fail)).toHaveLength(2);
   for (const path of new Set(state.requests.filter((path) => path !== state.fail)))
     expect(state.requests.filter((value) => value === path)).toHaveLength(1);

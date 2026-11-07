@@ -110,9 +110,9 @@ test('both native eye instances draw finite glow packets and restore exactly aft
     ribbons = f.captureRibbons(),
     saved = f.world.snapshot();
   expect(before.length).toBeGreaterThanOrEqual(4);
-  expect(new Set(before.map((m) => m.profile))).toEqual(new Set([45, 46]));
+  expect(new Set(before.map((m) => m.profile))).toEqual(new Set([45, 46, 53]));
   expect(new Set(before.map((m) => m.key.split(':buff:')[1]?.split(':')[0]))).toEqual(
-    new Set(['L_Eye', 'R_Eye'])
+    new Set(['L_Eye', 'R_Eye', 'C_Buffbone_Glb_Layout_Loc'])
   );
   expect(f.view.attachmentFallbacks).toEqual([]);
   expect(new Set(ribbons.map((mesh) => mesh.profile))).toEqual(new Set([47, 48]));
@@ -158,6 +158,34 @@ test('the finite layout quad retains its native bone height and restores near ex
   expect(
     [...f.view.surfaces.models.values()].some((mesh) => mesh.userData.profileIndex === 50)
   ).toBe(false);
+  f.dispose();
+});
+test('continuous layout glow restores after genuine Essence extensions beyond the old fifty-second glow window', () => {
+  const f = setup();
+  for (let tick = 1; tick <= 4200; tick++) {
+    if (tick % 500 === 0) {
+      const victim = f.world.spawn('champion', 'red', { x: f.source.x, y: f.source.y }, 'lux');
+      victim.ai = false;
+      f.world.damage(f.source, victim, 1e6, 'true');
+    }
+    f.world.step();
+  }
+  const record = f.world.ahriRVisuals[0];
+  expect(record.end).toBeNull();
+  expect(record.sourceFrames[0].tick).toBeGreaterThan(record.startTick + 50 * 60);
+  f.draw();
+  const before = f.capture(),
+    saved = f.world.snapshot();
+  expect(before.length).toBeGreaterThan(0);
+  expect(new Set(before.map((m) => m.profile))).toEqual(new Set([53]));
+  expect(before.every((m) => m.key.includes(':buff:C_Buffbone_Glb_Layout_Loc:'))).toBe(true);
+  expect(before.every((m) => m.position[1] > 2.4)).toBe(true);
+  expect(f.view.attachmentFallbacks).toEqual([]);
+  f.draw(World.fromSnapshot(saved, field));
+  expect(f.capture()).toEqual(before);
+  f.draw(f.world);
+  expect(f.capture()).toEqual(before);
+  expect(f.world.snapshot()).toBe(saved);
   f.dispose();
 });
 test('hidden enemy eye effects follow current saved visibility and the selected viewing team', () => {

@@ -727,8 +727,8 @@ The next candidate is billboard profile 53, `Glow_Add1`. Its constant rate eight
 omitted lifetime and negative half-second delay need a bounded continuous birth
 adapter. Unlike the preceding quad, it explicitly needs soft depth. The existing
 shared R depth capture must include buff materials before this profile can draw;
-its source requirement will not be disabled. Its texture is already shared with
-a selected contact profile. Other continuous mesh emitters and the sixty-second
+its source requirement will not be disabled. Its base texture is shared with
+a deferred noise-driven contact profile, so it is new to the selected closure. Other continuous mesh emitters and the sixty-second
 layout quad remain separate work.
 
 
@@ -753,3 +753,31 @@ a pool-counter-wrap jump, bounded caches, recent-only root queries through the
 numerical domain endpoint and authored stop/linger drain. All 204 earlier packet
 hashes remain exact. The profile's soft-depth requirement is preserved; it is
 still excluded from the live bound-profile list at this checkpoint.
+
+
+## Continuous layout glow renderer candidate
+
+Profile 53 now follows the explicit layout-bone producer beside the finite quad.
+Its real soft-depth requirement joins the existing shared R capture, including
+frames where all spell particles have drained. Buff materials borrow that target;
+they never create a second depth capture. Source delta-in 30 cm and the existing
+blend-aware control remain explicit. The finite-only twelve-second renderer
+cutoff is removed; observed buff lifetime owns continuous emission.
+
+The selected subset is now 27 profiles: 21 spell and six buff profiles, covering
+four eye profiles on two native eye bones and two layout profiles on the native
+layout bone. Four other layout profiles, six counter profiles, two noise profiles
+and sixteen unjoined profiles remain deferred. The exact selected closure is
+32 textures and one shared W mesh. Three additional R-owned transports retain
+the base/multiplier/erosion maps' nine/nine/seven authored mip levels. Eleven
+R-owned textures and one separate W transport load locally.
+
+All 234 targeted checks and TypeScript pass. A genuine Essence-extension test
+restores the continuous glow after seventy seconds with only recent owned roots;
+old finite glows and the ten-second quad are expired. Shared-depth tests include
+buff-only frames and actual drain. The keyboard browser case passes, including
+all maps, real scene-depth uniforms and exact restored packets. Full-pipeline
+hide/show probes change 303,903 pixels for the new glow and 119,205 for the finite
+quad, with one shared R depth capture per render and no World mutation. Image
+inspection shows the blue aura; native-client pixel equivalence and device
+performance remain unverified. Broader regressions and delivery gates follow.

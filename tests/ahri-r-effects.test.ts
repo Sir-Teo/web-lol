@@ -39,7 +39,7 @@ function setup(team: 'blue' | 'red' = 'blue', visible = () => true) {
   bone.name = 'C_Buffbone_Glb_Center_Loc';
   reference.add(bone);
   reference.scale.setScalar(0.01);
-  for (const name of ['C_BUFFBONE_GLB_CHEST_LOC']) {
+  for (const name of ['C_BUFFBONE_GLB_CHEST_LOC', 'L_Eye', 'R_Eye', 'C_Buffbone_Glb_Layout_Loc']) {
     const b = new THREE.Bone();
     b.name = name;
     b.position.y = 100;
@@ -145,7 +145,7 @@ test('R draws its twenty-one selected spell profiles without changing World', ()
       expect(m.scale.toArray().every(Number.isFinite)).toBe(true);
     }
   }
-  expect(view.deferredProfiles).toHaveLength(29);
+  expect(view.deferredProfiles).toHaveLength(28);
   expect([...seen].sort((a, b) => a - b)).toEqual(
     [...AHRI_R_BOUND_SPELL_PROFILES].sort((a, b) => a - b)
   );
@@ -235,15 +235,21 @@ test('R surfaces and ribbons share one depth capture with consistent soft unifor
   draw();
   const surface = [...view.surfaces.models.values()].filter((m) => m.material.uniforms.softDepth);
   const ribbons = [...view.models.values()].filter((m) => m.material.uniforms.softDepth);
+  const buffs = [...view.buffs.surfaces.models.values()].filter(
+    (m) => m.material.uniforms.softDepth
+  );
   expect(surface.length).toBeGreaterThan(0);
   expect(ribbons.length).toBeGreaterThan(0);
+  expect(buffs.some((m) => m.userData.profileIndex === 53)).toBe(true);
   const target = new THREE.WebGLRenderTarget(320, 180);
   target.depthTexture = new THREE.DepthTexture(320, 180);
   const capture = vi.spyOn(view.surfaces.depth, 'capture').mockReturnValue(target);
+  const buffCapture = vi.spyOn(view.buffs.surfaces.depth, 'capture');
   const saved = world.snapshot();
   view.prepareDepth({} as THREE.WebGLRenderer, camera);
   expect(capture).toHaveBeenCalledTimes(1);
-  for (const model of [...surface, ...ribbons]) {
+  expect(buffCapture).not.toHaveBeenCalled();
+  for (const model of [...surface, ...ribbons, ...buffs]) {
     expect(model.material.uniforms.softDepth.value).toBe(target.depthTexture);
     expect(model.material.uniforms.softSize.value.toArray()).toEqual([320, 180]);
     expect(model.material.uniforms.depthConversion.value.toArray()).toEqual([
@@ -252,6 +258,42 @@ test('R surfaces and ribbons share one depth capture with consistent soft unifor
     ]);
   }
   expect(world.snapshot()).toBe(saved);
+  release();
+  target.depthTexture.dispose();
+  target.dispose();
+});
+
+test('buff-only soft materials keep the one shared depth target alive until their actual drain', () => {
+  const { world, view, draw, release, camera } = setup();
+  world.step(600);
+  draw();
+  expect(view.surfaces.models.size).toBe(0);
+  expect(view.models.size).toBe(0);
+  const buffs = [...view.buffs.surfaces.models.values()].filter(
+    (m) => m.userData.profileIndex === 53
+  );
+  expect(buffs.length).toBeGreaterThan(0);
+  const target = new THREE.WebGLRenderTarget(320, 180);
+  target.depthTexture = new THREE.DepthTexture(320, 180);
+  const capture = vi.spyOn(view.surfaces.depth, 'capture').mockReturnValue(target),
+    buffCapture = vi.spyOn(view.buffs.surfaces.depth, 'capture'),
+    dispose = vi.spyOn(view.surfaces.depth, 'dispose');
+  const saved = world.snapshot();
+  view.prepareDepth({} as THREE.WebGLRenderer, camera);
+  expect(capture).toHaveBeenCalledTimes(1);
+  expect(buffCapture).not.toHaveBeenCalled();
+  for (const model of buffs) {
+    expect(model.material.uniforms.softDepth.value).toBe(target.depthTexture);
+    expect(model.material.uniforms.softParameters.value.toArray()).toEqual([0, 0, 100 / 30, 0]);
+    expect(model.material.uniforms.softControl.value.toArray()).toEqual([1, 0, 0, 1]);
+  }
+  expect(world.snapshot()).toBe(saved);
+  world.step(400);
+  draw();
+  view.prepareDepth({} as THREE.WebGLRenderer, camera);
+  expect(capture).toHaveBeenCalledTimes(1);
+  expect(dispose).toHaveBeenCalledTimes(1);
+  expect(view.buffs.surfaces.depth.target).toBeUndefined();
   release();
   target.depthTexture.dispose();
   target.dispose();

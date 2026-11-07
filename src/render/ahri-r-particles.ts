@@ -54,8 +54,8 @@ export const AHRI_R_PARTICLE_ADAPTER = {
   sharedRandomFlagOne: 'fixed cosmetic emitter chance; native random stream unverified',
   neutralLiveTables: 'empty tables with single 1',
 } as const;
-/** Eye profiles and the finite layout quad use the explicit skin-buff producer. */
-export const AHRI_R_BOUND_BUFF_PROFILES = [45, 46, 47, 48, 50] as const;
+/** Eye and selected layout profiles use the explicit skin-buff producer. */
+export const AHRI_R_BOUND_BUFF_PROFILES = [45, 46, 47, 48, 50, 53] as const;
 export const AHRI_R_PREPARED_EYE_TRAIL_PROFILES = [47, 48] as const;
 /** The finite quad and short-lived glow fit owned poses; other layout profiles stay deferred. */
 export const AHRI_R_PREPARED_LAYOUT_PROFILES = [50, 53] as const;
