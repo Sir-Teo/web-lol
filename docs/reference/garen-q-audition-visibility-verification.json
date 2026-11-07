@@ -1,0 +1,45 @@
+{
+  "format": 1,
+  "result": "passed",
+  "revision": "d505a2f1a594f34fc54c5c3afd41ba74c91bc0cf",
+  "browserCasesPassed": 7,
+  "originalHiddenTabFailureRetained": true,
+  "hiddenTabCancelsPendingActivation": true,
+  "hiddenTabReleasesExistingVoicesViaStopAll": true,
+  "standaloneTypescriptPassed": true,
+  "runtimeAndPublicAssetsUnchanged": true,
+  "productionPackUnchanged": "171bacaffe287f0fc491e1c5227ed89d740df3717c246b87e801e1e901e55948",
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/garen-q-visibility-baseline-v1.log",
+      "bytes": 2248,
+      "sha256": "8b62b037feccb659690d736367be7c35b5e7131e6c8fa1448cd536a32f27a13f"
+    },
+    {
+      "file": "artifacts/garen-q-visibility-fixed-v2.log",
+      "bytes": 1700,
+      "sha256": "8e72b27888c0c3b77c54d9397453e7f74deb364c751cba6ba2879467eb0a2773"
+    },
+    {
+      "file": "artifacts/garen-q-visibility-browser-v1.json",
+      "bytes": 6449,
+      "sha256": "da178237df65e39ed3b275645745563a21a4fc344fb53bff189686a9acf97f16"
+    },
+    {
+      "file": "artifacts/garen-q-visibility-browser-v2.json",
+      "bytes": 9649,
+      "sha256": "6ae598ff33659304645bd96e9d13d7eca6a930d58df8d7f1fb860abed52f6d95"
+    },
+    {
+      "file": "artifacts/garen-q-visibility-typecheck-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "artifacts/garen-q-visibility-format-v1.log",
+      "bytes": 103,
+      "sha256": "6f68fa97c5549678fa180f8e2e03410b72e53f5f9df2412696f7285d778ce14b"
+    }
+  ]
+}

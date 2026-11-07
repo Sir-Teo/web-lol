@@ -9750,3 +9750,9 @@ Application `99c1cb7`, schema173 / `66cd7e31`, passes8,716/8,718 full-suite case
 ## Integrate accepted Ahri attack playback into primary
 
 Primary `work` fast-forwards from `caaf80b` to `15b7d08` without merge edits. Every source byte matches the accepted branch. A fresh primary build and complete pack audit reproduce `991cef8d` exactly. Acceptance retains its original full-suite/browser/offline scope. No push or deployment occurs. See `reference/ahri-attack-main-integration.json`.
+
+The Garen Q developer audition now cancels pending activation and releases its
+voices when the tab becomes hidden. The delayed-resume regression fails before
+the change; all seven source-audition browser cases and its standalone typecheck
+pass afterward. Runtime, public assets and the retained production pack stay
+unchanged. See [visibility verification](reference/garen-q-audition-visibility-verification.json).
