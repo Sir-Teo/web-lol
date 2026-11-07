@@ -103,6 +103,9 @@ export function mountOfflinePack(host: HTMLElement): () => void {
   };
   button('remove').onclick = async () => {
     button('remove').disabled = true;
+    button('download').disabled = true;
+    button('reload').disabled = true;
+    status.textContent = 'Removing offline files…';
     try {
       await pack.remove();
       if (!disposed) {
@@ -112,7 +115,11 @@ export function mountOfflinePack(host: HTMLElement): () => void {
     } catch (caught) {
       error(caught);
     } finally {
-      if (!disposed) button('remove').disabled = false;
+      if (!disposed) {
+        button('remove').disabled = false;
+        button('download').disabled = false;
+        button('reload').disabled = false;
+      }
     }
   };
   return () => {

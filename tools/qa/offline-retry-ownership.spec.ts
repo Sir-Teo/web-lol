@@ -163,3 +163,57 @@ test('real pack inspection recovers from cache-open failure without fetching pac
   expect(requests).not.toContain('/index.html');
   await page.evaluate(() => (window as any).__OFFLINE_REAL_DISPOSE__());
 });
+
+for (const outcome of ['success', 'failure'] as const)
+  test(`offline removal owns download and reload controls through ${outcome}`, async ({ page }) => {
+    await openPanel(page);
+    await page.getByRole('button', { name: 'Retry pack check', exact: true }).click();
+    await finishCheck(page, 0, true);
+    await expect(page.locator('[data-offline="reload"]')).toBeVisible();
+    await page.evaluate(() => {
+      const s = (window as any).__OFFLINE_RETRY__.state;
+      s.removes = 0;
+      s.reloads = 0;
+      s.instance.remove = async () => {
+        s.removes++;
+        await new Promise<void>((resolve, reject) => {
+          s.finishRemove = resolve;
+          s.failRemove = reject;
+        });
+      };
+      s.instance.reload = async () => {
+        s.reloads++;
+      };
+    });
+    await page.getByRole('button', { name: 'Remove offline files', exact: true }).click();
+    await page.evaluate(() => {
+      document.querySelector<HTMLButtonElement>('[data-offline="reload"]')!.click();
+      document.querySelector<HTMLButtonElement>('[data-offline="download"]')!.click();
+    });
+    expect(
+      await page.evaluate(() => {
+        const s = (window as any).__OFFLINE_RETRY__.state;
+        return { removes: s.removes, downloads: s.downloads, reloads: s.reloads };
+      })
+    ).toEqual({ removes: 1, downloads: 0, reloads: 0 });
+    await expect(page.locator('.offline-status')).toHaveText('Removing offline files…');
+    for (const action of ['remove', 'download', 'reload'])
+      await expect(page.locator(`[data-offline="${action}"]`)).toBeDisabled();
+    await page.evaluate((outcome) => {
+      const s = (window as any).__OFFLINE_RETRY__.state;
+      if (outcome === 'success') s.finishRemove();
+      else s.failRemove(Error('Cached files could not be removed'));
+    }, outcome);
+    await expect(page.locator('[data-offline="remove"]')).toBeEnabled();
+    await expect(page.locator('[data-offline="download"]')).toBeEnabled();
+    if (outcome === 'success') {
+      await expect(page.locator('.offline-status')).toHaveText(
+        'Offline files removed. Saved matches were kept.'
+      );
+      await expect(page.locator('[data-offline="reload"]')).toBeHidden();
+    } else {
+      await expect(page.locator('.offline-status')).toHaveText('Cached files could not be removed');
+      await expect(page.locator('[data-offline="reload"]')).toBeEnabled();
+    }
+    await page.evaluate(() => (window as any).__OFFLINE_RETRY__.dispose());
+  });
