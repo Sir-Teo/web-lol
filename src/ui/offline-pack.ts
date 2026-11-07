@@ -26,13 +26,15 @@ export function mountOfflinePack(host: HTMLElement): () => void {
   }
   const pack = new OfflinePack(new URL('./', document.baseURI));
   let disposed = false;
+  // Loading the manifest alone does not establish that its cache check succeeded.
+  let checked = false;
   const error = (caught: unknown) => {
     if (!disposed) {
       status.textContent =
         caught instanceof Error
           ? caught.message
           : 'Offline files could not be prepared. Connect and retry.';
-      if (!pack.manifest) {
+      if (!checked) {
         button('download').disabled = false;
         button('download').textContent = 'Retry pack check';
       }
@@ -41,6 +43,7 @@ export function mountOfflinePack(host: HTMLElement): () => void {
   async function check() {
     const state = await pack.check();
     if (disposed) return;
+    checked = true;
     size.textContent = `Full game pack: ${mb(pack.manifest!.bytes)} · ${pack.manifest!.files.length} files. Includes the source-quality assets.`;
     status.textContent = state.complete
       ? 'Ready for offline use on this browser.'
@@ -54,7 +57,7 @@ export function mountOfflinePack(host: HTMLElement): () => void {
   }
   void check().catch(error);
   button('download').onclick = async () => {
-    if (!pack.manifest) {
+    if (!checked) {
       button('download').disabled = true;
       status.textContent = 'Checking offline files…';
       try {
