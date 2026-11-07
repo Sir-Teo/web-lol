@@ -131,6 +131,7 @@ try {
     ahriQCastRequests = [],
     ahriQProjectileRequests = [],
     ahriEParticleRequests = [],
+    ahriRParticleRequests = [],
     ahriFoxFireAudioRequests = [],
     ahriSpiritRushAudioRequests = [],
     ahriPassiveAudioRequests = [],
@@ -151,6 +152,11 @@ try {
     if (message.type() === 'error') errors.push(message.text());
   });
   page.on('request', (request) => {
+    if (
+      request.url().includes('/assets/effects/ahri-r-') ||
+      /\/assets\/ahri-r-effects-[^/]+\.js$/.test(new URL(request.url()).pathname)
+    )
+      ahriRParticleRequests.push(request.url());
     if (request.url().includes('/assets/effects/ahri-e-'))
       ahriEParticleRequests.push(request.url());
     if (request.url().includes('/assets/effects/ahri-q-projectile-'))
@@ -323,6 +329,11 @@ try {
   );
   assert.deepEqual(ahriQCastRequests, [], 'Production without Ahri must not load Q cast particles');
   assert.deepEqual(ahriEParticleRequests, [], 'Production without Ahri must not load E particles');
+  assert.deepEqual(
+    ahriRParticleRequests,
+    [],
+    'Production without Ahri must not load R particles or their renderer chunk'
+  );
   assert.deepEqual(ahriOrbAudioRequests, [], 'Production without Ahri must not load Orb masters');
   assert.deepEqual(
     ahriSpiritRushAudioRequests,
@@ -790,6 +801,7 @@ try {
     ['Q cast particles', ahriQCastRequests],
     ['Q projectile particles', ahriQProjectileRequests],
     ['E particles', ahriEParticleRequests],
+    ['R particles', ahriRParticleRequests],
     ['Orb', ahriOrbAudioRequests],
     ['Fox-Fire', ahriFoxFireAudioRequests],
     ['Spirit Rush', ahriSpiritRushAudioRequests],
@@ -835,6 +847,7 @@ try {
     unrequestedAhriQProjectilePreloads: ahriQProjectileRequests.length,
     unrequestedAhriQCastPreloads: ahriQCastRequests.length,
     unrequestedAhriEParticlePreloads: ahriEParticleRequests.length,
+    unrequestedAhriRParticlePreloads: ahriRParticleRequests.length,
     unrequestedAhriOrbAudioPreloads: ahriOrbAudioRequests.length,
     unrequestedAhriFoxFireAudioPreloads: ahriFoxFireAudioRequests.length,
     unrequestedAhriSpiritRushAudioPreloads: ahriSpiritRushAudioRequests.length,
