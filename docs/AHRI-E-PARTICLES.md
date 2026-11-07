@@ -190,3 +190,8 @@ pins the transport, native-tag, projection and attached-reading commits and all
 successful evidence. One combined clean export reproduces all nine workflow
 commands without private caches or native tools. The existing W archived cohort
 still verifies against the current runtime sources.
+
+The [source-preparation acceptance](reference/ahri/e-source-preparation-verification.json)
+records all 251 passing Node QA cases. Source, public-asset and gameplay-test
+bytes remain unchanged from the accepted W runtime. This accepts preparation
+only; E saved histories and rendered playback remain future work.
