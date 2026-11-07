@@ -32,7 +32,7 @@ interface Held {
   sampler: AhriRParticleSampler;
   particles: ReturnType<AhriRParticleSampler['sample']>;
 }
-/** Four eye profiles attach to both eye bones; layout quad/glow use their
+/** Four eye profiles attach to both eye bones; selected layout surfaces use their
  * explicit layout bone. Other layout and counter drivers remain deferred. */
 export class AhriRBuffParticles {
   readonly surfaces: SourceParticleSurfaces<RBuffVisualGroup>;

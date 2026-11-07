@@ -26,15 +26,22 @@ function setup(team: 'blue' | 'red' = 'blue') {
   world.step();
   const scene = new THREE.Scene(),
     camera = new THREE.PerspectiveCamera(50, 1, 0.1, 1000),
-    texture = new THREE.Texture();
+    texture = new THREE.Texture(),
+    geometry = new THREE.BoxGeometry(1, 1, 1);
+  geometry.setAttribute(
+    '_source_vertex_bgra',
+    new THREE.Uint8BufferAttribute(
+      new Uint8Array(geometry.getAttribute('position').count * 4).fill(255),
+      4,
+      true
+    )
+  );
   camera.position.set(10, 15, 12);
   camera.lookAt(0, 0, 0);
   camera.updateMatrixWorld();
   const resources = {
     texture: () => texture,
-    mesh: () => {
-      throw Error('Eye glows must not request mesh geometry');
-    },
+    mesh: () => geometry,
     sampler: (rig: MobileRig) => {
       const reference = new THREE.Group();
       reference.scale.setScalar(0.01);
@@ -73,6 +80,7 @@ function setup(team: 'blue' | 'red' = 'blue') {
   const dispose = () => {
     view.dispose();
     texture.dispose();
+    geometry.dispose();
   };
   const captureRibbons = () =>
     [...view.models]
@@ -90,7 +98,7 @@ function setup(team: 'blue' | 'red' = 'blue') {
           ])
         ),
       }));
-  return { world, source, view, scene, texture, draw, capture, captureRibbons, dispose };
+  return { world, source, view, scene, texture, geometry, draw, capture, captureRibbons, dispose };
 }
 test('both native eye instances draw finite glow packets and restore exactly after rolling pose retention', () => {
   const f = setup();
@@ -110,7 +118,7 @@ test('both native eye instances draw finite glow packets and restore exactly aft
     ribbons = f.captureRibbons(),
     saved = f.world.snapshot();
   expect(before.length).toBeGreaterThanOrEqual(4);
-  expect(new Set(before.map((m) => m.profile))).toEqual(new Set([45, 46, 53]));
+  expect(new Set(before.map((m) => m.profile))).toEqual(new Set([45, 46, 51, 52, 53, 54]));
   expect(new Set(before.map((m) => m.key.split(':buff:')[1]?.split(':')[0]))).toEqual(
     new Set(['L_Eye', 'R_Eye', 'C_Buffbone_Glb_Layout_Loc'])
   );
@@ -225,6 +233,7 @@ test('victory drains eye effects on the presentation clock without World steps o
   }));
   expect(ribbons.length).toBeGreaterThan(0);
   const texture = vi.spyOn(f.texture, 'dispose');
+  const borrowedGeometry = vi.spyOn(f.geometry, 'dispose');
   const nexus = f.world.spawn('nexus', 'red', { x: 1500, y: 1500 });
   f.world.damage(f.world.hero, nexus, 1e6, 'true');
   expect(f.world.winner).toBe('blue');
@@ -237,10 +246,12 @@ test('victory drains eye effects on the presentation clock without World steps o
   f.view.dispose();
   expect(f.scene.children).toHaveLength(0);
   expect(texture).not.toHaveBeenCalled();
+  expect(borrowedGeometry).not.toHaveBeenCalled();
   for (const material of materials) expect(material).toHaveBeenCalledTimes(1);
   for (const ribbon of ribbons) {
     expect(ribbon.geometry).toHaveBeenCalledTimes(1);
     expect(ribbon.material).toHaveBeenCalledTimes(1);
   }
   f.texture.dispose();
+  f.geometry.dispose();
 });

@@ -150,7 +150,7 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
   expect(flight.unchanged).toBe(true);
   expect(flight.restored).toEqual(flight.before);
   expect(flight.placeholder).toBe(0);
-  expect(flight.deferred).toHaveLength(28);
+  expect(flight.deferred).toHaveLength(25);
   expect(flight.before.ribbons.length).toBeGreaterThan(0);
   expect(flight.before.surfaces.some((m: any) => m.colors === 209 && !m.normals)).toBe(true);
   expect(flight.before.ribbons.some((m: any) => m.cellSize[0] === 0.5)).toBe(true);
@@ -234,6 +234,12 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
           softControl: model.material.uniforms.softControl?.value.toArray() ?? null,
           softDepthReady: !!model.material.uniforms.softDepth?.value,
           softSize: model.material.uniforms.softSize?.value.toArray() ?? null,
+          geometryVertices: model.geometry.getAttribute('position').count,
+          geometryIndices: model.geometry.getIndex()?.count ?? null,
+          packedColors: model.geometry.getAttribute('_source_vertex_bgra')?.count ?? null,
+          packedNormalized: model.geometry.getAttribute('_source_vertex_bgra')?.normalized ?? false,
+          geometryScale: model.geometry.userData.sourceCentimetresScaleApplied ?? null,
+          ownsGeometry: !!model.userData.ownedGeometry,
         }));
     const saved = w.snapshot(),
       before = capture(),
@@ -246,13 +252,18 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
       restored,
       unchanged: copy.snapshot() === saved,
       attachments: v.ahriRParticles.attachmentFallbacks,
+      nativeMeshGeometries: new Set(
+        [...v.ahriRParticles.buffSurfaces.models.values()]
+          .filter((model: any) => [51, 52, 54].includes(model.userData.profileIndex))
+          .map((model: any) => model.geometry)
+      ).size,
     };
   });
   expect(eyes.unchanged).toBe(true);
   expect(eyes.restored).toEqual(eyes.before);
   expect(eyes.before.length).toBeGreaterThanOrEqual(4);
   expect([...new Set(eyes.before.map((model: any) => model.profile))].sort()).toEqual([
-    45, 46, 50, 53,
+    45, 46, 50, 51, 52, 53, 54,
   ]);
   expect(eyes.before.every((model: any) => model.mips > 1)).toBe(true);
   expect(eyes.before.some((model: any) => model.key.includes(':buff:L_Eye:'))).toBe(true);
@@ -274,11 +285,30 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
       softDepthReady: true,
       softSize: [1440, 900],
     });
+  expect(eyes.nativeMeshGeometries).toBe(1);
+  for (const profile of [51, 52, 54]) {
+    const models = eyes.before.filter((model: any) => model.profile === profile);
+    expect(models.length).toBeGreaterThan(0);
+    for (const model of models)
+      expect(model).toMatchObject({
+        key: expect.stringContaining(':buff:C_Buffbone_Glb_Layout_Loc:'),
+        mips: 4,
+        erosionMips: 8,
+        geometryVertices: 230,
+        geometryIndices: 1140,
+        packedColors: 230,
+        packedNormalized: true,
+        geometryScale: 0.01,
+        ownsGeometry: false,
+        softDepthReady: true,
+        softParameters: [0, 0, 100 / 30, 0],
+      });
+  }
   expect(eyes.attachments).toEqual([]);
   expect(glowRequests).toHaveLength(1);
   await page.screenshot({ path: info.outputPath('ahri-r-eye-glows.png') });
   const pixelProofs = [];
-  for (const profile of [50, 53]) {
+  for (const profile of [50, 51, 52, 53, 54]) {
     const pixels = await page.evaluate((profile) => {
       const g = (window as any).__GAME__,
         w = g.world,
@@ -352,6 +382,7 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
   }
   const layoutPixelProof = pixelProofs.find((proof) => proof.profile === 50)!;
   const continuousGlowPixelProof = pixelProofs.find((proof) => proof.profile === 53)!;
+  const meshPixelProofs = pixelProofs.filter((proof) => [51, 52, 54].includes(proof.profile));
   const eyeTrails = await page.evaluate(() => {
     const g = (window as any).__GAME__,
       w = g.world,
@@ -399,6 +430,13 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
             softControl: model.material.uniforms.softControl?.value.toArray() ?? null,
             softDepthReady: !!model.material.uniforms.softDepth?.value,
             softSize: model.material.uniforms.softSize?.value.toArray() ?? null,
+            geometryVertices: model.geometry.getAttribute('position').count,
+            geometryIndices: model.geometry.getIndex()?.count ?? null,
+            packedColors: model.geometry.getAttribute('_source_vertex_bgra')?.count ?? null,
+            packedNormalized:
+              model.geometry.getAttribute('_source_vertex_bgra')?.normalized ?? false,
+            geometryScale: model.geometry.userData.sourceCentimetresScaleApplied ?? null,
+            ownsGeometry: !!model.userData.ownedGeometry,
           };
         });
     const frames = [];
@@ -637,12 +675,20 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
   });
 
   expect(requests.filter((path) => path.endsWith('/ahri-r-b28f3ac6819dd4e1.png'))).toHaveLength(1);
-  for (const name of ['2f5d10bd024f378a', '448c3877b6693762', 'cde0d94435baa941'])
+  for (const name of [
+    '2f5d10bd024f378a',
+    '448c3877b6693762',
+    'cde0d94435baa941',
+    '812974fe434afa99',
+    'dd852bde9dedd7f1',
+  ])
     expect(requests.filter((path) => path.endsWith(`/ahri-r-${name}.png`))).toHaveLength(1);
   expect(requests.filter((path) => path.endsWith('/ahri-r-e44c1023b3871ca4.png'))).toHaveLength(1);
-  expect(requests).toHaveLength(11);
-  expect(new Set(requests).size).toBe(11);
-  expect(requests.some((path) => path.endsWith('.glb'))).toBe(false);
+  expect(requests).toHaveLength(14);
+  expect(new Set(requests).size).toBe(14);
+  expect(requests.filter((path) => path.endsWith('.glb'))).toEqual([
+    '/assets/effects/ahri-r-0216531e0d20ebea.glb',
+  ]);
   expect(errors).toEqual([]);
   await writeFile(
     info.outputPath('ahri-r-packets.json'),
@@ -659,6 +705,7 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
         layoutDrained,
         layoutPixelProof,
         continuousGlowPixelProof,
+        meshPixelProofs,
         buffOnlyDepth,
         errors,
       },

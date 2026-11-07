@@ -55,11 +55,35 @@ export const AHRI_R_PARTICLE_ADAPTER = {
   neutralLiveTables: 'empty tables with single 1',
 } as const;
 /** Eye and selected layout profiles use the explicit skin-buff producer. */
-export const AHRI_R_BOUND_BUFF_PROFILES = [45, 46, 47, 48, 50, 53] as const;
+export const AHRI_R_BOUND_BUFF_PROFILES = [45, 46, 47, 48, 50, 51, 52, 53, 54] as const;
 export const AHRI_R_PREPARED_EYE_TRAIL_PROFILES = [47, 48] as const;
-/** The finite quad and short-lived glow fit owned poses; other layout profiles stay deferred. */
-export const AHRI_R_PREPARED_LAYOUT_PROFILES = [50, 53] as const;
+/** Prepared finite/short-lived layouts fit owned poses; the sixty-second base stays deferred. */
+export const AHRI_R_PREPARED_LAYOUT_PROFILES = [50, 51, 52, 53, 54] as const;
 const periodicProfiles = new Set<number>(AHRI_R_PREPARED_EYE_TRAIL_PROFILES);
+const activeOnlyLayoutProfiles = new Set([51, 52, 54]);
+for (const [slot, index] of [51, 52, 54].entries()) {
+  const p = data.profiles[index];
+  if (
+    p.system !== 'Ahri_R_Ready_tar' ||
+    p.name !== ['Alpha_Swooshies', 'Light_Swooshies1', 'Light_Swooshies2'][slot] ||
+    p.kind !== 'mesh' ||
+    p.mesh !== 'assets/effects/ahri-r-0216531e0d20ebea.glb' ||
+    p.single ||
+    p.emitterLife !== null ||
+    p.period !== null ||
+    p.timeActiveDuringPeriod !== 30 ||
+    p.delay !== 0 ||
+    p.rate.authoredKeyCount !== 0 ||
+    p.rate.constant[0] !== [4, 7, 7][slot] ||
+    p.rate.probabilities.length !== 0 ||
+    p.life.authoredKeyCount !== 0 ||
+    p.life.constant[0] !== 1 ||
+    p.life.probabilities.length !== 0 ||
+    [...p.bindingRequirements].sort().join(',') !==
+      'emitter-lifetime,emitter-period-policy,soft-depth-input'
+  )
+    throw Error('R active-only layout mesh profile closure differs');
+}
 /** Deferred profiles stay in published data without entering the sampler. */
 export const AHRI_R_SPELL_PROFILE_BINDINGS = data.profiles.map((p, profileIndex) => ({
   profileIndex,
@@ -120,9 +144,10 @@ if (
 const limits: Record<AhriRSystem, number> = {
   Ahri_R_mis_02: AHRI_R_POLICY.maximumBoltTicks / 60,
   Ahri_R_Eyes: 50,
-  // Finite profile 50 uses the selected single-particle lifetime rewrite.
-  // Continuous profile 53 bypasses this replay limit through its recent-birth adapter.
-  Ahri_R_Ready_tar: 10,
+  // Finite profile 50 uses its single-particle lifetime rewrite; meshes
+  // preserve an authored thirty-second active-only window. Profile 53 bypasses
+  // this finite replay bound through its recent-birth adapter.
+  Ahri_R_Ready_tar: 30,
   Ahri_R_Tar: Math.max(
     ...data.profiles.filter((p) => p.system === 'Ahri_R_Tar').map((p) => p.emitterLife ?? 0)
   ),
@@ -193,7 +218,8 @@ const prepared = data.profiles.map((p, profileIndex) => {
   if (!preparedProfiles.has(profileIndex)) return null;
   if (
     (p.period !== null || p.timeActiveDuringPeriod !== null) &&
-    !periodicProfiles.has(profileIndex)
+    !periodicProfiles.has(profileIndex) &&
+    !activeOnlyLayoutProfiles.has(profileIndex)
   )
     throw Error('R spell profile needs an explicit periodic adapter');
   const geometry: SourceAppearanceGeometry =
@@ -212,7 +238,10 @@ const prepared = data.profiles.map((p, profileIndex) => {
       overridesMaterials: false,
       delay: Math.round(p.delay * 60) / 60,
       emitterLinger: p.emitterLinger ?? 0,
-      period: p.period === null ? null : { length: p.period, active: p.timeActiveDuringPeriod },
+      period:
+        p.period === null && p.timeActiveDuringPeriod === null
+          ? null
+          : { length: p.period, active: p.timeActiveDuringPeriod },
     },
     variableStart: false,
     maxPerFrame: 0,
@@ -293,6 +322,7 @@ function sampleParticles(
     if (!d) return [];
     const particles: AhriRParticle[] = [];
     const periodic = periodicProfiles.has(profileIndex),
+      activeOnly = activeOnlyLayoutProfiles.has(profileIndex),
       continuous = profileIndex === 53,
       recent = periodic || continuous;
     let births = periodic
@@ -310,7 +340,14 @@ function sampleParticles(
           births.push({ ...birth, updateTick: tick });
       schedules?.set(profileIndex, births);
     }
-    if (recent && cache) {
+    // Active-only mesh schedules contain at most 200 births. Retain only live
+    // candidates in the expensive motion/binding cache; keep their original
+    // kernel birth clocks, phase and finite pool ordinals unchanged.
+    if (activeOnly)
+      births = births.filter(
+        (event) => event.updateTick >= whole - Math.ceil(d.maximumLife * 60) - 1
+      );
+    if ((recent || activeOnly) && cache) {
       const wanted = new Set(births.map((event) => `${profileIndex}:${event.ordinal + 1}`));
       for (const key of cache.keys())
         if (key.startsWith(profileIndex + ':') && !wanted.has(key)) cache.delete(key);

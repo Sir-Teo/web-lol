@@ -15,8 +15,8 @@ const root = (time: number) => ({
 const context = { boundObjectSize: 100, root };
 
 test('the finite layout quad keeps its identity beside the selected continuous glow', () => {
-  expect(AHRI_R_PREPARED_LAYOUT_PROFILES).toEqual([50, 53]);
-  expect(AHRI_R_BOUND_BUFF_PROFILES).toEqual([45, 46, 47, 48, 50, 53]);
+  expect(AHRI_R_PREPARED_LAYOUT_PROFILES).toEqual([50, 51, 52, 53, 54]);
+  expect(AHRI_R_BOUND_BUFF_PROFILES).toEqual([45, 46, 47, 48, 50, 51, 52, 53, 54]);
   const particles = ahriRParticles('Ahri_R_Ready_tar', 927, 1, Infinity, context).filter(
     (p) => p.profileIndex === 50
   );
@@ -62,8 +62,8 @@ test('layout cached fractional, backward and stopped seeks match fresh sampling 
       expect(sampler.sample(time, stop)).toEqual(
         ahriRParticles('Ahri_R_Ready_tar', 927, time, stop, context)
       );
-  expect(sampler.cachedBirths).toBeLessThanOrEqual(20);
-  expect(sampler.computedBindingSteps).toBeLessThanOrEqual(602 + 19 * 146);
+  expect(sampler.cachedBirths).toBeLessThanOrEqual(42);
+  expect(sampler.computedBindingSteps).toBeLessThanOrEqual(602 + 19 * 146 + 22 * 62);
   expect(sampler.sample(10.02).filter((p) => p.profileIndex === 50)).toEqual([]);
   expect(sampler.sample(0.4, 0.4).filter((p) => p.profileIndex === 50)).toEqual([]);
   sampler.dispose();
@@ -84,7 +84,7 @@ test('expired layout sampling does not request discarded birth poses', () => {
     queried.length = 0;
     const particles = sampler.sample(now);
     expect(particles.some((p) => p.profileIndex === 50)).toBe(false);
-    expect(particles.every((p) => p.profileIndex === 53)).toBe(true);
+    expect(particles.every((p) => [51, 52, 53, 54].includes(p.profileIndex))).toBe(true);
     expect(queried.length).toBeGreaterThan(0);
     expect(Math.min(...queried)).toBeGreaterThan(now - 3);
   }

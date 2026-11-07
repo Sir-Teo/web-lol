@@ -835,3 +835,96 @@ the accepted runtime. See
 Prior accepted packs remain retained. Native calibration, representative-device
 performance, the current hundred-seed gate and full-project milestones remain
 unfinished.
+
+
+## Native layout mesh preparation
+
+The [accepted continuous-glow packet reference](reference/ahri/r-layout-glow-packet-reference.json)
+adds 54 complete packets from application `e27cc4c4`, with all 697 frozen source
+files verified first. It covers finite stops, long ages and the numerical-domain
+endpoint. All 263 reference checks across five families and TypeScript pass
+before mesh work; earlier producers and references remain unchanged.
+
+The retained blastwave GLB parses as one identity-transformed, unskinned mesh:
+230 position/UV/RGBA vertices and 1,140 indices / 380 triangles. Colors are
+normalized authored RGBA bytes; no normal stream is present. The runtime asset
+adapter must reconstruct packed BGRA and convert source centimetres once, while
+preserving page ownership and disposing only parsed staging materials. Mesh
+emitters remain unconnected at this checkpoint.
+
+
+The unconnected colored-mesh adapter now validates a single static identity
+transform, exact position/UV/index counts and authored RGBA channels. It packs
+normalized BGRA bytes and converts source centimetres exactly once, preserving
+logical UV and index data even when the GLB interleaves its attributes. A second
+consume call rejects the staging scene without mutating or disposing retained
+geometry. Invalid input disposes each shared staging resource once.
+
+Eight ownership/conversion checks pass alongside all 263 frozen-reference checks,
+as does TypeScript. The real blastwave GLB supplies the successful interleaved
+case. No live asset loader or mesh producer is connected yet.
+
+
+The private sampler now prepares mesh profiles 51/52/54 with the preserved
+active-only period object and a bounded thirty-second kernel replay. Original
+birth clocks, emitter phase and finite ordinals remain intact. Expensive
+motion/binding caches keep only recent candidates; the observed cache bound is
+forty-two births including the existing quad/glow profiles. Live bindings remain
+unchanged.
+
+Three mesh checks pass alongside the earlier 279 adapter/sampler/reference
+checks, and TypeScript passes. Complete schedules yield 120/200/200 births,
+preserve both 16-tick gaps, cease births before thirty seconds and drain naturally.
+Fractional/backward/stop seeks and recent-only roots match fresh sampling. The
+five accepted packet families remain exact. The future live closure adds only
+two texture transports (eight/four authored mips) and the colored blastwave GLB;
+no public asset bytes change.
+
+
+## Native layout mesh renderer candidate
+
+Profiles 51/52/54 now use the explicit saved layout-bone producer and the
+selected nullable-period thirty-second active window. The renderer borrows one
+page-owned blastwave geometry, with packed native BGRA colors and centimetres
+converted once. The loader verifies exact GLB bytes before parsing, publishes
+only complete readiness and retains successful texture/geometry loads across
+independent failures. The W-owned mesh remains borrowed without conversion.
+
+The selected subset is thirty profiles: 21 spell and nine buff profiles. The
+four eye profiles use both native eye bones; the finite quad, continuous glow
+and three meshes use the native layout bone. The sixty-second base, six counter
+profiles, two noise profiles and sixteen unjoined profiles remain deferred.
+The selected closure contains 34 textures and two meshes (one R-owned, one
+W-owned). Thirteen R textures, one separate W texture and one checked R GLB load
+locally. Two new texture transports retain eight/four authored mip levels.
+
+All 297 targeted checks and TypeScript pass, including retirement without
+borrowed-geometry disposal and failed-mesh retry without texture reloads. The
+keyboard browser case verifies all three profiles share one native geometry,
+exact restored packets, source color/topology metadata, real soft depth and one
+shared R depth capture per render. Individual hide/show probes change 882,
+47,579 and 92,942 pixels for profiles 51/52/54 without World mutation. Image
+inspection shows blue swooshes around the existing aura. Native-client pixel
+equivalence and device performance remain unverified. Broader regressions and
+delivery checks follow before acceptance.
+
+## Accepted native layout meshes
+
+The [mesh acceptance receipt](reference/ahri/r-layout-mesh-acceptance.json)
+pins 262 evidence files to application `aabe0526`, schema 181 and ruleset
+`943a706f`. All 33 distinct browser cases pass, alongside the retained earlier
+keyboard probe. The final full-render hide/show probes change 2,762 / 40,353 /
+89,466 pixels for profiles 51/52/54 with no World step and one shared R depth
+capture per render. All 45 complete natural-match projections remain exact
+excluding only version/ruleset; all five earlier frozen packet families remain
+exact. The full suite passes 9,648/9,650 in 601 files with only the two historical
+failures. All 263 Node QA cases, 297 targeted checks and 87 portable CI commands
+pass; every CI command passes on its first attempt. The clean export verifies
+5,605 blobs and executes 1,420 tests across 154 file executions, including overlap.
+
+Production nested-path playback passes with 32 recordings and zero eager R
+particle preloads. Offline lifecycle passes with 978 worker responses and zero
+production errors. Pack `750c891d` contains 1,432 files / 581,133,759 bytes.
+Native constructor/callback calibration, native pixel equivalence, the remaining
+sixty-second layout base and current full-roster acceptance remain open. Primary
+integration follows independently; acceptance does not mark the project complete.
