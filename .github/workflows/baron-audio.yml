@@ -291,6 +291,7 @@ jobs:
           tests/ahri-r-visual-history-module.test.ts
           tests/ahri-r-visual-history.test.ts
           tests/ahri-r-render-history.test.ts
+          tests/ahri-r-particles.test.ts
           tests/ahri-r-visual-snapshot.test.ts
           tests/ahri-passive-gameplay-reference.test.ts
           tests/ahri-passive.test.ts
