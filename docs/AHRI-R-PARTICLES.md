@@ -630,3 +630,13 @@ full-binding float32 accumulation across a discarded pose gap would require a
 separate observation policy. Continuous layout mesh/glow emitters also need a
 bounded nonperiodic scheduling strategy. These five profiles remain deferred
 while preparation focuses on the finite ten-second quad.
+
+
+The private sampler now prepares layout profile 50 without connecting its live
+producer or assets. The selected external single-particle lifetime rule resolves
+the omitted emitter lifetime to the authored ten-second maximum. No global
+persistent lifetime fallback is introduced. Four layout checks pass alongside
+all 165 frozen packet checks. They cover every binding update through ten
+seconds, fractional/backward and stopped seeks, finite cache bounds and expired
+sampling without requesting discarded roots. The accumulated float32 result
+also demonstrably differs from replacing its path with one endpoint delta.
