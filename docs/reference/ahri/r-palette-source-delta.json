@@ -1,0 +1,69 @@
+{
+  "format": 1,
+  "beforeRevision": "a8d0668fa55d61dc4341c34f60839f4fd1628d59",
+  "afterRevision": "a7092caa82f751cc1eb6064bd795cd7309b480c5",
+  "beforeRuleset": "e2c1447e3ff495f6ca32f85f711721adb4a457218e8aede36133c16cf004ac5b",
+  "afterRuleset": "a68ca14b74c144ccb6b0d183f2d41395403a8defa0ae514756463c369f46b90d",
+  "beforeArchiveFiles": 689,
+  "afterArchiveFiles": 690,
+  "changed": [
+    {
+      "before": {
+        "file": "src/render/ahri-r-assets.ts",
+        "bytes": 4318,
+        "sha256": "a944457125c0db771d604acb5cfda405708ecbb902fe4abbaee9e9a122f616eb"
+      },
+      "after": {
+        "file": "src/render/ahri-r-assets.ts",
+        "bytes": 4605,
+        "sha256": "489c8fe4048efb2e97ea922e93f97d284a6e77db1296fe1f76a4239bc82a11d6"
+      }
+    },
+    {
+      "before": {
+        "file": "src/render/ahri-r-effects.ts",
+        "bytes": 12492,
+        "sha256": "07420d7c4c826565f99c801b529763273fb0f93dc53bbb558600fcc6682c4a04"
+      },
+      "after": {
+        "file": "src/render/ahri-r-effects.ts",
+        "bytes": 12484,
+        "sha256": "74201d255c34f80a6fa8535d30688a9d5151550e6c8ae3fcbc483ab44ea727ea"
+      }
+    },
+    {
+      "before": {
+        "file": "src/render/ahri-r-particles.ts",
+        "bytes": 18018,
+        "sha256": "c69146caaea3c041a780394720a5685b671441825e26df980efb9db41281d81d"
+      },
+      "after": {
+        "file": "src/render/ahri-r-particles.ts",
+        "bytes": 18107,
+        "sha256": "87147d064a7d7a61541a21a7a9999bec52c7ca75623e270be24f7c83e60d992e"
+      }
+    },
+    {
+      "before": {
+        "file": "src/render/ahri-r-ribbon-material.ts",
+        "bytes": 5093,
+        "sha256": "2698c3f555da7ff0c479e2f955eeb83f693d93297ea5ce28c44393944035c882"
+      },
+      "after": {
+        "file": "src/render/ahri-r-ribbon-material.ts",
+        "bytes": 5740,
+        "sha256": "dff3f25f00f0bbeae02126a06b3a84a2b8cde1290b806ab6a667b250a5977b08"
+      }
+    }
+  ],
+  "added": [
+    {
+      "file": "src/render/ahri-r-palette.ts",
+      "bytes": 2416,
+      "sha256": "93dca4f867c91836b9741e2ae237a25361284cad758e055732588d4d2c33ff74"
+    }
+  ],
+  "removed": [],
+  "result": "passed",
+  "scope": "Only the checked R palette module and its four renderer integration dependencies change; all simulation and published native asset bytes remain exact."
+}
