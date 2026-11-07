@@ -115,3 +115,51 @@ test('startup cache-check failure with a loaded manifest keeps an explicit check
   await expect(page.getByRole('button', { name: 'Download game pack', exact: true })).toBeEnabled();
   await page.evaluate(() => (window as any).__OFFLINE_RETRY__.dispose());
 });
+
+test('real pack inspection recovers from cache-open failure without fetching pack files', async ({
+  page,
+}) => {
+  const requests: string[] = [];
+  page.on('request', (request) => requests.push(new URL(request.url()).pathname));
+  await page.addInitScript(() => {
+    const state = { opens: 0 };
+    (window as any).__OFFLINE_CACHE_BOUNDARY__ = state;
+    const open = caches.open.bind(caches);
+    caches.open = async (name: string) => {
+      if (++state.opens === 1) throw Error('Cache temporarily unavailable');
+      return open(name);
+    };
+  });
+  await page.route('**/offline-pack.json', (route) =>
+    route.fulfill({
+      json: {
+        format: 1,
+        id: 'a'.repeat(64),
+        workerPolicySha256: 'b'.repeat(64),
+        bytes: 100,
+        files: [{ path: 'index.html', bytes: 100, sha256: 'c'.repeat(64) }],
+      },
+    })
+  );
+  await page.route('**/offline-real-check-probe', (route) =>
+    route.fulfill({
+      contentType: 'text/html',
+      body: '<!doctype html><script type="module" src="/@vite/client"></script><main></main>',
+    })
+  );
+  await page.goto('/offline-real-check-probe');
+  await page.evaluate(async () => {
+    const { mountOfflinePack } = await import('/src/ui/offline-pack.ts');
+    (window as any).__OFFLINE_REAL_DISPOSE__ = mountOfflinePack(document.querySelector('main')!);
+  });
+  await expect(page.locator('.offline-status')).toHaveText('Cache temporarily unavailable');
+  const retry = page.getByRole('button', { name: 'Retry pack check', exact: true });
+  await expect(retry).toBeEnabled();
+  await retry.click();
+  await expect(page.getByRole('button', { name: 'Download game pack', exact: true })).toBeEnabled();
+  await expect(page.locator('.offline-status')).toContainText('0.0 MB of verified files');
+  expect(await page.evaluate(() => (window as any).__OFFLINE_CACHE_BOUNDARY__.opens)).toBe(2);
+  expect(requests.filter((path) => path === '/offline-pack.json')).toHaveLength(2);
+  expect(requests).not.toContain('/index.html');
+  await page.evaluate(() => (window as any).__OFFLINE_REAL_DISPOSE__());
+});
