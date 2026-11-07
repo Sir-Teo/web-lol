@@ -103,3 +103,17 @@ drawings, caster Flash, genuine brush-style sight calculations, terminal drain,
 owned disposal, terrain projection and authored vertical offsets. Existing Q,
 Leona and shared surface tests pass. View wiring and browser visual checks remain
 pending for W source effects.
+
+## Lazy view wiring
+
+The view now owns the W loader, on-ready redraw and soft-depth preparation.
+Rosters without Ahri never request the W module's assets. While loading or after
+failure, the existing fallback fireballs remain; once ready, their owned meshes
+are removed and the saved source histories draw. A failed load requires explicit
+retry. Disposal during a pending load prevents late scene construction.
+
+The compatibility collector now roots the W renderer and lazy wrapper, including
+their consumed profiles, assets and source kernels. Three loader lifecycle tests
+and the W scene/ribbon suites pass (13 tests), and TypeScript checking passes.
+Browser visual verification is in progress; the staged source does not yet have
+full rendering acceptance or primary integration.
