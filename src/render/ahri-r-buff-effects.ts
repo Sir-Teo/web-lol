@@ -32,8 +32,8 @@ interface Held {
   sampler: AhriRParticleSampler;
   particles: ReturnType<AhriRParticleSampler['sample']>;
 }
-/** Four source eye profiles attach to both explicit eye bones. Layout effects
- * and unresolved counter drivers remain deferred. */
+/** Four eye profiles attach to both eye bones; the finite layout quad uses its
+ * explicit layout bone. Other layout and counter drivers remain deferred. */
 export class AhriRBuffParticles {
   readonly surfaces: SourceParticleSurfaces<RBuffVisualGroup>;
   private ribbons: SourcePackedRibbonMeshes;
@@ -64,9 +64,12 @@ export class AhriRBuffParticles {
     }));
     this.surfaces = new SourceParticleSurfaces(scene, distortion, ground, {
       name: 'Ahri R skin buff',
-      attachment: 'saved-R-buff-eye-root',
+      attachment: 'saved-R-buff-native-root',
       profiles: AHRI_R_PROFILES.map((p) => ({
         ...p,
+        // A native ground-layer flag does not replace the saved layout bone
+        // with terrain projection. Earlier profile placement remains unchanged.
+        ...(p.system === 'Ahri_R_Ready_tar' ? { projectToGround: false } : {}),
         uvMode: 0,
         directionVelocityScale: p.directionVelocityScale ?? 0,
         soft: null,
@@ -122,9 +125,9 @@ export class AhriRBuffParticles {
       for (const record of world.ahriRVisuals)
         for (const group of rBuffVisualGroups(record)) {
           if (
-            group.system !== 'Ahri_R_Eyes' ||
             tick < group.startTick ||
-            tick >= group.stopTick + 2 * 60
+            tick >= group.stopTick + 2 * 60 ||
+            (group.system === 'Ahri_R_Ready_tar' && tick >= group.startTick + 12 * 60)
           )
             continue;
           keep.add(group.key);
@@ -133,14 +136,14 @@ export class AhriRBuffParticles {
             held?.sampler.dispose();
             held = {
               record,
-              sampler: new AhriRParticleSampler('Ahri_R_Eyes', group.seed, {
+              sampler: new AhriRParticleSampler(group.system, group.seed, {
                 boundObjectSize: group.radius * 2,
                 root: (time) => {
                   const at = group.startTick + time * 60,
                     pose = rBuffVisualPose(group, at),
                     point = this.roots.position(group, at);
                   if (!pose || !point)
-                    throw Error('R eye birth requires an owned caster observation');
+                    throw Error('R buff binding requires an owned caster observation');
                   return {
                     x: point.x * 100,
                     y: point.z * 100,

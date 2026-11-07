@@ -612,3 +612,95 @@ tests in its independent 22-file selection. This selection is distinct from the
 candidate's 279 focused checks. All application/public bytes match the accepted
 runtime. See [eye-trail integration](reference/ahri/r-eye-trail-main-integration.json).
 The prior glow, palette, 20-profile R, observer and E packs remain retained.
+
+
+## Layout preparation: preserve accepted trail packets
+
+The [accepted trail-packet reference](reference/ahri/r-eye-trail-packet-reference.json)
+pins 54 complete packets from runtime `69a05a86`, verifying all 696 files of its
+retained source archive before executing its sampler. Cases cover periodic
+active/gap boundaries, finite stops and a million-second seek. All 165 frozen
+spell/glow/trail checks pass, as does TypeScript, before changing layout sampling.
+The earlier packet references and producers remain unchanged.
+
+Layout `base7` (profile 50) is a single ten-second arbitrary quad, fully bound
+to the explicitly named layout bone. Its complete lifetime fits the existing
+twelve-second owned pose window. The sixty-second `base1` does not; replaying its
+full-binding float32 accumulation across a discarded pose gap would require a
+separate observation policy. Continuous layout mesh/glow emitters also need a
+bounded nonperiodic scheduling strategy. These five profiles remain deferred
+while preparation focuses on the finite ten-second quad.
+
+
+The private sampler now prepares layout profile 50 without connecting its live
+producer or assets. The selected external single-particle lifetime rule resolves
+the omitted emitter lifetime to the authored ten-second maximum. No global
+persistent lifetime fallback is introduced. Four layout checks pass alongside
+all 165 frozen packet checks. They cover every binding update through ten
+seconds, fractional/backward and stopped seeks, finite cache bounds and expired
+sampling without requesting discarded roots. The accumulated float32 result
+also demonstrably differs from replacing its path with one endpoint delta.
+
+
+## Finite layout renderer candidate
+
+Profile 50 now follows the explicit `Ahri_R_Ready_tar` instance on
+`C_Buffbone_Glb_Layout_Loc`, using owned saved caster roots and the existing
+float32 binding replay. The selected subset is 26 profiles: 21 spell, four eye
+and one layout quad. Five other layout profiles, six counter profiles, two noise
+profiles and sixteen unjoined profiles remain deferred.
+
+The new quad retains its ground-layer metadata while opting out of the shared
+local terrain-projection adapter. Its saved native bone height and rotation
+therefore remain meaningful. This explicit per-profile opt-out leaves existing
+projection paths unchanged. The loader selects 29 textures and one borrowed W
+mesh: eight R-owned textures and one separate W transport load locally, including
+the newly selected ground-background texture with all nine authored mips.
+
+All 192 targeted checks and TypeScript pass. The keyboard browser case verifies
+the exact new texture request, native layout attachment, nine mips, exact restore
+near expiry and finite drain after ten seconds. The early gameplay image shows
+the quad; terrain occludes the near-expiry screenshot, which is retained without
+a direct-visibility claim. An additional same-scene off/on pixel probe awaits
+execution after CPU regression work. See the
+[layout policy reading](reference/ahri/r-layout-policy-reading.json), which pins
+three external reader files and separates their reconstruction from native
+constructor/callback certification.
+
+
+The corrected full suite passes 9,528/9,530 tests in 595 files, with only the
+two historical failures. The initial run also found a stale deferred-profile
+count assertion; its corrected expectation is verified without changing runtime
+bytes. All 263 Node QA cases pass. Portable CI completes all 87 commands:
+86 pass first attempt; one fingerprint test exceeds its existing five-second
+limit during concurrent Node QA and its identical 206-test command passes in
+isolation. Both logs remain, with no test or timeout adjustment.
+
+Final portable selections execute 1,300 tests across 148 file executions,
+including overlap. All 5,578 committed export files verify before removing only
+the disposable export. The eight R cases and additional full-pipeline pixel
+probe pass: profile 50 changes 119,864 pixels while World stays unchanged.
+All 45 natural-match states match the accepted R observer, excluding only version
+and ruleset, with victory at tick 157116. Pack `b8582765` audits exactly at
+1,432 files / 581,128,947 bytes. See the
+[layout regression record](reference/ahri/r-layout-regression-verification.json).
+Cross-kit and production/offline checks follow before acceptance.
+
+
+A [non-gating cadence diagnostic](reference/ahri/r-layout-continuous-cadence-diagnostic.json)
+replays each remaining continuous layout emitter for 5,000 seconds in the selected
+60 Hz kernel, with all five input files matching the frozen layout archive.
+The four-per-second profile produces six 16-tick gaps among otherwise 15-tick
+gaps. The seven/eight-per-second profiles use nine/eight-tick spacing in this
+window. These observations rule out a naive fixed-stride or `time * rate` seek
+replacement. They do not establish a bounded optimization or native clock policy;
+the continuous profiles remain unconnected.
+
+
+Production nested-path checks pass with 32 recordings and zero eager R particle
+preloads. Offline reload/activation passes with 978 worker responses and zero
+production errors. Pack `b8582765` remains exact after delivery, at 1,432 files /
+581,128,947 bytes with the unchanged worker policy. The
+[layout acceptance](reference/ahri/r-layout-acceptance.json) pins 251 evidence
+files and preserves the single portable CI retry. Primary integration follows
+separately; prior accepted packs remain retained.

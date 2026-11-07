@@ -1,0 +1,150 @@
+{
+  "scope": "Diagnostic only: exact selected external kernel replay for nonperiodic source layout emitters; no runtime change or bounded-seek equivalence claim",
+  "seconds": 5000,
+  "hz": 60,
+  "rows": [
+    {
+      "index": 51,
+      "name": "Alpha_Swooshies",
+      "rate": 4,
+      "delay": 0,
+      "firstBirthTick": 1,
+      "births": 20000,
+      "histogram": {
+        "15": 19993,
+        "16": 6
+      },
+      "firstCadenceDeviations": [
+        {
+          "previous": 46,
+          "tick": 62,
+          "gap": 16
+        },
+        {
+          "previous": 107,
+          "tick": 123,
+          "gap": 16
+        },
+        {
+          "previous": 1908,
+          "tick": 1924,
+          "gap": 16
+        },
+        {
+          "previous": 3829,
+          "tick": 3845,
+          "gap": 16
+        },
+        {
+          "previous": 15350,
+          "tick": 15366,
+          "gap": 16
+        },
+        {
+          "previous": 61431,
+          "tick": 61447,
+          "gap": 16
+        }
+      ],
+      "finalState": {
+        "now": 5000,
+        "lastSpawn": 4999.866666666667,
+        "emitted": true,
+        "spawned": 20000
+      }
+    },
+    {
+      "index": 52,
+      "name": "Light_Swooshies1",
+      "rate": 7,
+      "delay": 0,
+      "firstBirthTick": 1,
+      "births": 33334,
+      "histogram": {
+        "9": 33333
+      },
+      "firstCadenceDeviations": [],
+      "finalState": {
+        "now": 5000,
+        "lastSpawn": 4999.966666666666,
+        "emitted": true,
+        "spawned": 33334
+      }
+    },
+    {
+      "index": 53,
+      "name": "Glow_Add1",
+      "rate": 8,
+      "delay": -0.5,
+      "firstBirthTick": 1,
+      "births": 37500,
+      "histogram": {
+        "8": 37499
+      },
+      "firstCadenceDeviations": [],
+      "finalState": {
+        "now": 5000,
+        "lastSpawn": 4999.883333333333,
+        "emitted": true,
+        "spawned": 37500
+      }
+    },
+    {
+      "index": 54,
+      "name": "Light_Swooshies2",
+      "rate": 7,
+      "delay": 0,
+      "firstBirthTick": 1,
+      "births": 33334,
+      "histogram": {
+        "9": 33333
+      },
+      "firstCadenceDeviations": [],
+      "finalState": {
+        "now": 5000,
+        "lastSpawn": 4999.966666666666,
+        "emitted": true,
+        "spawned": 33334
+      }
+    }
+  ],
+  "format": 1,
+  "result": "diagnostic-only",
+  "acceptanceGate": false,
+  "nativeClockVerified": false,
+  "optimizationEquivalenceProven": false,
+  "entry": {
+    "path": ".cache/probe-r-layout-cadence.ts",
+    "bytes": 1353,
+    "sha256": "611cbd1fd42970fd377f9c6df97792ee7c25f4fa2b162e69240a67f7c3c8723c"
+  },
+  "inputs": [
+    {
+      "file": "src/content/ahri-r-particles.json",
+      "bytes": 1550126,
+      "sha256": "c9a65a9808d3206cfbaee6dc1f9e1a5a37d6351947d997e2a5c4b8d3b290f29f"
+    },
+    {
+      "file": "src/render/source-emitter-schedule.ts",
+      "bytes": 5058,
+      "sha256": "62ea28ac3bc6c63438c6ae71b72c8d878f40f37dcf466f881671694085b77fc1"
+    },
+    {
+      "file": "src/render/source-emission-count.ts",
+      "bytes": 1800,
+      "sha256": "5c41c7ce6ce976c9a0988371cbf48b5ee23836b3b78b53a070287901ac00430e"
+    },
+    {
+      "file": "src/render/source-emission-window.ts",
+      "bytes": 1957,
+      "sha256": "1bfa33407b03eae0cb5398cbee492ea55c4b23f36c62ff29b24ca29e99c196f1"
+    },
+    {
+      "file": "src/render/source-value.ts",
+      "bytes": 4107,
+      "sha256": "d1a1a4e9e0ff1aaf0672097a94bd00be76cb43d3cbf73640096bd7bf94f2043e"
+    }
+  ],
+  "sourceRevision": "f85b2455feebbe6860c13a466bbb924c731e62fd",
+  "ruleset": "f71c3f787f38e62d3b7dba290bb64de32da3fd7cae14e97f64e16e6853d03c6e"
+}

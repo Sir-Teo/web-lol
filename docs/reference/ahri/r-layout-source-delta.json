@@ -1,0 +1,66 @@
+{
+  "format": 1,
+  "result": "passed",
+  "beforeRevision": "2cfece301e465bbb2ae6ba9f4eeb63b5ee736887",
+  "afterRevision": "f85b2455feebbe6860c13a466bbb924c731e62fd",
+  "applicationRevision": "f85b2455feebbe6860c13a466bbb924c731e62fd",
+  "beforeRuleset": "0cbdb13a8ae7a5bdbd1ff2dba9d8798fa486c7a4f003a3fe14cba6eab32fe8c9",
+  "afterRuleset": "f71c3f787f38e62d3b7dba290bb64de32da3fd7cae14e97f64e16e6853d03c6e",
+  "beforeArchiveFiles": 696,
+  "afterArchiveFiles": 696,
+  "changed": [
+    {
+      "before": {
+        "file": "src/render/ahri-r-assets.ts",
+        "bytes": 4673,
+        "sha256": "5097da42a253ceb87232332474ec5688451a2948a2e0bf5f0152be6914911c35"
+      },
+      "after": {
+        "file": "src/render/ahri-r-assets.ts",
+        "bytes": 4673,
+        "sha256": "1ae7ca6cd581c26517e467b2b875e39903957aebd64ae7c791cae2b472fd2287"
+      }
+    },
+    {
+      "before": {
+        "file": "src/render/ahri-r-buff-effects.ts",
+        "bytes": 8441,
+        "sha256": "f7ab2686965ebb390a6736dd9e4ecc95221a217a0ce2708a15c0d289c48f7eaa"
+      },
+      "after": {
+        "file": "src/render/ahri-r-buff-effects.ts",
+        "bytes": 8753,
+        "sha256": "dd3d415faee5954c928afe5e1a1d5dca1df2868198ca3f5ab90fe21cd4c097fe"
+      }
+    },
+    {
+      "before": {
+        "file": "src/render/ahri-r-particles.ts",
+        "bytes": 20130,
+        "sha256": "89d240bd960ee04a2532dfb3be38929dabea97a8f589d9f307d3b1eb74470f93"
+      },
+      "after": {
+        "file": "src/render/ahri-r-particles.ts",
+        "bytes": 21107,
+        "sha256": "2cd1cc88e1151b42cfe098ba2f3db8e32cbc3410495321e7276305e10fbdc826"
+      }
+    },
+    {
+      "before": {
+        "file": "src/render/source-particle-surfaces.ts",
+        "bytes": 24595,
+        "sha256": "9d4448e580d264d048ba1b7e20d4c9527f0c16f44c508bb8c08d9895cb11d1a3"
+      },
+      "after": {
+        "file": "src/render/source-particle-surfaces.ts",
+        "bytes": 24907,
+        "sha256": "3f4434dedb97da598f5ad8d98a749ebff066b68ef6fa6aeaeb9dafcf8440688a"
+      }
+    }
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged": 692,
+  "publicContentSimulationUnchanged": true,
+  "scope": "Every file in both frozen source archives verified before comparing exact byte identities"
+}

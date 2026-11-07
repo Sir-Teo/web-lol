@@ -25,7 +25,7 @@ import { particleColorLookup } from './particle-color-lookup';
 import type { SurfaceParticle } from './source-particle-surfaces';
 
 export const AHRI_R_PROFILES = data.profiles;
-export type AhriRSystem = 'Ahri_R_mis_02' | 'Ahri_R_Tar' | 'Ahri_R_Eyes';
+export type AhriRSystem = 'Ahri_R_mis_02' | 'Ahri_R_Tar' | 'Ahri_R_Eyes' | 'Ahri_R_Ready_tar';
 export interface AhriRRoot {
   x: number;
   y: number;
@@ -53,9 +53,11 @@ export const AHRI_R_PARTICLE_ADAPTER = {
   sharedRandomFlagOne: 'fixed cosmetic emitter chance; native random stream unverified',
   neutralLiveTables: 'empty tables with single 1',
 } as const;
-/** Both finite glows and periodic trails use the explicit skin-buff producer. */
-export const AHRI_R_BOUND_BUFF_PROFILES = [45, 46, 47, 48] as const;
+/** Eye profiles and the finite layout quad use the explicit skin-buff producer. */
+export const AHRI_R_BOUND_BUFF_PROFILES = [45, 46, 47, 48, 50] as const;
 export const AHRI_R_PREPARED_EYE_TRAIL_PROFILES = [47, 48] as const;
+/** The ten-second quad fits the owned pose window; other layout profiles do not enter. */
+export const AHRI_R_PREPARED_LAYOUT_PROFILES = [50] as const;
 const periodicProfiles = new Set<number>(AHRI_R_PREPARED_EYE_TRAIL_PROFILES);
 /** Deferred profiles stay in published data without entering the sampler. */
 export const AHRI_R_SPELL_PROFILE_BINDINGS = data.profiles.map((p, profileIndex) => ({
@@ -95,10 +97,31 @@ const preparedProfiles = new Set<number>([
   ...boundProfiles,
   ...AHRI_R_BOUND_BUFF_PROFILES,
   ...AHRI_R_PREPARED_EYE_TRAIL_PROFILES,
+  ...AHRI_R_PREPARED_LAYOUT_PROFILES,
 ]);
+const layout = data.profiles[50];
+if (
+  layout.system !== 'Ahri_R_Ready_tar' ||
+  layout.name !== 'base7' ||
+  layout.kind !== 'quad' ||
+  !layout.single ||
+  layout.emitterLife !== null ||
+  layout.delay !== 0 ||
+  layout.life.authoredKeyCount !== 0 ||
+  layout.life.constant[0] !== 10 ||
+  layout.life.probabilities.length !== 0 ||
+  layout.bind.authoredKeyCount !== 0 ||
+  layout.bind.constant[0] !== 1 ||
+  layout.bind.probabilities.length !== 0 ||
+  layout.bindingRequirements.join(',') !== 'emitter-lifetime'
+)
+  throw Error('R finite layout profile closure differs');
 const limits: Record<AhriRSystem, number> = {
   Ahri_R_mis_02: AHRI_R_POLICY.maximumBoltTicks / 60,
   Ahri_R_Eyes: 50,
+  // The selected single-particle window resolves omitted emitter lifetime to
+  // its authored ten-second particle maximum. This is not a persistent default.
+  Ahri_R_Ready_tar: 10,
   Ahri_R_Tar: Math.max(
     ...data.profiles.filter((p) => p.system === 'Ahri_R_Tar').map((p) => p.emitterLife ?? 0)
   ),

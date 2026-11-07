@@ -38,10 +38,14 @@ function setup(team: 'blue' | 'red' = 'blue') {
     sampler: (rig: MobileRig) => {
       const reference = new THREE.Group();
       reference.scale.setScalar(0.01);
-      for (const [index, name] of ['L_Eye', 'R_Eye'].entries()) {
+      for (const [index, name] of ['L_Eye', 'R_Eye', 'C_Buffbone_Glb_Layout_Loc'].entries()) {
         const bone = new THREE.Bone();
         bone.name = name;
-        bone.position.set(index === 0 ? 20 : -20, 100, 30);
+        bone.position.set(
+          index === 0 ? 20 : index === 1 ? -20 : 0,
+          index === 2 ? 40 : 100,
+          index === 2 ? 0 : 30
+        );
         reference.add(bone);
       }
       return new TargetPoseSampler(
@@ -120,6 +124,40 @@ test('both native eye instances draw finite glow packets and restore exactly aft
   expect(f.capture()).toEqual(before);
   expect(f.captureRibbons()).toEqual(ribbons);
   expect(f.world.snapshot()).toBe(saved);
+  f.dispose();
+});
+test('the finite layout quad retains its native bone height and restores near expiry without projecting onto terrain', () => {
+  const f = setup();
+  f.world.step(550);
+  f.world.setOrder(f.source, {
+    type: 'move',
+    point: { x: f.source.x + 500, y: f.source.y + 300 },
+  });
+  f.world.step(45);
+  f.draw();
+  const layout = [...f.view.surfaces.models.values()].filter(
+    (mesh) => mesh.userData.profileIndex === 50
+  );
+  expect(layout).toHaveLength(1);
+  expect(
+    [...f.view.surfaces.models.keys()].some((key) => key.includes('C_Buffbone_Glb_Layout_Loc'))
+  ).toBe(true);
+  expect(layout[0].position.y).toBe(2.4);
+  expect(layout[0].geometry.getAttribute('position').count).toBe(4);
+  expect(layout[0].geometry.userData.groundQuadTopology).toBeUndefined();
+  expect(f.view.attachmentFallbacks).toEqual([]);
+  const saved = f.world.snapshot(),
+    before = f.capture();
+  f.draw(World.fromSnapshot(saved, field));
+  expect(f.capture()).toEqual(before);
+  f.draw(f.world);
+  expect(f.capture()).toEqual(before);
+  expect(f.world.snapshot()).toBe(saved);
+  f.world.step(20);
+  f.draw();
+  expect(
+    [...f.view.surfaces.models.values()].some((mesh) => mesh.userData.profileIndex === 50)
+  ).toBe(false);
   f.dispose();
 });
 test('hidden enemy eye effects follow current saved visibility and the selected viewing team', () => {
