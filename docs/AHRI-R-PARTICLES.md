@@ -207,3 +207,31 @@ and [source-preparation acceptance](reference/ahri/r-source-preparation-acceptan
 Application, public-asset and compatibility-fingerprint sources match accepted
 primary 2ee8682e byte for byte. Saved visual clocks and runtime rendering follow
 as separate development work.
+
+## Saved observation before particle rendering
+
+The schema 181 candidate records bounded Spirit Rush presentation history. It
+owns source and target poses, dash and bolt paths, charge changes, hit anchors,
+and body-ending anchors so a restored match can reconstruct the same clocks.
+Source poses retain at most 721 frames; completed bursts and ended windows age
+out after the 720-tick history interval. Long-lived indicators use owned birth
+and charge anchors rather than an unbounded path.
+
+Strict save admission checks these records against the live Spirit Rush state,
+audio, unit identities, rig clocks, movement limits, and historical deaths. A
+separate admission correction permits a target killed by Lux E later in the
+same completed tick, before Spirit Rush observes that death on its next update.
+It preserves the existing update order and gameplay.
+
+The [regression verification](reference/ahri/r-visual-observer-regression-verification.json)
+records 9,256 passing tests, two previously recorded failures, 257 passing Node
+QA cases, and 82 passing clean-export commands. A natural seed-one match ends
+at tick 157116 with 44 round trips and 43 restored futures. All 45 archived
+complete states match accepted E gameplay after excluding only schema, ruleset,
+and the new R observation field. Existing E, W, Q, and audio facts remain in the
+comparison. The [payload measurements](reference/ahri/r-visual-history-payload.json)
+are samples, not worst-case memory bounds.
+
+This candidate does not bind native R particle rendering. The existing
+provisional essence-bolt models remain in use. Browser and delivery acceptance
+must be recorded separately before integrating this observation stage.
