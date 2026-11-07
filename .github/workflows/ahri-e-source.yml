@@ -31,3 +31,8 @@ jobs:
           python3 tools/assets/read-ahri-e-bindings.py --check
           python3 tools/assets/test-ahri-e-bindings.py
           python3 -O tools/assets/test-ahri-e-bindings.py
+      - name: Verify complete profile reading without private assets
+        run: |
+          python3 tools/assets/prepare-ahri-e-profiles.py --verify-reading
+          python3 tools/assets/test-ahri-e-profiles.py
+          python3 -O tools/assets/test-ahri-e-profiles.py

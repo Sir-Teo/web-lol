@@ -1,0 +1,221 @@
+{
+  "format": 1,
+  "producerSha256": "676f837101af2eb3ede0a5da8d2aed4f55dd50f4f09fa4eaccbd29d7282b8ee9",
+  "helpers": [
+    {
+      "path": "tools/assets/ahri_e_profiles.py",
+      "sha256": "de57e0b11a80a534483a15b4bc467f46ec44f88ee4956880af33efd27683d704"
+    },
+    {
+      "path": "tools/assets/ahri_e_additional_particles.py",
+      "sha256": "e17d66d568f59280d8ed506fa0acb24d48276903802199b4f52665ab6a176105"
+    },
+    {
+      "path": "tools/assets/ahri_q_projectile.py",
+      "sha256": "60c9247dad7e8b0990483a95e76202d93cef83f6a61e72a852daf6de90946d74"
+    },
+    {
+      "path": "tools/assets/ahri_e_particles.py",
+      "sha256": "09548e9c3474bf18791911c20cfa7198b56cbeaa37861317516b86004ac5a7f6"
+    },
+    {
+      "path": "tools/assets/ahri_q_particles.py",
+      "sha256": "303c0bc097b120237b7b63ff1236e808756a540d28ab79824f739663f49cc6e9"
+    },
+    {
+      "path": "tools/assets/masteryi_w_cast.py",
+      "sha256": "67db765dbf4c62c0cd0e5d39d99589c657d6ae826e79a9453a599e203d6d4b5e"
+    },
+    {
+      "path": "tools/assets/masteryi_w_buff.py",
+      "sha256": "30d3b7f47b7d0a3258dbf7c9394f48a35f204cf5be76fd4dc40483131b630c81"
+    },
+    {
+      "path": "tools/assets/masteryi_w_particles.py",
+      "sha256": "13bcae3e6d67d9b7004745c94372f90fda6601df02a6cbb999096f29a73fdf37"
+    },
+    {
+      "path": "tools/assets/masteryi_q_particles.py",
+      "sha256": "8373108c738d00d23c47e485b609db18464a81cf6146b608ee9d608e4e604b44"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "docs/reference/ahri/e-texture-transports.json",
+      "sha256": "dfb6d42c52ef5fc1d920a437f53932a8e01c4e55ff373d44c0d9d75c1cbc008e",
+      "bytes": 55089
+    },
+    {
+      "path": "docs/reference/ahri/e-mesh-transports.json",
+      "sha256": "8502caf25953bb2a5a7dfa530fd3a5a274fa514000cf4877605718845a30960b",
+      "bytes": 2644
+    },
+    {
+      "path": "docs/reference/ahri/e-particle-bindings.json",
+      "sha256": "9c22449fe2b42efb615469b1e1aeb56e8ca9489578754d4a6814528d4ada29e2",
+      "bytes": 34297
+    },
+    {
+      "path": "docs/reference/ahri/e-native-types.json",
+      "sha256": "5d4c130ee021e19fd934762373ebab11a6a28ae64ff5ed453b918a154177530b",
+      "bytes": 87767
+    }
+  ],
+  "systems": [
+    {
+      "resourceKey": "Ahri_E_buf",
+      "role": "buff",
+      "emitters": 4
+    },
+    {
+      "resourceKey": "Ahri_E_cas",
+      "role": "cast",
+      "emitters": 4
+    },
+    {
+      "resourceKey": "Ahri_E_mis",
+      "role": "flight",
+      "emitters": 12
+    },
+    {
+      "resourceKey": "Ahri_E_tar",
+      "role": "hit",
+      "emitters": 6
+    },
+    {
+      "resourceKey": "{44fc6ec4}",
+      "role": "buff",
+      "emitters": 3
+    }
+  ],
+  "bindingRequirements": {
+    "attached-selector-policy": 1,
+    "attached-submesh-binding": 2,
+    "bound-object-size": 7,
+    "emitter-lifetime": 6,
+    "palette-texture": 1,
+    "post-rotate-orientation": 2,
+    "skin-fresnel-input": 2
+  },
+  "profile": {
+    "path": ".cache/ahri-e-profiles-v1/profiles.json",
+    "bytes": 454094,
+    "sha256": "4c57c98fcbc33de0fb5bc51d3621a8359bce59d7f06624c4e6ac60385372aedb"
+  },
+  "uvNormalizationReference": {
+    "path": "rendering/utils/uvTransform.ts",
+    "sha256": "7d213bad1f7a4d443c0f136fedd21c433be8bc4b6822d2a2f410209efb370d0d",
+    "rule": "max(round(value), 1)",
+    "nativeConstructorVerified": false
+  },
+  "counts": {
+    "billboard": 16,
+    "mesh": 4,
+    "quad": 4,
+    "skin": 2,
+    "trail": 3
+  },
+  "authoredFields": [
+    "Color",
+    "EmitterPosition",
+    "FlexShapeDefinition",
+    "SpawnShape",
+    "__type",
+    "alphaErosionDefinition",
+    "alphaRef",
+    "bindWeight",
+    "birthColor",
+    "birthDrag",
+    "birthOrbitalVelocity",
+    "birthRotation0",
+    "birthRotationalVelocity0",
+    "birthScale0",
+    "birthUVOffset",
+    "birthUvScrollRate",
+    "birthVelocity",
+    "blendMode",
+    "colorLookUpScales",
+    "colorLookUpTypeY",
+    "depthBiasFactors",
+    "disableBackfaceCull",
+    "emitterName",
+    "emitterUvScrollRate",
+    "hasPostRotateOrientation",
+    "importance",
+    "isGroundLayer",
+    "isLocalOrientation",
+    "isRandomStartFrame",
+    "isRotationEnabled",
+    "isSingleParticle",
+    "isUniformScale",
+    "lifetime",
+    "meshRenderFlags",
+    "miscRenderFlags",
+    "numFrames",
+    "paletteDefinition",
+    "particleIsLocalOrientation",
+    "particleLifetime",
+    "particleLinger",
+    "pass",
+    "postRotateOrientationAxis",
+    "primitive",
+    "rate",
+    "reflectionDefinition",
+    "rotation0",
+    "scale0",
+    "texAddressModeBase",
+    "texDiv",
+    "texture",
+    "timeBeforeFirstEmission",
+    "useNavmeshMask",
+    "uvScale",
+    "uvScrollClamp",
+    "worldAcceleration"
+  ],
+  "adapterDefaults": {
+    "local": true,
+    "particleLocal": false,
+    "blend": 0,
+    "scale": [
+      1,
+      1,
+      1
+    ],
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "alphaRef": 0.0196078431372549,
+    "erosionMixer": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "erosionFeather": 0.1,
+    "erosionSliceWidth": 1.5,
+    "erosionAddress": 1,
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "uvDivisionNormalization": "max(round(value), 1), pinned external writer",
+    "emitterLife": null,
+    "paletteTexture": null,
+    "paletteSourceMix": null,
+    "orbitalAxis": null,
+    "frameRate": 0,
+    "rotationEnabled": false
+  },
+  "limits": [
+    "Private profile projection only; no public asset, renderer, simulation, save schema or ruleset changes.",
+    "All 55 authored emitter fields and all 29 emitters are projected. Nested source types, authored key counts, explicit fields and probability metadata remain separate from local fallback values.",
+    "All explicit spell, persistent-buff and directional animation joins are retained separately. Native scripts, callback chronology, frame conversion, attachment transforms, post-rotation arithmetic, stop policy, material bindings and pixels remain unbound.",
+    "Emitter UV scroll remains separate from integrated particle-age UV scroll. Camera-facing/arbitrary trails retain mode, tiling and omitted smoothing/cutoff.",
+    "Missing emitter lifetimes, unnamed palette inputs, attached selectors, raw native flags and post-rotation fields remain explicit. Unresolved binding requirements prevent treating this projection as runtime acceptance.",
+    "Signed atlas dimensions remain alongside the pinned external normalization; no texture flip or native constructor behavior is inferred.",
+    "Missing constructor values are explicit local adapter defaults, not native-default certification."
+  ]
+}

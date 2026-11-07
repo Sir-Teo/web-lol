@@ -150,3 +150,23 @@ emitters. Their raw values and native tags remain retained. Post-rotation math,
 attachment transforms and native pixels are not inferred from those fields.
 This check requires the private decoder/source installation and is separate
 from the portable producer workflow.
+
+## Private profile projection
+
+The projector retains all 29 emitters and all 55 authored fields (including the
+struct type) in a 454,094-byte private profile. It covers 16 billboards, four
+meshes, four quads, two attached skins and three trails. Existing Q/W value and
+material helpers remain unchanged. Five structural mutations and seven changed
+input pins reject; normal/optimized portable guards and both Node QA wrappers
+pass, including conflicts, corrupt profiles and leaf/parent symlinks.
+
+Six omitted emitter lifetimes and one unnamed palette texture stay missing.
+The buff's attached mesh omits its selector list, which stays absent with an
+explicit unresolved selector-policy requirement. The cast retains both raw
+selectors. Bound-object size and fresnel inputs also stay unresolved.
+
+The two missile heart post-rotation declarations retain integer FLAG payload 1
+and raw axis [90, 0, 0], with an explicit arithmetic-binding requirement. The
+hashed buff retains lookup scale [1, 0.4000000059604645]. These fields are not
+silently replaced by W's defaults. This remains source projection, with no
+public assets, renderer, gameplay rules or save-schema change.
