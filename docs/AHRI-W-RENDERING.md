@@ -1,8 +1,9 @@
-# Ahri W rendering preparation
+# Ahri W rendering
 
 This branch starts from the verified schema 178 W visual history. The primary
 work branch still runs the accepted Q projectile renderer. W particle assets
-remain private and W source rendering is not yet connected to the scene.
+are staged publicly and the joined source effects are connected to this branch’s
+scene. Full rendering acceptance and primary integration remain pending.
 
 The history adapter dispatches only orbit, flight and genuine hit groups. Cast
 and weapon resources remain unjoined. Orbit placement ends at the saved dispatch
@@ -14,7 +15,8 @@ Phase paths cache cumulative source-unit distance between immutable history
 updates. Binary searches support seeks in either direction, and weak fire keys
 release replaced histories. New samples, dispatch/end anchors and refreshed birth
 visibility invalidate the cached path. Five focused adapter tests and TypeScript
-checking pass. These are placement preparations, not visual acceptance.
+checking pass. These adapter checks establish placement behavior; the browser verification
+below covers the connected scene.
 
 ## Staged public assets
 
@@ -29,8 +31,8 @@ optimized guards reproduce the package from committed transports, reject eight
 changed input pins, corrupt borrowed assets and symlinks, and prevent partial
 publication on a final-ledger conflict. Three asset tests verify exact public
 bytes, ownership and preserved missing/signed source fields. All 30 authored
-profiles remain available; the scene will consume only the 23 joined orbit,
-flight and hit profiles. No W source rendering is connected yet.
+profiles remain available; the scene consumes only the 23 joined orbit,
+flight and hit profiles.
 
 ## Joined asset loader
 
@@ -44,7 +46,7 @@ attribute derives directly from the retained source colors.
 
 The loader test uses the actual GLB and verifies every position/color component,
 retry behavior, address-mode sampler caching, borrowed ownership and excluded
-cast-only requests. It does not attach the renderer to the scene.
+cast-only requests. Scene attachment is covered separately by the lazy wrapper and browser cases.
 
 ## Native flag types
 
@@ -101,8 +103,8 @@ and ribbons retain their saved sight boundaries.
 Six scene tests and four ribbon tests cover all families, restored / rewound
 drawings, caster Flash, genuine brush-style sight calculations, terminal drain,
 owned disposal, terrain projection and authored vertical offsets. Existing Q,
-Leona and shared surface tests pass. View wiring and browser visual checks remain
-pending for W source effects.
+Leona and shared surface tests pass. The view wiring and browser checks below
+exercise these effects in the connected scene.
 
 ## Lazy view wiring
 
@@ -115,7 +117,7 @@ retry. Disposal during a pending load prevents late scene construction.
 The compatibility collector now roots the W renderer and lazy wrapper, including
 their consumed profiles, assets and source kernels. Three loader lifecycle tests
 and the W scene/ribbon suites pass (13 tests), and TypeScript checking passes.
-Browser visual verification is in progress; the staged source does not yet have
+The four W browser cases below pass; the staged source does not yet have
 full rendering acceptance or primary integration.
 
 ## Browser verification
