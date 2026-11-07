@@ -235,3 +235,21 @@ are samples, not worst-case memory bounds.
 This candidate does not bind native R particle rendering. The existing
 provisional essence-bolt models remain in use. Browser and delivery acceptance
 must be recorded separately before integrating this observation stage.
+
+The preparatory [asset reuse audit](reference/ahri/r-asset-reuse.json) verifies all
+51 private texture transports and four private mesh transports. Native identity,
+transport bytes, and complete mip metadata prove reuse for 29 textures and one
+mesh already published by Q/W/E. The remaining transports total 647809 bytes
+(22 textures and three meshes). Entries lacking native source identity are
+excluded from the proof; matching appearance or filenames alone do not qualify.
+
+```sh
+python3 tools/assets/read-ahri-r-asset-reuse.py --check
+python3 tools/assets/test-ahri-r-asset-reuse.py
+python3 -O tools/assets/test-ahri-r-asset-reuse.py
+```
+
+This audit requires the retained private R transports. Its isolated guard run
+passes seven rejection probes in normal and optimized Python modes. It does not
+publish files, select renderer bindings, or add private-cache requirements to
+the portable source workflow.
