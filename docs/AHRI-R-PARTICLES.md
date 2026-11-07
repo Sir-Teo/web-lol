@@ -851,3 +851,15 @@ normalized authored RGBA bytes; no normal stream is present. The runtime asset
 adapter must reconstruct packed BGRA and convert source centimetres once, while
 preserving page ownership and disposing only parsed staging materials. Mesh
 emitters remain unconnected at this checkpoint.
+
+
+The unconnected colored-mesh adapter now validates a single static identity
+transform, exact position/UV/index counts and authored RGBA channels. It packs
+normalized BGRA bytes and converts source centimetres exactly once, preserving
+logical UV and index data even when the GLB interleaves its attributes. A second
+consume call rejects the staging scene without mutating or disposing retained
+geometry. Invalid input disposes each shared staging resource once.
+
+Eight ownership/conversion checks pass alongside all 263 frozen-reference checks,
+as does TypeScript. The real blastwave GLB supplies the successful interleaved
+case. No live asset loader or mesh producer is connected yet.
