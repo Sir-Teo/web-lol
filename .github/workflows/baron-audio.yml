@@ -294,6 +294,7 @@ jobs:
           tests/ahri-r-particles.test.ts
           tests/ahri-r-assets.test.ts
           tests/ahri-r-attachments.test.ts
+          tests/ahri-r-trails.test.ts
           tests/ahri-r-visual-snapshot.test.ts
           tests/ahri-passive-gameplay-reference.test.ts
           tests/ahri-passive.test.ts
