@@ -8,6 +8,9 @@ on:
       - 'tests/**'
       - 'tools/qa/lib/cohort-snapshot.ts'
       - 'tools/qa/cohort-snapshot.test.mjs'
+      - 'tools/qa/lib/cohort-resume.mjs'
+      - 'tools/qa/cohort-resume.test.mjs'
+      - 'tools/qa/fixtures/match-cohort-roster.mjs'
       - 'tools/qa/match-cohort.mjs'
       - 'tools/qa/match-seed.ts'
       - 'tools/qa/verify-match-cohort.mjs'
@@ -103,6 +106,9 @@ on:
       - 'tests/**'
       - 'tools/qa/lib/cohort-snapshot.ts'
       - 'tools/qa/cohort-snapshot.test.mjs'
+      - 'tools/qa/lib/cohort-resume.mjs'
+      - 'tools/qa/cohort-resume.test.mjs'
+      - 'tools/qa/fixtures/match-cohort-roster.mjs'
       - 'tools/qa/match-cohort.mjs'
       - 'tools/qa/match-seed.ts'
       - 'tools/qa/verify-match-cohort.mjs'
@@ -214,8 +220,8 @@ jobs:
       - run: npm ci --no-audit --no-fund
       - name: Type check
         run: npm exec tsc -- --noEmit
-      - name: Verify lossless cohort snapshot storage
-        run: node --test tools/qa/cohort-snapshot.test.mjs
+      - name: Verify cohort snapshot storage and pinned recovery
+        run: node --test tools/qa/cohort-snapshot.test.mjs tools/qa/cohort-resume.test.mjs
       - name: Check committed audio assets, playback and saved tails
         run: >-
           npm exec vitest -- run
