@@ -118,7 +118,7 @@ Sound preference checkpoint `630302bb` preserves mute/unmute across reloads in
 browser storage, separate from match saves. Three storage tests and three browser
 cases pass, including the real game through both reload directions with no
 startup audio context. Storage denial/quota failure leaves the live toggle usable.
-TypeScript, production build and all-file audit pass. Current pack `9d0bad35`
+TypeScript, production build and all-file audit pass. Its retained pack `9d0bad35`
 contains 1,432 files / 581,142,305 bytes with unchanged worker policy. Schema 181,
 all 696 compatibility inputs and ruleset `e02f3e73` remain unchanged; earlier HUD
 and noise packs are retained. See [sound preference verification](reference/sound-preference-verification.json).
@@ -144,6 +144,16 @@ comparisons, source timing and the stop fade, and refuse a valid-but-altered WAV
 Both asset checks and standalone TypeScript pass. This tool-only change leaves
 production pack `9d0bad35`, all runtime/public bytes and the live audit unchanged.
 See [audition integrity verification](reference/garen-q-audition-integrity-verification.json).
+
+Shop checkpoint `cabb9791` prevents delayed purchase/trinket results from
+throwing in another menu or writing stale messages into a reopened shop. The
+original button and active shop must still own the result. Accepted World
+changes still complete, normal in-place result messages remain, and closed shops
+skip validation work. Seven browser cases, TypeScript, production build and the
+complete pack audit pass. Current pack `171bacaf` has 1,432 files / 581,142,370
+bytes. All 696 compatibility inputs and ruleset `e02f3e73` remain unchanged; the
+sound-preference and earlier packs are retained. See
+[shop lifetime verification](reference/shop-async-lifetime-verification.json).
 
 ## Recent verified checkpoints
 

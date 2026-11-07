@@ -1,0 +1,95 @@
+{
+  "format": 1,
+  "result": "passed",
+  "applicationRevision": "cabb9791",
+  "schema": 181,
+  "ruleset": "e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f",
+  "compatibilityFiles": 696,
+  "browserCasesPassed": 7,
+  "scope": "Six real Hud/World cases with deferred preparation and no WebGL/minimap drawing, plus the real-game closed-shop check",
+  "originalFailureCasesRetained": 4,
+  "lateResultLifetimeGuardedForPurchasesAndTrinkets": true,
+  "acceptedWorldChangesStillComplete": true,
+  "originalShopResultMessagesPreserved": true,
+  "closedShopSkipsPurchaseValidation": true,
+  "typescriptAndProductionBuildPassed": true,
+  "allFilePackAudit": {
+    "result": "passed",
+    "pack": "171bacaffe287f0fc491e1c5227ed89d740df3717c246b87e801e1e901e55948",
+    "files": 1432,
+    "bytes": 581142370,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "retainedPack": "/workspace/web-lol/.cache/shop-async-accepted-pack-171b",
+  "priorPacksPreserved": true,
+  "hundredSeedAuditStillRunning": true,
+  "roadmapMilestone4Complete": false,
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/shop-async-browser-driver-v1.log",
+      "bytes": 9495,
+      "sha256": "2965110bfbface6e559127feae7f4cb4d78d19bdfbbbf2477405583c342b49b6"
+    },
+    {
+      "file": "artifacts/shop-async-browser-driver-v2.log",
+      "bytes": 1381,
+      "sha256": "06be3acce859191e358f460b54e1b4c217c20001fd6a0d322e092604128dedc3"
+    },
+    {
+      "file": "artifacts/shop-async-browser-v1.json",
+      "bytes": 24607,
+      "sha256": "e18363edca55b115459c8ac9caab8c6fff8311d6aed94d7727fa9882f46015dd"
+    },
+    {
+      "file": "artifacts/shop-async-browser-v2.json",
+      "bytes": 9690,
+      "sha256": "6cd658ad900b2cebabf7494cfd401d8276e9159208ca6d218cdb9a9ff5537bbb"
+    },
+    {
+      "file": "artifacts/shop-async-build-v1.log",
+      "bytes": 9453,
+      "sha256": "dc4052f271673ea5af192bef2893737631a96fa2014707b60df0df4af27e54f9"
+    },
+    {
+      "file": "artifacts/shop-async-build-dedup-v1.json",
+      "bytes": 1329,
+      "sha256": "486b23910d8d4bfcf41bd4e2d542e1b0f913076e9e951e7ce2563bc09b5fa989"
+    },
+    {
+      "file": "artifacts/shop-async-ruleset-v1.json",
+      "bytes": 104,
+      "sha256": "5a9159e9011a6086ba92e9320f35b01aa31a984d99d095f1538d585e16f6b4d6"
+    },
+    {
+      "file": "artifacts/shop-async-browser-v2/shop-async-lifetime-purcha-6a3c7-hop-after-switching-to-shop/async-shop-result.json",
+      "bytes": 256,
+      "sha256": "ad4aecd0f2f21b4289ada5900de78d4366b42de4c7e16853e07f8764a9ecf060"
+    },
+    {
+      "file": "artifacts/shop-async-browser-v2/shop-async-lifetime-purcha-99684-hop-after-switching-to-help/async-shop-result.json",
+      "bytes": 213,
+      "sha256": "5223a095e254f4f00b59188dcbc18c1f7c190367a70dbec00d36b3d69da1d7ca"
+    },
+    {
+      "file": "artifacts/shop-async-browser-v2/shop-async-lifetime-purcha-b9a11-fter-switching-to-same-shop/async-shop-result.json",
+      "bytes": 237,
+      "sha256": "610bfda1777744620ddb1c96dba2ef2adeaab6204b48664e52088de8b54ad665"
+    },
+    {
+      "file": "artifacts/shop-async-browser-v2/shop-async-lifetime-trinke-3472f-fter-switching-to-same-shop/async-shop-result.json",
+      "bytes": 218,
+      "sha256": "56e953d2a3e2451b7c6abb16b980217e21b4c2a5dda121b2f9902bd8f74dad83"
+    },
+    {
+      "file": "artifacts/shop-async-browser-v2/shop-async-lifetime-trinke-80142-hop-after-switching-to-help/async-shop-result.json",
+      "bytes": 195,
+      "sha256": "f95302e61744fb005a21fc7fceb36371e694e82b54a9387a8c4a59fb846cc712"
+    },
+    {
+      "file": "artifacts/shop-async-browser-v2/shop-async-lifetime-trinke-87047-hop-after-switching-to-shop/async-shop-result.json",
+      "bytes": 238,
+      "sha256": "812ef72b6471c3c36e3222a302dd4066d50598bfbd5cf2dc595b8d14b1cdbccd"
+    }
+  ]
+}
