@@ -744,3 +744,12 @@ Four schedule checks pass beside all 208 frozen packet checks. A complete
 large-clock continuation checks cover binade boundaries. Distant and backward
 seeks retain at most nineteen births. TypeScript passes. No renderer or accepted
 runtime binding has changed at this preparation checkpoint.
+
+
+The sampler now prepares profile 53 using bounded recent births and per-birth
+clock origins. Finite profile 50 keeps its original clock and packet behavior.
+All 220 selected checks and TypeScript pass, including distant/backward seeks,
+a pool-counter-wrap jump, bounded caches, recent-only root queries through the
+numerical domain endpoint and authored stop/linger drain. All 204 earlier packet
+hashes remain exact. The profile's soft-depth requirement is preserved; it is
+still excluded from the live bound-profile list at this checkpoint.
