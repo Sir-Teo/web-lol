@@ -8,8 +8,12 @@ Last updated: November 7, 2026 (UTC).
 
 Accepted local runtime: save schema **181**, ruleset
 `e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f`.
-Latest application `cabb9791` / pack `171bacaf` has a fresh resolved unit result
-of 10,152/10,154 across 611 files. One wave-clock deadline failure passed its
+Latest application `3fcb8cef` / pack `1cbecc51` exposes named health/mana meters
+with live resource values. Two browser cases, TypeScript, production build and
+all-file pack verification pass; gameplay compatibility remains unchanged. See
+[resource meter verification](reference/hud-resource-meter-verification.json).
+The latest full unit result at application `cabb9791` / pack `171bacaf` resolves
+to 10,152/10,154 across 611 files. One wave-clock deadline failure passed its
 unchanged nine-test focused retry after a recorded ten-second audit-worker pause.
 The same two historical Leona-input/Lux-digest failures remain, so the full unit
 gate stays open. Original results and both pause records are retained. See
@@ -9771,3 +9775,12 @@ Horizon diagnostics now publish only to a fresh external path, resolving parent
 symlinks before inspection. All 19 focused tests pass, and the retained real gzip
 smoke produces exactly the same diagnostic JSON as before. Frozen inputs remain
 unchanged. See [output verification](reference/cohort-horizon-output-verification.json).
+
+HUD resource-meter checkpoint `3fcb8cef` preserves visible health/mana rounding,
+initializes the current champion values immediately and publishes named meter
+values. Garen's hidden mana bar stays hidden. Two real Hud/World browser probes
+pass without snapshot mutation. TypeScript/build and the full retained pack audit
+pass: `1cbecc51`, 1,432 files / 581,142,950 bytes, with unchanged worker policy.
+All 696 compatibility inputs and ruleset `e02f3e73` stay unchanged. The preceding
+full unit and Node QA receipts retain their own revisions. See
+[resource meter verification](reference/hud-resource-meter-verification.json).

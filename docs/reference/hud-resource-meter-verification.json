@@ -1,0 +1,72 @@
+{
+  "format": 1,
+  "result": "passed",
+  "applicationRevision": "3fcb8cef",
+  "schema": 181,
+  "ruleset": "e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f",
+  "compatibilityFiles": 696,
+  "browserCasesPassed": 2,
+  "scope": "Real Hud and World in DOM-only Ashe/Garen fixtures; resource metadata and initial text, changing maxima, zero health, hidden mana and snapshot nonmutation. No renderer performance or native-pixel claim.",
+  "originalMissingMeterFailuresRetained": 2,
+  "harnessNote": "Final harness uses the existing trusted World champion constructor rather than changing the spawned hero identity.",
+  "typescriptAndProductionBuildPassed": true,
+  "allFilePackAudit": {
+    "result": "passed",
+    "pack": "1cbecc511cbba8ed7990b3e1ed565f2c6ccf4a0a215abb267ce9e558beccc91b",
+    "files": 1432,
+    "bytes": 581142950,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "retainedPack": "/workspace/web-lol/.cache/hud-resource-meter-accepted-pack-1cbe",
+  "priorPacksPreserved": true,
+  "fullUnitResultsRetainCabb9791Scope": true,
+  "roadmapMilestone4Complete": false,
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/hud-resource-meter-baseline-v1.log",
+      "bytes": 4915,
+      "sha256": "3c292753542bb3be856d236f0c622303519ce7d795b13d84998ce27d3960b3b7"
+    },
+    {
+      "file": "artifacts/hud-resource-meter-fixed-v2.log",
+      "bytes": 626,
+      "sha256": "c6d94e0cc1a38be7cc49cecd55777ceaa0079c4d8f2b82672031cc7fa62889e1"
+    },
+    {
+      "file": "artifacts/hud-resource-meter-browser-v1.json",
+      "bytes": 12508,
+      "sha256": "c716c78d4625fa5d332523322018f10fcea73f2e851f7583da69a8c229880c72"
+    },
+    {
+      "file": "artifacts/hud-resource-meter-browser-v2.json",
+      "bytes": 4149,
+      "sha256": "5fb9cc9a5659de5e703630f3ab9d95ebdc6ff3800de41978316160fc0146afc7"
+    },
+    {
+      "file": "artifacts/hud-resource-meter-build-v1.log",
+      "bytes": 9453,
+      "sha256": "87aa46bd93a5c43a57fbd9d85bf25f662a4604814520f4dd488e7add0b81683f"
+    },
+    {
+      "file": "artifacts/hud-resource-meter-build-dedup-v1.json",
+      "bytes": 1329,
+      "sha256": "62a8cb98a97f0c6ae1fe11bcf7712497d5a1f50bd15270cdd8d5bf71b9d61bef"
+    },
+    {
+      "file": "artifacts/hud-resource-meter-retained-pack-v1.json",
+      "bytes": 213,
+      "sha256": "e783efaed33103118bcfe5a1e7acf9b2458b3e7340d6a604fc7f2ce9fb3cfcef"
+    },
+    {
+      "file": "artifacts/hud-resource-meter-ruleset-v1.log",
+      "bytes": 65,
+      "sha256": "c2db54326a437575c9d43d02d61c57150fd30ddcd80e6f48510abc02c1137d15"
+    },
+    {
+      "file": "artifacts/hud-resource-meter-compatibility-v1.json",
+      "bytes": 27,
+      "sha256": "c090a0a9499428f95c8875d14178783438ca34e79085ef365eef8c98058e8123"
+    }
+  ]
+}
