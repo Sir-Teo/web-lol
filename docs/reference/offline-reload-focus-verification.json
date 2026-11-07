@@ -1,0 +1,111 @@
+{
+  "format": 1,
+  "result": "passed",
+  "applicationRevision": "15e6a3a1",
+  "schema": 181,
+  "ruleset": "e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f",
+  "compatibilityFiles": 696,
+  "browserCasesPassed": 12,
+  "originalReloadEnabledControlCasesRetained": 2,
+  "focusBaselineCasesRetained": 3,
+  "focusBaselineScope": "Working reload-lock implementation before focus handling; retry lost panel focus and remove/reload lacked a focused busy target.",
+  "currentPanelActionsBlockedDuringPendingReload": true,
+  "reloadFailureDisplayedAndControlsRestored": true,
+  "busyStatusIsProgrammaticallyFocusable": true,
+  "focusRestoredOnlyWhileStillOnBusyStatus": true,
+  "otherControlFocusPreserved": true,
+  "downloadCancelFocusPreserved": true,
+  "fixtureAndApplicationTypescriptPassed": true,
+  "productionBuildPassed": true,
+  "allFilePackAudit": {
+    "result": "passed",
+    "pack": "08ec7f13288e987740e87cc74fa1d00597791224d25f07eb1f62a54cd4d1d68d",
+    "files": 1432,
+    "bytes": 581143621,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "retainedPack": "/workspace/web-lol/.cache/offline-reload-focus-accepted-pack-08ec",
+  "previousPacksPreserved": true,
+  "scope": "Current-panel action/focus ownership. Controlled reload promises test UI state, not native service-worker activation or actual reload navigation. Earlier real pack/cache boundary case remains in the twelve-case run.",
+  "workerPolicyAndGameplayCompatibilityUnchanged": true,
+  "priorBroaderReceiptsKeepTheirRevisions": true,
+  "roadmapMilestone4Complete": false,
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/offline-reload-baseline-v1.log",
+      "bytes": 5496,
+      "sha256": "dc5887741691b0dd80bae0a73cb1e78f93eaaadcd804b80436a81340f3fecca1"
+    },
+    {
+      "file": "artifacts/offline-reload-fixed-v2.log",
+      "bytes": 1594,
+      "sha256": "d12e09f7d61b32ff5b6e9994f70f61209114a67edea183b636d02197226057a2"
+    },
+    {
+      "file": "artifacts/offline-reload-browser-v1.json",
+      "bytes": 13744,
+      "sha256": "a719baeae2c730cda4aed1c9649e70a02b7278a5fb4a727974886015dc5a88f6"
+    },
+    {
+      "file": "artifacts/offline-reload-browser-v2.json",
+      "bytes": 10685,
+      "sha256": "69880b6e299691ce6ab6a59dcb7e2db70f496c76480ba6d20b6d67b2ecd705e3"
+    },
+    {
+      "file": "artifacts/offline-focus-baseline-v1.log",
+      "bytes": 7762,
+      "sha256": "14f7a1063c62bdbf4b25f9820f579595024cb06041ac3e2d5d7f45c11905ffc6"
+    },
+    {
+      "file": "artifacts/offline-focus-fixed-v2.log",
+      "bytes": 1962,
+      "sha256": "c1488196ccd0bedfeaf47f7d55db32834fded66312782349da464af115626f23"
+    },
+    {
+      "file": "artifacts/offline-focus-ownership-v3.log",
+      "bytes": 2090,
+      "sha256": "336b93df2f7e719decbe8c13b2915db1ba220d16323e11bf194330e9704c2749"
+    },
+    {
+      "file": "artifacts/offline-focus-browser-v1.json",
+      "bytes": 18390,
+      "sha256": "518d687d53bfd10e76eefce1e888e950c6bacd2da0401460b15718dbc345f77b"
+    },
+    {
+      "file": "artifacts/offline-focus-browser-v2.json",
+      "bytes": 13872,
+      "sha256": "949e243d20fdd0f823c914af1a3cab59e2c50400ad7df4c47ad4c10b4f30b0f8"
+    },
+    {
+      "file": "artifacts/offline-focus-browser-v3.json",
+      "bytes": 14931,
+      "sha256": "b658c2514f009430bb3a4c71576304f840f76eaa5b27f254a1c3bd41ddf4d09f"
+    },
+    {
+      "file": "artifacts/offline-focus-ownership-types-v2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "artifacts/offline-reload-focus-build-v1.log",
+      "bytes": 9453,
+      "sha256": "a771d7e2941439108911feacb211a34e9e54951f802ea470af9cf788c222b2a2"
+    },
+    {
+      "file": "artifacts/offline-reload-focus-build-dedup-v1.json",
+      "bytes": 1329,
+      "sha256": "6b35a5cd6368003f17870def7f9f19fd7a76770370e5572dccc8de70ecf455b7"
+    },
+    {
+      "file": "artifacts/offline-reload-focus-retained-pack-v1.json",
+      "bytes": 213,
+      "sha256": "998e750e3415816ab7763e33595db1ae224841de63f30d5ff866e0b50fe54f94"
+    },
+    {
+      "file": "artifacts/offline-reload-focus-ruleset-v1.json",
+      "bytes": 104,
+      "sha256": "5a9159e9011a6086ba92e9320f35b01aa31a984d99d095f1538d585e16f6b4d6"
+    }
+  ]
+}

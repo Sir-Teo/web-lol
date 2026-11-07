@@ -8,12 +8,12 @@ Last updated: November 7, 2026 (UTC).
 
 Accepted local runtime: save schema **181**, ruleset
 `e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f`.
-Latest application `711ad0d6` / pack `f9a5ad6c` blocks overlapping panel actions
-during offline removal, keeps recovery in check mode until inspection succeeds,
-and retains the named HUD controls. Six scoped browser cases, fixture/application
-TypeScript, production build and all-file pack verification pass; gameplay
-compatibility and worker policy stay unchanged. See
-[offline panel verification](reference/offline-remove-ownership-verification.json)
+Latest application `15e6a3a1` / pack `08ec7f13` owns pending offline reload and
+removal actions, preserves busy-action keyboard focus, and retains recovery and
+HUD improvements. Twelve scoped browser cases, fixture/application TypeScript,
+production build and all-file pack verification pass; gameplay compatibility and
+worker policy stay unchanged. See
+[offline focus verification](reference/offline-reload-focus-verification.json)
 and [HUD verification](reference/hud-shop-label-verification.json).
 The latest full unit result at application `cabb9791` / pack `171bacaf` resolves
 to 10,152/10,154 across 611 files. One wave-clock deadline failure passed its
@@ -9862,3 +9862,14 @@ complete retained-pack verification pass: `f9a5ad6c`, 1,432 files / 581,143,495
 bytes. Schema, all 696 compatibility files, ruleset and worker policy stay
 unchanged. The 90-command CI receipt keeps source `771a861a`; this fix has its
 own [removal verification](reference/offline-remove-ownership-verification.json).
+
+Offline reload/focus checkpoint `15e6a3a1` awaits reload preparation, blocks
+overlapping file actions, reports failure and restores controls. Shared busy-state
+handling moves an initiating button's focus to the status before disabling it,
+and restores focus only if the user stayed there. A separate control's focus and
+the existing download Cancel focus behavior are preserved. All twelve browser
+cases and fixture/application TypeScript pass. Build and retained-pack audit
+pass: `08ec7f13`, 1,432 files / 581,143,621 bytes, with unchanged worker policy,
+schema, all 696 compatibility inputs and ruleset. Controlled reload promises
+verify panel behavior, not native activation/navigation; broader receipts retain
+their own revisions. See [reload/focus verification](reference/offline-reload-focus-verification.json).
