@@ -1,0 +1,153 @@
+{
+  "format": 1,
+  "scope": "Accepted E saved observation only; E particle rendering remains pending",
+  "applicationRevision": "7d3e00c4d643cfcb9356022e53ab2e444e483ca5",
+  "verificationRevision": "fdcec37c5ee45181121e3422f97bc8241fdbbdf5",
+  "schema": 179,
+  "ruleset": "062e397af49c795cfef0170ee9aced41f8625065a8176d403a47ff30e93c889f",
+  "compatibilityFiles": 658,
+  "archiveFiles": 663,
+  "runtime": {
+    "node": "v24.22.1",
+    "v8": "13.6.233.17-node.58"
+  },
+  "pack": {
+    "result": "passed",
+    "pack": "1eda9fdf8afb717c66f231dee97d44755d75d9252d605956c5ebd85f8c6e9c6e",
+    "files": 1390,
+    "bytes": 578969421,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "naturalRoster": {
+    "seed": 1,
+    "winner": "blue",
+    "finalTick": 157116,
+    "roundTrips": 44,
+    "futureChecks": 43,
+    "futureCheckedTicks": 2580,
+    "completeProjectionMatches": 45,
+    "invariantFailures": 0
+  },
+  "focusedReference": {
+    "completeProjections": 273,
+    "exactRestores": 273,
+    "futureComparisons": 105,
+    "futureTicks": 5600
+  },
+  "tests": {
+    "fullPassed": 9120,
+    "fullTotal": 9122,
+    "files": 557,
+    "knownFailures": [
+      "Missing archived Leona attached-skin reflection reader",
+      "Existing Lux 24-snapshot sampler golden mismatch on Node 24"
+    ],
+    "focusedPassed": 97,
+    "focusedFiles": 19,
+    "nodeQaPassed": 251,
+    "cleanCiCommands": 72,
+    "cleanCiTests": 780,
+    "cleanCiFiles": 100,
+    "browserCases": 18
+  },
+  "production": {
+    "result": "passed",
+    "recordings": 32,
+    "prefix": "/nested/rift/"
+  },
+  "offline": {
+    "browser": "system-chromium",
+    "manifest": {
+      "id": "1eda9fdf8afb717c66f231dee97d44755d75d9252d605956c5ebd85f8c6e9c6e",
+      "files": 1390,
+      "bytes": 578969421
+    },
+    "checks": {
+      "integrityFailureRestoresDownloadFocus": true,
+      "integrityFailure": true,
+      "downloadFocusesCancel": true,
+      "cancelRetainsVerified": true,
+      "cancelRestoresDownloadFocus": true,
+      "retryWithoutRedownload": true,
+      "completionPreservesOtherControlFocus": true,
+      "pausedSavedTickBootsOffline": true,
+      "completePackRepairOffline": true,
+      "newLuxLaneMatchOffline": true,
+      "serviceWorkerResponses": 978,
+      "removalKeepsSavedBytes": true,
+      "updateRefusesOtherTabs": true,
+      "explicitAtomicVersionSwitchOffline": true,
+      "missingEntryRevokesReady": true,
+      "scopeOnlyRemoval": true
+    },
+    "result": "passed",
+    "productionErrors": []
+  },
+  "audio": {
+    "unchangedPublicWavFiles": 334,
+    "bytes": 96632632
+  },
+  "limits": [
+    "No new E public assets or particle renderer. Existing provisional pink missile remains.",
+    "Software Chromium functional checks do not establish native pixel parity or representative device performance.",
+    "W orbit screenshot retains baseline terrain occlusion; effect-packet and restore assertions pass.",
+    "Roadmap milestone 4, project completion and a current-ruleset hundred-seed gate remain false."
+  ],
+  "evidence": [
+    {
+      "path": "docs/reference/ahri/e-visual-history-source-delta.json",
+      "bytes": 1955,
+      "sha256": "84b6ed26154c8ff0c7e7368d844ec7b5090fb824edcdb28b7361d892a990fcb2"
+    },
+    {
+      "path": "docs/reference/ahri/e-visual-history-gameplay-comparison.json",
+      "bytes": 22179,
+      "sha256": "f62b4a57dcdc16627596018e07e6b46406fa9c2468117022a5ba516a2e16a16b"
+    },
+    {
+      "path": "docs/reference/ahri/e-visual-history-payload.json",
+      "bytes": 8442,
+      "sha256": "c01f4c0f50108587df7929edeef2fad8fca36935044e9abed3306c4b6e25bba8"
+    },
+    {
+      "path": "artifacts/ahri-e-history-full-tests-v1.log",
+      "bytes": 4772,
+      "sha256": "a8af8fc72334078ddb7aa1fabbe81310118923efde768a6cb592b7bbedf1e85d"
+    },
+    {
+      "path": "artifacts/ahri-e-history-node-qa-v1.log",
+      "bytes": 19753,
+      "sha256": "75d69d8a93d3a73dc32629ac258e7f3ce4d1e4a23329aed77168e9b995cc2a3c"
+    },
+    {
+      "path": "artifacts/ahri-e-history-clean-ci-results.json",
+      "bytes": 16252,
+      "sha256": "49167e9d7f4fa26ffa7d458a513ceb8e69ffad5cddb062e2c7a14d07216840be"
+    },
+    {
+      "path": "artifacts/ahri-e-history-browser-v1.log",
+      "bytes": 5500,
+      "sha256": "26886b4a106a310209cb01f6f6fdb848f245d03880667c5652eb05988d337b6f"
+    },
+    {
+      "path": "artifacts/production-subpath-ahri-e-history-v1.json",
+      "bytes": 4124,
+      "sha256": "77e52b3f8cef25033db2a143a80472af9c3a8a2c3bbf119b6fbf240ffca97f41"
+    },
+    {
+      "path": "artifacts/offline-pack-ahri-e-history-v1-production.json",
+      "bytes": 859,
+      "sha256": "1486200d82ee17d023e83cecd52c7866235a3c28c552af5eb9c300fc248f5e24"
+    },
+    {
+      "path": "artifacts/ahri-e-history-audio-preservation-v1.json",
+      "bytes": 57919,
+      "sha256": "acb03cdef1e5ace2e507c1410f6c59c558c4af743e402f1415d38d867a7fcb6b"
+    },
+    {
+      "path": "artifacts/ahri-e-history-screenshot-review-v1.json",
+      "bytes": 834,
+      "sha256": "5fc9e6d7fe6adfdecdde277069a355e84a2453697c8840bf3c3acc48af969210"
+    }
+  ]
+}

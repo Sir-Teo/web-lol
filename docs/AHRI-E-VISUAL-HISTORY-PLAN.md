@@ -166,3 +166,13 @@ remain the missing archived Leona reflection reader and the Node-24 Lux sampler
 golden mismatch. All 251 Node QA checks pass. A clean committed export without
 private cache/tools passes all 72 scoped workflow commands, including 780 tests
 across 100 files. Browser and production/offline delivery checks remain pending.
+
+## Observer acceptance
+
+All 18 browser regressions pass, including real Charm windup/flight/control
+save reloads, Charm audio and Q/W rendering. Production nested-path checks pass
+32 recordings. Full offline delivery passes all 1,390 files / 578,969,421 bytes
+and 978 service-worker responses. The accepted pack is 1eda9fdf. All 334 public
+WAV files remain byte-identical. See e-visual-history-verification.json for
+identities, evidence hashes and retained limitations. E rendered playback remains
+pending; the W screenshot retains its baseline terrain occlusion.

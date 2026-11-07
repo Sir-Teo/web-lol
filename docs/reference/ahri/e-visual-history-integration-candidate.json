@@ -1,6 +1,6 @@
 {
   "format": 1,
-  "status": "focused checks passed; broader acceptance pending",
+  "status": "accepted; see e-visual-history-verification.json",
   "schemaVersion": 179,
   "identity": {
     "ruleset": "062e397af49c795cfef0170ee9aced41f8625065a8176d403a47ff30e93c889f",
@@ -53,7 +53,6 @@
     }
   ],
   "limits": [
-    "Observer integration candidate only; no E particle renderer or new public asset.",
-    "Full regression, clean CI, natural archived comparison and delivery gates remain pending."
+    "Saved observer only; E particle rendering remains pending."
   ]
 }
