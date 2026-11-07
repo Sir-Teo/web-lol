@@ -69,6 +69,10 @@ The stronger independent verifier checks summary/report agreement, every minute
 and terminal checkpoint, final-state agreement and exact future coverage. All
 54 focused QA cases and the unchanged historical 100-seed archive pass; see
 [coverage verification](reference/cohort-coverage-verification.json).
+Optional external verification ledgers now pin plan/summary/report bytes and feed
+the unfinished-state reader directly. All 61 focused QA cases pass; both the
+historical hundred-seed ledger and actual gzip smoke diagnostics verify. See
+[ledger verification](reference/cohort-ledger-verification.json).
 
 R retains all 55 published profiles, 51 textures / 428 authored mips and four
 meshes. The selected subset uses 37 textures and two meshes. Thirteen R textures,

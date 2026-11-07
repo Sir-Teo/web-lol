@@ -1,0 +1,50 @@
+{
+  "format": 1,
+  "result": "passed",
+  "revision": "c2179c0f79d5fd77847e73491e4685469b57ff19",
+  "focusedQaPassed": 61,
+  "profileAndLedgerTestsPassed": 22,
+  "historicalHundredLedgerVerified": true,
+  "actualGzipUnfinishedLedgerAndDiagnosticsPassed": true,
+  "runtimeAndAssetsUnchanged": true,
+  "currentHundredGateComplete": false,
+  "roadmapMilestone4Complete": false,
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/cohort-ledger-tests-focused-v2.log",
+      "bytes": 688,
+      "sha256": "3ac694e16eaf4bed79a5b088886f8244b80452364a4447ee81d8fcdcdf571146"
+    },
+    {
+      "file": "artifacts/cohort-ledger-focused-all-v1.log",
+      "bytes": 5749,
+      "sha256": "fb71fba7b98175b0f889b4941bd591294da650322fed25a11e25c51b4428b497"
+    },
+    {
+      "file": "artifacts/cohort-ledger-historical-hundred-v1.log",
+      "bytes": 467,
+      "sha256": "711202d2d56029e46e6b5e421da0df9761c0336bcfa7bddec7cc7fb019f577fa"
+    },
+    {
+      "file": "artifacts/cohort-ledger-historical-hundred-v1.json",
+      "bytes": 44815,
+      "sha256": "b322b7e08612d307c2594e06cee02a157c1436cb71e5add00924bd4afe959c2a"
+    },
+    {
+      "file": "artifacts/cohort-ledger-gzip-smoke-v2.log",
+      "bytes": 474,
+      "sha256": "8841453dbfb25eb605e49c47dc4d04f8fc0cf5874f0b9ddac31b59af26919320"
+    },
+    {
+      "file": "artifacts/cohort-ledger-gzip-smoke-v2.json",
+      "bytes": 1709,
+      "sha256": "14a8110932982d7b06fc8c1a4df0d11524a947cc5ae894bc8e2fe4bdd6d74aaa"
+    },
+    {
+      "file": "artifacts/cohort-ledger-gzip-horizon-v2.json",
+      "bytes": 2139,
+      "sha256": "d88470c77e252b30a2a158e2bcabb5400fa838b569549fc40ccbffc17939e4f7"
+    }
+  ]
+}
