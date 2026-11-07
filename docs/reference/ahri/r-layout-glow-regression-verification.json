@@ -1,6 +1,6 @@
 {
   "format": 1,
-  "scope": "Continuous layout glow regressions passed; cross-kit and production/offline acceptance pending",
+  "scope": "Continuous layout glow regressions passed; production/offline acceptance pending",
   "applicationRevision": "e27cc4c46998d016c890dbeaef43fc2b970e8aaa",
   "schema": 181,
   "ruleset": "bf6953c524b116f399a8a38b6b29cdbab23c3ccb2228774001f09aae0b681076",
@@ -230,10 +230,11 @@
     "docs/reference/ahri/r-layout-glow-gameplay-comparison.json",
     "docs/reference/ahri/r-layout-glow-source-delta.json",
     "docs/reference/ahri/r-layout-glow-policy-reading.json",
-    "docs/reference/ahri/r-layout-quad-packet-reference.json"
+    "docs/reference/ahri/r-layout-quad-packet-reference.json",
+    "artifacts/ahri-r-layout-glow-browser-regression-v1.log"
   ],
-  "crossKitBrowserCasesPassed": 0,
-  "distinctBrowserCasesPassed": 8,
+  "crossKitBrowserCasesPassed": 25,
+  "distinctBrowserCasesPassed": 33,
   "acceptedEyeGlowPacketsRetained": 36,
   "applicationIdentity": {
     "verifiedFiles": 2228,
