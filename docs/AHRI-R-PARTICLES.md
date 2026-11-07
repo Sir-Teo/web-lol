@@ -295,7 +295,52 @@ node --test tools/qa/ahri-r-particle-publication.test.mjs
 ```
 
 The direct exporter requires the prepared private transport paths; the isolated
-guards require only committed inputs. No runtime imports the new profiles yet,
+guards require only committed inputs. At the publication checkpoint, no runtime imports the new profiles,
 so the schema 181 ruleset and its 675-file compatibility closure remain unchanged.
 This isolated staging branch has no fresh delivery build or primary integration.
 Renderer bindings, browser packets and delivery gates follow separately.
+
+## Joined spell renderer candidate
+
+Application `1bef0ac0`, schema 181 / ruleset `e2c1447e`, binds 20 spell profiles
+from `Ahri_R_mis_02` and `Ahri_R_Tar`. Saved bolt paths and pre-damage contact
+poses control their roots and clocks. Two noise profiles and one palette profile
+remain deferred, alongside 16 persistent and 16 unjoined profiles. No native
+buff-counter comparison or unjoined cast callback is invented.
+
+The selected closure uses 23 textures and one byte-identical W-owned mesh. It
+borrows existing Q/W samplers and loads four R textures plus one shared W
+transport outside W's own joined subset. W's original 25-asset closure stays
+explicit in browser verification. The shared geometry is already converted to
+scene units and is not rescaled. Native vertex-color data and absent normals
+remain intact.
+
+Private historical skeletons resolve `C_BUFFBONE_GLB_CHEST_LOC`; missing bones
+retain named local collision-height fallbacks. Flight roots use the explicit
+one-metre adapter. R ribbons preserve binding motion, independent secondary
+UVs, 2×2 flipbook cells and soft inputs. Soft ribbons and ordinary surfaces
+share one depth capture. Missing global palette inputs remain neutral and
+unverified. Provisional bolt spheres retire when the source renderer is ready.
+
+The [candidate regression record](reference/ahri/r-spell-rendering-regression-verification.json)
+passes 9,308/9,310 full-suite tests with the same two historical failures, 261
+Node QA cases, and 84 clean-export commands. Scoped selections execute 1,080
+tests across 134 files with overlap. All 33 distinct browser cases pass, including
+real brush visibility, Flash, caster death, terminal retirement and UI reloads.
+
+The [frozen rendering baseline](reference/ahri/r-render-gameplay-reference.json)
+retains 357 complete states across 21 scenarios from the accepted R observer.
+All 45 natural-match saved states also match, including every R observation,
+after excluding only schema and ruleset. The seed reaches Blue victory at tick
+157116 with 44 round trips and 43 checked futures. All earlier simulation/content
+bytes remain unchanged; the [source delta](reference/ahri/r-spell-rendering-source-delta.json)
+records nine renderer dependencies and the compatibility-root declaration.
+
+Pack `3dbfa301` contains 1,432 files / 581,114,779 bytes and passes its complete
+byte/worker audit. All 334 public WAV files / 96,632,632 bytes remain exact.
+Flight and contact screenshots were inspected in software Chromium.
+The [spell-rendering acceptance](reference/ahri/r-spell-rendering-acceptance.json)
+passes production nested-path verification with 32 recordings and no unwanted R
+renderer/texture preloads. Offline lifecycle checks pass with 978 worker responses
+and zero production errors. Primary integration follows separately; native pixel
+calibration and representative-device performance remain unfinished.
