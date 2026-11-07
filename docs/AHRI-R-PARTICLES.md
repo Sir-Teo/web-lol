@@ -417,3 +417,20 @@ Primary merge `ec9af34c` reproduces pack `01c9c16a` exactly and passes 78 focuse
 tests in ten files. Application/public bytes match the accepted candidate. See
 [palette integration](reference/ahri/r-palette-main-integration.json). The previous
 20-profile R pack remains retained alongside the R observer and E packs.
+
+## Persistent buff mapping preparation
+
+The isolated `ahri-r-persistent-history` helper maps the skin's explicit
+`HasBuff(AhriR)` condition to two `Ahri_R_Eyes` instances on `L_Eye` / `R_Eye`
+and one `Ahri_R_Ready_tar` instance on `C_Buffbone_Glb_Layout_Loc`. Its local
+producer window follows the saved R end observation, including zero charges
+and actual Essence extensions. Counter-driver indicators remain excluded.
+
+Caster roots use owned source poses and visibility. Fractional roots require
+consecutive observations; discarded history gaps remain unavailable. The
+independent birth anchor stays usable. Buff expiry stops births while a living
+body keeps moving; death/removal freezes the old body's ending pose. Six focused
+cases and the 23-case complete gameplay baseline pass, alongside TypeScript.
+The helper remains unconnected to rendering, so the accepted ruleset stays
+`a68ca14b` with 685 compatibility files. Particle lifetime/period integration,
+long-lived birth roots and native stop behavior still require separate work.
