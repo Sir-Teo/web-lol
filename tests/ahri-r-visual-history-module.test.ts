@@ -277,8 +277,8 @@ test('repeated real Essence extensions keep only bounded poses and recent burst 
   expect(r.windowEndTick).toBe(f.w.ahriRushes[0].endTick);
   expect(r.remainingCasts).toBe(f.w.ahriRushes[0].remainingCasts);
   expect(r.changes.at(-1)!.kind).toBe('essence');
-  expect(r.sourceFrames.length).toBe(721);
-  expect(r.sourceFrames[0].tick).toBe(f.w.tick - 720);
+  expect(r.sourceFrames.length).toBe(f.w.tick - r.startTick + 1);
+  expect(r.sourceFrames[0].tick).toBe(r.startTick);
   expect(r.bursts).toEqual([]);
   expect(r.changes.length).toBeLessThanOrEqual(3);
   expect(JSON.stringify(r.birthPose)).toBe(birth);

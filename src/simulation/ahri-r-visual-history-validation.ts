@@ -3,6 +3,7 @@ import { AHRI_R_POLICY as POLICY } from '../content/ahri-r-policy';
 import {
   AHRI_R_VISUAL_HISTORY_TICKS as RETAIN,
   AHRI_R_VISUAL_POSE_TICKS as POSES,
+  ahriRSourcePoseTicks,
 } from '../content/ahri-r-visual-timing';
 import { MOBILE_CLIP_DURATIONS, type MobileRig } from '../content/mobile-clip-durations';
 import { validAnimationTimeline } from './animation-timeline';
@@ -50,9 +51,10 @@ export function validateRVisualMotion(r: AhriRVisualHistory, now: number) {
     start: number,
     end: number,
     rig: MobileRig | null,
-    owner: Unit['team']
+    owner: Unit['team'],
+    retention = POSES
   ) => {
-    check(frames.length === end - start + 1 && frames.length > 0 && frames.length <= POSES + 1);
+    check(frames.length === end - start + 1 && frames.length > 0 && frames.length <= retention + 1);
     frames.forEach((p, i) => {
       check(p.tick === start + i);
       pose(p, rig, owner);
@@ -78,7 +80,19 @@ export function validateRVisualMotion(r: AhriRVisualHistory, now: number) {
   check(r.birthPose.tick === r.startTick);
   if (r.sourceEnd) actorEnd(r.sourceEnd, r.sourceFrames, 'ahri-base', r.team);
   const sourceLast = r.sourceEnd?.pose.tick ?? now;
-  poses(r.sourceFrames, Math.max(r.startTick, sourceLast - POSES), sourceLast, 'ahri-base', r.team);
+  const sourceRetention = ahriRSourcePoseTicks(
+    r.startTick,
+    r.end?.tick ?? r.sourceEnd?.tick ?? null,
+    now
+  );
+  poses(
+    r.sourceFrames,
+    Math.max(r.startTick, sourceLast - sourceRetention),
+    sourceLast,
+    'ahri-base',
+    r.team,
+    sourceRetention
+  );
   if (r.end) {
     check(clock(r.end.tick) && same(r.end.point, r.end.pose.point));
     audience(r.end.audience, r.team);

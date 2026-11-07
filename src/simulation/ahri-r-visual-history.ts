@@ -6,6 +6,7 @@ import { mobileRig, type MobileRig } from '../content/mobile-clip-durations';
 import {
   AHRI_R_VISUAL_HISTORY_TICKS as RETAIN,
   AHRI_R_VISUAL_POSE_TICKS as POSES,
+  ahriRSourcePoseTicks,
 } from '../content/ahri-r-visual-timing';
 
 export interface RVisualPose {
@@ -124,10 +125,12 @@ function append<T extends { tick: number }>(frames: T[], frame: T) {
   if (previous?.tick === frame.tick) frames[frames.length - 1] = frame;
   else frames.push(frame);
 }
-function appendPose(frames: RVisualPose[], p: RVisualPose) {
+function appendPose(frames: RVisualPose[], p: RVisualPose, retention = POSES) {
   append(frames, p);
-  while (frames.length && frames[0].tick < p.tick - POSES) frames.shift();
+  while (frames.length && frames[0].tick < p.tick - retention) frames.shift();
 }
+const sourcePoseTicks = (r: AhriRVisualHistory, tick: number) =>
+  ahriRSourcePoseTicks(r.startTick, r.end?.tick ?? r.sourceEnd?.tick ?? null, tick);
 const record = (w: RVisualObserverWorld, rush: SpiritRush) =>
   w.ahriRVisuals?.find((r) => r.id === rush.id);
 const burstRecord = (w: RVisualObserverWorld, rush: SpiritRush, burst: SpiritBurst) =>
@@ -195,7 +198,7 @@ export function beginRVisualHistory(
   }
   if (r.end || r.bursts.some((b) => b.index === burst.index))
     throw Error('Duplicate or ended R visual cast');
-  appendPose(r.sourceFrames, pose(w, source));
+  appendPose(r.sourceFrames, pose(w, source), sourcePoseTicks(r, w.tick));
   observeChange(w, r, rush, source, 'cast', burst, null);
   r.bursts.push({
     index: burst.index,
@@ -349,7 +352,7 @@ export function advanceRVisualHistory(w: RVisualObserverWorld) {
     if (!r.sourceEnd) {
       if (!source) r.sourceEnd = endActor(w, r.sourceFrames, undefined, 'removed');
       else if (source.hp <= 0) r.sourceEnd = endActor(w, r.sourceFrames, source, 'death');
-      else appendPose(r.sourceFrames, pose(w, source));
+      else appendPose(r.sourceFrames, pose(w, source), sourcePoseTicks(r, w.tick));
     }
     for (const burst of r.bursts)
       for (const bolt of burst.bolts) {
@@ -425,6 +428,9 @@ export function rVisualEndTick(r: AhriRVisualHistory): number {
 export function pruneRVisualHistory(w: RVisualObserverWorld) {
   if (!w.ahriRVisuals) return;
   for (const r of w.ahriRVisuals) {
+    const last = r.sourceFrames.at(-1)!;
+    const retention = sourcePoseTicks(r, w.tick);
+    while (r.sourceFrames[0].tick < last.tick - retention) r.sourceFrames.shift();
     r.bursts = r.bursts.filter((b) => w.tick < rVisualBurstEndTick(b) + RETAIN);
     let remove = 0;
     while (remove + 1 < r.changes.length && r.changes[remove + 1].tick < w.tick - POSES) remove++;

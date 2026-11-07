@@ -936,3 +936,30 @@ Samples cover all three mesh profiles, two seeds, twelve clocks around cadence
 and drain boundaries, and three stop policies. All 217 reference checks and
 TypeScript pass before subsequent layout-base work. Earlier packet producers,
 references and accepted packs remain unchanged.
+
+## Sixty-second base history foundation
+
+Profile 49 remains disconnected. Its per-update source binding needs every
+saved caster pose back to first-update birth while the particle is alive.
+The source observer now retains up to 3,603 consecutive poses while the actual
+buff is active and its age is at most 3,602 updates. Buff stop, source death or
+that age boundary returns it to the existing 721-pose window. Target histories,
+completed-system retirement and charge anchors keep their earlier bounds.
+Snapshot decoding permits the larger source array; semantic validation requires
+the exact consecutive window appropriate to the observed state. No discarded
+motion is reconstructed from a live body or endpoint delta.
+
+This intentionally changes complete saved R source-history arrays during long
+active buffs. The immutable 357-state renderer reference and its producer/helper
+hashes remain unchanged. Its current comparison explicitly trims only newly
+retained source poses older than the original twelve-second window; all other
+saved fields and original-window poses remain in the old hash comparison.
+It therefore verifies compatibility with the archived observation window,
+without claiming complete-state identity for this new candidate. Earlier
+acceptance receipts retain their original complete-state claims and revisions.
+
+All 625 R checks in 30 files and TypeScript pass. Genuine Essence extensions
+exercise recast preservation, saved-path completeness, missing-pose rejection,
+exact cold restores, boundary release and death retirement. All six frozen
+packet families remain exact. This is an isolated history foundation, not a
+new production or full-match acceptance.

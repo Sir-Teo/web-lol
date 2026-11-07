@@ -1,4 +1,7 @@
-import { AHRI_R_VISUAL_POSE_TICKS } from '../content/ahri-r-visual-timing';
+import {
+  AHRI_R_VISUAL_POSE_TICKS,
+  AHRI_R_LAYOUT_SOURCE_POSE_TICKS,
+} from '../content/ahri-r-visual-timing';
 import { validateRVisuals } from './ahri-r-visual-validation';
 import { validateEVisuals } from './ahri-e-visual-validation';
 import { AHRI_R } from '../content/ahri-r';
@@ -2335,7 +2338,7 @@ const snapshot = z.strictObject({
         sourceFrames: z
           .array(eVisualPose)
           .min(1)
-          .max(AHRI_R_VISUAL_POSE_TICKS + 1),
+          .max(AHRI_R_LAYOUT_SOURCE_POSE_TICKS + 1),
         sourceEnd: rVisualActorEnd.nullable(),
         changes: z
           .array(

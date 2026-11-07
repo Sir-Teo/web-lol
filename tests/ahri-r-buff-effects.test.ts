@@ -100,7 +100,7 @@ function setup(team: 'blue' | 'red' = 'blue') {
       }));
   return { world, source, view, scene, texture, geometry, draw, capture, captureRibbons, dispose };
 }
-test('both native eye instances draw finite glow packets and restore exactly after rolling pose retention', () => {
+test('both native eye instances draw finite glow packets and restore exactly with the extended source path', () => {
   const f = setup();
   for (let i = 0; i < 1200; i++) {
     if (i === 499 || i === 999) {
@@ -112,7 +112,7 @@ test('both native eye instances draw finite glow packets and restore exactly aft
   }
   f.world.setOrder(f.source, { type: 'move', point: { x: f.source.x, y: f.source.y + 1500 } });
   f.world.step(15);
-  expect(f.world.ahriRVisuals[0].sourceFrames[0].tick).toBeGreaterThan(1);
+  expect(f.world.ahriRVisuals[0].sourceFrames[0].tick).toBe(1);
   f.draw();
   const before = f.capture(),
     ribbons = f.captureRibbons(),

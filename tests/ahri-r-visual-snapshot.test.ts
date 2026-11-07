@@ -41,7 +41,7 @@ test('schema 181 restores actual R observations through bounded paths and indepe
     f.w.step(tick - last);
     last = tick;
     f.restore();
-    expect(f.w.ahriRVisuals.every((r) => r.sourceFrames.length <= 721)).toBe(true);
+    expect(f.w.ahriRVisuals.every((r) => r.sourceFrames.length <= 3603)).toBe(true);
   }
   expect(f.w.ahriRVisuals).toEqual([]);
   expect(JSON.parse(f.w.snapshot()).ahriRVisuals).toBeUndefined();
