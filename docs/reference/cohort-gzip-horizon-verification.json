@@ -1,0 +1,26 @@
+{
+  "format": 1,
+  "result": "passed",
+  "scope": "Read-only plain/gzip unfinished-cohort diagnostics; no simulation or outcome changes",
+  "testsPassed": 14,
+  "actualUnfinishedSmokeArchives": 2,
+  "samplesMatchedPerArchive": 2,
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/cohort-gzip-horizon-tests-v1.log",
+      "bytes": 1320,
+      "sha256": "565cb3639047984fd6d45a9b680e0098e15d295b47c537b09171aa157e0ad46d"
+    },
+    {
+      "file": "artifacts/cohort-gzip-horizon-plain-smoke-v1.json",
+      "bytes": 2133,
+      "sha256": "aeee69990fd9ce3bcc5498e1e2259da06ce502cfb843f994fcc3f6219616152c"
+    },
+    {
+      "file": "artifacts/cohort-gzip-horizon-packed-smoke-v1.json",
+      "bytes": 2139,
+      "sha256": "2f378c3a893f65d82a5739692d7558f89f6837d4cd91938cda4b337107780dd3"
+    }
+  ]
+}
