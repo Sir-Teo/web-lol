@@ -106,3 +106,9 @@ reject six changed input pins, preserve omissions and reject conflicting outputs
 and symlinked leaves/parents. Both Node QA wrappers pass. A dedicated workflow
 runs the portable reading and normal/optimized guards. This stage adds no runtime
 rules, histories or public assets.
+
+The additional two textures also retain all 17 authored mip levels as private
+PNGs (50,264 bytes). Complete-record, changed-pin/PNG-CRC, publication-conflict and
+symlink guards pass in normal and optimized Python. The combined selected effect
+closure therefore has 22 textures / 187 authored mips and the original two
+meshes. No public transport has been published.
