@@ -1,7 +1,7 @@
 import { OfflinePack } from '../storage/offline-pack';
 
 export function mountOfflinePack(host: HTMLElement): () => void {
-  host.innerHTML = `<p class="practice-note offline-status" role="status" aria-live="polite">Checking offline files…</p>
+  host.innerHTML = `<p class="practice-note offline-status" role="status" aria-live="polite" tabindex="-1">Checking offline files…</p>
     <progress class="offline-progress" aria-label="Game pack download" hidden></progress>
     <p class="practice-note offline-size"></p>
     <button class="primary-button" data-offline="download" disabled>Download game pack</button>
@@ -14,6 +14,23 @@ export function mountOfflinePack(host: HTMLElement): () => void {
   const bar = host.querySelector<HTMLProgressElement>('progress')!;
   const button = (name: string) =>
     host.querySelector<HTMLButtonElement>(`[data-offline="${name}"]`)!;
+  let pendingFocus: HTMLButtonElement | null = null;
+  const setActionDisabled = (name: string, disabled: boolean) => {
+    const action = button(name);
+    if (disabled && document.activeElement === action) {
+      pendingFocus = action;
+      status.focus({ preventScroll: true });
+    }
+    action.disabled = disabled;
+    if (!disabled && pendingFocus === action) {
+      if (document.activeElement === status && action.isConnected && !action.hidden)
+        action.focus({ preventScroll: true });
+      pendingFocus = null;
+    }
+  };
+  const setFileActionsDisabled = (disabled: boolean) => {
+    for (const name of ['download', 'remove', 'reload']) setActionDisabled(name, disabled);
+  };
   const mb = (value: number) => `${(value / 1e6).toFixed(1)} MB`;
   if (
     !import.meta.env.PROD ||
@@ -58,19 +75,18 @@ export function mountOfflinePack(host: HTMLElement): () => void {
   void check().catch(error);
   button('download').onclick = async () => {
     if (!checked) {
-      button('download').disabled = true;
+      setActionDisabled('download', true);
       status.textContent = 'Checking offline files…';
       try {
         await check();
       } catch (caught) {
         error(caught);
       } finally {
-        if (!disposed) button('download').disabled = false;
+        if (!disposed) setActionDisabled('download', false);
       }
       return;
     }
-    button('download').disabled = true;
-    button('remove').disabled = true;
+    setFileActionsDisabled(true);
     button('reload').hidden = true;
     button('cancel').hidden = false;
     button('cancel').focus();
@@ -88,8 +104,7 @@ export function mountOfflinePack(host: HTMLElement): () => void {
       error(caught);
     } finally {
       if (!disposed) {
-        button('download').disabled = false;
-        button('remove').disabled = false;
+        setFileActionsDisabled(false);
         const cancelFocused = document.activeElement === button('cancel');
         button('cancel').hidden = true;
         bar.hidden = true;
@@ -98,13 +113,19 @@ export function mountOfflinePack(host: HTMLElement): () => void {
     }
   };
   button('cancel').onclick = () => pack.cancel();
-  button('reload').onclick = () => {
-    void pack.reload().catch(error);
+  button('reload').onclick = async () => {
+    setFileActionsDisabled(true);
+    status.textContent = 'Preparing cached game reload…';
+    try {
+      await pack.reload();
+    } catch (caught) {
+      error(caught);
+    } finally {
+      if (!disposed) setFileActionsDisabled(false);
+    }
   };
   button('remove').onclick = async () => {
-    button('remove').disabled = true;
-    button('download').disabled = true;
-    button('reload').disabled = true;
+    setFileActionsDisabled(true);
     status.textContent = 'Removing offline files…';
     try {
       await pack.remove();
@@ -115,11 +136,7 @@ export function mountOfflinePack(host: HTMLElement): () => void {
     } catch (caught) {
       error(caught);
     } finally {
-      if (!disposed) {
-        button('remove').disabled = false;
-        button('download').disabled = false;
-        button('reload').disabled = false;
-      }
+      if (!disposed) setFileActionsDisabled(false);
     }
   };
   return () => {

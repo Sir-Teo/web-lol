@@ -94,11 +94,13 @@ for (const outcome of ['success', 'failure after manifest'] as const)
       await expect(action).toBeEnabled();
     } else {
       await page.getByRole('button', { name: 'Download game pack', exact: true }).click();
+      await expect(page.locator('[data-offline="cancel"]')).toBeFocused();
       expect(await page.evaluate(() => (window as any).__OFFLINE_RETRY__.state.downloads)).toBe(1);
       await finishCheck(page, 1, true);
       await expect(action).toHaveText('Check and repair game pack');
       await expect(action).toBeEnabled();
       await expect(page.locator('[data-offline="cancel"]')).toBeHidden();
+      await expect(action).toBeFocused();
     }
     await page.evaluate(() => (window as any).__OFFLINE_RETRY__.dispose());
   });
@@ -217,3 +219,107 @@ for (const outcome of ['success', 'failure'] as const)
     }
     await page.evaluate(() => (window as any).__OFFLINE_RETRY__.dispose());
   });
+
+for (const outcome of ['success', 'failure'] as const)
+  test(`offline reload owns the panel actions through ${outcome}`, async ({ page }) => {
+    await openPanel(page);
+    await page.getByRole('button', { name: 'Retry pack check', exact: true }).click();
+    await finishCheck(page, 0, true);
+    await expect(page.locator('[data-offline="reload"]')).toBeVisible();
+    await page.evaluate(() => {
+      const s = (window as any).__OFFLINE_RETRY__.state;
+      s.reloads = 0;
+      s.removes = 0;
+      s.instance.reload = async () => {
+        s.reloads++;
+        await new Promise<void>((resolve, reject) => {
+          s.finishReload = resolve;
+          s.failReload = reject;
+        });
+      };
+      s.instance.remove = async () => {
+        s.removes++;
+      };
+    });
+    await page.getByRole('button', { name: 'Reload cached game', exact: true }).click();
+    await expect(page.locator('.offline-status')).toHaveText('Preparing cached game reload…');
+    for (const action of ['download', 'remove', 'reload'])
+      await expect(page.locator(`[data-offline="${action}"]`)).toBeDisabled();
+    await page.evaluate(() => {
+      for (const name of ['reload', 'remove', 'download'])
+        document.querySelector<HTMLButtonElement>(`[data-offline="${name}"]`)!.click();
+    });
+    expect(
+      await page.evaluate(() => {
+        const s = (window as any).__OFFLINE_RETRY__.state;
+        return { reloads: s.reloads, removes: s.removes, downloads: s.downloads };
+      })
+    ).toEqual({ reloads: 1, removes: 0, downloads: 0 });
+    await page.evaluate((outcome) => {
+      const s = (window as any).__OFFLINE_RETRY__.state;
+      if (outcome === 'success') s.finishReload();
+      else s.failReload(Error('Cached game could not be activated'));
+    }, outcome);
+    for (const action of ['download', 'remove', 'reload'])
+      await expect(page.locator(`[data-offline="${action}"]`)).toBeEnabled();
+    if (outcome === 'failure')
+      await expect(page.locator('.offline-status')).toHaveText(
+        'Cached game could not be activated'
+      );
+    await page.evaluate(() => (window as any).__OFFLINE_RETRY__.dispose());
+  });
+
+for (const operation of ['check', 'remove', 'reload'] as const)
+  test(`busy offline action ${operation} keeps keyboard focus in the panel`, async ({ page }) => {
+    await openPanel(page);
+    if (operation !== 'check') {
+      await page.getByRole('button', { name: 'Retry pack check', exact: true }).click();
+      await finishCheck(page, 0, true);
+      await expect(page.locator('[data-offline="reload"]')).toBeVisible();
+      await page.evaluate((operation) => {
+        const s = (window as any).__OFFLINE_RETRY__.state;
+        s.instance[operation] = async () =>
+          new Promise<void>((resolve, reject) => {
+            s.finishAction = resolve;
+            s.failAction = reject;
+          });
+      }, operation);
+    }
+    const action = page.locator(
+      `[data-offline="${operation === 'check' ? 'download' : operation}"]`
+    );
+    await action.focus();
+    await action.click();
+    expect(
+      await page.evaluate(() => document.querySelector('main')!.contains(document.activeElement))
+    ).toBe(true);
+    await expect(page.locator('.offline-status')).toBeFocused();
+    if (operation === 'check') await finishCheck(page, 0);
+    else
+      await page.evaluate(() =>
+        (window as any).__OFFLINE_RETRY__.state.failAction(
+          Error('Operation temporarily unavailable')
+        )
+      );
+    await expect(action).toBeEnabled();
+    await expect(action).toBeFocused();
+    await page.evaluate(() => (window as any).__OFFLINE_RETRY__.dispose());
+  });
+
+test('completing an offline check does not take focus from another control', async ({ page }) => {
+  await openPanel(page);
+  await page.getByRole('button', { name: 'Retry pack check', exact: true }).click();
+  await expect(page.locator('.offline-status')).toBeFocused();
+  await page.evaluate(() => {
+    const back = document.createElement('button');
+    back.id = 'elsewhere';
+    back.textContent = 'Different control';
+    document.querySelector('main')!.after(back);
+  });
+  const elsewhere = page.getByRole('button', { name: 'Different control', exact: true });
+  await elsewhere.click();
+  await finishCheck(page, 0);
+  await expect(page.getByRole('button', { name: 'Download game pack', exact: true })).toBeEnabled();
+  await expect(elsewhere).toBeFocused();
+  await page.evaluate(() => (window as any).__OFFLINE_RETRY__.dispose());
+});
