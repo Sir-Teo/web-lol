@@ -140,3 +140,34 @@ test('a frozen runner mentioned as data is not a live worker entrypoint', (t) =>
   f.proc(404, ['node', '/private/read-report.mjs', f.runner]);
   assert.equal(f.inspect().processStatus, 'stopped');
 });
+
+for (const [osState, executionState] of [
+  ['T', 'paused'],
+  ['t', 'paused'],
+  ['S', 'not-paused'],
+  ['R', 'not-paused'],
+])
+  test(`owned worker scheduling state ${osState} is reported separately from ownership`, (t) => {
+    const f = fixture(t);
+    f.proc(102, ['node', f.runner, '--output', f.root + '/seeds/2', '2']);
+    writeFileSync(
+      f.procRoot + '/102/status',
+      `Name:\tfrozen-worker\nState:\t${osState} (fixture)\n`
+    );
+    const before = pins(f.root),
+      result = f.inspect();
+    assert.equal(result.processStatus, 'running');
+    assert.equal(result.processes[0].osState, osState);
+    assert.equal(result.processes[0].executionState, executionState);
+    assert.deepEqual(result.pausedWorkerPids, executionState === 'paused' ? [102] : []);
+    assert.deepEqual(pins(f.root), before);
+  });
+test('missing scheduling status keeps observed ownership without inventing execution state', (t) => {
+  const f = fixture(t);
+  f.proc(102, ['node', f.runner, '--output', f.root + '/seeds/2', '2']);
+  const result = f.inspect();
+  assert.equal(result.processStatus, 'running');
+  assert.equal(result.processes[0].osState, null);
+  assert.equal(result.processes[0].executionState, 'unavailable');
+  assert.deepEqual(result.pausedWorkerPids, []);
+});

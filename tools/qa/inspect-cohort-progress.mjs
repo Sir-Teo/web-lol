@@ -86,6 +86,26 @@ export function inspectCohortProgress(directory, { procRoot = '/proc' } = {}) {
       return { ...owner, seed, progressState, progress };
     })
     .filter(Boolean);
+  for (const process of processes) {
+    // Ownership and scheduling are separate observations. A SIGSTOP'ed worker
+    // still owns its frozen output and must never look safe to recover.
+    let osState = null;
+    try {
+      osState =
+        readFileSync(`${procRoot}/${process.pid}/status`, 'utf8').match(
+          /^State:\s+([A-Za-z])\b/m
+        )?.[1] ?? null;
+    } catch (error) {
+      if (!['ENOENT', 'ESRCH', 'EACCES'].includes(error.code)) throw error;
+    }
+    process.osState = osState;
+    process.executionState =
+      osState === 'T' || osState === 't'
+        ? 'paused'
+        : osState === null
+          ? 'unavailable'
+          : 'not-paused';
+  }
   const outcomes = Object.fromEntries(
     ['victory', 'unfinished', 'failed'].map((outcome) => [
       outcome,
@@ -100,6 +120,9 @@ export function inspectCohortProgress(directory, { procRoot = '/proc' } = {}) {
     snapshotEncoding: snapshotEncoding(plan.snapshotEncoding ?? 'none'),
     observedAt: new Date().toISOString(),
     processStatus: processes.length ? 'running' : 'stopped',
+    pausedWorkerPids: processes
+      .filter((row) => row.kind === 'worker' && row.executionState === 'paused')
+      .map((row) => row.pid),
     recordedStatus: status.status,
     completed: status.completed,
     requested: status.requested,

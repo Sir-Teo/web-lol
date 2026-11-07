@@ -169,6 +169,13 @@ samples are labeled invalid rather than treated as a verified tick. Recorded
 status, observed process state and summary presence remain separate. This tool
 never restores worlds, changes evidence or performs final invariant verification.
 
+Each owner includes the observed Linux `osState` and an `executionState` of
+`paused`, `not-paused`, or `unavailable`. `T` (stopped) and `t` (traced stop)
+workers appear in `pausedWorkerPids`; missing process status does not invent a
+scheduling state. `processStatus: running` describes observed ownership, so a
+paused worker continues to fence recovery. These are instantaneous observations,
+not throughput or liveness guarantees.
+
 Final verification derives completion rate and victory-duration p10/p50/p90
 from the verified reports, and checks any stored duration summary against those
 values. Percentiles use nearest rank (`ceil(p × victories)`), in seconds.
