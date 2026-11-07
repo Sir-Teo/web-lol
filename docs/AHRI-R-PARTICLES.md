@@ -612,3 +612,21 @@ tests in its independent 22-file selection. This selection is distinct from the
 candidate's 279 focused checks. All application/public bytes match the accepted
 runtime. See [eye-trail integration](reference/ahri/r-eye-trail-main-integration.json).
 The prior glow, palette, 20-profile R, observer and E packs remain retained.
+
+
+## Layout preparation: preserve accepted trail packets
+
+The [accepted trail-packet reference](reference/ahri/r-eye-trail-packet-reference.json)
+pins 54 complete packets from runtime `69a05a86`, verifying all 696 files of its
+retained source archive before executing its sampler. Cases cover periodic
+active/gap boundaries, finite stops and a million-second seek. All 165 frozen
+spell/glow/trail checks pass, as does TypeScript, before changing layout sampling.
+The earlier packet references and producers remain unchanged.
+
+Layout `base7` (profile 50) is a single ten-second arbitrary quad, fully bound
+to the explicitly named layout bone. Its complete lifetime fits the existing
+twelve-second owned pose window. The sixty-second `base1` does not; replaying its
+full-binding float32 accumulation across a discarded pose gap would require a
+separate observation policy. Continuous layout mesh/glow emitters also need a
+bounded nonperiodic scheduling strategy. These five profiles remain deferred
+while preparation focuses on the finite ten-second quad.
