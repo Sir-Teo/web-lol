@@ -1,0 +1,60 @@
+{
+  "format": 1,
+  "result": "passed",
+  "beforeRevision": "e27cc4c46998d016c890dbeaef43fc2b970e8aaa",
+  "afterRevision": "aabe05260691f94d800f6b6016148e9fea4d6717",
+  "applicationRevision": "aabe05260691f94d800f6b6016148e9fea4d6717",
+  "beforeRuleset": "bf6953c524b116f399a8a38b6b29cdbab23c3ccb2228774001f09aae0b681076",
+  "afterRuleset": "943a706f9191ebc8f30b1ab10dc37668489f4f29631332a99a9ce7c60e3230ba",
+  "beforeArchiveFiles": 697,
+  "afterArchiveFiles": 698,
+  "changed": [
+    {
+      "before": {
+        "file": "src/render/ahri-r-assets.ts",
+        "bytes": 4675,
+        "sha256": "0d19f58eb162ba3a10f874900b5e0eeefc718e48fedeacb08b1cd3650b30e1c9"
+      },
+      "after": {
+        "file": "src/render/ahri-r-assets.ts",
+        "bytes": 5848,
+        "sha256": "59db2b892234043c48185584e2b87c0d82720fdf7b33bd7ec0bf83c74ee6b949"
+      }
+    },
+    {
+      "before": {
+        "file": "src/render/ahri-r-buff-effects.ts",
+        "bytes": 8646,
+        "sha256": "ae7071ac869a4aa6b29813059aa6590e398d30b5d57d4768ced26bc5e3b074cc"
+      },
+      "after": {
+        "file": "src/render/ahri-r-buff-effects.ts",
+        "bytes": 8654,
+        "sha256": "0d7a5b10b40bc2ea9487fe2e420aa405d612f5373dce8b59c2281e4cb59823e2"
+      }
+    },
+    {
+      "before": {
+        "file": "src/render/ahri-r-particles.ts",
+        "bytes": 21337,
+        "sha256": "6f892b867fb0a123142d00ff37908ce0e5f7b496ad23bb56cc49e8339c94c48f"
+      },
+      "after": {
+        "file": "src/render/ahri-r-particles.ts",
+        "bytes": 22895,
+        "sha256": "14317838bdac191c634e22647c89664f930a1d47de90e6e0313d1c301f21ec5e"
+      }
+    }
+  ],
+  "added": [
+    {
+      "file": "src/render/source-colored-particle-mesh.ts",
+      "bytes": 3470,
+      "sha256": "411a149cbd5d1eceb82d6b1a96e7eac023cacf976f9820abe058094befa9c9e0"
+    }
+  ],
+  "removed": [],
+  "unchanged": 694,
+  "publicContentSimulationUnchanged": true,
+  "scope": "Every file in both frozen source archives verified before exact byte comparison; buff-effects change is a descriptive comment"
+}

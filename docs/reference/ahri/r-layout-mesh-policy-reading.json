@@ -1,0 +1,135 @@
+{
+  "format": 1,
+  "scope": "Selected external reconstruction and explicit local runtime policies; native constructors/callbacks/pixels remain unverified",
+  "input": {
+    "path": "src/content/ahri-r-particles.json",
+    "sha256": "c9a65a9808d3206cfbaee6dc1f9e1a5a37d6351947d997e2a5c4b8d3b290f29f"
+  },
+  "profiles": [
+    {
+      "index": 51,
+      "name": "Alpha_Swooshies",
+      "rate": 4.0,
+      "period": null,
+      "activeDuration": 30,
+      "emitterLifetime": null,
+      "particleLifetime": 1,
+      "bindWeight": 1,
+      "linger": 0.4000000059604645,
+      "bindingRequirements": [
+        "emitter-lifetime",
+        "emitter-period-policy",
+        "soft-depth-input"
+      ]
+    },
+    {
+      "index": 52,
+      "name": "Light_Swooshies1",
+      "rate": 7.0,
+      "period": null,
+      "activeDuration": 30,
+      "emitterLifetime": null,
+      "particleLifetime": 1,
+      "bindWeight": 1,
+      "linger": 0.5,
+      "bindingRequirements": [
+        "emitter-lifetime",
+        "emitter-period-policy",
+        "soft-depth-input"
+      ]
+    },
+    {
+      "index": 54,
+      "name": "Light_Swooshies2",
+      "rate": 7.0,
+      "period": null,
+      "activeDuration": 30,
+      "emitterLifetime": null,
+      "particleLifetime": 1,
+      "bindWeight": 1,
+      "linger": 1.0,
+      "bindingRequirements": [
+        "emitter-lifetime",
+        "emitter-period-policy",
+        "soft-depth-input"
+      ]
+    }
+  ],
+  "windowReading": "docs/reference/ahri/r-layout-mesh-window-reading.json",
+  "schedulePolicy": {
+    "gridHz": 60,
+    "firstUpdateTick": 1,
+    "periodObject": {
+      "length": null,
+      "active": 30
+    },
+    "replayMaximumUpdates": 1800,
+    "birthTotals": {
+      "51": 120,
+      "52": 200,
+      "54": 200
+    },
+    "rateFourSixteenTickGapsAt": [
+      62,
+      123
+    ],
+    "retainedMotionCacheMaximumIncludingOtherLayoutProfiles": 42,
+    "stop": "observed buff end suppresses new births; authored particle linger uses existing local stop policy"
+  },
+  "geometry": {
+    "source": {
+      "path": "assets/characters/ahri/skins/base/particles/ahri_base_r_blastwave.scb",
+      "wadPathHash": "0216531e0d20ebea",
+      "sha256": "97787e6049eafb1fab1aa4ef26f38ceb26b5240dda1a066d6f73d991a942fd50",
+      "bytes": 41408
+    },
+    "url": "assets/effects/ahri-r-0216531e0d20ebea.glb",
+    "bytes": 10216,
+    "sha256": "da088e3a404239f050784c956149bd205dafa5dcf00bdbb1d2e07e8e11a8916f",
+    "vertices": 230,
+    "triangles": 380,
+    "hasVertexColors": true,
+    "sourceCoordinateTransformApplied": false,
+    "normalAttributeGenerated": false,
+    "geometryOwner": "ahri-r"
+  },
+  "textures": [
+    {
+      "url": "assets/effects/ahri-r-812974fe434afa99.png",
+      "bytes": 5662,
+      "sha256": "663eeac9cf7b8dcbc5c0878b3a8fb09e03823f51ce3265133d9a08a64bc8cd9d",
+      "authoredMips": 8
+    },
+    {
+      "url": "assets/effects/ahri-r-dd852bde9dedd7f1.png",
+      "bytes": 85,
+      "sha256": "89626d044546c465df98f35ee2a64ec4409526b15d7b1ad9a05bd3949d627bb8",
+      "authoredMips": 4
+    }
+  ],
+  "loaderPolicy": {
+    "rawBytesVerified": true,
+    "parsedShape": "one untransformed unskinned mesh",
+    "positionVertices": 230,
+    "triangles": 380,
+    "color": "logical authored RGBA channels repacked to normalized BGRA bytes, including interleaved GLB input",
+    "sourceCentimetresScaleAppliedOnce": 0.01,
+    "normalsGenerated": false,
+    "stagingMaterialsDisposed": true,
+    "effectGeometryOwnership": "borrowed from the page-owned R cache",
+    "partialReadinessExposed": false,
+    "successesSurviveIndependentRetries": true
+  },
+  "attachmentPolicy": {
+    "bone": "C_Buffbone_Glb_Layout_Loc",
+    "poses": "owned saved caster poses, per-step float32 binding",
+    "naturalParticleLifeFitsPoseWindow": true,
+    "depth": "existing shared R target; no second buff capture",
+    "groundProjection": false
+  },
+  "limits": [
+    "Sixty-second base remains deferred beyond owned pose retention.",
+    "Counter comparison operators remain omitted/unresolved.",
+    "Native constructor/callback/material calibration and representative-device performance remain unfinished."
+  ]
+}
