@@ -781,3 +781,19 @@ hide/show probes change 303,903 pixels for the new glow and 119,205 for the fini
 quad, with one shared R depth capture per render and no World mutation. Image
 inspection shows the blue aura; native-client pixel equivalence and device
 performance remain unverified. Broader regressions and delivery gates follow.
+
+
+The regression checkpoint passes 9,581/9,583 tests in 598 files, with only the
+two historical failures, plus all 263 Node QA cases. All 87 portable CI commands
+pass on their first attempt when run separately from Node QA. Final scoped
+selections execute 1,353 tests across 151 file executions, including overlap;
+all 5,591 committed export files verify before cleanup.
+
+All eight R browser cases pass. The final keyboard case additionally verifies
+one shared depth capture after spell surfaces/ribbons have drained, with thirteen
+continuous glows borrowing that target and no World mutation. All 45 complete
+natural-match states match the accepted R observer, excluding only version and
+ruleset, with victory at tick 157116. All 2,228 application/public blobs match
+runtime `e27cc4c4`. Pack `860c02af` audits at 1,432 files / 581,130,644 bytes.
+See the [continuous glow regression record](reference/ahri/r-layout-glow-regression-verification.json).
+Cross-kit and production/offline checks follow before acceptance.
