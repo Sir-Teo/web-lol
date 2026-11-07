@@ -19,6 +19,10 @@ on:
       - 'tools/qa/compare-cohort-snapshot-bytes.test.mjs'
       - 'tools/qa/garen-q-audio-preview.ts'
       - 'tools/qa/garen-q-audio-preview.html'
+      - 'tools/qa/offline-retry-ownership.spec.ts'
+      - 'tools/qa/offline-ui.playwright.config.ts'
+      - 'tools/qa/offline-ui.vite.config.ts'
+      - 'tools/qa/offline-ui.tsconfig.json'
       - 'tools/qa/fixtures/match-cohort-roster.mjs'
       - 'tools/qa/match-cohort.mjs'
       - 'tools/qa/match-seed.ts'
@@ -126,6 +130,10 @@ on:
       - 'tools/qa/compare-cohort-snapshot-bytes.test.mjs'
       - 'tools/qa/garen-q-audio-preview.ts'
       - 'tools/qa/garen-q-audio-preview.html'
+      - 'tools/qa/offline-retry-ownership.spec.ts'
+      - 'tools/qa/offline-ui.playwright.config.ts'
+      - 'tools/qa/offline-ui.vite.config.ts'
+      - 'tools/qa/offline-ui.tsconfig.json'
       - 'tools/qa/fixtures/match-cohort-roster.mjs'
       - 'tools/qa/match-cohort.mjs'
       - 'tools/qa/match-seed.ts'
@@ -240,6 +248,8 @@ jobs:
         run: npm exec tsc -- --noEmit
       - name: Type check verified Decisive Strike audition
         run: npm exec tsc -- --noEmit --target ES2022 --module ESNext --moduleResolution Bundler --skipLibCheck --strict --lib ES2022,DOM,DOM.Iterable tools/qa/garen-q-audio-preview.ts
+      - name: Type check offline recovery browser fixture
+        run: npm exec tsc -- --project tools/qa/offline-ui.tsconfig.json
       - name: Verify cohort snapshot storage and pinned recovery
         run: node --test tools/qa/cohort-snapshot.test.mjs tools/qa/cohort-resume.test.mjs tools/qa/inspect-cohort-horizon.test.mjs tools/qa/cohort-profile.test.mjs tools/qa/inspect-cohort-progress.test.mjs tools/qa/compare-cohort-snapshot-bytes.test.mjs
       - name: Check committed audio assets, playback and saved tails

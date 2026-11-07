@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "types": ["node", "vite/client"],
+    "paths": { "/src/*": ["../../src/*"] }
+  },
+  "include": ["offline-ui.*.ts", "offline-retry-ownership.spec.ts"]
+}
