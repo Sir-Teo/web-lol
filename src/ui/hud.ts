@@ -166,8 +166,8 @@ export class Hud {
         <div class="champion-stats"><span title="Attack damage" aria-label="Attack damage"><i class="stat-icon stat-ad" aria-hidden="true"></i><b id="ad">59</b></span><span title="Ability power" aria-label="Ability power"><i class="stat-icon stat-ap" aria-hidden="true"></i><b id="ap">0</b></span><span title="Armor" aria-label="Armor"><i class="stat-icon stat-armor" aria-hidden="true"></i><b id="armor">26</b></span><span title="Magic resistance" aria-label="Magic resistance"><i class="stat-icon stat-mr" aria-hidden="true"></i><b id="mr">33</b></span><span title="Attack speed" aria-label="Attack speed"><i class="stat-icon stat-as" aria-hidden="true"></i><b id="as">0.66</b></span><span title="Movement speed" aria-label="Movement speed"><i class="stat-icon stat-ms" aria-hidden="true"></i><b id="ms">325</b></span></div>
         <div class="champion-core"><div class="champion-buffs" id="champion-buffs" aria-label="Active buffs" hidden><span class="blue-buff" id="blue-buff" tabindex="0" role="img" hidden><img src="assets/icons/buffcampblue.png" alt=""><b>Crest of Insight</b><time id="blue-buff-time"></time><i class="buff-duration"><i id="blue-buff-fill"></i></i></span><span class="blue-buff red-buff" id="red-buff" tabindex="0" role="img" hidden><img src="assets/icons/buffcampred.png" alt=""><b>Crest of Cinders</b><time id="red-buff-time"></time><i class="buff-duration"><i id="red-buff-fill"></i></i></span></div><div class="champion-title"><strong>${championProfile(world.hero.champion!).name.toUpperCase()}</strong><span>${world.hero.champion === 'garen' ? 'THE MIGHT OF DEMACIA' : world.hero.champion === 'lux' ? 'THE LADY OF LUMINOSITY' : world.hero.champion === 'leona' ? 'THE RADIANT DAWN' : world.hero.champion === 'ahri' ? 'THE NINE-TAILED FOX' : world.hero.champion === 'masteryi' ? 'THE WUJU BLADESMAN' : 'THE FROST ARCHER'}</span>${world.hero.champion === 'ashe' ? '<div class="focus-pips" aria-label="Focus stacks"><i></i><i></i><i></i><i></i></div>' : world.hero.champion === 'ahri' ? '<span id="ahri-essence" class="essence-counter" tabindex="0" aria-label="Essence Theft, 0 of 9 kills">0 / 9</span>' : world.hero.champion === 'masteryi' ? '<span id="masteryi-double-strike" class="essence-counter yi-double-strike" tabindex="0" aria-label="Double Strike, 0 of 3 stacks"><img src="assets/icons/MasterYi_Passive1.png" alt=""><b>0 / 3</b></span>' : ''}</div>
           <div class="ability-row">${(['q', 'w', 'e', 'r'] as Ability[]).map((a) => this.abilityMarkup(a)).join('')}<div class="summoners">${(['d', 'f'] as Ability[]).map((a) => this.abilityMarkup(a)).join('')}</div></div>
-          <div class="resource health"><i id="health-fill"></i><span id="health-text">610 / 610</span><small id="health-regen">+0.7</small></div>
-          <div class="resource mana" ${world.hero.champion === 'garen' ? 'hidden' : ''}><i id="mana-fill"></i><span id="mana-text">280 / 280</span></div>
+          <div class="resource health" role="meter" aria-label="Health" aria-valuemin="0"><i id="health-fill"></i><span id="health-text">610 / 610</span><small id="health-regen">+0.7</small></div>
+          <div class="resource mana" role="meter" aria-label="Mana" aria-valuemin="0" ${world.hero.champion === 'garen' ? 'hidden' : ''}><i id="mana-fill"></i><span id="mana-text">280 / 280</span></div>
           <div class="resource garen-resource" ${world.hero.champion === 'garen' ? '' : 'hidden'}><span id="garen-passive"></span></div>
           <div class="experience"><i id="xp-fill"></i></div>
         </div>
@@ -215,6 +215,12 @@ export class Hud {
       world.matchMode === 'lanes';
     this.updateCameraButton();
     this.updateSoundButton();
+    this.updateResourceMeter('health-text', Math.ceil(world.hero.hp), Math.ceil(world.hero.maxHp));
+    this.updateResourceMeter(
+      'mana-text',
+      Math.floor(world.hero.mana),
+      Math.floor(world.hero.maxMana)
+    );
   }
   private spellSpec(a: Ability) {
     if (
@@ -632,6 +638,17 @@ export class Hud {
     button.classList.toggle('off', !this.sound);
     button.setAttribute('aria-pressed', String(this.sound));
     button.title = this.sound ? 'Mute sound' : 'Unmute sound';
+  }
+  private updateResourceMeter(id: string, value: number, maximum: number): void {
+    const text = this.root.querySelector<HTMLElement>(`#${id}`)!;
+    const display = `${value} / ${maximum}`;
+    if (text.textContent !== display) text.textContent = display;
+    const meter = text.parentElement!;
+    for (const [key, next] of [
+      ['aria-valuenow', String(Math.max(0, Math.min(maximum, value)))],
+      ['aria-valuemax', String(maximum)],
+    ])
+      if (meter.getAttribute(key) !== next) meter.setAttribute(key, next);
   }
   private updateCameraButton(): void {
     const button = this.root.querySelector<HTMLButtonElement>('#camera-button')!;
@@ -1404,8 +1421,8 @@ export class Hud {
     const width = (id: string, value: number) =>
       ((this.root.querySelector(`#${id}`) as HTMLElement).style.width =
         `${Math.max(0, value) * 100}%`);
-    text('health-text', `${Math.ceil(h.hp)} / ${Math.ceil(h.maxHp)}`);
-    text('mana-text', `${Math.floor(h.mana)} / ${Math.floor(h.maxMana)}`);
+    this.updateResourceMeter('health-text', Math.ceil(h.hp), Math.ceil(h.maxHp));
+    this.updateResourceMeter('mana-text', Math.floor(h.mana), Math.floor(h.maxMana));
     const blueBuff = p.blueBuff && p.blueBuff.endTick > w.tick ? p.blueBuff : null;
     const redBuff = redBuffActive(p, w.tick) ? p.redBuff : null;
     this.root.querySelector<HTMLElement>('#champion-buffs')!.hidden = !blueBuff && !redBuff;
