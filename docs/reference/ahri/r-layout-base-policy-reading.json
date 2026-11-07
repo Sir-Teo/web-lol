@@ -1,0 +1,114 @@
+{
+  "format": 1,
+  "applicationRevision": "d343a9f9221c7d46ce34f01010983db5dd84b86a",
+  "ruleset": "b71e747721c1c4a56c5d5773ca9b3b3c6b9c39ddcb46fadbb8214c381d0708a0",
+  "profile": 49,
+  "name": "base1",
+  "system": "Ahri_R_Ready_tar",
+  "authored": {
+    "kind": "quad",
+    "single": true,
+    "delay": 0,
+    "emitterLife": null,
+    "linger": null,
+    "period": null,
+    "timeActiveDuringPeriod": null,
+    "life": {
+      "constant": [
+        60.0
+      ],
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          60.0
+        ]
+      ],
+      "probabilities": [],
+      "sourceType": "ValueFloat",
+      "authoredKeyCount": 0,
+      "dynamicType": null,
+      "explicitFields": [
+        "__type",
+        "constantValue"
+      ],
+      "probabilityMetadata": []
+    },
+    "bind": {
+      "constant": [
+        1.0
+      ],
+      "times": [
+        0
+      ],
+      "values": [
+        [
+          1.0
+        ]
+      ],
+      "probabilities": [],
+      "sourceType": "ValueFloat",
+      "authoredKeyCount": 0,
+      "dynamicType": null,
+      "explicitFields": [
+        "__type",
+        "constantValue"
+      ],
+      "probabilityMetadata": []
+    },
+    "local": true,
+    "particleLocal": false,
+    "ground": true,
+    "texture": "assets/effects/ahri-q-projectile-ad287961305637b6.png",
+    "bindingRequirements": [
+      "emitter-lifetime"
+    ]
+  },
+  "localPolicies": {
+    "producer": "Saved observed HasBuff(AhriR) window on C_Buffbone_Glb_Layout_Loc",
+    "singleEmitterLifetime": "Omitted native lifetime uses selected external single-particle rewrite, not native constructor certification",
+    "birthUpdate": 1,
+    "updateHz": 60,
+    "binding": "Every source movement update accumulated as float32; no endpoint-delta replacement",
+    "sourceRetention": {
+      "maximumPoses": 3603,
+      "maximumActiveAgeTicks": 3602,
+      "afterStopOrAgeBoundaryPoses": 721,
+      "targetPoseLimitUnchanged": 721
+    },
+    "stop": "Omitted particle linger maps to zero; actual buff/source stop removes the base immediately",
+    "groundLayer": "Authored quad at saved native bone height; no terrain projection",
+    "textureOwnership": "Additional selected closure entry borrowed from already-loaded Q-projectile assets; no new local request"
+  },
+  "compatibilityScope": {
+    "completeStateIdentityClaimed": false,
+    "normalization": "Only extra R source poses older than the original 720-update window removed for archived hash compatibility; all other observations and gameplay fields retained",
+    "frozenReferencesModified": false
+  },
+  "nativeConstructorCertification": false,
+  "nativePixelEquivalence": false,
+  "representativeDevicePerformanceVerified": false,
+  "evidence": [
+    {
+      "path": "src/content/ahri-r-visual-timing.ts",
+      "sha256": "15063d20bac95282653f651d24767987b3e09b4c5657a83f8b6e7f24146e8133"
+    },
+    {
+      "path": "src/simulation/ahri-r-visual-history.ts",
+      "sha256": "9832896dc2c84c31022b2d152874c3022400eb02d4aa2ded933d45b88dddcdb5"
+    },
+    {
+      "path": "src/simulation/ahri-r-visual-history-validation.ts",
+      "sha256": "d8000464758f55ffa7161895780707cbb43931f56f94f94456c76dcd67418d37"
+    },
+    {
+      "path": "src/simulation/snapshot.ts",
+      "sha256": "770dc0b0b0903778beed783a65c90727d94be55b9b3afcc0576f77c471504ce5"
+    },
+    {
+      "path": "src/render/ahri-r-particles.ts",
+      "sha256": "25c57dd894557d2a7278d8f9d030013cb028b810d1f81ef67be94887f9badd44"
+    }
+  ]
+}
