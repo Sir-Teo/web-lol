@@ -835,3 +835,19 @@ the accepted runtime. See
 Prior accepted packs remain retained. Native calibration, representative-device
 performance, the current hundred-seed gate and full-project milestones remain
 unfinished.
+
+
+## Native layout mesh preparation
+
+The [accepted continuous-glow packet reference](reference/ahri/r-layout-glow-packet-reference.json)
+adds 54 complete packets from application `e27cc4c4`, with all 697 frozen source
+files verified first. It covers finite stops, long ages and the numerical-domain
+endpoint. All 263 reference checks across five families and TypeScript pass
+before mesh work; earlier producers and references remain unchanged.
+
+The retained blastwave GLB parses as one identity-transformed, unskinned mesh:
+230 position/UV/RGBA vertices and 1,140 indices / 380 triangles. Colors are
+normalized authored RGBA bytes; no normal stream is present. The runtime asset
+adapter must reconstruct packed BGRA and convert source centimetres once, while
+preserving page ownership and disposing only parsed staging materials. Mesh
+emitters remain unconnected at this checkpoint.
