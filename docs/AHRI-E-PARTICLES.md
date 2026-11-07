@@ -117,3 +117,20 @@ The [producer verification](reference/ahri/e-particle-bindings-verification.json
 records the eleven-file clean export, all three portable commands, both Node QA
 wrappers, the independent 64-record character reparse and additional native /
 decode guard evidence. Shared Q/W helpers remain unchanged.
+
+## Private transport preparation
+
+The texture ledger stages 22 lossless mip packages / 1,205,232 bytes, including
+both source records and the hashed buff dependency. Each authored mip rectangle
+must become a distinct GPU mip; sampling the packed image directly is invalid.
+Seven guards pass in normal and optimized Python, covering complete recursive
+texture dependencies, duplicate/missing sources, mip extents, source/producer
+pins, corruption, symlinks and final-ledger conflicts before any earlier writes.
+
+Two GLBs retain 993 source vertices / 1,568 triangles in 38,520 bytes. Per-corner
+indices, positions, UVs and optional RGBA colors replay exactly. The heart stays
+without colors; the swirl keeps colors. No normals, transform, pivot correction,
+reflection or winding changes are introduced. GLTF validation reports zero
+errors/warnings, both load through actual Three.js 186, and five isolated mesh
+publication guards pass. The combined transport is 24 private files / 1,243,752
+bytes, without public preload or runtime dispatch.
