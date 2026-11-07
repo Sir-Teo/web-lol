@@ -1068,3 +1068,14 @@ returned packets expose no internal axes, and a rejected later field cannot
 partially advance an earlier clock. All 24 external preparation samples match;
 the combined field checks pass 174 tests and TypeScript. The native R noise
 profiles remain disconnected pending motion integration.
+
+The [independent noise-motion trajectories](reference/source-noise-motion-samples.json)
+add 24 controlled runs / 2,880 exact position and velocity rows from the unmodified
+external `stepEmitters` pipeline and sixteen verified dependency blobs. The
+reference injects a known particle directly, disables automatic emission and
+checks particle counters; it supplies the actual seeded external RNG. The system
+clock is `tick / 60`, while emitter age accumulates the fixed delta. Cases cover
+first and later births, moving/stationary particles, radius exclusion, drag and
+field sampling beyond emitter expiry. This protocol isolates motion arithmetic;
+it does not certify native birth randomness or clock handoff. Producer identity
+and direct strict entry TypeScript checks pass before local timeline work.

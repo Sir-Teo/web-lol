@@ -258,6 +258,7 @@ jobs:
           tests/source-noise-field-reference.test.ts
           tests/source-noise-field.test.ts
           tests/source-noise-field-values.test.ts
+          tests/source-noise-motion-reference.test.ts
           tests/ahri-q-projectile-particles.test.ts
           tests/ahri-q-projectile-gameplay-reference.test.ts
           tests/ahri-q-projectile-assets-loader.test.ts
