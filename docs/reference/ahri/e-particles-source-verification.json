@@ -1,0 +1,102 @@
+{
+  "format": 1,
+  "sourceRevision": "a98485e",
+  "decodeRevision": "8a688b4",
+  "sourcePinSha256": "cdf8ed963d051e9517443949c5a4b30b924d5c7ba9fed36aecccf6bdb5a1a756",
+  "decodedPinSha256": "db521bcff91bf5d9bbccd99f6a8495be9825320789edf3e9487ffe53090cf96b",
+  "result": "passed",
+  "nativeFiles": 25,
+  "nativeBytes": 1764654,
+  "systems": 4,
+  "emitters": 26,
+  "textures": 20,
+  "mips": 170,
+  "meshes": 2,
+  "privatePngBytes": 992516,
+  "nativeGuardsPerMode": 9,
+  "decodeGuardsPerMode": 10,
+  "pythonModes": [
+    "normal",
+    "optimized"
+  ],
+  "nativeMeshRoundTrips": true,
+  "exactDecodeRegeneration": true,
+  "unchangedHelpers": [
+    {
+      "path": "tools/assets/ahri_q_decode.py",
+      "sha256": "f4f6fac1569574497a79f48444dfd87e9d6bad18727ba42454c7679a7980c523"
+    },
+    {
+      "path": "tools/assets/masteryi_q_decode.py",
+      "sha256": "552f2cf9a0cb552a97332a142bbea6f25a3b0e2c2974359a58659a2c17517ecd"
+    },
+    {
+      "path": "tools/assets/ahri_w_particles.py",
+      "sha256": "bf26a14be6c3f3a08cea0915e0928d52638e9778b56a9aaabc206ebfbdd7699c"
+    },
+    {
+      "path": "tools/assets/decode-ahri-w-particles.py",
+      "sha256": "4558403f90534374d77377c684c6b6b8a2a17d1e7debcc518da7fddf951650f8"
+    },
+    {
+      "path": "tools/assets/riot_archive.py",
+      "sha256": "7444e2d6dd84c10d2b7b58105a9cdb56edb963d7a3f33fe61dc2932334e5eeb6"
+    },
+    {
+      "path": "tools/assets/verify-ahri-character.py",
+      "sha256": "98faa961f2e23e61749cd220d2161c830cf532244e08e3b05e9782a73e094022"
+    }
+  ],
+  "runtime": {
+    "schema": 178,
+    "ruleset": "ff8abc1be3d5e4191d0544c600ed32c1e3d89b5bf969d9f2a57c591cde81dbe9",
+    "currentArchivedCohortStillVerifies": true
+  },
+  "evidence": [
+    {
+      "path": "artifacts/ahri-e-source-check-v2.log",
+      "sha256": "358f4d16f96386cf28c16c163ba8cb838bd958f1b3677d18bf5389bfbb78d9d7"
+    },
+    {
+      "path": "artifacts/ahri-e-source-check-optimized-v1.log",
+      "sha256": "358f4d16f96386cf28c16c163ba8cb838bd958f1b3677d18bf5389bfbb78d9d7"
+    },
+    {
+      "path": "artifacts/ahri-e-source-guards-v1.log",
+      "sha256": "93104e9976f35b780e8b39688171f5e4bcc623b6a56356138c46fe61d3a13f71"
+    },
+    {
+      "path": "artifacts/ahri-e-source-guards-optimized-v1.log",
+      "sha256": "1c731eb59f2aa1f84137695a478f118dc6ce381015cf8931b830691f231a4dae"
+    },
+    {
+      "path": "artifacts/ahri-e-decode-check-v1.log",
+      "sha256": "2cbaa71abb1941e013555f682044708a655dea0291ffa3f998bbeb6fb5d12118"
+    },
+    {
+      "path": "artifacts/ahri-e-decode-check-optimized-v1.log",
+      "sha256": "2cbaa71abb1941e013555f682044708a655dea0291ffa3f998bbeb6fb5d12118"
+    },
+    {
+      "path": "artifacts/ahri-e-decode-guards-v1.log",
+      "sha256": "6a34d6c0b39828248a6b784acc8e1b2556ed186a7f16e09ef6000f77e9896dcc"
+    },
+    {
+      "path": "artifacts/ahri-e-decode-guards-optimized-v1.log",
+      "sha256": "b32e736f834279ec4c013052b206fcc3272440f359e9e2235ad540e5857eeccb"
+    },
+    {
+      "path": "artifacts/ahri-e-decode-regeneration-v1.log",
+      "sha256": "8db5c78382f2856dba5bc18f0944bee5d45eae0a8a3e951fc98ed75b79969dbe"
+    },
+    {
+      "path": "artifacts/ahri-e-runtime-unchanged-v1.log",
+      "sha256": "879e31b180f2033d4bbaf40e316db9cdb016ee8074179b7d3063e396e53c3016"
+    }
+  ],
+  "limits": [
+    "Private source and software decode preparation only; no public assets or runtime bindings.",
+    "Native inputs and retained decoder installation are required; not a cache-free CI claim.",
+    "Native GPU pixels and callback chronology remain unverified."
+  ]
+}

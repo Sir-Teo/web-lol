@@ -1,0 +1,38 @@
+{
+  "format": 1,
+  "result": "passed",
+  "verifiedRevision": "6c3070a",
+  "nodeQa": {
+    "tests": 251,
+    "passed": 251,
+    "failed": 0,
+    "log": "artifacts/ahri-e-source-full-node-qa-v1.log",
+    "logSha256": "5921c93047fd7daa9573ce7c2fd3466f1e603563541a596008b94b8d4edbe66c"
+  },
+  "portableWorkflow": {
+    "committedFiles": 31,
+    "commands": 9,
+    "allPassed": true,
+    "receipt": "docs/reference/ahri/e-particle-transports-profiles-verification.json"
+  },
+  "runtimeChanged": false,
+  "publicAssetsChanged": false,
+  "schemaVersion": 178,
+  "ruleset": "ff8abc1be3d5e4191d0544c600ed32c1e3d89b5bf969d9f2a57c591cde81dbe9",
+  "sourceStages": [
+    "a98485e",
+    "8a688b4",
+    "e320f41",
+    "d0baa51",
+    "7ea8ba1",
+    "f6029cf",
+    "3458475",
+    "32fa1df",
+    "331e88d"
+  ],
+  "limits": [
+    "Source, private transport and profile preparation only; no native pixel or runtime acceptance.",
+    "Saved histories, callback/buff clocks, post-rotation arithmetic and unresolved attached policies remain future work.",
+    "The two historical application-unit failures retain their previously accepted scope."
+  ]
+}

@@ -1,0 +1,388 @@
+{
+  "format": 1,
+  "sourcePinSha256": "d16b06cc12bfd2016dc07f048d1b031ff6da346f3dbb2ab7dfdb7aa407086c90",
+  "layoutRevision": "76bf57bf4fd195343dec610bf0f912a06b910914",
+  "layoutReferences": [
+    {
+      "name": "StaticMesh.cs",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/LeagueToolkit/76bf57bf4fd195343dec610bf0f912a06b910914/src/LeagueToolkit/Core/Mesh/StaticMesh.cs",
+      "sha256": "eab04b1454081c56f86d93f568f804b812b8e3dbe44f99caea9efd2eff9272da"
+    },
+    {
+      "name": "StaticMeshFace.cs",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/LeagueToolkit/76bf57bf4fd195343dec610bf0f912a06b910914/src/LeagueToolkit/Core/Mesh/StaticMeshFace.cs",
+      "sha256": "053418afb28e627ff0709975ef4d5b363e0e44508a6efba27c5243064fb45a37"
+    },
+    {
+      "name": "Texture.cs",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/LeagueToolkit/76bf57bf4fd195343dec610bf0f912a06b910914/src/LeagueToolkit/Core/Renderer/Texture.cs",
+      "sha256": "60d56e23760b212b78f10e41c4a7f73cd345969e2031df6a9813e6b8e4e692a6"
+    }
+  ],
+  "decoder": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "pillowVersion": "12.3.0",
+    "pillowZlibVersion": "1.3.1",
+    "stdlibZlibVersion": "1.3.2",
+    "stdlibZlibRuntimeVersion": "1.3.2",
+    "artifacts": [
+      {
+        "path": "/workspace/web-lol-ahri-w-particles/tools/assets/ahri_q_decode.py",
+        "bytes": 4541,
+        "sha256": "f4f6fac1569574497a79f48444dfd87e9d6bad18727ba42454c7679a7980c523"
+      },
+      {
+        "path": "/workspace/web-lol-ahri-w-particles/tools/assets/masteryi_q_decode.py",
+        "bytes": 7372,
+        "sha256": "552f2cf9a0cb552a97332a142bbea6f25a3b0e2c2974359a58659a2c17517ecd"
+      },
+      {
+        "path": "/workspace/web-lol/.tools/cdtb/cdtb/export.py",
+        "bytes": 34168,
+        "sha256": "225ce9d8fb41dc36a17342a7a86dbfc4d5dae51f80316e6a8f065ea878972096"
+      },
+      {
+        "path": "/workspace/web-lol/.tools/cdtb-venv/lib/python3.12/site-packages/PIL/__init__.py",
+        "bytes": 2035,
+        "sha256": "7361b6ad3878589affe5956e4a4da24d71398b0891fd3a8c15e9362217b4ca01"
+      },
+      {
+        "path": "/workspace/web-lol/.tools/cdtb-venv/lib/python3.12/site-packages/PIL/Image.py",
+        "bytes": 153786,
+        "sha256": "04af3f2db7ffdd61e829fa7aa8f5481d394a0a4129a8fd8aa5b13908928fcd6d"
+      },
+      {
+        "path": "/workspace/web-lol/.tools/cdtb-venv/lib/python3.12/site-packages/PIL/DdsImagePlugin.py",
+        "bytes": 19101,
+        "sha256": "85cf455296d054ac95c971d03cd3a8ea245cba2d1138b495d3533c2333f09050"
+      },
+      {
+        "path": "/workspace/web-lol/.tools/cdtb-venv/lib/python3.12/site-packages/PIL/PngImagePlugin.py",
+        "bytes": 52399,
+        "sha256": "5911ebb3c8e58edf4fccace85ade20c3a062cc41dc55340bfb7b40f0bf1861c5"
+      },
+      {
+        "path": "/workspace/web-lol/.tools/cdtb-venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-x86_64-linux-gnu.so",
+        "bytes": 3402345,
+        "sha256": "94310f4a073e9773a067df88513804649f50a974f78bd85a52c52d21170783f2"
+      },
+      {
+        "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+        "bytes": 30894944,
+        "sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7"
+      }
+    ]
+  },
+  "textures": [
+    {
+      "source": {
+        "path": "assets/characters/ahri/skins/base/particles/ahri_base_q_orbedge.tex",
+        "wadPathHash": "844ecc31f57fb2a5",
+        "sha256": "1e8cf9a517034f4f3c6061b3294410d013904e1095221c703ea5d614942b95e5",
+        "bytes": 43716
+      },
+      "width": 256,
+      "height": 256,
+      "format": 10,
+      "hasMipmaps": true,
+      "headerHex": "5445580000010001010a0001",
+      "levels": [
+        {
+          "level": 0,
+          "width": 256,
+          "height": 256,
+          "sourceOffset": 10948,
+          "sourceBytes": 32768,
+          "sourceSha256": "53096cf193c1fa9b6b6403ba6754cca4c66b542d8ff58ab791a2901efe6bc4aa",
+          "path": ".cache/ahri-e-additional-particles-decoded-v1/textures/844ecc31f57fb2a5-mip0.png",
+          "bytes": 27329,
+          "sha256": "361217e6d6f5b3e458a541101620a44644d07ab194ba4f7d5784e43e69f78fc8",
+          "rgbaSha256": "b8b4d0524449d7481bdb4bf7440a910878ecee2eda0f88403b9c5c140bc6350d",
+          "minimumAlpha": 255,
+          "maximumAlpha": 255,
+          "transparentPixels": 0,
+          "opaquePixels": 65536
+        },
+        {
+          "level": 1,
+          "width": 128,
+          "height": 128,
+          "sourceOffset": 2756,
+          "sourceBytes": 8192,
+          "sourceSha256": "b053994cc6de824b758252bbe36d3c66b1283dac93c5ab18fb8b043b08a6d176",
+          "path": ".cache/ahri-e-additional-particles-decoded-v1/textures/844ecc31f57fb2a5-mip1.png",
+          "bytes": 9407,
+          "sha256": "3b95cb03204cfd68849f2531a060d9758216b2a604869a559c2efbb2e98fa211",
+          "rgbaSha256": "5eb15db315561330984df8ca582b27eb8d981791f9953202a61f63c5aa2706e6",
+          "minimumAlpha": 255,
+          "maximumAlpha": 255,
+          "transparentPixels": 0,
+          "opaquePixels": 16384
+        },
+        {
+          "level": 2,
+          "width": 64,
+          "height": 64,
+          "sourceOffset": 708,
+          "sourceBytes": 2048,
+          "sourceSha256": "ecedda9fa1bb018b23e0750e4aa2acbdcb29db26dbbbe26b93ec0ea485215bb0",
+          "path": ".cache/ahri-e-additional-particles-decoded-v1/textures/844ecc31f57fb2a5-mip2.png",
+          "bytes": 3324,
+          "sha256": "51d5a3436a83fad3d6e134d7b934451ed29b4a5bbdcc686095e8f24828c9757e",
+          "rgbaSha256": "acd38440768106a15c91f5b230a5636fb9cde0ca5a453cc305c7730e85d4cf8f",
+          "minimumAlpha": 255,
+          "maximumAlpha": 255,
+          "transparentPixels": 0,
+          "opaquePixels": 4096
+        },
+        {
+          "level": 3,
+          "width": 32,
+          "height": 32,
+          "sourceOffset": 196,
+          "sourceBytes": 512,
+          "sourceSha256": "a806b22ddd73346822325d9c8cffbfa26e77ec672a66e9ba0d69b343203c42de",
+          "path": ".cache/ahri-e-additional-particles-decoded-v1/textures/844ecc31f57fb2a5-mip3.png",
+          "bytes": 1156,
+          "sha256": "35d390ea8ebff0ae32b45b96d3c587b2223b5955db9338828f90f4d5d9468de2",
+          "rgbaSha256": "7b9940cc267600d4ce2909e35109bf5a9f8a4cc46c975b0cf3d31d10e446632b",
+          "minimumAlpha": 255,
+          "maximumAlpha": 255,
+          "transparentPixels": 0,
+          "opaquePixels": 1024
+        },
+        {
+          "level": 4,
+          "width": 16,
+          "height": 16,
+          "sourceOffset": 68,
+          "sourceBytes": 128,
+          "sourceSha256": "f0816f9e1c1636bbc701f076a3d28b036c696d00b6e9be1524909b2ad0e3b3f1",
+          "path": ".cache/ahri-e-additional-particles-decoded-v1/textures/844ecc31f57fb2a5-mip4.png",
+          "bytes": 449,
+          "sha256": "d4aa26886170dd5e152b04a9cecacfa5d438fb38f2ba3f7e2ac78f8cb4e374b0",
+          "rgbaSha256": "ddd23f715194c27ca98a99791ec1e65df7c11350e8621910b31d39b167586921",
+          "minimumAlpha": 255,
+          "maximumAlpha": 255,
+          "transparentPixels": 0,
+          "opaquePixels": 256
+        },
+        {
+          "level": 5,
+          "width": 8,
+          "height": 8,
+          "sourceOffset": 36,
+          "sourceBytes": 32,
+          "sourceSha256": "df61307bfe1aaa2f3b647b6ec69870532d7d0fa62f8f9fd22a00362705d782d5",
+          "path": ".cache/ahri-e-additional-particles-decoded-v1/textures/844ecc31f57fb2a5-mip5.png",
+          "bytes": 200,
+          "sha256": "2b9f9d564de05b016cec8b43a0dac84d2f66d8bb78e006f18b3fc1ccf4c32f20",
+          "rgbaSha256": "fa26cf5099d665145899025a900bc1f83b5c8e317c23f7f9601d2dd0cec157ca",
+          "minimumAlpha": 255,
+          "maximumAlpha": 255,
+          "transparentPixels": 0,
+          "opaquePixels": 64
+        },
+        {
+          "level": 6,
+          "width": 4,
+          "height": 4,
+          "sourceOffset": 28,
+          "sourceBytes": 8,
+          "sourceSha256": "fec3d47f9311be6855d88d8f6dcdc6f18b48a672b1c1e0574f5fee8d5166fbfb",
+          "path": ".cache/ahri-e-additional-particles-decoded-v1/textures/844ecc31f57fb2a5-mip6.png",
+          "bytes": 107,
+          "sha256": "92ccfb6a42ccd9d0df881e701241fb56a93d5715a7a4c7b66f0a34123f2404e1",
+          "rgbaSha256": "9bbbd1246f1cb2843db3f691b176ec098e04db5a5354a0eb5d8310ac945b865f",
+          "minimumAlpha": 255,
+          "maximumAlpha": 255,
+          "transparentPixels": 0,
+          "opaquePixels": 16
+        },
+        {
+          "level": 7,
+          "width": 2,
+          "height": 2,
+          "sourceOffset": 20,
+          "sourceBytes": 8,
+          "sourceSha256": "d1fd9a24e78fe2ddf5d5df41a255164618e864bc1bf9e9d0bbf274d5ebb74546",
+          "path": ".cache/ahri-e-additional-particles-decoded-v1/textures/844ecc31f57fb2a5-mip7.png",
+          "bytes": 77,
+          "sha256": "955484c63d04db6b03cc5a214578f4894454d263456141985e58a184ed9cda5f",
+          "rgbaSha256": "fe49c6b426ca16e4acc839cb64c569c07bfcdf3c83ac6bea098522b8e53a1d0b",
+          "minimumAlpha": 255,
+          "maximumAlpha": 255,
+          "transparentPixels": 0,
+          "opaquePixels": 4
+        },
+        {
+          "level": 8,
+          "width": 1,
+          "height": 1,
+          "sourceOffset": 12,
+          "sourceBytes": 8,
+          "sourceSha256": "3a210f2d92cf5a9427e019e79050d4930ca9f8193f1a60d2feff21554d0b69e0",
+          "path": ".cache/ahri-e-additional-particles-decoded-v1/textures/844ecc31f57fb2a5-mip8.png",
+          "bytes": 70,
+          "sha256": "5eea2708fc4a5acceed1c7cf40982dd919c47b48376300b115e43767d6544395",
+          "rgbaSha256": "6ae9370cc4b62ea311db7b638b33fd861885201d9fbe29036ff66634c8ff6577",
+          "minimumAlpha": 255,
+          "maximumAlpha": 255,
+          "transparentPixels": 0,
+          "opaquePixels": 1
+        }
+      ]
+    },
+    {
+      "source": {
+        "path": "assets/characters/ahri/skins/base/particles/aura_self.tex",
+        "wadPathHash": "ab063466c69201be",
+        "sha256": "41241eafa700d7aa8a280bc7d943c090005324d146d33777a5b8b4bda3ab977b",
+        "bytes": 21884
+      },
+      "width": 128,
+      "height": 128,
+      "format": 12,
+      "hasMipmaps": true,
+      "headerHex": "5445580080008000010c0001",
+      "levels": [
+        {
+          "level": 0,
+          "width": 128,
+          "height": 128,
+          "sourceOffset": 5500,
+          "sourceBytes": 16384,
+          "sourceSha256": "3423332b2ecbd138967c65a6c67df7621033be2414ef37eab76e2f00f57ec031",
+          "path": ".cache/ahri-e-additional-particles-decoded-v1/textures/ab063466c69201be-mip0.png",
+          "bytes": 5023,
+          "sha256": "8f4cae2c46e539fd3b33d06277384485d9eba2526b48dd8221efba561291c56b",
+          "rgbaSha256": "99424f5b612c9431e432d0d51d08dd45c8fcb2b0191586392dcfc3b208b46845",
+          "minimumAlpha": 0,
+          "maximumAlpha": 255,
+          "transparentPixels": 7637,
+          "opaquePixels": 1
+        },
+        {
+          "level": 1,
+          "width": 64,
+          "height": 64,
+          "sourceOffset": 1404,
+          "sourceBytes": 4096,
+          "sourceSha256": "869a10e799813f9320a503f540670097c2a30ddf8fe2173712ddb4030a8f2450",
+          "path": ".cache/ahri-e-additional-particles-decoded-v1/textures/ab063466c69201be-mip1.png",
+          "bytes": 1789,
+          "sha256": "faecf2b5397af71bfa58271ea8b6d48b2cfd452b7d8ea01ed68d687ca97f0cf1",
+          "rgbaSha256": "b0d03a8bcaf8295dd54f0037d0d96dc69a490d57789c3dbdbad27e623989f966",
+          "minimumAlpha": 0,
+          "maximumAlpha": 253,
+          "transparentPixels": 1886,
+          "opaquePixels": 0
+        },
+        {
+          "level": 2,
+          "width": 32,
+          "height": 32,
+          "sourceOffset": 380,
+          "sourceBytes": 1024,
+          "sourceSha256": "3618d348427280c118f31b5d095bb1733d3fb77479b4c59257e5e02a3864ff79",
+          "path": ".cache/ahri-e-additional-particles-decoded-v1/textures/ab063466c69201be-mip2.png",
+          "bytes": 679,
+          "sha256": "14949dd0139cfd7915fcf0a75316812d449fad438f9f831242dfc2014553c0fb",
+          "rgbaSha256": "2341983c0bb3c7ef91e8511cd9004b2bae2c46e0c8ed820c4787f0bd2ddc148e",
+          "minimumAlpha": 0,
+          "maximumAlpha": 249,
+          "transparentPixels": 482,
+          "opaquePixels": 0
+        },
+        {
+          "level": 3,
+          "width": 16,
+          "height": 16,
+          "sourceOffset": 124,
+          "sourceBytes": 256,
+          "sourceSha256": "360ac9ea82f68cae8329c3350abb37cc4a47a0c45dc157500e5750b85dfa5fb5",
+          "path": ".cache/ahri-e-additional-particles-decoded-v1/textures/ab063466c69201be-mip3.png",
+          "bytes": 268,
+          "sha256": "d4b4b35b3b67d80a0f70e98589dc9cb9a06f9e8f0431a608b780d4f5b20d31d0",
+          "rgbaSha256": "98fa3df5a89ce71bb63dbf74e55f3d70a6455cc48d406e8146615fa7a9eab81d",
+          "minimumAlpha": 0,
+          "maximumAlpha": 240,
+          "transparentPixels": 130,
+          "opaquePixels": 0
+        },
+        {
+          "level": 4,
+          "width": 8,
+          "height": 8,
+          "sourceOffset": 60,
+          "sourceBytes": 64,
+          "sourceSha256": "92c202c77b94f83a3c9111c7def4e76d5b2ad9513efa017381a0cb6c6c6e52ce",
+          "path": ".cache/ahri-e-additional-particles-decoded-v1/textures/ab063466c69201be-mip4.png",
+          "bytes": 147,
+          "sha256": "0503f1644359d15f70dc1e0b5de18f7602fa31f216211a65266c87e37eac09ff",
+          "rgbaSha256": "a20e5ef18ecc84d4facf6fd6b68aa0bbe84b2c0c2903bbbbcc6eb02d71737326",
+          "minimumAlpha": 0,
+          "maximumAlpha": 216,
+          "transparentPixels": 32,
+          "opaquePixels": 0
+        },
+        {
+          "level": 5,
+          "width": 4,
+          "height": 4,
+          "sourceOffset": 44,
+          "sourceBytes": 16,
+          "sourceSha256": "f37ca4286f9f2d41b4e65b2ffda53a5cdf89ee01f3c6bbd5b64a097c884ea1b5",
+          "path": ".cache/ahri-e-additional-particles-decoded-v1/textures/ab063466c69201be-mip5.png",
+          "bytes": 91,
+          "sha256": "f309ae1ff6beb00d612054f293d76ea2cd98be38e2b0d7b0bd67c89c49e50b9d",
+          "rgbaSha256": "0416f947c028535d7780f3ee0a7ae479473f3e6b007b592227a54325ece2be2a",
+          "minimumAlpha": 1,
+          "maximumAlpha": 143,
+          "transparentPixels": 0,
+          "opaquePixels": 0
+        },
+        {
+          "level": 6,
+          "width": 2,
+          "height": 2,
+          "sourceOffset": 28,
+          "sourceBytes": 16,
+          "sourceSha256": "8c3033214d8546c6526f0fb24dbebd5d57f3813f8a390204ab027156c21d6d99",
+          "path": ".cache/ahri-e-additional-particles-decoded-v1/textures/ab063466c69201be-mip6.png",
+          "bytes": 78,
+          "sha256": "ee6f793e99a81d68671760f34191809d9094ef8a5f388cd8b7f1c2840aab21d4",
+          "rgbaSha256": "0d1d5691322f7c866250161279c9fa34ddc5ae6138776370ec1cb6482579d9d5",
+          "minimumAlpha": 55,
+          "maximumAlpha": 55,
+          "transparentPixels": 0,
+          "opaquePixels": 0
+        },
+        {
+          "level": 7,
+          "width": 1,
+          "height": 1,
+          "sourceOffset": 12,
+          "sourceBytes": 16,
+          "sourceSha256": "a891c38a183bdcb8f6712365f18343d1fa1492d71c7ad3c0717552ace3f2fb1b",
+          "path": ".cache/ahri-e-additional-particles-decoded-v1/textures/ab063466c69201be-mip7.png",
+          "bytes": 70,
+          "sha256": "4b7380252783e9c27a136d1d210fafa22c4abd4d2ffc998306b3e4bf4fa07634",
+          "rgbaSha256": "c9c43f8580fbe76401f468ba2a76247909b99bdc19d8370f3d1b5d796c8b3bd4",
+          "minimumAlpha": 57,
+          "maximumAlpha": 57,
+          "transparentPixels": 0,
+          "opaquePixels": 0
+        }
+      ]
+    }
+  ],
+  "meshes": [],
+  "limits": [
+    "Canonical Pillow BC1-with-alpha/BC3 software decode; no native GPU appearance certification.",
+    "Every authored mip retains its compressed identity, dimensions and straight RGBA pixels; no resized/generated mips, gamma conversion or premultiplication.",
+    "SCB 3.2 flag-2 points, indices, face UV/material bytes, optional vertex BGRA/RGBA, bounds and pivot remain byte-exact. No normals, reflection, winding, unit scale or pivot offset is applied.",
+    "Private decode only; no public assets, runtime history, renderer or callback bindings."
+  ]
+}

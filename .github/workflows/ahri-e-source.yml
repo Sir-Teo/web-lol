@@ -1,0 +1,51 @@
+name: Ahri E portable native reading
+on:
+  push:
+    paths:
+      - '.github/workflows/ahri-e-source.yml'
+      - 'tools/assets/*ahri*e*'
+      - 'tools/assets/masteryi*.py'
+      - 'tools/qa/ahri-e-*.test.mjs'
+      - 'docs/reference/ahri/character.*'
+      - 'docs/reference/ahri/names.json'
+      - 'docs/reference/ahri-model.json'
+      - 'docs/reference/ahri/mesh-submeshes.bin'
+      - 'docs/reference/ahri-materials.json'
+      - 'public/assets/models/ahri-base.glb'
+      - 'docs/reference/ahri/e-*.json'
+  pull_request:
+    paths:
+      - '.github/workflows/ahri-e-source.yml'
+      - 'tools/assets/*ahri*e*'
+      - 'tools/assets/masteryi*.py'
+      - 'tools/qa/ahri-e-*.test.mjs'
+      - 'docs/reference/ahri/character.*'
+      - 'docs/reference/ahri/names.json'
+      - 'docs/reference/ahri-model.json'
+      - 'docs/reference/ahri/mesh-submeshes.bin'
+      - 'docs/reference/ahri-materials.json'
+      - 'public/assets/models/ahri-base.glb'
+      - 'docs/reference/ahri/e-*.json'
+jobs:
+  portable-reading:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify complete native producer joins without decoder tools or private caches
+        run: |
+          python3 tools/assets/read-ahri-e-bindings.py --check
+          python3 tools/assets/test-ahri-e-bindings.py
+          python3 -O tools/assets/test-ahri-e-bindings.py
+      - name: Verify complete profile reading without private assets
+        run: |
+          python3 tools/assets/prepare-ahri-e-profiles.py --verify-reading
+          python3 tools/assets/test-ahri-e-profiles.py
+          python3 -O tools/assets/test-ahri-e-profiles.py
+      - name: Verify retained attached selectors and missing-selection metadata
+        run: |
+          python3 tools/assets/read-ahri-e-attached-bindings.py --check
+          python3 tools/assets/test-ahri-e-attached-bindings.py
+          python3 -O tools/assets/test-ahri-e-attached-bindings.py
