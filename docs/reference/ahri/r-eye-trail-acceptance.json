@@ -1,0 +1,1316 @@
+{
+  "format": 1,
+  "scope": "Accepted 21 Spirit Rush spell profiles plus two finite eye-glow and two periodic eye-trail profiles on both explicit native eye bones",
+  "applicationRevision": "69a05a865069face8bcbc7826d02a87d1b80363e",
+  "schema": 181,
+  "ruleset": "0cbdb13a8ae7a5bdbd1ff2dba9d8798fa486c7a4f003a3fe14cba6eab32fe8c9",
+  "compatibilityFiles": 691,
+  "profiles": {
+    "published": 55,
+    "selectedSpellProfiles": 21,
+    "selectedBuffProfiles": 4,
+    "eyeInstances": 2,
+    "deferredNoise": 2,
+    "deferredPersistent": 12,
+    "unjoined": 16
+  },
+  "selectedAssets": {
+    "textures": 28,
+    "meshes": 1,
+    "newRTextureRequests": 7,
+    "additionalSharedWTextureRequests": 1,
+    "borrowedEyeTextureRequests": 1,
+    "additionalEyeTextureLoads": 0
+  },
+  "fullUnit": {
+    "passed": 9468,
+    "total": 9470,
+    "files": 593,
+    "knownFailures": [
+      "missing historical Leona reader archive",
+      "Lux sampler FMA golden mismatch"
+    ]
+  },
+  "nodeQaPassed": 263,
+  "focused": {
+    "tests": 279,
+    "files": 22
+  },
+  "acceptedSpellPacketsRetained": 72,
+  "cleanExport": {
+    "format": 1,
+    "result": "passed",
+    "revision": "2cfece301e465bbb2ae6ba9f4eeb63b5ee736887",
+    "verifiedCommittedFiles": 5565,
+    "commandsPassed": 87,
+    "testExecutions": 1240,
+    "fileExecutions": 146,
+    "uniqueCounts": false,
+    "scope": "All committed export blobs verified before removing only the disposable export; native inputs, frozen cohorts, traces and retained packs preserved.",
+    "disposableExportRemoved": true
+  },
+  "rBrowser": {
+    "distinctCasesPassed": 8,
+    "originalBatchPassed": 8,
+    "additionalPixelProbePassed": 1,
+    "framebufferChangedPixels": {
+      "47": 16362,
+      "48": 11695
+    },
+    "worldUnchangedDuringProbe": true
+  },
+  "naturalMatch": {
+    "completeProjectionMatches": 45,
+    "excludedFields": [
+      "version",
+      "ruleset"
+    ],
+    "roundTrips": 44,
+    "futureChecks": 43,
+    "finalTick": 157116,
+    "victory": "blue",
+    "futureTicks": 2580
+  },
+  "pack": {
+    "result": "passed",
+    "pack": "c917c445497555cb0b904de1256309ade936c28bcfc9fb3e863f59ad77887f30",
+    "files": 1432,
+    "bytes": 581128356,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "publicAudioPreserved": {
+    "files": 334,
+    "bytes": 96632632,
+    "ahriMasters": 76
+  },
+  "currentHundredSeedGatePassed": false,
+  "roadmapMilestoneFourComplete": false,
+  "projectComplete": false,
+  "evidence": [
+    {
+      "path": "artifacts/ahri-r-eye-trail-application-identity-v1.json",
+      "bytes": 396517,
+      "sha256": "a3d5ba99cca21ddfb2d56fc0efba551e6759a654b63920d49935b922230629d9"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-archive-dedup-driver-v1.log",
+      "bytes": 89,
+      "sha256": "8fee3bd4558af83601f467d8bbbed9b7d909f445e139b17c8bcce9a52985811b"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-audio-preservation-v1.json",
+      "bytes": 60453,
+      "sha256": "0e545bc28fee5b7fe8e72d14cc3f489c9b5e52d05c34e26ccb54c86a04b80852"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-baselines-types-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-baselines-v1.log",
+      "bytes": 200,
+      "sha256": "ac84dafa872c958bb636cf79079e891c3512bfb0b5bded24a16f555a5f9b910a"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-format-v1.log",
+      "bytes": 35,
+      "sha256": "6e576cca91a1727a1b9cb76596d9af992903c00da5fb8c7aa061195d79b75434"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-charm-audio-Charm-sou-6df4d-gh-contact-mute-and-restore/audio-evidence.json",
+      "bytes": 3563,
+      "sha256": "c80b6ae7fad55018193201f4e835bb47c28d44f9544468488c4f529a06e35352"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-charm-audio-Charm-sou-6df4d-gh-contact-mute-and-restore/charm-contact.png",
+      "bytes": 817181,
+      "sha256": "93cde9d296bdcb88c360ecbac84cbc741fedbbd8e3b4ac9d58529b1f64d3bdfa"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-charm-audio-native-We-bfaf2-d-original-Exp1-seek-domain/envelope-evidence.json",
+      "bytes": 409,
+      "sha256": "4bca156ceb029eadc1d424e9144dc69f3f3affb76cecba1e3204414217c07ef2"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-e-Charm-control-survi-b6d33--Save-match-and-reload-path/ahri-e-control-reload.json",
+      "bytes": 584982,
+      "sha256": "d42b4fca19b0fd15926d88d53d144867ccb816fabb9e959a880a9fae06c6e827"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-e-Charm-flight-surviv-e6d4a--Save-match-and-reload-path/ahri-e-flight-reload.json",
+      "bytes": 520164,
+      "sha256": "fcfd3a5da34b4ab6f1e65c89d8d3259cd27230992b2e142e8ac0b1628b562f45"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-e-Charm-renders-its-s-8d33e-sile-and-forced-walk-status/ahri-e-controlled.png",
+      "bytes": 838198,
+      "sha256": "5d217ab0641903c1e7e87040dd12ed6f312da41171dfd9230bd8ce0a078c1110"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-e-Charm-renders-its-s-8d33e-sile-and-forced-walk-status/ahri-e-flight.png",
+      "bytes": 819581,
+      "sha256": "26c82e2ad9afa5a12f062d14ea0511fce038d91c81fcf00570b972b43317d355"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-e-Charm-renders-its-s-8d33e-sile-and-forced-walk-status/ahri-e.json",
+      "bytes": 294381,
+      "sha256": "fcfb0460ba17625af36ece4b3d01f7238d77ef06d4a107a4ce81c14fabc1ad2f"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-e-Charm-windup-surviv-fa9c5--Save-match-and-reload-path/ahri-e-windup-reload.json",
+      "bytes": 480605,
+      "sha256": "d38958150914a1784c6d186fe2f1389abd1d18dcef1baf841d162d2b1af616f9"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-e-particles-a-genuine-377ae--replaying-hidden-cast-skin/ahri-e-hidden-entry.json",
+      "bytes": 404,
+      "sha256": "5eab2ceab01e4f25c80848450ee5fc717a320e088b5e1640308a1bcf5b540c2f"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-e-particles-committed-2ae82-victory-without-World-steps/ahri-e-flash-death-terminal.json",
+      "bytes": 408,
+      "sha256": "b909c032641c183cc8bf9feb473a97008f82a12d49c16eae600aae55e5da4ae1"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-e-particles-keyboard--db11b-t-hit-and-both-buff-packets/ahri-e-cast.png",
+      "bytes": 762791,
+      "sha256": "f2adb9d39ea38d3fa40364ef81dd14e3ae716accecc576fe774917b770da6487"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-e-particles-keyboard--db11b-t-hit-and-both-buff-packets/ahri-e-control.png",
+      "bytes": 765758,
+      "sha256": "4c3141fad05982312ee4cae2bc780408aac2bf35c61c05b9ff3f589ab8ae57ee"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-e-particles-keyboard--db11b-t-hit-and-both-buff-packets/ahri-e-flight.png",
+      "bytes": 770395,
+      "sha256": "2e4aad25dbaf9faeb06d6d952bb62224dcf9c22bc5e00ce7b65ee29ed63e884f"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-e-particles-keyboard--db11b-t-hit-and-both-buff-packets/ahri-e-hit.png",
+      "bytes": 781670,
+      "sha256": "90301c8b1edbeb7bab6d1a4796eeb71c01382d7ad2b33d0a96559db8835ea765"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-e-particles-keyboard--db11b-t-hit-and-both-buff-packets/ahri-e-packets.json",
+      "bytes": 662188,
+      "sha256": "a09aa24a3aa7f4a6e08c7c487cacab10289e4514cd12903920bbb8accfa42fe6"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-q-cast-particles-keyb-1cf75-nd-restorable-finite-clocks/ahri-q-cast-all-three.png",
+      "bytes": 798156,
+      "sha256": "bec07ca36b3f7c668b36e036149a87f5de35893ec5a0c0c2c9171d0fca59284f"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-q-cast-particles-keyb-1cf75-nd-restorable-finite-clocks/ahri-q-cast-tails.png",
+      "bytes": 801388,
+      "sha256": "2bd694fdb860d249d4a993026246378c075279354bbe238d42961c0288854987"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-q-cast-particles-keyb-1cf75-nd-restorable-finite-clocks/evidence.json",
+      "bytes": 7152,
+      "sha256": "e6ed67de1321627d46b50d6222f7393f07d56f2f405673b9218d21db840f23b9"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-q-cast-particles-real-8d552-ash-then-finish-after-death/visibility-flash-death.json",
+      "bytes": 265,
+      "sha256": "024dec83e9449e91dfb49f121a4548ff6240f7e7f989bc78b8fa78df932c6706"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-q-projectiles-a-genui-76c06-playing-unseen-trail-births/hidden-entry.json",
+      "bytes": 321,
+      "sha256": "b6b7ca600f0ec77ec3061621e04b70bf69c7831b78568091e1642f2871e1eaa9"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-q-projectiles-keyboar-5bef7--identical-restored-packets/ahri-q-outward.png",
+      "bytes": 776276,
+      "sha256": "1b5f94086bbbb50d98cf02e19637ac5085178ae4f45d166149f0f3575918383d"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-q-projectiles-keyboar-5bef7--identical-restored-packets/ahri-q-return.png",
+      "bytes": 768443,
+      "sha256": "3f6d976da940a50364e417156ba11b1ecd11c51ff457d37637ccb277ac84b914"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-q-projectiles-keyboar-5bef7--identical-restored-packets/evidence.json",
+      "bytes": 549051,
+      "sha256": "993c44cc416b0d7d0fe967177add68ed59256c80c1744027ee9f6e799f7dcfb7"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-q-projectiles-real-re-e592d-ains-without-World-mutation/flash-death-victory.json",
+      "bytes": 537,
+      "sha256": "563c8ed9732a7dbc42d6bade26be185ff1f08b910efb5af087dd7739dfb5521e"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-spirit-rush-audio-Spi-28f6e-gh-contact-mute-and-restore/audio-evidence.json",
+      "bytes": 7791,
+      "sha256": "d687a99c16b1d4cf612dcfcd15b19cd65c60739b9435c0083da6cd097ac96f98"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-spirit-rush-audio-Spi-28f6e-gh-contact-mute-and-restore/spirit-rush-contact.png",
+      "bytes": 782863,
+      "sha256": "1cdcc44432db0f2d9b3d47b8f3b1be34789f6506369e553952272b934800ec57"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-spirit-rush-audio-nat-8bda4-out-inventing-a-source-stop/spirit-rush-loop-evidence.json",
+      "bytes": 134,
+      "sha256": "19f3d8d94d42ccb52a359152a3a95a20da59d9f906b46997ce7157a7d364c9b3"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-w-particles-a-real-pr-eb7d1-its-flight-leaves-the-brush/hidden-entry.json",
+      "bytes": 379,
+      "sha256": "8768dd896c132e74e7184cb1829e895892a4a6e218e887b349040ba36360af50"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-w-particles-committed-5aab9-drain-without-ticking-World/lifecycle.json",
+      "bytes": 378,
+      "sha256": "175662e6ee08d6d01a5207580a30ce7ddd5646acf05a6b9227d52a5c39cc47d2"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-w-particles-keyboard--7cfac-bit-flight-and-hit-drawings/ahri-w-flight.png",
+      "bytes": 806285,
+      "sha256": "982cbfc5057961716731fa18ae00cef54fe0853a62e4142c422145c7b0d8c7c0"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-w-particles-keyboard--7cfac-bit-flight-and-hit-drawings/ahri-w-orbit.png",
+      "bytes": 810642,
+      "sha256": "e7b63cba527b4c5c9319bbbb14918c7e463ba00fbce821c1684e76424ec65669"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1/ahri-w-particles-keyboard--7cfac-bit-flight-and-hit-drawings/evidence.json",
+      "bytes": 1084080,
+      "sha256": "fad1bacc01fc10167fb38c97b1bfaac41b3b42cf0ab68f8505bb64be844abb1c"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-regression-v1.log",
+      "bytes": 7306,
+      "sha256": "4d03810acc41b89267c4c6ea5b51470ff2cd5f9a05d4701ab9e17ab1170b87ee"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-v1/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-v1/ahri-r-Spirit-Rush-dash-su-0aa44--Save-match-and-reload-path/ahri-r-dash-reload.json",
+      "bytes": 555139,
+      "sha256": "647ee95659cc2b4740eb916c7f206b3e1f6cc27114f4ce9c432ca94aec333328"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-v1/ahri-r-Spirit-Rush-recast--deba6--Save-match-and-reload-path/ahri-r-recast-reload.json",
+      "bytes": 1050183,
+      "sha256": "24037f43ebe446cb3f2553c6443e553965800e949fe4b3671e1fc3d54add0ee5"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-v1/ahri-r-Spirit-Rush-recover-a936b--Save-match-and-reload-path/ahri-r-recovery-reload.json",
+      "bytes": 644094,
+      "sha256": "b71fbd319f5eadee6f2c3d3a2e5dd21f5334b1a00767c81ebab83afd96e5919d"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-v1/ahri-r-Spirit-Rush-renders-32c91-activation-and-free-recasts/ahri-r-arrived.png",
+      "bytes": 828273,
+      "sha256": "e18b211256bc0e4632fa276a462397788ec2deba534a1fe31206a58f26f4740c"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-v1/ahri-r-Spirit-Rush-renders-32c91-activation-and-free-recasts/ahri-r-dash.png",
+      "bytes": 820307,
+      "sha256": "6b4ed36e4d2dc3b1b3f7e253d91378f17a03b606ef90b2f63d37060477c46606"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-v1/ahri-r-Spirit-Rush-renders-32c91-activation-and-free-recasts/ahri-r.json",
+      "bytes": 588116,
+      "sha256": "92a403fe794d79cc4259f9a6667d2b9dd50e1b8797d10d739850c50514bd9e17"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-v1/ahri-r-particle-edges-a-ge-4bb88-out-replaying-unseen-births/ahri-r-hidden-entry.json",
+      "bytes": 446,
+      "sha256": "f889cd338944e1bfc56a33ee53c63dd218d4227bc6a1764e3414e224373fdff4"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-v1/ahri-r-particle-edges-comm-d9d8f-victory-without-World-steps/ahri-r-flash-death-terminal.json",
+      "bytes": 409,
+      "sha256": "6cb2d544c0e4aa763faef1b9cec66d1f4f405c2773ad33ab766ee6499820e88f"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-v1/ahri-r-particles-keyboard--f9848-ontact-and-flipbook-packets/ahri-r-contact.png",
+      "bytes": 799819,
+      "sha256": "fbc023e1cb5d349710b572279e59b2e2bffa16e795e5d5289c33f36e295498be"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-v1/ahri-r-particles-keyboard--f9848-ontact-and-flipbook-packets/ahri-r-eye-glows.png",
+      "bytes": 733997,
+      "sha256": "2b9431561b82f0d6bb75204cca3baba38b59a3dff70fe878efbbb415fc06a63c"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-v1/ahri-r-particles-keyboard--f9848-ontact-and-flipbook-packets/ahri-r-eye-trails.png",
+      "bytes": 608008,
+      "sha256": "e1e6938a8944d0c3fe218e3547094ff1b8a5eb92e78e24c9012f5f71d007de9c"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-v1/ahri-r-particles-keyboard--f9848-ontact-and-flipbook-packets/ahri-r-flight.png",
+      "bytes": 807338,
+      "sha256": "12532364f5e0ebc73c8655ac048cc17891efc91713158b3abfda6a65debe8b3c"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-v1/ahri-r-particles-keyboard--f9848-ontact-and-flipbook-packets/ahri-r-packets.json",
+      "bytes": 363251,
+      "sha256": "6d077896ace6dbcb0f12c55c3c0bc79b7dc8782d6bed248c14d069e33e8fbbb5"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-browser-v1.log",
+      "bytes": 2850,
+      "sha256": "c66f3b9110d9736f26546413c294850fd042f2c6abeb2ad8057b29341d1215c5"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-buffer-tests-format-v1.log",
+      "bytes": 40,
+      "sha256": "83fb86e313da5227ecede50f5e56872fd8c859147fe421f903208e18db904ea9"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-buffer-tests-v1.log",
+      "bytes": 442,
+      "sha256": "c0b427f526fecf01aecaf57885345a65711492ee6e962497a19ecab33c4ad241"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-build-dedup-v1.json",
+      "bytes": 1329,
+      "sha256": "3f779409d5b14d76b5b35d1d90761d393e6501d698ce9651b6cce01f489a17e9"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-build-v1.log",
+      "bytes": 9453,
+      "sha256": "f0dee33909673b7177b310b6a2ca5b69d4a23f9ec9fafb5d8e99073819d14ff9"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-0.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-1.log",
+      "bytes": 432,
+      "sha256": "d1e7e830b410e08d5d3e4c202d0750012e213f91e2812d9c93ae99db66ff828b"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-10.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-11.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-12.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-13.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-14.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-15.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-16.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-17.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-18.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-19.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-2.log",
+      "bytes": 126,
+      "sha256": "40aead902f47ee86083ca799462d13f1f5def3ae5feb071af6b5032aae880871"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-20.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-21.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-22.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-23.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-24.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-25.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-26.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-27.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-28.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-29.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-3.log",
+      "bytes": 125,
+      "sha256": "f5d56745cbec320ad650e983e5f2738ba279b3545edfdf1ea9dfd5a5312e45c2"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-30.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-31.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-32.log",
+      "bytes": 121,
+      "sha256": "40f5ce6e69541f463885664a266fddfa52203f20c21d128d5b734bad029983a3"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-33.log",
+      "bytes": 120,
+      "sha256": "6d0861692d21b32a8d67ec8cde87607a2347b92646c316e2ab1635735244289a"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-34.log",
+      "bytes": 118,
+      "sha256": "35bf1d90a513b8f89e439b7f91b1bd281a75d5d8d43a498c5e49c5731baa690d"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-35.log",
+      "bytes": 117,
+      "sha256": "3dbf95d2628afa080e04ceb85856fc6e6a1cdf476a6a3851e8372eddc844b3d2"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-36.log",
+      "bytes": 318,
+      "sha256": "7178b4121304a059263af2bf85f741412e0d59ef7da84f4dd577312d6b159bf0"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-37.log",
+      "bytes": 144,
+      "sha256": "e4179b487e37d19a1cf4e8cbc2758f21b3ba8a6b3f7911243e8a407d05a62988"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-38.log",
+      "bytes": 143,
+      "sha256": "096fa861aaea2028f0b1dac92c240b5f0ba1e150460f7adb36b231f55972af5b"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-39.log",
+      "bytes": 80,
+      "sha256": "d2949c6aa104cfdf7e3a4e1e45b019d3e0ef2c62e243bf66496fbd059803aaf5"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-4.log",
+      "bytes": 118,
+      "sha256": "b08e65827c7a08cae7a8c83373415a646d20c999bf8b7f7c48684023fc4faf73"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-40.log",
+      "bytes": 134,
+      "sha256": "e925324760d129660ba03c790e3a74ff5ff822a2182f224ea7af42fc490aa0d9"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-41.log",
+      "bytes": 133,
+      "sha256": "2fadac9a752ff503a6b510e879c2fa0ea5d37a969aef504b7387c9bdd869df60"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-42.log",
+      "bytes": 119,
+      "sha256": "aa7e0728e9ac2d8bfc30b0ee491768ebe2817856a570b49b7a2e97529af5c39c"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-43.log",
+      "bytes": 118,
+      "sha256": "9fd78ec78e080a4a78c955c98479fadb21a599b53690d45e24e95613408a96bb"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-44.log",
+      "bytes": 214,
+      "sha256": "c04e08e884a4d27646c74ac153a754f8fbcbbf14948182842704b21c7753c27b"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-45.log",
+      "bytes": 182,
+      "sha256": "69a04c85425a2cad461b39356efdd3a239f1b20c6721b5ae4ff6ca6e06f055f5"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-46.log",
+      "bytes": 181,
+      "sha256": "bcc0e1af30b3f4973b9a294a0eef64676f4ff8a412a1033df5ae886a5b605837"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-47.log",
+      "bytes": 253,
+      "sha256": "cc0146a9d1b6fff9734f2b99bcfe8a1bf17469fe61321455e6813e10c72e0ac4"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-48.log",
+      "bytes": 197,
+      "sha256": "1afd2534ca5f0883593b0fdc59948caef96a9082b0c7810867a64404087beea0"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-49.log",
+      "bytes": 196,
+      "sha256": "f3d20fefd665c21cd35a45a80fcb61acc9b95525dbcd4595aac4b3809e5fea00"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-5.log",
+      "bytes": 117,
+      "sha256": "277830a9736393132c0af95cee95446a745c5f7f75b6d6f54b9a6eac6babda4c"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-50.log",
+      "bytes": 228,
+      "sha256": "7084978b6316750770a688a9a6f8e8749fd58007a3c468a05719a6c406bb36d1"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-51.log",
+      "bytes": 227,
+      "sha256": "c5cc1abf027188111affdbcfbef2fe54483fc637f8d4069b38d62b02ee0a3d16"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-52.log",
+      "bytes": 286,
+      "sha256": "9e0ae06e923c615299206b20c0edaaee77ed442815cd3ba451dd4edf1ad59396"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-53.log",
+      "bytes": 204,
+      "sha256": "59ca9874f0319ceb6ba0b26fe50cce21cf596bb55d19bad9293e632ada3a25f5"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-54.log",
+      "bytes": 203,
+      "sha256": "a1a6e282ae717a10f795ae572355f795810920281ad680b62e1b46fa8fb50d26"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-55.log",
+      "bytes": 263,
+      "sha256": "161a8463f20ad62612d8f6100ba1ab2d2f08cf585a2f1c6e9bd8fef3e8b51cfc"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-56.log",
+      "bytes": 197,
+      "sha256": "8ae136a45405d811afb9d4a6e86b5329fb7d9d0200641b04b5b0b0cbfb09298d"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-57.log",
+      "bytes": 196,
+      "sha256": "922d637d1278285e2b721de01e047960e7384812d13cd31bec24f70770c1e110"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-58.log",
+      "bytes": 223,
+      "sha256": "21ba7b164678c9cbf4579dcb90f753767d4e1cffe18064ded72c9d5b78b04de8"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-59.log",
+      "bytes": 139,
+      "sha256": "30cb5a4782a50e99b914208c74e6d30fb9cc73b802d442193a4471a867f98724"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-6.log",
+      "bytes": 118,
+      "sha256": "b08e65827c7a08cae7a8c83373415a646d20c999bf8b7f7c48684023fc4faf73"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-60.log",
+      "bytes": 138,
+      "sha256": "9bea88d6b9ffe7826be1d0e2b3b184b4c95f63127369cbeacec12ab3c5d0b1ec"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-61.log",
+      "bytes": 228,
+      "sha256": "7b59fc26a6ec822cbb3187bd866d70ca84e8bc21841c78f87348f298d4703caa"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-62.log",
+      "bytes": 227,
+      "sha256": "4b619cbb2dabd48403963454575b54a3431b7c7e2f6340a78d28383b0733064a"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-63.log",
+      "bytes": 295,
+      "sha256": "f3db10bb5e2dd221c860042ddf5ce1c96e0bd3b19d15d356705d68c594ccd1d1"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-64.log",
+      "bytes": 205,
+      "sha256": "88bb453b622607b94edada60ec1bcf367aa37d414328e76551dcc77cd5d8b3a2"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-65.log",
+      "bytes": 204,
+      "sha256": "2276cb3e68a79102187d90119208f1ba20f8f5f540a86e94759bdb1c125587de"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-66.log",
+      "bytes": 253,
+      "sha256": "567215c51bf36c541bee838bb625b95f2cb0031a3921faae2eef1f048c542eb6"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-67.log",
+      "bytes": 197,
+      "sha256": "9547cee7117949ccbe42033062e125eca28ffa78eddbcce0bef92a7c564c89c8"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-68.log",
+      "bytes": 196,
+      "sha256": "14ea5630fc803a00eec81ed1f5d5c76dada72e14734ea01d77f95f31fe714839"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-69.log",
+      "bytes": 248,
+      "sha256": "af2cf05944dce609c0eb0cd374ff7a6a13d582294a5265182da71c2659629284"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-7.log",
+      "bytes": 117,
+      "sha256": "277830a9736393132c0af95cee95446a745c5f7f75b6d6f54b9a6eac6babda4c"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-70.log",
+      "bytes": 139,
+      "sha256": "30cb5a4782a50e99b914208c74e6d30fb9cc73b802d442193a4471a867f98724"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-71.log",
+      "bytes": 138,
+      "sha256": "9bea88d6b9ffe7826be1d0e2b3b184b4c95f63127369cbeacec12ab3c5d0b1ec"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-72.log",
+      "bytes": 230,
+      "sha256": "b88ca7a33de374fdf945cc825a748b1cf62a93ba92f0aa7b4004b7b3e93f1787"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-73.log",
+      "bytes": 229,
+      "sha256": "fbc9606059dd89e50ed36e3c76fe819fb2e4b988b46e79c510885950324a21d4"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-74.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-75.log",
+      "bytes": 428,
+      "sha256": "1e6d24213d4fa39141abe09e29a75f70475cbdf6513df37f61008ab5ae2b204b"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-76.log",
+      "bytes": 325,
+      "sha256": "743cc6b5eb65e1dbe9e2de598502bd9976d32befe244396d31499b8719a9fe37"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-77.log",
+      "bytes": 204,
+      "sha256": "9c5fb75ae1c2b9c06a4387d3594d63ce8819dd4fb3adc9fa9d6600c953da5d50"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-78.log",
+      "bytes": 203,
+      "sha256": "0a994daf77b66e467b0a818192affb2aee43e7314168a8a626eda16889401322"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-79.log",
+      "bytes": 245,
+      "sha256": "450f00f00e082e1e34047ea032c262f6978fd07a7f985e10c6f73b747385fe54"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-8.log",
+      "bytes": 121,
+      "sha256": "23a5151975aebfa4f688c9a38a0a1a5e16ecdbf829553970e98f303acce1e579"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-80.log",
+      "bytes": 197,
+      "sha256": "20d65e3bc1984cd74ed78dc38d89b2d305e33498f509327e4062698d60bca85a"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-81.log",
+      "bytes": 196,
+      "sha256": "5d84909721044f565f6b76a13c8621a445d5942aeea3c25f60fe64d24bcf3d63"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-82.log",
+      "bytes": 230,
+      "sha256": "2990f213a0b6ad3989166041fa087f0433a36902e7a8b97db23ff65afefaa714"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-83.log",
+      "bytes": 229,
+      "sha256": "f90bcaffb235aa0a030fc36d2458c3e458b1411ea2c915dd722f03f00f6357ca"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-84.log",
+      "bytes": 141,
+      "sha256": "d627688da4246d9bf71b74555607f6ccb82b80446ff8c23d4ea1da5d61aa5ed3"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-85.log",
+      "bytes": 150,
+      "sha256": "49118939f2c76ae188d6561a6e4e1539960bb86527e2727d4f1b96c67e593ada"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-86.log",
+      "bytes": 149,
+      "sha256": "b64a20e65e6faa5e0e0dfefa705534a6808a8406a028a0d817079d129948f5de"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-9.log",
+      "bytes": 120,
+      "sha256": "2d4bd23507d91cb112aba7b702d646dd3c1da3de1ad8406725db3fa16cb165f3"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-cleanup-v1.json",
+      "bytes": 429,
+      "sha256": "fe1dfa1eb3cd31902ab8ccba5e94dc7ab12ec010867609387d627e999fdcfce2"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-driver-v1.log",
+      "bytes": 5139,
+      "sha256": "e174023c5a4a0b6b212761976986ad4ef492c674eb47af1000d5f36d002befbe"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-clean-ci-results.json",
+      "bytes": 20210,
+      "sha256": "1f2d798b33f050e5799b82d61aa633efa4fdfedd0722731da753716ebe8c7249"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-cohort-v1.log",
+      "bytes": 1384,
+      "sha256": "07c7ee3b03fc1de75f8a011785922ab4388ccef22c62ede40ca68bbce76319dc"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-cohort-verify-v1.log",
+      "bytes": 430,
+      "sha256": "977133dc5da2f145e0c784c3fabde82180a875ba5e13f6badc0c00f83869fa51"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-connect-format-v1.log",
+      "bytes": 252,
+      "sha256": "ad2cf445929272da8a9b71ba90ce94bc948a65306c0431613306f99f61376f62"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-connect-format-v2.log",
+      "bytes": 133,
+      "sha256": "7e723c8572f147ffa7de02dcf460fc08c223b7a82046d038f8fc1af0050c00d5"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-connect-tests-v1.log",
+      "bytes": 3762,
+      "sha256": "efb8258f22c141cd3158e0037aa0b3b093686441a2ededa9d656885a89d8ed19"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-connect-tests-v2.log",
+      "bytes": 444,
+      "sha256": "31248a16fbd8dbe11ee7a49108d0411a4bed3dbca364df56a1b7d73115a4e0a1"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-connect-types-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-dedup-driver-v1.log",
+      "bytes": 1145,
+      "sha256": "973d8e024715899e04c8d2a215d721886d05541c93f3200ffe82714a5a1454ec"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-final-types-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-final-types-v2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-final-types-v3.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-fingerprint-v1.json",
+      "bytes": 91,
+      "sha256": "56b4affe609287c6855d711a4f5fa4d3f7ac14aad6a33b0053812592ad4961af"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-focused-v1.log",
+      "bytes": 392,
+      "sha256": "5844ec67a882e2dd89df3a1441252619603b7a55493d1ce76fd1a558d4f1ada0"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-front-format-v1.log",
+      "bytes": 35,
+      "sha256": "142cefbbb6d4e8537bdab925bcff1a69eeb3ff106a8702be22f907f7bb6aaa53"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-front-v2/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-front-v2/ahri-r-particles-keyboard--f9848-ontact-and-flipbook-packets/ahri-r-contact.png",
+      "bytes": 797786,
+      "sha256": "c84b69b8d37f277dc85b7f89046a4f01c9543982e26fb59d62a08f33783bcbde"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-front-v2/ahri-r-particles-keyboard--f9848-ontact-and-flipbook-packets/ahri-r-eye-glows.png",
+      "bytes": 733922,
+      "sha256": "8ea1d5e630fb78006d947b7e8f06fd7801f193acdbe4af048975492c202b0f1f"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-front-v2/ahri-r-particles-keyboard--f9848-ontact-and-flipbook-packets/ahri-r-eye-trails-front.png",
+      "bytes": 614977,
+      "sha256": "e82873fe02aaed070e32e34cc820fdcf6ea4dc703e525c84e62d303f0671e5d4"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-front-v2/ahri-r-particles-keyboard--f9848-ontact-and-flipbook-packets/ahri-r-eye-trails.png",
+      "bytes": 608009,
+      "sha256": "31175f8452afd4d74c6eb58e8a837e192bc9c38841fb1c6ae45f229a513805f5"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-front-v2/ahri-r-particles-keyboard--f9848-ontact-and-flipbook-packets/ahri-r-flight.png",
+      "bytes": 804658,
+      "sha256": "baabb42aae7966b8874572b5bf0d920209a22d71e136c5dc173e5b5afb93cffd"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-front-v2/ahri-r-particles-keyboard--f9848-ontact-and-flipbook-packets/ahri-r-packets.json",
+      "bytes": 369082,
+      "sha256": "65f88b5498132445ddb9eb285de0292edf311bc0619757926328b2cbe596a5a2"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-front-v2.log",
+      "bytes": 679,
+      "sha256": "0afda14b8a9a2462be13b2e2b9ea692659892bf2d611585ddbfc70dbd7a7cc29"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-frozen-archive-dedup-v1.json",
+      "bytes": 8055,
+      "sha256": "bdce30db1c6fad87a15c50c04a82bce2893fe6eb5e924ecb880d1326fdcc4c27"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-full-tests-v1.log",
+      "bytes": 4789,
+      "sha256": "4b246894cc118783422e8eadd94e9e514ed5bcc27e60628804911f1b814431da"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-gameplay-comparison-v1.log",
+      "bytes": 51,
+      "sha256": "f30ca3af7da38c02442afaa8630f5c66b9e2df7db7683ea64aa817fe72250930"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-image-review-v1.json",
+      "bytes": 712,
+      "sha256": "5567425c0f922640261ec8e8527691eac1a8f8c645cd056ac72140984e58561d"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-node-qa-full-v1.log",
+      "bytes": 20581,
+      "sha256": "c3e66823975ff6cfecfbad53e62768c33665515c2f5ea77d4d65412ded6a6c13"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-offline-driver-v1.log",
+      "bytes": 870,
+      "sha256": "4da152397cab46f638c99e39d631af906c83e0425065c4dbb8b5a8b7e46f31e3"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-pack-after-delivery-v1.json",
+      "bytes": 213,
+      "sha256": "9cce8dd447a2c2988884b5450495dfb6f38dd71d101ad95599ef78f545db7036"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-pack-after-production-v1.json",
+      "bytes": 213,
+      "sha256": "9cce8dd447a2c2988884b5450495dfb6f38dd71d101ad95599ef78f545db7036"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-pack-before-dedup-v1.json",
+      "bytes": 213,
+      "sha256": "9cce8dd447a2c2988884b5450495dfb6f38dd71d101ad95599ef78f545db7036"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-pack-v1.json",
+      "bytes": 213,
+      "sha256": "9cce8dd447a2c2988884b5450495dfb6f38dd71d101ad95599ef78f545db7036"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-pixels-format-v1.log",
+      "bytes": 35,
+      "sha256": "185ab9108f702b0ed35b56ebd1f5e91fc39caa4b0eee7cd1ae3d7e5e477f5bd7"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-pixels-v3/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-pixels-v3/ahri-r-particles-keyboard--f9848-ontact-and-flipbook-packets/ahri-r-contact.png",
+      "bytes": 799991,
+      "sha256": "343b54a1acaa76dd98e291c4ce93dc1ee0040c3173a11413654a18114ad27567"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-pixels-v3/ahri-r-particles-keyboard--f9848-ontact-and-flipbook-packets/ahri-r-eye-glows.png",
+      "bytes": 733893,
+      "sha256": "7de487eb3ae4d269dfe63a7fc9c26af28817336550ea5b72512493e30d0fd772"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-pixels-v3/ahri-r-particles-keyboard--f9848-ontact-and-flipbook-packets/ahri-r-eye-trail-47.png",
+      "bytes": 610675,
+      "sha256": "26aaf58dc82483e57a93a5ddd219ddc3bdcf6781306d449cc82f49c55d13be99"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-pixels-v3/ahri-r-particles-keyboard--f9848-ontact-and-flipbook-packets/ahri-r-eye-trail-48.png",
+      "bytes": 608985,
+      "sha256": "596c1086c455edcfe26f34b85ce4d0442637353c964d0fd7774129499ec2ce9c"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-pixels-v3/ahri-r-particles-keyboard--f9848-ontact-and-flipbook-packets/ahri-r-eye-trails-off.png",
+      "bytes": 604847,
+      "sha256": "f1bee468ad910baabd3e2b45646fabb0c5d5efd48bed25a0820acd6f367191ba"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-pixels-v3/ahri-r-particles-keyboard--f9848-ontact-and-flipbook-packets/ahri-r-eye-trails-on.png",
+      "bytes": 613016,
+      "sha256": "f2f29be4c062bdb239a7e93434c2e3784c70090029bedf60bc0c87a62fefe4fb"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-pixels-v3/ahri-r-particles-keyboard--f9848-ontact-and-flipbook-packets/ahri-r-eye-trails.png",
+      "bytes": 607994,
+      "sha256": "37c15b8328fa94b3fbb5e4710a55469642b3ca8807693258d2c6ca88e17228bf"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-pixels-v3/ahri-r-particles-keyboard--f9848-ontact-and-flipbook-packets/ahri-r-flight.png",
+      "bytes": 804803,
+      "sha256": "3fb577f58c3fb0c8092d0b9315638919968a3689727077dfbb771c4144da4e68"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-pixels-v3/ahri-r-particles-keyboard--f9848-ontact-and-flipbook-packets/ahri-r-packets.json",
+      "bytes": 369403,
+      "sha256": "fd1c809ee6d38023ee018b756305faafd331b783336b93ca2ceba74835b2ca88"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-pixels-v3.log",
+      "bytes": 680,
+      "sha256": "3cf42dff8662bf1024923c84813da39e75bf4641baa922380a68c15fe62ae6f9"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-placement-format-v1.log",
+      "bytes": 116,
+      "sha256": "a48fc0ef4a38e7e21816e353c0a98e80ece0b75ff2ec395cc852234a841cff00"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-placement-tests-v1.log",
+      "bytes": 1277,
+      "sha256": "c873a298b9dc6c0edc728874d6a7a0afaa5fb591d648522b6d7643adaa842b04"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-placement-types-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-production-driver-v1.log",
+      "bytes": 3762,
+      "sha256": "cb9c32e3c378e306eab0b8b6fcddabc53ffb8e23ea84068d43fb11d054f0e2b3"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-regression-format-v1.log",
+      "bytes": 66,
+      "sha256": "3dd73db76ba58eba7a9517d9121e804431b8e456d840168e8a6f303e9e4538fe"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-retained-primary-pack-v1.json",
+      "bytes": 527,
+      "sha256": "a5772bde6e06b2dcbd05ee1d2ba0a2d9aa7788172bca7e474ace9bc53105d8f0"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-sampler-format-v1.log",
+      "bytes": 123,
+      "sha256": "0c9d04a7250d82ce3775b0a4ec6ac278261ffde27ab1039c913780e81695577d"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-sampler-format-v2.log",
+      "bytes": 83,
+      "sha256": "63be79cc59d4f60d53a27b6fce4319ae2eb969caaace4a162d2cb1f444ab509d"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-sampler-tests-v1.log",
+      "bytes": 200,
+      "sha256": "e9883b5f4bea79d06a6bdbfe97fa1bce4a7443ffcf48f2ce85916a192f0cb178"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-sampler-tests-v2.log",
+      "bytes": 200,
+      "sha256": "d151da1b616750dd65fa47de4aa9bc96a477ac24a6e9fc5b51a354987ab6436a"
+    },
+    {
+      "path": "artifacts/ahri-r-eye-trail-sampler-types-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/offline-pack-ahri-r-eye-trail-v1-lux-lanes.png",
+      "bytes": 528642,
+      "sha256": "f9174f706f93480ad05bcec86126cf507216b5af2cf4093c237619aea9139ae9"
+    },
+    {
+      "path": "artifacts/offline-pack-ahri-r-eye-trail-v1-production.json",
+      "bytes": 859,
+      "sha256": "9e45394b4ed6edebe4b5a26cd6a1f5f280ca18004509257db9168e07b01bd10e"
+    },
+    {
+      "path": "artifacts/offline-pack-ahri-r-eye-trail-v1-ready.png",
+      "bytes": 573437,
+      "sha256": "6c73c77c630549d5cbee3d10d28ebd8e5dfc3683ccf90aea279e6a99160fdd87"
+    },
+    {
+      "path": "artifacts/production-subpath-ahri-r-eye-trail-v1-companion-purchase.png",
+      "bytes": 1808777,
+      "sha256": "595d9c5b6a9a3819de833c89f2d43edf2bb6756b6ce81160d5d70f1ed51110f6"
+    },
+    {
+      "path": "artifacts/production-subpath-ahri-r-eye-trail-v1-lux-e-moving-burst.png",
+      "bytes": 1844040,
+      "sha256": "475d4ecfcf7df99c27493e7dd21165d8a0e47cbcf8860edf2c051794b17e9f41"
+    },
+    {
+      "path": "artifacts/production-subpath-ahri-r-eye-trail-v1-lux-e-source.png",
+      "bytes": 1838825,
+      "sha256": "911d24b72403e44c89277817c32c3069d442396ca0097cf67e73bc926c639fc9"
+    },
+    {
+      "path": "artifacts/production-subpath-ahri-r-eye-trail-v1-lux.png",
+      "bytes": 1820127,
+      "sha256": "c7b5fd52054f20d1df8072e5224aea225e59ddd89496dfdee7e47f23d77c1641"
+    },
+    {
+      "path": "artifacts/production-subpath-ahri-r-eye-trail-v1-oracle.png",
+      "bytes": 1820474,
+      "sha256": "5f7389deb0c819e4eee779a4a53338ef3e4a7beb7920cd06b757e78344072625"
+    },
+    {
+      "path": "artifacts/production-subpath-ahri-r-eye-trail-v1-role-match.png",
+      "bytes": 1360383,
+      "sha256": "1df9b2e3743f5ff506afaeac4985377e922054208658c3dbc56156f836bed725"
+    },
+    {
+      "path": "artifacts/production-subpath-ahri-r-eye-trail-v1-subpath.png",
+      "bytes": 1825250,
+      "sha256": "4a444d651a7540828eb9d4d983c1dad1337073ef8ed6f8b8634221361896e10b"
+    },
+    {
+      "path": "artifacts/production-subpath-ahri-r-eye-trail-v1-ward.png",
+      "bytes": 1808663,
+      "sha256": "ebf212d24c51807e4aec7d9fee652b42ce7f7305abd4f4414ef99c2f17017866"
+    },
+    {
+      "path": "artifacts/production-subpath-ahri-r-eye-trail-v1.claim",
+      "bytes": 51,
+      "sha256": "7125357f622bbb34fc4868f7d50888a0feafc95a6f62e8e33f26ed4df4f38e79"
+    },
+    {
+      "path": "artifacts/production-subpath-ahri-r-eye-trail-v1.json",
+      "bytes": 4210,
+      "sha256": "1fd13b231e7363f174acd304f92eff75a32ccab5e5e83957279c8d4c7bb95711"
+    },
+    {
+      "path": "docs/reference/ahri/r-eye-glow-packet-reference.json",
+      "bytes": 8300,
+      "sha256": "a406edefb6230922257a27d01f12144dbb5d604b34dffe2ee178b13fd353cb67"
+    },
+    {
+      "path": "docs/reference/ahri/r-eye-trail-gameplay-comparison.json",
+      "bytes": 22180,
+      "sha256": "51df36b3d0ccaee42c88fbf6c70360dfc665a307319b7f39d957ab22d76d8dc8"
+    },
+    {
+      "path": "docs/reference/ahri/r-eye-trail-policy-reading.json",
+      "bytes": 1995,
+      "sha256": "26998f45ec7f54786af4309a07faad2487aec7d2438752356aea88390b83faf8"
+    },
+    {
+      "path": "docs/reference/ahri/r-eye-trail-regression-verification.json",
+      "bytes": 9279,
+      "sha256": "ba202ade2f6be7c770c4a7812fc3b4f32b3e453b004e693e91102ac0e95ddc85"
+    },
+    {
+      "path": "docs/reference/ahri/r-eye-trail-source-delta.json",
+      "bytes": 3935,
+      "sha256": "96b4a309481bb8872b00b9addd3bb6881042d46f4643cf204f918f0aa6ba2c5e"
+    },
+    {
+      "path": "docs/reference/ahri/r-palette-field-reading.json",
+      "bytes": 2535,
+      "sha256": "630534cc1fdadeefb74c7f02d40d6f1e5cb0c5d6a2ffd7c49253a5b950bcef49"
+    },
+    {
+      "path": "docs/reference/ahri/r-render-gameplay-reference.json",
+      "bytes": 49074,
+      "sha256": "ff065908295a068955ebd2d66e66568c05ed812904587f6dfb75f9828327c006"
+    },
+    {
+      "path": "docs/reference/ahri/r-spell-packet-reference.json",
+      "bytes": 15586,
+      "sha256": "297ee009b2bb66257c5ba2afbfe4f9c6d1853f5277330186fca10cda506dd1ed"
+    },
+    {
+      "path": "docs/reference/source-default-trail-samples.json",
+      "bytes": 304813,
+      "sha256": "380471e807ba54d5d9c6761f5404e0fdfd80758f527a5fc77f698da94f6224c0"
+    },
+    {
+      "path": "tests/ahri-r-eye-glow-packet-reference.test.ts",
+      "bytes": 1765,
+      "sha256": "ab5965ee52162f2f4593fbe282ae4765816506f9496862527fad57f178ceb122"
+    },
+    {
+      "path": "tests/ahri-r-spell-packet-reference.test.ts",
+      "bytes": 1697,
+      "sha256": "7a31579e6594a69efd7bd2feac346893fb0ea723e9fb2e5b423fc1b3a457532a"
+    },
+    {
+      "path": "tools/assets/export-default-trail-samples.mjs",
+      "bytes": 5611,
+      "sha256": "ec38ee03397b878cf03d1778f6e4576836155ed0f7c98cc1f8e355aed83a2311"
+    },
+    {
+      "path": "tools/qa/ahri-r-eye-glow-packet-reference.ts",
+      "bytes": 1031,
+      "sha256": "c596b4f89376ec1c382d629ba5187d2eae516a0a7b5ba9634d8546b12d99eb21"
+    },
+    {
+      "path": "tools/qa/ahri-r-spell-packet-reference.ts",
+      "bytes": 1033,
+      "sha256": "f5c45ca395877a007839c87679ed3cd03575d6165ce98c6bfd9b19d29abc31d0"
+    },
+    {
+      "path": "tools/qa/build-ahri-r-eye-glow-packet-reference.mjs",
+      "bytes": 3228,
+      "sha256": "f9dc4089a585423fe5391537ba59f5ad26a30f3c6f7075c3b6a77579f46e9749"
+    },
+    {
+      "path": "tools/qa/build-ahri-r-spell-packet-reference.mjs",
+      "bytes": 2857,
+      "sha256": "5b20362eeead9314d277143dbe1d5a6528eb199f3aeb3e35491ee5c079c9cb95"
+    }
+  ],
+  "crossKitBrowserCasesPassed": 25,
+  "distinctBrowserCasesPassed": 33,
+  "acceptedEyeGlowPacketsRetained": 36,
+  "applicationIdentity": {
+    "result": "passed",
+    "applicationRevision": "69a05a865069face8bcbc7826d02a87d1b80363e",
+    "files": 2227
+  },
+  "verificationHead": "cbc097626ea8fa6061b6dae8cf5121e475a5caf6",
+  "browser": {
+    "distinctCasesPassed": 33,
+    "rOriginalBatchPassed": 8,
+    "additionalPixelProbePassed": 1,
+    "crossKitCasesPassed": 25,
+    "movingNativeEyeViewPassed": true
+  },
+  "productionRecordings": 32,
+  "unrequestedRPreloads": 0,
+  "offlineWorkerResponses": 978,
+  "offlineProductionErrors": 0,
+  "primaryIntegrated": false,
+  "framebufferVisibility": {
+    "profiles": {
+      "47": 16362,
+      "48": 11695
+    },
+    "worldUnchanged": true,
+    "camera": "diagnostic eye-bone camera",
+    "nativePixelEquivalence": false
+  },
+  "ribbonPolicy": {
+    "mode": "external reader default 0; ordinary walked-distance UV",
+    "smoothing": "external reader default 0; off",
+    "nativeConstructorDefaultsVerified": false,
+    "clock": "per-birth whole-second rebasing only for periodic trails",
+    "birthIdentity": "local cosmetic tick/slot ordinal, not native pool or RNG identity",
+    "cache": "bounded recent births and saved private eye poses"
+  },
+  "attachmentPolicy": {
+    "bones": [
+      "L_Eye",
+      "R_Eye"
+    ],
+    "root": "owned saved caster animation poses",
+    "bonePositionHandoff": "source-centimetre float32",
+    "orientation": "local actor-facing source adapter",
+    "producerWindow": "local mapping of observed R lifetime to the explicit HasBuff(AhriR) condition",
+    "nativeCallbackChronologyVerified": false
+  },
+  "limits": [
+    "Two historical full-suite failures remain.",
+    "Native callback/default calibration, global palette inputs and representative-device performance remain unfinished.",
+    "Software Chromium inspection does not establish native pixel equivalence.",
+    "Layout/counter producers, noise arithmetic and unjoined systems remain deferred."
+  ]
+}

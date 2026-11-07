@@ -597,3 +597,11 @@ excluding only schema/ruleset identifiers; victory remains at tick 157116.
 Simulation, content, public assets and all 334 WAV files remain exact. See the
 [trail regression record](reference/ahri/r-eye-trail-regression-verification.json).
 Production/offline delivery remains pending at this checkpoint.
+
+
+Production nested-path checks pass with 32 recordings and zero eager R particle
+preloads. Offline reload/activation passes with 978 worker responses and zero
+production errors. Pack `c917c445` stays exact after delivery: 1,432 files /
+581,128,356 bytes with the unchanged worker policy. The previous glow pack is
+retained separately. See [eye-trail acceptance](reference/ahri/r-eye-trail-acceptance.json),
+which pins 234 evidence files. Primary integration follows separately.
