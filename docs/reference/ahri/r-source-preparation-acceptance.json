@@ -1,0 +1,80 @@
+{
+  "format": 1,
+  "scope": "Accepted isolated Spirit Rush source preparation, private transports and complete profile reading only",
+  "applicationBaselineRevision": "2ee8682efddd2cc08d8a7e915c2123eb0b6ca97c",
+  "sourceRevision": "ff64783dc79d7b342f9718d8806e5b35281ed12d",
+  "schema": 180,
+  "ruleset": "d625c0ee280a60649bf4516454b529fc1da780ed163f7bf4989c2dd21515a1f4",
+  "nativeFiles": 63,
+  "nativeBytes": 3523385,
+  "resourceDeclarations": 12,
+  "nonNullSystems": 11,
+  "nullSystems": 1,
+  "emitters": 55,
+  "textures": 51,
+  "mips": 428,
+  "meshes": 4,
+  "profileCounts": {
+    "billboard": 23,
+    "quad": 13,
+    "trail": 13,
+    "mesh": 6
+  },
+  "explicitProducerReferences": 9,
+  "joinedSystems": 8,
+  "unjoinedSystems": 3,
+  "joinedEmitters": 39,
+  "nativeSourceGuards": 11,
+  "decodeGuards": 10,
+  "textureGuards": 7,
+  "meshGuards": 5,
+  "pythonGuardsNormalAndOptimized": true,
+  "cleanExportCommands": 7,
+  "focusedNodeQACases": 4,
+  "privateInputsRequiredForNativeChecks": true,
+  "portableReadingRequiresPrivateInputs": false,
+  "applicationBytesUnchanged": true,
+  "publicAssetsAdded": false,
+  "runtimeRenderingBound": false,
+  "nativeCalibrationVerified": false,
+  "remoteDispatched": false,
+  "roadmapMilestone4Complete": false,
+  "projectComplete": false,
+  "evidence": [
+    {
+      "path": "docs/reference/ahri/r-particles-source-verification.json",
+      "bytes": 2213,
+      "sha256": "0cf3f900dabaa605bd7dc9106eb5f5680cf9d4af1b503cd5439558f3cde86951"
+    },
+    {
+      "path": "docs/reference/ahri/r-particles-decode-verification.json",
+      "bytes": 1898,
+      "sha256": "00021eb9ad333bf9027ce9299659766b78589f289706ecc11ee27d6498b9890a"
+    },
+    {
+      "path": "docs/reference/ahri/r-portable-reading-verification.json",
+      "bytes": 1497,
+      "sha256": "d445efb9878dab7c727e1762786fb92f9c2d227f493ccd768c3518638e8dd13e"
+    },
+    {
+      "path": "docs/reference/ahri/r-transports-verification.json",
+      "bytes": 3088,
+      "sha256": "2ecdc8cf08d574d0e0239118f8f33d71e8e881c2bf6d7723c5a527af5b2433aa"
+    },
+    {
+      "path": "docs/reference/ahri/r-native-types-verification.json",
+      "bytes": 1222,
+      "sha256": "d974c8bbc95e67c5d7cd383df02fe679b3cab5b89b3a0c6c013917fa85d81735"
+    },
+    {
+      "path": "docs/reference/ahri/r-profiles-verification.json",
+      "bytes": 2460,
+      "sha256": "b3f3cbc54c30e84c3a18a1fca46d8cb96ac15eadced5b71a4982b91503e1acb8"
+    },
+    {
+      "path": "docs/reference/ahri/r-complete-portable-verification.json",
+      "bytes": 2533,
+      "sha256": "a2346a781dd9c3777873d9a8ab77e5d9b019b77ae329d92f68be6671381cee55"
+    }
+  ]
+}

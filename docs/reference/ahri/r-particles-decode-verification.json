@@ -1,0 +1,58 @@
+{
+  "format": 1,
+  "scope": "Private Spirit Rush authored-mip decode and byte-exact native mesh transport; no runtime changes",
+  "sourceRevision": "633d54ce772cbe958874aece59304940845bb4e3",
+  "sourcePinSha256": "3f283be14704aa77c680d2c11eb67441d8376586835e43283ae7be440c956991",
+  "textures": 51,
+  "mips": 428,
+  "meshes": 4,
+  "pngBytes": 2144485,
+  "vertices": 844,
+  "triangles": 1531,
+  "coloredMeshes": 3,
+  "uncoloredMeshes": 1,
+  "nativeMeshRoundTrip": true,
+  "regenerationMatchesFrozenRecord": true,
+  "normalGuards": 10,
+  "optimizedGuards": 10,
+  "publicAssetsAdded": false,
+  "runtimeChanged": false,
+  "nativeGpuAppearanceVerified": false,
+  "evidence": [
+    {
+      "path": "docs/reference/ahri/r-particles-decoded.json",
+      "bytes": 316414,
+      "sha256": "d9c25753b0e04e08194709fbafa272ad52003859179f41af7f92b01dcb35dde4"
+    },
+    {
+      "path": "tools/assets/decode-ahri-r-particles.py",
+      "bytes": 9917,
+      "sha256": "e90f4e29ea8bddc7479df3c4bf8d6437984aca82c8eec1c34647a9fe59cbcd89"
+    },
+    {
+      "path": "tools/assets/test-ahri-r-decode.py",
+      "bytes": 5494,
+      "sha256": "ba91b5295294c4be4f3f136fe655715ca9e7d94bcab766db86605633bd2b6669"
+    },
+    {
+      "path": "artifacts/ahri-r-decode-check-v1.log",
+      "bytes": 106,
+      "sha256": "eae1a587f3230b4f5af942178bf6dd58dd469447e063eb517bd6c3b0096cdd50"
+    },
+    {
+      "path": "artifacts/ahri-r-decode-guards-v1.log",
+      "bytes": 109,
+      "sha256": "982decd4ec3a8ebf9a749fbdb2413de6603f1b93a179d072203a671afefe0345"
+    },
+    {
+      "path": "artifacts/ahri-r-decode-guards-optimized-v1.log",
+      "bytes": 109,
+      "sha256": "0bc98ae0853f808fbc7be584270ec68dcb41bc4d496bad21999f2eb01a7d203e"
+    },
+    {
+      "path": "artifacts/ahri-r-decode-regenerate-v1.log",
+      "bytes": 107,
+      "sha256": "a1039ee6cc0015d8ad4e69ead42490c3bc5ca02a6861fb7b958b5b936aa5bb31"
+    }
+  ]
+}

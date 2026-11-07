@@ -1,0 +1,69 @@
+{
+  "format": 1,
+  "scope": "Frozen Spirit Rush native particle source only; no new runtime fields, assets or bindings",
+  "acceptedRuntimeRevision": "2ee8682efddd2cc08d8a7e915c2123eb0b6ca97c",
+  "schema": 180,
+  "ruleset": "d625c0ee280a60649bf4516454b529fc1da780ed163f7bf4989c2dd21515a1f4",
+  "referenceVersion": "16.18.8175716",
+  "systems": 11,
+  "nullResourceKeys": [
+    "Ahri_R_Transform_Out"
+  ],
+  "complexEmitters": 55,
+  "simpleEmitterArraysOmitted": true,
+  "emptyEmitterRecord": "Ahri_R_TextureSwaps",
+  "nativeFiles": 63,
+  "bins": 8,
+  "textures": 51,
+  "meshes": 4,
+  "bytes": 3523385,
+  "nativeReparse": true,
+  "normalGuards": 11,
+  "optimizedGuards": 11,
+  "restorePassed": true,
+  "privateCachesRequired": true,
+  "nativeCallbackTimingVerified": false,
+  "renderingBound": false,
+  "evidence": [
+    {
+      "path": "docs/reference/ahri/r-particles.json",
+      "bytes": 414218,
+      "sha256": "3f283be14704aa77c680d2c11eb67441d8376586835e43283ae7be440c956991"
+    },
+    {
+      "path": "tools/assets/ahri_r_particles.py",
+      "bytes": 7249,
+      "sha256": "49042d1a51bca5b92508c4e578dc7b1e05265876371a8ba5d7e62a0c4208ddb3"
+    },
+    {
+      "path": "tools/assets/extract-ahri-r-particles.py",
+      "bytes": 2318,
+      "sha256": "4dfbea6f04cf8e638dc1db286f41af395ef18b8f430e292d6e04acddbc277f5a"
+    },
+    {
+      "path": "tools/assets/test-ahri-r-particles.py",
+      "bytes": 7308,
+      "sha256": "32960892ce165ca085e1fac5ac71ca6c149ae72d3e4486106c7ee6bfc27d9ac9"
+    },
+    {
+      "path": "artifacts/ahri-r-particles-check-v1.log",
+      "bytes": 132,
+      "sha256": "84093599febcfb3ebba282fba68a24875931029084db6117d8777573bf75f0f1"
+    },
+    {
+      "path": "artifacts/ahri-r-particles-guards-v2.log",
+      "bytes": 110,
+      "sha256": "da6af45a9892c87da4977d80d4cc12dc55e895ccde6359292afc0ba8a4b234ef"
+    },
+    {
+      "path": "artifacts/ahri-r-particles-guards-optimized-v2.log",
+      "bytes": 110,
+      "sha256": "47cabf23a8ad4e1b84d40f9f8ea3a8fb04dab7c33733f5a55b25060200430abb"
+    },
+    {
+      "path": "artifacts/ahri-r-particles-restore-v1.log",
+      "bytes": 134,
+      "sha256": "0a355f89421c30c094294baedbc43730545dd0d89d2156c1aac71412df6e82b0"
+    }
+  ]
+}

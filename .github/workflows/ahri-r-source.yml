@@ -1,0 +1,38 @@
+name: Ahri R portable native reading
+on:
+  push:
+    paths:
+      - '.github/workflows/ahri-r-source.yml'
+      - 'tools/assets/*ahri*r*'
+      - 'tools/qa/ahri-r-*.test.mjs'
+      - 'docs/reference/ahri/character.*'
+      - 'docs/reference/ahri/names.json'
+      - 'docs/reference/ahri-model.json'
+      - 'docs/reference/ahri/r-*.json'
+  pull_request:
+    paths:
+      - '.github/workflows/ahri-r-source.yml'
+      - 'tools/assets/*ahri*r*'
+      - 'tools/qa/ahri-r-*.test.mjs'
+      - 'docs/reference/ahri/character.*'
+      - 'docs/reference/ahri/names.json'
+      - 'docs/reference/ahri-model.json'
+      - 'docs/reference/ahri/r-*.json'
+jobs:
+  portable-reading:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify explicit producer joins and preserve unresolved native declarations
+        run: |
+          python3 tools/assets/read-ahri-r-bindings.py --check
+          python3 tools/assets/test-ahri-r-bindings.py
+          python3 -O tools/assets/test-ahri-r-bindings.py
+      - name: Verify complete profile reading without private assets
+        run: |
+          python3 tools/assets/prepare-ahri-r-profiles.py --verify-reading
+          python3 tools/assets/test-ahri-r-profiles.py
+          python3 -O tools/assets/test-ahri-r-profiles.py

@@ -1,0 +1,370 @@
+{
+  "format": 1,
+  "producerSha256": "af1aacf4cc621c447d3cba2834ca7cc9d47add222118ac179452c4b00313ac48",
+  "helpers": [
+    {
+      "path": "tools/assets/ahri_r_profiles.py",
+      "sha256": "d2d04b55f9e9ca9163a594886c3d68d276be6b5e36f77970f2b3f9ffd2ad49dc"
+    },
+    {
+      "path": "tools/assets/ahri_q_projectile.py",
+      "sha256": "60c9247dad7e8b0990483a95e76202d93cef83f6a61e72a852daf6de90946d74"
+    },
+    {
+      "path": "tools/assets/ahri_r_particles.py",
+      "sha256": "49042d1a51bca5b92508c4e578dc7b1e05265876371a8ba5d7e62a0c4208ddb3"
+    },
+    {
+      "path": "tools/assets/ahri_q_particles.py",
+      "sha256": "303c0bc097b120237b7b63ff1236e808756a540d28ab79824f739663f49cc6e9"
+    },
+    {
+      "path": "tools/assets/masteryi_w_cast.py",
+      "sha256": "67db765dbf4c62c0cd0e5d39d99589c657d6ae826e79a9453a599e203d6d4b5e"
+    },
+    {
+      "path": "tools/assets/masteryi_w_buff.py",
+      "sha256": "30d3b7f47b7d0a3258dbf7c9394f48a35f204cf5be76fd4dc40483131b630c81"
+    },
+    {
+      "path": "tools/assets/masteryi_w_particles.py",
+      "sha256": "13bcae3e6d67d9b7004745c94372f90fda6601df02a6cbb999096f29a73fdf37"
+    },
+    {
+      "path": "tools/assets/masteryi_q_particles.py",
+      "sha256": "8373108c738d00d23c47e485b609db18464a81cf6146b608ee9d608e4e604b44"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "docs/reference/ahri/r-texture-transports.json",
+      "sha256": "07da366d77dafa832b89388bfc290643bfceb3388c43a2c58717b2ad5f72d366",
+      "bytes": 125082
+    },
+    {
+      "path": "docs/reference/ahri/r-mesh-transports.json",
+      "sha256": "c60b23b806a86331cb2e91462915f382d549525e4b0463b0ee12c3b229e5fd24",
+      "bytes": 4540
+    },
+    {
+      "path": "docs/reference/ahri/r-particle-bindings.json",
+      "sha256": "b41db6d111e161ace23ea3fe58bbda740c67129088cdf13c839aba1d428da6e9",
+      "bytes": 38415
+    },
+    {
+      "path": "docs/reference/ahri/r-native-types.json",
+      "sha256": "916507ddeb2cd0055577a915be79878442033582848e42c9bb7a3dc6d1e1b149",
+      "bytes": 165947
+    }
+  ],
+  "systems": [
+    {
+      "resourceKey": "Ahri_R_Tar",
+      "role": "joined",
+      "emitters": 11
+    },
+    {
+      "resourceKey": "Ahri_R_mis",
+      "role": "unjoined",
+      "emitters": 11
+    },
+    {
+      "resourceKey": "Ahri_R_mis_02",
+      "role": "joined",
+      "emitters": 12
+    },
+    {
+      "resourceKey": "Ahri_R_Indicator_1",
+      "role": "joined",
+      "emitters": 1
+    },
+    {
+      "resourceKey": "Ahri_R_Indicator_2",
+      "role": "joined",
+      "emitters": 2
+    },
+    {
+      "resourceKey": "Ahri_R_Indicator_3",
+      "role": "joined",
+      "emitters": 3
+    },
+    {
+      "resourceKey": "Ahri_R_Ready_Aura",
+      "role": "unjoined",
+      "emitters": 1
+    },
+    {
+      "resourceKey": "Ahri_R_TextureSwaps",
+      "role": "joined",
+      "emitters": 0
+    },
+    {
+      "resourceKey": "Ahri_R_cas",
+      "role": "unjoined",
+      "emitters": 4
+    },
+    {
+      "resourceKey": "Ahri_R_Eyes",
+      "role": "joined",
+      "emitters": 4
+    },
+    {
+      "resourceKey": "Ahri_R_Ready_tar",
+      "role": "joined",
+      "emitters": 6
+    }
+  ],
+  "bindingRequirements": {
+    "bound-object-size": 6,
+    "box-shape-dimensions": 1,
+    "distortion-scene-input": 1,
+    "emitter-lifetime": 14,
+    "emitter-period-policy": 5,
+    "falloff-dispatch": 2,
+    "field-defaults": 2,
+    "native-palette-field": 1,
+    "native-producer-dispatch": 16,
+    "noise-field-arithmetic": 2,
+    "palette-texture": 3,
+    "random-sharing": 3,
+    "soft-depth-input": 8,
+    "uv-rotation-policy": 2
+  },
+  "profile": {
+    "path": ".cache/ahri-r-profiles-v1/profiles.json",
+    "bytes": 1418590,
+    "sha256": "28ed5952a1820c71d445e6cbb06ca8490c898536278864f532330fba980670f7"
+  },
+  "uvNormalizationReference": {
+    "path": "rendering/utils/uvTransform.ts",
+    "sha256": "7d213bad1f7a4d443c0f136fedd21c433be8bc4b6822d2a2f410209efb370d0d",
+    "rule": "max(round(value), 1)",
+    "nativeConstructorVerified": false
+  },
+  "counts": {
+    "billboard": 23,
+    "mesh": 6,
+    "quad": 13,
+    "trail": 13
+  },
+  "authoredFields": [
+    "Color",
+    "EmitterPosition",
+    "FlexShapeDefinition",
+    "ParticlesShareRandomValue",
+    "SpawnShape",
+    "__type",
+    "alphaErosionDefinition",
+    "alphaRef",
+    "bindWeight",
+    "birthColor",
+    "birthDrag",
+    "birthOrbitalVelocity",
+    "birthRotation0",
+    "birthRotationalVelocity0",
+    "birthScale0",
+    "birthUVOffset",
+    "birthUvScrollRate",
+    "birthVelocity",
+    "blendMode",
+    "colorLookUpScales",
+    "colorLookUpTypeX",
+    "colorLookUpTypeY",
+    "depthBiasFactors",
+    "directionVelocityMinScale",
+    "directionVelocityScale",
+    "disableBackfaceCull",
+    "distortionDefinition",
+    "emitterLinger",
+    "emitterName",
+    "emitterUvScrollRate",
+    "falloffTexture",
+    "fieldCollectionDefinition",
+    "importance",
+    "isDirectionOriented",
+    "isGroundLayer",
+    "isLocalOrientation",
+    "isRandomStartFrame",
+    "isRotationEnabled",
+    "isSingleParticle",
+    "isUniformScale",
+    "lifetime",
+    "meshRenderFlags",
+    "miscRenderFlags",
+    "numFrames",
+    "paletteDefinition",
+    "particleColorTexture",
+    "particleIsLocalOrientation",
+    "particleLifetime",
+    "particleLinger",
+    "particleUVScrollRate",
+    "pass",
+    "period",
+    "primitive",
+    "rate",
+    "rotation0",
+    "scale0",
+    "softParticleParams",
+    "startFrame",
+    "texAddressModeBase",
+    "texDiv",
+    "texture",
+    "textureMult",
+    "timeActiveDuringPeriod",
+    "timeBeforeFirstEmission",
+    "useNavmeshMask",
+    "uvRotation",
+    "uvScale",
+    "worldAcceleration"
+  ],
+  "sourceAuthoredFields": [
+    "Color",
+    "EmitterPosition",
+    "FlexShapeDefinition",
+    "ParticlesShareRandomValue",
+    "SpawnShape",
+    "__type",
+    "alphaErosionDefinition",
+    "alphaRef",
+    "bindWeight",
+    "birthColor",
+    "birthDrag",
+    "birthOrbitalVelocity",
+    "birthRotation0",
+    "birthRotationalVelocity0",
+    "birthScale0",
+    "birthUVOffset",
+    "birthUvScrollRate",
+    "birthVelocity",
+    "blendMode",
+    "colorLookUpTypeY",
+    "depthBiasFactors",
+    "directionVelocityMinScale",
+    "directionVelocityScale",
+    "disableBackfaceCull",
+    "distortionDefinition",
+    "emitterLinger",
+    "emitterName",
+    "emitterUvScrollRate",
+    "falloffTexture",
+    "fieldCollectionDefinition",
+    "importance",
+    "isDirectionOriented",
+    "isGroundLayer",
+    "isLocalOrientation",
+    "isRandomStartFrame",
+    "isRotationEnabled",
+    "isSingleParticle",
+    "isUniformScale",
+    "lifetime",
+    "meshRenderFlags",
+    "miscRenderFlags",
+    "numFrames",
+    "paletteDefinition",
+    "particleColorTexture",
+    "particleIsLocalOrientation",
+    "particleLifetime",
+    "particleLinger",
+    "particleUVScrollRate",
+    "pass",
+    "primitive",
+    "rate",
+    "rotation0",
+    "scale0",
+    "softParticleParams",
+    "startFrame",
+    "texAddressModeBase",
+    "texDiv",
+    "texture",
+    "textureMult",
+    "timeBeforeFirstEmission",
+    "useNavmeshMask",
+    "uvRotation",
+    "uvScale",
+    "worldAcceleration",
+    "{17d9c5ce}",
+    "{2574b022}",
+    "{99c94704}",
+    "{f02bd44d}"
+  ],
+  "aliases": {
+    "ffa711fb": "paletteTexture",
+    "17d9c5ce": "timeActiveDuringPeriod",
+    "99c94704": "period",
+    "2574b022": "colorLookUpTypeX",
+    "f02bd44d": "colorLookUpScales",
+    "164b5733": "texDivMult",
+    "fa390047": "fieldNoiseDefinitions",
+    "634db850": "VfxFieldNoiseDefinitionData",
+    "2fb31c01": "frequency",
+    "0bad81a4": "velocityDelta",
+    "cf0bf7fe": "axisFraction"
+  },
+  "producerSummary": {
+    "nativeSpellBindings": 2,
+    "persistentCounterBindings": 3,
+    "persistentSkinBindings": 4,
+    "animationParticleEvents": 0,
+    "joinedSystems": 8,
+    "joinedEmitters": 39,
+    "textures": 38,
+    "meshes": 2,
+    "unjoinedSystems": 3
+  },
+  "unjoinedResourceKeys": [
+    "Ahri_R_Ready_Aura",
+    "Ahri_R_cas",
+    "Ahri_R_mis"
+  ],
+  "nullResources": {
+    "Ahri_R_Transform_Out": "{00000000}"
+  },
+  "emptyEmitterResources": [
+    "Ahri_R_TextureSwaps"
+  ],
+  "adapterDefaults": {
+    "local": true,
+    "particleLocal": false,
+    "blend": 0,
+    "scale": [
+      1,
+      1,
+      1
+    ],
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "alphaRef": 0.0196078431372549,
+    "erosionMixer": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "erosionFeather": 0.1,
+    "erosionSliceWidth": 1.5,
+    "erosionAddress": 1,
+    "lookupTypes": [
+      1,
+      0
+    ],
+    "uvDivisionNormalization": "max(round(value), 1), pinned external writer",
+    "emitterLife": null,
+    "paletteTexture": null,
+    "paletteSourceMix": null,
+    "orbitalAxis": null,
+    "frameRate": 0,
+    "rotationEnabled": false
+  },
+  "limits": [
+    "Private projection only; no public assets, renderer, simulation, save schema or ruleset changes.",
+    "All 55 emitters preserve complete raw source declarations, native field tags and explicit constructor omissions beside projected values.",
+    "Hash aliases are checked by FNV-1a. Raw hashed source declarations remain unchanged; aliases alone do not certify runtime semantics.",
+    "Nine explicit producer references join eight systems. Three systems remain unjoined; the null resource and empty TextureSwaps record remain explicit.",
+    "Noise fields, missing box dimensions, periodic emission, UV rotation, palette inputs, distortion/soft-depth inputs and callback policies remain binding requirements.",
+    "Constructor fallback values are explicit local adapters; no native defaults, random streams, shader arithmetic or GPU appearance is certified."
+  ]
+}

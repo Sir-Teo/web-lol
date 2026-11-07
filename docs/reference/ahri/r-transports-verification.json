@@ -1,0 +1,95 @@
+{
+  "format": 1,
+  "scope": "Complete private Spirit Rush authored-mip and source-coordinate mesh transports",
+  "sourceRevision": "8a0b0e46b0ff9eb3027c76469894ee5735827df9",
+  "textures": 51,
+  "mips": 428,
+  "packedPngBytes": 2513512,
+  "meshes": 4,
+  "glbBytes": 39828,
+  "sourceVertices": 844,
+  "transportVertices": 917,
+  "triangles": 1531,
+  "meshValidatorErrors": 0,
+  "meshValidatorWarnings": 0,
+  "normalTextureGuards": 7,
+  "optimizedTextureGuards": 7,
+  "meshGuards": 5,
+  "engine": "Three.js 186",
+  "allFourEngineLoadsPass": true,
+  "publicAssetsAdded": false,
+  "runtimeChanged": false,
+  "nativeGpuParityVerified": false,
+  "evidence": [
+    {
+      "path": "docs/reference/ahri/r-texture-transports.json",
+      "bytes": 125082,
+      "sha256": "07da366d77dafa832b89388bfc290643bfceb3388c43a2c58717b2ad5f72d366"
+    },
+    {
+      "path": "docs/reference/ahri/r-mesh-transports.json",
+      "bytes": 4540,
+      "sha256": "c60b23b806a86331cb2e91462915f382d549525e4b0463b0ee12c3b229e5fd24"
+    },
+    {
+      "path": "tools/assets/pack-ahri-r-textures.py",
+      "bytes": 6343,
+      "sha256": "d2b8d5cae59fc9809da00344f817f7031f8e28499d5903bd6803a27d2c80a90f"
+    },
+    {
+      "path": "tools/assets/test-ahri-r-textures.py",
+      "bytes": 3718,
+      "sha256": "b79c54822d3cde70581bd13acf628b388129e950add716299edc3d3b8f021266"
+    },
+    {
+      "path": "tools/assets/convert-ahri-r-meshes.mjs",
+      "bytes": 8814,
+      "sha256": "4d5a9c3832e45452b0ab98f5b4847397b5014851c845978cecb0ae2de469f4fb"
+    },
+    {
+      "path": "tools/assets/verify-ahri-r-meshes.mjs",
+      "bytes": 1973,
+      "sha256": "587d80f33cb3c47893c979930bc826b68f1e41f29b5370e9bd88a0b20693f788"
+    },
+    {
+      "path": "tools/assets/test-ahri-r-meshes.mjs",
+      "bytes": 4063,
+      "sha256": "d01fb86ee8c0768d60696721675eafabc29da91061f9fded82a85153a1f1700e"
+    },
+    {
+      "path": "artifacts/ahri-r-textures-pack-v1.log",
+      "bytes": 103,
+      "sha256": "af2e28673c3f130129a1ac406e6aa18b77707749e552a05ba349d6bb0b3c10d9"
+    },
+    {
+      "path": "artifacts/ahri-r-textures-check-v1.log",
+      "bytes": 104,
+      "sha256": "cdaeaba367c29fa6ad136796c93c42c57e3d7911cd4938b223588ba86efb6720"
+    },
+    {
+      "path": "artifacts/ahri-r-textures-guards-v1.log",
+      "bytes": 106,
+      "sha256": "df0774f116717c20e4e604e98174a97260efa8b20759285c6a24dbc933e5a947"
+    },
+    {
+      "path": "artifacts/ahri-r-textures-guards-optimized-v1.log",
+      "bytes": 106,
+      "sha256": "6ffe8c306cca4df6374369d3bbb42566bd4415d6f31132c2af93b2f3d75cecde"
+    },
+    {
+      "path": "artifacts/ahri-r-meshes-convert-v1.log",
+      "bytes": 134,
+      "sha256": "cc379a41211bf7dba6d4d5c61725108c1f0ceb38176145c775c5cbbc97a4653c"
+    },
+    {
+      "path": "artifacts/ahri-r-meshes-engine-v1.log",
+      "bytes": 819,
+      "sha256": "150bd9014171814822796b9c7cb7dc892ebbc6877f8e378eb49bb430453cf9d9"
+    },
+    {
+      "path": "artifacts/ahri-r-meshes-guards-v1.log",
+      "bytes": 539,
+      "sha256": "258338ff3e1456ae3b43caa361d1e647778ab889d9c3dbfa03779d8a85b2c150"
+    }
+  ]
+}
