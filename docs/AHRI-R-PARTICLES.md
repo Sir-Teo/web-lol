@@ -36,3 +36,35 @@ transport, save field or runtime binding is added. The accepted Charm runtime
 remains schema 180 / d625c0ee. Private decoding, explicit spell/animation joins,
 saved visual observations, rendering and native calibration follow separately.
 Resource names alone establish no native callback timing or gameplay policy.
+
+## Private authored-mip and mesh decode
+
+All 51 textures retain their 428 authored mip levels as private PNGs totaling
+2,144,485 bytes. Compressed ranges, dimensions, straight RGBA pixels and alpha
+statistics are checked; no resized/generated mips, gamma conversion or
+premultiplication are introduced. Pillow's canonical software BC1/BC3 decode
+does not establish native GPU appearance.
+
+The four SCB 3.2 flag-2 meshes retain 844 vertices / 1,531 triangles. Their
+individual vertex/triangle counts are 201/380, 260/480, 183/351 and 200/320.
+Three have native BGRA vertex colors with separate RGBA projections; the fourth
+omits colors. Points, indices, face UV/material bytes, bounds and pivots all
+round-trip byte-for-byte to native sources. No normals, reflection, winding
+change, unit scaling or pivot offset is added.
+
+The frozen [decode record](reference/ahri/r-particles-decoded.json), SHA-256
+d9c25753b0e04e08194709fbafa272ad52003859179f41af7f92b01dcb35dde4,
+regenerates exactly. Ten guards pass in normal and optimized Python, covering
+mesh/color corruption, invalid indices, nonfinite coordinates, PNG corruption,
+changed record identity and whole-output conflict/symlink preflight. See
+[decode verification](reference/ahri/r-particles-decode-verification.json).
+
+```sh
+PYTHONPATH=tools/assets:.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/decode-ahri-r-particles.py --check
+PYTHONPATH=tools/assets:.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/decode-ahri-r-particles.py
+PYTHONPATH=tools/assets:.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/test-ahri-r-decode.py
+PYTHONPATH=tools/assets:.tools/cdtb .tools/cdtb-venv/bin/python -O tools/assets/test-ahri-r-decode.py
+```
+
+These artifacts remain private. Public transport, producer joins, saved visual
+clocks, rendering and native calibration are separate work.
