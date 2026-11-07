@@ -1,0 +1,105 @@
+{
+  "format": 1,
+  "scope": "Finite R eye-glow candidate regressions; production/offline acceptance pending",
+  "applicationRevision": "c5ab62306895bb20fb3940b2f546239829f8c8fa",
+  "schema": 181,
+  "ruleset": "186133424c3e28265877ba008d887874ddfc6da10edf515e83bc2a0cf4f5f7d2",
+  "compatibilityFiles": 688,
+  "profiles": {
+    "published": 55,
+    "selectedSpellProfiles": 21,
+    "selectedBuffProfiles": 2,
+    "eyeInstances": 2,
+    "deferredNoise": 2,
+    "deferredPersistent": 14,
+    "unjoined": 16
+  },
+  "selectedAssets": {
+    "textures": 27,
+    "meshes": 1,
+    "newRTextureRequests": 6,
+    "additionalSharedWTextureRequests": 1,
+    "borrowedEyeTextureRequests": 1,
+    "additionalEyeTextureLoads": 0
+  },
+  "fullUnit": {
+    "passed": 9401,
+    "total": 9403,
+    "files": 587,
+    "knownFailures": [
+      "missing historical Leona reader archive",
+      "Lux sampler FMA golden mismatch"
+    ]
+  },
+  "nodeQaPassed": 263,
+  "focused": {
+    "tests": 167,
+    "files": 15
+  },
+  "acceptedSpellPacketsRetained": 72,
+  "cleanExport": {
+    "format": 1,
+    "result": "passed",
+    "revision": "77f5e72820690870faa52d53bf22bb9986d4d89c",
+    "verifiedCommittedFiles": 5546,
+    "commandsPassed": 87,
+    "testExecutions": 1173,
+    "fileExecutions": 140,
+    "uniqueCounts": false,
+    "scope": "Every committed export blob verified before removing only the disposable export; native inputs, cohort archives and traces preserved.",
+    "disposableExportRemoved": true
+  },
+  "rBrowser": {
+    "distinctCasesPassed": 8,
+    "originalBatchPassed": 7,
+    "correctedKeyboardCasePassed": 1,
+    "instrumentationCorrection": "Resource Timing buffer omitted an observed request; page request listener verifies exactly one shared eye texture request. Original trace retained.",
+    "closeMovingCasterViewPassed": true
+  },
+  "naturalMatch": {
+    "completeProjectionMatches": 45,
+    "excludedFields": [
+      "version",
+      "ruleset"
+    ],
+    "roundTrips": 44,
+    "futureChecks": 43,
+    "finalTick": 157116,
+    "victory": "blue"
+  },
+  "pack": {
+    "result": "passed",
+    "pack": "60079db3bb22f27b3d4243b2958174b55c558117123f1f0b43c3b45599f19df5",
+    "files": 1432,
+    "bytes": 581122307,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "publicAudioPreserved": {
+    "files": 334,
+    "bytes": 96632632,
+    "ahriMasters": 76
+  },
+  "currentHundredSeedGatePassed": false,
+  "roadmapMilestoneFourComplete": false,
+  "projectComplete": false,
+  "evidence": [
+    "artifacts/ahri-r-buff-full-tests-v1.log",
+    "artifacts/ahri-r-buff-node-qa-full-v1.log",
+    "artifacts/ahri-r-buff-focused-v1.log",
+    "artifacts/ahri-r-buff-clean-ci-results.json",
+    "artifacts/ahri-r-buff-clean-ci-cleanup-v1.json",
+    "artifacts/ahri-r-buff-browser-v1.log",
+    "artifacts/ahri-r-buff-browser-keyboard-v2.log",
+    "artifacts/ahri-r-buff-browser-keyboard-v3.log",
+    "artifacts/ahri-r-buff-pack-v1.json",
+    "artifacts/ahri-r-buff-build-dedup-v1.json",
+    "artifacts/ahri-r-buff-audio-preservation-v1.json",
+    "artifacts/ahri-r-buff-image-review-v1.json",
+    "docs/reference/ahri/r-eye-glow-gameplay-comparison.json",
+    "docs/reference/ahri/r-eye-glow-source-delta.json",
+    "docs/reference/ahri/r-spell-packet-reference.json",
+    "artifacts/ahri-r-buff-browser-regression-v1.log"
+  ],
+  "crossKitBrowserCasesPassed": 25,
+  "distinctBrowserCasesPassed": 33
+}

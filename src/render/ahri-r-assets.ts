@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import data from '../content/ahri-r-particles.json';
 import { rPaletteBinding } from './ahri-r-palette';
 import wData from '../content/ahri-w-particles.json';
-import { AHRI_R_BOUND_SPELL_PROFILES } from './ahri-r-particles';
+import { AHRI_R_BOUND_SPELL_PROFILES, AHRI_R_BOUND_BUFF_PROFILES } from './ahri-r-particles';
 import { ahriQCastAssets } from './ahri-q-cast-assets';
 import { ahriQProjectileAssets } from './ahri-q-projectile-assets';
 import { ahriWAssets, loadAhriWAssets } from './ahri-w-assets';
@@ -17,7 +17,8 @@ function collect(value: unknown, into: Set<string>): void {
 }
 const needed = new Set<string>(),
   wNeeded = new Set<string>();
-for (const index of AHRI_R_BOUND_SPELL_PROFILES) collect(data.profiles[index], needed);
+for (const index of [...AHRI_R_BOUND_SPELL_PROFILES, ...AHRI_R_BOUND_BUFF_PROFILES])
+  collect(data.profiles[index], needed);
 for (const profile of wData.profiles)
   if (['orbit', 'flight', 'hit'].includes(profile.role)) collect(profile, wNeeded);
 const requiredTextures = data.textures.filter((asset) => needed.has(asset.url));
@@ -33,7 +34,7 @@ const localTextures = requiredTextures.filter(
 );
 if (
   AHRI_R_BOUND_SPELL_PROFILES.length !== 21 ||
-  requiredTextures.length !== 26 ||
+  requiredTextures.length !== 27 ||
   requiredMeshes.length !== 1 ||
   requiredMeshes[0].geometryOwner !== 'ahri-w' ||
   localTextures.length !== 7

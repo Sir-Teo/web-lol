@@ -417,3 +417,83 @@ Primary merge `ec9af34c` reproduces pack `01c9c16a` exactly and passes 78 focuse
 tests in ten files. Application/public bytes match the accepted candidate. See
 [palette integration](reference/ahri/r-palette-main-integration.json). The previous
 20-profile R pack remains retained alongside the R observer and E packs.
+
+## Persistent buff mapping preparation
+
+The isolated `ahri-r-persistent-history` helper maps the skin's explicit
+`HasBuff(AhriR)` condition to two `Ahri_R_Eyes` instances on `L_Eye` / `R_Eye`
+and one `Ahri_R_Ready_tar` instance on `C_Buffbone_Glb_Layout_Loc`. Its local
+producer window follows the saved R end observation, including zero charges
+and actual Essence extensions. Counter-driver indicators remain excluded.
+
+Caster roots use owned source poses and visibility. Fractional roots require
+consecutive observations; discarded history gaps remain unavailable. The
+independent birth anchor stays usable. Buff expiry stops births while a living
+body keeps moving; death/removal freezes the old body's ending pose. Six focused
+cases and the 23-case complete gameplay baseline pass, alongside TypeScript.
+The helper remains unconnected to rendering, so the accepted ruleset stays
+`a68ca14b` with 685 compatibility files. Particle lifetime/period integration,
+long-lived birth roots and native stop behavior still require separate work.
+
+The [spell-packet reference](reference/ahri/r-spell-packet-reference.json) freezes
+72 complete missile/contact packet hashes from accepted application `a7092caa`.
+Its producer verifies all 690 archived source files and executes only the frozen
+sampler, covering two cosmetic seeds, fractional ages and stopped clocks. All
+73 reference checks pass before the persistent sampler changes. Reproduction
+requires the retained palette cohort and a fresh output path:
+
+```sh
+node tools/qa/build-ahri-r-spell-packet-reference.mjs .cache/ahri-r-palette-roster-seed1 FRESH_OUTPUT.json
+```
+
+The sampler now prepares only eye-glow profiles 45/46 for the next integration
+stage. Their authored emission window is 50 seconds and particle lifetime is two
+seconds; periodic trails stay excluded. All 109 scoped checks pass, including
+the unchanged 72 accepted spell packets, backward/fractional seeks and finite
+local stop/linger behavior. This preparation does not dispatch eye effects yet.
+
+Private buff attachments now resolve the exact eye bones from owned animation
+timelines and commit the bone handoff in source-centimetre float32 storage.
+Four attachment cases pass within an 86-check selection, including missing-bone
+fallbacks, snapshot replacement and same-tick observation refresh. TypeScript
+passes. Both eye bones and the layout bone exist in the published Ahri rig.
+
+## Eye-glow renderer candidate
+
+The candidate now draws profiles 45/46 on both explicit eye bones beside the
+21 accepted spell profiles. It uses the saved buff window and private caster
+poses, current saved visibility for these fully bound particles, and the local
+stop/linger policy. The two periodic eye trails, six layout profiles and six
+counter-driven indicator profiles remain deferred, alongside the two noise and
+sixteen unjoined spell profiles. The remaining deferred count is 32.
+
+The selected texture closure grows to 27 by borrowing the already loaded Q cast
+glow texture. It adds no R-owned transport or mesh request. All 167 focused tests
+in fifteen files pass, including the 72 unchanged accepted spell packets, late
+restoration after rolling pose retention, viewing-team changes and terminal
+cleanup without World steps. TypeScript passes. Schema 181 stays unchanged;
+the candidate ruleset is `18613342` with 688 compatibility files. Browser and
+broader delivery verification are in progress; primary remains the accepted
+palette renderer until those checks finish.
+
+Candidate verification now passes 9,401/9,403 full-suite tests in 587 files with
+only the two historical failures, all 263 Node QA cases and 87 first-attempt
+clean-export commands. Scoped selections execute 1,173 tests across 140 file
+executions, including overlap; all 5,546 committed export files verify before
+cleanup. All 33 distinct browser cases pass across the retained runs. The initial
+eye request-count probe used a truncated Resource Timing buffer; the page
+request listener confirms one shared glow request. The original trace remains.
+
+All 45 natural-match complete states match the accepted R observer, excluding
+only schema and ruleset identifiers, with victory at tick 157116, 44 restores
+and 43 checked futures. All simulation, content, public assets and 334 WAV files
+remain exact. Pack `60079db3` contains 1,432 files / 581,122,307 bytes and passes
+the complete byte/worker audit. See the
+[regression record](reference/ahri/r-eye-glow-regression-verification.json).
+Production nested-path checks pass with 32 recordings and zero eager R
+renderer/texture loads. Offline lifecycle checks pass with 978 worker responses
+and zero production errors. The
+[eye-glow acceptance](reference/ahri/r-eye-glow-acceptance.json) records all 23
+selected profiles: 21 spell profiles and two eye-glow profiles on both native
+eye bones. Pack `60079db3` remains exact after delivery checks; the prior palette
+pack is retained separately. Primary integration follows separately.

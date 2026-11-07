@@ -18,6 +18,9 @@ export class LazyAhriRParticles {
   get surfaces() {
     return this.renderer?.surfaces;
   }
+  get buffSurfaces() {
+    return this.renderer?.buffs.surfaces;
+  }
   get deferredProfiles() {
     return this.renderer?.deferredProfiles ?? [];
   }

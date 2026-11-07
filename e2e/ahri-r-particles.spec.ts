@@ -6,9 +6,12 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
 }, info) => {
   test.setTimeout(180000);
   const requests: string[] = [],
+    glowRequests: string[] = [],
     errors: string[] = [];
   page.on('request', (r) => {
     if (r.url().includes('/assets/effects/ahri-r-')) requests.push(new URL(r.url()).pathname);
+    if (r.url().includes('/assets/effects/ahri-q-cast-b4f44f95abaa3e8a.png'))
+      glowRequests.push(new URL(r.url()).pathname);
   });
   page.on('pageerror', (e) => errors.push(e.message));
   page.on('console', (m) => {
@@ -147,7 +150,7 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
   expect(flight.unchanged).toBe(true);
   expect(flight.restored).toEqual(flight.before);
   expect(flight.placeholder).toBe(0);
-  expect(flight.deferred).toHaveLength(34);
+  expect(flight.deferred).toHaveLength(32);
   expect(flight.before.ribbons.length).toBeGreaterThan(0);
   expect(flight.before.surfaces.some((m: any) => m.colors === 209 && !m.normals)).toBe(true);
   expect(flight.before.ribbons.some((m: any) => m.cellSize[0] === 0.5)).toBe(true);
@@ -202,12 +205,59 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
     true
   );
   await page.screenshot({ path: info.outputPath('ahri-r-contact.png') });
+  const eyes = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      v = g.view;
+    const record = w.ahriRVisuals[0];
+    w.step(record.startTick + 95 - w.tick);
+    w.setOrder(w.hero, { type: 'move', point: { x: w.hero.x, y: w.hero.y + 150 } });
+    w.step(30);
+    v.zoom = 0.12;
+    v.recenter(w.hero);
+    v.render(w, 1, v.previousElapsed);
+    const capture = () =>
+      [...v.ahriRParticles.buffSurfaces.models]
+        .sort(([a]: any, [b]: any) => a.localeCompare(b))
+        .map(([key, model]: any) => ({
+          key,
+          profile: model.userData.profileIndex,
+          position: model.position.toArray(),
+          quaternion: model.quaternion.toArray(),
+          scale: model.scale.toArray(),
+          color: model.material.uniforms.particleColor.value.toArray(),
+          uv: model.material.uniforms.sourceUvTransform.value.toArray(),
+          mips: model.material.uniforms.sourceTexture.value.mipmaps.length,
+        }));
+    const saved = w.snapshot(),
+      before = capture(),
+      copy = w.constructor.fromSnapshot(saved, w.battlefield);
+    v.render(copy, 1, v.previousElapsed);
+    const restored = capture();
+    v.render(w, 1, v.previousElapsed);
+    return {
+      before,
+      restored,
+      unchanged: copy.snapshot() === saved,
+      attachments: v.ahriRParticles.attachmentFallbacks,
+    };
+  });
+  expect(eyes.unchanged).toBe(true);
+  expect(eyes.restored).toEqual(eyes.before);
+  expect(eyes.before.length).toBeGreaterThanOrEqual(4);
+  expect([...new Set(eyes.before.map((model: any) => model.profile))].sort()).toEqual([45, 46]);
+  expect(eyes.before.every((model: any) => model.mips > 1)).toBe(true);
+  expect(eyes.before.some((model: any) => model.key.includes(':buff:L_Eye:'))).toBe(true);
+  expect(eyes.before.some((model: any) => model.key.includes(':buff:R_Eye:'))).toBe(true);
+  expect(eyes.attachments).toEqual([]);
+  expect(glowRequests).toHaveLength(1);
+  await page.screenshot({ path: info.outputPath('ahri-r-eye-glows.png') });
   expect(new Set(requests).size).toBe(6);
   expect(requests.some((path) => path.endsWith('.glb'))).toBe(false);
   expect(errors).toEqual([]);
   await writeFile(
     info.outputPath('ahri-r-packets.json'),
-    JSON.stringify({ requests, flight, hit, errors }, null, 2)
+    JSON.stringify({ requests, glowRequests, flight, hit, eyes, errors }, null, 2)
   );
 });
 

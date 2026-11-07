@@ -12,6 +12,7 @@ import type { TargetPoseSampler } from './target-pose-sampler';
 import { SourceParticleSurfaces } from './source-particle-surfaces';
 import type { EclipseSurfaceAssets } from './leona-eclipse-surface-assets';
 import { rTrailPoints } from './ahri-r-trails';
+import { AhriRBuffParticles } from './ahri-r-buff-effects';
 import { packedSourceTrailRibbon, type PackedTrailVertex } from './source-packed-trail-ribbon';
 import { createRRibbonMaterial, rSoftParameters } from './ahri-r-ribbon-material';
 import { AHRI_R_BOUND_SPELL_PROFILES, AHRI_R_SPELL_PROFILE_BINDINGS } from './ahri-r-particles';
@@ -31,18 +32,19 @@ interface Held {
   sampler: AhriRParticleSampler;
   particles: ReturnType<AhriRParticleSampler['sample']>;
 }
-/** Twenty-one spell profiles seek saved bolt/contact roots. Persistent producers,
- * unjoined systems and unsupported noise arithmetic stay deferred.
+/** Twenty-one spell profiles seek saved bolt/contact roots; two finite eye
+ * profiles use the saved buff window. Other persistent producers stay deferred.
  * Missing global palette and native pixel calibration remain unverified. */
 export class AhriRParticles {
   readonly models = new Map<string, Ribbon>();
   readonly surfaces: SourceParticleSurfaces<RVisualGroup>;
+  readonly buffs: AhriRBuffParticles;
   readonly deferredProfiles = AHRI_R_SPELL_PROFILE_BINDINGS.filter(
-    (p) => p.reason !== 'bound-spell-profile'
+    (p) => p.reason !== 'bound-spell-profile' && p.reason !== 'bound-buff-profile'
   );
   private attachments: RAttachmentRoots;
   get attachmentFallbacks() {
-    return this.attachments.localFallbacks;
+    return [...this.attachments.localFallbacks, ...this.buffs.attachmentFallbacks];
   }
   private groups: RVisualGroup[] = [];
   private held = new Map<string, Held>();
@@ -59,6 +61,7 @@ export class AhriRParticles {
       ground,
       supplied ? (rig) => supplied.sampler(rig) : undefined
     );
+    this.buffs = new AhriRBuffParticles(scene, distortion, ground, supplied);
     this.surfaces = new SourceParticleSurfaces(scene, distortion, ground, {
       name: 'Ahri R projectile',
       attachment: 'saved-R-spell-root',
@@ -254,6 +257,7 @@ export class AhriRParticles {
           }
         }
     this.surfaces.update(world, alpha, camera, terminalAge);
+    this.buffs.update(world, alpha, camera, terminalAge);
     this.attachments.retain(keep);
     for (const [key, mesh] of this.models) if (!active.has(key)) this.release(key, mesh);
     for (const [key, held] of this.held)
@@ -287,6 +291,7 @@ export class AhriRParticles {
     this.models.delete(key);
   }
   dispose() {
+    this.buffs.dispose();
     this.surfaces.dispose();
     for (const [key, mesh] of this.models) this.release(key, mesh);
     for (const held of this.held.values()) held.sampler.dispose();
