@@ -605,3 +605,10 @@ production errors. Pack `c917c445` stays exact after delivery: 1,432 files /
 581,128,356 bytes with the unchanged worker policy. The previous glow pack is
 retained separately. See [eye-trail acceptance](reference/ahri/r-eye-trail-acceptance.json),
 which pins 234 evidence files. Primary integration follows separately.
+
+
+Primary merge `1a4727ee` reproduces pack `c917c445` exactly and passes all 259
+tests in its independent 22-file selection. This selection is distinct from the
+candidate's 279 focused checks. All application/public bytes match the accepted
+runtime. See [eye-trail integration](reference/ahri/r-eye-trail-main-integration.json).
+The prior glow, palette, 20-profile R, observer and E packs remain retained.
