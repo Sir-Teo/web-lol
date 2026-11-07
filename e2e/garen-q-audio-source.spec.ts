@@ -272,3 +272,84 @@ test('hiding the audition stops playing voices without restarting them on return
     stops: 1,
   });
 });
+
+async function monitorCalls(page: any, controlledClock = false) {
+  await page.addInitScript((controlled: boolean) => {
+    const calls = {
+      starts: 0,
+      sets: [] as { value: number; time: number }[],
+      ramps: [] as { value: number; time: number }[],
+      stops: [] as number[],
+      clock: 100,
+    };
+    (window as any).__Q_MONITOR__ = calls;
+    if (controlled)
+      Object.defineProperty(AudioContext.prototype, 'currentTime', { get: () => calls.clock });
+    const start = AudioBufferSourceNode.prototype.start,
+      stop = AudioBufferSourceNode.prototype.stop,
+      set = AudioParam.prototype.setValueAtTime,
+      ramp = AudioParam.prototype.linearRampToValueAtTime;
+    AudioBufferSourceNode.prototype.start = function (...args) {
+      calls.starts++;
+      return start.apply(this, args);
+    };
+    AudioBufferSourceNode.prototype.stop = function (...args) {
+      calls.stops.push(args[0] ?? 0);
+      return stop.apply(this, args);
+    };
+    AudioParam.prototype.setValueAtTime = function (value, time) {
+      calls.sets.push({ value, time });
+      return set.call(this, value, time);
+    };
+    AudioParam.prototype.linearRampToValueAtTime = function (value, time) {
+      calls.ramps.push({ value, time });
+      return ramp.call(this, value, time);
+    };
+  }, controlledClock);
+  await page.goto('/tools/qa/garen-q-audio-preview.html');
+  await page.waitForFunction(() => (window as any).__GAREN_Q_AUDIO_PREVIEW__?.ready);
+}
+async function changeMonitor(page: any, value: number) {
+  await page.locator('#level').evaluate((input: HTMLInputElement, value: number) => {
+    input.value = String(value);
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+  }, value);
+}
+test('monitor control rescales both playing attack layers without restarting them', async ({
+  page,
+}) => {
+  await monitorCalls(page);
+  await page.locator('#attack').click();
+  await page.waitForFunction(() => (window as any).__Q_MONITOR__.starts === 2);
+  await changeMonitor(page, 0.6);
+  const calls = await page.evaluate(() => (window as any).__Q_MONITOR__);
+  expect(calls.starts).toBe(2);
+  for (const [i, kind] of (['attack', 'attackDelayed'] as const).entries())
+    expect(calls.sets.slice(-2)[i].value).toBeCloseTo(
+      0.6 * 10 ** ((P[kind].gainDb + P[kind].variants[0].gainDb) / 20),
+      12
+    );
+  await expect(page.locator('#level-value')).toHaveText('60%');
+  await page.locator('#stop-all').click();
+});
+test('monitor control preserves the remaining active stop fade and its original deadline', async ({
+  page,
+}) => {
+  await monitorCalls(page, true);
+  await page.getByLabel('Active variant', { exact: true }).selectOption('1');
+  await page.getByRole('button', { name: 'Play active', exact: true }).click();
+  await page.waitForFunction(() => (window as any).__Q_MONITOR__.starts === 1);
+  await page.locator('#stop-active').click();
+  await page.evaluate(() => {
+    (window as any).__Q_MONITOR__.clock = 100.1;
+  });
+  await changeMonitor(page, 0.4);
+  const calls = await page.evaluate(() => (window as any).__Q_MONITOR__);
+  const sourceGain = 10 ** ((P.active.gainDb + P.active.variants[1].gainDb) / 20);
+  expect(calls.sets.at(-1).value).toBeCloseTo(0.4 * sourceGain * (0.15 / 0.25), 12);
+  expect(calls.sets.at(-1).time).toBe(100.1);
+  expect(calls.ramps.at(-1)).toEqual({ value: 0, time: 100.25 });
+  expect(calls.stops).toEqual([100.25]);
+  expect(calls.starts).toBe(1);
+  await page.locator('#stop-all').click();
+});

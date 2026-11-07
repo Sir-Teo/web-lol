@@ -18,6 +18,8 @@ const voices = new Set<{
   source: AudioBufferSourceNode;
   gain: GainNode;
   level: number;
+  sourceGain: number;
+  fadeEnd: number | null;
 }>();
 let context: AudioContext | undefined;
 let generation = 0;
@@ -59,12 +61,13 @@ async function play(selected: readonly Kind[]) {
         variant = p.variants[Number(selections.get(kind)!.value)];
       const source = context.createBufferSource(),
         gain = context.createGain();
-      const volume = Number(level.value) * 10 ** ((p.gainDb + variant.gainDb) / 20);
+      const sourceGain = 10 ** ((p.gainDb + variant.gainDb) / 20);
+      const volume = Number(level.value) * sourceGain;
       source.buffer = buffers.get(variant.id)!;
       source.loop = false;
       gain.gain.setValueAtTime(volume, now);
       source.connect(gain).connect(context.destination);
-      const voice = { kind, source, gain, level: volume };
+      const voice = { kind, source, gain, level: volume, sourceGain, fadeEnd: null };
       voices.add(voice);
       source.onended = () => {
         source.disconnect();
@@ -97,6 +100,7 @@ document.querySelector('#stop-active')!.addEventListener('click', () => {
   for (const voice of voices) {
     if (voice.kind !== 'active') continue;
     stopping = true;
+    voice.fadeEnd = now + P.active.stop.fadeSeconds;
     voice.gain.gain.cancelScheduledValues(now);
     voice.gain.gain.setValueAtTime(voice.level, now);
     voice.gain.gain.linearRampToValueAtTime(0, now + P.active.stop.fadeSeconds);
@@ -107,6 +111,22 @@ document.querySelector('#stop-active')!.addEventListener('click', () => {
     : cancelledPending
       ? 'Pending active audition cancelled.'
       : 'No active audition to stop.';
+});
+
+level.addEventListener('input', () => {
+  const monitor = Number(level.value);
+  document.querySelector('#level-value')!.textContent = `${Math.round(monitor * 100)}%`;
+  if (!context) return;
+  const now = context.currentTime;
+  for (const voice of voices) {
+    voice.level = monitor * voice.sourceGain;
+    const remaining = voice.fadeEnd === null ? null : Math.max(0, voice.fadeEnd - now);
+    const fraction = remaining === null ? 1 : remaining / P.active.stop.fadeSeconds;
+    voice.gain.gain.cancelScheduledValues(now);
+    voice.gain.gain.setValueAtTime(voice.level * fraction, now);
+    if (remaining !== null && remaining > 0)
+      voice.gain.gain.linearRampToValueAtTime(0, voice.fadeEnd!);
+  }
 });
 
 for (const kind of kinds) {
