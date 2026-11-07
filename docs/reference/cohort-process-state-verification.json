@@ -18,6 +18,27 @@
       "file": "artifacts/cohort-process-state-live-v1.json",
       "bytes": 1998,
       "sha256": "95cf4c1b53db2df42cf193d9200a42435d686e4841e8843b25305aabe79a50a4"
+    },
+    {
+      "file": "artifacts/cohort-process-state-primary-tests-v1.log",
+      "workspace": "/workspace/web-lol",
+      "bytes": 1601,
+      "sha256": "9aa43b6d3bb04145bc58bd5394201b2249f9e9442600b7d5613691502b1ba8c3"
+    },
+    {
+      "file": "artifacts/cohort-process-state-child-tests-v1.log",
+      "workspace": "/workspace/web-lol",
+      "bytes": 1711,
+      "sha256": "3af1296a462bf34941ec03f32c818014f674016e9945632d33450b56703ba7ba"
+    },
+    {
+      "file": "artifacts/cohort-progress-live-v12.json",
+      "workspace": "/workspace/web-lol",
+      "bytes": 1997,
+      "sha256": "f8958346b7f17696f2aebf7bcbd8e06eb9d581c6494d26e98ed371d1183cd5a6"
     }
-  ]
+  ],
+  "primaryIntegrationTestsPassed": 19,
+  "realLinuxChildStopContinueExitPassed": true,
+  "liveAuditWorkersSignaledByThisTest": false
 }

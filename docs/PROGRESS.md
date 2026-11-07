@@ -9758,3 +9758,10 @@ voices when the tab becomes hidden. The delayed-resume regression fails before
 the change; all seven source-audition browser cases and its standalone typecheck
 pass afterward. Runtime, public assets and the retained production pack stay
 unchanged. See [visibility verification](reference/garen-q-audition-visibility-verification.json).
+
+Cohort progress telemetry now reports paused worker PIDs and raw OS scheduling
+state separately from output ownership. All 19 focused tests pass, including a
+real Linux child stopped, continued and exited without archive mutation. The
+live audit workers were observed only. This adds six cases after the full
+322-case run; it does not claim a fresh full 328-case run. See
+[scheduling verification](reference/cohort-process-state-verification.json).

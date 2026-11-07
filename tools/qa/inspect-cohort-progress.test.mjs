@@ -1,4 +1,7 @@
 import test from 'node:test';
+import { spawn } from 'node:child_process';
+import { once } from 'node:events';
+import { setTimeout as delay } from 'node:timers/promises';
 import assert from 'node:assert/strict';
 import {
   mkdtempSync,
@@ -171,3 +174,50 @@ test('missing scheduling status keeps observed ownership without inventing execu
   assert.equal(result.processes[0].executionState, 'unavailable');
   assert.deepEqual(result.pausedWorkerPids, []);
 });
+
+test(
+  'Linux observes an owned child through stop, continue and exit without changing its archive',
+  { skip: process.platform !== 'linux', timeout: 10000 },
+  async (t) => {
+    const f = fixture(t);
+    const runner = Buffer.from('setInterval(() => {}, 1000);\n');
+    writeFileSync(f.runner, runner);
+    f.plan.runner.bytes = runner.length;
+    f.plan.runner.sha256 = hash(runner);
+    f.persist();
+    f.sample(2, 600);
+    const before = pins(f.root);
+    const child = spawn(process.execPath, [f.runner, '--output', f.root + '/seeds/2', '2'], {
+      stdio: 'ignore',
+    });
+    const exited = once(child, 'exit');
+    try {
+      await once(child, 'spawn');
+      const observe = () => inspectCohortProgress(f.root);
+      const waitFor = async (state) => {
+        const deadline = Date.now() + 3000;
+        while (Date.now() < deadline) {
+          const result = observe();
+          if (result.processes.find((row) => row.pid === child.pid)?.executionState === state)
+            return result;
+          await delay(20);
+        }
+        assert.fail('Child did not reach observed scheduling state ' + state);
+      };
+      await waitFor('not-paused');
+      assert(child.kill('SIGSTOP'));
+      const paused = await waitFor('paused');
+      assert.equal(paused.processStatus, 'running');
+      assert.deepEqual(paused.pausedWorkerPids, [child.pid]);
+      assert(child.kill('SIGCONT'));
+      assert.deepEqual((await waitFor('not-paused')).pausedWorkerPids, []);
+      assert(child.kill('SIGTERM'));
+      await exited;
+      assert.equal(observe().processStatus, 'stopped');
+      assert.deepEqual(pins(f.root), before);
+    } finally {
+      if (child.exitCode === null && child.signalCode === null) child.kill('SIGKILL');
+      await exited;
+    }
+  }
+);
