@@ -225,3 +225,22 @@ passes. Direct current dependency enumeration confirms the new module is not yet
 consumed: the accepted schema-179 ruleset and its 658 files remain unchanged.
 The historical schema-113 closure-receipt verifier is inapplicable to this runtime;
 its old pinned-receipt mismatch is retained separately from the current check.
+
+## Isolated public transport staging
+
+The E renderer branch now stages all 29 profiles, 22 texture atlases / 187
+source mips and both native-coordinate meshes. Eleven atlases borrow verified
+Q/W owners, leaving 13 new public files / 519,022 bytes. The colorless heart mesh
+retains no vertex-color attribute; the colored swirl retains its exact stream.
+Only explicit private transport paths change in the public profile projection.
+Raw post-rotation flags, missing selectors, lifetime omissions and unresolved
+binding requirements remain intact. No E playback is connected.
+
+Publication preflights all source inputs and outputs, rejects symlinked source
+transports, and never repairs conflicts. Eleven input-pin mutations, corrupt
+private and borrowed data, symlinked leaves/parents and final-output conflicts
+are exercised in normal and optimized Python. Both Node QA wrappers pass.
+The eleven E-source workflow commands also pass in a curated portable copy
+without decoder tools or private source/transport caches. A committed-export
+check follows the publication commit. The accepted primary runtime and pack
+remain separately retained while this renderer branch is under development.

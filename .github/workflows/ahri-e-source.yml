@@ -13,6 +13,10 @@ on:
       - 'docs/reference/ahri-materials.json'
       - 'public/assets/models/ahri-base.glb'
       - 'docs/reference/ahri/e-*.json'
+      - 'src/content/ahri-*-particles.json'
+      - 'public/assets/effects/ahri-e-*'
+      - 'public/assets/effects/ahri-q-*'
+      - 'public/assets/effects/ahri-w-*'
   pull_request:
     paths:
       - '.github/workflows/ahri-e-source.yml'
@@ -26,6 +30,10 @@ on:
       - 'docs/reference/ahri-materials.json'
       - 'public/assets/models/ahri-base.glb'
       - 'docs/reference/ahri/e-*.json'
+      - 'src/content/ahri-*-particles.json'
+      - 'public/assets/effects/ahri-e-*'
+      - 'public/assets/effects/ahri-q-*'
+      - 'public/assets/effects/ahri-w-*'
 jobs:
   portable-reading:
     runs-on: ubuntu-latest
@@ -49,3 +57,7 @@ jobs:
           python3 tools/assets/read-ahri-e-attached-bindings.py --check
           python3 tools/assets/test-ahri-e-attached-bindings.py
           python3 -O tools/assets/test-ahri-e-attached-bindings.py
+      - name: Reproduce E publication from committed transports and reject partial writes
+        run: |
+          python3 tools/assets/test-ahri-e-publication.py
+          python3 -O tools/assets/test-ahri-e-publication.py
