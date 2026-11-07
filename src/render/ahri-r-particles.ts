@@ -52,6 +52,8 @@ export const AHRI_R_PARTICLE_ADAPTER = {
   sharedRandomFlagOne: 'fixed cosmetic emitter chance; native random stream unverified',
   neutralLiveTables: 'empty tables with single 1',
 } as const;
+/** Only the finite eye glows have a bound skin-buff producer. */
+export const AHRI_R_BOUND_BUFF_PROFILES = [45, 46] as const;
 /** Deferred profiles stay in published data without entering the sampler. */
 export const AHRI_R_SPELL_PROFILE_BINDINGS = data.profiles.map((p, profileIndex) => ({
   profileIndex,
@@ -60,23 +62,22 @@ export const AHRI_R_SPELL_PROFILE_BINDINGS = data.profiles.map((p, profileIndex)
   reason:
     p.role === 'unjoined'
       ? 'unjoined-native-producer'
-      : !['Ahri_R_mis_02', 'Ahri_R_Tar'].includes(p.system)
-        ? 'persistent-producer-not-connected'
-        : (p.bindingRequirements as readonly string[]).includes('noise-field-arithmetic')
-          ? 'noise-field-arithmetic-unresolved'
-          : (p.bindingRequirements as readonly string[]).includes('native-palette-field') &&
-              !rPaletteBinding(p)
-            ? 'native-palette-field-unresolved'
-            : 'bound-spell-profile',
+      : AHRI_R_BOUND_BUFF_PROFILES.some((index) => index === profileIndex)
+        ? 'bound-buff-profile'
+        : !['Ahri_R_mis_02', 'Ahri_R_Tar'].includes(p.system)
+          ? 'persistent-producer-not-connected'
+          : (p.bindingRequirements as readonly string[]).includes('noise-field-arithmetic')
+            ? 'noise-field-arithmetic-unresolved'
+            : (p.bindingRequirements as readonly string[]).includes('native-palette-field') &&
+                !rPaletteBinding(p)
+              ? 'native-palette-field-unresolved'
+              : 'bound-spell-profile',
 }));
 export const AHRI_R_BOUND_SPELL_PROFILES = AHRI_R_SPELL_PROFILE_BINDINGS.filter(
   (p) => p.reason === 'bound-spell-profile'
 ).map((p) => p.profileIndex);
 const boundProfiles = new Set(AHRI_R_BOUND_SPELL_PROFILES);
-/** Source-kernel preparation only. Live buff dispatch and bone roots are wired
- * separately; periodic eye trails and the layout producer stay unsupported. */
-export const AHRI_R_PREPARED_BUFF_PROFILES = [45, 46] as const;
-for (const [offset, index] of AHRI_R_PREPARED_BUFF_PROFILES.entries()) {
+for (const [offset, index] of AHRI_R_BOUND_BUFF_PROFILES.entries()) {
   const profile = data.profiles[index];
   if (
     profile.system !== 'Ahri_R_Eyes' ||
@@ -87,7 +88,7 @@ for (const [offset, index] of AHRI_R_PREPARED_BUFF_PROFILES.entries()) {
   )
     throw Error('R finite eye-glow profile closure differs');
 }
-const preparedProfiles = new Set<number>([...boundProfiles, ...AHRI_R_PREPARED_BUFF_PROFILES]);
+const preparedProfiles = new Set<number>([...boundProfiles, ...AHRI_R_BOUND_BUFF_PROFILES]);
 const limits: Record<AhriRSystem, number> = {
   Ahri_R_mis_02: AHRI_R_POLICY.maximumBoltTicks / 60,
   Ahri_R_Eyes: 50,

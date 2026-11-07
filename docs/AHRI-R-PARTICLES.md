@@ -457,3 +457,21 @@ timelines and commit the bone handoff in source-centimetre float32 storage.
 Four attachment cases pass within an 86-check selection, including missing-bone
 fallbacks, snapshot replacement and same-tick observation refresh. TypeScript
 passes. Both eye bones and the layout bone exist in the published Ahri rig.
+
+## Eye-glow renderer candidate
+
+The candidate now draws profiles 45/46 on both explicit eye bones beside the
+21 accepted spell profiles. It uses the saved buff window and private caster
+poses, current saved visibility for these fully bound particles, and the local
+stop/linger policy. The two periodic eye trails, six layout profiles and six
+counter-driven indicator profiles remain deferred, alongside the two noise and
+sixteen unjoined spell profiles. The remaining deferred count is 32.
+
+The selected texture closure grows to 27 by borrowing the already loaded Q cast
+glow texture. It adds no R-owned transport or mesh request. All 167 focused tests
+in fifteen files pass, including the 72 unchanged accepted spell packets, late
+restoration after rolling pose retention, viewing-team changes and terminal
+cleanup without World steps. TypeScript passes. Schema 181 stays unchanged;
+the candidate ruleset is `18613342` with 688 compatibility files. Browser and
+broader delivery verification are in progress; primary remains the accepted
+palette renderer until those checks finish.

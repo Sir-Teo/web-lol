@@ -2,7 +2,7 @@ import { expect, test } from 'vitest';
 import {
   ahriRParticles,
   AhriRParticleSampler,
-  AHRI_R_PREPARED_BUFF_PROFILES,
+  AHRI_R_BOUND_BUFF_PROFILES,
   AHRI_R_PROFILES,
   type AhriRParticleContext,
 } from '../src/render/ahri-r-particles';
@@ -11,7 +11,7 @@ const context: AhriRParticleContext = {
   root: (time) => ({ x: time * 120, y: time * time * 8, height: 100, facing: time / 4 }),
 };
 test('the eye sampler prepares only the two finite source glow profiles with authored appearance', () => {
-  expect(AHRI_R_PREPARED_BUFF_PROFILES).toEqual([45, 46]);
+  expect(AHRI_R_BOUND_BUFF_PROFILES).toEqual([45, 46]);
   const particles = ahriRParticles('Ahri_R_Eyes', 927, 1.5, Infinity, context);
   expect(new Set(particles.map((p) => p.profileIndex))).toEqual(new Set([45, 46]));
   for (const particle of particles) {
