@@ -9800,3 +9800,10 @@ pass: `1cbecc51`, 1,432 files / 581,142,950 bytes, with unchanged worker policy.
 All 696 compatibility inputs and ruleset `e02f3e73` stay unchanged. The preceding
 full unit and Node QA receipts retain their own revisions. See
 [resource meter verification](reference/hud-resource-meter-verification.json).
+
+The Garen Q developer monitor slider now changes live audition levels while
+retaining authored relative gains and an active stop fade's original deadline.
+All ten scoped browser cases and tool TypeScript pass; both earlier failures
+are retained. The game runtime/public assets and pack `1cbecc51` stay unchanged.
+The full 89-command CI receipt keeps its earlier tool revision; this step has
+its own [monitor verification](reference/garen-q-audition-monitor-verification.json).

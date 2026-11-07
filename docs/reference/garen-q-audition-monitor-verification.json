@@ -1,0 +1,43 @@
+{
+  "format": 1,
+  "result": "passed",
+  "revision": "3c70e774ce7a1cccf4fa9f89162416b1e572433b",
+  "browserCasesPassed": 10,
+  "originalMonitorFailuresRetained": 2,
+  "standaloneTypescriptPassed": true,
+  "sourceGainsAndFinitePlaybackPreserved": true,
+  "monitorChangesDoNotRestartVoices": true,
+  "stopFadeDeadlinePreserved": true,
+  "fadeMonitorCaseUsesControlledContextClock": true,
+  "runtimeAndPublicAssetsUnchanged": true,
+  "productionPackUnchanged": "1cbecc511cbba8ed7990b3e1ed565f2c6ccf4a0a215abb267ce9e558beccc91b",
+  "fullCiReceiptRetainsPriorToolRevision": true,
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/garen-q-monitor-baseline-v1.log",
+      "bytes": 4794,
+      "sha256": "c7e18ed3f3df86c34b71d3f2df514c46d6972f22f4751037e79d7cb448451ffe"
+    },
+    {
+      "file": "artifacts/garen-q-monitor-fixed-v2.log",
+      "bytes": 2094,
+      "sha256": "83d73ab5f9852e1350640ec0b5822fad0a2d4cd3b92bab299f0e30f55bda5b99"
+    },
+    {
+      "file": "artifacts/garen-q-monitor-browser-v1.json",
+      "bytes": 12106,
+      "sha256": "f22123f26f2e87d4967dde63a1e4ab6d8ce4319da2ce2fde5be33594b375367d"
+    },
+    {
+      "file": "artifacts/garen-q-monitor-browser-v2.json",
+      "bytes": 12849,
+      "sha256": "1dbec415dc8ad2c1e9e57a0dbd16c6c4d6c482db9e5f0045b1b586744b8ee17a"
+    },
+    {
+      "file": "artifacts/garen-q-monitor-typecheck-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

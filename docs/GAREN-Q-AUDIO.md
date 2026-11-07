@@ -179,3 +179,12 @@ that the earlier page started both attack layers after being hidden. The tool
 also passes its standalone typecheck. See
 [visibility verification](reference/garen-q-audition-visibility-verification.json).
 These developer-page controls do not change gameplay dispatch or native claims.
+
+Monitor level changes now rescale current voices using their retained source
+gains, without restarting clips or changing the two-action delay. During an
+active stop fade, a monitor change preserves the remaining envelope and original
+end time. The current review percentage is displayed beside the slider. Two
+regressions fail before the change; all ten audition browser cases and standalone
+TypeScript pass afterward. The remaining-fade probe uses a controlled context
+clock to verify scheduling, not physical listening equivalence. See
+[monitor verification](reference/garen-q-audition-monitor-verification.json).
