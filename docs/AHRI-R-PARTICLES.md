@@ -451,3 +451,9 @@ stage. Their authored emission window is 50 seconds and particle lifetime is two
 seconds; periodic trails stay excluded. All 109 scoped checks pass, including
 the unchanged 72 accepted spell packets, backward/fractional seeks and finite
 local stop/linger behavior. This preparation does not dispatch eye effects yet.
+
+Private buff attachments now resolve the exact eye bones from owned animation
+timelines and commit the bone handoff in source-centimetre float32 storage.
+Four attachment cases pass within an 86-check selection, including missing-bone
+fallbacks, snapshot replacement and same-tick observation refresh. TypeScript
+passes. Both eye bones and the layout bone exist in the published Ahri rig.
