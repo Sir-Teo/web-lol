@@ -73,6 +73,8 @@ async function play(selected: readonly Kind[]) {
         source.disconnect();
         gain.disconnect();
         voices.delete(voice);
+        if (token === generation && voices.size === 0)
+          status.textContent = `Finished ${selected.map((k) => titles[k].toLowerCase()).join(' + ')}.`;
       };
       source.start(now + p.delaySeconds);
     }

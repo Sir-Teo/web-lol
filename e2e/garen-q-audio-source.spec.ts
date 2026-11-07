@@ -353,3 +353,26 @@ test('monitor control preserves the remaining active stop fade and its original 
   expect(calls.starts).toBe(1);
   await page.locator('#stop-all').click();
 });
+
+test('finite attack audition stays playing until its final layer ends and then reports completion', async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    const state = { started: 0, ended: [] as number[] };
+    (window as any).__Q_FINITE_STATUS__ = state;
+    const start = AudioBufferSourceNode.prototype.start;
+    AudioBufferSourceNode.prototype.start = function (...args) {
+      const index = state.started++;
+      this.addEventListener('ended', () => state.ended.push(index), { once: true });
+      return start.apply(this, args);
+    };
+  });
+  await page.goto('/tools/qa/garen-q-audio-preview.html');
+  await page.waitForFunction(() => (window as any).__GAREN_Q_AUDIO_PREVIEW__?.ready);
+  await page.locator('#attack').click();
+  await page.waitForFunction(() => (window as any).__Q_FINITE_STATUS__.ended.includes(0));
+  expect(await page.evaluate(() => (window as any).__Q_FINITE_STATUS__.ended)).toEqual([0]);
+  await expect(page.locator('#status')).toContainText('Playing attack immediate + attack delayed');
+  await page.waitForFunction(() => (window as any).__Q_FINITE_STATUS__.ended.includes(1));
+  await expect(page.locator('#status')).toHaveText('Finished attack immediate + attack delayed.');
+});
