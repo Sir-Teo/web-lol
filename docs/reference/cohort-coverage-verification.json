@@ -46,6 +46,12 @@
       "file": "artifacts/cohort-coverage-historical-hundred-v1.log",
       "bytes": 467,
       "sha256": "711202d2d56029e46e6b5e421da0df9761c0336bcfa7bddec7cc7fb019f577fa"
+    },
+    {
+      "file": "artifacts/cohort-coverage-focused-v1.log",
+      "bytes": 5172,
+      "sha256": "be9d5684d8d78523e6c70328b0c395051af217039bc804823ead71761322cb22"
     }
-  ]
+  ],
+  "focusedQaPassed": 54
 }

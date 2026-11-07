@@ -65,6 +65,10 @@ false until completion and independent verification. See the
 [start receipt](reference/e02f3e-development-roster-hundred-start.json). Primary
 integration passes 39 focused QA cases and reproduces the exact accepted pack
 audit; the unfinished-state reader also supports gzip.
+The stronger independent verifier checks summary/report agreement, every minute
+and terminal checkpoint, final-state agreement and exact future coverage. All
+54 focused QA cases and the unchanged historical 100-seed archive pass; see
+[coverage verification](reference/cohort-coverage-verification.json).
 
 R retains all 55 published profiles, 51 textures / 428 authored mips and four
 meshes. The selected subset uses 37 textures and two meshes. Thirteen R textures,
