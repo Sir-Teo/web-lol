@@ -730,3 +730,17 @@ shared R depth capture must include buff materials before this profile can draw;
 its source requirement will not be disabled. Its texture is already shared with
 a selected contact profile. Other continuous mesh emitters and the sixty-second
 layout quad remain separate work.
+
+
+The unconnected continuous-glow schedule helper now derives its eight-update
+cadence within an explicit one-billion-second numerical seek domain. Conservative
+double-clock subtraction error stays far below both count-decision margins.
+The domain is a local numerical guard, not an emitter lifetime. The owning buff
+producer still controls cessation. Absolute update tick/slot identities remain
+cosmetic and do not certify native pool or RNG identity.
+
+Four schedule checks pass beside all 208 frozen packet checks. A complete
+20,000-second replay matches recent clocks across two 16-bit pool-counter wraps;
+large-clock continuation checks cover binade boundaries. Distant and backward
+seeks retain at most nineteen births. TypeScript passes. No renderer or accepted
+runtime binding has changed at this preparation checkpoint.

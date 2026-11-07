@@ -307,6 +307,7 @@ jobs:
           tests/ahri-r-eye-trail-packet-reference.test.ts
           tests/ahri-r-layout-particles.test.ts
           tests/ahri-r-layout-quad-packet-reference.test.ts
+          tests/ahri-r-layout-glow-schedule.test.ts
           tests/ahri-r-spell-packet-reference.test.ts
           tests/ahri-r-assets.test.ts
           tests/ahri-r-attachments.test.ts
