@@ -19,6 +19,10 @@ import {
   type RBuffVisualGroup,
 } from './ahri-r-persistent-history';
 import type { AhriRVisualHistory } from '../simulation/ahri-r-visual-history';
+import { SourcePackedRibbonMeshes } from './source-packed-ribbon-meshes';
+import { packedSourceTrailRibbon } from './source-packed-trail-ribbon';
+import { rEyeTrailPoints } from './ahri-r-eye-trails';
+import { createRRibbonMaterial } from './ahri-r-ribbon-material';
 
 interface Resources extends EclipseSurfaceAssets {
   sampler(rig: MobileRig): TargetPoseSampler;
@@ -28,10 +32,14 @@ interface Held {
   sampler: AhriRParticleSampler;
   particles: ReturnType<AhriRParticleSampler['sample']>;
 }
-/** Two source eye-glow profiles attach to both explicit eye bones. Trails,
- * layout effects and unresolved counter drivers remain deferred. */
+/** Four source eye profiles attach to both explicit eye bones. Layout effects
+ * and unresolved counter drivers remain deferred. */
 export class AhriRBuffParticles {
   readonly surfaces: SourceParticleSurfaces<RBuffVisualGroup>;
+  private ribbons: SourcePackedRibbonMeshes;
+  get models() {
+    return this.ribbons.models;
+  }
   private roots: RBuffAttachmentRoots;
   private groups: RBuffVisualGroup[] = [];
   private held = new Map<string, Held>();
@@ -50,6 +58,10 @@ export class AhriRBuffParticles {
       ground,
       supplied ? (rig) => supplied.sampler(rig) : undefined
     );
+    this.ribbons = new SourcePackedRibbonMeshes(scene, createRRibbonMaterial, (index) => ({
+      name: 'Ahri R eye ' + AHRI_R_PROFILES[index].name + ' ribbon',
+      renderOrder: AHRI_R_PROFILES[index].renderOrder,
+    }));
     this.surfaces = new SourceParticleSurfaces(scene, distortion, ground, {
       name: 'Ahri R skin buff',
       attachment: 'saved-R-buff-eye-root',
@@ -60,7 +72,9 @@ export class AhriRBuffParticles {
         soft: null,
       })),
       assets: () => this.supplied ?? ahriRAssets(),
-      accepts: (index) => AHRI_R_BOUND_BUFF_PROFILES.some((selected) => selected === index),
+      accepts: (index) =>
+        AHRI_R_PROFILES[index].kind !== 'trail' &&
+        AHRI_R_BOUND_BUFF_PROFILES.some((selected) => selected === index),
       records: () =>
         this.groups.map((group) => ({
           sourceId: group.record.sourceId,
@@ -91,6 +105,7 @@ export class AhriRBuffParticles {
   update(world: World, alpha: number, camera: THREE.Camera, terminalAge = 0) {
     if (this.world !== world || world.tick < this.lastTick) {
       this.surfaces.dispose();
+      this.ribbons.dispose();
       for (const held of this.held.values()) held.sampler.dispose();
       this.held.clear();
       this.roots.dispose();
@@ -99,15 +114,17 @@ export class AhriRBuffParticles {
     this.lastTick = world.tick;
     this.roots.begin(world);
     const tick = world.tick - 1 + alpha + (world.winner ? terminalAge * 60 : 0),
-      keep = new Set<string>();
+      keep = new Set<string>(),
+      activeRibbons = new Set<string>();
     this.groups = [];
-    if (this.supplied ?? ahriRAssets())
+    const assets = this.supplied ?? ahriRAssets();
+    if (assets)
       for (const record of world.ahriRVisuals)
         for (const group of rBuffVisualGroups(record)) {
           if (
             group.system !== 'Ahri_R_Eyes' ||
             tick < group.startTick ||
-            tick >= Math.min(group.stopTick, group.startTick + 50 * 60) + 2 * 60
+            tick >= group.stopTick + 2 * 60
           )
             continue;
           keep.add(group.key);
@@ -141,8 +158,55 @@ export class AhriRBuffParticles {
             (group.stopTick - group.startTick) / 60
           );
           this.groups.push(group);
+          const points = rEyeTrailPoints(
+            group,
+            held.particles,
+            (at) => this.roots.position(group, at),
+            tick,
+            world.hero.team
+          );
+          for (const index of new Set(points.map((point) => point.profileIndex))) {
+            const profile = AHRI_R_PROFILES[index],
+              trail = profile.trail!;
+            const rows = points
+              .filter((point) => point.profileIndex === index)
+              .map((point) => ({
+                ...point,
+                visible:
+                  point.visible &&
+                  (record.team === world.hero.team ||
+                    world.pointVisible(
+                      { x: point.position[0], y: point.position[2] },
+                      world.hero.team
+                    )),
+              }));
+            const vertices = packedSourceTrailRibbon(
+              rows,
+              trail.cutoff ?? 0,
+              null,
+              (trail.smoothing ?? 0) as 0 | 1 | 2,
+              3,
+              false
+            );
+            const key = group.key + ':' + index;
+            const mesh = this.ribbons.write(key, index, vertices, assets);
+            if (mesh) {
+              Object.assign(mesh.userData, {
+                sourceId: record.sourceId,
+                groupKey: group.key,
+                castTick: group.startTick,
+                attachment: group.bone,
+                sourceGroundLayer: profile.ground,
+                trailMode: 'local-default-ribbon',
+                nativeConstructorVerified: false,
+                visiblePoints: rows.filter((point) => point.visible).length,
+              });
+              activeRibbons.add(key);
+            }
+          }
         }
     this.surfaces.update(world, alpha, camera, terminalAge);
+    this.ribbons.retain(activeRibbons);
     this.roots.retain(keep);
     for (const [key, held] of this.held)
       if (!keep.has(key)) {
@@ -152,6 +216,7 @@ export class AhriRBuffParticles {
   }
   dispose() {
     this.surfaces.dispose();
+    this.ribbons.dispose();
     for (const held of this.held.values()) held.sampler.dispose();
     this.held.clear();
     this.groups = [];

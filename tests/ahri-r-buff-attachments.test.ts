@@ -115,3 +115,16 @@ test('same-tick source observation replacement invalidates recent eye roots', ()
   expect(after.z).toBe(before.z);
   roots.dispose();
 });
+test('long-lived eye producers keep only roots within the owned pose-retention window', () => {
+  const { world, roots, groups } = setup(),
+    group = groups[0];
+  for (let tick = 0; tick < 1200; tick++) {
+    world.step();
+    roots.begin(world);
+    expect(roots.position(group, world.tick - 3)).not.toBeNull();
+  }
+  expect(roots.cachedPointCount).toBeGreaterThan(700);
+  expect(roots.cachedPointCount).toBeLessThanOrEqual(721);
+  roots.dispose();
+  expect(roots.cachedPointCount).toBe(0);
+});

@@ -6,6 +6,7 @@ import { animationLayers } from '../simulation/animation-timeline';
 import { createTargetPoseSampler } from './models';
 import type { TargetPoseSampler } from './target-pose-sampler';
 import { rBuffVisualPose, type RBuffVisualGroup } from './ahri-r-persistent-history';
+import { AHRI_R_VISUAL_POSE_TICKS } from '../content/ahri-r-visual-timing';
 
 /** Private saved Ahri poses resolve the exact source eye/layout bone names.
  * Missing bones use an explicitly reported collision-height fallback. */
@@ -27,13 +28,17 @@ export class RBuffAttachmentRoots {
       this.world = world;
     } else
       for (const [key, point] of this.points)
-        if (point.at >= world.tick - 1) this.points.delete(key);
+        if (point.at >= world.tick - 1 || point.at < world.tick - AHRI_R_VISUAL_POSE_TICKS)
+          this.points.delete(key);
   }
   get localFallbacks() {
     return [...this.fallback].sort();
   }
   get samplerCount() {
     return this.actors.size;
+  }
+  get cachedPointCount() {
+    return this.points.size;
   }
   position(group: RBuffVisualGroup, tick: number): THREE.Vector3 | null {
     if (!this.world) throw Error('R buff attachment roots require a World');

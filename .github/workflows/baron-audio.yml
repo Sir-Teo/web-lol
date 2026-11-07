@@ -249,6 +249,8 @@ jobs:
           tests/ahri-q-projectile-visuals.test.ts
           tests/ahri-q-projectile-history.test.ts
           tests/source-packed-trail-ribbon.test.ts
+          tests/source-default-trail-ribbon.test.ts
+          tests/source-packed-ribbon-meshes.test.ts
           tests/source-particle-draw-values.test.ts
           tests/source-binding-timeline.test.ts
           tests/source-motion-timeline.test.ts
@@ -298,6 +300,10 @@ jobs:
           tests/ahri-r-buff-particles.test.ts
           tests/ahri-r-buff-attachments.test.ts
           tests/ahri-r-buff-effects.test.ts
+          tests/ahri-r-eye-schedule.test.ts
+          tests/ahri-r-eye-trail-particles.test.ts
+          tests/ahri-r-eye-trails.test.ts
+          tests/ahri-r-eye-glow-packet-reference.test.ts
           tests/ahri-r-spell-packet-reference.test.ts
           tests/ahri-r-assets.test.ts
           tests/ahri-r-attachments.test.ts

@@ -50,19 +50,22 @@ const transform = (uv: SourceUvDraw, u: number, v: number) => {
 /** Oldest-first inputs. All three pinned external traversal modes, float32
  * intermediate writes and independent base/mult UVs. Visibility splits before
  * filtering. Source/world attachment and sampler policy belong to the caller;
- * centred, unflipped layers and WAKE are explicit limits of this adapter. */
+ * centred, unflipped layers remain explicit limits. WAKE is the default;
+ * ordinary ribbon mode re-measures the visible run's walked distance. */
 export function packedSourceTrailRibbon(
   points: readonly PackedTrailPoint[],
   cutoff: number,
   view: ArrayLike<number> | null,
   smoothing: 0 | 1 | 2,
-  reach = 3
+  reach = 3,
+  wake = true
 ): PackedTrailVertex[] {
   const vector = (v: ArrayLike<number>, n: number) =>
     v.length === n && Array.from(v).every((x) => Number.isFinite(x) && Number.isFinite(f32(x)));
   if (
     !Number.isFinite(cutoff) ||
     cutoff < 0 ||
+    typeof wake !== 'boolean' ||
     ![0, 1, 2].includes(smoothing) ||
     !Number.isInteger(reach) ||
     reach < 0 ||
@@ -151,7 +154,7 @@ export function packedSourceTrailRibbon(
       const width = f32(p.halfWidth),
         tilingU = f32(p.tiling[0]),
         tilingV = f32(p.tiling[1]);
-      let u = tilingU > 0 ? f32(p.odometer) / tilingU : 0;
+      let u = tilingU > 0 ? (wake ? f32(p.odometer) : walked) / tilingU : 0;
       if (!seen) base = u - (u % 2);
       u -= base;
       const span = tilingV > 0 ? width / tilingV : tilingV === 0 ? 1 : -tilingV;

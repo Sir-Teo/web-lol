@@ -70,7 +70,23 @@ function setup(team: 'blue' | 'red' = 'blue') {
     view.dispose();
     texture.dispose();
   };
-  return { world, source, view, scene, texture, draw, capture, dispose };
+  const captureRibbons = () =>
+    [...view.models]
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([key, mesh]) => ({
+        key,
+        profile: mesh.userData.profileIndex,
+        count: mesh.geometry.drawRange.count,
+        attributes: Object.fromEntries(
+          Object.entries(mesh.geometry.attributes).map(([name, attribute]) => [
+            name,
+            Array.from(
+              attribute.array.slice(0, mesh.geometry.drawRange.count * attribute.itemSize)
+            ),
+          ])
+        ),
+      }));
+  return { world, source, view, scene, texture, draw, capture, captureRibbons, dispose };
 }
 test('both native eye instances draw finite glow packets and restore exactly after rolling pose retention', () => {
   const f = setup();
@@ -82,9 +98,12 @@ test('both native eye instances draw finite glow packets and restore exactly aft
     }
     f.world.step();
   }
+  f.world.setOrder(f.source, { type: 'move', point: { x: f.source.x, y: f.source.y + 1500 } });
+  f.world.step(15);
   expect(f.world.ahriRVisuals[0].sourceFrames[0].tick).toBeGreaterThan(1);
   f.draw();
   const before = f.capture(),
+    ribbons = f.captureRibbons(),
     saved = f.world.snapshot();
   expect(before.length).toBeGreaterThanOrEqual(4);
   expect(new Set(before.map((m) => m.profile))).toEqual(new Set([45, 46]));
@@ -92,10 +111,14 @@ test('both native eye instances draw finite glow packets and restore exactly aft
     new Set(['L_Eye', 'R_Eye'])
   );
   expect(f.view.attachmentFallbacks).toEqual([]);
+  expect(new Set(ribbons.map((mesh) => mesh.profile))).toEqual(new Set([47, 48]));
+  expect(ribbons.every((mesh) => mesh.count > 0)).toBe(true);
   f.draw(World.fromSnapshot(saved, field));
   expect(f.capture()).toEqual(before);
+  expect(f.captureRibbons()).toEqual(ribbons);
   f.draw(f.world);
   expect(f.capture()).toEqual(before);
+  expect(f.captureRibbons()).toEqual(ribbons);
   expect(f.world.snapshot()).toBe(saved);
   f.dispose();
 });
@@ -107,14 +130,17 @@ test('hidden enemy eye effects follow current saved visibility and the selected 
   f.world.step(100);
   f.draw();
   expect(f.view.surfaces.models.size).toBe(0);
+  expect(f.view.models.size).toBe(0);
   revealed = true;
   f.world.step();
   f.draw();
   expect(f.view.surfaces.models.size).toBeGreaterThan(0);
+  expect(f.view.models.size).toBeGreaterThan(0);
   revealed = false;
   f.world.step();
   f.draw();
   expect(f.view.surfaces.models.size).toBe(0);
+  expect(f.view.models.size).toBe(0);
   f.world.hero.team = 'red';
   f.draw();
   expect(f.view.surfaces.models.size).toBeGreaterThan(0);
@@ -127,6 +153,11 @@ test('victory drains eye effects on the presentation clock without World steps o
   const materials = [...f.view.surfaces.models.values()].map((m) =>
     vi.spyOn(m.material, 'dispose')
   );
+  const ribbons = [...f.view.models.values()].map((mesh) => ({
+    geometry: vi.spyOn(mesh.geometry, 'dispose'),
+    material: vi.spyOn(mesh.material, 'dispose'),
+  }));
+  expect(ribbons.length).toBeGreaterThan(0);
   const texture = vi.spyOn(f.texture, 'dispose');
   const nexus = f.world.spawn('nexus', 'red', { x: 1500, y: 1500 });
   f.world.damage(f.world.hero, nexus, 1e6, 'true');
@@ -135,10 +166,15 @@ test('victory drains eye effects on the presentation clock without World steps o
   f.draw();
   f.draw(f.world, 3);
   expect(f.view.surfaces.models.size).toBe(0);
+  expect(f.view.models.size).toBe(0);
   expect(f.world.snapshot()).toBe(saved);
   f.view.dispose();
   expect(f.scene.children).toHaveLength(0);
   expect(texture).not.toHaveBeenCalled();
   for (const material of materials) expect(material).toHaveBeenCalledTimes(1);
+  for (const ribbon of ribbons) {
+    expect(ribbon.geometry).toHaveBeenCalledTimes(1);
+    expect(ribbon.material).toHaveBeenCalledTimes(1);
+  }
   f.texture.dispose();
 });

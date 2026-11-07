@@ -503,3 +503,105 @@ Primary merge `d80bd9a4` reproduces pack `60079db3` exactly and passes all 167
 focused tests in fifteen files. Application/public bytes match the accepted
 candidate. See [eye-glow integration](reference/ahri/r-eye-glow-main-integration.json).
 The prior palette, 20-profile R, R observer and E packs remain retained.
+
+## Periodic eye-trail schedule preparation
+
+The unconnected `ahri-r-eye-schedule` helper preserves profile 47's three-second
+continuous period and profile 48's 2.5-second period with authored active duration
+`0.6000000238418579`. Both omit emitter lifetime. The proposed local adapter
+leaves cessation to the observed buff producer instead of borrowing the glows'
+authored fifty-second limit. Native constructors remain unverified.
+
+Constant positive rates and integral period lengths make each period boundary
+a count-history barrier in the selected source kernel. Replaying recent cycles
+matches complete 5,000-second schedules for both profiles, including their
+16-bit pool-counter wraps. Birth timing, shares and absolute emitter phase stay
+exact. Cosmetic identities use local update tick and in-step slot; they do not
+claim native pool/RNG identity. Distant seeks require at most 200 kernel updates
+and retain at most 32 births in the checked cases. All 253 scoped checks and
+TypeScript pass. The helper is not connected to rendering, so the accepted
+ruleset remains `18613342` with 688 compatibility files.
+
+An additional exhaustive glow check samples every 60 Hz update through 52
+seconds (3,120 updates), covering the complete authored fifty-second emission
+window and drain. All birth/binding clocks stay valid; the four glow-sampler
+cases pass without a runtime change.
+
+The [accepted glow-packet reference](reference/ahri/r-eye-glow-packet-reference.json)
+adds 36 complete packet hashes from application `c5ab6230`. Its producer pins the
+retained cohort plan and verifies all 693 archived source files before executing
+the frozen sampler. All 37 reference checks pass before trail integration.
+The 72 earlier spell-packet references and their producers remain unchanged.
+
+The [trail-policy reading](reference/ahri/r-eye-trail-policy-reading.json) pins
+four external reader files. Their parser maps omitted `mMode` / `mSmoothingMode`
+to ordinary ribbon mode / smoothing off. Those remain explicit local defaults;
+the raw source omissions stay intact and native constructors remain unverified.
+Ordinary mode measures UV distance along the current visible run, so discarded
+caster history needs no fabricated lifetime odometer. The shared packed writer
+now supports that mode through an opt-in flag, preserving WAKE as its default.
+All twelve independent ordinary-mode fixtures, all earlier WAKE fixtures and
+both frozen packet baselines pass within 173 scoped checks. TypeScript passes.
+
+The sampler now prepares profiles 47/48 without binding them to live drawing.
+Recent-cycle schedules keep birth caches bounded, while per-birth whole-second
+clock origins preserve float32 sub-tick precision at long system ages. Emitter
+phase stays absolute, and saved pose queries retain their actual caster times.
+All 122 sampler checks pass, including million-second ages, backward/fractional
+seeks, stop/drain behavior and all 108 earlier spell/glow packet hashes. Ribbon
+geometry and renderer ownership are the next separate integration stage.
+
+The procedural ribbon upload layer now preserves the packed shader attributes,
+converts source centimetres once, grows owned buffers and retires their materials
+without disposing page-owned textures. Three ownership/upload cases pass within
+62 packed-ribbon checks. The upload helper remains unconnected to live effects.
+
+## Periodic eye-trail renderer candidate
+
+Both authored eye trails now draw from saved eye-bone roots beside the earlier
+glows. Local ordinary-ribbon mode re-measures each visible live run; its unused
+lifetime odometer stays neutral. Ground-layer metadata does not project these
+head-height ribbons onto terrain. Birth/binding motion uses the saved actor
+frame without a missile tilt or a second caster translation. Caches retain only
+recent births and owned pose-window roots.
+
+The selected subset is now 25 profiles: 21 spell profiles plus all four eye
+profiles on both native eye bones. Six layout and six counter-driven profiles
+remain deferred, alongside two noise and sixteen unjoined profiles. The texture
+closure contains 28 textures and one shared W mesh. Seven R-owned transports and
+one shared W transport load locally; eye glows keep borrowing the Q cast texture.
+The newly selected soul-trail texture retains all ten authored mip levels.
+
+All 279 focused checks in 22 files and TypeScript pass. All eight R browser cases
+pass, including the periodic active/gap windows, exact restoration of all eight
+ribbon attribute buffers, native eye bones and one new texture request. The
+earlier 72 spell and 36 glow packet hashes remain exact. Broader regression,
+production/offline and natural-match verification follow before acceptance.
+
+The regression checkpoint passes 9,468/9,470 tests in 593 files, with only the
+two historical failures, plus all 263 Node QA cases. All 87 clean-export commands
+pass on their first attempt; scoped selections execute 1,240 tests across 146
+file executions, including overlap. All 5,565 committed export files verify
+before removing only the disposable export.
+
+All 25 cross-kit browser cases pass beside the eight R cases. An additional
+same-scene framebuffer probe places a diagnostic camera from the actual eye
+bones and renders each ribbon profile against both ribbons hidden. Profiles 47
+and 48 change 16,362 and 11,695 pixels respectively, with no attachment fallback
+or World mutation. The combined image shows the golden ribbons at the moving
+head. This establishes visible contribution in software Chromium, with no claim
+of native-client pixel equivalence or representative-device performance.
+
+All 45 complete natural-match projections match the accepted R observer,
+excluding only schema/ruleset identifiers; victory remains at tick 157116.
+Simulation, content, public assets and all 334 WAV files remain exact. See the
+[trail regression record](reference/ahri/r-eye-trail-regression-verification.json).
+Production/offline delivery remains pending at this checkpoint.
+
+
+Production nested-path checks pass with 32 recordings and zero eager R particle
+preloads. Offline reload/activation passes with 978 worker responses and zero
+production errors. Pack `c917c445` stays exact after delivery: 1,432 files /
+581,128,356 bytes with the unchanged worker policy. The previous glow pack is
+retained separately. See [eye-trail acceptance](reference/ahri/r-eye-trail-acceptance.json),
+which pins 234 evidence files. Primary integration follows separately.

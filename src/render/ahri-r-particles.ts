@@ -1,5 +1,6 @@
 import data from '../content/ahri-r-particles.json';
 import { rPaletteBinding } from './ahri-r-palette';
+import { rEyeBirthEvents } from './ahri-r-eye-schedule';
 import { SourceValue, type SourceValueDefinition } from './source-value';
 import { SourceBirthValues } from './source-birth-values';
 import { SourceLegacySpawnShape } from './source-legacy-spawn-shape';
@@ -52,8 +53,10 @@ export const AHRI_R_PARTICLE_ADAPTER = {
   sharedRandomFlagOne: 'fixed cosmetic emitter chance; native random stream unverified',
   neutralLiveTables: 'empty tables with single 1',
 } as const;
-/** Only the finite eye glows have a bound skin-buff producer. */
-export const AHRI_R_BOUND_BUFF_PROFILES = [45, 46] as const;
+/** Both finite glows and periodic trails use the explicit skin-buff producer. */
+export const AHRI_R_BOUND_BUFF_PROFILES = [45, 46, 47, 48] as const;
+export const AHRI_R_PREPARED_EYE_TRAIL_PROFILES = [47, 48] as const;
+const periodicProfiles = new Set<number>(AHRI_R_PREPARED_EYE_TRAIL_PROFILES);
 /** Deferred profiles stay in published data without entering the sampler. */
 export const AHRI_R_SPELL_PROFILE_BINDINGS = data.profiles.map((p, profileIndex) => ({
   profileIndex,
@@ -77,7 +80,7 @@ export const AHRI_R_BOUND_SPELL_PROFILES = AHRI_R_SPELL_PROFILE_BINDINGS.filter(
   (p) => p.reason === 'bound-spell-profile'
 ).map((p) => p.profileIndex);
 const boundProfiles = new Set(AHRI_R_BOUND_SPELL_PROFILES);
-for (const [offset, index] of AHRI_R_BOUND_BUFF_PROFILES.entries()) {
+for (const [offset, index] of [45, 46].entries()) {
   const profile = data.profiles[index];
   if (
     profile.system !== 'Ahri_R_Eyes' ||
@@ -88,7 +91,11 @@ for (const [offset, index] of AHRI_R_BOUND_BUFF_PROFILES.entries()) {
   )
     throw Error('R finite eye-glow profile closure differs');
 }
-const preparedProfiles = new Set<number>([...boundProfiles, ...AHRI_R_BOUND_BUFF_PROFILES]);
+const preparedProfiles = new Set<number>([
+  ...boundProfiles,
+  ...AHRI_R_BOUND_BUFF_PROFILES,
+  ...AHRI_R_PREPARED_EYE_TRAIL_PROFILES,
+]);
 const limits: Record<AhriRSystem, number> = {
   Ahri_R_mis_02: AHRI_R_POLICY.maximumBoltTicks / 60,
   Ahri_R_Eyes: 50,
@@ -160,7 +167,10 @@ function surfaceUv(p: RParticleUv, d: SourceUvDraw) {
 }
 const prepared = data.profiles.map((p, profileIndex) => {
   if (!preparedProfiles.has(profileIndex)) return null;
-  if (p.period !== null || p.timeActiveDuringPeriod !== null)
+  if (
+    (p.period !== null || p.timeActiveDuringPeriod !== null) &&
+    !periodicProfiles.has(profileIndex)
+  )
     throw Error('R spell profile needs an explicit periodic adapter');
   const geometry: SourceAppearanceGeometry =
     p.kind === 'trail'
@@ -178,7 +188,7 @@ const prepared = data.profiles.map((p, profileIndex) => {
       overridesMaterials: false,
       delay: Math.round(p.delay * 60) / 60,
       emitterLinger: p.emitterLinger ?? 0,
-      period: null,
+      period: p.period === null ? null : { length: p.period, active: p.timeActiveDuringPeriod },
     },
     variableStart: false,
     maxPerFrame: 0,
@@ -258,7 +268,8 @@ function sampleParticles(
     const d = prepared[profileIndex];
     if (!d) return [];
     const particles: AhriRParticle[] = [];
-    let births = schedules?.get(profileIndex);
+    const periodic = periodicProfiles.has(profileIndex);
+    let births = periodic ? rEyeBirthEvents(profileIndex, time) : schedules?.get(profileIndex);
     if (!births) {
       const schedule = new SourceEmitterSchedule(d.scheduleDefinition);
       births = [];
@@ -269,11 +280,20 @@ function sampleParticles(
           births.push({ ...birth, updateTick: tick });
       schedules?.set(profileIndex, births);
     }
+    if (periodic && cache) {
+      const wanted = new Set(births.map((event) => `${profileIndex}:${event.ordinal + 1}`));
+      for (const key of cache.keys())
+        if (key.startsWith(profileIndex + ':') && !wanted.has(key)) cache.delete(key);
+    }
     for (const event of births) {
       if (event.updateTick > whole || event.updateTick / 60 >= stopSeconds) break;
       const ordinal = event.ordinal + 1,
-        birthTime = Math.fround(event.time),
-        age = time - birthTime;
+        // Rebase only the new periodic particles. Their emitter phase remains
+        // absolute, but per-particle float32 clocks must not lose sub-tick
+        // precision as an extended buff's system age grows.
+        origin = periodic ? Math.floor(event.time) : 0,
+        birthTime = Math.fround(periodic ? event.time - origin : event.time),
+        age = periodic ? time - origin - birthTime : time - birthTime;
       if (age >= d.maximumLife) continue;
       const key = profileIndex + ':' + ordinal;
       let held = cache?.get(key);
@@ -334,9 +354,9 @@ function sampleParticles(
             p.bind,
             born.lifetime,
             birthTime,
-            event.updateTick / 60,
+            periodic ? event.updateTick / 60 - origin : event.updateTick / 60,
             (time) => {
-              const root = context.root(time);
+              const root = context.root(periodic ? time + origin : time);
               return [root.x, root.height, root.y];
             },
             Math.ceil(born.lifetime * 60) + 2
@@ -376,7 +396,7 @@ function sampleParticles(
       const binding = held.binding.sample(
         whole - event.updateTick,
         fraction,
-        stopSeconds,
+        periodic ? stopSeconds - origin : stopSeconds,
         p.linger ?? 0
       );
       const offset = Array.from(moved.position),
@@ -395,7 +415,7 @@ function sampleParticles(
             orbit[axis * 3] * x + orbit[axis * 3 + 1] * y + orbit[axis * 3 + 2] * z
           );
       }
-      const root = context.root(p.particleLocal ? time : birthTime);
+      const root = context.root(p.particleLocal ? time : periodic ? origin + birthTime : birthTime);
       let vx = -travel[0],
         vy = travel[1],
         vz = travel[2];
