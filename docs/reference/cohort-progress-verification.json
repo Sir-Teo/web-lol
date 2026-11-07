@@ -1,0 +1,40 @@
+{
+  "format": 1,
+  "result": "passed",
+  "revision": "83d1a1ff149f8890098b86c048d6772a0356d9e8",
+  "testsPassed": 13,
+  "readOnly": true,
+  "applicationAndAssetsUnchanged": true,
+  "liveObservation": {
+    "observedAt": "2026-11-07T16:05:48.687Z",
+    "completed": 17,
+    "requested": 100,
+    "outcomes": {
+      "victory": 17,
+      "unfinished": 0,
+      "failed": 0
+    },
+    "ownersObserved": 4
+  },
+  "historicalCompletedHundredReportsStopped": true,
+  "finalVerificationPerformed": false,
+  "roadmapMilestone4Complete": false,
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/cohort-progress-tests-v2.log",
+      "bytes": 1152,
+      "sha256": "59622003d2156183f2f44fc9f0e086d6129ab33ac269526bc09d4fb9bf73abdf"
+    },
+    {
+      "file": "artifacts/cohort-progress-live-v2.json",
+      "bytes": 1730,
+      "sha256": "01e9f9d63f068eef1e325fa4b7ea197cd0d04e7c9971aea9a823c09bb80dee56"
+    },
+    {
+      "file": "artifacts/cohort-progress-historical-hundred-v1.json",
+      "bytes": 644,
+      "sha256": "eb5a360b70d78af0c384ea077ebd0dac1c656d6bb63c2920dd27b3b89045d2bd"
+    }
+  ]
+}
