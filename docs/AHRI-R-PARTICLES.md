@@ -490,4 +490,10 @@ and 43 checked futures. All simulation, content, public assets and 334 WAV files
 remain exact. Pack `60079db3` contains 1,432 files / 581,122,307 bytes and passes
 the complete byte/worker audit. See the
 [regression record](reference/ahri/r-eye-glow-regression-verification.json).
-Production nested-path and offline checks remain in progress.
+Production nested-path checks pass with 32 recordings and zero eager R
+renderer/texture loads. Offline lifecycle checks pass with 978 worker responses
+and zero production errors. The
+[eye-glow acceptance](reference/ahri/r-eye-glow-acceptance.json) records all 23
+selected profiles: 21 spell profiles and two eye-glow profiles on both native
+eye bones. Pack `60079db3` remains exact after delivery checks; the prior palette
+pack is retained separately. Primary integration follows separately.
