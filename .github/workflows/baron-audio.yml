@@ -312,6 +312,7 @@ jobs:
           tests/ahri-r-layout-glow-particles.test.ts
           tests/ahri-r-layout-glow-packet-reference.test.ts
           tests/ahri-r-layout-mesh-particles.test.ts
+          tests/ahri-r-layout-mesh-packet-reference.test.ts
           tests/ahri-r-spell-packet-reference.test.ts
           tests/ahri-r-assets.test.ts
           tests/ahri-r-attachments.test.ts

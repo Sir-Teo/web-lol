@@ -928,3 +928,11 @@ production errors. Pack `750c891d` contains 1,432 files / 581,133,759 bytes.
 Native constructor/callback calibration, native pixel equivalence, the remaining
 sixty-second layout base and current full-roster acceptance remain open. Primary
 integration follows independently; acceptance does not mark the project complete.
+
+The [accepted mesh packet reference](reference/ahri/r-layout-mesh-packet-reference.json)
+adds 216 frozen full-packet hashes from the accepted `aabe0526` application.
+Its producer verifies every file in the 698-file frozen cohort before execution.
+Samples cover all three mesh profiles, two seeds, twelve clocks around cadence
+and drain boundaries, and three stop policies. All 217 reference checks and
+TypeScript pass before subsequent layout-base work. Earlier packet producers,
+references and accepted packs remain unchanged.
