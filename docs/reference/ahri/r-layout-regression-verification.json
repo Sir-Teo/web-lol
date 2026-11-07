@@ -1,6 +1,6 @@
 {
   "format": 1,
-  "scope": "Finite layout quad candidate regressions; cross-kit and production/offline acceptance pending",
+  "scope": "Finite layout quad regressions passed; production/offline acceptance pending",
   "applicationRevision": "f85b2455feebbe6860c13a466bbb924c731e62fd",
   "schema": 181,
   "ruleset": "f71c3f787f38e62d3b7dba290bb64de32da3fd7cae14e97f64e16e6853d03c6e",
@@ -220,10 +220,11 @@
     "docs/reference/ahri/r-layout-gameplay-comparison.json",
     "docs/reference/ahri/r-layout-source-delta.json",
     "docs/reference/ahri/r-layout-policy-reading.json",
-    "docs/reference/ahri/r-eye-trail-packet-reference.json"
+    "docs/reference/ahri/r-eye-trail-packet-reference.json",
+    "artifacts/ahri-r-layout-browser-regression-v1.log"
   ],
-  "crossKitBrowserCasesPassed": 0,
-  "distinctBrowserCasesPassed": 8,
+  "crossKitBrowserCasesPassed": 25,
+  "distinctBrowserCasesPassed": 33,
   "acceptedEyeGlowPacketsRetained": 36,
   "applicationIdentity": {
     "verifiedFiles": 2227,
