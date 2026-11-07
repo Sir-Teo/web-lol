@@ -1022,3 +1022,11 @@ production errors. Pack `c432ac3c` contains 1,432 files / 581,134,629 bytes. Nat
 calibration, six counter profiles, two noise profiles, sixteen unjoined profiles,
 current hundred-seed acceptance and full project completion remain open. Primary
 integration follows independently.
+
+The [accepted sixty-second base packet reference](reference/ahri/r-layout-base-packet-reference.json)
+adds 72 full-packet hashes from the accepted `d343a9f9` application and its verified
+698-file frozen cohort. Twelve clocks cover first-update birth, intermediate
+binding, natural expiry and long-age draining with two seeds and three stop
+policies. All 73 reference checks and TypeScript pass before field research.
+The seven packet families and their archive-only producers remain independently
+pinned; no runtime source changes in this checkpoint.
