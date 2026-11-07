@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { basename, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { readCohortSnapshot, snapshotEncoding } from './lib/cohort-snapshot.ts';
 const sha = (raw) => createHash('sha256').update(raw).digest('hex');
 
 export function inspectCohortHorizon(directory, ledgerFile, lastTicks = 36000) {
@@ -24,6 +25,7 @@ export function inspectCohortHorizon(directory, ledgerFile, lastTicks = 36000) {
       reportRaw = readFileSync(resolve(seedRoot, 'report.json'));
     assert.equal(sha(reportRaw), pin.reportSha256, 'Frozen report differs');
     const report = JSON.parse(reportRaw);
+    const encoding = snapshotEncoding(report.snapshotEncoding ?? 'none');
     assert.equal(report.ruleset, ledger.ruleset, 'Report ruleset differs');
     assert.equal(report.outcome, 'unfinished');
     assert.equal(report.winner, null);
@@ -32,12 +34,16 @@ export function inspectCohortHorizon(directory, ledgerFile, lastTicks = 36000) {
     const evidence = [
       { path: `seeds/${seed}/report.json`, sha256: sha(reportRaw), bytes: reportRaw.length },
     ];
-    const readState = (path, expectedState, expectedFile, tick) => {
-      const raw = readFileSync(resolve(seedRoot, basename(path)));
-      assert.equal(raw.at(-1), 10, 'Snapshot must retain its archived newline');
-      if (expectedFile) assert.equal(sha(raw), expectedFile, 'Checkpoint file differs');
-      assert.equal(sha(raw.subarray(0, -1)), expectedState, 'Snapshot state differs');
-      const state = JSON.parse(raw);
+    const readState = (record, tick) => {
+      const path = record.path;
+      const local = resolve(seedRoot, basename(path));
+      const raw = readFileSync(local);
+      if (encoding === 'gzip') assert.match(record.fileSha256, /^[0-9a-f]{64}$/);
+      const decoded = readCohortSnapshot(
+        { ...record, path: local, fileSha256: record.fileSha256 ?? sha(raw) },
+        encoding
+      );
+      const state = JSON.parse(decoded.raw);
       assert.equal(state.ruleset, ledger.ruleset, 'Snapshot ruleset differs');
       assert.equal(state.tick, tick, 'Snapshot tick differs');
       assert.equal(state.winner, null, 'Unfinished snapshot has a winner');
@@ -57,10 +63,22 @@ export function inspectCohortHorizon(directory, ledgerFile, lastTicks = 36000) {
       previousTick = checkpoint.tick;
     }
     const selected = report.checkpoints.filter((row) => row.tick >= report.finalTick - lastTicks);
-    const states = selected.map((row) =>
-      readState(row.path, row.stateSha256, row.fileSha256, row.tick)
+    const states = selected.map((row) => {
+      assert.match(row.fileSha256, /^[0-9a-f]{64}$/);
+      return readState(row, row.tick);
+    });
+    if (encoding === 'gzip') assert(report.finalSnapshot, 'Missing compressed final descriptor');
+    const finalRecord = report.finalSnapshot ?? {
+      path: report.finalPath,
+      stateSha256: report.finalStateSha256,
+    };
+    assert.equal(finalRecord.path, report.finalPath, 'Final descriptor path differs');
+    assert.equal(
+      finalRecord.stateSha256,
+      report.finalStateSha256,
+      'Final descriptor state differs'
     );
-    const final = readState(report.finalPath, report.finalStateSha256, null, report.finalTick);
+    const final = readState(finalRecord, report.finalTick);
     if (states.at(-1)?.tick === final.tick)
       assert.equal(
         selected.at(-1).stateSha256,

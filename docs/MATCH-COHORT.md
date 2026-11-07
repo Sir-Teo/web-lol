@@ -113,3 +113,12 @@ All 45 decoded artifacts, including the final state, are byte-identical to the
 accepted uncompressed noise run. Storage fell from 16,680,648 to 1,592,845 bytes.
 This is a single-seed storage validation; the current hundred-seed gate remains
 false until a separate complete audit passes.
+
+`inspect-cohort-horizon.mjs` accepts either plain or gzip snapshots through the
+same verified codec. It requires a frozen seed ledger and verifies each pinned
+unfinished report before sampling counters and nexus HP. Compressed final-state
+descriptors, stored hashes, decoded extents and state hashes remain mandatory.
+The diagnostic output pins the stored artifact bytes. It reads archived states
+without replaying them or changing any outcome; minute samples do not establish
+causal AI behavior. Fourteen reader tests pass, and the two actual two-minute
+plain/gzip smoke archives produce identical observations.

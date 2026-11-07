@@ -5,6 +5,7 @@ import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'nod
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { inspectCohortHorizon } from './inspect-cohort-horizon.mjs';
+import { writeCohortSnapshot } from './lib/cohort-snapshot.ts';
 const sha = (raw) => createHash('sha256').update(raw).digest('hex');
 function fixture(run) {
   const root = mkdtempSync(join(tmpdir(), 'rift-horizon-')),
@@ -103,4 +104,48 @@ for (const [name, mutate] of [
     fixture((data) => {
       mutate(data);
       assert.throws(() => inspectCohortHorizon(data.root, data.ledgerFile));
+    }));
+
+function compress(data) {
+  const { report, saveReport } = data;
+  const pack = (path) => writeCohortSnapshot(path, readFileSync(path, 'utf8').slice(0, -1), 'gzip');
+  report.checkpoints = report.checkpoints.map((row) => ({ tick: row.tick, ...pack(row.path) }));
+  report.finalSnapshot = pack(report.finalPath);
+  report.finalPath = report.finalSnapshot.path;
+  report.snapshotEncoding = 'gzip';
+  saveReport();
+}
+test('gzip horizon diagnostics retain the exact plain observations and pin stored evidence', () =>
+  fixture((data) => {
+    const plain = inspectCohortHorizon(data.root, data.ledgerFile).cases[0];
+    compress(data);
+    const packed = inspectCohortHorizon(data.root, data.ledgerFile).cases[0];
+    for (const key of ['samples', 'counterDeltas', 'nexusChanges'])
+      assert.deepEqual(packed[key], plain[key]);
+    for (const row of packed.evidence) {
+      const raw = readFileSync(join(data.root, row.path));
+      assert.equal(row.bytes, raw.length);
+      assert.equal(row.sha256, sha(raw));
+    }
+  }));
+for (const [name, mutate] of [
+  ['stored corruption', ({ report }) => writeFileSync(report.checkpoints[1].path, 'broken')],
+  ['decoded extent', ({ report }) => report.checkpoints[1].uncompressedBytes--],
+  ['missing stored hash', ({ report }) => delete report.checkpoints[1].fileSha256],
+  ['missing final descriptor', ({ report }) => delete report.finalSnapshot],
+  [
+    'different final descriptor',
+    ({ report }) => (report.finalSnapshot.stateSha256 = '0'.repeat(64)),
+  ],
+  ['mixed checkpoint codec', ({ report }) => (report.checkpoints[1].encoding = 'none')],
+  ['unknown report codec', ({ report }) => (report.snapshotEncoding = 'zip')],
+])
+  test(`gzip horizon reader rejects ${name} without changing archived inputs`, () =>
+    fixture((data) => {
+      compress(data);
+      mutate(data);
+      data.saveReport();
+      const before = readFileSync(join(data.folder, 'report.json'));
+      assert.throws(() => inspectCohortHorizon(data.root, data.ledgerFile));
+      assert.deepEqual(readFileSync(join(data.folder, 'report.json')), before);
     }));
