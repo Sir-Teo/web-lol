@@ -58,6 +58,7 @@ import { LazyAhriQCasts } from './lazy-ahri-q-casts';
 import { LazyAhriQProjectiles } from './lazy-ahri-q-projectiles';
 import { LazyAhriWParticles } from './lazy-ahri-w-effects';
 import { LazyAhriEParticles } from './lazy-ahri-e-effects';
+import { LazyAhriRParticles } from './lazy-ahri-r-effects';
 import { LazyAlphaContacts } from './lazy-masteryi-q-contacts';
 import { LuxAttackCrescents } from './lux-attack-crescents';
 import { LuxAttackTrails } from './lux-attack-trails';
@@ -208,6 +209,9 @@ export class GameView {
   ahriEParticles = new LazyAhriEParticles(this.scene, this.particleEarlyDistortion.scene, (p) =>
     this.ground(p)
   );
+  ahriRParticles = new LazyAhriRParticles(this.scene, this.particleEarlyDistortion.scene, (p) =>
+    this.ground(p)
+  );
   ahriQCasts = new LazyAhriQCasts(this.scene, (p) => this.ground(p));
   alphaCasts = new LazyAlphaCasts(this.scene, (p) => this.ground(p));
   alphaContacts = new LazyAlphaContacts(this.scene, (p) => this.ground(p));
@@ -330,6 +334,7 @@ export class GameView {
       this.ahriQProjectiles,
       this.ahriWParticles,
       this.ahriEParticles,
+      this.ahriRParticles,
       this.alphaContacts,
       this.alphaEnds,
       this.highlanderCasts,
@@ -967,6 +972,7 @@ export class GameView {
     this.ahriQProjectiles.update(world, alpha, this.camera, terminalAge);
     this.ahriWParticles.update(world, alpha, this.camera, terminalAge);
     this.ahriEParticles.update(world, alpha, this.camera, terminalAge);
+    this.ahriRParticles.update(world, alpha, this.camera, terminalAge);
     this.alphaContacts.update(world, alpha, this.camera, terminalAge);
     this.meditateCasts.update(world, alpha, this.camera, terminalAge);
     this.meditateBuffs.update(world, alpha, this.camera, terminalAge);
@@ -1055,6 +1061,7 @@ export class GameView {
     this.ahriQProjectiles.prepareDepth(this.renderer, this.camera);
     this.ahriWParticles.prepareDepth(this.renderer, this.camera);
     this.ahriEParticles.prepareDepth(this.renderer, this.camera);
+    this.ahriRParticles.prepareDepth(this.renderer, this.camera);
     renderParticleColorPhase(this.renderer, this.scene, this.camera, this.particleEarlyDistortion);
     this.particleDistortion.render(this.renderer, this.camera);
     this.mapTextureResidency?.endFrame();
@@ -1256,7 +1263,7 @@ export class GameView {
     for (const cast of world.ahriRushes)
       for (const burst of cast.bursts)
         for (const fire of burst.bolts) {
-          if (fire.stopTick !== null) continue;
+          if (fire.stopTick !== null || this.ahriRParticles.ready) continue;
           const key = `${cast.id}:${burst.index}:${fire.index}`;
           active.add(key);
           let model = this.spiritBoltModels.get(key);

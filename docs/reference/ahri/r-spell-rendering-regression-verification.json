@@ -1,0 +1,154 @@
+{
+  "format": 1,
+  "scope": "R spell renderer candidate regressions; production/offline acceptance pending",
+  "applicationRevision": "1bef0ac0",
+  "schema": 181,
+  "ruleset": "e2c1447e3ff495f6ca32f85f711721adb4a457218e8aede36133c16cf004ac5b",
+  "compatibilityFiles": 684,
+  "profiles": {
+    "published": 55,
+    "selectedSpellProfiles": 20,
+    "deferredNoise": 2,
+    "deferredPalette": 1,
+    "persistentNotConnected": 16,
+    "unjoined": 16
+  },
+  "selectedAssets": {
+    "textures": 23,
+    "meshes": 1,
+    "newRTextureRequests": 4,
+    "additionalSharedWTextureRequests": 1
+  },
+  "fullUnit": {
+    "passed": 9308,
+    "total": 9310,
+    "files": 581,
+    "knownFailures": [
+      "missing historical Leona reader archive",
+      "Lux sampler FMA golden mismatch"
+    ]
+  },
+  "nodeQaPassed": 261,
+  "cleanExport": {
+    "revision": "a8d0668fa55d61dc4341c34f60839f4fd1628d59",
+    "commandsPassed": 84,
+    "testExecutions": 1080,
+    "fileExecutions": 134,
+    "selectionsOverlap": true,
+    "verifiedCommittedFiles": 5515,
+    "privateCaches": false,
+    "privateTools": false,
+    "reusedNodeModules": true,
+    "excludedCommittedPaths": [
+      "public/assets/maps/textures/**"
+    ]
+  },
+  "naturalSeed": {
+    "seed": 1,
+    "winner": "blue",
+    "finalTick": 157116,
+    "roundTrips": 44,
+    "restoredFutures": 43,
+    "futureTicks": 2580,
+    "completeProjectionMatches": 45,
+    "projectionExclusions": [
+      "version",
+      "ruleset"
+    ],
+    "rObservationsRetained": true
+  },
+  "browser": {
+    "distinctPassingCases": 33,
+    "rBatchPassed": 8,
+    "crossKitInitial": {
+      "passed": 24,
+      "total": 25,
+      "onlyFailure": "W URL-count assertion did not account for the named shared R texture"
+    },
+    "correctedWCasePassed": 1,
+    "applicationChangedForRetry": false
+  },
+  "freshPack": {
+    "result": "passed",
+    "pack": "3dbfa301112973701904b7a0a2e783cd05b0174cd8199ff09cf549d70a7faa66",
+    "files": 1432,
+    "bytes": 581114779,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "productionVerified": false,
+  "offlineVerified": false,
+  "primaryIntegrated": false,
+  "projectComplete": false,
+  "evidence": [
+    {
+      "path": "artifacts/ahri-r-rendering-full-tests-v1.log",
+      "bytes": 4787,
+      "sha256": "fdf8549eba94fe97813e35f4ea15fc2aa6d83920032a53cc3e937c0b95aac72c"
+    },
+    {
+      "path": "artifacts/ahri-r-rendering-node-qa-v1.log",
+      "bytes": 20431,
+      "sha256": "27ca6ad2f4eb2ab45cddc39091a073a7f7aa50b54a5aec8ef1611480c3bd5bc8"
+    },
+    {
+      "path": "artifacts/ahri-r-rendering-clean-ci-results.json",
+      "bytes": 19257,
+      "sha256": "c88184ba6da8ebf1f1d990e2485614c87550dfc5d18677ca0f6a3c0d87ae8f6e"
+    },
+    {
+      "path": "artifacts/ahri-r-rendering-clean-ci-cleanup-v1.json",
+      "bytes": 385,
+      "sha256": "3250099a35d9c2fbd915b1abd8f09385e631a035dce448e3c501e8e298fb83b3"
+    },
+    {
+      "path": "artifacts/ahri-r-rendering-cohort-v1.log",
+      "bytes": 1397,
+      "sha256": "40accc8d0ff7f7ad30b3fa6395589fb79ef394b048401808c38f5e7035eaf744"
+    },
+    {
+      "path": "artifacts/ahri-r-rendering-cohort-verify-v1.log",
+      "bytes": 430,
+      "sha256": "8d84b1fd2213d339d81fc6ebd72f8e1eb4ca1faef472e0cd345ce31e004ebd8b"
+    },
+    {
+      "path": "artifacts/ahri-r-rendering-gameplay-comparison-v1.log",
+      "bytes": 51,
+      "sha256": "f30ca3af7da38c02442afaa8630f5c66b9e2df7db7683ea64aa817fe72250930"
+    },
+    {
+      "path": "artifacts/ahri-r-rendering-pack-v1.json",
+      "bytes": 213,
+      "sha256": "0ccb62cb2363b77e975ce932c8cf14914780b396e559d4a00c110a03493f3326"
+    },
+    {
+      "path": "artifacts/ahri-r-rendering-audio-preservation-v1.json",
+      "bytes": 60372,
+      "sha256": "d21377133d5d629cbf78f3b52e665d27178f99b12ad7c414f59211f0608a4303"
+    },
+    {
+      "path": "artifacts/ahri-r-rendering-browser-r-v3.log",
+      "bytes": 2850,
+      "sha256": "258e88e5ffb3a697bb52f30e78e16c5371ee8c1f10b22e3a9e1b2959c2eae9ad"
+    },
+    {
+      "path": "artifacts/ahri-r-rendering-browser-regression-v1.log",
+      "bytes": 9850,
+      "sha256": "3664e7a2e29125a5f7fd80f26883081533b5d6853210dca8a1bead28a6753b9f"
+    },
+    {
+      "path": "artifacts/ahri-r-rendering-browser-w-retry-v3.log",
+      "bytes": 668,
+      "sha256": "f025e8ce7e12771fafd74bafeb56505983e005fd8ec8ff3384b33e60cc34c7c8"
+    },
+    {
+      "path": "docs/reference/ahri/r-spell-rendering-gameplay-comparison.json",
+      "bytes": 22192,
+      "sha256": "ee7d0bd1c59e28a2dc3e9f60233590dda62a3fdd13601d7c94465a8ab79b42ca"
+    },
+    {
+      "path": "docs/reference/ahri/r-spell-rendering-source-delta.json",
+      "bytes": 2848,
+      "sha256": "6d11c83a56dea1857e999cae2c6da0524befe177736a7abc1fb5cc467149f4ce"
+    }
+  ]
+}

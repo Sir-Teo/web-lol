@@ -290,6 +290,14 @@ jobs:
           tests/ahri-r-same-tick-target-loss.test.ts
           tests/ahri-r-visual-history-module.test.ts
           tests/ahri-r-visual-history.test.ts
+          tests/ahri-r-render-history.test.ts
+          tests/ahri-r-render-gameplay-reference.test.ts
+          tests/ahri-r-particles.test.ts
+          tests/ahri-r-assets.test.ts
+          tests/ahri-r-attachments.test.ts
+          tests/ahri-r-trails.test.ts
+          tests/ahri-r-effects.test.ts
+          tests/lazy-ahri-r-effects.test.ts
           tests/ahri-r-visual-snapshot.test.ts
           tests/ahri-passive-gameplay-reference.test.ts
           tests/ahri-passive.test.ts

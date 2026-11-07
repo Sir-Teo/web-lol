@@ -9,6 +9,8 @@ on:
       - 'docs/reference/ahri/names.json'
       - 'docs/reference/ahri-model.json'
       - 'docs/reference/ahri/r-*.json'
+      - 'src/content/ahri-*-particles.json'
+      - 'public/assets/effects/ahri-*'
   pull_request:
     paths:
       - '.github/workflows/ahri-r-source.yml'
@@ -18,6 +20,8 @@ on:
       - 'docs/reference/ahri/names.json'
       - 'docs/reference/ahri-model.json'
       - 'docs/reference/ahri/r-*.json'
+      - 'src/content/ahri-*-particles.json'
+      - 'public/assets/effects/ahri-*'
 jobs:
   portable-reading:
     runs-on: ubuntu-latest
@@ -36,3 +40,7 @@ jobs:
           python3 tools/assets/prepare-ahri-r-profiles.py --verify-reading
           python3 tools/assets/test-ahri-r-profiles.py
           python3 -O tools/assets/test-ahri-r-profiles.py
+      - name: Reproduce publication from committed transports without native tools
+        run: |
+          python3 tools/assets/test-ahri-r-publication.py
+          python3 -O tools/assets/test-ahri-r-publication.py

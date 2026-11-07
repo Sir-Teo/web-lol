@@ -1,0 +1,86 @@
+{
+  "format": 1,
+  "beforeRevision": "eac4f9fa375789091a8425e869d9da02f5f779e4",
+  "afterRevision": "a8d0668fa55d61dc4341c34f60839f4fd1628d59",
+  "beforeRuleset": "64f63c0976c13ca41aad687f2135c6b178706ffd62fe96720627ec87626dd537",
+  "afterRuleset": "e2c1447e3ff495f6ca32f85f711721adb4a457218e8aede36133c16cf004ac5b",
+  "beforeArchiveFiles": 680,
+  "afterArchiveFiles": 689,
+  "changed": [
+    {
+      "before": {
+        "file": "tools/ruleset-fingerprint.ts",
+        "bytes": 13782,
+        "sha256": "6e81d004aac639f47d4013f93079aa0e704d433cb875df9ef757f5b5e3599cad"
+      },
+      "after": {
+        "file": "tools/ruleset-fingerprint.ts",
+        "bytes": 13855,
+        "sha256": "50c4ba2ccda94bf1d1abb5404e6a78445b0e9cb929afbfa474f6caf9c0cbba26"
+      }
+    }
+  ],
+  "added": [
+    {
+      "file": "src/content/ahri-r-particles.json",
+      "bytes": 1550126,
+      "sha256": "c9a65a9808d3206cfbaee6dc1f9e1a5a37d6351947d997e2a5c4b8d3b290f29f"
+    },
+    {
+      "file": "src/render/ahri-r-assets.ts",
+      "bytes": 4318,
+      "sha256": "a944457125c0db771d604acb5cfda405708ecbb902fe4abbaee9e9a122f616eb"
+    },
+    {
+      "file": "src/render/ahri-r-attachments.ts",
+      "bytes": 4801,
+      "sha256": "bfd59a12d63e4e87be34e175768856c30ca7149e89075539652d8aee317ae2e7"
+    },
+    {
+      "file": "src/render/ahri-r-effects.ts",
+      "bytes": 12492,
+      "sha256": "07420d7c4c826565f99c801b529763273fb0f93dc53bbb558600fcc6682c4a04"
+    },
+    {
+      "file": "src/render/ahri-r-history.ts",
+      "bytes": 6944,
+      "sha256": "40d3da615d07846ac1b8602b62ff13ffa8ce4e03be27919076fc91daaae566c5"
+    },
+    {
+      "file": "src/render/ahri-r-particles.ts",
+      "bytes": 18018,
+      "sha256": "c69146caaea3c041a780394720a5685b671441825e26df980efb9db41281d81d"
+    },
+    {
+      "file": "src/render/ahri-r-ribbon-material.ts",
+      "bytes": 5093,
+      "sha256": "2698c3f555da7ff0c479e2f955eeb83f693d93297ea5ce28c44393944035c882"
+    },
+    {
+      "file": "src/render/ahri-r-trails.ts",
+      "bytes": 3319,
+      "sha256": "ec248b4a3c23e0fc64fa647c28db814e6c789e1396ae84be25442d439c9bf719"
+    },
+    {
+      "file": "src/render/lazy-ahri-r-effects.ts",
+      "bytes": 2089,
+      "sha256": "5afcc589b8636381f7912e14d8e12c69616b27ea2310b6a9050fbf84e8ef0254"
+    }
+  ],
+  "removed": [],
+  "unchangedFiles": 679,
+  "currentArchiveBytesMatch": true,
+  "existingSimulationAndContentBytesUnchanged": true,
+  "viewWiring": {
+    "file": "src/render/view.ts",
+    "before": {
+      "bytes": 68565,
+      "sha256": "d0ca0733bf499531546614785800b232edcde548e9585d45ac00b81215b5a72e"
+    },
+    "after": {
+      "bytes": 68940,
+      "sha256": "2eeebc2e5b33ec61517c9edc9381ca25d557e1f5c197a27bfe98fd5d010cf473"
+    },
+    "scope": "Lazy renderer lifecycle and provisional-bolt retirement only; outside the headless compatibility closure"
+  }
+}

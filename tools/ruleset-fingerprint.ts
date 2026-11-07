@@ -117,6 +117,8 @@ export const rulesetModuleRoots = [
   'src/render/lazy-ahri-w-effects.ts',
   'src/render/ahri-e-effects.ts',
   'src/render/lazy-ahri-e-effects.ts',
+  'src/render/ahri-r-effects.ts',
+  'src/render/lazy-ahri-r-effects.ts',
   'src/render/ahri-q-cast-particles.ts',
   'src/render/ahri-q-casts.ts',
   'src/audio/ahri-recall-state.ts',

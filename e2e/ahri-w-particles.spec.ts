@@ -184,7 +184,12 @@ test('keyboard W loads only joined assets and restores orbit, flight and hit dra
   expect(hit.restored).toEqual(hit.before);
   expect(hit.seen).toEqual(Array.from({ length: 23 }, (_, i) => i + 7));
   expect(hit.ends).toEqual(['hit', 'hit', 'hit']);
-  expect(new Set(requests).size).toBe(25);
+  // R borrows this byte-identical transport outside W's own joined closure.
+  const rShared = requests.filter(
+    (url) => new URL(url).pathname === '/assets/effects/ahri-w-b7cf3aaa74075f2a.png'
+  );
+  expect(rShared).toHaveLength(1);
+  expect(new Set(requests.filter((url) => !rShared.includes(url))).size).toBe(25);
   expect(errors).toEqual([]);
   await writeFile(
     info.outputPath('evidence.json'),
