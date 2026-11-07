@@ -59,8 +59,12 @@ decoded snapshots are byte-identical to the accepted plain run. Stored bytes
 fall from 16,680,648 to 1,592,845. All 271 Node QA tests and 88 clean-export CI
 commands pass, including three pinned recovery-controller versions; all 5,649
 exported blobs verify. See [compression acceptance](reference/cohort-gzip-acceptance.json).
-The current hundred-seed development-roster audit has not completed; its gate
-and milestone 4 remain false.
+The current hundred-seed development-roster audit is running in its frozen
+checkout with gzip storage and three workers. Its gate and milestone 4 remain
+false until completion and independent verification. See the
+[start receipt](reference/e02f3e-development-roster-hundred-start.json). Primary
+integration passes 39 focused QA cases and reproduces the exact accepted pack
+audit; the unfinished-state reader also supports gzip.
 
 R retains all 55 published profiles, 51 textures / 428 authored mips and four
 meshes. The selected subset uses 37 textures and two meshes. Thirteen R textures,

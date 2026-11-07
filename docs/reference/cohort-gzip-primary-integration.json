@@ -1,0 +1,29 @@
+{
+  "format": 1,
+  "result": "passed",
+  "revision": "4a299fe6ce8712a568c837ee613403f37ff532e5",
+  "applicationAndPublicByteIdenticalTo": "a345d9ebfd5e5902176a8c642d30a0d50aa0cb07",
+  "ruleset": "e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f",
+  "focusedQaPassed": 39,
+  "pack": {
+    "result": "passed",
+    "pack": "64ef73c19231b85bf481b42d9562e701281901b3007bbd65028e51959e5f1eae",
+    "files": 1432,
+    "bytes": 581141513,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "evidence": [
+    {
+      "file": "artifacts/cohort-gzip-primary-focused-v1.log",
+      "bytes": 3780,
+      "sha256": "ddcdbc3386a9ee1623ecde7efec784e73d3b36c3d24447ce4022704b7d722c29"
+    },
+    {
+      "file": "artifacts/cohort-gzip-primary-pack-v1.log",
+      "bytes": 213,
+      "sha256": "75e454a25b15c38f2c2b29e5c7807371c947917e86a5aa1d3ff4e01b9f2b9a37"
+    }
+  ],
+  "hundredSeedAudit": "started; incomplete",
+  "roadmapMilestone4Complete": false
+}
