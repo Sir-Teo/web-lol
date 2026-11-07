@@ -106,12 +106,21 @@ The HUD-only accessibility checkpoint `c7ee1a88` exposes sound and camera-lock
 pressed states, updates their action text, and keeps camera state synchronized
 with keyboard and external camera changes. Two real-HUD/input browser probes
 pass without World mutation. TypeScript, production build and complete pack
-audit pass. Current pack `30aedd68` has 1,432 files / 581,141,906 bytes with the
+audit pass. Its retained pack `30aedd68` has 1,432 files / 581,141,906 bytes with the
 same worker policy; the earlier `64ef73c1` noise pack remains retained. All 696
 compatibility inputs and ruleset `e02f3e73` remain unchanged, so the frozen current
 hundred-seed audit retains its simulation scope. This targeted UI verification
 does not replace the earlier full-suite, graphics or offline receipts. See
 [HUD verification](reference/hud-toggle-accessibility-verification.json).
+
+Sound preference checkpoint `630302bb` preserves mute/unmute across reloads in
+browser storage, separate from match saves. Three storage tests and three browser
+cases pass, including the real game through both reload directions with no
+startup audio context. Storage denial/quota failure leaves the live toggle usable.
+TypeScript, production build and all-file audit pass. Current pack `9d0bad35`
+contains 1,432 files / 581,142,305 bytes with unchanged worker policy. Schema 181,
+all 696 compatibility inputs and ruleset `e02f3e73` remain unchanged; earlier HUD
+and noise packs are retained. See [sound preference verification](reference/sound-preference-verification.json).
 
 ## Recent verified checkpoints
 

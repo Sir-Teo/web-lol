@@ -1,0 +1,75 @@
+{
+  "format": 1,
+  "result": "passed",
+  "applicationRevision": "630302bb",
+  "schema": 181,
+  "ruleset": "e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f",
+  "compatibilityFiles": 696,
+  "unitTestsPassed": 3,
+  "browserCasesPassed": 3,
+  "actualGameReloads": 2,
+  "soundPreferenceSeparateFromMatchSnapshots": true,
+  "browserStorageFailureDoesNotInterruptLiveToggle": true,
+  "audioContextAbsentAfterBothReloads": true,
+  "typescriptAndProductionBuildPassed": true,
+  "allFilePackAudit": {
+    "result": "passed",
+    "pack": "9d0bad3502c73163a1a81dcb955642477bbe7bc46c4b1c32134fa0a7e3e0f910",
+    "files": 1432,
+    "bytes": 581142305,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "retainedPack": "/workspace/web-lol/.cache/sound-preference-accepted-pack-9d0b",
+  "priorPacksPreserved": true,
+  "scope": "Targeted preference and HUD verification; original full-suite, rendering and offline receipts retain their own revisions; no new native audio or performance certification",
+  "hundredSeedAuditStillRunning": true,
+  "roadmapMilestone4Complete": false,
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/sound-preference-unit-v1.log",
+      "bytes": 178,
+      "sha256": "07e288f56528ff8f5c8be14eeee198e248fea152ca0fed49d752a2308b220835"
+    },
+    {
+      "file": "artifacts/sound-preference-browser-driver-v1.log",
+      "bytes": 1180,
+      "sha256": "6a64db475dad29a1080aa5cf9b3ef56e9c4603ef615d86fd572f8a4f41da3487"
+    },
+    {
+      "file": "artifacts/sound-preference-browser-v1.json",
+      "bytes": 5492,
+      "sha256": "1a95311dd2a88b6e3c55976554672ab32cb44f5ff0705c58b3895cd24f6013f3"
+    },
+    {
+      "file": "artifacts/sound-preference-build-v1.log",
+      "bytes": 9453,
+      "sha256": "06f4ee6a8046523ca059daf7b016d8d2ecf81ae21df13c3f87bed7d383e1224c"
+    },
+    {
+      "file": "artifacts/sound-preference-build-dedup-v1.json",
+      "bytes": 1329,
+      "sha256": "f3a6fe0ada805472df05b9a0fe47d9bec9b9280fe73247ee7ca63330b4defcc9"
+    },
+    {
+      "file": "artifacts/sound-preference-ruleset-v1.json",
+      "bytes": 104,
+      "sha256": "5a9159e9011a6086ba92e9320f35b01aa31a984d99d095f1538d585e16f6b4d6"
+    },
+    {
+      "file": "artifacts/sound-preference-browser-v1/hud-toggle-accessibility-H-a2de6--updates-initial-lock-true-/hud-toggle-states.json",
+      "bytes": 146,
+      "sha256": "ca5dd330441b9aebfe16781cb5abc2ad3f54b30711eca0f47f378e0dd91ed498"
+    },
+    {
+      "file": "artifacts/sound-preference-browser-v1/hud-toggle-accessibility-H-cf9ea-updates-initial-lock-false-/hud-toggle-states.json",
+      "bytes": 147,
+      "sha256": "8a4fbee04580fc06da956dff4488a8057c70a8ab5d5ad87fd5e344f552f79b91"
+    },
+    {
+      "file": "artifacts/sound-preference-browser-v1/sound-preference-muting-an-7d78c-ut-opening-audio-on-startup/sound-preference-reloads.json",
+      "bytes": 585,
+      "sha256": "599603d5fc3137deeae10c481db8bf35928213173040413bec101cc58c43c3e2"
+    }
+  ]
+}
