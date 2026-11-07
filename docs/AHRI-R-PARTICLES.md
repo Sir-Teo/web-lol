@@ -994,3 +994,31 @@ without stepping World, with one shared R depth capture per render. Image
 inspection shows its blue ground aura around the caster. This is software-browser
 functional evidence; native pixel equivalence and device performance remain open.
 Broader regressions, source-history comparison and delivery acceptance follow.
+
+## Accepted complete layout subset
+
+The [layout-base acceptance receipt](reference/ahri/r-layout-base-acceptance.json)
+pins 288 evidence files to application `d343a9f9`, schema 181 and ruleset
+`b71e7477`. All six layout profiles and four eye profiles are selected beside
+21 joined spell profiles. The full suite passes 9,873/9,875 in 603 files with
+only the two historical failures; all 263 Node QA cases and all 87 portable CI
+commands pass. Every CI command passes on its first attempt. The clean export
+verifies 5,617 blobs and executes 1,645 tests across 156 file executions, including
+overlap. All 33 distinct browser cases pass, plus the retained initial keyboard
+probe. The final base hide/show probe changes 192,952 pixels with no World step,
+one shared R depth capture per render and no attachment fallback.
+
+The natural seed reaches the same Blue victory at tick 157,116 with 44 exact
+round trips and 43 futures / 2,580 ticks. Of 45 saved projections, 44 match the
+accepted mesh checkpoint completely. One adds 93 older source poses; all 45
+match after explicitly trimming only source poses older than the original
+720-update window. This is compatibility with the archived pose window, not
+complete-state identity for the changed source history. All six earlier frozen
+packet families remain exact.
+
+Production nested-path playback passes with 32 recordings and no eager R
+particle preloads. Offline lifecycle passes with 978 worker responses and zero
+production errors. Pack `c432ac3c` contains 1,432 files / 581,134,629 bytes. Native
+calibration, six counter profiles, two noise profiles, sixteen unjoined profiles,
+current hundred-seed acceptance and full project completion remain open. Primary
+integration follows independently.
