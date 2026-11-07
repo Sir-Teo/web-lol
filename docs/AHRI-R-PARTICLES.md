@@ -1119,3 +1119,31 @@ scattered directional sparks. External hash/threshold/cap policy, omitted-centre
 default and local clock/serial bindings remain explicit; this does not certify
 native randomness, constructor defaults, pixels or representative-device speed.
 Broader regressions and delivery checks follow before acceptance.
+
+## Accepted noise-field subset
+
+The [noise acceptance receipt](reference/ahri/r-noise-acceptance.json) pins 337
+evidence files to application `a345d9eb`, schema 181 and ruleset `e02f3e73`.
+R selects 33 profiles (23 spell / ten buff); six counter and sixteen unjoined
+profiles remain deferred. The two fields use the explicit external preview policy
+and local clock/serial/default bindings recorded above; native constructor and
+random-stream correspondence remain unverified.
+
+The full suite passes 10,149/10,151 in 610 files with only the two historical
+failures. All 263 Node QA cases and 87 portable CI commands pass; every CI command
+passes on its first attempt. The committed export verifies 5,643 blobs and runs
+1,921 test executions across 163 file executions, including overlap. All 33
+distinct browser cases pass plus the retained initial keyboard probe. The two
+full-render noise probes change 68,863 / 19,276 pixels without World mutation,
+with one shared R depth capture per render and no attachment fallback. All seven
+earlier packet families and independent field/motion fixtures remain exact.
+
+All 45 complete natural-match saved projections match the accepted layout-base
+checkpoint, excluding only version/ruleset metadata and normalizing no fields.
+The seed retains Blue victory at tick 157,116, 44 exact round trips and 43 futures
+covering 2,580 ticks. Public assets and all 334 WAV files / 96,632,632 bytes remain
+exact. Production nested-path playback passes with 32 recordings and no eager
+R preloads. Offline lifecycle passes with 978 worker responses and zero errors.
+Pack `64ef73c1` contains 1,432 files / 581,141,513 bytes. Native calibration,
+representative-device performance, current hundred-seed acceptance and project
+completion remain open. Primary integration follows independently.
