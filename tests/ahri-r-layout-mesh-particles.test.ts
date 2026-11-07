@@ -54,7 +54,7 @@ test('prepared mesh clocks match complete active-only kernel schedules and prese
       expect(p.naturalLife).toBe(1);
       expect(p.sourceBind).toBe(1);
     }
-    expect(sampler.cachedBirths).toBeLessThanOrEqual(42);
+    expect(sampler.cachedBirths).toBeLessThanOrEqual(43);
   }
   for (const index of indices) {
     const births = [...seen.get(index)!].sort(([a], [b]) => a - b);
@@ -80,7 +80,7 @@ test('cached fractional/backward mesh seeks match fresh packets through active-w
       expect(sampler.sample(time, stop)).toEqual(
         ahriRParticles('Ahri_R_Ready_tar', 13, time, stop, context)
       );
-      expect(sampler.cachedBirths).toBeLessThanOrEqual(42);
+      expect(sampler.cachedBirths).toBeLessThanOrEqual(43);
     }
   expect(meshes(sampler.sample(30)).length).toBeGreaterThan(0);
   expect(meshes(sampler.sample(31.1))).toEqual([]);
@@ -93,6 +93,7 @@ test('cold mesh sampling uses only available recent roots and expired meshes nev
     const queried: number[] = [];
     const particles = ahriRParticles('Ahri_R_Ready_tar', 927, time, Infinity, {
       boundObjectSize: 100,
+      profiles: [51, 52, 53, 54],
       root: (at) => {
         if (at < time - 3) throw Error('Discarded root');
         queried.push(at);

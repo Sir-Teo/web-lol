@@ -963,3 +963,14 @@ exercise recast preservation, saved-path completeness, missing-pose rejection,
 exact cold restores, boundary release and death retirement. All six frozen
 packet families remain exact. This is an isolated history foundation, not a
 new production or full-match acceptance.
+
+The private sampler now prepares profile 49 as its authored single sixty-second
+quad with fully accumulated float32 source binding. It remains excluded from the
+live bound-buff profile list. An optional explicit producer subset is applied
+before evaluating kernels or querying roots; the live buff renderer selects only
+its accepted bound profiles. This prevents an unconnected prepared particle from
+requesting an old pose or doing unnecessary work. Cached base seeks, cold/backward
+seeks, immediate stop, natural expiry and every binding update are covered.
+All 629 R checks in 31 files and TypeScript pass; earlier frozen packets remain
+exact. The bounded sampler cache allows one additional finite birth. Rendering
+and full acceptance of the base remain pending.
