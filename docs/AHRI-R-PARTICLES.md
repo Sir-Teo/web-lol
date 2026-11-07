@@ -1079,3 +1079,11 @@ first and later births, moving/stationary particles, radius exclusion, drag and
 field sampling beyond emitter expiry. This protocol isolates motion arithmetic;
 it does not certify native birth randomness or clock handoff. Producer identity
 and direct strict entry TypeScript checks pass before local timeline work.
+
+The unconnected `SourceNoiseMotionTimeline` matches all 2,880 independent
+float32 position/velocity rows. Its emitter-wide schedule is immutable and bounded,
+using the reference's fixed system clock and accumulated emitter phase. Newborns
+take their field's birth-step impulse without moving; later steps retain field
+changes after drag and move afterward. Cold, backward and fractional seeks own
+their row buffers. All 26 trajectory/provenance/ownership checks and TypeScript
+pass before the R sampler is changed.
