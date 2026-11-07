@@ -1049,3 +1049,13 @@ pinned external evaluator and its actual curve/basis dependencies. It retains
 float32 result bits. The producer verifies every external blob and the unchanged
 published R data before execution. Its entry passes a direct strict TypeScript
 check, and fixture provenance passes. No runtime noise profile is connected.
+
+The unconnected `source-noise-field` adapter now matches the independent clock
+and impulse fixtures, including all float32 result bits after warm-up. It owns
+no World state and exposes an emitter-field clock separately from a particle
+impulse. Missing/invalid numerical inputs are rejected before mutating valid
+owned state. Four clock sequences and 162 impulse cases pass alongside provenance,
+warm-up and rejection checks: 169 checks total. All seven accepted R packet
+families remain exact; the combined selection passes 722 checks in nine files,
+and TypeScript passes. Native noise profiles remain deferred while field-value
+preparation and motion integration are developed.
