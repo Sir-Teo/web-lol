@@ -1,6 +1,6 @@
 {
   "format": 1,
-  "scope": "Finite R eye-glow candidate regressions; cross-kit browser and production/offline acceptance pending",
+  "scope": "Finite R eye-glow candidate regressions; production/offline acceptance pending",
   "applicationRevision": "c5ab62306895bb20fb3940b2f546239829f8c8fa",
   "schema": 181,
   "ruleset": "186133424c3e28265877ba008d887874ddfc6da10edf515e83bc2a0cf4f5f7d2",
@@ -97,6 +97,9 @@
     "artifacts/ahri-r-buff-image-review-v1.json",
     "docs/reference/ahri/r-eye-glow-gameplay-comparison.json",
     "docs/reference/ahri/r-eye-glow-source-delta.json",
-    "docs/reference/ahri/r-spell-packet-reference.json"
-  ]
+    "docs/reference/ahri/r-spell-packet-reference.json",
+    "artifacts/ahri-r-buff-browser-regression-v1.log"
+  ],
+  "crossKitBrowserCasesPassed": 25,
+  "distinctBrowserCasesPassed": 33
 }
