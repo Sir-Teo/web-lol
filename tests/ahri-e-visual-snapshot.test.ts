@@ -2,6 +2,8 @@ import { expect, test } from 'vitest';
 import { World } from '../src/simulation/world';
 import { PRACTICE_FIXTURE } from '../src/content/practice-fixture';
 import { eVisualGameplaySamples, type EVisualGameplayCase } from './helpers/ahri-e-visual-gameplay';
+import { eVisualEndTick } from '../src/simulation/ahri-e-visual-history';
+import { AHRI_E_VISUAL_HISTORY_TICKS } from '../src/content/ahri-e-visual-timing';
 
 function field() {
   return {
@@ -49,6 +51,30 @@ function checkpoint(scenario: EVisualGameplayCase, tick: number) {
 function restore(state: unknown) {
   return World.fromSnapshot(JSON.stringify(state), field());
 }
+
+test('posthumous E history retires before the actual caster respawn and cannot return with the new body', () => {
+  const w = restore(checkpoint('buff-caster-death', 60));
+  const r = w.ahriEVisuals[0],
+    caster = w.unit(r.sourceId)!;
+  expect(caster.deadAt).toBe(50);
+  const respawn = caster.respawnTick!;
+  expect(respawn - caster.deadAt!).toBeGreaterThanOrEqual(600);
+  w.step(120 - w.tick);
+  const retirement = eVisualEndTick(r) + AHRI_E_VISUAL_HISTORY_TICKS;
+  expect(retirement).toBeLessThan(respawn);
+  w.step(retirement - 1 - w.tick);
+  expect(w.ahriEVisuals).toHaveLength(1);
+  const saved = w.snapshot(),
+    copy = World.fromSnapshot(saved, w.battlefield);
+  expect(copy.snapshot()).toBe(saved);
+  w.step();
+  copy.step();
+  expect(w.ahriEVisuals).toEqual([]);
+  expect(copy.snapshot()).toBe(w.snapshot());
+  w.step(respawn - w.tick);
+  expect(w.alive(caster)).toBe(true);
+  expect(w.ahriEVisuals).toEqual([]);
+});
 
 test('strict Charm save admission rejects broken phase, control, pose, audio and identity links', () => {
   const state = checkpoint('hit', 45);

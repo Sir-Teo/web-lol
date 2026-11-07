@@ -258,3 +258,26 @@ colorless and the swirl receives its exact BGRA companion stream. Forty-nine
 focused asset/post-rotation tests and TypeScript checks pass, including real
 GLB parsing, all vertex positions, color presence and retry counts. Connecting
 this loader to a renderer and verifying its browser request closure remain next.
+
+## Saved phase-root adapter
+
+The isolated E history adapter joins cast, flight, hit and both persistent-buff
+systems with stable per-cast keys/seeds. Cast acceptance is an explicit local
+birth clock, not a recovered conversion of native animation frame 1. Cast and
+hit systems retain authored finite emitter windows; flight ends at the observed
+stop, and both buffs use the observed control stop or its fixed expiry deadline.
+
+Flight paths include the separate pre-move launch root and actual contact; body
+roots use source/target poses rather than the missile contact point. Old target
+paths clamp at their retained lifetime ending. Target-bound visibility never
+inherits the caster team, and interpolation requires both visible neighbours.
+Weak-key path caches invalidate same-tick audience/pose replacement; distances
+remain seek-order independent and facing follows the short arc with exact saved
+endpoints. Flight flex uses the observed missile radius, separate from body radii.
+
+Twenty-two phase/snapshot/W-path tests pass. A real posthumous cast is retained
+until its exact retirement boundary, round-trips there, and cannot reappear on
+the caster's actual respawn. The minimum champion death timer is 600 ticks,
+longer than this E retention; no source-ending field or schema change is needed
+for that case. Bone transforms, attached-skin selection and renderer integration
+remain separate steps.
