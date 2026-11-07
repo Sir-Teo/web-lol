@@ -907,3 +907,24 @@ shared R depth capture per render. Individual hide/show probes change 882,
 inspection shows blue swooshes around the existing aura. Native-client pixel
 equivalence and device performance remain unverified. Broader regressions and
 delivery checks follow before acceptance.
+
+## Accepted native layout meshes
+
+The [mesh acceptance receipt](reference/ahri/r-layout-mesh-acceptance.json)
+pins 262 evidence files to application `aabe0526`, schema 181 and ruleset
+`943a706f`. All 33 distinct browser cases pass, alongside the retained earlier
+keyboard probe. The final full-render hide/show probes change 2,762 / 40,353 /
+89,466 pixels for profiles 51/52/54 with no World step and one shared R depth
+capture per render. All 45 complete natural-match projections remain exact
+excluding only version/ruleset; all five earlier frozen packet families remain
+exact. The full suite passes 9,648/9,650 in 601 files with only the two historical
+failures. All 263 Node QA cases, 297 targeted checks and 87 portable CI commands
+pass; every CI command passes on its first attempt. The clean export verifies
+5,605 blobs and executes 1,420 tests across 154 file executions, including overlap.
+
+Production nested-path playback passes with 32 recordings and zero eager R
+particle preloads. Offline lifecycle passes with 978 worker responses and zero
+production errors. Pack `750c891d` contains 1,432 files / 581,133,759 bytes.
+Native constructor/callback calibration, native pixel equivalence, the remaining
+sixty-second layout base and current full-roster acceptance remain open. Primary
+integration follows independently; acceptance does not mark the project complete.
