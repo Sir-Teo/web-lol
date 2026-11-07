@@ -1,0 +1,81 @@
+{
+  "format": 1,
+  "result": "passed",
+  "beforeRevision": "a7092caa82f751cc1eb6064bd795cd7309b480c5",
+  "afterRevision": "0d6b714fb2fca5301988260166386656b2419deb",
+  "applicationRevision": "c5ab6230",
+  "beforeRuleset": "a68ca14b74c144ccb6b0d183f2d41395403a8defa0ae514756463c369f46b90d",
+  "afterRuleset": "186133424c3e28265877ba008d887874ddfc6da10edf515e83bc2a0cf4f5f7d2",
+  "beforeArchiveFiles": 690,
+  "afterArchiveFiles": 693,
+  "changed": [
+    {
+      "before": {
+        "file": "src/render/ahri-r-assets.ts",
+        "bytes": 4605,
+        "sha256": "489c8fe4048efb2e97ea922e93f97d284a6e77db1296fe1f76a4239bc82a11d6"
+      },
+      "after": {
+        "file": "src/render/ahri-r-assets.ts",
+        "bytes": 4671,
+        "sha256": "e152a192b528dff1c7a41c3fd9ab751cac7bc90a3cc803df43fbb588df841e41"
+      }
+    },
+    {
+      "before": {
+        "file": "src/render/ahri-r-effects.ts",
+        "bytes": 12484,
+        "sha256": "74201d255c34f80a6fa8535d30688a9d5151550e6c8ae3fcbc483ab44ea727ea"
+      },
+      "after": {
+        "file": "src/render/ahri-r-effects.ts",
+        "bytes": 12827,
+        "sha256": "c2763094433e35e6bec07a688e8a7e179445c338e10e90513581e446987b0562"
+      }
+    },
+    {
+      "before": {
+        "file": "src/render/ahri-r-particles.ts",
+        "bytes": 18107,
+        "sha256": "87147d064a7d7a61541a21a7a9999bec52c7ca75623e270be24f7c83e60d992e"
+      },
+      "after": {
+        "file": "src/render/ahri-r-particles.ts",
+        "bytes": 18902,
+        "sha256": "92960afa7df999a5ad9495c4e81d0312829793bddcce2c60f846437a279755aa"
+      }
+    },
+    {
+      "before": {
+        "file": "src/render/lazy-ahri-r-effects.ts",
+        "bytes": 2089,
+        "sha256": "5afcc589b8636381f7912e14d8e12c69616b27ea2310b6a9050fbf84e8ef0254"
+      },
+      "after": {
+        "file": "src/render/lazy-ahri-r-effects.ts",
+        "bytes": 2158,
+        "sha256": "06d1bf9f472ef1e99092626fafd4a3af4d15a0ae306673edcb78d4ec12ad8b84"
+      }
+    }
+  ],
+  "added": [
+    {
+      "file": "src/render/ahri-r-buff-attachments.ts",
+      "bytes": 3931,
+      "sha256": "92dc65f12e372eb3c17b67db9086edf2cb0890e94d36a7bad0f691350c5b10b7"
+    },
+    {
+      "file": "src/render/ahri-r-buff-effects.ts",
+      "bytes": 5945,
+      "sha256": "b076077240b4eb3518ea53b9724da1e582ac04b87fd25b0e66d004bab1076756"
+    },
+    {
+      "file": "src/render/ahri-r-persistent-history.ts",
+      "bytes": 3181,
+      "sha256": "7cbe8bd11c3a5c6af9337304f39a0354611d4dae75a2afe94d3df21aba052374"
+    }
+  ],
+  "removed": [],
+  "unchangedFiles": 686,
+  "scope": "Three added renderer modules and four renderer integration changes; all simulation, content and archived public assets remain exact."
+}
