@@ -34,3 +34,30 @@ not a cache-free CI claim. It adds no public assets, runtime effect bindings or
 save fields. The accepted W renderer remains schema 178 / ff8abc1b; its current
 archived cohort verifies unchanged. Decode, transport, spell/animation joins,
 particle history, playback and native visual calibration remain separate steps.
+
+## Private texture and mesh decode
+
+The decoded record retains all 20 textures / 170 authored mip levels as private
+PNGs (992,516 bytes), with compressed-range and straight-RGBA pixel identities.
+It generates no resized mips, color-space transforms or premultiplication.
+The SCB 3.2 flag-2 meshes retain 993 native vertices / 1,568 triangles. The heart
+mesh has 390 vertices / 776 triangles without vertex colors; the swirl mesh has
+603 vertices / 792 triangles with native BGRA and separate RGBA. Bounds, pivots,
+indices and per-face UV/material bytes round-trip exactly. No normals, winding
+changes, reflection, scale or pivot correction are introduced.
+
+The record SHA-256 is
+db521bcff91bf5d9bbccd99f6a8495be9825320789edf3e9487ffe53090cf96b.
+A fresh generation reproduces every retained output and the record. Normal and
+optimized checks and ten guard cases pass, covering native corruption, indices,
+nonfinite coordinates, color metadata, PNG CRC, changed pins, symlinks and whole
+publication preflight. Existing Q/W helpers and source artifacts remain intact.
+
+```sh
+PYTHONPATH=tools/assets:.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/decode-ahri-e-particles.py --check
+PYTHONPATH=tools/assets:.tools/cdtb .tools/cdtb-venv/bin/python tools/assets/test-ahri-e-decode.py
+PYTHONPATH=tools/assets:.tools/cdtb .tools/cdtb-venv/bin/python -O tools/assets/test-ahri-e-decode.py
+```
+
+These are private software-decoder outputs, not native GPU appearance or
+runtime acceptance. Public transport and playback remain separate work.
