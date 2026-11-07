@@ -244,3 +244,17 @@ The eleven E-source workflow commands also pass in a curated portable copy
 without decoder tools or private source/transport caches. A committed-export
 check follows the publication commit. The accepted primary runtime and pack
 remain separately retained while this renderer branch is under development.
+
+The committed publication revision 8ea0a69 reproduces all eleven workflow
+commands from a 62-file curated Git archive without private cache or tools.
+See e-publication-portable-verification.json for the exact revision and commands.
+
+The unconnected E asset loader now loads eleven E-owned atlases and two meshes,
+borrowing eleven sampler textures from the existing Q/W owners. It waits for
+owner readiness, validates address modes before delegation, and retains
+successful resources across failed loads without exposing partial readiness.
+Both source meshes convert centimetres to metres once; the heart remains
+colorless and the swirl receives its exact BGRA companion stream. Forty-nine
+focused asset/post-rotation tests and TypeScript checks pass, including real
+GLB parsing, all vertex positions, color presence and retry counts. Connecting
+this loader to a renderer and verifying its browser request closure remain next.
