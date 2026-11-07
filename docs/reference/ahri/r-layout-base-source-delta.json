@@ -1,0 +1,106 @@
+{
+  "format": 1,
+  "result": "passed",
+  "baselineRevision": "aabe05260691f94d800f6b6016148e9fea4d6717",
+  "candidateRevision": "d343a9f9221c7d46ce34f01010983db5dd84b86a",
+  "ruleset": "b71e747721c1c4a56c5d5773ca9b3b3c6b9c39ddcb46fadbb8214c381d0708a0",
+  "baselineFiles": 698,
+  "candidateFiles": 698,
+  "changed": [
+    {
+      "file": "src/content/ahri-r-visual-timing.ts",
+      "before": {
+        "file": "src/content/ahri-r-visual-timing.ts",
+        "bytes": 327,
+        "sha256": "5d3cb1accdf68c83792a27166419d3b85b620cf0a6b3293410ed710e054e2592"
+      },
+      "after": {
+        "file": "src/content/ahri-r-visual-timing.ts",
+        "bytes": 876,
+        "sha256": "15063d20bac95282653f651d24767987b3e09b4c5657a83f8b6e7f24146e8133"
+      }
+    },
+    {
+      "file": "src/render/ahri-r-assets.ts",
+      "before": {
+        "file": "src/render/ahri-r-assets.ts",
+        "bytes": 5848,
+        "sha256": "59db2b892234043c48185584e2b87c0d82720fdf7b33bd7ec0bf83c74ee6b949"
+      },
+      "after": {
+        "file": "src/render/ahri-r-assets.ts",
+        "bytes": 5848,
+        "sha256": "3e14dfef9d8a86ad89deaded16fa496c99e2f1f25531ab54da9de318fd9a07ba"
+      }
+    },
+    {
+      "file": "src/render/ahri-r-buff-effects.ts",
+      "before": {
+        "file": "src/render/ahri-r-buff-effects.ts",
+        "bytes": 8654,
+        "sha256": "0d7a5b10b40bc2ea9487fe2e420aa405d612f5373dce8b59c2281e4cb59823e2"
+      },
+      "after": {
+        "file": "src/render/ahri-r-buff-effects.ts",
+        "bytes": 8708,
+        "sha256": "55f618dcbcba7c1ba56f9e5d00fbf69a151d1675b4239d4b93f80d18156d1a10"
+      }
+    },
+    {
+      "file": "src/render/ahri-r-particles.ts",
+      "before": {
+        "file": "src/render/ahri-r-particles.ts",
+        "bytes": 22895,
+        "sha256": "14317838bdac191c634e22647c89664f930a1d47de90e6e0313d1c301f21ec5e"
+      },
+      "after": {
+        "file": "src/render/ahri-r-particles.ts",
+        "bytes": 23801,
+        "sha256": "25c57dd894557d2a7278d8f9d030013cb028b810d1f81ef67be94887f9badd44"
+      }
+    },
+    {
+      "file": "src/simulation/ahri-r-visual-history-validation.ts",
+      "before": {
+        "file": "src/simulation/ahri-r-visual-history-validation.ts",
+        "bytes": 11317,
+        "sha256": "910ccecac83cc3f1e4f69272bbe944e4c096db8bb518d59f48581f092d1221b2"
+      },
+      "after": {
+        "file": "src/simulation/ahri-r-visual-history-validation.ts",
+        "bytes": 11547,
+        "sha256": "d8000464758f55ffa7161895780707cbb43931f56f94f94456c76dcd67418d37"
+      }
+    },
+    {
+      "file": "src/simulation/ahri-r-visual-history.ts",
+      "before": {
+        "file": "src/simulation/ahri-r-visual-history.ts",
+        "bytes": 15085,
+        "sha256": "d3e1acd4f2e708141a16c251ad83a5d0cb3679c9026d6dd3b02810279d84cfed"
+      },
+      "after": {
+        "file": "src/simulation/ahri-r-visual-history.ts",
+        "bytes": 15512,
+        "sha256": "9832896dc2c84c31022b2d152874c3022400eb02d4aa2ded933d45b88dddcdb5"
+      }
+    },
+    {
+      "file": "src/simulation/snapshot.ts",
+      "before": {
+        "file": "src/simulation/snapshot.ts",
+        "bytes": 216753,
+        "sha256": "fb5d44eec34f631d25532ce4c639e1eb9df62cd8f1a7547089aed12b9cc802a5"
+      },
+      "after": {
+        "file": "src/simulation/snapshot.ts",
+        "bytes": 216798,
+        "sha256": "770dc0b0b0903778beed783a65c90727d94be55b9b3afcc0576f77c471504ce5"
+      }
+    }
+  ],
+  "added": [],
+  "removed": [],
+  "unchangedFiles": 691,
+  "scope": "Seven explicit source changes: saved source retention/validation, prepared base sampler/selection, bound producer and borrowed texture closure. Public assets and gameplay combat rules remain unchanged."
+}

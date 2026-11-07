@@ -15,8 +15,8 @@ const root = (time: number) => ({
 const context = { boundObjectSize: 100, root };
 
 test('the finite layout quad keeps its identity beside the selected continuous glow', () => {
-  expect(AHRI_R_PREPARED_LAYOUT_PROFILES).toEqual([50, 51, 52, 53, 54]);
-  expect(AHRI_R_BOUND_BUFF_PROFILES).toEqual([45, 46, 47, 48, 50, 51, 52, 53, 54]);
+  expect(AHRI_R_PREPARED_LAYOUT_PROFILES).toEqual([49, 50, 51, 52, 53, 54]);
+  expect(AHRI_R_BOUND_BUFF_PROFILES).toEqual([45, 46, 47, 48, 49, 50, 51, 52, 53, 54]);
   const particles = ahriRParticles('Ahri_R_Ready_tar', 927, 1, Infinity, context).filter(
     (p) => p.profileIndex === 50
   );
@@ -42,7 +42,7 @@ test('layout binding preserves every float32 accumulated movement rather than re
       sum[1] += current.height - previous.height;
       sum[2] += current.y - previous.y;
     }
-    const [particle] = sampler.sample(tick / 60);
+    const particle = sampler.sample(tick / 60).find((p) => p.profileIndex === 50)!;
     expect(particle.worldOffset, `binding update ${tick}`).toEqual([0 - sum[0], sum[1], sum[2]]);
   }
   const start = root(1 / 60),
@@ -62,8 +62,8 @@ test('layout cached fractional, backward and stopped seeks match fresh sampling 
       expect(sampler.sample(time, stop)).toEqual(
         ahriRParticles('Ahri_R_Ready_tar', 927, time, stop, context)
       );
-  expect(sampler.cachedBirths).toBeLessThanOrEqual(42);
-  expect(sampler.computedBindingSteps).toBeLessThanOrEqual(602 + 19 * 146 + 22 * 62);
+  expect(sampler.cachedBirths).toBeLessThanOrEqual(43);
+  expect(sampler.computedBindingSteps).toBeLessThanOrEqual(3602 + 602 + 19 * 146 + 22 * 62);
   expect(sampler.sample(10.02).filter((p) => p.profileIndex === 50)).toEqual([]);
   expect(sampler.sample(0.4, 0.4).filter((p) => p.profileIndex === 50)).toEqual([]);
   sampler.dispose();
@@ -80,7 +80,7 @@ test('expired layout sampling does not request discarded birth poses', () => {
       return root(time);
     },
   });
-  for (now of [12, 1000000]) {
+  for (now of [70, 1000000]) {
     queried.length = 0;
     const particles = sampler.sample(now);
     expect(particles.some((p) => p.profileIndex === 50)).toBe(false);

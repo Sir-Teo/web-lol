@@ -150,7 +150,7 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
   expect(flight.unchanged).toBe(true);
   expect(flight.restored).toEqual(flight.before);
   expect(flight.placeholder).toBe(0);
-  expect(flight.deferred).toHaveLength(25);
+  expect(flight.deferred).toHaveLength(24);
   expect(flight.before.ribbons.length).toBeGreaterThan(0);
   expect(flight.before.surfaces.some((m: any) => m.colors === 209 && !m.normals)).toBe(true);
   expect(flight.before.ribbons.some((m: any) => m.cellSize[0] === 0.5)).toBe(true);
@@ -263,7 +263,7 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
   expect(eyes.restored).toEqual(eyes.before);
   expect(eyes.before.length).toBeGreaterThanOrEqual(4);
   expect([...new Set(eyes.before.map((model: any) => model.profile))].sort()).toEqual([
-    45, 46, 50, 51, 52, 53, 54,
+    45, 46, 49, 50, 51, 52, 53, 54,
   ]);
   expect(eyes.before.every((model: any) => model.mips > 1)).toBe(true);
   expect(eyes.before.some((model: any) => model.key.includes(':buff:L_Eye:'))).toBe(true);
@@ -308,7 +308,7 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
   expect(glowRequests).toHaveLength(1);
   await page.screenshot({ path: info.outputPath('ahri-r-eye-glows.png') });
   const pixelProofs = [];
-  for (const profile of [50, 51, 52, 53, 54]) {
+  for (const profile of [49, 50, 51, 52, 53, 54]) {
     const pixels = await page.evaluate((profile) => {
       const g = (window as any).__GAME__,
         w = g.world,
@@ -381,6 +381,7 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
     });
   }
   const layoutPixelProof = pixelProofs.find((proof) => proof.profile === 50)!;
+  const layoutBasePixelProof = pixelProofs.find((proof) => proof.profile === 49)!;
   const continuousGlowPixelProof = pixelProofs.find((proof) => proof.profile === 53)!;
   const meshPixelProofs = pixelProofs.filter((proof) => [51, 52, 54].includes(proof.profile));
   const eyeTrails = await page.evaluate(() => {
@@ -704,6 +705,7 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
         layout,
         layoutDrained,
         layoutPixelProof,
+        layoutBasePixelProof,
         continuousGlowPixelProof,
         meshPixelProofs,
         buffOnlyDepth,

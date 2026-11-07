@@ -51,8 +51,8 @@ test('cached continuous packets match fresh seeks beyond a source pool-counter w
       expect(sampler.sample(time, stop)).toEqual(
         ahriRParticles('Ahri_R_Ready_tar', 927, time, stop, context)
       );
-      expect(sampler.cachedBirths).toBeLessThanOrEqual(42);
-      expect(sampler.computedBindingSteps).toBeLessThanOrEqual(602 + 19 * 146 + 22 * 62);
+      expect(sampler.cachedBirths).toBeLessThanOrEqual(43);
+      expect(sampler.computedBindingSteps).toBeLessThanOrEqual(3602 + 602 + 19 * 146 + 22 * 62);
     }
   sampler.dispose();
   expect(sampler.cachedBirths).toBe(0);

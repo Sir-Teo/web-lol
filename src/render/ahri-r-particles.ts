@@ -36,6 +36,9 @@ export interface AhriRRoot {
 export interface AhriRParticleContext {
   root(time: number): AhriRRoot;
   boundObjectSize: number;
+  /** Restrict work to an explicitly selected producer subset, before any roots
+   * or kernels are evaluated. Omission prepares all supported profiles. */
+  profiles?: readonly number[];
 }
 const fixedContext: AhriRParticleContext = {
   root: () => ({ x: 0, y: 0, height: 0, facing: 0 }),
@@ -55,10 +58,10 @@ export const AHRI_R_PARTICLE_ADAPTER = {
   neutralLiveTables: 'empty tables with single 1',
 } as const;
 /** Eye and selected layout profiles use the explicit skin-buff producer. */
-export const AHRI_R_BOUND_BUFF_PROFILES = [45, 46, 47, 48, 50, 51, 52, 53, 54] as const;
+export const AHRI_R_BOUND_BUFF_PROFILES = [45, 46, 47, 48, 49, 50, 51, 52, 53, 54] as const;
 export const AHRI_R_PREPARED_EYE_TRAIL_PROFILES = [47, 48] as const;
-/** Prepared finite/short-lived layouts fit owned poses; the sixty-second base stays deferred. */
-export const AHRI_R_PREPARED_LAYOUT_PROFILES = [50, 51, 52, 53, 54] as const;
+/** Prepared layouts use the complete source path retained for finite binding. */
+export const AHRI_R_PREPARED_LAYOUT_PROFILES = [49, 50, 51, 52, 53, 54] as const;
 const periodicProfiles = new Set<number>(AHRI_R_PREPARED_EYE_TRAIL_PROFILES);
 const activeOnlyLayoutProfiles = new Set([51, 52, 54]);
 for (const [slot, index] of [51, 52, 54].entries()) {
@@ -125,6 +128,26 @@ const preparedProfiles = new Set<number>([
   ...AHRI_R_PREPARED_LAYOUT_PROFILES,
 ]);
 const layout = data.profiles[50];
+const base = data.profiles[49];
+if (
+  base.system !== 'Ahri_R_Ready_tar' ||
+  base.name !== 'base1' ||
+  base.kind !== 'quad' ||
+  !base.single ||
+  base.emitterLife !== null ||
+  base.delay !== 0 ||
+  base.period !== null ||
+  base.timeActiveDuringPeriod !== null ||
+  base.linger !== null ||
+  base.life.authoredKeyCount !== 0 ||
+  base.life.constant[0] !== 60 ||
+  base.life.probabilities.length !== 0 ||
+  base.bind.authoredKeyCount !== 0 ||
+  base.bind.constant[0] !== 1 ||
+  base.bind.probabilities.length !== 0 ||
+  base.bindingRequirements.join(',') !== 'emitter-lifetime'
+)
+  throw Error('R sixty-second layout base closure differs');
 if (
   layout.system !== 'Ahri_R_Ready_tar' ||
   layout.name !== 'base7' ||
@@ -318,6 +341,7 @@ function sampleParticles(
     stopped = time >= stopSeconds;
   return data.profiles.flatMap((p, profileIndex) => {
     if (p.system !== system) return [];
+    if (context.profiles && !context.profiles.includes(profileIndex)) return [];
     const d = prepared[profileIndex];
     if (!d) return [];
     const particles: AhriRParticle[] = [];

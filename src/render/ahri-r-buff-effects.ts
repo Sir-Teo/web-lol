@@ -132,6 +132,7 @@ export class AhriRBuffParticles {
             held = {
               record,
               sampler: new AhriRParticleSampler(group.system, group.seed, {
+                profiles: AHRI_R_BOUND_BUFF_PROFILES,
                 boundObjectSize: group.radius * 2,
                 root: (time) => {
                   const at = group.startTick + time * 60,

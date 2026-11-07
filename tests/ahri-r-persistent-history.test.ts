@@ -137,9 +137,9 @@ test('fractional caster visibility requires both owned neighbours and never rewr
   expect(rBuffVisualKnown(group, hidden + 1, 'blue')).toBe(true);
   expect(rBuffVisualKnown(group, hidden + 0.5, 'red')).toBe(true);
 });
-test('the independent birth anchor survives rolling retention without inventing poses across its gap', () => {
+test('the independent birth anchor survives stopped-window retention without inventing poses across its gap', () => {
   const f = fixture();
-  f.world.step(800);
+  f.world.step(f.record.initialWindowEndTick - f.world.tick + 20);
   const group = rBuffVisualGroups(f.record)[0];
   expect(f.record.sourceFrames[0].tick).toBeGreaterThan(f.record.startTick + 1);
   expect(rBuffVisualPose(group, f.record.startTick)).toMatchObject({
@@ -157,4 +157,61 @@ test('the independent birth anchor survives rolling retention without inventing 
   expect(rBuffVisualPose(group, NaN)).toBeNull();
   expect(rBuffVisualKnown(group, Infinity, 'blue')).toBe(false);
   expect(rBuffVisualPose(group, f.record.startTick - 0.5)).toBeNull();
+});
+
+test('genuine extensions retain every source pose through the sixty-second binding window, then release old poses', () => {
+  const f = fixture();
+  const first = JSON.stringify(f.record.sourceFrames[0]);
+  const observed = new Map<number, string>();
+  while (f.world.tick < f.record.startTick + 3604) {
+    if (f.world.tick === 1000) f.cast();
+    if (f.world.tick % 500 === 499) {
+      const victim = f.world.spawn('champion', 'red', { x: f.source.x, y: f.source.y }, 'lux');
+      victim.ai = false;
+      f.world.damage(f.source, victim, 1e6, 'true');
+      f.world.setOrder(f.source, {
+        type: 'move',
+        point: { x: f.source.x + 300, y: f.source.y + 100 },
+      });
+    }
+    f.world.step();
+    const last = f.record.sourceFrames.at(-1)!;
+    observed.set(last.tick, JSON.stringify(last));
+    if ([900, 3599, 3602, 3603].includes(f.world.tick - f.record.startTick)) {
+      expect(f.record.end).toBeNull();
+      const long = f.world.tick - f.record.startTick <= 3602;
+      expect(f.record.sourceFrames.length).toBe(long ? f.world.tick - f.record.startTick + 1 : 721);
+      if (long) expect(JSON.stringify(f.record.sourceFrames[0])).toBe(first);
+      for (const pose of f.record.sourceFrames.slice(1))
+        expect(JSON.stringify(pose)).toBe(observed.get(pose.tick));
+      const saved = f.world.snapshot();
+      const restored = World.fromSnapshot(saved, field);
+      expect(restored.snapshot()).toBe(saved);
+      if (long) {
+        const invalid = JSON.parse(saved);
+        invalid.ahriRVisuals[0].sourceFrames.shift();
+        expect(() => World.fromSnapshot(JSON.stringify(invalid), field)).toThrow();
+      }
+    }
+  }
+  expect(f.record.sourceFrames).toHaveLength(721);
+  expect(rBuffVisualPose(rBuffVisualGroups(f.record)[0], f.record.startTick + 1)).toBeNull();
+});
+
+test('source death releases the extended binding path and restores the exact stopped history', () => {
+  const f = fixture();
+  f.world.step(499);
+  const victim = f.world.spawn('champion', 'red', { x: f.source.x, y: f.source.y }, 'lux');
+  victim.ai = false;
+  f.world.damage(f.source, victim, 1e6, 'true');
+  f.world.step(500);
+  expect(f.record.end).toBeNull();
+  expect(f.record.sourceFrames[0].tick).toBe(f.record.startTick);
+  f.world.damage(f.target, f.source, 1e6, 'true');
+  f.world.step();
+  expect(f.record.end?.reason).toBe('death');
+  expect(f.record.sourceFrames).toHaveLength(721);
+  expect(f.record.sourceFrames[0].tick).toBe(f.record.sourceEnd!.pose.tick - 720);
+  const saved = f.world.snapshot();
+  expect(World.fromSnapshot(saved, field).snapshot()).toBe(saved);
 });

@@ -38,7 +38,7 @@ const localTextures = requiredTextures.filter(
 );
 if (
   AHRI_R_BOUND_SPELL_PROFILES.length !== 21 ||
-  requiredTextures.length !== 34 ||
+  requiredTextures.length !== 35 ||
   requiredMeshes.length !== 2 ||
   requiredMeshes.filter((asset) => asset.geometryOwner === 'ahri-w').length !== 1 ||
   localMeshes.length !== 1 ||

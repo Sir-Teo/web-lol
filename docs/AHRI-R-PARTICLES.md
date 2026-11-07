@@ -928,3 +928,97 @@ production errors. Pack `750c891d` contains 1,432 files / 581,133,759 bytes.
 Native constructor/callback calibration, native pixel equivalence, the remaining
 sixty-second layout base and current full-roster acceptance remain open. Primary
 integration follows independently; acceptance does not mark the project complete.
+
+The [accepted mesh packet reference](reference/ahri/r-layout-mesh-packet-reference.json)
+adds 216 frozen full-packet hashes from the accepted `aabe0526` application.
+Its producer verifies every file in the 698-file frozen cohort before execution.
+Samples cover all three mesh profiles, two seeds, twelve clocks around cadence
+and drain boundaries, and three stop policies. All 217 reference checks and
+TypeScript pass before subsequent layout-base work. Earlier packet producers,
+references and accepted packs remain unchanged.
+
+## Sixty-second base history foundation
+
+Profile 49 remains disconnected. Its per-update source binding needs every
+saved caster pose back to first-update birth while the particle is alive.
+The source observer now retains up to 3,603 consecutive poses while the actual
+buff is active and its age is at most 3,602 updates. Buff stop, source death or
+that age boundary returns it to the existing 721-pose window. Target histories,
+completed-system retirement and charge anchors keep their earlier bounds.
+Snapshot decoding permits the larger source array; semantic validation requires
+the exact consecutive window appropriate to the observed state. No discarded
+motion is reconstructed from a live body or endpoint delta.
+
+This intentionally changes complete saved R source-history arrays during long
+active buffs. The immutable 357-state renderer reference and its producer/helper
+hashes remain unchanged. Its current comparison explicitly trims only newly
+retained source poses older than the original twelve-second window; all other
+saved fields and original-window poses remain in the old hash comparison.
+It therefore verifies compatibility with the archived observation window,
+without claiming complete-state identity for this new candidate. Earlier
+acceptance receipts retain their original complete-state claims and revisions.
+
+All 625 R checks in 30 files and TypeScript pass. Genuine Essence extensions
+exercise recast preservation, saved-path completeness, missing-pose rejection,
+exact cold restores, boundary release and death retirement. All six frozen
+packet families remain exact. This is an isolated history foundation, not a
+new production or full-match acceptance.
+
+The private sampler now prepares profile 49 as its authored single sixty-second
+quad with fully accumulated float32 source binding. It remains excluded from the
+live bound-buff profile list. An optional explicit producer subset is applied
+before evaluating kernels or querying roots; the live buff renderer selects only
+its accepted bound profiles. This prevents an unconnected prepared particle from
+requesting an old pose or doing unnecessary work. Cached base seeks, cold/backward
+seeks, immediate stop, natural expiry and every binding update are covered.
+All 629 R checks in 31 files and TypeScript pass; earlier frozen packets remain
+exact. The bounded sampler cache allows one additional finite birth. Rendering
+and full acceptance of the base remain pending.
+
+## Sixty-second layout base renderer candidate
+
+Profile 49 now joins the explicit saved layout-bone producer. The selected set
+is 31 profiles: 21 spell and ten buff profiles. All six layout profiles are
+connected; six counters, two noise profiles and sixteen unjoined profiles remain
+deferred. The asset closure adds the base's borrowed Q-projectile texture,
+previously present only on an unselected R profile. Its selected closure now has
+35 textures and two meshes; local requests remain thirteen R textures, one W
+texture and one checked R GLB. No public asset bytes change.
+
+All 28 targeted renderer checks and TypeScript pass. A genuine extended buff
+near sixty seconds cold-restores the exact layout surface packets, without
+attachment fallback or terrain projection, and releases the base and long pose
+path after expiry. The keyboard browser case passes with eight distinct buff
+surface profiles. The base's full-render hide/show probe changes 192,876 pixels
+without stepping World, with one shared R depth capture per render. Image
+inspection shows its blue ground aura around the caster. This is software-browser
+functional evidence; native pixel equivalence and device performance remain open.
+Broader regressions, source-history comparison and delivery acceptance follow.
+
+## Accepted complete layout subset
+
+The [layout-base acceptance receipt](reference/ahri/r-layout-base-acceptance.json)
+pins 288 evidence files to application `d343a9f9`, schema 181 and ruleset
+`b71e7477`. All six layout profiles and four eye profiles are selected beside
+21 joined spell profiles. The full suite passes 9,873/9,875 in 603 files with
+only the two historical failures; all 263 Node QA cases and all 87 portable CI
+commands pass. Every CI command passes on its first attempt. The clean export
+verifies 5,617 blobs and executes 1,645 tests across 156 file executions, including
+overlap. All 33 distinct browser cases pass, plus the retained initial keyboard
+probe. The final base hide/show probe changes 192,952 pixels with no World step,
+one shared R depth capture per render and no attachment fallback.
+
+The natural seed reaches the same Blue victory at tick 157,116 with 44 exact
+round trips and 43 futures / 2,580 ticks. Of 45 saved projections, 44 match the
+accepted mesh checkpoint completely. One adds 93 older source poses; all 45
+match after explicitly trimming only source poses older than the original
+720-update window. This is compatibility with the archived pose window, not
+complete-state identity for the changed source history. All six earlier frozen
+packet families remain exact.
+
+Production nested-path playback passes with 32 recordings and no eager R
+particle preloads. Offline lifecycle passes with 978 worker responses and zero
+production errors. Pack `c432ac3c` contains 1,432 files / 581,134,629 bytes. Native
+calibration, six counter profiles, two noise profiles, sixteen unjoined profiles,
+current hundred-seed acceptance and full project completion remain open. Primary
+integration follows independently.
