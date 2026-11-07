@@ -1,6 +1,6 @@
 {
   "format": 1,
-  "scope": "Thirty-one selected R profiles including all six layouts; full regressions passed, final browser/delivery acceptance pending",
+  "scope": "Thirty-one selected R profiles including all six layouts; regressions passed, production/offline acceptance pending",
   "applicationRevision": "d343a9f9221c7d46ce34f01010983db5dd84b86a",
   "schema": 181,
   "ruleset": "b71e747721c1c4a56c5d5773ca9b3b3c6b9c39ddcb46fadbb8214c381d0708a0",
@@ -277,8 +277,8 @@
     "artifacts/ahri-r-layout-base-sampler-types-v1.log",
     "artifacts/ahri-r-layout-base-sampler-types-v2.log"
   ],
-  "crossKitBrowserCasesPassed": 0,
-  "distinctBrowserCasesPassed": 8,
+  "crossKitBrowserCasesPassed": 25,
+  "distinctBrowserCasesPassed": 33,
   "acceptedEyeGlowPacketsRetained": 36,
   "applicationIdentity": {
     "verifiedFiles": 2229,
