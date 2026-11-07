@@ -184,3 +184,9 @@ Normal and optimized portable checks reproduce this reading and reject five
 changed input pins, output conflicts and leaf/parent symlinks. The dedicated
 workflow also covers this stage. Locking, native skin sampling, transforms,
 fresnel inputs, omitted-selector behavior and pixels remain unverified.
+
+The [transport/profile verification](reference/ahri/e-particle-transports-profiles-verification.json)
+pins the transport, native-tag, projection and attached-reading commits and all
+successful evidence. One combined clean export reproduces all nine workflow
+commands without private caches or native tools. The existing W archived cohort
+still verifies against the current runtime sources.

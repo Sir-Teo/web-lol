@@ -1,0 +1,258 @@
+{
+  "format": 1,
+  "result": "passed",
+  "transportRevision": "f6029cf",
+  "nativeTypesRevision": "3458475",
+  "profileRevision": "32fa1df",
+  "attachedRevision": "331e88d",
+  "workflowRevision": "33e4459",
+  "inputs": [
+    {
+      "path": "docs/reference/ahri/e-texture-transports.json",
+      "sha256": "dfb6d42c52ef5fc1d920a437f53932a8e01c4e55ff373d44c0d9d75c1cbc008e"
+    },
+    {
+      "path": "docs/reference/ahri/e-mesh-transports.json",
+      "sha256": "8502caf25953bb2a5a7dfa530fd3a5a274fa514000cf4877605718845a30960b"
+    },
+    {
+      "path": "docs/reference/ahri/e-native-types.json",
+      "sha256": "5d4c130ee021e19fd934762373ebab11a6a28ae64ff5ed453b918a154177530b"
+    },
+    {
+      "path": "docs/reference/ahri/e-profile-reading.json",
+      "sha256": "d31735a18f3b8e19e96d14329080d2c707fd6aabeb7fa26797b1e973b182330f"
+    },
+    {
+      "path": "docs/reference/ahri/e-attached-bindings.json",
+      "sha256": "c7e7029de9c834079f66c54d66f030516988dcac0b294fbaf5b8a2b12484febd"
+    }
+  ],
+  "privateTransport": {
+    "textures": 22,
+    "authoredMips": 187,
+    "meshes": 2,
+    "files": 24,
+    "textureBytes": 1205232,
+    "glbBytes": 38520,
+    "totalBytes": 1243752,
+    "nativeVertices": 993,
+    "nativeTriangles": 1568,
+    "bothThree186Loads": true,
+    "gltfErrors": 0,
+    "gltfWarnings": 0
+  },
+  "guards": {
+    "texturePerPythonMode": 7,
+    "mesh": 5,
+    "profileStructuralMutations": 5,
+    "profileInputPinMutations": 7,
+    "attachedInputPinMutations": 5,
+    "pythonModes": [
+      "normal",
+      "optimized"
+    ],
+    "nodeWrappersForNewStages": 4
+  },
+  "profiles": {
+    "emitters": 29,
+    "authoredFields": 55,
+    "bytes": 454094,
+    "sha256": "4c57c98fcbc33de0fb5bc51d3621a8359bce59d7f06624c4e6ac60385372aedb",
+    "missingEmitterLifetimes": 6,
+    "missingPaletteTextures": 1,
+    "missingAttachedSelectorLists": 1,
+    "postRotationBindingRequirements": 2
+  },
+  "nativeTypes": {
+    "ordinaryFields": 54,
+    "flagFields": 68
+  },
+  "cleanExport": {
+    "revision": "33e44592e50803af5e5aeb9ab8b933c54f1b5ff0",
+    "committedFiles": 31,
+    "privateCaches": false,
+    "nativeTools": false,
+    "commands": [
+      {
+        "command": [
+          "python3",
+          "tools/assets/read-ahri-e-bindings.py",
+          "--check"
+        ],
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-e-all-clean-ci-0.log"
+      },
+      {
+        "command": [
+          "python3",
+          "tools/assets/test-ahri-e-bindings.py"
+        ],
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-e-all-clean-ci-1.log"
+      },
+      {
+        "command": [
+          "python3",
+          "-O",
+          "tools/assets/test-ahri-e-bindings.py"
+        ],
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-e-all-clean-ci-2.log"
+      },
+      {
+        "command": [
+          "python3",
+          "tools/assets/prepare-ahri-e-profiles.py",
+          "--verify-reading"
+        ],
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-e-all-clean-ci-3.log"
+      },
+      {
+        "command": [
+          "python3",
+          "tools/assets/test-ahri-e-profiles.py"
+        ],
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-e-all-clean-ci-4.log"
+      },
+      {
+        "command": [
+          "python3",
+          "-O",
+          "tools/assets/test-ahri-e-profiles.py"
+        ],
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-e-all-clean-ci-5.log"
+      },
+      {
+        "command": [
+          "python3",
+          "tools/assets/read-ahri-e-attached-bindings.py",
+          "--check"
+        ],
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-e-all-clean-ci-6.log"
+      },
+      {
+        "command": [
+          "python3",
+          "tools/assets/test-ahri-e-attached-bindings.py"
+        ],
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-e-all-clean-ci-7.log"
+      },
+      {
+        "command": [
+          "python3",
+          "-O",
+          "tools/assets/test-ahri-e-attached-bindings.py"
+        ],
+        "exitCode": 0,
+        "evidence": "artifacts/ahri-e-all-clean-ci-8.log"
+      }
+    ],
+    "result": "passed"
+  },
+  "runtime": {
+    "schema": 178,
+    "ruleset": "ff8abc1be3d5e4191d0544c600ed32c1e3d89b5bf969d9f2a57c591cde81dbe9",
+    "currentWArchivedCohortStillVerifies": true
+  },
+  "evidence": [
+    {
+      "path": "artifacts/ahri-e-texture-transports-v1.log",
+      "sha256": "4a7423ca076ad5c421e680a175d275bc9f3782691ff7893592ce22be50bf3ac6"
+    },
+    {
+      "path": "artifacts/ahri-e-texture-transport-check-v1.log",
+      "sha256": "3ee8860f7f9d6f2e03e449e27c41512f8f9bf4107abba425f0bd8d7ad677f239"
+    },
+    {
+      "path": "artifacts/ahri-e-texture-transport-regeneration-v1.log",
+      "sha256": "dafdf337e54de6c6e197483bc309618a4389b891f2d9a36f65fc9cbb23c7a661"
+    },
+    {
+      "path": "artifacts/ahri-e-texture-guards-v1.log",
+      "sha256": "c42bd75d7a6888d0d8dfa53038a99c48840a89b2a980affae0607fdc4f182c4c"
+    },
+    {
+      "path": "artifacts/ahri-e-texture-guards-optimized-v1.log",
+      "sha256": "32dbd157b5497db1762761e5b945c1f6f8dabb3daad6a57715d029fdef870d6f"
+    },
+    {
+      "path": "artifacts/ahri-e-mesh-transports-v1.log",
+      "sha256": "626d76c9a4b4efa6b3601aa8595bdc85b25e04c8c5cc9a6743bb10c002614330"
+    },
+    {
+      "path": "artifacts/ahri-e-mesh-guards-v1.log",
+      "sha256": "9f67b64d9fc53048b1abf6c89434dfde6e6804d5810359cfd1c950e7c4552d7a"
+    },
+    {
+      "path": "artifacts/ahri-e-mesh-engine-v1.log",
+      "sha256": "32ef36054316d96dd636115fd2ed40313309676291b7d184fcd306a94cc06bd4"
+    },
+    {
+      "path": "artifacts/ahri-e-native-types-v2.log",
+      "sha256": "cece4acb92aac1e3264170962360d7226670f5bfbb09d2c30228a43229379fb5"
+    },
+    {
+      "path": "artifacts/ahri-e-native-types-check-v1.log",
+      "sha256": "cece4acb92aac1e3264170962360d7226670f5bfbb09d2c30228a43229379fb5"
+    },
+    {
+      "path": "artifacts/ahri-e-native-types-optimized-v1.log",
+      "sha256": "cece4acb92aac1e3264170962360d7226670f5bfbb09d2c30228a43229379fb5"
+    },
+    {
+      "path": "artifacts/ahri-e-profile-projection-v3.log",
+      "sha256": "567215c51bf36c541bee838bb625b95f2cb0031a3921faae2eef1f048c542eb6"
+    },
+    {
+      "path": "artifacts/ahri-e-profile-guards-v2.log",
+      "sha256": "9547cee7117949ccbe42033062e125eca28ffa78eddbcce0bef92a7c564c89c8"
+    },
+    {
+      "path": "artifacts/ahri-e-profile-guards-optimized-v1.log",
+      "sha256": "14ea5630fc803a00eec81ed1f5d5c76dada72e14734ea01d77f95f31fe714839"
+    },
+    {
+      "path": "artifacts/ahri-e-profile-node-qa-v1.log",
+      "sha256": "6b0319ab5caca029e9c033c8498125f16240a44a075e627b8f9bbf26aec8bdb0"
+    },
+    {
+      "path": "artifacts/ahri-e-profiles-clean-ci-results.json",
+      "sha256": "d20011d31dc768ef2526b7174a84ce2ea28e04a966aaf3ff52ec5a8a7a7c0467"
+    },
+    {
+      "path": "artifacts/ahri-e-attached-reading-v1.log",
+      "sha256": "af2cf05944dce609c0eb0cd374ff7a6a13d582294a5265182da71c2659629284"
+    },
+    {
+      "path": "artifacts/ahri-e-attached-guards-v1.log",
+      "sha256": "30cb5a4782a50e99b914208c74e6d30fb9cc73b802d442193a4471a867f98724"
+    },
+    {
+      "path": "artifacts/ahri-e-attached-guards-optimized-v1.log",
+      "sha256": "9bea88d6b9ffe7826be1d0e2b3b184b4c95f63127369cbeacec12ab3c5d0b1ec"
+    },
+    {
+      "path": "artifacts/ahri-e-attached-node-qa-v1.log",
+      "sha256": "4b2d5bf76599568cc802fa69e23ae70282ab81c1faaf497b9d4b661ba9386c5d"
+    },
+    {
+      "path": "artifacts/ahri-e-all-clean-ci-results.json",
+      "sha256": "20dbefbed36cc4cd90465b6cc4c3d644839b06fb5a9019966f16024159c64732"
+    },
+    {
+      "path": "artifacts/ahri-e-transport-profile-runtime-unchanged-v1.log",
+      "sha256": "879e31b180f2033d4bbaf40e316db9cdb016ee8074179b7d3063e396e53c3016"
+    }
+  ],
+  "limits": [
+    "Private source preparation only; no new public asset, renderer, saved history or gameplay dispatch.",
+    "Only portable producer/profile/attached readings claim cache-free CI; native parsing and texture/mesh checks require retained private sources/tools.",
+    "Post-rotation math, callback and buff chronology, skin sampling, missing selector policy, fresnel and native GPU pixels remain unverified."
+  ]
+}
