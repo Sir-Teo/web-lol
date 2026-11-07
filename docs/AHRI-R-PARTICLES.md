@@ -542,3 +542,11 @@ caster history needs no fabricated lifetime odometer. The shared packed writer
 now supports that mode through an opt-in flag, preserving WAKE as its default.
 All twelve independent ordinary-mode fixtures, all earlier WAKE fixtures and
 both frozen packet baselines pass within 173 scoped checks. TypeScript passes.
+
+The sampler now prepares profiles 47/48 without binding them to live drawing.
+Recent-cycle schedules keep birth caches bounded, while per-birth whole-second
+clock origins preserve float32 sub-tick precision at long system ages. Emitter
+phase stays absolute, and saved pose queries retain their actual caster times.
+All 122 sampler checks pass, including million-second ages, backward/fractional
+seeks, stop/drain behavior and all 108 earlier spell/glow packet hashes. Ribbon
+geometry and renderer ownership are the next separate integration stage.

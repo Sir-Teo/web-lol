@@ -12,7 +12,9 @@ const context: AhriRParticleContext = {
 };
 test('the eye sampler prepares only the two finite source glow profiles with authored appearance', () => {
   expect(AHRI_R_BOUND_BUFF_PROFILES).toEqual([45, 46]);
-  const particles = ahriRParticles('Ahri_R_Eyes', 927, 1.5, Infinity, context);
+  const particles = ahriRParticles('Ahri_R_Eyes', 927, 1.5, Infinity, context).filter(
+    (p) => p.profileIndex === 45 || p.profileIndex === 46
+  );
   expect(new Set(particles.map((p) => p.profileIndex))).toEqual(new Set([45, 46]));
   for (const particle of particles) {
     const profile = AHRI_R_PROFILES[particle.profileIndex];
@@ -32,14 +34,18 @@ test('eye cached packets exactly match fresh fractional, backward and stopped se
       expect(sampler.sample(time, stop)).toEqual(
         ahriRParticles('Ahri_R_Eyes', 927, time, stop, context)
       );
-  expect(sampler.cachedBirths).toBeLessThanOrEqual(100);
+  expect(sampler.cachedBirths).toBeLessThanOrEqual(160);
   sampler.dispose();
   expect(sampler.cachedBirths).toBe(0);
   expect(sampler.sample(1.5)).toEqual(ahriRParticles('Ahri_R_Eyes', 927, 1.5, Infinity, context));
 });
 test('authored fifty-second emission and local stop/linger policy drain to an empty finite packet', () => {
   expect(ahriRParticles('Ahri_R_Eyes', 927, 49.5, Infinity, context).length).toBeGreaterThan(0);
-  expect(ahriRParticles('Ahri_R_Eyes', 927, 52, Infinity, context)).toEqual([]);
+  expect(
+    ahriRParticles('Ahri_R_Eyes', 927, 52, Infinity, context).filter(
+      (p) => p.profileIndex === 45 || p.profileIndex === 46
+    )
+  ).toEqual([]);
   expect(ahriRParticles('Ahri_R_Eyes', 927, 15.6, 15, context)).toEqual([]);
   for (const time of [-1, NaN, Infinity])
     expect(ahriRParticles('Ahri_R_Eyes', 927, time, Infinity, context)).toEqual([]);
