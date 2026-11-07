@@ -9843,3 +9843,12 @@ production build and full pack verification pass: `fbe5fdbf`, 1,432 files /
 581,143,353 bytes. Schema, all 696 compatibility files, ruleset and worker policy
 remain unchanged; broader receipts keep their own revisions. See
 [check-mode verification](reference/offline-check-mode-verification.json).
+
+Portable CI checkpoint `771a861a` typechecks the offline fixture and both
+configurations through their browser module paths, watching those files on push
+and pull request while retaining the main branch filter. All 90 portable commands
+pass on the first attempt in a committed export: 1,924 runtime test executions /
+164 file executions with overlap, plus 99 cohort-tool cases. Every exported Git
+blob verifies before cleanup. Installed dependencies are reused; browser
+execution and the later removal fix retain their separate receipts. See
+[offline CI verification](reference/offline-current-ci-verification.json).
