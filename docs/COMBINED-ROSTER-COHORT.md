@@ -1,5 +1,13 @@
 # Combined private roster in frozen match cohorts
 
+The current schema-181 / `e02f3e73` private hundred-seed audit passes independent
+verification with 100 natural victories and no unfinished runs or failures.
+It covers 14,858,652 simulation ticks, 4,183 exact save round trips and 244,834
+future ticks. The private invariant gate passes; milestone 4 remains open. See
+[current cohort scope and retained pause evidence](CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md).
+
+## Earlier schema-163 tooling checkpoint
+
 The durable launcher, worker, verifier and recovery tool now support the existing
 private six-champion roster. Use a fresh output directory:
 

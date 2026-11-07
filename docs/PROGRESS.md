@@ -71,12 +71,18 @@ decoded snapshots are byte-identical to the accepted plain run. Stored bytes
 fall from 16,680,648 to 1,592,845. All 271 Node QA tests and 88 clean-export CI
 commands pass, including three pinned recovery-controller versions; all 5,649
 exported blobs verify. See [compression acceptance](reference/cohort-gzip-acceptance.json).
-The current hundred-seed development-roster audit is running in its frozen
-checkout with gzip storage and three workers. Its gate and milestone 4 remain
-false until completion and independent verification. See the
-[start receipt](reference/e02f3e-development-roster-hundred-start.json). Primary
-integration passes 39 focused QA cases and reproduces the exact accepted pack
-audit; the unfinished-state reader also supports gzip.
+The current schema-181 hundred-seed development-roster audit is complete and
+independently verified: 100 natural victories, zero unfinished or failed runs,
+14,858,652 ticks, 4,183 exact saves and 4,083 future comparisons covering 244,834
+ticks. Winners are Blue 49 / Red 51. Its private invariant gate passes; the
+ordinary gate and milestone 4 remain open. All 696 current primary compatibility
+files match the frozen archive byte for byte. Both short worker pauses and their
+unchanged deadline retries are retained. See the
+[completed acceptance](reference/e02f3e-development-roster-hundred-completed.json)
+and [cohort scope](CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md). The original
+[start receipt](reference/e02f3e-development-roster-hundred-start.json) stays unchanged.
+Primary compression integration passed 39 focused QA cases and reproduced its
+accepted pack audit; the unfinished-state reader also supports gzip.
 The stronger independent verifier checks summary/report agreement, every minute
 and terminal checkpoint, final-state agreement and exact future coverage. All
 54 focused QA cases and the unchanged historical 100-seed archive pass; see
@@ -100,7 +106,7 @@ remain intact. Global palette, callback and material calibration, attachment
 fallbacks and representative-device performance remain unfinished.
 Software-browser screenshots do not establish native pixel equivalence.
 
-The [frozen hundred-seed development-roster baseline](CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md)
+The earlier [frozen hundred-seed development-roster baseline](CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md#earlier-schema-167-checkpoint)
 is complete: 100 natural victories, zero unfinished matches or invariant failures,
 14,987,533 checked ticks and 4,219 exact save round trips under schema 167 /
 `7ae8e0f8`. The older e20 baseline remains 98 victories / two unfinished at its
@@ -144,7 +150,8 @@ historical hundred-seed archive reproduces its duration summary exactly. A
 read-only progress command distinguishes observed processes from stale status
 and never claims a final invariant check. See [duration verification](reference/cohort-duration-verification.json)
 and [progress inspection](reference/cohort-progress-verification.json). The
-current schema-181 hundred-seed audit remains in progress.
+current schema-181 hundred-seed audit now passes its independent private
+roster invariant gate, with the scope and pauses recorded above.
 The clean export at `6bbde951` passes its 88 portable commands: 1,924 runtime test
 executions across 164 file executions, including overlap, plus 77 cohort-tool
 cases. All 5,665 exported blobs verify. One compiler-graph deadline failure and

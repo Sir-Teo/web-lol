@@ -1,0 +1,753 @@
+{
+  "format": 1,
+  "result": "passed",
+  "frozenSourceRevision": "d7882bcd7f7302e3377d03c1be999fad477a97b3",
+  "schema": 181,
+  "ruleset": "e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f",
+  "frozenSources": 702,
+  "mapInputs": 3,
+  "runtime": {
+    "node": "v24.22.1",
+    "v8": "13.6.233.17-node.58",
+    "platform": "linux",
+    "arch": "x64",
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "zlib": "1.3.2.1-motley-285e94b"
+  },
+  "snapshotEncoding": "gzip",
+  "jobs": 3,
+  "seeds": [
+    26018,
+    719,
+    1,
+    927,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    2147483647,
+    2147483648,
+    4294967295
+  ],
+  "horizonTicks": 216000,
+  "victories": 100,
+  "unfinished": 0,
+  "failures": 0,
+  "winnerCounts": {
+    "blue": 49,
+    "red": 51
+  },
+  "checkedTicks": 14858652,
+  "roundTrips": 4183,
+  "futureChecks": 4083,
+  "futureCheckedTicks": 244834,
+  "completionRate": 1,
+  "victoryDurationSeconds": {
+    "p10": 2160.483333333333,
+    "p50": 2469.8333333333335,
+    "p90": 2815.483333333333
+  },
+  "hundredSeedInvariantGate": false,
+  "hundredSeedDevelopmentRosterInvariantGate": true,
+  "roadmapMilestone4Complete": false,
+  "snapshotArtifacts": 4283,
+  "snapshotStorage": {
+    "uncompressedBytes": 1531695339,
+    "storedBytes": 144718877
+  },
+  "shortTerminalFutureProbeSeeds": [
+    9,
+    21,
+    67,
+    90
+  ],
+  "currentCompatibilityFilesByteIdentical": 696,
+  "currentPrimaryApplicationRevision": "3fcb8cef",
+  "currentPrimaryPack": "1cbecc511cbba8ed7990b3e1ed565f2c6ccf4a0a215abb267ce9e558beccc91b",
+  "sharedHistoricalEndpointMatches": 94,
+  "endpointComparisonIsCompleteStateEquivalence": false,
+  "ownersExitedBeforeVerification": true,
+  "recordedWorkerPauses": [
+    {
+      "receipt": "artifacts/cohort-current-ci-pause-and-retry-v1.json",
+      "startedAt": "2026-11-07T16:30:29.183394+00:00",
+      "resumedAt": "2026-11-07T16:30:48.511490+00:00",
+      "seconds": 19.328096,
+      "workersResumed": 3
+    },
+    {
+      "receipt": "artifacts/current-unit-wave-pause-and-retry-v2.json",
+      "startedAt": "2026-11-07T17:50:46.026890+00:00",
+      "resumedAt": "2026-11-07T17:50:55.767036+00:00",
+      "seconds": 9.740146,
+      "workersResumed": 3
+    }
+  ],
+  "wallTimeIsUninterruptedPerformanceEvidence": false,
+  "ordinaryRosterGatePassed": false,
+  "humanPlayOrNativeFidelityCertified": false,
+  "distinctEfStagingRulesetCertified": false,
+  "ledger": "e02f3e-development-roster-hundred-ledger.json",
+  "evidence": [
+    {
+      "file": "/workspace/web-lol/artifacts/e02f3e-development-roster-hundred-verification-v1.json",
+      "bytes": 45010,
+      "sha256": "6f276f03a95b0a861d0050b2204a474b25ec9e814856d7ca4f452125b7e1fee9"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/e02f3e-development-roster-hundred-verification-v1.log",
+      "bytes": 612,
+      "sha256": "c17683f06f38c379311a6db09cead031562caec84cf3b976b64519a9759b72e3"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/e02f3e-development-roster-hundred-stopped-observation-v1.json",
+      "bytes": 686,
+      "sha256": "2545fe37d714aadbcaf7faba9eb77e76d6a3e425e39549b8c4a6532c8ca3b95c"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/e02f3e-hundred-shared-endpoint-comparison-v1.json",
+      "bytes": 43015,
+      "sha256": "124f09b16b51ad234204126d79b6d17ea0ba7bfc39df0f9a0ad2d744d34c0e9e"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/e02f3e-current-compatibility-byte-comparison-v2.json",
+      "bytes": 118678,
+      "sha256": "630f60bd9d1ecb66cd92bb0359469aa01febdb0c1a685a743546ee888f735eaa"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/plan.json",
+      "bytes": 122229,
+      "sha256": "dc2474869313b110fbf346f67cf771683a2df68786be97e1067a09e5f1b0323b"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/summary.json",
+      "bytes": 25574892,
+      "sha256": "aca878e38887bf163c6f4b83573acdf34db1a0ea077ed535fa35f9f156fa5856"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/artifacts/e02f3e-development-roster-hundred-v1.log",
+      "bytes": 57862,
+      "sha256": "8009cf6db055a7e0f6359189c5a16407ac9eee6851197ebbb80d41a3b44d5aed"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/cohort-current-ci-pause-and-retry-v1.json",
+      "bytes": 1045,
+      "sha256": "29e1921798e94cbbcdb0e3b85559d00638948ab9385f4d0d0a834e46dae994e6"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/current-unit-wave-pause-and-retry-v2.json",
+      "bytes": 1003,
+      "sha256": "c4c1ea8d594ce4324f33acb6a1c35587c18a3f72f9d1e755fbfdce5bed9349ea"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/26018/report.json",
+      "bytes": 260957,
+      "sha256": "a5a4de495f1993f6de864f94c8c7e670b00e83dc20c6ffa2de43e395d6d592d6"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/719/report.json",
+      "bytes": 188428,
+      "sha256": "45f4eb455a3bbf3077208aaf2be53503c50f450ff446d725401d1e2b46a38b49"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/1/report.json",
+      "bytes": 230478,
+      "sha256": "92300cf2ce5892a4cbd4e7465bbfe93a6433e4dcdd8d3774c3727a711a5e6eaf"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/927/report.json",
+      "bytes": 192470,
+      "sha256": "b1a6fed614aa26b7ecc8d83fb76d8c2e8fa17175955c38696f01bf2d5633d94a"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/2/report.json",
+      "bytes": 225849,
+      "sha256": "2b6e322223481fc85710094d4ed1ec6d064d58537599dd2987fedc12eaed73bd"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/3/report.json",
+      "bytes": 214037,
+      "sha256": "02f63760289a57b009c42afc2963695ce151e77c17062b1e5cdb7b6b549ea7ec"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/4/report.json",
+      "bytes": 193013,
+      "sha256": "3bc02090c3ba140348bcbe0bfe57b99e56bdfc628091589bd4dfe6183b9440e3"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/5/report.json",
+      "bytes": 230549,
+      "sha256": "b8c0958ba51528a653e42df3d672738e9b55a1d3f4fc98e10b48ba7c356dd589"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/6/report.json",
+      "bytes": 220800,
+      "sha256": "df064690135325f3bf12a2fa6b5060e13cb5913902ed61b6c2e775481f007be7"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/7/report.json",
+      "bytes": 172830,
+      "sha256": "5dba11ee69d4a9ae78aafdbb0f8174b15bc94071f74d63474dbf866b9a5db90c"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/8/report.json",
+      "bytes": 236041,
+      "sha256": "7ebcf81cfc538eae5b70b468b0fcfcf07919bab643cd961b1a209c348ef31e78"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/9/report.json",
+      "bytes": 173993,
+      "sha256": "4349a48fb9c6ba2e70fecc95814f2be5069a247b929e3a90ba39270ef63281ea"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/10/report.json",
+      "bytes": 205480,
+      "sha256": "47d4698f91aaa47c7030ee27a24976091fddf7e71498f59f195ef2f6ac8cc608"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/11/report.json",
+      "bytes": 195346,
+      "sha256": "46d6fc4a6d4b3781cc56e50ab8602fbc570f41850d914088a8188401b48a52e6"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/12/report.json",
+      "bytes": 250497,
+      "sha256": "68067ee2289010d362a977b90cecf60d6a35402c128b2b0a480ff6672fe01622"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/13/report.json",
+      "bytes": 204795,
+      "sha256": "fea69d2cf3ac5ca2aee08c06e8e435508fa80a0cc99acd705db2dc0f34e5b998"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/14/report.json",
+      "bytes": 235645,
+      "sha256": "595b3a24511ca5b01ad255a1b8ffffa1edb7c11096ce41eb20c6030f6781ccb2"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/15/report.json",
+      "bytes": 241528,
+      "sha256": "f61e779e17b2bc480ce0606b11b0e1b27e6be5e9d3ff2b966dbd25d93b89e37e"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/16/report.json",
+      "bytes": 231024,
+      "sha256": "7ec15e2b3461788fd74bcd5faa2d1cfa36574267a5473b7fd2e20d8ed74d20e2"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/17/report.json",
+      "bytes": 240571,
+      "sha256": "d5d16abb6811e18ca3dfb1ce61b779668d8faff4a43b28c35d41f6c049d91935"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/18/report.json",
+      "bytes": 204937,
+      "sha256": "62e6f30132b90fd63ba0cb55a22ce7a627bfa36afd09bb5b4d0823ec3aad35e4"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/19/report.json",
+      "bytes": 195090,
+      "sha256": "7a4a0563f7ac35341ef19b1a9f33a85c4ceedf971a45f756672b556b868f9bed"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/20/report.json",
+      "bytes": 210293,
+      "sha256": "2d2329791f289e544d0946a250bdaec666acc5aa75b9cb192b8a4cd5e9cb27de"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/21/report.json",
+      "bytes": 215414,
+      "sha256": "2e6ceabc9aaa39c15ba9d718e60dd4bccdae304e53cd83be3d744130d49900d4"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/22/report.json",
+      "bytes": 216317,
+      "sha256": "3a69fe093325ea354c738b36490bb19955ab99f3f38ecafbb2de44b571eb566e"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/23/report.json",
+      "bytes": 194329,
+      "sha256": "9187348e177f9d2921425b0478f7db283cf0e66cc83a694e9540ebaa39a44ac0"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/24/report.json",
+      "bytes": 210085,
+      "sha256": "fa5174502d3e3759419359156da7997495a82f6c20581ece01df0c01a7c1698e"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/25/report.json",
+      "bytes": 214760,
+      "sha256": "74ac6d05083267ab5800036e32fd9e163f24c5f601c1e8f5021bcc37c26aa3e0"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/26/report.json",
+      "bytes": 230303,
+      "sha256": "94ac5dee4adbd13637ecca0b2f113bd7254089314ba578004803bc73b85ad3ed"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/27/report.json",
+      "bytes": 200078,
+      "sha256": "c7acbd7fab8026e175d61a964f0b7b12b63e2f29d5c098513b45d0bb9d38a862"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/28/report.json",
+      "bytes": 219440,
+      "sha256": "def5268510ce52dda225c2308c1ff3d36ba7c36981af5c21b07e9afcf33a51b4"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/29/report.json",
+      "bytes": 245685,
+      "sha256": "fcf58c7504d450539e456f2306c313723584003ae71a1beff562d266c36f370f"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/30/report.json",
+      "bytes": 222801,
+      "sha256": "4d862c8abb285735601580f09dd892df358ad29273a472fe2d22dc8c6295b21a"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/31/report.json",
+      "bytes": 195273,
+      "sha256": "1095647349f8b32842026da8c973f101cf48839812bbfc7fcdea727406e7b09e"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/32/report.json",
+      "bytes": 188394,
+      "sha256": "63ed71fc41f01f30d1477d9e7800914b6892dbb1c4a3bda628c0886f942f110c"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/33/report.json",
+      "bytes": 201051,
+      "sha256": "3108eb71ee9715206ecf82a00ed3191c35e981560bab0c8fa7904f8547eb7b93"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/34/report.json",
+      "bytes": 245498,
+      "sha256": "be36ea5378f6401fc96f1b544c63d4efec5f8689b881d97eacb8ae51fee7512e"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/35/report.json",
+      "bytes": 254964,
+      "sha256": "adf90e32688e679218c7941520adb9dddb11a875d837eda7b6b8251464fa2f55"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/36/report.json",
+      "bytes": 216040,
+      "sha256": "fd82294dcfd2bca1cd30f652d380a8570a4bab83c701de0357b55f262cdd7a21"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/37/report.json",
+      "bytes": 257622,
+      "sha256": "ee94f5a4ef0fb73c94095d8aa553ded5faddf6ab3466887610c7773a0c54deb0"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/38/report.json",
+      "bytes": 238010,
+      "sha256": "e331c681a4ff87af9e823cbf4d3d1c72cab78f66bc45d827baf79b03372021d4"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/39/report.json",
+      "bytes": 230814,
+      "sha256": "55206e891b09353248e1dff0a0a2c1e645bab9f61361f1290a81aa64c0f08742"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/40/report.json",
+      "bytes": 215251,
+      "sha256": "11fc082fce0f71f3e5080e69d9fe5f4bbdafe7aee3d15fc649eb44e3c127fba2"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/41/report.json",
+      "bytes": 237643,
+      "sha256": "3b36a38a4f233e321dac878b45194611cec3ebc6c8fa5376fcd2861e893dd976"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/42/report.json",
+      "bytes": 243756,
+      "sha256": "26e44f48df274da0c8e35f6a74dd47ff883f8cbab87c302dce54744ae9c9f45a"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/43/report.json",
+      "bytes": 252021,
+      "sha256": "5f67c2c98603f33f641e5d45173d5e3c912ecc6296b41372c0a09202b50d58f4"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/44/report.json",
+      "bytes": 204505,
+      "sha256": "d2cfc96430acff2d21a27cfdea0826092e85f69e26f7b93ed580f83bd7391238"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/45/report.json",
+      "bytes": 220790,
+      "sha256": "ee9fa4619abb9e8f614eae55f5a30477d297e542821ba4048e0d14e8df17c17d"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/46/report.json",
+      "bytes": 142630,
+      "sha256": "cf8d907527f66ec52ed55e2a14433420102ba6a132b78685c10801c0457fa20f"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/47/report.json",
+      "bytes": 199748,
+      "sha256": "7c88d085845571b82d866e243179b08b51cce134c6b83c97494eae618789c118"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/48/report.json",
+      "bytes": 221364,
+      "sha256": "b8ea886fd109107294b5c35f2ab40ea0234acf158bfbfcda932ae25ef702ac62"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/49/report.json",
+      "bytes": 246671,
+      "sha256": "f8a557c1f14ffc6436bd87e18389550af692ff7b812dadb30ab80b4afd25af64"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/50/report.json",
+      "bytes": 194204,
+      "sha256": "b613966b6da8c7f8842bbdfe686cb5911fd55fdc49e34e17372e4ff7a89f9301"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/51/report.json",
+      "bytes": 210118,
+      "sha256": "e2a660da1f4994a5deb9161b38a83310643b52c5238b0dfd4053232c60f4793a"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/52/report.json",
+      "bytes": 244554,
+      "sha256": "d7a0ad199eec5ee2be949744688f6b4f941d50d8fa0df53c32662cc3cb7cab5c"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/53/report.json",
+      "bytes": 248167,
+      "sha256": "03d9cb53599696e6e6bda0772e5bd686a1c287be61a03286fd6bf051b64a990b"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/54/report.json",
+      "bytes": 245298,
+      "sha256": "53f6f5e3edf6ff6aa6f48326cc658a1af618a16dbccc3520db35abb24b07f649"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/55/report.json",
+      "bytes": 231048,
+      "sha256": "bf0b6ca371b264edca856fe90b694a29b5eca6d88137669fdd759ed5629a29b9"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/56/report.json",
+      "bytes": 210728,
+      "sha256": "d9a30dbbcc70f6f80b2a2e1281a548c1daf54f226da4dcf9d66afb6fe053096a"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/57/report.json",
+      "bytes": 194515,
+      "sha256": "5f50a548210605e5042f9896583a97107e40fd0b35d4cc1587553df38c849983"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/58/report.json",
+      "bytes": 236240,
+      "sha256": "fa04d78028eb6f82682bf402cd65ba468bca5eef261cfafd695f1128328e3499"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/59/report.json",
+      "bytes": 219719,
+      "sha256": "35db81f2fb59e438791a1d799ac865fec5be4e7752ccc92442fc53d4b2b84045"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/60/report.json",
+      "bytes": 183428,
+      "sha256": "a2549290c412f2ebe184ad09ae707b9abb9d9c3e82c72c1d761af67bce3416c1"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/61/report.json",
+      "bytes": 223880,
+      "sha256": "32d48f42215a16e1b27374eb68872db57e6e8c35b9763c9eb9114465a077fc98"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/62/report.json",
+      "bytes": 265385,
+      "sha256": "3388f56ce0de956e7a8b3de6da1df227a2ba301090eb9b5580f6ee195ea69e8c"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/63/report.json",
+      "bytes": 278850,
+      "sha256": "e975a0246b88f3744586b71c11b195278f2bee4b8d5c59a4588ebe603cba42c2"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/64/report.json",
+      "bytes": 204704,
+      "sha256": "96868cbc5fe905827e4c47a99cf72b7e8cbd9bb0ecd9a133289e00410052be9f"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/65/report.json",
+      "bytes": 231619,
+      "sha256": "e4f5932efa5bfa17ef55033445f2fdab45cb8a3c757bc729fb5f33604e288ebd"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/66/report.json",
+      "bytes": 251759,
+      "sha256": "a9a5c106d433597a4299f965ce98b5f9960badf56b26f694dcd3af5d152744bd"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/67/report.json",
+      "bytes": 194937,
+      "sha256": "e59ff72ed53f30d6d6d1ed909e1799bbfbbd5ab1e8463dcecfac9b126b32878b"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/68/report.json",
+      "bytes": 210207,
+      "sha256": "1a85d842b73a25c3efd209b7b5629d5a0943d7d81ecee8978889f061908c0f87"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/69/report.json",
+      "bytes": 258179,
+      "sha256": "5e13149364d622a7a063c788e1b537849064dc20c482ff2b43b55d0de4dc05f3"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/70/report.json",
+      "bytes": 184356,
+      "sha256": "6ab89fa5c12bd5a6287c3650f1192ca02333c0b1fcb7b00587a0d75d9defb9da"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/71/report.json",
+      "bytes": 200895,
+      "sha256": "707267ce57c7657a05dfc340463abb94df606011811d4f8aa53f3ecd3060e605"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/72/report.json",
+      "bytes": 199171,
+      "sha256": "376cbc6a6db6ac11020358a46111f222c85567192bb48f4d76350c54c12ee03d"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/73/report.json",
+      "bytes": 241724,
+      "sha256": "6c6a62bbac5c527e13d55ff4525ac9a849311b139c1de7257117d3043469f78d"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/74/report.json",
+      "bytes": 226901,
+      "sha256": "316ba2b9f2c6e8419aa7f9fb558a6b83c252be9605decec0b9674eb67a1a0deb"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/75/report.json",
+      "bytes": 204496,
+      "sha256": "05d2280671ec3d5778e0c6d536773d32c7d5a28aaecdd46f3266c0ab6a828d87"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/76/report.json",
+      "bytes": 195210,
+      "sha256": "c53917f489125562a4720a30c9f1407509a945b130b0ecb8ea703aadc9aa750f"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/77/report.json",
+      "bytes": 243076,
+      "sha256": "bb2e3468468a98c4039ff0d201a6cdf35f2a32febe9db3e86b649696e2be342f"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/78/report.json",
+      "bytes": 220452,
+      "sha256": "df616fff292283bdea9aa1b97f2b567173805578b44882b3dab5d5671807b320"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/79/report.json",
+      "bytes": 246769,
+      "sha256": "0b2378e1a90ec10370c460e97782a1d95ef830004c15e17c6a97dd9765fd6f82"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/80/report.json",
+      "bytes": 232100,
+      "sha256": "99bacb91f4789af243833c7c78310d2f2e8e97d9ffbe09265a15ca80c64f03af"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/81/report.json",
+      "bytes": 228234,
+      "sha256": "a1b13f6143e9e590cadbd36414902b357ab4146768a314425cd826847559bf3c"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/82/report.json",
+      "bytes": 250178,
+      "sha256": "1032a04a1907be659c80753095309a5bb8fde28f3838af41ab47c101ef94c70e"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/83/report.json",
+      "bytes": 200832,
+      "sha256": "3d170b0a16d0ca14528a01883c115da02dc28ca86000a8fdf8288b3fdacb5501"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/84/report.json",
+      "bytes": 220989,
+      "sha256": "dfa3926cc2e9a2998eaf2edbdb7f3dfff3af2f20467b4bb4c3b0da4601fd1212"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/85/report.json",
+      "bytes": 247660,
+      "sha256": "334038020f80abe3c16aee4ae2142f63aa92172b323a264f7f897355f1897e67"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/86/report.json",
+      "bytes": 235117,
+      "sha256": "379be6ee9b8913b45c5355ef6c688effa9153bcbbbb7c39ff05bc6c9a7d4808c"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/87/report.json",
+      "bytes": 213516,
+      "sha256": "614453df4490f8e78864343c1c1fdefa55f7fae8a5e69e2669307757aefd63da"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/88/report.json",
+      "bytes": 216200,
+      "sha256": "089aef6bafcd39ba2a42426e72fcc0827826718b9e68fd5370acf665a2dd9fb4"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/89/report.json",
+      "bytes": 225259,
+      "sha256": "a8d79d58f60e7eb4f2e330397c9d68be28f92cc312e0754a0096ff48cca599b6"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/90/report.json",
+      "bytes": 219874,
+      "sha256": "5a4799c99c8c234714a5a6b250c9a8fb52cce7f7b2d8fc7f434cf2202eb375e0"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/91/report.json",
+      "bytes": 206236,
+      "sha256": "9c672728399647553440ee36bf6364b44974d8c363e0dee580d625188eb2cbd6"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/92/report.json",
+      "bytes": 188441,
+      "sha256": "fdf104fd91ee20e11587f1384906c692ef7d175030d15440865fe4a71859869b"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/93/report.json",
+      "bytes": 211171,
+      "sha256": "82fe3ac31f4210cf1e81eac05607a58948a59fbcdf767dbf03a4d53f5f10258d"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/94/report.json",
+      "bytes": 200123,
+      "sha256": "0fb13540ebd57244a5106fffbf8139f8765cd54536d801a3e8cbb06125dc0ab3"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/2147483647/report.json",
+      "bytes": 247369,
+      "sha256": "061fbf1c7dd3f9961a6d9a65d227f98a9efdac01ed934e17a4ca8438599129cd"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/2147483648/report.json",
+      "bytes": 204040,
+      "sha256": "70e85ba98eef6480ec4d857d1e9d5c5f10c4a3722df47cbfbedac3cb80d69eee"
+    },
+    {
+      "file": "/workspace/web-lol-ahri-w-particles/.cache/e02f3e-development-roster-hundred/seeds/4294967295/report.json",
+      "bytes": 179885,
+      "sha256": "f6065ec6a5ed3cea53f6e4f8f179fdc3d1ffcf301560cbfd4e391fe690fa77c3"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/e02f3e-development-roster-hundred-acceptance-driver-v1.log",
+      "bytes": 341,
+      "sha256": "806523bffe742d60d75c640b96b6dba853b40ff364364e28a2c64bab83d94e55"
+    },
+    {
+      "file": "/workspace/web-lol/artifacts/e02f3e-development-roster-hundred-acceptance-driver-v2.log",
+      "bytes": 610,
+      "sha256": "bfd0c62704f488d1608ec79ac37b381ec0bf02c082006b4eb05a41c18b039c1d"
+    }
+  ],
+  "acceptanceAssemblyAttempts": [
+    {
+      "driver": "artifacts/e02f3e-development-roster-hundred-acceptance-driver-v1.log",
+      "result": "failed",
+      "reason": "Draft compared paused worker objects to resumed PID integers; corrected to compare the exact PID lists."
+    },
+    {
+      "driver": "artifacts/e02f3e-development-roster-hundred-acceptance-driver-v2.log",
+      "result": "passed"
+    }
+  ]
+}

@@ -111,8 +111,11 @@ The full seed-1 development-roster validation at source `52d959b9` finished with
 a blue victory at tick 157,116: 44 restores and 43 future checks (2,580 ticks).
 All 45 decoded artifacts, including the final state, are byte-identical to the
 accepted uncompressed noise run. Storage fell from 16,680,648 to 1,592,845 bytes.
-This is a single-seed storage validation; the current hundred-seed gate remains
-false until a separate complete audit passes.
+This remains a single-seed storage validation. The separate current private
+hundred-seed audit subsequently passes: 100 victories, zero unfinished/failures,
+14,858,652 checked ticks and 4,183 exact save round trips. See the
+[completed cohort scope](CURRENT-DEVELOPMENT-ROSTER-HUNDRED.md). The ordinary
+roster gate and full roadmap milestone remain separate.
 
 `inspect-cohort-horizon.mjs` accepts either plain or gzip snapshots through the
 same verified codec. It requires a frozen seed ledger and verifies each pinned
