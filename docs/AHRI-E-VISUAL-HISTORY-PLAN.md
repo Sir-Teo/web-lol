@@ -146,3 +146,23 @@ orders. Older reference helpers/producers/goldens remain unchanged; only current
 comparison wrappers remove the new E field. Two current-schema assertions move
 to 179. Full regression, clean CI, natural-cohort comparison and delivery gates
 remain pending before observer acceptance.
+
+## Natural-match comparison
+
+The observer candidate completed seed one with Blue victory at tick 157,116,
+44 exact save round trips and 43 restored futures covering 2,580 ticks. All 45
+complete archived state projections match the frozen schema-178 baseline after
+excluding only version, ruleset and the new ahriEVisuals field. The source delta
+changes World and snapshot admission, adds four observer/timing modules, removes
+no archived files and preserves 657 archived files byte for byte.
+
+The 45 saves include seven with retained E history, at most one record per
+sampled save and a largest serialized history of 103,601 bytes. These are sample
+measurements, not worst-case bounds. The comparison, source delta and individual
+payload measurements are retained under docs/reference/ahri/e-visual-history-*.json.
+
+Full tests pass 9,120 of 9,122 checks across 557 files; the two existing failures
+remain the missing archived Leona reflection reader and the Node-24 Lux sampler
+golden mismatch. All 251 Node QA checks pass. A clean committed export without
+private cache/tools passes all 72 scoped workflow commands, including 780 tests
+across 100 files. Browser and production/offline delivery checks remain pending.
