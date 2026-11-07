@@ -1,4 +1,19 @@
-# Fresh full unit run and reference restoration
+# Full unit results and reference restoration
+
+The latest primary run uses application `cabb9791`, schema 181 and ruleset
+`e02f3e73`. Its resolved result is **10,152/10,154 tests across 611 files**;
+the full unit gate remains open for the same historical Leona-input and
+Lux-digest failures described below. One additional five-second wave-clock
+deadline failure passed the unchanged nine-test focused retry after a recorded
+9.74-second pause of the three audit workers. The original failure, retry and
+pause/resume evidence are all retained in the
+[current unit verification](reference/current-production-unit-verification.json).
+No expected digest or test deadline changed.
+
+## Earlier source-cache restoration checkpoint
+
+The following records the earlier schema-163 run and its exact input recovery;
+its test counts and production scope describe that historical checkpoint.
 
 The current full run passes **3,761 of 3,763 tests across 427 files**. Two tests
 still fail, so the full unit gate remains open. All new source/camera-trail and
