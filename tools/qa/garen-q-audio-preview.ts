@@ -162,3 +162,6 @@ window.addEventListener('pagehide', () => {
   stopAll();
   if (context && context.state !== 'closed') void context.close().catch(() => {});
 });
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) stopAll();
+});

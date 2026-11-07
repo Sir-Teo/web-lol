@@ -177,7 +177,7 @@ test('a valid WAV with altered source samples is refused before audition readine
   await page.screenshot({ path: info.outputPath('altered-source-refused.png'), fullPage: true });
 });
 
-for (const control of ['stop-all', 'stop-active', 'unrelated stop-active'] as const)
+for (const control of ['stop-all', 'stop-active', 'unrelated stop-active', 'hidden-tab'] as const)
   test(`pending context activation respects ${control} ownership`, async ({ page }, info) => {
     await page.addInitScript(() => {
       const state = { starts: [] as number[], release: null as null | (() => Promise<void>) };
@@ -210,7 +210,12 @@ for (const control of ['stop-all', 'stop-active', 'unrelated stop-active'] as co
     await page.waitForFunction(
       () => typeof (window as any).__Q_PENDING_RESUME__.release === 'function'
     );
-    await page.locator(control === 'stop-all' ? '#stop-all' : '#stop-active').click();
+    if (control === 'hidden-tab')
+      await page.evaluate(() => {
+        Object.defineProperty(document, 'hidden', { configurable: true, get: () => true });
+        document.dispatchEvent(new Event('visibilitychange'));
+      });
+    else await page.locator(control === 'stop-all' ? '#stop-all' : '#stop-active').click();
     await page.evaluate(async () => {
       await (window as any).__Q_PENDING_RESUME__.release();
       await new Promise((resolve) => setTimeout(resolve, 0));
