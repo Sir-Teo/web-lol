@@ -32,7 +32,7 @@ test('R spell sampler covers its 21 selected profiles and never samples deferred
   ).toHaveLength(0);
   expect(
     AHRI_R_SPELL_PROFILE_BINDINGS.filter((p) => p.reason === 'persistent-producer-not-connected')
-  ).toHaveLength(14);
+  ).toHaveLength(12);
   expect(
     AHRI_R_SPELL_PROFILE_BINDINGS.filter((p) => p.reason === 'unjoined-native-producer')
   ).toHaveLength(16);

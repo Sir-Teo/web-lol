@@ -1,7 +1,10 @@
 import * as THREE from 'three';
 import data from '../content/ahri-r-particles.json';
 import { rPaletteBinding, AHRI_R_PALETTE_POLICY } from './ahri-r-palette';
-import { AHRI_R_BOUND_SPELL_PROFILES } from './ahri-r-particles';
+import {
+  AHRI_R_BOUND_SPELL_PROFILES,
+  AHRI_R_PREPARED_EYE_TRAIL_PROFILES,
+} from './ahri-r-particles';
 import type { EclipseSurfaceAssets } from './leona-eclipse-surface-assets';
 import { createLeonaEclipseSurfaceMaterial } from './leona-eclipse-surface-material';
 /** Omitted ramps are disabled by this explicit local material adapter. */
@@ -26,7 +29,8 @@ export function createRRibbonMaterial(index: number, assets: EclipseSurfaceAsset
   const palette = p ? rPaletteBinding(p) : null;
   if (
     !p ||
-    !AHRI_R_BOUND_SPELL_PROFILES.includes(index) ||
+    (!AHRI_R_BOUND_SPELL_PROFILES.includes(index) &&
+      !AHRI_R_PREPARED_EYE_TRAIL_PROFILES.some((selected) => selected === index)) ||
     p.kind !== 'trail' ||
     (p.palette && p.palette.texture !== null && !palette) ||
     p.distortion ||

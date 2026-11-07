@@ -150,7 +150,7 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
   expect(flight.unchanged).toBe(true);
   expect(flight.restored).toEqual(flight.before);
   expect(flight.placeholder).toBe(0);
-  expect(flight.deferred).toHaveLength(32);
+  expect(flight.deferred).toHaveLength(30);
   expect(flight.before.ribbons.length).toBeGreaterThan(0);
   expect(flight.before.surfaces.some((m: any) => m.colors === 209 && !m.normals)).toBe(true);
   expect(flight.before.ribbons.some((m: any) => m.cellSize[0] === 0.5)).toBe(true);
@@ -211,7 +211,7 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
       v = g.view;
     const record = w.ahriRVisuals[0];
     w.step(record.startTick + 95 - w.tick);
-    w.setOrder(w.hero, { type: 'move', point: { x: w.hero.x, y: w.hero.y + 150 } });
+    w.setOrder(w.hero, { type: 'move', point: { x: w.hero.x, y: w.hero.y + 1500 } });
     w.step(30);
     v.zoom = 0.12;
     v.recenter(w.hero);
@@ -252,12 +252,103 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
   expect(eyes.attachments).toEqual([]);
   expect(glowRequests).toHaveLength(1);
   await page.screenshot({ path: info.outputPath('ahri-r-eye-glows.png') });
-  expect(new Set(requests).size).toBe(6);
+  const eyeTrails = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      v = g.view,
+      record = w.ahriRVisuals[0];
+    v.zoom = 0.22;
+    const digest = (attribute: any, count: number) => {
+      let hash = 2166136261;
+      const bytes = new Uint8Array(
+        attribute.array.buffer,
+        attribute.array.byteOffset,
+        count * attribute.itemSize * 4
+      );
+      for (const byte of bytes) hash = Math.imul(hash ^ byte, 16777619);
+      return (hash >>> 0).toString(16);
+    };
+    const capture = () =>
+      [...v.ahriRParticles.buffModels]
+        .sort(([a]: any, [b]: any) => a.localeCompare(b))
+        .map(([key, model]: any) => {
+          const count = model.geometry.drawRange.count;
+          return {
+            key,
+            profile: model.userData.profileIndex,
+            count,
+            attributes: Object.fromEntries(
+              [
+                'position',
+                'uv',
+                'sourceTint',
+                'sourceLookup',
+                'sourceErosion',
+                'sourceMultUv',
+                'sourceCell',
+                'sourceMultCell',
+              ].map((name) => [name, digest(model.geometry.getAttribute(name), count)])
+            ),
+            mode: model.userData.trailMode,
+            ground: model.userData.sourceGroundLayer,
+            nativeConstructorVerified: model.userData.nativeConstructorVerified,
+            mips: model.material.uniforms.sourceTexture.value.mipmaps.length,
+          };
+        });
+    const frames = [];
+    for (const offset of [165, 183, 210]) {
+      w.step(record.startTick + offset - w.tick);
+      v.recenter(w.hero);
+      v.render(w, 1, v.previousElapsed);
+      frames.push({ offset, models: capture() });
+    }
+    const before = capture(),
+      saved = w.snapshot(),
+      copy = w.constructor.fromSnapshot(saved, w.battlefield);
+    v.render(copy, 1, v.previousElapsed);
+    const restored = capture();
+    v.render(w, 1, v.previousElapsed);
+    return {
+      frames,
+      before,
+      restored,
+      unchanged: copy.snapshot() === saved,
+      attachments: v.ahriRParticles.attachmentFallbacks,
+    };
+  });
+  expect(eyeTrails.unchanged).toBe(true);
+  expect(eyeTrails.restored).toEqual(eyeTrails.before);
+  expect(
+    [
+      ...new Set(
+        eyeTrails.frames.flatMap((frame: any) => frame.models.map((model: any) => model.profile))
+      ),
+    ].sort()
+  ).toEqual([47, 48]);
+  expect(eyeTrails.frames[0].models.some((model: any) => model.profile === 48)).toBe(true);
+  expect(eyeTrails.frames[2].models.some((model: any) => model.profile === 48)).toBe(false);
+  expect(
+    eyeTrails.frames
+      .flatMap((frame: any) => frame.models)
+      .every(
+        (model: any) =>
+          model.count > 0 &&
+          model.mips === 10 &&
+          model.mode === 'local-default-ribbon' &&
+          model.ground &&
+          model.nativeConstructorVerified === false
+      )
+  ).toBe(true);
+  expect(eyeTrails.attachments).toEqual([]);
+  await page.screenshot({ path: info.outputPath('ahri-r-eye-trails.png') });
+  expect(requests.filter((path) => path.endsWith('/ahri-r-e44c1023b3871ca4.png'))).toHaveLength(1);
+  expect(requests).toHaveLength(7);
+  expect(new Set(requests).size).toBe(7);
   expect(requests.some((path) => path.endsWith('.glb'))).toBe(false);
   expect(errors).toEqual([]);
   await writeFile(
     info.outputPath('ahri-r-packets.json'),
-    JSON.stringify({ requests, glowRequests, flight, hit, eyes, errors }, null, 2)
+    JSON.stringify({ requests, glowRequests, flight, hit, eyes, eyeTrails, errors }, null, 2)
   );
 });
 

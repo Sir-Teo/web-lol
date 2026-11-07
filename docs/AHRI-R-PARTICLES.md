@@ -555,3 +555,25 @@ The procedural ribbon upload layer now preserves the packed shader attributes,
 converts source centimetres once, grows owned buffers and retires their materials
 without disposing page-owned textures. Three ownership/upload cases pass within
 62 packed-ribbon checks. The upload helper remains unconnected to live effects.
+
+## Periodic eye-trail renderer candidate
+
+Both arbitrary eye trails now draw from saved eye-bone roots beside the earlier
+glows. Local ordinary-ribbon mode re-measures each visible live run; its unused
+lifetime odometer stays neutral. Ground-layer metadata does not project these
+head-height ribbons onto terrain. Birth/binding motion uses the saved actor
+frame without a missile tilt or a second caster translation. Caches retain only
+recent births and owned pose-window roots.
+
+The selected subset is now 25 profiles: 21 spell profiles plus all four eye
+profiles on both native eye bones. Six layout and six counter-driven profiles
+remain deferred, alongside two noise and sixteen unjoined profiles. The texture
+closure contains 28 textures and one shared W mesh. Seven R-owned transports and
+one shared W transport load locally; eye glows keep borrowing the Q cast texture.
+The newly selected soul-trail texture retains all ten authored mip levels.
+
+All 279 focused checks in 22 files and TypeScript pass. All eight R browser cases
+pass, including the periodic active/gap windows, exact restoration of all eight
+ribbon attribute buffers, native eye bones and one new texture request. The
+earlier 72 spell and 36 glow packet hashes remain exact. Broader regression,
+production/offline and natural-match verification follow before acceptance.

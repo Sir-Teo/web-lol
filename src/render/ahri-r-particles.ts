@@ -53,9 +53,8 @@ export const AHRI_R_PARTICLE_ADAPTER = {
   sharedRandomFlagOne: 'fixed cosmetic emitter chance; native random stream unverified',
   neutralLiveTables: 'empty tables with single 1',
 } as const;
-/** Only the finite eye glows have a bound skin-buff producer. */
-export const AHRI_R_BOUND_BUFF_PROFILES = [45, 46] as const;
-/** Periodic source sampling is prepared before ribbon dispatch is connected. */
+/** Both finite glows and periodic trails use the explicit skin-buff producer. */
+export const AHRI_R_BOUND_BUFF_PROFILES = [45, 46, 47, 48] as const;
 export const AHRI_R_PREPARED_EYE_TRAIL_PROFILES = [47, 48] as const;
 const periodicProfiles = new Set<number>(AHRI_R_PREPARED_EYE_TRAIL_PROFILES);
 /** Deferred profiles stay in published data without entering the sampler. */
@@ -81,7 +80,7 @@ export const AHRI_R_BOUND_SPELL_PROFILES = AHRI_R_SPELL_PROFILE_BINDINGS.filter(
   (p) => p.reason === 'bound-spell-profile'
 ).map((p) => p.profileIndex);
 const boundProfiles = new Set(AHRI_R_BOUND_SPELL_PROFILES);
-for (const [offset, index] of AHRI_R_BOUND_BUFF_PROFILES.entries()) {
+for (const [offset, index] of [45, 46].entries()) {
   const profile = data.profiles[index];
   if (
     profile.system !== 'Ahri_R_Eyes' ||
