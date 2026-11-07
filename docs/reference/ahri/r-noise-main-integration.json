@@ -1,0 +1,138 @@
+{
+  "format": 1,
+  "mergeRevision": "f98e1cdbf6acbb5cbf6da8c10449e638a02f479a",
+  "acceptedRevision": "cab64ebd72820afe24692554579495538d09a76e",
+  "applicationRevision": "a345d9ebfd5e5902176a8c642d30a0d50aa0cb07",
+  "acceptanceEvidenceWorkspace": "/workspace/web-lol-ahri-w-particles",
+  "schema": 181,
+  "ruleset": "e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f",
+  "compatibilityFiles": 696,
+  "applicationAndPublicByteIdentical": true,
+  "pack": {
+    "result": "passed",
+    "pack": "64ef73c19231b85bf481b42d9562e701281901b3007bbd65028e51959e5f1eae",
+    "files": 1432,
+    "bytes": 581141513,
+    "workerPolicySha256": "41e26572bb22a1213c268473c6cdbb7bc0aba4b95cf7e6d27ad07131b749873a"
+  },
+  "focusedTests": {
+    "passed": 976,
+    "files": 45,
+    "selection": [
+      "tests/ahri-r-assets.test.ts",
+      "tests/ahri-r-attachments.test.ts",
+      "tests/ahri-r-buff-attachments.test.ts",
+      "tests/ahri-r-buff-effects.test.ts",
+      "tests/ahri-r-buff-particles.test.ts",
+      "tests/ahri-r-effects.test.ts",
+      "tests/ahri-r-eye-glow-packet-reference.test.ts",
+      "tests/ahri-r-eye-schedule.test.ts",
+      "tests/ahri-r-eye-trail-particles.test.ts",
+      "tests/ahri-r-eye-trails.test.ts",
+      "tests/ahri-r-palette.test.ts",
+      "tests/ahri-r-particles.test.ts",
+      "tests/ahri-r-persistent-history.test.ts",
+      "tests/ahri-r-render-gameplay-reference.test.ts",
+      "tests/ahri-r-render-history.test.ts",
+      "tests/ahri-r-same-tick-target-loss.test.ts",
+      "tests/ahri-r-spell-packet-reference.test.ts",
+      "tests/ahri-r-trails.test.ts",
+      "tests/lazy-ahri-r-effects.test.ts",
+      "tests/source-default-trail-ribbon.test.ts",
+      "tests/source-packed-ribbon-meshes.test.ts",
+      "tests/source-packed-trail-ribbon.test.ts",
+      "tests/ahri-r-eye-trail-packet-reference.test.ts",
+      "tests/ahri-r-layout-particles.test.ts",
+      "tests/source-particle-surfaces.test.ts",
+      "tests/source-particle-joint-frame.test.ts",
+      "tests/ground-quad.test.ts",
+      "tests/ahri-r-layout-quad-packet-reference.test.ts",
+      "tests/ahri-r-layout-glow-schedule.test.ts",
+      "tests/ahri-r-layout-glow-particles.test.ts",
+      "tests/ahri-r-layout-glow-packet-reference.test.ts",
+      "tests/source-colored-particle-mesh.test.ts",
+      "tests/ahri-r-layout-mesh-particles.test.ts",
+      "tests/ahri-r-layout-mesh-packet-reference.test.ts",
+      "tests/ahri-r-layout-base-particles.test.ts",
+      "tests/ahri-r-visual-history-module.test.ts",
+      "tests/ahri-r-visual-snapshot.test.ts",
+      "tests/ahri-r-visual-history.test.ts",
+      "tests/ahri-r-layout-base-packet-reference.test.ts",
+      "tests/ahri-r-noise-particles.test.ts",
+      "tests/source-noise-field-reference.test.ts",
+      "tests/source-noise-field.test.ts",
+      "tests/source-noise-field-values.test.ts",
+      "tests/source-noise-motion-reference.test.ts",
+      "tests/source-noise-motion-timeline.test.ts"
+    ],
+    "scope": "Independent primary R/history/packet selection plus external noise field/motion reference and ownership checks"
+  },
+  "acceptanceScopePreserved": true,
+  "retainedPriorPacks": [
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-e-accepted-pack-4995",
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-r-eye-glow-accepted-pack-6007",
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-r-eye-trail-accepted-pack-c917",
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-r-layout-accepted-pack-b858",
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-r-observer-accepted-pack-15b8",
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-r-palette-accepted-pack-01c9",
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-r-spell-rendering-accepted-pack-3dbf",
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-r-layout-glow-accepted-pack-860c",
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-r-layout-mesh-accepted-pack-750c",
+    "/workspace/web-lol-ahri-w-particles/.cache/ahri-r-layout-base-accepted-pack-c432"
+  ],
+  "selectedSpellProfiles": 23,
+  "selectedBuffProfiles": 10,
+  "eyeInstances": 2,
+  "layoutInstances": 1,
+  "pushed": false,
+  "deployed": false,
+  "evidence": [
+    {
+      "path": "artifacts/ahri-r-noise-primary-build-v1.log",
+      "bytes": 9453,
+      "sha256": "c27ad7409ccd8ab92221ce6bf1c395cfcc8007a53352a5037756a6fdd9f3e6b9"
+    },
+    {
+      "path": "artifacts/ahri-r-noise-primary-pack-v1.json",
+      "bytes": 213,
+      "sha256": "75e454a25b15c38f2c2b29e5c7807371c947917e86a5aa1d3ff4e01b9f2b9a37"
+    },
+    {
+      "path": "artifacts/ahri-r-noise-primary-pack-after-dedup-v1.json",
+      "bytes": 213,
+      "sha256": "75e454a25b15c38f2c2b29e5c7807371c947917e86a5aa1d3ff4e01b9f2b9a37"
+    },
+    {
+      "path": "artifacts/ahri-r-noise-primary-build-dedup-v1.json",
+      "bytes": 1329,
+      "sha256": "2877048eb719d3480368239a4e008ae3394136327156ed4c90fc72827884ca34"
+    },
+    {
+      "path": "artifacts/ahri-r-noise-primary-tests-v1.log",
+      "bytes": 2339,
+      "sha256": "9bbb7ef7e6bcdeda771a64a7faa2ec60bfe36645f2a2082c74c448b4c49b77b0"
+    },
+    {
+      "path": "docs/reference/ahri/r-noise-acceptance.json",
+      "bytes": 75732,
+      "sha256": "c5fa5c589fedb1498e8b4cc460ed6ab2f531e4290c89d589f4a9bc76bd7ae799"
+    }
+  ],
+  "retainedAcceptedPack": "/workspace/web-lol-ahri-w-particles/.cache/ahri-r-noise-accepted-pack-64ef",
+  "naturalMatchCompatibility": {
+    "completeProjectionMatches": 45,
+    "completeStateIdentityClaimed": true,
+    "baselineSourceRevision": "d343a9f9221c7d46ce34f01010983db5dd84b86a",
+    "excludedFields": [
+      "version",
+      "ruleset"
+    ],
+    "normalizedFields": []
+  },
+  "noisePolicy": {
+    "nativeRandomStreamCertified": false,
+    "nativeConstructorCertified": false,
+    "reference": "docs/reference/ahri/r-noise-policy-reading.json",
+    "independentTrajectoryRows": 2880
+  }
+}
