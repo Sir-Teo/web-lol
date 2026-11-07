@@ -82,6 +82,10 @@ function verifyComposition(state) {
       assert.equal(members.find((u) => owners.get(u.id).role === role).champion, identity);
   }
 }
+assert(
+  plan.seeds.length > 0 && new Set(plan.seeds).size === plan.seeds.length,
+  'Invalid seed list'
+);
 assert.equal(summary.completed, plan.seeds.length, 'Not every requested seed has completed');
 assert.equal(summary.active.length, 0);
 assert.equal(new Set(summary.results.map((r) => r.seed)).size, plan.seeds.length);
@@ -91,9 +95,17 @@ assert.deepEqual(
 );
 let ticks = 0,
   roundTrips = 0,
-  futures = 0;
+  futures = 0,
+  futureTicks = 0,
+  victories = 0,
+  unfinished = 0;
 for (const seed of plan.seeds) {
   const report = JSON.parse(readFileSync(`${root}/seeds/${seed}/report.json`, 'utf8'));
+  assert.deepEqual(
+    summary.results.find((row) => row.seed === seed),
+    report,
+    'Summary report differs'
+  );
   assert.equal(report.ruleset, plan.ruleset);
   assert.equal(report.seed, seed);
   assert.equal(report.developmentLeona ?? false, developmentLeona);
@@ -106,14 +118,34 @@ for (const seed of plan.seeds) {
     );
   assert.equal(report.failure, null, `Seed ${seed} failed`);
   assert.equal(report.horizonTicks, plan.horizonTicks);
+  assert(
+    Number.isSafeInteger(report.finalTick) &&
+      report.finalTick > 0 &&
+      report.finalTick <= plan.horizonTicks,
+    'Invalid terminal tick'
+  );
   assert.equal(report.finalTick, report.checkedTicks);
+  assert.equal(
+    report.roundTrips,
+    Math.ceil(report.finalTick / 3600),
+    'Missing checkpoint coverage'
+  );
   assert.equal(report.checkpoints.length, report.roundTrips);
   assert.equal(report.runtime.node, plan.runtime.node);
   assert.equal(report.runtime.v8, plan.runtime.v8);
   assert.equal(report.snapshotEncoding ?? 'none', encoding);
   if (encoding === 'gzip') assert.equal(report.runtime.zlib, plan.runtime.zlib);
-  assert(report.futureChecks >= Math.max(0, report.roundTrips - 1));
-  for (const checkpoint of report.checkpoints) {
+  assert.equal(report.futureChecks, report.roundTrips - 1, 'Future check count differs');
+  const expectedFutureTicks = report.checkpoints
+    .slice(0, -1)
+    .reduce((sum, row) => sum + Math.min(60, report.finalTick - row.tick), 0);
+  assert.equal(report.futureCheckedTicks, expectedFutureTicks, 'Future tick coverage differs');
+  for (const [index, checkpoint] of report.checkpoints.entries()) {
+    assert.equal(
+      checkpoint.tick,
+      Math.min((index + 1) * 3600, report.finalTick),
+      'Checkpoint cadence differs'
+    );
     assert.match(checkpoint.fileSha256, /^[0-9a-f]{64}$/, 'Checkpoint stored hash missing');
     const { raw } = readCohortSnapshot(checkpoint, encoding);
     const state = JSON.parse(raw);
@@ -139,25 +171,39 @@ for (const seed of plan.seeds) {
   };
   assert.equal(final.path, report.finalPath);
   assert.equal(final.stateSha256, report.finalStateSha256);
+  assert.equal(
+    report.checkpoints.at(-1).stateSha256,
+    report.finalStateSha256,
+    'Final checkpoint differs'
+  );
   const state = JSON.parse(readCohortSnapshot(final, encoding).raw);
   verifyComposition(state);
   assert.equal(state.tick, report.finalTick);
   assert.equal(state.winner, report.winner);
   assertMatchVictory(state);
   if (report.outcome === 'unfinished') {
+    unfinished++;
     assert.equal(report.finalTick, plan.horizonTicks);
     assert.equal(report.winner, null);
   } else {
     assert.equal(report.outcome, 'victory');
+    victories++;
     assert(report.winner);
   }
   ticks += report.checkedTicks;
   roundTrips += report.roundTrips;
   futures += report.futureChecks;
+  futureTicks += report.futureCheckedTicks;
 }
 assert.equal(ticks, summary.checkedTicks);
 assert.equal(roundTrips, summary.roundTrips);
 assert.equal(futures, summary.futureChecks);
+assert.equal(futureTicks, summary.futureCheckedTicks);
+assert.equal(summary.victories, victories, 'Victory total differs');
+assert.equal(summary.unfinished, unfinished, 'Unfinished total differs');
+assert.equal(summary.failures ?? 0, 0, 'Summary contains failures');
+if (summary.completionRate !== undefined)
+  assert.equal(summary.completionRate, victories / plan.seeds.length);
 const fullInvariantGate = plan.horizonTicks === 60 * 3600 && plan.seeds.length >= 100;
 assert.equal(
   summary.hundredSeedInvariantGate,
@@ -183,6 +229,7 @@ console.log(
     checkedTicks: ticks,
     roundTrips,
     futureChecks: futures,
+    futureCheckedTicks: futureTicks,
     developmentLeona,
     developmentRoster,
     hundredSeedInvariantGate: summary.hundredSeedInvariantGate,

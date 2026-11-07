@@ -1,0 +1,51 @@
+{
+  "format": 1,
+  "result": "passed",
+  "scope": "Stronger independent archived-cohort verification; no runner, runtime, assets or frozen evidence edits",
+  "testsPassed": 15,
+  "fullSeed1PlainAndGzipPassed": true,
+  "historicalHundred": {
+    "result": "passed",
+    "ruleset": "7ae8e0f8513df40ceca31f52ad146bbe08b388b09163e996538133fbe600229f",
+    "seeds": 100,
+    "horizonTicks": 216000,
+    "victories": 100,
+    "unfinished": 0,
+    "checkedTicks": 14987533,
+    "roundTrips": 4219,
+    "futureChecks": 4119,
+    "futureCheckedTicks": 246994,
+    "developmentLeona": false,
+    "developmentRoster": true,
+    "hundredSeedInvariantGate": false,
+    "hundredSeedDevelopmentLeonaInvariantGate": false,
+    "hundredSeedDevelopmentRosterInvariantGate": true,
+    "roadmapMilestone4Complete": false
+  },
+  "historicalPartialFinalProbes": 4,
+  "currentHundredAuditStillRunning": true,
+  "roadmapMilestone4Complete": false,
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/cohort-coverage-tests-v1.log",
+      "bytes": 1515,
+      "sha256": "9ab955d485b85134d624526d4580a3ec6a10a67d081a31abcbb3c8a294efb606"
+    },
+    {
+      "file": "artifacts/cohort-coverage-gzip-full-v2.log",
+      "bytes": 482,
+      "sha256": "c0874a8dc5c8f71797325e1f440364a3d8bb534cc4a0e9b2523ef97cdfa94caf"
+    },
+    {
+      "file": "artifacts/cohort-coverage-plain-full-v1.log",
+      "bytes": 456,
+      "sha256": "36f7ffdf2ae19d7027106512dd12a185c87c0d769e9029a275f58f9d48ccbab2"
+    },
+    {
+      "file": "artifacts/cohort-coverage-historical-hundred-v1.log",
+      "bytes": 467,
+      "sha256": "711202d2d56029e46e6b5e421da0df9761c0336bcfa7bddec7cc7fb019f577fa"
+    }
+  ]
+}

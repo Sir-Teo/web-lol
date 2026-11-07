@@ -122,3 +122,13 @@ The diagnostic output pins the stored artifact bytes. It reads archived states
 without replaying them or changing any outcome; minute samples do not establish
 causal AI behavior. Fourteen reader tests pass, and the two actual two-minute
 plain/gzip smoke archives produce identical observations.
+
+Independent final verification also requires every summary report to equal its
+worker report, every minute/terminal checkpoint to be present in order, and the
+last checkpoint to equal the final saved state. Future-check counts and tick
+coverage must match the available post-checkpoint intervals, including a victory
+less than 60 ticks after a minute boundary. Victory/unfinished totals and the
+reported completion rate are checked against the individual outcomes. Fifteen
+verification tests include resealed omissions, reordering, duplicates, invented
+futures and summary disagreements. The unchanged historical 100-seed schema-167
+archive passes these stronger checks, including four partial final probes.

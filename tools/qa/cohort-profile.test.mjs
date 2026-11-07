@@ -14,7 +14,7 @@ const pin = (file) => ({
   sha256: hash(readFileSync(file)),
 });
 const write = (file, value) => writeFileSync(file, JSON.stringify(value) + '\n');
-function fixture(t) {
+function fixture(t, horizonTicks = 3600) {
   const root = mkdtempSync(resolve(tmpdir(), 'cohort profile '));
   for (const path of ['maps', 'runner', 'seeds/1', 'frozen-source'])
     mkdirSync(root + '/' + path, { recursive: true });
@@ -65,11 +65,12 @@ function fixture(t) {
     automatedHumanCarry: false,
     automatedHumanRole: 'mid',
     failure: null,
-    horizonTicks: 3600,
-    finalTick: 3600,
-    checkedTicks: 3600,
-    roundTrips: 1,
-    futureChecks: 0,
+    horizonTicks,
+    finalTick: horizonTicks,
+    checkedTicks: horizonTicks,
+    roundTrips: horizonTicks / 3600,
+    futureChecks: horizonTicks / 3600 - 1,
+    futureCheckedTicks: horizonTicks === 3600 ? 0 : 60,
     runtime: { node: process.version, v8: process.versions.v8 },
     outcome: 'unfinished',
     winner: null,
@@ -84,6 +85,18 @@ function fixture(t) {
     finalPath: final,
     finalStateSha256: hash(readFileSync(final).subarray(0, -1)),
   };
+  if (horizonTicks === 7200) {
+    const second = root + '/seeds/1/007200.match.json';
+    write(second, { ...state, tick: 7200 });
+    write(final, { ...state, tick: 7200 });
+    report.checkpoints.push({
+      tick: 7200,
+      path: second,
+      fileSha256: hash(readFileSync(second)),
+      stateSha256: hash(readFileSync(second).subarray(0, -1)),
+    });
+    report.finalStateSha256 = report.checkpoints[1].stateSha256;
+  }
   const plan = {
     ruleset,
     developmentLeona: false,
@@ -92,7 +105,7 @@ function fixture(t) {
     qaAutomatedHumanRole: 'mid',
     roster: 'two Garen/two Master Yi/two Ashe/two Leona/one Ahri/one Lux; five roles per team',
     seeds: [1],
-    horizonTicks: 3600,
+    horizonTicks,
     runtime: report.runtime,
     runner: pin(root + '/runner/match-seed.js'),
     inputs: [pin(root + '/maps/input')],
@@ -104,9 +117,10 @@ function fixture(t) {
     completed: 1,
     active: [],
     results: [report],
-    checkedTicks: 3600,
-    roundTrips: 1,
-    futureChecks: 0,
+    checkedTicks: horizonTicks,
+    roundTrips: report.roundTrips,
+    futureChecks: report.futureChecks,
+    futureCheckedTicks: report.futureCheckedTicks,
     victories: 0,
     unfinished: 1,
     hundredSeedInvariantGate: false,
@@ -135,7 +149,7 @@ function fixture(t) {
     if (t.passed === true) rmSync(root, { recursive: true, force: true });
     else t.diagnostic('Retained profile fixture: ' + root);
   });
-  return { root, plan, report, persist, mutateState, run };
+  return { root, plan, report, summary, persist, mutateState, run };
 }
 
 test('a historical combined-profile fixture verifies its archived inputs and exact roster', (t) => {
@@ -182,4 +196,62 @@ test('historical verification still rejects a changed archived source', (t) => {
   const f = fixture(t);
   writeFileSync(f.root + '/frozen-source/source.txt', 'changed fixture bytes\n');
   assert.throws(f.run);
+});
+
+for (const [name, mutate] of [
+  ['summary result disagreement', (f) => (f.summary.results = [{ ...f.report, winner: 'blue' }])],
+  [
+    'fabricated victory totals',
+    (f) => {
+      f.summary.victories = 1;
+      f.summary.unfinished = 0;
+    },
+  ],
+  [
+    'omitted minute checkpoint',
+    (f) => {
+      f.report.checkpoints.shift();
+      f.report.roundTrips = 1;
+      f.report.futureChecks = 0;
+      f.report.futureCheckedTicks = 0;
+      f.summary.roundTrips = 1;
+      f.summary.futureChecks = 0;
+      f.summary.futureCheckedTicks = 0;
+    },
+  ],
+  ['reordered checkpoints', (f) => f.report.checkpoints.reverse()],
+  ['duplicate checkpoints', (f) => (f.report.checkpoints[1] = { ...f.report.checkpoints[0] })],
+  [
+    'invented future checks',
+    (f) => {
+      f.report.futureChecks = 100;
+      f.summary.futureChecks = 100;
+    },
+  ],
+  [
+    'missing future ticks',
+    (f) => {
+      f.report.futureCheckedTicks = 0;
+      f.summary.futureCheckedTicks = 0;
+    },
+  ],
+  [
+    'different final state',
+    (f) => {
+      const state = JSON.parse(readFileSync(f.report.finalPath));
+      state.player.gold++;
+      write(f.report.finalPath, state);
+      f.report.finalStateSha256 = hash(readFileSync(f.report.finalPath).subarray(0, -1));
+    },
+  ],
+])
+  test(`cohort verification rejects ${name} even with resealed reports`, (t) => {
+    const f = fixture(t, 7200);
+    mutate(f);
+    f.persist();
+    assert.throws(f.run);
+  });
+test('complete two-minute coverage verifies its exact future tick total', (t) => {
+  const f = fixture(t, 7200);
+  assert.equal(JSON.parse(f.run()).futureCheckedTicks, 60);
 });
