@@ -28,6 +28,15 @@ producer and golden retain their 5de09022 identities. This is an archived
 local-gameplay baseline, not native-client or hundred-seed validation. See
 [baseline verification](reference/ahri/r-visual-baseline-verification.json).
 
+The d93ef6c8 admission-fix checkpoint passes 9,239/9,241 full-suite cases in
+570 files, with only the same missing historical Leona reader and Lux sampler
+golden mismatch. All 257 Node QA cases pass. Tests ran in a fixed committed
+checkout with every tracked asset included, reusing installed dependencies and
+native fixtures/tools. Tracked bytes remained unchanged; the disposable checkout
+was removed after retaining its evidence. Its schema-180 ruleset is 14c7ccb4;
+this checkpoint has not refreshed production/offline delivery or been integrated
+into primary. See [admission verification](reference/ahri/r-same-tick-admission-verification.json).
+
 The observer will use existing rush IDs, burst indices and bolt indices. It must
 allocate no gameplay IDs or random draws. Record actual window/charge changes,
 bursts, paths, contacts, target/body lifetime, visibility and terminal settlement.
