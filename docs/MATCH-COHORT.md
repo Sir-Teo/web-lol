@@ -151,3 +151,20 @@ The output must be fresh and outside the immutable cohort, including through
 parent-directory symlinks; its parent directory must already exist. Unknown
 flags and additional cohort arguments are rejected. A failed verification
 creates no ledger, and an existing output is never overwritten.
+
+## Live process observations
+
+```sh
+node tools/qa/inspect-cohort-progress.mjs /path/to/cohort
+```
+
+This read-only command checks the frozen runner pin, reads recorded completion
+counts, and observes matching supervisor/worker processes through Linux `/proc`.
+A stale `running` status with no observed owner reports `processStatus: stopped`.
+The command also sees newly dispatched workers before the next parent status
+write. A worker must execute the frozen runner as its actual Node entrypoint;
+shell command text and a runner path supplied as ordinary data do not qualify.
+Minute progress is sampled separately, with its age; truncated or inconsistent
+samples are labeled invalid rather than treated as a verified tick. Recorded
+status, observed process state and summary presence remain separate. This tool
+never restores worlds, changes evidence or performs final invariant verification.
