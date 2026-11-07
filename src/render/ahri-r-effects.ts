@@ -267,7 +267,12 @@ export class AhriRParticles {
       }
   }
   prepareDepth(renderer: THREE.WebGLRenderer, camera: THREE.PerspectiveCamera) {
-    const materials = [...this.surfaces.models.values(), ...this.models.values()]
+    const materials = [
+      ...this.surfaces.models.values(),
+      ...this.models.values(),
+      ...this.buffs.surfaces.models.values(),
+      ...this.buffs.models.values(),
+    ]
       .map((mesh) => mesh.material)
       .filter((material) => material.uniforms.softDepth);
     if (!materials.length) {

@@ -14,10 +14,12 @@ const root = (time: number) => ({
 });
 const context = { boundObjectSize: 100, root };
 
-test('only the ten-second layout quad is selected alongside the four eye profiles', () => {
-  expect(AHRI_R_PREPARED_LAYOUT_PROFILES).toEqual([50]);
-  expect(AHRI_R_BOUND_BUFF_PROFILES).toEqual([45, 46, 47, 48, 50]);
-  const particles = ahriRParticles('Ahri_R_Ready_tar', 927, 1, Infinity, context);
+test('the finite layout quad keeps its identity beside the selected continuous glow', () => {
+  expect(AHRI_R_PREPARED_LAYOUT_PROFILES).toEqual([50, 53]);
+  expect(AHRI_R_BOUND_BUFF_PROFILES).toEqual([45, 46, 47, 48, 50, 53]);
+  const particles = ahriRParticles('Ahri_R_Ready_tar', 927, 1, Infinity, context).filter(
+    (p) => p.profileIndex === 50
+  );
   expect(particles).toHaveLength(1);
   expect(particles[0]).toMatchObject({
     profileIndex: 50,
@@ -60,21 +62,31 @@ test('layout cached fractional, backward and stopped seeks match fresh sampling 
       expect(sampler.sample(time, stop)).toEqual(
         ahriRParticles('Ahri_R_Ready_tar', 927, time, stop, context)
       );
-  expect(sampler.cachedBirths).toBeLessThanOrEqual(1);
-  expect(sampler.computedBindingSteps).toBeLessThanOrEqual(602);
-  expect(sampler.sample(10.02)).toEqual([]);
-  expect(sampler.sample(0.4, 0.4)).toEqual([]);
+  expect(sampler.cachedBirths).toBeLessThanOrEqual(20);
+  expect(sampler.computedBindingSteps).toBeLessThanOrEqual(602 + 19 * 146);
+  expect(sampler.sample(10.02).filter((p) => p.profileIndex === 50)).toEqual([]);
+  expect(sampler.sample(0.4, 0.4).filter((p) => p.profileIndex === 50)).toEqual([]);
   sampler.dispose();
 });
 
 test('expired layout sampling does not request discarded birth poses', () => {
+  let now = 12;
+  const queried: number[] = [];
   const sampler = new AhriRParticleSampler('Ahri_R_Ready_tar', 927, {
     boundObjectSize: 100,
-    root: () => {
-      throw Error('Discarded pose');
+    root: (time) => {
+      if (time < now - 12) throw Error('Discarded pose');
+      queried.push(time);
+      return root(time);
     },
   });
-  expect(sampler.sample(12)).toEqual([]);
-  expect(sampler.sample(1000000)).toEqual([]);
+  for (now of [12, 1000000]) {
+    queried.length = 0;
+    const particles = sampler.sample(now);
+    expect(particles.some((p) => p.profileIndex === 50)).toBe(false);
+    expect(particles.every((p) => p.profileIndex === 53)).toBe(true);
+    expect(queried.length).toBeGreaterThan(0);
+    expect(Math.min(...queried)).toBeGreaterThan(now - 3);
+  }
   sampler.dispose();
 });

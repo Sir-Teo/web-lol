@@ -713,3 +713,115 @@ coverage. All application/public bytes match the accepted runtime. See
 The prior eye-trail, glow, palette, 20-profile R, observer and E packs remain
 retained. Current hundred-seed, native calibration and full-project gates remain
 unfinished.
+
+
+## Continuous layout glow preparation
+
+The [accepted quad-packet reference](reference/ahri/r-layout-quad-packet-reference.json)
+adds 42 complete packets from application `f85b2455`, with all 696 archived files
+verified before executing its frozen sampler. It covers finite stops, the final
+live updates, expiry and a distant empty seek. All 208 spell/glow/trail/quad
+reference checks and TypeScript pass before further sampler work.
+
+The next candidate is billboard profile 53, `Glow_Add1`. Its constant rate eight,
+omitted lifetime and negative half-second delay need a bounded continuous birth
+adapter. Unlike the preceding quad, it explicitly needs soft depth. The existing
+shared R depth capture must include buff materials before this profile can draw;
+its source requirement will not be disabled. Its base texture is shared with
+a deferred noise-driven contact profile, so it is new to the selected closure. Other continuous mesh emitters and the sixty-second
+layout quad remain separate work.
+
+
+The unconnected continuous-glow schedule helper now derives its eight-update
+cadence within an explicit one-billion-second numerical seek domain. Conservative
+double-clock subtraction error stays far below both count-decision margins.
+The domain is a local numerical guard, not an emitter lifetime. The owning buff
+producer still controls cessation. Absolute update tick/slot identities remain
+cosmetic and do not certify native pool or RNG identity.
+
+Four schedule checks pass beside all 208 frozen packet checks. A complete
+20,000-second replay matches recent clocks across two 16-bit pool-counter wraps;
+large-clock continuation checks cover binade boundaries. Distant and backward
+seeks retain at most nineteen births. TypeScript passes. No renderer or accepted
+runtime binding has changed at this preparation checkpoint.
+
+
+The sampler now prepares profile 53 using bounded recent births and per-birth
+clock origins. Finite profile 50 keeps its original clock and packet behavior.
+All 220 selected checks and TypeScript pass, including distant/backward seeks,
+a pool-counter-wrap jump, bounded caches, recent-only root queries through the
+numerical domain endpoint and authored stop/linger drain. All 204 earlier packet
+hashes remain exact. The profile's soft-depth requirement is preserved; it is
+still excluded from the live bound-profile list at this checkpoint.
+
+
+## Continuous layout glow renderer candidate
+
+Profile 53 now follows the explicit layout-bone producer beside the finite quad.
+Its real soft-depth requirement joins the existing shared R capture, including
+frames where all spell particles have drained. Buff materials borrow that target;
+they never create a second depth capture. Source delta-in 30 cm and the existing
+blend-aware control remain explicit. The finite-only twelve-second renderer
+cutoff is removed; observed buff lifetime owns continuous emission.
+
+The selected subset is now 27 profiles: 21 spell and six buff profiles, covering
+four eye profiles on two native eye bones and two layout profiles on the native
+layout bone. Four other layout profiles, six counter profiles, two noise profiles
+and sixteen unjoined profiles remain deferred. The exact selected closure is
+32 textures and one shared W mesh. Three additional R-owned transports retain
+the base/multiplier/erosion maps' nine/nine/seven authored mip levels. Eleven
+R-owned textures and one separate W transport load locally.
+
+All 234 targeted checks and TypeScript pass. A genuine Essence-extension test
+restores the continuous glow after seventy seconds with only recent owned roots;
+old finite glows and the ten-second quad are expired. Shared-depth tests include
+buff-only frames and actual drain. The keyboard browser case passes, including
+all maps, real scene-depth uniforms and exact restored packets. Full-pipeline
+hide/show probes change 303,903 pixels for the new glow and 119,205 for the finite
+quad, with one shared R depth capture per render and no World mutation. Image
+inspection shows the blue aura; native-client pixel equivalence and device
+performance remain unverified. Broader regressions and delivery gates follow.
+
+
+The regression checkpoint passes 9,581/9,583 tests in 598 files, with only the
+two historical failures, plus all 263 Node QA cases. All 87 portable CI commands
+pass on their first attempt when run separately from Node QA. Final scoped
+selections execute 1,353 tests across 151 file executions, including overlap;
+all 5,591 committed export files verify before cleanup.
+
+All eight R browser cases pass. The final keyboard case additionally verifies
+one shared depth capture after spell surfaces/ribbons have drained, with thirteen
+continuous glows borrowing that target and no World mutation. All 45 complete
+natural-match states match the accepted R observer, excluding only version and
+ruleset, with victory at tick 157116. All 2,228 application/public blobs match
+runtime `e27cc4c4`. Pack `860c02af` audits at 1,432 files / 581,130,644 bytes.
+See the [continuous glow regression record](reference/ahri/r-layout-glow-regression-verification.json).
+Cross-kit and production/offline checks follow before acceptance.
+
+
+### Clarify the still-deferred mesh window
+
+The [mesh-window reading](reference/ahri/r-layout-mesh-window-reading.json)
+clarifies the earlier non-gating cadence probe. That probe deliberately selected
+an unbounded/null-period window; it did not preserve mesh profiles 51/52/54's
+authored active duration of thirty seconds. Its long-window totals therefore do
+not establish the selected authored-window schedule. The original evidence stays
+unchanged. Replaying the preserved nullable-period fields instead gives 120,
+200 and 200 births, all before thirty seconds; the rate-four profile still has
+two 16-tick gaps within that window.
+
+The pinned external parser preserves an active-only period object. Executed
+periodActive code uses absolute age when period length is null, despite a stale
+comment saying such an emitter never spawns. Following that code remains an
+explicit local choice, not native-constructor certification. These meshes stay
+unconnected. Current billboard profile 53 omits both period fields and is
+unaffected by this clarification.
+
+
+Production nested-path checks pass with 32 recordings and zero eager R particle
+preloads. Offline reload/activation passes with 978 worker responses and zero
+production errors. Pack `860c02af` remains exact after delivery, at 1,432 files /
+581,130,644 bytes with the unchanged worker policy. The
+[continuous glow acceptance](reference/ahri/r-layout-glow-acceptance.json) pins
+251 evidence files. Prior accepted packs remain retained. Primary integration
+follows separately.

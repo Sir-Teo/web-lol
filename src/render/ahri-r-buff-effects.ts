@@ -22,7 +22,7 @@ import type { AhriRVisualHistory } from '../simulation/ahri-r-visual-history';
 import { SourcePackedRibbonMeshes } from './source-packed-ribbon-meshes';
 import { packedSourceTrailRibbon } from './source-packed-trail-ribbon';
 import { rEyeTrailPoints } from './ahri-r-eye-trails';
-import { createRRibbonMaterial } from './ahri-r-ribbon-material';
+import { createRRibbonMaterial, rSoftParameters } from './ahri-r-ribbon-material';
 
 interface Resources extends EclipseSurfaceAssets {
   sampler(rig: MobileRig): TargetPoseSampler;
@@ -32,7 +32,7 @@ interface Held {
   sampler: AhriRParticleSampler;
   particles: ReturnType<AhriRParticleSampler['sample']>;
 }
-/** Four eye profiles attach to both eye bones; the finite layout quad uses its
+/** Four eye profiles attach to both eye bones; layout quad/glow use their
  * explicit layout bone. Other layout and counter drivers remain deferred. */
 export class AhriRBuffParticles {
   readonly surfaces: SourceParticleSurfaces<RBuffVisualGroup>;
@@ -72,7 +72,7 @@ export class AhriRBuffParticles {
         ...(p.system === 'Ahri_R_Ready_tar' ? { projectToGround: false } : {}),
         uvMode: 0,
         directionVelocityScale: p.directionVelocityScale ?? 0,
-        soft: null,
+        soft: rSoftParameters(p.soft),
       })),
       assets: () => this.supplied ?? ahriRAssets(),
       accepts: (index) =>
@@ -124,12 +124,7 @@ export class AhriRBuffParticles {
     if (assets)
       for (const record of world.ahriRVisuals)
         for (const group of rBuffVisualGroups(record)) {
-          if (
-            tick < group.startTick ||
-            tick >= group.stopTick + 2 * 60 ||
-            (group.system === 'Ahri_R_Ready_tar' && tick >= group.startTick + 12 * 60)
-          )
-            continue;
+          if (tick < group.startTick || tick >= group.stopTick + 2 * 60) continue;
           keep.add(group.key);
           let held = this.held.get(group.key);
           if (!held || held.record !== record) {

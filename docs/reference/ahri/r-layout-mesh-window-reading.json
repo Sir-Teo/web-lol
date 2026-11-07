@@ -1,0 +1,162 @@
+{
+  "format": 1,
+  "scope": "Read-only research for still-deferred meshes; no runtime binding or native constructor certification",
+  "source": {
+    "path": "src/content/ahri-r-particles.json",
+    "sha256": "c9a65a9808d3206cfbaee6dc1f9e1a5a37d6351947d997e2a5c4b8d3b290f29f"
+  },
+  "profiles": [
+    {
+      "index": 51,
+      "period": null,
+      "authoredActiveDuration": 30,
+      "emitterLifetime": null
+    },
+    {
+      "index": 52,
+      "period": null,
+      "authoredActiveDuration": 30,
+      "emitterLifetime": null
+    },
+    {
+      "index": 54,
+      "period": null,
+      "authoredActiveDuration": 30,
+      "emitterLifetime": null
+    }
+  ],
+  "readers": [
+    {
+      "pin": ".cache/baron-emission-readers/parsing-inputs.json",
+      "path": ".cache/baron-emission-readers/engine/model/systemModel.ts",
+      "bytes": 13916,
+      "sha256": "20d28acc69370fb15ac5a644620297e04fd8bd95a215eae6e42593e7b18808ad",
+      "gitBlob": "563542c4d943f17c4ad039e76b88e92ff2874475",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/model/systemModel.ts"
+    },
+    {
+      "pin": ".cache/baron-emission-readers/parsing-inputs.json",
+      "path": ".cache/baron-emission-readers/engine/parsing/readVfxSystem.ts",
+      "bytes": 24051,
+      "sha256": "0d9ea0c6611b286354108b89d8bfc354cb66c972fef7bff56386b14fcbef8a50",
+      "gitBlob": "0dad6182adf5c6ad1afd2bf272a1d7019b062f74",
+      "url": "https://raw.githubusercontent.com/LeagueToolkit/ltk-manager/2adda384347dd43e76d6295d77fe1f13623b2808/src/modules/workshop/bin/vfx/engine/parsing/readVfxSystem.ts"
+    }
+  ],
+  "selectedExternalCode": "emissionPeriod preserves an object when active duration is authored; periodActive uses absolute age when length is null, allowing births only below active duration; phase uses the thirty-second span",
+  "readerCommentDiscrepancy": "The periodActive comment says a missing cycle length never emits; its executable null branch instead compares active duration with absolute age. This record follows executed code and does not certify native behavior.",
+  "priorDiagnostic": {
+    "path": "docs/reference/ahri/r-layout-continuous-cadence-diagnostic.json",
+    "preservedUnchanged": true,
+    "assumption": "An explicitly unbounded/null-period count probe, dropping the mesh active duration; its long-window counts are not the selected authored-window schedule",
+    "remainingUsefulObservation": "The rate-four emitter has two 16-tick gaps even within its first thirty seconds"
+  },
+  "diagnostic": {
+    "scope": "Diagnostic only: selected external nullable-period model preserves authored active duration; no native constructor certification",
+    "seconds": 5000,
+    "hz": 60,
+    "rows": [
+      {
+        "index": 51,
+        "name": "Alpha_Swooshies",
+        "rate": 4,
+        "delay": 0,
+        "period": null,
+        "active": 30,
+        "firstBirthTick": 1,
+        "births": 120,
+        "histogram": {
+          "15": 117,
+          "16": 2
+        },
+        "firstCadenceDeviations": [
+          {
+            "previous": 46,
+            "tick": 62,
+            "gap": 16
+          },
+          {
+            "previous": 107,
+            "tick": 123,
+            "gap": 16
+          }
+        ],
+        "finalState": {
+          "now": 5000,
+          "lastSpawn": 29.8,
+          "emitted": true,
+          "spawned": 120
+        }
+      },
+      {
+        "index": 52,
+        "name": "Light_Swooshies1",
+        "rate": 7,
+        "delay": 0,
+        "period": null,
+        "active": 30,
+        "firstBirthTick": 1,
+        "births": 200,
+        "histogram": {
+          "9": 199
+        },
+        "firstCadenceDeviations": [],
+        "finalState": {
+          "now": 5000,
+          "lastSpawn": 29.866666666666667,
+          "emitted": true,
+          "spawned": 200
+        }
+      },
+      {
+        "index": 53,
+        "name": "Glow_Add1",
+        "rate": 8,
+        "delay": -0.5,
+        "period": null,
+        "active": null,
+        "firstBirthTick": 1,
+        "births": 37500,
+        "histogram": {
+          "8": 37499
+        },
+        "firstCadenceDeviations": [],
+        "finalState": {
+          "now": 5000,
+          "lastSpawn": 4999.883333333333,
+          "emitted": true,
+          "spawned": 37500
+        }
+      },
+      {
+        "index": 54,
+        "name": "Light_Swooshies2",
+        "rate": 7,
+        "delay": 0,
+        "period": null,
+        "active": 30,
+        "firstBirthTick": 1,
+        "births": 200,
+        "histogram": {
+          "9": 199
+        },
+        "firstCadenceDeviations": [],
+        "finalState": {
+          "now": 5000,
+          "lastSpawn": 29.866666666666667,
+          "emitted": true,
+          "spawned": 200
+        }
+      }
+    ]
+  },
+  "entry": {
+    "path": ".cache/probe-r-layout-mesh-window.ts",
+    "sha256": "365b95c33339587213c300971f87cac4a4516ffb812448caef18afcc2489464f"
+  },
+  "limits": [
+    "Mesh profiles remain unconnected.",
+    "Current profile53 has both period fields omitted and is unaffected.",
+    "Native constructor and callback chronology remain unresolved."
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "format": 1,
+  "result": "passed",
+  "beforeRevision": "f85b2455feebbe6860c13a466bbb924c731e62fd",
+  "afterRevision": "e27cc4c46998d016c890dbeaef43fc2b970e8aaa",
+  "applicationRevision": "e27cc4c46998d016c890dbeaef43fc2b970e8aaa",
+  "beforeRuleset": "f71c3f787f38e62d3b7dba290bb64de32da3fd7cae14e97f64e16e6853d03c6e",
+  "afterRuleset": "bf6953c524b116f399a8a38b6b29cdbab23c3ccb2228774001f09aae0b681076",
+  "beforeArchiveFiles": 696,
+  "afterArchiveFiles": 697,
+  "changed": [
+    {
+      "before": {
+        "file": "src/render/ahri-r-assets.ts",
+        "bytes": 4673,
+        "sha256": "1ae7ca6cd581c26517e467b2b875e39903957aebd64ae7c791cae2b472fd2287"
+      },
+      "after": {
+        "file": "src/render/ahri-r-assets.ts",
+        "bytes": 4675,
+        "sha256": "0d19f58eb162ba3a10f874900b5e0eeefc718e48fedeacb08b1cd3650b30e1c9"
+      }
+    },
+    {
+      "before": {
+        "file": "src/render/ahri-r-buff-effects.ts",
+        "bytes": 8753,
+        "sha256": "dd3d415faee5954c928afe5e1a1d5dca1df2868198ca3f5ab90fe21cd4c097fe"
+      },
+      "after": {
+        "file": "src/render/ahri-r-buff-effects.ts",
+        "bytes": 8646,
+        "sha256": "ae7071ac869a4aa6b29813059aa6590e398d30b5d57d4768ced26bc5e3b074cc"
+      }
+    },
+    {
+      "before": {
+        "file": "src/render/ahri-r-effects.ts",
+        "bytes": 12827,
+        "sha256": "c2763094433e35e6bec07a688e8a7e179445c338e10e90513581e446987b0562"
+      },
+      "after": {
+        "file": "src/render/ahri-r-effects.ts",
+        "bytes": 12929,
+        "sha256": "6205bcb5033932795104771b1047dc752f29d34a5c07273aa44a0909a1667faf"
+      }
+    },
+    {
+      "before": {
+        "file": "src/render/ahri-r-particles.ts",
+        "bytes": 21107,
+        "sha256": "2cd1cc88e1151b42cfe098ba2f3db8e32cbc3410495321e7276305e10fbdc826"
+      },
+      "after": {
+        "file": "src/render/ahri-r-particles.ts",
+        "bytes": 21337,
+        "sha256": "6f892b867fb0a123142d00ff37908ce0e5f7b496ad23bb56cc49e8339c94c48f"
+      }
+    }
+  ],
+  "added": [
+    {
+      "file": "src/render/ahri-r-layout-glow-schedule.ts",
+      "bytes": 3039,
+      "sha256": "0cd7a268f7d6b7ac5d3153956a9898976db18543a2c3aa4d099cbd48c4d2165e"
+    }
+  ],
+  "removed": [],
+  "unchanged": 692,
+  "publicContentSimulationUnchanged": true,
+  "scope": "Every file in both frozen source archives verified before comparing exact byte identities"
+}

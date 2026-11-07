@@ -1,0 +1,96 @@
+{
+  "format": 1,
+  "scope": "Published source fields and explicit local reconstruction choices; native constructors, callbacks, pool/RNG identity and client pixels remain unverified",
+  "input": {
+    "path": "src/content/ahri-r-particles.json",
+    "sha256": "c9a65a9808d3206cfbaee6dc1f9e1a5a37d6351947d997e2a5c4b8d3b290f29f"
+  },
+  "profile": {
+    "index": 53,
+    "name": "Glow_Add1",
+    "system": "Ahri_R_Ready_tar",
+    "bone": "C_Buffbone_Glb_Layout_Loc",
+    "rate": 8,
+    "single": false,
+    "delay": -0.5,
+    "emitterLifetime": null,
+    "period": null,
+    "particleLifetimeRange": [
+      1.399999976158142,
+      2.4000000953674316
+    ],
+    "bindingRequirements": [
+      "emitter-lifetime",
+      "soft-depth-input"
+    ]
+  },
+  "maps": [
+    {
+      "field": "texture",
+      "url": "assets/effects/ahri-r-2f5d10bd024f378a.png",
+      "bytes": 40643,
+      "sha256": "ac340002708ea9ef1cabc8b6a528db1ca4d02cd77c695f14a4254053677b55db",
+      "mips": 9,
+      "textureOwner": "ahri-r"
+    },
+    {
+      "field": "multiplier.texture",
+      "url": "assets/effects/ahri-r-448c3877b6693762.png",
+      "bytes": 139369,
+      "sha256": "98b6bd33b595a78b01ff6ed354bc5225750bcd6ae8aee9423f4428e08575e7de",
+      "mips": 9,
+      "textureOwner": "ahri-r"
+    },
+    {
+      "field": "erosion.texture",
+      "url": "assets/effects/ahri-r-cde0d94435baa941.png",
+      "bytes": 9820,
+      "sha256": "f632c0abbc854c72c6ff58a70a0b55227d63a93610b86bd2f07200d6385d81e8",
+      "mips": 7,
+      "textureOwner": "ahri-r"
+    }
+  ],
+  "clockPolicy": {
+    "hz": 60,
+    "firstUpdateTick": 1,
+    "intervalTicks": 8,
+    "maximumUpdateTick": 60000000000,
+    "numericalDomainIsEmitterLifetime": false,
+    "clockErrorBoundSeconds": 9.5367431640625e-07,
+    "sevenStepCountUpperBound": 0.9333409627278646,
+    "eightStepCountLowerBound": 1.0666590372721354,
+    "eightStepCountUpperBound": 1.066674296061198,
+    "retainedUpdates": 146,
+    "maximumRetainedBirths": 19,
+    "phase": 0,
+    "cosmeticIdentity": "absolute local update tick/slot, not native pool or RNG identity",
+    "stopOwnership": "observed buff producer",
+    "perBirthClockOrigin": "whole seconds, preserving local float32 birth/binding precision"
+  },
+  "depthPolicy": {
+    "sourceDeltaInCentimetres": 30,
+    "omittedParameters": "explicit local zero values through rSoftParameters",
+    "control": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "owner": "existing shared R depth target",
+    "buffOnlyFramesCovered": true,
+    "capturesPerRender": 1,
+    "opaqueGeometry": "actual scene depth writers, including current skinned bones and alpha tests",
+    "secondBuffDepthTarget": false
+  },
+  "attachmentPolicy": {
+    "poses": "owned saved caster poses",
+    "poseWindowTicks": 720,
+    "maximumNaturalLifeSeconds": 2.4000000953674316,
+    "groundProjection": false
+  },
+  "limits": [
+    "The four-per-second mesh emitter has observed 15/16 tick gaps and is not covered by this fixed-cadence proof.",
+    "Sixty-second base1 exceeds owned pose retention and remains deferred.",
+    "Global material/native callback calibration and representative-device performance remain unfinished."
+  ]
+}

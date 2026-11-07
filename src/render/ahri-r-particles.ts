@@ -1,6 +1,7 @@
 import data from '../content/ahri-r-particles.json';
 import { rPaletteBinding } from './ahri-r-palette';
 import { rEyeBirthEvents } from './ahri-r-eye-schedule';
+import { rLayoutGlowBirthEvents } from './ahri-r-layout-glow-schedule';
 import { SourceValue, type SourceValueDefinition } from './source-value';
 import { SourceBirthValues } from './source-birth-values';
 import { SourceLegacySpawnShape } from './source-legacy-spawn-shape';
@@ -53,11 +54,11 @@ export const AHRI_R_PARTICLE_ADAPTER = {
   sharedRandomFlagOne: 'fixed cosmetic emitter chance; native random stream unverified',
   neutralLiveTables: 'empty tables with single 1',
 } as const;
-/** Eye profiles and the finite layout quad use the explicit skin-buff producer. */
-export const AHRI_R_BOUND_BUFF_PROFILES = [45, 46, 47, 48, 50] as const;
+/** Eye and selected layout profiles use the explicit skin-buff producer. */
+export const AHRI_R_BOUND_BUFF_PROFILES = [45, 46, 47, 48, 50, 53] as const;
 export const AHRI_R_PREPARED_EYE_TRAIL_PROFILES = [47, 48] as const;
-/** The ten-second quad fits the owned pose window; other layout profiles do not enter. */
-export const AHRI_R_PREPARED_LAYOUT_PROFILES = [50] as const;
+/** The finite quad and short-lived glow fit owned poses; other layout profiles stay deferred. */
+export const AHRI_R_PREPARED_LAYOUT_PROFILES = [50, 53] as const;
 const periodicProfiles = new Set<number>(AHRI_R_PREPARED_EYE_TRAIL_PROFILES);
 /** Deferred profiles stay in published data without entering the sampler. */
 export const AHRI_R_SPELL_PROFILE_BINDINGS = data.profiles.map((p, profileIndex) => ({
@@ -119,8 +120,8 @@ if (
 const limits: Record<AhriRSystem, number> = {
   Ahri_R_mis_02: AHRI_R_POLICY.maximumBoltTicks / 60,
   Ahri_R_Eyes: 50,
-  // The selected single-particle window resolves omitted emitter lifetime to
-  // its authored ten-second particle maximum. This is not a persistent default.
+  // Finite profile 50 uses the selected single-particle lifetime rewrite.
+  // Continuous profile 53 bypasses this replay limit through its recent-birth adapter.
   Ahri_R_Ready_tar: 10,
   Ahri_R_Tar: Math.max(
     ...data.profiles.filter((p) => p.system === 'Ahri_R_Tar').map((p) => p.emitterLife ?? 0)
@@ -291,8 +292,14 @@ function sampleParticles(
     const d = prepared[profileIndex];
     if (!d) return [];
     const particles: AhriRParticle[] = [];
-    const periodic = periodicProfiles.has(profileIndex);
-    let births = periodic ? rEyeBirthEvents(profileIndex, time) : schedules?.get(profileIndex);
+    const periodic = periodicProfiles.has(profileIndex),
+      continuous = profileIndex === 53,
+      recent = periodic || continuous;
+    let births = periodic
+      ? rEyeBirthEvents(profileIndex, time)
+      : continuous
+        ? rLayoutGlowBirthEvents(whole)
+        : schedules?.get(profileIndex);
     if (!births) {
       const schedule = new SourceEmitterSchedule(d.scheduleDefinition);
       births = [];
@@ -303,7 +310,7 @@ function sampleParticles(
           births.push({ ...birth, updateTick: tick });
       schedules?.set(profileIndex, births);
     }
-    if (periodic && cache) {
+    if (recent && cache) {
       const wanted = new Set(births.map((event) => `${profileIndex}:${event.ordinal + 1}`));
       for (const key of cache.keys())
         if (key.startsWith(profileIndex + ':') && !wanted.has(key)) cache.delete(key);
@@ -311,12 +318,12 @@ function sampleParticles(
     for (const event of births) {
       if (event.updateTick > whole || event.updateTick / 60 >= stopSeconds) break;
       const ordinal = event.ordinal + 1,
-        // Rebase only the new periodic particles. Their emitter phase remains
+        // Rebase only recent periodic/continuous particles. Their emitter phase remains
         // absolute, but per-particle float32 clocks must not lose sub-tick
         // precision as an extended buff's system age grows.
-        origin = periodic ? Math.floor(event.time) : 0,
-        birthTime = Math.fround(periodic ? event.time - origin : event.time),
-        age = periodic ? time - origin - birthTime : time - birthTime;
+        origin = recent ? Math.floor(event.time) : 0,
+        birthTime = Math.fround(recent ? event.time - origin : event.time),
+        age = recent ? time - origin - birthTime : time - birthTime;
       if (age >= d.maximumLife) continue;
       const key = profileIndex + ':' + ordinal;
       let held = cache?.get(key);
@@ -377,9 +384,9 @@ function sampleParticles(
             p.bind,
             born.lifetime,
             birthTime,
-            periodic ? event.updateTick / 60 - origin : event.updateTick / 60,
+            recent ? event.updateTick / 60 - origin : event.updateTick / 60,
             (time) => {
-              const root = context.root(periodic ? time + origin : time);
+              const root = context.root(recent ? time + origin : time);
               return [root.x, root.height, root.y];
             },
             Math.ceil(born.lifetime * 60) + 2
@@ -419,7 +426,7 @@ function sampleParticles(
       const binding = held.binding.sample(
         whole - event.updateTick,
         fraction,
-        periodic ? stopSeconds - origin : stopSeconds,
+        recent ? stopSeconds - origin : stopSeconds,
         p.linger ?? 0
       );
       const offset = Array.from(moved.position),
@@ -438,7 +445,7 @@ function sampleParticles(
             orbit[axis * 3] * x + orbit[axis * 3 + 1] * y + orbit[axis * 3 + 2] * z
           );
       }
-      const root = context.root(p.particleLocal ? time : periodic ? origin + birthTime : birthTime);
+      const root = context.root(p.particleLocal ? time : recent ? origin + birthTime : birthTime);
       let vx = -travel[0],
         vy = travel[1],
         vz = travel[2];

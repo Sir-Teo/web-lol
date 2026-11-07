@@ -150,7 +150,7 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
   expect(flight.unchanged).toBe(true);
   expect(flight.restored).toEqual(flight.before);
   expect(flight.placeholder).toBe(0);
-  expect(flight.deferred).toHaveLength(29);
+  expect(flight.deferred).toHaveLength(28);
   expect(flight.before.ribbons.length).toBeGreaterThan(0);
   expect(flight.before.surfaces.some((m: any) => m.colors === 209 && !m.normals)).toBe(true);
   expect(flight.before.ribbons.some((m: any) => m.cellSize[0] === 0.5)).toBe(true);
@@ -228,6 +228,12 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
           color: model.material.uniforms.particleColor.value.toArray(),
           uv: model.material.uniforms.sourceUvTransform.value.toArray(),
           mips: model.material.uniforms.sourceTexture.value.mipmaps.length,
+          multiplierMips: model.material.uniforms.multiplierTexture?.value.mipmaps.length ?? null,
+          erosionMips: model.material.uniforms.erosionTexture?.value.mipmaps.length ?? null,
+          softParameters: model.material.uniforms.softParameters?.value.toArray() ?? null,
+          softControl: model.material.uniforms.softControl?.value.toArray() ?? null,
+          softDepthReady: !!model.material.uniforms.softDepth?.value,
+          softSize: model.material.uniforms.softSize?.value.toArray() ?? null,
         }));
     const saved = w.snapshot(),
       before = capture(),
@@ -245,7 +251,9 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
   expect(eyes.unchanged).toBe(true);
   expect(eyes.restored).toEqual(eyes.before);
   expect(eyes.before.length).toBeGreaterThanOrEqual(4);
-  expect([...new Set(eyes.before.map((model: any) => model.profile))].sort()).toEqual([45, 46, 50]);
+  expect([...new Set(eyes.before.map((model: any) => model.profile))].sort()).toEqual([
+    45, 46, 50, 53,
+  ]);
   expect(eyes.before.every((model: any) => model.mips > 1)).toBe(true);
   expect(eyes.before.some((model: any) => model.key.includes(':buff:L_Eye:'))).toBe(true);
   expect(eyes.before.some((model: any) => model.key.includes(':buff:R_Eye:'))).toBe(true);
@@ -253,57 +261,97 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
     key: expect.stringContaining(':buff:C_Buffbone_Glb_Layout_Loc:'),
     mips: 9,
   });
+  const continuousGlows = eyes.before.filter((model: any) => model.profile === 53);
+  expect(continuousGlows.length).toBeGreaterThan(0);
+  for (const model of continuousGlows)
+    expect(model).toMatchObject({
+      key: expect.stringContaining(':buff:C_Buffbone_Glb_Layout_Loc:'),
+      mips: 9,
+      multiplierMips: 9,
+      erosionMips: 7,
+      softParameters: [0, 0, 100 / 30, 0],
+      softControl: [1, 0, 0, 1],
+      softDepthReady: true,
+      softSize: [1440, 900],
+    });
   expect(eyes.attachments).toEqual([]);
   expect(glowRequests).toHaveLength(1);
   await page.screenshot({ path: info.outputPath('ahri-r-eye-glows.png') });
-  const layoutPixels = await page.evaluate(() => {
-    const g = (window as any).__GAME__,
-      w = g.world,
-      v = g.view;
-    const saved = w.snapshot();
-    const mesh = [...v.ahriRParticles.buffSurfaces.models.values()].find(
-      (model: any) => model.userData.profileIndex === 50
-    ) as any;
-    const canvas = document.createElement('canvas');
-    canvas.width = v.renderer.domElement.width;
-    canvas.height = v.renderer.domElement.height;
-    const context = canvas.getContext('2d')!;
-    const capture = () => {
-      v.render(w, 1, v.previousElapsed);
-      context.drawImage(v.renderer.domElement, 0, 0);
-      return {
-        png: canvas.toDataURL('image/png'),
-        pixels: context.getImageData(0, 0, canvas.width, canvas.height).data,
+  const pixelProofs = [];
+  for (const profile of [50, 53]) {
+    const pixels = await page.evaluate((profile) => {
+      const g = (window as any).__GAME__,
+        w = g.world,
+        v = g.view;
+      const saved = w.snapshot();
+      const meshes = [...v.ahriRParticles.buffSurfaces.models.values()].filter(
+        (model: any) => model.userData.profileIndex === profile
+      ) as any[];
+      if (!meshes.length) throw Error('Missing selected buff profile ' + profile);
+      const canvas = document.createElement('canvas');
+      canvas.width = v.renderer.domElement.width;
+      canvas.height = v.renderer.domElement.height;
+      const context = canvas.getContext('2d')!;
+      const depth = v.ahriRParticles.surfaces.depth,
+        original = depth.capture;
+      let depthCaptures = 0;
+      depth.capture = (...args: any[]) => {
+        depthCaptures++;
+        return original.apply(depth, args);
       };
-    };
-    mesh.visible = false;
-    const off = capture();
-    mesh.visible = true;
-    const on = capture();
-    let changedPixels = 0;
-    for (let i = 0; i < on.pixels.length; i += 4)
-      if (
-        Math.abs(on.pixels[i] - off.pixels[i]) +
-          Math.abs(on.pixels[i + 1] - off.pixels[i + 1]) +
-          Math.abs(on.pixels[i + 2] - off.pixels[i + 2]) >
-        3
-      )
-        changedPixels++;
-    return { off: off.png, on: on.png, changedPixels, unchanged: w.snapshot() === saved };
-  });
-  for (const state of ['off', 'on'] as const)
-    await writeFile(
-      info.outputPath(`ahri-r-layout-${state}.png`),
-      Buffer.from(layoutPixels[state].split(',')[1], 'base64')
-    );
-  expect(layoutPixels.changedPixels).toBeGreaterThan(0);
-  expect(layoutPixels.unchanged).toBe(true);
-  const layoutPixelProof = {
-    changedPixels: layoutPixels.changedPixels,
-    unchanged: layoutPixels.unchanged,
-    scope:
-      'Complete gameplay render pipeline and camera with only layout profile 50 hidden/enabled; no world step between captures',
-  };
+      const capture = () => {
+        v.render(w, 1, v.previousElapsed);
+        context.drawImage(v.renderer.domElement, 0, 0);
+        return {
+          png: canvas.toDataURL('image/png'),
+          pixels: context.getImageData(0, 0, canvas.width, canvas.height).data,
+        };
+      };
+      try {
+        meshes.forEach((mesh) => (mesh.visible = false));
+        const off = capture();
+        meshes.forEach((mesh) => (mesh.visible = true));
+        const on = capture();
+        let changedPixels = 0;
+        for (let i = 0; i < on.pixels.length; i += 4)
+          if (
+            Math.abs(on.pixels[i] - off.pixels[i]) +
+              Math.abs(on.pixels[i + 1] - off.pixels[i + 1]) +
+              Math.abs(on.pixels[i + 2] - off.pixels[i + 2]) >
+            3
+          )
+            changedPixels++;
+        return {
+          off: off.png,
+          on: on.png,
+          changedPixels,
+          depthCaptures,
+          unchanged: w.snapshot() === saved,
+        };
+      } finally {
+        depth.capture = original;
+        meshes.forEach((mesh) => (mesh.visible = true));
+      }
+    }, profile);
+    for (const state of ['off', 'on'] as const)
+      await writeFile(
+        info.outputPath(`ahri-r-buff-${profile}-${state}.png`),
+        Buffer.from(pixels[state].split(',')[1], 'base64')
+      );
+    expect(pixels.changedPixels).toBeGreaterThan(0);
+    expect(pixels.unchanged).toBe(true);
+    expect(pixels.depthCaptures).toBe(2);
+    pixelProofs.push({
+      profile,
+      changedPixels: pixels.changedPixels,
+      depthCaptures: pixels.depthCaptures,
+      unchanged: pixels.unchanged,
+      scope:
+        'Complete gameplay renderer, profile hidden/enabled, one shared R depth capture per render, no world step',
+    });
+  }
+  const layoutPixelProof = pixelProofs.find((proof) => proof.profile === 50)!;
+  const continuousGlowPixelProof = pixelProofs.find((proof) => proof.profile === 53)!;
   const eyeTrails = await page.evaluate(() => {
     const g = (window as any).__GAME__,
       w = g.world,
@@ -345,6 +393,12 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
             ground: model.userData.sourceGroundLayer,
             nativeConstructorVerified: model.userData.nativeConstructorVerified,
             mips: model.material.uniforms.sourceTexture.value.mipmaps.length,
+            multiplierMips: model.material.uniforms.multiplierTexture?.value.mipmaps.length ?? null,
+            erosionMips: model.material.uniforms.erosionTexture?.value.mipmaps.length ?? null,
+            softParameters: model.material.uniforms.softParameters?.value.toArray() ?? null,
+            softControl: model.material.uniforms.softControl?.value.toArray() ?? null,
+            softDepthReady: !!model.material.uniforms.softDepth?.value,
+            softSize: model.material.uniforms.softSize?.value.toArray() ?? null,
           };
         });
     const frames = [];
@@ -417,6 +471,7 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
     camera.lookAt(center.clone().add({ x: 0, y: -0.25, z: 0 }));
     camera.updateMatrixWorld(true);
     v.ahriRParticles.update(w, 1, camera);
+    v.ahriRParticles.prepareDepth(v.renderer, camera);
     const meshes = [...v.ahriRParticles.buffModels.values()] as any[];
     const canvas = document.createElement('canvas');
     canvas.width = v.renderer.domElement.width;
@@ -449,8 +504,7 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
     }
     meshes.forEach((mesh) => (mesh.visible = true));
     const combined = capture();
-    v.ahriRParticles.update(w, 1, v.camera);
-    v.renderer.render(v.scene, v.camera);
+    v.render(w, 1, v.previousElapsed);
     return {
       profiles: [
         ...new Set(
@@ -540,10 +594,54 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
     );
   });
   expect(layoutDrained).toBe(true);
+  const buffOnlyDepth = await page.evaluate(() => {
+    const g = (window as any).__GAME__,
+      w = g.world,
+      v = g.view;
+    const saved = w.snapshot(),
+      depth = v.ahriRParticles.surfaces.depth,
+      original = depth.capture;
+    let captures = 0;
+    depth.capture = (...args: any[]) => {
+      captures++;
+      return original.apply(depth, args);
+    };
+    try {
+      v.render(w, 1, v.previousElapsed);
+      const models = [...v.ahriRParticles.buffSurfaces.models.values()].filter(
+        (model: any) => model.userData.profileIndex === 53
+      ) as any[];
+      return {
+        captures,
+        glows: models.length,
+        spellSurfaces: v.ahriRParticles.surfaces.models.size,
+        spellRibbons: v.ahriRParticles.models.size,
+        sharedTarget:
+          !!depth.target &&
+          models.every(
+            (model) => model.material.uniforms.softDepth.value === depth.target.depthTexture
+          ),
+        unchanged: w.snapshot() === saved,
+      };
+    } finally {
+      depth.capture = original;
+    }
+  });
+  expect(buffOnlyDepth.glows).toBeGreaterThan(0);
+  expect(buffOnlyDepth).toMatchObject({
+    captures: 1,
+    spellSurfaces: 0,
+    spellRibbons: 0,
+    sharedTarget: true,
+    unchanged: true,
+  });
+
   expect(requests.filter((path) => path.endsWith('/ahri-r-b28f3ac6819dd4e1.png'))).toHaveLength(1);
+  for (const name of ['2f5d10bd024f378a', '448c3877b6693762', 'cde0d94435baa941'])
+    expect(requests.filter((path) => path.endsWith(`/ahri-r-${name}.png`))).toHaveLength(1);
   expect(requests.filter((path) => path.endsWith('/ahri-r-e44c1023b3871ca4.png'))).toHaveLength(1);
-  expect(requests).toHaveLength(8);
-  expect(new Set(requests).size).toBe(8);
+  expect(requests).toHaveLength(11);
+  expect(new Set(requests).size).toBe(11);
   expect(requests.some((path) => path.endsWith('.glb'))).toBe(false);
   expect(errors).toEqual([]);
   await writeFile(
@@ -560,6 +658,8 @@ test('keyboard R loads its exact spell closure and restores flight, contact and 
         layout,
         layoutDrained,
         layoutPixelProof,
+        continuousGlowPixelProof,
+        buffOnlyDepth,
         errors,
       },
       null,

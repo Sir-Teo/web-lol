@@ -34,10 +34,10 @@ const localTextures = requiredTextures.filter(
 );
 if (
   AHRI_R_BOUND_SPELL_PROFILES.length !== 21 ||
-  requiredTextures.length !== 29 ||
+  requiredTextures.length !== 32 ||
   requiredMeshes.length !== 1 ||
   requiredMeshes[0].geometryOwner !== 'ahri-w' ||
-  localTextures.length !== 9
+  localTextures.length !== 12
 )
   throw Error('R spell asset closure differs');
 
@@ -85,7 +85,7 @@ const assets: EclipseSurfaceAssets = {
   },
 };
 /** Page-owned R views borrow verified Q/W resources. One W transport lies outside
- * W's joined closure, so R loads that exact URL alongside its eight new textures; the gradient uses the lookup filter.
+ * W's joined closure, so R loads that exact URL alongside its eleven new textures; the gradient uses the lookup filter.
  * Successes survive retries; partial readiness is never exposed. */
 export function loadAhriRAssets(): Promise<void> {
   if (ready) return Promise.resolve();
