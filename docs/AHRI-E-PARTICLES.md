@@ -433,3 +433,21 @@ All 253 Node QA checks pass. All 334 public WAV files / 96,632,632 bytes match
 accepted primary 1c95b19 byte for byte. See the e-rendering-gameplay-comparison,
 e-rendering-source-delta and e-rendering-payload reference records. Clean-export
 CI and full browser/delivery acceptance are still being completed.
+
+## Clean export and candidate build
+
+The committed 58e1119 export passes all 76 workflow commands, including 987
+scoped test executions across 121 file executions. These counts include overlap
+between workflow selections. The export has no private caches or tools and reuses
+the installed node_modules. Only unused map texture assets were omitted to fit
+local storage; this is a source/workflow check, not a complete asset export.
+The verified disposable export was then removed, retaining its command logs and
+result receipt.
+
+The fresh candidate build and complete file/worker audit pass with pack
+4995dc742f50f3b4e970b85f51658dcce23829e7627d5659c24dcd14f95db751:
+1,405 files / 579,749,600 bytes. The worker policy remains unchanged. Retained
+primary and Q-projectile builds were audited before and after hard-linking their
+identical generated assets; both original pack identities and every path remain
+intact. This storage deduplication does not count as a candidate delivery test.
+Final combined browser, production-prefix and offline lifecycle gates remain open.
