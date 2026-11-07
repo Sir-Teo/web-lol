@@ -55,10 +55,14 @@ export function mountOfflinePack(host: HTMLElement): () => void {
   void check().catch(error);
   button('download').onclick = async () => {
     if (!pack.manifest) {
+      button('download').disabled = true;
+      status.textContent = 'Checking offline files…';
       try {
         await check();
       } catch (caught) {
         error(caught);
+      } finally {
+        if (!disposed) button('download').disabled = false;
       }
       return;
     }
