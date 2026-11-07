@@ -61,3 +61,7 @@ PYTHONPATH=tools/assets:.tools/cdtb .tools/cdtb-venv/bin/python -O tools/assets/
 
 These are private software-decoder outputs, not native GPU appearance or
 runtime acceptance. Public transport and playback remain separate work.
+
+The [source/decode receipt](reference/ahri/e-particles-source-verification.json)
+pins both commits, the successful checks, unchanged shared helpers and the
+unchanged runtime identity.
