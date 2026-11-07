@@ -374,3 +374,27 @@ committed inputs; `--verify-readers` additionally checks the retained private
 reader files against their recorded hashes. External reader defaults do not
 certify native constructors. Authored palette count/selector omissions remain
 explicit. This identity stage changes no runtime binding, ruleset or pack.
+
+## Palette ribbon binding
+
+The follow-on renderer binds this checked field for profile 30, bringing the
+selected spell subset to 21 profiles. The original 55-profile publication and
+all native assets remain unchanged. The adapter rejects unknown palette fields,
+dynamic mixer values, unsupported selectors and invalid counts. It preserves an
+authored positive count; when count and selector are omitted, the local adapter
+uses count 1 and selector 0, matching the pinned external reader. These defaults
+remain explicitly unverified as native constructor behavior.
+
+The ribbon applies the authored mixer before sampling the gradient at row 0.5,
+alongside its source erosion texture. The gradient uses linear lookup filtering.
+The texture closure contains 26 textures, with seven local loads: six R-owned
+textures and one additional shared W texture. The remaining 34 deferred profiles
+comprise two noise emitters, sixteen persistent producers and sixteen unjoined
+producers. Missing global palette inputs remain neutral and unverified.
+
+The focused selection passes 43 tests in six files, including exact ribbon
+packets after snapshot restoration and the unchanged complete gameplay baseline.
+The full suite passes 9,312/9,314 tests with the same two historical failures;
+all 263 Node QA cases pass. Browser, clean-export, pack and natural-match checks
+for this binding are in progress; the accepted 20-profile pack remains recorded
+above until that verification is complete.
