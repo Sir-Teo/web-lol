@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import data from '../content/ahri-r-particles.json';
 import { rPaletteBinding } from './ahri-r-palette';
 import wData from '../content/ahri-w-particles.json';
@@ -7,6 +8,8 @@ import { ahriQCastAssets } from './ahri-q-cast-assets';
 import { ahriQProjectileAssets } from './ahri-q-projectile-assets';
 import { ahriWAssets, loadAhriWAssets } from './ahri-w-assets';
 import { AuthoredMipTextureCache } from './authored-mip-texture-cache';
+import { checkedAssetBytes } from './authored-mip-texture';
+import { consumeSourceColoredParticleMesh } from './source-colored-particle-mesh';
 import type { EclipseSurfaceAssets } from './leona-eclipse-surface-assets';
 
 function collect(value: unknown, into: Set<string>): void {
@@ -23,6 +26,7 @@ for (const profile of wData.profiles)
   if (['orbit', 'flight', 'hit'].includes(profile.role)) collect(profile, wNeeded);
 const requiredTextures = data.textures.filter((asset) => needed.has(asset.url));
 const requiredMeshes = data.meshes.filter((asset) => needed.has(asset.url));
+const localMeshes = requiredMeshes.filter((asset) => asset.geometryOwner === 'ahri-r');
 const paletteTextures = new Set(
   AHRI_R_BOUND_SPELL_PROFILES.map((index) => rPaletteBinding(data.profiles[index])?.texture).filter(
     (path) => path !== undefined
@@ -34,10 +38,15 @@ const localTextures = requiredTextures.filter(
 );
 if (
   AHRI_R_BOUND_SPELL_PROFILES.length !== 21 ||
-  requiredTextures.length !== 32 ||
-  requiredMeshes.length !== 1 ||
-  requiredMeshes[0].geometryOwner !== 'ahri-w' ||
-  localTextures.length !== 12
+  requiredTextures.length !== 34 ||
+  requiredMeshes.length !== 2 ||
+  requiredMeshes.filter((asset) => asset.geometryOwner === 'ahri-w').length !== 1 ||
+  localMeshes.length !== 1 ||
+  localMeshes[0].url !== 'assets/effects/ahri-r-0216531e0d20ebea.glb' ||
+  !localMeshes[0].hasVertexColors ||
+  localMeshes[0].sourceCoordinateTransformApplied ||
+  localMeshes[0].normalAttributeGenerated ||
+  localTextures.length !== 14
 )
   throw Error('R spell asset closure differs');
 
@@ -45,7 +54,8 @@ const white = new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1);
 white.needsUpdate = true;
 const cache = new AuthoredMipTextureCache();
 const textures = new Map<string, THREE.Texture>(),
-  samplers = new Map<string, THREE.Texture>();
+  samplers = new Map<string, THREE.Texture>(),
+  meshes = new Map<string, THREE.BufferGeometry>();
 let pending: Promise<void> | undefined,
   ready = false;
 export function ahriRAssets(): EclipseSurfaceAssets | undefined {
@@ -78,14 +88,18 @@ const assets: EclipseSurfaceAssets = {
     return result;
   },
   mesh(path) {
-    if (!requiredMeshes.some((asset) => asset.url === path))
-      throw Error('Missing Ahri R mesh: ' + path);
+    const source = requiredMeshes.find((asset) => asset.url === path);
+    if (!source) throw Error('Missing Ahri R mesh: ' + path);
     // W owns the byte-identical geometry and has already converted it once.
-    return ahriWAssets()!.mesh(path);
+    if (source.geometryOwner === 'ahri-w') return ahriWAssets()!.mesh(path);
+    const geometry = meshes.get(path);
+    if (!geometry) throw Error('Missing Ahri R mesh: ' + path);
+    return geometry;
   },
 };
 /** Page-owned R views borrow verified Q/W resources. One W transport lies outside
- * W's joined closure, so R loads that exact URL alongside its eleven new textures; the gradient uses the lookup filter.
+ * W's joined closure, so R loads that URL beside thirteen R textures and one
+ * checked native mesh; the gradient uses the lookup filter.
  * Successes survive retries; partial readiness is never exposed. */
 export function loadAhriRAssets(): Promise<void> {
   if (ready) return Promise.resolve();
@@ -96,6 +110,13 @@ export function loadAhriRAssets(): Promise<void> {
         .filter((asset) => !textures.has(asset.url))
         .map(async (asset) => {
           textures.set(asset.url, await cache.load(asset, paletteTextures.has(asset.url)));
+        }),
+      ...localMeshes
+        .filter((asset) => !meshes.has(asset.url))
+        .map(async (asset) => {
+          const raw = await checkedAssetBytes(asset.url, asset.bytes, asset.sha256),
+            gltf = await new GLTFLoader().parseAsync(raw, '');
+          meshes.set(asset.url, consumeSourceColoredParticleMesh(gltf.scene, asset));
         }),
     ]);
     const failed = results.find((result) => result.status === 'rejected');

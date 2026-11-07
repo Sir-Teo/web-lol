@@ -34,6 +34,14 @@ function setup(team: 'blue' | 'red' = 'blue', visible = () => true) {
   const texture = new THREE.Texture(),
     geometry = new THREE.BoxGeometry(1, 1, 1),
     reference = new THREE.Group();
+  geometry.setAttribute(
+    '_source_vertex_bgra',
+    new THREE.Uint8BufferAttribute(
+      new Uint8Array(geometry.getAttribute('position').count * 4).fill(255),
+      4,
+      true
+    )
+  );
   const bone = new THREE.Bone();
   bone.position.y = 100;
   bone.name = 'C_Buffbone_Glb_Center_Loc';
@@ -145,7 +153,7 @@ test('R draws its twenty-one selected spell profiles without changing World', ()
       expect(m.scale.toArray().every(Number.isFinite)).toBe(true);
     }
   }
-  expect(view.deferredProfiles).toHaveLength(28);
+  expect(view.deferredProfiles).toHaveLength(25);
   expect([...seen].sort((a, b) => a - b)).toEqual(
     [...AHRI_R_BOUND_SPELL_PROFILES].sort((a, b) => a - b)
   );

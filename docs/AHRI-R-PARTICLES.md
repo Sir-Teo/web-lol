@@ -879,3 +879,31 @@ Fractional/backward/stop seeks and recent-only roots match fresh sampling. The
 five accepted packet families remain exact. The future live closure adds only
 two texture transports (eight/four authored mips) and the colored blastwave GLB;
 no public asset bytes change.
+
+
+## Native layout mesh renderer candidate
+
+Profiles 51/52/54 now use the explicit saved layout-bone producer and the
+selected nullable-period thirty-second active window. The renderer borrows one
+page-owned blastwave geometry, with packed native BGRA colors and centimetres
+converted once. The loader verifies exact GLB bytes before parsing, publishes
+only complete readiness and retains successful texture/geometry loads across
+independent failures. The W-owned mesh remains borrowed without conversion.
+
+The selected subset is thirty profiles: 21 spell and nine buff profiles. The
+four eye profiles use both native eye bones; the finite quad, continuous glow
+and three meshes use the native layout bone. The sixty-second base, six counter
+profiles, two noise profiles and sixteen unjoined profiles remain deferred.
+The selected closure contains 34 textures and two meshes (one R-owned, one
+W-owned). Thirteen R textures, one separate W texture and one checked R GLB load
+locally. Two new texture transports retain eight/four authored mip levels.
+
+All 297 targeted checks and TypeScript pass, including retirement without
+borrowed-geometry disposal and failed-mesh retry without texture reloads. The
+keyboard browser case verifies all three profiles share one native geometry,
+exact restored packets, source color/topology metadata, real soft depth and one
+shared R depth capture per render. Individual hide/show probes change 882,
+47,579 and 92,942 pixels for profiles 51/52/54 without World mutation. Image
+inspection shows blue swooshes around the existing aura. Native-client pixel
+equivalence and device performance remain unverified. Broader regressions and
+delivery checks follow before acceptance.

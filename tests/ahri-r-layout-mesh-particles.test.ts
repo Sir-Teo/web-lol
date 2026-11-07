@@ -69,7 +69,7 @@ test('prepared mesh clocks match complete active-only kernel schedules and prese
   expect(alphaTicks.filter((tick, i) => i > 0 && tick - alphaTicks[i - 1] === 16)).toEqual([
     62, 123,
   ]);
-  expect([...AHRI_R_BOUND_BUFF_PROFILES].some((index) => indices.includes(index))).toBe(false);
+  expect([...AHRI_R_BOUND_BUFF_PROFILES].some((index) => indices.includes(index))).toBe(true);
   sampler.dispose();
 });
 
