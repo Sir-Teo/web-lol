@@ -175,3 +175,23 @@ values. Percentiles use nearest rank (`ceil(p × victories)`), in seconds.
 Unfinished horizons remain in the completion denominator and outside victory
 duration samples; a cohort with no victories reports null percentiles. The
 optional verification ledger carries these independently derived metrics.
+
+## Exact decoded-byte comparisons
+
+```sh
+node tools/qa/compare-cohort-snapshot-bytes.mjs /path/to/plain-cohort /path/to/gzip-cohort artifacts/decoded-byte-comparison.json
+```
+
+This command verifies both complete frozen archives first, then requires the
+same ruleset, runtime identity, roster, horizon, seeds and report coverage. Every
+checkpoint and final artifact must have identical decoded bytes, including the
+archived newline. Stored hashes/codecs may differ. No snapshot field is excluded
+or normalized, no schema bridge is performed, and no World is replayed. The
+receipt must be fresh and outside both immutable cohorts. The exported helper
+performs storage comparison only; the CLI performs complete archive verification.
+Historical feature-specific producers and goldens remain unchanged.
+
+Eleven storage tests pass, including resealed gameplay/property-order changes,
+corrupt gzip, metadata drift and escaping paths. The actual plain/gzip two-minute
+smoke archives match all three artifacts; the complete natural seed-1 archives
+match all 45 artifacts byte for byte at `e02f3e73`.
