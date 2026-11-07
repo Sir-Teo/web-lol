@@ -131,12 +131,19 @@ read-only progress command distinguishes observed processes from stale status
 and never claims a final invariant check. See [duration verification](reference/cohort-duration-verification.json)
 and [progress inspection](reference/cohort-progress-verification.json). The
 current schema-181 hundred-seed audit remains in progress.
-The refreshed clean export passes all 88 portable commands: 1,924 runtime test
+The clean export at `6bbde951` passes its 88 portable commands: 1,924 runtime test
 executions across 164 file executions, including overlap, plus 77 cohort-tool
 cases. All 5,665 exported blobs verify. One compiler-graph deadline failure and
 its exact successful retry are retained; the three audit workers paused for
 about 19 seconds and resumed. No deadline, assertion or cohort input changed.
 See [current CI verification](reference/cohort-current-ci-verification.json).
+
+The Garen Q developer audition verifies original WAV hashes before creating
+exact float buffers. Three browser cases preserve all thirteen complete sample
+comparisons, source timing and the stop fade, and refuse a valid-but-altered WAV.
+Both asset checks and standalone TypeScript pass. This tool-only change leaves
+production pack `9d0bad35`, all runtime/public bytes and the live audit unchanged.
+See [audition integrity verification](reference/garen-q-audition-integrity-verification.json).
 
 ## Recent verified checkpoints
 

@@ -1,0 +1,59 @@
+{
+  "format": 1,
+  "result": "passed",
+  "revision": "a334d839543c9b8ae065a683ff14d606dde5dba3",
+  "sourceRecordings": 13,
+  "browserCasesPassed": 3,
+  "fullSampleFloatComparisonsPreserved": true,
+  "sourceDelaysAndStopFadePreserved": true,
+  "validButAlteredWavRefused": true,
+  "originalFailureReproductionRetained": true,
+  "assetTestsPassed": 2,
+  "standaloneTypescriptPassed": true,
+  "runtimeAndPublicAssetsUnchanged": true,
+  "primaryPackUnchanged": "9d0bad3502c73163a1a81dcb955642477bbe7bc46c4b1c32134fa0a7e3e0f910",
+  "roadmapMilestone4Complete": false,
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/garen-q-integrity-typecheck-v1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "artifacts/garen-q-integrity-browser-driver-v1.log",
+      "bytes": 2510,
+      "sha256": "73cf35f4282e25e1e96aede4ad1332e36105e5ee63ac28d8764f9cfd5d2ca0fe"
+    },
+    {
+      "file": "artifacts/garen-q-integrity-browser-driver-v2.log",
+      "bytes": 1266,
+      "sha256": "df0d97ca946e28696187d9da28608463d62a2543253e198769bf08f9c402c23a"
+    },
+    {
+      "file": "artifacts/garen-q-integrity-browser-v1.json",
+      "bytes": 6826,
+      "sha256": "d8a6a0f0cc605595cf2875547b0e0a13f6b8d2bf7d0e961623f7de24b54fa167"
+    },
+    {
+      "file": "artifacts/garen-q-integrity-browser-v2.json",
+      "bytes": 5403,
+      "sha256": "ee175e323d5d24095c98f571e327c67dd48f1f140770aa44a637625d42ad669c"
+    },
+    {
+      "file": "artifacts/garen-q-integrity-assets-v1.log",
+      "bytes": 178,
+      "sha256": "7ef53944fb43e08b45e09f113dd0574018af60f5903ad0333cb9927c029c9d80"
+    },
+    {
+      "file": "artifacts/garen-q-integrity-browser-v2/garen-q-audio-source-Decis-de22c-active-with-its-source-fade/garen-q-audio-preview.png",
+      "bytes": 155551,
+      "sha256": "fe1b289828e06a05a019355b516e8115e2402c4492a52a656c1e013877349f6f"
+    },
+    {
+      "file": "artifacts/garen-q-integrity-browser-v2/garen-q-audio-source-a-val-f9006-d-before-audition-readiness/altered-source-refused.png",
+      "bytes": 156307,
+      "sha256": "57dcee87318fb652bda431859c491881117855c8ad5a4646f2a0e504d00ef84c"
+    }
+  ]
+}
