@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import data from '../content/ahri-r-particles.json';
+import { rPaletteBinding } from './ahri-r-palette';
 import wData from '../content/ahri-w-particles.json';
 import { AHRI_R_BOUND_SPELL_PROFILES } from './ahri-r-particles';
 import { ahriQCastAssets } from './ahri-q-cast-assets';
@@ -21,16 +22,21 @@ for (const profile of wData.profiles)
   if (['orbit', 'flight', 'hit'].includes(profile.role)) collect(profile, wNeeded);
 const requiredTextures = data.textures.filter((asset) => needed.has(asset.url));
 const requiredMeshes = data.meshes.filter((asset) => needed.has(asset.url));
+const paletteTextures = new Set(
+  AHRI_R_BOUND_SPELL_PROFILES.map((index) => rPaletteBinding(data.profiles[index])?.texture).filter(
+    (path) => path !== undefined
+  )
+);
 const localTextures = requiredTextures.filter(
   (asset) =>
     asset.textureOwner === 'ahri-r' || (asset.textureOwner === 'ahri-w' && !wNeeded.has(asset.url))
 );
 if (
-  AHRI_R_BOUND_SPELL_PROFILES.length !== 20 ||
-  requiredTextures.length !== 23 ||
+  AHRI_R_BOUND_SPELL_PROFILES.length !== 21 ||
+  requiredTextures.length !== 26 ||
   requiredMeshes.length !== 1 ||
   requiredMeshes[0].geometryOwner !== 'ahri-w' ||
-  localTextures.length !== 5
+  localTextures.length !== 7
 )
   throw Error('R spell asset closure differs');
 
@@ -78,7 +84,7 @@ const assets: EclipseSurfaceAssets = {
   },
 };
 /** Page-owned R views borrow verified Q/W resources. One W transport lies outside
- * W's joined closure, so R loads that exact URL alongside its four new textures.
+ * W's joined closure, so R loads that exact URL alongside its six new textures; the gradient uses the lookup filter.
  * Successes survive retries; partial readiness is never exposed. */
 export function loadAhriRAssets(): Promise<void> {
   if (ready) return Promise.resolve();
@@ -88,7 +94,7 @@ export function loadAhriRAssets(): Promise<void> {
       ...localTextures
         .filter((asset) => !textures.has(asset.url))
         .map(async (asset) => {
-          textures.set(asset.url, await cache.load(asset, false));
+          textures.set(asset.url, await cache.load(asset, paletteTextures.has(asset.url)));
         }),
     ]);
     const failed = results.find((result) => result.status === 'rejected');

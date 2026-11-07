@@ -95,6 +95,8 @@ function frame(view: AhriRParticles) {
       .map(([key, m]) => ({
         key,
         count: m.geometry.drawRange.count,
+        paletteMix: m.material.uniforms.paletteSourceMix?.value.toArray(),
+        paletteRow: m.material.uniforms.paletteRow?.value,
         cell: Array.from(m.geometry.getAttribute('sourceCell').array).slice(
           0,
           m.geometry.drawRange.count * 2
@@ -122,7 +124,7 @@ function frame(view: AhriRParticles) {
       })),
   };
 }
-test('R draws its twenty selected spell profiles without changing World', () => {
+test('R draws its twenty-one selected spell profiles without changing World', () => {
   const { world, view, draw, release } = setup();
   const seen = new Set<number>();
   for (let tick = 1; tick <= 240; tick++) {
@@ -143,7 +145,7 @@ test('R draws its twenty selected spell profiles without changing World', () => 
       expect(m.scale.toArray().every(Number.isFinite)).toBe(true);
     }
   }
-  expect(view.deferredProfiles).toHaveLength(35);
+  expect(view.deferredProfiles).toHaveLength(34);
   expect([...seen].sort((a, b) => a - b)).toEqual(
     [...AHRI_R_BOUND_SPELL_PROFILES].sort((a, b) => a - b)
   );
