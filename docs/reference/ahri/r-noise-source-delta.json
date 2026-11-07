@@ -1,0 +1,57 @@
+{
+  "format": 1,
+  "result": "passed",
+  "baselineRevision": "d343a9f9221c7d46ce34f01010983db5dd84b86a",
+  "candidateRevision": "a345d9ebfd5e5902176a8c642d30a0d50aa0cb07",
+  "ruleset": "e02f3e734d656f084026c3d87d94ee2864f58483857ee86fb48678f067f7648f",
+  "baselineFiles": 698,
+  "candidateFiles": 701,
+  "changed": [
+    {
+      "file": "src/render/ahri-r-assets.ts",
+      "before": {
+        "file": "src/render/ahri-r-assets.ts",
+        "bytes": 5848,
+        "sha256": "3e14dfef9d8a86ad89deaded16fa496c99e2f1f25531ab54da9de318fd9a07ba"
+      },
+      "after": {
+        "file": "src/render/ahri-r-assets.ts",
+        "bytes": 5848,
+        "sha256": "33d191772409f67702eff8b6dc6dc2e27b89ad3a956616770d5137428e080458"
+      }
+    },
+    {
+      "file": "src/render/ahri-r-particles.ts",
+      "before": {
+        "file": "src/render/ahri-r-particles.ts",
+        "bytes": 23801,
+        "sha256": "25c57dd894557d2a7278d8f9d030013cb028b810d1f81ef67be94887f9badd44"
+      },
+      "after": {
+        "file": "src/render/ahri-r-particles.ts",
+        "bytes": 25659,
+        "sha256": "3b72963f39489e1113f641d770ce3d28cbb829b44b285b8877e74eb289d18619"
+      }
+    }
+  ],
+  "added": [
+    {
+      "file": "src/render/source-noise-field-values.ts",
+      "bytes": 4445,
+      "sha256": "0d7bf71928b441de75b7b60c4c0e61995167b7e90471b6bcc4299df7ac083b6c"
+    },
+    {
+      "file": "src/render/source-noise-field.ts",
+      "bytes": 4185,
+      "sha256": "a8d2f99a795305d4e9ed8015726031735ce4177b4cfd6931cf3fb5c5205bb72d"
+    },
+    {
+      "file": "src/render/source-noise-motion-timeline.ts",
+      "bytes": 4898,
+      "sha256": "4def1a1b56a42b5a7c7a2fa38753f45bdcde1f35ece203717bd5e808a9793962"
+    }
+  ],
+  "removed": [],
+  "unchangedFiles": 696,
+  "scope": "Renderer sampler/borrowed asset closure changed; three prepared noise helpers added. All simulation, content and public assets unchanged."
+}
