@@ -816,3 +816,12 @@ comment saying such an emitter never spawns. Following that code remains an
 explicit local choice, not native-constructor certification. These meshes stay
 unconnected. Current billboard profile 53 omits both period fields and is
 unaffected by this clarification.
+
+
+Production nested-path checks pass with 32 recordings and zero eager R particle
+preloads. Offline reload/activation passes with 978 worker responses and zero
+production errors. Pack `860c02af` remains exact after delivery, at 1,432 files /
+581,130,644 bytes with the unchanged worker policy. The
+[continuous glow acceptance](reference/ahri/r-layout-glow-acceptance.json) pins
+251 evidence files. Prior accepted packs remain retained. Primary integration
+follows separately.
