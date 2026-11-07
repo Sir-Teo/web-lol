@@ -12,6 +12,7 @@ import { loadLuxAttackTextures } from './render/lux-attack-hoops';
 import './style.css';
 import { readMatch, writeMatch, replaceMatch, recoveryMatchKey } from './storage/match-store';
 import { RecoveryCheckpoints } from './storage/recovery-checkpoints';
+import { readSoundEnabled, writeSoundEnabled } from './storage/sound-preference';
 import { downloadMatch, prepareMatchImport } from './storage/match-files';
 import { DT, TICK_RATE } from './content/rules';
 import { World } from './simulation/world';
@@ -235,7 +236,9 @@ async function boot(): Promise<void> {
     console.error(error);
     return;
   }
+  const soundEnabled = readSoundEnabled();
   const audio = new GameAudio(world.events);
+  audio.enabled = soundEnabled;
   const frameRate = new FrameRate();
   let paused = false,
     accumulator = 0,
@@ -279,96 +282,103 @@ async function boot(): Promise<void> {
       masterYiNpc ? 'masteryi' : undefined,
       baronEncounter ? 'baron' : undefined
     );
-  const hud = new Hud(host, world, view, {
-    pause: setPaused,
-    swapTrinket: async (kind) => {
-      const error = trinketSwapError(world, kind);
-      if (error) return error;
-      if (kind === 'oracle') {
-        try {
-          await Promise.all([loadOracleLens(), audio.oracle.load()]);
-        } catch {
-          return 'Oracle Lens could not be prepared. Try again.';
+  const hud = new Hud(
+    host,
+    world,
+    view,
+    {
+      pause: setPaused,
+      swapTrinket: async (kind) => {
+        const error = trinketSwapError(world, kind);
+        if (error) return error;
+        if (kind === 'oracle') {
+          try {
+            await Promise.all([loadOracleLens(), audio.oracle.load()]);
+          } catch {
+            return 'Oracle Lens could not be prepared. Try again.';
+          }
         }
-      }
-      return swapTrinket(world, kind);
-    },
-    buyItem: async (itemId) => {
-      const error = world.purchaseError(itemId);
-      if (error) return error;
-      const kind = companionItemKind(itemId);
-      if (kind) {
-        try {
-          await loadOwnedCompanions([kind]);
-        } catch {
-          return 'Companion could not be prepared. Try again.';
+        return swapTrinket(world, kind);
+      },
+      buyItem: async (itemId) => {
+        const error = world.purchaseError(itemId);
+        if (error) return error;
+        const kind = companionItemKind(itemId);
+        if (kind) {
+          try {
+            await loadOwnedCompanions([kind]);
+          } catch {
+            return 'Companion could not be prepared. Try again.';
+          }
         }
-      }
-      // The match continues while preparing; revalidate gold, ownership and shop access.
-      return world.buy(itemId);
+        // The match continues while preparing; revalidate gold, ownership and shop access.
+        return world.buy(itemId);
+      },
+      reset: () => {
+        void checkpoints!
+          .replace(
+            world.matchMode === 'lanes'
+              ? createLaneMatch(
+                  battlefield,
+                  rosterRiftTrial
+                    ? world.hero.champion
+                    : ahriRiftTrial && world.hero.champion === 'ahri'
+                      ? 'ahri'
+                      : masterYiRiftTrial && world.hero.champion === 'masteryi'
+                        ? 'masteryi'
+                        : leonaRiftTrial && world.hero.champion === 'leona'
+                          ? 'leona'
+                          : garenRiftTrial && world.hero.champion === 'garen'
+                            ? 'garen'
+                            : selectableChampion(world.hero.champion),
+                  world.player.summoners
+                ).snapshot()
+              : grompEncounter ||
+                  world.hero.champion === 'lux' ||
+                  world.hero.champion === 'garen' ||
+                  world.hero.champion === 'leona' ||
+                  world.hero.champion === 'ahri' ||
+                  world.hero.champion === 'masteryi' ||
+                  world.player.summoners.d !== 'flash' ||
+                  world.player.summoners.f !== 'heal'
+                ? (() => {
+                    const next = freshPractice(world.hero.champion);
+                    equipSummoners(next.player, world.player.summoners);
+                    return next.snapshot();
+                  })()
+                : null,
+            world.tick
+          )
+          .then(() => window.location.reload())
+          .catch((error) => hud.toast(error.message));
+      },
+      startMatch: async (mode, champion, summoners) => {
+        const next =
+          mode === 'lanes'
+            ? createLaneMatch(battlefield, champion, summoners)
+            : freshPractice(champion);
+        if (mode === 'practice') equipSummoners(next.player, summoners);
+        await checkpoints!.replace(next.snapshot(), world.tick);
+        window.location.reload();
+      },
+      save: async () => checkpoints!.save(world.snapshot(), world.tick),
+      exportMatch: () => downloadMatch(world),
+      prepareImport,
+      prepareRecovery: async () => {
+        const snapshot = await readMatch(recoveryMatchKey(saveKey));
+        if (snapshot === undefined) return null;
+        const prepared = await prepareImport(
+          new File([snapshot], 'recovery.json', { type: 'application/json' })
+        );
+        return { ...prepared, description: `Recovery checkpoint · ${prepared.description}` };
+      },
+      sound: (enabled) => {
+        audio.enabled = enabled;
+        writeSoundEnabled(enabled);
+      },
     },
-    reset: () => {
-      void checkpoints!
-        .replace(
-          world.matchMode === 'lanes'
-            ? createLaneMatch(
-                battlefield,
-                rosterRiftTrial
-                  ? world.hero.champion
-                  : ahriRiftTrial && world.hero.champion === 'ahri'
-                    ? 'ahri'
-                    : masterYiRiftTrial && world.hero.champion === 'masteryi'
-                      ? 'masteryi'
-                      : leonaRiftTrial && world.hero.champion === 'leona'
-                        ? 'leona'
-                        : garenRiftTrial && world.hero.champion === 'garen'
-                          ? 'garen'
-                          : selectableChampion(world.hero.champion),
-                world.player.summoners
-              ).snapshot()
-            : grompEncounter ||
-                world.hero.champion === 'lux' ||
-                world.hero.champion === 'garen' ||
-                world.hero.champion === 'leona' ||
-                world.hero.champion === 'ahri' ||
-                world.hero.champion === 'masteryi' ||
-                world.player.summoners.d !== 'flash' ||
-                world.player.summoners.f !== 'heal'
-              ? (() => {
-                  const next = freshPractice(world.hero.champion);
-                  equipSummoners(next.player, world.player.summoners);
-                  return next.snapshot();
-                })()
-              : null,
-          world.tick
-        )
-        .then(() => window.location.reload())
-        .catch((error) => hud.toast(error.message));
-    },
-    startMatch: async (mode, champion, summoners) => {
-      const next =
-        mode === 'lanes'
-          ? createLaneMatch(battlefield, champion, summoners)
-          : freshPractice(champion);
-      if (mode === 'practice') equipSummoners(next.player, summoners);
-      await checkpoints!.replace(next.snapshot(), world.tick);
-      window.location.reload();
-    },
-    save: async () => checkpoints!.save(world.snapshot(), world.tick),
-    exportMatch: () => downloadMatch(world),
-    prepareImport,
-    prepareRecovery: async () => {
-      const snapshot = await readMatch(recoveryMatchKey(saveKey));
-      if (snapshot === undefined) return null;
-      const prepared = await prepareImport(
-        new File([snapshot], 'recovery.json', { type: 'application/json' })
-      );
-      return { ...prepared, description: `Recovery checkpoint · ${prepared.description}` };
-    },
-    sound: (enabled) => {
-      audio.enabled = enabled;
-    },
-  });
+    { soundEnabled }
+  );
   checkpoints = new RecoveryCheckpoints(
     world.tick,
     30 * TICK_RATE,

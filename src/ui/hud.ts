@@ -147,8 +147,10 @@ export class Hud {
     host: HTMLElement,
     private world: World,
     private view: GameView,
-    private actions: HudActions
+    private actions: HudActions,
+    options: { soundEnabled?: boolean } = {}
   ) {
+    this.sound = options.soundEnabled ?? true;
     this.root = document.createElement('div');
     this.root.className = 'hud';
     this.root.innerHTML = `
@@ -171,7 +173,7 @@ export class Hud {
         </div>
         <div class="inventory-panel"><div class="inventory-tools"><div class="inventory-grid" id="inventory">${Array.from({ length: 6 }, (_, i) => `<div class="item-slot"><span>${[1, 2, 3, 5, 6, 7][i]}</span></div>`).join('')}</div><button id="trinket" class="item-slot trinket-slot" aria-label="Stealth Ward"><img src="assets/icons/3340.png" alt="Stealth Ward"><b class="trinket-charges"></b><time class="trinket-cooldown"></time><span>4</span></button></div><button id="shop-button" class="gold-button" title="Open shop (P)"><span>◆</span><b id="gold">500</b><kbd>P</kbd></button></div>
       </section>
-      <div class="minimap-shell"><div class="ally-portraits" role="group" aria-label="Teammate cameras" hidden>${[2, 3, 4, 5].map((slot) => `<button class="ally-portrait" data-ally-camera="f${slot}" type="button"><img alt=""><kbd>F${slot}</kbd><span class="ally-respawn"></span><span class="ally-health"><i></i></span></button>`).join('')}</div><div class="map-controls"><button id="camera-button" aria-label="Toggle camera lock" aria-pressed="${view.locked}" title="${view.locked ? 'Unlock' : 'Lock'} camera (Y)">▣</button><button id="sound-button" aria-label="Toggle sound" aria-pressed="true" title="Mute sound">♫</button><span id="fps">— FPS</span></div><canvas id="minimap" width="256" height="256" aria-label="Minimap. Left-click or drag to move the camera; right-click to move your champion."></canvas><span class="map-caption">SUMMONER’S RIFT</span></div>
+      <div class="minimap-shell"><div class="ally-portraits" role="group" aria-label="Teammate cameras" hidden>${[2, 3, 4, 5].map((slot) => `<button class="ally-portrait" data-ally-camera="f${slot}" type="button"><img alt=""><kbd>F${slot}</kbd><span class="ally-respawn"></span><span class="ally-health"><i></i></span></button>`).join('')}</div><div class="map-controls"><button id="camera-button" aria-label="Toggle camera lock" aria-pressed="${view.locked}" title="${view.locked ? 'Unlock' : 'Lock'} camera (Y)">▣</button><button id="sound-button" aria-label="Toggle sound" aria-pressed="${this.sound}" title="${this.sound ? 'Mute' : 'Unmute'} sound">♫</button><span id="fps">— FPS</span></div><canvas id="minimap" width="256" height="256" aria-label="Minimap. Left-click or drag to move the camera; right-click to move your champion."></canvas><span class="map-caption">SUMMONER’S RIFT</span></div>
       <div class="recall-progress" hidden><span>RECALLING</span><div><i></i></div><small>Taking damage or moving cancels recall</small></div>
       <div class="death-overlay" hidden><span>You have been slain</span><strong id="respawn-count"></strong></div>
       <div class="modal-backdrop" id="modal" hidden></div>
@@ -212,6 +214,7 @@ export class Hud {
     this.root.querySelector<HTMLButtonElement>('#practice-button')!.hidden =
       world.matchMode === 'lanes';
     this.updateCameraButton();
+    this.updateSoundButton();
   }
   private spellSpec(a: Ability) {
     if (
@@ -503,10 +506,7 @@ export class Hud {
     on('sound-button', () => {
       this.sound = !this.sound;
       this.actions.sound(this.sound);
-      const button = this.root.querySelector<HTMLButtonElement>('#sound-button')!;
-      button.classList.toggle('off', !this.sound);
-      button.setAttribute('aria-pressed', String(this.sound));
-      button.title = this.sound ? 'Mute sound' : 'Unmute sound';
+      this.updateSoundButton();
     });
     this.mini.addEventListener('contextmenu', (e) => e.preventDefault());
     this.mini.addEventListener('pointerdown', (e) => {
@@ -625,6 +625,12 @@ export class Hud {
     this.view.locked = !this.view.locked;
     if (this.view.locked) this.view.recenter(this.world.hero);
     this.updateCameraButton();
+  }
+  private updateSoundButton(): void {
+    const button = this.root.querySelector<HTMLButtonElement>('#sound-button')!;
+    button.classList.toggle('off', !this.sound);
+    button.setAttribute('aria-pressed', String(this.sound));
+    button.title = this.sound ? 'Mute sound' : 'Unmute sound';
   }
   private updateCameraButton(): void {
     const button = this.root.querySelector<HTMLButtonElement>('#camera-button')!;
