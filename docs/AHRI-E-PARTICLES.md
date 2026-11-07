@@ -170,3 +170,17 @@ and raw axis [90, 0, 0], with an explicit arithmetic-binding requirement. The
 hashed buff retains lookup scale [1, 0.4000000059604645]. These fields are not
 silently replaced by W's defaults. This remains source projection, with no
 public assets, renderer, gameplay rules or save-schema change.
+
+## Retained attached selectors
+
+The native SKN draw table verifies the cast's {07c39130} selector as Tails,
+joining one current GLB primitive with the same native index count. Its second
+selector, {62579b4c}, has no match in the retained table. That is not evidence of
+global native absence, and no fallback draw is invented. The buff's selector
+list remains omitted; no whole-body draw policy is inferred. Both complete
+primitive and reflection declarations stay retained.
+
+Normal and optimized portable checks reproduce this reading and reject five
+changed input pins, output conflicts and leaf/parent symlinks. The dedicated
+workflow also covers this stage. Locking, native skin sampling, transforms,
+fresnel inputs, omitted-selector behavior and pixels remain unverified.

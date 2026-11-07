@@ -1,0 +1,138 @@
+{
+  "format": 1,
+  "producerSha256": "1ae8f91384564b520b95709c99d27ac2ae27dc31973a79461b2042713ffc39a9",
+  "inputs": [
+    {
+      "path": "docs/reference/ahri/e-particles.json",
+      "sha256": "cdf8ed963d051e9517443949c5a4b30b924d5c7ba9fed36aecccf6bdb5a1a756",
+      "bytes": 178225
+    },
+    {
+      "path": "docs/reference/ahri/mesh-submeshes.bin",
+      "sha256": "787b1b497a7a70af39e8f4bf3ce191c3d17d3bf8a44deee12c018692e036756f",
+      "bytes": 332
+    },
+    {
+      "path": "docs/reference/ahri-materials.json",
+      "sha256": "a825153c16fec391e2b6f45e72f838fba84e3931dfd199618110e1fe9cb3eb08",
+      "bytes": 43362
+    },
+    {
+      "path": "public/assets/models/ahri-base.glb",
+      "sha256": "587c1741a908e23874a87d069505e0e233d4f88c22a828c9d7edda195328e202",
+      "bytes": 19854544
+    },
+    {
+      "path": "tools/assets/export-ahri-materials.py",
+      "sha256": "c52025dac7625b1c212a4deba2875bdbe71b7e53cf6f73e2194c509deec5c420",
+      "bytes": 11622
+    }
+  ],
+  "sourceMeshTable": {
+    "source": {
+      "path": "assets/characters/ahri/skins/base/ahri_base.skn",
+      "wadPathHash": "fca50cac17fc3470",
+      "sha256": "22179a3e0e95b94845fe5a3d3c35ba5f21dec6e2fee34de371ad0e4a3e2a3ae3",
+      "bytes": 847032
+    },
+    "retainedOffset": 0,
+    "retainedBytes": 332,
+    "retainedSha256": "787b1b497a7a70af39e8f4bf3ce191c3d17d3bf8a44deee12c018692e036756f"
+  },
+  "attachedMeshes": [
+    {
+      "resourceKey": "Ahri_E_buf",
+      "emitterIndex": 3,
+      "emitterName": "Avatar",
+      "primitive": {
+        "mMesh": {
+          "mLockMeshToAttachment": true,
+          "__type": "VfxMeshDefinitionData"
+        },
+        "__type": "VfxPrimitiveAttachedMesh"
+      },
+      "selectorsPresent": false,
+      "reflection": {
+        "fresnel": 0.05000000074505806,
+        "fresnelColor": [
+          1.0,
+          0.0235294122248888,
+          0.7882353067398071,
+          0.0
+        ],
+        "__type": "VfxReflectionDefinitionData"
+      },
+      "candidates": []
+    },
+    {
+      "resourceKey": "Ahri_E_cas",
+      "emitterIndex": 0,
+      "emitterName": "Avatar1",
+      "primitive": {
+        "mMesh": {
+          "mSubmeshesToDraw": [
+            "{07c39130}",
+            "{62579b4c}"
+          ],
+          "mLockMeshToAttachment": true,
+          "__type": "VfxMeshDefinitionData"
+        },
+        "__type": "VfxPrimitiveAttachedMesh"
+      },
+      "selectorsPresent": true,
+      "reflection": {
+        "fresnel": 0.15000000596046448,
+        "fresnelColor": [
+          0.9843137264251709,
+          0.43921568989753723,
+          1.0,
+          0.0
+        ],
+        "__type": "VfxReflectionDefinitionData"
+      },
+      "candidates": [
+        {
+          "selector": "{07c39130}",
+          "nativeDraws": [
+            {
+              "name": "Tails",
+              "firstVertex": 9947,
+              "vertices": 3450,
+              "firstIndex": 46410,
+              "indices": 16776
+            }
+          ],
+          "transportDraws": [
+            {
+              "meshIndex": 0,
+              "primitiveIndex": 2,
+              "materialIndex": 2,
+              "indexCount": 16776,
+              "defaultHidden": false
+            }
+          ]
+        },
+        {
+          "selector": "{62579b4c}",
+          "nativeDraws": [],
+          "transportDraws": []
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "attachedEmitters": 2,
+    "selectorListsPresent": 1,
+    "selectors": 2,
+    "nativeMatches": 1,
+    "transportMatches": 1,
+    "unmatchedSelectors": 1
+  },
+  "limits": [
+    "Verified lowercase FNV-1a selector joins to retained native SKN names and current GLB material extras.",
+    "The buff selector list is omitted. No whole-mesh selection or fallback draw is invented.",
+    "The cast selector {62579b4c} has no match in the retained draw table; this is not evidence of global native absence.",
+    "Lock-to-attachment, native skin sampling, root transforms, fresnel and pixels remain unverified.",
+    "This reading changes no runtime behavior, assets or particle profile defaults."
+  ]
+}

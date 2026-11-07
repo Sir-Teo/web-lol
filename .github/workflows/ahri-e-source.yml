@@ -36,3 +36,8 @@ jobs:
           python3 tools/assets/prepare-ahri-e-profiles.py --verify-reading
           python3 tools/assets/test-ahri-e-profiles.py
           python3 -O tools/assets/test-ahri-e-profiles.py
+      - name: Verify retained attached selectors and missing-selection metadata
+        run: |
+          python3 tools/assets/read-ahri-e-attached-bindings.py --check
+          python3 tools/assets/test-ahri-e-attached-bindings.py
+          python3 -O tools/assets/test-ahri-e-attached-bindings.py
