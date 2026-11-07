@@ -1,0 +1,42 @@
+{
+  "format": 1,
+  "result": "passed",
+  "revision": "be02a6791ec8e41e72990a5b176789f91534547b",
+  "storageTestsPassed": 11,
+  "realSmokeArtifactsMatched": 3,
+  "realNaturalMatchArtifactsMatched": 45,
+  "excludedSnapshotFields": [],
+  "normalizedSnapshotFields": [],
+  "frozenArchivesIndependentlyVerified": true,
+  "historicalFeatureProducersUnchanged": true,
+  "runtimeAndPublicAssetsUnchanged": true,
+  "roadmapMilestone4Complete": false,
+  "evidenceWorkspace": "/workspace/web-lol",
+  "evidence": [
+    {
+      "file": "artifacts/cohort-byte-comparison-tests-v2.log",
+      "bytes": 910,
+      "sha256": "283881199fceff70f58ac9f77368b5eca07b0d7d0f5941145c9aba08a0c34478"
+    },
+    {
+      "file": "artifacts/cohort-byte-comparison-smoke-v1.log",
+      "bytes": 44,
+      "sha256": "85865b718cceec66efee7163cdd5afdc389df5958e8588bc9b72a0263a0c9cc1"
+    },
+    {
+      "file": "artifacts/cohort-byte-comparison-smoke-v1.json",
+      "bytes": 4932,
+      "sha256": "046f42ba98842b29bd677b48783f46c57d67401d94c668abfa86e290a93af181"
+    },
+    {
+      "file": "artifacts/cohort-byte-comparison-full-seed1-v1.log",
+      "bytes": 45,
+      "sha256": "6ab6071bda9916294ec54da16d38a1e4ef992fdfc9b3d64892e8bb8b2ae57bf8"
+    },
+    {
+      "file": "artifacts/cohort-byte-comparison-full-seed1-v1.json",
+      "bytes": 37864,
+      "sha256": "5d4c6ad4ef3ecf86e4768b641d13cb7b45d956bac9f67d4401b92a387cd46dbd"
+    }
+  ]
+}

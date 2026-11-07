@@ -161,6 +161,13 @@ browser cases and standalone TypeScript pass; source sample, timing and fade
 checks remain intact. Production/runtime bytes are unchanged. See
 [ownership verification](reference/garen-q-audition-ownership-verification.json).
 
+A new storage comparator independently verifies two complete frozen cohorts,
+then compares every decoded checkpoint/final byte without field exclusions,
+normalization or schema bridging. Eleven storage tests pass; the real plain/gzip
+smokes match all three artifacts and natural seed 1 matches all 45. Frozen
+feature-specific producers stay unchanged. See
+[byte-comparison verification](reference/cohort-byte-comparison-verification.json).
+
 ## Recent verified checkpoints
 
 Primary merge `9e3bd16` preserves both Q acceptance/documentation commits and
