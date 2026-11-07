@@ -1,0 +1,55 @@
+{
+  "format": 1,
+  "revision": "449864c9eefd4b7f676f433a4866ae4cdf938345",
+  "scope": "Committed R producer-reading export; all required inputs included",
+  "privateCaches": false,
+  "privateTools": false,
+  "nodeModules": false,
+  "commands": [
+    {
+      "command": [
+        "python3",
+        "tools/assets/read-ahri-r-bindings.py",
+        "--check"
+      ],
+      "exitCode": 0,
+      "path": "artifacts/ahri-r-portable-ci-0.log",
+      "bytes": 325,
+      "sha256": "743cc6b5eb65e1dbe9e2de598502bd9976d32befe244396d31499b8719a9fe37"
+    },
+    {
+      "command": [
+        "python3",
+        "tools/assets/test-ahri-r-bindings.py"
+      ],
+      "exitCode": 0,
+      "path": "artifacts/ahri-r-portable-ci-1.log",
+      "bytes": 204,
+      "sha256": "9c5fb75ae1c2b9c06a4387d3594d63ce8819dd4fb3adc9fa9d6600c953da5d50"
+    },
+    {
+      "command": [
+        "python3",
+        "-O",
+        "tools/assets/test-ahri-r-bindings.py"
+      ],
+      "exitCode": 0,
+      "path": "artifacts/ahri-r-portable-ci-2.log",
+      "bytes": 203,
+      "sha256": "0a994daf77b66e467b0a818192affb2aee43e7314168a8a626eda16889401322"
+    },
+    {
+      "command": [
+        "node",
+        "--test",
+        "tools/qa/ahri-r-particle-bindings.test.mjs"
+      ],
+      "exitCode": 0,
+      "path": "artifacts/ahri-r-portable-ci-3.log",
+      "bytes": 234,
+      "sha256": "94525c465420bb00cd02137c5c46a4d360c3a423efecb559d1b8f4dc5e55fe2b"
+    }
+  ],
+  "remoteDispatched": false,
+  "applicationChanged": false
+}

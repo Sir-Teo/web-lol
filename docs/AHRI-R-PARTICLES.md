@@ -105,3 +105,9 @@ node --test tools/qa/ahri-r-particle-bindings.test.mjs
 
 Native counter semantics, missing dispatch, saved visual histories and rendering
 remain open. The accepted schema-180 runtime is unchanged.
+
+A fresh committed-file export of 449864c9 passes the reader check, normal and
+optimized guard scripts, and both Node QA cases. It contains all required
+committed inputs and no private caches, decoder tools or node_modules. This
+validates portable producer reading, not native extraction or decoding in CI.
+See [portable verification](reference/ahri/r-portable-reading-verification.json).
