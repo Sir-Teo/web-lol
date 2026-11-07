@@ -52,6 +52,16 @@ noise pack and prior base, mesh, continuous-glow, finite-layout, eye-trail,
 eye-glow, palette, 20-profile R, observer and E packs remain retained. All work
 remains local. Emote/idle source preparation remains isolated.
 
+QA-only gzip snapshot transport is accepted without changing runtime, public
+assets, schema, ruleset or pack. Plain storage remains the default. The full
+compressed seed-1 run reaches the same blue victory at tick 157,116; all 45
+decoded snapshots are byte-identical to the accepted plain run. Stored bytes
+fall from 16,680,648 to 1,592,845. All 271 Node QA tests and 88 clean-export CI
+commands pass, including three pinned recovery-controller versions; all 5,649
+exported blobs verify. See [compression acceptance](reference/cohort-gzip-acceptance.json).
+The current hundred-seed development-roster audit has not completed; its gate
+and milestone 4 remain false.
+
 R retains all 55 published profiles, 51 textures / 428 authored mips and four
 meshes. The selected subset uses 37 textures and two meshes. Thirteen R textures,
 one separate W transport and one checked R GLB load beside borrowed Q/W resources.
