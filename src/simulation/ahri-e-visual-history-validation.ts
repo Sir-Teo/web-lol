@@ -60,7 +60,8 @@ export function validateEVisualMotion(record: AhriEVisualHistory, tick: number) 
         !record.hit &&
         !record.buff &&
         record.flightFrames.length === 0 &&
-        record.targetFrames.length === 0
+        record.targetFrames.length === 0 &&
+        !record.targetEnd
     );
     if (record.cancel) {
       check(clock(record.cancel.tick) && record.cancel.tick <= record.releaseTick);
@@ -134,7 +135,8 @@ export function validateEVisualMotion(record: AhriEVisualHistory, tick: number) 
         remaining > 1e-8 &&
         !record.hit &&
         !record.buff &&
-        record.targetFrames.length === 0
+        record.targetFrames.length === 0 &&
+        !record.targetEnd
     );
     return { point: position, previous, remaining };
   }
@@ -149,7 +151,7 @@ export function validateEVisualMotion(record: AhriEVisualHistory, tick: number) 
   if (stop.reason === 'range') check(remaining <= 1e-8);
   if (stop.reason === 'removed') check(remaining > 1e-8);
   if (stop.reason !== 'hit') {
-    check(!record.hit && !record.buff && record.targetFrames.length === 0);
+    check(!record.hit && !record.buff && record.targetFrames.length === 0 && !record.targetEnd);
     return { point: position, previous, remaining };
   }
   const hit = record.hit;
@@ -170,6 +172,24 @@ export function validateEVisualMotion(record: AhriEVisualHistory, tick: number) 
   audience(hit.audience, record.team);
   audience(hit.targetAudience, hit.targetTeam);
   poses(record.targetFrames, hit.tick, hit.targetTeam);
+  if (record.targetEnd) {
+    const end = record.targetEnd,
+      last = record.targetFrames.at(-1)!;
+    check(
+      clock(end.tick) &&
+        end.tick >= hit.tick &&
+        end.pose.tick === last.tick &&
+        same(end.pose.point, last.point) &&
+        end.pose.facing === last.facing &&
+        end.pose.radius === last.radius &&
+        end.pose.audience.join() === last.audience.join()
+    );
+    check(
+      end.reason === 'death'
+        ? end.tick === last.tick
+        : end.tick >= last.tick && end.tick <= last.tick + 1
+    );
+  }
   if (record.buff) {
     const buff = record.buff,
       control = buff.control;
@@ -201,7 +221,12 @@ export function validateEVisualMotion(record: AhriEVisualHistory, tick: number) 
       if (buff.stop.reason === 'expired') check(buff.stop.tick === control.endTick);
       if (buff.stop.reason === 'replaced' || buff.stop.reason === 'control-ended')
         check(buff.stop.tick < control.endTick);
-    } else check(tick < control.endTick);
+    } else check(tick < control.endTick && !record.targetEnd);
+    if (record.targetEnd) check(!!buff.stop && buff.stop.tick <= record.targetEnd.tick);
+    if (buff.stop?.reason === 'death' || buff.stop?.reason === 'removed')
+      check(
+        record.targetEnd?.reason === buff.stop.reason && record.targetEnd.tick === buff.stop.tick
+      );
   }
   return { point: position, previous, remaining };
 }

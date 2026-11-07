@@ -107,3 +107,17 @@ leaves the complete core snapshot unchanged. Twenty mutations reject altered
 clocks, geometry, control ownership, deadlines, poses and audience shape. All 33
 preparation/baseline/admission tests and TypeScript checking pass. World hooks,
 live cross-links and schema integration remain pending.
+
+## Target body lifetime boundary
+
+A separate target-ending anchor now records actual death or removal with its
+last observed pose and sample tick. Target pose sampling stops at that boundary,
+so a later respawn of the same unit does not extend the old body path. The ending
+also closes that body's buff ownership, without extending presentation retention.
+Missing actors retain an explicit last-known anchor rather than a fabricated
+current pose sample.
+
+The real-World adapter covers target death and an actual dummy respawn. Four
+ending-anchor mutations reject rewritten poses, clocks, late samples and missing
+endings. The contract test also checks that a relocated new body cannot rewrite
+the old ending. All 37 tests and TypeScript checks pass before World integration.

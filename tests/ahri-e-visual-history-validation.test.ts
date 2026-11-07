@@ -9,6 +9,7 @@ import {
   beginEVisualHistory,
   cancelEVisualCast,
   endEVisualFlight,
+  endEVisualTarget,
   finishAllEVisualHistory,
   launchEVisualHistory,
   refreshEVisualAudience,
@@ -17,7 +18,15 @@ import {
 } from '../src/simulation/ahri-e-visual-history';
 import { validateEVisualMotion } from '../src/simulation/ahri-e-visual-history-validation';
 
-type Mode = 'hit' | 'range' | 'terminal' | 'posthumous' | 'tenacity' | 'windup-death';
+type Mode =
+  | 'hit'
+  | 'range'
+  | 'terminal'
+  | 'posthumous'
+  | 'tenacity'
+  | 'windup-death'
+  | 'target-death'
+  | 'respawn';
 /** Observe real core objects through a separate adapter; this stays independent
  * of automatic World hooks when those are added. */
 function trace(mode: Mode) {
@@ -34,12 +43,15 @@ function trace(mode: Mode) {
   Object.assign(world.hero, { x: -3000, y: -3000, ai: false });
   const source = world.spawn('champion', 'blue', { x: 0, y: 0 }, 'ahri');
   source.ai = false;
-  const target = world.spawn(
-    'champion',
-    'red',
-    { x: 500, y: mode === 'range' ? 500 : 0 },
-    mode === 'tenacity' ? 'garen' : 'lux'
-  );
+  const target =
+    mode === 'respawn'
+      ? world.spawn('dummy', 'red', { x: 500, y: 0 })
+      : world.spawn(
+          'champion',
+          'red',
+          { x: 500, y: mode === 'range' ? 500 : 0 },
+          mode === 'tenacity' ? 'garen' : 'lux'
+        );
   Object.assign(target, { ai: false, hp: 10000, maxHp: 10000, magicResist: 0 });
   world.learnSpell('e', source.id);
   if (mode === 'tenacity') {
@@ -76,7 +88,7 @@ function trace(mode: Mode) {
   let held: Projectile | undefined;
   const record = observer.ahriEVisuals![0];
   validateEVisualMotion(record, world.tick);
-  while (world.tick < 130 && !world.winner) {
+  while (world.tick < (mode === 'respawn' ? 260 : 130) && !world.winner) {
     world.step();
     const before = world.snapshot();
     const shot = world.projectiles.find((p) => p.type === 'charm' && p.source === source.id);
@@ -107,6 +119,11 @@ function trace(mode: Mode) {
       cancelEVisualCast(observer, source.id, 'death');
       validateEVisualMotion(record, world.tick);
     }
+    if ((mode === 'target-death' || mode === 'respawn') && world.tick === 50) {
+      world.damage(source, target, 1e6, 'true');
+      endEVisualTarget(observer, target, 'death');
+      validateEVisualMotion(record, world.tick);
+    }
     if (mode === 'posthumous' && world.tick === 20) world.damage(target, source, 1e6, 'true');
     if (mode === 'terminal' && world.tick === 20) {
       const nexus = world.spawn('nexus', 'red', { x: 1500, y: 1500 });
@@ -120,7 +137,16 @@ function trace(mode: Mode) {
   }
   return { world, record };
 }
-for (const mode of ['hit', 'range', 'terminal', 'posthumous', 'tenacity', 'windup-death'] as const)
+for (const mode of [
+  'hit',
+  'range',
+  'terminal',
+  'posthumous',
+  'tenacity',
+  'windup-death',
+  'target-death',
+  'respawn',
+] as const)
   test('replay genuine linear motion and sampled control through ' + mode, () => {
     const { world, record } = trace(mode);
     if (mode === 'windup-death') {
@@ -137,7 +163,14 @@ for (const mode of ['hit', 'range', 'terminal', 'posthumous', 'tenacity', 'windu
       expect(record.stop).toMatchObject({ tick: 20, reason: 'match-end' });
     else {
       expect(record.stop!.reason).toBe('hit');
-      expect(record.buff!.stop!.reason).toBe('expired');
+      expect(record.buff!.stop!.reason).toBe(
+        mode === 'target-death' || mode === 'respawn' ? 'death' : 'expired'
+      );
+      if (mode === 'target-death' || mode === 'respawn') {
+        expect(record.targetEnd!.tick).toBe(50);
+        expect(record.targetFrames.at(-1)!.tick).toBe(50);
+        if (mode === 'respawn') expect(world.unit(record.hit!.targetId)!.hp).toBeGreaterThan(0);
+      }
       expect(record.buff!.control.tenacityApplied).toBe(mode === 'tenacity');
     }
     validateEVisualMotion(record, world.tick);
@@ -199,5 +232,21 @@ test('reject forged clocks, swept contacts, motion, ownership, poses and audienc
     const r = structuredClone(record);
     mutate(r);
     expect(() => validateEVisualMotion(r, world.tick), 'mutation ' + index).toThrow();
+  }
+});
+
+test('target ending anchors reject pose rewrites and late old-body sampling', () => {
+  const { world, record } = trace('respawn');
+  for (const mutate of [
+    (r: AhriEVisualHistory) => r.targetEnd!.pose.point.x++,
+    (r: AhriEVisualHistory) => r.targetEnd!.tick++,
+    (r: AhriEVisualHistory) => r.targetFrames.push({ ...r.targetFrames.at(-1)!, tick: 51 }),
+    (r: AhriEVisualHistory) => {
+      r.targetEnd = null;
+    },
+  ]) {
+    const r = structuredClone(record);
+    mutate(r);
+    expect(() => validateEVisualMotion(r, world.tick)).toThrow();
   }
 });

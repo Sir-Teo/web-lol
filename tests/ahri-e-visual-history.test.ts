@@ -7,6 +7,7 @@ import {
   cancelEVisualCast,
   endEVisualBuffForTarget,
   endEVisualFlight,
+  endEVisualTarget,
   eVisualEndTick,
   finishAllEVisualHistory,
   launchEVisualHistory,
@@ -291,4 +292,30 @@ test('later sight does not rewrite hidden birth audiences and caster death does 
   expect(hidden.audience).toEqual(['red']);
   expect(f.record().targetFrames.at(-1)!.audience).toEqual(['blue', 'red']);
   expect(f.target.charm).not.toBeNull();
+});
+
+test('target death closes the old body root before respawn without extending retention', () => {
+  const f = fixture(),
+    p = f.launch();
+  f.pure(() => endEVisualFlight(f.world, p, p, 'hit', f.target));
+  f.target.charm = { sourceId: 1, rank: 1, startTick: 16, endTick: 88, tenacityApplied: false };
+  f.pure(() => attachEVisualBuff(f.world, p, f.target));
+  f.target.hp = 0;
+  f.pure(() => endEVisualTarget(f.world, f.target, 'death'));
+  f.target.charm = null;
+  f.world.projectiles = [];
+  f.pure(() => advanceEVisualHistory(f.world));
+  const ending = f.record().targetEnd!;
+  expect(ending).toMatchObject({
+    tick: 16,
+    reason: 'death',
+    pose: { tick: 16, point: { x: 50, y: 0 } },
+  });
+  expect(f.record().buff!.stop).toEqual({ tick: 16, reason: 'death' });
+  f.target.hp = 100;
+  f.target.x = 900;
+  f.advance(17);
+  expect(f.record().targetFrames.at(-1)!.tick).toBe(16);
+  expect(ending.pose.point.x).toBe(50);
+  expect(eVisualEndTick(f.record())).toBe(16);
 });

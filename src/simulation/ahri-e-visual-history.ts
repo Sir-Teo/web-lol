@@ -62,6 +62,7 @@ export interface AhriEVisualHistory {
   sourceFrames: EVisualPose[];
   flightFrames: EVisualFlightFrame[];
   targetFrames: EVisualPose[];
+  targetEnd: { tick: number; reason: 'death' | 'removed'; pose: EVisualPose } | null;
 }
 export interface EVisualObserverWorld {
   tick: number;
@@ -111,6 +112,7 @@ function flightRecord(world: EVisualObserverWorld, projectile: Projectile) {
   return record;
 }
 function targetPose(world: EVisualObserverWorld, record: AhriEVisualHistory, target?: Unit) {
+  if (record.targetEnd) return;
   target ??= record.hit ? world.unit(record.hit.targetId) : undefined;
   if (target) append(record.targetFrames, pose(world, target));
 }
@@ -152,6 +154,7 @@ export function beginEVisualHistory(
     sourceFrames: [pose(world, source)],
     flightFrames: [],
     targetFrames: [],
+    targetEnd: null,
   });
 }
 export function cancelEVisualCast(
@@ -291,6 +294,32 @@ function sameControl(a: NonNullable<Unit['charm']>, b: Unit['charm']) {
     a.tenacityApplied === b.tenacityApplied
   );
 }
+function endTarget(
+  world: EVisualObserverWorld,
+  record: AhriEVisualHistory,
+  reason: 'death' | 'removed',
+  target?: Unit
+) {
+  if (record.targetEnd) return;
+  if (target) targetPose(world, record, target);
+  const last = record.targetFrames.at(-1);
+  if (!last) throw Error('Missing Charm visual target root');
+  record.targetEnd = {
+    tick: world.tick,
+    reason,
+    pose: { ...last, point: point(last.point), audience: [...last.audience] },
+  };
+  stopBuff(world, record, reason);
+}
+/** Preserve the old body's ending even if the same unit later respawns. */
+export function endEVisualTarget(
+  world: EVisualObserverWorld,
+  target: Unit,
+  reason: 'death' | 'removed'
+) {
+  for (const record of world.ahriEVisuals ?? [])
+    if (record.hit?.targetId === target.id) endTarget(world, record, reason, target);
+}
 export function advanceEVisualHistory(world: EVisualObserverWorld) {
   for (const record of world.ahriEVisuals ?? []) {
     const source = world.unit(record.sourceId);
@@ -326,7 +355,12 @@ export function advanceEVisualHistory(world: EVisualObserverWorld) {
           ),
         };
     }
-    if (record.hit) targetPose(world, record);
+    if (record.hit && !record.targetEnd) {
+      const target = world.unit(record.hit.targetId);
+      if (!target) endTarget(world, record, 'removed');
+      else if (!world.alive(target)) endTarget(world, record, 'death', target);
+      else targetPose(world, record, target);
+    }
     if (record.buff && !record.buff.stop) {
       const target = world.unit(record.buff.targetId);
       if (world.winner) stopBuff(world, record, 'match-end');
@@ -358,6 +392,14 @@ export function refreshEVisualAudience(world: EVisualObserverWorld) {
       record.hit.audience = pointAudience(world, record.hit.point, record.team);
       const target = world.unit(record.hit.targetId);
       if (target) record.hit.targetAudience = actorAudience(world, target);
+    }
+    if (record.targetEnd?.pose.tick === world.tick) {
+      const target = record.hit && world.unit(record.hit.targetId);
+      if (target)
+        record.targetEnd.pose = {
+          ...record.targetEnd.pose,
+          audience: actorAudience(world, target),
+        };
     }
     if (record.buff?.control.startTick === world.tick) {
       const target = world.unit(record.buff.targetId);
