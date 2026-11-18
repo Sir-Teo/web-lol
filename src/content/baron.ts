@@ -36,3 +36,17 @@ export const BARON = {
   spawnClipTicks: Math.ceil(source.clips.spawn.durationSeconds * TICK_RATE),
   spawnSubmesh: null,
 } as const;
+
+export const RIFT_BARON = {
+  // SRU_Baron locator {883858bc} from the retained jungle map inspection.
+  point: { x: -2418, y: -3046 },
+  firstReadyTick: 20 * 60 * TICK_RATE,
+  respawnTicks: 6 * 60 * TICK_RATE,
+  teamGoldPerChampion: 150,
+} as const;
+
+export function baronReadyTick(lastClearTick: number | null): number {
+  return lastClearTick === null
+    ? RIFT_BARON.firstReadyTick
+    : lastClearTick + RIFT_BARON.respawnTicks;
+}

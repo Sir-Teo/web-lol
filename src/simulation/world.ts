@@ -85,7 +85,7 @@ import {
   type AhriOrbAudioRecord,
 } from './ahri-orb-audio';
 import { advancePrimaryHitPoses } from './masteryi-primary-hit-poses';
-import { BARON } from '../content/baron';
+import { BARON, RIFT_BARON, baronReadyTick } from '../content/baron';
 import {
   capturePassiveTrail,
   advancePassiveTrails,
@@ -510,6 +510,10 @@ export class World {
   nextId = 1;
   matchMode: 'practice' | 'lanes' = 'practice';
   encounter: 'gromp' | 'baron' | null = null;
+  riftBaron: {
+    unitId: number | null;
+    lastClear: { tick: number; team: Team | null } | null;
+  } | null = null;
   jungleCamps: JungleCampState[] = [];
   pendingWards: WardPlacement[] = [];
   scuttlers: RiverScuttlers | null = null;
@@ -931,13 +935,30 @@ export class World {
     spawn: { startTick: number; readyTick: number; clip?: MonsterSpawnClip } | null = null,
     species: MonsterSpecies = 'gromp'
   ): Extract<Unit, { kind: 'monster' }> {
-    if (
-      species === 'baron' &&
-      (this.battlefield.id !== 'practice-fixture' ||
-        !this.battlefield.developmentBaron ||
-        this.encounter !== 'baron')
-    )
-      throw new Error('Baron requires its trusted development fixture.');
+    if (species === 'baron') {
+      const fixture =
+        this.battlefield.id === 'practice-fixture' &&
+        this.battlefield.developmentBaron &&
+        this.encounter === 'baron';
+      const objective = this.riftBaron;
+      const readyTick = baronReadyTick(objective?.lastClear?.tick ?? null);
+      if (
+        !fixture &&
+        !(
+          this.battlefield.id === 'rift' &&
+          this.battlefield.rosterPlaytestBaron &&
+          this.matchMode === 'lanes' &&
+          objective?.unitId === null &&
+          !this.winner &&
+          point.x === RIFT_BARON.point.x &&
+          point.y === RIFT_BARON.point.y &&
+          spawn?.readyTick === readyTick &&
+          spawn.startTick === readyTick - BARON.spawnClipTicks &&
+          this.tick >= spawn.startTick
+        )
+      )
+        throw new Error('Baron requires its trusted development fixture or scheduled Rift spawn.');
+    }
     const base = this.createUnitBase('monster', 'neutral', point);
     const profile = MONSTERS[species];
     const { attackSpeed, ...stats } = profile.stats;
@@ -990,7 +1011,34 @@ export class World {
       clips
     );
     this.units.push(u);
+    if (species === 'baron' && this.riftBaron) this.riftBaron.unitId = u.id;
     return u;
+  }
+  private advanceRiftBaron(): void {
+    const objective = this.riftBaron;
+    if (!objective || objective.unitId !== null) return;
+    const readyTick = baronReadyTick(objective.lastClear?.tick ?? null);
+    const startTick = readyTick - BARON.spawnClipTicks;
+    if (this.tick >= startTick)
+      this.spawnMonster(RIFT_BARON.point, { startTick, readyTick }, 'baron');
+  }
+  private clearRiftBaron(killer: Unit | undefined): void {
+    const objective = this.riftBaron!;
+    const team = killer?.kind === 'champion' ? killer.team : null;
+    objective.unitId = null;
+    objective.lastClear = { tick: this.tick, team };
+    if (!team) return;
+    for (const champion of this.units) {
+      if (champion.kind !== 'champion' || champion.team !== team) continue;
+      const state = this.championState(champion.id)!;
+      state.gold += RIFT_BARON.teamGoldPerChampion;
+      if (state.id === this.player.id)
+        this.emit('message', champion, {
+          text: `Your team slew Baron Nashor. +${RIFT_BARON.teamGoldPerChampion} gold`,
+          unit: champion.id,
+          team,
+        });
+    }
   }
   private advanceJungleCamps(): void {
     for (const camp of this.jungleCamps) {
@@ -1558,6 +1606,7 @@ export class World {
     this.releaseWaveUnits();
     this.advanceJungleCamps();
     advanceRiverScuttlers(this);
+    this.advanceRiftBaron();
     grantRiverSpeed(this);
     this.advanceTeamPlans();
     this.advanceCinderBurns();
@@ -6707,6 +6756,7 @@ export class World {
             ? this.unit(lastDamage.creditSourceId ?? lastDamage.sourceId)
             : undefined;
       const sourceState = rewardSource ? this.championState(rewardSource.id) : undefined;
+      if (this.riftBaron?.unitId === target.id) this.clearRiftBaron(rewardSource);
       const transferringBlue = targetState?.blueBuff && targetState.blueBuff.endTick > this.tick;
       const transferringRed = targetState?.redBuff && redBuffActive(targetState, this.tick);
       if (targetState?.redBuff && (!transferringRed || rewardSource || source.kind !== 'monster'))
@@ -8211,6 +8261,7 @@ export class World {
       version: SNAPSHOT_VERSION,
       matchMode: this.matchMode,
       encounter: this.encounter,
+      riftBaron: this.riftBaron,
       jungleCamps: this.jungleCamps,
       pendingWards: this.pendingWards,
       scuttlers: this.scuttlers,

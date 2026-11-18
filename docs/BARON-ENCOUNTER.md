@@ -1,4 +1,29 @@
-# Private Baron combat fixture
+# Baron encounters
+
+## Rift playtest
+
+Baron Nashor is available in the internal [roster playtest](ROSTER-PLAYER-SELECTION.md#internal-roster-playtest-build)
+5v5, not public Rift or practice. The equivalent development URL is
+`/?scene=roster-rift&objectives=baron`, with its own save slot
+`development-roster-baron`. The original `/?scene=roster-rift` has no Baron.
+
+Baron becomes attackable at **20:00** at the retained top-river locator, after
+the protected spawn clip. A kill schedules another spawn **six minutes after
+the clear**. Champion last hits (including Smite) award **150 gold to each
+champion on the securing team**, even if they're dead. The Tab scoreboard
+shows the public opening countdown, a living Baron in team vision, or a
+respawn countdown after your team secures the kill. It does not expose a
+hidden enemy clear. Saves retain the live actor and last clear.
+
+This slice reuses the stationary combat, leash, and control rules below. The
+respawn interval, per-champion gold award, and spawn protection are playtest
+policies; they are not newly measured native behavior. Bots do not yet
+coordinate Baron attempts, and Hand of Baron, XP, and the full boss kit are
+not implemented. The 13.5 MB rig is prepared at startup in the live 5v5 and
+the private fixture, not in practice or public Rift. Live Baron basic audio is
+requested on first combat rather than at match start.
+
+## Private combat fixture
 
 Run the development server and open
 `/?scene=fixture&encounter=baron` for a controlled neutral Baron encounter.
@@ -12,11 +37,9 @@ silence and Charm while preserving incoming damage. Its source and remaining
 slow/Frost/stat/stasis limits are recorded separately. Results and build
 identities below describe the original fixture increment.
 
-This is a stationary basic-combat fixture. It does not activate Baron in the
-public match. The full native boss kit, crowd-control immunity, corrosion/shred,
-cleaves, authored sound, team-wide rewards, Hand of Baron, live spawn/respawn
-rules and native animation calibration remain unfinished. In particular,
-current debuffs still follow the interim generic-monster rules. Gold, XP, CS,
+This is the stationary basic-combat fixture, independent of the Rift playtest.
+The full native boss kit, corrosion/shred, cleaves, Hand of Baron and native
+animation calibration remain unfinished. Gold, XP, CS,
 companion feeds and kill recovery are disabled on this controlled target so its
 partial presentation does not masquerade as a completed epic reward system.
 

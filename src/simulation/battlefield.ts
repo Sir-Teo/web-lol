@@ -56,6 +56,8 @@ export interface Battlefield extends TerrainQueries {
   developmentRosterBots?: true;
   /** Admits Baron only in the private controlled combat fixture. */
   developmentBaron?: true;
+  /** Enables the live Baron prototype only in trusted Rift lane matches. */
+  rosterPlaytestBaron?: true;
   id: 'practice-fixture' | 'rift';
   half: number;
   heightRange: readonly [number, number];

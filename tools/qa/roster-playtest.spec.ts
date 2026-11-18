@@ -57,16 +57,20 @@ test('built roster playtest keeps separate saves and restores a real match witho
     ),
   ]);
   const loadedJudgment = new Set<string>();
+  const baronRequests = new Set<string>();
   page.on('pageerror', (error) => errors.push(error.message));
   page.on('response', (response) => {
     const path = new URL(response.url()).pathname;
     if (judgmentPaths.has(path) && response.ok()) loadedJudgment.add(path);
+    if (path.endsWith('/sru-baron-base.glb') && response.ok()) baronRequests.add('rig');
+    if (path.includes('/assets/audio/baron-basic/')) baronRequests.add('audio');
   });
   // On a fresh load the development selectors must not activate a fixture.
   await page.goto('/?scene=fixture&encounter=baron&champion=ahri');
   await loaded(page);
   await expect(page.locator('.champion-title strong')).toHaveText('ASHE');
   expect(loadedJudgment).toEqual(judgmentPaths);
+  expect([...baronRequests]).toEqual(['rig']);
   await checkpoints(page, true);
 
   const button = (name: string) => page.getByRole('button', { name, exact: true });
@@ -87,6 +91,9 @@ test('built roster playtest keeps separate saves and restores a real match witho
   await page.keyboard.down('Tab');
   try {
     await expect(page.locator('.scoreboard-row')).toHaveCount(10);
+    await expect(page.getByRole('region', { name: 'Baron Nashor' })).toHaveText(
+      /^Baron Nashor in (20:00|19:\d\d)$/
+    );
     for (const [role, champion, count] of [
       ['top', 'Garen', 2],
       ['jungle', 'Master Yi', 2],

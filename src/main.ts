@@ -63,6 +63,9 @@ async function boot(): Promise<void> {
   const baronEncounter = fixture && query.get('encounter') === 'baron';
   const rosterRiftTrial =
     rosterPlaytest || (import.meta.env.DEV && query.get('scene') === 'roster-rift');
+  const liveBaron =
+    rosterPlaytest ||
+    (rosterRiftTrial && import.meta.env.DEV && query.get('objectives') === 'baron');
   const leonaRiftTrial = import.meta.env.DEV && query.get('scene') === 'leona-rift';
   const garenRiftTrial = import.meta.env.DEV && query.get('scene') === 'garen-rift';
   const masterYiRiftTrial = import.meta.env.DEV && query.get('scene') === 'masteryi-rift';
@@ -87,6 +90,7 @@ async function boot(): Promise<void> {
         developmentAhriBots: true as const,
         developmentMasterYiRift: true as const,
         developmentMasterYiBots: true as const,
+        ...(liveBaron ? { rosterPlaytestBaron: true as const } : {}),
       }
     : ahriRiftTrial
       ? {
@@ -112,7 +116,9 @@ async function boot(): Promise<void> {
   const saveKey = rosterRiftTrial
     ? rosterPlaytest
       ? 'roster-playtest'
-      : 'development-roster-rift'
+      : liveBaron
+        ? 'development-roster-baron'
+        : 'development-roster-rift'
     : baronEncounter
       ? 'development-baron-encounter'
       : ahriBotRiftTrial
@@ -406,6 +412,7 @@ async function boot(): Promise<void> {
   const monsterSpecies = [
     ...new Set<MonsterSpecies>([
       ...(world.scuttlers ? ['scuttler' as const] : []),
+      ...(world.riftBaron ? ['baron' as const] : []),
       ...world.jungleCamps.flatMap((c) =>
         RIFT_CAMPS.find((d) => d.id === c.id)!.members.map((m) => m.species)
       ),
@@ -413,6 +420,7 @@ async function boot(): Promise<void> {
     ]),
   ];
   const hasGrompContent = monsterSpecies.includes('gromp');
+  let baronAudioRequested = baronEncounter;
   const hasGaren = world.units.some((u) => u.champion === 'garen');
   // Development probes may spawn Lux after boot.
   const prepareLux = import.meta.env.DEV || world.units.some((u) => u.champion === 'lux');
@@ -666,7 +674,11 @@ async function boot(): Promise<void> {
       );
       audio.updateFlight(audibleProjectiles, audibleScouts, world.tick);
       audio.updateLinger(audibleScouts, world.tick);
-      if (baronEncounter) audio.updateBaronPreview(world, view.center);
+      if (!baronAudioRequested && world.riftBaron && world.baronAttackVisuals.length) {
+        baronAudioRequested = true;
+        void audio.baronBasic.load();
+      }
+      if (baronAudioRequested) audio.updateBaronPreview(world, view.center);
       audio.updateLuxE(world, view.center);
       audio.updateAhri(world, view.center);
       audio.updateOracle(world, view.center);

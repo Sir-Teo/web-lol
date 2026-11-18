@@ -17,6 +17,7 @@ import { TRINKETS, ORACLE_SOURCE, type TrinketKind } from '../content/trinkets';
 import { trinketSwapError } from '../simulation/trinkets';
 import { shrinePoint } from '../simulation/scuttler';
 import { RIVER_SIDES, SCUTTLER_POLICY } from '../content/scuttler-policy';
+import { RIFT_BARON, baronReadyTick } from '../content/baron';
 import { PLAYER_CHAMPION_ROLES } from '../content/champion-roles';
 import { championProfile, isMeleeChampion } from '../content/champion-profiles';
 import { MASTER_YI } from '../content/masteryi-progression';
@@ -1210,17 +1211,34 @@ export class Hud {
     this.root.querySelector('#toast')!.classList.add('visible');
     this.toastUntil = performance.now() + 2600;
   }
+  private objectiveTimeLeft(endTick: number): string {
+    const seconds = Math.ceil((endTick - this.world.tick) / TICK_RATE);
+    return `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
+  }
+  private updateBaronObjective(panel: HTMLElement): void {
+    const w = this.world;
+    const objective = w.riftBaron;
+    panel.hidden = !objective;
+    if (!objective) return;
+    const boss = objective.unitId === null ? undefined : w.unit(objective.unitId);
+    const readyTick = baronReadyTick(objective.lastClear?.tick ?? null);
+    const message =
+      w.tick < RIFT_BARON.firstReadyTick
+        ? `Baron Nashor in ${this.objectiveTimeLeft(readyTick)}`
+        : boss && w.alive(boss) && w.vulnerable(boss) && w.visible(boss, w.hero.team)
+          ? 'Baron Nashor in sight'
+          : objective.lastClear?.team === w.hero.team && w.tick < readyTick
+            ? `Baron Nashor respawns in ${this.objectiveTimeLeft(readyTick)}`
+            : 'Scout the top river pit for Baron Nashor.';
+    if (panel.textContent !== message) panel.textContent = message;
+  }
   private updateRiverObjectives(panel: HTMLElement): void {
     const w = this.world;
     panel.hidden = !w.scuttlers;
     if (!w.scuttlers) return;
-    const secondsLeft = (endTick: number) => {
-      const seconds = Math.ceil((endTick - w.tick) / TICK_RATE);
-      return `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
-    };
     const statuses: string[] = [];
     if (w.tick < SCUTTLER_POLICY.firstReadyTick) {
-      statuses.push(`First Scuttlers in ${secondsLeft(SCUTTLER_POLICY.firstReadyTick)}`);
+      statuses.push(`First Scuttlers in ${this.objectiveTimeLeft(SCUTTLER_POLICY.firstReadyTick)}`);
     } else {
       const names = { dragon: 'Bottom river', baron: 'Top river' };
       for (const side of RIVER_SIDES) {
@@ -1241,7 +1259,7 @@ export class Hud {
           w.pointVisible(shrinePoint(side, w.battlefield), w.hero.team)
         )
           statuses.push(
-            `${names[side]}: ${shrine.team === w.hero.team ? 'Allied' : 'Enemy'} shrine (${secondsLeft(shrine.endTick)})`
+            `${names[side]}: ${shrine.team === w.hero.team ? 'Allied' : 'Enemy'} shrine (${this.objectiveTimeLeft(shrine.endTick)})`
           );
       }
     }
@@ -1253,7 +1271,7 @@ export class Hud {
     if (!panel) {
       panel = document.createElement('div');
       panel.className = 'scoreboard';
-      panel.innerHTML = `<div class="scoreboard-title">${this.world.matchMode === 'lanes' ? '5V5 MATCH' : 'PRACTICE MATCH'}</div><section class="scoreboard-objectives" aria-label="River objectives" hidden></section><div class="scoreboard-teams"></div>`;
+      panel.innerHTML = `<div class="scoreboard-title">${this.world.matchMode === 'lanes' ? '5V5 MATCH' : 'PRACTICE MATCH'}</div><section class="scoreboard-objectives" aria-label="River objectives" hidden></section><section class="scoreboard-objectives" aria-label="Baron Nashor" hidden></section><div class="scoreboard-teams"></div>`;
       panel.addEventListener('contextmenu', (event) => event.preventDefault());
       this.root.append(panel);
     }
@@ -1262,7 +1280,10 @@ export class Hud {
       this.itemTooltip.clear();
       return;
     }
-    this.updateRiverObjectives(panel.querySelector<HTMLElement>('.scoreboard-objectives')!);
+    this.updateRiverObjectives(
+      panel.querySelector<HTMLElement>('[aria-label="River objectives"]')!
+    );
+    this.updateBaronObjective(panel.querySelector<HTMLElement>('[aria-label="Baron Nashor"]')!);
     const rows = this.world.units
       .filter((u) => u.kind === 'champion')
       .sort((a, b) => Number(a.team === 'red') - Number(b.team === 'red') || a.id - b.id)

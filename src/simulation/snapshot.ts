@@ -16,6 +16,7 @@ import { validateSpiritRushAudio } from './ahri-spirit-rush-audio-validation';
 import { validateFoxFireAudio } from './ahri-fox-fire-audio-validation';
 import { validateOrbAudio } from './ahri-orb-audio-validation';
 import { BARON_BASIC_CAST_TICKS } from '../content/baron-basic-audio-timing';
+import { BARON, RIFT_BARON, baronReadyTick } from '../content/baron';
 import { PRIMARY_HIT_HISTORY_TICKS } from '../content/masteryi-primary-hit-timing';
 import { validatePassiveTrails } from './masteryi-passive-trails';
 import { PASSIVE_TRAIL_HISTORY_TICKS } from '../content/masteryi-passive-trail-timing';
@@ -199,7 +200,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 181;
+export const SNAPSHOT_VERSION = 182;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -2006,6 +2007,12 @@ const snapshot = z.strictObject({
     .max(10),
   version: z.literal(SNAPSHOT_VERSION),
   encounter: z.enum(['gromp', 'baron']).nullable(),
+  riftBaron: z
+    .strictObject({
+      unitId: id.nullable(),
+      lastClear: z.strictObject({ tick, team: team.nullable() }).nullable(),
+    })
+    .nullable(),
   pendingWards: z
     .array(
       z.strictObject({
@@ -3599,8 +3606,50 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
     (state.battlefield !== 'practice-fixture' || state.matchMode !== 'practice')
   )
     throw new Error('Controlled neutral encounters require the development practice fixture.');
-  if (
-    (state.encounter === 'baron' || state.units.some((u) => u.monster?.species === 'baron')) &&
+  const barons = state.units.filter(
+    (u): u is typeof u & { monster: NonNullable<typeof u.monster> } =>
+      u.kind === 'monster' && u.monster?.species === 'baron'
+  );
+  const objective = state.riftBaron;
+  const liveBaronEnabled =
+    battlefield.rosterPlaytestBaron === true &&
+    state.battlefield === 'rift' &&
+    state.matchMode === 'lanes';
+  if (liveBaronEnabled !== (objective !== null))
+    throw new Error('Saved Rift Baron requires its trusted roster playtest match.');
+  if (objective) {
+    const readyTick = baronReadyTick(objective.lastClear?.tick ?? null);
+    const startTick = readyTick - BARON.spawnClipTicks;
+    const active = barons.find((u) => u.id === objective.unitId);
+    if (
+      (objective.lastClear &&
+        (objective.lastClear.tick < RIFT_BARON.firstReadyTick ||
+          objective.lastClear.tick > state.tick)) ||
+      barons.length > 1 ||
+      (objective.unitId === null
+        ? !state.winner && state.tick >= startTick
+        : !active || active.hp <= 0 || state.tick < startTick) ||
+      barons.some((baron) => {
+        const { home, spawn } = baron.monster;
+        return (
+          home.x !== RIFT_BARON.point.x ||
+          home.y !== RIFT_BARON.point.y ||
+          baron.x !== home.x ||
+          baron.y !== home.y ||
+          baron.speed !== 0 ||
+          (baron === active
+            ? state.tick < readyTick
+              ? spawn?.clip !== 'spawn' ||
+                spawn.startTick !== startTick ||
+                spawn.readyTick !== readyTick
+              : spawn !== null
+            : baron.hp !== 0 || !objective.lastClear || baron.deadAt !== objective.lastClear.tick)
+        );
+      })
+    )
+      throw new Error('Saved Rift Baron has an invalid spawn, unit or clear.');
+  } else if (
+    (state.encounter === 'baron' || barons.length > 0) &&
     (!battlefield.developmentBaron || state.encounter !== 'baron')
   )
     throw new Error('Saved Baron requires its trusted development encounter.');
@@ -3705,9 +3754,12 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       const spawn = unit.monster.spawn;
       const profile = MONSTERS[unit.monster.species];
       const owner = state.jungleCamps.find((c) => c.unitIds.includes(unit.id));
-      const leadup = owner
-        ? campLeadupTicks(RIFT_CAMPS.find((c) => c.id === owner.id)!)
-        : profile.spawnLeadupTicks;
+      const leadup =
+        unit.id === objective?.unitId
+          ? BARON.spawnClipTicks
+          : owner
+            ? campLeadupTicks(RIFT_CAMPS.find((c) => c.id === owner.id)!)
+            : profile.spawnLeadupTicks;
       if (
         (unit.monster.phase === 'spawning' && !spawn) ||
         (spawn &&

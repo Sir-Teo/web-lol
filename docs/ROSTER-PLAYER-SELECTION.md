@@ -72,8 +72,13 @@ carry slot. **Escape → New match** offers all six champions in the same roles
 as the development trial. Ashe and Lux are also available for practice.
 The HUD identifies this build as **Roster playtest**. It uses its own manual
 save and recovery slot, including for practice, and does not expose
-development fixtures or test hooks. The simulation rules and match-file
-compatibility checks are unchanged.
+development fixtures or test hooks.
+
+The internal 5v5 also runs the live Baron prototype described in
+[Baron encounters](BARON-ENCOUNTER.md#rift-playtest). This increments the
+shared save schema to 182. Earlier checkpoints are tied to the old ruleset
+and cannot be resumed on the new build, including in public modes where live
+Baron remains disabled.
 
 The private build writes to `dist-roster-playtest/` with its own offline pack.
 It is not a Pages artifact. Serve the original `.bin.gz` bodies as files, not
