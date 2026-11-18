@@ -1530,6 +1530,13 @@ button {
   margin-bottom: 17px;
   letter-spacing: 3px;
 }
+.scoreboard-objectives {
+  margin: 0 0 12px;
+  color: #b7d5d7;
+  font-size: 13px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
 .scoreboard-row {
   display: grid;
   grid-template-columns: 38px 18px minmax(0, 1fr) 72px 48px;

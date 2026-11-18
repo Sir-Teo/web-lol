@@ -16,6 +16,7 @@ import { WARD_SOURCE } from '../content/warding-totem';
 import { TRINKETS, ORACLE_SOURCE, type TrinketKind } from '../content/trinkets';
 import { trinketSwapError } from '../simulation/trinkets';
 import { shrinePoint } from '../simulation/scuttler';
+import { RIVER_SIDES, SCUTTLER_POLICY } from '../content/scuttler-policy';
 import { PLAYER_CHAMPION_ROLES } from '../content/champion-roles';
 import { championProfile, isMeleeChampion } from '../content/champion-profiles';
 import { MASTER_YI } from '../content/masteryi-progression';
@@ -1209,11 +1210,50 @@ export class Hud {
     this.root.querySelector('#toast')!.classList.add('visible');
     this.toastUntil = performance.now() + 2600;
   }
+  private updateRiverObjectives(panel: HTMLElement): void {
+    const w = this.world;
+    panel.hidden = !w.scuttlers;
+    if (!w.scuttlers) return;
+    const secondsLeft = (endTick: number) => {
+      const seconds = Math.ceil((endTick - w.tick) / TICK_RATE);
+      return `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
+    };
+    const statuses: string[] = [];
+    if (w.tick < SCUTTLER_POLICY.firstReadyTick) {
+      statuses.push(`First Scuttlers in ${secondsLeft(SCUTTLER_POLICY.firstReadyTick)}`);
+    } else {
+      const names = { dragon: 'Bottom river', baron: 'Top river' };
+      for (const side of RIVER_SIDES) {
+        const id = w.scuttlers.unitIds[side];
+        const crab = id === null ? undefined : w.unit(id);
+        if (
+          crab?.kind === 'monster' &&
+          crab.monster.phase !== 'spawning' &&
+          w.alive(crab) &&
+          w.visible(crab, w.hero.team)
+        )
+          statuses.push(`${names[side]}: Scuttler in sight`);
+
+        const shrine = w.scuttlers.shrines.find((entry) => entry.river === side);
+        if (
+          shrine &&
+          shrine.endTick > w.tick &&
+          w.pointVisible(shrinePoint(side, w.battlefield), w.hero.team)
+        )
+          statuses.push(
+            `${names[side]}: ${shrine.team === w.hero.team ? 'Allied' : 'Enemy'} shrine (${secondsLeft(shrine.endTick)})`
+          );
+      }
+    }
+    const message = statuses.join(' · ') || 'Scout the river for Scuttlers.';
+    if (panel.textContent !== message) panel.textContent = message;
+  }
   scoreboard(show: boolean): void {
     let panel = this.root.querySelector<HTMLDivElement>('.scoreboard');
     if (!panel) {
       panel = document.createElement('div');
       panel.className = 'scoreboard';
+      panel.innerHTML = `<div class="scoreboard-title">${this.world.matchMode === 'lanes' ? '5V5 MATCH' : 'PRACTICE MATCH'}</div><section class="scoreboard-objectives" aria-label="River objectives" hidden></section><div class="scoreboard-teams"></div>`;
       panel.addEventListener('contextmenu', (event) => event.preventDefault());
       this.root.append(panel);
     }
@@ -1222,6 +1262,7 @@ export class Hud {
       this.itemTooltip.clear();
       return;
     }
+    this.updateRiverObjectives(panel.querySelector<HTMLElement>('.scoreboard-objectives')!);
     const rows = this.world.units
       .filter((u) => u.kind === 'champion')
       .sort((a, b) => Number(a.team === 'red') - Number(b.team === 'red') || a.id - b.id)
@@ -1259,7 +1300,8 @@ export class Hud {
     if (signature === this.lastScoreboard) return;
     this.lastScoreboard = signature;
     const focusedItem = this.itemTooltip.focusKey();
-    panel.innerHTML = `<div class="scoreboard-title">${this.world.matchMode === 'lanes' ? '5V5 MATCH' : 'PRACTICE MATCH'}</div><div class="scoreboard-teams"><section class="scoreboard-team" data-team="blue" aria-label="Blue team"><h2>BLUE TEAM</h2></section><section class="scoreboard-team" data-team="red" aria-label="Red team"><h2>RED TEAM</h2></section></div>`;
+    panel.querySelector('.scoreboard-teams')!.innerHTML =
+      '<section class="scoreboard-team" data-team="blue" aria-label="Blue team"><h2>BLUE TEAM</h2></section><section class="scoreboard-team" data-team="red" aria-label="Red team"><h2>RED TEAM</h2></section>';
     for (const data of rows) {
       const row = document.createElement('div');
       row.className = `scoreboard-row${data.team === 'red' ? ' enemy' : ''}`;

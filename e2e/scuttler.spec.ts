@@ -1,5 +1,62 @@
 import { expect, test } from '@playwright/test';
 
+test('the river scoreboard shows the opening clock and only scouted later activity', async ({
+  page,
+}) => {
+  test.setTimeout(60_000);
+  await page.goto('/');
+  await page.waitForFunction(() => (window as any).__GAME__?.ready);
+  await page.locator('#loading').waitFor({ state: 'detached' });
+  await page.evaluate(() => (window as any).__GAME__.view.renderer.domElement.focus());
+  await page.keyboard.down('Tab');
+  const river = page.getByRole('region', { name: 'River objectives' });
+  await expect(river).toHaveText(/^First Scuttlers in 2:\d\d$/);
+  await page.keyboard.up('Tab');
+  await expect(river).toBeHidden();
+  await page.evaluate(() => (window as any).__GAME__.setPaused(true));
+
+  const advance = async (phase: 'leadup' | 'hidden' | 'scouted' | 'kill' | 'shrine') =>
+    page.evaluate(async (phase) => {
+      const { world: w, hud } = (window as any).__GAME__;
+      const { SCUTTLER_POLICY: P } = await import('/src/content/scuttler-policy.ts');
+      const { riverHome, shrinePoint } = await import('/src/simulation/scuttler.ts');
+      if (phase === 'leadup') {
+        for (const u of w.units) u.ai = false;
+        w.nextWaveTick = 1_000_000_000;
+        w.tick = P.firstReadyTick - 61;
+        w.step();
+        w.reveal = { point: riverHome('dragon', w.battlefield), endTick: P.firstReadyTick + 1 };
+      } else if (phase === 'hidden') {
+        w.reveal = null;
+        w.step(60);
+      } else if (phase === 'scouted') {
+        const crab = w.unit(w.scuttlers.unitIds.dragon);
+        w.reveal = { point: { x: crab.x, y: crab.y }, endTick: w.tick + 1 };
+      } else if (phase === 'kill') {
+        w.reveal = null;
+        const enemy = w.units.find((u: any) => u.kind === 'champion' && u.team === 'red');
+        w.damage(enemy, w.unit(w.scuttlers.unitIds.dragon), 99999, 'true');
+        w.damage(enemy, w.unit(w.scuttlers.unitIds.baron), 99999, 'true');
+        if (!w.scuttlers.pending || w.scuttlers.shrines.length !== 2)
+          throw new Error('Expected enemy shrines and a scheduled respawn');
+      } else {
+        w.reveal = { point: shrinePoint('dragon', w.battlefield), endTick: w.tick + 1 };
+      }
+      hud.scoreboard(true);
+    }, phase);
+
+  await advance('leadup');
+  await expect(river).toHaveText('First Scuttlers in 0:01');
+  await advance('hidden');
+  await expect(river).toHaveText('Scout the river for Scuttlers.');
+  await advance('scouted');
+  await expect(river).toHaveText('Bottom river: Scuttler in sight');
+  await advance('kill');
+  await expect(river).toHaveText('Scout the river for Scuttlers.');
+  await advance('shrine');
+  await expect(river).toHaveText('Bottom river: Enemy shrine (1:30)');
+});
+
 for (const mode of ['practice', 'lanes'] as const)
   test(`Rift ${mode}: peaceful Scuttlers emerge, flee real Lux input and save shared river spawns and shrine rewards`, async ({
     page,

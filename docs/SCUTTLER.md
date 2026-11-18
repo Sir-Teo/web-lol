@@ -62,6 +62,11 @@ for the clip's rounded 59-tick retention. There is no authored attack/death atom
 clip. Source shrine rendering, native hiding/death transition, later forms,
 lighting, materials, sounds and pixel comparison remain open.
 
+Hold **Tab** to see the first Scuttler countdown on the scoreboard. After the
+opening spawn, it lists Scuttlers and shrine timers only while they are in
+your team's vision. It never shows a hidden kill, the next chosen river, or
+a later spawn countdown derived from hidden match state.
+
 ## Persistence and verification
 
 Schema 97 introduced the controller state. Current schema 98 retains its initial
