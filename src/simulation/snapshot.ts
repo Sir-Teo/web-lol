@@ -200,7 +200,7 @@ import type { Command, Order, PlayerState, Projectile, Unit, Team } from './type
 
 declare const __SIMULATION_HASH__: string;
 export const SNAPSHOT_RULESET = __SIMULATION_HASH__;
-export const SNAPSHOT_VERSION = 182;
+export const SNAPSHOT_VERSION = 183;
 const nonnegative = z.number().nonnegative();
 const tick = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 const score = nonnegative.max(Number.MAX_SAFE_INTEGER).refine((v) => statPrecision(v) === v);
@@ -2011,6 +2011,7 @@ const snapshot = z.strictObject({
     .strictObject({
       unitId: id.nullable(),
       lastClear: z.strictObject({ tick, team: team.nullable() }).nullable(),
+      holders: z.array(id).max(5),
     })
     .nullable(),
   pendingWards: z
@@ -3625,6 +3626,18 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
       (objective.lastClear &&
         (objective.lastClear.tick < RIFT_BARON.firstReadyTick ||
           objective.lastClear.tick > state.tick)) ||
+      new Set(objective.holders).size !== objective.holders.length ||
+      objective.holders.some((id) => {
+        const clear = objective.lastClear;
+        const holder = state.units.find((u) => u.id === id);
+        return (
+          !clear?.team ||
+          state.tick >= clear.tick + RIFT_BARON.handDurationTicks ||
+          holder?.kind !== 'champion' ||
+          holder.team !== clear.team ||
+          holder.hp <= 0
+        );
+      }) ||
       barons.length > 1 ||
       (objective.unitId === null
         ? !state.winner && state.tick >= startTick

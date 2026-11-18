@@ -65,6 +65,8 @@ test('playtest Baron enters the pit, can be secured with F and restores its resp
   await page.mouse.move(point.x, point.y);
   await page.keyboard.press('f');
   await expect(page.locator('#toast')).toHaveText('Your team slew Baron Nashor. +150 gold');
+  await expect(page.locator('#baron-buff')).toBeVisible();
+  await expect(page.locator('#baron-buff')).toHaveAttribute('aria-label', /50% more damage/);
   await page.keyboard.down('Tab');
   await expect(scoreboard).toHaveText(/^Baron Nashor respawns in (6:00|5:\d\d)$/);
   await page.keyboard.up('Tab');

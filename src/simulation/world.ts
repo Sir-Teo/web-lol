@@ -513,6 +513,7 @@ export class World {
   riftBaron: {
     unitId: number | null;
     lastClear: { tick: number; team: Team | null } | null;
+    holders: number[];
   } | null = null;
   jungleCamps: JungleCampState[] = [];
   pendingWards: WardPlacement[] = [];
@@ -1016,7 +1017,13 @@ export class World {
   }
   private advanceRiftBaron(): void {
     const objective = this.riftBaron;
-    if (!objective || objective.unitId !== null) return;
+    if (!objective) return;
+    if (
+      objective.holders.length &&
+      this.tick >= objective.lastClear!.tick + RIFT_BARON.handDurationTicks
+    )
+      objective.holders = [];
+    if (objective.unitId !== null) return;
     const readyTick = baronReadyTick(objective.lastClear?.tick ?? null);
     const startTick = readyTick - BARON.spawnClipTicks;
     if (this.tick >= startTick)
@@ -1027,9 +1034,11 @@ export class World {
     const team = killer?.kind === 'champion' ? killer.team : null;
     objective.unitId = null;
     objective.lastClear = { tick: this.tick, team };
+    objective.holders = [];
     if (!team) return;
     for (const champion of this.units) {
       if (champion.kind !== 'champion' || champion.team !== team) continue;
+      if (this.alive(champion)) objective.holders.push(champion.id);
       const state = this.championState(champion.id)!;
       state.gold += RIFT_BARON.teamGoldPerChampion;
       if (state.id === this.player.id)
@@ -1039,6 +1048,27 @@ export class World {
           team,
         });
     }
+  }
+  handOfBaronEndTick(unit: Unit): number | null {
+    const objective = this.riftBaron;
+    if (!objective?.holders.includes(unit.id)) return null;
+    const endTick = objective.lastClear!.tick + RIFT_BARON.handDurationTicks;
+    return endTick > this.tick ? endTick : null;
+  }
+  baronEmpoweredMinion(unit: Unit): boolean {
+    const objective = this.riftBaron;
+    if (
+      !objective?.holders.length ||
+      objective.lastClear?.team !== unit.team ||
+      !isLaneMinionKind(unit.kind) ||
+      !this.alive(unit) ||
+      this.tick >= objective.lastClear.tick + RIFT_BARON.handDurationTicks
+    )
+      return false;
+    return objective.holders.some((id) => {
+      const holder = this.unit(id);
+      return holder && this.alive(holder) && distance(holder, unit) <= RIFT_BARON.handMinionRadius;
+    });
   }
   private advanceJungleCamps(): void {
     for (const camp of this.jungleCamps) {
@@ -3434,6 +3464,7 @@ export class World {
               controlled: u.ai,
               available: !u.aiRetreating && s.recallEnd === null,
               level: s.level,
+              ...(this.handOfBaronEndTick(u) !== null ? { handOfBaron: true } : {}),
               ...(baron
                 ? {
                     smiteReady: this.readySmiteSlot(u) !== null,
@@ -6142,6 +6173,10 @@ export class World {
       target.kind === 'turret' && isLaneMinionKind(source.kind)
         ? (this.battlefield.minionTurretDamage?.[source.kind] ?? 1)
         : 1;
+    const baronSiege =
+      isStructureKind(target.kind) && this.baronEmpoweredMinion(source)
+        ? RIFT_BARON.handStructureMultiplier
+        : 1;
     const healthRatio =
       source.kind !== 'monster' && isLaneMinionKind(source.kind) && isLaneMinionKind(target.kind)
         ? (this.battlefield.minionCurrentHealthDamage?.[source.kind]?.[source.team] ?? 0)
@@ -6154,7 +6189,12 @@ export class World {
     if (illuminated) this.captureIlluminationVisual(source, target);
     if (illuminated)
       target.illumination = target.illumination.filter((mark) => mark.sourceId !== source.id);
-    this.damage(source, target, raw * multiplier + target.hp * healthRatio, 'physical');
+    this.damage(
+      source,
+      target,
+      raw * multiplier * baronSiege + target.hp * healthRatio,
+      'physical'
+    );
     if (illuminated && this.alive(target)) {
       this.damage(source, target, this.illuminationDamage(source), 'magic');
     }
@@ -6587,6 +6627,9 @@ export class World {
           turret.order = { type: 'attack', target: source.id };
       }
     if (target.hp === 0) {
+      const holders = this.riftBaron?.holders;
+      const holderIndex = holders?.indexOf(target.id) ?? -1;
+      if (holderIndex !== -1) holders!.splice(holderIndex, 1);
       this.pendingAttackProjectiles = this.pendingAttackProjectiles.filter(
         (p) => p.target !== target.id
       );

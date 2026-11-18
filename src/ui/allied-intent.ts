@@ -31,5 +31,8 @@ export function alliedChampionIntent(world: World, unit: Unit): string | null {
   const goal = world.teamPlans?.[unit.team].assignments.find(
     (entry) => entry.unitId === unit.id && entry.expiresTick > world.tick
   );
-  return goal ? GOAL_LABELS[goal.kind] : null;
+  if (!goal) return null;
+  if ((goal.kind === 'advance' || goal.kind === 'push') && world.handOfBaronEndTick(unit) !== null)
+    return 'Escorting a Baron wave';
+  return GOAL_LABELS[goal.kind];
 }

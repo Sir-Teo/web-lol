@@ -23,7 +23,14 @@ Smite. They drop the plan if vision, strength, or Smite readiness is lost or
 if needed for defense. A nearby jungler can still secure a visible lethal
 Baron even without enough allies for a full attempt. Manual players are
 never assigned orders; an attack order on Baron counts as joining the attempt.
-Hand of Baron, XP, and the full boss kit are not implemented. The 13.5 MB rig is prepared at startup in the live 5v5 and
+Living champions on the securing team gain **Hand of Baron** for three
+minutes or until death. Nearby allied lane minions deal 50% more damage to
+structures, sampled at impact and never stacked between two holders.
+The HUD shows the holder timer and identifies an empowered selected minion.
+Bots carrying the buff favor viable allied waves already approaching exposed
+structures; ordinary defenses and tower safety still apply. This playtest
+does not add the native stat bonuses, recall changes, XP, or the full boss kit.
+The 13.5 MB rig is prepared at startup in the live 5v5 and
 the private fixture, not in practice or public Rift. Live Baron basic audio is
 requested on first combat rather than at match start.
 

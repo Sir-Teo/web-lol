@@ -33,6 +33,7 @@ export interface TeamActor extends Combatant {
   level: number;
   smiteReady?: boolean;
   assistingBaron?: boolean;
+  handOfBaron?: boolean;
 }
 export interface SeenChampion extends Combatant {
   id: number;
@@ -170,7 +171,8 @@ export function planTeam(previous: readonly TeamGoal[], o: TeamObservation): Tea
           (s.kind === 'nexus' ? 60 : s.kind === 'inhibitor' ? 30 : 0) +
           (1 - s.hp / s.maxHp) * 20 +
           cover.length -
-          distance(a, s) / 250
+          distance(a, s) / 250 +
+          (a.handOfBaron && cover.length ? 35 : 0)
       );
     }
   }
@@ -223,7 +225,8 @@ export function planTeam(previous: readonly TeamGoal[], o: TeamObservation): Tea
         a.clearing ||
         // Keep an unfinished jungler on its economy loop for ordinary towers.
         // A public base-ending wave remains an opportunity for every role.
-        (a.role === 'jungle' &&
+        (!a.handOfBaron &&
+          a.role === 'jungle' &&
           !a.companionComplete &&
           objective.lane !== null &&
           objective.kind !== 'inhibitor') ||
@@ -248,7 +251,8 @@ export function planTeam(previous: readonly TeamGoal[], o: TeamObservation): Tea
         70 +
           (objective.kind === 'nexus' ? 40 : objective.kind === 'inhibitor' ? 20 : 0) +
           Math.min(cover.length, 6) * 2 -
-          distance(a, point) / 600
+          distance(a, point) / 600 +
+          (a.handOfBaron ? 75 : 0)
       );
     }
   }

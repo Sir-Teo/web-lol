@@ -182,6 +182,12 @@ export class Hud {
       <div class="death-overlay" hidden><span>You have been slain</span><strong id="respawn-count"></strong></div>
       <div class="modal-backdrop" id="modal" hidden></div>
     `;
+    this.root
+      .querySelector('#champion-buffs')!
+      .insertAdjacentHTML(
+        'beforeend',
+        '<span class="blue-buff baron-buff" id="baron-buff" tabindex="0" role="img" hidden><b>Hand of Baron</b><time id="baron-buff-time"></time></span>'
+      );
     host.append(this.root);
     this.allyCameraGroup = this.root.querySelector<HTMLDivElement>('.ally-portraits')!;
     this.allyCameraButtons = [
@@ -1501,7 +1507,21 @@ export class Hud {
     this.updateResourceMeter('mana-text', Math.floor(h.mana), Math.floor(h.maxMana));
     const blueBuff = p.blueBuff && p.blueBuff.endTick > w.tick ? p.blueBuff : null;
     const redBuff = redBuffActive(p, w.tick) ? p.redBuff : null;
-    this.root.querySelector<HTMLElement>('#champion-buffs')!.hidden = !blueBuff && !redBuff;
+    const baronEnd = w.handOfBaronEndTick(h);
+    const baronBuff = this.root.querySelector<HTMLElement>('#baron-buff')!;
+    baronBuff.hidden = baronEnd === null;
+    if (baronEnd !== null) {
+      const time = this.objectiveTimeLeft(baronEnd);
+      text('baron-buff-time', time);
+      const bonus = Math.round((RIFT_BARON.handStructureMultiplier - 1) * 100);
+      const description = `Hand of Baron: nearby allied minions deal ${bonus}% more damage to structures. ${time} remaining. Lost on death.`;
+      if (baronBuff.title !== description) {
+        baronBuff.title = description;
+        baronBuff.setAttribute('aria-label', description);
+      }
+    }
+    this.root.querySelector<HTMLElement>('#champion-buffs')!.hidden =
+      !blueBuff && !redBuff && baronEnd === null;
     this.root.querySelector<HTMLElement>('#blue-buff')!.hidden = !blueBuff;
     this.root.querySelector<HTMLElement>('#red-buff')!.hidden = !redBuff;
     if (blueBuff) {
@@ -1746,7 +1766,7 @@ export class Hud {
       text('target-name', target.name);
       text(
         'target-hp',
-        `${Math.ceil(target.hp)} / ${Math.ceil(target.maxHp)}${w.vulnerable(target) ? '' : ' · Protected'}`
+        `${Math.ceil(target.hp)} / ${Math.ceil(target.maxHp)}${w.vulnerable(target) ? '' : ' · Protected'}${w.baronEmpoweredMinion(target) ? ' · Baron-empowered' : ''}`
       );
       (panel.querySelector('.target-health i') as HTMLElement).style.width =
         `${(target.hp / target.maxHp) * 100}%`;

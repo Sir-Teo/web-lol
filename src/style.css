@@ -434,8 +434,14 @@ button {
 }
 .champion-buffs {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
   margin: 0 0 9px;
+}
+.baron-buff {
+  padding-left: 8px;
+  border-color: #8969af;
+  color: #e9d1ff;
 }
 .blue-buff {
   position: relative;

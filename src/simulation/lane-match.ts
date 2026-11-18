@@ -62,7 +62,8 @@ export function createLaneMatch(
     playerChampion
   );
   world.matchMode = 'lanes';
-  if (battlefield.rosterPlaytestBaron) world.riftBaron = { unitId: null, lastClear: null };
+  if (battlefield.rosterPlaytestBaron)
+    world.riftBaron = { unitId: null, lastClear: null, holders: [] };
   equipSummoners(world.player, summoners);
   const playerRole = PLAYER_CHAMPION_ROLES[playerChampion];
   const playerSlot = assignments.findIndex(({ role }) => role === playerRole);

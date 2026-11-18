@@ -83,6 +83,19 @@ test('Baron rally requires visible safety and an armed jungler, then commits onl
     }).map((g) => g.unitId)
   ).toEqual([1, 2]);
 });
+test('a Baron holder escorts a viable wave even before jungle companion completion', () => {
+  const o = observed();
+  o.actors = [{ ...actor(), level: 11, handOfBaron: true }];
+  o.minions = [1200, 1300, 1400].map((x) => ({ x, y: 0, lane: 'mid' }));
+  o.knownStructures = [
+    { ...structure(20, 2000), lane: 'mid', role: 'outer-turret', knownDestroyed: false },
+  ];
+  expect(planTeam([], o)).toMatchObject([{ kind: 'advance', targetId: 20 }]);
+  expect(
+    planTeam([], { ...o, actors: o.actors.map((a) => ({ ...a, handOfBaron: false })) })
+  ).toEqual([]);
+  expect(planTeam([], { ...o, minions: [] })).toEqual([]);
+});
 test('teams defend a threatened base with available controlled responders while the human and healing actors keep their control', () => {
   const o = observed();
   o.actors = [

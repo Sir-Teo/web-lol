@@ -76,7 +76,7 @@ development fixtures or test hooks.
 
 The internal 5v5 also runs the live Baron prototype described in
 [Baron encounters](BARON-ENCOUNTER.md#rift-playtest). This increments the
-shared save schema to 182. Earlier checkpoints are tied to the old ruleset
+shared save schema to 183. Earlier checkpoints are tied to the old ruleset
 and cannot be resumed on the new build, including in public modes where live
 Baron remains disabled.
 

@@ -43,6 +43,9 @@ export const RIFT_BARON = {
   firstReadyTick: 20 * 60 * TICK_RATE,
   respawnTicks: 6 * 60 * TICK_RATE,
   teamGoldPerChampion: 150,
+  handDurationTicks: 3 * 60 * TICK_RATE,
+  handMinionRadius: 900,
+  handStructureMultiplier: 1.5,
 } as const;
 
 export function baronReadyTick(lastClearTick: number | null): number {

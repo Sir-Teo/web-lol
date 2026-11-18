@@ -92,7 +92,13 @@ test.each(['blue', 'red'] as const)(
     });
     w.step();
     expect(baron.hp).toBe(0);
-    expect(w.riftBaron).toEqual({ unitId: null, lastClear: { tick: w.tick, team } });
+    expect(w.riftBaron).toEqual({
+      unitId: null,
+      lastClear: { tick: w.tick, team },
+      holders: champions
+        .filter((champion) => champion.team === team)
+        .map((champion) => champion.id),
+    });
     w.damage(killer, baron, 100, 'true');
     for (const [i, champion] of champions.entries()) {
       const state = w.championState(champion.id)!;
@@ -154,4 +160,38 @@ test('a real bot jungler saves Smite until lethal, then secures a visible Baron'
   w.step(2);
   expect(w.alive(baron)).toBe(false);
   expect(w.riftBaron?.lastClear?.team).toBe('blue');
+});
+
+test('Hand of Baron amplifies real minion hits without stacking and expires on death or time', () => {
+  const w = match();
+  w.tick = RIFT_BARON.firstReadyTick - 1;
+  w.step();
+  w.damage(w.hero, barons(w)[0], 100_000, 'true');
+  const tower = w.units.find((u) => u.team === 'red' && u.structure?.role === 'outer-turret')!;
+  const minion = w.spawn('melee', 'blue', { x: tower.x + 150, y: tower.y });
+  const allied = w.units.find(
+    (u) => u.team === 'blue' && u.kind === 'champion' && u.id !== w.hero.id
+  )!;
+  const initialHp = tower.hp;
+  w['hitBasicAttack'](minion, tower, minion.damage);
+  const normalDamage = initialHp - tower.hp;
+  Object.assign(w.hero, { x: tower.x + 200, y: tower.y });
+  Object.assign(allied, { x: tower.x + 300, y: tower.y });
+  expect(w.baronEmpoweredMinion(minion)).toBe(true);
+  const empoweredHp = tower.hp;
+  w['hitBasicAttack'](minion, tower, minion.damage);
+  expect(empoweredHp - tower.hp).toBeCloseTo(normalDamage * 1.5);
+  const saved = w.snapshot();
+  expect(World.fromSnapshot(saved, playtest).snapshot()).toBe(saved);
+  const invalid = JSON.parse(saved);
+  invalid.riftBaron.holders[0] = minion.id;
+  expect(() => World.fromSnapshot(JSON.stringify(invalid), playtest)).toThrow('invalid spawn');
+  w.damage(tower, w.hero, 100_000, 'true');
+  expect(w.handOfBaronEndTick(w.hero)).toBeNull();
+  expect(w.baronEmpoweredMinion(minion)).toBe(true);
+  w.tick = w.handOfBaronEndTick(allied)! - 1;
+  w.step();
+  expect(w.handOfBaronEndTick(allied)).toBeNull();
+  expect(w.baronEmpoweredMinion(minion)).toBe(false);
+  expect(w.riftBaron?.holders).toEqual([]);
 });
