@@ -42,9 +42,14 @@ point, flags and trailing bytes remain metadata. Face RGB and those metadata are
 not assigned guessed runtime meanings.
 
 All five textures export as lossless RGBA PNGs with pixel and output hashes in
-`reference/garen-spin.json`. Runtime now loads all five textures, including the
-ground-glow source and its particle-color lookup. All resources use the application base path and work under
-nested static hosting.
+`reference/garen-spin.json`. The built game prepares the mesh and all five
+textures before play when either team has Garen; the public Ashe/Lux roster
+does not download them at startup. Development fixtures retain preloading so
+they can spawn Garen after boot. All six files stay in the complete offline pack.
+The [REA bundle audit](REFERENCE-VALIDATION.md#optional-rea-analysis) and a cold
+Chrome launch identified six unnecessary requests totaling 353,784 bytes of
+asset bodies. This removes those requests, not the common Garen rig or any
+offline pack content.
 
 ## Adapter behavior and limits
 

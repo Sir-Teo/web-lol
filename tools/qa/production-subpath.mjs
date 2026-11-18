@@ -6,6 +6,7 @@ import { resolve, sep, extname } from 'node:path';
 import assert from 'node:assert/strict';
 import { chromium } from '@playwright/test';
 import { parseArgs } from 'node:util';
+import judgmentProfiles from '../../src/content/garen-spin.json' with { type: 'json' };
 
 const { values, positionals } = parseArgs({
   options: { 'system-chromium': { type: 'boolean', default: false } },
@@ -87,6 +88,12 @@ await new Promise((resolve, reject) => {
   server.listen(0, '127.0.0.1', resolve);
 });
 const base = `http://127.0.0.1:${server.address().port}${prefix}`;
+const judgmentPaths = new Set([
+  'assets/models/garen-spin.glb',
+  ...judgmentProfiles.flatMap(({ texture, colorLookup }) =>
+    colorLookup.texture ? [texture, colorLookup.texture] : [texture]
+  ),
+]);
 let browser;
 try {
   browser = await chromium.launch(
@@ -100,6 +107,7 @@ try {
     outside = [],
     junglePreviewRequests = [],
     leonaPreviewRequests = [],
+    judgmentRequests = [],
     ahriPreviewRequests = [],
     masterYiPreviewRequests = [],
     masterYiAttackAudioRequests = [],
@@ -145,6 +153,7 @@ try {
     scheduledRaptorRequests = [],
     scheduledKrugRequests = [],
     scheduledScuttlerRequests = [],
+    luxPresentationRequests = [],
     lucentSourceAssets = new Set(),
     recordings = new Set();
   page.on('pageerror', (error) => errors.push(error.message));
@@ -152,6 +161,15 @@ try {
     if (message.type() === 'error') errors.push(message.text());
   });
   page.on('request', (request) => {
+    const url = request.url();
+    if (url.startsWith(base) && judgmentPaths.has(new URL(url).pathname.slice(prefix.length)))
+      judgmentRequests.push(url);
+    if (
+      /\/assets\/(?:effects\/lux-[^/]+\.png|audio\/lux-[^/]+\.wav|models\/lux-(?!base\.)[^/]+\.glb)$/.test(
+        new URL(url).pathname
+      )
+    )
+      luxPresentationRequests.push(url);
     if (
       request.url().includes('/assets/effects/ahri-r-') ||
       /\/assets\/ahri-r-effects-[^/]+\.js$/.test(new URL(request.url()).pathname)
@@ -406,6 +424,7 @@ try {
   await page.goto(`${base}?scene=roster-rift`);
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.locator('.champion-title strong').textContent(), 'ASHE');
+  assert.match(await page.locator('.match-identity').textContent(), /LOCAL MATCH/);
   assert.equal(await page.evaluate(() => !!window.__GAME__), false);
   assert.deepEqual(masterYiPreviewRequests, [], 'The combined trial must not preload Yi');
   assert.deepEqual(ahriPreviewRequests, [], 'The combined trial must not preload Ahri');
@@ -423,10 +442,11 @@ try {
   );
   await page.getByRole('button', { name: 'Back to pause menu', exact: true }).click();
   await page.getByRole('button', { name: 'Return to the Rift', exact: true }).click();
-  assert.equal(
-    recordings.size,
-    29,
-    'Every source Lucent Singularity, Hawkshot, Illumination and Light Binding cast/flight recording must load beneath the host prefix'
+  assert.equal(recordings.size, 9, 'Ashe practice must prepare all Hawkshot recordings');
+  assert.deepEqual(
+    luxPresentationRequests,
+    [],
+    'Worlds without Lux do not request Lux effects or audio'
   );
   await page.mouse.click(880, 480, { button: 'right' });
   await page.waitForTimeout(1800);
@@ -464,6 +484,7 @@ try {
   ]);
   await page.locator('#loading').waitFor({ state: 'detached', timeout: 60000 });
   assert.equal(await page.locator('.champion-title strong').textContent(), 'LUX');
+  assert.equal(recordings.size, 29, 'All Lux and Ashe recordings must be ready before 5v5 play');
   assert.equal(
     await page.locator('[data-ability="f"] img').getAttribute('src'),
     'assets/icons/SummonerSmite.png'
@@ -700,6 +721,7 @@ try {
     [],
     'Ordinary production worlds do not preload development Leona assets'
   );
+  assert.deepEqual(judgmentRequests, [], 'Worlds without Garen do not request Judgment assets');
   assert.deepEqual(
     masterYiPreviewRequests,
     [],
@@ -856,6 +878,7 @@ try {
     unrequestedAhriRecallAudioPreloads: ahriRecallAudioRequests.length,
     unrequestedAhriLifecycleAudioPreloads: ahriLifecycleAudioRequests.length,
     garenFixtureInProduction: false,
+    unrequestedGarenJudgmentPreloads: judgmentRequests.length,
     leonaPlayerFixtureInProduction: false,
     leonaRiftTrialInProduction: false,
     garenRiftTrialInProduction: false,

@@ -199,6 +199,12 @@ CSS maps the existing regular/medium body styles to Spiegel Regular, semibold to
 
 ## Lux E static source layers — October 23, 2026
 
+Production prepares Lux's effect meshes, textures, and source audio only if
+Lux is in the match, including as a bot or in a restored save. Cold Ashe
+practice no longer downloads 76 Lux presentation files (8,330,476 bytes).
+Development fixtures still preload them for test-spawned champions, and the
+complete offline pack still contains them.
+
 The six base E resources now retain complete frozen BIN definitions, 37 losslessly
 decoded textures and two mesh identities in [the E source pin](reference/lux-e-vfx.json).
 Twenty static emitter records drive flight, team fields and detonation. The authored

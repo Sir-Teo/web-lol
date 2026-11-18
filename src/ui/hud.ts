@@ -143,18 +143,20 @@ export class Hud {
   private lastScoreboard = '';
   private buyingItem = false;
   private toastUntil = 0;
+  private readonly rosterPlaytest: boolean;
   constructor(
     host: HTMLElement,
     private world: World,
     private view: GameView,
     private actions: HudActions,
-    options: { soundEnabled?: boolean } = {}
+    options: { soundEnabled?: boolean; rosterPlaytest?: boolean } = {}
   ) {
     this.sound = options.soundEnabled ?? true;
+    this.rosterPlaytest = options.rosterPlaytest ?? false;
     this.root = document.createElement('div');
     this.root.className = 'hud';
     this.root.innerHTML = `
-      <div class="match-identity"><span class="rift-emblem">◈</span><div><strong>SUMMONER’S RIFT</strong><span>${world.matchMode === 'lanes' ? '5V5 MATCH' : 'PRACTICE TOOL'} <i>•</i> LOCAL MATCH</span></div></div>
+      <div class="match-identity"><span class="rift-emblem">◈</span><div><strong>SUMMONER’S RIFT</strong><span>${world.matchMode === 'lanes' ? '5V5 MATCH' : 'PRACTICE TOOL'} <i>•</i> ${this.rosterPlaytest ? 'ROSTER PLAYTEST' : 'LOCAL MATCH'}</span></div></div>
       <div class="match-top"><span class="team-score"><b class="blue-number" id="kills">0</b><i>⚔</i><b class="red-number" id="deaths">0</b></span><span class="personal-score" id="personal">0 / 0 / 0</span><span title="Creep score"><i class="gold-symbol">♜</i> <b id="cs">0</b></span><time id="clock">00:00</time><button class="icon-button" id="pause-button" title="Pause (Esc)" aria-label="Pause game">Ⅱ</button></div>
       <div class="welcome"><span>THE RIFT AWAITS</span><h1>Welcome to Summoner’s Rift</h1><div class="ornament">━━━━ ◈ ━━━━</div></div>
       <div id="toast" role="status" aria-live="polite"></div>
@@ -700,7 +702,7 @@ export class Hud {
       currentChampion && playerChoices.includes(currentChampion) ? currentChampion : 'ashe';
     const laneDescription = () =>
       this.world.battlefield.developmentRosterBots
-        ? `Play ${championProfile(chosenChampion).name} in ${ROLE_LABELS[PLAYER_CHAMPION_ROLES[chosenChampion]].toLowerCase()} with four allied bots against five opponents. Your champion takes that allied position in the development roster. Jungle bots use Smite and a paid companion.${chosenChampion === 'masteryi' ? ' Smite is required to buy your own jungle companion.' : ''} Major objectives and complete team strategy are in development.`
+        ? `Play ${championProfile(chosenChampion).name} in ${ROLE_LABELS[PLAYER_CHAMPION_ROLES[chosenChampion]].toLowerCase()} with four allied bots against five opponents. Your champion takes that allied position in the ${this.rosterPlaytest ? 'playtest' : 'development'} roster. Jungle bots use Smite and a paid companion.${chosenChampion === 'masteryi' ? ' Smite is required to buy your own jungle companion.' : ''} Major objectives and complete team strategy are in development.`
         : `Play ${chosenChampion === 'lux' ? 'Lux in mid' : 'Ashe in bottom lane'} with four allied bots against five opponents. Each team has top, jungle, mid, bottom and support assignments. Jungle bots use Smite and a companion. Ashe and Lux are selectable here; major objectives and complete team strategy are in development.`;
     const canPractice = () => chosenChampion === 'ashe' || chosenChampion === 'lux';
     const practiceDescription = () =>
@@ -738,7 +740,9 @@ export class Hud {
       content = `<button class="primary-button" data-action="resume">Return to the Rift</button><button class="menu-button" data-action="save">Save match</button><button class="menu-button" data-action="files">Match files</button><button class="menu-button" data-action="offline">Offline files</button>${this.world.battlefield.id === 'rift' ? '<button class="menu-button" data-action="new-match">New match</button>' : ''}<button class="menu-button" data-action="help">Controls & keybindings</button><button class="menu-button" data-action="reset">${this.world.matchMode === 'lanes' ? 'Restart 5v5 match' : 'Restart practice'}</button>`;
     } else if (which === 'new-match') {
       title = 'Choose your match';
-      subtitle = 'Play locally. Your browser runs the match.';
+      subtitle = this.rosterPlaytest
+        ? 'Internal roster playtest. Saves are separate from the public game.'
+        : 'Play locally. Your browser runs the match.';
       content = `<div class="champion-choice" role="group" aria-label="Choose your champion">${playerChoices.map((champion) => `<button class="menu-button" data-action="choose-champion" data-champion="${champion}" aria-pressed="${champion === chosenChampion}"><img src="assets/icons/${champion}.png" alt=""><span>${championProfile(champion).name}</span></button>`).join('')}</div>${summonerChoices()}<button class="primary-button" data-action="start-lanes">Start 5v5 match</button><p class="practice-note lane-description">${laneDescription()}</p><button class="menu-button" data-action="start-practice" ${canPractice() ? '' : 'disabled'}>Start practice</button><p class="practice-note practice-description">${practiceDescription()}</p><p class="practice-note">Starting replaces your current match and browser save. Download a match file first if you want to keep it.</p><button class="menu-button" data-action="back">Back to pause menu</button>`;
     } else if (which === 'offline') {
       title = 'Offline files';

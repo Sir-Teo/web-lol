@@ -132,12 +132,19 @@ export class GameAudio {
     this.audible = value;
     if (!value) this.stopVoices();
   }
-  async load(
-    garenPresent = false,
-    masterYiPresent = false,
-    baronPreview = false,
-    ahriPresent = false
-  ): Promise<void> {
+  async load({
+    garenPresent,
+    masterYiPresent,
+    baronPreview,
+    ahriPresent,
+    prepareLux,
+  }: {
+    garenPresent: boolean;
+    masterYiPresent: boolean;
+    baronPreview: boolean;
+    ahriPresent: boolean;
+    prepareLux: boolean;
+  }): Promise<void> {
     await Promise.all([
       ...(baronPreview ? [this.baronBasic.load()] : []),
       ...(ahriPresent
@@ -156,10 +163,14 @@ export class GameAudio {
       this.loadArrival(),
       this.loadLinger(),
       this.loadFlight(),
-      this.loadIllumination(),
-      this.loadBindingCast(),
-      this.bindingFlight.load(),
-      this.luxE.load(),
+      ...(prepareLux
+        ? [
+            this.loadIllumination(),
+            this.loadBindingCast(),
+            this.bindingFlight.load(),
+            this.luxE.load(),
+          ]
+        : []),
       ...(masterYiPresent
         ? [
             this.masterYiAA.load(),

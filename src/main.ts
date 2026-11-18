@@ -58,9 +58,11 @@ const loading = document.querySelector<HTMLDivElement>('#loading')!;
 
 async function boot(): Promise<void> {
   const query = new URLSearchParams(location.search);
+  const rosterPlaytest = import.meta.env.PROD && import.meta.env.MODE === 'roster-playtest';
   const fixture = import.meta.env.DEV && query.get('scene') === 'fixture';
   const baronEncounter = fixture && query.get('encounter') === 'baron';
-  const rosterRiftTrial = import.meta.env.DEV && query.get('scene') === 'roster-rift';
+  const rosterRiftTrial =
+    rosterPlaytest || (import.meta.env.DEV && query.get('scene') === 'roster-rift');
   const leonaRiftTrial = import.meta.env.DEV && query.get('scene') === 'leona-rift';
   const garenRiftTrial = import.meta.env.DEV && query.get('scene') === 'garen-rift';
   const masterYiRiftTrial = import.meta.env.DEV && query.get('scene') === 'masteryi-rift';
@@ -107,10 +109,12 @@ async function boot(): Promise<void> {
               : ahriPlayerFixture
                 ? { ...loadedBattlefield, developmentAhri: true as const }
                 : loadedBattlefield;
-  const saveKey = baronEncounter
-    ? 'development-baron-encounter'
-    : rosterRiftTrial
-      ? 'development-roster-rift'
+  const saveKey = rosterRiftTrial
+    ? rosterPlaytest
+      ? 'roster-playtest'
+      : 'development-roster-rift'
+    : baronEncounter
+      ? 'development-baron-encounter'
       : ahriBotRiftTrial
         ? 'development-ahri-bots-rift'
         : ahriRiftTrial
@@ -377,7 +381,7 @@ async function boot(): Promise<void> {
         writeSoundEnabled(enabled);
       },
     },
-    { soundEnabled }
+    { soundEnabled, rosterPlaytest }
   );
   checkpoints = new RecoveryCheckpoints(
     world.tick,
@@ -409,6 +413,9 @@ async function boot(): Promise<void> {
     ]),
   ];
   const hasGrompContent = monsterSpecies.includes('gromp');
+  const hasGaren = world.units.some((u) => u.champion === 'garen');
+  // Development probes may spawn Lux after boot.
+  const prepareLux = import.meta.env.DEV || world.units.some((u) => u.champion === 'lux');
   const assetsReady = Promise.all([
     ...(world.units.some((u) => {
       const s = world.championState(u.id)?.trinket;
@@ -418,12 +425,13 @@ async function boot(): Promise<void> {
       : []),
     loadOwnedCompanions(world.companions.map((p) => p.kind)),
     loadInterfaceFonts(),
-    audio.load(
-      world.units.some((u) => u.champion === 'garen'),
-      world.units.some((u) => u.champion === 'masteryi'),
-      baronEncounter,
-      world.units.some((u) => u.champion === 'ahri')
-    ),
+    audio.load({
+      garenPresent: hasGaren,
+      masterYiPresent: world.units.some((u) => u.champion === 'masteryi'),
+      baronPreview: baronEncounter,
+      ahriPresent: world.units.some((u) => u.champion === 'ahri'),
+      prepareLux,
+    }),
     loadReferenceModels(
       monsterSpecies,
       world.units.some((u) => u.champion === 'leona'),
@@ -452,7 +460,8 @@ async function boot(): Promise<void> {
           audio.leonaDeath.load(),
         ]
       : []),
-    loadGarenSpin(),
+    // Development probes can spawn Garen after boot.
+    ...(import.meta.env.DEV || hasGaren ? [loadGarenSpin()] : []),
     ...(world.units.some((u) => u.champion === 'masteryi')
       ? [
           view.highlanderCasts.load(),
@@ -484,7 +493,7 @@ async function boot(): Promise<void> {
           view.meditateBuffs.load(),
         ]
       : []),
-    ...(world.units.some((u) => u.champion === 'garen')
+    ...(hasGaren
       ? [
           view.garenJustice.load(),
           view.garenCourage.load(),
@@ -493,20 +502,24 @@ async function boot(): Promise<void> {
           view.garenBasicAttacks.load(),
         ]
       : []),
-    loadLuxBeamTextures(),
-    loadLuxRStreakTextures(),
-    loadLuxBokehTextures(),
-    loadLuxScorchTextures(),
-    loadLuxGroundChargeTextures(),
-    loadLuxGroundWarningTextures(),
-    loadLuxChargeRayTextures(),
-    loadLuxAttackTextures(),
-    loadLuxImpactTextures(),
-    loadLuxIlluminationTextures(),
-    loadLuxIlluminationTriggerTextures(),
-    loadLuxESource(),
-    loadLuxTrailTextures(),
-    loadLuxCrescentAssets(),
+    ...(prepareLux
+      ? [
+          loadLuxBeamTextures(),
+          loadLuxRStreakTextures(),
+          loadLuxBokehTextures(),
+          loadLuxScorchTextures(),
+          loadLuxGroundChargeTextures(),
+          loadLuxGroundWarningTextures(),
+          loadLuxChargeRayTextures(),
+          loadLuxAttackTextures(),
+          loadLuxImpactTextures(),
+          loadLuxIlluminationTextures(),
+          loadLuxIlluminationTriggerTextures(),
+          loadLuxESource(),
+          loadLuxTrailTextures(),
+          loadLuxCrescentAssets(),
+        ]
+      : []),
     loadHawkshot(),
     loadAsheAttackArrow(),
     loadHawkshotWind(),
@@ -590,6 +603,7 @@ async function boot(): Promise<void> {
   if (saveNotice) hud.toast(saveNotice);
   else if (recoveryAvailable) hud.toast('A recovery checkpoint is available in Match files.');
   else if (restored) hud.toast('Saved match restored. Resume when you’re ready.');
+  else if (rosterPlaytest) hud.toast('Roster playtest: open New match to choose a champion.');
   else if (rosterRiftTrial) hud.toast('Development trial: combined champion roster on the Rift.');
   else if (leonaRiftTrial) hud.toast('Development trial: Leona support on Summoner’s Rift.');
   else if (garenRiftTrial) hud.toast('Development trial: Garen top on Summoner’s Rift.');

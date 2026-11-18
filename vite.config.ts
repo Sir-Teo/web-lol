@@ -2,7 +2,7 @@ import { offlinePack } from './tools/offline-pack.ts';
 import { defineConfig } from 'vite';
 import { rulesetFingerprint, affectsRuleset } from './tools/ruleset-fingerprint.ts';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   base: './',
   define: { __SIMULATION_HASH__: JSON.stringify(rulesetFingerprint()) },
   plugins: [
@@ -18,6 +18,7 @@ export default defineConfig({
     },
   ],
   build: {
+    outDir: mode === 'roster-playtest' ? 'dist-roster-playtest' : 'dist',
     target: 'es2022',
     rollupOptions: {
       input: { game: 'index.html', map: 'map.html' },
@@ -38,4 +39,4 @@ export default defineConfig({
       ],
     },
   },
-});
+}));

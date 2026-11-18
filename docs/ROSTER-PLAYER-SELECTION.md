@@ -59,3 +59,45 @@ npm run dev
 npx vitest run tests/roster-rift.test.ts tests/lane-match.test.ts tests/masteryi-bot-rift.test.ts tests/ahri-bot-rift.test.ts tests/leona-rift-trial.test.ts tests/garen-rift-trial.test.ts --maxWorkers=1
 npx playwright test e2e/roster-player-selection.spec.ts e2e/roster-rift.spec.ts e2e/match-champion-choice.spec.ts
 ```
+
+## Internal roster playtest build
+
+```sh
+npm run build -- --mode roster-playtest
+python3 -m http.server --bind 127.0.0.1 --directory dist-roster-playtest 4174
+```
+
+Open `http://127.0.0.1:4174/`. The build starts a normal 5v5 with Ashe in the
+carry slot. **Escape → New match** offers all six champions in the same roles
+as the development trial. Ashe and Lux are also available for practice.
+The HUD identifies this build as **Roster playtest**. It uses its own manual
+save and recovery slot, including for practice, and does not expose
+development fixtures or test hooks. The simulation rules and match-file
+compatibility checks are unchanged.
+
+The private build writes to `dist-roster-playtest/` with its own offline pack.
+It is not a Pages artifact. Serve the original `.bin.gz` bodies as files, not
+with `Content-Encoding: gzip`; Vite preview uses that header, so the browser
+decodes the files before the offline pack can verify their original bytes.
+For internal browser testing beyond localhost, use a private HTTPS origin
+separate from the public game. Selecting a Vite mode does not provide access
+control. Do not redistribute reference assets without the required permission.
+
+To check offline continuation, save a match through the pause menu, download
+the complete pack under **Offline files**, and reload with the network disabled.
+The restored match should show the same clock and champion and remain paused.
+With the build in place and the preview server stopped, audit the pack and
+exercise the same flow in installed Chrome:
+
+```sh
+node tools/qa/verify-current-pack.mjs dist-roster-playtest
+npx playwright test --config tools/qa/roster-playtest.playwright.config.ts
+```
+
+For human playtest acceptance, complete one spawn-to-Nexus match from each of
+the five roles, exercising both mid choices across runs if possible. Capture
+the build/pack identity, champion, role, side, result and match duration. Note
+any input, bot, combat-readability or progression issue with the match clock
+and an exported checkpoint when available. Run the existing
+[combat performance gate](DESIGN.md#15-provisional-performance-budgets) on a
+named integrated-GPU laptop; a headless browser smoke is not that measurement.

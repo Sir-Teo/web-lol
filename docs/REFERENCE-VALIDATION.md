@@ -27,6 +27,26 @@ Freeze standard PC Summoner's Rift 26.18 for this design, with an explicit clien
 
 Data Dragon supplies versioned static data, with documented update and regional-version caveats. Use it as an input to a specification, not as an executable game engine. [Riot Data Dragon documentation](https://developer.riotgames.com/docs/lol#data-dragon)
 
+### Optional REA analysis
+
+Use [REA](https://github.com/morluto/rea) locally when a question about a
+compiled artifact is not answered by source or existing captures. Start with
+one question, such as which built chunk contains an effect adapter. Pin the
+tool version and limit its inputs to the relevant artifacts you have permission
+to inspect. For a static JavaScript pass, run the pinned CLI in a network-disabled
+environment with read-only access to the staged bundle:
+
+```sh
+rea analyze-javascript-application /absolute/path/to/staged-js --json > rea-evidence.json
+```
+
+Keep the raw evidence local. In the capture packet, record the REA version,
+artifact hash, observed code path and what the analysis did not establish.
+Confirm behavior with gameplay captures or a regression test before using a
+finding to change the game. A static graph does not show which chunks actually
+load during a match or establish native timing, server rules, or visual parity.
+REA is a research tool, not a gameplay dependency or background scheduler.
+
 ## Capture packet
 
 Each experiment must retain the original capture plus a small machine-readable sidecar containing:
