@@ -1944,7 +1944,7 @@ const teamPlan = z.strictObject({
     .array(
       z.strictObject({
         unitId: id,
-        kind: z.enum(['defend', 'push', 'gank', 'river', 'advance']),
+        kind: z.enum(['defend', 'push', 'gank', 'river', 'advance', 'baron-rally', 'baron']),
         targetId: id,
         point,
         issuedTick: tick,
@@ -5008,8 +5008,16 @@ export function decodeSnapshot(text: string, battlefield: Battlefield) {
               ? !!target && target.team !== team && !!target.structure
               : g.kind === 'gank'
                 ? !!target && target.team !== team && target.kind === 'champion'
-                : g.targetId < state.nextId &&
-                  (!target || (target.kind === 'monster' && target.monster.species === 'scuttler'));
+                : g.kind === 'baron' || g.kind === 'baron-rally'
+                  ? !!objective &&
+                    actor?.ai &&
+                    g.targetId < state.nextId &&
+                    g.point.x === RIFT_BARON.point.x &&
+                    g.point.y === RIFT_BARON.point.y &&
+                    (!target || target.monster?.species === 'baron')
+                  : g.targetId < state.nextId &&
+                    (!target ||
+                      (target.kind === 'monster' && target.monster.species === 'scuttler'));
         if (
           !actor ||
           actor.team !== team ||

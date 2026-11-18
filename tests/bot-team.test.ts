@@ -50,6 +50,39 @@ const observed = (): TeamObservation => ({
   towers: [],
   gone: new Set(),
 });
+test('Baron rally requires visible safety and an armed jungler, then commits only with a group at the pit', () => {
+  const o = observed();
+  o.baron = { id: 40, x: 0, y: 0, attackable: true };
+  o.actors = [
+    { ...actor(), level: 11, smiteReady: true },
+    { ...actor(2, 'top', 300), level: 11 },
+    { ...actor(3, 'mid', 1700), level: 11 },
+  ];
+  const rally = planTeam([], o);
+  expect(rally.map((g) => [g.unitId, g.kind])).toEqual([
+    [1, 'baron-rally'],
+    [2, 'baron-rally'],
+    [3, 'baron-rally'],
+  ]);
+  const atPit = { ...o, tick: 160, actors: o.actors.map((a) => ({ ...a, x: 400 })) };
+  const committed = planTeam(rally, atPit);
+  expect(committed.map((g) => g.kind)).toEqual(['baron', 'baron', 'baron']);
+  const baronGoals = (state: TeamObservation) =>
+    planTeam(committed, { ...state, tick: 220 }).filter((g) => g.kind.startsWith('baron'));
+  expect(baronGoals({ ...atPit, baron: undefined })).toEqual([]);
+  expect(baronGoals({ ...atPit, enemies: [{ ...actor(9, 'mid'), damage: 900 }] })).toEqual([]);
+  expect(
+    baronGoals({ ...atPit, actors: atPit.actors.map((a) => ({ ...a, smiteReady: false })) })
+  ).toEqual([]);
+  const manual = { ...atPit.actors[2], controlled: false, assistingBaron: false };
+  expect(baronGoals({ ...atPit, actors: [...atPit.actors.slice(0, 2), manual] })).toEqual([]);
+  expect(
+    baronGoals({
+      ...atPit,
+      actors: [...atPit.actors.slice(0, 2), { ...manual, assistingBaron: true }],
+    }).map((g) => g.unitId)
+  ).toEqual([1, 2]);
+});
 test('teams defend a threatened base with available controlled responders while the human and healing actors keep their control', () => {
   const o = observed();
   o.actors = [

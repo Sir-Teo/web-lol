@@ -8,6 +8,14 @@ export const BOT_TEAM_POLICY = {
   gankRadius: 3500,
   riverRadius: 2800,
   towerMargin: 150,
+  baron: {
+    minimumLevel: 8,
+    minimumHpFraction: 0.55,
+    joinRadius: 2600,
+    fightRadius: 1000,
+    threatRadius: 1500,
+    minimumAllies: 3,
+  },
   advance: {
     minLevel: 6,
     minimumHpFraction: 0.55,

@@ -133,3 +133,25 @@ test('restore rejects a missing controller, forged ownership, and an impossible 
     read({ ...state.riftBaron, lastClear: { tick: state.tick + 1, team: 'red' } })
   ).toThrow('invalid spawn');
 });
+
+test('a real bot jungler saves Smite until lethal, then secures a visible Baron', () => {
+  const w = match();
+  w.tick = RIFT_BARON.firstReadyTick - 1;
+  w.step();
+  const [baron] = barons(w);
+  const jungler = w.units.find(
+    (u) => u.team === 'blue' && w.championState(u.id)?.role === 'jungle'
+  )!;
+  const approach = w.battlefield.reachable({ x: baron.x + 450, y: baron.y }, jungler.radius);
+  Object.assign(jungler, approach, { previous: { ...approach }, ai: true, nextThink: w.tick + 1 });
+  w.damage(jungler, baron, baron.maxHp - 1000, 'true');
+  w.step();
+  expect(
+    w.commands.some((command) => command.type === 'cast' && command.targetId === baron.id)
+  ).toBe(false);
+  w.damage(jungler, baron, 500, 'true');
+  jungler.nextThink = w.tick + 1;
+  w.step(2);
+  expect(w.alive(baron)).toBe(false);
+  expect(w.riftBaron?.lastClear?.team).toBe('blue');
+});

@@ -8,6 +8,8 @@ const GOAL_LABELS = {
   gank: 'Ganking',
   river: 'Contesting river',
   advance: 'Advancing',
+  'baron-rally': 'Grouping for Baron',
+  baron: 'Taking Baron',
 } satisfies Record<TeamGoalKind, string>;
 
 /** Friendly plans only. Do not read an opponent's owner record or team plan. */

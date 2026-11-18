@@ -17,9 +17,13 @@ hidden enemy clear. Saves retain the live actor and last clear.
 
 This slice reuses the stationary combat, leash, and control rules below. The
 respawn interval, per-champion gold award, and spawn protection are playtest
-policies; they are not newly measured native behavior. Bots do not yet
-coordinate Baron attempts, and Hand of Baron, XP, and the full boss kit are
-not implemented. The 13.5 MB rig is prepared at startup in the live 5v5 and
+policies; they are not newly measured native behavior. Bots group only around
+a visible, attackable Baron, with nearby healthy allies and a ready jungler
+Smite. They drop the plan if vision, strength, or Smite readiness is lost or
+if needed for defense. A nearby jungler can still secure a visible lethal
+Baron even without enough allies for a full attempt. Manual players are
+never assigned orders; an attack order on Baron counts as joining the attempt.
+Hand of Baron, XP, and the full boss kit are not implemented. The 13.5 MB rig is prepared at startup in the live 5v5 and
 the private fixture, not in practice or public Rift. Live Baron basic audio is
 requested on first combat rather than at match start.
 

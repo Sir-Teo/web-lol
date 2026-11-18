@@ -3,7 +3,8 @@ import type { MatchRole } from '../content/bot-roles';
 import { direction, distance, type Vec2 } from './math';
 import { botCombatStrength, type Combatant } from './bot-disengage';
 import type { StructureState } from './types';
-export type TeamGoalKind = 'defend' | 'push' | 'gank' | 'river' | 'advance';
+export type TeamGoalKind =
+  'defend' | 'push' | 'gank' | 'river' | 'advance' | 'baron-rally' | 'baron';
 export interface TeamGoal {
   unitId: number;
   kind: TeamGoalKind;
@@ -30,6 +31,8 @@ export interface TeamActor extends Combatant {
   clearing: boolean;
   companionComplete: boolean;
   level: number;
+  smiteReady?: boolean;
+  assistingBaron?: boolean;
 }
 export interface SeenChampion extends Combatant {
   id: number;
@@ -65,6 +68,7 @@ export interface TeamObservation {
   /** Public map placements and remembered destruction; no hidden health or gates. */
   knownStructures: readonly KnownStructure[];
   scuttlers: readonly (Vec2 & { id: number; hp: number; maxHp: number; attackable: boolean })[];
+  baron?: Vec2 & { id: number; attackable: boolean };
   /** Remembered intact tower placements, including towers currently under fog. */
   towers: readonly (Vec2 & { range: number })[];
   gone: ReadonlySet<number>;
@@ -299,6 +303,41 @@ export function planTeam(previous: readonly TeamGoal[], o: TeamObservation): Tea
         );
       }
   }
+  const baron = o.baron;
+  if (baron?.attackable) {
+    const policy = P.baron;
+    const party = o.actors.filter(
+      (a) =>
+        a.available &&
+        !a.clearing &&
+        (a.controlled
+          ? !proposals.get(a.id)?.some((g) => g.kind === 'defend')
+          : a.assistingBaron) &&
+        a.level >= policy.minimumLevel &&
+        a.hp / a.maxHp >= policy.minimumHpFraction &&
+        distance(a, baron) <= (a.controlled ? policy.joinRadius : policy.fightRadius)
+    );
+    const atPit = party.filter((a) => distance(a, baron) <= policy.fightRadius);
+    const hostile = o.enemies
+      .filter((e) => distance(e, baron) <= policy.threatRadius)
+      .reduce((sum, e) => sum + botCombatStrength(e), 0);
+    const presentStrength = atPit.reduce((sum, a) => sum + botCombatStrength(a), 0);
+    // Keep at least two champions on the ground before asking anyone to rotate.
+    // A distant manual player is never counted as a promised participant.
+    if (
+      party.length >= policy.minimumAllies &&
+      party.some((a) => a.role === 'jungle' && a.smiteReady) &&
+      atPit.length >= policy.minimumAllies - 1 &&
+      hostile <= presentStrength * 0.6
+    ) {
+      const commit =
+        atPit.length >= policy.minimumAllies &&
+        atPit.some((a) => a.role === 'jungle' && a.smiteReady);
+      for (const a of party)
+        if (a.controlled && a.role !== null)
+          offer(a, commit ? 'baron' : 'baron-rally', baron.id, baron, commit ? 205 : 185);
+    }
+  }
   const seen = new Set(
     [...o.enemies, ...o.ownStructures, ...o.enemyStructures, ...o.scuttlers].map((t) => t.id)
   );
@@ -314,7 +353,12 @@ export function planTeam(previous: readonly TeamGoal[], o: TeamObservation): Tea
     const renewed = old && options.find((g) => g.kind === old.kind && g.targetId === old.targetId);
     const retained =
       renewed ??
-      (old && old.kind !== 'advance' && !seen.has(old.targetId) && a.hp / a.maxHp >= 0.45
+      (old &&
+      old.kind !== 'advance' &&
+      old.kind !== 'baron' &&
+      old.kind !== 'baron-rally' &&
+      !seen.has(old.targetId) &&
+      a.hp / a.maxHp >= 0.45
         ? old
         : undefined);
     if (

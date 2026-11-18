@@ -3390,6 +3390,9 @@ export class World {
       const plan = this.teamPlans[team];
       if (this.tick < plan.nextThinkTick) continue;
       const seen = this.units.filter((u) => u.team !== team && this.visible(u, team));
+      const baron = this.riftBaron
+        ? seen.find((u) => u.monster?.species === 'baron' && this.alive(u))
+        : undefined;
       const enemies = seen
         .filter((u) => u.kind === 'champion' && this.alive(u))
         .map((u) => ({
@@ -3431,11 +3434,18 @@ export class World {
               controlled: u.ai,
               available: !u.aiRetreating && s.recallEnd === null,
               level: s.level,
+              ...(baron
+                ? {
+                    smiteReady: this.readySmiteSlot(u) !== null,
+                    assistingBaron: target === baron,
+                  }
+                : {}),
               companionComplete: companionStage(ownedCompanion(this, u.id)?.fed ?? 0) === 2,
               clearing:
                 !!target &&
                 target.kind === 'monster' &&
                 target.monster.species !== 'scuttler' &&
+                target.monster.species !== 'baron' &&
                 this.visible(target, team) &&
                 this.alive(target),
             };
@@ -3458,6 +3468,14 @@ export class World {
           .filter((u) => u.team === team && !!u.structure && this.alive(u))
           .map(structure),
         enemyStructures: seen.filter((u) => !!u.structure && this.alive(u)).map(structure),
+        baron: baron
+          ? {
+              id: baron.id,
+              x: baron.x,
+              y: baron.y,
+              attackable: this.targetable(baron) && baron.monster?.phase !== 'returning',
+            }
+          : undefined,
         knownStructures: this.units
           .filter((u) => u.team !== team && !!u.structure)
           .map((u) => ({
@@ -3483,6 +3501,20 @@ export class World {
         gone: new Set(seen.filter((u) => !this.alive(u)).map((u) => u.id)),
       };
       plan.assignments = planTeam(plan.assignments, observation);
+      if (this.riftBaron)
+        for (const actor of observation.actors) {
+          if (!actor.controlled) continue;
+          const unit = this.unit(actor.id)!;
+          if (
+            unit.order.type === 'attack' &&
+            this.unit(unit.order.target)?.monster?.species === 'baron' &&
+            !plan.assignments.some(
+              (goal) =>
+                goal.unitId === actor.id && goal.kind === 'baron' && goal.targetId === baron?.id
+            )
+          )
+            this.setOrder(unit, { type: 'idle' });
+        }
       plan.nextThinkTick = this.tick + BOT_TEAM_POLICY.thinkTicks;
     }
   }
@@ -3491,6 +3523,44 @@ export class World {
     return this.teamPlans?.[u.team].assignments.find(
       (g) => g.unitId === u.id && g.expiresTick > this.tick
     );
+  }
+  private readySmiteSlot(u: Unit) {
+    const slot = this.summonerSlot('smite', u.id);
+    return slot &&
+      this.championState(u.id)?.smite?.charges &&
+      this.abilityCooldownTicks(slot, u.id) === 0
+      ? slot
+      : null;
+  }
+  private secureMonster(u: Unit, target: Unit): boolean {
+    if (u.stunUntil > this.tick || u.silenceUntil > this.tick || u.charm) return false;
+    const slot = this.readySmiteSlot(u);
+    if (!slot || !smiteTarget(this, u, target)) return false;
+    const pet = ownedCompanion(this, u.id);
+    if (target.hp > (pet ? companionSmiteDamage(pet.fed) : SUMMONER_SMITE.baseDamage)) return false;
+    this.enqueue({ type: 'cast', unit: u.id, ability: slot, point: target, targetId: target.id });
+    return true;
+  }
+  private followBaronGoal(u: Unit, goal: TeamGoal): boolean {
+    const baron = this.unit(goal.targetId);
+    if (
+      baron?.monster?.species !== 'baron' ||
+      !this.visible(baron, u.team) ||
+      !this.targetable(baron) ||
+      baron.monster.phase === 'returning' ||
+      this.nearest(u, 650, true)
+    )
+      return false;
+    if (goal.kind === 'baron' && this.safeAttackPosition(u, baron)) {
+      if (u.order.type !== 'attack' || u.order.target !== baron.id)
+        this.setOrder(u, { type: 'attack', target: baron.id });
+      return true;
+    }
+    if (distance(u, goal.point) <= BOT_TEAM_POLICY.baron.fightRadius - 150) {
+      if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
+      return true;
+    }
+    return this.followTeamGoal(u, goal);
   }
   private followTeamGoal(u: Unit, goal: TeamGoal): boolean {
     if (u.kind !== 'champion') return false;
@@ -3749,6 +3819,10 @@ export class World {
         this.setOrder(u, { type: 'move', point });
       return;
     }
+    const baronId = this.riftBaron?.unitId;
+    const baron = baronId == null ? undefined : this.unit(baronId);
+    if (baron && this.championState(u.id)?.role === 'jungle' && this.secureMonster(u, baron))
+      return;
     // Keep a valid committed windup; retargeting through setOrder would cancel it.
     if (u.releaseTick !== null && this.validTarget(u, this.unit(u.attackTarget ?? -1))) return;
     if (this.planMasterYiSustain(u)) return;
@@ -3820,6 +3894,8 @@ export class World {
     if (this.planGarenE(u)) return;
     if (this.planMasterYiCombat(u)) return;
     if (this.planAhriCombat(u, false) || this.planLuxCombat(u, false)) return;
+    if ((goal?.kind === 'baron' || goal?.kind === 'baron-rally') && this.followBaronGoal(u, goal))
+      return;
     if (this.planAhriWaveClear(u) || this.planLuxWaveClear(u)) return;
     this.planGarenQ(u, false);
     const carry = this.supportCarry(u);
@@ -3987,7 +4063,7 @@ export class World {
       // Hold rather than resuming the lane route into their tower protection.
       if (this.stageLeonaSupport(u, carry)) return;
       if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
-    } else if (goal) {
+    } else if (goal && goal.kind !== 'baron' && goal.kind !== 'baron-rally') {
       // Retain the captured team point; hidden targets never supply a new position.
       if (!this.followTeamGoal(u, goal)) {
         const fallback = this.junglePlan(u);
