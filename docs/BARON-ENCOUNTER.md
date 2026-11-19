@@ -15,21 +15,29 @@ shows the public opening countdown, a living Baron in team vision, or a
 respawn countdown after your team secures the kill. It does not expose a
 hidden enemy clear. Saves retain the live actor and last clear.
 
-This slice reuses the stationary combat, leash, and control rules below. The
-respawn interval, per-champion gold award, and spawn protection are playtest
-policies; they are not newly measured native behavior. Bots group only around
-a visible, attackable Baron, with nearby healthy allies and a ready jungler
-Smite. They drop the plan if vision, strength, or Smite readiness is lost or
-if needed for defense. A nearby jungler can still secure a visible lethal
-Baron even without enough allies for a full attempt. Manual players are
-never assigned orders; an attack order on Baron counts as joining the attempt.
+This slice reuses the stationary combat, leash, and control rules below, while
+allowing Baron to switch aggro to another attacker still inside the pit leash
+before resetting when the last attacker leaves or dies. The respawn interval,
+per-champion gold award, and spawn protection are playtest policies; they are
+not newly measured native behavior. After the opening countdown (and outside
+their own team's respawn window), bots scout an unseen pit with Hawkshot or a
+single nearby ward rotation without reading hidden enemy clears. Bots rally
+from the top half of the map around a visible, attackable Baron with nearby
+healthy allies and a ready jungler Smite, contesting enemy pit groups before
+committing to Baron damage once pit threats clear. They drop the plan if
+vision, strength, or Smite readiness is lost or if needed for defense, and
+defer routine shopping recalls during an active Baron plan. A nearby jungler
+can still secure a visible lethal Baron even without enough allies for a full
+attempt. Manual players are never assigned orders; an attack order on Baron
+counts as joining the attempt.
 Living champions on the securing team gain **Hand of Baron** for three
 minutes or until death. Nearby allied lane minions deal 50% more damage to
 structures, sampled at impact and never stacked between two holders.
 The HUD shows the holder timer and identifies an empowered selected minion.
-Bots carrying the buff favor viable allied waves already approaching exposed
-structures; ordinary defenses and tower safety still apply. This playtest
-does not add the native stat bonuses, recall changes, XP, or the full boss kit.
+Bots carrying the buff escort viable pushing allied waves across the map
+toward the next exposed structure; ordinary defenses and tower safety still
+apply. This playtest does not add the native stat bonuses, recall changes, XP,
+or the full boss kit.
 The 13.5 MB rig is prepared at startup in the live 5v5 and
 the private fixture, not in practice or public Rift. Live Baron basic audio is
 requested on first combat rather than at match start.

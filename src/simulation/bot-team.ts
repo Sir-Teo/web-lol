@@ -189,9 +189,13 @@ export function planTeam(previous: readonly TeamGoal[], o: TeamObservation): Tea
           a.id - b.id
       )[0];
     if (!objective) continue;
+    const hasBaronHolder = eligible.some((a) => a.handOfBaron);
+    const structureRadius = hasBaronHolder
+      ? P.advance.baronStructureRadius
+      : P.advance.structureRadius;
     const wave = o.minions.filter((m) => m.lane === lane);
     const fronts = wave
-      .filter((m) => distance(m, objective) <= P.advance.structureRadius)
+      .filter((m) => distance(m, objective) <= structureRadius)
       .sort((a, b) => distance(a, objective) - distance(b, objective) || a.x - b.x || a.y - b.y);
     const front = fronts.find(
       (m) =>
@@ -325,18 +329,18 @@ export function planTeam(previous: readonly TeamGoal[], o: TeamObservation): Tea
     const hostile = o.enemies
       .filter((e) => distance(e, baron) <= policy.threatRadius)
       .reduce((sum, e) => sum + botCombatStrength(e), 0);
+    const partyStrength = party.reduce((sum, a) => sum + botCombatStrength(a), 0);
     const presentStrength = atPit.reduce((sum, a) => sum + botCombatStrength(a), 0);
-    // Keep at least two champions on the ground before asking anyone to rotate.
     // A distant manual player is never counted as a promised participant.
     if (
       party.length >= policy.minimumAllies &&
       party.some((a) => a.role === 'jungle' && a.smiteReady) &&
-      atPit.length >= policy.minimumAllies - 1 &&
-      hostile <= presentStrength * 0.6
+      hostile <= partyStrength * 0.9
     ) {
       const commit =
         atPit.length >= policy.minimumAllies &&
-        atPit.some((a) => a.role === 'jungle' && a.smiteReady);
+        atPit.some((a) => a.role === 'jungle' && a.smiteReady) &&
+        hostile <= presentStrength * 0.6;
       for (const a of party)
         if (a.controlled && a.role !== null)
           offer(a, commit ? 'baron' : 'baron-rally', baron.id, baron, commit ? 205 : 185);

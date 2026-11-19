@@ -1167,8 +1167,8 @@ export class World {
   }
   private advanceMonster(u: Extract<Unit, { kind: 'monster' }>): boolean {
     const monster = u.monster,
-      profile = MONSTERS[monster.species],
-      target = monster.targetId === null ? undefined : this.unit(monster.targetId);
+      profile = MONSTERS[monster.species];
+    let target = monster.targetId === null ? undefined : this.unit(monster.targetId);
     if (monster.phase === 'spawning') {
       if (monster.spawn && this.tick < monster.spawn.readyTick) return true;
       monster.phase = 'idle';
@@ -1194,11 +1194,28 @@ export class World {
         distance(target, monster.home) > profile.policy.leashRadius ||
         !this.validTarget(u, target, true))
     ) {
-      for (const member of this.monsterResetGroup(u)) {
-        member.monster.phase = 'returning';
-        member.monster.targetId = null;
-        member.sunlight = null;
-        this.setOrder(member, { type: 'move', point: { ...member.monster.home } });
+      const fallback =
+        monster.species === 'baron' && distance(u, monster.home) <= profile.policy.leashRadius
+          ? this.units
+              .filter(
+                (other) =>
+                  other.kind === 'champion' &&
+                  this.alive(other) &&
+                  distance(other, monster.home) <= profile.policy.leashRadius &&
+                  this.validTarget(u, other, true)
+              )
+              .sort((a, b) => distance(a, u) - distance(b, u) || a.id - b.id)[0]
+          : undefined;
+      if (fallback) {
+        monster.targetId = fallback.id;
+        target = fallback;
+      } else {
+        for (const member of this.monsterResetGroup(u)) {
+          member.monster.phase = 'returning';
+          member.monster.targetId = null;
+          member.sunlight = null;
+          this.setOrder(member, { type: 'move', point: { ...member.monster.home } });
+        }
       }
     }
     // A temporarily untargetable aggressor still owns neutral aggro within
@@ -2658,8 +2675,32 @@ export class World {
     );
     return !threatened && !recentlyHit;
   }
+  private baronCalendarOpenForTeam(team: Team): boolean {
+    const objective = this.riftBaron;
+    if (!objective || this.tick < RIFT_BARON.firstReadyTick) return false;
+    const ownClearTick = objective.lastClear?.team === team ? objective.lastClear.tick : null;
+    return this.tick >= baronReadyTick(ownClearTick);
+  }
+  private hasBaronPitWard(team: Team): boolean {
+    return (
+      this.units.some(
+        (ward) =>
+          ward.kind === 'ward' &&
+          ward.team === team &&
+          this.alive(ward) &&
+          distance(ward, RIFT_BARON.point) <= 800 &&
+          this.battlefield.lineOfSight(ward, RIFT_BARON.point)
+      ) ||
+      this.pendingWards.some(
+        (ward) =>
+          ward.team === team &&
+          distance(ward.point, RIFT_BARON.point) <= 800 &&
+          this.battlefield.lineOfSight(ward.point, RIFT_BARON.point)
+      )
+    );
+  }
   private planLaneScout(u: Unit): void {
-    if (u.champion !== 'ashe') return;
+    if (u.kind !== 'champion' || u.champion !== 'ashe') return;
     if (u.silenceUntil > this.tick) return;
     const state = this.championState(u.id)!;
     if (
@@ -2670,6 +2711,22 @@ export class World {
       this.abilityCooldownTicks('e', u.id) > 0
     )
       return;
+    if (
+      this.baronCalendarOpenForTeam(u.team) &&
+      !this.pointVisible(RIFT_BARON.point, u.team) &&
+      !this.projectiles.some(
+        (p) =>
+          p.team === u.team &&
+          p.type === 'hawkshot' &&
+          distance(
+            { x: p.x + p.direction.x * p.remaining, y: p.y + p.direction.y * p.remaining },
+            RIFT_BARON.point
+          ) <= 800
+      )
+    ) {
+      this.enqueue({ type: 'cast', unit: u.id, ability: 'e', point: { ...RIFT_BARON.point } });
+      return;
+    }
     const lane = this.battlefield.lanes[u.lane];
     const step = u.team === 'blue' ? 1 : -1;
     let aim: Vec2 | undefined;
@@ -3585,13 +3642,102 @@ export class World {
     if (goal.kind === 'baron' && this.safeAttackPosition(u, baron)) {
       if (u.order.type !== 'attack' || u.order.target !== baron.id)
         this.setOrder(u, { type: 'attack', target: baron.id });
+      const state = this.championState(u.id);
+      if (
+        u.champion === 'ashe' &&
+        state &&
+        u.silenceUntil <= this.tick &&
+        distance(u, baron) <= u.range + baron.radius &&
+        this.tick < u.nextAttackTick &&
+        state.qStacks >= ASHE_Q.maxStacks &&
+        state.qUntil <= this.tick &&
+        state.spellRanks.q > 0 &&
+        u.mana >= this.abilityResources('q', u.id).mana &&
+        this.abilityCooldownTicks('q', u.id) === 0
+      )
+        this.enqueue({ type: 'cast', unit: u.id, ability: 'q', point: { x: u.x, y: u.y } });
       return true;
     }
-    if (distance(u, goal.point) <= BOT_TEAM_POLICY.baron.fightRadius - 150) {
+    if (
+      distance(u, goal.point) <= BOT_TEAM_POLICY.baron.fightRadius - 150 &&
+      this.battlefield.lineOfSight(u, baron)
+    ) {
       if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
       return true;
     }
     return this.followTeamGoal(u, goal);
+  }
+  private planBaronWard(u: Unit): boolean {
+    if (u.kind !== 'champion' || !this.baronCalendarOpenForTeam(u.team)) return false;
+    const s = this.championState(u.id)!;
+    if (
+      s.trinket.kind !== 'ward' ||
+      !s.trinket.charges ||
+      s.trinket.cooldownTick > this.tick ||
+      distance(u, RIFT_BARON.point) > WARD_SOURCE.range ||
+      this.nearest(u, 900, true) ||
+      this.hasBaronPitWard(u.team)
+    )
+      return false;
+    this.enqueue({ type: 'ward', unit: u.id, point: { ...RIFT_BARON.point } });
+    return true;
+  }
+  private planBaronScout(u: Unit): boolean {
+    if (u.kind !== 'champion' || !this.baronCalendarOpenForTeam(u.team)) return false;
+    const policy = BOT_TEAM_POLICY.baron;
+    const readyToWard = (ally: Unit) => {
+      if (ally.kind !== 'champion' || ally.team !== u.team || !ally.ai || !this.alive(ally))
+        return false;
+      const s = this.championState(ally.id)!;
+      if (
+        ally.aiRetreating ||
+        s.recallEnd !== null ||
+        s.level < policy.minimumLevel ||
+        ally.hp / ally.maxHp < policy.minimumHpFraction ||
+        s.trinket.kind !== 'ward' ||
+        s.trinket.charges <= 0 ||
+        s.trinket.cooldownTick > this.tick ||
+        distance(ally, RIFT_BARON.point) > policy.scoutRadius ||
+        this.teamGoal(ally)
+      )
+        return false;
+      const target =
+        ally.order.type === 'attack'
+          ? this.unit(ally.order.target)
+          : ally.attackTarget !== null
+            ? this.unit(ally.attackTarget)
+            : undefined;
+      const clearing =
+        !!target &&
+        target.kind === 'monster' &&
+        target.monster.species !== 'scuttler' &&
+        target.monster.species !== 'baron' &&
+        this.visible(target, u.team) &&
+        this.alive(target);
+      return !clearing && !this.nearest(ally, 1150, true);
+    };
+    if (!readyToWard(u) || this.hasBaronPitWard(u.team)) return false;
+    const baronId = this.riftBaron?.unitId ?? null;
+    const baron = baronId === null ? undefined : this.unit(baronId);
+    if (baron && this.alive(baron) && this.visible(baron, u.team)) return false;
+    const priority = (ally: Unit) => {
+      const role = this.championState(ally.id)?.role;
+      return distance(ally, RIFT_BARON.point) - (role === 'jungle' || role === 'support' ? 800 : 0);
+    };
+    const scout = this.units
+      .filter(readyToWard)
+      .sort((a, b) => priority(a) - priority(b) || a.id - b.id)[0];
+    if (scout?.id !== u.id) return false;
+    return this.followTeamGoal(u, {
+      unitId: u.id,
+      kind: 'baron-rally',
+      targetId: u.id,
+      point: RIFT_BARON.point,
+      issuedTick: this.tick,
+      observedTick: this.tick,
+      expiresTick: this.tick + 1,
+      score: 1,
+    });
   }
   private followTeamGoal(u: Unit, goal: TeamGoal): boolean {
     if (u.kind !== 'champion') return false;
@@ -3895,7 +4041,9 @@ export class World {
       (state.inventory.length < 6 ||
         state.inventory.includes(null) ||
         nextPlan.consumed.length > 0);
-    if (state.recallEnd !== null || canShop) {
+    const goal = this.teamGoal(u);
+    const baronPlan = goal?.kind === 'baron' || goal?.kind === 'baron-rally';
+    if (state.recallEnd !== null || (canShop && !baronPlan)) {
       const safe = this.safeToRecall(u);
       if (state.recallEnd !== null) {
         if (safe) return;
@@ -3908,7 +4056,6 @@ export class World {
         return;
       }
     }
-    const goal = this.teamGoal(u);
     if (
       goal?.kind === 'defend' &&
       distance(u, goal.point) > 1000 &&
@@ -3916,7 +4063,7 @@ export class World {
       this.followTeamGoal(u, goal)
     )
       return;
-    if (this.planRoleWard(u)) return;
+    if (this.planBaronWard(u) || this.planRoleWard(u)) return;
     if (this.planLeonaE(u)) return;
     if (this.planLeonaR(u)) return;
     if (this.planLeonaSupportedE(u)) return;
@@ -4094,9 +4241,9 @@ export class World {
       // Hold rather than resuming the lane route into their tower protection.
       if (this.stageLeonaSupport(u, carry)) return;
       if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
-    } else if (goal && goal.kind !== 'baron' && goal.kind !== 'baron-rally') {
+    } else if (goal) {
       // Retain the captured team point; hidden targets never supply a new position.
-      if (!this.followTeamGoal(u, goal)) {
+      if (goal.kind === 'baron' || goal.kind === 'baron-rally' || !this.followTeamGoal(u, goal)) {
         const fallback = this.junglePlan(u);
         if (fallback?.type === 'move')
           this.setOrder(u, { type: 'move', point: { ...fallback.point } });
@@ -4105,6 +4252,8 @@ export class World {
         else if (!fallback && this.battlefield.id === 'rift') this.advanceChampionLane(u);
         else if (u.order.type !== 'idle') this.setOrder(u, { type: 'idle' });
       }
+    } else if (!goal && this.planBaronScout(u)) {
+      return;
     } else if (jungle) {
       if (jungle.type === 'move') {
         if (u.order.type !== 'move' || distance(u.order.point, jungle.point) > 1)
@@ -4192,7 +4341,17 @@ export class World {
         distance(u, enemy) <= GAREN_E.radius + enemy.radius &&
         this.safeAttackPosition(u, enemy)
     );
-    if (!targets.some((enemy) => enemy.kind === 'champion') && targets.length < 3) return false;
+    if (
+      !targets.some(
+        (enemy) =>
+          enemy.kind === 'champion' ||
+          (enemy.monster?.species === 'baron' &&
+            u.order.type === 'attack' &&
+            u.order.target === enemy.id)
+      ) &&
+      targets.length < 3
+    )
+      return false;
     this.enqueue({ type: 'cast', unit: u.id, ability: 'e', point: { x: u.x, y: u.y } });
     return true;
   }

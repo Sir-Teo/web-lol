@@ -264,3 +264,89 @@ test('a staged Baron clear carries through to a normal minion attack after resto
   const baseDamage = attackTower(w, false);
   expect(attackTower(restored, true)).toBeCloseTo(baseDamage * 1.5);
 });
+
+test('scouting wards the pit after 20:00 without leaking hidden enemy clears, and fallback preserves jungle role', () => {
+  const live = match();
+  live.tick = RIFT_BARON.firstReadyTick - 1;
+  live.step();
+  const [baron] = barons(live);
+  const jungler = live.units.find(
+    (u) => u.team === 'blue' && live.championState(u.id)?.role === 'jungle'
+  )!;
+  const start = live.battlefield.reachable({ x: -2900, y: -1200 }, jungler.radius, 'blue');
+  Object.assign(jungler, start, { previous: { ...start }, ai: true, nextThink: live.tick + 1 });
+  live.gainExperience(10_000, jungler.id);
+
+  const clearedInFog = World.fromSnapshot(live.snapshot(), playtest);
+  const redJungler = clearedInFog.units.find(
+    (u) => u.team === 'red' && clearedInFog.championState(u.id)?.role === 'jungle'
+  )!;
+  clearedInFog.damage(redJungler, barons(clearedInFog)[0], 100_000, 'true');
+  expect(clearedInFog.riftBaron?.lastClear?.team).toBe('red');
+  expect(live.pointVisible(RIFT_BARON.point, 'blue')).toBe(false);
+  expect(clearedInFog.pointVisible(RIFT_BARON.point, 'blue')).toBe(false);
+
+  live.step(5);
+  clearedInFog.step(5);
+  const movedLive = live.unit(jungler.id)!;
+  const movedCleared = clearedInFog.unit(jungler.id)!;
+  expect(movedLive.order).toEqual(movedCleared.order);
+  expect(movedLive.order.type).toBe('move');
+
+  const pitMouth = clearedInFog.battlefield.reachable(
+    { x: RIFT_BARON.point.x + 350, y: RIFT_BARON.point.y },
+    movedCleared.radius,
+    'blue'
+  );
+  Object.assign(movedCleared, pitMouth, {
+    previous: { ...pitMouth },
+    nextThink: clearedInFog.tick + 1,
+  });
+  clearedInFog.step(30);
+  expect(
+    clearedInFog.units.some((u) => u.kind === 'ward' && u.team === 'blue' && clearedInFog.alive(u))
+  ).toBe(true);
+  expect(clearedInFog.pointVisible(RIFT_BARON.point, 'blue')).toBe(true);
+
+  // If Baron goal falls back while hidden, the jungler keeps lane === null and valid snapshot state.
+  live.teamPlans!.blue.assignments = [
+    {
+      unitId: movedLive.id,
+      kind: 'baron-rally',
+      targetId: baron.id,
+      point: { ...RIFT_BARON.point },
+      issuedTick: live.tick,
+      observedTick: live.tick,
+      expiresTick: live.tick + 180,
+      score: 185,
+    },
+  ];
+  movedLive.nextThink = live.tick + 1;
+  live.step(2);
+  expect(movedLive.lane).toBeNull();
+  expect(() => World.fromSnapshot(live.snapshot(), playtest)).not.toThrow();
+});
+
+test('Baron switches aggro to another pit attacker when its target leaves leash, and resets only when empty', () => {
+  const w = match();
+  w.tick = RIFT_BARON.firstReadyTick - 1;
+  w.step();
+  const [baron] = barons(w);
+  const [first, second] = w.units.filter((u) => u.team === 'blue' && u.kind === 'champion');
+  const inside = w.battlefield.reachable({ x: baron.x + 400, y: baron.y }, first.radius, 'blue');
+  for (const ally of [first, second]) {
+    ally.hp = ally.maxHp = 10_000;
+    Object.assign(ally, inside, { previous: { ...inside } });
+  }
+  w.damage(second, baron, 500, 'true');
+  w.damage(first, baron, 500, 'true');
+  expect(baron.monster?.targetId).toBe(first.id);
+  const outside = w.battlefield.reachable({ x: baron.x - 1600, y: baron.y }, first.radius, 'blue');
+  Object.assign(first, outside, { previous: { ...outside } });
+  w.step();
+  expect(baron.monster?.phase).toBe('engaged');
+  expect(baron.monster?.targetId).toBe(second.id);
+  Object.assign(second, outside, { previous: { ...outside } });
+  w.step();
+  expect(baron.monster?.phase).toBe('returning');
+});

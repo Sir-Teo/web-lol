@@ -88,13 +88,43 @@ test('a Baron holder escorts a viable wave even before jungle companion completi
   o.actors = [{ ...actor(), level: 11, handOfBaron: true }];
   o.minions = [1200, 1300, 1400].map((x) => ({ x, y: 0, lane: 'mid' }));
   o.knownStructures = [
-    { ...structure(20, 2000), lane: 'mid', role: 'outer-turret', knownDestroyed: false },
+    { ...structure(20, 7500), lane: 'mid', role: 'inhibitor-turret', knownDestroyed: false },
   ];
   expect(planTeam([], o)).toMatchObject([{ kind: 'advance', targetId: 20 }]);
   expect(
-    planTeam([], { ...o, actors: o.actors.map((a) => ({ ...a, handOfBaron: false })) })
+    planTeam([], {
+      ...o,
+      actors: [{ ...actor(), level: 11, companionComplete: true, handOfBaron: false }],
+    })
   ).toEqual([]);
   expect(planTeam([], { ...o, minions: [] })).toEqual([]);
+});
+test('distant top-half allies rally to a scouted or contested Baron without committing into pit threats', () => {
+  const o = observed();
+  o.baron = { id: 40, x: 0, y: 0, attackable: true };
+  o.actors = [
+    { ...actor(1, 'jungle', 2800), level: 11, smiteReady: true },
+    { ...actor(2, 'top', 3400), level: 11 },
+    { ...actor(3, 'mid', 4100), level: 11 },
+  ];
+  expect(planTeam([], o).map((g) => [g.unitId, g.kind])).toEqual([
+    [1, 'baron-rally'],
+    [2, 'baron-rally'],
+    [3, 'baron-rally'],
+  ]);
+  const contested = {
+    ...o,
+    actors: o.actors.map((a, i) => ({ ...a, x: i < 2 ? 400 : 1800 })),
+    enemies: [
+      { ...actor(9, 'jungle', 350), level: 11 },
+      { ...actor(10, 'top', 450), level: 11 },
+    ],
+  };
+  expect(planTeam([], contested).map((g) => g.kind)).toEqual([
+    'baron-rally',
+    'baron-rally',
+    'baron-rally',
+  ]);
 });
 test('teams defend a threatened base with available controlled responders while the human and healing actors keep their control', () => {
   const o = observed();
